@@ -7,19 +7,20 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 04/22/2019
-ms.openlocfilehash: c07326cc3a4334f1873eef2dc23da05156a93577
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: da871a1fed0663c5654ebcfd61f4189bf2267026
+ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64574657"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70814058"
 ---
-# <a name="use-script-action-to-install-external-python-packages-for-jupyter-notebooks-in-apache-spark-clusters-on-hdinsight"></a>使用指令碼動作在 HDInsight Linux 上的 Apache Spark 叢集中安裝 Jupyter Notebook 的外部 Python 封裝
+# <a name="script-action-to-install-external-python-packages-for-jupyter-notebooks-in-apache-spark-on-hdinsight"></a>在 Apache Spark on HDInsight 上安裝適用于 Jupyter 筆記本之外部 Python 套件的腳本動作
+
 > [!div class="op_single_selector"]
 > * [使用資料格魔術](apache-spark-jupyter-notebook-use-external-packages.md)
 > * [使用指令碼動作](apache-spark-python-package-installation.md)
 
-了解如何使用指令碼動作來設定[Apache Spark](https://spark.apache.org/)上使用外部、 社群提供的 HDInsight 叢集**python**套件不在叢集中包含的立即可用。
+瞭解如何使用腳本動作，在 HDInsight 上設定[Apache Spark](https://spark.apache.org/)叢集，以使用不是叢集中現成的外部提供的**python**套件。
 
 > [!NOTE]  
 > 您也可以藉由使用 `%%configure` 魔術，設定 Jupyter Notebook 來使用外部的封裝。 如需指示，請參閱[在 HDInsight 上的 Apache Spark 叢集中搭配 Jupyter Notebook 使用外部封裝](apache-spark-jupyter-notebook-use-external-packages.md)。
@@ -54,34 +55,34 @@ HDInsight 服務中有兩種類型的開放原始碼元件可用：
 
 ## <a name="use-external-packages-with-jupyter-notebooks"></a>搭配 Jupyter Notebook 使用外部套件
 
-1. 從[Azure 入口網站](https://portal.azure.com/)，瀏覽至您的叢集。  
+1. 從 [ [Azure 入口網站](https://portal.azure.com/)] 中，流覽至您的叢集。  
 
-2. 您選取叢集後，從左窗格中，下方**設定**，選取**指令碼動作**。
+2. 選取您的叢集之後，從左窗格的 [**設定**] 底下，選取 [**腳本動作**]。
 
-3. 選取  **+ 送出新**。
+3. 選取 [ **+ 提交新**的]。
 
-4. 輸入下列值**送出指令碼動作**視窗：  
+4. 在 [**提交腳本動作**] 視窗中輸入下列值：  
 
 
     |參數 | 值 |
     |---|---|
-    |指令碼類型 | 從下拉式清單中選取 [- 自訂]  。|
-    |名稱 |在文字方塊中輸入 `tensorflow`。|
+    |指令碼類型 | 從下拉式清單中選取 [- 自訂]。|
+    |Name |在文字方塊中輸入 `tensorflow`。|
     |Bash 指令碼 URI |在文字方塊中輸入 `https://hdiconfigactions.blob.core.windows.net/linuxtensorflow/tensorflowinstall.sh`。 |
-    |節點類型 | 選取  **Head**，並**工作者**核取方塊。 |
+    |節點類型 | 選取 [**標題**] 和 [背景**工作**] 核取方塊。 |
 
-    `tensorflowinstall.sh` 包含下列命令：
+    `tensorflowinstall.sh`包含下列命令：
 
     ```bash
     #!/usr/bin/env bash
     /usr/bin/anaconda/bin/conda install --yes tensorflow
     ```
 
-5. 選取 [建立]  。  瀏覽有關於[如何使用自訂指令碼動作](../hdinsight-hadoop-customize-cluster-linux.md)的文件。
+5. 選取 [建立]。  瀏覽有關於[如何使用自訂指令碼動作](../hdinsight-hadoop-customize-cluster-linux.md)的文件。
 
-6. 等候指令碼完成。  **指令碼動作**會在狀態窗格**目前的叢集作業完成後，就可以提交新的指令碼動作**指令碼執行時。  您可以從 Ambari UI 中檢視進度列**背景作業**視窗。
+6. 等候腳本完成。  [**腳本動作**] 窗格會說明在執行腳本時 **，目前的叢集作業完成後，可以提交新的腳本動作**。  您可以從 [Ambari UI**背景作業**] 視窗中查看進度列。
 
-7. 開啟 PySpark Jupyter notebook。  請參閱[建立 Jupyter notebook 在 Spark HDInsight](./apache-spark-jupyter-notebook-kernels.md#create-a-jupyter-notebook-on-spark-hdinsight)的步驟。
+7. 開啟 PySpark Jupyter 筆記本。  如需步驟，請參閱[在 Spark HDInsight 上建立 Jupyter 筆記本](./apache-spark-jupyter-notebook-kernels.md#create-a-jupyter-notebook-on-spark-hdinsight)。
 
     ![建立新的 Jupyter Notebook](./media/apache-spark-python-package-installation/hdinsight-spark-create-notebook.png "建立新的 Jupyter Notebook")
 

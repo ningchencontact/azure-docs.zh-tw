@@ -1,6 +1,6 @@
 ---
 title: 最佳化 Spark 作業的效能 - Azure HDInsight
-description: 顯示為了達到 Spark 叢集最佳效能的一般策略。
+description: 顯示 Azure HDInsight 中 Apache Spark 叢集最佳效能的一般策略。
 ms.service: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 04/03/2019
-ms.openlocfilehash: 5701bb534d0fd0e25aab90f9d1035c96bb55c518
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 8d058c55eab3d161e625d7d4ca3ef53b36497e00
+ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66476093"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70814069"
 ---
 # <a name="optimize-apache-spark-jobs"></a>最佳化 Apache Spark 作業
 
@@ -23,7 +23,7 @@ ms.locfileid: "66476093"
 
 ## <a name="choose-the-data-abstraction"></a>選擇資料抽象
 
-Spark 上的舊版資料抽象化，Spark 1.3 使用 Rdd，而且 1.6 DataFrames 和 DataSets，分別。 請考慮下列的相對優勢：
+舊版 Spark 會使用 Rdd 來抽象化資料、Spark 1.3 和1.6 分別引進資料框架和資料集。 請考慮下列的相對優勢：
 
 * **DataFrames**
     * 大部分情況下的最佳選擇。
@@ -60,13 +60,13 @@ Spark 支援許多格式，例如 csv、json、xml、parquet、orc 和 avro。 S
 | 存放區類型 | 檔案系統 | 速度 | 暫時性 | 使用案例 |
 | --- | --- | --- | --- | --- |
 | Azure Blob 儲存體 | **wasb:** //url/ | **標準** | 是 | 暫時性叢集 |
-| Azure Data Lake 儲存體第 2 代| **abfs[s]:** //url/ | **更快** | 是 | 暫時性叢集 |
+| Azure Data Lake Storage Gen 2| **abfs [s]：** //url/ | **更快** | 是 | 暫時性叢集 |
 | Azure Data Lake Storage Gen 1| **adl:** //url/ | **更快** | 是 | 暫時性叢集 |
 | 本機 HDFS | **hdfs:** //url/ | **最快** | 否 | 互動式全天候叢集 |
 
 ## <a name="use-the-cache"></a>使用快取
 
-Spark 提供本身的原生快取機制，可透過 `.persist()`、`.cache()` 和 `CACHE TABLE` 等不同的方式使用。 對於較小型資料集，以及需要快取中繼結果的 ETL 管線，此原生快取相當有效。 不過，Spark 原生快取目前不適用於資料分割，因為快取的資料表不會保留分割資料。 較通用且可靠的快取技術是「儲存層快取」  。
+Spark 提供本身的原生快取機制，可透過 `.persist()`、`.cache()` 和 `CACHE TABLE` 等不同的方式使用。 對於較小型資料集，以及需要快取中繼結果的 ETL 管線，此原生快取相當有效。 不過，Spark 原生快取目前不適用於資料分割，因為快取的資料表不會保留分割資料。 較通用且可靠的快取技術是「儲存層快取」。
 
 * 原生 Spark 快取 (不建議使用)
     * 適用於小型資料集。
@@ -127,7 +127,7 @@ Spark 作業相當分散，因此適當資料序列化對於達到最佳效能�
 
 ## <a name="optimize-joins-and-shuffles"></a>最佳化聯結和重組
 
-如果在聯結或重組有緩慢的作業，原因可能是「資料扭曲」  ，也就是作業資料不對稱。 例如，對應作業可能需要 20 秒，但是執行連結或重組資料的作業需要數小時。   若要修正資料扭曲，您應該將整個索引鍵設定為 salt，或僅針對一部分的索引鍵使用「隔離 salt」  。  如果您使用隔離 salt，應該進一步篩選來隔離對應聯結中一部分的 salt 索引鍵。 另一個選項是導入貯體資料行並先在貯體中預先彙總。
+如果在聯結或重組有緩慢的作業，原因可能是「資料扭曲」，也就是作業資料不對稱。 例如，對應作業可能需要 20 秒，但是執行連結或重組資料的作業需要數小時。   若要修正資料扭曲，您應該將整個索引鍵設定為 salt，或僅針對一部分的索引鍵使用「隔離 salt」。  如果您使用隔離 salt，應該進一步篩選來隔離對應聯結中一部分的 salt 索引鍵。 另一個選項是導入貯體資料行並先在貯體中預先彙總。
 
 造成緩慢聯結的另一個因素可能是聯結類型。 Spark 預設使用 `SortMerge` 聯結類型。 這種聯結最適用於大型資料集，但是佔用大量運算資源，因為它必須先將左邊和右邊的資料排序，再合併資料。
 
@@ -175,8 +175,8 @@ sql("SELECT col1, col2 FROM V_JOIN")
     1. 減少執行程式之間的通訊額外負擔。
     2. 減少較大叢集 (大於 100 個執行程式) 上的執行程式 (N2) 之間的開啟連接數。
     3. 增加堆積大小以配合需要大量記憶體的工作。
-    4. 選用：減少每個執行程式的記憶體額外負荷。
-    5. 選用：超載使用 CPU 以增加使用率和並行。
+    4. 選擇性：減少每個執行程式的記憶體額外負荷。
+    5. 選擇性：超載使用 CPU 以增加使用率和並行。
 
 依照一般經驗法則，選取執行程式大小時：
     

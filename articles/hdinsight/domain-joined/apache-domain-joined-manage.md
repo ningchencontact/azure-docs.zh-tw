@@ -1,6 +1,6 @@
 ---
 title: 使用企業安全性套件管理 HDInsight 叢集 - Azure
-description: 了解如何使用企業安全性套件管理 HDInsight 叢集。
+description: 瞭解如何使用企業安全性套件管理 Azure HDInsight 叢集。
 ms.service: hdinsight
 author: omidm1
 ms.author: omidm
@@ -8,12 +8,12 @@ ms.reviewer: mamccrea
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 08/24/2018
-ms.openlocfilehash: 7fa215f843fd025d26ba0f583b96f3bb7e63c9ed
-ms.sourcegitcommit: bafb70af41ad1326adf3b7f8db50493e20a64926
+ms.openlocfilehash: acf11b8107855c6f087f63f592cdbbad3766795e
+ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68488732"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70811031"
 ---
 # <a name="manage-hdinsight-clusters-with-enterprise-security-package"></a>使用企業安全性套件管理 HDInsight 叢集
 了解 HDInsight 企業安全性套件 (ESP) 中的使用者與角色，以及如何管理 ESP 叢集。
@@ -34,7 +34,7 @@ ms.locfileid: "68488732"
    
 3. 您可以使用 **List cluster** 命令來查看連結的叢集。 您現在可以將指令碼提交至此連結的叢集。
 
-   ![連結的叢集](./media/apache-domain-joined-manage/linked-cluster.png)
+   ![連結]的叢集(./media/apache-domain-joined-manage/linked-cluster.png "連結")的叢集
 
 4. 您也可以從命令選擇區輸入 **HDInsight:Unlink a cluster**，以取消連結叢集。
 
@@ -43,11 +43,11 @@ ms.locfileid: "68488732"
 您可以使用 Ambari 受控使用者名稱來連結正常的叢集，也可以使用網域使用者名稱 (例如：`user1@contoso.com`) 來連結安全性 hadoop 叢集。 
 1. 從 [Azure 總管] 中按一下 [連結叢集]。
 
-   ![連結叢集操作功能表](./media/apache-domain-joined-manage/link-a-cluster-context-menu.png)
+   ![連結叢集內容功能表 intellij](./media/apache-domain-joined-manage/link-a-cluster-context-menu.png)
 
 2. 輸入 [叢集名稱]、[使用者名稱] 和 [密碼]。 如果驗證失敗，您需要檢查使用者名稱和密碼。 您也可以選擇新增 [儲存體帳戶]、[儲存體金鑰]，然後從 [儲存體容器] 選取容器。 儲存體資訊適用於左側樹狀目錄中的儲存體總管
    
-   ![連結叢集對話方塊](./media/apache-domain-joined-manage/link-a-cluster-dialog.png)
+   ![連結叢集對話方塊 intellij](./media/apache-domain-joined-manage/link-a-cluster-dialog.png)
 
    > [!NOTE]  
    > 如果叢集已登入 Azure 訂用帳戶並連結叢集，我們會使用連結的儲存體金鑰、使用者名稱和密碼。
@@ -56,22 +56,22 @@ ms.locfileid: "68488732"
    
 3. 如果輸入資訊正確無誤，您可以在 [HDInsight] 節點中看見連結的叢集。 您現在可以將應用程式提交至此連結的叢集。
 
-   ![連結的叢集](./media/apache-domain-joined-manage/linked-cluster-intellij.png)
+   ![連結]的叢集 intellij(./media/apache-domain-joined-manage/linked-cluster-intellij.png "連結的叢集 intellij]")
 
 4. 您也可以從 [Azure 總管] 取消連結叢集。
    
-   ![取消連結的叢集](./media/apache-domain-joined-manage/unlink.png)
+   ![未連結的叢集 intellij](./media/apache-domain-joined-manage/unlink.png)
 
 ## <a name="use-eclipse-to-link-to-domain-joined-cluster"></a>使用 Eclipse 連結至已加入網域的叢集
 
 您可以使用 Ambari 受控使用者名稱來連結正常的叢集，也可以使用網域使用者名稱 (例如：`user1@contoso.com`) 來連結安全性 hadoop 叢集。
 1. 從 [Azure 總管] 中按一下 [連結叢集]。
 
-   ![連結叢集操作功能表](./media/apache-domain-joined-manage/link-a-cluster-context-menu.png)
+   ![連結叢集操作功能表 eclipse](./media/apache-domain-joined-manage/link-a-cluster-context-menu.png)
 
 2. 輸入 [叢集名稱]、[使用者名稱] 及 [密碼]，然後按一下 [確定] 按鈕連結叢集。 您也可以選擇輸入 [儲存體帳戶]、[儲存體金鑰]，然後選取 [儲存體容器]，讓儲存體總管在左側樹狀檢視中工作
    
-   ![連結叢集對話方塊](./media/apache-domain-joined-manage/link-cluster-dialog.png)
+   ![連結叢集對話方塊 eclipse](./media/apache-domain-joined-manage/link-cluster-dialog.png)
    
    > [!NOTE]  
    > 如果叢集已登入 Azure 訂用帳戶並連結叢集，我們會使用連結的儲存體金鑰、使用者名稱和密碼。
@@ -79,11 +79,11 @@ ms.locfileid: "68488732"
 
 3. 如果輸入資訊正確無誤，則按一下 [確定] 按鈕之後，您就可以在 [HDInsight] 節點中看見連結的叢集。 您現在可以將應用程式提交至此連結的叢集。
 
-   ![連結的叢集](./media/apache-domain-joined-manage/linked-cluster-intellij.png)
+   ![連結的叢集 eclipse](./media/apache-domain-joined-manage/linked-cluster-intellij.png)
 
 4. 您也可以從 [Azure 總管] 取消連結叢集。
    
-   ![取消連結的叢集](./media/apache-domain-joined-manage/unlink.png)
+   ![未連結的叢集 eclipse](./media/apache-domain-joined-manage/unlink.png)
 
 ## <a name="access-the-clusters-with-enterprise-security-package"></a>以企業安全性套件存取叢集。
 
@@ -142,7 +142,7 @@ ms.locfileid: "68488732"
 ## <a name="users-of-hdinsight-clusters-with-esp"></a>有 ESP 的 HDInsight 叢集的使用者
 非 ESP 的 HDInsight 叢集有兩個使用者帳戶，是在叢集建立期間建立的︰
 
-* **Ambari 系統管理員**：此帳戶亦稱為「Hadoop 使用者」或「HTTP 使用者」。 此帳戶可以用來登入 Ambari at HTTPs://&lt;clustername >. hdinsightclustername>.azurehdinsight.net. net。 它也可以用來對 Ambari views 執行查詢、透過外部工具 (例如 PowerShell、Templeton、Visual Studio) 執行作業, 以及使用 Hive ODBC 驅動程式和 BI 工具 (例如 Excel、Power BI 或 Tableau) 進行驗證。
+* **Ambari 系統管理員**：此帳戶亦稱為「Hadoop 使用者」或「HTTP 使用者」。 此帳戶可以用來登入 Ambari at HTTPs://&lt;clustername >. hdinsightclustername>.azurehdinsight.net. net。 它也可以用來對 Ambari views 執行查詢、透過外部工具（例如 PowerShell、Templeton、Visual Studio）執行作業，以及使用 Hive ODBC 驅動程式和 BI 工具（例如 Excel、Power BI 或 Tableau）進行驗證。
 
 除了 Ambari 系統管理員之外，使用 ESP 的 HDInsight 叢集有三個新使用者。
 
@@ -179,7 +179,7 @@ HDInsight 企業安全性套件有下列角色：
 
 1. 登入 [Azure 入口網站](https://portal.azure.com)。
 2. 開啟您的 HDInsight 叢集。
-3. 按一下頂端功能表中的 [儀表板]  開啟 Ambari。
+3. 按一下頂端功能表中的 [儀表板] 開啟 Ambari。
 4. 使用叢集系統管理員網域使用者名稱和密碼登入 Ambari。
 5. 按一下右上角的 [管理] 下拉式功能表，然後按一下 [管理 Ambari]。
 
@@ -191,7 +191,7 @@ HDInsight 企業安全性套件有下列角色：
 
 ## <a name="list-the-domain-users-synchronized-from-your-active-directory"></a>列出從您的 Active Directory 同步處理的網域使用者
 1. 開啟 Ambari 管理 UI。  請參閱[開啟 Ambari 管理 UI](#open-the-ambari-management-ui)。
-2. 按一下左側功能表中的 [使用者] 。 您應該會看到從您的 Active Directory 同步至 HDInsight 叢集的所有使用者。
+2. 按一下左側功能表中的 [使用者]。 您應該會看到從您的 Active Directory 同步至 HDInsight 叢集的所有使用者。
 
     ![ESP HDInsight Ambari 管理 UI 清單使用者](./media/apache-domain-joined-manage/hdinsight-domain-joined-ambari-management-ui-users.png)
 

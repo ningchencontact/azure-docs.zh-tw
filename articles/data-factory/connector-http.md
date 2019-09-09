@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 09/04/2019
+ms.date: 09/09/2019
 ms.author: jingwang
-ms.openlocfilehash: cdd7cfcb9d835c2ccac1dc367b9a1b34b509e8cf
-ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
+ms.openlocfilehash: 880f5624af03e08e3a91ec5b230e593025d979a5
+ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70276435"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70813009"
 ---
 # <a name="copy-data-from-an-http-endpoint-by-using-azure-data-factory"></a>使用 Azure Data Factory 從 HTTP 端點複製資料 | Microsoft Docs
 
@@ -166,12 +166,12 @@ ms.locfileid: "70276435"
 
 如需可用來定義資料集的區段和屬性完整清單，請參閱[資料集](concepts-datasets-linked-services.md)一文。 
 
-- 如需**Parquet、分隔文字、avro 和二進位格式**, 請參閱[Parquet、分隔文字、avro 和二進位格式資料集](#format-based-dataset)一節。
-- 如需**ORC/Avro/JSON 格式**之類的其他格式, 請參閱[其他格式資料集](#other-format-dataset)一節。
+- 如需**Parquet、分隔的文字、json、avro 和二進位格式**，請參閱[Parquet、分隔的文字、json、avro 和二進位格式資料集](#format-based-dataset)一節。
+- 如需**ORC 格式**之類的其他格式，請參閱[其他格式資料集](#other-format-dataset)一節。
 
-### <a name="format-based-dataset"></a>Parquet、分隔的文字、Avro 和二進位格式資料集
+### <a name="format-based-dataset"></a>Parquet、分隔的文字、JSON、Avro 和二進位格式資料集
 
-若要將資料複製到**Parquet、分隔的文字或二進位格式**, 請參閱格式為基礎的資料集上的[Parquet 格式](format-parquet.md)、[分隔的文字格式](format-delimited-text.md)、 [Avro 格式](format-avro.md)和[二進位格式](format-binary.md)一文, 以及支援的設定。 下列屬性支援以格式為基礎之`location`資料集的設定下的 HTTP:
+若要將資料複製到**Parquet、分隔的文字、JSON、avro 和二進位格式**，請參閱格式為基礎的資料集上的[Parquet 格式](format-parquet.md)、[分隔的文字格式](format-delimited-text.md)、 [avro 格式](format-avro.md)和[二進位格式](format-binary.md)一文，以及支援的設定. 下列屬性支援以格式為基礎之`location`資料集的設定下的 HTTP：
 
 | 屬性    | 描述                                                  | 必要項 |
 | ----------- | ------------------------------------------------------------ | -------- |
@@ -182,7 +182,7 @@ ms.locfileid: "70276435"
 > 支援的 HTTP 要求承載大小是大約 500 KB。 如果您希望傳遞至 Web 端點的承載大小大於 500 KB，請考慮將承載分批處理成較小的區塊。
 
 > [!NOTE]
-> 下一節中所述的**HttpFile**類型資料集具有 Parquet/文字格式, 但針對回溯相容性的複製/查閱活動仍受到支援。 建議您繼續使用此新模型, 而 ADF 撰寫 UI 已切換為產生這些新的類型。
+> 下一節中所述的**HttpFile**類型資料集具有 Parquet/文字格式，但針對回溯相容性的複製/查閱活動仍受到支援。 建議您繼續使用此新模型，而 ADF 撰寫 UI 已切換為產生這些新的類型。
 
 **範例:**
 
@@ -212,7 +212,7 @@ ms.locfileid: "70276435"
 
 ### <a name="other-format-dataset"></a>其他格式資料集
 
-若要從 HTTP 以**ORC/JSON 格式**複製資料, 支援下列屬性:
+若要以**ORC 格式**從 HTTP 複製資料，支援下列屬性：
 
 | 屬性 | 描述 | 必要項 |
 |:--- |:--- |:--- |
@@ -274,12 +274,12 @@ ms.locfileid: "70276435"
 
 ### <a name="http-as-source"></a>HTTP 作為來源
 
-- 若要從**Parquet、分隔文字、avro 和二進位格式**複製, 請參閱[Parquet、分隔文字、avro 和二進位格式來源](#format-based-source)一節。
-- 若要從**ORC/Avro/JSON 格式**之類的其他格式複製, 請參閱[其他格式來源](#other-format-source)一節。
+- 若要從**Parquet、分隔文字、json、avro 和二進位格式**複製，請參閱[Parquet、分隔文字、json、avro 和二進位格式來源](#format-based-source)一節。
+- 若要從**ORC 格式**之類的其他格式複製，請參閱[其他格式來源](#other-format-source)一節。
 
-#### <a name="format-based-source"></a>Parquet、分隔的文字、Avro 和二進位格式來源
+#### <a name="format-based-source"></a>Parquet、分隔的文字、JSON、Avro 和二進位格式來源
 
-若要從**Parquet (分隔文字或二進位格式**) 複製資料, 請參閱格式為基礎之複製活動來源和支援設定的[Parquet 格式](format-parquet.md)、[分隔文字格式](format-delimited-text.md)、 [Avro 格式](format-avro.md)和[二進位格式](format-binary.md)一文。 下列屬性在以格式為基礎之`storeSettings`複製來源的設定下支援 HTTP:
+若要從**Parquet、分隔文字、JSON、Avro 和二進位格式**複製資料，請參閱格式為基礎之複製活動來源的[Parquet 格式](format-parquet.md)、[分隔文字格式](format-delimited-text.md)、 [Avro 格式](format-avro.md)和[二進位格式](format-binary.md)文章，並加以支援設置。 下列屬性在以格式為基礎之`storeSettings`複製來源的設定下支援 HTTP：
 
 | 屬性                 | 描述                                                  | 必要項 |
 | ------------------------ | ------------------------------------------------------------ | -------- |
@@ -288,10 +288,10 @@ ms.locfileid: "70276435"
 | addtionalHeaders         | 其他 HTTP 要求標頭。                             | 否       |
 | requestBody              | HTTP 要求的主體。                               | 否       |
 | requestTimeout           | 用來取得回應的 HTTP 要求會有的逾時值 (**TimeSpan** 值)。 此值是取得回應的逾時值，而非讀取回應資料的逾時值。 預設值為 **00:01:40**。 | 否       |
-| maxConcurrentConnections | 連接到儲存體存放區的連線數目。 只有當您想要限制與資料存放區的並行連接時, 才指定。 | 否       |
+| maxConcurrentConnections | 連接到儲存體存放區的連線數目。 只有當您想要限制與資料存放區的並行連接時，才指定。 | 否       |
 
 > [!NOTE]
-> 針對 Parquet/分隔文字格式, 下一節中所提及的**HttpSource**類型複製活動來源仍然受到回溯相容性的支援。 建議您繼續使用此新模型, 而 ADF 撰寫 UI 已切換為產生這些新的類型。
+> 針對 Parquet/分隔文字格式，下一節中所提及的**HttpSource**類型複製活動來源仍然受到回溯相容性的支援。 建議您繼續使用此新模型，而 ADF 撰寫 UI 已切換為產生這些新的類型。
 
 **範例:**
 
@@ -336,7 +336,7 @@ ms.locfileid: "70276435"
 
 #### <a name="other-format-source"></a>其他格式來源
 
-若要從 HTTP 以**ORC/JSON 格式**複製資料, 複製活動的 [**來源**] 區段中支援下列屬性:
+若要從 HTTP 以**ORC 格式**複製資料，複製活動的 [**來源**] 區段中支援下列屬性：
 
 | 屬性 | 描述 | 必要項 |
 |:--- |:--- |:--- |

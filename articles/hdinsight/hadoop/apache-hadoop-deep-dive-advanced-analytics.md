@@ -1,6 +1,6 @@
 ---
 title: 深入探討 - 進階分析 - Azure HDInsight
-description: 了解進階分析如何使用演算法來處理巨量資料。
+description: 瞭解 advanced analytics 如何使用演算法來處理 Azure HDInsight 中的海量資料。
 author: ashishthaps
 ms.reviewer: jasonh
 ms.service: hdinsight
@@ -8,22 +8,22 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/14/2017
 ms.author: ashishth
-ms.openlocfilehash: ac0edf2de4337154b665b8f3898134a7c2fd1f4c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 973ac928900cc02f176931ffa3865c2997e552f2
+ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64712404"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70810840"
 ---
 # <a name="deep-dive---advanced-analytics"></a>深入探討 - 進階分析
 
 ## <a name="what-is-advanced-analytics-for-hdinsight"></a>什麼是 HDInsight 的進階分析？
 
-HDInsight 提供可從大量結構化、非結構化及快速移動之資料取得寶貴深入解析的功能。 進階分析會使用高擴充性架構、統計和機器學習服務模型，以及智慧型儀表板，為您提供有意義的深入解析。 機器學習服務 (或「預測性分析」  ) 會使用可從您資料中的關聯性進行識別並學習的演算法來進行預測，然後引導您做出決策。
+HDInsight 提供可從大量結構化、非結構化及快速移動之資料取得寶貴深入解析的功能。 進階分析會使用高擴充性架構、統計和機器學習服務模型，以及智慧型儀表板，為您提供有意義的深入解析。 機器學習服務 (或「預測性分析」) 會使用可從您資料中的關聯性進行識別並學習的演算法來進行預測，然後引導您做出決策。
 
 ## <a name="advanced-analytics-process"></a>進階分析程序
 
-![Process](./media/apache-hadoop-deep-dive-advanced-analytics/process.png)
+![流程圖](./media/apache-hadoop-deep-dive-advanced-analytics/process.png)
 
 在您已識別出業務問題並已開始收集和處理資料之後，就必須建立代表所要預測之問題的模型。 您的模型將會使用一或多個機器學習服務演算法，來進行最符合您業務需求的預測類型。  您的大部分資料應該用來將模型定型，其餘部分則用來測試或評估該模型。 
 
@@ -43,7 +43,7 @@ HDInsight 提供可從大量結構化、非結構化及快速移動之資料取�
 * 增強式 - 演算法使用軟體代理程式來判斷特定內容內的理想行為 (通常用於 Robotics)
 
 
-| 演算法類別| 使用 | 學習類型 | 演算法 |
+| 演算法類別| 使用情況 | 學習類型 | 演算法 |
 | --- | --- | --- | -- |
 | 分類 | 將人員或事項分類成群組 | 監督式 | 決策樹、羅吉斯迴歸、類神經網路 |
 | 叢集 | 將一組範例分割成同質群組 | 未監督式 | K-Means 叢集模型 |

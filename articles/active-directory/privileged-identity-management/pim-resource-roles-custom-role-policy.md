@@ -1,9 +1,9 @@
 ---
-title: 使用自訂角色的 PIM-Azure Active Directory 中的 Azure 資源 |Microsoft Docs
+title: 在 PIM 中使用適用于 Azure 資源的自訂角色-Azure Active Directory |Microsoft Docs
 description: 了解如何在 Azure AD Privileged Identity Management (PIM) 中使用適用於 Azure 資源的自訂角色。
 services: active-directory
 documentationcenter: ''
-author: rolyon
+author: curtand
 manager: mtillman
 ms.service: active-directory
 ms.devlang: na
@@ -12,18 +12,18 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: pim
 ms.date: 03/30/2018
-ms.author: rolyon
+ms.author: curtand
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4e814cde49374b52266f725b4d57657a507874ab
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 1d36514c97cf1f45ee0a435d3b716019d2762e5a
+ms.sourcegitcommit: 95b180c92673507ccaa06f5d4afe9568b38a92fb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65602046"
+ms.lasthandoff: 09/08/2019
+ms.locfileid: "70804187"
 ---
 # <a name="use-custom-roles-for-azure-resources-in-pim"></a>在 PIM 中使用適用於 Azure 資源的自訂角色
 
-您可能需要某些角色的成員，以套用嚴格的 Azure Active Directory (Azure AD) Privileged Identity Management (PIM) 設定，同時為其他人提供較大的自主性。 假設您的組織雇用數名約聘夥伴，協助開發將在 Azure 訂用帳戶中執行的應用程式。
+您可能需要將嚴格的 Azure Active Directory （Azure AD） Privileged Identity Management （PIM）設定套用到角色的某些成員，同時為其他人提供更大的自主性。 假設您的組織雇用數名約聘夥伴，協助開發將在 Azure 訂用帳戶中執行的應用程式。
 
 身為資源管理員的您，會希望員工能夠存取而不需要經過核准。 不過，當約聘夥伴要求存取組織資源時，全部都必須經過核准。
 
@@ -40,7 +40,7 @@ ms.locfileid: "65602046"
 
 ## <a name="apply-pim-settings"></a>套用 PIM 設定
 
-在 Azure 入口網站的租用戶中建立角色之後，請前往 [Privileged Identity Management - Azure 資源]  窗格。 選取角色適用的資源。
+在 Azure 入口網站的租用戶中建立角色之後，請前往 [Privileged Identity Management - Azure 資源] 窗格。 選取角色適用的資源。
 
 ![「Privileged Identity Management - Azure 資源」窗格](media/pim-resource-roles-custom-role-policy/aadpim-manage-azure-resource-some-there.png)
 

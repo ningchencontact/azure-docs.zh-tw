@@ -1,25 +1,25 @@
 ---
-title: 搭配 Azure Site Recovery 在災害復原中使用復原方案 | Microsoft Docs
+title: 在具有 Azure Site Recovery 的嚴重損壞修復中使用復原計畫
 description: 了解搭配 Azure Site Recovery 服務針對災害復原使用復原方案。
 author: rayne-wiselman
 manager: carmonm
 services: site-recovery
 ms.service: site-recovery
-ms.topic: article
-ms.date: 05/30/2019
+ms.topic: conceptual
+ms.date: 09/09/2019
 ms.author: raynew
-ms.openlocfilehash: 0df9e4b41ff89dd295fe644900b78640a083e985
-ms.sourcegitcommit: 6cb4dd784dd5a6c72edaff56cf6bcdcd8c579ee7
+ms.openlocfilehash: 8502e08db48700aefe51a6e4f0e79d1b08f6ca79
+ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/02/2019
-ms.locfileid: "67514561"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70814436"
 ---
 # <a name="about-recovery-plans"></a>關於復原方案
 
 本文說明 [Azure Site Recovery](site-recovery-overview.md) 中的復原方案。
 
-復原方案會將機器收集至復原群組中。 您可以將順序、指示及工作新增至方案來加以自訂。 定義方案之後，您可以在該方案上執行容錯移轉。  機器可以參考多個復原方案，以後續的計劃會略過電腦部署/啟動，如果先前已部署透過另一個復原方案中。
+復原方案會將機器收集至復原群組中。 您可以將順序、指示及工作新增至方案來加以自訂。 定義方案之後，您可以在該方案上執行容錯移轉。  您可以在多個復原方案中參考機器，其中後續的計畫會略過電腦的部署/啟動（如果先前已透過另一個復原方案部署）。
 
 
 ## <a name="why-use-a-recovery-plan"></a>為何使用復原方案？
@@ -83,7 +83,7 @@ ms.locfileid: "67514561"
 
 ## <a name="watch-the-video"></a>觀賞影片
 
-觀看快速的範例影片，示範兩層式 WordPress 應用程式上按一下 容錯移轉。
+觀看快速範例影片，其中顯示兩層式 WordPress 應用程式的按按一下容錯移轉。
     
 > [!VIDEO https://channel9.msdn.com/Series/Azure-Site-Recovery/One-click-failover-of-a-2-tier-WordPress-application-using-Azure-Site-Recovery/player]
 

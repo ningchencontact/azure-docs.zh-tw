@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/30/2018
-ms.openlocfilehash: a535510ce56147f708f1cd8219cf898e6e0df36b
-ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.openlocfilehash: 42819749b019b4b1db77942e22e09ea31a137fe7
+ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67483782"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70813849"
 ---
 # <a name="example-apache-storm-topologies-and-components-for-apache-storm-on-hdinsight"></a>Apache Storm on HDInsight 的範例 Apache Storm 拓撲及元件
 
@@ -23,15 +23,14 @@ ms.locfileid: "67483782"
 |:--- |:--- |:--- |
 | [從 Apache Storm 寫入 Azure Data Lake Storage](apache-storm-write-data-lake-store.md) |寫入 Azure Data Lake Storage |Java |
 | [事件中樞 Spout 和 Bolt 來源](https://github.com/apache/storm/tree/master/external/storm-eventhubs) |事件中樞 Spout 和 Bolt 的來源 |Java |
-| [開發 Apache Storm on HDInsight 的 Java 型拓撲][5797064f] |Maven |Java |
+| [開發適用于 HDInsight 上的 Apache Storm 以 JAVA 為基礎的拓撲][5797064f] |Maven |Java |
 | [使用 Visual Studio 開發 Apache Storm on HDInsight 的 C# 拓撲][16fce2d1] |HDInsight Tools for Visual Studio |C#，Java |
 | [使用 Apache Storm on HDInsight 處理 Azure 事件中樞的事件 (C#)][844d1d81] |事件中樞 |C# 和 Java |
 | [使用 Storm on HDInsight 處理 Azure 事件中樞的事件 (Java)](https://azure.microsoft.com/resources/samples/hdinsight-java-storm-eventhub/) |事件中樞 |Java |
 | [使用 HDInsight 上的 Apache Storm 處理事件中樞的車輛感應器資料][246ee964] |事件中樞、Cosmos DB、Azure 儲存體 Blob (WASB) |C#，Java |
-| [擷取、 轉換和載入 (ETL) 從 Azure 事件中樞以使用 Apache Storm on HDInsight 的 Apache HBase][b4b68194] |事件中心，HBase |C# |
-| [範本C#使用 Azure 服務的 Apache Storm on HDInsight 的 Storm 拓撲專案][ce0c02a2] |事件中樞、Cosmos DB、SQL Database、HBase、SignalR |C#，Java |
-| [讀取 Azure 事件中樞使用 Apache Storm on HDInsight 的延展性效能評比][d6c540e3] |訊息輸送量、事件中心、SQL Database |C#，Java |
-| [搭配 Apache Storm on HDInsight 使用 Python](apache-storm-develop-python-topology.md) |使用 Flux 拓撲的 Python 元件 |Python |
+| [使用 HDInsight 上的 Apache Storm，從 Azure 事件中樞解壓縮、轉換和載入（ETL）至 Apache HBase][b4b68194] |事件中心，HBase |C# |
+| [從C# HDInsight 上的 Apache Storm 使用 Azure 服務的範本暴拓朴專案][ce0c02a2] |事件中樞、Cosmos DB、SQL Database、HBase、SignalR |C#，Java |
+| [使用 HDInsight 上的 Apache Storm 從 Azure 事件中樞讀取的擴充性基準][d6c540e3] |訊息輸送量、事件中心、SQL Database |C#，Java |
 | [搭配 Apache Storm on HDInsight 使用 Apache Kafka](../hdinsight-apache-storm-with-kafka.md) | 讀取和寫入 Apache Kafka 的 Apache Storm | Java |
 
 > [!WARNING]  
@@ -39,10 +38,14 @@ ms.locfileid: "67483782"
 >
 > Linux 是 HDInsight 版本 3.4 或更新版本上唯一使用的作業系統。
 
-### <a name="next-steps"></a>後續步驟
+## <a name="python-only"></a>僅限 Python
+
+如需具有 Flux 拓撲的 Python 元件範例，請參閱搭配[使用 python 與 HDInsight 上的 Apache Storm](apache-storm-develop-python-topology.md) 。
+
+## <a name="next-steps"></a>後續步驟
 
 * [建立和監視 Azure HDInsight 中的 Apache Storm 拓撲](./apache-storm-quickstart.md)
-* [了解如何部署和管理使用 Apache Storm on HDInsight 的 Apache Storm 拓撲][6eb0d3b8]
+* [瞭解如何在 HDInsight 上使用 Apache Storm 部署和管理 Apache Storm 拓撲][6eb0d3b8]
 
 
 [6eb0d3b8]:apache-storm-deploy-monitor-topology-linux.md "了解如何使用 Web 型 Apache Storm 儀表板和 Storm UI 或適用於 Visual Studio 的 HDInsight 工具部署和管理拓撲。"

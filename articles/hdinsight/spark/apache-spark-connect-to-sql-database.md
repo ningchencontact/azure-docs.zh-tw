@@ -8,18 +8,18 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/21/2019
-ms.openlocfilehash: 3812cf55a26a12ef110b8acf14edd0e8bfd36851
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 20c4571ee795c280e6c916e3080279a6d13fecce
+ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66236524"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70814205"
 ---
 # <a name="use-hdinsight-spark-cluster-to-read-and-write-data-to-azure-sql-database"></a>使用 HDInsight Spark 叢集對 Azure SQL 資料庫讀取及寫入資料
 
 了解如何連線 Azure HDInsight 中的 Apache Spark 叢集與 Azure SQL 資料庫，然後將資料讀取、寫入和串流到 SQL 資料庫中。 本文中的指示使用 [Jupyter Notebook](https://jupyter.org/) 執行 Scala 程式碼片段。 不過，您可以在 Scala 或 Python 中建立獨立應用程式，並執行相同的工作。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 * **Azure HDInsight Spark 叢集**。  請依照[在 HDInsight 中建立 Apache Spark 叢集](apache-spark-jupyter-spark-sql.md)中的指示操作。
 
@@ -36,7 +36,7 @@ ms.locfileid: "66236524"
 首先請建立與 Spark 叢集相關聯的 [Jupyter Notebook](https://jupyter.org/)。 您可以使用此 Notebook 執行本文中使用的程式碼片段。 
 
 1. 從 [Azure 入口網站](https://portal.azure.com/)，開啟您的叢集。
-1. 在右側選取 [叢集儀表板]  下方的 **Jupyter Notebook**。  如果您沒有看到**叢集儀表板**，選取**概觀**從左側功能表中。 出現提示時，輸入叢集的系統管理員認證。
+1. 在右側選取 [叢集儀表板] 下方的 **Jupyter Notebook**。  如果您沒有看到 [叢集**儀表板**]，請從左側功能表中選取 **[總覽**]。 出現提示時，輸入叢集的系統管理員認證。
 
     ![Spark 上的 Jupyter Notebook](./media/apache-spark-connect-to-sql-database/hdinsight-spark-cluster-dashboard-jupyter-notebook.png "Spark 上的 Jupyter Notebook")
    
@@ -45,7 +45,7 @@ ms.locfileid: "66236524"
    >
    > `https://CLUSTERNAME.azurehdinsight.net/jupyter`
 
-1. 在 Jupyter Notebook 中，按一下右上角的 [新增]  ，然後按一下 [Spark]  以建立 Scala Notebook。 HDInsight Spark 叢集上的 Jupyter Notebook 也會提供適用於 Python2 應用程式的 **PySpark** 核心，以及適用於 Python3 應用程式的 **PySpark3** 核心。 在本文中，我們會建立 Scala Notebook。
+1. 在 Jupyter Notebook 中，按一下右上角的 [新增]，然後按一下 [Spark] 以建立 Scala Notebook。 HDInsight Spark 叢集上的 Jupyter Notebook 也會提供適用於 Python2 應用程式的 **PySpark** 核心，以及適用於 Python3 應用程式的 **PySpark3** 核心。 在本文中，我們會建立 Scala Notebook。
    
     ![Spark 上的 Jupyter Notebook 核心](./media/apache-spark-connect-to-sql-database/kernel-jupyter-notebook-on-spark.png "Spark 上的 Jupyter Notebook 核心")
 
@@ -95,7 +95,7 @@ ms.locfileid: "66236524"
    
     您會看到如下的輸出：
 
-    ![提供 Notebook 的名稱](./media/apache-spark-connect-to-sql-database/read-from-sql-schema-output.png "提供 Notebook 的名稱")
+    ![架構輸出](./media/apache-spark-connect-to-sql-database/read-from-sql-schema-output.png "架構輸出")
 
 1. 您也可以執行像是擷取前 10 個資料列的作業。
 
@@ -148,11 +148,11 @@ ms.locfileid: "66236524"
 
     a. 啟動 SSMS，並提供如以下螢幕擷取畫面所示的連線詳細資料，以連線至 Azure SQL 資料庫。
 
-    ![使用 SSMS 連線至 SQL 資料庫](./media/apache-spark-connect-to-sql-database/connect-to-sql-db-ssms.png "使用 SSMS 連線至 SQL 資料庫")
+    ![使用 SSMS1 連接到 SQL database](./media/apache-spark-connect-to-sql-database/connect-to-sql-db-ssms.png "使用 SSMS1 連接到 SQL database")
 
     b. 在 [物件總管] 中展開 Azure SQL 資料庫和資料表節點，以檢視已建立的 **dbo.hvactable**。
 
-    ![使用 SSMS 連線至 SQL 資料庫](./media/apache-spark-connect-to-sql-database/connect-to-sql-db-ssms-locate-table.png "使用 SSMS 連線至 SQL 資料庫")
+    ![使用 SSMS2 連接到 SQL database](./media/apache-spark-connect-to-sql-database/connect-to-sql-db-ssms-locate-table.png "使用 SSMS2 連接到 SQL database")
 
 1. 在 SSMS 中執行查詢，以查看資料表中的資料行。
 
@@ -174,7 +174,7 @@ ms.locfileid: "66236524"
        import org.apache.spark.sql.streaming._
        import java.sql.{Connection,DriverManager,ResultSet}
 
-1. 我們要將 **HVAC.csv** 中的資料串流至 hvactable。 HVAC.csv 檔案可在叢集上`/HdiSamples/HdiSamples/SensorSampleData/HVAC/`。 在下列程式碼片段中，我們會先取得要串流處理之資料的結構描述。 接著，我們會使用該結構描述建立串流資料框架。 請在程式碼單元中貼上此程式碼片段，然後按 **SHIFT + ENTER** 加以執行。
+1. 我們要將 **HVAC.csv** 中的資料串流至 hvactable。 HVAC .csv 檔案可在叢集上取得，網址`/HdiSamples/HdiSamples/SensorSampleData/HVAC/`為。 在下列程式碼片段中，我們會先取得要串流處理之資料的結構描述。 接著，我們會使用該結構描述建立串流資料框架。 請在程式碼單元中貼上此程式碼片段，然後按 **SHIFT + ENTER** 加以執行。
 
        val userSchema = spark.read.option("header", "true").csv("wasbs:///HdiSamples/HdiSamples/SensorSampleData/hvac/HVAC.csv").schema
        val readStreamDf = spark.readStream.schema(userSchema).csv("wasbs:///HdiSamples/HdiSamples/SensorSampleData/hvac/") 

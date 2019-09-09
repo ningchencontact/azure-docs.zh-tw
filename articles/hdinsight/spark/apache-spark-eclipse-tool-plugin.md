@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/30/2017
 ms.author: hrasheed
-ms.openlocfilehash: 6e8f8e7d8324f23a81cd6ae3284bd6d7cff24117
-ms.sourcegitcommit: bafb70af41ad1326adf3b7f8db50493e20a64926
+ms.openlocfilehash: 87ac2283e96081297fdd54c1c131aa5b78a5973a
+ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68489847"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70814271"
 ---
 # <a name="use-azure-toolkit-for-eclipse-to-create-apache-spark-applications-for-an-hdinsight-cluster"></a>使用 Azure Toolkit for Eclipse 為 HDInsight 叢集建立 Apache Spark 應用程式
 
@@ -28,7 +28,7 @@ ms.locfileid: "68489847"
 > 
 > 
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 * HDInsight 上的 Apache Spark 叢集。 如需指示，請參閱[在 Azure HDInsight 中建立 Apache Spark 叢集](apache-spark-jupyter-spark-sql.md)。
 * Oracle Java Development Kit 第 8 版，可用於 Eclipse IDE 執行階段。 您可以從 [Oracle 網站](https://aka.ms/azure-jdks)下載。
@@ -61,7 +61,7 @@ ms.locfileid: "68489847"
    ![[選取訂用帳戶] 對話方塊](./media/apache-spark-eclipse-tool-plugin/Select-Subscriptions.png)
 1. 在 [Azure Explorer] 索引標籤中展開 [HDInsight]，可查看您訂用帳戶下的 HDInsight Spark 叢集。
    
-   ![Azure Explorer 中的 HDInsight Spark 叢集](./media/apache-spark-eclipse-tool-plugin/view-explorer-3.png)
+   ![Azure Explorer3 中的 HDInsight Spark 叢集](./media/apache-spark-eclipse-tool-plugin/view-explorer-3.png)
 1. 您可以進一步展開叢集名稱節點，查看與叢集相關聯的資源 (例如，儲存體帳戶)。
    
    ![展開叢集名稱以查看資源](./media/apache-spark-eclipse-tool-plugin/view-explorer-4.png)
@@ -146,7 +146,7 @@ ms.locfileid: "68489847"
    * 因為此範例中的應用程式程式碼不需要任何命令列引數，或是參考 JAR 或檔案，所以您可以將其餘的文字方塊保留空白。
         
      ![[提交 Spark] 對話方塊](./media/apache-spark-eclipse-tool-plugin/create-scala-proj-3.png)
-1. [Spark Submission (提交 Spark)]  索引標籤應會開始顯示進度。 您可以選取 [提交 Spark] 視窗中的紅色按鈕，就能將應用程式停止。 您也可以選取全球圖示 (以映像中的藍色方塊表示)，檢視此特定應用程式執行的記錄。
+1. [Spark Submission (提交 Spark)] 索引標籤應會開始顯示進度。 您可以選取 [提交 Spark] 視窗中的紅色按鈕，就能將應用程式停止。 您也可以選取全球圖示 (以映像中的藍色方塊表示)，檢視此特定應用程式執行的記錄。
       
    ![[提交 Spark] 視窗](./media/apache-spark-eclipse-tool-plugin/create-scala-proj-4.png)
 
@@ -163,7 +163,7 @@ ms.locfileid: "68489847"
 
    ![安裝 E(fx)clipse](./media/apache-spark-eclipse-tool-plugin/auto-install-efxclipse.png)
 
-1. 從 [作業] 節點開啟 [作業] 檢視。 在右窗格中，[Spark 作業檢視]  索引標籤會顯示已在叢集上執行的所有應用程式。 選取您想要查看更多詳細資料的應用程式名稱。
+1. 從 [作業] 節點開啟 [作業] 檢視。 在右窗格中，[Spark 作業檢視] 索引標籤會顯示已在叢集上執行的所有應用程式。 選取您想要查看更多詳細資料的應用程式名稱。
 
    ![應用程式詳細資料](./media/apache-spark-eclipse-tool-plugin/view-job-logs.png)
 
@@ -235,16 +235,16 @@ ms.locfileid: "68489847"
        
 2. 在 [Azure Explorer] 中展開 [HDInsight]，檢視您訂用帳戶中的 HDInsight 叢集。 標示為 **"Role:Reader"** 的叢集僅具有僅限讀取者角色權限。
 
-    ![Azure Explorer 中的 HDInsight Spark 叢集](./media/apache-spark-eclipse-tool-plugin/view-explorer-6.png)
+    ![Azure Explorer 角色讀取器中的 HDInsight Spark 叢集](./media/apache-spark-eclipse-tool-plugin/view-explorer-6.png)
 
 3. 以滑鼠右鍵按一下具有 [僅限讀取者] 角色許可權的叢集。 從操作功能表中選取 [連結此叢集]，以連結叢集。 輸入 Ambari 使用者名稱和密碼。
 
-    ![Azure Explorer 中的 HDInsight Spark 叢集](./media/apache-spark-eclipse-tool-plugin/view-explorer-7.png)
+    ![Azure Explorer 中的 HDInsight Spark 叢集連結](./media/apache-spark-eclipse-tool-plugin/view-explorer-7.png)
 
 4. 如果已成功連結叢集，HDInsight 將會重新整理。
    叢集的階段會成為「已連結」。
   
-    ![Azure Explorer 中的 HDInsight Spark 叢集](./media/apache-spark-eclipse-tool-plugin/view-explorer-8.png)
+    ![Azure Explorer 中的 HDInsight Spark 叢集已連結](./media/apache-spark-eclipse-tool-plugin/view-explorer-8.png)
 
 
 
@@ -254,7 +254,7 @@ ms.locfileid: "68489847"
    
 2. 按一下 [連結此叢集] 以連結叢集。
    
-    ![Azure Explorer 中的 HDInsight Spark 叢集](./media/apache-spark-eclipse-tool-plugin/view-explorer-9.png)
+    ![Azure Explorer9 中的 HDInsight Spark 叢集](./media/apache-spark-eclipse-tool-plugin/view-explorer-9.png)
 
 ### <a name="link-cluster-from-spark-submission-window"></a>從 Spark 提交視窗連結叢集
 
@@ -262,23 +262,23 @@ ms.locfileid: "68489847"
 
 2. 以滑鼠右鍵按一下封裝。 然後選取 [**將 Spark 應用程式提交給 HDInsight**]。
    
-   ![Azure Explorer 中的 HDInsight Spark 叢集](./media/apache-spark-eclipse-tool-plugin/view-explorer-11.png)
+   ![Azure Explorer 中的 HDInsight Spark 叢集提交](./media/apache-spark-eclipse-tool-plugin/view-explorer-11.png)
 
 3. 選取叢集**名稱**具有 [僅限讀取者] 角色許可權的叢集。 此時會顯示警告訊息。您可以按一下 [**連結此**叢集以連結叢集]。
    
-   ![Azure Explorer 中的 HDInsight Spark 叢集](./media/apache-spark-eclipse-tool-plugin/view-explorer-15.png)
+   ![Azure Explorer 中的 HDInsight Spark 叢集連結此](./media/apache-spark-eclipse-tool-plugin/view-explorer-15.png)
    
 ### <a name="view-storage-accounts"></a>檢視儲存體帳戶
 
 * 針對具有僅限讀取者角色權限的叢集，按一下 [儲存體帳戶] 節點，[儲存體存取遭拒] 視窗隨即快顯。 
      
-   ![Azure Explorer 中的 HDInsight Spark 叢集](./media/apache-spark-eclipse-tool-plugin/view-explorer-13.png)
+   ![Azure Explorer 儲存體中的 HDInsight Spark 叢集](./media/apache-spark-eclipse-tool-plugin/view-explorer-13.png)
 
-   ![Azure Explorer 中的 HDInsight Spark 叢集](./media/apache-spark-eclipse-tool-plugin/view-explorer-12.png)
+   ![Azure Explorer 中的 HDInsight Spark 叢集已拒絕](./media/apache-spark-eclipse-tool-plugin/view-explorer-12.png)
 
 * 針對連結的叢集，按一下 [儲存體帳戶] 節點，[儲存體存取遭拒] 視窗隨即快顯。 
      
-   ![Azure Explorer 中的 HDInsight Spark 叢集](./media/apache-spark-eclipse-tool-plugin/view-explorer-14.png)
+   ![Azure Explorer 中的 HDInsight Spark 叢集 denied2](./media/apache-spark-eclipse-tool-plugin/view-explorer-14.png)
 
 ## <a name="known-problems"></a>已知的問題
 連結叢集時，建議您提供儲存體認證。
@@ -287,9 +287,9 @@ ms.locfileid: "68489847"
 
 提交工作有兩種模式。 如果提供儲存體認證，將使用批次模式提交工作。 否則，將使用互動模式。 如果叢集忙碌，您可能會收到以下錯誤。
 
-![Eclipse 會在叢集忙碌時收到錯誤](./media/apache-spark-eclipse-tool-plugin/eclipse-interactive-cluster-busy-upload.png)
+![當叢集忙碌時，eclipse 取得錯誤](./media/apache-spark-eclipse-tool-plugin/eclipse-interactive-cluster-busy-upload.png "當叢集忙碌時，eclipse 取得錯誤")
 
-![Eclipse 會在叢集忙碌時收到錯誤](./media/apache-spark-eclipse-tool-plugin/eclipse-interactive-cluster-busy-submit.png)
+![當叢集忙碌 yarn 時，eclipse 取得錯誤](./media/apache-spark-eclipse-tool-plugin/eclipse-interactive-cluster-busy-submit.png "當叢集忙碌 yarn 時，eclipse 取得錯誤")
 
 ## <a name="seealso"></a>另請參閱
 * [概觀：Azure HDInsight 上的 Apache Spark](apache-spark-overview.md)

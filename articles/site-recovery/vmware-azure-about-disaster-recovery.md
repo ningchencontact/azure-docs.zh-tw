@@ -5,14 +5,14 @@ author: raynew
 ms.service: site-recovery
 services: site-recovery
 ms.topic: conceptual
-ms.date: 5/30/2019
+ms.date: 9/09/2019
 ms.author: raynew
-ms.openlocfilehash: a00c129126886bd71c82940aa340a8db29cf7a0e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: dca8174caabf4799c338d780a78ba58f1af5a2f1
+ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66417788"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70814319"
 ---
 # <a name="about-disaster-recovery-of-vmware-vms-to-azure"></a>關於 VMware VM 至 Azure 的災害復原
 
@@ -34,7 +34,7 @@ ms.locfileid: "66417788"
     - 此演練有助於確保當真實需求出現時，容錯移轉會如預期般運作。
     - 此演練會在不影響生產環境的情況下，執行測試容錯移轉。
 5. 如果發生中斷，您可執行完整容錯移轉至 Azure。 您可以容錯移轉單一機器，或建立可同時容錯移轉多部機器的復原方案。
-6. 在容錯移轉時，會從受控磁碟或儲存體帳戶中的 VM 資料建立 Azure Vm。 使用者可以繼續從 Azure VM 存取應用程式和工作負載
+6. 在容錯移轉時，會從受控磁片或儲存體帳戶中的 VM 資料建立 Azure Vm。 使用者可以繼續從 Azure VM 存取應用程式和工作負載
 7. 當內部部署網站恢復可用狀態時，您就可以從 Azure 進行容錯回復。
 8. 容錯回復後，當您再度從主要網站作業時，您就會開始再次將內部部署 VM 複寫至 Azure。
 
@@ -56,12 +56,12 @@ Site Recovery 可複寫在支援的 VMware VM 或實體伺服器上執行的任�
 您需要在 Azure 中準備下列各項：
 
 1. 確認您的 Azure 帳戶具有在 Azure 中建立 VM 的權限。
-2. 建立容錯移轉之後建立的儲存體帳戶或受控的磁碟時，會加入 Azure Vm 的 Azure 網路。
+2. 建立 azure Vm，以便在容錯移轉後從儲存體帳戶或受控磁片建立 Azure Vm 時，將會加入此網路。
 3. 設定 Site Recovery 的 Azure 復原服務保存庫。 此保存庫位於 Azure 入口網站中，用於部署、設定、協調、監視您的 Site Recovery 部署，以及進行其疑難排解。
 
 *需要其他協助？*
 
-了解如何設定 Azure[驗證您的帳戶](tutorial-prepare-azure.md#verify-account-permissions)建立[網路](tutorial-prepare-azure.md#set-up-an-azure-network)，並[設定保存庫](tutorial-prepare-azure.md#create-a-recovery-services-vault)。
+瞭解如何藉由[驗證您的帳戶](tutorial-prepare-azure.md#verify-account-permissions)、建立[網路](tutorial-prepare-azure.md#set-up-an-azure-network)和[設定保存庫](tutorial-prepare-azure.md#create-a-recovery-services-vault)來設定 Azure。
 
 
 
@@ -93,10 +93,10 @@ Site Recovery 可複寫在支援的 VMware VM 或實體伺服器上執行的任�
     - 組態伺服器是單一內部部署機器。 針對 VMware 災害復原，建議您將其當作可從下載的 OVF 範本部署的 VMware VM 來部署。
     - 設定伺服器會協調內部部署與 Azure 之間的通訊。
     - 還有一些其他元件會在組態伺服器機器上執行。
-        - 處理序伺服器會接收、 最佳化，並將複寫資料傳送至 Azure 中的快取儲存體帳戶。 它也會在您要複寫的機器上處理行動服務的自動安裝，並且在 VMware 伺服器上執行 VM 的自動探索。
+        - 進程伺服器會接收、優化複寫資料，並將其傳送至 Azure 中的快取儲存體帳戶。 它也會在您要複寫的機器上處理行動服務的自動安裝，並且在 VMware 伺服器上執行 VM 的自動探索。
         - 主要目標伺服器會在從 Azure 容錯回復期間，處理複寫資料。
     - 設定包括在保存庫中註冊組態伺服器、下載 MySQL 伺服器和 VMware PowerCLI，以及指定針對自動探索和行動服務安裝所建立的帳戶。
-4. **目標環境**：您設定您的目標 Azure 環境透過指定您的 Azure 訂用帳戶和網路設定。
+4. **目標環境**：您可以藉由指定您的 Azure 訂用帳戶和網路設定來設定目標 Azure 環境。
 5. **複寫原則**：您可指定應如何進行複寫。 設定包含建立和儲存復原點的頻率，以及是否應該建立應用程式一致的快照集。
 6. **啟用複寫**。 您可為內部部署機器啟用複寫。 如果您建立了用以安裝行動服務的帳戶，則該服務會在您為機器啟用複寫時安裝。 
 

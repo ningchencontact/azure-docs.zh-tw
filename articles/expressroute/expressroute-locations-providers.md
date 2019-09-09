@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/06/2019
+ms.date: 09/09/2019
 ms.author: cherylmc
-ms.openlocfilehash: f864384dd5b86420fd9edf446b2573421a05f807
-ms.sourcegitcommit: b7b0d9f25418b78e1ae562c525e7d7412fcc7ba0
+ms.openlocfilehash: 84dff3c4948109654cf08fa1390ac4e6bf2717dc
+ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/08/2019
-ms.locfileid: "70801503"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70812153"
 ---
 # <a name="expressroute-partners-and-peering-locations"></a>ExpressRoute 合作夥伴和對等互連位置
 
@@ -133,7 +133,7 @@ ExpressRoute 位置（有時稱為「對等位置」或「符合我的位置」�
 | **東京** | [Equinix TY4](https://www.equinix.com/locations/asia-colocation/japan-colocation/tokyo-data-centers/ty4/) | 日本東部 | Aryaka Networks、AT&T NetBond、British Telecom、CenturyLink Cloud Connect、Colt、Equinix、Internet Initiative Japan Inc. - IIJ、NTT Communications、NTT EAST、Orange、Softbank、Verizon |
 | **多倫多** | [Cologix TOR1](https://www.cologix.com/data-centers/toronto/tor1/) | 加拿大中部 | 在 & T NetBond，鐘加拿大，CenturyLink Cloud Connect，Cologix，Equinix，IX 觸及 Megaport，Telus，Verizon，Zayo |
 | **華盛頓** | [Equinix DC2](https://www.equinix.com/locations/americas-colocation/united-states-colocation/washington-dc-data-centers/dc2/) | 美國東部、美國東部2 | Aryaka networks 網路，位於 & T NetBond、英屬電信、CenturyLink Cloud Connect、Cologix、Comcast、Coresite、Equinix、Internet2、InterCloud、Level 3 通訊、Megaport、Neutrona 網路、NTT 通訊、橙色、PacketFabric、SES、短期衝刺、Tata通訊，Telia 貨運公司，Verizon，Zayo |
-| **華盛頓特區2** | [Coresite Reston](https://www.coresite.com/data-centers/locations/northern-virginia-washington-dc/reston-campus) | 美國東部、美國東部2 |Coresite、Viasat | 
+| **華盛頓特區2** | [Coresite Reston](https://www.coresite.com/data-centers/locations/northern-virginia-washington-dc/reston-campus) | 美國東部、美國東部2 |Coresite、Viasat、Zayo | 
 | **蘇黎世** | [Interxion ZUR2](https://www.interxion.com/Locations/zurich/) | n/a | Intercloud、Interxion |
 
  **+** 表示即將推出
@@ -184,6 +184,13 @@ ExpressRoute 位置（有時稱為「對等位置」或「符合我的位置」�
   * 請確保您的連線提供者以高可用性的方式延伸您的連線，因此不會有單一失敗點。
 * 排序一個 ExpressRoute 循環，將 Exchange 視為連線至 Microsoft 的連線提供者。
   * 依照 [建立 ExpressRoute 循環](expressroute-howto-circuit-classic.md) 中的步驟來設定連線。
+
+## <a name="connectivity-through-satellite-operators"></a>透過附屬運算子的連線能力
+如果您是遠端且沒有光纖連線，或者您想要探索其他連線選項，可以檢查下列附屬操作員。 
+
+* Intelsat
+* SES
+* Viasat
 
 ## <a name="c1partners"></a>透過其他服務提供者的連線能力
 | **位置** | **Exchange** | **連接提供者** |

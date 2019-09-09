@@ -1,6 +1,6 @@
 ---
 title: 機器學習服務概觀 - Azure HDInsight
-description: 描述 HDInsight 中的機器學習服務選項。
+description: Azure HDInsight 中叢集的大型資料機器學習選項總覽。
 author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/19/2018
 ms.author: hrasheed
-ms.openlocfilehash: ca69424ecbddc068fdaf8bb5839a647701ee27fe
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 17615c0005a3cbc5b20cea697b4c75b5ed06ae0a
+ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64686599"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70812009"
 ---
 # <a name="machine-learning-on-hdinsight"></a>HDInsight 上的機器學習服務
 
@@ -62,6 +62,6 @@ Azure Machine Learning 提供可建立預測性分析模型的工具，也提供
 
 ### <a name="deep-learning-resources"></a>深度學習資源
 
-* [使用 Microsoft Cognitive Toolkit 深度學習模型與 Azure HDInsight Spark 叢集](spark/apache-spark-microsoft-cognitive-toolkit.md)
+* [搭配 Azure HDInsight Spark 叢集使用 Microsoft Cognitive Toolkit 深度學習模型](spark/apache-spark-microsoft-cognitive-toolkit.md)
 * [在 Azure HDInsight Spark 上使用 Caffe 進行分散式深入學習](spark/apache-spark-deep-learning-caffe.md)
-* [深度學習和 AI 架構資料科學虛擬機器 (DSVM)](../machine-learning/data-science-virtual-machine/dsvm-deep-learning-ai-frameworks.md)
+* [資料科學虛擬機器上的深度學習和 AI 架構（DSVM）](../machine-learning/data-science-virtual-machine/dsvm-deep-learning-ai-frameworks.md)

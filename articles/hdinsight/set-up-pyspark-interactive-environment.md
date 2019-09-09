@@ -8,12 +8,12 @@ ms.author: jejiang
 ms.reviewer: jasonh
 ms.topic: conceptual
 ms.date: 06/13/2019
-ms.openlocfilehash: 54adb2ec61d77ea429f7da1b88aa9347c1addfe0
-ms.sourcegitcommit: 97605f3e7ff9b6f74e81f327edd19aefe79135d2
+ms.openlocfilehash: 8e90be5a38ff40b748c11539e1d5c6558d198b62
+ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70736420"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70814227"
 ---
 # <a name="set-up-the-pyspark-interactive-environment-for-visual-studio-code"></a>設定 Visual Studio Code 的 PySpark 互動式環境
 
@@ -24,13 +24,13 @@ ms.locfileid: "70736420"
 1. 安裝 [Python](https://www.python.org/downloads/) 和 [pip](https://pip.pypa.io/en/stable/installing/)。
    
    + 從 [https://www.python.org/downloads/](https://www.python.org/downloads/) 安裝 Python。
-   + 從 [https://pip.pypa.io/en/stable/installing](https://pip.pypa.io/en/stable/installing/) 安裝 pip。 (如果未在安裝 Python 時安裝)
-   + 使用下列命令驗證是否已成功安裝 Python 和 pip。 (選用)
+   + 從[https://pip.pypa.io/en/stable/installing](https://pip.pypa.io/en/stable/installing/)安裝 pip （如果它不是從 Python 安裝安裝）。
+   + 使用下列命令來驗證是否已成功安裝 Python 和 pip。 (選用)
  
         ![Python pip 版本](./media/set-up-pyspark-interactive-environment/check-python-pip-version.png)
 
      > [!NOTE]
-     > 建議您以手動方式安裝 Python，不要使用 MacOS 預設版本。
+     > 建議您手動安裝 Python，而不是使用 macOS 預設版本。
 
 
 2. 執行下列命令來安裝 **virtualenv**。
@@ -39,19 +39,21 @@ ms.locfileid: "70736420"
    pip install virtualenv
    ```
 
-3. 僅限 Linux，如果出現錯誤訊息，請執行下列命令安裝必要套件。
-   
-    ![Python pip 版本](./media/set-up-pyspark-interactive-environment/install-libkrb5-package.png)
-       
-   ```
-   sudo apt-get install libkrb5-dev 
-   ```
+## <a name="other-packages"></a>其他套件
 
-   ```
-   sudo apt-get install python-dev
-   ```
+如果您遇到錯誤訊息，請執行下列命令來安裝必要的套件：
 
-4. 重新啟動 VS Code，然後返回執行 [HDInsight: PySpark 互動式] 的指令碼編輯器。
+   ![Python pip 版本](./media/set-up-pyspark-interactive-environment/install-libkrb5-package.png)
+
+```
+sudo apt-get install libkrb5-dev
+```
+
+```
+sudo apt-get install python-dev
+```
+
+重新啟動 VS Code，然後返回執行 [HDInsight: PySpark 互動式] 的指令碼編輯器。
 
 ## <a name="next-steps"></a>後續步驟
 

@@ -1,31 +1,31 @@
 ---
-title: 使用 Curl 來使用 Azure HDInsight 中 Apache Sqoop 匯出資料
-description: 了解如何使用 Curl 從遠端提交 Apache Sqoop 作業到 HDInsight。
+title: 在 Azure HDInsight 中使用捲曲以 Apache Sqoop 匯出資料
+description: 瞭解如何使用捲曲從遠端提交 Apache Sqoop 作業到 Azure HDInsight。
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 04/15/2019
-ms.openlocfilehash: ede0538e90e9f35797546f34bfed757c2727b194
-ms.sourcegitcommit: 79496a96e8bd064e951004d474f05e26bada6fa0
+ms.openlocfilehash: f70c0a0b68e24e3d61a6c0cef238d1f60911e271
+ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/02/2019
-ms.locfileid: "67508868"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70810724"
 ---
-# <a name="run-apache-sqoop-jobs-in-hdinsight-with-curl"></a>Curl 與 HDInsight 中執行 Apache Sqoop 作業
+# <a name="run-apache-sqoop-jobs-in-hdinsight-with-curl"></a>以捲曲的方式在 HDInsight 中執行 Apache Sqoop 作業
 [!INCLUDE [sqoop-selector](../../../includes/hdinsight-selector-use-sqoop.md)]
 
-了解如何使用 Curl 在 HDInsight 中的 Apache Hadoop 叢集上執行 Apache Sqoop 作業。 這篇文章會示範如何將資料從 Azure 儲存體匯出然後匯入 SQL Server 資料庫，使用 Curl。 這篇文章是將延續[在 HDInsight 中搭配 Hadoop 使用 Apache Sqoop](./hdinsight-use-sqoop.md)。
+了解如何使用 Curl 在 HDInsight 中的 Apache Hadoop 叢集上執行 Apache Sqoop 作業。 本文示範如何從 Azure 儲存體匯出資料，並使用捲曲將其匯入至 SQL Server 資料庫。 本文是在[HDInsight 中搭配使用 Apache Sqoop 與 Hadoop](./hdinsight-use-sqoop.md)的接續。
 
 本文件使用 Curl 示範如何使用未經處理的 HTTP 要求來與 HDInsight 互動，以便執行、監視和擷取 Sqoop 作業的結果。 要想執行這些作業，就要使用 HDInsight 叢集所提供的 WebHCat REST API (先前稱為 Templeton)。
 
 ## <a name="prerequisites"></a>必要條件
 
-* 完成[設定測試環境](./hdinsight-use-sqoop.md#create-cluster-and-sql-database)從[在 HDInsight 中搭配 Hadoop 使用 Apache Sqoop](./hdinsight-use-sqoop.md)。
+* 完成[設定測試環境](./hdinsight-use-sqoop.md#create-cluster-and-sql-database) [，從在 HDInsight 中搭配使用 Apache Sqoop 與 Hadoop](./hdinsight-use-sqoop.md)。
 
-* 若要查詢 Azure SQL database 用戶端。 請考慮使用[SQL Server Management Studio](../../sql-database/sql-database-connect-query-ssms.md)或是[Visual Studio Code](../../sql-database/sql-database-connect-query-vscode.md)。
+* 用來查詢 Azure SQL 資料庫的用戶端。 請考慮使用[SQL Server Management Studio](../../sql-database/sql-database-connect-query-ssms.md)或[Visual Studio Code](../../sql-database/sql-database-connect-query-vscode.md)。
 
 * [Curl](https://curl.haxx.se/)。 Curl 是將資料傳送至 HDInsight 叢集或從 HDInsight 叢集傳送資料的工具。
 
@@ -33,12 +33,12 @@ ms.locfileid: "67508868"
 
 ## <a name="submit-apache-sqoop-jobs-by-using-curl"></a>使用 Curl 提交 Apache Sqoop 作業
 
-使用 Curl 來使用 SQL server 的 Apache Sqoop 作業從 Azure 儲存體匯出資料。
+使用捲曲將資料從 Azure 儲存體中的 Apache Sqoop 作業匯出到 SQL Server。
 
 > [!NOTE]  
 > 在使用 Curl 或與 WebHCat 進行任何其他 REST 通訊時，您必須提供 HDInsight 叢集系統管理員的使用者名稱和密碼來驗證要求。 您也必須在用來將要求傳送至伺服器的統一資源識別項 (URI) 中使用叢集名稱。
 
-針對本節中的命令，將`USERNAME`與 使用者驗證叢集，並取代`PASSWORD`與使用者帳戶的密碼。 將 `CLUSTERNAME` 取代為您的叢集名稱。
+對於本節中的命令，請將`USERNAME`取代為要向叢集驗證的使用者，並將`PASSWORD`取代為使用者帳戶的密碼。 將 `CLUSTERNAME` 取代為您的叢集名稱。
  
 透過 [基本驗證](https://en.wikipedia.org/wiki/Basic_access_authentication)來保護 REST API 的安全。 您應該一律使用安全 HTTP (HTTPS) 提出要求，確保認證安全地傳送至伺服器。
 
@@ -54,7 +54,7 @@ ms.locfileid: "67508868"
     {"status":"ok","version":"v1"}
     ```
 
-2. 取代`SQLDATABASESERVERNAME`， `USERNAME@SQLDATABASESERVERNAME`， `PASSWORD`，`SQLDATABASENAME`必要條件的適當值。 使用以下命令提交 Sqoop 作業：
+2. 使用必要條件`USERNAME@SQLDATABASESERVERNAME`中`PASSWORD`的適當值來取代`SQLDATABASESERVERNAME`、、和。 `SQLDATABASENAME` 使用以下命令提交 Sqoop 作業：
 
     ```cmd
     curl -u USERNAME:PASSWORD -d user.name=USERNAME -d command="export --connect jdbc:sqlserver://SQLDATABASESERVERNAME.database.windows.net;user=USERNAME@SQLDATABASESERVERNAME;password=PASSWORD;database=SQLDATABASENAME --table log4jlogs --export-dir /example/data/sample.log --input-fields-terminated-by \0x20 -m 1" -d statusdir="wasb:///example/data/sqoop/curl" https://CLUSTERNAME.azurehdinsight.net/templeton/v1/sqoop
@@ -76,7 +76,7 @@ ms.locfileid: "67508868"
        {"id":"job_1415651640909_0026"}
        ```
 
-3. 若要檢查工作的狀態，請使用下列命令。 將 `JOBID` 取代為上一個步驟中所傳回的值。 例如，如果傳回的值為`{"id":"job_1415651640909_0026"}`，然後`JOBID`會是`job_1415651640909_0026`。
+3. 若要檢查工作的狀態，請使用下列命令。 將 `JOBID` 取代為上一個步驟中所傳回的值。 例如，如果傳回值為`{"id":"job_1415651640909_0026"}`，則`JOBID`會是`job_1415651640909_0026`。
 
     ```cmd
     curl -G -u USERNAME:PASSWORD -d user.name=USERNAME https://CLUSTERNAME.azurehdinsight.net/templeton/v1/jobs/JOBID | jq .status.state
@@ -87,11 +87,11 @@ ms.locfileid: "67508868"
    > [!NOTE]  
    > 此 Curl 要求會傳回含有工作資訊的 JavaScript Object Notation (JSON) 文件；jq 可用來僅擷取狀態值。
 
-4. 工作狀態變更為 [成功]  之後，即可從 Azure Blob 儲存體擷取工作結果。 與查詢一起傳遞的 `statusdir` 參數包含輸出檔案的位置；在此案例中為 `wasb:///example/data/sqoop/curl`。 此位址會儲存在工作的輸出`example/data/sqoop/curl`目錄至 HDInsight 叢集所使用之預設儲存體容器。
+4. 工作狀態變更為 [成功] 之後，即可從 Azure Blob 儲存體擷取工作結果。 與查詢一起傳遞的 `statusdir` 參數包含輸出檔案的位置；在此案例中為 `wasb:///example/data/sqoop/curl`。 此位址會將工作的輸出儲存在 HDInsight `example/data/sqoop/curl`叢集所使用之預設儲存體容器上的目錄中。
 
     您可以使用 Azure 入口網站存取 stderr 和 stdout Blob。
 
-5. 若要確認資料已匯出，使用下列查詢從您的 SQL 用戶端若要檢視匯出的資料：
+5. 若要確認資料已匯出，請從您的 SQL 用戶端使用下列查詢，以查看匯出的資料：
 
     ```sql
     SELECT COUNT(*) FROM [dbo].[log4jlogs] WITH (NOLOCK);

@@ -1,6 +1,6 @@
 ---
 title: Azure HDInsight 中的 Spark 串流
-description: 如何在 HDInsight Spark 叢集上使用 Spark 串流應用程式。
+description: 如何在 HDInsight Spark 叢集上使用 Apache Spark 串流應用程式。
 ms.service: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 03/11/2019
-ms.openlocfilehash: 19d77d4aa49008232a01cd3ac2761a796505a35c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f990e5eb2761f1743c2731f499ecc341990edf53
+ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64712008"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70813989"
 ---
 # <a name="overview-of-apache-spark-streaming"></a>Apache Spark 串流概觀
 
@@ -31,7 +31,7 @@ DStream 會在原始事件資料的頂端提供抽象層。
 
 先以單一事件為例，例如從連接的控溫器讀取溫度。 當此事件抵達 Spark 串流應用程式時，系統會以可靠的方式儲存此事件，也就是在多個節點上複寫此事件。 此容錯方式可確保任何單一節點的錯誤不會造成事件遺失。 Spark 核心使用的資料結構會將資料散布到叢集中多個節點上，其中每個節點通常都會在記憶體內部維護自己的資料，以達到最好的效能。 此資料結構稱為*彈性分散式資料集* (resilient distributed dataset, RDD)。
 
-每個 RDD 皆代表在使用者定義的時間範圍 (稱為「批次間隔」  ) 內收集的事件。 當每個批次間隔過去後，新的 RDD 就會產生，並包含該間隔中的所有資料。 一組連續的 RDD 會被收集到 DStream。 例如，如果批次間隔長度為一秒，您的 DStream 就會每秒發出包含一個 RDD 的批次，該 RDD 會包含在這一秒期間內嵌的所有資料。 處理 DStream 時，溫度事件就會出現在這些批次的其中一個。 Spark 串流應用程式會處理包含事件的批次，並在最後處理儲存在每個 RDD 中的資料。
+每個 RDD 皆代表在使用者定義的時間範圍 (稱為「批次間隔」) 內收集的事件。 當每個批次間隔過去後，新的 RDD 就會產生，並包含該間隔中的所有資料。 一組連續的 RDD 會被收集到 DStream。 例如，如果批次間隔長度為一秒，您的 DStream 就會每秒發出包含一個 RDD 的批次，該 RDD 會包含在這一秒期間內嵌的所有資料。 處理 DStream 時，溫度事件就會出現在這些批次的其中一個。 Spark 串流應用程式會處理包含事件的批次，並在最後處理儲存在每個 RDD 中的資料。
 
 ![DStream 與溫度事件的範例](./media/apache-spark-streaming-overview/hdinsight-spark-streaming-example.png)
 
@@ -145,7 +145,7 @@ stream.foreachRDD { rdd =>
 ssc.start()
 ```
 
-等候約 30 秒之後啟動上述應用程式。  然後，您可以查詢 DataFrame，定期以查看目前的批次中有值的集合，例如使用下列 SQL 查詢：
+啟動上述應用程式之後，請等候約30秒。  然後，您可以定期查詢資料框架，以查看目前在批次中的一組值，例如使用此 SQL 查詢：
 
 ```sql
 %%sql
@@ -167,7 +167,7 @@ SELECT * FROM demo_numbers
 
 ## <a name="sliding-windows"></a>滑動時間範圍
 
-若要在 DStream 上執行某一段時間的彙總計算 (例如取得過去 2 秒的平均溫度)，您可以使用 Spark 串流隨附的「滑動時間範圍」  作業。 滑動時間範圍具有持續時間 (時間範圍長度) 及間隔，系統會在該期間內對該時間範圍的內容進行評估 (滑動間隔)。
+若要在 DStream 上執行某一段時間的彙總計算 (例如取得過去 2 秒的平均溫度)，您可以使用 Spark 串流隨附的「滑動時間範圍」作業。 滑動時間範圍具有持續時間 (時間範圍長度) 及間隔，系統會在該期間內對該時間範圍的內容進行評估 (滑動間隔)。
 
 滑動時間範圍可以重疊，例如，您可以定義一個長度為 2 秒且每秒滑動一次的時間範圍。 這意謂著每次您執行彙總計算時，該時間範圍都會包含前一個時間範圍最後一秒的資料，以及下一秒的任何新資料。
 

@@ -1,18 +1,18 @@
 ---
-title: Azure Site Recovery 中的 VMware 至 Azure 災害復原架構 | Microsoft Docs
+title: VMware 至 Azure 的嚴重損壞修復架構 Azure Site Recovery
 description: 本文概述使用 Azure Site Recovery 來設定從內部部署 VMware VM 至 Azure 的災害復原時，所使用的元件和架構
 author: rayne-wiselman
 ms.service: site-recovery
 services: site-recovery
 ms.topic: conceptual
-ms.date: 05/30/2019
+ms.date: 09/09/2019
 ms.author: raynew
-ms.openlocfilehash: f1fdbd143093beb9736e86b24b76843ad82b89f2
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 7c21b8d7a4a2723ddf10c4ac88f8b1ce4a5d6b47
+ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66418366"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70814580"
 ---
 # <a name="vmware-to-azure-disaster-recovery-architecture"></a>VMware 至 Azure 災害復原架構
 
@@ -25,7 +25,7 @@ ms.locfileid: "66418366"
 
 **元件** | **需求** | **詳細資料**
 --- | --- | ---
-**Azure** | Azure 訂閱、 快取、 受控磁碟與 Azure 網路的 Azure 儲存體帳戶。 | 從內部部署 Vm 複寫的資料會儲存在 Azure 儲存體。 從內部部署環境容錯移轉至 Azure 時，會以複寫的資料建立 Azure VM。 Azure VM 在建立後會連線到 Azure 虛擬網路。
+**Azure** | Azure 訂用帳戶、適用于快取的 Azure 儲存體帳戶、受控磁片和 Azure 網路。 | 從內部部署 Vm 複寫的資料會儲存在 Azure 儲存體中。 從內部部署環境容錯移轉至 Azure 時，會以複寫的資料建立 Azure VM。 Azure VM 在建立後會連線到 Azure 虛擬網路。
 **組態伺服器電腦** | 單一的內部部署電腦。 建議您將其當作可從下載的 OVF 範本部署的 VMware VM 來執行。<br/><br/> 此機器會執行所有的內部部署 Site Recovery 元件，包括組態伺服器、處理序伺服器和主要目標伺服器。 | **組態伺服器**：負責協調內部部署與 Azure 之間的通訊，以及管理資料複寫。<br/><br/> **處理序伺服器**：預設會安裝在組態伺服器上。 負責接收複寫資料，以快取、壓縮和加密進行最佳化，然後將複寫資料傳送至 Azure 儲存體。 處理序伺服器也會在您要複寫的 VM 上安裝 Azure Site Recovery 行動服務，並自動探索內部部署機器。 隨著部署規模擴大，您可以新增額外的個別處理序伺服器，以處理日較大的複寫流量。<br/><br/> **主要目標伺服器**：預設會安裝在組態伺服器上。 負責處理從 Azure 進行容錯回復期間的複寫資料。 針對大型部署，您可以新增額外的個別主要目標伺服器進行容錯回復。
 **VMware 伺服器** | VMware VMs 會裝載於內部部署 vSphere ESXi 伺服器。 我們建議以 vCenter 伺服器管理主機。 | 在 Site Recovery 部署期間，您可將 VMware 伺服器新增至復原服務保存庫。
 **複寫的機器** | 行動服務會安裝在您複寫的每個 VMware VM 上。 | 建議您允許從處理序伺服器自動安裝。 或者，您可以手動安裝服務，或使用 System Center Configuration Manager 等自動化部署方法。
@@ -53,7 +53,7 @@ ms.locfileid: "66418366"
     - 設定伺服器會透過輸出連接埠 HTTPS 443 與 Azure 協調複寫。
     - VM 會透過輸入連接埠 HTTPS 9443 將複寫資料傳送至處理伺服器 (在設定伺服器電腦上執行)。 您可以修改此連接埠。
     - 處理伺服器會透過輸出連接埠 443 接收複寫資料、將其最佳化並加密，然後傳送至 Azure 儲存體。
-5. 複寫資料會記錄在 Azure 中的快取儲存體帳戶中的首。 處理這些記錄檔和資料會儲存在 Azure 受控磁碟 （稱為 「 asr 種子磁碟 」）。 在此磁碟上建立復原點。
+5. 複寫資料記錄會先在 Azure 中的快取儲存體帳戶中進行。 系統會處理這些記錄，並將資料儲存在 Azure 受控磁片中（稱為 asr 種子磁片）。 復原點會建立在此磁片上。
 
 
 

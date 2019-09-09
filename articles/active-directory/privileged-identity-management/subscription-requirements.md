@@ -1,9 +1,9 @@
 ---
-title: 授權使用 PIM-Azure Active Directory 需求 |Microsoft Docs
+title: 使用 PIM 的授權需求-Azure Active Directory |Microsoft Docs
 description: 說明要使用 Azure AD Privileged Identity Management (PIM) 的授權需求。
 services: active-directory
 documentationcenter: ''
-author: rolyon
+author: curtand
 manager: mtillman
 editor: markwahl-msft
 ms.assetid: 34367721-8b42-4fab-a443-a2e55cdbf33d
@@ -14,21 +14,21 @@ ms.devlang: na
 ms.topic: conceptual
 ms.subservice: pim
 ms.date: 01/16/2019
-ms.author: rolyon
+ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 40e16209a185623b6e15650f70141edd6394e337
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 83c31c2731a8e872dfd2750fced8b91d283d0892
+ms.sourcegitcommit: 95b180c92673507ccaa06f5d4afe9568b38a92fb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60437451"
+ms.lasthandoff: 09/08/2019
+ms.locfileid: "70804067"
 ---
 # <a name="license-requirements-to-use-pim"></a>使用 PIM 的授權需求
 
 若要使用 Azure Active Directory (Azure AD) Privileged Identity Management (PIM)，目錄必須具有有效的授權。 此外，也必須指派授權給管理員和相關的使用者。 本文說明使用 PIM 的授權需求。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 若要使用 PIM，目錄必須具有下列其中一個付費或試用授權：
 
@@ -45,7 +45,7 @@ ms.locfileid: "60437451"
 - 有使用 PIM 所管理 Azure AD 角色的管理員
 - 有使用 PIM 所管理 Azure 資源角色的管理員
 - 指派給「特殊權限角色管理員」角色的管理員
-- 使用 PIM 管理 Azure AD 角色的合格指派的使用者
+- 指派為符合使用 PIM 管理之 Azure AD 角色資格的使用者
 - 能夠在 PIM 中核准/拒絕要求的使用者
 - 指派給 Azure 資源角色 (透過及時或直接 (以時間為基礎) 的方式指派) 的使用者  
 - 指派給存取權檢閱的使用者

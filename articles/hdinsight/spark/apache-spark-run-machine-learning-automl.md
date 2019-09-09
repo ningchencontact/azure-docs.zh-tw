@@ -7,14 +7,14 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 01/14/2019
-ms.openlocfilehash: aaea8a1af7ad6df89d41dc0e39d13bafbb610224
-ms.sourcegitcommit: 97605f3e7ff9b6f74e81f327edd19aefe79135d2
+ms.openlocfilehash: 599fa62d253eda7992d7d7db4f5178d3ce428a9c
+ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70736055"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70814050"
 ---
-# <a name="run-azure-machine-learning-workloads-with-automated-machine-learning-automl-on-apache-spark-in-azure-hdinsight"></a>以自動化機器學習 (AutoML) 在 Azure HDInsight 中的 Apache Spark 上執行 Azure Machine Learning 工作負載
+# <a name="run-azure-machine-learning-workloads-with-automated-machine-learning-on-apache-spark-in-hdinsight"></a>在 HDInsight 上的 Apache Spark 上使用自動化機器學習來執行 Azure Machine Learning 工作負載
 
 Azure Machine Learning 可簡化及加速機器學習模型的建立、定型和部署。 在自動化機器學習（AutoML）中，您從具有已定義目標功能的定型資料開始，然後逐一查看演算法和特徵選取的組合，以根據定型分數自動選取資料的最佳模型。 HDInsight 可讓客戶布建具有數百個節點的叢集。 HDInsight 叢集中的 Spark 上執行的 AutoML 可讓使用者使用這些節點的計算容量，以向外延展的方式執行定型作業，以及平行執行多個定型作業。 這可讓使用者執行 AutoML 實驗，同時與其他海量資料工作負載共用計算。
  

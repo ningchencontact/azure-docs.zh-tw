@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 09/26/2017
 ms.author: hrasheed
-ms.openlocfilehash: 28f30270ab0a6c057ee583ccebc2a8540980c6cc
-ms.sourcegitcommit: a874064e903f845d755abffdb5eac4868b390de7
+ms.openlocfilehash: f5052d7e35c3d1c81a3d958bd6e340b9a6a5a244
+ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68442178"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70810691"
 ---
 # <a name="authorize-users-for-apache-ambari-views"></a>授權 Apache Ambari 檢視的使用者
 
@@ -97,7 +97,7 @@ Ambari 隨附 [Apache Hive](https://hive.apache.org/) 和 [Apache TEZ](https://t
 
 若要查看賦予每個角色的權限清單，請按一下 [Roles] \(角色\) 頁面上 [Roles] \(角色\) 資料表標頭旁邊的藍色問號。
 
-![[角色] 功能表連結](./media/hdinsight-authorize-users-to-ambari/roles-permissions.png)
+![角色功能表連結許可權](./media/hdinsight-authorize-users-to-ambari/roles-permissions.png "角色功能表連結許可權")
 
 在此頁面上，有兩個不同的檢視，可供您用來管理使用者和群組的角色：[區塊] 和 [清單]。
 

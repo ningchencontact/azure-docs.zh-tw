@@ -1,6 +1,6 @@
 ---
 title: 自動調整 Azure HDInsight 叢集（預覽）
-description: 使用 HDInsight 自動調整功能自動調整叢集規模
+description: 使用 Azure HDInsight 自動調整功能自動執行 Apache Hadoop 擴充叢集
 author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: hrasheed
-ms.openlocfilehash: f7e34d2bbad5f5d8e6b063269b7e87c314fdce90
-ms.sourcegitcommit: a4b5d31b113f520fcd43624dd57be677d10fc1c0
+ms.openlocfilehash: 877fc3a4e29fc1753d7b4f92091b34d4b2537846
+ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70770708"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70810320"
 ---
 # <a name="automatically-scale-azure-hdinsight-clusters-preview"></a>自動調整 Azure HDInsight 叢集（預覽）
 
@@ -85,7 +85,7 @@ HDInsight 服務會計算需要多少個新的背景工作節點，以符合目�
     * 背景工作節點**最小**數目。  
     * 背景工作節點**最大**數目。  
 
-    ![啟用背景工作節點以載入為基礎的自動調整選項](./media/hdinsight-autoscale-clusters/usingAutoscale.png)
+    ![啟用背景工作節點以負載為基礎的自動調整](./media/hdinsight-autoscale-clusters/usingAutoscale.png)
 
 背景工作節點的初始數目必須介於最小值和最大值 (含) 之間。 此值會定義叢集建立時的初始大小。 背景工作節點的最小數目必須大於零。
 
@@ -103,7 +103,7 @@ HDInsight 服務會計算需要多少個新的背景工作節點，以符合目�
 1. 編輯條件應生效的時間，以及應調整叢集的節點數目。
 1. 視需要新增更多條件。
 
-    ![啟用背景工作節點以排程為基礎的自動調整選項](./media/hdinsight-autoscale-clusters/hdinsight-autoscale-clusters-schedule-creation.png)
+    ![啟用背景工作節點以排程為基礎的建立](./media/hdinsight-autoscale-clusters/hdinsight-autoscale-clusters-schedule-creation.png)
 
 節點數目必須介於1和您在新增條件之前輸入的背景工作節點數目之間。
 
@@ -111,7 +111,7 @@ HDInsight 服務會計算需要多少個新的背景工作節點，以符合目�
 
 針對負載型和以排程為基礎的調整，請按一下 [背景**工作節點大小**] 和 [前端**節點大小**] 來選取背景工作節點的 VM 類型。 為每個節點類型選擇 VM 類型之後，您可以看到整個叢集的預估成本範圍。 調整 VM 類型以符合您的預算。
 
-![啟用背景工作節點以排程為基礎的自動調整選項](./media/hdinsight-autoscale-clusters/hdinsight-autoscale-clusters-node-size-selection.png)
+![啟用背景工作節點以排程為基礎的自動調整節點大小](./media/hdinsight-autoscale-clusters/hdinsight-autoscale-clusters-node-size-selection.png)
 
 您的訂用帳戶擁有每個區域的容量配額。 您前端節點的核心總數與背景工作節點的最大數目結合之後，不能超過容量配額。 但是這個配額是軟性限制；您一律可以建立支援票證，輕鬆增加配額。
 
@@ -189,7 +189,7 @@ HDInsight 服務會計算需要多少個新的背景工作節點，以符合目�
 #### <a name="using-the-azure-portal"></a>使用 Azure 入口網站
 若要在執行中的叢集上啟用自動調整，請選取 **設定** 底下的 叢集**大小** 然後按一下 [**啟用自動**調整]。 選取您想要的自動調整類型，並輸入以負載為基礎或以排程為基礎的縮放選項。 最後，按一下 [ **儲存**]。
 
-![啟用背景工作節點以排程為基礎的自動調整選項](./media/hdinsight-autoscale-clusters/hdinsight-autoscale-clusters-enable-running-cluster.png)
+![啟用以背景工作節點排程為基礎的自動調整執行叢集](./media/hdinsight-autoscale-clusters/hdinsight-autoscale-clusters-enable-running-cluster.png)
 
 #### <a name="using-the-rest-api"></a>使用 REST API
 若要使用 REST API 在執行中的叢集上啟用或停用自動調整，請對自動調整端點發出 POST 要求，如下列程式碼片段所示：
@@ -231,7 +231,7 @@ https://management.azure.com/subscriptions/{subscription Id}/resourceGroups/{res
 
 Azure 入口網站中所列的叢集狀態可協助您監視自動調整活動。
 
-![啟用背景工作節點以載入為基礎的自動調整選項](./media/hdinsight-autoscale-clusters/hdinsight-autoscale-clusters-cluster-status.png)
+![啟用背景工作節點負載型自動調整叢集狀態](./media/hdinsight-autoscale-clusters/hdinsight-autoscale-clusters-cluster-status.png)
 
 下列清單會說明您可能會看到的所有叢集狀態訊息。
 
@@ -251,7 +251,7 @@ Azure 入口網站中所列的叢集狀態可協助您監視自動調整活動�
 
 選取 [**監視**] 下的 [**計量**]。 然後**按一下 [計量**] 下拉式清單方塊中的 [**新增**計量和作用中背景**工作的數目**]。 按一下右上方的按鈕以變更時間範圍。
 
-![啟用背景工作節點以排程為基礎的自動調整選項](./media/hdinsight-autoscale-clusters/hdinsight-autoscale-clusters-chart-metric.png)
+![啟用以背景工作節點排程為基礎的自動調整度量](./media/hdinsight-autoscale-clusters/hdinsight-autoscale-clusters-chart-metric.png)
 
 
 ## <a name="next-steps"></a>後續步驟

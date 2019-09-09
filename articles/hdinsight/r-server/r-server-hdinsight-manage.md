@@ -1,6 +1,6 @@
 ---
 title: 在 HDInsight 上管理 ML 服務叢集 - Azure
-description: 了解如何在 Azure HDInsight 中管理 ML 服務叢集。
+description: 瞭解如何在 Azure HDInsight 中管理 ML 服務叢集上的各種工作。
 ms.service: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
@@ -8,23 +8,23 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/19/2019
-ms.openlocfilehash: fa838f371607f3c0b0f76f81d6755c842a5901f7
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 568c4324f3b542e2b913596c1d93ffb72bbbaec7
+ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67448968"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70814255"
 ---
 # <a name="manage-ml-services-cluster-on-azure-hdinsight"></a>在 HDInsight 上管理 ML 服務叢集
 
-在本文中，您了解如何管理現有的 ML 服務叢集來執行工作，例如新增多個並行使用者，從遠端連線到 ML 服務叢集中變更計算內容等的 Azure HDInsight 上的內容。
+在本文中，您將瞭解如何在 Azure HDInsight 上管理現有的 ML 服務叢集，以執行像是新增多個並行使用者、遠端連線至 ML 服務叢集、變更計算內容等工作的工作。
 
 ## <a name="prerequisites"></a>必要條件
 
-* 在 HDInsight 上 ML 服務叢集。 請參閱[使用 Azure 入口網站中建立 Apache Hadoop 叢集](../hdinsight-hadoop-create-linux-clusters-portal.md)，然後選取**ML 服務**for**叢集類型**。
+* HDInsight 上的 ML 服務叢集。 請參閱[使用 Azure 入口網站建立 Apache Hadoop 叢集](../hdinsight-hadoop-create-linux-clusters-portal.md)，然後選取 [ML 服務] 作為 [叢集類型]。
 
 
-* 安全殼層 (SSH) 用戶端：SSH 用戶端可用來從遠端連線至 HDInsight 叢集，並直接在叢集上執行命令。 如需詳細資訊，請參閱[搭配使用 SSH 與 HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md)。
+* 安全殼層（SSH）用戶端：SSH 用戶端可用來從遠端連線至 HDInsight 叢集，並直接在叢集上執行命令。 如需詳細資訊，請參閱[搭配使用 SSH 與 HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md)。
 
 
 ## <a name="enable-multiple-concurrent-users"></a>啟用多個並行使用者
@@ -50,11 +50,11 @@ HDInsight 上 ML 服務叢集中所使用的 R Studio Server 社群版本，只�
 2. 在邊緣節點中新增更多 Linux 使用者
 3. 使用 RStudio 社群版本搭配所建立的使用者
 
-### <a name="step-1-use-the-created-ssh-user-to-sign-in-to-the-edge-node"></a>步驟 1：使用所建立的 SSH 使用者來登入邊緣節點
+### <a name="step-1-use-the-created-ssh-user-to-sign-in-to-the-edge-node"></a>步驟 1:使用所建立的 SSH 使用者來登入邊緣節點
 
 遵循[使用 SSH 連線到 HDInsight (Apache Hadoop)](../hdinsight-hadoop-linux-use-ssh-unix.md) 中的指示來存取邊緣節點。 HDInsight 上 ML 服務叢集的邊緣節點位址是 `CLUSTERNAME-ed-ssh.azurehdinsight.net`。
 
-### <a name="step-2-add-more-linux-users-in-edge-node"></a>步驟 2：在邊緣節點中新增更多 Linux 使用者
+### <a name="step-2-add-more-linux-users-in-edge-node"></a>步驟 2:在邊緣節點中新增更多 Linux 使用者
 
 若要將使用者新增至邊緣節點，請執行下列命令︰
 
@@ -108,7 +108,7 @@ HDInsight 上 ML 服務叢集中所使用的 R Studio Server 社群版本，只�
 
 ## <a name="use-a-compute-context"></a>使用計算內容
 
-計算內容可讓您控制要在邊緣節點上本機執行計算，或散發到 HDInsight 叢集的節點中。  設定計算內容使用 RStudio Server 的範例，請參閱 < [ML 服務中使用 RStudio Server 的 Azure HDInsight 叢集上執行 R 指令碼](machine-learning-services-quickstart-job-rstudio.md)。
+計算內容可讓您控制要在邊緣節點上本機執行計算，或散發到 HDInsight 叢集的節點中。  如需使用 RStudio 伺服器設定計算內容的範例，請參閱[使用 RStudio 伺服器在 Azure HDInsight 中的 ML 服務叢集上執行 R 腳本](machine-learning-services-quickstart-job-rstudio.md)。
 
 ## <a name="distribute-r-code-to-multiple-nodes"></a>將 R 程式碼分散到多個節點
 
@@ -190,7 +190,7 @@ HDInsight ML 服務可讓您在 Hive 和 Parquet 中直接存取資料，以供 
 
 3. 針對**提交指令碼動作**，提供下列資訊：
 
-   * 針對**指令碼類型**，選取 [自訂]  。
+   * 針對**指令碼類型**，選取 [自訂]。
 
    * 針對**名稱**，提供指令碼動作的名稱。
 
@@ -211,7 +211,7 @@ HDInsight ML 服務可讓您在 Hive 和 Parquet 中直接存取資料，以供 
 
    ![新增指令碼動作](./media/r-server-hdinsight-manage/submitscriptaction.png)
 
-4. 按一下 [建立]  執行指令碼。 指令碼完成之後，即可在所有的背景工作角色節點上使用 R 套件。
+4. 按一下 [建立] 執行指令碼。 指令碼完成之後，即可在所有的背景工作角色節點上使用 R 套件。
 
 ## <a name="next-steps"></a>後續步驟
 

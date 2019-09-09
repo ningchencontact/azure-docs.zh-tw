@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5559d30921ea44679b4ecd24c77e26be163c18fc
-ms.sourcegitcommit: aebe5a10fa828733bbfb95296d400f4bc579533c
+ms.openlocfilehash: 53900bcade3f7a283309f5ee1c624c742a62ad3f
+ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/05/2019
-ms.locfileid: "70375898"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70812449"
 ---
 # <a name="how-to-plan-your-hybrid-azure-active-directory-join-implementation"></a>如何：規劃混合式 Azure Active Directory Join 實作
 
@@ -149,7 +149,7 @@ ms.locfileid: "70375898"
 | ----- | ----- | ----- | ----- |
 | 路由式 | 同盟 | 自 1703 版起 | 正式推出 |
 | 非可路由傳送 | 同盟 | 自 1803 版起 | 正式推出 |
-| 路由式 | 受控 | 不支援 | |
+| 路由式 | 受控 | 自 1803 版起 | 已正式推出，不支援 Windows 鎖屏上的 Azure AD SSPR |
 | 非可路由傳送 | 受控 | 不支援 | |
 
 ## <a name="next-steps"></a>後續步驟

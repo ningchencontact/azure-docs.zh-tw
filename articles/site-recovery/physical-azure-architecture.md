@@ -5,14 +5,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 05/30/2019
+ms.date: 09/09/2019
 ms.author: raynew
-ms.openlocfilehash: 354a68d7d4d07657baa7044566dde8b7ed77ca63
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a5d3dfe6457c4b70f0b23c2d8aa7ac5e58e68dc7
+ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66400078"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70814460"
 ---
 # <a name="physical-server-to-azure-disaster-recovery-architecture"></a>實體伺服器至 Azure 的災害復原架構
 
@@ -25,7 +25,7 @@ ms.locfileid: "66400078"
 
 **元件** | **需求** | **詳細資料**
 --- | --- | ---
-**Azure** | Azure 訂用帳戶中，與 Azure 網路。 | 複寫的資料從內部部署實體機器會儲存在 Azure 受控磁碟。 從內部部署環境容錯移轉至 Azure 時，便會以複寫的資料建立 Azure VM。 Azure VM 在建立後會連線到 Azure 虛擬網路。
+**Azure** | Azure 訂用帳戶和 Azure 網路。 | 從內部部署實體機器複寫的資料會儲存在 Azure 受控磁片中。 從內部部署環境容錯移轉至 Azure 時，便會以複寫的資料建立 Azure VM。 Azure VM 在建立後會連線到 Azure 虛擬網路。
 **組態伺服器** | 系統會部署單一內部部署實體機器或 VMware VM，以執行所有的內部部署 Site Recovery 元件。 此 VM 會執行組態伺服器、處理序伺服器和主要目標伺服器。 | 組態伺服器會協調內部部署與 Azure 之間的通訊，以及管理資料複寫。
  **處理序伺服器**：  | 預設會與組態伺服器一起安裝。 | 會做為複寫閘道器。 接收複寫資料，以快取、壓縮和加密進行最佳化，然後將複寫資料傳送至 Azure 儲存體。<br/><br/> 處理序伺服器也會在您要複寫的伺服器上安裝行動服務。<br/><br/> 隨著部署規模擴大，您可以新增額外的個別處理序伺服器，以處理日較大的複寫流量。
  **主要目標伺服器** | 預設會與組態伺服器一起安裝。 | 在從 Azure 容錯回復期間，處理複寫資料。<br/><br/> 針對大型部署，您可以新增額外的個別主要目標伺服器進行容錯回復。

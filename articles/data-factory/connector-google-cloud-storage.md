@@ -8,14 +8,14 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 09/04/2019
+ms.date: 09/09/2019
 ms.author: jingwang
-ms.openlocfilehash: ef47426d80011b1c3e5f65675e4206a2afb98ef8
-ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
+ms.openlocfilehash: fcfdf7de3d121030e0ceb345829b153235a52703
+ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70275170"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70813517"
 ---
 # <a name="copy-data-from-google-cloud-storage-using-azure-data-factory"></a>使用 Azure Data Factory 從 Google Cloud Storage 複製資料
 
@@ -23,7 +23,7 @@ ms.locfileid: "70275170"
 
 ## <a name="supported-capabilities"></a>支援的功能
 
-下列活動支援此 Google 雲端儲存體連接器:
+下列活動支援此 Google 雲端儲存體連接器：
 
 - [複製活動](copy-activity-overview.md)與[支援的來源/接收矩陣](copy-activity-overview.md)
 - [查閱活動](control-flow-lookup-activity.md)
@@ -84,22 +84,22 @@ ms.locfileid: "70275170"
 
 ## <a name="dataset-properties"></a>資料集屬性
 
-- 如需**Parquet、分隔文字、avro 和二進位格式**, 請參閱[Parquet、分隔文字、avro 和二進位格式資料集](#format-based-dataset)一節。
-- 如需**ORC/JSON 格式**之類的其他格式, 請參閱[其他格式資料集](#other-format-dataset)一節。
+- 如需**Parquet、分隔的文字、json、avro 和二進位格式**，請參閱[Parquet、分隔的文字、json、avro 和二進位格式資料集](#format-based-dataset)一節。
+- 如需**ORC 格式**之類的其他格式，請參閱[其他格式資料集](#other-format-dataset)一節。
 
-### <a name="format-based-dataset"></a>Parquet、分隔的文字、Avro 和二進位格式資料集
+### <a name="format-based-dataset"></a>Parquet、分隔的文字、JSON、Avro 和二進位格式資料集
 
-若要從**Parquet (分隔的文字或二進位格式**) 複製資料, 請參閱格式為基礎的資料集上的[Parquet 格式](format-parquet.md)、[分隔的文字格式](format-delimited-text.md)、 [Avro 格式](format-avro.md)和[二進位格式](format-binary.md)一文, 以及支援的設定。 下列屬性在以格式為基礎之資料集`location`的設定下支援 Google 雲端儲存體:
+若要從**Parquet、分隔文字、JSON、Avro 和二進位格式**複製資料，請參閱格式為基礎的資料集上的[Parquet 格式](format-parquet.md)、[分隔的文字格式](format-delimited-text.md)、 [avro 格式](format-avro.md)和[二進位格式](format-binary.md)一文，以及支援的設定。 下列屬性在以格式為基礎之資料集`location`的設定下支援 Google 雲端儲存體：
 
 | 屬性   | 描述                                                  | 必要項 |
 | ---------- | ------------------------------------------------------------ | -------- |
 | Type       | 資料集`location`內的類型屬性必須設定為**AmazonS3Location**。 | 是      |
 | bucketName | S3 貯體名稱。                                          | 是      |
-| folderPath | 給定值區下的資料夾路徑。 如果您想要使用萬用字元來篩選資料夾, 請略過此設定, 並在 [活動來源設定] 中指定。 | 否       |
-| fileName   | 給定值區 + folderPath 下的檔案名。 如果您想要使用萬用字元來篩選檔案, 請略過此設定, 並在 [活動來源設定] 中指定。 | 否       |
+| folderPath | 給定值區下的資料夾路徑。 如果您想要使用萬用字元來篩選資料夾，請略過此設定，並在 [活動來源設定] 中指定。 | 否       |
+| fileName   | 給定值區 + folderPath 下的檔案名。 如果您想要使用萬用字元來篩選檔案，請略過此設定，並在 [活動來源設定] 中指定。 | 否       |
 
 > [!NOTE]
-> 下一節中所提及的**AmazonS3Object**類型資料集具有 Parquet/文字格式, 但針對回溯相容性的複製/查閱/GetMetadata 活動仍受到支援。 建議您繼續使用此新模型, 而 ADF 撰寫 UI 已切換為產生這些新的類型。
+> 下一節中所提及的**AmazonS3Object**類型資料集具有 Parquet/文字格式，但針對回溯相容性的複製/查閱/GetMetadata 活動仍受到支援。 建議您繼續使用此新模型，而 ADF 撰寫 UI 已切換為產生這些新的類型。
 
 **範例:**
 
@@ -130,7 +130,7 @@ ms.locfileid: "70275170"
 
 ### <a name="other-format-dataset"></a>其他格式資料集
 
-若要從 Google Cloud Storage 以**ORC/JSON 格式**複製資料, 支援下列屬性:
+若要以**ORC 格式**從 Google Cloud Storage 複製資料，支援下列屬性：
 
 | 屬性 | 描述 | 必要項 |
 |:--- |:--- |:--- |
@@ -183,26 +183,26 @@ ms.locfileid: "70275170"
 
 ### <a name="google-cloud-storage-as-source"></a>Google Cloud Storage 做為來源
 
-- 若要從**Parquet、分隔文字、avro 和二進位格式**複製, 請參閱[Parquet、分隔文字、avro 和二進位格式來源](#format-based-source)一節。
-- 若要從**ORC/JSON 格式**之類的其他格式複製, 請參閱[其他格式來源](#other-format-source)一節。
+- 若要從**Parquet、分隔文字、json、avro 和二進位格式**複製，請參閱[Parquet、分隔文字、json、avro 和二進位格式來源](#format-based-source)一節。
+- 若要從**ORC 格式**之類的其他格式複製，請參閱[其他格式來源](#other-format-source)一節。
 
-#### <a name="format-based-source"></a>Parquet、分隔的文字、Avro 和二進位格式來源
+#### <a name="format-based-source"></a>Parquet、分隔的文字、JSON、Avro 和二進位格式來源
 
-若要從**Parquet (分隔文字或二進位格式**) 複製資料, 請參閱格式為基礎之複製活動來源和支援設定的[Parquet 格式](format-parquet.md)、[分隔文字格式](format-delimited-text.md)、 [Avro 格式](format-avro.md)和[二進位格式](format-binary.md)一文。 下列屬性在以格式為基礎之複製來源`storeSettings`的設定下支援 Google 雲端儲存體:
+若要從**Parquet、分隔文字、JSON、Avro 和二進位格式**複製資料，請參閱格式為基礎之複製活動來源的[Parquet 格式](format-parquet.md)、[分隔文字格式](format-delimited-text.md)、 [Avro 格式](format-avro.md)和[二進位格式](format-binary.md)文章，並加以支援設置。 下列屬性在以格式為基礎之複製來源`storeSettings`的設定下支援 Google 雲端儲存體：
 
 | 屬性                 | 描述                                                  | 必要項                                                    |
 | ------------------------ | ------------------------------------------------------------ | ----------------------------------------------------------- |
 | Type                     | 底下的 type 屬性`storeSettings`必須設定為**AmazonS3ReadSetting**。 | 是                                                         |
 | recursive                | 指出是否從子資料夾、或只有從指定的資料夾，以遞迴方式讀取資料。 請注意，當遞迴設定為 true 且接收是檔案型存放區時，就不會在接收上複製或建立空的資料夾或子資料夾。 允許的值為 **true** (預設值) 和 **false**。 | 否                                                          |
-| prefix                   | 在資料集內設定的指定值區底下, S3 物件索引鍵的前置詞, 用來篩選來源物件。 系統會選取索引鍵以此前置詞開頭的物件。 只有在未`wildcardFolderPath`指定`wildcardFileName`和屬性時才適用。 |                                                             |
-| wildcardFolderPath       | 在資料集內設定的指定值區底下, 具有萬用字元的資料夾路徑, 用來篩選來源資料夾。 <br>允許的萬用字元為：`*` (比對零或多個字元) 和 `?` (比對零或單一字元)；如果您的實際資料夾名稱包含萬用字元或此逸出字元，請使用 `^` 來逸出。 <br>如需更多範例，請參閱[資料夾和檔案篩選範例](#folder-and-file-filter-examples)。 | 否                                                          |
-| wildcardFileName         | 在指定的值區 + folderPath/wildcardFolderPath 下具有萬用字元的檔案名, 用以篩選原始程式檔。 <br>允許的萬用字元為：`*` (比對零或多個字元) 和 `?` (比對零或單一字元)；如果您的實際資料夾名稱包含萬用字元或此逸出字元，請使用 `^` 來逸出。  如需更多範例，請參閱[資料夾和檔案篩選範例](#folder-and-file-filter-examples)。 | 如果在`fileName`資料集和`prefix`中未指定, 則為是 |
+| prefix                   | 在資料集內設定的指定值區底下，S3 物件索引鍵的前置詞，用來篩選來源物件。 系統會選取索引鍵以此前置詞開頭的物件。 只有在未`wildcardFolderPath`指定`wildcardFileName`和屬性時才適用。 |                                                             |
+| wildcardFolderPath       | 在資料集內設定的指定值區底下，具有萬用字元的資料夾路徑，用來篩選來源資料夾。 <br>允許的萬用字元為：`*` (比對零或多個字元) 和 `?` (比對零或單一字元)；如果您的實際資料夾名稱包含萬用字元或此逸出字元，請使用 `^` 來逸出。 <br>如需更多範例，請參閱[資料夾和檔案篩選範例](#folder-and-file-filter-examples)。 | 否                                                          |
+| wildcardFileName         | 在指定的值區 + folderPath/wildcardFolderPath 下具有萬用字元的檔案名，用以篩選原始程式檔。 <br>允許的萬用字元為：`*` (比對零或多個字元) 和 `?` (比對零或單一字元)；如果您的實際資料夾名稱包含萬用字元或此逸出字元，請使用 `^` 來逸出。  如需更多範例，請參閱[資料夾和檔案篩選範例](#folder-and-file-filter-examples)。 | 如果在`fileName`資料集和`prefix`中未指定，則為是 |
 | modifiedDatetimeStart    | 檔案篩選會根據以下屬性：上次修改時間。 如果檔案的上次修改時間在 `modifiedDatetimeStart` 與 `modifiedDatetimeEnd` 之間的時間範圍內，系統就會選取該檔案。 此時間會以 "2018-12-01T05:00:00Z" 格式套用至 UTC 時區。 <br> 屬性可以是 NULL，這意謂著不會在資料集套用任何檔案屬性篩選。  當 `modifiedDatetimeStart` 具有日期時間值，但 `modifiedDatetimeEnd` 為 NULL 時，意謂著系統將會選取上次更新時間屬性大於或等於此日期時間值的檔案。  當 `modifiedDatetimeEnd` 具有日期時間值，但 `modifiedDatetimeStart` 為 NULL 時，則意謂著系統將會選取上次更新時間屬性小於此日期時間值的檔案。 | 否                                                          |
 | modifiedDatetimeEnd      | 同上。                                               | 否                                                          |
-| maxConcurrentConnections | 連接到儲存體存放區的連線數目。 只有當您想要限制與資料存放區的並行連接時, 才指定。 | 否                                                          |
+| maxConcurrentConnections | 連接到儲存體存放區的連線數目。 只有當您想要限制與資料存放區的並行連接時，才指定。 | 否                                                          |
 
 > [!NOTE]
-> 針對 Parquet/分隔文字格式, 下一節中所提及的**FileSystemSource**類型複製活動來源仍然受到回溯相容性的支援。 建議您繼續使用此新模型, 而 ADF 撰寫 UI 已切換為產生這些新的類型。
+> 針對 Parquet/分隔文字格式，下一節中所提及的**FileSystemSource**類型複製活動來源仍然受到回溯相容性的支援。 建議您繼續使用此新模型，而 ADF 撰寫 UI 已切換為產生這些新的類型。
 
 **範例:**
 
@@ -247,13 +247,13 @@ ms.locfileid: "70275170"
 
 #### <a name="other-format-source"></a>其他格式來源
 
-若要從 Google Cloud Storage 以**ORC/JSON 格式**複製資料, 複製活動的 [**來源**] 區段中支援下列屬性:
+若要以**ORC 格式**從 Google Cloud Storage 複製資料，複製活動的 [**來源**] 區段中支援下列屬性：
 
 | 屬性 | 描述 | 必要項 |
 |:--- |:--- |:--- |
 | Type | 複製活動來源的類型屬性必須設定為：**FileSystemSource** |是 |
 | recursive | 表示是否從子資料夾，或只有從指定的資料夾，以遞迴方式讀取資料。 請注意，當 recursive 設定為 true，而接收器為檔案型存放區時，系統不會在接收器複製/建立空資料夾/子資料夾。<br/>允許的值為：**true** (預設值)、**false** | 否 |
-| maxConcurrentConnections | 連接到儲存體存放區的連線數目。 只有當您想要限制與資料存放區的並行連接時, 才指定。 | 否 |
+| maxConcurrentConnections | 連接到儲存體存放區的連線數目。 只有當您想要限制與資料存放區的並行連接時，才指定。 | 否 |
 
 **範例:**
 

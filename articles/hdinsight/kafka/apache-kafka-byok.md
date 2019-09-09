@@ -1,5 +1,5 @@
 ---
-title: 在 Azure HDInsight 上的 Apache Kafka 自備您自己的金鑰
+title: 在 Azure HDInsight 上攜帶您自己的 Apache Kafka 金鑰
 description: 本文說明如何使用您自己在 Azure Key Vault 中的金鑰，來加密 Azure HDInsight 上的 Apache Kafka 中所儲存的資料。
 ms.service: hdinsight
 author: hrasheed-msft
@@ -7,14 +7,14 @@ ms.author: hrasheed
 ms.reviewer: hrasheed
 ms.topic: conceptual
 ms.date: 05/06/2019
-ms.openlocfilehash: 6108bfd9e39b37507ec7e113bf2c489e890f0ca0
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f619a0179849e2ca17a0528d97ef13f0788a4838
+ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65233574"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70811536"
 ---
-# <a name="bring-your-own-key-for-apache-kafka-on-azure-hdinsight"></a>在 Azure HDInsight 上的 Apache Kafka 自備您自己的金鑰
+# <a name="bring-your-own-key-for-apache-kafka-on-azure-hdinsight"></a>在 Azure HDInsight 上攜帶您自己的 Apache Kafka 金鑰
 
 Azure HDInsight 可針對 Apache Kafka 支援攜帶您自己的金鑰 (BYOK)。 這項功能可讓您擁有及管理用來加密待用資料的金鑰。
 
@@ -24,126 +24,127 @@ BYOK 加密是單一步驟的程序，您可在叢集建立期間免費處理此
 
 所有傳送到 Kafka 叢集的訊息 (包括 Kafka 所維護的複本) 都會使用對稱資料加密金鑰 (DEK) 來加密。 DEK 會使用金鑰保存庫中的金鑰加密金鑰 (KEK) 來加以保護。 加密和解密程序完全由 Azure HDInsight 來處理。 
 
-您可以使用 Azure 入口網站或 Azure CLI，在金鑰保存庫中安全地輪替金鑰。 金鑰輪替時，HDInsight Kafka 叢集就會在幾分鐘內開始使用新的金鑰。 啟用 「 虛刪除 」 金鑰保護功能，可防禦勒索軟體案例及意外刪除。 金鑰保存庫不支援此保護功能沒有。
+您可以使用 Azure 入口網站或 Azure CLI，在金鑰保存庫中安全地輪替金鑰。 金鑰輪替時，HDInsight Kafka 叢集就會在幾分鐘內開始使用新的金鑰。 啟用「虛刪除」金鑰保護功能，以防範勒索軟體案例和意外刪除。 不支援不含此保護功能的金鑰保存庫。
 
 ## <a name="get-started-with-byok"></a>開始使用 BYOK
-若要建立 BYOK 啟用 Kafka 叢集，我們將探討下列步驟：
-1. 建立適用於 Azure 資源管理的身分識別
-2. 設定 Azure Key Vault 和金鑰
-3. 使用 BYOK 啟用建立 HDInsight Kafka 叢集
+若要建立已啟用 BYOK 的 Kafka 叢集，我們會進行下列步驟：
+1. 建立適用于 Azure 資源的受控識別
+2. 安裝程式 Azure Key Vault 和金鑰
+3. 建立已啟用 BYOK 的 HDInsight Kafka 叢集
 4. 輪替加密金鑰
 
-## <a name="create-managed-identities-for-azure-resources"></a>建立適用於 Azure 資源管理的身分識別
+## <a name="create-managed-identities-for-azure-resources"></a>建立適用于 Azure 資源的受控識別
 
-   若要向 Key Vault，使用下列方法建立使用者指派給受控身分識別[Azure 入口網站](../../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md)， [Azure PowerShell](../../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-powershell.md)， [Azure Resource Manager](../../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-arm.md)，或[Azure CLI](../../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-cli.md)。 如需有關如何管理 Azure HDInsight 中的身分識別工作的詳細資訊，請參閱 <<c0> [ 管理 Azure HDInsight 中的身分識別](../hdinsight-managed-identities.md)。 必須有 Azure Active directory 才能使用受控識別和 Kafka 的 BYOK，但不需要企業安全性套件 (ESP)。 將受控識別資源識別碼新增至 Key Vault 存取原則時，請務必儲存起來。
+   若要向 Key Vault 進行驗證，請使用[Azure 入口網站](../../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md)、 [Azure PowerShell](../../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-powershell.md)、 [Azure Resource Manager](../../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-arm.md)或[Azure CLI](../../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-cli.md)建立使用者指派的受控識別。 如需如何在 Azure HDInsight 中使用受控識別的詳細資訊，請參閱[Azure HDInsight 中的受控](../hdinsight-managed-identities.md)識別。 必須有 Azure Active directory 才能使用受控識別和 Kafka 的 BYOK，但不需要企業安全性套件 (ESP)。 將受控識別資源識別碼新增至 Key Vault 存取原則時，請務必儲存起來。
 
    ![在 Azure 入口網站中建立使用者指派的受控識別](./media/apache-kafka-byok/user-managed-identity-portal.png)
 
 ## <a name="setup-the-key-vault-and-keys"></a>設定 Key Vault 和金鑰
 
-   HDInsight 僅支援 Azure Key Vault。 如果您有自己的金鑰保存庫，則可以將自己的金鑰匯入 Azure Key Vault 中。 請記住，索引鍵必須具有 「 虛刪除 」。 「 虛刪除 」 功能是可透過 REST、.NET /C#、 PowerShell 和 Azure CLI 介面。
+   HDInsight 僅支援 Azure Key Vault。 如果您有自己的金鑰保存庫，則可以將自己的金鑰匯入 Azure Key Vault 中。 請記住，這些金鑰必須具有「虛刪除」。 「虛刪除」功能可透過 REST、.NET/C#、PowerShell 和 Azure CLI 介面取得。
 
    1. 若要建立新的金鑰保存庫，請遵循 [Azure Key Vault](../../key-vault/key-vault-overview.md) 快速入門。 如需如何匯入現有金鑰的詳細資訊，請瀏覽[關於金鑰、祕密和憑證](../../key-vault/about-keys-secrets-and-certificates.md)。
 
-   2. 使用金鑰保存庫上啟用 「 虛刪除 」 [az keyvault update](/cli/azure/keyvault?view=azure-cli-latest#az-keyvault-update) cli 命令。
-        ```Azure CLI az keyvault update --name <Key Vault Name> --enable-soft-delete
+   2. 使用[az keyvault update](/cli/azure/keyvault?view=azure-cli-latest#az-keyvault-update) cli 命令，在金鑰保存庫上啟用「虛刪除」。
+        ```Azure CLI
+        az keyvault update --name <Key Vault Name> --enable-soft-delete
         ```
 
-   3. Create keys
+   3. 建立金鑰
 
-        a. To create a new key, select **Generate/Import** from the **Keys** menu under **Settings**.
+        a. 若要建立新的金鑰，從 [設定] 下方的 [金鑰] 功能表中選取 [產生/匯入]。
 
-        ![Generate a new key in Azure Key Vault](./media/apache-kafka-byok/kafka-create-new-key.png)
+        ![在 Azure Key Vault 中產生新的金鑰](./media/apache-kafka-byok/kafka-create-new-key.png "在 Azure Key Vault 中產生新的金鑰")
 
-        b. Set **Options** to **Generate** and give the key a name.
+        b. 將 [選項] 設定為 [產生]，並為金鑰提供名稱。
 
-        ![Generate a new key in Azure Key Vault](./media/apache-kafka-byok/kafka-create-a-key.png)
+        ![產生金鑰名稱](./media/apache-kafka-byok/kafka-create-a-key.png "產生金鑰名稱")
 
-        c. Select the key you created from the list of keys.
+        c. 從金鑰清單中選取您建立的金鑰。
 
-        ![Azure Key Vault key list](./media/apache-kafka-byok/kafka-key-vault-key-list.png)
+        ![Azure Key Vault 金鑰清單](./media/apache-kafka-byok/kafka-key-vault-key-list.png)
 
-        d. When you use your own key for Kafka cluster encryption, you need to provide the key URI. Copy the **Key identifier** and save it somewhere until you're ready to create your cluster.
+        d. 當您使用自己的金鑰進行 Kafka 叢集加密時，需要提供金鑰 URI。 複製**金鑰識別碼**並將其儲存到某處，直到您準備好建立叢集為止。
 
-        ![Copy key identifier](./media/apache-kafka-byok/kafka-get-key-identifier.png)
+        ![複製金鑰識別碼](./media/apache-kafka-byok/kafka-get-key-identifier.png)
    
-    4. Add managed identity to the key vault access policy.
+    4. 將受控識別新增至金鑰保存庫存取原則。
 
-        a. Create a new Azure Key Vault access policy.
+        a. 建立新的 Azure Key Vault 存取原則。
 
-        ![Create new Azure Key Vault access policy](./media/apache-kafka-byok/add-key-vault-access-policy.png)
+        ![建立新的 Azure Key Vault 存取原則](./media/apache-kafka-byok/add-key-vault-access-policy.png)
 
-        b. Under **Select Principal**, choose the user-assigned managed identity you created.
+        b. 在 [選取主體] 底下，選擇您所建立的使用者指派受控識別。
 
-        ![Set Select Principal for Azure Key Vault access policy](./media/apache-kafka-byok/add-key-vault-access-policy-select-principal.png)
+        ![為 Azure Key Vault 存取原則設定 [選取主體]](./media/apache-kafka-byok/add-key-vault-access-policy-select-principal.png)
 
-        c. Set **Key Permissions** to **Get**, **Unwrap Key**, and **Wrap Key**.
+        c. 將 [金鑰權限] 設定為 [取得]、[將金鑰解除包裝] 及 [包裝金鑰]。
 
-        ![Set Key Permissions for Azure Key Vault access policy](./media/apache-kafka-byok/add-key-vault-access-policy-keys.png)
+        ![設定 Azure Key Vault 存取 policy1 的金鑰許可權](./media/apache-kafka-byok/add-key-vault-access-policy-keys.png "設定 Azure Key Vault 存取 policy1 的金鑰許可權")
 
-        d. Set **Secret Permissions** to **Get**, **Set**, and **Delete**.
+        d. 將 [祕密權限] 設定為 [取得]、[設定] 及 [刪除]。
 
-        ![Set Key Permissions for Azure Key Vault access policy](./media/apache-kafka-byok/add-key-vault-access-policy-secrets.png)
+        ![設定 Azure Key Vault 存取 policy2 的金鑰許可權](./media/apache-kafka-byok/add-key-vault-access-policy-secrets.png "設定 Azure Key Vault 存取 policy2 的金鑰許可權")
 
-        e. Click on **Save**. 
+        e. 按一下 [ **儲存**]。 
 
-        ![Save Azure Key Vault access policy](./media/apache-kafka-byok/add-key-vault-access-policy-save.png)
+        ![儲存 Azure Key Vault 存取原則](./media/apache-kafka-byok/add-key-vault-access-policy-save.png)
 
-## Create HDInsight cluster
+## <a name="create-hdinsight-cluster"></a>建立 HDInsight 叢集
 
-   You're now ready to create a new HDInsight cluster. BYOK can only be applied to new clusters during cluster creation. Encryption can't be removed from BYOK clusters, and BYOK can't be added to existing clusters.
+   您現在可以開始建立新的 HDInsight 叢集。 BYOK 只能在叢集建立期間套用至新的叢集。 您無法從 BYOK 叢集移除加密，也無法將 BYOK 新增到現有叢集。
 
-   ![Kafka disk encryption in Azure portal](./media/apache-kafka-byok/apache-kafka-byok-portal.png)
+   ![Azure 入口網站中的 Kafka 磁碟加密](./media/apache-kafka-byok/apache-kafka-byok-portal.png)
 
-   During cluster creation, provide the full key URL, including the key version. For example, `https://contoso-kv.vault.azure.net/keys/kafkaClusterKey/46ab702136bc4b229f8b10e8c2997fa4`. You also need to assign the managed identity to the cluster and provide the key URI.
+   叢集建立期間，請提供完整的金鑰 URL，包括金鑰版本。 例如： `https://contoso-kv.vault.azure.net/keys/kafkaClusterKey/46ab702136bc4b229f8b10e8c2997fa4` 。 您也需要將受控識別指派給叢集，並提供金鑰 URI。
 
-## Rotating the Encryption key
-   There might be scenarios where you might want to change the encryption keys used by the Kafka cluster after it has been created. This can be easily via the portal. For this operation, the cluster must have access to both the current key and the intended new key, otherwise the rotate key operation will fail.
+## <a name="rotating-the-encryption-key"></a>輪替加密金鑰
+   在某些情況下，您可能會想要變更 Kafka 叢集在建立之後所使用的加密金鑰。 這可以透過入口網站輕鬆地進行。 針對此作業，叢集必須能夠存取目前的金鑰和預定的新金鑰，否則輪替金鑰作業將會失敗。
 
-   To rotate the key, you must have the full url of the new key (See Step 3 of [Setup the Key Vault and Keys](#setup-the-key-vault-and-keys)). Once you have that, go to the Kafka cluster properties section in the portal and click on **Change Key** under **Disk Encryption Key URL**. Enter in the new key url and submit to rotate the key.
+   若要旋轉金鑰，您必須擁有新金鑰的完整 url （請參閱[設定 Key Vault 和金鑰](#setup-the-key-vault-and-keys)的步驟3）。 一旦您這樣做，請移至入口網站中的 Kafka 叢集屬性區段，然後按一下 [**磁片加密金鑰 URL**] 底下的 [**變更金鑰**]。 輸入新的金鑰 url 並提交以旋轉金鑰。
 
-   ![Kafka rotate disk encryption key](./media/apache-kafka-byok/kafka-change-key.png)
+   ![Kafka 輪替磁片加密金鑰](./media/apache-kafka-byok/kafka-change-key.png)
 
-## FAQ for BYOK to Apache Kafka
+## <a name="faq-for-byok-to-apache-kafka"></a>Apache Kafka 的 BYOK 常見問題集
 
-**How does the Kafka cluster access my key vault?**
+**Kafka 叢集如何存取我的金鑰保存庫？**
 
-   Associate a managed identity with the HDInsight Kafka cluster during cluster creation. This managed identity can be created before or during cluster creation. You also need to grant the managed identity access to the key vault where the key is stored.
+   在叢集建立期間，將受控識別與 HDInsight Kafka 叢集相關聯。 您可以在叢集建立之前或建立期間，建立這個受控識別。 您也需要對受控識別授與權限，使其能夠存取金鑰儲存所在的金鑰保存庫。
 
-**Is this feature available for all Kafka clusters on HDInsight?**
+**這項功能是否適用於 HDInsight 上的所有 Kafka 叢集？**
 
-   BYOK encryption is only possible for Kafka 1.1 and above clusters.
+   BYOK 加密僅適用於 Kafka 1.1 和更新版本的叢集。
 
-**Can I have different keys for different topics/partitions?**
+**不同主題/資料分割是否可以有不同金鑰？**
 
-   No, all managed disks in the cluster are encrypted by the same key.
+   不行，叢集中的所有受控磁碟都要由相同金鑰加密。
 
-**What happens if the cluster loses access to the key vault or the key?**
-   If the cluster loses access to the key, warnings will be shown in the Apache Ambari portal. In this state, the **Change Key** operation will fail. Once key access is restored, Ambari warnings will go away and operations such as key rotation can be successfully performed.
+**如果叢集失去對金鑰保存庫或金鑰的存取權，會發生什麼事？**
+如果叢集失去金鑰的存取權，Apache Ambari 入口網站中將會顯示警告。 在此狀態下，**變更金鑰**作業將會失敗。 一旦還原金鑰存取權，Ambari 警告就會消失，而且可以順利執行金鑰輪替之類的作業。
 
-   ![Kafka key access Ambari alert](./media/apache-kafka-byok/kafka-byok-ambari-alert.png)
+   ![Kafka 金鑰存取 Ambari 警示](./media/apache-kafka-byok/kafka-byok-ambari-alert.png)
 
-**How can I recover the cluster if the keys are deleted?**
+**如果金鑰已刪除，要如何復原叢集？**
 
-   Since only “Soft Delete” enabled keys are supported, if the keys are recovered in the key vault, the cluster should regain access to the keys. To recover an Azure Key Vault key, see [Undo-AzKeyVaultKeyRemoval](/powershell/module/az.keyvault/Undo-AzKeyVaultKeyRemoval) or [az-keyvault-key-recover](/cli/azure/keyvault/key?view=azure-cli-latest#az-keyvault-key-recover).
+   因為只支援「虛刪除」啟用的金鑰，所以如果金鑰保存庫中的金鑰已復原，叢集應該會重新取得金鑰的存取權。 若要復原 Azure Key Vault 金鑰，請參閱 <<c0>復原-AzKeyVaultKeyRemoval或[az-keyvault-Key-recover](/cli/azure/keyvault/key?view=azure-cli-latest#az-keyvault-key-recover)。
 
-**Can I have producer/consumer applications working with a BYOK cluster and a non-BYOK cluster simultaneously?**
+**是否可以讓生產者/消費者應用程式同時與 BYOK 叢集和非 BYOK 叢集搭配運作？**
 
-   Yes. The use of BYOK is transparent to producer/consumer applications. Encryption happens at the OS layer. No changes need to be made to existing producer/consumer Kafka applications.
+   是的。 生產者/消費者應用程式並不知道您有使用 BYOK。 加密會在 OS 層進行。 您不必對現有的生產者/消費者 Kafka 應用程式進行任何變更。
 
-**Are OS disks/Resource disks also encrypted?**
+**是否也會加密 OS 磁碟/資源磁碟？**
 
-   No. OS disks and Resource disks are not encrypted.
+   資料分割 不會加密 OS 磁碟和資源磁碟。
 
-**If a cluster is scaled up, will the new brokers support BYOK seamlessly?**
+**如果將叢集相應增加，新的訊息代理程式是否也會順暢地支援 BYOK？**
 
-   Yes. The cluster needs access to the key in the key vault during scale up. The same key is used to encrypt all managed disks in the cluster.
+   是的。 叢集在相應增加期間需要存取金鑰保存庫中的金鑰。 叢集中的所有受控磁碟會使用同一個金鑰來加密。
 
-**Is BYOK available in my location?**
+**我所在的位置是否可以使用 BYOK？**
 
-   Kafka BYOK is available in all public clouds.
+   Kafka BYOK 適用於所有公用雲端。
 
-## Next steps
+## <a name="next-steps"></a>後續步驟
 
-* For more information about Azure Key Vault, see [What is Azure Key Vault](../../key-vault/key-vault-whatis.md)?
-* To get started with Azure Key Vault, see [Getting Started with Azure Key Vault](../../key-vault/key-vault-overview.md).
+* 如需 Azure 金鑰保存庫的詳細資訊，請參閱[什麼是 Azure 金鑰保存庫](../../key-vault/key-vault-whatis.md)？
+* 若要開始使用 Azure Key Vault，請參閱[開始使用 Azure Key Vault](../../key-vault/key-vault-overview.md)。

@@ -8,14 +8,14 @@ ms.reviewer: jasonh
 ms.topic: conceptual
 ms.custom: seodec18
 ms.date: 04/23/2019
-ms.openlocfilehash: 76f95e74c8150ac797d20c3166c0e8d6ea085bf9
-ms.sourcegitcommit: 97605f3e7ff9b6f74e81f327edd19aefe79135d2
+ms.openlocfilehash: 83e9e1364293601337f854f083bbb279361e29c5
+ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70734957"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70810992"
 ---
-# <a name="configure-a-hdinsight-cluster-with-enterprise-security-package-by-using-azure-active-directory-domain-services"></a>使用 Azure Active Directory Domain Services 設定具有企業安全性套件的 HDInsight 叢集
+# <a name="enterprise-security-package-configurations-with-azure-active-directory-domain-services-in-hdinsight"></a>在 HDInsight 中使用 Azure Active Directory Domain Services 的企業安全性套件設定
 
 企業安全性套件 (ESP) 叢集可在 Azure HDInsight 叢集上提供多使用者存取。 具有 ESP 的 HDInsight 叢集會與網域連線，讓網域使用者可以使用其網域認證來驗證叢集並執行巨量資料作業。
 
@@ -118,7 +118,7 @@ VNET 對等互連後，請將 HDInsight VNET 設定為使用自訂的 DNS 伺服
 
 您所建立的受控識別，可在建立新的叢集時從 [使用者指派的受控識別] 下拉式清單中選擇。
 
-![Azure HDInsight ESP Active Directory Domain Services 的設定](./media/apache-domain-joined-configure-using-azure-adds/hdinsight-identity-managed-identity.png).
+![Azure HDInsight ESP Active Directory Domain Services 受控識別](./media/apache-domain-joined-configure-using-azure-adds/hdinsight-identity-managed-identity.png).
 
 ## <a name="next-steps"></a>後續步驟
 

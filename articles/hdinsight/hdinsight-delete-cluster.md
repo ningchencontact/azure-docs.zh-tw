@@ -1,6 +1,6 @@
 ---
 title: 如何刪除 HDInsight 叢集 - Azure
-description: 您可用來刪除 HDInsight 叢集的各種方式相關資訊。
+description: 可供您刪除 Azure HDInsight 叢集之各種方式的資訊
 author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
@@ -8,16 +8,16 @@ ms.topic: conceptual
 ms.date: 04/17/2019
 ms.author: hrasheed
 ms.custom: H1Hack27Feb2017,hdinsightactive
-ms.openlocfilehash: eca7b4f8bd7e91bc8dcb9bcc49ed3b981010aaee
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 1c9214f3084d7b1e2012ec69e3b8e3fe6d08c09e
+ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64721009"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70810258"
 ---
 # <a name="delete-an-hdinsight-cluster-using-your-browser-powershell-or-the-azure-cli"></a>使用您的瀏覽器、PowerShell 或 Azure CLI 刪除 HDInsight 叢集
 
-HDInsight 叢集的計費起自叢集建立時，終至叢集刪除時。 計費是以每分鐘按比例計算，因此不再使用時，請一律刪除您的叢集。 在本文件中，您了解如何刪除叢集，使用[Azure 入口網站](https://portal.azure.com)， [Azure PowerShell Az 模組](https://docs.microsoft.com/powershell/azure/overview)，而[Azure CLI](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest)。
+HDInsight 叢集的計費起自叢集建立時，終至叢集刪除時。 計費是以每分鐘按比例計算，因此不再使用時，請一律刪除您的叢集。 在本檔中，您將瞭解如何使用 [ [Azure 入口網站](https://portal.azure.com)]、[ [Azure PowerShell Az 模組](https://docs.microsoft.com/powershell/azure/overview)] 和 [ [Azure CLI](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest)] 來刪除叢集。
 
 > [!IMPORTANT]  
 > 刪除 HDInsight 叢集並不會刪除與叢集建立關聯的 Azure 儲存體帳戶或 Data Lake Storage。 您可以在日後重複使用這些服務中儲存的資料。
@@ -26,15 +26,15 @@ HDInsight 叢集的計費起自叢集建立時，終至叢集刪除時。 計費
 
 1. 登入 [Azure 入口網站](https://portal.azure.com)。
 
-2. 從左側功能表中，瀏覽至**所有的服務** > **Analytics** > **HDInsight 叢集**，然後選取您的叢集。
+2. 從左側功能表中，流覽至 [**所有服務** > ] [**分析** > ] [**HDInsight**叢集]，然後選取您的叢集。
 
-3. 從 [預設] 檢視中，選取**刪除**圖示。 依照提示來刪除您的叢集。
+3. 從預設的 [] 視圖中，選取 [**刪除**] 圖示。 依照提示刪除您的叢集。
    
     ![刪除圖示](./media/hdinsight-delete-cluster/deletecluster.png)
 
-## <a name="azure-powershell-az-module"></a>Azure PowerShell Az module
+## <a name="azure-powershell-az-module"></a>Azure PowerShell Az 模組
 
-取代`CLUSTERNAME`下列程式碼中的 HDInsight 叢集的名稱。 從 PowerShell 提示字元中，輸入下列命令來刪除叢集：
+以`CLUSTERNAME`您的 HDInsight 叢集名稱取代下列程式碼中的。 從 PowerShell 提示字元中，輸入下列命令來刪除叢集：
 
 ```powershell
 Remove-AzHDInsightCluster -ClusterName CLUSTERNAME
@@ -42,7 +42,7 @@ Remove-AzHDInsightCluster -ClusterName CLUSTERNAME
 
 ## <a name="azure-cli"></a>Azure CLI
 
-取代`CLUSTERNAME`HDInsight 叢集的名稱和`RESOURCEGROUP`的下列程式碼中的資源群組名稱。  在命令提示字元中，輸入下列命令來刪除叢集：
+請`CLUSTERNAME`以您的 HDInsight 叢集名稱取代，並`RESOURCEGROUP`使用下列程式碼中的資源組名取代。  從命令提示字元中，輸入下列內容以刪除叢集：
 
 ```azurecli
 az hdinsight delete --name CLUSTERNAME --resource-group RESOURCEGROUP

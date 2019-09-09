@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 08/08/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 11fc41374089c0ab7258dd191a255387713836eb
-ms.sourcegitcommit: 55e0c33b84f2579b7aad48a420a21141854bc9e3
+ms.openlocfilehash: 55e4b04814daaaff5bc217a561e9045d313d9675
+ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69622311"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70811417"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-a-qq-account-using-azure-active-directory-b2c"></a>使用 Azure Active Directory B2C 設定註冊，並以 QQ 帳戶登入
 
@@ -23,12 +23,12 @@ ms.locfileid: "69622311"
 
 ## <a name="create-a-qq-application"></a>建立 QQ 應用程式
 
-若要在 Azure Active Directory (Azure AD) B2C 中使用 QQ 帳戶做為識別提供者，您需要在代表該帳戶的租用戶中建立應用程式。 如果您還沒有 QQ 帳戶, 可以在[https://ssl.zc.qq.com/en/index.html?type=1&ptlang=1033](https://ssl.zc.qq.com/en/index.html?type=1&ptlang=1033)註冊。
+若要在 Azure Active Directory (Azure AD) B2C 中使用 QQ 帳戶做為識別提供者，您需要在代表該帳戶的租用戶中建立應用程式。 如果您還沒有 QQ 帳戶，可以在[https://ssl.zc.qq.com/en/index.html?type=1&ptlang=1033](https://ssl.zc.qq.com/en/index.html?type=1&ptlang=1033)註冊。
 
 ### <a name="register-for-the-qq-developer-program"></a>註冊 QQ 開發人員計劃
 
 1. 使用您的 QQ 帳戶認證登入 [QQ 開發人員入口網站](http://open.qq.com)。
-1. 登入之後，請移至 [http://open.qq.com/reg](http://open.qq.com/reg)，將您自己註冊為開發人員。
+1. 登入之後，請移至 [https://open.qq.com/reg](https://open.qq.com/reg)，將您自己註冊為開發人員。
 1. 選取 [个人]\(個人開發人員\)。
 1. 輸入必要資訊，並選取 [下一步]\(下一步\)。
 1. 完成電子郵件驗證程序。 在註冊為開發人員之後，您必須等待數天以進行核准。
@@ -48,10 +48,10 @@ ms.locfileid: "69622311"
 ## <a name="configure-qq-as-an-identity-provider"></a>將 QQ 設為識別提供者
 
 1. 以 Azure AD B2C 租用戶的全域管理員身分登入 [Azure 入口網站](https://portal.azure.com/)。
-1. 請選取頂端功能表中的 [**目錄 + 訂**用帳戶] 篩選, 然後選擇包含您租使用者的目錄, 以確定您使用的是包含 Azure AD B2C 租使用者的目錄。
+1. 請選取頂端功能表中的 [**目錄 + 訂**用帳戶] 篩選，然後選擇包含您租使用者的目錄，以確定您使用的是包含 Azure AD B2C 租使用者的目錄。
 1. 選擇 Azure 入口網站左上角的 [所有服務]，搜尋並選取 [Azure AD B2C]。
-1. 選取 [**識別提供者**], 然後選取 **[QQ (預覽)** ]。
-1. 輸入 [名稱]。 例如, *QQ*。
-1. 針對 [**用戶端識別碼**], 輸入您稍早建立之 QQ 應用程式的 [應用程式識別碼]。
-1. 針對 [**用戶端密碼**], 輸入您所記錄的應用程式金鑰。
+1. 選取 [**識別提供者**]，然後選取 **[QQ （預覽）** ]。
+1. 輸入 [名稱]。 例如， *QQ*。
+1. 針對 [**用戶端識別碼**]，輸入您稍早建立之 QQ 應用程式的 [應用程式識別碼]。
+1. 針對 [**用戶端密碼**]，輸入您所記錄的應用程式金鑰。
 1. 選取 [ **儲存**]。

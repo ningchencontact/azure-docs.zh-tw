@@ -1,9 +1,9 @@
 ---
-title: 多重要素驗證 (MFA) 以及 PIM-Azure Active Directory |Microsoft Docs
+title: 多重要素驗證（MFA）和 PIM-Azure Active Directory |Microsoft Docs
 description: 了解 Azure AD Privileged Identity Management (PIM) 如何驗證多重要素驗證 (MFA)。
 services: active-directory
 documentationcenter: ''
-author: rolyon
+author: curtand
 manager: mtillman
 editor: ''
 ms.service: active-directory
@@ -11,21 +11,21 @@ ms.topic: conceptual
 ms.workload: identity
 ms.subservice: pim
 ms.date: 08/31/2018
-ms.author: rolyon
+ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8831a838a403d58d8673c6400e0dda06c03dc69f
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 686c39c9fb1f1ff7c0ecf068a6612f530620d5dc
+ms.sourcegitcommit: 95b180c92673507ccaa06f5d4afe9568b38a92fb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60442670"
+ms.lasthandoff: 09/08/2019
+ms.locfileid: "70804312"
 ---
 # <a name="multi-factor-authentication-mfa-and-pim"></a>多重要素驗證 (MFA) 和 PIM
 
 建議您針對所有系統管理員都要求進行多重要素驗證 (MFA)。 這可降低密碼遭入侵所導致的攻擊風險。
 
-您可以要求使用者在登入時完成 MFA 挑戰。 您也可以要求使用者在他們啟用角色在 Azure Active Directory (Azure AD) Privileged Identity Management (PIM) 時，會完成 MFA 挑戰。 如此一來，如果使用者沒有在登入時完成 MFA 挑戰，PIM 就會提示他們執行這項作業。
+您可以要求使用者在登入時完成 MFA 挑戰。 您也可以要求使用者在啟用 Azure Active Directory （Azure AD） Privileged Identity Management （PIM）中的角色時，完成 MFA 挑戰。 如此一來，如果使用者沒有在登入時完成 MFA 挑戰，PIM 就會提示他們執行這項作業。
 
 > [!IMPORTANT]
 > 目前 Azure MFA 只能與工作帳戶或學校帳戶搭配運作，而無法與 Microsoft 帳戶 (通常是用來登入 Skype、Xbox、Outlook.com 等 Microsoft 服務的個人帳戶) 搭配運作。 因此，任何使用者只要是使用 Microsoft 帳戶就無法成為合格的系統管理員，因為他們無法使用 MFA 來啟用其角色。 如果這些使用者需要繼續使用 Microsoft 帳戶來管理工作負載，請立即將他們提升為永久系統管理員。

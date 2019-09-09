@@ -1,6 +1,6 @@
 ---
-title: 建立使用 Azure CLI-Azure HDInsight 的 Apache Hadoop 叢集
-description: 了解如何建立 HDInsight 叢集使用跨平台 Azure CLI。
+title: 使用 Azure CLI Azure HDInsight 建立 Apache Hadoop 叢集
+description: 瞭解如何使用跨平臺 Azure CLI 建立 Azure HDInsight 叢集。
 author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
@@ -8,24 +8,24 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/10/2019
 ms.author: hrasheed
-ms.openlocfilehash: 0a278cd98b0dd6c6d8f0fe9bfee81e5bafd4f543
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c26c0b16331ae01f7505e44cef3fe91b3282750b
+ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65597694"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70809858"
 ---
 # <a name="create-hdinsight-clusters-using-the-azure-cli"></a>使用 Azure CLI 建立 HDInsight 叢集
 
 [!INCLUDE [selector](../../includes/hdinsight-create-linux-cluster-selector.md)]
 
-此文件逐步解說中建立 HDInsight 3.6 叢集使用 Azure CLI 中的步驟。
+本檔中的步驟將逐步解說如何使用 Azure CLI 建立 HDInsight 3.6 叢集。
 
 [!INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
 如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 Azure CLI。 如果您尚未安裝 Azure CLI，請參閱[安裝 Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) 以取得相關步驟。
 
@@ -33,7 +33,7 @@ Azure CLI。 如果您尚未安裝 Azure CLI，請參閱[安裝 Azure CLI](https
 
 ## <a name="create-a-cluster"></a>建立叢集
 
-1. 您的 Azure 訂用帳戶的登入。 如果您打算使用 Azure Cloud Shell，可直接選取程式碼區塊右上角的 [試試看]。 或者，請輸入以下命令：
+1. 登入您的 Azure 訂用帳戶。 如果您打算使用 Azure Cloud Shell，可直接選取程式碼區塊右上角的 [試試看]。 或者，請輸入以下命令：
 
     ```azurecli-interactive
     az login
@@ -42,16 +42,16 @@ Azure CLI。 如果您尚未安裝 Azure CLI，請參閱[安裝 Azure CLI](https
     # az account set --subscription "SUBSCRIPTIONID"
     ```
 
-2. 設定環境變數。 使用這篇文章中的變數是以 Bash 為基礎。 針對其他環境，會需要一點變化。 請參閱[az hdinsight 建立](https://docs.microsoft.com/cli/azure/hdinsight?view=azure-cli-latest#az-hdinsight-create)如需完整清單，可用來建立叢集的參數。
+2. 設定環境變數。 本文中的使用變數是以 Bash 為基礎。 針對其他環境，會需要一點變化。 如需建立叢集之可能參數的完整清單，請參閱[az-hdinsight-create](https://docs.microsoft.com/cli/azure/hdinsight?view=azure-cli-latest#az-hdinsight-create) 。
 
     |參數 | 描述 |
     |---|---|
-    |`--size`| 在叢集中的背景工作節點數目。 這篇文章會使用變數`clusterSizeInNodes`做為值傳遞至`--size`。 |
-    |`--version`| HDInsight 叢集版本。 這篇文章會使用變數`clusterVersion`做為值傳遞至`--version`。 另請參閱：[支援的 HDInsight 版本](./hdinsight-component-versioning.md#supported-hdinsight-versions)。|
-    |`--type`| 輸入的 HDInsight 叢集，例如： hadoop、 interactivehive，hbase、 kafka、 storm、 spark、 rserver、 mlservices。  這篇文章會使用變數`clusterType`做為值傳遞至`--type`。 另請參閱：[叢集類型和組態](./hdinsight-hadoop-provision-linux-clusters.md#cluster-types)。|
-    |`--component-version`|中以空格分隔的版本，在各種 Hadoop 元件的版本 '元件 = 版本' 格式。 這篇文章會使用變數`componentVersion`做為值傳遞至`--component-version`。 另請參閱：[Hadoop 元件](./hdinsight-component-versioning.md#apache-hadoop-components-available-with-different-hdinsight-versions)。|
+    |`--size`| 叢集中的背景工作節點數目。 本文使用變數`clusterSizeInNodes`做為傳遞至`--size`的值。 |
+    |`--version`| HDInsight 叢集版本。 本文使用變數`clusterVersion`做為傳遞至`--version`的值。 另請參閱：[支援的 HDInsight 版本](./hdinsight-component-versioning.md#supported-hdinsight-versions)。|
+    |`--type`| HDInsight 叢集類型，例如： hadoop、interactivehive、hbase、kafka、風暴、spark、rserver、mlservices。  本文使用變數`clusterType`做為傳遞至`--type`的值。 另請參閱：叢集[類型和](./hdinsight-hadoop-provision-linux-clusters.md#cluster-types)設定。|
+    |`--component-version`|各種 Hadoop 元件的版本，以「元件 = 版本」格式的空格分隔版本。 本文使用變數`componentVersion`做為傳遞至`--component-version`的值。 另請參閱：[Hadoop 元件](./hdinsight-component-versioning.md#apache-hadoop-components-available-with-different-hdinsight-versions)。|
 
-    取代`RESOURCEGROUPNAME`， `LOCATION`， `CLUSTERNAME`， `STORAGEACCOUNTNAME`，和`PASSWORD`所需的值。 變更所需的其他變數的值。 然後輸入 CLI 命令。
+    以`RESOURCEGROUPNAME`所需`CLUSTERNAME`的值取代`PASSWORD` 、 `LOCATION`、、 `STORAGEACCOUNTNAME`和。 視需要變更其他變數的值。 然後輸入 CLI 命令。
 
     ```azurecli-interactive
     export resourceGroupName=RESOURCEGROUPNAME
@@ -68,7 +68,7 @@ Azure CLI。 如果您尚未安裝 Azure CLI，請參閱[安裝 Azure CLI](https
     export componentVersion=Hadoop=2.7
     ```
 
-3. [建立資源群組](https://docs.microsoft.com/cli/azure/group?view=azure-cli-latest#az-group-create)藉由輸入下列命令：
+3. 輸入下列命令來[建立資源群組](https://docs.microsoft.com/cli/azure/group?view=azure-cli-latest#az-group-create)：
 
     ```azurecli-interactive
     az group create \
@@ -76,9 +76,9 @@ Azure CLI。 如果您尚未安裝 Azure CLI，請參閱[安裝 Azure CLI](https
         --name $resourceGroupName
     ```
 
-    如需有效位置的清單，請使用`az account list-locations`命令，然後再使用其中一個位置，從`name`值。
+    如需有效位置的清單，請使用`az account list-locations`命令，然後使用`name`值中的其中一個位置。
 
-4. [建立 Azure 儲存體帳戶](https://docs.microsoft.com/cli/azure/storage/account?view=azure-cli-latest#az-storage-account-create)藉由輸入下列命令：
+4. 輸入下列命令來[建立 Azure 儲存體帳戶](https://docs.microsoft.com/cli/azure/storage/account?view=azure-cli-latest#az-storage-account-create)：
 
     ```azurecli-interactive
     # Note: kind BlobStorage is not available as the default storage account.
@@ -91,7 +91,7 @@ Azure CLI。 如果您尚未安裝 Azure CLI，請參閱[安裝 Azure CLI](https
         --sku Standard_LRS
     ```
 
-5. [從 Azure 儲存體帳戶中擷取主索引鍵](https://docs.microsoft.com/cli/azure/storage/account/keys?view=azure-cli-latest#az-storage-account-keys-list)並將它儲存在變數中，輸入下列命令：
+5. [從 Azure 儲存體帳戶解壓縮主要金鑰](https://docs.microsoft.com/cli/azure/storage/account/keys?view=azure-cli-latest#az-storage-account-keys-list)，並輸入下列命令將其儲存在變數中：
 
     ```azurecli-interactive
     export AZURE_STORAGE_KEY=$(az storage account keys list \
@@ -100,7 +100,7 @@ Azure CLI。 如果您尚未安裝 Azure CLI，請參閱[安裝 Azure CLI](https
         --query [0].value -o tsv)
     ```
 
-6. [建立 Azure 儲存體容器](https://docs.microsoft.com/cli/azure/storage/container?view=azure-cli-latest#az-storage-container-create)藉由輸入下列命令：
+6. 輸入下列命令來[建立 Azure 儲存體容器](https://docs.microsoft.com/cli/azure/storage/container?view=azure-cli-latest#az-storage-container-create)：
 
     ```azurecli-interactive
     az storage container create \
@@ -109,7 +109,7 @@ Azure CLI。 如果您尚未安裝 Azure CLI，請參閱[安裝 Azure CLI](https
         --account-name $AZURE_STORAGE_ACCOUNT
     ```
 
-7. [建立 HDInsight 叢集](https://docs.microsoft.com/cli/azure/hdinsight?view=azure-cli-latest#az-hdinsight-create)藉由輸入下列命令：
+7. 輸入下列命令來[建立 HDInsight](https://docs.microsoft.com/cli/azure/hdinsight?view=azure-cli-latest#az-hdinsight-create)叢集：
 
     ```azurecli-interactive
     az hdinsight create \

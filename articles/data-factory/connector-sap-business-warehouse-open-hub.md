@@ -12,19 +12,19 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 09/04/2019
 ms.author: jingwang
-ms.openlocfilehash: d82f843cb5cdd7b910c734f26a93144374061b74
-ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
+ms.openlocfilehash: cfe2767b3725378bc88fe97203c7f1622558aa39
+ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70274505"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70813542"
 ---
 # <a name="copy-data-from-sap-business-warehouse-via-open-hub-using-azure-data-factory"></a>使用 Azure Data Factory 透過 Open Hub 從 SAP Business Warehouse 複製資料
 
 本文概述如何使用 Azure Data Factory 中的「複製活動」，透過 Open Hub 從 SAP Business Warehouse (BW) 複製資料。 本文是根據[複製活動概觀](copy-activity-overview.md)一文，該文提供複製活動的一般概觀。
 
 >[!TIP]
->若要瞭解 ADF 對於 SAP 資料整合案例的整體支援, 請參閱[使用 Azure Data Factory 白皮書的 SAP 資料整合](https://github.com/Azure/Azure-DataFactory/blob/master/whitepaper/SAP%20Data%20Integration%20using%20Azure%20Data%20Factory.pdf), 其中包含詳細的簡介、comparsion 和指引。
+>若要瞭解 ADF 對於 SAP 資料整合案例的整體支援，請參閱[使用 Azure Data Factory 白皮書的 SAP 資料整合](https://github.com/Azure/Azure-DataFactory/blob/master/whitepaper/SAP%20Data%20Integration%20using%20Azure%20Data%20Factory.pdf)，其中包含詳細的簡介、comparsion 和指引。
 
 ## <a name="supported-capabilities"></a>支援的功能
 
@@ -32,7 +32,7 @@ ms.locfileid: "70274505"
 
 具體而言，此 SAP Business Warehouse Open Hub 連接器支援：
 
-- SAP Business 倉儲**7.01 版或更高版本 (在2015年之後發行的最新 Sap 支援封裝堆疊中)** 。
+- SAP Business 倉儲**7.01 版或更高版本（在2015年之後發行的最新 Sap 支援封裝堆疊中）** 。
 - 透過 Open Hub Destination 本機資料表複製資料，其下可能是 DSO、InfoCube、MultiProvider、DataSource 等等。
 - 使用基本驗證來複製資料。
 - 連線至應用程式伺服器。
@@ -41,32 +41,32 @@ ms.locfileid: "70274505"
 
 [SAP BW Open Hub Service](https://wiki.scn.sap.com/wiki/display/BI/Overview+of+Open+Hub+Service) 可讓您有效地從 SAP BW 中擷取資料。 下圖顯示客戶在其 SAP 系統中的常見流程之一，其資料流程為 SAP ECC -> PSA -> DSO -> Cube。
 
-SAP BW Open Hub Destination (OHD) 會定義轉送 SAP 資料的目標。 SAP 資料傳輸程式 (DTP) 所支援的任何物件都可以做為開放式中樞資料來源使用, 例如 DSO、InfoCube、DataSource 等等。Open Hub Destination 類型是轉送的資料儲存所在之處，可以是資料庫資料表 (本機或遠端) 和一般檔案。 此 SAP BW Open Hub 連接器支援從 BW 中的 OHD 本機資料表複製資料。 如果您使用其他類型，您可以使用其他連接器直接連線到資料庫或檔案系統。
+SAP BW Open Hub Destination (OHD) 會定義轉送 SAP 資料的目標。 SAP 資料傳輸程式（DTP）所支援的任何物件都可以做為開放式中樞資料來源使用，例如 DSO、InfoCube、DataSource 等等。Open Hub Destination 類型是轉送的資料儲存所在之處，可以是資料庫資料表 (本機或遠端) 和一般檔案。 此 SAP BW Open Hub 連接器支援從 BW 中的 OHD 本機資料表複製資料。 如果您使用其他類型，您可以使用其他連接器直接連線到資料庫或檔案系統。
 
 ![SAP BW Open Hub](./media/connector-sap-business-warehouse-open-hub/sap-bw-open-hub.png)
 
 ## <a name="delta-extraction-flow"></a>差異抽取流程
 
-ADF SAP BW 開放式中樞連接器提供兩個選擇性屬性`excludeLastRequest` : `baseRequestId`和, 可用來處理開放式中樞的差異負載。 
+ADF SAP BW 開放式中樞連接器提供兩個選擇性屬性`excludeLastRequest` ： `baseRequestId`和，可用來處理開放式中樞的差異負載。 
 
-- **excludeLastRequestId**:是否要排除最後一個要求的記錄。 預設值為 true。 
-- **baseRequestId**:差異載入的要求識別碼。 一旦設定之後, 就只會抓取 requestId 大於此屬性值的資料。 
+- **excludeLastRequestId**：是否要排除最後一個要求的記錄。 預設值為 true。 
+- **baseRequestId**：差異載入的要求識別碼。 一旦設定之後，就只會抓取 requestId 大於此屬性值的資料。 
 
-整體來說, 從 SAP InfoProviders 到 Azure Data Factory (ADF) 的解壓縮包含2個步驟: 
+整體來說，從 SAP InfoProviders 到 Azure Data Factory （ADF）的解壓縮包含2個步驟： 
 
-1. **SAP BW 資料傳輸程式 (DTP)** 此步驟會將資料從 SAP BW InfoProvider 複製到 SAP BW 開放式中樞資料表 
+1. **SAP BW 資料傳輸程式（DTP）** 此步驟會將資料從 SAP BW InfoProvider 複製到 SAP BW 開放式中樞資料表 
 
-1. **ADF 資料複製**在此步驟中, ADF 連接器會讀取開啟的中樞資料表 
+1. **ADF 資料複製**在此步驟中，ADF 連接器會讀取開啟的中樞資料表 
 
 ![差異抽取流程](media/connector-sap-business-warehouse-open-hub/delta-extraction-flow.png)
 
-在第一個步驟中, 會執行一部 DTP。 每次執行都會建立新的 SAP 要求識別碼。 要求識別碼會儲存在開啟的中樞資料表中, 然後由 ADF 連接器用來識別差異。 這兩個步驟會以非同步方式執行: DTP 是由 SAP 觸發, 而 ADF 資料複本則是透過 ADF 觸發。 
+在第一個步驟中，會執行一部 DTP。 每次執行都會建立新的 SAP 要求識別碼。 要求識別碼會儲存在開啟的中樞資料表中，然後由 ADF 連接器用來識別差異。 這兩個步驟會以非同步方式執行： DTP 是由 SAP 觸發，而 ADF 資料複本則是透過 ADF 觸發。 
 
-根據預設, ADF 不會從開啟的中樞資料表讀取最新的差異 ([排除最後一個要求] 選項為 true)。 在此情況下, ADF 中的資料100不會與開啟的中樞資料表中的資料保持在最新狀態 (最後一個差異遺失)。 在傳回時, 此程式可確保不會因為非同步解壓縮而遺失資料列。 即使 ADF 正在讀取開啟的中樞資料表, 而 DTP 仍寫入相同的資料表時, 也能正常運作。 
+根據預設，ADF 不會從開啟的中樞資料表讀取最新的差異（[排除最後一個要求] 選項為 true）。 在此情況下，ADF 中的資料100不會與開啟的中樞資料表中的資料保持在最新狀態（最後一個差異遺失）。 在傳回時，此程式可確保不會因為非同步解壓縮而遺失資料列。 即使 ADF 正在讀取開啟的中樞資料表，而 DTP 仍寫入相同的資料表時，也能正常運作。 
 
-您通常會將複製的最大要求識別碼儲存在暫存資料存放區 (例如, 上圖中的 Azure Blob) 中的 ADF 最後一次執行時。 因此, 在後續的執行中, ADF 不會第二次讀取相同的要求。 同時請注意, 資料不會自動從開啟的中樞資料表中刪除。
+您通常會將複製的最大要求識別碼儲存在暫存資料存放區（例如，上圖中的 Azure Blob）中的 ADF 最後一次執行時。 因此，在後續的執行中，ADF 不會第二次讀取相同的要求。 同時請注意，資料不會自動從開啟的中樞資料表中刪除。
 
-若要進行適當的差異處理, 則不允許在相同的開啟中樞資料表中有來自不同 DTPs 的要求識別碼。 因此, 您不能為每個開啟的中樞目的地 (OHD) 建立一個以上的 DTP。 當需要來自相同 InfoProvider 的完整和差異解壓縮時, 您應該為相同的 InfoProvider 建立兩個 OHDs。 
+若要進行適當的差異處理，則不允許在相同的開啟中樞資料表中有來自不同 DTPs 的要求識別碼。 因此，您不能為每個開啟的中樞目的地（OHD）建立一個以上的 DTP。 當需要來自相同 InfoProvider 的完整和差異解壓縮時，您應該為相同的 InfoProvider 建立兩個 OHDs。 
 
 ## <a name="prerequisites"></a>必要條件
 
@@ -89,7 +89,7 @@ ADF SAP BW 開放式中樞連接器提供兩個選擇性屬性`excludeLastReques
 
 > [!TIP]
 >
-> 如需使用 SAP BW 開放式中樞連接器的逐步解說, 請參閱[使用 Azure Data Factory 從 SAP Business 倉儲 (BW) 載入資料](load-sap-bw-data.md)。
+> 如需使用 SAP BW 開放式中樞連接器的逐步解說，請參閱[使用 Azure Data Factory 從 SAP Business 倉儲（BW）載入資料](load-sap-bw-data.md)。
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
@@ -146,7 +146,7 @@ ADF SAP BW 開放式中樞連接器提供兩個選擇性屬性`excludeLastReques
 | Type | 類型屬性必須設為 **SapOpenHubTable**。  | 是 |
 | openHubDestinationName | 要從中複製資料的 Open Hub Destination 名稱。 | 是 |
 
-如果您是在`excludeLastRequest`資料`baseRequestId`集內設定和, 則仍會受到支援, 但建議您繼續使用活動來源中的新模型。
+如果您是在`excludeLastRequest`資料`baseRequestId`集內設定和，則仍會受到支援，但建議您繼續使用活動來源中的新模型。
 
 **範例:**
 
@@ -173,7 +173,7 @@ ADF SAP BW 開放式中樞連接器提供兩個選擇性屬性`excludeLastReques
 
 ### <a name="sap-bw-open-hub-as-source"></a>以 SAP BW Open Hub 作為來源
 
-若要從 SAP BW 開放式中樞複製資料, 複製活動的 [**來源**] 區段中支援下列屬性:
+若要從 SAP BW 開放式中樞複製資料，複製活動的 [**來源**] 區段中支援下列屬性：
 
 | 屬性 | 描述 | 必要項 |
 |:--- |:--- |:--- |
@@ -184,7 +184,7 @@ ADF SAP BW 開放式中樞連接器提供兩個選擇性屬性`excludeLastReques
 >[!TIP]
 >如果您的 Open Hub 資料表僅包含單一要求識別碼所產生的資料 (例如，您一律執行完整負載並覆寫資料表中的現有資料，或您只在測試時執行 DTP 一次)，請務必取消勾選 "excludeLastRequest" 選項，以複製資料。
 
-若要加速資料載入, 您可以在複製[`parallelCopies`](copy-activity-performance.md#parallel-copy)活動上設定, 以平行方式從 SAP BW 開放式中樞載入資料。 例如, 如果您將設定`parallelCopies`為四個, Data Factory 會同時執行四個 rfc 呼叫, 而每個 rfc 呼叫都會從您的 SAP BW 開放式中樞資料表中抓取部分資料, 而這些資料是由 DTP 要求識別碼和套件識別碼所分割。 這適用于唯一 DTP 要求識別碼 + 套件識別碼的數目大於的值`parallelCopies`時。 將資料複製到以檔案為基礎的資料存放區時, 也會建議寫入資料夾做為多個檔案 (僅指定資料夾名稱), 在此情況下, 效能會比寫入單一檔案更好。
+若要加速資料載入，您可以在複製[`parallelCopies`](copy-activity-performance.md#parallel-copy)活動上設定，以平行方式從 SAP BW 開放式中樞載入資料。 例如，如果您將設定`parallelCopies`為四個，Data Factory 會同時執行四個 rfc 呼叫，而每個 rfc 呼叫都會從您的 SAP BW 開放式中樞資料表中抓取部分資料，而這些資料是由 DTP 要求識別碼和套件識別碼所分割。 這適用于唯一 DTP 要求識別碼 + 套件識別碼的數目大於的值`parallelCopies`時。 將資料複製到以檔案為基礎的資料存放區時，也會建議寫入資料夾做為多個檔案（僅指定資料夾名稱），在此情況下，效能會比寫入單一檔案更好。
 
 **範例:**
 

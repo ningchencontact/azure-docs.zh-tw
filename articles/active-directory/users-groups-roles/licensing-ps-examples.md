@@ -1,6 +1,6 @@
 ---
-title: 授權群組-Azure Active Directory PowerShell 和 Graph 範例 |Microsoft Docs
-description: PowerShell + 圖形範例和案例的 Azure Active Directory 群組型授權
+title: 授權群組的 PowerShell 和圖形範例-Azure Active Directory |Microsoft Docs
+description: Azure Active Directory 以群組為基礎之授權的 PowerShell + Graph 範例和案例
 services: active-directory
 keywords: Azure AD 授權
 documentationcenter: ''
@@ -14,26 +14,26 @@ ms.date: 03/18/2019
 ms.author: curtand
 ms.reviewer: sumitp
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f95c0596d7a2b55867cdb7ed9355006500e89242
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 2e6ac548a4b7599857b116e8059acc51c21fdf4e
+ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67065505"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70812250"
 ---
-# <a name="powershell-and-graph-examples-for-group-based-licensing-in-azure-ad"></a>群組型授權在 Azure AD 中的 PowerShell 和 Graph 範例
+# <a name="powershell-and-graph-examples-for-group-based-licensing-in-azure-ad"></a>Azure AD 中以群組為基礎之授權的 PowerShell 和圖形範例
 
-群組型授權的完整功能是透過[Azure 入口網站](https://portal.azure.com)，以及 PowerShell 和 Microsoft Graph 支援目前限制為唯讀作業。 不過，還是有一些工作可以使用現有的 [MSOnline PowerShell Cmdlet](https://docs.microsoft.com/powershell/msonline/v1/azureactivedirectory) 和 Microsoft Graph 來執行。 本文件會提供可行功能的範例。
+以群組為基礎之授權的完整功能可透過[Azure 入口網站](https://portal.azure.com)取得，而目前的 PowerShell 和 Microsoft Graph 支援僅限於唯讀作業。 不過，還是有一些工作可以使用現有的 [MSOnline PowerShell Cmdlet](https://docs.microsoft.com/powershell/msonline/v1/azureactivedirectory) 和 Microsoft Graph 來執行。 本文件會提供可行功能的範例。
 
 > [!NOTE]
-> 在開始執行這些 cmdlet 之前，請確定您連接到您的組織第一次，執行`Connect-MsolService`  cmdlet。
+> 開始執行 Cmdlet 之前，請先確定您已先連線到您的組織，方法`Connect-MsolService`是 執行 Cmdlet。
 
 > [!WARNING]
 > 此程式碼是基於示範目的而提供的範例。 如果您需要在環境中使用它，請考量先進行小規模測試，或在個別的測試租用戶中進行測試。 您可能需要調整程式碼以符合您環境的特定需求。
 
 ## <a name="view-product-licenses-assigned-to-a-group"></a>檢視指派給群組的產品授權
 
-[Get-MsolGroup](/powershell/module/msonline/get-msolgroup?view=azureadps-1.0) Cmdlet 可用來擷取群組物件並檢查「授權」  屬性︰它會列出目前指派給群組的所有產品授權。
+[Get-MsolGroup](/powershell/module/msonline/get-msolgroup?view=azureadps-1.0) Cmdlet 可用來擷取群組物件並檢查「授權」屬性︰它會列出目前指派給群組的所有產品授權。
 
 ```powershell
 (Get-MsolGroup -ObjectId 99c4216a-56de-42c4-a4ac-e411cd8c7c41).Licenses
@@ -50,10 +50,10 @@ EMSPREMIUM
 > [!NOTE]
 > 此資料只會列出產品 (SKU) 資訊。 您無法列出授權中已停用的服務方案。
 
-使用下列範例從 Microsoft Graph 取得相同的資料。
+使用下列範例，從 Microsoft Graph 取得相同的資料。
 
 ```
-GET https://graph.microsoft.com/v1.0/groups/99c4216a-56de-42c4-a4ac-e411cd8c7c41$select=assignedLicenses
+GET https://graph.microsoft.com/v1.0/groups/99c4216a-56de-42c4-a4ac-e411cd8c7c41?$select=assignedLicenses
 ```
 輸出：
 ```
@@ -227,7 +227,7 @@ ObjectId                             DisplayName      License Error
 6d325baf-22b7-46fa-a2fc-a2500613ca15 Catherine Gibson MutuallyExclusiveViolation
 ```
 
-使用下列命令，以從 Microsoft Graph 取得相同的資料：
+使用下列內容從 Microsoft Graph 取得相同的資料：
 
 ```powershell
 GET https://graph.microsoft.com/v1.0/groups/11151866-5419-4d93-9141-0603bbf78b42/membersWithLicenseErrors
@@ -364,7 +364,7 @@ function UserHasLicenseAssignedFromGroup
 }
 ```
 
-此指令碼會對租用戶中的每位使用者執行這些函式，使用 SKU 識別碼作為輸入 - 在此範例中我們感興趣的是 Enterprise Mobility + Security  的授權，它在我們的租用戶中是以識別碼 contoso:EMS  表示：
+此指令碼會對租用戶中的每位使用者執行這些函式，使用 SKU 識別碼作為輸入 - 在此範例中我們感興趣的是 Enterprise Mobility + Security 的授權，它在我們的租用戶中是以識別碼 contoso:EMS 表示：
 
 ```powershell
 #the license SKU we are interested in. use Get-MsolAccountSku to see a list of all identifiers in your tenant
@@ -388,7 +388,7 @@ ObjectId                             SkuId       AssignedDirectly AssignedFromGr
 240622ac-b9b8-4d50-94e2-dad19a3bf4b5 contoso:EMS             True              True
 ```
 
-圖形沒有直接的方法，以顯示結果，但此 API 可以看到它：
+Graph 並沒有直接顯示結果的方式，但可以從這個 API 看到它：
 
 ```powershell
 GET https://graph.microsoft.com/v1.0/users/e61ff361-5baf-41f0-b2fd-380a6a5e406a?$select=licenseAssignmentStates
@@ -617,7 +617,7 @@ UserId                               OperationResult
 aadbe4da-c4b5-4d84-800a-9400f31d7371 User has no direct license to remove. Skipping.
 ```
 > [!NOTE]
-> 請更新變數的值`$skuId`並`$groupId` 這要針對移除直接授權根據您的測試環境再執行上述指令碼。 
+> 在執行上述腳本之前，請`$skuId`先`$groupId`針對您的測試環境更新變數的值，並 將其設為目標以移除直接授權。 
 
 ## <a name="next-steps"></a>後續步驟
 

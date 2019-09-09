@@ -1,19 +1,19 @@
 ---
-title: 關於使用 Azure Site Recovery 對內部部署機器與 Azure VM 進行移轉 | Microsoft Docs
+title: 關於內部部署機器和 Azure Vm 的遷移 Azure Site Recovery
 description: 本文說明如何使用 Azure Site Recovery 服務將內部部署和 Azure IaaS VM 移轉至 Azure。
 services: site-recovery
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 05/30/2019
+ms.date: 09/09/2019
 ms.author: raynew
-ms.openlocfilehash: 5b7858793ec75d20bb367a6cf49b59fa9906ec9b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c043950de9565f96d52c848f96efac80385f2321
+ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66396473"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70814480"
 ---
 # <a name="about-migration"></a>關於移轉
 
@@ -25,6 +25,8 @@ ms.locfileid: "66396473"
 - **在 Azure 內遷移**：在 Azure 區域之間遷移 Azure VM。 
 - **遷移 AWS**：將 AWS Windows 執行個體遷移到 Azure IaaS VM。 
 
+> [!NOTE]
+> 您現在可以使用 Azure Migrate 服務，從內部部署遷移至 Azure。 [深入了解](../migrate/migrate-overview.md)。
 
 ## <a name="what-do-we-mean-by-migration"></a>移轉的意思為何？
 

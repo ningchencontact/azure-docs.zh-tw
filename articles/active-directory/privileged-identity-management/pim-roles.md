@@ -1,9 +1,9 @@
 ---
-title: 您無法管理 PIM-Azure Active Directory 中的角色 |Microsoft Docs
+title: 您無法在 PIM 中管理的角色-Azure Active Directory |Microsoft Docs
 description: 說明您無法在 Azure AD Privileged Identity Management (PIM) 中管理的角色。
 services: active-directory
 documentationcenter: ''
-author: rolyon
+author: curtand
 manager: mtillman
 editor: ''
 ms.service: active-directory
@@ -11,19 +11,19 @@ ms.topic: conceptual
 ms.workload: identity
 ms.subservice: pim
 ms.date: 01/18/2019
-ms.author: rolyon
+ms.author: curtand
 ms.custom: pim ; H1Hack27Feb2017;oldportal;it-pro;
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: aa5fb632ee5fd9c18bde7443e81fe2ef6e5335e4
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: d66d433d9de537358777e54e3c7d5489c25c849b
+ms.sourcegitcommit: 95b180c92673507ccaa06f5d4afe9568b38a92fb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60437268"
+ms.lasthandoff: 09/08/2019
+ms.locfileid: "70804081"
 ---
 # <a name="roles-you-cannot-manage-in-pim"></a>您無法在 PIM 中管理的角色
 
-Azure Active Directory (Azure AD) Privileged Identity Management (PIM) 可讓您管理所有[Azure AD 角色](../users-groups-roles/directory-assign-admin-roles.md)和 全部[Azure 資源角色](../../role-based-access-control/built-in-roles.md)。 這些角色也包含連結至管理群組、訂用帳戶、資源群組和資源的自訂角色。 不過，您無法管理某些角色。 本文將說明您無法在 PIM 中管理的角色。
+Azure Active Directory （Azure AD） Privileged Identity Management （PIM）可讓您管理所有[Azure AD 角色](../users-groups-roles/directory-assign-admin-roles.md)和所有[Azure 資源角色](../../role-based-access-control/built-in-roles.md)。 這些角色也包含連結至管理群組、訂用帳戶、資源群組和資源的自訂角色。 不過，您無法管理某些角色。 本文將說明您無法在 PIM 中管理的角色。
 
 ## <a name="classic-subscription-administrator-roles"></a>傳統訂用帳戶管理員角色
 
@@ -44,5 +44,5 @@ Exchange Online 或 SharePoint Online 內的角色 (除了 Exchange 管理員和
 
 ## <a name="next-steps"></a>後續步驟
 
-- [將 Azure AD PIM 中的角色指派](pim-how-to-add-role-to-user.md)
+- [在 PIM 中指派 Azure AD 角色](pim-how-to-add-role-to-user.md)
 - [在 PIM 中指派 Azure 資源角色](pim-resource-roles-assign-roles.md)

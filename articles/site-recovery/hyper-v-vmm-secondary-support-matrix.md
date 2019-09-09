@@ -1,23 +1,22 @@
 ---
-title: 使用 Azure Site Recovery 將 VMM 雲端中的 Hyper-V VM 災害復原至次要網站的支援矩陣 | Microsoft Docs
+title: 使用 Azure Site Recovery 將 VMM 雲端中的 Hyper-v Vm 損毀修復至次要網站的支援矩陣
 description: 摘要說明使用 Azure Site Recovery 將 VMM 雲端中的 Hyper-V VM 複寫至次要網站的支援。
-services: site-recovery
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 05/30/2019
+ms.date: 09/09/2019
 ms.author: raynew
-ms.openlocfilehash: e8b8f9856fe7e0fa591ceb42aab97e92642b6098
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 9c3a19d44a4ac0fba37f4815b65b17c26d257dbc
+ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66399356"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70813613"
 ---
 # <a name="support-matrix-for-disaster-recovery-of-hyper-v-vms-to-a-secondary-site"></a>將 Hyper-V 虛擬機器災害復原至次要網站的支援矩陣
 
-本文摘要說明當您使用支援內容[Azure Site Recovery](site-recovery-overview.md)服務，以將 HYPER-V Vm 複寫至次要站台的 System Center Virtual Machine Manager (VMM) 雲端中所管理。 如果您需要將 Hyper-V VM 複寫至 Azure，請檢閱[此支援矩陣](hyper-v-azure-support-matrix.md)。
+本文摘要說明當您使用[Azure Site Recovery](site-recovery-overview.md)服務，將在 SYSTEM CENTER VIRTUAL MACHINE MANAGER （VMM）雲端中管理的 hyper-v vm 複寫至次要網站時所支援的專案。 如果您需要將 Hyper-V VM 複寫至 Azure，請檢閱[此支援矩陣](hyper-v-azure-support-matrix.md)。
 
 > [!NOTE]
 > 當您的 Hyper-V 主機是在 VMM 雲端中進行管理時，您只能複寫至次要網站。

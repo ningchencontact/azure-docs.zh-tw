@@ -1,17 +1,17 @@
 ---
 title: Apache Hive 無法建立連線 Apache Zookeeper-Azure HDInsight
-description: 因為 Zookeeper 問題而無法存取 Hive 視圖
+description: Apache Hive View 因為 Azure HDInsight 中的 Apache Zookeeper 問題而無法存取
 ms.service: hdinsight
 ms.topic: troubleshooting
 author: hrasheed-msft
 ms.author: hrasheed
 ms.date: 07/30/2019
-ms.openlocfilehash: b5822e69f2e16e5fb24064862a64764e7516dbd7
-ms.sourcegitcommit: 97605f3e7ff9b6f74e81f327edd19aefe79135d2
+ms.openlocfilehash: 25c333a8cee7dde85d61545a33b5e1ee527dd005
+ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70733113"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70811342"
 ---
 # <a name="scenario-apache-hive-fails-to-establish-a-connection-to-apache-zookeeper-in-azure-hdinsight"></a>案例：Apache Hive 無法在中建立與 Apache Zookeeper 的連線 Azure HDInsight
 

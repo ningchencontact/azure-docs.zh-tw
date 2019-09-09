@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/06/2019
+ms.date: 09/09/2019
 ms.author: cherylmc
-ms.openlocfilehash: 7df117dbb071081473a5651a953927cee8ddaa03
-ms.sourcegitcommit: b7b0d9f25418b78e1ae562c525e7d7412fcc7ba0
+ms.openlocfilehash: e758707511989cca64fdef45b1c673dd3d96d6d2
+ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/08/2019
-ms.locfileid: "70801499"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70812146"
 ---
 # <a name="expressroute-partners-and-peering-locations"></a>ExpressRoute 合作夥伴和對等互連位置
 
@@ -161,7 +161,7 @@ ExpressRoute 位置（有時稱為「對等位置」或「符合我的位置」�
 | **[Vocus Group NZ](https://www.vocus.co.nz/business/cloud-data-centres)** | 支援 | 支援 | 奧克蘭，悉尼 |
 | **[Vodafone](https://www.vodafone.com/business/global-enterprise/global-connectivity/vodafone-ip-vpn-cloud-connect)** |支援 |支援 |阿姆斯特丹2、倫敦、新加坡 |
 | **Vodafone Idea** | 支援 | 支援 | 孟買、孟買 2 |
-| **[Zayo](https://www.zayo.com/solutions/industries/cloud-connectivity/microsoft-expressroute)** |支援 |支援 |阿姆斯特丹、芝加哥、達拉斯、丹佛、倫敦、洛杉磯、蒙特利爾、紐約、巴黎、西雅圖、矽谷、多倫多、華盛頓特區 |
+| **[Zayo](https://www.zayo.com/solutions/industries/cloud-connectivity/microsoft-expressroute)** |支援 |支援 |阿姆斯特丹、芝加哥、達拉斯、丹佛、倫敦、洛杉磯、蒙特利爾、紐約、巴黎、西雅圖、矽谷、多倫多、華盛頓特區、華盛頓特區 |
 
  **+** 表示即將推出
 
@@ -198,7 +198,7 @@ ExpressRoute 位置（有時稱為「對等位置」或「符合我的位置」�
 | **[Megaport](https://www.megaport.com/services/microsoft-expressroute/)** |支援  | 不受支援 | 柏林 |
 | **T-Systems** |支援 |不受支援 |柏林 |
 
-## <a name="connectivity-through-exchange-providers"></a>透過 Exchange 提供者連線
+## <a name="connectivity-through-exchange-providers"></a>透過 Exchange 提供者的連線能力
 
 如果上一節中未列出您的連線提供者，您仍然可以建立連線。
 
@@ -216,7 +216,14 @@ ExpressRoute 位置（有時稱為「對等位置」或「符合我的位置」�
 * 排序一個 ExpressRoute 循環，將 Exchange 視為連線至 Microsoft 的連線提供者。
   * 依照 [建立 ExpressRoute 循環](expressroute-howto-circuit-classic.md) 中的步驟來設定連線。
 
-## <a name="connectivity-through-additional-service-providers"></a>透過額外服務提供者連線
+## <a name="connectivity-through-satellite-operators"></a>透過附屬運算子的連線能力
+如果您是遠端且沒有光纖連線，或者您想要探索其他連線選項，可以檢查下列附屬操作員。 
+
+* Intelsat
+* SES
+* Viasat
+
+## <a name="connectivity-through-additional-service-providers"></a>透過其他服務提供者的連線能力
 
 | **連線提供者** | **Exchange** | **位置** |
 | --- | --- | --- |
@@ -278,7 +285,7 @@ ExpressRoute 位置（有時稱為「對等位置」或「符合我的位置」�
 | **[Zertia](https://www.zertia.es)**| Level 3 | Madrid |
 | **[Zirro](https://zirro.com/services/)**| Cologix、Equinix | 蒙特婁、多倫多 |
 
-## <a name="connectivity-through-datacenter-providers"></a>透過資料中心提供者連線
+## <a name="connectivity-through-datacenter-providers"></a>透過資料中心提供者的連線能力
 
 | **提供者** | **Exchange** |
 | --- | --- |
@@ -295,7 +302,7 @@ ExpressRoute 位置（有時稱為「對等位置」或「符合我的位置」�
 | **[vXchnge](https://www.vxchnge.com/colocation-services/interconnection)** | IX 觸及、Megaport |
 | **[T5 Datacenters](https://t5datacenters.com/network-cloud-connect/)** | IX Reach |
 
-## <a name="connectivity-through-national-research-and-education-networks-nren"></a>透過 National Research and Education Networks (NREN) 連線
+## <a name="connectivity-through-national-research-and-education-networks-nren"></a>透過國家/地區研究與教育網路（NREN）的連線能力
 
 | **提供者**|
 | --- |

@@ -1,9 +1,9 @@
 ---
-title: 在 PIM-Azure Active Directory 中設定 Azure AD 角色的安全性警示 |Microsoft Docs
-description: 了解如何在 Azure AD Privileged Identity Management (PIM) 中設定 Azure AD 角色的安全性警示。
+title: 在 PIM 中設定 Azure AD 角色的安全性警示-Azure Active Directory |Microsoft Docs
+description: 瞭解如何在 Azure AD Privileged Identity Management （PIM）中設定 Azure AD 角色的安全性警示。
 services: active-directory
 documentationcenter: ''
-author: rolyon
+author: curtand
 manager: mtillman
 editor: ''
 ms.service: active-directory
@@ -11,25 +11,25 @@ ms.topic: conceptual
 ms.workload: identity
 ms.subservice: pim
 ms.date: 04/09/2019
-ms.author: rolyon
+ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6875ab8f184c67b02c91d1a8e312959f3ba9553b
-ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
+ms.openlocfilehash: 3984d3276590357866c824d01ea8c51cf5b28fd7
+ms.sourcegitcommit: 95b180c92673507ccaa06f5d4afe9568b38a92fb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/29/2019
-ms.locfileid: "67476424"
+ms.lasthandoff: 09/08/2019
+ms.locfileid: "70804381"
 ---
 # <a name="configure-security-alerts-for-azure-ad-roles-in-pim"></a>在 PIM 中設定 Azure AD 角色的安全性警示
 
-在您的環境中有可疑或不安全的活動時，azure Active Directory (Azure AD) Privileged Identity Management (PIM) 會產生警示。 觸發警示時，會顯示在 PIM 儀表板上。 選取警示，以查看詳列觸發警示之使用者或角色的報告。
+當您的環境中有可疑或不安全的活動時，Azure Active Directory （Azure AD） Privileged Identity Management （PIM）會產生警示。 觸發警示時，會顯示在 PIM 儀表板上。 選取警示，以查看詳列觸發警示之使用者或角色的報告。
 
-![Azure AD 角色列出 [警示和嚴重性的警示] 窗格](./media/pim-how-to-configure-security-alerts/pim-directory-alerts.png)
+![Azure AD 角色-列出警示和嚴重性的警示窗格](./media/pim-how-to-configure-security-alerts/pim-directory-alerts.png)
 
 ## <a name="security-alerts"></a>安全性警示
 
-此區段會列出 Azure AD 角色，以及如何修正問題，以及如何避免的所有安全性警示。 嚴重性具有下列意義：
+本節列出 Azure AD 角色的所有安全性警示，以及如何修正和如何預防。 嚴重性具有下列意義：
 
 * **高**：因為發生原則違規而需要立即採取行動。
 * **中**：不需要立即採取行動，但表示可能發生原則違規。
@@ -69,12 +69,12 @@ ms.locfileid: "67476424"
 
 | | |
 | --- | --- |
-| **Severity** | 中 |
+| **Severity** | 中等 |
 | **為什麼會收到此警示？** | 特殊權限中的角色在過去 90 天內未變更其帳戶密碼。 這些帳戶可能是未受到維護且容易遭到攻擊的服務或共用帳戶。 |
 | **如何修正？** | 檢閱清單中的帳戶。 如果他們不再需要存取，請將它們從其特殊權限角色中移除。 |
 | **預護** | 確定共用帳戶會在知道密碼的使用者有所變更時，輪替使用強式密碼。 </br>使用[存取權檢閱](pim-how-to-start-security-review.md)功能定期檢閱具備特殊權限角色的帳戶，並移除不再需要的角色指派。 |
 | **入口網站內風險降低措施** | 從其特殊權限角色中移除帳戶。 |
-| **最佳做法** | 如果共用、服務及緊急存取帳戶均會使用密碼進行驗證，並已指派給具高度特殊權限的系統管理角色 (例如，全域系統管理員或安全性系統管理員)，則應該針對下列情況輪替其密碼：<ul><li>在涉及系統管理存取權限誤用或遭到入侵的安全性事件之後</li><li>在變更任意使用者的權限，使其不再為系統管理員之後 (例如，在先前為系統管理員的員工離開 IT 或離開組織之後)</li><li>定期 (例如每季或每年)，即使沒有任何已知的缺口或 IT 人員的變更也一樣</li></ul>由於多人有權存取這些帳戶的認證，因此，應該輪替認證，以確保已離開其角色的人員無法再存取帳戶。 [深入了解](https://aka.ms/breakglass) |
+| **最佳作法** | 如果共用、服務及緊急存取帳戶均會使用密碼進行驗證，並已指派給具高度特殊權限的系統管理角色 (例如，全域系統管理員或安全性系統管理員)，則應該針對下列情況輪替其密碼：<ul><li>在涉及系統管理存取權限誤用或遭到入侵的安全性事件之後</li><li>在變更任意使用者的權限，使其不再為系統管理員之後 (例如，在先前為系統管理員的員工離開 IT 或離開組織之後)</li><li>定期 (例如每季或每年)，即使沒有任何已知的缺口或 IT 人員的變更也一樣</li></ul>由於多人有權存取這些帳戶的認證，因此，應該輪替認證，以確保已離開其角色的人員無法再存取帳戶。 [深入了解](https://aka.ms/breakglass) |
 
 ### <a name="roles-are-being-assigned-outside-of-pim"></a>在 PIM 外指派角色
 
@@ -118,15 +118,15 @@ ms.locfileid: "67476424"
 
 1. 開啟 **Azure AD Privileged Identity Management**。
 
-1. 按一下 [Azure AD 角色]  。
+1. 按一下 [Azure AD 角色]。
 
-1. 按一下 [設定]  ，然後按一下 [警示]  。
+1. 按一下 [設定]，然後按一下 [警示]。
 
-    ![Azure AD 角色設定與選取的警示](./media/pim-how-to-configure-security-alerts/settings-alerts.png)
+    ![Azure AD 角色-已選取警示的設定](./media/pim-how-to-configure-security-alerts/settings-alerts.png)
 
 1. 按一下要設定該警示設定的警示名稱。
 
-    ![選取警示，安全性警示設定窗格](./media/pim-how-to-configure-security-alerts/security-alert-settings.png)
+    ![針對選取的警示，安全性警示設定窗格](./media/pim-how-to-configure-security-alerts/security-alert-settings.png)
 
 ## <a name="next-steps"></a>後續步驟
 

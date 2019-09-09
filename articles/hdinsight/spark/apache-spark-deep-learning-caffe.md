@@ -1,18 +1,18 @@
 ---
 title: 在 Azure HDInsight Spark 上使用 Caffe 進行分散式深入學習
-description: 在 Azure HDInsight Spark 上使用 Caffe 進行分散式深入學習
+description: 在 Apache Spark 上使用 Caffe 來進行 Azure HDInsight 中的分散式深度學習。
 author: hrasheed-msft
 ms.author: hrasheed
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/17/2017
-ms.openlocfilehash: d0d68263485c5ab6e57a349317b1975862470cc2
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 31911c6c2456ab8b4949bab6ef8e541b91fc8a2c
+ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64721507"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70814188"
 ---
 # <a name="use-caffe-on-azure-hdinsight-spark-for-distributed-deep-learning"></a>在 Azure HDInsight Spark 上使用 Caffe 進行分散式深入學習
 
@@ -36,7 +36,7 @@ ms.locfileid: "64721507"
 
 由於 HDInsight 是 PaaS 的解決方案，它提供絕佳的平台功能 - 因此可以輕鬆執行某些工作。 在此部落格文章中經常使用的其中一個功能稱為[指令碼動作](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-customize-cluster-linux)，您可以用來執行 shell 命令以自訂叢集節點 (前端節點、背景工作角色節點或邊緣節點)。
 
-## <a name="step-1--install-the-required-dependencies-on-all-the-nodes"></a>步驟 1：在所有節點上安裝必要的相依性
+## <a name="step-1--install-the-required-dependencies-on-all-the-nodes"></a>步驟 1:在所有節點上安裝必要的相依性
 
 若要開始，您必須安裝相依性。 Caffe 網站和 [CaffeOnSpark 網站](https://github.com/yahoo/CaffeOnSpark/wiki/GetStarted_yarn) \(英文\) 提供了一些有用的 wiki，可安裝 Spark on YARN 模式的相依性。 HDInsight 也使用 Spark on YARN 模式。 不過，您必須為 HDInsight 平台再加入些許相依性。 因此，您會使用指令碼動作，並在所有的前端節點和背景工作角色節點上執行。 此指令碼動作需要大約 20 分鐘，因為這些相依性也取決於其他封裝。 您應該將它放在 HDInsight 叢集可以存取的某個位置，例如 GitHub 位置或預設 BLOB 儲存體帳戶。
 
@@ -68,7 +68,7 @@ ms.locfileid: "64721507"
 ![安裝相依性的指令碼動作](./media/apache-spark-deep-learning-caffe/Script-Action-1.png)
 
 
-## <a name="step-2-build-caffe-on-apache-spark-for-hdinsight-on-the-head-node"></a>步驟 2：在前端節點上建置適用於 HDInsight 的 Apache Spark Caffe
+## <a name="step-2-build-caffe-on-apache-spark-for-hdinsight-on-the-head-node"></a>步驟 2:在前端節點上建置適用於 HDInsight 的 Apache Spark Caffe
 
 第二個步驟是在前端節點上建立 Caffe，然後將已編譯的程式庫傳送到所有背景工作角色節點。 在此步驟中，您必須[使用 SSH 連線到前端節點](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-linux-use-ssh-unix)。 完成之後，您必須遵循 [CaffeOnSpark 建置程序](https://github.com/yahoo/CaffeOnSpark/wiki/GetStarted_yarn) \(英文\)。 使用以下指令碼，加上幾個額外步驟，就能建置 CaffeOnSpark。 
 
@@ -175,7 +175,7 @@ CaffeOnSpark 針對 MNIST 訓練提供一些網路拓樸範例。 它具有不�
     # solver mode: CPU or GPU
     solver_mode: CPU
 
-![Caffe 組態](./media/apache-spark-deep-learning-caffe/Caffe-1.png)
+![Caffe Config1](./media/apache-spark-deep-learning-caffe/Caffe-1.png)
 
 您可以視需要變更其他行。
 
@@ -184,7 +184,7 @@ CaffeOnSpark 針對 MNIST 訓練提供一些網路拓樸範例。 它具有不�
 - 將 "file:/Users/mridul/bigml/demodl/mnist_train_lmdb" 變更為 "wasb:///projects/machine_learning/image_dataset/mnist_train_lmdb"
 - 將 "file:/Users/mridul/bigml/demodl/mnist_test_lmdb/" 變更為 "wasb:///projects/machine_learning/image_dataset/mnist_test_lmdb"
 
-![Caffe 組態](./media/apache-spark-deep-learning-caffe/Caffe-2.png)
+![Caffe Config2](./media/apache-spark-deep-learning-caffe/Caffe-2.png)
 
 如需有關如何定義網路的詳細資訊，請參閱 [MNIST 資料集上的 Caffe 文件](https://caffe.berkeleyvision.org/gathered/examples/mnist.html) \(英文\)
 

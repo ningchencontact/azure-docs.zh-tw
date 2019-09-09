@@ -1,5 +1,5 @@
 ---
-title: Azure Active Directory B2C 的常見問題 (FAQ)
+title: Azure Active Directory B2C 的常見問題（FAQ）
 description: 有關 Azure Active Directory B2C 常見問題的解答。
 services: active-directory-b2c
 author: mmacy
@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 08/31/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 7b569454696717913c325581ca1f00479a371984
-ms.sourcegitcommit: 7a6d8e841a12052f1ddfe483d1c9b313f21ae9e6
+ms.openlocfilehash: 8bd1bee82941953e96eed1defa04c9fddef3e293
+ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70183182"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70809211"
 ---
 # <a name="azure-ad-b2c-frequently-asked-questions-faq"></a>Azure AD B2C：常見問題集 (FAQ)
 
@@ -31,19 +31,19 @@ Azure AD 和 Azure AD B2C 為個別的產品供應項目，無法共存於同一
 
 ### <a name="can-i-use-azure-ad-b2c-to-provide-social-login-facebook-and-google-into-office-365"></a>我可以使用 Azure AD B2C 來提供 Office 365 的社交登入 (Facebook 和 Google+) 嗎？
 
-Azure AD B2C 無法用來驗證 Microsoft Office 365 的使用者。 Azure AD 是 Microsoft 用來管理 SaaS 應用程式存取權的解決方案, 而且它具有專為此用途而設計的功能, 例如授權和條件式存取。 Azure AD B2C 提供身分識別和存取管理平台來建置 web 和行動應用程式。 當 Azure AD B2C 設定為與 Azure AD 租用戶結成同盟時，Azure AD 租用戶會管理員工如何存取依賴 Azure AD B2C 的應用程式。
+Azure AD B2C 無法用來驗證 Microsoft Office 365 的使用者。 Azure AD 是 Microsoft 用來管理 SaaS 應用程式存取權的解決方案，而且它具有專為此用途而設計的功能，例如授權和條件式存取。 Azure AD B2C 提供身分識別和存取管理平台來建置 web 和行動應用程式。 當 Azure AD B2C 設定為與 Azure AD 租用戶結成同盟時，Azure AD 租用戶會管理員工如何存取依賴 Azure AD B2C 的應用程式。
 
 ### <a name="what-are-local-accounts-in-azure-ad-b2c-how-are-they-different-from-work-or-school-accounts-in-azure-ad"></a>Azure AD B2C 中的本機帳戶是什麼？ 與 Azure AD 中的工作或學校帳戶有何不同？
 
 在 Azure AD 租用戶中，屬於租用戶的使用者是以 `<xyz>@<tenant domain>` 格式的電子郵件地址登入。 `<tenant domain>` 是租用戶中已驗證的其中一個網域，或初始的 `<...>.onmicrosoft.com` 網域。 這種類型的帳戶就是工作或學校帳戶。
 
-在 Azure AD B2C 租用戶中，大部分應用程式都希望使用者以任意的電子郵件地址登入 (例如 joe@comcast.net、bob@gmail.com、sarah@contoso.com 或 jim@live.com)。 這種類型的帳戶就是本機帳戶。 我們也支援使用任意的使用者名稱作為本機帳戶 (例如，joe、bob、sarah 或 jim)。 在 Azure 入口網站中設定 Azure AD B2C 的識別提供者時，您可以從這兩個本機帳戶類型中選擇一個。 在 Azure AD B2C 租使用者中, 選取 [身分**識別提供者**], 選取 [**本機帳戶**], 然後選取 [使用者**名稱**]。
+在 Azure AD B2C 租用戶中，大部分應用程式都希望使用者以任意的電子郵件地址登入 (例如 joe@comcast.net、bob@gmail.com、sarah@contoso.com 或 jim@live.com)。 這種類型的帳戶就是本機帳戶。 我們也支援使用任意的使用者名稱作為本機帳戶 (例如，joe、bob、sarah 或 jim)。 在 Azure 入口網站中設定 Azure AD B2C 的識別提供者時，您可以從這兩個本機帳戶類型中選擇一個。 在 Azure AD B2C 租使用者中，選取 [身分**識別提供者**]，選取 [**本機帳戶**]，然後選取 [使用者**名稱**]。
 
 應用程式的使用者帳戶一律透過註冊使用者流程、註冊或登入使用者流程，或使用 Azure AD 圖形 API 建立。 在 Azure 入口網站中建立的使用者帳戶只能用來管理租用戶。
 
 ### <a name="which-social-identity-providers-do-you-support-now-which-ones-do-you-plan-to-support-in-the-future"></a>你們現在支援哪些社交身分識別提供者？ 你們打算在未來支援哪些？
 
-我們目前支援數個社交識別提供者, 包括 Amazon、Facebook、GitHub (預覽)、Google、LinkedIn、Microsoft 帳戶 (MSA)、QQ (預覽)、Twitter、WeChat (預覽) 和 Weibo (預覽)。 我們會根據客戶需求, 評估新增其他熱門社交識別提供者的支援。
+我們目前支援數個社交識別提供者，包括 Amazon、Facebook、GitHub （預覽）、Google、LinkedIn、Microsoft 帳戶（MSA）、QQ （預覽）、Twitter、WeChat （預覽）和 Weibo （預覽）。 我們會根據客戶需求，評估新增其他熱門社交識別提供者的支援。
 
 Azure AD B2C 也支援[自訂原則](active-directory-b2c-overview-custom.md)。 自訂原則可讓您為任何支援[OpenID connect](https://openid.net/specs/openid-connect-core-1_0.html)或 SAML 的身分識別提供者建立自己的原則。 查看我們的[自訂原則入門套件](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack)，開始使用自訂原則。
 
@@ -69,7 +69,7 @@ Azure AD B2C 也支援[自訂原則](active-directory-b2c-overview-custom.md)。
 
 您可以使用 [公司商標功能](../active-directory/fundamentals/customize-branding.md) 自訂驗證電子郵件的內容。 明確地說，您可以自訂電子郵件的下列兩個元素：
 
-* **橫幅標誌**:顯示在右下方。
+* **橫幅標誌**：顯示在右下方。
 * **背景色彩**：顯示在頂端。
 
     ![自訂驗證電子郵件的螢幕擷取畫面](./media/active-directory-b2c-faqs/company-branded-verification-email.png)
@@ -124,31 +124,31 @@ Azure AD B2C 不適用於 SharePoint 外部夥伴共用的情節。請改以參�
 
 是！  請參閱[語言自訂](active-directory-b2c-reference-language-customization.md) (處於公開預覽狀態)。 我們提供 36 種語言的翻譯，您可以覆寫任何字串以符合您的需求。
 
-### <a name="can-i-use-my-own-urls-on-my-sign-up-and-sign-in-pages-that-are-served-by-azure-ad-b2c-for-instance-can-i-change-the-url-from-loginmicrosoftonlinecom-to-logincontosocom"></a>我可以在 Azure AD B2C 提供的註冊與登入頁面上使用自己的 URL 嗎？ 例如，我可以將 URL 從 login.microsoftonline.com 變更為 login.contoso.com 嗎？
+### <a name="can-i-use-my-own-urls-on-my-sign-up-and-sign-in-pages-that-are-served-by-azure-ad-b2c-for-instance-can-i-change-the-url-from-contosob2clogincom-to-logincontosocom"></a>我可以在 Azure AD B2C 提供的註冊與登入頁面上使用自己的 URL 嗎？ 例如，我可以將 URL 從 contoso.b2clogin.com 變更為 login.contoso.com 嗎？
 
-目前不支援。 但這項功能已在我們的規劃中。 在 Azure 入口網站的 [網域] 索引標籤中驗證您的網域，並無法達成此目標。
+目前不支援。 但這項功能已在我們的規劃中。 在 Azure 入口網站的 [網域] 索引標籤中驗證您的網域，並無法達成此目標。 不過，在 b2clogin.com 中，我們提供了[中性的頂層網域](b2clogin.md)，因此外部外觀可以在不提及 Microsoft 的情況下執行。
 
 ### <a name="how-do-i-delete-my-azure-ad-b2c-tenant"></a>如何刪除 Azure AD B2C 租用戶？
 
 請遵循下列步驟來刪除 Azure AD B2C 租用戶︰
 
-1. 刪除 Azure AD B2C 租使用者中的所有**使用者流程 (原則)** 。
+1. 刪除 Azure AD B2C 租使用者中的所有**使用者流程（原則）** 。
 1. 刪除您在 Azure AD B2C 租使用者中註冊的所有**應用程式**。
-1. 接下來, 以訂用帳戶管理員身分登入[Azure 入口網站](https://portal.azure.com/)。 使用相同的公司或學校帳戶, 或您用來註冊 Azure 的相同 Microsoft 帳戶。
+1. 接下來，以訂用帳戶管理員身分登入[Azure 入口網站](https://portal.azure.com/)。 使用相同的公司或學校帳戶，或您用來註冊 Azure 的相同 Microsoft 帳戶。
 1. 切換至您想要刪除的 Azure AD B2C 租用戶。
 1. 選取左側功能表上的 [ **Azure Active Directory** ]。
 1. 在 [管理] 底下選取 [使用者]。
-1. 逐一選取每個使用者 (不包括您目前登入的「訂用帳戶管理員」使用者身分)。 選取頁面底部的 [**刪除**], 然後在出現提示時選取 **[是]** 。
-1. 在 [**管理**] 底下, 選取 [**應用程式註冊**(或**應用程式註冊 (舊版)** )]。
+1. 逐一選取每個使用者 (不包括您目前登入的「訂用帳戶管理員」使用者身分)。 選取頁面底部的 [**刪除**]，然後在出現提示時選取 **[是]** 。
+1. 在 [**管理**] 底下，選取 [**應用程式註冊**（或**應用程式註冊（舊版）** ）]。
 1. 選取 [**查看所有應用程式**]
-1. 選取名為**b2c**的應用程式, 選取 [**刪除**], 然後在出現提示時選取 **[是]** 。
-1. 在 [**管理**] 底下, 選取 [**使用者設定**]。
-1. 如果存在, 請在 [ **LinkedIn 帳戶**連線] 下選取 [**否**], 然後選取 [**儲存**]。
-1. 在 [**管理**] 底下, 選取 [**屬性**]
-1. 在 [ **Azure 資源的存取管理**] 底下, 選取 **[是]** , 然後選取 [**儲存**]。
+1. 選取名為**b2c**的應用程式，選取 [**刪除**]，然後在出現提示時選取 **[是]** 。
+1. 在 [**管理**] 底下，選取 [**使用者設定**]。
+1. 如果存在，請在 [ **LinkedIn 帳戶**連線] 下選取 [**否**]，然後選取 [**儲存**]。
+1. 在 [**管理**] 底下，選取 [**屬性**]
+1. 在 [ **Azure 資源的存取管理**] 底下，選取 **[是]** ，然後選取 [**儲存**]。
 1. 登出 Azure 入口網站然後再次登入以重新整理您的存取權。
 1. 選取左側功能表上的 [ **Azure Active Directory** ]。
-1. 在 [**總覽**] 頁面上, 選取 [**刪除目錄**]。 遵循畫面上的指示來完成程式。
+1. 在 [**總覽**] 頁面上，選取 [**刪除目錄**]。 遵循畫面上的指示來完成程式。
 
 ### <a name="can-i-get-azure-ad-b2c-as-part-of-enterprise-mobility-suite"></a>我可以從 Enterprise Mobility Suite 中取得 Azure AD B2C 嗎？
 

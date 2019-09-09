@@ -18,16 +18,16 @@ ms.author: ryanwi
 ms.reviewer: elisol, bryanla
 ms.custom: aaddev, seoapril2019
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0198e5f5df3d25ef825248ff78db95326dc755c2
-ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
+ms.openlocfilehash: 5d3cbaf76489058624e56bec50b37eeb18a99ba7
+ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68477050"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70812508"
 ---
 # <a name="how-to-list-your-application-in-the-azure-active-directory-application-gallery"></a>HOW TO：在 Azure Active Directory 應用程式庫中列出您的應用程式
 
-本文說明如何在 Azure AD 應用程式庫中列出應用程式、執行單一登入 (SSO), 以及管理清單。
+本文說明如何在 Azure AD 應用程式庫中列出應用程式、執行單一登入（SSO），以及管理清單。
 
 ## <a name="what-is-the-azure-ad-application-gallery"></a>什麼是 Azure AD 應用程式庫？
 
@@ -48,12 +48,7 @@ ms.locfileid: "68477050"
 
 - 若為「密碼單一登入」，請確定您的應用程式支援表單驗證，讓密碼保存可以完成，以使單一登入能如預期般運作。
 
-- 若為「自動使用者佈建」要求，應用程式應列於資源庫中，並使用 SAML 2.0/WS-Fed 啟用單一登入功能。 您可以在入口網站上一起要求「單一登入」與「使用者佈建」(若未列出的話)。
-
-- 需要永久帳戶以進行測試, 且至少要有2個使用者註冊。
-
->[!NOTE]
->我們正在執行大量的 SCIM 連接器要求, 因此我們已停止在入口網站上提出新的要求。 請保留您的要求, 直到進一步通知為止。 我們讀者表達歉意這種延遲, 而且可能造成的任何不便。
+- 需要永久帳戶以進行測試，且至少要有2個使用者註冊。
 
 ## <a name="submit-the-request-in-the-portal"></a>在入口網站中提交要求
 
@@ -117,7 +112,7 @@ ms.locfileid: "68477050"
 
 ## <a name="listing-requests-by-customers"></a>列出客戶提出的要求
 
-客戶可以按一下 [客戶 -> **提交新要求**的**應用程式要求**], 提交列出應用程式的要求。
+客戶可以按一下 [客戶 -> **提交新要求**的**應用程式要求**]，提交列出應用程式的要求。
 
 ![顯示客戶要求的應用程式磚](./media/howto-app-gallery-listing/customer-submit-request.png)
 

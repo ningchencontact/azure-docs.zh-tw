@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/25/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 163c3cbaeed1526f08d047c3bf357232ccb534a3
-ms.sourcegitcommit: b7b0d9f25418b78e1ae562c525e7d7412fcc7ba0
+ms.openlocfilehash: dc532ed33fca5120736dfb9503d012b2877e675e
+ms.sourcegitcommit: b8578b14c8629c4e4dea4c2e90164e42393e8064
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/08/2019
-ms.locfileid: "70802401"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70806626"
 ---
 # <a name="planning-for-an-azure-files-deployment"></a>規劃 Azure 檔案服務部署
 
@@ -155,7 +155,7 @@ Azure 備份適用于 premium 檔案共用，Azure Kubernetes Service 支援1.13
 
 ## <a name="file-share-redundancy"></a>檔案共用備援
 
-Azure 檔案儲存體標準共用支援三個數據冗余選項：本機冗余儲存體（LRS）、區域冗余儲存體（ZRS）、異地多餘儲存體（GRS）和異地區域冗余儲存體（切換）（預覽）。
+Azure 檔案儲存體標準共用支援四個數據冗余選項：本機冗余儲存體（LRS）、區域冗余儲存體（ZRS）、異地多餘儲存體（GRS）和異地區域冗余儲存體（切換）（預覽）。
 
 Azure 檔案儲存體 premium 共用僅支援本機多餘的儲存體（LRS）。
 

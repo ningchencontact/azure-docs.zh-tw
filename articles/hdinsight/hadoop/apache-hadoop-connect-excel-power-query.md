@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/16/2018
-ms.openlocfilehash: e35e86bee4dfee21d0a98867c3e0d1d7850ed0ec
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c1255296854fd28cca4427b6cac04de7dc7919d8
+ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65761999"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70810912"
 ---
 # <a name="connect-excel-to-apache-hadoop-by-using-power-query"></a>使用 Power Query 將 Excel 連線到 Apache Hadoop
 Microsoft 巨量資料方案的主要功能之一，是將 Microsoft 商業智慧 (BI) 元件與 Azure HDInsight 上的 Apache Hadoop 叢集相整合。 舉例來說，可讓您使用 Microsoft Power Query for Excel 增益集，將 Excel 連接到包含 Hadoop 叢集相關聯資料的 Azure 儲存體帳戶。 本文將逐步解說如何設定及使用 Power Query，以查詢受 HDInsight 管理的 Hadoop 叢集相關聯資料。
@@ -28,7 +28,7 @@ Microsoft 巨量資料方案的主要功能之一，是將 Microsoft 商業智�
 ## <a name="install-power-query"></a>安裝 Power Query
 Power Query 可匯入在 HDInsight 叢集上執行的 Hadoop 工作所匯出或產生的資料。
 
-在 Excel 2016 中，Power Query 已整合至 [Get & Transform] \(取得並轉換\) 區段下方的 [Data] \(資料\) 功能區。 如果是舊的 Excel 版本，請從 [Microsoft 下載中心][powerquery-download]下載並安裝 Microsoft Power Query for Excel。
+在 Excel 2016 中，Power Query 已整合至 [Get & Transform] \(取得並轉換\) 區段下方的 [Data] \(資料\) 功能區。 針對較舊的 Excel 版本，請從[Microsoft 下載中心][powerquery-download]下載 Microsoft Power Query for Excel 並加以安裝。
 
 ## <a name="import-hdinsight-data-into-excel"></a>將 HDInsight 資料匯入 Excel 中
 Power Query add-in for Excel 可協助您將 HDInsight 叢集中的資料匯入至 Excel，以便使用 PowerPivot 和 Power Map 等 BI 工具來檢查、分析及呈現資料。
@@ -41,26 +41,26 @@ Power Query add-in for Excel 可協助您將 HDInsight 叢集中的資料匯入�
 
    - Excel 2016
 
-     - 按一下 [Data] \(資料\)  功能表，從 [Get & Transform Data] \(取得並轉換資料\)  功能區中按一下 [Get Data] \(取得資料\)  ，按一下 [From Azure] \(從 Azure\)  ，然後按一下 [From Azure HDInsight(HDFS)] \(從 Azure HDInsight(HDFS)\)  。
+     - 按一下 [Data] \(資料\) 功能表，從 [Get & Transform Data] \(取得並轉換資料\) 功能區中按一下 [Get Data] \(取得資料\)，按一下 [From Azure] \(從 Azure\)，然後按一下 [From Azure HDInsight(HDFS)] \(從 Azure HDInsight(HDFS)\)。
 
-       ![HDI.PowerQuery.SelectHdiSource](./media/apache-hadoop-connect-excel-power-query/hdi.powerquery.selecthdisource.excel2016.png)
+       ![HDI.PowerQuery. SelectHdiSource. 2016](./media/apache-hadoop-connect-excel-power-query/hdi.powerquery.selecthdisource.excel2016.png)
 
    - Excel 2013/2010
 
-     - 依序按一下 [Power Query]  功能表、[從其他來源]  、[從 Microsoft Azure HDInsight]  。
+     - 依序按一下 [Power Query] 功能表、[從其他來源]、[從 Microsoft Azure HDInsight]。
    
        ![HDI.PowerQuery.SelectHdiSource][image-hdi-powerquery-hdi-source]
        
-       **注意：** 如果您沒有看到**Power Query**功能表上，移至**檔案** > **選項** > **增益集**，然後選取  **COM 增益集**從下拉式清單**管理**在頁面底部的方塊。 選取 [移至...]  按鈕，並驗證 Power Query for Excel 增益集的方塊已勾選。
+       **注意：** 如果您看不到 [ **Power Query** ] 功能表，**請移至** > [檔案] [**選項** > ] [**增益集**]，然後從頁面底部的下拉式 [**管理**] 方塊中，選取 [ **COM 增益集**]。 選取 [移至...] 按鈕，並驗證 Power Query for Excel 增益集的方塊已勾選。
        
-       **注意：** Power Query 也可讓您從 HDFS 匯入資料，方法是按一下 [從其他來源]  。
-4. 對於 [帳戶名稱]  ，輸入叢集相關 Azure Blob 儲存體帳戶的名稱，然後按一下 [確定]  。 此帳戶可以是預設儲存體帳戶或連結的儲存體帳戶。  其格式為 *https://&lt;StorageAccountName>.blob.core.windows.net/* 。
-5. 對於 [帳戶金鑰]  ，輸入 Blob 儲存體帳戶的金鑰，然後按一下 [儲存]  。 (只有在您第一次存取這個存放區時才必須輸入帳戶資訊)。
+       **注意：** Power Query 也可讓您從 HDFS 匯入資料，方法是按一下 [從其他來源]。
+4. 對於 [帳戶名稱]，輸入叢集相關 Azure Blob 儲存體帳戶的名稱，然後按一下 [確定]。 此帳戶可以是預設儲存體帳戶或連結的儲存體帳戶。  其格式為 *https://&lt;StorageAccountName>.blob.core.windows.net/* 。
+5. 對於 [帳戶金鑰]，輸入 Blob 儲存體帳戶的金鑰，然後按一下 [儲存]。 (只有在您第一次存取這個存放區時才必須輸入帳戶資訊)。
 6. 在 [查詢編輯器] 左側的 [ **瀏覽器** ] 窗格中，按兩下 Blob 儲存體容器名稱。 依預設，容器名稱與叢集名稱相同。
-7. 在 [名稱]  欄中找出 **HiveSampleData.txt** (資料夾路徑為 **../hive/warehouse/hivesampletable/** )，然後按一下 HiveSampleData.txt 左側的 [二進位]  。 HiveSampleData.txt 隨附於所有叢集。 您也可以選擇使用您自己的檔案。
+7. 在 [名稱] 欄中找出 **HiveSampleData.txt** (資料夾路徑為 **../hive/warehouse/hivesampletable/** )，然後按一下 HiveSampleData.txt 左側的 [二進位]。 HiveSampleData.txt 隨附於所有叢集。 您也可以選擇使用您自己的檔案。
    
     ![HDI.PowerQuery.ImportData][image-hdi-powerquery-importdata]
-8. 如有需要，您可以將欄名稱重新命名。 請在準備就緒後，按一下 [關閉並載入]  。  資料已載入至您的活頁簿：
+8. 如有需要，您可以將欄名稱重新命名。 請在準備就緒後，按一下 [關閉並載入]。  資料已載入至您的活頁簿：
    
     ![HDI.PowerQuery.ImportedTable][image-hdi-powerquery-imported-table]
 

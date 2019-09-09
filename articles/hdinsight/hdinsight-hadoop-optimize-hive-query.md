@@ -8,18 +8,18 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 03/21/2019
-ms.openlocfilehash: 218085d8d3969218be1a0557fdc477c730879cbe
-ms.sourcegitcommit: 5bdd50e769a4d50ccb89e135cfd38b788ade594d
+ms.openlocfilehash: 60c725e084a18326cc4bc9cc05d02d103261f5a4
+ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/03/2019
-ms.locfileid: "67543699"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70809251"
 ---
 # <a name="optimize-apache-hive-queries-in-azure-hdinsight"></a>將 Azure HDInsight 中的 Apache Hive 查詢最佳化
 
 在 Azure HDInsight 中，有數種叢集類型與技術可執行 Apache Hive查詢。 當您建立 HDInsight 叢集時，選擇適當的叢集類型，有助於針對工作負載需求將效能最佳化。
 
-例如，選擇**互動式查詢**叢集來最佳化臨機操作、 互動式查詢的類型。 選擇 Apache **Hadoop** 叢集類型，將作為批次程序使用的 Hive 查詢最佳化。 **Spark** 與 **HBase** 叢集類型也可以執行 Hive 查詢。 如需針對不同 HDInsight 叢集類型執行 Hive 查詢的詳細資訊，請參閱[Azure HDInsight 上的 Apache Hive 和 HiveQL 是什麼？](hadoop/hdinsight-use-hive.md)。
+例如，選擇 [**互動式查詢**叢集類型]，以針對臨機操作的互動式查詢進行優化。 選擇 Apache **Hadoop** 叢集類型，將作為批次程序使用的 Hive 查詢最佳化。 **Spark** 與 **HBase** 叢集類型也可以執行 Hive 查詢。 如需針對不同 HDInsight 叢集類型執行 Hive 查詢的詳細資訊，請參閱[Azure HDInsight 上的 Apache Hive 和 HiveQL 是什麼？](hadoop/hdinsight-use-hive.md)。
 
 根據預設，Hadoop 叢集類型的 HDInsight 叢集未針對效能進行最佳化。 本文說明幾個將 Hive 效能最佳化的最常見方法，您可將這些方法套用於查詢。
 
@@ -29,11 +29,11 @@ ms.locfileid: "67543699"
 
 * 當您建立叢集時，您可以使用 Azure 入口網站、Azure PowerShell 或命令列介面來指定背景工作節點的數目。  如需詳細資訊，請參閱[建立 HDInsight 叢集](hdinsight-hadoop-provision-linux-clusters.md)。 下列畫面顯示 Azure 入口網站上的背景工作節點組態：
   
-    ![scaleout_1][image-hdi-optimize-hive-scaleout_1]
+    ![scaleout_1](./media/hdinsight-hadoop-optimize-hive-query/scaleout_1.png "scaleout_1")
     
 * 建立之後，您也可以編輯背景工作節點數目，以進一步相應放大叢集，而不必重新建立：
 
-    ![scaleout_1][image-hdi-optimize-hive-scaleout_2]
+    ![scaleout_2](./media/hdinsight-hadoop-optimize-hive-query/scaleout_2.png "scaleout_2")
 
 如需調整 HDInsight 的詳細資訊，請參閱[調整 HDInsight 叢集](hdinsight-scaling-best-practices.md)
 
@@ -71,7 +71,7 @@ Hive 資料分割的實作方法是將未經處理的資料重新整理成新的
 
 * **請勿分割不足** - 依據只有少數幾個值的資料行進行分割，可能會造成很少的分割區。 例如，依據性別進行分割，只會建立兩個分割區 (男性和女性)，因此只會降低最多一半的延遲。
 * **請勿過度分割** - 另一方面，在具有唯一值 (例如，使用者識別碼) 的資料行建立分割區會造成多個分割區。 過度分割會在叢集 namenode 上造成太多壓力，因為它必須處理大量目錄。
-* **避免資料扭曲** - 明智地選擇分割索引鍵，讓所有分割區的大小平均。 例如，「州/省」  資料行上的資料分割可能會扭曲資料的分佈。 由於加州的人口幾乎是佛蒙特州的 30 倍，分割區大小可能會有偏差，且效能可能會有極大的差異。
+* **避免資料扭曲** - 明智地選擇分割索引鍵，讓所有分割區的大小平均。 例如，「州/省」資料行上的資料分割可能會扭曲資料的分佈。 由於加州的人口幾乎是佛蒙特州的 30 倍，分割區大小可能會有偏差，且效能可能會有極大的差異。
 
 若要建立分割資料表，請使用 *Partitioned By* 子句：
 
@@ -198,7 +198,6 @@ ORC (最佳化的資料列單欄式) 格式是儲存 Hive 資料的高效率方�
 * [在 HDInsight 中使用互動式查詢來分析航班延誤資料](/azure/hdinsight/interactive-query/interactive-query-tutorial-analyze-flight-data)
 * [在 HDInsight 中使用 Apache Hive 分析 Twitter 資料](hdinsight-analyze-twitter-data-linux.md)
 
-[image-hdi-optimize-hive-scaleout_1]: ./media/hdinsight-hadoop-optimize-hive-query/scaleout_1.png
-[image-hdi-optimize-hive-scaleout_2]: ./media/hdinsight-hadoop-optimize-hive-query/scaleout_2.png
+
 [image-hdi-optimize-hive-tez_1]: ./media/hdinsight-hadoop-optimize-hive-query/tez_1.png
 [image-hdi-optimize-hive-partitioning_1]: ./media/hdinsight-hadoop-optimize-hive-query/partitioning_1.png

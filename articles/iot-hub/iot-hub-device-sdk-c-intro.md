@@ -8,12 +8,12 @@ ms.devlang: c
 ms.topic: conceptual
 ms.date: 05/17/2019
 ms.author: robinsh
-ms.openlocfilehash: 1c1921391048fc59f03070d4753f422d9cfc5237
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: dd12f974b9b02d919752dcb932c9ce1709d7315b
+ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68883473"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70813783"
 ---
 # <a name="azure-iot-device-sdk-for-c"></a>適用於 C 的 Azure IoT 裝置 SDK
 
@@ -111,7 +111,7 @@ Azure IoT 裝置 SDK (適用於 C) 是以 ANSI C (C99) 撰寫，以獲得最大�
 
 1. 如果您選擇 [複製所選裝置的連接字串]，裝置連接字串就會複製到剪貼簿。 請保留一份裝置連接字串。 在執行後續各節中所述的範例應用程式時，您會需要它。
 
-完成上述步驟後，您就可以開始執行一些程式碼。 大部分範例在主要原始程式檔頂端都有一個常數，此常數可讓您輸入連接字串。 例如, 來自 **\_iothub_client samples\_iothub_convenience_sample**應用程式的對應行會如下所示。
+完成上述步驟後，您就可以開始執行一些程式碼。 大部分範例在主要原始程式檔頂端都有一個常數，此常數可讓您輸入連接字串。 例如，來自 **\_iothub_client samples\_iothub_convenience_sample**應用程式的對應行會如下所示。
 
 ```c
 static const char* connectionString = "[device connection string]";
@@ -121,12 +121,12 @@ static const char* connectionString = "[device connection string]";
 
 在 [azure-iot-sdk-c](https://github.com/azure/azure-iot-sdk-c) 儲存機制的 **iothub\_client** 資料夾中，有一個 [samples] 資料夾，當中包含名為 **iothub\_client\_sample\_mqtt** 的應用程式。
 
-Windows 版本的 **\_iothub_client samples\_iothub_convenience_sample**應用程式包含下列 Visual Studio 解決方案:
+Windows 版本的 **\_iothub_client samples\_iothub_convenience_sample**應用程式包含下列 Visual Studio 解決方案：
 
   ![Visual Studio 方案總管](./media/iot-hub-device-sdk-c-intro/iothub-client-sample-mqtt.png)
 
 > [!NOTE]
-> 如果 Visual Studio 要求您將專案的目標重定為最新版本, 請接受提示。
+> 如果 Visual Studio 要求您將專案的目標重定為最新版本，請接受提示。
 
 此解決方案內含單一專案： 此解決方案中安裝了四個 NuGet 套件：
 
@@ -217,7 +217,7 @@ do
 static void SendConfirmationCallback(IOTHUB_CLIENT_CONFIRMATION_RESULT result, void* userContextCallback)
 {
     EVENT_INSTANCE* eventInstance = (EVENT_INSTANCE*)userContextCallback;
-    (void)printf("Confirmation[%d] received for message tracking id = %zu with result = %s\r\n", callbackCounter, eventInstance->messageTrackingId, ENUM_TO_STRING(IOTHUB_CLIENT_CONFIRMATION_RESULT, result));
+    (void)printf("Confirmation[%d] received for message tracking id = %zu with result = %s\r\n", callbackCounter, eventInstance->messageTrackingId, MU_ENUM_TO_STRING(IOTHUB_CLIENT_CONFIRMATION_RESULT, result));
     /* Some device specific action code goes here... */
     callbackCounter++;
     IoTHubMessage_Destroy(eventInstance->messageHandle);
@@ -339,7 +339,7 @@ IoTHubClient_LL_Destroy(iotHubClientHandle);
   ![mqtt 範例的 Visual Studio 解決方案](./media/iot-hub-device-sdk-c-intro/simplesample_mqtt.png)
 
 > [!NOTE]
-> 如果 Visual Studio 要求您將專案的目標重定為最新版本, 請接受提示。
+> 如果 Visual Studio 要求您將專案的目標重定為最新版本，請接受提示。
 
 如同先前的範例，此範例也包含數個 NuGet 套件：
 
@@ -392,7 +392,7 @@ else
 
 ### <a name="define-the-model"></a>定義模型
 
-**serializer** 程式庫中的模型會定義您的裝置可傳送至 IoT 中樞的訊息以及其可接收的訊息 (在模組化語言中稱為*動作*)。 您可以使用一組 C 宏來定義模型, 如同在**iothub_client\_samples\_iothub_convenience_sample**範例應用程式中所示:
+**serializer** 程式庫中的模型會定義您的裝置可傳送至 IoT 中樞的訊息以及其可接收的訊息 (在模組化語言中稱為*動作*)。 您可以使用一組 C 宏來定義模型，如同在**iothub_client\_samples\_iothub_convenience_sample**範例應用程式中所示：
 
 ```c
 BEGIN_NAMESPACE(WeatherStation);
@@ -475,7 +475,7 @@ void sendCallback(IOTHUB_CLIENT_CONFIRMATION_RESULT result, void* userContextCal
 
     (void)printf("Message Id: %u Received.\r\n", messageTrackingId);
 
-    (void)printf("Result Call Back Called! Result is: %s \r\n", ENUM_TO_STRING(IOTHUB_CLIENT_CONFIRMATION_RESULT, result));
+    (void)printf("Result Call Back Called! Result is: %s \r\n", MU_ENUM_TO_STRING(IOTHUB_CLIENT_CONFIRMATION_RESULT, result));
 }
 ```
 

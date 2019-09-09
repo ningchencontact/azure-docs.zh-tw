@@ -1,6 +1,6 @@
 ---
 title: 使用 psql 來大量載入至 Apache Phoenix - Azure HDInsight
-description: 使用 psql 工具將大量資料載入至 Phoenix 資料表。
+description: 使用 psql 工具，將大量載入資料載入 Azure HDInsight 中的 Apache Phoenix 資料表
 author: ashishthaps
 ms.reviewer: jasonh
 ms.service: hdinsight
@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/10/2017
 ms.author: ashishth
-ms.openlocfilehash: fe6705dc3dedd521357f924dd433c7eacf88ba84
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 15bb65e004de916862297f91278328cddb16487d
+ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64718636"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70810408"
 ---
 # <a name="bulk-load-data-into-apache-phoenix-using-psql"></a>使用 psql 將資料大量載入至 Apache Phoenix
 
@@ -62,7 +62,7 @@ ms.locfileid: "64718636"
     SELECT Name, Income from Customers group by Country;
     ```
 
-4. 開啟一個「新的」  Hadoop 命令視窗來大量載入資料。 首先，使用 `cd` 命令來變更至執行目錄位置，然後使用 `psql` 工具 (Python `psql.py` 命令)。 
+4. 開啟一個「新的」Hadoop 命令視窗來大量載入資料。 首先，使用 `cd` 命令來變更至執行目錄位置，然後使用 `psql` 工具 (Python `psql.py` 命令)。 
 
     以下範例會預期您已使用 `hdfs` 將 `customers.csv` 檔案從儲存體帳戶複製到本機暫存目錄，如上面步驟 2 所示。
 

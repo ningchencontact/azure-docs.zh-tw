@@ -1,6 +1,6 @@
 ---
 title: 使用 Apache Spark 分析 Azure Data Lake Storage Gen1 中的資料
-description: 執行 Spark 作業來分析 Azure Data Lake Storage Gen1 中儲存的資料
+description: 執行 Apache Spark 作業來分析儲存在 Azure Data Lake Storage Gen1 中的資料
 ms.service: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
@@ -8,16 +8,16 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/13/2019
-ms.openlocfilehash: 5a98cb2356c25329e091514dd1d6181dfc2690be
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: f57d054134b9f2c8b327fe157e7a5b5e3d5ff183
+ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67448646"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70813918"
 ---
 # <a name="use-hdinsight-spark-cluster-to-analyze-data-in-data-lake-storage-gen1"></a>使用 HDInsight Spark 叢集分析 Data Lake Storage Gen1 中的資料
 
-在本文中，您可以使用[Jupyter Notebook](https://jupyter.org/)適用於 HDInsight Spark 叢集，以執行一個作業以從 Data Lake 儲存體帳戶讀取資料。
+在本文中，您會使用與 HDInsight Spark 叢集搭配使用的[Jupyter Notebook](https://jupyter.org/) ，來執行從 Data Lake Storage 帳戶讀取資料的作業。
 
 ## <a name="prerequisites"></a>必要條件
 
@@ -57,16 +57,16 @@ ms.locfileid: "67448646"
 
 ## <a name="use-an-hdinsight-spark-cluster-with-data-lake-storage-gen1"></a>搭配 Data Lake Storage Gen1 使用 HDInsight Spark 叢集
 
-1. 在 [Azure 入口網站](https://portal.azure.com/)的開始面板中，按一下您的 Apache Spark 叢集格圖格 (如果您已將它釘選到開始面板)。 您也可以按一下 [瀏覽全部]   > [HDInsight 叢集]  來瀏覽至您的叢集。
+1. 在 [Azure 入口網站](https://portal.azure.com/)的開始面板中，按一下您的 Apache Spark 叢集格圖格 (如果您已將它釘選到開始面板)。 您也可以按一下 [瀏覽全部] > [HDInsight 叢集] 來瀏覽至您的叢集。
 
-2. 在 Spark 叢集刀鋒視窗中按一下 [快速連結]  ，然後在 [叢集儀表板]  刀鋒視窗中按一下 [Jupyter Notebook]  。 出現提示時，輸入叢集的系統管理員認證。
+2. 在 Spark 叢集刀鋒視窗中按一下 [快速連結]，然後在 [叢集儀表板] 刀鋒視窗中按一下 [Jupyter Notebook]。 出現提示時，輸入叢集的系統管理員認證。
 
    > [!NOTE]  
    > 您也可以在瀏覽器中開啟下列 URL，來連接到您的叢集的 Jupyter Notebook。 使用您叢集的名稱取代 **CLUSTERNAME** ：
    >
    > `https://CLUSTERNAME.azurehdinsight.net/jupyter`
 
-3. 建立新的 Notebook。 按一下 [新增]  ，然後按一下 [PySpark]  。
+3. 建立新的 Notebook。 按一下 [新增]，然後按一下 [PySpark]。
 
     ![建立新的 Jupyter Notebook](./media/apache-spark-use-with-data-lake-store/hdinsight-create-jupyter-notebook.png "建立新的 Jupyter Notebook")
 
@@ -122,7 +122,7 @@ ms.locfileid: "67448646"
 
      ![查詢結果的區域圖](./media/apache-spark-use-with-data-lake-store/jupyter-area-output.png "查詢結果的區域圖")
 
-8. 應用程式執行完畢之後，您應該要關閉 Notebook 來釋放資源。 若要這樣做，請從 Notebook 的 [檔案]  功能表中，按一下 [關閉並停止]  。 這樣就能夠結束並關閉 Notebook。
+8. 應用程式執行完畢之後，您應該要關閉 Notebook 來釋放資源。 若要這樣做，請從 Notebook 的 [檔案] 功能表中，按一下 [關閉並停止]。 這樣就能夠結束並關閉 Notebook。
 
 
 ## <a name="next-steps"></a>後續步驟

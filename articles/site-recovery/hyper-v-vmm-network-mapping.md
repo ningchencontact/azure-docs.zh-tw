@@ -1,19 +1,18 @@
 ---
-title: 關於使用 Site Recovery 對 Hyper-V VM (含VMM) 災害復原至 Azure 所需的網路對應 | Microsoft Docs
+title: 關於使用 Site Recovery 將 Hyper-v VM （含 VMM）嚴重損壞修復至 Azure 的網路對應
 description: 說明如何使用 Azure Site Recovery 對 (VMM 雲端所管理的) Hyper-V VM 的災害復原設定網路對應。
-services: site-recovery
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
-ms.topic: article
-ms.date: 05/30/2019
+ms.topic: conceptual
+ms.date: 09/09/2019
 ms.author: raynew
-ms.openlocfilehash: d2f7f83654f397cc6b93adbbebc25193155bcedb
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 637f327b40341ac04f37baf9e43f136a0315b17f
+ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66399382"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70813665"
 ---
 # <a name="prepare-network-mapping-for-hyper-v-vm-disaster-recovery-to-azure"></a>準備「Hyper-V VM 災害復原至 Azure」的網路對應
 
@@ -54,9 +53,9 @@ ms.locfileid: "66399382"
 
 以下是說明這項機制的範例。 讓我們以具有兩個位置 (紐約和芝加哥) 的組織為例。
 
-**Location** | **VMM 伺服器** | **VM 網路** | **對應至**
+**位置** | **VMM 伺服器** | **VM 網路** | **對應至**
 ---|---|---|---
-紐約 | VMM-NewYork| VMNetwork1-NewYork | 對應至 VMNetwork1-Chicago
+New York | VMM-NewYork| VMNetwork1-NewYork | 對應至 VMNetwork1-Chicago
  |  | VMNetwork2-NewYork | 未對應
 芝加哥 | VMM-Chicago| VMNetwork1-Chicago | 對應至 VMNetwork1-NewYork
  | | VMNetwork2-Chicago | 未對應
@@ -79,9 +78,9 @@ SilverCloud2 | <p>NA</p><p></p> | <p>LogicalNetwork1-NewYork</p><p>LogicalNetwor
 
 ### <a name="logical-and-vm-network-settings"></a>邏輯和 VM 網路設定
 
-**Location** | **邏輯網路** | **相關聯的 VM 網路**
+**位置** | **邏輯網路** | **相關聯的 VM 網路**
 ---|---|---
-紐約 | LogicalNetwork1-NewYork | VMNetwork1-NewYork
+New York | LogicalNetwork1-NewYork | VMNetwork1-NewYork
 芝加哥 | LogicalNetwork1-Chicago | VMNetwork1-Chicago
  | LogicalNetwork2Chicago | VMNetwork2-Chicago
 
@@ -93,7 +92,7 @@ SilverCloud2 | <p>NA</p><p></p> | <p>LogicalNetwork1-NewYork</p><p>LogicalNetwor
 ---|---|---|---
 VMNetwork1-Chicago | SilverCloud1 | SilverCloud2 | 可用
  | GoldCloud1 | GoldCloud2 | 可用
-VMNetwork2-Chicago | SilverCloud1 | SilverCloud2 | 尚未提供
+VMNetwork2-Chicago | SilverCloud1 | SilverCloud2 | 無
  | GoldCloud1 | GoldCloud2 | 可用
 
 
