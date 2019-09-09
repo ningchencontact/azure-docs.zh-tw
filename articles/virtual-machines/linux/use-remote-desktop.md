@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: article
 ms.date: 05/30/2018
 ms.author: cynthn
-ms.openlocfilehash: 18e8f577a52ff36f5e6c4eb8f9697d301f056911
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 1189faf64dc3619d0e4581641c2c66d0b527754a
+ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70081409"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70813442"
 ---
 # <a name="install-and-configure-remote-desktop-to-connect-to-a-linux-vm-in-azure"></a>在 Azure 中安裝和設定遠端桌面，以連接至 Linux VM
 在 Azure 中的 Linux 虛擬機器 (VM) 通常是使用安全殼層 (SSH) 連接從命令列管理。 如果是 Linux 的新手，或者是快速疑難排解的案例，使用遠端桌面可能會比較容易。 本文將詳細說明如何使用 Resource Manager 部署模型為您的 Linux VM 安裝和設定桌面環境 ([xfce](https://www.xfce.org)) 和遠端桌面 ([xrdp](https://www.xrdp.org))。
@@ -55,7 +55,7 @@ sudo apt-get install xfce4
 現在您已安裝桌面環境，設定遠端桌面服務來接聽連入連線。 [xrdp](http://xrdp.org) 是開放原始碼遠端桌面通訊協定 (RDP) 伺服器，適用於大部分的 Linux 散發套件，而且很適合處理 xfce。 在您的 Ubuntu VM 上安裝 xrdp，如下所示：
 
 ```bash
-sudo apt-get install xrdp=0.6.1-2
+sudo apt-get -y install xrdp
 sudo systemctl enable xrdp
 ```
 

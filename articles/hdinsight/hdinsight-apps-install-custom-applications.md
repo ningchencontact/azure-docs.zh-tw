@@ -1,6 +1,6 @@
 ---
 title: 在 Azure HDInsight 上安裝您自訂的 Apache Hadoop 應用程式
-description: 了解如何在 HDInsight 應用程式上安裝 HDInsight 應用程式。
+description: 瞭解如何在 Azure HDInsight 中安裝適用于 Apache Hadoop 叢集的 HDInsight 應用程式。
 author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/14/2018
 ms.author: hrasheed
-ms.openlocfilehash: 5fbee86f09246684a0e553114e367907ddabfa16
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 22a2eddcd94f6082d248450d825c5ba12b31571e
+ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67445491"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70810352"
 ---
 # <a name="install-custom-apache-hadoop-applications-on-azure-hdinsight"></a>在 Azure HDInsight 上安裝自訂的 Apache Hadoop 應用程式
 
@@ -48,13 +48,13 @@ HDInsight 應用程式可以在您建立叢集時安裝，或安裝至現有的 
     <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fhdinsight%2FIaas-Applications%2Fmaster%2FHue%2Fazuredeploy.json" target="_blank"><img src="./media/hdinsight-apps-install-custom-applications/deploy-to-azure.png" alt="Deploy to Azure"></a>
 
     此按鈕會在 Azure 入口網站上開啟 Resource Manager 範本。  Resource Manager 範本位於 [https://github.com/hdinsight/Iaas-Applications/tree/master/Hue](https://github.com/hdinsight/Iaas-Applications/tree/master/Hue)。  若要了解如何撰寫此 Resource Manager 範本，請參閱 [MSDN：安裝 HDInsight 應用程式](https://msdn.microsoft.com/library/mt706515.aspx)。
-2. 從 [參數]  刀鋒視窗，輸入下列項目：
+2. 從 [參數] 刀鋒視窗，輸入下列項目：
 
    * **叢集名稱**：輸入您要安裝應用程式的叢集名稱。 此叢集必須是現有的叢集。
-3. 单击“确定”  保存参数。
-4. 從 [自訂部署]  刀鋒視窗，輸入 [資源群組]  。  資源群組是聚集叢集、相依儲存體帳戶和其他資源的容器。 必須使用與叢集相同的資源群組。
-5. 按一下 [法律條款]  ，然後按一下 [建立]  。
-6. 確認已選取 [釘選到儀表板]  核取方塊，然後按一下 [建立]  。 可以从固定到门户仪表板的磁贴和门户通知查看安装状态（单击门户顶部的铃铛图标）。  安裝此應用程式需要 10 分鐘左右。
+3. 按一下 [確定] 儲存參數。
+4. 從 [自訂部署] 刀鋒視窗，輸入 [資源群組]。  資源群組是聚集叢集、相依儲存體帳戶和其他資源的容器。 必須使用與叢集相同的資源群組。
+5. 按一下 [法律條款]，然後按一下 [建立]。
+6. 確認已選取 [釘選到儀表板] 核取方塊，然後按一下 [建立]。 您可以從釘選到入口網站儀表板和入口網站通知的圖格查看安裝狀態 (按一下入口網站頂端的鈴鐺圖示)。  安裝此應用程式需要 10 分鐘左右。
 
 **在建立叢集時安裝 Hue**
 
@@ -73,13 +73,13 @@ HDInsight 應用程式可以在您建立叢集時安裝，或安裝至現有的 
 **開啟 Hue 入口網站**
 
 1. 登入 [Azure 入口網站](https://portal.azure.com)。
-2. 按一下左側功能表中的 [HDInsight 叢集]  。  如果沒有看到該功能表，請按一下 [瀏覽]  ，然後按一下 [HDInsight 叢集]  。
+2. 按一下左側功能表中的 [HDInsight 叢集] 。  如果沒有看到該功能表，請按一下 [瀏覽]，然後按一下 [HDInsight 叢集]。
 3. 按一下您已安裝應用程式的叢集。
-4. 在 [設定]  刀鋒視窗中，按一下 [一般]  類別之下的 [應用程式]  。 您應該會看到 **Hue** 列在 [已安裝的應用程式]  刀鋒視窗中。
+4. 在 [設定] 刀鋒視窗中，按一下 [一般] 類別之下的 [應用程式]。 您應該會看到 **Hue** 列在 [已安裝的應用程式] 刀鋒視窗中。
 5. 按一下清單中的 **Hue** 以列出相關屬性。  
 6. 按一下 [網頁] 連結來驗證網站；在瀏覽器中開啟 HTTP 端點以驗證 Hue Web UI，使用 SSH 開啟 SSH 端點。 如需相關資訊，請參閱[搭配 HDInsight 使用 SSH](hdinsight-hadoop-linux-use-ssh-unix.md)。
 
-## <a name="troubleshoot-the-installation"></a>排查安装问题
+## <a name="troubleshoot-the-installation"></a>安裝疑難排解
 您可以從入口網站通知檢查應用程式安裝狀態 (按一下入口網站頂端的鈴鐺圖示)。
 
 如果應用程式安裝失敗，您可以從 3 個地方查看錯誤訊息和偵錯資訊︰
@@ -101,14 +101,14 @@ HDInsight 應用程式可以在您建立叢集時安裝，或安裝至現有的 
 ## <a name="remove-hdinsight-applications"></a>移除 HDInsight 應用程式
 有幾種方式可以刪除 HDInsight 應用程式。
 
-### <a name="use-portal"></a>使用门户
+### <a name="use-portal"></a>使用入口網站
 **使用入口網站移除應用程式**
 
 1. 登入 [Azure 入口網站](https://portal.azure.com)。
-2. 按一下左側功能表中的 [HDInsight 叢集]  。  如果沒有看到該功能表，請按一下 [瀏覽]  ，然後按一下 [HDInsight 叢集]  。
+2. 按一下左側功能表中的 [HDInsight 叢集] 。  如果沒有看到該功能表，請按一下 [瀏覽]，然後按一下 [HDInsight 叢集]。
 3. 按一下您已安裝應用程式的叢集。
-4. 在 [設定]  刀鋒視窗中，按一下 [一般]  類別之下的 [應用程式]  。 您應該會看到已安裝的應用程式清單。 在本文中， **hue**中所列**安裝的應用程式**刀鋒視窗。
-5. 以滑鼠右鍵按一下您想要移除的應用程式，然後按一下 [刪除]  。
+4. 在 [設定] 刀鋒視窗中，按一下 [一般] 類別之下的 [應用程式]。 您應該會看到已安裝的應用程式清單。 在本文中，[**已安裝的應用程式**] 分頁中列出的**色調**。
+5. 以滑鼠右鍵按一下您想要移除的應用程式，然後按一下 [刪除]。
 6. 按一下 [ **是** ] 以確認。
 
 在入口網站中，您也可以刪除叢集，或刪除包含應用程式的資源群組。

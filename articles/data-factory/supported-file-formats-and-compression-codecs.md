@@ -7,14 +7,14 @@ ms.reviewer: craigg
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 09/04/2019
+ms.date: 09/09/2019
 ms.author: jingwang
-ms.openlocfilehash: b9d853cc0de08b64f2e0f5530e153724d9eeddda
-ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
+ms.openlocfilehash: 2c8983b5d6a44834d0c9659877c857fd73805ce6
+ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70277085"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70812318"
 ---
 # <a name="supported-file-formats-and-compression-codecs-in-azure-data-factory"></a>Azure Data Factory 中支援的檔案格式和壓縮轉碼器
 
@@ -30,12 +30,12 @@ ms.locfileid: "70277085"
 * [二進位格式](#binary-format)
 
 > [!TIP]
-> 瞭解「複製活動」如何從[複製活動中的架構對應](copy-activity-schema-and-type-mapping.md), 將來源資料對應至接收。
+> 瞭解「複製活動」如何從[複製活動中的架構對應](copy-activity-schema-and-type-mapping.md)，將來源資料對應至接收。
 
 ## <a name="text-format"></a>文字格式
 
 >[!NOTE]
->Data Factory 引進了新的分隔文字格式資料集, 請參閱[分隔的文字格式](format-delimited-text.md)一文, 其中包含詳細資訊。 以檔案為基礎之資料存放區的下列設定仍然受到回溯 compabitility 的支援。 建議您繼續使用新模型。
+>Data Factory 引進了新的分隔文字格式資料集，請參閱[分隔的文字格式](format-delimited-text.md)一文，其中包含詳細資訊。 以檔案為基礎之資料存放區的下列設定仍然受到回溯 compabitility 的支援。 建議您繼續使用新模型。
 
 如果您想要從文字檔讀取或寫入至文字檔，請將資料集之 `format` 區段中的 `type` 屬性設定成 **TextFormat**。 您也可以在 `format` 區段中指定下列**選擇性**屬性。 關於如何設定，請參閱 [TextFormat 範例](#textformat-example)一節。
 
@@ -88,6 +88,9 @@ ms.locfileid: "70277085"
 
 ## <a name="json-format"></a>JSON 格式
 
+>[!NOTE]
+>Data Factory 引進了新的 JSON 格式資料集，請參閱[JSON](format-json.md)文章並提供詳細資訊。 以檔案為基礎之資料存放區的下列設定仍然受到回溯 compabitility 的支援。 建議您繼續使用新模型。
+
 若要**將 JSON 檔案原封不動匯入到 Azure Cosmos DB 或從中匯出**，請參閱[將資料移進/移出 Azure Cosmos DB](connector-azure-cosmos-db.md) 一文中的「匯入/匯出 JSON 文件」一節。
 
 如果您想要剖析 JSON 檔案，或以 JSON 格式寫入資料，請將 `format` 區段中的 `type` 屬性設定成 **JsonFormat**。 您也可以在 `format` 區段中指定下列**選擇性**屬性。 關於如何設定，請參閱 [JsonFormat 範例](#jsonformat-example)一節。
@@ -101,7 +104,7 @@ ms.locfileid: "70277085"
 | nestingSeparator |用來分隔巢狀層級的字元。 預設值為 '.' (點)。 |否 |
 
 >[!NOTE]
->如果將陣列中的資料交叉套用到多個資料列 (案例 1-> [JsonFormat 範例](#jsonformat-example)中的範例 2), 您只能選擇使用屬性`jsonNodeReference`展開單一陣列。
+>如果將陣列中的資料交叉套用到多個資料列（案例 1-> [JsonFormat 範例](#jsonformat-example)中的範例2），您只能選擇使用屬性`jsonNodeReference`展開單一陣列。
 
 ### <a name="json-file-patterns"></a>JSON 檔案模式
 
@@ -413,7 +416,7 @@ ms.locfileid: "70277085"
 ## <a name="parquet-format"></a>Parquet 格式
 
 >[!NOTE]
->Data Factory 引進了新的 Parquet 格式資料集, 請參閱[Parquet 格式](format-parquet.md)一文中的詳細資訊。 以檔案為基礎之資料存放區的下列設定仍然受到回溯 compabitility 的支援。 建議您繼續使用新模型。
+>Data Factory 引進了新的 Parquet 格式資料集，請參閱[Parquet 格式](format-parquet.md)一文中的詳細資訊。 以檔案為基礎之資料存放區的下列設定仍然受到回溯 compabitility 的支援。 建議您繼續使用新模型。
 
 如果您想要剖析 Parquet 檔案，或以 Parquet 格式寫入資料，請將 `format``type` 屬性設定為 **ParquetFormat**。 您不需要在 typeProperties 區段內的 Format 區段中指定任何屬性。 範例：
 
@@ -522,7 +525,7 @@ ms.locfileid: "70277085"
 ## <a name="avro-format"></a>AVRO 格式
 
 >[!NOTE]
->Data Factory 引進新的 Avro 格式資料集, 請參閱[Avri 格式](format-avro.md)一文中的詳細資訊。 以檔案為基礎之資料存放區的下列設定仍然受到回溯 compabitility 的支援。 建議您繼續使用新模型。
+>Data Factory 引進新的 Avro 格式資料集，請參閱[Avri 格式](format-avro.md)一文中的詳細資訊。 以檔案為基礎之資料存放區的下列設定仍然受到回溯 compabitility 的支援。 建議您繼續使用新模型。
 
 如果您想要剖析 Avro 檔案，或以 Avro 格式寫入資料，請將 `format``type` 屬性設定為 **AvroFormat**。 您不需要在 typeProperties 區段內的 Format 區段中指定任何屬性。 範例：
 
@@ -541,7 +544,7 @@ ms.locfileid: "70277085"
 
 ## <a name="binary-format"></a>二進位格式
 
-如需詳細資訊, 請參閱[二進位格式](format-binary.md)一文。
+如需詳細資訊，請參閱[二進位格式](format-binary.md)一文。
 
 ## <a name="compression-support"></a>壓縮支援
 
@@ -594,9 +597,9 @@ Azure Data Factory 支援在複製期間壓縮/解壓縮資料。 當您在輸�
 ## <a name="unsupported-file-types-and-compression-formats"></a>不支援的檔案類型和壓縮格式
 
 您可以使用 Azure Data Factory 的擴充性功能來轉換不支援的檔案。
-有兩個選項, 包括使用 Azure Batch Azure Functions 和自訂工作。
+有兩個選項，包括使用 Azure Batch Azure Functions 和自訂工作。
 
-您可以看到使用 Azure 函式來[解壓縮 tar 檔案內容](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV2/UntarAzureFilesWithAzureFunction)的範例。 如需詳細資訊, 請參閱[Azure Functions 活動](https://docs.microsoft.com/azure/data-factory/control-flow-azure-function-activity)。
+您可以看到使用 Azure 函式來[解壓縮 tar 檔案內容](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV2/UntarAzureFilesWithAzureFunction)的範例。 如需詳細資訊，請參閱[Azure Functions 活動](https://docs.microsoft.com/azure/data-factory/control-flow-azure-function-activity)。
 
 您也可以使用自訂的 dotnet 活動來建立這種功能。 您可以[在這裡](https://docs.microsoft.com/azure/data-factory/transform-data-using-dotnet-custom-activity)取得進一步的資訊
 

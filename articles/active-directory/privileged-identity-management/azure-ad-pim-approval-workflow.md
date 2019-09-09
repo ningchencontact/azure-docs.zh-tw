@@ -1,9 +1,9 @@
 ---
-title: 核准或拒絕要求的 Azure AD PIM-Azure Active Directory 中的角色 |Microsoft Docs
-description: 了解如何核准或拒絕要求，在 Azure AD Privileged Identity Management (PIM) 中的 Azure AD 角色。
+title: 在 PIM 中核准或拒絕 Azure AD 角色的要求-Azure Active Directory |Microsoft Docs
+description: 瞭解如何在 Azure AD Privileged Identity Management （PIM）中核准或拒絕 Azure AD 角色的要求。
 services: active-directory
 documentationcenter: ''
-author: rolyon
+author: curtand
 manager: mtillman
 editor: ''
 ms.service: active-directory
@@ -13,33 +13,33 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: pim
 ms.date: 04/09/2019
-ms.author: rolyon
+ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f83cb38567feb51ba7959ada7730d66ded677bf9
-ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
+ms.openlocfilehash: 60a8d373a7e6edeaefd933e4f8ec8ee11e3c14ee
+ms.sourcegitcommit: 95b180c92673507ccaa06f5d4afe9568b38a92fb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/29/2019
-ms.locfileid: "67476530"
+ms.lasthandoff: 09/08/2019
+ms.locfileid: "70804034"
 ---
-# <a name="approve-or-deny-requests-for-azure-ad-roles-in-pim"></a>核准或拒絕要求的 Azure AD PIM 中的角色
+# <a name="approve-or-deny-requests-for-azure-ad-roles-in-pim"></a>在 PIM 中核准或拒絕 Azure AD 角色的要求
 
-使用 Azure Active Directory (Azure AD) Privileged Identity Management (PIM)，您可以將角色設定為需要核准才能啟用，並選擇一或多個使用者或群組做為委派核准者。 委派核准者會有 24 小時的時間來核准要求。 如果未在 24 小時內核准要求，符合資格的使用者就必須重新提交新要求。 24 小時核准時間範圍是不可設定的。
+使用 Azure Active Directory （Azure AD） Privileged Identity Management （PIM），您可以將角色設定為需要核准才能啟用，並選擇一或多個使用者或群組作為委派的核准者。 委派核准者會有 24 小時的時間來核准要求。 如果未在 24 小時內核准要求，符合資格的使用者就必須重新提交新要求。 24 小時核准時間範圍是不可設定的。
 
-請遵循這篇文章，核准或拒絕要求的 Azure AD 角色中的步驟。
+請遵循這篇文章中的步驟，核准或拒絕 Azure AD 角色的要求。
 
 ## <a name="view-pending-requests"></a>檢視擱置的要求
 
-身為委派核准者，您會在 Azure AD 角色要求正在等待您核准時收到電子郵件通知。 您可以在 PIM 中檢視這些擱置的要求。
+身為委派的核准者，當 Azure AD 的角色要求等待您的核准時，您會收到電子郵件通知。 您可以在 PIM 中檢視這些擱置的要求。
 
 1. 登入 [Azure 入口網站](https://portal.azure.com/)。
 
 1. 開啟 **Azure AD Privileged Identity Management**。
 
-1. 按一下 [Azure AD 角色]  。
+1. 按一下 [Azure AD 角色]。
 
-1. 按一下 [核准要求]  。
+1. 按一下 [核准要求]。
 
     ![Azure AD 角色-核准要求](./media/azure-ad-pim-approval-workflow/pim-directory-roles-approve-requests.png)
 
@@ -47,31 +47,31 @@ ms.locfileid: "67476530"
 
 ## <a name="approve-requests"></a>核准要求
 
-1. 選取您要核准的要求，然後按一下 [核准]  ，以開啟 [核准選取要求] 窗格。
+1. 選取您要核准的要求，然後按一下 [核准]，以開啟 [核准選取要求] 窗格。
 
-    ![反白顯示的核准選項的核准要求清單](./media/azure-ad-pim-approval-workflow/pim-approve-requests-list.png)
+    ![已反白顯示核准選項的核准要求清單](./media/azure-ad-pim-approval-workflow/pim-approve-requests-list.png)
 
-1. 在 [核准原因]  方塊中輸入原因。
+1. 在 [核准原因] 方塊中輸入原因。
 
-    ![核准所選的要求窗格中，核准原因](./media/azure-ad-pim-approval-workflow/pim-approve-selected-requests.png)
+    ![核准選取的要求窗格與核准原因](./media/azure-ad-pim-approval-workflow/pim-approve-selected-requests.png)
 
-1. 按一下 [核准]  。
+1. 按一下 [核准]。
 
     狀態符號會隨著您的核准而更新。
 
-    ![核准所選的要求窗格中之後按一下 [核准] 按鈕](./media/azure-ad-pim-approval-workflow/pim-approve-status.png)
+    ![按一下 [核准] 按鈕之後核准選取的要求窗格](./media/azure-ad-pim-approval-workflow/pim-approve-status.png)
 
 ## <a name="deny-requests"></a>拒絕要求
 
-1. 選取您要拒絕的要求，然後按一下 [拒絕]  ，以開啟 [拒絕選取要求] 窗格。
+1. 選取您要拒絕的要求，然後按一下 [拒絕]，以開啟 [拒絕選取要求] 窗格。
 
-    ![核准要求清單反白顯示的拒絕選項](./media/azure-ad-pim-approval-workflow/pim-deny-requests-list.png)
+    ![已反白顯示拒絕選項的核准要求清單](./media/azure-ad-pim-approval-workflow/pim-deny-requests-list.png)
 
-1. 在 [拒絕原因]  方塊中輸入原因。
+1. 在 [拒絕原因] 方塊中輸入原因。
 
-    ![拒絕所選的要求窗格中，拒絕原因](./media/azure-ad-pim-approval-workflow/pim-deny-selected-requests.png)
+    ![拒絕所選要求窗格的拒絕原因](./media/azure-ad-pim-approval-workflow/pim-deny-selected-requests.png)
 
-1. 按一下 [拒絕]  。
+1. 按一下 [拒絕]。
 
     狀態符號會隨著您的拒絕而更新。
 
