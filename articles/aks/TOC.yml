@@ -159,7 +159,7 @@
               href: configure-azure-cni.md
         - name: 建立內部負載平衡器
           href: internal-lb.md
-        - name: 使用 Standard Load Balancer (預覽)
+        - name: 使用 Standard Load Balancer
           href: load-balancer-standard.md
         - name: 使用靜態 IP 位址
           href: static-ip.md

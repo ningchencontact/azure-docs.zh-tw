@@ -97,20 +97,12 @@
       items:
         - name: 概觀
           href: platform/alerts-overview.md
-        - name: 傳統警示
-          href: platform/alerts-classic.overview.md
         - name: 度量警示
           href: platform/alerts-metric-overview.md
         - name: 記錄警示
           href: platform/alerts-unified-log.md
         - name: 活動記錄警示
           href: platform/activity-log-alerts.md
-        - name: 一般警示結構描述
-          href: platform/alerts-common-schema.md
-        - name: 動作規則
-          href: platform/alerts-action-rules.md
-        - name: 智慧群組
-          href: platform/alerts-smartgroups-overview.md
         - name: 變更分析
           href: app/change-analysis.md
     - name: 顯現資料
@@ -516,11 +508,7 @@
                   href: insights/container-insights-troubleshoot.md
             - name: Docker 和 Windows 容器監視
               href: insights/containers.md
-        - name: 儲存體
-          items:
-            - name: 適用於儲存體的 Azure 監視器
-              href: insights/storage-insights-overview.md
-        - name: 虛擬機器
+        - name: 作業系統 (VM 及其他更多)
           items:
             - name: 代理程式
               items:
@@ -530,26 +518,38 @@
                   items:
                     - name: 概觀
                       href: platform/diagnostics-extension-overview.md
-                    - name: 傳送到 Azure 儲存體
-                      href: platform/diagnostics-extension-to-storage.md
-                    - name: 傳送至 Application Insights
-                      href: platform/diagnostics-extension-to-application-insights.md
-                    - name: 傳送至事件中樞
-                      href: platform/diagnostics-extension-stream-event-hubs.md
-                    - name: 疑難排解
-                      href: platform/diagnostics-extension-troubleshooting.md
-                    - name: 準備使用 JSON Lines 診斷記錄格式
-                      href: platform/diagnostic-logs-append-blobs.md
-                    - name: 虛擬機器來賓至 Metrics
-                      href: platform/collect-custom-metrics-guestos-resource-manager-vm.md
-                    - name: GuestOS 至 Metrics Linux VM (Telegraf)
-                      href: platform/collect-custom-metrics-linux-telegraf.md
-                    - name: 虛擬機器擴展集來賓至 Metrics
-                      href: platform/collect-custom-metrics-guestos-resource-manager-vmss.md
-                    - name: 虛擬機器傳統來賓至 Metrics
-                      href: platform/collect-custom-metrics-guestos-vm-classic.md
-                    - name: 雲端服務來賓至 Metrics
-                      href: platform/collect-custom-metrics-guestos-vm-cloud-service-classic.md
+                    - name: Windows
+                      items:
+                        - name: 版本歷程記錄
+                          href: platform/diagnostics-extension-schema.md
+                        - name: 結構描述
+                          href: platform/diagnostics-extension-schema-1dot3.md
+                        - name: 傳送到 Azure 儲存體
+                          href: platform/diagnostics-extension-to-storage.md
+                        - name: 傳送至 Application Insights
+                          href: platform/diagnostics-extension-to-application-insights.md
+                        - name: 傳送至事件中樞
+                          href: platform/diagnostics-extension-stream-event-hubs.md
+                        - name: 傳送給 Azure 監視器作為自訂計量
+                          items:
+                            - name: 虛擬機器
+                              href: platform/collect-custom-metrics-guestos-resource-manager-vm.md
+                            - name: VM 擴展集
+                              href: platform/collect-custom-metrics-guestos-resource-manager-vmss.md
+                            - name: VM 傳統
+                              href: platform/collect-custom-metrics-guestos-vm-classic.md
+                            - name: 雲端服務
+                              href: platform/collect-custom-metrics-guestos-vm-cloud-service-classic.md
+                        - name: JSON Lines 診斷記錄格式
+                          href: platform/diagnostic-logs-append-blobs.md
+                        - name: 疑難排解
+                          href: platform/diagnostics-extension-troubleshooting.md
+                    - name: Linux
+                      items:
+                        - name: 搭配 VM 使用
+                          href: ../virtual-machines/extensions/diagnostics-linux.md
+                        - name: 使用 Telegraf 的自訂計量
+                          href: platform/collect-custom-metrics-linux-telegraf.md
                 - name: Log Analytics 代理程式
                   items:
                     - name: 概觀
@@ -645,13 +645,21 @@
               href: platform/computer-groups.md
             - name: 組態管理員
               href: platform/collect-sccm.md
-        - name: 資料庫
-          items:
-            - name: Azure SQL
-              href: insights/azure-sql.md
-            - name: SQL Server
-              href: insights/sql-assessment.md
         - name: Azure 資源
+          items:
+            - name: 診斷記錄
+              items:
+                - name: 概觀
+                  href: platform/diagnostic-logs-overview.md
+                - name: 在記錄中收集
+                  href: platform/diagnostic-logs-stream-log-store.md
+                - name: 從 Azure 儲存體收集
+                  href: platform/azure-storage-iis-table.md
+                - name: 封存至儲存體
+                  href: platform/archive-diagnostic-logs.md
+                - name: 搭配資源管理員範本啟用
+                  href: platform/diagnostic-logs-stream-template.md
+        - name: Azure 訂閱
           items:
             - name: 活動記錄檔
               items:
@@ -667,20 +675,6 @@
                   href: platform/activity-log-export.md
                 - name: 結構描述
                   href: platform/activity-log-schema.md
-            - name: 診斷記錄
-              items:
-                - name: 概觀
-                  href: platform/diagnostic-logs-overview.md
-                - name: 在記錄中收集
-                  href: platform/diagnostic-logs-stream-log-store.md
-                - name: 從 Azure 儲存體收集
-                  href: platform/azure-storage-iis-table.md
-                - name: 封存至儲存體
-                  href: platform/archive-diagnostic-logs.md
-                - name: 將資料串流至事件中樞
-                  href: platform/diagnostic-logs-stream-event-hubs.md
-                - name: 搭配資源管理員範本啟用
-                  href: platform/diagnostic-logs-stream-template.md
             - name: 將資料串流至事件中樞
               href: platform/stream-monitoring-data-event-hubs.md
             - name: 金鑰保存庫分析
@@ -689,6 +683,16 @@
               href: ../service-fabric/service-fabric-diagnostics-oms-agent.md
             - name: 監視資源群組
               href: insights/resource-group-insights.md
+        - name: 儲存體
+          items:
+            - name: 適用於儲存體的 Azure 監視器
+              href: insights/storage-insights-overview.md
+        - name: 資料庫
+          items:
+            - name: Azure SQL
+              href: insights/azure-sql.md
+            - name: SQL Server
+              href: insights/sql-assessment.md
         - name: 網路
           items:
             - name: 網路分析
@@ -729,18 +733,20 @@
           items:
             - name: 自訂度量
               href: platform/metrics-custom-overview.md
+            - name: Metrics REST API
+              href: platform/metrics-store-custom-rest-api.md
             - name: Log Analytics 資料收集器 API
               href: platform/data-collector-api.md
             - name: Log Analytics 資料收集器 API 管線範例
               href: platform/create-pipeline-datacollector-api.md
-            - name: Metrics REST API
-              href: platform/metrics-store-custom-rest-api.md
         - name: 使用 System Center
           items:
             - name: 與 Operations Manager 連線
               href: platform/om-agents.md
             - name: 存取 Operations Manager
               href: insights/scom-assessment.md
+        - name: 將資料串流至事件中樞
+          href: platform/diagnostic-logs-stream-event-hubs.md
     - name: 分析資料
       items:
         - name: 度量
@@ -873,7 +879,7 @@
               href: app/monitor-web-app-availability.md
             - name: 度量警示
               href: app/alerts.md
-        - name: 平台計量警示規則
+        - name: 計量警示規則
           items:
             - name: 管理計量警示
               href: platform/alerts-metric.md
@@ -899,28 +905,40 @@
               href: platform/alerts-activity-log.md
             - name: 將管理事件遷移至活動記錄警示
               href: platform/migrate-management-alerts.md
-        - name: 動作群組
+        - name: 活動記錄中的服務健康情況警示
           items:
+            - name: 檢視通知
+              href: platform/service-notifications.md
+            - name: 設定通知事件警示
+              href: platform/alerts-activity-log-service-notifications.md
+        - name: 通知和動作
+          items:
+            - name: 動作規則 (預覽)
+              href: platform/alerts-action-rules.md
             - name: 建立動作群組
               href: platform/action-groups.md
-            - name: Webhook 結構描述
-              href: platform/activity-log-alerts-webhook.md
+            - name: 一般警示結構描述
+              href: platform/alerts-common-schema.md
             - name: 常見的警示結構描述定義
               href: platform/alerts-common-schema-definitions.md
+            - name: 整合常見警示結構描述和 Logic Apps
+              href: platform/alerts-common-schema-integrations.md
+            - name: Webhook 結構描述
+              href: platform/activity-log-alerts-webhook.md
             - name: SMS 警示行為
               href: platform/alerts-sms-behavior.md
-            - name: 警示速率限制
+            - name: 通知速率限制
               href: platform/alerts-rate-limiting.md
             - name: 使用 Resource Manager 建立動作群組
               href: platform/action-groups-create-resource-manager-template.md
             - name: 實作邏輯應用程式動作
               href: platform/action-groups-logic-app.md
-            - name: 整合常見警示結構描述和 Logic Apps
-              href: platform/alerts-common-schema-integrations.md
         - name: 警示管理解決方案
           href: platform/alert-management-solution.md
         - name: 警示使用者介面
           items:
+            - name: 關於智慧群組
+              href: platform/alerts-smartgroups-overview.md
             - name: 管理警示執行個體
               href: platform/alerts-managing-alert-instances.md
             - name: 管理智慧群組
@@ -931,6 +949,8 @@
               href: platform/alerts-managing-nagios-zabbix-scom.md
         - name: 遷移傳統警示規則
           items:
+            - name: 關於傳統警示
+              href: platform/alerts-classic.overview.md
             - name: 為移轉做準備
               href: platform/alerts-prepare-migration.md
             - name: 了解移轉工具
@@ -945,12 +965,6 @@
               href: platform/alerts-enable-template.md
             - name: 傳統計量警示呼叫 Webhook
               href: platform/alerts-webhooks.md
-        - name: 活動記錄中的服務健康情況通知
-          items:
-            - name: 檢視通知
-              href: platform/service-notifications.md
-            - name: 設定通知事件警示
-              href: platform/alerts-activity-log-service-notifications.md
         - name: 警示 API
           href: platform/api-alerts.md
         - name: IT 服務管理
@@ -1057,6 +1071,18 @@
               href: app/data-model-metric-telemetry.md
             - name: Context
               href: app/data-model-context.md
+            - name: 與 Azure Functions 整合
+              href: app/azure-functions-supported-features.md
+    - name: 度量
+      items:
+        - name: 支援的計量
+          href: platform/metrics-supported.md
+        - name: 較新警示的支援計量
+          href: platform/alerts-metric-near-real-time.md
+    - name: 診斷記錄
+      items:
+        - name: 診斷記錄服務、類別和結構描述
+          href: platform/diagnostic-logs-schema.md
     - name: Azure CLI
       href: /cli/azure/monitor?view=azure-cli-latest
     - name: Azure CLI - Application Insights (預覽)
@@ -1081,25 +1107,6 @@
           href: /azure/templates/microsoft.insights/allversions
         - name: 記錄
           href: /azure/templates/microsoft.operationalinsights/allversions
-    - name: 度量
-      items:
-        - name: 支援的計量
-          href: platform/metrics-supported.md
-        - name: 較新警示的支援計量
-          href: platform/alerts-metric-near-real-time.md
-    - name: 診斷記錄
-      items:
-        - name: 診斷記錄服務、類別和結構描述
-          href: platform/diagnostic-logs-schema.md
-        - name: Azure 診斷延伸結構描述
-          href: platform/diagnostics-extension-schema.md
-          items:
-            - name: 1.3 和更新版本
-              href: platform/diagnostics-extension-schema-1dot3.md
-            - name: 1.2
-              href: platform/diagnostics-extension-schema-1dot2.md
-            - name: 1
-              href: platform/diagnostics-extension-schema-1dot0.md
     - name: 功能與 API 淘汰
       items:
         - name: 傳統警示與計量

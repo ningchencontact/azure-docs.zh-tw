@@ -1,0 +1,49 @@
+### YamlMime:Landing
+title: Azure HPC Cache 預覽文件
+summary: 使用 Azure HPC Cache 加速需要大量讀取的高效能運算 (HPC) 工作負載之檔案存取
+metadata:
+  title: Microsoft Azure HPC Cache
+  description: 了解如何建立和使用 Azure HPC Cache 來解決計算資源和儲存體之間的延遲問題。 Azure HPC Cache 適用於以檔案為基礎的大量工作負載，同時可建立用來合併 Azure Blob 儲存體和內部部署硬體篩選條件的彙總虛擬檔案系統。
+  ms.service: hpc-cache
+  ms.topic: landing-page
+  ms.collection: collection
+  author: ekpgh
+  ms.author: v-erkell
+  ms.date: 08/30/2019
+  ms.openlocfilehash: 4d5935646c3266624395b3b29a34d9cf8d446de7
+  ms.sourcegitcommit: a4b5d31b113f520fcd43624dd57be677d10fc1c0
+  ms.translationtype: HT
+  ms.contentlocale: zh-TW
+  ms.lasthandoff: 09/06/2019
+  ms.locfileid: "70774550"
+landingContent:
+- title: 關於 Azure HPC Cache
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: 什麼是 Azure HPC Cache？
+      url: hpc-cache-overview.md
+- title: 開始使用
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: 設定 Azure HPC Cache 的必要條件
+      url: hpc-cache-prereqs.md
+    - text: 建立快取
+      url: hpc-cache-create.md
+    - text: 新增儲存體
+      url: hpc-cache-add-storage.md
+    - text: 裝載用戶端
+      url: hpc-cache-mount.md
+  - linkListType: concept
+    links:
+    - text: 設定彙總的命名空間
+      url: hpc-cache-namespace.md
+    - text: 直入新的 Blob 儲存體
+      url: hpc-cache-ingest.md
+- title: 疑難排解
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: 開啟支援票證
+      url: hpc-cache-support-ticket.md

@@ -450,8 +450,6 @@
           href: control-flow-webhook-activity.md
     - name: 資料流程轉換
       items:
-        - name: 固定寬度檔案
-          href: how-to-fixed-width.md
         - name: 彙總
           href: data-flow-aggregate.md
         - name: 變更資料列
@@ -610,6 +608,10 @@
           href: data-migration-guidance-hdfs-azure-storage.md
         - name: 將資料從內部部署 Netezza 伺服器遷移到 Azure
           href: data-migration-guidance-netezza-azure-sqldw.md
+    - name: 使用對應資料流程進行轉換
+      items:
+        - name: 處理固定寬度的文字檔
+          href: how-to-fixed-width.md
 - name: 參考
   items:
     - name: .NET
