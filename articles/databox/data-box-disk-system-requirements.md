@@ -6,15 +6,15 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: article
-ms.date: 09/03/2019
+ms.date: 09/04/2019
 ms.author: alkohli
 ms.localizationpriority: high
-ms.openlocfilehash: f054d0665c49ee048451681a7cc34d2a648a6e9e
-ms.sourcegitcommit: 6794fb51b58d2a7eb6475c9456d55eb1267f8d40
-ms.translationtype: MT
+ms.openlocfilehash: fb2fd89664517e44cf5128a5c82e583f03087061
+ms.sourcegitcommit: 49c4b9c797c09c92632d7cedfec0ac1cf783631b
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70240230"
+ms.lasthandoff: 09/05/2019
+ms.locfileid: "70307688"
 ---
 ::: zone target="docs"
 
@@ -28,9 +28,9 @@ ms.locfileid: "70240230"
 
 ::: zone target="chromeless"
 
-# <a name="review-prerequisites"></a>檢閱必要條件
+## <a name="review-prerequisites"></a>檢閱必要條件
 
-1. 您必須使用教學課程來排序您[的資料箱磁碟:訂購您的](data-box-disk-deploy-ordered.md)Azure 資料箱磁碟。 您已收到磁片, 而且每個磁片都有一個連接纜線。
+1. 您必須已使用 [ 教學課程來排序您的資料箱磁碟：排序 Azure 資料箱磁碟](data-box-disk-deploy-ordered.md)。 您已收到磁碟，而且每個磁碟都附有一條連接纜線。
 2. 您有一部用戶端電腦可用來複製資料。 您的用戶端電腦必須：
 
     - 執行支援的作業系統。
@@ -45,7 +45,7 @@ ms.locfileid: "70240230"
 | **作業系統** | **測試的版本** |
 | --- | --- |
 | Windows Server |2008 R2 SP1 <br> 2012 <br> 2012 R2 <br> 2016 |
-| Windows (64 位) |7, 8, 10 |
+| Windows (64 位元) |7, 8, 10 |
 |Linux <br> <li> Ubuntu </li><li> Debian </li><li> Red Hat Enterprise Linux (RHEL) </li><li> CentOS| <br>14.04、16.04、18.04 <br> 8.11、9 <br> 7.0 <br> 6.5、6.9、7.0、7.5 |  
 
 ## <a name="other-required-software-for-windows-clients"></a>Windows 用戶端的其他必要軟體
@@ -66,8 +66,6 @@ ms.locfileid: "70240230"
 - dislocker
 - OpenSSL
 
-::: zone target="docs"
-
 ## <a name="supported-connection"></a>支援的連線
 
 包含資料的用戶端電腦必須具有 USB 3.0 或更新版本的連接埠。 使用提供的纜線將磁碟連接到此用戶端。
@@ -79,7 +77,7 @@ ms.locfileid: "70240230"
 | **儲存體帳戶** | **注意事項** |
 | --- | --- |
 | 傳統 | 標準 |
-| 一般目的  |標準；同時支援 V1 和 V2。 同時支援經常性儲存層和非經常性儲存層。 |
+| 一般用途  |標準；同時支援 V1 和 V2。 同時支援經常性儲存層和非經常性儲存層。 |
 | Blob 儲存體帳戶 | |
 
 >[!NOTE]
@@ -88,15 +86,16 @@ ms.locfileid: "70240230"
 
 ## <a name="supported-storage-types-for-upload"></a>支援上傳的儲存體類型
 
-以下是使用資料箱磁碟上傳至 Azure 所支援的儲存體類型清單。
+以下是支援使用資料箱磁碟上傳至 Azure 的儲存體類型清單。
 
 | **檔案格式** | **注意事項** |
 | --- | --- |
 | Azure 區塊 Blob | |
 | Azure 分頁 Blob  | |
-| Azure 檔案儲存體  | |
+| Azure 檔案  | |
 | 受控磁碟 | |
 
+::: zone target="docs"
 
 ## <a name="next-step"></a>後續步驟
 
