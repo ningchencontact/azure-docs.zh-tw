@@ -187,7 +187,7 @@ Enterprise 合約 (EA) 客戶將透過其 EA 支付費用。 此處列出的特�
 
 MOSP- [Microsoft 線上訂閱者案](https://azure.microsoft.com/support/legal/subscription-agreement/?country=us&language=en)（web direct）客戶可以在[Azure 入口網站]的 [成本管理 + 帳單] 區段的 [發票] 索引標籤中，查看 Marketplace 購買詳細資料。
 
-Enterprise 合約（EA）客戶可以在[Azure 入口網站][成本管理 + 帳單] 區段的 [發票] 索引標籤中，查看 Marketplace 購買詳細資料。
+Enterprise 合約（EA）客戶可以在 [Azure 入口網站] [成本管理 + 帳單] 區段的 [發票] 索引標籤中，查看 Marketplace 購買詳細資料。
 
 雲端解決方案提供者（CSP）合作夥伴可以在 [訂單歷程記錄] 索引標籤中的每個客戶，于 [客戶] 視圖中選取公司之後，查看 Marketplace 購買詳細資料。
 
