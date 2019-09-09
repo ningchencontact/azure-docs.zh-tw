@@ -1,19 +1,19 @@
 ---
-title: 將內部部署 Apache Hadoop 叢集遷移到 Azure HDInsight - 架構最佳作法
+title: 將內部部署 Apache Hadoop 叢集遷移至 Azure HDInsight 架構
 description: 了解將內部部署 Hadoop 叢集遷移到 Azure HDInsight 的架構最佳做法。
 author: hrasheed-msft
 ms.reviewer: ashishth
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 10/25/2018
+ms.date: 09/04/2019
 ms.author: hrasheed
-ms.openlocfilehash: d1f2b79ff3ae33adb0b6e3ce5a6d96ad38fb1562
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 4243100d74515576463a6812e31625ddc0ca1f48
+ms.sourcegitcommit: 97605f3e7ff9b6f74e81f327edd19aefe79135d2
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64693112"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70735890"
 ---
 # <a name="migrate-on-premises-apache-hadoop-clusters-to-azure-hdinsight---architecture-best-practices"></a>將內部部署 Apache Hadoop 叢集遷移到 Azure HDInsight - 架構最佳作法
 
@@ -30,7 +30,7 @@ Azure HDInsight 叢集專為特定的計算使用類型而設計。 由於儲存
 |批次處理 (ETL / ELT)|Hadoop、Spark|
 |資料倉儲|Hadoop、Spark、互動式查詢|
 |IoT / 串流|Kafka、Storm、Spark|
-|NoSQL 交易處理|hbase|
+|NoSQL 交易處理|HBase|
 |使用記憶體內快取執行互動式及更快速的查詢|互動式查詢|
 |資料科學|ML 服務、Spark|
 
@@ -104,7 +104,7 @@ HDInsight 會使用 Azure SQL Database 作為 Hive 和 Oozie 中繼存放區。 
 - 不讓專為某個 HDInsight 叢集版本建立的中繼存放區與不同版本的叢集共用。 不同的 Hive 版本會使用不同的結構描述。 例如，Hive 1.2 和 Hive 2.1 叢集無法共用中繼存放區。
 - 定期備份自訂中繼存放區。
 - 將中繼存放區與 HDInsight 叢集保存在相同區域。
-- 監視中繼存放區的效能和使用 Azure SQL Database 監視工具 中的，例如 Azure 入口網站或 Azure 監視器記錄檔的可用性。
+- 使用 Azure SQL Database 監視工具（例如 Azure 入口網站或 Azure 監視器記錄），監視中繼存放區的效能和可用性。
 - 需執行 **ANALYZE TABLE** 命令，才能產生資料表和資料行的統計資料。 例如： `ANALYZE TABLE [table_name] COMPUTE STATISTICS` 。
 
 ## <a name="best-practices-for-different-workloads"></a>不同工作負載的最佳做法

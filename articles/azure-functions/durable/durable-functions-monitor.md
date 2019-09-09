@@ -9,12 +9,12 @@ ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: azfuncdf
-ms.openlocfilehash: ae6c2bd27e9192966ecffb4d4296063201fca970
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 992e3f7aa53fdd006d29c06113cd30b07a406f3b
+ms.sourcegitcommit: 97605f3e7ff9b6f74e81f327edd19aefe79135d2
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70098009"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70734344"
 ---
 # <a name="monitor-scenario-in-durable-functions---weather-watcher-sample"></a>Durable Functions 中的監視器案例 - 天氣監看員範例
 
@@ -67,7 +67,7 @@ ms.locfileid: "70098009"
 
 以下是實作函式的程式碼：
 
-### <a name="c"></a>C#
+### <a name="c-script"></a>C# 指令碼
 
 [!code-csharp[Main](~/samples-durable-functions/samples/csx/E3_Monitor/run.csx)]
 
@@ -88,7 +88,7 @@ ms.locfileid: "70098009"
 
 ## <a name="strongly-typed-data-transfer-net-only"></a>強型別資料轉送 (僅限 .NET)
 
-協調器需要多個資料片段, 因此會在和C# C#腳本中使用[共用 POCO 物件](../functions-reference-csharp.md#reusing-csx-code)進行強型別資料傳輸:  
+協調器需要多個資料片段，因此會在和C# C#腳本中使用[共用 POCO 物件](../functions-reference-csharp.md#reusing-csx-code)進行強型別資料傳輸：  
 [!code-csharp[Main](~/samples-durable-functions/samples/csx/shared/MonitorRequest.csx)]
 
 [!code-csharp[Main](~/samples-durable-functions/samples/csx/shared/Location.csx)]
@@ -103,7 +103,7 @@ JavaScript 範例會使用一般 JSON 物件作為參數。
 
 實作如下。 就像用於資料轉送的 POCO，用來處理 API 呼叫和剖析回應 JSON 的邏輯，在經過抽象化之後會成為 C# 中的共用類別。 您可以在 [Visual Studio 程式碼範例](#run-the-sample)中找到此邏輯。
 
-### <a name="c"></a>C#
+### <a name="c-script"></a>C# 指令碼
 
 [!code-csharp[Main](~/samples-durable-functions/samples/csx/E3_GetIsClear/run.csx)]
 
@@ -117,7 +117,7 @@ JavaScript 範例會使用一般 JSON 物件作為參數。
 
 以下是傳送手機簡訊的程式碼：
 
-### <a name="c"></a>C#
+### <a name="c-script"></a>C# 指令碼
 
 [!code-csharp[Main](~/samples-durable-functions/samples/csx/E3_SendGoodWeatherAlert/run.csx)]
 
