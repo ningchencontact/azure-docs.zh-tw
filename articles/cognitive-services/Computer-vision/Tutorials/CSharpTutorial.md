@@ -11,12 +11,12 @@ ms.topic: sample
 ms.date: 04/17/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 63b5130e3cade54a2fbc432b2391ad3ee1ea8a1a
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.openlocfilehash: 3da22d11dce1e535763476d906ac45f3da22bc8d
+ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60004018"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70141276"
 ---
 # <a name="sample-explore-an-image-processing-app-with-c"></a>範例：使用 C# 探索影像處理應用程式
 
@@ -33,7 +33,7 @@ ms.locfileid: "60004018"
 探索範例應用程式之前，請確認您已符合下列必要條件：
 
 * 您必須有 [Visual Studio 2015](https://visualstudio.microsoft.com/downloads/) 或更新版本。
-* 您必須有電腦視覺的訂用帳戶金鑰。 您可以從[試用認知服務](https://azure.microsoft.com/try/cognitive-services/?api=computer-vision)取得免費試用的金鑰。 或者，依照[建立認知服務帳戶](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account)中的指示訂閱電腦視覺並取得金鑰。
+* 您必須有電腦視覺的訂用帳戶金鑰。 您可以從[試用認知服務](https://azure.microsoft.com/try/cognitive-services/?api=computer-vision)取得免費試用的金鑰。 或者，依照[建立認知服務帳戶](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account)中的指示訂閱電腦視覺並取得金鑰。 也請記下服務端點 URL。
 
 ## <a name="get-the-sample-app"></a>取得範例應用程式
 
@@ -69,24 +69,25 @@ git clone --recurse-submodules https://github.com/Microsoft/Cognitive-Face-Windo
    * VisionAPI-WPF-Samples  
 
    如果無法使用 SampleUserControlLibrary 專案，請確認您已經遞迴複製 `Microsoft/Cognitive-Vision-Windows` 存放庫。
-1. 在 Visual Studio 中，請按 Ctrl+Shift+B，或選擇功能區功能表中的 [建置]，然後選擇 [建置方案] 來建置該方案。
+1. 在 Visual Studio 中，請按 Ctrl+Shift+B，或選擇功能區功能表中的 [建置]  ，然後選擇 [建置方案]  來建置該方案。
 
 ## <a name="run-and-interact-with-the-sample-app"></a>執行範例應用程式並與之互動
 
 您可以執行範例應用程式來了解執行各種工作時 (例如產生縮圖或標記影像)，此應用程式如何與您和電腦視覺用戶端程式庫互動。 若要執行範例應用程式並與之互動，請執行下列步驟：
 
-1. 建置完成後，按下 **F5** 或選擇功能區功能表中的 [偵錯]，然後選擇 [開始偵錯] 來執行範例應用程式。
-1. 顯示範例應用程式時，請選擇瀏覽窗格中的 [訂用帳戶金鑰管理]，以顯示訂用帳戶金鑰管理頁面。
+1. 建置完成後，按下 **F5** 或選擇功能區功能表中的 [偵錯]  ，然後選擇 [開始偵錯]  來執行範例應用程式。
+1. 顯示範例應用程式時，請選擇瀏覽窗格中的 [訂用帳戶金鑰管理]  ，以顯示訂用帳戶金鑰管理頁面。
    ![訂用帳戶金鑰管理頁面](../Images/Vision_UI_Subscription.PNG)  
-1. 在 [訂用帳戶金鑰] 中輸入您的訂用帳戶金鑰。
-1. 在 [端點] 中輸入訂用帳戶金鑰的電腦視覺資源之端點 URL (省略 `/vision/v1.0`)。  
-   舉例而言，如果您使用的是電腦視覺免費試用版的訂用帳戶金鑰，請輸入以下適用於美國中西部 Azure 區域的端點 URL：`https://westcentralus.api.cognitive.microsoft.com`
-1. 如果下次執行範例應用程式時，不想再輸入您的訂用帳戶金鑰和端點 URL，請選擇 [儲存設定]，將訂用帳戶金鑰和端點 URL 儲存到您的電腦上。 如果您想刪除先前儲存的訂用帳戶金鑰和端點 URL，請選擇 [刪除設定]。
+1. 在 [訂用帳戶金鑰]  中輸入您的訂用帳戶金鑰。
+1. 在 [端點]  中輸入端點 URL。  
+   舉例而言，如果您使用的是電腦視覺免費試用版的訂用帳戶金鑰，請輸入以下端點 URL：`https://westcentralus.api.cognitive.microsoft.com`
+   [!INCLUDE [Custom subdomains notice](../../../../includes/cognitive-services-custom-subdomains-note.md)]
+1. 如果下次執行範例應用程式時，不想再輸入您的訂用帳戶金鑰和端點 URL，請選擇 [儲存設定]  ，將訂用帳戶金鑰和端點 URL 儲存到您的電腦上。 如果您想刪除先前儲存的訂用帳戶金鑰和端點 URL，請選擇 [刪除設定]  。
 
    > [!NOTE]
    > 範例應用程式會使用隔離儲存區以及 `System.IO.IsolatedStorage` 來儲存您的訂用帳戶金鑰和端點 URL。
 
-1. 在瀏覽窗格中的 [選取案例] 底下，選取範例應用程式目前隨附的其中一個案例：  
+1. 在瀏覽窗格中的 [選取案例]  底下，選取範例應用程式目前隨附的其中一個案例：  
 
    | 案例 | 說明 |
    |----------|-------------|

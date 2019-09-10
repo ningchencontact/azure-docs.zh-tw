@@ -15,7 +15,7 @@ ms.locfileid: "70099053"
 在此步驟中，您將建立 Azure SQL Database 單一資料庫。 
 
 > [!IMPORTANT]
-> 務必設定防火牆規則，以使用您用來完成本文的電腦公用 IP 位址。
+> 請務必設定防火牆規則，以使用您用來完成本文的電腦公用 IP 位址。
 >
 > 如需資訊，請參閱[建立資料庫層級防火牆規則](/sql/relational-databases/system-stored-procedures/sp-set-database-firewall-rule-azure-sql-database)，或者，若要判斷對於電腦的伺服器層級防火牆規則所用的 IP 位址，請參閱[建立伺服器層級防火牆](../sql-database-server-level-firewall-rule.md)。  
 
@@ -40,9 +40,9 @@ ms.locfileid: "70099053"
 
    - **資料庫名稱**：輸入 `mySampleDatabase` 。
    - **伺服器**：選取 [新建]  ，輸入下列值，然後選取 [選取]  。
-       - **伺服器名稱**：`mysqlserver`類別；伴隨一些表示唯一性的數字。
+       - **伺服器名稱**：輸入`mysqlserver`類別；以及一些表示唯一性的數字。
        - **伺服器管理員登入**：輸入 `azureuser`。
-       - **密碼**：輸入複雜密碼以符合密碼需求。
+       - **密碼**：輸入符合密碼需求的複雜密碼。
        - **位置**：從下拉式清單中選擇位置，例如 `West US`。
 
          ![New server](../media/sql-database-get-started-portal/new-server.png)

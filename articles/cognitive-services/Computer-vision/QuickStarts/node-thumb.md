@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 07/03/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: ca161952cb909a0902e0a441fcdead8ba896982f
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.openlocfilehash: 8307b572eb73a96c23f3327cbda4ad2ac3126acc
+ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67605839"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70137713"
 ---
 # <a name="quickstart-generate-a-thumbnail-using-the-computer-vision-rest-api-and-nodejs"></a>快速入門：使用電腦視覺 REST API 和 Node.js 產生縮圖
 
@@ -28,7 +28,7 @@ ms.locfileid: "67605839"
 
 - 您必須安裝 [Node.js](https://nodejs.org) 4.x 或更新版本。
 - 您必須安裝 [npm](https://www.npmjs.com/)。
-- 您必須有電腦視覺的訂用帳戶金鑰。 您可以從[試用認知服務](https://azure.microsoft.com/try/cognitive-services/?api=computer-vision)取得免費試用的金鑰。 或者，依照[建立認知服務帳戶](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account)中的指示訂閱電腦視覺並取得金鑰。
+- 您必須有電腦視覺的訂用帳戶金鑰。 您可以從[試用認知服務](https://azure.microsoft.com/try/cognitive-services/?api=computer-vision)取得免費試用的金鑰。 或者，依照[建立認知服務帳戶](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account)中的指示訂閱電腦視覺並取得金鑰。 然後，分別為名為 `COMPUTER_VISION_SUBSCRIPTION_KEY` 和 `COMPUTER_VISION_ENDPOINT` 的金鑰和服務端點字串[建立環境變數](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication)。
 
 ## <a name="create-and-run-the-sample"></a>建立並執行範例
 
@@ -45,10 +45,7 @@ ms.locfileid: "67605839"
    1. 成功安裝套件之後，關閉命令提示字元視窗。
 
 1. 將下列程式碼複製到文字編輯器。
-1. 視需要在程式碼中進行下列變更：
-    1. 將 `subscriptionKey` 的值取代為您的訂用帳戶金鑰。
-    1. 如有需要，請從您取得訂用帳戶金鑰的 Azure 區域，將 `uriBase` 的值取代為 [Get Thumbnail](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fb) 方法的端點 URL。
-    1. (選擇性) 將 `imageUrl` 的值取代為您要分析之不同影像的 URL。
+1. (選擇性) 將 `imageUrl` 的值取代為您要分析之不同影像的 URL。
 1. 將程式碼儲存為副檔名為 `.js` 的檔案。 例如： `get-thumbnail.js` 。
 1. 開啟命令提示字元視窗。
 1. 出現提示時，使用 `node` 命令來執行該檔案。 例如： `node get-thumbnail.js` 。
@@ -58,14 +55,11 @@ ms.locfileid: "67605839"
 
 const request = require('request');
 
-// Replace <Subscription Key> with your valid subscription key.
-const subscriptionKey = '<Subscription Key>';
+let subscriptionKey = process.env['COMPUTER_VISION_SUBSCRIPTION_KEY'];
+let endpoint = process.env['COMPUTER_VISION_ENDPOINT']
+if (!subscriptionKey) { throw new Error('Set your environment variables for your subscription key and endpoint.'); }
 
-// You must use the same location in your REST call as you used to get your
-// subscription keys. For example, if you got your subscription keys from
-// westus, replace "westcentralus" in the URL below with "westus".
-const uriBase =
-    'https://westcentralus.api.cognitive.microsoft.com/vision/v2.0/generateThumbnail';
+var uriBase = endpoint + 'vision/v2.0/generateThumbnail';
 
 const imageUrl =
     'https://upload.wikimedia.org/wikipedia/commons/9/94/Bloodhound_Puppy.jpg';

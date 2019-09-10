@@ -4,19 +4,19 @@ description: 了解如何發佈將客戶上線至 Azure 委派資源管理的受
 author: JnHs
 ms.author: jenhayes
 ms.service: lighthouse
-ms.date: 08/22/2019
+ms.date: 08/29/2019
 ms.topic: overview
 manager: carmonm
-ms.openlocfilehash: f9d3fad2a98647bcd10d54c03a76e95bc3e05227
-ms.sourcegitcommit: dcf3e03ef228fcbdaf0c83ae1ec2ba996a4b1892
+ms.openlocfilehash: c0c2ccf03292434b3f23b26857ec0d2b3fc3ceed
+ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "70011854"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70165257"
 ---
 # <a name="publish-a-managed-services-offer-to-azure-marketplace"></a>將受控服務供應項目發佈到 Azure Marketplace
 
-在此文章中，您將了解如何使用 [Cloud Partner 入口網站](https://cloudpartner.azure.com/)，將公用或私人受控服務供應項目發佈至 [Azure Marketplace](https://azuremarketplace.microsoft.com)，讓購買供應項目的客戶能上線至 Azure 委派的資源管理。
+在此文章中，您將了解如何使用 [Cloud Partner 入口網站](https://cloudpartner.azure.com/)，將公用或私人受控服務供應項目發佈至 [Azure Marketplace](https://azuremarketplace.microsoft.com)，讓購買供應項目的客戶能將資源上線，以使用 Azure 委派的資源管理。
 
 > [!NOTE]
 > 您也需要有效的[合作夥伴中心帳戶](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account)，才能建立並發佈這些供應項目。 如果您還沒有帳戶，[註冊程序](https://aka.ms/joinmarketplace)會引導您完成在合作夥伴中心建立帳戶並註冊商業 Marketplace 計畫的步驟。 您的 Microsoft 合作夥伴網路 (MPN) 識別碼將會與您發佈的供應項目[自動關聯](https://docs.microsoft.com/azure/billing/billing-partner-admin-link-started) \(部分機器翻譯\)，以追蹤您對客戶參與整體的影響。
@@ -127,6 +127,65 @@ ms.locfileid: "70011854"
 ## <a name="publish-your-offer"></a>發佈您的供應項目
 
 您對所有提供的資訊都滿意之後，下一步是將供應項目發佈至 Azure Marketplace。 選取 [發行]  按鈕來起始供應項目上線程序。 如需此程序的詳細資訊，請參閱[發行 Azure Marketplace 和 AppSource 供應項目](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/manage-offers/cpp-publish-offer) \(部分機器翻譯\)。
+
+## <a name="the-customer-onboarding-process"></a>客戶上線程序
+
+當客戶新增您的供應項目時，他們將能夠[委派一個或多個特定訂用帳戶或資源群組](view-manage-service-providers.md#delegate-resources)，然後讓這些項目上線，以進行 Azure 委派的資源管理。 如果客戶已接受供應項目，但未委派任何資源，則他們會在 Azure 入口網站中[**服務提供者**](view-manage-service-providers.md)頁面上的 [提供者供應項目]  區段頂端看到一個備註。
+
+在訂用帳戶 (或訂用帳戶內的資源群組) 可以上線之前，訂用帳戶必須藉由手動註冊 **Microsoft.ManagedServices** 資源提供者來獲得上線的權限。 客戶租用戶中具有「參與者」或「擁有者」角色的使用者可以遵循 [Azure 資源提供者和類型](../../azure-resource-manager/resource-manager-supported-services.md)中所述的步驟來執行此動作。
+
+接著，客戶可使用下列其中一個方式來確認訂用帳戶已經可上線。
+
+### <a name="azure-portal"></a>Azure 入口網站
+
+1. 在 Azure 入口網站中，選取訂用帳戶。
+1. 選取 [資源提供者]  。
+1. 確認 [Microsoft.ManagedServices]  顯示為 [已註冊]  。
+
+### <a name="powershell"></a>PowerShell
+
+```azurepowershell-interactive
+# Log in first with Connect-AzAccount if you're not using Cloud Shell
+
+Set-AzContext -Subscription <subscriptionId>
+Get-AzResourceProvider -ProviderNameSpace 'Microsoft.ManagedServices'
+```
+
+這應該會傳回如下結果：
+
+```output
+ProviderNamespace : Microsoft.ManagedServices
+RegistrationState : Registered
+ResourceTypes     : {registrationDefinitions}
+Locations         : {}
+
+ProviderNamespace : Microsoft.ManagedServices
+RegistrationState : Registered
+ResourceTypes     : {registrationAssignments}
+Locations         : {}
+
+ProviderNamespace : Microsoft.ManagedServices
+RegistrationState : Registered
+ResourceTypes     : {operations}
+Locations         : {}
+```
+
+### <a name="azure-cli"></a>Azure CLI
+
+```azurecli-interactive
+# Log in first with az login if you're not using Cloud Shell
+
+az account set –subscription <subscriptionId>
+az provider show --namespace "Microsoft.ManagedServices" --output table
+```
+
+這應該會傳回如下結果：
+
+```output
+Namespace                  RegistrationState
+-------------------------  -------------------
+Microsoft.ManagedServices  Registered
+```
 
 ## <a name="next-steps"></a>後續步驟
 

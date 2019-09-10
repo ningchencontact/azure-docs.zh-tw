@@ -8,14 +8,14 @@ manager: assafi
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: quickstart
-ms.date: 08/05/2019
+ms.date: 08/28/2019
 ms.author: aahi
-ms.openlocfilehash: 1d7ad19a58327ba508ccb4e47d12d3d0f50465f4
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: 0543bc639e60c65d9ab5a6cc810ddf6b7d10087a
+ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68884011"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70142735"
 ---
 # <a name="quickstart-text-analytics-client-library-for-python"></a>快速入門：適用於 Python 的文字分析用戶端程式庫
 <a name="HOLTop"></a>
@@ -66,16 +66,24 @@ from azure.cognitiveservices.language.textanalytics import TextAnalyticsClient
 from msrest.authentication import CognitiveServicesCredentials
 ```
 
-為資源的 Azure 端點和金鑰建立變數。 如果您在啟動應用程式後才建立環境變數，則必須先關閉執行該應用程式的編輯器、IDE 或殼層，再重新加以開啟，才能存取該變數。
+為資源的 Azure 端點和訂用帳戶金鑰建立變數。 從環境變數 TEXT_ANALYTICS_SUBSCRIPTION_KEY 和 TEXT_ANALYTICS_ENDPOINT 取得這些值。 如果您在開始編輯應用程式後才建立這些環境變數，則必須先關閉您使用的編輯器、IDE 或殼層，再重新加以開啟，才能存取該變數。
 
 [!INCLUDE [text-analytics-find-resource-information](../includes/find-azure-resource-info.md)]
 
 ```python
-# replace this endpoint with the correct one for your Azure resource. 
-text_analytics_url = "https://westcentralus.api.cognitive.microsoft.com/"
-# This sample assumes you have created an environment variable for your key
-key = os.environ["TEXT_ANALYTICS_SUBSCRIPTION_KEY"]
-credentials = CognitiveServicesCredentials(key)
+import os
+
+key_var_name = 'TEXT_ANALYTICS_SUBSCRIPTION_KEY'
+if not key_var_name in os.environ:
+    raise Exception('Please set/export the environment variable: {}'.format(key_var_name))
+subscription_key = os.environ[key_var_name]
+
+endpoint_var_name = 'TEXT_ANALYTICS_ENDPOINT'
+if not endpoint_var_name in os.environ:
+    raise Exception('Please set/export the environment variable: {}'.format(endpoint_var_name))
+endpoint = os.environ[endpoint_var_name]
+
+credentials = CognitiveServicesCredentials(subscription_key)
 ```
 
 ## <a name="object-model"></a>物件模型

@@ -13,15 +13,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 08/13/2019
+ms.date: 08/23/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 26e15f704fc9604bd18a1f4848e84065fc507314
-ms.sourcegitcommit: 39d95a11d5937364ca0b01d8ba099752c4128827
+ms.openlocfilehash: 1c2d877a1dc611e02e9fbc245df230ca669a2ae4
+ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69563093"
+ms.lasthandoff: 09/03/2019
+ms.locfileid: "70171436"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-slack"></a>教學課程：Azure Active Directory 單一登入 (SSO) 與 Slack 整合
 
@@ -47,6 +47,9 @@ ms.locfileid: "69563093"
 * Slack 支援 **SP** 起始的 SSO
 * Slack 支援 **Just In Time** 使用者佈建
 * Slack 支援[**自動**使用者佈建](https://docs.microsoft.com/en-gb/azure/active-directory/saas-apps/slack-provisioning-tutorial)
+
+> [!NOTE]
+> 此應用程式的識別碼是固定的字串值，因此一個租用戶中只能設定一個執行個體。
 
 ## <a name="adding-slack-from-the-gallery"></a>從資源庫新增 Slack
 
@@ -80,46 +83,16 @@ ms.locfileid: "69563093"
 1. 在 [選取單一登入方法]  頁面上，選取 [SAML]  。
 1. 在 [以 SAML 設定單一登入]  頁面上，按一下 [基本 SAML 設定]  的編輯/畫筆圖示，以編輯設定。
 
-   ![編輯基本 SAML 設定](common/edit-urls.png)
+   ![編輯基本 SAML 組態](common/edit-urls.png)
 
-1. 在 [基本 SAML 設定]  區段上，輸入下列欄位的值：
+1. 在 [基本 SAML 組態]  區段上，輸入下列欄位的值：
 
     a. 在 [登入 URL]  文字方塊中，使用下列模式輸入 URL：`https://<companyname>.slack.com`
 
     b. 在 [識別碼 (實體識別碼)]  文字方塊中，輸入 URL：`https://slack.com`
 
     > [!NOTE]
-    > [登入 URL] 的值不是真正的值。 使用實際的登入 URL 來更新此值。 請連絡 [Slack 用戶端支援小組](https://slack.com/help/contact)以取得此值。 您也可以參考 Azure 入口網站中**基本 SAML 設定**區段所示的模式。
-
-1. Slack 應用程式需要特定格式的 SAML 判斷提示。 設定此應用程式的下列宣告。 您可以在應用程式整合頁面的 [使用者屬性]  區段中，管理這些屬性的值。 在 [以 SAML 設定單一登入]  頁面上，按一下 [編輯]  按鈕以開啟 [使用者屬性]  對話方塊。
-
-    ![image](common/edit-attribute.png)
-
-    > [!NOTE]
-    > 如果您使用者獲指派的**電子郵件地址**不具備 Office365 授權，SAML 權杖中就不會出現 **User.Email** 宣告。 在這些情況下，建議您改用 **user.userprincipalname** 作為 **User.Email** 屬性值來對應成**唯一識別碼**。
-
-1. 在 [使用者屬性]  對話方塊的 [使用者宣告]  區段中，如上圖所示設定 SAML 權杖屬性，然後執行下列步驟：
-
-    | 名稱 | 來源屬性 |
-    | --- | --- |
-    | first_name | user.givenname |
-    | last_name | user.surname |
-    | User.Email | user.mail |
-    | User.Username | user.userprincipalname |
-
-    a. 按一下 [新增宣告]  以開啟 [管理使用者宣告]  對話方塊。
-
-    b. 在 [名稱]  文字方塊中，輸入該資料列所顯示的屬性名稱。
-
-    c. 讓 [命名空間]  保持空白。
-
-    d. 選取 [來源] 作為 [屬性]  。
-
-    e. 在 [來源屬性]  清單中，輸入該資料列所顯示的屬性值。
-
-    f. 按一下 [確定]  。
-
-    g. 按一下 [檔案]  。
+    > [登入 URL] 的值不是真正的值。 使用實際的登入 URL 來更新此值。 請連絡 [Slack 用戶端支援小組](https://slack.com/help/contact)以取得此值。 您也可以參考 Azure 入口網站中**基本 SAML 組態**區段所示的模式。
 
 1. 在 [以 SAML 設定單一登入]  頁面的 [SAML 簽署憑證]  區段中，尋找 [憑證 (Base64)]  並選取 [下載]  ，以下載憑證並將其儲存在電腦上。
 
@@ -187,7 +160,7 @@ ms.locfileid: "69563093"
 
 ### <a name="create-slack-test-user"></a>建立 Slack 測試使用者
 
-本節目標是在 Slack 中建立名為 Britta Simon 的使用者。 Slack 支援預設啟用的 Just-In-Time 佈建。 在這一節沒有您需要進行的動作項目。 當您嘗試存取 Slack 時，如果 Slack 還沒有使用者，它就會建立新的使用者。 Slack 也支援自動使用者佈建，您可以在[這裡](slack-provisioning-tutorial.md)找到關於如何設定自動使用者佈建的更多詳細資料。
+本節的目標是要在 Slack 中建立一個名為 B.Simon 的使用者。 Slack 支援預設啟用的 Just-In-Time 佈建。 在這一節沒有您需要進行的動作項目。 當您嘗試存取 Slack 時，如果 Slack 還沒有使用者，它就會建立新的使用者。 Slack 也支援自動使用者佈建，您可以在[這裡](slack-provisioning-tutorial.md)找到關於如何設定自動使用者佈建的更多詳細資料。
 
 > [!NOTE]
 > 如果您需要手動建立使用者，就需要連絡 [Slack 支援小組](https://slack.com/help/contact)。

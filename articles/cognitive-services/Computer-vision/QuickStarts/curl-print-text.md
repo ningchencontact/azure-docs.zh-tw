@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 07/03/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 10cab0a1b5bfea603de56a366473a68ca2fcb009
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.openlocfilehash: 6862c48493c2fdf3cbc4e4a9da70d6da70c723de
+ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67604414"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70141461"
 ---
 # <a name="quickstart-extract-printed-text-ocr-using-the-computer-vision-rest-api-and-curl"></a>快速入門：使用電腦視覺 REST API 和 cURL 擷取印刷文字 (OCR)
 
@@ -36,7 +36,8 @@ ms.locfileid: "67604414"
 1. 將下列命令複製到文字編輯器。
 1. 視需要在命令中進行下列變更：
     1. 將 `<subscriptionKey>` 的值取代為您的訂用帳戶金鑰。
-    1. 如有需要，請從您取得訂用帳戶金鑰的 Azure 區域，將要求 URL (`https://westcentralus.api.cognitive.microsoft.com/vision/v2.0/ocr`) 取代為 [OCR](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fc) 方法的端點 URL。
+    1. 將要求 URL 的第一個部分 (`westcentralus`) 取代為您端點 URL 中的文字。
+        [!INCLUDE [Custom subdomains notice](../../../../includes/cognitive-services-custom-subdomains-note.md)]
     1. (選擇性) 將要求本文 (`https://upload.wikimedia.org/wikipedia/commons/thumb/a/af/Atomist_quote_from_Democritus.png/338px-Atomist_quote_from_Democritus.png\`) 中的影像 URL 變更為要分析之不同影像的 URL。
 1. 開啟命令提示字元視窗。
 1. 將文字編輯器中的命令貼到命令提示字元視窗中，然後執行該命令。

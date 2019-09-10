@@ -9,12 +9,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 08/14/2019
 ms.author: iainfou
-ms.openlocfilehash: 505a3104968e285a7fe4801db8029dc45647087a
-ms.sourcegitcommit: dcf3e03ef228fcbdaf0c83ae1ec2ba996a4b1892
+ms.openlocfilehash: 2eaae9093614f1512dcd75d23c98bca871bf2850
+ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "70011353"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70193321"
 ---
 # <a name="tutorial-configure-secure-ldap-for-an-azure-active-directory-domain-services-managed-domain"></a>教學課程：為 Azure Active Directory Domain Services 受控網域設定安全 LDAP
 
@@ -43,7 +43,7 @@ ms.locfileid: "70011353"
 * 已在您的 Azure AD 租用戶中啟用並設定 Azure Active Directory Domain Services 受控網域。
     * 如有需要，請[建立並設定 Azure Active Directory Domain Services 執行個體][create-azure-ad-ds-instance]。
 * 已在您的電腦上安裝 LDP.exe 工具  。
-    * 如有需要，請為 Active Directory Domain Services 和 LDAP  [安裝遠端伺服器管理工具 (RSAT)][rsat]。
+    * 如有需要，請為 Active Directory Domain Services 和 LDAP [安裝遠端伺服器管理工具 (RSAT)][rsat]。 
 
 ## <a name="sign-in-to-the-azure-portal"></a>登入 Azure 入口網站
 
@@ -63,12 +63,12 @@ ms.locfileid: "70011353"
 
 * **信任的簽發者** - 憑證必須由使用安全 LDAP 連線到網域的電腦，所信任的授權單位加以發行。 此授權單位可能是受這些電腦信任的公用 CA 或企業 CA。
 * **存留期** - 憑證必須至少在接下來的 3 至 6 個月內都要保持有效。 當憑證過期時，受控網域的安全 LDAP 存取會中斷。
-* **主體名稱** - 憑證的主體名稱必須是您受控網域。 比方說，如果您的網域名稱為 contoso.com  ，則憑證的主體名稱必須是 contoso.com  。
+* **主體名稱** - 憑證的主體名稱必須是您受控網域。 比方說，如果您的網域名稱為 contoso.com  ，則憑證的主體名稱必須是 *.contoso.com  。
     * 憑證的 DNS 名稱或主體替代名稱必須是萬用字元憑證，才能確保安全 LDAP 可以順利地與 Azure AD Domain Services 搭配運作。 網域控制站會使用隨機名稱，而且可以加以移除或新增，以確保服務可供使用。
 * **金鑰使用方法** - 必須將憑證設定為「數位簽章」  與「金鑰編密」  。
 * **憑證目的** - 憑證必須有效可進行 SSL 伺服器驗證。
 
-在本教學課程中，我們將使用 PowerShell 來建立安全 LDAP 的自我簽署憑證。 以**系統管理員**身分開啟 PowerShell 視窗並執行下列命令。 將 $dnsName* *變數取代為您自有受控網域所使用的 DNS 名稱，例如 contoso.com ** ：
+在本教學課程中，我們將使用 PowerShell 來建立安全 LDAP 的自我簽署憑證。 以**系統管理員**身分開啟 PowerShell 視窗並執行下列命令。 將 $dnsName 變數取代為您自有受控網域所使用的 DNS 名稱，例如 contoso.com   ：
 
 ```powershell
 # Define your own DNS name used by your Azure AD DS managed domain
@@ -78,7 +78,7 @@ $dnsName="contoso.com"
 $lifetime=Get-Date
 
 # Create a self-signed certificate for use with Azure AD DS
-New-SelfSignedCertificate -Subject $dnsName `
+New-SelfSignedCertificate -Subject *.$dnsName `
   -NotAfter $lifetime.AddDays(365) -KeyUsage DigitalSignature, KeyEncipherment `
   -Type SSLServerAuthentication -DnsName *.$dnsName, $dnsName
 ```
@@ -86,7 +86,7 @@ New-SelfSignedCertificate -Subject $dnsName `
 下列輸出範例顯示已成功產生憑證，並將其儲存在本機憑證存放區 (LocalMachine\MY  )：
 
 ```output
-PS C:\WINDOWS\system32> New-SelfSignedCertificate -Subject $dnsName `
+PS C:\WINDOWS\system32> New-SelfSignedCertificate -Subject *.$dnsName `
 >>   -NotAfter $lifetime.AddDays(365) -KeyUsage DigitalSignature, KeyEncipherment `
 >>   -Type SSLServerAuthentication -DnsName *.$dnsName, $dnsName.com
 
@@ -115,7 +115,7 @@ Thumbprint                                Subject
 若要搭配 Azure AD DS 受控網域使用上一個步驟中建立的數位憑證，您必須先將憑證匯出至包含私密金鑰的 .PFX  憑證檔案。
 
 1. 若要開啟 [執行]  對話方塊，請選取 [Windows]  和 [R]  鍵。
-1. 在 [執行]  對話方塊中輸入 **mmc**並選取 [確定]  ，以開啟 Microsoft Management Console (MMC)。
+1. 在 [執行] 對話方塊中輸入 **mmc**  並選取 [確定]  ，以開啟 Microsoft Management Console (MMC)。
 1. 在 [使用者帳戶控制]  提示字元處按一下 [是]  ，以系統管理員身分啟動 MMC。
 1. 在 [檔案]  功能表上，按一下 [新增/移除嵌入式管理單元...] 
 1. 在 [憑證嵌入式管理單元]  精靈中，選擇 [電腦帳戶]  並選取 [下一步]  。
@@ -191,7 +191,7 @@ CER  憑證檔案現在可以散發到用戶端電腦，因為這些電腦必須
 
     如前一節所述的憑證需求，您無法從具有 .onmicrosoft.com  預設網域的公用 CA 使用憑證。 .onmicrosoft.com  網域屬於 Microsoft，因此公用 CA 不會發行憑證。 請確定您的憑證採用適當的格式。 如果不是適當格式，當您啟用安全 LDAP 時，Azure 平台會產生憑證驗證錯誤。
 
-1. 輸入將憑證匯出至 .PFX  檔案時，在先前步驟中設定的 [用以解密 .PFX 檔案的密碼]  。
+1. 輸入將憑證匯出至 .PFX 檔案時，在先前步驟中設定的 [用以解密 .PFX 檔案的密碼]   。
 1. 選取 [儲存]  以啟用安全 LDAP。
 
     ![在 Azure 入口網站中為 Azure AD DS 受控網域啟用安全 LDAP](./media/tutorial-configure-ldaps/enable-ldaps.png)

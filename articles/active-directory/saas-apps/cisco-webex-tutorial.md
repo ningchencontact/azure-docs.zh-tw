@@ -13,15 +13,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 08/16/2019
+ms.date: 08/21/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1adda943676eb4918369d3cb8027f559d5dd0f6e
-ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
+ms.openlocfilehash: 141d3062f231e198b3587efcdf4ae6e9a1c97ed6
+ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/27/2019
-ms.locfileid: "70050005"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70162669"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-cisco-webex-meetings"></a>教學課程：Azure Active Directory 單一登入 (SSO) 與 Cisco Webex Meetings 整合
 
@@ -78,24 +78,24 @@ ms.locfileid: "70050005"
 
 1. 在 [Azure 入口網站](https://portal.azure.com/)的 [Cisco Webex Meetings]  應用程式整合頁面上，尋找 [管理]  區段並選取 [單一登入]  。
 1. 在 [選取單一登入方法]  頁面上，選取 [SAML]  。
-1. 在 [以 SAML 設定單一登入]  頁面上，按一下 [基本 SAML 設定]  的編輯/畫筆圖示，以編輯設定。
-
-   ![編輯基本 SAML 組態](common/edit-urls.png)
-
-1. 在 [基本 SAML 設定]  區段上執行下列步驟，以上傳已下載的**服務提供者中繼資料**檔案，並在 **IDP** 起始模式下設定應用程式：
-
-    >[!Note]
-    >您會取得「服務提供者中繼資料」檔案，稍後在本教學課程的＜設定 Cisco Webex Meetings SSO＞  一節中會有說明。 
+1. 在 [以 SAML 設定單一登入]  頁面上，您可以藉由上傳**服務提供者中繼資料**檔案，在  **IDP**  起始模式中設定應用程式，如下所示：
 
     a. 按一下 [上傳中繼資料檔案]  。
 
     b. 按一下**資料夾圖示**以選取中繼資料檔案，然後按一下 [上傳]  。
 
-    c. 成功完成上傳服務提供者中繼資料檔案之後，[基本 SAML 組態]  區段中會自動填入 [識別碼]  和 [回覆 URL]  值：
+    c. 成功完成上傳服務提供者中繼資料檔案之後，[基本 SAML 組態]  區段中會自動填入 [識別碼]  和 [回覆 URL]  值。
 
-5. 如果您想要在 **SP** 起始模式中設定應用程式，請執行下列步驟：
+    >[!Note]
+    >您會在本教學課程稍後說明的＜設定 Cisco Webex Meetings SSO＞  一節中取得「服務提供者中繼資料」檔案。 
+
+1. 如果您想要在 **SP** 起始模式中設定應用程式，請執行下列步驟：  
+
+    a. 在 [基本 SAML 設定]  區段內，按一下編輯/鉛筆圖示。
+
+   ![編輯基本 SAML 組態](common/edit-urls.png)
     
-    在 [登入 URL]  文字方塊中，以下列模式輸入 URL：`https://<customername>.webex.com`
+    b. 在 [登入 URL]  文字方塊中，以下列模式輸入 URL：` https://<customername>.my.webex.com`
 
 5. Cisco Webex Meetings 應用程式會預期要有特定格式的 SAML 判斷提示，因此您必須將自訂屬性對應新增至 SAML 權杖屬性設定。 以下螢幕擷取畫面顯示預設屬性清單。 按一下 [編輯] ****  圖示以開啟 [使用者屬性] 對話方塊。
 

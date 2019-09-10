@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 12/19/2018
 ms.author: mlearned
 ms.custom: mvc
-ms.openlocfilehash: e0dea5fcc7860e8653d542653e279010f8ede200
-ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
+ms.openlocfilehash: bd3f31f4247a9d80615634a64fee0c6eb3297fe5
+ms.sourcegitcommit: aaa82f3797d548c324f375b5aad5d54cb03c7288
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69898857"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70147251"
 ---
 # <a name="tutorial-deploy-an-azure-kubernetes-service-aks-cluster"></a>教學課程：部署 Azure Kubernetes Service (AKS) 叢集
 
@@ -83,13 +83,16 @@ AKS 叢集可使用 Kubernetes 角色型存取控制 (RBAC)。 這些控制可�
 az aks create \
     --resource-group myResourceGroup \
     --name myAKSCluster \
-    --node-count 1 \
+    --node-count 2 \
     --service-principal <appId> \
     --client-secret <password> \
     --generate-ssh-keys
 ```
 
 部署會在數分鐘之後完成，並以 JSON 格式傳回 AKS 部署的相關資訊。
+
+> [!NOTE]
+> 若要確保叢集能夠可靠地運作，您應該執行至少 2 個 (兩個) 節點。
 
 ## <a name="install-the-kubernetes-cli"></a>安裝 Kubernetes CLI
 

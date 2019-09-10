@@ -8,13 +8,13 @@ author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
-ms.date: 10/29/2017
-ms.openlocfilehash: 5aff45b4a6b5da62569e0a39c13239a726e6b80b
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.date: 08/28/2019
+ms.openlocfilehash: 9a80cb7ba44c86d449e4ff4178a2982db302a717
+ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58002001"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70138353"
 ---
 # <a name="use-terraform-to-create-an-azure-virtual-machine-scale-set-from-a-packer-custom-image"></a>使用 Terraform 從 Packer 自訂映像建立 Azure 虛擬機器擴展集
 
@@ -44,7 +44,7 @@ ms.locfileid: "58002001"
 
 - ```variables.tf```：此檔案會保留範本中所使用的變數值。
 - ```output.tf```：此檔案描述在部署後顯示的設定。
-- ```vmss.tf```：此檔案包含您要部署之基礎結構的程式碼。
+- ```vmss.tf```：此檔案包含您要部署的基礎結構程式碼。
 
 ##  <a name="create-the-variables"></a>建立變數 
 
@@ -124,7 +124,7 @@ resource "azurerm_public_ip" "vmss" {
   name                         = "vmss-public-ip"
   location                     = "${var.location}"
   resource_group_name          = "${azurerm_resource_group.vmss.name}"
-  public_ip_address_allocation = "static"
+  allocation_method            = "static"
   domain_name_label            = "${azurerm_resource_group.vmss.name}"
 
   tags {
@@ -175,12 +175,12 @@ terraform apply
 ## <a name="edit-the-infrastructure-to-add-the-virtual-machine-scale-set"></a>編輯基礎結構以新增虛擬機器擴展集
 
 在此步驟中，您可以在先前部署的網路上建立下列資源：
-- 用來服務應用程式的 Azure 負載平衡器，並且將負載平衡器連接到在步驟 4 中部署的公用 IP 位址
+- 用來處理應用程式的 Azure 負載平衡器，並且將負載平衡器連結到先前部署的公用 IP 位址。
 - 一個 Azure 負載平衡器和服務應用程式的規則，並且將負載平衡器連接到稍早設定的公用 IP 位址。
-- Azure 後端位址集區，並將它指派給負載平衡器 
-- 應用程式所使用且在負載平衡器上設定的健康情況探查連接埠 
-- 位在負載平衡器幕後的虛擬機器擴展集，在稍早部署的 VNet 上執行
-- 在虛擬機器擴展集節點上從自訂映像安裝的 [Nginx](https://nginx.org/) \(英文\)
+- Azure 後端位址集區，並將它指派給負載平衡器。
+- 應用程式所使用且在負載平衡器上設定的健康情況探查連接埠。
+- 位在負載平衡器幕後的虛擬機器擴展集，在稍早部署的 VNET 上執行。
+- 在虛擬機器擴展集節點上從自訂映像安裝的 [Nginx](https://nginx.org/) \(英文\)。
 
 
 在 `vmss.tf` 檔案的結尾加入下列程式碼。
@@ -290,6 +290,7 @@ resource "azurerm_virtual_machine_scale_set" "vmss" {
       name                                   = "IPConfiguration"
       subnet_id                              = "${azurerm_subnet.vmss.id}"
       load_balancer_backend_address_pool_ids = ["${azurerm_lb_backend_address_pool.bpepool.id}"]
+      primary = true
     }
   }
   
@@ -355,7 +356,7 @@ resource "azurerm_public_ip" "jumpbox" {
   name                         = "jumpbox-public-ip"
   location                     = "${var.location}"
   resource_group_name          = "${azurerm_resource_group.vmss.name}"
-  public_ip_address_allocation = "static"
+  allocation_method            = "static"
   domain_name_label            = "${azurerm_resource_group.vmss.name}-ssh"
 
   tags {

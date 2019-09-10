@@ -1,5 +1,5 @@
 ---
-title: 教學課程：Azure Active Directory 與 People 整合 | Microsoft Docs
+title: 教學課程：Azure Active Directory 單一登入 (SSO) 與 People 整合 | Microsoft Docs
 description: 了解如何設定 Azure Active Directory 與 People 之間的單一登入。
 services: active-directory
 documentationCenter: na
@@ -13,17 +13,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 08/01/2019
+ms.date: 08/27/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 334241683f95496ce9ea0629247bb8fd53364ee9
-ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
+ms.openlocfilehash: 3a9b8f08a54c978d81a8d33c61ab3d5f5fc7271f
+ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68826098"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70164226"
 ---
-# <a name="tutorial-integrate-people-with-azure-active-directory"></a>教學課程：整合 People 與 Azure Active Directory
+# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-people"></a>教學課程：Azure Active Directory 單一登入 (SSO) 與 People 整合
 
 在本教學課程中，您將了解如何整合 People 與 Azure Active Directory (Azure AD)。 在整合 People 與 Azure AD 時，您可以︰
 
@@ -47,6 +47,9 @@ ms.locfileid: "68826098"
 * People 支援由 **SP** 起始的 SSO
 * People 行動應用程式現在可以搭配 Azure AD 設定來啟用 SSO。 在本教學課程中，您會在測試環境中設定和測試 Azure AD SSO。
 
+>[!NOTE]
+>此應用程式的識別碼是固定的字串值，因此一個租用戶中只能設定一個執行個體。
+
 ## <a name="adding-people-from-the-gallery"></a>從資源庫新增 People
 
 若要設定將 People 整合到 Azure AD 中，您需要從資源庫將 People 新增到受控 SaaS 應用程式清單。
@@ -58,21 +61,20 @@ ms.locfileid: "68826098"
 1. 在 [從資源庫新增]  區段的搜尋方塊中輸入 **People**。
 1. 從結果面板選取 [People]  ，然後新增應用程式。 當應用程式新增至您的租用戶時，請等候幾秒鐘。
 
-
-## <a name="configure-and-test-azure-ad-single-sign-on"></a>設定和測試 Azure AD 單一登入
+## <a name="configure-and-test-azure-ad-single-sign-on-for-people"></a>設定及測試 People 的 Azure AD 單一登入
 
 以名為 **B.Simon** 的測試使用者，設定及測試與 People 搭配運作的 Azure AD SSO。 若要讓 SSO 能夠運作，您必須建立 Azure AD 使用者與 People 中相關使用者之間的連結關聯性。
 
 若要設定及測試與 People 搭配運作的 Azure AD SSO，請完成下列建置組塊：
 
 1. **[設定 Azure AD SSO](#configure-azure-ad-sso)** - 讓您的使用者能夠使用此功能。
+    1. **[建立 Azure AD 測試使用者](#create-an-azure-ad-test-user)** - 使用 B.Simon 測試 Azure AD 單一登入。
+    1. **[指派 Azure AD 測試使用者](#assign-the-azure-ad-test-user)** - 讓 B.Simon 能夠使用 Azure AD 單一登入。
 2. **[設定 People SSO](#configure-people-sso)** - 在應用程式端設定單一登入設定。
-3. **[建立 Azure AD 測試使用者](#create-an-azure-ad-test-user)** - 使用 B.Simon 測試 Azure AD 單一登入。
-4. **[指派 Azure AD 測試使用者](#assign-the-azure-ad-test-user)** - 讓 B.Simon 能夠使用 Azure AD 單一登入。
-5. **[建立 People 測試使用者](#create-people-test-user)** - 使 People 中對應的 B.Simon 連結到該使用者在 Azure AD 中的代表項目。
+    1. **[建立 People 測試使用者](#create-people-test-user)** - 使 People 中對應的 B.Simon 連結到該使用者在 Azure AD 中的代表項目。
 6. **[測試 SSO](#test-sso)** - 驗證組態是否能運作。
 
-### <a name="configure-azure-ad-sso"></a>設定 Azure AD SSO
+## <a name="configure-azure-ad-sso"></a>設定 Azure AD SSO
 
 依照下列步驟在 Azure 入口網站中啟用 Azure AD SSO。
 
@@ -100,22 +102,6 @@ ms.locfileid: "68826098"
 6. 在 [設定 People]  區段上，根據您的需求複製適當的 URL。
 
     ![複製組態 URL](common/copy-configuration-urls.png)
-
-### <a name="configure-people-sso"></a>設定 People SSO
-
-1. 若要取得為應用程式設定的 SSO，您必須以系統管理員身分登入 People 租用戶。
-   
-2. 在左側功能表中，按一下 [設定]  。
-
-    ![設定單一登入](./media/people-tutorial/tutorial_people_001.png)
-
-3. 按一下 [公司]  。
-
-    ![設定單一登入](./media/people-tutorial/tutorial_people_002.png)
-
-4. 在 [上傳單衣登入 SAML 中繼資料檔案]  上，按一下 [瀏覽]  上傳下載的中繼資料檔案。
-
-    ![設定單一登入](./media/people-tutorial/tutorial_people_003.png)
 
 ### <a name="create-an-azure-ad-test-user"></a>建立 Azure AD 測試使用者
 
@@ -147,11 +133,35 @@ ms.locfileid: "68826098"
 1. 如果您在 SAML 判斷提示中需要任何角色值，請在 [選取角色]  對話方塊的清單中為使用者選取適當的角色，然後按一下畫面底部的 [選取]  按鈕。
 1. 在 [新增指派]  對話方塊中，按一下 [指派]  按鈕。
 
+## <a name="configure-people-sso"></a>設定 People SSO
+
+1. 若要自動執行 People 內的設定，您必須按一下 [安裝擴充功能]  來安裝「我的應用程式安全登入瀏覽器擴充功能」  。
+
+    ![我的應用程式擴充功能](common/install-myappssecure-extension.png)
+
+2. 將擴充功能新增至瀏覽器之後，按一下 [設定 People]  便會將您導向到 People 應用程式。 請從該處提供用以登入 People 的管理員認證。 瀏覽器擴充功能會自動為您設定應用程式，並自動執行步驟 3 到 6。
+
+    ![設定組態](common/setup-sso.png)
+
+3. 如果您想要手動設定 People，請開啟新的網頁瀏覽器視窗，並以系統管理員身分登入 People 公司網站，然後執行下列步驟：
+   
+4. 在左側功能表中，按一下 [設定]  。
+
+    ![設定單一登入](./media/people-tutorial/tutorial_people_001.png)
+
+5. 按一下 [公司]  。
+
+    ![設定單一登入](./media/people-tutorial/tutorial_people_002.png)
+
+6. 在 [上傳單衣登入 SAML 中繼資料檔案]  上，按一下 [瀏覽]  上傳下載的中繼資料檔案。
+
+    ![設定單一登入](./media/people-tutorial/tutorial_people_003.png)
+
 ### <a name="create-people-test-user"></a>建立 People 測試使用者
 
 在本節中，您要在 People 中建立名為 B.Simon 的使用者。 請與 [People 客戶支援小組](mailto:customerservices@peoplehr.com)合作，在 People 平台中新增使用者。 您必須先建立和啟動使用者，然後才能使用單一登入。
 
-### <a name="test-sso"></a>測試 SSO 
+## <a name="test-sso"></a>測試 SSO 
 
 在本節中，您會使用存取面板來測試您的 Azure AD 單一登入設定。
 
@@ -179,3 +189,4 @@ ms.locfileid: "68826098"
 
 - [什麼是 Azure Active Directory 中的條件式存取？](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
+- [搭配 Azure AD 試用 People](https://aad.portal.azure.com)

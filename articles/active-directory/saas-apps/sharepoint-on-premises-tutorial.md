@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 04/25/2019
 ms.author: jeedes
-ms.openlocfilehash: 21c10e142802914bcf3292ef7f25066675e6cdd1
-ms.sourcegitcommit: 22c97298aa0e8bd848ff949f2886c8ad538c1473
+ms.openlocfilehash: 9c956f89d890f93a887d2412c74c906095acf4db
+ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/14/2019
-ms.locfileid: "67143928"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70164349"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sharepoint-on-premises"></a>教學課程：Azure Active Directory 與 SharePoint 內部部署整合
 
@@ -273,7 +273,7 @@ ms.locfileid: "67143928"
     > [!NOTE]
     > 請注意，AzureCP 並非 Microsoft 產品，無法使用 Microsoft 技術支援。 依循 https://yvand.github.io/AzureCP/ ，在內部部署 SharePoint 伺服器陣列上下載、安裝及設定 AzureCP 
 
-11. **在內部部署 SharePoint 中授與 Azure Active Directory 安全性群組的存取權**：必須將 SharePoint 內部部署中應用程式的存取權授與群組。  您可以使用下列步驟來設定存取 Web 應用程式的權限。
+11. **在內部部署 SharePoint 中授與 Azure Active Directory 安全性群組的存取權**：群組必須能存取內部部署 SharePoint 中的應用程式。  您可以使用下列步驟來設定存取 Web 應用程式的權限。
 
 12. 在 [管理中心] 內按一下 [應用程式管理] 和 [管理 Web 應用程式]，然後選取 Web 應用程式來啟用功能區，最後按一下 [使用者原則]。
 

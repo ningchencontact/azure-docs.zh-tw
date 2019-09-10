@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 07/03/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 2be6625fa2c21c3ece767f270746171c3928a774
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.openlocfilehash: 0c52bf9b62026caec54a09acd10a52f89ca98d52
+ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67604443"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70138012"
 ---
 # <a name="quickstart-analyze-a-remote-image-using-the-computer-vision-rest-api-and-curl"></a>快速入門：使用電腦視覺 REST API 與 cURL 分析遠端影像
 
@@ -27,7 +27,7 @@ ms.locfileid: "67604443"
 ## <a name="prerequisites"></a>必要條件
 
 - 您必須擁有 [cURL](https://curl.haxx.se/windows)。
-- 您必須有電腦視覺的訂用帳戶金鑰。 您可以從[試用認知服務](https://azure.microsoft.com/try/cognitive-services/?api=computer-vision)取得免費試用的金鑰。 或者，依照[建立認知服務帳戶](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account)中的指示訂閱電腦視覺並取得金鑰。
+- 您必須有電腦視覺的訂用帳戶金鑰。 您可以從[試用認知服務](https://azure.microsoft.com/try/cognitive-services/?api=computer-vision)取得免費試用的金鑰。 或者，依照[建立認知服務帳戶](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account)中的指示訂閱電腦視覺並取得金鑰。 
 
 ## <a name="create-and-run-the-sample-command"></a>建立和執行範例命令
 
@@ -36,7 +36,8 @@ ms.locfileid: "67604443"
 1. 將下列命令複製到文字編輯器。
 1. 視需要在命令中進行下列變更：
     1. 將 `<subscriptionKey>` 的值取代為您的訂用帳戶金鑰。
-    1. 如有需要，請從您取得訂用帳戶金鑰的 Azure 區域，將要求 URL (`https://westcentralus.api.cognitive.microsoft.com/vision/v2.0/analyze`) 取代為 [Analyze Image](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) 方法的端點 URL。
+    1. 將要求 URL 的第一個部分 (`westcentralus`) 取代為您端點 URL 中的文字。
+        [!INCLUDE [Custom subdomains notice](../../../../includes/cognitive-services-custom-subdomains-note.md)]
     1. (選擇性) 將要求 URL (`language=en`) 的語言參數變更為使用不同的支援語言。
     1. (選擇性) 將要求本文 (`http://upload.wikimedia.org/wikipedia/commons/3/3c/Shaki_waterfall.jpg\`) 中的影像 URL 變更為要分析之不同影像的 URL。
 1. 開啟命令提示字元視窗。

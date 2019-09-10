@@ -1,5 +1,5 @@
 ---
-title: 教學課程：Azure Active Directory 與 ADP 整合 | Microsoft Docs
+title: 教學課程：Azure Active Directory 單一登入 (SSO) 與 ADP 整合 | Microsoft Docs
 description: 了解如何設定 Azure Active Directory 與 ADP 之間的單一登入。
 services: active-directory
 documentationCenter: na
@@ -13,17 +13,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 07/25/2019
+ms.date: 08/26/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1597a4ca9cac7ba3885e863502f156d4c83aeed1
-ms.sourcegitcommit: f5cc71cbb9969c681a991aa4a39f1120571a6c2e
+ms.openlocfilehash: b031ded2022078c31bd8570c6a6317c398715480
+ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68516381"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70162650"
 ---
-# <a name="tutorial-integrate-adp-with-azure-active-directory"></a>教學課程：整合 ADP 與 Azure Active Directory
+# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-adp"></a>教學課程：Azure Active Directory 單一登入 (SSO) 與 ADP 整合
 
 在本教學課程中，您會了解如何將 ADP 與 Azure Active Directory (Azure AD) 整合。 在整合 ADP 與 Azure AD 時，您可以︰
 
@@ -46,6 +46,9 @@ ms.locfileid: "68516381"
 
 * ADP 支援由 **IDP** 起始的 SSO
 
+> [!NOTE]
+> 此應用程式的識別碼是固定的字串值，因此一個租用戶中只能設定一個執行個體。
+
 ## <a name="adding-adp-from-the-gallery"></a>從資源庫新增 ADP
 
 若要設定將 ADP 整合到 Azure AD 中，您需要從資源庫將 ADP 新增到受控 SaaS 應用程式清單。
@@ -57,21 +60,20 @@ ms.locfileid: "68516381"
 1. 在 [從資源庫新增]  區段的搜尋方塊中輸入 **ADP**。
 1. 從結果面板選取 [ADP]  ，然後新增應用程式。 當應用程式新增至您的租用戶時，請等候幾秒鐘。
 
-
-## <a name="configure-and-test-azure-ad-single-sign-on"></a>設定和測試 Azure AD 單一登入
+## <a name="configure-and-test-azure-ad-single-sign-on-for-adp"></a>設定及測試 ADP 的 Azure AD 單一登入
 
 以名為 **B.Simon** 的測試使用者，設定及測試與 ADP 搭配運作的 Azure AD SSO。 若要讓 SSO 能夠運作，您必須建立 Azure AD 使用者與 ADP 中相關使用者之間的連結關聯性。
 
 若要設定及測試與 ADP 搭配運作的 Azure AD SSO，請完成下列建置組塊：
 
 1. **[設定 Azure AD SSO](#configure-azure-ad-sso)** - 讓您的使用者能夠使用此功能。
+    1. **[建立 Azure AD 測試使用者](#create-an-azure-ad-test-user)** - 使用 B.Simon 測試 Azure AD 單一登入。
+    1. **[指派 Azure AD 測試使用者](#assign-the-azure-ad-test-user)** - 讓 B.Simon 能夠使用 Azure AD 單一登入。
 2. **[設定 ADP SSO](#configure-adp-sso)** - 在應用程式端設定單一登入設定。
-3. **[建立 Azure AD 測試使用者](#create-an-azure-ad-test-user)** - 使用 B.Simon 測試 Azure AD 單一登入。
-4. **[指派 Azure AD 測試使用者](#assign-the-azure-ad-test-user)** - 讓 B.Simon 能夠使用 Azure AD 單一登入。
-5. **[建立 ADP 測試使用者](#create-adp-test-user)** - 使 ADP 中對應的 B.Simon 連結到該使用者在 Azure AD 中的代表項目。
-6. **[測試 SSO](#test-sso)** - 驗證組態是否能運作。
+    1. **[建立 ADP 測試使用者](#create-adp-test-user)** - 使 ADP 中對應的 B.Simon 連結到該使用者在 Azure AD 中的代表項目。
+3. **[測試 SSO](#test-sso)** - 驗證組態是否能運作。
 
-### <a name="configure-azure-ad-sso"></a>設定 Azure AD SSO
+## <a name="configure-azure-ad-sso"></a>設定 Azure AD SSO
 
 依照下列步驟在 Azure 入口網站中啟用 Azure AD SSO。
 
@@ -97,33 +99,6 @@ ms.locfileid: "68516381"
 
     在 [識別碼 (實體識別碼)]  文字方塊中，輸入 URL：`https://fed.adp.com`
 
-5. ADP 應用程式需要特定格式的 SAML 判斷提示，因此您必須在 SAML 權杖屬性設定中新增自訂屬性對應。 以下螢幕擷取畫面顯示預設屬性清單。 按一下 [編輯] ****  圖示以開啟 [使用者屬性] 對話方塊。 宣告名稱將一律為 **PersonImmutableID**，且其值為我們為了與 **employeeid** 對應而顯示的值。
-
-    會透過 **employeeid** 完成從 Azure AD 到 ADP 的使用者對應，但您也可以根據應用程式設定，將其對應到不同的值。 因此，請先與 [ADP 支援小組](https://www.adp.com/contact-us/overview.aspx)合作以使用正確的使用者識別碼，然後將該值與 **PersonImmutableID** 宣告對應。
-
-    ![image](common/edit-attribute.png)
-
-6. 除了以上屬性之外，ADP 應用程式還預期 SAML 回應中會再多傳回幾個屬性。 在 [使用者屬性] 對話方塊的 [使用者宣告] 區段中，執行下列步驟以設定 SAML 權杖屬性，如下表所示： 
-
-    | Name | 來源屬性|
-    | ---------------| --------- |
-    | PersonImmutableID  | user.employeeid |
-
-    a. 按一下 [新增宣告]  以開啟 [管理使用者宣告]  對話方塊。
-
-    b. 在 [名稱]  文字方塊中，輸入該資料列所顯示的屬性名稱。
-
-    c. 讓 [命名空間]  保持空白。
-
-    d. 選取 [來源] 作為 [屬性]  。
-
-    e. 在 [來源屬性]  清單中，輸入該資料列所顯示的屬性值。
-
-    f. 按一下 [檔案]  。
-
-    > [!NOTE] 
-    > 您必須先連絡 [ADP 支援小組](https://www.adp.com/contact-us/overview.aspx)，向其要求租用戶的唯一使用者識別碼屬性值，才能設定 SAML 判斷提示。 您需要此值來設定應用程式的自訂宣告。 
-
 4. 在 [以 SAML 設定單一登入]  頁面上的 [SAML 簽署憑證]  區段中，尋找 [同盟中繼資料 XML]  ，然後選取 [下載]  來下載憑證，並將其儲存在電腦上。
 
     ![憑證下載連結](common/metadataxml.png)
@@ -132,7 +107,37 @@ ms.locfileid: "68516381"
 
     ![複製組態 URL](common/copy-configuration-urls.png)
 
-### <a name="configure-adp-sso"></a>設定 ADP SSO
+### <a name="create-an-azure-ad-test-user"></a>建立 Azure AD 測試使用者
+
+在本節中，您將在 Azure 入口網站中建立名為 B.Simon 的測試使用者。
+
+1. 在 Azure 入口網站的左窗格中，依序選取 [Azure Active Directory]  、[使用者]  和 [所有使用者]  。
+1. 在畫面頂端選取 [新增使用者]  。
+1. 在 [使用者]  屬性中，執行下列步驟：
+   1. 在 [名稱]  欄位中，輸入 `B.Simon`。  
+   1. 在 [使用者名稱]  欄位中，輸入 username@companydomain.extension。 例如： `B.Simon@contoso.com` 。
+   1. 選取 [顯示密碼]  核取方塊，然後記下 [密碼]  方塊中顯示的值。
+   1. 按一下頁面底部的 [新增]  。
+
+### <a name="assign-the-azure-ad-test-user"></a>指派 Azure AD 測試使用者
+
+在本節中，您會將 ADP 的存取權授與 B.Simon，讓其能夠使用 Azure 單一登入。
+
+1. 在 Azure 入口網站中，選取 [企業應用程式]  ，然後選取 [所有應用程式]  。
+1. 在應用程式清單中，選取 [ADP]  。
+1. 在應用程式的概觀頁面中尋找 [管理]  區段，然後選取 [使用者和群組]  。
+
+   ![[使用者和群組] 連結](common/users-groups-blade.png)
+
+1. 選取 [新增使用者]  ，然後在 [新增指派]  對話方塊中選取 [使用者和群組]  。
+
+    ![[新增使用者] 連結](common/add-assign-user.png)
+
+1. 在 [使用者和群組]  對話方塊的 [使用者] 清單中選取 [B.Simon]  ，然後按一下畫面底部的 [選取]  按鈕。
+1. 如果您在 SAML 判斷提示中需要任何角色值，請在 [選取角色]  對話方塊的清單中為使用者選取適當的角色，然後按一下畫面底部的 [選取]  按鈕。
+1. 在 [新增指派]  對話方塊中，按一下 [指派]  按鈕。
+
+## <a name="configure-adp-sso"></a>設定 ADP SSO
 
 若要在 **ADP** 端設定單一登入，您必須將已下載的**中繼資料 XML** 上傳至 [ADP 網站](https://adpfedsso.adp.com/public/login/index.fcc)。
 
@@ -205,41 +210,11 @@ ms.locfileid: "68516381"
  
 11. 確認測試成功時，將同盟 ADP 服務指派給個別的使用者或使用者群組 (本教學課程稍後會說明)，然後向您的員工首度發行。
 
-### <a name="create-an-azure-ad-test-user"></a>建立 Azure AD 測試使用者
-
-在本節中，您將在 Azure 入口網站中建立名為 B.Simon 的測試使用者。
-
-1. 在 Azure 入口網站的左窗格中，依序選取 [Azure Active Directory]  、[使用者]  和 [所有使用者]  。
-1. 在畫面頂端選取 [新增使用者]  。
-1. 在 [使用者]  屬性中，執行下列步驟：
-   1. 在 [名稱]  欄位中，輸入 `B.Simon`。  
-   1. 在 [使用者名稱]  欄位中，輸入 username@companydomain.extension。 例如： `B.Simon@contoso.com` 。
-   1. 選取 [顯示密碼]  核取方塊，然後記下 [密碼]  方塊中顯示的值。
-   1. 按一下頁面底部的 [新增]  。
-
-### <a name="assign-the-azure-ad-test-user"></a>指派 Azure AD 測試使用者
-
-在本節中，您會將 ADP 的存取權授與 B.Simon，讓其能夠使用 Azure 單一登入。
-
-1. 在 Azure 入口網站中，選取 [企業應用程式]  ，然後選取 [所有應用程式]  。
-1. 在應用程式清單中，選取 [ADP]  。
-1. 在應用程式的概觀頁面中尋找 [管理]  區段，然後選取 [使用者和群組]  。
-
-   ![[使用者和群組] 連結](common/users-groups-blade.png)
-
-1. 選取 [新增使用者]  ，然後在 [新增指派]  對話方塊中選取 [使用者和群組]  。
-
-    ![[新增使用者] 連結](common/add-assign-user.png)
-
-1. 在 [使用者和群組]  對話方塊的 [使用者] 清單中選取 [B.Simon]  ，然後按一下畫面底部的 [選取]  按鈕。
-1. 如果您在 SAML 判斷提示中需要任何角色值，請在 [選取角色]  對話方塊的清單中為使用者選取適當的角色，然後按一下畫面底部的 [選取]  按鈕。
-1. 在 [新增指派]  對話方塊中，按一下 [指派]  按鈕。
-
 ### <a name="create-adp-test-user"></a>建立 ADP 測試使用者
 
 本節的目標是要在 ADP 中建立一個名為 B.Simon 的使用者。 請與 [ADP 支援小組](https://www.adp.com/contact-us/overview.aspx)合作，在 ADP 帳戶中新增使用者。 
 
-### <a name="test-sso"></a>測試 SSO 
+## <a name="test-sso"></a>測試 SSO 
 
 在本節中，您會使用存取面板來測試您的 Azure AD 單一登入設定。
 
@@ -253,3 +228,4 @@ ms.locfileid: "68516381"
 
 - [什麼是 Azure Active Directory 中的條件式存取？](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
+- [嘗試搭配 Azure AD 使用 ADP](https://aad.portal.azure.com)

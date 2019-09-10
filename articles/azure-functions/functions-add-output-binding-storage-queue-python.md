@@ -11,12 +11,12 @@ ms.service: azure-functions
 ms.custom: mvc
 ms.devlang: python
 manager: jeconnoc
-ms.openlocfilehash: 34ec7c678410b2e0814f8dbb7a69257886cb891d
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.openlocfilehash: 9fdbf3466256c5e24de17541770fa2095fcf38a4
+ms.sourcegitcommit: ee61ec9b09c8c87e7dfc72ef47175d934e6019cc
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68639134"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70171075"
 ---
 # <a name="add-an-azure-storage-queue-binding-to-your-python-function"></a>將 Azure 儲存體佇列繫結新增至您的 Python 函式
 
@@ -194,7 +194,7 @@ curl https://myfunctionapp.azurewebsites.net/api/httptrigger?code=cCr8sAxfBiow54
 
 ## <a name="next-steps"></a>後續步驟
 
-您已更新 HTTP 觸發的函式，以將資料寫入至儲存體佇列。 若要深入了解如何使用 Python 開發 Azure Functions，請參閱 [Azure Functions Python 開發人員指南](functions-reference-python.md)和 [Azure Functions 觸發程序和繫結](functions-triggers-bindings.md)。
+您已更新 HTTP 觸發的函式，以將資料寫入至儲存體佇列。 若要深入了解如何使用 Python 開發 Azure Functions，請參閱 [Azure Functions Python 開發人員指南](functions-reference-python.md)和 [Azure Functions 觸發程序和繫結](functions-triggers-bindings.md)。 如需 Python 中完整函式專案的範例，請參閱 [ython 函式範例](/samples/browse/?products=azure-functions&languages=python)。 
 
 接下來，您應為函式應用程式啟用 Application Insights 監視：
 

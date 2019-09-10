@@ -3,16 +3,16 @@ title: Azure 藍圖概觀
 description: 了解 Azure 藍圖服務如何讓您在 Azure 環境中建立、定義及部署成品。
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 02/08/2019
+ms.date: 08/26/2019
 ms.topic: overview
 ms.service: blueprints
 manager: carmonm
-ms.openlocfilehash: be7e3043172f988a429bbf02dec08bfbbc1a70b7
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: 631aa956573fd611988030af8ea7e34c6c266045
+ms.sourcegitcommit: aaa82f3797d548c324f375b5aad5d54cb03c7288
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68848429"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70146107"
 ---
 # <a name="overview-of-the-azure-blueprints-service"></a>Azure 藍圖服務概觀
 
@@ -106,14 +106,23 @@ Azure 藍圖服務由散佈於世界各地的 [Azure Cosmos DB](../../cosmos-db/
 > [!NOTE]
 > 因為藍圖指派是在訂用帳戶上建立，所以藍圖指派和取消指派權限必須在訂用帳戶範圍上授與，或是在訂用帳戶範圍上繼承。
 
-所有上述權限都會納入 [擁有者]  角色。 [參與者]  角色已建立藍圖並刪除藍圖權限，但是沒有藍圖指派權限。 如果這些內建角色不符合您的安全性需求，請考慮建立[自訂角色](../../role-based-access-control/custom-roles.md)。
+可用的內建角色如下：
+
+|RBAC 角色 | 說明 |
+|-|-|
+|[擁有者](../../role-based-access-control/built-in-roles.md#owner) | 除了其他權限之外，還包含所有與 Azure 藍圖相關的權限。 |
+|[參與者](../../role-based-access-control/built-in-roles.md#contributor) | 除了其他權限之外，還可以建立和刪除藍圖定義，但不具有藍圖指派權限。 |
+|[藍圖參與者](../../role-based-access-control/built-in-roles.md#blueprint-contributor) | 可以管理藍圖定義，但不能加以指派。 |
+|[藍圖操作者](../../role-based-access-control/built-in-roles.md#blueprint-operator) | 可以指派現有的已發行藍圖，但無法建立新的藍圖定義。 只有透過使用者指派的受控識別來完成藍圖指派時，該指派才有效。 |
+
+如果這些內建角色不符合您的安全性需求，請考慮建立[自訂角色](../../role-based-access-control/custom-roles.md)。
 
 > [!NOTE]
 > 如果使用系統指派的受控識別，Azure 藍圖的服務主體在指派的訂用帳戶上需要**擁有者**角色才能進行部署。 如果使用入口網站，會針對部署自動授與此角色並撤銷。 如果使用 REST API，必須手動授與此角色，但在部署完成之後仍會自動撤銷。 如果使用使用者指派的受控識別，只有建立藍圖指派的使用者才需要**擁有者**權限。
 
 ## <a name="naming-limits"></a>命名限制
 
-以下是針對某些欄位存在的限制清單：
+某些欄位存在下列限制：
 
 |Object|欄位|允許的字元|最大 長度|
 |-|-|-|-|

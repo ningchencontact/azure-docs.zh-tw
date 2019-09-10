@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: quickstart
-ms.date: 07/28/2019
+ms.date: 08/28/2019
 ms.author: aahi
-ms.openlocfilehash: 3ef7f65bbb27992278eb467f840c1443ac0db0b8
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.openlocfilehash: 669cd43b73bc66289a355f7fbf9c4498d8a7b99a
+ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68725905"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70135032"
 ---
 # <a name="quickstart-using-the-python-rest-api-to-call-the-text-analytics-cognitive-service"></a>快速入門：使用 Python REST API 呼叫文字分析認知服務 
 <a name="HOLTop"></a>
@@ -49,11 +49,20 @@ import requests
 from pprint import pprint
 ```
 
-建立訂用帳戶金鑰的變數，以及文字分析 REST API 的端點。 確認端點中的區域會對應到您註冊時所使用的區域 (例如 `westcentralus`)。 如果您使用免費試用金鑰，則不需變更任何項目。
+為資源的 Azure 端點和訂用帳戶金鑰建立變數。 從環境變數 TEXT_ANALYTICS_SUBSCRIPTION_KEY 和 TEXT_ANALYTICS_ENDPOINT 取得這些值。 如果您在開始編輯應用程式後才建立這些環境變數，則必須先關閉您使用的編輯器、IDE 或殼層，再重新加以開啟，才能存取該變數。
     
 ```python
-subscription_key = "<ADD YOUR KEY HERE>"
-text_analytics_base_url = "https://westcentralus.api.cognitive.microsoft.com/text/analytics/v2.1/"
+import os
+
+key_var_name = 'TEXT_ANALYTICS_SUBSCRIPTION_KEY'
+if not key_var_name in os.environ:
+    raise Exception('Please set/export the environment variable: {}'.format(key_var_name))
+subscription_key = os.environ[key_var_name]
+
+endpoint_var_name = 'TEXT_ANALYTICS_ENDPOINT'
+if not endpoint_var_name in os.environ:
+    raise Exception('Please set/export the environment variable: {}'.format(endpoint_var_name))
+endpoint = os.environ[endpoint_var_name]
 ```
 
 下列各節說明如何呼叫 API 的各項功能。
@@ -65,7 +74,7 @@ text_analytics_base_url = "https://westcentralus.api.cognitive.microsoft.com/tex
 將 `languages` 附加至文字分析基底端點，以形成語言偵測 URL。 例如：`https://westcentralus.api.cognitive.microsoft.com/text/analytics/v2.1/languages`
     
 ```python
-language_api_url = text_analytics_base_url + "languages"
+language_api_url = endpoint + "/text/analytics/v2.1/languages"
 ```
 
 對 API 的酬載是由 `documents` 清單所組成，其為包含 `id` 和 `text` 屬性的 Tuple。 `text` 屬性會儲存要分析的文字，而 `id` 可以是任何值。 
@@ -134,7 +143,7 @@ pprint(languages)
 若要偵測一組文件的情感 (範圍介於正或負之間)，請將 `sentiment` 附加至文字分析基底端點，以形成語言偵測 URL。 例如：`https://westcentralus.api.cognitive.microsoft.com/text/analytics/v2.1/sentiment`
     
 ```python
-sentiment_url = text_analytics_base_url + "sentiment"
+sentiment_url = endpoint + "/text/analytics/v2.1/sentiment"
 ```
 
 如同語言偵測範例，建立具有 `documents` 索引鍵的字典，而該索引鍵是由文件清單所組成。 每份文件都是一個由 `id`、要分析的 `text`，以及文字的 `language` 所組成的 Tuple。 
@@ -196,7 +205,7 @@ pprint(sentiments)
 若要從一組文件中擷取關鍵片語，請將 `keyPhrases` 附加至文字分析基底端點，以形成語言偵測 URL。 例如：`https://westcentralus.api.cognitive.microsoft.com/text/analytics/v2.1/keyPhrases`
     
 ```python
-keyphrase_url = text_analytics_base_url + "keyPhrases"
+keyphrase_url = endpoint + "/text/analytics/v2.1/keyphrases"
 ```
 
 此文件集合與用於情感分析範例的集合相同。
@@ -272,7 +281,7 @@ pprint(key_phrases)
 若要識別文字文件中的知名實體 (人員、地點和事物)，請將 `entities` 附加至文字分析基底端點，以形成語言偵測 URL。 例如：`https://westcentralus.api.cognitive.microsoft.com/text/analytics/v2.1/entities`
     
 ```python
-entities_url = text_analytics_base_url + "entities"
+entities_url = endpoint + "/text/analytics/v2.1/entities"
 ```
 
 如先前的範例，建立文件的集合。 

@@ -10,12 +10,12 @@ ms.subservice: ''
 ms.topic: quickstart
 ms.date: 07/25/2019
 ms.author: pafarley
-ms.openlocfilehash: 15baf5ee2418581056d571340ba6e8009c33e4ca
-ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
+ms.openlocfilehash: fd8abf81589f3338f9e45c6c1d23681269ccc654
+ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68828201"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70164844"
 ---
 # <a name="quickstart-computer-vision-client-library-for-java"></a>快速入門：適用於 Java 的電腦視覺用戶端程式庫
 
@@ -42,7 +42,7 @@ Azure 認知服務會由您訂閱的 Azure 資源呈現。 請使用 [Azure 入�
 * 取得可免費使用 7 天的[試用版金鑰](https://azure.microsoft.com/try/cognitive-services/#decision)。 註冊之後，即可在 [Azure 網站](https://azure.microsoft.com/try/cognitive-services/my-apis/)上取得該金鑰。  
 * 在 [Azure 入口網站](https://portal.azure.com/)上檢視您的資源。
 
-從試用版訂用帳戶或資源取得金鑰後，請為名為 `COMPUTER_VISION_SUBSCRIPTION_KEY` 的金鑰[建立環境變數](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication)。
+然後，分別為名為 `COMPUTER_VISION_SUBSCRIPTION_KEY` 和 `COMPUTER_VISION_ENDPOINT` 的金鑰和服務端點字串[建立環境變數](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication)。
 
 ### <a name="create-a-new-gradle-project"></a>建立新的 Gradle 專案
 
@@ -142,6 +142,9 @@ dependencies {
 
 [!code-java[](~/cognitive-services-quickstart-code/java/ComputerVision/ComputerVisionQuickstart.java?name=snippet_analyzelocal_refs)]
 
+> [!NOTE]
+> 您也可以使用其 URL 來分析遠端影像。 如需遠端影像的相關案例，請參閱 [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/java/ComputerVision/ComputerVisionQuickstart.java) 上的範例程式碼。
+
 ### <a name="specify-visual-features"></a>指定視覺特徵
 
 接下來，指定要在分析中擷取的視覺功能。 如需完整清單，請參閱 [VisualFeatureTypes](https://docs.microsoft.com/java/api/com.microsoft.azure.cognitiveservices.vision.computervision.models.visualfeaturetypes?view=azure-java-stable)列舉。
@@ -149,17 +152,59 @@ dependencies {
 [!code-java[](~/cognitive-services-quickstart-code/java/ComputerVision/ComputerVisionQuickstart.java?name=snippet_analyzelocal_features)]
 
 ### <a name="analyze"></a>分析
-此方法會針對每個影像分析範圍，將詳細結果輸出到主控台。 我們建議您將此方法呼叫含括在 Try/Catch 區塊中
+此方法會針對每個影像分析範圍，將詳細結果輸出到主控台。 我們建議您將此方法呼叫含括在 Try/Catch 區塊中。 **analyzeImageInStream** 方法會傳回包含所有已擷取資訊的 **ImageAnalysis** 物件。
 
 [!code-java[](~/cognitive-services-quickstart-code/java/ComputerVision/ComputerVisionQuickstart.java?name=snippet_analyzelocal_analyze)]
 
-### <a name="display-results"></a>顯示結果
+下列各節將詳細說明如何剖析這項資訊。
 
-上述方法呼叫會傳回包含所有已擷取資訊的 ImageAnalysis 物件。 您可以使用類似下方內容的程式碼區塊，輸出指定視覺效果特徵的詳細資料。
+### <a name="get-image-description"></a>取得影像說明
 
-[!code-java[](~/cognitive-services-quickstart-code/java/ComputerVision/ComputerVisionQuickstart.java?name=snippet_analyzelocal_display)]
+下列程式碼會取得為影像產生的標題清單。 如需詳細資訊，請參閱[描述影像](../concept-describing-images.md)。
 
-如需一組完整的顯示選項，請參閱 [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/java/ComputerVision/ComputerVisionQuickstart.java) 上的範例程式碼。
+[!code-java[](~/cognitive-services-quickstart-code/java/ComputerVision/ComputerVisionQuickstart.java?name=snippet_analyzelocal_captions)]
+
+### <a name="get-image-category"></a>取得影像類別
+
+下列程式碼會取得已偵測到的影像類別。 如需詳細資訊，請參閱[將影像分類](../concept-categorizing-images.md)。
+
+[!code-java[](~/cognitive-services-quickstart-code/java/ComputerVision/ComputerVisionQuickstart.java?name=snippet_analyzelocal_category)]
+
+### <a name="get-image-tags"></a>取得影像標籤
+
+下列程式碼會取得影像中已偵測到的一組標籤。 如需詳細資訊，請參閱[內容標籤](../concept-tagging-images.md)
+
+[!code-java[](~/cognitive-services-quickstart-code/java/ComputerVision/ComputerVisionQuickstart.java?name=snippet_analyzelocal_tags)]
+
+### <a name="get-faces"></a>取得臉部
+
+下列程式碼會傳回影像中偵測到的臉部及其矩形座標，然後選取臉部特性。 如需詳細資訊，請參閱[臉部偵測](../concept-detecting-faces.md)。
+
+[!code-java[](~/cognitive-services-quickstart-code/java/ComputerVision/ComputerVisionQuickstart.java?name=snippet_analyzelocal_faces)]
+
+### <a name="get-adult-or-racy-content"></a>取得成人或猥褻內容
+
+下列程式碼會列印影像中偵測到的成人或猥褻內容。 如需詳細資訊，請參閱[成人和猥褻內容](../concept-detecting-adult-content.md)。
+
+[!code-java[](~/cognitive-services-quickstart-code/java/ComputerVision/ComputerVisionQuickstart.java?name=snippet_analyzelocal_adult)]
+
+### <a name="get-image-color-scheme"></a>取得影像色彩配置
+
+下列程式碼會列印影像中偵測到的色彩特性，例如主色和輔色。 如需詳細資訊，請參閱[色彩配置](../concept-detecting-color-schemes.md)。
+
+[!code-java[](~/cognitive-services-quickstart-code/java/ComputerVision/ComputerVisionQuickstart.java?name=snippet_analyzelocal_colors)]
+
+### <a name="get-domain-specific-content"></a>取得特定領域內容
+
+電腦視覺可以使用特製化模型來對影像執行進一步的分析。 如需詳細資訊，請參閱[特定領域內容](../concept-detecting-domain-content.md)。 
+
+下列程式碼會剖析影像中偵測到的名人相關資料。
+
+[!code-java[](~/cognitive-services-quickstart-code/java/ComputerVision/ComputerVisionQuickstart.java?name=snippet_analyzelocal_celebrities)]
+
+下列程式碼會剖析影像中偵測到的地標相關資料。
+
+[!code-java[](~/cognitive-services-quickstart-code/java/ComputerVision/ComputerVisionQuickstart.java?name=snippet_analyzelocal_landmarks)]
 
 ## <a name="run-the-application"></a>執行應用程式
 

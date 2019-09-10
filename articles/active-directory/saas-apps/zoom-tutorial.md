@@ -1,5 +1,5 @@
 ---
-title: 教學課程：Azure Active Directory 與 Zoom 整合 | Microsoft Docs
+title: 教學課程：Azure Active Directory 單一登入 (SSO) 與 Zoom 整合 | Microsoft Docs
 description: 了解如何設定 Azure Active Directory 與 Zoom 之間的單一登入。
 services: active-directory
 documentationCenter: na
@@ -13,17 +13,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 07/08/2019
+ms.date: 08/23/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8e36d1bb91e70e21ee1940e189bfedaebafa4412
-ms.sourcegitcommit: 62bd5acd62418518d5991b73a16dca61d7430634
+ms.openlocfilehash: c0d5a87d4723bcc21b75db1b31ada72823abdf02
+ms.sourcegitcommit: ee61ec9b09c8c87e7dfc72ef47175d934e6019cc
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68975929"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70171364"
 ---
-# <a name="tutorial-integrate-zoom-with-azure-active-directory"></a>教學課程：整合 Zoom 與 Azure Active Directory
+# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-zoom"></a>教學課程：Azure Active Directory 單一登入 (SSO) 與 Zoom 整合
 
 在本教學課程中，您將了解如何整合 Zoom 與 Azure Active Directory (Azure AD)。 在整合 Zoom 與 Azure AD 時，您可以︰
 
@@ -89,50 +89,19 @@ ms.locfileid: "68975929"
     > [!NOTE]
     > 這些都不是真正的值。 請使用實際的「登入 URL」及「識別碼」來更新這些值。 請連絡 [Zoom 客戶支援小組](https://support.zoom.us/hc/en-us)以取得這些值。 您也可以參考 Azure 入口網站中**基本 SAML 組態**區段所示的模式。
 
-5. Zoom 應用程式需要特定格式的 SAML 判斷提示，因此您必須將自訂屬性對應新增至 SAML 權杖屬性設定。 以下螢幕擷取畫面顯示預設屬性清單。 按一下 [編輯] ****  圖示，以開啟 [使用者屬性] ****  對話方塊。
-
-    ![image](common/edit-attribute.png)
-
-6. 除了以上屬性外，Zoom 應用程式還需要在 SAML 回應中傳回更多屬性。 在 [使用者屬性] ****  對話方塊的 [使用者宣告] ****  區段中，執行下列步驟以設定 SAML 權杖屬性，如下表所示： 
-
-    | Name | 命名空間  |  來源屬性|
-    | ---------------| --------------- | --------- |
-    | 電子郵件地址  | user.mail  | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/mail` |
-    | 名字  | user.givenname  | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname` |
-    | 姓氏  | user.surname  | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname` |
-    | 電話號碼  | user.telephonenumber  | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/phone` |
-    | department  | user.department  | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/department` |
-    | 角色 |    user.assignedrole |`http://schemas.xmlsoap.org/ws/2005/05/identity/claims/role` |
-
-    > [!NOTE]
-    > 請按一下[這裡](https://docs.microsoft.com/azure/active-directory/develop/active-directory-enterprise-app-role-management)，以了解如何在 Azure AD 中設定角色
-
-    a. 按一下 [新增宣告]  以開啟 [管理使用者宣告]  對話方塊。
-
-    ![映像](common/new-save-attribute.png)
-
-    ![映像](common/new-attribute-details.png)
-
-    b. 在 [名稱]  文字方塊中，輸入該資料列所顯示的屬性名稱。
-
-    c. 選取 [來源] 作為 [屬性]  。
-
-    d. 在 [來源屬性]  清單中，輸入該資料列所顯示的屬性值。
-
-    e. 按一下 [確定]  。
-
-    f. 按一下 [檔案]  。
-
-    > [!NOTE]
-    > Zoom 可能需要 SAML 承載中的群組宣告，因此如果您建立了任何群組，請連絡 [Zoom 客戶支援小組](https://support.zoom.us/hc/en-us)並提供群組資訊，讓他們也能在那一端設定此群組資訊。 您也必須將物件識別碼提供給 [Zoom 客戶支援小組](https://support.zoom.us/hc/en-us)，讓他們可在那一端設定。 請依照[文件](https://support.zoom.us/hc/en-us/articles/115005887566)指示取得物件識別碼。
-
-4. 在 [以 SAML 設定單一登入]  頁面的 [SAML 簽署憑證]  區段中，尋找 [憑證 (Base64)]  並選取 [下載]  ，以下載憑證並將其儲存在電腦上。
+1. 在 [以 SAML 設定單一登入]  頁面的 [SAML 簽署憑證]  區段中，尋找 [憑證 (Base64)]  並選取 [下載]  ，以下載憑證並將其儲存在電腦上。
 
     ![憑證下載連結](common/certificatebase64.png)
 
-6. 在 [設定 Zoom]  區段上，根據您的需求複製適當的 URL。
+1. 在 [設定 Zoom]  區段上，根據您的需求複製適當的 URL。
 
     ![複製組態 URL](common/copy-configuration-urls.png)
+
+> [!NOTE]
+> 若要了解如何設定 Azure AD 中的角色，請參閱[針對企業應用程式設定 SAML 權杖中發出的角色宣告](https://docs.microsoft.com/azure/active-directory/develop/active-directory-enterprise-app-role-management)。
+
+> [!NOTE]
+> Zoom 可能會預期 SAML 承載中有群組宣告。 如果您已建立任何群組，請連絡 [Zoom 用戶端支援小組](https://support.zoom.us/hc/en-us)並提供群組資訊，讓他們可以在那一端設定群組資訊。 您也必須將物件識別碼提供給 [Zoom 客戶支援小組](https://support.zoom.us/hc/en-us)，讓他們可在那一端設定物件識別碼。 若要取得物件識別碼，請參閱[使用 Azure 設定 Zoom](https://support.zoom.us/hc/en-us/articles/115005887566)。
 
 ### <a name="create-an-azure-ad-test-user"></a>建立 Azure AD 測試使用者
 
@@ -242,3 +211,4 @@ ms.locfileid: "68975929"
 
 - [什麼是 Azure Active Directory 中的條件式存取？](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
+- [嘗試搭配 Azure AD 使用 Zoom](https://aad.portal.azure.com/)

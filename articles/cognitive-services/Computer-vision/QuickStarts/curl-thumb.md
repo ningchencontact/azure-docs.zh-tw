@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 07/03/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 55fa5ffbfe8cdb266340df1a407968d542b36c1a
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.openlocfilehash: 0d430f7c9a6e9d59b20cd1420b65f70d9c6994d5
+ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67605995"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70141444"
 ---
 # <a name="quickstart-generate-a-thumbnail-using-the-computer-vision-rest-api-and-curl"></a>快速入門：使用電腦視覺 REST API 和 cURL 產生縮圖
 
@@ -54,7 +54,8 @@ ms.locfileid: "67605995"
 1. 視需要在命令中進行下列變更：
     1. 將 `<subscriptionKey>` 的值取代為您的訂用帳戶金鑰。
     1. 將 `<thumbnailFile>` 的值取代為儲存縮圖之檔案的路徑和名稱。
-    1. 如有需要，請從您取得訂用帳戶金鑰的 Azure 區域，將要求 URL (`https://westcentralus.api.cognitive.microsoft.com/vision/v2.0/generateThumbnail`) 取代為 [Get Thumbnail](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fb) 方法的端點 URL。
+    1. 將要求 URL 的第一個部分 (`westcentralus`) 取代為您端點 URL 中的文字。
+        [!INCLUDE [Custom subdomains notice](../../../../includes/cognitive-services-custom-subdomains-note.md)]
     1. (選擇性) 將要求本文 (`https://upload.wikimedia.org/wikipedia/commons/thumb/5/56/Shorkie_Poo_Puppy.jpg/1280px-Shorkie_Poo_Puppy.jpg\`) 中的影像 URL 變更為要產生縮圖之不同影像的 URL。
 1. 開啟命令提示字元視窗。
 1. 將文字編輯器中的命令貼到命令提示字元視窗中，然後執行該命令。

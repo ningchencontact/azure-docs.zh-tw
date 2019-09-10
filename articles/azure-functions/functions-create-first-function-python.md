@@ -1,8 +1,6 @@
 ---
 title: 在 Azure 中建立 HTTP 觸發的函式
 description: 了解如何使用 Azure Functions Core Tools 和 Azure CLI 在 Azure 中建立您的第一個 Python 函式。
-services: functions
-keywords: ''
 author: ggailey777
 ms.author: glenga
 ms.date: 04/24/2019
@@ -10,13 +8,13 @@ ms.topic: quickstart
 ms.service: azure-functions
 ms.custom: mvc
 ms.devlang: python
-manager: jeconnoc
-ms.openlocfilehash: 5b90702f89af260a67b69bf96c2e079a45298723
-ms.sourcegitcommit: 5ded08785546f4a687c2f76b2b871bbe802e7dae
+manager: gwallace
+ms.openlocfilehash: cb7f5a10169c8baaecae0fc1916a439d61bfbf7c
+ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69575453"
+ms.lasthandoff: 09/03/2019
+ms.locfileid: "70170903"
 ---
 # <a name="create-an-http-triggered-function-in-azure"></a>在 Azure 中建立 HTTP 觸發的函式
 
@@ -28,7 +26,7 @@ ms.locfileid: "69575453"
 
 開始之前，您必須符合下列條件：
 
-+ 安裝 [Python 3.6](https://www.python.org/downloads/)。
++ 安裝 [Python 3.6.x](https://www.python.org/downloads/)。
 
 + 安裝 [Azure Functions Core Tools](./functions-run-local.md#v2) 2.7.1575 版或更新版本。
 
@@ -104,7 +102,7 @@ func new
 
 下列命令會啟動函式應用程式，且該應用程式會使用 Azure 中的相同 Azure Functions 執行階段在本機執行。
 
-```bash
+```console
 func host start
 ```
 
@@ -134,7 +132,7 @@ Application started. Press Ctrl+C to shut down.
 
 Http Functions:
 
-        HttpTrigger: http://localhost:7071/api/MyHttpTrigger
+        HttpTrigger: http://localhost:7071/api/HttpTrigger
 
 [8/27/2018 10:38:27 PM] Host started (29486ms)
 [8/27/2018 10:38:27 PM] Job host started
@@ -168,7 +166,33 @@ az functionapp create --resource-group myResourceGroup --os-type Linux \
 
 您現在已準備好將本機 Functions 專案發佈至 Azure 中的函式應用程式。
 
-[!INCLUDE [functions-publish-project](../../includes/functions-publish-project.md)]
+## <a name="deploy-the-function-app-project-to-azure"></a>將函式應用程式專案部署至 Azure
+
+在 Azure 中建立函式應用程式之後，您可以使用 [`func azure functionapp publish`](functions-run-local.md#project-file-deployment) Core 工具命令來將專案程式碼部署至 Azure。 在這些範例中，請將 `<APP_NAME>` 取代為上一個步驟中您的應用程式名稱。
+
+```command
+func azure functionapp publish <APP_NAME> --build remote
+```
+
+`--build remote` 選項會透過部署套件中的檔案，從遠端在 Azure 中建立 Python 專案。 
+
+您會看到類似下列的輸出，該輸出已截短，以提高可讀性：
+
+```output
+Getting site publishing info...
+...
+
+Preparing archive...
+Uploading content...
+Upload completed successfully.
+Deployment completed successfully.
+Syncing triggers...
+Functions in myfunctionapp:
+    HttpTrigger - [httpTrigger]
+        Invoke url: https://myfunctionapp.azurewebsites.net/api/httptrigger?code=cCr8sAxfBiow548FBDLS1....
+```
+
+複製 `HttpTrigger` 的叫用 `Invoke url` 值，您現在可以使用它來測試 Azure 中的功能。 該 URL 包含一個 `code` 查詢字串值，它是您的函式金鑰。 此金鑰使其他人很難在 Azure 中呼叫 HTTP 觸發程序端點。
 
 [!INCLUDE [functions-test-function-code](../../includes/functions-test-function-code.md)]
 
