@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/30/2019
+ms.date: 09/10/2019
 ms.author: barclayn
-ms.openlocfilehash: 9721f22eb73c68f729ced13480370f6593c58510
-ms.sourcegitcommit: 7a6d8e841a12052f1ddfe483d1c9b313f21ae9e6
+ms.openlocfilehash: f3cacdad2986de257ae345f4baa9d14ea6c894b2
+ms.sourcegitcommit: 23389df08a9f4cab1f3bb0f474c0e5ba31923f12
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70182788"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70873181"
 ---
 # <a name="azure-data-encryption-at-rest"></a>Azure 資料靜態加密
 
@@ -213,7 +213,7 @@ Azure Key Vault 中使用客戶管理之金鑰的伺服器端加密模型，需�
 
 ### <a name="encryption-at-rest-for-paas-customers"></a>PaaS 客戶的靜態加密
 
-平臺即服務 (PaaS) 客戶的資料通常位於儲存體服務 (例如 Blob 儲存體) 中, 但也可以快取或儲存在應用程式執行環境中, 例如虛擬機器。 若要查看您可使用的靜態加密選項，請檢查下表以查看您所使用的儲存體和應用程式平台。
+平臺即服務（PaaS）客戶的資料通常位於儲存體服務（例如 Blob 儲存體）中，但也可以快取或儲存在應用程式執行環境中，例如虛擬機器。 若要查看您可使用的靜態加密選項，請檢查下表以查看您所使用的儲存體和應用程式平台。
 
 ### <a name="encryption-at-rest-for-iaas-customers"></a>IaaS 客戶的靜態加密
 
@@ -225,7 +225,7 @@ Azure Key Vault 中使用客戶管理之金鑰的伺服器端加密模型，需�
 
 #### <a name="encrypted-compute"></a>加密的計算
 
-所有受控磁碟、快照集和映射都會使用以服務管理的金鑰儲存體服務加密來加密。 更完整的待用加密解決方案可確保資料永遠不會以未加密的形式保存。 在處理虛擬機器上的資料時, 資料可以保存到 Windows 分頁檔案或 Linux 交換檔案、損毀傾印或應用程式記錄檔。 若要確保此資料會進行靜態加密，IaaS 應用程式可以在 Azure IaaS 虛擬機器 (Windows 或 Linux) 和虛擬磁碟上使用 Azure 磁碟加密。
+所有受控磁碟、快照集和映射都會使用以服務管理的金鑰儲存體服務加密來加密。 更完整的待用加密解決方案可確保資料永遠不會以未加密的形式保存。 在處理虛擬機器上的資料時，資料可以保存到 Windows 分頁檔案或 Linux 交換檔案、損毀傾印或應用程式記錄檔。 若要確保此資料會進行靜態加密，IaaS 應用程式可以在 Azure IaaS 虛擬機器 (Windows 或 Linux) 和虛擬磁碟上使用 Azure 磁碟加密。
 
 #### <a name="custom-encryption-at-rest"></a>自訂靜態加密
 
@@ -241,7 +241,7 @@ Azure Key Vault 中使用客戶管理之金鑰的伺服器端加密模型，需�
 
 #### <a name="azure-storage"></a>Azure 儲存體
 
-所有 Azure 儲存體服務 (Blob 儲存體、佇列儲存體、資料表儲存體和 Azure 檔案儲存體) 都支援待用的伺服器端加密;有些服務會額外支援客戶管理的金鑰和用戶端加密。 
+所有 Azure 儲存體服務（Blob 儲存體、佇列儲存體、資料表儲存體和 Azure 檔案儲存體）都支援待用的伺服器端加密;有些服務會額外支援客戶管理的金鑰和用戶端加密。 
 
 - 伺服器端：所有 Azure 儲存體服務預設會使用服務管理的金鑰啟用伺服器端加密，這對應用程式是透明的。 如需詳細資訊，請參閱[待用資料的 Azure 儲存體服務加密](../../storage/common/storage-service-encryption.md)。 Azure Blob 儲存體和 Azure 檔案也支援 Azure Key Vault 中的 RSA 2048 位元客戶管理金鑰。 如需詳細資訊，請參閱[使用 Azure Key Vault 中客戶管理的金鑰進行儲存體服務加密](../../storage/common/storage-encryption-keys-portal.md)。
 - 用戶端：Azure Blob、資料表和佇列支援用戶端加密。 當您使用用戶端加密時，客戶會將資料加密，並上傳資料做為加密的 blob。 金鑰管理是由客戶完成。 如需詳細資訊，請參閱 [Microsoft Azure 儲存體的用戶端加密和 Azure Key Vault](../../storage/common/storage-client-side-encryption.md)。
@@ -266,7 +266,7 @@ Azure SQL Database 目前支援針對由 Microsoft 管理之服務端和用戶�
 | Power BI                         | 是                | 預覽，RSA 2048 位元 | -                  |
 | **分析**                    |                    |                    |                    |
 | Azure 串流分析           | 是                | -                  | -                  |
-| 事件中樞                       | 是                | -                  | -                  |
+| 事件中樞                       | 是                | 預覽，所有 RSA 長度。 | -                  |
 | Azure Analysis Services          | 是                | -                  | -                  |
 | Azure 資料目錄               | 是                | -                  | -                  |
 | Azure HDInsight 上的 Apache Kafka  | 是                | 所有 RSA 長度。   | -                  |

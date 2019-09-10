@@ -13,12 +13,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/21/2019
 ms.author: juliako
-ms.openlocfilehash: ff85638a05855d0b755a7b1812ee7025274b559c
-ms.sourcegitcommit: 3f78a6ffee0b83788d554959db7efc5d00130376
+ms.openlocfilehash: 6fea7b7d3d3ef3b1a46aeeff0bab8fef2a9bf3ad
+ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/26/2019
-ms.locfileid: "70019303"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70860345"
 ---
 # <a name="azure-media-services-release-notes"></a>Azure 媒體服務版本資訊
 
@@ -29,7 +29,7 @@ Azure 媒體服務的這些版本資訊彙總了舊版發行後的變更和已�
 
 我們想要收到客戶的意見，以針對影響到您的問題進行修正。 若要回報問題或提問，請在 [Azure 媒體服務 MSDN 論壇]中提交貼文。 
 
-## <a name="a-idissuescurrently-known-issues"></a><a id="issues"/>目前的已知問題
+## <a name="a-idissuesknown-issues"></a><a id="issues"/>已知問題
 ### <a name="a-idgeneral_issuesmedia-services-general-issues"></a><a id="general_issues"/>媒體服務一般問題
 
 | 問題 | 描述 |
@@ -41,6 +41,7 @@ Azure 媒體服務的這些版本資訊彙總了舊版發行後的變更和已�
 | 當您查詢實體時，一次最多只能傳回 1000 個實體，因為公用 REST 第 2 版有 1,000 個查詢結果數目的限制。 |請依照[此 .NET 範例](media-services-dotnet-manage-entities.md#enumerating-through-large-collections-of-entities)和[此 REST API 範例](media-services-rest-manage-entities.md#enumerating-through-large-collections-of-entities)中的說明，使用 Skip 和 Take (.NET)/top (REST)。 |
 | 某些用戶端在 Smooth Streaming 資訊清單中可能會遇到重複標記問題。 |如需詳細資訊，請參閱[本節](media-services-deliver-content-overview.md#known-issues)。 |
 | 媒體服務 .NET SDK 物件無法序列化，因此無法與 Redis 的 Azure 快取搭配運作。 |如果您嘗試將 SDK AssetCollection 物件序列化以將其新增至 Redis 的 Azure 快取，則會擲回例外狀況。 |
+|當嘗試取得資產或帳戶層級篩選時，REST API 會以指出「此版本的 REST Api 無法存取篩選」的錯誤訊息回應。|已使用比用來嘗試取得篩選器的較新 API 版本來建立或修改篩選。 如果客戶使用的程式碼或工具正在使用兩個 API 版本，就會發生這種情況。  這裡的最佳解決方案是升級程式碼或工具，以使用較新或兩個 API 版本。|
 
 ## <a name="a-idrest_version_historyrest-api-version-history"></a><a id="rest_version_history"/>REST API 版本歷程記錄
 如需媒體服務 REST API 版本歷程記錄的相關資訊，請參閱 [Azure 媒體服務 REST API 參考]。
@@ -49,9 +50,9 @@ Azure 媒體服務的這些版本資訊彙總了舊版發行後的變更和已�
 
 ### <a name="deprecation-of-media-processors"></a>淘汰媒體處理器
 
-我們宣佈淘汰*Windows Azure 媒體編碼器*(WAME) 和*Azure 媒體編碼器*(AME) 媒體處理器, 即將于2019年11月30日淘汰。
+我們宣佈淘汰*Windows Azure 媒體編碼器*（WAME）和*Azure 媒體編碼器*（AME）媒體處理器，即將于2019年11月30日淘汰。
 
-如需詳細資訊, 請參閱[將 WAME 遷移至媒體編碼器標準](https://go.microsoft.com/fwlink/?LinkId=2101334)並[將 AME 遷移至媒體編碼器標準](https://go.microsoft.com/fwlink/?LinkId=2101335)。
+如需詳細資訊，請參閱[將 WAME 遷移至媒體編碼器標準](https://go.microsoft.com/fwlink/?LinkId=2101334)並[將 AME 遷移至媒體編碼器標準](https://go.microsoft.com/fwlink/?LinkId=2101335)。
 
 ## <a name="march-2019"></a>2019 年 3 月
 

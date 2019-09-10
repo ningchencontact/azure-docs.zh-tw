@@ -5,22 +5,22 @@ ms.topic: include
 ms.date: 4/20/2019
 ms.author: tamram
 ms.openlocfilehash: aab17966862c57a52f252b3c4e9b757673078b0a
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.sourcegitcommit: 23389df08a9f4cab1f3bb0f474c0e5ba31923f12
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/18/2019
+ms.lasthandoff: 09/10/2019
 ms.locfileid: "67174191"
 ---
-| 資源 | 目標        |
+| Resource | 目標        |
 |----------|---------------|
-| 單一 blob 容器的大小上限 | 儲存體帳戶容量上限相同 |
-| 最大數目的區塊中的區塊 blob 或附加 blob | 50,000 個區塊 |
-| 中的區塊 blob 的區塊大小上限 | 100 MiB |
-| 區塊 blob 的大小上限 | 50,000 x 100 MiB (約為 4.75 TiB) |
+| 單一 blob 容器的大小上限 | 與儲存體帳戶容量上限相同 |
+| 區塊 blob 或附加 blob 中的區塊數目上限 | 50,000 個區塊 |
+| 區塊 blob 中的區塊大小上限 | 100 MiB |
+| 區塊 blob 的大小上限 | 50000 X 100 MiB （約 4.75 TiB） |
 | 附加 blob 中的區塊大小上限 | 4 MiB |
-| 附加 blob 的大小上限 | 50,000 x 4 MiB (約為 195 GiB) |
+| 附加 blob 的大小上限 | 50000 x 4 MiB （約 195 GiB） |
 | 分頁 blob 的大小上限 | 8 TiB |
-| 每個 blob 容器的預存的存取原則的最大數目 | 5 |
-|單一 Blob 的目標輸送量 |儲存體帳戶輸入/輸出限制到<sup>1</sup> |
+| 每個 blob 容器的預存存取原則數目上限 | 5 |
+|單一 Blob 的目標輸送量 |最高可達儲存體帳戶的輸入/輸出限制<sup>1</sup> |
 
-<sup>1</sup>單一物件輸送量取決於許多因素，包括但不是限於： 並行存取、 要求大小、 效能層級、 上傳來源和目的地，以下載的速度。 若要善用[高輸送量的區塊 blob](https://azure.microsoft.com/blog/high-throughput-with-azure-blob-storage/)效能增強功能，使用 Put Blob 或 Put Block 要求的大小 > 4 MiB (> 256 KiB premium 效能區塊 blob 儲存體或 Data Lake 儲存體 Gen2)。
+<sup>1</sup>單一物件輸送量取決於數個因素，包括但不限於平行存取、要求大小、效能層級、上傳來源的速度，以及下載的目的地。 若要利用[高輸送量區塊 blob](https://azure.microsoft.com/blog/high-throughput-with-azure-blob-storage/)效能增強功能，請使用 > 4 MiB 的 put Blob 或 put 區塊要求大小（適用于高階效能區塊 blob 儲存體的 > 256 KiB 或適用于 Data Lake Storage Gen2）。

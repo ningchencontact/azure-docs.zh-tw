@@ -17,12 +17,12 @@ ms.author: twhitney
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 906f2fc8cdac31922e6e93526f65577fe76c4b9c
-ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
+ms.openlocfilehash: 054033c0fc9f1138ef9ecf7eaceca626f6f53423
+ms.sourcegitcommit: 23389df08a9f4cab1f3bb0f474c0e5ba31923f12
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69532394"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70872855"
 ---
 # <a name="xamarin-ios-specific-considerations-with-msalnet"></a>MSAL.NET 的 Xamarin iOS 特定考慮
 在 Xamarin iOS 上, 當您使用 MSAL.NET 時, 必須考慮幾個事項
@@ -104,13 +104,23 @@ PublicClientApplication.iOSKeychainSecurityGroup = "com.microsoft.msalrocks";
 
 先前已提到, 每當您使用`WithIosKeychainSecurityGroup()` api 時, MSAL 會新增 $ (AppIdentifierPrefix)。 這是因為 AppIdentifierPrefix 或「小組識別碼」是用來確保只有相同發行者所進行的應用程式可以共用 keychain 存取權。
 
-#### <a name="note-keychainsecuritygroup-property-deprecated"></a>注意:KeychainSecurityGroup 屬性已被取代
+> [!NOTE]
+> **`KeychainSecurityGroup`屬性已被取代。**
+> 
+> 先前，從 MSAL 2.x 開始，開發人員在使用`KeychainSecurityGroup`屬性時，會強制包含 TeamId 前置詞。
+>
+>  從 MSAL 2.7. x 開始, 使用新`iOSKeychainSecurityGroup`的屬性時, MSAL 將會在執行時間解析 TeamId 前置詞。 使用此屬性時, 此值不應包含 TeamId 前置詞。
+>  使用新`iOSKeychainSecurityGroup`的屬性，這不會要求您提供 TeamId，因為先前`KeychainSecurityGroup`的屬性現在已經過時。
 
-先前, 從 MSAL 2.x 開始, 開發人員在使用`KeychainSecurityGroup`屬性時, 強制包含 TeamId 前置詞
+### <a name="use-microsoft-authenticator"></a>使用 Microsoft Authenticator
 
-從 MSAL 2.7. x 開始, 使用新`iOSKeychainSecurityGroup`的屬性時, MSAL 將會在執行時間解析 TeamId 前置詞。 使用此屬性時, 此值不應包含 TeamId 前置詞。
+您的應用程式可以使用 Microsoft Authenticator （broker）來啟用：
 
-使用新`iOSKeychainSecurityGroup`的屬性, 這不需要開發人員提供 TeamId, 因為上一個`KeychainSecurityGroup`屬性現在已經過時。
+- 單一登入（SSO）。 您的使用者不需要登入每個應用程式。
+- 裝置識別。 存取裝置憑證，這是在工作場所加入裝置時所建立的。 如果租使用者系統管理員啟用與裝置相關的條件式存取，您的應用程式就會準備就緒。
+- 應用程式識別驗證。 當應用程式呼叫訊息代理程式時，它會傳遞其重新導向 url，而 broker 會進行驗證。
+
+如需如何啟用訊息代理程式的詳細資訊，請參閱[在 Xamarin iOS 和 Android 應用程式上使用 Microsoft Authenticator 或 Microsoft Intune 公司入口網站](msal-net-use-brokers-with-xamarin-apps.md)。
 
 ### <a name="sample-illustrating-xamarin-ios-specific-properties"></a>說明 Xamarin iOS 特定屬性的範例
 

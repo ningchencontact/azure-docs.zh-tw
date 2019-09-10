@@ -1,6 +1,6 @@
 ---
 title: 將 Raspberry Pi 連線到 Azure IoT Central 應用程式 (Python) | Microsoft Docs
-description: 身為裝置開發人員, 如何使用 Python 將 Raspberry Pi 連線到您的 Azure IoT Central 應用程式。
+description: 身為裝置開發人員，如何使用 Python 將 Raspberry Pi 連線到您的 Azure IoT Central 應用程式。
 author: dominicbetts
 ms.author: dobett
 ms.date: 08/23/2019
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: timlt
-ms.openlocfilehash: 3f91e09e35eec0685cb4333802b860fb08412cb6
-ms.sourcegitcommit: 80dff35a6ded18fa15bba633bf5b768aa2284fa8
+ms.openlocfilehash: 5c6e99c62d199c36081113011845a3bf2607bcb3
+ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/26/2019
-ms.locfileid: "70019750"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70842549"
 ---
 # <a name="connect-a-raspberry-pi-to-your-azure-iot-central-application-python"></a>將 Raspberry Pi 連線到 Azure IoT Central 應用程式 (Python)
 
@@ -28,10 +28,10 @@ ms.locfileid: "70019750"
 若要完成本文中的步驟，您需要下列元件︰
 
 * Azure IoT Central 應用程式是從**範例 Devkits** 應用程式範本建立而來。 如需詳細資訊，請參閱[建立應用程式快速入門](quick-deploy-iot-central.md)。
-* 執行 Raspbian 作業系統的 Raspberry Pi 裝置。 Raspberry Pi 必須能夠連接到網際網路。 如需詳細資訊, 請參閱[設定您的 Raspberry Pi](https://projects.raspberrypi.org/en/projects/raspberry-pi-setting-up/3)。
+* 執行 Raspbian 作業系統的 Raspberry Pi 裝置。 Raspberry Pi 必須能夠連接到網際網路。 如需詳細資訊，請參閱[設定您的 Raspberry Pi](https://projects.raspberrypi.org/en/projects/raspberry-pi-setting-up/3)。
 
 > [!TIP]
-> 若要瞭解如何設定並聯機到 Raspberry Pi 裝置, 請流覽[開始使用 Raspberry pi](https://projects.raspberrypi.org/en/pathways/getting-started-with-raspberry-pi)
+> 若要瞭解如何設定並聯機到 Raspberry Pi 裝置，請流覽[開始使用 Raspberry pi](https://projects.raspberrypi.org/en/pathways/getting-started-with-raspberry-pi)
 
 ## <a name="sample-devkits-application"></a>**範例 Devkits** 應用程式
 
@@ -53,11 +53,11 @@ ms.locfileid: "70019750"
   - 模具編號裝置屬性
   - 位置雲端屬性
 
-如需裝置範本設定的完整詳細資訊, 請參閱[Raspberry Pi 裝置範本詳細資料](howto-connect-raspberry-pi-python.md#raspberry-pi-device-template-details)。
+如需裝置範本設定的完整詳細資訊，請參閱[Raspberry Pi 裝置範本詳細資料](howto-connect-raspberry-pi-python.md#raspberry-pi-device-template-details)。
 
 ## <a name="add-a-real-device"></a>新增真實裝置
 
-在您的 Azure IoT Central 應用程式中, 從**Raspberry Pi**裝置範本新增實際裝置。 記下裝置連線詳細資料 (**範圍識別碼**、**裝置識別碼**和**主要金鑰**)。 如需詳細資訊，請參閱[將真實裝置新增至 Azure IoT Central 應用程式](tutorial-add-device.md)。
+在您的 Azure IoT Central 應用程式中，從**Raspberry Pi**裝置範本新增實際裝置。 記下裝置連線詳細資料（**範圍識別碼**、**裝置識別碼**和**主要金鑰**）。 如需詳細資訊，請參閱[將真實裝置新增至 Azure IoT Central 應用程式](tutorial-add-device.md)。
 
 ### <a name="configure-the-raspberry-pi"></a>設定 Raspberry Pi
 
@@ -68,26 +68,26 @@ ms.locfileid: "70019750"
 
 1. 從 Raspberry Pi 桌面或使用 SSH 從遠端連線到您 Raspberry Pi 上的 shell 環境。
 
-1. 執行下列命令來安裝 IoT Central Python 用戶端:
+1. 執行下列命令來安裝 IoT Central Python 用戶端：
 
-    ```sh
+    ```bash
     pip install iotc
     ```
 
-1. 下載範例 Python 程式碼:
+1. 下載範例 Python 程式碼：
 
-    ```sh
+    ```bash
     curl -O https://raw.githubusercontent.com/Azure/iot-central-firmware/master/RaspberryPi/app.py
     ```
 
-1. 編輯您`app.py`所下載的檔案, 並`DEVICE_ID`將`SCOPE_ID`、和`PRIMARY/SECONDARY device KEY`預留位置取代為您先前記下的連接值。 儲存您的變更。
+1. 編輯您`app.py`所下載的檔案，並`DEVICE_ID`將`SCOPE_ID`、和`PRIMARY/SECONDARY device KEY`預留位置取代為您先前記下的連接值。 儲存您的變更。
 
     > [!TIP]
-    > 在 Raspberry Pi 上的 shell 中, 您可以使用**nano**或**vi**文字編輯器。
+    > 在 Raspberry Pi 上的 shell 中，您可以使用**nano**或**vi**文字編輯器。
 
-1. 使用下列命令來執行範例:
+1. 請使用下列命令執行此範例：
 
-    ```sh
+    ```bash
     python app.py
     ```
 
@@ -96,8 +96,8 @@ ms.locfileid: "70019750"
 1. 在 Azure IoT Central 應用程式中，您會看到在 Raspberry Pi 上執行的程式碼如何與應用程式互動：
 
     * 在真實裝置的 [量測] 頁面上，您會看到從 Raspberry Pi 傳送過來的遙測。
-    * 在 [**屬性**] 頁面上, 您可以看到 [**骰子號碼**] 裝置屬性。
-    * 在 [**設定**] 頁面上, 您可以變更 Raspberry Pi 上的設定, 例如電壓和風扇速度。 當 Raspberry Pi 認可變更時, 設定會顯示為已**同步**處理。
+    * 在 [**屬性**] 頁面上，您可以看到 [**骰子號碼**] 裝置屬性。
+    * 在 [**設定**] 頁面上，您可以變更 Raspberry Pi 上的設定，例如電壓和風扇速度。 當 Raspberry Pi 認可變更時，設定會顯示為已**同步**處理。
 
 ## <a name="raspberry-pi-device-template-details"></a>Raspberry Pi 裝置範本詳細資料
 
@@ -140,9 +140,9 @@ ms.locfileid: "70019750"
 
 | Type            | Display name | 欄位名稱 | 資料類型 |
 | --------------- | ------------ | ---------- | --------- |
-| 裝置屬性 | 模具編號   | dieNumber  | 號    |
+| 裝置屬性 | 模具編號   | dieNumber  | number    |
 | 文字            | Location     | 位置   | N/A       |
 
 ## <a name="next-steps"></a>後續步驟
 
-既然您已瞭解如何將 Raspberry Pi 連線到您的 Azure IoT Central 應用程式, 建議的下一個步驟是瞭解如何為您自己的 IoT 裝置[設定自訂裝置範本](howto-set-up-template.md)。
+既然您已瞭解如何將 Raspberry Pi 連線到您的 Azure IoT Central 應用程式，建議的下一個步驟是瞭解如何為您自己的 IoT 裝置[設定自訂裝置範本](howto-set-up-template.md)。

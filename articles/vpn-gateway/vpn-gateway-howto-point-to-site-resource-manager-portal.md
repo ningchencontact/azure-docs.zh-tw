@@ -1,5 +1,5 @@
 ---
-title: 使用點對站和原生 Azure 憑證驗證將電腦連線至 Azure 虛擬網路︰Azure 入口網站 | Microsoft Docs
+title: 使用點對站 VPN 和原生 Azure 憑證驗證從電腦連線至 Azure 虛擬網路：Azure 入口網站 | Microsoft Docs
 description: 使用 P2S 和自我簽署或 CA 核發的憑證，將 Windows、Mac OS X 和 Linux 用戶端安全地連線至 Azure 虛擬網路。 本文使用 Azure 入口網站。
 services: vpn-gateway
 author: cherylmc
@@ -7,14 +7,14 @@ ms.service: vpn-gateway
 ms.topic: conceptual
 ms.date: 07/31/2019
 ms.author: cherylmc
-ms.openlocfilehash: e603eed34aaff4ad7303819a730fea09a332b7a8
-ms.sourcegitcommit: ad9120a73d5072aac478f33b4dad47bf63aa1aaa
+ms.openlocfilehash: fc8c2ff72da49d8542508443eb9423f028da0d39
+ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68706742"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70843654"
 ---
-# <a name="configure-a-point-to-site-connection-to-a-vnet-using-native-azure-certificate-authentication-azure-portal"></a>請使用原生 Azure 憑證驗證設定 VNet 的點對站連線：Azure 入口網站
+# <a name="configure-a-point-to-site-vpn-connection-to-a-vnet-using-native-azure-certificate-authentication-azure-portal"></a>使用原生 Azure 憑證驗證設定 VNet 的點對站 VPN 連線：Azure 入口網站
 
 本文可協助您將執行 Windows、Linux 或 Mac OS X 的個別用戶端安全地連線至 Azure VNet。 當您想要從遠端位置 (例如當您從住家或會議進行遠距工作) 連線到您的 VNet 時，點對站 VPN 連線很實用。 如果您只有少數用戶端必須連線至 VNet，您也可以使用 P2S，而不使用站對站 VPN。 點對站連線不需要 VPN 裝置或公眾對應 IP 位址。 P2S 會建立透過 SSTP (安全通訊端通道通訊協定) 或 IKEv2 的 VPN 連線。 如需點對站 VPN 的詳細資訊，請參閱[關於點對站 VPN](point-to-site-about.md)。
 
@@ -44,7 +44,7 @@ ms.locfileid: "68706742"
 * **DNS 伺服器：** (選擇性) 您想要用於名稱解析之 DNS 伺服器的 IP 位址。
 * **虛擬網路閘道名稱：** VNet1GW
 * **閘道類型：** VPN
-* **VPN 類型：** 依路由
+* **VPN 類型：** 以路由為基礎
 * **公用 IP 位址名稱：** VNet1GWpip
 * **連線類型：** 點對站
 * **用戶端位址集區：** 172.16.201.0/24<br>使用這個點對站連線來連線到 VNet 的 VPN 用戶端，會收到來自用戶端位址集區的 IP 位址。
@@ -71,7 +71,7 @@ ms.locfileid: "68706742"
 [!INCLUDE [create-gateway](../../includes/vpn-gateway-add-gw-p2s-rm-portal-include.md)]
 
 >[!NOTE]
->基本閘道 SKU 不支援 IKEv2 或 RADIUS 驗證。 如果您打算讓 Mac 用戶端連線到您的虛擬網路, 請勿使用基本 SKU。
+>基本閘道 SKU 不支援 IKEv2 或 RADIUS 驗證。 如果您打算讓 Mac 用戶端連線到您的虛擬網路，請勿使用基本 SKU。
 >
 
 ## <a name="generatecert"></a>5.產生憑證
@@ -96,7 +96,7 @@ ms.locfileid: "68706742"
 2. 按一下 [立即設定] 以開啟 [組態] 頁面。
 
    ![立即設定](./media/vpn-gateway-howto-point-to-site-resource-manager-portal/configurenow.png)
-3. 在 [點對站] 組態頁面上的 [位址集區] 方塊中，新增您要使用的私人 IP 位址範圍。 VPN 用戶端會動態收到您指定範圍內的 IP 位址。 主動/被動的最小子網路遮罩為29位, 主動/主動設定則為28位。 按一下 [儲存] 來驗證和儲存設定。
+3. 在 [點對站] 組態頁面上的 [位址集區] 方塊中，新增您要使用的私人 IP 位址範圍。 VPN 用戶端會動態收到您指定範圍內的 IP 位址。 主動/被動的最小子網路遮罩為29位，主動/主動設定則為28位。 按一下 [儲存] 來驗證和儲存設定。
 
    ![用戶端位址集區](./media/vpn-gateway-howto-point-to-site-resource-manager-portal/addresspool.png)
 

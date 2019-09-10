@@ -1,32 +1,34 @@
 ---
-title: Azure Blockchain Workbench 疑難排解
-description: 如何疑難排解 Azure Blockchain Workbench 應用程式。
+title: Azure Blockchain Workbench 預覽疑難排解
+description: 如何針對 Azure Blockchain Workbench Preview 應用程式進行疑難排解。
 services: azure-blockchain
 keywords: ''
 author: PatAltimore
 ms.author: patricka
-ms.date: 05/09/2019
+ms.date: 09/05/2019
 ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: zeyadr
 manager: femila
-ms.openlocfilehash: b0263761a4aaf663b16584fbf9caa11bb124d5c4
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 8fec065b629f2f2b93e78a63521ea0ce4669dd4e
+ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65510097"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70844038"
 ---
-# <a name="azure-blockchain-workbench-troubleshooting"></a>Azure Blockchain Workbench 疑難排解
+# <a name="azure-blockchain-workbench-preview-troubleshooting"></a>Azure Blockchain Workbench 預覽疑難排解
 
 我們提供了 PowerShell 指令碼來協助開發人員偵錯或支援。 指令碼會產生摘要，並收集詳細記錄以供疑難排解。 所收集的記錄包括：
 
 * 區塊鏈網路，例如 Ethereum
 * Blockchain Workbench 微服務
 * Application Insights
-* Azure 監視 （Azure 監視器記錄檔）
+* Azure 監視（Azure 監視器記錄）
 
 您可以使用這些資訊來判斷後續步驟，並判斷問題的根本原因。
+
+[!INCLUDE [Preview note](./includes/preview.md)]
 
 ## <a name="troubleshooting-script"></a>疑難排解指令碼
 
@@ -52,9 +54,9 @@ collectBlockchainWorkbenchTroubleshooting.ps1 -SubscriptionID "<subscription_id>
 | ResourceGroupName | Blockchain Workbench 部署所在 Azure 資源群組的名稱。 | 是 |
 | OutputDirectory | 用來建立輸出 .ZIP 檔案的路徑。 如果未指定，則會預設為目前的目錄。 | 否 |
 | LookbackHours | 提取遙測資料時要使用的小時數。 預設值為 24 小時。 最大值為 90 小時 | 否 |
-| OmsSubscriptionId | 部署 Azure 監視器的記錄位置的訂用帳戶識別碼。 如果外部 Blockchain Workbench 的資源群組部署區塊鏈網路的 Azure 監視器記錄檔，只傳遞此參數。| 否 |
-| OmsResourceGroup |Azure 監視器的記錄位置的資源群組部署。 如果外部 Blockchain Workbench 的資源群組部署區塊鏈網路的 Azure 監視器記錄檔，只傳遞此參數。| 否 |
-| OmsWorkspaceName | Log Analytics 工作區名稱。 僅傳遞此參數，如果外部 Blockchain Workbench 的資源群組部署區塊鏈網路的 Azure 監視器記錄檔 | 否 |
+| OmsSubscriptionId | 部署 Azure 監視器記錄的訂用帳戶識別碼。 只有在區塊鏈網路的 Azure 監視器記錄部署在 Blockchain Workbench 的資源群組之外時，才傳遞此參數。| 否 |
+| OmsResourceGroup |部署 Azure 監視器記錄的資源群組。 只有在區塊鏈網路的 Azure 監視器記錄部署在 Blockchain Workbench 的資源群組之外時，才傳遞此參數。| 否 |
+| OmsWorkspaceName | Log Analytics 工作區名稱。 只有在區塊鏈網路的 Azure 監視器記錄部署在 Blockchain Workbench 的資源群組之外時，才傳遞此參數 | 否 |
 
 ## <a name="what-is-collected"></a>所收集的項目有哪些？
 

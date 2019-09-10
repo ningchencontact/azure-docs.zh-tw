@@ -11,12 +11,12 @@ author: moslake
 ms.author: moslake
 ms.reviewer: sstein, carlrab
 ms.date: 09/06/2019
-ms.openlocfilehash: 738d6738469960c8b21809b9320c4d034613c4e3
-ms.sourcegitcommit: b7b0d9f25418b78e1ae562c525e7d7412fcc7ba0
+ms.openlocfilehash: ba4e1e933b00aa8ca74be30a6ea5e1a22844b15f
+ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/08/2019
-ms.locfileid: "70802374"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70858492"
 ---
 # <a name="azure-sql-database-serverless-preview"></a>Azure SQL Database 無伺服器（預覽）
 
@@ -201,7 +201,7 @@ New-AzSqlDatabase `
 下列範例會將資料庫從已布建的計算層移到無伺服器計算層。 此範例明確指定最小虛擬核心數、最大虛擬核心數和自動暫停延遲。
 
 ```powershell
-Set-AzSqlDatabase
+Set-AzSqlDatabase `
   -ResourceGroupName $resourceGroupName `
   -ServerName $serverName `
   -DatabaseName $databaseName `

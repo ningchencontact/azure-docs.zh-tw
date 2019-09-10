@@ -5,18 +5,18 @@ ms.topic: include
 ms.date: 04/29/2019
 ms.author: magattus
 ms.openlocfilehash: 0c989aa32c4f4defc9d22a2e510d85d7583ed1c8
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.sourcegitcommit: 23389df08a9f4cab1f3bb0f474c0e5ba31923f12
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/18/2019
+ms.lasthandoff: 09/10/2019
 ms.locfileid: "67174367"
 ---
-| 資源 | 預設限制 |
+| Resource | 預設限制 |
 | --- | --- |
 | Azure 內容傳遞網路設定檔 |25 |
-| 每個設定檔的內容傳遞網路端點 |25 |
+| 內容傳遞網路每個設定檔的端點 |25 |
 | 每個端點的自訂網域 |25 |
 
-內容傳遞網路的訂用帳戶可以包含一或多個內容傳遞網路設定檔。 內容傳遞網路設定檔可以包含一或多個內容傳遞網路端點。 您可能想要使用多個設定檔來組織您的內容傳遞網路端點依網際網路網域、 web 應用程式或其他準則。 
+內容傳遞網路訂用帳戶可以包含一或多個內容傳遞網路設定檔。 內容傳遞網路設定檔可以包含一或多個內容傳遞網路端點。 您可能想要使用多個設定檔，依網際網路網域、web 應用程式或其他準則來組織您的內容傳遞網路端點。 
 
 

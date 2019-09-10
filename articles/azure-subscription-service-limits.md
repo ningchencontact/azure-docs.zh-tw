@@ -11,32 +11,32 @@ ms.topic: article
 ms.date: 05/30/2019
 ms.author: byvinyal
 ms.openlocfilehash: 7c4c80950e43f374b40085cb4e1c3e026e5f3abd
-ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
+ms.sourcegitcommit: 23389df08a9f4cab1f3bb0f474c0e5ba31923f12
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/31/2019
+ms.lasthandoff: 09/10/2019
 ms.locfileid: "68698263"
 ---
 # <a name="azure-subscription-and-service-limits-quotas-and-constraints"></a>Azure 訂用帳戶和服務限制、配額與限制
-本文件列出一些最常見的 Microsoft Azure 限制，有時也稱為配額。 本文件目前未涵蓋所有 Azure 服務。 經過一段時間, 清單就會展開並更新, 以涵蓋更多服務。
+本文件列出一些最常見的 Microsoft Azure 限制，有時也稱為配額。 本文件目前未涵蓋所有 Azure 服務。 經過一段時間，清單就會展開並更新，以涵蓋更多服務。
 
-若要深入瞭解 Azure 定價, 請參閱[azure 定價總覽](https://azure.microsoft.com/pricing/)。 在這裡, 您可以使用[定價計算機](https://azure.microsoft.com/pricing/calculator/)來預估成本。 您也可以移至特定服務 (例如[Windows vm](https://azure.microsoft.com/pricing/details/virtual-machines/#Windows)) 的定價詳細資料頁面。 如需協助您管理成本的祕訣，請參閱[使用 Azure 計費與成本管理避免非預期的成本](billing/billing-getting-started.md)。
+若要深入瞭解 Azure 定價，請參閱[azure 定價總覽](https://azure.microsoft.com/pricing/)。 在這裡，您可以使用[定價計算機](https://azure.microsoft.com/pricing/calculator/)來預估成本。 您也可以移至特定服務（例如[Windows vm](https://azure.microsoft.com/pricing/details/virtual-machines/#Windows)）的定價詳細資料頁面。 如需協助您管理成本的祕訣，請參閱[使用 Azure 計費與成本管理避免非預期的成本](billing/billing-getting-started.md)。
 
 > [!NOTE]
-> 如果您想要將限制或配額提升到預設限制以上, 請免費[開啟線上客戶支援要求](azure-resource-manager/resource-manager-quota-errors.md)。 限制無法高於下表所示的最大限制值。 如果沒有上限資料行, 則資源沒有可調整的限制。
+> 如果您想要將限制或配額提升到預設限制以上，請免費[開啟線上客戶支援要求](azure-resource-manager/resource-manager-quota-errors.md)。 限制無法高於下表所示的最大限制值。 如果沒有上限資料行，則資源沒有可調整的限制。
 >
-> [免費試用](https://azure.microsoft.com/offers/ms-azr-0044p)訂用帳戶不符合限制或配額增加的資格。 如果您有[免費試用訂用帳戶](https://azure.microsoft.com/offers/ms-azr-0044p)，則可以升級到[隨用隨付](https://azure.microsoft.com/offers/ms-azr-0003p/)訂用帳戶。 如需詳細資訊, 請參閱將[Azure 免費試用訂用帳戶升級為隨用隨付訂](billing/billing-upgrade-azure-subscription.md)用帳戶和[免費試用訂](https://azure.microsoft.com/free/free-account-faq)用帳戶常見問題。
+> [免費試用](https://azure.microsoft.com/offers/ms-azr-0044p)訂用帳戶不符合限制或配額增加的資格。 如果您有[免費試用訂用帳戶](https://azure.microsoft.com/offers/ms-azr-0044p)，則可以升級到[隨用隨付](https://azure.microsoft.com/offers/ms-azr-0003p/)訂用帳戶。 如需詳細資訊，請參閱將[Azure 免費試用訂用帳戶升級為隨用隨付訂](billing/billing-upgrade-azure-subscription.md)用帳戶和[免費試用訂](https://azure.microsoft.com/free/free-account-faq)用帳戶常見問題。
 >
 
 ## <a name="limits-and-azure-resource-manager"></a>限制和 Azure Resource Manager
-現在可以將多個 Azure 資源結合成單一 Azure 資源群組。 當您使用資源群組時, 限制為 [全域] 會在具有 Azure Resource Manager 的地區層級進行管理。 如需 Azure 資源群組的詳細資訊, 請參閱[Azure Resource Manager 總覽](azure-resource-manager/resource-group-overview.md)。
+現在可以將多個 Azure 資源結合成單一 Azure 資源群組。 當您使用資源群組時，限制為 [全域] 會在具有 Azure Resource Manager 的地區層級進行管理。 如需 Azure 資源群組的詳細資訊，請參閱[Azure Resource Manager 總覽](azure-resource-manager/resource-group-overview.md)。
 
-在下列限制清單中, 當您使用 Azure Resource Manager 時, 新的資料表會反映任何限制的差異。 例如, 有一個訂用帳戶**限制**資料表和訂用帳戶**限制 Azure Resource Manager**資料表。 當限制適用于這兩種情況時, 它只會顯示在第一個資料表中。 除非另有說明，限制在所有區域中全域適用。
+在下列限制清單中，當您使用 Azure Resource Manager 時，新的資料表會反映任何限制的差異。 例如，有一個訂用帳戶**限制**資料表和訂用帳戶**限制 Azure Resource Manager**資料表。 當限制適用于這兩種情況時，它只會顯示在第一個資料表中。 除非另有說明，限制在所有區域中全域適用。
 
 > [!NOTE]
-> Azure 資源群組中資源的配額是您的訂用帳戶可存取的每個區域, 而不是每個訂用帳戶, 因為服務管理配額為。 讓我們以 vCPU 配額為例。 若要要求增加對個 vcpu 支援的配額, 您必須決定要在哪些區域中使用多少個 vcpu。 然後, 針對您想要的數量和區域, 對 Azure 資源群組 vCPU 配額提出特定要求。 如果您需要在西歐使用30個 vcpu 來執行應用程式, 您會在西歐特別要求30個 vcpu。 您的 vCPU 配額不會在任何其他區域中增加, 只有西歐具有 30 vCPU 的配額。
+> Azure 資源群組中資源的配額是您的訂用帳戶可存取的每個區域，而不是每個訂用帳戶，因為服務管理配額為。 讓我們以 vCPU 配額為例。 若要要求增加對個 vcpu 支援的配額，您必須決定要在哪些區域中使用多少個 vcpu。 然後，針對您想要的數量和區域，對 Azure 資源群組 vCPU 配額提出特定要求。 如果您需要在西歐使用30個 vcpu 來執行應用程式，您會在西歐特別要求30個 vcpu。 您的 vCPU 配額不會在任何其他區域中增加，只有西歐具有 30 vCPU 的配額。
 > <!-- -->
-> 因此, 在任何一個區域中決定您的工作負載所需的 Azure 資源群組配額。 然後在您要部署的每個區域中要求該金額。 如需如何判斷您目前的特定區域配額的說明, 請參閱針對[部署問題進行疑難排解](resource-manager-common-deployment-errors.md)。
+> 因此，在任何一個區域中決定您的工作負載所需的 Azure 資源群組配額。 然後在您要部署的每個區域中要求該金額。 如需如何判斷您目前的特定區域配額的說明，請參閱針對[部署問題進行疑難排解](resource-manager-common-deployment-errors.md)。
 >
 >
 
@@ -85,7 +85,7 @@ ms.locfileid: "68698263"
 * [網路功能](#networking-limits)
   * [應用程式閘道](#application-gateway-limits)
   * [Azure DNS](#azure-dns-limits)
-  * [Azure Front 門板服務](#azure-front-door-service-limits)
+  * [Azure Front Door Service](#azure-front-door-service-limits)
   * [Azure 防火牆](#azure-firewall-limits)
   * [ExpressRoute](#expressroute-limits)
   * [負載平衡器](#load-balancer)
@@ -109,11 +109,11 @@ ms.locfileid: "68698263"
 * [虛擬機器擴展集](#virtual-machine-scale-sets-limits)
 
 ### <a name="subscription-limits"></a>訂用帳戶限制
-#### <a name="subscription-limits---azure-service-management-classic-deployment-model"></a>訂用帳戶限制-Azure 服務管理 (傳統部署模型)
+#### <a name="subscription-limits---azure-service-management-classic-deployment-model"></a>訂用帳戶限制-Azure 服務管理（傳統部署模型）
 [!INCLUDE [azure-subscription-limits](../includes/azure-subscription-limits.md)]
 
 #### <a name="subscription-limits---azure-resource-manager"></a>訂用帳戶限制 - Azure Resource Manager
-當您使用 Azure Resource Manager 和 Azure 資源群組時, 適用下列限制。 未在 Azure Resource Manager 中變更的限制不會列出。 請參閱上表以瞭解這些限制。
+當您使用 Azure Resource Manager 和 Azure 資源群組時，適用下列限制。 未在 Azure Resource Manager 中變更的限制不會列出。 請參閱上表以瞭解這些限制。
 
 如需 Resource Manager API 讀取和寫入限制的相關資訊，請參閱[對 Resource Manager 要求進行節流](resource-manager-request-limits.md)。
 
@@ -127,16 +127,16 @@ ms.locfileid: "68698263"
 [!INCLUDE [azure-virtual-machines-limits](../includes/azure-virtual-machines-limits.md)]
 
 #### <a name="virtual-machines-limits---azure-resource-manager"></a>虛擬機器限制 - Azure 資源管理員
-當您使用 Azure Resource Manager 和 Azure 資源群組時, 適用下列限制。 未在 Azure Resource Manager 中變更的限制不會列出。 請參閱上表以瞭解這些限制。
+當您使用 Azure Resource Manager 和 Azure 資源群組時，適用下列限制。 未在 Azure Resource Manager 中變更的限制不會列出。 請參閱上表以瞭解這些限制。
 
 [!INCLUDE [azure-virtual-machines-limits-azure-resource-manager](../includes/azure-virtual-machines-limits-azure-resource-manager.md)]
 
 #### <a name="shared-image-gallery-limits"></a>共用映射資源庫限制
 
-使用共用映射庫部署資源時, 每個訂用帳戶都有限制:
-- 100共用映射資源庫, 每個訂用帳戶, 每個區域
+使用共用映射庫部署資源時，每個訂用帳戶都有限制：
+- 100共用映射資源庫，每個訂用帳戶，每個區域
 - 1000每個區域每個訂用帳戶的映射定義
-- 10000映射版本, 每個訂用帳戶, 每個區域
+- 10000映射版本，每個訂用帳戶，每個區域
 
 ### <a name="virtual-machine-scale-sets-limits"></a>虛擬機器擴展集限制
 [!INCLUDE [virtual-machine-scale-sets-limits](../includes/azure-virtual-machine-scale-sets-limits.md)]
@@ -185,7 +185,7 @@ ms.locfileid: "68698263"
 <!--like # storage accts -->
 [!INCLUDE [azure-storage-limits](../includes/azure-storage-limits.md)]
 
-如需有關儲存體帳戶限制的詳細資訊, 請參閱[Azure 儲存體擴充性和效能目標](storage/common/storage-scalability-targets.md)。
+如需有關儲存體帳戶限制的詳細資訊，請參閱[Azure 儲存體擴充性和效能目標](storage/common/storage-scalability-targets.md)。
 
 #### <a name="storage-resource-provider-limits"></a>儲存體資源提供者限制
 
@@ -195,7 +195,7 @@ ms.locfileid: "68698263"
 [!INCLUDE [storage-blob-scale-targets](../includes/storage-blob-scale-targets.md)]
 
 #### <a name="azure-files-limits"></a>Azure 檔案的限制
-如需 Azure 檔案儲存體限制的詳細資訊, 請參閱[Azure 檔案儲存體擴充性和效能目標](storage/files/storage-files-scale-targets.md)。
+如需 Azure 檔案儲存體限制的詳細資訊，請參閱[Azure 檔案儲存體擴充性和效能目標](storage/files/storage-files-scale-targets.md)。
 
 [!INCLUDE [storage-files-scale-targets](../includes/storage-files-scale-targets.md)]
 
@@ -212,7 +212,7 @@ ms.locfileid: "68698263"
 #### <a name="virtual-machine-disk-limits"></a>虛擬機器磁碟限制
 [!INCLUDE [azure-storage-limits-vm-disks](../includes/azure-storage-limits-vm-disks.md)]
 
-如需詳細資訊, 請參閱[虛擬機器大小](virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)。
+如需詳細資訊，請參閱[虛擬機器大小](virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)。
 
 #### <a name="managed-virtual-machine-disks"></a>受控虛擬機器磁碟
 
@@ -250,7 +250,7 @@ ms.locfileid: "68698263"
 [!INCLUDE [biztalk-services-service-limits](../includes/biztalk-services-service-limits.md)]
 
 ### <a name="azure-cosmos-db-limits"></a>Azure Cosmos DB 限制
-如 Azure Cosmos DB 限制, 請參閱[Azure Cosmos DB 的限制](cosmos-db/concepts-limits.md)。
+如 Azure Cosmos DB 限制，請參閱[Azure Cosmos DB 的限制](cosmos-db/concepts-limits.md)。
 
 ### <a name="azure-database-for-mysql"></a>適用於 MySQL 的 Azure 資料庫
 如需適用於 MySQL 的 Azure 資料庫限制詳細資訊，請參閱[適用於 MySQL 的 Azure 資料庫中的限制](mysql/concepts-limits.md)。
@@ -261,9 +261,9 @@ ms.locfileid: "68698263"
 ### <a name="azure-search-limits"></a>Azure 搜尋服務限制
 定價層會決定搜尋服務的容量和限制。 層級包括：
 
-* **免費**的多租使用者服務, 與其他 Azure 訂閱者共用, 適用于評估和小型開發專案。
+* **免費**的多租使用者服務，與其他 Azure 訂閱者共用，適用于評估和小型開發專案。
 * 可針對規模較小的生產工作負載提供專用的計算資源，以及針對高可用性的查詢工作負載提供最多 3 個複本。
-* **標準**(包括 S1、S2、S3 及 s3 高密度) 適用于較大型的生產工作負載。 標準層中有多個層級, 因此您可以選擇最符合您工作負載設定檔的資源設定。
+* **標準**（包括 S1、S2、S3 及 s3 高密度）適用于較大型的生產工作負載。 標準層中有多個層級，因此您可以選擇最符合您工作負載設定檔的資源設定。
 
 **每一訂用帳戶的限制**
 
@@ -385,10 +385,10 @@ ms.locfileid: "68698263"
 [!INCLUDE [role-based-access-control-limits](../includes/role-based-access-control-limits.md)]
 
 ### <a name="sql-database-limits"></a>SQL Database 限制
-如 SQL Database 限制, 請參閱[單一資料庫的 SQL Database 資源限制](sql-database/sql-database-vcore-resource-limits-single-databases.md)、彈性集區和集區[資料庫的 SQL Database 資源](sql-database/sql-database-vcore-resource-limits-elastic-pools.md)限制, 以及[受控實例的 SQL Database 資源限制](sql-database/sql-database-managed-instance-resource-limits.md)。
+如 SQL Database 限制，請參閱[單一資料庫的 SQL Database 資源限制](sql-database/sql-database-vcore-resource-limits-single-databases.md)、彈性集區和集區[資料庫的 SQL Database 資源](sql-database/sql-database-vcore-resource-limits-elastic-pools.md)限制，以及[受控實例的 SQL Database 資源限制](sql-database/sql-database-managed-instance-resource-limits.md)。
 
 ### <a name="sql-data-warehouse-limits"></a>SQL 資料倉儲限制
-如 SQL 資料倉儲限制, 請參閱[SQL 資料倉儲資源限制](sql-data-warehouse/sql-data-warehouse-service-capacity-limits.md)。
+如 SQL 資料倉儲限制，請參閱[SQL 資料倉儲資源限制](sql-data-warehouse/sql-data-warehouse-service-capacity-limits.md)。
 
 ## <a name="see-also"></a>另請參閱
 - [瞭解 Azure 限制和增加](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/)

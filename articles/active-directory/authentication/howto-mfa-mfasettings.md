@@ -11,18 +11,18 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 12fd08fa301cb22857470e3c81d7f4f7c1f04de9
-ms.sourcegitcommit: 78ebf29ee6be84b415c558f43d34cbe1bcc0b38a
+ms.openlocfilehash: 9eab92f044f62a1ca32062753f824ea76a2726a8
+ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68948879"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70860292"
 ---
 # <a name="configure-azure-multi-factor-authentication-settings"></a>設定 Azure Multi-Factor Authentication 設定
 
 本文可協助您在 Azure 入口網站中管理 Multi-Factor Authentication 設定。 本文涵蓋各種主題，協助您充分發揮 Azure Multi-Factor Authentication 的功效。 並非所有功能都適用于每個 Azure 多重要素驗證版本。
 
-您可以流覽至**Azure Active Directory**  >  **MFA**, 以從 Azure 入口網站存取 Azure 多重要素驗證的相關設定。
+您可以流覽至**Azure Active Directory**  >  **MFA**，以從 Azure 入口網站存取 Azure 多重要素驗證的相關設定。
 
 ![Azure 入口網站 - Azure AD Multi-Factor Authentication 設定](./media/howto-mfa-mfasettings/multi-factor-authentication-settings-portal.png)
 
@@ -158,24 +158,24 @@ ms.locfileid: "68948879"
 | --- | --- |
 | 驗證成功 | 已成功驗證您的登入。 不用. |
 | 分機提示 | 感謝您使用 Microsoft 的登入驗證系統。 請按井字鍵以繼續。 |
-| 詐騙確認 | 已提交詐騙警示。 若要解除鎖定您的帳戶, 請洽詢您公司的 IT 支援人員。 |
-| 詐騙問候語 (標準) | 感謝您使用 Microsoft 的登入驗證系統。 請按井字鍵完成您的驗證。 如果您未起始此驗證, 可能是有人嘗試存取您的帳戶。 請按零英鎊以提交詐騙警示。 這會通知您公司的 IT 小組, 並封鎖進一步的驗證嘗試。 |
-| 詐騙回報已提交詐騙警示。 | 若要解除鎖定您的帳戶, 請洽詢您公司的 IT 支援人員。 |
+| 詐騙確認 | 已提交詐騙警示。 若要解除鎖定您的帳戶，請洽詢您公司的 IT 支援人員。 |
+| 詐騙問候語（標準） | 感謝您使用 Microsoft 的登入驗證系統。 請按井字鍵完成您的驗證。 如果您未起始此驗證，可能是有人嘗試存取您的帳戶。 請按零英鎊以提交詐騙警示。 這會通知您公司的 IT 小組，並封鎖進一步的驗證嘗試。 |
+| 詐騙回報已提交詐騙警示。 | 若要解除鎖定您的帳戶，請洽詢您公司的 IT 支援人員。 |
 | 啟用 | 感謝您使用 Microsoft 的登入驗證系統。 請按井字鍵完成您的驗證。 |
 | 拒絕驗證重試 | 拒絕驗證。 |
-| 重試 (標準) | 感謝您使用 Microsoft 的登入驗證系統。 請按井字鍵完成您的驗證。 |
-| 問候語 (標準) | 感謝您使用 Microsoft 的登入驗證系統。 請按井字鍵完成您的驗證。 |
-| 問候語 (PIN) | 感謝您使用 Microsoft 的登入驗證系統。 請輸入您的 PIN, 然後按井字鍵完成您的驗證。 |
-| 詐騙問候語 (PIN 碼) | 感謝您使用 Microsoft 的登入驗證系統。  請輸入您的 PIN, 然後按井字鍵完成您的驗證。 如果您未起始此驗證, 可能是有人嘗試存取您的帳戶。 請按零英鎊以提交詐騙警示。 這會通知您公司的 IT 小組, 並封鎖進一步的驗證嘗試。 |
-| 重試 (PIN) | 感謝您使用 Microsoft 的登入驗證系統。 請輸入您的 PIN, 然後按井字鍵完成您的驗證。 |
-| 數字後提示分機 | 若已轉接到此分機，請按井字鍵以繼續。 |
-| 拒絕驗證 | 很抱歉, 我們目前無法將您登入。 請稍後再試一次。 |
-| 啟用問候語 (標準) | 感謝您使用 Microsoft 的登入驗證系統。 請按井字鍵完成您的驗證。 |
-| 啟用重試 (標準) | 感謝您使用 Microsoft 的登入驗證系統。 請按井字鍵完成您的驗證。 |
-| 啟用問候語 (PIN 碼) | 感謝您使用 Microsoft 的登入驗證系統。 請輸入您的 PIN, 然後按井字鍵完成您的驗證。 |
+| 重試（標準） | 感謝您使用 Microsoft 的登入驗證系統。 請按井字鍵完成您的驗證。 |
+| 問候（標準） | 感謝您使用 Microsoft 的登入驗證系統。 請按井字鍵完成您的驗證。 |
+| 問候（PIN） | 感謝您使用 Microsoft 的登入驗證系統。 請輸入您的 PIN，然後按井字鍵完成您的驗證。 |
+| 詐騙問候語（PIN） | 感謝您使用 Microsoft 的登入驗證系統。  請輸入您的 PIN，然後按井字鍵完成您的驗證。 如果您未起始此驗證，可能是有人嘗試存取您的帳戶。 請按零英鎊以提交詐騙警示。 這會通知您公司的 IT 小組，並封鎖進一步的驗證嘗試。 |
+| 重試（PIN） | 感謝您使用 Microsoft 的登入驗證系統。 請輸入您的 PIN，然後按井字鍵完成您的驗證。 |
+| 數字後提示分機 | 如果已在此延伸模組中，請按井字鍵以繼續。 |
+| 拒絕驗證 | 很抱歉，我們目前無法將您登入。 請稍後再試一次。 |
+| 啟用問候語（標準） | 感謝您使用 Microsoft 的登入驗證系統。 請按井字鍵完成您的驗證。 |
+| 啟用重試（標準） | 感謝您使用 Microsoft 的登入驗證系統。 請按井字鍵完成您的驗證。 |
+| 啟用問候語（PIN） | 感謝您使用 Microsoft 的登入驗證系統。 請輸入您的 PIN，然後按井字鍵完成您的驗證。 |
 | 數字前提示分機 | 感謝您使用 Microsoft 的登入驗證系統。 請將此來電轉接至延伸模組 。 |
 
-## <a name="one-time-bypass"></a>單次許可
+## <a name="one-time-bypass"></a>一次性略過
 
 _單次許可_可讓使用者只驗證一次，不需要執行雙步驟驗證。 許可只是暫時性，經過指定的秒數之後就會到期。 在行動裝置應用程式或電話沒有收到通知或來電的情況下，您可以啟用單次許可，讓使用者能夠存取所需的資源。
 
@@ -274,7 +274,7 @@ Azure AD 使用內部部署 Windows Server Active Directory Domain Services (AD 
 根據預設，使用者無法建立應用程式密碼。 必須啟用應用程式密碼功能。 若要讓使用者能夠建立應用程式密碼，請使用下列程序：
 
 1. 登入 [Azure 入口網站](https://portal.azure.com)。
-2. 在左側，選取 [Azure Active Directory] > [使用者和群組] > [所有使用者]。
+2. 選取左邊的 [Azure Active Directory] > [使用者]。
 3. 選取 [多重要素驗證]。
 4. 在 [Multi-Factor Authentication] 下，選取 [服務設定]。
 5. 在 [服務設定] 頁面上，選取 [允許使用者建立應用程式密碼以登入非瀏覽器應用程式] 選項。
@@ -314,7 +314,7 @@ Azure AD 使用內部部署 Windows Server Active Directory Domain Services (AD 
 ### <a name="enable-named-locations-by-using-conditional-access"></a>使用條件式存取啟用命名位置
 
 1. 登入 [Azure 入口網站](https://portal.azure.com)。
-2. 在左側, 選取 [ **Azure Active Directory**  > **名為位置**的**條件式存取** > ]。
+2. 在左側，選取 [ **Azure Active Directory**  > **安全性** > ]**條件式存取** > （**名為 [位置**]）。
 3. 選取 [新增位置]。
 4. 輸入位置的名稱。
 5. 選取 [標記為受信任的位置]。
@@ -324,7 +324,7 @@ Azure AD 使用內部部署 Windows Server Active Directory Domain Services (AD 
 ### <a name="enable-the-trusted-ips-feature-by-using-conditional-access"></a>使用條件式存取啟用信任的 Ip 功能
 
 1. 登入 [Azure 入口網站](https://portal.azure.com)。
-2. 在左側, 選取 [ **Azure Active Directory**  > **名為位置**的**條件式存取** > ]。
+2. 在左側，選取 [ **Azure Active Directory**  > **安全性** >  ]**條件式存取** > （**名為 [位置**]）。
 3. 選取 [設定 MFA 信任的 IP]。
 4. 在 [服務設定] 頁面的 [信任的 IP] 下方，選擇下列兩個選項中的任一項：
 
@@ -374,7 +374,7 @@ Azure AD 使用內部部署 Windows Server Active Directory Domain Services (AD 
 ### <a name="enable-and-disable-verification-methods"></a>啟用和停用驗證方法
 
 1. 登入 [Azure 入口網站](https://portal.azure.com)。
-2. 在左側，選取 [Azure Active Directory] > [使用者和群組] > [所有使用者]。
+2. 選取左邊的 [Azure Active Directory] > [使用者]。
 3. 選取 [多重要素驗證]。
 4. 在 [Multi-Factor Authentication] 下，選取 [服務設定]。
 5. 在 [服務設定] 頁面的 [驗證選項] 下，選取/取消選取要提供給使用者的方法。
@@ -408,7 +408,7 @@ Azure AD 使用內部部署 Windows Server Active Directory Domain Services (AD 
 ### <a name="enable-remember-multi-factor-authentication"></a>啟用記住 Multi-Factor Authentication
 
 1. 登入 [Azure 入口網站](https://portal.azure.com)。
-2. 在左側，選取 [Azure Active Directory] > [使用者和群組] > [所有使用者]。
+2. 選取左邊的 [Azure Active Directory] > [使用者]。
 3. 選取 [多重要素驗證]。
 4. 在 [Multi-Factor Authentication] 下，選取 [服務設定]。
 5. 在 [服務設定] 頁面、[管理記住多重要素驗證]，選取 [允許使用者在其信任的裝置記住多重要素驗證] 選項。

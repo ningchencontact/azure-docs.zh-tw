@@ -8,12 +8,12 @@ ms.service: event-grid
 ms.topic: reference
 ms.date: 01/02/2019
 ms.author: babanisa
-ms.openlocfilehash: 9464ab89e08f53f61cb6f5a4b1e91da35b785af0
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 6129c7f498ce6c52fce4266f693c6a304642f8c3
+ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60822793"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70845468"
 ---
 # <a name="event-grid-subscription-schema"></a>事件格線訂用帳戶的結構描述
 
@@ -33,23 +33,23 @@ PUT /subscriptions/{subscription-id}/resourceGroups/examplegroup/providers/Micro
  
 ## <a name="event-subscription-properties"></a>事件訂用帳戶屬性
 
-| 屬性 | type | 描述 |
+| 屬性 | 類型 | 描述 |
 | -------- | ---- | ----------- |
 | destination | object | 定義端點的物件。 |
 | filter | object | 篩選事件類型的選擇性欄位。 |
 
 ### <a name="destination-object"></a>目的地物件
 
-| 屬性 | type | 描述 |
+| 屬性 | 類型 | 描述 |
 | -------- | ---- | ----------- |
 | endpointType | string | 訂用帳戶的端點類型 (webhook/HTTP、事件中樞或佇列)。 | 
 | endpointUrl | string | 此事件訂用帳戶中事件的目的地 URL。 | 
 
 ### <a name="filter-object"></a>篩選物件
 
-| 屬性 | type | 描述 |
+| 屬性 | 類型 | 描述 |
 | -------- | ---- | ----------- |
-| includedEventTypes | array | 事件訊息中的事件類型完全符合這些事件類型名稱其中之一時，即會符合。 事件名稱不符合事件來源的已註冊事件類型名稱時，會引發錯誤。 預設會符合所有事件類型。 |
+| includedEventTypes | 陣列 | 事件訊息中的事件類型完全符合這些事件類型名稱其中之一時，即會符合。 事件名稱不符合事件來源的已註冊事件類型名稱時，會引發錯誤。 預設會符合所有事件類型。 |
 | subjectBeginsWith | string | 事件訊息中對主體欄位的前置詞符合篩選。 預設值或空字串會符合全部。 | 
 | subjectEndsWith | string | 事件訊息中對主體欄位的後置詞符合篩選。 預設值或空字串會符合全部。 |
 | isSubjectCaseSensitive | string | 控制篩選的區分大小寫比對。 |
@@ -68,7 +68,7 @@ PUT /subscriptions/{subscription-id}/resourceGroups/examplegroup/providers/Micro
     },
     "filter": {
       "includedEventTypes": [ "Microsoft.Storage.BlobCreated", "Microsoft.Storage.BlobDeleted" ],
-      "subjectBeginsWith": "blobServices/default/containers/mycontainer/log",
+      "subjectBeginsWith": "/blobServices/default/containers/mycontainer/log",
       "subjectEndsWith": ".jpg",
       "isSubjectCaseSensitive ": "true"
     }

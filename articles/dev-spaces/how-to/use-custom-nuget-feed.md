@@ -10,12 +10,12 @@ ms.topic: conceptual
 description: 在 Azure Dev Spaces 中使用自訂 NuGet 摘要以存取及使用 NuGet 套件。
 keywords: Docker, Kubernetes, Azure, AKS, Azure Container Service, 容器
 manager: gwallace
-ms.openlocfilehash: 44a87491d276e09e1fa8fed3f5e6803648c3e4a2
-ms.sourcegitcommit: 770b060438122f090ab90d81e3ff2f023455213b
+ms.openlocfilehash: 9df095011c1ff66ff0c85993c7c85dffe62623b8
+ms.sourcegitcommit: 23389df08a9f4cab1f3bb0f474c0e5ba31923f12
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "68305391"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70873264"
 ---
 #  <a name="use-a-custom-nuget-feed-in-an-azure-dev-space"></a>在 Azure Dev Spaces 中使用自訂 NuGet 摘要
 
@@ -33,7 +33,7 @@ NuGet 摘要會提供在專案中包含套件來源的便利方式。 Azure Dev 
 </ItemGroup>
 ```
 
-在專案資料夾中建立[nuget .config](https://docs.microsoft.com/nuget/reference/nuget-config-file)檔案, 並設定 NuGet 摘要`packageSources`的`packageSourceCredentials`和區段。 `packageSources`區段包含您的摘要 url, 必須可公開存取。 `packageSourceCredentials`是用來存取摘要的認證。 例如:
+在專案資料夾中建立[nuget .config](https://docs.microsoft.com/nuget/reference/nuget-config-file)檔案, 並設定 NuGet 摘要`packageSources`的`packageSourceCredentials`和區段。 `packageSources`區段包含您的摘要 url，必須可從您的 AKS 叢集存取。 `packageSourceCredentials`是用來存取摘要的認證。 例如:
 
 ```xml
 <packageSources>

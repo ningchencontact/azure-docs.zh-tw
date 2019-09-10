@@ -1,5 +1,5 @@
 ---
-title: 如何使用適用於 Node.js v2 的用戶端程式庫在 Azure 儲存體中建立 Blob
+title: 在適用于 node.js 的 Azure 儲存體中建立 blob
 description: 在物件 (Blob) 儲存體中建立儲存體帳戶和容器。 然後，使用 Node.js v2 適用的 Azure 儲存體用戶端程式庫將 Blob 上傳至 Azure 儲存體、下載 Blob，以及列出容器中的 Blob。
 author: mhopkins-msft
 ms.author: mhopkins
@@ -7,12 +7,13 @@ ms.date: 02/04/2019
 ms.service: storage
 ms.subservice: blobs
 ms.topic: conceptual
-ms.openlocfilehash: 89dbd6cc9a03398427b157fa207adb898d3bfc56
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.custom: seo-javascript-september2019
+ms.openlocfilehash: 8fada27f82fea557d7d078f06b5c05e7d1db906d
+ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68721977"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70861229"
 ---
 # <a name="how-to-upload-download-and-list-blobs-using-the-client-library-for-nodejs-v2"></a>如何使用適用於 Node.js v2 的用戶端程式庫上傳、下載及列出 Blob
 
@@ -21,7 +22,7 @@ ms.locfileid: "68721977"
 > [!TIP]
 > 適用於 Node.js 的最新 Azure 儲存體用戶端程式庫版本是 v10。 Microsoft 建議您盡可能使用最新版的用戶端程式庫。 若要開始使用 v10，請參閱[快速入門：使用適用於 JavaScript v10 的 Azure 儲存體用戶端程式庫 (預覽) 上傳、下載、列出及刪除 Blob](storage-quickstart-blobs-nodejs-v10.md)。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 。
 

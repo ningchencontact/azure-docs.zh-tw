@@ -5,13 +5,13 @@ ms.topic: include
 ms.date: 02/13/2019
 ms.author: danlep
 ms.openlocfilehash: f8821060b98ebfc954a6e59abad60350e6779b76
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
-ms.translationtype: HT
+ms.sourcegitcommit: 23389df08a9f4cab1f3bb0f474c0e5ba31923f12
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/18/2019
+ms.lasthandoff: 09/10/2019
 ms.locfileid: "67174344"
 ---
-| 資源 | 預設限制 |
+| Resource | 預設限制 |
 | --- | :--- |
 | 每一訂用帳戶的[容器群組](../articles/billing-buy-sign-up-azure-subscription.md) | 100<sup>1</sup> |
 | 每個容器群組的容器數目 | 60 |
@@ -25,7 +25,7 @@ ms.locfileid: "67174344"
 | 每 5 分鐘的容器刪除 | 100<sup>1</sup> |
 
 
-<sup>1</sup>若要要求提高限制，請建立 [Azure 支援要求][azure-support]。<br />
+<sup>1</sup>若要要求增加限制，請建立[Azure 支援要求][azure-support]。<br />
 
 <!-- LINKS - External -->
 [azure-support]: https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest

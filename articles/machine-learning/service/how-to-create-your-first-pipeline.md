@@ -1,7 +1,7 @@
 ---
 title: 建立、 執行及追蹤 ML 管線
 titleSuffix: Azure Machine Learning service
-description: 使用適用於 Python 的 Azure Machine Learning SDK 來建立及執行機器學習管線。 使用 ML 管線來建立和管理結合機器學習 (ML) 階段的工作流程。 這些階段包括資料準備、模型定型、模型部署, 以及推斷/計分。
+description: 使用適用於 Python 的 Azure Machine Learning SDK 來建立及執行機器學習管線。 使用 ML 管線來建立和管理結合機器學習（ML）階段的工作流程。 這些階段包括資料準備、模型定型、模型部署, 以及推斷/計分。
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -11,24 +11,24 @@ ms.author: sanpil
 author: sanpil
 ms.date: 08/09/2019
 ms.custom: seodec18
-ms.openlocfilehash: 87897c031ff717fb67830cb8fa3bc5fced336418
-ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
+ms.openlocfilehash: 12ba2991f22576dc62559d5c62dc4a0e769d2681
+ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70278846"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70858764"
 ---
 # <a name="create-and-run-machine-learning-pipelines-with-azure-machine-learning-sdk"></a>使用 Azure Machine Learning SDK 建立及執行機器學習管線
 
-在本文中，您將了解如何使用 [Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py) 來建立、發佈、執行及追蹤[機器學習管線](concept-ml-pipelines.md)。  使用**ML 管線**建立工作流程, 以拼接各種 ML 階段, 然後將該管線發佈到您的 Azure Machine Learning 工作區, 以供稍後存取或與其他人共用。  ML 管線適用于批次評分案例, 使用各種計算、重複使用步驟而不是重新執行, 以及與其他人共用 ML 工作流程。 
+在本文中，您將了解如何使用 [Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py) 來建立、發佈、執行及追蹤[機器學習管線](concept-ml-pipelines.md)。  使用**ML 管線**建立工作流程，以拼接各種 ML 階段，然後將該管線發佈到您的 Azure Machine Learning 工作區，以供稍後存取或與其他人共用。  ML 管線適用于批次評分案例，使用各種計算、重複使用步驟而不是重新執行，以及與其他人共用 ML 工作流程。 
 
-雖然您可以使用另一種稱為[Azure 管線](https://docs.microsoft.com/azure/devops/pipelines/targets/azure-machine-learning?context=azure%2Fmachine-learning%2Fservice%2Fcontext%2Fml-context&view=azure-devops&tabs=yaml)的管線來進行 ML 工作的 CI/CD 自動化, 但該類型的管線永遠不會儲存在您的工作區中。 [比較這些不同的管線](concept-ml-pipelines.md#which-azure-pipeline-technology-should-i-use)。
+雖然您可以使用另一種稱為[Azure 管線](https://docs.microsoft.com/azure/devops/pipelines/targets/azure-machine-learning?context=azure%2Fmachine-learning%2Fservice%2Fcontext%2Fml-context&view=azure-devops&tabs=yaml)的管線來進行 ML 工作的 CI/CD 自動化，但該類型的管線永遠不會儲存在您的工作區中。 [比較這些不同的管線](concept-ml-pipelines.md#which-azure-pipeline-technology-should-i-use)。
 
-ML 管線的每個階段 (例如資料準備和模型訓練) 都可以包含一或多個步驟。
+ML 管線的每個階段（例如資料準備和模型訓練）都可以包含一或多個步驟。
 
 您所建立的 ML 管線會顯示在 Azure Machine Learning 服務[工作區](how-to-manage-workspace.md)的成員中。 
 
-ML 管線會使用遠端計算目標來進行計算, 以及與該管線相關聯的中繼和最終資料的儲存體。 他們可以在支援的[Azure 儲存體](https://docs.microsoft.com/azure/storage/)位置之間讀取和寫入資料。
+ML 管線會使用遠端計算目標來進行計算，以及與該管線相關聯的中繼和最終資料的儲存體。 他們可以在支援的[Azure 儲存體](https://docs.microsoft.com/azure/storage/)位置之間讀取和寫入資料。
 
 如果您沒有 Azure 訂用帳戶，請在開始前先建立一個免費帳戶。 試用[免費或付費版本的 Azure Machine Learning 服務](https://aka.ms/AMLFree)。
 
@@ -36,9 +36,9 @@ ML 管線會使用遠端計算目標來進行計算, 以及與該管線相關聯
 
 * 建立 [Azure Machine Learning 工作區](how-to-manage-workspace.md)以保存您的所有管線資源。
 
-* [設定您的開發環境](how-to-configure-environment.md)以安裝 Azure Machine Learning sdk, 或使用已安裝 SDK 的[筆記本 VM](tutorial-1st-experiment-sdk-setup.md#azure) 。
+* [設定您的開發環境](how-to-configure-environment.md)以安裝 Azure Machine Learning sdk，或使用已安裝 SDK 的[筆記本 VM](tutorial-1st-experiment-sdk-setup.md#azure) 。
 
-一開始請先附加您的工作區:
+一開始請先附加您的工作區：
 
 ```Python
 import azureml.core
@@ -50,7 +50,7 @@ ws = Workspace.from_config()
 
 ## <a name="set-up-machine-learning-resources"></a>設定機器學習資源
 
-建立執行 ML 管線所需的資源:
+建立執行 ML 管線所需的資源：
 
 * 設定用來存取管線步驟中所需資料的資料存放區。
 
@@ -62,7 +62,7 @@ ws = Workspace.from_config()
 
 資料存放區會儲存可供管線存取的資料。 每個工作區都有一個預設的資料存放區。 您可以註冊額外的資料存放區。 
 
-當您建立工作區時, [Azure 檔案儲存體](https://docs.microsoft.com/azure/storage/files/storage-files-introduction)和[Azure Blob 儲存體](https://docs.microsoft.com/azure/storage/blobs/storage-blobs-introduction)會附加至工作區。 會註冊預設資料存放區, 以連線到 Azure Blob 儲存體。 若要深入了解，請參閱[決定何時使用 Azure 檔案、Azure Blob 或 Azure 磁碟](https://docs.microsoft.com/azure/storage/common/storage-decide-blobs-files-disks)。 
+當您建立工作區時， [Azure 檔案儲存體](https://docs.microsoft.com/azure/storage/files/storage-files-introduction)和[Azure Blob 儲存體](https://docs.microsoft.com/azure/storage/blobs/storage-blobs-introduction)會附加至工作區。 會註冊預設資料存放區，以連線到 Azure Blob 儲存體。 若要深入了解，請參閱[決定何時使用 Azure 檔案、Azure Blob 或 Azure 磁碟](https://docs.microsoft.com/azure/storage/common/storage-decide-blobs-files-disks)。 
 
 ```python
 # Default datastore 
@@ -76,7 +76,7 @@ def_file_store = Datastore(ws, "workspacefilestore")
 
 ```
 
-請將資料檔案或目錄上傳至資料存放區，以便能夠從您的管線存取這些資料檔案或目錄。 此範例會使用 Blob 儲存體作為資料存放區:
+請將資料檔案或目錄上傳至資料存放區，以便能夠從您的管線存取這些資料檔案或目錄。 此範例會使用 Blob 儲存體作為資料存放區：
 
 ```python
 def_blob_store.upload_files(
@@ -113,7 +113,7 @@ output_data1 = PipelineData(
 
 ## <a name="set-up-compute-target"></a>設定計算目標
 
-在 Azure Machine Learning 中, computes__ (或__計算目標__) 一詞是指在機器學習管線中執行計算步驟的機器或叢集。   如需完整的計算目標清單，以及了解如何建立這些目標並將其連結至您的工作區，請參閱[用於模型定型的計算目標](how-to-set-up-training-targets.md)。  不論您是要將模型定型還是執行管線步驟，建立和/或連結計算目標的程序都相同。 在您建立並連結計算目標之後，請在您的[管線步驟](#steps)中使用 `ComputeTarget` 物件。
+在 Azure Machine Learning 中，computes__ （或__計算目標__）一詞是指在機器學習管線中執行計算步驟的機器或叢集。   如需完整的計算目標清單，以及了解如何建立這些目標並將其連結至您的工作區，請參閱[用於模型定型的計算目標](how-to-set-up-training-targets.md)。  不論您是要將模型定型還是執行管線步驟，建立和/或連結計算目標的程序都相同。 在您建立並連結計算目標之後，請在您的[管線步驟](#steps)中使用 `ComputeTarget` 物件。
 
 > [!IMPORTANT]
 > 不支援從遠端作業內部對計算目標執行管理作業。 由於機器學習管線會作為遠端作業提交，因此請勿從管線內對計算目標使用管理作業。
@@ -159,7 +159,7 @@ else:
 
 Azure Databricks 是 Azure 雲端中的 Apache Spark 型環境。 它可與 Azure Machine Learning 管線搭配使用作為計算目標。
 
-使用 Azure Databricks 之前，請先建立其工作區。 若要建立工作區資源, 請參閱在[Azure Databricks 檔上執行 Spark 作業](https://docs.microsoft.com/azure/azure-databricks/quickstart-create-databricks-workspace-portal)。
+使用 Azure Databricks 之前，請先建立其工作區。 若要建立工作區資源，請參閱在[Azure Databricks 檔上執行 Spark 作業](https://docs.microsoft.com/azure/azure-databricks/quickstart-create-databricks-workspace-portal)。
 
 若要連結 Azure Databricks 作為計算目標，請提供下列資訊：
 
@@ -278,7 +278,7 @@ trainStep = PythonScriptStep(
 )
 ```
 
-在共同作業環境中`allow_reuse`使用管線時, 重複使用先前的結果 () 是重要的, 因為排除不必要的重新執行時間可提供靈活性。 當步驟的 script_name、輸入和參數保持不變時, 重複使用是預設行為。 重複使用步驟的輸出時, 不會將作業提交至計算, 而是從上一次執行的結果立即提供給下一個步驟的執行。 如果`allow_reuse`設定為 false, 則會在管線執行期間, 針對此步驟一律會產生新的執行。 
+在共同作業環境中`allow_reuse`使用管線時，重複使用先前的結果（）是重要的，因為排除不必要的重新執行時間可提供靈活性。 當步驟的 script_name、輸入和參數保持不變時，重複使用是預設行為。 重複使用步驟的輸出時, 不會將作業提交至計算, 而是從上一次執行的結果立即提供給下一個步驟的執行。 如果`allow_reuse`設定為 false，則會在管線執行期間，針對此步驟一律會產生新的執行。 
 
 定義步驟之後，您必須使用這些步驟中的部分或全部步驟來建置管線。
 
@@ -342,7 +342,7 @@ pipeline_run1.wait_for_completion()
 * 從與工作區相關的 Blob 儲存體，將專案快照集下載到計算目標。
 * 建置與管線中的每個步驟相對應的 Docker 映像。
 * 從容器登錄將每個步驟的 Docker 映射下載到計算目標。
-* 如果在步驟中指定`DataReference`了物件, 就會掛接資料存放區。 如果不支援掛接，則會改為將資料複製到計算目標。
+* 如果在步驟中指定`DataReference`了物件，就會掛接資料存放區。 如果不支援掛接，則會改為將資料複製到計算目標。
 * 在步驟定義中指定的計算目標內執行步驟。 
 * 建立步驟所指定的成品，例如記錄、stdout 和 stderr、計量及輸出。 這些成品會接著上傳到使用者的預設資料存放區，並保存在該處。
 
@@ -395,7 +395,7 @@ pipeline_run1.wait_for_completion()
 
 所有已發佈的管線都有 REST 端點。 此端點可從外部系統 (例如非 Python 用戶端) 叫用管線執行。 此端點可在批次評分和重新訓練案例中，提供「受控的可重複性」。
 
-若要叫用上述管線的執行, 您需要 Azure Active Directory authentication 標頭 token (如[AzureCliAuthentication 類別](https://docs.microsoft.com/python/api/azureml-core/azureml.core.authentication.azurecliauthentication?view=azure-ml-py)參考中所述), 或在[Azure Machine Learning 筆記本中的驗證](https://aka.ms/pl-restep-auth)中取得更多詳細資料。
+若要叫用上述管線的執行，您需要 Azure Active Directory authentication 標頭 token （如[AzureCliAuthentication 類別](https://docs.microsoft.com/python/api/azureml-core/azureml.core.authentication.azurecliauthentication?view=azure-ml-py)參考中所述），或在[Azure Machine Learning 筆記本中的驗證](https://aka.ms/pl-restep-auth)中取得更多詳細資料。
 
 ```python
 from azureml.pipeline.core import PublishedPipeline
@@ -409,32 +409,34 @@ response = requests.post(published_pipeline1.endpoint,
 
 ### <a name="view-results-of-a-published-pipeline"></a>查看已發行管線的結果
 
-查看所有已發佈管線的清單及其執行詳細資料:
-1. 登入 [Azure 入口網站](https://portal.azure.com/)。  
+查看所有已發佈管線的清單及其執行詳細資料：
+1. 登入 [Azure 入口網站](https://portal.azure.com/)。
 
 1. [檢視您的工作區](how-to-manage-workspace.md#view)以尋找管線清單。
  ![機器學習管線清單](./media/how-to-create-your-first-pipeline/list_of_pipelines.png)
  
 1. 選取特定管線以查看執行結果。
 
+您的[工作區登陸頁面（預覽）](https://ml.azure.com)也會提供這些結果。
+
 ### <a name="disable-a-published-pipeline"></a>停用已發行的管線
 
-若要從已發佈的管線清單中隱藏管線, 請將它停用:
+若要從已發佈的管線清單中隱藏管線，請將它停用：
 
 ```
-# Get the pipeline by using its ID in the Azure portal
+# Get the pipeline by using its ID from the Azure portal
 p = PublishedPipeline.get(ws, id="068f4885-7088-424b-8ce2-eeb9ba5381a6")
 p.disable()
 ```
 
-您可以使用`p.enable()`再次啟用它。 如需詳細資訊, 請參閱[PublishedPipeline 類別](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.publishedpipeline?view=azure-ml-py)參考。
+您可以使用`p.enable()`再次啟用它。 如需詳細資訊，請參閱[PublishedPipeline 類別](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.publishedpipeline?view=azure-ml-py)參考。
 
 
 ## <a name="caching--reuse"></a>快取 & 重複使用  
 
-為了優化和自訂管線的行為, 您可以在快取和重複使用方面執行一些動作。 例如, 您可以選擇:
-+ 在[步驟定義](https://docs.microsoft.com/python/api/azureml-pipeline-steps/?view=azure-ml-py)期間設定`allow_reuse=False` , 以關閉**步驟執行輸出的預設重複使用**。 在共同作業環境中使用管線時, 重複使用是關鍵, 因為排除不必要的執行可提供靈活性。 不過, 您可以選擇不重複使用。
-+ 將**雜湊延伸到腳本外**, 以同時包含 source_directory 到其他檔案和目錄的絕對路徑或相對路徑, 並使用`hash_paths=['<file or directory']` 
+為了優化和自訂管線的行為，您可以在快取和重複使用方面執行一些動作。 例如, 您可以選擇:
++ 在[步驟定義](https://docs.microsoft.com/python/api/azureml-pipeline-steps/?view=azure-ml-py)期間設定`allow_reuse=False` , 以關閉**步驟執行輸出的預設重複使用**。 在共同作業環境中使用管線時, 重複使用是關鍵, 因為排除不必要的執行可提供靈活性。 不過，您可以選擇不重複使用。
++ 將**雜湊延伸到腳本外**，以同時包含 source_directory 到其他檔案和目錄的絕對路徑或相對路徑，並使用`hash_paths=['<file or directory']` 
 + **針對執行中的所有步驟強制輸出**重新產生`pipeline_run = exp.submit(pipeline, regenerate_outputs=False)`
 
 根據預設, `allow_reuse`會啟用步驟, 而且只會雜湊主要腳本檔案。 因此, 如果指定步驟的腳本維持不變 (`script_name`、輸入和參數), 則會重複使用上一個步驟執行的輸出, 不會將作業提交至計算, 而從上一次執行的結果會立即可供下一個步驟使用.  

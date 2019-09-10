@@ -14,12 +14,12 @@ ms.date: 05/14/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: dea88951682c24d2a470d5bd7646722481e4db2f
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: cde94dce13eeb7536f72fb0dcd937265960c7314
+ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60381318"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70842685"
 ---
 # <a name="troubleshoot-sql-connectivity-issues-with-azure-ad-connect"></a>對 Azure AD Connect 的 SQL 連線問題進行疑難排解
 本文說明如何針對 Azure AD Connect 和 SQL Server 間的連線問題進行疑難排解。 
@@ -37,7 +37,7 @@ Import-Module "C:\Program Files\Microsoft Azure Active Directory Connect\Tools\A
 
 >[!NOTE]
 >安裝模組時，需先更新至 [PowerShell 5.0 (WMF 5.0)](https://www.microsoft.com/download/details.aspx?id=50395) 或更新版本。  
-或安裝l [PackageManagement PowerShell Modules Preview - 2016 年 3 月 (適用於PowerShell 3.0/4.0)](https://www.microsoft.com/download/details.aspx?id=51451) 
+或安裝l [PackageManagement PowerShell Modules Preview - 2016 年 3 月 (適用於PowerShell 3.0/4.0)](/powershell/module/PackageManagement) 
 
 - **顯示所有命令**：`Get-Command -Module AdSyncTools` 
 - **執行 PowerShell 函式**：`Connect-ADSyncDatabase` (含下列參數)

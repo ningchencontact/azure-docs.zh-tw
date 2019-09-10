@@ -15,12 +15,12 @@ ms.date: 07/16/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6e952b011eb760ebc9dcf5fe7250cf56ec67465f
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: a5409b5619f8be16ef92f517b4b598e2a8e5e2b7
+ms.sourcegitcommit: 23389df08a9f4cab1f3bb0f474c0e5ba31923f12
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68562344"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70872812"
 ---
 # <a name="desktop-app-that-calls-web-apis---acquire-a-token"></a>呼叫 web Api 的桌面應用程式-取得權杖
 
@@ -126,7 +126,7 @@ WithParentActivityOrWindow(object parent).
 
 #### <a name="withextrascopetoconsent"></a>WithExtraScopeToConsent
 
-這個修飾詞用於您想要讓使用者預先同意數個資源的先進案例 (而不想要使用累加式同意, 這通常與 MSAL.NET/Microsoft 身分識別平臺搭配使用)。 如需詳細資訊, 請參閱[如何: 將使用者同意預先用於數個資源](scenario-desktop-production.md#how-to-have--the-user-consent-upfront-for-several-resources)。
+這個修飾詞用於您想要讓使用者預先同意數個資源的先進案例（而不想要使用累加式同意，這通常與 MSAL.NET/Microsoft 身分識別平臺搭配使用）。 如需詳細資訊, 請參閱[如何: 將使用者同意預先用於數個資源](scenario-desktop-production.md#how-to-have--the-user-consent-upfront-for-several-resources)。
 
 ```CSharp
 var result = await app.AcquireTokenInteractive(scopesForCustomerApi)
@@ -135,6 +135,21 @@ var result = await app.AcquireTokenInteractive(scopesForCustomerApi)
 ```
 
 #### <a name="withcustomwebui"></a>WithCustomWebUi
+
+Web UI 是用來叫用瀏覽器的機制。 這種機制可以是專用的 UI WebBrowser 控制項或委派開啟瀏覽器的方式。
+MSAL 為大部分的平臺提供 Web UI，但仍有一些情況下，您可能會想要自行裝載瀏覽器： 
+
+- MSAL 未明確涵蓋的平臺，例如 Blazor、Unity、在桌面上的 Mono
+- 您想要 UI 測試您的應用程式，並想要使用可與 Selenium 搭配使用的自動化瀏覽器 
+- 瀏覽器和執行 MSAL 的應用程式位於不同的進程中
+
+##### <a name="at-a-glance"></a>快速概覽
+
+為了達到此目的，您將會提供 MSAL `start Url`，這需要在選擇的瀏覽器中顯示，讓使用者可以輸入他們的使用者名稱等等。驗證完成後，您的應用程式將需要傳回 MSAL，其中`end Url`包含 Azure AD 所提供的程式碼。
+的主機`end Url` `redirectUri`一定是。 若要攔截`end Url` ，您可以： 
+
+- 監視瀏覽器重新導向`redirect Url`直到到達或
+- 讓瀏覽器重新導向至您監視的 URL
 
 ##### <a name="withcustomwebui-is-an-extensibility-point"></a>WithCustomWebUi 是擴充點
 
@@ -161,6 +176,32 @@ var result = await app.AcquireTokenInteractive(scopesForCustomerApi)
 
 MSAL.NET 小組已重寫我們的 UI 測試, 以利用這個擴充性機制。 如果您有興趣, 可以查看 MSAL.NET 原始程式碼中的[SeleniumWebUI](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/blob/053a98d16596be7e9ca1ab916924e5736e341fe8/tests/Microsoft.Identity.Test.Integration/Infrastructure/SeleniumWebUI.cs#L15-L160)類別
 
+##### <a name="providing-a-great-experience-with-systemwebviewoptions"></a>提供 SystemWebViewOptions 的絕佳體驗
+
+從 MSAL.NET 4.1 [`SystemWebViewOptions`](https://docs.microsoft.com/dotnet/api/microsoft.identity.client.systemwebviewoptions?view=azure-dotnet)可讓您指定：
+
+- 要導覽的 URI （`BrowserRedirectError`），或在系統網頁瀏覽器中登入/同意錯誤時要`HtmlMessageError`顯示的 HTML 片段（）
+- 要在成功登入/`BrowserRedirectSuccess`同意時，流覽至的 URI （）`HtmlMessageSuccess`或要顯示的 HTML 片段（）。
+- 要執行以啟動系統瀏覽器的動作。 為此，您可以藉由設定`OpenBrowserAsync`委派來提供自己的執行。 類別也提供兩個瀏覽器的預設執行： `OpenWithEdgeBrowserAsync`和`OpenWithChromeEdgeBrowserAsync`，分別適用于 Chromium 上的 microsoft edge 和[microsoft edge](https://www.windowscentral.com/faq-edge-chromium)。
+
+若要使用這個結構，您可以撰寫如下所示的內容：
+
+```CSharp
+IPublicClientApplication app;
+...
+
+options = new SystemWebViewOptions
+{
+ HtmlMessageError = "<b>Sign-in failed. You can close this tab ...</b>",
+ BrowserRedirectSuccess = "https://contoso.com/help-for-my-awesome-commandline-tool.html"
+};
+
+var result = app.AcquireTokenInteractive(scopes)
+                .WithEmbeddedWebView(false)       // The default in .NET Core
+                .WithSystemWebViewOptions(options)
+                .Build();
+```
+
 #### <a name="other-optional-parameters"></a>其他選擇性參數
 
 `AcquireTokenInteractive`從[AcquireTokenInteractiveParameterBuilder](/dotnet/api/microsoft.identity.client.acquiretokeninteractiveparameterbuilder?view=azure-dotnet-preview#methods)的參考檔深入瞭解的所有其他選擇性參數
@@ -179,13 +220,12 @@ AcquireTokenByIntegratedWindowsAuth(IEnumerable<string> scopes)
 - IWA 適用于針對 .NET Framework、.NET Core 和 UWP 平臺所撰寫的應用程式
 - IWA 不會略過 MFA (多重要素驗證)。 如果已設定 MFA, 則在需要 MFA 挑戰時, IWA 可能會失敗, 因為 MFA 需要使用者互動。
   > [!NOTE]
-  > 這一點很棘手。 IWA 非互動式, 但 MFA 需要使用者互動。 您不會控制身分識別提供者要求執行 MFA 的時間, 租使用者管理員會這麼做。 從我們的觀察中, 當您從不同國家/地區登入時, 若未透過 VPN 連線到公司網路, 有時甚至是透過 VPN 連線時, 就需要使用 MFA。 不預期有一組具決定性的規則, Azure Active Directory 使用 AI 來持續瞭解是否需要 MFA。 如果 IWA 失敗, 您應該回到使用者提示 (互動式驗證或裝置程式碼流程)。
+  > 這一點很棘手。 IWA 非互動式，但 MFA 需要使用者互動。 您不會控制身分識別提供者要求執行 MFA 的時間，租使用者管理員會這麼做。 從我們的觀察中，當您從不同國家/地區登入時，若未透過 VPN 連線到公司網路，有時甚至是透過 VPN 連線時，就需要使用 MFA。 不預期有一組具決定性的規則，Azure Active Directory 使用 AI 來持續瞭解是否需要 MFA。 如果 IWA 失敗, 您應該回到使用者提示 (互動式驗證或裝置程式碼流程)。
 
 - 傳入的`PublicClientApplicationBuilder`授權單位必須是:
   - 租使用者-ed (的形式`https://login.microsoftonline.com/{tenant}/` , `tenant`其中是代表租使用者識別碼的 guid 或與租使用者相關聯的網域。
   - 適用于任何公司和學校帳戶`https://login.microsoftonline.com/organizations/`()
-
-  > 不支援 Microsoft 個人帳戶 (您無法使用/common 或/consumers 租使用者)
+  - 不支援 Microsoft 個人帳戶 (您無法使用/common 或/consumers 租使用者)
 
 - 因為整合式 Windows 驗證是無訊息流程:
   - 您應用程式的使用者必須先前已同意使用應用程式
@@ -198,7 +238,7 @@ AcquireTokenByIntegratedWindowsAuth(IEnumerable<string> scopes)
 
 - 此流程已針對 .net desktop、.net core 和 Windows 通用 (UWP) 應用程式啟用。 在 .NET core 中, 只有取得使用者名稱的多載可供使用, 因為 .NET Core 平臺無法向 OS 要求使用者名稱。
   
-如需有關同意的詳細資訊, 請參閱[Microsoft 身分識別平臺許可權和同意](https://docs.microsoft.com/azure/active-directory/develop/v2-permissions-and-consent)
+如需有關同意的詳細資訊，請參閱[Microsoft 身分識別平臺許可權和同意](https://docs.microsoft.com/azure/active-directory/develop/v2-permissions-and-consent)
 
 ### <a name="how-to-use-it"></a>如何使用它
 
@@ -528,7 +568,7 @@ static async Task GetATokenForGraph()
 
 如果您撰寫的是命令列工具 (沒有 Web 控制項), 而且不能或不想使用先前的流程, 則需要使用`AcquireTokenWithDeviceCode`。
 
-具有 Azure AD 的互動式驗證需要網頁瀏覽器 (如需詳細資訊, 請參閱[web 瀏覽器的使用](https://aka.ms/msal-net-uses-web-browser)方式)。 不過, 若要在不提供網頁瀏覽器的裝置或作業系統上驗證使用者, 裝置程式碼流程可讓使用者使用另一個裝置 (例如另一部電腦或行動電話) 以互動方式登入。 藉由使用裝置程式碼流程, 應用程式會透過兩個步驟的進程取得權杖, 特別針對這些裝置/OS 所設計。 這類應用程式的範例包括在 iOT 上執行的應用程式, 或命令列工具 (CLI)。 其概念如下:
+具有 Azure AD 的互動式驗證需要網頁瀏覽器 (如需詳細資訊, 請參閱[web 瀏覽器的使用](https://aka.ms/msal-net-uses-web-browser)方式)。 不過, 若要在不提供網頁瀏覽器的裝置或作業系統上驗證使用者, 裝置程式碼流程可讓使用者使用另一個裝置 (例如另一部電腦或行動電話) 以互動方式登入。 藉由使用裝置程式碼流程，應用程式會透過兩個步驟的進程取得權杖，特別針對這些裝置/Os 所設計。 這類應用程式的範例包括在 iOT 上執行的應用程式, 或命令列工具 (CLI)。 其概念如下:
 
 1. 每當需要使用者驗證時, 應用程式就會提供代碼, 並要求使用者使用另一部裝置 (例如連線到網際網路的 smartphone) 來流覽至 URL (例如, `https://microsoft.com/devicelogin`), 其中會提示使用者輸入程式碼。 如此一來, 網頁將會引導使用者完成一般驗證體驗, 包括同意提示和多重要素驗證 (如有需要)。
 
@@ -553,83 +593,90 @@ static async Task GetATokenForGraph()
 下列範例程式碼會提供最新的案例, 並說明您可以取得的例外狀況類型及其緩和措施。
 
 ```CSharp
+private const string ClientId = "<client_guid>";
+private const string Authority = "https://login.microsoftonline.com/contoso.com";
+private readonly string[] Scopes = new string[] { "user.read" };
+
 static async Task<AuthenticationResult> GetATokenForGraph()
 {
- string authority = "https://login.microsoftonline.com/contoso.com";
- string[] scopes = new string[] { "user.read" };
- IPublicClientApplication pca = PublicClientApplicationBuilder
-      .Create(clientId)
-      .WithAuthority(authority)
-      .Build();
+    IPublicClientApplication pca = PublicClientApplicationBuilder
+            .Create(ClientId)
+            .WithAuthority(Authority)
+            .WithDefaultRedirectUri()
+            .Build();
+           
+    var accounts = await pca.GetAccountsAsync();
 
- AuthenticationResult result = null;
- var accounts = await app.GetAccountsAsync();
+    // All AcquireToken* methods store the tokens in the cache, so check the cache first
+    try
+    {
+        return await pca.AcquireTokenSilent(Scopes, accounts.FirstOrDefault())
+            .ExecuteAsync();
+    }
+    catch (MsalUiRequiredException ex)
+    {
+        // No token found in the cache or AAD insists that a form interactive auth is required (e.g. the tenant admin turned on MFA)
+        // If you want to provide a more complex user experience, check out ex.Classification 
 
- // All AcquireToken* methods store the tokens in the cache, so check the cache first
- try
- {
-  result = await app.AcquireTokenSilent(scopes, accounts.FirstOrDefault())
-       .ExecuteAsync();
- }
- catch (MsalUiRequiredException ex)
- {
-  // A MsalUiRequiredException happened on AcquireTokenSilent.
-  // This indicates you need to call AcquireTokenInteractive to acquire a token
-  System.Diagnostics.Debug.WriteLine($"MsalUiRequiredException: {ex.Message}");
- }
+        return await AcquireByDeviceCodeAsync(pca);
+    }         
+}
 
- try
- {
-  result = await app.AcquireTokenWithDeviceCode(scopes,
-      deviceCodeCallback =>
-  {
-       // This will print the message on the console which tells the user where to go sign-in using
-       // a separate browser and the code to enter once they sign in.
-       // The AcquireTokenWithDeviceCode() method will poll the server after firing this
-       // device code callback to look for the successful login of the user via that browser.
-       // This background polling (whose interval and timeout data is also provided as fields in the
-       // deviceCodeCallback class) will occur until:
-       // * The user has successfully logged in via browser and entered the proper code
-       // * The timeout specified by the server for the lifetime of this code (typically ~15 minutes) has been reached
-       // * The developing application calls the Cancel() method on a CancellationToken sent into the method.
-       //   If this occurs, an OperationCanceledException will be thrown (see catch below for more details).
-       Console.WriteLine(deviceCodeResult.Message);
-       return Task.FromResult(0);
-  }).ExecuteAsync();
+private async Task<AuthenticationResult> AcquireByDeviceCodeAsync(IPublicClientApplication pca)
+{
+    try
+    {
+        var result = await pca.AcquireTokenWithDeviceCode(scopes,
+            deviceCodeResult =>
+            {
+                    // This will print the message on the console which tells the user where to go sign-in using 
+                    // a separate browser and the code to enter once they sign in.
+                    // The AcquireTokenWithDeviceCode() method will poll the server after firing this
+                    // device code callback to look for the successful login of the user via that browser.
+                    // This background polling (whose interval and timeout data is also provided as fields in the 
+                    // deviceCodeCallback class) will occur until:
+                    // * The user has successfully logged in via browser and entered the proper code
+                    // * The timeout specified by the server for the lifetime of this code (typically ~15 minutes) has been reached
+                    // * The developing application calls the Cancel() method on a CancellationToken sent into the method.
+                    //   If this occurs, an OperationCanceledException will be thrown (see catch below for more details).
+                    Console.WriteLine(deviceCodeResult.Message);
+                return Task.FromResult(0);
+            }).ExecuteAsync();
 
-  Console.WriteLine(result.Account.Username);
-  return result;
- }
- catch (MsalServiceException ex)
- {
-  // Kind of errors you could have (in ex.Message)
+        Console.WriteLine(result.Account.Username);
+        return result;
+    }
+    // TODO: handle or throw all these exceptions depending on your app
+    catch (MsalServiceException ex)
+    {
+        // Kind of errors you could have (in ex.Message)
 
-  // AADSTS50059: No tenant-identifying information found in either the request or implied by any provided credentials.
-  // Mitigation: as explained in the message from Azure AD, the authoriy needs to be tenanted. you have probably created
-  // your public client application with the following authorities:
-  // https://login.microsoftonline.com/common or https://login.microsoftonline.com/organizations
+        // AADSTS50059: No tenant-identifying information found in either the request or implied by any provided credentials.
+        // Mitigation: as explained in the message from Azure AD, the authoriy needs to be tenanted. you have probably created
+        // your public client application with the following authorities:
+        // https://login.microsoftonline.com/common or https://login.microsoftonline.com/organizations
 
-  // AADSTS90133: Device Code flow is not supported under /common or /consumers endpoint.
-  // Mitigation: as explained in the message from Azure AD, the authority needs to be tenanted
+        // AADSTS90133: Device Code flow is not supported under /common or /consumers endpoint.
+        // Mitigation: as explained in the message from Azure AD, the authority needs to be tenanted
 
-  // AADSTS90002: Tenant <tenantId or domain you used in the authority> not found. This may happen if there are
-  // no active subscriptions for the tenant. Check with your subscription administrator.
-  // Mitigation: if you have an active subscription for the tenant this might be that you have a typo in the
-  // tenantId (GUID) or tenant domain name.
- }
- catch (OperationCanceledException ex)
- {
-  // If you use a CancellationToken, and call the Cancel() method on it, then this may be triggered
-  // to indicate that the operation was cancelled.
-  // See https://docs.microsoft.com/dotnet/standard/threading/cancellation-in-managed-threads
-  // for more detailed information on how C# supports cancellation in managed threads.
- }
- catch (MsalClientException ex)
- {
-  // Verification code expired before contacting the server
-  // This exception will occur if the user does not manage to sign-in before a time out (15 mins) and the
-  // call to `AcquireTokenWithDeviceCode` is not cancelled in between
- }
+        // AADSTS90002: Tenant <tenantId or domain you used in the authority> not found. This may happen if there are 
+        // no active subscriptions for the tenant. Check with your subscription administrator.
+        // Mitigation: if you have an active subscription for the tenant this might be that you have a typo in the 
+        // tenantId (GUID) or tenant domain name.
+    }
+    catch (OperationCanceledException ex)
+    {
+        // If you use a CancellationToken, and call the Cancel() method on it, then this *may* be triggered
+        // to indicate that the operation was cancelled. 
+        // See https://docs.microsoft.com/dotnet/standard/threading/cancellation-in-managed-threads 
+        // for more detailed information on how C# supports cancellation in managed threads.
+    }
+    catch (MsalClientException ex)
+    {
+        // Possible cause - verification code expired before contacting the server
+        // This exception will occur if the user does not manage to sign-in before a time out (15 mins) and the
+        // call to `AcquireTokenWithDeviceCode` is not cancelled in between
+    }
 }
 ```
 

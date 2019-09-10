@@ -1,7 +1,7 @@
 ---
 title: 瞭解自動化 ML 結果
 titleSuffix: Azure Machine Learning service
-description: 瞭解如何針對每個自動化機器學習服務執行, 查看並瞭解其圖表和計量。
+description: 瞭解如何針對每個自動化機器學習服務執行，查看並瞭解其圖表和計量。
 services: machine-learning
 author: nilesha
 ms.author: nilesha
@@ -10,16 +10,16 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 ms.date: 07/22/2019
-ms.openlocfilehash: d626a7768e7070360a6f0249486bfa83407fe998
-ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
+ms.openlocfilehash: 60ecd71419bbf65cceab257cb97a96929d24ec08
+ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70192043"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70860554"
 ---
 # <a name="understand-automated-machine-learning-results"></a>瞭解自動化機器學習結果
 
-在本文中, 您將瞭解如何查看並瞭解每個自動化機器學習服務執行的圖表和計量。 
+在本文中，您將瞭解如何查看並瞭解每個自動化機器學習服務執行的圖表和計量。 
 
 深入了解：
 + [分類模型的計量、圖表和曲線](#classification)
@@ -30,38 +30,38 @@ ms.locfileid: "70192043"
 
 * Azure 訂用帳戶。 如果您沒有 Azure 訂用帳戶，請在開始前先建立一個免費帳戶。 立即試用[免費或付費版本的 Azure Machine Learning 服務](https://aka.ms/AMLFree)。
 
-* 使用 SDK 或 Azure 入口網站建立自動化機器學習實驗。
+* 在 Azure 入口網站或您的工作區登陸頁面（預覽）中，使用 SDK 建立自動化機器學習實驗。
 
     * 使用 SDK 來建立[分類模型](how-to-auto-train-remote.md)或[回歸模型](tutorial-auto-train-models.md)
-    * 藉由上傳適當的資料, 使用[Azure 入口網站](how-to-create-portal-experiments.md)來建立分類或回歸模型。
+    * 使用[Azure 入口網站或您的工作區登陸頁面（預覽）](how-to-create-portal-experiments.md) ，藉由上傳適當的資料來建立分類或回歸模型。
 
 ## <a name="view-the-run"></a>查看執行
 
-執行自動化機器學習實驗之後, 您可以在機器學習服務工作區中找到回合的歷程記錄。 
+執行自動化機器學習實驗之後，您可以在機器學習服務工作區中找到回合的歷程記錄。 
 
 1. 移至工作區。
 
-1. 在工作區的左面板中, 選取 [**實驗**]。
+1. 在工作區的左面板中，選取 [**實驗**]。
 
    ![實驗功能表的螢幕擷取畫面](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-experiment-menu.png)
 
-1. 在實驗清單中, 選取您想要探索的測試。
+1. 在實驗清單中，選取您想要探索的測試。
 
    [![實驗清單](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-experiment-list.png)](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-experiment-list-expanded.png)
 
-1. 在底部的資料表中, 選取 [**執行編號**]。
+1. 在底部的資料表中，選取 [**執行編號**]。
 
-   [實驗執行![ ](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-experiment-run.png)](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-experiment-run-expanded.png))
+   [實驗執行![ ](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-experiment-run.png)](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-experiment-run-expanded.png)）
 
-1. 在 [反覆運算] 資料表中, 選取您想要進一步探索之模型的**反復專案編號**。
+1. 在 [反覆運算] 資料表中，選取您想要進一步探索之模型的**反復專案編號**。
 
    [![實驗模型](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-experiment-model.png)](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-experiment-model-expanded.png)
 
-當您使用`RunDetails` [Jupyter widget](https://docs.microsoft.com/python/api/azureml-widgets/azureml.widgets?view=azure-ml-py)時, 您也會在執行期間看到這些相同的結果。
+當您使用`RunDetails` [Jupyter widget](https://docs.microsoft.com/python/api/azureml-widgets/azureml.widgets?view=azure-ml-py)時，您也會在執行期間看到這些相同的結果。
 
 ## <a name="classification"></a>分類結果
 
-您可以使用 Azure Machine Learning 的自動化機器學習功能, 針對您建立的每個分類模型提供下列計量和圖表三個
+您可以使用 Azure Machine Learning 的自動化機器學習功能，針對您建立的每個分類模型提供下列計量和圖表三個
 
 + [計量](#classification-metrics)
 + [混淆矩陣](#confusion-matrix)
@@ -79,30 +79,30 @@ ms.locfileid: "70192043"
 --|--|--|--|
 AUC_Macro| AUC 是「接收者作業特性曲線」下方的面積。 Macro 是每個類別 AUC 的算術平均值。  | [計算](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.roc_auc_score.html) | average="macro"|
 AUC_Micro| AUC 是「接收者作業特性曲線」下方的面積。 微的計算方式是將每個類別的真肯定和假陽性結合在一起。| [計算](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.roc_auc_score.html) | average="micro"|
-AUC_Weighted  | AUC 是「接收者作業特性曲線」下方的面積。 加權是每個類別的分數算術平均值, 以每個類別中 true 實例的數目加權。| [計算](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.roc_auc_score.html)|average="weighted"
+AUC_Weighted  | AUC 是「接收者作業特性曲線」下方的面積。 加權是每個類別的分數算術平均值，以每個類別中 true 實例的數目加權。| [計算](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.roc_auc_score.html)|average="weighted"
 精確度|精確度是完全符合 true 標籤的預測標籤百分比。 |[計算](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.accuracy_score.html) |None|
 average_precision_score_macro|Average precision 摘要出精確度-召回率曲線，為每個閾值到達的精確度加權平均值，並以上個閾值的召回率中的增值作為權重。 Macro 是每個類別之平均精確度分數的算術平均值。|[計算](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.average_precision_score.html)|average="macro"|
 average_precision_score_micro|Average precision 摘要出精確度-召回率曲線，為每個閾值到達的精確度加權平均值，並以上個閾值的召回率中的增值作為權重。 微的計算方式是在每個截止時結合真肯定和誤報。|[計算](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.average_precision_score.html)|average="micro"|
-average_precision_score_weighted|Average precision 摘要出精確度-召回率曲線，為每個閾值到達的精確度加權平均值，並以上個閾值的召回率中的增值作為權重。 加權是每個類別平均精確度分數的算術平均值, 以每個類別中 true 實例的數目加權。|[計算](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.average_precision_score.html)|average="weighted"|
+average_precision_score_weighted|Average precision 摘要出精確度-召回率曲線，為每個閾值到達的精確度加權平均值，並以上個閾值的召回率中的增值作為權重。 加權是每個類別平均精確度分數的算術平均值，以每個類別中 true 實例的數目加權。|[計算](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.average_precision_score.html)|average="weighted"|
 balanced_accuracy|Balanced accuracy 是每個類別其召回率的算術平均值。|[計算](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.recall_score.html)|average="macro"|
 f1_score_macro|F1 分數是精確度和召回率的調和平均數。 Macro 是每個類別的 F1 分數算術平均值。|[計算](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.f1_score.html)|average="macro"|
 f1_score_micro|F1 分數是精確度和召回率的調和平均數。 微運算是透過計算真肯定、誤否定和誤報的總計來計算。|[計算](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.f1_score.html)|average="micro"|
 f1_score_weighted|F1 分數是精確度和召回率的調和平均數。 以每個類別的 F1 分數其類別頻率將平均值加權|[計算](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.f1_score.html)|average="weighted"|
-log_loss|這是損失函數，用於 (多維度) 羅吉斯迴歸與其擴充功能中，例如類神經網路，如果有機率分類器的預測時，則定義為 true 標籤的負數對數似然比。 針對具有 true 標籤 yt {0,1}的單一範例, 以及 yt = 1 的估計機率 yp, 記錄遺失為-log P (yt&#124;yp) =-(yt log (yp) + (1-yt) log (1-yp))。|[計算](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.log_loss.html)|None|
-norm_macro_recall|Normalized Macro Recall 是正常化的 Macro Recall，因此隨機效能的分數為 0，完美效能的分數為 1。 這是由 norm_macro_recall: = (recall_score_macro-R)/(1-R) 所達成, 其中 R 是隨機預測的預期 recall_score_macro 值 (亦即二元分類的 R = 0.5 和 C 類別分類問題的 R = (1/C))。|[計算](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.recall_score.html)|average = "宏" |
+log_loss|這是損失函數，用於 (多維度) 羅吉斯迴歸與其擴充功能中，例如類神經網路，如果有機率分類器的預測時，則定義為 true 標籤的負數對數似然比。 針對具有 true 標籤 yt {0,1}的單一範例，以及 yt = 1 的估計機率 yp，記錄遺失為-log P （yt&#124;yp） =-（yt log （yp） + （1-yt） log （1-yp））。|[計算](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.log_loss.html)|None|
+norm_macro_recall|Normalized Macro Recall 是正常化的 Macro Recall，因此隨機效能的分數為 0，完美效能的分數為 1。 這是由 norm_macro_recall： = （recall_score_macro-R）/（1-R）所達成，其中 R 是隨機預測的預期 recall_score_macro 值（亦即二元分類的 R = 0.5 和 C 類別分類問題的 R = （1/C））。|[計算](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.recall_score.html)|average = "宏" |
 precision_score_macro|Precision 是標示為真正在該類別中特定類別的元素百分比。 Macro 是每個類別之精確度的算術平均值。|[計算](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.precision_score.html)|average="macro"|
 precision_score_micro|Precision 是標示為真正在該類別中特定類別的元素百分比。 微運算會藉由計算真肯定和誤報的總計來計算全域。|[計算](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.precision_score.html)|average="micro"|
-precision_score_weighted|Precision 是標示為真正在該類別中特定類別的元素百分比。 加權是每個類別的精確度算術平均值, 並依每個類別中的 true 實例數目加權。|[計算](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.precision_score.html)|average="weighted"|
+precision_score_weighted|Precision 是標示為真正在該類別中特定類別的元素百分比。 加權是每個類別的精確度算術平均值，並依每個類別中的 true 實例數目加權。|[計算](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.precision_score.html)|average="weighted"|
 recall_score_macro|Recall 是真正在已正確標示的特定類別中的元素百分比。 Macro 是每個類別的召回算術平均值。|[計算](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.recall_score.html)|average="macro"|
 recall_score_micro|Recall 是真正在已正確標示的特定類別中的元素百分比。 微運算會藉由計算真肯定、誤否定和誤報的總計來計算全域|[計算](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.recall_score.html)|average="micro"|
-recall_score_weighted|Recall 是真正在已正確標示的特定類別中的元素百分比。 加權是每個類別的召回算術平均值, 並依每個類別中的 true 實例數目加權。|[計算](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.recall_score.html)|average="weighted"|
-weighted_accuracy|加權精確度是精確度, 其中每個範例所提供的權數等於該範例的 true 類別中 true 實例的比例。|[計算](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.accuracy_score.html)|sample_weight 是一種向量，等於目標中每個元素為該類別的比例|
+recall_score_weighted|Recall 是真正在已正確標示的特定類別中的元素百分比。 加權是每個類別的召回算術平均值，並依每個類別中的 true 實例數目加權。|[計算](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.recall_score.html)|average="weighted"|
+weighted_accuracy|加權精確度是精確度，其中每個範例所提供的權數等於該範例的 true 類別中 true 實例的比例。|[計算](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.accuracy_score.html)|sample_weight 是一種向量，等於目標中每個元素為該類別的比例|
 
 ### <a name="confusion-matrix"></a>混淆矩陣
 
 混淆矩陣可用來說明分類模型的效能。 每一列都會顯示真值類別的執行個體，而每一行均代表預測類別的執行個體。 混淆矩陣會針對指定的模型來顯示分類正確的標籤和分類不正確的標籤。
 
-針對分類問題，Azure Machine Learning 會針對每個已建置的模型自動提供混淆矩陣。 針對每個混淆矩陣, 自動化 ML 會顯示每個預測標籤和每個實際標籤交集的頻率。 顏色愈深, 表示矩陣的特定部分中的計數愈高。 在理想的情況下, 最暗的色彩會沿著矩陣的對角線。 
+針對分類問題，Azure Machine Learning 會針對每個已建置的模型自動提供混淆矩陣。 針對每個混淆矩陣，自動化 ML 會顯示每個預測標籤和每個實際標籤交集的頻率。 顏色愈深，表示矩陣的特定部分中的計數愈高。 在理想的情況下，最暗的色彩會沿著矩陣的對角線。 
 
 範例 1：準確度很差的分類模型 ![準確度很差的分類模型](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-confusion-matrix1.png)
 
@@ -206,13 +206,13 @@ normalized_root_mean_squared_log_error|Noramlized Root mean squared log error (�
 
 ## <a name="explain-model"></a>模型 interpretability 和功能重要性
 
-功能重要性可讓您查看每項功能在模型的結構中有多重要。 預設會關閉此計算, 因為它可能會大幅增加執行時間。   您可以啟用所有模型的模型說明, 或僅說明最適合的模型。
+功能重要性可讓您查看每項功能在模型的結構中有多重要。 預設會關閉此計算，因為它可能會大幅增加執行時間。   您可以啟用所有模型的模型說明，或僅說明最適合的模型。
 
 您可以檢閱整個模型以及預測模型上每個類別的特徵重要性分數。 您可以查看每個特徵的重要性如何針對每個類別及整體進行比較。
 
 ![特徵說明能力](./media/how-to-understand-automated-ml/feature-importance.gif)
 
-如需啟用 interpretability 功能的詳細資訊, 請參閱[在 Python 中設定自動化 ML 實驗](how-to-configure-auto-train.md#explain-the-model-interpretability)。  如需說明最佳模型的範例, 請參閱[最佳模型說明](how-to-auto-train-remote.md#explain)。
+如需啟用 interpretability 功能的詳細資訊，請參閱[在 Python 中設定自動化 ML 實驗](how-to-configure-auto-train.md#explain-the-model-interpretability)。  如需說明最佳模型的範例，請參閱[最佳模型說明](how-to-auto-train-remote.md#explain)。
 
 ## <a name="next-steps"></a>後續步驟
 

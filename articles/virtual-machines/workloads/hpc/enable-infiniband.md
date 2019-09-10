@@ -1,6 +1,6 @@
 ---
-title: 啟用與 SR-IOV-Azure 虛擬機器的 InifinBand |Microsoft Docs
-description: 了解如何啟用與 SR-IOV InfiniBand。
+title: 使用 SR-IOV 啟用 InifinBand-Azure 虛擬機器 |Microsoft Docs
+description: 瞭解如何使用 SR-IOV 來啟用不限。
 services: virtual-machines
 documentationcenter: ''
 author: vermagit
@@ -12,25 +12,25 @@ ms.workload: infrastructure-services
 ms.topic: article
 ms.date: 05/15/2019
 ms.author: amverma
-ms.openlocfilehash: 2e28627359f339a3bf818a15d6a5c8e456fb554a
-ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
+ms.openlocfilehash: 7218fceae71969f204c6c25ba4793a7c94341693
+ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67797532"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70858478"
 ---
-# <a name="enable-infiniband-with-sr-iov"></a>啟用與 SR-IOV 的 InfiniBand
+# <a name="enable-infiniband-with-sr-iov"></a>使用 SR-IOV 啟用不限
 
-設定您的自訂 VM 映像使用 InfiniBand (IB) 的最簡單且建議的方式是將 InfiniBandDriverLinux 或 InfiniBandDriverWindows VM 擴充功能新增至您的部署。
-了解如何使用這些 VM 延伸模組[Linux](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-hpc#rdma-capable-instances)和[Windows](https://docs.microsoft.com/azure/virtual-machines/windows/sizes-hpc#rdma-capable-instances)
+開始使用適用于 HPC 的 IaaS Vm 最簡單且建議的方式是使用 CentOS-HPC 7.6 VM OS 映射。 如果使用您的自訂 VM 映射，使用「不限」（IB）來設定它的最簡單方式，就是將 InfiniBandDriverLinux 或 InfiniBandDriverWindows VM 擴充功能新增至您的部署。
+瞭解如何搭配[Linux](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-hpc#rdma-capable-instances)和[WINDOWS](https://docs.microsoft.com/azure/virtual-machines/windows/sizes-hpc#rdma-capable-instances)使用這些 VM 擴充功能
 
-若要手動設定需 SR-IOV 的 InfiniBand 已啟用虛擬機器 （目前 HB 和 HC 系列），請遵循下列步驟。 上述步驟只適用於 RHEL/CentOS。 適用於 Ubuntu （16.04 和 18.04） 及 SLES （12 SP4 和 15），收件匣驅動程式會正常運作。
+若要在已啟用 SR-IOV 的 Vm （目前為 HB 和 HC 系列）上手動設定「無法執行」，請遵循下列步驟。 這些步驟僅適用于 RHEL/CentOS。 對於 Ubuntu （16.04 和18.04）和 SLES （12 SP4 和15），收件匣驅動程式會運作良好。
 
 ## <a name="manually-install-ofed"></a>手動安裝 OFED
 
-安裝最新的 MLNX_OFED 驅動程式從 ConnectX-5 [Mellanox](https://www.mellanox.com/page/products_dyn?product_family=26)。
+從[Mellanox](https://www.mellanox.com/page/products_dyn?product_family=26)安裝適用于 ConnectX-5 的最新 MLNX_OFED 驅動程式。
 
-RHEL/centos （例如，以下為 7.6）：
+適用于 RHEL/CentOS （以下為7.6 的範例）：
 
 ```bash
 sudo yum install -y kernel-devel python-devel
@@ -41,7 +41,7 @@ tar zxvf MLNX_OFED_LINUX-4.5-1.0.1.0-rhel7.6-x86_64.tgz
 sudo ./MLNX_OFED_LINUX-4.5-1.0.1.0-rhel7.6-x86_64/mlnxofedinstall --add-kernel-support
 ```
 
-對於 Windows，下載並安裝 WinOF 2 驅動 ConnectX 到 5 [Mellanox](https://www.mellanox.com/page/products_dyn?product_family=32&menu_section=34)
+若是 Windows，請從[Mellanox](https://www.mellanox.com/page/products_dyn?product_family=32&menu_section=34)下載並安裝適用于 ConnectX-5 的 WinOF-2 驅動程式
 
 ## <a name="enable-ipoib"></a>啟用 IPoIB
 
@@ -57,17 +57,17 @@ fi
 
 ## <a name="assign-an-ip-address"></a>指派 IP 位址
 
-將 IP 位址指派給 ib0 介面，使用：
+使用下列其中一種方式，將 IP 位址指派給 ib0 介面：
 
-- 以手動方式指派 IP 位址給 ib0 介面 （以 root 身分）。
+- 以手動方式將 IP 位址指派給 ib0 介面（以 root 身分）。
 
     ```bash
     ifconfig ib0 $(sed '/rdmaIPv4Address=/!d;s/.*rdmaIPv4Address="\([0-9.]*\)".*/\1/' /var/lib/waagent/SharedConfig.xml)/16
     ```
 
-或
+OR
 
-- 使用 WALinuxAgent 指派 IP 位址，並將其保存。
+- 使用 WALinuxAgent 來指派 IP 位址，並將它保存。
 
     ```bash
     yum install -y epel-release
@@ -84,4 +84,4 @@ fi
 
 ## <a name="next-steps"></a>後續步驟
 
-深入了解[HPC](https://docs.microsoft.com/azure/architecture/topics/high-performance-computing/)在 Azure 上。
+深入瞭解 Azure 上的[HPC](https://docs.microsoft.com/azure/architecture/topics/high-performance-computing/) 。

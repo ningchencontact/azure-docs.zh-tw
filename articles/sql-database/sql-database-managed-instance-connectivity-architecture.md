@@ -11,12 +11,12 @@ author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: sstein, bonova, carlrab
 ms.date: 04/16/2019
-ms.openlocfilehash: aac328806e2570bd124626e916c250d481a11311
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: d539bd569eee613eb43947e5fd0e3b0614ca5d79
+ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68567596"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70858614"
 ---
 # <a name="connectivity-architecture-for-a-managed-instance-in-azure-sql-database"></a>Azure SQL Database 中受控實例的連線架構
 
@@ -96,7 +96,7 @@ Microsoft 會使用管理端點來管理受控實例。 此端點位於實例的
 
 ### <a name="mandatory-inbound-security-rules"></a>必要輸入安全性規則
 
-| 名稱       |連接埠                        |Protocol|Source           |目的地|Action|
+| Name       |連接埠                        |Protocol|Source           |目的地|Action|
 |------------|----------------------------|--------|-----------------|-----------|------|
 |管理  |9000、9003、1438、1440、1452|TCP     |Any              |MI SUBNET  |允許 |
 |mi_subnet   |Any                         |Any     |MI SUBNET        |MI SUBNET  |允許 |
@@ -104,7 +104,7 @@ Microsoft 會使用管理端點來管理受控實例。 此端點位於實例的
 
 ### <a name="mandatory-outbound-security-rules"></a>必要輸出安全性規則
 
-| 名稱       |連接埠          |Protocol|Source           |目的地|Action|
+| Name       |連接埠          |Protocol|Source           |目的地|Action|
 |------------|--------------|--------|-----------------|-----------|------|
 |管理  |80、443、12000|TCP     |MI SUBNET        |AzureCloud |允許 |
 |mi_subnet   |Any           |Any     |MI SUBNET        |MI SUBNET  |允許 |
@@ -121,7 +121,7 @@ Microsoft 會使用管理端點來管理受控實例。 此端點位於實例的
 
 ### <a name="user-defined-routes"></a>使用者定義的路由
 
-|名稱|位址首碼|下一個躍點|
+|Name|位址首碼|下一個躍點|
 |----|--------------|-------|
 |subnet_to_vnetlocal|MI SUBNET|虛擬網路|
 |mi-13-64-11-nexthop-internet|13.64.0.0/11|網際網路|
@@ -238,4 +238,4 @@ Microsoft 會使用管理端點來管理受控實例。 此端點位於實例的
   - 從 [Azure 入口網站](sql-database-managed-instance-get-started.md)。
   - 使用[PowerShell](scripts/sql-database-create-configure-managed-instance-powershell.md)。
   - 藉由使用[Azure Resource Manager 範本](https://azure.microsoft.com/resources/templates/101-sqlmi-new-vnet/)。
-  - 藉由使用[Azure Resource Manager 範本 (使用 JumpBox, 隨附 SSMS)](https://portal.azure.com/)。 
+  - 藉由使用[Azure Resource Manager 範本 (使用 JumpBox, 隨附 SSMS)](https://azure.microsoft.com/en-us/resources/templates/201-sqlmi-new-vnet-w-jumpbox/)。 

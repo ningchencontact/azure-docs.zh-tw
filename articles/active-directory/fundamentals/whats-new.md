@@ -16,12 +16,12 @@ ms.author: lizross
 ms.reviewer: dhanyahk
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 197df5c5467a9cea9a76c888569752ed2576d2d2
-ms.sourcegitcommit: aebe5a10fa828733bbfb95296d400f4bc579533c
+ms.openlocfilehash: e6bb926aeab4f88f2d41c578ae3962737df7b2f3
+ms.sourcegitcommit: 23389df08a9f4cab1f3bb0f474c0e5ba31923f12
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/05/2019
-ms.locfileid: "70375751"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70872857"
 ---
 # <a name="whats-new-in-azure-active-directory"></a>Azure Active Directory 的新增功能？
 
@@ -41,7 +41,7 @@ Azure AD 會持續不斷進行改進。 為了讓您隨時掌握最新的開發�
 
 ## <a name="august-2019"></a>2019 年 8 月
 
-### <a name="plan-for-change-deprecation-of-the-power-bi-content-packs"></a>規劃變更：取代 Power BI 內容套件
+### <a name="plan-for-change-deprecation-of-the-power-bi-content-packs"></a>規劃變更:取代 Power BI 內容套件
 
 **類型：** 針對變更做規劃  
 **服務類別：** 報表  
@@ -50,6 +50,23 @@ Azure AD 會持續不斷進行改進。 為了讓您隨時掌握最新的開發�
 從2019年10月1日開始，Power BI 將開始取代所有內容套件，包括 Azure AD Power BI 內容套件。 除了此內容套件之外，您還可以使用 Azure AD 活頁簿，深入瞭解您的 Azure AD 相關服務。 其他活頁簿即將推出，包括有關僅限報表模式中的條件式存取原則、以應用程式同意為基礎的深入解析等等的活頁簿。
 
 如需活頁簿的詳細資訊，請參閱[如何使用 Azure Active Directory 報表的 Azure 監視器活頁簿](https://docs.microsoft.com/azure/active-directory/reports-monitoring/howto-use-azure-monitor-workbooks)。 如需有關取代內容套件的詳細資訊，請參閱[宣佈 Power BI 範本應用程式正式](https://powerbi.microsoft.com/blog/announcing-power-bi-template-apps-general-availability/)運作的 blog 文章。
+
+---
+
+### <a name="enhanced-search-filtering-and-sorting-for-groups-is-available-in-the-azure-ad-portal-public-preview"></a>群組的增強搜尋、篩選和排序功能可在 Azure AD 入口網站中取得（公開預覽）
+
+**類型：** 新功能  
+**服務類別：** 群組管理  
+**產品功能：** 協同合作
+
+我們很高興能在 Azure AD 入口網站中宣佈增強群組相關體驗的公開預覽可用性。 這些增強功能可協助您更有效地管理群組和成員清單，方法是提供：
+
+- 先進的搜尋功能，例如 [群組] 清單上的 [子字串搜尋]。
+- 成員和擁有者清單上的先進篩選和排序選項。
+- 成員和擁有者清單的新搜尋功能。
+- 較精確的群組計數適用于大型群組。
+
+如需詳細資訊，請參閱[管理 Azure 入口網站中的群組](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-groups-members-azure-portal?context=azure/active-directory/users-groups-roles/context/ugr-context)。
 
 ---
 
@@ -170,7 +187,7 @@ AzureAD 和 AzureAD Preview PowerShell 模組的新更新可供使用：
 
 ---
 
-### <a name="improvements-to-the-ui-of-the-dynamic-group-rule-builder-in-the-azure-portal"></a>Azure 入口網站中動態群組規則產生器的 UI 改良功能
+### <a name="improvements-to-the-ui-of-the-dynamic-group-rule-builder-in-the-azure-portal"></a>Azure 入口網站中動態群組規則產生器的 UI 改善
 
 **類型：** 已變更的功能  
 **服務類別：** 群組管理  
@@ -249,7 +266,7 @@ AzureAD 和 AzureAD Preview PowerShell 模組的新更新可供使用：
 
 ## <a name="july-2019"></a>2019年7月
 
-### <a name="plan-for-change-application-proxy-service-update-to-support-only-tls-12"></a>規劃變更：僅支援 TLS 1.2 的應用程式 Proxy 服務更新
+### <a name="plan-for-change-application-proxy-service-update-to-support-only-tls-12"></a>規劃變更:僅支援 TLS 1.2 的應用程式 Proxy 服務更新
 
 **類型：** 針對變更做規劃  
 **服務類別：** 應用程式 Proxy  
@@ -263,7 +280,7 @@ AzureAD 和 AzureAD Preview PowerShell 模組的新更新可供使用：
 
 ---
 
-### <a name="plan-for-change-design-updates-are-coming-for-the-application-gallery"></a>規劃變更：應用程式資源庫的設計更新即將推出
+### <a name="plan-for-change-design-updates-are-coming-for-the-application-gallery"></a>規劃變更:應用程式資源庫的設計更新即將推出
 
 **類型：** 針對變更做規劃  
 **服務類別：** 企業應用程式  
@@ -273,7 +290,7 @@ AzureAD 和 AzureAD Preview PowerShell 模組的新更新可供使用：
 
 ---
 
-### <a name="plan-for-change-removal-of-the-mfa-server-ip-address-from-the-office-365-ip-address"></a>規劃變更：從 Office 365 IP 位址移除 MFA server IP 位址
+### <a name="plan-for-change-removal-of-the-mfa-server-ip-address-from-the-office-365-ip-address"></a>規劃變更:從 Office 365 IP 位址移除 MFA server IP 位址
 
 **類型：** 針對變更做規劃  
 **服務類別：** MFA  

@@ -10,12 +10,12 @@ ms.author: larryfr
 author: Blackmist
 ms.date: 07/12/2019
 ms.custom: seodec18
-ms.openlocfilehash: b7cb4f1a106d8caa2c43f5f17c5efa16a3ee6df2
-ms.sourcegitcommit: dcf3e03ef228fcbdaf0c83ae1ec2ba996a4b1892
+ms.openlocfilehash: 4e953ad732852f9ee99c7830997e2d1dc29b8f84
+ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "70011635"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70845002"
 ---
 # <a name="how-azure-machine-learning-service-works-architecture-and-concepts"></a>Azure Machine Learning 服務的運作方式：架構和概念
 
@@ -75,13 +75,13 @@ ms.locfileid: "70011635"
 
 ### <a name="workspaces"></a>工作區
 
-[工作區](concept-workspace.md)是 Azure Machine Learning 服務的最上層資源。 它可以在您使用 Azure Machine Learning 服務時，提供集中式位置以處理您建立的所有成品。 您可以與其他人共用工作區。 如需工作區的詳細說明, 請參閱[什麼是 Azure Machine Learning 的工作區？](concept-workspace.md)。
+[工作區](concept-workspace.md)是 Azure Machine Learning 服務的最上層資源。 它可以在您使用 Azure Machine Learning 服務時，提供集中式位置以處理您建立的所有成品。 您可以與其他人共用工作區。 如需工作區的詳細說明，請參閱[什麼是 Azure Machine Learning 的工作區？](concept-workspace.md)。
 
 ### <a name="experiments"></a>實驗
 
 實驗是從指定之指令碼的許多回合組成的群組。 它一律屬於某個工作區。 當您提交回合時，必須提供一個實驗名稱。 回合的資訊會儲存在該實驗底下。 如果提交回合並指定不存在的實驗名稱，就會自動以新指定的名稱建立一個新的實驗。
 
-如需使用實驗的範例, 請參閱[教學課程:訓練您的第](tutorial-1st-experiment-sdk-train.md)一個模型。
+如需使用實驗的範例，請參閱[教學課程：訓練您的第](tutorial-1st-experiment-sdk-train.md)一個模型。
 
 ### <a name="models"></a>模型
 
@@ -91,7 +91,7 @@ ms.locfileid: "70011635"
 
 Azure Machine Learning 服務與架構無關。 當您建立模型時, 您可以使用任何熱門的機器學習架構, 例如 Scikit-learn-learning、XGBoost、PyTorch、TensorFlow 和 Chainer。
 
-如需使用 scikit-learn-學習和估計工具訓練模型的範例, 請參閱[教學課程:使用 Azure Machine Learning 服務將映像分類模型定型](tutorial-train-models-with-aml.md)。
+如需使用 scikit-learn-學習和估計工具訓練模型的範例，請參閱[教學課程：使用 Azure Machine Learning 服務將映像分類模型定型](tutorial-train-models-with-aml.md)。
 
 **模型**登錄會持續追蹤 Azure Machine Learning 服務工作區中的所有模型。
 
@@ -116,22 +116,22 @@ Azure Machine Learning 服務與架構無關。 當您建立模型時, 您可以
 
 ### <a name="estimators"></a>估算器
 
-為了利用熱門架構來加速模型定型, 估計工具類別可讓您輕鬆地建立執行設定。 您可以建立並使用泛型[估計工具](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.estimator?view=azure-ml-py)來提交訓練腳本, 以使用您選擇的任何學習架構 (例如 scikit-learn)。
+為了利用熱門架構來加速模型定型，估計工具類別可讓您輕鬆地建立執行設定。 您可以建立並使用泛型[估計工具](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.estimator?view=azure-ml-py)來提交訓練腳本，以使用您選擇的任何學習架構（例如 scikit-learn）。
 
-對於 PyTorch、TensorFlow 和 Chainer 工作, Azure Machine Learning 也會提供個別的[PyTorch](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.pytorch?view=azure-ml-py)、 [TensorFlow](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.tensorflow?view=azure-ml-py)和[Chainer](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.chainer?view=azure-ml-py)估算器, 以簡化使用這些架構的作業。
+對於 PyTorch、TensorFlow 和 Chainer 工作，Azure Machine Learning 也會提供個別的[PyTorch](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.pytorch?view=azure-ml-py)、 [TensorFlow](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.tensorflow?view=azure-ml-py)和[Chainer](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.chainer?view=azure-ml-py)估算器，以簡化使用這些架構的作業。
 
 如需詳細資訊，請參閱下列文章：
 
 * [使用估算器將 ML 模型定型](how-to-train-ml-models.md)。
-* [使用 Azure Machine Learning, 大規模地訓練 Pytorch 深度學習模型](how-to-train-pytorch.md)。
-* [使用 Azure Machine Learning 服務, 大規模地定型和註冊 TensorFlow 模型](how-to-train-tensorflow.md)。
-* [使用 Azure Machine Learning 服務, 大規模地定型和註冊 Chainer 模型](how-to-train-chainer.md)。
+* [使用 Azure Machine Learning，大規模地訓練 Pytorch 深度學習模型](how-to-train-pytorch.md)。
+* [使用 Azure Machine Learning 服務，大規模地定型和註冊 TensorFlow 模型](how-to-train-tensorflow.md)。
+* [使用 Azure Machine Learning 服務，大規模地定型和註冊 Chainer 模型](how-to-train-chainer.md)。
 
 ### <a name="datasets-and-datastores"></a>資料集和資料存放區
 
-**Azure Machine Learning 資料集**(預覽) 可讓您更輕鬆地存取和使用您的資料。 資料集會管理各種案例中的資料, 例如模型定型和管線建立。 使用 Azure Machine Learning SDK, 您可以存取基礎儲存體、流覽和準備資料、管理不同資料集定義的生命週期, 以及比較定型和生產環境中使用的資料集。
+**Azure Machine Learning 資料集**(預覽) 可讓您更輕鬆地存取和使用您的資料。 資料集會管理各種案例中的資料, 例如模型定型和管線建立。 使用 Azure Machine Learning SDK，您可以存取基礎儲存體、流覽資料，以及管理不同資料集定義的生命週期。
 
-資料集提供使用常用格式的資料 (例如使用`from_delimited_files()`或`to_pandas_dataframe()`) 的方法。
+資料集提供使用常用格式的資料（例如使用`from_delimited_files()`或`to_pandas_dataframe()`）的方法。
 
 如需詳細資訊, 請參閱[建立和註冊 Azure Machine Learning 資料集](how-to-create-register-datasets.md)。  如需使用資料集的更多範例, 請參閱[範例筆記本](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/work-with-data/datasets)。
 
@@ -151,7 +151,7 @@ Azure Machine Learning 服務與架構無關。 當您建立模型時, 您可以
 
 ### <a name="runs"></a>回合數
 
-「執行」是一次訓練腳本的回合。 Azure Machine Learning 會記錄所有執行, 並儲存下列資訊:
+「執行」是一次訓練腳本的回合。 Azure Machine Learning 會記錄所有執行，並儲存下列資訊：
 
 * 與回合有關的中繼資料 (時間戳記、持續時間等等)
 * 由您的指令碼記錄的計量
@@ -229,7 +229,7 @@ Azure IoT Edge 會確保模組正在執行，並監視裝載模組的裝置。
 
 您可以使用機器學習管線來建立和管理結合多個機器學習階段的工作流程。 例如, 管線可能包括資料準備、模型定型、模型部署, 以及推斷/計分階段。 每個階段都可以包含多個步驟，這些步驟各自都可以在各種計算目標中自動執行。 
 
-管線步驟是可重複使用的, 如果該步驟的輸出未變更, 則可以執行, 而不需要重新執行後續步驟。 例如, 如果資料尚未變更, 您可以重新定型模型, 而不需要重新執行昂貴的資料準備步驟。 管線也可讓資料科學家在機器學習工作流程的不同區域上共同作業。
+管線步驟是可重複使用的，如果該步驟的輸出未變更，則可以執行，而不需要重新執行後續步驟。 例如，如果資料尚未變更，您可以重新定型模型，而不需要重新執行昂貴的資料準備步驟。 管線也可讓資料科學家在機器學習工作流程的不同區域上共同作業。
 
 如需有關機器學習管線與此服務的詳細資訊，請參閱[管線和 Azure Machine Learning](concept-ml-pipelines.md)。
 

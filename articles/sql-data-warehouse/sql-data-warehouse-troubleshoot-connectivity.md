@@ -10,12 +10,12 @@ ms.subservice: supportability
 ms.date: 03/27/2019
 ms.author: anjangsh
 ms.reviewer: igorstan
-ms.openlocfilehash: 290753b866f15e09a52572fdd7a43a60fc2812d6
-ms.sourcegitcommit: 5ded08785546f4a687c2f76b2b871bbe802e7dae
+ms.openlocfilehash: ebdeaf21253e89a9a14e3a56ca7be0f6e8adceb0
+ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69575554"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70859223"
 ---
 # <a name="troubleshooting-connectivity-issues"></a>對連線問題進行疑難排解
 
@@ -31,51 +31,51 @@ ms.locfileid: "69575554"
 
 ## <a name="check-service-availability"></a>檢查服務可用性
 
-查看服務是否可用。 在 Azure 入口網站中, 移至您嘗試連接的 SQL 資料倉儲。 在左側目錄面板中, 按一下 [**診斷並解決問題**]。
+查看服務是否可用。 在 Azure 入口網站中，移至您嘗試連接的 SQL 資料倉儲。 在左側目錄面板中，按一下 [**診斷並解決問題**]。
 
 ![選取資源健康狀態](./media/sql-data-warehouse-troubleshoot-connectivity/diagnostics-link.png)
 
-SQL 資料倉儲的狀態會顯示在這裡。 如果服務未顯示為 [**可用**], 請查看進一步的步驟。
+SQL 資料倉儲的狀態會顯示在這裡。 如果服務未顯示為 [**可用**]，請查看進一步的步驟。
 
 ![可用的服務](./media/sql-data-warehouse-troubleshoot-connectivity/resource-health.png)
 
-如果您的資源健康狀態顯示您的資料倉儲已暫停或調整, 請遵循指引來繼續資料倉儲。
+如果您的資源健康狀態顯示您的資料倉儲已暫停或調整，請遵循指引來繼續資料倉儲。
 
-![服務已](./media/sql-data-warehouse-troubleshoot-connectivity/resource-health-pausing.png)暫停有關資源健康狀態的其他資訊, 可在這裡找到。
+![服務已](./media/sql-data-warehouse-troubleshoot-connectivity/resource-health-pausing.png)暫停有關資源健康狀態的其他資訊，可在這裡找到。
 
 ## <a name="check-for-paused-or-scaling-operation"></a>檢查已暫停或調整作業
 
-檢查入口網站, 查看您的 SQL 資料倉儲是否已暫停或調整。
+檢查入口網站，查看您的 SQL 資料倉儲是否已暫停或調整。
 
 ![服務已暫停](./media/sql-data-warehouse-troubleshoot-connectivity/overview-paused.png)
 
-如果您看到您的服務已暫停或調整, 請檢查它是否不在維護排程期間。 在您的 SQL 資料倉儲*總覽*的入口網站上, 您會看到已選擇的維護排程。
+如果您看到您的服務已暫停或調整，請檢查它是否不在維護排程期間。 在您的 SQL 資料倉儲*總覽*的入口網站上，您會看到已選擇的維護排程。
 
 ![總覽維護排程](./media/sql-data-warehouse-troubleshoot-connectivity/overview-maintance-schedule.png)
 
-否則, 請洽詢您的 IT 系統管理員, 確認此維護不是已排程的事件。 若要繼續 SQL 資料倉儲, 請遵循[這裡](https://docs.microsoft.com/azure/sql-data-warehouse/pause-and-resume-compute-portal#resume-compute)所述的步驟。
+否則，請洽詢您的 IT 系統管理員，確認此維護不是已排程的事件。 若要繼續 SQL 資料倉儲，請遵循[這裡](https://docs.microsoft.com/azure/sql-data-warehouse/pause-and-resume-compute-portal#resume-compute)所述的步驟。
 
 ## <a name="check-your-firewall-settings"></a>檢查您的防火牆設定
 
-SQL 資料倉儲會透過連接埠 1433 通訊。   如果您嘗試從公司網路內進行連線，您網路的防火牆可能不允許透過連接埠 1433 的輸出流量。 在此情況下, 除非您的 IT 部門開啟埠 1433, 否則您無法連線到您的 Azure SQL Database 伺服器。 如需防火牆設定的詳細資訊, 請參閱[這裡](https://docs.microsoft.com/azure/sql-database/sql-database-firewall-configure#manage-server-level-ip-firewall-rules-using-the-azure-portal)。
+SQL 資料倉儲會透過連接埠 1433 通訊。   如果您嘗試從公司網路內進行連線，您網路的防火牆可能不允許透過連接埠 1433 的輸出流量。 在此情況下，除非您的 IT 部門開啟埠1433，否則您無法連線到您的 Azure SQL Database 伺服器。 如需防火牆設定的詳細資訊，請參閱[這裡](https://docs.microsoft.com/azure/sql-database/sql-database-firewall-configure#create-and-manage-ip-firewall-rules)。
 
 ## <a name="check-your-vnetservice-endpoint-settings"></a>檢查您的 VNet/服務端點設定
 
-如果您收到錯誤40914和 40615, 請參閱[這裡的錯誤描述和解決](https://docs.microsoft.com/azure/sql-database/sql-database-vnet-service-endpoint-rule-overview?toc=/azure/sql-data-warehouse/toc.json#errors-40914-and-40615)方式。
+如果您收到錯誤40914和40615，請參閱[這裡的錯誤描述和解決](https://docs.microsoft.com/azure/sql-database/sql-database-vnet-service-endpoint-rule-overview?toc=/azure/sql-data-warehouse/toc.json#errors-40914-and-40615)方式。
 
 ## <a name="check-for-the-latest-drivers"></a>檢查最新的驅動程式
 
 ### <a name="software"></a>軟體
 
-請檢查以確定您使用的是最新的工具來連接到您的 SQL 資料倉儲:
+請檢查以確定您使用的是最新的工具來連接到您的 SQL 資料倉儲：
 
 * SSMS
 * Azure Data Studio
-* SQL Server Data Tools (Visual Studio)
+* SQL Server Data Tools （Visual Studio）
 
 ### <a name="drivers"></a>驅動程式
 
-請檢查以確定您使用的是最新的驅動程式版本。  使用較舊版本的驅動程式可能會導致非預期的行為, 因為較舊的驅動程式可能不支援新的功能。
+請檢查以確定您使用的是最新的驅動程式版本。  使用較舊版本的驅動程式可能會導致非預期的行為，因為較舊的驅動程式可能不支援新的功能。
 
 * [ODBC](https://docs.microsoft.com/sql/connect/odbc/download-odbc-driver-for-sql-server)
 * [JDBC](https://docs.microsoft.com/sql/connect/jdbc/download-microsoft-jdbc-driver-for-sql-server)
@@ -112,11 +112,11 @@ jdbc:sqlserver://yourserver.database.windows.net:1433;database=yourdatabase;user
 
 ## <a name="intermittent-connection-issues"></a>間歇連接問題
 
-檢查是否有大量的佇列要求在伺服器上遇到繁重的負載。 您可能需要相應增加您的資料倉儲, 以取得其他資源。
+檢查是否有大量的佇列要求在伺服器上遇到繁重的負載。 您可能需要相應增加您的資料倉儲，以取得其他資源。
 
 ## <a name="common-error-messages"></a>常見的錯誤訊息
 
-錯誤40914和 40615, 請參閱[這裡的錯誤描述和解決方法](https://docs.microsoft.com/azure/sql-database/sql-database-vnet-service-endpoint-rule-overview?toc=/azure/sql-data-warehouse/toc.json#errors-40914-and-40615)。
+錯誤40914和40615，請參閱[這裡的錯誤描述和解決方法](https://docs.microsoft.com/azure/sql-database/sql-database-vnet-service-endpoint-rule-overview?toc=/azure/sql-data-warehouse/toc.json#errors-40914-and-40615)。
 
 ## <a name="still-having-connectivity-issues"></a>仍然有連線問題嗎？
-建立[支援票證](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-get-started-create-support-ticket), 讓工程小組能夠支援您。
+建立[支援票證](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-get-started-create-support-ticket)，讓工程小組能夠支援您。

@@ -1,5 +1,5 @@
 ---
-title: 使用 Azure CLI 來建立工作區
+title: 使用 Azure CLI 建立工作區
 titleSuffix: Azure Machine Learning service
 description: 瞭解如何使用 Azure CLI 建立新的 Azure Machine Learning 服務工作區。
 services: machine-learning
@@ -9,14 +9,14 @@ ms.topic: conceptual
 ms.author: larryfr
 author: Blackmist
 ms.date: 08/30/2019
-ms.openlocfilehash: 1213e9bc3b27b8d5f6f6ef93b6eefa5a8c32be57
-ms.sourcegitcommit: 88ae4396fec7ea56011f896a7c7c79af867c90a1
+ms.openlocfilehash: f398eb8124f45562ebc3c4238c641a6638811394
+ms.sourcegitcommit: 23389df08a9f4cab1f3bb0f474c0e5ba31923f12
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70392671"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70873491"
 ---
-# <a name="use-an-azure-resource-manager-template-to-create-a-workspace-for-azure-machine-learning-service"></a>使用 Azure Resource Manager 範本來建立 Azure Machine Learning 服務的工作區
+# <a name="create-a-workspace-for-azure-machine-learning-service-with-azure-cli"></a>使用 Azure CLI 建立 Azure Machine Learning 服務的工作區
 
 在本文中，您將瞭解如何使用 Azure CLI 建立 Azure Machine Learning 服務工作區。 Azure CLI 提供用來管理 Azure 資源的命令。 CLI 的機器學習擴充功能會提供命令，以使用 Azure Machine Learning 服務資源。
 

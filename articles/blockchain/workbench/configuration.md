@@ -1,21 +1,21 @@
 ---
 title: Azure Blockchain Workbench 組態參考
-description: Azure Blockchain Workbench 應用程式組態概觀。
+description: Azure Blockchain Workbench 預覽應用程式設定總覽。
 services: azure-blockchain
 keywords: ''
 author: PatAltimore
 ms.author: patricka
-ms.date: 04/15/2019
+ms.date: 09/05/2019
 ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: brendal
 manager: femila
-ms.openlocfilehash: 4d29d8e86a30f105c4aa50ec9615f8165fa238d3
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 1c737106b47b95fcc6d1abdadc81398a3bc9256d
+ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60578975"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70845109"
 ---
 # <a name="azure-blockchain-workbench-configuration-reference"></a>Azure Blockchain Workbench 組態參考
 
@@ -42,7 +42,7 @@ Azure Blockchain Workbench 應用程式是以組態中繼資料和智慧合約�
 | 欄位 | Description | 必要項 |
 |-------|-------------|:--------:|
 | ApplicationName | 唯一的應用程式名稱。 對應的智慧合約必須針對適用的合約類別使用相同的 **ApplicationName**。  | 是 |
-| DisplayName | 應用程式的易記顯示名稱。 | 是 |
+| 顯示名稱 | 應用程式的易記顯示名稱。 | 是 |
 | Description | 應用程式的說明。 | 否 |
 | ApplicationRoles | [ApplicationRoles](#application-roles) 的集合。 可在應用程式中採取行動或參與的使用者角色。  | 是 |
 | Workflows | [工作流程](#workflows)的集合。 每個工作流程都可作為狀態機器以控制商務邏輯的流程。 | 是 |
@@ -56,7 +56,7 @@ Azure Blockchain Workbench 應用程式是以組態中繼資料和智慧合約�
 | 欄位 | Description | 必要項 | 最大長度 |
 |-------|-------------|:--------:|-----------:|
 | Name | 唯一的工作流程名稱。 對應的智慧合約必須針對適用的合約類別使用相同的**名稱**。 | 是 | 50 |
-| DisplayName | 工作流程的易記顯示名稱。 | 是 | 255 |
+| 顯示名稱 | 工作流程的易記顯示名稱。 | 是 | 255 |
 | Description | 工作流程的說明。 | 否 | 255 |
 | Initiators | [ApplicationRoles](#application-roles) 的集合。 對已獲授權可在工作流程中建立合約的使用者所指派的角色。 | 是 | |
 | StartState | 工作流程初始狀態的名稱。 | 是 | |
@@ -67,22 +67,22 @@ Azure Blockchain Workbench 應用程式是以組態中繼資料和智慧合約�
 
 如需範例，請參閱[組態檔範例](#configuration-file-example)。
 
-## <a name="type"></a>type
+## <a name="type"></a>Type
 
 支援的資料類型。
 
-| type | Description |
+| Type | Description |
 |-------|-------------|
-| 位址  | 區塊鏈位址類型，例如「合約」  或「使用者」  。 |
-| array    | 類型為整數、布林、金額、或時間的單一層級陣列。 陣列可以是靜態或動態。 使用 **ElementType** 指定陣列中元素的資料類型。 請參閱[組態範例](#example-configuration-of-type-array)。 |
+| 位址  | 區塊鏈位址類型，例如「合約」或「使用者」。 |
+| 陣列    | 類型為整數、布林、金額、或時間的單一層級陣列。 陣列可以是靜態或動態。 使用 **ElementType** 指定陣列中元素的資料類型。 請參閱[組態範例](#example-configuration-of-type-array)。 |
 | bool     | 布林值資料類型。 |
 | 合約 | 合約類型的位址。 |
 | 列舉     | 列舉的具名值組。 使用列舉類型時，您也可以指定一份 EnumValues 清單。 每個值的上限為 255 個字元。 有效值的字元包括大小寫字母 (A-Z、a-z) 和數字 (0-9)。 請參閱 [Solidity 中的組態範例和用法](#example-configuration-of-type-enum)。 |
 | ssNoversion      | 整數資料類型。 |
 | money    | 金額資料類型。 |
-| state    | 工作流程狀態。 |
+| 狀態    | 工作流程狀態。 |
 | string  | 字串資料類型。 最多 4000 個字元。 請參閱[組態範例](#example-configuration-of-type-string)。 |
-| user     | 使用者類型的位址。 |
+| 使用者     | 使用者類型的位址。 |
 | time     | 時間資料類型。 |
 |`[ Application Role Name ]`| 應用程式角色中所指定的任何名稱。 限制使用者只能成為該角色類型。 |
 
@@ -210,7 +210,7 @@ function AssetTransfer(string description, uint256 price, PropertyTypeEnum prope
 | 欄位 | Description | 必要項 | 最大長度 |
 |-------|-------------|:--------:|-----------:|
 | Name | 函式的唯一名稱。 對應的智慧合約必須針對適用的函式使用相同的**名稱**。 | 是 | 50 |
-| DisplayName | 函式的易記顯示名稱。 | 是 | 255 |
+| 顯示名稱 | 函式的易記顯示名稱。 | 是 | 255 |
 | Description | 函式的說明 | 否 | 255 |
 | 參數 | 對應至函式參數的[識別碼](#identifiers)集合。 | 是 | |
 
@@ -258,10 +258,10 @@ function AssetTransfer(string description, uint256 price, PropertyTypeEnum prope
 | 欄位 | Description | 必要項 | 最大長度 |
 |-------|-------------|:--------:|-----------:|
 | Name | 狀態的唯一名稱。 對應的智慧合約必須針對適用的狀態使用相同的**名稱**。 | 是 | 50 |
-| DisplayName | 狀態的易記顯示名稱。 | 是 | 255 |
+| 顯示名稱 | 狀態的易記顯示名稱。 | 是 | 255 |
 | Description | 狀態的說明。 | 否 | 255 |
 | PercentComplete | Blockchain Workbench 使用者介面中所顯示的整數值，用來顯示商務邏輯控制流程內的進度。 | 是 | |
-| Style | 指出狀態是表示成功還是失敗狀態的視覺提示。 有效值有兩個：`Success` 或 `Failure`。 | 是 | |
+| 樣式 | 指出狀態是表示成功還是失敗狀態的視覺提示。 有效值有兩個：`Success` 或 `Failure`。 | 是 | |
 | 轉換 | 可從目前狀態進入到下一組狀態的[轉換](#transitions)集合。 | 否 | |
 
 ### <a name="states-example"></a>狀態範例
@@ -328,7 +328,7 @@ function AssetTransfer(string description, uint256 price, PropertyTypeEnum prope
 |-------|-------------|:--------:|
 | AllowedRoles | 允許起始轉換的應用程式角色清單。 屬於指定角色的所有使用者都可執行該動作。 | 否 |
 | AllowedInstanceRoles | 參與或指定於智慧合約中、允許起始轉換的使用者角色清單。 執行個體角色會定義在工作流程的**屬性**中。 AllowedInstanceRoles 代表參與智慧合約執行個體的使用者。 AllowedInstanceRoles 可讓您對合約執行個體中的使用者角色限制採取動作。  例如，如果您只想讓建立合約的使用者 (InstanceOwner) 可以執行終止作業，而不是讓角色類型 (Owner) 中的所有使用者可這麼做，您可以在 AllowedRoles 中指定該角色。 | 否 |
-| DisplayName | 轉換的易記顯示名稱。 | 是 |
+| 顯示名稱 | 轉換的易記顯示名稱。 | 是 |
 | Description | 轉換的說明。 | 否 |
 | 函數 | 要起始轉換的函式名稱。 | 是 |
 | NextStates | 成功轉換之後下一個可能狀態的集合。 | 是 |
@@ -388,14 +388,14 @@ function AssetTransfer(string description, uint256 price, PropertyTypeEnum prope
   }
 ]
 ```
-## <a name="identifiers"></a>識別項
+## <a name="identifiers"></a>識別碼
 
 識別碼代表用來說明工作流程屬性、建構函式和函式參數的資訊集合。 
 
 | 欄位 | Description | 必要項 | 最大長度 |
 |-------|-------------|:--------:|-----------:|
 | Name | 屬性或參數的唯一名稱。 對應的智慧合約必須針對適用的屬性或參數使用相同的**名稱**。 | 是 | 50 |
-| DisplayName | 屬性或參數的易記顯示名稱。 | 是 | 255 |
+| 顯示名稱 | 屬性或參數的易記顯示名稱。 | 是 | 255 |
 | Description | 屬性或參數的說明。 | 否 | 255 |
 
 ### <a name="identifiers-example"></a>識別碼範例

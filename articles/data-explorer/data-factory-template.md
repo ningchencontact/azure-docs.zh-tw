@@ -8,12 +8,12 @@ ms.reviewer: tzgitlin
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 09/08/2019
-ms.openlocfilehash: acfcee6e8308bc508bd709c40bd1794beab3130f
-ms.sourcegitcommit: 95b180c92673507ccaa06f5d4afe9568b38a92fb
+ms.openlocfilehash: 5a6aebd276ef8658da9ca763be7da5c38a9c772a
+ms.sourcegitcommit: 23389df08a9f4cab1f3bb0f474c0e5ba31923f12
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/08/2019
-ms.locfileid: "70804726"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70873426"
 ---
 # <a name="use-azure-data-factory-template-for-bulk-copy-from-database-to-azure-data-explorer"></a>使用 Azure Data Factory 範本從資料庫大量複製到 Azure 資料總管
 
@@ -38,19 +38,19 @@ Azure 資料總管是快速、完全受控的資料分析服務，可即時分�
 
 SQL Server 來源資料表格式的範例：
     
-    ```sql   
-    CREATE TABLE control_table (
-        PartitionId int,
-        SourceQuery varchar(255),
-        ADXTableName varchar(255)
-    );
-    ```
+```sql   
+CREATE TABLE control_table (
+PartitionId int,
+SourceQuery varchar(255),
+ADXTableName varchar(255)
+);
+```
     
-        |屬性  |描述  | 範例
-        |---------|---------| ---------|
-        |PartitionId   |   複製順序 | 1  |  
-        |SourceQuery   |   指出管線執行時間期間將複製哪些資料的查詢 | <br>`select * from table where lastmodifiedtime  LastModifytime >= ''2015-01-01 00:00:00''>` </br>    
-        |ADXTableName  |  目的地資料表名稱 | MyAdxTable       |  
+|屬性  |描述  | 範例
+|---------|---------| ---------|
+|PartitionId   |   複製順序 | 1  |  
+|SourceQuery   |   指出管線執行時間期間將複製哪些資料的查詢 | <br>`select * from table where lastmodifiedtime  LastModifytime >= ''2015-01-01 00:00:00''>` </br>    
+|ADXTableName  |  目的地資料表名稱 | MyAdxTable       |  
 
 如果您的**ControlTableDataset**使用不同的格式，請為您的格式建立可比較的**ControlTableDataset** 。
 

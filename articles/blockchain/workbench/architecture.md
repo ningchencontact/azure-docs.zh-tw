@@ -1,25 +1,25 @@
 ---
-title: Azure Blockchain Workbench 架構
-description: Azure Blockchain Workbench 架構及其元件的概觀。
+title: Azure Blockchain Workbench 預覽架構
+description: 概述 Azure Blockchain Workbench 預覽架構及其元件。
 services: azure-blockchain
 keywords: ''
 author: PatAltimore
 ms.author: patricka
-ms.date: 05/20/2019
+ms.date: 09/05/2019
 ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: brendal
 manager: femila
-ms.openlocfilehash: 5333f02edd6a4ff888e28ed36c2b78f75309f4d4
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: d50ee0fa06f34167cd4be9e787f6e351d3ef7e3b
+ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67060916"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70845206"
 ---
-# <a name="azure-blockchain-workbench-architecture"></a>Azure Blockchain Workbench 架構
+# <a name="azure-blockchain-workbench-preview-architecture"></a>Azure Blockchain Workbench 預覽架構
 
-Azure Blockchain Workbench 會提供使用數個 Azure 元件的解決方案，來簡化區塊鏈應用程式的開發。 您可以使用 Azure Marketplace 中的解決方案範本來部署 Blockchain Workbench。 範本可讓您挑選要部署的模組和元件，包括區塊鏈堆疊、用戶端應用程式類型及 IoT 整合支援。 Blockchain Workbench 一經部署，即可提供 Web 應用程式、iOS 應用程式和 Android 應用程式的存取權。
+Azure Blockchain Workbench Preview 藉由提供使用數個 Azure 元件的解決方案，來簡化區塊鏈應用程式開發。 您可以使用 Azure Marketplace 中的解決方案範本來部署 Blockchain Workbench。 範本可讓您挑選要部署的模組和元件，包括區塊鏈堆疊、用戶端應用程式類型及 IoT 整合支援。 Blockchain Workbench 一經部署，即可提供 Web 應用程式、iOS 應用程式和 Android 應用程式的存取權。
 
 ![Blockchain Workbench 架構](./media/architecture/architecture.png)
 
@@ -84,7 +84,7 @@ Blockchain Workbench 會自動部署兩種類型的事件消費者。 其中一�
 
 ## <a name="transaction-builder-and-signer"></a>交易產生器和簽署者
 
-如果輸入訊息代理人上的訊息需要寫入至區塊鏈，將會由 DLT 取用者負責處理。 DLT 取用者是一項服務，其會擷取訊息 (其中包含所要執行交易的中繼資料)，然後將資訊傳送至「交易產生器和簽署者」  。 「交易產生器和簽署者」  會將以資料為基礎的區塊鏈交易與所需的 區塊鏈目的地組合在一起。 一經組合，便會簽署交易。 私密金鑰會儲存在 Azure Key Vault。
+如果輸入訊息代理人上的訊息需要寫入至區塊鏈，將會由 DLT 取用者負責處理。 DLT 取用者是一項服務，其會擷取訊息 (其中包含所要執行交易的中繼資料)，然後將資訊傳送至「交易產生器和簽署者」。 「交易產生器和簽署者」會將以資料為基礎的區塊鏈交易與所需的 區塊鏈目的地組合在一起。 一經組合，便會簽署交易。 私密金鑰會儲存在 Azure Key Vault。
 
  Blockchain Workbench 會從 Key Vault 擷取適當的私密金鑰，並在 Key Vault 外簽署交易。 一經簽署，交易就會傳送至交易路由器和總帳。
 
@@ -99,7 +99,7 @@ Blockchain Workbench 會自動部署兩種類型的事件消費者。 其中一�
 
 例如，SQL 取用者會監視事件、取用事件，並在 SQL 資料庫中填入所包含的值。 進行複製可在鏈結關閉存放區中重新建立鏈結資料的複本。
 
-## <a name="azure-sql-database"></a>Azure SQL 資料庫
+## <a name="azure-sql-database"></a>Azure SQL Database
 
 連結至 Blockchain Workbench 的 Azure SQL 資料庫會儲存合約定義、組態中繼資料，以及可透過 SQL 存取並儲存在區塊鏈中的資料複本。 直接存取資料庫，即可輕鬆地對此資料進行查詢、視覺化或分析。 開發人員和其他使用者可以使用資料庫來進行報告、分析或其他以資料為中心的整合。 例如，使用者可以使用 Power BI 將交易資料視覺化。
 

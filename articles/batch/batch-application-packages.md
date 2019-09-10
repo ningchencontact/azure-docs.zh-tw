@@ -15,10 +15,10 @@ ms.date: 04/26/2019
 ms.author: lahugh
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 9c9d6d13efaa07bff2a1eaabe05725a3257cf895
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.sourcegitcommit: 23389df08a9f4cab1f3bb0f474c0e5ba31923f12
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/28/2019
+ms.lasthandoff: 09/10/2019
 ms.locfileid: "70095684"
 ---
 # <a name="deploy-applications-to-compute-nodes-with-batch-application-packages"></a>使用 Batch 應用程式套件將應用程式部署至計算節點
@@ -200,7 +200,7 @@ Batch 服務會使用 Azure 儲存體將應用程式套件儲存為區塊 Blob�
 ### <a name="install-pool-application-packages"></a>安裝集區應用程式套件
 若要將應用程式套件安裝在集區中的所有計算節點上，請為集區指定一或多個應用程式套件「參考」 。 您針對集區指定的應用程式封裝會在每個電腦節點加入集區時，以及該節點重新啟動或重新安裝映像時，安裝於該節點上。
 
-在 Batch .NET 中, 指定一或多個[CloudPool][net_cloudpool]。當您建立新的集區或現有集區時, [ApplicationPackageReferences][net_cloudpool_pkgref] 。 [ApplicationPackageReference][net_pkgref]類別會指定要安裝在集區計算節點上的應用程式識別碼和版本。
+在 Batch .NET 中，指定一或多個[CloudPool][net_cloudpool]。當您建立新的集區或現有集區時， [ApplicationPackageReferences][net_cloudpool_pkgref] 。 [ApplicationPackageReference][net_pkgref]類別會指定要安裝在集區計算節點上的應用程式識別碼和版本。
 
 ```csharp
 // Create the unbound CloudPool
@@ -232,7 +232,7 @@ await myCloudPool.CommitAsync();
 ### <a name="install-task-application-packages"></a>安裝工作應用程式套件
 類似於集區，您可以為工作指定應用程式套件「參考」 。 在節點上排程要執行的工作時，會先下載並解壓縮套件，再執行工作的命令列。 如果節點上已安裝指定的套件和版本，則不會下載套件，而會使用現有套件裝。
 
-若要安裝工作應用程式套件, 請設定工作的[CloudTask][net_cloudtask]。[ApplicationPackageReferences][net_cloudtask_pkgref]屬性:
+若要安裝工作應用程式套件，請設定工作的[CloudTask][net_cloudtask]。[ApplicationPackageReferences][net_cloudtask_pkgref]屬性：
 
 ```csharp
 CloudTask task =
@@ -308,7 +308,7 @@ CloudTask blenderTask = new CloudTask(taskId, commandLine);
 * 在更新封裝參考時已存在集區中的計算節點不會自動安裝新應用程式封裝。 這些計算節點必須重新啟動或重新安裝映像才能接收新封裝。
 * 部署新的封裝之後，所建立的環境變數會反映新的應用程式封裝參考。
 
-在此範例中, 現有集區的*blender*應用程式2.7 版已設定為它的其中一個[CloudPool][net_cloudpool]。[ApplicationPackageReferences][net_cloudpool_pkgref]。 若要以版本 2.76 b 更新集區的節點, 請使用新的版本指定新的[ApplicationPackageReference][net_pkgref] , 然後認可變更。
+在此範例中，現有集區的*blender*應用程式2.7 版已設定為它的其中一個[CloudPool][net_cloudpool]。[ApplicationPackageReferences][net_cloudpool_pkgref]。 若要以版本 2.76 b 更新集區的節點，請使用新的版本指定新的[ApplicationPackageReference][net_pkgref] ，然後認可變更。
 
 ```csharp
 string newVersion = "2.76b";
@@ -325,7 +325,7 @@ await boundPool.CommitAsync();
 既然您已設定新版本，Batch 服務就會將 2.76b 版安裝到任何加入集區的「新」節點。 若要將 2.76b 安裝在「已存在」 集區中的節點上，請將節點重新啟動或重新安裝映像。 請注意，重新啟動的節點會保留前次套件部署的檔案。
 
 ## <a name="list-the-applications-in-a-batch-account"></a>列出 Batch 帳戶中的應用程式
-您可以使用[ApplicationOperations][net_appops], 列出 Batch 帳戶中的應用程式和其套件。[ListApplicationSummaries][net_appops_listappsummaries]方法。
+您可以使用[ApplicationOperations][net_appops]，列出 Batch 帳戶中的應用程式和其套件。[ListApplicationSummaries][net_appops_listappsummaries]方法。
 
 ```csharp
 // List the applications and their application packages in the Batch account.
@@ -345,7 +345,7 @@ foreach (ApplicationSummary app in applications)
 透過應用程式封裝，您可以協助客戶選取其作業適用的應用程式，以及指定在以啟用 Batch 功能的服務處理作業時所要使用的確切版本。 您也可以在服務中提供讓客戶上傳及追蹤其應用程式的功能。
 
 ## <a name="next-steps"></a>後續步驟
-* [Batch REST API][api_rest]也會提供使用應用程式套件的支援。 例如, 如需如何使用 REST API 來指定要安裝之封裝的相關資訊, 請參閱[將集區新增至帳戶][rest_add_pool]中的[applicationPackageReferences][rest_add_pool_with_packages]元素。 如需如何使用批次 REST API 取得應用程式資訊的詳細資訊, 請參閱[應用程式][rest_applications]。
+* [Batch REST API][api_rest]也會提供使用應用程式套件的支援。 例如，如需如何使用 REST API 來指定要安裝之封裝的相關資訊，請參閱[將集區新增至帳戶][rest_add_pool]中的[applicationPackageReferences][rest_add_pool_with_packages]元素。 如需如何使用批次 REST API 取得應用程式資訊的詳細資訊, 請參閱[應用程式][rest_applications]。
 * 了解如何以程式設計方式 [使用 Batch Management .NET 管理 Azure Batch 帳戶和配額](batch-management-dotnet.md)。 [Batch Management .net][api_net_mgmt]程式庫可以啟用 batch 應用程式或服務的帳戶建立和刪除功能。
 
 [api_net]: https://docs.microsoft.com/dotnet/api/overview/azure/batch/client?view=azure-dotnet

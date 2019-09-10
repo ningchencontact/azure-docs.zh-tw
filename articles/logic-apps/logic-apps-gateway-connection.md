@@ -1,5 +1,5 @@
 ---
-title: 從 Azure Logic Apps 存取內部部署資料來源 | Microsoft Docs
+title: 從 Azure Logic Apps 存取內部部署資料來源
 description: 藉由建立內部部署資料閘道，從邏輯應用程式連線至內部部署資料來源
 services: logic-apps
 ms.service: logic-apps
@@ -8,17 +8,17 @@ author: ecfan
 ms.author: estfan
 ms.reviewer: arthii, LADocs
 ms.topic: article
-ms.date: 10/01/2018
-ms.openlocfilehash: 029dc8daaf456c155d46eefa699772882bdabee5
-ms.sourcegitcommit: 6d2a147a7e729f05d65ea4735b880c005f62530f
+ms.date: 07/01/2019
+ms.openlocfilehash: 65c1d427939dc39aebece24b923bc4ebfbf136bb
+ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69982879"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70860972"
 ---
 # <a name="connect-to-on-premises-data-sources-from-azure-logic-apps"></a>從 Azure Logic Apps 連線到內部部署資料來源
 
-若要從您的邏輯應用程式存取內部部署資料來源，請在 Azure 入口網站中建立內部部署資料閘道資源。 然後，您的邏輯應用程式可以使用[內部部署連接器](../logic-apps/logic-apps-gateway-install.md#supported-connections)。 本文示範如何在[本機電腦下載並安裝閘道](../logic-apps/logic-apps-gateway-install.md)之後，建立 Azure 閘道資源。 
+若要從您的邏輯應用程式存取內部部署資料來源，請在 Azure 入口網站中建立內部部署資料閘道資源。 然後，您的邏輯應用程式可以使用[內部部署連接器](../logic-apps/logic-apps-gateway-install.md#supported-connections)。 本文示範如何在[本機電腦下載並安裝閘道](../logic-apps/logic-apps-gateway-install.md)之後，建立 Azure 閘道資源。 若要深入瞭解閘道的運作方式，請參閱[閘道的運作方式](../logic-apps/logic-apps-gateway-install.md#gateway-cloud-service)。
 
 > [!TIP]
 > 若要連線至 Azure 虛擬網路，請考慮建立[*整合服務環境*](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md)。 
@@ -32,56 +32,44 @@ ms.locfileid: "69982879"
 
 ## <a name="prerequisites"></a>必要條件
 
-* 您已經[在本機電腦下載並安裝資料閘道](../logic-apps/logic-apps-gateway-install.md)。
+* 您已在[本機電腦上安裝內部部署資料閘道](../logic-apps/logic-apps-gateway-install.md)。
 
-* 您的閘道安裝尚未與 Azure 中的閘道資源相關聯。 您可以將閘道安裝只連結至一個閘道資源，當建立閘道資源並選取閘道安裝時會發生這種情況。 此連結讓其他資源無法使用閘道安裝。
+* 您擁有安裝內部部署資料閘道時所使用的[相同 azure 帳戶和 azure 訂用帳戶](../logic-apps/logic-apps-gateway-install.md#requirements)。
 
-* 當您登入 Azure 入口網站並建立閘道資源時，請確定您使用先前用來[安裝內部部署資料閘道](../logic-apps/logic-apps-gateway-install.md#requirements)的同一個登入帳戶，以及用來安裝閘道的相同 [Azure 訂用帳戶](https://docs.microsoft.com/azure/architecture/cloud-adoption/governance/resource-consistency/azure-resource-access)。 如果您還沒有 Azure 訂用帳戶，請先<a href="https://azure.microsoft.com/free/" target="_blank">註冊免費的 Azure 帳戶</a>。
+* 您先前尚未將閘道安裝連結至 Azure 中的另一個閘道資源。
 
-* 若要在 Azure 入口網站中建立和維護閘道資源，[Windows 服務帳戶](../logic-apps/logic-apps-gateway-install.md#windows-service-account)必須至少具備**參與者**權限。 內部部署資料閘道會以 Windows 服務身分執行，並且設定成使用 `NT SERVICE\PBIEgwService` 作為 Windows 服務登入認證。 
-
-  > [!NOTE]
-  > Windows 服務帳戶與用來連線至內部部署資料來源的帳戶不同，也與用來登入雲端服務的公司或學校 Azure 帳戶不同。
-
-## <a name="download-and-install-gateway"></a>下載並安裝閘道
-
-請確定您已在本機電腦上安裝閘道，才可以繼續進行本文中的步驟。
-如果您還沒有這麼做，請依照步驟來[下載並安裝內部部署資料閘道](../logic-apps/logic-apps-gateway-install.md)。 
+  當您建立閘道資源時，請選取要與閘道資源建立關聯的閘道安裝。 當您建立閘道資源時，無法選取已連結的閘道安裝。
 
 <a name="create-gateway-resource"></a>
 
-## <a name="create-azure-resource-for-gateway"></a>為閘道建立 Azure 資源
+## <a name="create-azure-gateway-resource"></a>建立 Azure 閘道資源
 
-在本機電腦上安裝閘道之後，您可接著為閘道建立 Azure 資源。 此步驟也會讓閘道資源與 Azure 訂用帳戶產生關聯。
+在本機電腦上安裝閘道之後，請為您的閘道建立 Azure 資源。 
 
-1. 登入 <a href="https://portal.azure.com" target="_blank">Azure 入口網站</a>。 請務必使用在安裝閘道時所用的同一個 Azure 公司或學校電子郵件地址。
+1. 使用與用來安裝閘道相同的 Azure 帳戶登入[Azure 入口網站](https://portal.azure.com)。
 
-2. 在主要 Azure 功能表上，選取 [建立資源] > 
-[整合] > [內部部署資料閘道]。
+1. 在 [Azure 入口網站搜尋] 方塊中，輸入「內部部署資料閘道」，然後選取 [內部**部署資料閘道**]。
 
    ![尋找 [內部部署資料閘道]](./media/logic-apps-gateway-connection/find-on-premises-data-gateway.png)
 
-3. 在 [建立連線閘道] 頁面上，為閘道資源提供這項資訊：
+1. 在 [**內部部署資料閘道**] 底下，選取 [**新增**]。
 
-   | 屬性 | 描述 | 
+   ![新增資料閘道](./media/logic-apps-gateway-connection/add-gateway.png)
+
+1. 在 [**建立連線閘道**] 底下，為您的閘道資源提供此資訊。 當您完成時，選取 [建立]。
+
+   | 屬性 | 描述 |
    |----------|-------------|
-   | **資源名稱** | 您的閘道資源名稱, 其中只能包含字母、數位、連`-`字元 ()、`_`底線 ()、`(`括弧`)`(,) 和句點`.`()。 | 
-   | **訂用帳戶** | 您的 Azure 訂用帳戶名稱，該名稱必須是與邏輯應用程式相同的訂用帳戶。 預設的訂用帳戶會由您用來登入的 Azure 帳戶決定。 | 
-   | **資源群組** | 可用來組織相關資源的 [Azure 資源群組](../azure-resource-manager/resource-group-overview.md)名稱 | 
-   | **位置** | Azure 對此位置有所限制，它的所在區域必須和[閘道安裝](../logic-apps/logic-apps-gateway-install.md)期間為閘道雲端服務所選取的區域相同。 <p>**注意**：請確定此閘道資源位置符合閘道雲端服務的位置。 否則，已安裝的閘道清單中可能不會出現您的閘道安裝，從而供您在下一個步驟中選取。 閘道資源和邏輯應用程式可使用不同的區域。 | 
-   | **安裝名稱** | 如果您的閘道安裝還不是選取狀態，請選取您先前安裝的閘道。 | 
-   | | | 
+   | **資源名稱** | 您的閘道資源名稱，其中只能包含字母、數位、連`-`字元（）、`_`底線（）、`(`括弧`)`（，）和句點`.`（）。 |
+   | **訂用帳戶** | 您的 Azure 訂用帳戶必須與閘道安裝和邏輯應用程式相同。 預設的訂用帳戶會由您用來登入的 Azure 帳戶來決定。 |
+   | **資源群組** | 您想要使用的[Azure 資源群組](../azure-resource-manager/resource-group-overview.md) |
+   | **位置** | [閘道安裝](../logic-apps/logic-apps-gateway-install.md)期間為閘道雲端服務所選取的位置所在的相同區域。 否則，您的閘道安裝將不會出現在 [**安裝名稱**] 清單中供您選取。 您的邏輯應用程式位置可能與閘道資源位置不同。 |
+   | **安裝名稱** | 如果您的閘道安裝還不是選取狀態，請選取您先前安裝的閘道。 先前連結的閘道安裝不會出現在此清單中供您選取。 |
+   |||
 
    請看以下範例：
 
-   ![提供詳細資料以建立內部部署資料閘道](./media/logic-apps-gateway-connection/createblade.png)
-
-4. 若要在 Azure 儀表板中新增閘道資源，請選取 [釘選到儀表板]。 完成之後，請選擇 [建立]。
-
-   您可以從主要 Azure 功能表中選取 [所有服務]，隨時尋找或檢視閘道。 
-   在搜尋方塊中，輸入「內部部署資料閘道」，然後選取 [內部部署資料閘道]。
-
-   ![尋找 [內部部署資料閘道]](./media/logic-apps-gateway-connection/find-on-premises-data-gateway-enterprise-integration.png)
+   ![提供詳細資料以建立內部部署資料閘道](./media/logic-apps-gateway-connection/gateway-details.png)
 
 <a name="connect-logic-app-gateway"></a>
 
@@ -91,72 +79,64 @@ ms.locfileid: "69982879"
 
 1. 在 Azure 入口網站中，於邏輯應用程式設計工具中建立或開啟邏輯應用程式。
 
-2. 新增可支援內部部署連線的連接器，例如 **SQL Server**。
+1. 新增可支援內部部署連線的連接器，例如 **SQL Server**。
 
-3. 現在設定您的連線：
+1. 選取 [透過內部部署資料閘道連線]。 
 
-   1. 選取 [透過內部部署資料閘道連線]。 
+1. 針對 [**閘道**]，請選取您建立的閘道資源。
 
-   2. 針對 [閘道]，選取您先前建立的閘道資源。 
+   > [!NOTE]
+   > 閘道清單包含其他區域中的閘道資源，因為您的邏輯應用程式位置可能與閘道資源的位置不同。
 
-      雖然閘道連線位置必須與邏輯應用程式位於相同區域，但您可以選取不同區域中的閘道。
+1. 提供唯一的連線名稱和其他必要資訊，這取決於您想要建立的連接。
 
-   3. 提供唯一連線名稱和其他必要資訊。 
-
-      唯一的連線名稱可在之後協助您輕鬆識別該連線，尤其是當您建立了多個連線時。 如果情況允許，也請在使用者名稱中包含完整網域。
+   唯一的連線名稱可協助您稍後輕鬆地找到該連接，特別是當您建立多個連接時。 如果情況允許，也請在使用者名稱中包含完整網域。
    
-      請看以下範例：
+   請看以下範例：
 
-      ![建立邏輯應用程式與資料閘道之間的連線](./media/logic-apps-gateway-connection/blankconnection.png)
+   ![建立邏輯應用程式與資料閘道之間的連線](./media/logic-apps-gateway-connection/logic-app-gateway-connection.png)
 
-   4. 完成之後，請選擇 [建立]。 
+1. 當您完成時，選取 [建立]。 
 
 您的閘道連線現已可供邏輯應用程式使用。
 
 ## <a name="edit-connection"></a>編輯連線
 
-在為邏輯應用程式建立閘道連線之後，您之後或許會想更新該特定連線的設定。
+若要更新閘道連線的設定，您可以編輯您的連線。
 
-1. 尋找您的閘道連線：
-
-   * 若只要尋找邏輯應用程式的所有 API 連線，請在邏輯應用程式功能表的 [開發工具] 底下，選取 [API 連線]。 
+1. 若只要尋找邏輯應用程式的所有 API 連線，請在邏輯應用程式功能表的 [**開發工具**] 底下，選取 [ **API**連線]。
    
-     ![移至邏輯應用程式，選取 [API 連線]](./media/logic-apps-gateway-connection/logic-app-find-api-connections.png)
+   ![在邏輯應用程式功能表上，選取 [API 連線]](./media/logic-apps-gateway-connection/logic-app-find-api-connections.png)
 
-   * 若要尋找與您的 Azure 訂用帳戶相關聯的所有 API 連線： 
-
-     * 從主要 Azure 功能表，移至 [所有資源] > [Web] > [API 連線]。 
-     * 或者，從主要 Azure 功能表，移至 [所有資源]。
-
-2. 選取您想要的閘道連線，然後選擇 [編輯 API 連線]。
+1. 選取您想要的閘道連線，然後選取 [**編輯 API**連線]。
 
    > [!TIP]
-   > 如果您的更新未生效，請嘗試[先停止再重新啟動閘道 Windows 服務](./logic-apps-gateway-install.md#restart-gateway)。
+   > 如果您的更新不會生效，請嘗試[停止並重新啟動閘道 Windows 服務帳戶](../logic-apps/logic-apps-gateway-install.md#restart-gateway)以進行閘道安裝。
+
+若要尋找與您的 Azure 訂用帳戶相關聯的所有 API 連線： 
+
+* 從主要 Azure 功能表，移至 [所有資源] > [Web] > [API 連線]。
+* 或者，從主要 Azure 功能表，移至 [所有資源]。 將 [**類型**] 篩選準則設定為 [ **API**連線]。
 
 <a name="change-delete-gateway-resource"></a>
 
 ## <a name="delete-gateway-resource"></a>刪除閘道資源
 
-若要建立不同的閘道資源、讓閘道與其他資源相關連，或是要移除閘道資源，您可以直接刪除閘道資源，這並不會影響閘道安裝。 
+若要建立不同的閘道資源，請將您的閘道安裝連結至不同的閘道資源，或移除閘道資源，您可以刪除閘道資源，而不會影響閘道安裝。 
 
-1. 從主要 Azure 功能表，移至 [所有資源]。 
+1. 從主要 Azure 功能表中，選取 [**所有資源**]。 尋找並選取您的閘道資源。
 
-2. 尋找並選取您的閘道資源。
+1. 如果尚未選取，請在您的閘道資源功能表上選取 [內部部署資料閘道]。 在 [閘道資源] 工具列上，選取 [**刪除**]。
 
-3. 如果尚未選取，請在您的閘道資源功能表上選取 [內部部署資料閘道]。 
+   例如:
 
-4. 在資源工具列上，選擇 [刪除]。
+   ![刪除閘道](./media/logic-apps-gateway-connection/gateway-delete.png)
 
 <a name="faq"></a>
 
 ## <a name="frequently-asked-questions"></a>常見問題集
 
 [!INCLUDE [existing-gateway-location-changed](../../includes/logic-apps-existing-gateway-location-changed.md)]
-
-## <a name="get-support"></a>取得支援
-
-* 如有問題，請瀏覽 [Azure Logic Apps 論壇](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps)。
-* 若要提交或票選功能構想，請造訪 [Logic Apps 使用者意見反應網站](https://aka.ms/logicapps-wish)。
 
 ## <a name="next-steps"></a>後續步驟
 

@@ -1,5 +1,5 @@
 ---
-title: 安裝內部部署資料閘道 - Azure Logic Apps | Microsoft Docs
+title: 安裝內部部署資料閘道-Azure Logic Apps
 description: 您必須先下載並安裝內部部署資料閘道，才能從 Azure Logic Apps 存取內部部署資料
 services: logic-apps
 ms.service: logic-apps
@@ -8,19 +8,24 @@ author: ecfan
 ms.author: estfan
 ms.reviewer: arthii, LADocs
 ms.topic: article
-ms.date: 10/01/2018
-ms.openlocfilehash: 36fb40dcee010ab68dc87eb6f81c0b2fb8977914
-ms.sourcegitcommit: aebe5a10fa828733bbfb95296d400f4bc579533c
+ms.date: 07/01/2019
+ms.openlocfilehash: 657bc704e33e89b1646dffa6123a27169e6c317a
+ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/05/2019
-ms.locfileid: "70376386"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70860707"
 ---
 # <a name="install-on-premises-data-gateway-for-azure-logic-apps"></a>安裝 Azure Logic Apps 的內部部署資料閘道
 
-您必須先在本機電腦下載並安裝內部部署資料閘道，才能從 Azure Logic Apps 連線至內部部署資料來源。 此閘道可作為橋樑，讓內部部署 (不在雲端) 資料來源與邏輯應用程式之間快速地傳輸和加密資料。 本文說明如何下載、安裝及設定您的內部部署資料閘道。
+您必須先在本機電腦下載並安裝內部部署資料閘道，才能從 Azure Logic Apps 連線至內部部署資料來源。 此閘道可作為橋樑，讓內部部署 (不在雲端) 資料來源與邏輯應用程式之間快速地傳輸和加密資料。 您可以搭配其他雲端服務（例如 Power BI、Microsoft Flow、PowerApps 和 Azure Analysis Services）使用相同的閘道安裝。 如需如何搭配使用閘道與這些服務的相關資訊，請參閱下列文章：
 
-您可以使用相同的閘道安裝搭配其他服務，例如 Power BI、Microsoft Flow、PowerApps 及 Azure Analysis Services。 深入了解[資料閘道的運作方式](#gateway-cloud-service)。
+* [Microsoft Power BI 內部部署資料閘道](https://powerbi.microsoft.com/documentation/powerbi-gateway-onprem/)
+* [Microsoft PowerApps 內部部署資料閘道](https://powerapps.microsoft.com/tutorials/gateway-management/)
+* [Microsoft Flow 內部部署資料閘道](https://flow.microsoft.com/documentation/gateway-manage/)
+* [Azure Analysis Services 內部部署資料閘道](../analysis-services/analysis-services-gateway.md)
+
+本文說明如何下載、安裝及設定您的內部部署資料閘道，讓您可以從 Azure Logic Apps 存取內部部署資料來源。 您也可以在本主題稍後深入瞭解[資料閘道的運作方式](#gateway-cloud-service)。
 
 <a name="supported-connections"></a>
 
@@ -39,12 +44,7 @@ ms.locfileid: "70376386"
 * [SQL Server]
 * Teradata
 
-如需如何使用閘道與其他服務的資訊，請參閱下列文章：
-
-* [Microsoft Power BI 內部部署資料閘道](https://powerbi.microsoft.com/documentation/powerbi-gateway-onprem/)
-* [Microsoft PowerApps 內部部署資料閘道](https://powerapps.microsoft.com/tutorials/gateway-management/)
-* [Microsoft Flow 內部部署資料閘道](https://flow.microsoft.com/documentation/gateway-manage/)
-* [Azure Analysis Services 內部部署資料閘道](../analysis-services/analysis-services-gateway.md)
+雖然閘道本身不會產生額外的成本，但[Logic Apps 計價模式](../logic-apps/logic-apps-pricing.md)適用于 Azure Logic Apps 中的這些連接器和其他作業。
 
 <a name="requirements"></a>
 
@@ -52,153 +52,156 @@ ms.locfileid: "70376386"
 
 * Azure 訂用帳戶。 如果您沒有 Azure 訂用帳戶，請先[註冊免費的 Azure 帳戶](https://azure.microsoft.com/free/)。
 
-  在閘道安裝期間，您會登入此帳戶，以便將閘道安裝與您的 Azure 訂用帳戶相關聯。 之後，在 Azure 入口網站中為您的閘道安裝建立 Azure 資源時，也會使用相同的帳戶。
+  * 您必須使用相同的 Azure 帳戶來安裝和管理閘道。 在安裝期間，您會使用此 Azure 帳戶，將電腦上的閘道與 Azure 訂用帳戶建立關聯。 之後，當您在 Azure 入口網站中為閘道安裝建立 Azure 資源時，您會使用相同的 Azure 帳戶。 
+
+  * 您必須使用工作帳戶或學校帳戶（也稱為*組織*帳戶）登入，這看起來像`username@contoso.com`這樣。 您不能使用 Azure B2B （來賓）帳戶或個人 Microsoft 帳戶，例如@hotmail.com或@outlook.com。
+
+    > [!TIP]
+    > 如果您註冊 Office 365 供應專案，但未提供公司電子郵件地址，則您的位址可能會`username@domain.onmicrosoft.com`類似。 您的帳戶會儲存在 Azure Active Directory （Azure AD）中的租使用者內。 在大部分情況下，您 Azure AD 帳戶的使用者主體名稱（UPN）與您的電子郵件地址相同。
+    >
+    > 若要使用與 Microsoft 帳戶相關聯的[Visual Studio 標準訂](https://visualstudio.microsoft.com/vs/pricing/)用帳戶，請先[在 Azure AD 中建立租](../active-directory/develop/quickstart-create-new-tenant.md)使用者，或使用預設目錄。 請將使用者和密碼新增至目錄，然後將您訂用帳戶的存取權授與該使用者。 
+    > 接著，您就可以在安裝閘道時，使用此使用者名稱和密碼來進行登入。
 
 * 您的本機電腦需求如下：
 
   **最低需求**
 
-  * .NET Framework 4.5.2
+  * .NET Framework 4.6
   * 64 位元版本的 Windows 7 或 Windows Server 2008 R2 (或更新版本)
 
   **建議需求**
 
   * 8 核心 CPU
   * 8 GB 記憶體
-  * 64 位元版本的 Windows Server 2012 R2 (或更新版本)
+  * 64位版本的 Windows Server 2012 R2 或更新版本
+  * 用於緩衝處理的固態硬碟（SSD）儲存體
 
   > [!NOTE]
   > 閘道不支援 Windows Server 2016 Core。
 
-* **重要考量**
+* **相關考慮**
 
-  * 您只可以在本機電腦上安裝內部部署資料閘道，而無法在網域控制站上安裝。 不過，閘道不必安裝在和資料來源相同的電腦上。 此外，所有資料來源只需要一個閘道，因此不需要針對每個資料來源安裝閘道。
+  * 您只可以在本機電腦上安裝內部部署資料閘道，而無法在網域控制站上安裝。 不過，閘道不必安裝在和資料來源相同的電腦上。 您的所有資料來源都只需要一個閘道，因此您不需要為每個資料來源安裝閘道。
 
     > [!TIP]
     > 若要盡量減少延遲，您可以將閘道安裝在最靠近資料來源的位置或同一部電腦上，但前提是您有相關權限。
 
-  * 將閘道安裝在連線至網際網路、一律開啟且「不會」進入睡眠模式的電腦上。 否則，閘道將無法執行。 此外，透過無線網路的效能可能會受到影響。
+  * 將閘道安裝在有線網路上的電腦上、連線到網際網路、一律開啟，而且不會進入睡眠狀態。 否則，閘道將無法執行，而且效能可能會透過無線網路而受到影響。
 
-  * 在安裝期間，您只能以[公司或學校帳戶](../active-directory/sign-up-organization.md)登入，且該帳戶必須是由 Azure Active Directory (Azure AD) 所管理 (例如 @contoso.onmicrosoft.com)，而非 Azure B2B (來賓) 帳戶或個人 Microsoft 帳戶 (例如 @hotmail.com 或 @outlook.com)。 透過建立閘道資源在 Azure 入口網站中註冊閘道安裝時，請確定您使用相同的登入帳戶。 接著，在建立從邏輯應用程式到內部部署資料來源的連線時，可以選取此閘道資源。 [為何必須使用公司或學校的 Azure AD 帳戶？](#why-azure-work-school-account)
+  * 如果您打算使用 Windows 驗證，請確定您將閘道安裝在與資料來源相同 Active Directory 環境成員的電腦上。
 
-  > [!TIP]
-  > 如果您已註冊 Office 365 供應項目，但未提供實際的公司電子郵件，您的登入地址會如此範例所示：`username@domain.onmicrosoft.com` 
-  >
-  > 若要使用具有 [Visual Studio 標準訂用帳戶](https://visualstudio.microsoft.com/vs/pricing/)的 Microsoft 帳戶，請先使用您的 Microsoft 帳戶，[在 Azure Active Directory 中建立一個目錄 (租用戶)](../active-directory/develop/quickstart-create-new-tenant.md)，或使用預設目錄。 
-  > 請將使用者和密碼新增至目錄，然後將您訂用帳戶的存取權授與該使用者。 
-  > 接著，您就可以在安裝閘道時，使用此使用者名稱和密碼來進行登入。
+  * 您為閘道安裝所選取的區域，是您稍後為邏輯應用程式建立 Azure 閘道資源時必須選取的相同位置。 根據預設，此區域與管理 Azure 帳戶的 Azure AD 租使用者位置相同。 不過，您可以在閘道安裝期間變更位置。
 
-  * 為您的閘道安裝選取的區域，可藉由建立 Azure 資源來決定您稍後在 Azure 中註冊閘道的位置。 當您在 Azure 中建立此閘道資源時，必須選取與閘道安裝「相同」的位置。 預設區域是與 Azure AD 租用戶 (用來管理您的 Azure 帳戶) 相同的位置，但您可以在閘道安裝期間變更此位置。
-
-  * 如果您已經有使用 14.16.6317.4 版之前的安裝程式所設定的閘道，就無法藉由執行最新版的安裝程式來變更閘道位置。 不過，您可以使用最新版的安裝程式，將新的閘道設定為您想要的位置。
-  
-    如果您的閘道安裝程式版本比 14.16.6317.4 還舊，但尚未安裝閘道，則可以下載並使用最新版的安裝程式。
-
-## <a name="high-availability-support"></a>高可用性支援
-
-當您有一個以上的閘道安裝並將它們設定為叢集時，內部部署資料閘道可支援高可用性。 當您要建立另一個閘道時，如果有現有的閘道，可以選擇地建立高可用性叢集。 這些叢集會將閘道器組織成群組，有助於避免出現單一失敗點。 此外，所有的內部部署資料閘道連接器現在都支援高可用性。
-
-若要使用內部部署資料閘道，請檢閱下列需求和考量：
-
-* 在與主要閘道相同的 Azure 訂用帳戶內，您必須已經有至少一個閘道安裝，以及該安裝的修復金鑰。
-
-* 主要閘道必須執行 2017 年 11 月或更新版本的閘道更新。
-
-符合這些需求之後，當您建立下一個閘道時，請選取 [新增至現有的閘道叢集]，為您的叢集選取主要閘道，然後提供該主要閘道的修復金鑰。 如需詳細資訊，請參閱[適用於內部部署資料閘道的高可用性叢集](https://docs.microsoft.com/power-bi/service-gateway-high-availability-clusters)。
+  * 閘道有兩種模式： [標準模式] 和 [個人模式]，僅適用于 Power BI。 同一部電腦上不能有一個以上的閘道在相同的模式下執行。
 
 <a name="install-gateway"></a>
 
 ## <a name="install-data-gateway"></a>安裝資料閘道
 
-1. [在本機電腦上下載、儲存並執行閘道安裝程式](https://aka.ms/on-premises-data-gateway-installer)。
+1. [在本機電腦上下載並執行閘道安裝程式](https://aka.ms/on-premises-data-gateway-installer)。
 
-1. 接受預設安裝路徑，或指定您要用來安裝閘道的電腦位置。
+1. 在安裝程式開啟之後，選取 **[下一步]** 。
 
-1. 檢閱並接受使用規定和隱私權聲明，然後選擇 [安裝]。
+   ![安裝程式簡介](./media/logic-apps-gateway-install/gateway-intro-screen.png)
 
-   ![接受使用規定和隱私權聲明](./media/logic-apps-gateway-install/accept-terms.png)
+1. 選取 [內部**部署資料閘道（建議）** ]，這是 [標準模式]，然後選取 **[下一步]** 。
 
-1. 成功安裝閘道之後，請提供公司或學校帳戶的電子郵件地址，然後選擇 [登入]。
+   ![選取閘道模式](./media/logic-apps-gateway-install/select-gateway-mode.png)
+
+1. 請參閱最低需求，保留預設安裝路徑，接受使用規定，然後選取 [**安裝**]。
+
+   ![審查需求並接受使用條款](./media/logic-apps-gateway-install/accept-terms.png)
+
+1. 成功安裝閘道之後，請提供您組織帳戶的電子郵件地址，然後選取 [登**入**]，例如：
 
    ![使用公司或學校帳戶登入](./media/logic-apps-gateway-install/sign-in-gateway-install.png)
 
-1. 選擇 [在這部電腦上註冊新的閘道] > [下一步]，即可透過[閘道雲端服務](#gateway-cloud-service)註冊您的閘道安裝。
+   您現在已登入您的帳戶。
 
-   ![註冊閘道](./media/logic-apps-gateway-install/register-new-gateway.png)
+1. 選取 **[** 在這部 > **電腦上註冊新的閘道**]。 此步驟會向[閘道雲端服務](#gateway-cloud-service)註冊您的閘道安裝。
+
+   ![註冊閘道](./media/logic-apps-gateway-install/register-gateway.png)
 
 1. 為您的閘道安裝提供下列資訊：
 
-   * 您想要的安裝名稱
-
-   * 您想要建立的修復金鑰，該金鑰必須至少有八個字元
-
-     > [!IMPORTANT]
-     > 將您的修復金鑰儲存並保留在安全的地方。 當您變更閘道的位置，或遷移、復原或取代現有閘道時，需要此金鑰。
-
+   * 在您的 Azure AD 租使用者中唯一的閘道名稱
+   * 您想要使用的修復金鑰，必須至少有八個字元
    * 確認您的修復金鑰
 
-     ![設定閘道](./media/logic-apps-gateway-install/set-up-gateway.png)
+   ![設定閘道](./media/logic-apps-gateway-install/set-up-gateway.png)
 
-1. 檢查針對閘道安裝所使用的閘道雲端服務和 Azure 服務匯流排選取的區域。
+   > [!IMPORTANT]
+   > 將您的修復金鑰儲存並保留在安全的地方。 如果您想要變更位置、移動、復原或接管閘道安裝，則需要此金鑰。
+
+   請注意，您可以選擇**新增至現有的閘道**叢集，而當您針對[高可用性案例](#high-availability)安裝額外的閘道時，就會選取此選項。
+
+1. 檢查閘道雲端服務的區域，以及閘道安裝所使用的[Azure 服務匯流排](https://azure.microsoft.com/services/service-bus/)。 根據預設，此區域是與您的 Azure 帳戶 Azure AD 租使用者相同的位置。
 
    ![檢查區域](./media/logic-apps-gateway-install/check-region.png)
 
-   > [!IMPORTANT]
-   > 若要在完成安裝閘道之後變更此區域，您需要該閘道安裝的修復金鑰。 此外，您必須將閘道解除安裝後再重新安裝。 如需詳細資訊，請參閱[變更位置、遷移、復原或取代現有閘道](#update-gateway-installation)。
+1. 若要接受預設區域，請選取 [**設定**]。 不過，如果預設區域不是最接近您的區域，您可以變更該區域。
 
    *為什麼要變更閘道安裝的區域？*
 
-   例如，若要減少延遲，您可以將閘道的區域變更為與邏輯應用程式相同的區域。 或者，您可以選取最接近的內部部署資料來源區域。    「Azure 中的閘道資源」和邏輯應用程式可位於不同位置。
-
-1. 若要接受預設區域，請選擇 [設定]。 或者，若要變更預設區域，請遵循下列步驟：
+   例如，若要減少延遲，您可以將閘道的區域變更為與邏輯應用程式相同的區域。 或者，您可以選取最接近的內部部署資料來源區域。 「Azure 中的閘道資源」和邏輯應用程式可位於不同位置。
 
    1. 在目前區域旁邊，選取 [變更區域]。
 
       ![變更區域](./media/logic-apps-gateway-install/change-region.png)
 
-   1. 在下一頁上，開啟 [選取區域] 清單，選取您想要的區域，然後選擇 [完成]。
+   1. 在下一個頁面上，開啟 [**選取區域**] 清單，選取您想要的區域，然後選取 [**完成**]。
 
       ![選取其他區域](./media/logic-apps-gateway-install/select-region-gateway-install.png)
 
-1. 在確認頁面出現之後，請選擇 [關閉]。
-
-   安裝程式會確認您的閘道現在已上線，而且可供使用。
+1. 檢查最後確認視窗中的資訊。 這個範例會針對 Logic Apps、Power BI、PowerApps 和 Microsoft Flow 使用相同的帳戶，因此所有這些服務都可使用該閘道。 當您準備好時，請選取 [**關閉**]。
 
    ![已完成的閘道](./media/logic-apps-gateway-install/finished-gateway-default-location.png)
 
-1. [為閘道安裝建立 Azure 資源](../logic-apps/logic-apps-gateway-connection.md)，立即在 Azure 中註冊您的閘道。
+1. 現在，[為您的閘道安裝建立 Azure 資源](../logic-apps/logic-apps-gateway-connection.md)。
+
+<a name="high-availability"></a>
+
+## <a name="high-availability-support"></a>高可用性支援
+
+若要避免內部部署資料存取發生單一失敗點，您可以在不同的電腦上安裝多個閘道（僅限標準模式），並將它們設定為叢集或群組。 如此一來，如果主要閘道無法使用，則會將資料要求路由傳送至第二個閘道，依此類推。 因為您只能在一部電腦上安裝一個標準閘道，所以您必須在另一部電腦上安裝叢集中的每個額外閘道。 所有與內部部署資料閘道搭配運作的連接器都支援高可用性。 
+
+* 在與主要閘道相同的 Azure 訂用帳戶內，您必須已經有至少一個閘道安裝，以及該安裝的修復金鑰。
+
+* 主要閘道必須執行 2017 年 11 月或更新版本的閘道更新。
+
+設定主要閘道之後，當您移至 [安裝其他閘道] 時，選取 [**新增至現有的閘道**叢集]，選取主要閘道（即您安裝的第一個閘道），並提供該閘道的修復金鑰。 如需詳細資訊，請參閱[適用於內部部署資料閘道的高可用性叢集](https://docs.microsoft.com/data-integration/gateway/service-gateway-install#add-another-gateway-to-create-a-cluster)。
 
 <a name="update-gateway-installation"></a>
 
 ## <a name="change-location-migrate-restore-or-take-over-existing-gateway"></a>變更位置、遷移、還原或取代現有閘道
 
-如果您必須變更閘道的位置、閘道安裝移至新的電腦、復原受損的閘道，或取得現有閘道的擁有權，您會需要在閘道安裝期間所提供的修復金鑰。 這個動作會中斷舊閘道的連線。
+如果您必須變更閘道的位置、閘道安裝移至新的電腦、復原受損的閘道，或取得現有閘道的擁有權，您會需要在閘道安裝期間所提供的修復金鑰。
 
-1. 從電腦的 [控制台]，移至 [程式和功能]。 在程式清單中，選取 [內部部署資料閘道]，然後選擇 [解除安裝]。
+1. 在具有現有閘道的電腦上執行閘道安裝程式。 如果您沒有最新的閘道安裝程式，請[下載最新的閘道版本](https://aka.ms/on-premises-data-gateway-installer)。
 
-1. [重新安裝內部部署資料閘道](https://aka.ms/on-premises-data-gateway-installer)。
+   > [!NOTE]
+   > 在具有原始閘道安裝的電腦上還原閘道之前，您必須先卸載該電腦上的閘道。 此動作會中斷原始閘道的連線。
+   > 如果您移除或刪除任何雲端服務的閘道叢集，就無法還原該叢集。
 
-1. 安裝程式開啟後，以先前用來安裝閘道的同一個公司或學校帳戶進行登入。
+1. 在安裝程式開啟之後，以用來安裝閘道的相同 Azure 帳戶登入。
 
-1. 選取 [遷移、還原或取代現有閘道]，然後選擇 [下一步]。
+1. 選取 [**遷移、還原或接管現有的閘道** >  **]** ，例如：
 
    ![選取 [遷移、還原或取代現有閘道]](./media/logic-apps-gateway-install/migrate-recover-take-over-gateway.png)
 
-1. 在 [可用的閘道] 或 [可用的閘道叢集] 之下，選取您想要變更的閘道安裝。 輸入閘道安裝的修復金鑰。
+1. 選取可用的叢集和閘道，然後輸入所選閘道的修復金鑰，例如：
 
-   ![選取主要閘道](./media/logic-apps-gateway-install/select-existing-gateway.png)
+   ![選取閘道](./media/logic-apps-gateway-install/select-existing-gateway.png)
 
-1. 若要變更區域，請選取 [變更區域] 和新的區域。
+1. 若要變更區域，請選取 [**變更區域**]，然後選取新的區域。
 
-1. 完成之後，請選擇 [設定]。
+1. 當您準備好時，請選取 [**設定**]，讓您可以完成工作。
 
 ## <a name="configure-proxy-or-firewall"></a>設定 Proxy 或防火牆
 
-內部部署資料閘道會對 [Azure 服務匯流排](https://azure.microsoft.com/services/service-bus/)建立輸出連線。 如果您的工作環境要求流量經由 Proxy 存取網際網路，此限制可能會使資料閘道無法連線到閘道雲端服務。 若要判斷您的網路是否使用 Proxy，請檢閱 superuser.com 上的這篇文章：
+如果您的工作環境要求流量通過 proxy 以存取網際網路，此限制可能會導致內部部署資料閘道無法連線到閘道雲端服務，並[Azure 服務匯流排](../service-bus-messaging/service-bus-messaging-overview.md)。 如需詳細資訊, 請參閱[設定內部部署資料閘道的 proxy 設定](https://docs.microsoft.com/power-bi/service-gateway-proxy)。
 
-[如何知道我使用的 Proxy 伺服器為何？(SuperUser.com)](https://superuser.com/questions/346372/how-do-i-know-what-proxy-server-im-using)
-
-若要為閘道提供 Proxy 資訊，請參閱[設定 Proxy 設定](https://docs.microsoft.com/power-bi/service-gateway-proxy)。 若要檢查 Proxy 或防火牆是否會封鎖連線，請確認電腦確實可以連線到網際網路和 [Azure 服務匯流排](https://azure.microsoft.com/services/service-bus/)。 從 PowerShell 命令提示字元中，執行此命令︰
+若要檢查您的 proxy 或防火牆是否可能封鎖連線，請確認您的電腦是否可以實際連接到網際網路，並 Azure 服務匯流排。 從 PowerShell 命令提示字元中，執行此命令︰
 
 `Test-NetConnection -ComputerName watchdog.servicebus.windows.net -Port 9350`
 
@@ -224,9 +227,11 @@ TcpTestSucceeded       : True
 
 防火牆也可能會封鎖 Azure 服務匯流排到 Azure 資料中心的連線。 若發生此情況，請核准 (解除封鎖) 您所在區域之資料中心的所有 IP 位址。 如需這些 IP 位址，您可以[在此取得 Azure IP 位址清單](https://www.microsoft.com/download/details.aspx?id=41653)。
 
+<a name="configure-ports"></a>
+
 ## <a name="configure-ports"></a>設定連接埠
 
-閘道會建立對 [Azure 服務匯流排](https://azure.microsoft.com/services/service-bus/)的輸出連線，並與下列輸出連接埠進行通訊︰TCP 443 (預設)、5671、5672 和 9350 到 9354。 閘道不需要輸入連接埠。 深入了解 [Azure 服務匯流排和混合式解決方案](../service-bus-messaging/service-bus-messaging-overview.md)。
+閘道會建立連出連線以 Azure 服務匯流排並在輸出埠上進行通訊：TCP 443 (預設)、5671、5672 和 9350 到 9354。 閘道不需要輸入連接埠。 深入了解 [Azure 服務匯流排和混合式解決方案](../service-bus-messaging/service-bus-messaging-overview.md)。
 
 閘道會使用這些完整的網域名稱：
 
@@ -247,57 +252,36 @@ TcpTestSucceeded       : True
 
 ### <a name="force-https-communication-with-azure-service-bus"></a>強制使用 Azure 服務匯流排進行 HTTPS 通訊
 
-某些 Proxy 只允許送至連接埠 80 和 443 的流量。 根據預設，與 Azure 服務匯流排的通訊會發生於 443 以外的連接埠上。 您可以強制閘道透過 HTTPS (而非直接 TCP ) 來與 Azure 服務匯流排通訊，但是這麼做會大幅降低效能。 若要執行這項工作，請按照下列步驟進行：
-
-1. 瀏覽至內部部署資料閘道用戶端的位置，您通常可以在此找到該位置：```C:\Program Files\On-premises data gateway\Microsoft.PowerBI.EnterpriseGateway.exe```
-
-   否則，若要尋找用戶端位置，請在同一部電腦上開啟 [服務] 主控台，尋找 [內部部署資料閘道服務]，然後檢視 [可執行檔的路徑] 屬性。
-
-1. 開啟此「組態」檔：**Microsoft.PowerBI.DataMovement.Pipeline.GatewayCore.dll.config**
-
-1. 將 **ServiceBusSystemConnectivityModeString** 值從 **AutoDetect** 變更為 **Https**：
-
-   ```html
-   <setting name="ServiceBusSystemConnectivityModeString" serializeAs="String">
-      <value>Https</value>
-   </setting>
-   ```
+某些 Proxy 只允許送至連接埠 80 和 443 的流量。 根據預設，與 Azure 服務匯流排的通訊會發生於 443 以外的連接埠上。 您可以強制閘道透過 HTTPS (而非直接 TCP ) 來與 Azure 服務匯流排通訊，但是這麼做會大幅降低效能。 如需詳細資訊, 請參閱[強制搭配 Azure 服務匯流排的 HTTPS 通訊](https://docs.microsoft.com/data-integration/gateway/service-gateway-communication#force-https-communication-with-azure-service-bus)。
 
 <a name="windows-service-account"></a>
 
 ## <a name="windows-service-account"></a>Windows 服務帳戶
 
-在安裝內部部署資料閘道的電腦上，閘道會以名為「內部部署資料閘道服務」的 Windows 服務帳戶來執行。 不過，閘道會在其「登入身分」帳戶認證上使用 "NT SERVICE\PBIEgwService" 名稱。 根據預設，閘道對於您安裝閘道的電腦擁有「以服務方式登入」權限。 用於閘道的 Windows 服務帳戶通常與用來連線至內部部署資料來源的帳戶不同，也與用來登入雲端服務的公司或學校帳戶不同。
+根據預設，在本機電腦上安裝閘道時，會以名為「內部部署資料閘道服務」的 Windows 服務帳戶的身分執行。 不過，閘道安裝會使用`NT SERVICE\PBIEgwService`其「登入身分」帳號憑證的名稱，並具有「以服務方式登入」許可權。
 
-您若要在 Azure 入口網站中建立和維護閘道，此 Windows 服務帳戶必須至少具備**參與者**權限。 若要檢查這些權限，請參閱[使用 RBAC 和 Azure 入口網站來管理存取權](../role-based-access-control/role-assignments-portal.md)。
+> [!NOTE]
+> 您的 Windows 服務帳戶與用來連線到內部部署資料來源的帳戶不同，以及您登入雲端服務時所使用的 Azure 帳戶。
 
 <a name="restart-gateway"></a>
 
 ## <a name="restart-gateway"></a>重新啟動閘道
 
-資料閘道會以 Windows 服務的形式來執行，因此和任何其他 Windows 服務一樣，您可以透過多種方式啟動和停止閘道。 例如，您可以在閘道執行所在的電腦上以提高的權限開啟命令提示字元，並執行下列其中一個命令︰
+資料閘道會以 Windows 服務的形式來執行，因此和任何其他 Windows 服務一樣，您可以透過多種方式啟動和停止閘道。 如需詳細資訊，請參閱[重新開機內部部署資料閘道](https://docs.microsoft.com/data-integration/gateway/service-gateway-restart)。
 
-* 若要停止服務，請執行此命令：
-  
-  `net stop PBIEgwService`
+## <a name="tenant-level-administration"></a>租使用者層級管理
 
-* 若要啟動服務，請執行此命令：
-  
-  `net start PBIEgwService`
-
-## <a name="tenant-level-administration"></a>租用戶層級管理
-
-針對其他使用者已安裝並設定的所有閘道，租用戶系統管理員目前無法從單一位置來管理這些閘道。 如果您是租用戶系統管理員，您可以讓組織內的使用者將您新增為所安裝每個閘道的系統管理員。 如此一來，您即可透過 [閘道設定] 頁面或透過 [PowerShell 命令](/data-integration/gateway/service-gateway-powershell-support)管理組織中的所有閘道。
+若要查看 Azure AD 租使用者中的所有內部部署資料閘道，該租使用者中的全域管理員可以使用租使用者系統管理員身分登入[Power Platform 管理中心](https://powerplatform.microsoft.com)，然後選取 [**資料閘道**] 選項。 如需詳細資訊，請參閱內部[部署資料閘道的租使用者層級管理](https://docs.microsoft.com/data-integration/gateway/service-gateway-tenant-level-admin)。
 
 <a name="gateway-cloud-service"></a>
 
-## <a name="how-does-the-gateway-work"></a>閘道如何運作？
+## <a name="how-the-gateway-works"></a>閘道運作方式
 
 資料閘道可讓邏輯應用程式、閘道雲端服務和內部部署資料來源之間，快速且安全地進行通訊。 閘道雲端服務會將資料來源認證和閘道詳細資料予以加密並儲存。 此服務也會在邏輯應用程式、內部部署資料閘道和內部部署資料來源之間路由傳送查詢和其結果。
 
-閘道可搭配防火牆運作，而且僅使用輸出連線。 源自閘道代理程式的所有流量都是安全輸出流量。 閘道會在加密通道上經過 Azure 服務匯流排轉送來自內部部署來源的資料。 此服務匯流排會建立閘道與呼叫服務之間的通道，但不會儲存任何資料。 透過閘道傳送的所有資料都會加密。
+閘道可搭配防火牆運作，而且僅使用輸出連線。 源自閘道代理程式的所有流量都是安全輸出流量。 閘道會透過 Azure 服務匯流排，從加密通道上的內部部署來源轉送資料。 此服務匯流排會建立閘道與呼叫服務之間的通道，但不會儲存任何資料。 透過閘道傳送的所有資料都會加密。
 
-![diagram-for-on-premises-data-gateway-flow](./media/logic-apps-gateway-install/how-on-premises-data-gateway-works-flow-diagram.png)
+![內部部署資料閘道的架構](./media/logic-apps-gateway-install/how-on-premises-data-gateway-works-flow-diagram.png)
 
 下列步驟說明當雲端使用者與連線到內部部署資料來源的元素互動時，會發生什麼狀況︰
 

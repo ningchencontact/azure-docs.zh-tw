@@ -9,10 +9,10 @@ ms.date: 07/19/2019
 ms.author: tamram
 ms.custom: include file
 ms.openlocfilehash: d5ce4c094da3a411168c7fe4c282b15ceac7bb86
-ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
+ms.sourcegitcommit: 23389df08a9f4cab1f3bb0f474c0e5ba31923f12
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/26/2019
+ms.lasthandoff: 09/10/2019
 ms.locfileid: "70036675"
 ---
 下表說明 Azure 一般用途 v1、v2 和 Blob 儲存體帳戶的預設限制。 輸入限制是指傳送至儲存體帳戶之要求中的所有資料。 輸出限制是指從儲存體帳戶接收的回應中的所有資料。
@@ -20,7 +20,7 @@ ms.locfileid: "70036675"
 | Resource | 預設限制 |
 | --- | --- |
 | 每個區域中每個訂用帳戶的儲存體帳戶數目，包括標準和進階帳戶 | 250 |
-| 儲存體帳戶容量上限 | 2 PB, 適用于美國和歐洲, 而所有其他區域的 500 TB (含英國)<sup>1</sup>|
+| 儲存體帳戶容量上限 | 2 PB，適用于美國和歐洲，而所有其他區域的 500 TB （含英國）<sup>1</sup>|
 | 每個儲存體帳戶的 blob 容器、blob、檔案共用、資料表、佇列、實體或訊息數目上限 | 無限制 |
 | 每一儲存體帳戶的要求率上限<sup>1</sup> | 每秒 20,000 個要求 |
 | 每一儲存體帳戶的輸入上限<sup>1</sup> (美國、歐洲地區) | 25 Gbps |

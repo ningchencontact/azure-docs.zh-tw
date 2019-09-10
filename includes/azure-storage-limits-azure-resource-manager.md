@@ -9,15 +9,15 @@ ms.date: 09/18/2018
 ms.author: tamram
 ms.custom: include file
 ms.openlocfilehash: 092b5696b97b73344a01af8103b24a01010f7a55
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.sourcegitcommit: 23389df08a9f4cab1f3bb0f474c0e5ba31923f12
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/18/2019
+ms.lasthandoff: 09/10/2019
 ms.locfileid: "67174180"
 ---
-只有在您使用 Azure 儲存體使用 Azure Resource Manager 執行管理作業時，才會適用下列限制。
+只有當您使用 Azure Resource Manager 搭配 Azure 儲存體來執行管理作業時，才適用下列限制。
 
-| 資源 | 預設限制 |
+| Resource | 預設限制 |
 | --- | --- |
 | 儲存體帳戶的管理作業 (讀取) |每 5 分鐘 800 |
 | 儲存體帳戶管理作業 (寫入) |每小時 200 |

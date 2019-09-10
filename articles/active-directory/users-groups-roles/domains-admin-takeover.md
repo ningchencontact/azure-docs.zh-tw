@@ -15,12 +15,12 @@ ms.author: curtand
 ms.reviewer: elkuzmen
 ms.custom: it-pro;seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 553118486d1148f63e79ca25c32ed7dd8a3b7414
-ms.sourcegitcommit: c662440cf854139b72c998f854a0b9adcd7158bb
+ms.openlocfilehash: a756f0d9fe3669ab9d0f2b4576a35be5d2112a87
+ms.sourcegitcommit: 23389df08a9f4cab1f3bb0f474c0e5ba31923f12
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/02/2019
-ms.locfileid: "68736805"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70872206"
 ---
 # <a name="take-over-an-unmanaged-directory-as-administrator-in-azure-active-directory"></a>如何以系統管理員身分接管 Azure Active Directory 中非受控目錄
 
@@ -37,7 +37,7 @@ ms.locfileid: "68736805"
 
 有些包含 SharePoint 和 OneDrive 的產品 (例如 Office 365) 並不支援外部接管。 如果您的情況與此相符，或如果您是管理員，而想要接管使用自助式註冊之使用者所建立的非受控或「影子」租用戶，則您可以藉由內部管理員接管來執行此操作。
 
-1. 透過註冊 Power BI, 在未受管理的租使用者中建立使用者內容。 為了便於範例說明，這些步驟會假設該路徑。
+1. 透過註冊 Power BI，在未受管理的租使用者中建立使用者內容。 為了便於範例說明，這些步驟會假設該路徑。
 
 2. 開啟 [Power BI 網站](https://powerbi.com)，然後選取 [免費開始]。 輸入使用組織網域名稱的使用者帳戶，例如 `admin@fourthcoffee.xyz`。 輸入驗證碼之後，請查看您的電子郵件是否有確認碼。
 
@@ -58,13 +58,13 @@ ms.locfileid: "68736805"
 ### <a name="adding-the-domain-name-to-a-managed-tenant-in-azure-ad"></a>將網域名稱新增至 Azure AD 中的受控租用戶
 
 1. 開啟[Microsoft 365 系統管理中心](https://admin.microsoft.com)。
-2. 選取 [**使用者**] 索引標籤, 然後使用不使用自訂功能變數名稱的名稱 (例如*使用者\@fourthcoffeexyz.onmicrosoft.com* ) 建立新的使用者帳戶。 
+2. 選取 [**使用者**] 索引標籤，然後使用不使用自訂功能變數名稱的名稱（例如*使用者\@fourthcoffeexyz.onmicrosoft.com* ）建立新的使用者帳戶。 
 3. 確定新使用者帳戶具有 Azure AD 租用戶的全域管理員權限。
-4. 在 Microsoft 365 系統管理中心中開啟 [**網域**] 索引標籤, 選取功能變數名稱, 然後選取 [**移除**]。 
+4. 在 Microsoft 365 系統管理中心中開啟 [**網域**] 索引標籤，選取功能變數名稱，然後選取 [**移除**]。 
   
    ![從 Office 365 移除網域名稱](./media/domains-admin-takeover/remove-domain-from-o365.png)
   
-5. 如果您在 Office 365 中有任何使用者或群組參考已移除的網域名稱，就必須將他們重新命名為 .onmicrosoft.com 網域。 如果您強制刪除功能變數名稱, 則會自動將所有使用者重新命名為, 在此範例中為*使用者\@fourthcoffeexyz.onmicrosoft.com*。
+5. 如果您在 Office 365 中有任何使用者或群組參考已移除的網域名稱，就必須將他們重新命名為 .onmicrosoft.com 網域。 如果您強制刪除功能變數名稱，則會自動將所有使用者重新命名為，在此範例中為*使用者\@fourthcoffeexyz.onmicrosoft.com*。
   
 6. 使用具備 Azure AD 租用戶全域管理員身分的帳戶來登入 [Azure AD 系統管理中心](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview)。
   
@@ -73,7 +73,7 @@ ms.locfileid: "68736805"
    ![已將網域驗證為已新增至 Azure AD](./media/domains-admin-takeover/add-domain-to-azure-ad.png)
   
 > [!NOTE]
-> 如果將網域名稱移除，任何 Power BI 或 Azure Rights Management 服務使用者只要在 Office 365 租用戶中已獲指派授權，就必須儲存其儀表板。 他們必須使用使用者名稱 (例如*使用者\@fourthcoffeexyz.onmicrosoft.com* , 而不是*使用者\@fourthcoffee*) 來登入。
+> 如果將網域名稱移除，任何 Power BI 或 Azure Rights Management 服務使用者只要在 Office 365 租用戶中已獲指派授權，就必須儲存其儀表板。 他們必須使用使用者名稱（例如*使用者\@fourthcoffeexyz.onmicrosoft.com* ，而不是*使用者\@fourthcoffee*）來登入。
 
 ## <a name="external-admin-takeover"></a>外部管理員接管
 
@@ -102,15 +102,17 @@ ms.locfileid: "68736805"
 - Microsoft Stream
 - Dynamics 365 免費試用版
 
-具有包含 SharePoint、OneDrive 或商務用 Skype 之服務方案的任何服務, 都不支援外部管理員接管;例如, 透過 Office 免費訂用帳戶。 您可以選擇性地使用 [**ForceTakeover** 選項](#azure-ad-powershell-cmdlets-for-the-forcetakeover-option)，將網域名稱從非受控租用戶移除，並在所需的租用戶上加以驗證。 此 ForceTakeover 選項不會移動使用者，也不會保留訂用帳戶的存取權。 相反地，此選項只會移動網域名稱。 
+具有包含 SharePoint、OneDrive 或商務用 Skype 之服務方案的任何服務，都不支援外部管理員接管;例如，透過 Office 免費訂用帳戶。 
+
+您可以選擇性地使用 [**ForceTakeover** 選項](#azure-ad-powershell-cmdlets-for-the-forcetakeover-option)，將網域名稱從非受控租用戶移除，並在所需的租用戶上加以驗證。 **ForceTakeover 選項不會在使用者之間移動，也不會保留對訂用帳戶的存取權。此選項只會移動功能變數名稱。**
 
 #### <a name="more-information-about-rms-for-individuals"></a>個人版 RMS 的詳細資訊
 
-對於[個人版 RMS](/azure/information-protection/rms-for-individuals)，當非受控租用戶與您擁有的租用戶位於相同區域中時，會額外移動自動建立的 [Azure 資訊保護租用戶金鑰](/azure/information-protection/plan-implement-tenant-key)和[預設保護範本](/azure/information-protection/configure-usage-rights#rights-included-in-the-default-templates)並包含網域名稱。 
+對於[個人版 RMS](/azure/information-protection/rms-for-individuals)，當非受控租用戶與您擁有的租用戶位於相同區域中時，會額外移動自動建立的 [Azure 資訊保護租用戶金鑰](/azure/information-protection/plan-implement-tenant-key)和[預設保護範本](/azure/information-protection/configure-usage-rights#rights-included-in-the-default-templates)並包含網域名稱。
 
-當非受控租用戶位於不同的區域時，金鑰和範本並不會移動。 例如，非受控租用戶位於歐洲，而您擁有的租用戶位於北美洲。 
+當非受控租用戶位於不同的區域時，金鑰和範本並不會移動。 例如，如果非受控租使用者位於歐洲，而您擁有的組織在北美洲中。
 
-雖然個人版 RMS 是針對支援 Azure AD 驗證來開啟受保護內容所設計，但它並不會阻止使用者同時保護內容。 如果使用者是使用個人版 RMS 訂用帳戶來保護內容，且金鑰和範本未移動，則在網域接管之後將無法存取該內容。
+雖然個人版 RMS 是針對支援 Azure AD 驗證來開啟受保護內容所設計，但它並不會阻止使用者同時保護內容。 如果使用者使用個人版 RMS 訂用帳戶來保護內容，且金鑰和範本不會移動，則該內容在網域接管之後就無法存取。
 
 #### <a name="more-information-about-power-bi"></a>Power BI 的詳細資訊
 
@@ -119,8 +121,7 @@ ms.locfileid: "68736805"
 ### <a name="azure-ad-powershell-cmdlets-for-the-forcetakeover-option"></a>Azure AD 的 ForceTakeover 選項 PowerShell Cmdlet
 您可以在 [PowerShell 範例](#powershell-example)中看到使用這些 Cmdlet。
 
-
-Cmdlet | 使用量 
+Cmdlet | 使用量
 ------- | -------
 `connect-msolservice` | 出現提示時，登入您的受控租用戶。
 `get-msoldomain` | 顯示與目前租用戶關聯的網域名稱。
@@ -129,6 +130,9 @@ Cmdlet | 使用量
 `get-msoldomainverificationdns –Domainname <domainname> –Mode DnsTxtRecord` | 提供要放到網域之新 DNS TXT 記錄中的資訊 (MS=xxxxx)。 驗證可能不會立即進行，因為 TXT 記錄需要一些時間傳播，所以請先稍候幾分鐘，再考慮使用 **-ForceTakeover** 選項。 
 `confirm-msoldomain –Domainname <domainname> –ForceTakeover Force` | <li>如果您的網域名稱仍然未驗證，就可以著手執行 **-ForceTakeover** 選項。 它會驗證是否已建立 TXT 記錄，然後啟動接管程序。<li>您應該只有在強制執行外部管理員接管時 (例如當非受控租用戶的 Office 365 服務封鎖接管時)，才將 **-ForceTakeover** 選項新增至 Cmdlet。
 `get-msoldomain` | 網域清單現在會將網域名稱顯示為 [已驗證]。
+
+> [!NOTE]
+> 未受管理的 Azure AD 組織會在您執行 external 接管 force 選項後的10天內刪除。
 
 ### <a name="powershell-example"></a>PowerShell 範例
 

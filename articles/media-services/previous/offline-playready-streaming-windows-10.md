@@ -14,21 +14,21 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/16/2019
 ms.author: willzhan
-ms.openlocfilehash: 76008cdf0121ac3c9e4a2fc30d2e9fbcc561ff1d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 3f742d4cd2a5285c7c52611a0c4c4735dedc2f19
+ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64939528"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70844790"
 ---
 # <a name="offline-playready-streaming-for-windows-10"></a>適用於 Windows 10 的離線 PlayReady 串流  
 
-> [!div class="op_single_selector" title1="選取您要使用媒體服務版本："]
+> [!div class="op_single_selector" title1="選取您要使用的媒體服務版本:"]
 > * [第 3 版](../latest/offline-plaready-streaming-for-windows-10.md)
 > * [第 2 版](offline-playready-streaming-windows-10.md)
 
 > [!NOTE]
-> 媒體服務 v2 不會再新增任何新的特性或功能。 <br/>查看最新版本的[媒體服務 v3](https://docs.microsoft.com/azure/media-services/latest/)。 此外，請參閱[從 v2 至 v3 的移轉指導方針](../latest/migrate-from-v2-to-v3.md)
+> 媒體服務 v2 不會再新增任何新的特性或功能。 <br/>查看最新版本的[媒體服務 v3](https://docs.microsoft.com/azure/media-services/latest/)。 另請參閱[從 v2 到 v3 的遷移指引](../latest/migrate-from-v2-to-v3.md)
 
 Azure 媒體服務支援在具備 DRM 保護的情況下離線下載/播放。 本文涵蓋適用於 Windows 10/PlayRead 用戶端的 Azure 媒體服務離線支援。 您可以在以下文章中閱讀和適用於 iOS/FairPlay 與 Android/Widevine 裝置的離線模式支援相關資訊：
 
@@ -39,16 +39,16 @@ Azure 媒體服務支援在具備 DRM 保護的情況下離線下載/播放。 �
 
 本節提供一些離線模式播放的背景資訊，尤其是開發該技術的原因：
 
-* 在某些國家/地區，網際網路可用性和/或頻寬是仍然有限。 使用者可以選擇先下載，以便能以夠高的解析度觀賞內容，來獲得令人滿意的檢視體驗。 在此情況下，更常見的問題不是網路可用性，而是有限的網路頻寬。 OTT/OVP 提供者正在要求提供離線模式支援。
+* 在某些國家/地區，網際網路可用性和/或頻寬仍然受到限制。 使用者可以選擇先下載，以便能以夠高的解析度觀賞內容，來獲得令人滿意的檢視體驗。 在此情況下，更常見的問題不是網路可用性，而是有限的網路頻寬。 OTT/OVP 提供者正在要求提供離線模式支援。
 * Netflix 2016 年第 3 季股東會議中，Netflix CEO Reed Hastings 揭露了一項資訊，那就是下載內容是「頻繁被要求的功能」，並且「我們對此持開放態度」。
-* 某些內容提供者可能不允許 DRM 授權傳遞超出國家/地區的邊界。 如果使用者想要在需要出國旅行時仍能觀賞內容，就需要離線下載。
+* 某些內容提供者可能不允許超出國家/地區框線的 DRM 授權傳遞。 如果使用者想要在需要出國旅行時仍能觀賞內容，就需要離線下載。
  
 以下是我們在實作離線模式時面臨的挑戰：
 
 * 許多播放器和編碼器工具支援 MP4，但 MP4 容器與 DRM 並未綁定，因此彼此之間沒有約束力；
 * 長期來看，可以使用 CFF 搭配 CENC。 但是目前工具/播放器支援生態系統尚未成形。 而我們現在就需要一個解決方案。
  
-這個概念是：將採用 H264/AAC 的 Smooth Streaming ([PIFF](https://go.microsoft.com/?linkid=9682897)) 檔案格式與 PlayReady (AES-128 CTR) 綁定，並產生約束力。 個別 Smooth Streaming .ismv 檔案 (假設影片中的音訊是多工的) 本身是 fMP4，而且可用於播放。 如果 Smooth Streaming 內容透過 PlayReady 加密，每個 .ismv 檔案都會變成受 PlayReady 保護的分散式 MP4。 我們可以選擇具備偏好位元速率的 .ismv 檔案，然後將它重新命名為 .mp4 以用於下載。
+這個概念是：將採用 H264/AAC 的 Smooth Streaming ([PIFF](https://docs.microsoft.com/iis/media/smooth-streaming/protected-interoperable-file-format)) 檔案格式與 PlayReady (AES-128 CTR) 綁定，並產生約束力。 個別 Smooth Streaming .ismv 檔案 (假設影片中的音訊是多工的) 本身是 fMP4，而且可用於播放。 如果 Smooth Streaming 內容透過 PlayReady 加密，每個 .ismv 檔案都會變成受 PlayReady 保護的分散式 MP4。 我們可以選擇具備偏好位元速率的 .ismv 檔案，然後將它重新命名為 .mp4 以用於下載。
 
 裝載受 PlayReady 保護的 MP4 以用於漸進式下載時有兩個選項可選擇：
 

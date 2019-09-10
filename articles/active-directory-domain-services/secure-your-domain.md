@@ -1,69 +1,93 @@
 ---
-title: 保護您的 Azure Active Directory Domain Services 受控網域 | Microsoft Docs
-description: 保護受控網域
+title: 保護 Azure AD Domain Services |Microsoft Docs '
+description: 瞭解如何停用 Azure Active Directory Domain Services 受控網域的弱式加密、舊通訊協定和 NTLM 密碼雜湊同步處理。
 services: active-directory-ds
-documentationcenter: ''
 author: iainfoulds
 manager: daveba
-editor: curtand
 ms.assetid: 6b4665b5-4324-42ab-82c5-d36c01192c2a
 ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 06/28/2019
+ms.date: 09/09/2019
 ms.author: iainfou
-ms.openlocfilehash: 923ecae9dc649b8f5cdcfd447b78fdec0805927a
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: db086c56c9f16f4691efaade03571bf8a36c6444
+ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68879156"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70842617"
 ---
-# <a name="secure-your-azure-ad-domain-services-managed-domain"></a>保護您的 Azure AD Domain Services 受控網域
-本文將協助您保護受控網域。 您可以關閉弱式加密套件的使用，並停用 NTLM 認證雜湊同步處理。
+# <a name="disable-weak-ciphers-and-password-hash-synchronization-to-secure-an-azure-ad-domain-services-managed-domain"></a>停用弱式密碼和密碼雜湊同步處理，以保護 Azure AD Domain Services 受控網域
 
-## <a name="install-the-required-powershell-modules"></a>安裝必要的 PowerShell 模組
+根據預設，Azure Active Directory Domain Services （Azure AD DS）可讓您使用 NTLM v1 和 TLS v1 之類的密碼。 某些繼承應用程式可能需要這些加密，但被視為弱式，如果您不需要，也可以停用這些加密。 如果您使用 Azure AD Connect 的內部部署混合式連線，您也可以停用 NTLM 密碼雜湊的同步處理。
 
-### <a name="install-and-configure-azure-ad-powershell"></a>安裝並設定 Azure AD PowerShell
-請遵循文章中的指示[安裝 Azure AD PowerShell 模組並連線至 Azure AD](https://docs.microsoft.com/powershell/azure/active-directory/install-adv2?toc=%2fazure%2factive-directory-domain-services%2ftoc.json)。
+本文說明如何停用 NTLM v1 和 TLS v1 密碼，並停用 NTLM 密碼雜湊同步處理。
 
-### <a name="install-and-configure-azure-powershell"></a>安裝並設定 Azure PowerShell
-請遵循文章中的指示[安裝 Azure PowerShell 模組並連線至 Azure 訂用帳戶](https://docs.microsoft.com/powershell/azure/install-az-ps?toc=%2fazure%2factive-directory-domain-services%2ftoc.json)。
+## <a name="prerequisites"></a>必要條件
 
+若要完成本文，您需要下列資源：
 
-## <a name="disable-weak-cipher-suites-and-ntlm-credential-hash-synchronization"></a>停用弱式加密套件和 NTLM 認證雜湊同步處理
-使用下列 PowerShell 指令碼執行：
+* 有效的 Azure 訂用帳戶。
+    * 如果您沒有 Azure 訂用帳戶，請先[建立帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)。
+* 與您的訂用帳戶相關聯的 Azure Active Directory 租用戶，可與內部部署目錄或僅限雲端的目錄同步。
+    * 如果需要，請[建立 Azure Active Directory 租用戶][create-azure-ad-tenant]或[將 Azure 訂用帳戶與您的帳戶建立關聯][associate-azure-ad-tenant]。
+* 已在您的 Azure AD 租用戶中啟用並設定 Azure Active Directory Domain Services 受控網域。
+    * 如有需要，請[建立並設定 Azure Active Directory Domain Services 執行個體][create-azure-ad-ds-instance]。
+* 安裝並設定 Azure PowerShell。
+    * 如有需要，請遵循指示來[安裝 Azure PowerShell 模組，並連接到您的 Azure 訂](/powershell/azure/install-az-ps)用帳戶。
+    * 請務必使用[disconnect-azaccount][Connect-AzAccount] Cmdlet 登入您的 Azure 訂用帳戶。
+* 安裝和設定 Azure AD PowerShell。
+    * 如有需要，請遵循指示來[安裝 Azure AD PowerShell 模組，並連接到 Azure AD](/powershell/azure/active-directory/install-adv2)。
+    * 請務必使用[AzureAD][Connect-AzureAD] Cmdlet 登入您的 Azure AD 租使用者。
 
-1. 停用受控網域上的 NTLM v1 支援。
-2. 從您的內部部署 AD 停用 NTLM 密碼雜湊同步處理。
-3. 在受控網域上停用 TLS v1。
+## <a name="disable-weak-ciphers-and-ntlm-password-hash-sync"></a>停用弱式加密和 NTLM 密碼雜湊同步處理
 
-如果您收到錯誤訊息, 指出`Get-AzResource` *Microsoft AAD/DomainServices*資源不存在, 請[提高您的存取權以管理所有 Azure 訂用帳戶和管理群組](../role-based-access-control/elevate-access-global-admin.md)。
+若要停用弱式加密套件和 NTLM 認證雜湊同步處理，請登入您的 Azure 帳戶，然後使用[get-azresource][Get-AzResource] Cmdlet 取得 Azure AD DS 資源：
+
+> [!TIP]
+> 如果您使用[get-azresource][Get-AzResource]命令收到錯誤，指出*Microsoft AAD/DomainServices*資源不存在，請[提升您的存取權以管理所有 Azure 訂用帳戶和管理群組][global-admin]。
 
 ```powershell
-// Login to your Azure AD tenant
 Login-AzAccount
 
-// Retrieve the Azure AD Domain Services resource.
 $DomainServicesResource = Get-AzResource -ResourceType "Microsoft.AAD/DomainServices"
+```
 
-// 1. Disable NTLM v1 support on the managed domain.
-// 2. Disable the synchronization of NTLM password hashes from
-//    on-premises AD to Azure AD and Azure AD Domain Services
-// 3. Disable TLS v1 on the managed domain.
+接下來，定義*DomainSecuritySettings*以設定下列安全性選項：
+
+1. 停用 NTLM v1 支援。
+2. 從您的內部部署 AD 停用 NTLM 密碼雜湊同步處理。
+3. 停用 TLS v1。
+
+> [!IMPORTANT]
+> 如果您停用 Azure AD DS 受控網域中的 NTLM 密碼雜湊同步處理，使用者和服務帳戶就無法執行 LDAP 簡單系結。 如果您需要執行 LDAP 簡單系結，請不要在下列命令中設定 *"SyncNtlmPasswords" = "Disabled";* security configuration 選項。
+
+```powershell
 $securitySettings = @{"DomainSecuritySettings"=@{"NtlmV1"="Disabled";"SyncNtlmPasswords"="Disabled";"TlsV1"="Disabled"}}
+```
 
-// Apply the settings to the managed domain.
+最後，使用[get-azresource][Set-AzResource] Cmdlet，將定義的安全性設定套用至 Azure AD DS 受控網域。 指定第一個步驟中的 Azure AD DS 資源，以及上一個步驟中的安全性設定。
+
+```powershell
 Set-AzResource -Id $DomainServicesResource.ResourceId -Properties $securitySettings -Verbose -Force
 ```
 
-> [!IMPORTANT]
-> 如果您已在 Azure AD Domain Services 實例上停用 NTLM 密碼雜湊同步處理, 使用者 (和服務帳戶) 就無法執行 LDAP 簡單系結。  如需停用 NTLM 密碼雜湊同步處理的詳細資訊, 請參閱[保護您的 Azure AD 網域服務受控網域](secure-your-domain.md)。
->
->
+將安全性設定套用至 Azure AD DS 受控網域需要幾分鐘的時間。
 
 ## <a name="next-steps"></a>後續步驟
-* [了解 Azure AD Domain Services 中的同步處理](synchronization.md)
+
+若要深入瞭解同步處理常式，請參閱[如何在 AZURE AD DS 受控網域中同步處理物件和認證][synchronization]。
+
+<!-- INTERNAL LINKS -->
+[create-azure-ad-tenant]: ../active-directory/fundamentals/sign-up-organization.md
+[associate-azure-ad-tenant]: ../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md
+[create-azure-ad-ds-instance]: tutorial-create-instance.md
+[global-admin]: ../role-based-access-control/elevate-access-global-admin.md
+[synchronization]: synchronization.md
+
+<!-- EXTERNAL LINKS -->
+[Get-AzResource]: /powershell/module/az.resources/Get-AzResource
+[Set-AzResource]: /powershell/module/Az.Resources/Set-AzResource
+[Connect-AzAccount]: /powershell/module/Az.Accounts/Connect-AzAccount
+[Connect-AzureAD]: /powershell/module/AzureAD/Connect-AzureAD

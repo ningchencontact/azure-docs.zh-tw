@@ -11,16 +11,16 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jairoc
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 03c9f0908d8b5290dc4585a330a7ea78a6577ab9
-ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
+ms.openlocfilehash: 60f38b60b5fbf0166f25c423663d157cf8f13ee2
+ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/10/2019
-ms.locfileid: "68942955"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70860898"
 ---
 # <a name="manage-device-identities-using-the-azure-portal"></a>使用 Azure 入口網站管理裝置身分識別
 
-透過 Azure Active Directory (Azure AD) 中的裝置身分識別管理, 您可以確保使用者會從符合安全性與合規性標準的裝置存取您的資源。
+透過 Azure Active Directory （Azure AD）中的裝置身分識別管理，您可以確保使用者會從符合安全性與合規性標準的裝置存取您的資源。
 
 本文：
 
@@ -49,7 +49,7 @@ Azure AD 入口網站可讓您集中管理您的裝置身分識別。 您可以�
   
 ## <a name="configure-device-settings"></a>設定裝置設定
 
-若要使用 Azure AD 入口網站來管理您的裝置身分識別, 您的裝置必須[註冊或加入](overview.md)Azure AD。 身為系統管理員，您可以透過設定裝置設定，來微調註冊和加入裝置的程序。
+若要使用 Azure AD 入口網站來管理您的裝置身分識別，您的裝置必須[註冊或加入](overview.md)Azure AD。 身為系統管理員，您可以透過設定裝置設定，來微調註冊和加入裝置的程序。
 
 ![設定裝置設定](./media/device-management-azure-portal/22.png)
 
@@ -63,16 +63,16 @@ Azure AD 入口網站可讓您集中管理您的裝置身分識別。 您可以�
 > **使用者可以將裝置加入 Azure AD**設定僅適用于 Windows 10 上的 Azure AD 加入。
 
 - **加入 Azure AD 的裝置上其他本機系統管理員** - 您可以選取哪些使用者會授與裝置的本機系統管理員權限。 新增至此處的使用者將會新增至 Azure AD 中的「裝置系統管理員」角色。 Azure AD 中的全域管理員和裝置擁有者預設會授與本機系統管理員權限。 此選項是可透過 Azure AD Premium 或 Enterprise Mobility Suite (EMS) 等產品使用的進階編輯功能。
-- **使用者可以向 Azure AD 註冊其裝置**-您需要設定此設定, 以允許 Azure AD 註冊 Windows 10 個人版、IOS、Android 和 macOs 裝置。 如果您選取 [**無**], 則不允許裝置向 Azure AD 註冊。 需要先註冊 (registration)，才可註冊 (enrollment) Microsoft Intune 或適用於 Office 365 的行動裝置管理 (MDM)。 如果您已設定任一服務，則會選取 [全部] 且無法使用 [無]。
-- **需要多重要素驗證才能加入裝置**-您可以選擇使用者是否需要提供額外的驗證因素, 才能將其裝置加入 Azure AD。 預設值為 [ **否**]。 建議在註冊裝置時要求 Multi-Factor Authentication。 啟用此服務的 Multi-Factor Authentication 之前，您必須確定已為註冊其裝置的使用者設定 Multi-Factor Authentication。 如需不同 Azure Multi-Factor Authentication 服務的詳細資訊，請參閱[開始使用 Azure Multi-Factor Authentication](../authentication/concept-mfa-whichversion.md)。 
+- **使用者可以向 Azure AD 註冊其裝置**-您需要設定此設定，以允許 Azure AD 註冊 Windows 10 個人版、IOS、Android 和 macOs 裝置。 如果您選取 [**無**]，則不允許裝置向 Azure AD 註冊。 需要先註冊 (registration)，才可註冊 (enrollment) Microsoft Intune 或適用於 Office 365 的行動裝置管理 (MDM)。 如果您已設定任一服務，則會選取 [全部] 且無法使用 [無]。
+- **需要多重要素驗證才能加入裝置**-您可以選擇使用者是否需要提供額外的驗證因素，才能將其裝置加入 Azure AD。 預設值為 [ **否**]。 建議在註冊裝置時要求 Multi-Factor Authentication。 啟用此服務的 Multi-Factor Authentication 之前，您必須確定已為註冊其裝置的使用者設定 Multi-Factor Authentication。 如需不同 Azure Multi-Factor Authentication 服務的詳細資訊，請參閱[開始使用 Azure Multi-Factor Authentication](../authentication/concept-mfa-whichversion.md)。 
 
 > [!NOTE]
-> [**需要多因素驗證才能加入裝置**] 設定不適用於已加入混合式 Azure AD 的裝置。
+> [**需要多因素驗證才能加入裝置**] 設定會套用至已加入 Azure AD 或 Azure AD 註冊的裝置。 此設定不適用於已加入混合式 Azure AD 的裝置。
 
-- **裝置數目上限** - 這項設定可讓您選取使用者可在 Azure AD 中擁有的裝置數目上限。 如果使用者達到此配額，則在移除一或多個現有的裝置之前，將無法新增其他裝置。 裝置配額會針對已加入 Azure AD 或 Azure AD 立即註冊的所有裝置計算。 預設值為 **20**。
+- **裝置數目上限**-這項設定可讓您選取使用者已加入的 Azure AD 數目上限，或在 Azure AD 中 Azure AD 已註冊裝置。 如果使用者達到此配額，則在移除一或多個現有的裝置之前，將無法新增其他裝置。 預設值為 **20**。
 
 > [!NOTE]
-> [**裝置數目上限**] 設定不適用於混合式 Azure AD 已加入裝置。
+> [**裝置數目上限**] 設定適用于已加入 Azure AD 或 Azure AD 註冊的裝置。 此設定不適用於已加入混合式 Azure AD 的裝置。
 
 - **使用者可以在裝置間同步設定及應用程式資料** - 根據預設，這項設定會設定為 [無]。 選取特定使用者或群組，或是選取 [全部]，以便在使用者的 Windows 10 裝置間同步其設定及應用程式資料。 深入了解同步在 Windows 10 中的運作方式。
 此選項是可透過 Azure AD Premium 或 Enterprise Mobility Suite (EMS) 等產品使用的進階功能。
@@ -99,15 +99,15 @@ Azure AD 入口網站可讓您集中管理您的裝置身分識別。 您可以�
 
 >[!TIP]
 >
->* 如果您在已註冊的資料行下看到「混合式 Azure AD 聯結」的裝置, 且狀態為「擱置」, 表示裝置已從 Azure AD connect 同步處理, 且正在等候從用戶端完成註冊。 深入瞭解如何[規劃您的混合式 Azure AD 聯結執行](hybrid-azuread-join-plan.md)。 如需其他資訊, 請參閱[裝置](faq.md)的常見問題。
+>* 如果您在已註冊的資料行下看到「混合式 Azure AD 聯結」的裝置，且狀態為「擱置」，表示裝置已從 Azure AD connect 同步處理，且正在等候從用戶端完成註冊。 深入瞭解如何[規劃您的混合式 Azure AD 聯結執行](hybrid-azuread-join-plan.md)。 如需其他資訊，請參閱[裝置](faq.md)的常見問題。
 >
 >   ![擱置裝置](./media/device-management-azure-portal/75.png)
 >
->* 就某些 iOS 裝置而言，包含單引號的裝置名稱可能會使用看起來像單引號的不同字元。 因此, 搜尋這類裝置有點棘手, 如果您不會看到正確的搜尋結果, 請確定搜尋字串包含相符的單引號字元。
+>* 就某些 iOS 裝置而言，包含單引號的裝置名稱可能會使用看起來像單引號的不同字元。 因此，搜尋這類裝置有點棘手，如果您不會看到正確的搜尋結果，請確定搜尋字串包含相符的單引號字元。
 
 ## <a name="device-identity-management-tasks"></a>裝置身分識別管理工作
 
-身為全域管理員或雲端裝置管理員, 您可以管理已註冊或已加入的裝置。 Intune 服務管理員可以：
+身為全域管理員或雲端裝置管理員，您可以管理已註冊或已加入的裝置。 Intune 服務管理員可以：
 
 - 更新裝置 – 範例為啟用/停用裝置等每日作業
 - 刪除裝置 – 當裝置已淘汰且應在 Azure AD 中刪除時
@@ -134,8 +134,8 @@ Azure AD 入口網站可讓您集中管理您的裝置身分識別。 您可以�
 
 **備註：**
 
-- 您必須是 Azure AD 中的全域管理員或雲端裝置系統管理員, 才能啟用/停用裝置。 
-- 停用裝置會導致裝置無法成功地向 Azure AD 進行驗證, 藉此防止裝置存取受裝置 CA 保護的 Azure AD 資源, 或使用您的 WH4B 認證。
+- 您必須是 Azure AD 中的全域管理員或雲端裝置系統管理員，才能啟用/停用裝置。 
+- 停用裝置會導致裝置無法成功地向 Azure AD 進行驗證，藉此防止裝置存取受裝置 CA 保護的 Azure AD 資源，或使用您的 WH4B 認證。
 
 ### <a name="delete-an-azure-ad-device"></a>刪除 Azure AD 裝置
 
@@ -157,7 +157,7 @@ Azure AD 入口網站可讓您集中管理您的裝置身分識別。 您可以�
    - 移除所有附加至裝置的詳細資料，例如適用於 Windows 裝置的 BitLocker 金鑰。  
    - 代表無法復原的活動，除非必要，否則不建議使用。
 
-如果裝置是由另一個管理授權單位 (例如 Microsoft Intune) 所管理, 請確定已抹除/淘汰裝置, 然後才在 Azure AD 中刪除裝置。 在刪除任何裝置之前, 請先參閱如何[管理過時的裝置](device-management-azure-portal.md)。
+如果裝置是由另一個管理授權單位（例如 Microsoft Intune）所管理，請確定已抹除/淘汰裝置，然後才在 Azure AD 中刪除裝置。 在刪除任何裝置之前，請先參閱如何[管理過時的裝置](device-management-azure-portal.md)。
 
 ### <a name="view-or-copy-device-id"></a>檢視或複製裝置識別碼
 
@@ -185,7 +185,7 @@ Azure AD 入口網站可讓您集中管理您的裝置身分識別。 您可以�
 
 ## <a name="audit-logs"></a>稽核記錄
 
-您可以透過活動記錄來取得裝置活動。 這些記錄包含由裝置註冊服務和使用者所觸發的活動:
+您可以透過活動記錄來取得裝置活動。 這些記錄包含由裝置註冊服務和使用者所觸發的活動：
 
 - 建立裝置，以及在裝置上新增擁有者/使用者
 - 變更裝置設定
@@ -215,7 +215,7 @@ Azure AD 入口網站可讓您集中管理您的裝置身分識別。 您可以�
 - activities
 - 日期範圍
 - 目標
-- 初始者 (執行者)
+- 啟動者 (執行者)
 
 除了篩選，您還可以搜尋特定項目。
 

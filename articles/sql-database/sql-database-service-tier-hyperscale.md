@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 05/06/2019
-ms.openlocfilehash: d9d70444adee26eab77c0e3d256cd8f340a1b4c8
-ms.sourcegitcommit: 6d2a147a7e729f05d65ea4735b880c005f62530f
+ms.openlocfilehash: 1d70c5d86221213ae3f9a2d31fdf40857cb516be
+ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69981152"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70845617"
 ---
 # <a name="hyperscale-service-tier-for-up-to-100-tb"></a>超大規模資料庫服務層級, 最高可達 100 TB
 
@@ -186,7 +186,7 @@ Azure SQL Database 超大規模資料庫層目前可在下欄區域使用:
 
 2. 按一下 [ [**新增支援要求**]](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest)
 
-    ![Azure 說明及支援分頁](media/sql-database-service-tier-hyperscale/whitelist-request-screen-1.png)
+    ![Azure 說明及支援分頁](media/sql-database-service-tier-hyperscale/request-screen-1.png)
 
 3. 針對 [**問題類型**], 選取 **[服務和訂用帳戶限制 (配額)** ]
 
@@ -198,17 +198,17 @@ Azure SQL Database 超大規模資料庫層目前可在下欄區域使用:
 
 1. 按一下 [**提供詳細資料**]
 
-    ![問題詳細資料](media/sql-database-service-tier-hyperscale/whitelist-request-screen-2.png)
+    ![問題詳細資料](media/sql-database-service-tier-hyperscale/request-screen-2.png)
 
 8. 選擇**SQL Database 配額類型**:**其他配額要求**
 
 9. 填寫下列範本:
 
-    ![配額詳細資料](media/sql-database-service-tier-hyperscale/whitelist-request-screen-3.png)
+    ![配額詳細資料](media/sql-database-service-tier-hyperscale/request-screen-3.png)
 
     在範本中, 提供下列資訊
 
-    > 在新區域中建立 Azure 超大規模資料庫 SQL Database 的要求<br/> 區域: [填入您的要求區域]  <br/>
+    > 在新區域中建立 Azure 超大規模資料庫 SQL Database 的要求<br/> 區域： [填入您的要求區域]  <br/>
     > 計算 SKU/核心總數 (包括可讀取的複本) <br/>
     > 估計的 TB 數 
     >

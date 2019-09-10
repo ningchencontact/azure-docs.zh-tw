@@ -5,15 +5,15 @@ author: anirudhcavale
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 09/24/2018
+ms.date: 09/09/2019
 ms.author: ancav
 ms.subservice: ''
-ms.openlocfilehash: 57212da1a8da7ee6c57faf2413b88a413df04817
-ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
+ms.openlocfilehash: cc0c7c4928fb03cb60bb51f74d74fdc1ab914348
+ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "66129595"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70844916"
 ---
 # <a name="send-guest-os-metrics-to-the-azure-monitor-data-store-for-a-windows-virtual-machine-classic"></a>將客體 OS 計量傳送到 Windows 虛擬機器的 Azure 監視器資料存放區 (傳統)
 
@@ -27,13 +27,15 @@ Azure 監視器[診斷擴充功能](https://docs.microsoft.com/azure/monitoring-
 
 本文所述的流程僅適用於執行 Windows 作業系統的傳統虛擬機器。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 - 您必須是 Azure 訂用帳戶的[服務管理員或共同管理員](../../billing/billing-add-change-azure-subscription-administrator.md)。 
 
 - 您必須先向 [Microsoft.Insights](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-supported-services) 註冊您的訂用帳戶。 
 
 - 您需要安裝 [Azure PowerShell](/powershell/azure) 或 [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview)。
+
+- 您的 VM 資源必須位於[支援自訂計量的區域](metrics-custom-overview.md#supported-regions)中。
 
 ## <a name="create-a-classic-virtual-machine-and-storage-account"></a>建立傳統虛擬機器和儲存體帳戶
 
@@ -42,7 +44,7 @@ Azure 監視器[診斷擴充功能](https://docs.microsoft.com/azure/monitoring-
 
 1. 建立此 VM 時，請選擇建立新傳統儲存體帳戶的選項。 我們會在稍後步驟中使用此儲存體帳戶。
 
-1. 在 Azure 入口網站中，移至 [儲存體帳戶]  資源刀鋒視窗。 選取 [金鑰]  ，並記下儲存體帳戶名稱和儲存體帳戶金鑰。 稍後的步驟將會需要這項資訊。
+1. 在 Azure 入口網站中，移至 [儲存體帳戶] 資源刀鋒視窗。 選取 [金鑰]，並記下儲存體帳戶名稱和儲存體帳戶金鑰。 稍後的步驟將會需要這項資訊。
    ![儲存體存取金鑰](./media/collect-custom-metrics-guestos-vm-classic/storage-access-keys.png)
 
 ## <a name="create-a-service-principal"></a>建立服務主體
@@ -187,9 +189,9 @@ Azure 監視器[診斷擴充功能](https://docs.microsoft.com/azure/monitoring-
 
 1.  移至 Azure 入口網站。 
 
-1.  在左側功能表上，選取 [監視]  。
+1.  在左側功能表上，選取 [監視]。
 
-1.  在 [監視]  刀鋒視窗上，選取 [計量]  。
+1.  在 [監視] 刀鋒視窗上，選取 [計量]。
 
     ![瀏覽計量](./media/collect-custom-metrics-guestos-vm-classic/navigate-metrics.png)
 
@@ -197,7 +199,7 @@ Azure 監視器[診斷擴充功能](https://docs.microsoft.com/azure/monitoring-
 
 1. 在 [命名空間] 下拉式功能表中，選取 **azure.vm.windows.guest**。
 
-1. 在 [計量] 下拉式功能表中，選取 [記憶體\認可的位元組 (使用中)]  。
+1. 在 [計量] 下拉式功能表中，選取 [記憶體\認可的位元組 (使用中)]。
    ![計量繪圖](./media/collect-custom-metrics-guestos-vm-classic/plot-metrics.png)
 
 

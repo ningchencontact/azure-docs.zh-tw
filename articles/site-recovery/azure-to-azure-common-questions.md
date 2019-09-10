@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.date: 04/29/2019
 ms.topic: conceptual
 ms.author: asgang
-ms.openlocfilehash: d479a568ddeac29be88d0709b7544ba645274afa
-ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
+ms.openlocfilehash: cd1c6cf0ff5a963720df7420a5d983d24e7b4d3e
+ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "67875667"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70861382"
 ---
 # <a name="common-questions-azure-to-azure-disaster-recovery"></a>常見問題：Azure 至 Azure 災害復原
 
@@ -41,7 +41,15 @@ Site Recovery 小組會與 Azure 容量管理小組合作, 以規劃足夠的基
 ## <a name="replication"></a>複寫
 
 ### <a name="can-i-replicate-vms-enabled-through-azure-disk-encryption"></a>我可以複寫透過 Azure 磁碟加密啟用的 VM 嗎？
-是的，您可以複寫這些 VM。 請參閱[將已啟用 Azure 磁碟加密 (ADE) 的虛擬機器複寫到另一個 Azure 區域](azure-to-azure-how-to-enable-replication-ade-vms.md)一文。 Azure Site Recovery 目前僅支援執行 Windows OS 及可以使用 Azure Active Directory (Azure AD) 應用程式進行加密的 Azure VM。
+
+是，Site Recovery 支援已啟用 Azure 磁片加密（ADE）的 Vm 的嚴重損壞修復。 當您啟用複寫時，所有必要的磁片加密金鑰和秘密都會從來源區域複製到使用者內容中的目的地區域。 如果您沒有適當的許可權，就可以將立即可用的腳本遞交給安全性系統管理員，以複製金鑰和密碼。
+
+- Site Recovery 支援執行 Windows 之 Azure Vm 的 ADE。
+- Site recovery 支援使用具有 Azure Active Directory （AAD）的架構和版本1.1 （不含 AAD）的 ADE 0.1 版。 [深入了解](../virtual-machines/extensions/azure-disk-enc-windows.md#extension-schemata)。
+- ADE 版本1.1，Windows Vm 必須使用受控磁片。
+- [深入瞭解](azure-to-azure-how-to-enable-replication-ade-vms.md)如何針對加密的 vm 啟用複寫。
+
+
 
 ### <a name="can-i-replicate-vms-to-another-subscription"></a>我可以將 VM 複寫至另一個訂用帳戶嗎？
 是的，您可以將 Azure VM 複寫到相同 Azure AD 租用戶內的不同訂用帳戶。
@@ -129,7 +137,7 @@ Site Recovery 會每 5 分鐘建立一次當機時保持一致復原點。 使�
 不會，Site Recovery 會保留您先前所有的復原點。 根據復原點保留期間 (在此案例中為 24 小時)，只有在新的復原點產生時，Site Recovery 才會替換掉最舊的復原點。 在此情況下，由於不會因某些問題而產生任何新的復原點，因此在到達保留期間後，舊的復原點仍將維持不變。
 
 ### <a name="after-replication-is-enabled-on-a-vm-how-do-i-change-the-replication-policy"></a>在 VM 上啟用複寫之後，我要如何變更複寫原則？
-移至 [Site Recovery 保存庫]   > [Site Recovery 基礎結構]   > [複寫原則]  。 選取您想要編輯的原則，然後儲存變更。 此外，任何變更都會套用到現有的所有複寫。
+移至 [Site Recovery 保存庫] > [Site Recovery 基礎結構] > [複寫原則]。 選取您想要編輯的原則，然後儲存變更。 此外，任何變更都會套用到現有的所有複寫。
 
 ### <a name="are-all-the-recovery-points-a-complete-copy-of-the-vm-or-a-differential"></a>所有復原點都是 VM 的完整複本？還是會有差異？
 所產生的第一個復原點會具有完整複本。 所有後續復原點則具有差異變更。
@@ -181,13 +189,13 @@ Site Recovery 會在容錯移轉時嘗試提供 IP 位址。 如果另一部虛�
 深入瞭解如何[設定 vnet 的網路對應和 IP 位址](azure-to-azure-network-mapping.md#set-up-ip-addressing-for-target-vms)。
 
 ### <a name="what-are-latest-lowest-rpo-recovery-points"></a>什麼是**最新 (最低 RPO)** 復原點？
-[最新 (最低 RPO)]  選項會先處理已傳送到 Site Recovery 服務的所有資料來為每部 VM 建立復原點，然後才進行容錯移轉。 此選項會提供最低的復原點目標 (RPO)，因為在容錯移轉後建立的 VM 具有在觸發容錯移轉時複寫到 Site Recovery 的所有資料。
+[最新 (最低 RPO)] 選項會先處理已傳送到 Site Recovery 服務的所有資料來為每部 VM 建立復原點，然後才進行容錯移轉。 此選項會提供最低的復原點目標 (RPO)，因為在容錯移轉後建立的 VM 具有在觸發容錯移轉時複寫到 Site Recovery 的所有資料。
 
 ### <a name="do-latest-lowest-rpo-recovery-points-have-an-impact-on-failover-rto"></a>**最新 (最低 RPO)** 復原點對容錯移轉 RTO 是否有影響？
 是的。 Site Recovery 會在容錯移轉前處理所有待處理的資料，因此與其他選項相比，此選項具有較高的復原時間目標 (RTO)。
 
 ### <a name="what-does-the-latest-processed-option-in-recovery-points-mean"></a>復原點中的**最新處理**選項是什麼意思？
-[最近處理]  選項會將方案中的所有 VM 容錯移轉至 Site Recovery 所處理的最新復原點。 若要查看特定 VM 的最新復原點，請檢查 VM 設定中的 [最新復原點]  。 此選項提供低 RTO，因為不會花費任何時間來處理未處理的資料。
+[最近處理]選項會將方案中的所有 VM 容錯移轉至 Site Recovery 所處理的最新復原點。 若要查看特定 VM 的最新復原點，請檢查 VM 設定中的 [最新復原點]。 此選項提供低 RTO，因為不會花費任何時間來處理未處理的資料。
 
 ### <a name="what-happens-if-my-primary-region-experiences-an-unexpected-outage"></a>如果我的主要區域遇到非預期的中斷, 會發生什麼事？
 您可以在中斷之後觸發容錯移轉。 Site Recovery 不需要來自主要區域的連線即可執行容錯移轉。
@@ -211,7 +219,7 @@ Site Recovery 中的復原方案會協調 VM 的容錯移轉復原。 這有助�
 在復原方案中，您可以建立多個群組來進行排序。 每個群組會各在一個時間容錯移轉。 屬於相同群組的 VM 會一起容錯移轉，後面再接著另一個群組。 若要了解如何使用復原方案來建立應用程式模型，請參閱[關於復原方案](recovery-plan-overview.md#model-apps)。
 
 ### <a name="how-can-i-find-the-rto-of-a-recovery-plan"></a>如何找到復原方案的 RTO？
-若要檢查復原方案的 RTO，請為復原方案進行測試容錯移轉，然後移至 [Site Recovery 作業]  。
+若要檢查復原方案的 RTO，請為復原方案進行測試容錯移轉，然後移至 [Site Recovery 作業]。
 在以下範例中，名為 SAPTestRecoveryPlan 的作業花費了 8 分鐘 59 秒來容錯移轉所有虛擬機器及執行指定的動作。
 
 ![Site Recovery 作業清單](./media/azure-to-azure-troubleshoot-errors/recoveryplanrto.PNG)

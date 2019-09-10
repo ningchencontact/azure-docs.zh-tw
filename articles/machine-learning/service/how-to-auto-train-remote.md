@@ -11,12 +11,12 @@ ms.subservice: core
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 7/12/2019
-ms.openlocfilehash: 3c3205b64803ac4ee67997ef546ffd64c89f23b4
-ms.sourcegitcommit: 55e0c33b84f2579b7aad48a420a21141854bc9e3
+ms.openlocfilehash: 5918cc3835d00536845a96ed81ef663867291e29
+ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69624824"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70858804"
 ---
 # <a name="train-models-with-automated-machine-learning-in-the-cloud"></a>使用雲端中的自動化機器學習來將模型定型
 
@@ -68,9 +68,9 @@ compute_target.wait_for_completion(
 
 ## <a name="access-data-using-tabulardataset-function"></a>使用 TabularDataset 函數存取資料
 
-將 X 和 y 定義`TabularDataset`為, 這會傳遞至 AutoMLConfig 中的自動化 ML。 `from_delimited_files`根據預設, 會`infer_column_types`將設定為 true, 這將會自動推斷資料行類型。 
+將 X 和 y 定義`TabularDataset`為，這會傳遞至 AutoMLConfig 中的自動化 ML。 `from_delimited_files`根據預設，會`infer_column_types`將設定為 true，這將會自動推斷資料行類型。 
 
-如果您想要手動設定資料行類型, 您可以設定`set_column_types`引數以手動設定每個資料行的類型。 在下列程式碼範例中，資料來自 sklearn 套件。
+如果您想要手動設定資料行類型，您可以設定`set_column_types`引數以手動設定每個資料行的類型。 在下列程式碼範例中，資料來自 sklearn 套件。
 
 ```python
 # Create a project_folder if it doesn't exist
@@ -101,7 +101,7 @@ y = Dataset.Tabular.from_delimited_files(path=ds.path('digitsdata/y_train.csv'))
 
 ## <a name="create-run-configuration"></a>建立執行設定
 
-若要讓 get_data .py 腳本能夠使用相依性, 請定義`RunConfiguration`已定義`CondaDependencies`的物件。 請在中`AutoMLConfig`使用此`run_configuration`物件做為參數。
+若要讓 get_data .py 腳本能夠使用相依性，請定義`RunConfiguration`已定義`CondaDependencies`的物件。 請在中`AutoMLConfig`使用此`run_configuration`物件做為參數。
 
 ```python
 from azureml.core.runconfig import RunConfiguration
@@ -227,13 +227,13 @@ RunDetails(remote_run).show()
 
 小工具會顯示 URL，您可以使用它來查看並瀏覽個別執行的詳細資料。  
 
-如果您不在 Jupyter 筆記本中, 可以從執行本身顯示 URL:
+如果您不在 Jupyter 筆記本中，可以從執行本身顯示 URL：
 
 ```
 remote_run.get_portal_url()
 ```
 
-您的工作區中會提供相同的資訊。  若要深入瞭解這些結果, 請參閱[瞭解自動化機器學習結果](how-to-understand-automated-ml.md)。
+您的工作區中會提供相同的資訊。  若要深入瞭解這些結果，請參閱[瞭解自動化機器學習結果](how-to-understand-automated-ml.md)。
 
 ### <a name="view-logs"></a>檢視記錄檔
 
@@ -278,7 +278,7 @@ print(per_class_imp)
 
 ![模型說明能力主控台輸出](./media/how-to-auto-train-remote/expl-print.png)
 
-您也可以在工作區內部，透過小工具 UI 以及 Azure 入口網站中的 Web UI，來將特徵重要性視覺化。
+您也可以透過 widget UI、Azure 入口網站上的 web UI，或您的[工作區登陸頁面（預覽）](https://ml.azure.com)，將功能的重要性視覺化。 
 
 ![模型說明能力 UI](./media/how-to-auto-train-remote/model-exp.png)
 

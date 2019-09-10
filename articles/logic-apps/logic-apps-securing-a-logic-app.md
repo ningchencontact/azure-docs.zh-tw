@@ -9,12 +9,12 @@ ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: article
 ms.date: 06/28/2019
-ms.openlocfilehash: 15ec46511f1269606e0b0416c7c4a25f93012bec
-ms.sourcegitcommit: c662440cf854139b72c998f854a0b9adcd7158bb
+ms.openlocfilehash: 6c16b38cce31c45158a5871c10dbd01339da9203
+ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/02/2019
-ms.locfileid: "68736908"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70845428"
 ---
 # <a name="secure-access-and-data-in-azure-logic-apps"></a>保護 Azure Logic Apps 中的存取和資料
 
@@ -195,7 +195,7 @@ POST /subscriptions/<Azure-subscription-ID>/resourceGroups/<Azure-resource-group
 
 * [使用混淆來隱藏執行歷程記錄中的資料](#obfuscate)。
 
-  在許多觸發程式和動作中, 您可以從邏輯應用程式的執行歷程記錄隱藏其輸入、輸出或兩者。
+  在許多觸發程式和動作中，您可以從邏輯應用程式的執行歷程記錄隱藏其輸入、輸出或兩者。
 
 <a name="restrict-ip"></a>
 
@@ -260,7 +260,7 @@ POST /subscriptions/<Azure-subscription-ID>/resourceGroups/<Azure-resource-group
 
 ### <a name="hide-data-from-run-history-by-using-obfuscation"></a>使用混淆來隱藏執行歷程記錄中的資料
 
-許多觸發程式和動作都具有從邏輯應用程式的執行歷程記錄中隱藏輸入、輸出或兩者的設定。 當您使用這些設定來保護這項資料時, 以下是一些[要審查的考慮事項](#obfuscation-considerations)。
+許多觸發程式和動作都具有從邏輯應用程式的執行歷程記錄中隱藏輸入、輸出或兩者的設定。 當您使用這些設定來保護這項資料時，以下是一些[要審查的考慮事項](#obfuscation-considerations)。
 
 #### <a name="secure-inputs-and-outputs-in-the-designer"></a>在設計工具中保護輸入和輸出
 
@@ -298,12 +298,12 @@ POST /subscriptions/<Azure-subscription-ID>/resourceGroups/<Azure-resource-group
 
 #### <a name="secure-inputs-and-outputs-in-code-view"></a>在程式碼視圖中保護輸入和輸出
 
-在基礎觸發程式或動作定義中, 使用下列其中`runtimeConfiguration.secureData.properties`一個或兩個值來新增或更新陣列:
+在基礎觸發程式或動作定義中，使用下列其中`runtimeConfiguration.secureData.properties`一個或兩個值來新增或更新陣列：
 
 * `"inputs"`:保護執行歷程記錄中的輸入。
 * `"outputs"`:保護執行歷程記錄中的輸出。
 
-當您使用這些設定來保護這項資料時, 以下是一些[要審查的考慮事項](#obfuscation-considerations)。
+當您使用這些設定來保護這項資料時，以下是一些[要審查的考慮事項](#obfuscation-considerations)。
 
 ```json
 "<trigger-or-action-name>": {
@@ -440,7 +440,7 @@ POST /subscriptions/<Azure-subscription-ID>/resourceGroups/<Azure-resource-group
 | 參數名稱 | 描述 |
 |----------------|-------------|
 | `TemplatePasswordParam` | 範本參數, 可接受隨後傳遞至工作流程定義`basicAuthPasswordParam`之參數的密碼 |
-| `TemplatePasswordParam` | 此範本參數會接受使用者名稱, 然後傳遞至工作流程定義的`basicAuthUserNameParam`參數 |
+| `TemplateUsernameParam` | 此範本參數會接受使用者名稱, 然後傳遞至工作流程定義的`basicAuthUserNameParam`參數 |
 | `basicAuthPasswordParam` | 針對 HTTP 動作中的基本驗證接受密碼的工作流程定義參數 |
 | `basicAuthUserNameParam` | 在 HTTP 動作中接受基本驗證使用者名稱的工作流程定義參數 |
 |||

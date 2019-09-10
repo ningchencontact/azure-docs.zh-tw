@@ -9,17 +9,17 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: article
-ms.date: 08/30/2019
+ms.date: 09/10/2019
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b562ccf81a80219caa9f80bec82f64f7d2510626
-ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
+ms.openlocfilehash: 4b5f85aa99876ef6c3c9193612051085f3e0ffc0
+ms.sourcegitcommit: 23389df08a9f4cab1f3bb0f474c0e5ba31923f12
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70194604"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70872181"
 ---
 # <a name="dynamic-membership-rules-for-groups-in-azure-active-directory"></a>Azure Active Directory 中群組的動態成員資格規則
 
@@ -36,9 +36,9 @@ ms.locfileid: "70194604"
 
 ## <a name="rule-builder-in-the-azure-portal"></a>Azure 入口網站中的規則產生器
 
-Azure AD 提供規則產生器, 更快速地建立及更新您的重要規則。 規則產生器支援最多五個運算式的結構。 規則產生器可讓您更輕鬆地使用一些簡單的運算式來形成規則, 不過, 它不能用來重現每個規則。 如果規則產生器不支援您想要建立的規則, 您可以使用文字方塊。
+Azure AD 提供規則產生器，更快速地建立及更新您的重要規則。 規則產生器支援最多五個運算式的結構。 規則產生器可讓您更輕鬆地使用一些簡單的運算式來形成規則，不過，它不能用來重現每個規則。 如果規則產生器不支援您想要建立的規則，您可以使用文字方塊。
 
-以下是一些我們建議您使用文字方塊來建立的先進規則或語法範例:
+以下是一些我們建議您使用文字方塊來建立的先進規則或語法範例：
 
 - 具有五個以上運算式的規則
 - 直接報告規則
@@ -46,9 +46,9 @@ Azure AD 提供規則產生器, 更快速地建立及更新您的重要規則。
 - [具有複雜運算式的規則](groups-dynamic-membership.md#rules-with-complex-expressions);例如`(user.proxyAddresses -any (_ -contains "contoso"))`
 
 > [!NOTE]
-> 「規則產生器」可能無法顯示在文字方塊中所建立的某些規則。 當規則產生器無法顯示規則時, 您可能會看到一則訊息。 規則產生器不會以任何方式變更支援的語法、驗證或處理動態群組規則。
+> 「規則產生器」可能無法顯示在文字方塊中所建立的某些規則。 當規則產生器無法顯示規則時，您可能會看到一則訊息。 規則產生器不會以任何方式變更支援的語法、驗證或處理動態群組規則。
 
-如需更多逐步指示, 請參閱[更新動態群組](groups-update-rule.md)。
+如需更多逐步指示，請參閱[更新動態群組](groups-update-rule.md)。
 
 ![新增動態群組的成員資格規則](./media/groups-update-rule/update-dynamic-group-rule.png)
 
@@ -301,7 +301,7 @@ user.assignedPlans -any (assignedPlan.service -eq "SCO" -and assignedPlan.capabi
 Direct Reports for "{objectID_of_manager}"
 ```
 
-以下是有效規則的範例, 其中 "62e19b97-8b3d-4d4a-a106-4ce66896a863" 是管理員的 objectID:
+以下是有效規則的範例，其中 "62e19b97-8b3d-4d4a-a106-4ce66896a863" 是管理員的 objectID：
 
 ```
 Direct Reports for "62e19b97-8b3d-4d4a-a106-4ce66896a863"
@@ -328,7 +328,7 @@ user.objectid -ne null
 
 您建立的群組可以包含使用成員資格規則的租用戶內的所有裝置。 未來在租用戶中新增或移除裝置時，系統會自動調整群組的成員資格。
 
-「所有裝置」規則是使用單一運算式來建立, 並使用-ne 運算子和 null 值:
+「所有裝置」規則是使用單一運算式來建立，並使用-ne 運算子和 null 值：
 
 ```
 device.objectid -ne null
@@ -359,13 +359,18 @@ user.extension_c272a57b722d4eb29bfe327874ae79cb__OfficeNumber -eq "123"
 
 您也可以建立規則以在群組中選取成員資格的裝置物件。 您不能同時讓使用者和裝置成為群組成員。 **organizationalUnit** 屬性不會再列出且不應使用。 此字串由 Intune 在特定情況下所設定，但 Azure AD 無法辨識，因此沒有任何裝置會新增至以這個屬性為基礎的群組。
 
+> [!NOTE]
+> systemlabels 是無法使用 Intune 設定的唯讀屬性。
+>
+> 針對 Windows 10，deviceOSVersion 屬性的正確格式如下所示：（deviceOSVersion-eq "10.0 （17763）"）。 您可以使用 Get-msoldevice PowerShell Cmdlet 來驗證格式。
+
 可以使用下列裝置屬性。
 
  裝置屬性  | 值 | 範例
  ----- | ----- | ----------------
  accountEnabled | true false | (device.accountEnabled -eq true)
  displayName | 任何字串值 |(device.displayName -eq "Rob iPhone")
- deviceOSType | 任何字串值 | (device.deviceOSType -eq "iPad") -or (device.deviceOSType -eq "iPhone")<br>(Device.deviceostype-包含 "AndroidEnterprise")<br>(device.deviceOSType -eq "AndroidForWork")
+ deviceOSType | 任何字串值 | (device.deviceOSType -eq "iPad") -or (device.deviceOSType -eq "iPhone")<br>（Device.deviceostype-包含 "AndroidEnterprise"）<br>(device.deviceOSType -eq "AndroidForWork")
  deviceOSVersion | 任何字串值 | (device.deviceOSVersion -eq "9.1")
  deviceCategory | 有效的裝置類別名稱 | (device.deviceCategory -eq "BYOD")
  deviceManufacturer | 任何字串值 | (device.deviceManufacturer -eq "Samsung")
@@ -376,7 +381,7 @@ user.extension_c272a57b722d4eb29bfe327874ae79cb__OfficeNumber -eq "123"
  managementType | MDM (適用於行動裝置)<br>PC (適用於 Intune PC 代理程式管理的電腦) | (device.managementType -eq "MDM")
  deviceId | 有效的 Azure AD 裝置識別碼 | (device.deviceId -eq "d4fe7726-5966-431c-b3b8-cddc8fdb717d")
  objectId | 有效的 Azure AD 物件識別碼 |  (device.objectId -eq 76ad43c9-32c5-45e8-a272-7b58b58f596d")
- systemLabels | 比對 Intune 裝置屬性以觸發新式工作場所的裝置的任何字串 | (systemLabels-包含 "M365Managed")
+ systemLabels | 比對 Intune 裝置屬性以觸發新式工作場所的裝置的任何字串 | （systemLabels-包含 "M365Managed"）
 
 > [!Note]  
 > 針對 deviceOwnership，為裝置建立動態群組時，您需要將此值設定為等於 "Company"。 在 Intune 上，裝置擁有權會改以 Corporate 表示。 如需詳細資訊，請參閱 [OwnerTypes](https://docs.microsoft.com/intune/reports-ref-devices#ownertypes)。 

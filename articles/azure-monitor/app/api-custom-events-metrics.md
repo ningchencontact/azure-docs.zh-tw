@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.date: 03/27/2019
 ms.author: mbullwin
 ms.openlocfilehash: 9bedb74f4e882ac6e4206ee7fef676c94dc2422d
-ms.sourcegitcommit: a52f17307cc36640426dac20b92136a163c799d0
+ms.sourcegitcommit: 23389df08a9f4cab1f3bb0f474c0e5ba31923f12
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/01/2019
+ms.lasthandoff: 09/10/2019
 ms.locfileid: "68717460"
 ---
 # <a name="application-insights-api-for-custom-events-and-metrics"></a>自訂事件和度量的 Application Insights API
@@ -54,7 +54,7 @@ ms.locfileid: "68717460"
   * [Java 專案](../../azure-monitor/app/java-get-started.md)
   * [Node.js 專案](../../azure-monitor/app/nodejs.md)
   * [每個網頁中的 JavaScript](../../azure-monitor/app/javascript.md) 
-* 在您的裝置或網頁伺服器程式碼中加入:
+* 在裝置或 Web 伺服器程式碼中，加入：
 
     *C#:* `using Microsoft.ApplicationInsights;`
 

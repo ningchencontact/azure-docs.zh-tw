@@ -1,7 +1,7 @@
 ---
 title: 定型執行期間的記錄計量
 titleSuffix: Azure Machine Learning service
-description: 您可以追蹤您的實驗並監視計量，以加強模型建立程式。 瞭解如何將記錄新增至您的訓練腳本、如何提交實驗、如何檢查執行中作業的進度，以及如何查看已記錄的回合結果。
+description: 您可以追蹤您的實驗並監視計量, 以加強模型建立程式。 瞭解如何將記錄新增至您的訓練腳本、如何提交實驗、如何檢查執行中作業的進度, 以及如何查看已記錄的回合結果。
 services: machine-learning
 author: heatherbshapiro
 ms.author: hshapiro
@@ -12,16 +12,16 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 07/11/2019
 ms.custom: seodec18
-ms.openlocfilehash: 0630ca28652b48b3632dbae94c5e16d6adb462c4
-ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
+ms.openlocfilehash: 0f295bf3a76d89e811fe9a022a3ccb68fbe7556a
+ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70812296"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70858714"
 ---
 # <a name="track-machine-learning-training-metrics-with-azure-machine-learning"></a>使用 Azure Machine Learning 追蹤機器學習訓練計量
 
-追蹤您的實驗並監視計量，以加強模型建立程式。 在本文中，您將瞭解如何將記錄程式碼新增至您的定型腳本、提交實驗執行、監視執行，以及檢查 Azure Machine Learning 服務中的結果。
+追蹤您的實驗並監視計量, 以加強模型建立程式。 在本文中，您將瞭解如何將記錄程式碼新增至您的定型腳本、提交實驗執行、監視執行，以及檢查 Azure Machine Learning 服務中的結果。
 
 > [!NOTE]
 > Azure Machine Learning 服務也可能會在定型期間記錄來自其他來源的資訊，例如自動化機器學習執行，或執行定型作業的 Docker 容器。 這些記錄檔並未記載。 如果您遇到問題並聯系 Microsoft 支援服務，他們可能會在進行疑難排解時使用這些記錄。
@@ -246,7 +246,7 @@ ms.locfileid: "70812296"
 print(run.get_portal_url())
 ```
 
-2. **[適用於自動化機器學習回合]** 存取來自上一個回合的圖表。 以`<<experiment_name>>`適當的實驗名稱取代：
+2. **[適用於自動化機器學習回合]** 存取來自上一個回合的圖表。 以`<<experiment_name>>`適當的實驗名稱取代:
 
    ``` 
    from azureml.widgets import RunDetails
@@ -273,9 +273,9 @@ print(run.get_portal_url())
 您可以使用 ```run.get_metrics()``` 檢視定型模型的計量。 您現在可以取得上述範例中記錄的所有計量，以確定最佳模型。
 
 <a name="view-the-experiment-in-the-web-portal"></a>
-## <a name="view-the-experiment-in-the-azure-portal"></a>在 Azure 入口網站中檢視實驗
+## <a name="view-the-experiment-in-the-azure-portal-or-your-workspace-landing-page-previewhttpsmlazurecom"></a>在 Azure 入口網站或您的[工作區登陸頁面中查看實驗（預覽）](https://ml.azure.com)
 
-當實驗完成執行時，您可以瀏覽記錄的實驗執行記錄。 您可以透過兩種方式來存取歷程記錄：
+當實驗完成執行時，您可以瀏覽記錄的實驗執行記錄。 您可以透過兩種方式來存取歷程記錄:
 
 * 直接取得執行的 URL ```print(run.get_portal_url())```
 * 藉由提交執行名稱 (在此情況下為 ```run```)，以檢視執行詳細資料。 此方式可為您指出實驗名稱、識別碼、類型、狀態、詳細資料頁面、Azure 入口網站的連結，以及文件連結。

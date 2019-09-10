@@ -11,12 +11,12 @@ ms.reviewer: klam, LADocs
 ms.topic: conceptual
 ms.date: 08/23/2018
 tags: connectors
-ms.openlocfilehash: 5d0d276096441c780dee4f8b1e95442a1d7e7b25
-ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
+ms.openlocfilehash: d3c6395f7fd66e1b89fc49536e228249bc4ed2a9
+ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/27/2019
-ms.locfileid: "70050921"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70859249"
 ---
 # <a name="manage-excel-online-data-with-azure-logic-apps"></a>使用 Azure Logic Apps 來管理 Excel Online 資料
 
@@ -54,7 +54,10 @@ ms.locfileid: "70050921"
 
 1. 在搜尋方塊中，輸入 "excel" 作為篩選條件。 在動作清單底下，選取您想要的動作。
 
-1. 若出現提示, 請登入您的 Office 365 帳戶。
+   > [!NOTE]
+   > 邏輯應用程式設計工具無法載入具有100或更多資料行的資料表。 可能的話，請減少所選資料表中的資料行數目，讓設計工具可以載入資料表。
+
+1. 若出現提示，請登入您的 Office 365 帳戶。
 
    您的認證會授權邏輯應用程式建立與 Excel Online 的連線，並存取資料。
 
@@ -62,7 +65,7 @@ ms.locfileid: "70050921"
 
 ## <a name="connector-reference"></a>連接器參考
 
-如需如連接器的 OpenAPI (先前為 Swagger) 檔案所述的技術詳細資料 (例如觸發程式、動作和限制), 請參閱下列連接器參考頁面:
+如需如連接器的 OpenAPI （先前為 Swagger）檔案所述的技術詳細資料（例如觸發程式、動作和限制），請參閱下列連接器參考頁面：
 
 * [商務用 Excel Online](/connectors/excelonlinebusiness/)
 * [適用於 OneDrive 的 Excel Online](/connectors/excelonline/)

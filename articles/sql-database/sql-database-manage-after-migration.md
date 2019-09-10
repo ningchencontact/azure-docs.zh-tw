@@ -11,12 +11,12 @@ author: joesackmsft
 ms.author: josack
 ms.reviewer: sstein
 ms.date: 02/13/2019
-ms.openlocfilehash: 2edd12435643f88a0923abf0927149993d49e424
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: dead041845c123672d881a8538644b56c34a58a2
+ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68567804"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70845596"
 ---
 # <a name="new-dba-in-the-cloud--managing-your-single-and-pooled-databases-in-azure-sql-database"></a>雲端中的新 DBA - 在 Azure SQL Database 中管理您的單一和集區資料庫
 
@@ -39,7 +39,7 @@ ms.locfileid: "68567804"
 
 ## <a name="monitor-databases-using-the-azure-portal"></a>使用 Azure 入口網站監視資料庫
 
-在[Azure 入口網站](https://portal.azure.com/)中, 您可以選取您的資料庫, 然後按一下 [**監視**] 圖表, 來監視個別資料庫的使用率。 如此會帶出您可變更的 [度量] 視窗，只要按一下 [編輯圖表] 按鈕即可。 新增下列度量：
+在[Azure 入口網站](https://portal.azure.com/)中，您可以選取您的資料庫，然後按一下 [**監視**] 圖表，來監視個別資料庫的使用率。 如此會帶出您可變更的 [度量] 視窗，只要按一下 [編輯圖表] 按鈕即可。 新增下列度量：
 
 - CPU 百分比
 - DTU 百分比
@@ -142,7 +142,7 @@ SQL Database 提供[兩個驗證方法](sql-database-control-access.md#authentic
 
 #### <a name="reserved-ips"></a>保留的 IP
 
-另一個選項就是為您的 VM 佈建[保留的 IP](../virtual-network/virtual-networks-reserved-public-ip.md)，並將伺服器防火牆設定中的特定 VM IP 位址列入允許清單。 藉由指派保留的 IP，即可免去必須以不斷變更的 IP 位址更新防火牆規則的麻煩。
+另一個選項是為您的 Vm 布建[保留](../virtual-network/virtual-networks-reserved-public-ip.md)的 ip，並在伺服器防火牆設定中新增這些特定的 VM IP 位址。 藉由指派保留的 IP，即可免去必須以不斷變更的 IP 位址更新防火牆規則的麻煩。
 
 ### <a name="what-port-do-i-connect-to-sql-database-on"></a>我會透過哪個連接埠連接到 SQL Database
 
@@ -179,7 +179,7 @@ SQL Database 提供[兩個驗證方法](sql-database-control-access.md#authentic
 
 ### <a name="how-can-i-limit-access-to-sensitive-data-in-my-database"></a>如何才能限制存取我資料庫中的敏感性資料
 
-每個應用程式的資料庫中會有某些敏感性資料需要加以保護，不讓每個人都看見。 組織內的特定人員可能需要檢視此資料，但其他人卻不應該能夠檢視此資料。 其中一個範例是員工薪資。 管理員需要存取其直屬員工的工資資訊, 但個別小組成員則不應擁有其對等的薪資資訊存取權。 另一個案例是可能會在開發階段或測試期間與敏感性資料互動的資料開發人員，例如，客戶的 SSN。 重申，此資訊不需公開給開發人員。 在這種情況下，可能需要將您的敏感性資料遮罩，或完全不公開。 SQL Database 提供兩個這類方法來防止未經授權的使用者檢視敏感性資料：
+每個應用程式的資料庫中會有某些敏感性資料需要加以保護，不讓每個人都看見。 組織內的特定人員可能需要檢視此資料，但其他人卻不應該能夠檢視此資料。 其中一個範例是員工薪資。 管理員需要存取其直屬員工的工資資訊，但個別小組成員則不應擁有其對等的薪資資訊存取權。 另一個案例是可能會在開發階段或測試期間與敏感性資料互動的資料開發人員，例如，客戶的 SSN。 重申，此資訊不需公開給開發人員。 在這種情況下，可能需要將您的敏感性資料遮罩，或完全不公開。 SQL Database 提供兩個這類方法來防止未經授權的使用者檢視敏感性資料：
 
 [動態資料遮罩](sql-database-dynamic-data-masking-get-started.md)是一項資料遮罩功能，藉由將敏感性資料進行遮罩處理，使得應用程式層上不具權限的使用者看不見這些資料來限制資料的公開方式。 您可以定義可以建立遮罩模式的遮罩規則 (例如，僅顯示國民身分證 SSN 的最後 4 位數：XXX-XX-0000 並將其大部分標記為 X) 並確定要從遮罩規則中排除哪些使用者。 遮罩會快速發生，並且有各種不同遮罩函數可供各種資料類別使用。 動態資料遮罩可讓您自動偵測資料庫中的敏感性資料，並對其套用遮罩。
 
@@ -226,7 +226,7 @@ Express Route 也可讓您高載至所購買的頻寬限制最多 2 倍，不額
 
 ### <a name="is-sql-database-compliant-with-any-regulatory-requirements-and-how-does-that-help-with-my-own-organizations-compliance"></a>SQL Database 是否符合任何法規需求，以及這對於自己組織的合規性有何幫助
 
-SQL Database 符合各種法規規範。 若要查看 SQL Database 符合的最新規範, 請造訪[Microsoft 信任中心](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942), 並向下切入您組織的重要規範, 以查看符合規範的 Azure 服務是否包含 SQL Database。 請務必注意，雖然 SQL Database 可能被公認為合規的服務，這有助於您組織的服務合規性，但不自動保證這點。
+SQL Database 符合各種法規規範。 若要查看 SQL Database 符合的最新規範，請造訪[Microsoft 信任中心](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942)，並向下切入您組織的重要規範，以查看符合規範的 Azure 服務是否包含 SQL Database。 請務必注意，雖然 SQL Database 可能被公認為合規的服務，這有助於您組織的服務合規性，但不自動保證這點。
 
 ## <a name="intelligent-database-monitoring-and-maintenance-after-migration"></a>移轉之後的智慧型資料庫監視及維護
 
@@ -280,9 +280,9 @@ SQL Azure 平台會分析伺服器中不同資料庫的使用量歷程記錄，�
 
 ![查詢效能深入解析](./media/sql-database-manage-after-migration/query-performance-insight.png)
 
-#### <a name="azure-sql-analytics-preview-in-azure-monitor-logs"></a>Azure 監視器記錄中的 Azure SQL 分析 (預覽)
+#### <a name="azure-sql-analytics-preview-in-azure-monitor-logs"></a>Azure 監視器記錄中的 Azure SQL 分析（預覽）
 
-[Azure 監視器記錄](../azure-monitor/insights/azure-sql.md)可讓您收集和視覺化主要的 Azure sql Azure 效能計量, 每個工作區最多支援150000個 sql 資料庫和5000個 sql 彈性集區。 您可以使用它來監視和收到通知。 您可以監視跨多個 Azure 訂用帳戶和彈性集區的 SQL Database 和彈性集區計量，並可用來識別應用程式堆疊的各層問題。
+[Azure 監視器記錄](../azure-monitor/insights/azure-sql.md)可讓您收集和視覺化主要的 Azure sql Azure 效能計量，每個工作區最多支援150000個 sql 資料庫和5000個 sql 彈性集區。 您可以使用它來監視和收到通知。 您可以監視跨多個 Azure 訂用帳戶和彈性集區的 SQL Database 和彈性集區計量，並可用來識別應用程式堆疊的各層問題。
 
 ### <a name="i-am-noticing-performance-issues-how-does-my-sql-database-troubleshooting-methodology-differ-from-sql-server"></a>我注意到效能問題：我的 SQL Database 和 SQL Server 疑難排解方法有何不同
 

@@ -1,19 +1,18 @@
 ---
-title: 內部部署 Hyper-V VM 至 Azure 的災害復原支援矩陣 | Microsoft Docs
+title: 內部部署 Hyper-V VM 至 Azure 的災害復原支援矩陣
 description: 摘要說明使用 Azure Site recovery 將 Hyper-V VM 災害復原至 Azure 的支援元件和需求
-services: site-recovery
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 08/07/2019
+ms.date: 09/10/2019
 ms.author: raynew
-ms.openlocfilehash: b4f9c0ab3ca50b0ce8c9ba27d8773c58a72dcfa9
-ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
+ms.openlocfilehash: 5d7ac7cf00ee59a06a914d312fd58de00515a0b4
+ms.sourcegitcommit: 23389df08a9f4cab1f3bb0f474c0e5ba31923f12
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/03/2019
-ms.locfileid: "70230975"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70873348"
 ---
 # <a name="support-matrix-for-disaster-recovery-of-on-premises-hyper-v-vms-to-azure"></a>內部部署 Hyper-V VM 至 Azure 的災害復原支援矩陣
 
@@ -33,8 +32,8 @@ Hyper-V (不含 Virtual Machine Manager) | 您可以針對在不是由 Virtual M
 
 **伺服器** | **需求** | **詳細資料**
 --- | --- | ---
-Hyper-V (執行時不含 Virtual Machine Manager) |  Windows Server 2019、Windows Server 2016 (包括 Server core 安裝)、Windows Server 2012 R2 (含最新的更新) | 如果您已使用 Azure Site Recovery 設定 Windows Server 2012 R2 和/或 SCVMM 2012 R2，並且打算升級作業系統，請依照此[文件](upgrade-2012R2-to-2016.md)的說明進行。 
-Hyper-V (執行時含 Virtual Machine Manager) | Virtual Machine Manager 2019、Virtual Machine Manager 2016、Virtual Machine Manager 2012 R2 | 如果使用 Virtual Machine Manager, 則應該在 Virtual Machine Manager 2019 中管理 Windows Server 2019 主機。 同樣地, Windows Server 2016 主機也應該在 Virtual Machine Manager 2016 中進行管理。<br/><br/>
+Hyper-V (執行時不含 Virtual Machine Manager) |  Windows Server 2019、Windows Server 2016 （包括 Server core 安裝）、Windows Server 2012 R2 （含最新的更新） | 如果您已使用 Azure Site Recovery 設定 Windows Server 2012 R2 和/或 SCVMM 2012 R2，並且打算升級作業系統，請依照此[文件](upgrade-2012R2-to-2016.md)的說明進行。 
+Hyper-V (執行時含 Virtual Machine Manager) | Virtual Machine Manager 2019、Virtual Machine Manager 2016、Virtual Machine Manager 2012 R2 | 如果使用 Virtual Machine Manager，則應該在 Virtual Machine Manager 2019 中管理 Windows Server 2019 主機。 同樣地，Windows Server 2016 主機也應該在 Virtual Machine Manager 2016 中進行管理。<br/><br/>
 
 
 ## <a name="replicated-vms"></a>複寫 VM
@@ -134,6 +133,7 @@ RDM | NA | NA
 進階儲存體 | 是 | 是
 匯入/匯出服務 | 否 | 否
 設定在目標儲存體/快取儲存體帳戶 (用於儲存複寫資料) 上適用於虛擬網路的 Azure 儲存體防火牆 | 否 | 否
+正在修改儲存體帳戶 | 資料分割 啟用複寫之後，即無法修改目標 Azure 儲存體帳戶。 修改、停用然後重新啟用嚴重損壞修復。 | 否
 
 
 ## <a name="azure-compute-features"></a>Azure 計算功能
@@ -151,7 +151,7 @@ RDM | NA | NA
 **元件** | **需求** | **詳細資料**
 --- | --- | ---
 客體作業系統 | Site Recovery 支援 [Azure 支援](https://technet.microsoft.com/library/cc794868%28v=ws.10%29.aspx)的所有作業系統。  | 若不支援，則必要條件檢查會失敗。
-客體作業系統架構 | 32位 (Windows Server 2008)/64-bit | 若不支援，則必要條件檢查會失敗。
+客體作業系統架構 | 32位（Windows Server 2008）/64-bit | 若不支援，則必要條件檢查會失敗。
 作業系統磁碟大小 | 第 1 代 VM 高達 2,048 G。<br/><br/> 第 2 代 VM 高達 300 GB。  | 若不支援，則必要條件檢查會失敗。
 作業系統磁碟計數 | 1 | 若不支援，則必要條件檢查會失敗。
 資料磁碟計數 | 16 或以下  | 若不支援，則必要條件檢查會失敗。
@@ -172,7 +172,7 @@ VM 類型 | 第 1 代<br/><br/> 第 2 代--Windows | OS 磁碟基本類型的第
 跨資源群組間移動儲存體、網路、Azure VM<br/><br/> 內及跨訂用帳戶 | 否 | 否
 
 > [!NOTE]
-> 將虛擬機器從內部部署複寫至 Azure 時, 您只能從一個特定環境複寫到一個 AD 租使用者-Hyper-v 網站或適用于 VMM 的 Hyper-v。
+> 將虛擬機器從內部部署複寫至 Azure 時，您只能從一個特定環境複寫到一個 AD 租使用者-Hyper-v 網站或適用于 VMM 的 Hyper-v。
 
 
 ## <a name="provider-and-agent"></a>Provider 和代理程式

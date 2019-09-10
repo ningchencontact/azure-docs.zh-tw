@@ -8,12 +8,12 @@ ms.author: dobett
 ms.date: 08/23/2019
 ms.topic: conceptual
 manager: philmea
-ms.openlocfilehash: d7c538bd98b3924b422a93bc67cac405a6e4b7af
-ms.sourcegitcommit: 49c4b9c797c09c92632d7cedfec0ac1cf783631b
+ms.openlocfilehash: 818285e089ab01c2c603f2b0181fbd6d9179eba1
+ms.sourcegitcommit: 23389df08a9f4cab1f3bb0f474c0e5ba31923f12
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/05/2019
-ms.locfileid: "70383115"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70873461"
 ---
 # <a name="as-a-csp-create-and-manage-an-azure-iot-central-application-on-behalf-of-your-customer"></a>以 CSP 的身分，代表您的客戶建立和管理 Azure IoT Central 應用程式
 
@@ -71,14 +71,14 @@ Azure 訂用帳戶可讓您建立 Azure 服務執行個體。 Azure IoT Central 
 
 ## <a name="region"></a>區域
 
-選取您要建立 Azure IoT 中心應用程式的區域。 一般而言，您應選擇實際上最接近您裝置的區域，以取得最佳效能。
+選擇您想要建立 Azure IoT Central 應用程式的地區或[地理](https://azure.microsoft.com/global-infrastructure/geographies/)位置。 一般來說，您應該選擇最接近您裝置的區域，以取得最佳效能。
 
 > [!NOTE]
 > **預覽應用程式**範本目前僅**適用于北歐和** **美國中部**區域。
 
-若要深入了解，請參閱 [Azure 區域](https://docs.microsoft.com/azure/guides/developer/azure-developer-guide#azure-regions)。
+若要深入瞭解，請參閱[azure 區域](https://azure.microsoft.com/global-infrastructure/regions/)和[azure 地理](https://azure.microsoft.com/global-infrastructure/geographies/)位置。
 
-您可以在[依區域提供的產品](https://azure.microsoft.com/regions/services/)頁面上，看到可以使用 Azure IoT 中心的區域。
+您可以在[依區域提供的產品](https://azure.microsoft.com/global-infrastructure/services/?products=iot-central)頁面上，看到可以使用 Azure IoT 中心的區域。
 
 > [!Note]
 > 選擇區域後，即無法將應用程式移到不同的區域。

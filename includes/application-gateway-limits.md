@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 6/5/2019
 ms.author: victorh
 ms.openlocfilehash: cd0ec07ebfffc839fedcdc76c9aff8e86556a7de
-ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
+ms.sourcegitcommit: 23389df08a9f4cab1f3bb0f474c0e5ba31923f12
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/28/2019
+ms.lasthandoff: 09/10/2019
 ms.locfileid: "70130070"
 ---
 | Resource | 預設/最大限制 | 注意 |
@@ -34,10 +34,10 @@ ms.locfileid: "70130070"
 | 重新導向組態 |100<sup>1</sup>| |
 | 並行的 WebSocket 連線 |中型閘道20k<br> 大型閘道50k| |
 | URL 長度上限|8,000||
-| 檔案上傳大小上限, 標準 |2 GB | |
-| WAF 檔案上傳大小上限 |中型 WAF 閘道, 100 MB<br>大型 WAF 閘道, 500 MB| |
-| WAF 的主體大小限制, 不含檔案|128 KB||
+| 檔案上傳大小上限，標準 |2 GB | |
+| WAF 檔案上傳大小上限 |中型 WAF 閘道，100 MB<br>大型 WAF 閘道，500 MB| |
+| WAF 的主體大小限制，不含檔案|128 KB||
 | 最大 WAF 自訂規則|100||
 | 最大 WAF 排除專案|100||
 
-<sup>1</sup>如果已啟用 WAF 的 sku, 我們建議您將資源數目限制為 40, 以獲得最佳效能。
+<sup>1</sup>如果已啟用 WAF 的 sku，我們建議您將資源數目限制為40，以獲得最佳效能。

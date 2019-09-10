@@ -1,7 +1,7 @@
 ---
 title: 什麼是 FPGA-如何部署
 titleSuffix: Azure Machine Learning service
-description: 瞭解如何使用在 FPGA 上執行的模型來部署 web 服務, 以 Azure Machine Learning 服務進行 ultra 低延遲推斷。
+description: 瞭解如何使用在 FPGA 上執行的模型來部署 web 服務，以 Azure Machine Learning 服務進行 ultra 低延遲推斷。
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -11,16 +11,16 @@ ms.author: tedway
 author: tedway
 ms.date: 07/25/2019
 ms.custom: seodec18
-ms.openlocfilehash: c3d1d211f85c50a482e1dd9c482cb75477942de7
-ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
+ms.openlocfilehash: 8f95846844f9ff498b1b99a0b7a375f1c883457d
+ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70278190"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70860473"
 ---
-# <a name="what-are-field-programmable-gate-arrays-fpga-and-how-to-deploy"></a>什麼是可現場程式化閘道陣列 (FPGA) 和如何部署
+# <a name="what-are-field-programmable-gate-arrays-fpga-and-how-to-deploy"></a>什麼是可現場程式化閘道陣列（FPGA）和如何部署
 
-本文提供可現場程式化閘道陣列 (FPGA) 的簡介, 並說明如何使用 Azure Machine Learning 服務將模型部署至 Azure FPGA。 
+本文提供可現場程式化閘道陣列（FPGA）的簡介，並說明如何使用 Azure Machine Learning 服務將模型部署至 Azure FPGA。 
 
 FPGA 包含可程式化邏輯區塊的陣列，以及可重新設定互連的階層。 互連可讓您在製造之後以不同方式設定這些區塊。 與其他晶片相比，FPGA 結合了可程式性和效能。
 
@@ -37,45 +37,45 @@ FPGA 包含可程式化邏輯區塊的陣列，以及可重新設定互連的階
 |圖形處理器|GPU|這是頗受歡迎的 AI 計算選擇。 由於 GPU 能提供平行處理功能，因而使得它在轉譯影像的速度會比 CPU 還快。|
 |中央處理器|CPU|一般用途的處理器，其效能不適合圖形和影片處理。|
 
-Azure 上的 Fpga 是以 Intel 的 FPGA 裝置為基礎, 而資料科學家和開發人員會使用它們來加速即時 AI 計算。 這個具有 FPGA 功能的架構可提供效能、彈性和擴展能力，並且可在 Azure 上使用。
+Azure 上的 Fpga 是以 Intel 的 FPGA 裝置為基礎，而資料科學家和開發人員會使用它們來加速即時 AI 計算。 這個具有 FPGA 功能的架構可提供效能、彈性和擴展能力，並且可在 Azure 上使用。
 
-Fpga 可以讓即時推斷 (或模型評分) 要求達到低延遲。 不需要非同步要求 (批次處理)。 批次處理可能會造成延遲 (因為需要處理更多資料)。 類神經處理單元的實現不需要批次處理;因此, 相較于 CPU 和 GPU 處理器, 延遲的時間可能會更低。
+Fpga 可以讓即時推斷（或模型評分）要求達到低延遲。 不需要非同步要求 (批次處理)。 批次處理可能會造成延遲 (因為需要處理更多資料)。 類神經處理單元的實現不需要批次處理;因此，相較于 CPU 和 GPU 處理器，延遲的時間可能會更低。
 
 ### <a name="reconfigurable-power"></a>可重新設定的電源
 您可以針對不同類型的機器學習模型重新設定 FPGA。 擁有此種彈性，就更易於依據最佳的數值有效位數和所用的記憶體模型來加速應用程式。 由於 FPGA 可重新設定，因此您可以與 AI 演算法快速變化的需求保持同步。
 
 ## <a name="whats-supported-on-azure"></a>Azure 上所支援的項目
-Microsoft Azure 是 FPGA 全球最大的雲端投資。 使用這個具有 FPGA 功能的硬體架構，已定型的類神經網路執行速度會更快，延遲也較低。 Azure 可以跨 Fpga 平行處理預先定型的深度類神經網路 (DNN), 以相應放大您的服務。 DNN 可以預先定型為深度 Featurizer 以傳輸學習，也可以使用更新過的加權來微調。
+Microsoft Azure 是 FPGA 全球最大的雲端投資。 使用這個具有 FPGA 功能的硬體架構，已定型的類神經網路執行速度會更快，延遲也較低。 Azure 可以跨 Fpga 平行處理預先定型的深度類神經網路（DNN），以相應放大您的服務。 DNN 可以預先定型為深度 Featurizer 以傳輸學習，也可以使用更新過的加權來微調。
 
-Azure 上的 Fpga 支援:
+Azure 上的 Fpga 支援：
 
 + 影像分類和辨識案例
 + TensorFlow 部署
 + Intel FPGA 硬體 
 
-這些 DNN 模型目前可供使用:
+這些 DNN 模型目前可供使用：
   - ResNet 50
   - ResNet 152
   - DenseNet-121
   - VGG-16
   - SSD-VGG
 
-Fpga 可在下列 Azure 區域中使用:
+Fpga 可在下列 Azure 區域中使用：
   - East US
   - 東南亞
   - 西歐
   - 美國西部 2
 
 > [!IMPORTANT]
-> 若要將延遲和輸送量優化, 將資料傳送至 FPGA 模型的用戶端應該位於上述其中一個區域 (您已將模型部署至其中一個)。
+> 若要將延遲和輸送量優化，將資料傳送至 FPGA 模型的用戶端應該位於上述其中一個區域（您已將模型部署至其中一個）。
 
-**Azure vm 的 PBS 系列**包含 Intel Arria 10 fpga。 當您檢查 Azure 配額配置時, 它會顯示為「標準的 PBS 系列個 vcpu」。 PB6 VM 有六個個 vcpu 和一個 FPGA, 而且它會在將模型部署至 FPGA 時, 自動由 Azure ML 布建。 此檔案僅適用于 Azure ML, 而且無法執行任意 bitstreams。 例如, 您將無法使用 bitstreams 來快閃 FPGA 來執行加密、編碼等動作。
+**Azure vm 的 PBS 系列**包含 Intel Arria 10 fpga。 當您檢查 Azure 配額配置時，它會顯示為「標準的 PBS 系列個 vcpu」。 PB6 VM 有六個個 vcpu 和一個 FPGA，而且它會在將模型部署至 FPGA 時，自動由 Azure ML 布建。 此檔案僅適用于 Azure ML，而且無法執行任意 bitstreams。 例如，您將無法使用 bitstreams 來快閃 FPGA 來執行加密、編碼等動作。
 
 ### <a name="scenarios-and-applications"></a>案例和應用程式
 
 Azure Fpga 會與 Azure Machine Learning 整合。 Microsoft 使用 FPGA 來評估 DNN、Bing 搜尋順位排序，以及軟體定義網路 (SDN) 加速來減少延遲，同時釋放 CPU 來執行其他工作。
 
-下列案例使用 Fpga:
+下列案例使用 Fpga：
 + [自動化光學檢查系統](https://blogs.microsoft.com/ai/build-2018-project-brainwave/)
 
 + [地表覆蓋對應](https://blogs.technet.microsoft.com/machinelearning/2018/05/29/how-to-use-fpgas-for-deep-learning-inference-to-perform-land-cover-mapping-on-terabytes-of-aerial-images/)
@@ -84,14 +84,14 @@ Azure Fpga 會與 Azure Machine Learning 整合。 Microsoft 使用 FPGA 來評�
 
 ## <a name="example-deploy-models-on-fpgas"></a>範例：在 FPGA 上部署模型 
 
-您可以使用 Azure Machine Learning 硬體加速模型, 在 Fpga 上將模型部署為 web 服務。 使用 Fpga 可提供超低延遲推斷, 即使使用單一批次大小也一樣。 推斷 (或模型計分) 是已部署的模型用於預測的階段, 最常見的是生產資料。
+您可以使用 Azure Machine Learning 硬體加速模型，在 Fpga 上將模型部署為 web 服務。 使用 Fpga 可提供超低延遲推斷，即使使用單一批次大小也一樣。 推斷 (或模型計分) 是已部署的模型用於預測的階段, 最常見的是生產資料。
 
 
 ### <a name="prerequisites"></a>必要條件
 
-- Azure 訂用帳戶。  如果您沒有, 請在開始前建立免費帳戶。 立即試用[免費或付費版本的 Azure Machine Learning 服務](https://aka.ms/AMLFree)。
+- Azure 訂用帳戶。  如果您沒有，請在開始前建立免費帳戶。 立即試用[免費或付費版本的 Azure Machine Learning 服務](https://aka.ms/AMLFree)。
 
-- FPGA 配額。 使用 Azure CLI 檢查您是否有配額:
+- FPGA 配額。 使用 Azure CLI 檢查您是否有配額：
 
     ```shell
     az vm list-usage --location "eastus" -o table --query "[?localName=='Standard PBS Family vCPUs']"
@@ -100,7 +100,7 @@ Azure Fpga 會與 Azure Machine Learning 整合。 Microsoft 使用 FPGA 來評�
     > [!TIP]
     > 其他可能的位置為``southeastasia``、 ``westeurope``和``westus2``。
 
-    命令會傳回類似下面的文字:
+    命令會傳回類似下面的文字：
 
     ```text
     CurrentValue    Limit    LocalName
@@ -110,11 +110,11 @@ Azure Fpga 會與 Azure Machine Learning 整合。 Microsoft 使用 FPGA 來評�
 
     請確定您在__CurrentValue__下至少有6個個 vcpu。
 
-    如果您沒有配額, 請在上[https://aka.ms/accelerateAI](https://aka.ms/accelerateAI)提交要求。
+    如果您沒有配額，請在上[https://aka.ms/accelerateAI](https://aka.ms/accelerateAI)提交要求。
 
-- 已安裝 Azure Machine Learning services 工作區與適用於 Python 的 Azure Machine Learning SDK。 如需詳細資訊, 請參閱[建立工作區](how-to-manage-workspace.md)。
+- 已安裝 Azure Machine Learning services 工作區與適用於 Python 的 Azure Machine Learning SDK。 如需詳細資訊，請參閱[建立工作區](how-to-manage-workspace.md)。
  
-- 適用于硬體加速模型的 Python SDK:
+- 適用于硬體加速模型的 Python SDK：
 
     ```shell
     pip install --upgrade azureml-accel-models
@@ -123,7 +123,7 @@ Azure Fpga 會與 Azure Machine Learning 整合。 Microsoft 使用 FPGA 來評�
 
 ## <a name="1-create-and-containerize-models"></a>1.建立和容器化模型
 
-本檔將說明如何建立 TensorFlow 圖形來預先處理輸入影像、將它設為在 FPGA 上使用 ResNet 50 的 featurizer, 然後透過針對 ImageNet 資料集定型的分類器來執行功能。
+本檔將說明如何建立 TensorFlow 圖形來預先處理輸入影像、將它設為在 FPGA 上使用 ResNet 50 的 featurizer，然後透過針對 ImageNet 資料集定型的分類器來執行功能。
 
 依照指示執行以：
 
@@ -151,7 +151,7 @@ print(ws.name, ws.resource_group, ws.location, ws.subscription_id, sep='\n')
 
 ### <a name="preprocess-image"></a>預先處理映像
 
-Web 服務的輸入是 JPEG 影像。  第一個步驟是將 JPEG 影像解碼並進行前置處理。  JPEG 影像會視為字串, 而結果會 tensors, 而這會是 ResNet 50 模型的輸入。
+Web 服務的輸入是 JPEG 影像。  第一個步驟是將 JPEG 影像解碼並進行前置處理。  JPEG 影像會視為字串，而結果會 tensors，而這會是 ResNet 50 模型的輸入。
 
 ```python
 # Input images as a two-dimensional tensor containing an arbitrary number of images represented a strings
@@ -165,7 +165,7 @@ print(image_tensors.shape)
 
 ### <a name="load-featurizer"></a>Load featurizer
 
-初始化模型並下載要做為功能化器之 ResNet50 量化版本的 TensorFlow 檢查點。  您可以藉由匯入其他深度類神經網路, 取代下列程式碼片段中的 "QuantizedResnet50":
+初始化模型並下載要做為功能化器之 ResNet50 量化版本的 TensorFlow 檢查點。  您可以藉由匯入其他深度類神經網路，取代下列程式碼片段中的 "QuantizedResnet50"：
 
 - QuantizedResnet152
 - QuantizedVgg16
@@ -192,7 +192,7 @@ print(classifier_output)
 
 ### <a name="save-the-model"></a>儲存模型
 
-現在已載入預處理器、ResNet 50 featurizer 和分類器, 請將圖形和關聯的變數儲存為模型。
+現在已載入預處理器、ResNet 50 featurizer 和分類器，請將圖形和關聯的變數儲存為模型。
 
 ```python
 model_name = "resnet50"
@@ -207,7 +207,7 @@ with tf.Session() as sess:
 ```
 
 ### <a name="save-input-and-output-tensors"></a>儲存輸入和輸出 tensors
-在前置處理和分類器步驟期間建立的輸入和輸出 tensors, 將需要進行模型轉換和推斷。
+在前置處理和分類器步驟期間建立的輸入和輸出 tensors，將需要進行模型轉換和推斷。
 
 ```python
 input_tensors = in_images.name
@@ -218,9 +218,9 @@ print(output_tensors)
 ```
 
 > [!IMPORTANT]
-> 儲存輸入和輸出 tensors, 因為您需要它們才能進行模型轉換和推斷要求。
+> 儲存輸入和輸出 tensors，因為您需要它們才能進行模型轉換和推斷要求。
 
-可用的模型和對應的預設分類器輸出 tensors 如下所示, 如果您使用預設分類器, 這就是您要用於推斷的結果。
+可用的模型和對應的預設分類器輸出 tensors 如下所示，如果您使用預設分類器，這就是您要用於推斷的結果。
 
 + Resnet50、QuantizedResnet50
   ```python
@@ -245,7 +245,7 @@ print(output_tensors)
 
 ### <a name="register-model"></a>註冊模型
 
-使用 SDK 搭配 Azure Blob 儲存體中的 ZIP 檔案來[註冊](./concept-model-management-and-deployment.md)模型。 加入標記和與模型相關的其他中繼資料, 可協助您追蹤已定型的模型。
+使用 SDK 搭配 Azure Blob 儲存體中的 ZIP 檔案來[註冊](./concept-model-management-and-deployment.md)模型。 加入標記和與模型相關的其他中繼資料，可協助您追蹤已定型的模型。
 
 ```python
 from azureml.core.model import Model
@@ -258,7 +258,7 @@ print("Successfully registered: ", registered_model.name,
       registered_model.description, registered_model.version, sep='\t')
 ```
 
-如果您已經註冊模型, 而且想要將它載入, 您可以將它取出。
+如果您已經註冊模型，而且想要將它載入，您可以將它取出。
 
 ```python
 from azureml.core.model import Model
@@ -271,7 +271,7 @@ print(registered_model.name, registered_model.description,
 
 ### <a name="convert-model"></a>轉換模型
 
-將 TensorFlow 圖形轉換成 Open Neural Network Exchange 格式 ([ONNX](https://onnx.ai/))。  您將需要提供輸入和輸出 tensors 的名稱, 而您的用戶端將會在取用 web 服務時使用這些名稱。
+將 TensorFlow 圖形轉換成 Open Neural Network Exchange 格式（[ONNX](https://onnx.ai/)）。  您將需要提供輸入和輸出 tensors 的名稱，而您的用戶端將會在取用 web 服務時使用這些名稱。
 
 ```python
 from azureml.accel import AccelOnnxConverter
@@ -290,7 +290,7 @@ print("\nSuccessfully converted: ", converted_model.name, converted_model.url, c
 
 ### <a name="create-docker-image"></a>建立 Docker 映射
 
-已轉換的模型和所有相依性都會新增至 Docker 映射。  然後可以部署並具現化此 Docker 映射。  支援的部署目標包括雲端中的 AKS 或邊緣裝置 (例如[Azure Data Box Edge](https://docs.microsoft.com/azure/databox-online/data-box-edge-overview))。  您也可以為已註冊的 Docker 映射新增標記和描述。
+已轉換的模型和所有相依性都會新增至 Docker 映射。  然後可以部署並具現化此 Docker 映射。  支援的部署目標包括雲端中的 AKS 或邊緣裝置（例如[Azure Data Box Edge](https://docs.microsoft.com/azure/databox-online/data-box-edge-overview)）。  您也可以為已註冊的 Docker 映射新增標記和描述。
 
 ```python
 from azureml.core.image import Image
@@ -307,7 +307,7 @@ image = Image.create(name=image_name,
 image.wait_for_creation(show_output=False)
 ```
 
-依標記列出影像, 並取得詳細的記錄以進行任何偵錯工具。
+依標記列出影像，並取得詳細的記錄以進行任何偵錯工具。
 
 ```python
 for i in Image.list(workspace=ws):
@@ -319,7 +319,7 @@ for i in Image.list(workspace=ws):
 
 ### <a name="deploy-to-the-cloud"></a>部署到雲端
 
-若要將模型部署為大規模生產 Web 服務，請使用 Azure Kubernetes Service (AKS)。 您可以使用 Azure Machine Learning SDK、CLI 或 Azure 入口網站建立新的。
+若要將模型部署為大規模生產 Web 服務，請使用 Azure Kubernetes Service (AKS)。 您可以使用 [Azure Machine Learning SDK]、[CLI]、[ [Azure 入口網站](https://portal.azure.com)] 或 [[工作區] 登陸頁面（預覽）](https://ml.azure.com)來建立一個新的。
 
 ```python
 from azureml.core.compute import AksCompute, ComputeTarget
@@ -363,11 +363,11 @@ aks_service.wait_for_deployment(show_output=True)
 ```
 
 #### <a name="test-the-cloud-service"></a>測試雲端服務
-Docker 映射支援 gRPC 和 TensorFlow 服務「預測」 API。  使用範例用戶端呼叫 Docker 映射, 以從模型取得預測。  可用的範例用戶端程式代碼:
+Docker 映射支援 gRPC 和 TensorFlow 服務「預測」 API。  使用範例用戶端呼叫 Docker 映射，以從模型取得預測。  可用的範例用戶端程式代碼：
 - [Python](https://github.com/Azure/aml-real-time-ai/blob/master/pythonlib/amlrealtimeai/client.py)
 - [C#](https://github.com/Azure/aml-real-time-ai/blob/master/sample-clients/csharp)
 
-如果您想要使用 TensorFlow 服務, 您可以[下載範例用戶端](https://www.tensorflow.org/serving/setup)。
+如果您想要使用 TensorFlow 服務，您可以[下載範例用戶端](https://www.tensorflow.org/serving/setup)。
 
 ```python
 # Using the grpc client in Azure ML Accelerated Models SDK package
@@ -385,7 +385,7 @@ client = PredictionClient(address=address,
                           service_name=aks_service.name)
 ```
 
-因為此分類器已在[ImageNet](http://www.image-net.org/)資料集上定型, 所以將類別對應到人們可讀取的標籤。
+因為此分類器已在[ImageNet](http://www.image-net.org/)資料集上定型，所以將類別對應到人們可讀取的標籤。
 
 ```python
 import requests
@@ -407,7 +407,7 @@ for top in sorted_results[:5]:
 ```
 
 ### <a name="clean-up-the-service"></a>清理服務
-刪除您的 web 服務、映射和模型 (必須依照此順序完成, 因為有相依性)。
+刪除您的 web 服務、映射和模型（必須依照此順序完成，因為有相依性）。
 
 ```python
 aks_service.delete()
@@ -420,15 +420,15 @@ converted_model.delete()
 ### <a name="deploy-to-a-local-edge-server"></a>部署到本機邊緣伺服器
 
 所有[Azure Data Box Edge 裝置](https://docs.microsoft.com/azure/databox-online/data-box-edge-overview
-)都包含執行模型的 FPGA。  FPGA 一次只能執行一個模型。  若要執行不同的模型, 請直接部署新的容器。 您可以在[此 Azure 範例](https://github.com/Azure-Samples/aml-hardware-accelerated-models)中找到指示和範例程式碼。
+)都包含執行模型的 FPGA。  FPGA 一次只能執行一個模型。  若要執行不同的模型，請直接部署新的容器。 您可以在[此 Azure 範例](https://github.com/Azure-Samples/aml-hardware-accelerated-models)中找到指示和範例程式碼。
 
 ## <a name="secure-fpga-web-services"></a>保護 FPGA Web 服務
 
-若要保護您的 FPGA web 服務, 請參閱[保護 web 服務](how-to-secure-web-service.md)檔。
+若要保護您的 FPGA web 服務，請參閱[保護 web 服務](how-to-secure-web-service.md)檔。
 
 ## <a name="next-steps"></a>後續步驟
 
-查看這些筆記本、影片和 blog:
+查看這些筆記本、影片和 blog：
 
 + 數個[範例筆記本](https://aka.ms/aml-accel-models-notebooks)。
 

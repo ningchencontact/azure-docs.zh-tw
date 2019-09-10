@@ -9,15 +9,15 @@ ms.date: 02/07/2019
 ms.author: robb
 ms.custom: include file
 ms.openlocfilehash: 5d0c43fbcc1c59c3281f412aad96a3942a5c79b1
-ms.sourcegitcommit: aebe5a10fa828733bbfb95296d400f4bc579533c
+ms.sourcegitcommit: 23389df08a9f4cab1f3bb0f474c0e5ba31923f12
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/05/2019
+ms.lasthandoff: 09/10/2019
 ms.locfileid: "70392913"
 ---
 **資料收集磁片區與保留期** 
 
-| 層 | 每天限制 | 資料保留天數 | 註解 |
+| 層 | 每天限制 | 資料保留 | 註解 |
 |:---|:---|:---|:---|
 | 目前的每 GB 定價層<br>（2018年4月引進） | 無限制 | 30-730 天 | 超過31天的資料保留期可供額外收費。 深入瞭解 Azure 監視器定價。 |
 | 舊版免費層<br>（2016年4月引進） | 500 MB | 7 天 | 當您的工作區達到每日 500 MB 的限制時，資料內嵌會在下一天開始時停止並繼續。 一天是以 UTC 為基礎。 請注意，Azure 資訊安全中心所收集的資料不會包含在此 500 MB 的每日限制中，而且將會繼續以高於此限制的方式收集。  |

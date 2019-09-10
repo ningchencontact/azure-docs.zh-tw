@@ -2,24 +2,19 @@
 title: 管理 Azure 資訊安全中心中的安全性事件 |Microsoft Docs
 description: 本檔可協助您使用 Azure 資訊安全中心來管理安全性事件。
 services: security-center
-documentationcenter: na
-author: rkarlin
-manager: barbkess
+author: memildin
+manager: rkarlin
 editor: ''
-ms.assetid: e8feb669-8f30-49eb-ba38-046edf3f9656
 ms.service: security-center
 ms.topic: conceptual
-ms.devlang: na
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 8/27/2019
-ms.author: rkarlin
-ms.openlocfilehash: 9f757d5fb2c8d3a807e325068d386e16a7d6caa7
-ms.sourcegitcommit: b8578b14c8629c4e4dea4c2e90164e42393e8064
+ms.date: 09/09/2019
+ms.author: memildin
+ms.openlocfilehash: c492c4023df30eb51692aa4ae21fb938067c6ebb
+ms.sourcegitcommit: 23389df08a9f4cab1f3bb0f474c0e5ba31923f12
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70806566"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70873379"
 ---
 # <a name="manage-security-incidents-in-azure-security-center"></a>管理 Azure 資訊安全中心中的安全性事件
 
@@ -29,7 +24,7 @@ ms.locfileid: "70806566"
 
 ## <a name="what-is-a-security-incident"></a>什麼是安全性事件？
 
-在資訊安全中心內，安全性事件是符合 [攻擊鏈](https://blogs.technet.microsoft.com/office365security/addressing-your-cxos-top-five-cloud-security-concerns/) 模式之資源的所有警示彙總。 事件會出現在 [[安全性警示](security-center-managing-and-responding-alerts.md)] 清單中。 按一下 [ona 事件] 以查看相關的警示，讓您取得每個發生次數的詳細資訊。
+在資訊安全中心內，安全性事件是符合 [攻擊鏈](https://blogs.technet.microsoft.com/office365security/addressing-your-cxos-top-five-cloud-security-concerns/) 模式之資源的所有警示彙總。 事件會出現在 [[安全性警示](security-center-managing-and-responding-alerts.md)] 清單中。 按一下事件以查看相關的警示，讓您取得每次發生的詳細資訊。
 
 ## <a name="managing-security-incidents"></a>管理安全性事件
 

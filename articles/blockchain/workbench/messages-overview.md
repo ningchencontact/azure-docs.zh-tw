@@ -1,21 +1,21 @@
 ---
 title: Azure Blockchain Workbench 訊息整合概觀
-description: 在 Azure Blockchain Workbench 中使用訊息的概觀。
+description: 在 Azure Blockchain Workbench 預覽中使用訊息的總覽。
 services: azure-blockchain
 keywords: ''
 author: PatAltimore
 ms.author: patricka
-ms.date: 05/09/2019
+ms.date: 09/05/2019
 ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: brendal
 manager: femila
-ms.openlocfilehash: 49b2bdd1780caa4ae04efbc979e2ea33e2c13c4c
-ms.sourcegitcommit: 72f1d1210980d2f75e490f879521bc73d76a17e1
+ms.openlocfilehash: f0a9e90f1208d690c2423196be7f59dce71eb78b
+ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/14/2019
-ms.locfileid: "67147241"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70844074"
 ---
 # <a name="azure-blockchain-workbench-messaging-integration"></a>Azure Blockchain Workbench 訊息整合
 
@@ -33,7 +33,7 @@ Azure Blockchain Workbench 除了提供 REST API，也會提供以傳訊為基�
 
 要求需要下列欄位：
 
-| **名稱**             | **說明**                                      |
+| **名稱**             | **描述**                                      |
 |----------------------|------------------------------------------------------|
 | requestId            | 用戶端提供的 GUID                                |
 | firstName            | 使用者的名字                              |
@@ -61,7 +61,7 @@ Azure Blockchain Workbench 除了提供 REST API，也會提供以傳訊為基�
 
 Blockchain Workbench 會傳回包含下列欄位的回應：
 
-| **名稱**              | **說明**                                                                                                             |
+| **名稱**              | **描述**                                                                                                             |
 |-----------------------|-----------------------------------------------------------------------------------------------------------------------------|
 | requestId             | 用戶端提供的 GUID |
 | userId                | 所建立使用者的識別碼 |
@@ -69,7 +69,7 @@ Blockchain Workbench 會傳回包含下列欄位的回應：
 | connectionId          | 區塊鏈連線的唯一識別碼|
 | messageSchemaVersion  | 傳訊結構描述版本 |
 | messageName           | **CreateUserUpdate** |
-| status                | 使用者建立要求的狀態。  如果成功，值為 [成功]  。 失敗時，值為 [失敗]  。     |
+| 狀態                | 使用者建立要求的狀態。  如果成功，值為 [成功]。 失敗時，值為 [失敗]。     |
 | additionalInformation | 其他根據狀態提供的資訊 |
 
 來自 Blockchain Workbench 的成功**建立使用者**回應範例：
@@ -111,14 +111,14 @@ Blockchain Workbench 會傳回包含下列欄位的回應：
 
 要求需要下列欄位：
 
-| **名稱**             | **說明**                                                                                                           |
+| **名稱**             | **描述**                                                                                                           |
 |----------------------|---------------------------------------------------------------------------------------------------------------------------|
 | requestId            | 用戶端提供的 GUID |
 | userChainIdentifier  | 區塊鏈網路上所建立使用者的位址。 在 Ethereum 中，此位址是使用者的**鏈結**位址。 |
-| applicationName      | 應用程式的名稱 |
-| version              | 應用程式的版本。 如果您已啟用多個版本的應用程式，則此為必要項目。 否則，版本是選擇性項目。 如需有關應用程式版本的詳細資訊，請參閱 [Azure Blockchain Workbench 應用程式版本](version-app.md)。 |
+| applicationName      | 應用程式名稱 |
+| 版本              | 應用程式的版本。 如果您已啟用多個版本的應用程式，則此為必要項目。 否則，版本是選擇性項目。 如需有關應用程式版本的詳細資訊，請參閱 [Azure Blockchain Workbench 應用程式版本](version-app.md)。 |
 | workflowName         | 工作流程的名稱 |
-| parameters           | 可供建立合約的參數輸入 |
+| 參數           | 可供建立合約的參數輸入 |
 | connectionId         | 區塊鏈連線的唯一識別碼 |
 | messageSchemaVersion | 傳訊結構描述版本 |
 | messageName          | **CreateContractRequest** |
@@ -150,7 +150,7 @@ Blockchain Workbench 會傳回包含下列欄位的回應：
 
 Blockchain Workbench 會傳回包含下列欄位的回應：
 
-| **名稱**                 | **說明**                                                                   |
+| **名稱**                 | **描述**                                                                   |
 |--------------------------|-----------------------------------------------------------------------------------|
 | requestId                | 用戶端提供的 GUID                                                             |
 | contractId               | Azure Blockchain Workbench 內合約的唯一識別碼 |
@@ -158,7 +158,7 @@ Blockchain Workbench 會傳回包含下列欄位的回應：
 | connectionId             | 區塊鏈連線的唯一識別碼                               |
 | messageSchemaVersion     | 傳訊結構描述版本                                                         |
 | messageName              | **CreateContractUpdate**                                                      |
-| status                   | 合約建立要求的狀態。  可能的值：Submitted  、Committed  、Failure  。  |
+| 狀態                   | 合約建立要求的狀態。  可能的值：Submitted、Committed、Failure。  |
 | additionalInformation    | 其他根據狀態提供的資訊                              |
 
 來自 Blockchain Workbench 的已提交**建立合約**回應範例：
@@ -215,14 +215,14 @@ Blockchain Workbench 會傳回包含下列欄位的回應：
 
 要求需要下列欄位：
 
-| **名稱**                 | **說明**                                                                                                           |
+| **名稱**                 | **描述**                                                                                                           |
 |--------------------------|---------------------------------------------------------------------------------------------------------------------------|
 | requestId                | 用戶端提供的 GUID |
 | userChainIdentifier      | 區塊鏈網路上所建立使用者的位址。 在 Ethereum 中，此位址是使用者的**鏈結**位址。 |
 | contractLedgerIdentifier | 總帳上合約的位址 |
-| version                  | 應用程式的版本。 如果您已啟用多個版本的應用程式，則此為必要項目。 否則，版本是選擇性項目。 如需有關應用程式版本的詳細資訊，請參閱 [Azure Blockchain Workbench 應用程式版本](version-app.md)。 |
+| 版本                  | 應用程式的版本。 如果您已啟用多個版本的應用程式，則此為必要項目。 否則，版本是選擇性項目。 如需有關應用程式版本的詳細資訊，請參閱 [Azure Blockchain Workbench 應用程式版本](version-app.md)。 |
 | workflowFunctionName     | 工作流程函式的名稱 |
-| parameters               | 可供建立合約的參數輸入 |
+| 參數               | 可供建立合約的參數輸入 |
 | connectionId             | 區塊鏈連線的唯一識別碼 |
 | messageSchemaVersion     | 傳訊結構描述版本 |
 | messageName              | **CreateContractActionRequest** |
@@ -254,14 +254,14 @@ Blockchain Workbench 會傳回包含下列欄位的回應：
 
 Blockchain Workbench 會傳回包含下列欄位的回應：
 
-| **名稱**              | **說明**                                                                   |
+| **名稱**              | **描述**                                                                   |
 |-----------------------|-----------------------------------------------------------------------------------|
 | requestId             | 用戶端提供的 GUID|
 | contractId            | Azure Blockchain Workbench 內合約的唯一識別碼 |
 | connectionId          | 區塊鏈連線的唯一識別碼 |
 | messageSchemaVersion  | 傳訊結構描述版本 |
 | messageName           | **CreateContractActionUpdate** |
-| status                | 合約動作要求的狀態。 可能的值：Submitted  、Committed  、Failure  。                         |
+| 狀態                | 合約動作要求的狀態。 可能的值：Submitted、Committed、Failure。                         |
 | additionalInformation | 其他根據狀態提供的資訊 |
 
 來自 Blockchain Workbench 的已提交**建立合約動作**回應範例：
@@ -350,9 +350,9 @@ Blockchain Workbench 會傳回包含下列欄位的回應：
 ### <a name="consuming-event-grid-events-with-logic-apps"></a>使用 Logic Apps 取用事件方格事件
 
 1. 在 Azure 入口網站中建立新的 **Azure 邏輯應用程式**。
-2. 在入口網站中開啟 Azure 邏輯應用程式時，系統會提示您選取觸發程序。 選取 [Azure 事件方格 - 發生資源事件時]  。
+2. 在入口網站中開啟 Azure 邏輯應用程式時，系統會提示您選取觸發程序。 選取 [Azure 事件方格 - 發生資源事件時]。
 3. 當工作流程設計工具顯示時，系統會提示您登入。
-4. 選取訂用帳戶。 資源作為 **Microsoft.EventGrid.Topics**。 從 Azure Blockchain Workbench 資源群組的資源名稱中選取 [資源名稱]  。
+4. 選取訂用帳戶。 資源作為 **Microsoft.EventGrid.Topics**。 從 Azure Blockchain Workbench 資源群組的資源名稱中選取 [資源名稱]。
 5. 從 Blockchain Workbench 的資源群組中選取事件方格。
 
 ## <a name="using-service-bus-topics-for-notifications"></a>使用服務匯流排主題來進行通知
@@ -360,7 +360,7 @@ Blockchain Workbench 會傳回包含下列欄位的回應：
 服務匯流排主題可用來通知使用者在 Blockchain Workbench 中所發生的事件。 
 
 1. 在 Workbench 的資源群組內瀏覽至服務匯流排。
-2. 選取 [主題]  。
+2. 選取 [主題]。
 3. 選取 **egress-topic**。
 4. 對此主題建立新的訂用帳戶。 取得其金鑰。
 5. 建立程式，從這個訂用帳戶訂閱事件。
@@ -375,7 +375,7 @@ Blockchain Workbench 會傳回包含下列欄位的回應：
 
 ## <a name="notification-message-reference"></a>通知訊息參考
 
-取決於**messageName**，通知訊息具有下列訊息類型的其中之一。
+視**messageName**而定，通知訊息具有下列其中一種訊息類型。
 
 ### <a name="block-message"></a>區塊訊息
 
@@ -383,7 +383,7 @@ Blockchain Workbench 會傳回包含下列欄位的回應：
 
 | Name | 描述 |
 |------|-------------|
-| block | 包含[區塊資訊](#block-information) |
+| 封鎖 | 包含[區塊資訊](#block-information) |
 | 交易 | 包含區塊的[交易資訊](#transaction-information)集合 |
 | connectionId | 連線的唯一識別碼 |
 | messageSchemaVersion | 傳訊結構描述版本 |
@@ -392,7 +392,7 @@ Blockchain Workbench 會傳回包含下列欄位的回應：
 
 #### <a name="block-information"></a>區塊資訊
 
-| 名稱              | 描述 |
+| Name              | 描述 |
 |-------------------|-------------|
 | blockId           | Azure Blockchain Workbench 內區塊的唯一識別碼 |
 | blockNumber       | 總帳上區塊的唯一識別碼 |
@@ -406,7 +406,7 @@ Blockchain Workbench 會傳回包含下列欄位的回應：
 |--------------------|-------------|
 | transactionId      | Azure Blockchain Workbench 內所含交易的唯一識別碼 |
 | transactionHash    | 總帳上交易的雜湊 |
-| from               | 交易來源總帳的唯一識別碼 |
+| 寄件者               | 交易來源總帳的唯一識別碼 |
 | to                 | 交易目的地總帳的唯一識別碼 |
 | provisioningStatus | 識別交易佈建程序的目前狀態。 可能的值包括： </br>0 – API 已在資料庫中建立交易</br>1 – 交易已傳送至總帳</br>2 – 交易已成功認可至總帳</br>3 或 4 – 交易無法認可至總帳</br>5 – 交易已成功認可至總帳 |
 
@@ -468,7 +468,7 @@ Blockchain Workbench 中的 *BlockMessage* 範例：
 |--------------------|-------------|
 | transactionId | Azure Blockchain Workbench 內所含交易的唯一識別碼 |
 | transactionHash | 總帳上交易的雜湊 |
-| from | 交易來源總帳的唯一識別碼 |
+| 寄件者 | 交易來源總帳的唯一識別碼 |
 | to | 交易目的地總帳的唯一識別碼 |
 
 #### <a name="contract-properties"></a>合約屬性
@@ -563,11 +563,11 @@ Blockchain Workbench 中的 *ContractMessage* 範例：
 | Name | 描述 |
 |------|-------------|
 | eventName                   | **ContractFunctionInvocation** |
-| 呼叫者                      | [呼叫端資訊](#caller-information) |
+| 呼叫端                      | [呼叫端資訊](#caller-information) |
 | contractId                  | Azure Blockchain Workbench 內合約的唯一識別碼 |
 | contractLedgerIdentifier    | 總帳所含合約的唯一識別碼 |
 | functionName                | 函式的名稱 |
-| parameters                  | [參數資訊](#parameter-information) |
+| 參數                  | [參數資訊](#parameter-information) |
 | 交易                 | 交易資訊 |
 | inTransactionSequenceNumber | 交易在區塊中的序號 |
 | connectionId                | 連線的唯一識別碼 |
@@ -577,15 +577,15 @@ Blockchain Workbench 中的 *ContractMessage* 範例：
 
 #### <a name="caller-information"></a>呼叫端資訊
 
-| 名稱 | 描述 |
+| Name | 描述 |
 |------|-------------|
-| type | 呼叫端的類型，例如使用者或合約 |
+| Type | 呼叫端的類型，例如使用者或合約 |
 | id | Azure Blockchain Workbench 內所含呼叫端的唯一識別碼 |
 | ledgerIdentifier | 總帳所含呼叫端的唯一識別碼 |
 
 #### <a name="parameter-information"></a>參數資訊
 
-| 名稱 | 描述 |
+| Name | 描述 |
 |------|-------------|
 | name | 參數名稱 |
 | value | 參數值 |
@@ -596,7 +596,7 @@ Blockchain Workbench 中的 *ContractMessage* 範例：
 |--------------------|-------------|
 | transactionId      | Azure Blockchain Workbench 內所含交易的唯一識別碼 |
 | transactionHash    | 總帳上交易的雜湊 |
-| from               | 交易來源總帳的唯一識別碼 |
+| 寄件者               | 交易來源總帳的唯一識別碼 |
 | to                 | 交易目的地總帳的唯一識別碼 |
 
 Blockchain Workbench 中的 *EventMessage ContractFunctionInvocation* 範例：
@@ -662,23 +662,23 @@ Blockchain Workbench 中的 *EventMessage ContractFunctionInvocation* 範例：
 |------|-------------|
 | id | Azure Blockchain Workbench 內所含合約程式碼檔案的唯一識別碼 |
 | ledgerId | Azure Blockchain Workbench 內所含總帳的唯一識別碼 |
-| location | 合約程式碼檔案所在的 URL |
+| 位置 | 合約程式碼檔案所在的 URL |
 
 #### <a name="application-role-information"></a>應用程式角色資訊
 
-| 名稱 | 描述 |
+| Name | 描述 |
 |------|-------------|
 | id | Azure Blockchain Workbench 內所含應用程式角色的唯一識別碼 |
 | name | 應用程式角色的名稱 |
 
 #### <a name="application-workflow-information"></a>應用程式工作流程資訊
 
-| 名稱 | 描述 |
+| Name | 描述 |
 |------|-------------|
 | id | Azure Blockchain Workbench 內所含應用程式工作流程的唯一識別碼 |
 | name | 應用程式工作流程名稱 |
 | displayName | 應用程式工作流程顯示名稱 |
-| functions | 集合[函式應用程式工作流程](#workflow-function-information)|
+| 函數 | [應用程式工作流程](#workflow-function-information)的函式集合|
 | states | [應用程式工作流程的狀態](#workflow-state-information)集合 |
 | properties | 應用程式[工作流程屬性資訊](#workflow-property-information) |
 
@@ -688,7 +688,7 @@ Blockchain Workbench 中的 *EventMessage ContractFunctionInvocation* 範例：
 |------|-------------|
 | id | Azure Blockchain Workbench 內所含應用程式工作流程函式的唯一識別碼 |
 | name | 函式名稱 |
-| parameters | 函式的屬性 |
+| 參數 | 函式的屬性 |
 
 ##### <a name="workflow-state-information"></a>工作流程狀態資訊
 
@@ -704,7 +704,7 @@ Blockchain Workbench 中的 *EventMessage ContractFunctionInvocation* 範例：
 |------|-------------|
 | id | Azure Blockchain Workbench 內所含應用程式工作流程屬性的唯一識別碼 |
 | name | 屬性名稱 |
-| type | 屬性類型 |
+| Type | 屬性類型 |
 
 Blockchain Workbench 中的 *EventMessage ApplicationIngestion* 範例：
 
@@ -851,7 +851,7 @@ Blockchain Workbench 中的 *EventMessage ApplicationIngestion* 範例：
 
 #### <a name="roleassignment-application-role"></a>RoleAssignment 應用程式角色
 
-| 名稱 | 描述 |
+| Name | 描述 |
 |------|-------------|
 | id | Azure Blockchain Workbench 內所含應用程式角色的唯一識別碼 |
 | name | 應用程式角色的名稱 |
@@ -861,7 +861,7 @@ Blockchain Workbench 中的 *EventMessage ApplicationIngestion* 範例：
 | Name | 描述 |
 |------|-------------|
 | id | Azure Blockchain Workbench 內所含使用者的唯一識別碼 |
-| type | 指派者的類型 |
+| Type | 指派者的類型 |
 | chainIdentifier | 總帳所含使用者的唯一識別碼 |
 
 #### <a name="roleassignment-assignee"></a>RoleAssignment 受託人
@@ -869,7 +869,7 @@ Blockchain Workbench 中的 *EventMessage ApplicationIngestion* 範例：
 | Name | 描述 |
 |------|-------------|
 | id | Azure Blockchain Workbench 內所含使用者的唯一識別碼 |
-| type | 受託人的類型 |
+| Type | 受託人的類型 |
 | chainIdentifier | 總帳所含使用者的唯一識別碼 |
 
 Blockchain Workbench 中的 *EventMessage RoleAssignment* 範例：

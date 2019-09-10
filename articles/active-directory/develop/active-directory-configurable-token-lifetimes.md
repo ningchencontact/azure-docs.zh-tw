@@ -18,12 +18,12 @@ ms.author: ryanwi
 ms.custom: aaddev, annaba, identityplatformtop40
 ms.reviewer: hirsin
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 95c337501c46dd9b30ff20d71a9363ab03fdb608
-ms.sourcegitcommit: 6d2a147a7e729f05d65ea4735b880c005f62530f
+ms.openlocfilehash: f9244dfabef8b13105ef830f9f4543da9cb2cca9
+ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69980453"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70842643"
 ---
 # <a name="configurable-token-lifetimes-in-azure-active-directory-preview"></a>Azure Active Directory 中可設定的權杖存留期 (預覽)
 
@@ -89,7 +89,7 @@ Azure AD 會使用兩種 SSO 工作階段權杖︰持續性和非持續性。 �
 | 多重要素工作階段權杖最大壽命 |MaxAgeSessionMultiFactor |工作階段權杖 (持續性和非持續性) |直到撤銷為止 |10 分鐘 |直到撤銷為止<sup>1</sup> |
 
 * <sup>1</sup>針對這些屬性，可設定的明確時間長度上限為 365 天。
-* <sup>2</sup>若要讓 Microsoft 小組 Web 用戶端運作, 建議您將 AccessTokenLifetime 設定為大於15分鐘的 Microsoft 小組。
+* <sup>2</sup>若要讓 Microsoft 小組 Web 用戶端運作，建議您將 AccessTokenLifetime 設定為大於15分鐘的 Microsoft 小組。
 
 ### <a name="exceptions"></a>例外狀況
 | 屬性 | 影響 | 預設 |
@@ -106,7 +106,7 @@ Azure AD 會使用兩種 SSO 工作階段權杖︰持續性和非持續性。 �
 * 如果已將原則明確指派給服務主體，就會強制執行該原則。
 * 如果未將任何原則明確指派給服務主體，則會強制執行指派給該服務主體之父組織的原則。
 * 如果未將任何原則明確指派給服務主體或組織，則會強制執行指派給應用程式的原則。
-* 如果未將任何原則明確指派給服務主體、組織或應用程式物件，將會強制執行預設值。 (請參閱[可設定的權杖存留期屬性](#configurable-token-lifetime-properties)中的表格。)
+* 如果未將任何原則指派給服務主體、組織或應用程式物件，則會強制執行預設值。 (請參閱[可設定的權杖存留期屬性](#configurable-token-lifetime-properties)中的表格。)
 
 如需有關應用程式物件與服務主體物件之間關係的詳細資訊，請參閱 [Azure Active Directory 中的應用程式和服務主體物件](app-objects-and-service-principals.md)。
 
