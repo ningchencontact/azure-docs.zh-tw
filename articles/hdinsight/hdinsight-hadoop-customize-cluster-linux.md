@@ -1,5 +1,5 @@
 ---
-title: 藉由使用指令碼動作來自訂 Azure HDInsight 叢集
+title: 使用腳本動作自訂 Azure HDInsight 叢集
 description: 使用指令碼動作將自訂元件新增至 Linux 型 HDInsight 叢集。 指令碼動作是 Bash 指令碼，可用來自訂叢集設定，或新增其他服務和公用程式，例如 Hue、Solr 或 R。
 author: hrasheed-msft
 ms.author: hrasheed
@@ -7,14 +7,14 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 04/02/2019
-ms.openlocfilehash: 7885b03e9f92fc8e8c5b2c78049760cbed8d4dc7
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
-ms.translationtype: HT
+ms.openlocfilehash: c6f55b40b3ee077b81a3cdd6f3add7a2cad23f95
+ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67703968"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70809931"
 ---
-# <a name="customize-azure-hdinsight-clusters-by-using-script-actions"></a>藉由使用指令碼動作來自訂 Azure HDInsight 叢集
+# <a name="customize-azure-hdinsight-clusters-by-using-script-actions"></a>使用腳本動作自訂 Azure HDInsight 叢集
 
 Azure HDInsight 提供名為**指令碼動作**的設定方法，會叫用自訂指令碼來自訂叢集。 這些指令碼可用來安裝其他元件和變更組態設定。 叢集建立期間或叢集建立之後，可以使用指令碼動作。
 
@@ -46,22 +46,22 @@ Azure HDInsight 提供名為**指令碼動作**的設定方法，會叫用自訂
 
 * 必須儲存在可從 HDInsight 叢集存取的 URI 上。 以下是可能的儲存位置：
     
-    * 一般叢集：
+    * 針對一般叢集：
     
-      * ADLS Gen1:HDInsight 用來存取 Data Lake Storage 的服務主體必須具有指令碼的讀取存取權。 Data Lake Storage Gen1 中所儲存指令碼的 URI 格式為 `adl://DATALAKESTOREACCOUNTNAME.azuredatalakestore.net/path_to_file`。
+      * ADLS Gen1：HDInsight 用來存取 Data Lake Storage 的服務主體必須具有指令碼的讀取存取權。 Data Lake Storage Gen1 中所儲存指令碼的 URI 格式為 `adl://DATALAKESTOREACCOUNTNAME.azuredatalakestore.net/path_to_file`。
       
       * 本身是 HDInsight 叢集主要或額外儲存體帳戶之「Azure 儲存體」帳戶中的 Blob。 在建立叢集期間，已將這兩種儲存體帳戶的存取權都授與 HDInsight。
 
         > [!IMPORTANT]  
-        > 不會旋轉的儲存體金鑰，此 Azure 儲存體帳戶上，因為這樣會導致後續的指令碼動作指令碼儲存在該處失敗。
+        > 請勿輪替此 Azure 儲存體帳戶上的儲存體金鑰，因為這會導致後續腳本動作儲存在該處的腳本失敗。
 
-      * 公用檔案共用的服務可透過 http:// 路徑存取。 範例包括 Azure Blob、 GitHub、 OneDrive。
+      * 可透過 HTTP://路徑存取的公用檔案共用服務。 範例包括 Azure Blob、GitHub、OneDrive。
 
         如需範例 URI，請參閱[範例指令碼動作指令碼](#example-script-action-scripts)。
 
-     * 使用 ESP 時的叢集：
+     * 針對具有 ESP 的叢集：
          
-         * Wasb: / / 或 wasbs: / / 或 http [s]:// 支援的 Uri。
+         * 支援 wasb://或 wasbs://或 HTTP [s]：//Uri。
             
 * 可限制為只在特定節點類型上執行。 例如前端節點或背景工作節點。
 
@@ -146,7 +146,7 @@ Azure HDInsight 提供名為**指令碼動作**的設定方法，會叫用自訂
 
 HDInsight 提供一些指令碼以在 HDInsight 叢集上安裝下列元件：
 
-| 名稱 | 指令碼 |
+| Name | 指令碼 |
 | --- | --- |
 | 新增 Azure 儲存體帳戶 |`https://hdiconfigactions.blob.core.windows.net/linuxaddstorageaccountv01/add-storage-account-v01.sh`. 請參閱[將其他儲存體帳戶新增至 HDInsight](hdinsight-hadoop-add-storage.md)。 |
 | 安裝 Hue |`https://hdiconfigactions.blob.core.windows.net/linuxhueconfigactionv02/install-hue-uber-v02.sh`. 請參閱[在 HDInsight Hadoop 叢集上安裝和使用 Hue](hdinsight-hadoop-hue-linux.md)。 |
@@ -176,9 +176,9 @@ HDInsight 提供一些指令碼以在 HDInsight 叢集上安裝下列元件：
     | 屬性 | 值 |
     | --- | --- |
     | 選取指令碼 | 若要使用自己的指令碼，請選取 [自訂]。 或是選取其中一個提供的指令碼。 |
-    | 名稱 |指定指令碼動作的名稱。 |
+    | Name |指定指令碼動作的名稱。 |
     | Bash 指令碼 URI |指定指令碼的 URI。 |
-    | 標頭/背景工作/Zookeepe |指定用來執行指令碼的節點：[前端]、[背景工作]或 [ZooKeeper]。 |
+    | Head/Worker/ZooKeeper |指定用來執行指令碼的節點：Head、Worker 或 ZooKeeper。 |
     | 參數 |如果指令碼要求，請指定參數。 |
 
     請使用 [保存此指令碼動作] 項目，以確保在執行規模調整作業期間會套用此指令碼。
@@ -215,7 +215,7 @@ HDInsight 提供一些指令碼以在 HDInsight 叢集上安裝下列元件：
 
 ### <a name="use-a-script-action-during-cluster-creation-from-azure-powershell"></a>在建立叢集期間從 Azure PowerShell 使用指令碼動作
 
-在本節中，您會使用[新增 AzHDInsightScriptAction](https://docs.microsoft.com/powershell/module/az.hdinsight/add-azhdinsightscriptaction) cmdlet 以叫用來自訂叢集的指令碼。 在您開始之前，請務必先安裝和設定 Azure PowerShell。 若要使用下列 PowerShell 命令，您需要[AZ 模組](https://docs.microsoft.com/powershell/azure/overview)。
+在本節中，您會使用[AzHDInsightScriptAction](https://docs.microsoft.com/powershell/module/az.hdinsight/add-azhdinsightscriptaction) Cmdlet 來叫用腳本以自訂叢集。 在您開始之前，請務必先安裝和設定 Azure PowerShell。 若要使用這些 PowerShell 命令，您需要[AZ 模組](https://docs.microsoft.com/powershell/azure/overview)。
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -258,7 +258,7 @@ HDInsight .NET SDK 提供用戶端程式庫，可讓您更輕鬆地從 .NET 應�
     | 屬性 | 值 |
     | --- | --- |
     | 選取指令碼 | 若要使用自己的指令碼，請選取 [自訂]。 否則，請選取提供的指令碼。 |
-    | 名稱 |指定指令碼動作的名稱。 |
+    | Name |指定指令碼動作的名稱。 |
     | Bash 指令碼 URI |指定指令碼的 URI。 |
     | Head/Worker/Zookeeper |指定用來執行指令碼的節點：Head、Worker 或 ZooKeeper。 |
     | 參數 |如果指令碼要求，請指定參數。 |
@@ -269,7 +269,7 @@ HDInsight .NET SDK 提供用戶端程式庫，可讓您更輕鬆地從 .NET 應�
 
 ### <a name="apply-a-script-action-to-a-running-cluster-from-azure-powershell"></a>從 Azure PowerShell 將指令碼動作套用到執行中的叢集
 
-若要使用下列 PowerShell 命令，您需要[AZ 模組](https://docs.microsoft.com/powershell/azure/overview)。
+若要使用這些 PowerShell 命令，您需要[AZ 模組](https://docs.microsoft.com/powershell/azure/overview)。
 
 下列範例示範如何將指令碼動作套用至執行中的叢集：
 
@@ -452,7 +452,7 @@ HDInsight 服務提供數種方式以使用自訂元件。 不論元件在叢集
 
 * 儲存體記錄位於 `\STORAGE_ACCOUNT_NAME\DEFAULT_CONTAINER_NAME\custom-scriptaction-logs\CLUSTER_NAME\DATE`。
 
-    ![作業的螢幕擷取畫面](./media/hdinsight-hadoop-customize-cluster-linux/script_action_logs_in_storage.png)
+    ![腳本動作記錄](./media/hdinsight-hadoop-customize-cluster-linux/script_action_logs_in_storage.png)
 
     在此目錄底下，記錄會個別針對**前端節點**、**背景工作節點**及 **Zookeeper 節點**進行組織。 請參閱下列範例：
 

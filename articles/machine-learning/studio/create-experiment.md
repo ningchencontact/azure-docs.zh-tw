@@ -19,7 +19,7 @@ ms.locfileid: "68515103"
 ---
 # <a name="quickstart-create-your-first-data-science-experiment-in-azure-machine-learning-studio"></a>快速入門：在 Azure Machine Learning Studio 中建立您的第一個資料科學實驗
 
-在本快速入門中，您將在 [Azure Machine Learning Studio](what-is-ml-studio.md) 中建立一個機器學習實驗，以根據使用製造和技術規格等不同變數來預測汽車的價格。
+在本快速入門中，您將在 [Azure Machine Learning Studio](what-is-ml-studio.md) 中建立一個機器學習實驗，根據使用製造和技術規格等不同變數來預測汽車的價格。
 
 如果您之前未曾接觸過機器學習，可以觀看[適用於初學者的資料科學](data-science-for-beginners-the-5-questions-data-science-answers.md)影片系列，其淺白的語言和概念講解將帶領您認識機器學習。
 

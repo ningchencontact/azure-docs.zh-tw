@@ -79,7 +79,7 @@ Application Insights 會收集您應用程式中不同作業的效能詳細資�
 ## <a name="use-logs-data-for-server"></a>使用伺服器的記錄資料
  提供豐富的查詢語言，可讓您分析 Application Insights 收集的所有資料。 您可以使用這項功能來深入分析要求和效能資料。
 
-1. 返回 [作業詳細資料] 面板，然後按一下![記錄圖示](media/tutorial-performance/app-viewinlogs-icon.png)** [記錄中的檢視 (分析)]**
+1. 返回 [作業詳細資料] 面板，然後按一下![記錄圖示](media/tutorial-performance/app-viewinlogs-icon.png)**[記錄中的檢視 (分析)]**
 
 2. 記錄隨即開啟，面板中每個檢視各有一個查詢。  您可以依原狀執行這些查詢，或根據您的需求作修改。  第一個查詢顯示這項作業過去的持續時間。
 

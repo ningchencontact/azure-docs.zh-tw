@@ -153,7 +153,7 @@ Azure IoT 中樞是一項完全受控的服務，有助於讓數百萬個裝置�
 
 1. 在 [方案瀏覽器] 中, 以滑鼠右鍵按一下您的方案, 然後選取 [**設定啟始專案**]。
 
-1. 在 [**通用屬性** > ] [**啟始專案**] 中, 選取 [**多個啟始專案**], 然後選取**ReadDeviceToCloudMessages**、 **SimulatedDevice**和 SendCloudToDevice 的 [**啟動**] 動作。. 選取 [ **確定** ] 以儲存變更。
+1. 在 [**通用屬性** > ] [**啟始專案**] 中, 選取 [**多個啟始專案**], 然後選取**ReadDeviceToCloudMessages**、 **SimulatedDevice**和 SendCloudToDevice 的 [**啟動**] 動作。 選取 [ **確定** ] 以儲存變更。
 
 1. 按 **F5**。 三個應用程式應該全部都會啟動。 選取 [SendCloudToDevice] 視窗，然後按 **Enter**。 您應該會看到裝置應用程式正在接收訊息。
 

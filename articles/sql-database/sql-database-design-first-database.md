@@ -149,7 +149,7 @@ QL Database 服務會在伺服器層級建立 IP 防火牆。 此防火牆會防
 
 使用四個資料表建立資料庫結構描述，其會使用 [Transact-SQL](/sql/t-sql/language-reference) 建立大學的學生管理系統模型：
 
-- Person
+- 個人
 - 課程
 - 學生
 - 功勞
