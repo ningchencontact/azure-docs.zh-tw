@@ -8,32 +8,32 @@ ms.service: iot-hub
 services: iot-hub
 ms.devlang: java
 ms.topic: quickstart
-ms.custom: mvc, seo-java-august2019
+ms.custom: mvc, seo-java-august2019, seo-java-september2019
 ms.date: 06/21/2019
-ms.openlocfilehash: 15d9447d7078fd4858a7957448dd30d07049d6e9
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: a97081101df5199d3201a6ec47df4c2ac2747416
+ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68958626"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70309133"
 ---
-# <a name="quickstart-send-telemetry-from-a-device-to-an-iot-hub-and-read-it-with-a-back-end-application-java"></a>快速入門：將遙測從裝置傳送至 IoT 中樞，並使用後端應用程式讀取遙測 (Java)
+# <a name="quickstart-send-telemetry-to-an-azure-iot-hub-and-read-it-with-a-java-application"></a>快速入門：將遙測傳送至 Azure IoT 中樞，並使用 Java 應用程式加以讀取
 
 [!INCLUDE [iot-hub-quickstarts-1-selector](../../includes/iot-hub-quickstarts-1-selector.md)]
 
-IoT 中樞是一項 Azure 服務，可讓您從 IoT 裝置將大量的遙測擷取到雲端進行儲存或處理。 在此快速入門中，您透過 IoT 中樞，將遙測從模擬裝置應用程式傳送到後端應用程式以進行處理。
+本快速入門說明如何將遙測傳送至 Azure IoT 中樞，並使用 Java 應用程式加以讀取。 IoT 中樞是一項 Azure 服務，可讓您從 IoT 裝置將大量的遙測擷取到雲端進行儲存或處理。 在此快速入門中，您透過 IoT 中樞，將遙測從模擬裝置應用程式傳送到後端應用程式以進行處理。
 
 本快速入門會使用兩個預先撰寫的 Java 應用程式，一個用來傳送遙測，而另一個用來從中樞讀取遙測。 在執行下列兩個應用程式之前，您需要建立一個 IoT 中樞，並向中樞註冊一個裝置。
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-如果您沒有 Azure 訂用帳戶，請在開始前先建立[免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 。
+如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 。
 
 ## <a name="prerequisites"></a>必要條件
 
-您在此快速入門中執行的兩個範例應用程式是使用 Java 所撰寫的。 您的開發電腦上需要 Java SE 8 或更高版本。
+您在此快速入門中執行的兩個範例應用程式是使用 Java 所撰寫的。 您的開發電腦上需要 Java SE 8。
 
-您可以從 [Oracle](https://aka.ms/azure-jdks) 下載適用於多種平台的 Java。
+您可以從[適用於 Azure 和 Azure Stack 的 Java 長期支援](https://docs.microsoft.com/en-us/java/azure/jdk/?view=azure-java-stable)下載適用於多個平台的 Java SE 開發套件 8。 請務必選取 [長期支援]  下的 [Java 8]  ，以取得 JDK 8 的下載。
 
 您可以使用下列命令，以確認開發電腦上目前的 Java 版本：
 

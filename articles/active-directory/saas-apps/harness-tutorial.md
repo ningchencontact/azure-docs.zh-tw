@@ -13,15 +13,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 08/22/2019
+ms.date: 09/02/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 37a527e8cd83d292d8af8af5acd0c903c63081f2
-ms.sourcegitcommit: dcf3e03ef228fcbdaf0c83ae1ec2ba996a4b1892
+ms.openlocfilehash: 709bf2e413ddb40ae1ed84672cea0c0b71be2ce6
+ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "70013843"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70305947"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-harness"></a>教學課程：Azure Active Directory 單一登入 (SSO) 與 Harness 整合
 
@@ -131,17 +131,25 @@ ms.locfileid: "70013843"
 
 ## <a name="configure-harness-sso"></a>設定 Harness SSO
 
-1. 開啟新的網頁瀏覽器視窗，並以系統管理員身分登入您的 Harness 公司網站。
+1. 若要自動執行 Harness 內的設定，您必須按一下 [安裝擴充功能]  來安裝「我的應用程式安全登入瀏覽器擴充功能」  。
 
-1. 在頁面右上方，按一下 [持續安全性] ****  >[存取管理] ****  > [驗證設定]  。
+    ![我的應用程式擴充功能](common/install-myappssecure-extension.png)
+
+2. 將擴充功能新增至瀏覽器之後，按一下 [設定 Harness]  便會將您導向到 Harness 應用程式。 請從該處提供用以登入 Harness 的管理員認證。 瀏覽器擴充功能會自動為您設定應用程式，並自動執行步驟 3 到 6。
+
+    ![設定組態](common/setup-sso.png)
+
+3. 如果您想要手動設定 Harness，請開啟新的網頁瀏覽器視窗，並以系統管理員身分登入 Harness 公司網站，然後執行下列步驟：
+
+4. 在頁面右上方，按一下 [持續安全性] ****  >[存取管理] ****  > [驗證設定]  。
 
     ![Harness 組態](./media/harness-tutorial/configure01.png)
 
-1. 在 [SSO 提供者]  區段上，按一下 [+ 新增 SSO 提供者] ****  >[SAML] **** 。
+5. 在 [SSO 提供者]  區段上，按一下 [+ 新增 SSO 提供者] ****  >[SAML] **** 。
 
     ![Harness 組態](./media/harness-tutorial/configure03.png)
 
-1. 在 [SAML 提供者]  快顯視窗上，執行下列步驟：
+6. 在 [SAML 提供者]  快顯視窗上，執行下列步驟：
 
     ![Harness 組態](./media/harness-tutorial/configure02.png)
 

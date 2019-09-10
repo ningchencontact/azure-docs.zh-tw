@@ -9,12 +9,12 @@ author: trevorbye
 ms.author: trbye
 ms.reviewer: trbye
 ms.date: 05/02/2019
-ms.openlocfilehash: 6f72daa4a601df0e3592910645c2f9b35ab64431
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: 0218221426351b0b508021fc74693557f200b4e8
+ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68845826"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70309251"
 ---
 # <a name="tutorial-build-a-regression-model-with-automated-machine-learning-and-open-datasets"></a>教學課程：使用自動化機器學習和開放資料集來建置迴歸模型
 
@@ -1246,7 +1246,7 @@ weather_df.head(10)
 
 在氣象資料的 `datetime` 欄位上再次呼叫 `pandas.Series.dt.normalize`，使它符合 `taxi_holidays_df` 中的時間索引鍵。 刪除不必要的資料行，並篩選出氣溫為 `NaN` 的記錄。
 
-接下來，將氣象資料分組，讓您能夠擁有每日彙總的氣象值。 定義一個字典 `aggregations`，以定義在每日層級上彙總每個欄位的方式。 針對 `snowDepth` 和 `temperature` 採用平均值，並針對 `precipTime` 和 `precipDepth` 採用每日上限。 使用 `groupby()` 函式及彙總來將資料分組。 預覽資料以確保每日均有一筆記錄。
+接下來，將氣象資料分組，讓您能夠擁有每日彙總的氣象值。 定義名為 `aggregations` 的字典，以定義在每日層級上彙總每個欄位的方式。 針對 `snowDepth` 和 `temperature` 採用平均值，並針對 `precipTime` 和 `precipDepth` 採用每日上限。 使用 `groupby()` 函式及彙總來將資料分組。 預覽資料以確保每日均有一筆記錄。
 
 ```python
 weather_df["datetime"] = weather_df["datetime"].dt.normalize()

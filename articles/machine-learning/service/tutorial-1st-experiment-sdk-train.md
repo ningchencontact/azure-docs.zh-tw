@@ -9,13 +9,13 @@ ms.topic: tutorial
 author: trevorbye
 ms.author: trbye
 ms.reviewer: trbye
-ms.date: 07/20/2019
-ms.openlocfilehash: cee5801826c78bdee51ba5afb14d6776a1191702
-ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
+ms.date: 09/03/2019
+ms.openlocfilehash: 989775916454b6710aef6c2c5be6792920622dab
+ms.sourcegitcommit: 6794fb51b58d2a7eb6475c9456d55eb1267f8d40
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/27/2019
-ms.locfileid: "70051623"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70241301"
 ---
 # <a name="tutorial-train-your-first-ml-model"></a>教學課程：定型第一個 ML 模型
 
@@ -35,14 +35,33 @@ ms.locfileid: "70051623"
 
 在本教學課程的這個部分中，您會在第一個部分結束時開啟的範例 Jupyter Notebook `tutorials/tutorial-1st-experiment-sdk-train.ipynb` 中執行程式碼。 本文會逐步解說此 Notebook 中的相同程式碼。
 
+## <a name="launch-jupyter-web-interface"></a>啟動 Jupyter Web 介面
+
+1. 在 Azure 入口網站中您的工作區頁面上，選取左側的 [Notebook VM]  。
+
+1. 針對您在本教學課程的第一部分中建立的 VM，選取 [URI]  資料行中的 [Jupyter]  。
+
+    ![啟動 Jupyter Notebook 伺服器](./media/tutorial-1st-experiment-sdk-setup/start-server.png)
+
+   此連結會啟動 Notebook 伺服器，並且在新的瀏覽器索引標籤中開啟 Jupyter Notebook 網頁。此連結只適用於建立 VM 的人員。 工作區的每個使用者都必須建立自己的 VM。
+
+1. 在 Jupyter Notebook 網頁上，選取頂端的資料夾名稱，其具有您的使用者名稱。  
+
+   此資料夾存在於工作區[儲存體帳戶](concept-workspace.md#resources)中，而不是 Notebook VM 本身。  如果您刪除 Notebook VM，您仍會保有所有工作。  您後續建立新的 Notebook VM 時，將會載入相同的資料夾。 如果您與他人共用您的工作區，你們將會看到彼此的資料夾。
+
+1. 開啟 `samples-*` 子目錄，然後開啟 Jupyter Notebook `tutorials/tutorial-1st-experiment-sdk-train.ipynb`，而**不是**`.yml`相同名稱的檔案。 
+
 ## <a name="connect-workspace-and-create-experiment"></a>連結工作區並建立實驗
+
+> [!Important]
+> 本文的其餘部分包含與您在 Notebook 中所見相同的內容。  
+>
+> 如果您想要在執行程式碼時進行閱讀，請立即切換到 Jupyter Notebook。 
+> 若要在 Notebook 中執行單一程式碼資料格，請按一下程式碼資料格，然後按 **Shift+Enter**。 或者，從頂端功能表中選擇 [資料格] > [全部執行]  ，以執行整個 Notebook。
 
 使用 `from_config().` 函式匯入 `Workspace` 類別，並從 `config.json` 檔案載入您的訂用帳戶資訊。根據預設，此功能會在目前的目錄中尋找 JSON 檔案，但您也可以使用 `from_config(path="your/file/path")` 指定路徑參數來指向檔案。 在雲端 Notebook 伺服器中，檔案會自動位於根目錄中。
 
 如果下列程式碼要求額外的驗證，只需在瀏覽器中貼上連結並輸入驗證權杖即可。
-
-> [!TIP]
-> 如果您不熟悉 Jupyter Notebook，請按一下程式碼資料格，然後按 **Shift+Enter** 逐一執行資料格，以執行程式碼。 或者，若要同時執行整個 Notebook，請按一下頂端功能表列頂端的 [資料格]  ，然後按一下 [全部執行]  。
 
 ```python
 from azureml.core import Workspace

@@ -5,15 +5,15 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: azure-migrate
 ms.topic: tutorial
-ms.date: 07/08/2019
+ms.date: 09/04/2019
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 1ea736b560e2e910ede203e8ce8c0b157ebbce71
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.openlocfilehash: aecbaab1ed29a1acfdcb4eec53b88fc266bbab09
+ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68640881"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70309416"
 ---
 # <a name="migrate-vmware-vms-to-azure-agent-based"></a>將 VMware VM 遷移至 Azure (代理程式型)
 
@@ -304,6 +304,11 @@ Azure Migrate 伺服器移轉需要 VMware 伺服器的存取權，才能執行�
 
 
 ## <a name="replicate-vms"></a>複寫 VM
+
+現在，選取要進行移轉的 VM。
+
+> [!NOTE]
+> 您最多可以一起複寫 10 部機器。 如果您需要複寫更多機器，請以 10 個一批的方式同時進行複寫。
 
 1. 在 [Azure Migrate 專案] > [伺服器]  、 **[Azure Migrate：伺服器移轉]** 中，按一下 [複寫]  。
 

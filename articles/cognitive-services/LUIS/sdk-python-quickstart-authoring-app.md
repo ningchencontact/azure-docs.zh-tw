@@ -10,12 +10,12 @@ ms.subservice: language-understanding
 ms.topic: quickstart
 ms.date: 08/07/2019
 ms.author: diberry
-ms.openlocfilehash: f5756c479d47e905e0110c9919cf4b5be4e75099
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: f8149372e0a96cda81ef38558ee0bcf87eb53bb3
+ms.sourcegitcommit: 267a9f62af9795698e1958a038feb7ff79e77909
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68932120"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70258755"
 ---
 # <a name="quickstart-language-understanding-luis-authoring-client-library-for-python"></a>快速入門：適用於 Python 的 Language Understanding (LUIS) 撰寫用戶端程式庫
 
@@ -37,9 +37,9 @@ ms.locfileid: "68932120"
 
 ## <a name="setting-up"></a>設定
 
-### <a name="get-your-language-understanding-luis-authoring-key"></a>取得您的 Language Understanding (LUIS) 撰寫金鑰
+### <a name="get-your-language-understanding-luis-starter-key"></a>取得您的 Language Understanding (LUIS) 入門金鑰
 
-取得您的[撰寫金鑰](luis-how-to-account-settings.md)，並為金鑰[建立環境變數](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) (名為 `LUIS_AUTHORING_KEY`)，為金鑰的區域建立環境變數 `LUIS_REGION`。
+取得您的[入門金鑰](luis-how-to-azure-subscription.md#starter-key)，並為金鑰[建立環境變數](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) (名為 `LUIS_AUTHORING_KEY`)，為金鑰的區域建立環境變數 `LUIS_REGION`。
 
 ### <a name="install-the-python-library-for-luis"></a>安裝 Python LUIS 程式庫
 
@@ -129,7 +129,7 @@ LUIS 應用程式模型中的主要物件為意圖。 意圖會與使用者語�
 
 [!code-python[Add example utterances via a batch](~/cognitive-services-quickstart-code/python/LUIS/application_quickstart.py?name=addUtterances)]
     
-## <a name="train-the-app"></a>定型應用程式
+## <a name="train-the-app"></a>進行應用程式定型
 
 建立模型之後，必須針對此版本的模型將 LUIS 應用程式定型。 已定型的模型可用於[容器](luis-container-howto.md)中，或[發佈](luis-how-to-publish-app.md)至預備或產品位置。 
 

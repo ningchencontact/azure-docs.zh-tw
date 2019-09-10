@@ -1,7 +1,7 @@
 ---
 title: REST 教學課程：使用認知搜尋建置 AI 擴充管線 - Azure 搜尋服務
 description: 使用 Postman 和 Azure 搜尋服務 REST API 對 JSON Blob 內容進行文字擷取和自然語言處理的範例逐步解說。
-manager: pablocas
+manager: nitinme
 author: luiscabrer
 services: search
 ms.service: search
@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 08/23/2019
 ms.author: luisca
 ms.subservice: cognitive-search
-ms.openlocfilehash: e647d3c66d339a60278fa7d0f078497157b3fff1
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 726fdd6aeebac970142fa9225381af77114bfe42
+ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70102738"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70274119"
 ---
 # <a name="tutorial-add-structure-to-unstructured-content-with-cognitive-search"></a>教學課程：使用認知搜尋將結構新增至「非結構化內容」
 
@@ -22,10 +22,10 @@ ms.locfileid: "70102738"
 
 > [!div class="checklist"]
 > * 我們將從 Azure Blob 儲存體中的完整文件 (非結構化文字) 開始，例如 PDF、MD、DOCX 和 PPTX。
-> * 建立管線來擷取文字、偵測語言、辨識實體及偵測關鍵片語。
+> * 定義管線來擷取文字、偵測語言、辨識實體及偵測關鍵片語。
 > * 定義用來儲存輸出的索引 (原始內容加上管線產生的名稱/值組)。
-> * 執行用來建立和載入索引的管線。
-> * 使用全文檢索搜尋和豐富的查詢語法來探索內容。
+> * 執行管線以開始轉換和分析，以及建立和載入索引。
+> * 使用全文檢索搜尋和豐富的查詢語法來探索結果。
 
 您將需要數個服務來完成此逐步解說，以及使用 [Postman 傳統型應用程式](https://www.getpostman.com/)或另一個 Web 測試工具來進行 REST API 呼叫。 
 

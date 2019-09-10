@@ -6,18 +6,18 @@ author: HeidiSteen
 services: search
 ms.service: search
 ms.topic: overview
-ms.date: 08/21/2019
+ms.date: 09/03/2019
 ms.author: heidist
-ms.openlocfilehash: 204951f725c2885fe9f8bf33fffe83e55628dd34
-ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
+ms.openlocfilehash: 3b0647c3a71e6ce242e7cbd0eedcca3d0fa30ded
+ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69899692"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70274058"
 ---
 # <a name="what-is-azure-search"></a>何謂 Azure 搜尋服務？
 
-Azure 搜尋服務是搜尋即服務雲端解決方案，可為開發人員提供 API 和工具，透過 Web、行動和企業應用程式中的私用和異質內容來增添豐富的搜尋體驗。 您的自訂程式碼會叫用資料擷取 (索引編制) 來建立和載入索引。 另一方面，應用程式的程式碼會發出查詢要求和處理回應。 搜尋體驗會透過 Azure 搜尋服務的功能，在您的用戶端中進行定義，而查詢會針對您在 Azure 搜尋服務上建立、擁有及儲存的持續性索引執行。
+Azure 搜尋服務是搜尋即服務雲端解決方案，可為開發人員提供 API 和工具，透過 Web、行動和企業應用程式中的私用和異質內容來增添豐富的搜尋體驗。 您的自訂程式碼會叫用資料擷取 (索引編制) 來建立和載入索引。 另一方面，應用程式的程式碼會發出查詢要求和處理回應。 搜尋體驗會透過 Azure 搜尋服務的功能，在您的用戶端中進行定義，而查詢會針對您在服務上建立、擁有及儲存的持續性索引執行。
 
 ![Azure 搜尋服務架構](media/search-what-is-azure-search/azure-search-diagram.svg "Azure 搜尋服務架構")
 
@@ -64,7 +64,7 @@ Azure 搜尋服務適用於下列應用程式案例：
 | 用於原型設計和檢查的工具 | 在入口網站中，您可以使用 [[匯入資料]  ](search-import-data-portal.md) 精靈設定索引子、使用索引設計工具建立索引，以及使用 [[搜尋總管]  ](search-explorer.md) 測試查詢並修改評分設定檔。 您也可以開啟任何索引，以檢視其結構描述。 |
 | 監視和診斷 | [**啟用監視功能**](search-monitor-usage.md)，使其超越永遠可以在入口網站看到，且一目了然的計量。 自動會擷取每秒查詢次數、延遲和節流的計量，並在入口網站頁面中報告，不需要其他設定。 <br/><br/>[**搜尋流量分析**](search-traffic-analytics.md)是另一個監視的替代方式，在伺服器端和用戶端收集並分析資料，以率先了解使用者在搜尋方塊中輸入的內容。 |
 | 伺服器端加密 | [**Microsoft 管理的待用加密**](search-security-overview.md#encrypted-transmission-and-storage)會內建到內部儲存層，而且無法回復。 您可以選擇性地使用[**客戶管理的加密金鑰 (預覽)** ](search-security-manage-encryption-keys.md) 補充預設加密。 您在 Azure Key Vault 中建立並管理的金鑰用來加密 Azure 搜尋服務中的索引和同義字地圖。 |
-| 基礎結構 | **高可用性平台**可確保相當可靠的搜尋服務體驗。 經過適當的調整，[Azure 搜尋服務可提供 99.9% SLA](https://azure.microsoft.com/support/legal/sla/search/v1_0/)。<br/><br/> Azure 搜尋服務是**完全受控和可調整的**端對端解決方案，完全不需要基礎結構管理。 以兩種方式調整您的服務，即可針對您的需求量身訂做，以處理更多的文件儲存體、更高的查詢負載，或兩者。<br/><br/>|
+| 基礎結構 | **高可用性平台**可確保相當可靠的搜尋服務體驗。 經過適當的調整， [Azure 搜尋服務可提供 99.9% SLA](https://azure.microsoft.com/support/legal/sla/search/v1_0/)。<br/><br/> Azure 搜尋服務是**完全受控和可調整的**端對端解決方案，完全不需要基礎結構管理。 以兩種方式調整您的服務，即可針對您的需求量身訂做，以處理更多的文件儲存體、更高的查詢負載，或兩者。<br/><br/>|
 
 ## <a name="how-to-use-azure-search"></a>如何使用 Azure 搜尋服務
 ### <a name="step-1-provision-service"></a>步驟 1：佈建服務

@@ -6,16 +6,29 @@ author: alkohli
 ms.service: databox
 ms.subservice: heavy
 ms.topic: tutorial
-ms.date: 07/03/2019
+ms.date: 08/29/2019
 ms.author: alkohli
-ms.openlocfilehash: 1c45e06159e4c2850efa2d3ab3290647961fb7e1
-ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
+ms.localizationpriority: high
+ms.openlocfilehash: 4267b8299e13f1705b218e65b268c45bd5a658e2
+ms.sourcegitcommit: 49c4b9c797c09c92632d7cedfec0ac1cf783631b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67592424"
+ms.lasthandoff: 09/05/2019
+ms.locfileid: "70240306"
 ---
+::: zone target = "docs"
+
 # <a name="tutorial-copy-data-to-azure-data-box-heavy-via-smb"></a>教學課程：將資料複製到 Azure Data Box Heavy
+
+::: zone-end
+
+::: zone target = "chromeless"
+
+## <a name="copy-data-to-azure-data-box-heavy"></a>將資料複製到 Azure Data Box Heavy
+
+::: zone-end
+
+::: zone target = "docs"
 
 本教學課程說明如何使用本機 Web UI 來連線至主機電腦並從中複製資料。
 
@@ -25,6 +38,17 @@ ms.locfileid: "67592424"
 > * 連線至 Data Box Heavy
 > * 將資料複製到 Data Box Heavy
 
+::: zone-end
+
+::: zone target = "chromeless"
+
+您可以透過 SMB、NFS、REST、資料複製服務或受控磁碟，將資料從來源伺服器複製到您的資料箱。
+
+在每個案例中，請確定共用和資料夾的名稱及資料大小遵循 [Azure 儲存體和 Data Box Heavy 服務限制](data-box-heavy-limits.md)中所述的指導方針。
+
+::: zone-end
+
+::: zone target = "docs"
 
 ## <a name="prerequisites"></a>必要條件
 
@@ -35,6 +59,7 @@ ms.locfileid: "67592424"
 3. 您有一部主機電腦，其中包含要複製到 Data Box Heavy 的資料。 您的主機電腦必須符合下列條件：
     - 執行[支援的作業系統](data-box-system-requirements.md)。
     - 連線至高速網路。 如需最快的複製速度，可平行使用兩個 40 GbE 的連線 (每個節點一個連線)。 如果您沒有 40 GbE 連線可用，我們建議您至少有兩個 10 GbE 的連線 (每個節點一個連線)。
+   
 
 ## <a name="connect-to-data-box-heavy-shares"></a>連線至 Data Box Heavy 共用
 
@@ -256,4 +281,60 @@ sudo mount -t nfs -o vers=2.1 10.126.76.172:/databoxe2etest_BlockBlob /home/data
 
 > [!div class="nextstepaction"]
 > [將 Azure Data Box Heavy 寄送給 Microsoft](./data-box-heavy-deploy-picked-up.md)
+
+::: zone-end
+
+::: zone target = "chromeless"
+
+### <a name="copy-data-via-smb"></a>透過 SMB 複製資料
+
+1. 如果使用 Windows 主機，請使用下列命令來連線到 SMB 共用：
+
+    `\\<IP address of your device>\ShareName`
+
+2. 若要取得共用存取認證，請前往資料箱之本機 Web UI 中的 [連線並複製]  頁面。
+
+3. 使用與 SMB 相容的檔案複製工具 (例如 Robocopy) 來將資料複製到共用。
+
+如需逐步指示，請移至[教學課程：透過 SMB 將資料複製到 Azure 資料箱](data-box-heavy-deploy-copy-data.md)。
+
+### <a name="copy-data-via-nfs"></a>透過 NFS 複製資料
+
+1. 如果使用 NFS 主機，請使用下列命令掛接 NFS 共用：
+
+    `sudo mount <Data Box device IP>:/<NFS share on Data Box device> <Path to the folder on local Linux computer>`
+
+2. 若要取得共用存取認證，請前往 Data Box Heavy 的本機 Web UI 中的 [連線並複製]  頁面。
+3. 使用 `cp` 或 `rsync` 命令來複製您的資料。 
+4. 重複這些步驟來將資料連線並複製到 Data Box Heavy 的第二個節點。
+
+如需逐步指示，請移至[教學課程：透過 NFS 將資料複製到 Azure 資料箱](data-box-heavy-deploy-copy-data-via-nfs.md)。
+
+### <a name="copy-data-via-rest"></a>透過 REST 複製資料
+
+1. 若要透過 REST API 使用資料箱 Blob 儲存體來複製資料，您可以透過 HTTP  或 HTTPS  來進行連線。
+2. 若要將資料複製到資料箱 Blob 儲存體，您可以使用 AzCopy。
+3. 重複這些步驟來將資料連線並複製到 Data Box Heavy 的第二個節點。
+
+如需逐步指示，請移至[教學課程：透過 REST API 將資料複製到 Azure 資料箱 Blob 儲存體](data-box-heavy-deploy-copy-data-via-rest.md)。
+
+### <a name="copy-data-via-data-copy-service"></a>透過資料複製服務來複製資料
+
+1. 若要使用資料複製服務來複製資料，您需要建立一項作業。 在 Data Box Heavy 的本機 Web UI 中，移至 [管理] > [複製資料] > [建立]  。
+2. 填寫參數並建立作業。
+3. 重複這些步驟來將資料連線並複製到 Data Box Heavy 的第二個節點。
+
+如需逐步指示，請移至[教學課程：使用資料複製服務將資料複製到 Azure Data Box Heavy](data-box-heavy-deploy-copy-data-via-copy-service.md)。
+
+### <a name="copy-data-to-managed-disks"></a>將資料複製到受控磁碟
+
+1. 訂購 Data Box Heavy 裝置時，您應該已選取受控磁碟作為儲存體目的地。
+2. 您可以透過 SMB 或 NFS 共用連線到 Data Box Heavy。
+3. 然後，您可以透過 SMB 或 NFS 工具來複製資料。
+4. 重複這些步驟來將資料連線並複製到 Data Box Heavy 的第二個節點。
+
+如需逐步指示，請移至[教學課程：使用 Data Box Heavy 匯入資料以作為 Azure 中的受控磁碟](data-box-heavy-deploy-copy-data-from-vhds.md)。
+
+::: zone-end
+
 

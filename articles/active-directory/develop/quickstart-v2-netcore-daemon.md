@@ -17,12 +17,12 @@ ms.date: 07/16/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2a2b6d01802fd819471a9cfb382166e6293261ca
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: a130878baa10be426072dfe79284a1d602dfb6ff
+ms.sourcegitcommit: 8fea78b4521921af36e240c8a92f16159294e10a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68852883"
+ms.lasthandoff: 09/02/2019
+ms.locfileid: "70211852"
 ---
 # <a name="quickstart-acquire-a-token-and-call-microsoft-graph-api-from-a-console-app-using-apps-identity"></a>快速入門：使用應用程式的身分識別來取得權杖並從主控台應用程式呼叫 Microsoft Graph API
 
@@ -39,9 +39,7 @@ ms.locfileid: "68852883"
 
 > [!div renderon="docs" class="sxs-lookup"]
 >
-> 有兩個選項可用來啟動快速入門應用程式：
-> * [快速] [選項 1：註冊和自動設定您的應用程式，然後下載程式碼範例](#option-1-register-and-auto-configure-your-app-and-then-download-your-code-sample)
-> * [手動] [選項 2：註冊並手動設定您的應用程式和程式碼範例](#option-2-register-and-manually-configure-your-application-and-code-sample)
+> 有兩個選項可用來啟動快速入門應用程式：快速 (下面的選項 1) 和手動 (選項 2)
 >
 > ### <a name="option-1-register-and-auto-configure-your-app-and-then-download-your-code-sample"></a>選項 1：註冊和自動設定您的應用程式，然後下載程式碼範例
 >
@@ -80,12 +78,12 @@ ms.locfileid: "68852883"
 
 #### <a name="step-2-download-your-visual-studio-project"></a>步驟 2：下載您的 Visual Studio 專案
 
-[下載 Visual Studio 專案](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2/archive/msal3x.zip)
+[下載 Visual Studio 專案](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2/archive/master.zip)
 
 #### <a name="step-3-configure-your-visual-studio-project"></a>步驟 3：設定您的 Visual Studio 專案
 
 1. 將 Zip 檔案解壓縮至磁碟根目錄附近的本機資料夾，例如 **C:\Azure-Samples**。
-1. 在 Visual Studio 中開啟解決方案 - **daemon-console.sln** (選擇性)。
+1. 在 Visual Studio 中開啟解決方案 - **1-Call-MSGraph\daemon-console.sln** (選擇性)。
 1. 編輯 **appsettings.json**，並將欄位 `ClientId`、`Tenant` 和 `ClientSecret` 的值取代為下列值：
 
     ```json
@@ -145,7 +143,7 @@ https://login.microsoftonline.com/Enter_the_Tenant_Id_Here/adminconsent?client_i
 如果您是使用 Visual Studio，請按 **F5** 來執行應用程式，否則請透過命令提示字元或主控台執行應用程式：
 
 ```console
-cd {ProjectFolder}\daemon-console
+cd {ProjectFolder}\daemon-console\1-Call-Graph
 dotnet run
 ```
 
@@ -166,7 +164,7 @@ MSAL ([Microsoft.Identity.Client](https://www.nuget.org/packages/Microsoft.Ident
  您可以在 Visual Studio 的 [套件管理員主控台]  中，透過執行下列命令來安裝 MSAL.NET：
 
 ```powershell
-Install-Package Microsoft.Identity.Client -Pre
+Install-Package Microsoft.Identity.Client
 ```
 
 或者，如果您是不使用 Visual Studio，您可以執行下列命令來將 MSAL 新增至您的專案：
@@ -221,8 +219,15 @@ result = await app.AcquireTokenForClient(scopes)
 
 ## <a name="next-steps"></a>後續步驟
 
+若要深入了解精靈應用程式，請參閱案例登陸頁面
+
 > [!div class="nextstepaction"]
-> [.NET Core 精靈範例](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2)
+> [呼叫 Web API 的精靈應用程式](scenario-daemon-overview.md)
+
+如需精靈應用程式教學課程，請參閱：
+
+> [!div class="nextstepaction"]
+> [精靈 .NET Core 主控台教學課程](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2)
 
 深入了解權限和同意：
 
@@ -233,9 +238,6 @@ result = await app.AcquireTokenForClient(scopes)
 
 > [!div class="nextstepaction"]
 > [用戶端認證 Oauth 流程](v2-oauth2-client-creds-grant-flow.md)
-
-> [!div class="nextstepaction"]
-> [用戶端認證流程與 MSAL.NET](https://aka.ms/msal-net-client-credentials)
 
 協助我們改善 Microsoft 身分識別平台。 完成問卷調查簡短的兩個問題，告訴我們您的想法。
 

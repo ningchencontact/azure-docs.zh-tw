@@ -10,18 +10,18 @@ ms.subservice: manage
 ms.date: 03/20/2019
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: 220d2aefd714cd3546fa4d5c2ac8852d2786b8ac
-ms.sourcegitcommit: 5ded08785546f4a687c2f76b2b871bbe802e7dae
+ms.openlocfilehash: da9c3d42919bba6ce04fc54bafc2fb5d245379f5
+ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69575414"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70306096"
 ---
-# <a name="quickstart-pause-and-resume-compute-in-azure-sql-data-warehouse-with-powershell"></a>快速入門：使用 PowerShell 暫停與繼續 Azure SQL 資料倉儲中的計算
+# <a name="quickstart-pause-and-resume-compute-in-azure-sql-data-warehouse-with-azure-powershell"></a>快速入門：使用 Azure PowerShell 暫停與繼續 Azure SQL 資料倉儲中的計算
 
 使用 PowerShell 來暫停 Azure SQL 資料倉儲中的計算以節省成本。 在您準備好使用資料倉儲時[繼續計算](sql-data-warehouse-manage-compute-overview.md)。
 
-如果您沒有 Azure 訂用帳戶，請在開始前先建立一個[免費帳戶](https://azure.microsoft.com/free/)。
+如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶](https://azure.microsoft.com/free/)。
 
 ## <a name="before-you-begin"></a>開始之前
 

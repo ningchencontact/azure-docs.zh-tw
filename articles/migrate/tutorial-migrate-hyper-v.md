@@ -5,15 +5,15 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: azure-migrate
 ms.topic: tutorial
-ms.date: 07/09/2019
+ms.date: 09/04/2019
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 4a88e9dddd492d5c24698bcde8c3a1fd942eaf66
-ms.sourcegitcommit: 470041c681719df2d4ee9b81c9be6104befffcea
+ms.openlocfilehash: 755bb6d019418cf9dae22ebf7ee6a3c94af3c750
+ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67854202"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70309454"
 ---
 # <a name="migrate-hyper-v-vms-to-azure"></a>將 Hyper-V VM 遷移至 Azure 
 
@@ -133,14 +133,17 @@ Azure Migrate 伺服器移轉會執行輕量型 Hyper-V VM 設備。
 
 完成探索之後，您就可以開始將 Hyper-V VM 複寫至 Azure。
 
+> [!NOTE]
+> 您最多可以一起複寫 10 部機器。 如果您需要複寫更多機器，請以 10 個一批的方式同時進行複寫。
+
 1. 在 [Azure Migrate 專案] > [伺服器]  、 **[Azure Migrate：伺服器移轉]** 中，按一下 [複寫]  。
 2. 在 [複寫]  > [來源設定]  [您的電腦虛擬化了嗎] >   中，選取 [是，使用 Hyper-V]  。 然後按 [下一步：**虛擬機器]** 。
 3. 在 [虛擬機器]  中，選取您要複寫的機器。
-    - 如果您已執行 VM 的評量，您可以套用評量結果中的 VM 大小調整和磁碟類型 (進階/標準) 建議。 若要這麼做，請在 [從 Azure Migrate 評量匯入移轉設定？]  中，選取 [是]  選項。
-    - 如果您未執行評量，或不想使用評量設定，請選取 [無]  選項。
-    - 如果您選擇使用評量，請選取 VM 群組和評量名稱。
+    - 如果您已執行 VM 的評估，您可以套用評估結果中的 VM 大小調整和磁碟類型 (進階/標準) 建議。 若要這麼做，請在 [從 Azure Migrate 評估匯入移轉設定?]  中，選取 [是]  選項。
+    - 如果您未執行評估，或不想使用評估設定，請選取 [否]  選項。
+    - 如果您選擇使用評估，請選取 VM 群組和評估名稱。
 
-        ![選取評量](./media/tutorial-migrate-hyper-v/select-assessment.png)
+        ![選取評估](./media/tutorial-migrate-hyper-v/select-assessment.png)
 
 4. 在 [虛擬機器]  中，視需要搜尋 VM，並檢查您要遷移的每個 VM。 然後按 **[下一步：目標設定]** 。
 
@@ -158,7 +161,7 @@ Azure Migrate 伺服器移轉會執行輕量型 Hyper-V VM 設備。
 
 10. 在 [計算]  中，檢閱 VM 名稱、大小、OS 磁碟類型和可用性設定組。 VM 必須符合 [Azure 需求](migrate-support-matrix-vmware.md#agentless-migration-vmware-vm-requirements)。
 
-    - **VM 大小**：如果您使用評量建議，[VM 大小] 下拉式清單會包含建議的大小。 否則，Azure Migrate 會根據 Azure 訂用帳戶中最接近的相符項來選擇大小。 或者，您可以在 [Azure VM 大小]  中手動選擇大小。 
+    - **VM 大小**：如果您使用評估建議，[VM 大小] 下拉式清單會包含建議的大小。 否則，Azure Migrate 會根據 Azure 訂用帳戶中最接近的相符項來選擇大小。 或者，您可以在 [Azure VM 大小]  中手動選擇大小。 
     - **OS 磁碟**：指定 VM 的 OS (開機) 磁碟。 OS 磁碟是具有作業系統開機載入器和安裝程式的磁碟。 
     - **可用性設定組**：如果 VM 在移轉後應位於 Azure 可用性設定組中，請指定設定組。 此設定組必須位於您為移轉指定的目標資源群組中。
 
@@ -177,12 +180,12 @@ Azure Migrate 伺服器移轉會執行輕量型 Hyper-V VM 設備。
 
 ### <a name="provisioning-for-the-first-time"></a>第一次佈建
 
-如果這是您在 Azure Migrate 專案中複寫的第一個 VM，Azure Migrate 伺服器移轉會自動在與專案相同的資源群組中布建這些資源。
+如果這是您在 Azure Migrate 專案中複寫的第一個 VM，Azure Migrate 伺服器移轉會自動在與專案相同的資源群組中佈建這些資源。
 
 - **服務匯流排**：Azure Migrate 伺服器移轉會使用服務匯流排將複寫協調訊息傳送至設備。
 - **閘道儲存體帳戶**：伺服器移轉會使用閘道儲存體帳戶來儲存所複寫 VM 的相關狀態資訊。
 - **記錄儲存體帳戶**︰Azure Migrate 設備會將 VM 的複寫記錄上傳至記錄儲存體帳戶。 Azure Migrate 會將複寫資訊套用到複本受控磁碟。
-- **保存庫**：Azure Migrate 設備會使用金鑰保存庫來管理服務匯流排的連接字串，以及複寫中所用儲存體帳戶的存取金鑰。 當您準備好時，您應該設定金鑰保存庫存取儲存體帳戶所需的權限。 [檢閱這些權限](tutorial-prepare-vmware.md#assign-role-assignment-permissions)。   
+- **金鑰保存庫**：Azure Migrate 設備會使用金鑰保存庫來管理服務匯流排的連接字串，以及複寫中所用儲存體帳戶的存取金鑰。 當您準備好時，您應該設定金鑰保存庫存取儲存體帳戶所需的權限。 [檢閱這些權限](tutorial-prepare-vmware.md#assign-role-assignment-permissions)。   
 
 
 ## <a name="track-and-monitor"></a>追蹤和監視
@@ -239,7 +242,7 @@ Azure Migrate 伺服器移轉會執行輕量型 Hyper-V VM 設備。
 3. 在 [遷移]   > [將虛擬機器關機，在沒有資料遺失的情況下執行計劃性移轉]  中，選取 [是]   > [確定]  。
     - 根據預設，Azure Migrate 會關閉內部部署 VM，並執行隨選複寫，以同步處理上次複寫執行後發生的任何 VM 變更。 這樣可確保不會遺失任何資料。
     - 如果您不想關閉 VM，請選取 [否] 
-4. 啟動 VM 的移轉作業。 在 Azure 通知中追蹤作業。
+4. VM 會啟動移轉作業。 請在 Azure 通知中追蹤該作業。
 5. 作業完成後，您可以從 [虛擬機器]  頁面檢視及管理 VM。
 
 ## <a name="complete-the-migration"></a>完成移轉

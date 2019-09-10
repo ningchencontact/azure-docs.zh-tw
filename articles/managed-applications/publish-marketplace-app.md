@@ -10,12 +10,12 @@ ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.date: 07/17/2019
 ms.author: tomfitz
-ms.openlocfilehash: 0e2e161c22ee87d11156c4818bd689c316799e87
-ms.sourcegitcommit: 770b060438122f090ab90d81e3ff2f023455213b
+ms.openlocfilehash: 372c65f1ac9a08d066f26e637f3af86807b35f11
+ms.sourcegitcommit: 7a6d8e841a12052f1ddfe483d1c9b313f21ae9e6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "68305622"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70182818"
 ---
 # <a name="azure-managed-applications-in-the-marketplace"></a>Marketplace 中 Azure 受控應用程式
 
@@ -177,5 +177,6 @@ Marketplace 表單會要求 [Azure Marketplace](https://azuremarketplace.microso
 
 ## <a name="next-steps"></a>後續步驟
 
+* 如需在按一下 [發佈]  後會發生什麼情況的相關資訊，請參閱[發佈 Azure 應用程式供應項目](../marketplace/cloud-partner-portal/azure-applications/cpp-publish-offer.md)
 * 如需受控應用程式的簡介，請參閱[受控應用程式概觀](overview.md)。
 * 如需發佈 Service Catalog 受控應用程式的資訊，請參閱[建立和發佈 Service Catalog 受控應用程式](publish-service-catalog-app.md)。

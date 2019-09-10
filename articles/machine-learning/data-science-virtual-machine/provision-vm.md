@@ -1,28 +1,22 @@
 ---
-title: 建立 Windows 資料科學虛擬機器
-titleSuffix: Azure
+title: 快速入門：建立 Windows
+titleSuffix: Azure Data Science Virtual Machine
 description: 在 Azure 上設定和建立資料科學虛擬機器以進行分析和機器學習。
 services: machine-learning
-documentationcenter: ''
-author: vijetajo
-manager: cgronlun
-ms.custom: seodec18
-ms.assetid: e1467c0f-497b-48f7-96a0-7f806a7bec0b
 ms.service: machine-learning
 ms.subservice: data-science-vm
-ms.workload: data-services
-ms.devlang: na
+author: vijetajo
+ms.author: vijetaj
 ms.topic: quickstart
 ms.date: 02/22/2019
-ms.author: vijetaj
-ms.openlocfilehash: 2b328ccf63259c7faf4debdc07313d24381313a5
-ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
+ms.openlocfilehash: ac4b9b4d32d05083ceabd41207243eb483648baa
+ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/27/2019
-ms.locfileid: "70047676"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70278604"
 ---
-# <a name="provision-a-windows-data-science-virtual-machine-on-azure"></a>在 Azure 上佈建 Windows 資料科學虛擬機器
+# <a name="quickstart-set-up-a-windows-data-science-virtual-machine-on-azure"></a>快速入門：在 Azure 上設定 Windows 資料科學虛擬機器
 
 Microsoft Windows 資料科學虛擬機器 (DSVM) 是 Azure 上的 Windows Server 2016 虛擬機器 (VM) 映像。 它會預先安裝並設定用於資料分析和機器學習的工具。
 
@@ -30,7 +24,7 @@ Microsoft Windows 資料科學虛擬機器 (DSVM) 是 Azure 上的 Windows Serve
 
 DSVM 中包含下列工具：
 
-* [Azure Machine Learning 服務](../service/index.yml)的 Python SDK。
+* [Azure Machine Learning 服務](../index.yml)的 Python SDK。
 * [Microsoft Machine Learning Server](https://docs.microsoft.com/machine-learning-server/index) Developer 版本。
 * Anaconda Python 散發套件。
 * Jupyter Notebook (使用 R、Python、PySpark 核心)。
@@ -234,7 +228,7 @@ Python SDK 會預先安裝在「Microsoft 資料科學虛擬機器」上。 若�
 ## <a name="next-steps"></a>後續步驟
 
 * 開啟 [開始]  功能表，探索 DSVM 上的工具。
-* 閱讀[什麼是 Azure Machine Learning 服務？](../service/overview-what-is-azure-ml.md)並嘗試使用[快速入門和教學課程](../service/index.yml)，以了解 Azure Machine Learning 服務。
+* 閱讀[什麼是 Azure Machine Learning 服務？](../service/overview-what-is-azure-ml.md)並嘗試使用[教學課程](../index.yml)，以了解 Azure Machine Learning 服務。
 * 在檔案總管中，瀏覽至 C:\Program Files\Microsoft\ML Server\R_SERVER\library\RevoScaleR\demoScripts，以取得在 R 中使用 RevoScaleR 程式庫的範例，其支援企業規模的資料分析。 
 * 閱讀文章：[您可以在資料科學虛擬機器上做的十件事](https://aka.ms/dsvmtenthings)。
 * 了解如何使用 [Team Data Science Process](../team-data-science-process/index.yml)，以系統化方式建置端對端分析方案。

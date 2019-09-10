@@ -10,18 +10,18 @@ ms.subservice: implement
 ms.date: 04/17/2018
 ms.author: anvang
 ms.reviewer: igorstan
-ms.openlocfilehash: 193aec8de2a6ee34da666a013dcb0d49d85c08b0
-ms.sourcegitcommit: 5ded08785546f4a687c2f76b2b871bbe802e7dae
+ms.openlocfilehash: 37b5f0a989bb76a9a40529cd11944de40a164156
+ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69574851"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70306236"
 ---
-# <a name="quickstart-scale-compute-in-azure-sql-data-warehouse-in-powershell"></a>快速入門：在 PowerShell 中調整 Azure SQL 資料倉儲中的計算
+# <a name="quickstart-scale-compute-in-azure-sql-data-warehouse-in-azure-powershell"></a>快速入門：在 Azure PowerShell 中調整 Azure SQL 資料倉儲中的計算
 
-在 PowerShell 中調整 Azure SQL 資料倉儲中的計算。 [相應放大計算](sql-data-warehouse-manage-compute-overview.md)以提升效能，或將計算調整回來以節省成本。
+使用 Azure PowerShell 來調整 Azure SQL 資料倉儲中的計算。 [相應放大計算](sql-data-warehouse-manage-compute-overview.md)以提升效能，或將計算調整回來以節省成本。
 
-如果您沒有 Azure 訂用帳戶，請在開始前先建立一個[免費帳戶](https://azure.microsoft.com/free/)。
+如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶](https://azure.microsoft.com/free/)。
 
 ## <a name="before-you-begin"></a>開始之前
 

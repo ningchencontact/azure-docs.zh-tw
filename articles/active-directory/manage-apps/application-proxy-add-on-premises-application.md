@@ -12,12 +12,12 @@ ms.date: 08/28/2019
 ms.author: mimart
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e13ab3378857bd0254d7cb2fb98249ccc24b1cb7
-ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
+ms.openlocfilehash: fe6da9b1557293ee9002681c6ce90c1c6c62a25b
+ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70125616"
+ms.lasthandoff: 09/03/2019
+ms.locfileid: "70231250"
 ---
 # <a name="tutorial-add-an-on-premises-application-for-remote-access-through-application-proxy-in-azure-active-directory"></a>教學課程：新增內部部署應用程式以便透過 Azure Active Directory 中的應用程式 Proxy 進行遠端存取
 
@@ -69,7 +69,7 @@ Azure Active Directory (Azure AD) 有一項應用程式 Proxy 服務，可讓使
 1. 重新啟動伺服器。
 
 > [!IMPORTANT]
-> 為了將頂級的加密提供給客戶，我們即將更新應用程式 Proxy 服務，將其限制為僅接受 TLS 1.2 通訊協定的存取。 根據客戶的整備程度，變更會逐漸推廣到只使用 TLS 1.2 通訊協定的客戶，而您不會看到這項變更的任何影響。 TLS 1.0 和 1.1 的淘汰作業將於 2019 年 8 月 31 日完成，而客戶將會收到因應這項變更的事先通知。 若要針對此變更做好準備，請確定所有用戶端-伺服器和瀏覽器-伺服器組合都已更新為使用 TLS 1.2，以保持與應用程式 Proxy 服務的連線。 其中包括使用者存取透過應用程式 Proxy 發佈的應用程式時，所使用的用戶端。 請參閱準備 [Office 365 中的 TLS 1.2](https://support.microsoft.com/help/4057306/preparing-for-tls-1-2-in-office-365)，以取得實用的參考和資源。
+> 為了將頂級的加密提供給客戶，應用程式 Proxy 服務會限制僅接受 TLS 1.2 通訊協定的存取。 這些變更已逐漸推出，並於 2019 年 8 月 31 日起生效。 請確定所有用戶端-伺服器和瀏覽器-伺服器組合都已更新為使用 TLS 1.2，以保持與應用程式 Proxy 服務的連線。 其中包括使用者存取透過應用程式 Proxy 發佈的應用程式時，所使用的用戶端。 請參閱準備 [Office 365 中的 TLS 1.2](https://support.microsoft.com/help/4057306/preparing-for-tls-1-2-in-office-365)，以取得實用的參考和資源。
 
 ## <a name="prepare-your-on-premises-environment"></a>準備內部部署環境
 
@@ -94,7 +94,7 @@ Azure Active Directory (Azure AD) 有一項應用程式 Proxy 服務，可讓使
 | --- | --- |
 | \*.msappproxy.net<br>\*.servicebus.windows.net | 連接器和應用程式 Proxy 雲端服務之間的通訊 |
 | mscrl.microsoft.com:80<br>crl.microsoft.com:80<br>ocsp.msocsp.com:80<br>www.microsoft.com:80 | Azure 會使用這些 URL 來確認憑證。 |
-| login.windows.net<br>login.microsoftonline.com<br>secure.aadcdn.microsoftonline-p.com  | 連接器會在註冊程序進行期間使用這些 URL。 |
+| login.windows.net<br>secure.aadcdn.microsoftonline-p.com<br>\*.microsoftonline.com<br>\*.microsoftonline-p.com<br>\*.msauth.net<br>\*.msauthimages.net<br>\*.msecnd.net<br>\*.msftauth.net<br>\*.msftauthimages.net<br>\*.phonefactor.net<br>enterpriseregistration.windows.net<br>management.azure.com<br>policykeyservice.dc.ad.msft.net | 連接器會在註冊程序進行期間使用這些 URL。 |
 
 如果防火牆或 Proxy 可讓您設定 DNS 允許清單，您便可以允許連往 \*.msappProxy.net 和 \*.servicebus.windows.net 的連線。 如果不是，您需要允許存取 [Azure IP 範圍和服務標籤 - 公用雲端](https://www.microsoft.com/download/details.aspx?id=56519)。 IP 範圍會每週更新。
 

@@ -6,17 +6,29 @@ author: alkohli
 ms.service: databox
 ms.subservice: heavy
 ms.topic: tutorial
-ms.date: 07/03/2019
+ms.date: 09/03/2019
 ms.author: alkohli
-ms.openlocfilehash: 84db33e4c7ac612353c590ac9d2904ac3bc48d38
-ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
+ms.localizationpriority: high
+ms.openlocfilehash: e438fb38afb649f6f4c7f595059ef64800977242
+ms.sourcegitcommit: 49c4b9c797c09c92632d7cedfec0ac1cf783631b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67592382"
+ms.lasthandoff: 09/05/2019
+ms.locfileid: "70240338"
 ---
+::: zone target = "docs"
+
 # <a name="tutorial-return-azure-data-box-heavy-and-verify-data-upload-to-azure"></a>教學課程：送回 Azure Data Box Heavy，並確認資料已上傳至 Azure
 
+::: zone-end
+
+::: zone target = "chromeless"
+
+# <a name="return-azure-data-box-heavy-and-verify-data-upload-to-azure"></a>送回 Azure Data Box Heavy，並確認資料已上傳至 Azure
+
+::: zone-end
+
+::: zone target = "docs"
 
 本教學課程說明如何送回 Azure Data Box Heavy，並確認資料已上傳至 Azure。
 
@@ -36,9 +48,25 @@ ms.locfileid: "67592382"
 - 您已完成[教學課程：將資料複製到 Azure 資料箱並確認](data-box-heavy-deploy-copy-data.md)。
 - 複製作業已完成。 如果複製作業正在進行，則無法執行寄送準備。
 
+
 ## <a name="prepare-to-ship"></a>準備寄送
 
 [!INCLUDE [data-box-heavy-prepare-to-ship](../../includes/data-box-heavy-prepare-to-ship.md)]
+
+::: zone-end
+
+::: zone target = "chromeless"
+
+## <a name="prepare-to-ship"></a>準備寄送
+
+在您準備寄送之前，請確定複製作業已完成。
+
+1. 前往本機 Web UI 中的 [準備寄送] 頁面，並開始準備寄送。
+2. 從本機 Web UI 關閉裝置。 從裝置移除纜線。
+
+您現在已準備好而可將裝置寄回。
+
+::: zone-end
 
 ## <a name="ship-data-box-heavy-back"></a>寄回 Data Box Heavy
 
@@ -50,6 +78,8 @@ ms.locfileid: "67592382"
     3. 確認貨物外部有醒目顯示的出貨標籤。
     4. 確實從裝置上移除前次出貨的舊出貨標籤。
 3. 一旦貨運業者收取 Data Box Heavy 並進行掃描，入口網站的訂單狀態就會更新為 [已取貨]  。 此外，也會顯示追蹤識別碼。
+
+::: zone target = "docs"
 
 ## <a name="verify-data-upload-to-azure"></a>確認資料上傳至 Azure
 
@@ -79,10 +109,25 @@ ms.locfileid: "67592382"
         ![連結至資源群組的受控磁碟](media/data-box-deploy-copy-data-from-vhds/managed-disks-resource-group.png)
 
     - 如果您複製了 VHDX 或動態/差異 VHD，則會將 VHDX/VHD 上傳至暫存的儲存體帳戶以作為分頁 Blob，但將 VHD 轉換為受控磁碟會失敗。 移至您暫存的 [儲存體帳戶] > [Blob]  ，然後選取適當的容器：標準 SSD、標準 HDD 或進階 SSD。 VHD 會以分頁 Blob 形式上傳到暫存的儲存體帳戶。
+    
+::: zone-end
+
+::: zone target = "chromeless"
+
+## <a name="verify-data-upload-to-azure"></a>確認資料上傳至 Azure
+
+當 Data Box Heavy 裝置連線到 Azure 資料中心網路時，會自動開始將資料上傳到 Azure。 Data Box 服務會通知您，已透過 Azure 入口網站完成資料複製。
+
+- 檢查所有失敗的錯誤記錄，並採取適當的動作。
+- 請先確認您的資料位於儲存體帳戶中，再從來源予以刪除。
+
+::: zone-end
 
 ## <a name="erasure-of-data-from-data-box-heavy"></a>清除 Data Box Heavy 中的資料
  
 完成上傳到 Azure 之後，資料箱會根據 [NIST SP 800-88 修訂 1 指導方針](https://csrc.nist.gov/News/2014/Released-SP-800-88-Revision-1,-Guidelines-for-Medi)清除磁碟中的資料。 清除完成後，您可以[下載訂單記錄](data-box-portal-admin.md#download-order-history)。
+
+::: zone target = "docs"
 
 ## <a name="next-steps"></a>後續步驟
 
@@ -99,5 +144,7 @@ ms.locfileid: "67592382"
 
 > [!div class="nextstepaction"]
 > [使用本機 Web UI 來管理 Azure 資料箱](./data-box-local-web-ui-admin.md)
+
+::: zone-end
 
 

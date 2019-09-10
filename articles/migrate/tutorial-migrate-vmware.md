@@ -4,15 +4,15 @@ description: 說明如何使用 Azure Migrate 來執行內部部署 VMware VM �
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: tutorial
-ms.date: 07/08/2019
+ms.date: 09/04/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 7fba9cbbaa15359e7e4dd95e66645dd5f4022431
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.openlocfilehash: ec7d10a1d9fec43c149c068fb408211db76d19eb
+ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68640778"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70309385"
 ---
 # <a name="migrate-vmware-vms-to-azure-agentless"></a>將 VMware VM 遷移至 Azure (無代理程式)
 
@@ -126,7 +126,10 @@ Azure Migrate 需要稍微變更 VM，以確保 VM 可以遷移至 Azure。
 
 ## <a name="replicate-vms"></a>複寫 VM
 
-完成探索之後，您就可以開始將 VMware VM 複寫至 Azure。
+完成探索之後，您就可以開始將 VMware VM 複寫至 Azure。 
+
+> [!NOTE]
+> 您最多可以一起複寫 10 部機器。 如果您需要複寫更多機器，請以 10 個一批的方式同時進行複寫。 針對無代理程式移轉，您最多可以同時執行 100 個複寫。
 
 1. 在 [Azure Migrate 專案] > [伺服器]  、 **[Azure Migrate：伺服器移轉]** 中，按一下 [複寫]  。
 

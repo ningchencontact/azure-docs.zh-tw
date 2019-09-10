@@ -1,22 +1,20 @@
 ---
 title: 快速入門 - 在瀏覽器中使用 JavaScript 和 HTML 建立 Azure 儲存體中的 Blob
-description: 了解如何在 HTML 網頁中使用 JavaScript 以 BlobService 的執行個體上傳、列出及刪除 Blob。
+description: 了解如何在 HTML 網頁中使用 JavaScript 上傳、列出及刪除 Blob。
 services: storage
-keywords: 儲存體, Javascript, Html
 author: KarlErickson
 ms.custom: mvc
 ms.service: storage
 ms.author: karler
-ms.reviewer: seguler
-ms.date: 05/20/2019
+ms.date: 08/29/2019
 ms.topic: quickstart
 ms.subservice: blobs
-ms.openlocfilehash: ea5dfe2261be4512d4ba8edda1e7fbd5219a50c0
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
+ms.openlocfilehash: fc6ccaae698043db631c7724c6aabbca16f4328f
+ms.sourcegitcommit: ee61ec9b09c8c87e7dfc72ef47175d934e6019cc
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68986886"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70172859"
 ---
 <!-- Customer intent: As a web application developer I want to interface with Azure Blob storage entirely on the client so that I can build a SPA application that is able to upload and delete files on blob storage. -->
 
@@ -38,7 +36,7 @@ Azure 儲存體 JavaScript 用戶端程式庫無法直接從檔案系統運作�
 
 返回 Azure 入口網站，然後選取您的儲存體帳戶。 若要定義新的 CORS 規則，請瀏覽至 [設定]  區段，然後按一下 [CORS]  連結。 接著，按一下 [新增]  按鈕，以開啟 [新增 CORS 規則]  視窗。 在此快速入門中，您會建立開啟的 CORS 規則：
 
-![Azure Blob 儲存體帳戶 CORS 設定](media/storage-quickstart-blobs-javascript-client-libraries/azure-blob-storage-cors-settings.png)
+![Azure Blob 儲存體帳戶 CORS 設定](media/storage-quickstart-blobs-javascript-client-libraries-v10/azure-blob-storage-cors-settings.png)
 
 下表說明每個 CORS 設定以及用來定義規則的值。
 

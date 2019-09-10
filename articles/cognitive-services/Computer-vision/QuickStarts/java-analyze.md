@@ -10,24 +10,24 @@ ms.subservice: computer-vision
 ms.topic: quickstart
 ms.date: 07/03/2019
 ms.author: pafarley
-ms.custom: seodec18, seo-java-august2019
-ms.openlocfilehash: 69d14b3ce84ddd1fbd54ab8a0f6f0c9e24ebac1e
-ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
+ms.custom: seodec18, seo-java-august2019, seo-java-september2019
+ms.openlocfilehash: a90a761eef2a1f7a9aa0533f5b9eb88e898bc69b
+ms.sourcegitcommit: 267a9f62af9795698e1958a038feb7ff79e77909
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/10/2019
-ms.locfileid: "68946318"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70258102"
 ---
 # <a name="quickstart-analyze-a-remote-image-using-the-computer-vision-rest-api-and-java"></a>快速入門：使用電腦視覺 REST API 與 Java 分析遠端影像
 
-在此快速入門中，您將使用電腦視覺的 REST API，來分析遠端儲存的影像以擷取視覺功能。 您可以使用[分析影像](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa)方法，根據影像內容來擷取視覺功能。
+在此快速入門中，您將使用 Java 和電腦視覺 REST API，來分析遠端儲存的影像以擷取視覺功能。 您可以使用[分析影像](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa)方法，根據影像內容來擷取視覺功能。
 
-如果您沒有 Azure 訂用帳戶，請在開始前先建立 [免費帳戶](https://azure.microsoft.com/free/ai/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=cognitive-services) 。
+如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/ai/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=cognitive-services) 。
 
 ## <a name="prerequisites"></a>必要條件
 
 - 您必須已安裝 [Java&trade; Platform, Standard Edition Development Kit 7 或 8](https://aka.ms/azure-jdks) (JDK 7 或 8)。
-- 您必須有電腦視覺的訂用帳戶金鑰。 您可以從[試用認知服務](https://azure.microsoft.com/try/cognitive-services/?api=computer-vision)取得免費試用的金鑰。 或者，依照[建立認知服務帳戶](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account)中的指示訂閱電腦視覺並取得金鑰。
+- 您必須有電腦視覺的訂用帳戶金鑰。 您可以從[試用認知服務](https://azure.microsoft.com/try/cognitive-services/?api=computer-vision)取得免費試用的金鑰。 或者，依照[建立認知服務帳戶](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account)中的指示訂閱電腦視覺並取得金鑰。 然後，分別為名為 `COMPUTER_VISION_SUBSCRIPTION_KEY` 和 `COMPUTER_VISION_ENDPOINT` 的金鑰和服務端點字串[建立環境變數](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication)。
 
 ## <a name="create-and-run-the-sample-application"></a>建立並執行範例應用程式
 
@@ -53,10 +53,8 @@ ms.locfileid: "68946318"
    import org.json.JSONObject;
    ```
 
-1. 將 `Main` 公用類別取代為下列程式碼，然後視需要在程式碼中進行下列變更：
-   1. 將 `subscriptionKey` 的值取代為您的訂用帳戶金鑰。
-   1. 如有需要，請從您取得訂用帳戶金鑰的 Azure 區域，將 `uriBase` 的值取代為[分析影像](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa)方法的端點 URL。
-   1. (選擇性) 將 `imageToAnalyze` 的值取代為您要分析之不同影像的 URL。
+1. 將 `Main` 公用類別取代為下列程式碼。
+1. (選擇性) 將 `imageToAnalyze` 的值取代為您要分析之不同影像的 URL。
 
 ```java
 public class Main {
@@ -64,20 +62,13 @@ public class Main {
     // *** Update or verify the following values. ***
     // **********************************************
 
-    // Replace <Subscription Key> with your valid subscription key.
-    private static final String subscriptionKey = "<Subscription Key>";
+    // Add your Computer Vision subscription key and endpoint to your environment variables.
+    // After setting, close and then re-open your command shell or project for the changes to take effect.
+    String subscriptionKey = System.getenv("COMPUTER_VISION_SUBSCRIPTION_KEY");
+    String endpoint = ("COMPUTER_VISION_ENDPOINT");
 
-    // You must use the same Azure region in your REST API method as you used to
-    // get your subscription keys. For example, if you got your subscription keys
-    // from the West US region, replace "westcentralus" in the URL
-    // below with "westus".
-    //
-    // Free trial subscription keys are generated in the "westcentralus" region.
-    // If you use a free trial subscription key, you shouldn't need to change
-    // this region.
-    private static final String uriBase =
-            "https://westcentralus.api.cognitive.microsoft.com/vision/v2.0/analyze";
-
+    private static final String uriBase = endpoint + 
+            "vision/v2.0/analyze";
     private static final String imageToAnalyze =
             "https://upload.wikimedia.org/wikipedia/commons/" +
                     "1/12/Broadway_and_Times_Square_by_night.jpg";

@@ -1,26 +1,20 @@
 ---
-title: 適用於 Linux 和 Windows 的 Azure 資料科學虛擬機器簡介 | Microsoft Docs
+title: 什麼是 Azure 資料科學虛擬機器
 description: 適用於 Windows 和 Linux 資料科學虛擬機器的重要分析案例與元件。
 keywords: 資料科學工具、資料科學虛擬機器、資料科學工具、linux 資料科學
 services: machine-learning
-documentationcenter: ''
-author: vijetajo
-manager: cgronlun
-ms.assetid: d4f91270-dbd2-4290-ab2b-b7bfad0b2703
 ms.service: machine-learning
 ms.subservice: data-science-vm
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
+author: vijetajo
+ms.author: vijetaj
 ms.topic: overview
 ms.date: 02/22/2019
-ms.author: vijetaj
-ms.openlocfilehash: 22192d67a946f9f466848b65b9cd763b16e6c5f0
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 3295a59ee4496d332f0d886c89ca900ab6b4bcd1
+ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70099376"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70191904"
 ---
 # <a name="what-is-the-azure-data-science-virtual-machine-for-linux-and-windows"></a>適用於 Linux 和 Windows 的 Azure 資料科學虛擬機器是什麼？
 

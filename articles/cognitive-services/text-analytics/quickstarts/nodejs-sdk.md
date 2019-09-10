@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: quickstart
-ms.date: 07/30/2019
+ms.date: 08/28/2019
 ms.author: shthowse
-ms.openlocfilehash: 8590acbbd6001c1f214589298e454c1e75f93d67
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: c3cd64d0a683a60132808bca6a7ceb4aa84db4f1
+ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68883526"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70195200"
 ---
 # <a name="quickstart-text-analytics-client-library-for-nodejs"></a>快速入門：適用於 Node.js 的文字分析用戶端程式庫
 <a name="HOLTop"></a>
@@ -34,7 +34,7 @@ ms.locfileid: "68883526"
 ## <a name="prerequisites"></a>必要條件
 
 * Azure 訂用帳戶 - [建立免費帳戶](https://azure.microsoft.com/free/)
-* 最新版的 [.NET Core SDK](https://dotnet.microsoft.com/download/dotnet-core)。
+* 最新版的 [Node.js](https://nodejs.org/)。
 
 ## <a name="setting-up"></a>設定
 
@@ -64,30 +64,34 @@ npm init
 建立名為 `index.js` 的檔案，並匯入下列程式庫：
 
 ```javascript
-const CognitiveServicesCredentials = require("ms-rest-azure").CognitiveServicesCredentials;
-const TextAnalyticsAPIClient = require("azure-cognitiveservices-textanalytics");
+const CognitiveServicesCredentials = require("@azure/ms-rest-js");
+const TextAnalyticsAPIClient = require("@azure/cognitiveservices-textanalytics");
 ```
 
-為資源的 Azure 端點和金鑰建立變數。 如果您在啟動應用程式後才建立環境變數，則必須先關閉執行該應用程式的編輯器、IDE 或殼層，再重新加以開啟，才能存取該變數。
+為資源的 Azure 端點和訂用帳戶金鑰建立變數。 從環境變數 TEXT_ANALYTICS_SUBSCRIPTION_KEY 和 TEXT_ANALYTICS_ENDPOINT 取得這些值。 如果您在開始編輯應用程式後才建立這些環境變數，則必須先關閉您使用的編輯器、IDE 或殼層，再重新加以開啟，才能存取該變數。
 
 [!INCLUDE [text-analytics-find-resource-information](../includes/find-azure-resource-info.md)]
 
 ```javascript
-// replace this endpoint with the correct one for your Azure resource. 
-let endpoint = "https://westus.api.cognitive.microsoft.com/";
-// This sample assumes you have created an environment variable for your key
-let key = var apiKey = process.env.TEXTANALYTICS_SUBSCRIPTION_KEY;
-let credentials = new CognitiveServicesCredentials(
-    key
-);
+const key_var = 'TEXT_ANALYTICS_SUBSCRIPTION_KEY';
+if (!process.env[key_var]) {
+    throw new Error('please set/export the following environment variable: ' + key_var);
+}
+const subscription_key = process.env[key_var];
+
+const endpoint_var = 'TEXT_ANALYTICS_ENDPOINT';
+if (!process.env[endpoint_var]) {
+    throw new Error('please set/export the following environment variable: ' + endpoint_var);
+}
+const endpoint = process.env[endpoint_var];
 ```
 
 ### <a name="install-the-client-library"></a>安裝用戶端程式庫
 
-安裝 `ms-rest-azure` 和 `azure-cognitiveservices-textanalytics` NPM 套件：
+安裝 `@azure/ms-rest-js` 和 `@azure/cognitiveservices-textanalytics` NPM 套件：
 
 ```console
-npm install azure-cognitiveservices-textanalytics ms-rest-azure
+npm install @azure/cognitiveservices-textanalytics @azure/ms-rest-js
 ```
 
 您應用程式的 `package.json` 檔案會隨著相依性而更新。
@@ -114,11 +118,8 @@ npm install azure-cognitiveservices-textanalytics ms-rest-azure
 以 `credentials` 和 `endpoint` 作為參數來建立新的 [TextAnalyticsClient](https://docs.microsoft.com/javascript/api/azure-cognitiveservices-textanalytics/textanalyticsclient?view=azure-node-latest) 物件。
 
 ```javascript
-//Replace 'westus' with the correct region for your Text Analytics subscription
-let client = new TextAnalyticsAPIClient(
-    credentials,
-    endpoint
-);
+const creds = new CognitiveServicesCredentials.ApiKeyCredentials({ inHeader: { 'Ocp-Apim-Subscription-Key': subscription_key } });
+const client = new TextAnalyticsAPIClient.TextAnalyticsClient(creds, endpoint);
 ```
 
 ## <a name="sentiment-analysis"></a>情感分析
@@ -199,11 +200,10 @@ ID: 1 Language English
 建立物件清單，其中包含您的文件。
 
 ```javascript
-
-    const inputDocuments = {documents:[
-        {language:"en", id:"1", text:"Microsoft was founded by Bill Gates and Paul Allen on April 4, 1975, to develop and sell BASIC interpreters for the Altair 8800"}
-        ]}
-
+const inputDocuments = {
+    documents: [
+        { language: "en", id: "1", text: "Microsoft was founded by Bill Gates and Paul Allen on April 4, 1975, to develop and sell BASIC interpreters for the Altair 8800" }
+    ]
 }
 ```
 

@@ -5,15 +5,15 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: azure-migrate
 ms.topic: tutorial
-ms.date: 07/09/2019
+ms.date: 09/04/2019
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 728bf785edebcd17599b6a56edea1e26ed2d2fbc
-ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
+ms.openlocfilehash: 9b1944cdad67f9f1b74c8dae95bc9d8409e56f54
+ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68311781"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70309458"
 ---
 # <a name="migrate-physical-or-virtualized-servers-to-azure"></a>將實體或虛擬化伺服器遷移至 Azure 
 
@@ -255,6 +255,11 @@ ms.locfileid: "68311781"
     ```
 
 ## <a name="replicate-machines"></a>複寫機器
+
+現在，選取要進行移轉的機器。 
+
+> [!NOTE]
+> 您最多可以一起複寫 10 部機器。 如果您需要複寫更多機器，請以 10 個一批的方式同時進行複寫。
 
 1. 在 [Azure Migrate 專案] > [伺服器]  、 **[Azure Migrate：伺服器移轉]** 中，按一下 [複寫]  。
 

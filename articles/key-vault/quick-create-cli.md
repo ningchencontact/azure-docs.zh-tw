@@ -2,20 +2,20 @@
 title: Azure 快速入門 - 使用 Azure CLI 從 Key Vault 設定及擷取祕密 | Microsoft Docs
 description: 說明如何使用 Azure CLI 從 Azure Key Vault 設定及擷取祕密的快速入門
 services: key-vault
-author: barclayn
-manager: barbkess
+author: msmbaldwin
+manager: rkarlin
 tags: azure-resource-manager
 ms.service: key-vault
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 01/08/2019
-ms.author: barclayn
-ms.openlocfilehash: e9537c158afad2877bb2df2650500ab218de676f
-ms.sourcegitcommit: 1aefdf876c95bf6c07b12eb8c5fab98e92948000
+ms.date: 09/03/2019
+ms.author: mbaldwin
+ms.openlocfilehash: 37fc4003ba19e9e8f3d156a7fcb9bb84001d2e90
+ms.sourcegitcommit: 267a9f62af9795698e1958a038feb7ff79e77909
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66726746"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70259325"
 ---
 # <a name="quickstart-set-and-retrieve-a-secret-from-azure-key-vault-using-azure-cli"></a>快速入門：使用 Azure CLI 從 Azure Key Vault 設定及擷取祕密
 
@@ -33,7 +33,7 @@ Azure Key Vault 是一項雲端服務，可作為安全的祕密存放區。 您
 az login
 ```
 
-若要進一步了解透過 CLI 的登入選項，請參閱[使用 Azure CLI 進行登入](https://docs.microsoft.com/cli/azure/authenticate-azure-cli?view=azure-cli-latest)
+若要進一步了解透過 CLI 的登入選項，請參閱[使用 Azure CLI 進行登入](/cli/azure/authenticate-azure-cli?view=azure-cli-latest)
 
 ## <a name="create-a-resource-group"></a>建立資源群組
 
@@ -93,7 +93,9 @@ az group delete --name ContosoResourceGroup
 
 ## <a name="next-steps"></a>後續步驟
 
-在本快速入門中，您已建立 Key Vault 並在其中儲存祕密。 若要深入了解 Key Vault 以及如何使用它搭配您的應用程式，請繼續進行 Web 應用程式搭配 Key Vault 運作的教學課程。
+在本快速入門中，您已建立 Key Vault 並在其中儲存祕密。 若要深入了解 Key Vault 以及要如何將其與應用程式整合，請繼續閱讀下列文章。
 
-> [!div class="nextstepaction"]
-> 若要了解如何從針對 Azure 資源使用受控識別的 Web 應用程式讀取 Key Vault 中的祕密，請繼續進行以下教學課程[將 Azure Web 應用程式設定為從 Key Vault 讀取祕密](quick-create-net.md)
+- 閱讀 [Azure Key Vault 概觀](key-vault-overview.md)
+- 請參閱 [Azure CLI az keyvault 命令](/cli/azure/keyvault?view=azure-cli-latest)的參考
+- 了解[金鑰、祕密與憑證](about-keys-secrets-and-certificates.md)
+- 檢閱 [Azure Key Vault 最佳做法](key-vault-best-practices.md)

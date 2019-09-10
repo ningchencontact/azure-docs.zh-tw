@@ -9,12 +9,12 @@ ms.subservice: face-api
 ms.topic: quickstart
 ms.date: 07/26/2019
 ms.author: pafarley
-ms.openlocfilehash: 011345cca1ed1c763a628c94401320862182c9cc
-ms.sourcegitcommit: ad9120a73d5072aac478f33b4dad47bf63aa1aaa
+ms.openlocfilehash: f0bd4a49a35392c25b8985aa68ad4e4b66be026c
+ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68707362"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70306525"
 ---
 # <a name="quickstart-face-client-library-for-python"></a>快速入門：適用於 Python 的臉部用戶端程式庫
 
@@ -109,6 +109,14 @@ pip install --upgrade azure-cognitiveservices-Face
 
 如需更多偵測案例，請參閱 [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/Face/FaceQuickstart.py) 上的程式碼範例。
 
+### <a name="display-and-frame-faces"></a>顯示和框出臉部
+
+下列程式碼會將指定的影像輸出到顯示器，並使用 DetectedFace.faceRectangle 屬性在臉部周圍繪製矩形。
+
+[!code-python[](~/cognitive-services-quickstart-code/python/Face/FaceQuickstart.py?name=snippet_frame)]
+
+![臉部周圍繪有紅色矩形的年輕女性](../images/face-rectangle-result.png)
+
 ## <a name="find-similar-faces"></a>尋找類似臉部
 
 下列程式碼會取得一個偵測到的臉部，並搜尋一組其他臉部來尋找相符臉部。 若找到相符的臉部，便會將相符臉部的矩形座標列印到主控台。 
@@ -161,7 +169,7 @@ pip install --upgrade azure-cognitiveservices-Face
 
 ## <a name="identify-a-face"></a>識別臉部
 
-下列程式碼會取得有多個臉部的影像，並想要找到影像中每個人員的身分識別。 其會比較所偵測到的每個臉部與 **PersonGroup**，後者是不同 **Person** 物件的資料庫，且這些物件各自都有數個相關聯的臉部。 
+下列程式碼會取得有多個臉部的影像，並想要找到影像中每個人員的身分識別。 其會比較所偵測到的每個臉部與 **PersonGroup**，該資料庫具有已知臉部特徵的不同 **Person** 物件。
 
 > [!IMPORTANT]
 > 若要執行這個範例，您必須先執行[建立並訓練人員群組](#create-and-train-a-person-group)中的程式碼。
@@ -188,7 +196,7 @@ pip install --upgrade azure-cognitiveservices-Face
 
 首先，您必須擁有第二個臉部資源 Azure 訂用帳戶；若要這麼做，請遵循[設定](#setting-up)一節中的步驟。 
 
-然後，在指令碼頂端附近建立下列變數。 您也需要為 Azure 帳戶的訂用帳戶識別碼建立新的環境變數，以及為新的 (目標) 帳戶建立金鑰和訂用帳戶識別碼。 
+然後，在指令碼頂端附近建立下列變數。 您還需要為 Azure 帳戶的訂用帳戶識別碼建立新的環境變數，以及為新的 (目標) 帳戶建立金鑰、端點和訂用帳戶識別碼。 
 
 [!code-python[](~/cognitive-services-quickstart-code/python/Face/FaceQuickstart.py?name=snippet_snapshotvars)]
 

@@ -14,15 +14,15 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 09/01/2018
 ms.author: suhuruli
-ms.custom: mvc, seo-java-august2019
-ms.openlocfilehash: 3601bcfbb812dc9f8ee893cc1c88eb8eebce485f
-ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
+ms.custom: mvc, seo-java-july2019, seo-java-august2019
+ms.openlocfilehash: 56a68f852e9eee3303540d6ebd180608935c6135
+ms.sourcegitcommit: ee61ec9b09c8c87e7dfc72ef47175d934e6019cc
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68963953"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70172071"
 ---
-# <a name="tutorial-create-an-application-with-a-java-web-api-front-end-service-and-a-stateful-back-end-service-on-service-fabric"></a>教學課程：在 Service Fabric 上使用 Java Web API 前端服務和具狀態後端服務建立應用程式
+# <a name="tutorial-create-an-application-with-a-java-api-front-end-service-and-a-stateful-back-end-service-on-azure-service-fabric"></a>教學課程：在 Azure Service Fabric 上使用 Java API 前端服務和具狀態後端服務建立應用程式
 
 本教學課程是一個系列的第一部分。 當您完成時，您會有一個 Voting 應用程式，其 Java Web 前端會將投票結果儲存在叢集中具狀態的後端服務。 此教學課程系列要求您具備一部運作中的 Mac OSX 或 Linux 開發人員電腦。 如果您不需要以手動建立 Voting 應用程式，可以[下載已完成應用程式的原始程式碼](https://github.com/Azure-Samples/service-fabric-java-quickstart)並直接前往[逐步解說投票範例應用程式](service-fabric-tutorial-create-java-app.md#walk-through-the-voting-sample-application)。 此外，請考慮遵循 [Java 可靠服務快速入門](service-fabric-quickstart-java-reliable-services.md)。
 

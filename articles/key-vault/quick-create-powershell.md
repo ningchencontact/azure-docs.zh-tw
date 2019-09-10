@@ -2,20 +2,20 @@
 title: Azure 快速入門 - 使用 PowerShell 從 Key Vault 設定及擷取祕密 | Microsoft Docs
 description: ''
 services: key-vault
-author: barclayn
-manager: barbkess
+author: msmbaldwin
+manager: rkarlin
 tags: azure-resource-manager
 ms.service: key-vault
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 01/07/2019
-ms.author: barclayn
-ms.openlocfilehash: 8d6260d462b4c244dfb41630e06710a1ce8baf6c
-ms.sourcegitcommit: 1aefdf876c95bf6c07b12eb8c5fab98e92948000
+ms.date: 09/03/2019
+ms.author: mbaldwin
+ms.openlocfilehash: 5753384d12d31016dff7a33175899835c8bd1fec
+ms.sourcegitcommit: 267a9f62af9795698e1958a038feb7ff79e77909
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66726785"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70259246"
 ---
 # <a name="quickstart-set-and-retrieve-a-secret-from-azure-key-vault-using-powershell"></a>快速入門：使用 PowerShell 從 Azure Key Vault 設定及擷取祕密
 
@@ -100,9 +100,9 @@ Remove-AzResourceGroup -Name ContosoResourceGroup
 
 ## <a name="next-steps"></a>後續步驟
 
-在本快速入門中，您已建立 Key Vault，並在其中儲存軟體金鑰。 若要深入了解 Key Vault 以及如何使用它搭配您的應用程式，請繼續進行 Web 應用程式搭配 Key Vault 運作的教學課程。
+在本快速入門中，您已建立 Key Vault 並在其中儲存祕密。 若要深入了解 Key Vault 以及要如何將其與應用程式整合，請繼續閱讀下列文章。
 
-若要了解如何從針對 Azure 資源使用受控識別的 Web 應用程式讀取 Key Vault 中的祕密，請繼續進行以下教學課程
-
-> [!div class="nextstepaction"]
-> [將 Azure Web 應用程式設定為從 Key Vault 讀取祕密](quick-create-net.md)。
+- 閱讀 [Azure Key Vault 概觀](key-vault-overview.md)
+- 請參閱 [Azure PowerShell Key Vault Cmdlet](/powershell/module/az.keyvault/?view=azps-2.6.0#key_vault) 的參考
+- 了解[金鑰、祕密與憑證](about-keys-secrets-and-certificates.md)
+- 檢閱 [Azure Key Vault 最佳做法](key-vault-best-practices.md)

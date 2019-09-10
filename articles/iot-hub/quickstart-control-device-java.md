@@ -8,20 +8,20 @@ ms.service: iot-hub
 services: iot-hub
 ms.devlang: java
 ms.topic: quickstart
-ms.custom: mvc, seo-java-august2019
+ms.custom: mvc, seo-java-august2019, seo-java-september2019
 ms.date: 06/21/2019
-ms.openlocfilehash: 977bf07c8383bb1086e7878bd10f2519cc2f40ad
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: 9fb110eff1d498b2b20952048759c76a2dac39f2
+ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68958644"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70306475"
 ---
-# <a name="quickstart-control-a-device-connected-to-an-iot-hub-java"></a>快速入門：控制連線到 IoT 中樞的裝置 (Java)
+# <a name="quickstart-control-a-device-connected-to-an-azure-iot-hub-with-java"></a>快速入門：使用 Java 來控制連線到 Azure IoT 中樞的裝置
 
 [!INCLUDE [iot-hub-quickstarts-2-selector](../../includes/iot-hub-quickstarts-2-selector.md)]
 
-IoT 中樞是一項 Azure 服務，可讓您從 IoT 裝置將大量遙測擷取到雲端，並從雲端管理您的裝置。 在此快速入門中，您可以使用「直接方法」  來控制連線到 IoT 中樞的模擬裝置。 您可以使用直接方法，針對連線到 IoT 中樞的裝置，從遠端變更裝置的行為。
+在本快速入門中，您可以使用「直接方法」  來控制使用 Java 應用程式連線到 Azure IoT 中樞的模擬裝置。 您可以使用直接方法，針對連線到 IoT 中樞的裝置，從遠端變更裝置的行為。 IoT 中樞是一項 Azure 服務，可讓您從 IoT 裝置將大量遙測擷取到雲端，並從雲端管理您的裝置。 
 
 快速入門會使用兩個預先撰寫的 Java 應用程式：
 
@@ -31,13 +31,13 @@ IoT 中樞是一項 Azure 服務，可讓您從 IoT 裝置將大量遙測擷取�
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-如果您沒有 Azure 訂用帳戶，請在開始前先建立[免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 。
+如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 。
 
 ## <a name="prerequisites"></a>必要條件
 
-您在此快速入門中執行的兩個範例應用程式是使用 Java 所撰寫的。 您的開發電腦上需要 Java SE 8 或更高版本。
+您在此快速入門中執行的兩個範例應用程式是使用 Java 所撰寫的。 您的開發電腦上需要 Java SE 8。
 
-您可以從 [Oracle](https://aka.ms/azure-jdks) 下載適用於多種平台的 Java。
+您可以從[適用於 Azure 和 Azure Stack 的 Java 長期支援](https://docs.microsoft.com/en-us/java/azure/jdk/?view=azure-java-stable)下載適用於多個平台的 Java SE 開發套件 8。 請務必選取 [長期支援]  下的 [Java 8]  ，以取得 JDK 8 的下載。
 
 您可以使用下列命令，以確認開發電腦上目前的 Java 版本：
 

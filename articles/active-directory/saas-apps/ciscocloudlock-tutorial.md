@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 07/18/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: af98633e1dfdbe6392199ade282a918c6134a033
-ms.sourcegitcommit: e72073911f7635cdae6b75066b0a88ce00b9053b
+ms.openlocfilehash: c0b1471abd7e057af919ed274547daf94d356c2b
+ms.sourcegitcommit: ac29357a47cc05afdf0f84834de5277598f4d87c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68347396"
+ms.lasthandoff: 09/03/2019
+ms.locfileid: "70213599"
 ---
 # <a name="tutorial-integrate-the-cloud-security-fabric-with-azure-active-directory"></a>教學課程：整合 The Cloud Security Fabric 與 Azure Active Directory
 
@@ -104,7 +104,7 @@ ms.locfileid: "68347396"
 
     ![憑證下載連結](common/metadataxml.png)
 
-5. 若要根據您的需求修改 **[簽署]**   選項，請按一下  **[編輯]**   按鈕以開啟  **[SAML 簽署憑證]**   對話方塊。
+5. 若要根據您的需求修改 [簽署]  選項，請按一下 [編輯]  按鈕以開啟 [SAML 簽署憑證]  對話方塊。
 
     ![SAML 回應](./media/ciscocloudlock-tutorial/saml.png)
 
@@ -153,7 +153,7 @@ ms.locfileid: "68347396"
 
 ### <a name="create-the-cloud-security-fabric-test-user"></a>建立 The Cloud Security Fabric 測試使用者
 
-在本節中，您會在 The Cloud Security Fabric 中建立名為 B.Simon 的使用者。 請與  [The Cloud Security Fabric 支援小組](mailto:support@cloudlock.com)合作，在 The Cloud Security Fabric 平台中新增使用者。 您必須先建立和啟動使用者，然後才能使用單一登入。
+在本節中，您會在 The Cloud Security Fabric 中建立名為 B.Simon 的使用者。 請與 [The Cloud Security Fabric 支援小組](mailto:support@cloudlock.com)合作，在 The Cloud Security Fabric 平台中新增使用者。 您必須先建立和啟動使用者，然後才能使用單一登入。
 
 ### <a name="test-sso"></a>測試 SSO 
 

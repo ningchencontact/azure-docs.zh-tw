@@ -7,12 +7,12 @@ ms.date: 05/06/2019
 ms.topic: overview
 ms.service: resource-graph
 manager: carmonm
-ms.openlocfilehash: faad0a0166c1b11f51f814bb6ce3351d7a017239
-ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
+ms.openlocfilehash: 7091e2bd1ee24843299721d3c21a8546197fac6f
+ms.sourcegitcommit: 5f67772dac6a402bbaa8eb261f653a34b8672c3a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69900016"
+ms.lasthandoff: 09/01/2019
+ms.locfileid: "70207585"
 ---
 # <a name="overview-of-the-azure-resource-graph-service"></a>Azure Resource Graph 服務的概觀
 
@@ -35,7 +35,7 @@ Azure Resource Graph 是 Azure 中的一項服務，透過大規模查詢指定�
 
 Azure Resource Manager 目前支援查詢基本資源欄位 (尤其是資源名稱、識別碼、類型、資源群組、訂用帳戶及位置)。 Resource Manager 也提供呼叫個別資源提供者的功能，可一次取得一個資源的詳細屬性。
 
-使用 Azure Resource Graph，您可以存取這些由資源提供者傳回的屬性，而無須對每個資源提供者進行個別呼叫。 如需支援的資源類型清單，請在[完整模式部署資源](../../azure-resource-manager/complete-mode-deletion.md)資料表中尋找 [是]  的部分。
+使用 Azure Resource Graph，您可以存取這些由資源提供者傳回的屬性，而無須對每個資源提供者進行個別呼叫。 如需支援的資源類型清單，請在[完整模式部署資源](../../azure-resource-manager/complete-mode-deletion.md)資料表中尋找 [是]  的部分。 另一種查看所支援資源類型的方法是透過 [Azure Resource Graph Explorer 結構描述瀏覽器](./first-query-portal.md#schema-browser)。
 
 透過 Azure Resource Graph，您可以：
 
@@ -80,7 +80,13 @@ Resource Graph 會在使用者層級進行查詢的節流處理。 服務回應�
 
 ## <a name="running-your-first-query"></a>執行您的第一個查詢
 
-Resource Graph 支援 Azure CLI、Azure PowerShell 和 Azure SDK for .NET。 這兩種語言的查詢結構相同。 了解如何在 [Azure CLI](first-query-azurecli.md#add-the-resource-graph-extension) 和 [Azure PowerShell](first-query-powershell.md#add-the-resource-graph-module) 中啟用 Resource Graph。
+Azure Resource Graph Explorer (Azure 入口網站的一部分) 可讓您直接在 Azure 入口網站中執行 Resource Graph 查詢。 將結果釘選為動態圖表，可對入口網站工作流程提供即時的動態資訊。 如需詳細資訊，請參閱[使用 Azure Resource Graph Explorer 的第一個查詢](first-query-portal.md)。
+
+Resource Graph 支援 Azure CLI、Azure PowerShell 和 Azure SDK for .NET 等項目。 這兩種語言的查詢結構相同。 了解如何使用下列項目來啟用 Resource Graph：
+
+- [Azure 入口網站和 Resource Graph Explorer](first-query-portal.md) 
+- [Azure CLI](first-query-azurecli.md#add-the-resource-graph-extension)
+- [Azure PowerShell](first-query-powershell.md#add-the-resource-graph-module)
 
 ## <a name="next-steps"></a>後續步驟
 

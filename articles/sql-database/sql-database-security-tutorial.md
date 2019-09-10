@@ -8,14 +8,14 @@ ms.topic: tutorial
 author: VanMSFT
 ms.author: vanto
 ms.reviewer: carlrab
-ms.date: 07/29/2019
+ms.date: 09/03/2019
 ms.custom: seoapril2019
-ms.openlocfilehash: 9850285482db4f5981c183b51152ba1a3ac4975c
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.openlocfilehash: ba648a2bf563b775c39f11ab8d5c4069c4bf740f
+ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68640121"
+ms.lasthandoff: 09/03/2019
+ms.locfileid: "70231181"
 ---
 # <a name="tutorial-secure-a-single-or-pooled-database"></a>教學課程：保護單一或集區資料庫
 
@@ -58,7 +58,7 @@ Azure SQL Database 可讓您以下列方式保護單一或集區資料庫中的�
 
 ## <a name="create-firewall-rules"></a>建立防火牆規則
 
-Azure 中的 SQL 資料庫是由防火牆保護。 依預設，伺服器與資料庫的所有連線皆會遭拒，除非是來自其他 Azure 服務的連線。 若要深入了解，請參閱 [Azure SQL Database 伺服器層級和資料庫層級的防火牆規則](sql-database-firewall-configure.md)。
+Azure 中的 SQL 資料庫是由防火牆保護。 依預設，伺服器與資料庫的所有連線皆會遭拒。 若要深入了解，請參閱 [Azure SQL Database 伺服器層級和資料庫層級的防火牆規則](sql-database-firewall-configure.md)。
 
 最安全的設定是將 [允許存取 Azure 服務]  設為 [關閉]  。 接著，針對需要連線的資源 (例如 Azure VM 或雲端服務)，建立[保留的 IP (傳統部署)](../virtual-network/virtual-networks-reserved-public-ip.md)，而且只允許透過防火牆的 IP 位址存取。 如果您使用[資源管理員](/azure/virtual-network/virtual-network-ip-addresses-overview-arm)部署模型，則每個資源都需要專用的公用 IP 位址。
 
@@ -87,9 +87,6 @@ Azure 中的 SQL 資料庫是由防火牆保護。 依預設，伺服器與資�
    1. 選取 [確定]  並關閉 [防火牆設定]  頁面。
 
 您現在可以連線到資料庫中任何具有指定 IP 位址或 IP 位址範圍的伺服器。
-
-> [!IMPORTANT]
-> 根據預設，已在 [允許存取 Azure 服務]  之下，對所有 Azure 服務啟用透過 SQL Database 防火牆存取。 選擇 [關閉]  即可對所有 Azure 服務停用存取。
 
 ### <a name="setup-database-firewall-rules"></a>設定資料庫防火牆規則
 

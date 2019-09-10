@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: personalizer
 ms.topic: overview
-ms.date: 05/07/2019
+ms.date: 09/03/2019
 ms.author: diberry
-ms.openlocfilehash: 99750971e11171c0b315cac38089c216d42c7ba6
-ms.sourcegitcommit: e3b0fb00b27e6d2696acf0b73c6ba05b74efcd85
+ms.openlocfilehash: 8c21878fc23f3880f6c6e66b1e304c7dd2e9177c
+ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68663655"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70306954"
 ---
 # <a name="what-is-personalizer"></a>什麼是個人化工具？
 
@@ -65,4 +65,8 @@ Azure 個人化工具是雲端式 API 服務，可讓您選擇最佳體驗來對
 ## <a name="next-steps"></a>後續步驟
 
 * [快速入門：以 C# 建立意見反應迴圈](csharp-quickstart-commandline-feedback-loop.md)
+* [快速入門：以 Node.js 建立意見反應迴圈](quickstart-command-line-feedback-loop-nodejs-sdk.md)
+* [快速入門：以 Python 建立意見反應迴圈](python-quickstart-commandline-feedback-loop.md)
+* [了解排名要求的功能和動作](concepts-features.md)
+* [了解如何判斷獎勵要求的分數](concept-rewards.md)
 * [使用互動式示範](https://personalizationdemo.azurewebsites.net/)

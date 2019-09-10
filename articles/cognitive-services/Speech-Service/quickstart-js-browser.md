@@ -10,19 +10,19 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 07/05/2019
 ms.author: fmegen
-ms.openlocfilehash: 69ec6062d0dba1f1044f9a7dcfbe75924887d2b4
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 7c1c616ec6ce36ee58f32dbcada8ead6fc339f2e
+ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68559418"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70306979"
 ---
 # <a name="quickstart-recognize-speech-in-javascript-in-a-browser-using-the-speech-sdk"></a>快速入門：使用語音 SDK 在瀏覽器中以 JavaScript 辨識語音
 
 [!INCLUDE [Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
 
 在此文章中，您將了解如何使用認知服務語音 SDK 的 JavaScript 繫結，將語音謄寫為文字以建立網站。
-此應用程式以適用於 JavaScript 的語音 SDK 為基礎 ([請下載 1.5.0 版](https://aka.ms/csspeech/jsbrowserpackage))。
+此應用程式以適用於 JavaScript 的語音 SDK 為基礎 ([請下載 1.6.0 版](https://aka.ms/csspeech/jsbrowserpackage))。
 
 ## <a name="prerequisites"></a>必要條件
 

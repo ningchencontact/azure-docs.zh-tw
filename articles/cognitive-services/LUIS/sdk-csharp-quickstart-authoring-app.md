@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: quickstart
-ms.date: 08/12/2019
+ms.date: 08/30/2019
 ms.author: diberry
-ms.openlocfilehash: 11f40d99a36493272cb6cd51e4a339c19cd0358b
-ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
+ms.openlocfilehash: d7668f49df1caca6b4261424b0d2c025a640d572
+ms.sourcegitcommit: 267a9f62af9795698e1958a038feb7ff79e77909
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68966724"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70258774"
 ---
 # <a name="quickstart-language-understanding-luis-authoring-client-library-for-net"></a>快速入門：適用於 .NET 的 Language Understanding (LUIS) 撰寫用戶端程式庫
 
@@ -37,9 +37,9 @@ ms.locfileid: "68966724"
 
 ## <a name="setting-up"></a>設定
 
-### <a name="get-your-language-understanding-luis-authoring-key"></a>取得您的 Language Understanding (LUIS) 撰寫金鑰
+### <a name="get-your-language-understanding-luis-starter-key"></a>取得您的 Language Understanding (LUIS) 入門金鑰
 
-取得您的[撰寫金鑰](luis-how-to-account-settings.md)，並為名為 `COGNITIVESERVICE_AUTHORING_KEY` 的金鑰[建立環境變數](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication)。
+取得您的[入門金鑰](luis-how-to-azure-subscription.md#starter-key)，並為名為 `COGNITIVESERVICE_AUTHORING_KEY` 的金鑰[建立環境變數](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication)。
 
 ### <a name="create-a-new-c-application"></a>建立新的 C# 應用程式
 
@@ -190,7 +190,7 @@ LUIS 應用程式模型中的主要物件為意圖。 意圖會與使用者語�
 
 從應用程式目錄使用 dotnet `run` 命令來執行應用程式。
 
-```dotnet
+```console
 dotnet run
 ```
 

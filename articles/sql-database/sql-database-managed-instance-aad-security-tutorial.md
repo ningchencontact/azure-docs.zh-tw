@@ -9,12 +9,12 @@ author: VanMSFT
 ms.author: vanto
 ms.reviewer: carlrab
 ms.date: 02/20/2019
-ms.openlocfilehash: 87bd22ec4f2cfae62d1f80284ad8346ca292d016
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 37098411f465c611dc9d2e2443f369e01d6e338c
+ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68567679"
+ms.lasthandoff: 09/03/2019
+ms.locfileid: "70230995"
 ---
 # <a name="tutorial-managed-instance-security-in-azure-sql-database-using-azure-ad-server-principals-logins"></a>教學課程：Azure SQL Database 中使用 Azure AD 伺服器主體 (登入) 的受控執行個體安全性
 
@@ -55,10 +55,12 @@ ms.locfileid: "68567679"
 
 ## <a name="limiting-access-to-your-managed-instance"></a>限制對於受控執行個體的存取
 
-受控執行個體只能透過私人 IP 位址存取。 沒有任何服務端點可供用來從受控執行個體網路外部連線至受控執行個體。 與隔離的 SQL Server 內部部署環境非常類似，應用程式或使用者需要先有受控執行個體網路 (VNet) 的存取權，才能建立連線。 如需詳細資訊，請參閱下列文章：[將您的應用程式連線到受控執行個體](sql-database-managed-instance-connect-app.md)。
+受控執行個體可透過私人 IP 位址存取。 與隔離的 SQL Server 內部部署環境非常類似，應用程式或使用者需要先有受控執行個體網路 (VNet) 的存取權，才能建立連線。 如需詳細資訊，請參閱下列文章：[將您的應用程式連線到受控執行個體](sql-database-managed-instance-connect-app.md)。
+
+您也可以使用與 Azure SQL Database 相同的方式，在受控執行個體上設定服務端點，以允許公用連線。 如需詳細資訊，請參閱下列文章[在 Azure SQL Database 受控執行個體中設定公用端點](sql-database-managed-instance-public-endpoint-configure.md)。
 
 > [!NOTE] 
-> 由於您只能從受控執行個體的 VNET 內部存取受控執行個體，因此 [SQL Database 防火牆規則](sql-database-firewall-configure.md)不適用。 受控執行個體有其自己的[內建防火牆](sql-database-managed-instance-management-endpoint-verify-built-in-firewall.md)。
+> 即使已啟用服務端點，[SQL Database 防火牆規則](sql-database-firewall-configure.md)仍不適用。 受控執行個體有其自己的[內建防火牆](sql-database-managed-instance-management-endpoint-verify-built-in-firewall.md)可用來管理連線。
 
 ## <a name="create-an-azure-ad-server-principal-login-for-a-managed-instance-using-ssms"></a>使用 SSMS 為受控執行個體建立 Azure AD 伺服器主體 (登入)
 

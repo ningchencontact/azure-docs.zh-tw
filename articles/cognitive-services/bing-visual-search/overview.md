@@ -8,18 +8,18 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-visual-search
 ms.topic: overview
-ms.date: 03/27/2019
+ms.date: 08/30/2019
 ms.author: scottwhi
-ms.openlocfilehash: 15abbfd8892464f3a2c21a85c07bc5b8e94e47ad
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: 22a8bb2609439a82a825bf7f542709d46771ad92
+ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68594698"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70195212"
 ---
 # <a name="what-is-the-bing-visual-search-api"></a>什麼是 Bing 圖像式搜尋 API？
 
-Bing 圖像式搜尋 API 會傳回影像的見解。 您可以上傳影像，也可以提供影像的 URL。 見解是視覺上類似的影像、購物來源、包含影像的網頁等。 Bing 圖像式搜尋 API 所傳回的見解，類似於 Bing.com/images 上顯示的內容。
+Bing 圖像式搜尋 API 會傳回影像的見解。 您可以上傳影像，也可以提供影像的 URL。 見解是視覺上類似的影像、購物來源、包含影像的網頁等。 Bing 圖像式搜尋 API 所傳回的見解，類似於 Bing.com/images 上顯示的內容。 
 
 如果您使用 [Bing 影像搜尋 API](../bing-image-search/overview.md)，則可對 Bing 圖像式搜尋使用來自該 API 搜尋結果的見解權杖，而非上傳影像。
 
@@ -38,6 +38,7 @@ Bing 圖像式搜尋 API 會傳回影像的見解。 您可以上傳影像，也
 | 相關搜尋                     | 由他人建立或根據影像內容而建立的相關搜尋。            |
 | 包含影像的網頁     | 包含輸入影像的網頁。            |
 | 食譜                              | 一份網頁清單，這些網頁包含用來烹調輸入影像中所含菜餚的食譜。            |
+| 實體                             | 知名的人員、地點和事物。 |
 
 除了見解，Bing 圖像式搜尋也會傳回從輸入影像衍生的各種字詞 (亦即標記)。 標記可讓使用者瀏覽影像中出現的概念。 例如，如果輸入影像顯示的是知名運動員，則其中一個標記可能是運動員的名字，另外也可能有「運動」標記。 或者，如果輸入影像顯示的是蘋果派，則可能會有「蘋果派」、「甜派」和「甜點」等標記。
 

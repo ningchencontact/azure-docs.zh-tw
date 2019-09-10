@@ -9,12 +9,12 @@ ms.service: stream-analytics
 ms.topic: tutorial
 ms.date: 12/06/2018
 ms.custom: seodec18
-ms.openlocfilehash: 5597109a65a8af88bf286977d039656635565ed9
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: cadc603a94d5d17ad2df419f8507c37f9e3272f8
+ms.sourcegitcommit: ee61ec9b09c8c87e7dfc72ef47175d934e6019cc
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53086893"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70173317"
 ---
 # <a name="tutorial-write-a-c-user-defined-function-for-azure-stream-analytics-edge-job-preview"></a>教學課程：針對 Azure 串流分析 Edge 作業撰寫 C# 使用者定義的函式 (預覽)
 
@@ -43,27 +43,27 @@ ms.locfileid: "53086893"
 
 1. 啟動 Visual Studio。
 
-2. 選取 [檔案] > [新增] > [專案]。
+2. 選取 [檔案] > [新增] > [專案]  。
 
-3. 在左側的範本清單中，選取 [串流分析]，然後選取 [Azure 串流分析 Edge 應用程式]。
+3. 在左側的範本清單中，選取 [串流分析]  ，然後選取 [Azure 串流分析 Edge 應用程式]  。
 
-4.  輸入專案的 [名稱]、[位置] 和 [解決方案名稱]，然後選取 [確定]。
+4.  輸入專案的 [名稱]  、[位置]  和 [解決方案名稱]  ，然後選取 [確定]  。
 
     ![在 Visual Studio 中建立 Azure 串流分析 Edge 專案](./media/stream-analytics-edge-csharp-udf/stream-analytics-create-edge-app.png)
 
 ## <a name="configure-assembly-package-path"></a>設定組件專案路徑
 
-1. 開啟 Visual Studio 並瀏覽至 [方案總管]。
+1. 開啟 Visual Studio 並瀏覽至 [方案總管]  。
 
 2. 按兩下作業設定檔 `EdgeJobConfig.json`。
 
-3. 展開 [使用者定義的程式碼設定] 區段，然後在設定中填入以下建議的值：
+3. 展開 [使用者定義的程式碼設定]  區段，然後在設定中填入以下建議的值：
 
     |**設定**  |**建議的值**  |
     |---------|---------|
     |組件來源  |  本機專案參考或 CodeBehind   |
     |資源  |  選擇目前帳戶中的資料   |
-    |訂用帳戶  |  選擇您的訂用帳戶。   |
+    |Subscription  |  選擇您的訂用帳戶。   |
     |儲存體帳戶  |  選擇儲存體帳戶   |
     |容器  |  選擇在您的儲存體帳戶中建立的容器。   |
 
@@ -73,7 +73,7 @@ ms.locfileid: "53086893"
 ## <a name="write-a-c-udf-with-codebehind"></a>使用 CodeBehind 撰寫 C# UDF
 CodeBehind 檔案是與單一 ASA Edge 查詢指令碼相關聯的 C# 檔案。 Visual Studio 工具將會自動壓縮 CodeBehind 檔案，並在提交時將它上傳至您的 Azure 儲存體帳戶。 所有類別都必須定義為 *public*，而所有物件都必須定義為 *static public*。
 
-1. 在 [方案總管] 中，展開 **Script.asql** 以尋找 **Script.asaql.cs** CodeBehind 檔案。
+1. 在 [方案總管]  中，展開 **Script.asql** 以尋找 **Script.asaql.cs** CodeBehind 檔案。
 
 2. 使用下列範例來取代程式碼：
 
@@ -99,7 +99,7 @@ CodeBehind 檔案是與單一 ASA Edge 查詢指令碼相關聯的 C# 檔案。 
 
 ## <a name="implement-the-udf"></a>實作 UDF
 
-1. 在 [方案總管] 中開啟 **Script.asaql** 檔案。
+1. 在 [方案總管]  中開啟 **Script.asaql** 檔案。
 
 2. 使用下列內容來取代現有的查詢：
 
@@ -113,7 +113,7 @@ CodeBehind 檔案是與單一 ASA Edge 查詢指令碼相關聯的 C# 檔案。 
 
 1. 下載 Edge [溫度模擬器範例資料檔案](https://raw.githubusercontent.com/Azure/azure-stream-analytics/master/Sample%20Data/TemperatureSampleData.json)。
 
-2. 在 [方案總管] 中，展開 [輸入]、以滑鼠右鍵按一下 [Input.json]，然後選取 [新增本機輸入]。
+2. 在 [方案總管]  中，展開 [輸入]  、以滑鼠右鍵按一下 [Input.json]  ，然後選取 [新增本機輸入]  。
 
    ![在 Visual Studio 中將本機輸入新增至串流分析作業](./media/stream-analytics-edge-csharp-udf/stream-analytics-add-local-input.png)
 
@@ -121,11 +121,11 @@ CodeBehind 檔案是與單一 ASA Edge 查詢指令碼相關聯的 C# 檔案。 
 
     ![Visual Studio 中適用於串流分析作業的本機輸入設定](./media/stream-analytics-edge-csharp-udf/stream-analytics-local-input-config.png)
 
-4. 在指令碼編輯器中，按一下 [在本機執行]。 一旦本機執行已成功儲存輸出結果之後，按下任意鍵以查看表格格式的結果。 
+4. 在指令碼編輯器中，按一下 [在本機執行]  。 一旦本機執行已成功儲存輸出結果之後，按下任意鍵以查看表格格式的結果。 
 
     ![使用 Visual Studio 在本機執行 Azure 串流分析作業](./media/stream-analytics-edge-csharp-udf/stream-analytics-run-locally.png)
 
-5. 您也可以選取 [開啟結果資料夾] 來查看 JSON 與 CSV 格式的原始檔案。
+5. 您也可以選取 [開啟結果資料夾]  來查看 JSON 與 CSV 格式的原始檔案。
 
     ![使用 Visual Studio 檢視本機 Azure 串流分析作業的結果](./media/stream-analytics-edge-csharp-udf/stream-analytics-view-local-results.png)
 
@@ -141,7 +141,7 @@ CodeBehind 檔案是與單一 ASA Edge 查詢指令碼相關聯的 C# 檔案。 
     ![檢視串流分析使用者定義的函式偵錯結果](./media/stream-analytics-edge-csharp-udf/stream-analytics-udf-debug.png)
 
 ## <a name="publish-your-job-to-azure"></a>將您的作業發佈至 Azure
-一旦在本機測試過您的查詢之後，請在指令碼編輯器中選取 [提交至 Azure]，以將作業發佈到 Azure。
+一旦在本機測試過您的查詢之後，請在指令碼編輯器中選取 [提交至 Azure]  ，以將作業發佈到 Azure。
 
 ![從 Visual Studio 將您的串流分析 Edge 作業提交至 Azure](./media/stream-analytics-edge-csharp-udf/stream-analytics-udf-submit-job.png)
 

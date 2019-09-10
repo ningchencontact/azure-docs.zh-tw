@@ -5,14 +5,14 @@ services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: tutorial
-ms.date: 04/05/2019
+ms.date: 08/30/2019
 ms.author: helohr
-ms.openlocfilehash: f692303140db1441aa34aacef62523d7f596dba1
-ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
+ms.openlocfilehash: d6628f1522880f650bfd8c728fe46fd050a8e6a0
+ms.sourcegitcommit: 5f67772dac6a402bbaa8eb261f653a34b8672c3a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67204740"
+ms.lasthandoff: 09/01/2019
+ms.locfileid: "70208375"
 ---
 # <a name="tutorial-create-a-host-pool-by-using-the-azure-marketplace"></a>教學課程：使用 Azure Marketplace 建立主機集區
 
@@ -26,7 +26,11 @@ ms.locfileid: "67204740"
 > * 將 VM 加入 Active Directory 網域。
 > * 向 Windows 虛擬桌面註冊 VM。
 
-開始之前，[下載並匯入 Windows 虛擬桌面的 PowerShell 模組](https://docs.microsoft.com/powershell/windows-virtual-desktop/overview)，以在您的 PowerShell 工作階段中使用 (如果您還沒這麼做的話)。
+開始之前，[下載並匯入 Windows 虛擬桌面的 PowerShell 模組](https://docs.microsoft.com/powershell/windows-virtual-desktop/overview)，以在您的 PowerShell 工作階段中使用 (如果您還沒這麼做的話)。 之後，請執行下列 Cmdlet 來登入您的帳戶：
+
+```powershell
+Add-RdsAccount -DeploymentUrl "https://rdbroker.wvd.microsoft.com"
+```
 
 ## <a name="sign-in-to-azure"></a>登入 Azure
 
@@ -40,7 +44,7 @@ ms.locfileid: "67204740"
 2. 在 Marketplace 搜尋視窗中輸入 **Windows 虛擬桌面**。
 3. 選取 [Windows 虛擬桌面 - 佈建主機集區]  ，然後選取 [建立]  。
 
-請依照指導方針來輸入適當刀鋒視窗的資訊。
+之後，請遵循下一節的指示，來為適當的刀鋒視窗輸入資訊。
 
 ### <a name="basics"></a>基本概念
 
@@ -52,6 +56,9 @@ ms.locfileid: "67204740"
 4. 選取 [新建]  並提供新資源群組的名稱。
 5. 針對 [位置]  ，選取與可連線至 Active Directory 伺服器的虛擬網路相同的位置。
 6. 選取 [確定]  。
+
+>[!IMPORTANT]
+>如果您使用純粹的 Azure Active Directory Domain Services 和 Azure Active Directory 解決方案，請務必將主機集區部署在與 Azure Active Directory Domain Services 相同的區域中，以避免發生加入網域和認證錯誤。
 
 ### <a name="configure-virtual-machines"></a>設定虛擬機器
 
@@ -66,7 +73,7 @@ ms.locfileid: "67204740"
 針對 [虛擬機器設定]  刀鋒視窗：
 
 >[!NOTE]
-> 如果您要將 VM 加入 Azure Active Directory Domain Services (Azure AD DS) 環境，請確定您的網域加入使用者也是 [AAD DC 系統管理員群組](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-getting-started-admingroup#task-3-configure-administrative-group)的成員。
+> 如果您要將 VM 加入 Azure Active Directory Domain Services (Azure AD DS) 環境，請確定您的網域加入使用者也是 [AAD DC 系統管理員群組](../active-directory-domain-services/tutorial-create-instance.md#configure-an-administrative-group)的成員。
 
 1. 針對 [映像來源]  ，選取來源並輸入如何進行尋找及儲存的相關資訊。 如果您選擇不使用受控磁碟，請選取包含 .vhd 檔案的儲存體帳戶。
 2. 針對會將 VM 加入至 Active Directory 網域的網域帳戶，輸入使用者主體名稱和密碼。 此相同使用者名稱和密碼將會建立於虛擬機器作為本機帳戶。 您稍後可以重設這些本機帳戶。

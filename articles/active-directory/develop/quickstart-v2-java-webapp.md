@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 08/11/2019
 ms.author: sagonzal
 ms.custom: aaddev
-ms.openlocfilehash: 549b4457ee38504001e83c4b831cd321e1542068
-ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
+ms.openlocfilehash: f1ceae17195c08af380a7448dd4dbf3bfa3f9de2
+ms.sourcegitcommit: 8fea78b4521921af36e240c8a92f16159294e10a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70125466"
+ms.lasthandoff: 09/02/2019
+ms.locfileid: "70211885"
 ---
 # <a name="quickstart-add-sign-in-with-microsoft-to-a-java-web-app"></a>快速入門：將「使用 Microsoft 登入」新增至 Java Web 應用程式
 
@@ -35,13 +35,10 @@ ms.locfileid: "70125466"
 > ## <a name="prerequisites"></a>必要條件
 > 若要執行此範例，您將需要： 
 > - Java 開發套件 (JDK) 8 或更新版本及 Maven。
-> - Azure Active Directory (Azure AD) 租用戶。 如需有關如何取得 Azure AD 租用戶的詳細資訊，請參閱[如何取得 Azure AD 租用戶。](https://docs.microsoft.com/en-us/azure/active-directory/develop/quickstart-create-new-tenant)
 >
 > [!div renderon="docs"]
 > ## <a name="register-and-download-your-quickstart-app"></a>註冊並下載快速入門應用程式
-> 有兩個選項可用來啟動快速入門應用程式：
-> * 快速：[選項 1：註冊和自動設定您的應用程式，然後下載程式碼範例。](#option-1-register-and-auto-configure-your-app-and-then-download-your-code-sample)
-> * 手動：[選項 2：註冊並手動設定您的應用程式和程式碼範例。](#option-2-register-and-manually-configure-your-application-and-code-sample)
+> 有兩個選項可用來啟動快速入門應用程式：快速 (選項 1) 或手動 (選項 2)
 > 
 > ### <a name="option-1-register-and-auto-configure-your-app-and-then-download-your-code-sample"></a>選項 1：註冊和自動設定您的應用程式，然後下載程式碼範例
 >
@@ -123,7 +120,7 @@ ms.locfileid: "70125466"
 ### <a name="getting-msal"></a>取得 MSAL
 MSAL4J 是程式庫，用來登入使用者並要求權杖，該權杖是用來存取受 Microsoft 身分識別平台保護的 API。 藉由對應用程式中的 pom.xml 或 build.gradle 檔案進行下列變更，您就能使用 Maven 或 Gradle 來管理您的相依性，進而將 MSAL4J 新增至您的應用程式。 
 
-```
+```XML
 <dependency>
     <groupId>com.microsoft.azure</groupId>
     <artifactId>msal4j</artifactId>
@@ -139,7 +136,7 @@ compile group: 'com.microsoft.azure', name: 'msal4j', version: '0.5.0-preview'
 ### <a name="msal-initialization"></a>MSAL 初始化
 您可以藉由將下列程式碼新增至要使用 MSAL4J 的檔案頂端，以將參考新增至 MSAL4J： 
 
-```
+```Java
 import com.microsoft.aad.msal4j.*;
 ```
 

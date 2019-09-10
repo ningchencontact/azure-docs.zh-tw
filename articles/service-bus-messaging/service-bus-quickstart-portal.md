@@ -3,18 +3,17 @@ title: 快速入門 - 使用 Azure 入口網站建立服務匯流排佇列 | Mic
 description: 在本快速入門中，您會了解如何使用 Azure 入口網站來建立服務匯流排佇列。 然後，您會使用用戶端應用程式範例在佇列中傳送和接收訊息。
 services: service-bus-messaging
 author: spelluru
-manager: timlt
 ms.service: service-bus-messaging
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 04/10/2019
+ms.date: 09/03/2019
 ms.author: spelluru
-ms.openlocfilehash: 315f8d30b7c7559947c599edd0e18eaa5a99ac22
-ms.sourcegitcommit: 6cb4dd784dd5a6c72edaff56cf6bcdcd8c579ee7
+ms.openlocfilehash: dc9b8260a8ddde6633bc9215d9efff7aaaa71ad3
+ms.sourcegitcommit: 6794fb51b58d2a7eb6475c9456d55eb1267f8d40
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/02/2019
-ms.locfileid: "67513634"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70242386"
 ---
 # <a name="quickstart-use-azure-portal-to-create-a-service-bus-queue"></a>快速入門：使用 Azure 入口網站建立服務匯流排佇列
 本快速入門說明如何使用 [Azure 入口網站][Azure portal]建立傳訊命名空間和該命名空間內的佇列，以對服務匯流排佇列傳送和接收訊息，以及如何取得該命名空間上的授權認證。 程序接著會說明如何使用 [.NET Standard 程式庫](https://www.nuget.org/packages/Microsoft.Azure.ServiceBus)從這個佇列傳送和接收訊息。
@@ -34,6 +33,18 @@ ms.locfileid: "67513634"
 [!INCLUDE [service-bus-create-queue-portal](../../includes/service-bus-create-queue-portal.md)]
 
 ## <a name="send-and-receive-messages"></a>傳送及接收訊息
+
+> [!NOTE]
+> 本節中用來傳送和接收訊息的範例是 .NET 範例。 如需使用其他程式設計語言來傳送/接收訊息的範例，請參閱[服務匯流排範例](service-bus-samples.md)。 
+> 
+> 如需使用各種程式設計語言來傳送/接收訊息的逐步指示，請參閱下列快速入門：
+> - [.NET](service-bus-dotnet-get-started-with-queues.md)
+> - [Java](service-bus-java-how-to-use-queues.md)
+> - [Node.js (使用 azure/service-bus 套件)](service-bus-nodejs-how-to-use-queues-new-package.md)
+> - [Node.js (使用 azure-sb 套件)](service-bus-nodejs-how-to-use-queues.md)
+> - [PHP](service-bus-php-how-to-use-queues.md)
+> - [Python](service-bus-python-how-to-use-queues.md)
+> - [Ruby](service-bus-ruby-how-to-use-queues.md)
 
 佈建命名空間和佇列，且您已擁有必要的認證之後，您即可傳送和接收訊息。 您可以在[此 GitHub 範例資料夾](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.Azure.ServiceBus/TopicFilters)中查看程式碼。
 

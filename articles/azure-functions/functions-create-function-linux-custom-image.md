@@ -1,22 +1,19 @@
 ---
 title: 在 Linux 上使用自訂映像建立 Azure Functions
 description: 了解如何建立在自訂 Linux 映像上執行的 Azure Functions。
-services: functions
-keywords: ''
 author: ggailey777
 ms.author: glenga
 ms.date: 06/25/2019
 ms.topic: tutorial
 ms.service: azure-functions
 ms.custom: mvc
-ms.devlang: azure-cli
-manager: jeconnoc
-ms.openlocfilehash: 525cb444ad7b1b78de867f83539ac338ddd144e9
-ms.sourcegitcommit: 39d95a11d5937364ca0b01d8ba099752c4128827
+manager: gwallace
+ms.openlocfilehash: 80f7185b69a7953656235d3bd622b7f61611de1a
+ms.sourcegitcommit: d470d4e295bf29a4acf7836ece2f10dabe8e6db2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69562927"
+ms.lasthandoff: 09/02/2019
+ms.locfileid: "70210187"
 ---
 # <a name="create-a-function-on-linux-using-a-custom-image"></a>在 Linux 上使用自訂映像建立函式
 
@@ -56,7 +53,7 @@ Azure Functions 可讓您在 Linux 的自訂容器中裝載函式。 您也可�
 
 ## <a name="create-the-local-function-app-project"></a>建立本機函式應用程式專案
 
-從命令列執行下列命令，以在目前本機目錄的 `MyFunctionProj` 資料夾中建立函式應用程式專案。
+從命令列執行下列命令，以在目前本機目錄的 `MyFunctionProj` 資料夾中建立函式應用程式專案。 針對 Python 專案，您[必須在虛擬環境中執行](functions-create-first-function-python.md#create-and-activate-a-virtual-environment-optional)。
 
 ```bash
 func init MyFunctionProj --docker
@@ -68,7 +65,7 @@ func init MyFunctionProj --docker
 
 * `dotnet`：建立 .NET Core 類別庫專案 (.csproj)。
 * `node`：建立 JavaScript 專案。
-* `python`：建立 Python 專案。
+* `python`：建立 Python 專案。  
 
 當命令執行時，您會看到如下輸出：
 

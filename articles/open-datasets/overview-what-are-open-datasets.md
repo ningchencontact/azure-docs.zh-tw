@@ -7,12 +7,12 @@ ms.topic: overview
 author: cjgronlund
 ms.author: cgronlun
 ms.date: 05/02/2019
-ms.openlocfilehash: 7fa8562c466c81ebc05360bf06cdde1ee29bed9e
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: 0c4bf3143bbf1ceb2f2f3c4a22477daa03690a0e
+ms.sourcegitcommit: ac29357a47cc05afdf0f84834de5277598f4d87c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68598981"
+ms.lasthandoff: 09/03/2019
+ms.locfileid: "70213586"
 ---
 # <a name="what-are-azure-open-datasets-preview-and-how-can-you-use-them"></a>什麼是 Azure 開放資料集 (預覽)，以及如何使用它們？
 

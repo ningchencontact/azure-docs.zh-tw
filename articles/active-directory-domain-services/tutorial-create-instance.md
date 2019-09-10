@@ -9,12 +9,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 08/14/2019
 ms.author: iainfou
-ms.openlocfilehash: 7fa2a5088e2eae039d43ecf0db080190f74cd772
-ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
+ms.openlocfilehash: 7f913eebb2dd3926165a36c37dcb356aa05f2de4
+ms.sourcegitcommit: ee61ec9b09c8c87e7dfc72ef47175d934e6019cc
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70125208"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70172058"
 ---
 # <a name="tutorial-create-and-configure-an-azure-active-directory-domain-services-instance"></a>教學課程：建立並設定 Azure Active Directory Domain Services 執行個體
 
@@ -202,7 +202,7 @@ Azure AD 租用戶必須先[設定為可進行自助式密碼重設][configure-s
 1. 在 [變更密碼]  頁面上，輸入您現有 (舊的) 密碼，然後輸入新密碼並加以確認。
 1. 選取 [提交]  。
 
-變更密碼之後，需要幾分鐘的時間，新密碼才能在 Azure AD DS 中使用。 大約 20 分鐘之後，您就能使用新密碼來登入已加入受控網域的電腦。
+變更密碼之後，需要幾分鐘的時間，新密碼才能在 Azure AD DS 中使用，以及成功登入已加入受控網域的電腦。
 
 ## <a name="next-steps"></a>後續步驟
 

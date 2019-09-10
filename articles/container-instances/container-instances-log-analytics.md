@@ -5,23 +5,26 @@ services: container-instances
 author: dlepow
 manager: gwallace
 ms.service: container-instances
-ms.topic: article
-ms.date: 07/09/2019
+ms.topic: overview
+ms.date: 09/02/2019
 ms.author: danlep
-ms.openlocfilehash: 9b57775040251312c8afbff5983a52ae9d14e6c6
-ms.sourcegitcommit: ee61ec9b09c8c87e7dfc72ef47175d934e6019cc
-ms.translationtype: MT
+ms.openlocfilehash: 1c4846414036e86d460d9abe0bd93e785e710395
+ms.sourcegitcommit: 267a9f62af9795698e1958a038feb7ff79e77909
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70172501"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70258493"
 ---
 # <a name="container-instance-logging-with-azure-monitor-logs"></a>使用 Azure 監視器記錄的容器執行個體記錄
 
-Log Analytics 工作區提供集中式位置，不僅可讓您從 Azure 資源儲存及查詢記錄資料，對於內部部署資源與其他雲端中的資源，也可執行這些作業。 Azure 容器執行個體包含將資料傳送至 Azure 監視器記錄的內建支援。
+Log Analytics 工作區提供集中式位置，不僅可讓您從 Azure 資源儲存及查詢記錄資料，對於內部部署資源與其他雲端中的資源，也可執行這些作業。 Azure 容器執行個體包含將記錄和事件資料傳送至 Azure 監視器記錄的內建支援。
 
-若要將容器執行個體資料傳送至 Azure 監視器記錄，您必須在建立容器群組時，指定 Log Analytics 工作區識別碼和工作區金鑰。 以下幾節將說明如何建立已啟用記錄的容器群組，以及如何查詢記錄。
+若要將容器群組記錄和事件資料傳送至 Azure 監視器記錄，您必須在建立容器群組時，指定 Log Analytics 工作區識別碼和工作區金鑰。 以下幾節將說明如何建立已啟用記錄的容器群組，以及如何查詢記錄。
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
+
+> [!NOTE]
+> 目前，您只能將來自 Linux 容器執行個體的事件資料傳送至 Log Analytics。
 
 ## <a name="prerequisites"></a>必要條件
 
@@ -37,8 +40,8 @@ Azure 容器執行個體必須具備將資料傳送至 Log Analytics 工作區�
 若要取得記錄分析工作區識別碼和主要金鑰：
 
 1. 在 Azure 入口網站中瀏覽至您的 Log Analytics 工作區
-1. 在 [設定] 下，選取 [進階設定]
-1. 選取 [連線的來源] > [Windows 伺服器] (或 **Linux 伺服器** - 兩者的識別碼和金鑰是相同的)
+1. 在 [設定]  下，選取 [進階設定] 
+1. 選取 [連線的來源]   > [Windows 伺服器]  (或 **Linux 伺服器** - 兩者的識別碼和金鑰是相同的)
 1. 記下：
    * **工作區識別碼**
    * **主要金鑰**
@@ -99,30 +102,43 @@ az container create --resource-group myResourceGroup --name mycontainergroup001 
 
 在發出命令不久後，您應該就會收到 Azure 的回應，其中包含部署詳細資料。
 
-## <a name="view-logs-in-azure-monitor-logs"></a>檢視 Azure 監視器記錄中的記錄
+## <a name="view-logs"></a>檢視記錄
 
-在您部署容器群組後，可能需要幾分鐘的時間 (最多 10 分鐘)，第一個記錄項目才會出現在 Azure 入口網站中。 若要檢視容器群組的記錄：
+在您部署容器群組後，可能需要幾分鐘的時間 (最多 10 分鐘)，第一個記錄項目才會出現在 Azure 入口網站中。 若要在 `ContainerInstanceLog_CL` 資料表中檢視容器群組的記錄：
 
 1. 在 Azure 入口網站中瀏覽至您的 Log Analytics 工作區
-1. 在 [一般] 之下，選取 [記錄]  
-1. 執行下列查詢：`search *`
-1. 選取 [執行]
+1. 在 [一般]  之下，選取 [記錄]   
+1. 執行下列查詢：`ContainerInstanceLog_CL | limit 50`
+1. 選取 [執行] 
 
-您應該會看到 `search *` 查詢所顯示的數個結果。 如果一開始未看到任何結果，請等候數分鐘，然後再選取 [執行] 按鈕重新執行查詢。 根據預設，記錄項目會以 [資料表] 格式顯示。 接著，您可以展開資料列來查看個別記錄項目的內容。
+您應該會看到查詢所顯示的數個結果。 如果一開始未看到任何結果，請等候數分鐘，然後再選取 [執行]  按鈕重新執行查詢。 根據預設，記錄項目會以 [資料表]  格式顯示。 接著，您可以展開資料列來查看個別記錄項目的內容。
 
 ![Azure 入口網站中的記錄搜尋結果][log-search-01]
+
+## <a name="view-events"></a>檢視事件
+
+您也可以在 Azure 入口網站中，檢視容器執行個體的事件。 事件包括執行個體的建立時間和啟動時間。 若要在 `ContainerEvent_CL` 資料表中檢視事件資料：
+
+1. 在 Azure 入口網站中瀏覽至您的 Log Analytics 工作區
+1. 在 [一般]  之下，選取 [記錄]   
+1. 執行下列查詢：`ContainerEvent_CL | limit 50`
+1. 選取 [執行] 
+
+您應該會看到查詢所顯示的數個結果。 如果一開始未看到任何結果，請等候數分鐘，然後再選取 [執行]  按鈕重新執行查詢。 根據預設，項目會以 [資料表]  格式顯示。 接著，您可以展開資料列來查看個別項目的內容。
+
+![Azure 入口網站中的事件搜尋結果][log-search-02]
 
 ## <a name="query-container-logs"></a>查詢容器記錄
 
 Azure 監視器記錄包含涵蓋範圍廣大的[查詢語言][query_lang]，可從可能高數千行的記錄輸出中提取資訊。
 
-Azure 容器執行個體記錄代理程式會將項目傳送至 Log Analytics 工作區中的 `ContainerInstanceLog_CL` 資料表。 查詢的基本結構是一個來源資料表 (`ContainerInstanceLog_CL`)，後面接著一系列由管道字元 (`|`) 隔開的運算子。 您可以鏈結數個運算子，以找出更精確的結果及執行進階函式。
+查詢的基本結構是一個來源資料表 (在本文為 `ContainerInstanceLog_CL` 或 `ContainerEvent_CL`)，後面接著一系列由管道字元 (`|`) 隔開的運算子。 您可以鏈結數個運算子，以找出更精確的結果及執行進階函式。
 
-若要查看範例查詢結果，請將下列查詢貼到查詢文字方塊中 (在 [顯示舊版語言轉換器] 下方)，然後選取 [執行] 按鈕以執行查詢。 此查詢會顯示 [訊息] 欄位中包含「警告」一詞的所有記錄項目：
+若要查看範例查詢結果，請將下列查詢貼到查詢文字方塊中，然後選取 [執行]  按鈕以執行查詢。 此查詢會顯示 [訊息] 欄位中包含「警告」一詞的所有記錄項目：
 
 ```query
 ContainerInstanceLog_CL
-| where Message contains("warn")
+| where Message contains "warn"
 ```
 
 此外也支援更複雜的查詢。 例如，下列查詢只會顯示過去一小時內為 "mycontainergroup001" 容器群組產生的記錄項目：
@@ -151,6 +167,7 @@ ContainerInstanceLog_CL
 
 <!-- IMAGES -->
 [log-search-01]: ./media/container-instances-log-analytics/portal-query-01.png
+[log-search-02]: ./media/container-instances-log-analytics/portal-query-02.png
 
 <!-- LINKS - External -->
 [fluentd]: https://hub.docker.com/r/fluent/fluentd/

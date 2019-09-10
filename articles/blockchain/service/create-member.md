@@ -1,31 +1,31 @@
 ---
-title: 使用 Azure 入口網站建立 Azure 區塊鏈服務
-description: 使用 Azure 區塊鏈服務建立聯盟成員。
+title: 使用 Azure 入口網站建立 Azure 區塊鏈服務的區塊鏈成員
+description: 使用 Azure 區塊鏈服務來建立區塊鏈成員。
 services: azure-blockchain
 keywords: ''
 author: PatAltimore
 ms.author: patricka
-ms.date: 05/29/2019
+ms.date: 08/29/2019
 ms.topic: quickstart
 ms.service: azure-blockchain
 ms.reviewer: janders
 manager: femila
-ms.openlocfilehash: 5cb236dc38ae41b202004b7e4806d8129378cfdb
-ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
+ms.openlocfilehash: 9f58379acd88fd93a00edc11b73b41dc3d6226a5
+ms.sourcegitcommit: 6794fb51b58d2a7eb6475c9456d55eb1267f8d40
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66417504"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70241031"
 ---
-# <a name="quickstart-create-an-azure-blockchain-service-using-the-azure-portal"></a>快速入門：使用 Azure 入口網站建立 Azure 區塊鏈服務
+# <a name="quickstart-create-an-azure-blockchain-service-blockchain-member-using-the-azure-portal"></a>快速入門：使用 Azure 入口網站建立 Azure 區塊鏈服務的區塊鏈成員
 
-Azure 區塊鏈服務是可以在智慧型合約內執行商務邏輯的區塊鏈平台。 此快速入門說明如何使用 Azure 入口網站建立受控總帳以開始使用產品。
+Azure 區塊鏈服務是可以在智慧型合約內執行商務邏輯的區塊鏈平台。 此快速入門說明如何使用 Azure 入口網站建立區塊鏈成員以開始使用產品。
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="create-a-managed-ledger"></a>建立受控總帳
+## <a name="create-a-blockchain-member"></a>建立區塊鏈成員
 
-Azure 區塊鏈會使用一組定義的計算和儲存體資源來建立。
+建立會在新的或現有的聯盟中執行仲裁總帳通訊協定的區塊鏈成員。
 
 1. 登入 [Azure 入口網站](https://portal.azure.com)。
 1. 選取 Azure 入口網站左上角的 [建立資源]  。
@@ -36,9 +36,9 @@ Azure 區塊鏈會使用一組定義的計算和儲存體資源來建立。
 
     設定 | 說明
     --------|------------
-    區塊鏈成員 | 選擇可識別 Azure 區塊鏈服務成員的唯一名稱。 區塊鏈成員的名稱只能包含小寫字母和數字。 第一個字元必須是字母。 此值長度必須介於 2 至 20 個字元之間。
-    訂用帳戶 | 選取您要用於服務的 Azure 訂用帳戶。 如果您有多個訂用帳戶，請選擇資源計費的訂用帳戶。
-    資源群組 | 新的資源群組名稱，或您訂用帳戶中現有的資源群組名稱。
+    區塊鏈成員 | 選擇可識別 Azure 區塊鏈服務區塊鏈成員的唯一名稱。 區塊鏈成員的名稱只能包含小寫字母和數字。 第一個字元必須是字母。 此值長度必須介於 2 至 20 個字元之間。
+    Subscription | 選取您要用於服務的 Azure 訂用帳戶。 如果您有多個訂用帳戶，請選擇資源計費的訂用帳戶。
+    Resource group | 新的資源群組名稱，或您訂用帳戶中現有的資源群組名稱。
     區域 | 所有聯盟成員的位置必須相同。
     成員帳戶密碼 | 成員帳戶密碼可用來對為您的成員建立的 Ethereum 帳戶進行私密金鑰加密。 您可以使用帳戶成員和成員帳戶密碼進行聯盟管理。
     聯盟名稱 | 針對新的聯盟，請輸入唯一名稱。 如果是透過邀請來加入聯盟，該值會是您加入的聯盟。

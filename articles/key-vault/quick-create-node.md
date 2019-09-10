@@ -3,18 +3,18 @@ title: 快速入門 - 使用 Node Web 應用程式從 Azure Key Vault 設定及�
 description: 在本快速入門中，您會使用 Node Web 應用程式從 Azure Key Vault 設定及擷取祕密
 services: key-vault
 author: msmbaldwin
-manager: sumedhb
+manager: rkarlin
 ms.service: key-vault
 ms.topic: quickstart
-ms.date: 09/05/2018
-ms.author: barclayn
+ms.date: 09/03/2010
+ms.author: mbaldwin
 ms.custom: mvc
-ms.openlocfilehash: 5ca6289b1af02a54d8c66d5a9835e24f61c58559
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: 4bea46e62f90a41b566781457a39718849ee0e15
+ms.sourcegitcommit: 267a9f62af9795698e1958a038feb7ff79e77909
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68934449"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70259235"
 ---
 # <a name="quickstart-set-and-retrieve-a-secret-from-azure-key-vault-by-using-a-node-web-app"></a>快速入門：使用 Node Web 應用程式從 Azure Key Vault 設定及擷取祕密 
 
@@ -196,5 +196,9 @@ git push azure master
 
 ## <a name="next-steps"></a>後續步驟
 
-> [!div class="nextstepaction"]
-> [Azure SDK for Node](https://docs.microsoft.com/javascript/api/overview/azure/key-vault)
+在本快速入門中，您已建立 Key Vault 並在其中儲存祕密。 若要深入了解 Key Vault 以及要如何將其與應用程式整合，請繼續閱讀下列文章。
+
+- 閱讀 [Azure Key Vault 概觀](key-vault-overview.md)
+- 參閱 [Azure Key Vault 開發人員指南](key-vault-developers-guide.md)
+- 了解[金鑰、祕密與憑證](about-keys-secrets-and-certificates.md)
+- 檢閱 [Azure Key Vault 最佳做法](key-vault-best-practices.md)

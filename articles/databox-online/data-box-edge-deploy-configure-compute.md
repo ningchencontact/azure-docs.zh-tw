@@ -6,15 +6,15 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: tutorial
-ms.date: 03/19/2019
+ms.date: 09/03/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to configure compute on Data Box Edge so I can use it to transform the data before sending it to Azure.
-ms.openlocfilehash: 7b3d725eb05c811d3fdd44516c1bde9a8dfbaaac
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: b641ae62ba6e0cdacaeb46b1ffee2f02c7544763
+ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64924352"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70277203"
 ---
 # <a name="tutorial-transform-data-with-azure-data-box-edge"></a>教學課程：使用 Azure Data Box Edge 轉換資料
 
@@ -61,6 +61,9 @@ ms.locfileid: "64924352"
     
     ![開始使用計算](./media/data-box-edge-deploy-configure-compute/configure-compute-3.png)
 
+    > [!NOTE]
+    > 如果在 [設定計算]  對話方塊關閉後，IoT 中樞才與 Data Box Edge 裝置相關聯，則會建立 IoT 中樞，但不會顯示在計算設定中。 
+    
     在 Edge 裝置上設定 Edge 計算角色時，其會建立兩個裝置：一個 IoT 裝置和一個 IoT Edge 裝置。 這兩個裝置都可以在 IoT 中樞資源中檢視。 IoT Edge 執行階段也是在此 IoT Edge 裝置上執行。 目前只有 Linux 平台適用於您的 IoT Edge 裝置。
 
 

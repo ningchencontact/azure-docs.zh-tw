@@ -6,17 +6,29 @@ author: alkohli
 ms.service: databox
 ms.subservice: heavy
 ms.topic: tutorial
-ms.date: 07/03/2019
+ms.date: 09/03/2019
 ms.author: alkohli
-ms.openlocfilehash: 3e6bfe4a93ab8c97bcffb84bda08977f8d811fa8
-ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
+ms.localizationpriority: high
+ms.openlocfilehash: f5473ae7bd9ac1615d59d18c996e01902e1adbd6
+ms.sourcegitcommit: 49c4b9c797c09c92632d7cedfec0ac1cf783631b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67592379"
+ms.lasthandoff: 09/05/2019
+ms.locfileid: "70241422"
 ---
+::: zone target = "docs"
+
 # <a name="tutorial-cable-and-connect-to-your-azure-data-box-heavy"></a>教學課程：連接 Azure Data Box Heavy 的纜線並連線
 
+::: zone-end
+
+::: zone target = "chromeless"
+
+## <a name="get-started-with-azure-data-box-heavy"></a>開始使用 Azure Data Box Heavy
+
+::: zone-end
+
+::: zone target = "docs"
 
 本教學課程說明如何連接 Azure Data Box Heavy 的纜線、加以連線並開啟。
 
@@ -25,6 +37,14 @@ ms.locfileid: "67592379"
 > [!div class="checklist"]
 > * 連接 Data Box Heavy 的纜線
 > * 連線至 Data Box Heavy
+
+::: zone-end
+
+::: zone target = "chromeless"
+
+本指南會提供相關指示來說明如何檢閱必要條件、連接纜線並將裝置連線、複製資料、上傳至 Azure，然後確認上傳的資料。
+
+::: zone-end
 
 ## <a name="prerequisites"></a>必要條件
 
@@ -42,6 +62,8 @@ ms.locfileid: "67592379"
     - 選擇與 [Mellanox MCX314A-BCCT](https://store.mellanox.com/products/mellanox-mcx314a-bcct-connectx-3-pro-en-network-interface-card-40-56gbe-dual-port-qsfp-pcie3-0-x8-8gt-s-rohs-r6.html) 網路介面相容的纜線。
     - 若使用 40-Gbps 的纜線，纜線的裝置端必須是 QSFP+。
     - 若使用 10-Gbps 的纜線，您需要將 SFP+ 纜線插入其中一端上的 10-Gbps 交換器，並在插入裝置的一端使用 QSFP+ 對 SFP+ 的配接器 (或是 QSA 配接器)。
+
+::: zone target = "docs"
 
 ## <a name="cable-your-device-for-power"></a>將您的裝置接上纜線，以取得電源
 
@@ -138,3 +160,5 @@ ms.locfileid: "67592379"
 
 > [!div class="nextstepaction"]
 > [將資料複製到 Azure 資料箱](./data-box-heavy-deploy-copy-data.md)
+
+::: zone-end

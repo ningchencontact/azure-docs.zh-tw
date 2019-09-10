@@ -1,19 +1,18 @@
 ---
 title: 進階查詢範例
-description: 使用 Azure Resource Graph 來執行某些進階查詢，包括 VMSS 容量、列出所有標記，以及透過規則運算式來比對虛擬機器。
+description: 使用 Azure Resource Graph 來執行某些進階查詢，包括虛擬機器擴展集容量、列出所有標記，以及透過規則運算式來比對虛擬機器。
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 01/23/2019
+ms.date: 08/29/2019
 ms.topic: quickstart
 ms.service: resource-graph
 manager: carmonm
-ms.custom: seodec18
-ms.openlocfilehash: 7684ae6b4ddb6320efc62ef6f9963bef1b9a66fa
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 33c67f77a26e2a4fc97d7f5483aad53c121e117b
+ms.sourcegitcommit: 6794fb51b58d2a7eb6475c9456d55eb1267f8d40
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64692001"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70239008"
 ---
 # <a name="advanced-resource-graph-queries"></a>進階 Resource Graph 查詢
 
@@ -25,10 +24,9 @@ ms.locfileid: "64692001"
 > - [取得虛擬機器擴展集的容量和大小](#vmss-capacity)
 > - [列出所有標記名稱](#list-all-tags)
 > - [依 RegEx 比對虛擬機器](#vm-regex)
+> - [包含租用戶和訂用帳戶名稱與 DisplayNames](#displaynames)
 
 如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free) 。
-
-[!INCLUDE [az-powershell-update](../../../../includes/updated-for-az.md)]
 
 ## <a name="language-support"></a>語言支援
 
@@ -72,8 +70,8 @@ Search-AzGraph -Query "project tags | summarize buildschema(tags)"
 
 ## <a name="vm-regex"></a>依 RegEx 比對虛擬機器
 
-此查詢會尋找符合[規則運算式](/dotnet/standard/base-types/regular-expression-language-quick-reference) (亦稱為 _RegEx_) 的虛擬機器。
-**matches regex \@** 可讓我們定義要比對的 RegEx，也就是 `^Contoso(.*)[0-9]+$`。 該 RegEx 定義說明如下：
+此查詢會尋找符合[規則運算式](/dotnet/standard/base-types/regular-expression-language-quick-reference) (亦稱為 _RegEx_) 的虛擬機器。 **matches regex \@** 可讓我們定義要比對的 RegEx，也就是 `^Contoso(.*)[0-9]+$`。
+該 RegEx 定義說明如下：
 
 - `^`：比對必須從字串的開頭開始。
 - `Contoso`：區分大小寫的字串。
@@ -99,6 +97,22 @@ az graph query -q "where type =~ 'microsoft.compute/virtualmachines' and name ma
 ```azurepowershell-interactive
 Search-AzGraph -Query "where type =~ 'microsoft.compute/virtualmachines' and name matches regex @'^Contoso(.*)[0-9]+$' | project name | order by name asc"
 ```
+
+## <a name="displaynames"></a>包含租用戶和訂用帳戶名稱與 DisplayNames
+
+此查詢使用新的 **Include** 參數搭配選項 DisplayNames  來將 **subscriptionDisplayName** 和 **tenantDisplayName** 新增至結果。 此參數僅適用於 Azure CLI 和 Azure PowerShell。
+
+```azurecli-interactive
+az graph query -q "limit 1" --include displayNames
+```
+
+```azurepowershell-interactive
+Search-AzGraph -Query "limit 1" -Include DisplayNames
+```
+
+> [!NOTE]
+> 如果查詢未使用 **project** 來指定傳回的屬性，則 **subscriptionDisplayName** 和 **tenantDisplayName** 就會自動包含在結果中。
+> 如果查詢有使用 **project**，則每個 [DisplayName]  欄位都必須明確包含在 **project** 中，否則不會在結果中傳回，即使使用 **Include** 參數也一樣。
 
 ## <a name="next-steps"></a>後續步驟
 

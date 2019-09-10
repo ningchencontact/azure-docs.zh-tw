@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: quickstart
-ms.date: 05/07/2019
+ms.date: 09/02/2019
 ms.author: diberry
-ms.openlocfilehash: 5c310c1943eaf23423be873c6172e27c621fe109
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 4e9ecdad0fb4d02f160977fa28a484b2a3a5bb30
+ms.sourcegitcommit: 267a9f62af9795698e1958a038feb7ff79e77909
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68564073"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70257081"
 ---
 # <a name="quickstart-deploy-an-app-in-the-luis-portal"></a>快速入門：在 LUIS 入口網站中部署應用程式
 
@@ -59,11 +59,11 @@ LUIS 應用程式準備將表達預測傳回用戶端應用程式 (例如聊天�
 
 1. 登入 [LUIS 入口網站](https://www.luis.ai)，從應用程式清單中選擇 **myEnglishApp** 應用程式。
 
-1. 選取右上方功能表中的 [管理]  ，然後選取 [金鑰和端點]  。
+1. 選取右上方功能表中的 [管理]  ，然後選取 [Azure 資源]  。
 
-1. 若要新增 LUIS，請選取 [指派資源 +]  。
+1. 若要新增 LUIS，請選取 [新增預測資源]  。
 
-   [![將資源指派給應用程式](./media/get-started-portal-deploy-app/assign-resource-button.png)](./media/get-started-portal-deploy-app/assign-resource-button.png#lightbox)
+    <!-- TBD: get screenshot-->
 
 1. 選取您的租用戶、訂用帳戶和資源群組。 選取 [指派資源]  。
 

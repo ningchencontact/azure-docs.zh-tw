@@ -2,18 +2,18 @@
 title: C# 教學課程：為多個資料來源編製索引 - Azure 搜尋服務
 description: 了解如何將多個資料來源的資料匯入至單一 Azure 搜尋服務索引。
 author: RobDixon22
-manager: HeidiSteen
+manager: nitinme
 services: search
 ms.service: search
 ms.topic: tutorial
 ms.date: 06/21/2019
 ms.author: heidist
-ms.openlocfilehash: 2776bcd095c570be500fa6ddb2675820b2259716
-ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
+ms.openlocfilehash: d55a586d3dfb22b5dad377ff656b8d6a6c940bdb
+ms.sourcegitcommit: 6794fb51b58d2a7eb6475c9456d55eb1267f8d40
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68840668"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70241841"
 ---
 # <a name="c-tutorial-combine-data-from-multiple-data-sources-in-one-azure-search-index"></a>C# 教學課程：在一個 Azure 搜尋服務索引中合併多個資料來源的資料
 
@@ -70,7 +70,7 @@ Azure 搜尋服務可以將多個資料來源的資料匯入至單一已合併�
 
 1. 登入 [Azure 入口網站](https://portal.azure.com)，然後巡覽您的 Azure Cosmos DB 帳戶 [概觀] 頁面。
 
-1. 從功能表列中，按一下 [新增容器]。 指定「建立新的資料庫」，然後使用 **hotel-rooms-db** 名稱。 輸入 **hotel-rooms** 作為集合名稱，並輸入 **/HotelId** 作為分割區索引鍵。 按一下 [確定]  以建立資料庫和容器。
+1. 從功能表列中，按一下 [新增容器]。 指定「建立新的資料庫」，然後使用 **hotel-rooms-db** 名稱。 輸入 **hotels** 作為集合名稱，並輸入 **/HotelId** 作為分割區索引鍵。 按一下 [確定]  以建立資料庫和容器。
 
    ![新增 Azure Cosmos DB 容器](media/tutorial-multiple-data-sources/cosmos-add-container.png "新增 Azure Cosmos DB 容器")
 

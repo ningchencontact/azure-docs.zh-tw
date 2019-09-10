@@ -4,16 +4,16 @@ description: 了解如何建立會從 Azure 時間序列深入解析環境查詢
 author: ashannon7
 ms.service: time-series-insights
 ms.topic: tutorial
-ms.date: 06/29/2019
+ms.date: 08/29/2019
 ms.author: dpalled
 manager: cshankar
 ms.custom: seodec18
-ms.openlocfilehash: 4d9af918c222107cfca5863309efb391b8e6d2e0
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.openlocfilehash: 031e8074585426584d7ef63a103c9c2b4d90e6c3
+ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68720872"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70194194"
 ---
 # <a name="tutorial-create-an-azure-time-series-insights-single-page-web-app"></a>教學課程：建立 Azure 時間序列深入解析單一頁面 Web 應用程式
 
@@ -127,6 +127,10 @@ ms.locfileid: "68720872"
 
       [![Visual Studio - [發行設定檔] 窗格](media/tutorial-create-tsi-sample-spa/vs-publish-profile-target.png)](media/tutorial-create-tsi-sample-spa/vs-publish-profile-target.png#lightbox)
 
+   1. 進行選取以發佈新的 Azure App Service 執行個體或使用現有執行個體。
+
+      [![選取 Azure App Service 執行個體](media/tutorial-create-tsi-sample-spa/vs-publish-select-target.png)](media/tutorial-create-tsi-sample-spa/vs-publish-select-target.png#lightbox)
+
    1. 選取要用來發佈應用程式的訂用帳戶。 選取 [TsiSpaApp]  專案。 然後選取 [確定]  。
 
       [![Visual Studio - [發行設定檔 App Service] 窗格](media/tutorial-create-tsi-sample-spa/vs-publish-profile-app-service.png)](media/tutorial-create-tsi-sample-spa/vs-publish-profile-app-service.png#lightbox)
@@ -137,12 +141,16 @@ ms.locfileid: "68720872"
 
    1. Visual Studio 的 [輸出]  窗格中便會出現成功發佈記錄。 部署完成時，Visual Studio 便會在瀏覽器索引標籤中開啟 Web 應用程式，並提示您進行登入。 成功登入後，時間序列深入解析控制項便會填入資料。
 
+   1. 瀏覽至 Web 應用程式並登入，以檢視所呈現的時間序列深入解析視覺資料。
+
+      [![檢閱裝載的 Web 應用程式](media/tutorial-create-tsi-sample-spa/vs-publish-hosted-app.png)](media/tutorial-create-tsi-sample-spa/vs-publish-hosted-app.png#lightbox)
+
 ## <a name="troubleshoot"></a>疑難排解  
 
 錯誤碼/情況 | 說明
 ---------------------| -----------
-*AADSTS50011：未註冊應用程式的回覆位址。* | Azure AD 註冊遺漏「回覆 URL」  屬性。 請移至 [設定]   > [回覆 URL]  來檢視 Azure AD 應用程式註冊。 確認**重新導向 URI** 是否存在，這是您在[註冊應用程式以使用 Azure AD](#register-with-azure-ad) 時可於**步驟 2** 或**步驟 4** 選擇要指定的值。
-*AADSTS50011：在要求中指定的回覆 URL 不符合為應用程式設定的回覆 URL：'\<Application ID GUID>'* 。 | 在[建置和發佈 Web 應用程式](#build-and-publish)的**步驟 6.b** 中指定的 `postLogoutRedirectUri`，必須符合在 Azure AD 應用程式註冊中的 [設定]   > [回覆 URL]  下指定的值。 |
+*AADSTS50011：未註冊應用程式的回覆位址。* | Azure AD 註冊遺漏**重新導向 URI** 屬性。 請移至 [驗證]   > [重新導向 URI]  來檢視 Azure AD 應用程式註冊。 確認**重新導向 URI** 是否存在，這是您在[註冊應用程式以使用 Azure AD](#register-with-azure-ad) 時可於**步驟 2** 或**步驟 4** 選擇要指定的值。
+*AADSTS50011：在要求中指定的回覆 URL 不符合為應用程式設定的回覆 URL：'\<Application ID GUID>'* 。 | 在[建置和發佈 Web 應用程式](#build-and-publish)的**步驟 6.b** 中指定的 `postLogoutRedirectUri`，必須符合在 Azure AD 應用程式註冊中的 [驗證]   > [重新導向 URI]  下指定的值。 |
 Web 應用程式會載入，但使用無樣式的文字登入頁面和白色背景。 | 請確認[建置和發佈 Web 應用程式](#build-and-publish)中的**步驟 6** 所討論的路徑正確無誤。 如果 Web 應用程式找不到 .css 檔案，頁面將無法正確套用樣式。
 
 ## <a name="clean-up-resources"></a>清除資源

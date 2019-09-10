@@ -6,15 +6,16 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: tutorial
-ms.date: 08/28/2019
+ms.date: 09/03/2019
 ms.author: alkohli
+ms.localizationpriority: high
 Customer intent: As an IT admin, I need to be able to order Data Box Disk to upload on-premises data from my server onto Azure.
-ms.openlocfilehash: 30f9597e6a42b8bdd35a7d69594a2feb16edae30
-ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
+ms.openlocfilehash: c309a7cb18086526b23c875b41d9d4f4db4bc213
+ms.sourcegitcommit: 49c4b9c797c09c92632d7cedfec0ac1cf783631b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70126193"
+ms.lasthandoff: 09/05/2019
+ms.locfileid: "70231370"
 ---
 ::: zone target="docs"
 
@@ -26,9 +27,11 @@ ms.locfileid: "70126193"
 
 ## <a name="copy-data-to-azure-data-box-disk-and-validate"></a>將資料複製到 Azure 資料箱磁碟並驗證
 
-連接磁碟並將其解除鎖定之後，您可以將資料從來源資料伺服器複製到磁碟。 資料複製完成之後，表示您已複製資料。 驗證可確保資料會在稍後成功上傳至 Azure。
+連接磁碟並將其解除鎖定之後，您可以將資料從來源資料伺服器複製到磁碟。 資料複製完成之後，請驗證資料以確保其會成功上傳至 Azure。
 
 ::: zone-end
+
+::: zone target="docs"
 
 本教學課程說明如何從主機電腦複製資料，然後產生總和檢查碼來確認資料完整性。
 
@@ -333,6 +336,6 @@ ms.locfileid: "70126193"
 1. 在磁碟機的 DataBoxDiskImport  資料夾中執行 `DataBoxDiskValidation.cmd`，以進行總和檢查碼驗證。
 2. 使用選項 2 來驗證您的檔案並產生總和檢查碼。 視您的資料大小而定，此步驟可能需要一段時間。 如果在驗證和產生總和檢查碼期間發生任何錯誤，您會收到通知及錯誤記錄的連結。
 
-    如需有關資料驗證的詳細資訊，請參閱[驗證資料](data-box-disk-deploy-copy-data.md#validate-data)。 如果您在驗證期間遇到錯誤，請參閱[針對驗證錯誤進行疑難排解](data-box-disk-troubleshoot.md)。
+    如需有關資料驗證的詳細資訊，請參閱[驗證資料](https://docs.microsoft.com/azure/databox/data-box-disk-deploy-copy-data#validate-data)。 如果您在驗證期間遇到錯誤，請參閱[針對驗證錯誤進行疑難排解](data-box-disk-troubleshoot.md)。
 
 ::: zone-end

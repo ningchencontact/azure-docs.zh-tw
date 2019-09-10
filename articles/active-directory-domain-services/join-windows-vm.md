@@ -9,12 +9,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 07/11/2019
 ms.author: iainfou
-ms.openlocfilehash: 86e0f09e957df308f3af868d9590951f29d226b1
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: 3fd2a50946f0857d527c34b62687b2dbdd71298e
+ms.sourcegitcommit: ee61ec9b09c8c87e7dfc72ef47175d934e6019cc
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70073897"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70172033"
 ---
 # <a name="tutorial-join-a-windows-server-virtual-machine-to-a-managed-domain"></a>教學課程：將 Windows Server 虛擬機器加入受控網域
 
@@ -214,7 +214,7 @@ Windows Server VM 應該成功加入 Azure AD DS 受控網域，其方式與一�
 * 確定您所指定的使用者帳戶屬於「AAD DC 系統管理員」  群組。
 * 嘗試使用 UPN 格式來指定認證，例如 `contosoadmin@contoso.onmicrosoft.com`。 如果您的租用戶中有許多使用者具有相同的 UPN 前置詞，或您的 UPN 前置詞太長，系統可能就會自動為您的帳戶產生 *SAMAccountName*。 在這些情況下，您帳戶的 *SAMAccountName* 格式可能會與您在內部部署網域中預期或使用的格式不同。
 * 確認您已為受控網域[啟用密碼同步化][password-sync]。 如果沒有此設定步驟，所需的密碼雜湊就不會出現在 Azure AD DS 受控網域中，以正確地驗證您的登入嘗試。
-* 等待密碼同步完成。 當使用者帳戶的密碼變更時，可能需要 15-20 分鐘的時間，密碼才能供網域加入使用。
+* 等待密碼同步完成。 當使用者帳戶的密碼變更時，來自 Azure AD 的自動背景同步處理會更新 Azure AD DS 中的密碼。 需要一些時間，密碼才能用於加入網域。
 
 ## <a name="next-steps"></a>後續步驟
 

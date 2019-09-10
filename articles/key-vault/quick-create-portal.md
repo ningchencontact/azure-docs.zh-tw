@@ -2,20 +2,20 @@
 title: Azure 快速入門 - 使用 Azure 入口網站從 Key Vault 設定及擷取祕密 | Microsoft Docs
 description: 說明如何使用 Azure 入口網站從 Azure Key Vault 設定及擷取祕密的快速入門
 services: key-vault
-author: barclayn
-manager: barbkess
+author: msmbaldwin
+manager: rkarlin
 tags: azure-resource-manager
 ms.service: key-vault
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 03/14/2019
-ms.author: barclayn
-ms.openlocfilehash: e9b86a5fb0d9e24618cafffb5ca12e22d5394294
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.date: 09/03/2019
+ms.author: mbaldwin
+ms.openlocfilehash: 3c0b9ad774d336da9bc60d2ef9f7ff2645602b6c
+ms.sourcegitcommit: 267a9f62af9795698e1958a038feb7ff79e77909
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64730176"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70259227"
 ---
 # <a name="quickstart-set-and-retrieve-a-secret-from-azure-key-vault-using-the-azure-portal"></a>快速入門：使用 Azure 入口網站從 Azure Key Vault 設定及擷取祕密
 
@@ -29,24 +29,24 @@ Azure Key Vault 是一項雲端服務，可為祕密提供安全的存放區。 
 
 ## <a name="create-a-vault"></a>建立保存庫
 
-1. 選取 Azure 入口網站左上角的 [建立資源] 選項。
+1. 選取 Azure 入口網站左上角的 [建立資源]  選項。
 
     ![Key Vault 建立完成後的輸出](./media/quick-create-portal/search-services.png)
 2. 在 [搜尋] 方塊中輸入 **Key Vault**。
-3. 從結果清單中，選擇 [Key Vault]。
-4. 在 [金鑰保存庫] 區段上選擇 [建立]。
-5. 在 [建立金鑰保存庫] 區段上提供下列資訊：
+3. 從結果清單中，選擇 [Key Vault]  。
+4. 在 [金鑰保存庫] 區段上選擇 [建立]  。
+5. 在 [建立金鑰保存庫]  區段上提供下列資訊：
     - **名稱**：唯一名稱是必要項。 在本快速入門中，我們使用 **Contoso-vault2**。 
-    - 訂用帳戶：選擇訂用帳戶。
-    - 在 [資源群組] 下選擇 [新建]，然後輸入資源群組名稱。
-    - 在 [位置] 下拉式功能表中選擇位置。
+    - 訂用帳戶  ：選擇訂用帳戶。
+    - 在 [資源群組]  下選擇 [新建]  ，然後輸入資源群組名稱。
+    - 在 [位置]  下拉式功能表中選擇位置。
     - 將其他的選項保留預設值。
-6. 提供上述資訊之後，請選取 [建立]。
+6. 提供上述資訊之後，請選取 [建立]  。
 
 請記下下列兩個屬性：
 
 * **保存庫名稱**：在此範例中是 **Contoso-Vault2**。 您將在其他步驟中使用此名稱。
-* **保存庫 URI**：在此範例中是 https://contoso-vault2.vault.azure.net/。 透過其 REST API 使用保存庫的應用程式必須使用此 URI。
+* **保存庫 URI**：在此範例中是 https://contoso-vault2.vault.azure.net/ 。 透過其 REST API 使用保存庫的應用程式必須使用此 URI。
 
 此時，您的 Azure 帳戶是唯一獲得授權在此新保存庫上執行作業的帳戶。
 
@@ -56,13 +56,13 @@ Azure Key Vault 是一項雲端服務，可為祕密提供安全的存放區。 
 
 若要將祕密新增至保存庫，您只需要採取一些額外步驟。 在此情況下，我們會新增應用程式可以使用的密碼。 此密碼稱為 **ExamplePassword**，且我們會在其中儲存 **hVFkk965BuUv** 值。
 
-1. 在 [金鑰保存庫屬性] 頁面中，選取 [祕密]。
-2. 按一下 [產生/匯入]。
-3. 在 [建立祕密] 畫面上選擇下列值：
+1. 在 [金鑰保存庫屬性] 頁面中，選取 [祕密]  。
+2. 按一下 [產生/匯入]  。
+3. 在 [建立祕密]  畫面上選擇下列值：
     - **上傳選項**：手動。
     - **名稱**：ExamplePassword。
     - **值**：hVFkk965BuUv
-    - 將其他的值保留預設值。 按一下頁面底部的 [新增] 。
+    - 將其他的值保留預設值。 按一下頁面底部的 [新增]  。
 
 一旦收到已成功建立祕密的訊息，即可按一下清單上的祕密。 您可以接著看見某些屬性。 如果您按一下目前的版本，您可以看到您在上一個步驟中指定的值。
 
@@ -78,13 +78,15 @@ Azure Key Vault 是一項雲端服務，可為祕密提供安全的存放區。 
 如果不再需要，請刪除資源群組，這會刪除 Key Vault 和相關資源。 若要透過入口網站刪除資源群組：
 
 1. 在入口網站頂端的 [搜尋] 方塊中，輸入資源群組的名稱。 當您在搜尋結果中看到本快速入門中使用的資源群組時，請加以選取。
-2. 選取 [刪除資源群組]。
-3. 在 [輸入資源群組名稱:] 方塊中輸入資源群組的名稱，然後選取 [刪除]。
+2. 選取 [刪除資源群組]  。
+3. 在 [輸入資源群組名稱:]  方塊中輸入資源群組的名稱，然後選取 [刪除]  。
 
 
 ## <a name="next-steps"></a>後續步驟
 
-在本快速入門中，您已建立 Key Vault 並儲存祕密。 若要深入了解 Key Vault 以及如何使用它搭配您的應用程式，請繼續進行 Web 應用程式搭配 Key Vault 運作的教學課程。
+在本快速入門中，您已建立 Key Vault 並在其中儲存祕密。 若要深入了解 Key Vault 以及要如何將其與應用程式整合，請繼續閱讀下列文章。
 
-> [!div class="nextstepaction"]
-> 若要了解如何從針對 Azure 資源使用受控識別的 Web 應用程式讀取 Key Vault 中的祕密，請繼續進行以下教學課程[將 Azure Web 應用程式設定為從 Key Vault 讀取祕密](quick-create-net.md)。
+- 閱讀 [Azure Key Vault 概觀](key-vault-overview.md)
+- 參閱 [Azure Key Vault 開發人員指南](key-vault-developers-guide.md)
+- 了解[金鑰、祕密與憑證](about-keys-secrets-and-certificates.md)
+- 檢閱 [Azure Key Vault 最佳做法](key-vault-best-practices.md)
