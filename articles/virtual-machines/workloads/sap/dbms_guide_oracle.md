@@ -466,7 +466,7 @@ Oracle Database 檔案不支援網路磁碟機或遠端共用 (例如 Azure 檔�
 | --- | ---| --- | --- |
 | /oracle/\<SID >/origlogaA & mirrlogB | 進階 | None | 不需要 |
 | /oracle/\<SID >/origlogaB & mirrlogA | 進階 | None | 不需要 |
-| /oracle/\<SID >/sapdata1.。。位 | 進階 | 唯讀 | 可以使用 |
+| /oracle/\<SID >/sapdata1...位 | 進階 | 唯讀 | 可以使用 |
 | /oracle/\<SID >/oraarch | 標準 | None | 不需要 |
 | Oracle Home、saptrace... | OS 磁碟 | | 不需要 |
 
@@ -482,7 +482,7 @@ Oracle Database 檔案不支援網路磁碟機或遠端共用 (例如 Azure 檔�
 | /oracle/\<SID >/origlogaB | 進階 | None | 可以使用 |
 | /oracle/\<SID >/mirrlogAB | 進階 | None | 可以使用 |
 | /oracle/\<SID>/mirrlogBA | 進階 | None | 可以使用 |
-| /oracle/\<SID >/sapdata1.。。位 | 進階 | 唯讀 | 建議  |
+| /oracle/\<SID >/sapdata1...位 | 進階 | 唯讀 | 建議  |
 | /oracle/\<SID >/sapdata (n + 1) * | 進階 | None | 可以使用 |
 | /oracle/\<SID >/oraarch * | 進階 | None | 不需要 |
 | Oracle Home、saptrace... | OS 磁碟 | 不需要 |

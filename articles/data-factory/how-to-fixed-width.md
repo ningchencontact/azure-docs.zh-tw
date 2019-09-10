@@ -85,7 +85,7 @@ Data Factory 對應資料流程支援從固定寬度的文字檔轉換資料。 
 
   ![固定寬度輸出](media/data-flow/fxdoutput.png)
 
-  固定寬度的資料現在會分割成四個字元, 並指派給 Col1、Col2、Col3、Col4、.。。根據上述範例, 我將資料分割成4個數據行
+  固定寬度的資料現在會分割成四個字元, 並指派給 Col1、Col2、Col3、Col4、...根據上述範例, 我將資料分割成4個數據行
 
 ## <a name="next-steps"></a>後續步驟
 

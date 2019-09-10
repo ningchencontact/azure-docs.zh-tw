@@ -49,7 +49,7 @@ ms.locfileid: "60242220"
 | 網路版 Outlook | HTTPs:\//outlook.office365.com/contoso.com |
 | Office 365 入口網站 | HTTPs:\//portal.office.com？ domain_hint = contoso .com, HTTPs:\//www.office.com？ domain_hint = contoso .com |
 
-此外, 如果應用程式將登入要求傳送至設定為租使用者的 Azure AD 端點 (也就是 HTTPs:\//login.microsoftonline.com/contoso.com/<), 使用者就會獲得無訊息登入體驗。> 或 HTTPs:\//login.microsoftonline.com/<tenant_ID>/<。>-而不是 Azure AD 的通用端點, 也就是 HTTPs\/:/login.microsoftonline.com/common/< .。。>。 以下是一份不完整的應用程式清單，列出會提出這類登入要求的應用程式。
+此外, 如果應用程式將登入要求傳送至設定為租使用者的 Azure AD 端點 (也就是 HTTPs:\//login.microsoftonline.com/contoso.com/<), 使用者就會獲得無訊息登入體驗。> 或 HTTPs:\//login.microsoftonline.com/<tenant_ID>/<..>-而不是 Azure AD 的通用端點, 也就是 HTTPs\/:/login.microsoftonline.com/common/<...>。 以下是一份不完整的應用程式清單，列出會提出這類登入要求的應用程式。
 
 | 應用程式名稱 | 要使用的應用程式 URL |
 | -- | -- |

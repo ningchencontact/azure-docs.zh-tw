@@ -272,6 +272,6 @@ appInsights.addTelemetryInitializer((envelope) => {
 
 ## <a name="next-steps"></a>後續步驟
 
-* 若要深入瞭解相互關聯在 Application Insights 中的運作方式, 請參閱 [遙測 https://docs.microsoft.com/azure/application-insights/application-insights-correlation) 相互關聯文章] (。
+* 若要深入瞭解相互關聯在 Application Insights 中的運作方式, 請參閱 [遙測相互關聯文章](https://docs.microsoft.com/azure/application-insights/application-insights-correlation) 。
 * [端對端交易診斷體驗](transaction-diagnostics.md)會將伺服器端的遙測資料從您的所有 Application Insights 監視元件, 相互關聯至單一視圖。
 * 如需 ASP.NET Core 和 ASP.NET 中的先進相互關聯案例, 請參閱[追蹤自訂作業](custom-operations-tracking.md)一文。
