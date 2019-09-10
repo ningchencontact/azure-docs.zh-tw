@@ -228,10 +228,14 @@
               href: Customize-application-attributes.md
             - name: 範圍篩選器
               href: define-conditional-rules-for-provisioning-user-accounts.md
+            - name: 跳過且不刪除範圍外使用者
+              href: skip-out-of-scope-deletions.md
             - name: 查看佈建狀態
               href: application-provisioning-when-will-provisioning-finish-specific-user.md
             - name: 關於使用者自動佈建的報告
               href: check-status-user-account-provisioning.md
+            - name: 匯出及匯入您的設定
+              href: export-import-provisioning-configuration.md
         - name: 針對使用者佈建進行疑難排解
           items:
             - name: 針對使用者佈建進行疑難排解
