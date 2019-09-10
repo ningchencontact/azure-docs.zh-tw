@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 03/18/2019
 ms.author: rogarana
 ms.openlocfilehash: 8b25d2395811a2197aff6d653c5038a4380021e9
-ms.sourcegitcommit: fecb6bae3f29633c222f0b2680475f8f7d7a8885
+ms.sourcegitcommit: 23389df08a9f4cab1f3bb0f474c0e5ba31923f12
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/30/2019
+ms.lasthandoff: 09/10/2019
 ms.locfileid: "68669579"
 ---
 您可以將數個數據磁片連接到 Azure 虛擬機器。 根據 VM 資料磁片的擴充性和效能目標, 您可以決定您需要的磁片數目和類型, 以符合您的效能和容量需求。

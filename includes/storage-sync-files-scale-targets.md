@@ -9,10 +9,10 @@ ms.date: 05/05/2019
 ms.author: wgries
 ms.custom: include file
 ms.openlocfilehash: e7aa2b4389fe60eed80b15aff04d6f7fcbc7b013
-ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
+ms.sourcegitcommit: 23389df08a9f4cab1f3bb0f474c0e5ba31923f12
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/13/2019
+ms.lasthandoff: 09/10/2019
 ms.locfileid: "68968834"
 ---
 | Resource | 目標 | 固定限制 |
@@ -28,7 +28,7 @@ ms.locfileid: "68968834"
 | 物件 (目錄和檔案) 安全性描述元大小上限 | 64 KiB | 是 |
 | 檔案大小 | 100 GiB | 否 |
 | 要分層之檔案的檔案大小下限 | 64 KiB | 是 |
-| 並行同步處理工作階段 | V4 代理程式和更新版本：限制會根據可用的系統資源而有所不同。 <BR> V3 代理程式：每個處理器有兩個作用中的同步會話, 或每個伺服器最多八個作用中的同步會話。 | 是
+| 並行同步處理工作階段 | V4 代理程式和更新版本：限制會根據可用的系統資源而有所不同。 <BR> V3 代理程式：每個處理器有兩個作用中的同步會話，或每個伺服器最多八個作用中的同步會話。 | 是
 
 > [!Note]  
-> Azure 檔案同步端點可以相應增加至 Azure 檔案共用的大小。 如果達到 Azure 檔案共用大小限制, 同步處理將無法運作。
+> Azure 檔案同步端點可以相應增加至 Azure 檔案共用的大小。 如果達到 Azure 檔案共用大小限制，同步處理將無法運作。

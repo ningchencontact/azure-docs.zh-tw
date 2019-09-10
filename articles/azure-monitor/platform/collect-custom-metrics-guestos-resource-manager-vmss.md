@@ -5,15 +5,15 @@ author: anirudhcavale
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 09/24/2018
+ms.date: 09/09/2019
 ms.author: ancav
 ms.subservice: metrics
-ms.openlocfilehash: 573c205cd2e208a1cb2b526d96fb08ca21331c80
-ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
+ms.openlocfilehash: 8ee8c0c9d9724706f9b46013eba14e878832fd02
+ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "66129613"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70844965"
 ---
 # <a name="send-guest-os-metrics-to-the-azure-monitor-metric-store-by-using-an-azure-resource-manager-template-for-a-windows-virtual-machine-scale-set"></a>使用 Windows 虛擬機器擴展集的 Azure Resource Manager 範本將客體作業系統計量傳送至 Azure 監視器計量存放區
 
@@ -31,6 +31,7 @@ ms.locfileid: "66129613"
 
 - 您需要安裝 [Azure PowerShell](/powershell/azure)，或可以使用 [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview)。 
 
+- 您的 VM 資源必須位於[支援自訂計量的區域](metrics-custom-overview.md#supported-regions)中。
 
 ## <a name="set-up-azure-monitor-as-a-data-sink"></a>設定 Azure 監視器作為資料接收器 
 Azure 診斷擴充功能會使用稱為**資料接收器**的功能，將計量與記錄路由傳送至不同的位置。 下列步驟示範如何使用新的「Azure 監視器 」資料接收器，使用 Resource Manager 範本與 PowerShell 來部署 VM。 
@@ -273,19 +274,19 @@ MSI 擴充功能中的下列程式碼也可以將診斷擴充功能與設定作�
 
 1. 登入 Azure 入口網站。 
 
-1. 在左側功能表中，選取 [監視]  。 
+1. 在左側功能表中，選取 [監視]。 
 
-1. 在 [監視]  頁面上，選取 [計量]  。 
+1. 在 [監視] 頁面上，選取 [計量]。 
 
    ![監視 - 計量頁面](media/collect-custom-metrics-guestos-resource-manager-vmss/metrics.png) 
 
-1. 將彙總期間變更為 [過去 30 分鐘]  。  
+1. 將彙總期間變更為 [過去 30 分鐘]。  
 
 1. 在 [資源] 下拉式功能表中，選取您建立的虛擬機器擴展集。  
 
 1. 在 [命名空間] 下拉式功能表中，選取 **azure.vm.windows.guest**。 
 
-1. 在 [計量] 下拉式功能表中，選取 [記憶體\%認可的位元組 (使用中)\]  。  
+1. 在 [計量] 下拉式功能表中，選取 [記憶體\%認可的位元組 (使用中)\]。  
 
 接著，您也可以選擇使用這個計量上的維度，為特定 VM 繪製圖表，或對擴展集中的每個 VM 繪製圖表。 
 

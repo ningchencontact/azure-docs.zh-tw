@@ -1,21 +1,21 @@
 ---
 title: 設定 Azure Blockchain Workbench SQL DB 防火牆
-description: 了解如何設定 Azure Blockchain Workbench SQL DB 防火牆。
+description: 瞭解如何設定 Azure Blockchain Workbench Preview SQL DB 防火牆。
 services: azure-blockchain
 keywords: ''
 author: PatAltimore
 ms.author: patricka
-ms.date: 05/09/2019
+ms.date: 09/09/2019
 ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: mmercuri
 manager: femila
-ms.openlocfilehash: d56e7f4750510dc7bb50dbb316dce320b8e8d12b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 0153065ca0ccd6cf34456d630d7437d5ea7c5b48
+ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65510016"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70845226"
 ---
 # <a name="configure-the-azure-blockchain-workbench-database-firewall"></a>設定 Azure Blockchain Workbench 資料庫防火牆
 
@@ -25,10 +25,10 @@ ms.locfileid: "65510016"
 
 若要連線至您要設定規則的資料庫：
 
-1. 使用具有 Azure Blockchain Workbench 資源**擁有者**權限的帳戶登入 Azure 入口網站。
-2. 在左側導覽窗格中，選取 [資源群組]  。
+1. 使用具有 Azure Blockchain Workbench**資源擁有者許可權的**帳戶登入 Azure 入口網站。
+2. 在左側導覽窗格中，選取 [資源群組]。
 3. 為 Blockchain Workbench 部署選擇資源群組的名稱。
-4. 選取 [類型]  排序資源清單，然後選擇您的 **SQL 伺服器**。
+4. 選取 [類型] 排序資源清單，然後選擇您的 **SQL 伺服器**。
 5. 下列螢幕擷取畫面中的資源清單範例顯示兩個資料庫：*master* 與 *lsgn-sdk*。 您可以在 *lsgn-sdk* 上設定防火牆規則。
 
 ![列出 Blockchain Workbench 資源](./media/database-firewall/list-database-resources.png)
@@ -38,22 +38,22 @@ ms.locfileid: "65510016"
 若要建立防火牆規則：
 
 1. 選擇對 "lsgn-sdk" 資料庫的連結。
-2. 在功能表列上，選取 [設定伺服器防火牆]  。
+2. 在功能表列上，選取 [設定伺服器防火牆]。
 
    ![設定伺服器防火牆](./media/database-firewall/configure-server-firewall.png)
 
 3. 若要為您的組織建立規則：
 
-   * 輸入 [規則名稱] 
-   * 輸入位址範圍其 [起始 IP]  的 IP 位址
-   * 輸入位址範圍其 [結束 IP]  的 IP 位址
+   * 輸入 [規則名稱]
+   * 輸入位址範圍其 [起始 IP] 的 IP 位址
+   * 輸入位址範圍其 [結束 IP] 的 IP 位址
 
    ![建立防火牆規則](./media/database-firewall/create-firewall-rule.png)
 
     > [!NOTE]
-    > 如果您只想要新增您電腦的 IP 位址，請選擇 [+ 新增用戶端 IP]  。
+    > 如果您只想要新增您電腦的 IP 位址，請選擇 [+ 新增用戶端 IP]。
         
-1. 若要儲存您的防火牆設定，請選取 [儲存]  。
+1. 若要儲存您的防火牆設定，請選取 [儲存]。
 2. 透過從應用程式或工具連線，測試您為資料庫設定的 IP 位址範圍。 例如，SQL Server Management Studio。
 
 ## <a name="next-steps"></a>後續步驟
