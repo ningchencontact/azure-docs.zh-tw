@@ -80,8 +80,8 @@
       href: backup-azure-backup-server-import-export-.md
     - name: 取代磁帶媒體櫃
       href: backup-azure-backup-cloud-as-tape.md
-    - name: Azure 常見安全性屬性
-      href: backup-security-attributes.md
+    - name: 內建安全性控制
+      href: backup-security-controls.md
 - name: 作法
   items:
     - name: Azure 備份伺服器

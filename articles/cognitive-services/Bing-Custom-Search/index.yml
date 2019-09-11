@@ -6,14 +6,14 @@ metadata:
   titleSuffix: Azure Cognitive Services
   description: 了解如何使用 Bing 自訂搜尋入口網站和 API 來建立自訂搜尋體驗
   services: cognitive-services
-  author: v-deken
+  author: aahill
   manager: nitinme
   layout: LandingPage
   ms.service: cognitive-services
   ms.subservice: bing-custom-search
   ms.topic: landing-page
   ms.date: 07/25/2019
-  ms.author: v-deken
+  ms.author: aahill
 abstract:
   description: 使用 Bing 自訂搜尋 API 來建立您關心的各個主題之搜尋執行個體。 指定要搜尋的網域和網頁並調整搜尋排名，以完全自訂您的搜尋體驗。
 sections:

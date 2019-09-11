@@ -8,13 +8,13 @@
     - name: 選擇 Blob、檔案或磁碟
       href: ./common/storage-decide-blobs-files-disks.md
 - name: Blob
-  href: ./blobs/storage-blobs-overview.md
+  href: ./blobs/index.yml
 - name: Data Lake Storage Gen2
-  href: ./blobs/data-lake-storage-introduction.md
+  href: ./blobs/index.yml
 - name: 檔案
-  href: ./files/storage-files-introduction.md
+  href: ./files/index.yml
 - name: 佇列
-  href: ./queues/storage-queues-introduction.md
+  href: ./queues/index.yml
 - name: 資料表
   href: ./tables/table-storage-overview.md
 - name: 磁碟

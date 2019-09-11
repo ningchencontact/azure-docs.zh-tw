@@ -7,12 +7,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 04/18/2018
-ms.openlocfilehash: af26bcee08ded8eb66d640f954113be3e7672e1b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 4f40a625b10243ca13163e549a51a760cf105917
+ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64709131"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70900439"
 ---
 # <a name="how-to-configure-apache-kafka-on-hdinsight-to-automatically-create-topics"></a>如何將 HDInsight 上的 Apache Kafka 設定為自動建立主題
 
@@ -24,11 +24,11 @@ ms.locfileid: "64709131"
 
 1. 從 [Azure 入口網站](https://portal.azure.com)，選取 Kafka 叢集。
 
-2. 從 [叢集概觀]  ，選取 [叢集儀表板]  。 
+2. 從 [叢集概觀]，選取 [叢集儀表板]。 
 
     ![已選取叢集儀表板的入口網站影像](./media/apache-kafka-auto-create-topics/kafka-cluster-overview.png)
 
-3. 然後選取 [HDInsight 叢集儀表板]  。 出現提示時，使用叢集的登入 (系統管理員) 認證進行驗證。
+3. 然後選取 [HDInsight 叢集儀表板]。 出現提示時，使用叢集的登入 (系統管理員) 認證進行驗證。
 
     ![HDInsight 叢集儀表板項目的影像](./media/apache-kafka-auto-create-topics/hdinsight-cluster-dashboard.png)
 
@@ -42,7 +42,7 @@ ms.locfileid: "64709131"
 
 5. 在 [篩選] 欄位中，輸入 `auto.create` 的值。 
 
-    ![篩選欄位的影像](./media/apache-kafka-auto-create-topics/filter.png)
+    ![篩選欄位的影像](./media/apache-kafka-auto-create-topics/hdinsight-filter-field.png)
 
     這會篩選屬性清單並顯示 `auto.create.topics.enable` 設定。
 
@@ -50,7 +50,7 @@ ms.locfileid: "64709131"
 
     ![auto.create.topics.enable 項目的影像](./media/apache-kafka-auto-create-topics/auto-create-topics-enable.png)
 
-7. 依序選取 [Kafka] 服務、[重新啟動]  和 [重新啟動所有受影響的]  。 出現提示時，選取 [確認全部重新啟動]  。
+7. 依序選取 [Kafka] 服務、[重新啟動] 和 [重新啟動所有受影響的]。 出現提示時，選取 [確認全部重新啟動]。
 
     ![重新啟動選取項目的影像](./media/apache-kafka-auto-create-topics/restart-all-affected.png)
 

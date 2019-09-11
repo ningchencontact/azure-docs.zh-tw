@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 02/28/2019
 ms.author: zarhoads
-ms.openlocfilehash: c25bc316a345404c759b346b4fb877de42ee4d13
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 4fc34ed5cdd53977aa20bef84200ba2bf5386979
+ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68561553"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70899481"
 ---
 # <a name="scaling-options-for-applications-in-azure-kubernetes-service-aks"></a>在 Azure Kubernetes Service (AKS) 中調整應用程式的選項
 
@@ -29,7 +29,7 @@ ms.locfileid: "68561553"
 
 您可以手動調整複本 (Pod) 及節點，來測試您的應用程式如何回應可用資源和狀態中的變更。 手動調整資源也可讓您定義用來維護固定成本的資源集數量，例如節點的數目。 若要手動調整，您可以定義複本或節點計數，Kubernetes API 則會安排建立其他 Pod 或清空節點。
 
-若要開始手動調整 pod 和節點, 請參閱[在 AKS 中調整應用程式][aks-scale]。
+若要開始手動調整 pod 和節點，請參閱[在 AKS 中調整應用程式][aks-scale]。
 
 ## <a name="horizontal-pod-autoscaler"></a>水平 Pod 自動調整程式
 
@@ -39,19 +39,19 @@ Kubernetes 會使用水平 Pod 自動調整程式 (HPA) 來監視資源需求，
 
 當您針對指定的部署設定水平 Pod 自動調整程式時，需定義可執行複本的最小和最大數目。 您也會根據任何調整決策定義要監視的計量，例如 CPU 使用量。
 
-若要開始使用 AKS 中的水準 pod 自動調整程式, 請參閱[AKS 中的自動][aks-hpa]調整 pod。
+若要開始使用 AKS 中的水準 pod 自動調整程式，請參閱[AKS 中的自動][aks-hpa]調整 pod。
 
 ### <a name="cooldown-of-scaling-events"></a>調整事件中的冷卻時間
 
 因為水平 Pod 自動調整程式每隔 30 秒會檢查計量 API，因此在進行另一項檢查之前，先前的調整事件可能尚未成功完成。 此行為可能會造成水平 Pod 自動調整程式需先變更複本的數目，才能讓先前調整事件接收應用程式工作負載和資源需求，來據以調整。
 
-若要將這些競爭事件降至最低, 請設定 cooldown 或 delay 值。 這些值會定義水平 Pod 自動調整程式在調整事件之後，必須等待多久時間，才可以觸發另一個調整事件。 此行為可讓新的複本計數生效，並讓計量 API 反映分散式工作負載。 根據預設，相應增加事件的延遲為 3 分鐘，而相應減少事件的延遲為 5 分鐘
+若要將這些競爭事件降至最低，請設定 cooldown 或 delay 值。 這些值會定義水平 Pod 自動調整程式在調整事件之後，必須等待多久時間，才可以觸發另一個調整事件。 此行為可讓新的複本計數生效，並讓計量 API 反映分散式工作負載。 根據預設，相應增加事件的延遲為 3 分鐘，而相應減少事件的延遲為 5 分鐘
 
-目前, 您無法從預設調整這些 cooldown 值。
+目前，您無法從預設調整這些 cooldown 值。
 
 ## <a name="cluster-autoscaler"></a>叢集自動調整程式
 
-為了回應變更的 pod 需求, Kubernetes 具有叢集自動調整程式 (目前在 AKS 中為預覽狀態), 可根據節點集區中要求的計算資源來調整節點數目。 根據預設，叢集自動調整程式每隔 10 秒會檢查 API 伺服器，找出節點計數中任何必要的變更。 如果叢集自動調整判斷需要變更，則您 AKS 叢集中的節點數目會據以增加或減少。 叢集自動調整程式會使用已啟用 RBAC 功能且執行 Kubernetes 1.10.x 或更高版本的 AKS 叢集。
+為了回應變更的 pod 需求，Kubernetes 具有叢集自動調整程式（目前在 AKS 中為預覽狀態），可根據節點集區中要求的計算資源來調整節點數目。 根據預設，叢集自動調整程式會每隔10秒檢查一次計量 API 伺服器，以取得節點計數中的任何必要變更。 如果叢集自動調整判斷需要變更，則您 AKS 叢集中的節點數目會據以增加或減少。 叢集自動調整程式會使用已啟用 RBAC 功能且執行 Kubernetes 1.10.x 或更高版本的 AKS 叢集。
 
 ![Kubernetes 叢集自動調整程式](media/concepts-scale/cluster-autoscaler.png)
 
@@ -59,7 +59,7 @@ Kubernetes 會使用水平 Pod 自動調整程式 (HPA) 來監視資源需求，
 
 叢集自動調整程式只能在 AKS 叢集的預覽中進行測試。
 
-若要開始在 AKS 中使用叢集自動調整程式, 請參閱[AKS 上][aks-cluster-autoscaler]的叢集自動調整程式。
+若要開始在 AKS 中使用叢集自動調整程式，請參閱[AKS 上][aks-cluster-autoscaler]的叢集自動調整程式。
 
 ### <a name="scale-up-events"></a>相應增加事件
 
@@ -91,7 +91,7 @@ ACI 可讓您快速部署容器執行個體，不需要額外的基礎結構成�
 
 ## <a name="next-steps"></a>後續步驟
 
-若要開始調整應用程式, 請先遵循[快速入門, 使用 Azure CLI 建立 AKS][aks-quickstart]叢集。 接著，您可以在 AKS 叢集中開始手動或自動調整應用程式：
+若要開始調整應用程式，請先遵循[快速入門，使用 Azure CLI 建立 AKS][aks-quickstart]叢集。 接著，您可以在 AKS 叢集中開始手動或自動調整應用程式：
 
 - 手動調整 [pod][aks-manually-scale-pods] 或[節點][aks-manually-scale-nodes]
 - 使用[水準 pod 自動調整程式][aks-hpa]

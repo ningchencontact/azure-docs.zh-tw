@@ -8,18 +8,18 @@ ms.service: log-analytics
 ms.topic: conceptual
 ms.date: 07/19/2019
 ms.author: bwren
-ms.openlocfilehash: cf2aee475f5d3933421de45fa5b2ade687bed62f
-ms.sourcegitcommit: e72073911f7635cdae6b75066b0a88ce00b9053b
+ms.openlocfilehash: 18e6e162764ce190a1953a4126e4f9ef2eb717f5
+ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68348078"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70899523"
 ---
 # <a name="get-started-with-log-analytics-in-azure-monitor"></a>在 Azure 監視器中開始使用 Log Analytics
 
 [!INCLUDE [log-analytics-demo-environment](../../../includes/log-analytics-demo-environment.md)]
 
-在本教學課程中, 您將瞭解如何使用 Azure 入口網站中的 Log Analytics 來撰寫 Azure 監視器記錄查詢。 它會告訴您如何：
+在本教學課程中，您將瞭解如何使用 Azure 入口網站中的 Log Analytics 來撰寫 Azure 監視器記錄查詢。 它會告訴您如何：
 
 - 使用 Log Analytics 撰寫簡單查詢
 - 了解資料的結構描述
@@ -29,8 +29,8 @@ ms.locfileid: "68348078"
 - 儲存及載入查詢
 - 匯出及共用查詢
 
-如需撰寫記錄查詢的教學課程, 請參閱[開始使用 Azure 監視器中的記錄查詢](get-started-queries.md)。<br>
-如需記錄查詢的詳細資訊, 請參閱[Azure 監視器中的記錄查詢總覽](log-query-overview.md)。
+如需撰寫記錄查詢的教學課程，請參閱[開始使用 Azure 監視器中的記錄查詢](get-started-queries.md)。<br>
+如需記錄查詢的詳細資訊，請參閱[Azure 監視器中的記錄查詢總覽](log-query-overview.md)。
 
 ## <a name="meet-log-analytics"></a>符合 Log Analytics
 Log Analytics 是用來撰寫和執行 Azure 監視器記錄查詢的 web 工具。 從「Azure 監視器」功能表中選取 [記錄]，即可開啟它。 它會從新的空白查詢來開始。
@@ -38,7 +38,7 @@ Log Analytics 是用來撰寫和執行 Azure 監視器記錄查詢的 web 工具
 ![首頁](media/get-started-portal/homepage.png)
 
 ## <a name="firewall-requirements"></a>防火牆需求
-若要使用 Log Analytics, 您的瀏覽器需要存取下列位址。 如果您的瀏覽器要透過防火牆存取 Azure 入口網站，則必須啟用這些位址的存取。
+若要使用 Log Analytics，您的瀏覽器需要存取下列位址。 如果您的瀏覽器要透過防火牆存取 Azure 入口網站，則必須啟用這些位址的存取。
 
 | URI | IP | 連接埠 |
 |:---|:---|:---|
@@ -55,7 +55,7 @@ Event | search "error"
 
 此查詢會在_事件_資料表中搜尋包含任何屬性中之詞彙_錯誤_的記錄。
 
-查詢可以透過資料表名稱或 [search](/azure/kusto/query/searchoperator) 命令來開始。 上述範例會從「資料表名稱」_事件_開始, 它會從事件資料表中抓取所有記錄。 分隔號 (|) 字元會分隔命令, 因此第一個命令的輸出會作為下列命令的輸入。 您可以在單一查詢中新增任意數目的命令。
+查詢可以透過資料表名稱或 [search](/azure/kusto/query/searchoperator) 命令來開始。 上述範例會從「資料表名稱」_事件_開始，它會從事件資料表中抓取所有記錄。 分隔號（|）字元會分隔命令，因此第一個命令的輸出會作為下列命令的輸入。 您可以在單一查詢中新增任意數目的命令。
 
 另一種撰寫該相同查詢的方式會是：
 
@@ -63,7 +63,7 @@ Event | search "error"
 search in (Event) "error"
 ```
 
-在此範例中,**搜尋**的範圍設定為_事件_資料表, 而且會搜尋該資料表中的所有記錄是否有「詞彙_錯誤_」。
+在此範例中，**搜尋**的範圍設定為_事件_資料表，而且會搜尋該資料表中的所有記錄是否有「詞彙_錯誤_」。
 
 ## <a name="running-a-query"></a>執行查詢
 按一下 [執行] 按鈕或按 **Shift+Enter**，即可執行查詢。 請考慮下列詳細資料，以決定要執行的程式碼和傳回的資料：
@@ -74,7 +74,7 @@ search in (Event) "error"
 
 
 ## <a name="understand-the-schema"></a>了解結構描述
-結構描述會將以視覺化方式分組在邏輯類別之下的資料表集合起來。 有幾個類別來自監視解決方案。 _LogManagement_類別包含一般資料, 例如 Windows 和 Syslog 事件、效能資料, 以及代理程式心跳。
+結構描述會將以視覺化方式分組在邏輯類別之下的資料表集合起來。 有幾個類別來自監視解決方案。 _LogManagement_類別包含一般資料，例如 Windows 和 Syslog 事件、效能資料，以及代理程式心跳。
 
 ![架構](media/get-started-portal/schema.png)
 
@@ -87,9 +87,9 @@ search in (Event) "error"
 Event
 ```
 
-Log Analytics 會依下列方式自動限制結果的範圍:
+Log Analytics 會依下列方式自動限制結果的範圍：
 
-- 時間範圍:根據預設，系統會將查詢限制在過去 24 小時。
+- 時間範圍：根據預設，系統會將查詢限制在過去 24 小時。
 - 結果數：結果數上限為 10,000 筆記錄。
 
 這是一般查詢，會傳回太多結果，所以並不實用。 您可以透過資料表元素來篩選結果，也可以明確地對查詢新增篩選來篩選結果。 透過資料表元素來篩選結果適用於現有結果集，而針對查詢本身的篩選則會傳回新的篩選結果集，並可能因此產生更精確的結果。
@@ -125,7 +125,7 @@ Log Analytics 會依下列方式自動限制結果的範圍:
 
 
 ## <a name="select-a-time-range"></a>選取時間範圍
-根據預設, Log Analytics 會套用_過去24小時_的時間範圍。 若要使用不同範圍，請透過時間選擇器來選取另一個值，然後按一下 [執行]。 除了預設值外，您也可以使用 [自訂時間範圍] 選項，來選取查詢的絕對範圍。
+根據預設，Log Analytics 會套用_過去24小時_的時間範圍。 若要使用不同範圍，請透過時間選擇器來選取另一個值，然後按一下 [執行]。 除了預設值外，您也可以使用 [自訂時間範圍] 選項，來選取查詢的絕對範圍。
 
 ![時間選擇器](media/get-started-portal/time-picker.png)
 
@@ -162,7 +162,7 @@ Event
 ![智慧型診斷](media/get-started-portal/smart-diagnostics.png)
 
 ## <a name="pin-to-dashboard"></a>釘選到儀表板
-若要將圖表或資料表釘選至其中一個共用的 Azure 儀表板，請按一下 [釘選] 圖示。
+若要將圖表或資料表釘選至其中一個共用的 Azure 儀表板，請按一下 [釘選] 圖示。 請注意，此圖示已移至 [Log Analytics] 視窗頂端，與下列螢幕擷取畫面不同。
 
 ![釘選到儀表板](media/get-started-portal/pin-dashboard.png)
 
@@ -180,7 +180,7 @@ Event
 ![儲存函式](media/get-started-portal/save-function.png)
 
 >[!NOTE]
->支援下列字元- `a–z, A–Z, 0-9, -, _, ., <space>, (, ), |`儲存或編輯已儲存的查詢時, 在 [**名稱**] 欄位中。
+>支援下列字元- `a–z, A–Z, 0-9, -, _, ., <space>, (, ), |`儲存或編輯已儲存的查詢時，在 [**名稱**] 欄位中。
 
 Log Analytics 查詢一律會儲存至選取的工作區中，並與該工作區的其他使用者共用。
 
@@ -190,7 +190,7 @@ Log Analytics 查詢一律會儲存至選取的工作區中，並與該工作區
 ![查詢總管](media/get-started-portal/query-explorer.png)
 
 ## <a name="export-and-share-as-link"></a>以連結形式匯出及共用
-Log Analytics 支援數種匯出方法:
+Log Analytics 支援數種匯出方法：
 
 - Excel：將結果儲存為 CSV 檔案。
 - Power BI：將結果匯出至 Power BI。 如需詳細資料，請參閱[將 Azure 監視器記錄資料匯入至 Power BI](../../azure-monitor/platform/powerbi.md)。

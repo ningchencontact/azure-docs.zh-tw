@@ -1,0 +1,52 @@
+---
+title: 大量下載群組成員資格清單-Azure Active Directory 入口網站 |Microsoft Docs
+description: 在 Azure 系統管理中心內大量新增使用者。
+services: active-directory
+author: curtand
+ms.author: curtand
+manager: mtillman
+ms.date: 09/11/2019
+ms.topic: conceptual
+ms.service: active-directory
+ms.subservice: users-groups-roles
+ms.workload: identity
+ms.custom: it-pro
+ms.reviewer: jeffsta
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 34f00a2c7425ec15ec29a5d3b40c7e2b41750e05
+ms.sourcegitcommit: d70c74e11fa95f70077620b4613bb35d9bf78484
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70910955"
+---
+# <a name="bulk-download-members-of-a-group-preview-in-azure-active-directory"></a>在 Azure Active Directory 中大量下載群組的成員（預覽）
+
+使用 Azure Active Directory （Azure AD）入口網站，您可以將組織中群組的成員大量下載至逗號分隔值（CSV）檔案。
+
+> [!NOTE]
+> Azure AD 大量作業是 Azure AD 的公開預覽功能，適用于任何付費 Azure AD 授權方案。 如需預覽使用詞彙的詳細資訊，請參閱[Microsoft Azure 預覽的補充使用](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)規定。
+
+## <a name="bulk-download-service-limits"></a>大量下載服務限制
+
+建立群組成員清單的每個大量活動最多可執行一小時。 這可讓您建立及下載至少500000個成員的清單。
+
+## <a name="to-bulk-download-group-membership"></a>大量下載群組成員資格
+
+1. 使用組織中的使用者系統管理員帳戶登入[Azure 入口網站](https://portal.azure.com)。 群組擁有者也可以大量下載他們所擁有的群組成員。
+1. 在 Azure AD 中，選取 [**群組** > ] [**所有群組**]。
+1. 開啟您想要下載其成員資格的群組，然後選取 [**成員**]。
+1. 在 [**成員**] 頁面上，選取 [**下載成員**] 以下載列出群組成員的 CSV 檔案。
+
+   ![[下載成員] 命令位於群組的 [設定檔] 頁面](./media/groups-bulk-download-members/download-panel.png)
+
+## <a name="check-download-status"></a>檢查下載狀態
+
+您可以在 [**大量作業結果（預覽）** ] 頁面中查看所有擱置大量要求的狀態。
+
+   ![[大量作業結果] 頁面會顯示大量要求狀態](./media/groups-bulk-download-members/bulk-center.png)
+
+## <a name="next-steps"></a>後續步驟
+
+- [大量匯入群組成員](groups-bulk-import-members.md)
+- [大容量移除群組成員](groups-bulk-download-members.md)

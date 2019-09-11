@@ -6,12 +6,12 @@ ms.author: jasonh
 ms.service: data-catalog
 ms.topic: conceptual
 ms.date: 08/01/2019
-ms.openlocfilehash: 754e967a1be0b00f7ce7448744ec90690fd9f0c3
-ms.sourcegitcommit: c662440cf854139b72c998f854a0b9adcd7158bb
+ms.openlocfilehash: 2e286854b9a38c1189ff85307f3e29454be46fb9
+ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/02/2019
-ms.locfileid: "68736416"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70898725"
 ---
 # <a name="azure-data-catalog-frequently-asked-questions"></a>Azure 資料目錄的常見問題集
 這篇文章提供與 Azure 資料目錄服務相關的常見問題集解答。
@@ -25,10 +25,10 @@ ms.locfileid: "68736416"
 ## <a name="what-are-its-target-audiences"></a>其目標對象為何？
 資料目錄的設計目標為技術性和非技術性使用者，包括：
 
-* 資料開發人員和 BI 和分析專業人員:負責產生資料和分析內容供其他人使用的人員。
-* 資料負責人:具有資料相關知識的人員、其意義, 以及其使用方式。
-* 資料取用者:需要能夠使用選擇的工具, 輕鬆地探索、瞭解及連線到其工作所需之資料的人員。
-* 中央 IT:需要讓商務使用者能夠探索數百個數據源, 以及需要維護資料使用方式及由誰進行監督的人員。
+* 資料開發人員和 BI 和分析專業人員：負責產生資料和分析內容供其他人使用的人員。
+* 資料負責人：具有資料相關知識的人員、其意義，以及其使用方式。
+* 資料取用者：需要能夠使用選擇的工具，輕鬆地探索、瞭解及連線到其工作所需之資料的人員。
+* 中央 IT：需要讓商務使用者能夠探索數百個數據源，以及需要維護資料使用方式及由誰進行監督的人員。
 
 ## <a name="what-is-its-availability-by-region"></a>其依區域的可用性為何？
 目前只有下列資料中心提供資料目錄服務：
@@ -52,6 +52,15 @@ ms.locfileid: "68736416"
 
 ## <a name="how-do-i-request-support-for-another-data-source"></a>如何要求另一個資料來源的支援？
 若要提交功能要求與其他意見，請前往 [Azure 意見論壇 - 資料目錄](https://feedback.azure.com/forums/906052-data-catalog/category/320788-data-sources)。
+
+## <a name="why-do-i-get-an-error-catalog-already-exists-when-i-try-to-create-a-new-catalog"></a>當我嘗試建立新的類別目錄時，為什麼會收到錯誤*目錄*？
+
+當您購買具有 Power BI Pro 授權的 Office 365 E5 時，Microsoft 會自動在訂用帳戶的區域中建立預設目錄。 此目錄使用免費的 SKU。 Office 365/Power BI 使用者授權是在 Office 365 管理頁面中進行管理。 
+
+不過，這種類型的資料目錄並沒有**系統管理員選項**，而且在**Azure 入口網站**中看不到。 您無法刪除這種類型的資料目錄。 同樣地，您不能重新命名資料目錄，也無法將它移至另一個區域。 
+
+指派 Power BI Pro 授權的使用者帳戶，會在使用 Power BI Pro 授權註冊 Office 365 E5 時，自動擁有資料目錄的存取權。 這種類型的使用者在沒有系統管理許可權的情況下，具有資料目錄資產的完整存取權。 這種類型的使用者*不*是 Azure 資料目錄中**目錄使用者**角色的一部分。
+
 
 ## <a name="how-do-i-get-started-with-data-catalog"></a>如何開始使用資料目錄？
 開始使用的最佳方式是前往[開始使用資料目錄](data-catalog-get-started.md)。 本文是服務中各項功能的端對端概觀。

@@ -131,8 +131,8 @@
           href: service-fabric-application-and-service-security.md
         - name: Service Fabric 叢集安全性
           href: service-fabric-cluster-security.md
-        - name: Azure 常見安全性屬性
-          href: service-fabric-security-attributes.md
+        - name: 內建安全性控制
+          href: service-fabric-security-controls.md
     - name: 術語
       href: service-fabric-technical-overview.md
     - name: 建置應用程式

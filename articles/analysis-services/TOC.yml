@@ -29,7 +29,7 @@
     - name: 用戶端程式庫
       href: analysis-services-data-providers.md
     - name: 相容性層級
-      href: analysis-services-compat-level.md
+      href: 'https://docs.microsoft.com/analysis-services/tabular-models/compatibility-level-for-tabular-models-in-analysis-services'
     - name: 連線至內部部署資料來源
       href: analysis-services-gateway.md
     - name: 連線至伺服器

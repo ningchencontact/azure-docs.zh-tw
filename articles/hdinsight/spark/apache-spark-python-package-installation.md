@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 04/22/2019
-ms.openlocfilehash: da871a1fed0663c5654ebcfd61f4189bf2267026
-ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
+ms.openlocfilehash: ce5dc7e17020e1e4564ebe1f531645f7329718dc
+ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70814058"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70900704"
 ---
 # <a name="script-action-to-install-external-python-packages-for-jupyter-notebooks-in-apache-spark-on-hdinsight"></a>在 Apache Spark on HDInsight 上安裝適用于 Jupyter 筆記本之外部 Python 套件的腳本動作
 
@@ -97,7 +97,7 @@ HDInsight 服務中有兩種類型的開放原始碼元件可用：
 
     結果如下所示：
     
-    ![TensorFlow 程式碼執行](./media/apache-spark-python-package-installation/execution.png "執行 TensorFlow 程式碼")
+    ![TensorFlow 程式碼執行](./media/apache-spark-python-package-installation/tensorflow-execution.png "執行 TensorFlow 程式碼")
 
 > [!NOTE]  
 > 叢集中有兩個 Python 安裝。 Spark 會使用位於 `/usr/bin/anaconda/bin` 的 Anaconda Python 安裝，並且會預設為 Python 2.7 環境。 若要使用 Python 3.x 並安裝 PySpark3 核心中的套件，請使用該環境的 `conda` 可執行檔路徑，並使用 `-n` 參數來指定環境。 例如，`/usr/bin/anaconda/envs/py35/bin/conda install -c conda-forge ggplot -n py35` 命令會使用 `conda-forge` 通道將 `ggplot` 套件安裝至 Python 3.5 環境。

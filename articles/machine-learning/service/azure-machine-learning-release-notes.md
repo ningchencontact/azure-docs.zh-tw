@@ -10,12 +10,12 @@ ms.author: jmartens
 author: j-martens
 ms.date: 08/19/2019
 ms.custom: seodec18
-ms.openlocfilehash: 6aca340994f10bd546a25e577258d90d7b7b1368
-ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
+ms.openlocfilehash: 48da5e27184076676edb3f3b89b478bcf2fe347f
+ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70860934"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70900458"
 ---
 # <a name="azure-machine-learning-service-release-notes"></a>Azure Machine Learning 服務版本資訊
 
@@ -34,7 +34,7 @@ ms.locfileid: "70860934"
 
 使用這個新的 Azure Machine Learning 介面，您現在可以：
 + 管理您的筆記本或連結至 Jupyter
-+ 執行自動化 ML 實驗
++ [執行自動化 ML 實驗](tutorial-first-experiment-automated-ml.md)
 + [從本機檔案、資料存放區 & web 檔案建立資料集](how-to-create-register-datasets.md)
 + 探索 & 準備模型建立的資料集
 + 監視模型的資料漂移 

@@ -770,8 +770,6 @@
                   href: log-query/get-started-portal.md
                 - name: 記錄查詢教學課程
                   href: log-query/get-started-queries.md
-                - name: 簡單記錄體驗
-                  href: log-query/simple-logs.md
             - name: 記錄資料
               items:
                 - name: 記錄資料結構
@@ -1037,8 +1035,6 @@
               href: insights/solutions-resources-views.md
             - name: 最佳作法
               href: insights/solutions-best-practices.md
-            - name: 從 Runbook 收集監視資料
-              href: platform/runbook-datacollect.md
 - name: 參考
   items:
     - name: 服務限制

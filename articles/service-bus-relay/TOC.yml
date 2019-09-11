@@ -36,8 +36,8 @@
       href: relay-authentication-and-authorization.md
     - name: 混合式連線通訊協定
       href: relay-hybrid-connections-protocol.md
-    - name: Azure 常見安全性屬性
-      href: service-bus-relay-security-attributes.md
+    - name: 內建安全性控制
+      href: service-bus-relay-security-controls.md
 - name: 作法
   items:
     - name: 規劃和設計

@@ -163,8 +163,8 @@
           maintainContext: true
     - name: 擴展集常見問題
       href: virtual-machine-scale-sets-faq.md
-    - name: 安全性屬性
-      href: virtual-machine-scale-sets-security-attributes.md
+    - name: 內建安全性控制
+      href: virtual-machine-scale-sets-security-controls.md
 - name: 作法
   items:
     - name: 規劃和設計

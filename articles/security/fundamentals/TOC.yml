@@ -321,8 +321,8 @@
   href: best-practices-and-patterns.md
 - name: 資源
   items:
-    - name: 常見安全性屬性
-      href: common-security-attributes.md
+    - name: 內建安全性控制
+      href: security-controls.md
     - name: Azure 安全性 MVP 計畫
       href: mvp.md
     - name: 網路安全性諮詢
