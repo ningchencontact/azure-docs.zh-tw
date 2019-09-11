@@ -346,6 +346,10 @@
       items:
         - name: 撰寫屬性對應的運算式
           href: functions-for-customizing-application-data.md
+    - name: Azure AD Connect 佈建代理程式
+      items:
+        - name: 佈建代理程式版本記錄
+          href: provisioning-agent-release-version-history.md
     - name: 適用於內部部屬應用程式的 Application Proxy
       items:
         - name: 應用程式 Proxy 版本記錄

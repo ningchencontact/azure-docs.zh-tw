@@ -21,7 +21,7 @@
       href: tutorial-configure-password-hash-sync.md
 - name: 範例
   items:
-    - name: 使用 Azure PowerShell 來建立 Azure AD DS 執行個體
+    - name: 使用 Azure PowerShell 建立受控網域
       href: powershell-create-instance.md
 - name: 概念
   items:

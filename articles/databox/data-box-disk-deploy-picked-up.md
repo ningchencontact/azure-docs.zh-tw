@@ -6,16 +6,16 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: tutorial
-ms.date: 09/03/2019
-ms.localizationpriority: high
+ms.date: 09/05/2019
 ms.author: alkohli
+ms.localizationpriority: high
 Customer intent: As an IT admin, I need to be able to order Data Box Disk to upload on-premises data from my server onto Azure.
-ms.openlocfilehash: aab97257ff2e917dc264017043d3ca11a2ced1fc
-ms.sourcegitcommit: 6794fb51b58d2a7eb6475c9456d55eb1267f8d40
+ms.openlocfilehash: b982e0bcd87a60e29b11c7123fbe5d675ab017b3
+ms.sourcegitcommit: 88ae4396fec7ea56011f896a7c7c79af867c90a1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70240201"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70390414"
 ---
 ::: zone target="chromeless"
 
@@ -85,12 +85,9 @@ ms.locfileid: "70240201"
 
 澳洲的 Azure 資料中心有額外的安全性通知。 所有送達的貨物都必須有預先通知。 在澳洲收取可執行下列步驟。
 
-1. 寄送電子郵件給 `adbops@microsoft.com`，要求具有唯一到貨識別碼或 TAU 代碼的出貨標籤。 至少在計劃出貨日期的 3 天前提出要求，以便及時取得標籤。
-2. 電子郵件主旨應該是：*Request for reverse shipping label with TAU code*。 務必在電子郵件中包含下列詳細資料： 
-
-    - 訂單名稱
-    - 位址
-    - 連絡人姓名
+1. 使用提供的退貨標籤，且務必在上面寫下 TAU 代碼 (參考編號)。 若提供的出貨標籤遺失或有其他問題，請寄電子郵件到[資料箱亞洲營運部門](mailto:adbo@microsoft.com)詢問。 請在主旨標題中提供訂單名稱，並詳細說明問題。
+3. 將標籤黏貼在箱子上。 
+4. 按此連結 https://mydhl.express.dhl/au/en/schedule-pickup.html#/schedule-pickup#label-reference 線上預約取貨服務。 
 
 ### <a name="pick-up-in-asia"></a>亞洲取貨
 

@@ -10,12 +10,12 @@ ms.date: 09/04/2019
 ms.author: alkohli
 ms.localizationpriority: high
 Customer intent: As an IT admin, I need to be able to order Data Box Disk to upload on-premises data from my server onto Azure.
-ms.openlocfilehash: a0c43a43525b208927cc3512872e7f79fddab217
-ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
+ms.openlocfilehash: 91baec55cb976a3bc64ac60b1759c80e64fd18a3
+ms.sourcegitcommit: 49c4b9c797c09c92632d7cedfec0ac1cf783631b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70307173"
+ms.lasthandoff: 09/05/2019
+ms.locfileid: "70375892"
 ---
 ::: zone target="docs"
 
@@ -314,9 +314,7 @@ ms.locfileid: "70307173"
 
 將磁碟解除鎖定之後，您就可以檢視磁碟的內容。
 
-如需有關如何設定磁碟的詳細資訊，請前往[打開資料箱磁碟的包裝](https://docs.microsoft.com/azure/databox/data-box-disk-deploy-set-up?context=context/chromeless&linktarget=new)。
-
-如需如何將磁碟解除鎖定的詳細資訊，請參閱[在 Windows 用戶端上解除鎖定資料箱磁碟](https://docs.microsoft.com/azure/databox/data-box-disk-deploy-set-up?context=context/chromeless&fromOrigin=https://ms.azure.com&linktarget=new)。
+如需有關如何設定及解除鎖定磁碟的詳細資訊，請前往[設定資料箱磁碟](data-box-disk-deploy-set-up.md)。
 
 ::: zone-end
 

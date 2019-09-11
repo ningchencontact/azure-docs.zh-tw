@@ -205,6 +205,8 @@
                       href: msal-net-system-browser-android-considerations.md
                     - name: Xamarin iOS
                       href: msal-net-xamarin-ios-considerations.md
+                    - name: 搭配 Xamarin iOS 和 Android 應用程式使用訊息代理程式
+                      href: msal-net-use-brokers-with-xamarin-apps.md
                     - name: 通用 Windows 平台
                       href: msal-net-uwp-considerations.md
                 - name: 取得應用程式的權杖
@@ -225,6 +227,8 @@
                   href: msal-net-migration.md
                 - name: 遷移至 MSAL.js
                   href: msal-compare-msal-js-and-adal-js.md
+                - name: 使用訊息代理程式將 Xamarin 應用程式遷移到 MSAL.NET
+                  href: msal-net-migration-ios-broker.md
             - name: 支援的驗證流程
               href: msal-authentication-flows.md
             - name: 取得和快取權杖

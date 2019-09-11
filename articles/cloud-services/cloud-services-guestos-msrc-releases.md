@@ -10,14 +10,14 @@ ms.service: cloud-services
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 8/19/2019
+ms.date: 9/4/2019
 ms.author: raiye
-ms.openlocfilehash: c27438dbbeffc0837c3d71d9bb532803655538b8
-ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
+ms.openlocfilehash: 71febe6544a4f53215ec4dbee2bcef86bda23386
+ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69637539"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70275514"
 ---
 # <a name="azure-guest-os"></a>Azure 客體作業系統
 下表為適用於 Azure 客體作業系統的 Microsoft Security Response Center (MSRC) 更新。 請搜尋本文章以判斷特定更新是否適用於您使用的客體作業系統。 針對在中引進的特定[系列][family-explain], 一律會繼續進行更新。
@@ -25,33 +25,30 @@ ms.locfileid: "69637539"
 
 ## <a name="august-2019-guest-os"></a>2019年8月的客體作業系統
 
->[!NOTE]
->8月的客體作業系統目前正推出給已設定自動更新的雲端服務 Vm。 推展完成時，我們會透過 Azure 入口網站和組態檔來提供此版本，以便您可以手動更新。 下列修補套裝程式含在8月的客體作業系統中。 此清單會隨時變動。
-
 | 產品類別 | 上層知識庫文章 | 弱點說明 | 客體作業系統 | 首次引進日期 |
 | --- | --- | --- | --- | --- |
-|  Rel 19-08   |  [4512482]  |  Windows 安全性   |  3.76  |  2019年8月13日  |
-|  Rel 19-08   |  [4494175]  |  微碼更新   |  5.34  |  2019年6月18日  |
-|  Rel 19-08   |  [4512517]  |  最新累計更新   |  5.34  |  2019年8月13日  |
-|  Rel 19-08   |  [4494174]  |  微碼更新   |  6.1  |  2019年6月18日  |
-|  Rel 19-08   |  [4511553]  |  最新累計更新   |  6.1  |  2019年8月13日  |
-|  Rel 19-08   |  [4512486]  |  Windows 安全性   |  2.89  |  2019年8月13日  |
-|  Rel 19-08   |  [4512489]  |  Windows 安全性   |  4.69  |  2019年8月13日  |
-|  Rel 19-08   |  [4511872]  |  Internet Explorer    |  2.89、3.76、4.69  |  2019年8月15日  |
-|  Rel 19-08   |  [4507449]  |  非安全性   |  2.89  |  2019年7月9日  |
-|  Rel 19-08   |  [4507000]  |  .NET 4.5.2 非安全性   |  3.76  |  2019年8月12日  |
-|  Rel 19-08   |  [4507002]  |  .NET 3.5 非安全性   |  3.76  |  2019年8月12日  |
-|  Rel 19-08   |  [4507462]  |  非安全性   |  3.76  |  2019年7月9日  |
-|  Rel 19-08   |  [4506999]  |  .NET 4.5.2 非安全性    |  4.69  |  2019年8月12日  |
-|  Rel 19-08   |  [4507005]  |  .NET 3.5 非安全性    |  4.69  |  2019年8月12日  |
-|  Rel 19-08   |  [4507448]  |  非安全性   |  4.69  |  2019年7月9日  |
-|  Rel 19-08   |  [4509091]  |  服務堆疊更新   |  5.34  |  2019年7月9日  |
-|  Rel 19-08   |  [4509095]  |  服務堆疊更新   |  6.1  |  2019年7月9日  |
-|  Rel 19-08   |  [4512937]  |  服務堆疊更新   |  6.1  |  2019年7月29日  |
-|  Rel 19-08   |  [4507004]  |  .NET 3.5.1 非安全性    |  2.89  |  2019年8月12日  |
-|  Rel 19-08   |  [4504418]  |  服務堆疊更新   |  3.76、4.69  |  2019 年 7 月 11 日  |
-|  Rel 19-08   |  [4507001]  |  .NET 4.5.2 非安全性   |  2.89  |  2019年8月12日  |
-|  Rel 19-08   |  [4507704]  |  適用于巴西和摩洛哥的 Windows DST 設定   |  2.89、3.76、4.69、5.34  |  2019年8月13日  |
+|  Rel 19-08   |  [4512482]  |  Windows 安全性   |  [3.76]  |  2019年8月13日  |
+|  Rel 19-08   |  [4494175]  |  微碼更新   |  [5.34]  |  2019年6月18日  |
+|  Rel 19-08   |  [4512517]  |  最新累計更新   |  [5.34]  |  2019年8月13日  |
+|  Rel 19-08   |  [4494174]  |  微碼更新   |  [6.1]  |  2019年6月18日  |
+|  Rel 19-08   |  [4511553]  |  最新累計更新   |  [6.1]  |  2019年8月13日  |
+|  Rel 19-08   |  [4512486]  |  Windows 安全性   |  [2.89]  |  2019年8月13日  |
+|  Rel 19-08   |  [4512489]  |  Windows 安全性   |  [4.69]  |  2019年8月13日  |
+|  Rel 19-08   |  [4511872]  |  Internet Explorer    |  [2.89]、 [3.76]、 [4.69]  |  2019年8月15日  |
+|  Rel 19-08   |  [4507449]  |  非安全性   |  [2.89]  |  2019年7月9日  |
+|  Rel 19-08   |  [4507000]  |  .NET 4.5.2 非安全性   |  [3.76]  |  2019年8月12日  |
+|  Rel 19-08   |  [4507002]  |  .NET 3.5 非安全性   |  [3.76]  |  2019年8月12日  |
+|  Rel 19-08   |  [4507462]  |  非安全性   |  [3.76]  |  2019年7月9日  |
+|  Rel 19-08   |  [4506999]  |  .NET 4.5.2 非安全性    |  [4.69]  |  2019年8月12日  |
+|  Rel 19-08   |  [4507005]  |  .NET 3.5 非安全性    |  [4.69]  |  2019年8月12日  |
+|  Rel 19-08   |  [4507448]  |  非安全性   |  [4.69]  |  2019年7月9日  |
+|  Rel 19-08   |  [4509091]  |  服務堆疊更新   |  [5.34]  |  2019年7月9日  |
+|  Rel 19-08   |  [4509095]  |  服務堆疊更新   |  [6.1]  |  2019年7月9日  |
+|  Rel 19-08   |  [4512937]  |  服務堆疊更新   |  [6.1]  |  2019年7月29日  |
+|  Rel 19-08   |  [4507004]  |  .NET 3.5.1 非安全性    |  [2.89]  |  2019年8月12日  |
+|  Rel 19-08   |  [4504418]  |  服務堆疊更新   |  [3.76]、 [4.69]  |  2019 年 7 月 11 日  |
+|  Rel 19-08   |  [4507001]  |  .NET 4.5.2 非安全性   |  [2.89]  |  2019年8月12日  |
+|  Rel 19-08   |  [4507704]  |  適用于巴西和摩洛哥的 Windows DST 設定   |  [2.89]、 [3.76]、 [4.69]、 [5.34]  |  2019年8月13日  |
 
 [4512482]: https://support.microsoft.com/kb/4512482
 [4494175]: https://support.microsoft.com/kb/4494175
@@ -75,6 +72,12 @@ ms.locfileid: "69637539"
 [4504418]: https://support.microsoft.com/kb/4504418
 [4507001]: https://support.microsoft.com/kb/4507001
 [4507704]: https://support.microsoft.com/kb/4507704
+
+[6.1]: https://docs.microsoft.com/en-us/azure/cloud-services/cloud-services-guestos-update-matrix#family-6-releases
+[5.34]: https://docs.microsoft.com/en-us/azure/cloud-services/cloud-services-guestos-update-matrix#family-5-releases
+[4.69]: https://docs.microsoft.com/en-us/azure/cloud-services/cloud-services-guestos-update-matrix#family-4-releases
+[3.76]: https://docs.microsoft.com/en-us/azure/cloud-services/cloud-services-guestos-update-matrix#family-3-releases
+[2.89]: https://docs.microsoft.com/en-us/azure/cloud-services/cloud-services-guestos-update-matrix#family-2-releases
 
 
 ## <a name="july-2019-guest-os"></a>2019年7月的客體作業系統

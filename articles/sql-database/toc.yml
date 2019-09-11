@@ -6,6 +6,8 @@
       href: sql-database-technical-overview.md
     - name: 我應該使用哪個 SQL 選項？
       href: sql-database-paas-vs-sql-server-iaas.md
+    - name: 功能比較
+      href: sql-database-features.md
     - name: 版本資訊
       href: sql-database-release-notes.md
     - name: 閘道 IP 移轉更新
@@ -390,10 +392,8 @@
               href: sql-database-advisor.md
     - name: 資料庫功能
       items:
-        - name: SQL Database 功能文件
+        - name: 概觀
           href: sql-database-features-index.yml
-        - name: SQL 功能比較
-          href: sql-database-features.md
         - name: 多模型功能
           href: sql-database-multi-model-features.md
         - name: 記憶體內
@@ -534,6 +534,8 @@
           href: sql-database-managed-instance-connect-app.md
     - name: 載入和移動資料
       items:
+        - name: 還原時間點
+          href: sql-database-managed-instance-point-in-time-restore.md
         - name: 將資源移至新區域
           href: sql-database-move-resources-across-regions.md
         - name: 在 Azure 內複製資料庫

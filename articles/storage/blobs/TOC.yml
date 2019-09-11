@@ -1,5 +1,5 @@
-- name: Azure 儲存體文件
-  href: /azure/storage/
+- name: Azure Blob 儲存體文件
+  href: /azure/storage/blobs/
 - name: 概觀
   expanded: true
   items:

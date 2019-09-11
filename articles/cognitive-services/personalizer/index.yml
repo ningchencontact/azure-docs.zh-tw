@@ -1,61 +1,101 @@
-### YamlMime:YamlDocument
-documentType: LandingData
+### YamlMime:Landing
 title: 個人化工具文件
+summary: 了解如何使用個人化工具，讓您的應用程式選擇最佳體驗來對使用者展現，進而從其即時行為中學習。
 metadata:
-  document_id: null
-  title: 個人化工具 - 教學課程、快速入門、API 參考
-  description: 了解如何使用個人化工具服務，讓您的應用程式選擇最佳體驗來對使用者展現，進而從其即時行為中學習。
+  ms.topic: landing-page
+  ms.date: 09/09/2019
+  ms.author: nitinme
   author: nitinme
-  manager: nitinme
   ms.service: cognitive-services
   ms.subservice: personalizer
-  ms.topic: landing-page
-  ms.date: 05/07/2019
-  ms.author: nitinme
-abstract:
+  services: cognitive-services
+  title: 個人化工具文件
+  titleSuffix: Azure Cognitive Services
   description: Azure 個人化工具是雲端式 API 服務，可讓您選擇最佳體驗來對使用者展現，進而從其即時行為中學習。
-sections:
-  - items:
-      - type: list
-        style: cards
-        className: cardsM
-        columns: 3
-        items:
-          - href: /azure/cognitive-services/personalizer/what-is-personalizer
-            html: <p>了解個人化工具的用途及其使用方式。</p>
-            image:
-              src: ../media/index/i_guidelines.svg
-            title: 什麼是個人化工具？
-          - href: /azure/cognitive-services/personalizer/how-personalizer-works
-            html: <p>了解個人化工具意見反應迴圈搭配排名和回報 API 的運作方式。</p>
-            image:
-              src: ../media/index/i_overview.svg
-            title: 個人化工具的運作方式
-          - href: /azure/cognitive-services/personalizer/ethics-responsible-use
-            html: <p>以為您的公司和服務建立起信任感的方式來實作個人化。</p>
-            image:
-              src: ../media/index/i_guidelines.svg
-            title: 倫理與責任
-  - title: 5 分鐘快速入門
-    items:
-      - type: paragraph
-        text: ''
-      - type: list
-        style: icon48
-        items:
-          - image:
-              src: ../media/index/logo_Csharp.svg
-            href: csharp-quickstart-commandline-feedback-loop.md
-            text: 'C#'
-  - title: 參考
-    items:
-      - type: list
-        style: cards
-        className: cardsD
-        items:
-          - title: REST API
-            html: '<p><a href="https://go.microsoft.com/fwlink/?linkid=2092082"> 個人化工具 API</a></p>'
-          - title: PowerShell
-            html: '<p><a href="https://docs.microsoft.com/powershell/module/az.cognitiveservices/#cognitive_services">Azure PowerShell</a></p>'
-          - title: CLI
-            html: '<p><a href="https://docs.microsoft.com/cli/azure/cognitiveservices?view=azure-cli-latest#az-cognitiveservices-list">Azure CLI</a></p>'
+  ms.openlocfilehash: 7c73472231b563c1efa583e356774f755abea3bf
+  ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
+  ms.translationtype: HT
+  ms.contentlocale: zh-TW
+  ms.lasthandoff: 09/10/2019
+  ms.locfileid: "70845415"
+landingContent:
+- title: 關於個人化工具
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: 什麼是個人化工具？
+      url: what-is-personalizer.md
+  - linkListType: concept
+    links:
+    - text: 個人化工具的運作方式
+      url: how-personalizer-works.md
+    - text: 您可以在哪些地方使用個人化工具？
+      url: where-can-you-use-personalizer.md
+    - text: 倫理與責任使用
+      url: ethics-responsible-use.md
+    - text: 選擇要個人化的功能和動作
+      url: concepts-features.md
+    - text: 如何計算獎勵
+      url: concept-rewards.md
+    - text: 離線評估
+      url: concepts-offline-evaluation.md
+  - linkListType: how-to-guide
+    links:
+    - text: 使用離線評估來分析成功要素
+      url: how-to-offline-evaluation.md
+- title: 透過個人化工具開發
+  linkLists:
+  - linkListType: quickstart
+    links:
+    - text: 使用 .NET
+      url: csharp-quickstart-commandline-feedback-loop.md
+    - text: 使用 Python
+      url: python-quickstart-commandline-feedback-loop.md
+    - text: Node.js
+      url: quickstart-command-line-feedback-loop-nodejs-sdk.md
+  - linkListType: how-to-guide
+    links:
+    - text: 如何建立和設定個人化工具
+      url: how-to-settings.md
+  - linkListType: reference
+    links:
+    - text: 程式碼範例
+      url: https://github.com/Azure-Samples/cognitive-services-personalizer-samples
+    - text: REST API
+      url: https://westus2.dev.cognitive.microsoft.com/docs/services/personalizer-api/operations/Rank
+    - text: Nuget 套件
+      url: https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Personalizer/0.8.0-preview
+    - text: NPM 套件
+      url: https://www.npmjs.com/package/@azure/cognitiveservices-personalizer/v/1.0.0
+    - text: Pypi 封裝
+      url: https://pypi.org/project/azure-cognitiveservices-personalizer/
+  - linkListType: concept
+    links:
+    - text: 延展性和效能
+      url: concepts-scalability-performance.md
+- title: 關於增強式學習
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: 什麼是增強式學習？
+      url: concepts-reinforcement-learning.md
+  - linkListType: concept
+    links:
+    - text: 探索
+      url: concepts-exploration.md
+    - text: 功能、動作和內容
+      url: concepts-features.md
+    - text: 主動學習
+      url: concept-active-learning.md
+    - text: 獎勵
+      url: concept-rewards.md
+- title: 說明與意見反應
+  linkLists:
+  - linkListType: reference
+    links:
+    - text: 疑難排解
+      url: troubleshooting.md
+    - text: 提出 Stack Overflow 相關問題
+      url: https://stackoverflow.com/questions/tagged/personalizer
+    - text: 使用 UserVoice 影響服務
+      url: https://cognitive.uservoice.com/forums/921562-personalizer
