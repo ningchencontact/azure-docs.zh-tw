@@ -91,7 +91,7 @@ ms.locfileid: "68975992"
     > [!NOTE]
     > 這些都不是真正的值。 請使用實際的「登入 URL」及「識別碼」來更新這些值。 請連絡 [Shmoop For Schools 用戶端支援小組](mailto:support@shmoop.com)以取得這些值。 您也可以參考 Azure 入口網站中**基本 SAML 組態**區段所示的模式。
 
-5. Shmoop For Schools 應用程式需要特定格式的 SAML 判斷提示，因此您必須將自訂屬性對應新增至 SAML 權杖屬性組態。 以下螢幕擷取畫面顯示預設屬性清單。 按一下 [編輯] ****  圖示，以開啟 [使用者屬性] ****  對話方塊。
+5. Shmoop For Schools 應用程式需要特定格式的 SAML 判斷提示，因此您必須將自訂屬性對應新增至 SAML 權杖屬性組態。 以下螢幕擷取畫面顯示預設屬性清單。 按一下 [ **編輯**] 圖示，以開啟 [ **使用者屬性**] 對話方塊。
 
     ![image](common/edit-attribute.png)
 

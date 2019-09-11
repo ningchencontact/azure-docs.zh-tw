@@ -1,34 +1,33 @@
 ---
-title: 準備內部部署 Hyper-V 伺服器以進行 Hyper-V VM 至 Azure 的災害復原 | Microsoft Docs
+title: 準備內部部署 Hyper-V 伺服器以進行 Hyper-V VM 至 Azure 的災害復原
 description: 了解如何準備內部部署 Hyper-V VM 以便使用 Azure Site Recovery 服務來災害復原至 Azure。
-services: site-recovery
 author: rayne-wiselman
 ms.service: site-recovery
-ms.topic: article
-ms.date: 05/30/2019
+ms.topic: tutorial
+ms.date: 09/09/2019
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: aec5632b5ea29d52426c5d065ca41e18573fd5b9
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
-ms.translationtype: MT
+ms.openlocfilehash: b17e42378daf51543a2664315f2971d15c288611
+ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66399396"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70813721"
 ---
 # <a name="prepare-on-premises-hyper-v-servers-for-disaster-recovery-to-azure"></a>準備內部部署 Hyper-V 伺服器以進行至 Azure 的災害復原
 
-本文說明如何準備您的內部部署 HYPER-V 基礎結構，當您想要設定的 Hyper-v Vm 的災害復原至 Azure，使用[Azure Site Recovery](site-recovery-overview.md)。
+本文描述如何使用 [Azure Site Recovery](site-recovery-overview.md) 準備內部部署 Hyper-V 基礎結構，以將 Hyper-V VM 的災害復原設定到 Azure。
 
 
-這是說明如何設定內部部署 HYPER-V Vm 至 Azure 的災害復原一系列的第二個教學課程。 在第一個教學課程中，我們[設定 Azure 元件](tutorial-prepare-azure.md)HYPER-V 嚴重損壞修復所需。
+這是一系列中的第二個教學課程，說明如何為內部部署 Hyper-V VM 設定 Azure 的災害復原。 在[第一個教學課程](tutorial-prepare-azure.md)中，我們針對 Hyper-V 災害復原需求設定 Azure 元件。
 
 在本教學課程中，您將了解如何：
 
 > [!div class="checklist"]
-> * 如果您的 HYPER-V 主機由 System Center VMM 管理，請檢閱 HYPER-V 需求和 VMM 需求。
-> * 如果適用的話，請準備 VMM。
-> * 確認網際網路存取的 Azure 位置。
-> * 準備 Vm，以便您可以在容錯移轉至 Azure 之後存取它們。
+> * 如果您的 Hyper-V 主機是由 System Center VMM 管理，請檢閱 Hyper-V 需求和 VMM 需求。
+> * 準備 VMM (如果適用)。
+> * 確認各個 Azure 位置的網際網路存取。
+> * 準備 VM，讓您可以在容錯移轉至 Azure 之後存取。
 
 > [!NOTE]
 > 這些教學課程示範案例的最簡單部署路徑。 可能的話，會使用預設選項，而不會顯示所有可能的設定與路徑。 如需詳細指示，請檢閱 Site Recovery 目錄的「操作說明」區段中的文章。

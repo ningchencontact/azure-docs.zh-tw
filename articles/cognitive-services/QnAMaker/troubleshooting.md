@@ -1,30 +1,48 @@
 ---
 title: 疑難排解-QnA Maker
 titleSuffix: Azure Cognitive Services
-description: 有關 QnA Maker 服務的常見問題策劃清單, 可協助您更快速地採用服務, 並獲得更好的結果。
+description: 有關 QnA Maker 服務的常見問題策劃清單，可協助您更快速地採用服務，並獲得更好的結果。
 services: cognitive-services
 author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
-ms.date: 07/31/2019
+ms.date: 08/30/2019
 ms.author: diberry
 ms.custom: seodec18
-ms.openlocfilehash: 85c6ff59b5f73e88c82ee8b788bd9f35d18bc0ed
-ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
+ms.openlocfilehash: 95b4978b66accce0182e58493cb9d600dbe5e35f
+ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68697959"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70277489"
 ---
 # <a name="troubleshooting-for-qna-maker"></a>疑難排解 QnA Maker
 
-有關 QnA Maker 服務的常見問題策劃清單, 可協助您更快速地採用服務, 並獲得更好的結果。
+有關 QnA Maker 服務的常見問題策劃清單，可協助您更快速地採用服務，並獲得更好的結果。
+
+
+## <a name="how-to-get-the-qnamaker-service-hostname"></a>如何取得 QnAMaker 服務主機名稱
+
+當您連絡 QnAMaker 支援人員或 UserVoice 時，QnAMaker 服務主機名稱將有助於偵錯的用途。 主機名稱是下列格式的 URL： HTTPs:// *{hostname}* . azurewebsites.net。
+    
+1. 在 [Azure 入口網站](https://portal.azure.com)中移至 QnAMaker 服務 (資源群組)
+
+    ![Azure 入口網站中的 QnAMaker Azure 資源群組](./media/qnamaker-how-to-troubleshoot/qnamaker-azure-resourcegroup.png)
+
+1. 選取與 QnA Maker 資源相關聯的 App Service。 一般來說，名稱是相同的。
+
+     ![選取 QnAMaker App Service](./media/qnamaker-how-to-troubleshoot/qnamaker-azure-appservice.png)
+
+1. 主機名稱 URL 會顯示於 [概觀] 區段中
+
+    ![QnAMaker 主機名稱](./media/qnamaker-how-to-troubleshoot/qnamaker-azure-gethostname.png)
+    
 
 ## <a name="use-the-help-bot-in-the-qna-maker-portal"></a>使用 QnA Maker 入口網站中的說明 bot
 
-QnA Maker 會在 QnA Maker 入口網站中提供**協助**bot, 協助您。 您可以在每個網頁上取得說明 bot。 Bot 會使用 QnA Maker 來提供解答, 並提供[ C# bot Framework 程式碼專案](https://github.com/microsoft/BotBuilder-Samples/tree/master/experimental/qnamaker-support)給 bot, 讓您可以快速啟動並執行自己的回應 bot。 
+QnA Maker 會在 QnA Maker 入口網站中提供**協助**bot，協助您。 您可以在每個網頁上取得說明 bot。 Bot 會使用 QnA Maker 來提供解答，並提供[ C# bot Framework 程式碼專案](https://github.com/microsoft/BotBuilder-Samples/tree/master/experimental/qnamaker-support)給 bot，讓您可以快速啟動並執行自己的回應 bot。 
 
 ![![QnA Maker 在 QnA Maker 入口網站中提供可協助您的 * * 說明 * * bot。](./media/qnamaker-faq/use-qna-maker-help-bot-to-learn-qna-maker-service.png)](./media/qnamaker-faq/use-qna-maker-help-bot-to-learn-qna-maker-service.png#lightbox)
 
@@ -32,7 +50,7 @@ QnA Maker 會在 QnA Maker 入口網站中提供**協助**bot, 協助您。 您�
 
 ### <a name="i-accidentally-deleted-a-part-of-my-qna-maker-what-should-i-do"></a>我不小心刪除了一部分的 QnA Maker，該怎麼辦？ 
 
-所有刪除都是永久的，包括問答組、檔案、URL、自訂問答、知識庫或 Azure 資源。 務必先從 [設定]  頁面匯出知識庫，再刪除知識庫的任何部分。 
+所有刪除都是永久的，包括問答組、檔案、URL、自訂問答、知識庫或 Azure 資源。 務必先從 [設定] 頁面匯出知識庫，再刪除知識庫的任何部分。 
 
 ### <a name="why-is-my-urlsfiles-not-extracting-question-answer-pairs"></a>為何我的 URL/檔案不會擷取問答組？
 
@@ -52,7 +70,7 @@ QnA Maker 會在 QnA Maker 入口網站中提供**協助**bot, 協助您。 您�
 
 ### <a name="can-you-share-a-knowledge-base-with-a-contributor-that-is-not-in-the-same-aad-tenant-to-modify-a-knowledge-base"></a>是否可以與不屬於相同 AAD 租用戶的參與者共用知識庫，以修改該知識庫？ 
 
-共用是以 Azure 角色型存取控制 (RBAC) 為基礎。 如果您可以與另一個使用者共用 Azure 中的「任何」  資源，便代表您也可以共用 QnA Maker。
+共用是以 Azure 角色型存取控制 (RBAC) 為基礎。 如果您可以與另一個使用者共用 Azure 中的「任何」資源，便代表您也可以共用 QnA Maker。
 
 ### <a name="if-you-have-an-app-service-plan-with-5-qnamaker-knowledge-bases-can-you-assign-readwrite-rights-to-5-different-users-so-each-of-them-can-access-only-1-qnamaker-knowledge-base"></a>假設我有有 5 個 QnAMaker 知識庫的 App Service 方案。 是否能將讀取/寫入權限指派給 5 個不同的使用者，使他們只能個別存取 1 個 QnAMaker 知識庫？
 
@@ -64,7 +82,7 @@ QnA Maker 會在 QnA Maker 入口網站中提供**協助**bot, 協助您。 您�
 - 在 Azure 入口網站中，移至您的 App Service 資源
 
 ![qnamaker appservice](./media/qnamaker-faq/qnamaker-resource-list-appservice.png)
-- 按一下 [設定]  選項
+- 按一下 [設定] 選項
 
 ![qnamaker appservice 設定](./media/qnamaker-faq/qnamaker-appservice-settings.png)
 - 變更 **DefaultAnswer** 設定的值
@@ -96,7 +114,15 @@ QnA Maker 會在 QnA Maker 入口網站中提供**協助**bot, 協助您。 您�
 
 ### <a name="when-should-i-restart-my-app-service"></a>何時應該重新啟動我的應用程式服務？ 
 
-在 [使用者設定]  [ 頁面](https://www.qnamaker.ai/UserSettings)上的 [端點金鑰]  資料表中，當注意圖示出現在知識庫的版本值旁邊時，重新整理您的應用程式服務。
+在 [使用者設定][ 頁面](https://www.qnamaker.ai/UserSettings)上的 [端點金鑰] 資料表中，當注意圖示出現在知識庫的版本值旁邊時，重新整理您的應用程式服務。
+
+### <a name="i-deleted-my-existing-search-service-how-can-i-fix-this"></a>我刪除了現有的搜尋服務。 我該怎麼辦？
+
+刪除 Azure 搜尋服務索引是不可逆的作業，因此索引無法復原。 
+
+### <a name="i-deleted-my-testkb-index-in-my-search-service-how-can-i-fix-this"></a>我已在`testkb`搜尋服務中刪除我的索引。 我該怎麼辦？ 
+
+您的舊資料無法復原。 建立新的 QnA Maker 資源，然後再次建立您的知識庫。
 
 ### <a name="when-should-i-refresh-my-endpoint-keys"></a>何時應重新整理端點金鑰？
 
@@ -108,37 +134,53 @@ QnA Maker 會在 QnA Maker 入口網站中提供**協助**bot, 協助您。 您�
 
 ### <a name="how-can-i-change-the-name-of-the-azure-search-resource-used-by-qna-maker"></a>如何變更 QnA Maker 使用之 Azure 搜尋服務資源的名稱？
 
-Azure 搜尋服務資源的名稱是 QnA Maker 資源名稱加上一些附加在結尾的隨機字母。 這讓您難以區別 QnA Maker 的多個搜尋服務資源。 建立個別的 Azure 搜尋服務 (以您想要的方式為它命名) 並將它連結到您的 QnA Service。 步驟類似於[升級 Azure 搜尋服務](How-To/upgrade-qnamaker-service.md#upgrade-azure-search-service)所需的步驟。
+Azure 搜尋服務資源的名稱是 QnA Maker 資源名稱加上一些附加在結尾的隨機字母。 這讓您難以區別 QnA Maker 的多個搜尋服務資源。 建立個別的 Azure 搜尋服務 (以您想要的方式為它命名) 並將它連結到您的 QnA Service。 這些步驟類似于[升級 Azure 搜尋](How-To/set-up-qnamaker-service-azure.md#upgrade-the-azure-search-service)服務所需執行的步驟。
 
 ### <a name="when-qna-maker-returns-runtime-core-is-not-initialized-how-do-i-fix-it"></a>當 QnA Maker `Runtime core is not initialized,`傳回如何修正此問題？
 
-您的 app service 的磁碟空間可能已滿。 修復磁碟空間的步驟:
+您的 app service 的磁碟空間可能已滿。 修復磁碟空間的步驟：
 
-1. 在  [Azure 入口網站](https://portal.azure.com)中, 選取您 QnA Maker 的 App service, 然後停止服務。
-1. 在仍在 App service 的情況下, 依序選取 [**開發工具**]、[ **Advanced tools**] 和 [ **Go**]。 這會開啟新的瀏覽器視窗。
+1. 在  [Azure 入口網站](https://portal.azure.com)中，選取您 QnA Maker 的 App service，然後停止服務。
+1. 在仍在 App service 的情況下，依序選取 [**開發工具**]、[ **Advanced tools**] 和 [ **Go**]。 這會開啟新的瀏覽器視窗。
 1. 依序選取 [ **Debug console**] 和 [ **CMD** ] 以開啟命令列工具。 
 1. 流覽至_site/wwwroot/Data/QnAMaker/_ 目錄。
 1. 移除名稱開頭為`rd`的所有資料夾。 
 
-    **請勿刪除**下列各項:
+    **請勿刪除**下列各項：
 
     * KbIdToRankerMappings .txt 檔案
     * EndpointSettings json 檔案
     * EndpointKeys 資料夾 
 
 1. 啟動 App service。
-1. 存取您的知識庫, 以確認它現在可以運作。 
+1. 存取您的知識庫，以確認它現在可以運作。 
 
 
 ## <a name="integrate-with-other-services-including-bots"></a>與其他服務 (包括 Bot) 整合
 
 ### <a name="do-i-need-to-use-bot-framework-in-order-to-use-qna-maker"></a>我是否需要使用 Bot Framework 才能使用 QnA Maker？
 
-否, 您不需要使用[Bot Framework](https://github.com/Microsoft/botbuilder-dotnet)搭配 QnA Maker。 不過, QnA Maker 是以 [Azure Bot 服務](https://docs.microsoft.com/azure/bot-service/?view=azure-bot-service-4.0)中的數個範本之一的形式提供。 Bot Service 可透過 Microsoft Bot Framework 快速開發智慧型 Bot，並且可在無伺服器環境中執行。
+否，您不需要使用[Bot Framework](https://github.com/Microsoft/botbuilder-dotnet)搭配 QnA Maker。 不過，QnA Maker 是以 [Azure Bot 服務](https://docs.microsoft.com/azure/bot-service/?view=azure-bot-service-4.0)中的數個範本之一的形式提供。 Bot Service 可透過 Microsoft Bot Framework 快速開發智慧型 Bot，並且可在無伺服器環境中執行。
 
-### <a name="how-can-i-create-a-bot-with-qna-maker"></a>如何使用 QnA Maker 建立 Bot？
+### <a name="how-can-i-create-a-new-bot-with-qna-maker"></a>如何使用 QnA Maker 建立新的 bot？
 
 請遵循[這份](./Tutorials/create-qna-bot.md)文件中的指示，以使用 Azure Bot 服務建立您的 Bot。
+
+### <a name="how-do-i-use-a-different-knowledge-base-with-an-existing-azure-bot-service"></a>如何? 搭配現有的 Azure bot 服務使用不同的知識庫？
+
+您需要有下列有關知識庫的資訊：
+
+* 知識庫識別碼。
+* 知識庫的已發佈端點主機名稱-發行後，在 [**設定**] 頁面上找到。
+* 知識庫的已發佈端點金鑰-發行後，在 [**設定**] 頁面上找到。 
+
+透過這項資訊，請移至 Azure 入口網站中 bot 的 app service。 在 設定 底下 > 設定 下 **> 應用程式設定**，變更這些值。  
+
+知識庫的端點金鑰會標示`QnAAuthkey`在 ABS 服務中。 
+
+### <a name="can-two-or-more-client-applications-share-a-knowledge-base"></a>有兩個或多個用戶端應用程式可以共用知識庫嗎？ 
+
+是，您可以從任意數目的用戶端查詢知識庫。 如果知識庫的回應似乎緩慢或超時，請考慮升級與知識庫相關聯之 app service 的服務層級。
 
 ### <a name="how-do-i-embed-the-qna-maker-service-in-my-website"></a>我該如何在我的網站中內嵌 QnA Maker 服務？
 

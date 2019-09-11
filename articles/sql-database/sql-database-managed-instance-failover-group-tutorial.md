@@ -12,12 +12,12 @@ ms.author: mathoma
 ms.reviewer: sashan, carlrab
 manager: jroth
 ms.date: 06/27/2019
-ms.openlocfilehash: 059a614dff7fc0eab5419e3e2ffdeaeecb79ad99
-ms.sourcegitcommit: 6d2a147a7e729f05d65ea4735b880c005f62530f
+ms.openlocfilehash: 3e5b96cf4227e933aa99b37469410276a775dbed
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69981376"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70103039"
 ---
 # <a name="tutorial-add-a-sql-database-managed-instance-to-a-failover-group"></a>教學課程：將 SQL Database 受控實例新增至容錯移轉群組
 
@@ -29,7 +29,9 @@ ms.locfileid: "69981376"
 > - 測試容錯移轉
 
   > [!NOTE]
-  > 建立受控實例可能需要很長的時間。 因此, 本教學課程可能需要數小時才能完成。 如需布建時間的詳細資訊, 請參閱[受控實例管理作業](sql-database-managed-instance.md#managed-instance-management-operations)。 使用容錯移轉群組搭配受控實例目前為預覽狀態。 
+  > - 進行本教學課程時, 請確定您是使用[為受控實例設定容錯移轉群組的必要條件來設定](sql-database-auto-failover-group.md#enabling-geo-replication-between-managed-instances-and-their-vnets)您的資源。 
+  > - 建立受控實例可能需要很長的時間。 因此, 本教學課程可能需要數小時才能完成。 如需布建時間的詳細資訊, 請參閱[受控實例管理作業](sql-database-managed-instance.md#managed-instance-management-operations)。 
+  > - 使用容錯移轉群組搭配受控實例目前為預覽狀態。 
 
 ## <a name="prerequisites"></a>必要條件
 
@@ -38,13 +40,15 @@ ms.locfileid: "69981376"
 - 如果您還沒有 Azure 訂用帳戶, 請[建立一個免費帳戶](https://azure.microsoft.com/free/)。 
 
 
-## <a name="1----create-resource-group-and-primary-managed-instance"></a>1-建立資源群組和主要受控實例
+## <a name="1---create-resource-group-and-primary-managed-instance"></a>1-建立資源群組和主要受控實例
 在此步驟中, 您將使用 Azure 入口網站, 為您的容錯移轉群組建立資源群組和主要受控實例。 
 
-1. 登入 [Azure 入口網站](https://portal.azure.com)。 
-1. 選擇 [Azure 入口網站] 左上角的 [**建立資源**]。 
-1. 在`managed instance` [搜尋] 方塊中輸入, 然後選取 [Azure SQL 受控執行個體] 選項。 
-1. 選取 [**建立**] 以啟動 [ **SQL 受控實例**建立] 頁面。 
+1. 在 Azure 入口網站的左側功能表中，選取 [Azure SQL]。 如果**AZURE SQL**不在清單中, 請選取 [**所有服務**], 然後在搜尋方塊中輸入 azure sql。 選擇性選取**AZURE SQL**旁的星號, 將它加入我的最愛, 然後將它新增為左側導覽中的專案。 
+1. 選取 [ **+ 新增**] 以開啟 [**選取 SQL 部署] 選項**頁面。 您可以選取 [資料庫] 磚上的 [顯示詳細資料], 以查看不同資料庫的其他資訊。
+1. 選取 [ **SQL 受控實例**] 圖格上的 [**建立**]。 
+
+    ![選取受控實例](media/sql-database-managed-instance-failover-group-tutorial/select-managed-instance.png)
+
 1. 在 [**建立 Azure SQL Database 受控執行個體**] 頁面上的 [**基本**] 索引標籤
     1. 在 [**專案詳細資料**] 下, 從下拉式選單選取您的**訂**用帳戶, 然後選擇 [**建立新**的資源群組]。 輸入資源群組的名稱, 例如`myResourceGroup`。 
     1. 在 [**受控執行個體詳細資料**] 下, 提供受控實例的名稱, 以及您想要部署受控實例的區域。 將 [**計算 + 儲存體**] 保留為 [預設值]。 
@@ -68,7 +72,7 @@ ms.locfileid: "69981376"
 
 若要建立虛擬網路, 請遵循下列步驟:
 
-1. 在  [Azure 入口網站](https://portal.azure.com)中, 選取 **建立資源**] 並搜尋 [*虛擬網路*。 
+1. 在 [Azure 入口網站](https://portal.azure.com)中, 選取 [**建立資源**] 並搜尋 [*虛擬網路*]。 
 1. 選取 Microsoft 所發行的**虛擬網路**選項, 然後在下一頁選取 [**建立**]。 
 1. 填寫必要欄位, 為您的次要受控實例設定虛擬網路, 然後選取 [**建立**]。 
 
@@ -96,8 +100,12 @@ ms.locfileid: "69981376"
 
 若要建立次要受控實例, 請遵循下列步驟: 
 
-1. 在  [Azure 入口網站](http://portal.azure.com)中, 選取 **建立資源** 並搜尋*Azure SQL 受控執行個體*。 
-1. 選取 Microsoft 所發佈的**AZURE SQL 受控執行個體**選項, 然後在下一個頁面上選取 [**建立**]。
+1. 在 Azure 入口網站的左側功能表中，選取 [Azure SQL]。 如果**AZURE SQL**不在清單中, 請選取 [**所有服務**], 然後在搜尋方塊中輸入 azure sql。 選擇性選取**AZURE SQL**旁的星號, 將它加入我的最愛, 然後將它新增為左側導覽中的專案。 
+1. 選取 [ **+ 新增**] 以開啟 [**選取 SQL 部署] 選項**頁面。 您可以選取 [資料庫] 磚上的 [顯示詳細資料], 以查看不同資料庫的其他資訊。
+1. 選取 [ **SQL 受控實例**] 圖格上的 [**建立**]。 
+
+    ![選取受控實例](media/sql-database-managed-instance-failover-group-tutorial/select-managed-instance.png)
+
 1. 在 [**建立 Azure SQL Database 受控執行個體**] 頁面的 [**基本**] 索引標籤上, 填寫必要的欄位以設定次要受控實例。 
 
    下表顯示次要受控實例所需的值:
@@ -207,9 +215,8 @@ ms.locfileid: "69981376"
 ## <a name="7---create-a-failover-group"></a>7-建立容錯移轉群組
 在此步驟中, 您將建立容錯移轉群組, 並將這兩個受控實例新增至其中。 
 
-1. 在  [Azure 入口網站](https://portal.azure.com)中, 移至 **所有服務** `managed instance` , 然後在搜尋方塊中輸入。 
-1. 選擇性選取 [ **SQL 受控實例**] 旁的星號, 將受控實例新增為左側導覽列的快捷方式。 
-1. 選取 **[SQL 受控實例**], 然後選取您的主要受控`sql-mi-primary`實例, 例如。 
+1. 在[Azure 入口網站](https://portal.azure.com)的左側功能表中, 選取 [ **Azure SQL** ]。 如果**AZURE SQL**不在清單中, 請選取 [**所有服務**], 然後在搜尋方塊中輸入 azure sql。 選擇性選取**AZURE SQL**旁的星號, 將它加入我的最愛, 然後將它新增為左側導覽中的專案。 
+1. 選取您在第一節中建立的主要受控實例, 例如`sql-mi-primary`。 
 1. 在 [**設定**] 下, 流覽至 [**實例容錯移轉群組**], 然後選擇 [**新增群組**] 以開啟 [**實例容錯移轉群組**] 頁面。 
 
    ![新增容錯移轉群組](media/sql-database-managed-instance-failover-group-tutorial/add-failover-group.png)

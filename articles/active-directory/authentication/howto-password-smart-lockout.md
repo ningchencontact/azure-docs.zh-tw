@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8df01c204a6893f4e2ff1c2ff22fa337d77c519b
-ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
+ms.openlocfilehash: a762009a7aaf1a965333ac573efe55d792c3f04b
+ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69637583"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70125010"
 ---
 # <a name="azure-active-directory-smart-lockout"></a>Azure Active Directory 智慧鎖定
 
@@ -45,7 +45,7 @@ ms.locfileid: "69637583"
 * Azure AD 的鎖定閾值「小於」Active Directory 帳戶的鎖定閾值。 請適當設定這些值，使 Active Directory 帳戶的鎖定閾值比 Azure AD 鎖定閾值至少長兩到三倍。 
 * Azure AD 的鎖定持續時間必須設定超過持續時間後的 Active Directory 重設帳戶鎖定計數器。 請注意, Azure AD 持續時間是以秒為單位設定, 而 AD 持續時間設定為分鐘。 
 
-例如, 如果您想要 Azure AD 計數器高於 AD, 則 Azure AD 會是120秒 (2 分鐘), 而您的內部部署 AD 會設定為1分鐘 (60 秒)。
+例如, 如果您想要 Azure AD 計數器高於 AD, 則當您的內部部署 AD 設定為1分鐘 (60 秒) 時, Azure AD 會是120秒 (2 分鐘)。
 
 > [!IMPORTANT]
 > 目前, 如果使用者的雲端帳戶已被智慧鎖定功能鎖定, 則系統管理員無法將其解除鎖定。 系統管理員必須等待鎖定持續期間結束。 不過, 使用者可以使用來自受信任裝置或位置的自助式密碼重設 (SSPR) 來解除鎖定。
@@ -67,7 +67,7 @@ ms.locfileid: "69637583"
 
 若要檢查或修改組織的智慧鎖定值，請使用下列步驟：
 
-1. 登入 [Azure 入口網站](https://portal.azure.com) 並按一下 [Azure Active Directory]，然後按一下 [驗證方法]。
+1. 登入[Azure 入口網站](https://portal.azure.com), 然後流覽至**Azure Active Directory**  > **驗證方法** > **密碼保護**。
 1. 根據帳戶遭到鎖定之前所允許的失敗登入次數，設定 [鎖定閾值]。 預設值為 10。
 1. 將 [鎖定持續時間 (秒)] 設為每次鎖定的秒數。 預設值為 60 秒 (一分鐘)。
 

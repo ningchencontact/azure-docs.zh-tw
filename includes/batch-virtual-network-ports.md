@@ -16,10 +16,10 @@ ms.date: 07/16/2019
 ms.author: lahugh
 ms.custom: include file
 ms.openlocfilehash: c8b25858556538835d6a84bf0d6699f9906f1438
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/18/2019
+ms.lasthandoff: 07/26/2019
 ms.locfileid: "68322642"
 ---
 ### <a name="general-requirements"></a>一般需求
@@ -58,11 +58,11 @@ ms.locfileid: "68322642"
 * 任何連接埠上傳至網際網路的輸出流量。
 
 > [!IMPORTANT]
-> 如果您要在 Batch 設定的 NSG 中修改或新增輸入或輸出規則，請謹慎操作。 如果 NSG 拒絕對所指定子網路中計算節點的通訊，則 Batch 服務會將計算節點的狀態設為 [無法使用]  。
+> 如果您要在 Batch 設定的 NSG 中修改或新增輸入或輸出規則，請謹慎操作。 如果 NSG 拒絕對所指定子網路中計算節點的通訊，則 Batch 服務會將計算節點的狀態設為 [無法使用]。
 
 您不需要在子網路層級指定 NSG，因為 Batch 會設定其本身的 NSG。 不過，如果指定的子網路有相關聯的網路安全性群組 (NSG) 和 (或) 防火牆，請設定輸入和輸出安全性規則，如下列表格所示。 只有當您需要允許從外部來源對集區 Vm 進行遠端存取時, 才必須在埠 3389 (Windows) 或 22 (Linux) 上設定輸入流量。 集區 VM 不需要此設定即可使用。 請注意, 如果使用特定種類的多重實例工作 (例如 MPI), 您將需要在 Linux 的埠22上啟用虛擬網路子網流量。
 
-<bpt id="p1">**</bpt>Inbound security rules<ept id="p1">**</ept>
+**輸入安全性規則**
 
 | 來源 IP 位址 | 來源服務標籤 | 來源連接埠 | 目的地 | 目的地連接埠 | Protocol | Action |
 | --- | --- | --- | --- | --- | --- | --- |
@@ -71,7 +71,7 @@ ms.locfileid: "68322642"
 
 **輸出安全性規則**
 
-| Source | 來源連接埠 | 目的地 | 目的地服務標記 | 目的地連接埠 | Protocol | Action |
+| Source | 來源連接埠 | 目的地 | 目的地服務標籤 | 目的地連接埠 | Protocol | Action |
 | --- | --- | --- | --- | --- | --- | --- |
 | Any | * | [服務標記](../articles/virtual-network/security-overview.md#service-tags) | `Storage`(位於與您的 Batch 帳戶和 VNet 相同的區域中) | 443 | TCP | 允許 |
 
@@ -91,11 +91,11 @@ ms.locfileid: "68322642"
 
 子網路必須允許來自 Batch 服務的輸入通訊，才能在計算節點上排程工作，且必須允許輸出通訊，才能與 Azure 儲存體或其他資源進行通訊。
 
-您不需要指定 NSG，因為 Batch 只會設定從 Batch IP 位址到集區節點的輸入通訊。 不過，如果指定的子網路有相關聯的 NSG 和 (或) 防火牆，請設定輸入和輸出安全性規則，如下列表格所示。 如果 NSG 拒絕對所指定子網路中計算節點的通訊，則 Batch 服務會將計算節點的狀態設為 [無法使用]  。
+您不需要指定 NSG，因為 Batch 只會設定從 Batch IP 位址到集區節點的輸入通訊。 不過，如果指定的子網路有相關聯的 NSG 和 (或) 防火牆，請設定輸入和輸出安全性規則，如下列表格所示。 如果 NSG 拒絕對所指定子網路中計算節點的通訊，則 Batch 服務會將計算節點的狀態設為 [無法使用]。
 
 如果您需要允許對集區節點的 RDP 存取, 請在適用于 Windows 的埠3389上設定輸入流量。 集區節點不需要此設定即可使用。
 
-<bpt id="p1">**</bpt>Inbound security rules<ept id="p1">**</ept>
+**輸入安全性規則**
 
 | 來源 IP 位址 | 來源連接埠 | 目的地 | 目的地連接埠 | Protocol | Action |
 | --- | --- | --- | --- | --- | --- |
