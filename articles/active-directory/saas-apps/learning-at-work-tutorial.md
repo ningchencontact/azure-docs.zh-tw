@@ -92,7 +92,7 @@ ms.locfileid: "68823677"
 
 5. Learning at Work 應用程式需要特定格式的 SAML 判斷提示，要求您加入自訂屬性對應到您的 SAML 權杖屬性組態。 下列螢幕擷取畫面顯示預設屬性清單，其中的 **nameidentifier** 與 **user.userprincipalname** 相對應。
 
-    您可以根據組織設定來更新 Azure AD 中的 **nameidentifier** 值，且此值必須與 SABA 雲端中的**使用者識別碼**相符，為此您必須編輯屬性對應，方法是按一下 [編輯] ****   圖示，然後變更屬性對應。
+    您可以根據組織設定來更新 Azure AD 中的 **nameidentifier** 值，且此值必須與 SABA 雲端中的**使用者識別碼**相符，為此您必須編輯屬性對應，方法是按一下 [ **編輯**]  圖示，然後變更屬性對應。
 
     ![image](common/edit-attribute.png)
 

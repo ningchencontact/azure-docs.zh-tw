@@ -169,7 +169,7 @@ SAP NetWeaver 支援 **SAML** (**SP 起始的 SSO**) 和 **OAuth**。 在本教�
 
 1. 在 [使用者屬性]  對話方塊的 [使用者宣告]  區段中，如上圖所示設定 SAML 權杖屬性，然後執行下列步驟：
 
-    a. 按一下 [編輯]  圖示以開啟 [管理使用者宣告]  對話方塊。
+    a. 按一下 [**編輯**] 圖示以開啟 [**管理使用者宣告**] 對話方塊。
 
     ![image](./media/sapnetweaver-tutorial/nameidattribute.png)
 
