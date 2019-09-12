@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 04/02/2019
-ms.openlocfilehash: c6f55b40b3ee077b81a3cdd6f3add7a2cad23f95
-ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
-ms.translationtype: MT
+ms.openlocfilehash: dca329ce598a9ecbc7da71cc1c24bf7731a4c994
+ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70809931"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70885400"
 ---
 # <a name="customize-azure-hdinsight-clusters-by-using-script-actions"></a>使用腳本動作自訂 Azure HDInsight 叢集
 
@@ -356,7 +356,7 @@ HDInsight .NET SDK 提供用戶端程式庫，可讓您更輕鬆地從 .NET 應�
 
 6. 您也可以選取 [指令碼動作] 區段上項目右邊的省略符號 ( **...** ) 來執行動作。
 
-    ![指令碼動作 - 省略符號](./media/hdinsight-hadoop-customize-cluster-linux/deletepromoted.png)
+    ![指令碼動作 - 省略符號](./media/hdinsight-hadoop-customize-cluster-linux/hdi-delete-promoted-sa.png)
 
 ### <a name="azure-powershell"></a>Azure PowerShell
 
@@ -442,7 +442,7 @@ HDInsight 服務提供數種方式以使用自訂元件。 不論元件在叢集
 
 3. 尋找在 [作業] 欄位中有 **run\_customscriptaction** 的項目。 這些項目是在執行指令碼動作時建立的。
 
-    ![作業的螢幕擷取畫面](./media/hdinsight-hadoop-customize-cluster-linux/ambariscriptaction.png)
+    ![作業的螢幕擷取畫面](./media/hdinsight-hadoop-customize-cluster-linux/ambari-script-action.png)
 
     若要檢視 **STDOUT** 和 **STDERR** 輸出，請選取 **run\customscriptaction** 項目，然後向下鑽研連結。 這是指令碼執行時所產生的輸出，其中可能包含實用的資訊。
 
@@ -452,7 +452,7 @@ HDInsight 服務提供數種方式以使用自訂元件。 不論元件在叢集
 
 * 儲存體記錄位於 `\STORAGE_ACCOUNT_NAME\DEFAULT_CONTAINER_NAME\custom-scriptaction-logs\CLUSTER_NAME\DATE`。
 
-    ![腳本動作記錄](./media/hdinsight-hadoop-customize-cluster-linux/script_action_logs_in_storage.png)
+    ![腳本動作記錄](./media/hdinsight-hadoop-customize-cluster-linux/script-action-logs-in-storage.png)
 
     在此目錄底下，記錄會個別針對**前端節點**、**背景工作節點**及 **Zookeeper 節點**進行組織。 請參閱下列範例：
 

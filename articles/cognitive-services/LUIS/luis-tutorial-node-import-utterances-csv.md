@@ -8,15 +8,15 @@ manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
-ms.topic: tutorial
-ms.date: 07/29/2019
+ms.topic: conceptual
+ms.date: 09/05/2019
 ms.author: diberry
-ms.openlocfilehash: 192c5c7a2d4c671aec0dcf72bef78abd1845b1ea
-ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
-ms.translationtype: HT
+ms.openlocfilehash: 1bee26dc57fd844703e2c9c97b38b9a433227fbf
+ms.sourcegitcommit: 88ae4396fec7ea56011f896a7c7c79af867c90a1
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/10/2019
-ms.locfileid: "68946085"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70387948"
 ---
 # <a name="build-a-luis-app-programmatically-using-nodejs"></a>使用 Node.js 以程式設計方式建置 LUIS 應用程式
 
@@ -25,12 +25,12 @@ LUIS 提供一個具備 [LUIS](luis-reference-regions.md) 網站所有功能的�
 ## <a name="prerequisites"></a>必要條件
 
 * 登入 [LUIS](luis-reference-regions.md) 網站，然後在 [帳戶設定] 中尋找您的[撰寫金鑰](luis-concept-keys.md#authoring-key)。 您可以使用此金鑰來呼叫「撰寫 API」。
-* 如果您沒有 Azure 訂用帳戶，請在開始前先建立 [免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 。
-* 本教學課程會從一個假設性公司的使用者要求記錄 CSV 檔開始著手。 在 [這裡](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/examples/build-app-programmatically-csv/IoT.csv)下載。
+* 如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 。
+* 這篇文章的開頭是一個 CSV，適用于假設公司的使用者要求記錄檔。 在 [這裡](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/examples/build-app-programmatically-csv/IoT.csv)下載。
 * 安裝含有 NPM 的最新 Node.js。 請從[這裡](https://nodejs.org/en/download/)下載。
 * **[建議使用]** 適用於 IntelliSense 和偵錯的 Visual Studio Code，請從[這裡](https://code.visualstudio.com/)免費下載。
 
-此教學課程中的所有程式碼皆位於 [Azure-Samples Language Understanding GitHub 存放庫](https://github.com/Azure-Samples/cognitive-services-language-understanding/tree/master/examples/build-app-programmatically-csv)。 
+本文中的所有程式碼都可以在[Azure 範例 Language Understanding GitHub 存放庫](https://github.com/Azure-Samples/cognitive-services-language-understanding/tree/master/examples/build-app-programmatically-csv)中取得。 
 
 ## <a name="map-preexisting-data-to-intents-and-entities"></a>將既有資料對應至意圖和實體
 即使您的系統在建立時並未將 LUIS 納入考量，只要它包含與使用者所要執行之各種不同工作對應的文字資料，您便可能得以提供一個現有使用者輸入分類與 LUIS 中意圖的對應。 如果您可以識別出使用者話語中的重要單字或片語，這些單字便可能對應至實體。
@@ -107,7 +107,7 @@ LUIS 提供一個具備 [LUIS](luis-reference-regions.md) 網站所有功能的�
    
 
 
-## <a name="add-utterances"></a>新增語句
+## <a name="add-utterances"></a>新增表達方式
 在 LUIS 應用程式中定義實體和意圖之後，您可以新增語句。 下列程式碼會使用 [Utterances_AddBatch](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c09) API，這可讓您一次最多新增 100 個語句。  請複製或[下載](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/examples/build-app-programmatically-csv/_upload.js)此程式碼，並將其儲存成 `_upload.js`。
 
    [!code-javascript[Node.js code for adding utterances](~/samples-luis/examples/build-app-programmatically-csv/_upload.js)]
@@ -179,7 +179,7 @@ upload done
 
 
 ## <a name="open-the-luis-app"></a>開啟 LUIS 應用程式
-當指令碼完成之後，您可以登入 [LUIS](luis-reference-regions.md)，然後在 [我的應用程式]  底下查看您建立的 LUIS 應用程式。 您應該能夠在 [TurnOn]  、[TurnOff]  及 [None]  意圖底下看到您所新增的語句。
+當指令碼完成之後，您可以登入 [LUIS](luis-reference-regions.md)，然後在 [我的應用程式] 底下查看您建立的 LUIS 應用程式。 您應該能夠在 [TurnOn]、[TurnOff] 及 [None] 意圖底下看到您所新增的語句。
 
 ![TurnOn 意圖](./media/luis-tutorial-node-import-utterances-csv/imported-utterances-661.png)
 

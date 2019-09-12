@@ -3,18 +3,18 @@ title: 監視和管理憑證建立
 description: 情節，示範使用 Key Vault 建立和監視憑證建立流程並與憑證建立流程互動的某範圍選項。
 services: key-vault
 author: msmbaldwin
-manager: barbkess
+manager: rkarlin
 tags: azure-resource-manager
 ms.service: key-vault
 ms.topic: conceptual
 ms.date: 01/07/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 3d86960e726ae18fba8d171ab9f85d7c991b4e40
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 9f88af7027f6c907b5b55eb9aac545d98e2fbb7a
+ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64729229"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70880842"
 ---
 # <a name="monitor-and-manage-certificate-creation"></a>監視和管理憑證建立
 適用於：Azure
@@ -59,7 +59,7 @@ ms.locfileid: "64729229"
 }
 ```
 
-### <a name="response"></a>Response
+### <a name="response"></a>回應
 
 ```
 StatusCode: 202, ReasonPhrase: 'Accepted'
@@ -87,14 +87,14 @@ Location: “https://mykeyvault.vault.azure.net/certificates/mycert1/pending?api
 ### <a name="request"></a>要求
 GET `“https://mykeyvault.vault.azure.net/certificates/mycert1/pending?api-version={api-version}&request_id=a76827a18b63421c917da80f28e9913d"`
 
-或
+OR
 
 GET `“https://mykeyvault.vault.azure.net/certificates/mycert1/pending?api-version={api-version}"`
 
 > [!NOTE]
 > 如果查詢中指定 *request_id*，則其行為就像篩選。 如果查詢與擱置中物件內所指定的 *request_id* 不同，則會傳回 HTTP 狀態碼 404。
 
-### <a name="response"></a>Response
+### <a name="response"></a>回應
 
 ```
 StatusCode: 200, ReasonPhrase: 'OK'
@@ -122,11 +122,11 @@ StatusCode: 200, ReasonPhrase: 'OK'
 
 GET `“https://mykeyvault.vault.azure.net/certificates/mycert1/pending?api-version={api-version}&request_id=a76827a18b63421c917da80f28e9913d"`
 
-或
+OR
 
 GET `“https://mykeyvault.vault.azure.net/certificates/mycert1/pending?api-version={api-version}"`
 
-### <a name="response"></a>Response
+### <a name="response"></a>回應
 
 ```
 StatusCode: 200, ReasonPhrase: 'OK'
@@ -154,11 +154,11 @@ StatusCode: 200, ReasonPhrase: 'OK'
 
 GET `“https://mykeyvault.vault.azure.net/certificates/mycert1/pending?api-version={api-version}&request_id=a76827a18b63421c917da80f28e9913d"`
 
-或
+OR
 
 GET `“https://mykeyvault.vault.azure.net/certificates/mycert1/pending?api-version={api-version}"`
 
-### <a name="response"></a>Response
+### <a name="response"></a>回應
 
 ```
 StatusCode: 200, ReasonPhrase: 'OK'
@@ -193,11 +193,11 @@ StatusCode: 200, ReasonPhrase: 'OK'
 ### <a name="request"></a>要求
 GET `“https://mykeyvault.vault.azure.net/certificates/mycert1/pending?api-version={api-version}&request_id=a76827a18b63421c917da80f28e9913d"`
 
-或
+OR
 
 GET `“https://mykeyvault.vault.azure.net/certificates/mycert1/pending?api-version={api-version}"`
 
-### <a name="response"></a>Response
+### <a name="response"></a>回應
 
 ```
 StatusCode: 404, ReasonPhrase: 'Not Found'
@@ -243,7 +243,7 @@ StatusCode: 404, ReasonPhrase: 'Not Found'
 }
 ```
 
-### <a name="response"></a>Response
+### <a name="response"></a>回應
 
 ```
 StatusCode: 409, ReasonPhrase: 'Conflict'
@@ -274,7 +274,7 @@ StatusCode: 409, ReasonPhrase: 'Conflict'
 
 ```
 
-### <a name="response"></a>Response
+### <a name="response"></a>回應
 
 ```json
 StatusCode: 403, ReasonPhrase: 'Forbidden'
@@ -297,7 +297,7 @@ StatusCode: 403, ReasonPhrase: 'Forbidden'
 ### <a name="request"></a>要求
 PATCH `“https://mykeyvault.vault.azure.net/certificates/mycert1/pending?api-version={api-version}&request_id=a76827a18b63421c917da80f28e9913d"`
 
-或
+OR
 
 PATCH `“https://mykeyvault.vault.azure.net/certificates/mycert1/pending?api-version={api-version}"`
 
@@ -308,7 +308,7 @@ PATCH `“https://mykeyvault.vault.azure.net/certificates/mycert1/pending?api-ve
 
 ```
 
-### <a name="response"></a>Response
+### <a name="response"></a>回應
 
 ```
 StatusCode: 200, ReasonPhrase: 'OK'
@@ -337,11 +337,11 @@ StatusCode: 200, ReasonPhrase: 'OK'
 ### <a name="request"></a>要求
 DELETE `“https://mykeyvault.vault.azure.net/certificates/mycert1/pending?api-version={api-version}&request_id=a76827a18b63421c917da80f28e9913d"`
 
-或
+OR
 
 DELETE `“https://mykeyvault.vault.azure.net/certificates/mycert1/pending?api-version={api-version}"`
 
-### <a name="response"></a>Response
+### <a name="response"></a>回應
 
 ```
 StatusCode: 200, ReasonPhrase: 'OK'
@@ -380,7 +380,7 @@ StatusCode: 200, ReasonPhrase: 'OK'
 
 ```
 
-### <a name="response"></a>Response
+### <a name="response"></a>回應
 
 ```
 StatusCode: 202, ReasonPhrase: 'Accepted'
@@ -413,11 +413,11 @@ Location: “https://mykeyvault.vault.azure.net/certificates/mycert1/pending?api
 
 ```
 
-|元素名稱|必要項|type|Version|描述|
+|元素名稱|必要項|Type|Version|描述|
 |------------------|--------------|----------|-------------|-----------------|
-|x5c|是|array|\<簡介版本 >|作為 base64 字串陣列的 X509 憑證鏈結。|
+|x5c|是|陣列|\<簡介版本 >|作為 base64 字串陣列的 X509 憑證鏈結。|
 
-### <a name="response"></a>Response
+### <a name="response"></a>回應
 
 ```
 StatusCode: 201, ReasonPhrase: 'Created'

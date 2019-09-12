@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.date: 09/03/2019
 ms.author: alkohli
 ms.localizationpriority: high
-ms.openlocfilehash: 47b8fdbe48514665f40114c9820fdc5def38c778
-ms.sourcegitcommit: 49c4b9c797c09c92632d7cedfec0ac1cf783631b
+ms.openlocfilehash: 26578e277a9f6747063ee377e72845b599a0301b
+ms.sourcegitcommit: a4b5d31b113f520fcd43624dd57be677d10fc1c0
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/05/2019
-ms.locfileid: "70241357"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70772739"
 ---
 ::: zone target="docs"
 
@@ -80,10 +80,6 @@ ms.locfileid: "70241357"
     - 執行[支援的作業系統](data-box-system-requirements.md)。
     - 連線至高速網路。 強烈建議您具有至少一個 10 GbE 的連線。 如果無法使用 10 GbE 連線，也可以使用 1 GbE 資料連結，但是複製速度會受到影響。 
 6. 有一個平面可放置資料箱。 若要將裝置平穩或筆直地放在標準機架上，您的機架中需要有 7U 插槽。
-7. 購買下列纜線，以將您的資料箱連線至主機電腦。
-    - 一或多條 10 GbE SFP+ Twinax 銅線或 SFP+ 光纖纜線 (搭配 DATA 1、DATA 2 網路介面使用)。 如需詳細資訊，請參閱 [Mellanox 中支援的纜線和交換器清單](https://www.mellanox.com/pdf/firmware/ConnectX3-FW-2_42_5000-release_notes.pdf)，其中的項目可與 Mellanox ConnectX®-3 Pro EN 雙連接埠 10GBASE-T 配接器 w/ PCI Express 3.0 網路介面相容。
-    - 一條 RJ-45 CAT 6 網路線 (與 MGMT 網路介面搭配使用)
-    - 一條 RJ-45 CAT 6A 或一條 RJ-45 CAT 6 網路線 (與 DATA 3 網路介面搭配使用，分別設定為 10 Gbps 或 1 Gbps)
 
 ::: zone-end
 

@@ -2,8 +2,8 @@
 title: 網路考量 - Azure 專用 HSM | Microsoft Docs
 description: 適用於「Azure 專用 HSM」部署的網路考量概觀
 services: dedicated-hsm
-author: barclayn
-manager: barbkess
+author: msmbaldwin
+manager: rkarlin
 ms.custom: mvc, seodec18
 ms.service: key-vault
 ms.workload: identity
@@ -11,13 +11,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 12/06/2018
-ms.author: barclayn
-ms.openlocfilehash: 042ecabe38969a6a26c27622b8c3d25193b3e7c2
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: mbaldwin
+ms.openlocfilehash: 044930c9df7b54515b9b66426a6b05aa9517a3a1
+ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62118023"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70881280"
 ---
 # <a name="azure-dedicated-hsm-networking"></a>Azure 專用 HSM 網路
 
@@ -60,7 +60,7 @@ Azure 專用 HSM 需要高度安全的網路環境。 無論是從 Azure 雲端�
 
 ### <a name="site-to-site-vpn"></a>站對站 VPN
 
-站對站虛擬私人網路允許在 Azure 型專用 HSM 與內部部署 IT 之間進行安全通訊。 若要這樣做的原因具有備份設備 HSM 的內部部署和需要兩個是執行備份之間的連線。
+站對站虛擬私人網路允許在 Azure 型專用 HSM 與內部部署 IT 之間進行安全通訊。 這麼做的原因是，HSM 的內部部署有一個備份功能，而且需要兩個連線才能執行備份。
 
 ## <a name="connecting-virtual-networks"></a>連線虛擬網路
 

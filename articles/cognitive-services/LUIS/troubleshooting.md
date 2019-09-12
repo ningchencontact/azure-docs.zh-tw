@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 09/03/2019
 ms.author: diberry
-ms.openlocfilehash: 7874a2bad63a4c5b47545c06a91228e64d523849
-ms.sourcegitcommit: 267a9f62af9795698e1958a038feb7ff79e77909
-ms.translationtype: HT
+ms.openlocfilehash: 3907a244bc2d85e7225f94b15150298fd80a032f
+ms.sourcegitcommit: 49c4b9c797c09c92632d7cedfec0ac1cf783631b
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70258798"
+ms.lasthandoff: 09/05/2019
+ms.locfileid: "70382347"
 ---
 # <a name="language-understanding-frequently-asked-questions-faq"></a>Language Understanding 常見問題集 (FAQ)
 
@@ -265,7 +265,7 @@ LUIS 應用程式預設會記錄使用者的語句。 若要下載使用者傳�
 第一個問題是找出問題是否與 LUIS 有關，或發生在 LUIS 中介軟體之外。 
 
 #### <a name="resolve-issue-in-luis"></a>解決 LUIS 中的問題
-從 [LUIS 端點](luis-get-started-create-app.md#query-the-endpoint-with-a-different-utterance) 傳遞相同的語句至 LUIS。 如果您收到錯誤，請解決 LUIS 中的問題，直到錯誤不再傳回。 常見錯誤包括：
+從 [LUIS 端點](luis-get-started-create-app.md#query-the-v2-api-prediction-endpoint) 傳遞相同的語句至 LUIS。 如果您收到錯誤，請解決 LUIS 中的問題，直到錯誤不再傳回。 常見錯誤包括：
 
 * `Out of call volume quota. Quota will be replenished in <time>.` - 此問題表示您須從撰寫金鑰變更為[端點金鑰](luis-how-to-azure-subscription.md)，或者您必須變更[服務層級](luis-how-to-azure-subscription.md#change-pricing-tier)。 
 

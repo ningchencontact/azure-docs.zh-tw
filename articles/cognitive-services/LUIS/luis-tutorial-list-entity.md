@@ -7,20 +7,20 @@ author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
-ms.topic: tutorial
-ms.date: 07/29/2019
+ms.topic: conceptual
+ms.date: 09/05/2019
 ms.author: diberry
-ms.openlocfilehash: 979cbe16653c09ea1b019310d820b070be4a5a91
-ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
-ms.translationtype: HT
+ms.openlocfilehash: a722ce39a679fa13e1fe849c46b44f786ea5ee42
+ms.sourcegitcommit: 88ae4396fec7ea56011f896a7c7c79af867c90a1
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/10/2019
-ms.locfileid: "68946058"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70390278"
 ---
 # <a name="use-a-list-entity-to-increase-entity-detection"></a>使用清單實體增加實體偵測 
-本教學課程將示範如何使用[清單實體](luis-concept-entity-types.md)增加實體偵測。 清單實體不需要標籤，因為其與字詞完全相符。  
+本文示範如何使用[清單實體](luis-concept-entity-types.md)來增加實體偵測。 清單實體不需要標籤，因為其與字詞完全相符。  
 
-在本教學課程中，您了解如何：
+在本文中，您將了解：
 
 > [!div class="checklist"]
 > * 建立清單實體 
@@ -37,7 +37,7 @@ ms.locfileid: "68946058"
 > [!Tip]
 > 若您還沒有訂用帳戶，則可以註冊[免費帳戶](https://azure.microsoft.com/free/)。
 
-此教學課程中的所有程式碼皆位於 [Azure-Samples GitHub 存放庫](https://github.com/Azure-Samples/cognitive-services-language-understanding/tree/master/documentation-samples/tutorial-list-entity)。 
+本文中的所有程式碼都可在[Azure 範例 GitHub 存放庫](https://github.com/Azure-Samples/cognitive-services-language-understanding/tree/master/documentation-samples/tutorial-list-entity)中取得。 
 
 ## <a name="use-homeautomation-app"></a>使用 HomeAutomation 應用程式
 HomeAutomation 應用程式可讓您控制許多裝置，例如燈和娛樂系統，以及控制環境，例如升溫或降溫。 這些系統有許多不同名稱，其中可能包含製造商名稱、別名、暱稱、首字母縮寫和俚語。 
@@ -59,7 +59,7 @@ HomeAutomation.Device 實體最適合用於少數裝置或少數名稱差異。 
 
 **清單實體**十分適用於這類情況，因為辦公大樓和校園中的裝置字詞集合是已知的集合 (即使是大型集合也一樣)。 藉由使用清單實體，LUIS 可以針對控溫器接收集合中的所有可能值，並只會將其解析至單一裝置「控溫器」。 
 
-本教學課程將使用控溫器來建立實體清單。 在本教學課程中，控溫器的替代名稱如下： 
+本文將使用控溫器來建立實體清單。 本文中控溫器的替代名稱是： 
 
 |控溫器的替代名稱|
 |--|
@@ -212,7 +212,7 @@ node train.js
 
 請嘗試其他兩個語句，您會看到此兩個語句也會傳回控溫器。 
 
-|#|語句|實體|type|value|
+|#|語句|實體|Type|value|
 |--|--|--|--|--|
 |1|turn on the ac (開啟冷氣)| ac | DevicesList | 控溫器|
 |2|turn up the heat (調高溫度)|heat| DevicesList |控溫器|

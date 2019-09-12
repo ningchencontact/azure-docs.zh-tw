@@ -10,20 +10,20 @@ ms.subservice: text-analytics
 ms.topic: article
 ms.date: 07/30/2019
 ms.author: aahi
-ms.openlocfilehash: ea7d3f56aa512b8f5998d710451ff3b37659ca13
-ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
+ms.openlocfilehash: 93d5b3de47ec0b3c0494589da0baf87f91a0233a
+ms.sourcegitcommit: 88ae4396fec7ea56011f896a7c7c79af867c90a1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68697835"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70390249"
 ---
 # <a name="how-to-use-named-entity-recognition-in-text-analytics"></a>如何在文字分析中使用已命名的實體識別
 
-[已命名的實體辨識 API](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/5ac4251d5b4ccd1554da7634)會採用非結構化文字, 並針對每個 JSON 檔傳回可辨識的實體清單, 其中包含 Web (維琪百科和 Bing) 上詳細資訊的連結。
+[已命名的實體辨識 API](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/5ac4251d5b4ccd1554da7634)會採用非結構化文字，並針對每個 JSON 檔傳回可辨識的實體清單，其中包含 Web （維琪百科和 Bing）上詳細資訊的連結。
 
 ## <a name="entity-linking-and-named-entity-recognition"></a>實體連結和具名實體辨識
 
-文字分析 ' `entities`端點支援命名實體識別 (NER) 和實體連結。
+文字分析 ' `entities`端點支援命名實體識別（NER）和實體連結。
 
 ### <a name="entity-linking"></a>實體連結
 連結實體可識別及區分文字中找到的實體身分識別 (例如，判斷 "Mars" 是用來指星體或指羅馬的戰神)。 此程序需具備可讓辨識項目與之連結的知識庫 - `entities` 端點文字分析即是使用維基百科作為知識庫。
@@ -31,7 +31,7 @@ ms.locfileid: "68697835"
 ### <a name="named-entity-recognition-ner"></a>具名實體辨識 (NER)
 具名實體辨識 (NER) 是識別文字中各種不同的實體，並將它們分類至預先定義類別的能力。 下面列出所支援的實體類別。
 
-在文字分析[版本 2.1](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/5ac4251d5b4ccd1554da7634)中, 實體連結和命名實體辨識 (NER) 都適用于數種語言。 如需詳細資訊, 請參閱[語言支援](../language-support.md#sentiment-analysis-key-phrase-extraction-and-named-entity-recognition)文章。
+在文字分析[版本 2.1](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/5ac4251d5b4ccd1554da7634)中，實體連結和命名實體辨識（NER）都適用于數種語言。 如需詳細資訊，請參閱[語言支援](../language-support.md#sentiment-analysis-key-phrase-extraction-and-named-entity-recognition)文章。
 
 ### <a name="language-support"></a>語言支援
 
@@ -41,7 +41,7 @@ ms.locfileid: "68697835"
 
 | Type  | SubType | 範例 |
 |:-----------   |:------------- |:---------|
-| Person        | N/A\*         | "Jeff"、"Bill Gates"     |
+| 個人        | N/A\*         | "Jeff"、"Bill Gates"     |
 | Location      | N/A\*         | "Redmond, Washington"、"Paris"  |
 | 組織  | N/A\*         | "Microsoft"   |
 | 數量      | 數字        | "6"、"six"     |
@@ -57,10 +57,10 @@ ms.locfileid: "68697835"
 | DateTime      | Time          | "8am"、"8:00"  |
 | DateTime      | 日期範圍     | "May 2nd to May 5th"    |
 | DateTime      | 時間範圍     | "6pm to 7pm"     |
-| DateTime      | 持續時間      | "1 minute and 45 seconds"   |
+| DateTime      | Duration      | "1 minute and 45 seconds"   |
 | DateTime      | 設定           | "every Tuesday"     |
 | DateTime      | 時區      |    |
-| URL           | N/A\*         | "HTTPs:\//www.bing.com"    |
+| URL           | N/A\*         | "HTTPs：\//www.bing.com"    |
 | Email         | N/A\*         | "support@contoso.com" |
 
 \* 依輸入和擷取的實體而定，某些實體可能會省略 `SubType`。  列出的所有支援實體類型僅適用于英文、簡體中文、法文、德文和西班牙文語言。
@@ -98,7 +98,7 @@ ms.locfileid: "68697835"
 
 + 建立一個 **POST** 要求。 檢閱適用於此要求的 API 文件：[實體 API](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/5ac4251d5b4ccd1554da7634)
 
-+ 設定適用於實體擷取的 HTTP 端點。 它必須包括 `/entities` 資源：`https://[your-region].api.cognitive.microsoft.com/text/analytics/v2.1/entities`
++ 使用 Azure 上的文字分析資源或具現化的[文字分析容器](text-analytics-how-to-install-containers.md)，設定關鍵字組解壓縮的 HTTP 端點。 您必須包含`/text/analytics/v2.1/entities`。 例如： `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v2.1/entities` 。
 
 + 設定要求標頭以包含文字分析作業[的存取金鑰](../../cognitive-services-apis-create-account.md#get-the-keys-for-your-resource)。
 

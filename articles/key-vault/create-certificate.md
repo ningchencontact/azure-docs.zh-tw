@@ -3,18 +3,18 @@ title: 憑證建立方式
 description: 在 Key Vault 中建立憑證的方式。
 services: key-vault
 author: msmbaldwin
-manager: barbkess
+manager: rkarlin
 tags: azure-resource-manager
 ms.service: key-vault
 ms.topic: conceptual
 ms.date: 01/07/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 63768b83baafe00348a28c5c9c99e5f16619ac99
-ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
+ms.openlocfilehash: 908f02807d5a3f7c2c1391c3c59a54fc88bbd831
+ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68815934"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70884154"
 ---
 # <a name="certificate-creation-methods"></a>憑證建立方式
 
@@ -53,7 +53,7 @@ KV 憑證的建立是非同步流程。 此作業會建立 KV 憑證要求，並
 
 ## <a name="first-creation"></a>首次建立
  首次建立 KV 憑證時，系統會以憑證的名稱一併建立可定址金鑰和祕密。 如果名稱已在使用中，作業將會失敗，並且會傳回 http 狀態碼 409 (衝突)。
-可定址金鑰和秘密會從 KV 憑證屬性取得其屬性。 利用這種方式建立的可定址金鑰和秘密會標示為受控金鑰，其存留期會由 Key Vault 管理。 受控金鑰和祕密是唯讀的。 注意:如果 KV 憑證過期或已停用，對應的金鑰和祕密將會無法運作。  
+可定址金鑰和秘密會從 KV 憑證屬性取得其屬性。 利用這種方式建立的可定址金鑰和秘密會標示為受控金鑰，其存留期會由 Key Vault 管理。 受控金鑰和祕密是唯讀的。 注意：如果 KV 憑證過期或已停用，對應的金鑰和祕密將會無法運作。  
 
  如果這是建立 KV 憑證的第一個作業，您必須具備原則。  也可以將後續的建立作業提供給原則，取代原則資源。 如果您未提供原則，系統便會以服務上的原則資源建立下一個版本的 KV 憑證。 請注意，當系統正在處理下一個版本的建立要求時，目前的 KV 憑證、對應的可定址金鑰和秘密會保持不變。  
 

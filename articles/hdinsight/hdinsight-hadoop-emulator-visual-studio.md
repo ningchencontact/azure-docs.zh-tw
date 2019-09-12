@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/07/2018
 ms.author: hrasheed
-ms.openlocfilehash: 580712c4d1815b1c994fd62be78e8d7f3f1c9a01
-ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
+ms.openlocfilehash: 9fba32c9c21faa6e02c8b48b3907ab67e47036d5
+ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70809435"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70885504"
 ---
 # <a name="use-the-azure-data-lake-tools-for-visual-studio-with-the-hortonworks-sandbox"></a>搭配 Hortonworks 沙箱使用 Azure Data Lake tools for Visual Studio
 
@@ -185,7 +185,7 @@ Data Lake 工具也可讓您輕鬆地檢視已在 Hadoop 上執行之作業的�
 
 您可以檢視資料庫或資料表的屬性。 選取 [屬性] 會在 [屬性] 視窗中顯示所選取項目的詳細資料。 請參考下列螢幕擷取畫面中顯示的資訊為例：
 
-![[屬性] 視窗的螢幕擷取畫面](./media/hdinsight-hadoop-emulator-visual-studio/properties.png)
+![[屬性] 視窗的螢幕擷取畫面](./media/hdinsight-hadoop-emulator-visual-studio/hdi-properties-window.png)
 
 ### <a name="create-a-table"></a>建立資料表
 

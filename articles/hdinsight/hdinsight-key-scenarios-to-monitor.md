@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/29/2019
 ms.author: hrasheed
-ms.openlocfilehash: 2caa96e0ad036bbb872de43a7d8736969cf33c42
-ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
+ms.openlocfilehash: 706f0333f1cca984b44e0fc96a5b014d4157ce4c
+ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70812030"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70879690"
 ---
 # <a name="monitor-cluster-performance-in-azure-hdinsight"></a>監視 Azure HDInsight 中的叢集效能
 
@@ -68,7 +68,7 @@ YARN 可讓我們將資源配置給這些佇列，並顯示是否已指派所有
 
 在 Resource Manager UI 中，從左側功能表選取 [排程器]。 您會在 [應用程式佇列] 下方看到您的佇列清單。 您可以在這裡查看每個佇列使用的容量，作業在它們之間散發的情況，以及是否有任何作業為有限資源。
 
-![Resource Manager UI 功能表連結](./media/hdinsight-key-scenarios-to-monitor/resource-manager-ui.png)
+![Resource Manager UI 功能表](./media/hdinsight-key-scenarios-to-monitor/resource-manager-ui.png)
 
 ## <a name="storage-throttling"></a>儲存體節流
 

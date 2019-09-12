@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: hrasheed
-ms.openlocfilehash: 877fc3a4e29fc1753d7b4f92091b34d4b2537846
-ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
+ms.openlocfilehash: 9071b41ab39c62f639b62a439e4d2530a7d7e11b
+ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70810320"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70880048"
 ---
 # <a name="automatically-scale-azure-hdinsight-clusters-preview"></a>自動調整 Azure HDInsight 叢集（預覽）
 
@@ -85,7 +85,7 @@ HDInsight 服務會計算需要多少個新的背景工作節點，以符合目�
     * 背景工作節點**最小**數目。  
     * 背景工作節點**最大**數目。  
 
-    ![啟用背景工作節點以負載為基礎的自動調整](./media/hdinsight-autoscale-clusters/usingAutoscale.png)
+    ![啟用背景工作節點以負載為基礎的自動調整](./media/hdinsight-autoscale-clusters/hdinsight-using-autoscale.png)
 
 背景工作節點的初始數目必須介於最小值和最大值 (含) 之間。 此值會定義叢集建立時的初始大小。 背景工作節點的最小數目必須大於零。
 

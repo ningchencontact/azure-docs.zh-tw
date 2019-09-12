@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 03/29/2018
 ms.author: swmachan
-ms.openlocfilehash: ad619ad965cf4b7d94b781818c658152f71250a7
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: cb5a3b8572cebfd6c0731a9e572e966fda280be6
+ms.sourcegitcommit: a4b5d31b113f520fcd43624dd57be677d10fc1c0
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68594997"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70772794"
 ---
 # <a name="translator-text-api-v30"></a>Microsoft Translator Text API v3.0
 
@@ -57,8 +57,8 @@ Microsoft Translator 透過多個資料中心位置來提供服務。 目前位�
 
 |標頭|描述|
 |:----|:----|
-|Ocp-Apim-Subscription-Key|如果您要傳遞祕密金鑰，請使用認知服務訂用帳戶  。<br/>此值是您 Translator Text API 訂用帳戶的 Azure 祕密金鑰。|
-|Authorization|如果您要傳遞驗證權杖，請使用認知服務訂用帳戶  。<br/>此值是持有人權杖：`Bearer <token>`。|
+|Ocp-Apim-Subscription-Key|如果您要傳遞祕密金鑰，請使用認知服務訂用帳戶。<br/>此值是您 Translator Text API 訂用帳戶的 Azure 祕密金鑰。|
+|Authorization|如果您要傳遞驗證權杖，請使用認知服務訂用帳戶。<br/>此值是持有人權杖：`Bearer <token>`。|
 |Ocp-Apim-Subscription-Region|*如果您要傳遞多服務秘密金鑰, 請搭配使用與認知服務多服務訂用帳戶。*<br/>此值是多服務訂用帳戶的區域。 當不使用多服務訂用帳戶時, 這個值是選擇性的。|
 
 ###  <a name="secret-key"></a>祕密金鑰
@@ -99,7 +99,7 @@ Authorization: Bearer <Base64-access_token>
 
 多服務文字 API 訂用帳戶需要區域。 您選取的區域是您在使用多服務訂用帳戶金鑰時, 可以用於文字翻譯的唯一區域, 而且必須是您透過 Azure 入口網站註冊多服務訂用帳戶時所選取的相同區域。
 
-可用區域包括 `australiaeast`、`brazilsouth`、`canadacentral`、`centralindia`、`centraluseuap`、`eastasia`、`eastus`、`eastus2`、`japaneast`、`northeurope`、`southcentralus`、`southeastasia`、`uksouth`、`westcentralus`、`westeurope`、`westus` 和 `westus2`。
+可用的區域`australiaeast`為`brazilsouth`、 `canadacentral`、 `centralindia` 、、`centralus`、 `centraluseuap`、 、、`eastus`、、、、 `eastasia` `eastus2` `francecentral` `japaneast` `japanwest` `koreacentral`、 、`northcentralus` 、、`southeastasia`、 、、`uksouth`、、和`southafricanorth`。 `southcentralus` `northeurope` `westcentralus` `westeurope` `westus` `westus2`
 
 如果您在查詢字串中使用參數 `Subscription-Key` 傳遞祕密金鑰，則必須使用查詢參數 `Subscription-Region` 來指定區域。
 
@@ -164,6 +164,6 @@ Authorization: Bearer <Base64-access_token>
 | 408002| 要求已等候傳入串流。 用戶端未在伺服器準備等候的時間內產生要求。 用戶端可能會在不修改的時間之後, 重複要求。|
 | 415000| Content-Type 標頭遺漏或無效。|
 | 429000、429001、429002| 伺服器已拒絕要求, 因為用戶端已超過要求限制。|
-| 500000| 發生未預期的錯誤。 如果錯誤持續存在，請回報錯誤並提供錯誤的日期/時間、來自回應標頭 X-RequestId 的要求識別碼，以及來自要求標頭 X-ClientTraceId 的用戶端識別碼。|
+| 500000| 發生意外錯誤。 如果錯誤持續存在，請回報錯誤並提供錯誤的日期/時間、來自回應標頭 X-RequestId 的要求識別碼，以及來自要求標頭 X-ClientTraceId 的用戶端識別碼。|
 | 503000| 服務暫時無法使用。 請再試一次。 如果錯誤持續存在，請回報錯誤並提供錯誤的日期/時間、來自回應標頭 X-RequestId 的要求識別碼，以及來自要求標頭 X-ClientTraceId 的用戶端識別碼。|
 

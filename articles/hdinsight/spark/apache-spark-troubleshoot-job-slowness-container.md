@@ -6,14 +6,14 @@ ms.topic: troubleshooting
 author: hrasheed-msft
 ms.author: hrasheed
 ms.date: 08/21/2019
-ms.openlocfilehash: 6e92016c0dcd65ee5b7f43c2c257b7d2198d6552
-ms.sourcegitcommit: 97605f3e7ff9b6f74e81f327edd19aefe79135d2
+ms.openlocfilehash: 9a4142010ef9e47a1a41e472c945b694f197f34f
+ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70736252"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70885064"
 ---
-# <a name="scenario-apache-spark-job-run-slowly-when-the-azure-storage-container-contains-many-files-in-azure-hdinsight"></a>案例：當 Azure 儲存體容器包含許多檔案時，Apache Spark 作業執行速度會變慢 Azure HDInsight
+# <a name="apache-spark-job-run-slowly-when-the-azure-storage-container-contains-many-files-in-azure-hdinsight"></a>當 Azure 儲存體容器包含許多檔案時，Apache Spark 作業執行速度會變慢 Azure HDInsight
 
 本文說明在 Azure HDInsight 叢集中使用 Apache Spark 元件時，疑難排解步驟和問題的可能解決方法。
 

@@ -3,18 +3,18 @@ title: 通用參數和標頭
 description: 參數和標頭通用於針對相關 Key Vault 資源執行的所有作業。
 services: key-vault
 author: msmbaldwin
-manager: barbkess
+manager: rkarlin
 tags: azure-resource-manager
 ms.service: key-vault
 ms.topic: conceptual
 ms.date: 01/07/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 01ac02ca0e449dcac8fcd05450566fd8138acba3
-ms.sourcegitcommit: 1289f956f897786090166982a8b66f708c9deea1
+ms.openlocfilehash: 7ec8e1df71e6513b13e9c37174a3363471be01d9
+ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "64696678"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70879277"
 ---
 # <a name="common-parameters-and-headers"></a>通用參數和標頭
 
@@ -39,12 +39,12 @@ ms.locfileid: "64696678"
    }  
 ```
 
-|元素名稱 | 類型 | 描述 |
+|元素名稱 | Type | 描述 |
 |---|---|---|
-| code | 字串 | 所發生錯誤的類型。|
-| message | 字串 | 造成錯誤之原因的描述。 |
+| code | string | 所發生錯誤的類型。|
+| message | string | 造成錯誤之原因的描述。 |
 
 
 
-## <a name="see-also"></a>另请参阅
+## <a name="see-also"></a>另請參閱
  [Azure Key Vault REST API 參考](/rest/api/keyvault/)

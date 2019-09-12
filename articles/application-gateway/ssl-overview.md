@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 3/19/2019
 ms.author: victorh
-ms.openlocfilehash: 199fcdf2ebf10852906b842f09fe7beafd2acdb5
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: e52a32c1897a7add939880fbe27d6b4b7fbee0bd
+ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68326614"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70883582"
 ---
 # <a name="overview-of-ssl-termination-and-end-to-end-ssl-with-application-gateway"></a>使用應用程式閘道的 SSL 終止和端對端 SSL 總覽
 
@@ -72,7 +72,7 @@ SSL 原則會同時適用于前端和後端流量。 在前端, 應用程式閘�
 
 > [!NOTE] 
 >
-> 新增至後端**HTTP 設定**以驗證後端伺服器的憑證, 可以與在應用程式閘道上針對  SSL 終止所新增的憑證相同, 或不同以增強安全性。
+> 新增至後端**HTTP 設定**以驗證後端伺服器的憑證, 可以與在應用程式閘道上針對 SSL 終止所新增的憑證相同, 或不同以增強安全性。
 
 ![端對端 SSL 案例][1]
 
@@ -95,7 +95,7 @@ SSL 原則會同時適用于前端和後端流量。 在前端, 應用程式閘�
    
 > [!NOTE] 
 >
-> 為了讓 SSL 憑證受到信任, 該後端伺服器的憑證必須由應用程式閘道的受信任存放區中所包含的 CA 發行。如果憑證不是由受信任的 CA 所發行, 應用程式閘道將會檢查查看發行 CA 的憑證是否由受信任的 CA 發行, 依此類推, 直到找到信任的 CA 為止 (此時將會建立受信任的安全連線), 或找不到受信任的 CA (此時, 應用程式閘道會將後端 unhe 標記為althy). 因此, 建議後端伺服器憑證同時包含 root 和 intermidiate Ca。
+> 為了讓 SSL 憑證受到信任，該後端伺服器的憑證必須由應用程式閘道的信任存放區中所包含的 CA 發行。如果憑證不是由受信任的 CA 所發行，應用程式閘道就會檢查若要查看發行 CA 的憑證是否由受信任的 CA 發行，以及是否在找到信任的 CA （此時將會建立受信任的安全連線），或找不到受信任的 ca （此時，應用程式閘道會標示後端狀況不良）。 因此, 建議後端伺服器憑證同時包含 root 和 intermidiate Ca。
 
 - 如果憑證是自我簽署的，或由未知的媒介所簽署的，則若要在 v2 SKU 中啟用端對端 SSL，就必須定義受信任的根憑證。 「應用程式閘道」只會與符合下列條件的後端進行通訊：其伺服器憑證的根憑證符合與集區相關之後端 HTTP 設定中受信任根憑證清單內的其中一個憑證。
 

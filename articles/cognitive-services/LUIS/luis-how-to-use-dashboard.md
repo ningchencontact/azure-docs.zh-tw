@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 05/22/2019
 ms.author: diberry
-ms.openlocfilehash: a5c60a4c7d4f1b441ec5e8444b10594a1e67d7db
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: 22e187bba3782e485685354c203a6273d5bcc618
+ms.sourcegitcommit: 97605f3e7ff9b6f74e81f327edd19aefe79135d2
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68932726"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70735060"
 ---
 # <a name="how-to-use-the-dashboard-to-improve-your-app"></a>如何使用儀表板來改善您的應用程式
 
@@ -78,9 +78,9 @@ ms.locfileid: "68932726"
 
 新增範例語句應由下列人員完成:
 
-* 對不同意圖中的語句有非常程度的瞭解
-* 知道某個意圖中的語句如何與另一個意圖混淆
-* 能夠決定是否要將兩個意圖 (經常與彼此混淆), 折迭成單一意圖, 以及與實體一起提取的不同資料
+* 對不同意圖中的語句有非常程度的瞭解。
+* 瞭解如何在一個意圖中語句，與另一個意圖混淆。
+* 能夠決定是否要將兩個意圖（經常與彼此混淆），折迭成單一意圖。 如果是這種情況，則必須使用實體來提取不同的資料。
 
 ### <a name="patterns-and-phrase-lists"></a>模式與片語清單
 
@@ -163,11 +163,11 @@ ms.locfileid: "68932726"
 
 ### <a name="correct-prediction-threshold"></a>正確的預測閾值
 
-您有什麼信心預測信賴分數？ 在應用程式開發的開端, 60% 可能是您的目標。 請使用低於 60% 百分比的**正確預測**, 在所選意圖中尋找需要修正的任何語句。
+您有什麼信心預測信賴分數？ 在應用程式開發的開端，60% 可能是您的目標。 請使用低於 60% 百分比的**正確預測**，在所選意圖中尋找需要修正的任何語句。
 
 ### <a name="unclear-or-incorrect-prediction-threshold"></a>不清楚或不正確的預測閾值
 
-這兩個篩選準則可讓您在選取的意圖中尋找超出閾值的語句。 您可以將這兩個百分比視為錯誤百分比。 如果您很熟悉預測的 10-15% 錯誤率, 請將篩選臨界值設定為 15%, 以尋找高於此值的所有語句。 
+這兩個篩選準則可讓您在選取的意圖中尋找超出閾值的語句。 您可以將這兩個百分比視為錯誤百分比。 如果您很熟悉預測的 10-15% 錯誤率，請將篩選臨界值設定為 15%，以尋找高於此值的所有語句。 
 
 ## <a name="next-steps"></a>後續步驟
 

@@ -8,22 +8,22 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 04/24/2019
-ms.openlocfilehash: d566b57ae12520b9eee26334a67d2e10c05f8040
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a3919cf84714b69776222fa35d3163e0915869f7
+ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64709074"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70881988"
 ---
-# <a name="generate-movie-recommendations-by-using-apache-mahout-with-linux-based-apache-hadoop-in-hdinsight-ssh"></a>在 HDInsight 中搭配使用 Apache Mahout 和以 Linux 為基礎的 Apache Hadoop 來產生電影推薦 (SSH)
+# <a name="generate-movie-recommendations-using-apache-mahout-with-apache-hadoop-in-hdinsight-ssh"></a>在 HDInsight 中使用 Apache Mahout 搭配 Apache Hadoop 來產生電影推薦（SSH）
 
 [!INCLUDE [mahout-selector](../../../includes/hdinsight-selector-mahout.md)]
 
 了解如何使用搭配 Azure HDInsight 的 [Apache Mahout](https://mahout.apache.org) 機器學習庫產生電影推薦。
 
-Mahout 是[機器學習服務](https://en.wikipedia.org/wiki/Machine_learning)Apache hadoop 的程式庫。 Mahout 包含可處理資料的演算法，例如篩選、分類和叢集化。 在本文中，您會使用推薦引擎，以根據朋友看過的電影來產生電影推薦。
+Mahout 是 Apache Hadoop 的[機器學習](https://en.wikipedia.org/wiki/Machine_learning)程式庫。 Mahout 包含可處理資料的演算法，例如篩選、分類和叢集化。 在本文中，您會使用推薦引擎，以根據朋友看過的電影來產生電影推薦。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 * HDInsight 上的 Apache Hadoop 叢集。 請參閱[開始在 Linux 上使用 HDInsight](./apache-hadoop-linux-tutorial-get-started.md)。
 
@@ -35,7 +35,7 @@ Mahout 是[機器學習服務](https://en.wikipedia.org/wiki/Machine_learning)Ap
 
 ## <a name="recommendations"></a>了解推薦
 
-Mahout 提供的其中一項功能是推薦引擎。 這個引擎接受 `userID`、`itemId` 和 `prefValue` (項目的喜好設定) 格式的資料。 Mahout 接著可以執行共生分析來判斷：「偏好某項目的使用者同時也偏好其他這些項目」  。 接著 Mahout 會以偏好的類似項目判斷使用者，並以此做出推薦。
+Mahout 提供的其中一項功能是推薦引擎。 這個引擎接受 `userID`、`itemId` 和 `prefValue` (項目的喜好設定) 格式的資料。 Mahout 接著可以執行共生分析來判斷：「偏好某項目的使用者同時也偏好其他這些項目」。 接著 Mahout 會以偏好的類似項目判斷使用者，並以此做出推薦。
 
 以下工作流程是一個使用電影資料的簡化範例：
 
@@ -47,7 +47,7 @@ Mahout 提供的其中一項功能是推薦引擎。 這個引擎接受 `userID`
 
 ### <a name="understanding-the-data"></a>了解資料
 
-為了方便起見， [GroupLens 研究](https://grouplens.org/datasets/movielens/)提供與 Mahout 相容格式的電影評價資料。 您可在位於 `/HdiSamples/HdiSamples/MahoutMovieData`的叢集預設儲存體取得這份資料。
+[GroupLens Research](https://grouplens.org/datasets/movielens/)方便您使用與 Mahout 相容的格式來提供電影的評等資料。 您可在位於 `/HdiSamples/HdiSamples/MahoutMovieData`的叢集預設儲存體取得這份資料。
 
 有兩個檔案 `moviedb.txt` 和 `user-ratings.txt`。 `user-ratings.txt` 檔案是用於分析期間。 檢視結果時，`moviedb.txt` 用來提供使用者易記的文字資訊。
 

@@ -3,17 +3,17 @@ title: Azure 金鑰保存庫開發人員指南
 description: 開發人員可以使用 Azure 金鑰保存庫來管理 Microsoft Azure 環境中的密碼編譯金鑰。
 services: key-vault
 author: msmbaldwin
-manager: barbkess
+manager: rkarlin
 ms.service: key-vault
 ms.topic: conceptual
 ms.date: 02/11/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 72ec3080658b98376952f72f746c1b53fdf7de77
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ca640b058a1d91d15c5accb9367936368511a3ef
+ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64704330"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70881601"
 ---
 # <a name="azure-key-vault-developers-guide"></a>Azure 金鑰保存庫開發人員指南
 
@@ -33,7 +33,7 @@ Key Vault 可讓您從應用程式內安全地存取機密資訊︰
 ### <a name="storage-account-keys---july-10-2017"></a>儲存體帳戶金鑰 - 2017 年 7 月 10 日
 
 >[!NOTE]
->在此 Azure Key Vault 更新中，只有 [儲存體帳戶金鑰]  功能處於預覽狀態。
+>在此 Azure Key Vault 更新中，只有 [儲存體帳戶金鑰] 功能處於預覽狀態。
 
 此預覽版包含新的 [儲存體帳戶金鑰] 功能，可透過下列介面提供：[.NET/C#](/dotnet/api/microsoft.azure.keyvault/)、[REST](/rest/api/keyvault/) 和 [PowerShell](/powershell/module/az.keyvault/?view=azps-1.2.0#key_vault)。 
 
@@ -104,7 +104,7 @@ Azure Key Vault 可安全地儲存認證和其他金鑰及密碼，但是您的�
 
 [Key Vault 的 Azure PowerShell](/powershell/module/az.keyvault/?view=azps-1.2.0#key_vault)
 
-### <a name="quick-start-guides"></a>快速入門指南
+### <a name="quick-start-guides"></a>快速入門手冊
 
 - [建立金鑰保存庫](https://github.com/Azure/azure-quickstart-templates/tree/master/101-key-vault-create)
 - [開始在 Node.js 中使用 Key Vault](https://github.com/Azure-Samples/key-vault-node-getting-started)

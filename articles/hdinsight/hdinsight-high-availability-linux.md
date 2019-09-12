@@ -9,12 +9,12 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 04/24/2019
 ms.author: hrasheed
-ms.openlocfilehash: 1828efb410849677e859d341e4e16e4f5d4ca681
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 1bfc17d343f6e788d22cd158fcb849c5895b019f
+ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68405987"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70879746"
 ---
 # <a name="availability-and-reliability-of-apache-hadoop-clusters-in-hdinsight"></a>HDInsight 中 Apache Hadoop 叢集的可用性和可靠性
 
@@ -94,7 +94,7 @@ HDInsight 叢集中的節點具有只能自叢集存取的內部 IP 位址和 FQ
 
 * **SSH 通道**：如果您需要存取裝載在其中一個沒有對網際網路公開之節點上的 Web 服務，就必須使用 SSH 通道。 如需詳細資訊，請參閱[搭配 HDInsight 使用 SSH 通道](hdinsight-linux-ambari-ssh-tunnel.md)文件。
 
-* **Azure 虛擬網路**：如果您的 HDInsight 叢集是「Azure 虛擬網路」的一部分，則任何在相同「虛擬網路」上的資源都可直接存取該叢集內的所有節點。 如需詳細資訊, 請參閱[規劃 HDInsight 的虛擬網路](hdinsight-plan-virtual-network-deployment.md)檔。
+* **Azure 虛擬網路**：如果您的 HDInsight 叢集是「Azure 虛擬網路」的一部分，則任何在相同「虛擬網路」上的資源都可直接存取該叢集內的所有節點。 如需詳細資訊，請參閱[規劃 HDInsight 的虛擬網路](hdinsight-plan-virtual-network-deployment.md)檔。
 
 ## <a name="how-to-check-on-a-service-status"></a>如何檢查服務狀態
 
@@ -106,60 +106,60 @@ HDInsight 叢集中的節點具有只能自叢集存取的內部 IP 位址和 FQ
 
 當您來到 Ambari 頁面上時，會在該頁面的左邊列出已安裝的服務。
 
-![已安裝的服務](./media/hdinsight-high-availability-linux/services.png)
+![已安裝的服務](./media/hdinsight-high-availability-linux/hdinsight-installed-services.png)
 
 服務旁可能會出現一系列圖示以表示狀態。 可以使用在頁面頂端的 [警示] 連結，檢視與服務相關的任何警示。  Ambari 提供數個預先定義的警示。
 
-下列警示可協助監視叢集的可用性:
+下列警示可協助監視叢集的可用性：
 
 | 警示名稱                               | 描述                                                                                                                                                                                  |
 |------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| 度量監視狀態                    | 此警示會指出計量監視器進程的狀態, 由監視狀態腳本決定。                                                                                   |
-| Ambari 代理程式的心跳                   | 如果伺服器已失去與代理程式的連線, 就會觸發此警示。                                                                                                                        |
-| ZooKeeper 伺服器進程                 | 如果無法判斷 ZooKeeper 伺服器進程是否已啟動並在網路上接聽, 就會觸發此主機層級警示。                                                               |
-| IOCache 中繼資料伺服器狀態           | 如果無法判斷 IOCache 的中繼資料伺服器是否已啟動並回應用戶端要求, 就會觸發此主機層級警示。                                                            |
-| JournalNode Web UI                       | 如果無法連線到 JournalNode Web UI, 就會觸發此主機層級警示。                                                                                                                 |
-| Spark2 Thrift 伺服器                     | 如果無法判斷 Spark2 Thrift 伺服器是否已啟動, 則會觸發此主機層級警示。                                                                                                |
-| 歷程記錄伺服器進程                   | 如果無法建立記錄伺服器進程以在網路上啟動及接聽, 就會觸發此主機層級警示。                                                                |
-| 歷程記錄伺服器 Web UI                    | 如果無法連線到歷程記錄伺服器 Web UI, 就會觸發此主機層級警示。                                                                                                              |
-| ResourceManager Web UI                   | 如果無法連線到 ResourceManager Web UI, 就會觸發此主機層級警示。                                                                                                             |
-| NodeManager 健全狀況摘要               | 如果有狀況不良的 NodeManagers, 就會觸發此服務層級警示                                                                                                                    |
-| 應用程式時間軸 Web UI                      | 如果無法連線到應用程式時間軸伺服器 Web UI, 就會觸發此主機層級警示。                                                                                                         |
-| DataNode 健全狀況摘要                  | 如果有狀況不良的 Datanode, 就會觸發此服務層級警示                                                                                                                       |
-| NameNode Web UI                          | 如果無法連線到 NameNode Web UI, 就會觸發此主機層級警示。                                                                                                                    |
-| ZooKeeper 容錯移轉控制器進程    | 如果無法確認 ZooKeeper 容錯移轉控制器進程是否已啟動並在網路上接聽, 則會觸發此主機層級警示。                                                   |
-| Oozie 伺服器 Web UI                      | 如果無法連線到 Oozie 伺服器 Web UI, 就會觸發此主機層級警示。                                                                                                                |
-| Oozie 伺服器狀態                      | 如果無法判斷 Oozie 伺服器是否已啟動並回應用戶端要求, 就會觸發此主機層級警示。                                                                      |
-| Hive 中繼存放區進程                   | 如果無法判斷 Hive 中繼存放區進程在網路上啟動並接聽, 就會觸發此主機層級警示。                                                                 |
-| HiveServer2 流程                      | 如果無法判斷 HiveServer 是否已啟動並回應用戶端要求, 就會觸發此主機層級警示。                                                                        |
-| WebHCat 伺服器狀態                    | 如果 templeton 伺服器狀態狀況不良, 則會觸發此主機層級警示。                                                                                                            |
-| 可用的 ZooKeeper 伺服器百分比      | 如果叢集中的下層 ZooKeeper 伺服器數目大於設定的重大閾值, 就會觸發此警示。 它會匯總 ZooKeeper 流程檢查的結果。     |
-| Spark2 Livy 伺服器                       | 如果無法判斷 Livy2 伺服器是否已啟動, 則會觸發此主機層級警示。                                                                                                        |
-| Spark2 歷程記錄伺服器                    | 如果無法判斷 Spark2 歷程記錄伺服器是否已啟動, 就會觸發此主機層級警示。                                                                                               |
-| 計量收集器進程                | 如果無法確認計量收集器已啟動, 且在設定的埠上接聽的秒數等於閾值, 就會觸發此警示。                                 |
-| 計量收集器-HBase Master 進程 | 如果無法確認計量收集器的 HBase 主要進程在網路上啟動並接聽已設定的重大臨界值 (以秒為單位), 就會觸發此警示。 |
-| 可用的計量監視百分比       | 如果計量監視進程的百分比未啟動, 並在網路上接聽已設定的警告和重大臨界值, 就會觸發此警示。                             |
-| 可用的 NodeManagers 百分比           | 如果叢集中的關閉 NodeManagers 數目大於設定的重大閾值, 就會觸發此警示。 它會匯總 NodeManager 流程檢查的結果。        |
+| 度量監視狀態                    | 此警示會指出計量監視器進程的狀態，由監視狀態腳本決定。                                                                                   |
+| Ambari 代理程式的心跳                   | 如果伺服器已失去與代理程式的連線，就會觸發此警示。                                                                                                                        |
+| ZooKeeper 伺服器進程                 | 如果無法判斷 ZooKeeper 伺服器進程是否已啟動並在網路上接聽，就會觸發此主機層級警示。                                                               |
+| IOCache 中繼資料伺服器狀態           | 如果無法判斷 IOCache 的中繼資料伺服器是否已啟動並回應用戶端要求，就會觸發此主機層級警示。                                                            |
+| JournalNode Web UI                       | 如果無法連線到 JournalNode Web UI，就會觸發此主機層級警示。                                                                                                                 |
+| Spark2 Thrift 伺服器                     | 如果無法判斷 Spark2 Thrift 伺服器是否已啟動，則會觸發此主機層級警示。                                                                                                |
+| 歷程記錄伺服器進程                   | 如果無法建立記錄伺服器進程以在網路上啟動及接聽，就會觸發此主機層級警示。                                                                |
+| 歷程記錄伺服器 Web UI                    | 如果無法連線到歷程記錄伺服器 Web UI，就會觸發此主機層級警示。                                                                                                              |
+| ResourceManager Web UI                   | 如果無法連線到 ResourceManager Web UI，就會觸發此主機層級警示。                                                                                                             |
+| NodeManager 健全狀況摘要               | 如果有狀況不良的 NodeManagers，就會觸發此服務層級警示                                                                                                                    |
+| 應用程式時間軸 Web UI                      | 如果無法連線到應用程式時間軸伺服器 Web UI，就會觸發此主機層級警示。                                                                                                         |
+| DataNode 健全狀況摘要                  | 如果有狀況不良的 Datanode，就會觸發此服務層級警示                                                                                                                       |
+| NameNode Web UI                          | 如果無法連線到 NameNode Web UI，就會觸發此主機層級警示。                                                                                                                    |
+| ZooKeeper 容錯移轉控制器進程    | 如果無法確認 ZooKeeper 容錯移轉控制器進程是否已啟動並在網路上接聽，則會觸發此主機層級警示。                                                   |
+| Oozie 伺服器 Web UI                      | 如果無法連線到 Oozie 伺服器 Web UI，就會觸發此主機層級警示。                                                                                                                |
+| Oozie 伺服器狀態                      | 如果無法判斷 Oozie 伺服器是否已啟動並回應用戶端要求，就會觸發此主機層級警示。                                                                      |
+| Hive 中繼存放區進程                   | 如果無法判斷 Hive 中繼存放區進程在網路上啟動並接聽，就會觸發此主機層級警示。                                                                 |
+| HiveServer2 流程                      | 如果無法判斷 HiveServer 是否已啟動並回應用戶端要求，就會觸發此主機層級警示。                                                                        |
+| WebHCat 伺服器狀態                    | 如果 templeton 伺服器狀態狀況不良，則會觸發此主機層級警示。                                                                                                            |
+| 可用的 ZooKeeper 伺服器百分比      | 如果叢集中的下層 ZooKeeper 伺服器數目大於設定的重大閾值，就會觸發此警示。 它會匯總 ZooKeeper 流程檢查的結果。     |
+| Spark2 Livy 伺服器                       | 如果無法判斷 Livy2 伺服器是否已啟動，則會觸發此主機層級警示。                                                                                                        |
+| Spark2 歷程記錄伺服器                    | 如果無法判斷 Spark2 歷程記錄伺服器是否已啟動，就會觸發此主機層級警示。                                                                                               |
+| 計量收集器進程                | 如果無法確認計量收集器已啟動，且在設定的埠上接聽的秒數等於閾值，就會觸發此警示。                                 |
+| 計量收集器-HBase Master 進程 | 如果無法確認計量收集器的 HBase 主要進程在網路上啟動並接聽已設定的重大臨界值（以秒為單位），就會觸發此警示。 |
+| 可用的計量監視百分比       | 如果計量監視進程的百分比未啟動，並在網路上接聽已設定的警告和重大臨界值，就會觸發此警示。                             |
+| 可用的 NodeManagers 百分比           | 如果叢集中的關閉 NodeManagers 數目大於設定的重大閾值，就會觸發此警示。 它會匯總 NodeManager 流程檢查的結果。        |
 | NodeManager 健全狀況                       | 此主機層級警示會檢查 NodeManager 元件中可用的節點健全狀況屬性。                                                                                              |
-| NodeManager Web UI                       | 如果無法連線到 NodeManager Web UI, 就會觸發此主機層級警示。                                                                                                                 |
-| NameNode 高可用性健全狀況        | 如果作用中的 NameNode 或待命 NameNode 不在執行中, 就會觸發此服務層級警示。                                                                                     |
-| DataNode 流程                         | 如果無法建立個別 DataNode 進程以在網路上啟動及接聽, 則會觸發此主機層級警示。                                                         |
-| DataNode Web UI                          | 如果無法連線到 DataNode Web UI, 就會觸發此主機層級警示。                                                                                                                    |
-| 可用的 JournalNodes 百分比           | 如果叢集中的關閉 JournalNodes 數目大於設定的重大閾值, 就會觸發此警示。 它會匯總 JournalNode 流程檢查的結果。        |
-| 可用的 Datanode 百分比              | 如果叢集中的關閉 Datanode 數目大於設定的重大閾值, 就會觸發此警示。 它會匯總 DataNode 流程檢查的結果。              |
-| Zeppelin 伺服器狀態                   | 如果無法判斷 Zeppelin 伺服器是否已啟動並回應用戶端要求, 就會觸發此主機層級警示。                                                                   |
-| HiveServer2 互動式進程          | 如果無法判斷 HiveServerInteractive 是否已啟動並回應用戶端要求, 就會觸發此主機層級警示。                                                             |
-| LLAP 應用程式                         | 如果無法判斷 LLAP 應用程式是否已啟動並回應要求, 就會觸發此警示。                                                                                    |
+| NodeManager Web UI                       | 如果無法連線到 NodeManager Web UI，就會觸發此主機層級警示。                                                                                                                 |
+| NameNode 高可用性健全狀況        | 如果作用中的 NameNode 或待命 NameNode 不在執行中，就會觸發此服務層級警示。                                                                                     |
+| DataNode 流程                         | 如果無法建立個別 DataNode 進程以在網路上啟動及接聽，則會觸發此主機層級警示。                                                         |
+| DataNode Web UI                          | 如果無法連線到 DataNode Web UI，就會觸發此主機層級警示。                                                                                                                    |
+| 可用的 JournalNodes 百分比           | 如果叢集中的關閉 JournalNodes 數目大於設定的重大閾值，就會觸發此警示。 它會匯總 JournalNode 流程檢查的結果。        |
+| 可用的 Datanode 百分比              | 如果叢集中的關閉 Datanode 數目大於設定的重大閾值，就會觸發此警示。 它會匯總 DataNode 流程檢查的結果。              |
+| Zeppelin 伺服器狀態                   | 如果無法判斷 Zeppelin 伺服器是否已啟動並回應用戶端要求，就會觸發此主機層級警示。                                                                   |
+| HiveServer2 互動式進程          | 如果無法判斷 HiveServerInteractive 是否已啟動並回應用戶端要求，就會觸發此主機層級警示。                                                             |
+| LLAP 應用程式                         | 如果無法判斷 LLAP 應用程式是否已啟動並回應要求，就會觸發此警示。                                                                                    |
 
 您可以選取每個服務來檢視其詳細資訊。
 
 雖然 [服務] 頁面會提供資訊之狀態和每個服務的組態，但並不提供該服務正在哪些前端節點上執行的資訊。 若要檢視這項資訊，請使用在頁面頂端的 [主機] 連結。 此頁面會顯示叢集內的主機，包括前端節點在內。
 
-![主機清單](./media/hdinsight-high-availability-linux/hosts.png)
+![主機清單](./media/hdinsight-high-availability-linux/hdinsight-hosts-list.png)
 
 選取其中一個前端節點的連結會顯示該節點上執行的服務與元件。
 
-![元件狀態](./media/hdinsight-high-availability-linux/nodeservices.png)
+![元件狀態](./media/hdinsight-high-availability-linux/hdinsight-node-services.png)
 
 如需有關使用 Ambari 的詳細資訊，請參閱[使用 Apache Ambari Web UI 來監視和管理 HDInsight](hdinsight-hadoop-manage-ambari.md)。
 
@@ -241,21 +241,21 @@ Ambari REST API 可透過網際網路提供。 HDInsight 公用閘道器會處�
 
 從 Ambari Web UI 中，選取您想要檢視記錄的服務 (例如，YARN)。 然後使用 [快速連結] 來選取要檢視記錄的前端節點。
 
-![使用快速連結檢視記錄](./media/hdinsight-high-availability-linux/viewlogs.png)
+![使用快速連結檢視記錄](./media/hdinsight-high-availability-linux/quick-links-view-logs.png)
 
 ## <a name="how-to-configure-the-node-size"></a>如何設定節點大小
 
 只能在叢集建立期間選取節點的大小。 您可以在 [HDInsight 價格頁面](https://azure.microsoft.com/pricing/details/hdinsight/)找到 HDInsight 可用之不同 VM 大小的清單。
 
-建立叢集時，您可以指定節點的大小。 下列資訊提供如何使用 [ [Azure 入口網站][preview-portal]]、[ [Azure PowerShell 模組 Az][azure-powershell]] 和 [ [Azure CLI][azure-cli]] 來指定大小的指引:
+建立叢集時，您可以指定節點的大小。 下列資訊提供如何使用 [ [Azure 入口網站][preview-portal]]、[ [Azure PowerShell 模組 Az][azure-powershell]] 和 [ [Azure CLI][azure-cli]] 來指定大小的指引：
 
 * **Azure 入口網站**︰建立叢集時，您可以設定叢集所使用的節點大小：
 
-    ![可選取節點大小的 [叢集映像建立精靈]](./media/hdinsight-high-availability-linux/headnodesize.png)
+    ![可選取節點大小的 [叢集映像建立精靈]](./media/hdinsight-high-availability-linux/hdinsight-headnodesize.png)
 
-* **Azure CLI**：使用[az hdinsight create](https://docs.microsoft.com/cli/azure/hdinsight?view=azure-cli-latest#az-hdinsight-create)命令時, 您可以使用`--headnode-size`、 `--workernode-size`和`--zookeepernode-size`參數來設定 head、worker 和 ZooKeeper 節點的大小。
+* **Azure CLI**：使用[az hdinsight create](https://docs.microsoft.com/cli/azure/hdinsight?view=azure-cli-latest#az-hdinsight-create)命令時，您可以使用`--headnode-size`、 `--workernode-size`和`--zookeepernode-size`參數來設定 head、worker 和 ZooKeeper 節點的大小。
 
-* **Azure PowerShell**：使用 new-azhdinsightcluster 指令[程式](https://docs.microsoft.com/powershell/module/az.hdinsight/new-azhdinsightcluster)時, 您可以`-HeadNodeSize`使用、 `-WorkerNodeSize`和`-ZookeeperNodeSize`參數來設定 head、worker 和 ZooKeeper 節點的大小。
+* **Azure PowerShell**：使用 new-azhdinsightcluster 指令[程式](https://docs.microsoft.com/powershell/module/az.hdinsight/new-azhdinsightcluster)時，您可以`-HeadNodeSize`使用、 `-WorkerNodeSize`和`-ZookeeperNodeSize`參數來設定 head、worker 和 ZooKeeper 節點的大小。
 
 ## <a name="next-steps"></a>後續步驟
 

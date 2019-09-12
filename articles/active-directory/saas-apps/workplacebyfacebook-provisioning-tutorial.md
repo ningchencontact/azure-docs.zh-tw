@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 01/26/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 72c2e23b0d60ca242549ebf2c058ea8f44f2b1c8
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: f040ff4c8e59f764676aa6fdd9460ec94641684a
+ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60520146"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70881789"
 ---
 # <a name="tutorial-configure-workplace-by-facebook-for-automatic-user-provisioning"></a>教學課程：設定 Workplace by Facebook 來自動佈建使用者
 
@@ -68,35 +68,38 @@ Azure Active Directory 會使用稱為「指派」的概念，來判斷哪些使
 
 Azure AD 支援將指派之使用者的帳戶詳細資料自動同步處理至 Workplace by Facebook 的功能。 這個自動同步處理可讓 Workplace by Facebook 在使用者嘗試第一次登入之前，取得授權使用者存取所需的資料。 當存取在 Azure AD 中被撤銷時，它也會從 Workplace by Facebook 取消佈建使用者。
 
-1. 在 [Azure 入口網站](https://portal.azure.com)中，瀏覽至 [Azure Active Directory]   > [企業應用程式]   > [所有應用程式]  區段。
+1. 在 [Azure 入口網站](https://portal.azure.com)中，瀏覽至 [Azure Active Directory] > [企業應用程式] > [所有應用程式] 區段。
 
-2. 如果您已經設定單一登入的 Workplace by Facebook，使用 [搜尋] 欄位搜尋您的 Workplace by Facebook 執行個體。 否則，請選取 [新增]  ，並在應用程式庫中搜尋 [Workplace by Facebook]  。 從搜尋結果中選取 Workplace by Facebook，並將它新增至您的應用程式清單。
+2. 如果您已經設定單一登入的 Workplace by Facebook，使用 [搜尋] 欄位搜尋您的 Workplace by Facebook 執行個體。 否則，請選取 [新增]，並在應用程式庫中搜尋 [Workplace by Facebook]。 從搜尋結果中選取 Workplace by Facebook，並將它新增至您的應用程式清單。
 
-3. 選取您的 Workplace by Facebook 執行個體，然後選取 [佈建]  索引標籤。
+3. 選取您的 Workplace by Facebook 執行個體，然後選取 [佈建] 索引標籤。
 
-4. 將 [佈建模式]  設定為 [自動]  。 
+4. 將 [佈建模式] 設定為 [自動]。 
 
     ![佈建](./media/workplacebyfacebook-provisioning-tutorial/provisioning.png)
 
-5. 在 [管理員認證]  區段下，輸入 Workplace by Facebook 系統管理員的 [存取權杖]，並且將 [租用戶 URL] 設定為 `https://www.facebook.com/scim/v1/`。 請參閱這些[指示](https://developers.facebook.com/docs/workplace/integrations/custom-integrations/apps)，以建立工作場所的存取權杖。 
+5. 在 [管理員認證] 區段下，輸入 Workplace by Facebook 系統管理員的 [存取權杖]，並且將 [租用戶 URL] 設定為 `https://www.facebook.com/scim/v1/`。 請參閱這些[指示](https://developers.facebook.com/docs/workplace/integrations/custom-integrations/apps)，以建立工作場所的存取權杖。 
 
-6. 在 Azure 入口網站中，按一下 [測試連線]  以確保 Azure AD 可以連線到您的 Workplace by Facebook 應用程式。 如果連線失敗，請確定您的 Workplace by Facebook 帳戶具有小組系統管理員權限。
+6. 在 Azure 入口網站中，按一下 [測試連線]以確保 Azure AD 可以連線到您的 Workplace by Facebook 應用程式。 如果連線失敗，請確定您的 Workplace by Facebook 帳戶具有小組系統管理員權限。
 
-7. 在 [通知電子郵件]  欄位中，輸入應收到佈建錯誤通知的個人或群組之電子郵件地址，然後勾選核取方塊。
+7. 在 [通知電子郵件] 欄位中，輸入應收到佈建錯誤通知的個人或群組之電子郵件地址，然後勾選核取方塊。
 
-8. 按一下 [儲存]  。
+8. 按一下 [儲存]。
 
-9. 在 [對應] 區段中，選取 [同步處理 Azure Active Directory 使用者至 Workplace by Facebook]  。
+9. 在 [對應] 區段中，選取 [同步處理 Azure Active Directory 使用者至 Workplace by Facebook]。
 
-10. 在 [屬性對應]  區段中，檢閱從 Azure AD 同步至 Workplace by Facebook 的使用者屬性。 選取為 [比對]  屬性的屬性會用來比對 Workplace by Facebook 中的使用者帳戶以進行更新作業。 選取 [儲存] 按鈕以認可任何變更。
+10. 在 [屬性對應] 區段中，檢閱從 Azure AD 同步至 Workplace by Facebook 的使用者屬性。 選取為 [比對] 屬性的屬性會用來比對 Workplace by Facebook 中的使用者帳戶以進行更新作業。 選取 [儲存] 按鈕以認可任何變更。
 
-11. 若要啟用 Workplace by Facebook 的 Azure AD 佈建服務，在 [設定]  區段中，將 [佈建狀態]  變更為 [開啟] 
+11. 若要啟用 Workplace by Facebook 的 Azure AD 佈建服務，在 [設定] 區段中，將 [佈建狀態] 變更為 [開啟]
 
-12. 按一下 [儲存]  。
+12. 按一下 [儲存]。
 
 如需有關如何設定自動佈建的詳細資訊，請參閱 [https://developers.facebook.com/docs/facebook-at-work/provisioning/cloud-providers](https://developers.facebook.com/docs/facebook-at-work/provisioning/cloud-providers)。
 
 您現在可以建立測試帳戶了。 請等候 20 分鐘以驗證帳戶已同步至 Workplace by Facebook。
+
+> [!NOTE]
+> 我們正與 Workplace by Facebook 小組密切合作，以確保 Azure AD 的應用程式獲得核准，並符合其新指導方針。   
 
 ## <a name="additional-resources"></a>其他資源
 

@@ -59,7 +59,7 @@
           href: time-series-insights-update-storage-ingress.md
         - name: 使用案例
           href: time-series-insights-update-use-cases.md
-        - name: 資料模型
+        - name: 時間序列模型
           href: time-series-insights-update-tsm.md
         - name: 資料查詢
           href: time-series-insights-update-tsq.md
