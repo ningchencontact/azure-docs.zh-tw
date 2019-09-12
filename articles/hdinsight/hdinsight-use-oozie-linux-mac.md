@@ -7,12 +7,12 @@ ms.author: omidm
 ms.reviewer: jasonh
 ms.topic: conceptual
 ms.date: 05/06/2019
-ms.openlocfilehash: b21847d27dc7f444afaf1b73efa19b0b0087cfe4
-ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
+ms.openlocfilehash: d601dc1efe8dc3f6f2678f5d4df03f172146cd07
+ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70811674"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70900463"
 ---
 # <a name="use-apache-oozie-with-apache-hadoop-to-define-and-run-a-workflow-on-linux-based-azure-hdinsight"></a>在 Linux 型 Azure HDInsight 上搭配 Apache Hadoop 使用 Apache Oozie 來定義並執行工作流程
 
@@ -510,29 +510,29 @@ Oozie Web UI 可讓您用網頁檢視叢集上 Oozie 作業的狀態。 透過 W
 
 3. 在頁面左邊選取 [Oozie] > [快速連結] > [Oozie Web UI]。
 
-    ![功能表的影像](./media/hdinsight-use-oozie-linux-mac/ooziewebuisteps.png)
+    ![功能表的影像](./media/hdinsight-use-oozie-linux-mac/hdi-oozie-web-ui-steps.png)
 
 4. Oozie Web UI 預設會顯示執行中的工作流程作業。 若要查看所有的工作流程作業，請選取 [所有作業]。
 
-    ![顯示的所有工作](./media/hdinsight-use-oozie-linux-mac/ooziejobs.png)
+    ![顯示的所有工作](./media/hdinsight-use-oozie-linux-mac/hdinsight-oozie-jobs.png)
 
 5. 若要檢視作業的詳細資訊，請選取作業。
 
-    ![作業資訊](./media/hdinsight-use-oozie-linux-mac/jobinfo.png)
+    ![作業資訊](./media/hdinsight-use-oozie-linux-mac/hdinsight-oozie-job-info.png)
 
 6. 您可以在 [作業資訊] 索引標籤中看到基本的作業資訊，以及作業內的個別動作。 您可以使用頂端的索引標籤，來檢視 [作業定義]、[作業組態]，以及存取 [作業記錄]，或檢視 [作業 DAG] 底下之作業的有向非循環圖 (DAG)。
 
    * **作業記錄**：選取 [取得記錄] 按鈕，以取得作業的所有記錄，或使用 [輸入搜尋篩選條件] 欄位來篩選記錄。
 
-       ![作業記錄](./media/hdinsight-use-oozie-linux-mac/joblog.png)
+       ![作業記錄](./media/hdinsight-use-oozie-linux-mac/hdinsight-oozie-job-log.png)
 
    * **Job DAG**：DAG 是將整個工作流程所採取的資料路徑予以圖形化的概觀。
 
-       ![工作 DAG](./media/hdinsight-use-oozie-linux-mac/jobdag.png)
+       ![工作 DAG](./media/hdinsight-use-oozie-linux-mac/hdinsight-oozie-job-dag.png)
 
 7. 如果您在 [作業資訊] 索引標籤中選取其中一個動作，它將會顯示該動作的資訊。 例如，選取 **RunSqoopExport** 動作。
 
-    ![動作資訊](./media/hdinsight-use-oozie-linux-mac/action.png)
+    ![動作資訊](./media/hdinsight-use-oozie-linux-mac/oozie-job-action-info.png)
 
 8. 您可以查看動作的詳細資料，例如 **Console URL** (主控台 URL) 的連結。 請使用此連結來檢視作業的作業追蹤器資訊。
 
@@ -632,18 +632,18 @@ Oozie Web UI 可讓您用網頁檢視叢集上 Oozie 作業的狀態。 透過 W
 
 7. 如果您移至 Oozie Web UI，並選取 [協調器作業] 索引標籤，您會看到如下圖所示的資訊：
 
-    ![協調器作業索引標籤](./media/hdinsight-use-oozie-linux-mac/coordinatorjob.png)
+    ![協調器作業索引標籤](./media/hdinsight-use-oozie-linux-mac/coordinator-jobs-tab.png)
 
     [Next Materialization (下次具體化)] 項目包含下次工作執行的時間。
 
 8. 與先前的工作流程作業類似，若您在 Web UI 中選取作業項目，它便會顯示作業的資訊：
 
-    ![協調器作業資訊](./media/hdinsight-use-oozie-linux-mac/coordinatorjobinfo.png)
+    ![協調器作業資訊](./media/hdinsight-use-oozie-linux-mac/coordinator-job-info.png)
 
     > [!NOTE]  
     > 此影像只會顯示作業的成功執行項目，而不是排程工作流程內的個別動作。 若要查看個別動作，請選取其中一個**動作**項目。
 
-    ![協調員動作資訊](./media/hdinsight-use-oozie-linux-mac/coordinatoractionjob.png)
+    ![協調員動作資訊](./media/hdinsight-use-oozie-linux-mac/coordinator-action-job.png)
 
 ## <a name="troubleshooting"></a>疑難排解
 
@@ -747,7 +747,7 @@ Oozie Web UI 可讓您用網頁檢視叢集上 Oozie 作業的狀態。 透過 W
 
 [cindygross-hive-tables]: https://blogs.msdn.com/b/cindygross/archive/2013/02/06/hdinsight-hive-internal-and-external-tables-intro.aspx
 
-[img-workflow-diagram]: ./media/hdinsight-use-oozie-linux-mac/HDI.UseOozie.Workflow.Diagram.png
+[img-workflow-diagram]: ./media/hdinsight-use-oozie-linux-mac/oozie-workflow-diagram.png
 [img-preparation-output]: ./media/hdinsight-use-oozie-linux-mac/HDI.UseOozie.Preparation.Output1.png
 [img-runworkflow-output]: ./media/hdinsight-use-oozie/HDI.UseOozie.RunWF.Output.png
 

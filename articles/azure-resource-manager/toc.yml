@@ -76,8 +76,8 @@
           href: deployment-manager-health-check.md
     - name: Resource Manager 與傳統部署
       href: resource-manager-deployment-model.md
-    - name: Azure 常見安全性屬性
-      href: azure-resource-manager-security-attributes.md
+    - name: 內建安全性控制
+      href: azure-resource-manager-security-controls.md
 - name: 作法
   items:
     - name: 建立範本

@@ -5,15 +5,15 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 05/22/2019
+ms.date: 09/10/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 7abd0ac3d95825594dffe385bccc1672d0f71c5f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 096f8b3aa6ae66e65bbbd9ea6e2204af619199dd
+ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66142552"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70899420"
 ---
 # <a name="data-sources-supported-in-azure-analysis-services"></a>Azure Analysis Services 中支援的資料來源
 
@@ -34,7 +34,7 @@ ms.locfileid: "66142552"
 ||||
 
 <a name="tab1400a">1</a> - 僅限 Tabular 1400 和更高模型。   
-<a name="azsqlmanaged">2</a> - 支援 Azure SQL Database 受控執行個體。 因為受控執行個體在具有私人 IP 位址的 Azure VNet 中執行，所以需要內部部署資料閘道。 目前不支援 azure SQL Database 受控執行個體具有公用端點。   
+<a name="azsqlmanaged">2</a> - 支援 Azure SQL Database 受控執行個體。 因為受控實例會在具有私人 IP 位址的 Azure VNet 中執行，所以必須在實例上啟用公用端點。 如果未啟用，則需要內部部署資料閘道。    
 <a name="databricks">3</a> - 目前不支援使用 Spark 連接器的 Azure Databricks。   
 <a name="gen2">4</a> - 目前不支援 ADLS Gen2。
 
@@ -52,7 +52,7 @@ ms.locfileid: "66142552"
 |  --- | --- | --- |
 | [SQL Server] |SQL Server Native Client 11.0、Microsoft OLE DB Provider for SQL Server、.NET Framework Data Provider for SQL Server | .NET Framework Data Provider for SQL Server |
 | SQL Server 資料倉儲 |SQL Server Native Client 11.0、Microsoft OLE DB Provider for SQL Server、.NET Framework Data Provider for SQL Server | .NET Framework Data Provider for SQL Server |
-| Oracle | OLE DB Provider for Oracle，Oracle Data Provider for.NET |Oracle Data Provider for .NET |
+| Oracle | 適用于 Oracle、Oracle Data Provider for .NET 的 OLE DB 提供者 |Oracle Data Provider for .NET |
 | Teradata |OLE DB Provider for Teradata、Teradata Data Provider for .NET |Teradata Data Provider for .NET |
 | | | |
 
@@ -72,16 +72,16 @@ ms.locfileid: "66142552"
 |IBM Informix<sup>[1](#tab1400b)</sup> (搶鮮版 (Beta)) |
 |JSON 文件<sup>[1](#tab1400b)</sup>     |  
 |二進位檔中的程式行<sup>[1](#tab1400b)</sup>     | 
-|MySQL Database     | 
+|MySQL 資料庫     | 
 |OData 摘要<sup>[1](#tab1400b)</sup>     |  
 |ODBC 查詢     | 
 |OLE DB     |   
-|Postgre SQL Database<sup>[1](#tab1400b)</sup>    | 
+|于 postgresql 資料庫<sup>[1](#tab1400b)</sup>    | 
 |Salesforce 物件<sup>[1](#tab1400b)</sup> |  
 |Salesforce 報告<sup>[1](#tab1400b)</sup> |
 |SAP HANA<sup>[1](#tab1400b)</sup>    |  
 |SAP Business Warehouse<sup>[1](#tab1400b)</sup>    |  
-|SharePoint 清單<sup>[1](#tab1400b)</sup>， <sup> [2](#filesSP)</sup>     |   
+|SharePoint 清單<sup>[1](#tab1400b)</sup>、 <sup>[2](#filesSP)</sup>     |   
 |Sybase 資料庫     |  
 |TXT 檔案  |
 |XML 表格<sup>[1](#tab1400b)</sup>    |  
@@ -98,9 +98,9 @@ Azure Analysis Services 中的資料模型連線至某些資料來源時，可�
 
 **指定提供者**
 
-1. 在 SSDT > **Tabular Model Explorer** (表格式模型總管)  >  [資料來源]  中，以滑鼠右鍵按一下資料來源連線，然後按一下 [編輯資料來源]  。
-2. 在 [編輯連線]  中按一下 [進階]  ，以開啟 [進階屬性] 視窗。
-3. 在[設定進階屬性]   >  [提供者]  中，然後選取適當的提供者。
+1. 在 SSDT > **Tabular Model Explorer** (表格式模型總管)  >  [資料來源] 中，以滑鼠右鍵按一下資料來源連線，然後按一下 [編輯資料來源]。
+2. 在 [編輯連線] 中按一下 [進階]，以開啟 [進階屬性] 視窗。
+3. 在[設定進階屬性]  >  [提供者] 中，然後選取適當的提供者。
 
 ## <a name="impersonation"></a>模擬
 在某些情況下，可能需要指定不同的模擬帳戶。 模擬帳戶可以在 Visual Studio SSDT (SSDT) 或 SSMS 中指定。

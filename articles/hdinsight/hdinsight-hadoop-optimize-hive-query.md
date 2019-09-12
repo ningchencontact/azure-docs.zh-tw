@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 03/21/2019
-ms.openlocfilehash: 60c725e084a18326cc4bc9cc05d02d103261f5a4
-ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
+ms.openlocfilehash: d545cd997b35cfa5e7fec58b17507ce63097fd20
+ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70809251"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70898797"
 ---
 # <a name="optimize-apache-hive-queries-in-azure-hdinsight"></a>將 Azure HDInsight 中的 Apache Hive 查詢最佳化
 
@@ -29,11 +29,11 @@ ms.locfileid: "70809251"
 
 * 當您建立叢集時，您可以使用 Azure 入口網站、Azure PowerShell 或命令列介面來指定背景工作節點的數目。  如需詳細資訊，請參閱[建立 HDInsight 叢集](hdinsight-hadoop-provision-linux-clusters.md)。 下列畫面顯示 Azure 入口網站上的背景工作節點組態：
   
-    ![scaleout_1](./media/hdinsight-hadoop-optimize-hive-query/scaleout_1.png "scaleout_1")
+    ![scaleout_1](./media/hdinsight-hadoop-optimize-hive-query/hdinsight-scaleout-1.png "scaleout_1")
     
 * 建立之後，您也可以編輯背景工作節點數目，以進一步相應放大叢集，而不必重新建立：
 
-    ![scaleout_2](./media/hdinsight-hadoop-optimize-hive-query/scaleout_2.png "scaleout_2")
+    ![scaleout_2](./media/hdinsight-hadoop-optimize-hive-query/hdinsight-scaleout-2.png "scaleout_2")
 
 如需調整 HDInsight 的詳細資訊，請參閱[調整 HDInsight 叢集](hdinsight-scaling-best-practices.md)
 
@@ -41,7 +41,7 @@ ms.locfileid: "70809251"
 
 [Apache Tez](https://tez.apache.org/) 是 MapReduce 引擎的替代執行引擎。 Linux 的 HDInsight 叢集預設會啟用 Tez。
 
-![tez_1][image-hdi-optimize-hive-tez_1]
+![tez_1](./media/hdinsight-hadoop-optimize-hive-query/hdinsight-tez-engine.png)
 
 Tez 比較迅速，因為：
 
@@ -65,7 +65,7 @@ I/O 作業是執行 Hive 查詢的主要效能瓶頸。 如果可以減少需要
 
 Hive 資料分割的實作方法是將未經處理的資料重新整理成新的目錄。 每個分割區都有自己的檔案目錄。 由使用者定義的資料分割。 下圖說明如何依據 *年度*資料行來分割 Hive 資料表。 每年都會建立新的目錄。
 
-![Hive 分割][image-hdi-optimize-hive-partitioning_1]
+![Hive 分割](./media/hdinsight-hadoop-optimize-hive-query/hdinsight-partitioning.png)
 
 一些分割考量：
 
@@ -197,7 +197,3 @@ ORC (最佳化的資料列單欄式) 格式是儲存 Hive 資料的高效率方�
 * [在 HDInsight 中使用 Apache Hive](hadoop/hdinsight-use-hive.md)
 * [在 HDInsight 中使用互動式查詢來分析航班延誤資料](/azure/hdinsight/interactive-query/interactive-query-tutorial-analyze-flight-data)
 * [在 HDInsight 中使用 Apache Hive 分析 Twitter 資料](hdinsight-analyze-twitter-data-linux.md)
-
-
-[image-hdi-optimize-hive-tez_1]: ./media/hdinsight-hadoop-optimize-hive-query/tez_1.png
-[image-hdi-optimize-hive-partitioning_1]: ./media/hdinsight-hadoop-optimize-hive-query/partitioning_1.png

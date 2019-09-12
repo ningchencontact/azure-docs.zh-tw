@@ -333,7 +333,7 @@
             - name: 具有 BYOK 的 TDE
               href: transparent-data-encryption-byok-azure-sql.md
         - name: 安全性屬性
-          href: sql-database-security-attributes.md
+          href: sql-database-security-controls.md
         - name: 功能限制
           href: sql-database-feature-restrictions.md
     - name: 延展性
@@ -512,6 +512,8 @@
           href: sql-database-managed-instance-migrate.md
         - name: 將 TDE 憑證遷移至受控執行個體
           href: sql-database-managed-instance-migrate-tde-certificate.md
+        - name: 還原時間點
+          href: sql-database-managed-instance-point-in-time-restore.md
         - name: 決定受控執行個體子網路大小
           href: sql-database-managed-instance-determine-size-vnet-subnet.md
         - name: 為受控執行個體建立新的 VNet 和子網路
@@ -534,8 +536,6 @@
           href: sql-database-managed-instance-connect-app.md
     - name: 載入和移動資料
       items:
-        - name: 還原時間點
-          href: sql-database-managed-instance-point-in-time-restore.md
         - name: 將資源移至新區域
           href: sql-database-move-resources-across-regions.md
         - name: 在 Azure 內複製資料庫

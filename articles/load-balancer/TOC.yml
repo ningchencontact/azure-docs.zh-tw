@@ -61,8 +61,8 @@
       href: load-balancer-standard-availability-zones.md
     - name: 標準 Load Balancer計量和診斷
       href: load-balancer-standard-diagnostics.md
-    - name: 安全性屬性
-      href: load-balancer-security-attributes.md
+    - name: 內建安全性控制
+      href: load-balancer-security-controls.md
 - name: 作法
   items:
     - name: 建立區域備援公用標準 Load Balancer

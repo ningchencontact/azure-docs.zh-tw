@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 3/20/2019
+ms.date: 03/20/2019
 ms.author: v-mohabe
-ms.openlocfilehash: cb6025b47aec50121a0f96f7b6cba7ad726db291
-ms.sourcegitcommit: beb34addde46583b6d30c2872478872552af30a1
+ms.openlocfilehash: c8f381a3440d742cca880f44b73cbc22bde92ecc
+ms.sourcegitcommit: d70c74e11fa95f70077620b4613bb35d9bf78484
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69907960"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70910551"
 ---
 # <a name="protecting-your-machines-and-applications-in-azure-security-center"></a>保護 Azure 資訊安全中心內的機器和應用程式
 Azure 資訊安全中心會分析 Azure 資源、非 Azure 伺服器和虛擬機器的安全性狀態。 當資訊安全中心發現潛在的安全性弱點時，它會建立可引導您完成所需控制之設定程序的建議。 這些建議適用於下列 Azure 資源類型︰虛擬機器 (VM) 和電腦、應用程式、網路、SQL、身分識別與存取。
@@ -53,7 +53,7 @@ Azure 資訊安全中心會分析 Azure 資源、非 Azure 伺服器和虛擬機
 在您可有多個區段的每個索引標籤中，以及在每個區段中，您可以選取一個個別的選項，以查看有關解決該特定問題之建議步驟的更多詳細資訊。
 
 ### 未受監視的 VM 和電腦<a name="unmonitored-vms-and-computers"></a>
-如果機器未執行 Microsoft Monitoring Agent 擴充功能，VM 或電腦就不會由資訊安全中心監視。 機器可能已安裝本機代理程式, 例如 OMS 直接代理程式或 System Center Operations Manager 代理程式。 具有這些代理程式的機器會識別為未受監視，因為資訊安全中心無法完整支援這些代理程式。 若要能完整享有資訊安全中心的所有功能，則需要 Microsoft Monitoring Agent 擴充功能。
+如果機器未執行 Microsoft Monitoring Agent 擴充功能，VM 或電腦就不會由資訊安全中心監視。 機器可能已安裝本機代理程式，例如 OMS 直接代理程式或 System Center Operations Manager 代理程式。 具有這些代理程式的機器會識別為未受監視，因為資訊安全中心無法完整支援這些代理程式。 若要能完整享有資訊安全中心的所有功能，則需要 Microsoft Monitoring Agent 擴充功能。
 
 除了已安裝的本機代理程式，您還可以在未受監視的 VM 或電腦上安裝擴充功能。 以相同方式設定這兩種代理程式，並連線至相同工作區。 這可讓資訊安全中心與 Microsoft Monitoring Agent 擴充功能互動和收集資料。 請參閱[啟用 VM 擴充公能](../azure-monitor/learn/quick-collect-azurevm.md)，取得如何安裝 Microsoft Monitoring Agent 擴充功能的指示。
 
@@ -103,12 +103,11 @@ Azure 資訊安全中心會分析 Azure 資源、非 Azure 伺服器和虛擬機
 ![Azure 傳統 VM](./media/security-center-virtual-machine-recommendations/security-center-monitoring-icon3.png) Azure 傳統 VM。
 
 
-![從工作區識別的 VM](./media/security-center-virtual-machine-recommendations/security-center-monitoring-icon4.png) 僅只從已檢視訂用帳戶中的工作區識別的 VM。 這包括向此訂用帳戶中的工作區報告的其他訂用帳戶中的 Vm, 以及與 Operations Manager 直接代理程式一起安裝, 且沒有資源識別碼的 vm。
+![從工作區識別的 VM](./media/security-center-virtual-machine-recommendations/security-center-monitoring-icon4.png) 僅只從已檢視訂用帳戶中的工作區識別的 VM。 這包括向此訂用帳戶中的工作區報告的其他訂用帳戶中的 Vm，以及與 Operations Manager 直接代理程式一起安裝，且沒有資源識別碼的 vm。
 
 每個建議底下出現的圖示，可協助您快速識別需要關注的 VM 和電腦，以及建議的類型。 您也可以使用篩選，依**資源類型**及依**嚴重性**來搜尋清單。
 
 若要向下切入到每個 VM 的安全性建議，請按一下該 VM。
-您可在此處查看 VM 或電腦的安全性詳細資料。 您可以在底部看到建議的動作和每個問題的嚴重性。
 ![雲端服務](./media/security-center-virtual-machine-recommendations/recommendation-list.png)
 
 ### <a name="cloud-services"></a>雲端服務
@@ -125,7 +124,7 @@ Azure 資訊安全中心會分析 Azure 資源、非 Azure 伺服器和虛擬機
 ![更新 OS 版本](./media/security-center-virtual-machine-recommendations/security-center-monitoring-fig8-new4.png)
 
 ### <a name="app-services"></a>應用程式服務
-您需要啟用您訂用帳戶中的 App Service，才能檢視 App Service 的資訊。 如需有關如何啟用此功能的指示，請參閱[使用 Azure 資訊安全中心來保護 App Service](security-center-app-services.md)。
+若要查看 App Service 資訊，您必須在您的訂用帳戶中啟用 App Service。 如需啟用這項功能的指示，請參閱[使用 Azure 資訊安全中心保護 App Service](security-center-app-services.md)。
 [!NOTE]
 > 監視 App Service 是預覽功能，僅適用於資訊安全中心的標準層。
 
@@ -170,9 +169,9 @@ Azure 資訊安全中心會分析 Azure 資源、非 Azure 伺服器和虛擬機
 
    ![安裝 MMS](./media/security-center-virtual-machine-recommendations/install-mms.png)
 
-如果您想要設定新的擴展集來自動安裝 Microsoft Monitoring Agent：
+若要將新的擴展集設定為自動安裝 Microsoft Monitoring Agent：
 1. 移至 Azure 原則，然後按一下 [定義]。
-2. 搜尋 [**部署適用于 Windows 虛擬機器擴展集的 Log Analytics 代理程式**] 原則, 然後按一下它。
+2. 搜尋 [**部署適用于 Windows 虛擬機器擴展集的 Log Analytics 代理程式**] 原則，然後按一下它。
 3. 按一下 [指派]。
 4. 設定 [範圍] 和 [Log Analytics 工作區]，然後按一下 [指派]。
 
@@ -208,10 +207,10 @@ Azure 資訊安全中心會分析 Azure 資源、非 Azure 伺服器和虛擬機
 |Machine|40|請解決機器上的 Monitoring Agent 健康情況問題|為了獲得完整的「資訊安全中心」保護，請依照《疑難排解指南》中的指示，解決機器上的監視代理程式問題| 
 |Machine|40|請解決機器上的 Endpoint Protection 健康情況問題|為了獲得完整的「資訊安全中心」保護，請依照《疑難排解指南》中的指示，解決機器上的監視代理程式問題。|
 |Machine|40|請對機器上缺少的掃描資料進行疑難排解|針對虛擬機器和電腦上缺少的掃描資料進行疑難排解。 機器上缺少掃描資料會導致缺少安全性評定，例如更新掃描、基準掃描及缺少端點保護解決方案掃描。|
-|Machine|40|系統更新應該安裝在您的電腦上|安裝缺少的系統安全性與重大更新，以保護您的 Windows 及 Linux 虛擬機器與電腦
+|Machine|40|您應在機器上安裝系統更新|安裝缺少的系統安全性與重大更新，以保護您的 Windows 及 Linux 虛擬機器與電腦
 |Machine|15|新增 Web 應用程式防火牆| 新增 Web 應用程式防火牆 (WAF) 解決方案來保護 Web 應用程式。 |
 |Machine|40|請更新雲端服務角色的 OS 版本|將您雲端服務角色的作業系統 (OS) 版本更新至您 OS 系列可用的最新版本。|
-|Machine|35|應補救您電腦上安全性設定中的弱點|修復機器上安全性設定中的弱點，以避免這些機器遭受攻擊。|
+|Machine|35|您應在機器上修復安全性組態的弱點|修復機器上安全性設定中的弱點，以避免這些機器遭受攻擊。|
 |Machine|35|請修復容器上安全性設定中的弱點|修複已安裝 Docker 之機器上安全性設定中的弱點，以避免這些機器遭受攻擊。|
 |Machine|25|啟用自適性應用程式控制|啟用應用程式控制，以控制哪些應用程式可在您位於 Azure 中的 VM 上執行。 這可協助強化您 VM 抵禦惡意程式碼的能力。 「資訊安全中心」會利用機器學習服務來分析在每個 VM 上執行的應用程式，並協助您利用此情報來套用允許規則。 此功能可簡化設定及維護應用程式允許規則的程序。|
 |Machine|20|請在您的機器上安裝 Endpoint Protection 解決方案|在虛擬機器上安裝 Endpoint Protection 解決方案，以避免虛擬機器遭受威脅及弱點損害。|
