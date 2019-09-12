@@ -1,5 +1,5 @@
 ---
-title: Application Insights，Node.js - LUIS
+title: 教學課程：Application Insights，Node.js - LUIS
 titleSuffix: Azure Cognitive Services
 description: 本教學課程將 Bot 和 Language Understanding 資訊新增至 Application Insights 遙測資料儲存體。
 services: cognitive-services
@@ -9,16 +9,16 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: tutorial
-ms.date: 06/16/2019
+ms.date: 09/05/2019
 ms.author: diberry
-ms.openlocfilehash: 72ce681b6b0e4109151b987a5f8cc4bc050aafa0
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: f488cfaf1e55edd8ae0d2bfd177553deb2677f8b
+ms.sourcegitcommit: 88ae4396fec7ea56011f896a7c7c79af867c90a1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68563285"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70387914"
 ---
-# <a name="add-luis-results-to-application-insights-from-a-bot-in-nodejs"></a>從 Node.js 中的 Bot 將 LUIS 結果新增至 Application Insights
+# <a name="tutorial-add-luis-results-to-application-insights-from-a-bot-in-nodejs"></a>教學課程：從 Node.js 中的 Bot 將 LUIS 結果新增至 Application Insights
 本教學課程將 Bot 和 Language Understanding 資訊新增至 [Application Insights](https://azure.microsoft.com/services/application-insights/) 遙測資料儲存體。 在您擁有該資料之後，即可使用 Kusto 語言或 Power BI 查詢它，以即時分析、彙總以及報告意圖和語句實體。 此分析可協助您判斷應該新增還是編輯 LUIS 應用程式的意圖和實體。
 
 在本教學課程中，您了解如何：

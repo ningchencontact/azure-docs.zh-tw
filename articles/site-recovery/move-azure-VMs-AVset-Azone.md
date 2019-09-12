@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 01/28/2019
 ms.author: rajanaki
 ms.custom: MVC
-ms.openlocfilehash: 6e26f9d344a4c11c335d1ea34998c848cbe3598a
-ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
+ms.openlocfilehash: a9e8ddcca727c4c457e4d92a880fb0cafe5ca6f8
+ms.sourcegitcommit: aebe5a10fa828733bbfb95296d400f4bc579533c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/07/2019
-ms.locfileid: "66753757"
+ms.lasthandoff: 09/05/2019
+ms.locfileid: "70375733"
 ---
 # <a name="move-azure-vms-into-availability-zones"></a>將 Azure VM 移至可用性區域中
 Azure 中的可用性區域有助於讓應用程式和資料不受資料中心故障的影響。 每個可用性區域由一或多個資料中心組成，配備了電力、冷卻系統及網路系統。 若要確保復原能力，在所有已啟用的地區中都至少要有三個個別的區域。 某個地區內可用性區域的實體區隔可保護應用程式和資料不受資料中心故障影響。 搭配可用性區域後，Azure 提供虛擬機器 (VM) 運作時間達 99.99% 的服務等級協定 (SLA)。 可用性區域可在選定區域中受到支援，如[哪些是 Azure 中的可用性區域？](https://docs.microsoft.com/azure/availability-zones/az-overview#services-support-by-region)中所述。
@@ -68,8 +68,8 @@ Azure 中的可用性區域有助於讓應用程式和資料不受資料中心�
      下列文件會說明如何根據來源 VM 組態，建立您最常用的相關網路資源。
 
     - [網路安全性群組](https://docs.microsoft.com/azure/virtual-network/manage-network-security-group)
-    - [負載平衡器](https://docs.microsoft.com/azure/load-balancer/#step-by-step-tutorials)
-    - [公用 IP](https://docs.microsoft.com/azure/load-balancer/#step-by-step-tutorials)
+    - [負載平衡器](https://docs.microsoft.com/azure/load-balancer)
+    - [公用 IP](../virtual-network/virtual-network-public-ip-address.md)
     
    如需其他網路元件的資訊，請參閱網路[文件](https://docs.microsoft.com/azure/#pivot=products&panel=network)。
 

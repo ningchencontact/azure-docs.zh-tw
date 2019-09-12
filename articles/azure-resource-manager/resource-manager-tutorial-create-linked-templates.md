@@ -13,12 +13,12 @@ ms.devlang: na
 ms.date: 03/18/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 11eae0e3bae501cdf39d7fe1d5d39524c1f83e6c
-ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
+ms.openlocfilehash: c5399f46106d94d593a15530ee0c223a3f5f3eaf
+ms.sourcegitcommit: b7b0d9f25418b78e1ae562c525e7d7412fcc7ba0
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69036003"
+ms.lasthandoff: 09/08/2019
+ms.locfileid: "70802058"
 ---
 # <a name="tutorial-create-linked-azure-resource-manager-templates"></a>教學課程：建立連結的 Azure Resource Manager 範本
 
@@ -287,7 +287,7 @@ echo "Linked template URI with SAS token: $templateURI"
 
 因為現在儲存體帳戶是在連結的範本中所定義，您必須更新下列 `Microsoft.Compute/virtualMachines` 資源的兩個元素。
 
-* 重新設定 `dependOn` 元素。 儲存體帳戶定義已從連結的範本移除。
+* 重新設定 `dependsOn` 元素。 儲存體帳戶定義已從連結的範本移除。
 * 重新設定 `properties/diagnosticsProfile/bootDiagnostics/storageUri` 元素。 在 [建立連結的範本](#create-the-linked-template) 中，您已新增輸出值：
 
     ```json

@@ -7,29 +7,29 @@ ms.reviewer: craigg
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 04/29/2019
+ms.date: 09/09/2019
 ms.author: jingwang
-ms.openlocfilehash: 3be075b78d8388b7146a9a3180ca825fc6476108
-ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
+ms.openlocfilehash: 8925ea9da06ff718f08b7be73944c75d388bc01f
+ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67206041"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70814166"
 ---
 # <a name="copy-data-to-or-from-azure-blob-storage-by-using-azure-data-factory"></a>使用 Azure Data Factory 將資料複製到 Azure Blob 儲存體或從該處複製資料
-> [!div class="op_single_selector" title1="選取您正在使用的 Data Factory 服務的版本："]
+> [!div class="op_single_selector" title1="選取您目前使用的 Data Factory 服務版本："]
 > * [第 1 版](v1/data-factory-azure-blob-connector.md)
 > * [目前的版本](connector-azure-blob-storage.md)
 
-本文概述如何從 Azure Blob 儲存體來回複製資料。 若要了解 Azure Data Factory，請閱讀[簡介文章](introduction.md)。
+本文概述如何在 Azure Blob 儲存體之間複製資料。 若要了解 Azure Data Factory，請閱讀[簡介文章](introduction.md)。
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="supported-capabilities"></a>支援的功能
 
-此 Azure Blob 連接器支援下列活動：
+下列活動支援此 Azure Blob 連接器：
 
-- [複製活動](copy-activity-overview.md)與[支援來源/接收器矩陣](copy-activity-overview.md)
+- [複製活動](copy-activity-overview.md)與[支援的來源/接收矩陣](copy-activity-overview.md)
 - [對應資料流程](concepts-data-flow-overview.md)
 - [查閱活動](control-flow-lookup-activity.md)
 - [GetMetadata 活動](control-flow-get-metadata-activity.md)
@@ -42,7 +42,7 @@ ms.locfileid: "67206041"
 - 依原樣複製 Blob，或是使用[支援的檔案格式和壓縮轉碼器](supported-file-formats-and-compression-codecs.md)來剖析或產生 Blob。
 
 >[!NOTE]
->如果您啟用 _「 允許信任的 Microsoft 服務存取此儲存體帳戶 」_ 上使用 Azure 整合執行階段連接到 Blob 儲存體的 Azure 儲存體防火牆設定的選項會失敗，並禁止錯誤，因為不是 ADF視為受信任的 Microsoft 服務。 請改為連線透過自我裝載整合執行階段。
+>如果您啟用 Azure 儲存體防火牆設定上的 [_允許信任的 Microsoft 服務存取此儲存體帳戶]_ 選項，則使用 Azure Integration Runtime 連線至 Blob 儲存體將會失敗並出現禁止錯誤，因為 ADF 不會被視為受信任的Microsoft 服務。 請改為透過自我裝載的 Integration Runtime 進行連接。
 
 ## <a name="get-started"></a>開始使用
 
@@ -60,7 +60,7 @@ Azure Blob 連接器支援下列驗證類型，請參閱詳細資料的對應章
 - [Azure 資源的受控識別驗證](#managed-identity)
 
 >[!NOTE]
->當使用 PolyBase 將資料載入 SQL 資料倉儲中，如果您的來源或暫存 Blob 儲存體設定與虛擬網路端點，必須使用受控身分識別驗證所需的 PolyBase，並使用自我裝載整合執行階段版本3.18 或更新版本。 請參閱[受管理的身分識別驗證](#managed-identity)詳細的設定必要條件一節。
+>使用 PolyBase 將資料載入 SQL 資料倉儲時，如果您的來源或暫存 Blob 儲存體已設定虛擬網路端點，您必須使用 PolyBase 所需的受控識別驗證，並搭配版本使用自我裝載的 Integration Runtime3.18 或更新版本。 如需更多設定必要條件，請參閱[受控識別驗證](#managed-identity)一節。
 
 >[!NOTE]
 >HDInsights 和 Azure Machine Learning 活動僅支援 Azure Blob 儲存體帳戶金鑰驗證。
@@ -71,14 +71,17 @@ Azure Blob 連接器支援下列驗證類型，請參閱詳細資料的對應章
 
 | 屬性 | 描述 | 必要項 |
 |:--- |:--- |:--- |
-| type | 類型屬性必須設定為**AzureBlobStorage** (建議) 或 **AzureStorage** (請參閱下面附註)。 |是 |
+| Type | 類型屬性必須設定為**AzureBlobStorage** (建議) 或 **AzureStorage** (請參閱下面附註)。 |是 |
 | connectionString | 針對 connectionString 屬性指定連線到儲存體所需的資訊。 <br/>將此欄位標記為 SecureString，將它安全地儲存在 Data Factory 中。 您也可以將帳戶金鑰放在 Azure Key Vault 並從連接字串中提取 `accountKey` 組態。 請參閱下列範例和[在 Azure Key Vault 中儲存認證](store-credentials-in-key-vault.md)一文中的更多詳細資料。 |是 |
 | connectVia | 用來連線到資料存放區的[整合執行階段](concepts-integration-runtime.md)。 您可以使用 Azure Integration Runtime 或自我裝載 Integration Runtime (如果您的資料存放區位於私人網路中)。 如果未指定，就會使用預設的 Azure Integration Runtime。 |否 |
 
 >[!NOTE]
+>使用帳戶金鑰驗證時，不支援次要 Blob 服務端點。 您可以使用其他驗證類型。
+
+>[!NOTE]
 >如果您使用 "AzureStorage" 類型連結服務，它仍然如同現狀受支援，但建議您從現在開始使用這個新的 "AzureBlobStorage" 連結服務類型。
 
-**範例：**
+**範例:**
 
 ```json
 {
@@ -133,7 +136,7 @@ Azure Blob 連接器支援下列驗證類型，請參閱詳細資料的對應章
 共用存取簽章可提供您儲存體帳戶中資源的委派存取。 您可以使用共用存取簽章來將儲存體帳戶中物件的有限權限授與用戶端，讓該用戶端可以在一段指定時間內使用。 您不需要共用您的帳戶存取金鑰。 共用存取簽章是一種 URI，此 URI 會在其查詢參數中包含對儲存體資源進行驗證式存取所需的一切資訊。 若要使用共用存取簽章存取儲存體資源，用戶端只需在適當的建構函式或方法中傳入共用存取簽章即可。 如需有關共用存取簽章的詳細資訊，請參閱[共用存取簽章：了解共用存取簽章模型](../storage/common/storage-dotnet-shared-access-signature-part-1.md)。
 
 > [!NOTE]
->- Data Factory 現已支援**服務共用存取簽章**和**帳戶共用存取簽章**。 如需這兩種類型及其建構方式的詳細資訊，請參閱[共用存取簽章的類型](../storage/common/storage-dotnet-shared-access-signature-part-1.md#types-of-shared-access-signatures)。
+>- Data Factory 現已支援**服務共用存取簽章**和**帳戶共用存取簽章**。 如需共用存取簽章的詳細資訊，請參閱[使用共用存取簽章（SAS）授與 Azure 儲存體資源的有限存取權](../storage/common/storage-sas-overview.md)。
 >- 在稍後的資料集設定中，資料夾路徑是從容器層級開始的絕對路徑。 您需要設定一個對應您 SAS URI 中路徑的。
 
 > [!TIP]
@@ -145,14 +148,14 @@ Azure Blob 連接器支援下列驗證類型，請參閱詳細資料的對應章
 
 | 屬性 | 描述 | 必要項 |
 |:--- |:--- |:--- |
-| type | 類型屬性必須設定為**AzureBlobStorage** (建議) 或 **AzureStorage** (請參閱下面附註)。 |是 |
-| sasUri | 指定儲存體資源 (例如 Blob/容器) 的共用存取簽章 URI。 <br/>將此欄位標記為 SecureString，將它安全地儲存在 Data Factory 中。 您也可以將 SAS 權杖放在 Azure Key Vault，利用自動旋轉並移除語彙基元的部分。 請參閱下列範例和[在 Azure Key Vault 中儲存認證](store-credentials-in-key-vault.md)一文中的更多詳細資料。 |是 |
+| Type | 類型屬性必須設定為**AzureBlobStorage** (建議) 或 **AzureStorage** (請參閱下面附註)。 |是 |
+| sasUri | 指定儲存體資源 (例如 Blob/容器) 的共用存取簽章 URI。 <br/>將此欄位標記為 SecureString，將它安全地儲存在 Data Factory 中。 您也可以將 SAS 權杖放在 Azure Key Vault 中，以運用自動輪替並移除權杖部分。 請參閱下列範例和[在 Azure Key Vault 中儲存認證](store-credentials-in-key-vault.md)一文中的更多詳細資料。 |是 |
 | connectVia | 用來連線到資料存放區的[整合執行階段](concepts-integration-runtime.md)。 您可以使用 Azure Integration Runtime 或自我裝載 Integration Runtime (如果您的資料存放區位於私人網路中)。 如果未指定，就會使用預設的 Azure Integration Runtime。 |否 |
 
 >[!NOTE]
 >如果您使用 "AzureStorage" 類型連結服務，它仍然如同現狀受支援，但建議您從現在開始使用這個新的 "AzureBlobStorage" 連結服務類型。
 
-**範例：**
+**範例:**
 
 ```json
 {
@@ -205,7 +208,7 @@ Azure Blob 連接器支援下列驗證類型，請參閱詳細資料的對應章
 當您建立共用存取簽章 URI 時，請考慮下列各點：
 
 - 根據連結的服務 (讀取、寫入、讀取/寫入) 在資料處理站中的使用方式，在物件上設定適當的讀取/寫入權限。
-- 設定適當的 [過期時間]  。 請確定儲存體物件的存取權不會在管線的作用中期間內過期。
+- 設定適當的 [過期時間]。 請確定儲存體物件的存取權不會在管線的作用中期間內過期。
 - URI 應根據需求在正確的容器/Blob 上建立。 Blob 的共用存取簽章 URI 可讓 Data Factory 存取該特定 Blob。 Blob 儲存體容器的共用存取簽章 URI 可讓 Data Factory 逐一查看該容器中 Blob。 若要在稍後提供更多或較少物件的存取權，或更新共用存取簽章 URI，請記得使用新的 URI 更新連結的服務。
 
 ### <a name="service-principal-authentication"></a>服務主體驗證
@@ -222,24 +225,24 @@ Azure Blob 連接器支援下列驗證類型，請參閱詳細資料的對應章
 
 2. 在 Azure Blob 儲存體中授與服務主體適當權限。 請參閱[使用 RBAC 管理 Azure 儲存體資料的存取權限](../storage/common/storage-auth-aad-rbac.md)，以取得角色的更多詳細資訊。
 
-    - **作為來源**，在存取控制 (IAM) 中，至少授與 [儲存體 Blob 資料讀取者]  角色。
-    - **作為接收**，在存取控制 (IAM) 中，至少授與 [儲存體 Blob 資料參與者]  角色。
+    - **作為來源**，在存取控制 (IAM) 中，至少授與 [儲存體 Blob 資料讀取者] 角色。
+    - **作為接收**，在存取控制 (IAM) 中，至少授與 [儲存體 Blob 資料參與者] 角色。
 
 以下是支援 Azure Blob 儲存體連結服務的屬性：
 
 | 屬性 | 描述 | 必要項 |
 |:--- |:--- |:--- |
-| type | 類型屬性必須設定為 **AzureStorageSas**。 |是 |
+| Type | 類型屬性必須設定為 **AzureStorageSas**。 |是 |
 | serviceEndpoint | 指定模式為 `https://<accountName>.blob.core.windows.net/` 的 Azure Blob 儲存體服務端點。 |是 |
 | servicePrincipalId | 指定應用程式的用戶端識別碼。 | 是 |
 | servicePrincipalKey | 指定應用程式的金鑰。 將此欄位標記為 **SecureString**，將它安全地儲存在 Data Factory 中，或[參考 Azure Key Vault 中儲存的祕密](store-credentials-in-key-vault.md)。 | 是 |
-| tenant | 指定您的應用程式所在租用戶的資訊 (網域名稱或租用戶識別碼)。 將滑鼠游標暫留在 Azure 入口網站右上角，即可擷取它。 | 是 |
+| 租用戶 | 指定您的應用程式所在租用戶的資訊 (網域名稱或租用戶識別碼)。 將滑鼠游標暫留在 Azure 入口網站右上角，即可擷取它。 | 是 |
 | connectVia | 用來連線到資料存放區的[整合執行階段](concepts-integration-runtime.md)。 您可以使用 Azure Integration Runtime 或自我裝載 Integration Runtime (如果您的資料存放區位於私人網路中)。 如果未指定，就會使用預設的 Azure Integration Runtime。 |否 |
 
 >[!NOTE]
 >服務主體驗證僅由 "AzureBlobStorage" 類型連結服務支援，但先前的 "AzureStorage" 類型連結服務不提供支援。
 
-**範例：**
+**範例:**
 
 ```json
 {
@@ -265,32 +268,32 @@ Azure Blob 連接器支援下列驗證類型，請參閱詳細資料的對應章
 
 ### <a name="managed-identity"></a> Azure 資源的受控識別驗證
 
-資料處理站可與 [Azure 資源的受控識別](data-factory-service-identity.md)相關聯，後者表示特定的資料處理站。 您直接可以使用這個受管理的身分識別，Blob 儲存體的驗證類似於使用您自己的服務主體。 這可以讓這個指定的處理站從 Data Lake Store 存取及複製資料，或存取及複製資料至 Blob 儲存體。
+資料處理站可與 [Azure 資源的受控識別](data-factory-service-identity.md)相關聯，後者表示特定的資料處理站。 您可以直接將此受控識別用於 Blob 儲存體驗證，類似于使用您自己的服務主體。 這可以讓這個指定的處理站從 Data Lake Store 存取及複製資料，或存取及複製資料至 Blob 儲存體。
 
-請參閱[驗證存取 Azure 儲存體使用 Azure Active Directory](../storage/common/storage-auth-aad.md)一般的 Azure 儲存體驗證。 若要使用 Azure 資源的受控識別驗證，請遵循下列步驟：
+請參閱[使用 Azure Active Directory](../storage/common/storage-auth-aad.md)進行 Azure 儲存體驗證的一般驗證 Azure 儲存體的存取權。 若要使用 Azure 資源的受控識別驗證，請遵循下列步驟：
 
-1. [擷取的資料處理站的受管理身分識別資訊](data-factory-service-identity.md#retrieve-managed-identity)藉由複製"SERVICE IDENTITY APPLICATION ID"站一起產生的值。
+1. 藉由複製與您的處理站一起產生的「服務識別應用程式識別碼」值，來[取出 data factory 受控識別資訊](data-factory-service-identity.md#retrieve-managed-identity)。
 
 2. 將 Azure Blob 儲存體中適當的權限授與受控識別。 請參閱[使用 RBAC 管理 Azure 儲存體資料的存取權限](../storage/common/storage-auth-aad-rbac.md)，以取得角色的更多詳細資訊。
 
-    - **作為來源**，在存取控制 (IAM) 中，至少授與 [儲存體 Blob 資料讀取者]  角色。
-    - **作為接收**，在存取控制 (IAM) 中，至少授與 [儲存體 Blob 資料參與者]  角色。
+    - **作為來源**，在存取控制 (IAM) 中，至少授與 [儲存體 Blob 資料讀取者] 角色。
+    - **作為接收**，在存取控制 (IAM) 中，至少授與 [儲存體 Blob 資料參與者] 角色。
 
 >[!IMPORTANT]
->如果您使用 PolyBase 將資料從 Blob （做為來源或預備），載入 SQL 資料倉儲，blob 使用受控身分識別驗證時，請確定您也可以遵循步驟 1 和 2 中的[本指南](../sql-database/sql-database-vnet-service-endpoint-rule-overview.md#impact-of-using-vnet-service-endpoints-with-azure-storage)為 1) 註冊您的 SQL Database伺服器與 Azure Active Directory (Azure AD) 和 2），將儲存體 Blob 資料參與者角色指派給您的 SQL Database 伺服器;Data Factory 會處理其餘部分。 如果您的 Blob 儲存體已與 Azure 虛擬網路端點，若要使用 PolyBase 載入資料，您必須使用受控身分識別驗證所需的 PolyBase。
+>如果您使用 PolyBase 將資料從 Blob （做為來源或暫存）載入至 SQL 資料倉儲，使用 Blob 的受控識別驗證時，請確定您也依照[本指南](../sql-database/sql-database-vnet-service-endpoint-rule-overview.md#impact-of-using-vnet-service-endpoints-with-azure-storage)中的步驟1和2，將您的 SQL Database 伺服器註冊到 Azure Active目錄（Azure AD）和2）將儲存體 Blob 資料參與者角色指派給您的 SQL Database 伺服器;其餘部分則由 Data Factory 處理。 如果您的 Blob 儲存體已設定 Azure 虛擬網路端點，若要使用 PolyBase 來載入資料，您必須使用 PolyBase 所需的受控識別驗證。
 
 以下是支援 Azure Blob 儲存體連結服務的屬性：
 
 | 屬性 | 描述 | 必要項 |
 |:--- |:--- |:--- |
-| type | 類型屬性必須設定為 **AzureStorageSas**。 |是 |
+| Type | 類型屬性必須設定為 **AzureStorageSas**。 |是 |
 | serviceEndpoint | 指定模式為 `https://<accountName>.blob.core.windows.net/` 的 Azure Blob 儲存體服務端點。 |是 |
 | connectVia | 用來連線到資料存放區的[整合執行階段](concepts-integration-runtime.md)。 您可以使用 Azure Integration Runtime 或自我裝載 Integration Runtime (如果您的資料存放區位於私人網路中)。 如果未指定，就會使用預設的 Azure Integration Runtime。 |否 |
 
 > [!NOTE]
 > Azure 資源的受控識別驗證僅由 "AzureBlobStorage" 類型連結服務支援，但先前的 "AzureStorage" 類型連結服務不提供支援。 
 
-**範例：**
+**範例:**
 
 ```json
 {
@@ -312,25 +315,25 @@ Azure Blob 連接器支援下列驗證類型，請參閱詳細資料的對應章
 
 如需可用來定義資料集的區段和屬性完整清單，請參閱[資料集](concepts-datasets-linked-services.md)一文。 
 
-- 針對**Parquet 和分隔的文字格式**，請參閱[Parquet 和分隔的文字格式的資料集](#parquet-and-delimited-text-format-dataset)一節。
-- 為其他格式，例如**ORC/Avro/JSON/二進位格式**，請參閱[其他格式的資料集](#other-format-dataset)一節。
+- 如需**Parquet、分隔的文字、json、avro 和二進位格式**，請參閱[Parquet、分隔的文字、json、avro 和二進位格式資料集](#format-based-dataset)一節。
+- 如需**ORC/JSON 格式**之類的其他格式，請參閱[其他格式資料集](#other-format-dataset)一節。
 
-### <a name="parquet-and-delimited-text-format-dataset"></a>Parquet 和分隔的文字格式的資料集
+### <a name="format-based-dataset"></a>Parquet、分隔的文字、JSON、Avro 和二進位格式資料集
 
-若要從 Parquet 或分隔的文字格式的 Blob 儲存體複製資料，請參閱[Parquet 格式](format-parquet.md)並[分隔文字格式](format-delimited-text.md)文章格式為基礎的資料集和支援的設定。 以下支援的屬性底下的 Azure blob`location`格式為基礎的資料集內的設定：
+若要以 Parquet、分隔文字、Avro 或二進位格式在 Blob 儲存體之間複製資料，請參閱格式為基礎的資料集上的[Parquet 格式](format-parquet.md)、[分隔的文字格式](format-delimited-text.md)、 [avro 格式](format-avro.md)和[二進位格式](format-binary.md)一文，以及支援的設定。 下列屬性在以格式為基礎的資料`location`集的 [設定] 下支援 Azure Blob：
 
 | 屬性   | 描述                                                  | 必要項 |
 | ---------- | ------------------------------------------------------------ | -------- |
-| type       | 在資料集中的位置的類型屬性必須設定為**AzureBlobStorageLocation**。 | 是      |
-| container  | Blob 容器中。                                          | 是      |
-| folderPath | 指定容器下資料夾的路徑。 如果您想要使用萬用字元來篩選的資料夾，略過這項設定，並在 活動來源設定中指定。 | 否       |
-| fileName   | 在指定的容器 + folderPath 檔案名稱。 如果您想要使用萬用字元來篩選檔案，略過這項設定，並在 活動來源設定中指定。 | 否       |
+| Type       | Dataset 中位置的 type 屬性必須設定為**AzureBlobStorageLocation**。 | 是      |
+| 容器  | Blob 容器。                                          | 是      |
+| folderPath | 指定容器下的資料夾路徑。 如果您想要使用萬用字元來篩選資料夾，請略過此設定，並在 [活動來源設定] 中指定。 | 否       |
+| fileName   | 指定容器的檔案名 + folderPath。 如果您想要使用萬用字元來篩選檔案，請略過此設定，並在 [活動來源設定] 中指定。 | 否       |
 
 > [!NOTE]
 >
-> **AzureBlob**下一節中所述的 Parquet] / [文字格式的類型資料集仍可作為-用於複製/查閱/GetMetadata 活動進行回溯相容性，但它不適用於對應資料流程。 若要使用這個新的模型，從現在開始，建議您，並撰寫 UI 的 ADF 已切換為產生這些新的類型。
+> 下一節中所述的**AzureBlob**類型資料集具有 Parquet/文字格式，但針對回溯相容性的複製/查閱/GetMetadata 活動仍受到支援，但它不適用於對應資料流程。 建議您繼續使用此新模型，而 ADF 撰寫 UI 已切換為產生這些新的類型。
 
-**範例：**
+**範例:**
 
 ```json
 {
@@ -357,24 +360,24 @@ Azure Blob 連接器支援下列驗證類型，請參閱詳細資料的對應章
 }
 ```
 
-### <a name="other-format-dataset"></a>其他格式的資料集
+### <a name="other-format-dataset"></a>其他格式資料集
 
-若要從 ORC/Avro/JSON/二進位格式的 Blob 儲存體複製資料，設定 將資料集的 type 屬性**AzureBlob**。 以下是支援的屬性。
+若要以 ORC/JSON 格式將資料複製到 Blob 儲存體或從該儲存，請將資料集的 type 屬性設定為**AzureBlob**。 以下是支援的屬性。
 
 | 屬性 | 描述 | 必要項 |
 |:--- |:--- |:--- |
-| type | 資料集的 type 屬性必須設定為 **AzureBlob**。 |是 |
+| Type | 資料集的 type 屬性必須設定為 **AzureBlob**。 |是 |
 | folderPath | Blob 儲存體中容器和資料夾的路徑。 <br/><br/>針對不包含容器名稱的路徑，支援萬用字元篩選。 允許的萬用字元為：`*` (比對零或多個字元) 和 `?` (比對零或單一字元)；如果您的實際資料夾名稱包含萬用字元或此逸出字元，請使用 `^` 來逸出。 <br/><br/>範例：myblobcontainer/myblobfolder/，如需更多範例，請參閱[資料夾和檔案篩選範例](#folder-and-file-filter-examples)。 |[是] 適用於複製/查閱活動，[否] 適用於 GetMetadata 活動 |
-| fileName | 在指定 "folderPath" 下之 Blob 的**名稱或萬用字元篩選**。 如果沒有為此屬性指定值，資料集就會指向資料夾中的所有 Blob。 <br/><br/>針對篩選，允許的萬用字元為：`*` (符合零或多個字元) 和 `?` (符合零或單一字元)。<br/>- 範例 1：`"fileName": "*.csv"`<br/>- 範例 2：`"fileName": "???20180427.txt"`<br/>如果實際檔案名稱內有萬用字元或逸出字元 `^`，請使用此逸出字元來逸出。<br/><br/>沒有為輸出資料集指定 fileName 且活動接收器中未指定 **preserveHierarchy** 時，複製活動會自動以下列模式產生 Blob 名稱：「*資料。[活動執行識別碼 GUID。][GUID 如果 FlattenHierarchy]。[格式設定]。[壓縮設定]* "，例如"Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt.gz"；如果您使用資料表名稱而非查詢，從表格式來源進行複製，則名稱模式會是 " *[資料表名稱].[格式].[壓縮 (如果已設定)]* "，例如"MyTable.csv"。 |否 |
-| modifiedDatetimeStart | 檔案篩選會根據以下屬性：上次修改時間。 如果檔案的上次修改時間在 `modifiedDatetimeStart` 與 `modifiedDatetimeEnd` 之間的時間範圍內，系統就會選取該檔案。 此時間會以 "2018-12-01T05:00:00Z" 格式套用至 UTC 時區。 <br/><br/> 請注意會影響資料移動的整體效能，藉由啟用此設定，當您想要進行大量檔案從檔案篩選器。 <br/><br/> 屬性可以是 NULL，表示任何檔案的屬性篩選條件會套用至資料集。  當 `modifiedDatetimeStart` 具有日期時間值，但 `modifiedDatetimeEnd` 為 NULL 時，意謂著系統將會選取上次更新時間屬性大於或等於此日期時間值的檔案。  當 `modifiedDatetimeEnd` 具有日期時間值，但 `modifiedDatetimeStart` 為 NULL 時，則意謂著系統將會選取上次更新時間屬性小於此日期時間值的檔案。| 否 |
-| modifiedDatetimeEnd | 檔案篩選會根據以下屬性：上次修改時間。 如果檔案的上次修改時間在 `modifiedDatetimeStart` 與 `modifiedDatetimeEnd` 之間的時間範圍內，系統就會選取該檔案。 此時間會以 "2018-12-01T05:00:00Z" 格式套用至 UTC 時區。 <br/><br/> 請注意會影響資料移動的整體效能，藉由啟用此設定，當您想要進行大量檔案從檔案篩選器。 <br/><br/> 屬性可以是 NULL，表示任何檔案的屬性篩選條件會套用至資料集。  當 `modifiedDatetimeStart` 具有日期時間值，但 `modifiedDatetimeEnd` 為 NULL 時，意謂著系統將會選取上次更新時間屬性大於或等於此日期時間值的檔案。  當 `modifiedDatetimeEnd` 具有日期時間值，但 `modifiedDatetimeStart` 為 NULL 時，則意謂著系統將會選取上次更新時間屬性小於此日期時間值的檔案。| 否 |
-| format | 如果您想要在檔案型存放區之間依原樣複製檔案 (二進位複本)，請在輸入和輸出資料集定義中略過格式區段。<br/><br/>如果您想要剖析或產生特定格式的檔案，以下是支援的檔案格式類型：**TextFormat**、**JsonFormat**、**AvroFormat**、**OrcFormat** 和 **ParquetFormat**。 將 [format]  下的 [type]  屬性設定為下列其中一個值。 如需詳細資訊，請參閱[文字格式](supported-file-formats-and-compression-codecs.md#text-format)、[JSON 格式](supported-file-formats-and-compression-codecs.md#json-format)、[Avro 格式](supported-file-formats-and-compression-codecs.md#avro-format)、[Orc 格式](supported-file-formats-and-compression-codecs.md#orc-format)和 [Parquet 格式](supported-file-formats-and-compression-codecs.md#parquet-format)小節。 |否 (僅適用於二進位複製案例) |
-| compression | 指定此資料的壓縮類型和層級。 如需詳細資訊，請參閱[支援的檔案格式和壓縮轉碼器](supported-file-formats-and-compression-codecs.md#compression-support)。<br/>支援的類型為：GZip  、Deflate  、BZip2  及 ZipDeflate  。<br/>支援的層級為 **Optimal** 和 **Fastest**。 |否 |
+| fileName | 在指定 "folderPath" 下之 Blob 的**名稱或萬用字元篩選**。 如果沒有為此屬性指定值，資料集就會指向資料夾中的所有 Blob。 <br/><br/>針對篩選，允許的萬用字元為：`*` (符合零或多個字元) 和 `?` (符合零或單一字元)。<br/>- 範例 1：`"fileName": "*.csv"`<br/>- 範例 2：`"fileName": "???20180427.txt"`<br/>如果實際檔案名稱內有萬用字元或逸出字元 `^`，請使用此逸出字元來逸出。<br/><br/>沒有為輸出資料集指定 fileName 且活動接收器中未指定 **preserveHierarchy** 時，複製活動會自動以下列模式產生 Blob 名稱：「*資料」。[活動執行識別碼 GUID]。[如果 FlattenHierarchy，則為 GUID]。[格式化（若已設定）]。[已設定壓縮]* ，例如"Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt.gz"；如果您使用資料表名稱而非查詢，從表格式來源進行複製，則名稱模式會是 " *[資料表名稱].[格式].[壓縮 (如果已設定)]* "，例如"MyTable.csv"。 |否 |
+| modifiedDatetimeStart | 檔案篩選會根據以下屬性：上次修改時間。 如果檔案的上次修改時間在 `modifiedDatetimeStart` 與 `modifiedDatetimeEnd` 之間的時間範圍內，系統就會選取該檔案。 此時間會以 "2018-12-01T05:00:00Z" 格式套用至 UTC 時區。 <br/><br/> 請注意，當您想要從大量檔案進行檔案篩選時，啟用這項設定會影響資料移動的整體效能。 <br/><br/> 屬性可以是 Null，表示不會將檔案屬性篩選套用至資料集。  當 `modifiedDatetimeStart` 具有日期時間值，但 `modifiedDatetimeEnd` 為 NULL 時，意謂著系統將會選取上次更新時間屬性大於或等於此日期時間值的檔案。  當 `modifiedDatetimeEnd` 具有日期時間值，但 `modifiedDatetimeStart` 為 NULL 時，則意謂著系統將會選取上次更新時間屬性小於此日期時間值的檔案。| 否 |
+| modifiedDatetimeEnd | 檔案篩選會根據以下屬性：上次修改時間。 如果檔案的上次修改時間在 `modifiedDatetimeStart` 與 `modifiedDatetimeEnd` 之間的時間範圍內，系統就會選取該檔案。 此時間會以 "2018-12-01T05:00:00Z" 格式套用至 UTC 時區。 <br/><br/> 請注意，當您想要從大量檔案進行檔案篩選時，啟用這項設定會影響資料移動的整體效能。 <br/><br/> 屬性可以是 Null，表示不會將檔案屬性篩選套用至資料集。  當 `modifiedDatetimeStart` 具有日期時間值，但 `modifiedDatetimeEnd` 為 NULL 時，意謂著系統將會選取上次更新時間屬性大於或等於此日期時間值的檔案。  當 `modifiedDatetimeEnd` 具有日期時間值，但 `modifiedDatetimeStart` 為 NULL 時，則意謂著系統將會選取上次更新時間屬性小於此日期時間值的檔案。| 否 |
+| format | 如果您想要在檔案型存放區之間依原樣複製檔案 (二進位複本)，請在輸入和輸出資料集定義中略過格式區段。<br/><br/>如果您想要剖析或產生特定格式的檔案，以下是支援的檔案格式類型：**TextFormat**、**JsonFormat**、**AvroFormat**、**OrcFormat** 和 **ParquetFormat**。 將 [format] 下的 [type] 屬性設定為下列其中一個值。 如需詳細資訊，請參閱[文字格式](supported-file-formats-and-compression-codecs.md#text-format)、[JSON 格式](supported-file-formats-and-compression-codecs.md#json-format)、[Avro 格式](supported-file-formats-and-compression-codecs.md#avro-format)、[Orc 格式](supported-file-formats-and-compression-codecs.md#orc-format)和 [Parquet 格式](supported-file-formats-and-compression-codecs.md#parquet-format)小節。 |否 (僅適用於二進位複製案例) |
+| compression | 指定此資料的壓縮類型和層級。 如需詳細資訊，請參閱[支援的檔案格式和壓縮轉碼器](supported-file-formats-and-compression-codecs.md#compression-support)。<br/>支援的類型為：GZip、Deflate、BZip2 及 ZipDeflate。<br/>支援的層級為 **Optimal** 和 **Fastest**。 |否 |
 
 >[!TIP]
 >若要複製資料夾下的所有 Blob，只要指定 **folderPath**。<br>若要複製指定名稱的單一 Blob，以資料夾部分指定 **folderPath**，並以檔案名稱指定 **fileName**。<br>若要複製資料夾下的 Blob 子集，以資料夾部分指定 **folderPath**，並以萬用字元篩選指定 **fileName**。 
 
-**範例：**
+**範例:**
 
 ```json
 {
@@ -406,31 +409,31 @@ Azure Blob 連接器支援下列驗證類型，請參閱詳細資料的對應章
 
 ## <a name="copy-activity-properties"></a>複製活動屬性
 
-如需可用來定義活動的區段和屬性完整清單，請參閱[管線](concepts-pipelines-activities.md)一文。 本節提供 Blob 儲存體來源和接收所支援的屬性清單。
+如需可用來定義活動的區段和屬性完整清單，請參閱[Pipelines](concepts-pipelines-activities.md)一文。 本節提供 Blob 儲存體來源和接收所支援的屬性清單。
 
 ### <a name="blob-storage-as-a-source-type"></a>Blob 儲存體作為來源類型
 
-- 從複製**Parquet 和分隔的文字格式**，請參閱[Parquet 和分隔的文字格式來源](#parquet-and-delimited-text-format-source)一節。
-- 為其他格式的副本**ORC/Avro/JSON/二進位格式**，請參閱[其他格式來源](#other-format-source)一節。
+- 若要從**Parquet、分隔文字、json、avro 和二進位格式**複製，請參閱[Parquet、分隔文字、json、avro 和二進位格式來源](#format-based-source)一節。
+- 若要從**ORC 格式**之類的其他格式複製，請參閱[其他格式來源](#other-format-source)一節。
 
-#### <a name="parquet-and-delimited-text-format-source"></a>Parquet 和分隔的文字格式的來源
+#### <a name="format-based-source"></a>Parquet、分隔的文字、JSON、Avro 和二進位格式來源
 
-若要從 Parquet 或分隔的文字格式的 Blob 儲存體複製資料，請參閱[Parquet 格式](format-parquet.md)並[分隔文字格式](format-delimited-text.md)格式為基礎的複製活動來源和支援的設定上的文章。 以下支援的屬性底下的 Azure blob`storeSettings`格式為基礎的複製來源中的設定：
+若要以**Parquet、分隔的文字、JSON、avro 和二進位格式**在 Blob 儲存體之間複製資料，請參閱格式為基礎的資料集上的[Parquet 格式](format-parquet.md)、[分隔的文字格式](format-delimited-text.md)、 [avro 格式](format-avro.md)和[二進位格式](format-binary.md)一文。支援的設定。 下列屬性在以格式為基礎之複製`storeSettings`來源的 [設定] 下支援 Azure Blob：
 
 | 屬性                 | 描述                                                  | 必要項                                      |
 | ------------------------ | ------------------------------------------------------------ | --------------------------------------------- |
-| type                     | [類型] 屬性底下`storeSettings`必須設為**AzureBlobStorageReadSetting**。 | 是                                           |
+| Type                     | 底下的 type 屬性`storeSettings`必須設定為**AzureBlobStorageReadSetting**。 | 是                                           |
 | recursive                | 指出是否從子資料夾、或只有從指定的資料夾，以遞迴方式讀取資料。 請注意，當遞迴設定為 true 且接收是檔案型存放區時，就不會在接收上複製或建立空的資料夾或子資料夾。 允許的值為 **true** (預設值) 和 **false**。 | 否                                            |
-| wildcardFolderPath       | 使用萬用字元，在資料集篩選器的來源資料夾中設定指定容器下資料夾路徑。 <br>允許的萬用字元為：`*` (比對零或多個字元) 和 `?` (比對零或單一字元)；如果您的實際資料夾名稱包含萬用字元或此逸出字元，請使用 `^` 來逸出。 <br>如需更多範例，請參閱[資料夾和檔案篩選範例](#folder-and-file-filter-examples)。 | 否                                            |
-| wildcardFileName         | 在指定的容器 + folderPath/wildcardFolderPath 篩選來源檔案的萬用字元在檔名。 <br>允許的萬用字元為：`*` (比對零或多個字元) 和 `?` (比對零或單一字元)；如果您的實際資料夾名稱包含萬用字元或此逸出字元，請使用 `^` 來逸出。  如需更多範例，請參閱[資料夾和檔案篩選範例](#folder-and-file-filter-examples)。 | [是] 如果`fileName`未指定資料集中 |
+| wildcardFolderPath       | 在資料集內設定的指定容器下，具有萬用字元的資料夾路徑，用以篩選來源資料夾。 <br>允許的萬用字元為：`*` (比對零或多個字元) 和 `?` (比對零或單一字元)；如果您的實際資料夾名稱包含萬用字元或此逸出字元，請使用 `^` 來逸出。 <br>如需更多範例，請參閱[資料夾和檔案篩選範例](#folder-and-file-filter-examples)。 | 否                                            |
+| wildcardFileName         | 在指定容器 + folderPath/wildcardFolderPath 下具有萬用字元的檔案名，用以篩選來源檔案。 <br>允許的萬用字元為：`*` (比對零或多個字元) 和 `?` (比對零或單一字元)；如果您的實際資料夾名稱包含萬用字元或此逸出字元，請使用 `^` 來逸出。  如需更多範例，請參閱[資料夾和檔案篩選範例](#folder-and-file-filter-examples)。 | 如果`fileName`未在 dataset 中指定，則為是 |
 | modifiedDatetimeStart    | 檔案篩選會根據以下屬性：上次修改時間。 如果檔案的上次修改時間在 `modifiedDatetimeStart` 與 `modifiedDatetimeEnd` 之間的時間範圍內，系統就會選取該檔案。 此時間會以 "2018-12-01T05:00:00Z" 格式套用至 UTC 時區。 <br> 屬性可以是 NULL，這意謂著不會在資料集套用任何檔案屬性篩選。  當 `modifiedDatetimeStart` 具有日期時間值，但 `modifiedDatetimeEnd` 為 NULL 時，意謂著系統將會選取上次更新時間屬性大於或等於此日期時間值的檔案。  當 `modifiedDatetimeEnd` 具有日期時間值，但 `modifiedDatetimeStart` 為 NULL 時，則意謂著系統將會選取上次更新時間屬性小於此日期時間值的檔案。 | 否                                            |
 | modifiedDatetimeEnd      | 同上。                                               | 否                                            |
-| maxConcurrentConnections | 同時連接到儲存體存放區的連線數目。 只有在您想要限制資料存放區的並行連接時，才指定。 | 否                                            |
+| maxConcurrentConnections | 連接到儲存體存放區的連線數目。 只有當您想要限制與資料存放區的並行連接時，才指定。 | 否                                            |
 
 > [!NOTE]
-> Parquet/分隔的文字格式，如**BlobSource**類型下一節中所述的複製活動來源仍可作為-是為了回溯相容性。 若要使用這個新的模型，從現在開始，建議您，並撰寫 UI 的 ADF 已切換為產生這些新的類型。
+> 針對 Parquet/分隔文字格式，下一節中所提及的**BlobSource**類型複製活動來源仍然受到回溯相容性的支援。 建議您繼續使用此新模型，而 ADF 撰寫 UI 已切換為產生這些新的類型。
 
-**範例：**
+**範例:**
 
 ```json
 "activities":[
@@ -471,17 +474,17 @@ Azure Blob 連接器支援下列驗證類型，請參閱詳細資料的對應章
 ]
 ```
 
-#### <a name="other-format-source"></a>其他格式的來源
+#### <a name="other-format-source"></a>其他格式來源
 
-若要從 ORC/Avro/JSON/二進位格式的 Blob 儲存體複製資料，來源類型的複製活動中設定**BlobSource**。 複製活動的 [來源]  區段支援下列屬性。
+若要以**ORC 格式**從 Blob 儲存體複製資料，請將複製活動中的來源類型設定為**BlobSource**。 複製活動的 [來源] 區段支援下列屬性。
 
 | 屬性 | 描述 | 必要項 |
 |:--- |:--- |:--- |
-| type | 複製活動來源的 type 屬性必須設定為 **BlobSource**。 |是 |
+| Type | 複製活動來源的 type 屬性必須設定為 **BlobSource**。 |是 |
 | recursive | 指出是否從子資料夾、或只有從指定的資料夾，以遞迴方式讀取資料。 請注意，當遞迴設定為 true 且接收是檔案型存放區時，就不會在接收上複製或建立空的資料夾或子資料夾。<br/>允許的值為 **true** (預設值) 和 **false**。 | 否 |
-| maxConcurrentConnections | 同時連接到儲存體存放區的連線數目。 只有在您想要限制資料存放區的並行連接時，才指定。 | 否 |
+| maxConcurrentConnections | 連接到儲存體存放區的連線數目。 只有當您想要限制與資料存放區的並行連接時，才指定。 | 否 |
 
-**範例：**
+**範例:**
 
 ```json
 "activities":[
@@ -515,23 +518,23 @@ Azure Blob 連接器支援下列驗證類型，請參閱詳細資料的對應章
 
 ### <a name="blob-storage-as-a-sink-type"></a>Blob 儲存體作為接收類型
 
-- 若要複製**Parquet 和分隔的文字格式**，請參閱[Parquet 和分隔的文字格式接收](#parquet-and-delimited-text-format-sink)區段。
-- 複製為其他格式，例如**ORC/Avro/JSON/二進位格式**，請參閱[其他格式接收](#other-format-sink)一節。
+- 若要從**Parquet、分隔文字、json、avro 和二進位格式**複製，請參閱[Parquet、分隔文字、json、avro 和二進位格式來源](#format-based-source)一節。
+- 若要從**ORC 格式**之類的其他格式複製，請參閱[其他格式來源](#other-format-source)一節。
 
-#### <a name="parquet-and-delimited-text-format-sink"></a>Parquet 和分隔的文字格式接收
+#### <a name="format-based-source"></a>Parquet、分隔的文字、JSON、Avro 和二進位格式來源
 
-若要將資料複製至 Parquet 或分隔的文字格式的 Blob 儲存體，請參閱[Parquet 格式](format-parquet.md)並[分隔文字格式](format-delimited-text.md)格式為基礎的複製活動接收器和支援的設定上的文章。 以下支援的屬性底下的 Azure blob`storeSettings`中格式為基礎的複製接收設定：
+若要從**Parquet、分隔文字、JSON、Avro 和二進位格式**的 Blob 儲存體複製資料，請參閱格式為基礎之複製活動來源上的[Parquet 格式](format-parquet.md)、[分隔文字格式](format-delimited-text.md)、 [avro 格式](format-avro.md)和[二進位格式](format-binary.md)文章和支援的設定。 下列屬性在以格式為基礎的複製`storeSettings`接收的設定下支援 Azure Blob：
 
 | 屬性                 | 描述                                                  | 必要項 |
 | ------------------------ | ------------------------------------------------------------ | -------- |
-| type                     | [類型] 屬性底下`storeSettings`必須設為**AzureBlobStorageWriteSetting**。 | 是      |
+| Type                     | 底下的 type 屬性`storeSettings`必須設定為**AzureBlobStorageWriteSetting**。 | 是      |
 | copyBehavior             | 當來源是來自檔案型資料存放區的檔案時，會定義複製行為。<br/><br/>允許的值包括：<br/><b>- PreserveHierarchy (預設)</b>：保留目標資料夾中的檔案階層。 來源檔案到來源資料夾的相對路徑，與目標檔案到目標資料夾的相對路徑相同。<br/><b>- FlattenHierarchy</b>：來自來源資料夾的所有檔案都會在目標資料夾的第一層中。 目標檔案會有自動產生的名稱。 <br/><b>- MergeFiles</b>：將來自來源資料夾的所有檔案合併成一個檔案。 如果有指定檔案或 Blob 名稱，合併檔案的名稱會是指定的名稱。 否則，就會是自動產生的檔案名稱。 | 否       |
-| maxConcurrentConnections | 同時連接到儲存體存放區的連線數目。 只有在您想要限制資料存放區的並行連接時，才指定。 | 否       |
+| maxConcurrentConnections | 連接到儲存體存放區的連線數目。 只有當您想要限制與資料存放區的並行連接時，才指定。 | 否       |
 
 > [!NOTE]
-> Parquet/分隔的文字格式，如**BlobSink**為仍然支援類型下一節中所述的複製活動接收器-是為了回溯相容性。 若要使用這個新的模型，從現在開始，建議您，並撰寫 UI 的 ADF 已切換為產生這些新的類型。
+> 針對 Parquet/分隔文字格式，下一節中所提及的**BlobSink**類型複製活動接收器仍然受到回溯相容性的支援。 建議您繼續使用此新模型，而 ADF 撰寫 UI 已切換為產生這些新的類型。
 
-**範例：**
+**範例:**
 
 ```json
 "activities":[
@@ -566,17 +569,17 @@ Azure Blob 連接器支援下列驗證類型，請參閱詳細資料的對應章
 ]
 ```
 
-#### <a name="other-format-sink"></a>其他格式接收
+#### <a name="other-format-sink"></a>其他格式接收器
 
-若要將資料複製到 Blob 儲存體，請將複製活動中的接收類型設定為 **BlobSink**。 [接收]  區段支援下列屬性。
+若要以**ORC 格式**將資料複製到 Blob 儲存體，請將複製活動中的接收類型設定為**BlobSink**。 [接收] 區段支援下列屬性。
 
 | 屬性 | 描述 | 必要項 |
 |:--- |:--- |:--- |
-| type | 複製活動接收的 type 屬性必須設定為 **BlobSink**。 |是 |
+| Type | 複製活動接收的 type 屬性必須設定為 **BlobSink**。 |是 |
 | copyBehavior | 當來源是來自檔案型資料存放區的檔案時，會定義複製行為。<br/><br/>允許的值包括：<br/><b>- PreserveHierarchy (預設)</b>：保留目標資料夾中的檔案階層。 來源檔案到來源資料夾的相對路徑，與目標檔案到目標資料夾的相對路徑相同。<br/><b>- FlattenHierarchy</b>：來自來源資料夾的所有檔案都會在目標資料夾的第一層中。 目標檔案會有自動產生的名稱。 <br/><b>- MergeFiles</b>：將來自來源資料夾的所有檔案合併成一個檔案。 如果有指定檔案或 Blob 名稱，合併檔案的名稱會是指定的名稱。 否則，就會是自動產生的檔案名稱。 | 否 |
-| maxConcurrentConnections | 同時連接到儲存體存放區的連線數目。 只有在您想要限制資料存放區的並行連接時，才指定。 | 否 |
+| maxConcurrentConnections | 連接到儲存體存放區的連線數目。 只有當您想要限制與資料存放區的並行連接時，才指定。 | 否 |
 
-**範例：**
+**範例:**
 
 ```json
 "activities":[
@@ -614,10 +617,10 @@ Azure Blob 連接器支援下列驗證類型，請參閱詳細資料的對應章
 
 | folderPath | fileName | recursive | 來源資料夾結構和篩選結果 (會擷取以**粗體**顯示的檔案)|
 |:--- |:--- |:--- |:--- |
-| `container/Folder*` | (空白，使用預設值) | false | container<br/>&nbsp;&nbsp;&nbsp;&nbsp;FolderA<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**File1.csv**<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**File2.json**<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File3.csv<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4.json<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File5.csv<br/>&nbsp;&nbsp;&nbsp;&nbsp;AnotherFolderB<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File6.csv |
-| `container/Folder*` | (空白，使用預設值) | true | container<br/>&nbsp;&nbsp;&nbsp;&nbsp;FolderA<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**File1.csv**<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**File2.json**<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**File3.csv**<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**File4.json**<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**File5.csv**<br/>&nbsp;&nbsp;&nbsp;&nbsp;AnotherFolderB<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File6.csv |
-| `container/Folder*` | `*.csv` | false | container<br/>&nbsp;&nbsp;&nbsp;&nbsp;FolderA<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**File1.csv**<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File2.json<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File3.csv<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4.json<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File5.csv<br/>&nbsp;&nbsp;&nbsp;&nbsp;AnotherFolderB<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File6.csv |
-| `container/Folder*` | `*.csv` | true | container<br/>&nbsp;&nbsp;&nbsp;&nbsp;FolderA<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**File1.csv**<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File2.json<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**File3.csv**<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4.json<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**File5.csv**<br/>&nbsp;&nbsp;&nbsp;&nbsp;AnotherFolderB<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File6.csv |
+| `container/Folder*` | (空白，使用預設值) | false | 容器<br/>&nbsp;&nbsp;&nbsp;&nbsp;FolderA<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**File1.csv**<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**File2.json**<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File3.csv<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4.json<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File5.csv<br/>&nbsp;&nbsp;&nbsp;&nbsp;AnotherFolderB<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File6.csv |
+| `container/Folder*` | (空白，使用預設值) | true | 容器<br/>&nbsp;&nbsp;&nbsp;&nbsp;FolderA<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**File1.csv**<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**File2.json**<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**File3.csv**<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**File4.json**<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**File5.csv**<br/>&nbsp;&nbsp;&nbsp;&nbsp;AnotherFolderB<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File6.csv |
+| `container/Folder*` | `*.csv` | false | 容器<br/>&nbsp;&nbsp;&nbsp;&nbsp;FolderA<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**File1.csv**<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File2.json<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File3.csv<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4.json<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File5.csv<br/>&nbsp;&nbsp;&nbsp;&nbsp;AnotherFolderB<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File6.csv |
+| `container/Folder*` | `*.csv` | true | 容器<br/>&nbsp;&nbsp;&nbsp;&nbsp;FolderA<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**File1.csv**<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File2.json<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**File3.csv**<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4.json<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**File5.csv**<br/>&nbsp;&nbsp;&nbsp;&nbsp;AnotherFolderB<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File6.csv |
 
 ### <a name="some-recursive-and-copybehavior-examples"></a>一些遞迴和 copyBehavior 範例
 
@@ -634,7 +637,7 @@ Azure Blob 連接器支援下列驗證類型，請參閱詳細資料的對應章
 
 ## <a name="mapping-data-flow-properties"></a>對應資料流程屬性
 
-了解詳細資料，從[來源轉換](data-flow-source.md)並[接收轉換](data-flow-sink.md)中對應的資料流。
+深入瞭解對應資料流程中[來源轉換](data-flow-source.md)和[接收轉換](data-flow-sink.md)的詳細資料。
 
 ## <a name="next-steps"></a>後續步驟
 

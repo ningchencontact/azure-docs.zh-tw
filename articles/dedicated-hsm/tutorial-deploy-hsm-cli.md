@@ -3,8 +3,8 @@ title: 教學課程：使用 Azure CLI 部署到現有的虛擬網路中 - Azure
 description: 示範如何使用 CLI 將專用 HSM 部署到現有虛擬網路中的教學課程
 services: dedicated-hsm
 documentationcenter: na
-author: barclayn
-manager: barbkess
+author: msmbaldwin
+manager: rkarlin
 editor: ''
 ms.service: key-vault
 ms.topic: tutorial
@@ -12,13 +12,13 @@ ms.custom: mvc, seodec18
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/07/2018
-ms.author: barclayn
-ms.openlocfilehash: 84beac4eca44a274eecc032e4816e3ff57aeafe2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.author: mbaldwin
+ms.openlocfilehash: 1d8649fc271801748723f484515f5fd2f708f95e
+ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60688365"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70881054"
 ---
 # <a name="tutorial-deploying-hsms-into-an-existing-virtual-network-using-cli"></a>教學課程：使用 CLI 將 HSM 部署至現有的虛擬網路
 

@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017,mvc,seodec18
 ms.topic: overview
 ms.date: 08/15/2019
-ms.openlocfilehash: d6127d4fba3d2255dee28cd41179f16394545328
-ms.sourcegitcommit: 5f67772dac6a402bbaa8eb261f653a34b8672c3a
+ms.openlocfilehash: 16845e5891117cc01bef5fae28cf4b36c0508651
+ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/01/2019
-ms.locfileid: "70207221"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70899548"
 ---
 # <a name="what-is-apache-hadoop-in-azure-hdinsight"></a>什麼是 Apache HDInsight 中的 Apache Hadoop？
 
@@ -30,10 +30,6 @@ Apache Hadoop MapReduce 是一種可撰寫工作來處理大量資料的軟體�
 * **對應工具**：取用輸入資料、分析 (通常使用篩選及排序作業)，以及發出 Tuple (機碼值組)
 
 * **減壓器**：取用對應程式發出的 Tuple 並執行摘要作業，從對應程式資料建立較小的組合結果
-
-下圖說明了基本字數統計 MapReduce 工作範例：
-
-![HDI.WordCountDiagram][image-hdi-wordcountdiagram]
 
 此工作的輸出是文字中每個單字出現的次數統計。
 

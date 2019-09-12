@@ -1,7 +1,7 @@
 ---
-title: 簡單實體、片語清單 - LUIS
+title: 教學課程：簡單實體、片語清單 - LUIS
 titleSuffix: Azure Cognitive Services
-description: 在本教學課程中，使用簡單實體從語句中擷取雇用職位名稱的機器學習資料。 若要增加擷取精確度，請新增簡單實體特有的字詞片語清單。
+description: 在本教學課程中，使用簡單實體，從語句中擷取雇用職位名稱的機器學習資料。 若要增加擷取精確度，請新增簡單實體特有的字詞片語清單。
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: tutorial
-ms.date: 07/16/2019
+ms.date: 09/04/2019
 ms.author: diberry
-ms.openlocfilehash: 1b731d8000e748813649ea32c91b9566a8bc245a
-ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
+ms.openlocfilehash: 87e4fe3671f419383cb342fdb7dca55a8d2eb45d
+ms.sourcegitcommit: aebe5a10fa828733bbfb95296d400f4bc579533c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69648612"
+ms.lasthandoff: 09/05/2019
+ms.locfileid: "70376258"
 ---
 # <a name="tutorial-extract-names-with-simple-entity-and-a-phrase-list"></a>教學課程：使用簡單實體和片語清單來擷取名稱
 
@@ -120,7 +120,7 @@ ms.locfileid: "69648612"
     |這是我的新會計職位履歷。|會計|
     |內附我的吧檯助理應徵文件。|吧檯助理|
     |我要提交屋頂工和創作者的應徵文件。|屋頂工、創作者|
-    |這是我的履歷， 我想應徵公車司機。|公車司機|
+    |這是我的的履歷， 我想應徵公車司機。|公車司機|
     |我是合格護士。 這是我的履歷。|合格護士|
     |我想要提交我在報上看到的教學職位文件。|教書|
     |這是我的履歷， 我想應徵蔬果裝料工。|裝料工|

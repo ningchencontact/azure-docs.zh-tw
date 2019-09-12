@@ -1,5 +1,5 @@
 ---
-title: 預先建置的意圖和實體 - LUIS
+title: 教學課程：預先建置的意圖和實體 - LUIS
 titleSuffix: Azure Cognitive Services
 description: 在本教學課程中，將預先建置的意圖和實體新增至應用程式，以快速預測意圖及擷取資料。 您不需使用預先建置的實體來標示任何語句。 系統會自動偵測實體。
 services: cognitive-services
@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: tutorial
 ms.date: 08/20/2019
 ms.author: diberry
-ms.openlocfilehash: 4697bad15a374bed0de08b7cabc5aceaad7f1259
-ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+ms.openlocfilehash: aaeddac98e3f192d5e6a87ecfd48005526379ff2
+ms.sourcegitcommit: 88ae4396fec7ea56011f896a7c7c79af867c90a1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69876714"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70390993"
 ---
 # <a name="tutorial-identify-common-intents-and-entities"></a>教學課程：找出常見的意圖和實體
 
@@ -24,7 +24,7 @@ ms.locfileid: "69876714"
 
 預先建置的模型 (網域、意圖和實體) 可協助您快速建置模型。
 
-**在本教學課程中，您會了解如何：**
+**在本教學課程中，您將了解如何：**
 
 > [!div class="checklist"]
 > * 建立新的應用程式

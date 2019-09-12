@@ -1,5 +1,5 @@
 ---
-title: 取得意圖 (C#) - LUIS
+title: 快速入門：取得意圖 (C#) - LUIS
 titleSuffix: Azure Cognitive Services
 description: 在這個 C# 快速入門中，使用可用的公用 LUIS 應用程式，從交談文字判斷使用者的用意。
 services: cognitive-services
@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: quickstart
-ms.date: 07/16/2019
+ms.date: 09/04/2019
 ms.author: diberry
-ms.openlocfilehash: 92f74174d35a58e54ae0078f146f86dbfc7aa709
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: f7bea7320c99487e5f8f534f337a744344efa658
+ms.sourcegitcommit: aebe5a10fa828733bbfb95296d400f4bc579533c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68563849"
+ms.lasthandoff: 09/05/2019
+ms.locfileid: "70375543"
 ---
 # <a name="quickstart-get-intent-using-c"></a>快速入門：使用 C# 取得意圖
 

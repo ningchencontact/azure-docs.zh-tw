@@ -9,12 +9,12 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: tutorial
 ms.date: 06/25/2019
 ms.author: hrasheed
-ms.openlocfilehash: 48b02a042b55af9ff65f57220f7a64c9cbde8848
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: df216c4d634ac20365cc5a1cc6e26fbd78be7ab9
+ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67445554"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70917395"
 ---
 # <a name="tutorial-use-apache-hbase-in-azure-hdinsight"></a>教學課程：使用 Azure HDInsight 中的 Apache HBase
 
@@ -41,15 +41,15 @@ ms.locfileid: "67445554"
 
 1. 選取以下影像，在 Azure 入口網站中開啟範本。 範本位在 [Azure 快速入門範本](https://azure.microsoft.com/resources/templates/)。
 
-    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-hdinsight-hbase-linux%2Fazuredeploy.json" target="_blank"><img src="./media/apache-hbase-tutorial-get-started-linux/deploy-to-azure.png" alt="Deploy to Azure"></a>
+    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-hdinsight-hbase-linux%2Fazuredeploy.json" target="_blank"><img src="./media/apache-hbase-tutorial-get-started-linux/hdi-deploy-to-azure1.png" alt="Deploy to Azure"></a>
 
 2. 從 [自訂部署]  刀鋒視窗，輸入下列值：
 
     |屬性 |說明 |
     |---|---|
-    |訂用帳戶|選取用來建立叢集的 Azure 訂用帳戶。|
-    |資源群組|建立 Azure 資源管理群組，或使用現有的群組。|
-    |位置|指定資源群組的位置。 |
+    |Subscription|選取用來建立叢集的 Azure 訂用帳戶。|
+    |Resource group|建立 Azure 資源管理群組，或使用現有的群組。|
+    |Location|指定資源群組的位置。 |
     |ClusterName|輸入 HBase 叢集的名稱。|
     |叢集登入名稱和密碼|預設登入名稱為 **admin**。|
     |SSH 使用者名稱和密碼|預設的使用者名稱為 **sshuser**。|

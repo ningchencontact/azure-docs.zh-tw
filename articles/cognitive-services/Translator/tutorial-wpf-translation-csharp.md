@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: tutorial
 ms.date: 06/04/2019
 ms.author: swmachan
-ms.openlocfilehash: f8488195ed9e115843c2dc551af52d5da010ffe7
-ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
+ms.openlocfilehash: 286b75166e6216513afc46e5779b8a2f969aeaf6
+ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69036761"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70858901"
 ---
 # <a name="tutorial-create-a-translation-app-with-wpf"></a>教學課程：使用 WPF 建立翻譯應用程式
 
@@ -48,7 +48,7 @@ ms.locfileid: "69036761"
 
 繼續操作之前，您將需要下列項目：
 
-* Azure 認知服務訂用帳戶。 [取得認知服務金鑰](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#multi-service-resource)。
+* Azure 認知服務訂用帳戶。 [取得認知服務金鑰](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#create-a-new-azure-cognitive-services-resource)。
 * 一部 Windows 電腦
 * [Visual Studio 2019](https://www.visualstudio.com/downloads/) - Community 或 Enterprise 版
 

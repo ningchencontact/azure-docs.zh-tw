@@ -1,6 +1,6 @@
 ---
 title: 大規模擷取、轉換和載入 (ETL) - Azure HDInsight
-description: 了解如何在 HDInsight 中搭配 Apache Hadoop 使用 ETL。
+description: 瞭解如何在 HDInsight 中搭配 Apache Hadoop 使用解壓縮、轉換和載入。
 author: ashishthaps
 ms.reviewer: jasonh
 ms.service: hdinsight
@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/13/2019
 ms.author: ashishth
-ms.openlocfilehash: d3ce2a19e195174cd302b25005b3b063d028b6cf
-ms.sourcegitcommit: e5dcf12763af358f24e73b9f89ff4088ac63c6cb
+ms.openlocfilehash: e4168b2aec73efcaa282398cbe145df49a117da0
+ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/14/2019
-ms.locfileid: "67137162"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70810754"
 ---
 # <a name="extract-transform-and-load-etl-at-scale"></a>大規模擷取、轉換和載入 (ETL)
 
@@ -57,7 +57,7 @@ Azure Data Factory 以平台即服務的形式提供協調流程功能。 這是
 
 [Azure 儲存體](https://azure.microsoft.com/services/storage/blobs/)具有[特定的延展性目標](../../storage/common/storage-scalability-targets.md)。  對大多數分析節點來說，當處理許多較小的檔案時，Azure 儲存體的延展性最佳。  Azure 儲存體可保證不論有多少檔案或檔案有多大 (只要是在您的限制範圍內) 都能提供相同的效能。  這意謂著您可以儲存數 TB 的資料而仍獲得一致的效能，不論您使用的是一部份資料還是全部資料。
 
-Azure 儲存體有數種不同類型的 Blob。  「附加 Blob」  是儲存 Web 記錄或感應器資料的絕佳選項。  
+Azure 儲存體有數種不同類型的 Blob。  「附加 Blob」是儲存 Web 記錄或感應器資料的絕佳選項。  
 
 多個 Blob 可以分散到多部伺服器來擴大這些 Blob 的存取途徑，但是單一 Blob 則只能由單一伺服器來提供服務。 雖然 Blog 可以在 Blog 容器中邏輯分組，但這種分組方式的意涵卻非分割。
 
@@ -65,7 +65,7 @@ Azure 儲存體也有一個用於 Blob 儲存體的 WebHDFS API 層。  HDInsigh
 
 通常會使用 PowerShell、Azure 儲存體 SDK 或 AZCopy 將資料擷取至 Azure 儲存體。
 
-### <a name="azure-data-lake-storage"></a>Azure Data Lake 儲存體
+### <a name="azure-data-lake-storage"></a>Azure Data Lake Storage
 
 Azure Data Lake Storage (ADLS) 是一個受管理的超大規模存放庫，適用於與 HDFS 相容的分析資料。  ADLS 使用一種類似於 HDFS 的設計典範，並在總容量及個別檔案大小方面提供無限的延展性。 ADLS 非常適合與大型檔案搭配運作，因為大型檔案可以跨多個節點儲存。  分割 ADLS 中的資料是在幕後執行的。  您會獲得大規模輸送量，而可以使用數千個並行執行程式來執行分析作業，有效率地讀取和寫入數百 TB 的資料。
 
@@ -127,7 +127,7 @@ Sqoop 使用 MapReduce 來匯入和匯出資料，可提供平行作業和容錯
 
 Apache Flume 是一個分散式、可靠且可用的服務，可有效率地收集、彙總及移動大量的記錄資料。 Flume 具有以串流資料流程為基礎的簡單彈性架構。 Flume 提供可微調的可靠性機制及許多容錯移轉與復原機制，既健全又能容錯。 Flume 使用已將線上分析應用程式納入考量的簡單可延伸資料模型。
 
-Apache Flume 無法與 Azure HDInsight 搭配使用。  內部部署 Hadoop 安裝可以使用 Flume，將資料傳送至 Azure 儲存體 Blob 或 Azure Data Lake Storage。  如需詳細資訊，請參閱[搭配 HDInsight 使用 Apache Flume](https://web.archive.org/web/20190217104751/ https://blogs.msdn.microsoft.com/bigdatasupport/2014/03/18/using-apache-flume-with-hdinsight/) \(英文\)。
+Apache Flume 無法與 Azure HDInsight 搭配使用。  內部部署 Hadoop 安裝可以使用 Flume，將資料傳送至 Azure 儲存體 Blob 或 Azure Data Lake Storage。  如需詳細資訊，請參閱[搭配 HDInsight 使用 Apache Flume](https://web.archive.org/web/20190217104751/https://blogs.msdn.microsoft.com/bigdatasupport/2014/03/18/using-apache-flume-with-hdinsight/) \(英文\)。
 
 ## <a name="transform"></a>轉換
 

@@ -10,12 +10,12 @@ ms.author: tamram
 ms.reviewer: artek
 ms.custom: mvc
 ms.subservice: blobs
-ms.openlocfilehash: 124b10607f710ddfb76787eac09dea7ec6ffc03c
-ms.sourcegitcommit: ee61ec9b09c8c87e7dfc72ef47175d934e6019cc
+ms.openlocfilehash: 3302402ae791ac17b8ac09ab91b061a558eb7c75
+ms.sourcegitcommit: 88ae4396fec7ea56011f896a7c7c79af867c90a1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70173058"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70390352"
 ---
 # <a name="tutorial-build-a-highly-available-application-with-blob-storage"></a>教學課程：建置採用 Blob 儲存體的高可用性應用程式
 
@@ -49,11 +49,6 @@ RA-GRS 的運作方式是將交易從主要區域複寫到次要區域。 此複
 
 * 安裝 [Python](https://www.python.org/downloads/)
 * 下載並安裝 [Azure Storage SDK for Python](https://github.com/Azure/azure-storage-python)
-
-# <a name="java-v10-sdktabjava-v10"></a>[Java V10 SDK](#tab/java-v10)
-
-* 安裝 [Maven](https://maven.apache.org/download.cgi) 並設定成從命令列運作
-* 安裝並設定 [JDK](https://www.oracle.com/technetwork/java/javase/downloads/index.html)
 
 # <a name="nodejstabnodejs"></a>[Node.js](#tab/nodejs)
 
@@ -107,14 +102,6 @@ git clone https://github.com/Azure-Samples/storage-dotnet-circuit-breaker-patter
 git clone https://github.com/Azure-Samples/storage-python-circuit-breaker-pattern-ha-apps-using-ra-grs.git
 ```
 
-# <a name="java-v10-sdktabjava-v10"></a>[Java V10 SDK](#tab/java-v10)
-
-[下載範例專案](https://github.com/Azure-Samples/storage-java-V10-ha-ra-grs)並解壓縮 storage-java-ragrs.zip 檔案。 您也可以使用 [git](https://git-scm.com/) 將應用程式的複本下載到您的開發環境。 此範例專案包含基本 Java 應用程式。
-
-```bash
-git clone https://github.com/Azure-Samples/storage-java-V10-ha-ra-grs
-```
-
 # <a name="nodejstabnodejs"></a>[Node.js](#tab/nodejs)
 
 [下載範例專案](https://github.com/Azure-Samples/storage-node-v10-ha-ra-grs)並將檔案解壓縮。 您也可以使用 [git](https://git-scm.com/) 將應用程式的複本下載到您的開發環境。 此範例專案包含基本 Node.js 應用程式。
@@ -165,24 +152,6 @@ setx accountname "<youraccountname>"
 setx accountkey "<youraccountkey>"
 ```
 
-# <a name="java-v10-sdktabjava-v10"></a>[Java V10 SDK](#tab/java-v10)
-
-使用此範例時，您必須安全地儲存您的儲存體帳戶名稱和金鑰。 請將其儲存在執行範例的電腦本機的環境變數中。 根據您的作業系統，使用 Linux 或 Windows 範例來建立環境變數。 在 Windows 中，必須重新載入**命令提示字元**或您所使用的殼層，才能使用此環境變數。
-
-### <a name="linux-example"></a>Linux 範例
-
-```
-export AZURE_STORAGE_ACCOUNT="<youraccountname>"
-export AZURE_STORAGE_ACCESS_KEY="<youraccountkey>"
-```
-
-### <a name="windows-example"></a>Windows 範例
-
-```powershell
-setx AZURE_STORAGE_ACCOUNT "<youraccountname>"
-setx AZURE_STORAGE_ACCESS_KEY "<youraccountkey>"
-```
-
 # <a name="nodejstabnodejs"></a>[Node.js](#tab/nodejs)
 
 若要執行此範例，必須將儲存體帳戶認證新增到 `.env.example` 檔案，然後將它重新命名為 `.env`。
@@ -222,49 +191,6 @@ AZURE_STORAGE_ACCOUNT_ACCESS_KEY=<replace with your storage account access key>
 
 在下載之前，服務物件 [retry_callback](https://docs.microsoft.com/python/api/azure.storage.common.storageclient.storageclient?view=azure-python) 和 [response_callback](https://docs.microsoft.com/python/api/azure.storage.common.storageclient.storageclient?view=azure-python) 函式會先加以定義。 這些函式會定義事件處理常式，當下載作業成功完成，或下載作業失敗而正在重試時，便會引發這些處理常式。
 
-# <a name="java-v10-sdktabjava-v10"></a>[Java V10 SDK](#tab/java-v10)
-
-若要執行範例，請在命令列使用 Maven。
-
-1. 開啟殼層，然後瀏覽至複製目錄內的 **storage-blobs-java-v10-quickstart**。
-2. 輸入 `mvn compile exec:java` 。
-
-此範例會在您的預設目錄中建立測試檔案。 如果是 Windows 使用者，此目錄是 **AppData\Local\Temp**。此範例接著會顯示您可以輸入的下列命令選項：
-
-- 輸入 **P** 以執行放置 Blob 作業，此命令會將暫存檔案上傳至儲存體帳戶。
-- 輸入 **L** 以執行列出 Blob 作業，此命令會列出目前在您容器中的 Blob。
-- 輸入 **G** 以執行取得 Blob 作業，此命令會將檔案從儲存體帳戶下載到本機電腦。
-- 輸入 **D** 以執行刪除 Blob 作業，此命令會從儲存體帳戶中刪除 Blob。
-- 輸入 **E** 以關閉範例，此命令也會刪除範例建立的所有資源。
-
-此範例顯示您在 Windows 上執行應用程式時的輸出。
-
-```
-Created quickstart container
-Enter a command
-(P)utBlob | (L)istBlobs | (G)etBlob | (D)eleteBlobs | (E)xitSample
-# Enter a command :
-P
-Uploading the sample file into the container: https://<storageaccount>.blob.core.windows.net/quickstart
-# Enter a command :
-L
-Listing blobs in the container: https://<storageaccount>.blob.core.windows.net/quickstart
-Blob name: SampleBlob.txt
-# Enter a command :
-G
-Get the blob: https://<storageaccount>.blob.core.windows.net/quickstart/SampleBlob.txt
-The blob was downloaded to C:\Users\<useraccount>\AppData\Local\Temp\downloadedFile13097087873115855761.txt
-# Enter a command :
-D
-Delete the blob: https://<storageaccount>.blob.core.windows.net/quickstart/SampleBlob.txt
-
-# Enter a command :
->> Blob deleted: https://<storageaccount>.blob.core.windows.net/quickstart/SampleBlob.txt
-E
-Cleaning up the sample and exiting!
-```
-
-您可以控制範例，因此請輸入命令，使其執行程式碼。 輸入會區分大小寫。
 
 # <a name="nodejstabnodejs"></a>[Node.js](#tab/nodejs)
 
@@ -389,18 +315,6 @@ def response_callback(response):
         if secondary_read_count >= secondary_threshold:
             blob_client.location_mode = LocationMode.PRIMARY
             secondary_read_count = 0
-```
-
-# <a name="java-v10-sdktabjava-v10"></a>[Java V10 SDK](#tab/java-v10)
-
-使用 Java V10 SDK 範例建立的，不需要定義回呼處理常式，且 SDK 現在與 V7 SDK 有一些基本差異。 我們有次要**管線**，而沒有 LocationMode。 您可以透過 **RequestRetryOptions** 定義次要管線，若已定義，則允許應用程式在無法透過主要管線觸達您的資料時，自動切換到次要管線。
-
-```java
-// We create pipeline options here so that they can be easily used between different pipelines
-PipelineOptions myOptions = new PipelineOptions();
-myOptions.withRequestRetryOptions(new RequestRetryOptions(RetryPolicyType.EXPONENTIAL, 3, 10, 500L, 1000L, accountName + "-secondary.blob.core.windows.net"));
-// We are using a default pipeline here, you can learn more about it at https://github.com/Azure/azure-storage-java/wiki/Azure-Storage-Java-V10-Overview
-final ServiceURL serviceURL = new ServiceURL(new URL("https://" + accountName + ".blob.core.windows.net"), StorageURL.createPipeline(creds, myOptions));
 ```
 
 # <a name="nodejstabnodejs"></a>[Node.js](#tab/nodejs)

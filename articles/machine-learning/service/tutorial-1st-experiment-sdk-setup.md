@@ -10,12 +10,12 @@ author: trevorbye
 ms.author: trbye
 ms.reviewer: trbye
 ms.date: 08/28/2019
-ms.openlocfilehash: f1003324e9f4b3762b5d8eca703af4a1fbd4613a
-ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
+ms.openlocfilehash: d968d6e799b75940d1fb73aa31c22eb84068df7d
+ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70308807"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70860419"
 ---
 # <a name="tutorial-get-started-creating-your-first-ml-experiment-with-the-python-sdk"></a>教學課程：使用 Python SDK 開始建立您的第一個 ML 實驗
 
@@ -79,3 +79,5 @@ Azure Machine Learning 工作區是雲端中您用來實驗、定型及部署機
 
 > [!IMPORTANT]
 > 如果您不打算遵循本教學課程的第 2 部分或任何其他教學課程，請在未使用時[停止雲端 Notebook 伺服器 VM](tutorial-1st-experiment-sdk-train.md#clean-up-resources) 來降低成本。
+
+

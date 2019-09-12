@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 01/28/2019
 ms.author: rajanaki
 ms.custom: MVC
-ms.openlocfilehash: 3790b543a1a6dcbb793dbf661441700e6fa24232
-ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
+ms.openlocfilehash: 4404f785116110d99dc242d2dae39c4a462f45e9
+ms.sourcegitcommit: aebe5a10fa828733bbfb95296d400f4bc579533c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69611885"
+ms.lasthandoff: 09/05/2019
+ms.locfileid: "70376254"
 ---
 # <a name="move-azure-vms-to-another-region"></a>將 Azure VM 移動到另一個區域
 
@@ -71,7 +71,7 @@ ms.locfileid: "69611885"
 
     若要根據來源 VM 設定建立最常用且符合需求的網路資源，請參閱下列文件：
     - [網路安全性群組](https://docs.microsoft.com/azure/virtual-network/manage-network-security-group)
-    - [負載平衡器](https://docs.microsoft.com/azure/load-balancer/#step-by-step-tutorials)
+    - [負載平衡器](https://docs.microsoft.com/azure/load-balancer)
     -  [公用 IP](../virtual-network/virtual-network-public-ip-address.md)
     - 如需任何其他網路元件，請參閱[網路文件](https://docs.microsoft.com/azure/#pivot=products&panel=network)。
 

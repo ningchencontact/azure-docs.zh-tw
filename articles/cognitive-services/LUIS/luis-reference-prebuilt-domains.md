@@ -419,12 +419,12 @@ Web 網域提供搜尋網站的意圖和實體。
 ### <a name="intents"></a>**意圖**
 意圖名稱 | 描述 | 範例
 ---------|----------|---------
- WebSearch | 在搜尋引擎中流覽至指定的網站或搜尋的要求。 | Google.com 中的搜尋介面。 <br> 在網路上尋找快樂的生日歌曲 <br> 移至 www.twitter.com。
+ WebSearch | 在搜尋引擎中流覽至指定的網站或搜尋的要求。 | Google.com 中的搜尋介面。 <br> 在網路上尋找快樂的生日歌曲 <br> 移至 [www.twitter.com](www.twitter.com)。
 
 ### <a name="entities"></a>**條目**
 LUIS 實體 | 實體類型 | 描述 | 範例
 ------------|-------------|-------------|---------
 SearchEngine | List | 搜尋引擎使用者想要使用。 | Bing <br> Google
 SearchText | 簡單的模式。任何 | 使用者想要搜尋的文字。 <br> _如果 "in" 後面的網站不是搜尋引擎，則將「facebook 中的朋友」標記為 SearchText。Url 也應標記為 SearchText。_ | 電影 <br> 深入學習 <br> Tom 巡航
-連結 | url | 網站連結。 | www.twitter.com
+連結 | url | 網站連結。 | [www.twitter.com](www.twitter.com)
 

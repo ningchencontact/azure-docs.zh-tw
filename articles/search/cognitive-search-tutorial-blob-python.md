@@ -10,12 +10,12 @@ ms.devlang: python
 ms.topic: tutorial
 ms.date: 06/04/2019
 ms.author: v-lilei
-ms.openlocfilehash: 2cde1fe258d2caf7e7dc9d8ede582364f42c676b
-ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
+ms.openlocfilehash: c21b4d525e395dfb032a89631eb34156fe3e5b23
+ms.sourcegitcommit: 86d49daccdab383331fc4072b2b761876b73510e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69648875"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70744727"
 ---
 # <a name="python-tutorial-call-cognitive-services-apis-in-an-azure-search-indexing-pipeline"></a>Python 教學課程：在 Azure 搜尋服務索引管線中呼叫認知服務 API
 
@@ -67,7 +67,7 @@ Azure 搜尋服務的輸出是全文檢索的可搜尋索引。 您可以使用�
 
 ## <a name="prepare-sample-data"></a>準備範例資料
 
-擴充管線會從 Azure 資料來源中提取資料。 來源資料必須來自 [Azure 搜尋服務索引子](search-indexer-overview.md)支援的資料來源類型。 Azure 表格儲存體不支援認知搜尋。 針對此練習，我們會使用 Blob 儲存體來展現多個內容類型。
+擴充管線會從 Azure 資料來源中提取資料。 來源資料必須來自 [Azure 搜尋服務索引子](search-indexer-overview.md)支援的資料來源類型。 針對此練習，我們會使用 Blob 儲存體來展現多個內容類型。
 
 1. [登入 Azure 入口網站](https://portal.azure.com)瀏覽至您的 Azure 儲存體帳戶、按一下 [Blob]  ，然後按一下 [+ 容器]  。
 
@@ -473,7 +473,8 @@ pprint(json.dumps(r.json(), indent=1))
 對其他欄位重複前述步驟：此練習中的內容、語言程式碼、關鍵片語和組織。 您可以透過使用逗號分隔清單的 `$select` 傳回多個欄位。
 
 您可以使用 GET 或 POST，視查詢字串的複雜度和長度而定。 如需詳細資訊，請參閱[使用 REST API 進行查詢](https://docs.microsoft.com/rest/api/searchservice/search-documents)。
-它 <a name="reset"></a>
+
+<a name="reset"></a>
 
 ## <a name="reset-and-rerun"></a>重設並重新執行
 

@@ -1,5 +1,5 @@
 ---
-title: Application Insights (C#) - LUIS
+title: 教學課程：Application Insights (C#) - LUIS
 titleSuffix: Azure Cognitive Services
 description: 本教學課程將 Bot 和 Language Understanding 資訊新增至 Application Insights 遙測資料儲存體。
 services: cognitive-services
@@ -9,16 +9,16 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: tutorial
-ms.date: 06/16/2019
+ms.date: 09/06/2019
 ms.author: diberry
-ms.openlocfilehash: bc8cf9973ed6889b0820e5ada5565d0541532fa3
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 51860efdcc440d6b8a4ea57777ad31fa718657b5
+ms.sourcegitcommit: a4b5d31b113f520fcd43624dd57be677d10fc1c0
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68560067"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70772813"
 ---
-# <a name="add-luis-results-to-application-insights-from-a-bot-in-c"></a>從 C# 中的 Bot 將 LUIS 結果新增至 Application Insights
+# <a name="tutorial-add-luis-results-to-application-insights-from-a-bot-in-c"></a>教學課程：從 C# 中的 Bot 將 LUIS 結果新增至 Application Insights
 
 本教學課程將 Bot 和 Language Understanding 資訊新增至 [Application Insights](https://azure.microsoft.com/services/application-insights/) 遙測資料儲存體。 在您擁有該資料之後，即可使用 Kusto 語言或 Power BI 查詢它，以即時分析、彙總以及報告意圖和語句實體。 此分析可協助您判斷應該新增還是編輯 LUIS 應用程式的意圖和實體。
 
@@ -160,7 +160,7 @@ ms.locfileid: "68560067"
 1. 在 Visual Studio 中，建置並執行 Bot。 
 1. 啟動 Bot 模擬器，並開啟 Bot。 這個[步驟](luis-csharp-tutorial-bf-v4.md#use-the-bot-emulator-to-test-the-bot)在先前的教學課程中提供。
 
-1. 詢問 Bot 問題。 這個[步驟](luis-csharp-tutorial-bf-v4.md#ask-bot-a-question-for-the-book-flight-intent)在先前的教學課程中提供。
+1. 詢問 Bot 問題。 這個[步驟](luis-csharp-tutorial-bf-v4.md##use-the-bot-emulator-to-test-the-bot)在先前的教學課程中提供。
 
 ## <a name="view-luis-entries-in-application-insights"></a>在 Application Insights 中檢視 LUIS 項目
 

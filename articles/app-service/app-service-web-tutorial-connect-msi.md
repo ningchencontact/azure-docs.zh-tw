@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.date: 08/06/2019
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: 8a0b974e9b64d477e53c37757b4f2fa952befba2
-ms.sourcegitcommit: 388c8f24434cc96c990f3819d2f38f46ee72c4d8
+ms.openlocfilehash: 09e9a89fc79763eee5d154ba589b599fe8a180b2
+ms.sourcegitcommit: 86d49daccdab383331fc4072b2b761876b73510e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/27/2019
-ms.locfileid: "70061856"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70743389"
 ---
 # <a name="tutorial-secure-azure-sql-database-connection-from-app-service-using-a-managed-identity"></a>教學課程：使用受控識別保護來自 App Service 的 Azure SQL Database 連線
 
@@ -54,7 +54,7 @@ ms.locfileid: "70061856"
 
 本文會從您結束[教學課程：在 Azure 中搭配 SQL Database 來建置 ASP.NET 應用程式](app-service-web-tutorial-dotnet-sqldatabase.md)或[教學課程：在 Azure App Service 中建置 ASP.NET Core 和 SQL Database 應用程式](app-service-web-tutorial-dotnetcore-sqldb.md)。 如果您尚未進行，請先依照這兩個教學課程的其中一個來進行。 或者，您可以使用 SQL Database 針對自己的 .NET 應用程式調整步驟。
 
-若要使用 SQL Database 作為後端對您的應用程式進行偵錯，請確定您已允許從您的電腦進行用戶端連線。 如果尚未這麼做，請遵循[使用 Azure 入口網站管理伺服器層級 IP 防火牆規則](../sql-database/sql-database-firewall-configure.md#manage-server-level-ip-firewall-rules-using-the-azure-portal)中的步驟來新增用戶端 IP。
+若要使用 SQL Database 作為後端對您的應用程式進行偵錯，請確定您已允許從您的電腦進行用戶端連線。 如果尚未這麼做，請遵循[使用 Azure 入口網站管理伺服器層級 IP 防火牆規則](../sql-database/sql-database-firewall-configure.md#use-the-azure-portal-to-manage-server-level-ip-firewall-rules)中的步驟來新增用戶端 IP。
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 

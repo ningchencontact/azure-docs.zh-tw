@@ -8,12 +8,12 @@ ms.topic: sample
 ms.service: blueprints
 manager: carmonm
 ms.custom: fasttrack-new
-ms.openlocfilehash: 0125fa20e61890317d4df510cb668f68e5049c43
-ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
+ms.openlocfilehash: 520eded941f625bf90204213188ac1afc94d3111
+ms.sourcegitcommit: b7b0d9f25418b78e1ae562c525e7d7412fcc7ba0
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/03/2019
-ms.locfileid: "70231845"
+ms.lasthandoff: 09/08/2019
+ms.locfileid: "70802574"
 ---
 # <a name="deploy-the-microsoft-cloud-adoption-framework-for-azure-migrate-landing-zone-blueprint-sample"></a>部署適用於適用於 Azure 的 Microsoft 雲端採用架構的移轉登陸區域藍圖範例
 
@@ -33,7 +33,7 @@ ms.locfileid: "70231845"
 
 首先，若要實作藍圖範例，請使用範例作為起點，在您的環境中建立新藍圖。
 
-1. 在左窗格中選取 [所有服務]  ，然後搜尋並選取 [原則]  。 在 [原則]  頁面上，選取 [藍圖]  。
+1. 在左側窗格中選取 [所有服務]  。 搜尋並選取 [藍圖]  。
 
 1. 在左側的 [快速入門]  頁面上，選取 [建立藍圖]  **下方的 [建立]** 按鈕。
 
@@ -51,7 +51,7 @@ ms.locfileid: "70231845"
 
 您的環境中現已建立了藍圖範例複本。 該複本會以**草稿**模式建立，而且必須先**發佈**，才能進行指派和部署。 您可以根據環境和需求來自訂藍圖範例複本，但是這樣的修改可能會使其不符合 CAF 移轉登陸區域指引。
 
-1. 在左窗格中選取 [所有服務]  ，然後搜尋並選取 [原則]  。 在 [原則]  頁面上，選取 [藍圖]  。
+1. 在左側窗格中選取 [所有服務]  。 搜尋並選取 [藍圖]  。
 
 1. 選取左側的 [藍圖定義]  頁面。 使用篩選來尋找您的藍圖範例複本，然後將其選取。
 
@@ -61,7 +61,7 @@ ms.locfileid: "70231845"
 
 成功**發佈**藍圖範例複本後，可以將藍圖定義指派給其所在管理群組中的訂用帳戶。 此步驟用於提供參數，以建立每個專屬的藍圖範例複本部署。
 
-1. 在左窗格中選取 [所有服務]  ，然後搜尋並選取 [原則]  。 在 [原則]  頁面上，選取 [藍圖]  。
+1. 在左側窗格中選取 [所有服務]  。 搜尋並選取 [藍圖]  。
 
 1. 選取左側的 [藍圖定義]  頁面。 使用篩選來尋找您的藍圖範例複本，然後將其選取。
 

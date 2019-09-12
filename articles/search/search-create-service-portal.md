@@ -1,22 +1,22 @@
 ---
-title: 在入口網站中建立 Azure 搜尋服務 - Azure 搜尋服務
+title: 快速入門：在入口網站中建立 Azure 搜尋服務 - Azure 搜尋服務
 description: 在 Azure 入口網站中佈建 Azure 搜尋服務資源。 選擇資源群組、區域、SKU 或定價層。
 manager: nitinme
 author: HeidiSteen
 services: search
 ms.service: search
 ms.topic: quickstart
-ms.date: 08/09/2019
+ms.date: 09/10/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 0aabf10b3be8f2f13abbba15d514a008f193646c
-ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
+ms.openlocfilehash: 483810f89ea4bbb3a68e616929bd7d752c4d509f
+ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69649955"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70883860"
 ---
-# <a name="create-an-azure-search-service-in-the-portal"></a>在入口網站中建立 Azure 搜尋服務
+# <a name="quickstart-create-an-azure-search-service-in-the-portal"></a>快速入門：在入口網站中建立 Azure 搜尋服務
 
 Azure 搜尋服務是一項可用來在自訂應用程式中插入搜尋體驗的獨立資源。 雖然 Azure 搜尋服務可與其他 Azure 服務輕易整合，但您也可以將它當做單獨元件使用、將其與網路伺服器上的應用程式整合，或與其他雲端平台上執行的軟體搭配使用。
 

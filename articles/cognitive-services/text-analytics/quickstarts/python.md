@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: quickstart
 ms.date: 08/28/2019
 ms.author: aahi
-ms.openlocfilehash: 669cd43b73bc66289a355f7fbf9c4498d8a7b99a
-ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.openlocfilehash: e763c1a5bebddcb76647b4ecff02506fc41f6a47
+ms.sourcegitcommit: 88ae4396fec7ea56011f896a7c7c79af867c90a1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70135032"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70387380"
 ---
 # <a name="quickstart-using-the-python-rest-api-to-call-the-text-analytics-cognitive-service"></a>快速入門：使用 Python REST API 呼叫文字分析認知服務 
 <a name="HOLTop"></a>
@@ -71,7 +71,7 @@ endpoint = os.environ[endpoint_var_name]
 
 ## <a name="detect-languages"></a>偵測語言
 
-將 `languages` 附加至文字分析基底端點，以形成語言偵測 URL。 例如：`https://westcentralus.api.cognitive.microsoft.com/text/analytics/v2.1/languages`
+將 `/text/analytics/v2.1/languages` 附加至文字分析基底端點，以形成語言偵測 URL。 例如：`https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v2.1/languages`
     
 ```python
 language_api_url = endpoint + "/text/analytics/v2.1/languages"
@@ -140,7 +140,7 @@ pprint(languages)
 
 ## <a name="analyze-sentiment"></a>分析人氣
 
-若要偵測一組文件的情感 (範圍介於正或負之間)，請將 `sentiment` 附加至文字分析基底端點，以形成語言偵測 URL。 例如：`https://westcentralus.api.cognitive.microsoft.com/text/analytics/v2.1/sentiment`
+若要偵測一組文件的情感 (範圍介於正或負之間)，請將 `/text/analytics/v2.1/sentiment` 附加至文字分析基底端點，以形成語言偵測 URL。 例如：`https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v2.1/sentiment`
     
 ```python
 sentiment_url = endpoint + "/text/analytics/v2.1/sentiment"
@@ -202,7 +202,7 @@ pprint(sentiments)
 
 ## <a name="extract-key-phrases"></a>擷取關鍵片語
  
-若要從一組文件中擷取關鍵片語，請將 `keyPhrases` 附加至文字分析基底端點，以形成語言偵測 URL。 例如：`https://westcentralus.api.cognitive.microsoft.com/text/analytics/v2.1/keyPhrases`
+若要從一組文件中擷取關鍵片語，請將 `/text/analytics/v2.1/keyPhrases` 附加至文字分析基底端點，以形成語言偵測 URL。 例如：`https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v2.1/keyPhrases`
     
 ```python
 keyphrase_url = endpoint + "/text/analytics/v2.1/keyphrases"
@@ -278,7 +278,7 @@ pprint(key_phrases)
 
 ## <a name="identify-entities"></a>識別實體
 
-若要識別文字文件中的知名實體 (人員、地點和事物)，請將 `entities` 附加至文字分析基底端點，以形成語言偵測 URL。 例如：`https://westcentralus.api.cognitive.microsoft.com/text/analytics/v2.1/entities`
+若要識別文字文件中的知名實體 (人員、地點和事物)，請將 `/text/analytics/v2.1/entities` 附加至文字分析基底端點，以形成語言偵測 URL。 例如：`https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v2.1/entities`
     
 ```python
 entities_url = endpoint + "/text/analytics/v2.1/entities"

@@ -1,5 +1,5 @@
 ---
-title: QnA Bot - Azure Bot 服務 - QnA Maker
+title: 教學課程：QnA Bot - Azure Bot 服務 - QnA Maker
 titleSuffix: Azure Cognitive Services
 description: 從 [發佈] 頁面建立現有知識庫的 QnA 聊天 Bot。 此 Bot 使用 Bot Framework SDK v4。 您不需要撰寫任何程式碼來建置 Bot，所有程式碼都已備妥。
 services: cognitive-services
@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: tutorial
-ms.date: 07/31/2019
+ms.date: 09/05/2019
 ms.author: diberry
-ms.openlocfilehash: 4bb987a5a091871bec2c0cc8cec6d9ab804bb244
-ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
+ms.openlocfilehash: ea6e0d266c181d930f3d18171b09d222e53da7ab
+ms.sourcegitcommit: 88ae4396fec7ea56011f896a7c7c79af867c90a1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68697999"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70390898"
 ---
 # <a name="tutorial-create-a-qna-bot-with-azure-bot-service-v4"></a>教學課程：使用 Azure Bot 服務 v4 建立 QnA Bot
 

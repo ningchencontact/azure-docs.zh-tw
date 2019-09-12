@@ -1,5 +1,5 @@
 ---
-title: 模式 - LUIS
+title: 教學課程：模式 - LUIS
 titleSuffix: Azure Cognitive Services
 description: 提供較少的語句範例時，使用模式來提升意圖和實體預測使用模式。 模式是透過範本語句範例的方式來提供的，其中包含用來識別實體及可忽略文字的語法。
 services: cognitive-services
@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: tutorial
 ms.date: 07/16/2019
 ms.author: diberry
-ms.openlocfilehash: 96c58e18abce85354db0d3bdf579600506cf2d86
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 69f853b77e3fbab149dbf163ed5cccb08578aa4e
+ms.sourcegitcommit: 88ae4396fec7ea56011f896a7c7c79af867c90a1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68563308"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70390344"
 ---
 # <a name="tutorial-add-common-pattern-template-utterance-formats"></a>教學課程：新增通用模式範本語句格式
 

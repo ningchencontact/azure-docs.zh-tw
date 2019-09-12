@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: tutorial
-ms.date: 07/03/2019
+ms.date: 09/06/2019
 ms.author: pafarley
-ms.openlocfilehash: 366c0c50cee521c5e70496403fd77211a875065f
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.openlocfilehash: 740b3fae81521fec2cba31e3b8fd161f767c4380
+ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67606751"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70858980"
 ---
 # <a name="tutorial-create-an-android-app-to-detect-and-frame-faces-in-an-image"></a>教學課程：建立 Android 應用程式來偵測並框出影像中的臉部
 
@@ -37,7 +37,8 @@ GitHub 上的[認知服務臉部 Android](https://github.com/Azure-Samples/cogni
 
 ## <a name="prerequisites"></a>必要條件
 
-- 臉部 API 訂用帳戶金鑰。 您可以從[試用認知服務](https://azure.microsoft.com/try/cognitive-services/?api=face-api)取得免費的試用訂用帳戶金鑰。 或是，依照[建立認知服務帳戶](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account)中的指示訂閱臉部 API 服務並取得金鑰。
+- 臉部 API 訂用帳戶金鑰。 您可以從[試用認知服務](https://azure.microsoft.com/try/cognitive-services/?api=face-api)取得免費的試用訂用帳戶金鑰。 或是，依照[建立認知服務帳戶](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account)中的指示訂閱臉部 API 服務並取得金鑰。 然後，分別為名為 `FACE_SUBSCRIPTION_KEY` 和 `FACE_ENDPOINT` 的金鑰和服務端點字串[建立環境變數](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication)。
+- 任何 [Visual Studio 2015 或 2017](https://www.visualstudio.com/downloads/) 版本。
 - [Android Studio](https://developer.android.com/studio/)，API 層級為 22 以上 (臉部用戶端程式庫所需)。
 
 ## <a name="create-the-android-studio-project"></a>建立 Android Studio 專案
@@ -56,17 +57,17 @@ GitHub 上的[認知服務臉部 Android](https://github.com/Azure-Samples/cogni
 
 開啟 activity_main.xml  。 在配置編輯器中，選取 [文字]  索引標籤，然後將其中的內容取代為下列程式碼。
 
-[!code-xml[](~/cognitive-services-face-android-detect/FaceTutorial/app/src/main/res/layout/activity_main.xml?range=1-18)]
+[!code-xml[](~/cognitive-services-face-android-detect/FaceTutorial/app/src/main/res/layout/activity_main.xml?name=snippet_activitymain)]
 
 ### <a name="create-the-main-class"></a>建立主要類別
 
 開啟 MainActivity.java  ，然後以下列程式碼取代現有 `import` 陳述式。
 
-[!code-java[](~/cognitive-services-face-android-detect/FaceTutorial/app/src/main/java/com/contoso/facetutorial/MainActivity.java?range=3-11)]
+[!code-java[](~/cognitive-services-face-android-detect/FaceTutorial/app/src/main/java/com/contoso/facetutorial/MainActivity.java?name=snippet_imports)]
 
 然後，將 **MainActivity** 類別的內容取代為下列程式碼。 這會對 **Button** 建立事件處理常式，以啟動新的活動讓使用者可以選取圖片。 它會在 **ImageView** 中顯示圖片。
 
-[!code-java[](~/cognitive-services-face-android-detect/FaceTutorial/app/src/main/java/com/contoso/facetutorial/MainActivity.java?range=29-68)]
+[!code-java[](~/cognitive-services-face-android-detect/FaceTutorial/app/src/main/java/com/contoso/facetutorial/MainActivity.java?name=snippet_mainactivity_methods)]
 
 ### <a name="try-the-app"></a>試用應用程式
 
@@ -86,17 +87,15 @@ GitHub 上的[認知服務臉部 Android](https://github.com/Azure-Samples/cogni
 
 返回 **MainActivity.java** 並新增下列 `import` 陳述式：
 
-[!code-java[](~/cognitive-services-face-android-detect/FaceTutorial/app/src/main/java/com/contoso/facetutorial/MainActivity.java?range=13-14)]
+[!code-java[](~/cognitive-services-face-android-detect/FaceTutorial/app/src/main/java/com/contoso/facetutorial/MainActivity.java?name=snippet_face_imports)]
 
 然後，在 **MainActivity** 類別中，於 **onCreate** 方法之上插入下列程式碼：
 
-[!code-java[](~/cognitive-services-face-android-detect/FaceTutorial/app/src/main/java/com/contoso/facetutorial/MainActivity.java?range=17-27)]
-
-您必須將 `<Subscription Key>` 取代為訂用帳戶金鑰。 此外，也請使用適合金鑰的區域識別碼，將 `<API endpoint>` 取代為臉部 API 端點 (請參閱[臉部 API 文件](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236)以取得所有區域端點的清單)。 **westus** 區域會產生免費試用的訂用帳戶金鑰。
+[!code-java[](~/cognitive-services-face-android-detect/FaceTutorial/app/src/main/java/com/contoso/facetutorial/MainActivity.java?name=snippet_mainactivity_fields)]
 
 在 [專案]  窗格中，依序展開 [應用程式]  和 [資訊清單]  ，然後開啟 AndroidManifest.xml  。 將下列元素插入為 `manifest` 元素的直接子系：
 
-[!code-xml[](~/cognitive-services-face-android-detect/FaceTutorial/app/src/main/AndroidManifest.xml?range=5)]
+[!code-xml[](~/cognitive-services-face-android-detect/FaceTutorial/app/src/main/AndroidManifest.xml?name=snippet_manifest_entry)]
 
 ## <a name="upload-image-and-detect-faces"></a>上傳影像和偵測臉部
 
@@ -106,13 +105,13 @@ GitHub 上的[認知服務臉部 Android](https://github.com/Azure-Samples/cogni
 
 將下列兩種方法插入到 **MainActivity** 類別。 請注意，當臉部偵測完成時，應用程式會呼叫 **drawFaceRectanglesOnBitmap** 方法來修改 **ImageView**。 您接下來便會定義這個方法。
 
-[!code-java[](~/cognitive-services-face-android-detect/FaceTutorial/app/src/main/java/com/contoso/facetutorial/MainActivity.java?range=70-150)]
+[!code-java[](~/cognitive-services-face-android-detect/FaceTutorial/app/src/main/java/com/contoso/facetutorial/MainActivity.java?name=snippet_detection_methods)]
 
 ## <a name="draw-face-rectangles"></a>繪製臉部矩形
 
 將下列協助程式方法插入 **MainActivity** 類別中。 此方法會使用每個**臉部**執行個體的矩形座標，在所偵測到的每個臉部周圍繪製矩形。
 
-[!code-java[](~/cognitive-services-face-android-detect/FaceTutorial/app/src/main/java/com/contoso/facetutorial/MainActivity.java?range=152-173)]
+[!code-java[](~/cognitive-services-face-android-detect/FaceTutorial/app/src/main/java/com/contoso/facetutorial/MainActivity.java?name=snippet_drawrectangles)]
 
 最後，在 **onActivityResult** 中將 **detectAndFrame** 方法的呼叫取消註解。
 

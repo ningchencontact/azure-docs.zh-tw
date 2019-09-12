@@ -11,12 +11,12 @@ ms.author: sgilley
 ms.reviewer: sgilley
 ms.date: 07/31/2019
 ms.custom: seodec18
-ms.openlocfilehash: 2ea124ecf6786142ac1703dab1e267b225751079
-ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
+ms.openlocfilehash: 14962b936d1c09a6c50daa7bec460ce11dbefe5d
+ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/26/2019
-ms.locfileid: "70035934"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70860389"
 ---
 # <a name="explore-azure-machine-learning-service-with-jupyter-notebooks"></a>使用 Jupyter Notebook 探索 Azure Machine Learning 服務
 
@@ -27,7 +27,6 @@ ms.locfileid: "70035934"
 - [Azure Machine Learning Notebook VM](#notebookvm)
 - [自攜 Notebook 伺服器](#byo)
 - [資料科學虛擬機器](#dsvm)
-- [Azure Notebooks](#aznb)
 
 > [!NOTE]
 > 在複製存放庫之後，您可在 **tutorials** 資料夾中找到教學課程 Notebook，並且可在 **how-to-use-azureml** 資料夾中找到特定功能的 Notebook。
@@ -53,13 +52,6 @@ ms.locfileid: "70035934"
 資料科學虛擬機器 (DSVM) 是專為進行資料科學而建置的自訂 VM 映像。 如果您[建立 DSVM](how-to-configure-environment.md#dsvm)，系統將為您安裝及設定 SDK 和 Notebook 伺服器。 不過，您仍須建立工作區並複製範例存放庫。
 
 [!INCLUDE [aml-dsvm-server](../../../includes/aml-dsvm-server.md)]
-
-<a name="aznb"></a>
-## <a name="get-samples-on-azure-notebooks"></a>在 Azure Notebooks 上取得範例
-
-在 [Azure Notebooks](https://notebooks.azure.com/) 上，系統會為您安裝及設定 SDK 和 Notebook 伺服器。 Azure Notebook 提供受到完整管理的輕量型 Notebook 環境讓您探索。
-
-若要存取 Azure Notebooks 上的範例存放庫，請透過 [Azure 入口網站](https://portal.azure.com)瀏覽至您的 Azure Machine Learning 工作區。 從 [概觀]  區段中選取 [開始使用 Azure Notebooks]  。
 
 ## <a name="next-steps"></a>後續步驟
 

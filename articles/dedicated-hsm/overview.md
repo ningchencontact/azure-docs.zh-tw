@@ -2,8 +2,8 @@
 title: 專用硬體安全模組 (HSM) 是什麼？ - Azure 專用硬體安全模組 (HSM) | Microsoft Docs
 description: Azure 專用硬體安全模組 (HSM) 可在 Azure 內提供符合 FIPS 140-2 等級 3 認證的金鑰儲存功能概觀
 services: dedicated-hsm
-author: barclayn
-manager: barbkess
+author: msmbaldwin
+manager: rkarlin
 tags: azure-resource-manager
 ms.service: key-vault
 ms.workload: identity
@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: overview
 ms.custom: mvc, seodec18
 ms.date: 12/07/2018
-ms.author: barclayn
-ms.openlocfilehash: 88a49c9c124c5399749d2b60595d7f5c7ec77b20
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.author: mbaldwin
+ms.openlocfilehash: dd5ce117645ef2b368bbf8f0e441770d6e746b5b
+ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "62117987"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70881086"
 ---
 # <a name="what-is-azure-dedicated-hsm"></a>什麼是 Azure 專用硬體安全模組 (HSM)？
 

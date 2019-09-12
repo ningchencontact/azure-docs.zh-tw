@@ -8,18 +8,18 @@ author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
 ms.date: 04/30/2019
-ms.openlocfilehash: d6b6dd333d04457a68c3f2452d3cc538a32b61f6
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.openlocfilehash: ff135473443589650d90bfb7f3e5aa248f72e821
+ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65230266"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70861268"
 ---
 # <a name="tutorial-configure-a-cluster-in-azure-hdinsight-using-ansible"></a>教學課程：使用 Ansible 在 Azure HDInsight 中設定叢集
 
 [!INCLUDE [ansible-28-note.md](../../includes/ansible-28-note.md)]
 
-[Azure HDInsight](/azure/hdinsight/) 是用來處理資料的 Hadoop 型分析服務。 HDInsight 是用來處理巨量資料 (結構化或非結構化) 的 ETL (擷取、轉換、載入) 工具。 HDInsight 支援數個[叢集類型](/azure/hdinsight/hadoop/apache-hadoop-introduction#cluster-types-in-hdinsight)，而每個類型分別支援一組不同的元件。 
+[Azure HDInsight](/azure/hdinsight/) 是用來處理資料的 Hadoop 型分析服務。 HDInsight 是用來處理巨量資料 (結構化或非結構化) 的 ETL (擷取、轉換、載入) 工具。 HDInsight 支援數個[叢集類型](/azure/hdinsight/hadoop/apache-hadoop-introduction)，而每個類型分別支援一組不同的元件。 
 
 [!INCLUDE [ansible-tutorial-goals.md](../../includes/ansible-tutorial-goals.md)]
 

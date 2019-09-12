@@ -1,5 +1,5 @@
 ---
-title: 複合實體教學課程 - LUIS
+title: 教學課程：複合實體教學課程 - LUIS
 titleSuffix: Azure Cognitive Services
 description: 新增複合實體，以便將擷取的各類型資料組合為單一包含實體。 用戶端應用程式可藉由組合資料，輕鬆地擷取不同資料類型的相關資料。
 services: cognitive-services
@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: tutorial
 ms.date: 07/29/2019
 ms.author: diberry
-ms.openlocfilehash: 698635b3f216c556e1e36a033703b8786a028e38
-ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
+ms.openlocfilehash: f20661a74397487e141e69681f207418db8ac386
+ms.sourcegitcommit: 88ae4396fec7ea56011f896a7c7c79af867c90a1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/10/2019
-ms.locfileid: "68946122"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70388037"
 ---
 # <a name="tutorial-group-and-extract-related-data"></a>教學課程：擷取將相關的資料組成群組並加以擷取
 在本教學課程中，新增複合實體，以便將擷取的各類型資料組合為單一包含實體。 用戶端應用程式可藉由組合資料，輕鬆地擷取不同資料類型的相關資料。
@@ -29,7 +29,7 @@ ms.locfileid: "68946122"
 * 使用各種實體類型。
 * 需要由用戶端應用程式當作一個資訊單位進行分組和處理。
 
-**在本教學課程中，您了解如何：**
+**在本教學課程中，您將了解如何：**
 
 <!-- green checkmark -->
 > [!div class="checklist"]

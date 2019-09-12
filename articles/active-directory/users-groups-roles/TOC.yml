@@ -40,6 +40,16 @@
           href: /azure/active-directory/fundamentals/add-users-azure-active-directory?context=azure/active-directory/users-groups-roles/context/ugr-context
         - name: 管理使用者設定檔
           href: /azure/active-directory/fundamentals/active-directory-users-profile-azure-portal?context=azure/active-directory/users-groups-roles/context/ugr-context
+        - name: 大量作業 (預覽)
+          items:
+            - name: 下載使用者 (預覽)
+              href: users-bulk-download.md
+            - name: 大量匯入使用者 (預覽)
+              href: users-bulk-add.md
+            - name: 大量刪除使用者 (預覽)
+              href: users-bulk-delete.md
+            - name: 大量還原使用者 (預覽)
+              href: users-bulk-restore.md
         - name: 共用使用者帳戶
           href: users-sharing-accounts.md
         - name: 將使用者指派為管理員角色
@@ -74,8 +84,8 @@
       items:
         - name: 使用群組管理存取
           href: /azure/active-directory/fundamentals/active-directory-manage-groups?context=azure/active-directory/users-groups-roles/context/ugr-context
-        - name: 在 Azure 入口網站中管理群組
-          href: /azure/active-directory/fundamentals/active-directory-groups-create-azure-portal?context=azure/active-directory/users-groups-roles/context/ugr-context
+        - name: 搜尋群組和成員清單 (預覽)
+          href: groups-members-owners-search.md
         - name: 管理 PowerShell for Graph (v2) 群組
           href: groups-settings-v2-cmdlets.md
         - name: 管理 PowerShell MSOnline 群組
@@ -84,8 +94,20 @@
           href: /azure/active-directory/fundamentals/active-directory-groups-members-azure-portal?context=azure/active-directory/users-groups-roles/context/ugr-context
         - name: 管理群組擁有者
           href: /azure/active-directory/fundamentals/active-directory-accessmanagement-managing-group-owners?context=azure/active-directory/users-groups-roles/context/ugr-context
+        - name: 大量作業 (預覽)
+          items:
+            - name: 大量匯入成員 (預覽)
+              href: groups-bulk-import-members.md
+            - name: 大量下載成員 (預覽)
+              href: groups-bulk-download-members.md
+            - name: 大量移除成員 (預覽)
+              href: groups-bulk-remove-members.md
+            - name: 大量下載群組清單 (預覽)
+              href: groups-bulk-download.md
         - name: 管理群組中的群組
           href: /azure/active-directory/fundamentals/active-directory-groups-membership-azure-portal?context=azure/active-directory/users-groups-roles/context/ugr-context
+        - name: 建立群組 (Azure 入口網站)
+          href: /azure/active-directory/fundamentals/active-directory-groups-create-azure-portal?context=azure/active-directory/users-groups-roles/context/ugr-context
         - name: 新增 SaaS 應用程式的群組存取權
           href: groups-saasapps.md
         - name: 群組命名參考

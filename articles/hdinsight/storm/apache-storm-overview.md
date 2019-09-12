@@ -9,12 +9,12 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: overview
 ms.date: 06/12/2019
 ms.author: hrasheed
-ms.openlocfilehash: 00c536120ed9507d5ecc6fe930429d12514945b3
-ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.openlocfilehash: 0540d8a83a8dc1da9bc763bce0b30463889cfe90
+ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67483825"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70915024"
 ---
 # <a name="what-is-apache-storm-on-azure-hdinsight"></a>什麼是 Apache Storm on Azure HDInsight？
 
@@ -64,7 +64,7 @@ Nimbus 節點提供與 Apache Hadoop JobTracker 類似的功能，並會透過 [
 
 Apache Storm 叢集的預設組態只有一個 Nimbus 節點。 Storm on HDInsight 會提供兩個 Nimbus 節點。 如果主要節點失敗，Storm 叢集會切換至次要節點，直到主要節點復原為止。 下圖說明 Storm on HDInsight 的工作流程組態：
 
-![Nimbus、Zookeeper 和監督員的圖表](./media/apache-storm-overview/nimbus.png)
+![Nimbus、Zookeeper 和監督員的圖表](./media/apache-storm-overview/storm-diagram-nimbus.png)
 
 ## <a name="ease-of-creation"></a>容易建立
 
