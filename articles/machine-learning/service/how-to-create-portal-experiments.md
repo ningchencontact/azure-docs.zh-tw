@@ -1,7 +1,7 @@
 ---
 title: 使用 Azure 的自動化 ML 介面來定型 & 部署模型
 titleSuffix: Azure Machine Learning service
-description: 在 Azure 入口網站中建立、管理和部署自動化的機器學習實驗
+description: 在 Azure Machine Learning 的工作區登陸頁面（預覽）中建立、管理和部署自動化的機器學習實驗。
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,20 +10,19 @@ ms.author: nibaccam
 author: tsikiksr
 manager: cgronlun
 ms.reviewer: nibaccam
-ms.date: 08/02/2019
-ms.openlocfilehash: 79632a2b5862538ef702cec01a60aada14d8dbce
-ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
+ms.date: 09/09/2019
+ms.openlocfilehash: 3ee15b5485f4fc0f81788107ce2378c65085e000
+ms.sourcegitcommit: d70c74e11fa95f70077620b4613bb35d9bf78484
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70860483"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70910427"
 ---
-# <a name="create-explore-and-deploy-automated-machine-learning-experiments-in-the-azure-portal-preview"></a>在 Azure 入口網站中建立、探索自動化機器學習服務實驗並加以部署（預覽）
+# <a name="create-explore-and-deploy-automated-machine-learning-experiments-with-azure-machine-learnings-workspace-landing-page-preview"></a>使用 Azure Machine Learning 的工作區登陸頁面（預覽），建立、探索及部署自動化機器學習實驗
 
- 在本文中，您將瞭解如何在不使用任何程式碼的情況下，于 Azure 入口網站中建立、探索及部署自動化的機器學習實驗。 自動化機器學習服務會自動化選取最佳演算法以用於特定資料的程式, 因此您可以快速產生機器學習模型。 [深入瞭解自動化機器學習](concept-automated-ml.md)服務。
+ 在本文中，您將瞭解如何在沒有任何一行程式碼的情況下，于 Azure Machine Learning 的工作區登陸頁面中建立、探索及部署自動化機器學習實驗。 自動化機器學習服務會自動化選取最佳演算法以用於特定資料的程式, 因此您可以快速產生機器學習模型。 [深入瞭解自動化機器學習](concept-automated-ml.md)服務。
 
  如果您偏好更以程式碼為基礎的經驗, 您也可以使用[AZURE MACHINE LEARNING SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py),[在 Python 中設定自動化機器學習實驗](how-to-configure-auto-train.md)。
-
 
 ## <a name="prerequisites"></a>必要條件
 
@@ -33,23 +32,26 @@ ms.locfileid: "70860483"
 
 ## <a name="get-started"></a>開始使用
 
-流覽至工作區的左窗格。 在 [撰寫（預覽）] 區段下，選取 [自動化 Machine Learning]。
 
-![Azure 入口網站導覽窗格](media/how-to-create-portal-experiments/nav-pane.png)
+1. 登入[工作區登陸頁面](https://ml.azure.com/workspaceportal/)。 
 
- 如果這是您第一次執行任何實驗，您會看到 [**歡迎使用自動 Machine Learning** ] 畫面。 
+1. 選取您的訂用帳戶和工作區。 
+
+1. 導覽至左窗格。 在 [**撰寫**] 區段下選取 [**自動化 ML** ]。
+
+[![Azure 入口網站流覽窗格](media/how-to-create-portal-experiments/nav-pane.png)](media/how-to-create-portal-experiments/nav-pane-expanded.png)
+
+ 如果這是您第一次執行任何實驗，您會看到 [**開始**使用] 畫面。 
 
 否則，您會看到**自動化機器學習**服務儀表板，並概述所有自動化機器學習服務實驗，包括以 SDK 建立的測試。 在這裡, 您可以依日期、實驗名稱和執行狀態來篩選和探索您的執行。
 
-您也可以從[工作區登陸頁面（預覽）](https://ml.azure.com)存取自動化的 Machine Learning。
+## <a name="create-and-run-experiment"></a>建立並執行實驗
 
-## <a name="create-an-experiment"></a>建立實驗
-
-選取 [**建立實驗**]，並填入 [**建立新的自動化機器學習服務實驗**] 表單。
+1. 選取 [**建立實驗**] 並填入表單。
 
 1. 輸入唯一的實驗名稱。
 
-1. 選取資料分析和訓練作業的計算。 您現有計算的清單可在下拉式清單中取得。 若要建立新的計算, 請遵循步驟3中的指示。
+1. 選取資料分析和訓練作業的計算。 您現有計算的清單可在下拉式清單中取得。 若要建立新的計算，請遵循步驟4中的指示。
 
 1. 選取 [**建立新的計算**]，以設定此實驗的計算內容。
 
@@ -58,32 +60,40 @@ ms.locfileid: "70860483"
     Compute 名稱| 輸入可識別您計算內容的唯一名稱。
     虛擬機器大小| 為您的計算選取虛擬機器大小。
     其他設定| 最小節點：輸入您的計算節點數目下限。 AML 計算的節點數目下限為0。 若要啟用資料分析, 您必須有一或多個節點。 <br> 最大節點：輸入您計算的節點數目上限。 AML 計算的預設值是6個節點。
+    
+    選取 [建立]。 建立新的計算可能需要幾分鐘的時間。
 
-      選取 [建立]。 建立新的計算可能需要幾分鐘的時間。
+    >[!NOTE]
+    > 您的計算名稱會指出您選取/建立的計算是否已啟用程式碼*剖析*。 （如需詳細資訊，請參閱[資料分析](#profile)一節）。
 
-      >[!NOTE]
-      > 您的計算名稱會指出您選取/建立的計算是否已啟用程式碼*剖析*。 (如需資料分析的詳細資訊, 請參閱 7b)。
+1. 從儲存體容器中選取資料集，或從您的本機電腦將檔案上傳到容器來建立一個。 公開預覽僅支援本機檔案上傳和 Azure blob 儲存體帳戶。
 
-1. 為您的資料選取儲存體帳戶。 
-
-1. 選取儲存體容器。
-
-1. 選取儲存體容器中的資料檔案, 或從您的本機電腦將檔案上傳至容器。 公開預覽僅支援本機檔案上傳和 Azure Blob 儲存體帳戶。
     >[!Important]
     > 定型資料的需求：
     >* 資料必須是表格式格式。
     >* 您想要預測的值（目標資料行）必須存在於資料中。
 
-    [![選取資料檔案](media/tutorial-1st-experiment-automated-ml/select-data-file.png)](media/tutorial-1st-experiment-automated-ml/select-data-file-expanded.png#lightbox)
+    1. 若要從本機計算上的檔案建立新的資料集，請選取 **[流覽]** ，然後選取檔案。 
 
-1. 使用 [預覽] 和 [設定檔] 索引標籤, 進一步設定此實驗的資料。
+    1. 為您的資料集指定唯一的名稱，並提供選擇性的描述。 
 
-    1. 在 [**預覽**] 索引標籤上，指出您的資料是否包含標題，並使用每個功能資料行中**包含**的切換按鈕，選取定型的功能（資料行）。
+    1. 選取 **[下一步]** ，將其上傳至自動使用您的工作區建立的預設儲存體容器，或選擇您要用於實驗的儲存體容器。 
 
-    1. 在 [**設定檔**] 索引標籤上，您可以依功能來查看[資料設定檔](#profile)，以及每個的散發、類型和摘要統計資料（mean、中位數、最大/最小值等等）。
+    1. 檢查**設定和預覽**表單的正確性。 表單會根據檔案類型以智慧方式填入。 
 
-        >[!NOTE]
-        > 如果您的計算內容**未**啟用分析, 將會出現下列錯誤訊息:*資料分析僅適用于已在執行中的計算目標*。
+        欄位| 描述
+        ----|----
+        檔案格式| 定義儲存在檔案中的資料版面配置和類型。
+        分隔符號| 一或多個字元，用於指定純文字或其他資料流程中個別獨立區域之間的界限。
+        編碼| 識別要用來讀取資料集之字元架構資料表的位。
+        資料行標題| 表示將會處理資料集的標頭（如果有的話）。
+        略過資料列 | 指出資料集內略過多少（如果有的話）資料列。
+    
+        選取 [下一步]。
+
+    1. **架構**表單會根據 [**設定] 和 [預覽**] 表單中的選取專案，以智慧方式填入。 在這裡，設定每個資料行的資料類型，檢查資料行名稱，然後選取要為您的實驗**不包含**的資料行。 
+            
+        選取 **[下一步]。**
 
 1. 選取定型作業類型: [分類]、[回歸] 或 [預測]。
 
@@ -94,7 +104,7 @@ ms.locfileid: "70860483"
 
     1. 選取預測範圍:指出模型能夠預測未來的時間單位數 (分鐘/小時/天/周/月/年)。 需要進一步預測模型, 使其變得更不精確。 [深入瞭解預測和水準預測](how-to-auto-train-forecast.md)。
 
-1. 選擇性[高級設定]: 您可以用來更有效控制訓練作業的其他設定。
+1. 選擇性[高級設定]: 您可以用來更有效控制訓練作業的其他設定。 否則，會根據實驗選取和資料來套用預設值。 
 
     進階設定|描述
     ------|------
@@ -165,7 +175,7 @@ Variance| 量值分佈在此資料行中的值是來自其平均值。
 
 向下切入任何輸出模型, 以查看定型執行詳細資料, 例如效能計量和散發圖表。 [深入瞭解圖表](how-to-understand-automated-ml.md)。
 
-![反復專案詳細資料](media/how-to-create-portal-experiments/iteration-details.png)
+[![反復專案詳細資料](media/how-to-create-portal-experiments/iteration-details.png)](media/how-to-create-portal-experiments/iteration-details-expanded.png)
 
 ## <a name="deploy-your-model"></a>部署模型
 
@@ -178,7 +188,8 @@ Variance| 量值分佈在此資料行中的值是來自其平均值。
     + 選項 1：若要部署最佳模型（根據您所定義的度量準則），請從 [執行詳細資料] 頁面選取 [部署最佳模型]。
 
     + 選項 2：若要從此實驗部署特定模型反復專案，請向下切入模型以開啟其 [執行詳細資料] 頁面，然後選取 [部署模型]。
-1. 填入 [**部署模型**] 窗格，
+
+1. 填入 [**部署模型**] 窗格。
 
     欄位| 值
     ----|----

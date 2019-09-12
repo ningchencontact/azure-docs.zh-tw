@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 09/02/2019
+ms.date: 09/08/2019
 ms.author: diberry
-ms.openlocfilehash: 7fe35edfbfc8f50aa9428e41e7d807a0838417ec
-ms.sourcegitcommit: 267a9f62af9795698e1958a038feb7ff79e77909
+ms.openlocfilehash: 5828d4f453afeccfaac206195f064e43a20d1ba0
+ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70259756"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70844763"
 ---
 # <a name="migrate-to-an-azure-resource-authoring-key"></a>遷移至 Azure 資源撰寫金鑰
 
@@ -43,7 +43,7 @@ Language Understanding （LUIS）編寫驗證從電子郵件帳戶變更為 Azur
 遷移不是： 
 
 * 收集共同作業者並自動移動或新增至 Azure 撰寫資源的程式。 身為應用程式擁有者，您必須完成此步驟。 此步驟需要適當資源的許可權。
-* 建立和指派預測執行時間資源的進程。 如果您需要預測執行時間資源，這是[個別的進程](/luis-how-to-azure-subscription.md#create-runtime-resource-in-the-azure-portal)，而且不會變更。 
+* 建立和指派預測執行時間資源的進程。 如果您需要預測執行時間資源，這是[個別的進程](luis-how-to-azure-subscription.md#create-resources-in-the-azure-portal)，而且不會變更。 
 
 ## <a name="how-are-the-apps-migrating"></a>應用程式的遷移方式為何？
 
@@ -62,7 +62,9 @@ Language Understanding （LUIS）編寫驗證從電子郵件帳戶變更為 Azur
 
 * **（選擇性**）藉由匯出每個應用程式或使用匯出[API](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c40)，從 LUIS 入口網站的應用程式清單備份應用程式。
 * **（選擇性**）儲存每個應用程式的 collaborator's 清單。 此電子郵件清單是在遷移過程中提供。
-* **必要**，您必須擁有[Azure 訂](https://azure.microsoft.com/free/)用帳戶。 訂用帳戶程式的一部分需要帳單資訊。 不過，當您使用 LUIS 時，您可以使用免費（F0）定價層。 當您的使用量增加時，您最終可能會發現需要付費層。 
+* **必要**，您必須擁有[Azure 訂](https://azure.microsoft.com/free/)用帳戶。 訂用帳戶程式的一部分需要帳單資訊。 不過，當您使用 LUIS 時，`F0`可以使用免費（）定價層。 
+
+`F0` **撰寫您的 LUIS 應用程式是免費**的，由層級表示。 深入瞭解[定價層](luis-boundaries.md#key-limits)。
 
 如果您沒有 Azure 訂用帳戶，請[註冊](https://azure.microsoft.com/free/)。 
 
@@ -91,7 +93,7 @@ Language Understanding （LUIS）編寫驗證從電子郵件帳戶變更為 Azur
 
 ### <a name="after-the-app-is-migrated"></a>在應用程式遷移之後
 
-在遷移程式之後，您必須將應用程式擁有者新增至 Azure 撰寫資源。  
+在遷移程式之後，如果您需要存取原始應用程式，您必須將應用程式擁有者新增至 Azure 撰寫資源，做為共同作業者。  
 
 ## <a name="next-steps"></a>後續步驟
 

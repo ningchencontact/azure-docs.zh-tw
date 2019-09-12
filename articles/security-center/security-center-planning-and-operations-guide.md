@@ -2,31 +2,25 @@
 title: 資訊安全中心規劃和操作指南 | Microsoft Docs
 description: 本文件可協助您在採用 Azure 資訊安全中心和日常作業相關考量之前進行規劃。
 services: security-center
-documentationcenter: na
-author: monhaber
-manager: barbkess
-editor: ''
-ms.assetid: f984e4a2-ac97-40bf-b281-2f7f473494c4
+author: memildin
+manager: rkarlin
 ms.service: security-center
 ms.topic: conceptual
-ms.devlang: na
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 08/22/2019
-ms.author: v-mohabe
-ms.openlocfilehash: afb7d4530a56687e7cd4d9c279451870d5567284
-ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
+ms.date: 09/10/2019
+ms.author: memildin
+ms.openlocfilehash: b731c5fe6b6c7055b7397386b1e9fd4bed47db8a
+ms.sourcegitcommit: d70c74e11fa95f70077620b4613bb35d9bf78484
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/26/2019
-ms.locfileid: "70032112"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70910601"
 ---
 # <a name="azure-security-center-planning-and-operations-guide"></a>Azure 資訊安全中心規劃和操作指南
-本指南適用於計劃採用 Azure 資訊安全中心的組織中的資訊技術 (IT) 專業人員、IT 架構設計人員、資訊安全性分析師和雲端系統管理員。
+本指南適用于規劃使用 Azure 資訊安全中心的資訊技術（IT）專業人員、IT 架構設計師、資訊安全分析師和雲端系統管理員。
 
 
 ## <a name="planning-guide"></a>規劃指南
-本指南涵蓋您可以遵循的一組步驟和工作，以根據您組織的安全性需求和雲端管理模型，將您的資訊安全中心使用最佳化。 若要充分利用資訊安全中心，務必了解您組織中的不同人員或小組如何使用此服務，來滿足安全地開發和作業、監視、控管和事件回應的需求。 規劃使用資訊安全中心時所應考量的主要領域如下︰
+本指南涵蓋的工作可讓您根據組織的安全性需求和雲端管理模型，將資訊安全中心的使用優化。 若要充分利用資訊安全中心，務必了解您組織中的不同人員或小組如何使用此服務，來滿足安全地開發和作業、監視、控管和事件回應的需求。 規劃使用資訊安全中心時所應考量的主要領域如下︰
 
 * 安全性角色和存取控制
 * 安全性原則和建議
@@ -81,7 +75,7 @@ ms.locfileid: "70032112"
 - **安全性讀取者**：屬於此角色的使用者僅能檢視資訊安全中心設定 (包括建議、警示、原則和健康情況)，但是無法進行變更。
 - **安全性管理員**：與安全性讀取者相同，但它也可以更新安全性原則，解除建議和警示。
 
-上述的資訊安全中心角色無法存取 Azure 的其他服務區域，例如儲存體、Web 和行動或物聯網。  
+上述的資訊安全中心角色無法存取 Azure 的其他服務區域，例如儲存體、Web 和行動或物聯網。
 
 使用在上圖中所述的人物，會需要下列 RBAC：
 
@@ -142,7 +136,7 @@ Azure 資訊安全中心使用 Microsoft Monitoring Agent –這是 Azure 監視
 
 適用於 Windows 的 Microsoft Monitoring Agent 需要使用 TCP 通訊埠 443。 如需詳細資訊，請參閱[疑難排解文章](security-center-troubleshooting-guide.md)。
 
-如果您想在某個時間點停用資料收集，您可以在安全性原則中將它關閉。 不過，因為其他 Azure 管理和監視服務可能會使用 Microsoft Monitoring Agent，所以當您在資訊安全中心關閉資料收集時，並不會自動解除安裝代理程式。 您可以視需要手動解除安裝代理程式。
+如果您想在某個時間點停用資料收集，您可以在安全性原則中將它關閉。 不過，因為其他 Azure 管理和監視服務可能會使用 Microsoft Monitoring Agent，所以當您在資訊安全中心中關閉資料收集時，不會自動卸載代理程式。 您可以視需要手動解除安裝代理程式。
 
 > [!NOTE]
 > 若要尋找支援的 VM 清單，請閱讀 [Azure 資訊安全中心常見問題集 (FAQ)](security-center-faq.md)。
@@ -197,25 +191,25 @@ Azure 資訊安全中心使用 Microsoft Monitoring Agent –這是 Azure 監視
 1. 針對虛擬機器，按一下 [預防] 區段下的 [計算]。 [概觀] 索引標籤和 [監視建議] 區段會呈現有關啟用資料的問題或相關建議。
 2. 檢視 [建議] 以查看針對新資源所找出的任何 (若有的話) 安全性風險。
 3. 將新的 VM 新增至您的環境時，通常一開始只會安裝作業系統。 資源擁有者可能需要一些時間來部署這些 VM 將使用的其他應用程式。  在理想情況下，您應該知道此工作負載的最終目的。 它會成為應用程式伺服器？ 以這個新工作負載將會成為的項目為基礎，您可以啟用適當的 **安全性原則**(這是此工作流程中的第三個步驟)。
-4. 將新資源新增至 Azure 環境時，[安全性警示] 圖格中可能會出現新的警示。 請隨時確認此圖格中是否有新的警示，並根據資訊安全中心的建議採取動作。
+4. 當新的資源新增至您的 Azure 環境時，[**安全性警示**] 圖格中可能會出現新的警示。 在此磚中尋找新的警示，並遵循建議。
 
-您也會想要定期監視現有資源的狀態，以找出已造成安全性風險、偏離建議基準和安全性警示的組態變更。 從資訊安全中心儀表板開始。 在這裡，您可以用一致的方式檢閱三個主要區域。
+您也應該定期監視現有資源，查看可能已建立安全性風險的設定變更、不受建議基準的漂移和安全性警示。 從資訊安全中心儀表板開始。 從這裡，您有三個主要區域可以一致地進行審查。
 
 ![作業](./media/security-center-planning-and-operations-guide/security-center-planning-and-operations-guide-fig4-newUI.png)
 
 1. [預防] 區段面板可供您快速存取關鍵資源。 使用此選項來監視 [計算]、[網路服務]、[儲存體和資料] 及 [應用程式]。
-2. **建議** 面板可讓您檢閱資訊安全中心建議。 在持續監視期間，您可能會發現您沒有每天收到建議，這是正常現象，因為您已處理初始資訊安全中心設定的所有建議。 基於這個理由，這個區段中可能不會每天都有新資訊，您只需要視需要進行存取。
+2. **建議** 面板可讓您檢閱資訊安全中心建議。 在進行中的監視期間，您可能會發現每日不會有任何建議，這是正常現象，因為您已解決初始資訊安全中心設定的所有建議。 基於這個理由，這個區段中可能不會每天都有新資訊，您只需要視需要進行存取。
 3. [偵測] 區段的變更頻率可能非常頻繁或非常不頻繁。 請隨時檢閱安全性警示，並根據資訊安全中心的建議採取動作。
 
 ### <a name="hardening-access-and-applications"></a>強化存取和應用程式
 
 您也應該在安全性作業中採用預防措施，來限制對 VM 的存取，並且控制在 VM 上執行的應用程式。 藉由鎖定前往您的 Azure VM 的輸入流量，可以降低被攻擊的曝光度，同時提供簡易存取以在需要時連線到 VM。 使用 [Just-in-Time VM](https://docs.microsoft.com/azure/security-center/security-center-just-in-time) 存取功能來強化您的 VM 存取。
 
-您可以使用[自適性應用程式控制](https://docs.microsoft.com/azure/security-center/security-center-adaptive-application)，以協助控制哪些應用程式可以在 Azure 中的 VM 上執行，而且有助於強化您的 VM 來抵禦惡意程式碼。 資訊安全中心會利用機器學習服務來分析在 VM 中執行的程序，並協助您利用此情報來套用列入允許清單規則。
+您可以使用彈性[應用](https://docs.microsoft.com/azure/security-center/security-center-adaptive-application)程式控制來限制哪些應用程式可以在 Azure 中的 vm 上執行。 除了其他優點以外，這有助於強化您的 Vm 以抵禦惡意程式碼。 使用機器學習服務，資訊安全中心會分析在 VM 中執行的處理常式，以協助您建立允許清單規則。
 
 
 ## <a name="incident-response"></a>事件回應
-資訊安全中心會偵測並在發生威脅時警示您。 組織應監視新的安全性警示並視需要採取動作，進一步調查或修補攻擊。 如需有關資訊安全中心威脅偵測如何運作的詳細資訊, 請參閱[Azure 資訊安全中心如何偵測及回應威脅](security-center-alerts-overview.md#detect-threats)。
+資訊安全中心會偵測並在發生威脅時警示您。 組織應監視新的安全性警示並視需要採取動作，進一步調查或修補攻擊。 如需有關資訊安全中心威脅偵測如何運作的詳細資訊，請參閱[Azure 資訊安全中心如何偵測及回應威脅](security-center-alerts-overview.md#detect-threats)。
 
 雖然本文目的並非要幫助您建立自己的事件回應計劃，但我們會在雲端生命週期中使用 Microsoft Azure 安全性回應做為事件回應階段的基礎。 這些階段如下圖所示：
 
@@ -243,10 +237,10 @@ Azure 資訊安全中心使用 Microsoft Monitoring Agent –這是 Azure 監視
 
 一旦您識別出遭入侵的系統，您可以執行先前建立的安全性[劇本](https://docs.microsoft.com/azure/security-center/security-center-playbooks)。 安全性劇本是程序的集合，一旦特定劇本從選取的警示觸發，則可以從資訊安全中心執行這些程序。
 
-在[如何利用 Azure 資訊安全中心和 Microsoft Operations Management Suite 進行事件回應](https://channel9.msdn.com/Blogs/Taste-of-Premier/ToP1703)影片中，您可以看到一些示範，有助於您了解如何在每個階段使用資訊安全中心。
+在[如何利用事件回應影片的 Azure 資訊安全中心 & Microsoft Operations Management Suite](https://channel9.msdn.com/Blogs/Taste-of-Premier/ToP1703)中，您可以看到一些示範，可協助您瞭解如何在每個階段中使用資訊安全中心。
 
 > [!NOTE]
-> 如需如何使用資訊安全中心功能在事件回應程式期間協助您的詳細資訊, 請參閱[管理和回應 Azure 資訊安全中心中的安全性警示](security-center-managing-and-responding-alerts.md)。
+> 如需如何使用資訊安全中心功能在事件回應程式期間協助您的詳細資訊，請參閱[管理和回應 Azure 資訊安全中心中的安全性警示](security-center-managing-and-responding-alerts.md)。
 >
 >
 

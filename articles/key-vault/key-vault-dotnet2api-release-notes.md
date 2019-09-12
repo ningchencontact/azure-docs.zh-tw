@@ -3,18 +3,18 @@ title: 金鑰保存庫 .NET 2.x API 版本資訊 | Microsoft Docs
 description: .NET 開發人員會使用這個 API 來編寫 Azure 金鑰保存庫的程式碼
 services: key-vault
 author: msmbaldwin
-manager: barbkess
+manager: rkarlin
 editor: bryanla
 ms.service: key-vault
 ms.topic: conceptual
 ms.date: 05/02/2017
 ms.author: mbaldwin
-ms.openlocfilehash: e173ff54020f2d365348ae037793cfbba3f9ed7f
-ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
+ms.openlocfilehash: 07502b4c4487a7517e2fe73b62eae0a237a6f22b
+ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68260434"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70883278"
 ---
 # <a name="azure-key-vault-net-20---release-notes-and-migration-guide"></a>Azure 金鑰保存庫 .NET 2.0 - 版本資訊和移轉指南
 下列資訊可協助您移轉至適用於 C# 和 .NET 的 Azure Key Vault 文件庫 2.0 版。  您必須更新針對舊版所撰寫的應用程式，才能支援最新版本。  必須進行這些變更才能完整支援新功能和改進功能，例如 **Key Vault 憑證**。
@@ -48,18 +48,18 @@ Key Vault 憑證可管理 x509 憑證，並支援下列行為：
 
 * *Secret* 已變更為 *SecretBundle*
 * *Dictionary* 已變更為 *IDictionary*
-* *List\<t >, string []* 已變更*為\<IList T >*
+* *List\<t >，string []* 已變更*為\<IList T >*
 * *NextList* 已變更為 *NextPageLink*
 
 ## <a name="return-types"></a>傳回類型
 
 * **KeyList**和**SecretList**現在會*傳回\<IPage T >* , 而不是*非 listkeysresponsemessage*
-* 產生的 **BackupKeyAsync** 現在會傳回 BackupKeyResult  ，其包含 Value  (備份 Blob)。 此方法在過去會進行包裝並只傳回值。
+* 產生的 **BackupKeyAsync** 現在會傳回 BackupKeyResult，其包含 Value (備份 Blob)。 此方法在過去會進行包裝並只傳回值。
 
 ## <a name="exceptions"></a>例外狀況
 
 * *KeyVaultClientException* 變更為 *KeyVaultErrorException*
-* 服務錯誤已從 exception.Error  變更為 exception.Body.Error.Message  。
+* 服務錯誤已從 exception.Error 變更為 exception.Body.Error.Message。
 * 已移除 **[JsonExtensionData]** 的錯誤訊息中的其他資訊。
 
 ## <a name="constructors"></a>建構函式
@@ -98,7 +98,7 @@ Key Vault 憑證可管理 x509 憑證，並支援下列行為：
 
 ## <a name="microsoftazuremanagementkeyvault-nuget"></a>Microsoft.Azure.Management.KeyVault NuGet
 
-* 針對傳回 vault  的作業，傳回類型是包含 **Vault** 屬性的類別。 傳回類型現在是 *Vault*。
+* 針對傳回 vault 的作業，傳回類型是包含 **Vault** 屬性的類別。 傳回類型現在是 *Vault*。
 * *PermissionsToKeys* 和 *PermissionsToSecrets* 現在是 *Permissions.Keys* 和 *Permissions.Secrets*
 * 某些傳回類型變更也會套用至控制平面。
 

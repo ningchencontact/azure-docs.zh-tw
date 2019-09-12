@@ -8,18 +8,18 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/23/2019
 ms.author: hrasheed
-ms.openlocfilehash: d0641a1c058db59acd5e9a64b10bb57b334f82bd
-ms.sourcegitcommit: a874064e903f845d755abffdb5eac4868b390de7
+ms.openlocfilehash: 3ca9c12caa7fa9b54cd63c2655166d95477dffa2
+ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68442058"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70885310"
 ---
 # <a name="manage-hdinsight-clusters-by-using-the-apache-ambari-web-ui"></a>使用 Apache Ambari Web UI 管理 HDInsight 叢集
 
 [!INCLUDE [ambari-selector](../../includes/hdinsight-ambari-selector.md)]
 
-Apache Ambari 提供容易使用的 Web UI 和 REST API，可簡化 Apache Hadoop 叢集的管理和監視。 Ambari 包含在 HDInsight 叢集上, 可用來監視叢集並進行設定變更。
+Apache Ambari 提供容易使用的 Web UI 和 REST API，可簡化 Apache Hadoop 叢集的管理和監視。 Ambari 包含在 HDInsight 叢集上，可用來監視叢集並進行設定變更。
 
 在本文件中，您會學習如何搭配使用 Ambari Web UI 和 HDInsight 叢集。
 
@@ -29,7 +29,7 @@ Apache Ambari 提供容易使用的 Web UI 和 REST API，可簡化 Apache Hadoo
 
 ## <a name="connectivity"></a>連線能力
 
-Ambari Web UI 可在您的 HDInsight `https://CLUSTERNAME.azurehdinsight.net`叢集上使用, 其中`CLUSTERNAME`是您的叢集名稱。
+Ambari Web UI 可在您的 HDInsight `https://CLUSTERNAME.azurehdinsight.net`叢集上使用，其中`CLUSTERNAME`是您的叢集名稱。
 
 > [!IMPORTANT]  
 > 連線到 HDInsight 上的 Ambari 需要 HTTPS。 當系統提示要驗證時，請使用您在叢集建立時所提供的系統管理帳戶名稱和密碼。
@@ -51,9 +51,9 @@ Ambari Web UI 可在您的 HDInsight `https://CLUSTERNAME.azurehdinsight.net`叢
 
 |項目 |描述 |
 |---|---|
-|Ambari 標誌|開啟 [儀表板], 可以用來監視叢集。|
+|Ambari 標誌|開啟 [儀表板]，可以用來監視叢集。|
 |叢集名稱 # ops|顯示進行中的 Ambari 作業數目。 選取叢集名稱或 [# 項作業] 會顯示背景作業清單。|
-|警示數|顯示叢集的警告或重要警示 (如果有的話)。|
+|警示數|顯示叢集的警告或重要警示（如果有的話）。|
 |儀表板|顯示儀表板。|
 |服務|叢集中服務的資訊和設定。|
 |主機|叢集中節點的資訊和設定。|
@@ -76,7 +76,7 @@ Ambari Web UI 可在您的 HDInsight `https://CLUSTERNAME.azurehdinsight.net`叢
 
 警示分成數個預設群組，您可以從 [ **警示** ] 頁面進行檢視。
 
-![警示頁面](./media/hdinsight-hadoop-manage-ambari/alerts.png)
+![警示頁面](./media/hdinsight-hadoop-manage-ambari/hdinsight-alerts-page.png)
 
 您可以使用 [動作] 功能表並選取 [管理警示群組] 來管理這些群組。
 
@@ -92,11 +92,11 @@ Ambari Web UI 可在您的 HDInsight `https://CLUSTERNAME.azurehdinsight.net`叢
 
 儀表板的 [ **度量** ] 索引標籤包含一系列的 Widget，可讓您一目了然地輕鬆監視叢集的狀態。 [ **CPU 使用量**] 等數個 Widget 可在點按後提供其他資訊。
 
-![儀表板與度量](./media/hdinsight-hadoop-manage-ambari/metrics.png)
+![儀表板與度量](./media/hdinsight-hadoop-manage-ambari/hdi-metrics-dashboard.png)
 
 [ **熱圖** ] 索引標籤會以綠色到紅色的彩色熱圖顯示度量。
 
-![儀表板與熱圖](./media/hdinsight-hadoop-manage-ambari/heatmap.png)
+![儀表板與熱圖](./media/hdinsight-hadoop-manage-ambari/hdi-heatmap-dashboard.png)
 
 如需有關叢集中節點的詳細資訊，請選取 [主機]。 然後選取您感興趣的特定節點。
 
@@ -142,7 +142,7 @@ Ambari Web UI 可在您的 HDInsight `https://CLUSTERNAME.azurehdinsight.net`叢
 
 [ **主機** ] 頁面會列出叢集中的所有主機。 若要管理主機，請遵循下列步驟。
 
-![主機頁面](./media/hdinsight-hadoop-manage-ambari/hosts.png)
+![主機頁面](./media/hdinsight-hadoop-manage-ambari/hdinsight-hosts-page.png)
 
 > [!NOTE]  
 > 使用 HDInsight 叢集時，請勿新增、解除委任或重新委任主機。

@@ -8,19 +8,19 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 04/17/2019
 ms.author: tyfox
-ms.openlocfilehash: 2035f5c7666d93068fd8007555bfe1aadae58ff1
-ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
+ms.openlocfilehash: 3f4ccd8de1f26ea898b0e7ec4bb57aa20b1be209
+ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "67873925"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70885359"
 ---
 # <a name="manage-apache-hadoop-clusters-in-hdinsight-by-using-azure-powershell"></a>使用 Azure PowerShell 管理 HDInsight 上的 Apache Hadoop 叢集
 [!INCLUDE [selector](../../includes/hdinsight-portal-management-selector.md)]
 
 Azure PowerShell 可讓您在 Azure 中用來控制和自動化工作負載的部署及管理。 在本文中, 您將瞭解如何使用 Azure PowerShell Az 模組, 在 Azure HDInsight 中管理[Apache Hadoop](https://hadoop.apache.org/)叢集。 如需 HDInsight PowerShell Cmdlet 的清單, 請參閱[Az HDInsight reference](https://docs.microsoft.com/powershell/module/az.hdinsight)。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 * Azure 訂用帳戶。 請參閱[取得 Azure 免費試用](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/)。
 
@@ -89,7 +89,7 @@ Remove-AzResourceGroup -Name <Resource Group Name>
 
     HDInsight 叢集上有提供 Storm Web UI：
 
-    ![hdinsight storm scale rebalance](./media/hdinsight-administer-use-powershell/hdinsight.portal.scale.cluster.png)
+    ![hdinsight storm scale rebalance](./media/hdinsight-administer-use-powershell/portal-scale-cluster.png)
 
     以下是如何使用 CLI 命令重新平衡 Storm 拓撲的範例：
 

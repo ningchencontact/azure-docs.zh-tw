@@ -7,16 +7,16 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 06/17/2019
-ms.openlocfilehash: b0d963e212e66bf96ec42ec2a5c0fd5005f7a889
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: 5cb3b5c2d36707875c87bd589e3d96c0a2f4f939
+ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "67165882"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70885209"
 ---
 # <a name="compare-storage-options-for-use-with-azure-hdinsight-clusters"></a>比較與 Azure HDInsight 叢集搭配使用的儲存體選項
 
-您可以建立 HDInsight 叢集時的幾個不同的 Azure 儲存體服務之間進行選擇：
+建立 HDInsight 叢集時，您可以在幾個不同的 Azure 儲存體服務之間進行選擇：
 
 * Azure 儲存體
 * Azure Data Lake Storage Gen2
@@ -24,38 +24,38 @@ ms.locfileid: "67165882"
 
 本文提供了這些儲存體類型和其獨特功能的概觀。
 
-下表摘要說明支援不同版本的 HDInsight 的 Azure 儲存體服務：
+下表摘要說明不同 HDInsight 版本所支援的 Azure 儲存體服務：
 
 | 儲存體服務 | 帳戶類型 | 命名空間類型 | 支援的服務 | 支援的效能層級 | 支援的存取層 | HDInsight 版本 | 叢集類型 |
 |---|---|---|---|---|---|---|---|
-|Azure Data Lake Storage Gen2| 一般用途 V2 | 階層 （檔案系統） | Blob | 標準 | 經常性存取、 非經常性存取、 封存 | 3.6+ | 全部 |
-|Azure 儲存體| 一般用途 V2 | Object | Blob | 標準 | 經常性存取、 非經常性存取、 封存 | 3.6+ | 全部 |
-|Azure 儲存體| 一般用途 V1 | Object | Blob | 標準 | N/A | 全部 | 全部 |
-|Azure 儲存體| Blob 儲存體 * * | Object | 區塊 Blob | 標準 | 經常性存取、 非經常性存取、 封存 | 全部 | 全部 |
-|Azure Data Lake Storage Gen1| N/A | 階層 （檔案系統） | N/A | N/A | N/A | 只有 3.6 | HBase 的全部項目 |
+|Azure Data Lake Storage Gen2| 一般用途 V2 | 階層式（filesystem） | Blob | 標準 | 經常性存取、非經常性存取、封存 | 3.6+ | 全部 |
+|Azure 儲存體| 一般用途 V2 | 物件 | Blob | 標準 | 經常性存取、非經常性存取、封存 | 3.6+ | 全部 |
+|Azure 儲存體| 一般用途 V1 | 物件 | Blob | 標準 | N/A | 全部 | 全部 |
+|Azure 儲存體| Blob 儲存體 * * | 物件 | 區塊 Blob | 標準 | 經常性存取、非經常性存取、封存 | 全部 | 全部 |
+|Azure Data Lake Storage Gen1| N/A | 階層式（filesystem） | N/A | N/A | N/A | 僅限3。6 | HBase 以外的所有 |
 
-\* * 對於 HDInsight 叢集，只有在次要儲存體帳戶可以是類型 BlobStorage。
+\* * 對於 HDInsight 叢集，只有次要儲存體帳戶可以是 BlobStorage 類型。
 
-如需有關 Azure 儲存體帳戶類型的詳細資訊，請參閱[Azure 儲存體帳戶概觀](../storage/common/storage-account-overview.md)
+如需 Azure 儲存體帳戶類型的詳細資訊，請參閱[Azure 儲存體帳戶總覽](../storage/common/storage-account-overview.md)
 
-如需有關 Azure 儲存體存取層的詳細資訊，請參閱[Azure Blob 儲存體：Premium （預覽）、 經常性、 非經常性與封存儲存層](../storage/blobs/storage-blob-storage-tiers.md)
+如需 Azure 儲存體存取層的詳細資訊， [請參閱 Azure Blob 儲存體：Premium （預覽）、經常性存取、非經常性存取和封存儲存層](../storage/blobs/storage-blob-storage-tiers.md)
 
-您可以使用建立叢集的主要和選用次要的儲存體服務的不同組合。 下表摘要說明目前支援在 HDInsight 叢集儲存體組態：
+您可以針對主要和選擇性的次要儲存體，使用不同的服務組合來建立叢集。 下表摘要說明 HDInsight 目前支援的叢集儲存體設定：
 
-| HDInsight 版本 | 主要儲存體 | 次要的儲存體 | 支援 |
+| HDInsight 版本 | 主要儲存體 | 次要儲存體 | 支援 |
 |---|---|---|---|
-| 3.6 & 4.0 | 一般用途 V1、 一般用途 V2 | 一般用途 V1、 一般用途 V2 BlobStorage (區塊 Blob) | 是 |
-| 3.6 & 4.0 | 一般用途 V1、 一般用途 V2 | Data Lake Storage Gen2 | 否 |
-| 3.6 & 4.0 | 一般用途 V1、 一般用途 V2 | Data Lake Storage Gen1 | 是 |
-| 3.6 & 4.0 | Data Lake Storage Gen2* | Data Lake Storage Gen2 | 是 |
-| 3.6 & 4.0 | Data Lake Storage Gen2* | 一般用途 V1、 一般用途 V2 BlobStorage (區塊 Blob) | 是 |
+| 3.6 & 4.0 | 一般用途 V1，一般用途 V2 | 一般用途 V1、一般用途 V2、BlobStorage （區塊 Blob） | 是 |
+| 3.6 & 4.0 | 一般用途 V1，一般用途 V2 | Data Lake Storage Gen2 | 否 |
+| 3.6 & 4.0 | 一般用途 V1，一般用途 V2 | Data Lake Storage Gen1 | 是 |
+| 3.6 & 4.0 | Data Lake Storage Gen2 * | Data Lake Storage Gen2 | 是 |
+| 3.6 & 4.0 | Data Lake Storage Gen2 * | 一般用途 V1、一般用途 V2、BlobStorage （區塊 Blob） | 是 |
 | 3.6 & 4.0 | Data Lake Storage Gen2 | Data Lake Storage Gen1 | 否 |
 | 3.6 | Data Lake Storage Gen1 | Data Lake Storage Gen1 | 是 |
-| 3.6 | Data Lake Storage Gen1 | 一般用途 V1、 一般用途 V2 BlobStorage (區塊 Blob) | 是 |
+| 3.6 | Data Lake Storage Gen1 | 一般用途 V1、一般用途 V2、BlobStorage （區塊 Blob） | 是 |
 | 3.6 | Data Lake Storage Gen1 | Data Lake Storage Gen2 | 否 |
-| 4.0 | Data Lake Storage Gen1 | 任意 | 否 |
+| 4.0 | Data Lake Storage Gen1 | Any | 否 |
 
-\* =，只要它們是相同的受管理身分識別用於叢集存取權的所有安裝程式，這可能是一或多個 Data Lake 儲存體 Gen2 帳戶。
+\* = 這可以是一個或多個 Data Lake Storage Gen2 帳戶，只要它們都設定為使用相同的受控識別來進行叢集存取即可。
 
 ## <a name="use-azure-data-lake-storage-gen2-with-apache-hadoop-in-azure-hdinsight"></a>搭配 Azure HDInsight 中的 Apache Hadoop 使用 Azure Data Lake Storage Gen2
 
@@ -121,15 +121,15 @@ abfss:///example/jars/hadoop-mapreduce-examples.jar /example/jars/hadoop-mapredu
 
 Azure 儲存體是強大的一般用途儲存體解決方案，其完美整合了 HDInsight。 HDInsight 可以使用 Azure 儲存體中的 Blob 容器做為叢集的預設檔案系統。 透過 HDFS 介面，HDInsight 中的完整元件集可直接處理儲存為 Blob 的結構化或非結構化資料。
 
-我們建議使用預設叢集儲存體和您的商務資料的個別的儲存體容器隔離的 HDInsight 記錄檔和暫存檔案，從您自己的商務資料。 我們也建議您刪除預設的 blob 容器，其中包含應用程式和系統記錄檔之後每次使用，以減少儲存成本。 請務必先擷取記錄再刪除容器。
+我們建議針對您的預設叢集儲存體和您的商務資料使用個別的儲存體容器，以將 HDInsight 記錄檔和暫存檔案與您自己的商務資料隔離。 我們也建議您刪除預設的 blob 容器，其中包含應用程式和系統記錄檔，然後在每次使用之後，以降低儲存成本。 請務必先擷取記錄再刪除容器。
 
-如果您選擇要保護使用儲存體帳戶**防火牆和虛擬網路**限制**選取的網路**，請務必啟用例外狀況**允許信任的 Microsoft服務...** ，讓 HDInsight 可以存取您的儲存體帳戶。
+如果您選擇使用**所選網路**上的**防火牆和虛擬網路**限制來保護您的儲存體帳戶，請務必啟用 [**允許信任的 Microsoft 服務**] 例外狀況，讓 HDInsight 可以存取您的儲存體帳戶.
 
 ### <a name="hdinsight-storage-architecture"></a>HDInsight 儲存架構
 
 下圖提供 Azure 儲存體的 HDInsight 架構摘要檢視：
 
-![此圖顯示 Hadoop 叢集如何使用 HDFS API 來存取和儲存 Blob 儲存體中的結構化和非結構化資料](./media/hdinsight-hadoop-compare-storage-options/HDI.WASB.Arch.png "HDInsight 儲存體架構")
+![此圖顯示 Hadoop 叢集如何使用 HDFS API 來存取和儲存 Blob 儲存體中的結構化和非結構化資料](./media/hdinsight-hadoop-compare-storage-options/storage-architecture.png "HDInsight 儲存體架構")
 
 HDInsight 可以存取本機連接至計算節點的分散式檔案系統。 可使用完整 URI 來存取此檔案系統，例如：
 
@@ -143,12 +143,12 @@ HDInsight 可以存取本機連接至計算節點的分散式檔案系統。 可
 
 * **儲存體帳戶中連線至叢集的容器：** 因為在建立期間帳戶名稱和金鑰會與叢集相關聯，所以您對這些容器中的 Blob 具有完整存取權。
 
-* **儲存體帳戶中未連線至叢集的公用容器或公用 Blob：  **您對容器中的 Blob 只有唯讀權限。
+* **儲存體帳戶中未連線至叢集的公用容器或公用 Blob：** 您對容器中的 Blob 只有唯讀權限。
   
   > [!NOTE]  
   > 公用容器可讓您取得該容器中所有可用的 Blob 清單，並取得容器中繼資料。 公用 Blob 只在您知道確切的 URL 時才可讓您存取 Blob。 如需詳細資訊，請參閱 [管理對容器與 Blob 的匿名讀取權限](../storage/blobs/storage-manage-access-to-resources.md)。
 
-* **儲存體帳戶中未連接至叢集的私人容器：  **除非在提交 WebHCat 工作時定義儲存體帳戶，否則不能存取容器中的 Blob。 
+* **儲存體帳戶中未連接至叢集的私人容器：** 除非在提交 WebHCat 工作時定義儲存體帳戶，否則不能存取容器中的 Blob。 
 
 建立程序及其金鑰中定義的儲存體帳戶會儲存在叢集節點的 %HADOOP_HOME%/conf/core-site.xml 中。 根據預設，HDInsight 會使用 core-site.xml 檔案中定義的儲存體帳戶。 您可以使用 [Apache Ambari](./hdinsight-hadoop-manage-ambari.md) 來修改此設定。
 
@@ -215,9 +215,9 @@ Data Lake Storage Gen1 的資料容器基本上是資料夾與檔案。 您可�
 ## <a name="DataLakeStoreSecurity"></a>Data Lake Storage Gen1 中的資料安全性
 Data Lake Storage Gen1 會使用 Azure Active Directory 進行驗證，並使用存取控制清單 (ACL) 來管理對資料的存取。
 
-| **功能** | **說明** |
+| **功能** | **描述** |
 | --- | --- |
-| Authentication |Data Lake Storage Gen1 整合了 Azure Active Directory (Azure AD)，可對 Data Lake Storage Gen1 中儲存的所有資料進行身分識別與存取管理。 由於整合的結果，Data Lake Storage Gen1 受惠於所有的 Azure AD 功能。 這些功能包括多重要素驗證、 條件式存取、 角色型存取控制、 應用程式使用量監視、 安全性監視和警示等等。 Data Lake Storage Gen1 支援 OAuth 2.0 通訊協定以便在 REST 介面中進行驗證。 請參閱[使用 Azure Active Directory 在 Azure Data Lake Storage Gen1 內驗證](../data-lake-store/data-lakes-store-authentication-using-azure-active-directory.md)|
+| 驗證 |Data Lake Storage Gen1 整合了 Azure Active Directory (Azure AD)，可對 Data Lake Storage Gen1 中儲存的所有資料進行身分識別與存取管理。 由於整合的結果，Data Lake Storage Gen1 受惠於所有的 Azure AD 功能。 這些功能包括多重要素驗證、條件式存取、角色型存取控制、應用程式使用方式監視、安全性監視和警示等。 Data Lake Storage Gen1 支援 OAuth 2.0 通訊協定以便在 REST 介面中進行驗證。 請參閱[使用 Azure Active Directory 在 Azure Data Lake Storage Gen1 內驗證](../data-lake-store/data-lakes-store-authentication-using-azure-active-directory.md)|
 | 存取控制 |Data Lake Storage Gen1 透過支援 WebHDFS 通訊協定所公開的 POSIX 樣式權限，以提供存取控制。 ACL 可在根資料夾、子資料夾和個別檔案上啟用。 如需 ACL 如何在 Data Lake Storage Gen1 的環境中運作的詳細資訊，請參閱 [Data Lake Storage Gen1 中的存取控制](../data-lake-store/data-lake-store-access-control.md)。 |
 | 加密 |Data Lake Storage Gen1 也會為帳戶中儲存的資料提供加密功能。 您會在建立 Data Lake Storage Gen1 帳戶時指定加密設定。 您可以選擇將資料加密，或選擇不使用加密。 如需詳細資訊，請參閱 [Data Lake Storage Gen1 的加密](../data-lake-store/data-lake-store-encryption.md)。 如需如何提供加密相關設定的指示，請參閱[使用 Azure 入口網站開始使用 Azure Data Lake Storage Gen1](../data-lake-store/data-lake-store-get-started-portal.md)。 |
 
@@ -244,4 +244,4 @@ Data Lake Storage Gen1 與 Hadoop 生態系統中的大部分開放原始碼元�
 ## <a name="next-steps"></a>後續步驟
 
 * [Azure Data Lake Storage Gen2 簡介](../storage/blobs/data-lake-storage-introduction.md)
-* [Azure 存储简介](../storage/common/storage-introduction.md)
+* [Azure 儲存體簡介](../storage/common/storage-introduction.md)

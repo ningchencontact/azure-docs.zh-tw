@@ -9,16 +9,16 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 08/21/2019
 ms.author: dapine
-ms.openlocfilehash: e29aec66d9986b509a5133f5ebe8a99a00f7b9cf
-ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
+ms.openlocfilehash: e79717b15cabe815debfa9fd960c0b2623e8088e
+ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/27/2019
-ms.locfileid: "70052112"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70847660"
 ---
 ## <a name="deploy-the-key-phrase-extraction-container-to-an-aks-cluster"></a>將關鍵片語擷取容器部署至 AKS 叢集
 
-1. 開啟 Azure CLI, 然後登入 Azure。
+1. 開啟 Azure CLI，然後登入 Azure。
 
     ```azurecli
     az login
@@ -30,14 +30,14 @@ ms.locfileid: "70052112"
     az aks get-credentials -n your-cluster-name -g -your-resource-group
     ```
 
-    執行此命令之後, 它會報告類似下列的訊息:
+    執行此命令之後，它會報告類似下列的訊息：
 
     ```console
     Merged "your-cluster-name" as current context in /home/username/.kube/config
     ```
 
     > [!WARNING]
-    > 如果您的 Azure 帳戶有多個可用的訂用帳戶, `az aks get-credentials`且該命令傳回錯誤, 則常見的問題是您使用了錯誤的訂閱。 將 Azure CLI 會話的內容設定為使用您用來建立資源的相同訂用帳戶, 然後再試一次。
+    > 如果您的 Azure 帳戶有多個可用的訂用帳戶， `az aks get-credentials`且該命令傳回錯誤，則常見的問題是您使用了錯誤的訂閱。 將 Azure CLI 會話的內容設定為使用您用來建立資源的相同訂用帳戶，然後再試一次。
     > ```azurecli
     >  az account set -s subscription-id
     > ```
@@ -48,7 +48,7 @@ ms.locfileid: "70052112"
     code .
     ```
 
-1. 在文字編輯器中, 建立名為*keyphrase*的新檔案, 並在其中貼上下列 yaml。 請務必將和`billing/value` `apikey/value`取代為您自己的資訊。
+1. 在文字編輯器中，建立名為*keyphrase*的新檔案，並在其中貼上下列 yaml。 請務必將和`billing/value` `apikey/value`取代為您自己的資訊。
 
     ```yaml
     apiVersion: apps/v1beta1
@@ -87,39 +87,39 @@ ms.locfileid: "70052112"
         app: keyphrase-app
     ```
 
-1. 儲存檔案, 然後關閉文字編輯器。
-1. 以`apply` *keyphrase. yaml*檔案作為目標來執行 Kubernetes 命令:
+1. 儲存檔案，然後關閉文字編輯器。
+1. 以`apply` *keyphrase. yaml*檔案作為目標來執行 Kubernetes 命令：
 
     ```console
     kuberctl apply -f keyphrase.yaml
     ```
 
-    命令成功套用部署設定後, 會出現類似下列輸出的訊息:
+    命令成功套用部署設定後，會出現類似下列輸出的訊息：
 
     ```console
     deployment.apps "keyphrase" created
     service "keyphrase" created
     ```
-1. 確認已部署 pod:
+1. 確認已部署 pod：
 
     ```console
     kubectl get pods
     ```
 
-    Pod 執行狀態的輸出:
+    Pod 執行狀態的輸出：
 
     ```console
     NAME                         READY     STATUS    RESTARTS   AGE
     keyphrase-5c9ccdf575-mf6k5   1/1       Running   0          1m
     ```
 
-1. 確認服務可供使用, 並取得 IP 位址。
+1. 確認服務可供使用，並取得 IP 位址。
 
     ```console
     kubectl get services
     ```
 
-    Pod 中*情感*服務執行狀態的輸出:
+    Pod 中*keyphrase*服務執行狀態的輸出：
 
     ```console
     NAME         TYPE           CLUSTER-IP    EXTERNAL-IP      PORT(S)          AGE

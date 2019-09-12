@@ -1,7 +1,7 @@
 ---
 title: 使用 Azure CLI 建立認知服務資源
 titleSuffix: Azure Cognitive Services
-description: 藉由使用 Azure 命令列介面來建立和訂閱資源, 以開始使用 Azure 認知服務。
+description: 藉由使用 Azure 命令列介面來建立和訂閱資源，以開始使用 Azure 認知服務。
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -9,48 +9,48 @@ ms.service: cognitive-services
 ms.topic: conceptual
 ms.date: 07/17/2019
 ms.author: aahi
-ms.openlocfilehash: 8f3d30866ac6db0cdece9af8144fcfa266871172
-ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
+ms.openlocfilehash: e57bb55f5bbeba9cb476672723511a4d19c46165
+ms.sourcegitcommit: 49c4b9c797c09c92632d7cedfec0ac1cf783631b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68697896"
+ms.lasthandoff: 09/05/2019
+ms.locfileid: "70383260"
 ---
-# <a name="create-a-cognitive-services-resource-using-the-azure-command-line-interfacecli"></a>使用 Azure 命令列介面 (CLI) 建立認知服務資源
+# <a name="create-a-cognitive-services-resource-using-the-azure-command-line-interfacecli"></a>使用 Azure 命令列介面（CLI）建立認知服務資源
 
-使用本快速入門, 以使用[Azure 命令列介面 (CLI)](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)開始使用 azure 認知服務。 認知服務是以您在 Azure 訂用帳戶中建立的 Azure[資源](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-portal)來表示。 建立資源之後, 請使用為您產生的金鑰和端點來驗證您的應用程式。 
+使用本快速入門，以使用[Azure 命令列介面（CLI）](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)開始使用 azure 認知服務。 認知服務是以您在 Azure 訂用帳戶中建立的 Azure[資源](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-portal)來表示。 建立資源之後，請使用為您產生的金鑰和端點來驗證您的應用程式。 
 
 
-在本快速入門中, 您將瞭解如何使用[Azure 命令列介面 (CLI)](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)來註冊 Azure 認知服務, 並建立具有單一服務或多服務訂用帳戶的帳戶。 這些服務是由 Azure[資源](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-portal)表示, 可讓您連接到一或多個 azure 認知服務 API。
+在本快速入門中，您將瞭解如何使用[Azure 命令列介面（CLI）](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)來註冊 Azure 認知服務，並建立具有單一服務或多服務訂用帳戶的帳戶。 這些服務是由 Azure[資源](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-portal)表示，可讓您連接到一或多個 azure 認知服務 API。
+
+[!INCLUDE [cognitive-services-subscription-types](../../includes/cognitive-services-subscription-types.md)]
 
 ## <a name="prerequisites"></a>必要條件
 
 * 有效的 Azure 訂用帳戶-免費[建立一個](https://azure.microsoft.com/free/)。
-* [Azure 命令列介面 (CLI)](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)
-
-[!INCLUDE [cognitive-services-subscription-types](../../includes/cognitive-services-subscription-types.md)]
+* [Azure 命令列介面（CLI）](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)
 
 ## <a name="install-the-azure-cli-and-sign-in"></a>安裝 Azure CLI 並登入 
 
-安裝 [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)。 若要登入您的本機安裝 CLI, 請執行[az login](https://docs.microsoft.com/cli/azure/reference-index#az-login)命令:
+安裝 [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)。 若要登入您的本機安裝 CLI，請執行[az login](https://docs.microsoft.com/cli/azure/reference-index#az-login)命令：
 
 ```console
 az login
 ```
 
-您也可以使用綠色的 [**試試看**] 按鈕, 在您的瀏覽器中執行這些命令。
+您也可以使用綠色的 [**試試看**] 按鈕，在您的瀏覽器中執行這些命令。
  
 ## <a name="create-a-new-azure-cognitive-services-resource-group"></a>建立新的 Azure 認知服務資源群組
 
-建立認知服務資源之前, 您必須擁有包含資源的 Azure 資源群組。 當您建立新的資源時, 您可以選擇建立新的資源群組, 或使用現有的一個。 本文說明如何建立新的資源群組。
+建立認知服務資源之前，您必須擁有包含資源的 Azure 資源群組。 當您建立新的資源時，您可以選擇建立新的資源群組，或使用現有的一個。 本文說明如何建立新的資源群組。
 
 ### <a name="choose-your-resource-group-location"></a>選擇您的資源群組位置
 
-若要建立資源, 您需要有一個可供您的訂用帳戶使用的 Azure 位置。 您可以使用[az account list-位置](/cli/azure/account#az-account-list-locations)命令來抓取可用位置的清單。 大部分的認知服務都可以從數個位置存取。 選擇最接近您的位置, 或查看可供服務使用的位置。
+若要建立資源，您需要有一個可供您的訂用帳戶使用的 Azure 位置。 您可以使用[az account list-位置](/cli/azure/account#az-account-list-locations)命令來抓取可用位置的清單。 大部分的認知服務都可以從數個位置存取。 選擇最接近您的位置，或查看可供服務使用的位置。
 
 > [!IMPORTANT]
-> * 請記住您的 Azure 位置, 因為您在呼叫 Azure 認知服務時需要用到它。
-> * 某些認知服務的可用性可能因地區而異。 如需詳細資訊, 請參閱[依區域的 Azure 產品](https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services)。  
+> * 請記住您的 Azure 位置，因為您在呼叫 Azure 認知服務時需要用到它。
+> * 某些認知服務的可用性可能因地區而異。 如需詳細資訊，請參閱[依區域的 Azure 產品](https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services)。  
 
 ```azurecli-interactive
 az account list-locations \
@@ -58,9 +58,9 @@ az account list-locations \
     --out table
 ```
 
-在您擁有 azure 位置之後, 請使用[az group create](/cli/azure/group#az-group-create)命令在 Azure CLI 中建立新的資源群組。
+在您擁有 azure 位置之後，請使用[az group create](/cli/azure/group#az-group-create)命令在 Azure CLI 中建立新的資源群組。
 
-在下列範例中, 將 azure 位置`westus2`取代為您的訂用帳戶可用的其中一個 azure 位置。
+在下列範例中，將 azure 位置`westus2`取代為您的訂用帳戶可用的其中一個 azure 位置。
 
 ```azurecli-interactive
 az group create \
@@ -72,10 +72,10 @@ az group create \
 
 ### <a name="choose-a-cognitive-service-and-pricing-tier"></a>選擇認知服務和定價層
 
-建立新資源時, 您必須知道您想要使用的服務「種類」, 以及您想要的[定價層](https://azure.microsoft.com/pricing/details/cognitive-services/)(或 sku)。 建立資源時, 您將使用此和其他資訊做為參數。
+建立新資源時，您必須知道您想要使用的服務「種類」，以及您想要的[定價層](https://azure.microsoft.com/pricing/details/cognitive-services/)（或 sku）。 建立資源時，您將使用此和其他資訊做為參數。
 
 > [!NOTE]
-> 許多認知服務都有免費層, 您可以用來試用服務。 若要使用免費層, 請`F0`使用做為資源的 sku。
+> 許多認知服務都有免費層，您可以用來試用服務。 若要使用免費層，請`F0`使用做為資源的 sku。
 
 ### <a name="vision"></a>辨識
 
@@ -123,7 +123,7 @@ az group create \
 | Content Moderator | `ContentModerator` |
 | 個人化工具      | `Personalizer`     |
 
-您可以使用[az cognitiveservices account list-種類](https://docs.microsoft.com/cli/azure/cognitiveservices/account?view=azure-cli-latest#az-cognitiveservices-account-list-kinds)命令來尋找可用的認知服務「種類」清單:
+您可以使用[az cognitiveservices account list-種類](https://docs.microsoft.com/cli/azure/cognitiveservices/account?view=azure-cli-latest#az-cognitiveservices-account-list-kinds)命令來尋找可用的認知服務「種類」清單：
 
 ```azurecli-interactive
 az cognitiveservices account list-kinds
@@ -131,9 +131,9 @@ az cognitiveservices account list-kinds
 
 ### <a name="add-a-new-resource-to-your-resource-group"></a>將新資源新增至您的資源群組
 
-若要建立並訂閱新的認知服務資源, 請使用[az cognitiveservices account create](https://docs.microsoft.com/cli/azure/cognitiveservices/account?view=azure-cli-latest#az-cognitiveservices-account-create)命令。 此命令會將新的可計費資源新增至稍早建立的資源群組。 建立新資源時, 您必須知道您想要使用的服務「種類」, 以及其定價層 (或 sku) 和 Azure 位置:
+若要建立並訂閱新的認知服務資源，請使用[az cognitiveservices account create](https://docs.microsoft.com/cli/azure/cognitiveservices/account?view=azure-cli-latest#az-cognitiveservices-account-create)命令。 此命令會將新的可計費資源新增至稍早建立的資源群組。 建立新資源時，您必須知道您想要使用的服務「種類」，以及其定價層（或 sku）和 Azure 位置：
 
-您可以使用下列命令來建立異常偵測器的 F0 (免費`anomaly-detector-resource` ) 資源, 並將其命名為。
+您可以使用下列命令來建立異常偵測器的 F0 （免費`anomaly-detector-resource` ）資源，並將其命名為。
 
 ```azurecli-interactive
 az cognitiveservices account create \
@@ -147,7 +147,7 @@ az cognitiveservices account create \
 
 ## <a name="get-the-keys-for-your-resource"></a>取得資源的金鑰
 
-若要登入您的本機安裝命令列介面 (CLI), 請使用[az login](https://docs.microsoft.com/cli/azure/reference-index?view=azure-cli-latest#az-login)命令。
+若要登入您的本機安裝命令列介面（CLI），請使用[az login](https://docs.microsoft.com/cli/azure/reference-index?view=azure-cli-latest#az-login)命令。
 
 ```console
 az login
@@ -165,17 +165,17 @@ az login
 
 ## <a name="pricing-tiers-and-billing"></a>定價層和計費
 
-定價層 (以及您收取的金額) 是根據您使用驗證資訊傳送的交易數目。 每個定價層都會指定:
-* 每秒允許的交易數目上限 (TP)。
+定價層（以及您收取的金額）是根據您使用驗證資訊傳送的交易數目。 每個定價層都會指定：
+* 每秒允許的交易數目上限（TP）。
 * 在定價層中啟用的服務功能。
 * 預先定義的交易量成本。 超過此數量會導致您服務的[定價詳細資料](https://azure.microsoft.com/pricing/details/cognitive-services/custom-vision-service/)中所指定的額外費用。
 
 
 ## <a name="clean-up-resources"></a>清除資源
 
-如果您想要清除和移除認知服務資源, 您可以刪除它或資源群組。 刪除資源群組也會刪除群組中包含的任何其他資源。
+如果您想要清除和移除認知服務資源，您可以刪除它或資源群組。 刪除資源群組也會刪除群組中包含的任何其他資源。
 
-若要移除資源群組及其相關聯的資源, 請使用 az group delete 命令。
+若要移除資源群組及其相關聯的資源，請使用 az group delete 命令。
 
 ```azurecli-interactive
 az group delete --name storage-resource-group

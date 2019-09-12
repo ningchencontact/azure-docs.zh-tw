@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 06/04/2019
 ms.author: swmachan
-ms.openlocfilehash: be69f18f30b796e7401ef68aa5088153e07f14f5
-ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
+ms.openlocfilehash: cb0552612d95500e01edd91aff36406d4c2282bd
+ms.sourcegitcommit: d70c74e11fa95f70077620b4613bb35d9bf78484
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70127893"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70909987"
 ---
 # <a name="language-and-region-support-for-the-translator-text-api"></a>翻譯工具文字 API 支援的語言和區域
 
@@ -28,7 +28,7 @@ ms.locfileid: "70127893"
 **V2 Translator API**
 
 > [!NOTE]
-> V2 已于2018年4月30日淘汰。 請將您的應用程式遷移至 V3, 以利用在 V3 中專門提供的新功能。
+> V2 已于2018年4月30日淘汰。 請將您的應用程式遷移至 V3，以利用在 V3 中專門提供的新功能。
 
 * 僅限統計：此語言沒有可用的類神經系統。
 * 可使用類神經：可以使用類神經系統。 使用 `category=generalnn` 參數來存取類神經系統。
@@ -38,7 +38,7 @@ ms.locfileid: "70127893"
 **V3 Translator API** V3 Translator API 預設為類神經架構，而統計系統僅適用於沒有類神經系統存在時。
 
 > [!NOTE]
-> 目前, 類神經語言的子集可在自訂翻譯中使用, 我們會逐漸新增其他類神經語言。 [觀看自訂翻譯中目前可用的語言](#customization)。
+> 目前，類神經語言的子集可在自訂翻譯中使用，我們會逐漸新增其他類神經語言。 [觀看自訂翻譯中目前可用的語言](#customization)。
 
 |語言|  語言代碼|  V2 API| V3 API|
 |:-----|:-----:|:-----|:-----|
@@ -229,6 +229,7 @@ ms.locfileid: "70127893"
 | 匈牙利文      | `hu`          |
 | 冰島文 | `is` |
 | 印尼文|   `id`    |
+| 愛爾蘭文 | `ga`  |
 | 義大利文      | `it`          |
 | 日文      | `ja`          |
 |斯瓦希里文| `sw`    |

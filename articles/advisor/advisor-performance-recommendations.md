@@ -8,16 +8,16 @@ ms.service: advisor
 ms.topic: article
 ms.date: 01/29/2019
 ms.author: kasparks
-ms.openlocfilehash: 8fdae1e12e56dcbcb56941726b0c089ad59b8fc8
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c8647e316cc77e7e1eed5108fafccd6d70d181cf
+ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66254658"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70898191"
 ---
 # <a name="improve-performance-of-azure-applications-with-azure-advisor"></a>利用 Azure Advisor 改善 Azure 應用程式的效能
 
-Advisor 效能建議有助於提升業務關鍵應用程式的速度和回應能力。 您可以在 Advisor 儀表板的 [效能]  索引標籤上，取得 Advisor 的效能建議。
+Advisor 效能建議有助於提升業務關鍵應用程式的速度和回應能力。 您可以在 Advisor 儀表板的 [效能] 索引標籤上，取得 Advisor 的效能建議。
 
 ## <a name="reduce-dns-time-to-live-on-your-traffic-manager-profile-to-fail-over-to-healthy-endpoints-faster"></a>減少 DNS 在流量管理員設定檔上的存留時間，以更快速容錯移轉至健康情況良好的端點上
 
@@ -73,48 +73,48 @@ Advisor 會識別不是複寫資料表、但可因轉換而受益的資料表，
 將儲存體帳戶部署模型遷移到 Azure Resource Manager (Resource Manager)，可使用範本部署、其他安全性選項，以及可升級至 GPv2 帳戶，以利用 Azure 儲存體的最新功能。 Advisor 會識別任何使用傳統部署模型的獨立儲存體帳戶，並建議遷移到 Resource Manager 部署模型。
 
 > [!NOTE]
-> Azure 監視器中的傳統警示排定在 2019 年 6 月淘汰。 建議您將傳統儲存體帳戶升級為使用 Resource Manager，以在新平台上保留警示功能。 如需詳細資訊，請參閱[傳統警示洶汰](https://azure.microsoft.com/updates/classic-alerting-monitoring-retirement/)。
+> Azure 監視器中的傳統警示已于2019年8月淘汰。 建議您將傳統儲存體帳戶升級為使用 Resource Manager，以在新平台上保留警示功能。 如需詳細資訊，請參閱[傳統警示洶汰](https://docs.microsoft.com/en-us/azure/azure-monitor/platform/monitoring-classic-retirement#retirement-of-classic-monitoring-and-alerting-platform)。
 
 ## <a name="design-your-storage-accounts-to-prevent-hitting-the-maximum-subscription-limit"></a>設計您的儲存體帳戶，以避免達到最大訂用帳戶限制
 
-Azure 區域可以支援最多 250 每訂用帳戶的儲存體帳戶。 一旦達到限制時，您將無法在該區域/訂用帳戶組合中建立任何更多的儲存體帳戶。 Advisor 會檢查您的訂用帳戶和介面的建議，讓您設計較少的儲存體帳戶，即將達到最大限制。
+Azure 區域每個訂用帳戶最多可支援250個儲存體帳戶。 達到限制之後，您將無法在該區域/訂用帳戶組合中建立其他任何儲存體帳戶。 Advisor 將會檢查您的訂用帳戶和呈現建議，讓您針對任何接近達到上限的儲存體帳戶進行設計。
 
-## <a name="optimize-the-performance-of-your-azure-mysql-azure-postgresql-and-azure-mariadb-servers"></a>您的 Azure MySQL、 Azure PostgreSQL 和 Azure MariaDB 伺服器的效能最佳化 
+## <a name="optimize-the-performance-of-your-azure-mysql-azure-postgresql-and-azure-mariadb-servers"></a>將 Azure MySQL、Azure 于 postgresql 和 Azure 適用于 mariadb server 的效能優化 
 
-### <a name="fix-the-cpu-pressure-of-your-azure-mysql-azure-postgresql-and-azure-mariadb-servers-with-cpu-bottlenecks"></a>修正您的 Azure MySQL、 Azure PostgreSQL 和 Azure MariaDB 伺服器的 CPU 壓力與 CPU 瓶頸
-非常高使用率的 CPU，經過一段長，可能會導致查詢效能緩慢工作負載。 增加 CPU 大小將會協助最佳化資料庫查詢的執行階段，並改善整體效能。 Azure Advisor 會識別伺服器，以高 CPU 使用率可能執行 CPU 限制的工作負載，建議您調整您的計算。
+### <a name="fix-the-cpu-pressure-of-your-azure-mysql-azure-postgresql-and-azure-mariadb-servers-with-cpu-bottlenecks"></a>修正具有 CPU 瓶頸的 Azure MySQL、Azure 于 postgresql 和 Azure 適用于 mariadb server 的 CPU 壓力
+長時間的 CPU 使用率非常高，可能會導致工作負載的查詢效能變慢。 增加 CPU 大小有助於優化資料庫查詢的執行時間，並改善整體效能。 Azure Advisor 將會識別 CPU 使用率很高且可能執行 CPU 限制工作負載的伺服器，並建議調整您的計算。
 
-### <a name="reduce-memory-constraints-on-your-azure-mysql-azure-postgresql-and-azure-mariadb-servers-or-move-to-a-memory-optimized-sku"></a>減少您的 Azure MySQL、 Azure PostgreSQL 和 Azure MariaDB 伺服器上的記憶體條件約束，或移至記憶體最佳化的 SKU
-的低的快取點擊的率可能會導致較慢的查詢效能和更高的 IOPS。 這可能是因為不正確的查詢計劃或執行記憶體密集工作負載。 修正查詢計劃或 [增加記憶體](https://docs.microsoft.com/azure/postgresql/concepts-pricing-tiers)PostgreSQL 資料庫伺服器、 Azure MySQL 資料庫伺服器或 Azure MariaDB 的 Azure 資料庫伺服器有助於最佳化執行資料庫工作負載。 Azure Advisor 會識別由於此高緩衝區集區變換所影響的伺服器，並建議修正的查詢計劃中，移至 更多的記憶體，較高的 SKU，或增加以取得更多 IOPS 的儲存體大小。
+### <a name="reduce-memory-constraints-on-your-azure-mysql-azure-postgresql-and-azure-mariadb-servers-or-move-to-a-memory-optimized-sku"></a>降低 Azure MySQL、Azure 于 postgresql 和 Azure 適用于 mariadb 伺服器上的記憶體限制，或移至記憶體優化 SKU
+較低的快取點擊率會導致查詢效能變慢，並增加 IOPS。 這可能是因為查詢計劃不正確或執行記憶體密集型工作負載所造成。 若要修正查詢計劃或增加適用於 PostgreSQL 的 Azure 資料庫資料庫伺服器、Azure MySQL 資料庫伺服器或 Azure 適用于 mariadb server [的記憶體](https://docs.microsoft.com/azure/postgresql/concepts-pricing-tiers)，將有助於優化資料庫工作負載的執行。 Azure Advisor 識別由於這項高緩衝集區變換而受到影響的伺服器，並建議您修正查詢計劃、移至具有更多記憶體的較高 SKU，或增加儲存體大小以取得更多 IOPS。
 
-### <a name="use-a-azure-mysql-or-azure-postgresql-read-replica-to-scale-out-reads-for-read-intensive-workloads"></a>使用 Azure MySQL 或 Azure PostgreSQL 讀取複本，來相應放大讀取的讀取密集的工作負載
-Azure Advisor 會利用工作負載為基礎啟發學習法例如讀取與寫入伺服器上識別為大量讀取工作負載在過去七天的比例。 您的資源用於 PostgreSQL 的 Azure 資料庫或具有極高的讀取/寫入比率的 MySQL 資源的 Azure 資料庫可能會導致 CPU 和/或記憶體爭用導致查詢效能變慢。 新增 [複本](https://docs.microsoft.com/azure/postgresql/howto-read-replicas-portal)有助於您的相應放大到複本伺服器，以防止在主要伺服器上的 CPU 和/或記憶體條件約束的讀取。 Advisor 會識別這類高為大量讀取工作負載的伺服器，並建議您新增 [讀取複本](https://docs.microsoft.com/azure/postgresql/concepts-read-replicas) 來卸載部分讀取的工作負載。
+### <a name="use-a-azure-mysql-or-azure-postgresql-read-replica-to-scale-out-reads-for-read-intensive-workloads"></a>使用 Azure MySQL 或 Azure 于 postgresql 讀取複本來向外延展大量讀取的工作負載
+Azure Advisor 利用以工作負載為基礎的啟發學習法，例如過去七天內，伺服器上的讀取與寫入比例，以識別大量讀取的工作負載。 您的 Azure database for 于 postgresql 資源或「適用于 MySQL 的 Azure 資料庫」資源具有非常高的讀取/寫入比率，可能會導致 CPU 和/或記憶體爭用，進而使查詢效能變慢。 新增 [複本](https://docs.microsoft.com/azure/postgresql/howto-read-replicas-portal)有助於向外延展讀取至複本伺服器，以防止主伺服器上的 CPU 和/或記憶體限制。 Advisor 會識別具有大量讀取密集型工作負載的伺服器，並建議新增 [讀取複本](https://docs.microsoft.com/azure/postgresql/concepts-read-replicas) 來卸載部分讀取工作負載。
 
 
-### <a name="scale-your-azure-mysql-azure-postgresql-or-azure-mariadb-server-to-a-higher-sku-to-prevent-connection-constraints"></a>調整您的 Azure MySQL、 Azure PostgreSQL 或 Azure MariaDB 伺服器，以較高的 SKU，以防止連接條件約束
-每個新連線到您的資料庫伺服器會佔一些記憶體。 如果因為無法連線到您的伺服器，就會降低資料庫伺服器的效能 [上限](https://docs.microsoft.com/azure/postgresql/concepts-limits)在記憶體中。 Azure Advisor 會識別伺服器執行具有許多連接失敗，並建議升級您的伺服器連線限制，藉由相應增加計算，或使用記憶體最佳化的 Sku，具有更多的運算，每個核心，提供更多記憶體到您的伺服器。
+### <a name="scale-your-azure-mysql-azure-postgresql-or-azure-mariadb-server-to-a-higher-sku-to-prevent-connection-constraints"></a>將您的 Azure MySQL、Azure 于 postgresql 或 Azure 適用于 mariadb server 調整為較高的 SKU，以避免連接限制
+資料庫伺服器的每個新連接都會佔用一些記憶體。 如果伺服器的連接因為記憶體的 [上限](https://docs.microsoft.com/azure/postgresql/concepts-limits)而失敗，資料庫伺服器的效能會降低。 Azure Advisor 會識別執行有許多連線失敗的伺服器，並建議升級您的伺服器連線限制，藉由相應增加計算或使用記憶體優化 Sku （每個核心有更多計算），為您的伺服器提供更多記憶體。
 
-## <a name="scale-your-cache-to-a-different-size-or-sku-to-improve-cache-and-application-performance"></a>調整您的快取為不同大小或 SKU，以改善快取與應用程式效能
+## <a name="scale-your-cache-to-a-different-size-or-sku-to-improve-cache-and-application-performance"></a>將您的快取調整為不同的大小或 SKU，以改善快取和應用程式效能
 
-當不高的記憶體不足的壓力、 高的伺服器負載或高網路頻寬可能會讓其變成沒有回應、 發生資料遺失，或變成無法使用其下執行時，快取執行個體的表現最好。 Advisor 會識別在這些情況的快取執行個體，並建議套用最佳作法，以減少記憶體不足的壓力、 伺服器負載或網路頻寬，或使用更多容量調整到不同的大小或 SKU。
+當快取實例在記憶體不足的壓力下執行時，最佳的伺服器負載或高網路頻寬可能會使它們變得沒有回應、遇到資料遺失或無法使用的情況。 Advisor 會識別這些情況下的快取實例，並建議套用最佳作法以降低記憶體壓力、伺服器負載或網路頻寬，或調整為具有更多容量的不同大小或 SKU。
 
-## <a name="add-regions-with-traffic-to-your-azure-cosmos-db-account"></a>將流量的區域新增至您的 Azure Cosmos DB 帳戶
+## <a name="add-regions-with-traffic-to-your-azure-cosmos-db-account"></a>將具有流量的區域新增至您的 Azure Cosmos DB 帳戶
 
-Advisor 會偵測目前未設定的地區有流量的 Azure Cosmos DB 帳戶，並建議您新增該區域。 這會改善來自該區域之要求的延遲，並可確保發生區域中斷時的可用性。 [深入了解使用 Azure Cosmos DB 的全域資料發佈](https://aka.ms/cosmos/globaldistribution)
+Advisor 將會偵測到 Azure Cosmos DB 的帳戶，其流量來自目前未設定的區域，並建議新增該區域。 這將可改善來自該區域之要求的延遲，並在發生區域中斷時確保可用性。 [深入瞭解使用 Azure Cosmos DB 的全域資料散發](https://aka.ms/cosmos/globaldistribution)
 
-## <a name="configure-your-azure-cosmos-db-indexing-policy-with-customer-included-or-excluded-paths"></a>設定您的 Azure Cosmos DB 與客戶編製索引原則中包含或排除路徑
+## <a name="configure-your-azure-cosmos-db-indexing-policy-with-customer-included-or-excluded-paths"></a>使用客戶包含或排除的路徑來設定您的 Azure Cosmos DB 編制索引原則
 
-Azure Advisor 會識別使用的預設檢索原則，但無法受益於工作負載模式為基礎的自訂索引編製原則的 Cosmos DB 容器。 編製索引原則的預設編製索引的所有屬性，但用於查詢篩選條件的明確包含或排除路徑中使用自訂的編製索引原則，可以減少 Ru 及編製索引所耗用的儲存體。 [深入了解修改索引原則](https://aka.ms/cosmosdb/modify-index-policy)
+Azure Advisor 會識別使用預設索引編制原則，但可根據工作負載模式從自訂索引編制原則獲益的 Cosmos DB 容器。 預設的索引編制原則會編制所有屬性的索引，但使用自訂的索引編制原則，其中包含用於查詢篩選器的明確包含或排除路徑，可以減少用於編制索引的 ru 和儲存體。 [深入瞭解如何修改索引原則](https://aka.ms/cosmosdb/modify-index-policy)
 
 ## <a name="configure-your-azure-cosmos-db-query-page-size-maxitemcount-to--1"></a>將 Azure Cosmos DB 查詢頁面大小 (MaxItemCount) 設定為 -1 
 
-Azure Advisor 會識別 Azure Cosmos DB 容器會使用查詢頁面大小為 100，建議使用的頁面大小為-1 的快速掃描。 [深入了解最大項目計數](https://aka.ms/cosmosdb/sql-api-query-metrics-max-item-count)
+Azure Advisor 會識別使用100查詢頁面大小的 Azure Cosmos DB 容器，並建議您使用-1 的頁面大小來進行更快速的掃描。 [深入瞭解最大專案計數](https://aka.ms/cosmosdb/sql-api-query-metrics-max-item-count)
 
 ## <a name="how-to-access-performance-recommendations-in-advisor"></a>如何在建議程式中存取效能建議
 
 1. 登入 [Azure 入口網站](https://portal.azure.com)，然後開啟 [Advisor](https://aka.ms/azureadvisordashboard)。
 
-2.  在 Advisor 儀表板上，按一下 [效能]  索引標籤。
+2.  在 Advisor 儀表板上，按一下 [效能] 索引標籤。
 
 ## <a name="next-steps"></a>後續步驟
 

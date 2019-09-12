@@ -10,19 +10,19 @@ ms.assetid: 04b05dea-c066-44a0-9751-0774eb84c689
 ms.service: sql-data-warehouse
 ms.topic: article
 ms.date: 07/22/2019
-ms.openlocfilehash: cd55e078e14ec34006df05096f161e7bdef39a03
-ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
+ms.openlocfilehash: ac478a7b75bbac0c5e7f59cbe565ec2bbcd643ce
+ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68827219"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70900312"
 ---
 # <a name="upgrade-your-data-warehouse-to-gen2"></a>將您的資料倉儲升級為 Gen2
 
-Microsoft 正在協助降低執行資料倉儲的進入層級成本。  較低的計算層能夠處理需求最高的查詢, 現已可供 Azure SQL 資料倉儲。 閱讀 Gen2 的完整公告[較低的計算層支援](https://azure.microsoft.com/blog/azure-sql-data-warehouse-gen2-now-supports-lower-compute-tiers/)。 新的供應專案適用于下表所述的區域。 在支援的區域中，現有 Gen1 資料倉儲可以透過下列方式升級至 Gen2：
+Microsoft 正在協助降低執行資料倉儲的進入層級成本。  較低的計算層能夠處理需求最高的查詢，現已可供 Azure SQL 資料倉儲。 閱讀 Gen2 的完整公告[較低的計算層支援](https://azure.microsoft.com/blog/azure-sql-data-warehouse-gen2-now-supports-lower-compute-tiers/)。 新的供應專案適用于下表所述的區域。 在支援的區域中，現有 Gen1 資料倉儲可以透過下列方式升級至 Gen2：
 
-- **自動升級程序：** 在區域中提供服務時, 自動升級不會立即啟動。  在特定區域中啟動自動升級時，個別的 DW 升級會在您選取的維護排程期間進行。
-- [**自我升級至 Gen2:** ](#self-upgrade-to-gen2)您可以執行自我升級至 Gen2, 以控制升級的時機。 如果您的區域尚不受支援, 您可以從還原點直接還原至支援區域中的 Gen2 實例。
+- **自動升級程序：** 在區域中提供服務時，自動升級不會立即啟動。  在特定區域中啟動自動升級時，個別的 DW 升級會在您選取的維護排程期間進行。
+- [**自我升級至 Gen2：** ](#self-upgrade-to-gen2)您可以執行自我升級至 Gen2，以控制升級的時機。 如果您的區域尚不受支援，您可以從還原點直接還原至支援區域中的 Gen2 實例。
 
 ## <a name="automated-schedule-and-region-availability-table"></a>自動化排程和國家可用性表格
 
@@ -63,16 +63,16 @@ Microsoft 正在協助降低執行資料倉儲的進入層級成本。  較低�
 | 阿拉伯聯合大公國北部 |2019年7月20日 |完成 |
 | 英國南部 |可用 |進行中 |
 | 英國西部 |可用 |進行中 |
-| 美國中西部 |2019年9月1日 |2019年10月1日|
+| 美國中西部 |2019年11月1日 |2019年12月1日|
 | 西歐 |可用 |完成 |
 | 美國西部 |可用 |完成 |
 | 美國西部 2 |可用 |完成 |
 
 ## <a name="automatic-upgrade-process"></a>自動升級程序
 
-根據上述的可用性圖表, 我們將為您的 Gen1 實例排程自動升級。 為了避免資料倉儲可用性發生任何未預期的中斷，自動化升級將會排在維護排程期間。 在自動升級至 Gen2 的區域中, 將會停用建立新 Gen1 實例的功能。 完成自動升級之後, Gen1 將會被取代。 如需排程的詳細資訊，請參閱[檢視維護排程](viewing-maintenance-schedule.md)
+根據上述的可用性圖表，我們將為您的 Gen1 實例排程自動升級。 為了避免資料倉儲可用性發生任何未預期的中斷，自動化升級將會排在維護排程期間。 在自動升級至 Gen2 的區域中，將會停用建立新 Gen1 實例的功能。 完成自動升級之後，Gen1 將會被取代。 如需排程的詳細資訊，請參閱[檢視維護排程](viewing-maintenance-schedule.md)
 
-當我們重新開機您的資料倉儲時, 升級程式會包含連線的短暫下降 (大約5分鐘)。  重新啟動後，您的資料倉儲就會完全可供使用。 不過, 當升級程式繼續在背景中升級資料檔案時, 您可能會遇到效能降低的情況。 效能降低的總時間會因您的資料檔案大小而有所不同。
+當我們重新開機您的資料倉儲時，升級程式會包含連線的短暫下降（大約5分鐘）。  重新啟動後，您的資料倉儲就會完全可供使用。 不過，當升級程式繼續在背景中升級資料檔案時，您可能會遇到效能降低的情況。 效能降低的總時間會因您的資料檔案大小而有所不同。
 
 在重新啟動之後，您也可以使用較大的 SLO 和資源類別，在所有主要資料行存放區資料表上執行 [Alter Index rebuild](sql-data-warehouse-tables-index.md)，藉此加速資料檔案升級程序。
 
@@ -81,11 +81,11 @@ Microsoft 正在協助降低執行資料倉儲的進入層級成本。  較低�
 
 ## <a name="self-upgrade-to-gen2"></a>自我升級至 Gen2
 
-您可以在現有的 Gen1 資料倉儲上遵循下列步驟, 選擇自行升級。 如果您選擇自行升級, 您必須在您的區域開始自動升級程式之前, 先完成此操作。 這麼做可確保您避免因自動升級而造成衝突的任何風險。
+您可以在現有的 Gen1 資料倉儲上遵循下列步驟，選擇自行升級。 如果您選擇自行升級，您必須在您的區域開始自動升級程式之前，先完成此操作。 這麼做可確保您避免因自動升級而造成衝突的任何風險。
 
 進行自我升級時，有兩個選項。  您可以就地升級目前的資料倉儲，也可以將 Gen1 資料倉儲還原至 Gen2 執行個體。
 
-- [就地升級](upgrade-to-latest-generation.md) - 這個選項會將您現有的 Gen1 資料倉儲升級至 Gen2。 當我們重新開機您的資料倉儲時, 升級程式會包含連線的短暫下降 (大約5分鐘)。  重新啟動後，您的資料倉儲就會完全可供使用。 如果您在升級期間遇到問題, 請開啟[支援要求](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-get-started-create-support-ticket), 並參考「Gen2 升級」做為可能的原因。
+- [就地升級](upgrade-to-latest-generation.md) - 這個選項會將您現有的 Gen1 資料倉儲升級至 Gen2。 當我們重新開機您的資料倉儲時，升級程式會包含連線的短暫下降（大約5分鐘）。  重新啟動後，您的資料倉儲就會完全可供使用。 如果您在升級期間遇到問題，請開啟[支援要求](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-get-started-create-support-ticket)，並參考「Gen2 升級」做為可能的原因。
 - [從還原點升級](sql-data-warehouse-restore.md) - 在目前的 Gen1 資料倉儲上建立使用者定義的還原點，然後直接還原到 Gen2 執行個體。 現有的 Gen1 資料倉儲會保持原狀。 完成還原後，您的 Gen2 資料倉儲就會完全可供使用。  在已還原的 Gen2 執行個體上執行所有測試和驗證程序之後，才能刪除原始的 Gen1 執行個體。
 
    - 步驟 1:從 Azure 入口網站，[建立使用者定義的還原點](sql-data-warehouse-restore-active-paused-dw.md#restore-an-existing-data-warehouse-through-the-azure-portal)。

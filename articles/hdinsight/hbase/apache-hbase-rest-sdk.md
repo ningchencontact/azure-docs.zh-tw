@@ -8,16 +8,16 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 12/13/2017
 ms.author: ashishth
-ms.openlocfilehash: 707869880c5df619def2d707264b59e22e03c521
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f833d045f297679ae3629f8e0afe20b3ca834821
+ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64720310"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70885592"
 ---
-# <a name="use-the-net-sdk-for-apache-hbase"></a>使用 Apache HBase.NET SDK
+# <a name="use-the-net-sdk-for-apache-hbase"></a>使用適用于 Apache HBase 的 .NET SDK
 
-[Apache HBase](apache-hbase-overview.md)提供您的資料搭配使用的兩個主要選項：[Apache Hive 查詢及 HBase 的 RESTful API 的呼叫](apache-hbase-tutorial-get-started-linux.md)。 您可以使用 `curl` 命令或類似公用程式，直接使用 REST API。
+[Apache HBase](apache-hbase-overview.md)提供兩個主要的選項來處理您的資料：[Apache Hive 查詢，以及呼叫 HBase 的 RESTFUL API](apache-hbase-tutorial-get-started-linux.md)。 您可以使用 `curl` 命令或類似公用程式，直接使用 REST API。
 
 對於 C# 和 .NET 應用程式，[Microsoft HBase REST Client Library for .NET](https://www.nuget.org/packages/Microsoft.HBase.Client/) 還提供了 HBase REST API 以外的用戶端程式庫。
 
@@ -114,7 +114,7 @@ await client.StoreCellsAsync("RestSDKTable", set);
 
 HBase 會實作[雲端 BigTable](https://cloud.google.com/bigtable/)，因此資料格式如下所示：
 
-![具有 [叢集使用者] 角色的使用者](./media/apache-hbase-rest-sdk/table.png)
+![具有 [叢集使用者] 角色的使用者](./media/apache-hbase-rest-sdk/hdinsight-table-roles.png)
 
 ## <a name="select-data"></a>選取資料
 

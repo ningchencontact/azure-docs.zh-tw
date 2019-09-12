@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/14/2019
 ms.author: hrasheed
-ms.openlocfilehash: bded3ac97732a7cd18411cc9f4ef1707dbdf68e3
-ms.sourcegitcommit: 97605f3e7ff9b6f74e81f327edd19aefe79135d2
-ms.translationtype: MT
+ms.openlocfilehash: d53468ae544b02798d7fcd74370d1d3dbdcbd5e0
+ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70735826"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70882073"
 ---
 # <a name="run-apache-hive-queries-using-the-data-lake-tools-for-visual-studio"></a>使用 Data Lake Tools for Visual Studio 執行 Apache Hive 查詢
 
@@ -71,7 +71,7 @@ ms.locfileid: "70735826"
 
    如果您選取進階提交選項，請設定指令碼的 [作業名稱]、[引數]、[其他組態] 和 [狀態目錄]：
 
-    ![HDInsight Hadoop Hive 查詢的螢幕擷取畫面](./media/apache-hadoop-use-hive-visual-studio/hdinsight.visual.studio.tools.submit.jobs.advanced.png "提交查詢")
+    ![HDInsight Hadoop Hive 查詢的螢幕擷取畫面](./media/apache-hadoop-use-hive-visual-studio/vs-tools-submit-jobs-advanced.png "提交查詢")
 
 ### <a name="hive-application"></a>Hive 應用程式
 
@@ -115,11 +115,11 @@ ms.locfileid: "70735826"
 
 6. 從工具列中，選取您想要用於此查詢的 **Hdinsight 叢集**。 選取**提交**以 Hive 作業形式執行陳述式。
 
-   ![提交列](./media/apache-hadoop-use-hive-visual-studio/toolbar.png)
+   ![提交列](./media/apache-hadoop-use-hive-visual-studio/hdinsight-toolbar-submit.png)
 
 7. [Hive 工作摘要] 將會出現並顯示執行中工作的相關資訊。 使用 [重新整理] 連結來重新整理工作資訊，直到 [工作狀態] 變更為 [已完成] 為止。
 
-   ![顯示已完成作業的作業摘要](./media/apache-hadoop-use-hive-visual-studio/jobsummary.png)
+   ![顯示已完成作業的作業摘要](./media/apache-hadoop-use-hive-visual-studio/hdinsight-job-summary.png)
 
 8. 使用 [ **工作輸出** ] 連結檢視此工作的輸出。 它會顯示 `[ERROR] 3`，這是此查詢所傳回的值。
 

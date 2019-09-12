@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/15/2019
 ms.author: hrasheed
-ms.openlocfilehash: c05e72cd28c78b26b7c23a123b133d10147a4421
-ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
+ms.openlocfilehash: 4e6825b40700fe3bd24631094a2a6060d94524cc
+ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70810779"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70882292"
 ---
 # <a name="use-c-user-defined-functions-with-apache-hive-and-apache-pig-on-apache-hadoop-in-hdinsight"></a>在C# HDInsight 中的 apache Hadoop 上搭配 Apache Hive 和 apache Pig 使用使用者定義函數
 
@@ -161,7 +161,7 @@ Hive 和 Pig 都可以將資料傳遞至外部應用程式進行處理。 這個
 
 4. 展開您要部署此應用程式的 HDInsight 叢集。 就會列出含有文字 __(預設儲存體帳戶)__ 的項目。
 
-    ![顯示叢集之儲存體帳戶的 [伺服器總管]](./media/apache-hadoop-hive-pig-udf-dotnet-csharp/storage.png)
+    ![顯示叢集之儲存體帳戶的 [伺服器總管]](./media/apache-hadoop-hive-pig-udf-dotnet-csharp/hdinsight-storage-account.png)
 
     * 如果此項目可以展開，表示您是使用 __Azure 儲存體帳戶__作為叢集的預設儲存體。 若要檢視叢集之預設儲存體上的檔案，請展開項目，然後按兩下 [(預設容器)]。
 
@@ -171,7 +171,7 @@ Hive 和 Pig 都可以將資料傳遞至外部應用程式進行處理。 這個
 
    * 如果使用 __Azure 儲存體帳戶__，請按一下上傳圖示，然後瀏覽至 **HiveCSharp** 專案的 **bin\debug** 資料夾。 最後，選取 **HiveCSharp.exe** 檔案並按一下 [確定]。
 
-       ![上傳圖示](./media/apache-hadoop-hive-pig-udf-dotnet-csharp/upload.png)
+       ![上傳圖示](./media/apache-hadoop-hive-pig-udf-dotnet-csharp/hdinsight-upload-icon.png)
     
    * 如果使用 __Azure Data Lake Storage__，請以滑鼠右鍵按一下檔案清單中的空白區域，然後選取 [上傳]。 最後，選取 **HiveCSharp.exe** 檔案並按一下 [開啟]。
 

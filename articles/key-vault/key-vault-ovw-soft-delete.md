@@ -4,14 +4,14 @@ ms.service: key-vault
 ms.topic: conceptual
 author: msmbaldwin
 ms.author: mbaldwin
-manager: barbkess
+manager: rkarlin
 ms.date: 03/19/2019
-ms.openlocfilehash: 330337620f1732b9ccecfb2c95a0b4495476f97b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 89b7dc639a3140f17a62087c5ba0d05fb6df4d7f
+ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64720519"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70883144"
 ---
 # <a name="azure-key-vault-soft-delete-overview"></a>Azure Key Vault 虛刪除概觀
 
@@ -22,7 +22,7 @@ Key Vault 的虛刪除功能可復原已刪除的保存庫和保存庫物件，�
 
 ## <a name="supporting-interfaces"></a>支援的介面
 
-虛刪除功能是一開始可透過[其餘](/rest/api/keyvault/)， [CLI](key-vault-soft-delete-cli.md)， [PowerShell](key-vault-soft-delete-powershell.md)並[.NET /C# ](/dotnet/api/microsoft.azure.keyvault?view=azure-dotnet)介面。
+虛刪除功能最初是透過[REST](/rest/api/keyvault/)、 [CLI](key-vault-soft-delete-cli.md)、 [PowerShell](key-vault-soft-delete-powershell.md)和[.net/C# ](/dotnet/api/microsoft.azure.keyvault?view=azure-dotnet)介面提供。
 
 ## <a name="scenarios"></a>案例
 
@@ -36,21 +36,21 @@ Azure Key Vault 是由 Azure Resource Manager 管理的追蹤資源。 Azure Res
 
 使用此功能時，對 Key Vault 或 Key Vault 物件進行的 DELETE 作業是虛刪除，實際上會在指定的保留期間 (90 天) 內保留資源，但物件看起來會像已刪除。 此服務進一步提供復原已刪除物件的機制 (基本上是復原刪除作業)。 
 
-虛刪除是選擇性的 Key Vault 行為，在此版本中**預設未啟用**。 它可以開啟透過[CLI](key-vault-soft-delete-cli.md)或是[Powershell](key-vault-soft-delete-powershell.md)。
+虛刪除是選擇性的 Key Vault 行為，在此版本中**預設未啟用**。 您可以透過[CLI](key-vault-soft-delete-cli.md)或[Powershell](key-vault-soft-delete-powershell.md)來開啟它。
 
 ### <a name="purge-protection"></a>清除保護 
 
-當清除保護是在保存庫上，或無法清除已刪除狀態中的物件，直到已超過 90 天的保留期限。 這些保存庫和物件還可以復原，以確保客戶的保留原則即會出現。 
+開啟 [清除保護] 時，除非已超過90天的保留期間，否則無法清除 [已刪除] 狀態的保存庫或物件。 這些保存庫和物件仍然可以復原，以確保客戶會遵循保留原則。 
 
-清除保護是選擇性的 Key Vault 行為，而且**預設不啟用**。 它可以開啟透過[CLI](key-vault-soft-delete-cli.md#enabling-purge-protection)或是[Powershell](key-vault-soft-delete-powershell.md#enabling-purge-protection)。
+[清除保護] 是選擇性的 Key Vault 行為，**預設不會啟用**。 您可以透過[CLI](key-vault-soft-delete-cli.md#enabling-purge-protection)或[Powershell](key-vault-soft-delete-powershell.md#enabling-purge-protection)來開啟它。
 
 ### <a name="permitted-purge"></a>允許的清除作業
 
 在 Proxy 資源上可透過 POST 作業永久刪除、清除 Key Vault，而這需要特殊權限。 一般而言，只有訂用帳戶擁有者可以清除 Key Vault。 POST 作業會對該保存庫觸發立即性且無法復原的刪除作業。 
 
-例外狀況是：
-- 當 Azure 訂用帳戶已被標示為*無法刪除*。 在此情況下，只有此服務可接著執行實際的刪除作業，而且會以排程的程序執行。 
-- 當--啟用清除保護本身的保存庫上啟用旗標。 在此情況下，Key Vault 會從原始祕密物件標示為要刪除的那天算起，等待 90 天後才永久刪除該物件。
+例外狀況為：
+- 當 Azure 訂用帳戶已標示為*undeletable*時。 在此情況下，只有此服務可接著執行實際的刪除作業，而且會以排程的程序執行。 
+- 在保存庫本身啟用--enable-清除保護旗標時。 在此情況下，Key Vault 會從原始祕密物件標示為要刪除的那天算起，等待 90 天後才永久刪除該物件。
 
 ### <a name="key-vault-recovery"></a>Key Vault 復原
 
@@ -58,7 +58,7 @@ Azure Key Vault 是由 Azure Resource Manager 管理的追蹤資源。 Azure Res
 
 ### <a name="key-vault-object-recovery"></a>Key Vault 物件復原
 
-一旦刪除 key vault 物件，例如索引鍵，此服務會將物件已刪除的狀態，因此無法存取任何擷取作業。 此狀態下的 Key Vault 物件只能列出、復原或強制/永久刪除。 
+刪除金鑰保存庫物件（例如金鑰）時，服務會將物件置於已刪除狀態，使其無法存取任何抓取作業。 此狀態下的 Key Vault 物件只能列出、復原或強制/永久刪除。 
 
 同時，Key Vault 會根據刪除的 Key Vault 或 Key Vault 物件來排程基礎資料的刪除，並在預定的保留間隔後執行。 在保留間隔期間，也會保留與保存庫相對應的 DNS 記錄。
 

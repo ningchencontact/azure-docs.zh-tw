@@ -8,14 +8,14 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/28/2019
 ms.author: hrasheed
-ms.openlocfilehash: 943bf0f4bba014c31a11bb30bf8d3b6a7c11a343
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: cad2988a9b6d6cdf557eeabee7cc93e0bbba9267
+ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66299353"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70879568"
 ---
-# <a name="use-ssh-tunneling-to-access-apache-ambari-web-ui-jobhistory-namenode-apache-oozie-and-other-web-uis"></a>使用 SSH 通道來存取 Apache Ambari Web UI、JobHistory、NameNode、Apache Oozie 及其他 Web UI
+# <a name="use-ssh-tunneling-to-access-apache-ambari-web-ui-jobhistory-namenode-apache-oozie-and-other-uis"></a>使用 SSH 通道來存取 Apache Ambari web UI、JobHistory、NameNode、Apache Oozie 和其他 Ui
 
 HDInsight 叢集可讓您透過網際網路存取 Apache Ambari Web UI，但某些功能則須有 SSH 通道。 例如，必須有 SSH 通道才能透過網際網路存取 Apache Oozie 服務的 Web UI。
 
@@ -40,7 +40,7 @@ Ambari 中的數個功能表只有透過 SSH 通道才能運作。 這些功能�
 
 [Secure Shell (SSH) 通道](https://en.wikipedia.org/wiki/Tunneling_protocol#Secure_Shell_tunneling)能連接本機電腦上的連接埠與 HDInsight 上的前端節點。 傳送到本機連接埠的流量會透過 SSH 連線路由傳送到前端節點。 解析要求的方式就像它是源自前端節點一樣。 接著，透過工作站的通道，將回應路由傳送回去。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 * SSH 用戶端。 如需詳細資訊，請參閱[使用 SSH 連線至 HDInsight (Apache Hadoop)](hdinsight-hadoop-linux-use-ssh-unix.md)。
 
@@ -56,7 +56,7 @@ Ambari 中的數個功能表只有透過 SSH 通道才能運作。 這些功能�
 
 ## <a name="usessh"></a>使用 SSH 命令建立通道
 
-使用下列命令，利用 `ssh` 命令建立 SSH 通道。 取代`sshuser`的 SSH 使用者，您的 HDInsight 叢集和取代`clustername`與 HDInsight 叢集的名稱：
+使用下列命令，利用 `ssh` 命令建立 SSH 通道。 以`sshuser`您 hdinsight 叢集的 SSH 使用者取代，並以您`clustername` hdinsight 叢集的名稱取代：
 
 ```cmd
 ssh -C2qTnNf -D 9876 sshuser@clustername-ssh.azurehdinsight.net
@@ -81,18 +81,18 @@ ssh -C2qTnNf -D 9876 sshuser@clustername-ssh.azurehdinsight.net
 
 ### <a name="create-or-load-a-session"></a>建立或載入工作階段
 
-1. 開啟 PuTTY，並確認已左側功能表上選取**工作階段**。 如果您已儲存的工作階段，選取 工作階段名稱，從**儲存的工作階段**清單，然後選取**負載**。
+1. 開啟 PuTTY，並確認已左側功能表上選取**工作階段**。 如果您已經儲存會話，請從 [**已儲存的會話**] 清單中選取會話名稱，然後選取 [**載入**]。
 
 1. 如果您尚未儲存工作階段，請輸入您的連線資訊：
     * **主機名稱 (或 IP 位址)** - HDInsight 叢集的 SSH 位址。 例如，**mycluster-ssh.azurehdinsight.net**
     * **連接埠** - 22
     * **連線類型** - SSH
 
-1. 選取 [儲存]  。
+1. 選取 [儲存]。
 
     ![建立 SSH 工作階段](./media/hdinsight-linux-ambari-ssh-tunnel/hdinsight-create-putty-session.png)
 
-1. 在對話方塊左側的 [類別]  區段中，依序展開 [連線]  和 [SSH]  ，然後選取 [通道]  。
+1. 在對話方塊左側的 [類別] 區段中，依序展開 [連線] 和 [SSH]，然後選取 [通道]。
 
 1. 在 [ **控制 SSH 連接埠轉送的選項** ] 表單中提供下列資訊：
    
@@ -102,9 +102,9 @@ ssh -C2qTnNf -D 9876 sshuser@clustername-ssh.azurehdinsight.net
 
    * **動態** - 啟用動態 SOCKS Proxy 路由。
      
-     ![通道處理選項的影像](./media/hdinsight-linux-ambari-ssh-tunnel/puttytunnel.png)
+     ![通道處理選項的影像](./media/hdinsight-linux-ambari-ssh-tunnel/hdinsight-putty-tunnel.png)
 
-1. 選取 **新增**以新增設定，然後按一下**開啟**開啟 SSH 連線。
+1. 選取 [**新增**] 以新增設定，然後按一下 [**開啟**] 以開啟 SSH 連線。
 
 1. 出現提示時，登入伺服器。
 
@@ -115,10 +115,10 @@ ssh -C2qTnNf -D 9876 sshuser@clustername-ssh.azurehdinsight.net
 
 1. 將瀏覽器設定為使用建立通道時所使用的 **localhost** 和連接埠做為 **SOCKS v5** Proxy。 Firefox 的設定如下所示。 如果您使用與 9876 不同的連接埠，請將連接埠變更為您所用的連接埠：
    
-    ![Firefox 設定的影像](./media/hdinsight-linux-ambari-ssh-tunnel/firefoxproxy.png)
+    ![Firefox 設定的影像](./media/hdinsight-linux-ambari-ssh-tunnel/firefox-proxy-settings.png)
    
    > [!NOTE]  
-   > 選取 [遠端 DNS]  會使用 HDInsight 叢集解析網域名稱系統 (DNS) 要求。 這項設定會使用叢集的前端節點來解析 DNS。
+   > 選取 [遠端 DNS] 會使用 HDInsight 叢集解析網域名稱系統 (DNS) 要求。 這項設定會使用叢集的前端節點來解析 DNS。
 
 2. 請瀏覽 [https://www.whatismyip.com/](https://www.whatismyip.com/) 這類網站，驗證通道可以運作。 傳回的 IP 應該是 Microsoft Azure 資料中心使用的 IP。
 
@@ -129,27 +129,27 @@ ssh -C2qTnNf -D 9876 sshuser@clustername-ssh.azurehdinsight.net
 1. 在瀏覽器中，前往 `http://headnodehost:8080`。 `headnodehost` 位址會透過通道傳送到叢集，並解析為執行 Ambari 的前端節點。 出現提示時，請輸入您叢集的管理員使用者名稱 (admin) 和密碼。 Ambari Web UI 可能會出現第二次的提示。 若是如此，請重新輸入資訊。
 
    > [!NOTE]  
-   > 使用 `http://headnodehost:8080` 位址連線至叢集時，表示您是透過通道進行連線。 通訊是使用 SSH 通道進行保護，而非 HTTPS。 若要透過網際網路使用 HTTPS 連線，使用`https://clustername.azurehdinsight.net`，其中`clustername`是叢集的名稱。
+   > 使用 `http://headnodehost:8080` 位址連線至叢集時，表示您是透過通道進行連線。 通訊是使用 SSH 通道進行保護，而非 HTTPS。 若要使用 HTTPS 透過網際網路連接，請`https://clustername.azurehdinsight.net`使用， `clustername`其中是叢集的名稱。
 
 2. 在 Ambari Web UI 中，選取頁面左邊清單中的 HDFS。
 
-    ![選取 HDFS 的影像](./media/hdinsight-linux-ambari-ssh-tunnel/hdfsservice.png)
+    ![選取 HDFS 的影像](./media/hdinsight-linux-ambari-ssh-tunnel/hdfs-service-selected.png)
 
-3. 顯示 HDFS 服務資訊時，請選取 [快速連結]  。 叢集前端節點的清單隨即出現。 選取其中一個前端節點，然後選取 [NameNode UI]  。
+3. 顯示 HDFS 服務資訊時，請選取 [快速連結]。 叢集前端節點的清單隨即出現。 選取其中一個前端節點，然後選取 [NameNode UI]。
 
-    ![展開 [快速連結] 功能表的影像](./media/hdinsight-linux-ambari-ssh-tunnel/namenodedropdown.png)
+    ![展開 [快速連結] 功能表的影像](./media/hdinsight-linux-ambari-ssh-tunnel/namenode-drop-down-menu.png)
 
     > [!NOTE]  
-    > 當您選取 [快速連結]  時，可能會出現等候指示器。 如果您的網際網路連線速度較慢，可能會發生這種情況。 請等候一兩分鐘，讓系統從伺服器接收資料，然後再次嘗試列出作業。
+    > 當您選取 [快速連結] 時，可能會出現等候指示器。 如果您的網際網路連線速度較慢，可能會發生這種情況。 請等候一兩分鐘，讓系統從伺服器接收資料，然後再次嘗試列出作業。
     >
-    > 螢幕右側可能會切掉 [快速連結]  功能表中的部分項目。 若是如此，請使用滑鼠展開功能表，然後使用向右鍵將畫面捲動到右邊，以查看功能表的其餘部分。
+    > 螢幕右側可能會切掉 [快速連結] 功能表中的部分項目。 若是如此，請使用滑鼠展開功能表，然後使用向右鍵將畫面捲動到右邊，以查看功能表的其餘部分。
 
 4. 將會顯示與下圖類似的頁面：
 
-    ![NameNode UI 的影像](./media/hdinsight-linux-ambari-ssh-tunnel/namenode.png)
+    ![NameNode UI 的影像](./media/hdinsight-linux-ambari-ssh-tunnel/hdinsight-namenode-ui.png)
 
     > [!NOTE]  
-    > 請注意此頁面的 URL它應該會類似於`http://hn1-CLUSTERNAME.randomcharacters.cx.internal.cloudapp.net:8088/cluster`。 此 URI 使用節點的內部完整網域名稱 (FQDN)，而且必須使用 SSH 通道才能存取。
+    > 請注意此頁面的 URL;它應該類似`http://hn1-CLUSTERNAME.randomcharacters.cx.internal.cloudapp.net:8088/cluster`。 此 URI 使用節點的內部完整網域名稱 (FQDN)，而且必須使用 SSH 通道才能存取。
 
 ## <a name="next-steps"></a>後續步驟
 
