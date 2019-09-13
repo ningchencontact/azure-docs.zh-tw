@@ -7,6 +7,14 @@
       href: Home.md
 - name: 快速入門
   items:
+    - name: 使用用戶端 SDK
+      items:
+        - name: .NET SDK
+          href: quickstarts-sdk/csharp-sdk.md
+        - name: Python SDK
+          href: quickstarts-sdk/python-sdk.md
+        - name: Java SDK
+          href: quickstarts-sdk/java-sdk.md
     - name: 使用 REST API
       items:
         - name: 分析遠端影像
@@ -75,18 +83,6 @@
           items:
             - name: Python
               href: QuickStarts/python-domain.md
-    - name: 使用 .NET SDK
-      items:
-        - name: 分析影像
-          href: quickstarts-sdk/csharp-analyze-sdk.md
-        - name: 產生縮圖
-          href: quickstarts-sdk/csharp-thumb-sdk.md
-        - name: 擷取文字
-          href: quickstarts-sdk/csharp-hand-text-sdk.md
-    - name: 使用 Python SDK
-      href: quickstarts-sdk/python-sdk.md
-    - name: 使用 Java SDK
-      href: quickstarts-sdk/java-sdk.md
 - name: 教學課程
   items:
     - name: 產生映像的中繼資料
