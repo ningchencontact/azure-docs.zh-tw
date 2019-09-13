@@ -49,7 +49,7 @@ PUT /subscriptions/{subscription-id}/resourceGroups/examplegroup/providers/Micro
 
 | 屬性 | 類型 | 描述 |
 | -------- | ---- | ----------- |
-| includedEventTypes | 陣列 | 事件訊息中的事件類型完全符合這些事件類型名稱其中之一時，即會符合。 事件名稱不符合事件來源的已註冊事件類型名稱時，會引發錯誤。 預設會符合所有事件類型。 |
+| includedEventTypes | array | 事件訊息中的事件類型完全符合這些事件類型名稱其中之一時，即會符合。 事件名稱不符合事件來源的已註冊事件類型名稱時，會引發錯誤。 預設會符合所有事件類型。 |
 | subjectBeginsWith | string | 事件訊息中對主體欄位的前置詞符合篩選。 預設值或空字串會符合全部。 | 
 | subjectEndsWith | string | 事件訊息中對主體欄位的後置詞符合篩選。 預設值或空字串會符合全部。 |
 | isSubjectCaseSensitive | string | 控制篩選的區分大小寫比對。 |
