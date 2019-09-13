@@ -15,19 +15,19 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/23/2019
 ms.author: mlottner
-ms.openlocfilehash: ffc6ea447ae90649be0455abbed6245c078e518d
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: 18031400155b92f243877ae8c8d7a56e1d5295a0
+ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68596353"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70933652"
 ---
 # <a name="select-and-deploy-a-security-agent-on-your-iot-device"></a>在 IoT 裝置上選取並部署安全性代理程式
 
-適用于 IoT 的 Azure 資訊安全中心會提供安全性代理程式的參考架構, 以監視及收集來自 IoT 裝置的資料。
-若要深入瞭解, 請參閱[安全性代理程式參考架構](security-agent-architecture.md)。
+適用于 IoT 的 Azure 資訊安全中心會提供安全性代理程式的參考架構，以監視及收集來自 IoT 裝置的資料。
+若要深入瞭解，請參閱[安全性代理程式參考架構](security-agent-architecture.md)。
 
-代理程式是以開放原始碼專案的方式開發, 而且有兩種類別: <br> [C](https://aka.ms/iot-security-github-c)、和[C#](https://aka.ms/iot-security-github-cs)。
+代理程式是以開放原始碼專案的方式開發，而且有兩種類別： <br> [C](https://aka.ms/iot-security-github-c)、和[C#](https://aka.ms/iot-security-github-cs)。
 
 在本文中，您將了解： 
 > [!div class="checklist"]
@@ -37,9 +37,9 @@ ms.locfileid: "68596353"
 
 ## <a name="understand-security-agent-options"></a>瞭解安全性代理程式選項
 
-IoT 安全性代理程式類別的每個 Azure 資訊安全中心都提供一組相同的功能, 並支援類似的設定選項。 
+IoT 安全性代理程式類別的每個 Azure 資訊安全中心都提供一組相同的功能，並支援類似的設定選項。 
 
-以 C 為基礎的安全性代理程式具有較低的記憶體使用量, 而且是較少可用資源之裝置的理想選擇。 
+以 C 為基礎的安全性代理程式具有較低的記憶體使用量，而且是較少可用資源之裝置的理想選擇。 
 
 |     | 以 C 為基礎的安全性代理程式 | C#以為基礎的安全性代理程式 |
 | --- | ----------- | --------- |
@@ -47,10 +47,10 @@ IoT 安全性代理程式類別的每個 Azure 資訊安全中心都提供一組
 | 開發語言    | C | C# |
 | 支援的 Windows 平臺？ | 否 | 是 |
 | Windows 必要條件 | --- | [WMI](https://docs.microsoft.com/windows/desktop/wmisdk/) |
-| 支援的 Linux 平臺？ | 是, x64 和 x86 | 是, 僅限 x64 |
+| 支援的 Linux 平臺？ | 是，x64 和 x86 | 是，僅限 x64 |
 | Linux 必要條件 | libunwind8、libcurl3、uuid-runtime、auditd、audispd-外掛程式 | libunwind8、libcurl3、uuid-runtime、auditd、audispd-外掛程式、sudo、netstat、iptables |
 | 磁片使用量 | 10.5 MB | 90 MB |
-| 記憶體使用量 (平均) | 5.5 MB | 33 MB |
+| 記憶體使用量（平均） | 5.5 MB | 33 MB |
 | IoT 中樞的[驗證](concept-security-agent-authentication-methods.md) | 是 | 是 |
 | 安全性資料[收集](how-to-agent-configuration.md#supported-security-events) | 是 | 是 |
 | 事件彙總 | 是 | 是 |
@@ -66,7 +66,7 @@ IoT 安全性代理程式類別的每個 Azure 資訊安全中心都提供一組
 
 ## <a name="choose-an-agent-flavor"></a>選擇代理程式類別 
 
-回答下列有關 IoT 裝置的問題, 以選取正確的代理程式:
+回答下列有關 IoT 裝置的問題，以選取正確的代理程式：
 
 - 您使用的是_Windows Server_或_windows IoT 核心_版嗎？ 
 
@@ -78,11 +78,11 @@ IoT 安全性代理程式類別的每個 Azure 資訊安全中心都提供一組
 
 - 您是否使用 x64 架構的 Linux 散發套件？
 
-    您可以使用任一種代理程式類別。 <br>
+    您可以使用這兩種代理程式類別。 <br>
     [為 Linux 部署以 C 為基礎的安全性代理程式](how-to-deploy-linux-c.md)及/或[部署C#適用于 linux 的安全性代理程式](how-to-deploy-linux-cs.md)。
 
-這兩種代理程式種類都提供一組相同的功能, 並支援類似的設定選項。
-若要深入瞭解, 請參閱[安全性代理程式比較](how-to-deploy-agent.md#understand-security-agent-options)。
+這兩種代理程式種類都提供一組相同的功能，並支援類似的設定選項。
+若要深入瞭解，請參閱[安全性代理程式比較](how-to-deploy-agent.md#understand-security-agent-options)。
 
 ## <a name="supported-platforms"></a>支援的平台
 
@@ -97,11 +97,11 @@ IoT 安全性代理程式類別的每個 Azure 資訊安全中心都提供一組
 |C#|Ubuntu 18.04    |x64|
 |C#|Debian 9    |x64|
 |C#|Windows Server 2016|    X64|
-|C#|Windows 10 IoT Core 組建 17763 |x64|
+|C#|Windows 10 IoT 核心版，組建17763    |x64|
 |
 
 ## <a name="next-steps"></a>後續步驟
 
-若要深入瞭解設定選項, 請繼續進行代理程式設定的操作指南。 
+若要深入瞭解設定選項，請繼續進行代理程式設定的操作指南。 
 > [!div class="nextstepaction"]
 > [代理程式設定操作說明指南](./how-to-agent-configuration.md)

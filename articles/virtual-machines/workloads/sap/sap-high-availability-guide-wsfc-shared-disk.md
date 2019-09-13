@@ -224,7 +224,7 @@ SAP ASCS/SCS 執行個體包含下列元件：
 
 
 * SAP 全域主機檔案：
-  * 檔案結構:S:\usr\sap\\ SID&lt; \SYS\.。&gt;
+  * 檔案結構:S:\usr\sap\\ SID&lt; \SYS\...&gt;
   * sapmnt 檔案共用，可利用下列 UNC 路徑，供存取這些全域 S:\usr\sap\\&lt;SID&gt;\SYS\... 檔案：
 
     \\\\< ASCS/SCS 虛擬主機名稱\>\sapmnt\\ &lt;SID&gt;\SYS\...
