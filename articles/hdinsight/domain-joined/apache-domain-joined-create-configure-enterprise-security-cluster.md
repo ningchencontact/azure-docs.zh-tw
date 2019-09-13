@@ -306,7 +306,7 @@ New-SelfSignedCertificate -Subject hdifabrikam.com `
         |---|---|
         | Source | Any |
         | Source port ranges | * |
-        | 目的地 | Any |
+        | Destination | Any |
         | Destination port range | 636 |
         | Protocol | Any |
         | Action | 允許 |
