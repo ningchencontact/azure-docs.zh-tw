@@ -292,7 +292,7 @@ Spark & Hive 工具可以安裝在 Visual Studio Code 支援的平臺上, 包括
 
     | name | description | Type | 
     | :- | :- | :- | 
-    | 檔案 | 要執行的應用程式所在的檔案 | 路徑 (必要) |
+    | file | 要執行的應用程式所在的檔案 | 路徑 (必要) |
     | proxyUser | 要在執行作業時模擬的使用者 | String |
     | className | 應用程式 Java/Spark 主要類別 | String |
     | args | 應用程式的命令列引數 | 字串清單 |
@@ -317,8 +317,8 @@ Spark & Hive 工具可以安裝在 Visual Studio Code 支援的平臺上, 包括
     | id | 工作階段識別碼 | Int | 
     | appId | 此會話的應用程式識別碼 | String |
     | appInfo | 詳細的應用程式資訊 | key=val 的對應 |
-    | 記錄檔 | 記錄行 | 字串清單 |
-    | 狀態 |批次狀態 | String |
+    | log | 記錄行 | 字串清單 |
+    | state |批次狀態 | String |
 
     >[!NOTE]
     >當您提交腳本時，會在 [輸出] 窗格中顯示指派的 Livy 設定。
