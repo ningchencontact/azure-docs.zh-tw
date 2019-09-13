@@ -8,26 +8,26 @@ ms.topic: include
 ms.date: 08/15/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: db8147717e825d9cc48b7f0704dc5eea0be223a9
-ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
+ms.openlocfilehash: 3f910a3d0466153bd60fe23ef2f9f656cac292ee
+ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69510346"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70919653"
 ---
 # <a name="using-azure-ultra-disks"></a>使用 Azure ultra 磁片
 
-Azure ultra 磁片提供高輸送量、高 IOPS 以及一致的低延遲磁片儲存體, 適用于 Azure IaaS 虛擬機器 (Vm)。 這個新的供應項目可提供絕佳的效能，同時保有我們現有磁碟供應項目的相同可用性層級。 Ultra 磁片的一個主要優點是能夠以動態方式變更 SSD 的效能和您的工作負載, 而不需要重新開機您的 Vm。 Ultra 磁片適用于資料密集的工作負載, 例如 SAP Hana、最上層資料庫, 以及高交易量的工作負載。
+Azure ultra 磁片提供高輸送量、高 IOPS 以及一致的低延遲磁片儲存體，適用于 Azure IaaS 虛擬機器（Vm）。 這個新的供應項目可提供絕佳的效能，同時保有我們現有磁碟供應項目的相同可用性層級。 Ultra 磁片的一個主要優點是能夠以動態方式變更 SSD 的效能和您的工作負載，而不需要重新開機您的 Vm。 Ultra 磁片適用于資料密集的工作負載，例如 SAP Hana、最上層資料庫，以及高交易量的工作負載。
 
 ## <a name="check-if-your-subscription-has-access"></a>檢查您的訂用帳戶是否有存取權
 
-如果您已註冊 ultra 磁片, 而您想要檢查是否已為 ultra 磁片啟用您的訂用帳戶, 請使用下列其中一個命令: 
+如果您已註冊 ultra 磁片，而您想要檢查是否已為 ultra 磁片啟用您的訂用帳戶，請使用下列其中一個命令： 
 
 CLI：`az feature show --namespace Microsoft.Compute --name UltraSSD`
 
 PowerShell：`Get-AzProviderFeature -ProviderNamespace Microsoft.Compute -FeatureName UltraSSD`
 
-如果您的訂用帳戶已啟用, 則您的輸出應該看起來像這樣:
+如果您的訂用帳戶已啟用，則您的輸出應該看起來像這樣：
 
 ```bash
 {
@@ -42,7 +42,7 @@ PowerShell：`Get-AzProviderFeature -ProviderNamespace Microsoft.Compute -Featur
 
 ## <a name="determine-your-availability-zone"></a>判斷您的可用性區域
 
-一經核准, 您就必須判斷您所在的可用性區域, 才能使用 ultra 磁片。 執行下列其中一個命令, 以判斷要將您的 ultra 磁片部署到哪個區域, 請務必先取代**region**、 **vmSize**和**訂**用帳戶值:
+一經核准，您就必須判斷您所在的可用性區域，才能使用 ultra 磁片。 執行下列其中一個命令，以判斷要將您的 ultra 磁片部署到哪個區域，請務必先取代**region**、 **vmSize**和**訂**用帳戶值：
 
 CLI：
 
@@ -62,38 +62,38 @@ $vmSize = "Standard_E64s_v3"
 (Get-AzComputeResourceSku | where {$_.Locations.Contains($region) -and ($_.Name -eq $vmSize) -and $_.LocationInfo[0].ZoneDetails.Count -gt 0})[0].LocationInfo[0].ZoneDetails
 ```
 
-回應會類似下圖, 其中 X 是要用於在您選擇的區域中部署的區域。 X 可能是 1、2 或 3。 目前只有三個區域支援 ultra 磁片, 它們是:美國東部2、東南亞和北歐。
+回應會類似下圖，其中 X 是要用於在您選擇的區域中部署的區域。 X 可能是 1、2 或 3。 目前只有三個區域支援 ultra 磁片，它們是：美國東部2、東南亞和北歐。
 
-保留 [**區域**] 值, 它代表您的可用性區域, 而您將需要它來部署 Ultra 磁片。
+保留 [**區域**] 值，它代表您的可用性區域，而您將需要它來部署 Ultra 磁片。
 
 |ResourceType  |Name  |Location  |區域  |限制  |功能  |值  |
 |---------|---------|---------|---------|---------|---------|---------|
 |磁碟     |UltraSSD_LRS         |eastus2         |X         |         |         |         |
 
 > [!NOTE]
-> 如果命令沒有回應, 則您對功能的註冊可能仍在擱置中, 或者您使用的是舊版的 CLI 或 PowerShell。
+> 如果命令沒有回應，則您對功能的註冊可能仍在擱置中，或者您使用的是舊版的 CLI 或 PowerShell。
 
-既然您已經知道要部署的區域, 請遵循本文中的部署步驟, 部署已連接 ultra 磁片的 VM, 或將 ultra 磁片連結至現有的 VM。
+既然您已經知道要部署的區域，請遵循本文中的部署步驟，部署已連接 ultra 磁片的 VM，或將 ultra 磁片連結至現有的 VM。
 
 ## <a name="deploy-an-ultra-disk-using-azure-resource-manager"></a>使用 Azure Resource Manager 部署 ultra 磁片
 
-首先, 決定要部署的 VM 大小。 目前, 只有 DsV3 和 EsV3 VM 系列支援 ultra 磁片。 如需有關這些 VM 大小的其他詳細資訊，請參閱此[部落格](https://azure.microsoft.com/blog/introducing-the-new-dv3-and-ev3-vm-sizes/) \(英文\) 的第二個表格。
+首先，決定要部署的 VM 大小。 目前，只有 DsV3 和 EsV3 VM 系列支援 ultra 磁片。 如需有關這些 VM 大小的其他詳細資訊，請參閱此[部落格](https://azure.microsoft.com/blog/introducing-the-new-dv3-and-ev3-vm-sizes/) \(英文\) 的第二個表格。
 
-如果您想要建立具有多個 ultra 磁片的 VM, 請參閱[使用多個 ultra 磁片建立 vm](https://aka.ms/UltraSSDTemplate)的範例。
+如果您想要建立具有多個 ultra 磁片的 VM，請參閱[使用多個 ultra 磁片建立 vm](https://aka.ms/ultradiskArmTemplate)的範例。
 
-如果您想要使用自己的範本, 請確定`Microsoft.Compute/virtualMachines`和`Microsoft.Compute/Disks`的**apiVersion**設定為`2018-06-01` (或更新版本)。
+如果您想要使用自己的範本，請確定`Microsoft.Compute/virtualMachines`和`Microsoft.Compute/Disks`的**apiVersion**設定為`2018-06-01` （或更新版本）。
 
-將磁片 sku 設定為**UltraSSD_LRS**, 然後設定磁片容量、IOPS、可用性區域和輸送量 (以 MBps 為單位), 以建立 ultra 磁片。
+將磁片 sku 設定為**UltraSSD_LRS**，然後設定磁片容量、IOPS、可用性區域和輸送量（以 MBps 為單位），以建立 ultra 磁片。
 
 一旦佈建 VM，您就可以將資料磁碟分割和格式化，並針對你的工作負載設定它們。
 
 ## <a name="deploy-an-ultra-disk-using-cli"></a>使用 CLI 部署 ultra 磁片
 
-首先, 決定要部署的 VM 大小。 目前, 只有 DsV3 和 EsV3 VM 系列支援 ultra 磁片。 如需有關這些 VM 大小的其他詳細資訊，請參閱此[部落格](https://azure.microsoft.com/blog/introducing-the-new-dv3-and-ev3-vm-sizes/) \(英文\) 的第二個表格。
+首先，決定要部署的 VM 大小。 目前，只有 DsV3 和 EsV3 VM 系列支援 ultra 磁片。 如需有關這些 VM 大小的其他詳細資訊，請參閱此[部落格](https://azure.microsoft.com/blog/introducing-the-new-dv3-and-ev3-vm-sizes/) \(英文\) 的第二個表格。
 
-您必須建立能夠使用 ultra 磁片的 VM, 才能連接 ultra 磁片。
+您必須建立能夠使用 ultra 磁片的 VM，才能連接 ultra 磁片。
 
-以您自己的值取代或設定 **$vmname**、 **$rgname**、 **$diskname**、 **$location**、 **$password**、 **$user**變數。 將 **$zone**設定為您從本文[開頭](#determine-your-availability-zone)處獲得的可用性區域值。 然後執行下列 CLI 命令, 以建立已啟用 ultra 的 VM:
+以您自己的值取代或設定 **$vmname**、 **$rgname**、 **$diskname**、 **$location**、 **$password**、 **$user**變數。 將 **$zone**設定為您從本文[開頭](#determine-your-availability-zone)處獲得的可用性區域值。 然後執行下列 CLI 命令，以建立已啟用 ultra 的 VM：
 
 ```azurecli-interactive
 az vm create --subscription $subscription -n $vmname -g $rgname --image Win2016Datacenter --ultra-ssd-enabled true --zone $zone --authentication-type password --admin-password $password --admin-username $user --size Standard_D4s_v3 --location $location
@@ -101,7 +101,7 @@ az vm create --subscription $subscription -n $vmname -g $rgname --image Win2016D
 
 ### <a name="create-an-ultra-disk-using-cli"></a>使用 CLI 建立 ultra 磁片
 
-現在您已有能夠連接 ultra 磁片的 VM, 您可以建立 ultra 磁片並將其連結至該虛擬機器。
+現在您已有能夠連接 ultra 磁片的 VM，您可以建立 ultra 磁片並將其連結至該虛擬機器。
 
 ```azurecli-interactive
 $location="eastus2"
@@ -126,7 +126,7 @@ az disk create `
 
 ## <a name="attach-an-ultra-disk-to-a-vm-using-cli"></a>使用 CLI 將 ultra 磁片連結至 VM
 
-或者, 如果您現有的 VM 位於能夠使用 ultra 磁片的區域/可用性區域中, 您可以使用 ultra 磁片, 而不需要建立新的 VM。
+或者，如果您現有的 VM 位於能夠使用 ultra 磁片的區域/可用性區域中，您可以使用 ultra 磁片，而不需要建立新的 VM。
 
 ```bash
 $rgName = "<yourResourceGroupName>"
@@ -139,7 +139,7 @@ az vm disk attach -g $rgName --vm-name $vmName --disk $diskName --subscription $
 
 ### <a name="adjust-the-performance-of-an-ultra-disk-using-cli"></a>使用 CLI 調整 ultra 磁片的效能
 
-Ultra 磁片提供獨特的功能, 可讓您調整其效能, 下列命令會描述如何使用這項功能:
+Ultra 磁片提供獨特的功能，可讓您調整其效能，下列命令會描述如何使用這項功能：
 
 ```azurecli-interactive
 az disk update `
@@ -152,9 +152,9 @@ az disk update `
 
 ## <a name="deploy-an-ultra-disk-using-powershell"></a>使用 PowerShell 部署 ultra 磁片
 
-首先, 決定要部署的 VM 大小。 目前, 只有 DsV3 和 EsV3 VM 系列支援 ultra 磁片。 如需有關這些 VM 大小的其他詳細資訊，請參閱此[部落格](https://azure.microsoft.com/blog/introducing-the-new-dv3-and-ev3-vm-sizes/) \(英文\) 的第二個表格。
+首先，決定要部署的 VM 大小。 目前，只有 DsV3 和 EsV3 VM 系列支援 ultra 磁片。 如需有關這些 VM 大小的其他詳細資訊，請參閱此[部落格](https://azure.microsoft.com/blog/introducing-the-new-dv3-and-ev3-vm-sizes/) \(英文\) 的第二個表格。
 
-若要使用 ultra 磁片, 您必須建立能夠使用 ultra 磁片的 VM。 以您自己的值取代或設定 **$resourcegroup**和 **$vmName**變數。 將 **$zone**設定為您從本文[開頭](#determine-your-availability-zone)處獲得的可用性區域值。 然後執行下列[update-azvm](/powershell/module/az.compute/new-azvm)命令, 以建立已啟用 ULTRA 的 VM:
+若要使用 ultra 磁片，您必須建立能夠使用 ultra 磁片的 VM。 以您自己的值取代或設定 **$resourcegroup**和 **$vmName**變數。 將 **$zone**設定為您從本文[開頭](#determine-your-availability-zone)處獲得的可用性區域值。 然後執行下列[update-azvm](/powershell/module/az.compute/new-azvm)命令，以建立已啟用 ULTRA 的 VM：
 
 ```powershell
 New-AzVm `
@@ -169,7 +169,7 @@ New-AzVm `
 
 ### <a name="create-an-ultra-disk-using-powershell"></a>使用 PowerShell 建立 ultra 磁片
 
-現在您有一個能夠使用 ultra 磁片的 VM, 您可以建立一個 ultra 磁片並將其連接到它:
+現在您有一個能夠使用 ultra 磁片的 VM，您可以建立一個 ultra 磁片並將其連接到它：
 
 ```powershell
 $diskconfig = New-AzDiskConfig `
@@ -189,7 +189,7 @@ New-AzDisk `
 
 ## <a name="attach-an-ultra-disk-to-a-vm-using-powershell"></a>使用 PowerShell 將 ultra 磁片連結至 VM
 
-或者, 如果您現有的 VM 位於能夠使用 ultra 磁片的區域/可用性區域中, 您可以使用 ultra 磁片, 而不需要建立新的 VM。
+或者，如果您現有的 VM 位於能夠使用 ultra 磁片的區域/可用性區域中，您可以使用 ultra 磁片，而不需要建立新的 VM。
 
 ```powershell
 # add disk to VM
@@ -207,7 +207,7 @@ Update-AzVM -VM $vm -ResourceGroupName $resourceGroup
 
 ### <a name="adjust-the-performance-of-an-ultra-disk-using-powershell"></a>使用 PowerShell 調整 ultra 磁片的效能
 
-Ultra 磁片具有獨特的功能, 可讓您調整其效能, 下列命令是在不需要卸離磁片的情況下調整效能的範例:
+Ultra 磁片具有獨特的功能，可讓您調整其效能，下列命令是在不需要卸離磁片的情況下調整效能的範例：
 
 ```powershell
 $diskupdateconfig = New-AzDiskUpdateConfig -DiskMBpsReadWrite 2000
@@ -216,4 +216,4 @@ Update-AzDisk -ResourceGroupName $resourceGroup -DiskName $diskName -DiskUpdate 
 
 ## <a name="next-steps"></a>後續步驟
 
-如果您想要嘗試新的磁片類型, 請[使用這份問卷要求存取權](https://aka.ms/UltraDiskSignup)。
+如果您想要嘗試新的磁片類型，請[使用這份問卷要求存取權](https://aka.ms/UltraDiskSignup)。

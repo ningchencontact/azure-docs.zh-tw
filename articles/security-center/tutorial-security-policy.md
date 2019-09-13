@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 7/18/2019
 ms.author: v-mohabe
-ms.openlocfilehash: 4550532d36753d9b8ed472193bc833855ddd34c9
-ms.sourcegitcommit: da0a8676b3c5283fddcd94cdd9044c3b99815046
+ms.openlocfilehash: 1820c31053c13a0f3039812b31df415bc9fa4fdc
+ms.sourcegitcommit: d70c74e11fa95f70077620b4613bb35d9bf78484
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68314924"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70910365"
 ---
 # <a name="working-with-security-policies"></a>使用安全性原則
 
@@ -64,19 +64,19 @@ Azure 原則由下列元件組成：
 
 若要在資訊安全中心檢視安全性原則：
 
-1. 在 [資訊安全中心]  儀表板上，選取 [安全性解決方案]  。
+1. 在 [資訊安全中心] 儀表板上，選取 [安全性解決方案]。
 
     ![原則管理窗格](./media/security-center-policies/security-center-policy-mgt.png)
 
-   在 [原則管理]  畫面中，您可以看到管理群組、訂用帳戶和工作區數目，以及您的管理群組結構。
+   在 [原則管理] 畫面中，您可以看到管理群組、訂用帳戶和工作區數目，以及您的管理群組結構。
 
    > [!NOTE]
-   > 資訊安全中心儀表板在 [訂用帳戶涵蓋範圍]  之下顯示的訂用帳戶數目，比在 [原則管理]  之下顯示的訂用帳戶數目還要多。 訂用帳戶涵蓋範圍會顯示標準、免費和「未涵蓋」的訂用帳戶數目。 「未涵蓋」訂用帳戶並未啟用資訊安全中心，而且不會顯示在 [原則管理]  之下。
+   > 資訊安全中心儀表板在 [訂用帳戶涵蓋範圍] 之下顯示的訂用帳戶數目，比在 [原則管理] 之下顯示的訂用帳戶數目還要多。 訂用帳戶涵蓋範圍會顯示標準、免費和「未涵蓋」的訂用帳戶數目。 「未涵蓋」訂用帳戶並未啟用資訊安全中心，而且不會顯示在 [原則管理] 之下。
    >
 
 2. 選取要檢視其原則的訂用帳戶或管理群組。
 
-   - [安全性原則]  畫面反映了在您選取的訂用帳戶或管理群組上指派的原則所採取的動作。
+   - [安全性原則] 畫面反映了在您選取的訂用帳戶或管理群組上指派的原則所採取的動作。
    - 在頂端，使用提供的連結開啟套用於訂用帳戶或管理群組的每個原則**指派**。 您可以使用連結存取指派，並編輯或停用原則。 例如，如果您看到特定原則指派有效地拒絕端點保護，則可以使用該連結來存取原則，以及編輯或停用原則。
    - 在原則清單中，您可以在訂用帳戶或管理群組中查看原則的有效應用。 這表示套用至範圍之每個原則的設定會納入考量，並向您提供原則採取之動作的累加結果。 例如，如果原則在一個指派中已停用，但在另一個指派中它被設定為 AuditIfNotExist，則累加的效果就會套用 AuditIfNotExist。 更積極的效果一律會優先使用。
    - 原則的效果可以是：Append、Audit、AuditIfNotExists、Deny、DeployIfNotExists、Disabled。 如需如何套用效果的相關詳細資訊，請參閱[了解原則效果](../governance/policy/concepts/effects.md)。
@@ -96,7 +96,7 @@ Azure 原則由下列元件組成：
 
 ## <a name="disable-security-policies"></a>停用安全性原則
 如果預設的安全性原則正在產生與您的環境無關的建議, 您可以停用傳送建議的原則定義來停止它。
-如需有關建議的進一步資訊, 請參閱[管理安全性建議](security-center-recommendations.md)。
+如需有關建議的詳細資訊，請參閱[管理安全性建議](security-center-recommendations.md)。
 
 1. 在資訊安全中心中, 從 [**原則 & 相容性**] 區段中, 按一下 [**安全性原則**]。
 
@@ -114,7 +114,7 @@ Azure 原則由下列元件組成：
 1. 在 [**參數**] 區段中, 搜尋叫用您想要停用之建議的原則, 然後從下拉式清單中選取 [**已停用**]
 
    ![停用原則](./media/tutorial-security-policy/disable-policy.png)
-1. 按一下 [儲存]  。
+1. 按一下 [儲存]。
    > [!Note]
    > 停用原則變更最多可能需要12小時才會生效。
 
@@ -131,7 +131,7 @@ Azure 原則中的重要概念：
 
 - **指派**是將方案或原則應用至特定範圍 (管理群組、訂用帳戶等) 
 
-資訊安全中心有內建的方案，其中包含所有其安全性原則。 若要評估 Azure 資源上的資訊安全中心原則，您應該建立管理群組的指派，或您想要評估的訂用帳戶。  
+資訊安全中心有內建的方案，其中包含所有其安全性原則。 若要評估 Azure 資源上的資訊安全中心原則，您應該建立管理群組的指派，或您想要評估的訂用帳戶。
 
 內建的方案都有預設啟用的所有資訊安全中心原則。 您可以選擇停用內建方案的特定原則，例如，您可以藉由將原則的效果參數值變更為**已停用**來套用所有資訊安全中心的原則，除了 **Web 應用程式防火牆**。 
 
@@ -231,7 +231,7 @@ Azure 原則中的重要概念：
 |自適性應用程式控制 |在 Azure 資訊安全中心中監視可能的應用程式允許清單 |adaptiveApplicationControlsMonitoringEffect|
 |網路安全性群組 |在 Azure 資訊安全中心中監視寬鬆的網路存取 |networkSecurityGroupsMonitoringEffect| 
 |安全性設定 |在 Azure 資訊安全中心中監視 OS 弱點 |systemConfigurationsMonitoringEffect| 
-|端點保護 |在 Azure 資訊安全中心中監視缺少的 Endpoint Protection |endpointProtectionMonitoringEffect |
+|Endpoint Protection |在 Azure 資訊安全中心中監視缺少的 Endpoint Protection |endpointProtectionMonitoringEffect |
 |磁碟加密 |在 Azure 資訊安全中心中監視未加密的 VM 磁碟 |diskEncryptionMonitoringEffect|
 |弱點評估 |在 Azure 資訊安全中心中監視 VM 的弱點 |vulnerabilityAssessmentMonitoringEffect|
 |Web 應用程式防火牆 |在 Azure 資訊安全中心中監視未受保護的 Web 應用程式 |webApplicationFirewallMonitoringEffect |

@@ -2,19 +2,19 @@
 title: Durable Functions 中的永久性協調流程 - Azure
 description: 了解如何使用 Azure Functions 的 Durable Functions 擴充來實作永久性協調流程。
 services: functions
-author: ggailey777
+author: cgillum
 manager: jeconnoc
 keywords: ''
 ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 788693698e75a24269e29c54e03af35c1853f1f6
-ms.sourcegitcommit: 97605f3e7ff9b6f74e81f327edd19aefe79135d2
+ms.openlocfilehash: dbe51eddcf748843fd90cc533063fd25e7c282fd
+ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70735200"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70933373"
 ---
 # <a name="eternal-orchestrations-in-durable-functions-azure-functions"></a>Durable Functions (Azure Functions) 中的永久性協調流程
 
@@ -22,7 +22,7 @@ ms.locfileid: "70735200"
 
 ## <a name="orchestration-history"></a>協調流程記錄
 
-如[檢查點檢查和重新執行](durable-functions-checkpointing-and-replay.md)中所述，「永久性工作架構」會持續追蹤每個函式協調流程的記錄。 只要協調器函式繼續排程新的工作，此記錄就會持續成長。 如果協調器函式進入無限迴圈，並持續排程工作，此記錄可能會變得非常大，而造成明顯的效能問題。 「永久協調流程」概念是設計讓需要無限迴圈的應用程式減少發生這類問題。
+如[協調流程歷程記錄](durable-functions-orchestrations.md#orchestration-history)主題中所述，長期工作架構會持續追蹤每個函式協調流程的歷程記錄。 只要協調器函式繼續排程新的工作，此記錄就會持續成長。 如果協調器函式進入無限迴圈，並持續排程工作，此記錄可能會變得非常大，而造成明顯的效能問題。 「永久協調流程」概念是設計讓需要無限迴圈的應用程式減少發生這類問題。
 
 ## <a name="resetting-and-restarting"></a>重設和重新啟動
 

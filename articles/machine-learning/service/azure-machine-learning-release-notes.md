@@ -10,12 +10,12 @@ ms.author: jmartens
 author: j-martens
 ms.date: 08/19/2019
 ms.custom: seodec18
-ms.openlocfilehash: 48da5e27184076676edb3f3b89b478bcf2fe347f
-ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
+ms.openlocfilehash: 2721e134e03d3d622e61085dc39a2914098ba570
+ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70900458"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70930731"
 ---
 # <a name="azure-machine-learning-service-release-notes"></a>Azure Machine Learning 服務版本資訊
 
@@ -25,7 +25,7 @@ ms.locfileid: "70900458"
 
 ## <a name="2019-09-09"></a>2019-09-09
 
-### <a name="new-web-experience-for-azure-machine-learning-workspaces-preview"></a>Azure Machine Learning 工作區的新 web 體驗（預覽）
+### <a name="new-web-experience-preview-for-azure-machine-learning-workspaces"></a>適用于 Azure Machine Learning 工作區的新 web 體驗（預覽） 
 新的 web 體驗可讓資料科學家和資料工程師完成其端對端機器學習服務生命週期，從準備和視覺化資料，到在單一位置訓練和部署模型。 
 
 ![Azure Machine Learning 工作區 UI （預覽）](./media/azure-machine-learning-release-notes/new-ui-for-workspaces.jpg)

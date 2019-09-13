@@ -12,24 +12,24 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 05/08/2019
 ms.author: mbullwin
-ms.openlocfilehash: 5b719566ce42639c0c435a8d631e12541d0a0e9d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 73f62ff8c95fae694a43df48aa99b696fb05d131
+ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66256631"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70916269"
 ---
 # <a name="set-up-application-insights-for-your-aspnet-website"></a>設定 ASP.NET 網站的 Application Insights
 
 此程序會設定 ASP.NET web 應用程式以將遙測傳送至 [Azure Application Insights](../../azure-monitor/app/app-insights-overview.md) 服務。 這適用於在您擁有的內部部署 IIS 伺服器或雲端中託管的 ASP.NET 應用程式。 取得圖表和功能強大的查詢語言可幫助您了解您應用程式的效能以及人員如何使用它，再加上發生失敗或效能問題時的自動警示。 許多開發人員發現這些功能本身就很棒，但是您也可以視需要擴充和自訂遙測。
 
-在 Visual Studio 中只需按幾下滑鼠即可進行安裝。 您可以選擇限制遙測的磁碟區來避免產生費用。 這項功能可讓您實驗和偵錯，或使用不多的使用者監視網站。 當您決定要繼續監視您的生產網站時，很容易在稍後提升限制。
+在 Visual Studio 中只需按幾下滑鼠即可進行安裝。 您可以選擇限制遙測的磁碟區來避免產生費用。 此功能可讓您進行實驗和調試，或監視不是許多使用者的網站。 當您決定要繼續監視您的生產網站時，很容易在稍後提升限制。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 若要將 Application Insights 新增至您的 ASP.NET 網站，您必須：
 
-- 安裝[for Windows 的 Visual Studio 2019](https://www.visualstudio.com/downloads/)加上下列工作負載：
-    - ASP.NET 與網頁程式開發 （不取消勾選的選用元件）
+- 使用下列工作負載安裝[適用于 Windows 的 Visual Studio 2019](https://www.visualstudio.com/downloads/) ：
+    - ASP.NET 和 網頁程式開發（請勿取消核取選用元件）
     - Azure 開發
 
 如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶](https://azure.microsoft.com/free/)。
@@ -37,13 +37,13 @@ ms.locfileid: "66256631"
 ## <a name="ide"></a>步驟 1：新增 Application Insights SDK
 
 > [!IMPORTANT]
-> 在此範例中的螢幕擷取畫面是根據 Visual Studio 2017 版本 15.9.9 和更新版本。 將 Application Insights 的體驗是根據版本的 Visual Studio，以及因 ASP.NET 範本類型而異。 較舊版本可能會有替代的文字，例如 [設定 Application Insights]。
+> 此範例中的螢幕擷取畫面是以 Visual Studio 2017 版15.9.9 版和更新版本為基礎。 新增 Application Insights 的體驗會因 Visual Studio 版本以及 ASP.NET 範本類型而有所不同。 較舊的版本可能會有替代文字，例如「設定 Application Insights」。
 
-以滑鼠右鍵按一下您在 方案總管 中的 web 應用程式名稱，然後選擇 **新增** > **Application Insights 遙測**
+在方案總管中，以滑鼠右鍵按一下您的 web 應用程式名稱，然後選擇 [**新增** > ]**Application Insights 遙測**
 
 ![醒目提示 [設定 Application Insights] 的 [方案總管] 螢幕擷取畫面](./media/asp-net/add-telemetry-new.png)
 
-(根據您的 Application Insights SDK 版本，系統可能會提示您升級至最新的 SDK 版本。 如果出現提示，請選取 [更新 SDK]  。)
+(根據您的 Application Insights SDK 版本，系統可能會提示您升級至最新的 SDK 版本。 如果出現提示，請選取 [更新 SDK]。)
 
 ![螢幕擷取畫面：有新版的 Microsoft Application Insights SDK 可供使用。 醒目提示的更新 SDK](./media/asp-net/0002-update-sdk.png)
 
@@ -53,11 +53,13 @@ Application Insights 設定畫面：
 
 ![[向 Application Insights 註冊您的應用程式] 頁面的螢幕擷取畫面](./media/asp-net/00004-start-free.png)
 
-如果您想要設定資源群組，或資料的儲存位置，請按一下 [進行設定]  。 資源群組用來控制資料的存取。 例如，如果您有數個應用程式組成相同系統時，您可能會將其 Application Insights 資料放在相同的資源群組中。
+如果您想要設定資源群組，或資料的儲存位置，請按一下 [進行設定]。 資源群組用來控制資料的存取。 例如，如果您有數個應用程式組成相同系統時，您可能會將其 Application Insights 資料放在相同的資源群組中。
 
- 選取 [註冊]  。
+ 選取 [註冊]。
 
 ![[向 Application Insights 註冊您的應用程式] 頁面的螢幕擷取畫面](./media/asp-net/00005-register-ed.png)
+
+ 選取 [**專案** > ] [**管理 NuGet 套件** > ] [**套件來源]： nuget.org** > 確認您有 Application Insights SDK 的最新穩定版本。
 
  在偵錯期間和您發佈應用程式之後，遙測會傳送至 [Azure 入口網站](https://portal.azure.com)。
 > [!NOTE]
@@ -75,7 +77,7 @@ Application Insights 設定畫面：
 
 ### <a name="see-your-telemetry-in-visual-studio"></a>在 Visual Studio 中查看遙測
 
-在 Visual Studio 中，若要檢視 Application Insights 資料：  選取 [方案總管]   > [已連線的服務]  > 以滑鼠右鍵按一下 [Application Insights]  ，然後按一下 [搜尋即時遙測]  。
+在 Visual Studio 中，若要檢視 Application Insights 資料：  選取 [方案總管] > [已連線的服務] > 以滑鼠右鍵按一下 [Application Insights]，然後按一下 [搜尋即時遙測]。
 
 在 Visual Studio 的 [Application Insights 搜尋] 視窗中，您可以在應用程式的資料中查看應用程式的伺服器端所產生的遙測。 試驗篩選器，然後按一下任何事件以查看更多詳細資料。
 
@@ -91,7 +93,7 @@ Application Insights 設定畫面：
 
 您也可以在 Application Insights Web 入口網站中看到遙測 (除非您選擇只安裝 SDK)。 此入口網站中的圖表、分析工具和跨元件檢視比 Visual Studio 還多。 此入口網站也提供警示。
 
-開啟 Application Insights 資源。 您可以登入 [Azure 入口網站](https://portal.azure.com/)加以尋找，或選取 [方案總管]   > [已連線的服務]  > 以滑鼠右鍵按一下 [Application Insights]   > [開啟 Application Insights 入口網站]  ，而移至該處。
+開啟 Application Insights 資源。 您可以登入 [Azure 入口網站](https://portal.azure.com/)加以尋找，或選取 [方案總管] > [已連線的服務] > 以滑鼠右鍵按一下 [Application Insights] > [開啟 Application Insights 入口網站]，而移至該處。
 
 入口網站會從您的應用程式開啟遙測檢視。
 
@@ -99,10 +101,10 @@ Application Insights 設定畫面：
 
 在入口網站中，按一下任何圖格或圖表以查看詳細資料。
 
-## <a name="step-4-publish-your-app"></a>步驟 4：發佈您的應用程式
+## <a name="step-4-publish-your-app"></a>步驟 4：發行您的應用程式
 將您的應用程式發佈至 IIS 伺服器或 Azure。 監看 [即時計量串流](../../azure-monitor/app/metrics-explorer.md#live-metrics-stream) 以確定一切順利執行。
 
-您的遙測組建設定中 Application Insights 入口網站中，您可以在其中監視計量，搜尋您的遙測。 您也可以使用功能強大的 [Kusto 查詢語言](/azure/kusto/query/)，分析使用狀況和效能或尋找特定事件。
+您的遙測會在 Application Insights 入口網站中建立，您可以在其中監視計量、搜尋您的遙測。 您也可以使用功能強大的 [Kusto 查詢語言](/azure/kusto/query/)，分析使用狀況和效能或尋找特定事件。
 
 您也可以繼續在 [Visual Studio](../../azure-monitor/app/visual-studio.md) 中，以診斷搜尋和[趨勢](../../azure-monitor/app/visual-studio-trends.md)等工具來分析您的遙測。
 
@@ -115,11 +117,11 @@ Application Insights 設定畫面：
 
 恭喜您！ 您在應用程式中安裝了 Application Insights 套件，並將其設定為將遙測傳送至 Azure 上的 Application Insights 服務。
 
-接收您應用程式遙測的 Azure 資源會由檢測金鑰  識別。 您可以在 ApplicationInsights.config 檔案中找到此金鑰。
+接收您應用程式遙測的 Azure 資源會由檢測金鑰識別。 您可以在 ApplicationInsights.config 檔案中找到此金鑰。
 
 
 ## <a name="upgrade-to-future-sdk-versions"></a>升級至未來的 SDK 版本
-若要升級至[新版的 SDK](https://github.com/Microsoft/ApplicationInsights-dotnet-server/releases)，請開啟 **NuGet 套件管理員**，並篩選已安裝的套件。 選取 **Microsoft.ApplicationInsights.Web**，然後選擇 [升級]  。
+若要升級至[新版的 SDK](https://github.com/Microsoft/ApplicationInsights-dotnet-server/releases)，請開啟 **NuGet 套件管理員**，並篩選已安裝的套件。 選取 **Microsoft.ApplicationInsights.Web**，然後選擇 [升級]。
 
 如果您已對 ApplicationInsights.config 進行任何的自訂，請在升級前儲存複本。 然後，將您的變更合併至新版本中。
 
@@ -150,7 +152,7 @@ Application Insights 設定畫面：
 
 * [可用性測試](../../azure-monitor/app/monitor-web-app-availability.md)：建立測試，以確保網路上看得見您的網站。
 * [智慧型診斷](../../azure-monitor/app/proactive-diagnostics.md)︰這些測試會自動執行，您不需要採取任何動作來設定它們。 它們會讓您知道應用程式是否有不尋常的失敗要求率。
-* [計量警示](../../azure-monitor/app/alerts.md)：設定警示來警告您當度量超出臨界值。 您可以在撰寫於程式碼中的自訂度量上設定它們。
+* [計量警示](../../azure-monitor/app/alerts.md)：設定警示，在計量超出臨界值時警告您。 您可以在撰寫於程式碼中的自訂度量上設定它們。
 
 ### <a name="automation"></a>自動化
 

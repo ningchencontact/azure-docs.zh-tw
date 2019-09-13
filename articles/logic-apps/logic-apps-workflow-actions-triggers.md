@@ -9,12 +9,12 @@ ms.reviewer: klam, LADocs
 ms.suite: integration
 ms.topic: reference
 ms.date: 06/19/2019
-ms.openlocfilehash: c109627d2a2e9190afb2c27b9fb202e93baa68cb
-ms.sourcegitcommit: d585cdda2afcf729ed943cfd170b0b361e615fae
+ms.openlocfilehash: df1b03d5fbb5b8ef8cda9407e4a595bc2de8ce54
+ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68689657"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70918963"
 ---
 # <a name="reference-for-trigger-and-action-types-in-workflow-definition-language-for-azure-logic-apps"></a>Azure Logic Apps 的工作流程定義語言中觸發程式和動作類型的參考
 
@@ -56,7 +56,7 @@ ms.locfileid: "68689657"
 | <*trigger-type*> | String | 觸發程序類型，例如 "Http" 或 "ApiConnection" | 
 | <*trigger-inputs*> | JSON 物件 | 定義觸發程序行為的輸入 | 
 | <*time-unit*> | String | 描述觸發程序引發頻率的時間單位："Second"、"Minute"、"Hour"、"Day"、"Week"、"Month" | 
-| <*number-of-time-units*> | 整數 | 一個值，指定觸發程序根據頻率多久會引發一次，這是觸發程序再次引發之前等待的時間單位數 <p>以下是最小和最大間隔： <p>- Month：1-16 個月 </br>- Day：1-500 天 </br>- Hour：1-12,000 小時 </br>- Minute：1-72,000 分鐘 </br>- Second：1-9,999,999 秒<p>例如，如果間隔為 6，而頻率為 [月]，則週期為每 6 個月一次。 | 
+| <*number-of-time-units*> | Integer | 一個值，指定觸發程序根據頻率多久會引發一次，這是觸發程序再次引發之前等待的時間單位數 <p>以下是最小和最大間隔： <p>- Month：1-16 個月 </br>- Day：1-500 天 </br>- Hour：1-12,000 小時 </br>- Minute：1-72,000 分鐘 </br>- Second：1-9,999,999 秒<p>例如，如果間隔為 6，而頻率為 [月]，則週期為每 6 個月一次。 | 
 |||| 
 
 *選擇性*
@@ -137,7 +137,7 @@ ms.locfileid: "68689657"
 | <*method-type*> | String | 與管理 API 通訊的 HTTP 方法："GET"、"PUT"、"POST"、"PATCH"、"DELETE" | 
 | <*api-operation*> | String | 要呼叫的 API 作業 | 
 | <*time-unit*> | String | 描述觸發程序引發頻率的時間單位："Second"、"Minute"、"Hour"、"Day"、"Week"、"Month" | 
-| <*number-of-time-units*> | 整數 | 一個值，指定觸發程序根據頻率多久會引發一次，這是觸發程序再次引發之前等待的時間單位數 <p>以下是最小和最大間隔： <p>- Month：1-16 個月 </br>- Day：1-500 天 </br>- Hour：1-12,000 小時 </br>- Minute：1-72,000 分鐘 </br>- Second：1-9,999,999 秒<p>例如，如果間隔為 6，而頻率為 [月]，則週期為每 6 個月一次。 | 
+| <*number-of-time-units*> | Integer | 一個值，指定觸發程序根據頻率多久會引發一次，這是觸發程序再次引發之前等待的時間單位數 <p>以下是最小和最大間隔： <p>- Month：1-16 個月 </br>- Day：1-500 天 </br>- Hour：1-12,000 小時 </br>- Minute：1-72,000 分鐘 </br>- Second：1-9,999,999 秒<p>例如，如果間隔為 6，而頻率為 [月]，則週期為每 6 個月一次。 | 
 |||| 
 
 *選擇性*
@@ -146,19 +146,19 @@ ms.locfileid: "68689657"
 |-------|------|-------------| 
 | <*retry-behavior*> | JSON 物件 | 自訂間歇性失敗 (狀態碼為 408、429 和 5XX) 和任何連線例外狀況的重試行為。 如需詳細資訊，請參閱[重試原則](../logic-apps/logic-apps-exception-handling.md#retry-policies)。 | 
 | <*query-parameters*> | JSON 物件 | 要包含在 API 呼叫中的任何查詢參數。 例如，`"queries": { "api-version": "2018-01-01" }` 物件會將 `?api-version=2018-01-01` 新增至呼叫。 | 
-| <*max-runs*> | 整數 | 根據預設, 工作流程實例會在同一時間執行, 或平行處理至[預設限制](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits)。 若要藉由設定新的 <*count*> 值來變更此限制，請參閱[變更觸發程序並行](#change-trigger-concurrency)。 | 
-| <*max-runs-queue*> | 整數 | 當您的工作流程已在執行最大實例數目時 (您可以根據`runtimeConfiguration.concurrency.runs`屬性來變更), 任何新的回合都會放入此佇列中, 直到[預設限制](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits)為止。 若要變更預設限制，請參閱[變更等候執行限制](#change-waiting-runs)。 | 
+| <*max-runs*> | Integer | 根據預設, 工作流程實例會在同一時間執行, 或平行處理至[預設限制](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits)。 若要藉由設定新的 <*count*> 值來變更此限制，請參閱[變更觸發程序並行](#change-trigger-concurrency)。 | 
+| <*max-runs-queue*> | Integer | 當您的工作流程已在執行最大實例數目時 (您可以根據`runtimeConfiguration.concurrency.runs`屬性來變更), 任何新的回合都會放入此佇列中, 直到[預設限制](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits)為止。 若要變更預設限制，請參閱[變更等候執行限制](#change-waiting-runs)。 | 
 | <*splitOn-expression*> | String | 針對會傳回陣列的觸發程序，此運算式會參考要使用的陣列，讓您可以為每個陣列項目建立和執行工作流程執行個體，而非使用 "for each" 迴圈。 <p>例如，此運算式表示在觸發程序的主體內容中傳回的陣列項目：`@triggerbody()?['value']` |
 | <*operation-option*> | String | 您可以藉由設定 `operationOptions` 屬性來變更預設行為。 如需詳細資訊，請參閱[作業選項](#operation-options)。 |
 ||||
 
 *輸出*
  
-| 項目 | Type | 描述 |
+| 元素 | Type | 描述 |
 |---------|------|-------------|
 | headers | JSON 物件 | 回應中的標頭 |
 | 內容 | JSON 物件 | 回應中的本文 |
-| status code | 整數 | 回應的狀態碼 |
+| status code | Integer | 回應的狀態碼 |
 |||| 
 
 *範例*
@@ -236,8 +236,8 @@ ms.locfileid: "68689657"
 |-------|------|-------------| 
 | <*retry-behavior*> | JSON 物件 | 自訂間歇性失敗 (狀態碼為 408、429 和 5XX) 和任何連線例外狀況的重試行為。 如需詳細資訊，請參閱[重試原則](../logic-apps/logic-apps-exception-handling.md#retry-policies)。 | 
 | <*query-parameters*> | JSON 物件 | 要包含在 API 呼叫中的任何查詢參數 <p>例如，`"queries": { "api-version": "2018-01-01" }` 物件會將 `?api-version=2018-01-01` 新增至呼叫。 | 
-| <*max-runs*> | 整數 | 根據預設, 工作流程實例會在同一時間執行, 或平行處理至[預設限制](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits)。 若要藉由設定新的 <*count*> 值來變更此限制，請參閱[變更觸發程序並行](#change-trigger-concurrency)。 | 
-| <*max-runs-queue*> | 整數 | 當您的工作流程已在執行最大實例數目時 (您可以根據`runtimeConfiguration.concurrency.runs`屬性來變更), 任何新的回合都會放入此佇列中, 直到[預設限制](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits)為止。 若要變更預設限制，請參閱[變更等候執行限制](#change-waiting-runs)。 | 
+| <*max-runs*> | Integer | 根據預設, 工作流程實例會在同一時間執行, 或平行處理至[預設限制](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits)。 若要藉由設定新的 <*count*> 值來變更此限制，請參閱[變更觸發程序並行](#change-trigger-concurrency)。 | 
+| <*max-runs-queue*> | Integer | 當您的工作流程已在執行最大實例數目時 (您可以根據`runtimeConfiguration.concurrency.runs`屬性來變更), 任何新的回合都會放入此佇列中, 直到[預設限制](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits)為止。 若要變更預設限制，請參閱[變更等候執行限制](#change-waiting-runs)。 | 
 | <*splitOn-expression*> | String | 針對會傳回陣列的觸發程序，此運算式會參考要使用的陣列，讓您可以為每個陣列項目建立和執行工作流程執行個體，而非使用 "for each" 迴圈。 <p>例如，此運算式表示在觸發程序的主體內容中傳回的陣列項目：`@triggerbody()?['value']` |
 | <*operation-option*> | String | 您可以藉由設定 `operationOptions` 屬性來變更預設行為。 如需詳細資訊，請參閱[作業選項](#operation-options)。 | 
 |||| 
@@ -308,7 +308,7 @@ ms.locfileid: "68689657"
 | <*method-type*> | String | 要用於輪詢指定端點的 HTTP 方法："GET"、"PUT"、"POST"、"PATCH"、"DELETE" | 
 | <*endpoint-URL*> | String | 要輪詢的端點 HTTP 或 HTTPS URL <p>字串大小上限：2 KB | 
 | <*time-unit*> | String | 描述觸發程序引發頻率的時間單位："Second"、"Minute"、"Hour"、"Day"、"Week"、"Month" | 
-| <*number-of-time-units*> | 整數 | 一個值，指定觸發程序根據頻率多久會引發一次，這是觸發程序再次引發之前等待的時間單位數 <p>以下是最小和最大間隔： <p>- Month：1-16 個月 </br>- Day：1-500 天 </br>- Hour：1-12,000 小時 </br>- Minute：1-72,000 分鐘 </br>- Second：1-9,999,999 秒<p>例如，如果間隔為 6，而頻率為 [月]，則週期為每 6 個月一次。 | 
+| <*number-of-time-units*> | Integer | 一個值，指定觸發程序根據頻率多久會引發一次，這是觸發程序再次引發之前等待的時間單位數 <p>以下是最小和最大間隔： <p>- Month：1-16 個月 </br>- Day：1-500 天 </br>- Hour：1-12,000 小時 </br>- Minute：1-72,000 分鐘 </br>- Second：1-9,999,999 秒<p>例如，如果間隔為 6，而頻率為 [月]，則週期為每 6 個月一次。 | 
 |||| 
 
 *選擇性*
@@ -320,18 +320,18 @@ ms.locfileid: "68689657"
 | <*authentication-method*> | JSON 物件 | 要求用於驗證的方法。 如需詳細資訊，請參閱[排程器輸出驗證](../scheduler/scheduler-outbound-authentication.md)。 除了排程器之外，還可支援 `authority` 屬性。 若未指定，預設值為 `https://login.windows.net`，但您可以使用不同的值，例如 `https://login.windows\-ppe.net`。 |
 | <*retry-behavior*> | JSON 物件 | 自訂間歇性失敗 (狀態碼為 408、429 和 5XX) 和任何連線例外狀況的重試行為。 如需詳細資訊，請參閱[重試原則](../logic-apps/logic-apps-exception-handling.md#retry-policies)。 |  
  <*query-parameters*> | JSON 物件 | 要包含在要求中的任何查詢參數 <p>例如，`"queries": { "api-version": "2018-01-01" }` 物件會將 `?api-version=2018-01-01` 新增至要求。 | 
-| <*max-runs*> | 整數 | 根據預設, 工作流程實例會在同一時間執行, 或平行處理至[預設限制](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits)。 若要藉由設定新的 <*count*> 值來變更此限制，請參閱[變更觸發程序並行](#change-trigger-concurrency)。 | 
-| <*max-runs-queue*> | 整數 | 當您的工作流程已在執行最大實例數目時 (您可以根據`runtimeConfiguration.concurrency.runs`屬性來變更), 任何新的回合都會放入此佇列中, 直到[預設限制](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits)為止。 若要變更預設限制，請參閱[變更等候執行限制](#change-waiting-runs)。 | 
+| <*max-runs*> | Integer | 根據預設, 工作流程實例會在同一時間執行, 或平行處理至[預設限制](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits)。 若要藉由設定新的 <*count*> 值來變更此限制，請參閱[變更觸發程序並行](#change-trigger-concurrency)。 | 
+| <*max-runs-queue*> | Integer | 當您的工作流程已在執行最大實例數目時 (您可以根據`runtimeConfiguration.concurrency.runs`屬性來變更), 任何新的回合都會放入此佇列中, 直到[預設限制](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits)為止。 若要變更預設限制，請參閱[變更等候執行限制](#change-waiting-runs)。 | 
 | <*operation-option*> | String | 您可以藉由設定 `operationOptions` 屬性來變更預設行為。 如需詳細資訊，請參閱[作業選項](#operation-options)。 | 
 |||| 
 
 *輸出*
 
-| 項目 | Type | 描述 |
+| 元素 | Type | 描述 |
 |---------|------|-------------| 
 | headers | JSON 物件 | 回應中的標頭 | 
 | 內容 | JSON 物件 | 回應中的本文 | 
-| status code | 整數 | 回應的狀態碼 | 
+| status code | Integer | 回應的狀態碼 | 
 |||| 
 
 *連入要求的需求*
@@ -415,8 +415,8 @@ ms.locfileid: "68689657"
 | <*body-content*> | String | 要在訂閱或取消要求中傳送的任何訊息內容 | 
 | <*authentication-method*> | JSON 物件 | 要求用於驗證的方法。 如需詳細資訊，請參閱[排程器輸出驗證](../scheduler/scheduler-outbound-authentication.md)。 |
 | <*retry-behavior*> | JSON 物件 | 自訂間歇性失敗 (狀態碼為 408、429 和 5XX) 和任何連線例外狀況的重試行為。 如需詳細資訊，請參閱[重試原則](../logic-apps/logic-apps-exception-handling.md#retry-policies)。 | 
-| <*max-runs*> | 整數 | 根據預設, 工作流程實例會在同一時間執行, 或平行處理至[預設限制](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits)。 若要藉由設定新的 <*count*> 值來變更此限制，請參閱[變更觸發程序並行](#change-trigger-concurrency)。 | 
-| <*max-runs-queue*> | 整數 | 當您的工作流程已在執行最大實例數目時 (您可以根據`runtimeConfiguration.concurrency.runs`屬性來變更), 任何新的回合都會放入此佇列中, 直到[預設限制](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits)為止。 若要變更預設限制，請參閱[變更等候執行限制](#change-waiting-runs)。 | 
+| <*max-runs*> | Integer | 根據預設, 工作流程實例會在同一時間執行, 或平行處理至[預設限制](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits)。 若要藉由設定新的 <*count*> 值來變更此限制，請參閱[變更觸發程序並行](#change-trigger-concurrency)。 | 
+| <*max-runs-queue*> | Integer | 當您的工作流程已在執行最大實例數目時 (您可以根據`runtimeConfiguration.concurrency.runs`屬性來變更), 任何新的回合都會放入此佇列中, 直到[預設限制](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits)為止。 若要變更預設限制，請參閱[變更等候執行限制](#change-waiting-runs)。 | 
 | <*operation-option*> | String | 您可以藉由設定 `operationOptions` 屬性來變更預設行為。 如需詳細資訊，請參閱[作業選項](#operation-options)。 | 
 |||| 
 
@@ -426,7 +426,7 @@ ms.locfileid: "68689657"
 |---------|------|-------------| 
 | headers | JSON 物件 | 回應中的標頭 | 
 | 內容 | JSON 物件 | 回應中的本文 | 
-| status code | 整數 | 回應的狀態碼 | 
+| status code | Integer | 回應的狀態碼 | 
 |||| 
 
 *範例*
@@ -497,20 +497,20 @@ ms.locfileid: "68689657"
 | 值 | Type | 描述 | 
 |-------|------|-------------| 
 | <*time-unit*> | String | 描述觸發程序引發頻率的時間單位："Second"、"Minute"、"Hour"、"Day"、"Week"、"Month" | 
-| <*number-of-time-units*> | 整數 | 一個值，指定觸發程序根據頻率多久會引發一次，這是觸發程序再次引發之前等待的時間單位數 <p>以下是最小和最大間隔： <p>- Month：1-16 個月 </br>- Day：1-500 天 </br>- Hour：1-12,000 小時 </br>- Minute：1-72,000 分鐘 </br>- Second：1-9,999,999 秒<p>例如，如果間隔為 6，而頻率為 [月]，則週期為每 6 個月一次。 | 
+| <*number-of-time-units*> | Integer | 一個值，指定觸發程序根據頻率多久會引發一次，這是觸發程序再次引發之前等待的時間單位數 <p>以下是最小和最大間隔： <p>- Month：1-16 個月 </br>- Day：1-500 天 </br>- Hour：1-12,000 小時 </br>- Minute：1-72,000 分鐘 </br>- Second：1-9,999,999 秒<p>例如，如果間隔為 6，而頻率為 [月]，則週期為每 6 個月一次。 | 
 |||| 
 
 *選擇性*
 
 | 值 | Type | 描述 | 
 |-------|------|-------------| 
-| <*start-date-time-with-format-YYYY-MM-DDThh:mm:ss*> | String | 使用以下格式的開始日期和時間： <p>YYYY-MM-DDThh:mm:ss (如果您指定時區) <p>-或- <p>YYYY-MM-DDThh:mm:ssZ (如果您未指定時區) <p>因此，舉例來說，如果您想要的是 2017 年 9 月 18 日下午 2:00，則請指定 "2017-09-18T14:00:00"，然後指定一個時區，例如 "Pacific Standard Time"，或指定不含時區的 "2017-09-18T14:00:00Z"。 <p>**注意：** 這個開始時間必須依照 [UTC 日期時間格式](https://en.wikipedia.org/wiki/Coordinated_Universal_Time)中的 [ISO 8601 日期時間規格](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations)，但不含 [UTC 時差](https://en.wikipedia.org/wiki/UTC_offset)。 如果您不指定時區，就必須在結尾加上字母 "Z"，其中不含任何空格。 這個 "Z" 係指對等的[航海時間](https://en.wikipedia.org/wiki/Nautical_time)。 <p>就簡單排程來說，開始時間係指第一次發生的時間，而就複雜排程來說，觸發程序會在開始時間一到就立即引發。 如需有關開始日期和時間的詳細資訊，請參閱[建立及排定定期執行的工作](../connectors/connectors-native-recurrence.md)。 | 
+| <*start-date-time-with-format-YYYY-MM-DDThh:mm:ss*> | String | 使用以下格式的開始日期和時間： <p>YYYY-MM-DDThh:mm:ss (如果您指定時區) <p>-或- <p>YYYY-MM-DDThh:mm:ssZ (如果您未指定時區) <p>因此，舉例來說，如果您想要的是 2017 年 9 月 18 日下午 2:00，則請指定 "2017-09-18T14:00:00"，然後指定一個時區，例如 "Pacific Standard Time"，或指定不含時區的 "2017-09-18T14:00:00Z"。 <p>**注意：** 此開始時間在未來最多有49年，而且必須遵循[utc 日期時間格式](https://en.wikipedia.org/wiki/Coordinated_Universal_Time)的[ISO 8601 日期時間規格](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations)，但不含[utc 時差](https://en.wikipedia.org/wiki/UTC_offset)。 如果您不指定時區，就必須在結尾加上字母 "Z"，其中不含任何空格。 這個 "Z" 係指對等的[航海時間](https://en.wikipedia.org/wiki/Nautical_time)。 <p>就簡單排程來說，開始時間係指第一次發生的時間，而就複雜排程來說，觸發程序會在開始時間一到就立即引發。 如需有關開始日期和時間的詳細資訊，請參閱[建立及排定定期執行的工作](../connectors/connectors-native-recurrence.md)。 | 
 | <*time-zone*> | String | 只有當您有指定開始時間時才適用，因為此觸發程序並不接受 [UTC 時差](https://en.wikipedia.org/wiki/UTC_offset)。 指定您要套用的時區。 | 
 | <*one-or-more-hour-marks*> | 整數或整數陣列 | 當您想要執行工作流程時，如果針對 `frequency` 指定 "Day" 或 "Week"，便可指定從 0 到 23 的一或多個整數 (以逗號分隔) 來表示一天中的哪幾個整點。 <p>例如，如果您指定 "10"、"12" 及 "14"，就會得出上午 10 點、下午 12 點及下午 2 點作為整點標記。 | 
 | <*one-or-more-minute-marks*> | 整數或整數陣列 | 當您想要執行工作流程時，如果針對 `frequency` 指定 "Day" 或 "Week"，便可指定從 0 到 59 的一或多個整數 (以逗號分隔) 來表示小時中的哪幾個分鐘。 <p>例如，您可以指定 "30" 作為分鐘標記，然後使用上個範例代表一天中的整點，這樣就會得出上午 10:30、下午 12:30 及下午 2:30。 | 
 | weekDays | 字串或字串陣列 | 如果您為 `frequency` 指定 "Week"，您可以針對要執行工作流程的時間指定一或多天："Monday"、"Tuesday"、"Wednesday"、"Thursday"、"Friday"、"Saturday" 和 "Sunday" | 
-| <*max-runs*> | 整數 | 根據預設, 工作流程實例會在同一時間執行, 或平行處理至[預設限制](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits)。 若要藉由設定新的 <*count*> 值來變更此限制，請參閱[變更觸發程序並行](#change-trigger-concurrency)。 | 
-| <*max-runs-queue*> | 整數 | 當您的工作流程已在執行最大實例數目時 (您可以根據`runtimeConfiguration.concurrency.runs`屬性來變更), 任何新的回合都會放入此佇列中, 直到[預設限制](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits)為止。 若要變更預設限制，請參閱[變更等候執行限制](#change-waiting-runs)。 | 
+| <*max-runs*> | Integer | 根據預設, 工作流程實例會在同一時間執行, 或平行處理至[預設限制](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits)。 若要藉由設定新的 <*count*> 值來變更此限制，請參閱[變更觸發程序並行](#change-trigger-concurrency)。 | 
+| <*max-runs-queue*> | Integer | 當您的工作流程已在執行最大實例數目時 (您可以根據`runtimeConfiguration.concurrency.runs`屬性來變更), 任何新的回合都會放入此佇列中, 直到[預設限制](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits)為止。 若要變更預設限制，請參閱[變更等候執行限制](#change-waiting-runs)。 | 
 | <*operation-option*> | String | 您可以藉由設定 `operationOptions` 屬性來變更預設行為。 如需詳細資訊，請參閱[作業選項](#operation-options)。 | 
 |||| 
 
@@ -616,8 +616,8 @@ ms.locfileid: "68689657"
 | <*method-type*> | String | 傳入要求要呼叫您邏輯應用程式必須使用的方法："GET"、"PUT"、"POST"、"PATCH"、"DELETE" |
 | <*relative-path-for-accepted-parameter*> | String | 端點 URL 可接受的參數相對路徑 | 
 | <*required-properties*> | Array | 需要值的一或多個屬性 | 
-| <*max-runs*> | 整數 | 根據預設, 工作流程實例會在同一時間執行, 或平行處理至[預設限制](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits)。 若要藉由設定新的 <*count*> 值來變更此限制，請參閱[變更觸發程序並行](#change-trigger-concurrency)。 | 
-| <*max-runs-queue*> | 整數 | 當您的工作流程已在執行最大實例數目時 (您可以根據`runtimeConfiguration.concurrency.runs`屬性來變更), 任何新的回合都會放入此佇列中, 直到[預設限制](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits)為止。 若要變更預設限制，請參閱[變更等候執行限制](#change-waiting-runs)。 | 
+| <*max-runs*> | Integer | 根據預設, 工作流程實例會在同一時間執行, 或平行處理至[預設限制](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits)。 若要藉由設定新的 <*count*> 值來變更此限制，請參閱[變更觸發程序並行](#change-trigger-concurrency)。 | 
+| <*max-runs-queue*> | Integer | 當您的工作流程已在執行最大實例數目時 (您可以根據`runtimeConfiguration.concurrency.runs`屬性來變更), 任何新的回合都會放入此佇列中, 直到[預設限制](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits)為止。 若要變更預設限制，請參閱[變更等候執行限制](#change-waiting-runs)。 | 
 | <*operation-option*> | String | 您可以藉由設定 `operationOptions` 屬性來變更預設行為。 如需詳細資訊，請參閱[作業選項](#operation-options)。 | 
 |||| 
 
@@ -1086,7 +1086,7 @@ Azure Logic Apps 提供各種不同的動作類型 - 各有不同的輸入會定
 
 | 值 | Type | 描述 |
 |-------|------|-------------|
-| <*previous-actions*> | 字串陣列 | 具有指定之動作名稱的陣列。 使用出現在工作流程定義中的動作名稱, 其中的動作名稱會使用底線 (_), 而不是空格 ("")。 |
+| <*previous-actions*> | 字串陣列 | 具有指定之動作名稱的陣列。 使用出現在工作流程定義中的動作名稱，其中的動作名稱會使用底線（_），而不是空格（""）。 |
 ||||
 
 *範例 1*
@@ -1461,7 +1461,7 @@ Azure Logic Apps 提供各種不同的動作類型 - 各有不同的輸入會定
 
 | 值 | Type | 描述 | 
 |-------|------|-------------| 
-| <*response-status-code*> | 整數 | 要傳送至連入要求的 HTTP 狀態碼。 預設代碼為「200 確定」，但代碼可以是任何以 2xx、4xx 或 5xx (不含 3xxx) 開頭的有效狀態碼。 | 
+| <*response-status-code*> | Integer | 要傳送至連入要求的 HTTP 狀態碼。 預設代碼為「200 確定」，但代碼可以是任何以 2xx、4xx 或 5xx (不含 3xxx) 開頭的有效狀態碼。 | 
 |||| 
 
 *選擇性*
@@ -1817,7 +1817,7 @@ ID,Product_Name
 
 | 值 | Type | 描述 | 
 |-------|------|-------------| 
-| <*number-of-units*> | 整數 | 針對**延遲**動作要等候的單位數 | 
+| <*number-of-units*> | Integer | 針對**延遲**動作要等候的單位數 | 
 | <*interval*> | String | **Delay** 動作要等候的間隔："Second"、"Minute"、"Hour"、"Day"、"Week"、"Month" | 
 | <*date-time-stamp*> | String | 針對**延遲到**動作，要繼續執行的日期和時間。 此值必須使用 [UTC 日期時間格式](https://en.wikipedia.org/wiki/Coordinated_Universal_Time)。 | 
 |||| 
@@ -1976,7 +1976,7 @@ Logic Apps 引擎會檢查是否可存取您想要呼叫的觸發程序，因此
 
 | 值 | Type | 描述 | 
 |-------|------|-------------| 
-| <*count*> | 整數 | 根據預設，"for each" 迴圈逐一查看會同時執行，或依據[預設限制](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits)以平行方式執行。 若要藉由設定新的 <*count*> 值來變更此限制，請參閱[變更 "for each" 迴圈並行](#change-for-each-concurrency)。 | 
+| <*count*> | Integer | 根據預設，"for each" 迴圈逐一查看會同時執行，或依據[預設限制](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits)以平行方式執行。 若要藉由設定新的 <*count*> 值來變更此限制，請參閱[變更 "for each" 迴圈並行](#change-for-each-concurrency)。 | 
 | <*operation-option*> | String | 若要以循序方式 (而非以平行方式) 執行 "for each" 迴圈，請將 <*operation-option*> 設定為 `Sequential` 或將 <*count*> 設定為 `1`，但勿同時設定兩者。 如需詳細資訊，請參閱[循序執行 "for each" 迴圈](#sequential-for-each)。 | 
 |||| 
 
@@ -2301,7 +2301,7 @@ Logic Apps 引擎會檢查是否可存取您想要呼叫的觸發程序，因此
 | <*action-type*> | String | 您要執行的動作類型 | 
 | <*action-inputs*> | 各種類型 | 要執行的動作所使用的輸入 | 
 | <*condition*> | String | 在迴圈中的所有動作都執行完成後所要評估的條件或運算式 | 
-| <*loop-count*> | 整數 | 動作可以執行的迴圈數目上限。 預設 `count` 值為 60。 | 
+| <*loop-count*> | Integer | 動作可以執行的迴圈數目上限。 預設 `count` 值為 60。 | 
 | <*loop-timeout*> | String | 迴圈可執行的時間長度上限。 預設 `timeout` 值為 `PT1H`，這是必要的 [ISO 8601 格式](https://en.wikipedia.org/wiki/ISO_8601)。 |
 |||| 
 
@@ -2374,13 +2374,13 @@ Logic Apps 引擎會檢查是否可存取您想要呼叫的觸發程序，因此
 
 您可以使用觸發程序或動作定義中的下列 `runtimeConfiguration` 屬性，變更觸發程序和動作的預設執行階段行為。
 
-| 屬性 | Type | 描述 | 觸發程序或動作 | 
+| 屬性 | 類型 | 描述 | 觸發程序或動作 | 
 |----------|------|-------------|-------------------| 
-| `runtimeConfiguration.concurrency.runs` | 整數 | 變更可同時執行的工作流程實例數目[*預設限制*](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits), 或平行處理。 此值有助於限制後端系統接收的要求數目。 <p>將 `runs` 屬性設定為 `1` 的效用，與將 `operationOptions` 屬性設定為 `SingleInstance` 相同。 您可以設定任一屬性，但勿同時設定。 <p>若要變更預設限制，請參閱[變更觸發程序並行](#change-trigger-concurrency)或[循序觸發執行個體](#sequential-trigger)。 | 所有觸發程序 | 
-| `runtimeConfiguration.concurrency.maximumWaitingRuns` | 整數 | 變更當您的工作流程已執行最大並行實例時, 可以等候執行的工作流程實例數目的[*預設限制*](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits)。 您可以在 `concurrency.runs` 屬性中變更並行限制。 <p>若要變更預設限制，請參閱[變更等候執行限制](#change-waiting-runs)。 | 所有觸發程序 | 
-| `runtimeConfiguration.concurrency.repetitions` | 整數 | 變更可同時 (或以平行方式) 執行的 "for each" 迴圈反覆項目數的[*預設限制*](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits)。 <p>將 `repetitions` 屬性設定為 `1` 的效用，與將 `operationOptions` 屬性設定為 `SingleInstance` 相同。 您可以設定任一屬性，但勿同時設定。 <p>若要變更預設限制，請參閱[變更 "for each" 並行](#change-for-each-concurrency)或[循序執行 "for each" 迴圈](#sequential-for-each)。 | 動作： <p>[Foreach](#foreach-action) | 
-| `runtimeConfiguration.paginationPolicy.minimumItemCount` | 整數 | 針對支援且已開啟分頁的特定動作, 此值會指定要抓取的結果數目*下限*。 <p>若要開啟分頁, 請參閱[使用分頁取得大量資料、專案或結果](../logic-apps/logic-apps-exceed-default-page-size-with-pagination.md) | 動作：多變 |
-| `runtimeConfiguration.secureData.properties` | Array | 在許多觸發程式和動作上, 這些設定會隱藏輸入、輸出, 或兩者都從邏輯應用程式的執行歷程記錄。 <p>若要保護此資料, 請參閱[隱藏執行歷程記錄中的輸入和輸出](../logic-apps/logic-apps-securing-a-logic-app.md#secure-data-code-view)。 | 大部分的觸發程式和動作 |
+| `runtimeConfiguration.concurrency.runs` | Integer | 變更可同時執行的工作流程實例數目[*預設限制*](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits), 或平行處理。 此值有助於限制後端系統接收的要求數目。 <p>將 `runs` 屬性設定為 `1` 的效用，與將 `operationOptions` 屬性設定為 `SingleInstance` 相同。 您可以設定任一屬性，但勿同時設定。 <p>若要變更預設限制，請參閱[變更觸發程序並行](#change-trigger-concurrency)或[循序觸發執行個體](#sequential-trigger)。 | 所有觸發程序 | 
+| `runtimeConfiguration.concurrency.maximumWaitingRuns` | Integer | 變更當您的工作流程已執行最大並行實例時, 可以等候執行的工作流程實例數目的[*預設限制*](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits)。 您可以在 `concurrency.runs` 屬性中變更並行限制。 <p>若要變更預設限制，請參閱[變更等候執行限制](#change-waiting-runs)。 | 所有觸發程序 | 
+| `runtimeConfiguration.concurrency.repetitions` | Integer | 變更可同時 (或以平行方式) 執行的 "for each" 迴圈反覆項目數的[*預設限制*](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits)。 <p>將 `repetitions` 屬性設定為 `1` 的效用，與將 `operationOptions` 屬性設定為 `SingleInstance` 相同。 您可以設定任一屬性，但勿同時設定。 <p>若要變更預設限制，請參閱[變更 "for each" 並行](#change-for-each-concurrency)或[循序執行 "for each" 迴圈](#sequential-for-each)。 | 動作： <p>[Foreach](#foreach-action) | 
+| `runtimeConfiguration.paginationPolicy.minimumItemCount` | Integer | 針對支援且已開啟分頁的特定動作, 此值會指定要抓取的結果數目*下限*。 <p>若要開啟分頁, 請參閱[使用分頁取得大量資料、專案或結果](../logic-apps/logic-apps-exceed-default-page-size-with-pagination.md) | 動作：多變 |
+| `runtimeConfiguration.secureData.properties` | Array | 在許多觸發程式和動作上，這些設定會隱藏輸入、輸出，或兩者都從邏輯應用程式的執行歷程記錄。 <p>若要保護此資料，請參閱[隱藏執行歷程記錄中的輸入和輸出](../logic-apps/logic-apps-securing-a-logic-app.md#secure-data-code-view)。 | 大部分的觸發程式和動作 |
 | `runtimeConfiguration.staticResult` | JSON 物件 | 針對支援且已開啟[靜態結果](../logic-apps/test-logic-apps-mock-data-static-results.md)設定的動作, `staticResult`物件具有下列屬性: <p>- `name`, 它會參考目前動作的靜態結果定義名稱, 這會出現`staticResults`在邏輯應用程式`definition`工作流程屬性的屬性中。 如需詳細資訊, 請參閱[靜態結果-工作流程定義語言的架構參考](../logic-apps/logic-apps-workflow-definition-language.md#static-results)。 <p> - `staticResultOptions`, 指定目前動作的靜態結果`Enabled`是否為。 <p>若要開啟靜態結果, 請參閱藉[由設定靜態結果來以模擬資料測試邏輯應用程式](../logic-apps/test-logic-apps-mock-data-static-results.md) | 動作：多變 |
 ||||| 
 
@@ -2664,7 +2664,7 @@ HTTP 端點支援各種驗證。 您可以針對這些 HTTP 觸發程序和動�
 
 針對使用 Azure Active Directory 的[基本驗證](../active-directory-b2c/active-directory-b2c-custom-rest-api-netfw-secure-basic.md)，您的觸發程序或動作定義可以包含具有下表指定屬性的 `authentication` JSON 物件。 若要在執行階段存取參數值，您可以使用 `@parameters('parameterName')` 運算式 (由[工作流程定義語言](https://aka.ms/logicappsdocs)提供)。 
 
-| 內容 | 必要項 | Value | 描述 | 
+| 屬性 | 必要項 | Value | 描述 | 
 |----------|----------|-------|-------------| 
 | **type** | 是 | "Basic" | 要使用的驗證類型，在這裡是 "Basic" | 
 | **username** | 是 | "@parameters('userNameParam')" | 用來驗證存取目標服務端點的使用者名稱 |
@@ -2698,7 +2698,7 @@ HTTP 端點支援各種驗證。 您可以針對這些 HTTP 觸發程序和動�
 
 針對使用 Azure Active Directory 的[憑證式驗證](../active-directory/authentication/active-directory-certificate-based-authentication-get-started.md)，您的觸發程序或動作定義可以包含具有下表指定屬性的 `authentication` JSON 物件。 若要在執行階段存取參數值，您可以使用 `@parameters('parameterName')` 運算式 (由[工作流程定義語言](https://aka.ms/logicappsdocs)提供)。 如需了解可使用的用戶端憑證數量限制，請參閱 [Azure Logic Apps 的限制和設定](../logic-apps/logic-apps-limits-and-config.md)。
 
-| 內容 | 必要項 | Value | 描述 |
+| 屬性 | 必要項 | Value | 描述 |
 |----------|----------|-------|-------------|
 | **type** | 是 | "ClientCertificate" | 用於安全通訊端層 (SSL) 用戶端憑證的驗證類型。 雖支援自我簽署憑證，但不支援 SSL 自我簽署憑證。 |
 | **pfx** | 是 | "@parameters('pfxParam') | Base64 編碼的個人資訊交換 (PFX) 檔案內容 |

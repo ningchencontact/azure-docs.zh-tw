@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 06/15/2018
 ms.author: abnarain
-ms.openlocfilehash: c42e70efc8543e1d255690070ffb51b865e1754f
-ms.sourcegitcommit: 6cff17b02b65388ac90ef3757bf04c6d8ed3db03
+ms.openlocfilehash: b571ba8d259a5e3b3b049ad66d4718e9e85d488b
+ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68608590"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70931260"
 ---
 #  <a name="security-considerations-for-data-movement-in-azure-data-factory"></a>在 Azure Data Factory 中資料移動的安全性考量
 > [!div class="op_single_selector" title1="選取您目前使用的 Data Factory 服務版本："]
@@ -59,7 +59,7 @@ Data Factory 已通過下列各項規範的認證：
 
 ### <a name="securing-data-store-credentials"></a>保護資料存放區認證
 
-- **在 Azure Data Factory 受控存放區中儲存加密的認證**。 Data Factory 可透過使用受 Microsoft 管理的憑證來加密資料存放區認證，為這些認證提供保護。 這些憑證每隔兩年會輪替一次 (包括憑證更新和憑證移轉)。 這些已加密的認證會安全地儲存在受 Azure Data Factory 管理服務管理的 Azure 儲存體帳戶中。 如需有關「Azure 儲存體」安全性的詳細資訊，請參閱 [Azure 儲存體安全性概觀](../security/fundamentals/storage-overview.md)。
+- **在 Azure Data Factory 受控存放區中儲存加密的認證**。 Data Factory 可透過使用受 Microsoft 管理的憑證來加密資料存放區認證，為這些認證提供保護。 這些憑證每隔兩年會輪替一次 (包括憑證更新和憑證移轉)。 如需有關「Azure 儲存體」安全性的詳細資訊，請參閱 [Azure 儲存體安全性概觀](../security/fundamentals/storage-overview.md)。
 - **在 Azure Key Vault 中儲存認證**。 您也可以在 [Azure Key Vault](https://azure.microsoft.com/services/key-vault/) 中儲存資料存放區的認證。 Data Factory 會在活動執行期間擷取認證。 如需詳細資訊，請參閱 [在 Azure Key Vault 中儲存認證](store-credentials-in-key-vault.md)。
 
 ### <a name="data-encryption-in-transit"></a>傳輸中資料加密
@@ -108,18 +108,19 @@ Salesforce 支援「Shield 平台加密」，可加密所有檔案、附件和�
 命令通道可允許 Data Factory 中的資料移動服務與自我裝載整合執行階段之間進行通訊。 此通訊包含活動的相關資訊。 資料通道會用來在內部部署資料存放區與雲端資料存放區之間傳輸資料。    
 
 ### <a name="on-premises-data-store-credentials"></a>內部部署資料存放區認證
-您的內部部署資料存放區的認證一律會經過加密並儲存。 它們可以儲存在自我裝載整合執行階段電腦本機，或儲存於 Azure Data Factory 受控存放裝置 (如同雲端存放區認證)。 
+認證可以儲存在 data factory 中，或[由 data factory](store-credentials-in-key-vault.md)在執行時間從 Azure Key Vault 加以參考。 如果將認證儲存在 data factory 中，它一律會以加密方式儲存在自我裝載整合執行時間上。 
+ 
+- **在本機儲存認證**。 如果您直接使用**set-azdatafactoryv2linkedservice**指令，搭配 JSON 中的連接字串和認證內嵌，則會將連結的服務加密並儲存在自我裝載整合執行時間上。  在此情況下，認證會透過 azure 後端服務（extremly 安全）流動至自我裝載整合機器，最後 encrpted 並儲存它。 自我裝載整合執行階段會使用 Windows [DPAPI](https://msdn.microsoft.com/library/ms995355.aspx) 加密機密資料和認證資訊。
 
-- **在本機儲存認證**。 如果您想要加密，並將認證儲存在自我裝載整合執行階段本機，請依照[在 Azure Data Factory 中加密內部部署資料存放區的認證](encrypt-credentials-self-hosted-integration-runtime.md)中的步驟。 所有連接器皆支援此選項。 自我裝載整合執行階段會使用 Windows [DPAPI](https://msdn.microsoft.com/library/ms995355.aspx) 加密機密資料和認證資訊。 
+- **在 Azure Key Vault 中儲存認證**。 您也可以在 [Azure Key Vault](https://azure.microsoft.com/services/key-vault/) 中儲存資料存放區的認證。 Data Factory 會在活動執行期間擷取認證。 如需詳細資訊，請參閱 [在 Azure Key Vault 中儲存認證](store-credentials-in-key-vault.md)。
 
-   使用**AzDataFactoryV2LinkedServiceEncryptedCredential** Cmdlet 來加密連結服務中的連結服務認證和敏感性詳細資料。 接著, 您可以使用傳回的 JSON (使用連接字串中的**EncryptedCredential**元素) 來建立連結服務, 方法是使用**set-azdatafactoryv2linkedservice** Cmdlet。  
+- **將認證儲存在本機，而不需要透過 Azure 後端將認證流向自我裝載整合運行**時間。 如果您想要在本機自我裝載整合執行時間上加密和儲存認證，而不需要透過 data factory 後端傳送認證，請遵循在[Azure Data Factory 中加密內部部署資料存放區的認證](encrypt-credentials-self-hosted-integration-runtime.md)中的步驟。 所有連接器皆支援此選項。 自我裝載整合執行階段會使用 Windows [DPAPI](https://msdn.microsoft.com/library/ms995355.aspx) 加密機密資料和認證資訊。 
 
-- **儲存在 Azure Data Factory 受控儲存體**。 如果您直接使用**set-azdatafactoryv2linkedservice**指令, 搭配 JSON 中的連接字串和認證內嵌, 則會將連結的服務加密並儲存在 Azure Data Factory 受控儲存體中。 機密資訊仍由憑證加密，Microsoft 會管理這些憑證。
-
+   使用**AzDataFactoryV2LinkedServiceEncryptedCredential** Cmdlet 來加密連結服務中的連結服務認證和敏感性詳細資料。 接著，您可以使用傳回的 JSON （使用連接字串中的**EncryptedCredential**元素）來建立連結服務，方法是使用**set-azdatafactoryv2linkedservice** Cmdlet。  
 
 
 #### <a name="ports-used-when-encrypting-linked-service-on-self-hosted-integration-runtime"></a>在自我裝載整合執行階段上加密連結服務時所使用的連接埠
-根據預設, PowerShell 會在具有自我裝載整合執行時間的電腦上使用埠8060來進行安全通訊。 您可以視需要變更此連接埠。  
+根據預設，PowerShell 會在具有自我裝載整合執行時間的電腦上使用埠8060來進行安全通訊。 您可以視需要變更此連接埠。  
 
 ![閘道的 HTTPS 連接埠](media/data-movement-security-considerations/https-port-for-gateway.png)
 
@@ -139,7 +140,7 @@ Azure 虛擬網路是您網路在雲端的邏輯呈現方式。 您可以透過�
 | ----------- | ---------------------------------------- | ---------------------------------------- | ---------------------------------------- |
 | 內部部署 | 部署在虛擬網路中的虛擬機器和雲端服務 | IPSec VPN (點對站或站台對站台) | 自我裝載整合執行時間應該安裝在虛擬網路中的 Azure 虛擬機器上。  |
 | 內部部署 | 部署在虛擬網路中的虛擬機器和雲端服務 | ExpressRoute (私用對等互連)           | 自我裝載整合執行時間應該安裝在虛擬網路中的 Azure 虛擬機器上。  |
-| 內部部署 | 具有公用端點的 Azure 型服務 | ExpressRoute (Microsoft 對等互連)            | 自我裝載整合執行時間可以安裝在內部部署或 Azure 虛擬機器上。 |
+| 內部部署 | 具有公用端點的 Azure 型服務 | ExpressRoute （Microsoft 對等互連）            | 自我裝載整合執行時間可以安裝在內部部署或 Azure 虛擬機器上。 |
 
 下列各圖說明在使用自我裝載整合執行階段的情況下，利用 ExpressRoute 和 IPSec VPN (搭配 Azure 虛擬網路)，在內部部署資料庫與 Azure 服務之間移動資料：
 
@@ -189,7 +190,7 @@ Azure 虛擬網路是您網路在雲端的邏輯呈現方式。 您可以透過�
 - [Azure Cosmos DB](../cosmos-db/firewall-support.md)
 - [Amazon Redshift](https://docs.aws.amazon.com/redshift/latest/gsg/rs-gsg-authorize-cluster-access.html) 
 
-## <a name="frequently-asked-questions"></a>常見問答集
+## <a name="frequently-asked-questions"></a>常見問題集
 
 **是否可以跨不同的 Data Factory 共用自我裝載整合執行階段？**
 
@@ -197,7 +198,7 @@ Azure 虛擬網路是您網路在雲端的邏輯呈現方式。 您可以透過�
 
 **自我裝載整合執行階段需要什麼連接埠才能運作？**
 
-自我裝載整合執行階段會建立 HTTP 型連線來存取網際網路。 必須開啟輸出連接埠 443，自我裝載整合執行階段才能建立此連線。 僅在認證管理員應用程式的電腦層級 (而非公司防火牆層級) 開啟輸入埠8060。 如果使用 Azure SQL Database 或 Azure SQL 資料倉儲作為來源或目的地，則也需要開啟連接埠 1433。 如需詳細資訊，請參閱[防火牆組態及將 IP 位址加入允許清單](#firewall-configurations-and-whitelisting-ip-address-of-gateway)一節。 
+自我裝載整合執行階段會建立 HTTP 型連線來存取網際網路。 必須開啟輸出連接埠 443，自我裝載整合執行階段才能建立此連線。 僅在認證管理員應用程式的電腦層級（而非公司防火牆層級）開啟輸入埠8060。 如果使用 Azure SQL Database 或 Azure SQL 資料倉儲作為來源或目的地，則也需要開啟連接埠 1433。 如需詳細資訊，請參閱[防火牆組態及將 IP 位址加入允許清單](#firewall-configurations-and-whitelisting-ip-address-of-gateway)一節。 
 
 
 ## <a name="next-steps"></a>後續步驟

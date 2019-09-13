@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 03/26/2019
 ms.author: hrasheed
-ms.openlocfilehash: 57e5eef8563bca0e27024d6ff5a46b983273df07
-ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
+ms.openlocfilehash: d34cb7b8bfae14c25950cc4d77c6625c675e813b
+ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70810652"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70934501"
 ---
 # <a name="use-apache-ambari-to-optimize-hdinsight-cluster-configurations"></a>使用 Apache Ambari 將 HDInsight 叢集設定最佳化
 
@@ -23,7 +23,7 @@ HDInsight 提供大規模資料處理應用程式的 [Apache Hadoop](https://had
 
 使用您的叢集認證登入在 `https://CLUSTERNAME.azurehdidnsight.net` 的 Ambari。 初始畫面會顯示概觀儀表板。
 
-![Ambari 儀表板](./media/hdinsight-changing-configs-via-ambari/ambari-dashboard.png)
+![Ambari 儀表板](./media/hdinsight-changing-configs-via-ambari/apache-ambari-dashboard.png)
 
 Ambari Web UI 可用來管理主機、服務、警示、設定及檢視。 Ambari 無法用來建立 HDInsight 叢集、升級服務、管理堆疊和版本、解除委任或重新委任主機，或將服務新增到叢集。
 
@@ -31,7 +31,7 @@ Ambari Web UI 可用來管理主機、服務、警示、設定及檢視。 Ambar
 
 組態設定可協助微調特定服務。 若要修改服務的組態設定，請選取 [服務] 資訊看板 (位於左邊) 中的服務，然後瀏覽至服務詳細資料頁面中的 [設定] 索引標籤。
 
-![[服務] 資訊看板](./media/hdinsight-changing-configs-via-ambari/services-sidebar.png)
+![[服務] 資訊看板](./media/hdinsight-changing-configs-via-ambari/ambari-services-sidebar.png)
 
 ### <a name="modify-namenode-java-heap-size"></a>修改 NameNode Java 堆積大小
 
@@ -41,15 +41,15 @@ NameNode Java 堆積大小取決於許多因素，例如叢集的負載、檔案
 
 1. 選取[服務] 資訊看板中的 [HDFS]，並瀏覽至 [設定] 索引標籤。
 
-    ![HDFS 設定](./media/hdinsight-changing-configs-via-ambari/hdfs-config.png)
+    ![HDFS 設定](./media/hdinsight-changing-configs-via-ambari/ambari-apache-hdfs-config.png)
 
 1. 找出 [NameNode Java 堆積大小] 設定。 您也可以使用 [篩選] 文字方塊來輸入並尋找特定的設定。 選取設定名稱旁邊的**畫筆**圖示。
 
-    ![NameNode Java 堆積大小](./media/hdinsight-changing-configs-via-ambari/java-heap-size.png)
+    ![NameNode Java 堆積大小](./media/hdinsight-changing-configs-via-ambari/ambari-java-heap-size.png)
 
 1. 在文字方塊中輸入新值，然後按 **Enter** 儲存變更。
 
-    ![編輯 NameNode JAVA 堆積 size1](./media/hdinsight-changing-configs-via-ambari/java-heap-size-edit.png)
+    ![編輯 NameNode JAVA 堆積 size1](./media/hdinsight-changing-configs-via-ambari/java-heap-size-edit1.png)
 
 1. NameNode JAVA 堆積大小已從 2 GB 變更為 1 GB。
 
@@ -57,7 +57,7 @@ NameNode Java 堆積大小取決於許多因素，例如叢集的負載、檔案
 
 1. 按一下設定畫面頂端的綠色 [儲存] 按鈕，儲存您的變更。
 
-    ![儲存變更](./media/hdinsight-changing-configs-via-ambari/save-changes.png)
+    ![儲存變更](./media/hdinsight-changing-configs-via-ambari/ambari-save-changes1.png)
 
 ## <a name="apache-hive-optimization"></a>Apache Hive 最佳化
 
@@ -72,11 +72,11 @@ Hive 提供兩個執行引擎：[Apache Hadoop MapReduce](https://hadoop.apache.
 
 1. 在 Hive [設定] 索引標籤的 [篩選] 方塊中，輸入**執行引擎**。
 
-    ![搜尋執行引擎](./media/hdinsight-changing-configs-via-ambari/search-execution.png)
+    ![搜尋執行引擎](./media/hdinsight-changing-configs-via-ambari/ambari-search-execution.png)
 
 1. [最佳化] 屬性的預設值是 **Tez**。
 
-    ![最佳化 - Tez](./media/hdinsight-changing-configs-via-ambari/optimization-tez.png)
+    ![最佳化 - Tez](./media/hdinsight-changing-configs-via-ambari/optimization-apache-tez.png)
 
 ### <a name="tune-mappers"></a>微調對應程式
 
@@ -93,7 +93,7 @@ Hadoop 會嘗試將單一檔案分割 (*對應*) 為多個檔案，並且平行�
 
 1. 將這兩個參數設定為 **33,554,432** 位元組 (32 MB)。
 
-    ![Tez 群組大小](./media/hdinsight-changing-configs-via-ambari/tez-grouping-size.png)
+    ![Tez 群組大小](./media/hdinsight-changing-configs-via-ambari/apache-tez-grouping-size.png)
  
 這些變更會影響伺服器的所有 Tez 作業。 若要得到最佳結果，請選擇適當的參數值。
 
@@ -109,7 +109,7 @@ Hadoop 會嘗試將單一檔案分割 (*對應*) 為多個檔案，並且平行�
 
 1. 若要修改參數，請瀏覽至 Hive [設定] 索引標籤，並尋找 [設定] 頁面上的 [各歸納器的資料] 參數。
 
-    ![各歸納器的資料](./media/hdinsight-changing-configs-via-ambari/data-per-reducer.png)
+    ![各歸納器的資料](./media/hdinsight-changing-configs-via-ambari/ambari-data-per-reducer.png)
  
 1. 選取 [編輯] 將值修改為 128 MB (134,217,728 位元組)，然後按下 **Enter** 儲存。
 
@@ -127,7 +127,7 @@ Hadoop 會嘗試將單一檔案分割 (*對應*) 為多個檔案，並且平行�
  
 1.  若要限制平行執行的作業數目，請修改`hive.exec.parallel.thread.number`屬性。 預設值為 8。
 
-    ![Hive 執行平行](./media/hdinsight-changing-configs-via-ambari/hive-exec-parallel.png)
+    ![Hive 執行平行](./media/hdinsight-changing-configs-via-ambari/apache-hive-exec-parallel.png)
 
 
 ### <a name="enable-vectorization"></a>啟用向量化
@@ -146,7 +146,7 @@ Hive 預設會遵循一組規則，找出一個最佳的查詢執行計畫。 �
 
 若要啟用 CBO，請瀏覽至 Hive [設定] 索引標籤，並搜尋 `parameter hive.cbo.enable`，然後將切換按鈕切換為 [開]。
 
-![CBO 設定](./media/hdinsight-changing-configs-via-ambari/cbo.png)
+![CBO 設定](./media/hdinsight-changing-configs-via-ambari/hdinsight-cbo-config.png)
 
 CBO 啟用時，下列的其他設定參數會提高 Hive 查詢效能：
 
@@ -373,7 +373,7 @@ HBase 堆積大小會指定*區域*和*主要*伺服器將使用的堆積最大�
 
 1. 將預設值變更為 5,000 MB。
 
-    ![HBASE_HEAPSIZE](./media/hdinsight-changing-configs-via-ambari/hbase-heapsize.png)
+    ![HBASE_HEAPSIZE](./media/hdinsight-changing-configs-via-ambari/ambari-hbase-heapsize.png)
 
 
 ### <a name="optimize-read-heavy-workloads"></a>將大量讀取工作負載最佳化

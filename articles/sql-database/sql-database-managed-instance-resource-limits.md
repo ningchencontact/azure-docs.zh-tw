@@ -11,12 +11,12 @@ author: bonova
 ms.author: bonova
 ms.reviewer: carlrab, jovanpop, sachinp, sstein
 ms.date: 08/27/2019
-ms.openlocfilehash: 33e21b54927280e2692a58c311e2de23e257f923
-ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
+ms.openlocfilehash: 0dea447ed44a61b20faf9a0a1690b2bbdd674b30
+ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70845375"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70930615"
 ---
 # <a name="overview-azure-sql-database-managed-instance-resource-limits"></a>Azure SQL Database 受控實例資源限制的總覽
 
@@ -58,6 +58,7 @@ Azure SQL Database 受控實例可以部署在兩個硬體層代上：第4代和
 | 每個執行個體的資料庫數目上限 | 100 | 100 |
 | 每個實例的資料庫檔案數目上限 | 最多 280 個 | 每個資料庫 32,767 個檔案 |
 | 檔案大小上限 | 8 TB | 4 TB |
+| 記錄檔大小上限 | 2 TB | 2 TB |
 | 資料/記錄 IOPS (大約) | 每個檔案 500 - 7,500<br/>\*[增加檔案大小以取得更多 IOPS](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage-performance#premium-storage-disk-sizes)| 5.5 K-110 K （1375/vCore）<br/>新增更多虛擬核心，以取得更佳的 IO 效能。 |
 | 記錄寫入輸送量限制 | 每個虛擬核心 3 MB/秒<br/>每個實例最大每秒 22 MB | 每個 vCore 4 MB/秒<br/>每個實例最大 48 MB/秒|
 | 資料輸送量 (大約) | 每個檔案 100 - 250 MB/秒<br/>\*[增加檔案大小以取得更佳的 IO 效能](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage-performance#premium-storage-disk-sizes) | N/A |
@@ -66,8 +67,6 @@ Azure SQL Database 受控實例可以部署在兩個硬體層代上：第4代和
 | 記憶體內部 OLTP | 不支援 | 可用 |
 | 會話數上限 | 30000 | 30000 |
 | [唯讀複本](sql-database-read-scale-out.md) | 0 | 1（包含在價格中） |
-| 定價/計費 | [vCore 和保留的儲存體](https://azure.microsoft.com/pricing/details/sql-database/managed/)會收費。 <br/>IOPS 不會收費。<br/>備份儲存體尚未收費。 | [vCore 和保留的儲存體](https://azure.microsoft.com/pricing/details/sql-database/managed/)會收費。 <br/>IOPS 不會收費。<br/>備份儲存體尚未收費。 | 
-| 折扣模型 | [保留的實例](sql-database-reserved-capacity.md)<br/>[Azure Hybrid Benefit](sql-database-service-tiers-vcore.md#azure-hybrid-benefit)（不適用於開發/測試訂閱）<br/>[企業](https://azure.microsoft.com/offers/ms-azr-0148p/)與[隨用隨付](https://azure.microsoft.com/offers/ms-azr-0023p/)開發/測試訂閱| [保留的實例](sql-database-reserved-capacity.md)<br/>[Azure Hybrid Benefit](sql-database-service-tiers-vcore.md#azure-hybrid-benefit)（不適用於開發/測試訂閱）<br/>[企業](https://azure.microsoft.com/offers/ms-azr-0148p/)與[隨用隨付](https://azure.microsoft.com/offers/ms-azr-0023p/)開發/測試訂閱|
 
 > [!NOTE]
 > - 使用者和系統資料庫中的資料和記錄檔大小都會計入執行個體儲存體大小，並與儲存體大小上限相比較。 使用 <a href="https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-master-files-transact-sql">sys.master_files</a> 系統檢視來判斷資料庫所使用的總空間。 錯誤記錄不會持續留存，也不計入大小。 備份並未計入儲存體大小。

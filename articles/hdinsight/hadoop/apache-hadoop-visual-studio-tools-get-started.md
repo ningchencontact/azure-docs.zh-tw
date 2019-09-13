@@ -10,12 +10,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017,seodec18
 ms.topic: conceptual
 ms.date: 06/03/2019
-ms.openlocfilehash: 7a243dd0eca179317309438c31c114c94f94bf00
-ms.sourcegitcommit: 97605f3e7ff9b6f74e81f327edd19aefe79135d2
+ms.openlocfilehash: 706bcbed39ca2a3fe0a38eba864edb863c31b4ec
+ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70736426"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70884090"
 ---
 # <a name="use-data-lake-tools-for-visual-studio-to-connect-to-azure-hdinsight-and-run-apache-hive-queries"></a>使用 Data Lake Tools for Visual Studio 連線至 Azure HDInsight 及執行 Apache Hive 查詢
 
@@ -46,7 +46,7 @@ ms.locfileid: "70736426"
 
   針對現有的安裝，請從功能表列流覽至 [**工具** > ] [**取得工具和功能 ...** ]，以開啟 Visual Studio 安裝程式。  然後選取至少工作負載**Azure 開發**或**資料儲存和處理**。
 
-  ![Visual Studio 安裝程式的螢幕擷取畫面](./media/apache-hadoop-visual-studio-tools-get-started/vs2017_installation.png)
+  ![Visual Studio 安裝程式的螢幕擷取畫面](./media/apache-hadoop-visual-studio-tools-get-started/vs-2017-installation.png)
 
 * Visual Studio 2013 和2015  
   [下載 Data Lake 工具](https://www.microsoft.com/download/details.aspx?id=49504)。 選擇與您的 Visual Studio 版本相符的 Data Lake Tools 版本。  
@@ -195,13 +195,13 @@ ms.locfileid: "70736426"
 
       確定已選取 [**互動式**]，然後選取 [**執行**]。
 
-      ![查詢和執行的螢幕擷取畫面](./media/apache-hadoop-visual-studio-tools-get-started/execute.png)  
+      ![查詢和執行的螢幕擷取畫面](./media/apache-hadoop-visual-studio-tools-get-started/hdinsight-query-execute.png)  
 
     * **Batch**  
 
       確定已選取 [**批次**]，然後選取 [**提交**]。  如果您選取 [advanced submit] 選項，請設定腳本的 [**作業名稱**]、[**引數**]、[**其他**設定] 和 [**狀態目錄**]。
 
-      ![查詢和批次的螢幕擷取畫面](./media/apache-hadoop-visual-studio-tools-get-started/batch.png)  
+      ![查詢和批次的螢幕擷取畫面](./media/apache-hadoop-visual-studio-tools-get-started/hdinsight-query-batch.png)  
 
       ![HDInsight Hadoop Hive 查詢的螢幕擷取畫面](./media/apache-hadoop-visual-studio-tools-get-started/hdinsight-visual-studio-tools-submit-jobs-advanced.png "提交查詢")
 
@@ -224,7 +224,7 @@ ms.locfileid: "70736426"
 
 工作摘要在**批次**和**互動**模式之間有些許差異。
 
-![作業摘要](./media/apache-hadoop-visual-studio-tools-get-started/jobSummary.png "Hive 作業摘要")
+![作業摘要](./media/apache-hadoop-visual-studio-tools-get-started/hdinsight-job-summary.png "Hive 作業摘要")
 
 使用 [重新整理 **] 按鈕來**更新狀態，直到作業狀態變更為 [**已完成**] 為止。  
 
@@ -232,7 +232,7 @@ ms.locfileid: "70736426"
 
 * 如需**互動**模式的作業詳細資料，請參閱定位點**輸出**和**HiveServer2 輸出**。
 
-  ![作業詳細資料](./media/apache-hadoop-visual-studio-tools-get-started/tabs.png "Hive 作業詳細資料")
+  ![作業詳細資料](./media/apache-hadoop-visual-studio-tools-get-started/hdinsight-job-details.png "Hive 作業詳細資料")
 
 ### <a name="view-job-graph"></a>查看作業圖形
 

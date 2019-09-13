@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 10/16/2017
 ms.author: glenga
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 19e088eee878695d24678d1df17b2848a4be1e01
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 2782781fdfd560c0c8f322e362fcf74c796664bd
+ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70097548"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70933046"
 ---
 # <a name="optimize-the-performance-and-reliability-of-azure-functions"></a>將 Azure Functions 效能和可靠性最佳化
 
@@ -36,7 +36,7 @@ ms.locfileid: "70097548"
 
 ### <a name="cross-function-communication"></a>跨函式通訊
 
-[Durable Functions](durable/durable-functions-concepts.md) 和 [Azure Logic Apps](../logic-apps/logic-apps-overview.md) 均建置用來管理多個函式之間的狀態轉換和通訊。
+[Durable Functions](durable/durable-functions-overview.md) 和 [Azure Logic Apps](../logic-apps/logic-apps-overview.md) 均建置用來管理多個函式之間的狀態轉換和通訊。
 
 如果未使用 Durable Functions 或 Logic Apps 來與多個函式整合，使用儲存體佇列進行跨函式通訊通常是最佳做法。  主要原因是儲存體佇列更便宜和容易佈建。 
 
@@ -83,7 +83,7 @@ ms.locfileid: "70097548"
 
 對於在實際執行函式應用程式中載入的項目，請務必小心。 記憶體會在應用程式中的每個函式間平均分配。
 
-如果您有多個 .NET 函式中參考的共用元件, 請將它放在通用共用資料夾中。 如果使用 C# 指令碼 (.csx)，請使用類似下列的範例陳述式來參考組件︰ 
+如果您有多個 .NET 函式中參考的共用元件，請將它放在通用共用資料夾中。 如果使用 C# 指令碼 (.csx)，請使用類似下列的範例陳述式來參考組件︰ 
 
     #r "..\Shared\MyAssembly.dll". 
 

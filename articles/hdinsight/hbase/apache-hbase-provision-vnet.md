@@ -8,15 +8,15 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/22/2018
 ms.author: hrasheed
-ms.openlocfilehash: 9d81e5e69837f6074d94278f4e54f9178a656335
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: c8fc7c931f31e1ff58f41faa9a29f7e77e9655fd
+ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67433798"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70917327"
 ---
 # <a name="create-apache-hbase-clusters-on-hdinsight-in-azure-virtual-network"></a>在 Azure 虛擬網路中的 HDInsight 上建立 Apache HBase 叢集
-了解如何建立 Azure HDInsight 的 Apache HBase 叢集位於[Azure 虛擬網路][1]。
+瞭解如何在[Azure 虛擬網路][1]中建立 Azure HDInsight Apache HBase 叢集。
 
 由於 Apache HBase 叢集已與虛擬網路整合，因此能夠部署到與您應用程式相同的虛擬網路，讓應用程式得以和 HBase 直接通訊。 其優點包括：
 
@@ -46,24 +46,23 @@ ms.locfileid: "67433798"
 > * **子網路位址範圍**︰10.0.0.0/24
 >
 > 使用範本時，&lt;叢集名稱> 會取代為您提供的叢集名稱。
->
->
 
-1. 按一下以下影像，在 Azure 入口網站中開啟範本。 範本位於[Azure 快速入門範本](https://azure.microsoft.com/resources/templates/101-hdinsight-hbase-linux-vnet/)。
 
-    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-hdinsight-hbase-linux-vnet%2Fazuredeploy.json" target="_blank"><img src="./media/apache-hbase-provision-vnet/deploy-to-azure.png" alt="Deploy to Azure"></a>
-2. 從 [自訂部署]  刀鋒視窗中，輸入下列屬性：
+1. 按一下以下影像，在 Azure 入口網站中開啟範本。 範本位在 [Azure 快速入門範本](https://azure.microsoft.com/resources/templates/101-hdinsight-hbase-linux-vnet/)。
 
-   * 訂用帳戶  ：選取用來建立 HDInsight 叢集、相依儲存體帳戶和 Azure 虛擬網路的 Azure 訂用帳戶。
-   * **資源群組**：選取 [新建]  並指定新的資源群組名稱。
+    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-hdinsight-hbase-linux-vnet%2Fazuredeploy.json" target="_blank"><img src="./media/apache-hbase-provision-vnet/hdi-deploy-to-azure1.png" alt="Deploy to Azure"></a>
+2. 從 [自訂部署] 刀鋒視窗中，輸入下列屬性：
+
+   * 訂用帳戶：選取用來建立 HDInsight 叢集、相依儲存體帳戶和 Azure 虛擬網路的 Azure 訂用帳戶。
+   * **資源群組**：選取 [新建] 並指定新的資源群組名稱。
    * **位置**：選取資源群組的位置。
    * **ClusterName**：輸入要建立的 Hadoop 叢集的名稱。
    * **叢集登入名稱和密碼**：預設登入名稱為 **admin**。
    * **SSH 使用者名稱和密碼**：預設的使用者名稱為 **sshuser**。  您可以將它重新命名。
    * **我同意上方所述的條款及條件**：(選取)
-3. 按一下 [購買]  。 大約需要 20 分鐘的時間來建立叢集。 一旦建立叢集後，您可以在入口網站按一下 [叢集] 刀鋒視窗來開啟它。
+3. 按一下 [購買]。 大約需要 20 分鐘的時間來建立叢集。 一旦建立叢集後，您可以在入口網站按一下 [叢集] 刀鋒視窗來開啟它。
 
-完成本文之後，您可能想要刪除叢集。 利用 HDInsight，您的資料會儲存在 Azure 儲存體中，以便您在未使用叢集時安全地進行刪除。 您也需支付 HDInsight 叢集的費用 (即使未使用)。 由於叢集費用是儲存體費用的許多倍，所以刪除未使用的叢集符合經濟效益。 如需有關刪除叢集的指示，請參閱[使用 Azure 入口網站管理 HDInsight 中的 Apache Hadoop 叢集](../hdinsight-administer-use-portal-linux.md#delete-clusters)。
+完成本文之後，您可能會想要刪除叢集。 利用 HDInsight，您的資料會儲存在 Azure 儲存體中，以便您在未使用叢集時安全地進行刪除。 您也需支付 HDInsight 叢集的費用 (即使未使用)。 由於叢集費用是儲存體費用的許多倍，所以刪除未使用的叢集符合經濟效益。 如需有關刪除叢集的指示，請參閱[使用 Azure 入口網站管理 HDInsight 中的 Apache Hadoop 叢集](../hdinsight-administer-use-portal-linux.md#delete-clusters)。
 
 若要開始使用新的 HBase 叢集，您可以使用[開始在 HDInsight 中搭配使用 Apache HBase 與 Apache Hadoop](./apache-hbase-tutorial-get-started-linux.md) 中提供的程序。
 
@@ -86,7 +85,7 @@ ms.locfileid: "67433798"
    * 使用 Ambari 網站︰
 
      1. 瀏覽至 https://&lt;ClusterName>.azurehdinsight.net。
-     2. 按一下頂端功能表中的 [主機]  。
+     2. 按一下頂端功能表中的 [主機] 。
    * 使用 Curl 進行 REST 呼叫︰
 
      ```bash
@@ -215,7 +214,7 @@ ms.locfileid: "67433798"
     3. Expand **Computer Configuration**, expand **Administrative Templates**, expand **Network**, and then click **DNS Client**.
     - Set **Primary DNS Suffix** to the value obtained in step 2:
 
-        ![hdinsight.hbase.primary.dns.suffix](./media/apache-hbase-provision-vnet/PrimaryDNSSuffix.png)
+        ![hdinsight.hbase.primary.dns.suffix](./media/apache-hbase-provision-vnet/hdi-primary-dns-suffix.png)
     4. Click **OK**.
     5. Reboot the virtual machine.
 -->
@@ -233,7 +232,7 @@ ms.locfileid: "67433798"
 > 如需 Azure 虛擬網路中名稱解析的詳細資訊，包括如何使用您自己的 DNS 伺服器，請參閱[名稱解析 (DNS)](../../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md)。
 
 ## <a name="next-steps"></a>後續步驟
-在本文中，您已了解如何建立 Apache HBase 叢集。 若要深入了解，請參閱：
+在本文中，您已瞭解如何建立 Apache HBase 叢集。 若要深入了解，請參閱：
 
 * [開始使用 HDInsight](../hadoop/apache-hadoop-linux-tutorial-get-started.md)
 * [在 HDInsight 中使用空白邊緣節點](../hdinsight-apps-use-edge-node.md)

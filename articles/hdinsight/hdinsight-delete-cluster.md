@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 04/17/2019
 ms.author: hrasheed
 ms.custom: H1Hack27Feb2017,hdinsightactive
-ms.openlocfilehash: 1c9214f3084d7b1e2012ec69e3b8e3fe6d08c09e
-ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
+ms.openlocfilehash: 08bfdcab0b7fbb8e533cb8d2d6a74d315ad4074c
+ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70810258"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70885245"
 ---
 # <a name="delete-an-hdinsight-cluster-using-your-browser-powershell-or-the-azure-cli"></a>使用您的瀏覽器、PowerShell 或 Azure CLI 刪除 HDInsight 叢集
 
@@ -30,7 +30,7 @@ HDInsight 叢集的計費起自叢集建立時，終至叢集刪除時。 計費
 
 3. 從預設的 [] 視圖中，選取 [**刪除**] 圖示。 依照提示刪除您的叢集。
    
-    ![刪除圖示](./media/hdinsight-delete-cluster/deletecluster.png)
+    ![刪除圖示](./media/hdinsight-delete-cluster/hdinsight-delete-cluster.png)
 
 ## <a name="azure-powershell-az-module"></a>Azure PowerShell Az 模組
 

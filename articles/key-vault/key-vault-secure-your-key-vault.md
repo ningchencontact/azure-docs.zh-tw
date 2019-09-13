@@ -3,18 +3,18 @@ title: 針對金鑰保存庫的存取進行保護 - Azure Key Vault | Microsoft 
 description: 針對 Azure Key Vault、金鑰和祕密進行存取權限管理。 包含 Key Vault 的驗證和授權模型以及如何保護金鑰保存庫。
 services: key-vault
 author: amitbapat
-manager: barbkess
+manager: rkarlin
 tags: azure-resource-manager
 ms.service: key-vault
 ms.topic: conceptual
 ms.date: 01/07/2019
 ms.author: ambapat
-ms.openlocfilehash: 67925f2123f2a4f2524002eb075754c38fad4b42
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 4857cda7c3387e72be8837422469888adc5504d1
+ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67118991"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70883102"
 ---
 # <a name="secure-access-to-a-key-vault"></a>針對金鑰保存庫的存取進行保護
 
@@ -24,7 +24,7 @@ Azure Key Vault 是用來保護加密金鑰和祕密 (例如憑證、連接字�
 
 ## <a name="access-model-overview"></a>存取模型概觀
 
-金鑰保存庫的存取權可透過兩個介面來控制︰管理平面  和資料平面  。 管理平面可讓您管理 Key Vault 本身。 此平面中的作業包括建立和刪除金鑰保存庫、擷取 Key Vault 屬性，以及更新存取原則。 資料平面則可讓您處理金鑰保存庫中儲存的資料。 您可以新增、刪除和修改金鑰、祕密和憑證。
+金鑰保存庫的存取權可透過兩個介面來控制︰管理平面和資料平面。 管理平面可讓您管理 Key Vault 本身。 此平面中的作業包括建立和刪除金鑰保存庫、擷取 Key Vault 屬性，以及更新存取原則。 資料平面則可讓您處理金鑰保存庫中儲存的資料。 您可以新增、刪除和修改金鑰、祕密和憑證。
 
 若要在任一平面存取金鑰保存庫，所有呼叫者 (使用者或應用程式) 都必須有適當的驗證和授權。 驗證會建立呼叫者的身分識別。 授權則會判斷呼叫者可以執行哪些作業。 
 
@@ -34,7 +34,7 @@ Azure Key Vault 是用來保護加密金鑰和祕密 (例如憑證、連接字�
 
 當您在 Azure 訂用帳戶中建立金鑰保存庫時，它會自動與該訂用帳戶的 Azure AD 租用戶建立關聯。 這兩個平面中的所有呼叫者都必須在此租用戶中註冊，並經過驗證才能存取金鑰保存庫。 在這兩種情況中，應用程式均可透過兩種方式存取 Key Vault︰
 
-- **使用者加上應用程式的存取**：應用程式會代表登入的使用者存取 Key Vault。 舉例來說，這類存取包括 Azure PowerShell 和 Azure 入口網站。 使用者存取的授與則是透過兩種方式來完成。 使用者可以從任何應用程式存取 Key Vault，或者必須使用特定應用程式來進行 (稱為「複合身分識別」  )。
+- **使用者加上應用程式的存取**：應用程式會代表登入的使用者存取 Key Vault。 舉例來說，這類存取包括 Azure PowerShell 和 Azure 入口網站。 使用者存取的授與則是透過兩種方式來完成。 使用者可以從任何應用程式存取 Key Vault，或者必須使用特定應用程式來進行 (稱為「複合身分識別」)。
 - **只有應用程式的存取**：應用程式會以精靈服務或背景作業的形式來執行。 系統會將金鑰保存庫的存取權授與給該應用程式識別碼。
 
 對於這兩種類型的存取權，應用程式都會向 Azure AD 進行驗證。 應用程式會根據應用程式類型使用任何[支援的驗證方法](../active-directory/develop/authentication-scenarios.md)。 應用程式會取得平面中資源的權杖以便授與存取權。 視 Azure 環境而定，資源會是管理或資料平面中的端點。 應用程式會使用此權杖，對 Key Vault 傳送 REST API 要求。 若要深入了解，請參閱[整個驗證流程](../active-directory/develop/v1-protocols-oauth-code.md)。
@@ -58,11 +58,11 @@ Azure Key Vault 是用來保護加密金鑰和祕密 (例如憑證、連接字�
 
 ## <a name="management-plane-and-rbac"></a>管理平面和 RBAC
 
-管理平面，在中，您可以使用 RBAC （角色型存取控制） 來授權呼叫者可以執行的作業。 在 RBAC 模型中，每個 Azure 訂用帳戶都會有一個 Azure AD 執行個體。 您可以對來自該目錄的使用者、群組和應用程式授與存取權。 授與存取權即可在 Azure 訂用帳戶中管理使用 Azure Resource Manager 部署模型的資源。 若要授與存取權，請使用 [Azure 入口網站](https://portal.azure.com/)、[Azure CLI](../cli-install-nodejs.md)、[Azure PowerShell](/powershell/azureps-cmdlets-docs) 或 [Azure Resource Manager REST API](https://msdn.microsoft.com/library/azure/dn906885.aspx)。
+在管理平面中，您可以使用 RBAC （以角色為基礎的存取控制）來授權呼叫者可以執行的作業。 在 RBAC 模型中，每個 Azure 訂用帳戶都會有一個 Azure AD 執行個體。 您可以對來自該目錄的使用者、群組和應用程式授與存取權。 授與存取權即可在 Azure 訂用帳戶中管理使用 Azure Resource Manager 部署模型的資源。 若要授與存取權，請使用 [Azure 入口網站](https://portal.azure.com/)、[Azure CLI](../cli-install-nodejs.md)、[Azure PowerShell](/powershell/azureps-cmdlets-docs) 或 [Azure Resource Manager REST API](https://msdn.microsoft.com/library/azure/dn906885.aspx)。
 
 您可以使用 Azure AD 在資源群組中建立金鑰保存庫和管理存取權。 您可以對使用者或群組授與在資源群組中管理金鑰保存庫的能力。 您可以藉由指派適當的 RBAC 角色，來授與特定範圍層級的存取權。 若要對使用者授與管理金鑰保存庫的權限，您可以在特定範圍對使用者指派預先定義的 `key vault Contributor` 角色。 您可以對 RBAC 角色指派下列範圍層級：
 
-- 訂用帳戶  ：在訂用帳戶層級指派的 RBAC 角色，會套用至該訂用帳戶內的所有資源群組和資源。
+- 訂用帳戶：在訂用帳戶層級指派的 RBAC 角色，會套用至該訂用帳戶內的所有資源群組和資源。
 - **资源组**：在資源群組層級指派的 RBAC 角色，會套用至該資源群組內的所有資源。
 - **特定資源**：針對特定資源指派的 RBAC 角色，則會套用至該資源。 在此情況下，資源會是特定的金鑰保存庫。
 

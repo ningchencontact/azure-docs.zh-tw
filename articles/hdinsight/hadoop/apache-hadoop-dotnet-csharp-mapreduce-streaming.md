@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 02/15/2019
 ms.author: hrasheed
-ms.openlocfilehash: b06f19736c4d50ab7d246a5c71da04ada95b6f98
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 7f82ad65ecc805d5a45c78e8b190dd0eee4c340c
+ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64727377"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70882312"
 ---
 # <a name="use-c-with-mapreduce-streaming-on-apache-hadoop-in-hdinsight"></a>搭配 HDInsight 的 Apache Hadoop 上的 MapReduce 串流使用 C#
 
@@ -144,27 +144,27 @@ namespace reducer
 
 ## <a name="upload-to-storage"></a>上傳至儲存體
 
-1. 在 Visual Studio 中，開啟 [伺服器總管]  。
+1. 在 Visual Studio 中，開啟 [伺服器總管]。
 
-2. 展開 [Azure]  ，然後展開 [HDInsight]  。
+2. 展開 [Azure]，然後展開 [HDInsight]。
 
-3. 如果出現提示，請輸入您的 Azure 訂用帳戶認證，然後按一下 [登入]  。
+3. 如果出現提示，請輸入您的 Azure 訂用帳戶認證，然後按一下 [登入]。
 
 4. 展開您要部署此應用程式的 HDInsight 叢集。 就會列出含有文字 __(預設儲存體帳戶)__ 的項目。
 
-    ![顯示叢集之儲存體帳戶的 [伺服器總管]](./media/apache-hadoop-dotnet-csharp-mapreduce-streaming/storage.png)
+    ![顯示叢集之儲存體帳戶的 [伺服器總管]](./media/apache-hadoop-dotnet-csharp-mapreduce-streaming/hdinsight-storage-account.png)
 
-    * 如果此項目可以展開，表示您是使用 __Azure 儲存體帳戶__作為叢集的預設儲存體。 若要檢視叢集之預設儲存體上的檔案，請展開項目，然後按兩下 [(預設容器)]  。
+    * 如果此項目可以展開，表示您是使用 __Azure 儲存體帳戶__作為叢集的預設儲存體。 若要檢視叢集之預設儲存體上的檔案，請展開項目，然後按兩下 [(預設容器)]。
 
-    * 如果此項目無法展開，表示您是使用 __Azure Data Lake Storage__ 作為叢集的預設儲存體。 若要檢視叢集之預設儲存體上的檔案，請按兩下 [(預設儲存體帳戶)]  項目。
+    * 如果此項目無法展開，表示您是使用 __Azure Data Lake Storage__ 作為叢集的預設儲存體。 若要檢視叢集之預設儲存體上的檔案，請按兩下 [(預設儲存體帳戶)] 項目。
 
 5. 若要上傳 .exe 檔案，請使用下列其中一種方法：
 
-   * 如果使用 __Azure 儲存體帳戶__，請按一下上傳圖示，然後瀏覽至 **mapper** 專案的 **bin\debug** 資料夾。 最後，選取 **mapper.exe** 檔案，然後按一下 [確定]  。
+   * 如果使用 __Azure 儲存體帳戶__，請按一下上傳圖示，然後瀏覽至 **mapper** 專案的 **bin\debug** 資料夾。 最後，選取 **mapper.exe** 檔案，然後按一下 [確定]。
 
-       ![上傳圖示](./media/apache-hadoop-dotnet-csharp-mapreduce-streaming/upload.png)
+        ![上傳圖示](./media/apache-hadoop-dotnet-csharp-mapreduce-streaming/hdinsight-upload-icon.png)
     
-   * 如果使用 __Azure Data Lake Storage__，請以滑鼠右鍵按一下檔案清單中的空白區域，然後選取 [上傳]  。 最後，選取 **mapper.exe** 檔案，然後按一下 [開啟]  。
+   * 如果使用 __Azure Data Lake Storage__，請以滑鼠右鍵按一下檔案清單中的空白區域，然後選取 [上傳]。 最後，選取 **mapper.exe** 檔案，然後按一下 [開啟]。
 
      __mapper.exe__ 上傳完成後，請針對 __reducer.exe__ 檔案重複上傳程序。
 

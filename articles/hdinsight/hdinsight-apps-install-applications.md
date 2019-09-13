@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/17/2019
 ms.author: hrasheed
-ms.openlocfilehash: 8ed854a5775dfc20e258c14de51fe2066fa6caad
-ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
+ms.openlocfilehash: 68bbe22a4a6f7697c2bfab291412aae85efc32e9
+ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70810285"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70916987"
 ---
 # <a name="install-third-party-apache-hadoop-applications-on-azure-hdinsight"></a>在 Azure HDInsight 上安裝協力廠商 Apache Hadoop 應用程式
 
@@ -59,7 +59,7 @@ HDInsight 應用程式是使用者可以在 HDInsight 叢集上安裝的應用�
     ![HDInsight 應用程式入口網站功能表](./media/hdinsight-apps-install-applications/hdinsight-apps-portal-menu.png)
 5. 從功能表中選取 [ **+ 新增**]。 您可以看到可用的應用程式清單。  如果 [ **+ 新增**] 呈現灰色，表示此版本的 HDInsight 叢集沒有任何應用程式。
    
-    ![HDinsight 應用程式可用的應用程式](./media/hdinsight-apps-install-applications/hdinsight-apps-list.png)
+    ![HDinsight 應用程式可用的應用程式](./media/hdinsight-apps-install-applications/hdinsight-apps-list1.png)
 6. 選取其中一個可用的應用程式，然後依照指示接受法律條款。
 
 您可以從入口網站通知看到安裝狀態（選取入口網站頂端的鐘圖示）。 安裝應用程式之後，應用程式會出現在 [已安裝的應用程式] 清單上。

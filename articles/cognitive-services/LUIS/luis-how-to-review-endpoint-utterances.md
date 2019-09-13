@@ -1,7 +1,7 @@
 ---
 title: 審查使用者語句-LUIS
 titleSuffix: Azure Cognitive Services
-description: 主動式學習會捕捉端點查詢, 並選取不確定的使用者端點語句。 您可以檢查這些語句來選取意圖, 並標記這些讀取世界語句的實體。 在您的範例語句中接受這些變更, 然後進行定型和發佈。 然後, LUIS 會更準確地識別語句。
+description: 主動式學習會捕捉端點查詢，並選取不確定的使用者端點語句。 您可以檢查這些語句來選取意圖，並標記這些讀取世界語句的實體。 在您的範例語句中接受這些變更，然後進行定型和發佈。 然後，LUIS 會更準確地識別語句。
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -9,27 +9,27 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 03/25/2019
+ms.date: 09/05/2019
 ms.author: diberry
-ms.openlocfilehash: 9b809681b68fe3347a68cb2b2006c41783a356a6
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: c617e4aa62ce2ff468545bef0b2ebe2c4d0e4f03
+ms.sourcegitcommit: 49c4b9c797c09c92632d7cedfec0ac1cf783631b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68932800"
+ms.lasthandoff: 09/05/2019
+ms.locfileid: "70382363"
 ---
 # <a name="how-to-review-endpoint-utterances-in-luis-portal-for-active-learning"></a>如何在 LUIS 入口網站中審查用於主動式學習的端點語句
 
-[主動式學習](luis-concept-review-endpoint-utterances.md)會捕捉端點查詢, 並選取不確定的使用者端點語句。 您可以檢查這些語句來選取意圖, 並標記這些讀取世界語句的實體。 在您的範例語句中接受這些變更, 然後進行定型和發佈。 然後, LUIS 會更準確地識別語句。
+[主動式學習](luis-concept-review-endpoint-utterances.md)會捕捉端點查詢，並選取不確定的使用者端點語句。 您可以檢查這些語句來選取意圖，並標記這些讀取世界語句的實體。 在您的範例語句中接受這些變更，然後進行定型和發佈。 然後，LUIS 會更準確地識別語句。
 
 
 ## <a name="enable-active-learning"></a>啟用主動式學習
 
-若要啟用主動式學習, 請記錄使用者查詢。 這是藉由使用`log=true` querystring 參數和值來設定[端點查詢](luis-get-started-create-app.md#query-the-endpoint-with-a-different-utterance)來完成。
+若要啟用主動式學習，請記錄使用者查詢。 這是藉由使用`log=true` querystring 參數和值來設定[端點查詢](luis-get-started-create-app.md#query-the-v2-api-prediction-endpoint)來完成。
 
 ## <a name="disable-active-learning"></a>停用主動式學習
 
-若要停用主動式學習, 請不要記錄使用者查詢。 這是藉由使用`log=false` querystring 參數和值來設定[端點查詢](luis-get-started-create-app.md#query-the-endpoint-with-a-different-utterance)來完成。
+若要停用主動式學習，請不要記錄使用者查詢。 這是藉由使用`log=false` querystring 參數和值來設定[端點查詢](luis-get-started-create-app.md#query-the-v2-api-prediction-endpoint)來完成。
 
 ## <a name="filter-utterances"></a>篩選語句
 

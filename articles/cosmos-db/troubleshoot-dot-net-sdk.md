@@ -1,6 +1,6 @@
 ---
-title: 診斷和使用 Azure Cosmos DB.NET SDK 時，針對問題進行疑難排解
-description: 使用功能，例如用戶端記錄和其他第三方工具來識別、 診斷及使用.NET SDK 時，針對 Azure Cosmos DB 問題進行疑難排解。
+title: 針對使用 Azure Cosmos DB .NET SDK 時的問題進行診斷和疑難排解
+description: 使用用戶端記錄和其他協力廠商工具等功能，來識別、診斷及疑難排解使用 .NET SDK 時的 Azure Cosmos DB 問題。
 author: j82w
 ms.service: cosmos-db
 ms.date: 05/28/2019
@@ -8,59 +8,59 @@ ms.author: jawilley
 ms.subservice: cosmosdb-sql
 ms.topic: troubleshooting
 ms.reviewer: sngun
-ms.openlocfilehash: b9511562b81f7ac0c1582897d703f4c5ccb89716
-ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
+ms.openlocfilehash: 51b37c43b94ad59090f32af0d57bbefaa57f30fa
+ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67806390"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70932565"
 ---
-# <a name="diagnose-and-troubleshoot-issues-when-using-azure-cosmos-db-net-sdk"></a>診斷和使用 Azure Cosmos DB.NET SDK 時，針對問題進行疑難排解
-本文章涵蓋常見的問題、 因應措施、 診斷步驟和工具使用時[.NET SDK](sql-api-sdk-dotnet.md)使用 Azure Cosmos DB SQL API 帳戶。
-.NET SDK 提供來存取 Azure Cosmos DB SQL API 的用戶端邏輯表示法。 此文章所說明的工具和方法，可以在您遇到任何問題時提供協助。
+# <a name="diagnose-and-troubleshoot-issues-when-using-azure-cosmos-db-net-sdk"></a>針對使用 Azure Cosmos DB .NET SDK 時的問題進行診斷和疑難排解
+本文涵蓋使用[.NET SDK](sql-api-sdk-dotnet.md)搭配 AZURE COSMOS DB SQL API 帳戶時的常見問題、因應措施、診斷步驟和工具。
+.NET SDK 提供用戶端邏輯標記法來存取 Azure Cosmos DB SQL API。 此文章所說明的工具和方法，可以在您遇到任何問題時提供協助。
 
-## <a name="checklist-for-troubleshooting-issues"></a>移難排解問題的檢查清單：
-在您移動您的應用程式至生產環境之前，請考慮下列檢查清單。 使用檢查清單，將會導致數個常見的問題，您可能會看到。 您也可以快速地診斷發生問題時：
+## <a name="checklist-for-troubleshooting-issues"></a>疑難排解問題的檢查清單：
+將應用程式移至生產環境之前，請考慮下列檢查清單。 使用檢查清單可防止您可能會看到的幾個常見問題。 您也可以在發生問題時快速診斷：
 
-*   使用最新版[SDK](https://github.com/Azure/azure-cosmos-dotnet-v2/blob/master/changelog.md)。 預覽 Sdk 不應該用於生產環境。 這樣可避免達到已修正的已知的問題。
-*   檢閱[效能祕訣](performance-tips.md)並遵循建議的做法。 這將有助於避免調整規模、 延遲及其他效能問題。
-*   啟用 SDK 記錄可協助您疑難排解問題。 啟用記錄功能可能會影響效能，因此建議您最好針對問題進行疑難排解時才加以啟用。 您可以啟用下列記錄檔：
-    *   [記錄度量](monitor-accounts.md)使用 Azure 入口網站。 入口網站計量顯示 Azure Cosmos DB 的遙測，很有幫助判斷是否對應至 Azure Cosmos DB 的問題，或者如果它是從用戶端。
-    *   記錄檔[診斷字串](https://docs.microsoft.com/dotnet/api/microsoft.azure.documents.client.resourceresponsebase.requestdiagnosticsstring?view=azure-dotnet)從點作業的回應。
-    *   記錄檔[SQL 查詢計量](sql-api-query-metrics.md)從所有查詢回應 
-    *   請依照安裝程式以進行[SDK 記錄]( https://github.com/Azure/azure-cosmos-dotnet-v2/blob/master/docs/documentdb-sdk_capture_etl.md)
+*   使用最新的[SDK](https://github.com/Azure/azure-cosmos-dotnet-v2/blob/master/changelog.md)。 預覽 Sdk 不應用於生產環境。 這將導致無法達到已修正的已知問題。
+*   檢閱[效能祕訣](performance-tips.md)並遵循建議的做法。 這將有助於防止調整、延遲和其他效能問題。
+*   啟用 SDK 記錄以協助您針對問題進行疑難排解。 啟用記錄可能會影響效能，所以最好只在針對問題進行疑難排解時才啟用。 您可以啟用下列記錄：
+    *   使用 Azure 入口網站來[記錄計量](monitor-accounts.md)。 入口網站計量會顯示 Azure Cosmos DB 的遙測，這有助於判斷問題是否對應到 Azure Cosmos DB 或是否來自用戶端。
+    *   從點操作回應記錄[診斷字串](https://docs.microsoft.com/dotnet/api/microsoft.azure.documents.client.resourceresponsebase.requestdiagnosticsstring?view=azure-dotnet)。
+    *   記錄所有查詢回應中的[SQL 查詢計量](sql-api-query-metrics.md) 
+    *   遵循適用于[SDK 記錄]( https://github.com/Azure/azure-cosmos-dotnet-v2/blob/master/docs/documentdb-sdk_capture_etl.md)的設定
 
 查看此文章的[常見問題和因應措施](#common-issues-workarounds)一節。
 
-請檢查[GitHub 問題區段](https://github.com/Azure/azure-cosmos-dotnet-v2/issues)，主動監視。 查看您是否有任何含有已提出因應措施的類似問題。 如果您找不到所需的方案，然後提出 GitHub 問題。 您可以開啟支援刻度緊急問題。
+查看已主動監視的[GitHub 問題區段](https://github.com/Azure/azure-cosmos-dotnet-v2/issues)。 查看您是否有任何含有已提出因應措施的類似問題。 如果您找不到解決方案，請提出 GitHub 問題。 您可以開啟緊急問題的支援滴答。
 
 
 ## <a name="common-issues-workarounds"></a>常見問題和因應措施
 
 ### <a name="general-suggestions"></a>一般建議
-* 您的 Azure Cosmos DB 帳戶，請盡可能相同 Azure 區域中執行您的應用程式。 
-* 您可能會遇到連線/可用性問題，因為缺少用戶端電腦上的資源。 我們建議您監視您執行 Azure Cosmos DB 用戶端的節點上的 CPU 使用量並相應增加/相應放大如果它們在高負載執行。
+* 請盡可能在您的 Azure Cosmos DB 帳戶所在的相同 Azure 區域中執行您的應用程式。 
+* 由於用戶端電腦上的資源不足，您可能會遇到連線/可用性問題。 建議您在執行 Azure Cosmos DB 用戶端的節點上監視 CPU 使用率，並相應增加/相應放大（如果它們在高負載狀態下執行）。
 
 ### <a name="check-the-portal-metrics"></a>檢查入口網站計量
-檢查[入口網站計量](monitor-accounts.md)將協助您判斷它是否用戶端發生問題，或是否有與服務的問題。 比方說是否計量資訊包含高比率的速率限制的要求 （HTTP 狀態碼 429） 的表示正在進行節流的要求然後檢查[要求速率太大]一節。 
+檢查[入口網站計量](monitor-accounts.md)將有助於判斷其是否為用戶端問題，或服務是否有問題。 例如，如果計量包含高比率的速率限制要求（HTTP 狀態碼429），這表示要求會受到節流處理，然後檢查[要求率太大]一節。 
 
-### <a name="request-timeouts"></a>要求逾時
-RequestTimeout 通常是因為使用 Direct/TCP，但在閘道模式中，可能會發生。 這些是常見的已知的原因，以及如何修正此問題的建議。
+### <a name="request-timeouts"></a>要求超時
+RequestTimeout 通常會在使用 Direct/TCP 時發生，但在閘道模式中可能會發生。 這些是常見的已知原因，以及如何修正問題的建議。
 
-* 這會造成延遲和/或要求逾時，CPU 使用率很高。 客戶可以相應增加的主機電腦，以提供更多資源，或在負載可以分散到多部機器。
-* 通訊端連接埠可用性可能會低 /。 當使用.NET Sdk 2.0 版之前發行，在 Azure 中執行的用戶端，可能會發生[Azure SNAT (PAT) 連接埠耗盡]。 此範例的原因建議您一律執行最新的 SDK 版本。
-* 建立多個 DocumentClient 執行個體可能會導致連接爭用和逾時問題。 請遵循[效能祕訣](performance-tips.md)，並跨整個處理序使用單一 DocumentClient 執行個體。
-* 因為其集合已佈建不足、 後端節流處理要求，而用戶端可以不含此呈現給呼叫者在內部重試使用者有時會看到較高的延遲或要求逾時。 請檢查[入口網站計量](monitor-accounts.md)。
-* Azure Cosmos DB 會將整體佈建的輸送量平均分散到實體分割區。 檢查入口網站的計量，以查看工作負載是否發生 hot[分割區索引鍵](partition-data.md)。 這會彙總已使用的輸送量 （RU/秒） 佈建的 Ru，底下會出現，但使用的單一分割區的輸送量 （RU/秒） 將會超過佈建的輸送量。 
-* 此外，2.0 SDK 會將通道語意將 direct/TCP 連線。 一個 TCP 連線用於多個要求中，在相同的時間。 這可能會導致在特定情況下的兩個問題：
-    * 高程度並行存取可能會導致競爭的情況，在通道上。
-    * 大型的要求或回應可以封鎖在通道上的標頭的線條會導致，而惡化爭用，即使是使用相對較低的並行程度。
-    * 如果案例落在任何兩個分類 （或如果懷疑 CPU 使用率過高），這些是可能的緩和措施：
-        * 請嘗試相應增加/相應放大應用程式。
-        * 此外，SDK 記錄檔，您可以透過擷取[追蹤接聽項](https://github.com/Azure/azure-cosmosdb-dotnet/blob/master/docs/documentdb-sdk_capture_etl.md)以取得詳細資料。
+* CPU 使用率偏高，這會造成延遲和/或要求超時。 客戶可以相應增加主機電腦，以提供更多資源，或將負載分散到更多電腦上。
+* 通訊端/埠可用性可能較低。 在 Azure 中執行時，使用 .NET SDK 的用戶端可以達到 Azure SNAT （PAT）埠耗盡的狀態。 若要減少遇到此問題的機會，請使用最新版本2.x 或3.x 的 .NET SDK。 這是為什麼建議一律執行最新 SDK 版本的範例。
+* 建立多個 DocumentClient 實例可能會導致連接爭用和超時問題。 請遵循[效能秘訣](performance-tips.md)，並在整個進程中使用單一 DocumentClient 實例。
+* 使用者有時會看到較高的延遲或要求超時，因為其集合已布建能力不佳、後端節流要求，而用戶端會在內部重試，而不會向呼叫者呈現此限制。 檢查[入口網站計量](monitor-accounts.md)。
+* Azure Cosmos DB 會將整體布建的輸送量平均分散到實體分割區。 檢查入口網站計量，以查看工作負載是否遇到熱[分割](partition-data.md)區索引鍵。 這會導致已耗用的匯總輸送量（RU/秒）顯示在已布建的 ru 底下，但使用的單一分割區輸送量（RU/秒）將會超過布建的輸送量。 
+* 此外，2.0 SDK 會將通道語義新增至 direct/TCP 連接。 一個 TCP 連線會同時用於多個要求。 在特定情況下，這可能會導致兩個問題：
+    * 高程度的平行存取可能會導致通道上的爭用。
+    * 大型要求或回應可能會導致通道上的標頭封鎖，以及惡化爭用，即使是相對較低的並行程度也一樣。
+    * 如果案例落在這兩個類別中的任何一種（或懷疑有高 CPU 使用率），這些都是可能的緩和措施：
+        * 嘗試相應增加/相應放大應用程式。
+        * 此外，您可以透過[追蹤](https://github.com/Azure/azure-cosmosdb-dotnet/blob/master/docs/documentdb-sdk_capture_etl.md)接聽程式來捕獲 SDK 記錄檔，以取得更多詳細資料。
 
 ### <a name="connection-throttling"></a>連線節流
-連線節流可能是因為連線限制在主機電腦上。 上一步 2.0 中，在 Azure 中執行的用戶端，可能會發生[Azure SNAT (PAT) 連接埠耗盡]。
+連接節流可能是因為主機電腦上的連線限制而發生。 先前到2.0，在 Azure 中執行的用戶端可能會達到[Azure SNAT (PAT) 連接埠耗盡]的狀態。
 
 ### <a name="snat"></a>Azure SNAT (PAT) 連接埠耗盡
 
@@ -78,17 +78,17 @@ RequestTimeout 通常是因為使用 Direct/TCP，但在閘道模式中，可能
 否則就會遇到連線問題。
 
 ### 要求速率太大<a name="request-rate-too-large"></a>
-「 要求速率太大 」 或錯誤碼 429 表示 ，您的要求會受到節流處理，，因為已使用的輸送量 （RU/秒） 超過佈建的輸送量。 SDK 會自動重試根據指定的要求[重試原則](https://docs.microsoft.com/dotnet/api/microsoft.azure.documents.client.connectionpolicy.retryoptions?view=azure-dotnet)。 如果經常發生此失敗，請考慮增加集合的輸送量。 請檢查[入口網站的計量](use-metrics.md)以查看 是否您收到 429 錯誤。 檢閱您[分割區索引鍵](https://docs.microsoft.com/azure/cosmos-db/partitioning-overview#choose-partitionkey)以確保它會導致儲存體和要求的磁碟區的平均分配。 
+「要求速率太大」或錯誤碼429表示您的要求正在進行節流，因為已使用的輸送量（RU/秒）已超過布建的輸送量。 SDK 會根據指定的[重試原則](https://docs.microsoft.com/dotnet/api/microsoft.azure.documents.client.connectionpolicy.retryoptions?view=azure-dotnet)自動重試要求。 如果您經常遇到此失敗，請考慮增加集合的輸送量。 檢查[入口網站的計量](use-metrics.md)，以查看您是否收到429錯誤。 請檢查您的資料[分割索引鍵](https://docs.microsoft.com/azure/cosmos-db/partitioning-overview#choose-partitionkey)，以確保它會產生儲存體和要求磁片區的平均分佈。 
 
 ### <a name="slow-query-performance"></a>查詢效能緩慢
-[查詢計量](sql-api-query-metrics.md)將協助您判斷查詢花費大部分的情況。 從查詢度量，您可以看到它多少正在花在後端與用戶端。
-* 如果後端查詢傳回快速，且花費大量時間在用戶端上檢查電腦上的負載。 很可能沒有足夠的資源，以及 SDK 正在等候資源，可處理回應。
-* 如果後端的查詢速度很慢嘗試[的查詢進行最佳化](optimize-cost-queries.md)並查看目前[編製索引原則](index-overview.md) 
+[查詢計量](sql-api-query-metrics.md)有助於判斷查詢在大部分時間內的支出。 從查詢計量中，您可以看到它在後端與用戶端上花費了多少時間。
+* 如果後端查詢會快速傳回，而在用戶端上花了很長的時間，請檢查電腦上的負載。 可能是資源不足，而且 SDK 正在等候資源可用來處理回應。
+* 如果後端查詢速度緩慢，請嘗試[優化查詢](optimize-cost-queries.md)，並查看目前的[編制索引原則](index-overview.md) 
 
  <!--Anchors-->
 [Common issues and workarounds]: #common-issues-workarounds
 [Enable client SDK logging]: #logging
-[要求速率太大]: #request-rate-too-large
+[要求率太大]: #request-rate-too-large
 [Request Timeouts]: #request-timeouts
 [Azure SNAT (PAT) 連接埠耗盡]: #snat
 [Production check list]: #production-check-list

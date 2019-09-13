@@ -8,14 +8,14 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/14/2017
 ms.author: ashishth
-ms.openlocfilehash: e5ae05b2ad1dc03bad210b1f67834865afd49df3
-ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
+ms.openlocfilehash: 751d5b47006f5c99a747503ad4f052b3e03a043c
+ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70810887"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70882442"
 ---
-# <a name="analyze-apache-hadoop-logs"></a>分析 Apache Hadoop 記錄
+# <a name="analyze-apache-hadoop-logs-in-azure-hdinsight"></a>分析 Azure HDInsight 中的 Apache Hadoop 記錄
 
 Azure HDInsight 中的每個 Apache Hadoop 叢集都有一個 Azure 儲存體帳戶作為預設檔案系統。 這個儲存體帳戶稱為預設儲存體帳戶。 叢集使用預設儲存體帳戶上的 Azure 資料表儲存體和 Blob 儲存體來儲存其記錄。  若要找出叢集的預設儲存體帳戶，請參閱[在 HDInsight 中管理 Apache Hadoop 叢集](../hdinsight-administer-use-portal-linux.md#find-the-storage-accounts)。 即使在刪除叢集之後，記錄仍會保留在儲存體帳戶中。
 

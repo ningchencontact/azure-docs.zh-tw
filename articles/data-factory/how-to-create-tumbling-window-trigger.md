@@ -10,13 +10,13 @@ ms.reviewer: maghan
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 12/14/2018
-ms.openlocfilehash: 3fb958b446c3f1e78f78f40f112d8d55d37b0986
-ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.date: 09/11/2019
+ms.openlocfilehash: 7600398d213748bdea9da5a483a8c10d486a8048
+ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70141558"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70915528"
 ---
 # <a name="create-a-trigger-that-runs-a-pipeline-on-a-tumbling-window"></a>建立依輪轉視窗執行管線的觸發程序
 本文章提供建立、啟動、監視輪轉視窗觸發程序的步驟。 如需觸發程序及支援類型的詳細資訊，請參閱[管線執行和觸發程序](concepts-pipeline-execution-triggers.md)。
@@ -25,11 +25,14 @@ ms.locfileid: "70141558"
 
 ## <a name="data-factory-ui"></a>Data Factory UI
 
-若要在 Azure 入口網站中建立輪轉視窗觸發程序，請選取 [觸發程序] > [輪轉視窗] > [下一步]，然後設定用來定義輪轉視窗的屬性。
+1. 若要在 Data Factory UI 中建立輪轉視窗觸發程式，請選取 [**觸發**程式] 索引標籤，然後選取 [**新增**]。 
+1. [觸發程式設定] 窗格開啟之後，請選取 [**輪轉視窗]** ，然後定義輪轉視窗觸發程式屬性。 
+1. 完成時，選取 [儲存]。
 
 ![在 Azure 入口網站中建立輪轉視窗觸發程序](media/how-to-create-tumbling-window-trigger/create-tumbling-window-trigger.png)
 
 ## <a name="tumbling-window-trigger-type-properties"></a>輪轉視窗觸發程序類型屬性
+
 輪轉視窗有下列觸發程序類型屬性：
 
 ```
@@ -94,16 +97,16 @@ ms.locfileid: "70141558"
 | **type** | 觸發程序的類型。 類型是固定值 "TumblingWindowTrigger"。 | String | "TumblingWindowTrigger" | 是 |
 | **runtimeState** | 觸發程序執行時間的目前狀態。<br/>**注意**：這個元素是 \<readOnly>。 | String | "Started"、"Stopped"、"Disabled" | 是 |
 | **frequency** | 一個字串，代表觸發程序一再執行的頻率單位 (分鐘或小時)。 如果 **startTime** 日期值比 **frequency** 值更細微，計算視窗界限時，會將 **startTime** 日期納入計算。 例如，如果 **frequency** 值是每小時，而 **startTime** 值是 2017-09-01T10:10:10Z，則第一個視窗是 (2017-09-01T10:10:10Z, 2017-09-01T11:10:10Z)。 | String | "minute"、"hour"  | 是 |
-| **interval** | 代表 **frequency** 值之間隔的整數值，用來決定觸發程序執行的頻率。 例如，如果 **interval** 為 3，而 **frequency** 為 "hour"，則觸發程序就會每隔 3 小時重複執行一次。 | Integer | 正整數。 | 是 |
+| **interval** | 代表 **frequency** 值之間隔的整數值，用來決定觸發程序執行的頻率。 例如，如果 **interval** 為 3，而 **frequency** 為 "hour"，則觸發程序就會每隔 3 小時重複執行一次。 <br/>**注意**：最短的視窗間隔是15分鐘。 | Integer | 正整數。 | 是 |
 | **startTime**| 第一次出現，可以是過去。 第一個觸發程序間隔是 (**startTime**, **startTime** + **interval**)。 | DateTime | 日期時間值。 | 是 |
 | **endTime**| 最後一次出現，可以是過去。 | DateTime | 日期時間值。 | 是 |
 | **delay** | 視窗延遲開始資料處理所延遲的時間長度。 管線執行會在預期執行時間加上 **delay** 後開始。 **delay** 定義觸發程序要在超過到期時間多久之後，才觸發新的執行。 **delay** 不會改變視窗的 **startTime**。 例如，**delay** 值為 00:10:00 表示延遲 10 分鐘。 | 時間範圍<br/>(hh:mm:ss)  | 時間範圍值，預設值是 00:00:00。 | 否 |
 | **maxConcurrency** | 就緒視窗可引發的同時執行觸發程序數目。 例如，為昨天回填每小時執行，結果會有 24 個視窗。 如果 **maxConcurrency** = 10，只有前 10 個視窗 (00:00-01:00 - 00:09:00-10) 會引發觸發程序事件。 前 10 個觸發的管線執行完成之後，才會引發接下來 10 個視窗 (10:00-11:00 - 19:00 20:00) 的觸發程序執行。 繼續以本範例的 **maxConcurrency** = 10 說明，如果有 10 個就緒視窗，則總共會有 10 個管線執行。 如果只有 1 個就緒視窗，則只有 1 個管線執行。 | Integer | 1 到 50 之間的整數。 | 是 |
 | **retryPolicy: Count** | 到管線執行標示為 [失敗] 前的重試次數。  | Integer | 整數，預設值為 0 (無重試)。 | 否 |
 | **retryPolicy: intervalInSeconds** | 重試嘗試之間的延遲 (以秒指定) | Integer | 秒數，預設值是 30。 | 否 |
-| **dependsOn: type** | TumblingWindowTriggerReference 的類型。 如果已設定相依性, 則為必要項。 | String |  "TumblingWindowTriggerDependencyReference", "SelfDependencyTumblingWindowTriggerReference" | 否 |
-| **dependsOn: size** | 相依性輪轉視窗的大小。 | 時間範圍<br/>(hh:mm:ss)  | 正 timespan 值, 預設為子觸發程式的視窗大小。  | 否 |
-| **dependsOn: offset** | 相依性觸發程式的位移。 | 時間範圍<br/>(hh:mm:ss) |  在自我相依性中必須是負值的 timespan 值。 如果未指定任何值, 視窗會與觸發程式本身相同。 | 自我相依性：是<br/>另一方面否  |
+| **dependsOn: type** | TumblingWindowTriggerReference 的類型。 如果已設定相依性，則為必要項。 | String |  "TumblingWindowTriggerDependencyReference", "SelfDependencyTumblingWindowTriggerReference" | 否 |
+| **dependsOn: size** | 相依性輪轉視窗的大小。 | 時間範圍<br/>(hh:mm:ss)  | 正 timespan 值，預設為子觸發程式的視窗大小。  | 否 |
+| **dependsOn： offset** | 相依性觸發程式的位移。 | 時間範圍<br/>(hh:mm:ss) |  在自我相依性中必須是負值的 timespan 值。 如果未指定任何值，視窗會與觸發程式本身相同。 | 自我相依性：是<br/>另一方面否  |
 
 ### <a name="windowstart-and-windowend-system-variables"></a>WindowStart 和 WindowEnd 系統變數
 
@@ -148,7 +151,7 @@ ms.locfileid: "70141558"
 
 ### <a name="tumbling-window-trigger-dependency"></a>輪轉視窗觸發程式相依性
 
-如果您想要確保只有在資料處理站中的另一個輪轉視窗觸發程式成功執行之後, 才會執行輪轉視窗觸發程式, 請[建立輪轉視窗觸發](tumbling-window-trigger-dependency.md)程式相依性。 
+如果您想要確保只有在資料處理站中的另一個輪轉視窗觸發程式成功執行之後，才會執行輪轉視窗觸發程式，請[建立輪轉視窗觸發](tumbling-window-trigger-dependency.md)程式相依性。 
 
 ## <a name="sample-for-azure-powershell"></a>Azure PowerShell 的範例
 
@@ -192,31 +195,31 @@ ms.locfileid: "70141558"
     }
     ```
 
-2. 使用**start-azdatafactoryv2trigger** Cmdlet 建立觸發程式:
+2. 使用**start-azdatafactoryv2trigger** Cmdlet 建立觸發程式：
 
     ```powershell
     Set-AzDataFactoryV2Trigger -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Name "MyTrigger" -DefinitionFile "C:\ADFv2QuickStartPSH\MyTrigger.json"
     ```
     
-3. 使用**start-azdatafactoryv2trigger** Cmdlet 來確認觸發程式的狀態是否已**停止**:
+3. 使用**start-azdatafactoryv2trigger** Cmdlet 來確認觸發程式的狀態是否已**停止**：
 
     ```powershell
     Get-AzDataFactoryV2Trigger -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Name "MyTrigger"
     ```
 
-4. 使用**start-azdatafactoryv2trigger** Cmdlet 來啟動觸發程式:
+4. 使用**start-azdatafactoryv2trigger** Cmdlet 來啟動觸發程式：
 
     ```powershell
     Start-AzDataFactoryV2Trigger -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Name "MyTrigger"
     ```
 
-5. 使用**start-azdatafactoryv2trigger** Cmdlet 來確認觸發程式的狀態是否已**啟動**:
+5. 使用**start-azdatafactoryv2trigger** Cmdlet 來確認觸發程式的狀態是否已**啟動**：
 
     ```powershell
     Get-AzDataFactoryV2Trigger -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Name "MyTrigger"
     ```
 
-6. 使用**AzDataFactoryV2TriggerRun** Cmdlet, 取得在 Azure PowerShell 中執行的觸發程式。 若要取得有關觸發程序執行的資訊，請定期執行以下命令。 更新 **TriggerRunStartedAfter** 和 **TriggerRunStartedBefore** 的值，以符合您的觸發程序定義中的值：
+6. 使用**AzDataFactoryV2TriggerRun** Cmdlet，取得在 Azure PowerShell 中執行的觸發程式。 若要取得有關觸發程序執行的資訊，請定期執行以下命令。 更新 **TriggerRunStartedAfter** 和 **TriggerRunStartedBefore** 的值，以符合您的觸發程序定義中的值：
 
     ```powershell
     Get-AzDataFactoryV2TriggerRun -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -TriggerName "MyTrigger" -TriggerRunStartedAfter "2017-12-08T00:00:00" -TriggerRunStartedBefore "2017-12-08T01:00:00"

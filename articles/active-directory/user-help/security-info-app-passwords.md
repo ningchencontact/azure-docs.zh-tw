@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 02/13/2018
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d599607da6653d088f53490ea4d4b5f7f6d0f236
-ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
+ms.openlocfilehash: 9638893c707757cb520acdf18e8e89a6cdf13f08
+ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68382938"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70915984"
 ---
 # <a name="manage-app-passwords-from-your-security-info-preview-page"></a>於安全性資訊 (預覽) 頁面管理應用程式密碼
 
@@ -26,22 +26,20 @@ ms.locfileid: "68382938"
 [!INCLUDE [preview-notice](../../../includes/active-directory-end-user-preview-notice-security-info.md)]
 
 >[!Important]
->您的系統管理員可能不允許您使用應用程式密碼。 如果沒有看到 [應用程式密碼] 的選項，即是無法在貴組織使用此功能。
+>您的系統管理員可能不允許您使用應用程式密碼。 如果沒有看到 [應用程式密碼]的選項，即是無法在貴組織使用此功能。
 
 使用應用程式密碼時，請務必記住：
 
-- 應用程式密碼會自動產生，而且每個應用程式只能輸入一次。
+- 應用程式密碼會自動產生，且應針對每個應用程式建立並輸入一次。
 
 - 每位使用者的密碼以 40 組為限。 如果您在到達該限制之後嘗試建立一個密碼，系統就會提示您先刪除現有的密碼，然後才能建立新密碼。
-
-- 為每個裝置 (而非每個應用程式) 使用一個應用程式密碼。 例如，針對膝上型電腦上的所有應用程式建立單一密碼，然後針對桌上型電腦上的所有應用程式建立另一個單一密碼。
 
     >[!Note]
     >Office 2013 用戶端 (包括 Outlook) 支援新式驗證通訊協定，而且可搭配雙步驟驗證。 此支援表示在開啟雙步驟驗證之後，您將不再需要適用於 Office 2013 用戶端的應用程式密碼。 如需詳細資訊，請參閱 [Office 2013 和 Office 2016 用戶端應用程式的新式驗證運作方式](https://support.office.com/article/how-modern-authentication-works-for-office-2013-and-office-2016-client-apps-e4c45989-4b1a-462e-a81b-2a13191cf517)一文。
 
 ## <a name="create-new-app-passwords"></a>建立新的應用程式密碼
 
-如果您搭配公司或學校帳戶使用雙步驟驗證，而且您的系統管理員已開啟安全性資訊體驗，您就可以使用 [安全性資訊] 頁面來建立和刪除應用程式密碼。
+如果您搭配公司或學校帳戶使用雙步驟驗證，而且您的系統管理員已開啟安全性資訊體驗，您就可以使用 [安全性資訊]頁面來建立和刪除應用程式密碼。
 
 >[!Note]
 >如果您的系統管理員尚未開啟安全性資訊體驗，您就必須遵循[管理應用程式密碼以進行雙步驟驗證](multi-factor-authentication-end-user-app-passwords.md)一節中的指示和資訊。

@@ -1,7 +1,7 @@
 ---
-title: 如何監視與 Ambari 和 Azure 監視器的記錄檔的叢集可用性
-description: 了解如何使用 Ambari 和 Azure 監視器記錄來監視叢集健康情況和可用性。
-keywords: ambari、 監視、 記錄分析、 警示、 可用性、 健全狀況監視
+title: 如何使用 Ambari 和 Azure 監視器記錄監視叢集可用性
+description: 瞭解如何使用 Ambari 和 Azure 監視器記錄來監視叢集的健全狀況和可用性。
+keywords: 監視，ambari，監視，log analytics，警示，可用性，健全狀況
 ms.reviewer: jasonh
 author: tylerfox
 ms.service: hdinsight
@@ -9,188 +9,188 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 03/28/2019
 ms.author: tyfox
-ms.openlocfilehash: 195999ba685828042fc958e8aed7e67bad694657
-ms.sourcegitcommit: 1572b615c8f863be4986c23ea2ff7642b02bc605
+ms.openlocfilehash: 07b82f475074f5b55a2a5a93f7a59008476233c8
+ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67786552"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70934354"
 ---
-# <a name="how-to-monitor-cluster-availability-with-ambari-and-azure-monitor-logs"></a>如何監視與 Ambari 和 Azure 監視器的記錄檔的叢集可用性
+# <a name="how-to-monitor-cluster-availability-with-ambari-and-azure-monitor-logs"></a>如何使用 Ambari 和 Azure 監視器記錄監視叢集可用性
 
-HDInsight 叢集包含 Apache Ambari 中，可提供健全狀況資訊一覽，以及預先定義的警示，以及 Azure 監視器記錄檔整合，提供可查詢的計量和記錄檔，以及可設定的警示。
+HDInsight 叢集包括 Apache Ambari，這兩種方式都會提供快速的健全狀況資訊和預先定義的警示，以及 Azure 監視器的記錄整合，可提供查詢計量和記錄，以及可設定的警示。
 
-此文件會示範如何使用這些工具來監視您的叢集，並逐步解說如何設定 Ambari 警示、 監視節點可用性率，以及建立 Azure 監視器警示不從一或多個節點收到的活動訊號時所引發的一些範例以五個小時為單位。
+本檔說明如何使用這些工具來監視您的叢集，並逐步解說一些範例，以設定 Ambari 警示、監視節點可用性速率，以及建立當尚未從一或多個節點接收到的通知時所引發的 Azure 監視器警示五小時內。
 
 ## <a name="ambari"></a>Ambari
 
 ### <a name="dashboard"></a>儀表板
 
-可以按一下來存取 Ambari 儀表板**Ambari 首頁**連結**叢集儀表板**HDInsight 概觀 刀鋒視窗所示的 Azure 入口網站中下一節。 或者，在瀏覽器中輸入下列 URL 來存取[https://\<clustername\>。 azurehdinsight.net](https://clustername.azurehdinsight.net/)
+在 Azure 入口網站中，按一下 [HDInsight 總覽] 分頁的 [叢集**儀表板**] 區段中的 [ **Ambari 首頁**] 連結，即可存取 Ambari 儀表板，如下所示。 或者，您也可以在瀏覽器中輸入下列 URL 來存取[HTTPs://\<clustername\>. azurehdinsight.net](https://clustername.azurehdinsight.net/)
 
-![HDInsight 資源的入口網站檢視](media/hdinsight-cluster-availability/portal-overview.png)
+![HDInsight 資源入口網站視圖](media/hdinsight-cluster-availability/portal-oms-overview1.png)
 
-您會接著提示輸入叢集登入使用者名稱和密碼。 輸入的認證您選擇您在建立叢集時。
+接著，系統會提示您輸入叢集登入使用者名稱和密碼。 輸入您在建立叢集時所選擇的認證。
 
-您接著會進入 Ambari 儀表板，其中包含 widget，顯示少數幾個度量，以讓您的 HDInsight 叢集的健康情況的快速概觀。 這些小工具顯示的度量，例如即時 Datanode （背景工作角色節點） 和 JournalNodes （zookeeper 節點） 數目 namenode 上 （前端節點） 執行時間，作為良好的計量特有特定叢集類型，例如 Spark 和 Hadoop 叢集的 YARN ResourceManager 執行時間。
+您接著會進入 Ambari 儀表板，其中包含的 widget 會顯示一些計量，讓您快速流覽 HDInsight 叢集的健康情況。 這些小工具會顯示計量，例如即時 Datanode （背景工作節點）和 JournalNodes （zookeeper 節點）、Namenode （前端節點）執行時間，以及特定叢集類型特有的計量，例如 Spark 和 Hadoop 叢集的 YARN ResourceManager 執行時間。
 
-![Ambari 儀表板](media/hdinsight-cluster-availability/ambari-dashboard.png)
+![Ambari 儀表板](media/hdinsight-cluster-availability/apache-ambari-dashboard.png)
 
-### <a name="hosts--view-individual-node-status"></a>主機-檢視個別節點的狀態
+### <a name="hosts--view-individual-node-status"></a>主機–查看個別節點狀態
 
-您也可以檢視個別節點的狀態資訊。 按一下 **主機**索引標籤來檢視您的叢集中的所有節點的清單，並查看每個節點的基本資訊。 每個節點名稱左邊的綠色核取記號表示所有元件都都已啟動的節點上。 如果元件已關閉節點上，您會看到紅色警示的三角形，而不是綠色的核取記號。
+您也可以查看個別節點的狀態資訊。 按一下 [**主機**] 索引標籤，以查看叢集中所有節點的清單，並查看每個節點的基本資訊。 每個節點名稱左邊的綠色核取記號表示節點上的所有元件都已啟動。 如果節點上的元件已關閉，您將會看到紅色的警示三角形，而不是綠色的檢查。
 
-![Ambari [主機] 檢視](media/hdinsight-cluster-availability/ambari-hosts.png)
+![Ambari hosts 視圖](media/hdinsight-cluster-availability/apache-ambari-hosts1.png)
 
-您可以按一下**名稱**的節點以檢視更詳細的該特定節點的主機計量。 此檢視會顯示每個個別的元件狀態/可用性。
+然後，您可以按一下節點的**名稱**，以查看該特定節點的更詳細主機計量。 此視圖會顯示每個個別元件的狀態/可用性。
 
-![Ambari 主機的單一節點檢視](media/hdinsight-cluster-availability/ambari-hosts-node.png)
+![Ambari 主控單一節點的視圖](media/hdinsight-cluster-availability/apache-ambari-hosts-node.png)
 
 ### <a name="ambari-alerts"></a>Ambari 警示
 
-Ambari 也提供數個可設定的警示，可提供特定事件的通知。 當觸發警示時，它們會顯示中包含的警示數目的紅色徽章 Ambari 的左上角。 按一下此徽章會顯示目前的警示清單。
+Ambari 也提供數個可設定的警示，以提供特定事件的通知。 觸發警示時，它們會顯示在 Ambari 的左上角，其中包含警示數目的紅色徽章。 按一下此徽章會顯示目前警示的清單。
 
-![Ambari 警示計數](media/hdinsight-cluster-availability/ambari-alerts.png)
+![Ambari 警示計數](media/hdinsight-cluster-availability/apache-ambari-alerts.png)
 
-若要檢視警示定義和其狀態的清單，請按一下**警示**索引標籤，如下所示。
+若要查看警示定義及其狀態的清單，請按一下 [**警示**] 索引標籤，如下所示。
 
-![Ambari 警示定義的檢視](media/hdinsight-cluster-availability/ambari-alerts-definitions.png)
+![Ambari 警示定義視圖](media/hdinsight-cluster-availability/ambari-alerts-definitions.png)
 
-Ambari 提供許多預先定義的警示與可用性，包括：
+Ambari 提供許多與可用性相關的預先定義警示，包括：
 
 | 警示名稱                        | 描述                                                                                                                                                                           |
 |-----------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| DataNode 健全狀況摘要           | 服務層級會觸發此警示有狀況不良的 Datanode                                                                                                                |
-| NameNode 高可用性健全狀況 | 如果未執行的作用中的 NameNode 或待命 NameNode，就會觸發此服務層級警示。                                                                              |
-| 可用百分比 JournalNodes    | 如果數目減少 JournalNodes 叢集中大於設定的關鍵臨界值時，會觸發此警示。 它會彙總 JournalNode 程序檢查結果。 |
-| 可用百分比 Datanode       | 如果數目減少 Datanode 叢集中大於設定的關鍵臨界值時，會觸發此警示。 它會彙總 DataNode 程序檢查結果。       |
+| DataNode 健全狀況摘要           | 如果有狀況不良的 Datanode，就會觸發此服務層級警示                                                                                                                |
+| NameNode 高可用性健全狀況 | 如果作用中的 NameNode 或待命 NameNode 不在執行中，就會觸發此服務層級警示。                                                                              |
+| 可用的 JournalNodes 百分比    | 如果叢集中的關閉 JournalNodes 數目大於設定的重大閾值，就會觸發此警示。 它會匯總 JournalNode 流程檢查的結果。 |
+| 可用的 Datanode 百分比       | 如果叢集中的關閉 Datanode 數目大於設定的重大閾值，就會觸發此警示。 它會匯總 DataNode 流程檢查的結果。       |
 
-Ambari 的完整清單，系統會通知該說明監視，您可以找到叢集的可用性[此處](https://docs.microsoft.com/azure/hdinsight/hdinsight-high-availability-linux#ambari-web-ui)，
+如需可協助監視叢集可用性的 Ambari 警示完整清單，請參閱[這裡](https://docs.microsoft.com/azure/hdinsight/hdinsight-high-availability-linux#ambari-web-ui)。
 
-若要檢視警示詳細資料，或修改準則，請按一下**名稱**的警示。 採取**DataNode 健康情況摘要**做為範例。 您可以看到警示，以及將會觸發 「 警告 」 或 「 重大 」 的警示和準則檢查間隔的特定準則的描述。 若要編輯的組態，請按一下**編輯**[組態] 方塊右上角的按鈕。
+若要查看警示或修改準則的詳細資料，請按一下警示的**名稱**。 請以**DataNode 健康情況摘要**作為範例。 您可以查看警示的描述，以及將觸發「警告」或「重大」警示的特定準則，以及準則的檢查間隔。 若要編輯設定，請按一下 [設定] 方塊右上角的 [**編輯**] 按鈕。
 
 ![Ambari 警示設定](media/hdinsight-cluster-availability/ambari-alert-configuration.png)
 
-在這裡，您可以在其中編輯描述，更重要的是，檢查間隔] 和 [警告或重大警示的臨界值。
+在這裡，您可以編輯 [描述]，更重要的是 [警告] 或 [重大] 警示的 [檢查間隔] 和 [閾值]。
 
-![Ambari 警示組態編輯檢視](media/hdinsight-cluster-availability/ambari-alert-configuration-edit.png)
+![Ambari 警示設定編輯檢視](media/hdinsight-cluster-availability/ambari-alert-configuration-edit.png)
 
-在此範例中，您可以讓觸發程序的重要警示和 1 個狀況不良 DataNode 只有觸發程序警告的狀況不良 Datanode 2。 按一下 **儲存**當您完成編輯。
+在此範例中，您可以讓2個狀況不良的 Datanode 觸發重大警示，而1個狀況不良的 DataNode 只會觸發警告。 完成編輯時，按一下 [**儲存**]。
 
 ### <a name="email-notifications"></a>電子郵件通知
 
-您可以選擇性地設定 Ambari 警示的電子郵件通知。 若要這樣做，當上**警示**索引標籤上，按一下**動作**左上角，然後在按鈕**管理通知。**
+您也可以選擇性地設定 Ambari 警示的電子郵件通知。 若要這麼做，請在 [**警示**] 索引標籤上，按一下左上方的 [**動作**] 按鈕，然後管理 [**通知]。**
 
 ![Ambari 管理通知動作](media/hdinsight-cluster-availability/ambari-manage-notifications.png)
 
-管理警示通知的對話方塊會開啟。 按一下  **+** 對話方塊及填寫必要欄位，提供 Ambari 電子郵件伺服器詳細資料，從用來傳送電子郵件的底部。
+隨即會開啟用於管理警示通知的對話方塊。 按一下對話方塊 **+** 底部的，並填寫必要欄位，以提供 Ambari 的電子郵件伺服器詳細資料，以從中傳送電子郵件。
 
 > [!TIP]
-> Ambari 設定電子郵件通知可以是適合用來管理許多的 HDInsight 叢集時，在一處接收警示。
+> 設定 Ambari 電子郵件通知，是在管理許多 HDInsight 叢集時，可以在一個位置接收警示的好方法。
 
 ## <a name="azure-monitor-logs-integration"></a>Azure 監視器記錄整合
 
-Azure 監視器記錄可讓資料產生多個資源，例如 HDInsight 叢集，以收集及彙總在一個地方，以達到統一的監視體驗。
+Azure 監視器記錄可讓多個資源（例如 HDInsight 叢集）所產生的資料在一個位置收集和匯總，以達成一致的監視體驗。
 
-先決條件是，您需要 Log Analytics 工作區來儲存收集的資料。 如果您尚未建立一個，您可以依照此處的指示：[建立 Log Analytics 工作區](https://docs.microsoft.com/azure/azure-monitor/learn/quick-create-workspace)。
+必要條件是，您將需要 Log Analytics 工作區來儲存收集的資料。 如果您尚未建立，您可以依照下列指示進行：[建立 Log Analytics 工作區](https://docs.microsoft.com/azure/azure-monitor/learn/quick-create-workspace)。
 
-### <a name="enable-hdinsight-azure-monitor-logs-integration"></a>啟用 HDInsight Azure 監視器記錄檔的整合
+### <a name="enable-hdinsight-azure-monitor-logs-integration"></a>啟用 HDInsight Azure 監視器記錄整合
 
-從入口網站的 HDInsight 叢集資源頁面，按一下**Operations Management Suite**刀鋒視窗。 然後，按一下**啟用**，然後從下拉式清單中選取您的 Log Analytics 工作區。
+從入口網站的 [HDInsight 叢集資源] 頁面中，按一下 [ **Operations Management Suite** ] 分頁。 然後，按一下 [**啟用**]，然後從下拉式清單中選取您的 Log Analytics 工作區。
 
-![HDInsight Operations Management Suite 刀鋒視窗](media/hdinsight-cluster-availability/portal-enable-oms.png)
+![HDInsight Operations Management Suite 分頁](media/hdinsight-cluster-availability/hdi-portal-oms-enable.png)
 
-### <a name="query-metrics-and-logs-tables-in-the-logs-blade"></a>查詢記錄檔刀鋒視窗中的計量和記錄資料表
+### <a name="query-metrics-and-logs-tables-in-the-logs-blade"></a>查詢記錄分頁中的計量和記錄資料表
 
-一旦啟用 Azure 監視器記錄整合 （這可能需要幾分鐘的時間），瀏覽至您**Log Analytics 工作區**資源，然後按一下 **記錄**刀鋒視窗
+一旦啟用 Azure 監視器記錄整合（這可能需要幾分鐘的時間），請流覽至您的**Log Analytics 工作區**資源，然後按一下 [**記錄**] 分頁
 
-![Log Analytics 工作區記錄檔 刀鋒視窗](media/hdinsight-cluster-availability/portal-logs.png)
+![Log Analytics 工作區記錄分頁](media/hdinsight-cluster-availability/hdinsight-portal-logs.png)
 
-**記錄檔**刀鋒視窗會列出一些範例查詢，例如：
+[**記錄**] 分頁會列出一些範例查詢，例如：
 
 | 查詢名稱                      | 描述                                                               |
 |---------------------------------|---------------------------------------------------------------------------|
-| 今天的電腦可用性    | 圖表的每小時傳送記錄檔的電腦數目                     |
-| 清單中的活動訊號                 | 列出來自過去一小時內的所有電腦活動訊號                           |
-| 每一部電腦的上次活動訊號 | 顯示每一部電腦所傳送的最後一個活動訊號                             |
-| 電腦無法使用           | 列出所有已知的電腦並未傳送活動訊號在過去 5 小時 |
-| 可用性速率               | 計算每個已連線的電腦的可用性率                |
+| 目前的電腦可用性    | 圖表傳送記錄的電腦數目（每小時）                     |
+| 列出心跳                 | 列出過去一小時內的所有電腦的心跳                           |
+| 每部電腦的最後一個信號 | 顯示每部電腦傳送的最後一個信號                             |
+| 無法使用的電腦           | 列出過去5小時內未傳送信號的所有已知電腦 |
+| 可用性速率               | 計算每部連線電腦的可用性費率                |
 
-例如，執行**可用率**範例查詢，依序按一下**執行**該查詢，如上方螢幕擷取畫面所示。 這會顯示在叢集中的每個節點的可用性速率，以百分比表示。 如果您已啟用多個 HDInsight 叢集，以將計量傳送至相同的 Log Analytics 工作區，您會看到顯示這些叢集中的所有節點的可用性頻率。
+例如，在該查詢上按一下 [**執行**]，以執行 [**可用性速率**] 範例查詢，如上面的螢幕擷取畫面所示。 這會顯示叢集中每個節點的可用性速率（以百分比表示）。 如果您已啟用多個 HDInsight 叢集以將計量傳送至相同的 Log Analytics 工作區，您會看到顯示在這些叢集中所有節點的可用性費率。
 
-![記錄分析工作區記錄檔刀鋒視窗中 「 可用性率 」 範例查詢](media/hdinsight-cluster-availability/portal-availability-rate.png)
+![Log Analytics 工作區記錄分頁 [可用性速率] 範例查詢](media/hdinsight-cluster-availability/portal-availability-rate.png)
 
 > [!NOTE] 
-> 可用性速率會測量在 24 小時內，因此您的叢集必須執行至少 24 小時，您會看到正確的可用性費率。
+> 可用性速率是以24小時的期間來測量，因此您的叢集至少必須執行24小時，您才會看到正確的可用性速率。
 
-您可以將此資料表至共用的儀表板釘選，即可**Pin**右上角。 如果您沒有任何可寫入的共用儀表板，您可以了解如何建立一個如下：[建立和共用 Azure 入口網站中的儀表板](https://docs.microsoft.com/azure/azure-portal/azure-portal-dashboards#publish-and-share-a-dashboard)。
+您可以按一下右上角的 [**釘**選]，將此資料表釘選到共用的儀表板。 如果您沒有任何可寫入的共用儀表板，您可以在這裡瞭解如何建立它：[在 Azure 入口網站中建立和共用儀表板](https://docs.microsoft.com/azure/azure-portal/azure-portal-dashboards#publish-and-share-a-dashboard)。
 
 ### <a name="azure-monitor-alerts"></a>Azure 監視器警示
 
-您也可以設定 Azure 監視器會發出警示，觸發時機的度量值，或查詢的結果符合特定條件。 例如，讓我們建立一個或多個節點尚未 5 小時內傳送活動訊號時，傳送電子郵件警示 （也就是會假設無法使用）。
+您也可以設定 Azure 監視器警示，當計量的值或查詢的結果符合特定條件時，就會觸發此警示。 例如，讓我們建立警示，以在一或多個節點未在5小時（也就是假設為無法使用）傳送信號時，傳送電子郵件。
 
-從**記錄檔**刀鋒視窗中，執行**無法使用電腦**範例查詢，依序按一下**執行**該查詢，如下所示。
+在 [**記錄**檔] 分頁中，按一下該查詢上的 [**執行**]，以執行 [**無法使用的電腦**] 範例查詢，如下所示。
 
-![記錄分析工作區記錄檔刀鋒視窗中 「 無法使用的電腦 」 範例查詢](media/hdinsight-cluster-availability/portal-unavailable-computers.png)
+![Log Analytics 工作區記錄 blade 「無法使用的電腦」範例查詢](media/hdinsight-cluster-availability/portal-unavailable-computers.png)
 
-如果所有節點都都可用，此查詢應該傳回 0 個結果目前。 按一下 **新的警示規則**若要開始設定您的警示，此查詢。
+如果所有節點都可以使用，此查詢應該會立即傳回0個結果。 按一下 [**新增警示規則**]，開始設定此查詢的警示。
 
-![Log Analytics 工作區中新的警示規則](media/hdinsight-cluster-availability/portal-logs-new-alert-rule.png)
+![Log Analytics 工作區新增警示規則](media/hdinsight-cluster-availability/portal-logs-new-alert-rule.png)
 
-有三個元件警示：*資源*為其建立規則 （Log Analytics 工作區在此情況下），*條件*觸發警示，而*動作群組* ，以決定當觸發警示時，會發生什麼情況。
+警示有三個元件：用來建立規則的*資源*（在此案例中為 Log Analytics 工作區）、觸發警示的*條件*，以及決定當警示為時，會發生什麼情況的*動作群組*觸發.
 
-按一下 **條件標題**，如下所示，若要完成設定訊號邏輯。
+按一下 [**條件] 標題**（如下所示），以完成設定信號邏輯。
 
 ![警示規則條件](media/hdinsight-cluster-availability/portal-condition-title.png)
 
-這會開啟**設定訊號邏輯**刀鋒視窗。
+這會開啟 [**設定信號邏輯**] 分頁。
 
-設定**警示邏輯**區段，如下所示：
+設定 [**警示邏輯**] 區段，如下所示：
 
-*根據所述：條件的結果數目：大於臨界值：0.*
+*依據：結果數目，條件：大於閾值：0.*
 
-因為此查詢只會傳回無法使用的節點當做結果，曾大於 0 的結果數目時，應該引發警示。
+由於此查詢只會傳回無法使用的節點做為結果，因此，如果結果數目大於0，就應該引發警示。
 
-在**為基礎的已評估**區段中，將**期間**並**頻率**根據您想要檢查的節點無法使用的頻率。
+在 [**評估依據**] 區段中，根據您要檢查無法使用的節點的頻率來設定**期間**和**頻率**。
 
-請注意，此警示，以您想要確定**期間 = 頻率。** 可以找到期間、 頻率及其他警示參數的詳細資訊[此處](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-unified-log#log-search-alert-rule---definition-and-types)。
+請注意，基於此警示的目的，您會想要確認**Period = Frequency。** 您可以在[這裡](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-unified-log#log-search-alert-rule---definition-and-types)找到有關期間、頻率和其他警示參數的詳細資訊。
 
-按一下 **完成**當您完成設定訊號邏輯。
+當您完成設定信號邏輯時，請按一下 [**完成**]。
 
-![警示規則設定訊號邏輯](media/hdinsight-cluster-availability/portal-configure-signal-logic.png)
+![警示規則設定信號邏輯](media/hdinsight-cluster-availability/portal-configure-signal-logic.png)
 
-如果您還沒有現有的動作群組，按一下**新建**下方**動作群組**一節。
+如果您還沒有現有的動作群組，請按一下 [**動作群組**] 區段底下的 [**建立新**的]。
 
-![警示規則的新動作群組](media/hdinsight-cluster-availability/portal-create-new-action-group.png)
+![警示規則新動作群組](media/hdinsight-cluster-availability/portal-create-new-action-group.png)
 
-這會開啟**新增動作群組**刀鋒視窗。 選擇**動作群組名稱**，**簡稱**，**訂用帳戶**，和**資源群組。** 底下**動作**區段中，選擇**動作名稱**，然後選取**電子郵件/簡訊/推送/語音**為**動作類型。**
+這會開啟 [**新增動作群組**] 分頁。 選擇 [**動作組名**]、[**簡短名稱**]、[**訂**用帳戶] 和 [**資源群組]。** 在 [**動作**] 區段下，選擇**動作名稱**，然後選取 [**電子郵件/SMS/推播/語音**] 作為**動作類型。**
 
 > [!NOTE]
-> 有數個警示可以觸發電子郵件/簡訊/推送/語音，例如 Azure 函式、 LogicApp、 Webhook、 ITSM 和自動化 Runbook 以外的其他動作。 [深入了解。](https://docs.microsoft.com/azure/azure-monitor/platform/action-groups#action-specific-information)
+> 除了電子郵件/SMS/推播/語音以外，還有其他幾個動作會觸發警示，例如 Azure 函數、LogicApp、Webhook、ITSM 和自動化 Runbook。 [瞭解更多資訊。](https://docs.microsoft.com/azure/azure-monitor/platform/action-groups#action-specific-information)
 
-這會開啟**電子郵件/簡訊/推送/語音**刀鋒視窗。 選擇**名稱**收件者，如**檢查** **電子郵件**方塊，然後輸入您要傳送警示的電子郵件地址。 按一下  **確定**中**電子郵件/簡訊/推送/語音**刀鋒視窗中，然後在**新增動作群組**刀鋒視窗中，若要完成設定您的動作群組。
+這會開啟 [**電子郵件/SMS/推播/語音**] 分頁。 選擇收件者的**名稱**，**勾選**[**電子郵件**] 方塊，然後輸入您要傳送警示的目標電子郵件地址。 在 [**電子郵件/SMS/推播/語音**] 分頁中，按一下 [**確定**]，然後在 [**新增動作群組**] 分頁中完成動作群組的設定。
 
 ![警示規則新增動作群組](media/hdinsight-cluster-availability/portal-add-action-group.png)
 
-這些刀鋒視窗關閉之後，您應該會看到列在動作群組**動作群組**一節。 最後，完成**警示詳細資料**輸入 區段**警示規則名稱**並**描述**，然後選擇**嚴重性**。
-按一下 **建立警示規則**才能完成。
+在這些 blade 關閉之後，您應該會看到您的動作群組列在 [**動作群組**] 區段底下。 最後，輸入**警示規則名稱**和**描述**，並選擇**嚴重性**，以完成 [**警示詳細資料**] 區段。
+按一下 [**建立警示規則**] 完成。
 
 ![建立警示規則完成](media/hdinsight-cluster-availability/portal-create-alert-rule-finish.png)
 
 > [!TIP]
-> 指定的功能**嚴重性**是功能強大的工具，可用時建立多個警示。 例如，您可以建立在單一前端節點時引發警告 (Sev 1) 的一個警示向下和往下引發重大 (Sev 0)，兩者前端節點的罕見事件中的另一個警示。
+> 指定**嚴重性**的能力是一種功能強大的工具，可在建立多個警示時使用。 例如，您可以建立一個警示來引發警告（嚴重性1），如果單一前端節點中斷，另一個警示則會在這兩個前端節點關閉的罕見事件中引發重大（嚴重性0）。
 
-當符合此警示的條件時，會引發警示，而且您會收到一封電子郵件警示的詳細資料，就像這樣：
+當符合此警示的條件時，將會引發警示，而您將會收到一封電子郵件，其中包含警示詳細資料，如下所示：
 
-![Azure 監視器警示的電子郵件](media/hdinsight-cluster-availability/alert-email.png)
+![Azure 監視器警示電子郵件](media/hdinsight-cluster-availability/portal-oms-alert-email.png)
 
-您也可以檢視所有警示已引發 」、 「 依嚴重性分組，移至之**警示**刀鋒視窗中，在您**Log Analytics 工作區**。
+您也可以前往**Log Analytics 工作區**中的 [**警示**] 分頁，以查看所有已引發的警示（依嚴重性分組）。
 
-![Log Analytics 工作區警示](media/hdinsight-cluster-availability/portal-alerts.png)
+![Log Analytics 工作區警示](media/hdinsight-cluster-availability/hdi-portal-oms-alerts.png)
 
-按一下嚴重性分組 (亦即**Sev 1**上方，反白顯示) 會顯示已引發類似以下的嚴重性的所有警示的記錄：
+按一下嚴重性群組（如上方反白顯示的**嚴重性 1** ）將會顯示該嚴重性的所有警示記錄，如下所示：
 
-![Log Analytics 工作區 sev 1 警示](media/hdinsight-cluster-availability/portal-alerts-sev-1.png)
+![Log Analytics 工作區嚴重性1個警示](media/hdinsight-cluster-availability/portal-oms-alerts-sev1.png)
 
 ## <a name="next-steps"></a>後續步驟
-- [在 HDInsight 中的 Apache Hadoop 叢集的可用性和可靠性](hdinsight-high-availability-linux.md)
+- [HDInsight 中 Apache Hadoop 叢集的可用性和可靠性](hdinsight-high-availability-linux.md)

@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 09/26/2017
 ms.author: hrasheed
-ms.openlocfilehash: f5052d7e35c3d1c81a3d958bd6e340b9a6a5a244
-ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
+ms.openlocfilehash: bcc29902628f4e7051d6a838d2e9ac145df9e45e
+ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70810691"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70916782"
 ---
 # <a name="authorize-users-for-apache-ambari-views"></a>授權 Apache Ambari 檢視的使用者
 
@@ -30,7 +30,7 @@ Active Directory 使用者可以使用其網域認證來登入叢集節點。 �
 
 若要移至 **Ambari 管理頁面**，請在 [Apache Ambari Web UI](hdinsight-hadoop-manage-ambari.md) 上瀏覽至 **`https://<YOUR CLUSTER NAME>.azurehdinsight.net`** 。 輸入您建立叢集時所定義的叢集系統管理員使用者名稱和密碼。 接著，從 Ambari 儀表板中，選取 [admin] \(系統管理員\) 功能表底下的 [Manage Ambari] \(管理 Ambari\)：
 
-![管理 Ambari](./media/hdinsight-authorize-users-to-ambari/manage-ambari.png)
+![管理 Ambari](./media/hdinsight-authorize-users-to-ambari/manage-apache-ambari.png)
 
 ## <a name="grant-permissions-to-apache-hive-views"></a>授與對 Apache Hive 檢視的權限
 
@@ -38,36 +38,36 @@ Ambari 隨附 [Apache Hive](https://hive.apache.org/) 和 [Apache TEZ](https://t
 
 1. 從管理頁面中，選取左邊 [檢視] \(Views\) 功能表標題底下的 [檢視] \(Views\) 連結。
 
-    ![[檢視] 連結](./media/hdinsight-authorize-users-to-ambari/views-link.png)
+    ![[檢視] 連結](./media/hdinsight-authorize-users-to-ambari/apache-ambari-views-link.png)
 
 2. 在 [檢視] \(Views\) 頁面上，展開 [HIVE] 資料列。 將 Hive 服務新增到叢集時，會建立一個預設的 Hive 檢視。 您也可以視需要建立更多 Hive 檢視執行個體。 選取一個 Hive 檢視：
 
-    ![檢視 - Hive 檢視](./media/hdinsight-authorize-users-to-ambari/views-hive-view.png)
+    ![檢視 - Hive 檢視](./media/hdinsight-authorize-users-to-ambari/views-apache-hive-view.png)
 
 3. 向下捲動到 [檢視] \(Views\) 頁面底部。 在 [權限] \(Permissions\) 區段底下，您有兩個選項來授與網域使用者對檢視的權限：
 
-**Grant permission to these users (將權限授與這些使用者)** ![Grant permission to these users (將權限授與這些使用者)](./media/hdinsight-authorize-users-to-ambari/add-user-to-view.png)
+**Grant permission to these users (將權限授與這些使用者)** ![Grant permission to these users (將權限授與這些使用者)](./media/hdinsight-authorize-users-to-ambari/hdi-add-user-to-view.png)
 
-**Grant permission to these groups (將權限授與這些群組)** ![Grant permission to these groups (將權限授與這些群組)](./media/hdinsight-authorize-users-to-ambari/add-group-to-view.png)
+**Grant permission to these groups (將權限授與這些群組)** ![Grant permission to these groups (將權限授與這些群組)](./media/hdinsight-authorize-users-to-ambari/add-group-to-view-permission.png)
 
 1. 若要新增使用者，請選取 [Add User] \(新增使用者\) 按鈕。
 
    * 開始輸入使用者名稱，您將會看到先前已定義之名稱的下拉式清單。
 
-     ![使用者自動完成](./media/hdinsight-authorize-users-to-ambari/user-autocomplete.png)
+     ![使用者自動完成](./media/hdinsight-authorize-users-to-ambari/ambari-user-autocomplete.png)
 
    * 選取使用者名稱，或完成使用者名稱輸入。 若要新增此使用者名稱作為新使用者，請選取 [New] \(新增\) 按鈕。
 
    * 若要儲存您的變更，請選取**藍色核取方塊**。
 
-     ![已輸入使用者](./media/hdinsight-authorize-users-to-ambari/user-entered.png)
+     ![已輸入使用者](./media/hdinsight-authorize-users-to-ambari/user-entered-permissions.png)
 
 1. 若要新增群組，請選取 [Add Group] \(新增群組\) 按鈕。
 
    * 開始輸入群組名稱。 不論是選取現有的群組名稱，還是新增新的群組，程序都與新增使用者相同。
    * 若要儲存您的變更，請選取**藍色核取方塊**。
 
-     ![已輸入群組](./media/hdinsight-authorize-users-to-ambari/group-entered.png)
+     ![已輸入群組](./media/hdinsight-authorize-users-to-ambari/ambari-group-entered.png)
 
 當您想要指派權限給使用者來使用該檢視，但不想要讓使用者成為具有額外權限之群組的成員時，將使用者直接新增到檢視會相當有用。 若要降低系統管理額外負擔，將權限指派給群組可能會是更簡單的方式。
 
@@ -77,7 +77,7 @@ Ambari 隨附 [Apache Hive](https://hive.apache.org/) 和 [Apache TEZ](https://t
 
 若要將使用者和群組指派給 Tez 檢視執行個體，請依照先前所述，展開 [Views] \(檢視\) 頁面上的 [TEZ]**TEZ** 資料列。
 
-![檢視 - Tez 檢視](./media/hdinsight-authorize-users-to-ambari/views-tez-view.png)
+![檢視 - Tez 檢視](./media/hdinsight-authorize-users-to-ambari/views-apache-tez-view.png)
 
 若要新增使用者或群組，請重複上一節中的步驟 3 到 5。
 
@@ -93,11 +93,11 @@ Ambari 隨附 [Apache Hive](https://hive.apache.org/) 和 [Apache TEZ](https://t
 
 若要管理角色，請移至 **Ambari 管理頁面**，然後選取左邊 [Clusters] \(叢集\) 功能表群組內的 [Roles] \(角色\) 連結。
 
-![[角色] 功能表連結](./media/hdinsight-authorize-users-to-ambari/roles-link.png)
+![[角色] 功能表連結](./media/hdinsight-authorize-users-to-ambari/cluster-roles-menu-link.png)
 
 若要查看賦予每個角色的權限清單，請按一下 [Roles] \(角色\) 頁面上 [Roles] \(角色\) 資料表標頭旁邊的藍色問號。
 
-![角色功能表連結許可權](./media/hdinsight-authorize-users-to-ambari/roles-permissions.png "角色功能表連結許可權")
+![角色功能表連結許可權](./media/hdinsight-authorize-users-to-ambari/roles-menu-permissions.png "角色功能表連結許可權")
 
 在此頁面上，有兩個不同的檢視，可供您用來管理使用者和群組的角色：[區塊] 和 [清單]。
 
@@ -105,7 +105,7 @@ Ambari 隨附 [Apache Hive](https://hive.apache.org/) 和 [Apache TEZ](https://t
 
 [Block] \(區塊\) 檢視會以每個角色自己一列的方式顯示每個角色，並如先前所述，會提供 [Assign roles to these users] \(指派角色給這些使用者\) 和 [Assign roles to these groups] \(指派角色給這些群組\) 選項。
 
-![[角色] 區塊檢視](./media/hdinsight-authorize-users-to-ambari/roles-block-view.png)
+![[角色] 區塊檢視](./media/hdinsight-authorize-users-to-ambari/ambari-roles-block-view.png)
 
 ### <a name="list-view"></a>[清單] 檢視
 
@@ -125,7 +125,7 @@ Ambari 隨附 [Apache Hive](https://hive.apache.org/) 和 [Apache TEZ](https://t
 
 我們已經為 Azure AD 網域使用者 "hiveuser1" 指派對 Hive 和 Tez 檢視的權限。 當我們啟動 Ambari Web UI 並輸入此使用者的網域認證 (電子郵件格式的 Azure AD 使用者名稱，以及密碼) 時，系統會將此使用者重新導向到 Ambari [Views] \(檢視\) 頁面。 從此頁面中，使用者可以選取任何可存取的檢視。 使用者無法瀏覽網站的任何其他部分，包括儀表板、服務、主機、警示或系統管理員頁面。
 
-![僅具有檢視權限的使用者](./media/hdinsight-authorize-users-to-ambari/user-views-only.png)
+![僅具有檢視權限的使用者](./media/hdinsight-authorize-users-to-ambari/ambari-user-views-only.png)
 
 ## <a name="log-in-to-ambari-as-a-cluster-user"></a>以叢集使用者身分登入 Ambari
 

@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 04/02/2019
-ms.openlocfilehash: dca329ce598a9ecbc7da71cc1c24bf7731a4c994
-ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
-ms.translationtype: HT
+ms.openlocfilehash: 226a3b0ffa4b770d1738e69fd04592476b9f4075
+ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70885400"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70935305"
 ---
 # <a name="customize-azure-hdinsight-clusters-by-using-script-actions"></a>使用腳本動作自訂 Azure HDInsight 叢集
 
@@ -165,11 +165,11 @@ HDInsight 提供一些指令碼以在 HDInsight 叢集上安裝下列元件：
 
 3. 從 [進階設定] 區段中，選取 [指令碼動作]。 從 [指令碼動作] 區段中，選取 [+ 送出新的]。
 
-    ![送出新的指令碼動作](./media/hdinsight-hadoop-customize-cluster-linux/add-script-action.png)
+    ![送出新的指令碼動作](./media/hdinsight-hadoop-customize-cluster-linux/add-new-script-action.png)
 
 4. 使用 [選取指令碼] 項目來選取預先製作的指令碼。 若要使用自訂指令碼，請選取 [自訂]。 然後為您的指令碼提供 [名稱] 和 [Bash 指令碼 URI]。
 
-    ![在選取指令碼表單中加入指令碼](./media/hdinsight-hadoop-customize-cluster-linux/select-script.png)
+    ![在選取指令碼表單中加入指令碼](./media/hdinsight-hadoop-customize-cluster-linux/hdinsight-select-script.png)
 
     下表說明表單上的元素：
 
@@ -185,7 +185,7 @@ HDInsight 提供一些指令碼以在 HDInsight 叢集上安裝下列元件：
 
 5. 選取 [Create] \(建立\) 以儲存指令碼。 接著，您可以使用 [+ 送出新的] 來新增另一個指令碼。
 
-    ![多個指令碼動作](./media/hdinsight-hadoop-customize-cluster-linux/multiple-scripts.png)
+    ![多個指令碼動作](./media/hdinsight-hadoop-customize-cluster-linux/multiple-scripts-actions.png)
 
     新增完指令碼之後，請選取 [選取] 按鈕，然後選取 [下一步] 按鈕以返回 [叢集摘要] 區段。
 
@@ -251,7 +251,7 @@ HDInsight .NET SDK 提供用戶端程式庫，可讓您更輕鬆地從 .NET 應�
 
 4. 使用 [選取指令碼] 項目來選取預先製作的指令碼。 若要使用自訂指令碼，請選取 [自訂]。 然後為您的指令碼提供 [名稱] 和 [Bash 指令碼 URI]。
 
-    ![在選取指令碼表單中加入指令碼](./media/hdinsight-hadoop-customize-cluster-linux/select-script.png)
+    ![在選取指令碼表單中加入指令碼](./media/hdinsight-hadoop-customize-cluster-linux/hdinsight-select-script.png)
 
     下表說明表單上的元素：
 
@@ -438,7 +438,7 @@ HDInsight 服務提供數種方式以使用自訂元件。 不論元件在叢集
 
 2. 在頁面頂端的列中，選取 **ops** 項目。 系統會顯示一個清單，當中包含透過 Ambari 在叢集上執行的目前和先前作業。
 
-    ![Ambari Web UI 列與選取的 ops](./media/hdinsight-hadoop-customize-cluster-linux/ambari-nav.png)
+    ![Ambari Web UI 列與選取的 ops](./media/hdinsight-hadoop-customize-cluster-linux/hdi-apache-ambari-nav.png)
 
 3. 尋找在 [作業] 欄位中有 **run\_customscriptaction** 的項目。 這些項目是在執行指令碼動作時建立的。
 
@@ -520,4 +520,4 @@ sudo pip install azure-storage==0.20.0
 * [在 HDInsight 叢集上安裝和使用 Apache Giraph](hdinsight-hadoop-giraph-install-linux.md)
 * [在 HDInsight 叢集新增儲存體](hdinsight-hadoop-add-storage.md)
 
-[img-hdi-cluster-states]: ./media/hdinsight-hadoop-customize-cluster-linux/HDI-Cluster-state.png "叢集建立期間的階段"
+[img-hdi-cluster-states]: ./media/hdinsight-hadoop-customize-cluster-linux/cluster-provisioning-states.png "叢集建立期間的階段"

@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/06/2018
 ms.author: hrasheed
-ms.openlocfilehash: e0c39ae5f5c23ae0715ef1eee38b6dd34704538a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b4d50c39bf670cb8c14d9dbe4feb2fc18c89bf0a
+ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64690952"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70917195"
 ---
 # <a name="apache-spark-streaming-dstream-example-with-apache-kafka-on-hdinsight"></a>在 HDInsight 上使用 Apache Kafka 的 Apache Spark 串流 (DStream) 範例
 
@@ -32,7 +32,7 @@ ms.locfileid: "64690952"
 
 Apache Kafka on HDInsight 不提供透過公用網際網路存取 Kafka 訊息代理程式。 任何 Kafka 相關項目必須位於與 Kafka 叢集中節點相同的 Azure 虛擬網路。 例如，Kafka 和 Spark 叢集均位於 Azure 虛擬網路中。 下圖顯示叢集之間的通訊流動方式︰
 
-![Azure 虛擬網路中的 Spark 和 Kafka 叢集圖表](./media/hdinsight-apache-spark-with-kafka/spark-kafka-vnet.png)
+![Azure 虛擬網路中的 Spark 和 Kafka 叢集圖表](./media/hdinsight-apache-spark-with-kafka/apache-spark-kafka-vnet.png)
 
 > [!NOTE]  
 > Kafka 本身受限於虛擬網路內的通訊，但叢集上的 SSH 和 Ambari 等其他服務可以透過網際網路存取。 如需有關適用於 HDInsight 的公用連接埠詳細資訊，請參閱 [HDInsight 所使用的連接埠和 URI](hdinsight-hadoop-port-settings-for-services.md)。
@@ -41,7 +41,7 @@ Apache Kafka on HDInsight 不提供透過公用網際網路存取 Kafka 訊息�
 
 1. 使用以下按鈕，在 Azure 入口網站中登入 Azure 並開啟範本。
     
-    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Farmtemplates%2Fcreate-linux-based-kafka-spark-cluster-in-vnet-v4.1.json" target="_blank"><img src="./media/hdinsight-apache-spark-with-kafka/deploy-to-azure.png" alt="Deploy to Azure"></a>
+    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Farmtemplates%2Fcreate-linux-based-kafka-spark-cluster-in-vnet-v4.1.json" target="_blank"><img src="./media/hdinsight-apache-spark-with-kafka/hdi-deploy-to-azure1.png" alt="Deploy to Azure"></a>
     
     Azure Resource Manager 範本位於 **https://hditutorialdata.blob.core.windows.net/armtemplates/create-linux-based-kafka-spark-cluster-in-vnet-v4.1.json** 。
 
@@ -50,9 +50,9 @@ Apache Kafka on HDInsight 不提供透過公用網際網路存取 Kafka 訊息�
 
     此範本會為 Kafka 和 Spark 建立 HDInsight 3.6 叢集。
 
-2. 使用下列資訊來填入 [自訂部署]  區段上的項目︰
+2. 使用下列資訊來填入 [自訂部署] 區段上的項目︰
    
-    ![HDInsight 自訂部署](./media/hdinsight-apache-spark-with-kafka/parameters.png)
+    ![HDInsight 自訂部署](./media/hdinsight-apache-spark-with-kafka/hdinsight-parameters.png)
    
     * **資源群組**：建立群組或選取現有的群組。 此群組包含 HDInsight 叢集。
 
@@ -68,13 +68,13 @@ Apache Kafka on HDInsight 不提供透過公用網際網路存取 Kafka 訊息�
 
     * **SSH 密碼**：Spark 和 Kafka 叢集的 SSH 使用者密碼。
 
-3. 讀取**條款及條件**，然後選取 [我同意上方所述的條款及條件]  。
+3. 讀取**條款及條件**，然後選取 [我同意上方所述的條款及條件]。
 
-4. 最後，選取 [購買]  。 大約需要 20 分鐘的時間來建立叢集。
+4. 最後，選取 [購買]。 大約需要 20 分鐘的時間來建立叢集。
 
 資源建立後，摘要頁面會隨即出現。
 
-![VNet 及叢集的資源群組摘要](./media/hdinsight-apache-spark-with-kafka/groupblade.png)
+![VNet 及叢集的資源群組摘要](./media/hdinsight-apache-spark-with-kafka/hdinsight-group-blade.png)
 
 > [!IMPORTANT]  
 > 請注意，HDInsight 叢集的名稱是 **spark-BASENAME** 和 **kafka-BASENAME**，其中 BASENAME 是您提供給範本的名稱。 連接到叢集時，您會在稍後步驟中使用這些名稱。

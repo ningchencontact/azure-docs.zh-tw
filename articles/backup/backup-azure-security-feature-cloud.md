@@ -7,12 +7,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 08/04/2019
 ms.author: dacurwin
-ms.openlocfilehash: 938c65371b05807c774c9f2d73d4c27efe706c47
-ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.openlocfilehash: 173e261266bffd042e12b327e26fda3a4e55ea4b
+ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70143566"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70898995"
 ---
 # <a name="security-features-to-help-protect-cloud-workloads-that-use-azure-backup"></a>協助保護使用 Azure 備份之雲端工作負載的安全性功能
 
@@ -26,7 +26,7 @@ ms.locfileid: "70143566"
 
 ### <a name="supported-regions"></a>支援區域
 
-美國中西部區域中目前支援虛刪除。
+美國中西部區域和東亞目前支援虛刪除。
 
 ### <a name="soft-delete-for-vms"></a>Vm 的虛刪除
 
@@ -136,4 +136,4 @@ Azure 儲存體會在將資料保存到雲端時，自動將其加密。 加密�
 
 ## <a name="next-steps"></a>後續步驟
 
-* 閱讀[Azure 備份的安全性屬性](https://docs.microsoft.com/en-us/azure/backup/backup-security-attributes)。
+* 閱讀[Azure 備份的安全性控制](backup-security-controls.md)。

@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 03/25/2019
 ms.author: ramamill
-ms.openlocfilehash: c692b1c5b77b95e5487a847b46473906135c3d86
-ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
+ms.openlocfilehash: aeb00b84ac254232e0d68fd9631fb539a928e67d
+ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68261140"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70931896"
 ---
 # <a name="about-the-mobility-service-for-vmware-vms-and-physical-servers"></a>關於適用於 VMware VM 和實體伺服器的行動服務
 
@@ -24,7 +24,7 @@ ms.locfileid: "68261140"
 
 ## <a name="anti-virus-on-replicated-machines"></a>在複寫的機器上防毒
 
-如果您要複寫的機器正在執行作用中的防毒軟體，請務必從防毒作業中排除行動性服務安裝資料夾 (C:\ProgramData\ASR\agent  )。 這可確保複寫運作正常。
+如果您要複寫的機器正在執行作用中的防毒軟體，請務必從防毒作業中排除行動性服務安裝資料夾 (C:\ProgramData\ASR\agent)。 這可確保複寫運作正常。
 
 ## <a name="push-installation"></a>推送安裝
 
@@ -64,12 +64,12 @@ ms.locfileid: "68261140"
 > 如果您要將 Azure IaaS VM 從一個 Azure 區域複寫到另一個, 請不要使用此方法。 請改用以命令列為基礎的安裝方法。
 
 1. 將安裝檔案複製到機器並執行。
-2. 在 [安裝選項]  中，選取 [安裝行動服務]  。
-3. 選取安裝位置 > [安裝]  。
+2. 在 [安裝選項] 中，選取 [安裝行動服務]。
+3. 選取安裝位置 > [安裝]。
 
     ![[行動服務安裝選項] 頁面](./media/vmware-physical-mobility-service-install-manual/mobility1.png)
 
-4. 在 [安裝進度]  中監視安裝。 安裝完成後，選取 [繼續進行設定]  ，以向設定伺服器註冊服務。
+4. 在 [安裝進度] 中監視安裝。 安裝完成後，選取 [繼續進行設定] ，以向設定伺服器註冊服務。
 
     ![[行動服務註冊] 頁面](./media/vmware-physical-mobility-service-install-manual/mobility3.png)
 
@@ -77,7 +77,7 @@ ms.locfileid: "68261140"
 
     ![[行動服務註冊] 頁面](./media/vmware-physical-mobility-service-install-manual/mobility4.png)
 
-6. 選取 [註冊]  完成註冊。
+6. 選取 [註冊] 完成註冊。
 
     ![[行動服務註冊完成] 頁面](./media/vmware-physical-mobility-service-install-manual/mobility5.png)
 
@@ -119,7 +119,7 @@ ms.locfileid: "68261140"
 安裝記錄 | 在 %ProgramData%\ASRSetupLogs\ASRUnifiedAgentInstaller.log 底下。
 /Role | 必要安裝參數。 指定應該要安裝行動服務 (MS) 還是主要目標 (MT)。
 /InstallLocation| 選擇性參數。 指定行動服務安裝位置 (任何資料夾)。
-/Platform | 必要。 指定要安裝行動服務的平台。 如果是 VMware VM/實體伺服器，則為 **VMware**；如果是 Azure VM，則為 **Azure**。
+/Platform | 必要。 指定要安裝行動服務的平台。 如果是 VMware VM/實體伺服器，則為 **VMware**；如果是 Azure VM，則為 **Azure**。<br/><br/> 如果您要將 Azure Vm 視為實體機器，請指定**VMware**。
 /Silent| 選擇性。 指定是否要以無訊息模式執行安裝程式。
 
 #### <a name="registration-settings"></a>註冊設定

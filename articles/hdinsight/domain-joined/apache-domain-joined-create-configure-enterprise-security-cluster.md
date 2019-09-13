@@ -8,12 +8,12 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.topic: conceptual
 ms.date: 05/09/2019
-ms.openlocfilehash: bb6a3cff46c975ae6b59f0c6f97e37037f638620
-ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
+ms.openlocfilehash: 24c00d8d5db7c36746d68ad10edc4db4f76e0aac
+ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70845920"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70918749"
 ---
 # <a name="create-and-configure-enterprise-security-package-clusters-in-azure-hdinsight"></a>在 Azure HDInsight 中建立和設定企業安全性套件叢集
 
@@ -25,7 +25,7 @@ Azure HDInsight 的企業安全性套件可讓您針對 Azure 中的 Apache Hado
 
 在您自己的環境中使用此程式之前，請先安裝 Active Directory 和功能變數名稱服務（DNS）。 此外，請啟用 Azure Active Directory 並同步處理內部部署使用者帳戶，以 Azure Active Directory。
 
-![架構圖表](./media/apache-domain-joined-create-configure-enterprise-security-cluster/image002.png)
+![架構圖表](./media/apache-domain-joined-create-configure-enterprise-security-cluster/hdinsight-image-0002.png)
 
 ## <a name="create-on-premises-environment"></a>建立內部部署環境
 
@@ -71,7 +71,7 @@ Azure HDInsight 的企業安全性套件可讓您針對 Azure 中的 Apache Hado
 
     1. 在 [ **Active Directory 使用者和電腦**] 畫面上，按一下 [**動作** > ] [**新增** > **使用者**]。
 
-        ![建立新的 Active Directory 使用者](./media/apache-domain-joined-create-configure-enterprise-security-cluster/create-new-user.png)
+        ![建立新的 Active Directory 使用者](./media/apache-domain-joined-create-configure-enterprise-security-cluster/create-active-directory-user.png)
 
     1. 在 [**新增物件-使用者**] 畫面上`HDIUser` ，輸入做為**使用者登入名稱**，然後按 **[下一步]** 。
 
@@ -85,7 +85,7 @@ Azure HDInsight 的企業安全性套件可讓您針對 Azure 中的 Apache Hado
 
 1. 在 [ **Active Directory 使用者和電腦**] 畫面中，按一下 [**動作** > ] [**新增** > **群組**]。 建立`HDIUserGroup`為新群組。
 
-    ![建立新的 Active Directory 群組](./media/apache-domain-joined-create-configure-enterprise-security-cluster/create-new-group.png)
+    ![建立新的 Active Directory 群組](./media/apache-domain-joined-create-configure-enterprise-security-cluster/create-active-directory-group.png)
 
     ![建立新的 group2](./media/apache-domain-joined-create-configure-enterprise-security-cluster/hdinsight-image-0028.png)
 
@@ -156,7 +156,7 @@ Azure HDInsight 的企業安全性套件可讓您針對 Azure 中的 Apache Hado
 
     1. 按一下 [**使用快速設定**]，並完成安裝。
 
-        ![使用快速設定](./media/apache-domain-joined-create-configure-enterprise-security-cluster/image054.png)
+        ![使用快速設定](./media/apache-domain-joined-create-configure-enterprise-security-cluster/hdinsight-image-0054.png)
 
 ### <a name="configure-sync-with-on-premises-domain-controller"></a>設定與內部部署網域控制站的同步處理
 
@@ -168,7 +168,7 @@ Azure HDInsight 的企業安全性套件可讓您針對 Azure 中的 Apache Hado
 1. 在 [ **Azure AD 登入**設定] 頁面上，按 **[下一步]** 。
     ![Azure AD 登入設定](./media/apache-domain-joined-create-configure-enterprise-security-cluster/hdinsight-image-0062.png)
 1. 在 [準備好設定] 畫面上，按一下 [ **安裝**]。
-    ![安裝](./media/apache-domain-joined-create-configure-enterprise-security-cluster/image064.png)
+    ![安裝](./media/apache-domain-joined-create-configure-enterprise-security-cluster/hdinsight-image-0064.png)
 1. 顯示 [設定完成] 畫面時 **，按一下 [** **結束**]。
     ![設定完成](./media/apache-domain-joined-create-configure-enterprise-security-cluster/hdinsight-image-0078.png)
 
@@ -213,7 +213,7 @@ Azure HDInsight 的企業安全性套件可讓您針對 Azure 中的 Apache Hado
     1. 選取您的訂用帳戶。
     1. 指定資源群組**HDIFabrikam-CentralUS**和「**美國中部**」的**位置**。
 
-        ![azure ad ds 基本詳細資料](./media/apache-domain-joined-create-configure-enterprise-security-cluster/image084.png)
+        ![Azure AD-DS 基本詳細資料](./media/apache-domain-joined-create-configure-enterprise-security-cluster/hdinsight-image-0084.png)
 
 1. 在 [**網路**] 畫面上，選取您使用先前的 powershell 腳本建立的網路（**HDIFabrikam-VNET**）和子網（**AADDS 子網**）。 或者，您可以使用 [**建立新**的] 選項立即建立虛擬網路。
 
@@ -225,7 +225,7 @@ Azure HDInsight 的企業安全性套件可讓您針對 Azure 中的 Apache Hado
 
 1. 在 [**同步**處理] 畫面上，選取 [**全部**]，然後按一下 **[確定]** ，以啟用完整同步處理。
 
-    ![啟用同步處理](./media/apache-domain-joined-create-configure-enterprise-security-cluster/image090.png)
+    ![啟用同步處理](./media/apache-domain-joined-create-configure-enterprise-security-cluster/hdinsight-image-0090.png)
 
 1. 在 [**摘要**] 畫面上，確認 AZURE AD-DS 的詳細資料，然後按一下 **[確定]** 。
 
@@ -239,7 +239,7 @@ Azure HDInsight 的企業安全性套件可讓您針對 Azure 中的 Apache Hado
 
 1. 找出自訂 DNS 伺服器的 IP 位址。 按一下 [ **HDIFabrikam.com** ] [AD-DS] 資源，按一下 **[管理**  ] 底下的 [ **屬性**]，然後查看虛擬網路上的 [ **ip 位址**] 底下列出的 ip 位址。
 
-    ![找出 Azure AD-DS 的自訂 DNS IP 位址](./media/apache-domain-joined-create-configure-enterprise-security-cluster/image096.png)
+    ![找出 Azure AD-DS 的自訂 DNS IP 位址](./media/apache-domain-joined-create-configure-enterprise-security-cluster/hdinsight-image-0096.png)
 
 1. 將**HDIFabrikam AADDSVNET**設定為 [自`10.0.0.4`定義`10.0.0.5`ip 和]。
 
@@ -248,7 +248,7 @@ Azure HDInsight 的企業安全性套件可讓您針對 Azure 中的 Apache Hado
 
 1. 在我們的案例中 Azure AD-DS 已設定為使用 IP 位址10.0.0.4 和10.0.0.5，請在 AADDS VNet 上設定相同的 IP 位址，如下圖所示。
 
-    ![查看自訂 dns 伺服器](./media/apache-domain-joined-create-configure-enterprise-security-cluster/image098.png)
+    ![查看自訂 DNS 伺服器](./media/apache-domain-joined-create-configure-enterprise-security-cluster/hdinsight-image-0098.png)
 
 ## <a name="securing-ldap-traffic"></a>保護 LDAP 流量
 
@@ -282,7 +282,7 @@ New-SelfSignedCertificate -Subject hdifabrikam.com `
 
 1. 在 [ **匯出私密金鑰** ] 頁面上，按一下 [ **是，匯出私用金鑰]** 。 要從匯入金鑰的電腦讀取加密訊息時，必須要有私密金鑰。
 
-    ![匯出私密金鑰](./media/apache-domain-joined-create-configure-enterprise-security-cluster/image103.png)
+    ![匯出私密金鑰](./media/apache-domain-joined-create-configure-enterprise-security-cluster/hdinsight-image-0103.png)
 
 1. 在 [ **匯出檔案格式** ] 頁面上，保留預設設定，然後按 **[下一步]** 。 
 1. 在 [ **密碼** ] 頁面上，輸入私密金鑰的密碼，選取 [ **TripleDES-SHA1**進行**加密**]，然後按 **[下一步]** 。
@@ -347,7 +347,7 @@ New-SelfSignedCertificate -Subject hdifabrikam.com `
     1. 選取 [**自訂**] `10.0.0.5`，然後輸入`10.0.0.4`和。
     1. 按一下 [儲存]。
 
-        ![儲存自訂 dns 設定](./media/apache-domain-joined-create-configure-enterprise-security-cluster/hdinsight-image-0123.png)
+        ![儲存自訂 DNS 設定](./media/apache-domain-joined-create-configure-enterprise-security-cluster/hdinsight-image-0123.png)
 
 1. 建立已啟用 ESP 的新 HDInsight Spark 叢集。
     1. 按一下 **[自訂（大小、設定、應用程式）** ]。
@@ -365,7 +365,7 @@ New-SelfSignedCertificate -Subject hdifabrikam.com `
 
 1. 使用您的系統管理員使用者名稱`https://CLUSTERNAME.azurehdinsight.net` `hdiadmin@hdifabrikam.com`和密碼，登入新建立之叢集的 Ambari UI。
 
-    ![登入 Ambari](./media/apache-domain-joined-create-configure-enterprise-security-cluster/image135.jpg)
+    ![登入 Ambari](./media/apache-domain-joined-create-configure-enterprise-security-cluster/hdinsight-image-0135.jpg)
 
 1. 按一下 [叢集儀表板] 中的 [**角色**]。
 1. 在 [**角色**] 頁面上，輸入群組**hdiusergroup** ，將其指派給 [**指派角色給這些**] 底下的 [叢集**系統管理員**] 角色。
@@ -376,7 +376,7 @@ New-SelfSignedCertificate -Subject hdifabrikam.com `
 
     ![使用 SSH 登入叢集](./media/apache-domain-joined-create-configure-enterprise-security-cluster/hdinsight-image-0139.jpg)
 
-如果您可以使用此帳戶登入，則表示您已正確地將 ESP 叢集設定為與您的內部部署 active directory 同步。
+如果您可以使用此帳戶登入，則表示您已正確設定 ESP 叢集，以與您的內部部署 active directory 同步。
 
 ## <a name="next-steps"></a>後續步驟
 

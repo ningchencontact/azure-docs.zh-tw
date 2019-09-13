@@ -6,14 +6,14 @@ ms.topic: troubleshooting
 author: hrasheed-msft
 ms.author: hrasheed
 ms.date: 07/29/2019
-ms.openlocfilehash: b7cbf4d460f872f33c447d0eea8430916d65bd18
-ms.sourcegitcommit: 97605f3e7ff9b6f74e81f327edd19aefe79135d2
+ms.openlocfilehash: f39822d0800af8658e46cde0202a2c261890b4e3
+ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70736274"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70885526"
 ---
-# <a name="scenario-apache-spark-streaming-job-that-reads-data-from-an-apache-kafka-cluster-fails-with-a-noclassdeffounderror-in-azure-hdinsight"></a>案例：從 Apache Kafka 叢集讀取資料的 Apache Spark 串流作業失敗，並出現 JAVA.lang.noclassdeffounderror，Azure HDInsight
+# <a name="apache-spark-streaming-job-that-reads-apache-kafka-data-fails-with-noclassdeffounderror-in-hdinsight"></a>在 HDInsight 中使用 JAVA.lang.noclassdeffounderror 讀取 Apache Kafka 資料的 Apache Spark 串流作業失敗
 
 本文說明在 Azure HDInsight 叢集中使用 Apache Spark 元件時，疑難排解步驟和問題的可能解決方法。
 

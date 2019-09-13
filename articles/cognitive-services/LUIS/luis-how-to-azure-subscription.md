@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 09/02/2019
+ms.date: 09/09/2019
 ms.author: diberry
-ms.openlocfilehash: 36d03e20c9a56d7b317b867f01c1c0b5767c802c
-ms.sourcegitcommit: 267a9f62af9795698e1958a038feb7ff79e77909
+ms.openlocfilehash: 5c2e81cd11826a0325cd78384a22ec7eefb3a565
+ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70257020"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70844877"
 ---
 # <a name="using-authoring-and-runtime-resource-keys"></a>使用撰寫和執行時間資源金鑰
 
@@ -72,6 +72,38 @@ ms.locfileid: "70257020"
     |執行時間定價層|定價層會決定每秒和每月的交易上限。|
 
     建立這兩個資源後，請在 LUIS 入口網站中指派資源。
+
+## <a name="create-resources-in-azure-cli"></a>在 Azure CLI 中建立資源
+
+使用[Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)來個別建立每個資源。 
+
+資源`kind`：
+
+* 製作`LUIS.Authoring`
+* 翻`LUIS` 
+
+1. 登入 Azure CLI：
+
+    ```console
+    az login
+    ```
+
+    這會開啟瀏覽器，讓您選取正確的帳戶並提供驗證。
+
+1. 在`LUIS.Authoring` `my-luis-authoring-resource`為區域`westus`命名的現有資源群組中，建立名為的LUIS撰寫資源`my-resource-group` （種類）。 
+
+    ```console
+    az cognitiveservices account create -n my-luis-authoring-resource -g my-resource-group --kind LUIS.Authoring --sku F0 -l westus --yes
+    ```
+
+1. 在`LUIS` `my-luis-prediction-resource`為區域`westus`命名的現有資源群組中，建立名為的LUIS預測端點資源`my-resource-group` （種類）。 如果您想要比免費層更高的輸送量， `F0`請`S0`將變更為。 深入瞭解[定價層和輸送量](luis-boundaries.md#key-limits)。
+
+    ```console
+    az cognitiveservices account create -n my-luis-prediction-resource -g my-resource-group --kind LUIS --sku F0 -l westus --yes
+    ```
+
+    > [!Note] 
+    > LUIS 入口網站**不**會使用此金鑰，除非是在 LUIS 入口網站中的**管理 > Azure 資源**上指派。
 
 ## <a name="assign-an-authoring-resource-in-the-luis-portal-for-all-apps"></a>在 LUIS 入口網站中為所有應用程式指派撰寫資源
 
@@ -186,6 +218,6 @@ ms.locfileid: "70257020"
 ## <a name="next-steps"></a>後續步驟
 
 * 瞭解[如何使用版本](luis-how-to-manage-versions.md)來控制您的應用程式生命週期。
-* 瞭解這些概念，包括該資源的[撰寫資源](/luis-concept-keys.md#authoring-key)和[參與者](luis-concept-keys.md#contributions-from-other-authors)。
+* 瞭解這些概念，包括該資源的[撰寫資源](luis-concept-keys.md#authoring-key)和[參與者](luis-concept-keys.md#contributions-from-other-authors)。
 * 瞭解[如何建立](luis-how-to-azure-subscription.md)撰寫和執行時間資源
 * 遷移至新的[撰寫資源](luis-migration-authoring.md) 

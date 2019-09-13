@@ -8,18 +8,21 @@ ms.date: 06/26/2019
 ms.topic: conceptual
 ms.service: blueprints
 manager: carmonm
-ms.openlocfilehash: b53f293f6289377d85f4346933f7edb7369065cf
-ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
+ms.openlocfilehash: 43848e99f679e306747c4cb7b31a4d4692c888cc
+ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/03/2019
-ms.locfileid: "70231623"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70918348"
 ---
 # <a name="control-mapping-of-the-uk-official-and-uk-nhs-blueprint-samples"></a>英國官方和英國 NHS 藍圖範例的控制項對應
 
 下列文章將詳細說明英國官方和英國 NHS 藍圖範例如何對應到英國官方和英國 NHS 控制項。 如需控制項的詳細資訊, 請參閱[英國官方](https://www.gov.uk/government/publications/government-security-classifications)。
 
 以下是**英國官方**和**英國 NHS**控制項的對應。 使用右側的導覽區可直接跳到特定的控制項對應。 許多對應的控制項都是以 [Azure 原則](../../../policy/overview.md)方案進行實作的。 若要檢閱完整方案，請在 Azure 入口網站中開啟 [原則]，然後選取 [定義] 頁面。 然後, 尋找並選取 [  **\[預覽\] ] [英國官方] 和 [uk NHS] 控制項並部署特定的 VM 延伸模組, 以支援**內建原則計畫。
+
+> [!IMPORTANT]
+> 下列每個控制項都與一或多個[Azure 原則](../../../policy/overview.md)定義相關聯。 這些原則可協助您評估與控制的[合規性](../../../policy/how-to/get-compliance-data.md);不過，控制項與一或多個原則之間通常不會有1:1 或完全相符的結果。 因此，Azure 原則中**符合規範**，只會參考原則本身;這並不是為了確保您完全符合控制項的所有需求。 此外，合規性標準包含目前未由任何 Azure 原則定義解決的控制項。 因此，Azure 原則中的合規性只是整體合規性狀態的部分觀點。 此合規性藍圖範例的控制項與 Azure 原則定義之間的關聯，可能會隨著時間而改變。 若要查看變更歷程記錄，請參閱[GitHub 認可歷程記錄](https://github.com/MicrosoftDocs/azure-docs/commits/master/articles/governance/blueprints/samples/ukofficial/control-mapping.md)。
 
 ## <a name="1-data-in-transit-protection"></a>1傳輸保護中的資料
 

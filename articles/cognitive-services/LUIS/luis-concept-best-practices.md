@@ -9,17 +9,17 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 07/29/2019
+ms.date: 09/05/2019
 ms.author: diberry
-ms.openlocfilehash: 7a2802bd4daa1a009c610688120c9a56583b054f
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.openlocfilehash: 91ff99f674439580d369aad1490ded85d39d377c
+ms.sourcegitcommit: 49c4b9c797c09c92632d7cedfec0ac1cf783631b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68639284"
+ms.lasthandoff: 09/05/2019
+ms.locfileid: "70382887"
 ---
 # <a name="best-practices-for-building-a-language-understanding-app-with-cognitive-services"></a>使用認知服務建置語言理解應用程式的最佳做法
-使用應用程式撰寫流程來建立 LUIS 應用程式: 
+使用應用程式撰寫流程來建立 LUIS 應用程式： 
 
 * 建置語言模型
 * 新增一些定型範例語句 (每一意圖 10-15 個)
@@ -27,7 +27,7 @@ ms.locfileid: "68639284"
 * 從端點測試 
 * 新增功能
 
-一旦您的應用程式[發佈](luis-how-to-publish-app.md)之後, 請使用撰寫迴圈來新增功能、發佈, 並從端點進行測試。 請勿以新增更多範例語句的方式來開始下一個撰寫循環。 這並不會讓 LUIS 藉由真實世界使用者語句學習您的模型。 
+一旦您的應用程式[發佈](luis-how-to-publish-app.md)之後，請使用撰寫迴圈來新增功能、發佈，並從端點進行測試。 請勿以新增更多範例語句的方式來開始下一個撰寫循環。 這並不會讓 LUIS 藉由真實世界使用者語句學習您的模型。 
 
 為了讓 LUIS 能有效率地進行學習，請勿擴充語句，直到目前這組範例和端點語句傳回確信的高預測分數為止。 請使用[主動式學習](luis-concept-review-endpoint-utterances.md)、[模式](luis-concept-patterns.md)及[片語清單](luis-concept-feature.md)來提升分數。 
 
@@ -78,13 +78,13 @@ ms.locfileid: "68639284"
 
 ## <a name="do-add-phrase-lists-and-patterns-in-later-iterations"></a>請務必在稍後的反覆項目中新增片語清單和模式
 
-最佳做法是在您的應用程式進行測試之前，請勿套用這些做法。 在新增[片語清單](luis-concept-feature.md)和[模式](luis-concept-patterns.md)之前, 您應該先瞭解應用程式的行為, 因為這些功能的加權高於範例語句, 而且會扭曲信賴度。 
+最佳做法是在您的應用程式進行測試之前，請勿套用這些做法。 在新增[片語清單](luis-concept-feature.md)和[模式](luis-concept-patterns.md)之前，您應該先瞭解應用程式的行為，因為這些功能的加權高於範例語句，而且會扭曲信賴度。 
 
 一旦您了解應用程式缺乏上述功能時的運作方式之後，新增每個適用於您應用程式的功能。 您不需要在每次[反覆運算](luis-concept-app-iteration.md)時新增這些功能，也不需要為每個版本變更功能。 
 
 在您的模型設計一開始新增它們並無任何壞處，但是，透過表達測試模型之後，則可更輕鬆地查看每個功能變更結果的方式。 
 
-最佳做法是透過[端點](luis-get-started-create-app.md#query-the-endpoint-with-a-different-utterance)進行測試，以便取得[主動式學習](luis-concept-review-endpoint-utterances.md)的額外好處。 [互動式測試窗格](luis-interactive-test.md)也是一種有效的測試方法。 
+最佳做法是透過[端點](luis-get-started-create-app.md#query-the-v2-api-prediction-endpoint)進行測試，以便取得[主動式學習](luis-concept-review-endpoint-utterances.md)的額外好處。 [互動式測試窗格](luis-interactive-test.md)也是一種有效的測試方法。 
  
 
 ### <a name="phrase-lists"></a>片語清單

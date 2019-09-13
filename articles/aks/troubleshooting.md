@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: troubleshooting
 ms.date: 08/13/2018
 ms.author: saudas
-ms.openlocfilehash: 50bb26aa1a29dc8b1454fadec416aceea76405b2
-ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
+ms.openlocfilehash: 6ff273236f9f8465de9ec0cda89ed3ff8996ecec
+ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70844254"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70932652"
 ---
 # <a name="aks-troubleshooting"></a>AKS 疑難排解
 
@@ -141,3 +141,9 @@ ms.locfileid: "70844254"
 1. 使用現有的服務主體，其已在不同區域之間傳播，並在叢集建立時存在於傳入 AKS。
 2. 如果使用自動化腳本，請在建立服務主體與建立 AKS 叢集之間新增時間延遲。
 3. 如果使用 Azure 入口網站，請在建立期間返回叢集設定，然後在幾分鐘後重試驗證頁面。
+
+## <a name="im-receiving-errors-after-restricting-my-egress-traffic"></a>我在限制輸出流量之後收到錯誤
+
+限制來自 AKS 叢集的輸出流量時，有[必要和選用的建議](limit-egress-traffic.md)輸出埠/網路規則，以及適用于 AKS 的 FQDN/應用程式規則。 如果您的設定與上述任何規則發生衝突，您可能無法執行某些`kubectl`命令。 建立 AKS 叢集時，您可能也會看到錯誤。
+
+請確認您的設定不會與任何必要或選用的建議輸出埠/網路規則和 FQDN/應用程式規則相衝突。

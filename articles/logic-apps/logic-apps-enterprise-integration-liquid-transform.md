@@ -9,20 +9,20 @@ ms.reviewer: estfan, LADocs
 ms.suite: integration
 ms.topic: article
 ms.date: 08/16/2018
-ms.openlocfilehash: 5472a8ce2670a34174d6d39f0d90faca8a7002ad
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 203c57a2755a3287566a774e2878a87b847337b9
+ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61467449"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70900650"
 ---
 # <a name="perform-advanced-json-transformations-with-liquid-templates-in-azure-logic-apps"></a>使用 Azure Logic Apps 中的 Liquid 範本執行進階的 JSON 轉換
 
-您可以透過原生資料作業動作 (例如**撰寫**或**剖析 JSON**)，在邏輯應用程式中進行基本 JSON 轉換。 若要執行進階的 JSON 轉換，您可以使用 [Liquid](https://shopify.github.io/liquid/) 建立範本或對應，Liquid 是適用於可變動 Web 應用程式的開放原始碼範本語言。 Liquid 範本會定義如何轉換 JSON 輸出，並支援更複雜的 JSON 轉換，例如反覆項目、 控制流程、 變數等等。 
+您可以透過原生資料作業動作 (例如**撰寫**或**剖析 JSON**)，在邏輯應用程式中進行基本 JSON 轉換。 若要執行進階的 JSON 轉換，您可以使用 [Liquid](https://shopify.github.io/liquid/) 建立範本或對應，Liquid 是適用於可變動 Web 應用程式的開放原始碼範本語言。 液體範本會定義如何轉換 JSON 輸出，並支援更複雜的 JSON 轉換，例如反復專案、控制流程、變數等等。 
 
-您可以在邏輯應用程式中執行 Liquid 轉換之前，您必須先定義 JSON 對 JSON 的對應，對應的 Liquid 範本和存放區與整合帳戶中。 本文會示範如何建立及使用此 Liquid 範本或對應。 
+您必須先定義具有液體範本的 JSON 與 JSON 對應，並將該對應儲存在您的整合帳戶中，才可以在邏輯應用程式中執行液體轉換。 本文會示範如何建立及使用此 Liquid 範本或對應。 
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 * Azure 訂用帳戶。 如果您沒有訂用帳戶，您可以[開始使用免費 Azure 帳戶](https://azure.microsoft.com/free/)。 或者，請[註冊隨用隨付訂用帳戶](https://azure.microsoft.com/pricing/purchase-options/)。
 
@@ -34,10 +34,10 @@ ms.locfileid: "61467449"
 
 ## <a name="create-liquid-template-or-map-for-your-integration-account"></a>為您的企業整合帳戶建立 Liquid 範本或對應
 
-1. 在此範例中，您會建立此步驟中描述的 Liquid 範本範例。 在您的 Liquid 範本，您可以使用[Liquid 篩選](https://shopify.github.io/liquid/basics/introduction/#filters)，其中使用[DotLiquid](https://dotliquidmarkup.org/)和C#命名慣例。 
+1. 在此範例中，您會建立此步驟中描述的 Liquid 範本範例。 在您的液體範本中，您可以使用會使用[DotLiquid](https://dotliquidmarkup.org/)和C#命名慣例的[液體濾波器](https://shopify.github.io/liquid/basics/introduction/#filters)。 
 
    > [!NOTE]
-   > 請確定使用的篩選條件名稱*句首大寫*在範本中。 否則，將無法運作的篩選條件。
+   > 請確定篩選名稱在您的範本中使用*句子大小寫*。 否則，篩選準則將無法使用。
 
    ```json
    {%- assign deviceList = content.devices | Split: ', ' -%}
@@ -58,20 +58,20 @@ ms.locfileid: "61467449"
    }
    ```
 
-2. 登入 [Azure 入口網站](https://portal.azure.com)。 在主要 Azure 功能表上，選取 [所有資源]  。 在搜尋方塊中，尋找並選取整合帳戶。
+2. 登入 [Azure 入口網站](https://portal.azure.com)。 在主要 Azure 功能表上，選取 [所有資源]。 在搜尋方塊中，尋找並選取整合帳戶。
 
    ![選取企業整合帳戶](./media/logic-apps-enterprise-integration-liquid-transform/select-integration-account.png)
 
-3.  在 [元件]  底下，選取 [對應]  。
+3.  在 [元件] 底下，選取 [對應]。
 
     ![選取對應](./media/logic-apps-enterprise-integration-liquid-transform/add-maps.png)
 
-4. 選擇 [新增]  ，並提供該對應的以下詳細資料：
+4. 選擇 [新增]，並提供該對應的以下詳細資料：
 
    | 屬性 | 值 | 描述 | 
    |----------|-------|-------------|
    | **名稱** | JsonToJsonTemplate | 對應的名稱，在此範例中是 "JsonToJsonTemplate" | 
-   | **對應類型** | **liquid** | 對應的類型。 對於 JSON 到 JSON 的轉換，請選取 [Liquid]  。 | 
+   | **對應類型** | **liquid** | 對應的類型。 對於 JSON 到 JSON 的轉換，請選取 [Liquid]。 | 
    | **地圖** | "SimpleJsonToJsonTemplate.liquid" | 用於轉換的現有 Liquid 範本或對應檔案，在此範例中是 "SimpleJsonToJsonTemplate.liquid"。 若要尋找此檔案，您可以使用檔案選擇器。 |
    ||| 
 
@@ -81,27 +81,27 @@ ms.locfileid: "61467449"
 
 1. 在 Azure 入口網站中，遵循下列步驟來[建立空白邏輯應用程式](../logic-apps/quickstart-create-first-logic-app-workflow.md)。
 
-2. 在邏輯應用程式設計工具中，將[要求觸發程序](../connectors/connectors-native-reqres.md#use-the-http-request-trigger)新增至邏輯應用程式。
+2. 在邏輯應用程式設計工具中，將[要求觸發程序](../connectors/connectors-native-reqres.md#add-request)新增至邏輯應用程式。
 
-3. 在觸發程序下方，選擇 [新增步驟]  。 
+3. 在觸發程序下方，選擇 [新增步驟]。 
    在搜尋方塊中，輸入 "liquid" 作為篩選條件，然後選取以下動作：**將 JSON 轉換為 JSON - Liquid**
 
    ![尋找並選取 Liquid 動作](./media/logic-apps-enterprise-integration-liquid-transform/search-action-liquid.png)
 
-4. 在 [內容]  方塊內按一下，動態內容清單隨即顯示，然後選取 [內文]  權杖。
+4. 在 [內容] 方塊內按一下，動態內容清單隨即顯示，然後選取 [內文] 權杖。
   
    ![選取內文](./media/logic-apps-enterprise-integration-liquid-transform/select-body.png)
  
-5. 從 [對應]  清單中，選取您的 Liquid 範本，在此範例中是「JsonToJsonTemplate」。
+5. 從 [對應] 清單中，選取您的 Liquid 範本，在此範例中是「JsonToJsonTemplate」。
 
    ![選取對應](./media/logic-apps-enterprise-integration-liquid-transform/select-map.png)
 
    如果清單是空的，可能表示邏輯應用程式未連結至您的企業整合帳戶。 
    若要將邏輯應用程式連結至具有 Liquid 範本或對應的企業整合帳戶，請遵循下列步驟：
 
-   1. 在企業邏輯應用程式功能表上，選取 [工作流程設定]  。
+   1. 在企業邏輯應用程式功能表上，選取 [工作流程設定]。
 
-   2. 從 [選取企業整合帳戶]  清單，選取您的企業整合帳戶，並選擇 [儲存]  。
+   2. 從 [選取企業整合帳戶] 清單，選取您的企業整合帳戶，並選擇 [儲存]。
 
       ![將邏輯應用程式連結至企業整合帳戶](./media/logic-apps-enterprise-integration-liquid-transform/link-integration-account.png)
 

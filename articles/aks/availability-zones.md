@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 06/24/2019
 ms.author: mlearned
-ms.openlocfilehash: 690d22eadf37a24b4679ce10838074533ac65fcb
-ms.sourcegitcommit: 88ae4396fec7ea56011f896a7c7c79af867c90a1
+ms.openlocfilehash: 4d76578de0c80570e67db03046c42985500ddcdb
+ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70390078"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70914718"
 ---
 # <a name="preview---create-an-azure-kubernetes-service-aks-cluster-that-uses-availability-zones"></a>預覽-建立使用可用性區域的 Azure Kubernetes Service （AKS）叢集
 
@@ -34,7 +34,7 @@ Azure Kubernetes Service （AKS）叢集會將資源（例如節點和儲存體�
 
 ### <a name="install-aks-preview-cli-extension"></a>安裝 aks-preview CLI 擴充功能
 
-若要建立使用可用性區域的 AKS 叢集，您需要*AKS-preview* CLI 擴充功能版本0.4.1 （或更高）。 使用[az extension add][az-extension-add]命令來安裝*aks-preview* Azure CLI 擴充功能，然後使用[az extension update][az-extension-update]命令檢查是否有任何可用的更新：
+若要建立使用可用性區域的 AKS 叢集，您需要*AKS-preview* CLI 擴充功能版本0.4.12 （或更高）。 使用[az extension add][az-extension-add]命令來安裝*aks-preview* Azure CLI 擴充功能，然後使用[az extension update][az-extension-update]命令檢查是否有任何可用的更新：
 
 ```azurecli-interactive
 # Install the aks-preview extension
@@ -49,19 +49,19 @@ az extension update --name aks-preview
 若要建立可用性區域的 AKS 叢集，請先在您的訂用帳戶上啟用*AvailabilityZonePreview*功能旗標。 使用[az feature register][az-feature-register]命令來註冊*AvailabilityZonePreview*功能旗標，如下列範例所示：
 
 > [!CAUTION]
-> 當您在訂用帳戶上註冊功能時，目前無法取消註冊該功能。 啟用一些預覽功能之後，預設值可能會用於在訂用帳戶中建立的所有 AKS 叢集。 請勿在生產訂用帳戶上啟用預覽功能。 使用個別的訂用帳戶來測試預覽功能並收集意見反應。
+> 當您在訂用帳戶上註冊功能時, 目前無法取消註冊該功能。 啟用一些預覽功能之後, 預設值可能會用於在訂用帳戶中建立的所有 AKS 叢集。 請勿在生產訂用帳戶上啟用預覽功能。 使用個別的訂用帳戶來測試預覽功能並收集意見反應。
 
 ```azurecli-interactive
 az feature register --name AvailabilityZonePreview --namespace Microsoft.ContainerService
 ```
 
-狀態需要幾分鐘的時間才會顯示「已註冊」。 您可以使用[az feature list][az-feature-list]命令來檢查註冊狀態：
+狀態需要幾分鐘的時間才會顯示「已註冊」。 您可以使用[az feature list][az-feature-list]命令來檢查註冊狀態:
 
 ```azurecli-interactive
 az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/AvailabilityZonePreview')].{Name:name,State:properties.state}"
 ```
 
-準備好時，請使用[az provider register][az-provider-register]命令重新整理*microsoft.containerservice*資源提供者的註冊：
+準備好時, 請使用[az provider register][az-provider-register]命令重新整理*microsoft.containerservice*資源提供者的註冊:
 
 ```azurecli-interactive
 az provider register --namespace Microsoft.ContainerService
@@ -121,7 +121,7 @@ az aks create \
     --resource-group myResourceGroup \
     --name myAKSCluster \
     --generate-ssh-keys \
-    --enable-vmss \
+    --vm-set-type VirtualMachineScaleSets \
     --load-balancer-sku standard \
     --node-count 3 \
     --node-zones 1 2 3

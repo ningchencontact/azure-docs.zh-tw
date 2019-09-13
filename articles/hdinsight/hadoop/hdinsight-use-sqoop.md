@@ -7,26 +7,27 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 04/12/2019
-ms.openlocfilehash: 6764d8d812789c9f54fa59e10b2a3e416e583a9c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 564bced9ae71213cb534393a7dcc45c929df3794
+ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62129394"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70917345"
 ---
 # <a name="use-apache-sqoop-with-hadoop-in-hdinsight"></a>搭配使用 Apache Sqoop 與 HDInsight 中的 Hadoop
+
 [!INCLUDE [sqoop-selector](../../../includes/hdinsight-selector-use-sqoop.md)]
 
-了解如何在 HDInsight 中使用 Apache Sqoop 匯入和匯出的 HDInsight 叢集與 Azure SQL database 之間的資料。
+瞭解如何在 HDInsight 中使用 Apache Sqoop，在 HDInsight 叢集與 Azure SQL 資料庫之間匯入和匯出資料。
 
-雖然 Apache Hadoop 是自然的選擇來處理非結構化及半結構化資料，例如記錄和檔案，但也可能需要處理結構化的資料儲存在關聯式資料庫中。
+雖然 Apache Hadoop 是處理非結構化和半結構化資料（例如記錄和檔案）的自然選擇，但也可能需要處理儲存在關係資料庫中的結構化資料。
 
-[Apache Sqoop](https://sqoop.apache.org/docs/1.99.7/user.html)是 Hadoop 叢集和關聯式資料庫之間傳送資料的工具。 此工具可讓您從 SQL Server、MySQL 或 Oracle 等關聯式資料庫管理系統 (RDBMS)，將資料匯入至 Hadoop 分散式檔案系統 (HDFS)，使用 MapReduce 或 Apache Hive 轉換 Hadoop 中的資料，然後將資料匯回 RDBMS。 在本文中，您使用 SQL Server 資料庫為關聯式資料庫。
+[Apache Sqoop](https://sqoop.apache.org/docs/1.99.7/user.html)是一種專為在 Hadoop 叢集和關係資料庫之間傳輸資料而設計的工具。 此工具可讓您從 SQL Server、MySQL 或 Oracle 等關聯式資料庫管理系統 (RDBMS)，將資料匯入至 Hadoop 分散式檔案系統 (HDFS)，使用 MapReduce 或 Apache Hive 轉換 Hadoop 中的資料，然後將資料匯回 RDBMS。 在本文中，您會使用關係資料庫的 SQL Server 資料庫。
 
 > [!IMPORTANT]  
-> 這篇文章會設定要執行資料傳輸的測試環境。 您其中一個區段中的方法，然後選擇此環境的資料傳輸方法[執行 Sqoop 作業](#run-sqoop-jobs)下, 面會詳細。
+> 本文會設定測試環境來執行資料傳輸。 接著，您可以從[執行 Sqoop 作業](#run-sqoop-jobs)一節中的其中一種方法，為此環境選擇資料傳輸方法，如下所示。
 
-如需 HDInsight 叢集支援的 Sqoop 版本，請參閱[什麼是 HDInsight 所提供叢集版本的新功能？](../hdinsight-component-versioning.md)
+如需 HDInsight 叢集上支援的 Sqoop 版本，請參閱[hdinsight 所提供叢集版本的新功能。](../hdinsight-component-versioning.md)
 
 ## <a name="understand-the-scenario"></a>了解案例
 
@@ -41,7 +42,7 @@ HDInsight 叢集附有某些範例資料。 您將用到以下兩個範例：
 ...
 ```
 
-* 名為的 Hive 資料表`hivesampletable`，會參考此資料檔案位於`/hive/warehouse/hivesampletable`。 此資料表包含某些行動裝置資料。
+* 名為`hivesampletable`的 Hive 資料表，它會參考`/hive/warehouse/hivesampletable`位於的資料檔案。 此資料表包含某些行動裝置資料。
   
   | 欄位 | 資料類型 |
   | --- | --- |
@@ -51,16 +52,16 @@ HDInsight 叢集附有某些範例資料。 您將用到以下兩個範例：
   | deviceplatform |string |
   | devicemake |string |
   | devicemodel |string |
-  | state |string |
+  | 狀態 |string |
   | country |string |
   | querydwelltime |double |
-  | sessionid |bigint |
-  | sessionpagevieworder |bigint |
+  | sessionid |Bigint |
+  | sessionpagevieworder |Bigint |
 
-在本文中，您可以使用這兩個資料集測試 Sqoop 匯入和匯出。
+在本文中，您會使用這兩個資料集來測試 Sqoop 匯入和匯出。
 
 ## <a name="create-cluster-and-sql-database"></a>設定測試環境
-使用 Azure Resource Manager 範本在 Azure 入口網站建立叢集、 SQL database 和其他物件。 範本可在[Azure 快速入門範本](https://azure.microsoft.com/resources/templates/101-hdinsight-linux-with-sql-database/)。 Resource Manager 範本會呼叫 bacpac 套件，以部署到 SQL database 的資料表結構描述。  Bacpac 套件位於公用 Blob 容器中 (https://hditutorialdata.blob.core.windows.net/usesqoop/SqoopTutorial-2016-2-23-11-2.bacpac )。 如果您想要針對 Bacpac 檔案使用私用容器，請在範本中使用下列值︰
+叢集、SQL database 和其他物件會透過使用 Azure Resource Manager 範本的 Azure 入口網站來建立。 範本可在[Azure 快速入門範本](https://azure.microsoft.com/resources/templates/101-hdinsight-linux-with-sql-database/)中找到。 Resource Manager 範本會呼叫 bacpac 封裝，將資料表架構部署到 SQL 資料庫。  Bacpac 套件位於公用 Blob 容器中 (https://hditutorialdata.blob.core.windows.net/usesqoop/SqoopTutorial-2016-2-23-11-2.bacpac )。 如果您想要針對 Bacpac 檔案使用私用容器，請在範本中使用下列值︰
 
 ```json
 "storageKeyType": "Primary",
@@ -70,34 +71,34 @@ HDInsight 叢集附有某些範例資料。 您將用到以下兩個範例：
 > [!NOTE]  
 > 使用範本或 Azure 入口網站匯入的方式只支援從 Azure Blob 儲存體匯入 BACPAC 檔案。
 
-1. 選取下列影像，以開啟 Resource Manager 範本在 Azure 入口網站。
+1. 選取下列影像，以在 Azure 入口網站中開啟 [Resource Manager] 範本。
 
-    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-hdinsight-linux-with-sql-database%2Fazuredeploy.json" target="_blank"><img src="./media/hdinsight-use-sqoop/deploy-to-azure.png" alt="Deploy to Azure"></a>
+    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-hdinsight-linux-with-sql-database%2Fazuredeploy.json" target="_blank"><img src="./media/hdinsight-use-sqoop/hdi-deploy-to-azure1.png" alt="Deploy to Azure"></a>
 
 2. 輸入下列屬性：
 
     |欄位 |值 |
     |---|---|
-    |Subscription |從下拉式清單中選取您的 Azure 訂用帳戶。|
-    |Resource group |從下拉式清單中，選取您的資源群組，或建立新的帳戶|
+    |訂閱 |從下拉式清單中選取您的 Azure 訂用帳戶。|
+    |資源群組 |從下拉式清單中選取您的資源群組，或建立一個新的|
     |Location |從下拉式清單中選取區域。|
-    |叢集名稱 |輸入 Hadoop 叢集的名稱。 使用僅小寫字母。|
-    |叢集登入使用者名稱 |將預先填入的值保持`admin`。|
+    |叢集名稱 |輸入 Hadoop 叢集的名稱。 僅使用小寫字母。|
+    |叢集登入使用者名稱 |保留預先填入的值`admin`。|
     |叢集登入密碼 |輸入密碼。|
-    |Ssh 使用者名稱 |將預先填入的值保持`sshuser`。|
+    |Ssh 使用者名稱 |保留預先填入的值`sshuser`。|
     |Ssh 密碼 |輸入密碼。|
-    |Sql 系統管理員登入 |將預先填入的值保持`sqluser`。|
-    |Sql 管理員密碼 |輸入密碼。|
-    |_artifacts 位置 | 除非您想要使用您自己的 bacpac 檔案，在不同位置，請使用預設值。|
+    |Sql 系統管理員登入 |保留預先填入的值`sqluser`。|
+    |Sql 管理密碼 |輸入密碼。|
+    |_artifacts 位置 | 除非您想要在不同位置使用您自己的 bacpac 檔案，否則請使用預設值。|
     |_artifacts 位置 Sas 權杖 |保留空白。|
-    |Bacpac 檔案名稱 |除非您想要使用您自己的 bacpac 檔案，請使用預設值。|
+    |Bacpac 檔案名 |除非您想要使用自己的 bacpac 檔案，否則請使用預設值。|
     |Location |使用預設值。|
 
-    Azure SQL 伺服器名稱會是`<ClusterName>dbserver`。 資料庫名稱會是`<ClusterName>db`。 預設儲存體帳戶名稱會是`e6qhezrh2pdqu`。
+    Azure SQL Server 名稱會是`<ClusterName>dbserver`。 資料庫名稱將是`<ClusterName>db`。 預設的儲存體帳戶名稱將是`e6qhezrh2pdqu`。
 
-3. 選取 [我同意上方所述的條款及條件]  。
+3. 選取 [我同意上方所述的條款及條件]。
 
-4. 選取 [購買]  。 您會看到新的圖格，標題為「提交範本部署的部署」。 大約需要 20 分鐘的時間來建立叢集和 SQL Database。
+4. 選取 [購買]。 您會看到新的圖格，標題為「提交範本部署的部署」。 大約需要 20 分鐘的時間來建立叢集和 SQL Database。
 
 ## <a name="run-sqoop-jobs"></a>執行 Sqoop 工作
 

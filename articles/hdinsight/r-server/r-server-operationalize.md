@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/27/2018
-ms.openlocfilehash: 91407fc76d0a7555a87a8a3dcd1b3ad04ee2af80
-ms.sourcegitcommit: 97605f3e7ff9b6f74e81f327edd19aefe79135d2
+ms.openlocfilehash: f9dbddcba1545e0a110faa9fbf8e3de9ff189525
+ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70736225"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70879504"
 ---
 # <a name="operationalize-ml-services-cluster-on-azure-hdinsight"></a>在 Azure HDInsight 上運作 ML 服務叢集
 
@@ -50,31 +50,31 @@ ms.locfileid: "70736225"
 
 1. 您會看到可從中選擇的選項。 選擇第一個選項 (如下列螢幕擷取畫面所示) 來**設定要運作的 ML Server**。
 
-    ![one box op](./media/r-server-operationalize/admin-util-one-box-1.png)
+    ![一個 box op1](./media/r-server-operationalize/admin-util-one-box-1.png)
 
 1. 系統會顯示可讓您選擇 ML Server 運作方式的選項。 從顯示的選項中，輸入 **A** 來選擇第一項。
 
-    ![one box op](./media/r-server-operationalize/admin-util-one-box-2.png)
+    ![一個 box op2](./media/r-server-operationalize/admin-util-one-box-2.png)
 
 1. 出現提示時，輸入並重新輸入本機系統管理員使用者的密碼。
 
 1. 您應該會看到意味著作業已成功的輸出。 您也會看見從功能表中選取另一個選項的提示。 選取 E 以返回主功能表。
 
-    ![one box op](./media/r-server-operationalize/admin-util-one-box-3.png)
+    ![一個 box op3](./media/r-server-operationalize/admin-util-one-box-3.png)
 
 1. 您也可以選擇性地執行診斷測試來執行診斷檢查，如下所示：
 
     a. 從主功能表中，選取 **6** 來執行診斷測試。
 
-    ![one box op](./media/r-server-operationalize/diagnostic-1.png)
+    ![diagnostic1](./media/r-server-operationalize/diagnostic-1.png)
 
     b. 從 [診斷測試] 功能表中，選取 **A**。出現提示時，輸入您針對本機系統管理員使用者所提供的密碼。
 
-    ![one box op](./media/r-server-operationalize/diagnostic-2.png)
+    ![diagnostic2](./media/r-server-operationalize/diagnostic-2.png)
 
     c. 確認輸出會顯示整體健康情況是良好的。
 
-    ![one box op](./media/r-server-operationalize/diagnostic-3.png)
+    ![diagnostic3](./media/r-server-operationalize/diagnostic-3.png)
 
     d. 從顯示的功能表選項中，輸入 **E** 以返回主功能表，然後輸入 **8** 以結束管理公用程式。
 

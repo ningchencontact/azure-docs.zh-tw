@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 7/20/2018
 ms.author: atsenthi
-ms.openlocfilehash: 94b2b807eb68d628165ca8fa4011b8f3e41d3c6d
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: 123e63fb79ba966e4e17b0c55440049a79add905
+ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68599638"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70931180"
 ---
 # <a name="dns-service-in-azure-service-fabric"></a>Azure Service Fabric 中的 DNS 服務
 「DNS 服務」是一個選用的系統服務，您可以在叢集中啟用以使用 DNS 通訊協定來探索其他服務。 
@@ -179,7 +179,7 @@ DNS 服務不支援動態連接埠。 若要解決動態連接埠上所公開的
 其中：
 
 - *First-Label-Of-Partitioned-Service-DNSName* 是服務 DNS 名稱的第一個部分。
-- *PartitionPrefix* 是可在叢集資訊清單的 DnsService 區段中設定的值，或可透過叢集的 Resource Manager 範本設定的值。 預設值為 "-"。 若要深入了解，請參閱 [DNS 服務設定](./service-fabric-cluster-fabric-settings.md#dnsservice)。
+- *PartitionPrefix* 是可在叢集資訊清單的 DnsService 區段中設定的值，或可透過叢集的 Resource Manager 範本設定的值。 預設值為 "--"。 若要深入了解，請參閱 [DNS 服務設定](./service-fabric-cluster-fabric-settings.md#dnsservice)。
 - *Target-Partition-Name* 是分割區的名稱。 
 - *PartitionSuffix* 是可在叢集資訊清單的 DnsService 區段中設定的值，或可透過叢集的 Resource Manager 範本設定的值。 預設值是空字串。 若要深入了解，請參閱 [DNS 服務設定](./service-fabric-cluster-fabric-settings.md#dnsservice)。
 - *Remaining-Partitioned-Service-DNSName* 是服務 DNS 名稱的其餘部分。

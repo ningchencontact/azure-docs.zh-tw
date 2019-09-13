@@ -1,115 +1,238 @@
 ---
-title: 使用要求和回應動作 | Microsoft Docs
-description: Azure 邏輯應用程式中要求和回應之觸發程序與動作的概觀
-services: ''
-documentationcenter: ''
-author: jeffhollan
-manager: erikre
-editor: ''
-tags: connectors
-ms.assetid: 566924a4-0988-4d86-9ecd-ad22507858c0
+title: 回應 HTTP 要求-Azure Logic Apps
+description: 使用 Azure Logic Apps，透過 HTTP 即時回應事件
+services: logic-apps
 ms.service: logic-apps
-ms.devlang: na
+ms.suite: integration
+author: ecfan
+ms.author: estfan
+ms.reviewers: klam, LADocs
+manager: carmonm
+ms.assetid: 566924a4-0988-4d86-9ecd-ad22507858c0
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 07/18/2016
-ms.author: jehollan
-ms.openlocfilehash: 0f6ee8729cbed9cb8baf3668f7b1a332bc5eddc1
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.date: 09/06/2019
+tags: connectors
+ms.openlocfilehash: 07f143b261d0cff9eba0d4b1803753446c311818
+ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60538095"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70914359"
 ---
-# <a name="get-started-with-the-request-and-response-components"></a>開始使用要求和回應元件
-透過邏輯應用程式中的要求和回應元件，您可以即時回應事件。
+# <a name="respond-to-http-requests-by-using-azure-logic-apps"></a>使用 Azure Logic Apps 回應 HTTP 要求
 
-例如，您可以：
+透過[Azure Logic Apps](../logic-apps/logic-apps-overview.md)和內建的要求觸發程式或回應動作，您可以建立自動化的工作和工作流程，以即時接收和回應 HTTP 要求。 例如，您可以有邏輯應用程式：
 
-* 透過邏輯應用程式使用內部部署資料庫中的資料回應 HTTP 要求。
-* 從外部 Webhook 事件觸發邏輯應用程式。
-* 從另一個邏輯應用程式內使用要求和回應動作呼叫邏輯應用程式。
+* 回應內部部署資料庫中資料的 HTTP 要求。
+* 在發生外部 webhook 事件時觸發工作流程。
+* 從另一個邏輯應用程式內呼叫邏輯應用程式。
 
-若要使用邏輯應用程式中的要求和回應動作來開始作業，請參閱 [建立邏輯應用程式](../logic-apps/quickstart-create-first-logic-app-workflow.md)。
+## <a name="prerequisites"></a>必要條件
 
-## <a name="use-the-http-request-trigger"></a>使用 HTTP 要求觸發程序
-觸發程序是一個事件，可用來啟動邏輯應用程式中定義的工作流程。 
-[深入了解觸發程序](../connectors/apis-list.md)。
+* Azure 訂用帳戶。 如果您沒有訂用帳戶，您可以[註冊免費的 Azure 帳戶](https://azure.microsoft.com/free/)。
 
-以下是如何設定邏輯應用程式設計工具中的 HTTP 要求的範例順序。
+* [邏輯應用程式](../logic-apps/logic-apps-overview.md)的基本知識。 如果您不熟悉邏輯應用程式，請瞭解[如何建立您的第一個邏輯應用程式](../logic-apps/quickstart-create-first-logic-app-workflow.md)。
 
-1. 將 [要求 - 收到 HTTP 要求時]  觸發程序新增到您的邏輯應用程式。 您可以選擇性地提供 JSON 結構描述 (透過使用 [JSONSchema.net](https://jsonschema.net)之類的工具) 來做為要求本文。 這可讓設計工具在 HTTP 要求中產生屬性的權杖。
-2. 新增另一個動作以儲存邏輯應用程式。
-3. 在儲存邏輯應用程式之後，您可以從要求卡片取得 HTTP 要求 URL。
-4. 針對 URL 的 HTTP POST (您可以使用 [Postman](https://www.getpostman.com/)之類的工具) 會觸發邏輯應用程式。
+<a name="add-request"></a>
 
-> [!NOTE]
-> 如果您未定義回應動作，系統會立即將 `202 ACCEPTED` 回應傳回給呼叫者。 您可以使用回應動作以自訂回應。
-> 
-> 
+## <a name="add-a-request-trigger"></a>新增要求觸發程式
 
-![回應觸發程序](./media/connectors-native-reqres/using-trigger.png)
+這個內建的觸發程式會建立可接收傳入 HTTP 要求的手動呼叫端點。 當此事件發生時，觸發程式會引發並執行邏輯應用程式。 如需有關觸發程式的基礎 JSON 定義和如何呼叫此觸發程式的詳細資訊，請參閱[要求觸發程式類型](../logic-apps/logic-apps-workflow-actions-triggers.md#request-trigger)和[在 AZURE LOGIC APPS 中使用 HTTP 端點呼叫、觸發或將工作流程嵌套](../logic-apps/logic-apps-http-endpoint.md)
 
-## <a name="use-the-http-response-action"></a>使用 HTTP 回應動作
-HTTP 回應動作只適用於在 HTTP 要求所觸發的工作流程中使用時。 如果您未定義回應動作，系統會立即將 `202 ACCEPTED` 回應傳回給呼叫者。  您可以在工作流程的任何步驟新增回應動作。 邏輯應用程式只會讓連入要求針對回應開放一分鐘。  一分鐘後，如果工作流程未傳送任何回應 (且定義中存在回應動作)，則系統會將 `504 GATEWAY TIMEOUT` 傳回給呼叫者。
+1. 登入 [Azure 入口網站](https://portal.azure.com)。 建立空白邏輯應用程式。
 
-以下是新增 HTTP 回應動作的方法︰
+1. 邏輯應用程式設計工具開啟之後，在搜尋方塊中，輸入「HTTP 要求」作為篩選準則。 從 [觸發程式] 清單中，選取 [**收到 HTTP 要求時**] 觸發程式，這是邏輯應用程式工作流程中的第一個步驟。
 
-1. 選取 [新增步驟]  按鈕。
-2. 選擇 [新增動作]  。
-3. 在動作搜尋方塊中，輸入 **回應** 以列出回應動作。
-   
-    ![選取回應動作](./media/connectors-native-reqres/using-action-1.png)
-4. 新增 HTTP 回應訊息所需的任何參數。
-   
-    ![完成回應動作](./media/connectors-native-reqres/using-action-2.png)
-5. 按一下工具列左上角以便儲存，然後邏輯應用程式便會儲存並發佈 (啟動)。
+   ![選取 HTTP 要求觸發程序](./media/connectors-native-reqres/select-request-trigger.png)
 
-## <a name="request-trigger"></a>要求觸發程序
-以下是此連接器所支援觸發程序的詳細資料。 只有一個要求觸發程序。
+   要求觸發程式會顯示這些屬性：
 
-| 觸發程序 | 描述 |
-| --- | --- |
-| 要求 |收到 HTTP 要求時發生 |
+   ![要求觸發程序](./media/connectors-native-reqres/request-trigger.png)
 
-## <a name="response-action"></a>回應動作
-以下是此連接器所支援動作的詳細資料。 只有一個回應動作，此動作只能在伴隨要求觸發程序時使用。
+   | 屬性名稱 | JSON 屬性名稱 | 必要項 | 描述 |
+   |---------------|--------------------|----------|-------------|
+   | **HTTP POST URL** | {無} | 是 | 在您儲存邏輯應用程式並用於呼叫邏輯應用程式之後，所產生的端點 URL |
+   | **要求本文 JSON 架構** | `schema` | 否 | 描述傳入 HTTP 要求主體中的屬性和值的 JSON 架構 |
+   |||||
 
-| 動作 | 描述 |
-| --- | --- |
-| Response |傳回相互關聯的 HTTP 要求的回應 |
+1. 在 [**要求本文 Json 架構**] 方塊中，選擇性地輸入 JSON 架構，以描述傳入要求中的 HTTP 要求主體，例如：
 
-### <a name="trigger-and-action-details"></a>觸發程序和動作詳細資料
-下表描述觸發程序和動作的輸入欄位，以及對應的輸出詳細資料。
+   ![範例 JSON 架構](./media/connectors-native-reqres/provide-json-schema.png)
 
-#### <a name="request-trigger"></a>要求觸發程序
-以下是傳入 HTTP 要求之觸發程序的輸入欄位。
+   設計工具會使用此架構來產生要求中屬性的權杖。 如此一來，您的邏輯應用程式就可以在您的工作流程中，從要求剖析、取用及傳遞資料至您的工作流程。
 
-| Display name | 屬性名稱 | 描述 |
-| --- | --- | --- |
-| JSON 結構描述 |schema |HTTP 要求本文的 JSON 結構描述 |
+   以下是範例架構：
 
-<br>
+   ```json
+   {
+      "type": "object",
+      "properties": {
+         "account": {
+            "type": "object",
+            "properties": {
+               "name": {
+                  "type": "string"
+               },
+               "ID": {
+                  "type": "string"
+               },
+               "address": {
+                  "type": "object",
+                  "properties": {
+                     "number": {
+                        "type": "string"
+                     },
+                     "street": {
+                        "type": "string"
+                     },
+                     "city": {
+                        "type": "string"
+                     },
+                     "state": {
+                        "type": "string"
+                     },
+                     "country": {
+                        "type": "string"
+                     },
+                     "postalCode": {
+                        "type": "string"
+                     }
+                  }
+               }
+            }
+         }
+      }
+   }
+   ```
 
-**輸出詳細資料**
+   當您輸入 JSON 架構時，設計工具會顯示提醒您在要求`Content-Type`中包含標頭，並將該標頭`application/json`值設定為。 如需詳細資訊，請參閱[處理內容類型](../logic-apps/logic-apps-content-type.md)。
 
-以下是要求的輸出詳細資料。
+   ![要包含 "Content-type" 標頭的提醒](./media/connectors-native-reqres/include-content-type.png)
 
-| 屬性名稱 | 資料類型 | 描述 |
-| --- | --- | --- |
-| headers |object |要求標頭 |
-| 本文 |object |要求物件 |
+   以下是此標頭以 JSON 格式顯示的樣子：
 
-#### <a name="response-action"></a>回應動作
-以下是 HTTP 回應動作的輸入欄位。 標示 * 代表必要欄位。
+   ```json
+   {
+      "Content-Type": "application/json"
+   }
+   ```
 
-| Display name | 屬性名稱 | 描述 |
-| --- | --- | --- |
-| 狀態碼 * |statusCode |HTTP 狀態碼 |
-| headers |headers |要包含的任何回應標頭的 JSON 物件 |
-| 本文 |body |回應本文 |
+   若要產生以預期的承載（資料）為基礎的 JSON 架構，您可以使用像是[JSONSchema.net](https://jsonschema.net)的工具，也可以依照下列步驟執行：
+
+   1. 在要求觸發程序中，選取 [使用範例承載來產生結構描述]。
+
+      ![從承載產生架構](./media/connectors-native-reqres/generate-from-sample-payload.png)
+
+   1. 輸入範例承載，然後選取 [**完成**]。
+
+      ![從承載產生架構](./media/connectors-native-reqres/enter-payload.png)
+
+      以下是範例承載：
+
+      ```json
+      {
+         "account": {
+            "name": "Contoso",
+            "ID": "12345",
+            "address": { 
+               "number": "1234",
+               "street": "Anywhere Street",
+               "city": "AnyTown",
+               "state": "AnyState",
+               "country": "USA",
+               "postalCode": "11111"
+            }
+         }
+      }
+      ```
+
+1. 若要指定其他屬性，請開啟 [**加入新的參數**] 清單，然後選取您想要新增的參數。
+
+   | 屬性名稱 | JSON 屬性名稱 | 必要項 | 描述 |
+   |---------------|--------------------|----------|-------------|
+   | **方法** | `method` | 否 | 傳入要求必須用來呼叫邏輯應用程式的方法 |
+   | **相對路徑** | `relativePath` | 否 | 邏輯應用程式的端點 URL 可以接受之參數的相對路徑 |
+   |||||
+
+   這個範例會新增**Method**屬性：
+
+   ![新增方法參數](./media/connectors-native-reqres/add-parameters.png)
+
+   [**方法**] 屬性會出現在觸發程式中，讓您可以從清單中選取方法。
+
+   ![選取方法](./media/connectors-native-reqres/select-method.png)
+
+1. 現在，新增另一個動作做為工作流程中的下一個步驟。 在觸發程式底下，選取 **[下一步]** ，讓您可以找到想要新增的動作。
+
+   例如，您可以藉由[新增回應動作](#add-response)來回應要求，讓您可以用來傳回自訂的回應，並在本主題稍後加以說明。
+
+   您的邏輯應用程式只會將傳入要求保持開啟一分鐘。 假設您的邏輯應用程式工作流程包含回應動作，如果邏輯應用程式在這段時間過後不會傳迴響應，則邏輯應用`504 GATEWAY TIMEOUT`程式會將傳回給呼叫者。 否則，如果邏輯應用程式未包含回應動作，則邏輯應用程式會立即`202 ACCEPTED`將回應傳回給呼叫者。
+
+1. 完成後，儲存邏輯應用程式。 在設計工具的工具列上，選取 [儲存]。 
+
+   此步驟會產生 URL，以用來傳送觸發邏輯應用程式的要求。 若要複製此 URL，請選取 URL 旁邊的複製圖示。
+
+   ![用於觸發邏輯應用程式的 URL](./media/connectors-native-reqres/generated-url.png)
+
+1. 若要觸發邏輯應用程式，請將 HTTP POST 傳送至產生的 URL。 例如，您可以使用[Postman](https://www.getpostman.com/)之類的工具。
+
+### <a name="trigger-outputs"></a>觸發程序輸出
+
+以下是來自要求觸發程式輸出的詳細資訊：
+
+| JSON 屬性名稱 | 資料類型 | 描述 |
+|--------------------|-----------|-------------|
+| `headers` | 物件 | 描述要求標頭的 JSON 物件 |
+| `body` | 物件 | JSON 物件，描述來自要求的本文內容 |
+||||
+
+<a name="add-response"></a>
+
+## <a name="add-a-response-action"></a>新增回應動作
+
+您可以使用 [回應] 動作，以將承載（資料）回應到傳入 HTTP 要求，但僅限於 HTTP 要求所觸發的邏輯應用程式。 您可以在工作流程中的任何時間點新增回應動作。 如需此觸發程式之基礎 JSON 定義的詳細資訊，請參閱[回應動作類型](../logic-apps/logic-apps-workflow-actions-triggers.md#response-action)。
+
+您的邏輯應用程式只會將傳入要求保持開啟一分鐘。 假設您的邏輯應用程式工作流程包含回應動作，如果邏輯應用程式在這段時間過後不會傳迴響應，則邏輯應用`504 GATEWAY TIMEOUT`程式會將傳回給呼叫者。 否則，如果邏輯應用程式未包含回應動作，則邏輯應用程式會立即`202 ACCEPTED`將回應傳回給呼叫者。
+
+1. 在邏輯應用程式設計工具中，于您要新增回應動作的步驟底下，選取 [**新增步驟**]。
+
+   例如，使用較早的要求觸發程式：
+
+   ![新增步驟](./media/connectors-native-reqres/add-response.png)
+
+   若要在步驟之間新增動作，請將指標移到這些步驟之間的箭號上。 選取顯示的加號 ( **+** ), 然後選取 [**新增動作**]。
+
+1. 在 [**選擇動作**] 下的 [搜尋] 方塊中，輸入「回應」作為篩選準則，然後選取 [**回應**] 動作。
+
+   ![選取 [回應] 動作](./media/connectors-native-reqres/select-response-action.png)
+
+   為了簡單起見，在此範例中，會折迭要求觸發程式。
+
+1. 新增回應訊息所需的任何值。 
+
+   在某些欄位中，按一下其方塊內會開啟動態內容清單。 然後，您可以從工作流程中的先前步驟選取代表可用輸出的權杖。 在先前範例中指定的架構屬性現在會出現在動態內容清單中。
+
+   例如，針對 [**標頭**] 方塊， `Content-Type`將包含做為索引鍵名稱，並將金鑰`application/json`值設為，如本主題稍早所述。 針對 [**本文**] 方塊，您可以從動態內容清單中選取觸發程式主體輸出。
+
+   ![回應動作詳細資料](./media/connectors-native-reqres/response-details.png)
+
+   若要以 JSON 格式來查看標頭，請選取 [**切換到文字視圖**]。
+
+   ![標頭-切換至文字視圖](./media/connectors-native-reqres/switch-to-text-view.png)
+
+   以下是您可以在 [回應] 動作中設定之屬性的詳細資訊。 
+
+   | 屬性名稱 | JSON 屬性名稱 | 必要項 | 描述 |
+   |---------------|--------------------|----------|-------------|
+   | **狀態碼** | `statusCode` | 是 | 要在回應中傳回的 HTTP 狀態碼 |
+   | **標頭** | `headers` | 否 | JSON 物件，描述要包含在回應中的一個或多個標頭 |
+   | **內文** | `body` | 否 | 回應本文 |
+   |||||
+
+1. 若要指定其他屬性（例如回應主體的 JSON 架構），請開啟 [**加入新的參數**] 清單，然後選取您想要新增的參數。
+
+1. 完成後，儲存邏輯應用程式。 在設計工具的工具列上，選取 [儲存]。 
 
 ## <a name="next-steps"></a>後續步驟
-立即試用平台和 [建立邏輯應用程式](../logic-apps/quickstart-create-first-logic-app-workflow.md)。 您可以查看我們的 [API 清單](apis-list.md)，以探索邏輯應用程式中其他可用的連接器。
 
+* [Logic Apps 的連接器](../connectors/apis-list.md)

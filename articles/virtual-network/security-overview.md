@@ -13,12 +13,12 @@ ms.workload: infrastructure-services
 ms.date: 07/26/2018
 ms.author: malop
 ms.reviewer: kumud
-ms.openlocfilehash: 25c732d1311e2bcffe0fda0d5e427d5df5f99da6
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: 1d9fc022a0b0d5ba96517b4ed06b4a2576245a26
+ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70065934"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70886024"
 ---
 # <a name="security-groups"></a>安全性群組
 <a name="network-security-groups"></a>
@@ -62,7 +62,7 @@ ms.locfileid: "70065934"
 * **AzureActiveDirectory*** (僅限 Resource Manager):此標記代表 AzureActiveDirectory 服務的位址前置詞。 如果您指定 AzureActiveDirectory 作為值，就會允許或拒絕 AzureActiveDirectory 的流量。 此標記建議用於輸出安全性規則。
 * **AzureActiveDirectoryDomainServices*** (僅限 Resource Manager):此標記代表 Azure Active Directory Domain Services 專用部署的管理流量的位址首碼。 如果您指定*AzureActiveDirectoryDomainServices*作為值, 就會允許或拒絕 AzureActiveDirectoryDomainServices 的流量。 針對輸入/輸出安全性規則, 建議使用此標記。  
 * **AzureBackup*** (僅限 Resource Manager):此標記代表 AzureBackup 服務的位址前置詞。 如果您指定*AzureBackup*作為值, 就會允許或拒絕 AzureBackup 的流量。 此標記相依于**儲存體**和**AzureActiveDirectory**標記。 此標記建議用於輸出安全性規則。 
-* **AzureCloud*** (僅限 Resource Manager):此標記代表包含所有[資料中心公用 IP 位址](https://www.microsoft.com/download/details.aspx?id=41653)的 Azure IP 位址空間。 如果您指定 *AzureCloud* 作為值，就會允許或拒絕 Azure 公用 IP 位址的流量。 如果您只想要允許存取特定[區域](https://azure.microsoft.com/regions)中的 AzureCloud, 您可以使用下列格式指定區域 AzureCloud。[區功能變數名稱稱]。 此標記建議用於輸出安全性規則。 
+* **AzureCloud*** (僅限 Resource Manager):此標記代表包含所有[資料中心公用 IP 位址](https://www.microsoft.com/download/details.aspx?id=41653)的 Azure IP 位址空間。 如果您指定 *AzureCloud* 作為值，就會允許或拒絕 Azure 公用 IP 位址的流量。 如果您只想要允許存取特定[區域](https://azure.microsoft.com/regions)中的 AzureCloud，您可以使用下列格式指定區域 AzureCloud。[區功能變數名稱稱]。 此標記建議用於輸出安全性規則。 
 * **AzureConnectors*** (僅限 Resource Manager):此標記代表探查/後端連線之 Logic Apps 連接器的位址前置詞。 如果您指定 AzureConnectors 作為值，就會允許或拒絕 AzureConnectors 的流量。 如果您只要在特定[區域](https://azure.microsoft.com/regions)中允許存取 AzureConnectors，您可以用 AzureConnectors.[region name] 的格式指定區域。 此標記建議用於輸入安全性規則。 
 * **AzureContainerRegistry*** (僅限 Resource Manager):此標記代表 Azure Container Registry 服務的位址前置詞。 如果您指定 AzureContainerRegistry 作為值，就會允許或拒絕 AzureContainerRegistry 的流量。 如果您只想要在特定[區域](https://azure.microsoft.com/regions)中允許存取 AzureContainerRegistry，您可以用 AzureContainerRegistry.[region name] 的格式指定區域。 此標記建議用於輸出安全性規則。 
 * **AzureCosmosDB*** (僅限 Resource Manager):此標記代表 Azure Cosmos Database 服務的位址前置詞。 如果您指定 *AzureCosmosDB* 作為值，就會允許或拒絕 AzureCosmosDB 的流量。 如果您只要在特定[區域](https://azure.microsoft.com/regions)中允許存取 AzureCosmosDB，您可以用 AzureCosmosDB.[region name] 的格式指定區域。 此標記建議用於輸出安全性規則。 
@@ -77,17 +77,17 @@ ms.locfileid: "70065934"
 * **Azuretrafficmanager 僅限*** (僅限 Resource Manager):此標記代表 Azure 流量管理員探查 IP 位址的 IP 位址空間。 如需流量管理員探查 IP 位址的詳細資訊，請參閱 [Azure 流量管理員常見問題集](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs)。 此標記建議用於輸入安全性規則。  
 * **BatchNodeManagement*** (僅限 Resource Manager):此標記代表 Azure Batch 專用部署的管理流量的位址首碼。 如果您指定*BatchNodeManagement*作為值, 就會允許或拒絕從 Batch 服務到計算節點的流量。 針對輸入/輸出安全性規則, 建議使用此標記。 
 * **CognitiveServicesManagement**(僅限 Resource Manager):此標記代表認知服務流量的位址首碼。 如果您指定*CognitiveServicesManagement*作為值, 就會允許或拒絕 CognitiveServicesManagement 的流量。 此標記建議用於輸出安全性規則。  
-* **Dynamics365ForMarketingEmail**(僅限 Resource Manager):此標記代表 Dynamics 365 行銷電子郵件服務的位址前置詞。 如果您指定*Dynamics365ForMarketingEmail*作為值, 就會允許或拒絕 Dynamics365ForMarketingEmail 的流量。 如果您只想要允許存取特定[區域](https://azure.microsoft.com/regions)中的 Dynamics365ForMarketingEmail, 您可以使用下列格式指定區域 Dynamics365ForMarketingEmail。[區功能變數名稱稱]。
+* **Dynamics365ForMarketingEmail**(僅限 Resource Manager):此標記代表 Dynamics 365 行銷電子郵件服務的位址前置詞。 如果您指定*Dynamics365ForMarketingEmail*作為值, 就會允許或拒絕 Dynamics365ForMarketingEmail 的流量。 如果您只想要允許存取特定[區域](https://azure.microsoft.com/regions)中的 Dynamics365ForMarketingEmail，您可以使用下列格式指定區域 Dynamics365ForMarketingEmail。[區功能變數名稱稱]。
 * **EventHub*** (僅限 Resource Manager):此標記代表 Azure EventHub 服務的位址前置詞。 如果您指定 EventHub 作為值，就會允許或拒絕 EventHub 的流量。 如果您只想要在特定[區域](https://azure.microsoft.com/regions)中允許存取 EventHub，您可以用 EventHub.[region name] 的格式指定區域。 此標記建議用於輸出安全性規則。 
 * **GatewayManager** (僅限 Resource Manager)：此標記代表 VPN/應用程式閘道專用部署的管理流量的位址首碼。 如果您指定 GatewayManager 作為值，就會允許或拒絕 GatewayManager 的流量。 此標記建議用於輸入安全性規則。 
 * **Internet** (Resource Manager) (在傳統模型為 **INTERNET**)：此標記代表虛擬網路以外且可以透過公用網際網路進行存取的 IP 位址空間。 此位址範圍也包括 [Azure 擁有的公用 IP 位址空間](https://www.microsoft.com/download/details.aspx?id=41653)。
 * **MicrosoftContainerRegistry*** (僅限 Resource Manager):此標記代表 Microsoft Container Registry 服務的位址前置詞。 如果您指定 MicrosoftContainerRegistry 作為值，就會允許或拒絕 MicrosoftContainerRegistry 的流量。 如果您只想要在特定[區域](https://azure.microsoft.com/regions)中允許存取 MicrosoftContainerRegistry，您可以用 MicrosoftContainerRegistry.[region name] 的格式指定區域。 此標記建議用於輸出安全性規則。 
 * [執行**匯流排**] * (僅限 Resource Manager):此標記代表使用 Premium 服務層的 Azure 服務匯流排服務的位址首碼。 如果您指定 ServiceBus 作為值，就會允許或拒絕 ServiceBus 的流量。 如果您只想要在特定[區域](https://azure.microsoft.com/regions)中允許存取 ServiceBus，您可以用 ServiceBus.[region name] 的格式指定區域。 此標記建議用於輸出安全性規則。 
 * **ServiceFabric*** (僅限 Resource Manager):此標記代表 ServiceFabric 服務的位址前置詞。 如果您指定 ServiceFabric 作為值，就會允許或拒絕 ServiceFabric 的流量。 此標記建議用於輸出安全性規則。 
-* **Sql*** (僅限 Resource Manager):此標記代表 Azure SQL Database、適用於 MySQL 的 Azure 資料庫、適用於 PostgreSQL 的 Azure 資料庫和 Azure SQL 資料倉儲服務的位址首碼。 如果您指定 Sql 作為值，就會允許或拒絕 Sql 的流量。 如果您只想要允許存取特定[區域](https://azure.microsoft.com/regions)中的 sql, 您可以使用下列格式指定區域: [區功能變數名稱稱]。 標籤代表服務，但不代表服務的特定執行個體。 例如，標籤代表 SQL Database 或伺服器服務，但不代表特定的 Azure SQL Database。 此標記建議用於輸出安全性規則。 
+* **Sql*** (僅限 Resource Manager):此標記代表 Azure SQL Database、適用於 MySQL 的 Azure 資料庫、適用於 PostgreSQL 的 Azure 資料庫和 Azure SQL 資料倉儲服務的位址首碼。 如果您指定 Sql 作為值，就會允許或拒絕 Sql 的流量。 如果您只想要允許存取特定[區域](https://azure.microsoft.com/regions)中的 sql，您可以使用下列格式指定區域： [區功能變數名稱稱]。 標籤代表服務，但不代表服務的特定執行個體。 例如，標籤代表 SQL Database 或伺服器服務，但不代表特定的 Azure SQL Database。 此標記建議用於輸出安全性規則。 
 * **SqlManagement*** (僅限 Resource Manager):此標記代表 SQL 專用部署的管理流量的位址首碼。 如果您指定*SqlManagement*作為值, 就會允許或拒絕 SqlManagement 的流量。 針對輸入/輸出安全性規則, 建議使用此標記。 
-* **儲存體*** (僅限 Resource Manager):此標記代表 Azure 儲存體服務的 IP 位址空間。 如果您指定 *Storage* 值，則會允許或拒絕儲存體的流量。 如果您只想要允許存取特定[區域](https://azure.microsoft.com/regions)中的存放裝置, 您可以使用下列格式來指定區域: 儲存體。[區功能變數名稱稱]。 標籤代表服務，但不代表服務的特定執行個體。 例如，標籤代表 Azure 儲存體服務，但不代表特定的 Azure 儲存體帳戶。 此標記建議用於輸出安全性規則。 
-* **VirtualNetwork** (Resource Manager) (在傳統模型為 **VIRTUAL_NETWORK**)：此標籤包含虛擬網路位址空間 (針對虛擬網路定義的所有 CIDR 範圍)、所有已連線的內部部署位址空間、[對等互連](virtual-network-peering-overview.md)虛擬網路或連線到[虛擬網路閘道](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fvirtual-network%3ftoc.json)和位址的虛擬網路[使用者定義路由](virtual-networks-udr-overview.md)上使用的前置詞。 請注意, 此標記可能包含預設路由。 
+* **儲存體*** (僅限 Resource Manager):此標記代表 Azure 儲存體服務的 IP 位址空間。 如果您指定 *Storage* 值，則會允許或拒絕儲存體的流量。 如果您只想要允許存取特定[區域](https://azure.microsoft.com/regions)中的存放裝置，您可以使用下列格式來指定區域：儲存體。[區功能變數名稱稱]。 標籤代表服務，但不代表服務的特定執行個體。 例如，標籤代表 Azure 儲存體服務，但不代表特定的 Azure 儲存體帳戶。 此標記建議用於輸出安全性規則。 
+* **VirtualNetwork** (Resource Manager) (在傳統模型為 **VIRTUAL_NETWORK**)：此標記包含虛擬網路位址空間（針對虛擬網路定義的所有 CIDR 範圍）、所有已連線的內部部署位址空間、[對等互連](virtual-network-peering-overview.md)虛擬網路或連線到[虛擬網路閘道](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fvirtual-network%3ftoc.json)的[虛擬網路、](security-overview.md#azure-platform-considerations)在[使用者定義的路由](virtual-networks-udr-overview.md)上使用的主機和位址首碼的虛擬 IP 位址。 請注意, 此標記可能包含預設路由。 
 
 > [!NOTE]
 > Azure 服務的服務標記代表所使用之特定雲端中的位址前置詞。 

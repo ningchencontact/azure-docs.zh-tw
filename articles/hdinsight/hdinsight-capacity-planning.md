@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/23/2019
 ms.author: hrasheed
-ms.openlocfilehash: 608d097f1ebad9e4e1092c7ec54a573ccb58ad81
-ms.sourcegitcommit: 97605f3e7ff9b6f74e81f327edd19aefe79135d2
+ms.openlocfilehash: 64de4078fb529140859f1d4ff2e973fd081a5400
+ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70734654"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70916567"
 ---
 # <a name="capacity-planning-for-hdinsight-clusters"></a>HDInsight 叢集的容量規劃
 
@@ -96,9 +96,6 @@ VM 大小與類型是由 CPU 處理能力、RAM 大小和網路延遲所決定�
 
 有時會因多個對應平行執行而發生錯誤，從而減少多節點叢集上的元件。 若要協助找出問題，請在單一背景工作節點叢集上執行並行多個作業來嘗試進行分散式測試，然後展開此方法，在包含多個節點的叢集上同時執行多個作業。 若要在 Azure 中建立單一節點的 HDInsight 叢集，請使用 [*自訂（大小、設定、應用程式）* ] 選項，並在入口網站中布建新叢集時，針對 [叢集**大小**] 區段中的背景*工作節點數目*使用1的值。
 
-您也可以在本機電腦上安裝單一節點開發環境，並在該處測試解決方案。 Hortonworks 提供的單一節點本機開發環境適用於以 Hadoop 作為基礎的解決方案，適合初期開發、概念證明及測試。 如需詳細資訊，請參閱 [Hortonworks 沙箱](https://hortonworks.com/products/hortonworks-sandbox/)。
-
-若要識別單一節點本機叢集上的問題，您可以重新執行失敗的作業及調整輸入資料，或使用較小的資料集。 執行這些作業的方式取決於平台和應用程式類型。
 
 ## <a name="quotas"></a>配額
 

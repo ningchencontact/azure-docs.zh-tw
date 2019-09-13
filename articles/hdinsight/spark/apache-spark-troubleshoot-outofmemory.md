@@ -6,12 +6,12 @@ ms.topic: troubleshooting
 author: hrasheed-msft
 ms.author: hrasheed
 ms.date: 08/15/2019
-ms.openlocfilehash: 6e7157f4e40dbc585d19affaf0c12af2e6ba60c1
-ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
+ms.openlocfilehash: 69f897d1f279279c067eeff30ac711f85d3bb89b
+ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70813909"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70915219"
 ---
 # <a name="outofmemoryerror-exceptions-for-apache-spark-in-azure-hdinsight"></a>Azure HDInsight 中 Apache Spark 的 OutOfMemoryError 例外狀況
 
@@ -119,11 +119,11 @@ hadoop fs -du -s -h wasb:///hdp/spark2-events/application_1503957839788_0264_1/
 
 您可以在 Ambari 瀏覽器 UI 中選取 Spark2/Config/Advanced Spark2-env 區段來執行此動作。
 
-![Advanced spark2-env 區段](./media/apache-spark-ts-outofmemory-heap-space/image01.png)
+![Advanced spark2-env 區段](./media/apache-spark-ts-outofmemory-heap-space/apache-spark-image01.png)
 
 新增下列屬性，以將 Spark 歷程記錄伺服器記憶體從1g 變更為 4g `SPARK_DAEMON_MEMORY=4g`：。
 
-![Spark 屬性](./media/apache-spark-ts-outofmemory-heap-space/image02.png)
+![Spark 屬性](./media/apache-spark-ts-outofmemory-heap-space/apache-spark-image02.png)
 
 請務必從 Ambari 重新開機所有受影響的服務。
 

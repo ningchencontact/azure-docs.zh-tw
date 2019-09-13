@@ -8,12 +8,12 @@ ms.service: marketplace
 ms.topic: article
 ms.date: 11/1/2018
 ms.author: pabutler
-ms.openlocfilehash: 35134d828098af0cff3d585dee600ee1808b00c4
-ms.sourcegitcommit: fe50db9c686d14eec75819f52a8e8d30d8ea725b
+ms.openlocfilehash: 3d97fd167f0f946239d4de24bb180796ebb498d3
+ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/14/2019
-ms.locfileid: "69013627"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70885867"
 ---
 # <a name="private-offers"></a>私人供應項目
 
@@ -29,11 +29,11 @@ ms.locfileid: "69013627"
 
 私人供應項目可讓發行者利用公用市集的規模和整體可用性，並享有交涉及達成自訂交易和設定所需的彈性和控制。 這些功能共同創造企業加強採用雲端市集的機會。  企業現在可以按照預期及所需的方式來進行買賣。
 
-私人供應項目目前適用於虛擬機器、Azure 應用程式 (實作為解決方案範本或受控應用程式) 及 SaaS 應用程式供應項目。 如同公用供應項目，您可以透過 [Cloud Partner 入口網站](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-azure-private-skus)建立及管理私人供應項目。  只要幾分鐘，就能授與或撤銷客戶對私人供應項目的存取。
+私人供應項目目前適用於虛擬機器、Azure 應用程式 (實作為解決方案範本或受控應用程式) 及 SaaS 應用程式供應項目。 如同公用供應項目，您可以透過 [Cloud Partner 入口網站](./cloud-partner-portal-orig/cloud-partner-portal-azure-private-skus.md)建立及管理私人供應項目。  只要幾分鐘，就能授與或撤銷客戶對私人供應項目的存取。
 
 ## <a name="creating-private-offers-using-skus-and-plans"></a>建立使用 SKU 和方案的私人供應項目
 
-針對「具有公用 SKU 或方案的新供應項目或現有供應項目」，發行者可以透過建立新的 SKU 或方案並將其標記為私人，輕鬆建立新的私人變體。  [私人 SKU](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-azure-private-skus) 和方案是供應項目的元件，而且只有目標客戶可以看到及購買。 私人 SKU 和方案可以重複使用已針對公用 SKU 或方案發行的基底映像及 (或) 供應項目中繼資料。 此選項可讓發行者建立公用供應項目的多種私人變體，而不需要發行相同基底映像和供應項目中繼資料的多種版本。 (僅限虛擬機器和 Azure 應用程式供應項目) 當私人 SKU 與公用 SKU 共用基底映像時，對供應項目基底映像所做的任何變更都會傳播到使用該基底映像的所有公用和私人 SKU。
+針對「具有公用 SKU 或方案的新供應項目或現有供應項目」，發行者可以透過建立新的 SKU 或方案並將其標記為私人，輕鬆建立新的私人變體。  [私人 SKU](./cloud-partner-portal-orig/cloud-partner-portal-azure-private-skus.md) 和方案是供應項目的元件，而且只有目標客戶可以看到及購買。 私人 SKU 和方案可以重複使用已針對公用 SKU 或方案發行的基底映像及 (或) 供應項目中繼資料。 此選項可讓發行者建立公用供應項目的多種私人變體，而不需要發行相同基底映像和供應項目中繼資料的多種版本。 (僅限虛擬機器和 Azure 應用程式供應項目) 當私人 SKU 與公用 SKU 共用基底映像時，對供應項目基底映像所做的任何變更都會傳播到使用該基底映像的所有公用和私人 SKU。
 
 針對「只包含私人 SKU 或方案的新供應項目」，發行者可以像是任何其他供應項目一樣建立其供應項目，再將 SKU 或方案標記為私人。 與供應項目無關的客戶將無法透過 [Azure Marketplace](https://azuremarketplace.microsoft.com) 或 [Azure 入口網站](https://azure.microsoft.com/features/azure-portal/)探索或存取只包含私人 SKU 或方案的供應項目。
 
@@ -52,4 +52,4 @@ ms.locfileid: "69013627"
 
 ## <a name="next-steps"></a>後續步驟
 
-如果您想要利用這些新功能，您可以在 [Azure Marketplace](https://azuremarketplace.microsoft.com/sell) 上開始銷售。
+若要開始使用私用供應專案，請遵循[私人 sku 和計畫](./cloud-partner-portal-orig/cloud-partner-portal-azure-private-skus.md)指南中的步驟。

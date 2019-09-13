@@ -1,18 +1,27 @@
 ---
-ms.openlocfilehash: fe9879f9574fe1496ebdf20ac76fe5b759d4ea6a
-ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
+title: 容器存放庫和映射
+services: cognitive-services
+author: IEvangelist
+manager: nitinme
+description: 兩個數據表代表所有認知服務供應專案的容器登錄、存放庫和映射名稱。
+ms.service: cognitive-services
+ms.topic: include
+ms.date: 09/06/2019
+ms.author: dapine
+ms.openlocfilehash: 600c01fc2a273141b06996369231c2389c5d6d57
+ms.sourcegitcommit: a4b5d31b113f520fcd43624dd57be677d10fc1c0
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/27/2019
-ms.locfileid: "70051222"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70775834"
 ---
 ### <a name="container-repositories-and-images"></a>容器存放庫和映射
 
 下表是 Azure 認知服務提供之可用容器映射的完整清單。
 
-#### <a name="public-container-registry-mcrmicrosoftcom"></a>公用 (container registry: `mcr.microsoft.com`)
+#### <a name="public-ungated-container-registry-mcrmicrosoftcom"></a>公用 "Ungated" （container registry： `mcr.microsoft.com`）
 
-Microsoft Container Registry 會裝載認知服務的所有公開上市 (GA) 容器。
+Microsoft Container Registry 會裝載認知服務的所有公開可用的 "ungated" 容器。
 
 | 服務 | 容器 | Container Registry/存放庫/映射名稱 |
 |--|--|--|
@@ -21,9 +30,9 @@ Microsoft Container Registry 會裝載認知服務的所有公開上市 (GA) 容
 | [文字分析](../../text-analytics/how-tos/text-analytics-how-to-install-containers.md) | 語言偵測 | `mcr.microsoft.com/azure-cognitive-services/language` |
 | [文字分析](../../text-analytics/how-tos/text-analytics-how-to-install-containers.md) | 情感分析 | `mcr.microsoft.com/azure-cognitive-services/sentiment` |
 
-#### <a name="public-preview-container-registry-containerpreviewazurecrio"></a>公開預覽 (container registry: `containerpreview.azurecr.io`)
+#### <a name="public-gated-preview-container-registry-containerpreviewazurecrio"></a>公用「閘道」預覽（container registry `containerpreview.azurecr.io`：）
 
-容器預覽登錄會針對尚未進入公開上市 (GA) 的認知服務, 裝載所有「公開預覽」容器。 這些容器需要正式的存取要求, 才能使用它們。
+容器預覽登錄會裝載認知服務的所有公開可用「閘道」容器。 這些容器需要正式的存取要求，才能使用它們。
 
 | 服務 | 容器 | Container Registry/存放庫/映射名稱 |
 |--|--|--|

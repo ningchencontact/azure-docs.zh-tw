@@ -4,16 +4,16 @@ description: 瞭解如何使用企業安全性套件管理 Azure HDInsight 叢�
 ms.service: hdinsight
 author: omidm1
 ms.author: omidm
-ms.reviewer: mamccrea
+ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 08/24/2018
-ms.openlocfilehash: acf11b8107855c6f087f63f592cdbbad3766795e
-ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
+ms.openlocfilehash: e5062ce27e1e9367a262d263070ab01f899dfc54
+ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70811031"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70918883"
 ---
 # <a name="manage-hdinsight-clusters-with-enterprise-security-package"></a>使用企業安全性套件管理 HDInsight 叢集
 了解 HDInsight 企業安全性套件 (ESP) 中的使用者與角色，以及如何管理 ESP 叢集。
@@ -34,7 +34,7 @@ ms.locfileid: "70811031"
    
 3. 您可以使用 **List cluster** 命令來查看連結的叢集。 您現在可以將指令碼提交至此連結的叢集。
 
-   ![連結]的叢集(./media/apache-domain-joined-manage/linked-cluster.png "連結")的叢集
+   ![連結]的叢集(./media/apache-domain-joined-manage/hdinsight-linked-cluster.png "連結")的叢集
 
 4. 您也可以從命令選擇區輸入 **HDInsight:Unlink a cluster**，以取消連結叢集。
 
@@ -60,7 +60,7 @@ ms.locfileid: "70811031"
 
 4. 您也可以從 [Azure 總管] 取消連結叢集。
    
-   ![未連結的叢集 intellij](./media/apache-domain-joined-manage/unlink.png)
+   ![未連結的叢集 intellij](./media/apache-domain-joined-manage/hdinsight-unlink-cluster.png)
 
 ## <a name="use-eclipse-to-link-to-domain-joined-cluster"></a>使用 Eclipse 連結至已加入網域的叢集
 
@@ -71,7 +71,7 @@ ms.locfileid: "70811031"
 
 2. 輸入 [叢集名稱]、[使用者名稱] 及 [密碼]，然後按一下 [確定] 按鈕連結叢集。 您也可以選擇輸入 [儲存體帳戶]、[儲存體金鑰]，然後選取 [儲存體容器]，讓儲存體總管在左側樹狀檢視中工作
    
-   ![連結叢集對話方塊 eclipse](./media/apache-domain-joined-manage/link-cluster-dialog.png)
+   ![連結叢集對話方塊 eclipse](./media/apache-domain-joined-manage/link-cluster-dialog1.png)
    
    > [!NOTE]  
    > 如果叢集已登入 Azure 訂用帳戶並連結叢集，我們會使用連結的儲存體金鑰、使用者名稱和密碼。
@@ -83,7 +83,7 @@ ms.locfileid: "70811031"
 
 4. 您也可以從 [Azure 總管] 取消連結叢集。
    
-   ![未連結的叢集 eclipse](./media/apache-domain-joined-manage/unlink.png)
+   ![未連結的叢集 eclipse](./media/apache-domain-joined-manage/hdinsight-unlink-cluster.png)
 
 ## <a name="access-the-clusters-with-enterprise-security-package"></a>以企業安全性套件存取叢集。
 

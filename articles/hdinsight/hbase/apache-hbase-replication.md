@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 09/15/2018
-ms.openlocfilehash: 38d3c61acee9dca18ab1f863d878e02f7437a600
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: a93f8286c6927a3e87e03fb73e680c9638285336
+ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67433724"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70917796"
 ---
 # <a name="set-up-apache-hbase-cluster-replication-in-azure-virtual-networks"></a>設定 Azure 虛擬網路中的 Apache HBase 叢集複寫
 
@@ -21,7 +21,7 @@ ms.locfileid: "67433724"
 
 叢集複寫會使用來源推入方法。 HBase 叢集可以是來源、目的地，或可同時滿足兩個角色。 複寫不是同步進行。 複寫的目標最終會一致。 如果來源在複寫啟用時接收到資料行系列的編輯，該編輯會傳播到所有目的地叢集。 當資料從一個叢集複寫到另一個時，會追蹤來源叢集和已取用資料的所有叢集，以避免複寫迴圈。
 
-在本文中，您會將設定來源目的地複寫。 若需其他叢集拓撲，請參閱 [Apache HBase 參考指南](https://hbase.apache.org/book.html#_cluster_replication)。
+在本文中，您會設定來源目的地複寫。 若需其他叢集拓撲，請參閱 [Apache HBase 參考指南](https://hbase.apache.org/book.html#_cluster_replication)。
 
 以下是適用於單一虛擬網路的 HBase 複寫使用案例︰
 
@@ -39,7 +39,7 @@ ms.locfileid: "67433724"
 您可以從 [GitHub](https://github.com/Azure/hbase-utils/tree/master/replication) 使用[指令碼動作](../hdinsight-hadoop-customize-cluster-linux.md)指令碼複寫叢集。
 
 ## <a name="prerequisites"></a>必要條件
-開始閱讀本文之前，您必須有 Azure 訂用帳戶。 請參閱[取得 Azure 免費試用](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/)。
+在開始本文之前，您必須擁有 Azure 訂用帳戶。 請參閱[取得 Azure 免費試用](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/)。
 
 ## <a name="set-up-the-environments"></a>設定環境
 
@@ -58,9 +58,9 @@ ms.locfileid: "67433724"
 
 ### <a name="set-up-two-virtual-networks-in-two-different-regions"></a>在兩個不同區域中設定兩個虛擬網路
 
-若要使用會兩不同區域建立兩個虛擬網路，並在 VNet 之間建立 VPN 連線的範本，請選取下列 [部署至 Azure]  按鈕。 範本定義會儲存於[公用 Blob 儲存體](https://hditutorialdata.blob.core.windows.net/hbaseha/azuredeploy.json)。
+若要使用會兩不同區域建立兩個虛擬網路，並在 VNet 之間建立 VPN 連線的範本，請選取下列 [部署至 Azure] 按鈕。 範本定義會儲存於[公用 Blob 儲存體](https://hditutorialdata.blob.core.windows.net/hbaseha/azuredeploy.json)。
 
-<a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Fhbaseha%2Fazuredeploy.json" target="_blank"><img src="./media/apache-hbase-replication/deploy-to-azure.png" alt="Deploy to Azure"></a>
+<a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Fhbaseha%2Fazuredeploy.json" target="_blank"><img src="./media/apache-hbase-replication/hdi-deploy-to-azure1.png" alt="Deploy to Azure"></a>
 
 範本中的一些硬式編碼值：
 
@@ -105,9 +105,9 @@ ms.locfileid: "67433724"
 為了安裝 Bind，您需要尋找兩個 DNS 虛擬機器的公用 IP 位址。
 
 1. 開啟 [Azure 入口網站](https://portal.azure.com)。
-2. 選取 [資源群組] > [資源群組名稱] > [vnet1DNS]  來開啟 DNS 虛擬機器。  資源群組名稱是您在上一個程序中所建立的名稱。 預設 DNS 虛擬機器名稱是 vnet1DNS  和 vnet2NDS  。
-3. 選取 [屬性]  以開啟虛擬網路的屬性頁面。
-4. 記下 [公用 IP 位址]  ，並另外確認 [私人 IP 位址]  。  私人 IP 位址應該是 **10.1.0.4** (如果是 vnet1DNS) 和 **10.2.0.4** (如果是 vnet2DNS)。  
+2. 選取 [資源群組] > [資源群組名稱] > [vnet1DNS] 來開啟 DNS 虛擬機器。  資源群組名稱是您在上一個程序中所建立的名稱。 預設 DNS 虛擬機器名稱是 vnet1DNS 和 vnet2NDS。
+3. 選取 [屬性] 以開啟虛擬網路的屬性頁面。
+4. 記下 [公用 IP 位址]，並另外確認 [私人 IP 位址]。  私人 IP 位址應該是 **10.1.0.4** (如果是 vnet1DNS) 和 **10.2.0.4** (如果是 vnet2DNS)。  
 5. 變更兩個虛擬網路的 DNS 伺服器，使用預設 (Azure 提供) 的 DNS 伺服器，以允許對內及對外存取，在下列步驟中下載套件來安裝 Bind。
 
 若要安裝 Bind，請使用下列程序：
@@ -135,7 +135,7 @@ ms.locfileid: "67433724"
     sudo apt-get install bind9 -y
     ```
 
-3. 設定繫結，將名稱解析要求轉送到您內部部署 DNS 伺服器。 若要這樣做，請使用下列文字作為 `/etc/bind/named.conf.options` 檔案的內容：
+3. 設定系結以將名稱解析要求轉寄到內部部署 DNS 伺服器。 若要這樣做，請使用下列文字作為 `/etc/bind/named.conf.options` 檔案的內容：
 
     ```
     acl goodclients {
@@ -242,11 +242,11 @@ ms.locfileid: "67433724"
 
 若要將虛擬網路設定為使用自訂的 DNS 伺服器，而不使用 Azure 遞迴解析程式，請使用下列步驟：
 
-1. 在 [Azure 入口網站](https://portal.azure.com)中，選取虛擬網路，然後選取 [DNS 伺服器]  。
+1. 在 [Azure 入口網站](https://portal.azure.com)中，選取虛擬網路，然後選取 [DNS 伺服器]。
 
-2. 選取 [自訂]  ，並輸入自訂 DNS 伺服器的__內部 IP 位址__。 最後，選取 [儲存]  。
+2. 選取 [自訂]，並輸入自訂 DNS 伺服器的__內部 IP 位址__。 最後，選取 [儲存]。
 
-6. 在 vnet1 中開啟 DNS 伺服器虛擬機器，然後按一下 [重新啟動]  。  您必須重新啟動虛擬網路中的所有虛擬機器，才能讓 DNS 組態生效。
+6. 在 vnet1 中開啟 DNS 伺服器虛擬機器，然後按一下 [重新啟動]。  您必須重新啟動虛擬網路中的所有虛擬機器，才能讓 DNS 組態生效。
 7. 重複步驟，為 vnet2 設定自訂 DNS 伺服器。
 
 若要測試 DNS 組態，您可以使用 SSH 連線至兩個 DNS 虛擬機器，然後使用另一個虛擬網路的 DNS 伺服器主機名稱對該 DNS 伺服器執行 ping。 如果沒有作用，請使用下列命令來檢查 DNS 狀態：
@@ -260,9 +260,9 @@ sudo service bind9 status
 使用下列組態在兩個虛擬網路中各建立一個 [Apache HBase](https://hbase.apache.org/) 叢集：
 
 - **資源群組名稱**︰使用和您在虛擬網路中所建立的名稱相同的資源群組名稱。
-- **叢集類型**：hbase
+- **叢集類型**：HBase
 - **版本**：HBase 1.1.2 (HDI 3.6)
-- **位置**：使用與虛擬網路相同的位置。  根據預設，vnet1 是「美國西部」  ，vnet2 是「美國東部」  。
+- **位置**：使用與虛擬網路相同的位置。  根據預設，vnet1 是「美國西部」，vnet2 是「美國東部」。
 - **儲存體**：為叢集建立新的儲存體帳戶。
 - **虛擬網路** (從入口網站上的 [進階設定])：選取您在上一個程序中建立的 vnet1。
 - **子網路**：範本中所使用的預設名稱為 **subnet1**。
@@ -283,8 +283,8 @@ sudo service bind9 status
 
 1. 登入 [Azure 入口網站](https://portal.azure.com)。
 2. 開啟來源 HBase 叢集。
-3. 從 [叢集] 功能表中，選擇 [指令碼動作]  。
-4. 在頁面的頂端，選取 [提交新項目]  。
+3. 從 [叢集] 功能表中，選擇 [指令碼動作]。
+4. 在頁面的頂端，選取 [提交新項目]。
 5. 選取或輸入下列資訊︰
 
    1. **名稱**：輸入**啟用複寫**。
@@ -297,11 +297,11 @@ sudo service bind9 status
       > [!NOTE]
       > 針對來源與目的地叢集 DNS 名稱，使用主機名稱而非 FQDN。
 
-6. 選取 [建立]  。 指令碼執行需要花費一些時間，特別是在使用 **-copydata** 引數的情況下。
+6. 選取 [建立]。 指令碼執行需要花費一些時間，特別是在使用 **-copydata** 引數的情況下。
 
 必要的引數︰
 
-|名稱|描述|
+|Name|描述|
 |----|-----------|
 |-s, --src-cluster | 指定來源 HBase 叢集的 DNS 名稱。 例如：-s hbsrccluster, --src-cluster=hbsrccluster |
 |-d, --dst-cluster | 指定目的地 (複本) HBase 叢集的 DNS 名稱。 例如：-s dsthbcluster, --src-cluster=dsthbcluster |
@@ -310,7 +310,7 @@ sudo service bind9 status
 
 選擇性的引數︰
 
-|名稱|描述|
+|Name|描述|
 |----|-----------|
 |-su, --src-ambari-user | 指定來源 HBase 叢集上 Ambari 的管理員使用者名稱。 預設值為 **admin**。 |
 |-du, --dst-ambari-user | 指定目的地 HBase 叢集上 Ambari 的管理員使用者名稱。 預設值為 **admin**。 |
@@ -396,7 +396,7 @@ sudo service bind9 status
 
 ## <a name="next-steps"></a>後續步驟
 
-在本文中，您已了解如何設定虛擬網路內或兩個虛擬網路之間的 Apache HBase 複寫。 若要深入了解 HDInsight 與 Apache HBase，請參閱下列文章：
+在本文中，您已瞭解如何在虛擬網路內或兩個虛擬網路之間設定 Apache HBase 複寫。 若要深入了解 HDInsight 與 Apache HBase，請參閱下列文章：
 
 * [開始使用 HDInsight 中的 Apache HBase](./apache-hbase-tutorial-get-started-linux.md)
 * [HDInsight Apache HBase 概觀](./apache-hbase-overview.md)

@@ -1,33 +1,33 @@
 ---
-title: 使用受控識別進行驗證 - Azure Logic Apps | Microsoft Docs
+title: 使用受控識別進行驗證-Azure Logic Apps
 description: 若要進行驗證而不登入，您可以建立受控識別 (先前稱為「受控服務識別」或 MSI)，讓您的邏輯應用程式可以存取其他 Azure Active Directory (Azure AD) 租用戶中的資源，而不使用認證或祕密
-author: kevinlam1
-ms.author: klam
-ms.reviewer: estfan, LADocs
+author: ecfan
+ms.author: estfan
+ms.reviewer: klam, LADocs
 services: logic-apps
 ms.service: logic-apps
 ms.suite: integration
 ms.topic: article
 ms.date: 03/29/2019
-ms.openlocfilehash: b157db5032bd62ab443209f201b4ceded6e44cb5
-ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
-ms.translationtype: MT
+ms.openlocfilehash: bb1443afa14f2a23b807af52ab8fef6ac41ea200
+ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68385562"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70934044"
 ---
 # <a name="authenticate-and-access-resources-with-managed-identities-in-azure-logic-apps"></a>使用 Azure Logic Apps 中的受控識別驗證及存取資源
 
 若要存取其他 Azure Active Directory (Azure AD) 租用戶中的資源並驗證您的身分識別而不登入，您的邏輯應用程式可以使用[受控識別](../active-directory/managed-identities-azure-resources/overview.md) (先前稱為「受控服務識別」或 MSI)，而不使用認證或祕密。 Azure 會為您管理此身分識別，並協助保護您的認證，因為您不需要提供或輪替使用祕密。 本文示範如何為您的邏輯應用程式設定並使用系統指派的受控識別。 如需受控識別的詳細資訊，請參閱[什麼是適用於 Azure 資源的受控識別？](../active-directory/managed-identities-azure-resources/overview.md)
 
 > [!NOTE]
-> 您的邏輯應用程式只能搭配支援受控識別的連接器使用受控識別。 目前, 只有 HTTP 連接器支援受控識別。
+> 您的邏輯應用程式只能搭配支援受控識別的連接器使用受控識別。 目前，只有 HTTP 連接器支援受控識別。
 >
 > 您目前最多可擁有 10 個邏輯應用程式工作流程，而且每個 Azure 訂用帳戶中具有系統指派的受控識別。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
-* Azure 訂用帳戶，或如果沒有訂用帳戶，您可以<a href="https://azure.microsoft.com/free/" target="_blank">免費註冊 Azure 帳戶</a>。
+* Azure 訂用帳戶，或如果沒有訂用帳戶，您可以[免費註冊 Azure 帳戶](https://azure.microsoft.com/free/)。
 
 * 您要在其中使用系統指派之受控識別的邏輯應用程式。 如果您沒有邏輯應用程式，請參閱[建立第一個邏輯應用程式工作流程](../logic-apps/quickstart-create-first-logic-app-workflow.md)。
 
@@ -49,9 +49,9 @@ ms.locfileid: "68385562"
 
 1. 在 [Azure 入口網站](https://portal.azure.com)的邏輯應用程式設計工具中，開啟邏輯應用程式。
 
-1. 在邏輯應用程式功能表的 [設定] 下，選取 [身分識別]。 
+1. 在邏輯應用程式功能表的 [設定] 下，選取 [身分識別]。
 
-1. 在 [系統指派] > [狀態] 下，選擇 [開啟]。 然後，選擇 [儲存] > [是]。
+1. 在 [**系統指派** > 的**狀態**] 底下，選取 [**開啟**]。 然後選取 [**儲存** >  **] [是]** 。
 
    ![開啟受控識別設定](./media/create-managed-service-identity/turn-on-managed-service-identity.png)
 
@@ -59,10 +59,10 @@ ms.locfileid: "68385562"
 
    ![適用於物件識別碼的 GUID](./media/create-managed-service-identity/object-id.png)
 
-   | 內容 | 值 | 描述 | 
-   |----------|-------|-------------| 
-   | **物件識別碼** | <*identity-resource-ID*> | 代表 Azure AD 租用戶中邏輯應用程式之系統指派受控識別的全域唯一識別碼 (GUID) | 
-   ||| 
+   | 屬性 | 值 | 描述 |
+   |----------|-------|-------------|
+   | **物件識別碼** | <*identity-resource-ID*> | 代表 Azure AD 租用戶中邏輯應用程式之系統指派受控識別的全域唯一識別碼 (GUID) |
+   ||||
 
 <a name="template"></a>
 
@@ -111,11 +111,11 @@ ms.locfileid: "68385562"
 }
 ```
 
-| 內容 | 值 | 描述 | 
+| 屬性 | 值 | 描述 |
 |----------|-------|-------------|
-| **principalId** | <*principal-ID*> | 代表 Azure AD 租用戶中的邏輯應用程式，且有時會以「物件識別碼」或 `objectID` 之形式呈現的全域唯一識別碼 (GUID) | 
-| tenantId | <*Azure-AD-tenant-ID*> | 代表邏輯應用程式現在已是其成員之 Azure AD 租用戶的全域唯一識別碼 (GUID)。 在 Azure AD 租用戶中，服務主體會有與邏輯應用程式執行個體相同的名稱。 | 
-||| 
+| **principalId** | <*principal-ID*> | 代表 Azure AD 租用戶中的邏輯應用程式，且有時會以「物件識別碼」或 `objectID` 之形式呈現的全域唯一識別碼 (GUID) |
+| tenantId | <*Azure-AD-tenant-ID*> | 代表邏輯應用程式現在已是其成員之 Azure AD 租用戶的全域唯一識別碼 (GUID)。 在 Azure AD 租用戶中，服務主體會有與邏輯應用程式執行個體相同的名稱。 |
+||||
 
 <a name="access-other-resources"></a>
 
@@ -130,13 +130,13 @@ ms.locfileid: "68385562"
 
 若要針對邏輯應用程式的系統指派受控識別提供另一個 Azure 資源的存取權，請依照下列步驟執行：
 
-1. 在 Azure 入口網站中，移至您想要針對受控識別指派存取權的 Azure 資源。 
+1. 在 Azure 入口網站中，移至您想要針對受控識別指派存取權的 Azure 資源。
 
-1. 從資源的功能表中, 選取 [**存取控制 (IAM)** ]。 在工具列上, 選擇 [**新增** > ] [**新增角色指派**]。
+1. 從資源的功能表中，選取 [**存取控制（IAM）** ]。 在工具列上，選擇 [**新增** > ] [**新增角色指派**]。
 
    ![新增角色指派](./media/create-managed-service-identity/add-permissions-logic-app.png)
 
-1. 在 [新增角色指派] 下方，選取要用於身分識別的**角色**。 
+1. 在 [新增角色指派] 下方，選取要用於身分識別的**角色**。
 
 1. 在 [存取權指派對象為] 屬性中，選取 [Azure AD 使用者、群組或服務主體] (如果尚未選取)。
 
@@ -154,9 +154,7 @@ ms.locfileid: "68385562"
 
 1. 提供該動作的必要詳細資料，例如要求**方法**與您要呼叫之資源的 **URI** 位置。
 
-   例如，假設您是搭配[這些支援 Azure AD 的 Azure 服務之一](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication)來使用 Azure Active Directory (Azure AD) 驗證。 
-   在 [URI] 方塊中，輸入該 Azure 服務的端點 URL。 
-   因此，假設您是使用 Azure Resource Manager，請在 [URI] 屬性中輸入此值：
+   例如，假設您是搭配[這些支援 Azure AD 的 Azure 服務之一](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication)來使用 Azure Active Directory (Azure AD) 驗證。 在 [URI] 方塊中，輸入該 Azure 服務的端點 URL。 因此，假設您是使用 Azure Resource Manager，請在 [URI] 屬性中輸入此值：
 
    `https://management.azure.com/subscriptions/<Azure-subscription-ID>?api-version=2016-06-01`
 
@@ -188,7 +186,7 @@ ms.locfileid: "68385562"
 
 1. 在 [Azure 入口網站](https://portal.azure.com)的邏輯應用程式設計工具中，開啟邏輯應用程式。
 
-1. 在邏輯應用程式功能表的 [設定] 下，選取 [身分識別]。 
+1. 在邏輯應用程式功能表的 [設定] 下，選取 [身分識別]。
 
 1. 在 [系統指派] > [狀態] 下，選擇 [關閉]。 然後，選擇 [儲存] > [是]。
 
@@ -204,7 +202,6 @@ ms.locfileid: "68385562"
 }
 ```
 
-## <a name="get-support"></a>取得支援
+## <a name="next-steps"></a>後續步驟
 
-* 如有問題，請瀏覽 [Azure Logic Apps 論壇](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps)。
-* 若要提交或票選功能構想，請造訪 [Logic Apps 使用者意見反應網站](https://aka.ms/logicapps-wish)。
+* [保護 Azure Logic Apps 中的存取和資料](../logic-apps/logic-apps-securing-a-logic-app.md)

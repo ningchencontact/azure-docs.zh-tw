@@ -9,52 +9,53 @@ ms.service: cognitive-services
 ms.topic: conceptual
 ms.date: 07/16/2019
 ms.author: aahi
-ms.openlocfilehash: c7db2b4d49e3b9297c32d2e11ffe7c7702c17544
-ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
-ms.translationtype: HT
+ms.openlocfilehash: d0b2c9c7450b8a44ca93a9d9fa8770b7ab3d9282
+ms.sourcegitcommit: 86d49daccdab383331fc4072b2b761876b73510e
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70274610"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70743859"
 ---
 # <a name="create-a-cognitive-services-resource-using-the-azure-portal"></a>使用 Azure 入口網站建立認知服務資源
 
-使用本快速入門來建立使用 Azure 入口網站的 Azure 認知服務資源。 成功建立認知服務資源之後，您會取得可用來驗證應用程式的端點和金鑰。
+使用本快速入門開始使用 Azure 認知服務。 在 Azure 入口網站中建立認知服務資源之後，您會取得用來驗證應用程式的端點和金鑰。
+
+
+[!INCLUDE [cognitive-services-subscription-types](../../includes/cognitive-services-subscription-types.md)]
 
 ## <a name="prerequisites"></a>必要條件
 
 * 有效的 Azure 訂用帳戶-[免費建立一個](https://azure.microsoft.com/free/)。
 
-[!INCLUDE [cognitive-services-subscription-types](../../includes/cognitive-services-subscription-types.md)]
-
 ## <a name="create-a-new-azure-cognitive-services-resource"></a>建立新的 Azure 認知服務資源
 
-建立認知服務資源之前，您必須擁有包含資源的 Azure 資源群組。 當您建立新的資源時，您可以選擇建立新的資源群組，或使用現有的一個。 本文說明如何建立新的資源群組。
-
-1. 登入 [Azure 入口網站](https://portal.azure.com)，然後按一下 [+ 建立資源]。
-
-    ![選取認知服務 API](media/cognitive-services-apis-create-account/azurePortalScreenMulti.png)
-
-2. 如先前所述，您可以透過兩種方式來建立認知服務資源-使用多服務資源或單一服務資源。
+1. 建立資源。
 
     #### <a name="multi-service-resourcetabmultiservice"></a>[多服務資源](#tab/multiservice)
-
-    若要建立多服務資源，請在搜尋列中輸入**認知服務**。
-
-    ![搜尋認知服務](media/cognitive-services-apis-create-account/azureCogServSearchMulti.png)
-
-    在 [認知服務] 頁面上，選取 [**建立**]。
-
-    ![建立認知服務帳戶](media/cognitive-services-apis-create-account/azurecogservsearchmulti-2.png)
-
+    
+    在入口網站中，多服務資源的名稱為**認知服務**。 [建立認知服務資源](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesAllInOne)。
+    
+    此時，多服務資源會啟用下列認知服務的存取權：
+    
+    |                  |                                                      |                    |                               |                  |
+    |------------------|------------------------------------------------------|--------------------|-------------------------------|------------------|
+    | 電腦視覺  | Content Moderator                                    | 臉部               | 語言理解 (LUIS) | 文字分析   |
+    | Translator Text (翻譯文字)  | Bing 搜尋 v7 <br>（Web、影像、新聞、影片、視覺效果） | Bing 自訂搜尋 | Bing 實體搜尋            | Bing 自動建議 |
+    | Bing 拼字檢查 |                                                      |                    |                               |                  |
+    
     #### <a name="single-service-resourcetabsingleservice"></a>[單一服務資源](#tab/singleservice)
 
-    若要查看所有可用的認知服務，請選取 [ **Azure Marketplace**] 底下的 [ **AI + Machine Learning**]。 如果您沒有看到您感興趣的服務，請按一下 [**查看全部**]，然後按 [流覽]**認知服務**。 按一下 [**查看更多**] 以查看認知服務的整個目錄。
+    使用下列連結來建立可用認知服務的資源：
 
-    一旦您在您感興趣的服務上，請按一下 [**建立**]。
-    
-    ![選取認知服務 API](media/cognitive-services-apis-create-account/azureMarketplace.png)
-
+    | 辨識                      | 語音                  | 語言                          | 決策             | 搜尋                 |
+    |-----------------------------|-------------------------|-----------------------------------|----------------------|------------------------|
+    | [電腦視覺](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesComputerVision)         | [語音服務](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesSpeechServices)     | [沉浸式讀者](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesImmersiveReader)              | [異常偵測器](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesAnomalyDetector) | [Bing 搜尋 API V7](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesBingSearch-v7) |
+    | [自訂視覺服務](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesCustomVision) | [說話者辨識](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesSpeakerRecognition) | [Language Understanding (LUIS)](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesLUIS) | [內容仲裁](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesContentModerator) | [Bing 自訂搜尋](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesBingCustomSearch) |
+    | [臉部](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesFace)                    |                         | [QnA Maker](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesQnAMaker)                     | [個人化工具](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesPersonalizer)     | [Bing 實體搜尋](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesBingEntitySearch) |
+    | [筆跡辨識器](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesInkRecognizer)        |                         | [文字分析](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics)                |                      | [Bing 拼字檢查](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesBingSpellCheck-v7)   |
+    |           |                         | [翻譯工具文字](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextTranslation)               |                      | [Bing 自動建議](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesBingAutosuggest-v7)                       |
     ***
+
 3. 在 [建立] 頁面上，提供下列資訊：
 
     #### <a name="multi-service-resourcetabmultiservice"></a>[多服務資源](#tab/multiservice)
@@ -89,32 +90,23 @@ ms.locfileid: "70274610"
 
 ## <a name="get-the-keys-for-your-resource"></a>取得資源的金鑰
 
-成功建立資源之後，您會在畫面右上方看到快顯通知。 從通知中，按一下 [**移至資源**] 以查看您所建立的認知服務資源。 
+1. 成功部署您的資源之後，請按一下 **[後續步驟]** 底下的 [**移至資源**]。
 
-![前往認知服務資源](media/cognitive-services-apis-create-account/cog-serv-go-to-resource.png)
+    ![搜尋認知服務](media/cognitive-services-apis-create-account/resource-next-steps.png)
 
-從開啟的 [快速入門] 窗格中，您可以存取您的端點和金鑰。
+2. 從開啟的 [快速入門] 窗格中，您可以存取金鑰和端點。
 
-![取得金鑰和端點](media/cognitive-services-apis-create-account/get-cog-serv-keys.png)
+    ![取得金鑰和端點](media/cognitive-services-apis-create-account/get-cog-serv-keys.png)
 
 [!INCLUDE [cognitive-services-environment-variables](../../includes/cognitive-services-environment-variables.md)]
-
-## <a name="pricing-tiers-and-billing"></a>定價層和計費
-
-定價層（以及您收取的金額）是根據您使用驗證資訊傳送的交易數目。 每個定價層都會指定：
-* 每秒允許的交易數目上限（TP）。
-* 在定價層中啟用的服務功能。
-* 預先定義的交易數目成本。 超過此數量會導致您服務的[定價詳細資料](https://azure.microsoft.com/pricing/details/cognitive-services/custom-vision-service/)中所指定的額外費用。
 
 ## <a name="clean-up-resources"></a>清除資源
 
 如果您想要清除和移除認知服務訂用帳戶，則可以刪除資源或資源群組。 刪除資源群組也會刪除群組中包含的任何其他資源。
 
-若要使用 Azure 入口網站刪除資源群組：
-
 1. 在 Azure 入口網站中，展開左側功能表以開啟服務的功能表，然後選擇 [資源群組] 以顯示資源群組的清單。
-2. 找出要刪除的資源群組，然後以滑鼠右鍵按一下清單右側的 [更多] 按鈕（...）。
-3. 選取 [刪除資源群組] 並且確認。
+2. 找出包含要刪除之資源的資源群組
+3. 以滑鼠右鍵按一下資源群組清單。 選取 [刪除資源群組] 並且確認。
 
 ## <a name="see-also"></a>另請參閱
 

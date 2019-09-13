@@ -8,12 +8,12 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.date: 03/22/2018
 ms.author: sngun
-ms.openlocfilehash: 1b1e9338f92aaefab8e7754139066ac03e8b8213
-ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.openlocfilehash: c39db870e44d4e810817b70e2793b8805088180e
+ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70142624"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70932534"
 ---
 # <a name="azure-cosmos-db-net-core-sdk-for-sql-api-release-notes-and-resources"></a>適用於 SQL API 的 Azure Cosmos DB .NET SDK：版本資訊和資源
 > [!div class="op_single_selector"]
@@ -44,6 +44,11 @@ ms.locfileid: "70142624"
 
 > [!NOTE]
 > 如果您使用的是 .NET Core, 請參閱最新版本3.x 的[.NET SDK](sql-api-sdk-dotnet-standard.md), 其目標為 .NET Standard。 
+
+### <a name="a-name260260"></a><a name="2.6.0"/>2.6.0
+
+* 已將 PortReusePolicy 新增至 ConnectionPolicy
+* 已修正 ntdll.dll！RtlGetVersion TypeLoadException 在 UWP 應用程式中使用 SDK 時的問題
 
 ### <a name="a-name251251"></a><a name="2.5.1"/>2.5.1
 
@@ -259,7 +264,7 @@ Microsoft 至少會在停用 SDK 的 **12 個月** 之前提供通知，以供�
 服務會拒絕使用已停用 SDK 的任何 Azure Cosmos DB 要求。
 
 > [!WARNING]
-> SQL API的所有版本 1.x .NET Core SDK 將于**2020 年8月30日**淘汰。
+> SQL API**的所有版本 1.x** .NET Core SDK 將于**2020 年8月30日**淘汰。
 > 
 >
 <br/>
@@ -267,6 +272,7 @@ Microsoft 至少會在停用 SDK 的 **12 個月** 之前提供通知，以供�
 
 | Version | 發行日期 | 停用日期 |
 | --- | --- | --- |
+| [2.6.0](#2.6.0) |2019年8月30日 |--- |
 | [2.5.1](#2.5.1) |2019年7月02日 |--- |
 | [2.4.1](#2.4.1) |2019年6月20日 |--- |
 | [2.4.0](#2.4.0) |2019年5月5日 |--- |

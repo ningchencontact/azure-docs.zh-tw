@@ -11,12 +11,12 @@ author: nacharya1
 ms.author: nilesha
 ms.date: 06/20/2019
 ms.custom: seodec18
-ms.openlocfilehash: 319871280b94f54b99f7a9957f671ec50122ebf3
-ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
+ms.openlocfilehash: b7347be086cd9e85dda7b8271548ccb44e8114ff
+ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70860921"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70882025"
 ---
 # <a name="what-is-automated-machine-learning"></a>什麼是自動化機器學習服務？
 
@@ -98,7 +98,12 @@ ms.locfileid: "70860921"
 
 自動化的時間序列實驗會被視為多變數回歸問題。 過去的時間序列值會「切換」為回歸輸入變數的其他維度與其他預測指標。 與傳統時間序列方法不同的是，這種方法的優點是在定型期間自然結合多個內容變數及其關聯性。 自動化 ML 會針對資料集和預測視野中的所有專案學習單一但通常會在內部分支的模型。 因此，有更多的資料可用於估計模型參數，而一般化的數列則會變成可行的。
 
-深入瞭解並查看[適用于時間序列預測的自動化機器學習](how-to-auto-train-forecast.md)範例。
+深入瞭解並查看[適用于時間序列預測的自動化機器學習](how-to-auto-train-forecast.md)範例。 或者，如需先進預測設定的詳細程式碼範例，請參閱[能源需求筆記本](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/forecasting-energy-demand/auto-ml-forecasting-energy-demand.ipynb)，包括：
+
+* 假日偵測和特徵化
+* 復原原始的交叉驗證
+* 可設定延遲
+* 滾動視窗匯總功能
 
 ## <a name="ensemble"></a>集團模型
 

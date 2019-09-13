@@ -8,38 +8,37 @@ ms.assetid: 0e3b103c-6e2a-4634-9e8c-8b85cf5e9c84
 ms.service: application-insights
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 07/31/2019
+ms.date: 09/11/2019
 ms.author: mbullwin
-ms.openlocfilehash: 3a504fe4475cee8e2949ee121c632b792f349758
-ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
+ms.openlocfilehash: 49534cbce7bb0bbf540416785e31b451509d5bf6
+ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68694295"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70916171"
 ---
 # <a name="geolocation-and-ip-address-handling"></a>地理位置和 IP 位址處理
 
-本文說明如何在 Application Insights 中進行地理位置查閱和 IP 位址處理, 以及如何修改預設行為。
+本文說明如何在 Application Insights 中進行地理位置查閱和 IP 位址處理，以及如何修改預設行為。
 
 ## <a name="default-behavior"></a>預設行為
 
-預設會暫時收集 IP 位址, 但不會儲存在 Application Insights 中。 基本程式如下所示:
+預設會暫時收集 IP 位址，但不會儲存在 Application Insights 中。 基本程式如下所示：
 
-IP 位址會傳送至 Application Insights 作為遙測資料的一部分。 到達 Azure 中的內嵌端點時, 會使用 IP 位址,[從 MaxMind 使用 GeoLite2](https://dev.maxmind.com/geoip/geoip2/geolite2/)執行地理位置查閱。 此查閱的結果是用來填入下欄欄位`client_City` `client_StateOrProvince`:、、 `client_CountryOrRegion`。 此時, IP 位址會被捨棄, 並`0.0.0.0`寫入`client_IP`欄位中。
+IP 位址會傳送至 Application Insights 作為遙測資料的一部分。 到達 Azure 中的內嵌端點時，會使用 IP 位址，[從 MaxMind 使用 GeoLite2](https://dev.maxmind.com/geoip/geoip2/geolite2/)執行地理位置查閱。 此查閱的結果是用來填入下欄欄位`client_City` `client_StateOrProvince`：、、 `client_CountryOrRegion`。 此時，IP 位址會被捨棄，並`0.0.0.0`寫入`client_IP`欄位中。
 
 * 瀏覽器遙測：我們會暫時收集寄件者的 IP 位址。 IP 位址是由內嵌端點所計算。
 * 伺服器遙測：Application Insights 模組會暫時收集用戶端 IP 位址。 如果已設定 `X-Forwarded-For`，則不會收集該位址。
 
-此行為是設計用來協助避免不必要的個人資料集合。 如果可能, 建議您避免收集個人資料。 
+此行為是設計用來協助避免不必要的個人資料集合。 如果可能，建議您避免收集個人資料。 
 
 ## <a name="overriding-default-behavior"></a>覆寫預設行為
 
-雖然預設行為是將個人資料的收集降到最低, 但我們仍提供收集和儲存 IP 位址資料的彈性。 在選擇儲存任何個人資料 (例如 IP 位址) 之前, 我們強烈建議您確認這不會違反任何可能受限於的合規性需求或當地法規。 若要深入瞭解 Application Insights 中的個人資料處理, 請參閱[個人資料的指引](https://docs.microsoft.com/azure/azure-monitor/platform/personal-data-mgmt)。
+雖然預設行為是將個人資料的收集降到最低，但我們仍提供收集和儲存 IP 位址資料的彈性。 在選擇儲存任何個人資料（例如 IP 位址）之前，我們強烈建議您確認這不會違反任何可能受限於的合規性需求或當地法規。 若要深入瞭解 Application Insights 中的個人資料處理，請參閱[個人資料的指引](https://docs.microsoft.com/azure/azure-monitor/platform/personal-data-mgmt)。
 
-## <a name="storing-partial-ip-address-data"></a>儲存部分 IP 位址資料
+## <a name="storing-ip-address-data"></a>儲存 IP 位址資料
 
-若要啟用部分 IP 收集和儲存, `DisableIpMasking` Application Insights 元件的屬性必須設定為。 `true` 這個屬性可以透過 Azure Resource Manager 範本或藉由呼叫 REST API 來設定。 將會記錄最後一個八位的 IP 位址。
-
+若要啟用 IP 收集和儲存， `DisableIpMasking` Application Insights 元件的屬性必須設定為。 `true` 這個屬性可以透過 Azure Resource Manager 範本或藉由呼叫 REST API 來設定。 
 
 ### <a name="azure-resource-manager-template"></a>Azure Resource Manager 範本
 
@@ -65,7 +64,7 @@ IP 位址會傳送至 Application Insights 作為遙測資料的一部分。 到
 
 ### <a name="portal"></a>入口網站 
 
-如果您只需要修改單一 Application Insights 資源的行為, 完成此動作最簡單的方式是透過 Azure 入口網站。  
+如果您只需要修改單一 Application Insights 資源的行為，完成此動作最簡單的方式是透過 Azure 入口網站。  
 
 1. 前往您的 Application Insights 資源 >**設定** > **匯出範本** 
 
@@ -75,26 +74,26 @@ IP 位址會傳送至 Application Insights 作為遙測資料的一部分。 到
 
     ![以紅色反白顯示的 [部署] 按鈕](media/ip-collection/deploy.png)
 
-3. 選取 [**編輯範本**]。 (如果您的範本具有不會出現在此範例範本中的其他屬性或資源, 請務必小心, 以確保所有資源都會接受範本部署做為增量變更/更新)。
+3. 選取 [**編輯範本**]。 （如果您的範本具有不會出現在此範例範本中的其他屬性或資源，請務必小心，以確保所有資源都會接受範本部署做為增量變更/更新）。
 
     ![編輯範本](media/ip-collection/edit-template.png)
 
-4. 對您資源的 json 進行下列變更, 然後按一下 [**儲存**]:
+4. 對您資源的 json 進行下列變更，然後按一下 [**儲存**]：
 
-    ![螢幕擷取畫面會在 "IbizaAIExtension" 後面加上一個逗號, 並在下方新增包含 "DisableIpMasking" 的新行: true](media/ip-collection/save.png)
+    ![螢幕擷取畫面會在 "IbizaAIExtension" 後面加上一個逗號，並在下方新增包含 "DisableIpMasking" 的新行： true](media/ip-collection/save.png)
 
     > [!WARNING]
-    > 如果您遇到錯誤, 指出: **_資源群組所在的位置不受範本中的一或多個資源支援。請選擇不同的資源群組。_** 暫時從下拉式清單中選取不同的資源群組, 然後重新選取原始的資源群組以解決錯誤。
+    > 如果您遇到錯誤，指出： **_資源群組所在的位置不受範本中的一或多個資源支援。請選擇不同的資源群組。_** 暫時從下拉式清單中選取不同的資源群組，然後重新選取原始的資源群組以解決錯誤。
 
 5. 選取 [**我同意** > **購買**]。 
 
     ![編輯範本](media/ip-collection/purchase.png)
 
-    在此情況下, 我們只會更新現有 Application Insights 資源的設定, 而不會購買任何新的。
+    在此情況下，我們只會更新現有 Application Insights 資源的設定，而不會購買任何新的。
 
-6. 部署完成之後, 將會記錄前三個八位的 IP 和最後一個八位已清空的遙測資料。
+6. 部署完成後，就會記錄新的遙測資料。
 
-    如果您再次選取並編輯範本, 您只會看到預設範本, 而且看不到新加入的屬性及其相關聯的值。 如果您看不到 IP 位址資料, 而且想要`"DisableIpMasking": true`確認已設定。 執行下列 PowerShell:(請`Fabrikam-dev`將取代為適當的資源和資源組名。)
+    如果您再次選取並編輯範本，您只會看到預設範本，而且看不到新加入的屬性及其相關聯的值。 如果您看不到 IP 位址資料，而且想要`"DisableIpMasking": true`確認已設定。 執行下列 PowerShell：（請`Fabrikam-dev`將取代為適當的資源和資源組名。）
     
     ```powershell
     # If you aren't using the cloud shell you will need to connect to your Azure account
@@ -103,11 +102,11 @@ IP 位址會傳送至 Application Insights 作為遙測資料的一部分。 到
     $AppInsights.Properties
     ```
     
-    結果會傳回屬性清單。 其中一個屬性應為 [ `DisableIpMasking: true`讀取]。 如果您在使用 Azure Resource Manager 部署新的屬性之前執行 PowerShell, 此屬性將不存在。
+    結果會傳回屬性清單。 其中一個屬性應為 [ `DisableIpMasking: true`讀取]。 如果您在使用 Azure Resource Manager 部署新的屬性之前執行 PowerShell，此屬性將不存在。
 
 ### <a name="rest-api"></a>Rest API
 
-要進行相同修改的[REST API](https://docs.microsoft.com/rest/api/azure/)承載如下所示:
+要進行相同修改的[REST API](https://docs.microsoft.com/rest/api/azure/)承載如下所示：
 
 ```
 PATCH https://management.azure.com/subscriptions/<sub-id>/resourceGroups/<rg-name>/providers/microsoft.insights/components/<resource-name>?api-version=2018-05-01-preview HTTP/1.1
@@ -128,7 +127,7 @@ Content-Length: 54
 
 ## <a name="telemetry-initializer"></a>遙測初始設定式
 
-如果您需要記錄整個 IP 位址, 而不只是前三個八位, 您可以使用[遙測初始化運算式](https://docs.microsoft.com/azure/azure-monitor/app/api-filtering-sampling#add-properties-itelemetryinitializer), 將 IP 位址複製到不會遮罩的自訂欄位。
+如果您需要比`DisableIpMasking`記錄所有或部分 ip 位址更有彈性的替代方案，您可以使用[遙測初始化運算式](https://docs.microsoft.com/azure/azure-monitor/app/api-filtering-sampling#add-properties-itelemetryinitializer)，將所有或部分 ip 複製到自訂欄位。 
 
 ### <a name="aspnet--aspnet-core"></a>ASP.NET/ASP.NET Core
 
@@ -156,7 +155,7 @@ namespace MyWebApp
 ```
 
 > [!NOTE]
-> 如果您無法存取`ISupportProperties`, 請檢查並確定您執行的是最新穩定版本的 Application Insights SDK。 `ISupportProperties`適用于高基數值, 而`GlobalProperties`較適用于較低的基數值, 例如區功能變數名稱稱、環境名稱等等。 
+> 如果您無法存取`ISupportProperties`，請檢查並確定您執行的是最新穩定版本的 Application Insights SDK。 `ISupportProperties`適用于高基數值，而`GlobalProperties`較適用于較低的基數值，例如區功能變數名稱稱、環境名稱等等。 
 
 ### <a name="enable-telemetry-initializer-for-aspnet"></a>啟用的遙測初始化運算式。ASP.NET
 
@@ -180,7 +179,7 @@ namespace MyWebApp
 
 ### <a name="enable-telemetry-initializer-for-aspnet-core"></a>啟用 ASP.NET Core 的遙測初始化運算式
 
-您可以使用與 ASP.NET ASP.NET Core 相同的方式建立遙測初始化運算式, 但若要啟用初始化運算式, 請使用下列範例來進行參考:
+您可以使用與 ASP.NET ASP.NET Core 相同的方式建立遙測初始化運算式，但若要啟用初始化運算式，請使用下列範例來進行參考：
 
 ```csharp
  using Microsoft.ApplicationInsights.Extensibility;
@@ -207,11 +206,11 @@ appInsights.defaultClient.addTelemetryProcessor((envelope) => {
 
 ### <a name="client-side-javascript"></a>用戶端 JavaScript
 
-與伺服器端 Sdk 不同的是, 用戶端 JAVAscript SDK 不會計算 IP 位址。 根據預設, 用戶端遙測的 IP 位址計算會在遙測抵達時, 于 Azure 中的內嵌端點執行。 這表示如果您要將用戶端資料傳送至 proxy, 然後轉送至內嵌端點, 則 IP 位址計算可能會顯示 proxy 的 IP 位址, 而不是用戶端。 如果沒有使用 proxy, 這就不會是問題。
+與伺服器端 Sdk 不同的是，用戶端 JAVAscript SDK 不會計算 IP 位址。 根據預設，用戶端遙測的 IP 位址計算會在遙測抵達時，于 Azure 中的內嵌端點執行。 這表示如果您要將用戶端資料傳送至 proxy，然後轉送至內嵌端點，則 IP 位址計算可能會顯示 proxy 的 IP 位址，而不是用戶端。 如果沒有使用 proxy，這就不會是問題。
 
-如果您想要直接在用戶端上計算 IP 位址, 您需要新增自己的自訂邏輯來執行這項計算, 並使用結果來設定`ai.location.ip`標記。 當`ai.location.ip`設定時, 內嵌端點不會執行 IP 位址計算, 並會接受所提供的 ip 位址並用於執行地區查閱。 在此案例中, 預設仍會將 IP 位址清空。 
+如果您想要直接在用戶端上計算 IP 位址，您需要新增自己的自訂邏輯來執行這項計算，並使用結果來設定`ai.location.ip`標記。 當`ai.location.ip`設定時，內嵌端點不會執行 IP 位址計算，並會接受所提供的 ip 位址並用於執行地區查閱。 在此案例中，預設仍會將 IP 位址清空。 
 
-若要保留從自訂邏輯計算出來的整個 IP 位址, 您可以使用遙測初始化運算式, 將您在中`ai.location.ip`提供的 ip 位址資料複製到個別的自訂欄位。 但同樣地, 與伺服器端 Sdk 不同的是, 不依賴協力廠商程式庫或您自己的自訂用戶端 IP 集合邏輯, 用戶端 SDK 將不會為您計算 IP。    
+若要保留從自訂邏輯計算出來的整個 IP 位址，您可以使用遙測初始化運算式，將您在中`ai.location.ip`提供的 ip 位址資料複製到個別的自訂欄位。 但同樣地，與伺服器端 Sdk 不同的是，不依賴協力廠商程式庫或您自己的自訂用戶端 IP 集合邏輯，用戶端 SDK 將不會為您計算 IP。    
 
 
 ```javascript
@@ -229,7 +228,7 @@ appInsights.addTelemetryInitializer((item) => {
 
 ### <a name="view-the-results-of-your-telemetry-initializer"></a>查看遙測初始化運算式的結果
 
-如果您接著針對您的網站觸發新流量, 並等候大約2-5 分鐘以確保它有時間內嵌, 您可以執行 Kusto 查詢, 以查看 IP 位址集合是否正常運作:
+如果您接著針對您的網站觸發新流量，並等候大約2-5 分鐘以確保它有時間內嵌，您可以執行 Kusto 查詢，以查看 IP 位址集合是否正常運作：
 
 ```kusto
 requests
@@ -237,10 +236,10 @@ requests
 | project appName, operation_Name, url, resultCode, client_IP, customDimensions.["client-ip"]
 ```
 
-新收集的`customDimensions_client-ip` IP 位址應該會出現在資料行中。 預設`client-ip`資料行仍會有所有4個八位, 或是只顯示前三個八位, 視您在元件層級設定 IP 位址集合的方式而定。 如果您要在執行遙測初始化運算式之後于本機進行測試, 而且您`customDimensions_client-ip`所`::1`看到的值是, 這是預期的行為。 `::1`代表 IPv6 中的回送位址。 它相當於`127.0.01` IPv4 中的, 而且是您從 localhost 進行測試時所看到的結果。
+新收集的`customDimensions_client-ip` IP 位址應該會出現在資料行中。 預設`client-ip`資料行仍會有所有4個八位，或是只顯示前三個八位，視您在元件層級設定 IP 位址集合的方式而定。 如果您要在執行遙測初始化運算式之後于本機進行測試，而且您`customDimensions_client-ip`所`::1`看到的值是，這是預期的行為。 `::1`代表 IPv6 中的回送位址。 它相當於`127.0.01` IPv4 中的，而且是您從 localhost 進行測試時所看到的結果。
 
 ## <a name="next-steps"></a>後續步驟
 
 * 深入瞭解 Application Insights 中的[個人資料收集](https://docs.microsoft.com/azure/azure-monitor/platform/personal-data-mgmt)。
 
-* 深入瞭解 Application Insights 中的[IP 位址集合](https://apmtips.com/blog/2016/07/05/client-ip-address/)如何運作。 (這是我們的其中一位工程師撰寫的舊版外部 blog 文章。 它會比較舊目前的預設行為, 其中會將 IP `0.0.0.0`地址記錄為, 但會在內`ClientIpHeaderTelemetryInitializer`建的機制上更深入瞭解)。
+* 深入瞭解 Application Insights 中的[IP 位址集合](https://apmtips.com/blog/2016/07/05/client-ip-address/)如何運作。 （這是我們的其中一位工程師撰寫的舊版外部 blog 文章。 它會比較舊目前的預設行為，其中會將 IP `0.0.0.0`地址記錄為，但會在內`ClientIpHeaderTelemetryInitializer`建的機制上更深入瞭解）。

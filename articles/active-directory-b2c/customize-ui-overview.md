@@ -7,19 +7,19 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 02/07/2019
+ms.date: 09/11/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: bbce41271914df4bb8a75804bc66ae538fe766fa
-ms.sourcegitcommit: a52f17307cc36640426dac20b92136a163c799d0
+ms.openlocfilehash: 5ae12742c2ad50d5bf1caaf14ae2f6d34bd6d3a2
+ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68716757"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70880795"
 ---
 # <a name="about-user-interface-customization-in-azure-active-directory-b2c"></a>關於 Azure Active Directory B2C 中的使用者介面自訂
 
-有能力自訂 Azure Active Directory (Azure AD) B2C 為您的應用程式提供服務的使用者介面 (UI)，並設定其品牌，深切關係到您能否為客戶提供順暢的體驗。 這些體驗包括註冊、登入、設定檔編輯和密碼重設。 本文將提供有助於您自訂應用程式 UI 的資訊。
+讓您能夠為您的客戶提供順暢的體驗，對您的應用程式進行品牌和自訂的使用者介面（UI Azure AD B2C Azure Active Directory B2C），是很重要的。 這些體驗包括註冊、登入、設定檔編輯和密碼重設。 本文將提供有助於您自訂應用程式 UI 的資訊。
 
 根據您在這些體驗方面的需求，您可以透過不同的方式自訂應用程式的 UI。 例如:
 
@@ -134,6 +134,9 @@ Azure AD B2C 會在客戶的瀏覽器中執行程式碼，並使用名為[跨原
 
 ## <a name="next-steps"></a>後續步驟
 
-- 如果您使用使用者流程，您可以透過以下教學課程開始自訂您的 UI：[在 Azure Active Directory B2C 中自訂應用程式的使用者介面](tutorial-customize-ui.md)。
-- 如果您使用自訂原則，您可以透過以下文章開始自訂 UI：[在 Azure Active Directory B2C 中使用自訂原則來自訂應用程式的使用者介面](active-directory-b2c-ui-customization-custom.md)。
+- 如果您使用的是**使用者流程**，您可以使用教學課程來開始自訂 UI：
 
+    [在 Azure Active Directory B2C 中自訂應用程式的使用者介面](tutorial-customize-ui.md)。
+- 如果您使用的是**自訂原則**，您可以使用下列文章開始自訂 UI：
+
+    [在 Azure Active Directory B2C 中使用自訂原則來自訂應用程式的使用者介面](active-directory-b2c-ui-customization-custom.md)。

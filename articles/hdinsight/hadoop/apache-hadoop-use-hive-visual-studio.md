@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/14/2019
 ms.author: hrasheed
-ms.openlocfilehash: d53468ae544b02798d7fcd74370d1d3dbdcbd5e0
-ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
-ms.translationtype: HT
+ms.openlocfilehash: 129f200bc9f61d70f4403b1154978d57e09fee26
+ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
+ms.translationtype: MT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 09/11/2019
-ms.locfileid: "70882073"
+ms.locfileid: "70917494"
 ---
 # <a name="run-apache-hive-queries-using-the-data-lake-tools-for-visual-studio"></a>使用 Data Lake Tools for Visual Studio 執行 Apache Hive 查詢
 
@@ -59,7 +59,7 @@ ms.locfileid: "70882073"
 
 6. 若要在**批次**模式中執行相同的查詢，請將下拉式清單從 [**互動式**] 切換至 [**批次**]。 請注意，[執行] 按鈕會從 [**執行**] 變更為 [**提交**]。
 
-    ![提交 hive 查詢的螢幕擷取畫面](./media/apache-hadoop-use-hive-visual-studio/vs-batch-query.png)
+    ![提交 hive 查詢的螢幕擷取畫面](./media/apache-hadoop-use-hive-visual-studio/visual-studio-batch-query.png)
 
     Hive 編輯器支援 Intellisense。 Data Lake Tools for Visual Studio 支援在編輯 Hive 指令碼時載入遠端中繼資料。 例如，如果您輸入`SELECT * FROM`，IntelliSense 會列出所有建議的資料表名稱。 若已指定資料表名稱，IntelliSense 會列出資料行名稱。 此工具支援大部分的 Hive DML 陳述式、子查詢及內建 UDF。 IntelliSense 只建議 HDInsight 工具列中已選取的叢集中繼資料。
 

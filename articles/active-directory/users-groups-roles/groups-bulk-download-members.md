@@ -13,12 +13,12 @@ ms.workload: identity
 ms.custom: it-pro
 ms.reviewer: jeffsta
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 34f00a2c7425ec15ec29a5d3b40c7e2b41750e05
-ms.sourcegitcommit: d70c74e11fa95f70077620b4613bb35d9bf78484
+ms.openlocfilehash: 120b5606dd6b6f4451b563843f112bd614341eac
+ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
 ms.translationtype: MT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 09/11/2019
-ms.locfileid: "70910955"
+ms.locfileid: "70914798"
 ---
 # <a name="bulk-download-members-of-a-group-preview-in-azure-active-directory"></a>在 Azure Active Directory 中大量下載群組的成員（預覽）
 
@@ -29,7 +29,7 @@ ms.locfileid: "70910955"
 
 ## <a name="bulk-download-service-limits"></a>大量下載服務限制
 
-建立群組成員清單的每個大量活動最多可執行一小時。 這可讓您建立及下載至少500000個成員的清單。
+下載群組成員清單的每個大量活動最多可執行一小時。 這可讓您下載至少500000個成員的清單。
 
 ## <a name="to-bulk-download-group-membership"></a>大量下載群組成員資格
 

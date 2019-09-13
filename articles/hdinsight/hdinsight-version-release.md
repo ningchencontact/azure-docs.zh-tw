@@ -7,14 +7,14 @@ ms.author: hrasheed
 ms.reviewer: hrasheed
 ms.topic: conceptual
 ms.date: 04/15/2019
-ms.openlocfilehash: 77260eaa2e19135586e438576397b4647afe7ece
-ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.openlocfilehash: 74cd6a6919db1c01535fb984d1e8e0d0ad2d5ade
+ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67483982"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70879321"
 ---
-# <a name="hdinsight-40-overview"></a>HDInsight 4.0 概觀
+# <a name="azure-hdinsight-40-overview"></a>Azure HDInsight 4.0 概觀
 
 Azure HDInsight 是最受企業客戶歡迎的其中一項服務，可供 Azure 上的開放原始碼 Apache Hadoop 與 Apache Spark 分析使用。 HDInsight 4.0 是 Apache Hadoop 元件的雲端發佈。 本文提供有關最新 Azure HDInsight 版本及如何升級的資訊。
 
@@ -94,7 +94,7 @@ Apache Oozie 4.3.1 隨附於 HDI 4.0，並包含下列變更：
 * HDInsight 4.0 不支援 Apache Storm。 
 * HDInsight 4.0 中已不再提供 Hive 檢視。 
 * Apache Zeppelin 中的殼層解譯器在 Spark 和互動式查詢叢集中不受支援。
-* 您不能「停用」  Spark-LLAP 叢集上的 LLAP。 您只能關閉 LLAP。
+* 您不能「停用」Spark-LLAP 叢集上的 LLAP。 您只能關閉 LLAP。
 * Azure Data Lake Storage Gen2 無法在 Spark 叢集中儲存 Juypter Notebook。
 
 ## <a name="next-steps"></a>後續步驟

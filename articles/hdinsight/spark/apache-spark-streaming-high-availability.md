@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 01/26/2018
-ms.openlocfilehash: dcd9095a1e5010a3d0dd5ea7ad884e36e24c7c1d
-ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
+ms.openlocfilehash: 9424ebbd4ed2e1536a10d77a88257bad948628e2
+ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70814001"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70915390"
 ---
 # <a name="create-high-availability-apache-spark-streaming-jobs-with-yarn"></a>使用 YARN 建立高可用性 Apache Spark 串流作業
 
@@ -29,7 +29,7 @@ Spark 串流會使用「離散化串流」 (DStream) 來表示連續資料流。
 
 Spark 核心會使用「彈性分散式資料集」(RDD)。 RDD 會將資料分散於叢集中的多個節點，其中的每個節點通常都會在記憶體內部完整維護其資料，以達到最佳效能。 每個 RDD 代表在一段批次間隔內收集的事件。 當批次間隔消逝時，Spark 串流會產生一個新 RDD，其中包含該間隔內的所有資料。 這一組連續的 RDD 會被收集到 DStream。 Spark 串流應用程式會處理每個批次的 RDD 中儲存的資料。
 
-![Spark DStream](./media/apache-spark-streaming-high-availability/DStream.png)
+![Spark DStream](./media/apache-spark-streaming-high-availability/apache-spark-dstream.png)
 
 ## <a name="spark-structured-streaming-jobs"></a>Spark 結構化串流作業
 

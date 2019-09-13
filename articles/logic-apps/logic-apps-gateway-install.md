@@ -9,16 +9,16 @@ ms.author: estfan
 ms.reviewer: arthii, LADocs
 ms.topic: article
 ms.date: 07/01/2019
-ms.openlocfilehash: 657bc704e33e89b1646dffa6123a27169e6c317a
-ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
+ms.openlocfilehash: c6994127b504cba31df051c757295f3e575bc23f
+ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70860707"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70931212"
 ---
 # <a name="install-on-premises-data-gateway-for-azure-logic-apps"></a>安裝 Azure Logic Apps 的內部部署資料閘道
 
-您必須先在本機電腦下載並安裝內部部署資料閘道，才能從 Azure Logic Apps 連線至內部部署資料來源。 此閘道可作為橋樑，讓內部部署 (不在雲端) 資料來源與邏輯應用程式之間快速地傳輸和加密資料。 您可以搭配其他雲端服務（例如 Power BI、Microsoft Flow、PowerApps 和 Azure Analysis Services）使用相同的閘道安裝。 如需如何搭配使用閘道與這些服務的相關資訊，請參閱下列文章：
+[從 Azure Logic Apps 連接到內部部署資料來源](../logic-apps/logic-apps-gateway-connection.md)之前，請先在本機電腦上下載並安裝內部部署資料閘道。 閘道可做為橋接器，在內部部署的資料來源與邏輯應用程式之間快速地傳輸和加密資料。 您可以搭配其他雲端服務（例如 Power BI、Microsoft Flow、PowerApps 和 Azure Analysis Services）使用相同的閘道安裝。 如需如何搭配使用閘道與這些服務的相關資訊，請參閱下列文章：
 
 * [Microsoft Power BI 內部部署資料閘道](https://powerbi.microsoft.com/documentation/powerbi-gateway-onprem/)
 * [Microsoft PowerApps 內部部署資料閘道](https://powerapps.microsoft.com/tutorials/gateway-management/)
@@ -26,25 +26,6 @@ ms.locfileid: "70860707"
 * [Azure Analysis Services 內部部署資料閘道](../analysis-services/analysis-services-gateway.md)
 
 本文說明如何下載、安裝及設定您的內部部署資料閘道，讓您可以從 Azure Logic Apps 存取內部部署資料來源。 您也可以在本主題稍後深入瞭解[資料閘道的運作方式](#gateway-cloud-service)。
-
-<a name="supported-connections"></a>
-
-此閘道在 Azure Logic Apps 中針對下列資料來源支援[內部部署連接器](../connectors/apis-list.md#on-premises-connectors)︰
-
-* BizTalk Server 2016
-* 檔案系統
-* IBM DB2  
-* IBM Informix
-* IBM MQ
-* MySQL
-* Oracle Database
-* PostgreSQL
-* SAP
-* SharePoint Server
-* [SQL Server]
-* Teradata
-
-雖然閘道本身不會產生額外的成本，但[Logic Apps 計價模式](../logic-apps/logic-apps-pricing.md)適用于 Azure Logic Apps 中的這些連接器和其他作業。
 
 <a name="requirements"></a>
 
@@ -66,7 +47,7 @@ ms.locfileid: "70860707"
 
   **最低需求**
 
-  * .NET Framework 4.6
+  * .NET Framework 4.7。2
   * 64 位元版本的 Windows 7 或 Windows Server 2008 R2 (或更新版本)
 
   **建議需求**
@@ -159,11 +140,18 @@ ms.locfileid: "70860707"
 
 1. 現在，[為您的閘道安裝建立 Azure 資源](../logic-apps/logic-apps-gateway-connection.md)。
 
+## <a name="check-or-adjust-communication-settings"></a>檢查或調整通訊設定
+
+內部部署資料閘道取決於雲端連線[Azure 服務匯流排](../service-bus-messaging/service-bus-messaging-overview.md)，並建立與閘道相關聯 Azure 區域的對應輸出連線。 如果您的工作環境要求流量通過 proxy 或防火牆來存取網際網路，此限制可能會導致內部部署資料閘道無法連線到閘道雲端服務，並 Azure 服務匯流排。 閘道有數個通訊設定可供您調整。 如需詳細資訊，請參閱下列主題：
+
+* [調整內部部署資料閘道的通訊設定](https://docs.microsoft.com/data-integration/gateway/service-gateway-communication)
+* [設定內部部署資料閘道的 proxy 設定](https://docs.microsoft.com/data-integration/gateway/service-gateway-proxy)
+
 <a name="high-availability"></a>
 
 ## <a name="high-availability-support"></a>高可用性支援
 
-若要避免內部部署資料存取發生單一失敗點，您可以在不同的電腦上安裝多個閘道（僅限標準模式），並將它們設定為叢集或群組。 如此一來，如果主要閘道無法使用，則會將資料要求路由傳送至第二個閘道，依此類推。 因為您只能在一部電腦上安裝一個標準閘道，所以您必須在另一部電腦上安裝叢集中的每個額外閘道。 所有與內部部署資料閘道搭配運作的連接器都支援高可用性。 
+若要避免內部部署資料存取發生單一失敗點，您可以在不同的電腦上安裝多個閘道（僅限標準模式），並將它們設定為叢集或群組。 如此一來，如果主要閘道無法使用，則會將資料要求路由傳送至第二個閘道，依此類推。 因為您只能在一部電腦上安裝一個標準閘道，所以您必須在另一部電腦上安裝叢集中的每個額外閘道。 所有與內部部署資料閘道搭配運作的連接器都支援高可用性。
 
 * 在與主要閘道相同的 Azure 訂用帳戶內，您必須已經有至少一個閘道安裝，以及該安裝的修復金鑰。
 
@@ -197,293 +185,88 @@ ms.locfileid: "70860707"
 
 1. 當您準備好時，請選取 [**設定**]，讓您可以完成工作。
 
-## <a name="configure-proxy-or-firewall"></a>設定 Proxy 或防火牆
+## <a name="tenant-level-administration"></a>租使用者層級管理
 
-如果您的工作環境要求流量通過 proxy 以存取網際網路，此限制可能會導致內部部署資料閘道無法連線到閘道雲端服務，並[Azure 服務匯流排](../service-bus-messaging/service-bus-messaging-overview.md)。 如需詳細資訊, 請參閱[設定內部部署資料閘道的 proxy 設定](https://docs.microsoft.com/power-bi/service-gateway-proxy)。
+若要查看 Azure AD 租使用者中的所有內部部署資料閘道，該租使用者中的全域管理員可以使用租使用者系統管理員身分登入[Power Platform 管理中心](https://powerplatform.microsoft.com)，然後選取 [**資料閘道**] 選項。 如需詳細資訊，請參閱內部[部署資料閘道的租使用者層級管理](https://docs.microsoft.com/data-integration/gateway/service-gateway-tenant-level-admin)。
 
-若要檢查您的 proxy 或防火牆是否可能封鎖連線，請確認您的電腦是否可以實際連接到網際網路，並 Azure 服務匯流排。 從 PowerShell 命令提示字元中，執行此命令︰
+<a name="restart-gateway"></a>
 
-`Test-NetConnection -ComputerName watchdog.servicebus.windows.net -Port 9350`
-
-> [!NOTE]
-> 此命令只會測試網路連線和對 Azure 服務匯流排的連線。 這個命令和閘道或閘道雲端服務 (會加密並儲存認證和閘道詳細資料) 沒有任何關係。 
->
-> 此外，這個命令僅適用於 Windows Server 2012 R2 或更新版本，以及 Windows 8.1 或更新版本。 對於較舊的作業系統版本，您可以使用 Telnet 來測試連線能力。 深入了解 [Azure 服務匯流排和混合式解決方案](../service-bus-messaging/service-bus-messaging-overview.md)。
-
-**TcpTestSucceeded** 設定為 **True** 的結果應該類似此範例：
-
-```text
-ComputerName           : watchdog.servicebus.windows.net
-RemoteAddress          : 70.37.104.240
-RemotePort             : 5672
-InterfaceAlias         : vEthernet (Broadcom NetXtreme Gigabit Ethernet - Virtual Switch)
-SourceAddress          : 10.120.60.105
-PingSucceeded          : False
-PingReplyDetails (RTT) : 0 ms
-TcpTestSucceeded       : True
-```
-
-如果 **TcpTestSucceeded** 未設為 **True**，防火牆可能會封鎖您的閘道。 如果您想要更詳細的資訊，請將 **ComputerName** 和 **Port** 值取代為本文的[設定連接埠](#configure-ports)之下所列的值。
-
-防火牆也可能會封鎖 Azure 服務匯流排到 Azure 資料中心的連線。 若發生此情況，請核准 (解除封鎖) 您所在區域之資料中心的所有 IP 位址。 如需這些 IP 位址，您可以[在此取得 Azure IP 位址清單](https://www.microsoft.com/download/details.aspx?id=41653)。
-
-<a name="configure-ports"></a>
-
-## <a name="configure-ports"></a>設定連接埠
-
-閘道會建立連出連線以 Azure 服務匯流排並在輸出埠上進行通訊：TCP 443 (預設)、5671、5672 和 9350 到 9354。 閘道不需要輸入連接埠。 深入了解 [Azure 服務匯流排和混合式解決方案](../service-bus-messaging/service-bus-messaging-overview.md)。
-
-閘道會使用這些完整的網域名稱：
-
-| 網域名稱 | 輸出連接埠 | 描述 |
-| ------------ | -------------- | ----------- |
-| *.analysis.windows.net | 443 | HTTPS |
-| *.core.windows.net | 443 | HTTPS |
-| *.frontend.clouddatahub.net | 443 | HTTPS |
-| *.login.windows.net | 443 | HTTPS |
-| *.microsoftonline-p.com | 443 | 用於驗證 (視設定而定)。 |
-| *.msftncsi.com | 443 | 當 Power BI 服務無法連線至閘道時，用來測試網際網路連線能力。 |
-| *.servicebus.windows.net | 443、9350-9354 | 透過 TCP 之服務匯流排轉送上的接聽程式 (需要 443 才能取得「存取控制」權杖) |
-| *.servicebus.windows.net | 5671-5672 | 進階訊息佇列通訊協定 (AMQP) |
-| login.microsoftonline.com | 443 | HTTPS |
-||||
-
-在某些情況下，Azure 服務匯流排連線會使用 IP 位址而非完整網域名稱來建立。 因此，您可能會想要在防火牆中解除封鎖資料區域的 IP 位址。 若要允許存取 IP 位址而不是網域，您可以下載並使用 [ [Microsoft Azure DATACENTER IP 範圍] 清單](https://www.microsoft.com/download/details.aspx?id=41653)。 此清單中的 IP 位址必須採用[無類別網域間路由 (CIDR)](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing) 標記法。
-
-### <a name="force-https-communication-with-azure-service-bus"></a>強制使用 Azure 服務匯流排進行 HTTPS 通訊
-
-某些 Proxy 只允許送至連接埠 80 和 443 的流量。 根據預設，與 Azure 服務匯流排的通訊會發生於 443 以外的連接埠上。 您可以強制閘道透過 HTTPS (而非直接 TCP ) 來與 Azure 服務匯流排通訊，但是這麼做會大幅降低效能。 如需詳細資訊, 請參閱[強制搭配 Azure 服務匯流排的 HTTPS 通訊](https://docs.microsoft.com/data-integration/gateway/service-gateway-communication#force-https-communication-with-azure-service-bus)。
-
-<a name="windows-service-account"></a>
-
-## <a name="windows-service-account"></a>Windows 服務帳戶
+## <a name="restart-gateway"></a>重新啟動閘道
 
 根據預設，在本機電腦上安裝閘道時，會以名為「內部部署資料閘道服務」的 Windows 服務帳戶的身分執行。 不過，閘道安裝會使用`NT SERVICE\PBIEgwService`其「登入身分」帳號憑證的名稱，並具有「以服務方式登入」許可權。
 
 > [!NOTE]
 > 您的 Windows 服務帳戶與用來連線到內部部署資料來源的帳戶不同，以及您登入雲端服務時所使用的 Azure 帳戶。
 
-<a name="restart-gateway"></a>
-
-## <a name="restart-gateway"></a>重新啟動閘道
-
-資料閘道會以 Windows 服務的形式來執行，因此和任何其他 Windows 服務一樣，您可以透過多種方式啟動和停止閘道。 如需詳細資訊，請參閱[重新開機內部部署資料閘道](https://docs.microsoft.com/data-integration/gateway/service-gateway-restart)。
-
-## <a name="tenant-level-administration"></a>租使用者層級管理
-
-若要查看 Azure AD 租使用者中的所有內部部署資料閘道，該租使用者中的全域管理員可以使用租使用者系統管理員身分登入[Power Platform 管理中心](https://powerplatform.microsoft.com)，然後選取 [**資料閘道**] 選項。 如需詳細資訊，請參閱內部[部署資料閘道的租使用者層級管理](https://docs.microsoft.com/data-integration/gateway/service-gateway-tenant-level-admin)。
+就像任何其他 Windows 服務一樣，您可以透過各種方式來啟動和停止閘道。 如需詳細資訊，請參閱[重新開機內部部署資料閘道](https://docs.microsoft.com/data-integration/gateway/service-gateway-restart)。
 
 <a name="gateway-cloud-service"></a>
 
 ## <a name="how-the-gateway-works"></a>閘道運作方式
 
-資料閘道可讓邏輯應用程式、閘道雲端服務和內部部署資料來源之間，快速且安全地進行通訊。 閘道雲端服務會將資料來源認證和閘道詳細資料予以加密並儲存。 此服務也會在邏輯應用程式、內部部署資料閘道和內部部署資料來源之間路由傳送查詢和其結果。
+您組織中的使用者可以存取已獲授權存取的內部部署資料。 不過，在這些使用者可以連線到您的內部部署資料來源之前，您必須先安裝及設定內部部署資料閘道。 通常，系統管理員是安裝和設定閘道的人員。 這些動作可能需要伺服器管理員許可權或您內部部署伺服器的特殊知識。
 
-閘道可搭配防火牆運作，而且僅使用輸出連線。 源自閘道代理程式的所有流量都是安全輸出流量。 閘道會透過 Azure 服務匯流排，從加密通道上的內部部署來源轉送資料。 此服務匯流排會建立閘道與呼叫服務之間的通道，但不會儲存任何資料。 透過閘道傳送的所有資料都會加密。
+閘道可協助快速且安全的通訊幕後通訊。 這項通訊會在雲端中的使用者、閘道雲端服務和您的內部部署資料來源之間流動。 閘道雲端服務會將資料來源認證和閘道詳細資料予以加密並儲存。 服務也會在使用者、閘道和您的內部部署資料來源之間路由傳送查詢和其結果。
+
+閘道可搭配防火牆運作，而且僅使用輸出連線。 源自閘道代理程式的所有流量都是安全輸出流量。 閘道會透過[Azure 服務匯流排](../service-bus-messaging/service-bus-messaging-overview.md)，從加密通道上的內部部署來源轉送資料。 此服務匯流排會建立閘道與呼叫服務之間的通道，但不會儲存任何資料。 透過閘道傳送的所有資料都會加密。
 
 ![內部部署資料閘道的架構](./media/logic-apps-gateway-install/how-on-premises-data-gateway-works-flow-diagram.png)
 
-下列步驟說明當雲端使用者與連線到內部部署資料來源的元素互動時，會發生什麼狀況︰
+> [!NOTE]
+> 視雲端服務而定，您可能需要設定閘道的資料來源。
 
-1. 閘道雲端服務會建立查詢，以及資料來源的加密認證，並將查詢傳送至閘道的佇列處理。
+這些步驟說明當您與連線到內部部署資料來源的專案互動時，會發生什麼情況：
 
-1. 閘道雲端服務會分析該查詢，並將要求推送至 Azure 服務匯流排。
+1. 雲端服務會建立查詢，以及資料來源的加密認證。 服務接著會將查詢和認證傳送到閘道佇列以進行處理。
 
-1. 內部部署資料閘道會輪詢 Azure 服務匯流排是否有待處理的要求。
+1. 閘道雲端服務會分析查詢，並將要求推送至 Azure 服務匯流排。
 
-1. 閘道收到查詢、解密認證，並使用這些認證連線至資料來源。
+1. Azure 服務匯流排會將暫止的要求傳送至閘道。
 
-1. 閘道將查詢傳送至資料來源執行。
+1. 閘道會取得查詢、將認證解密，並使用這些認證連接到一或多個資料來源。
+
+1. 閘道會將查詢傳送至要執行的資料來源。
 
 1. 結果會從資料來源傳送回閘道，然後再到閘道雲端服務。 閘道雲端服務接著就會使用結果。
 
+### <a name="authentication-to-on-premises-data-sources"></a>對內部部署資料來源的驗證
+
+預存認證是用來從閘道連接到內部部署資料來源。 無論使用者為何，閘道都會使用預存認證來連接。 特定服務可能會有驗證例外狀況，例如 Power BI 中 Analysis Services 的 DirectQuery 和 LiveConnect。
+
+### <a name="azure-active-directory"></a>Azure Active Directory
+
+Microsoft 雲端服務會使用[Azure Active Directory （Azure AD）](../active-directory/fundamentals/active-directory-whatis.md)來驗證使用者。 Azure AD 租使用者包含使用者名稱和安全性群組。 一般來說，您用來登入的電子郵件地址與您帳戶的使用者主體名稱（UPN）相同。
+
+### <a name="what-is-my-upn"></a>我的 UPN 是什麼？
+
+如果您不是網域系統管理員，您可能不知道您的 UPN。 若要尋找您帳戶的 UPN，請從`whoami /upn`您的工作站執行命令。 雖然結果看起來像是電子郵件地址，但結果會是您本機網域帳戶的 UPN。
+
+### <a name="synchronize-an-on-premises-active-directory-with-azure-active-directory"></a>同步處理內部部署 Active Directory 與 Azure Active Directory
+
+內部部署 Active Directory 帳戶和 Azure AD 帳戶的 UPN 必須相同。 因此，請確定每個內部部署 Active Directory 帳戶都符合您的 Azure AD 帳戶。 雲端服務只知道 Azure AD 內的帳戶。 因此，您不需要將帳戶新增至內部部署 Active Directory。 如果 Azure AD 中的帳戶不存在，您就無法使用該帳戶。 
+
+以下是您可以讓內部部署 Active Directory 帳戶與 Azure AD 相符的方式。 
+
+* 手動將帳戶新增至 Azure AD。
+
+  在 Azure 入口網站或 Microsoft 365 系統管理中心內建立帳戶。 請確定帳戶名稱符合內部部署 Active Directory 帳戶的 UPN。
+
+* 使用 Azure Active Directory Connect 工具，將本機帳戶同步處理至您的 Azure AD 租使用者。
+
+  Azure AD Connect 工具會提供目錄同步作業和驗證設定的選項。 這些選項包括密碼雜湊同步處理、傳遞驗證和同盟。 如果您不是租使用者管理員或本機網域系統管理員，請洽詢您的 IT 系統管理員以取得 Azure AD Connect 設定。 Azure AD Connect 可確保您的 Azure AD UPN 符合您的本機 Active Directory UPN。 如果您使用 Analysis Services 即時連線搭配 Power BI 或單一登入（SSO）功能，這種比對會很有説明。
+
+  > [!NOTE]
+  > 使用 Azure AD Connect 工具同步處理帳戶，會在您的 Azure AD 租使用者中建立新的帳戶。
+
 <a name="faq"></a>
 
-## <a name="frequently-asked-questions"></a>常見問題集
+## <a name="faq-and-troubleshooting"></a>常見問題和疑難排解
 
-### <a name="general"></a>一般
+如需詳細資訊，請參閱下列主題：
 
-**問**：我在雲端中的資料來源 (例如 Azure SQL Database) 是否需要閘道？ <br/>
-**答**：否，閘道只會連線至內部部署資料來源。
-
-**問**：閘道必須安裝在與資料來源相同的電腦上嗎？ <br/>
-**答**：否，閘道會使用所提供的連線資訊來連線到資料來源。 在此請將閘道視為用戶端應用程式。 閘道只需要能夠連線到所提供的伺服器名稱。
-
-<a name="why-azure-work-school-account"></a>
-
-**問**：為何必須使用公司或學校帳戶進行登入？ <br/>
-**答**：安裝內部部署資料閘道時，您只能使用公司或學校帳戶。 登入帳戶會儲存在由 Azure Active Directory (Azure AD) 所管理的租用戶中。 Azure AD 帳戶的使用者主體名稱 (UPN) 通常會與電子郵件地址相符。
-
-**問**：我的認證儲存在哪裡？ <br/>
-**答**：您針對資料來源輸入的認證會以加密方式儲存在閘道雲端服務中。 認證會在內部部署資料閘道進行解密。
-
-**問**：網路頻寬是否有任何需求？ <br/>
-**答**：檢查您的網路連線有良好的輸送量。 每個環境都不同，但是傳送的資料量會影響結果。 若要保證內部部署資料來源與 Azure 資料中心之間有一定的輸送量等級，請嘗試 [Azure ExpressRoute](https://azure.microsoft.com/services/expressroute/)。 若要協助測量您的輸送量，請嘗試 Azure 速度測試之類的外部工具。
-
-**問**：從閘道向資料來源執行查詢時的延遲為何？ 最佳的架構為何？ <br/>
-**答**：若要減少網路延遲，請盡可能靠近資料來源安裝閘道。 如果您可以在實際的資料來源上安裝閘道，此鄰近程度就能將所產生的延遲降到最低。 此外，請考慮 Azure 資料中心的鄰近程度。 例如，如果您的服務使用美國西部資料中心，而且在 Azure VM 中裝載了 SQL Server，則您會希望 Azure VM 也位於美國西部。 此鄰近程度能將延遲降到最低，並避免 Azure VM 的輸出費用。
-
-**問**：結果如何傳送回雲端？ <br/>
-**答**：結果會透過 Azure 服務匯流排傳送。
-
-**問**：是否有任何從雲端至閘道的輸入連線？ <br/>
-**答**：否，閘道使用連至 Azure 服務匯流排的輸出連線。
-
-**問**：如果我封鎖輸出連線會如何？ 我需要開啟什麼嗎？ <br/>
-**答**：查看閘道使用的連接埠和主機。
-
-**問**：實際的 Windows 服務名稱為何？ <br/>
-**答**：在工作管理員的 [服務] 索引標籤中，服務名稱為 "PBIEgwService" 或 Power BI Enterprise Gateway Service。 在 [服務] 主控台中，服務名稱為「內部部署資料閘道服務」。 Windows 服務會使用 "NT SERVICE\PBIEgwService" 作為服務 SID (SSID)。
-
-**問**：閘道 Windows 服務可以使用 Azure Active Directory 帳戶執行嗎？ <br/>
-**答**：否，Windows 服務必須要有有效的 Windows 帳戶。
-
-### <a name="disaster-recovery"></a>嚴重損壞修復
-
-**問**：災害復原有哪些選項？ <br/>
-**答**：您可以使用修復金鑰還原或移動閘道。 當您安裝閘道時，請指定修復金鑰。
-
-**問**：修復金鑰有什麼好處？ <br/>
-**答**：修復金鑰可在災害發生後讓您有辦法遷移或復原閘道設定。
-
-## <a name="troubleshooting"></a>疑難排解
-
-本節說明您在設定及使用內部部署資料閘道時可能遇到的一些常見問題。
-
-**問**：我的閘道安裝為何失敗？ <br/>
-**答**：如果目標電腦上的防毒軟體已過期，就可能發生此問題。 您可以更新防毒軟體或停用防毒軟體，但僅限於閘道安裝期間，然後再次啟用該軟體。
-
-**問**：為何在 Azure 中建立閘道資源時看不到我的閘道安裝？ <br/>
-**答**：發生此問題的原因如下：
-
-* 您的閘道安裝已經由 Azure 中的其他閘道資源加以註冊及宣告。 建立閘道資源之後，閘道安裝就不會出現在執行個體清單中。 若要在 Azure 入口網站中檢查您的閘道註冊，請使用 [內部部署資料閘道] 類型，檢閱「所有」 Azure 訂用帳戶的所有 Azure 資源。
-
-* 安裝閘道的人員的 Azure AD 身分識別與登入 Azure 入口網站的人員不同。 請檢查您已使用安裝閘道的相同身分識別進行登入。
-
-[!INCLUDE [existing-gateway-location-changed](../../includes/logic-apps-existing-gateway-location-changed.md)]
-
-**問**：閘道記錄在哪裡？ <br/>
-**答**：請參閱本文稍後的[**記錄**一節](#logs)。
-
-**問**：如何查看有哪些查詢正要傳送至內部部署資料來源？ <br/>
-**答**：您可以啟用查詢追蹤，其中包含要傳送的查詢。 完成疑難排解時，請務必將查詢追蹤變更回原始值。 讓查詢追蹤保持開啟會產生較大的記錄。
-
-您也可以查看資料來源具備的工具是否有追蹤查詢。 例如，您可以使用 SQL Server 和 Analysis Services 的擴充事件或 SQL Profiler。
-
-### <a name="outdated-gateway-version"></a>過期的閘道版本
-
-閘道版本過期時，可能會出現很多問題。 良好的一般做法是確定您有最新版本。 如果有一個月以上未更新閘道，您可以考慮安裝最新版的閘道，並看看是否能重現問題。
-
-### <a name="error-failed-to-add-user-to-group--2147463168-pbiegwservice-performance-log-users"></a>Error:無法將使用者新增至群組。 (-2147463168 PBIEgwService Performance Log Users)
-
-如果您嘗試在不支援的網域控制站上安裝閘道，可能會收到這個錯誤。 請確定您是在非網域控制站的電腦上部署閘道。
-
-<a name="logs"></a>
-
-### <a name="logs"></a>記錄檔
-
-若要協助進行疑難排解，請一律從收集並檢視閘道記錄著手。 您有幾種方式可收集記錄，但是在您安裝閘道之後，最簡單的選項是透過閘道安裝程式的使用者介面。
-
-1. 在電腦上，開啟內部部署資料閘道安裝程式。
-
-1. 在左側功能表上，選取 [診斷]。
-
-1. 在 [閘道記錄] 之下，選取 [匯出記錄]。
-
-   ![從閘道安裝程式匯出記錄](./media/logic-apps-gateway-install/export-logs.png)
-
-以下是您可以找到各種記錄的其他位置：
-
-| 記錄類型 | Location |
-|----------|----------|
-| **安裝程式記錄** | %localappdata%\Temp\On-premises_data_gateway_<*yyyymmdd*>.<*number*>.log |
-| **組態記錄** | C:\Users\<*username*>\AppData\Local\Microsoft\On-premises data gateway\GatewayConfigurator<*yyyymmdd*>.<*number*>.log |
-| **企業閘道服務記錄** | C:\Users\PBIEgwService\AppData\Local\Microsoft\On-premises data gateway\Gateway<*yyyymmdd*>.<*number*>.log |
-|||
-
-**事件記錄**
-
-若要尋找閘道的事件記錄，請遵循下列步驟：
-
-1. 在具有閘道安裝的電腦上，開啟 [事件檢視器]。
-
-1. 展開 [事件檢視器 (本機)] > [應用程式和服務記錄]。
-
-1. 選取 [內部部署資料閘道服務]。
-
-   ![檢視閘道的事件記錄](./media/logic-apps-gateway-install/event-viewer.png)
-
-### <a name="review-slow-query-performance"></a>檢閱緩慢查詢效能
-
-如果您發現透過閘道執行的查詢速度很慢，您可以開啟額外記錄來輸出查詢及其持續時間。 這些記錄可以協助您找出哪些查詢緩慢或長時間執行。 若要調整查詢效能，您可能必須修改您的資料來源，例如，調整 SQL Server 查詢的索引。
-
-若要判斷查詢的持續時間，請遵循下列步驟：
-
-1. 瀏覽至與閘道用戶端相同的位置，您通常可以在此找到該位置：```C:\Program Files\On-premises data gateway```
-
-   否則，若要尋找用戶端位置，請在同一部電腦上開啟 [服務] 主控台，尋找 [內部部署資料閘道服務]，然後檢視 [可執行檔的路徑] 屬性。
-
-1. 依照描述開啟和編輯下列組態檔：
-
-   * **Microsoft.PowerBI.DataMovement.Pipeline.GatewayCore.dll.config**
-
-     在此檔案中，將**EmitQueryTraces**值從**false**變更為**true** ，讓您的閘道可以記錄從閘道傳送到資料來源的查詢：
-
-     ```html
-     <setting name="EmitQueryTraces" serializeAs="String">
-        <value>true</value>
-     </setting>
-     ```
-
-     > [!IMPORTANT]
-     > 開啟 EmitQueryTraces 設定，可能會大幅增加以閘道使用量為基礎的記錄大小。 完成記錄檢閱之後，確定您再次將 EmitQueryTraces 重設為 **false**，而不是將此設定長期保持開啟狀態。
-
-   * **Microsoft.PowerBI.DataMovement.Pipeline.Diagnostics.dll.config**
-
-     若要擁有您的閘道記錄詳細資訊項目，包括顯示持續時間的項目，請執行下列任一步驟，將 **TracingVerbosity** 值從 **4** 變更為 **5**：
-
-     * 在此組態檔中，將 **TracingVerbosity** 值從 **4** 變更為 **5**
-
-       ```html
-       <setting name="TracingVerbosity" serializeAs="String">
-          <value>5</value>
-       </setting>
-       ```
-
-     * 開啟閘道安裝程式，選取 [診斷]，開啟 [額外記錄]，然後選擇 [套用]：
-
-       ![開啟額外記錄](./media/logic-apps-gateway-install/turn-on-additional-logging.png)
-
-     > [!IMPORTANT]
-     > 開啟 TracingVerbosity 設定，可能會大幅增加以閘道使用量為基礎的記錄大小。 完成記錄檢閱之後，請務必在閘道安裝程式中關閉 [額外記錄]或再次於組態檔中將 TracingVerbosity 重設為 **4**，而不是將此設定長期保留開啟狀態。
-
-1. 若要尋找查詢的持續時間，請遵循下列步驟：
-
-   1. [匯出](#logs)並開啟閘道記錄。
-
-   1. 若要尋找查詢，請搜尋活動類型，例如：
-
-      | 活動類型 | 描述 |
-      |---------------|-------------|
-      | MGEQ | 在 ADO.NET 上執行的查詢 |
-      | MGEO | 透過 OLEDB 執行的查詢 |
-      | MGEM | 從混合引擎執行的查詢 |
-      |||
-
-   1. 請注意第二個 GUID，這是要求識別碼。
-
-   1. 繼續搜尋活動類型，直到您找到名為 "FireActivityCompletedSuccessfullyEvent" 並以毫秒計算持續期間的項目。 確認此項目具有相同的要求識別碼，例如：
-
-      ```text
-      DM.EnterpriseGateway Verbose: 0 : 2016-09-26T23:08:56.7940067Z DM.EnterpriseGateway    baf40f21-2eb4-4af1-9c59-0950ef11ec4a    5f99f566-106d-c8ac-c864-c0808c41a606    MGEQ    21f96cc4-7496-bfdd-748c-b4915cb4b70c    B8DFCF12 [DM.Pipeline.Common.TracingTelemetryService] Event: FireActivityCompletedSuccessfullyEvent (duration=5004)
-      ```
-
-      > [!NOTE]
-      > "FireActivityCompletedSuccessfullyEvent" 項目是詳細資訊項目，除非 "TracingVerbosity" 設定位於層級 5 才會記錄。
-
-### <a name="trace-traffic-with-fiddler"></a>使用 Fiddler 追蹤流量
-
-[Fiddler](https://www.telerik.com/fiddler) 是一個 Telerik 公司開發，用來監視 HTTP 流量的免費工具。 您可以從用戶端電腦，使用 Power BI 服務來查閱此流量。 此服務可能會顯示錯誤和其他相關資訊。
+* [內部部署資料閘道常見問題集](https://docs.microsoft.com/data-integration/service-gateway-onprem-faq)
+* [針對內部部署資料閘道進行疑難排解](https://docs.microsoft.com/data-integration/gateway-service-gateway-tshoot)
+* [監視和優化閘道效能](https://docs.microsoft.com/data-integration/gateway/service-gateway-performance)
 
 ## <a name="next-steps"></a>後續步驟
 

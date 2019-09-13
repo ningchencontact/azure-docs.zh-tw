@@ -4,18 +4,333 @@ description: 了解如何管理 Azure Cosmos DB 中的索引編製原則
 author: ThomasWeiss
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 08/29/2019
+ms.date: 09/10/2019
 ms.author: thweiss
-ms.openlocfilehash: a6c1ec6d58939336fb8a982e3ab1b9be20d4e0a5
-ms.sourcegitcommit: ee61ec9b09c8c87e7dfc72ef47175d934e6019cc
+ms.openlocfilehash: ede4266457aaa76bdd9f1141df5c2981bb722326
+ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70172158"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70915918"
 ---
 # <a name="manage-indexing-policies-in-azure-cosmos-db"></a>管理 Azure Cosmos DB 中的索引編製原則
 
-Azure Cosmos DB 會遵循針對每個容器所定義的[索引編製原則](index-policy.md)來為資料編製索引。 新建立的容器所套用的預設索引編製原則，會對任何字串或數字強制執行範圍索引，而對 Point 類型的 GeoJSON 物件強制執行空間索引。 此原則可透過下列方式加以覆寫：
+Azure Cosmos DB 會遵循針對每個容器所定義的[索引編製原則](index-policy.md)來為資料編製索引。 新建立之容器的預設索引編制原則會強制執行任何字串或數位的範圍索引。 此原則可使用您自己的自訂索引編制原則來加以覆寫。
+
+## <a name="indexing-policy-examples"></a>索引編製原則範例
+
+下面有一些以其 JSON 格式顯示的索引編製原則範例，這就是其在 Azure 入口網站上公開的方式。 透過 Azure CLI 或任何 SDK 也可以設定相同的參數。
+
+### <a name="opt-out-policy-to-selectively-exclude-some-property-paths"></a>可選擇性地排除一些屬性路徑的退出原則
+
+```json
+    {
+        "indexingMode": "consistent",
+        "includedPaths": [
+            {
+                "path": "/*"
+            }
+        ],
+        "excludedPaths": [
+            {
+                "path": "/path/to/single/excluded/property/?"
+            },
+            {
+                "path": "/path/to/root/of/multiple/excluded/properties/*"
+            }
+        ]
+    }
+```
+
+此編制索引原則等同于以下的設定，其會```kind```以```dataType```手動方式```precision```將、和設為其預設值。 這些屬性不再需要明確設定，而且您可以完全從索引編制原則中省略它們（如上述範例所示）。
+
+```json
+    {
+        "indexingMode": "consistent",
+        "includedPaths": [
+            {
+                "path": "/*",
+                "indexes": [
+                    {
+                        "kind": "Range",
+                        "dataType": "Number",
+                        "precision": -1
+                    },
+                    {
+                        "kind": "Range",
+                        "dataType": "String",
+                        "precision": -1
+                    }
+                ]
+            }
+        ],
+        "excludedPaths": [
+            {
+                "path": "/path/to/single/excluded/property/?"
+            },
+            {
+                "path": "/path/to/root/of/multiple/excluded/properties/*"
+            }
+        ]
+    }
+```
+
+### <a name="opt-in-policy-to-selectively-include-some-property-paths"></a>可選擇性地納入一些屬性路徑的加入原則
+
+```json
+    {
+        "indexingMode": "consistent",
+        "includedPaths": [
+            {
+                "path": "/path/to/included/property/?"
+            },
+            {
+                "path": "/path/to/root/of/multiple/included/properties/*"
+            }
+        ],
+        "excludedPaths": [
+            {
+                "path": "/*"
+            }
+        ]
+    }
+```
+
+此編制索引原則等同于以下的設定，其會```kind```以```dataType```手動方式```precision```將、和設為其預設值。 這些屬性不再需要明確設定，而且您可以完全從索引編制原則中省略它們（如上述範例所示）。
+
+```json
+    {
+        "indexingMode": "consistent",
+        "includedPaths": [
+            {
+                "path": "/path/to/included/property/?",
+                "indexes": [
+                    {
+                        "kind": "Range",
+                        "dataType": "Number"
+                    },
+                    {
+                        "kind": "Range",
+                        "dataType": "String"
+                    }
+                ]
+            },
+            {
+                "path": "/path/to/root/of/multiple/included/properties/*",
+                "indexes": [
+                    {
+                        "kind": "Range",
+                        "dataType": "Number"
+                    },
+                    {
+                        "kind": "Range",
+                        "dataType": "String"
+                    }
+                ]
+            }
+        ],
+        "excludedPaths": [
+            {
+                "path": "/*"
+            }
+        ]
+    }
+```
+
+> [!NOTE] 
+> 一般會建議您使用**退出**索引編製原則來讓 Azure Cosmos DB 主動地對可能會新增至模型的新屬性編製索引。
+
+### <a name="using-a-spatial-index-on-a-specific-property-path-only"></a>僅對特定屬性路徑使用空間索引
+
+```json
+{
+    "indexingMode": "consistent",
+    "automatic": true,
+    "includedPaths": [
+        {
+            "path": "/*"
+        }
+    ],
+    "excludedPaths": [
+        {
+            "path": "/\"_etag\"/?"
+        }
+    ],
+    "spatialIndexes": [
+        {
+            "path": "/path/to/geojson/property/?",
+            "types": [
+                "Point",
+                "Polygon",
+                "MultiPolygon",
+                "LineString"
+            ]
+        }
+    ]
+}
+```
+
+## <a name="composite-indexing-policy-examples"></a>複合式索引編製原則範例
+
+除了包含或排除個別屬性的路徑以外，您也可以指定複合式索引。 如果您要為多個屬性執行具有 `ORDER BY` 子句的查詢，則必須要有這些屬性的[複合式索引](index-policy.md#composite-indexes)。 此外，對於具有篩選的查詢，以及在不同屬性上具有 ORDER BY 子句的查詢，複合索引將有效能上的好處。
+
+### <a name="composite-index-defined-for-name-asc-age-desc"></a>針對 (name asc, age desc) 定義的複合式索引：
+
+```json
+    {  
+        "automatic":true,
+        "indexingMode":"Consistent",
+        "includedPaths":[  
+            {  
+                "path":"/*"
+            }
+        ],
+        "excludedPaths":[],
+        "compositeIndexes":[  
+            [  
+                {  
+                    "path":"/name",
+                    "order":"ascending"
+                },
+                {  
+                    "path":"/age",
+                    "order":"descending"
+                }
+            ]
+        ]
+    }
+```
+
+查詢 #1 和查詢 #2 需要上述的複合索引（名稱和年齡）：
+
+查詢 1：
+
+```sql
+    SELECT *
+    FROM c
+    ORDER BY c.name ASC, c.age DESC
+```
+
+查詢 2：
+
+```sql
+    SELECT *
+    FROM c
+    ORDER BY c.name DESC, c.age ASC
+```
+
+這個複合索引將受益于查詢 #3 並查詢 #4 並將篩選優化：
+
+查詢 #3：
+
+```sql
+SELECT *
+FROM c
+WHERE c.name = "Tim"
+ORDER BY c.name DESC, c.age ASC
+```
+
+查詢 #4：
+
+```sql
+SELECT *
+FROM c
+WHERE c.name = "Tim" AND c.age > 18
+```
+
+### <a name="composite-index-defined-for-name-asc-age-asc-and-name-asc-age-desc"></a>針對（name ASC，age ASC）和（name ASC，age DESC）定義的複合索引：
+
+您可以在相同的索引編製原則內定義多個不同的複合式索引。
+
+```json
+    {  
+        "automatic":true,
+        "indexingMode":"Consistent",
+        "includedPaths":[  
+            {  
+                "path":"/*"
+            }
+        ],
+        "excludedPaths":[],
+        "compositeIndexes":[  
+            [  
+                {  
+                    "path":"/name",
+                    "order":"ascending"
+                },
+                {  
+                    "path":"/age",
+                    "order":"ascending"
+                }
+            ],
+            [  
+                {  
+                    "path":"/name",
+                    "order":"ascending"
+                },
+                {  
+                    "path":"/age",
+                    "order":"descending"
+                }
+            ]
+        ]
+    }
+```
+
+### <a name="composite-index-defined-for-name-asc-age-asc"></a>針對（name ASC，age ASC）定義的複合索引：
+
+指定順序是選擇性動作。 若未指定，將採用遞增順序。
+
+```json
+{  
+        "automatic":true,
+        "indexingMode":"Consistent",
+        "includedPaths":[  
+            {  
+                "path":"/*"
+            }
+        ],
+        "excludedPaths":[],
+        "compositeIndexes":[  
+            [  
+                {  
+                    "path":"/name",
+                },
+                {  
+                    "path":"/age",
+                }
+            ]
+        ]
+}
+```
+
+### <a name="excluding-all-property-paths-but-keeping-indexing-active"></a>排除所有屬性路徑但讓索引編製保持作用狀態
+
+此原則可用於[存留時間 (TTL) 功能](time-to-live.md)有作用但不需要 (即可使用 Azure Cosmos DB 作為純粹的索引鍵-值存放區) 次要索引的情況。
+
+```json
+    {
+        "indexingMode": "consistent",
+        "includedPaths": [],
+        "excludedPaths": [{
+            "path": "/*"
+        }]
+    }
+```
+
+### <a name="no-indexing"></a>無索引編製
+
+此原則將會關閉索引編制。 如果`indexingMode`設定為`none`，您就無法在容器上設定 TTL。
+
+```json
+    {
+        "indexingMode": "none"
+    }
+```
+
+## <a name="updating-indexing-policy"></a>正在更新索引編制原則
+
+在 Azure Cosmos DB 中，您可以使用下列任何方法來更新索引編制原則：
 
 - 從 Azure 入口網站
 - 使用 Azure CLI
@@ -24,7 +339,7 @@ Azure Cosmos DB 會遵循針對每個容器所定義的[索引編製原則](inde
 [更新索引編製原則](index-policy.md#modifying-the-indexing-policy)將會觸發索引的轉換。 您也可以從 SDK 追蹤此轉換的進度。
 
 > [!NOTE]
-> 作為 SDK 和入口網站升級的一部分，我們會持續改進索引原則，以配合針對新容器推出的新索引配置。 透過新的版面配置，所有基本資料類型的索引都能以全精度 (-1) 來編製成範圍。 因此，索引種類和精確度將不再公開給使用者。 在未來，使用者必須直接將路徑新增至 includedPaths 區段，並忽略 indexKinds 和精確度。 這項變更不會影響效能，您可以繼續使用相同語法來更新索引編製原則。 您可以繼續使用現有文件中的所有範例來更新索引原則。
+> 更新索引編制原則時，寫入 Azure Cosmos DB 將會中斷。 在重新編制索引期間，查詢可能會在索引更新時傳回部分結果。
 
 ## <a name="use-the-azure-portal"></a>使用 Azure 入口網站
 
@@ -224,7 +539,7 @@ const containerResponse = await client.database('database').container('container
 containerResponse.body.indexingPolicy.indexingMode = "consistent";
 ```
 
-新增內含的路徑, 包括空間索引
+新增內含的路徑，包括空間索引
 
 ```javascript
 containerResponse.body.indexingPolicy.includedPaths.push({
@@ -340,246 +655,6 @@ container['indexingPolicy']['compositeIndexes'] = [
 
 ```python
 response = client.ReplaceContainer(containerPath, container)
-```
-
-## <a name="indexing-policy-examples"></a>索引編製原則範例
-
-下面有一些以其 JSON 格式顯示的索引編製原則範例，這就是其在 Azure 入口網站上公開的方式。 透過 Azure CLI 或任何 SDK 也可以設定相同的參數。
-
-### <a name="opt-out-policy-to-selectively-exclude-some-property-paths"></a>可選擇性地排除一些屬性路徑的退出原則
-```
-    {
-        "indexingMode": "consistent",
-        "includedPaths": [
-            {
-                "path": "/*",
-                "indexes": [
-                    {
-                        "kind": "Range",
-                        "dataType": "Number"
-                    },
-                    {
-                        "kind": "Range",
-                        "dataType": "String"
-                    },
-                    {
-                        "kind": "Spatial",
-                        "dataType": "Point"
-                    }
-                ]
-            }
-        ],
-        "excludedPaths": [
-            {
-                "path": "/path/to/single/excluded/property/?"
-            },
-            {
-                "path": "/path/to/root/of/multiple/excluded/properties/*"
-            }
-        ]
-    }
-```
-
-### <a name="opt-in-policy-to-selectively-include-some-property-paths"></a>可選擇性地納入一些屬性路徑的加入原則
-```
-    {
-        "indexingMode": "consistent",
-        "includedPaths": [
-            {
-                "path": "/path/to/included/property/?",
-                "indexes": [
-                    {
-                        "kind": "Range",
-                        "dataType": "Number"
-                    }
-                ]
-            },
-            {
-                "path": "/path/to/root/of/multiple/included/properties/*",
-                "indexes": [
-                    {
-                        "kind": "Range",
-                        "dataType": "Number"
-                    }
-                ]
-            }
-        ],
-        "excludedPaths": [
-            {
-                "path": "/*"
-            }
-        ]
-    }
-```
-
-注意：一般會建議您使用**退出**索引編製原則來讓 Azure Cosmos DB 主動地對可能會新增至模型的新屬性編製索引。
-
-### <a name="using-a-spatial-index-on-a-specific-property-path-only"></a>僅對特定屬性路徑使用空間索引
-```
-    {
-        "indexingMode": "consistent",
-        "includedPaths": [
-            {
-                "path": "/*",
-                "indexes": [
-                    {
-                        "kind": "Range",
-                        "dataType": "Number"
-                    },
-                    {
-                        "kind": "Range",
-                        "dataType": "String"
-                    }
-                ]
-            },
-            {
-                "path": "/path/to/geojson/property/?",
-                "indexes": [
-                    {
-                        "kind": "Spatial",
-                        "dataType": "Point"
-                    }
-                ]
-            }
-        ],
-        "excludedPaths": []
-    }
-```
-
-### <a name="excluding-all-property-paths-but-keeping-indexing-active"></a>排除所有屬性路徑但讓索引編製保持作用狀態
-
-此原則可用於[存留時間 (TTL) 功能](time-to-live.md)有作用但不需要 (即可使用 Azure Cosmos DB 作為純粹的索引鍵-值存放區) 次要索引的情況。
-```
-    {
-        "indexingMode": "consistent",
-        "includedPaths": [],
-        "excludedPaths": [{
-            "path": "/*"
-        }]
-    }
-```
-
-### <a name="no-indexing"></a>無索引編製
-```
-    {
-        "indexingMode": "none"
-    }
-```
-
-## <a name="composite-indexing-policy-examples"></a>複合式索引編製原則範例
-
-除了包含或排除個別屬性的路徑以外，您也可以指定複合式索引。 如果您要為多個屬性執行具有 `ORDER BY` 子句的查詢，則必須要有這些屬性的[複合式索引](index-policy.md#composite-indexes)。
-
-### <a name="composite-index-defined-for-name-asc-age-desc"></a>針對 (name asc, age desc) 定義的複合式索引：
-```
-    {  
-        "automatic":true,
-        "indexingMode":"Consistent",
-        "includedPaths":[  
-            {  
-                "path":"/*"
-            }
-        ],
-        "excludedPaths":[  
-
-        ],
-        "compositeIndexes":[  
-            [  
-                {  
-                    "path":"/name",
-                    "order":"ascending"
-                },
-                {  
-                    "path":"/age",
-                    "order":"descending"
-                }
-            ]
-        ]
-    }
-```
-
-此複合式索引能夠支援下列兩個查詢：
-
-查詢 1：
-```sql
-    SELECT *
-    FROM c
-    ORDER BY name asc, age desc    
-```
-
-查詢 2：
-```sql
-    SELECT *
-    FROM c
-    ORDER BY name desc, age asc
-```
-
-### <a name="composite-index-defined-for-name-asc-age-asc-and-name-asc-age-desc"></a>針對 (name asc, age asc) 和 (name asc, age desc) 定義的複合式索引：
-
-您可以在相同的索引編製原則內定義多個不同的複合式索引。 
-```
-    {  
-        "automatic":true,
-        "indexingMode":"Consistent",
-        "includedPaths":[  
-            {  
-                "path":"/*"
-            }
-        ],
-        "excludedPaths":[  
-
-        ],
-        "compositeIndexes":[  
-            [  
-                {  
-                    "path":"/name",
-                    "order":"ascending"
-                },
-                {  
-                    "path":"/age",
-                    "order":"ascending"
-                }
-            ],
-            [  
-                {  
-                    "path":"/name",
-                    "order":"ascending"
-                },
-                {  
-                    "path":"/age",
-                    "order":"descending"
-                }
-            ]
-        ]
-    }
-```
-
-### <a name="composite-index-defined-for-name-asc-age-asc"></a>針對 (name asc, age asc) 定義的複合式索引：
-
-指定順序是選擇性動作。 若未指定，將採用遞增順序。
-```
-{  
-        "automatic":true,
-        "indexingMode":"Consistent",
-        "includedPaths":[  
-            {  
-                "path":"/*"
-            }
-        ],
-        "excludedPaths":[  
-
-        ],
-        "compositeIndexes":[  
-            [  
-                {  
-                    "path":"/name",
-                },
-                {  
-                    "path":"/age",
-                }
-            ]
-        ]
-}
 ```
 
 ## <a name="next-steps"></a>後續步驟

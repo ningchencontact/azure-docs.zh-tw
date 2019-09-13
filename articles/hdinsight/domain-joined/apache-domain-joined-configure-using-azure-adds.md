@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.topic: conceptual
 ms.custom: seodec18
 ms.date: 04/23/2019
-ms.openlocfilehash: 83e9e1364293601337f854f083bbb279361e29c5
-ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
+ms.openlocfilehash: aa18c4a078edf579e8d9c4c09df99100dfcea148
+ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70810992"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70918319"
 ---
 # <a name="enterprise-security-package-configurations-with-azure-active-directory-domain-services-in-hdinsight"></a>在 HDInsight 中使用 Azure Active Directory Domain Services 的企業安全性套件設定
 
@@ -74,7 +74,7 @@ New-SelfSignedCertificate -Subject contoso100.onmicrosoft.com `
 
 啟用 Azure AD-DS 之後，本機網域名稱服務 (DNS) 伺服器會在 AD 虛擬機器 (VM) 上執行。 將 Azure AD-DS 虛擬網路 (VNET) 設定為使用這些自訂的 DNS 伺服器。 若要找出正確的 IP 位址，請選取 [管理] 類別下的 [屬性]，然後查看 [虛擬網路上的 IP 位址] 下方列出的 IP 位址。
 
-![找出本機 DNS 伺服器的 IP 位址](./media/apache-domain-joined-configure-using-azure-adds/hdinsight-aadds-dns.png)
+![找出本機 DNS 伺服器的 IP 位址](./media/apache-domain-joined-configure-using-azure-adds/hdinsight-aadds-dns1.png)
 
 選取 [設定] 類別下的 [DNS 伺服器]，將 Azure AD-DS VNET 中的 DNS 伺服器設定變更為使用這些自訂的 IP。 接著，按一下 [自訂] 旁的選項按鈕，在文字方塊中輸入第一個 IP 位址，然後按一下 [儲存]。 使用相同的步驟新增其他 IP 位址。
 

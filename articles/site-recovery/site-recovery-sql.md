@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 08/02/2019
 ms.author: sutalasi
-ms.openlocfilehash: 14fbca6dea735ed1ee13fca20f19379cc2c4d0a9
-ms.sourcegitcommit: d060947aae93728169b035fd54beef044dbe9480
+ms.openlocfilehash: 79428520eed95e6e79f29e1676e2711e6ee24087
+ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/02/2019
-ms.locfileid: "68742330"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70934842"
 ---
 # <a name="set-up-disaster-recovery-for-sql-server"></a>設定 SQL Server 的災害復原
 
@@ -39,7 +39,7 @@ ms.locfileid: "68742330"
 在 Azure IaaS VM 或內部部署環境中 SQL Server。| [資料庫鏡像 (高效能模式)](https://docs.microsoft.com/sql/database-engine/database-mirroring/database-mirroring-sql-server?view=sql-server-2017) | 強制服務所花費的時間, 使用鏡像伺服器做為暖待命伺服器。 | 複寫不是同步進行。 鏡像資料庫可能會稍微落後主體資料庫。 延遲通常很小。 但如果主體或鏡像伺服器的系統負載過重, 可能會變得很大。<br/><br/>記錄傳送可以是資料庫鏡像的補充。 這是非同步資料庫鏡像的理想替代方法。
 SQL 做為 Azure 上的平臺即服務 (PaaS)。<br/><br/>此部署類型包含彈性集區和 Azure SQL Database 伺服器。 | 主動式異地複寫 | 觸發容錯移轉後的30秒。<br/><br/>針對其中一個次要資料庫啟用容錯移轉時, 所有其他的次要複本都會自動連結至新的主要複本。 | 五秒的 RPO。<br/><br/>主動式異地複寫使用 SQL Server 的 Always On 技術。 它會使用快照集隔離, 以非同步方式將主資料庫上認可的交易複寫到次要資料庫。<br/><br/>次要資料保證永遠不會有部分交易。
 使用 Azure 上的主動式異地複寫設定的 SQL 做為 PaaS。<br/><br/>此部署類型包含 SQL Database 受控實例、彈性集區和 SQL Database 伺服器。 | 自動容錯移轉群組 | 一小時的 RTO。 | 五秒的 RPO。<br/><br/>自動容錯移轉群組在主動式異地複寫之上提供群組語義。 但使用相同的非同步複寫機制。
-在 Azure IaaS VM 或內部部署環境中 SQL Server。| 使用 Azure Site Recovery 進行複寫 | RTO 通常少於15分鐘。 若要深入瞭解, 請參閱[Site Recovery 所提供的 RTO SLA](https://azure.microsoft.com/support/legal/sla/site-recovery/v1_2/)。 | 應用程式一致性的一小時, 以及5分鐘的損毀一致性。 如果您要尋找較低的 RPO, 請使用其他 BCDR 技術。
+在 Azure IaaS VM 或內部部署環境中 SQL Server。| 使用 Azure Site Recovery 進行複寫 | RTO 通常少於15分鐘。 若要深入瞭解, 請參閱[Site Recovery 所提供的 RTO SLA](https://azure.microsoft.com/support/legal/sla/site-recovery/v1_2/)。 | 應用程式一致性的一小時, 以及5分鐘的損毀一致性。 如果您要尋找較低的 RPO，請使用其他 BCDR 技術。
 
 > [!NOTE]
 > 當您使用 Site Recovery 來協助保護 SQL 工作負載時, 有幾個重要的考慮:
@@ -109,9 +109,9 @@ BCDR 技術 Always On、主動式異地複寫和自動容錯移轉群組具有�
 
 1. 使接聽程式上線。
 
-    ![顯示伺服器名稱與狀態之視窗的螢幕擷取畫面 (標示為 Content_AG)](./media/site-recovery-sql/bring-listener-online.png)
+    ![顯示伺服器名稱與狀態之視窗的螢幕擷取畫面（標示為 Content_AG）](./media/site-recovery-sql/bring-listener-online.png)
 
-1. 建立負載平衡器。 對於每個可用性群組接聽程式, 請從前端 IP 集區建立一個 IP 位址。 此外, 將 SQL Server VM 新增至後端集區。
+1. 請確定容錯移轉網路中的負載平衡器具有一個 IP 位址、來自對應到每個可用性群組接聽程式的前端 IP 位址池，以及後端集區中的 SQL Server VM。
 
      ![標題為「SQL-AlwaysOn-l i-前端 IP 集區」之視窗的螢幕擷取畫面](./media/site-recovery-sql/create-load-balancer1.png)
 
@@ -149,7 +149,7 @@ Site Recovery 不會在複寫至 Azure 區域時提供來賓叢集支援。 SQL 
 
 針對 SQL Server 標準叢集, 在未規劃的容錯移轉之後進行容錯回復需要 SQL Server 備份和還原。 這項作業是透過重新建立鏡像, 從鏡像實例到原始叢集進行。
 
-## <a name="frequently-asked-questions"></a>常見問答集
+## <a name="frequently-asked-questions"></a>常見問題集
 
 ### <a name="how-does-sql-server-get-licensed-when-used-with-site-recovery"></a>搭配 Site Recovery 使用時, SQL Server 如何取得授權？
 

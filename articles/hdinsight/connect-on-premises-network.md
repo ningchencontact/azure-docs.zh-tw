@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 04/04/2019
-ms.openlocfilehash: ced0655d2e8ff012b3043dd123a8483674b4c472
-ms.sourcegitcommit: 9dc7517db9c5817a3acd52d789547f2e3efff848
+ms.openlocfilehash: 1ed722ad68280226387b98b3fefb77647f5cd825
+ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68404537"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70918558"
 ---
 # <a name="connect-hdinsight-to-your-on-premises-network"></a>將 HDInsight 連線至內部部署網路
 
@@ -45,8 +45,8 @@ ms.locfileid: "68404537"
 ## <a name="prerequisites"></a>必要條件
 
 * SSH 用戶端。 如需詳細資訊，請參閱[使用 SSH 連線至 HDInsight (Apache Hadoop)](./hdinsight-hadoop-linux-use-ssh-unix.md)。
-* 如果使用 PowerShell, 您將需要[AZ 模組](https://docs.microsoft.com/powershell/azure/overview)。
-* 如果您想要使用 Azure CLI, 但尚未安裝, 請參閱[安裝 Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli)。
+* 如果使用 PowerShell，您將需要[AZ 模組](https://docs.microsoft.com/powershell/azure/overview)。
+* 如果您想要使用 Azure CLI，但尚未安裝，請參閱[安裝 Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli)。
 
 ## <a name="create-virtual-network-configuration"></a>建立虛擬網路設定
 
@@ -65,9 +65,9 @@ ms.locfileid: "68404537"
 
 1. 登入 [Azure 入口網站](https://portal.azure.com)。
   
-2. 在左側功能表中, 流覽至 [ **+ 建立資源** > ] [**計算** > ] [**Ubuntu Server 18.04 LTS**]。
+2. 在左側功能表中，流覽至 [ **+ 建立資源** > ] [**計算** > ] [**Ubuntu Server 18.04 LTS**]。
 
-    ![建立 Ubuntu 虛擬機器](./media/connect-on-premises-network/create-ubuntu-vm.png)
+    ![建立 Ubuntu 虛擬機器](./media/connect-on-premises-network/create-ubuntu-virtual-machine.png)
 
 3. 在 [基本] 索引標籤中，輸入下列資訊：  
   
@@ -82,9 +82,9 @@ ms.locfileid: "68404537"
     |驗證類型 | __密碼__或 __SSH 公開金鑰__：SSH 帳戶的驗證方法。 我們建議使用公開金鑰，因為它們較為安全。 這個範例會使用**Password**。  如需詳細資訊，請參閱[建立及使用適用於 Linux VM 的 SSH 金鑰](../virtual-machines/linux/mac-create-ssh-keys.md)文件。|
     |使用者名稱 |輸入虛擬機器的系統管理員使用者名稱。  此範例使用 **sshuser**。|
     |密碼或 SSH 公開金鑰 | 可用的欄位取決於您選擇的**驗證類型**而定。  輸入適當的值。|
-    |公用輸入連接埠|選取 [允許選取的連接埠]。 然後從 [**選取輸入埠**] 下拉式清單中選取 [ **SSH (22)** ]。|
+    |公用輸入連接埠|選取 [允許選取的連接埠]。 然後從 [**選取輸入埠**] 下拉式清單中選取 [ **SSH （22）** ]。|
 
-    ![虛擬機器基本設定](./media/connect-on-premises-network/vm-basics.png)
+    ![虛擬機器基本設定](./media/connect-on-premises-network/virtual-machine-basics.png)
 
     將其他項目保留在預設值，然後選取 [網路] 索引標籤。
 
@@ -103,13 +103,13 @@ ms.locfileid: "68404537"
 5. 在 [檢閱 + 建立] 索引標籤中，選取 [建立] 以建立虛擬機器。
 
 ### <a name="review-ip-addresses"></a>檢閱 IP 位址
-虛擬機器建立好之後，您會收到**部署成功**通知，內有 [移至資源] 按鈕。  選取 [移至資源] ，以移至新的虛擬機器。  在新虛擬機器的預設檢視中，遵循下列步驟來找出相關聯的 IP 位址：
+虛擬機器建立好之後，您會收到**部署成功**通知，內有 [移至資源] 按鈕。  選取 [移至資源]，以移至新的虛擬機器。  在新虛擬機器的預設檢視中，遵循下列步驟來找出相關聯的 IP 位址：
 
 1. 從 [設定] 中，選取 [屬性]。
 
 2. 請記下 **PUBLIC IP ADDRESS/DNS NAME LABEL** 和 **PRIVATE IP ADDRESS** 的值，以供稍後使用。
 
-   ![公用和私人 IP 位址](./media/connect-on-premises-network/vm-ip-addresses.png)
+   ![公用和私人 IP 位址](./media/connect-on-premises-network/virtual-machine-ip-addresses.png)
 
 ### <a name="install-and-configure-bind-dns-software"></a>安裝並設定 Bind (DNS 軟體)
 
@@ -126,7 +126,7 @@ ms.locfileid: "68404537"
     sudo apt-get install bind9 -y
     ```
 
-3. 若要將系結設定為將名稱解析要求轉寄到內部部署 DNS 伺服器, 請使用下列文字做為`/etc/bind/named.conf.options`檔案的內容:
+3. 若要將系結設定為將名稱解析要求轉寄到內部部署 DNS 伺服器，請使用下列文字做為`/etc/bind/named.conf.options`檔案的內容：
 
         acl goodclients {
             10.0.0.0/16; # Replace with the IP address range of the virtual network
@@ -231,7 +231,7 @@ ms.locfileid: "68404537"
 
 若要將虛擬網路設定為使用自訂的 DNS 伺服器，而不使用 Azure 遞迴解析程式，請從 [Azure 入口網站](https://portal.azure.com)使用下列步驟：
 
-1. 從左側功能表中, 流覽至 [**所有服務** > ] [**網路** > ] [**虛擬網路**]。
+1. 從左側功能表中，流覽至 [**所有服務** > ] [**網路** > ] [**虛擬網路**]。
 
 2. 從清單中選取虛擬網路，將會為您的虛擬網路開啟預設檢視。  
 
@@ -268,7 +268,7 @@ nslookup dnsproxy.icb0d0thtw0ebifqt0g1jycdxd.ex.internal.cloudapp.net 196.168.0.
 
 這個範例會使用 196.168.0.4 的內部部署 DNS 伺服器來解析自訂 DNS 伺服器的名稱。 將 IP 位址取代為內部部署 DNS 伺服器的 IP 位址。 將 `dnsproxy` 位址取代為自訂 DNS 伺服器的完整網域名稱。
 
-## <a name="optional-control-network-traffic"></a>選用：控制網路流量
+## <a name="optional-control-network-traffic"></a>選擇性：控制網路流量
 
 您可以使用網路安全性群組 (NSG) 或使用者定義路由 (UDR) 來控制網路流量。 NSG 可讓您篩選輸入和輸出流量，並允許或拒絕流量。 UDR 可讓您控制虛擬網路、網際網路及內部部署網路的資源之間流量流動的方式。
 
@@ -334,7 +334,7 @@ HDInsight 上大部分的文件都假設您透過網際網路擁有叢集存取�
 
 ## <a name="next-steps"></a>後續步驟
 
-* 如需在虛擬網路中使用 HDInsight 的詳細資訊, 請參閱[規劃 Azure HDInsight 叢集的虛擬網路部署](./hdinsight-plan-virtual-network-deployment.md)。
+* 如需在虛擬網路中使用 HDInsight 的詳細資訊，請參閱[規劃 Azure HDInsight 叢集的虛擬網路部署](./hdinsight-plan-virtual-network-deployment.md)。
 
 * 如需 Azure 虛擬網路的詳細資訊，請參閱 [Azure 虛擬網路概觀](../virtual-network/virtual-networks-overview.md)。
 

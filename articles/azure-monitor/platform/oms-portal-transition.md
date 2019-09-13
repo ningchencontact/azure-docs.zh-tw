@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/22/2019
 ms.author: bwren
-ms.openlocfilehash: 126d96cbd85f4e91de5a6393be02a15240b51ade
-ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
+ms.openlocfilehash: e8fd49781301406e0c35e1de57cea3040167c6c3
+ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/26/2019
-ms.locfileid: "70035592"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70915873"
 ---
 # <a name="oms-portal-moving-to-azure"></a>OMS 入口網站移至 Azure
 
@@ -50,7 +50,7 @@ Azure 入口網站為所有 Azure 服務的中樞，提供豐富的管理體驗�
 如需有關如何轉換到 Azure 入口網站的資訊，請參閱 [Log Analytics 使用者從 OMS 入口網站轉換至 Azure 入口網站的常見問題](oms-portal-faq.md)。 
 
 ## <a name="user-access-and-role-migration"></a>使用者存取權和角色的移轉
-Azure 入口網站存取管理功能，比在 OMS 入口網站中的存取管理功能更為豐富而強大。 如需 Log Analytics 中存取管理的詳細資訊, 請參閱 [設計您的 Azure 監視器記錄工作區] deployment.md)。
+Azure 入口網站存取管理功能，比在 OMS 入口網站中的存取管理功能更為豐富而強大。 如需 Log Analytics 中存取管理的詳細資訊，請參閱[設計您的 Azure 監視器記錄工作區](design-logs-deployment.md)。
 
 > [!NOTE]
 > 本文的舊版指出權限會自動從 OMS 入口網站轉換至 Azure 入口網站。 我們已捨棄此自動轉換的計劃，您必須自行執行轉換。
@@ -76,7 +76,7 @@ Azure 入口網站存取管理功能，比在 OMS 入口網站中的存取管理
 
 ### <a name="alert-extension"></a>警示擴充功能  
 
-警示已[延伸至 Azure 入口網站](alerts-extend.md)現有的警示會繼續列在 OMS 入口網站中, 但您只能在 Azure 入口網站中管理它們。 若您藉由使用 Log Analytics 警示 REST API 或 Log Analytics 警示資源範本以程式設計的方式存取警示，則必須使用動作群組，而非您 API 呼叫、Azure Resource Manager 範本及 PowerShell 命令中的動作。
+警示已[延伸至 Azure 入口網站](alerts-extend.md)現有的警示會繼續列在 OMS 入口網站中，但您只能在 Azure 入口網站中管理它們。 若您藉由使用 Log Analytics 警示 REST API 或 Log Analytics 警示資源範本以程式設計的方式存取警示，則必須使用動作群組，而非您 API 呼叫、Azure Resource Manager 範本及 PowerShell 命令中的動作。
 
 ### <a name="alert-management-solution"></a>警示管理解決方案
 如先前公告的變更，Azure 入口網站將會繼續提供及完整地支援[警示管理解決方案](alert-management-solution.md)。 您可以繼續從 Azure Marketplace 安裝該解決方案。
@@ -91,7 +91,7 @@ OMS 行動裝置應用程式將會連同 OMS 入口網站一併終止。 您不�
 ## <a name="application-insights-connector-and-solution"></a>Application Insights Connector 與解決方案
 [Application Insights Connector](app-insights-connector.md) 可用來將 Application Insights 資料包含到 Log Analytics 工作區中。 若要啟用整個基礎結構和應用程式資料的可見度，則需要複製此資料。 由於 Application Insights 在 2019 年 3 月延伸資料保留支援，且能夠執行[跨資源查詢](../log-query/cross-workspace-query.md)，而且能夠[檢視多個 Azure 監視器 Application Insights 資源](../log-query/unify-app-resource-data.md)，因此不需要從您的 Application Insights 資源複製資料並傳送到 Log Analytics。 此外，連接器會將應用程式屬性的子集傳送到 Log Analytics，而跨資源查詢提供您更多彈性。  
 
-因此, 在2019年3月30日, Application Insights Connector 已被取代, 並已從 Azure Marketplace 和 OMS 入口網站淘汰中移除。 現有的連線將繼續運作，直到 2019 年 6 月 30 日為止。 隨著 OMS 入口網站被淘汰，將無法從入口網站設定及移除現有連線。 於 2019 年 1 月提供的 REST API 將會支援此作業，通知將會張貼在 [Azure 更新](https://azure.microsoft.com/updates/)上。 
+因此，在2019年3月30日，Application Insights Connector 已被取代，並已從 Azure Marketplace 和 OMS 入口網站淘汰中移除。 現有的連線將繼續運作，直到 2019 年 6 月 30 日為止。 隨著 OMS 入口網站被淘汰，將無法從入口網站設定及移除現有連線。 於 2019 年 1 月提供的 REST API 將會支援此作業，通知將會張貼在 [Azure 更新](https://azure.microsoft.com/updates/)上。 
 
 ## <a name="azure-network-security-group-analytics"></a>Azure 網路安全性群組分析
 [Azure 網路安全性群組分析解決方案](../insights/azure-networking-analytics.md#azure-network-security-group-analytics-solution-in-azure-monitor)將由最近推出的[流量分析](https://azure.microsoft.com/blog/traffic-analytics-in-preview/)所取代，讓您清楚掌握雲端網路上使用者和應用程式的活動。 流量分析可協助您稽核貴組織的網路活動、保護應用程式和資料、將工作負載效能最佳化並保持符合規範。 

@@ -10,14 +10,14 @@ ms.subservice: text-analytics
 ms.topic: article
 ms.date: 07/29/2019
 ms.author: raymondl
-ms.openlocfilehash: 1d94cff3eb3299692fc4172f5bb5211532ef1002
-ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
+ms.openlocfilehash: 2d90fe4d40c51b21deea23675d6b51b972429237
+ms.sourcegitcommit: 88ae4396fec7ea56011f896a7c7c79af867c90a1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68697830"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70390247"
 ---
-# <a name="example-how-to-extract-key-phrases-using-text-analytics"></a>範例:如何使用文字分析來擷取關鍵片語
+# <a name="example-how-to-extract-key-phrases-using-text-analytics"></a>範例：如何使用文字分析來擷取關鍵片語
 
 [關鍵片語擷取 API](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c6) \(英文\) 會評估非結構化的文字，並針對每份 JSON 文件，傳回關鍵片語的清單。
 
@@ -34,7 +34,7 @@ ms.locfileid: "68697830"
 
 您必須具有此格式的 JSON 文件：識別碼、文字、語言
 
-檔案大小必須是5120或每份檔較少的字元, 而且每個集合最多可以有1000個專案 (識別碼)。 集合會在要求本文中提交。 下列範例是您可能會針對關鍵片語擷取所提交內容的說明。
+檔案大小必須是5120或每份檔較少的字元，而且每個集合最多可以有1000個專案（識別碼）。 集合會在要求本文中提交。 下列範例是您可能會針對關鍵片語擷取所提交內容的說明。
 
 ```json
     {
@@ -70,11 +70,11 @@ ms.locfileid: "68697830"
 
 ## <a name="step-1-structure-the-request"></a>步驟 1:建立要求結構
 
-如需要求定義的詳細資訊, 請參閱[如何呼叫文字分析 API](text-analytics-how-to-call-api.md)。 為了方便起見，我們將重申下列各點：
+如需要求定義的詳細資訊，請參閱[如何呼叫文字分析 API](text-analytics-how-to-call-api.md)。 為了方便起見，我們將重申下列各點：
 
 + 建立一個 **POST** 要求。 檢閱適用於此要求的 API 文件：[關鍵字組 API](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c6)。
 
-+ 使用 Azure 上的文字分析資源或具現化的[文字分析容器](text-analytics-how-to-install-containers.md), 設定關鍵字組解壓縮的 HTTP 端點。 它必須包括 `/keyPhrases` 資源：`https://westus.api.cognitive.microsoft.com/text/analytics/v2.1/keyPhrases`。
++ 使用 Azure 上的文字分析資源或具現化的[文字分析容器](text-analytics-how-to-install-containers.md)，設定關鍵字組解壓縮的 HTTP 端點。 您必須在`/text/analytics/v2.1/keyPhrases` URL 中包含。 例如： `https://<your-custom-subdomain>.api.cognitiveservices.azure.com/text/analytics/v2.1/keyPhrases` 。
 
 + 設定要求標頭以包含文字分析作業的[存取金鑰](../../cognitive-services-apis-create-account.md#get-the-keys-for-your-resource)。
 
@@ -85,7 +85,7 @@ ms.locfileid: "68697830"
 
 ## <a name="step-2-post-the-request"></a>步驟 2：張貼要求
 
-分析會在接收要求時執行。 如需每分鐘或每秒可傳送之要求的大小和數目的詳細資訊, 請參閱總覽中的[資料限制](../overview.md#data-limits)一節。
+分析會在接收要求時執行。 如需每分鐘或每秒可傳送之要求的大小和數目的詳細資訊，請參閱總覽中的[資料限制](../overview.md#data-limits)一節。
 
 請記得，服務是無狀態的。 您的帳戶中並不會儲存任何資料。 結果會在回應中立即傳回。
 
@@ -146,16 +146,16 @@ ms.locfileid: "68697830"
     }
 ```
 
-如先前所述, 分析器會尋找並捨棄不必要的單字, 而且會保留看似句子主旨或物件的單一詞彙或片語。
+如先前所述，分析器會尋找並捨棄不必要的單字，而且會保留看似句子主旨或物件的單一詞彙或片語。
 
 ## <a name="summary"></a>總結
 
-在本文中, 您已瞭解使用認知服務中的文字分析來進行關鍵字組解壓縮的概念和工作流程。 摘要說明：
+在本文中，您已瞭解使用認知服務中的文字分析來進行關鍵字組解壓縮的概念和工作流程。 摘要說明：
 
 + [關鍵片語擷取 API](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c6) \(英文\) 僅針對特定語言提供。
 + 要求本文中的 JSON 文件包含識別碼、文字和語言代碼。
 + 使用對您訂用帳戶有效的個人化[存取金鑰和端點](../../cognitive-services-apis-create-account.md#get-the-keys-for-your-resource)，將要求 POST 到 `/keyphrases` 端點。
-+ 回應輸出 (由每個檔識別碼的關鍵字和片語組成) 可以串流處理到任何可接受 JSON 的應用程式, 包括 Microsoft Office Excel 和 Power BI 等。
++ 回應輸出（由每個檔識別碼的關鍵字和片語組成）可以串流處理到任何可接受 JSON 的應用程式，包括 Microsoft Office Excel 和 Power BI 等。
 
 ## <a name="see-also"></a>另請參閱
 

@@ -9,12 +9,12 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: article
 ms.date: 12/13/2018
 ms.author: gwallace
-ms.openlocfilehash: 19aa0877c7c37083a6206e094aced40542d0ef72
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: c4028ff4fef5472ba2a964f70db6d4fe11eeaba6
+ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70092674"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70918807"
 ---
 # <a name="use-linux-diagnostic-extension-to-monitor-metrics-and-logs"></a>使用 Linux 診斷擴充功能監視計量與記錄
 
@@ -59,10 +59,10 @@ Linux 診斷擴充功能可協助使用者監視在 Microsoft Azure 上執行的
 
 ### <a name="sample-installation"></a>範例安裝
 
-在前三行中填入正確參數，然後以根使用者身分執行此指令碼：
+在執行之前，為第一節中的變數填入正確的值：
 
 ```bash
-# Set your Azure VM diagnostic parameters correctly below
+# Set your Azure VM diagnostic variables correctly below
 my_resource_group=<your_azure_resource_group_name_containing_your_azure_linux_vm>
 my_linux_vm=<your_azure_linux_vm_name>
 my_diagnostic_storage_account=<your_azure_storage_account_for_storing_vm_diagnostic_data>
@@ -135,7 +135,7 @@ storageAccountSasToken | Blob 與資料表服務 (`ss='bt'`) 的 [帳戶 SAS 權
 mdsdHttpProxy | (選擇性) 啟用擴充功能以連線所指定儲存體帳戶和端點時所需的 HTTP proxy 資訊。
 sinksConfig | (選擇性) 可將計量與事件傳遞至的替代目的地詳細資料。 以下各節包含擴充功能所支援每個資料接收的特定詳細資料。
 
-若要取得 Resource Manager 範本內的 SAS 權杖, 請使用**listAccountSas**函數。 如需範例範本, 請參閱[List function 範例](../../azure-resource-manager/resource-group-template-functions-resource.md#list-example)。
+若要取得 Resource Manager 範本內的 SAS 權杖，請使用**listAccountSas**函數。 如需範例範本，請參閱[List function 範例](../../azure-resource-manager/resource-group-template-functions-resource.md#list-example)。
 
 您可以輕鬆地透過 Azure 入口網站建構所需的 SAS 權杖。
 

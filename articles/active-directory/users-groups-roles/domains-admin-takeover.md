@@ -15,12 +15,12 @@ ms.author: curtand
 ms.reviewer: elkuzmen
 ms.custom: it-pro;seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a756f0d9fe3669ab9d0f2b4576a35be5d2112a87
-ms.sourcegitcommit: 23389df08a9f4cab1f3bb0f474c0e5ba31923f12
+ms.openlocfilehash: c05e1dc720f49eb190ccdbe1826a1a347fba7fa1
+ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70872206"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70914767"
 ---
 # <a name="take-over-an-unmanaged-directory-as-administrator-in-azure-active-directory"></a>如何以系統管理員身分接管 Azure Active Directory 中非受控目錄
 
@@ -43,7 +43,7 @@ ms.locfileid: "70872206"
 
 3. 在來自 Power BI 的確認電子郵件中，選取 [是，這是我]。
 
-4. 使用 Power BI 使用者帳戶登入[Microsoft 365 系統管理中心](https://admin.microsoft.com)。 您會收到指導您**成為管理員**的訊息，這是已經在非受控租用戶中驗證之網域名稱的管理員。 請選取 [是，我想要成為管理員]。
+4. 使用 Power BI 使用者帳戶登入[Microsoft 365 系統管理中心](https://portal.office.com/admintakeover)。 您會收到指導您**成為管理員**的訊息，這是已經在非受控租用戶中驗證之網域名稱的管理員。 請選取 [是，我想要成為管理員]。
   
    ![[成為管理員] 的第一個螢幕擷取畫面](./media/domains-admin-takeover/become-admin-first.png)
   

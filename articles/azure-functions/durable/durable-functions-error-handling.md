@@ -9,20 +9,20 @@ ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 7b357189a9ce67f27952985b78dd3134517ffba5
-ms.sourcegitcommit: 97605f3e7ff9b6f74e81f327edd19aefe79135d2
+ms.openlocfilehash: 5a3cfb78fe97b52abb1406dff64132fc1b3fb985
+ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70734312"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70933418"
 ---
 # <a name="handling-errors-in-durable-functions-azure-functions"></a>在 Durable Functions (Azure Functions) 中處理錯誤
 
-Durable Function 協調流程在程式碼中實作，而且可以使用程式設計語言的錯誤處理功能。 記住這一點之後，您不需要瞭解在協調流程中納入錯誤處理和補償的任何新概念。 不過，有一些行為值得注意。
+長期函式協調流程會在程式碼中執行，而且可以使用程式設計語言的內建錯誤處理功能。 在協調流程中加入錯誤處理和補償，並不需要學習任何新的概念。 不過，有一些行為值得注意。
 
 ## <a name="errors-in-activity-functions"></a>活動函式中的錯誤
 
-活動函式中擲回的任何例外狀況會封送處理回到協調器函式，並以 `FunctionFailedException` 擲回。 您可以在協調器函式中撰寫符合需求的錯誤處理和補償程式碼。
+在活動函式中擲回的任何例外狀況會封送處理回到協調器函式`FunctionFailedException`，並以的形式擲回。 您可以在協調器函式中撰寫符合需求的錯誤處理和補償程式碼。
 
 例如，假設有下列協調器函式會從一個帳戶轉帳到另一個帳戶：
 
@@ -139,7 +139,7 @@ module.exports = df.orchestrator(function*(context) {
 });
 ```
 
-如果對目的地帳戶呼叫 **CreditAccount** 函式失敗，協調器函式會將款項匯回到來源帳戶，以彌補此情況。
+如果第一個**CreditAccount**函式呼叫失敗，協調器函式會藉由將資金貸回來源帳戶來補償。
 
 ## <a name="automatic-retry-on-failure"></a>失敗時自動重試
 
@@ -192,18 +192,18 @@ module.exports = df.orchestrator(function*(context) {
 
 `CallActivityWithRetryAsync` (.NET) 或 `callActivityWithRetry` (JavaScript) API 會接受 `RetryOptions` 參數。 子協調流程呼叫如果使用 `CallSubOrchestratorWithRetryAsync` (.NET) 或 `callSubOrchestratorWithRetry` (JavaScript) API，便可使用這些相同的重試原則。
 
-自訂自動重試原則有幾個選項。 其中包括：
+有數個選項可自訂自動重試原則：
 
 * **重試次數上限**：重試嘗試的次數上限。
 * **第一次重試間隔**：第一次重試嘗試之前等候的時間長度。
 * **輪詢係數**：用來決定輪詢增加速率的係數。 預設值為 1。
 * **重試間隔上限**：重試嘗試之間等候的時間長度上限。
 * **重試逾時**：花費在重試的時間長度上限。 預設行為是無限期地重試。
-* **控制代碼**：您可以指定使用者定義的回呼，以決定是否應該重試函式呼叫。
+* **控制代碼**：您可以指定使用者定義的回呼，以決定是否應該重試函數。
 
 ## <a name="function-timeouts"></a>函式逾時
 
-如果協調器函式內的函式呼叫太久才會完成，您可以放棄此函式呼叫。 目前，適當的做法是使用 `context.CreateTimer` (.NET) 或 `context.df.createTimer` (JavaScript) 搭配 `Task.WhenAny` (.NET) 或 `context.df.Task.any` (JavaScript) 來建立[持久性計時器](durable-functions-timers.md)，如下列範例所示：
+如果協調器函式中的函式呼叫花費太多時間來完成，您可能會想要放棄它。 目前，適當的做法是使用 `context.CreateTimer` (.NET) 或 `context.df.createTimer` (JavaScript) 搭配 `Task.WhenAny` (.NET) 或 `context.df.Task.any` (JavaScript) 來建立[持久性計時器](durable-functions-timers.md)，如下列範例所示：
 
 ### <a name="precompiled-c"></a>先行編譯 C#
 
@@ -296,6 +296,9 @@ module.exports = df.orchestrator(function*(context) {
 如果協調器函式失敗並傳回未處理的例外狀況，例外狀況的詳細資料會記錄下來，而在執行個體會以 `Failed` 狀態結束。
 
 ## <a name="next-steps"></a>後續步驟
+
+> [!div class="nextstepaction"]
+> [瞭解永久性協調流程](durable-functions-eternal-orchestrations.md)
 
 > [!div class="nextstepaction"]
 > [了解如何診斷問題](durable-functions-diagnostics.md)

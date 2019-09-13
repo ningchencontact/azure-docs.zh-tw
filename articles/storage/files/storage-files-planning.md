@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/25/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 4dfcde96957bb8fce3731e38eee62554795d795f
-ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
+ms.openlocfilehash: 30842c787e2009b4919fef916f3c5e1f73a79bf2
+ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70844888"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70918824"
 ---
 # <a name="planning-for-an-azure-files-deployment"></a>規劃 Azure 檔案服務部署
 
@@ -211,13 +211,16 @@ GRS 會將您的資料複寫到次要區域中的另一個資料中心，但如�
 |澳大利亞東部 |LRS     |否    |是|
 |澳大利亞東南部|LRS     |否    |尚未提供|
 |印度中部  |LRS     |否    |尚未提供|
+|East US        |LRS     |否    |尚未提供|
 |法國中部 |LRS、ZRS|否    |LRS-是，ZRS-尚未|
 |法國南部   |LRS     |否    |是|
 |印度南部    |LRS     |否    |尚未提供|
 |東南亞 |LRS、ZRS|否    |是|
 |美國中西部|LRS     |否    |尚未提供|
 |西歐    |LRS、ZRS|否    |是|
+|美國西部        |LRS     |否    |尚未提供|
 |美國西部 2      |LRS、ZRS|否    |是|
+
 
 \* 對於沒有入口網站支援的區域，您仍然可以使用 PowerShell 或 Azure 命令列介面（CLI）來建立大於5個 TiB 的共用。 或者，透過入口網站建立新的共用，而不指定配額。 這會建立預設大小為 100 TiB 的共用，稍後可透過 PowerShell 或 Azure CLI 進行更新。
 

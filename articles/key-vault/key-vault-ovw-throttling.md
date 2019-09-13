@@ -1,22 +1,22 @@
 ---
-title: Azure Key Vault 節流指導方針
+title: Azure Key Vault 節流指南
 description: Key Vault 節流措施會限制並行呼叫數目，以防止過度使用資源。
 services: key-vault
 author: msmbaldwin
-manager: barbkess
+manager: rkarlin
 tags: ''
 ms.service: key-vault
 ms.topic: conceptual
 ms.date: 05/10/2018
 ms.author: mbaldwin
-ms.openlocfilehash: 06b96ac6ea0202b74638b9331d754c0e0cc28ad0
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f10f40551701cafd94692afc0916972b1fd73aff
+ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64695235"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70883040"
 ---
-# <a name="azure-key-vault-throttling-guidance"></a>Azure Key Vault 節流指導方針
+# <a name="azure-key-vault-throttling-guidance"></a>Azure Key Vault 節流指南
 
 節流是您起始來限制 Azure 服務並行呼叫數目，以避免過度使用資源的程序。 Azure Key Vault (AKV) 被設計來處理大量的要求。 如果產生大量的要求，針對用戶端的要求進行節流有助於維護 AKV 服務的最佳效能和可靠性。
 
@@ -31,7 +31,7 @@ Key Vault 中的服務限制是為了防止濫用資源，並確保所有 Key Va
 
 ## <a name="how-to-throttle-your-app-in-response-to-service-limits"></a>如何為您的應用程式進行節流處理，以回應服務限制
 
-以下是**最佳做法**調節您的服務時，您應該實作：
+以下是您在服務節流時應執行的**最佳作法**：
 - 減少每個要求的作業數目。
 - 減少要求的頻率。
 - 避免立即重試。 
@@ -112,7 +112,7 @@ Key Vault 中的服務限制是為了防止濫用資源，並確保所有 Key Va
 ```
 
 
-使用下列程式碼中的用戶端 C\#應用程式很簡單。 以下範例會示範如何使用 HttpClient 類別。
+在用戶端 C\#應用程式中使用此程式碼相當簡單。 以下範例會示範如何使用 HttpClient 類別。
 
 ```csharp
 public async Task<Cart> GetCartItems(int page)

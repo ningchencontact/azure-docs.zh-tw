@@ -8,12 +8,12 @@ ms.service: storage
 ms.subservice: common
 ms.topic: conceptual
 ms.reviewer: yzheng
-ms.openlocfilehash: ea896697c8f6986c4c77f3ce86a62947d9a3327e
-ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
+ms.openlocfilehash: e4d961603ab0ade1bb175161fffd7f085a1f644b
+ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70861404"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70934091"
 ---
 # <a name="manage-the-azure-blob-storage-lifecycle"></a>管理 Azure Blob 儲存體生命週期
 
@@ -54,7 +54,7 @@ ms.locfileid: "70861404"
 本文說明如何使用入口網站和 PowerShell 方法來管理原則。  
 
 > [!NOTE]
-> 如果您啟用儲存體帳戶的防火牆規則，可能會封鎖生命週期管理要求。 您可以提供例外狀況來解除封鎖這些要求。 必要的略過： `AzureServices`。 如需詳細資訊，請參閱[設定防火牆和虛擬網路](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions)中的＜例外狀況＞一節。
+> 如果您啟用儲存體帳戶的防火牆規則，可能會封鎖生命週期管理要求。 您可以藉由提供信任的 Microsoft 服務的例外狀況來解除封鎖這些要求。 如需詳細資訊，請參閱[設定防火牆和虛擬網路](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions)中的＜例外狀況＞一節。
 
 ### <a name="azure-portal"></a>Azure 入口網站
 

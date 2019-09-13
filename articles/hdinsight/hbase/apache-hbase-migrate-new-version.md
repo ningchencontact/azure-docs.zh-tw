@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/06/2019
 ms.author: ashishth
-ms.openlocfilehash: 546d491c24198d5f7a92765876e5f6919ca32020
-ms.sourcegitcommit: 97605f3e7ff9b6f74e81f327edd19aefe79135d2
+ms.openlocfilehash: 75158fbe5604c6fcf54c2fa08636cb87dfd9da80
+ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70735798"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70917416"
 ---
 # <a name="migrate-an-apache-hbase-cluster-to-a-new-version"></a>將 Apache HBase 叢集移轉至新的版本
 
@@ -180,7 +180,7 @@ ms.locfileid: "70735798"
 5. 若要確定系統已排清 memstore 中的任何新資料，請再次執行上述指令碼。
 6. 在舊叢集上登入[Apache Ambari](https://ambari.apache.org/) （ https://OLDCLUSTERNAME.azurehdidnsight.net) 並停止 HBase 服務。 當系統提示您確認是否要停止服務時，請核取 [開啟 HBase 的維護模式] 核取方塊。 如需連線至 Ambari 及使用 Ambari 的詳細資訊，請參閱[使用 Ambari Web UI 管理 HDInsight 叢集](../hdinsight-hadoop-manage-ambari.md)。
 
-    ![在 [Ambari] 中，按一下 [服務]，> HBase > 停止](./media/apache-hbase-migrate-new-version/stop-hbase-services.png)
+    ![在 [Ambari] 中，按一下 [服務]，> HBase > 停止](./media/apache-hbase-migrate-new-version/stop-hbase-services1.png)
 
     ![勾選 [開啟 HBase 的維護模式] 核取方塊，然後確認](./media/apache-hbase-migrate-new-version/turn-on-maintenance-mode.png)
 

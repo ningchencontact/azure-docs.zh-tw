@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 10/23/2018
 ms.author: glenga
 ms.reviewer: azfuncdf
-ms.openlocfilehash: 520579334d88bbab8ac28df7e446879aa9736248
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: b765e7a03f84211d4a86c4242e9484b3517c95f9
+ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70098195"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70933552"
 ---
 # <a name="create-durable-functions-using-the-azure-portal"></a>使用 Azure 入口網站建立 Durable Functions
 
@@ -23,7 +23,7 @@ NuGet 套件 [Microsoft.Azure.WebJobs.Extensions.DurableTask](https://www.nuget.
 
 > [!NOTE]
 > 
-> * 如果您要在中開發長期C#函式, 您應該改為考慮[Visual Studio 2019 開發](durable-functions-create-first-csharp.md)。
+> * 如果您要在中開發長期C#函式，您應該改為考慮[Visual Studio 2019 開發](durable-functions-create-first-csharp.md)。
 > * 如果您正在使用 JavaScript 開發長期函式，則應考慮 [Visual Studio Code 開發](./quickstart-js-vscode.md)。
 
 ## <a name="create-a-function-app"></a>建立函數應用程式
@@ -139,4 +139,4 @@ NuGet 套件 [Microsoft.Azure.WebJobs.Extensions.DurableTask](https://www.nuget.
 ## <a name="next-steps"></a>後續步驟
 
 > [!div class="nextstepaction"]
-> [了解常見的耐久函式模式](durable-functions-concepts.md)
+> [了解常見的耐久函式模式](durable-functions-overview.md#application-patterns)

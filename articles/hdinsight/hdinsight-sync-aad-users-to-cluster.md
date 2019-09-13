@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: e6534026bef139a94d2784be42025f8ea8b096ef
-ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
-ms.translationtype: MT
+ms.openlocfilehash: f58c847f512f2db72fdca823637192c3b638b1ae
+ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70811783"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70879366"
 ---
 # <a name="synchronize-azure-active-directory-users-to-an-hdinsight-cluster"></a>將 Azure Active Directory 使用者同步至 HDInsight 叢集
 
@@ -47,7 +47,7 @@ ms.locfileid: "70811783"
 
 1. [使用 SSH 連線至您的叢集](hdinsight-hadoop-linux-use-ssh-unix.md)。 從 Azure 入口網站中叢集的 [概觀] 窗格，選取 [安全殼層 (SSH)] 按鈕。
 
-    ![安全殼層 (SSH)](./media/hdinsight-sync-aad-users-to-cluster/ssh.png)
+    ![安全殼層 (SSH)](./media/hdinsight-sync-aad-users-to-cluster/hdinsight-secure-shell.png)
 
 2. 複製顯示的 `ssh` 命令，並將它貼到您的 SSH 用戶端。 出現提示時，輸入 SSH 使用者密碼。
 
@@ -139,7 +139,7 @@ ms.locfileid: "70811783"
 
 3. 新的使用者應該會列在 [使用者] 資料表中。 類型設定為 `LDAP` 而不是 `Local`。
 
-    ![使用者分頁](./media/hdinsight-sync-aad-users-to-cluster/users.png)
+    ![使用者分頁](./media/hdinsight-sync-aad-users-to-cluster/hdinsight-users-page.png)
 
 ## <a name="log-in-to-ambari-as-the-new-user"></a>以新的使用者身分登入 Ambari
 

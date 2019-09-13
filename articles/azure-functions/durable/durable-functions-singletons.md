@@ -7,14 +7,14 @@ manager: jeconnoc
 keywords: ''
 ms.service: azure-functions
 ms.topic: conceptual
-ms.date: 12/07/2018
+ms.date: 09/04/2019
 ms.author: azfuncdf
-ms.openlocfilehash: d9bf9687f60e649fee98869ef263117177ad5efd
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: ba35999d5a7193ba691b14005dc8271120ac2be7
+ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70097939"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70933219"
 ---
 # <a name="singleton-orchestrators-in-durable-functions-azure-functions"></a>Durable Functions (Azure Functions) 中的單次協調器
 
@@ -113,9 +113,6 @@ module.exports = async function(context, req) {
 
 根據預設，執行個體識別碼是隨機產生的 GUID。 但在此案例中，執行個體識別碼是從 URL 傳入路由資料中。 程式碼會呼叫 [GetStatusAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_GetStatusAsync_) (C#) 或 `getStatus` (JavaScript)，來檢查具有指定識別碼的執行個體是否已在執行中。 如果沒有，則會以該識別碼建立執行個體。
 
-> [!WARNING]
-> 以 JavaScript 在本機開發時，您必須將環境變數 `WEBSITE_HOSTNAME` 設定為 `localhost:<port>`，例如 `localhost:7071`，以在 `DurableOrchestrationClient` 上使用方法。 如需此需求的詳細資訊，請參閱 [GitHub 問題](https://github.com/Azure/azure-functions-durable-js/issues/28) \(英文\)。
-
 > [!NOTE]
 > 在此範例中有潛在的競爭條件。 如果 **HttpStartSingle** 的兩個實例同時執行，則兩個函式呼叫都將會報告成功，但現在只會實際啟動一個協調流程執行個體。 視您的需求而定，這可能會有非預期的副作用。 基於這個理由，請務必確定不會有兩個要求同時執行此觸發程序函式。
 
@@ -124,4 +121,4 @@ module.exports = async function(context, req) {
 ## <a name="next-steps"></a>後續步驟
 
 > [!div class="nextstepaction"]
-> [了解如何呼叫子協調流程](durable-functions-sub-orchestrations.md)
+> [瞭解協調流程的原生 HTTP 功能](durable-functions-http-features.md)

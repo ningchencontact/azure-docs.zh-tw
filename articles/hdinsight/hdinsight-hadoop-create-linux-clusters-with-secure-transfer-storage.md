@@ -8,19 +8,19 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 07/24/2018
-ms.openlocfilehash: 72e8b1331005db59be572e033bfaaaf5ceeea0b3
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: f3c6eabeac74df8ea88cf1a0670af9624e98771a
+ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67433597"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70935191"
 ---
 # <a name="create-apache-hadoop-cluster-with-secure-transfer-storage-accounts-in-azure-hdinsight"></a>在 Azure HDInsight 中使用安全傳輸儲存體帳戶來建立 Apache Hadoop 叢集
 
 [需要安全傳輸](../storage/common/storage-require-secure-transfer.md)功能透過安全連線來強制對您帳戶的所有要求，以增強 Azure 儲存體帳戶的安全性。 只有 HDInsight 叢集 3.6 版或更新版本支援這項功能和 wasbs 配置。
 
 ## <a name="prerequisites"></a>必要條件
-開始閱讀本文之前，您必須：
+在開始本文之前，您必須具備：
 
 * **Azure 訂用帳戶**：若要建立一個月的免費試用帳戶，請瀏覽至 [azure.microsoft.com/free](https://azure.microsoft.com/free)。
 * **已啟用安全傳輸的 Azure 儲存體帳戶**。 如需相關指示，請參閱[建立儲存體帳戶](../storage/common/storage-quickstart-create-account.md)和[需要安全傳輸](../storage/common/storage-require-secure-transfer.md)。
@@ -31,11 +31,11 @@ ms.locfileid: "67433597"
 [!INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
 
-在本節中，您會在 HDInsight 中使用 [Azure Resource Manager 範本](../azure-resource-manager/resource-group-template-deploy.md)建立 Hadoop 叢集。 這個範本位於 [GitHub](https://azure.microsoft.com/resources/templates/101-hdinsight-linux-with-existing-default-storage-account/) 中。 進行本文並不需要具備 Resource Manager 範本體驗。 如需其他叢集建立方法及了解這篇文章中使用的內容，請參閱[建立 HDInsight 叢集](hdinsight-hadoop-provision-linux-clusters.md)。
+在本節中，您會在 HDInsight 中使用 [Azure Resource Manager 範本](../azure-resource-manager/resource-group-template-deploy.md)建立 Hadoop 叢集。 這個範本位於 [GitHub](https://azure.microsoft.com/resources/templates/101-hdinsight-linux-with-existing-default-storage-account/) 中。 進行本文並不需要具備 Resource Manager 範本體驗。 如需其他叢集建立方法及瞭解本文中使用的屬性，請參閱[建立 HDInsight](hdinsight-hadoop-provision-linux-clusters.md)叢集。
 
 1. 按一下以下影像，在 Azure 入口網站中登入 Azure 並開啟 Resource Manager 範本。
 
-    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-hdinsight-linux-with-existing-default-storage-account%2Fazuredeploy.json" target="_blank"><img src="./media/hdinsight-hadoop-linux-tutorial-get-started/deploy-to-azure.png" alt="Deploy to Azure"></a>
+    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-hdinsight-linux-with-existing-default-storage-account%2Fazuredeploy.json" target="_blank"><img src="./media/hdinsight-hadoop-create-linux-clusters-with-secure-transfer-storage/hdi-deploy-to-azure1.png" alt="Deploy to Azure"></a>
 
 2. 請依照指示建立具有下列規格的叢集： 
 
@@ -61,13 +61,13 @@ ms.locfileid: "67433597"
 - 使用指令碼動作，將其他已啟用安全傳輸的儲存體帳戶新增至現有的 HDInsight 叢集。 如需詳細資訊，請參閱[將其他儲存體帳戶新增至 HDInsight](hdinsight-hadoop-add-storage.md)。
 
 ## <a name="next-steps"></a>後續步驟
-在本文中，您已經學會如何建立 HDInsight 叢集，並啟用安全傳輸至儲存體帳戶。
+在本文中，您已瞭解如何建立 HDInsight 叢集，並啟用儲存體帳戶的安全傳輸。
 
 若要深入了解如何使用 HDInsight 分析資料，請參閱下列文章：
 
-* 若要進一步了解如何[Apache Hive](https://hive.apache.org/)使用 HDInsight，包括如何執行 Hive 查詢，從 Visual Studio，請參閱[搭配使用 Apache Hive 與 HDInsight][hdinsight-use-hive]。
-* 若要了解[Apache Pig](https://pig.apache.org/)，語言，用來轉換資料，請參閱[搭配使用 Apache Pig 與 HDInsight][hdinsight-use-pig]。
-* 若要了解[Apache Hadoop MapReduce](https://hadoop.apache.org/docs/current/hadoop-mapreduce-client/hadoop-mapreduce-client-core/MapReduceTutorial.html)，來撰寫程式以處理資料的 Hadoop，請參閱[搭配 HDInsight 使用 Apache Hadoop MapReduce][hdinsight-use-mapreduce]。
+* 若要深入瞭解如何搭配 HDInsight 使用[Apache Hive](https://hive.apache.org/) ，包括如何從 Visual Studio 執行 Hive 查詢，請參閱搭配[hdinsight 使用 Apache Hive][hdinsight-use-hive]。
+* 若要瞭解[Apache Pig](https://pig.apache.org/)（用來轉換資料的語言），請參閱搭配[HDInsight 使用 apache Pig][hdinsight-use-pig]。
+* 若要瞭解[Apache Hadoop mapreduce](https://hadoop.apache.org/docs/current/hadoop-mapreduce-client/hadoop-mapreduce-client-core/MapReduceTutorial.html)（一種撰寫程式以處理 Hadoop 資料的方式），請參閱搭配[HDInsight 使用 Apache Hadoop mapreduce][hdinsight-use-mapreduce]。
 * 若要了解如何使用「適用於 Visual Studio 的 HDInsight 工具」來分析 HDInsight 上的資料，請參閱[開始使用適用於 HDInsight 的 Visual Studio Apache Hadoop 工具](hadoop/apache-hadoop-visual-studio-tools-get-started.md)。
 
 若要進一步了解 HDInsight 如何儲存資料或如何將資料匯入 HDInsight 中，請參閱下列文章：

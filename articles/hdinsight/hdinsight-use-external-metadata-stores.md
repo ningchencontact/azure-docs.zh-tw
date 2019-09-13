@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/27/2019
-ms.openlocfilehash: 38e33c0e138b115010b22cc3510b93be98546b50
-ms.sourcegitcommit: 97605f3e7ff9b6f74e81f327edd19aefe79135d2
+ms.openlocfilehash: 1e922dfd879c7323d467dca8c4017c5ede2c8659
+ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70735875"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70916533"
 ---
 # <a name="use-external-metadata-stores-in-azure-hdinsight"></a>在 Azure HDInsight 中使用外部中繼資料存放區
 
@@ -70,6 +70,7 @@ HDInsight 也支援自訂中繼存放區，這是針對生產叢集建議的中�
 - 使用 Azure SQL Database 監視工具（例如 Azure 入口網站或 Azure 監視器記錄），監視中繼存放區的效能和可用性。
 - 針對現有自訂中繼存放區資料庫建立 Azure HDInsight 的更高新版本時，系統會升級中繼存放區的結構描述，此動作需要從備份還原資料庫才能復原。
 - 如果您在多個叢集間共用中繼存放區，請確定所有叢集都是相同的 HDInsight 版本。 不同的 Hive 版本會使用不同的中繼存放區資料庫結構描述。 例如，您無法在 Hive 1.2 和 Hive 2.1 版本叢集間共用中繼存放區。 
+- 在 HDInsight 4.0 中，Spark 和 Hive 會使用獨立目錄來存取 SparkSQL 或 Hive 資料表。 Spark 所建立的資料表位於 Spark 目錄中。 Hive 所建立的資料表位於 Hive 目錄中。 這不同于 HDInsight 3.6，Hive 和 Spark 共用通用目錄。 HDInsight 4.0 中的 hive 和 Spark 整合依賴 Hive 倉儲連接器（HWC）。 HWC 可做為 Spark 與 Hive 之間的橋樑。 [瞭解 Hive 倉儲連接器](../hdinsight/interactive-query/apache-hive-warehouse-connector.md)。
 
 ##  <a name="apache-oozie-metastore"></a>Apache Oozie 中繼存放區
 

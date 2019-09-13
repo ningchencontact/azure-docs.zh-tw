@@ -5,13 +5,13 @@ ms.service: hdinsight
 ms.topic: troubleshooting
 author: hrasheed-msft
 ms.author: hrasheed
-ms.date: 08/02/2019
-ms.openlocfilehash: 0b20bb5265dd5fa139a691fcb21aaa1795ff352c
-ms.sourcegitcommit: 97605f3e7ff9b6f74e81f327edd19aefe79135d2
+ms.date: 09/11/2019
+ms.openlocfilehash: 6b1c30ab218b47e080935d2959cb3f701806ac68
+ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70735973"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70918144"
 ---
 # <a name="apache-ambari-heartbeat-issues-in-azure-hdinsight"></a>Azure HDInsight 中的 Apache Ambari 的心跳問題
 
@@ -21,7 +21,7 @@ ms.locfileid: "70735973"
 
 ### <a name="issue"></a>問題
 
-Ambari 代理程式的 CPU 使用率很高，會導致 Ambari UI 的警示，而某些節點的 Ambari 代理程式信號會遺失。
+Ambari 代理程式的 CPU 使用率很高，會導致 Ambari UI 的警示，而某些節點的 Ambari 代理程式信號會遺失。 [心跳遺失] 警示通常是暫時性的。 
 
 ### <a name="cause"></a>原因
 

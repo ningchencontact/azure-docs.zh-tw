@@ -1,18 +1,18 @@
 ---
-title: 私用的 Sku 和計劃 |Azure Marketplace
+title: 私人 Sku 和方案 |Azure Marketplace
 description: 如何使用私人 SKU 來管理供應項目可用性。
 services: Azure, Marketplace, Cloud Partner Portal,
 author: dan-wesley
 ms.service: marketplace
 ms.topic: conceptual
-ms.date: 09/13/2018
+ms.date: 08/15/2019
 ms.author: pabutler
-ms.openlocfilehash: 6efdb1c28777d9230727066fdba03d2850be62b0
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 940b50cf4a04abacd4d7be2104dd97fb8b3db736
+ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64935913"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70883126"
 ---
 <a name="private-skus-and-plans"></a>私人 SKU 和方案
 ============
@@ -37,7 +37,7 @@ ms.locfileid: "64935913"
 
 ![將 SKU 標記為私人](./media/cloud-partner-portal-publish-virtual-machine/markingskuprivate.png)
 
-您可以重複使用其他 SKU 的磁碟，並修改定價或描述。 若要重複使用磁碟，請在回覆「這個 SKU 要重複使用公開 SKU 中的映像嗎」提示時選取 [是]  。
+您可以重複使用其他 SKU 的磁碟，並修改定價或描述。 若要重複使用磁片，請選取 [**是]** 作為回應「此 SKU 會重複使用公用 SKU 中的映射」提示。
 
 如果將 SKU 標記為私人，且供應項目有其他可重複使用磁碟的 SKU，您必須指出 SKU 會使用其他 SKU 中的磁碟。 您也必須指定私人 SKU 的目標對象。
 
@@ -47,15 +47,13 @@ ms.locfileid: "64935913"
 <a name="select-an-image"></a>選取映像
 ------------------
 
-您可以為私人 SKU 提供新的磁碟，或是重複使用已在其他 SKU 中提供的相同磁碟，而只修改定價或描述。 若要重複使用磁碟，請在回覆「這個 SKU 要重複使用公開 SKU 中的映像嗎」提示時選取 [是]  。
+您可以為私人 SKU 提供新的磁碟，或是重複使用已在其他 SKU 中提供的相同磁碟，而只修改定價或描述。 若要重複使用磁片，請選取 [**是]** 作為回應「此 SKU 會從公用 SKU 重複使用映射」提示。
 
-![指出映像重複使用](./media/cloud-partner-portal-publish-virtual-machine/selectimage1.png)
+![指出映射重複使用](./media/cloud-partner-portal-publish-virtual-machine/selectimage1.png)
 
-在您確認 SKU 會重複使用公開 SKU 中的映像後，即表明屬於映像來源的 SKU。
+確認 SKU 重複使用影像之後，請選取映射的來源或*基底*SKU：
 
-下一個擷取畫面的提示顯示如何識別私人 SKU 會重複使用所選 SKU 的映像：
-
-![選取映像](./media/cloud-partner-portal-publish-virtual-machine/selectimage2.png)
+![選取影像](./media/cloud-partner-portal-publish-virtual-machine/selectimage2.png)
 
 當您發佈供應項目時，所選 SKU 的映像會在私人 SKU 識別碼下以自訂費率/條款開放使用。 私人 SKU 只有目標對象可以看見。
 
@@ -84,15 +82,93 @@ ms.locfileid: "64935913"
 
 當您從手動輸入切換至 CSV 上傳檢視，或是從 CSV 切換至手動輸入時，系統不會保留具有 SKU 存取權的訂用帳戶識別碼舊清單。 系統會顯示警告，而清單只會在儲存供應項目時覆寫。
 
-<a name="sync-private-subscriptions"></a>同步處理私人訂用帳戶
+<a name="managing-private-audiences"></a>管理私用物件
 -------------------------
 
-將訂用帳戶新增至具有私人 SKU 或方案的已發佈供應項目時，您不必重新發佈供應項目即可新增對象資訊。 只要使用 Azure 訂用帳戶識別碼 (方案和 SKU) 或租用戶識別碼 (僅限方案) 即可新增對象。
+**若要在不重新發佈整個供應專案的情況下更新物件，您可以讓觀眾變更您想要的專案（使用 UI 或 API），然後起始「同步私人物件」動作。**
 
-<a name="previewing-private-offers"></a>預覽私人供應項目
+如果您的物件是10個或更少的訂用帳戶，您可以使用 CPP UI 來完全管理。
+
+如果您的物件超過10個訂用帳戶，您可以使用 CSV 檔案進行管理，您可以將它上傳至 CPP UI 或使用 API。
+
+如果您使用 API，而不想要維護 CSV 檔案，您可以依照下列指示，使用 API 直接管理物件。
+
+> [!NOTE]
+> 使用 Azure 訂用帳戶識別碼（方案和 Sku）或租使用者識別碼（僅限方案）將物件新增至您的私人供應專案。
+
+###  <a name="managing-subscriptions-with-the-api"></a>使用 API 管理訂用帳戶
+
+您可以使用 API 來上傳 CSV，或直接管理您的物件（不使用 CSV）。 一般而言，您只需要取得您的`restrictedAudience`供應專案、更新物件，然後將這些變更提交回您的供應專案，以便新增或移除觀眾成員。
+
+以下說明如何以程式設計方式更新您的物件清單：
+
+1. [取出您的供應](cloud-partner-portal-api-retrieve-specific-offer.md)專案資料：
+
+    ```
+    GET https://cloudpartner.azure.com/api/publishers//offers/?api-version=2017-10-31&includeAllPricing=true
+    ```
+
+2. 使用此 JPath 查詢，在供應專案的每個 SKU 中尋找受限制的觀眾物件：
+
+    ```
+    $.definition.plans[*].restrictedAudience
+    ```
+3. 為您的供應專案更新受限制的物件物件。
+
+    **如果您最初是從 CSV 檔案上傳私人供應專案的訂用帳戶清單：**
+
+    您的*restrictedAudience*物件看起來會像這樣。
+    ```
+    "restrictedAudience": {
+                  "uploadedCsvUri": "{SasUrl}"
+    }
+    ```
+
+    針對每個受限制的觀眾物件：
+
+    a. 下載的內容`restrictedAudience.uploadedCsvUri`。 內容只是具有標頭的 CSV 檔案。 例如:
+
+        type,id,description
+        subscriptionId,541a269f-3df2-486e-8fe3-c8f9dcf28205,sub1
+        subscriptionId,c0da499c-25ec-4e4b-a42a-6e75635253b9,sub2
+
+    b. 視需要在下載的 CSV 檔案中新增或刪除訂閱。
+
+    c. 將更新的 CSV 檔案上傳到位置（例如[Azure Blob 儲存體](../../storage/blobs/storage-blobs-overview.md)或[OneDrive](https://onedrive.live.com)），並建立檔案的唯讀連結。 這會是您的新*SasUrl*。
+
+    d. 使用您的新*SasUrl*來更新金鑰。`restrictedAudience.uploadedCsvUri`
+
+    **如果您從 Cloud Partner 入口網站手動輸入私人供應專案的原始訂用帳戶清單：**
+
+    您的*restrictedAudience*物件看起來會像這樣：
+
+    ```
+    "restrictedAudience": {
+        "manualEntries": [{
+            "type": "subscriptionId",
+            "id": "541a269f-3df2-486e-8fe3-c8f9dcf28205",
+            "description": "sub1"
+            }, {
+            "type": "subscriptionId",
+            "id": "c0da499c-25ec-4e4b-a42a-6e75635253b9",
+            "description": "sub2"
+            }
+        ]}
+    ```
+
+    a. 針對每個受限制的觀眾物件，視需要在`restrictedAudience.manualEntries`清單中新增或刪除專案。
+
+4. 完成更新私人供應專案的每個 SKU 的所有*restrictedAudience*物件時，請[更新供應](cloud-partner-portal-api-creating-offer.md)專案：
+
+    ```
+    PUT https://cloudpartner.azure.com/api/publishers/<publisherId>/offers/<offerId>?api-version=2017-10-31
+    ```
+    如此一來，您更新的物件清單現在就會生效。
+
+<a name="previewing-private-offers"></a>預覽私人供應專案
 -------------------------
 
-在預覽/預備步驟期間，只有供應項目層級的預覽訂用帳戶能夠存取 SKU。 這是測試階段，此時您可以驗證供應項目向目標客戶呈現的方式，而且對所有發佈類型都是標準的。
+在預覽/預備步驟期間，只有供應項目層級的預覽訂用帳戶能夠存取 SKU。 在此測試階段中，您可以預覽供應專案對目標客戶的表現。
 
 存取預備供應項目的供應項目層級預覽訂用帳戶：
 

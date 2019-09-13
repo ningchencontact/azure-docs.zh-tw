@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 9abe9eb9cdad6351f49fba2dace64095783455cf
-ms.sourcegitcommit: aebe5a10fa828733bbfb95296d400f4bc579533c
+ms.openlocfilehash: 934fe2219ccca917999cf49cb9c9826276545e73
+ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/05/2019
-ms.locfileid: "70376011"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70915666"
 ---
 # <a name="getting-started-with-azure-maps-android-sdk"></a>Azure 地圖服務 Android SDK 入門
 
@@ -24,7 +24,7 @@ Azure 地圖服務 Android SDK 是適用于 Android 的向量地圖程式庫。 
 
 ### <a name="create-an-azure-maps-account"></a>建立 Azure 地圖服務帳戶
 
-若要完成本文中的程式，您必須先在 S1 定價層中[建立 Azure 地圖服務帳戶](how-to-manage-account-keys.md)。
+若要完成本文中的程式，您必須先在 S1 定價層中[建立 Azure 地圖服務帳戶](https://docs.microsoft.com/azure/azure-maps/how-to-manage-account-keys#create-a-new-account)。
 
 ### <a name="download-android-studio"></a>下載 Android Studio
 

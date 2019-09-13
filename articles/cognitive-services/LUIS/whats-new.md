@@ -9,14 +9,14 @@ services: cognitive-services
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 09/03/2019
+ms.date: 09/09/2019
 ms.author: diberry
-ms.openlocfilehash: b29fdf4e5b3f2719865820695f659df7e75e19b5
-ms.sourcegitcommit: 267a9f62af9795698e1958a038feb7ff79e77909
+ms.openlocfilehash: 3a32499a85b1cd782c808166c516be7ad9c78913
+ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70256433"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70813273"
 ---
 # <a name="whats-new-in-language-understanding"></a>Language Understanding 的新功能
 
@@ -27,6 +27,8 @@ ms.locfileid: "70256433"
 ### <a name="september-3-2019"></a>2019年9月3日
 
 * Azure 撰寫資源-[立即遷移](luis-migration-authoring.md)。
+    * 500每個 Azure 資源的應用程式
+    * 100每個應用程式的版本
 * 預建實體的土耳其文支援
 * DatetimeV2 的義大利文支援
 

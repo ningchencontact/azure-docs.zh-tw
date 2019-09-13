@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 05/22/2019
 ms.author: curtand
 ms.custom: include file
-ms.openlocfilehash: e6e1014ac20ef70f21344ec6ece5627eccb7ba66
-ms.sourcegitcommit: 23389df08a9f4cab1f3bb0f474c0e5ba31923f12
+ms.openlocfilehash: 421e88374a4ca03311fa77a6568a676aa9ffafa5
+ms.sourcegitcommit: d70c74e11fa95f70077620b4613bb35d9bf78484
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "67148402"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70919648"
 ---
 以下是 Azure Active Directory (Azure AD) 服務的使用條件約束和其他服務限制。
 
@@ -26,7 +26,7 @@ ms.locfileid: "67148402"
 | 應用程式 |最多 100 個使用者可以成為單一應用程式的擁有者。 |
 | 群組 |<ul><li>最多 100 個使用者可以成為單一群組的擁有者。</li><li>任何數目的物件都可以是單一群組的成員。</li><li>使用者可以是任意數目群組的成員。</li><li>可以使用 Azure AD Connect 從您的內部部署 Active Directory 同步至 Azure Active Directory 群組中的成員數目限制為 5 萬個成員。</li></ul> |
 | 應用程式 Proxy | <ul><li>每個應用程式 Proxy 應用程式最多每秒500筆交易</li><li>租使用者每秒最多750筆交易</li></ul><br/>交易會定義為單一 HTTP 要求和唯一資源的回應。 當節流時，用戶端會收到429回應（要求太多）。 |
-| 存取面板 |<ul><li>每位使用者在存取面板中可以看到的應用程式數目沒有限制。 這適用於已指派 Azure AD Premium 或 Enterprise Mobility Suite 授權的使用者。</li><li>每位使用者可在存取面板中看到最多 10 個應用程式圖格。 這項限制適用於已指派「免費」或 Azure Active Directory 的 Azure AD Basic 版本授權的使用者。 應用程式圖格範例包括 Box、Salesforce 或 Dropbox。 此限制不適用於系統管理員帳戶。</li></ul> |
+| 存取面板 |<ul><li>每位使用者在存取面板中可以看到的應用程式數目沒有限制。 這適用於已指派 Azure AD Premium 或 Enterprise Mobility Suite 授權的使用者。</li><li>每位使用者可在存取面板中看到最多 10 個應用程式圖格。 此限制適用于獲指派 Azure AD Free 授權方案授權的使用者。 應用程式圖格範例包括 Box、Salesforce 或 Dropbox。 此限制不適用於系統管理員帳戶。</li></ul> |
 | 報告 | 在任何報告中，最多可以檢視或下載 1000 個資料列。 任何其他資料會遭到截斷。 |
 | 管理單位 | 物件可以是有不超過 30 個管理單位的成員。 |
 | 系統管理員角色與權限 | <ul><li>無法將群組新增為[擁有](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions?context=azure/active-directory/users-groups-roles/context/ugr-context#object-ownership)者。</li><li>無法將群組指派給[角色](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-assign-admin-roles)。</li><li>使用者讀取其他使用者的目錄資訊的能力不能限制在整個租使用者的交換器外，以停用所有非系統管理員的使用者存取所有目錄資訊（不建議）。 如需預設許可權的詳細資訊，請參閱[這裡](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions?context=azure/active-directory/users-groups-roles/context/ugr-context#to-restrict-the-default-permissions-for-member-users)。</li><li>最多可能需要15分鐘的時間，或登出/登入，系統管理員角色成員資格新增和撤銷才會生效。</li></ul> |

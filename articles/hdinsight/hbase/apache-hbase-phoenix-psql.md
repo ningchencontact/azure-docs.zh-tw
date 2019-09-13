@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/10/2017
 ms.author: ashishth
-ms.openlocfilehash: 15bb65e004de916862297f91278328cddb16487d
-ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
+ms.openlocfilehash: 43465a1c31b953620c45dfe759de7b6e1b4dc3c9
+ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70810408"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70917259"
 ---
 # <a name="bulk-load-data-into-apache-phoenix-using-psql"></a>使用 psql 將資料大量載入至 Apache Phoenix
 
@@ -29,7 +29,7 @@ ms.locfileid: "70810408"
 
 在您開始載入資料之前，請先確認已啟用 Phoenix 且查詢逾時設定與預期的一樣。  請存取您的 HDInsight 叢集 [Apache Ambari](https://ambari.apache.org/) \(英文\) 儀表板，然後依序選取 [HBase] 和 [Configuration] \(設定\) 索引標籤。向下捲動以確認 Apache Phoenix 已設定為 `enabled`，如下所示：
 
-![Apache Phoenix HDInsight 叢集設定](./media/apache-hbase-phoenix-psql/ambari-phoenix.png)
+![Apache Phoenix HDInsight 叢集設定](./media/apache-hbase-phoenix-psql/apache-ambari-phoenix.png)
 
 ### <a name="use-psql-to-bulk-load-tables"></a>使用 `psql` 來大量載入資料表
 

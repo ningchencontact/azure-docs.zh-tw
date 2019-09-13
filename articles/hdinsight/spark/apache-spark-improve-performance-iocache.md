@@ -6,14 +6,14 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.topic: conceptual
 ms.date: 10/15/2018
-ms.openlocfilehash: a078fc205403983f4f6484f6a7ccde7f99c4dd58
-ms.sourcegitcommit: 97605f3e7ff9b6f74e81f327edd19aefe79135d2
+ms.openlocfilehash: 401ccda62805cbdebc99317c925aeb1b0ffc66bb
+ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70734536"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70915362"
 ---
-# <a name="improve-performance-of-apache-spark-workloads-using-azure-hdinsight-io-cache-preview"></a>使用 Azure HDInsight IO 快取改進 Apache Spark 工作負載效能 (Preview)
+# <a name="improve-performance-of-apache-spark-workloads-using-azure-hdinsight-io-cache"></a>使用 Azure HDInsight IO 快取來改善 Apache Spark 工作負載的效能 
 
 IO 快取是適用於 Azure HDInsight 的資料快取服務，可改進 Apache Spark 作業效能。 IO 快取也可搭配 [Apache TEZ](https://tez.apache.org/) 與 [Apache Hive](https://hive.apache.org/) 工作負載使用，這些工作負載可在 [Apache Spark](https://spark.apache.org/) 叢集上執行。 IO 快取使用稱為 RubiX 的開放原始碼快取元件。 RubiX 是可搭配巨量資料分析引擎使用的本機磁碟快取，這些引擎通常會從雲端儲存體系統存取資料。 RubiX 在快取系統中是獨一無二的，因為它針對快取用途使用固態硬碟 (SSDs) 而非保留作業記憶體。 IO 快取服務會在叢集的每個背景工作角色上啟動並管理 RubiX 中繼資料伺服器。 它也會設定叢集的所有服務，在背景使用 RubiX 快取。
 

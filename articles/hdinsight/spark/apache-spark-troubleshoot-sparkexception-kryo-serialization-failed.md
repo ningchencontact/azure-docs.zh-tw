@@ -6,14 +6,14 @@ ms.topic: troubleshooting
 author: hrasheed-msft
 ms.author: hrasheed
 ms.date: 07/29/2019
-ms.openlocfilehash: 97aaec9d42baa3e94be72a748e82345d159f4583
-ms.sourcegitcommit: 97605f3e7ff9b6f74e81f327edd19aefe79135d2
+ms.openlocfilehash: 4c1e16666bc5655ccf62522c5f860051adbdeda1
+ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70736250"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70885091"
 ---
-# <a name="scenario-unable-to-download-large-data-sets-using-jdbcodbc-and-apache-thrift-software-framework-in-azure-hdinsight"></a>案例：無法在 Azure HDInsight 中使用 JDBC/ODBC 和 Apache Thrift 軟體架構下載大型資料集
+# <a name="unable-to-download-large-data-sets-using-jdbcodbc-and-apache-thrift-software-framework-in-hdinsight"></a>無法在 HDInsight 中使用 JDBC/ODBC 和 Apache Thrift 軟體架構下載大型資料集
 
 本文說明在 Azure HDInsight 叢集中使用 Apache Spark 元件時，疑難排解步驟和問題的可能解決方法。
 

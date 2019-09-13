@@ -9,16 +9,16 @@ ms.author: estfan
 ms.reviewer: arthii, LADocs
 ms.topic: article
 ms.date: 07/01/2019
-ms.openlocfilehash: 65c1d427939dc39aebece24b923bc4ebfbf136bb
-ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
+ms.openlocfilehash: ed2ba70b803940700044e900a1b2bb6607c0f051
+ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70860972"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70934055"
 ---
 # <a name="connect-to-on-premises-data-sources-from-azure-logic-apps"></a>從 Azure Logic Apps 連線到內部部署資料來源
 
-若要從您的邏輯應用程式存取內部部署資料來源，請在 Azure 入口網站中建立內部部署資料閘道資源。 然後，您的邏輯應用程式可以使用[內部部署連接器](../logic-apps/logic-apps-gateway-install.md#supported-connections)。 本文示範如何在[本機電腦下載並安裝閘道](../logic-apps/logic-apps-gateway-install.md)之後，建立 Azure 閘道資源。 若要深入瞭解閘道的運作方式，請參閱[閘道的運作方式](../logic-apps/logic-apps-gateway-install.md#gateway-cloud-service)。
+若要從您的邏輯應用程式存取內部部署資料來源，請在 Azure 入口網站中建立內部部署資料閘道資源。 然後，您的邏輯應用程式可以使用[內部部署連接器](../connectors/apis-list.md#on-premises-connectors)。 本文說明如何在您于[本機電腦上下載並安裝閘道](../logic-apps/logic-apps-gateway-install.md)*之後*，建立 Azure 閘道資源。 如需閘道的詳細資訊，請參閱[閘道的運作方式](../logic-apps/logic-apps-gateway-install.md#gateway-cloud-service)。
 
 > [!TIP]
 > 若要連線至 Azure 虛擬網路，請考慮建立[*整合服務環境*](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md)。 
@@ -29,6 +29,27 @@ ms.locfileid: "70860972"
 * [Microsoft Flow 內部部署資料閘道](https://flow.microsoft.com/documentation/gateway-manage/)
 * [Microsoft PowerApps 內部部署資料閘道](https://powerapps.microsoft.com/tutorials/gateway-management/)
 * [Azure Analysis Services 內部部署資料閘道](../analysis-services/analysis-services-gateway.md)
+
+<a name="supported-connections"></a>
+
+## <a name="supported-data-sources"></a>支援的資料來源
+
+針對 Azure Logic Apps，內部部署資料閘道支援這些資料來源的內部[部署連接器](../connectors/apis-list.md#on-premises-connectors)：
+
+* BizTalk Server 2016
+* 檔案系統
+* IBM DB2  
+* IBM Informix
+* IBM MQ
+* MySQL
+* Oracle Database
+* PostgreSQL
+* SAP
+* SharePoint Server
+* [SQL Server]
+* Teradata
+
+雖然閘道本身不會產生額外成本，但[Logic Apps 定價模式](../logic-apps/logic-apps-pricing.md)適用于 Azure Logic Apps 中的這些連接器和其他作業。
 
 ## <a name="prerequisites"></a>必要條件
 
@@ -135,6 +156,13 @@ ms.locfileid: "70860972"
 <a name="faq"></a>
 
 ## <a name="frequently-asked-questions"></a>常見問題集
+
+**問**：為何在 Azure 中建立閘道資源時看不到我的閘道安裝？ <br/>
+**答**：發生此問題的原因如下：
+
+* 您的閘道安裝已經由 Azure 中的其他閘道資源加以註冊及宣告。 建立閘道資源之後，閘道安裝就不會出現在執行個體清單中。 若要在 Azure 入口網站中檢查您的閘道註冊，請使用 [內部部署資料閘道] 類型，檢閱「所有」 Azure 訂用帳戶的所有 Azure 資源。
+
+* 安裝閘道的人員的 Azure AD 身分識別與登入 Azure 入口網站的人員不同。 請檢查您已使用安裝閘道的相同身分識別進行登入。
 
 [!INCLUDE [existing-gateway-location-changed](../../includes/logic-apps-existing-gateway-location-changed.md)]
 
