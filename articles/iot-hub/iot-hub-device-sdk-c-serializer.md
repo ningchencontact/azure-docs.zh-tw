@@ -67,7 +67,7 @@ END_NAMESPACE(WeatherStation);
 | Type | 描述 |
 | --- | --- |
 | double |雙精確度浮點數 |
-| ssNoversion |32 位元整數 |
+| int |32 位元整數 |
 | float |單精確度浮點數 |
 | long |長整數 |
 | int8\_t |8 位元整數 |
