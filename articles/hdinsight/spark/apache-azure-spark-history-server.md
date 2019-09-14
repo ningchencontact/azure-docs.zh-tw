@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 09/04/2019
-ms.openlocfilehash: 9ba03f6b1e658e08c3d07d7ccb5e2a99e96fe69c
-ms.sourcegitcommit: 97605f3e7ff9b6f74e81f327edd19aefe79135d2
+ms.openlocfilehash: fad2c83138f211e83e9462182d33f6169cbdb833
+ms.sourcegitcommit: fbea2708aab06c19524583f7fbdf35e73274f657
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70736462"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70968182"
 ---
 # <a name="use-extended-apache-spark-history-server-to-debug-and-diagnose-apache-spark-applications"></a>使用擴充的 Apache Spark 記錄伺服器對 Apache Spark 應用程式進行偵錯和診斷
 
@@ -47,23 +47,23 @@ ms.locfileid: "70736462"
 
 + 您可以分別選取 [輸入]、[輸出]和 [資料表作業] 索引標籤來檢查這些項目。
 
-    ![[資料] 索引標籤](./media/apache-azure-spark-history-server/sparkui-data-tabs.png)
+    ![[資料] 索引標籤](./media/apache-azure-spark-history-server/apache-spark-data-tabs.png)
 
 + 按一下 [複製] 按鈕可複製所有資料列。
 
-    ![資料複製](./media/apache-azure-spark-history-server/sparkui-data-copy.png)
+    ![資料複製](./media/apache-azure-spark-history-server/apache-spark-data-copy.png)
 
 + 按一下 [csv] 按鈕，可將所有資料儲存為 CSV 檔案。
 
-    ![資料儲存](./media/apache-azure-spark-history-server/sparkui-data-save.png)
+    ![資料儲存](./media/apache-azure-spark-history-server/apache-spark-data-save.png)
 
 + 在 [搜尋] 欄位中輸入關鍵字，即可進行搜尋，而搜尋結果會立即顯示。
 
-    ![資料搜尋](./media/apache-azure-spark-history-server/sparkui-data-search.png)
+    ![資料搜尋](./media/apache-azure-spark-history-server/apache-spark-data-search.png)
 
 + 按一下資料行標頭可排序資料表，按一下加號可展開資料列，以顯示更多詳細資料，或按一下減號來摺疊資料列。
 
-    ![資料表](./media/apache-azure-spark-history-server/sparkui-data-table.png)
+    ![資料表](./media/apache-azure-spark-history-server/apache-spark-data-table.png)
 
 + 若要下載單一檔案，請按一下右側的 [部分下載] 按鈕，然後選取要下載到本機的檔案，如果檔案已不存在，顯示錯誤訊息的新索引標籤會隨即開啟。
 
@@ -75,7 +75,7 @@ ms.locfileid: "70736462"
 
 + 按一下資料表下方的編號，可在單一頁面上顯示太多資料列時，瀏覽多個頁面。 
 
-    ![資料頁面](./media/apache-azure-spark-history-server/sparkui-data-page.png)
+    ![資料頁面](./media/apache-azure-spark-history-server/apache-spark-data-page.png)
 
 + 將滑鼠停留在 [資料] 旁的問號上方可顯示工具提示，或按一下問號以取得詳細資訊。
 
@@ -93,7 +93,7 @@ ms.locfileid: "70736462"
 
 + 根據預設，作業圖表會顯示所有作業，並且可依據**作業識別碼**進行篩選。
 
-    ![圖表作業識別碼](./media/apache-azure-spark-history-server/sparkui-graph-jobid.png)
+    ![圖表作業識別碼](./media/apache-azure-spark-history-server/apache-spark-graph-jobid.png)
 
 + 系統會預設為選取 [進度]，使用者可以在 [顯示] 的下拉式清單中選取 [讀取]/[寫入] 來檢查資料流程。
 
@@ -211,15 +211,15 @@ ms.locfileid: "70736462"
 5. 屬性現在會設定為 **false**。
 6. 按一下 **[儲存]** 儲存組態。
 
-    ![功能關閉](./media/apache-azure-spark-history-server/sparkui-turn-off.png)
+    ![功能關閉](./media/apache-azure-spark-history-server/apache-spark-turn-off.png)
 
 7. 按一下左側面板中的 [Spark2]，在 [摘要] 索引標籤下方，按一下 [Spark2 記錄伺服器]。
 
-    ![重新啟動伺服器 1](./media/apache-azure-spark-history-server/sparkui-restart-1.png) 
+    ![重新啟動伺服器 1](./media/apache-azure-spark-history-server/apache-spark-restart1.png) 
 
 8. 按一下 **Spark2 記錄伺服器**的 [重新啟動]，以重新啟動記錄伺服器。
 
-    ![重新啟動伺服器 2](./media/apache-azure-spark-history-server/sparkui-restart-2.png)  
+    ![重新啟動伺服器 2](./media/apache-azure-spark-history-server/apache-spark-restart2.png)  
 
 9. Spark 記錄伺服器 Web UI 在重新整理後就會還原成社群版本。
 
@@ -236,7 +236,7 @@ ms.locfileid: "70736462"
 
 3. 提供錯誤的標題和描述，並將 zip 檔拖曳至 [編輯] 欄位中，然後按一下 [提交新問題]。
 
-    ![檔案問題](./media/apache-azure-spark-history-server/sparkui-file-issue.png)
+    ![檔案問題](./media/apache-azure-spark-history-server/apache-spark-file-issue.png)
 
 
 ### <a name="3-upgrade-jar-file-for-hotfix-scenario"></a>3.針對 hotfix 案例升級 jar 檔案
@@ -314,7 +314,7 @@ ms.locfileid: "70736462"
    + 核取 [標頭] 和 [背景工作角色]。
    + **參數**：設定 Bash 使用量後方的參數。
 
-     ![上傳記錄或升級 hotfix](./media/apache-azure-spark-history-server/sparkui-upload2.png)
+     ![上傳記錄或升級 hotfix](./media/apache-azure-spark-history-server/apache-spark-upload1.png)
 
 
 ## <a name="known-issues"></a>已知問題

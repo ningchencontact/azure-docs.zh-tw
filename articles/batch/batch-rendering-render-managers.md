@@ -7,12 +7,12 @@ author: mscurrell
 ms.author: markscu
 ms.date: 08/02/2018
 ms.topic: conceptual
-ms.openlocfilehash: 6878d3b4fc8648db540d016389747eceb45d936a
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: eb3ce47e5ffed697392065a1faacbbfaec19f4d1
+ms.sourcegitcommit: 909ca340773b7b6db87d3fb60d1978136d2a96b0
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67436169"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70983678"
 ---
 # <a name="using-azure-batch-with-render-farm-managers"></a>使用 Azure Batch 搭配轉譯伺服陣列管理員
 
@@ -26,9 +26,15 @@ Azure 會為受歡迎的轉譯管理員提供內建支援或附加元件。 您�
 * [Royal Render](https://www.royalrender.de/)
 * [Thinkbox Deadline](https://deadline.thinkboxsoftware.com/)
 
+## <a name="azure-render-hub"></a>Azure Render 中樞
+
+Azure 轉譯中樞可簡化 Azure render 伺服器陣列的建立和管理。  呈現中樞具有 PipelineFx Qube 和期限10的原生支援。  如需詳細資訊和詳細指示，請參閱[GitHub 存放庫](https://github.com/Azure/azure-render-hub)。
+
 ## <a name="using-azure-with-pipelinefx-qube"></a>使用 Azure 搭配 PipelineFX Qube
 
-在 [GitHub 存放庫](https://github.com/Azure/azure-qube)中可取得讓 Azure Batch 集區 VM 能作為 Qube 背景工作角色的相關指令碼和指示。
+Azure Render Hub 支援熱門的轉譯管理員，包括期限。  如需部署和使用轉譯中樞的指示，請參閱[GitHub 存放庫](https://github.com/Azure/azure-render-hub)。
+
+[GitHub 存放庫](https://github.com/Azure/azure-qube)中也提供啟用 Azure Batch 集區 Vm 作為 Qube 背景工作的腳本和指示。
 
 ## <a name="using-azure-with-royal-render"></a>使用 Azure 搭配 Royal Render
 
@@ -38,7 +44,7 @@ Royal Render 已內建 Azure 和 Azure Batch 整合功能，可讓您使用以 A
 
 ## <a name="using-azure-with-thinkbox-deadline"></a>使用 Azure 搭配 Thinkbox Deadline
 
-在 [GitHub 存放庫](https://github.com/Azure/azure-deadline)中可取得讓 Azure Batch 集區 VM 能作為 Deadline 從屬的相關指令碼和指示。
+Azure Render Hub 支援熱門的轉譯管理員，包括期限。  如需部署和使用轉譯中樞的指示，請參閱[GitHub 存放庫](https://github.com/Azure/azure-render-hub)。
 
 ## <a name="next-steps"></a>後續步驟
 

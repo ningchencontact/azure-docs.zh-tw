@@ -1,77 +1,77 @@
 ---
 title: Azure HDInsight 虛擬網路架構
-description: 當您在 Azure 虛擬網路中建立 HDInsight 叢集時，請了解可用的資源。
+description: 瞭解當您在 Azure 虛擬網路中建立 HDInsight 叢集時可用的資源。
 author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 03/26/2019
 ms.author: hrasheed
-ms.openlocfilehash: 41420497bffd0abdc598e4c86b2dbda1466b2ce1
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 340974201d62f97669db442f4a95439a6ac90a5e
+ms.sourcegitcommit: dd69b3cda2d722b7aecce5b9bd3eb9b7fbf9dc0a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66252857"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70960608"
 ---
 # <a name="azure-hdinsight-virtual-network-architecture"></a>Azure HDInsight 虛擬網路架構
 
-本文說明當您部署至自訂的 Azure 虛擬網路的 HDInsight 叢集時所存在的資源。 這項資訊將協助您將內部部署資源連接到 Azure 中的 HDInsight 叢集。 如需有關 Azure 虛擬網路的詳細資訊，請參閱 <<c0> [ 什麼是 Azure 虛擬網路？](../virtual-network/virtual-networks-overview.md)。
+本文說明當您將 HDInsight 叢集部署至自訂 Azure 虛擬網路時，所出現的資源。 這項資訊可協助您將內部部署資源連接到 Azure 中的 HDInsight 叢集。 如需 Azure 虛擬網路的詳細資訊，請參閱[什麼是 azure 虛擬網路？](../virtual-network/virtual-networks-overview.md)。
 
-## <a name="resource-types-in-azure-hdinsight-clusters"></a>在 Azure HDInsight 叢集中的資源類型
+## <a name="resource-types-in-azure-hdinsight-clusters"></a>Azure HDInsight 叢集中的資源類型
 
-Azure HDInsight 叢集有不同類型的虛擬機器或節點。 每個節點類型系統的作業中扮演的角色。 下表摘要說明這些節點型別以及其在叢集中的角色。
+Azure HDInsight 叢集具有不同類型的虛擬機器或節點。 每種節點類型在系統的作業中扮演著角色。 下表摘要說明這些節點類型及其在叢集中的角色。
 
-| type | 描述 |
+| Type | 描述 |
 | --- | --- |
-| 前端節點 |  Apache Storm 以外的所有叢集類型，針對前端節點會裝載管理的分散式應用程式執行的處理程序。 在前端節點也是您可以透過 ssh 連線到節點，並執行所有叢集資源執行時，必須再都協調的應用程式。 前端節點的數目是在所有叢集類型的兩個固定的。 |
-| ZooKeeper 節點 | Zookeeper 協調工作之間進行資料處理的節點。 它也會選出領導者的前端節點，並追蹤哪一個前端節點執行特定的主要服務。 ZooKeeper 節點的數目是在三個固定的。 |
-| 背景工作角色節點 | 表示支援的資料處理功能的節點。 背景工作角色節點可以加入或移除叢集，以調整的運算能力和管理成本。 |
-| R Server 邊緣節點 | R Server 邊緣節點代表您可以透過 ssh 連線到節點，並執行所有叢集資源執行時，必須再都協調的應用程式。 邊緣節點不會參與叢集內的資料分析。 此節點也會裝載 R Studio Server，讓您執行使用瀏覽器的 R 應用程式。 |
-| 區域節點 | 對於 HBase 叢集類型中，（也稱為資料節點） 的區域節點會執行區域伺服器。 區域伺服器提供，並管理由 HBase 資料的一部分。 區域節點可以加入或移除叢集，以調整的運算能力和管理成本。|
-| Nimbus 節點 | 對於 Storm 叢集類型中，Nimbus 節點會提供類似於前端節點的功能。 Nimbus 節點會將工作指派給透過協調執行的 Storm 拓撲的 Zookeeper 叢集中的其他節點。 |
-| 監督員節點 | 對於 Storm 叢集類型中，監督員節點執行 Nimbus 節點，以執行所需的處理所提供的指示。 |
+| 前端節點 |  對於除了 Apache Storm 以外的所有叢集類型，前端節點會主控管理分散式應用程式執行的進程。 前端節點也是您可以透過 SSH 連線並執行應用程式的節點，然後協調以在叢集資源上執行。 所有叢集類型的前端節點數目固定為兩個。 |
+| ZooKeeper 節點 | Zookeeper 會在執行資料處理的節點之間協調工作。 它也會對前端節點進行前導選擇，並追蹤哪個前端節點正在執行特定的主要服務。 ZooKeeper 節點的數目固定為三。 |
+| 背景工作節點 | 表示支援資料處理功能的節點。 您可以在叢集中新增或移除背景工作節點，以調整運算能力和管理成本。 |
+| R 伺服器邊緣節點 | R Server edge 節點代表您可以透過 SSH 連線並執行應用程式的節點，然後協調以在叢集資源上執行。 邊緣節點不會參與叢集內的資料分析。 此節點也會裝載 R Studio 伺服器，讓您可以使用瀏覽器執行 R 應用程式。 |
+| 區域節點 | 對於 HBase 叢集類型，[區域] 節點（也稱為資料節點）會執列區域伺服器。 區域伺服器會提供並管理由 HBase 管理的部分資料。 您可以在叢集中新增或移除區域節點，以調整運算能力和管理成本。|
+| Nimbus 節點 | 若為風暴叢集類型，Nimbus 節點會提供類似于前端節點的功能。 Nimbus 節點會透過 Zookeeper 將工作指派給叢集中的其他節點，這會協調執行中的風暴拓撲。 |
+| 監督員節點 | 對於「風暴」叢集類型，監督員節點會執行 Nimbus 節點所提供的指示，以執行所需的處理。 |
 
-## <a name="basic-virtual-network-resources"></a>基本的虛擬網路資源
+## <a name="basic-virtual-network-resources"></a>基本虛擬網路資源
 
-下圖顯示在 Azure 中的 HDInsight 節點和網路資源的位置。
+下圖顯示 HDInsight 節點和網路資源在 Azure 中的位置。
 
-![建立自訂的 Azure VNET 中的 HDInsight 實體的圖表](./media/hdinsight-virtual-network-architecture/vnet-diagram.png)
+![在 Azure 自訂 VNET 中建立的 HDInsight 實體圖表](./media/hdinsight-virtual-network-architecture/hdinsight-vnet-diagram.png)
 
-HDInsight 部署到 Azure 虛擬網路時存在的預設資源包含在上表中，以及支援的虛擬網路之間，以及外部網路通訊的網路裝置中所述的叢集節點類型。
+將 HDInsight 部署到 Azure 虛擬網路時所顯示的預設資源，包括上表所述的叢集節點類型，以及支援虛擬網路與外部網路之間通訊的網路裝置。
 
-下表摘要至自訂的 Azure 虛擬網路部署 HDInsight 時所建立的九個叢集節點。
+下表摘要說明將 HDInsight 部署至自訂 Azure 虛擬網路時所建立的九個叢集節點。
 
-| 資源類型 | 出現數目 | 詳細資料 |
+| 資源類型 | 有數位 | 詳細資料 |
 | --- | --- | --- |
-|前端節點 | two |    |
-|Zookeeper 節點 | three | |
-|背景工作角色節點 | two | 這個數目可以因叢集組態和調整。 適用於 Apache Kafka，都需要至少三個背景工作節點。  |
-|閘道節點 | two | 閘道節點會在 Azure 上建立，但不會顯示您的訂用帳戶中的 Azure 虛擬機器。 如果您需要重新啟動這些節點，請連絡支援服務。 |
+|前端節點 | 二 |    |
+|Zookeeper 節點 | 三 | |
+|背景工作節點 | 二 | 此數目會根據叢集設定和調整而有所不同。 Apache Kafka 需要至少三個背景工作角色節點。  |
+|閘道節點 | 二 | 閘道節點是在 Azure 上建立的 Azure 虛擬機器，但在您的訂用帳戶中看不到。 如果您需要重新開機這些節點，請聯絡支援人員。 |
 
-搭配 HDInsight 使用虛擬網路內，會自動建立的下列網路資源：
+下列網路資源會自動建立在與 HDInsight 搭配使用的虛擬網路內：
 
-| 網路功能資源 | 出現數目 | 詳細資料 |
+| 網路資源 | 有數位 | 詳細資料 |
 | --- | --- | --- |
-|負載平衡器 | three | |
-|網路介面 | 九個 | 這個值根據正常的叢集，其中每個節點都有它自己的網路介面。 九個介面是兩個前端節點、 三個 zookeeper 節點、 兩個背景工作節點和上表中所述的兩個閘道節點。 |
-|公用 IP 位址 | two |    |
+|負載平衡器 | 三 | |
+|網路介面 | 九 | 這個值是以一般叢集為基礎，其中每個節點都有自己的網路介面。 這九個介面適用于這兩個前端節點、三個 zookeeper 節點、兩個背景工作節點，以及上表中所述的兩個閘道節點。 |
+|公用 IP 位址 | 二 |    |
 
-## <a name="endpoints-for-connecting-to-hdinsight"></a>端點連接到 HDInsight
+## <a name="endpoints-for-connecting-to-hdinsight"></a>連接到 HDInsight 的端點
 
-您可以存取您的 HDInsight 叢集以三種方式：
+您可以透過三種方式存取您的 HDInsight 叢集：
 
-- 在虛擬網路外部的 HTTPS 端點`CLUSTERNAME.azurehdinsight.net`。
-- 直接連接到前端節點的 SSH 端點`CLUSTERNAME-ssh.azurehdinsight.net`。
-- 虛擬網路內的 HTTPS 端點`CLUSTERNAME-int.azurehdinsight.net`。 請注意 「-int 」 在此 URL。 此端點將會解析該虛擬網路的私人 IP，而且無法從公用網際網路存取。
+- 位於`CLUSTERNAME.azurehdinsight.net`虛擬網路外部的 HTTPS 端點。
+- 用來直接連接到前端節點`CLUSTERNAME-ssh.azurehdinsight.net`的 SSH 端點。
+- 虛擬網路`CLUSTERNAME-int.azurehdinsight.net`內的 HTTPS 端點。 請注意此 URL 中的 "-int"。 此端點會解析為該虛擬網路中的私人 IP，而且無法從公用網際網路存取。
 
-下列三個端點每個會指派負載平衡器。
+這三個端點會分別指派負載平衡器。
 
-公用 IP 位址也會提供兩個端點，允許從虛擬網路外部的連線。
+公用 IP 位址也會提供給允許從虛擬網路外部連線的兩個端點。
 
-1. 一個公用 IP 指派給負載平衡器的完整的網域名稱 (FQDN)，以從網際網路連接到叢集時使用`CLUSTERNAME.azurehdinsight.net`。
-1. 第二個公用 IP 位址使用於 SSH 唯一的網域名稱`CLUSTERNAME-ssh.azurehdinsight.net`。
+1. 從網際網路連線`CLUSTERNAME.azurehdinsight.net`到叢集時，會將一個公用 IP 指派給負載平衡器，以使用完整功能變數名稱（FQDN）。
+1. 第二個公用 IP 位址僅用於 SSH 的功能變數名稱`CLUSTERNAME-ssh.azurehdinsight.net`。
 
 ## <a name="next-steps"></a>後續步驟
 
-* [保護傳入的流量具有私用端點的虛擬網路中的 HDInsight 叢集](https://azure.microsoft.com/blog/secure-incoming-traffic-to-hdinsight-clusters-in-a-vnet-with-private-endpoint/)
+* [以私人端點保護虛擬網路中 HDInsight 叢集的連入流量](https://azure.microsoft.com/blog/secure-incoming-traffic-to-hdinsight-clusters-in-a-vnet-with-private-endpoint/)

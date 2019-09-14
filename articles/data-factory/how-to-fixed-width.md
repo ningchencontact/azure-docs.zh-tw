@@ -1,6 +1,6 @@
 ---
 title: 在 Azure Data Factory 中處理具有對應資料流程的固定長度文字檔
-description: 瞭解如何使用對應的資料流程, 在 Azure Data Factory 中處理固定長度的文字檔。
+description: 瞭解如何使用對應的資料流程，在 Azure Data Factory 中處理固定長度的文字檔。
 services: data-factory
 author: balakreshnan
 ms.service: data-factory
@@ -8,85 +8,85 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 8/18/2019
 ms.author: makromer
-ms.openlocfilehash: e1ba09f459152616941071c23f7a6545ec2a8b73
-ms.sourcegitcommit: d470d4e295bf29a4acf7836ece2f10dabe8e6db2
+ms.openlocfilehash: 9964aaf060c43cc3e9992f515bf272011e795043
+ms.sourcegitcommit: dd69b3cda2d722b7aecce5b9bd3eb9b7fbf9dc0a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/02/2019
-ms.locfileid: "70210672"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70962120"
 ---
-# <a name="process-fixed-length-text-files-using-data-factory-mapping-data-flows"></a>使用 Data Factory 對應的資料流程處理固定長度的文字檔
+# <a name="process-fixed-length-text-files-by-using-data-factory-mapping-data-flows"></a>使用 Data Factory 對應資料流程來處理固定長度的文字檔
 
-Data Factory 對應資料流程支援從固定寬度的文字檔轉換資料。 您將為沒有分隔符號的文字檔定義資料集, 然後根據序數位置設定子字串分割。
+藉由使用 Microsoft Azure Data Factory 中的對應資料流程，您可以從固定寬度的文字檔轉換資料。 在下列工作中，我們將為不含分隔符號的文字檔定義資料集，然後根據序數位置設定子字串分割。
 
 ## <a name="create-a-pipeline"></a>建立管線
 
-1. 移至 [ **+ 新增管線**] 以啟動新的管線
+1. 選取 [ **+ 新增管線**] 以建立新的管線。
 
-2. 新增用來處理固定寬度檔案的資料流程活動
+2. 新增「資料流程」活動，以用於處理固定寬度的檔案：
 
-  ![固定寬度管線](media/data-flow/fwpipe.png)
+    ![固定寬度管線](media/data-flow/fwpipe.png)
 
-3. 在 [資料流程] 活動中, 選取 [新增對應資料流程]
+3. 在 [資料流程] 活動中，選取 [**新增對應資料流程**]。
 
-4. 新增來源轉換、衍生的資料行、選取和接收轉換
+4. 新增來源、衍生的資料行、選取和接收轉換：
 
-  ![固定寬度資料流程](media/data-flow/fw2.png)
+    ![固定寬度資料流程](media/data-flow/fw2.png)
 
-5. 將來源轉換設定為使用新的資料集, 其類型為分隔的文字
+5. 將來源轉換設定為使用新的資料集，這會是分隔的文字類型。
 
-6. 不設定資料行分隔符號且沒有標頭
+6. 請勿設定任何資料行分隔符號或標頭。
 
-我們只會設定此檔案內容的欄位起始點和長度:
+   現在，我們將為此檔案的內容設定欄位的起點和長度：
 
-```
-1234567813572468
-1234567813572468
-1234567813572468
-1234567813572468
-1234567813572468
-1234567813572468
-1234567813572468
-1234567813572468
-1234567813572468
-1234567813572468
-1234567813572468
-1234567813572468
-1234567813572468
-```
+    ```
+    1234567813572468
+    1234567813572468
+    1234567813572468
+    1234567813572468
+    1234567813572468
+    1234567813572468
+    1234567813572468
+    1234567813572468
+    1234567813572468
+    1234567813572468
+    1234567813572468
+    1234567813572468
+    1234567813572468
+    ```
 
-7. 在來源轉換的 [投射] 索引標籤上, 您應該會看到一個名為 "Column_1" 的字串資料行。
+7. 在來源轉換的 [**投射**] 索引標籤上，您應該會看到名為*Column_1*的字串資料行。
 
-8. 現在, 在 [衍生] 資料行中建立新的資料行
+8. 在 [衍生] 資料行中，建立新的資料行。
 
-9. 我們會為數據行提供簡單的名稱, 例如 col1
+9. 我們會為數據行提供簡單的名稱，例如*col1*。
 
-10. 然後在 [運算式產生器] 中, 輸入:
+10. 在 [運算式產生器] 中，輸入下列內容：
 
-  ```substring(Column_1,1,4)```
+    ```substring(Column_1,1,4)```
 
-  ![衍生的資料行](media/data-flow/fwderivedcol1.png)
+    ![衍生的資料行](media/data-flow/fwderivedcol1.png)
 
-10. 針對您需要剖析的所有資料行重複此動作
+11. 針對您需要剖析的所有資料行重複步驟10。
 
-12. 按一下 [檢查] 索引標籤, 以查看將產生的新資料行
+12. 選取 [**檢查**] 索引標籤，以查看將產生的新資料行：
 
-  ![檢驗](media/data-flow/fwinspect.png)
+    ![檢驗](media/data-flow/fwinspect.png)
 
-13. 使用 [選取轉換] 來移除任何您不需要轉換的資料行
+13. 使用 [選取轉換] 來移除任何您不需要轉換的資料行：
 
-  ![選取轉換](media/data-flow/fwselect.png)
+    ![選取轉換](media/data-flow/fwselect.png)
 
-14. 最後, 使用接收將資料輸出至資料夾:
+14. 使用接收將資料輸出至資料夾：
 
-  ![固定寬度接收](media/data-flow/fwsink.png)
+    ![固定寬度接收](media/data-flow/fwsink.png)
 
-  輸出看起來會像這樣:
+    輸出看起來像這樣：
 
-  ![固定寬度輸出](media/data-flow/fxdoutput.png)
+    ![固定寬度輸出](media/data-flow/fxdoutput.png)
 
-  固定寬度的資料現在會分割成四個字元, 並指派給 Col1、Col2、Col3、Col4、...根據上述範例, 我將資料分割成4個數據行
+  固定寬度的資料現在會進行分割，其中每個字元都有四個字元，且會指派給 Col1、Col2、Col3、Col4 等等。 根據上述範例，資料會分割成四個數據行。
 
 ## <a name="next-steps"></a>後續步驟
 
-* 使用對應資料流程[轉換](concepts-data-flow-overview.md)來建立其餘的資料流程邏輯
+* 使用對應資料流程[轉換](concepts-data-flow-overview.md)來建立其餘的資料流程邏輯。

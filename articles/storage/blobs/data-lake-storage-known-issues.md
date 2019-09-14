@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 07/31/2019
 ms.author: normesta
 ms.reviewer: jamesbak
-ms.openlocfilehash: 951b1f3749807ac6aee78a96ae7eb38877ca6acc
-ms.sourcegitcommit: 007ee4ac1c64810632754d9db2277663a138f9c4
+ms.openlocfilehash: fb333db693c0f42b66e9fd45f5eb3c879787875d
+ms.sourcegitcommit: dd69b3cda2d722b7aecce5b9bd3eb9b7fbf9dc0a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69991800"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70959120"
 ---
 # <a name="known-issues-with-azure-data-lake-storage-gen2"></a>Azure Data Lake Storage Gen2 的已知問題
 
@@ -32,7 +32,7 @@ Blob 儲存體 Api 已停用, 以防止可能發生的功能操作問題, 因為
 
 如果其中有任何一個使用 Blob Api, 而您想要使用它們來處理您上傳至帳戶的所有內容, 則您有兩個選項。
 
-* **選項 1**：請不要在 Blob 儲存體帳戶上啟用階層式命名空間, 直到 Blob Api 可與 Azure Data Lake Gen2 Api 互通為止。 使用沒有階層式命名空間的儲存體帳戶, 表示您無法存取 Data Lake Storage Gen2 特定功能, 例如目錄和容器存取控制清單。
+* **選項 1**：請不要在 Blob 儲存體帳戶上啟用階層式命名空間, 直到 Blob Api 可與 Azure Data Lake Gen2 Api 互通為止。 使用沒有階層式命名空間的儲存體帳戶，表示您無法存取 Data Lake Storage Gen2 特定功能，例如目錄和容器存取控制清單。
 
 * **選項 2**：在[Data Lake Storage 上註冊多重通訊協定存取](data-lake-storage-multi-protocol-access.md)的公開預覽。 呼叫 Blob Api 的工具和應用程式以及 Blob 儲存體功能, 例如診斷記錄, 都可以使用具有階層式命名空間的帳戶。
 
@@ -100,7 +100,7 @@ Blob 儲存體 Api 已停用, 以防止可能發生的功能操作問題, 因為
 | **Blobfuse** |尚不支援|
 | **自訂網域** |尚不支援|
 | **檔案系統 Explorer** | 有限支援 |
-| **診斷記錄** |只有當您在[Data Lake Storage preview 上註冊多重通訊協定存取](data-lake-storage-multi-protocol-access.md)時, 才支援診斷記錄。 <br><br>目前不支援在 Azure 入口網站中啟用記錄。 以下範例說明如何使用 PowerShell 來啟用記錄。 <br><br>`$storageAccount = Get-AzStorageAccount -ResourceGroupName <resourceGroup> -Name <storageAccountName>`<br><br>`Set-AzStorageServiceLoggingProperty -Context $storageAccount.Context -ServiceType Blob -LoggingOperations read,write,delete -RetentionDays <days>`. <br><br>請務必指定`Blob`作為`-ServiceType`參數的值, 如下列範例所示。 
+| **診斷記錄** |只有當您在[Data Lake Storage preview 上註冊多重通訊協定存取](data-lake-storage-multi-protocol-access.md)時，才支援診斷記錄。 <br><br>目前不支援在 Azure 入口網站中啟用記錄。 以下範例說明如何使用 PowerShell 來啟用記錄。 <br><br>`$storageAccount = Get-AzStorageAccount -ResourceGroupName <resourceGroup> -Name <storageAccountName>`<br><br>`Set-AzStorageServiceLoggingProperty -Context $storageAccount.Context -ServiceType Blob -LoggingOperations read,write,delete -RetentionDays <days>`. <br><br>請務必指定`Blob`作為`-ServiceType`參數的值，如下列範例所示。 <br><br>目前，Azure 儲存體總管無法用於查看診斷記錄。 若要查看記錄，請使用 AzCopy 或 Sdk。
 | **不可變的儲存體** |尚不支援 <br><br>不可變的儲存體可讓您將資料儲存在[WORM (一次寫入, 多次讀取)](https://docs.microsoft.com/azure/storage/blobs/storage-blob-immutable-storage)狀態。|
 | **物件層級層** |只有當您在[Data Lake Storage preview 上註冊多重通訊協定存取權](data-lake-storage-multi-protocol-access.md)時, 才支援非經常性和封存層。 <br><br> 尚不支援其他所有存取層。|
 | **Powershell 和 CLI 支援** | 有限的功能 <br><br>支援建立帳戶之類的管理作業。 資料平面作業 (例如上傳和下載檔案) 在[Data Lake Storage 的多重通訊協定存取](data-lake-storage-multi-protocol-access.md)過程中是公開預覽。 尚不支援使用目錄及設定存取控制清單 (Acl)。 |

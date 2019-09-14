@@ -6,12 +6,12 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.topic: troubleshooting
 ms.date: 08/15/2019
-ms.openlocfilehash: 8bfe249b0295bc860cf17a006c3787ff8afa676b
-ms.sourcegitcommit: 5ded08785546f4a687c2f76b2b871bbe802e7dae
+ms.openlocfilehash: 15ef18663a42153c11a55d4c5963d47f0e2514d6
+ms.sourcegitcommit: dd69b3cda2d722b7aecce5b9bd3eb9b7fbf9dc0a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69573718"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70961745"
 ---
 # <a name="troubleshoot-apache-hadoop-yarn-by-using-azure-hdinsight"></a>使用 Azure HDInsight 針對 Apache Hadoop YARN 問題進行疑難排解
 
@@ -27,33 +27,33 @@ ms.locfileid: "69573718"
 
 | 佇列 | 容量 | 最大容量 |
 | --- | --- | --- |
-| 預設 | 25% | 50% |
+| 預設值 | 25% | 50% |
 | thrftsvr | 25% | 50% |
 | spark | 50% | 50% |
 
 1. 選取 [Ambari 檢視] 圖示，然後選取格線模式。 接著，選取 [YARN 佇列管理員]。
 
-    ![選取 Ambari 檢視圖示](media/hdinsight-troubleshoot-yarn/create-queue-1.png)
+    ![選取 Ambari 檢視圖示](media/hdinsight-troubleshoot-yarn/apache-yarn-create-queue-1.png)
 2. 選取 [預設] 佇列。
 
-    ![選取預設佇列](media/hdinsight-troubleshoot-yarn/create-queue-2.png)
+    ![選取預設佇列](media/hdinsight-troubleshoot-yarn/apache-yarn-create-queue-2.png)
 3. 對於 [預設] 佇列，將 [容量] 從 50% 變更為 25%。 對於 [thriftsvr] 佇列，將 [容量] 變更為 25%。
 
-    ![將預設和 thriftsvr 佇列的容量變更為 25%](media/hdinsight-troubleshoot-yarn/create-queue-3.png)
+    ![將預設和 thriftsvr 佇列的容量變更為 25%](media/hdinsight-troubleshoot-yarn/apache-yarn-create-queue-3.png)
 4. 若要建立新的佇列，請選取 [新增佇列]。
 
-    ![選取 [新增佇列]](media/hdinsight-troubleshoot-yarn/create-queue-4.png)
+    ![選取 [新增佇列]](media/hdinsight-troubleshoot-yarn/apache-yarn-create-queue-4.png)
 
 5. 命名新的佇列。
 
-    ![將佇列命名為 Spark](media/hdinsight-troubleshoot-yarn/create-queue-5.png)  
+    ![將佇列命名為 Spark](media/hdinsight-troubleshoot-yarn/apache-yarn-create-queue-5.png)  
 
 6. 將 [容量] 值保持在 50%，然後選取 [動作] 按鈕。
 
-    ![選取 [動作] 按鈕](media/hdinsight-troubleshoot-yarn/create-queue-6.png)  
+    ![選取 [動作] 按鈕](media/hdinsight-troubleshoot-yarn/apache-yarn-create-queue-6.png)  
 7. 選取 [Save and Refresh Queues] \(儲存並重新整理佇列)。
 
-    ![選取 [Save and Refresh Queues] \(儲存並重新整理佇列)。](media/hdinsight-troubleshoot-yarn/create-queue-7.png)  
+    ![選取 [Save and Refresh Queues] \(儲存並重新整理佇列)。](media/hdinsight-troubleshoot-yarn/apache-yarn-create-queue-7.png)  
 
 這些變更都會立即顯示在 YARN 排程器 UI 中。
 
@@ -139,6 +139,6 @@ ms.locfileid: "69573718"
 
 - 透過[Azure 社區支援](https://azure.microsoft.com/support/community/)取得 azure 專家的解答。
 
-- [@AzureSupport](https://twitter.com/azuresupport)連接-官方 Microsoft Azure 帳戶, 以改善客戶體驗。 將 Azure 社區連接到正確的資源: 解答、支援和專家。
+- [@AzureSupport](https://twitter.com/azuresupport)連接-官方 Microsoft Azure 帳戶，以改善客戶體驗。 將 Azure 社區連接到正確的資源：解答、支援和專家。
 
-- 如果您需要更多協助, 您可以從[Azure 入口網站](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/)提交支援要求。 從功能表列選取 [**支援**], 或開啟 [說明 **+ 支援**] 中樞。 如需詳細資訊, 請參閱[如何建立 Azure 支援要求](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request)。 您的 Microsoft Azure 訂用帳戶包含訂用帳戶管理和帳單支援的存取權, 而技術支援則透過其中一項[Azure 支援方案](https://azure.microsoft.com/support/plans/)提供。
+- 如果您需要更多協助，您可以從[Azure 入口網站](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/)提交支援要求。 從功能表列選取 [**支援**]，或開啟 [說明 **+ 支援**] 中樞。 如需詳細資訊，請參閱[如何建立 Azure 支援要求](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request)。 您的 Microsoft Azure 訂用帳戶包含訂用帳戶管理和帳單支援的存取權，而技術支援則透過其中一項[Azure 支援方案](https://azure.microsoft.com/support/plans/)提供。

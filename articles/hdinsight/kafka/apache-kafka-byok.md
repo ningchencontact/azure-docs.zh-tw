@@ -7,12 +7,12 @@ ms.author: hrasheed
 ms.reviewer: hrasheed
 ms.topic: conceptual
 ms.date: 05/06/2019
-ms.openlocfilehash: f619a0179849e2ca17a0528d97ef13f0788a4838
-ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
+ms.openlocfilehash: 09cca0eda9a82b1605323678d7442700dc1a2292
+ms.sourcegitcommit: dd69b3cda2d722b7aecce5b9bd3eb9b7fbf9dc0a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70811536"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70960517"
 ---
 # <a name="bring-your-own-key-for-apache-kafka-on-azure-hdinsight"></a>在 Azure HDInsight 上攜帶您自己的 Apache Kafka 金鑰
 
@@ -58,7 +58,7 @@ BYOK 加密是單一步驟的程序，您可在叢集建立期間免費處理此
 
         b. 將 [選項] 設定為 [產生]，並為金鑰提供名稱。
 
-        ![產生金鑰名稱](./media/apache-kafka-byok/kafka-create-a-key.png "產生金鑰名稱")
+        ![產生金鑰名稱](./media/apache-kafka-byok/apache-kafka-create-key.png "產生金鑰名稱")
 
         c. 從金鑰清單中選取您建立的金鑰。
 
@@ -103,7 +103,7 @@ BYOK 加密是單一步驟的程序，您可在叢集建立期間免費處理此
 
    若要旋轉金鑰，您必須擁有新金鑰的完整 url （請參閱[設定 Key Vault 和金鑰](#setup-the-key-vault-and-keys)的步驟3）。 一旦您這樣做，請移至入口網站中的 Kafka 叢集屬性區段，然後按一下 [**磁片加密金鑰 URL**] 底下的 [**變更金鑰**]。 輸入新的金鑰 url 並提交以旋轉金鑰。
 
-   ![Kafka 輪替磁片加密金鑰](./media/apache-kafka-byok/kafka-change-key.png)
+   ![Kafka 輪替磁片加密金鑰](./media/apache-kafka-byok/apache-kafka-change-key.png)
 
 ## <a name="faq-for-byok-to-apache-kafka"></a>Apache Kafka 的 BYOK 常見問題集
 

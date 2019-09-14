@@ -10,12 +10,12 @@ ms.service: active-directory
 ms.subservice: msi
 manager: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a9464b408f43f55cb75a57798b098be6335328e3
-ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.openlocfilehash: d5f271f75a4faa7067f8a52d63a34772780c6448
+ms.sourcegitcommit: dd69b3cda2d722b7aecce5b9bd3eb9b7fbf9dc0a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70136535"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70959921"
 ---
 # <a name="services-that-support-managed-identities-for-azure-resources"></a>支援適用於 Azure 資源的受控識別服務
 
@@ -33,7 +33,7 @@ Azure 資源受控識別會在 Azure Active Directory 中為 Azure 服務提供�
 | 受控識別類型 | 全部正式推出<br>全域 Azure 區域 | Azure Government | Azure Germany | Azure China 21Vianet |
 | --- | --- | --- | --- | --- |
 | 系統指派 | 可用 | 預覽 | 預覽 | 預覽 | 
-| 使用者指派 | 預覽 | 預覽 | 預覽 | 預覽 |
+| 使用者指派 | 可用 | 預覽 | 預覽 | 預覽 |
 
 請參閱下列清單來設定 Azure 虛擬機器的受控識別 (若區域提供)：
 
@@ -48,7 +48,7 @@ Azure 資源受控識別會在 Azure Active Directory 中為 Azure 服務提供�
 |受控識別類型 | 全部正式推出<br>全域 Azure 區域 | Azure Government | Azure Germany | Azure China 21Vianet |
 | --- | --- | --- | --- | --- |
 | 系統指派 | 可用 | 預覽 | 預覽 | 預覽 |
-| 使用者指派 | 預覽 | 預覽 | 預覽 | 預覽 |
+| 使用者指派 | 可用 | 預覽 | 預覽 | 預覽 |
 
 請參閱下列清單來設定 Azure 虛擬機器擴展集的受控識別 (若區域提供)：
 
@@ -210,7 +210,7 @@ Azure 資源受控識別會在 Azure Active Directory 中為 Azure 服務提供�
 
 | 雲端 | 資源 ID | 狀態 |
 |--------|------------|--------|
-| Azure 全域 | `https://eventhubs.azure.net` | 預覽 |
+| Azure 全域 | `https://eventhubs.azure.net` | 可用 |
 | Azure Government |  | 無法使用 |
 | Azure Germany |   | 無法使用 |
 | Azure China 21Vianet |  | 無法使用 |
@@ -219,7 +219,7 @@ Azure 資源受控識別會在 Azure Active Directory 中為 Azure 服務提供�
 
 | 雲端 | 資源 ID | 狀態 |
 |--------|------------|--------|
-| Azure 全域 | `https://servicebus.azure.net`  | 預覽 |
+| Azure 全域 | `https://servicebus.azure.net`  | 可用 |
 | Azure Government |  | 無法使用 |
 | Azure Germany |   | 無法使用 |
 | Azure China 21Vianet |  | 無法使用 |

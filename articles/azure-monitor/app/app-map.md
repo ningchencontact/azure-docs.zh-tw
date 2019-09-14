@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 03/15/2019
 ms.reviewer: sdash
 ms.author: mbullwin
-ms.openlocfilehash: ce44be5bae5aaa8f86d04068cce1c4bc919b0893
-ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
+ms.openlocfilehash: f895aa9aa4bc66c32f10d290b7ee708345be8c9b
+ms.sourcegitcommit: 909ca340773b7b6db87d3fb60d1978136d2a96b0
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70126965"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70983774"
 ---
 # <a name="application-map-triage-distributed-applications"></a>應用程式對應：將分散式應用程式分級
 
@@ -272,6 +272,6 @@ appInsights.addTelemetryInitializer((envelope) => {
 
 ## <a name="next-steps"></a>後續步驟
 
-* 若要深入瞭解相互關聯在 Application Insights 中的運作方式, 請參閱 [遙測相互關聯文章](https://docs.microsoft.com/azure/application-insights/application-insights-correlation) 。
-* [端對端交易診斷體驗](transaction-diagnostics.md)會將伺服器端的遙測資料從您的所有 Application Insights 監視元件, 相互關聯至單一視圖。
-* 如需 ASP.NET Core 和 ASP.NET 中的先進相互關聯案例, 請參閱[追蹤自訂作業](custom-operations-tracking.md)一文。
+* 若要深入瞭解相互關聯的運作方式 Application Insights 參閱[遙測相互關聯一文](https://docs.microsoft.com/azure/application-insights/application-insights-correlation)。
+* [端對端交易診斷體驗](transaction-diagnostics.md)會將伺服器端的遙測資料從您的所有 Application Insights 監視元件，相互關聯至單一視圖。
+* 如需 ASP.NET Core 和 ASP.NET 中的先進相互關聯案例，請參閱[追蹤自訂作業](custom-operations-tracking.md)一文。

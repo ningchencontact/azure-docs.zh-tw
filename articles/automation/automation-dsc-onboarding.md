@@ -9,12 +9,12 @@ ms.author: robreed
 ms.topic: conceptual
 ms.date: 08/08/2018
 manager: carmonm
-ms.openlocfilehash: b003c0cc6480c5d03c3755e7c57785ab2026194b
-ms.sourcegitcommit: a0b37e18b8823025e64427c26fae9fb7a3fe355a
+ms.openlocfilehash: c05ac7a1894fc3e159ef8fc2b3dd2654714faccf
+ms.sourcegitcommit: fbea2708aab06c19524583f7fbdf35e73274f657
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68498398"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70965192"
 ---
 # <a name="onboarding-machines-for-management-by-azure-automation-state-configuration"></a>將機器上架交由 Azure Automation State Configuration 管理
 
@@ -67,7 +67,8 @@ Azure Automation State Configuration 可讓您使用 Azure 入口網站、Azure 
 
 ### <a name="powershell"></a>PowerShell
 
-[AzAutomationDscNode](/powershell/module/az.automation/register-azautomationdscnode) Cmdlet 可以用來透過 PowerShell 將虛擬機器上架 Azure 入口網站。
+[AzAutomationDscNode 指令程式](/powershell/module/az.automation/register-azautomationdscnode)可以用來在 Azure 中使用 PowerShell 將虛擬機器上架。
+不過，這目前只會針對執行 Windows 的電腦（此 Cmdlet 只會觸發 Windows 擴充功能）進行。
 
 ### <a name="registering-virtual-machines-across-azure-subscriptions"></a>跨 Azure 訂用帳戶註冊虛擬機器
 
@@ -295,7 +296,7 @@ Azure Automation State Configuration 可讓您使用 Azure 入口網站、Azure 
 
 機器可以透過 WMF 5 DSC 註冊通訊協定安全地上架到 Azure 自動化帳戶，如此可讓 DSC 節點向 PowerShell DSC 提取或報告伺服器 (包括 Azure Automation State Configuration) 進行驗證。 節點會在**註冊 URL** 時向伺服器註冊，並使用**註冊金鑰**進行驗證。 在註冊期間，DSC 節點和 DSC 提取/報告伺服器會交涉獨特的憑證，讓此節點在註冊伺服器用於進行驗證。 此程序可避免上架的節點彼此模擬，例如當節點遭到入侵並且具有惡意行為。 註冊之後，註冊金鑰不會再次用於驗證，並且會從節點中刪除。
 
-您可以從 Azure 入口網站中 [帳戶設定] 底下的 [金鑰] 取得 State Configuration 註冊通訊協定所需的資訊。 在自動化帳戶的 [基本功能]  面板按一下金鑰圖示，可開啟此刀鋒視窗。
+您可以從 Azure 入口網站中 [帳戶設定] 底下的 [金鑰] 取得 State Configuration 註冊通訊協定所需的資訊。 在自動化帳戶的 [基本功能] 面板按一下金鑰圖示，可開啟此刀鋒視窗。
 
 ![Azure 自動化金鑰和 URL](./media/automation-dsc-onboarding/DSC_Onboarding_4.png)
 
@@ -311,13 +312,13 @@ Azure Automation State Configuration 可讓您輕鬆地將 Azure Windows VM 上�
 > [!NOTE]
 > 任何可將 Azure Windows VM 上架到使用 Azure VM Desired State Configuration 擴充功能的 Azure Automation State Configuration 的方法，最多可能需要一小時的時間，節點才會顯示為已在 Azure 自動化中註冊。 這是因為 VM 上憑藉著 Azure VM DSC 擴充功能的 Windows Management Framework 5.0 安裝，需要它才能將 VM 上架到 Azure Automation State Configuration。
 
-若要對「Azure VM 預期狀態設定」延伸模組的狀態進行疑難排解或檢視，請在 Azure 入口網站中，瀏覽至要上架的 VM，然後按一下 [設定] 底下的 [延伸模組]。 然後視作業系統而定，按一下 [DSC] 或 [DSCForLinux]。 如需詳細資訊，您可以按一下 [檢視詳細狀態] 。
+若要對「Azure VM 預期狀態設定」延伸模組的狀態進行疑難排解或檢視，請在 Azure 入口網站中，瀏覽至要上架的 VM，然後按一下 [設定] 底下的 [延伸模組]。 然後視作業系統而定，按一下 [DSC] 或 [DSCForLinux]。 如需詳細資訊，您可以按一下 [檢視詳細狀態]。
 
 ## <a name="certificate-expiration-and-reregistration"></a>憑證到期日和重新註冊
 
 在將機器註冊為 Azure Automation State Configuration 中的 DSC 節點之後，有數種原因讓您可能需要在未來重新註冊該節點：
 
-- 在註冊之後，每個節點會自動交涉唯一的驗證憑證，該憑證於一年之後到期。 目前，當憑證即將過期時，PowerShell DSC 註冊通訊協定便無法自動更新憑證，因此您必須在一年之後重新註冊這些節點。 在重新登錄之前，請確定每個節點都正在執行 Windows Management Framework 5.0 RTM。 如果節點的驗證憑證過期，而且該節點尚未註冊，則該節點將無法與 Azure 自動化通訊，而且會被標示為「未回應」。 與憑證到期時間相距 90 天或更短時間內執行的註冊，或是憑證到期時間之後任何時間點執行的註冊，將會產生新的憑證並予以使用。
+- 針對 Windows Server 2019 之前的 Windows Server 版本，每個節點都會自動針對在一年後到期的驗證，協調唯一的憑證。 目前，當憑證即將過期時，PowerShell DSC 註冊通訊協定便無法自動更新憑證，因此您必須在一年之後重新註冊這些節點。 在重新登錄之前，請確定每個節點都正在執行 Windows Management Framework 5.0 RTM。 如果節點的驗證憑證過期，而且該節點尚未註冊，則該節點將無法與 Azure 自動化通訊，而且會被標示為「未回應」。 與憑證到期時間相距 90 天或更短時間內執行的註冊，或是憑證到期時間之後任何時間點執行的註冊，將會產生新的憑證並予以使用。  此問題的解決方式包含在 Windows Server 2019 和更新版本中。
 - 變更在節點初始註冊期間設定的任何 [PowerShell DSC 本機組態管理員值](/powershell/dsc/metaconfig4) ，例如 ConfigurationMode。 目前，這些 DSC 代理程式值只可以透過重新註冊變更。 其中一個例外是指派給節點的節點組態 - 它可以在 Azure Automation DSC 中直接變更。
 
 重新註冊可以用您初始註冊節點的相同方法執行，使用這份文件中所述的任何上架方法。 重新註冊節點之前，您不需要從 Azure Automation State Configuration 取消註冊節點。

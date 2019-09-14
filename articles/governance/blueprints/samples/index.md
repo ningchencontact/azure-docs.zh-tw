@@ -5,15 +5,15 @@ author: DCtheGeek
 manager: carmonm
 ms.service: blueprints
 ms.topic: sample
-ms.date: 08/21/2019
+ms.date: 09/04/2019
 ms.author: dacoulte
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 58deb4fff4cee21acbf99d3c4035a9941697bed4
-ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
+ms.openlocfilehash: ea2c56e35741a49d057f2261f7b53fb754a43f8b
+ms.sourcegitcommit: fbea2708aab06c19524583f7fbdf35e73274f657
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/03/2019
-ms.locfileid: "70231829"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70967991"
 ---
 # <a name="azure-blueprints-samples"></a>Azure 藍圖範例
 
@@ -23,7 +23,7 @@ ms.locfileid: "70231829"
 
 |  |  |
 |---------|---------|
-| [加拿大聯邦 PBMM](./canada-federal-pbmm/control-mapping.md) | 提供符合加拿大聯邦受保護分類 B、中度完整性、中度可用性之保護機制 (PBMM)。 |
+| [加拿大聯邦 PBMM](./canada-federal-pbmm/index.md) | 提供符合加拿大聯邦受保護分類 B、中度完整性、中度可用性之保護機制 (PBMM)。 |
 | [CIS Microsoft Azure 基礎基準測試](./cis-azure-1.1.0/index.md)| 提供一組原則，以協助您遵循 CIS Microsoft Azure 基礎的基準測試建議。 |
 | [IRS 1075](./irs-1075/index.md) | 提供成立條件以符合 IRS 1075。|
 | [ISO 27001](./iso27001/index.md) | 提供成立條件以符合 ISO 27001。 |

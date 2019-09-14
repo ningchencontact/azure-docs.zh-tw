@@ -7,12 +7,12 @@ ms.author: shthota
 ms.service: marketplace
 ms.topic: conceptual
 ms.date: 09/09/2019
-ms.openlocfilehash: be1da90ef089da412545ac8af6fabb04198d821c
-ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
+ms.openlocfilehash: 535dae4226f7db9cbc7240f9a92642f0e206cd3b
+ms.sourcegitcommit: dd69b3cda2d722b7aecce5b9bd3eb9b7fbf9dc0a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70880161"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70962740"
 ---
 # <a name="analytics-for-the-commercial-marketplace-in-partner-center"></a>合作夥伴中心的商業 Marketplace 分析
 
@@ -26,7 +26,6 @@ ms.locfileid: "70880161"
 |[訂單](#orders-dashboard)|具有圖形化和可下載格式之訂單的相關資訊|
 |[客戶](#customer-dashboard)|您的客戶相關資訊，包括成長趨勢，以圖形化且可下載的格式呈現|
 |[下載次數](#downloads-dashboard)|過去30天內的下載要求清單|
-|[評等和評論](#ratings-and-reviews)| 您的客戶對於其所取得之供應專案的評等和評論的相關資訊。
 
 ## <a name="summary-dashboard"></a>摘要儀表板
 
@@ -286,38 +285,3 @@ ms.locfileid: "70880161"
 | 提供者名稱| 客戶| 與 Microsoft 和終端客戶之間關係相關的提供者名稱。 如果客戶是透過轉銷商的企業，這會是轉銷商。 如果涉及雲端解決方案提供者（CSP），這會是 CSP。|
 | SKU| 順序| 發佈期間定義的 SKU 名稱。 供應專案可能有許多 Sku，但 SKU 只能與單一供應專案相關聯。||
 | 試用結束日期| 順序| 此訂單將結束或已結束的日期。||
-
-## <a name="ratings-and-reviews"></a>評等和評論
-
-當客戶在這兩個 marketplace 中流覽、搜尋和購買供應專案時，他們可以針對他們取得的供應專案留下評等和評論。 他們可以提交新的評等或評論，以及更新或刪除已提交的評等或評論。 評論會在 Azure marketplace 或 AppSource 中張貼于供應專案產品顯示頁面的 [評論] 索引標籤上。 客戶可以包含其評等或評論的名稱，或是以匿名方式張貼。  
-
-> [!NOTE]
-> 客戶只能對其所擁有的評等和評論進行變更。
-
-**評量 & [審查] 儀表板**會顯示客戶活動的趨勢和深入解析。 它提供下列各項的圖形化表示：
-
-- 評等 & 評論  
-- 審查批註
-
-### <a name="marketplace-storefront-tabs"></a>Marketplace 店面索引標籤
-
-發行者可以在 AppSource & Azure Marketplace 索引標籤中，分別查看其供應專案計量。 若要查看特定的供應專案計量，請從下拉式清單中選取 [**供應**專案]：
-
-![合作夥伴中心分析供應專案下拉式清單](./media/analyze-offer-dropdown.png)
-
-### <a name="ratings-and-reviews-summary"></a>評等和評論摘要
-
-[評等] & [評論摘要] 區段會顯示下列所選日期範圍的度量：
-
-- **平均評等：** 客戶針對所選供應專案所提交之所有評等的加權平均星級評等。
-- **評等明細：** 星級評等的明細，依據提交評等的客戶計數。 橫條圖會以實際和修訂的評等來堆疊（已更新的評等計數）。
-- **評等總計：** 已提交評等的整體計數。 此計數也包含具有和不含評論的評等。
-- **包含評論的評等：** 已提交的評論計數。
-
-![合作夥伴中心分析評等和評論摘要](./media/analyze-ratings-summary.png)
-
-### <a name="review-comments"></a>審查批註
-
-評論會依時間先後順序顯示。 預設的 view 會顯示所有評論。 您可以使用下拉式功能表中的**篩選**器，透過星級評等來篩選評論。 您也可以搜尋出現在審查中的關鍵字。  
-
-![合作夥伴中心分析審核意見](./media/analyze-reviews.png)

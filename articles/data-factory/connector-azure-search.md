@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 08/01/2019
+ms.date: 09/13/2019
 ms.author: jingwang
-ms.openlocfilehash: bc914d27e9bea15a625dd2cd196401d733f8cfb8
-ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
+ms.openlocfilehash: c2165d0ff16233766918f9e274324b02d1bf1ac8
+ms.sourcegitcommit: dd69b3cda2d722b7aecce5b9bd3eb9b7fbf9dc0a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70275941"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70962105"
 ---
 # <a name="copy-data-to-an-azure-search-index-using-azure-data-factory"></a>使用 Azure Data Factory 將資料複製到 Azure 搜尋服務索引
 
@@ -49,7 +49,7 @@ ms.locfileid: "70275941"
 | connectVia | 用來連線到資料存放區的 [Integration Runtime](concepts-integration-runtime.md)。 您可以使用 Azure Integration Runtime 或「自我裝載 Integration Runtime」(如果您的資料存放區位於私人網路中)。 如果未指定，就會使用預設的 Azure Integration Runtime。 |否 |
 
 > [!IMPORTANT]
-> 將資料從雲端資料存放區複製到 Azure 搜尋服務索引時, 在 Azure 搜尋服務連結服務中, 您需要在 connactVia 中參考明確區域的 Azure Integration Runtime。 請將區域設定為您「Azure 搜尋服務」所在的區域。 請參閱 [Azure Integration Runtime](concepts-integration-runtime.md#azure-integration-runtime) 以深入了解。
+> 將資料從雲端資料存放區複製到 Azure 搜尋服務索引時，在 Azure 搜尋服務連結服務中，您需要在 connactVia 中參考明確區域的 Azure Integration Runtime。 請將區域設定為您「Azure 搜尋服務」所在的區域。 請參閱 [Azure Integration Runtime](concepts-integration-runtime.md#azure-integration-runtime) 以深入了解。
 
 **範例:**
 
@@ -77,7 +77,7 @@ ms.locfileid: "70275941"
 
 如需可用來定義資料集的區段和屬性完整清單，請參閱[資料集](concepts-datasets-linked-services.md)一文。 本節提供「Azure 搜尋服務」資料集所支援的屬性清單。
 
-若要將資料複製到 Azure 搜尋服務, 支援下列屬性:
+若要將資料複製到 Azure 搜尋服務，支援下列屬性：
 
 | 屬性 | 描述 | 必要項 |
 |:--- |:--- |:--- |
@@ -164,7 +164,7 @@ Azure 搜尋服務支援批次寫入文件。 一個批次可包含 1 到 1,000 
 ]
 ```
 
-### <a name="data-type-support"></a>資料類型支援
+## <a name="data-type-support"></a>資料類型支援
 
 下表指出是否支援 Azure 搜尋服務資料類型。
 
@@ -178,6 +178,8 @@ Azure 搜尋服務支援批次寫入文件。 一個批次可包含 1 到 1,000 
 | DataTimeOffset | Y |
 | String Array | N |
 | GeographyPoint | N |
+
+目前不支援其他資料類型（例如 ComplexType）。 如需 Azure 搜尋支援的資料類型完整清單，請參閱[支援的資料類型（Azure 搜尋服務）](https://docs.microsoft.com/rest/api/searchservice/supported-data-types)。
 
 ## <a name="next-steps"></a>後續步驟
 如需 Azure Data Factory 中的複製活動所支援作為來源和接收器的資料存放區清單，請參閱[支援的資料存放區](copy-activity-overview.md##supported-data-stores-and-formats)。

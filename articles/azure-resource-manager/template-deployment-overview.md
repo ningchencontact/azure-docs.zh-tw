@@ -4,14 +4,14 @@ description: 說明如何使用 Azure Resource Manager 的範本來部署資源�
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: conceptual
-ms.date: 09/07/2019
+ms.date: 09/13/2019
 ms.author: tomfitz
-ms.openlocfilehash: 61e9bbabee969280c07521edb05d67ba68c0c58e
-ms.sourcegitcommit: b7b0d9f25418b78e1ae562c525e7d7412fcc7ba0
+ms.openlocfilehash: 6d0d162f0f6f3024f6b4b63b8df1df9fd413afc8
+ms.sourcegitcommit: fbea2708aab06c19524583f7fbdf35e73274f657
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/08/2019
-ms.locfileid: "70802008"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70965303"
 ---
 # <a name="azure-resource-manager-templates"></a>Azure 資源管理員範本
 
@@ -21,43 +21,35 @@ ms.locfileid: "70802008"
 
 若要將基礎結構當做 Azure 解決方案的程式碼來執行，請使用 Azure Resource Manager 範本。 範本是 JavaScript 物件標記法（JSON）檔案，可定義專案的基礎結構和設定。 此範本使用宣告式語法，可讓您陳述想要部署的內容，而不需要撰寫程式設計命令順序來建立。 在範本中，您可以指定要部署的資源，以及這些資源的屬性。
 
-## <a name="benefits-of-resource-manager-templates"></a>Resource Manager 範本的優點
+## <a name="why-choose-resource-manager-templates"></a>為何選擇 Resource Manager 範本？
 
-Resource Manager 範本提供下列優點：
+如果您想要決定使用 Resource Manager 範本和其中一個其他基礎結構作為程式碼服務，請考慮使用範本的下列優點：
 
-* 以群組方式部署、管理及監視方案的所有資源，而不是個別處理這些資源。
+* **宣告式語法**：Resource Manager 範本可讓您以宣告方式建立及部署整個 Azure 基礎結構。 例如，您不僅可以部署虛擬機器，也不能部署網路基礎結構、儲存系統，以及您可能需要的其他任何資源。
 
-* 在整個開發生命週期中重複部署您的解決方案，並確信您的資源會以一致的狀態部署。
+* 可**重複的結果**：在整個開發生命週期中重複部署您的基礎結構，並讓您確信以一致的方式部署您的資源。 範本具有等冪性，這表示您可以多次部署相同的範本，並取得相同狀態的相同資源類型。 您可以開發一個代表所需狀態的範本，而不是開發許多不同的範本來代表更新。
 
-* 透過宣告式範本而非腳本來管理您的基礎結構。
-
-如果您嘗試在使用 Resource Manager 範本或其中一個其他基礎結構作為程式碼服務時，請考慮下列優點範本已超過這些服務：
-
-* 新的 Azure 服務和功能會立即在範本中提供。 一旦資源提供者引進新資源，您就可以透過範本來部署這些資源。 透過其他基礎結構即程式碼服務，您必須等候協力廠商為新資源執行介面。
-
-* 範本部署是透過單一範本提交，而不是透過多個命令式命令來處理。 Resource Manager 會協調相互相依資源的部署，使其以正確的順序建立。 它會剖析範本，並根據資源間的參考判斷部署的正確順序。
+* **協調流程**：您不必擔心排序作業的複雜性。 Resource Manager 會協調相互相依資源的部署，使其以正確的順序建立。 可能的話，Resource Manager 以平行方式部署資源，讓您的部署比序列部署更快完成。 您可以透過一個命令來部署範本，而不是透過多個命令式命令。
 
    ![範本部署比較](./media/template-deployment-overview/template-processing.png)
 
-* 範本部署會在 Azure 入口網站中進行追蹤。 您可以查看部署歷程記錄，並取得範本部署的相關資訊。 您可以看到已部署的範本、傳入的參數值，以及任何輸出值。 其他基礎結構即程式碼服務不會透過入口網站進行追蹤。
+* **內建驗證**：只有在通過驗證之後，才會部署您的範本。 Resource Manager 在開始部署之前檢查範本，以確定部署將會成功。 您的部署較不可能以半完成狀態停止。
+
+* **模組化**檔案：您可以將範本分成較小、可重複使用的元件，並在部署階段將它們連結在一起。 您也可以在另一個範本內嵌套一個範本。
+
+* **建立任何 Azure 資源**：您可以立即在範本中使用新的 Azure 服務和功能。 一旦資源提供者引進新資源，您就可以透過範本來部署這些資源。 您不需要等到工具或模組更新後，再使用新的服務。
+
+* **追蹤的部署**：在 Azure 入口網站中，您可以查看部署歷程記錄，並取得範本部署的相關資訊。 您可以看到已部署的範本、傳入的參數值，以及任何輸出值。 其他基礎結構即程式碼服務不會透過入口網站進行追蹤。
 
    ![部署記錄](./media/template-deployment-overview/deployment-history.png)
 
-* 範本部署會進行預先飛行驗證。 Resource Manager 在開始部署之前檢查範本，以確定部署將會成功。 您的部署較不可能以半完成狀態停止。
+* **原則即程式碼**：[Azure 原則](../governance/policy/overview.md)是程式碼架構的原則，可自動化治理。 如果您使用 Azure 原則，則會在透過範本部署時，在不符合規範的資源上進行原則補救。
 
-* 如果您使用[Azure 原則](../governance/policy/overview.md)，則會在透過範本部署時，在不符合規範的資源上進行原則補救。
+* **部署藍圖**：您可以利用 Microsoft 提供的[藍圖](../governance/blueprints/overview.md)來符合法規和合規性標準。 這些藍圖包括適用于各種架構的預先建立範本。
 
-* Microsoft 提供部署[藍圖](../governance/blueprints/overview.md)來符合法規和合規性標準。 這些藍圖包括適用于各種架構的預先建立範本。
+* 可匯出的程式**代碼**：您可以藉由匯出資源群組的目前狀態，或查看用於特定部署的範本，來取得現有資源群組的範本。 檢視[匯出的範本](export-template-portal.md)有助於了解範本語法。
 
-## <a name="idempotent"></a>等冪
-
-等冪直接表示您可以多次執行相同的作業，並取得相同的結果。 部署 Resource Manager 範本是等冪的。 您可以多次部署相同的範本，並取得相同狀態的相同資源類型。 這個概念很重要，因為這表示您會將範本重新部署至現有的資源群組，或將範本部署到新的資源群組，而得到一致的結果。
-
-我們假設您已將三個資源部署至資源群組，然後決定您需要新增第四個資源。 您可以將第四個資源新增至現有的範本，而不是建立只包含新資源的新範本。 當您將新範本部署至已有三個資源的資源群組時，Resource Manager 找出要採取的動作。
-
-如果資源存在於資源群組中，而且要求未包含屬性的更新，則不會採取任何動作。 如果資源存在，但屬性已變更，則會更新現有的資源。 如果資源不存在，就會建立新的資源。
-
-您確信當部署完成時，資源一律會處於預期的狀態。
+* **撰寫工具**：您可以使用[Visual Studio Code](resource-manager-tools-vs-code.md)和範本工具擴充功能來撰寫範本。 您可以取得 intellisense、語法反白顯示、內嵌說明，以及許多其他語言功能。
 
 ## <a name="template-file"></a>範本檔案
 
@@ -74,20 +66,6 @@ Resource Manager 範本提供下列優點：
 * [資源](resource-group-authoring-templates.md#resources)-指定要部署的資源。
 
 * [輸出](template-outputs.md)-來自已部署資源的傳回值。
-
-## <a name="template-features"></a>範本功能
-
-Resource Manager 會分析相依性，以確保以正確的順序建立資源。 大部分的相依性會以隱含方式決定。 不過，您可以明確地設定相依性，以確保在另一項資源之前部署一個資源。 如需詳細資訊，請參閱 [定義 Azure Resource Manager 範本中的相依性](resource-group-define-dependencies.md)。
-
-您可以將資源新增至您的範本，並選擇性地加以部署。 一般來說，您會傳入參數值，指出是否需要部署資源。 如需詳細資訊，請參閱[Resource Manager 範本中的條件式部署](conditional-resource-deployment.md)。
-
-您可以使用 copy 元素來指定多個變數、屬性或資源的實例，而不是在您的範本中多次重複的 JSON 區塊。 如需詳細資訊，請參閱[Azure Resource Manager 範本中的資源、屬性或變數反復](resource-group-create-multiple.md)專案。
-
-## <a name="export-templates"></a>匯出範本
-
-您可以藉由匯出資源群組的目前狀態，或查看用於特定部署的範本，來取得現有資源群組的範本。 檢視[匯出的範本](export-template-portal.md)有助於了解範本語法。
-
-當您從入口網站建立方案，方案會自動包含部署範本。 您不必從頭建立您的範本，因為您可以從方案的範本開始，並自訂範本以符合您的特定需求。 如需範例，請參閱[快速入門：使用 Azure 入口網站建立及部署 Azure Resource Manager 範本](./resource-manager-quickstart-create-templates-use-the-portal.md)。
 
 ## <a name="template-deployment-process"></a>範本部署進程
 
@@ -146,6 +124,7 @@ REQUEST BODY
 ## <a name="next-steps"></a>後續步驟
 
 * 如需範本檔案中屬性的相關資訊，請參閱[瞭解 Azure Resource Manager 範本的結構和語法](resource-group-authoring-templates.md)。
-* 若要開始開發範本，請參閱[使用 Visual Studio Code 建立 Azure Resource Manager 範本](resource-manager-tools-vs-code.md)。
-* 如需 Resource Manager 服務的簡介，包括其管理功能，請參閱[Azure Resource Manager 總覽](resource-group-overview.md)。
-
+* 若要明確設定相依性，以便在另一個資源之前部署一項資源，請參閱[在 Azure Resource Manager 範本中定義](resource-group-define-dependencies.md)相依性。
+* 您可以將資源新增至您的範本，並選擇性地加以部署。 如需詳細資訊，請參閱[Resource Manager 範本中的條件式部署](conditional-resource-deployment.md)。
+* 您可以指定多個變數、屬性或資源的實例，而不是在您的範本中多次重複的 JSON 區塊。 如需詳細資訊，請參閱[Azure Resource Manager 範本中的資源、屬性或變數反復](resource-group-create-multiple.md)專案。
+* 若要瞭解如何匯出範本， [請參閱快速入門：使用 Azure 入口網站建立及部署 Azure Resource Manager 範本](./resource-manager-quickstart-create-templates-use-the-portal.md)。

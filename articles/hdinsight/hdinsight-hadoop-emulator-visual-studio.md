@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/07/2018
 ms.author: hrasheed
-ms.openlocfilehash: 9fba32c9c21faa6e02c8b48b3907ab67e47036d5
-ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
+ms.openlocfilehash: a80cc44dbc4be0728ad632eefd8b9ed62f7f86b1
+ms.sourcegitcommit: dd69b3cda2d722b7aecce5b9bd3eb9b7fbf9dc0a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70885504"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70962401"
 ---
 # <a name="use-the-azure-data-lake-tools-for-visual-studio-with-the-hortonworks-sandbox"></a>搭配 Hortonworks 沙箱使用 Azure Data Lake tools for Visual Studio
 
@@ -41,7 +41,7 @@ Azure Data Lake 包含使用於一般 Apache Hadoop 叢集的工具。 針對在
 
 2. 從 [伺服器總管]，以滑鼠右鍵按一下 [HDInsight] 項目，然後選取 [連線至 HDInsight Emulator]。
 
-    ![[伺服器總管] 的螢幕擷取畫面，其中 [連線到 HDInsight 模擬器] 已反白顯示](./media/hdinsight-hadoop-emulator-visual-studio/connect-emulator.png)
+    ![[伺服器總管] 的螢幕擷取畫面，其中 [連線到 HDInsight 模擬器] 已反白顯示](./media/hdinsight-hadoop-emulator-visual-studio/connect-hdinsight-emulator.png)
 
 3. 從 [連線到 HDInsight 模擬器] 對話方塊，輸入您為 Ambari 設定的密碼。
 
@@ -51,19 +51,19 @@ Azure Data Lake 包含使用於一般 Apache Hadoop 叢集的工具。 針對在
 
 4. 使用 [密碼] 欄位來輸入您為 `root` 帳戶所設定的密碼。 讓其他欄位保持預設值。
 
-    ![已反白顯示 [根密碼] 文字方塊的對話方塊螢幕擷取畫面](./media/hdinsight-hadoop-emulator-visual-studio/enter-root-password.png)
+    ![已反白顯示 [根密碼] 文字方塊的對話方塊螢幕擷取畫面](./media/hdinsight-hadoop-emulator-visual-studio/enter-root-password1.png)
 
     選取 [下一步] 以繼續操作。
 
 5. 等候服務的驗證完成。 在某些情況下，驗證可能會失敗並提示您更新設定。 如果驗證失敗，請選取 [更新] 並等候服務的設定和驗證完成。
 
-    ![對話方塊的螢幕擷取畫面，其中 [更新] 按鈕已反白顯示](./media/hdinsight-hadoop-emulator-visual-studio/fail-and-update.png)
+    ![對話方塊的螢幕擷取畫面，其中 [更新] 按鈕已反白顯示](./media/hdinsight-hadoop-emulator-visual-studio/fail-and-update-window.png)
 
     > [!NOTE]  
     > 更新程序會使用 Ambari，將 Hortonworks 沙箱設定修改成 Data Lake tools for Visual Studio 所預期的組態。
 
 6. 驗證完成後，請選取 [完成] 以完成設定。
-    ![對話方塊的螢幕擷取畫面，其中 [完成] 按鈕已反白顯示](./media/hdinsight-hadoop-emulator-visual-studio/finished-connect.png)
+    ![對話方塊的螢幕擷取畫面，其中 [完成] 按鈕已反白顯示](./media/hdinsight-hadoop-emulator-visual-studio/finished-connect-dialog.png)
 
      >[!NOTE]  
      > 視您的開發環境的速度，以及配置給虛擬機器的記憶體數量而定，可能需要幾分鐘的時間來設定及驗證服務。
@@ -76,7 +76,7 @@ Hive 會提供類似 SQL 的查詢語言 (HiveQL)，以便處理結構化資料�
 
 1. 在 [伺服器總管] 中，以滑鼠右鍵按一下您先前新增的本機叢集項目，然後選取 [撰寫 Hive 查詢]。
 
-    ![[伺服器總管] 的螢幕擷取畫面，其中 [撰寫 Hive 查詢] 已反白顯示](./media/hdinsight-hadoop-emulator-visual-studio/write-hive-query.png)
+    ![[伺服器總管] 的螢幕擷取畫面，其中 [撰寫 Hive 查詢] 已反白顯示](./media/hdinsight-hadoop-emulator-visual-studio/write-apache-hive-query.png)
 
     新的查詢視窗隨即開啟。 您可以在此視窗迅速寫入查詢並提交到本機叢集。
 
@@ -86,15 +86,15 @@ Hive 會提供類似 SQL 的查詢語言 (HiveQL)，以便處理結構化資料�
 
     若要執行查詢，請選取視窗頂端的 [提交]。 讓其他值 ([批次] 和伺服器名稱) 保持預設值。
 
-    ![查詢視窗的螢幕擷取畫面，其中 [提交] 按鈕已反白顯示](./media/hdinsight-hadoop-emulator-visual-studio/submit-hive.png)
+    ![查詢視窗的螢幕擷取畫面，其中 [提交] 按鈕已反白顯示](./media/hdinsight-hadoop-emulator-visual-studio/query-window-submit-hive.png)
 
     您也可以使用 [提交] 旁邊的下拉式功能表來選取 [進階]。 進階選項可讓您在提交作業時提供其他選項。
 
-    ![提交腳本對話方塊 hive 的螢幕擷取畫面](./media/hdinsight-hadoop-emulator-visual-studio/advanced-hive.png)
+    ![提交腳本對話方塊 hive 的螢幕擷取畫面](./media/hdinsight-hadoop-emulator-visual-studio/advanced-apache-hive.png)
 
 3. 提交查詢後，將會顯示作業狀態。 作業狀態會顯示 Hadoop 處理作業時的相關資訊。 [作業狀態] 提供作業的狀態。 狀態會定期更新，您也可以使用重新整理圖示來手動重新整理狀態。
 
-    ![[作業檢視] 對話方塊的螢幕擷取畫面，其中 [作業狀態] 已反白顯示](./media/hdinsight-hadoop-emulator-visual-studio/job-state.png)
+    ![[作業檢視] 對話方塊的螢幕擷取畫面，其中 [作業狀態] 已反白顯示](./media/hdinsight-hadoop-emulator-visual-studio/job-view-dialog-box1.png)
 
     當 [作業狀態] 變更為 [已完成] 之後，有向非循環圖 (DAG) 隨即顯示。 此圖說明處理 Hive 查詢時由 Tez 所決定的執行路徑。 Tez 是本機叢集上 Hive 的預設執行引擎。
 
@@ -105,14 +105,14 @@ Hive 會提供類似 SQL 的查詢語言 (HiveQL)，以便處理結構化資料�
 
 4. 您也可以將 [批次] 欄位變更為 [互動式]，以互動方式執行 Hive 作業。 接著，選取 [執行]。
 
-    ![[互動式] 與 [執行] 按鈕已反白顯示的螢幕擷取畫面](./media/hdinsight-hadoop-emulator-visual-studio/interactive-query.png)
+    ![[互動式] 與 [執行] 按鈕已反白顯示的螢幕擷取畫面](./media/hdinsight-hadoop-emulator-visual-studio/hdi-interactive-query.png)
 
     互動式查詢會將處理期間所產生的輸出記錄串流處理至 [HiveServer2 輸出] 視窗。
 
     > [!NOTE]  
     > 此資訊與作業完成後可從 [作業記錄] 連結取得的資訊相同。
 
-    ![輸出記錄的螢幕擷取畫面](./media/hdinsight-hadoop-emulator-visual-studio/hiveserver2-output.png)
+    ![輸出記錄的螢幕擷取畫面](./media/hdinsight-hadoop-emulator-visual-studio/hiveserver2-output-box.png)
 
 ## <a name="create-a-hive-project"></a>建立 Hive 專案
 
@@ -122,7 +122,7 @@ Hive 會提供類似 SQL 的查詢語言 (HiveQL)，以便處理結構化資料�
 
 2. 從專案清單，展開 [範本]，展開 [Azure Data Lake]，然後選取 [HIVE (HDInsight)]。 從範本清單中，選取 [Hive 範例]。 輸入名稱和位置，然後選取 [確定]。
 
-    ![[新增專案] 視窗的螢幕擷取畫面，其中 [Azure Data Lake]、[HIVE]、[Hive 範例] 與 [確定] 已反白顯示](./media/hdinsight-hadoop-emulator-visual-studio/new-hive-project.png)
+    ![[新增專案] 視窗的螢幕擷取畫面，其中 [Azure Data Lake]、[HIVE]、[Hive 範例] 與 [確定] 已反白顯示](./media/hdinsight-hadoop-emulator-visual-studio/new-apache-hive-project.png)
 
 [Hive 範例] 專案包含兩個指令碼：**WebLogAnalysis.hql** 和 **SensorDataAnalysis.hql**。 您可以使用前述視窗頂端的 [提交] 按鈕提交這些指令碼。
 
@@ -132,7 +132,7 @@ Hive 提供類似 SQL 的語言來處理結構化的資料，Pig 的運作方式
 
 1. 開啟 Visual Studio，並依序選取 [檔案] > [新增] 和 [專案]。 從專案清單，展開 [範本]、[Azure Data Lake]，然後選取 [Pig (HDInsight)]。 從範本清單中，選取 [Pig 應用程式]。 輸入名稱、位置，然後選取 [確定]。
 
-    ![[新增專案] 視窗的螢幕擷取畫面，其中 [Azure Data Lake]、[Pig]、[Pig 應用程式] 與 [確定] 已反白顯示](./media/hdinsight-hadoop-emulator-visual-studio/new-pig.png)
+    ![[新增專案] 視窗的螢幕擷取畫面，其中 [Azure Data Lake]、[Pig]、[Pig 應用程式] 與 [確定] 已反白顯示](./media/hdinsight-hadoop-emulator-visual-studio/new-apche-pig-project.png)
 
 2. 輸入下列文字作為與此專案一起建立之檔案 **script.pig** 的內容。
 
@@ -149,11 +149,11 @@ Hive 提供類似 SQL 的語言來處理結構化的資料，Pig 的運作方式
 
     雖然 Pig 使用與 Hive 不同的語言，但您透過 [提交] 按鈕在這兩種語言之間執行作業的方式一致。 選取 [提交] 旁邊的下拉式清單，即可顯示 Pig 的進階提交對話方塊。
 
-    ![[提交腳本] 對話方塊的螢幕擷取畫面 pig](./media/hdinsight-hadoop-emulator-visual-studio/advanced-pig.png)
+    ![[提交腳本] 對話方塊的螢幕擷取畫面 pig](./media/hdinsight-hadoop-emulator-visual-studio/advanced-apache-pig1.png)
 
 3. 如同 Hive 查詢，也會顯示作業狀態和輸出。
 
-    ![已完成 Pig 作業的螢幕擷取畫面](./media/hdinsight-hadoop-emulator-visual-studio/completed-pig.png)
+    ![已完成 Pig 作業的螢幕擷取畫面](./media/hdinsight-hadoop-emulator-visual-studio/completed-apache-pig.png)
 
 ## <a name="view-jobs"></a>檢視作業
 
@@ -161,11 +161,11 @@ Data Lake 工具也可讓您輕鬆地檢視已在 Hadoop 上執行之作業的�
 
 1. 從 [伺服器總管]，在本機叢集上按一下滑鼠右鍵，然後選取 [檢視作業]。 已提交至叢集的作業清單隨即顯示。
 
-    ![[伺服器總管] 的螢幕擷取畫面，其中 [檢視作業] 已反白顯示](./media/hdinsight-hadoop-emulator-visual-studio/view-jobs.png)
+    ![[伺服器總管] 的螢幕擷取畫面，其中 [檢視作業] 已反白顯示](./media/hdinsight-hadoop-emulator-visual-studio/server-explorer-view-jobs.png)
 
 2. 選取作業清單中的作業，以檢視作業詳細資料。
 
-    ![[作業瀏覽器] 的螢幕擷取畫面，其中一個作業已反白顯示](./media/hdinsight-hadoop-emulator-visual-studio/view-job-details.png)
+    ![[作業瀏覽器] 的螢幕擷取畫面，其中一個作業已反白顯示](./media/hdinsight-hadoop-emulator-visual-studio/hdi-view-job-details.png)
 
     顯示的資訊與您在執行 Pig 或 Hive 查詢後看到的資訊類似，且包括用於檢視輸出和記錄資訊的連結。
 
@@ -175,11 +175,11 @@ Data Lake 工具也可讓您輕鬆地檢視已在 Hadoop 上執行之作業的�
 
 1. 在 [伺服器總管] 中，展開 [HDInsight 本機叢集] 項目，然後展開 [Hive 資料庫]。 本機叢集上的 [預設] 和 [xademo] 資料庫隨即顯示。 展開資料庫即可顯示資料庫內的資料表。
 
-    ![[伺服器總管] 的螢幕擷取畫面，其中資料庫已展開](./media/hdinsight-hadoop-emulator-visual-studio/expanded-databases.png)
+    ![[伺服器總管] 的螢幕擷取畫面，其中資料庫已展開](./media/hdinsight-hadoop-emulator-visual-studio/expanded-databases-view.png)
 
 2. 展開資料表即可顯示該資料表的資料行。 若要快速檢視資料，請以滑鼠右鍵按一下資料表，然後選取 [檢視前 100 個資料列]。
 
-    ![[伺服器總管] 的螢幕擷取畫面，其中資料表已展開且 [檢視前 100 個資料列] 已選取](./media/hdinsight-hadoop-emulator-visual-studio/view-100.png)
+    ![[伺服器總管] 的螢幕擷取畫面，其中資料表已展開且 [檢視前 100 個資料列] 已選取](./media/hdinsight-hadoop-emulator-visual-studio/hdi-view-top-100-rows.png)
 
 ### <a name="database-and-table-properties"></a>資料庫和資料表屬性
 
@@ -191,11 +191,11 @@ Data Lake 工具也可讓您輕鬆地檢視已在 Hadoop 上執行之作業的�
 
 若要建立資料表，請以滑鼠右鍵按一下資料庫，然後選取 [建立資料表]。
 
-![[伺服器總管] 的螢幕擷取畫面，其中 [建立資料表] 已反白顯示](./media/hdinsight-hadoop-emulator-visual-studio/create-table.png)
+![[伺服器總管] 的螢幕擷取畫面，其中 [建立資料表] 已反白顯示](./media/hdinsight-hadoop-emulator-visual-studio/server-explorer-create-table.png)
 
 接著，您可以使用表單建立資料表。 在下列螢幕擷取畫面底部，您可以看到用於建立資料表的原始 HiveQL。
 
-![用於建立資料表之表單的螢幕擷取畫面](./media/hdinsight-hadoop-emulator-visual-studio/create-table-form.png)
+![用於建立資料表之表單的螢幕擷取畫面](./media/hdinsight-hadoop-emulator-visual-studio/create-table-form-box.png)
 
 ## <a name="next-steps"></a>後續步驟
 

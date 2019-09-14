@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.topic: article
 ms.date: 06/05/2018
 ms.author: ellacroi
-ms.openlocfilehash: 58591302280c67dbd0f69ebe0bc47cf95c8bfc18
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: cd6b09a1130e50fae7bd83579a0f176af0b5b9cd
+ms.sourcegitcommit: dd69b3cda2d722b7aecce5b9bd3eb9b7fbf9dc0a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65956754"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70962613"
 ---
 # <a name="azure-marketplace-and-appsource-publishing-guide"></a>Azure Marketplace 和 AppSource 發行指南
 
@@ -30,7 +30,7 @@ Marketplace 發行指南的目的是協助新的與現有的發行者了解如�
 
 本指南內含技術和商務資訊，會逐步說明您在列出應用程式和服務之前所需執行的步驟。 請使用目錄來移至本指南的不同小節，並直接前往重要主題。
 
-若有 Azure Marketplace 和 AppSource 的相關問題，請以 [問題類型]   > [Marketplace 上線]  類型傳送訊息給我們。  我們的 Marketplace 發行者上線團隊十分樂意提供協助！ 
+若有 Azure Marketplace 和 AppSource 的相關問題，請以 [問題類型] > [Marketplace 上線] 類型傳送訊息給我們。  我們的 Marketplace 發行者上線團隊十分樂意提供協助！ 
 
 ## <a name="benefits-of-participating-in-the-marketplace"></a>參與 Marketplace 的優點 
 
@@ -52,7 +52,7 @@ Marketplace 是與 Microsoft 共同舉辦上市活動的跳板，有助於促進
 
 透過 Marketplace 提供的見解和分析，了解產品系列的績效表現。 可進一步了解行銷活動績效、訂單與支出，並了解如何讓解決方案的行銷活動發揮最大效益。
 
-### <a name="marketplace-go-to-market-benefits"></a>Marketplace 的上市權益 
+### <a name="commercial-marketplace-benefits"></a>商業 marketplace 權益 
 
 新刊登在 Marketplace 中的商品會享有多樣化的免費權益，以協助合作夥伴在 Marketplace 中拓展業務。 這些權益分為以下類別： 
 
@@ -62,9 +62,9 @@ Marketplace 是與 Microsoft 共同舉辦上市活動的跳板，有助於促進
 
 *   共同銷售：展開您的旅程或加快腳步，透過 Marketplace 與 Microsoft 合作銷售您的產品。 可取用各種方案與支援，與 Microsoft 團隊一同推動聯合銷售。
 
-[提交解決方案](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/azureisv)到 Marketplace 之後，我們的上線團隊便會連絡您，為您的發行體驗提供支援。  請參閱[如何建立合作夥伴中心帳戶](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account)如需詳細資訊。
+[提交解決方案](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/azureisv)到 Marketplace 之後，我們的上線團隊便會連絡您，為您的發行體驗提供支援。  如需詳細資訊，請參閱[如何建立合作夥伴中心帳戶](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account)。
 
-如需 Microsoft Go-To-Market 權益的詳細資訊，以及在 Marketplace 上拓展業務的方式，請參閱 [Microsoft Go-To-Market Services](https://partner.microsoft.com/reach-customers/gtm)。
+深入瞭解您的[商業 marketplace 權益](https://docs.microsoft.com//azure/marketplace/gtm-your-marketplace-benefits)。
 
 ## <a name="next-steps"></a>後續步驟
 

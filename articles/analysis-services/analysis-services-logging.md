@@ -5,15 +5,15 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 02/14/2019
+ms.date: 09/12/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 357e7975b1c4fe44d86b7e29e96a9abb6ab63c35
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: 6b311135832e1ec861cf6e14e5ad7e82574294bf
+ms.sourcegitcommit: dd69b3cda2d722b7aecce5b9bd3eb9b7fbf9dc0a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68932260"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70959058"
 ---
 # <a name="setup-diagnostic-logging"></a>設定診斷記錄
 
@@ -67,7 +67,7 @@ ms.locfileid: "68932260"
 
 ### <a name="all-metrics"></a>所有計量
 
-計量類別將「計量」中顯示的相同[伺服器計量](analysis-services-monitor.md#server-metrics)記錄起來。
+[計量] 分類會將相同的[伺服器計量](analysis-services-monitor.md#server-metrics)記錄到 AzureMetrics 資料表。 如果您使用的是查詢向[外](analysis-services-scale-out.md)延展，而且需要為每個讀取複本區分計量，請改用 AzureDiagnostics 資料表，其中**OperationName**等於**LogMetric**。
 
 ## <a name="setup-diagnostics-logging"></a>設定診斷記錄
 
@@ -161,36 +161,62 @@ ms.locfileid: "68932260"
 
 在查詢產生器中，展開 [LogManagement] > [AzureDiagnostics]。 AzureDiagnostics 包括「引擎」和「服務」事件。 留意到查詢是即時建立的。 EventClass\_s 的欄位包含 xEvent 名稱，如果您曾經使用 xEvents 進行內部部署記錄，這些名稱就可能看起來似曾相似。 按一下 [EventClass\_s] 或其中一個事件名稱，Log Analytics 工作區將會繼續建構查詢。 請務必儲存您的查詢，以供日後重複使用。
 
-### <a name="example-query"></a>範例查詢
-此範例會計算並傳回模型資料庫和伺服器之每個查詢結束/重新整理結束活動的 CPU：
+### <a name="example-queries"></a>查詢範例
+
+#### <a name="example-1"></a>範例 1
+
+下列查詢會針對模型資料庫和伺服器的每個查詢結束/重新整理結束事件傳回持續時間。 如果相應放大，結果會依複本細分，因為複本編號包含在 ServerName_s 中。 依 RootActivityId_g 分組會減少從 Azure 診斷 REST API 抓取的資料列計數，並協助保持在限制內，如[Log Analytics 速率限制](https://dev.loganalytics.io/documentation/Using-the-API/Limits)中所述。
 
 ```Kusto
-let window =  AzureDiagnostics
-   | where ResourceProvider == "MICROSOFT.ANALYSISSERVICES" and ServerName_s =~"MyServerName" and DatabaseName_s == "Adventure Works Localhost" ;
+let window = AzureDiagnostics
+   | where ResourceProvider == "MICROSOFT.ANALYSISSERVICES" and Resource =~ "MyServerName" and DatabaseName_s =~ "MyDatabaseName" ;
 window
 | where OperationName has "QueryEnd" or (OperationName has "CommandEnd" and EventSubclass_s == 38)
 | where extract(@"([^,]*)", 1,Duration_s, typeof(long)) > 0
 | extend DurationMs=extract(@"([^,]*)", 1,Duration_s, typeof(long))
-| extend Engine_CPUTime=extract(@"([^,]*)", 1,CPUTime_s, typeof(long))
-| project  StartTime_t,EndTime_t,ServerName_s,OperationName,RootActivityId_g ,TextData_s,DatabaseName_s,ApplicationName_s,Duration_s,EffectiveUsername_s,User_s,EventSubclass_s,DurationMs,Engine_CPUTime
-| join kind=leftouter (
-window
-    | where OperationName == "ProgressReportEnd" or (OperationName == "VertiPaqSEQueryEnd" and EventSubclass_s  != 10) or OperationName == "DiscoverEnd" or (OperationName has "CommandEnd" and EventSubclass_s != 38)
-    | summarize sum_Engine_CPUTime = sum(extract(@"([^,]*)", 1,CPUTime_s, typeof(long))) by RootActivityId_g
-    ) on RootActivityId_g
-| extend totalCPU = sum_Engine_CPUTime + Engine_CPUTime
-
+| project  StartTime_t,EndTime_t,ServerName_s,OperationName,RootActivityId_g,TextData_s,DatabaseName_s,ApplicationName_s,Duration_s,EffectiveUsername_s,User_s,EventSubclass_s,DurationMs
+| order by StartTime_t asc
 ```
 
+#### <a name="example-2"></a>範例 2
+
+下列查詢會傳回伺服器的記憶體和 QPU 耗用量。 如果相應放大，結果會依複本細分，因為複本編號包含在 ServerName_s 中。
+
+```Kusto
+let window = AzureDiagnostics
+   | where ResourceProvider == "MICROSOFT.ANALYSISSERVICES" and Resource =~ "MyServerName";
+window
+| where OperationName == "LogMetric" 
+| where name_s == "memory_metric" or name_s == "qpu_metric"
+| project ServerName_s, TimeGenerated, name_s, value_s
+| summarize avg(todecimal(value_s)) by ServerName_s, name_s, bin(TimeGenerated, 1m)
+| order by TimeGenerated asc 
+```
+
+#### <a name="example-3"></a>範例 3
+
+下列查詢會傳回伺服器的資料列讀取/秒 Analysis Services 引擎效能計數器。
+
+```Kusto
+let window =  AzureDiagnostics
+   | where ResourceProvider == "MICROSOFT.ANALYSISSERVICES" and Resource =~ "MyServerName";
+window
+| where OperationName == "LogMetric" 
+| where parse_json(tostring(parse_json(perfobject_s).counters))[0].name == "Rows read/sec" 
+| extend Value = tostring(parse_json(tostring(parse_json(perfobject_s).counters))[0].value) 
+| project ServerName_s, TimeGenerated, Value
+| summarize avg(todecimal(Value)) by ServerName_s, bin(TimeGenerated, 1m)
+| order by TimeGenerated asc 
+```
 
 有數百個查詢可供使用。 若要深入了解查詢，請參閱[開始使用 Azure 監視器記錄查詢](../azure-monitor/log-query/get-started-queries.md)。
 
 
 ## <a name="turn-on-logging-by-using-powershell"></a>使用 PowerShell 開啟記錄
 
-在本快速教學課程中，您可以在與 Analysis Service 伺服器相同的訂用帳戶和資源群組中，建立儲存體帳戶。 接著, 您可以使用 Set-azdiagnosticsetting 來開啟診斷記錄, 並將輸出傳送至新的儲存體帳戶。
+在本快速教學課程中，您可以在與 Analysis Service 伺服器相同的訂用帳戶和資源群組中，建立儲存體帳戶。 接著，您可以使用 Set-azdiagnosticsetting 來開啟診斷記錄，並將輸出傳送至新的儲存體帳戶。
 
-### <a name="prerequisites"></a>先決條件
+### <a name="prerequisites"></a>必要條件
 若要完成本教學課程，您必須具備下列資源：
 
 * 現有的 Azure Analysis Services 伺服器。 如需建立伺服器資源的指示，請參閱 [在 Azure 入口網站中建立伺服器](analysis-services-create-server.md)，或[使用 PowerShell 建立 Azure Analysis Services 伺服器](analysis-services-create-powershell.md)。
@@ -244,7 +270,7 @@ $account = Get-AzResource -ResourceGroupName awsales_resgroup `
 
 ### <a name="enable-logging"></a>啟用記錄
 
-若要啟用記錄, 請使用 Set-azdiagnosticsetting 指令程式搭配新儲存體帳戶、伺服器帳戶和類別的變數。 執行下列命令，將 **-Enabled** 旗標設為 **$true**：
+若要啟用記錄，請使用 Set-azdiagnosticsetting 指令程式搭配新儲存體帳戶、伺服器帳戶和類別的變數。 執行下列命令，將 **-Enabled** 旗標設為 **$true**：
 
 ```powershell
 Set-AzDiagnosticSetting  -ResourceId $account.ResourceId -StorageAccountId $sa.Id -Enabled $true -Categories Engine

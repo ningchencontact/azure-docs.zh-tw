@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/29/2019
 ms.author: hrasheed
-ms.openlocfilehash: 706f0333f1cca984b44e0fc96a5b014d4157ce4c
-ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
+ms.openlocfilehash: 936307399b658b75962e6969820215f9808d053f
+ms.sourcegitcommit: dd69b3cda2d722b7aecce5b9bd3eb9b7fbf9dc0a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70879690"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70961115"
 ---
 # <a name="monitor-cluster-performance-in-azure-hdinsight"></a>監視 Azure HDInsight 中的叢集效能
 
@@ -36,11 +36,11 @@ ms.locfileid: "70879690"
 
 您也會看到資料行顯示每個主機的核心數及 RAM 數量，以及磁碟使用量和負載平均。
 
-![主機索引標籤](./media/hdinsight-key-scenarios-to-monitor/hosts-tab.png)
+![主機索引標籤](./media/hdinsight-key-scenarios-to-monitor/apache-ambari-hosts-tab.png)
 
 選取任何主機名稱，以詳細查看該主機和其計量上執行的元件。 計量會顯示為可選取的 CPU 使用量時間軸、負載、磁碟使用量、記憶體使用量、網路使用量和程序的數目。
 
-![主機詳細資料](./media/hdinsight-key-scenarios-to-monitor/host-details.png)
+![主機詳細資料](./media/hdinsight-key-scenarios-to-monitor/apache-ambari-host-details.png)
 
 如需有關設定警示和檢視計量的詳細資料，請參閱[使用 Apache Ambari Web UI 來管理 HDInsight 叢集](hdinsight-hadoop-manage-ambari.md)。
 
@@ -56,7 +56,7 @@ Resource Manager 是純排程器，且會單獨仲裁所有競爭應用程式之
 
 YARN 可讓我們將資源配置給這些佇列，並顯示是否已指派所有可用的資源。 若要檢視您佇列的相關資訊，請登入 Ambari Web UI，然後從頂端功能表中選取 [YARN 佇列管理員]。
 
-![YARN 佇列管理員](./media/hdinsight-key-scenarios-to-monitor/yarn-queue-manager.png)
+![YARN 佇列管理員](./media/hdinsight-key-scenarios-to-monitor/apache-yarn-queue-manager.png)
 
 [YARN 佇列管理員] 頁面左側會顯示您的佇列清單，以及指派給每個佇列的容量百分比。
 
@@ -64,11 +64,11 @@ YARN 可讓我們將資源配置給這些佇列，並顯示是否已指派所有
 
 若要更詳細查看您的佇列，請從 Ambari 儀表板中的左側清單選取 [YARN] 服務。 然後在 [快速連結] 下拉式功能表中，選取作用中節點下的 [Resource Manager UI]。
 
-![Resource Manager UI 功能表連結](./media/hdinsight-key-scenarios-to-monitor/resource-manager-ui-menu.png)
+![Resource Manager UI 功能表連結](./media/hdinsight-key-scenarios-to-monitor/resource-manager-ui-menu-link.png)
 
 在 Resource Manager UI 中，從左側功能表選取 [排程器]。 您會在 [應用程式佇列] 下方看到您的佇列清單。 您可以在這裡查看每個佇列使用的容量，作業在它們之間散發的情況，以及是否有任何作業為有限資源。
 
-![Resource Manager UI 功能表](./media/hdinsight-key-scenarios-to-monitor/resource-manager-ui.png)
+![Resource Manager UI 功能表](./media/hdinsight-key-scenarios-to-monitor/resource-manager-ui-menu.png)
 
 ## <a name="storage-throttling"></a>儲存體節流
 

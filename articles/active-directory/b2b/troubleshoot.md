@@ -1,5 +1,5 @@
 ---
-title: 疑難排解 B2B 共同作業-Azure Active Directory |Microsoft Docs
+title: 針對 B2B 共同作業進行疑難排解-Azure Active Directory |Microsoft Docs
 description: Azure Active Directory B2B 共同作業常見問題的補救方式
 services: active-directory
 ms.service: active-directory
@@ -12,12 +12,12 @@ manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4185d29ff1770ed9549b4b63a2e5da579bcf054f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f91ddee8668316df69c98ed14fbcabcb06b6da82
+ms.sourcegitcommit: 909ca340773b7b6db87d3fb60d1978136d2a96b0
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65767163"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70983404"
 ---
 # <a name="troubleshooting-azure-active-directory-b2b-collaboration"></a>針對 Azure Active Directory B2B 共同作業問題進行疑難排解
 
@@ -35,9 +35,9 @@ ms.locfileid: "65767163"
 
 ## <a name="invitations-have-been-disabled-for-directory"></a>已針對目錄停用邀請
 
-若收到通知指出您沒有邀請使用者的權限，請在 [使用者設定] 下，確認您的使用者帳戶已獲邀請外部使用者的授權：
+如果您收到通知，指出您沒有邀請使用者的許可權，請確認您的使用者帳戶已獲授權可在 Azure Active Directory > 使用者設定下邀請外部使用者，> 外部使用者 > 管理外部協同作業設定：
 
-![顯示的外部使用者設定的螢幕擷取畫面](media/troubleshoot/external-user-settings.png)
+![顯示外部使用者設定的螢幕擷取畫面](media/troubleshoot/external-user-settings.png)
 
 若您最近曾修改這些設定或已獲指派使用者的「來賓邀請者」角色，變更可能需要 15-60 分鐘才會生效。
 
@@ -49,7 +49,7 @@ ms.locfileid: "65767163"
 
 當邀請使用者的組織使用 Azure Active Directory，但指定使用者的帳戶不存在 (例如，使用者不存在於 Azure AD contoso.com 中)。 contoso.com 的系統管理員可能已建立防止建立使用者的原則。 使用者必須向管理員確認，以判斷是否允許外部使用者。 外部使用者的管理員需要允許其網域中存在已驗證的電子郵件使用者 (請參閱[本文](/powershell/module/msonline/set-msolcompanysettings?view=azureadps-1.0)，了解允許已驗證的電子郵件使用者)。
 
-![錯誤訊息指出租用戶不允許電子郵件驗證的使用者](media/troubleshoot/allow-email-verified-users.png)
+![指出租使用者不允許以電子郵件驗證的使用者的錯誤](media/troubleshoot/allow-email-verified-users.png)
 
 ### <a name="external-user-does-not-exist-already-in-a-federated-domain"></a>外部使用者不存在於同盟網域中
 
@@ -78,15 +78,15 @@ ms.locfileid: "65767163"
 
 如果此案例對您很重要，您可以隱藏我們的 API 邀請電子郵件，然後透過您選擇的電子郵件機制傳送邀請電子郵件。 請諮詢貴組織的法律顧問，以確定透過此方式傳送的任何電子郵件也符合隱私權法律。
 
-## <a name="you-receive-an-aadsts65005-error-when-you-try-to-log-in-to-an-azure-resource"></a>當您嘗試登入 Azure 資源時，您會收到 「 AADSTS65005 」 錯誤
+## <a name="you-receive-an-aadsts65005-error-when-you-try-to-log-in-to-an-azure-resource"></a>當您嘗試登入 Azure 資源時，收到「AADSTS65005」錯誤
 
 具有來賓帳戶的使用者無法登入，並收到下列錯誤訊息：
 
     AADSTS65005: Using application 'AppName' is currently not supported for your organization contoso.com because it is in an unmanaged state. An administrator needs to claim ownership of the company by DNS validation of contoso.com before the application AppName can be provisioned.
 
-使用者具有 Azure 的使用者帳戶，而且是病毒式租用戶已放棄或未受管理。 此外，還有不是全域或公司系統管理員在租用戶中的。
+使用者具有 Azure 使用者帳戶，而且是已被放棄或未受管理的病毒租使用者。 此外，租使用者中沒有全域或公司系統管理員。
 
-若要解決此問題，您必須高於已放棄的租用戶。 請參閱[Azure Active Directory 中的系統管理員身分接管非受控目錄](https://docs.microsoft.com/azure/active-directory/users-groups-roles/domains-admin-takeover)。 您也必須以提供直接的辨識項，您可以控制命名空間的存取有問題的網域尾碼的網際網路對向 DNS。 租用戶會傳回到受管理的狀態之後，請與客戶討論是否保留使用者，並驗證的網域名稱是其組織的最佳選項。
+若要解決此問題，您必須接管放棄的租使用者。 請參閱[Azure Active Directory 中以系統管理員身分接管非受控目錄](https://docs.microsoft.com/azure/active-directory/users-groups-roles/domains-admin-takeover)。 您也必須針對有問題的網域尾碼存取網際網路對向 DNS，才能提供您控制命名空間的直接辨識項。 當租使用者回到受管理的狀態之後，請與客戶討論是否讓使用者和已驗證的功能變數名稱是其組織的最佳選項。
 
 ## <a name="a-guest-user-with-a-just-in-time-or-viral-tenant-is-unable-to-reset-their-password"></a>具有 Just-In-Time (JIT) 或「病毒式」租用戶的來賓使用者無法重設其密碼
 

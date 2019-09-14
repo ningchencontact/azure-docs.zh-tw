@@ -5,19 +5,19 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 07/26/2019
+ms.date: 09/12/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 5431dd74629b9ed76a6a072d8ada286ce71a7633
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: 7c7aaf911930f83775f66c47377bc68edb059519
+ms.sourcegitcommit: dd69b3cda2d722b7aecce5b9bd3eb9b7fbf9dc0a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68596074"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70958975"
 ---
 # <a name="monitor-server-metrics"></a>監視伺服器計量
 
-Analysis Services 提供 Azure 計量瀏覽器中的計量, 這是入口網站中的免費工具, 可協助您監視伺服器的效能和健康情況。 例如，監視記憶體和 CPU 使用率、用戶端連接數目，以及查詢資源消耗。 Analysis Services 和其他大部分的 Azure 服務一樣，採用相同的監視架構。 若要深入瞭解, 請參閱[開始使用 Azure 計量瀏覽器](../azure-monitor/platform/metrics-getting-started.md)。
+Analysis Services 提供 Azure 計量瀏覽器中的計量，這是入口網站中的免費工具，可協助您監視伺服器的效能和健康情況。 例如，監視記憶體和 CPU 使用率、用戶端連接數目，以及查詢資源消耗。 Analysis Services 和其他大部分的 Azure 服務一樣，採用相同的監視架構。 若要深入瞭解，請參閱[開始使用 Azure 計量瀏覽器](../azure-monitor/platform/metrics-getting-started.md)。
 
 若要在資源群組或訂用帳戶中跨多個服務資源執行更多深入的診斷、追蹤效能及識別趨勢，請使用 [Azure 監視器](../azure-monitor/overview.md)。 使用 Azure 監視器 (服務) 可能需要付費。
 
@@ -55,6 +55,10 @@ Analysis Services 提供 Azure 計量瀏覽器中的計量, 這是入口網站�
 |MemoryLimitLow|記憶體：記憶體下限|位元組|Average|來自組態檔的記憶體下限。|
 |MemoryLimitVertiPaq|記憶體：記憶體限制 VertiPaq|位元組|Average|來自組態檔的記憶體內部限制。|
 |MemoryUsage|記憶體：記憶體使用量|位元組|Average|伺服器處理序用於計算清除器記憶體價格的記憶體使用量。 等於計數器 Process\PrivateBytes 加上記憶體對應的資料大小，忽略記憶體內部分析引擎 (VertiPaq) 在超出引擎記憶體限制時所對應或配置的任何記憶體。|
+|private_bytes_metric|私用位元組 |位元組|Average|Analysis Services 引擎進程和混合的容器進程所配置的記憶體總量，不包括與其他進程共用的記憶體。|
+|virtual_bytes_metric|虛擬位元組 |位元組|Average|Analysis Services 引擎進程和混合使用容器進程的虛擬位址空間目前大小。|
+|mashup_engine_private_bytes_metric|M 引擎私用位元組 |位元組|Average|已配置的記憶體混合容器進程總數，不包含與其他進程共用的記憶體。|
+|mashup_engine_virtual_bytes_metric|M 引擎虛擬位元組 |位元組|Average|混合容器進程的目前虛擬位址空間大小是使用。|
 |配額|記憶體：配額|位元組|Average|目前的記憶體配額，以位元組為單位。 記憶體配額也就是指授與使用的記憶體，或是保留的記憶體。|
 |QuotaBlocked|記憶體：封鎖的配額|Count|Average|在釋放其他記憶體配額之前，目前已封鎖的配額要求數目。|
 |VertiPaqNonpaged|記憶體：未分頁的 VertiPaq|位元組|Average|工作集中已封鎖來供記憶體內部引擎使用的記憶體位元組。|

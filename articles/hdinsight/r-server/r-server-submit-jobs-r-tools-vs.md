@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/19/2019
-ms.openlocfilehash: 0ae717487f1538536601c8578e744d976798bf76
-ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
+ms.openlocfilehash: 2d53f1bfc6eade535bfb1b3bb07d5115ffe5fc80
+ms.sourcegitcommit: fbea2708aab06c19524583f7fbdf35e73274f657
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70899946"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70967893"
 ---
 # <a name="submit-jobs-from-r-tools-for-visual-studio"></a>從 Visual Studio R 工具提交作業
 
@@ -55,7 +55,8 @@ RTVS 會增強您的 R 工作流程，方法是提供例如 [R 互動視窗](htt
 5. 開啟 `A first look at R` 解決方案資料夾中的 `1-Getting Started with R.R` 檔案。
 6. 從檔案頂端開始，按下 Ctrl+Enter 一次傳送一行到 R 互動視窗。 有些行會安裝套件，所以可能需要一些時間。
     * 或者，您可以選取 R 檔案中的所有行 (Ctrl+A)，然後全部執行 (Ctrl+Enter)，或者選取工具列上的 [執行互動] 圖示。
-        ![執行互動](./media/r-server-submit-jobs-r-tools-vs/execute-interactive.png)
+
+        ![執行互動式](./media/r-server-submit-jobs-r-tools-vs/execute-interactive1.png)
 
 7. 執行指令碼中的所有行之後，您應該會看到類似以下的輸出：
 
@@ -82,20 +83,20 @@ RTVS 會增強您的 R 工作流程，方法是提供例如 [R 互動視窗](htt
     # Create the Spark Cluster compute context
     mySparkCluster <- RxSpark(
           sshUsername = mySshUsername,
-      sshHostname = mySshHostname,
-      sshSwitches = mySshSwitches,
-      sshProfileScript = mySshProfileScript,
-      consoleOutput = TRUE,
-      hdfsShareDir = myHdfsShareDir,
-      shareDir = myShareDir,
-      sshClientDir = mySshClientDir
+          sshHostname = mySshHostname,
+          sshSwitches = mySshSwitches,
+          sshProfileScript = mySshProfileScript,
+          consoleOutput = TRUE,
+          hdfsShareDir = myHdfsShareDir,
+          shareDir = myShareDir,
+          sshClientDir = mySshClientDir
     )
-    
+
     # Set the current compute context as the Spark compute context defined above
     rxSetComputeContext(mySparkCluster)
     ```
-    
-    ![設定 Spark 內容](./media/r-server-submit-jobs-r-tools-vs/spark-context.png)
+
+   ![設定 Spark 內容](./media/r-server-submit-jobs-r-tools-vs/apache-spark-context.png)
 
 1. 在 R 互動視窗中執行下列命令：
 
@@ -107,13 +108,12 @@ RTVS 會增強您的 R 工作流程，方法是提供例如 [R 互動視窗](htt
 
     您應該會看到如下所示的輸出：
 
-    ![rx 命令執行成功](./media/r-server-submit-jobs-r-tools-vs/rx-commands.png)
-
+    ![成功的 rx 命令](./media/r-server-submit-jobs-r-tools-vs/successful-rx-commands.png)執行 a
 1. 確認 `rxHadoopCopy` 成功將 `people.json` 檔案從範例資料資料夾複製到新建立的 `/user/RevoShare/newUser` 資料夾：
 
     1. 從 Azure 中的 HDInsight ML 服務叢集窗格，選取左側功能表的 [儲存體帳戶]。
 
-        ![儲存體帳戶](./media/r-server-submit-jobs-r-tools-vs/storage-accounts.png)
+        ![儲存體帳戶](./media/r-server-submit-jobs-r-tools-vs/hdinsight-storage-accounts.png)
 
     2. 選取叢集的預設儲存體帳戶，記下容器/目錄名稱。
 
@@ -123,7 +123,7 @@ RTVS 會增強您的 R 工作流程，方法是提供例如 [R 互動視窗](htt
 
     4. 選取叢集的容器名稱，瀏覽至 **user** 資料夾 (您可能必須按一下清單底部的 [載入更多])，然後依序選取 [RevoShare]、[newUser]。 `people.json` 檔案應該會顯示在 `newUser` 資料夾中。
 
-        ![複製的檔案](./media/r-server-submit-jobs-r-tools-vs/copied-file.png)
+        ![複製的檔案](./media/r-server-submit-jobs-r-tools-vs/hdinsight-copied-file.png)
 
 1. 對目前的 Apache Spark 內容使用完畢之後，您必須將它停止。 您無法同時執行多個內容。
 

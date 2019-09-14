@@ -1,7 +1,7 @@
 ---
-title: 定型執行期間的記錄計量
+title: 記錄 ML 實驗 & 計量
 titleSuffix: Azure Machine Learning service
-description: 您可以追蹤您的實驗並監視計量, 以加強模型建立程式。 瞭解如何將記錄新增至您的訓練腳本、如何提交實驗、如何檢查執行中作業的進度, 以及如何查看已記錄的回合結果。
+description: 監視您的 Azure ML 實驗並監視執行計量，以加強模型建立程式。 將記錄新增至您的定型腳本，並查看執行的記錄結果。  使用 run .log、start_logging 或 ScriptRunConfig。
 services: machine-learning
 author: heatherbshapiro
 ms.author: hshapiro
@@ -10,18 +10,18 @@ ms.service: machine-learning
 ms.subservice: core
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 07/11/2019
+ms.date: 09/11/2019
 ms.custom: seodec18
-ms.openlocfilehash: 0f295bf3a76d89e811fe9a022a3ccb68fbe7556a
-ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
+ms.openlocfilehash: 1c2747c8eaac0323ac32f67afb27ac854a3a5ce9
+ms.sourcegitcommit: dd69b3cda2d722b7aecce5b9bd3eb9b7fbf9dc0a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70858714"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70959950"
 ---
-# <a name="track-machine-learning-training-metrics-with-azure-machine-learning"></a>使用 Azure Machine Learning 追蹤機器學習訓練計量
+# <a name="monitor-azure-ml-experiment-runs-and-metrics"></a>監視 Azure ML 實驗的執行和計量
 
-追蹤您的實驗並監視計量, 以加強模型建立程式。 在本文中，您將瞭解如何將記錄程式碼新增至您的定型腳本、提交實驗執行、監視執行，以及檢查 Azure Machine Learning 服務中的結果。
+追蹤您的實驗並監視執行計量，以增強模型建立程式。 在本文中，您將瞭解如何將記錄程式碼新增至您的定型腳本、提交實驗執行、監視執行，以及檢查 Azure Machine Learning 服務中的結果。
 
 > [!NOTE]
 > Azure Machine Learning 服務也可能會在定型期間記錄來自其他來源的資訊，例如自動化機器學習執行，或執行定型作業的 Docker 容器。 這些記錄檔並未記載。 如果您遇到問題並聯系 Microsoft 支援服務，他們可能會在進行疑難排解時使用這些記錄。

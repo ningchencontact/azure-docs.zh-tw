@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 09/05/2019
 ms.author: ashishth
-ms.openlocfilehash: 8ba27261f5ba505c37ef4cc82d06b314471440bc
-ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
+ms.openlocfilehash: 1e7059d30c5d480948eb681b477239151020b266
+ms.sourcegitcommit: dd69b3cda2d722b7aecce5b9bd3eb9b7fbf9dc0a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70811909"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70961798"
 ---
 # <a name="apache-phoenix-in-azure-hdinsight"></a>Azure HDInsight 中的 Apache Phoenix
 
@@ -129,11 +129,11 @@ HDInsight HBase 叢集包括 [Ambari UI](hdinsight-hadoop-manage-ambari.md)，�
 
 2. 從左側功能表中的服務清單選取 [HBase]，然後選取 [設定] 索引標籤。
 
-    ![Ambari HBase 設定](./media/hdinsight-phoenix-in-hdinsight/ambari-hbase-config.png)
+    ![Ambari HBase 設定](./media/hdinsight-phoenix-in-hdinsight/ambari-hbase-config1.png)
 
 3. 尋找 **Phoenix SQL** 設定區段以啟用或停用 Phoenix，並且設定查詢逾時。
 
-    ![Ambari Phoenix SQL 設定區段](./media/hdinsight-phoenix-in-hdinsight/ambari-phoenix.png)
+    ![Ambari Phoenix SQL 設定區段](./media/hdinsight-phoenix-in-hdinsight/apache-ambari-phoenix.png)
 
 ## <a name="see-also"></a>另請參閱
 

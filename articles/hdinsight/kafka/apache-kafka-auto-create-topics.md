@@ -3,16 +3,17 @@ title: 在 Apache Kafka 中啟用自動建立主題 - Azure HDInsight
 description: 了解如何將 HDInsight 上的 Apache Kafka 設定為自動建立主題。 您可以透過 Ambari 或在透過 PowerShell 或 Resource Manager 範本建立叢集期間，將 auto.create.topics.enable 設為 true，藉以設定 Kafka。
 author: hrasheed-msft
 ms.author: hrasheed
+ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 04/18/2018
-ms.openlocfilehash: 4f40a625b10243ca13163e549a51a760cf105917
-ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
+ms.openlocfilehash: 5d990a1c39495090fed1c78f1ddf5e879490e6c4
+ms.sourcegitcommit: dd69b3cda2d722b7aecce5b9bd3eb9b7fbf9dc0a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70900439"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70960677"
 ---
 # <a name="how-to-configure-apache-kafka-on-hdinsight-to-automatically-create-topics"></a>如何將 HDInsight 上的 Apache Kafka 設定為自動建立主題
 
@@ -34,11 +35,11 @@ ms.locfileid: "70900439"
 
 3. 從頁面左邊的清單中，選取 [Kafka] 服務。
 
-    ![服務清單](./media/apache-kafka-auto-create-topics/service-list.png)
+    ![服務清單](./media/apache-kafka-auto-create-topics/hdinsight-service-list.png)
 
 4. 選取頁面中間的 [設定]。
 
-    ![服務設定索引標籤](./media/apache-kafka-auto-create-topics/service-config.png)
+    ![服務設定索引標籤](./media/apache-kafka-auto-create-topics/hdinsight-service-config.png)
 
 5. 在 [篩選] 欄位中，輸入 `auto.create` 的值。 
 

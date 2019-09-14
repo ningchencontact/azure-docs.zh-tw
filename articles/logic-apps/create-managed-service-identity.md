@@ -9,12 +9,12 @@ ms.service: logic-apps
 ms.suite: integration
 ms.topic: article
 ms.date: 03/29/2019
-ms.openlocfilehash: bb1443afa14f2a23b807af52ab8fef6ac41ea200
-ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
-ms.translationtype: HT
+ms.openlocfilehash: d6cf19a07829afea924d3d799b1309cfc5f6329f
+ms.sourcegitcommit: dd69b3cda2d722b7aecce5b9bd3eb9b7fbf9dc0a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 09/12/2019
-ms.locfileid: "70934044"
+ms.locfileid: "70959960"
 ---
 # <a name="authenticate-and-access-resources-with-managed-identities-in-azure-logic-apps"></a>使用 Azure Logic Apps 中的受控識別驗證及存取資源
 
@@ -23,7 +23,7 @@ ms.locfileid: "70934044"
 > [!NOTE]
 > 您的邏輯應用程式只能搭配支援受控識別的連接器使用受控識別。 目前，只有 HTTP 連接器支援受控識別。
 >
-> 您目前最多可擁有 10 個邏輯應用程式工作流程，而且每個 Azure 訂用帳戶中具有系統指派的受控識別。
+> 在每個 Azure 訂用帳戶中，您目前最多可以有100個邏輯應用程式工作流程搭配系統指派的受控識別。
 
 ## <a name="prerequisites"></a>必要條件
 
@@ -168,7 +168,7 @@ ms.locfileid: "70934044"
    > 
    > 在 [Audience] 屬性中，資源識別碼值必須完全符合 Azure AD 所預期的值，包括任何必要的結尾斜線。 
    > 您可以在這個[描述支援 Azure AD 之 Azure 服務的表格中](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication)找到這些資源識別碼值。 
-   > 例如，如果您是使用 Azure Resource Manager 資源識別碼，請確定 URI 具有結尾斜線。
+   > 例如，如果您使用的是 Azure Resource Manager 資源識別碼，請確定 URI 有尾端斜線。
 
 1. 繼續按照您想要的方式建置邏輯應用程式。
 

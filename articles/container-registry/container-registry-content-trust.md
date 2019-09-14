@@ -6,14 +6,14 @@ author: dlepow
 manager: gwallace
 ms.service: container-registry
 ms.topic: article
-ms.date: 05/06/2019
+ms.date: 09/06/2019
 ms.author: danlep
-ms.openlocfilehash: 6cf5efb33340844d782dc4481f5834d7590e745a
-ms.sourcegitcommit: ee61ec9b09c8c87e7dfc72ef47175d934e6019cc
+ms.openlocfilehash: c0d4bd397c68fe3ed2d36404af9230e2316f3362
+ms.sourcegitcommit: dd69b3cda2d722b7aecce5b9bd3eb9b7fbf9dc0a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70172314"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70959176"
 ---
 # <a name="content-trust-in-azure-container-registry"></a>Azure Container Registry 中的內容信任
 
@@ -43,7 +43,7 @@ Azure Container Registry 會實作 Docker 的[內容信任][docker-content-trust
 
 首要步驟是在登錄層級啟用內容信任。 啟用內容信任後，用戶端 (使用者或服務) 即可將已簽署的映像推送至您的登錄。 在您的登錄上啟用內容信任時，並不會限定只有已啟用內容信任的取用者才能使用登錄。 未啟用內容信任的取用者仍可繼續如常使用您的登錄。 不過，已在其用戶端中啟用內容信任的取用者，將*只能*在您的登錄中看到已簽署的映像。
 
-若要為您的登錄啟用內容信任，請先瀏覽至 Azure 入口網站中的登錄。 在 [原則] 下方，選取 [內容信任] > [已啟用] > [儲存]。
+若要為您的登錄啟用內容信任，請先瀏覽至 Azure 入口網站中的登錄。 在 [原則] 下方，選取 [內容信任] > [已啟用] > [儲存]。 您也可以使用 Azure CLI 中的[az acr config content-trust update][az-acr-config-content-trust-update]命令。
 
 ![在 Azure 入口網站中為登錄啟用內容信任][content-trust-01-portal]
 
@@ -75,6 +75,9 @@ docker build --disable-content-trust -t myacr.azurecr.io/myimage:v1 .
 ## <a name="grant-image-signing-permissions"></a>授與映像簽署權限
 
 只有您已授與權限的使用者或系統，才可將信任的映像推送至您的登錄。 若要為使用者 (或使用服務主體的系統) 授與信任的映像推送權限，請為其 Azure Active Directory 身分識別授與 `AcrImageSigner` 角色。 除了 `AcrPush` (或對等項目) 以外，還需要此角色才能將映像推送至登錄。 如需詳細資訊，請參閱 [Azure Container Registry 角色和權限](container-registry-roles.md)。
+
+> [!NOTE]
+> 您無法將受信任的映射推播許可權授與 Azure container registry 的系統[管理員帳戶](container-registry-authentication.md#admin-account)。
 
 下文會詳細說明如何在 Azure 入口網站和 Azure CLI 中授與 `AcrImageSigner` 角色。
 
@@ -113,7 +116,8 @@ az role assignment create --scope $REGISTRY_ID --role AcrImageSigner --assignee 
 
 `<service principal ID>` 可以是服務主體的 **appId**、**objectId**，或其 **servicePrincipalNames** 之一。 如需使用服務主體與 Azure Container Registry 的詳細資訊，請參閱[使用服務主體進行 Azure Container Registry 驗證](container-registry-auth-service-principal.md)。
 
-進行任何角色變更之後，請執行 `az acr login` 來重新整理 Azure CLI 的本機身分識別權杖，以便讓新的角色生效。
+> [!IMPORTANT]
+> 進行任何角色變更之後，請執行 `az acr login` 來重新整理 Azure CLI 的本機身分識別權杖，以便讓新的角色生效。 如需驗證身分識別角色的詳細資訊，請參閱[使用 rbac 來管理 azure 資源的存取權和 Azure CLI](../role-based-access-control/role-assignments-cli.md)和[針對 AZURE 資源的 RBAC 進行疑難排解](../role-based-access-control/troubleshooting.md)。
 
 ## <a name="push-a-trusted-image"></a>推送信任的映像
 
@@ -214,3 +218,4 @@ umask 077; tar -zcvf docker_private_keys_backup.tar.gz ~/.docker/trust/private; 
 
 <!-- LINKS - internal -->
 [azure-cli]: /cli/azure/install-azure-cli
+[az-acr-config-content-trust-update]: /cli/azure/acr/config/content-trust#az-acr-config-content-trust-update

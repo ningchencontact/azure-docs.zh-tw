@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 03/19/2019
 ms.author: hrasheed
-ms.openlocfilehash: 5264491220a4b0756a2a9f0a96aae4ed67809618
-ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
-ms.translationtype: HT
+ms.openlocfilehash: 4e9a6a9ca435971d64ec8f59203a518287e6db4e
+ms.sourcegitcommit: dd69b3cda2d722b7aecce5b9bd3eb9b7fbf9dc0a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70879452"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70961007"
 ---
 # <a name="manage-logs-for-an-hdinsight-cluster"></a>管理 HDInsight 叢集的記錄
 
@@ -79,11 +79,11 @@ Apache Ambari 提供 Web UI 和 REST API，可簡化 HDInsight 叢集的管理�
 
 若要開啟服務檢視清單，請在 Azure 入口網站的 HDInsight 頁面上選取 [Ambari 檢視]。  此清單會依您已安裝的程式庫而有所不同。  例如，您可能會看到 [YARN 佇列管理員]、[Hive 檢視] 及 [Tez 檢視]。  請選取任何服務連結來查看組態和服務資訊。  Ambari UI [Stack and Version] \(堆疊與版本\) 頁面會提供有關叢集服務組態與服務版本歷程記錄的資訊。 若要瀏覽至 Ambari UI 的這個區段，請選取 [Admin] \(系統管理\) 功能表，然後選取 [Stack and Version] \(堆疊與版本\)。  選取 [Versions] \(版本\) 索引標籤以查看服務版本資訊。
 
-![堆疊與版本](./media/hdinsight-log-management/stack-versions.png)
+![堆疊與版本](./media/hdinsight-log-management/ambari-stack-versions.png)
 
-使用 Ambari UI 時，您可以下載在叢集中特定主機 (或節點) 上執行之任何 (或所有) 服務的組態。  請選取 [Hosts] \(主機\) 功能表，然後選取感興趣之主機的連結。 在該主機的頁面上，選取 [Host Actions] \(主機動作\) 按鈕，然後選取 [Download Client Configs] \(下載用戶端組態\)。 
+使用 Ambari UI 時，您可以下載在叢集中特定主機 (或節點) 上執行之任何 (或所有) 服務的組態。  請選取 [Hosts] \(主機\) 功能表，然後選取感興趣之主機的連結。 在該主機的頁面上，選取 [Host Actions] \(主機動作\) 按鈕，然後選取 [Download Client Configs] \(下載用戶端組態\)。
 
-![主機用戶端組態](./media/hdinsight-log-management/client-configs.png)
+![主機用戶端組態](./media/hdinsight-log-management/download-client-configs.png)
 
 ### <a name="view-the-script-action-logs"></a>檢視指令碼動作記錄
 

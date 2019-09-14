@@ -1,5 +1,5 @@
 ---
-title: 在 Azure marketplace 提供的 Dynamics 365 for Finance and Operations
+title: Dynamics 365 for 財務和營運供應專案 Azure Marketplace
 description: 說明如何在 Cloud Partner 入口網站中建立 Dynamics 365 for Finance and Operations 供應項目。
 services: Azure Marketplace, Cloud Partner Portal,
 author: v-miclar
@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.topic: conceptual
 ms.date: 11/01/2018
 ms.author: pabutler
-ms.openlocfilehash: bd7a78730186e4ea3d34449fd7977f7575bb8180
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: bd19723b80fdf4e4fc7e4581a9b8dcb80ca42045
+ms.sourcegitcommit: dd69b3cda2d722b7aecce5b9bd3eb9b7fbf9dc0a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64935238"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70962914"
 ---
 # <a name="dynamics-365-for-finance-and-operations-offer"></a>Dynamics 365 for Finance and Operations 供應項目
 
@@ -23,7 +23,7 @@ ms.locfileid: "64935238"
 
 使用下列步驟開發您的 Dynamics 365 for Finance and Operations 應用程式，並將其發佈至 AppSource 中：
 
-1. 先決條件是，您必須先取得[開發人員中心認證](https://dev.windows.com/en-us/registration?accountProgram=Azure)。
+1. 先決條件是，您必須先取得[開發人員中心認證](https://dev.windows.com/registration?accountProgram=Azure)。
 2. 升級您的程式碼。
 3. 使用[週期服務](https://docs.microsoft.com/dynamics365/unified-operations/dev-itpro/lifecycle-services/lcs) (LCS) 建置、封裝和部署您的資料。
 4. 在 LCS 中建立實作方法。

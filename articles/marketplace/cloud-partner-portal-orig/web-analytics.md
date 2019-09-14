@@ -1,6 +1,6 @@
 ---
 title: Web 分析
-description: 。
+description: .
 services: Azure, Marketplace, Cloud Partner Portal,
 author: pbutlerm
 manager: Ricardo.Villalobos
@@ -8,12 +8,12 @@ ms.service: marketplace
 ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: pabutler
-ms.openlocfilehash: 4b75b2cbd629204e7edbf1196eec9b03cb7a6736
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a6b2a7981452b47a3992b6c0efee286878e143fb
+ms.sourcegitcommit: dd69b3cda2d722b7aecce5b9bd3eb9b7fbf9dc0a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64943149"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70962888"
 ---
 <a name="web-analytics"></a>Web 分析
 =============
@@ -43,7 +43,7 @@ ms.locfileid: "64943149"
 
 例如，您可以使用：<https://appsource.microsoft.com/product/dynamics-365/contoso.offername?mktcmpid=NewCampaign>
 
-1. （進階）：使用我們支援的通用的活動識別碼的其中一個 URL。 我們想要能適應您需要使用的額外 ref 標記，因此我們支援自動識別這些額外標記的慣例：
+1. （Advanced）：在 URL 中使用我們支援的其中一個一般行銷活動識別碼。 我們想要能適應您需要使用的額外 ref 標記，因此我們支援自動識別這些額外標記的慣例：
     
     1. **utm\_campaign**
     2. **utm\_source**
@@ -63,7 +63,7 @@ ms.locfileid: "64943149"
 
 您的行銷活動可能會有中繼頁面，您將流量導向該頁面，然後該頁面接著將客戶導向 Marketplace。 務必將您的初始行銷活動識別碼傳遞到您傳送到 Marketplace 的最終 URL。
 
-下列是一個範例：
+請看以下範例：
 
 1. 行銷員工向 Google 購買廣告以將流量導向公司的登陸頁面 <https://contoso.com>。 登陸頁面有「嘗試我的產品」連結，該連結會連到 <https://appsource.com>。
 2. 使用者按一下廣告並登陸此公司登陸頁面。
@@ -71,7 +71,7 @@ ms.locfileid: "64943149"
     2.  登陸頁面 URL = <https://contoso.com/?utm_campaign=MyCampaignAdName&utm_source=MySourceAdName>
 3. 使用者按一「嘗試我的產品」連結並連到 AppSource。
     1. 轉介 URL =  <https://contoso.com/?utm_campaign=MyCampaignAdName&utm_source=MySourceAdName>
-    2. 登陸頁面 URL (**確定此 URL 已將 utm\_campaign and  utm\_source 新增到此 URL**) =  [https://appsource.microsoft.com/en-us/product/dynamics-365/contoso.offername?**utm\_ campaign=MyCampaignAdName&utm\_ source=MySourceAdName**](https://appsource.microsoft.com/en-us/product/dynamics-365/contoso.offername?utm_campaign=MyCampaignAdName&utm_source=MySourceAdName)
+    2. 登陸頁面 URL (**確定此 URL 已將 utm\_campaign and  utm\_source 新增到此 URL**) =  [https://appsource.microsoft.com/product/dynamics-365/contoso.offername?**utm\_ campaign=MyCampaignAdName&utm\_ source=MySourceAdName**](https://appsource.microsoft.com/product/dynamics-365/contoso.offername?utm_campaign=MyCampaignAdName&utm_source=MySourceAdName)
 
 <a name="how-to-evaluate-the-success-of-a-campaign"></a>如何評估行銷活動是否成功
 -----------------------------------------

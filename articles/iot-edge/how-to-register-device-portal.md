@@ -9,44 +9,44 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: 16660fbed465cc70f16cde430024f33b8aa4350e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 7f3d0037bcf0fd33ae23c298679e3157046247cb
+ms.sourcegitcommit: 909ca340773b7b6db87d3fb60d1978136d2a96b0
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66495348"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70983532"
 ---
 # <a name="register-a-new-azure-iot-edge-device-from-the-azure-portal"></a>從 Azure 入口網站註冊新的 Azure IoT Edge 裝置
 
-您必須先向 IoT 中樞註冊 IoT 裝置，才能將 IoT 裝置與 Azure IoT Edge 搭配使用。 一旦您註冊裝置時，您會收到可用來設定您的裝置，IoT Edge 的工作負載的連接字串。
+您必須先向 IoT 中樞註冊 IoT 裝置，才能將 IoT 裝置與 Azure IoT Edge 搭配使用。 註冊裝置之後，您會收到連接字串，可用來設定裝置的 IoT Edge 工作負載。
 
 本文說明如何使用 Azure 入口網站註冊新的 IoT Edge 裝置。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
-可用的標準[IoT 中樞](../iot-hub/iot-hub-create-through-portal.md)您 Azure 訂用帳戶中。
+Azure 訂用帳戶中的免費或標準[IoT 中樞](../iot-hub/iot-hub-create-through-portal.md)。
 
 ## <a name="create-a-device"></a>建立裝置
 
 在 Azure 入口網站中，我們將在連線至 IoT 中樞，但未啟用 Edge 的裝置上分開建立與管理 IoT Edge 裝置。
 
 1. 登入 [Azure 入口網站](https://portal.azure.com)，然後瀏覽至 IoT 中樞。
-2. 選取功能表中的 [IoT Edge]  。
-3. 選取 [新增 IoT Edge 裝置]  。
-4. 提供描述性裝置識別碼。 使用預設設定，自動產生驗證金鑰，並將新的裝置連接到您的中樞。
+2. 選取功能表中的 [IoT Edge]。
+3. 選取 [新增 IoT Edge 裝置]。
+4. 提供描述性裝置識別碼。 使用預設設定來自動產生驗證金鑰，並將新的裝置連接到您的中樞。
 5. 選取 [ **儲存**]。
 
 ## <a name="view-all-devices"></a>檢視所有裝置
 
-所有連線至 IoT 中樞且已啟用 Edge 的裝置都列於 [IoT Edge]  頁面。
+所有連線至 IoT 中樞且已啟用 Edge 的裝置都列於 [IoT Edge] 頁面。
 
 ## <a name="retrieve-the-connection-string"></a>擷取連接字串
 
 當您準備好開始設定裝置時，需要連接字串才能利用實體裝置在 IoT 中樞中的身分識別來連結實體裝置。
 
-1. 從**IoT Edge**在入口網站頁面上，按一下從清單中的 IoT Edge 裝置的裝置識別碼。
-2. 複製 [連接字串 (主要金鑰)]  或 [連接字串 (次要金鑰)]  的值。
+1. 從入口網站的 [ **IoT Edge** ] 頁面，按一下 IoT Edge 裝置清單中的 [裝置識別碼]。
+2. 複製 [連接字串 (主要金鑰)] 或 [連接字串 (次要金鑰)] 的值。
 
 ## <a name="next-steps"></a>後續步驟
 
-了解如何[將模組部署到裝置，以使用 Azure 入口網站](how-to-deploy-modules-portal.md)。
+瞭解如何[使用 Azure 入口網站將模組部署至裝置](how-to-deploy-modules-portal.md)。

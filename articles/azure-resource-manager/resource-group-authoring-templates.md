@@ -4,14 +4,14 @@ description: 使用宣告式 JSON 語法描述 Azure Resource Manager 範本的�
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: conceptual
-ms.date: 08/29/2019
+ms.date: 09/13/2019
 ms.author: tomfitz
-ms.openlocfilehash: d396b6b48687e451396849cc256c25f847a219cf
-ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
+ms.openlocfilehash: 4a5c1a99911c31f539d4f55adefb2c5f06243dd0
+ms.sourcegitcommit: 909ca340773b7b6db87d3fb60d1978136d2a96b0
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70306847"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70984101"
 ---
 # <a name="understand-the-structure-and-syntax-of-azure-resource-manager-templates"></a>了解 Azure Resource Manager 範本的結構和語法
 
@@ -84,6 +84,8 @@ ms.locfileid: "70306847"
 | maxLength |否 |字串、securestring 及陣列類型參數長度的最大值，含此值。 |
 | description |否 |透過入口網站向使用者顯示的參數說明。 如需詳細資訊，請參閱[範本中的註解](#comments)。 |
 
+如需如何使用參數的範例，請參閱[Azure Resource Manager 範本中的參數](template-parameters.md)。
+
 ## <a name="variables"></a>變數
 
 在 variables 區段中，您會建構可用於整個範本中的值。 您不需要定義變數，但它們通常會經由減少複雜運算式來簡化您的範本。
@@ -116,6 +118,8 @@ ms.locfileid: "70306847"
 ```
 
 如需使用`copy`來為變數建立數個值的詳細資訊，請參閱[變數反復](resource-group-create-multiple.md#variable-iteration)專案。
+
+如需如何使用變數的範例，請參閱[Azure Resource Manager 範本中的變數](template-variables.md)。
 
 ## <a name="functions"></a>Functions
 
@@ -159,6 +163,8 @@ ms.locfileid: "70306847"
 | 參數-值 |否 |參數值類型。 允許的類型和值為 **string**、**securestring**、**int**、**bool**、**object**、**secureObject**，以及 **array**。 |
 | 輸出類型 |是 |輸出值的類型。 輸出值支援與函數輸入參數相同的類型。 |
 | 輸出值 |是 |評估並從函式傳回的範本語言運算式。 |
+
+如需如何使用自訂函式的範例，請參閱[Azure Resource Manager 範本中的使用者定義函數](template-user-defined-functions.md)。
 
 ## <a name="resources"></a>資源
 
@@ -259,6 +265,8 @@ ms.locfileid: "70306847"
 | condition (條件) |否 | 布林值，指出是否傳回此輸出值。 當為 `true` 時，該值會包含在部署的輸出中。 若為 `false`，則會略過此部署的輸出值。 未指定時，預設值為 `true`。 |
 | Type |是 |輸出值的類型。 輸出值支援與範本輸入參數相同的類型。 如果您針對輸出類型指定**securestring** ，此值不會顯示在部署歷程記錄中，而且無法從另一個範本抓取。 若要在多個範本中使用秘密值，請將密碼儲存在 Key Vault 中，並在參數檔案中參考密碼。 如需詳細資訊，請參閱[在部署期間使用 Azure Key Vault 以傳遞安全的參數值](resource-manager-keyvault-parameter.md)。 |
 | value |是 |評估並傳回做為輸出值的範本語言運算式。 |
+
+如需如何使用輸出的範例，請參閱[Azure Resource Manager 範本中的輸出](template-outputs.md)。
 
 <a id="comments" />
 

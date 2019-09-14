@@ -7,12 +7,12 @@ ms.service: virtual-machines
 ms.topic: troubleshooting
 ms.date: 06/15/2018
 ms.author: delhan
-ms.openlocfilehash: 69631b39403dedab56ed75cb145d464c0e1f747c
-ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
-ms.translationtype: HT
+ms.openlocfilehash: 3a95d52f2a0aa07094f91b0653fcb94ff1f88d44
+ms.sourcegitcommit: dd69b3cda2d722b7aecce5b9bd3eb9b7fbf9dc0a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 09/12/2019
-ms.locfileid: "70935348"
+ms.locfileid: "70958988"
 ---
 # <a name="azure-storage-explorer-troubleshooting-guide"></a>Azure 儲存體總管疑難排解指南
 
@@ -264,6 +264,7 @@ macOS 鑰匙圈有時會進入導致 [儲存體總管] 的驗證程式庫發生�
 1. 開啟您的本機認證管理工具，尋找您已儲存的認證。
 2. 尋找具有索引鍵`<connection_type_key>/<corrupted_connection_name>`的專案（例如， `StorageExplorer_CustomConnections_Accounts_v1/account1`）。
 3. 刪除這些專案，然後再重新加入連接。
+---
 
 如果您在執行這些步驟之後仍然遇到此錯誤，或者您想要共用您認為會損毀的連線，請在 GitHub 頁面上[開啟問題](https://github.com/microsoft/AzureStorageExplorer/issues)。
 

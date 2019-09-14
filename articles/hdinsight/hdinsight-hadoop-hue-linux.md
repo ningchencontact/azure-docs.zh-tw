@@ -9,12 +9,12 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 12/11/2017
 ms.author: hrasheed
-ms.openlocfilehash: 74ccf2af2d379b3c1966543885df6ebe5cf0f47a
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 67f338b583ef428b8dd04e859a5204fd708ce434
+ms.sourcegitcommit: dd69b3cda2d722b7aecce5b9bd3eb9b7fbf9dc0a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67059433"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70962024"
 ---
 # <a name="install-and-use-hue-on-hdinsight-hadoop-clusters"></a>在 HDInsight Hadoop 叢集上安裝和使用 Hue
 
@@ -54,9 +54,9 @@ Hue 是一組用來與 Apache Hadoop 叢集進行互動的 Web 應用程式。 �
    > 若要在 HDInsight 叢集上安裝 Hue，建議的 HeadNode 大小為至少 A4 (8 核心、14 GB 記憶體)。
    >
    >
-2. 在 [選用組態]  刀鋒視窗中，選取 [指令碼動作]  ，並提供如下所示的資訊：
+2. 在 [選用組態] 刀鋒視窗中，選取 [指令碼動作]，並提供如下所示的資訊：
 
-    ![提供 Hue 的指令碼動作參數](./media/hdinsight-hadoop-hue-linux/hue-script-action.png "提供 Hue 的指令碼動作參數")
+    ![提供 Hue 的指令碼動作參數](./media/hdinsight-hadoop-hue-linux/hdi-hue-script-action.png "提供 Hue 的指令碼動作參數")
 
    * **名稱**：輸入指令碼動作的易記名稱。
    * **指令碼 URI**： https://hdiconfigactions.blob.core.windows.net/linuxhueconfigactionv02/install-hue-uber-v02.sh
@@ -64,7 +64,7 @@ Hue 是一組用來與 Apache Hadoop 叢集進行互動的 Web 應用程式。 �
    * **背景工作**：將此項保留空白。
    * **ZOOKEEPER**：將此項保留空白。
    * **參數**：將此項保留空白。
-3. 在 [指令碼動作]  底部，使用 [選取]  按鈕以儲存組態。 最後，使用 [選用組態]  刀鋒視窗底部的 [選取]  按鈕，儲存選用組態資訊。
+3. 在 [指令碼動作] 底部，使用 [選取] 按鈕以儲存組態。 最後，使用 [選用組態] 刀鋒視窗底部的 [選取] 按鈕，儲存選用組態資訊。
 4. 繼續如[在 Linux 上佈建 HDInsight 叢集](hdinsight-hadoop-provision-linux-clusters.md)中所述佈建叢集。
 
 ## <a name="use-hue-with-hdinsight-clusters"></a>搭配使用 Hue 與 HDInsight 叢集
@@ -91,7 +91,7 @@ Hue 是一組用來與 Apache Hadoop 叢集進行互動的 Web 應用程式。 �
         hn0-myhdi-nfebtpfdv1nubcidphpap2eq2b.ex.internal.cloudapp.net
 
     這是 Hue 網站所在之主要前端節點的主機名稱。
-4. 使用瀏覽器開啟 Hue 入口網站中的，http:\//HOSTNAME:8888。 以您在先前步驟取得的名稱取代 HOSTNAME。
+4. 使用瀏覽器來開啟色調入口網站，網址為\/HTTP：/HOSTNAME：8888。 以您在先前步驟取得的名稱取代 HOSTNAME。
 
    > [!NOTE]  
    > 當您第一次登入時，系統會提示您建立帳戶來登入 Hue 入口網站。 您在此處指定的認證會限制為入口網站，並且與佈建叢集時您指定的系統管理員或 SSH 使用者認證不相關。
@@ -101,21 +101,21 @@ Hue 是一組用來與 Apache Hadoop 叢集進行互動的 Web 應用程式。 �
     ![登入 Hue 入口網站](./media/hdinsight-hadoop-hue-linux/hdinsight-hue-portal-login.png "指定 Hue 入口網站的認證")
 
 ### <a name="run-a-hive-query"></a>執行 HIVE 查詢
-1. 從 Hue 入口網站中，按一下 [查詢編輯器]  ，然後按一下 [Hive]  開啟 Hive 編輯器。
+1. 從 Hue 入口網站中，按一下 [查詢編輯器]，然後按一下 [Hive] 開啟 Hive 編輯器。
 
     ![使用 Hive](./media/hdinsight-hadoop-hue-linux/hdinsight-hue-portal-use-hive.png "使用 Hive")
-2. 在 [協助]  索引標籤中，於 [資料庫]  底下，您應該會看到 **hivesampletable**。 這是 HDInsight 上的所有 Hadoop 叢集隨附的範例資料表。 在右窗格中輸入範例查詢，然後在下方窗格的 [結果]  索引標籤中查看輸出，如螢幕擷取畫面所示。
+2. 在 [協助] 索引標籤中，於 [資料庫] 底下，您應該會看到 **hivesampletable**。 這是 HDInsight 上的所有 Hadoop 叢集隨附的範例資料表。 在右窗格中輸入範例查詢，然後在下方窗格的 [結果] 索引標籤中查看輸出，如螢幕擷取畫面所示。
 
     ![執行 Hive 查詢](./media/hdinsight-hadoop-hue-linux/hdinsight-hue-portal-hive-query.png "執行 Hive 查詢")
 
-    您也可以使用 [圖表]  索引標籤來查看結果的視覺表示。
+    您也可以使用 [圖表] 索引標籤來查看結果的視覺表示。
 
 ### <a name="browse-the-cluster-storage"></a>瀏覽叢集儲存體
-1. 從 Hue 入口網站中，按一下功能表列右上角的 [檔案瀏覽器]  。
+1. 從 Hue 入口網站中，按一下功能表列右上角的 [檔案瀏覽器] 。
 2. 根據預設，檔案瀏覽器會在 **/user/myuser** 目錄中開啟。 按一下路徑中使用者目錄前面的正斜線，以移至與叢集相關聯的 Azure 儲存體容器的根目錄。
 
     ![使用檔案瀏覽器](./media/hdinsight-hadoop-hue-linux/hdinsight-hue-portal-file-browser.png "使用檔案瀏覽器")
-3. 以滑鼠右鍵按一下檔案或資料夾，以查看可用的作業。 使用右邊的 [上傳]  按鈕，將檔案上傳至目前的目錄。 使用 [新增]  按鈕建立新的檔案或目錄。
+3. 以滑鼠右鍵按一下檔案或資料夾，以查看可用的作業。 使用右邊的 [上傳] 按鈕，將檔案上傳至目前的目錄。 使用 [新增] 按鈕建立新的檔案或目錄。
 
 > [!NOTE]  
 > Hue 檔案瀏覽器只會顯示與 HDInsight 叢集相關聯的預設容器的內容。 已與叢集相關聯的任何額外儲存體帳戶/容器將無法使用檔案瀏覽器存取。 不過，與叢集相關聯的其他容器一律可供 Hive 工作存取。 例如，如果您在 Hive 編輯器中輸入 `dfs -ls wasb://newcontainer@mystore.blob.core.windows.net` 命令，則您也可以看到其他容器的內容。 在這個命令中， **newcontainer** 不是與叢集相關聯的預設容器。
@@ -135,7 +135,7 @@ Hue 是一組用來與 Apache Hadoop 叢集進行互動的 Web 應用程式。 �
    ![Hue 入口網站錯誤](./media/hdinsight-hadoop-hue-linux/hdinsight-hue-portal-error.png "Hue 入口網站錯誤")
 
    這是由已知問題造成的。 因應措施是修改 Ambari，讓作用中的 Resource Manager 也在主要前端節點上執行。
-5. 當 HDInsight 叢集使用 Azure 儲存體 (使用 `wasb://`) 時，色調能了解 WebHDFS。 因此，搭配指令碼動作使用的自訂指令碼會安裝 WebWasb，這是針對與 WASB 通訊的 WebHDFS 相容服務。 所以，即使在 Hue 入口網站顯示有 HDFS (例如將滑鼠移至 [檔案瀏覽器]  時)，應將它解讀成 WASB。
+5. 當 HDInsight 叢集使用 Azure 儲存體 (使用 `wasb://`) 時，色調能了解 WebHDFS。 因此，搭配指令碼動作使用的自訂指令碼會安裝 WebWasb，這是針對與 WASB 通訊的 WebHDFS 相容服務。 所以，即使在 Hue 入口網站顯示有 HDFS (例如將滑鼠移至 [檔案瀏覽器]時)，應將它解讀成 WASB。
 
 ## <a name="next-steps"></a>後續步驟
 * [在 HDInsight 叢集上安裝 Apache Giraph](hdinsight-hadoop-giraph-install-linux.md)。 在 HDInsight Hadoop 叢集上使用叢集自訂安裝 Giraph。 Giraph 可讓您利用 Hadoop 執行圖形處理，且可以搭配 Azure HDInsight 一起使用。

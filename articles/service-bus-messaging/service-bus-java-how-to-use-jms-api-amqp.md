@@ -14,20 +14,20 @@ ms.devlang: Java
 ms.topic: article
 ms.date: 03/05/2019
 ms.author: aschhab
-ms.custom: seo-java-july2019, seo-java-august2019
-ms.openlocfilehash: 3639eef1e95b354298b718af24217a8fbefb3a74
-ms.sourcegitcommit: ee61ec9b09c8c87e7dfc72ef47175d934e6019cc
+ms.custom: seo-java-july2019, seo-java-august2019, seo-java-september2019
+ms.openlocfilehash: 9dff2cc11b71f314de81fd99ed3b72c6337d977f
+ms.sourcegitcommit: fbea2708aab06c19524583f7fbdf35e73274f657
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70173376"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70967971"
 ---
-# <a name="use-the-java-message-service-jms-with-azure-service-bus-and-amqp-10"></a>搭配 Azure 服務匯流排和 AMQP 1.0 使用 JAVA 訊息服務 (JMS)
+# <a name="use-the-java-message-service-jms-with-azure-service-bus-and-amqp-10"></a>搭配 Azure 服務匯流排和 AMQP 1.0 使用 JAVA 訊息服務（JMS）
+本文說明如何使用常用的 JAVA 訊息服務（JMS） API 標準，從 JAVA 應用程式使用 Azure 服務匯流排訊息功能（佇列和發佈/訂閱主題）。 其中有一個[隨附文章](service-bus-amqp-dotnet.md)，說明如何使用 AZURE 服務匯流排 .net API 來執行相同的動作。 您可以同時使用這兩個指南了解使用 AMQP 1.0 的跨平台訊息。
+
 進階訊息佇列通訊協定 (AMQP) 1.0 是一個有效率且可靠的有線等級訊息通訊協定，可以用來建置強大的跨平台訊息應用程式。
 
-在服務匯流排中支援 AMQP 1.0 代表您現在能夠從一組平台中使用有效率的二進位通訊協定，來運用佇列與發佈/訂閱代理傳訊功能。 此外，您還可以建置使用混合語言、架構及作業系統所建置之元件所組成的應用程式。
-
-本文說明如何利用常用的 Java 訊息服務 (JMS) API 標準，從 Java 應用程式使用服務匯流排傳訊功能 (佇列和發佈/訂閱主題)。 這是說明如何使用服務匯流排 .NET API 達到相同效用的[附屬文章](service-bus-amqp-dotnet.md)。 您可以同時使用這兩個指南了解使用 AMQP 1.0 的跨平台訊息。
+Azure 服務匯流排中支援 AMQP 1.0，表示您可以使用有效率的二進位通訊協定，從某個範圍的平臺使用佇列和發佈/訂閱代理訊息功能。 此外，您還可以建置使用混合語言、架構及作業系統所建置之元件所組成的應用程式。
 
 ## <a name="get-started-with-service-bus"></a>開始使用服務匯流排
 本指南假設您已經有服務匯流排命名空間，其中包含名稱為 **basicqueue** 的佇列。 如果沒有，您可以使用 [Azure 入口網站](service-bus-create-namespace-portal.md)建立[命名空間和佇列](https://portal.azure.com)。 如需有關如何建立服務匯流排命名空間和佇列的相關詳細資訊，請參閱[開始使用服務匯流排佇列](service-bus-dotnet-get-started-with-queues.md)。
@@ -375,7 +375,7 @@ JMS 主題發行者端與服務匯流排相容, 如這個範例所示, 但動態
 | createBrowser               | 不支援。 使用服務匯流排 API 的 Peek() 功能                         |
 | createQueue                 | 透過管理 API/工具/入口網站建立佇列                                           | 
 | createTemporaryQueue        | 透過管理 API/工具/入口網站建立佇列，且 *AutoDeleteOnIdle* 設為到期時間 |
-| receiveNoWait               | 利用服務匯流排 SDK 所提供的 receive () 方法, 並指定非常低或零的超時 |
+| receiveNoWait               | 利用服務匯流排 SDK 所提供的 receive （）方法，並指定非常低或零的超時 |
 
 ## <a name="summary"></a>總結
 本作法指南說明如何以常用的 JMS API 和 AMQP 1.0 從 Java 使用服務匯流排代理訊息功能 (佇列和發佈/訂閱主題)。

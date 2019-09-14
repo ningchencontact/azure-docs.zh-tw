@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.topic: conceptual
 ms.date: 03/27/2019
 ms.author: pabutler
-ms.openlocfilehash: 4bca52f19348569444ee09348c49756f64c986b7
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: 746b1b51d593b21bdf85bca4eeb75c135196093a
+ms.sourcegitcommit: dd69b3cda2d722b7aecce5b9bd3eb9b7fbf9dc0a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68884456"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70962862"
 ---
 # <a name="azure-and-appsource-marketplace-offers"></a>Azure 與 AppSource Marketplace 供應項目
 
@@ -36,7 +36,7 @@ ms.locfileid: "68884456"
 
 *試用產品*是一個市集功能，可為客戶提供每個供應項目的「購買前先試用」示範選項，因此會加以啟用。  試用產品功能僅限於下列供應項目類型子集：[Azure 應用程式](./azure-applications/cpp-azure-app-offer.md)、[Dynamics 365 Business Central](../cloud-partner-portal-orig/cpp-business-central-offer.md)、[Dynamics 365 for Customer Engagement](./dyn365ce/cpp-customer-engagement-offer.md)、[Dynamics 365 for Finance and Operations](../cloud-partner-portal-orig/cpp-dynamics-365-operations-offer.md)、[SaaS 應用程式](./saas-app/cpp-saas-offer.md) 及[虛擬機器](./virtual-machine/cpp-virtual-machine-offer.md)。  此功能會要求發行者建立試用產品範本 (已針對其供應項目自訂)。  如需詳細資訊，請參閱[試用產品](./test-drive/what-is-test-drive.md)一節。
 
-您可以藉由套用[試用產品篩選條件](https://azuremarketplace.microsoft.com/en-us/marketplace/apps?filters=test-drive)，來瀏覽目前具有試用產品示範的市集供應項目。 
+您可以藉由套用[試用產品篩選條件](https://azuremarketplace.microsoft.com/marketplace/apps?filters=test-drive)，來瀏覽目前具有試用產品示範的市集供應項目。 
 
 
 ## <a name="azure-marketplace-and-appsource-offer-types"></a>Azure Marketplace 和 AppSource 供應項目類型
@@ -49,11 +49,11 @@ ms.locfileid: "68884456"
 | [諮詢服務](./consulting-services/cloud-partner-portal-consulting-services-publishing-offer.md) | 兩者皆可 | Microsoft 的合格顧問可以在 Azure Marketplace 或 AppSource 列出他們領域專屬的服務。  他們的專業可協助客戶評估問題，並建立和部署符合客戶營運目標的適當解決方案。  |
 | [容器](./containers/cpp-containers-offer.md)  | Azure | 解決方案是佈建成 Kubernetes 型服務或 Azure 容器執行個體的 Docker 容器映像。 |
 | [Dynamics 365 Business Central](../cloud-partner-portal-orig/cpp-business-central-offer.md) | AppSource | 擴充此企業資源規劃 (ERP) 及企業管理系統的套件。 |
-| [Dynamics 365 for Customer Engagement](./dyn365ce/cpp-customer-engagement-offer.md) | AppSource | 透過其銷售、服務、專案服務和現場服務模組擴充此客戶資源管理 (CRM) 系統的套件  |
-| [Dynamics 365 for Finance and Operations](../cloud-partner-portal-orig/cpp-dynamics-365-operations-offer.md) | AppSource | 擴充此企業資源規劃 (ERP) 服務的套件, 可支援先進的財務、營運、製造和供應鏈管理 |
+| [Dynamics 365 for Customer Engagement](./dyn365ce/cpp-customer-engagement-offer.md) | AppSource | 透過其銷售、服務、專案服務和現場服務模組擴充此客戶資源管理（CRM）系統的套件  |
+| [Dynamics 365 for Finance and Operations](../cloud-partner-portal-orig/cpp-dynamics-365-operations-offer.md) | AppSource | 擴充此企業資源規劃（ERP）服務的套件，可支援先進的財務、營運、製造和供應鏈管理 |
 | [IoT Edge 模組](./iot-edge-module/cpp-offer-process-parts.md) | Azure | 在 IoT Edge 裝置上執行且與 Docker 相容的容器。  其包含使用自訂程式碼、其他 Azure 服務及協力廠商服務組合的小型計算模組。 |
-| [Power BI 應用程式](./power-bi/cpp-power-bi-offer.md) | AppSource | 封裝可自訂 Power BI 內容的 Power BI 應用程式, 包括資料集、報表和儀表板 |
-| [SaaS 應用程式](./saas-app/cpp-saas-offer.md) | Azure | 解決方案是由「發行者」管理的「軟體即服務」訂用帳戶, 使用者可透過使用 Azure Active Directory 的自訂介面來登入。 |
+| [Power BI 應用程式](./power-bi/cpp-power-bi-offer.md) | AppSource | 封裝可自訂 Power BI 內容的 Power BI 應用程式，包括資料集、報表和儀表板 |
+| [SaaS 應用程式](./saas-app/cpp-saas-offer.md) | Azure | 解決方案是由「發行者」管理的「軟體即服務」訂用帳戶，使用者可透過使用 Azure Active Directory 的自訂介面來登入。 |
 | [虛擬機器](./virtual-machine/cpp-virtual-machine-offer.md)  | Azure  | 解決方案包含在部署至客戶訂用帳戶的單一虛擬機器內。  |
 | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |   |   |
 
@@ -62,4 +62,4 @@ ms.locfileid: "68884456"
 
 ## <a name="next-steps"></a>後續步驟
 
-您將瞭解可在 marketplace 供應專案上執行的一般作業, 以及其在[管理優惠](./manage-offers/cpp-manage-offers.md)一文中所提供的一般技術屬性和資產。
+您將瞭解可在 marketplace 供應專案上執行的一般作業，以及其在[管理優惠](./manage-offers/cpp-manage-offers.md)一文中所提供的一般技術屬性和資產。

@@ -6,12 +6,12 @@ ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 08/21/2019
 ms.author: tomfitz
-ms.openlocfilehash: 694bd3b5f14ac37229763b33fb97c17bd4e573d4
-ms.sourcegitcommit: a3a40ad60b8ecd8dbaf7f756091a419b1fe3208e
+ms.openlocfilehash: 4305213d272172cb89bfdd207b6c8106af3f4939
+ms.sourcegitcommit: 909ca340773b7b6db87d3fb60d1978136d2a96b0
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69893798"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70983940"
 ---
 # <a name="create-resource-manager-parameter-file"></a>建立 Resource Manager 參數檔案
 
@@ -19,7 +19,7 @@ ms.locfileid: "69893798"
 
 ## <a name="parameter-file"></a>參數檔案
 
-參數檔案具有下列格式:
+參數檔案具有下列格式：
 
 ```json
 {
@@ -36,7 +36,7 @@ ms.locfileid: "69893798"
 }
 ```
 
-請注意, 參數值會以純文字的形式儲存在參數檔案中。 這種方法適用于不區分的值, 例如指定資源的 SKU。 它不適用於機密值 (例如密碼)。 如果您需要傳遞敏感值做為參數, 請將值儲存在金鑰保存庫中, 並在您的參數檔案中參考 key vault。 在部署期間, 會安全地抓取敏感性值。
+請注意，參數值會以純文字的形式儲存在參數檔案中。 這種方法適用于不區分的值，例如指定資源的 SKU。 它不適用於機密值（例如密碼）。 如果您需要傳遞敏感值做為參數，請將值儲存在金鑰保存庫中，並在您的參數檔案中參考 key vault。 在部署期間，會安全地抓取敏感性值。
 
 下列參數檔案包含純文字值和儲存在金鑰保存庫中的值。
 
@@ -60,11 +60,11 @@ ms.locfileid: "69893798"
 }
 ```
 
-如需從金鑰保存庫使用值的詳細資訊, 請參閱[使用 Azure Key Vault 在部署期間傳遞安全的參數值](resource-manager-keyvault-parameter.md)。
+如需從金鑰保存庫使用值的詳細資訊，請參閱[使用 Azure Key Vault 在部署期間傳遞安全的參數值](resource-manager-keyvault-parameter.md)。
 
 ## <a name="define-parameter-values"></a>定義參數值
 
-若要找出如何定義參數值, 請開啟您要部署的範本。 查看範本的 parameters 區段。 下列範例會顯示範本中的參數。
+若要找出如何定義參數值，請開啟您要部署的範本。 查看範本的 parameters 區段。 下列範例會顯示範本中的參數。
 
 ```json
 "parameters": {
@@ -100,7 +100,7 @@ ms.locfileid: "69893798"
 }
 ```
 
-請注意參數的類型。 參數檔案中的值必須具有相同的類型。 針對此範本, 您可以將這兩個參數提供為字串。
+請注意參數的類型。 參數檔案中的值必須具有相同的類型。 針對此範本，您可以將這兩個參數提供為字串。
 
 ```json
 {
@@ -117,7 +117,7 @@ ms.locfileid: "69893798"
 }
 ```
 
-接下來, 尋找預設值。 如果參數有預設值, 您可以提供值, 但您不需要這麼做。
+接下來，尋找預設值。 如果參數有預設值，您可以提供值，但您不需要這麼做。
 
 ```json
 {
@@ -134,7 +134,7 @@ ms.locfileid: "69893798"
 }
 ```
 
-最後, 請查看允許的值和任何限制, 例如最大長度。 它們會告訴您可以為參數提供的值範圍。
+最後，請查看允許的值和任何限制，例如最大長度。 它們會告訴您可以為參數提供的值範圍。
 
 ```json
 {
@@ -187,9 +187,9 @@ ms.locfileid: "69893798"
 
 ## <a name="file-name"></a>檔案名稱
 
-具名引數檔案的一般慣例是將**參數**新增至範本名稱。 例如, 如果您的範本名為**azuredeploy.parameters.json」** , 則您的參數檔案會命名為**azuredeploy.parameters.json」** 。 此命名慣例可協助您查看範本和參數之間的連接。
+具名引數檔案的一般慣例是將**參數**新增至範本名稱。 例如，如果您的範本名為**azuredeploy.parameters.json」** ，則您的參數檔案會命名為**azuredeploy.parameters.json」** 。 此命名慣例可協助您查看範本和參數之間的連接。
 
-若要部署至不同的環境, 請建立一個以上的參數檔。 具名引數檔案時, 請加入識別其使用方式的方法。 例如, 使用**azuredeploy.parameters.json」-dev. json**和**azuredeploy.parameters.json」。**
+若要部署至不同的環境，請建立一個以上的參數檔。 具名引數檔案時，請加入識別其使用方式的方法。 例如，使用**azuredeploy.parameters.json」-dev. json**和**azuredeploy.parameters.json」。**
 
 
 ## <a name="parameter-precedence"></a>參數優先順序
@@ -204,6 +204,6 @@ ms.locfileid: "69893798"
 
 ## <a name="next-steps"></a>後續步驟
 
-- 若要了解如何在您的範本中定義參數，請參閱[了解 Azure Resource Manager 範本的結構和語法](resource-group-authoring-templates.md)。
-- 如需從金鑰保存庫使用值的詳細資訊, 請參閱[使用 Azure Key Vault 在部署期間傳遞安全的參數值](resource-manager-keyvault-parameter.md)。
-
+- 若要瞭解如何在您的範本中定義參數，請參閱[Azure Resource Manager 範本中的參數](template-parameters.md)。
+- 如需從金鑰保存庫使用值的詳細資訊，請參閱[使用 Azure Key Vault 在部署期間傳遞安全的參數值](resource-manager-keyvault-parameter.md)。
+- 如需參數的詳細資訊，請參閱[Azure Resource Manager 範本中的參數](template-parameters.md)。

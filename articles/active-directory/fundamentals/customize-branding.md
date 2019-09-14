@@ -13,12 +13,12 @@ ms.author: ajburnle
 ms.reviewer: kexia
 ms.custom: fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3ae329bd031a2a57ea4fc2eec9cde1e532439bb4
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 7caf6eff9f5bd497ab6c3a500f3940549b198576
+ms.sourcegitcommit: dd69b3cda2d722b7aecce5b9bd3eb9b7fbf9dc0a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68561702"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70959046"
 ---
 # <a name="add-branding-to-your-organizations-azure-active-directory-sign-in-page"></a>將商標新增至組織的 Azure Active Directory 登入頁面
 使用您組織的標誌和自訂色彩配置，在 Azure Active Directory (Azure AD) 登入頁面上展現一致的外觀與風格。 當使用者登入貴組織的 Web 應用程式 (如 Office 365)，且該應用程式使用 Azure AD 做為識別提供者時，即會顯示您的登入頁面。
@@ -29,7 +29,7 @@ ms.locfileid: "68561702"
 ## <a name="customize-your-azure-ad-sign-in-page"></a>自訂 Azure AD 登入頁面
 您可以自訂 Azure AD 登入頁面，該頁面會在使用者登入您組織的租用戶特定應用程式 (例如 [ *https://outlook.com/contoso.com* ](https://outlook.com/contoso.com)) 時或傳遞網域變數 (例如 [ *https://passwordreset.microsoftonline.com/?whr=contoso.com* ](https://passwordreset.microsoftonline.com/?whr=contoso.com)) 時出現。
 
-當您的使用者前往 www\.office.com 之類的網站時, 您的自訂商標不會立即出現。 使用者必須先登入，您的自訂商標才會出現。
+當您的使用者前往 www\.office.com 之類的網站時，您的自訂商標不會立即出現。 使用者必須先登入，您的自訂商標才會出現。 在使用者登入之後，商標可能需要15分鐘或更長的時間才會出現。 
 
 > [!NOTE]
 > 所有商標元素均為選擇性使用。 舉例而言，如果您指定的橫幅標誌沒有背景影像，登入頁面會顯示您的標誌和目的地網站 (例如，Office 365) 的預設背景影像。<br><br>此外，登入頁面商標不會沿用至個人 Microsoft 帳戶。 如果使用者或商務來賓使用個人 Microsoft 帳戶登入，其登入頁面將不會出現貴組織的商標。
@@ -70,7 +70,7 @@ ms.locfileid: "68561702"
 
         - **登入頁面背景色彩。** 請指定十六進位色彩 (例如，白色是 #FFFFFF)，此色彩會在低頻寬連線的情況下代替背景影像。 建議使用橫幅標誌的主要顏色或貴組織的代表顏色。
 
-        - **方形標誌影像。** 選取貴組織標誌的 .png (建議) 或 .jpg 格式影像，此影像會在新 Windows 10 Enterprise 裝置的安裝流程中向使用者顯示。 此影像只會用於 Windows 驗證，而且只有在租用戶使用 [Windows Autopilot]( https://docs.microsoft.com/windows/deployment/windows-autopilot/windows-10-autopilot) 部署或做為其他 Windows 10 使用體驗的密碼輸入頁面時，才會向此租用戶顯示。 在某些情況下, 它可能也會出現在同意對話方塊中。
+        - **方形標誌影像。** 選取貴組織標誌的 .png (建議) 或 .jpg 格式影像，此影像會在新 Windows 10 Enterprise 裝置的安裝流程中向使用者顯示。 此影像只會用於 Windows 驗證，而且只有在租用戶使用 [Windows Autopilot]( https://docs.microsoft.com/windows/deployment/windows-autopilot/windows-10-autopilot) 部署或做為其他 Windows 10 使用體驗的密碼輸入頁面時，才會向此租用戶顯示。 在某些情況下，它可能也會出現在同意對話方塊中。
         
             影像不可超過 240x240 像素，且檔案大小必須小於 10 KB。 建議使用透明影像，因為背景可能會不符合您標誌的背景。 也建議不要在影像周圍加入邊框間距，否則會讓標誌看起來變小。
     

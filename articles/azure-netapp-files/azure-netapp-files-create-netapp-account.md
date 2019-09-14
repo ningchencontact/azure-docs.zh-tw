@@ -14,20 +14,20 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/28/2018
 ms.author: b-juche
-ms.openlocfilehash: 8e60f5251f911ffe2b917dcc30e433e0a960823e
-ms.sourcegitcommit: dcf3e03ef228fcbdaf0c83ae1ec2ba996a4b1892
+ms.openlocfilehash: 25cae58663f6fa7ef27995c10509eb33e49dd4c7
+ms.sourcegitcommit: dd69b3cda2d722b7aecce5b9bd3eb9b7fbf9dc0a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/23/2019
+ms.lasthandoff: 09/12/2019
 ms.locfileid: "70012578"
 ---
 # <a name="create-a-netapp-account"></a>建立 NetApp 帳戶
 建立 NetApp 帳戶可讓您設定容量集區，並接著建立磁碟區。 您可以使用 [Azure NetApp Files] 刀鋒視窗來建立新的 NetApp 帳戶。
 
 ## <a name="before-you-begin"></a>開始之前
-您必須收到來自 Azure NetApp Files 小組的電子郵件, 確認您已獲得服務的存取權。 請參閱[提交等候清單要求以存取服務](azure-netapp-files-register.md#waitlist)。
+您必須收到來自 Azure NetApp Files 小組的電子郵件，確認您已獲得服務的存取權。 請參閱[提交等候清單要求以存取服務](azure-netapp-files-register.md#waitlist)。
 
-您也必須已註冊您的訂用帳戶, 才能使用 NetApp 資源提供者。 請參閱[註冊 NetApp 資源提供者](azure-netapp-files-register.md#resource-provider)。
+您也必須已註冊您的訂用帳戶，才能使用 NetApp 資源提供者。 請參閱[註冊 NetApp 資源提供者](azure-netapp-files-register.md#resource-provider)。
 
 ## <a name="steps"></a>步驟 
 
@@ -58,12 +58,11 @@ ms.locfileid: "70012578"
    您剛建立的 NetApp 帳戶現在會出現在 [Azure NetApp Files] 刀鋒視窗中。 
 
 > [!NOTE] 
-> 如果您尚未授與 Azure NetApp Files 服務的存取權, 當您嘗試建立第一個 NetApp 帳戶時, 將會收到下列錯誤:  
+> 如果您尚未授與 Azure NetApp Files 服務的存取權，當您嘗試建立第一個 NetApp 帳戶時，將會收到下列錯誤：  
 >
 > `{"code":"DeploymentFailed","message":"At least one resource deployment operation failed. Please list deployment operations for details. Please see https://aka.ms/arm-debug for usage details.","details":[{"code":"NotFound","message":"{\r\n \"error\": {\r\n \"code\": \"InvalidResourceType\",\r\n \"message\": \"The resource type could not be found in the namespace 'Microsoft.NetApp' for api version '2017-08-15'.\"\r\n }\r\n}"}]}`
 
 ## <a name="next-steps"></a>後續步驟  
 
-* [設定容量集區](azure-netapp-files-set-up-capacity-pool.md)
-* [使用 Azure CLI 管理 Azure NetApp Files 資源](https://docs.microsoft.com/cli/azure/netappfiles?view=azure-cli-latest)
+[設定容量集區](azure-netapp-files-set-up-capacity-pool.md)
 

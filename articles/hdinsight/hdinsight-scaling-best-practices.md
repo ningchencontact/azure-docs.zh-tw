@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 06/10/2019
-ms.openlocfilehash: 2e79f38fb6495d75e0438fa3622cc226886c0773
-ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
+ms.openlocfilehash: aabcf7ac6c7bf14264178831bb3e4f6670d29984
+ms.sourcegitcommit: dd69b3cda2d722b7aecce5b9bd3eb9b7fbf9dc0a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70885557"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70960940"
 ---
 # <a name="scale-azure-hdinsight-clusters"></a>調整 Azure HDInsight 叢集
 
@@ -37,7 +37,7 @@ Microsoft 提供下列公用程式來調整叢集：
 |[Azure CLI](hdinsight-administer-use-command-line.md)|azure hdinsight 叢集重\<設大小\<clusterName > 目標實例計數 > |
 |[Azure 入口網站](https://portal.azure.com)|開啟您的 HDInsight 叢集窗格，選取左側功能表上的 [叢集**大小**]，然後在 [叢集大小] 窗格上，輸入背景工作節點的數目，然後選取 [儲存]。|  
 
-![調整叢集](./media/hdinsight-scaling-best-practices/scale-cluster-blade.png)
+![調整叢集](./media/hdinsight-scaling-best-practices/scale-cluster-blade1.png)
 
 只要使用上述任一方法，您即可在幾分鐘內相應增加或相應減少 HDInsight 叢集。
 
@@ -112,7 +112,7 @@ Microsoft 提供下列公用程式來調整叢集：
 3. 從 Ambari UI 中，選取左側功能表上的 [服務] 清單中的 [ **YARN** ]。  
 4. 從 [YARN] 頁面選取 [**快速連結**]，並將滑鼠停留在使用中的前端節點上，然後選取 [ **ResourceManager UI**]。
 
-    ![ResourceManager UI](./media/hdinsight-scaling-best-practices/resourcemanager-ui.png)
+    ![ResourceManager UI](./media/hdinsight-scaling-best-practices/resource-manager-ui1.png)
 
 您可以使用 `https://<HDInsightClusterName>.azurehdinsight.net/yarnui/hn/cluster` 直接存取 ResourceManager UI。
 

@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/27/2018
-ms.openlocfilehash: f9dbddcba1545e0a110faa9fbf8e3de9ff189525
-ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
+ms.openlocfilehash: 4980b4d3a4ec7165a4aba3d02561f6c666150924
+ms.sourcegitcommit: fbea2708aab06c19524583f7fbdf35e73274f657
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70879504"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70967694"
 ---
 # <a name="operationalize-ml-services-cluster-on-azure-hdinsight"></a>在 Azure HDInsight 上運作 ML 服務叢集
 
@@ -66,15 +66,15 @@ ms.locfileid: "70879504"
 
     a. 從主功能表中，選取 **6** 來執行診斷測試。
 
-    ![diagnostic1](./media/r-server-operationalize/diagnostic-1.png)
+    ![diagnostic1](./media/r-server-operationalize/hdinsight-diagnostic1.png)
 
     b. 從 [診斷測試] 功能表中，選取 **A**。出現提示時，輸入您針對本機系統管理員使用者所提供的密碼。
 
-    ![diagnostic2](./media/r-server-operationalize/diagnostic-2.png)
+    ![diagnostic2](./media/r-server-operationalize/hdinsight-diagnostic2.png)
 
     c. 確認輸出會顯示整體健康情況是良好的。
 
-    ![diagnostic3](./media/r-server-operationalize/diagnostic-3.png)
+    ![diagnostic3](./media/r-server-operationalize/hdinsight-diagnostic3.png)
 
     d. 從顯示的功能表選項中，輸入 **E** 以返回主功能表，然後輸入 **8** 以結束管理公用程式。
 

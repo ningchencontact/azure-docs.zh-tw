@@ -7,12 +7,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 07/02/2019
 ms.author: dacurwin
-ms.openlocfilehash: da987b5e841824dc62f3b740cae2961de9d7b293
-ms.sourcegitcommit: 23389df08a9f4cab1f3bb0f474c0e5ba31923f12
+ms.openlocfilehash: 62f633b617abb52e1be4003f65cc537cc9ff2a25
+ms.sourcegitcommit: 909ca340773b7b6db87d3fb60d1978136d2a96b0
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70872901"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70983783"
 ---
 # <a name="support-matrix-for-azure-vm-backup"></a>Azure VM 備份的支援矩陣
 您可以使用[Azure 備份服務](backup-overview.md)來備份內部部署機器和工作負載, 以及 Azure 虛擬機器 (vm)。 本文摘要說明使用 Azure 備份備份 Azure Vm 時的支援設定和限制。
@@ -180,7 +180,7 @@ Azure VM 資料磁碟 | 備份具有 16 個或較少資料磁碟的 VM。 <br/><
 具有多個網路介面卡的 VM  | 支援。 <br/><br/> [深入了解](backup-azure-arm-restore-vms.md#restore-vms-with-special-configurations)如何還原具有特殊網路設定的 VM。
 具有公用 IP 位址的 VM    | 支援。<br/><br/> 將現有的公用 IP 位址與 NIC 建立關聯, 或建立位址, 並在還原完成後將其與 NIC 建立關聯。
 NIC/子網路上的網路安全性群組 (NSG)。 |   支援。
-保留的 IP 位址 (靜態) | 不支援。<br/><br/> 您無法使用保留的 IP 位址和未定義的端點來備份 VM。
+靜態 IP 位址 | 不支援。<br/><br/> 從還原點建立的新 VM 會被指派一個動態 IP 位址。<br/><br/> 對於傳統 Vm，您無法使用保留的 IP 位址和未定義的端點來備份 VM。
 動態 IP 位址 |    支援。<br/><br/> 如果來源 VM 上的 NIC 使用動態 IP 位址, 則還原 VM 上的 NIC 預設也會使用它。
 Azure 流量管理員   | 支援。<br/><br/>如果備份的 VM 位於流量管理員中, 請手動將還原的 VM 新增至相同的流量管理員實例。
 Azure DNS | 支援。

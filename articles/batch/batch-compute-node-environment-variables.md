@@ -9,20 +9,20 @@ ms.service: batch
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: big-compute
-ms.date: 08/13/2019
+ms.date: 09/12/2019
 ms.author: lahugh
-ms.openlocfilehash: 916dceb7c5e4314df98407b4e8fa4ed75cdb308c
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 995dfeaf26180b74f135ed2b74fa40faf3a12c08
+ms.sourcegitcommit: dd69b3cda2d722b7aecce5b9bd3eb9b7fbf9dc0a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70095286"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70958795"
 ---
 # <a name="azure-batch-runtime-environment-variables"></a>Azure Batch 執行時間環境變數
 
 [Azure Batch 服務](https://azure.microsoft.com/services/batch/)會在計算節點上設定下列環境變數。 您可以在工作命令列中，以及由該命令列執行的程式及指令碼中，參照這些環境變數。
 
-如需搭配 Batch 使用環境變數的詳細資訊, 請參閱工作[的環境設定](https://docs.microsoft.com/azure/batch/batch-api-basics#environment-settings-for-tasks)。
+如需搭配 Batch 使用環境變數的詳細資訊，請參閱工作[的環境設定](https://docs.microsoft.com/azure/batch/batch-api-basics#environment-settings-for-tasks)。
 
 ## <a name="environment-variable-visibility"></a>環境變數可見性
 
@@ -48,7 +48,7 @@ ms.locfileid: "70095286"
 |-----------------------------------|--------------------------------------------------------------------------|--------------|---------|
 | AZ_BATCH_ACCOUNT_NAME           | 工作所屬之批次帳戶的名稱。                  | 所有工作。   | mybatchaccount |
 | AZ_BATCH_ACCOUNT_URL            | Batch 帳戶的 URL。 | 所有工作。 | `https://myaccount.westus.batch.azure.com` |
-| AZ_BATCH_APP_PACKAGE            | 所有應用程式套件環境變數的前置詞。 例如，如果應用程式 "Foo" 的版本 "1" 會安裝到集區中，則環境變數是 AZ_BATCH_APP_PACKAGE_FOO_1。 AZ_BATCH_APP_PACKAGE_FOO_1 指向下載封裝的位置 (資料夾)。 | 與應用程式套件相關聯的任何工作。 如果節點本身有應用程式套件，也適用於所有的工作。 | AZ_BATCH_APP_PACKAGE_FOO_1 |
+| AZ_BATCH_APP_PACKAGE            | 所有應用程式套件環境變數的前置詞。 例如，如果應用程式 "Foo" 的版本 "1" 會安裝到集區中，則環境變數是 AZ_BATCH_APP_PACKAGE_FOO_1。 AZ_BATCH_APP_PACKAGE_FOO_1 指向下載封裝的位置（資料夾）。 使用預設版本的應用程式套件時，請使用不含版本號碼的 AZ_BATCH_APP_PACKAGE 環境變數。 | 與應用程式套件相關聯的任何工作。 如果節點本身有應用程式套件，也適用於所有的工作。 | AZ_BATCH_APP_PACKAGE_FOO_1 |
 | AZ_BATCH_AUTHENTICATION_TOKEN   | 驗證權杖，可授與一組有限 Batch 服務作業的存取權。 只有在設定[新增工作](/rest/api/batchservice/task/add#request-body)時設定 [authenticationTokenSettings](/rest/api/batchservice/task/add#authenticationtokensettings)，此環境變數才存在。 權杖值會在 Batch API 中作為認證來建立 Batch 用戶端，例如在 [BatchClient.Open() .NET API](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.batchclient.open#Microsoft_Azure_Batch_BatchClient_Open_Microsoft_Azure_Batch_Auth_BatchTokenCredentials_)。 | 所有工作。 | OAuth2 存取權杖 |
 | AZ_BATCH_CERTIFICATES_DIR       | 在[工作工作目錄][files_dirs]中的目錄, 其中儲存了 Linux 計算節點的憑證。 此環境變數不適用於 Windows 計算節點。                                                  | 所有工作。   |  /mnt/batch/tasks/workitems/batchjob001/job-1/task001/certs |
 | AZ_BATCH_HOST_LIST              | 以格式`nodeIP,nodeIP`配置給[多重實例][multi_instance]工作的節點清單。 | 多重執行個體的主要工作和子工作。 | `10.0.0.4,10.0.0.5` |
@@ -60,14 +60,14 @@ ms.locfileid: "70095286"
 | AZ_BATCH_NODE_ID                | 將工作指派至該節點的識別碼。 | 所有工作。 | tvm-1219235766_3-20160919t172711z |
 | AZ_BATCH_NODE_IS_DEDICATED      | 若為 `true`，目前的節點就是專用節點。 若為 `false`，它就是[低優先順序節點](batch-low-pri-vms.md)。 | 所有工作。 | `true` |
 | AZ_BATCH_NODE_LIST              | 以格式`nodeIP;nodeIP`配置給[多重實例][multi_instance]工作的節點清單。 | 多重執行個體的主要工作和子工作。 | `10.0.0.4;10.0.0.5` |
-| AZ_BATCH_NODE_MOUNTS_DIR        | 所有掛接目錄所在之節點層級[檔案系統掛接](virtual-file-mount.md)位置的完整路徑。 Windows 檔案共用使用磁碟機號, 因此對於 Windows, 掛接磁片磁碟機是裝置和磁片磁碟機的一部分。  |  所有工作 (包括啟動工作) 都具有使用者的存取權, 假設使用者知道掛接之目錄的掛載許可權。 | 例如, 在 Ubuntu 中, 位置是:`/mnt/batch/tasks/fsmounts` |
+| AZ_BATCH_NODE_MOUNTS_DIR        | 所有掛接目錄所在之節點層級[檔案系統掛接](virtual-file-mount.md)位置的完整路徑。 Windows 檔案共用使用磁碟機號，因此對於 Windows，掛接磁片磁碟機是裝置和磁片磁碟機的一部分。  |  所有工作（包括啟動工作）都具有使用者的存取權，假設使用者知道掛接之目錄的掛載許可權。 | 例如，在 Ubuntu 中，位置是：`/mnt/batch/tasks/fsmounts` |
 | AZ_BATCH_NODE_ROOT_DIR          | 節點上所有[批次目錄][files_dirs]之根目錄的完整路徑。 | 所有工作。 | C:\user\tasks |
 | AZ_BATCH_NODE_SHARED_DIR        | 節點上[共用目錄][files_dirs]的完整路徑。 在節點上執行的所有工作皆具備此目錄的讀取/寫入存取權。 在其他節點上執行的工作沒有遠端存取此目錄 (它不是「共用的」網路目錄) 的權限。 | 所有工作。 | C:\user\tasks\shared |
 | AZ_BATCH_NODE_STARTUP_DIR       | 節點上[啟動工作目錄][files_dirs]的完整路徑。 | 所有工作。 | C:\user\tasks\startup |
 | AZ_BATCH_POOL_ID                | 執行工作之集區的 ID。 | 所有工作。 | batchpool001 |
 | AZ_BATCH_TASK_DIR               | 節點上工作[目錄][files_dirs]的完整路徑。 此目錄包含工作的 `stdout.txt` 與 `stderr.txt`，以及 AZ_BATCH_TASK_WORKING_DIR。 | 所有工作。 | C:\user\tasks\workitems\batchjob001\job-1\task001 |
 | AZ_BATCH_TASK_ID                | 目前工作的 ID。 | 啟動工作之外的所有工作。 | task001 |
-| AZ_BATCH_TASK_SHARED_DIR | 主要工作和[多重實例][multi_instance]工作的每個子工作的目錄路徑都相同。 該路徑存在於執行多重實例工作的每個節點上, 而且可供在該節點上執行的工作命令 ([協調命令][coord_cmd]和[應用程式命令][app_cmd]) 存取的讀取/寫入。 在其他節點上執行的子工作或主要工作沒有遠端存取此目錄 (它不是「共用的」網路目錄) 的權限。 | 多重執行個體的主要工作和子工作。 | C:\user\tasks\workitems\multiinstancesamplejob\job-1\multiinstancesampletask |
+| AZ_BATCH_TASK_SHARED_DIR | 主要工作和[多重實例][multi_instance]工作的每個子工作的目錄路徑都相同。 該路徑存在於執行多重實例工作的每個節點上，而且可供在該節點上執行的工作命令（[協調命令][coord_cmd]和[應用程式命令][app_cmd]）存取的讀取/寫入。 在其他節點上執行的子工作或主要工作沒有遠端存取此目錄 (它不是「共用的」網路目錄) 的權限。 | 多重執行個體的主要工作和子工作。 | C:\user\tasks\workitems\multiinstancesamplejob\job-1\multiinstancesampletask |
 | AZ_BATCH_TASK_WORKING_DIR       | 節點上[工作工作目錄][files_dirs]的完整路徑。 目前執行中工作具有此目錄的讀取/寫入存取權。 | 所有工作。 | C:\user\tasks\workitems\batchjob001\job-1\task001\wd |
 | CCP_NODES                       | 配置給[多重實例][multi_instance]工作的節點清單, 以及每個節點的核心數目。 列出節點與核心的格式為：`numNodes<space>node1IP<space>node1Cores<space>`<br/>`node2IP<space>node2Cores<space> ...`，其中節點數目後面會加上一或多個節點 IP 位址，及每個節點的核心數目。 |  多重執行個體的主要工作和子工作。 |`2 10.0.0.4 1 10.0.0.5 1` |
 

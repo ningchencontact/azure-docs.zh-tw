@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 01/14/2016
 ms.author: aelnably
 ms.custom: seodec18
-ms.openlocfilehash: 0f4915add76ce21064b7a79ae110f608592263bd
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: 47efcfc4bf2b0268d6720b659786300e751e861d
+ms.sourcegitcommit: 909ca340773b7b6db87d3fb60d1978136d2a96b0
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70067135"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70983684"
 ---
 # <a name="azure-app-service-app-cloning-using-powershell"></a>使用 PowerShell 複製 Azure App Service App
 
@@ -44,13 +44,13 @@ $srcapp = Get-AzWebApp -ResourceGroupName SourceAzureResourceGroup -Name source-
 New-AzAppServicePlan -Location "North Central US" -ResourceGroupName DestinationAzureResourceGroup -Name DestinationAppServicePlan -Tier Standard
 ```
 
-您可以使用命令, 在美國中北部區域建立新的應用程式, 並將它與現有的 App Service 方案結合。 `New-AzWebApp` 此外，您可以使用與來源應用程式相同的資源群組，也可以定義新的資源群組，如下列命令所示：
+您可以使用命令，在美國中北部區域建立新的應用程式，並將它與現有的 App Service 方案結合。 `New-AzWebApp` 此外，您可以使用與來源應用程式相同的資源群組，也可以定義新的資源群組，如下列命令所示：
 
 ```powershell
 $destapp = New-AzWebApp -ResourceGroupName DestinationAzureResourceGroup -Name dest-webapp -Location "North Central US" -AppServicePlan DestinationAppServicePlan -SourceWebApp $srcapp
 ```
 
-若要複製現有的應用程式 (包括所有相關聯的部署位置)，您必須使用 `IncludeSourceWebAppSlots` 參數。 下列 PowerShell 命令示範如何搭配 `New-AzWebApp` 命令使用該參數：
+若要複製現有的應用程式 (包括所有相關聯的部署位置)，您必須使用 `IncludeSourceWebAppSlots` 參數。  請注意， `IncludeSourceWebAppSlots`只有在複製整個應用程式（包括其所有位置）時，才支援此參數。 下列 PowerShell 命令示範如何搭配 `New-AzWebApp` 命令使用該參數：
 
 ```powershell
 $destapp = New-AzWebApp -ResourceGroupName DestinationAzureResourceGroup -Name dest-webapp -Location "North Central US" -AppServicePlan DestinationAppServicePlan -SourceWebApp $srcapp -IncludeSourceWebAppSlots

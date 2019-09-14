@@ -10,12 +10,12 @@ ms.subservice: video-indexer
 ms.topic: article
 ms.date: 09/05/2019
 ms.author: juliako
-ms.openlocfilehash: d45842a4c61f871a479c91f7b192de8e567f9821
-ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
+ms.openlocfilehash: 8158611678acc23d89bab377c170759c6bf9677f
+ms.sourcegitcommit: dd69b3cda2d722b7aecce5b9bd3eb9b7fbf9dc0a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70862014"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70962642"
 ---
 # <a name="animated-character-detection-preview"></a>動畫字元偵測（預覽）
 
@@ -91,8 +91,7 @@ Azure 媒體服務影片索引子可透過與[認知服務自訂視覺](https://
     1. 輸入新名稱之後，按一下新名稱旁邊的核取圖示。 這會將新名稱儲存在影片索引子的模型中。
     1. 完成所有想要的名稱編輯之後，您必須將模型定型。
 
-        * 試用帳戶：開啟 [自訂] 頁面，按一下 [動畫字元] 索引標籤，然後按一下您擁有的 [**定型**] 按鈕模型。
-        * 付費帳戶：開啟 [自訂] 頁面，然後按一下 [動畫字元] 索引標籤。如需相關模型，請按一下 [**在自訂視覺中編輯**] 連結。 然後您會在自訂視覺中，將您轉送到模型的頁面。 按一下該處的 [訓練] 按鈕以訓練您的模型。 
+        開啟 [自訂] 頁面，然後按一下 [**動畫字元**] 索引標籤。如需相關模型，請按一下 [**在自訂視覺中編輯**] 連結。 然後您會在自訂視覺中，將您轉送到模型的頁面。 按一下 [**訓練**] 按鈕以訓練您的模型。 
     1. 定型之後，任何會使用該模型編制索引或重新建立索引的影片都會辨識已定型的字元。 
     可存取其自訂視覺帳戶的付費帳戶，可以在該處看到模型和已標記的影像。 深入瞭解如何[在自訂視覺中改善您的分類器](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/getting-started-improving-your-classifier)。
 

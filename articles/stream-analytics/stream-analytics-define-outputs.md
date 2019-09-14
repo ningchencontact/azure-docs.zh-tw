@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 05/31/2019
-ms.openlocfilehash: 3b242ff8ee3e635493cd501cf37ffc7c78a57d91
-ms.sourcegitcommit: 39d95a11d5937364ca0b01d8ba099752c4128827
+ms.openlocfilehash: 87dca4cf06bd8c5982e5f83a2498496c4bec69fd
+ms.sourcegitcommit: 909ca340773b7b6db87d3fb60d1978136d2a96b0
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69563313"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70984868"
 ---
 # <a name="understand-outputs-from-azure-stream-analytics"></a>了解來自 Azure 串流分析的輸出
 
@@ -70,7 +70,7 @@ ms.locfileid: "69563313"
 
 ## <a name="blob-storage-and-azure-data-lake-gen2"></a>Blob 儲存體和 Azure Data Lake Gen2
 
-Azure Data Lake Gen2 的輸出會作為全球有限區域的預覽功能提供。 您可以在我們的[要求表單](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR2EUNXd_ZNJCq_eDwZGaF5VURjFLTDRGS0Q4VVZCRFY5MUVaTVJDTkROMi4u)中提供其他詳細資料, 以要求存取預覽。
+Azure Data Lake Gen2 的輸出會作為全球有限區域的預覽功能提供。 您可以在我們的[要求表單](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR2EUNXd_ZNJCq_eDwZGaF5VURjFLTDRGS0Q4VVZCRFY5MUVaTVJDTkROMi4u)中提供其他詳細資料，以要求存取預覽。
 
 Azure Blob 儲存體提供符合成本效益且可調整的解決方案, 讓您在雲端中儲存大量非結構化資料。 如需 Blob 儲存體及其使用方式的簡介, 請參閱[上傳、下載及列出具有 Azure 入口網站的 blob](../storage/blobs/storage-quickstart-blobs-portal.md)。
 
@@ -272,7 +272,7 @@ Azure 串流分析會透過 HTTP 觸發程序叫用 Azure Functions。 Azure Fun
 當 Azure 串流分析從 Azure 函式收到 413 (「HTTP 要求實體太大」) 例外狀況時, 它會減少傳送到 Azure Functions 的批次大小。 在 Azure 函式程式碼中，使用這個例外狀況可確保 Azure 串流分析不會傳送過大的批次。 此外, 請確定函式中所使用的批次計數和大小上限值, 與串流分析入口網站中輸入的值一致。
 
 > [!NOTE]
-> 在測試連接期間, 串流分析會將空的批次傳送至 Azure Functions, 以測試兩者之間的連接是否有效。 請確定您的函式應用程式會處理空的批次要求, 以確保測試連接通過。
+> 在測試連接期間，串流分析會將空的批次傳送至 Azure Functions，以測試兩者之間的連接是否有效。 請確定您的函式應用程式會處理空的批次要求，以確保測試連接通過。
 
 此外, 在某個時間範圍內沒有任何事件登陸的情況下, 不會產生任何輸出。 因此, 不會呼叫**computeResult**函數。 此行為與內建的視窗型彙總函式一致。
 
@@ -310,7 +310,7 @@ Azure 串流分析會透過 HTTP 觸發程序叫用 Azure Functions。 Azure Fun
 | Azure 服務匯流排主題 | 是 | 自動選擇。 分割區數目是根據[服務匯流排 SKU 和大小](../service-bus-messaging/service-bus-partitioning.md)。 資料分割索引鍵是每個分割區的唯一整數值。| 與輸出主題中的分割區數目相同。  |
 | Azure 服務匯流排佇列 | 是 | 自動選擇。 分割區數目是根據[服務匯流排 SKU 和大小](../service-bus-messaging/service-bus-partitioning.md)。 資料分割索引鍵是每個分割區的唯一整數值。| 與輸出佇列中的分割區數目相同。 |
 | Azure Cosmos DB | 是 | 以查詢中的 PARTITION BY 子句為基礎。 | 遵循[完整平行化查詢](stream-analytics-scale-jobs.md)的輸入資料分割。 |
-| Azure Functions | 否 | None | 不適用。 |
+| Azure Functions | 是 | 以查詢中的 PARTITION BY 子句為基礎。 | 遵循[完整平行化查詢](stream-analytics-scale-jobs.md)的輸入資料分割。 |
 
 您也可以使用`INTO <partition count>`查詢中的 (請參閱[INTO](https://docs.microsoft.com/stream-analytics-query/into-azure-stream-analytics#into-shard-count)) 子句來控制輸出寫入器的數目, 這有助於達到所需的作業拓撲。 如果您的輸出配接器尚未分割，在某個輸入分割區中缺少資料的情況下，將會導致最多為延遲傳入時間長度的延遲。 在這種情況下, 輸出會合並至單一寫入器, 這可能會造成管線中的瓶頸。 若要深入瞭解延遲抵達原則, 請參閱[Azure 串流分析事件順序考慮](stream-analytics-out-of-order-and-late-events.md)。
 

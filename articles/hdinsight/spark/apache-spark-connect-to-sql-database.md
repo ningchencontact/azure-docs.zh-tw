@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/21/2019
-ms.openlocfilehash: 20c4571ee795c280e6c916e3080279a6d13fecce
-ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
+ms.openlocfilehash: c262d3841acd3497667c00a9deee04b304ddae76
+ms.sourcegitcommit: 909ca340773b7b6db87d3fb60d1978136d2a96b0
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70814205"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70984824"
 ---
 # <a name="use-hdinsight-spark-cluster-to-read-and-write-data-to-azure-sql-database"></a>使用 HDInsight Spark 叢集對 Azure SQL 資料庫讀取及寫入資料
 
@@ -182,7 +182,7 @@ ms.locfileid: "70814205"
 
 1. 輸出會顯示 **HVAC.csv** 的結構描述。 **Hvactable** 也具有相同的結構描述。 輸出會列出資料表中的資料行。
 
-    ![資料表的結構描述](./media/apache-spark-connect-to-sql-database/schema-of-table.png "資料表的結構描述")
+    ![資料表的結構描述](./media/apache-spark-connect-to-sql-database/hdinsight-schema-table.png "資料表的結構描述")
 
 1. 最後，使用下列程式碼片段從 HVAC.csv 讀取資料，並將其串流至 Azure SQL 資料庫中的 **hvactable**。 在程式碼單元中貼上程式碼片段，並以您的 Azure SQL 資料庫的值取代預留位置值，然後按 **SHIFT + ENTER** 加以執行。
 

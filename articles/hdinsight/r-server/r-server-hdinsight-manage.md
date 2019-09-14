@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/19/2019
-ms.openlocfilehash: 3ff9cfbd312e672fb89afb4838ad9f8aa6574370
-ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
+ms.openlocfilehash: d31eb9ccb5df9137bebb877cce169cf657113d30
+ms.sourcegitcommit: fbea2708aab06c19524583f7fbdf35e73274f657
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70900018"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70967721"
 ---
 # <a name="manage-ml-services-cluster-on-azure-hdinsight"></a>在 HDInsight 上管理 ML 服務叢集
 
@@ -31,7 +31,7 @@ ms.locfileid: "70900018"
 
 為 RStudio 社群版本執行所在的邊緣節點新增更多使用者，即可藉此為 HDInsight 上的 ML 服務叢集啟用多個並行使用者。 當您建立 HDInsight 叢集時，您必須提供兩個使用者 (HTTP 使用者和 SSH 使用者)：
 
-![並行使用者 1](./media/r-server-hdinsight-manage/concurrent-users-1.png)
+![並行使用者 1](./media/r-server-hdinsight-manage/hdi-concurrent-users1.png)
 
 - **叢集登入使用者名稱**：透過 HDInsight 閘道 (用來保護您所建立的 HDInsight 叢集) 進行驗證的 HTTP 使用者。 此 HTTP 使用者用於存取 Apache Ambari UI、Apache Hadoop YARN UI，以及其他 UI 元件。
 - **安全殼層 (SSH) 使用者名稱**：透過安全殼層存取叢集的 SSH 使用者。 此使用者是在 Linux 系統中適用於所有前端節點、背景工作節點和邊緣節點的使用者。 因此您可以使用安全殼層來存取遠端叢集中的任何節點。
@@ -66,7 +66,7 @@ HDInsight 上 ML 服務叢集中所使用的 R Studio Server 社群版本，只�
 
 以下螢幕擷取畫面會顯示輸出。
 
-![並行使用者 3](./media/r-server-hdinsight-manage/concurrent-users-2.png)
+![並行使用者 3](./media/r-server-hdinsight-manage/hdi-concurrent-users2.png)
 
 當系統提示您輸入 [目前的 Kerberos 密碼] 時，只要按 **Enter** 加以忽略。 `useradd` 命令中的 `-m` 選項表示系統將為使用者建立主資料夾，這是 RStudio 社群版本所需的。
 
