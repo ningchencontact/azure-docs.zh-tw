@@ -1,7 +1,7 @@
 ---
 title: 已知問題和疑難排解
-titleSuffix: Azure Machine Learning service
-description: 取得 Azure Machine Learning 服務的已知問題、因應措施與疑難排解清單。
+titleSuffix: Azure Machine Learning
+description: 取得 Azure Machine Learning 的已知問題、因應措施和疑難排解清單。
 services: machine-learning
 author: j-martens
 ms.author: jmartens
@@ -11,16 +11,16 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 08/09/2019
 ms.custom: seodec18
-ms.openlocfilehash: 96af61089f2b7b85d58a8a2ab61936459cef158b
-ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
+ms.openlocfilehash: ffbc919333c43c04f461498a513d098ce8fe628f
+ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70858682"
+ms.lasthandoff: 09/14/2019
+ms.locfileid: "70996582"
 ---
-# <a name="known-issues-and-troubleshooting-azure-machine-learning-service"></a>已知問題與針對 Azure Machine Learning 服務進行疑難排解
+# <a name="known-issues-and-troubleshooting-azure-machine-learning"></a>已知問題和疑難排解 Azure Machine Learning
 
-此文章可協助您尋找並修正使用 Azure Machine Learning 服務時遇到的錯誤與失敗。
+本文可協助您找出並更正使用 Azure Machine Learning 時所遇到的錯誤或失敗。
 
 ## <a name="visual-interface-issues"></a>視覺介面問題
 
@@ -87,7 +87,7 @@ Databricks 與 Azure Machine Learning 問題。
 
 ### <a name="failure-when-installing-packages"></a>安裝封裝失敗
 
-安裝更多套件時，Azure Databricks 上的 Azure Machine Learning SDK 安裝會失敗。 有些套件 (例如 `psutil`) 會導致發生衝突。 若要避免安裝錯誤，請藉由凍結程式庫版本來安裝套件。 此問題與 Databricks 有關，而不是 Azure Machine Learning 服務 SDK。 您也可能會遇到其他程式庫的這個問題。 範例：
+安裝更多套件時，Azure Databricks 上的 Azure Machine Learning SDK 安裝會失敗。 有些套件 (例如 `psutil`) 會導致發生衝突。 若要避免安裝錯誤，請藉由凍結程式庫版本來安裝套件。 此問題與 Databricks 有關，而不是 Azure Machine Learning SDK。 您也可能會遇到其他程式庫的這個問題。 範例：
 
 ```python
 psutil cryptography==1.5 pyopenssl==16.0.0 ipython==2.2.0
@@ -143,7 +143,7 @@ displayHTML("<a href={} target='_blank'>Azure Portal: {}</a>".format(local_run.g
 當您在尋求協助時，如果能夠提供診斷資訊，有時可能會相當有幫助。 若要查看一些記錄，請造訪[Azure 入口網站](https://portal.azure.com)並移至您的工作區，然後選取 [**工作區 > 實驗] > [執行 > 記錄**]。  您也可以在[工作區登陸頁面](https://ml.azure.com)的 [**實驗**] 區段（預覽）中找到這項資訊。
 
 > [!NOTE]
-> Azure Machine Learning 服務會在定型期間記錄各種來源的資訊，例如 AutoML 或執行定型作業的 Docker 容器。 其中有許多記錄檔並未記載。 如果您遇到問題並聯系 Microsoft 支援服務，他們可能會在進行疑難排解時使用這些記錄。
+> Azure Machine Learning 會在定型期間記錄各種來源的資訊，例如 AutoML 或執行定型作業的 Docker 容器。 其中有許多記錄檔並未記載。 如果您遇到問題並聯系 Microsoft 支援服務，他們可能會在進行疑難排解時使用這些記錄。
 
 ## <a name="activity-logs"></a>活動記錄
 

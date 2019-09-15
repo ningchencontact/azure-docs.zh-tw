@@ -6,12 +6,12 @@ ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 09/06/2019
-ms.openlocfilehash: 1571fc449bd40063c531f9942fe9b51da56f783c
-ms.sourcegitcommit: a4b5d31b113f520fcd43624dd57be677d10fc1c0
+ms.openlocfilehash: e276340041e69101190645caad9dbf6de57abd95
+ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70764325"
+ms.lasthandoff: 09/14/2019
+ms.locfileid: "70996501"
 ---
 # <a name="read-replicas-in-azure-database-for-postgresql---single-server"></a>讀取適用於 PostgreSQL 的 Azure 資料庫中的複本-單一伺服器
 
@@ -173,4 +173,4 @@ PostgreSQL 會要求讀取複本上的 `max_connections` 參數值大於或等�
 
 ## <a name="next-steps"></a>後續步驟
 * 了解如何[在 Azure 入口網站中建立及管理讀取複本](howto-read-replicas-portal.md)。
-* 瞭解如何[建立和管理 Azure CLI 中的讀取複本](howto-read-replicas-cli.md)。
+* 瞭解如何[在 Azure CLI 和 REST API 中建立及管理讀取複本](howto-read-replicas-cli.md)。

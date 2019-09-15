@@ -9,12 +9,12 @@ ms.date: 09/11/2018
 ms.topic: conceptual
 description: 在 Azure 上使用容器和微服務快速進行 Kubernetes 開發
 keywords: 'Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, 容器, Helm, 服務網格, 服務網格路由傳送, kubectl, k8s '
-ms.openlocfilehash: 6ab2e0866c4e6c5cc8f89cb490504f6ca6a076fc
-ms.sourcegitcommit: b12a25fc93559820cd9c925f9d0766d6a8963703
+ms.openlocfilehash: b16a7d874f15747c14df1d728be824fac76de2be
+ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/14/2019
-ms.locfileid: "69019655"
+ms.lasthandoff: 09/14/2019
+ms.locfileid: "70993953"
 ---
 # <a name="troubleshooting-guide"></a>疑難排解指南
 
@@ -202,7 +202,7 @@ Azure Dev Spaces 提供 C# 和 Node.js 的原生支援。 如果您在目錄中�
 1. 將目前目錄變更為內含服務程式碼的根資料夾。 
 1. 如果您在程式碼資料夾中沒有 _azds.yaml_ 檔案，請執行 `azds prep` 以產生 Docker、Kubernetes 及 Azure Dev Spaces 資產。
 
-## <a name="error-the-pipe-program-azds-exited-unexpectedly-with-code-126"></a>錯誤:「管道程式 'azds' 意外結束，代碼為 126。」
+## <a name="error-the-pipe-program-azds-exited-unexpectedly-with-code-126"></a>Error:「管道程式 'azds' 意外結束，代碼為 126。」
 啟動 VS Code 偵錯工具有時候可能會導致這個錯誤。
 
 ### <a name="try"></a>請嘗試︰
@@ -333,10 +333,10 @@ configurations:
 
 ### <a name="reason"></a>`Reason`
 
-執行 pod 的節點與您嘗試附加至偵錯工具的 node.js 應用程式已超過*inotifypropertychanged. max _user_watches*值。 在某些情況下, [ *inotifypropertychanged*的預設值可能太小, 無法直接處理將偵錯工具附加至 pod](https://github.com/Azure/AKS/issues/772)。
+執行 pod 的節點與您嘗試附加至偵錯工具的 node.js 應用程式已超過*inotifypropertychanged. max _user_watches*值。 在某些情況下， [ *inotifypropertychanged*的預設值可能太小，無法直接處理將偵錯工具附加至 pod](https://github.com/Azure/AKS/issues/772)。
 
 ### <a name="try"></a>嘗試
-此問題的暫時因應措施是增加叢集中每個節點上的*inotifypropertychanged 最大 _user_watches*值, 然後重新開機該節點, 讓變更生效。
+此問題的暫時因應措施是增加叢集中每個節點上的*inotifypropertychanged 最大 _user_watches*值，然後重新開機該節點，讓變更生效。
 
 ## <a name="new-pods-are-not-starting"></a>未啟動新的 pod
 
@@ -445,10 +445,10 @@ azure-cli                         2.0.60 *
 
 ### <a name="reason"></a>`Reason`
 
-當您在開發人員空間中執行服務時, 該服務的 pod 會[插入其他容器以進行檢測](how-dev-spaces-works.md#prepare-your-aks-cluster), 而 pod 中的所有容器都必須針對水準 pod 自動調整設定資源限制和要求。 
+當您在開發人員空間中執行服務時，該服務的 pod 會[插入其他容器以進行檢測](how-dev-spaces-works.md#prepare-your-aks-cluster)，而 pod 中的所有容器都必須針對水準 pod 自動調整設定資源限制和要求。 
 
 
-將`azds.io/proxy-resources`注釋新增至您的 pod 規格, 即可針對插入的容器 (devspaces-proxy) 套用資源要求和限制。值應該設定為 JSON 物件, 代表 proxy 之容器規格的 resources 區段。
+將`azds.io/proxy-resources`注釋新增至您的 pod 規格，即可針對插入的容器（devspaces-proxy）套用資源要求和限制。值應該設定為 JSON 物件，代表 proxy 之容器規格的 resources 區段。
 
 ### <a name="try"></a>嘗試
 
@@ -456,3 +456,40 @@ azure-cli                         2.0.60 *
 ```
 azds.io/proxy-resources: "{\"Limits\": {\"cpu\": \"300m\",\"memory\": \"400Mi\"},\"Requests\": {\"cpu\": \"150m\",\"memory\": \"200Mi\"}}"
 ```
+
+## <a name="error-unauthorized-authentication-required-when-trying-to-use-a-docker-image-from-a-private-registry"></a>嘗試從私人登錄使用 Docker 映射時發生「未經授權：需要驗證」錯誤
+
+### <a name="reason"></a>`Reason`
+
+您正在使用需要驗證的私人登錄中的 Docker 映射。 您可以使用[imagePullSecrets](https://kubernetes.io/docs/concepts/configuration/secret/#using-imagepullsecrets)，讓 Dev Spaces 進行驗證，並從這個私人登錄提取映射。
+
+### <a name="try"></a>嘗試
+
+若要使用 imagePullSecrets，請在您要使用映射的命名空間中[建立 Kubernetes 秘密](https://kubernetes.io/docs/concepts/containers/images/#specifying-imagepullsecrets-on-a-pod)。 然後在中`azds.yaml`提供密碼作為 imagePullSecret。
+
+以下是在中`azds.yaml`指定 imagePullSecrets 的範例。
+
+```
+kind: helm-release
+apiVersion: 1.1
+build:
+  context: $BUILD_CONTEXT$
+  dockerfile: Dockerfile
+install:
+  chart: $CHART_DIR$
+  values:
+  - values.dev.yaml?
+  - secrets.dev.yaml?
+  set:
+    # Optional, specify an array of imagePullSecrets. These secrets must be manually created in the namespace.
+    # This will override the imagePullSecrets array in values.yaml file.
+    # If the dockerfile specifies any private registry, the imagePullSecret for the registry must be added here.
+    # ref: https://kubernetes.io/docs/concepts/containers/images/#specifying-imagepullsecrets-on-a-pod
+    #
+    # This uses credentials from secret "myRegistryKeySecretName".
+    imagePullSecrets:
+      - name: myRegistryKeySecretName
+```
+
+> [!IMPORTANT]
+> 在中`azds.yaml`設定 imagePullSecrets 將會覆寫中`values.yaml`指定的 imagePullSecrets。

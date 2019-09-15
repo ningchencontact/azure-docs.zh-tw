@@ -8,12 +8,12 @@ ms.service: search
 ms.topic: conceptual
 ms.date: 09/12/2019
 ms.author: heidist
-ms.openlocfilehash: f6cc119387482e4f5403e91de98916cbe2aaff2a
-ms.sourcegitcommit: dd69b3cda2d722b7aecce5b9bd3eb9b7fbf9dc0a
+ms.openlocfilehash: 60dfae48b0aa1d6e0d9bc8e79d5ff2dedd744fd5
+ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70963495"
+ms.lasthandoff: 09/14/2019
+ms.locfileid: "70993557"
 ---
 # <a name="how-to-model-relational-sql-data-for-import-and-indexing-in-azure-search"></a>如何在 Azure 搜尋服務中建立匯入和編制索引的關聯式 SQL 資料模型
 
@@ -152,11 +152,11 @@ ON Rooms$.HotelID = Hotels$.HotelID
 
 ## <a name="next-steps"></a>後續步驟
 
-您可以使用 [匯[入資料] wizard](search-import-data-portal.md)來索引資料列集，其方式類似于本文中所述。 Wizard 會偵測*房間*內的內嵌 JSON 集合，並推斷提供適當複雜型別集合的索引架構。 
+使用您自己的資料集，您可以使用 [匯[入資料] wizard](search-import-data-portal.md)來建立和載入索引。 此嚮導會偵測內嵌的 JSON 集合（例如*會議室*中所包含的集合），並推斷包含複雜型別集合的索引架構。 
 
   匯![入資料 wizard 所推斷的索引]匯(media/index-sql-relational-data/search-index-rooms-complex-collection.png "入資料 wizard 所推斷的索引")
 
-若要完成匯入並建立可用的索引，您必須自行選取金鑰並設定屬性。 如果您不熟悉此嚮導，請嘗試下列快速入門，以瞭解基本步驟。
+請嘗試下列快速入門，以瞭解 [匯入資料] 嚮導的基本步驟。
 
 > [!div class="nextstepaction"]
 > [快速入門：使用 Azure 入口網站建立搜尋索引](search-get-started-portal.md)

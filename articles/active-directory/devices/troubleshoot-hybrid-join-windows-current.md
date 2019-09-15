@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jairoc
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c4b0b5bd5972e544c4254ee0f425e27cc8c465f0
-ms.sourcegitcommit: a8b638322d494739f7463db4f0ea465496c689c6
+ms.openlocfilehash: 6d4a0f00c8bcf511f220d3e0df81adac1e9ff0d4
+ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "68297578"
+ms.lasthandoff: 09/14/2019
+ms.locfileid: "70995228"
 ---
 # <a name="troubleshooting-hybrid-azure-active-directory-joined-devices"></a>針對混合式 Azure Active Directory 已加入裝置進行疑難排解 
 
@@ -36,7 +36,7 @@ ms.locfileid: "68297578"
 
 ## <a name="troubleshoot-join-failures"></a>針對聯結失敗進行疑難排解
 
-### <a name="step-1-retrieve-the-join-status"></a>步驟 1：擷取加入狀態 
+### <a name="step-1-retrieve-the-join-status"></a>步驟 1:擷取加入狀態 
 
 **若要擷取加入狀態：**
 
@@ -88,7 +88,7 @@ WamDefaultAuthority: organizations
          AzureAdPrt: YES
 ```
 
-### <a name="step-2-evaluate-the-join-status"></a>步驟 2：評估加入狀態 
+### <a name="step-2-evaluate-the-join-status"></a>步驟 2:評估加入狀態 
 
 請檢閱下列欄位，並確定它們具有預期的值：
 
@@ -98,7 +98,7 @@ WamDefaultAuthority: organizations
 
 #### <a name="workplacejoined--no"></a>WorkplaceJoined :否  
 
-此欄位指出裝置是否已向 Azure AD 註冊為個人裝置 (標示為「已加入工作場所」  )。 如果已加入網域的電腦同時加入混合式 Azure AD，此值應為 **NO**。 如果值為 **YES**，則在完成混合式 Azure AD 加入之前已新增工作或學校帳戶。 在此情況下，使用年度更新版的 Windows 10 (1607) 時會忽略該帳戶。
+此欄位指出裝置是否已向 Azure AD 註冊為個人裝置 (標示為「已加入工作場所」)。 如果已加入網域的電腦同時加入混合式 Azure AD，此值應為 **NO**。 如果值為 **YES**，則在完成混合式 Azure AD 加入之前已新增工作或學校帳戶。 在此情況下，使用年度更新版的 Windows 10 (1607) 時會忽略該帳戶。
 
 #### <a name="azureadjoined--yes"></a>AzureAdJoined :是  
 
@@ -212,7 +212,7 @@ WamDefaultAuthority: organizations
 
 ###### <a name="network-errors"></a>網路錯誤
 
-- **WININET_E_CANNOT_CONNECT**(0x80072efd/-2147012867)
+- **WININET_E_CANNOT_CONNECT**（0x80072efd/-2147012867）
    - 原因：無法建立與伺服器的連接
    - 解決方案：請確定網路連線到所需的 Microsoft 資源。 如需詳細資訊, 請參閱[網路連接需求](hybrid-azuread-join-managed-domains.md#prerequisites)。
 - **WININET_E_TIMEOUT**(0x80072ee2/-2147012894)
@@ -362,22 +362,22 @@ WamDefaultAuthority: organizations
 - **WININET_E_TIMEOUT**(0x80072ee2/-2147012894)
    - 原因：一般網路時間已嘗試在 DRS 註冊裝置
    - 解決方案：檢查網路連線能力`https://enterpriseregistration.windows.net`。
-- **WININET_E_NAME_NOT_RESOLVED**(0x80072ee7/-2147012889)
+- **WININET_E_NAME_NOT_RESOLVED**（0x80072ee7/-2147012889）
    - 原因：無法解析伺服器名稱或位址。
    - 解決方案：檢查網路連線能力`https://enterpriseregistration.windows.net`。 確保主機名稱的 DNS 解析在 n/w 和裝置上是正確的。
-- **WININET_E_CONNECTION_ABORTED**(0x80072efe/-2147012866)
+- **WININET_E_CONNECTION_ABORTED**（0x80072efe/-2147012866）
    - 原因：與伺服器的連接已異常終止。
    - 解決方案：請在一段時間後重試, 或嘗試從替代穩定的網路位置進行聯結。
 
 ##### <a name="federated-join-server-errors"></a>聯合聯結伺服器錯誤
 
-| 伺服器錯誤碼 | 伺服器錯誤訊息 | 可能的原因 | 解決方案 |
+| 伺服器錯誤碼 | 伺服器錯誤訊息 | 可能的原因 | 解析度 |
 | --- | --- | --- | --- |
 | DirectoryError | 您的要求會暫時受到節流。 請在300秒後再試一次。 | 預期的錯誤。 可能是因為快速地連續建立多個註冊要求。 | 在 cooldown 期間之後重試聯結 |
 
 ##### <a name="sync-join-server-errors"></a>同步聯結伺服器錯誤
 
-| 伺服器錯誤碼 | 伺服器錯誤訊息 | 可能的原因 | 解決方案 |
+| 伺服器錯誤碼 | 伺服器錯誤訊息 | 可能的原因 | 解析度 |
 | --- | --- | --- | --- |
 | DirectoryError | AADSTS90002:找<UUID>不到租使用者。 如果沒有作用中的租使用者訂用帳戶, 可能會發生此錯誤。 請洽詢您的訂用帳戶管理員。 | SCP 物件中的租使用者識別碼不正確 | 請確定已使用正確的 Azure AD 租使用者識別碼和作用中的訂用帳戶來設定 SCP 物件, 並出現在租使用者中。 |
 | DirectoryError | 找不到指定之識別碼的裝置物件。 | 同步聯結的預期錯誤。 裝置物件尚未從 AD 同步至 Azure AD | 等待 Azure AD Connect 同步完成, 並在同步完成後的下一次聯結嘗試解決問題 |
@@ -404,6 +404,9 @@ WamDefaultAuthority: organizations
 - 替代登入識別碼
 - 找不到 HTTP Proxy
 
+## <a name="known-issues"></a>已知問題
+- 在 [設定-> 帳戶] 下 > [存取公司或學校]，混合式 Azure AD 加入的裝置可能會顯示兩個不同的帳戶，一個用於 Azure AD，另一個用於內部部署 AD，連線到行動裝置或外部 WiFi 網路時。 這只是 UI 問題，不會對功能造成任何影響。 
+ 
 ## <a name="next-steps"></a>後續步驟
 
 [使用 dsregcmd.exe 命令繼續疑難排解裝置](troubleshoot-device-dsregcmd.md)

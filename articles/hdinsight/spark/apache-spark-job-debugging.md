@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 12/05/2018
 ms.author: hrasheed
-ms.openlocfilehash: d6a8ac97aa3896eaf98651f5f1120fcc6bf25516
-ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
+ms.openlocfilehash: c71bf9be94799c2b109d57393e70e99a0710e252
+ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70814107"
+ms.lasthandoff: 09/14/2019
+ms.locfileid: "70995477"
 ---
 # <a name="debug-apache-spark-jobs-running-on-azure-hdinsight"></a>對 Azure HDInsight 上執行的 Apache Spark 作業進行偵錯
 
@@ -29,14 +29,14 @@ ms.locfileid: "70814107"
 ## <a name="track-an-application-in-the-yarn-ui"></a>追蹤 YARN UI 中的應用程式
 1. 啟動 YARN UI。 按一下 [叢集儀表板] 下方的 [Yarn]。
    
-    ![啟動 YARN UI](./media/apache-spark-job-debugging/launch-yarn-ui.png)
+    ![啟動 YARN UI](./media/apache-spark-job-debugging/launch-apache-yarn-ui.png)
    
    > [!TIP]  
    > 或者，您也可以從 Ambari UI 啟動 YARN UI。 若要啟動 Ambari UI，請按一下 [叢集儀表板] 下方的 [Ambari 首頁]。 從 Ambari UI 中，依序按一下 [YARN]、[快速連結]、作用中的 Resource Manager，以及 [Resource Manager UI]。 
 
 2. 因為您使用 Jupyter Notebook 啟動 Spark 作業，應用程式具有名稱 **remotesparkmagics** (這是從 Notebook 啟動之所有應用程式的名稱)。 針對應用程式名稱按一下應用程式識別碼，取得作業的詳細資訊。 這會啟動應用程式檢視。
    
-    ![尋找 Spark 應用程式識別碼](./media/apache-spark-job-debugging/find-application-id.png)
+    ![尋找 Spark 應用程式識別碼](./media/apache-spark-job-debugging/find-application-id1.png)
    
     對於從 Jupyter Notebook 啟動的應用程式，狀態一律是 [執行中] ，直到您結束 Notebook。
 3. 從應用程式檢視中，您可以進一步向下鑽研以找出與應用程式和記錄 (stdout/stderr) 相關聯的容器。 您也可以藉由按一下對應至 [追蹤 URL]的連結，即可啟動 Spark UI，如下所示。 
@@ -48,13 +48,13 @@ ms.locfileid: "70814107"
 
 1. 若要啟動 Spark UI，請從應用程式檢視中，針對 [追蹤 URL]按一下連結，如上面的螢幕擷取畫面所示。 您可以看到應用程式啟動的所有 Spark 作業在 Jupyter Notebook 中執行。
    
-    ![檢視 Spark 作業](./media/apache-spark-job-debugging/view-spark-jobs.png)
+    ![檢視 Spark 作業](./media/apache-spark-job-debugging/view-apache-spark-jobs.png)
 2. 按一下 [執行程式] 索引標籤，查看每個執行程式的處理和儲存資訊。 您也可以按一下 [執行緒傾印] 連結，擷取呼叫堆疊。
    
     ![檢視 Spark 執行程式](./media/apache-spark-job-debugging/view-spark-executors.png)
 3. 按一下 [階段] 索引標籤，查看與應用程式相關聯的階段。
    
-    ![觀看 Spark 階段](./media/apache-spark-job-debugging/view-spark-stages.png "觀看 Spark 階段")
+    ![觀看 Spark 階段](./media/apache-spark-job-debugging/view-apache-spark-stages.png "觀看 Spark 階段")
    
     每個階段可以有多個工作，您可以檢視其執行統計資料，如下所示。
    

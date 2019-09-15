@@ -1,6 +1,6 @@
 ---
 title: 使用適用于機器學習服務的 Visual Studio Code
-titleSuffix: Azure Machine Learning service
+titleSuffix: Azure Machine Learning
 description: 了解如何安裝適用於 Visual Studio Code 的 Azure Machine Learning，並在 Azure Machine Learning 中建立簡單實驗。
 services: machine-learning
 ms.service: machine-learning
@@ -10,24 +10,24 @@ ms.author: ronglu
 author: ronglums
 ms.date: 7/12/2019
 ms.custom: seodec18
-ms.openlocfilehash: b1d18006e6ec3ff1659f8fb80f8cf6766797d76b
-ms.sourcegitcommit: 8e1fb03a9c3ad0fc3fd4d6c111598aa74e0b9bd4
+ms.openlocfilehash: 0507080a390a4bb9f981b0d911961337e9b2c62a
+ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70114423"
+ms.lasthandoff: 09/14/2019
+ms.locfileid: "70997183"
 ---
 # <a name="get-started-with-azure-machine-learning-for-visual-studio-code"></a>開始使用適用於 Visual Studio Code 的 Azure Machine Learning
 
 在本文中, 您將瞭解如何使用適用于 Visual Studio Code 的 Azure Machine Learning 延伸模組來定型及部署機器學習和深度學習模型。
 
-[Azure Machine Learning 服務](overview-what-is-azure-ml.md)提供您在本機和遠端計算目標上執行的實驗支援。 對於每個實驗，您可以持續追蹤多個回合，因為您通常需要反覆嘗試不同的技術、超參數和更多功能。 您可以使用 Azure Machine Learning 來追蹤自訂計量和實驗回合，從而能夠重現與稽核資料科學。
+[Azure Machine Learning](overview-what-is-azure-ml.md)針對您在本機和遠端計算目標上執行的實驗提供支援。 對於每個實驗，您可以持續追蹤多個回合，因為您通常需要反覆嘗試不同的技術、超參數和更多功能。 您可以使用 Azure Machine Learning 來追蹤自訂計量和實驗回合，從而能夠重現與稽核資料科學。
 
 您也可以為測試和生產需求部署這些模型。
 
 ## <a name="prerequisites"></a>先決條件
 
-+ 如果您沒有 Azure 訂用帳戶，請在開始前先建立一個免費帳戶。 試用[免費或付費版本的 Azure Machine Learning 服務](https://aka.ms/AMLFree)。
++ 如果您沒有 Azure 訂用帳戶，請在開始前先建立一個免費帳戶。 試用[免費或付費版本的 Azure Machine Learning](https://aka.ms/AMLFree)。
 
 + 必須安裝 Visual Studio Code。 Visual Studio Code 是輕量但功能強大的原始程式碼編輯器, 可在您的桌面上執行。 它隨附內建的 Python 和其他程式設計語言支援。 如果您還未安裝 Visual Studio Code, [請瞭解做法](https://code.visualstudio.com/docs/setup/setup-overview)。
 
@@ -69,13 +69,13 @@ ms.locfileid: "70114423"
 
    ![選擇解譯器](./media/vscode-tools-for-ai/python.png)
 
-1. 視窗的右下角會顯示通知, 指出正在自動安裝[AZURE MACHINE LEARNING SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py) 。 新建立的 Python 環境是本機和私人, 而且具有使用 Azure Machine Learning 服務的 Visual Studio Code 必要條件。
+1. 視窗的右下角會顯示通知, 指出正在自動安裝[AZURE MACHINE LEARNING SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py) 。 新建立的 Python 環境是本機和私人，而且具有使用 Azure Machine Learning 的 Visual Studio Code 必要條件。
 
    ![安裝適用於 Python 的 Azure Machine Learning SDK](./media/vscode-tools-for-ai/runtimedependencies.png)
 
 ## <a name="get-started-with-azure-machine-learning"></a>開始使用 Azure Machine Learning
 
-在 Visual Studio Code 中開始訓練和部署機器學習模型之前, 您需要在雲端中建立[Azure Machine Learning 服務工作區](concept-workspace.md)。 此工作區將包含您的模型和資源。 
+在 Visual Studio Code 中開始訓練和部署機器學習模型之前，您需要在雲端中建立[Azure Machine Learning 工作區](concept-workspace.md)。 此工作區將包含您的模型和資源。 
 
 若要建立工作區並新增您的第一個實驗:
 
@@ -117,7 +117,7 @@ ms.locfileid: "70114423"
 
 1. 在 Visual Studio Code 活動列上, 選取 Azure 圖示。 Azure Machine Learning 提要欄位隨即出現。
 
-2. 在樹狀檢視中，展開您的 Azure 訂用帳戶和 Azure Machine Learning services 工作區。 在下列範例影像中, 訂用帳戶名稱為**免費試用版**, 而且工作區為**TeamWorkspace**。 
+2. 在樹狀檢視中，展開您的 Azure 訂用帳戶和 Azure Machine Learning 工作區。 在下列範例影像中, 訂用帳戶名稱為**免費試用版**, 而且工作區為**TeamWorkspace**。 
 
 3. 在工作區節點下方，以滑鼠右鍵按一下 [計算] 節點，然後選擇 [建立計算]。
 
@@ -147,7 +147,7 @@ Visual Studio Code 延伸模組會自動建立本機計算目標, 並在您的�
 
 1. 在 Visual Studio Code 活動列上, 選取 Azure 圖示。 Azure Machine Learning 提要欄位隨即出現。
 
-1. 在樹狀檢視中，展開您的 Azure 訂用帳戶和 Azure Machine Learning services 工作區。 
+1. 在樹狀檢視中，展開您的 Azure 訂用帳戶和 Azure Machine Learning 工作區。 
 
 1. 在 [工作區] 節點底下, 展開 [**計算**] 節點, 然後以滑鼠右鍵按一下您想要使用之計算的 [**執行**設定]。 
 
@@ -167,7 +167,7 @@ Visual Studio Code 延伸模組會自動建立本機計算目標, 並在您的�
 
 #### <a name="the-conda-dependencies-file"></a>Conda 相依性檔案
 
-根據預設, 系統會為您建立新的 conda 環境, 並管理您的安裝相依性。 不過, 您必須在*aml_config/conda_dependencies. yml*檔案中指定相依性及其版本。 
+根據預設, 系統會為您建立新的 conda 環境, 並管理您的安裝相依性。 不過，您必須在*aml_config/conda_dependencies. yml*檔案中指定相依性及其版本。 
 
 下列來自預設*aml_config/conda_dependencies*的程式碼片段。 yml 指定`tensorflow=1.12.0`。 如果您未指定相依性的版本, 則會使用最新版本。 您可以在組態檔中新增其他相依性。
 
@@ -196,7 +196,7 @@ dependencies:
 
 1. 在 Visual Studio Code 活動列上, 選取 Azure 圖示。 Azure Machine Learning 提要欄位隨即出現。
 
-1. 在樹狀檢視中，展開您的 Azure 訂用帳戶和 Azure Machine Learning services 工作區。 
+1. 在樹狀檢視中，展開您的 Azure 訂用帳戶和 Azure Machine Learning 工作區。 
 
 1. 在 [編輯器] 視窗中, 以滑鼠右鍵按一下您的 Python **腳本, 然後選取 [AML:** 在 Azure 中當作實驗執行]。 
 
@@ -204,7 +204,7 @@ dependencies:
 
 1. 在 [命令選擇區] 的欄位中, 輸入回合設定名稱。 
 
-1. 編輯*conda_dependencies yml*檔案, 以指定實驗的執行時間相依性。 然後在視窗的右下角, 選取 [**提交**]。 
+1. 編輯*conda_dependencies yml*檔案，以指定實驗的執行時間相依性。 然後在視窗的右下角, 選取 [**提交**]。 
 
 1. 選取 [ **View 實驗執行**] 以查看整合式 Azure Machine Learning 入口網站來監視您的執行, 並查看您的定型模型。
 
@@ -224,7 +224,7 @@ dependencies:
 
 1. 在 Visual Studio Code 活動列上, 選取 Azure 圖示。 Azure Machine Learning 提要欄位隨即出現。
 
-1. 在樹狀檢視中，展開您的 Azure 訂用帳戶和 Azure Machine Learning services 工作區。
+1. 在樹狀檢視中，展開您的 Azure 訂用帳戶和 Azure Machine Learning 工作區。
 
 1. 在工作區節點下方，以滑鼠右鍵按一下 [模型]，然後選擇 [註冊模型]。
 
@@ -247,13 +247,13 @@ dependencies:
 + 用於測試的 Azure 容器實例 (ACI)。
 + 適用于生產環境的 Azure Kubernetes Service (AKS)。
 
-您不需要事先建立 ACI 容器來進行測試, 因為 ACI 容器是即時建立的。 不過, 您必須事先設定 AKS 叢集。 如需詳細資訊, 請參閱[使用 Azure Machine Learning 服務部署模型](how-to-deploy-and-where.md)。
+您不需要事先建立 ACI 容器來進行測試, 因為 ACI 容器是即時建立的。 不過, 您必須事先設定 AKS 叢集。 如需詳細資訊，請參閱[使用 Azure Machine Learning 部署模型](how-to-deploy-and-where.md)。
 
 若要部署 web 服務:
 
 1. 在 Visual Studio Code 活動列上, 選取 Azure 圖示。 Azure Machine Learning 提要欄位隨即出現。
 
-1. 在樹狀檢視中，展開您的 Azure 訂用帳戶和您的 Azure Machine Learning services 工作區。
+1. 在樹狀檢視中，展開您的 Azure 訂用帳戶和 Azure Machine Learning 工作區。
 
 1. 在工作區節點下方，展開 [模型] 節點。
 

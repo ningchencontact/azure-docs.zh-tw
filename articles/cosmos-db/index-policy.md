@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/10/2019
 ms.author: thweiss
-ms.openlocfilehash: 86ac042bdddce36f00be71cc5109618bec909d90
-ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
+ms.openlocfilehash: 60b323c12e5c548c974a7d660d08861637ac2381
+ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70914179"
+ms.lasthandoff: 09/14/2019
+ms.locfileid: "70996672"
 ---
 # <a name="indexing-policies-in-azure-cosmos-db"></a>Azure Cosmos DB 中的編制索引原則
 
@@ -29,7 +29,7 @@ Azure Cosmos DB 支援兩種編制索引模式：
 - **一致**：如果容器的編制索引原則設定為 [一致]，當您建立、更新或刪除專案時，會同步更新索引。 這表示讀取查詢的一致性會是[為帳戶設定的一致性](consistency-levels.md)。
 - **無**：如果容器的索引編制原則設定為 [無]，則會在該容器上有效停用索引編制。 當容器當做單純的索引鍵-值存放區使用，而不需要次要索引時，通常會使用此參數。 它也可以協助加速大量插入作業。
 
-此外，您應該將索引編制原則中的 [**自動**] 屬性設為 [ **true**]。 將此屬性設定為 true，可讓 Azure Cosmos DB 在檔寫入時自動編制索引。
+根據預設，索引編制原則會設定`automatic`為。 將索引編制原則中的`automatic`屬性設定為， `true`即可達成此目的。 將此屬性設定`true`為，可讓 Azure CosmosDB 在檔寫入時自動編制索引。
 
 ## <a name="including-and-excluding-property-paths"></a>包含和排除屬性路徑
 

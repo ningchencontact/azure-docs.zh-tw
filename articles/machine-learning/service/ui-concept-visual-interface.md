@@ -1,7 +1,7 @@
 ---
 title: 視覺化介面
-titleSuffix: Azure Machine Learning service
-description: 瞭解組成 Azure Machine Learning 服務的視覺介面（預覽）的術語、概念和工作流程。
+titleSuffix: Azure Machine Learning
+description: 瞭解組成 Azure Machine Learning 的視覺介面（預覽）的術語、概念和工作流程。
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,20 +9,20 @@ ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
 ms.date: 05/15/2019
-ms.openlocfilehash: 70141e3ad438ff7ff6d4486e6c27ff4163416e95
-ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
+ms.openlocfilehash: 65daf1468d27825d9904a14e42e43796d3985321
+ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70860408"
+ms.lasthandoff: 09/14/2019
+ms.locfileid: "70996513"
 ---
-# <a name="what-is-the-visual-interface-for-azure-machine-learning-service"></a>Azure Machine Learning 服務的視覺化介面是什麼？ 
+# <a name="what-is-the-visual-interface-for-azure-machine-learning"></a>Azure Machine Learning 的視覺化介面是什麼？ 
 
-Azure Machine Learning 服務的視覺化介面（預覽）可讓您準備資料、定型、測試、部署、管理和追蹤機器學習模型，而不需要撰寫程式碼。
+Azure Machine Learning 的視覺化介面（預覽）可讓您準備資料、定型、測試、部署、管理和追蹤機器學習模型，而不需要撰寫程式碼。
 
 不需要任何程式設計，您會以視覺化方式連接[資料集](#dataset)和[模組](#module)來建立模型。
 
-視覺化介面會使用您的 Azure Machine Learning 服務[工作區](concept-workspace.md)來執行下列動作：
+視覺化介面會使用您的 Azure Machine Learning[工作區](concept-workspace.md)來執行下列動作：
 
 + 將[實驗](#experiment)執行的構件寫入工作區。
 + 存取[資料集](#dataset)。

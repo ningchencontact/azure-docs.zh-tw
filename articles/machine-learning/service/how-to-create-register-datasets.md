@@ -11,12 +11,12 @@ author: MayMSFT
 manager: cgronlun
 ms.reviewer: nibaccam
 ms.date: 08/22/2019
-ms.openlocfilehash: 215660b0f0b8748461849f20e65a3585f939085e
-ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
+ms.openlocfilehash: 8f684a9c0c40774c8c17a08801997c569be74c8d
+ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70858791"
+ms.lasthandoff: 09/14/2019
+ms.locfileid: "70993351"
 ---
 # <a name="create-and-access-datasets-preview-in-azure-machine-learning"></a>在 Azure Machine Learning 中建立和存取資料集（預覽）
 
@@ -76,7 +76,12 @@ workspace = Workspace.from_config()
 # retrieve an existing datastore in the workspace by name
 datastore = Datastore.get(workspace, datastore_name)
 ```
+
 ### <a name="create-tabulardatasets"></a>建立 TabularDatasets
+
+TabularDatasets 可以透過 SDK 或使用工作區登陸頁面（預覽）來建立。
+
+#### <a name="sdk"></a>SDK 
 
 在類別上`TabularDatasetFactory`使用方法來讀取csv或tsv格式的檔案，並建立未註冊的TabularDataset。`from_delimited_files()` 如果您從多個檔案讀取，結果將會匯總成一個表格式標記法。
 
@@ -103,7 +108,18 @@ titanic_ds.take(3).to_pandas_dataframe()
 1|2|1|1|Cumings，Mrs John Bradley （Florence Briggs Th 。|female|38.0|1|0|電腦17599|71.2833|C85|C
 2|3|1|3|Heikkinen，錯過。 Laina|female|26.0|0|0|STON/O2。 3101282|7.9250||S
 
+#### <a name="workspace-landing-page"></a>工作區登陸頁面 
+
+登入[工作區登陸頁面](https://ml.azure.com)，即可透過 web 體驗來建立資料集。 目前，工作區登陸頁面只支援建立 TabularDatasets。
+
+下列動畫顯示如何在工作區登陸頁面中建立資料集。 
+
+首先，在左窗格的 [**資產**] 區段中選取 [**資料集**]。 然後，選取 [ **+ 建立資料集**] 來選擇資料集的來源;這可以是來自本機檔案、資料存放區或公用 web url。 [**設定] 和 [預覽**] 和 [**架構**表單] 會根據檔案類型以智慧方式填入。 選取 **[下一步]** 加以審查，或在建立前進一步設定您的資料集。 選取 [**完成**] 以完成資料集建立。 
+
+![使用 UI 建立資料集](media/how-to-create-register-datasets/create-dataset-ui.gif)
+
 ### <a name="create-filedatasets"></a>建立 FileDatasets
+
 在類別上`FileDatasetFactory`使用方法來載入任何格式的檔案，並建立未註冊的FileDataset。`from_files()`
 
 ```Python
@@ -134,6 +150,9 @@ titanic_ds = titanic_ds.register(workspace = workspace,
                                  description = 'titanic training data')
 ```
 
+>[!Note]
+> 透過工作區登陸頁面建立的資料集會自動註冊到工作區。 
+
 ## <a name="version-datasets"></a>版本資料集
 
 您可以建立新的版本，以在相同名稱下註冊新的資料集。 [資料集版本] 是將資料的狀態設為書簽的方式，因此您可以套用特定版本的資料集進行實驗或未來的複製。 考慮版本控制的一般案例： 
@@ -141,7 +160,7 @@ titanic_ds = titanic_ds.register(workspace = workspace,
 * 當您套用不同的資料準備或功能工程方法時。
 
 ```Python
-# create a TabularDataset from new Titanic training data
+# create a TabularDataset from Titanic training data
 web_paths = [
             'https://dprepdata.blob.core.windows.net/demo/Titanic.csv',
             'https://dprepdata.blob.core.windows.net/demo/Titanic2.csv'

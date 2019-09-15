@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 04/03/2019
-ms.openlocfilehash: cda974a71c0d24bda9422fb8444fbf4dec0088f9
-ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
+ms.openlocfilehash: 673c83c861e1f044a521786a903dd7b21db8c170
+ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70885115"
+ms.lasthandoff: 09/14/2019
+ms.locfileid: "70995574"
 ---
 # <a name="optimize-apache-spark-jobs-in-hdinsight"></a>將 HDInsight 中的 Apache Spark 作業優化
 
@@ -96,7 +96,7 @@ Spark 的運作方式是將資料放入記憶體，因此管理記憶體資源�
 
 如果您使用 [Apache Hadoop YARN](https://hadoop.apache.org/docs/current/hadoop-yarn/hadoop-yarn-site/YARN.html)，則 YARN 會控制每個 Spark 節點上的所有容器使用的記憶體最大總和。  下圖顯示索引鍵物件及其關聯性。
 
-![YARN Spark 記憶體管理](./media/apache-spark-perf/yarn-spark-memory.png)
+![YARN Spark 記憶體管理](./media/apache-spark-perf/apache-yarn-spark-memory.png)
 
 若要處理「記憶體不足」訊息，請嘗試：
 

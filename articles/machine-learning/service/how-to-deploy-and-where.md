@@ -9,14 +9,14 @@ ms.topic: conceptual
 ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
-ms.date: 08/06/2019
+ms.date: 09/13/2019
 ms.custom: seoapril2019
-ms.openlocfilehash: 358cbfb80da03d20475e591f0fd0c5b907b83b22
-ms.sourcegitcommit: 909ca340773b7b6db87d3fb60d1978136d2a96b0
+ms.openlocfilehash: ff3a19a543f87833420f585bbdf7891cc7589746
+ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/13/2019
-ms.locfileid: "70984694"
+ms.lasthandoff: 09/14/2019
+ms.locfileid: "70997197"
 ---
 # <a name="deploy-models-with-the-azure-machine-learning-service"></a>使用 Azure Machine Learning 服務部署模型
 
@@ -764,7 +764,7 @@ print(response.json())
 ### <a id="azuremlcompute"></a>批次推斷
 Azure Machine Learning 計算目標是由 Azure Machine Learning 服務建立和管理。 它們可以用於 Azure Machine Learning 管線的批次預測。
 
-如需使用 Azure Machine Learning 計算進行批次推斷的逐步解說，請參閱[如何執行批次預測](how-to-run-batch-predictions.md)。
+如需使用 Azure Machine Learning 計算進行批次推斷的逐步解說，請參閱[如何執行批次預測](tutorial-pipeline-batch-scoring-classification.md)。
 
 ### <a id="iotedge"></a>IoT Edge 推斷
 支援部署至 edge 目前處於預覽階段。 如需詳細資訊，請參閱[將 Azure Machine Learning 部署為 IoT Edge 模組](https://docs.microsoft.com/azure/iot-edge/tutorial-deploy-machine-learning)。

@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 11/25/2017
-ms.openlocfilehash: 9690e114f9ae01c4aee71145525fdda2eff4701c
-ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
+ms.openlocfilehash: 844901d9c689d5a04312b52101572854f4d7fe6b
+ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70814175"
+ms.lasthandoff: 09/14/2019
+ms.locfileid: "70994026"
 ---
 # <a name="debug-apache-spark-applications-on-an-hdinsight-cluster-with-azure-toolkit-for-intellij-through-ssh"></a>使用 Azure Toolkit for IntelliJ 透過 SSH 對 HDInsight 叢集上的應用程式進行 Debug Apache Spark
 
@@ -34,15 +34,15 @@ ms.locfileid: "70814175"
 
    b. 根據您的喜好設定選取 Java 或 Scala 範本。 在下列選項之間進行選取：
 
-   - **Spark 專案（JAVA）**
+   - **Spark 專案 (JAVA)**
 
-   - **Spark 專案（Scala）**
+   - **Spark 專案 (Scala)**
 
-   - **具有範例的 Spark 專案（Scala）**
+   - **具有範例的 Spark 專案 (Scala)**
 
-   - **Spark 專案與失敗工作的調試範例（預覽）（Scala）**
+   - **Spark 專案與失敗工作的調試範例 (預覽) (Scala)**
 
-     這個範例會使用**Spark 專案搭配範例（Scala）** 範本。
+     這個範例會使用**Spark 專案搭配範例 (Scala)** 範本。
 
    c. 在 [建置工具] 清單中，根據您的需求選取下列任一項目：
 
@@ -77,7 +77,7 @@ ms.locfileid: "70814175"
 1. 開啟 **SparkCore_wasbloTest** 指令碼，以滑鼠右鍵按一下指令碼編輯器，然後選取 [執行 '[Spark 作業]XXX'] 選項以執行本機執行。
 1. 一旦本機執行完成，您會看到輸出檔案儲存至目前的專案總管**資料** >  **__預設__** 。
 
-    ![本機執行結果](./media/apache-spark-intellij-tool-debug-remotely-through-ssh/local-run-result.png)
+    ![本機執行結果](./media/apache-spark-intellij-tool-debug-remotely-through-ssh/spark-local-run-result.png)
 1. 我們的工具已在您執行本機執行和本機偵錯時自動設定預設本機執行設定。 開啟右上角的 [ **spark On hdinsight] xxx** ，您可以看到 **[spark ON hdinsight] xxx**已建立于**hdinsight 上**的 [Apache Spark]。 切換至 [本機執行] 索引標籤。
 
     ![本機執行設定](./media/apache-spark-intellij-tool-debug-remotely-through-ssh/local-run-configuration.png)
@@ -102,11 +102,11 @@ ms.locfileid: "70814175"
 1. 在 [Run/Debug Configurations] \(執行/偵錯設定) 對話方塊中，選取加號 ( **+** )。 然後選取 [**在 HDInsight 上 Apache Spark** ] 選項。
 
    ![新增設定](./media/apache-spark-intellij-tool-debug-remotely-through-ssh/hdinsight-add-new-Configuration.png)
-1. 切換至 [在叢集中遠端執行] 索引標籤。輸入 [Name] \(名稱\)、 **[Spark cluster] \(Spark 叢集\)** 和 [Main class name] \(主要類別名稱\)。 然後按一下 **[Advanced configuration （遠端偵錯）** ]。 我們的工具支援使用**執行程式**進行偵錯。 **NumExectors**，預設值為 5。 您最好不要設定高於 3。
+1. 切換至 [在叢集中遠端執行] 索引標籤。輸入 [Name] \(名稱\)、 **[Spark cluster] \(Spark 叢集\)** 和 [Main class name] \(主要類別名稱\)。 然後按一下 **[Advanced configuration (遠端偵錯)** ]。 我們的工具支援使用**執行程式**進行偵錯。 **NumExectors**，預設值為 5。 您最好不要設定高於 3。
 
    ![[Run/Debug Configurations] \(執行/偵錯設定\)](./media/apache-spark-intellij-tool-debug-remotely-through-ssh/hdinsight-run-debug-configurations.png)
 
-1. 在 [ **Advanced Configuration （遠端偵錯）** ] 元件中，選取 [**啟用 Spark 遠端 debug**]。 輸入 SSH 使用者名稱，然後輸入密碼或使用私密金鑰檔案。 如果您想要執行遠端偵錯，您需要設定它。 如果您只想要使用遠端執行，則不需要設定它。
+1. 在 [ **Advanced Configuration (遠端偵錯)** ] 元件中, 選取 [**啟用 Spark 遠端 debug**]。 輸入 SSH 使用者名稱，然後輸入密碼或使用私密金鑰檔案。 如果您想要執行遠端偵錯，您需要設定它。 如果您只想要使用遠端執行，則不需要設定它。
 
    ![[Enable Spark remote debug] \(啟用 Spark 遠端偵錯\)](./media/apache-spark-intellij-tool-debug-remotely-through-ssh/hdinsight-enable-spark-remote-debug.png)
 
@@ -114,13 +114,11 @@ ms.locfileid: "70814175"
 
 1. 完成組態設定之後，您可以針對遠端叢集執行專案，或執行遠端偵錯。
    
-   ![遠端執行按鈕](./media/apache-spark-intellij-tool-debug-remotely-through-ssh/perform-remote-run.png)
+   ![遠端執行按鈕](./media/apache-spark-intellij-tool-debug-remotely-through-ssh/perform-remote-run-button.png)
 
 1. 按一下送出記錄未出現在左面板中的 [中斷連線] 按鈕。 不過，它仍在後端執行。
 
-   ![遠端執行結果](./media/apache-spark-intellij-tool-debug-remotely-through-ssh/remote-run-result.png)
-
-
+   ![遠端執行結果](./media/apache-spark-intellij-tool-debug-remotely-through-ssh/spark-remote-run-result.png)
 
 ### <a name="scenario-2-perform-remote-debugging"></a>案例 2：執行遠端偵錯
 1. 設定一個中斷點，然後按一下 [遠端偵錯] 圖示。 與遠端提交的差異是，必須設定 SSH 使用者名稱/密碼。
@@ -148,7 +146,7 @@ ms.locfileid: "70814175"
 
 1. 以滑鼠右鍵按一下 [Debug] \(偵錯\) 索引標籤上的目標，然後選取 [Set Value] \(設定值\)。 接下來，輸入變數的新值。 然後選取 **Enter** 儲存值。 
 
-   ![設定值](./media/apache-spark-intellij-tool-debug-remotely-through-ssh/hdinsight-set-value.png) 
+   ![設定值](./media/apache-spark-intellij-tool-debug-remotely-through-ssh/hdinsight-set-value1.png)
 
 1. 選取**繼續程式**圖示以繼續執行程式。 此時，不會攔截到任何例外狀況。 您可以看到專案成功執行而未發生任何例外狀況。
 

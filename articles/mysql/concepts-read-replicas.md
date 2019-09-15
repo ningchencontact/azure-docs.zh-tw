@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 09/06/2019
-ms.openlocfilehash: 7e1f27738ae5a87cfb84fad955f80ad2f2eb910f
-ms.sourcegitcommit: a4b5d31b113f520fcd43624dd57be677d10fc1c0
+ms.openlocfilehash: cdcb4832408b9e26e692a055e06bfb55e2fdfe96
+ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70773328"
+ms.lasthandoff: 09/14/2019
+ms.locfileid: "70993107"
 ---
 # <a name="read-replicas-in-azure-database-for-mysql"></a>讀取「適用於 MySQL 的 Azure 資料庫」中的複本
 
@@ -59,7 +59,7 @@ ms.locfileid: "70773328"
 
 ## <a name="create-a-replica"></a>建立複本
 
-如果主伺服器沒有任何現有的複本伺服器，則主機會先重新開機以準備進行複寫。
+如果主伺服器沒有任何現有的複本伺服器, 則主機會先重新開機以準備進行複寫。
 
 當您啟動建立複本工作流程時，會建立空白的適用於 MySQL 的 Azure 資料庫伺服器。 新的伺服器會具有主要伺服器上的資料。 建立時間取決於主要伺服器上的資料量，以及距離上次每週完整備份的時間。 時間的範圍可能介於數分鐘到數小時。
 
@@ -73,7 +73,7 @@ ms.locfileid: "70773328"
 
 複本會從主要伺服器繼承系統管理員帳戶。 系統會將主要伺服器上的所有使用者帳戶複寫到讀取複本。 您只能使用主要伺服器上可用的使用者帳戶來連線到讀取複本。
 
-您可以使用主機名稱和有效的使用者帳戶連接到複本，如同在一般適用於 MySQL 的 Azure 資料庫伺服器上所做的一樣。 對於名為**myreplica**且具有管理員使用者名稱**myadmin**的伺服器，您可以使用 mysql CLI 來連線到複本：
+您可以使用主機名稱和有效的使用者帳戶連接到複本，如同在一般適用於 MySQL 的 Azure 資料庫伺服器上所做的一樣。 對於名為**myreplica**且具有管理員使用者名稱**myadmin**的伺服器, 您可以使用 mysql CLI 來連線到複本:
 
 ```bash
 mysql -h myreplica.mysql.database.azure.com -u myadmin@myreplica -p
@@ -87,13 +87,13 @@ mysql -h myreplica.mysql.database.azure.com -u myadmin@myreplica -p
 
 此計量是使用 MySQL 的`seconds_behind_master` `SHOW SLAVE STATUS`命令所提供的計量來計算。
 
-設定警示，以在複寫延遲到達您的工作負載無法接受的值時通知您。
+設定警示, 以在複寫延遲到達您的工作負載無法接受的值時通知您。
 
 ## <a name="stop-replication"></a>停止複寫
 
 您可以停止主要伺服器與複本之間的複寫。 當主要伺服器和讀取複本之間的複寫停止時，複本就會成為獨立伺服器。 獨立伺服器中的資料是起始「停止複寫」命令時，複本上所包含的可用資料。 獨立伺服器不會跟上主要伺服器。
 
-當您選擇停止複寫至複本時，它會失去先前主要和其他複本的所有連結。 主要及其複本之間沒有自動容錯移轉。
+當您選擇停止複寫至複本時, 它會失去先前主要和其他複本的所有連結。 主要及其複本之間沒有自動容錯移轉。
 
 > [!IMPORTANT]
 > 獨立伺服器無法再次設定為複本。
@@ -109,7 +109,7 @@ mysql -h myreplica.mysql.database.azure.com -u myadmin@myreplica -p
 
 ### <a name="master-server-restart"></a>主要伺服器重新啟動
 
-當您為沒有現有複本的主伺服器建立複本時，主伺服器會先重新開機，以準備好進行複寫。 請考慮這一點，並在離峰期間執行這些作業。
+當您為沒有現有複本的主伺服器建立複本時, 主伺服器會先重新開機, 以準備好進行複寫。 請考慮這一點，並在離峰期間執行這些作業。
 
 ### <a name="new-replicas"></a>新複本
 
@@ -124,7 +124,7 @@ mysql -h myreplica.mysql.database.azure.com -u myadmin@myreplica -p
 
 ### <a name="stopped-replicas"></a>已停止的複本
 
-如果您停止主伺服器和讀取複本之間的複寫，已停止的複本會成為可接受讀取和寫入的獨立伺服器。 獨立伺服器無法再次設定為複本。
+如果您停止主伺服器和讀取複本之間的複寫, 已停止的複本會成為可接受讀取和寫入的獨立伺服器。 獨立伺服器無法再次設定為複本。
 
 ### <a name="deleted-master-and-standalone-servers"></a>已刪除的主要和獨立伺服器
 
@@ -136,9 +136,9 @@ mysql -h myreplica.mysql.database.azure.com -u myadmin@myreplica -p
 
 ### <a name="server-parameters"></a>伺服器參數
 
-若要避免資料不同步，並避免潛在的資料遺失或損毀，則在使用讀取複本時，某些伺服器參數會被鎖定而無法更新。
+若要避免資料不同步, 並避免潛在的資料遺失或損毀, 則在使用讀取複本時, 某些伺服器參數會被鎖定而無法更新。
 
-主要和複本伺服器上的下列伺服器參數都會被鎖定：
+主要和複本伺服器上的下列伺服器參數都會被鎖定:
 - [`innodb_file_per_table`](https://dev.mysql.com/doc/refman/5.7/en/innodb-multiple-tablespaces.html) 
 - [`log_bin_trust_function_creators`](https://dev.mysql.com/doc/refman/5.7/en/replication-options-binary-log.html#sysvar_log_bin_trust_function_creators)
 
@@ -155,4 +155,4 @@ mysql -h myreplica.mysql.database.azure.com -u myadmin@myreplica -p
 ## <a name="next-steps"></a>後續步驟
 
 - 了解如何[使用 Azure 入口網站來建立及管理讀取複本](howto-read-replicas-portal.md)
-- 了解如何[使用 Azure CLI 來建立及管理讀取複本](howto-read-replicas-cli.md)
+- 瞭解如何[使用 Azure CLI 和 REST API 來建立和管理讀取複本](howto-read-replicas-cli.md)

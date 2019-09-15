@@ -9,13 +9,13 @@ ms.topic: conceptual
 ms.reviewer: jmartens
 ms.author: copeters
 author: cody-dkdc
-ms.date: 07/08/2019
-ms.openlocfilehash: 7d47b74d4fef3676101f3f624dcacb832dcedc3a
-ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
+ms.date: 09/13/2019
+ms.openlocfilehash: 80c5ad26150547263469c9f59366e270bf660335
+ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70858701"
+ms.lasthandoff: 09/14/2019
+ms.locfileid: "70993189"
 ---
 # <a name="detect-data-drift-preview-on-models-deployed-to-azure-kubernetes-service-aks"></a>偵測部署到 Azure Kubernetes Service 的模型上的資料漂移（預覽）（AKS）
 
@@ -133,7 +133,6 @@ datadrift_contribution|功能對漂移的重要性。|
 
 * 使用 Jupyter [widget。](https://docs.microsoft.com/python/api/azureml-widgets/azureml.widgets?view=azure-ml-py) `RunDetails`
 * 在任何`datadrift`執行物件上使用[函數。`get_metrics()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run%28class%29?view=azure-ml-py#get-metrics-name-none--recursive-false--run-type-none--populate-false-)
-* 查看模型 Azure 入口網站中的計量。
 * 從[工作區登陸頁面](https://ml.azure.com)的 [**模型**] 區段中，查看計量（預覽）。
 
 下列 Python 範例示範如何繪製相關的資料漂移計量。 您可以使用傳回的計量來建立自訂視覺效果：
@@ -159,17 +158,16 @@ datadrift.enable_schedule()
 datadrift.disable_schedule()
 ```
 
-您可以在 Azure 入口網站或您的工作區登陸頁面（預覽）中的 [模型詳細資料] 頁面上，看到資料漂移偵測器的設定。
+您可以在[工作區登陸頁面（預覽）](https://ml.azure.com)中 [**詳細**資料] 索引標籤下的 [**模型**] 底下看到資料漂移偵測器的設定。
 
-![Azure 入口網站資料漂移設定](media/how-to-monitor-data-drift/drift_config.png)
+![Azure 入口網站資料漂移](media/how-to-monitor-data-drift/drift-config.png)
 
-## <a name="view-results-in-azure-portal"></a>Azure 入口網站中查看結果
+## <a name="view-results-in-your-workspace-landing-page"></a>在工作區登陸頁面中查看結果
 
-若要在[Azure 入口網站](https://portal.azure.com)的工作區中查看結果，請流覽至 [模型] 頁面。 在模型的 [詳細資料] 索引標籤上，會顯示資料漂移設定。 現在可以使用 [資料漂移（預覽）] 索引標籤，以視覺化方式呈現資料漂移計量。 
+若要在[工作區登陸頁面（預覽）](https://ml.azure.com)中的工作區中查看結果，請流覽至 [模型] 頁面。 在模型的 [詳細資料] 索引標籤上，會顯示資料漂移設定。 [**資料漂移**] 索引標籤現在可以視覺化資料漂移計量。 
 
-![Azure 入口網站資料漂移](media/how-to-monitor-data-drift/drift_ui.png)
+[![工作區登陸頁面資料漂移](media/how-to-monitor-data-drift/drift-ui.png)](media/how-to-monitor-data-drift/drift-ui-expanded.png)
 
-您的[工作區登陸頁面（預覽）](https://ml.azure.com)中的模型詳細資料也會提供結果。
 
 ## <a name="receiving-drift-alerts"></a>接收漂移警示
 

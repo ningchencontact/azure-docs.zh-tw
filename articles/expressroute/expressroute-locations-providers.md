@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/12/2019
 ms.author: cherylmc
-ms.openlocfilehash: 69226cafc31771ae5307999e921cec4ae7841f8c
-ms.sourcegitcommit: fbea2708aab06c19524583f7fbdf35e73274f657
+ms.openlocfilehash: 17d1a8e2e98f1b2967b4f2e33e14ee187a765190
+ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/13/2019
-ms.locfileid: "70967146"
+ms.lasthandoff: 09/14/2019
+ms.locfileid: "70995730"
 ---
 # <a name="expressroute-partners-and-peering-locations"></a>ExpressRoute 合作夥伴和對等互連位置
 
@@ -82,7 +82,7 @@ ExpressRoute 位置（有時稱為「對等位置」或「符合我的位置」�
 ### <a name="production-azure"></a>生產 Azure
 | **位置** | **擁有者和位址** | **本機 Azure 區域** | **服務提供者** |
 | --- | --- | --- | --- |
-| **阿姆斯特丹** | [Equinix AM5](https://www.equinix.com/locations/europe-colocation/netherlands-colocation/amsterdam-data-centers/am5/) | 西歐 | Aryaka Networks、AT&T NetBond、British Telecom、Colt、Equinix、euNetworks、GÉANT、InterCloud、Interxion、KPN、 IX Reach、Level 3 Communications、Megaport、NTT Communications、Orange、Tata Communications、TeleCity Group、Telefonica、Telenor、Telia Carrier、Verizon、Zayo |
+| **阿姆斯特丹** | [Equinix AM5](https://www.equinix.com/locations/europe-colocation/netherlands-colocation/amsterdam-data-centers/am5/) | 西歐 | Aryaka networks 網路，位於 & T NetBond、英屬電信、Colt、Equinix、euNetworks、GÉANT、InterCloud、Interxion、KPN、IX 觸及、Level 3 通訊、Megaport、NTT 通訊、橙色、Tata 通訊、Telefonica、Telenor、Telia 運輸公司、Verizon、Zayo |
 | **阿姆斯特丹2** | [Interxion AMS8](https://www.interxion.com/Locations/amsterdam/schiphol/) | 西歐 | CenturyLink Cloud Connect、CIX、Colt、Interxion、Vodafone |
 | **亞特蘭大** | [Equinix AT2](https://www.equinix.com/locations/americas-colocation/united-states-colocation/atlanta-data-centers/at2/) | n/a | Equinix、Megaport |
 | **奧克蘭** | [Vocus Group NZ Albany](https://www.vocus.co.nz/business/cloud-data-centres) | n/a | Devoli、Kordia、Megaport、Spark NZ、Vocus Group NZ |
@@ -195,16 +195,16 @@ ExpressRoute 位置（有時稱為「對等位置」或「符合我的位置」�
 ## <a name="c1partners"></a>透過其他服務提供者的連線能力
 | **位置** | **Exchange** | **連接提供者** |
 | --- | --- | --- |
-| **阿姆斯特丹** | Equinix, Interxion, Level 3 通訊, Telecity | BICS、CloudXpress、Eurofiber、Fastweb s.p.a、Kalaam、不帶群島、MainOne 電信巴林 B、Nianet、Proximus、後電信盧森堡、Erhverv、TDC Italia、電信 Telekom 火花、Deutschland GmbH Telia、 |
+| **阿姆斯特丹** | Equinix、Interxion、Level 3 通訊 | BICS、CloudXpress、Eurofiber、Fastweb s.p.a、Kalaam、不帶群島、MainOne 電信巴林 B、Nianet、Proximus、後電信盧森堡、Erhverv、TDC Italia、電信 Telekom 火花、Deutschland GmbH Telia、 |
 | **亞特蘭大** | Equinix| Crown Castle
 | **開普敦** | Teraco | MTN |
 | **芝加哥** | Equinix| Crown Castle, Windstream 的頻譜企業 |
 | **達拉斯** | Equinix、Megaport | Axtel, C3ntro 電信, Cox Business, Crown Castle, 資料 Foundry, 頻譜企業, Transtelco |
-| **法蘭克福** | Interxion、Telecity | BICS、Cinia、Nianet、QSC AG、Telekom Deutschland GmbH |
+| **法蘭克福** | Interxion | BICS、Cinia、Nianet、QSC AG、Telekom Deutschland GmbH |
 | **漢堡** | Equinix | Cinia |
 | **香港特別行政區** | Equinix | Chief、Macroview Telecom |
 | **約翰尼斯堡** | Teraco | MTN |
-| **倫敦** | BICS、Equinix、euNetworks、Telecity | Bezeq 國際有限公司、CoreAzure、Epsilon 電信有限、指數 E、HSO、NexGen Networks、Proximus、Tamares 電信、Zain |
+| **倫敦** | BICS、Equinix、euNetworks| Bezeq 國際有限公司、CoreAzure、Epsilon 電信有限、指數 E、HSO、NexGen Networks、Proximus、Tamares 電信、Zain |
 | **洛杉磯** | Equinix |Crown Castle, Transtelco 的頻譜企業 |
 | **馬德里** | Level3 | Zertia |
 | **蒙特婁** | Cologix、Equinix | Airgate Technologies, Inc.Aptum 技術，Rogers，Zirro |

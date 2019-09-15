@@ -14,12 +14,12 @@ ms.workload: infrastructure-services
 ms.date: 04/25/2019
 ms.author: sukumari
 ms.reviewer: azmetadata
-ms.openlocfilehash: bffe6436678a055ac6d861587f048542f15c5f22
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 0610648594d09de3f86c5d9eb2f0cae722978cca
+ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70079313"
+ms.lasthandoff: 09/14/2019
+ms.locfileid: "70996395"
 ---
 # <a name="azure-instance-metadata-service"></a>Azure 執行個體中繼資料服務
 
@@ -263,7 +263,7 @@ curl -H Metadata:true "http://169.254.169.254/metadata/instance?api-version=2019
 
 可以透過 `curl` 程式在 Windows 中擷取執行個體中繼資料：
 
-```bash
+```powershell
 curl -H @{'Metadata'='true'} http://169.254.169.254/metadata/instance?api-version=2019-03-11 | select -ExpandProperty Content
 ```
 
@@ -425,7 +425,7 @@ Nonce 是所提供的選用 10 位數字串。 Nonce 可用來追蹤要求，若
 }
 ```
 
-> 簽章 Blob 是以 [pkcs7](https://aka.ms/pkcs7) 簽署的文件版本。 它包含用於簽署的憑證, 以及 VM 詳細資料, 例如 vmId、nonce、subscriptionId、檔建立和到期的時間戳記, 以及有關影像的計畫資訊。 Azure Marketplace 映像才會填入方案資訊。 憑證可以從回應中擷取出來，並可用來驗證回應有效且來自 Azure。
+> 簽章 Blob 是以 [pkcs7](https://aka.ms/pkcs7) 簽署的文件版本。 它包含用於簽署的憑證，以及 VM 詳細資料，例如 vmId、nonce、subscriptionId、檔建立和到期的時間戳記，以及有關影像的計畫資訊。 Azure Marketplace 映像才會填入方案資訊。 憑證可以從回應中擷取出來，並可用來驗證回應有效且來自 Azure。
 
 #### <a name="retrieving-attested-metadata-in-windows-virtual-machine"></a>在 Windows 虛擬機器中擷取證明中繼資料
 
@@ -457,7 +457,7 @@ Nonce 是所提供的選用 10 位數字串。 Nonce 可用來追蹤要求，若
 }
 ```
 
-> 簽章 Blob 是以 [pkcs7](https://aka.ms/pkcs7) 簽署的文件版本。 它包含用於簽署的憑證, 以及 VM 詳細資料, 例如 vmId、nonce、subscriptionId、檔建立和到期的時間戳記, 以及有關影像的計畫資訊。 Azure Marketplace 映像才會填入方案資訊。 憑證可以從回應中擷取出來，並可用來驗證回應有效且來自 Azure。
+> 簽章 Blob 是以 [pkcs7](https://aka.ms/pkcs7) 簽署的文件版本。 它包含用於簽署的憑證，以及 VM 詳細資料，例如 vmId、nonce、subscriptionId、檔建立和到期的時間戳記，以及有關影像的計畫資訊。 Azure Marketplace 映像才會填入方案資訊。 憑證可以從回應中擷取出來，並可用來驗證回應有效且來自 Azure。
 
 
 ## <a name="example-scenarios-for-usage"></a>使用方式的範例案例  
@@ -568,7 +568,7 @@ curl -H Metadata:true "http://169.254.169.254/metadata/instance/compute/tags?api
 Department:IT;Environment:Test;Role:WebRole
 ```
 
-`tags`欄位是具有以分號分隔之標記的字串。 如果標記本身使用分號, 這可能會是個問題。 如果寫入剖析器以程式設計方式將標記解壓縮, 您應該依賴`tagsList`欄位, 這是不含分隔符號的 JSON 陣列, 因此更容易剖析。
+`tags`欄位是具有以分號分隔之標記的字串。 如果標記本身使用分號，這可能會是個問題。 如果寫入剖析器以程式設計方式將標記解壓縮，您應該依賴`tagsList`欄位，這是不含分隔符號的 JSON 陣列，因此更容易剖析。
 
 **要求**
 
@@ -648,11 +648,11 @@ nonce | 使用者隨要求提供的選擇性字串。 如果要求中未提供 n
 timestamp/createdOn | 第一個簽署文件的建立時間戳記
 timestamp/expiresOn | 簽署文件的到期時間戳記
 vmId |  VM 的[唯一識別碼](https://azure.microsoft.com/blog/accessing-and-using-azure-vm-unique-id/)
-subscriptionId | 虛擬機器的 Azure 訂用帳戶, 引進于`2019-04-30`
+subscriptionId | 虛擬機器的 Azure 訂用帳戶，引進于`2019-04-30`
 
 #### <a name="verifying-the-signature"></a>驗證簽章
 
-收到上述簽章後，您可驗證簽章是來自 Microsoft 的。 此外，您也可以驗證中繼憑證和信任鏈結。 最後, 您可以確認訂用帳戶識別碼是否正確。
+收到上述簽章後，您可驗證簽章是來自 Microsoft 的。 此外，您也可以驗證中繼憑證和信任鏈結。 最後，您可以確認訂用帳戶識別碼是否正確。
 
 > [!NOTE]
 > 公用雲端和主權雲端的憑證將會不同。

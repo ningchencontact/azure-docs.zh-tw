@@ -5,18 +5,19 @@ services: active-directory
 author: rolyon
 ms.service: role-based-access-control
 ms.topic: include
-ms.date: 05/13/2019
+ms.date: 06/21/2019
 ms.author: rolyon
 ms.custom: include file
-ms.openlocfilehash: f8576c8486fb25d645eaf67448d2d7e0b9f5071f
-ms.sourcegitcommit: 23389df08a9f4cab1f3bb0f474c0e5ba31923f12
+ms.openlocfilehash: 56f4f24fb504d08c34542129f854547b78967cb3
+ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "67174387"
+ms.lasthandoff: 09/14/2019
+ms.locfileid: "70997577"
 ---
 | Resource | 限制 |
 | --- | --- |
 | [Azure 資源每個 Azure 訂用帳戶的角色指派](../articles/role-based-access-control/overview.md) | 2,000 |
+| [每個管理群組的 Azure 資源角色指派](../articles/role-based-access-control/overview.md) | 500 |
 | [自訂每個租用戶的 Azure 資源角色](../articles/role-based-access-control/custom-roles.md) | 5,000 |
 | [自訂每個租用戶的 Azure 資源角色](../articles/role-based-access-control/custom-roles.md)<br/>（特製化雲端，例如 Azure Government、Azure 德國和 Azure 中國世紀） | 2,000 |

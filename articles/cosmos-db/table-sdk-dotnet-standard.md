@@ -8,12 +8,12 @@ ms.subservice: cosmosdb-table
 ms.devlang: dotnet
 ms.topic: reference
 ms.date: 03/18/2019
-ms.openlocfilehash: 8fd3aedd2e371e511730fd98751ae3214545c489
-ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
+ms.openlocfilehash: c1422b6411fc60383cffa6c3082108bb940c4343
+ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/26/2019
-ms.locfileid: "70034573"
+ms.lasthandoff: 09/14/2019
+ms.locfileid: "70996207"
 ---
 # <a name="azure-cosmos-db-table-net-standard-api-download-and-release-notes"></a>Azure Cosmos DB 資料表 .NET Standard API：下載和版本資訊
 > [!div class="op_single_selector"]
@@ -34,13 +34,16 @@ ms.locfileid: "70034573"
 |**報告問題**|[報告問題](https://github.com/Azure/azure-cosmos-table-dotnet/issues)|
 
 ## <a name="release-notes-for-200-series"></a>2\.0.0 系列的版本資訊
-2.0.0 系列會依賴[Cosmos](https://www.nuget.org/packages/Microsoft.Azure.Cosmos/), 並改善效能, 並將命名空間匯總到 Cosmos DB 端點。
+2.0.0 系列會依賴[Cosmos](https://www.nuget.org/packages/Microsoft.Azure.Cosmos/)，並改善效能，並將命名空間匯總到 Cosmos DB 端點。
 
 ### <a name="a-name200-preview200-preview"></a><a name="2.0.0-preview"/>2.0.0-preview
-* 2\.0.0 Table SDK 的初始預覽, 它會相依于[Cosmos](https://www.nuget.org/packages/Microsoft.Azure.Cosmos/), 並改善效能, 並將命名空間匯總到 Cosmos DB 端點。 公用 API 保持不變。
+* 2\.0.0 Table SDK 的初始預覽，它會相依于[Cosmos](https://www.nuget.org/packages/Microsoft.Azure.Cosmos/)，並改善效能，並將命名空間匯總到 Cosmos DB 端點。 公用 API 保持不變。
 
 ## <a name="release-notes-for-100-series"></a>1\.0.0 系列的版本資訊
 1.0.0 系列會依賴[Microsoft. Azure DocumentDB](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB.Core/)。
+
+### <a name="a-name105105"></a><a name="1.0.5"/>1.0.5
+* 在 TableClientConfiguration 下引進新的設定，以使用 Rest 執行程式來與 Cosmos DB 進行通訊資料表 API
 
 ### <a name="a-name105-preview105-preview"></a><a name="1.0.5-preview"/>1.0.5-預覽
 * 錯誤修正
@@ -60,8 +63,8 @@ ms.locfileid: "70034573"
 * 公開上市版本
 
 ### <a name="a-name0110-preview0110-preview"></a><a name="0.11.0-preview"/>0.11.0-preview
-* 已變更 CloudTableClient 的設定方式。 它現在會在結構中取得 TableClientConfiguration 物件。 TableClientConfiguration 提供不同的屬性來設定用戶端行為, 取決於目標端點是 Cosmos DB 資料表 API 還是 Azure 儲存體資料表 API。
-* 已將支援新增至 TableQuery, 以便在自訂資料行上以排序次序傳回結果。 只有 Cosmos DB 資料表端點上才支援這項功能。
+* 已變更 CloudTableClient 的設定方式。 它現在會在結構中取得 TableClientConfiguration 物件。 TableClientConfiguration 提供不同的屬性來設定用戶端行為，取決於目標端點是 Cosmos DB 資料表 API 還是 Azure 儲存體資料表 API。
+* 已將支援新增至 TableQuery，以便在自訂資料行上以排序次序傳回結果。 只有 Cosmos DB 資料表端點上才支援這項功能。
 * 已新增在各種結果類型上公開 RequestCharges 的支援。 只有 Cosmos DB 資料表端點上才支援這項功能。
 
 ### <a name="a-name0101-preview0101-preview"></a><a name="0.10.1-preview"/>0.10.1 - 預覽
@@ -87,12 +90,13 @@ Microsoft 至少會在停用 SDK 的 **12 個月** 之前提供通知，以供�
 ### <a name="200-series"></a>2.0.0 系列
 | Version | 發行日期 | 停用日期 |
 | --- | --- | --- |
-| [2.0.0-preview](#2.0.0-preview) |Auguest 22, 2019 |--- |
+| [2.0.0-preview](#2.0.0-preview) |Auguest 22，2019 |--- |
 
 ### <a name="100-series"></a>1.0.0 系列
 | Version | 發行日期 | 停用日期 |
 | --- | --- | --- |
-| [1.0.5-預覽](#1.0.5-preview) |Auguest 20, 2019 |--- |
+| [1.0.5](#1.0.5) |2019年9月13日 |--- |
+| [1.0.5-預覽](#1.0.5-preview) |Auguest 20，2019 |--- |
 | [1.0.4](#1.0.4) |Auguest 12、2019 |--- |
 | [1.0.4-預覽](#1.0.4-preview) |2019年7月26日 |--- |
 | 1.0.2-預覽 |2019 5 月2日 |--- |

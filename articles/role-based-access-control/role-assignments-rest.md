@@ -1,5 +1,5 @@
 ---
-title: 管理存取 Azure 資源使用 RBAC 和 REST API-Azure |Microsoft Docs
+title: 使用 RBAC 和 REST API 來管理 Azure 資源的存取權-Azure |Microsoft Docs
 description: 了解如何使用角色型存取控制 (RBAC) 和 REST API 來管理使用者、群組和應用程式對 Azure 資源的存取權。 這包括如何列出存取權、授與存取權以及移除存取權。
 services: active-directory
 documentationcenter: na
@@ -12,15 +12,15 @@ ms.workload: multiple
 ms.tgt_pltfrm: rest-api
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/28/2019
+ms.date: 09/11/2019
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 3602e4ca83e828270ebef56c688670b896ca58a4
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 86ee030e8c97cf3033b9d2d76b8125c64ecf8065
+ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66472742"
+ms.lasthandoff: 09/14/2019
+ms.locfileid: "70996478"
 ---
 # <a name="manage-access-to-azure-resources-using-rbac-and-the-rest-api"></a>使用 RBAC 和 REST API 管理對 Azure 資源的存取
 
@@ -38,23 +38,22 @@ ms.locfileid: "66472742"
 
 1. 在 URI 中，將 *{scope}* 取代為要列出角色指派的範圍。
 
-    | `Scope` | type |
+    | `Scope` | Type |
     | --- | --- |
-    | `subscriptions/{subscriptionId}` | Subscription |
-    | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1` | Resource group |
-    | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1/ providers/Microsoft.Web/sites/mysite1` | Resource |
-    
-       
-     > [!NOTE]
-     > 在上述範例中 Microsoft.web 是使用資源提供者就是指應用程式服務執行個體。 同樣地，您可以使用任何其他資源提供者，並建置範圍 URI。 若要了解請方案，請參閱[Azure 資源提供者和類型](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-supported-services)且支援[Azure RM 資源提供者作業](https://docs.microsoft.com/azure/role-based-access-control/resource-provider-operations)。  
+    | `providers/Microsoft.Management/managementGroups/{groupId1}` | 管理群組 |
+    | `subscriptions/{subscriptionId1}` | 訂閱 |
+    | `subscriptions/{subscriptionId1}/resourceGroups/myresourcegroup1` | 資源群組 |
+    | `subscriptions/{subscriptionId1}/resourceGroups/myresourcegroup1/ providers/Microsoft.Web/sites/mysite1` | Resource |
+
+    在上述範例中，microsoft web 是參考 App Service 實例的資源提供者。 同樣地，您可以使用任何其他資源提供者並指定範圍。 如需詳細資訊，請參閱[Azure 資源提供者和類型](../azure-resource-manager/resource-manager-supported-services.md)和支援的[Azure Resource Manager 資源提供者作業](resource-provider-operations.md)。  
      
 1. 將 *{filter}* 取代為您要針對角色指派清單篩選套用的條件。
 
-    | Filter | 描述 |
+    | 篩選器 | 描述 |
     | --- | --- |
-    | `$filter=atScope()` | 列出範圍僅限於指定，不包括子範圍內的角色指派的角色指派。 |
-    | `$filter=principalId%20eq%20'{objectId}'` | 列出指定的使用者、 群組或服務主體的角色指派。 |
-    | `$filter=assignedTo('{objectId}')` | 列出指定的使用者或服務主體的角色指派。 如果使用者是有角色指派群組的成員，則該角色指派也會列出。 此篩選器是群組的可轉移的群組，這表示，如果使用者是群組的群組的成員，該群組是群組的另一個有角色指派的成員，該角色指派會也會列出項目。 此篩選器只會接受使用者或服務主體物件識別碼。 您無法傳遞的物件識別碼群組。 |
+    | `$filter=atScope()` | 只會列出指定範圍的角色指派，不包括指派的角色指派。 |
+    | `$filter=principalId%20eq%20'{objectId}'` | 列出指定之使用者、群組或服務主體的角色指派。 |
+    | `$filter=assignedTo('{objectId}')` | 列出所指定使用者或服務主體的角色指派。 如果使用者是具有角色指派之群組的成員，也會列出該角色指派。 此篩選器可轉移群組，這表示如果使用者是群組的成員，而該群組是具有角色指派之另一個群組的成員，則也會列出該角色指派。 此篩選器只接受使用者或服務主體的物件識別碼。 您無法傳遞群組的物件識別碼。 |
 
 ## <a name="grant-access"></a>授與存取權
 
@@ -73,29 +72,37 @@ ms.locfileid: "66472742"
     ```json
     {
       "properties": {
-        "roleDefinitionId": "/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/roleDefinitions/{roleDefinitionId}",
+        "roleDefinitionId": "/{scope}/providers/Microsoft.Authorization/roleDefinitions/{roleDefinitionId}",
         "principalId": "{principalId}"
       }
     }
     ```
-    
+
 1. 在 URI 中，將 *{scope}* 取代為角色指派的範圍。
 
-    | `Scope` | type |
+    | `Scope` | Type |
     | --- | --- |
-    | `subscriptions/{subscriptionId}` | Subscription |
-    | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1` | Resource group |
-    | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1/ providers/Microsoft.Web/sites/mysite1` | Resource |
+    | `providers/Microsoft.Management/managementGroups/{groupId1}` | 管理群組 |
+    | `subscriptions/{subscriptionId1}` | 訂閱 |
+    | `subscriptions/{subscriptionId1}/resourceGroups/myresourcegroup1` | 資源群組 |
+    | `subscriptions/{subscriptionId1}/resourceGroups/myresourcegroup1/ providers/microsoft.web/sites/mysite1` | Resource |
 
 1. 將 *{roleAssignmentName}* 取代為角色指派的 GUID 識別碼。
 
-1. 在要求本文中，將 *{subscriptionId}* 取代為您的訂用帳戶識別碼。
+1. 在要求主體中，將 *{scope}* 取代為角色指派的範圍。
+
+    | `Scope` | Type |
+    | --- | --- |
+    | `providers/Microsoft.Management/managementGroups/{groupId1}` | 管理群組 |
+    | `subscriptions/{subscriptionId1}` | 訂閱 |
+    | `subscriptions/{subscriptionId1}/resourceGroups/myresourcegroup1` | 資源群組 |
+    | `subscriptions/{subscriptionId1}/resourceGroups/myresourcegroup1/ providers/microsoft.web/sites/mysite1` | Resource |
 
 1. 將 *{roleDefinitionId}* 取代為角色定義識別碼。
 
 1. 將 *{principalId}* 取代為使用者、群組或服務主體 (將獲得角色指派) 的物件識別碼。
 
-## <a name="remove-access"></a>移除存取
+## <a name="remove-access"></a>移除存取權
 
 在 RBAC 中，若要移除存取權，您可以移除角色指派。 若要移除角色指派，請使用[角色指派 - 刪除](/rest/api/authorization/roleassignments/delete) REST API。 若要呼叫這個 API，您必須具有 `Microsoft.Authorization/roleAssignments/delete` 作業的存取權。 在內建角色中，只有[擁有者](built-in-roles.md#owner)和[使用者存取系統管理員](built-in-roles.md#user-access-administrator)會獲得這項作業的存取權。
 
@@ -109,11 +116,12 @@ ms.locfileid: "66472742"
 
 1. 在 URI 中，將 *{scope}* 取代為要移除角色指派的範圍。
 
-    | `Scope` | type |
+    | `Scope` | Type |
     | --- | --- |
-    | `subscriptions/{subscriptionId}` | Subscription |
-    | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1` | Resource group |
-    | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1/ providers/Microsoft.Web/sites/mysite1` | Resource |
+    | `providers/Microsoft.Management/managementGroups/{groupId1}` | 管理群組 |
+    | `subscriptions/{subscriptionId1}` | 訂閱 |
+    | `subscriptions/{subscriptionId1}/resourceGroups/myresourcegroup1` | 資源群組 |
+    | `subscriptions/{subscriptionId1}/resourceGroups/myresourcegroup1/ providers/microsoft.web/sites/mysite1` | Resource |
 
 1. 將 *{roleAssignmentName}* 取代為角色指派的 GUID 識別碼。
 

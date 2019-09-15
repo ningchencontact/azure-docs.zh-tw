@@ -7,12 +7,12 @@ ms.author: shthota
 ms.service: marketplace
 ms.topic: conceptual
 ms.date: 09/09/2019
-ms.openlocfilehash: 535dae4226f7db9cbc7240f9a92642f0e206cd3b
-ms.sourcegitcommit: dd69b3cda2d722b7aecce5b9bd3eb9b7fbf9dc0a
+ms.openlocfilehash: 4357a91a87648885def69d8e75e19e38a5a3f751
+ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70962740"
+ms.lasthandoff: 09/14/2019
+ms.locfileid: "70993727"
 ---
 # <a name="analytics-for-the-commercial-marketplace-in-partner-center"></a>合作夥伴中心的商業 Marketplace 分析
 
@@ -244,7 +244,7 @@ ms.locfileid: "70962740"
 | 雲端實例名稱：Azure Government | 順序| 政府特有的 Microsoft 雲端，適用于下列其中一種政府：中國、德國或美國地區。| |
 | 客戶縣/市| 客戶| 客戶提供的城市名稱。 城市可能與客戶的 Azure 訂用帳戶中的城市不同。||
 | 客戶通訊語言  | 客戶| 客戶慣用於通訊的語言。||
-| 客戶公司名稱 | Customer、Order | 客戶提供的公司名稱。 名稱可能與客戶的 Azure 訂用帳戶中的城市不同。|  |
+| 客戶公司名稱 | Customer、Order | 客戶提供的公司名稱。 名稱可能與客戶的 Azure 訂用帳戶中的名稱不同。|  |
 | 客戶國家/地區 | Customer、Order | 客戶提供的國家/地區名稱。 國家（地區）可能會與客戶 Azure 訂用帳戶中的國家/地區不同。|  |
 | 客戶電子郵件| 客戶| 終端客戶所提供的電子郵件地址。 電子郵件可能與客戶的 Azure 訂用帳戶中的電子郵件地址不同。||
 | 客戶名字| 客戶| 客戶提供的名稱。 名稱可能與客戶的 Azure 訂用帳戶中提供的名稱不同。| |

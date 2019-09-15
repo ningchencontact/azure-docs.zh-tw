@@ -5,15 +5,15 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 09/10/2019
+ms.date: 09/13/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 096f8b3aa6ae66e65bbbd9ea6e2204af619199dd
-ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
+ms.openlocfilehash: 81fc73ffd61a49eae1c4f107733b6f9f53efbb4f
+ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70899420"
+ms.lasthandoff: 09/14/2019
+ms.locfileid: "70993378"
 ---
 # <a name="data-sources-supported-in-azure-analysis-services"></a>Azure Analysis Services 中支援的資料來源
 
@@ -42,7 +42,7 @@ ms.locfileid: "70899420"
 **提供者**   
 連線至 Azure 資料來源的記憶體內部和 DirectQuery 模型會使用 .NET Framework Data Provider for SQL Server。
 
-## <a name="on-premises-data-sources"></a>內部部署資料來源
+## <a name="other-data-sources"></a>其他資料來源
 
 從 Azure AS 伺服器連線至內部部署資料來源需要內部部署閘道。 使用閘道時，需要 64 位元的提供者。
 
@@ -113,6 +113,10 @@ Azure Analysis Services 中的資料模型連線至某些資料來源時，可�
 對於雲端資料來源：
 
 * 如果使用 SQL 驗證，模擬應為服務帳戶。
+
+## <a name="oauth-credentials"></a>OAuth 認證
+
+針對1400和更高相容性層級的表格式模型，Azure SQL Database、Azure SQL 資料倉儲、Dynamics 365 和 SharePoint 清單支援 OAuth 認證。 Azure Analysis Services 會管理 OAuth 資料來源的權杖重新整理，以避免長時間執行的重新整理作業發生超時。 若要產生有效的權杖，請使用 SSMS 設定認證。
 
 ## <a name="next-steps"></a>後續步驟
 [內部部署閘道](analysis-services-gateway.md)   

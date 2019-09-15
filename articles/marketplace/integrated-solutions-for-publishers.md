@@ -7,14 +7,14 @@ ms.service: marketplace
 ms.topic: article
 ms.date: 08/15/2019
 ms.author: v-qiwe
-ms.openlocfilehash: 2d23b2b39844d48c6414d269f8d69d7b96fff272
-ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
+ms.openlocfilehash: 13a7769e310bcd0cb28eddbf9dded3fe1d62eec7
+ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70860299"
+ms.lasthandoff: 09/14/2019
+ms.locfileid: "70993690"
 ---
-# <a name="publishing-integrated-solutions"></a>發佈-整合式解決方案
+# <a name="publishing-integrated-solutions"></a>發佈整合式解決方案
 
 整合式解決方案結合了多個 ISV point 解決方案技術，連同系統整合者（SI）的部署和服務，成為由 SI 作為[諮詢服務供應](https://docs.microsoft.com/azure/marketplace/consulting-services)專案在 marketplace 中列出的單一配套供應專案。
 
@@ -89,5 +89,9 @@ ms.locfileid: "70860299"
 ## <a name="going-to-market-with-your-integrated-solution"></a>透過整合式解決方案進入市場 
 
 一旦您的解決方案上線 Azure Marketplace 或 AppSource，您就會想要透過行銷活動推動認知和需求的產生。 檢查[專案計劃和時間軸](https://aka.ms/AA5qiuc)中列出的活動，包括合作夥伴可以在自己的小組內進行驅動的活動。 然後，存取在 marketplace 中發佈的合作夥伴所提供的[進入市場權益](https://docs.microsoft.com/azure/marketplace/gtm-your-marketplace-benefits#list-trial-and-consulting-benefits)。 所有的整合式解決方案供應專案都符合試用層級權益的資格。
+
+## <a name="next-steps"></a>後續步驟
+
+如需在 Marketplace 中購買整合解決方案的相關資訊，請參閱[整合式解決方案](https://docs.microsoft.com/azure/marketplace/integrated-solutions)。
 
 ---

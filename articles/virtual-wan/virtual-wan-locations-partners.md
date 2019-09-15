@@ -5,21 +5,21 @@ services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: conceptual
-ms.date: 08/08/2019
+ms.date: 09/13/2019
 ms.author: cherylmc
 Customer intent: As someone with a networking background, I want to connect find a Virtual WAN partner
-ms.openlocfilehash: d9f0bb7d3817b943b71715eb080dd0b060efa025
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
+ms.openlocfilehash: a4a4eefc1b31e8412392f5ffed404201b98e0386
+ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68990324"
+ms.lasthandoff: 09/14/2019
+ms.locfileid: "70996372"
 ---
 # <a name="virtual-wan-partners-and-virtual-hub-locations"></a>虛擬 WAN 夥伴與虛擬中樞位置
 
-本文提供虛擬 WAN 支援的區域和合作夥伴的相關資訊, 以連線至虛擬中樞。
+本文提供虛擬 WAN 支援的區域和合作夥伴的相關資訊，以連線至虛擬中樞。
 
-Azure 虛擬 WAN 是一種網路服務，透過 Azure 提供最佳且自動化的分支對分支連線。 虛擬 WAN 可讓您連線，並設定與 Azure 通訊的分支裝置。 這可以手動完成, 或透過虛擬 WAN 合作夥伴使用提供者裝置。 使用夥伴裝置可讓您輕鬆使用、簡化連線和設定管理。
+Azure 虛擬 WAN 是一種網路服務，透過 Azure 提供最佳且自動化的分支對分支連線。 虛擬 WAN 可讓您連線，並設定與 Azure 通訊的分支裝置。 這可以手動完成，或透過虛擬 WAN 合作夥伴使用提供者裝置。 使用夥伴裝置可讓您輕鬆使用、簡化連線和設定管理。
 
 從內部部署裝置連線到虛擬中樞是透過自動化方式建立。 虛擬中樞是受 Microsoft 管理的虛擬網路。 中樞包含不同的服務端點，可啟用您內部部署網路 (vpnsite) 中的連線。 每個地區都只能有一個中樞。
 
@@ -40,7 +40,7 @@ Azure 虛擬 WAN 是一種網路服務，透過 Azure 提供最佳且自動化�
 
 [!INCLUDE [partners](../../includes/virtual-wan-partners-include.md)]
 
-下列合作夥伴會在我們的未來藍圖中預定:Arista、F5 Networks、Fortinet、銀峰、Velocloud、反之亦然, Nuage Nokia。
+下列合作夥伴會在我們的未來藍圖中預定：Arista、F5 Networks、Fortinet、銀峰、Velocloud、Nuage Nokia。
 
 ## <a name="locations"></a>位置
 

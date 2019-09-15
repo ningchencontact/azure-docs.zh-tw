@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/25/2019
 ms.author: gunjanj
 ms.subservice: files
-ms.openlocfilehash: 240b2110db66af0982e4e1bf95d3715cbe733a60
-ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
+ms.openlocfilehash: 0e11949804e0c3de52db315424f83905516b4da8
+ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68816528"
+ms.lasthandoff: 09/14/2019
+ms.locfileid: "70996610"
 ---
 # <a name="troubleshoot-azure-files-performance-issues"></a>針對 Azure 檔案儲存體效能問題進行疑難排解
 
@@ -22,7 +22,7 @@ ms.locfileid: "68816528"
 
 ### <a name="cause-1-share-experiencing-throttling"></a>原因 1：共用遇到節流
 
-Premium 共用上的預設配額為 100 GiB, 可提供100基準 IOPS (最高可達一個小時的 300)。 如需布建和其 IOPS 關聯性的詳細資訊, 請參閱《規劃指南》中的布[建的共用](storage-files-planning.md#provisioned-shares)一節。
+Premium 共用上的預設配額為 100 GiB, 可提供100基準 IOPS (最高可達一個小時的 300)。 如需布建和其 IOPS 關聯性的詳細資訊，請參閱《規劃指南》中的布[建的共用](storage-files-planning.md#provisioned-shares)一節。
 
 若要確認您的共用是否正在進行節流處理, 您可以在入口網站中利用 Azure 計量。
 
@@ -85,6 +85,7 @@ Premium 共用上的預設配額為 100 GiB, 可提供100基準 IOPS (最高可�
 
 - 取得具有較大核心的 VM 可能有助於改善輸送量。
 - 從多個 Vm 執行用戶端應用程式將會增加輸送量。
+
 - 盡可能使用 REST Api。
 
 ## <a name="throughput-on-linux-clients-is-significantly-lower-when-compared-to-windows-clients"></a>相較于 Windows 用戶端, Linux 用戶端上的輸送量會大幅降低。
@@ -95,8 +96,9 @@ Premium 共用上的預設配額為 100 GiB, 可提供100基準 IOPS (最高可�
 
 ### <a name="workaround"></a>因應措施
 
-- 將負載分散到多個 Vm
+- 將負載分散到多個 Vm。
 - 在相同的 VM 上, 使用多個掛接點搭配**nosharesock**選項, 並將負載分散到這些掛接點。
+- 在 Linux 上，請嘗試使用**nostrictsync**選項掛接，以避免在每次 fsync 呼叫時強制執行 SMB 清除。 針對 Azure 檔案儲存體，此選項不會干擾資料 consistentcy，但可能會導致目錄清單（**ls-l**命令）上有過時的檔案中繼資料。 直接查詢檔案的中繼資料（**stat**命令）將會傳回最新的檔案中繼資料。
 
 ## <a name="high-latencies-for-metadata-heavy-workloads-involving-extensive-openclose-operations"></a>包含大量開啟/關閉作業的中繼資料繁重工作負載的高延遲。
 

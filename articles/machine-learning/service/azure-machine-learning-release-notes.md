@@ -1,7 +1,7 @@
 ---
 title: 此版本有哪些新功能？
-titleSuffix: Azure Machine Learning service
-description: 了解 Azure Machine Learning 服務的最新更新，以及機器學習和資料準備 Python SDK。
+titleSuffix: Azure Machine Learning
+description: 深入瞭解 Azure Machine Learning 的最新更新，以及機器學習服務和資料準備 Python Sdk。
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,16 +10,16 @@ ms.author: jmartens
 author: j-martens
 ms.date: 08/19/2019
 ms.custom: seodec18
-ms.openlocfilehash: 2721e134e03d3d622e61085dc39a2914098ba570
-ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
+ms.openlocfilehash: 26d66dad1e9953ddcbdbe0fd3b495bb3e418b3e7
+ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70930731"
+ms.lasthandoff: 09/14/2019
+ms.locfileid: "70993434"
 ---
-# <a name="azure-machine-learning-service-release-notes"></a>Azure Machine Learning 服務版本資訊
+# <a name="azure-machine-learning-release-notes"></a>Azure Machine Learning 版本資訊
 
-本文章會說明 Azure Machine Learning 服務的版本。  如需完整的 SDK 參考內容，請造訪 Azure Machine Learning 的[**Python 的主要 SDK**](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py)參考頁面。 
+在本文中，您將瞭解 Azure Machine Learning 版本。  如需完整的 SDK 參考內容，請造訪 Azure Machine Learning 的[**Python 的主要 SDK**](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py)參考頁面。 
 
 若要了解已知的 Bug 和因應措施，請參閱[已知問題的清單](resource-known-issues.md)。
 
@@ -557,7 +557,7 @@ ms.locfileid: "70930731"
 + [執行報表] 和 [執行詳細資料] 頁面中的即時圖表和計量更新
 + 已更新 [執行詳細資料] 頁面中記錄、輸出和快照集的檔案檢視器。
 + [實驗] 索引標籤中新的和改良的報表建立體驗。 
-+ 已新增從 [Azure Machine Learning 服務] 工作區的 [總覽] 頁面下載 config.xml 檔案的功能。
++ 已新增從 [Azure Machine Learning] 工作區的 [總覽] 頁面下載 config.xml 檔案的功能。
 + 從 Azure Databricks 工作區支援 Machine Learning 服務工作區建立 
 
 ## <a name="2019-04-26"></a>2019-04-26
@@ -576,7 +576,7 @@ ms.locfileid: "70930731"
 + [快速啟動](tutorial-1st-experiment-sdk-setup.md) 具有最新版 Azure Machine Learning SDK 和相關套件的預先設定筆記本 VM。
 + 存取是透過經過驗證的技術 (例如 HTTPS、Azure Active Directory 驗證和授權) 來保護。
 + 在 Azure Machine Learning 工作區 blob 儲存體帳戶中, 筆記本和程式碼的可靠雲端儲存體。 您可以安全地刪除您的筆記本 VM, 而不會遺失您的工作。
-+ 已預先安裝的範例筆記本, 可探索及試驗 Azure Machine Learning 服務功能。
++ 已預先安裝的範例筆記本，可探索及試驗 Azure Machine Learning 功能。
 + Azure Vm 的完整自訂功能、任何 VM 類型、任何封裝、任何驅動程式。 
 
 ## <a name="2019-04-26"></a>2019-04-26
@@ -873,7 +873,7 @@ Azure Machine Learning SDK for Python v 1.0.30 已發行。
 
 ## <a name="2018-12-04-general-availability"></a>2018-12-04：正式運作
 
-Azure Machine Learning 服務現已正式運作。
+Azure Machine Learning 現在已正式推出。
 
 ### <a name="azure-machine-learning-compute"></a>Azure Machine Learning Compute
 在此版本中，我們透過 [Azure Machine Learning Compute](how-to-set-up-training-targets.md#amlcompute) 來宣布新的受控計算體驗。 這個計算目標會取代適用於 Azure Machine Learning 的 Azure Batch AI 計算。 
@@ -985,7 +985,7 @@ Azure Machine Learning 服務現已正式運作。
 ## <a name="2018-11-05"></a>2018-11-05
 
 ### <a name="azure-portal"></a>Azure 入口網站 
-Azure Machine Learning 服務的 Azure 入口網站含有下列更新：
+Azure Machine Learning 的 Azure 入口網站具有下列更新：
   * 用於已發佈管線的新 [管線] 索引標籤。
   * 已增加附加現有的 HDInsight 叢集作為計算目標的支援。
 
@@ -1098,4 +1098,4 @@ Azure Machine Learning 的全新重新整理版本：深入了解此版本： ht
 
 ## <a name="next-steps"></a>後續步驟
 
-閱讀 [Azure Machine Learning 服務](../service/overview-what-is-azure-ml.md)概觀。
+閱讀 [Azure Machine Learning](../service/overview-what-is-azure-ml.md) 概觀。

@@ -8,18 +8,18 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/06/2019
 ms.author: hrasheed
-ms.openlocfilehash: 489685485af4e3c8868f7e0281d2f81464a166f6
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 6ce3ff8e00bc92911a7405de1bb0bb7286fb5c15
+ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67066184"
+ms.lasthandoff: 09/14/2019
+ms.locfileid: "70993772"
 ---
 # <a name="install-jupyter-notebook-on-your-computer-and-connect-to-apache-spark-on-hdinsight"></a>在電腦上安裝 Jupyter Notebook，並連線到 HDInsight 上的 Apache Spark
 
 在這篇文章中，您會了解如何搭配含有 Spark magic 的自訂 PySpark (適用於 Python) 和 Apache Spark (適用於 Scala) 核心來安裝 Jupyter 筆記本，然後將筆記本連接到 HDInsight 叢集。 在您的本機電腦上安裝 Jupyter 可以有數種原因，而且也會面臨數種挑戰。 如需詳細資訊，請參閱本文章結尾的[為什麼我應該在我的電腦上安裝 Jupyter](#why-should-i-install-jupyter-on-my-computer) 一節。
 
-有四個主要的步驟中安裝 Jupyter 並連線至 HDInsight 上的 Apache Spark。
+安裝 Jupyter 和連線至 HDInsight 上的 Apache Spark 時，有四個主要步驟。
 
 * 設定 Spark 叢集。
 * 安裝 Jupyter Notebook。
@@ -28,7 +28,7 @@ ms.locfileid: "67066184"
 
 如需有關可供 HDInsight 叢集之相關 Jupyter Notebook 使用的自訂核心和 Spark magic 的詳細資訊，請參閱 [HDInsight 上的 Apache Spark Linux 叢集可供 Jupyter Notebook 使用的核心](apache-spark-jupyter-notebook-kernels.md)。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 此處所列的必要條件不是針對安裝 Jupyter。 這些是用來在安裝 Notebook 之後將 Jupyter Notebook 連接到 HDInsight 叢集。
 
@@ -36,36 +36,36 @@ ms.locfileid: "67066184"
 
 ## <a name="install-jupyter-notebook-on-your-computer"></a>在電腦上安裝 Jupyter Notebook
 
-您必須先安裝 Python，才能安裝 Jupyter Notebook。 [Anaconda 散發套件](https://www.anaconda.com/download/)會同時安裝，Python 和 Jupyter Notebook。
+您必須先安裝 Python，才能安裝 Jupyter Notebook。 [Anaconda 散發](https://www.anaconda.com/download/)套件將會同時安裝、Python 和 Jupyter Notebook。
 
-下載您平台適用的 [Anaconda 安裝程式](https://www.anaconda.com/download/) ，然後執行安裝程式。 執行安裝精靈時，請確定您選取將 Anaconda 新增至 PATH 變數的選項。  此外，請參閱 <<c0> [ 使用的 Anaconda 安裝 Jupyter](https://jupyter.readthedocs.io/en/latest/install.html)。
+下載您平台適用的 [Anaconda 安裝程式](https://www.anaconda.com/download/) ，然後執行安裝程式。 執行安裝精靈時，請確定您選取將 Anaconda 新增至 PATH 變數的選項。  另請參閱[使用 Anaconda 安裝 Jupyter](https://jupyter.readthedocs.io/en/latest/install.html)。
 
-## <a name="install-spark-magic"></a>安裝 Spark magic
+## <a name="install-spark-magic"></a>安裝 Spark 魔術
 
-1. 輸入下列命令，以安裝 Spark magic 的其中一個。 此外，請參閱 < [sparkmagic 文件](https://github.com/jupyter-incubator/sparkmagic#installation)。
+1. 輸入下列其中一個命令，以安裝 Spark 魔術。 另請參閱[sparkmagic 檔](https://github.com/jupyter-incubator/sparkmagic#installation)。
 
     |叢集版本 | 安裝命令 |
     |---|---|
-    |3\.6 版和 3.5 版 |`pip install sparkmagic==0.12.7`|
+    |3\.6 和3.5 版 |`pip install sparkmagic==0.12.7`|
     |v3.4|`pip install sparkmagic==0.2.3`|
 
-1. 請確定`ipywidgets`已正確安裝執行下列命令：
+1. 執行`ipywidgets`下列命令，確定已正確安裝：
 
     ```cmd
     jupyter nbextension enable --py --sys-prefix widgetsnbextension
     ```
 
-## <a name="install-pyspark-and-spark-kernels"></a>安裝的 PySpark 和 Spark 核心
+## <a name="install-pyspark-and-spark-kernels"></a>安裝 PySpark 和 Spark 核心
 
-1. 識別`sparkmagic`安裝輸入下列命令：
+1. 輸入下列`sparkmagic`命令來識別安裝位置：
 
     ```cmd
     pip show sparkmagic
     ```
 
-    然後將您的工作目錄變更為使用上述命令所指出的位置中。
+    然後將您的工作目錄變更為使用上述命令所識別的位置。
 
-1. 從新的工作目錄，請輸入一或多個下列命令，以安裝所需的 kernel(s):
+1. 從您的新工作目錄中，輸入下列一個或多個命令，以安裝所需的核心：
 
     |核心 | 命令 |
     |---|---|
@@ -74,7 +74,7 @@ ms.locfileid: "67066184"
     |PySpark|`jupyter-kernelspec install sparkmagic/kernels/pysparkkernel`|
     |PySpark3|`jupyter-kernelspec install sparkmagic/kernels/pyspark3kernel`|
 
-1. 選擇性。 輸入下列命令來啟用伺服器擴充功能：
+1. 選擇性。 輸入下列命令以啟用伺服器擴充功能：
 
     ```cmd
     jupyter serverextension enable --py sparkmagic
@@ -82,15 +82,15 @@ ms.locfileid: "67066184"
 
 ## <a name="configure-spark-magic-to-connect-to-hdinsight-spark-cluster"></a>設定 Spark magic 以連線到 HDInsight Spark 叢集
 
-在本節中，您可以設定您稍早安裝來連線到 Apache Spark 叢集的 Spark magic。
+在本節中，您會設定您先前安裝的 Spark 神奇，以連線至 Apache Spark 叢集。
 
-1. 使用下列命令來啟動 Python 殼層：
+1. 使用下列命令啟動 Python shell：
 
     ```cmd
     python
     ```
 
-2. Jupyter 組態資訊通常儲存在使用者主目錄中。 輸入下列命令，以找出主目錄中，並建立名為的資料夾 **.sparkmagic**。  將輸出的完整路徑。
+2. Jupyter 組態資訊通常儲存在使用者主目錄中。 輸入下列命令以識別主目錄，並建立名為**sparkmagic**的資料夾。  將會輸出完整路徑。
 
     ```python
     import os
@@ -100,7 +100,7 @@ ms.locfileid: "67066184"
     exit()
     ```
 
-3. 在資料夾內`.sparkmagic`，建立名為的檔案**config.json**並新增下列 JSON 程式碼片段，其內。  
+3. 在資料夾`.sparkmagic`內，建立名為**config.xml**的檔案，並在其中新增下列 json 程式碼片段。  
 
     ```json
     {
@@ -124,14 +124,14 @@ ms.locfileid: "67066184"
 
 4. 對檔案進行下列編輯：
 
-    |範本值 | 新的值 |
+    |範本值 | 新增值 |
     |---|---|
-    |{USERNAME}|叢集登入，預設值是`admin`。|
-    |{CLUSTERDNSNAME}|叢集名稱|
-    |{BASE64ENCODEDPASSWORD}|以 base64 編碼密碼做為您實際的密碼。  您可以產生在 base64 密碼[ https://www.url-encode-decode.com/base64-encode-decode/ ](https://www.url-encode-decode.com/base64-encode-decode/)。|
-    |`"livy_server_heartbeat_timeout_seconds": 60`|如果使用`sparkmagic 0.12.7`（叢集 3.5 版和 3.6 版）。  如果使用`sparkmagic 0.2.3`（叢集 3.4 版），以取代`"should_heartbeat": true`。|
+    |{USERNAME}|叢集登入，預設`admin`值為。|
+    |CLUSTERDNSNAME|叢集名稱|
+    |{BASE64ENCODEDPASSWORD}|以 base64 編碼的密碼，適用于您的實際密碼。  您可以在[https://www.url-encode-decode.com/base64-encode-decode/](https://www.url-encode-decode.com/base64-encode-decode/)產生 base64 密碼。|
+    |`"livy_server_heartbeat_timeout_seconds": 60`|如果使用`sparkmagic 0.12.7` （叢集3.5 和3.6 版），請保留。  如果使用`sparkmagic 0.2.3` （叢集3.4），請將取代`"should_heartbeat": true`為。|
 
-    您可以看到完整的範例檔案[範例 config.json](https://github.com/jupyter-incubator/sparkmagic/blob/master/sparkmagic/example_config.json)。
+    您可以在[範例 config.xml](https://github.com/jupyter-incubator/sparkmagic/blob/master/sparkmagic/example_config.json)中看到完整的範例檔案。
 
    > [!TIP]  
    > 傳送活動訊號可確保不會流失工作階段。 當電腦進入睡眠或已關機時，則不會傳送活動訊號，導致工作階段被清除。 若為叢集 3.4 版，如果想要停用此行為，您可以從 Ambari UI 將 Livy 組態 `livy.server.interactive.heartbeat.timeout` 設定為 `0`。 若為叢集 3.5 版，如果您未設定上述的 3.5 組態，則不會刪除工作階段。
@@ -142,14 +142,14 @@ ms.locfileid: "67066184"
     jupyter notebook
     ```
 
-6. 請確認您可以使用的核心使用的 Spark magic。 請執行下列步驟：
+6. 確認您可以使用核心所提供的 Spark 魔術。 請執行下列步驟：
 
-    a. 建立新的 Notebook。 從右下角，選取**新增**。 您應該會看到預設核心**Python 2**或是**Python 3**和您所安裝的核心。 實際的值可能會不同，視您的安裝方式而定。  選取  **PySpark**。
+    a. 建立新的 Notebook。 從右上角選取 [**新增**]。 您應該會看到預設的核心**Python 2**或**Python 3** ，以及您安裝的核心。 實際的值可能會根據您的安裝選項而有所不同。  選取 [ **PySpark**]。
 
-    ![Jupyter Notebook 中的核心](./media/apache-spark-jupyter-notebook-install-locally/jupyter-kernels.png "Jupyter Notebook 中的核心")
+    ![Jupyter Notebook 中的核心](./media/apache-spark-jupyter-notebook-install-locally/jupyter-kernels-notebook.png "Jupyter Notebook 中的核心")
 
     > [!IMPORTANT]  
-    > 選取之後**新增**檢閱您的殼層，是否有任何錯誤。  如果您看到錯誤`TypeError: __init__() got an unexpected keyword argument 'io_loop'`您可能會遇到龍捲風的特定版本的已知的問題。  如果是的話，請停止核心，然後再降級 龍捲風安裝使用下列命令： `pip install tornado==4.5.3`。
+    > 選取 [**新增**] 之後，請檢查您的 shell 是否有任何錯誤。  如果您看到錯誤`TypeError: __init__() got an unexpected keyword argument 'io_loop'` ，您可能會遇到某些龍捲風版本的已知問題。  若是如此，請停止核心，然後使用下列命令將您的龍捲風安裝降級`pip install tornado==4.5.3`：。
 
     b. 執行下列程式碼片段。
 
@@ -160,7 +160,7 @@ ms.locfileid: "67066184"
 
     如果您可以順利擷取輸出，即表示已測試您對 HDInsight 叢集的連線。
 
-    如果您想要更新 notebook 組態以連接到不同的叢集，將 config.json 更新一組新的值，在步驟 3，如上所示。
+    如果您想要更新筆記本設定以連線到不同的叢集，請使用一組新的值來更新 config.xml，如上面的步驟3所示。
 
 ## <a name="why-should-i-install-jupyter-on-my-computer"></a>為什麼我應該在我的電腦上安裝 Jupyter？
 

@@ -1,7 +1,7 @@
 ---
 title: 部署疑難排解指南
-titleSuffix: Azure Machine Learning service
-description: 瞭解如何使用 Azure Machine Learning 服務 Azure Kubernetes Service 和 Azure 容器實例來解決、解決常見的 Docker 部署錯誤, 並對其進行疑難排解。
+titleSuffix: Azure Machine Learning
+description: 瞭解如何使用 Azure Machine Learning Azure Kubernetes Service 和 Azure 容器實例來解決、解決常見的 Docker 部署錯誤，並對其進行疑難排解。
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -11,18 +11,18 @@ ms.author: clauren
 ms.reviewer: jmartens
 ms.date: 07/09/2019
 ms.custom: seodec18
-ms.openlocfilehash: 5ec92e34ffa68718525e9b407dc9e58f4c409975
-ms.sourcegitcommit: 7a6d8e841a12052f1ddfe483d1c9b313f21ae9e6
+ms.openlocfilehash: 08b9434dbcca96ff57e2c8182693023a5eb2eea9
+ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70183550"
+ms.lasthandoff: 09/14/2019
+ms.locfileid: "70997166"
 ---
-# <a name="troubleshooting-azure-machine-learning-service-azure-kubernetes-service-and-azure-container-instances-deployment"></a>針對 Azure Machine Learning 服務 Azure Kubernetes Service 和 Azure 容器實例部署進行疑難排解
+# <a name="troubleshooting-azure-machine-learning-azure-kubernetes-service-and-azure-container-instances-deployment"></a>針對 Azure Machine Learning Azure Kubernetes Service 和 Azure 容器實例部署進行疑難排解
 
-瞭解如何使用 Azure Machine Learning 服務, 透過 Azure 容器實例 (ACI) 和 Azure Kubernetes Service (AKS) 來解決或解決常見的 Docker 部署錯誤。
+瞭解如何使用 Azure Machine Learning，透過 Azure 容器實例（ACI）和 Azure Kubernetes Service （AKS）來解決或解決常見的 Docker 部署錯誤。
 
-在 Azure Machine Learning 服務中部署模型時，系統就會執行數項工作。 部署後工作包含：
+在 Azure Machine Learning 中部署模型時，系統會執行許多工。 部署後工作包含：
 
 1. 在工作區模型登錄中註冊模型。
 
@@ -46,7 +46,7 @@ ms.locfileid: "70183550"
 
 如果您遇到任何問題時，首先要做的事就是將部署工作 (先前所述) 分成個別步驟，以將問題隔離。
 
-如果您使用[webservice ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice%28class%29?view=azure-ml-py#deploy-workspace--name--model-paths--image-config--deployment-config-none--deployment-target-none-) Api 或[webservice. deploy_from_model ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice%28class%29?view=azure-ml-py#deploy-from-model-workspace--name--models--image-config--deployment-config-none--deployment-target-none-) api, 將部署中斷至工作會很有説明, 因為這兩個函式都會以單一動作執行上述步驟。 這些 Api 通常很方便, 但使用下列 API 呼叫來取代它們, 有助於在進行疑難排解時分解步驟。
+如果您使用[webservice （）](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice%28class%29?view=azure-ml-py#deploy-workspace--name--model-paths--image-config--deployment-config-none--deployment-target-none-) Api 或[webservice. deploy_from_model （）](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice%28class%29?view=azure-ml-py#deploy-from-model-workspace--name--models--image-config--deployment-config-none--deployment-target-none-) api，將部署中斷至工作會很有説明，因為這兩個函式都會以單一動作執行上述步驟。 這些 Api 通常很方便, 但使用下列 API 呼叫來取代它們, 有助於在進行疑難排解時分解步驟。
 
 1. 註冊模型。 以下是一些範例程式碼：
 
@@ -90,7 +90,7 @@ ms.locfileid: "70183550"
 
 ## <a name="image-building-fails"></a>映像建置失敗
 
-如果無法建立 Docker 映射, 則[wait_for_creation ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.image.image(class)?view=azure-ml-py#wait-for-creation-show-output-false-)或[wait_for_deployment ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice(class)?view=azure-ml-py#wait-for-deployment-show-output-false-)呼叫會失敗, 並出現一些可提供一些線索的錯誤訊息。 您也可以從映像組建記錄檔中了解更多有關錯誤的資訊。 以下一些範例程式碼會示範如何找出映像組建記錄檔的 URI。
+如果無法建立 Docker 映射，則[wait_for_creation （）](https://docs.microsoft.com/python/api/azureml-core/azureml.core.image.image(class)?view=azure-ml-py#wait-for-creation-show-output-false-)或[wait_for_deployment （）](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice(class)?view=azure-ml-py#wait-for-deployment-show-output-false-)呼叫會失敗，並出現一些可提供一些線索的錯誤訊息。 您也可以從映像組建記錄檔中了解更多有關錯誤的資訊。 以下一些範例程式碼會示範如何找出映像組建記錄檔的 URI。
 
 ```python
 # if you already have the image object handy
@@ -205,7 +205,7 @@ print(prediction)
 在本機測試期間, 您可能需要更新`score.py`檔案以新增記錄, 或嘗試解決您發現的任何問題。 若要重載檔案的`score.py`變更, 請`reload()`使用。 例如, 下列程式碼會重載服務的腳本, 然後將資料傳送給它。 資料會使用更新`score.py`的檔案進行評分:
 
 > [!IMPORTANT]
-> `reload`方法僅適用于本機部署。 如需將部署更新至另一個計算目標的詳細資訊, 請參閱[部署模型](how-to-deploy-and-where.md#update)的更新一節。
+> `reload`方法僅適用于本機部署。 如需將部署更新至另一個計算目標的詳細資訊，請參閱[部署模型](how-to-deploy-and-where.md#update)的更新一節。
 
 ```python
 service.reload()
@@ -245,7 +245,7 @@ print(ws.webservices['mysvc'].get_logs())
 
 ## <a name="function-fails-get_model_path"></a>函式錯誤：get_model_path()
 
-通常, 在評分`init()`腳本的函式中, 會呼叫[_model_path ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py#get-model-path-model-name--version-none---workspace-none-)函式, 以在容器中尋找模型檔案或模型檔案的資料夾。 如果找不到模型檔案或資料夾, 則函式會失敗。 若要對此錯誤進行偵錯，最簡單方式是在容器殼層中執行下列 Python 程式碼：
+通常，在評分`init()`腳本的函式中，會呼叫[_model_path （）](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py#get-model-path-model-name--version-none---workspace-none-)函式，以在容器中尋找模型檔案或模型檔案的資料夾。 如果找不到模型檔案或資料夾, 則函式會失敗。 若要對此錯誤進行偵錯，最簡單方式是在容器殼層中執行下列 Python 程式碼：
 
 ```python
 from azureml.core.model import Model
@@ -285,10 +285,10 @@ Azure Kubernetes Service 部署支援自動調整, 這可讓您新增複本以�
 
 * 變更自動調整建立新複本的使用率層級。
     
-    根據預設, 自動調整目標使用率會設定為 70%, 這表示服務可以處理每秒要求數 (RPS) 的尖峰, 最高可達 30%。 您可以藉由將`autoscale_target_utilization`設為較低的值, 來調整使用率目標。
+    根據預設，自動調整目標使用率會設定為 70%，這表示服務可以處理每秒要求數（RPS）的尖峰，最高可達 30%。 您可以藉由將`autoscale_target_utilization`設為較低的值, 來調整使用率目標。
 
     > [!IMPORTANT]
-    > 這種變更並不會讓複本的建立*速度更快*。 相反地, 它們會以較低的使用率閾值來建立。 若不等到服務已使用 70%, 將值變更為 30%, 會在 30% 使用率發生時建立複本。
+    > 這種變更並不會讓複本的建立*速度更快*。 相反地, 它們會以較低的使用率閾值來建立。 若不等到服務已使用 70%，將值變更為 30%，會在 30% 使用率發生時建立複本。
     
     如果 web 服務已在使用目前的最大複本, 而您仍看到503狀態碼, 請增加`autoscale_max_replicas`值以增加複本的最大數目。
 
@@ -346,7 +346,7 @@ Azure Kubernetes Service 部署支援自動調整, 這可讓您新增複本以�
 
         ```json
         {
-            "name": "Azure Machine Learning service: Docker Debug",
+            "name": "Azure Machine Learning: Docker Debug",
             "type": "python",
             "request": "attach",
             "port": 5678,
@@ -479,7 +479,7 @@ myregistry.azurecr.io/myimage:1
     docker run --rm --name debug -p 8000:5001 -p 5678:5678 debug:1
     ```
 
-1. 若要將 VS Code 附加至容器內的 PTVSD, 請開啟 VS Code 並使用 F5 鍵或選取 [ __Debug__]。 出現提示時, 選取__Azure Machine Learning 服務:Docker Debug__設定。 您也可以從側邊列選取 [debug] 圖示, __Azure Machine Learning 服務:[調試__程式] 下拉式功能表中的 [Docker Debug] 專案, 然後使用綠色箭號來附加偵錯工具。
+1. 若要將 VS Code 附加至容器內的 PTVSD, 請開啟 VS Code 並使用 F5 鍵或選取 [ __Debug__]。 出現提示時，選取__Azure Machine Learning：Docker Debug__設定。 您也可以從側邊列選取 [debug] 圖示， __Azure Machine Learning：[調試__程式] 下拉式功能表中的 [Docker Debug] 專案, 然後使用綠色箭號來附加偵錯工具。
 
     ![[偵錯工具] 圖示、[開始偵錯工具] 按鈕和 [設定選取器]](media/how-to-troubleshoot-deployment/start-debugging.png)
 

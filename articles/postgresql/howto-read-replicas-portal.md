@@ -6,12 +6,12 @@ ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 09/04/2019
-ms.openlocfilehash: bd1317242f84b4d8bd039da89d991a73f6cd3781
-ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
+ms.openlocfilehash: 0ff6cd50a5a6cb1599a2248fbc61b0b6b307e791
+ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70309303"
+ms.lasthandoff: 09/14/2019
+ms.locfileid: "70995443"
 ---
 # <a name="create-and-manage-read-replicas-in-azure-database-for-postgresql---single-server-from-the-azure-portal"></a>從 Azure 入口網站建立和管理適用於 PostgreSQL 的 Azure 資料庫-單一伺服器中的讀取複本
 
@@ -179,4 +179,4 @@ ms.locfileid: "70309303"
  
 ## <a name="next-steps"></a>後續步驟
 * 深入了解[適用於 PostgreSQL 的 Azure 資料庫中的讀取複本](concepts-read-replicas.md)。
-* 瞭解如何[建立和管理 Azure CLI 中的讀取複本](howto-read-replicas-cli.md)。
+* 瞭解如何[在 Azure CLI 和 REST API 中建立及管理讀取複本](howto-read-replicas-cli.md)。

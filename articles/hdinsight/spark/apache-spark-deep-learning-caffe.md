@@ -3,16 +3,17 @@ title: 在 Azure HDInsight Spark 上使用 Caffe 進行分散式深入學習
 description: 在 Apache Spark 上使用 Caffe 來進行 Azure HDInsight 中的分散式深度學習。
 author: hrasheed-msft
 ms.author: hrasheed
+ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/17/2017
-ms.openlocfilehash: 31911c6c2456ab8b4949bab6ef8e541b91fc8a2c
-ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
+ms.openlocfilehash: bb234e5b34bd8046c4e65d7cc6812cde0db3b5b2
+ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70814188"
+ms.lasthandoff: 09/14/2019
+ms.locfileid: "70995678"
 ---
 # <a name="use-caffe-on-azure-hdinsight-spark-for-distributed-deep-learning"></a>在 Azure HDInsight Spark 上使用 Caffe 進行分散式深入學習
 
@@ -65,7 +66,7 @@ ms.locfileid: "70814188"
 
 若要開始，您可以僅對叢集執行此指令碼動作至所有背景工作角色節點和前端節點 (適用於 HDInsight 3.5)。 您可以在現有的叢集上執行指令碼動作，或在叢集建立期間使用指令碼動作。 如需有關指令碼動作的詳細資訊，請參閱文件[這裡](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-customize-cluster-linux)。
 
-![安裝相依性的指令碼動作](./media/apache-spark-deep-learning-caffe/Script-Action-1.png)
+![安裝相依性的指令碼動作](./media/apache-spark-deep-learning-caffe/submit-script-action.png)
 
 
 ## <a name="step-2-build-caffe-on-apache-spark-for-hdinsight-on-the-head-node"></a>步驟 2:在前端節點上建置適用於 HDInsight 的 Apache Spark Caffe
@@ -175,7 +176,8 @@ CaffeOnSpark 針對 MNIST 訓練提供一些網路拓樸範例。 它具有不�
     # solver mode: CPU or GPU
     solver_mode: CPU
 
-![Caffe Config1](./media/apache-spark-deep-learning-caffe/Caffe-1.png)
+![Caffe Config1](./media/apache-spark-deep-learning-caffe/caffe-configuration1.png
+)
 
 您可以視需要變更其他行。
 
@@ -184,7 +186,7 @@ CaffeOnSpark 針對 MNIST 訓練提供一些網路拓樸範例。 它具有不�
 - 將 "file:/Users/mridul/bigml/demodl/mnist_train_lmdb" 變更為 "wasb:///projects/machine_learning/image_dataset/mnist_train_lmdb"
 - 將 "file:/Users/mridul/bigml/demodl/mnist_test_lmdb/" 變更為 "wasb:///projects/machine_learning/image_dataset/mnist_test_lmdb"
 
-![Caffe Config2](./media/apache-spark-deep-learning-caffe/Caffe-2.png)
+![Caffe Config2](./media/apache-spark-deep-learning-caffe/caffe-configuration2.png)
 
 如需有關如何定義網路的詳細資訊，請參閱 [MNIST 資料集上的 Caffe 文件](https://caffe.berkeleyvision.org/gathered/examples/mnist.html) \(英文\)
 
@@ -204,15 +206,15 @@ CaffeOnSpark 針對 MNIST 訓練提供一些網路拓樸範例。 它具有不�
 
     https://yourclustername.azurehdinsight.net/yarnui
    
-![YARN UI](./media/apache-spark-deep-learning-caffe/YARN-UI-1.png)
+![YARN UI](./media/apache-spark-deep-learning-caffe/apache-yarn-window-1.png)
 
 您可以看看此特定應用程式配置了多少資源。 您可以按一下 [排程器] 連結，然後您會看到這個應用程式有 9 個執行中的容器。 您將要求 YARN 提供 8 個執行程式，以及另一個容器供驅動程式程序使用。 
 
-![YARN 排程器](./media/apache-spark-deep-learning-caffe/YARN-Scheduler.png)
+![YARN 排程器](./media/apache-spark-deep-learning-caffe/apache-yarn-scheduler.png)
 
 如果發生失敗，您要檢查驅動程式記錄或容器記錄。 針對驅動程式記錄檔，您可以按一下 YARN UI 中的應用程式識別碼，然後按一下 [記錄] 按鈕。 驅動程式記錄會寫入 stderr。
 
-![YARN UI 2](./media/apache-spark-deep-learning-caffe/YARN-UI-2.png)
+![YARN UI 2](./media/apache-spark-deep-learning-caffe/apache-yarn-window-2.png)
 
 例如，您可能會在下方看到一些來自驅動程式記錄的錯誤，表示配置太多的執行程式。
 

@@ -1,44 +1,46 @@
 ---
 title: 整合式解決方案 |Azure
-description: 在 Azure Marketplace 和 AppSource 中的整合式的解決方案
+description: Azure Marketplace 和 AppSource 中的整合式解決方案
 services: Azure, Marketplace, Compute, Storage, Networking
 author: qianw211
 ms.service: marketplace
 ms.topic: article
 ms.date: 02/27/2019
 ms.author: ellacroi
-ms.openlocfilehash: 363cd9319db0477e9b5ba2d2dd03a7e995a26fef
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b6015ce2d52c140a966636b887d021e76e92990d
+ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66515623"
+ms.lasthandoff: 09/14/2019
+ms.locfileid: "70993633"
 ---
-# <a name="integrated-solutions-in-azure-marketplace-and-appsource"></a>在 Azure Marketplace 和 AppSource 中的整合式的解決方案
+# <a name="integrated-solutions-in-azure-marketplace-and-appsource"></a>Azure Marketplace 和 AppSource 中的整合式解決方案
 
-整合式解決方案結合了最佳的技術諮詢、 部署及支援專家系統整合業者 (SI) 所提供的 Microsoft 合作夥伴。
+整合式解決方案結合了 Microsoft 合作夥伴的最佳技術，並提供諮詢、部署和支援專家系統整合者（SI）。
 
-這些解決方案是建置到特定的客戶需要的地址或案例，開始了解業界挑戰或痛苦點。 兩個以上的最佳技術則是由 SI 以建立統一且可重複的部署經驗的客戶，才能加以啟動並執行快速整合。 系統整合者也會提供單一點連絡以取得客戶，提供相關的自訂和諮詢，並支援方案。  結果是整合式的解決方案，包括技術與服務。
+這些解決方案是專為解決特定的客戶需求或案例而設計，並從瞭解產業挑戰或痛點開始。 SI 會整合兩個以上的最佳技術，為客戶建立一致且可重複的部署體驗，讓他們快速啟動並執行。 系統整合者也為客戶提供了單一連絡人點，提供相關的自訂和諮詢，以及解決方案的支援。  結果是一個整合式解決方案，包括技術和服務。
 
 ## <a name="advantages"></a>優點
 
 整合式方法的優點如下：
 
-* *具備產業專業能力*:系統整合業者提供產業特定解決方案和知識
-* *時間值*:整合的部署方法，可協助您了解立即的優勢
-* *最佳的解決方案*:探索購買和實作的整合式體驗輕鬆
+* *產業專業知識*：提供產業特定解決方案和知識的系統整合者
+* *時間值*：可協助您實現立即優勢的整合式部署方法
+* *最佳解決方案*：探索輕鬆的整合式購買與執行體驗
 
 ## <a name="next-steps"></a>後續步驟
 
-您可以探索整合的解決方案，並瀏覽他們的清單，與這些重要的合作夥伴連接：
+您可以流覽整合式解決方案，並藉由造訪下列清單來與這些重要合作夥伴交流：
 
-* [Customer 360 由 Zero2Hero](https://azuremarketplace.microsoft.com/marketplace/consulting-services/bardess.customer-360-powered-by-zero2hero)
-* [快速的商務](https://azuremarketplace.microsoft.com/marketplace/consulting-services/publicis-sapient.rapid_commerce)
-* [信用額度分析](https://azuremarketplace.microsoft.com/marketplace/consulting-services/rcg-us.rcg-enable-credit-analytics)
-* [醫療保健的 Cloud Security 堆疊](https://azuremarketplace.microsoft.com/marketplace/consulting-services/xentit.azure-xentit-trendmicro-qualys-hcss-12months)
+* [由 Zero2Hero 提供技術支援的客戶360](https://azuremarketplace.microsoft.com/marketplace/consulting-services/bardess.customer-360-powered-by-zero2hero)
+* [快速商務](https://azuremarketplace.microsoft.com/marketplace/consulting-services/publicis-sapient.rapid_commerce)
+* [信用分析](https://azuremarketplace.microsoft.com/marketplace/consulting-services/rcg-us.rcg-enable-credit-analytics)
+* [醫療保健雲端安全性堆疊](https://azuremarketplace.microsoft.com/marketplace/consulting-services/xentit.azure-xentit-trendmicro-qualys-hcss-12months)
 * [DevOps 加速引擎](https://azuremarketplace.microsoft.com/marketplace/consulting-services/sirrus7.sirrus7-devops-acceleration-engine?search=devops%20acceleration%20engine&page=1)
-* [Windows 伺服器端支援](https://azuremarketplace.microsoft.com/marketplace/consulting-services/new-signature.eos_appfactory)
+* [Windows Server 終止支援](https://azuremarketplace.microsoft.com/marketplace/consulting-services/new-signature.eos_appfactory)
 
-並也瀏覽的諮詢服務區段[Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/consulting-services)。
+此外，也請造訪[Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/consulting-services)的諮詢服務一節。
+
+如需詳細資訊，請參閱[發佈整合式解決方案](https://docs.microsoft.com/azure/marketplace/integrated-solutions-for-publishers)。
 
 ---

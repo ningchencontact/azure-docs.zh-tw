@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 09/05/2019
 ms.author: zarhoads
-ms.openlocfilehash: 9cfced0860b206e41b3e9f82f1ed2b92867e6b39
-ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
+ms.openlocfilehash: 42323af40ee18a965363321196a04aa75c00aa40
+ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70914829"
+ms.lasthandoff: 09/14/2019
+ms.locfileid: "70996949"
 ---
 # <a name="use-a-standard-sku-load-balancer-in-azure-kubernetes-service-aks"></a>在 Azure Kubernetes Service 中使用標準 SKU 負載平衡器（AKS）
 
@@ -277,6 +277,8 @@ azure-vote-front    LoadBalancer   10.0.227.198   52.179.23.131   80:31201/TCP  
 
 使用*標準*SKU 負載平衡器搭配預設建立的受控輸出公用 ip 時，您可以使用*負載平衡器管理的 ip 計數*參數來調整受控輸出公用 ip 數目。
 
+若要更新現有的叢集，請執行下列命令。 此參數也可以在叢集建立時設定，以擁有多個受控輸出公用 Ip。
+
 ```azurecli-interactive
 az aks update \
     --resource-group myResourceGroup \
@@ -284,11 +286,15 @@ az aks update \
     --load-balancer-managed-outbound-ip-count 2
 ```
 
-上述範例會將*myResourceGroup*中*myAKSCluster*叢集的受控輸出公用 ip 數目設定為*2* 。 建立叢集時，您也可以使用*負載平衡器管理的 ip 計數*參數來設定初始受控輸出公用 ip 數目。 受控輸出公用 Ip 的預設數目為1。
+上述範例會將*myResourceGroup*中*myAKSCluster*叢集的受控輸出公用 ip 數目設定為*2* 。 
+
+您也可以在建立叢集時，使用*負載平衡器管理的 ip 計數*參數來設定初始受控輸出公用 ip 數目，方法是附加`--load-balancer-managed-outbound-ip-count`參數並將它設定為您想要的值。 受控輸出公用 Ip 的預設數目為1。
 
 ## <a name="optional---provide-your-own-public-ips-or-prefixes-for-egress"></a>選擇性-提供您自己的公用 Ip 或輸出的首碼
 
-使用*標準*sku 負載平衡器時，AKS 叢集會自動在針對 AKS 叢集所建立的相同資源群組中建立公用 ip，並將公用 ip 指派給*標準*SKU 負載平衡器。 或者，您也可以指派自己的公用 IP。
+使用*標準*sku 負載平衡器時，AKS 叢集會自動在針對 AKS 叢集所建立的相同資源群組中建立公用 ip，並將公用 ip 指派給*標準*SKU 負載平衡器。 或者，您也可以在建立叢集時指派自己的公用 IP，或更新現有叢集的負載平衡器屬性。
+
+藉由帶入多個 IP 位址或首碼，您可以在定義單一負載平衡器物件後方的 IP 位址時，定義多個支援服務。 特定節點的輸出端點將取決於它們所關聯的服務。
 
 > [!IMPORTANT]
 > 您必須使用*標準*Sku 公用 ip，搭配您的*標準*sku 與您的負載平衡器。 您可以使用[az network public-ip show][az-network-public-ip-show]命令來驗證公用 IP 的 SKU：
@@ -324,8 +330,6 @@ az network public-ip prefix show --resource-group myResourceGroup --name myPubli
 
 上述命令會顯示*myResourceGroup*資源群組中*myPublicIPPrefix*公用 IP 首碼的識別碼。
 
-使用*az aks update*命令搭配*負載平衡器-輸出 ip-* 前置詞參數與上一個命令的識別碼。
-
 下列範例會使用*負載平衡器-輸出 ip-* 前置詞參數與上一個命令的識別碼。
 
 ```azurecli-interactive
@@ -337,6 +341,36 @@ az aks update \
 
 > [!IMPORTANT]
 > 公用 Ip 和 IP 首碼必須位於與您的 AKS 叢集相同的區域中，且屬於相同的訂用帳戶。
+
+### <a name="define-your-own-public-ip-or-prefixes-at-cluster-create-time"></a>在叢集建立時間定義您自己的公用 IP 或首碼
+
+您可能想要在叢集建立時，將您自己的 IP 位址或 IP 首碼帶入輸出，以支援允許清單輸出端點之類的案例。 將上面顯示的相同參數附加至叢集建立步驟，以在叢集生命週期開始時定義您自己的公用 Ip 和 IP 首碼。
+
+使用*az aks create*命令搭配*負載平衡器-輸出 ip*參數，在一開始就建立含有公用 ip 的新叢集。
+
+```
+az aks create \
+    --resource-group myResourceGroup \
+    --name myAKSCluster \
+    --vm-set-type VirtualMachineScaleSets \
+    --node-count 1 \
+    --load-balancer-sku standard \
+    --generate-ssh-keys \
+    --load-balancer-outbound-ips <publicIpId1>,<publicIpId2>
+```
+
+使用*az aks create*命令搭配*負載平衡器-輸出 ip-首碼*參數，在開始時建立具有公用 ip 首碼的新叢集。
+
+```
+az aks create \
+    --resource-group myResourceGroup \
+    --name myAKSCluster \
+    --vm-set-type VirtualMachineScaleSets \
+    --node-count 1 \
+    --load-balancer-sku standard \
+    --generate-ssh-keys \
+    --load-balancer-outbound-ip-prefixes <publicIpPrefixId1>,<publicIpPrefixId2>
+```
 
 ## <a name="clean-up-the-standard-sku-load-balancer-configuration"></a>清除標準 SKU 負載平衡器設定
 

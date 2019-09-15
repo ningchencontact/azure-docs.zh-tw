@@ -6,20 +6,20 @@ ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 09/06/2019
-ms.openlocfilehash: 6c1104ba340f23a76d5b9b4167f895f5a115152c
-ms.sourcegitcommit: a4b5d31b113f520fcd43624dd57be677d10fc1c0
+ms.openlocfilehash: 8faa6338179eb1540eb4f9a375bf3bc696c745f3
+ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70773298"
+ms.lasthandoff: 09/14/2019
+ms.locfileid: "70995380"
 ---
 # <a name="read-replicas-in-azure-database-for-mariadb"></a>讀取適用於 MariaDB 的 Azure 資料庫中的複本
 
-[讀取複本] 功能可讓您將適用於 MariaDB 的 Azure 資料庫伺服器的資料複寫到唯讀伺服器。 您可以從主要伺服器複寫到最多五個複本。 複本會使用適用于 mariadb 引擎的二進位記錄檔（binlog）以檔案位置為基礎的複寫技術（具有全域交易識別碼（GTID））以非同步方式更新。 若要深入了解 binlog 複寫，請參閱 [binlog 複寫概觀](https://mariadb.com/kb/en/library/replication-overview/) \(英文\)。
+[讀取複本] 功能可讓您將適用於 MariaDB 的 Azure 資料庫伺服器的資料複寫到唯讀伺服器。 您可以從主要伺服器複寫到最多五個複本。 複本會使用適用于 mariadb 引擎的二進位記錄檔 (binlog) 以檔案位置為基礎的複寫技術 (具有全域交易識別碼 (GTID)) 以非同步方式更新。 若要深入了解 binlog 複寫，請參閱 [binlog 複寫概觀](https://mariadb.com/kb/en/library/replication-overview/) \(英文\)。
 
-複本是您所管理的新伺服器，類似于一般適用於 MariaDB 的 Azure 資料庫伺服器。 針對每個讀取複本，系統每月會針對在虛擬核心中所佈建的計算量，以及在儲存體中所佈建的容量 (以 GB 為單位) 向您收費。
+複本是您所管理的新伺服器, 類似于一般適用於 MariaDB 的 Azure 資料庫伺服器。 針對每個讀取複本，系統每月會針對在虛擬核心中所佈建的計算量，以及在儲存體中所佈建的容量 (以 GB 為單位) 向您收費。
 
-若要深入瞭解 GTID 複寫，請參閱[適用于 mariadb 複寫檔](https://mariadb.com/kb/en/library/gtid/)。
+若要深入瞭解 GTID 複寫, 請參閱[適用于 mariadb 複寫檔](https://mariadb.com/kb/en/library/gtid/)。
 
 ## <a name="when-to-use-a-read-replica"></a>何時應該使用讀取複本
 
@@ -60,9 +60,9 @@ ms.locfileid: "70773298"
 
 ## <a name="create-a-replica"></a>建立複本
 
-如果主伺服器沒有任何現有的複本伺服器，則主機會先重新開機以準備進行複寫。
+如果主伺服器沒有任何現有的複本伺服器, 則主機會先重新開機以準備進行複寫。
 
-當您啟動建立複本工作流程時，會建立空白的適用於 MariaDB 的 Azure 資料庫伺服器。 新的伺服器會具有主要伺服器上的資料。 建立時間取決於主要伺服器上的資料量，以及距離上次每週完整備份的時間。 時間的範圍可能介於數分鐘到數小時。
+當您啟動建立複本工作流程時, 會建立空白的適用於 MariaDB 的 Azure 資料庫伺服器。 新的伺服器會具有主要伺服器上的資料。 建立時間取決於主要伺服器上的資料量，以及距離上次每週完整備份的時間。 時間的範圍可能介於數分鐘到數小時。
 
 > [!NOTE]
 > 如果您沒有在伺服器上設定儲存體警示，建議您這麼做。 警示會在伺服器接近儲存體限制時向您發出通知，因為此狀況會影響複寫。
@@ -75,7 +75,7 @@ ms.locfileid: "70773298"
 
 複本會從主要伺服器繼承系統管理員帳戶。 系統會將主要伺服器上的所有使用者帳戶複寫到讀取複本。 您只能使用主要伺服器上可用的使用者帳戶來連線到讀取複本。
 
-您可以使用主機名稱和有效的使用者帳戶連接到複本，如同在一般適用於 MariaDB 的 Azure 資料庫伺服器上所做的一樣。 對於名為**myreplica**且具有管理員使用者名稱**myadmin**的伺服器，您可以使用 mysql CLI 來連線到複本：
+您可以使用主機名稱和有效的使用者帳戶連接到複本, 如同在一般適用於 MariaDB 的 Azure 資料庫伺服器上所做的一樣。 對於名為**myreplica**且具有管理員使用者名稱**myadmin**的伺服器, 您可以使用 mysql CLI 來連線到複本:
 
 ```bash
 mysql -h myreplica.mariadb.database.azure.com -u myadmin@myreplica -p
@@ -85,17 +85,17 @@ mysql -h myreplica.mariadb.database.azure.com -u myadmin@myreplica -p
 
 ## <a name="monitor-replication"></a>監視複寫
 
-適用於 MariaDB 的 Azure 資料庫在 Azure 監視器中提供複寫**延遲（以秒為單位）** 度量。 此計量僅適用於複本。
+適用於 MariaDB 的 Azure 資料庫在 Azure 監視器中提供複寫**延遲 (以秒為單位)** 度量。 此計量僅適用於複本。
 
 此計量是使用適用于 mariadb 的`seconds_behind_master` `SHOW SLAVE STATUS`命令所提供的計量來計算。
 
-設定警示，以在複寫延遲到達您的工作負載無法接受的值時通知您。
+設定警示, 以在複寫延遲到達您的工作負載無法接受的值時通知您。
 
 ## <a name="stop-replication"></a>停止複寫
 
 您可以停止主要伺服器與複本之間的複寫。 當主要伺服器和讀取複本之間的複寫停止時，複本就會成為獨立伺服器。 獨立伺服器中的資料是起始「停止複寫」命令時，複本上所包含的可用資料。 獨立伺服器不會跟上主要伺服器。
 
-當您選擇停止複寫至複本時，它會失去先前主要和其他複本的所有連結。 主要及其複本之間沒有自動容錯移轉。
+當您選擇停止複寫至複本時, 它會失去先前主要和其他複本的所有連結。 主要及其複本之間沒有自動容錯移轉。
 
 > [!IMPORTANT]
 > 獨立伺服器無法再次設定為複本。
@@ -111,7 +111,7 @@ mysql -h myreplica.mariadb.database.azure.com -u myadmin@myreplica -p
 
 ### <a name="master-server-restart"></a>主要伺服器重新啟動
 
-當您為沒有現有複本的主伺服器建立複本時，主伺服器會先重新開機，以準備好進行複寫。 請考慮這一點，並在離峰期間執行這些作業。
+當您為沒有現有複本的主伺服器建立複本時, 主伺服器會先重新開機, 以準備好進行複寫。 請考慮這一點，並在離峰期間執行這些作業。
 
 ### <a name="new-replicas"></a>新複本
 
@@ -119,14 +119,14 @@ mysql -h myreplica.mariadb.database.azure.com -u myadmin@myreplica -p
 
 ### <a name="replica-configuration"></a>複本設定
 
-系統會使用與主要伺服器相同的伺服器設定來建立複本。 建立複本之後，您可以從主伺服器獨立變更數個設定：計算世代、虛擬核心、儲存體、備份保留期限和適用于 mariadb 引擎版本。 定價層也可以個別變更，但不能變更為基本層，或從基本層變更為別的層。
+系統會使用與主要伺服器相同的伺服器設定來建立複本。 建立複本之後, 您可以從主伺服器獨立變更數個設定: 計算世代、虛擬核心、儲存體、備份保留期限和適用于 mariadb 引擎版本。 定價層也可以個別變更，但不能變更為基本層，或從基本層變更為別的層。
 
 > [!IMPORTANT]
 > 在將主要伺服器設定更新為新值之前，應將複本的設定更新為相等或更大的值。 此動作可確保複本可以跟上主要伺服器上所做的變更。
 
 ### <a name="stopped-replicas"></a>已停止的複本
 
-如果您停止主伺服器和讀取複本之間的複寫，已停止的複本會成為可接受讀取和寫入的獨立伺服器。 獨立伺服器無法再次設定為複本。
+如果您停止主伺服器和讀取複本之間的複寫, 已停止的複本會成為可接受讀取和寫入的獨立伺服器。 獨立伺服器無法再次設定為複本。
 
 ### <a name="deleted-master-and-standalone-servers"></a>已刪除的主要和獨立伺服器
 
@@ -138,9 +138,9 @@ mysql -h myreplica.mariadb.database.azure.com -u myadmin@myreplica -p
 
 ### <a name="server-parameters"></a>伺服器參數
 
-若要避免資料不同步，並避免潛在的資料遺失或損毀，則在使用讀取複本時，某些伺服器參數會被鎖定而無法更新。
+若要避免資料不同步, 並避免潛在的資料遺失或損毀, 則在使用讀取複本時, 某些伺服器參數會被鎖定而無法更新。
 
-主要和複本伺服器上的下列伺服器參數都會被鎖定：
+主要和複本伺服器上的下列伺服器參數都會被鎖定:
 - [`innodb_file_per_table`](https://mariadb.com/kb/en/library/innodb-system-variables/#innodb_file_per_table) 
 - [`log_bin_trust_function_creators`](https://mariadb.com/kb/en/library/replication-and-binary-log-system-variables/#log_bin_trust_function_creators)
 
@@ -155,4 +155,4 @@ mysql -h myreplica.mariadb.database.azure.com -u myadmin@myreplica -p
 ## <a name="next-steps"></a>後續步驟
 
 - 了解如何[使用 Azure 入口網站來建立及管理讀取複本](howto-read-replicas-portal.md)
-- 了解如何[使用 Azure CLI 來建立及管理讀取複本](howto-read-replicas-cli.md)
+- 瞭解如何[使用 Azure CLI 和 REST API 來建立和管理讀取複本](howto-read-replicas-cli.md)
