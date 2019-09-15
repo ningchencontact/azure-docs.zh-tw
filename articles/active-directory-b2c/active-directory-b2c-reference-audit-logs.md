@@ -1,111 +1,149 @@
 ---
-title: Azure Active Directory B2C 中的稽核記錄範例和定義 | Microsoft Docs
-description: 存取 Azure AD B2C 稽核記錄的指南和範例。
+title: Azure Active Directory B2C 中的 Audit 記錄範例和定義
+description: 存取 Azure AD B2C audit 記錄的指南和範例。
 services: active-directory-b2c
 author: mmacy
 manager: celestedg
 ms.service: active-directory
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 08/04/2017
+ms.date: 09/14/2019
 ms.author: marsma
 ms.subservice: B2C
 ms.custom: fasttrack-edit
-ms.openlocfilehash: d8cc67b8e243fb2b97cd1522a850adc63c84428e
-ms.sourcegitcommit: 47b00a15ef112c8b513046c668a33e20fd3b3119
+ms.openlocfilehash: cbb748e9856b6de9004d57e4393e205ddfcfffb4
+ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69969635"
+ms.lasthandoff: 09/15/2019
+ms.locfileid: "70998822"
 ---
 # <a name="accessing-azure-ad-b2c-audit-logs"></a>存取 Azure AD B2C 稽核記錄
 
-Azure Active Directory B2C (Azure AD B2C) 會發出稽核記錄，其中包含有關 B2C 資源、發行的權杖和系統管理員存取的活動資訊。 本文概述透過稽核記錄可取得的資訊，以及說明如何從您的 Azure AD B2C 租用戶存取此資料。
+Azure Active Directory B2C （Azure AD B2C）會發出 audit 記錄，其中包含 B2C 資源、發出的權杖和系統管理員存取的相關活動資訊。 本文提供 audit 記錄中可用資訊的簡要總覽，以及如何為您的 Azure AD B2C 租使用者存取此資料的指示。
 
-> [!IMPORTANT]
-> 稽核記錄只會保留七天。 如果您需要更長的保留期，請使用以下所示的其中一個方法來規劃下載與儲存您的記錄。
+Audit log 事件只會保留**七天**。 如果您需要更長的保留期，請使用以下所示的其中一個方法來規劃下載與儲存您的記錄。
 
 > [!NOTE]
-> 您無法在**Azure Active Directory**或**Azure AD B2C** blade 的 [**使用者**] 區段下, 看到個別 Azure AD B2C 應用程式的使用者登入。 登入將會顯示使用者活動, 但無法與使用者登入的 B2C 應用程式相互關聯。 您必須使用該的 audit 記錄檔, 如本文中的進一步說明。
+> 您無法在 Azure 入口網站的 [ **Azure Active Directory** ] 或 [ **Azure AD B2C** ] 頁面的 [**使用者**] 區段底下，看到個別 Azure AD B2C 應用程式的使用者登入。 登入事件顯示使用者活動，但無法與使用者已登入的 B2C 應用程式相互關聯。 您必須使用該的 audit 記錄檔，如本文中的進一步說明。
 
 ## <a name="overview-of-activities-available-in-the-b2c-category-of-audit-logs"></a>稽核記錄 B2C 類別中可取得活動的概觀
+
 稽核記錄中的 **B2C** 類別包含以下類型的活動：
 
 |活動類型 |描述  |
 |---------|---------|
-|Authorization |有關授權使用者存取 B2C 資源的活動 (例如，系統管理員存取 B2C 原則清單)         |
-|目錄 |當系統管理員使用 Azure 入口網站登入時, 所抓取之目錄屬性的相關活動 |
-|應用程式 | B2C 應用程式上的 CRUD 作業 |
-|Key |B2C 金鑰容器所儲存金鑰上的 CRUD 作業 |
-|Resource |B2C 資源 (例如，原則和身分識別提供者) 上的 CRUD 作業
-|驗證 |使用者認證和權杖發行的驗證|
+|Authorization |有關授權使用者存取 B2C 資源的活動（例如，存取 B2C 原則清單的系統管理員）。         |
+|目錄 |當系統管理員使用 Azure 入口網站登入時，所抓取之目錄屬性的相關活動。 |
+|應用程式 | 在 B2C 應用程式上建立、讀取、更新和刪除（CRUD）作業。 |
+|Key |在 B2C 金鑰容器中儲存之金鑰的 CRUD 作業。 |
+|Resource |B2C 資源的 CRUD 作業。 例如，原則和識別提供者。
+|驗證 |驗證使用者認證和權杖發行。|
 
-> [!NOTE]
-> 如需使用者物件 CRUD 活動，請參閱**核心目錄**類別。
+如需使用者物件 CRUD 活動，請參閱**核心目錄**類別。
 
 ## <a name="example-activity"></a>範例活動
-以下範例顯示當使用者以外部識別提供者登入時所擷取的資料：  
-    ![Azure 入口網站中的 [Audit 記錄活動詳細資料] 頁面範例](./media/active-directory-b2c-reference-audit-logs/audit-logs-example.png)
 
-[活動詳細資料] 面板包含下列相關資訊:
+此 Azure 入口網站中的範例影像會顯示當使用者以外部識別提供者登入時所捕捉到的資料（在此案例中為 Facebook）：
+
+![Azure 入口網站中的 [Audit 記錄活動詳細資料] 頁面範例](./media/active-directory-b2c-reference-audit-logs/audit-logs-example.png)
+
+[活動詳細資料] 面板包含下列相關資訊：
 
 |Section|欄位|描述|
 |-------|-----|-----------|
-| activities | Name | 發生了哪個活動。 例如, 「向應用程式發出 id_token」 (這會結束實際的使用者登入)。 |
-| 啟動者 (執行者) | ObjectId | 使用者所登入之 B2C 應用程式的**物件**識別碼 (此識別碼不會顯示在 Azure 入口網站中, 但可透過圖形 API 來存取)。 |
+| activities | Name | 發生了哪個活動。 例如，對*應用程式發出 id_token*，這會結束實際的使用者登入。 |
+| 啟動者 (執行者) | ObjectId | 使用者所登入之 B2C 應用程式的**物件識別碼**。 此識別碼不會顯示在 Azure 入口網站中，但可透過 Microsoft Graph API 存取。 |
 | 啟動者 (執行者) | SPN | 使用者所登入之 B2C 應用程式的**應用程式識別碼**。 |
 | 目標 | ObjectId | 登入之使用者的**物件識別碼**。 |
 | 其他詳細資料 | TenantId | Azure AD B2C 租使用者的**租使用者識別碼**。 |
-| 其他詳細資料 | `PolicyId` | 用來將使用者登入之使用者流程 (原則) 的**原則識別碼**。 |
+| 其他詳細資料 | `PolicyId` | 用來將使用者登入之使用者流程（原則）的**原則識別碼**。 |
 | 其他詳細資料 | ApplicationId | 使用者所登入之 B2C 應用程式的**應用程式識別碼**。 |
 
-## <a name="accessing-audit-logs-through-the-azure-portal"></a>透過 Azure 入口網站存取 audit 記錄
-1. 移至 [Azure 入口網站](https://portal.azure.com)。 確定您位於 B2C 目錄中。
-2. 在左邊 [我的最愛] 列中，按一下 [Azure Active Directory]
+## <a name="view-audit-logs-in-the-azure-portal"></a>查看 Azure 入口網站中的 audit 記錄
 
-    ![左側入口網站功能表中反白顯示的 Azure Active Directory 按鈕](./media/active-directory-b2c-reference-audit-logs/audit-logs-portal-aad.png)
+Azure 入口網站提供 Azure AD B2C 租使用者中 audit 記錄事件的存取權。
 
-1. 在 [活動] 下，按一下 [稽核記錄]
+1. 登入 [Azure 入口網站](https://portal.azure.com)
+1. 切換至包含您 Azure AD B2C 租使用者的目錄，然後流覽至**Azure AD B2C**。
+1. 在左側功能表中的 [**活動**] 底下，選取 [ **Audit logs**]。
 
-    ![功能表的 [活動] 區段中反白顯示的 [Audit 記錄] 按鈕](./media/active-directory-b2c-reference-audit-logs/audit-logs-portal-section.png)
+在過去七天內記錄的活動事件清單隨即顯示。
 
-2. 在 [類別] 投寄箱中，選取 [B2C]
-3. 按一下 [套用]
+![在 Azure 入口網站中使用兩個活動事件的範例篩選](media/active-directory-b2c-reference-audit-logs/audit-logs-example-filter.png)
 
-    ![[類別] 和 [套用] 按鈕已反白顯示于 Audit 記錄篩選](./media/active-directory-b2c-reference-audit-logs/audit-logs-portal-category.png)
+有數個篩選選項可供使用，包括：
 
-您會看到過去七天所記錄活動的清單。
-- 使用 [活動資源類型] 下拉式清單，根據上述活動類型來進行篩選
-- 使用 [日期範圍] 下拉式清單，以篩選所要顯示活動的日期範圍
-- 如果您按一下清單中的特定列，右邊的關聯式方塊會顯示與該活動相關的額外屬性
-- 按一下 [下載]，將活動下載為 csv 檔案
+* **活動資源類型**-依可用的活動[總覽](#overview-of-activities-available-in-the-b2c-category-of-audit-logs)一節中的表格所顯示的活動類型篩選。
+* **日期**-篩選所顯示活動的日期範圍。
 
-> [!NOTE]
-> 您也可以流覽至**Azure AD B2C** , 而不是左側 [我的最愛] 列中的**Azure Active Directory** , 來查看 audit 記錄。 在 [**活動**] 底下, 按一下 [**審核記錄**], 您會在其中找到具有類似篩選功能的相同記錄檔。
+如果您選取清單中的資料列，則會顯示事件的活動詳細資料。
 
-## <a name="accessing-audit-logs-through-the-azure-ad-reporting-api"></a>透過 Azure AD 報告 API 來存取稽核記錄
-稽核記錄的發行管線與 Azure Active Directory 的其他活動相同，因此可以透過 [Azure Active Directory 報告 API](https://docs.microsoft.com/azure/active-directory/active-directory-reporting-api-audit-reference) \(機器翻譯\) 來存取。
+若要下載逗號分隔值（CSV）檔案中的活動事件清單，請選取 [**下載**]。
 
-### <a name="prerequisites"></a>必要條件
-若要向 Azure AD 報告 API 驗證，需要先註冊應用程式。 請務必遵循[存取 Azure AD 報告 API 的必要條件](https://azure.microsoft.com/documentation/articles/active-directory-reporting-api-getting-started/) \(機器翻譯\) 中的步驟。
+## <a name="get-audit-logs-with-the-azure-ad-reporting-api"></a>使用 Azure AD 報告 API 取得 audit 記錄
 
-### <a name="accessing-the-api"></a>存取 API
-若要透過 API 下載 Azure AD B2C 稽核記錄，建議將記錄篩選至 **B2C** 類別。 若要依類別篩選，請如下所示，在呼叫 Azure AD 報告 API 端點時使用查詢字串參數：
+稽核記錄的發行管線與 Azure Active Directory 的其他活動相同，因此可以透過 [Azure Active Directory 報告 API](https://docs.microsoft.com/graph/api/directoryaudit-list) \(機器翻譯\) 來存取。 如需詳細資訊，請參閱[開始使用 Azure Active Directory 報告 API](../active-directory/reports-monitoring/concept-reporting-api.md)。
 
-`https://graph.windows.net/your-b2c-tentant.onmicrosoft.com/activities/audit?api-version=beta&$filter=category eq 'B2C'`
+### <a name="enable-reporting-api-access"></a>啟用報告 API 存取
+
+若要允許以腳本或應用程式為基礎的 Azure AD 報告 API 存取，您需要在 Azure AD B2C 租使用者中註冊具有下列 API 許可權的 Azure Active Directory 應用程式：
+
+* Microsoft Graph
+  * 應用程式讀取所有稽核記錄資料
+
+您可以在 B2C 租使用者中的現有應用程式註冊上啟用這些許可權，或建立一個專門用於 audit 記錄自動化的新帳戶。
+
+若要建立新的應用程式，請指派所需的 API 許可權，並建立用戶端密碼，然後執行下列步驟：
+
+1. 登錄應用程式
+    1. 登入[Azure 入口網站](https://portal.azure.com)，切換至包含您 Azure AD B2C 租使用者的目錄，然後流覽至 [ **Azure AD B2C**]。
+    1. 在左側功能表中的 [**管理**] 底下，選取 **[應用程式註冊（舊版）** ]。
+    1. 選取 [**新增應用程式註冊**]
+    1. 輸入應用程式的名稱。 例如， *Audit Log 應用程式*。
+    1. 在 [登入**url**] 中輸入任何有效的 url。 例如： *https://localhost* 。 此端點不需要可連線，但必須是有效的 URL。
+    1. 選取 [建立]。
+    1. 記錄 [**已註冊的應用**程式] 頁面上所顯示的 [**應用程式識別碼**]。 您需要此值，才能在自動化腳本中進行驗證，如稍後章節所示的範例 PowerShell 腳本。
+1. 指派 API 存取權限
+    1. 在 [**已註冊的應用程式**總覽] 頁面上，選取 [**設定**]。
+    1. 在 [ **API 存取**] 底下，選取 [**必要許可權**]。
+    1. 選取 [**新增**]，然後**選取 API**。
+    1. 選取 [ **Microsoft Graph**]，然後**選取**[]。
+    1. 在 [**應用程式許可權**] 底下，選取 [**讀取所有的審核記錄資料**]。
+    1. 選取 [**選取**] 按鈕，然後選取 [**完成**]。
+    1. 選取 [授與權限]，然後選取 [是]。
+1. 建立用戶端密碼
+    1. 在 [ **API 存取**] 底下，選取 [**金鑰**]。
+    1. 在 [**金鑰描述**] 方塊中輸入金鑰的描述。 例如， *Audit Log Key*。
+    1. 選取有效**期間**，然後選取 [**儲存**]。
+    1. 記錄索引鍵的**值**。 您需要此值，才能在自動化腳本中進行驗證，如稍後章節所示的範例 PowerShell 腳本。
+
+您現在有一個應用程式具有必要的 API 存取、應用程式識別碼，以及您可以在自動化腳本中使用的金鑰。 如需如何使用腳本來取得活動事件的範例，請參閱本文稍後的 PowerShell 腳本一節。
+
+### <a name="access-the-api"></a>存取 API
+
+若要透過 API 下載 Azure AD B2C audit 記錄事件，請篩選`B2C`類別目錄中的記錄。 若要依類別篩選，請`filter`在呼叫 Azure AD 報告 API 端點時使用查詢字串參數。
+
+```HTTP
+https://graph.microsoft.com/v1.0/auditLogs/directoryAudits?$filter=loggedByService eq 'B2C' and activityDateTime gt 2019-09-10T02:28:17Z
+```
 
 ### <a name="powershell-script"></a>PowerShell 指令碼
-以下範例指令碼可以使用 PowerShell 來查詢 Azure AD 報告 API 的，並將結果儲存成 JSON 檔案：
+
+下列 PowerShell 腳本顯示如何查詢 Azure AD 報告 API 的範例。 查詢 API 之後，它會將記錄的事件列印到標準輸出，然後將 JSON 輸出寫入檔案。
+
+您可以在[Azure Cloud Shell](../cloud-shell/overview.md)中嘗試此腳本。 請務必使用您的應用程式識別碼、金鑰和 Azure AD B2C 租使用者的名稱來更新它。
 
 ```powershell
-# This script will require registration of a Web Application in Azure Active Directory (see https://azure.microsoft.com/documentation/articles/active-directory-reporting-api-getting-started/)
+# This script requires the registration of a Web Application in Azure Active Directory:
+# https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-reporting-api
 
 # Constants
-$ClientID       = "your-client-application-id-here"       # Insert your application's Client ID, a Globally Unique ID (registered by Global Admin)
-$ClientSecret   = "your-client-application-secret-here"   # Insert your application's Client Key/Secret string
+$ClientID       = "your-client-application-id-here"       # Insert your application's Client ID, a GUID (registered by Global Admin)
+$ClientSecret   = "your-client-application-secret-here"   # Insert your application's Client secret/key
+$tenantdomain   = "your-b2c-tenant.onmicrosoft.com"       # Insert your Azure AD B2C tenant; for example, contoso.onmicrosoft.com
 $loginURL       = "https://login.microsoftonline.com"
-$tenantdomain   = "your-b2c-tenant.onmicrosoft.com"       # AAD B2C Tenant; for example, contoso.onmicrosoft.com
-$resource       = "https://graph.windows.net"             # Azure AD Graph API resource URI
+$resource       = "https://graph.microsoft.com"           # Microsoft Graph API resource URI
 $7daysago       = "{0:s}" -f (get-date).AddDays(-7) + "Z" # Use 'AddMinutes(-5)' to decrement minutes, for example
 Write-Output "Searching for events starting $7daysago"
 
@@ -117,7 +155,7 @@ $oauth      = Invoke-RestMethod -Method Post -Uri $loginURL/$tenantdomain/oauth2
 if ($oauth.access_token -ne $null) {
     $i=0
     $headerParams = @{'Authorization'="$($oauth.token_type) $($oauth.access_token)"}
-    $url = 'https://graph.windows.net/' + $tenantdomain + '/activities/audit?api-version=beta&$filter=category eq ''B2C''and activityDate gt ' + $7daysago
+    $url = "https://graph.microsoft.com/v1.0/auditLogs/directoryAudits?`$filter=loggedByService eq 'B2C' and activityDateTime gt  " + $7daysago
 
     # loop through each query page (1 through n)
     Do {
@@ -138,3 +176,72 @@ if ($oauth.access_token -ne $null) {
     Write-Host "ERROR: No Access Token"
 }
 ```
+
+以下是本文稍早所示之範例活動事件的 JSON 標記法：
+
+```JSON
+{
+    "id": "B2C_DQO3J_4984536",
+    "category": "Authentication",
+    "correlationId": "00000000-0000-0000-0000-000000000000",
+    "result": "success",
+    "resultReason": "N/A",
+    "activityDisplayName": "Issue an id_token to the application",
+    "activityDateTime": "2019-09-14T18:13:17.0618117Z",
+    "loggedByService": "B2C",
+    "operationType": "",
+    "initiatedBy": {
+        "user": null,
+        "app": {
+            "appId": "00000000-0000-0000-0000-000000000000",
+            "displayName": null,
+            "servicePrincipalId": null,
+            "servicePrincipalName": "00000000-0000-0000-0000-000000000000"
+        }
+    },
+    "targetResources": [
+        {
+            "id": "00000000-0000-0000-0000-000000000000",
+            "displayName": null,
+            "type": "User",
+            "userPrincipalName": null,
+            "groupType": null,
+            "modifiedProperties": []
+        }
+    ],
+    "additionalDetails": [
+        {
+            "key": "TenantId",
+            "value": "test.onmicrosoft.com"
+        },
+        {
+            "key": "PolicyId",
+            "value": "B2C_1A_signup_signin"
+        },
+        {
+            "key": "ApplicationId",
+            "value": "00000000-0000-0000-0000-000000000000"
+        },
+        {
+            "key": "Client",
+            "value": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/76.0.3809.132 Safari/537.36"
+        },
+        {
+            "key": "IdentityProviderName",
+            "value": "facebook"
+        },
+        {
+            "key": "IdentityProviderApplicationId",
+            "value": "0000000000000000"
+        },
+        {
+            "key": "ClientIpAddress",
+            "value": "127.0.0.1"
+        }
+    ]
+}
+```
+
+## <a name="next-steps"></a>後續步驟
+
+您可以自動化其他管理工作，例如[使用 .net 來管理使用者](active-directory-b2c-devquickstarts-graph-dotnet.md)。

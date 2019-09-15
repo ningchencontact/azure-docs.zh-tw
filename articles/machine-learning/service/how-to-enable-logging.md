@@ -1,7 +1,7 @@
 ---
-title: 在 Azure Machine Learning 服務中啟用記錄
-titleSuffix: Azure Machine Learning service
-description: 了解如何在 Azure Machine Learning 服務中使用預設 Python 記錄套件以及使用 SDK 特有的功能啟用記錄。
+title: 啟用 Azure Machine Learning 中的記錄
+titleSuffix: Azure Machine Learning
+description: 瞭解如何使用預設的 Python 記錄封裝，以及使用 SDK 特有的功能，在 Azure Machine Learning 中啟用記錄。
 ms.author: trbye
 author: trevorbye
 services: machine-learning
@@ -10,14 +10,14 @@ ms.subservice: core
 ms.topic: conceptual
 ms.reviewer: trbye
 ms.date: 07/12/2019
-ms.openlocfilehash: 9deb369dc812616cd7256bbab4101531ca08f127
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: 80508a31db8d86569c52df98697ceb62520059d2
+ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68847943"
+ms.lasthandoff: 09/15/2019
+ms.locfileid: "71002763"
 ---
-# <a name="enable-logging-in-azure-machine-learning-service"></a>在 Azure Machine Learning 服務中啟用記錄
+# <a name="enable-logging-in-azure-machine-learning"></a>啟用 Azure Machine Learning 中的記錄
 
 Azure Machine Learning Python SDK 可讓您使用預設 Python 記錄套件以及使用 SDK 特有的功能啟用記錄，兩者皆可用於本機記錄和記錄至您在入口網站中的工作區。 記錄可提供開發人員應用程式狀態的即時資訊，並可協助診斷錯誤或警告。 在本文中，您會了解在下列領域啟用記錄的不同方式：
 
@@ -27,7 +27,7 @@ Azure Machine Learning Python SDK 可讓您使用預設 Python 記錄套件以�
 > * 已部署的模型
 > * Python `logging` 設定
 
-[建立 Azure Machine Learning 服務工作區](how-to-manage-workspace.md)。 如需 SDK 的詳細資訊, 請使用[指南](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py)。
+[建立 Azure Machine Learning 工作區](how-to-manage-workspace.md)。 如需 SDK 的詳細資訊, 請使用[指南](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py)。
 
 ## <a name="training-models-and-compute-target-logging"></a>定型模型和計算目標記錄
 

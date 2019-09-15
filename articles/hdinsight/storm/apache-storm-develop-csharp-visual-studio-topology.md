@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.topic: conceptual
 ms.date: 11/27/2017
 ROBOTS: NOINDEX
-ms.openlocfilehash: e6f6ba131a4fb5dd31f113afd2b6de2d65aeaea0
-ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
+ms.openlocfilehash: 828ec2b925535df3f925093466556447e703cd76
+ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70915175"
+ms.lasthandoff: 09/15/2019
+ms.locfileid: "71003812"
 ---
 # <a name="develop-c-topologies-for-apache-storm-by-using-the-data-lake-tools-for-visual-studio"></a>使用 Data Lake Tools for Visual Studio 開發 Apache Storm 的 C# 拓撲
 
@@ -135,7 +135,7 @@ HBase 讀取器和寫入器範本會使用 HBase REST API (而不是 HBase Java 
 
 2. 從 [新增專案] 視窗，展開 [已安裝] > [範本]，然後選取 [Azure Data Lake]。 從範本清單中，選取 [Storm 應用程式]。 在畫面底部，輸入 **WordCount** 做為應用程式名稱。
 
-    ![[新增專案] 視窗的螢幕擷取畫面](./media/apache-storm-develop-csharp-visual-studio-topology/new-project.png)
+    ![[新增專案] 視窗的螢幕擷取畫面](./media/apache-storm-develop-csharp-visual-studio-topology/apache-storm-new-project.png)
 
 3. 建立專案之後，您應該會有下列檔案：
 
@@ -338,7 +338,7 @@ HBase 讀取器和寫入器範本會使用 HBase REST API (而不是 HBase Java 
 
 Spout 和 Bolt 是以圖形方式排列，用以定義資料在元件之間的流動方式。 此拓撲的圖形如下：
 
-![元件排列方式的圖表](./media/apache-storm-develop-csharp-visual-studio-topology/wordcount-topology.png)
+![元件排列方式的圖表](./media/apache-storm-develop-csharp-visual-studio-topology/word-count-topology1.png)
 
 句子是從 Spout 發出，並分散到 Splitter Bolt 執行個體。 Splitter Bolt 會將句子分成多個單字，並將這些單字分散到 Counter Bolt。
 
@@ -461,7 +461,6 @@ return topologyBuilder;
   > [!NOTE]  
   > 這個版本也會示範如何使用文字檔中的 Clojure 程式碼做為 Java 元件。
 
-
 若要切換為提交專案時所使用的拓撲，請在提交至叢集之前，將 `[Active(true)]` 陳述式移至您要使用的拓撲即可。
 
 > [!NOTE]  
@@ -571,15 +570,15 @@ public static MyComponent Get(Context ctx, Dictionary<string, Object> parms)
    > [!NOTE]
    > 請記得先將 [輸出類型] 變更回 [類別庫]，再將拓撲部署至叢集。
 
-2. 在 [方案總管] 中，以滑鼠右鍵按一下專案，然後選取 [新增] > [新項目]。 選取 [類別]，並輸入 **LocalTest.cs** 做為類別名稱。 最後按一下 [新增]。
+1. 在 [方案總管] 中，以滑鼠右鍵按一下專案，然後選取 [新增] > [新項目]。 選取 [類別]，並輸入 **LocalTest.cs** 做為類別名稱。 最後按一下 [新增]。
 
-3. 開啟 **LocalTest.cs**，並在頂端加入下列 **using** 陳述式：
+1. 開啟 **LocalTest.cs**，並在頂端加入下列 **using** 陳述式：
 
     ```csharp
     using Microsoft.SCP;
     ```
 
-4. 使用下列程式碼做為 **LocalTest** 類別的內容：
+1. 使用下列程式碼做為 **LocalTest** 類別的內容：
 
     ```csharp
     // Drives the topology components
@@ -681,9 +680,9 @@ public static MyComponent Get(Context ctx, Dictionary<string, Object> parms)
     Console.ReadKey();
     ```
 
-2. 儲存變更，然後按一下 **F5** 或選取 [偵錯] > [開始偵錯] 來啟動專案。 應該會出現主控台視窗，並記錄測試進行的狀態。 出現 [測試已完成] 時，請按任意鍵關閉視窗。
+1. 儲存變更，然後按一下 **F5** 或選取 [偵錯] > [開始偵錯] 來啟動專案。 應該會出現主控台視窗，並記錄測試進行的狀態。 出現 [測試已完成] 時，請按任意鍵關閉視窗。
 
-3. 使用 [Windows 檔案總管] 找出包含您專案的目錄。 例如: **C:\Users\<your_user_name>\Documents\Visual Studio 2013\Projects\WordCount\WordCount**。 在此目錄中，開啟 [Bin]，然後按一下 [偵錯]。 您應該會看到執行測試時所產生的文字檔：sentences.txt、counter.txt 和 splitter.txt。 開啟每個文字檔，並檢查資料。
+1. 使用 [Windows 檔案總管] 找出包含您專案的目錄。 例如: **C:\Users\<your_user_name>\Documents\Visual Studio 2013\Projects\WordCount\WordCount**。 在此目錄中，開啟 [Bin]，然後按一下 [偵錯]。 您應該會看到執行測試時所產生的文字檔：sentences.txt、counter.txt 和 splitter.txt。 開啟每個文字檔，並檢查資料。
 
    > [!NOTE]  
    > 字串資料會在這些檔案中保存為十進位值的陣列。 例如，**splitter.txt** 檔案中的 \[[97,103,111]] 是 *and* 這個單字。

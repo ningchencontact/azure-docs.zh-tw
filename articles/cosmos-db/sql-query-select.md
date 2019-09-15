@@ -1,21 +1,21 @@
 ---
 title: Azure Cosmos DB 中的 SELECT 子句
-description: 適用於 Azure Cosmos DB，以了解 SQL SELECT 子句。 使用 SQL 作為 Azure Cosmos DB JSON 查詢語言。
+description: 瞭解 Azure Cosmos DB 的 SQL SELECT 子句。 使用 SQL 做為 Azure Cosmos DB JSON 查詢語言。
 author: ginarobinson
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 06/10/2019
 ms.author: girobins
-ms.openlocfilehash: 84d0212f7f212b4554b506726e027fe51f795eea
-ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
+ms.openlocfilehash: d34b1c39d9789409dc365cd4cf07fdc3d5a780fd
+ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/24/2019
-ms.locfileid: "67342534"
+ms.lasthandoff: 09/15/2019
+ms.locfileid: "71003521"
 ---
 # <a name="select-clause"></a>SELECT 子句
 
-每個查詢都包含 SELECT 子句和選擇性[FROM](sql-query-from.md)並[其中](sql-query-where.md)子句，根據 ANSI SQL 標準。 一般而言，會列舉 FROM 子句中的來源，而 WHERE 子句來擷取 JSON 項目子集在來源上套用篩選。 SELECT 子句，然後投射選取清單中要求的 JSON 值。
+每個查詢都包含 SELECT 子句，以及每個 ANSI SQL 標準的選擇性[from](sql-query-from.md)和[WHERE](sql-query-where.md)子句。 通常會列舉 FROM 子句中的來源，而 WHERE 子句會在來源上套用篩選，以抓取 JSON 專案的子集。 然後，SELECT 子句會在選取清單中投射要求的 JSON 值。
 
 ## <a name="syntax"></a>語法
 
@@ -52,7 +52,7 @@ SELECT <select_specification>
  
 - `DISTINCT`
   
-  指定應移除重複項目之預計屬性。  
+  指定應該移除投影屬性的重複專案。  
 
 - `<scalar_expression>`  
 
@@ -78,7 +78,7 @@ SELECT <select_specification>
   
 ## <a name="examples"></a>範例
 
-下列的 SELECT 查詢範例會傳回`address`從`Families`其`id`符合`AndersenFamily`:
+下列`address` SELECT 查詢範例會從`Families`符合`AndersenFamily`的`id`傳回：
 
 ```sql
     SELECT f.address
@@ -99,7 +99,7 @@ SELECT <select_specification>
 ```
 
 ### <a name="quoted-property-accessor"></a>加上引號的屬性存取子
-您可以使用引號括住的屬性運算子 [] 的屬性。 例如， `SELECT c.grade` and `SELECT c["grade"]` 是相等的。 此語法適合用來逸出此屬性，包含空格、 特殊字元，或具有相同名稱的 SQL 關鍵字或保留的字。
+您可以使用加上引號的屬性運算子 [] 來存取屬性。 例如， `SELECT c.grade` and `SELECT c["grade"]` 是相等的。 此語法適用于將包含空格、特殊字元或名稱與 SQL 關鍵字或保留字相同的屬性加以轉義。
 
 ```sql
     SELECT f["lastName"]
@@ -109,7 +109,7 @@ SELECT <select_specification>
 
 ### <a name="nested-properties"></a>巢狀屬性
 
-下列範例專案的兩個巢狀的屬性`f.address.state`和`f.address.city`。
+下列範例會投射兩個嵌套的`f.address.state`屬性`f.address.city`：和。
 
 ```sql
     SELECT f.address.state, f.address.city
@@ -147,7 +147,7 @@ SELECT <select_specification>
     }]
 ```
 
-在上述範例中，SELECT 子句需要建立 JSON 物件，以及由於此範例提供沒有索引鍵，子句會使用隱含的引數的變數名稱`$1`。 下列查詢會傳回兩個隱含引數變數：`$1`和`$2`。
+在上述範例中，SELECT 子句需要建立 JSON 物件，而且由於此範例不提供索引鍵，因此子句會使用隱含引數變數名稱`$1`。 下列查詢會傳回兩個隱含引數`$1`變數`$2`：和。
 
 ```sql
     SELECT { "state": f.address.state, "city": f.address.city },
@@ -173,5 +173,5 @@ SELECT <select_specification>
 ## <a name="next-steps"></a>後續步驟
 
 - [開始使用](sql-query-getting-started.md)
-- [Azure Cosmos DB .NET 範例](https://github.com/Azure/azure-cosmosdb-dotnet)
+- [Azure Cosmos DB .NET 範例](https://github.com/Azure/azure-cosmos-dotnet-v3)
 - [WHERE 子句](sql-query-where.md)

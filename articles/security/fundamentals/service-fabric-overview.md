@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/04/2017
 ms.author: tomsh
-ms.openlocfilehash: ca2f346950d84fda736437f439efc5d35e342799
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: 5329323122d8470b19055040b6f00b6db7c0e75f
+ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68934580"
+ms.lasthandoff: 09/15/2019
+ms.locfileid: "70998956"
 ---
 # <a name="azure-service-fabric-security-overview"></a>Azure Service Fabric 安全性概觀
 [Azure Service Fabric](../../service-fabric/service-fabric-overview.md) 是分散式系統平台，可讓您輕鬆封裝、部署及管理可調整和可信賴的微服務。 Service Fabric 可解決開發與管理雲端應用程式時遭遇的挑戰。 開發人員與管理員能夠避免複雜的基礎結構問題，全心實作可調整、可信賴的關鍵性高需求工作負載。
@@ -88,7 +88,7 @@ Service Fabric 叢集提供其管理功能的數個進入點，包括 Web 架構
 
 2.  **事件彙總**：產生的事件必須經過收集與彙總後，才能夠顯示。 我們通常建議使用 [Azure 診斷](../../service-fabric/service-fabric-diagnostics-event-aggregation-wad.md) (類似代理程式型記錄收集) 或 [EventFlow](../../service-fabric/service-fabric-diagnostics-event-aggregation-eventflow.md) (同處理序記錄收集)。
 
-3.  **分析**：事件必須經過視覺化並可藉由某種格式來存取，才能進行分析及顯示。 有數個平台可用於監視和診斷資料的分析和視覺效果。 我們建議[Azure 監視器記錄](../../service-fabric/service-fabric-diagnostics-event-analysis-oms.md)和[Azure 應用程式深入](../../service-fabric/service-fabric-diagnostics-event-analysis-appinsights.md)解析, 因為它們會與 Service Fabric 完美整合。
+3.  **分析**：事件必須經過視覺化並可藉由某種格式來存取，才能進行分析及顯示。 有數個平台可用於監視和診斷資料的分析和視覺效果。 我們建議[Azure 監視器記錄](../../service-fabric/service-fabric-diagnostics-event-analysis-oms.md)和[Azure 應用程式深入](../../service-fabric/service-fabric-diagnostics-event-analysis-appinsights.md)解析，因為它們會與 Service Fabric 完美整合。
 
 您也可以使用 [Azure 監視器](../../azure-monitor/overview.md)，監視構成 Service Fabric 叢集的許多 Azure 資源。
 
@@ -132,7 +132,7 @@ X509 數位憑證通常用來驗證用戶端與伺服器。 它們也可用於�
 ### <a name="manage-secrets-in-service-fabric-applications"></a>管理 Service Fabric 應用程式中的祕密
 密碼可以是任何機密資訊，例如儲存體連接字串、密碼或其他不會以純文字處理的值。
 
-您可以使用 [Azure Key Vault](../../key-vault/key-vault-whatis.md) 來管理金鑰和密碼。 不過，在應用程式中使用密碼時不會依賴特定的雲端平台。 您可以將應用程式部署至任何位置裝載的叢集。 此流程有四個主要步驟︰
+您可以使用 [Azure Key Vault](../../key-vault/key-vault-overview.md) 來管理金鑰和密碼。 不過，在應用程式中使用密碼時不會依賴特定的雲端平台。 您可以將應用程式部署至任何位置裝載的叢集。 此流程有四個主要步驟︰
 
 1.  取得資料加密憑證。
 2.  在叢集中安裝憑證。

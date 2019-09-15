@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 01/26/2018
-ms.openlocfilehash: 9424ebbd4ed2e1536a10d77a88257bad948628e2
-ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
+ms.openlocfilehash: e4414a64b2ee34ec16fde56dd750f2faa26b2e09
+ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70915390"
+ms.lasthandoff: 09/15/2019
+ms.locfileid: "71002952"
 ---
 # <a name="create-high-availability-apache-spark-streaming-jobs-with-yarn"></a>使用 YARN 建立高可用性 Apache Spark 串流作業
 
@@ -21,7 +21,7 @@ ms.locfileid: "70915390"
 
 Spark 串流會建立長時間執行的作業，您可在這段期間將轉換套用至資料，然後將結果推送至檔案系統、資料庫、儀表板和主控台。 Spark 串流會先收集定義的時間間隔內的事件批次，藉此處理資料微批次。 接著會傳送該批次以進行處理和輸出。 批次時間間隔通常是以幾分之一秒定義。
 
-![Spark Streaming](./media/apache-spark-streaming-high-availability/spark-streaming.png)
+![Spark Streaming](./media/apache-spark-streaming-high-availability/apache-spark-streaming.png)
 
 ## <a name="dstreams"></a>DStreams
 
@@ -57,7 +57,7 @@ RDD 有數個可協助高可用性和容錯的 Spark 串流作業的屬性：
 
 在 HDInsight 中，叢集工作是由 *Yet Another Resource Negotiator* (YARN) 協調。 設計高可用性的 Spark 串流時包含 Spark 串流技術，以及 YARN 元件技術。  使用 YARN 的組態範例如下所示。 
 
-![YARN 架構](./media/apache-spark-streaming-high-availability/yarn-arch.png)
+![YARN 架構](./media/apache-spark-streaming-high-availability/hdi-yarn-architecture.png)
 
 下列各節說明此組態的設計考量。
 

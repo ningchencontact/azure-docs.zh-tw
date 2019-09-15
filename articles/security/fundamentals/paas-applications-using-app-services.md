@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/18/2019
 ms.author: terrylan
-ms.openlocfilehash: dd47f4b7e0e9e27714be3862494bfdabf122d458
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.openlocfilehash: 4967f6f7831f1f09a502b935342fcd752af72fce
+ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68726802"
+ms.lasthandoff: 09/15/2019
+ms.locfileid: "70999155"
 ---
 # <a name="best-practices-for-securing-paas-web-and-mobile-applications-using-azure-app-service"></a>使用 Azure App Service 保護 PaaS Web 與行動應用程式的最佳做法
 
@@ -35,12 +35,12 @@ App Service 可為您的識別提供者提供 OAuth 2.0 服務。 OAuth 2.0 既�
 對於想要強制執行資料存取安全性原則的組織來說，限制存取是必須做的事。 您可以使用角色型存取控制 (RBAC) 將權限指派給特定範圍的使用者、群組和應用程式，例如，需要知道並擁有最低權限安全性原則。 若要深入了解授與使用者的應用程式存取權，請參閱[什麼是角色型存取控制](/azure/role-based-access-control/overview)。
 
 ## <a name="protect-your-keys"></a>保護您的金鑰
-如果您遺失訂用帳戶金鑰，則安全性措施做得再好也沒有用。 Azure 金鑰保存庫可協助保護雲端應用程式和服務所使用的密碼編譯金鑰和密碼。 您可以使用金鑰保存庫加密金鑰和密碼 (例如驗證金鑰、儲存體帳戶金鑰、資料加密金鑰、.PFX 檔案和密碼)，方法是使用受硬體安全模組 (HSM) 保護的金鑰。 為了加強保證，您可以在 HSM 中匯入或產生金鑰。 您可以使用 Key Vault 藉由自動更新管理 TLS 憑證。 若要深入了解，請參閱[什麼是 Azure Key Vault](../../key-vault/key-vault-whatis.md)。
+如果您遺失訂用帳戶金鑰，則安全性措施做得再好也沒有用。 Azure 金鑰保存庫可協助保護雲端應用程式和服務所使用的密碼編譯金鑰和密碼。 您可以使用金鑰保存庫加密金鑰和密碼 (例如驗證金鑰、儲存體帳戶金鑰、資料加密金鑰、.PFX 檔案和密碼)，方法是使用受硬體安全模組 (HSM) 保護的金鑰。 為了加強保證，您可以在 HSM 中匯入或產生金鑰。 您可以使用 Key Vault 藉由自動更新管理 TLS 憑證。 若要深入了解，請參閱[什麼是 Azure Key Vault](../../key-vault/key-vault-overview.md)。
 
 ## <a name="restrict-incoming-source-ip-addresses"></a>限制連入來源 IP 位址
 [App Service 環境](../../app-service/environment/intro.md)具有虛擬網路整合功能，可協助您透過網路安全性群組 (NSG) 限制連入來源 IP 位址。 如果您不熟悉「Azure 虛擬網路」(VNET)，這是一種功能，可讓您將許多 Azure 資源放在由您控制存取的非網際網路、可路由網路中。 若要深入了解，請參閱[將您的應用程式與 Azure 虛擬網路整合](../../app-service/web-sites-integrate-with-vnet.md)。
 
-對於 Windows 上的 App Service, 您也可以藉由設定 web.config 來動態限制 IP 位址。如需詳細資訊, 請參閱[動態 IP 安全性](/iis/configuration/system.webServer/security/dynamicIpSecurity/)。
+對於 Windows 上的 App Service，您也可以藉由設定 web.config 來動態限制 IP 位址。如需詳細資訊，請參閱[動態 IP 安全性](/iis/configuration/system.webServer/security/dynamicIpSecurity/)。
 
 
 ## <a name="next-steps"></a>後續步驟

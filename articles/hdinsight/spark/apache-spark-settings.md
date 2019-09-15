@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/17/2019
-ms.openlocfilehash: 2d369af7c11473d811677f33f9112d41260fcecf
-ms.sourcegitcommit: 97605f3e7ff9b6f74e81f327edd19aefe79135d2
+ms.openlocfilehash: 48f19e5da8c7703cc597518246c2f62ebce3ae17
+ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70736030"
+ms.lasthandoff: 09/15/2019
+ms.locfileid: "71003120"
 ---
 # <a name="configure-apache-spark-settings"></a>設定 Apache Spark 設定
 
@@ -44,11 +44,11 @@ Apache Spark 有三個系統組態位置：
 當您選取特定版本的 Spark 時，叢集將會包含預設組態設定。  您可以藉由使用自訂的 Spark 設定檔，來變更預設 Spark 設定值。  範例如下所示。
 
 ```
-    spark.hadoop.io.compression.codecs org.apache.hadoop.io.compress.GzipCodec
-    spark.hadoop.mapreduce.input.fileinputformat.split.minsize 1099511627776
-    spark.hadoop.parquet.block.size 1099511627776
-    spark.sql.files.maxPartitionBytes 1099511627776
-    spark.sql.files.openCostInBytes 1099511627776
+spark.hadoop.io.compression.codecs org.apache.hadoop.io.compress.GzipCodec
+spark.hadoop.mapreduce.input.fileinputformat.split.minsize 1099511627776
+spark.hadoop.parquet.block.size 1099511627776
+spark.sql.files.maxPartitionBytes 1099511627776
+spark.sql.files.openCostInBytes 1099511627776
 ```
 
 上方顯示的範例會覆寫五個 Spark 設定參數的數個預設值。  它們分別是壓縮轉碼器、Apache Hadoop MapReduce 分割大小下限和 parquet 區塊大小，以及 Spar SQL 分割區和開啟檔案大小的預設值。  之所以會選擇這些設定變更，是因為相關聯的資料和作業 (在此範例中為基因組資料) 具有特定特性，而在使用這些自訂組態設定時會有較好的執行效能。
@@ -63,7 +63,7 @@ Apache Ambari Web UI 隨即出現，並顯示主要叢集資源使用率計量�
 
 若要檢視 Apache Spark 的設定值，請選取 [設定歷程記錄]，然後選取 [Spark2]。  選取 [設定] 索引標籤，然後選取服務清單中的 `Spark` (或 `Spark2`，視您的版本而定) 連結。  您會看到叢集的設定值清單：
 
-![Spark 設定](./media/apache-spark-settings/spark-config.png)
+![Spark 設定](./media/apache-spark-settings/spark-configurations.png)
 
 若要檢視及變更個別的 Spark 設定值，請在連結標題中選取任何含有 "spark" 這個字的連結。  Spark 的設定同時包含下列類別的自訂和進階設定值：
 
@@ -82,7 +82,7 @@ Apache Ambari Web UI 隨即出現，並顯示主要叢集資源使用率計量�
 
 下圖顯示主要 Spark 物件：驅動程式及其相關聯的 Spark 內容，和叢集管理員及其 *n* 個背景工作角色節點。  每個背景工作角色節點都包含一個執行程式、一個快取和 *n* 個工作執行個體。
 
-![叢集物件](./media/apache-spark-settings/spark-arch.png)
+![叢集物件](./media/apache-spark-settings/hdi-spark-architecture.png)
 
 Spark 作業會使用背景工作角色資源 (尤其是記憶體)，因此，調整背景工作角色節點「執行程式」的 Spark 設定值，是很常見的動作。
 
@@ -93,7 +93,7 @@ Spark 作業會使用背景工作角色資源 (尤其是記憶體)，因此，�
 
 Spark 執行程式所使用之資源的另一個相關資訊來源，是 Spark 應用程式 UI。  在 Spark UI 中選取 [執行程式] 索引標籤，可顯示執行程式所使用之設定和資源的 [摘要] 和 [詳細資料] 檢視。  這些檢視可協助您判斷是要對整個叢集變更 Spark 執行程式的預設值，還是對特定的一組作業執行進行變更。
 
-![Spark 執行程式](./media/apache-spark-settings/spark-executors.png)
+![Spark 執行程式](./media/apache-spark-settings/apache-spark-executors.png)
 
 或者，您可以使用 Ambari REST API，以程式設計方式驗證 HDInsight 和 Spark 叢集組態設定。  您可以在 [GitHub 上的 Apache Ambari API 參考](https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/index.md)取得詳細資訊。
 
@@ -105,7 +105,7 @@ Spark 執行程式所使用之資源的另一個相關資訊來源，是 Spark �
 
 下列範例說明兩個使用不同設定值的背景工作角色節點：
 
-![兩個節點設定](./media/apache-spark-settings/executor-config.png)
+![兩個節點設定](./media/apache-spark-settings/executor-configuration.png)
 
 下列清單顯示主要 Spark 執行程式記憶體參數。
 
@@ -116,7 +116,7 @@ Spark 執行程式所使用之資源的另一個相關資訊來源，是 Spark �
 
 YARN 會控制每個 Spark 節點上所有容器所使用的記憶體最大總和。 下圖顯示每個節點中，YARN 設定物件與 Spark 物件之間的關聯性。
 
-![YARN Spark 記憶體管理](./media/apache-spark-settings/yarn-spark-memory.png)
+![YARN Spark 記憶體管理](./media/apache-spark-settings/hdi-yarn-spark-memory.png)
 
 ## <a name="change-parameters-for-an-application-running-in-jupyter-notebook"></a>變更在 Jupyter Notebook 中執行的應用程式所使用的參數
 
@@ -136,8 +136,8 @@ YARN 會控制每個 Spark 節點上所有容器所使用的記憶體最大總�
 下列程式碼顯示如何變更在 Jupyter Notebook 中執行之應用程式的設定。
 
 ```
-    %%configure
-    {"executorMemory": "3072M", "executorCores": 4, "numExecutors":10}
+%%configure
+{"executorMemory": "3072M", "executorCores": 4, "numExecutors":10}
 ```
 
 ## <a name="conclusion"></a>結論

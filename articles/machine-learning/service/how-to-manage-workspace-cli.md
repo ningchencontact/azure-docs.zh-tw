@@ -1,7 +1,7 @@
 ---
 title: 使用 Azure CLI 建立工作區
-titleSuffix: Azure Machine Learning service
-description: 瞭解如何使用 Azure CLI 建立新的 Azure Machine Learning 服務工作區。
+titleSuffix: Azure Machine Learning
+description: 瞭解如何使用 Azure CLI 建立新的 Azure Machine Learning 工作區。
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,20 +9,20 @@ ms.topic: conceptual
 ms.author: larryfr
 author: Blackmist
 ms.date: 08/30/2019
-ms.openlocfilehash: f398eb8124f45562ebc3c4238c641a6638811394
-ms.sourcegitcommit: 23389df08a9f4cab1f3bb0f474c0e5ba31923f12
+ms.openlocfilehash: 75487906e4323ea12a47d75164617212bd3e65d9
+ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70873491"
+ms.lasthandoff: 09/15/2019
+ms.locfileid: "71002640"
 ---
-# <a name="create-a-workspace-for-azure-machine-learning-service-with-azure-cli"></a>使用 Azure CLI 建立 Azure Machine Learning 服務的工作區
+# <a name="create-a-workspace-for-azure-machine-learning-with-azure-cli"></a>使用 Azure CLI 建立 Azure Machine Learning 的工作區
 
-在本文中，您將瞭解如何使用 Azure CLI 建立 Azure Machine Learning 服務工作區。 Azure CLI 提供用來管理 Azure 資源的命令。 CLI 的機器學習擴充功能會提供命令，以使用 Azure Machine Learning 服務資源。
+在本文中，您將瞭解如何使用 Azure CLI 建立 Azure Machine Learning 工作區。 Azure CLI 提供用來管理 Azure 資源的命令。 CLI 的機器學習擴充功能會提供命令，以使用 Azure Machine Learning 資源。
 
 ## <a name="prerequisites"></a>必要條件
 
-* **Azure 訂用帳戶**。 如果您沒有訂用帳戶，可以[試用免費或付費版本的 Azure Machine Learning 服務](https://aka.ms/AMLFree)。
+* **Azure 訂用帳戶**。 如果您沒有帳戶，請試用[免費或付費版本的 Azure Machine Learning](https://aka.ms/AMLFree)。
 
 * 若要在您的**本機環境**中使用本檔中的 CLI 命令，您需要[Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)。
 
@@ -53,7 +53,7 @@ az extension add -n azure-cli-ml
 
 ## <a name="create-a-workspace"></a>建立工作區
 
-Azure Machine Learning 服務工作區會依賴下列 Azure 服務或實體：
+Azure Machine Learning 工作區會依賴下列 Azure 服務或實體：
 
 > [!IMPORTANT]
 > 如果您未指定現有的 Azure 服務，則會在建立工作區時自動建立一個。 您一定要指定資源群組。
@@ -68,10 +68,10 @@ Azure Machine Learning 服務工作區會依賴下列 Azure 服務或實體：
 
 ### <a name="create-a-resource-group"></a>建立資源群組
 
-Azure Machine Learning 服務工作區必須建立在資源群組內。 您可以使用現有的資源群組，或建立一個新的群組。 若要__建立新的資源群組__，請使用下列命令。 取代`<resource-group-name>`為要用於此資源群組的名稱。 將`<location>`取代為要用於此資源群組的 Azure 區域：
+Azure Machine Learning 工作區必須建立在資源群組內。 您可以使用現有的資源群組，或建立一個新的群組。 若要__建立新的資源群組__，請使用下列命令。 取代`<resource-group-name>`為要用於此資源群組的名稱。 將`<location>`取代為要用於此資源群組的 Azure 區域：
 
 > [!TIP]
-> 您應該選取可使用 Azure Machine Learning 服務的區域。 如需相關資訊，請參閱[依區域提供的產品](https://azure.microsoft.com/global-infrastructure/services/?products=machine-learning-service)。
+> 您應該選取可使用 Azure Machine Learning 的區域。 如需相關資訊，請參閱[依區域提供的產品](https://azure.microsoft.com/global-infrastructure/services/?products=machine-learning-service)。
 
 ```azurecli-interactive
 az group create --name <resource-group-name> --location <location>
@@ -170,7 +170,7 @@ az ml workspace create -w <workspace-name> -g <resource-group-name>
     `"/subscriptions/<service-GUID>/resourceGroups/<resource-group-name>/providers/Microsoft.ContainerRegistry/registries/<acr-name>"`
 
     > [!IMPORTANT]
-    > 容器登錄必須先啟用系統[管理員帳戶](/azure/container-registry/container-registry-authentication#admin-account)，才能搭配 Azure Machine Learning 服務工作區使用。
+    > 容器登錄必須先啟用系統[管理員帳戶](/azure/container-registry/container-registry-authentication#admin-account)，才能搭配 Azure Machine Learning 工作區使用。
 
 當您有想要用於工作區的資源識別碼之後，請使用基底`az workspace create -w <workspace-name> -g <resource-group-name>`命令，並新增現有資源的參數和識別碼（s）。 例如，下列命令會建立使用現有容器登錄的工作區：
 
@@ -302,7 +302,7 @@ az ml workspace update -w <workspace-name> -g <resource-group-name>
 az ml workspace share -w <workspace-name> -g <resource-group-name> --user <user> --role <role>
 ```
 
-如需有關使用 Azure Machine Learning 服務的角色型存取控制（RBAC）的詳細資訊，請參閱[管理使用者和角色](how-to-assign-roles.md)。
+如需有關使用 Azure Machine Learning 的角色型存取控制（RBAC）的詳細資訊，請參閱[管理使用者和角色](how-to-assign-roles.md)。
 
 如需詳細資訊，請參閱[az ml workspace share](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/workspace?view=azure-cli-latest#ext-azure-cli-ml-az-ml-workspace-share)檔。
 

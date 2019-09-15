@@ -9,12 +9,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 05/15/2019
 ms.author: sstein
-ms.openlocfilehash: ef19d22b5c47c51f5ee3f74a4d7ab06725f7ed41
-ms.sourcegitcommit: fbea2708aab06c19524583f7fbdf35e73274f657
+ms.openlocfilehash: ed41ccea0754f3eeffdd0248bac567859db1492c
+ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/13/2019
-ms.locfileid: "70968322"
+ms.lasthandoff: 09/15/2019
+ms.locfileid: "71001516"
 ---
 # <a name="sql-database-release-notes"></a>SQL Database 版本資訊
 
@@ -36,13 +36,9 @@ ms.locfileid: "70968322"
 |記憶體授與意見反應（資料列模式）（在相容性層級150之下）|如需相關資訊，請參閱[記憶體授與意見反應（資料列模式）](https://docs.microsoft.com/sql/relational-databases/performance/intelligent-query-processing#row-mode-memory-grant-feedback)。|
 | Azure 入口網站中的查詢編輯器 |如需相關資訊，請參閱[使用 Azure 入口網站的 SQL 查詢編輯器來連接及查詢資料](sql-database-connect-query-portal.md)。|
 | 具有單一資料庫和彈性集區的 R services/機器學習服務 |如需詳細資訊，請參閱[Azure SQL Database 中的 Machine Learning 服務](https://docs.microsoft.com/sql/advanced-analytics/what-s-new-in-sql-server-machine-learning-services?view=sql-server-2017#machine-learning-services-in-azure-sql-database)。|
-| 使用受控實例重新建立已卸載的資料庫 |如需相關資訊，請參閱[在 AZURE SQL 受控執行個體中重新建立](https://medium.com/azure-sqldb-managed-instance/re-create-dropped-databases-in-azure-sql-managed-instance-dc369ed60266)已卸載的資料庫。|
-| 使用受控實例進行複寫 |如需相關資訊，請參閱[在 Azure SQL Database 受控實例資料庫中設定](replication-with-sql-database-managed-instance.md)複寫。|
 | 無伺服器計算層級 | 如需相關資訊，請參閱[SQL Database 無伺服器（預覽）](sql-database-serverless.md)。|
 |SQL Analytics|如需相關資訊，請參閱[Azure SQL 分析](../azure-monitor/insights/azure-sql.md)。|
 |資料表變數延後編譯（在相容性層級150之下）|如需相關資訊，請參閱[資料表變數延遲編譯](https://docs.microsoft.com/sql/relational-databases/performance/intelligent-query-processing#table-variable-deferred-compilation)。|
-| 使用受控實例的威脅偵測 |如需相關資訊，請參閱[在 Azure SQL Database 受控實例中設定威脅偵測](sql-database-managed-instance-threat-detection.md)。|
-| 具有受控實例之攜帶您自己的金鑰（BYOK）的透明資料加密（TDE） |如需詳細資訊[，請參閱 Azure Key Vault 中客戶管理的金鑰的 Azure SQL 透明資料加密：攜帶您自己的金鑰支援](transparent-data-encryption-byok-azure-sql.md)。|
 | &nbsp; |
 
 ### <a name="managed-instancetabmanaged-instance"></a>[受控執行個體](#tab/managed-instance)
@@ -50,13 +46,19 @@ ms.locfileid: "70968322"
 | 功能 | 詳細資料 |
 | ---| --- |
 | <a href="/azure/sql-database/sql-database-instance-pools">實例集區</a> | 方便且符合成本效益的方式，將較小的 SQL 實例遷移至雲端。 |
-| <a href="https://aka.ms/managed-instance-tde-byok">攜帶您自己的加密金鑰</a> | 從內部部署遷移已啟用透明資料加密（TDE）並具有現有 TDE 金鑰的資料庫。 |
+| <a href="https://aka.ms/managed-instance-tde-byok">具有攜帶您自己的金鑰的透明資料加密（TDE）（BYOK）</a> |如需詳細資訊[，請參閱 Azure Key Vault 中客戶管理的金鑰的 Azure SQL 透明資料加密：攜帶您自己的金鑰支援](transparent-data-encryption-byok-azure-sql.md)。|
 | <a href="https://aka.ms/managed-instance-failover-groups">地理位置分散的容錯移轉群組</a> | 將實例的複本保存在另一個區域中，並確保您的資料即使在區域嚴重損壞情況下仍可供使用。 |
 | <a href="https://aka.ms/managed-instance-aadlogins">實例層級 Azure AD 伺服器主體（登入）</a> | 使用<a href="https://docs.microsoft.com/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current">CREATE LOGIN FROM EXTERNAL PROVIDER</a>語句來建立伺服器層級的登入。 |
-| [異動複寫](sql-database-managed-instance-transactional-replication.md) | 將資料表中的變更複寫到位於受控實例、單一資料庫或 SQL Server 實例上的其他資料庫，或在其他受控實例或 SQL Server 實例中變更某些資料列時，更新您的資料表。 |
+| [異動複寫](sql-database-managed-instance-transactional-replication.md) | 將資料表中的變更複寫到位於受控實例、單一資料庫或 SQL Server 實例上的其他資料庫，或在其他受控實例或 SQL Server 實例中變更某些資料列時，更新您的資料表。 如需相關資訊，請參閱[在 Azure SQL Database 受控實例資料庫中設定](replication-with-sql-database-managed-instance.md)複寫。 |
+| 威脅偵測 |如需相關資訊，請參閱[在 Azure SQL Database 受控實例中設定威脅偵測](sql-database-managed-instance-threat-detection.md)。|
+| 使用受控實例重新建立已卸載的資料庫 |如需相關資訊，請參閱[在 AZURE SQL 受控執行個體中重新建立](https://medium.com/azure-sqldb-managed-instance/re-create-dropped-databases-in-azure-sql-managed-instance-dc369ed60266)已卸載的資料庫。|
 | &nbsp; |
 
 ---
+
+## <a name="fixed-known-issues"></a>已修正的已知問題
+
+- **8 月 2019** -受控實例中完全支援自主資料庫。
 
 ## <a name="updates"></a>更新
 

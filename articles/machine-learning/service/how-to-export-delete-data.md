@@ -1,6 +1,6 @@
 ---
 title: 匯出或刪除工作區資料
-titleSuffix: Azure Machine Learning service
+titleSuffix: Azure Machine Learning
 description: 了解如何使用 Azure 入口網站、CLI、SDK 及已驗證的 REST API 來匯出或刪除工作區。
 services: machine-learning
 ms.service: machine-learning
@@ -11,12 +11,12 @@ author: ph-com
 ms.author: pahusban
 ms.date: 05/02/2019
 ms.custom: seodec18
-ms.openlocfilehash: 3b55282adf56bedb0724eca578b8eaea00c26074
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 18e2ab18dac214e73eaf6ad7dfcb9dbbab0b5cf5
+ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65023982"
+ms.lasthandoff: 09/15/2019
+ms.locfileid: "71002848"
 ---
 # <a name="export-or-delete-your-machine-learning-service-workspace-data"></a>匯出或刪除您的 Machine Learning services 工作區資料 
 
@@ -27,9 +27,9 @@ ms.locfileid: "65023982"
 [!INCLUDE [GDPR-related guidance](../../../includes/gdpr-intro-sentence.md)]
 
 ## <a name="control-your-workspace-data"></a>控制您的工作區資料
-透過 Azure 入口網站、CLI、SDK 和經過驗證的 REST API，可以匯出和刪除 Azure Machine Learning 服務所儲存的產品中資料。 透過 Azure 隱私權入口網站可以存取遙測資料。 
+Azure Machine Learning 所儲存的產品內資料可透過 Azure 入口網站、CLI、SDK 和已驗證的 REST Api 進行匯出和刪除。 透過 Azure 隱私權入口網站可以存取遙測資料。 
 
-在 Azure Machine Learning 服務中，個人資料會包含執行歷程記錄文件中的使用者資訊，以及使用者與服務部分互動的遙測記錄。
+在 Azure Machine Learning 中，個人資料會包含執行歷程記錄文件中的使用者資訊，以及使用者與服務部分互動的遙測記錄。
 
 ## <a name="delete-workspace-data-with-the-rest-api"></a>使用 REST API 來刪除工作區資料 
 
@@ -232,28 +232,28 @@ ms.locfileid: "65023982"
 
     https://{location}.aether.ms/api/v1.0/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.MachineLearningServices/workspaces/{workspaceName}/DataSources/{id}
 
-## <a name="delete-visual-interface-assets"></a>刪除視覺介面的資產
+## <a name="delete-visual-interface-assets"></a>刪除視覺介面資產
 
-在您用來建立您的實驗的視覺化介面，刪除個別資產：
+在您建立實驗的視覺介面中，刪除個別資產：
 
-1. 在左側，選取您想要刪除的資產的類型。
+1. 在左側，選取您想要刪除的資產類型。
 
     ![刪除資產](media/how-to-export-delete-data.md/delete-experiment.png)
 
 1. 在清單中，選取要刪除的個別資產。
 
-1. 在底部，選取**刪除**。
+1. 選取底部的 [**刪除**]。
 
-## <a name="export-visual-interface-data"></a>匯出介面的視覺化資料
+## <a name="export-visual-interface-data"></a>匯出視覺化介面資料
 
-在您用來建立您的實驗的視覺化介面，匯出您已新增的資料：
+在您建立實驗的視覺介面中，匯出您已新增的資料：
 
-1. 在左側，選取**資料**。
+1. 在左側選取 [**資料**]。
 
-1. 在頂端，選取**我的資料集**或是**範例**找出您想要匯出的資料。
+1. 在頂端，選取 [**我的資料集**] 或 [**範例**] 以找出您要匯出的資料。
 
     ![下載資料](media/how-to-export-delete-data.md/download-data.png)
 
 1. 在清單中，選取要匯出的個別資料集。
 
-1. 在底部，選取**下載**。
+1. 選取底部的 [**下載**]。

@@ -9,16 +9,16 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.date: 01/30/2019
 ms.author: tomfitz
-ms.openlocfilehash: 55410250ccd4dfceac8ac9ae5b81d4736de0d91a
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: a87066425845a7f1043576a858a361e601ba9cc8
+ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60588231"
+ms.lasthandoff: 09/15/2019
+ms.locfileid: "71003419"
 ---
 # <a name="access-key-vault-secret-when-deploying-azure-managed-applications"></a>在部署 Azure 受控應用程式時存取 Key Vault 秘密
 
-當您需要在部署期間，傳送安全值 (例如密碼) 做為參數時，您可以從 [Azure Key Vault](../key-vault/key-vault-whatis.md) 擷取值。 若要在部署受控應用程式時存取 Key Vault，您必須授與**設備資源提供者**服務主體的存取權。 受控應用程式服務會使用這個身分識別來執行作業。 若要在部署期間成功地從 Key Vault 擷取值，服務主體必須要能夠存取 Key Vault。
+當您需要在部署期間，傳送安全值 (例如密碼) 做為參數時，您可以從 [Azure Key Vault](../key-vault/key-vault-overview.md) 擷取值。 若要在部署受控應用程式時存取 Key Vault，您必須授與**設備資源提供者**服務主體的存取權。 受控應用程式服務會使用這個身分識別來執行作業。 若要在部署期間成功地從 Key Vault 擷取值，服務主體必須要能夠存取 Key Vault。
 
 本文說明如何設定與受控應用程式搭配使用的 Key Vault。
 
@@ -26,29 +26,29 @@ ms.locfileid: "60588231"
 
 1. 在入口網站中，選取您的 Key Vault。
 
-1. 選取 [存取原則]  。   
+1. 選取 [存取原則]。   
 
    ![選取存取原則](./media/key-vault-access/select-access-policies.png)
 
-1. 選取 [按一下以顯示進階存取原則]  。
+1. 選取 [按一下以顯示進階存取原則]。
 
    ![顯示進階存取原則](./media/key-vault-access/advanced.png)
 
-1. 選取 [為範本部署啟用對 Azure Resource Manager 的存取]  。 然後選取 [儲存]  。
+1. 選取 [為範本部署啟用對 Azure Resource Manager 的存取]。 然後選取 [儲存]。
 
    ![啟用範本部署](./media/key-vault-access/enable-template.png)
 
 ## <a name="add-service-as-contributor"></a>將服務新增為參與者
 
-1. 選取 [存取控制 (IAM)]  。
+1. 選取 [存取控制 (IAM)]。
 
    ![選取存取控制](./media/key-vault-access/access-control.png)
 
-1. 選取 [新增角色指派]  。
+1. 選取 [新增角色指派]。
 
    ![選取 [新增]](./media/key-vault-access/add-access-control.png)
 
-1. 選取 [參與者]  作為角色。 搜尋**設備資源提供者**，並從可用的選項中加以選取。
+1. 選取 [參與者] 作為角色。 搜尋**設備資源提供者**，並從可用的選項中加以選取。
 
    ![搜尋提供者](./media/key-vault-access/search-provider.png)
 

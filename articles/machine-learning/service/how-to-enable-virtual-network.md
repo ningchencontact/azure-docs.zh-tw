@@ -1,6 +1,6 @@
 ---
 title: 保護虛擬網路中的實驗和推斷
-titleSuffix: Azure Machine Learning service
+titleSuffix: Azure Machine Learning
 description: 瞭解如何在 Azure 虛擬網路內的 Azure Machine Learning 中，保護測試/定型作業和推斷/評分作業。
 services: machine-learning
 ms.service: machine-learning
@@ -10,12 +10,12 @@ ms.reviewer: jmartens
 ms.author: aashishb
 author: aashishb
 ms.date: 08/05/2019
-ms.openlocfilehash: fcd47cdf3968e8c8a204cb15f10dd41c4eaab641
-ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
+ms.openlocfilehash: f12c77a25bad9781d5f23b9563f6684997a2a6c4
+ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70885664"
+ms.lasthandoff: 09/15/2019
+ms.locfileid: "71002782"
 ---
 # <a name="secure-azure-ml-experimentation-and-inference-jobs-within-an-azure-virtual-network"></a>在 Azure 虛擬網路中保護 Azure ML 實驗和推斷作業
 
@@ -23,13 +23,13 @@ ms.locfileid: "70885664"
 
 **虛擬網路**會作為安全性界限，將您的 Azure 資源與公用網際網路隔離。 您也可以將 Azure 虛擬網路加入到您的內部部署網路， 藉由加入網路，您可以安全地定型模型，並存取已部署的模型以進行推斷。
 
-Azure Machine Learning 服務依賴其他 Azure 服務來處理計算資源。 計算資源或[計算目標](concept-compute-target.md)是用來定型和部署模型。 目標可以在虛擬網路內建立。 例如，您可以使用 Microsoft 資料科學虛擬機器來定型模型，然後將模型部署至 Azure Kubernetes Service （AKS）。 如需虛擬網路的詳細資訊，請參閱[Azure 虛擬網路總覽](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview)。
+Azure Machine Learning 依賴其他 Azure 服務來計算資源。 計算資源或[計算目標](concept-compute-target.md)是用來定型和部署模型。 目標可以在虛擬網路內建立。 例如，您可以使用 Microsoft 資料科學虛擬機器來定型模型，然後將模型部署至 Azure Kubernetes Service （AKS）。 如需虛擬網路的詳細資訊，請參閱[Azure 虛擬網路總覽](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview)。
 
 本文也提供有關「*高級安全性設定*」的詳細資訊，也就是基本或實驗性使用案例不需要的資訊。 本文的某些章節會提供各種案例的設定資訊。 您不需要依序或完整完成指示。
 
 ## <a name="prerequisites"></a>必要條件
 
-+ Azure Machine Learning 服務[工作區](how-to-manage-workspace.md)。
++ Azure Machine Learning[工作區](how-to-manage-workspace.md)。
 
 + [Azure 虛擬網路服務](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview)和[IP 網路](https://docs.microsoft.com/azure/virtual-network/virtual-network-ip-addresses-overview-arm)的一般工作知識。
 
@@ -45,7 +45,7 @@ Azure Machine Learning 服務依賴其他 Azure 服務來處理計算資源。 �
 
 1. 在 Azure 入口網站中，移至附加至工作區的儲存體。
 
-   [![附加至 Azure Machine Learning 服務工作區的儲存體](./media/how-to-enable-virtual-network/workspace-storage.png)](./media/how-to-enable-virtual-network/workspace-storage.png#lightbox)
+   [![附加至 Azure Machine Learning 工作區的儲存體](./media/how-to-enable-virtual-network/workspace-storage.png)](./media/how-to-enable-virtual-network/workspace-storage.png#lightbox)
 
 1. 在 [ **Azure 儲存體**] 頁面上，選取 [__防火牆和虛擬網路__]。
 
@@ -74,7 +74,7 @@ Azure Machine Learning 服務依賴其他 Azure 服務來處理計算資源。 �
     ```
 
 > [!IMPORTANT]
-> 您可以將 Azure Machine Learning 服務的_預設儲存體帳戶_，或虛擬網路中的_非預設儲存體帳戶_。
+> 您可以將 Azure Machine Learning 的_預設儲存體帳戶_，或虛擬網路中的_非預設儲存體帳戶_。
 >
 > 當您建立工作區時，會自動布建預設儲存體帳戶。
 >
@@ -82,7 +82,7 @@ Azure Machine Learning 服務依賴其他 Azure 服務來處理計算資源。 �
 
 ## <a name="use-a-key-vault-instance-with-your-workspace"></a>搭配您的工作區使用 key vault 實例
 
-與工作區相關聯的金鑰保存庫實例會由 Azure Machine Learning 服務用來儲存下列認證：
+Azure Machine Learning 會使用與工作區相關聯的金鑰保存庫實例來儲存下列認證：
 * 相關聯的儲存體帳戶連接字串
 * Azure 容器存放庫實例的密碼
 * 資料存放區的連接字串
@@ -90,7 +90,7 @@ Azure Machine Learning 服務依賴其他 Azure 服務來處理計算資源。 �
 若要在虛擬網路背後的 Azure Key Vault 使用 Azure Machine Learning 測試功能，請執行下列動作：
 1. 移至與工作區相關聯的金鑰保存庫。
 
-   [![與 Azure Machine Learning 服務工作區相關聯的金鑰保存庫](./media/how-to-enable-virtual-network/workspace-key-vault.png)](./media/how-to-enable-virtual-network/workspace-key-vault.png#lightbox)
+   [![與 Azure Machine Learning 工作區相關聯的金鑰保存庫](./media/how-to-enable-virtual-network/workspace-key-vault.png)](./media/how-to-enable-virtual-network/workspace-key-vault.png#lightbox)
 
 1. 在 [ **Key Vault** ] 頁面上，選取左窗格中的 [__防火牆和虛擬網路__]。
 
@@ -110,7 +110,7 @@ Azure Machine Learning 服務依賴其他 Azure 服務來處理計算資源。 �
 若要在虛擬網路中使用 Azure Machine Learning 計算實例，必須符合下列網路需求：
 
 > [!div class="checklist"]
-> * 虛擬網路必須在與 Azure Machine Learning 服務工作區相同的訂用帳戶和區域中。
+> * 虛擬網路必須位於與 Azure Machine Learning 工作區相同的訂用帳戶和區域中。
 > * 為計算叢集指定的子網必須有足夠的未指派 IP 位址，以容納叢集目標的 Vm 數目。 如果子網沒有足夠的未指派 IP 位址，則會部分配置叢集。
 > * 查看虛擬網路的訂用帳戶或資源群組的安全性原則或鎖定，是否限制管理虛擬網路的許可權。 如果您打算透過限制流量來保護虛擬網路，請讓計算服務的一些埠保持開啟。 如需詳細資訊，請參閱[必要的埠](#mlcports)一節。
 > * 如果您要將多個計算叢集放在一個虛擬網路中，您可能需要要求增加一或多個資源的配額。
@@ -157,7 +157,7 @@ Machine Learning Compute 目前使用 Azure Batch 服務將 VM 佈建在指定�
 - 將輸出流量限制為下列各項：
    - Azure 儲存體，方法是使用儲存體的__服務__標籤 Region_Name （例如 EastUS） __。__
    - Azure Container Registry，方法是使用__AzureContainerRegistry. Region_Name__的__服務標記__（例如 AzureContainerRegistry. EastUS）
-   - Azure Machine Learning 服務，方法是使用__AzureMachineLearning__的__服務標記__
+   - Azure Machine Learning，方法是使用__AzureMachineLearning__的__服務標記__
 
 下圖顯示 Azure 入口網站中的 NSG 規則設定：
 
@@ -189,7 +189,7 @@ Machine Learning Compute 目前使用 Azure Batch 服務將 VM 佈建在指定�
 
 若要建立 Machine Learning Compute 叢集，請執行下列動作：
 
-1. 在 [Azure 入口網站](https://portal.azure.com)中，選取 Azure Machine Learning 服務工作區。
+1. 在  [Azure 入口網站](https://portal.azure.com)中，選取您的 Azure Machine Learning 工作區。
 
 1. 在 [__應用程式__] 區段中，選取 [__計算__]，然後選取 [__新增計算__]。
 
@@ -248,7 +248,7 @@ except ComputeTargetException:
 ## <a name="use-a-virtual-machine-or-hdinsight-cluster"></a>使用虛擬機器或 HDInsight 叢集
 
 > [!IMPORTANT]
-> Azure Machine Learning 服務僅支援執行 Ubuntu 的虛擬機器。
+> Azure Machine Learning 僅支援執行 Ubuntu 的虛擬機器。
 
 若要在虛擬網路中使用虛擬機器或 Azure HDInsight 叢集與您的工作區，請執行下列動作：
 
@@ -257,7 +257,7 @@ except ComputeTargetException:
 
     * [使用 Azure 虛擬網路延伸 HDInsight](https://docs.microsoft.com/azure/hdinsight/hdinsight-extend-hadoop-virtual-network)
 
-1. 若要允許 Azure Machine Learning 服務與 VM 或叢集上的 SSH 埠通訊，請設定網路安全性群組的來源專案。 SSH 連接埠通常是連接埠 22。 若要允許來自此來源的流量，請執行下列動作：
+1. 若要允許 Azure Machine Learning 與 VM 或叢集上的 SSH 埠通訊，請設定網路安全性群組的來源專案。 SSH 連接埠通常是連接埠 22。 若要允許來自此來源的流量，請執行下列動作：
 
     * 在 [__來源__] 下拉式清單中，選取 [__服務標記__]。
 
@@ -279,7 +279,7 @@ except ComputeTargetException:
 
     如果您不想要使用預設輸出規則，而想要限制虛擬網路的輸出存取，請參閱[限制來自虛擬網路的輸出](#limiting-outbound-from-vnet)連線一節。
 
-1. 將 VM 或 HDInsight 叢集附加至 Azure Machine Learning 服務工作區。 如需詳細資訊，請參閱[為模型定型設定計算目標](how-to-set-up-training-targets.md)。
+1. 將 VM 或 HDInsight 叢集連結至您的 Azure Machine Learning 工作區。 如需詳細資訊，請參閱[為模型定型設定計算目標](how-to-set-up-training-targets.md)。
 
 <a id="aksvnet"></a>
 
@@ -292,11 +292,11 @@ except ComputeTargetException:
 >
 > AKS 實例和 Azure 虛擬網路必須位於相同的區域。 如果您保護虛擬網路中的工作區所使用的 Azure 儲存體帳戶，它們必須位於與 AKS 實例相同的虛擬網路中。
 
-1. 在[Azure 入口網站](https://portal.azure.com)中，請確定控制虛擬網路的 NSG 具有使用__AzureMachineLearning__做為**來源**而 Azure Machine Learning 服務啟用的輸入規則。
+1. 在[Azure 入口網站](https://portal.azure.com)中，請確定控制虛擬網路的 NSG 具有可使用__AzureMachineLearning__做為**來源**而啟用 Azure Machine Learning 的輸入規則。
 
-    [![Azure Machine Learning 服務新增計算窗格](./media/how-to-enable-virtual-network/aks-vnet-inbound-nsg-aml.png)](./media/how-to-enable-virtual-network/aks-vnet-inbound-nsg-aml.png#lightbox)
+    [![Azure Machine Learning 新增計算窗格](./media/how-to-enable-virtual-network/aks-vnet-inbound-nsg-aml.png)](./media/how-to-enable-virtual-network/aks-vnet-inbound-nsg-aml.png#lightbox)
 
-1. 選取您的 Azure Machine Learning 服務工作區。
+1. 選取您的 Azure Machine Learning 工作區。
 
 1. 在 [__應用程式__] 區段中，選取 [__計算__]，然後選取 [__新增計算__]。
 
@@ -316,7 +316,7 @@ except ComputeTargetException:
 
     - 在 [ __docker 橋接器位址__] 方塊中，輸入 docker 橋接器位址。 此 IP 位址會指派給 Docker 橋接器， 不得位於任何子網 IP 範圍或 Kubernetes 服務位址範圍（例如，172.17.0.1/16）。
 
-   ![Azure Machine Learning 服務：Machine Learning Compute 虛擬網路設定](./media/how-to-enable-virtual-network/aks-virtual-network-screen.png)
+   ![Azure 機器學習：Machine Learning Compute 虛擬網路設定](./media/how-to-enable-virtual-network/aks-virtual-network-screen.png)
 
 1. 請確定控制虛擬網路的 NSG 群組具有針對評分端點啟用的輸入安全性規則，以便可從虛擬網路外部呼叫。
    > [!IMPORTANT]

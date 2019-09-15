@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: cdb1b49af5d3a85dc1853e5964c1cdfdd5c3a7cd
-ms.sourcegitcommit: a52f17307cc36640426dac20b92136a163c799d0
+ms.openlocfilehash: 679de2d3a5519e57978239ddd75a4b9fa2ffef3c
+ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68716678"
+ms.lasthandoff: 09/15/2019
+ms.locfileid: "70998764"
 ---
 # <a name="about-technical-profiles-in-azure-active-directory-b2c-custom-policies"></a>關於 Azure Active Directory B2C 自訂原則中的技術設定檔
 
@@ -34,10 +34,9 @@ ms.locfileid: "68716678"
 - [OAuth2](oauth2-technical-profile.md) - 與任何 OAuth 2.0 通訊協定識別提供者建立同盟。
 - [Openid connect](openid-connect-technical-profile.md) -與任何 OpenID connect 通訊協定識別提供者的同盟。
 - [宣告轉換](claims-transformation-technical-profile.md) - 呼叫輸出宣告轉換以操作宣告值、驗證宣告，或為一組輸出宣告設定預設值。
-- [RESTful 提供者](restful-technical-profile.md)-呼叫 REST API 服務, 例如驗證使用者輸入、擴充使用者資料, 或與企業營運應用程式整合。
+- [RESTful 提供者](restful-technical-profile.md)-呼叫 REST API 服務，例如驗證使用者輸入、擴充使用者資料，或與企業營運應用程式整合。
 - [SAML2](saml-technical-profile.md) - 與任何 SAML 通訊協定識別提供者建立同盟。
 - [自我判斷](self-asserted-technical-profile.md) - 與使用者進行互動。 例如，收集使用者的認證以進行登入、呈現註冊頁面或密碼重設。
-- **WsFed** - 與任何 WsFed 通訊協定識別提供者建立同盟。
 - [工作階段管理](active-directory-b2c-reference-sso-custom.md) - 處理各種不同類型的工作階段。
 - **Application Insights**
 

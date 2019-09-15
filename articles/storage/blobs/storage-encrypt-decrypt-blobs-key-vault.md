@@ -9,12 +9,12 @@ ms.date: 05/14/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: blobs
-ms.openlocfilehash: d7c740133911689c6d3f8e29c2cb20aa8873f0c7
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 34dbcaeedb544a8a8808aab3e8e3315f1790dd9a
+ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65788002"
+ms.lasthandoff: 09/15/2019
+ms.locfileid: "71003432"
 ---
 # <a name="tutorial-encrypt-and-decrypt-blobs-in-microsoft-azure-storage-using-azure-key-vault"></a>教學課程：在 Microsoft Azure 儲存體中使用 Azure 金鑰保存庫加密和解密 Blob
 
@@ -23,11 +23,11 @@ ms.locfileid: "65788002"
 
 **預估完成時間：** 20 分鐘
 
-如需 Azure 金鑰保存庫的概觀資訊，請參閱[什麼是 Azure 金鑰保存庫？](../../key-vault/key-vault-whatis.md)。
+如需 Azure 金鑰保存庫的概觀資訊，請參閱[什麼是 Azure 金鑰保存庫？](../../key-vault/key-vault-overview.md)。
 
 如需 Azure 儲存體用戶端加密的概觀資訊，請參閱 [Microsoft Azure 儲存體用戶端加密和 Azure 金鑰保存庫](../common/storage-client-side-encryption.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 若要完成本教學課程，您必須具備下列項目：
 
@@ -48,7 +48,7 @@ ms.locfileid: "65788002"
 
 ## <a name="set-up-your-azure-key-vault"></a>設定 Azure 金鑰保存庫
 
-若要繼續進行本教學課程中，您需要執行下列步驟，本教學課程中所述[快速入門：設定和使用的.NET web 應用程式，從 Azure Key Vault 擷取密碼](../../key-vault/quick-create-net.md):
+若要繼續進行本教學課程，您需要執行下列步驟，如教學[課程快速入門中所述：使用 .NET web 應用程式](../../key-vault/quick-create-net.md)從 Azure Key Vault 設定和取出秘密：
 
 * 建立金鑰保存庫。
 * 新增金鑰或密碼至金鑰保存庫。
@@ -123,7 +123,7 @@ private async static Task<string> GetToken(string authority, string resource, st
 
 ## <a name="access-storage-and-key-vault-in-your-program"></a>在您的程式中存取儲存體和金鑰保存庫
 
-在 main （） 方法中，新增下列程式碼。
+在 Main （）方法中，加入下列程式碼。
 
 ```csharp
 // This is standard code to interact with Blob storage.

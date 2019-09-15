@@ -1,25 +1,25 @@
 ---
-title: 使用陣列和 Azure Cosmos DB 中的物件
-description: 深入了解陣列和物件建立 SQL 語法適用於 Azure Cosmos DB。
+title: 在 Azure Cosmos DB 中使用陣列和物件
+description: 深入瞭解 Azure Cosmos DB 的陣列和物件建立 SQL 語法。
 author: timsander1
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 06/21/2019
 ms.author: tisande
-ms.openlocfilehash: 338f3b51edf38d20a963992e121b7e2dbd0c6873
-ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
+ms.openlocfilehash: 17a0e4ddf5acd267a4cfbb68c218fe9409a91d57
+ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/24/2019
-ms.locfileid: "67342571"
+ms.lasthandoff: 09/15/2019
+ms.locfileid: "71003927"
 ---
-# <a name="working-with-arrays-and-objects-in-azure-cosmos-db"></a>使用陣列和 Azure Cosmos DB 中的物件
+# <a name="working-with-arrays-and-objects-in-azure-cosmos-db"></a>在 Azure Cosmos DB 中使用陣列和物件
 
-Azure Cosmos DB SQL API 的主要功能是陣列和物件的建立。
+Azure Cosmos DB SQL API 的主要功能是陣列和物件建立。
 
 ## <a name="arrays"></a>陣列
 
-下列範例所示，您可以建構陣列：
+您可以建立陣列，如下列範例所示：
 
 ```sql
     SELECT [f.address.city, f.address.state] AS CityState
@@ -45,7 +45,7 @@ Azure Cosmos DB SQL API 的主要功能是陣列和物件的建立。
     ]
 ```
 
-您也可以使用[陣列運算式](sql-query-subquery.md#array-expression)建構從陣列[子查詢之](sql-query-subquery.md)結果。 這所有不同的查詢取得指定陣列中的子系的名稱。
+您也可以使用[陣列運算式](sql-query-subquery.md#array-expression)，從[子查詢的](sql-query-subquery.md)結果來建立陣列。 此查詢會取得陣列中子系的所有不同指定名稱。
 
 ```sql
 SELECT f.id, ARRAY(SELECT DISTINCT VALUE c.givenName FROM c IN f.children) as ChildNames
@@ -54,7 +54,7 @@ FROM f
 
 ## <a id="Iteration"></a>反覆運算
 
-SQL API 還支援用於逐一查看 JSON 陣列，包含新的結構，透過新增[IN 關鍵字](sql-query-keywords.md#in)FROM 來源中。 在下列範例中：
+SQL API 支援反覆運算 JSON 陣列，並透過從來源的[in 關鍵字](sql-query-keywords.md#in)新增結構。 在下列範例中：
 
 ```sql
     SELECT *
@@ -90,7 +90,7 @@ SQL API 還支援用於逐一查看 JSON 陣列，包含新的結構，透過新
     ]
 ```
 
-下一個查詢執行反覆運算`children`在`Families`容器。 輸出陣列與之前查詢不同。 此範例會將`children`，並將結果簡化成單一陣列：  
+下一個查詢會`children` `Families`在容器中執行反復專案。 輸出陣列與先前的查詢不同。 這個範例會`children`分割，並將結果簡維成單一陣列：  
 
 ```sql
     SELECT *
@@ -122,7 +122,7 @@ SQL API 還支援用於逐一查看 JSON 陣列，包含新的結構，透過新
     ]
 ```
 
-您可以篩選進一步比較陣列中的每個個別項目，如下列範例所示：
+您可以進一步篩選陣列的每個個別專案，如下列範例所示：
 
 ```sql
     SELECT c.givenName
@@ -138,7 +138,7 @@ SQL API 還支援用於逐一查看 JSON 陣列，包含新的結構，透過新
     }]
 ```
 
-您也可以對陣列反覆運算的結果彙總。 例如，下列查詢會計算所有系列的子系數目：
+您也可以匯總陣列反復專案的結果。 例如，下列查詢會計算所有系列中的子係數目：
 
 ```sql
     SELECT COUNT(child)
@@ -158,5 +158,5 @@ SQL API 還支援用於逐一查看 JSON 陣列，包含新的結構，透過新
 ## <a name="next-steps"></a>後續步驟
 
 - [開始使用](sql-query-getting-started.md)
-- [Azure Cosmos DB .NET 範例](https://github.com/Azure/azure-cosmosdb-dotnet)
+- [Azure Cosmos DB .NET 範例](https://github.com/Azure/azure-cosmos-dotnet-v3)
 - [聯結](sql-query-join.md)

@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: f712634c83fa290ab24d5e8437a82d5f93af0b7f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e1192c8d0057d77306a1ffb06dd9bae12b7634ca
+ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66512289"
+ms.lasthandoff: 09/15/2019
+ms.locfileid: "70998750"
 ---
 # <a name="technicalprofiles"></a>TechnicalProfiles
 
@@ -80,10 +80,10 @@ ms.locfileid: "66512289"
 
 **TechnicalProfile** 包含下列元素：
 
-| 項目 | 發生次數 | 描述 |
+| 元素 | 發生次數 | 描述 |
 | ------- | ----------- | ----------- |
 | Domain | 0:1 | 技術設定檔的網域名稱。 例如，如果您的技術設定檔指定 Facebook 識別提供者，則網域名稱為 Facebook.com。 |
-| DisplayName | 0:1 | 可向使用者顯示的技術設定檔名稱。 |
+| 顯示名稱 | 0:1 | 可向使用者顯示的技術設定檔名稱。 |
 | 描述 | 0:1 | 可向使用者顯示的技術設定檔描述。 |
 | Protocol | 0:1 | 用於與其他合作對象進行通訊的通訊協定。 |
 | 中繼資料 | 0:1 | 通訊協定使用的機碼值組，用於在交易過程中與端點通訊。 |
@@ -108,7 +108,7 @@ ms.locfileid: "66512289"
 
 | 屬性 | 必要項 | 描述 |
 | --------- | -------- | ----------- |
-| Name | 是 | Azure AD B2C 所支援的有效通訊協定名稱，可用來作為技術設定檔的一部分。 可能的值：`OAuth1`、`OAuth2`、`SAML2`、`OpenIdConnect`、`WsFed`、`WsTrust`、`Proprietary`、`session management`、`self-asserted` 或 `None`。 |
+| Name | 是 | Azure AD B2C 所支援的有效通訊協定名稱，可用來作為技術設定檔的一部分。 可能的值`OAuth1`： `OAuth2`、 `SAML2` `OpenIdConnect` 、、、`Proprietary` 、、`None`或。 `session management` `self-asserted` |
 | 處理常式 | 否 | 當通訊協定名稱設為 `Proprietary` 時，請指定 Azure AD B2C 用於判斷通訊協定處理常式之組件的完整名稱。 |
 
 ### <a name="metadata"></a>中繼資料
@@ -117,9 +117,9 @@ ms.locfileid: "66512289"
 
 | 元素 | 發生次數 | 描述 |
 | ------- | ----------- | ----------- |
-| Item | 0:n | 與技術設定檔相關的中繼資料。 每一種技術設定檔有一組不同的中繼資料項目。 如需詳細資訊，請參閱技術設定檔類型章節。 |
+| 項目 | 0:n | 與技術設定檔相關的中繼資料。 每一種技術設定檔有一組不同的中繼資料項目。 如需詳細資訊，請參閱技術設定檔類型章節。 |
 
-#### <a name="item"></a>Item
+#### <a name="item"></a>項目
 
 **Metadata** 元素的 **Item** 元素包含下列屬性：
 
@@ -148,7 +148,7 @@ ms.locfileid: "66512289"
 
 **InputClaimsTransformations** 元素包含下列元素：
 
-| 項目 | 發生次數 | 描述 |
+| 元素 | 發生次數 | 描述 |
 | ------- | ----------- | ----------- |
 | InputClaimsTransformation | 1:n | 宣告轉換的識別碼，應在將任何宣告傳送至宣告提供者或信賴憑證者之前執行此轉換。 宣告轉換可用於修改現有的 ClaimsSchema 宣告或產生新的宣告。 |
 

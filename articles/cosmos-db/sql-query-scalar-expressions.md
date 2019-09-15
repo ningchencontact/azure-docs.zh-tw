@@ -1,21 +1,21 @@
 ---
 title: Azure Cosmos DB SQL 查詢中的純量運算式
-description: 深入了解適用於 Azure Cosmos DB 的純量運算式的 SQL 語法。
+description: 瞭解 Azure Cosmos DB 的純量運算式 SQL 語法。
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/17/2019
 ms.author: mjbrown
-ms.openlocfilehash: 4464c39a45c47c680a13f3ebc34841b47ee0d7c6
-ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
+ms.openlocfilehash: c35ad65a584f8ee95142e9bc85a58b5b6cd99744
+ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/24/2019
-ms.locfileid: "67342775"
+ms.lasthandoff: 09/15/2019
+ms.locfileid: "71003545"
 ---
 # <a name="scalar-expressions-in-azure-cosmos-db-sql-queries"></a>Azure Cosmos DB SQL 查詢中的純量運算式
 
-[SELECT 子句](sql-query-select.md)支援純量運算式。 純量運算式結合了符號及運算子，可以加以評估以取得單一值。 純量運算式的範例包括： 常數、 屬性參考、 陣列元素參考、 別名參考或函式呼叫。 純量運算式可以結合使用運算子的複雜運算式。
+[SELECT 子句](sql-query-select.md)支援純量運算式。 純量運算式結合了符號及運算子，可以加以評估以取得單一值。 純量運算式的範例包括：常數、屬性參考、陣列元素參考、別名參考或函式呼叫。 純量運算式可以使用運算子結合成複雜運算式。
 
 ## <a name="syntax"></a>語法
   
@@ -59,11 +59,11 @@ ms.locfileid: "67342775"
   
 - `<scalar_expression>.property_name`  
   
-   代表物件屬性值。 如果屬性不存在或屬性參考的值不是物件，則運算式評估為**未定義**值。  
+   代表物件屬性值。 如果屬性不存在，或在不是物件的值上參考屬性，則運算式會評估為**未定義**的值。  
   
 - `<scalar_expression>'['"property_name"|array_index']'`  
   
-   代表具有名稱的屬性值`property_name`或具有索引的陣列元素`array_index`的陣列。 若屬性不存在或屬性/陣列索引已在非物件/陣列的值中參考，則運算式會評估為未定義的值。  
+   以具有陣列索引`property_name` `array_index`的 name 或 array 元素表示屬性的值。 若屬性不存在或屬性/陣列索引已在非物件/陣列的值中參考，則運算式會評估為未定義的值。  
   
 - `unary_operator <scalar_expression>`  
   
@@ -99,7 +99,7 @@ ms.locfileid: "67342775"
   
 ## <a name="remarks"></a>備註
   
-  呼叫內建或使用者定義的純量函數時，就必須定義所有引數。 若有任何未定義的引數，則不會呼叫函式，同時會產生未定義的結果。  
+  呼叫內建或使用者定義的純量函數時，必須定義所有引數。 若有任何未定義的引數，則不會呼叫函式，同時會產生未定義的結果。  
   
   建立物件時，會略過任何指派未定義值的屬性，且不會納入已建立的物件中。  
   
@@ -119,7 +119,7 @@ ms.locfileid: "67342775"
     }]
 ```
 
-在下列查詢中，純量運算式的結果會是布林值：
+在下列查詢中，純量運算式的結果是布林值：
 
 ```sql
     SELECT f.address.city = f.address.state AS AreFromSameCityState
@@ -142,5 +142,5 @@ ms.locfileid: "67342775"
 ## <a name="next-steps"></a>後續步驟
 
 - [Azure Cosmos DB 簡介](introduction.md)
-- [Azure Cosmos DB .NET 範例](https://github.com/Azure/azure-cosmosdb-dotnet)
+- [Azure Cosmos DB .NET 範例](https://github.com/Azure/azure-cosmos-dotnet-v3)
 - [子查詢](sql-query-subquery.md)

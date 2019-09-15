@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/28/2018
 ms.author: tomsh
-ms.openlocfilehash: 9d88b8101f37fde5d1ab8ac11253884b6534e3b5
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.openlocfilehash: 675e10101d01d831aad7652c70cbfcf320085a3c
+ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68726771"
+ms.lasthandoff: 09/15/2019
+ms.locfileid: "70999175"
 ---
 # <a name="best-practices-for-securing-paas-web-and-mobile-applications-using-azure-storage"></a>使用 Azure 儲存體保護 PaaS Web 與行動應用程式的最佳做法
 在此文章中，我們將討論用來保護平台即服務 (PaaS) Web 與行動應用程式的 Azure 儲存體安全性最佳做法。 這些最佳做法衍生自我們的 Azure 經驗和客戶 (例如您自己) 的經驗。
@@ -71,7 +71,7 @@ SAS 可讓您以您想要的方式來共用內容，而不必交出儲存體帳�
 ## <a name="use-client-side-encryption-for-high-value-data"></a>對高價值的資料使用用戶端加密
 用戶端加密可讓您先以程式設計方式將傳輸中的資料加密再上傳到 Azure 儲存體，然後在擷取資料時以程式設計方式將資料解密。 此功能除了可以將傳輸中的資料加密，也可以將待用資料加密。 用戶端加密是最安全的資料加密方式，但會要求您透過程式設計方式變更應用程式，並將金鑰管理程序放在正確的位置上。
 
-用戶端加密也可讓您成為唯一掌控加密金鑰的人。 您可以產生和管理自己的加密金鑰。 它使用信封技術，透過此技術，Azure 儲存體用戶端程式庫會先產生內容加密金鑰 (CEK)，隨後再使用金鑰加密金鑰 (KEK) 來包裝 (加密) 它。 KEK 由金鑰識別碼所識別，可以是非對稱金鑰組或對稱金鑰，且可以在本機管理或儲存在 [Azure Key Vault](/azure/key-vault/key-vault-whatis) 中。
+用戶端加密也可讓您成為唯一掌控加密金鑰的人。 您可以產生和管理自己的加密金鑰。 它使用信封技術，透過此技術，Azure 儲存體用戶端程式庫會先產生內容加密金鑰 (CEK)，隨後再使用金鑰加密金鑰 (KEK) 來包裝 (加密) 它。 KEK 由金鑰識別碼所識別，可以是非對稱金鑰組或對稱金鑰，且可以在本機管理或儲存在 [Azure Key Vault](/azure/key-vault/key-vault-overview) 中。
 
 用戶端加密會內建在 Java 和 .NET 儲存體用戶端程式庫中。 如需有關將用戶端應用程式內資料加密並產生及管理自有加密金鑰的資訊，請參閱 [Microsoft Azure 儲存體的用戶端加密和 Azure Key Vault](/azure/storage/common/storage-client-side-encryption)。
 

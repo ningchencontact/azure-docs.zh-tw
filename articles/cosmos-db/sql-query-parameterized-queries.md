@@ -1,25 +1,25 @@
 ---
-title: Azure Cosmos DB 中的參數化的查詢
-description: 深入了解參數化 SQL 查詢
+title: Azure Cosmos DB 中的參數化查詢
+description: 瞭解 SQL 參數化查詢
 author: timsander1
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/30/2019
 ms.author: tisande
-ms.openlocfilehash: 2bfc22346c1dd43d7d3c2937ffc286e48ae774d0
-ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
+ms.openlocfilehash: 45c1344c32e35f60f35ba8ed105e912d92574cce
+ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/24/2019
-ms.locfileid: "67342640"
+ms.lasthandoff: 09/15/2019
+ms.locfileid: "71003611"
 ---
-# <a name="parameterized-queries-in-azure-cosmos-db"></a>Azure Cosmos DB 中的參數化的查詢
+# <a name="parameterized-queries-in-azure-cosmos-db"></a>Azure Cosmos DB 中的參數化查詢
 
-Cosmos DB 支援查詢使用類似 @ 標記法來表示的參數。 參數化的 SQL 提供穩固的處理和使用者輸入的逸出，並避免意外洩露資料透過 SQL 插入式攻擊。
+Cosmos DB 支援具有以熟悉 @ notation 表示之參數的查詢。 參數化 SQL 提供強大的使用者輸入處理和植入，並可防止透過 SQL 插入的資料意外洩漏。
 
 ## <a name="examples"></a>範例
 
-比方說，您可以在其中撰寫查詢： 接受`lastName`並`address.state`做為參數，並執行的各種值`lastName`和`address.state`根據使用者輸入。
+例如，您可以撰寫`lastName`接受和`address.state`做為參數的查詢，並`address.state`根據使用者輸入，對的`lastName`各種值執行。
 
 ```sql
     SELECT *
@@ -27,7 +27,7 @@ Cosmos DB 支援查詢使用類似 @ 標記法來表示的參數。 參數化的
     WHERE f.lastName = @lastName AND f.address.state = @addressState
 ```
 
-然後，您可以傳送到 Cosmos DB 此要求做為參數化 JSON 查詢，如下所示：
+然後，您可以將此要求以參數化 JSON 查詢的形式傳送給 Cosmos DB，如下所示：
 
 ```sql
     {
@@ -39,7 +39,7 @@ Cosmos DB 支援查詢使用類似 @ 標記法來表示的參數。 參數化的
     }
 ```
 
-下列範例會設定 TOP 的引數的參數化查詢： 
+下列範例會使用參數化查詢來設定 TOP 引數： 
 
 ```sql
     {
@@ -50,10 +50,10 @@ Cosmos DB 支援查詢使用類似 @ 標記法來表示的參數。 參數化的
     }
 ```
 
-參數值可以是任何有效的 JSON： 字串、 數字、 布林值，null，甚至是陣列或巢狀 JSON。 由於 Cosmos DB 是無結構描述，不會對任何類型驗證參數。
+參數值可以是任何有效的 JSON：字串、數位、布林值、null，甚至是陣列或嵌套 JSON。 因為 Cosmos DB 是無架構，所以不會針對任何類型驗證參數。
 
 
 ## <a name="next-steps"></a>後續步驟
 
-- [Azure Cosmos DB .NET 範例](https://github.com/Azure/azure-cosmosdb-dotnet)
-- [模型文件資料](modeling-data.md)
+- [Azure Cosmos DB .NET 範例](https://github.com/Azure/azure-cosmos-dotnet-v3)
+- [模型檔資料](modeling-data.md)

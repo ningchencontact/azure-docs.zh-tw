@@ -10,12 +10,12 @@ ms.date: 05/11/2017
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: 058dc97054aad310135ccc1f51d765f0af3f571b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 4fa5657a7ee2043e09c80593651d88a527770d7a
+ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65147017"
+ms.lasthandoff: 09/15/2019
+ms.locfileid: "70998973"
 ---
 # <a name="client-side-encryption-and-azure-key-vault-with-java-for-microsoft-azure-storage"></a>Microsoft Azure 儲存體搭配 Java 的用戶端加密和 Azure Key Vault
 [!INCLUDE [storage-selector-client-side-encryption-include](../../../includes/storage-selector-client-side-encryption-include.md)]
@@ -56,9 +56,9 @@ ms.locfileid: "65147017"
 > 
 > 
 
-下載已加密的 blob 牽涉到擷取整個 blob 使用的內容**下載**/**openInputStream**便利的方法。 包裝的 CEK 會解除包裝，並與 IV (在此情況下儲存為 blob 中繼資料) 一起用來傳回解密的資料給使用者。
+下載加密的 blob 牽涉到使用**下載**/ **openInputStream**便利方法來抓取整個 blob 的內容。 包裝的 CEK 會解除包裝，並與 IV (在此情況下儲存為 blob 中繼資料) 一起用來傳回解密的資料給使用者。
 
-下載任意範圍 (**downloadRange**方法) 在加密的 blob 牽涉到調整使用者所提供取得少量額外的資料可以用來成功解密所要求的範圍範圍。  
+在加密的 blob 中下載任意範圍（**downloadRange**方法）牽涉到調整使用者所提供的範圍，以取得少量額外的資料，可用來成功解密所要求的範圍。  
 
 所有 Blob 類型 (區塊 Blob、頁面 Blob 和附加 Blob) 都可以使用此機制進行加密/解密。
 
@@ -102,8 +102,8 @@ ms.locfileid: "65147017"
 > 
 > 若要執行查詢作業，您必須指定一個能夠解析結果集中的所有金鑰的金鑰解析程式。 如果查詢結果中包含的實體無法解析成提供者，用戶端程式庫會擲回錯誤。 針對執行伺服器端投影的任何查詢，用戶端程式庫會依預設將特殊加密中繼資料屬性 (_ClientEncryptionMetadata1 和 _ClientEncryptionMetadata2) 加入選取的資料行。
 
-## <a name="azure-key-vault"></a>Azure 金鑰保存庫
-Azure 金鑰保存庫可協助保護雲端應用程式和服務所使用的密碼編譯金鑰和密碼。 使用 Azure 金鑰保存庫時，使用者可以使用受硬體安全模組 (HSM) 保護的金鑰來加密金鑰和密碼 (例如驗證金鑰、儲存體帳戶金鑰、資料加密金鑰、.PFX 檔案和密碼)。 如需詳細資訊，請參閱 [什麼是 Azure 金鑰保存庫？](../../key-vault/key-vault-whatis.md)。
+## <a name="azure-key-vault"></a>Azure Key Vault
+Azure 金鑰保存庫可協助保護雲端應用程式和服務所使用的密碼編譯金鑰和密碼。 使用 Azure 金鑰保存庫時，使用者可以使用受硬體安全模組 (HSM) 保護的金鑰來加密金鑰和密碼 (例如驗證金鑰、儲存體帳戶金鑰、資料加密金鑰、.PFX 檔案和密碼)。 如需詳細資訊，請參閱 [什麼是 Azure 金鑰保存庫？](../../key-vault/key-vault-overview.md)。
 
 儲存體用戶端程式庫會使用金鑰保存庫核心程式庫，以提供整個 Azure 的通用架構來管理金鑰。 使用者也享有使用金鑰保存庫延伸模組程式庫的額外好處。 延伸模組程式庫提供實用的功能，包括簡單又完善的對稱/RSA 本機和雲端金鑰提供者，以及彙總和快取。
 
@@ -121,7 +121,7 @@ Azure 金鑰保存庫可協助保護雲端應用程式和服務所使用的密�
 3. 建立加密原則時，使用快取解析程式做為輸入。
    如需有關「金鑰保存庫」使用方式的詳細資訊，請參閱加密程式碼範例。
 
-## <a name="best-practices"></a>最佳作法
+## <a name="best-practices"></a>最佳做法
 只有 Java 的儲存體用戶端程式庫才支援加密。
 
 > [!IMPORTANT]
@@ -254,4 +254,4 @@ public void setEncryptedProperty1(final String encryptedProperty1) {
 * 下載適用於 Java Maven 的 Azure 金鑰保存庫 Maven 程式庫封裝：
   * [核心](https://mvnrepository.com/artifact/com.microsoft.azure/azure-keyvault-core) 封裝
   * [用戶端](https://mvnrepository.com/artifact/com.microsoft.azure/azure-keyvault) 封裝
-* 請瀏覽 [Azure 金鑰保存庫文件](../../key-vault/key-vault-whatis.md)
+* 請瀏覽 [Azure 金鑰保存庫文件](../../key-vault/key-vault-overview.md)

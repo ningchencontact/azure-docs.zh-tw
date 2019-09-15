@@ -1,7 +1,7 @@
 ---
 title: 為您的模型微調超參數
-titleSuffix: Azure Machine Learning service
-description: 使用 Azure Machine Learning 服務有效率地為您的深度學習/機器學習模型微調超參數。 您將瞭解如何定義參數搜尋空間、指定要優化的主要計量, 並提早終止效能不佳的執行。
+titleSuffix: Azure Machine Learning
+description: 使用 Azure Machine Learning 有效率地調整深度學習/機器學習模型的超參數。 您將瞭解如何定義參數搜尋空間、指定要優化的主要計量，並提早終止效能不佳的執行。
 ms.author: swatig
 author: swatig007
 ms.reviewer: sgilley
@@ -11,16 +11,16 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 07/08/2019
 ms.custom: seodec18
-ms.openlocfilehash: 5a6f7c6de005112578cc29865574e5e255c99a8e
-ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+ms.openlocfilehash: cb4023be41377846ed209b3d6702188f5d79ba00
+ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69873077"
+ms.lasthandoff: 09/15/2019
+ms.locfileid: "70999395"
 ---
-# <a name="tune-hyperparameters-for-your-model-with-azure-machine-learning-service"></a>使用 Azure Machine Learning 服務為您的模型微調超參數
+# <a name="tune-hyperparameters-for-your-model-with-azure-machine-learning"></a>使用 Azure Machine Learning 為您的模型微調超參數
 
-使用 Azure Machine Learning 服務有效率地為您的模型微調超參數。  超參數微調包含下列步驟：
+使用 Azure Machine Learning 有效率地調整模型的超參數。  超參數微調包含下列步驟：
 
 * 定義參數搜尋空間
 * 指定要最佳化的主要計量  
@@ -45,7 +45,7 @@ Azure Machine Learning 可讓您以有效率的方式來自動化超參數探索
 
 ### <a name="types-of-hyperparameters"></a>超參數類型
 
-每個超參數都可以是離散或連續, 而且具有由[參數運算式](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.hyperdrive.parameter_expressions?view=azure-ml-py)所描述的值分佈。
+每個超參數都可以是離散或連續，而且具有由[參數運算式](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.hyperdrive.parameter_expressions?view=azure-ml-py)所描述的值分佈。
 
 #### <a name="discrete-hyperparameters"></a>離散超參數 
 
@@ -94,7 +94,7 @@ Azure Machine Learning 可讓您以有效率的方式來自動化超參數探索
 
 ### <a name="sampling-the-hyperparameter-space"></a>取樣超參數空間
 
-您也可以指定要對超參數空間定義使用的參數取樣方法。 Azure Machine Learning 服務支援隨機取樣、網格取樣和貝氏取樣。
+您也可以指定要對超參數空間定義使用的參數取樣方法。 Azure Machine Learning 支援隨機取樣、方格取樣和貝氏取樣。
 
 #### <a name="random-sampling"></a>隨機取樣
 
@@ -186,7 +186,7 @@ run_logger.log("accuracy", float(val_accuracy))
 * `evaluation_interval`：套用原則的頻率。 每次定型指令碼記錄主要計量都算是一個間隔。 因此，`evaluation_interval` 為 1 表示只要定型指令碼回報主要計量就套用原則。 `evaluation_interval` 為 2 表示會在定型指令碼回報主要計量的隔次套用原則。 如果未指定，`evaluation_interval` 會預設為 1。
 * `delay_evaluation`：將第一次原則評估延遲到指定間隔數目之後。 這是選擇性參數，允許所有設定執行最小的初始間隔數目，以避免定型執行過早終止。 如果指定，則會每隔 evaluation_interval (大於或等於 delay_evaluation) 的倍數套用原則一次。
 
-Azure Machine Learning 服務支援下列提早終止原則。
+Azure Machine Learning 支援下列早期終止原則。
 
 ### <a name="bandit-policy"></a>Bandit 原則
 
@@ -234,7 +234,7 @@ from azureml.train.hyperdrive import TruncationSelectionPolicy
 early_termination_policy = TruncationSelectionPolicy(evaluation_interval=1, truncation_percentage=20, delay_evaluation=5)
 ```
 
-在此範例中，自評估間隔 5 起，每隔一段時間，就會套用提早終止原則。 如果在間隔5的效能是在間隔5的所有執行效能的最低 20%, 則會在間隔5結束執行。
+在此範例中，自評估間隔 5 起，每隔一段時間，就會套用提早終止原則。 如果在間隔5的效能是在間隔5的所有執行效能的最低 20%，則會在間隔5結束執行。
 
 ### <a name="no-termination-policy"></a>無終止原則
 
@@ -246,7 +246,7 @@ policy=None
 
 ### <a name="default-policy"></a>預設原則
 
-如果未指定任何原則, 超參數微調服務會讓所有訓練回合執行到完成。
+如果未指定任何原則，超參數微調服務會讓所有訓練回合執行到完成。
 
 >[!NOTE] 
 >如果您在尋求可節省成本，但不會終止大有可為作業的保守原則，您可以使用「中位數停止原則」搭配 `evaluation_interval` 1 和 `delay_evaluation` 5。 這些是保守的設定，可在不遺失主要計量的情況下省下約 25%-35% (取決於我們的評估資料)。
@@ -275,7 +275,7 @@ max_total_runs=20,
 max_concurrent_runs=4
 ```
 
-此程式碼會將超參數微調實驗設定為使用最多20個回合, 一次執行四個設定。
+此程式碼會將超參數微調實驗設定為使用最多20個回合，一次執行四個設定。
 
 ## <a name="configure-experiment"></a>設定實驗
 
@@ -304,7 +304,7 @@ experiment = Experiment(workspace, experiment_name)
 hyperdrive_run = experiment.submit(hyperdrive_run_config)
 ```
 
-`experiment_name` 是您要指派給超參數微調實驗的名稱，而 `workspace` 是您要建立實驗的工作區 (如需實驗的詳細資訊，請參閱[Azure Machine Learning 服務如何運作？](concept-azure-machine-learning-architecture.md))。
+`experiment_name`是您要指派給超參數微調實驗的名稱，而`workspace`是您要在其中建立實驗的工作區（如需實驗的詳細資訊，請參閱[Azure Machine Learning 如何運作？](concept-azure-machine-learning-architecture.md)）
 
 ## <a name="visualize-experiment"></a>視覺化實驗
 

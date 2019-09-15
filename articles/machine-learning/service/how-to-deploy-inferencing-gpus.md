@@ -1,7 +1,7 @@
 ---
 title: 使用 GPU 部署模型以進行推斷
-titleSuffix: Azure Machine Learning service
-description: 本文會教您如何使用 Azure Machine Learning 服務將已啟用 GPU 的 Tensorflow 深度學習模型部署為 web 服務。服務和分數推斷要求。
+titleSuffix: Azure Machine Learning
+description: 本文會教您如何使用 Azure Machine Learning 將已啟用 GPU 的 Tensorflow 深度學習模型部署為 web 服務。服務和分數推斷要求。
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,16 +10,16 @@ ms.author: vaidyas
 author: csteegz
 ms.reviewer: larryfr
 ms.date: 07/24/2019
-ms.openlocfilehash: 3113ad050ec6040d4f7964e940c507024bcf002d
-ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
+ms.openlocfilehash: bfed4daed51e95bb0b86ef187d45722e2c3a25ab
+ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70844996"
+ms.lasthandoff: 09/15/2019
+ms.locfileid: "71002776"
 ---
 # <a name="deploy-a-deep-learning-model-for-inference-with-gpu"></a>使用 GPU 部署深度學習模型以進行推斷
 
-本文會教您如何使用 Azure Machine Learning 服務將已啟用 GPU 的模型部署為 web 服務。 本文中的資訊是以 Azure Kubernetes Service （AKS）上部署模型為基礎。 AKS 叢集會提供一個 GPU 資源，供模型用來進行推斷。
+本文會教您如何使用 Azure Machine Learning 將已啟用 GPU 的模型部署為 web 服務。 本文中的資訊是以 Azure Kubernetes Service （AKS）上部署模型為基礎。 AKS 叢集會提供一個 GPU 資源，供模型用來進行推斷。
 
 推斷（或模型計分）是用來進行預測的已部署模型的階段。 使用 Gpu 而非 Cpu，可提供高度可平行計算的效能優勢。
 
@@ -34,7 +34,7 @@ ms.locfileid: "70844996"
 
 ## <a name="prerequisites"></a>必要條件
 
-* Azure Machine Learning 服務工作區。 如需詳細資訊，請參閱[建立 Azure Machine Learning 服務工作區](how-to-manage-workspace.md)。
+* Azure Machine Learning 工作區。 如需詳細資訊，請參閱[建立 Azure Machine Learning 工作區](how-to-manage-workspace.md)。
 
 * 已安裝 Azure Machine Learning SDK 的 Python 開發環境。 如需詳細資訊，請參閱[AZURE MACHINE LEARNING SDK](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py)。  
 
@@ -51,7 +51,7 @@ ms.locfileid: "70844996"
 若要連接到現有的工作區，請使用下列程式碼：
 
 > [!IMPORTANT]
-> 此程式碼片段需要將工作區設定儲存在目前目錄或其父系。 如需建立工作區的詳細資訊，請參閱[建立和管理 Azure Machine Learning 服務工作區](how-to-manage-workspace.md)。   如需將設定儲存至檔案的詳細資訊，請參閱[建立工作區設定檔](how-to-configure-environment.md#workspace)。
+> 此程式碼片段需要將工作區設定儲存在目前目錄或其父系。 如需建立工作區的詳細資訊，請參閱[建立和管理 Azure Machine Learning 工作區](how-to-manage-workspace.md)。   如需將設定儲存至檔案的詳細資訊，請參閱[建立工作區設定檔](how-to-configure-environment.md#workspace)。
 
 ```python
 from azureml.core import Workspace
@@ -93,7 +93,7 @@ except ComputeTargetException:
 > [!IMPORTANT]
 > 只要 AKS 叢集存在，Azure 就會向您收取費用。 當您完成 AKS 叢集時, 請務必將其刪除。
 
-如需有關使用 AKS 搭配 Azure Machine Learning 服務的詳細資訊，請參閱[如何部署至 Azure Kubernetes Service](how-to-deploy-azure-kubernetes-service.md)。
+如需有關使用 AKS 搭配 Azure Machine Learning 的詳細資訊，請參閱[如何部署至 Azure Kubernetes Service](how-to-deploy-azure-kubernetes-service.md)。
 
 ## <a name="write-the-entry-script"></a>撰寫專案腳本
 

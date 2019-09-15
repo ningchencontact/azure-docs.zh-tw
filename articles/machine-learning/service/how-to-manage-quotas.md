@@ -1,6 +1,6 @@
 ---
 title: 管理及要求資源配額
-titleSuffix: Azure Machine Learning service
+titleSuffix: Azure Machine Learning
 description: 此操作指南說明 Azure Machine Learning 資源上的各種配額，以及如何檢視及要求更多配額。
 services: machine-learning
 ms.service: machine-learning
@@ -11,26 +11,26 @@ author: nishankgu
 ms.author: nigup
 ms.date: 05/10/2019
 ms.custom: seodec18
-ms.openlocfilehash: bc0455b34ebdcb080e0cd702e58d8163228b60ff
-ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
+ms.openlocfilehash: 2ee819625f772c96ac6c5a771935da17ee05f3aa
+ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70278056"
+ms.lasthandoff: 09/15/2019
+ms.locfileid: "71002679"
 ---
 # <a name="manage-and-request-quotas-for-azure-resources"></a>管理及要求 Azure 資源的配額
 
-如同使用其他 Azure 服務，對於與 Azure Machine Learning 服務相關聯的特定資源有一些限制。 這些限制的範圍是您可以建立的工作區數目上限, 以及用於模型定型或推斷/評分的實際基礎計算限制。 
+與其他 Azure 服務一樣，與 Azure Machine Learning 相關聯的特定資源有一些限制。 這些限制的範圍是您可以建立的工作區數目上限，以及用於模型定型或推斷/評分的實際基礎計算限制。 
 
 此文章針對您訂用帳戶之各種 Azure 資源所預先設定的限制提供更詳細的資料，另外還包含針對各種資源類型要求配額增強功能的方便連結。 設置這些限制可防止因詐欺而導致的預算超支，並遵循 Azure 的容量條件約束。
 
-當您為生產工作負載設計及相應增加您的 Azure Machine Learning 服務資源時，請記住這些配額。 例如, 如果您的叢集未達到您所指定的目標節點數目, 您可能已達到訂用帳戶的 Azure Machine Learning 計算核心限制。 如果您想要將限制或配額提升到預設限制以上，您可以免費提出線上客戶支援要求。 由於 Azure 容量有其條件約束，您無法將限制提升至高於下表所示的「上限」值。 如果沒有上限欄，資源即沒有可調整的限制。
+當您針對生產工作負載設計和相應增加您的 Azure Machine Learning 資源時，請記住這些配額。 例如，如果您的叢集未達到您所指定的目標節點數目，您可能已達到訂用帳戶的 Azure Machine Learning 計算核心限制。 如果您想要將限制或配額提升到預設限制以上，您可以免費提出線上客戶支援要求。 由於 Azure 容量有其條件約束，您無法將限制提升至高於下表所示的「上限」值。 如果沒有上限欄，資源即沒有可調整的限制。
 
 ## <a name="special-considerations"></a>特殊考量
 
 + 配額是一種信用限制，不是容量保證。 如果您有大規模的容量需求，請連絡 Azure 支援。
 
-+ 您的配額由訂用帳戶中的所有服務所共用，包括 Azure Machine Learning 服務。 唯一的例外是 Azure Machine Learning Compute，它具有核心計算配額以外的個別配額。 當評估您的容量需求時，請務必計算所有服務的配額使用量。
++ 您的配額會在訂用帳戶中的所有服務之間共用，包括 Azure Machine Learning。 唯一的例外是 Azure Machine Learning Compute，它具有核心計算配額以外的個別配額。 當評估您的容量需求時，請務必計算所有服務的配額使用量。
 
 + 預設限制會因供應項目類別類型 (例如免費試用、隨用隨付) 和系列 (例如 Dv2、F、G 等) 而有所差異。
 
@@ -54,9 +54,9 @@ ms.locfileid: "70278056"
 就 Azure Machine Learning Compute 而言，對於訂用帳戶中的每個區域允許的核心數目與特有計算資源數目，均有預設的配額限制。 此配額不同於上述 VM 核心配額，而且目前在兩個資源類型之間不共用核心限制。
 
 可用的資源：
-+ 根據您的訂用帳戶供應專案類型, 每個區域的專用核心預設限制為 24-300。  您可以增加每個訂用帳戶的專用核心數目。 請連絡 Azure 支援以討論增加選項。
++ 根據您的訂用帳戶供應專案類型，每個區域的專用核心預設限制為 24-300。  您可以增加每個訂用帳戶的專用核心數目。 請連絡 Azure 支援以討論增加選項。
 
-+ 根據您的訂用帳戶供應專案類型而定, 每個區域的低優先順序核心預設限制為 24-300。  您可以增加每個訂用帳戶的低優先順序核心數目。 請連絡 Azure 支援以討論增加選項。
++ 根據您的訂用帳戶供應專案類型而定，每個區域的低優先順序核心預設限制為 24-300。  您可以增加每個訂用帳戶的低優先順序核心數目。 請連絡 Azure 支援以討論增加選項。
 
 + 每個區域的叢集都有預設的限制 (100 個) 和上限 (200 個)。 如果您想要要求增加到超過此限制，請連絡 Azure 支援。
 
@@ -73,12 +73,12 @@ ms.locfileid: "70278056"
 | 每個節點的最大參數伺服器數 | 1 |
 
 <sup>1</sup> 存留期上限是指執行開始到完成的時間。 已完成的執行會無限期保留；未在存留期上限內完成的執行，其資料將無法存取。
-每次有容量限制時, 低優先順序節點上的<sup>2</sup>個作業都可以預先清空。 建議您在作業中執行檢查點。
+每次有容量限制時，低優先順序節點上的<sup>2</sup>個作業都可以預先清空。 建議您在作業中執行檢查點。
 
 ### <a name="azure-machine-learning-pipelines"></a>Azure Machine Learning 管線
-針對 Azure Machine Learning 管線, 管線中的步驟數目以及訂用帳戶中每個區域的排程型執行數目會有配額限制。
+針對 Azure Machine Learning 管線，管線中的步驟數目以及訂用帳戶中每個區域的排程型執行數目會有配額限制。
 - 管線中允許的最大步驟數目是30000
-- 針對每個訂用帳戶每個訂閱的已發佈管線, 以排程為基礎的執行總和和 blob 提取的最大數目為100000
+- 針對每個訂用帳戶每個訂閱的已發佈管線，以排程為基礎的執行總和和 blob 提取的最大數目為100000
 
 > [!NOTE]
 > 如果您想要上調此限制，請連絡 [Microsoft 支援服務](https://azure.microsoft.com/support/options/)。
@@ -105,7 +105,7 @@ ms.locfileid: "70278056"
 
    **有一點需要注意**，具體而言是檢視 Azure Machine Learning Compute 配額時。 如上所述，該配額與您訂用帳戶上的計算配額是分開的。
 
-1. 在左窗格中, 選取 [ **Machine Learning 服務**], 然後從顯示的清單中選取任何工作區
+1. 在左窗格中，選取 [ **Machine Learning 服務**]，然後從顯示的清單中選取任何工作區
 
 1. 在下一個刀鋒視窗的 [支援與疑難排解] 區段下方，選取 [使用量 + 配額]，以檢視目前配額限制與使用量。
 

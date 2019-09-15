@@ -9,12 +9,12 @@ ms.date: 07/22/2019
 ms.topic: article
 ms.service: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: 58c88e9b7cf2e0f80c88d32e02d13096a9623a4b
-ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
+ms.openlocfilehash: ed668f744716b062fd70d2f63d89152f6fc8a902
+ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70914019"
+ms.lasthandoff: 09/15/2019
+ms.locfileid: "70999130"
 ---
 # <a name="use-visual-studio-2019-to-develop-and-debug-modules-for-azure-iot-edge"></a>使用 Visual Studio 2019 來開發和偵測模組，以進行 Azure IoT Edge
 
@@ -44,7 +44,7 @@ Azure IoT Edge Tools for Visual Studio 提供下列優點：
 
 - 在開發電腦下載並安裝 [Docker Community Edition](https://docs.docker.com/install/)，以建置並執行您的模組映像。 您必須設定 Docker CE 在 Linux 容器模式或 Windows 容器模式中執行。
 
-- 安裝 [Azure IoT EdgeHub Dev Tool](https://pypi.org/project/iotedgehubdev/)，以便設定本機開發環境以偵錯、執行和測試您的 IoT Edge 解決方案。 在您的終端機中執行下列命令，先安裝 [Python (2.7/3.6) 和 Pip](https://www.python.org/)，再安裝 **iotedgehubdev** 封裝。 確定您的 Azure IoT EdgeHub Dev Tool 版本大於 0.3.0。
+- 安裝 [Azure IoT EdgeHub Dev Tool](https://pypi.org/project/iotedgehubdev/)，以便設定本機開發環境以偵錯、執行和測試您的 IoT Edge 解決方案。 安裝[Python （2.7/3.6 +）和 Pip](https://www.python.org/) ，然後在您的終端機中執行下列命令來安裝**iotedgehubdev**套件。 確定您的 Azure IoT EdgeHub Dev Tool 版本大於 0.3.0。
 
    ```cmd
    pip install --upgrade iotedgehubdev

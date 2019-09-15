@@ -8,12 +8,12 @@ ms.date: 06/26/2019
 ms.topic: conceptual
 ms.service: blueprints
 manager: carmonm
-ms.openlocfilehash: 43848e99f679e306747c4cb7b31a4d4692c888cc
-ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
+ms.openlocfilehash: 654ae2da9bcdb6d73de47730aff6870c2e3dfaeb
+ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70918348"
+ms.lasthandoff: 09/15/2019
+ms.locfileid: "71001530"
 ---
 # <a name="control-mapping-of-the-uk-official-and-uk-nhs-blueprint-samples"></a>英國官方和英國 NHS 藍圖範例的控制項對應
 
@@ -127,7 +127,7 @@ Azure 會實行角色型存取控制 (RBAC), 以協助您管理可存取 Azure �
 
 Azure 會實行角色型存取控制 (RBAC), 以協助您管理可存取 Azure 資源的人員。 您可以使用 Azure 入口網站，檢閱可存取 Azure 資源的人員及其權限。 此藍圖藉由指派五個[Azure 原則](../../../policy/overview.md)定義來審查外部帳戶的擁有者及/或寫入權限, 以及具有擁有者及/或不具有之寫入權限的帳戶, 以協助您限制及控制特殊許可權存取權限。已啟用多重要素驗證。
 
-用於雲端服務管理的系統將會有該服務的高度存取權限。 其洩露會有重大影響，包括規避安全性控制及竊取或操控大量資料。 服務提供者的系統管理員用來管理操作服務的方法, 應該設計來降低可能會破壞服務安全性的任何入侵風險。 如果未實行此準則, 攻擊者可能會有略過安全性控制項並竊取或操作大量資料的方法。
+用於雲端服務管理的系統將會有該服務的高度存取權限。 其洩露會有重大影響，包括規避安全性控制及竊取或操控大量資料。 服務提供者的系統管理員用來管理操作服務的方法，應該設計來降低可能會破壞服務安全性的任何入侵風險。 如果未實行此準則, 攻擊者可能會有略過安全性控制項並竊取或操作大量資料的方法。
 
 - 應在您訂用帳戶上具有擁有者權限的帳戶上啟用 MFA
 - MFA 應啟用具有您訂用帳戶寫入權限的帳戶

@@ -1,6 +1,6 @@
 ---
 title: 記錄 ML 實驗 & 計量
-titleSuffix: Azure Machine Learning service
+titleSuffix: Azure Machine Learning
 description: 監視您的 Azure ML 實驗並監視執行計量，以加強模型建立程式。 將記錄新增至您的定型腳本，並查看執行的記錄結果。  使用 run .log、start_logging 或 ScriptRunConfig。
 services: machine-learning
 author: heatherbshapiro
@@ -12,19 +12,19 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 09/11/2019
 ms.custom: seodec18
-ms.openlocfilehash: 1c2747c8eaac0323ac32f67afb27ac854a3a5ce9
-ms.sourcegitcommit: dd69b3cda2d722b7aecce5b9bd3eb9b7fbf9dc0a
+ms.openlocfilehash: a37ed7c7f39324a7fb4750389c0d76c36539c3cc
+ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70959950"
+ms.lasthandoff: 09/15/2019
+ms.locfileid: "71002696"
 ---
 # <a name="monitor-azure-ml-experiment-runs-and-metrics"></a>監視 Azure ML 實驗的執行和計量
 
-追蹤您的實驗並監視執行計量，以增強模型建立程式。 在本文中，您將瞭解如何將記錄程式碼新增至您的定型腳本、提交實驗執行、監視執行，以及檢查 Azure Machine Learning 服務中的結果。
+追蹤您的實驗並監視執行計量，以增強模型建立程式。 在本文中，您將瞭解如何將記錄程式碼新增至您的定型腳本、提交實驗執行、監視執行，以及檢查 Azure Machine Learning 中的結果。
 
 > [!NOTE]
-> Azure Machine Learning 服務也可能會在定型期間記錄來自其他來源的資訊，例如自動化機器學習執行，或執行定型作業的 Docker 容器。 這些記錄檔並未記載。 如果您遇到問題並聯系 Microsoft 支援服務，他們可能會在進行疑難排解時使用這些記錄。
+> Azure Machine Learning 也可能會在定型期間記錄來自其他來源的資訊，例如自動化機器學習執行，或執行定型作業的 Docker 容器。 這些記錄檔並未記載。 如果您遇到問題並聯系 Microsoft 支援服務，他們可能會在進行疑難排解時使用這些記錄。
 
 ## <a name="available-metrics-to-track"></a>要追蹤的可用計量
 
@@ -65,7 +65,7 @@ ms.locfileid: "70959950"
 
 **start_logging** 可建立互動式執行，以便用於 Notebook 等環境中。 工作階段期間記錄的所有計量都會加入實驗的執行記錄中。
 
-以下範例在本機 Jupyter Notebook 中，將簡單的 sklearn Ridge 模型定型。 若要深入了解將實驗提交至不同的環境，請參閱[使用 Azure Machine Learning 服務設定模型定型的計算目標](https://docs.microsoft.com/azure/machine-learning/service/how-to-set-up-training-targets)。
+以下範例在本機 Jupyter Notebook 中，將簡單的 sklearn Ridge 模型定型。 若要深入瞭解如何將實驗提交至不同的環境，請參閱[使用 Azure Machine Learning 設定模型定型的計算目標](https://docs.microsoft.com/azure/machine-learning/service/how-to-set-up-training-targets)。
 
 1. 在本機 Jupyter Notebook 中建立定型指令碼。 
 
@@ -91,7 +91,7 @@ ms.locfileid: "70959950"
    joblib.dump(value = reg, filename = 'model.pkl');
    ```
 
-2. 使用 Azure Machine Learning 服務 SDK 新增實驗定型，並將保存的模型上傳至實驗執行記錄。 以下程式碼新增標記、記錄，並將模型檔案上傳到實驗執行中。
+2. 使用 Azure Machine Learning SDK 新增實驗追蹤，並將保存的模型上傳至實驗執行記錄。 以下程式碼新增標記、記錄，並將模型檔案上傳到實驗執行中。
 
    ```python
     # Get an experiment object from Azure Machine Learning

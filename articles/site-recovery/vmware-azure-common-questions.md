@@ -8,12 +8,12 @@ services: site-recovery
 ms.date: 06/27/2019
 ms.topic: conceptual
 ms.author: raynew
-ms.openlocfilehash: 27e5323e2c9fed3886b2ddf175a2c67718ad52d0
-ms.sourcegitcommit: dd69b3cda2d722b7aecce5b9bd3eb9b7fbf9dc0a
+ms.openlocfilehash: c1897b73164b05dfd881729147e6d082be547530
+ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70959156"
+ms.lasthandoff: 09/15/2019
+ms.locfileid: "71002283"
 ---
 # <a name="common-questions-about-vmware-to-azure-replication"></a>VMware 至 Azure 複寫的常見問題
 
@@ -231,7 +231,7 @@ Site Recovery 遵循 N-4 支援模型。 [深入瞭解](https://aka.ms/asr_suppo
 
 ### <a name="can-i-manually-set-up-the-configuration-server-instead-of-using-a-template"></a>是否可以手動設定組態伺服器，而不要使用範本？
 
-我們建議您使用最新版本的開放式虛擬機器格式（OVF）範本來[建立設定伺服器 VM](vmware-azure-deploy-configuration-server.md) 。 如果您無法使用此範本（例如，如果您沒有 VMware 伺服器的存取權），請從入口網站[下載](physical-azure-set-up-source.md)安裝程式檔案，並設定設定伺服器。
+我們建議您使用最新版的開放式虛擬化格式（OVF）範本來[建立設定伺服器 VM](vmware-azure-deploy-configuration-server.md) 。 如果您無法使用此範本（例如，如果您沒有 VMware 伺服器的存取權），請從入口網站[下載](physical-azure-set-up-source.md)安裝程式檔案，並設定設定伺服器。
 
 ### <a name="can-a-configuration-server-replicate-to-more-than-one-region"></a>組態伺服器是否可複寫到多個區域？
 

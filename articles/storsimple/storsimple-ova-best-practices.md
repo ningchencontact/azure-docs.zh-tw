@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 07/25/2019
 ms.author: alkohli
-ms.openlocfilehash: b5ffc16a7c9dacef3036ca5ce225265252dcdf5d
-ms.sourcegitcommit: f5cc71cbb9969c681a991aa4a39f1120571a6c2e
+ms.openlocfilehash: a8aed646f03b777722518152354cfe80cea043a0
+ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68516753"
+ms.lasthandoff: 09/15/2019
+ms.locfileid: "71002810"
 ---
 # <a name="storsimple-virtual-array-best-practices"></a>StorSimple Virtual Array 的最佳作法
 
@@ -79,9 +79,9 @@ StorSimple Virtual Array 是佈建在主機伺服器 Hypervisor (Hyper-V 或 VMw
 * 120 GB 的本機保留空間 (針對 1 TB 的分層式磁碟區/共用)
 * 330 GB 的本機固定磁碟區或共用 (新增 10% 的本機保留空間至 300 GB 佈建大小)
 
-到目前為止, 本機層所需的總空間為:240 GB + 120 GB + 330 GB = 690 GB。
+到目前為止，本機層所需的總空間為：240 GB + 120 GB + 330 GB = 690 GB。
 
-其次，本機層所需的空間至少要和最大的單一保留空間一樣大。 萬一您需要從雲端快照還原，就會使用這個額外的空間量。 在此範例中, 最大的本機保留空間是 330 GB (包括檔案系統的保留), 因此您會將其新增至 690 GB:690 GB + 330 GB = 1020 GB。
+其次，本機層所需的空間至少要和最大的單一保留空間一樣大。 萬一您需要從雲端快照還原，就會使用這個額外的空間量。 在此範例中，最大的本機保留空間是 330 GB （包括檔案系統的保留），因此您會將其新增至 690 GB：690 GB + 330 GB = 1020 GB。
 我們在執行其他後續還原作業時，一律可以釋放先前還原作業的空間。
 
 第三，到目前為止，我們需要本機總空間的 15% 來儲存本機快照，因此只剩 85% 的空間可以使用。 在此範例中，這大約是 1020 GB，而這等於 85% 的已佈建資料磁碟 TB。&ast; 因此，已佈建的資料磁碟會是 (1020&ast;(1/0.85)) = 1200 GB = 1.20 TB ~ 1.25 TB (四捨五入至最接近的四分位數)
@@ -103,7 +103,7 @@ StorSimple Virtual Array 是佈建在主機伺服器 Hypervisor (Hyper-V 或 VMw
 * 240 GB 的本機保留空間 (針對 2 TB 的分層式磁碟區/共用)
 * 330 GB 的本機固定磁碟區或共用 (新增 10% 的本機保留空間至 300 GB 佈建空間)
 
-本機層所需的總空間為:240 GB + 330 GB = 570 GB
+本機層所需的總空間為：240 GB + 330 GB = 570 GB
 
 還原所需的最小本機空間是 330 GB。
 
@@ -199,7 +199,7 @@ StorSimple Virtual Array 可與單一儲存體帳戶相關聯。 此儲存體帳
 ### <a name="data-security-and-encryption"></a>資料安全性與加密
 StorSimple Virtual Array 擁有資料安全性和加密功能，可確保資料的機密性和完整性。 在使用這些功能時，建議您遵循下列最佳作法︰ 
 
-* 先定義用來產生 AES-256 加密的雲端儲存體加密金鑰，再將資料從虛擬陣列傳送至雲端。 如果資料一開始就已加密，則不需要此金鑰。 使用金鑰管理系統 (例如 [Azure 金鑰保存庫](../key-vault/key-vault-whatis.md)) 即可產生並妥善保存金鑰。
+* 先定義用來產生 AES-256 加密的雲端儲存體加密金鑰，再將資料從虛擬陣列傳送至雲端。 如果資料一開始就已加密，則不需要此金鑰。 使用金鑰管理系統 (例如 [Azure 金鑰保存庫](../key-vault/key-vault-overview.md)) 即可產生並妥善保存金鑰。
 * 在透過 StorSimple Manager 服務設定儲存體帳戶時，請確實啟用 SSL 模式來建立供 StorSimple 裝置與雲端之間的網路通訊使用的安全通道。
 * 定期重新產生儲存體帳戶的金鑰 (藉由存取 Azure 儲存體服務)，以說明因為系統管理員清單變更而造成的存取權變更。
 * 虛擬陣列上的資料會先壓縮並進行重複資料刪除，再傳送至 Azure。 Windows Server 主機上不建議使用「重複資料刪除」角色服務。

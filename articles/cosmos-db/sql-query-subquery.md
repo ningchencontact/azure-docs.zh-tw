@@ -1,51 +1,51 @@
 ---
-title: 適用於 Azure Cosmos DB 的 SQL 子查詢
-description: 深入了解 SQL 子查詢以及其在 Azure Cosmos DB 中的常見使用案例
+title: Azure Cosmos DB 的 SQL 子查詢
+description: 瞭解 SQL 子查詢及其在 Azure Cosmos DB 中的常見使用案例
 author: timsander1
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/23/2019
 ms.author: tisande
-ms.openlocfilehash: 4181a44e87d59d35d424a51c8fedc89523223f90
-ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
+ms.openlocfilehash: cea9963f5073834a24ede44306eb89414909fc83
+ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/24/2019
-ms.locfileid: "67342783"
+ms.lasthandoff: 09/15/2019
+ms.locfileid: "71003492"
 ---
-# <a name="sql-subquery-examples-for-azure-cosmos-db"></a>適用於 Azure Cosmos DB 的 SQL 子查詢範例
+# <a name="sql-subquery-examples-for-azure-cosmos-db"></a>Azure Cosmos DB 的 SQL 子查詢範例
 
-子查詢是巢狀於另一個查詢的查詢。 子查詢也稱為內部查詢或內部選取。 包含子查詢的陳述式通常稱為外部查詢。
+子查詢是在另一個查詢中嵌套的查詢。 子查詢也稱為內部查詢或內部 select。 包含子查詢的語句通常稱為外部查詢。
 
-此文章說明 SQL 子查詢以及其在 Azure Cosmos DB 中的常見使用案例。 在本文件中的所有範例查詢可以都執行對營養資料集上預先載入[Azure Cosmos DB 查詢園地](https://www.documentdb.com/sql/demo)。
+本文描述 SQL 子查詢及其在 Azure Cosmos DB 中的常見使用案例。 本檔中的所有範例查詢都可以針對[Azure Cosmos DB 查詢遊樂場](https://www.documentdb.com/sql/demo)預先載入的營養資料集來執行。
 
-## <a name="types-of-subqueries"></a>類型的子查詢
+## <a name="types-of-subqueries"></a>子查詢的類型
 
-有兩種類型的子查詢：
+子查詢有兩種主要類型：
 
-* **相互關聯**:子查詢會參考來自外部查詢的值。 針對外部查詢處理每個資料列中，子查詢會評估一次。
-* **非相互關聯**:獨立於外部查詢之子查詢。 它可以在其本身，而無需依賴外部的查詢上執行。
+* 相互**關聯**：參考外部查詢值的子查詢。 查詢會針對外部查詢所處理的每個資料列評估一次。
+* **非相互關聯**：與外部查詢無關的子查詢。 它可以自行執行，而不需依賴外部查詢。
 
 > [!NOTE]
-> Azure Cosmos DB 支援相互關聯的子查詢。
+> Azure Cosmos DB 只支援相互關聯的子查詢。
 
-子查詢可以進一步分類為基礎的資料列和它們所傳回的資料行數目。 有三種類型：
-* **資料表**：傳回多個資料列以及多個資料行。
-* **多重值**:傳回多個資料列和單一資料行。
-* **純量**:傳回單一資料列和單一資料行。
+子查詢可以根據其傳回的資料列和資料行數目進一步分類。 有三種類型：
+* **資料表**：傳回多個資料列和多個資料行。
+* **多重值**：傳回多個資料列和一個資料行。
+* 純**量：** 傳回單一資料列和單一資料行。
 
-Azure Cosmos DB 中的 SQL 查詢一律會傳回單一資料行 （簡單的值或複雜的文件）。 因此，只有多重值和純量的子查詢都適用於 Azure Cosmos DB 中的。 您可以使用多重值子查詢只能在 FROM 子句中，為關聯的運算式。 為純量運算式，在 選取或 WHERE 子句或關聯的運算式之 FROM 子句中，您可以使用純量子查詢。
+Azure Cosmos DB 中的 SQL 查詢一律會傳回單一資料行（簡單的值或複雜的檔）。 因此，只有多重值和純量查詢適用于 Azure Cosmos DB。 您只能在 FROM 子句中使用多重值子查詢作為關聯式運算式。 您可以在 SELECT 或 WHERE 子句中使用純量子子查詢當做純量運算式，或在 FROM 子句中當做關聯式運算式。
 
-## <a name="multi-value-subqueries"></a>多重值的子查詢
+## <a name="multi-value-subqueries"></a>多重值子查詢
 
-多重值的子查詢會傳回一組文件，而且一律會使用的 FROM 子句中。 其用途：
+多重值子查詢會傳回一組檔，而且一律會在 FROM 子句中使用。 它們用於：
 
-* 最佳化聯結運算式。 
-* 一次評估昂貴的運算式，並參考多次。
+* 優化聯結運算式。 
+* 評估昂貴的運算式一次並參考多次。
 
-## <a name="optimize-join-expressions"></a>最佳化聯結運算式
+## <a name="optimize-join-expressions"></a>優化聯結運算式
 
-多重值的子查詢可以將述詞推送之後選取對多的每個運算式，而不在 WHERE 子句中的所有跨聯結後，以最佳化聯結運算式。
+多重值子查詢可以優化聯結運算式，方法是在每個 select-many 運算式之後推送述詞，而不是在 WHERE 子句中的所有交叉聯結之後。
 
 請考量下列查詢：
 
@@ -59,11 +59,11 @@ WHERE t.name = 'infant formula' AND (n.nutritionValue > 0
 AND n.nutritionValue < 10) AND s.amount > 1
 ```
 
-此查詢中，索引會比對任何文件的標記具有名稱"嬰兒公式。 」 它是 nutrient 的項目，以介於 0 到 10 之間的值和量大於 1 的服務項目。 聯結運算式在套用任何篩選條件之前，將會針對每個相符的文件執行交叉乘積的標籤、 使萬物和食譜陣列的所有項目。 
+在此查詢中，索引會比對具有名稱 "嬰兒 formula" 之標記的任何檔。 這是一個 nutrient 專案，其值介於0到10之間，而服務專案的數量大於1。 此處的聯結運算式會在套用任何篩選之前，針對每個相符的檔，執行標記、nutrients 和 servings 陣列之所有專案的交叉乘積。 
 
-WHERE 子句會再套用篩選述詞，在每個 < c t、 n、 s > tuple。 比方說，如果相符的文件中的三個陣列的每個有 10 個項目，它會展開為 1 x 10 x 10 x 10 （也就是 1,000 個） 的 tuple。 這裡使用的子查詢可幫助聯結的下一個運算式之前篩選出已加入的陣列的項目。
+然後，WHERE 子句會將篩選述詞套用到每個 < c，t，n，s > 元組。 比方說，如果相符的檔在三個數組的每一個都有10個專案，它會擴展為 1 x 10 x 10 x 10 （也就是1000）元組。 在這裡使用子查詢可以協助篩選出聯結的陣列專案，然後再與下一個運算式聯結。
 
-這個查詢相當於前一個，但使用子查詢：
+此查詢相當於上述其中一項，但使用子查詢：
 
 ```sql
 SELECT Count(1) AS Count
@@ -73,13 +73,13 @@ JOIN (SELECT VALUE n FROM n IN c.nutrients WHERE n.nutritionValue > 0 AND n.nutr
 JOIN (SELECT VALUE s FROM s IN c.servings WHERE s.amount > 1)
 ```
 
-假設標記陣列中的只有一個項目符合篩選條件，並使萬物和食譜陣列的五個項目。 聯結運算式則會展開為 1 x 1 x 5 x 5 = 25 項目，而不是在第一個查詢 1,000 個項目。
+假設標記陣列中只有一個專案符合篩選準則，而且 nutrients 和 servings 陣列都有五個專案。 然後，聯結運算式會展開至 1 x 1 x 5 x 5 = 25 個專案，而不是第一個查詢中的1000個專案。
 
-## <a name="evaluate-once-and-reference-many-times"></a>評估一次，參考次數
+## <a name="evaluate-once-and-reference-many-times"></a>評估一次並參考多次
 
-子查詢可協助最佳化查詢與昂貴的運算式，例如使用者定義函數 (Udf)、 複雜的字串或算術運算式。 您可以使用子查詢及聯結運算式來評估運算式一次，但參考它的次數。
+子查詢可協助您使用昂貴的運算式（例如使用者定義函數（Udf）、複雜字串或算術運算式）來優化查詢。 您可以使用子查詢以及聯結運算式來評估運算式一次，但參考多次。
 
-下列查詢會執行 UDF`GetMaxNutritionValue`兩次：
+下列查詢會執行 UDF `GetMaxNutritionValue`兩次：
 
 ```sql
 SELECT c.id, udf.GetMaxNutritionValue(c.nutrients) AS MaxNutritionValue
@@ -87,7 +87,7 @@ FROM c
 WHERE udf.GetMaxNutritionValue(c.nutrients) > 100
 ```
 
-以下是 UDF 只執行一次的對等查詢：
+以下是只執行 UDF 一次的對等查詢：
 
 ```sql
 SELECT TOP 1000 c.id, MaxNutritionValue
@@ -97,10 +97,10 @@ WHERE MaxNutritionValue > 100
 ``` 
 
 > [!NOTE] 
-> 請記住聯結運算式的交叉乘積行為。 如果此 UDF 運算式可評估為未定義，您應該確定聯結運算式一律會產生單一資料列，藉由直接從子查詢，而不是值傳回的物件。
+> 請記住聯結運算式的交叉乘積行為。 如果 UDF 運算式可以評估為未定義，您應該確定聯結運算式一律會藉由從子查詢傳回物件，而不是直接從值來產生單一資料列。
 >
 
-以下是會傳回物件，而不是值的類似範例：
+以下是傳回物件的類似範例，而不是值：
 
 ```sql
 SELECT TOP 1000 c.id, m.MaxNutritionValue
@@ -109,7 +109,7 @@ JOIN (SELECT udf.GetMaxNutritionValue(c.nutrients) AS MaxNutritionValue) m
 WHERE m.MaxNutritionValue > 100
 ```
 
-無法限制為 Udf 方法。 它適用於任何可能相當耗費資源的運算式。 例如，您可以採取相同的方法，以數學函式`avg`:
+此方法不限於 Udf。 它適用于任何可能耗費資源的運算式。 例如，您可以使用數學函數`avg`來採取相同的方法：
 
 ```sql
 SELECT TOP 1000 c.id, AvgNutritionValue
@@ -118,34 +118,34 @@ JOIN (SELECT VALUE avg(n.nutritionValue) FROM n IN c.nutrients) AvgNutritionValu
 WHERE AvgNutritionValue > 80
 ```
 
-## <a name="mimic-join-with-external-reference-data"></a>模擬結合外部參考資料
+## <a name="mimic-join-with-external-reference-data"></a>使用外部參考資料模仿聯結
 
-通常，您可能需要參考靜態的資料不常變更，例如單位的度量單位或國家/地區代碼。 它是不重複的每個文件的這類資料。 避免重複項目會儲存在儲存體，並保持較小的文件大小，以改善寫入效能。 您可以使用子查詢，來模擬 inner 聯結語意與參考資料的集合。
+您可能經常需要參考極少變更的靜態資料，例如測量單位或國家/地區代碼。 最好不要複製每份檔的這類資料。 避免這項重複會節省儲存空間，並藉由讓檔案大小保持較小來改善寫入效能。 您可以使用子查詢，以參考資料的集合來模擬內部聯結的語義。
 
-例如，假設這組參考資料：
+例如，請考慮這組參考資料：
 
 | **單位** | **名稱**            | **乘數** | **基礎單位** |
 | -------- | ------------------- | -------------- | ------------- |
-| ng       | Nanogram            | 1.00E-09       | 字母組          |
-| µg       | Microgram           | 1.00E-06       | 字母組          |
-| mg       | Milligram           | 1.00E-03       | 字母組          |
-| g        | 字母組                | 1.00E+00       | 字母組          |
-| kg       | Kilogram            | 1.00E+03       | 字母組          |
-| mg       | Megagram            | 1.00E+06       | 字母組          |
-| Gg       | Gigagram            | 1.00E+09       | 字母組          |
-| nJ       | Nanojoule           | 1.00E-09       | Joule         |
+| ng       | Nanogram            | 1.00E-09       | 語法          |
+| µg       | Microgram           | 1.00E-06       | 語法          |
+| mg       | Milligram           | 1.00E-03       | 語法          |
+| g        | 語法                | 1.00E+00       | 語法          |
+| 公斤       | Kilogram            | 1.00 E + 03       | 語法          |
+| mg       | Megagram            | 1.00E+06       | 語法          |
+| Gg       | Gigagram            | 1.00E+09       | 語法          |
+| 新澤西       | Nanojoule           | 1.00E-09       | Joule         |
 | µJ       | Microjoule          | 1.00E-06       | Joule         |
 | mJ       | Millijoule          | 1.00E-03       | Joule         |
 | J        | Joule               | 1.00E+00       | Joule         |
-| kJ       | Kilojoule           | 1.00E+03       | Joule         |
+| kJ       | Kilojoule           | 1.00 E + 03       | Joule         |
 | MJ       | Megajoule           | 1.00E+06       | Joule         |
 | GJ       | Gigajoule           | 1.00E+09       | Joule         |
-| cal      | 卡路里             | 1.00E+00       | 卡路里       |
-| kcal     | 卡路里             | 1.00E+03       | 卡路里       |
-| IU       | 國際部隊 |                |               |
+| cal      | Calorie             | 1.00E+00       | calorie       |
+| 卡路里     | Calorie             | 1.00 E + 03       | calorie       |
+| IU       | 國際單位 |                |               |
 
 
-下列查詢會模擬聯結此資料，讓您新增的單位名稱的輸出：
+下列查詢會模擬與此資料的聯結，讓您將單位的名稱新增至輸出：
 
 ```sql
 SELECT TOP 10 n.id, n.description, n.nutritionValue, n.units, r.name
@@ -177,17 +177,17 @@ WHERE n.units = r.unit
 
 ## <a name="scalar-subqueries"></a>純量子查詢
 
-純量子查詢運算式是評估為單一值的子查詢。 子查詢投影 （SELECT 子句） 的值為純量子查詢運算式的值。  您可以在其中的純量運算式是有效的許多地方使用純量子查詢運算式。 比方說，您可以使用任何運算式，在這兩個 SELECT 和 WHERE 子句中的純量子查詢。
+純量子查詢運算式是評估為單一值的子查詢。 純量子查詢運算式的值是子查詢之投射（SELECT 子句）的值。  在純量運算式有效的許多地方，您都可以使用純量子查詢運算式。 例如，您可以在 SELECT 和 WHERE 子句中的任何運算式中使用純量子查詢。
 
-使用純量子查詢，不一定協助最佳化，不過。 例如，將純量子查詢做為引數傳遞給 「 系統 」 或 「 使用者定義函式所提供的資源單位 (RU) 耗用量或延遲沒有任何好處。
+不過，使用純量子查詢不一定有助於優化。 例如，將純量子子查詢當做引數傳遞至系統或使用者定義的函式，不會對資源單位（RU）耗用量或延遲提供任何好處。
 
 純量子查詢可以進一步分類為：
-* 簡單運算式的純量子查詢
-* 彙總的純量子查詢
+* 簡單運算式純量查詢
+* 匯總純量查詢
 
-## <a name="simple-expression-scalar-subqueries"></a>簡單運算式的純量子查詢
+## <a name="simple-expression-scalar-subqueries"></a>簡單運算式純量查詢
 
-簡單運算式的純量子查詢是相互關聯的子查詢的 SELECT 子句中不含任何彙總的運算式。 這些子查詢會提供任何最佳化優點，因為編譯器將它們轉換成一個較大的簡單運算式。 內部與外部查詢之間沒有相互關聯的內容。
+簡單運算式純量查詢是具有 SELECT 子句的相互關聯子查詢，其中不包含任何匯總運算式。 這些子查詢不提供優化的優點，因為編譯器會將它們轉換成一個較大的簡單運算式。 內部和外部查詢之間沒有相互關聯的內容。
 
 以下提供一些範例：
 
@@ -197,13 +197,13 @@ WHERE n.units = r.unit
 SELECT 1 AS a, 2 AS b
 ```
 
-您可以使用簡單運算式的純量子查詢，來重新撰寫此查詢中:
+您可以使用簡單運算式純量子查詢來重寫此查詢，以執行下列動作：
 
 ```sql
 SELECT (SELECT VALUE 1) AS a, (SELECT VALUE 2) AS b
 ```
 
-這兩個查詢會產生以下輸出：
+這兩個查詢都會產生下列輸出：
 
 ```json
 [
@@ -218,14 +218,14 @@ SELECT TOP 5 Concat('id_', f.id) AS id
 FROM food f
 ```
 
-您可以使用簡單運算式的純量子查詢，來重新撰寫此查詢中:
+您可以使用簡單運算式純量子查詢來重寫此查詢，以執行下列動作：
 
 ```sql
 SELECT TOP 5 (SELECT VALUE Concat('id_', f.id)) AS id
 FROM food f
 ```
 
-查詢的輸出：
+查詢輸出：
 
 ```json
 [
@@ -244,14 +244,14 @@ SELECT TOP 5 f.id, Contains(f.description, 'fruit') = true ? f.description : und
 FROM food f
 ```
 
-您可以使用簡單運算式的純量子查詢，來重新撰寫此查詢中:
+您可以使用簡單運算式純量子查詢來重寫此查詢，以執行下列動作：
 
 ```sql
 SELECT TOP 10 f.id, (SELECT f.description WHERE Contains(f.description, 'fruit')).description
 FROM food f
 ```
 
-查詢的輸出：
+查詢輸出：
 
 ```json
 [
@@ -263,13 +263,13 @@ FROM food f
 ]
 ```
 
-### <a name="aggregate-scalar-subqueries"></a>彙總的純量子查詢
+### <a name="aggregate-scalar-subqueries"></a>匯總純量查詢
 
-彙總的純量子查詢是已在其投影或評估為單一值的篩選器中的彙總函式的子查詢。
+匯總純量子查詢是在其投射或篩選準則中有彙總函式的子查詢，會評估為單一值。
 
 **範例 1：**
 
-以下是具有其投影中的單一彙總函式運算式的子查詢：
+以下是在其投影中具有單一彙總函式運算式的子查詢：
 
 ```sql
 SELECT TOP 5 
@@ -279,7 +279,7 @@ SELECT TOP 5
 FROM food f
 ```
 
-查詢的輸出：
+查詢輸出：
 
 ```json
 [
@@ -304,7 +304,7 @@ SELECT TOP 5 f.id, (
 FROM food f
 ```
 
-查詢的輸出：
+查詢輸出：
 
 ```json
 [
@@ -318,7 +318,7 @@ FROM food f
 
 **範例 3**
 
-以下是具有彙總的子查詢投影和篩選條件中的查詢：
+以下是在投影和篩選中具有匯總子查詢的查詢：
 
 ```sql
 SELECT TOP 5 
@@ -328,7 +328,7 @@ FROM food f
 WHERE (SELECT VALUE Count(1) FROM n IN f.nutrients WHERE n.units = 'mg') > 20
 ```
 
-查詢的輸出：
+查詢輸出：
 
 ```json
 [
@@ -340,7 +340,7 @@ WHERE (SELECT VALUE Count(1) FROM n IN f.nutrients WHERE n.units = 'mg') > 20
 ]
 ```
 
-一種撰寫此查詢的更佳方式是加入子查詢，並參考別名中這兩種 SELECT 子查詢和 WHERE 子句。 此查詢會更有效率，因為您需要執行子查詢只能在聯結陳述式，而不是在投射和篩選。
+撰寫此查詢的最佳方式是聯結子查詢，並參考 SELECT 和 WHERE 子句中的子查詢別名。 此查詢較有效率，因為您只需要在聯結語句內執行子查詢，而不是在投影和篩選中。
 
 ```sql
 SELECT TOP 5 f.id, count_mg
@@ -351,26 +351,26 @@ WHERE count_mg > 20
 
 ## <a name="exists-expression"></a>EXISTS 運算式
 
-Azure Cosmos DB 支援 EXISTS 運算式。 這是內建於 Azure Cosmos DB SQL API 的彙總純量子查詢。 EXISTS 是採用的子查詢運算式並傳回 true，如果子查詢傳回任何資料列的布林運算式。 否則，它會傳回 false。
+Azure Cosmos DB 支援 EXISTS 運算式。 這是內建于 Azure Cosmos DB SQL API 中的匯總純量子查詢。 EXISTS 是使用子查詢運算式的布林運算式，如果子查詢傳回任何資料列，則傳回 true。 否則，它會傳回 false。
 
-由於 Azure Cosmos DB SQL API 不會區分布林運算式和任何其他純量運算式，您可以使用在兩個選取的 EXISTS 和 WHERE 子句。 這是不同於 T-SQL，布林運算式 (例如，EXISTS、 BETWEEN 和 IN) 限於篩選條件。
+因為 Azure Cosmos DB SQL API 不會區分布林運算式和任何其他純量運算式，所以您可以在 SELECT 和 WHERE 子句中使用 EXISTS。 這不同于 T-sql，其中布林運算式（例如 EXISTS、BETWEEN 和 IN）會限制為篩選準則。
 
-如果 EXISTS 子查詢傳回單一值，有未定義的持續存在，會評估為 false。 比方說，請考慮下列查詢會評估為 false:
+如果 EXISTS 子查詢傳回未定義的單一值，EXISTS 會評估為 false。 例如，請考慮下列評估為 false 的查詢：
 ```sql
 SELECT EXISTS (SELECT VALUE undefined)
 ```   
 
 
-如果值先前的子查詢中省略關鍵字，查詢會評估為 true:
+如果省略前述子查詢中的 VALUE 關鍵字，則查詢會評估為 true：
 ```sql
 SELECT EXISTS (SELECT undefined) 
 ```
 
-子查詢會選取的清單物件中括住值的清單。 選取的清單中不有任何值，如果子查詢會傳回單一值 '{}'。 這個值會定義，所以 EXISTS 評估為 true。
+子查詢會將所選清單中的值清單括在物件中。 如果選取的清單沒有任何值，則子查詢會傳回單一值 '{}'。 已定義此值，因此 EXISTS 會評估為 true。
 
-### <a name="example-rewriting-arraycontains-and-join-as-exists"></a>範例：重寫 ARRAY_CONTAINS 和聯結與 EXISTS
+### <a name="example-rewriting-array_contains-and-join-as-exists"></a>範例：重寫 ARRAY_CONTAINS 和聯結已存在
 
-常見的使用案例的 ARRAY_CONTAINS 是陣列中的項目存在來篩選文件。 在此情況下，我們會檢查看看 tags 陣列是否包含項目，名為 「 橙色 」。
+ARRAY_CONTAINS 的常見使用案例是藉由陣列中的專案是否存在來篩選檔。 在此情況下，我們要檢查標記陣列是否包含名為 "橙色" 的專案。
 
 ```sql
 SELECT TOP 5 f.id, f.tags
@@ -378,7 +378,7 @@ FROM food f
 WHERE ARRAY_CONTAINS(f.tags, {name: 'orange'})
 ```
 
-您可以重新撰寫相同的查詢使用 EXISTS:
+您可以重寫相同的查詢以使用 EXISTS：
 
 ```sql
 SELECT TOP 5 f.id, f.tags
@@ -386,9 +386,9 @@ FROM food f
 WHERE EXISTS(SELECT VALUE t FROM t IN f.tags WHERE t.name = 'orange')
 ```
 
-此外，ARRAY_CONTAINS 可以只檢查值是否為等於在陣列中的任何項目中。 如果您需要更複雜的篩選陣列屬性，可使用聯結。
+此外，ARRAY_CONTAINS 只能檢查某個值是否等於陣列中的任何元素。 如果您需要更複雜的陣列屬性篩選，請使用聯結。
 
-請考慮下列查詢，它會篩選根據單位和`nutritionValue`陣列中的屬性： 
+請考慮下列根據陣列中的單位和`nutritionValue`屬性進行篩選的查詢： 
 
 ```sql
 SELECT VALUE c.description
@@ -397,9 +397,9 @@ JOIN n IN c.nutrients
 WHERE n.units= "mg" AND n.nutritionValue > 0
 ```
 
-針對每個集合中的文件中，交叉乘積會執行其陣列項目。 這項聯結作業就可以在陣列中的屬性上的篩選條件。 不過，此查詢的整體 RU 耗用量將會明顯。 比方說，如果 1,000 份文件中每個陣列具有 100 個項目，它會擴充到 1000 x 100 （也就是 100,000 次） 的 tuple。
+針對集合中的每個檔，會使用其陣列元素來執行交叉乘積。 這種聯結作業可以篩選陣列內的屬性。 不過，此查詢的 RU 耗用量會很重要。 比方說，如果1000檔的每個陣列中有100個專案，它會擴展到 1000 x 100 （也就是100000）元組。
 
-使用 EXISTS 可以協助您避免此昂貴的交叉乘積：
+使用 EXISTS 有助於避免這種昂貴的跨產品：
 
 ```sql
 SELECT VALUE c.description
@@ -411,9 +411,9 @@ WHERE EXISTS(
 )
 ```
 
-在此情況下，您篩選 EXISTS 子查詢中的陣列項目。 陣列項目符合篩選條件，如果專案然後和 EXISTS 評估為 true。
+在此情況下，您會篩選 EXISTS 子查詢內的陣列元素。 如果陣列元素符合篩選準則，則您會將它投影，而 EXISTS 會評估為 true。
 
-您也可以別名 EXISTS 在投射中參考它：
+您也可以將別名存在，並在投影中參考它：
 
 ```sql
 SELECT TOP 1 c.description, EXISTS(
@@ -423,7 +423,7 @@ SELECT TOP 1 c.description, EXISTS(
 FROM c
 ```
 
-查詢的輸出：
+查詢輸出：
 
 ```json
 [
@@ -436,14 +436,14 @@ FROM c
 
 ## <a name="array-expression"></a>陣列運算式
 
-您可以使用陣列運算式，以做為陣列的查詢結果投影。 您可以使用此運算式只能在 SELECT 子句內的查詢。
+您可以使用陣列運算式，將查詢的結果投影為數組。 您只能在查詢的 SELECT 子句中使用此運算式。
 
 ```sql
 SELECT TOP 1   f.id, ARRAY(SELECT VALUE t.name FROM t in f.tags) AS tagNames
 FROM  food f
 ```
 
-查詢的輸出：
+查詢輸出：
 
 ```json
 [
@@ -459,14 +459,14 @@ FROM  food f
 ]
 ```
 
-如同其他的子查詢中，陣列運算式的篩選條件可能會有。
+就像其他子查詢一樣，可以使用陣列運算式來進行篩選。
 
 ```sql
 SELECT TOP 1 c.id, ARRAY(SELECT VALUE t FROM t in c.tags WHERE t.name != 'infant formula') AS tagNames
 FROM c
 ```
 
-查詢的輸出：
+查詢輸出：
 
 ```json
 [
@@ -493,7 +493,7 @@ FROM c
 ]
 ```
 
-陣列運算式也可以有子查詢的 FROM 子句之後。
+陣列運算式也可以出現在子查詢的 FROM 子句之後。
 
 ```sql
 SELECT TOP 1 c.id, ARRAY(SELECT VALUE t.name FROM t in c.tags) as tagNames
@@ -501,7 +501,7 @@ FROM c
 JOIN n IN (SELECT VALUE ARRAY(SELECT t FROM t in c.tags WHERE t.name != 'infant formula'))
 ```
 
-查詢的輸出：
+查詢輸出：
 
 ```json
 [
@@ -519,5 +519,5 @@ JOIN n IN (SELECT VALUE ARRAY(SELECT t FROM t in c.tags WHERE t.name != 'infant 
 
 ## <a name="next-steps"></a>後續步驟
 
-- [Azure Cosmos DB .NET 範例](https://github.com/Azure/azure-cosmosdb-dotnet)
-- [模型文件資料](modeling-data.md)
+- [Azure Cosmos DB .NET 範例](https://github.com/Azure/azure-cosmos-dotnet-v3)
+- [模型檔資料](modeling-data.md)

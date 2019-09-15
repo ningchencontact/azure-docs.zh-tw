@@ -8,12 +8,12 @@ ms.topic: sample
 ms.service: blueprints
 manager: carmonm
 ms.custom: fasttrack-new
-ms.openlocfilehash: dc30aeae842cf9c3cd39422517ed49773c524f1e
-ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
+ms.openlocfilehash: 81bde54c65cf3ed25da634c38b7b99e72a187e00
+ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/03/2019
-ms.locfileid: "70232831"
+ms.lasthandoff: 09/15/2019
+ms.locfileid: "71002453"
 ---
 # <a name="overview-of-the-microsoft-cloud-adoption-framework-for-azure-migration-landing-zone-blueprint-sample"></a>適用於 Azure 的 Microsoft 雲端採用架構，移轉登陸區域藍圖範例的概觀
 
@@ -29,7 +29,7 @@ CAF 移轉登陸區域藍圖範例會在 Azure 中部署基礎結構資源，供
 
 此環境包含數個 Azure 服務，用來提供完全受到監視的企業級安全治理。 此環境包含：
 
-- [Azure Key Vault](../../../../key-vault/key-vault-whatis.md) 執行個體，用來裝載共用服務環境中已部署憑證、金鑰和秘密所使用的祕密
+- [Azure Key Vault](../../../../key-vault/key-vault-overview.md) 執行個體，用來裝載共用服務環境中已部署憑證、金鑰和秘密所使用的祕密
 - 部署 [Log Analytics](../../../../azure-monitor/overview.md)，以確保當您開始進行安全部署時，所有動作和服務皆會記錄到中央位置
 - 部署 [Azure資訊安全中心](../../../../security-center/security-center-intro.md) (標準版)，為您遷移的工作負載提供威脅防護。
 - 部署 [Azure 虛擬網路](../../../../virtual-network/virtual-networks-overview.md)，為您的虛擬機器提供隔離的網路和子網路。

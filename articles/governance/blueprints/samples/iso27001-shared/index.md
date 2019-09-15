@@ -7,12 +7,12 @@ ms.date: 03/14/2019
 ms.topic: sample
 ms.service: blueprints
 manager: carmonm
-ms.openlocfilehash: b590eeb86972a8e769fc240b1935c6c8ed32530a
-ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
+ms.openlocfilehash: e723fab12c6ba88ec5698a697ba1ddd774eed7e2
+ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/03/2019
-ms.locfileid: "70231730"
+ms.lasthandoff: 09/15/2019
+ms.locfileid: "71000519"
 ---
 # <a name="overview-of-the-iso-27001-shared-services-blueprint-sample"></a>ISO 27001 共用服務藍圖範例概觀
 
@@ -38,7 +38,7 @@ VDC 是經過實證的一組參考架構、自動化工具和業務開發模型�
   - 作為管理用途的 Jumpbox 或防禦主機，其只能透過輸入堆疊子網路中部署的 [Azure 防火牆](../../../../firewall/overview.md)來存取
   - 執行 Active Directory Domain Services (ADDS) 和 DNS 的兩部虛擬機器，這兩部虛擬機器只能透過 Jumpbox 存取，而且可設定為只能透過 VPN 或 [ExpressRoute](../../../../expressroute/expressroute-introduction.md) 連線來複寫 AD (不是由藍圖所部署)
   - 使用 [Azure 網路監看員](../../../../network-watcher/network-watcher-monitoring-overview.md)與標準 DDoS 保護
-- [Azure Key Vault](../../../../key-vault/key-vault-whatis.md) 執行個體，用來裝載共用服務環境中已部署 VM 所使用的祕密
+- [Azure Key Vault](../../../../key-vault/key-vault-overview.md) 執行個體，用來裝載共用服務環境中已部署 VM 所使用的祕密
 
 所有這些項目皆遵循 [Azure 架構中心 - 參考架構](/azure/architecture/reference-architectures/)中所發佈且經過實證的做法。
 

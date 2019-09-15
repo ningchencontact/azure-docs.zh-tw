@@ -1,6 +1,6 @@
 ---
 title: 瞭解自動化 ML 結果
-titleSuffix: Azure Machine Learning service
+titleSuffix: Azure Machine Learning
 description: 瞭解如何針對每個自動化機器學習服務執行，查看並瞭解其圖表和計量。
 services: machine-learning
 author: nilesha
@@ -10,12 +10,12 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 ms.date: 07/22/2019
-ms.openlocfilehash: 60ecd71419bbf65cceab257cb97a96929d24ec08
-ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
+ms.openlocfilehash: 56d8dff7d158cedb4ab33e811cf5134cdbc475ab
+ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70860554"
+ms.lasthandoff: 09/15/2019
+ms.locfileid: "70999437"
 ---
 # <a name="understand-automated-machine-learning-results"></a>瞭解自動化機器學習結果
 
@@ -28,7 +28,7 @@ ms.locfileid: "70860554"
 
 ## <a name="prerequisites"></a>必要條件
 
-* Azure 訂用帳戶。 如果您沒有 Azure 訂用帳戶，請在開始前先建立一個免費帳戶。 立即試用[免費或付費版本的 Azure Machine Learning 服務](https://aka.ms/AMLFree)。
+* Azure 訂用帳戶。 如果您沒有 Azure 訂用帳戶，請在開始前先建立一個免費帳戶。 立即試用[免費或付費版本的 Azure Machine Learning](https://aka.ms/AMLFree) 。
 
 * 在 Azure 入口網站或您的工作區登陸頁面（預覽）中，使用 SDK 建立自動化機器學習實驗。
 

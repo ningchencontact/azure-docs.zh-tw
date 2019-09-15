@@ -1,6 +1,6 @@
 ---
 title: 使用 MLflow 搭配
-titleSuffix: Azure Machine Learning service
+titleSuffix: Azure Machine Learning
 description: 使用 Azure Machine Learning 設定 MLflow，以記錄計量 & 成品，並從 Databricks、您的本機環境或 VM 環境部署模型。
 services: machine-learning
 author: rastala
@@ -11,18 +11,18 @@ ms.reviewer: nibaccam
 ms.topic: conceptual
 ms.date: 08/07/2019
 ms.custom: seodec18
-ms.openlocfilehash: c7bed307373289c6a6f76117fa07ee2ee3242bfc
-ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
+ms.openlocfilehash: b1b2255b4e0f5aa34e3c7159b00156aee5224928
+ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70860450"
+ms.lasthandoff: 09/15/2019
+ms.locfileid: "70999279"
 ---
-# <a name="track-metrics-and-deploy-models-with-mlflow-and-azure-machine-learning-service-preview"></a>使用 MLflow 和 Azure Machine Learning 服務追蹤計量和部署模型（預覽）
+# <a name="track-metrics-and-deploy-models-with-mlflow-and-azure-machine-learning-preview"></a>使用 MLflow 和 Azure Machine Learning 追蹤計量和部署模型（預覽）
 
-本文示範如何使用 Azure Machine Learning 服務來啟用 MLflow 的追蹤 URI 和記錄 API, 統稱為[MLflow 追蹤](https://mlflow.org/docs/latest/quickstart.html#using-the-tracking-api)。 這麼做可讓您:
+本文示範如何使用 Azure Machine Learning 來啟用 MLflow 的追蹤 URI 和記錄 API，統稱為[MLflow 追蹤](https://mlflow.org/docs/latest/quickstart.html#using-the-tracking-api)。 這麼做可讓您:
 
-+ 在您的[Azure Machine Learning 服務工作區](https://docs.microsoft.com/azure/machine-learning/service/concept-azure-machine-learning-architecture#workspaces)中追蹤並記錄實驗計量和成品。 如果您已針對實驗使用 MLflow 追蹤, 工作區會提供集中式、安全且可擴充的位置, 以儲存您的定型計量和模型。
++ 在您的[Azure Machine Learning 工作區](https://docs.microsoft.com/azure/machine-learning/service/concept-azure-machine-learning-architecture#workspaces)中追蹤並記錄實驗計量和成品。 如果您已針對實驗使用 MLflow 追蹤, 工作區會提供集中式、安全且可擴充的位置, 以儲存您的定型計量和模型。
 
 + 將您的 MLflow 實驗部署為 Azure Machine Learning web 服務。 藉由部署為 web 服務, 您可以將 Azure Machine Learning 監視和資料漂移偵測功能套用至生產環境模型。 
 
@@ -34,7 +34,7 @@ ms.locfileid: "70860450"
 
 ## <a name="compare-mlflow-and-azure-machine-learning-clients"></a>比較 MLflow 和 Azure Machine Learning 用戶端
 
- 下表摘要說明可以使用 Azure Machine Learning 服務的不同用戶端, 以及其各自的函數功能。
+ 下表摘要說明可以使用 Azure Machine Learning 的不同用戶端，以及其各自的函數功能。
 
  MLflow 追蹤提供僅透過[Azure Machine Learning PYTHON SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py)提供的計量記錄和成品儲存功能。
 
@@ -59,7 +59,7 @@ ms.locfileid: "70860450"
 
 ## <a name="track-local-runs"></a>追蹤本機執行
 
-具有 Azure Machine Learning 服務的 MLflow 追蹤可讓您將記錄的計量和成品從本機執行儲存至 Azure Machine Learning 工作區。
+具有 Azure Machine Learning 的 MLflow 追蹤可讓您將記錄的計量和成品從本機執行儲存至 Azure Machine Learning 工作區。
 
 `azureml-contrib-run`安裝套件, 以在本機執行于 Jupyter Notebook 或程式碼編輯器的實驗中, 使用 MLflow 追蹤搭配 Azure Machine Learning。
 
@@ -98,7 +98,7 @@ with mlflow.start_run():
 
 ## <a name="track-remote-runs"></a>追蹤遠端執行
 
-具有 Azure Machine Learning 服務的 MLflow 追蹤可讓您將已記錄的計量和成品從遠端執行儲存至 Azure Machine Learning 工作區。
+具有 Azure Machine Learning 的 MLflow 追蹤可讓您將已記錄的計量和成品從遠端執行儲存至 Azure Machine Learning 工作區。
 
 遠端執行可讓您以更強大的計算 (例如啟用 GPU 的虛擬機器, 或 Machine Learning Compute 叢集) 來定型模型。 如需瞭解不同的計算選項, 請參閱[設定模型定型的計算目標](how-to-set-up-training-targets.md)。
 
@@ -141,7 +141,7 @@ run = exp.submit(src)
 
 ## <a name="track-azure-databricks-runs"></a>追蹤 Azure Databricks 執行
 
-具有 Azure Machine Learning 服務的 MLflow 追蹤可讓您在 Azure Machine Learning 工作區中，儲存來自 Databricks 執行的已記錄計量和成品。
+具有 Azure Machine Learning 的 MLflow 追蹤可讓您在 Azure Machine Learning 工作區中，儲存來自 Databricks 執行的已記錄計量和成品。
 
 若要使用 Azure Databricks 執行您的 Mlflow 實驗，您必須先建立[Azure Databricks 工作區和](https://docs.microsoft.com/azure/azure-databricks/quickstart-create-databricks-workspace-portal)叢集
 

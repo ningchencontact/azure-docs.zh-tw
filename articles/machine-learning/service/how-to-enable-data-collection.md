@@ -1,6 +1,6 @@
 ---
 title: 收集生產環境模型的相關資料
-titleSuffix: Azure Machine Learning service
+titleSuffix: Azure Machine Learning
 description: 了解如何在 Azure Blob 儲存體中收集 Azure Machine Learning 輸入模型資料。
 services: machine-learning
 ms.service: machine-learning
@@ -11,16 +11,16 @@ ms.author: marthalc
 author: marthalc
 ms.date: 07/15/2019
 ms.custom: seodec18
-ms.openlocfilehash: 16fac492fe4c193ecd7ffa7eeff1e884acb742ae
-ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
+ms.openlocfilehash: d836b600a39b73f60c0847c5a9642f396fb70d17
+ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70860531"
+ms.lasthandoff: 09/15/2019
+ms.locfileid: "71002849"
 ---
 # <a name="collect-data-for-models-in-production"></a>在生產環境中收集模型資料
 
-在本文中，您可以了解如何將輸入模型資料從您已部署至 Azure Kubernetes Cluster (AKS) 的 Azure Machine Learning 服務收集到 Azure Blob 儲存體。 
+在本文中，您可以瞭解如何從已部署至 Azure Kubernetes Cluster （AKS）的 Azure Machine Learning，將輸入模型資料收集到 Azure Blob 儲存體中。 
 
 啟用之後，您收集的此資料可協助您：
 * 隨著生產資料進入您的模型,[監視資料偏離](how-to-monitor-data-drift.md)
@@ -50,9 +50,9 @@ Blob 中輸出資料的路徑遵循此語法：
 
 ## <a name="prerequisites"></a>必要條件
 
-- 如果您沒有 Azure 訂用帳戶，請在開始前先建立一個免費帳戶。 立即試用[免費或付費版本的 Azure Machine Learning 服務](https://aka.ms/AMLFree)。
+- 如果您沒有 Azure 訂用帳戶，請在開始前先建立一個免費帳戶。 立即試用[免費或付費版本的 Azure Machine Learning](https://aka.ms/AMLFree) 。
 
-- 已安裝 Machine Learning services 工作區、包含您指令碼的本機目錄，以及適用於 Python 的 Azure Machine Learning SDK。 了解如何使用[如何設定開發環境](how-to-configure-environment.md)文件來取得這些必要條件。
+- 已安裝 Azure Machine Learning 工作區、包含您指令碼的本機目錄，以及適用於 Python 的 Azure Machine Learning SDK。 了解如何使用[如何設定開發環境](how-to-configure-environment.md)文件來取得這些必要條件。
 
 - 要部署至 Azure Kubernetes Service (AKS) 的訓練過機器學習模型。 如果您沒有模型，請參閱[將影像分類模型定型](tutorial-train-models-with-aml.md)教學課程。
 
@@ -61,7 +61,7 @@ Blob 中輸出資料的路徑遵循此語法：
 - [設定您的環境](how-to-configure-environment.md)並安裝[監視 SDK](https://aka.ms/aml-monitoring-sdk)。
 
 ## <a name="enable-data-collection"></a>啟用資料收集
-不論透過 Azure Machine Learning Service 或其他工具所部署的模型為何，都可以啟用資料收集。 
+不論透過 Azure Machine Learning 或其他工具部署的模型為何，都可以啟用資料收集。 
 
 若要予以啟用，您需要：
 

@@ -8,12 +8,12 @@ ms.devlang: python
 ms.topic: conceptual
 ms.date: 08/16/2019
 ms.author: robinsh
-ms.openlocfilehash: a1b206b3be4cf012d7d0cd399cf2a67d853537b1
-ms.sourcegitcommit: aaa82f3797d548c324f375b5aad5d54cb03c7288
+ms.openlocfilehash: f1fbfcaa80a3d1781878fe3d6eb14558a3b298a5
+ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70147401"
+ms.lasthandoff: 09/15/2019
+ms.locfileid: "70999505"
 ---
 # <a name="schedule-and-broadcast-jobs-python"></a>排程及廣播作業 (Python)
 
@@ -29,9 +29,9 @@ Azure IoT 中樞是一項完全受控的服務，可讓後端應用程式建立�
 
 從下列文章深入了解這當中的每一項功能：
 
-* 裝置對應項和屬性：[開始使用裝置 twins](iot-hub-python-twin-getstarted.md)和[教學課程:如何使用裝置對應項屬性](tutorial-device-twins.md)
+* 裝置對應項和屬性：[開始使用裝置 twins](iot-hub-python-twin-getstarted.md)和[教學課程：如何使用裝置對應項屬性](tutorial-device-twins.md)
 
-* 直接方法：[IoT 中樞開發人員指南-直接方法](iot-hub-devguide-direct-methods.md)和[教學課程: 直接方法](quickstart-control-device-python.md)
+* 直接方法：[IoT 中樞開發人員指南-直接方法](iot-hub-devguide-direct-methods.md)和[教學課程：直接方法](quickstart-control-device-python.md)
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-whole.md)]
 
@@ -69,14 +69,14 @@ Azure IoT 中樞是一項完全受控的服務，可讓後端應用程式建立�
 
 在本節中，您建立 Python 主控台應用程式，回應雲端所呼叫的直接方法，可觸發模擬的 **lockDoor** 方法。
 
-1. 在命令提示字元上執行下列命令，以安裝 **azure-iot-device-client** 套件：
+1. 在命令提示字元中，執行下列命令來安裝**azure iot 裝置**套件：
 
     ```cmd/sh
-    pip install azure-iothub-device-client
+    pip install azure-iot-device
     ```
 
    > [!NOTE]
-   > Azure iothub-服務用戶端和 iothub 裝置用戶端的 pip 套件目前僅適用于 Windows 作業系統。 針對 Linux/Mac OS, 請參閱[準備適用于 Python 的開發環境](https://github.com/Azure/azure-iot-sdk-python/blob/master/doc/python-devbox-setup.md)文章的 Linux 和 Mac os 特定章節。
+   > Azure iothub-服務用戶端的 pip 套件目前僅適用于 Windows 作業系統。 針對 Linux/Mac OS，請參閱[準備適用于 Python 的開發環境](https://github.com/Azure/azure-iot-sdk-python/blob/master/doc/python-devbox-setup.md)文章的 Linux 和 Mac os 特定章節。
    >
 
 2. 使用文字編輯器，在工作目錄中建立新的 **simDevice.py** 檔案。
@@ -84,41 +84,37 @@ Azure IoT 中樞是一項完全受控的服務，可讓後端應用程式建立�
 3. 在 **simDevice.py** 檔案開頭新增下列 `import` 陳述式和變數。 將 `deviceConnectionString` 取代為您上方所建立裝置的連接字串：
 
     ```python
+    import threading
     import time
-    import sys
+    from azure.iot.device import IoTHubDeviceClient, MethodResponse
 
-    import iothub_client
-    from iothub_client import IoTHubClient, IoTHubClientError, IoTHubTransportProvider, IoTHubClientResult
-    from iothub_client import IoTHubError, DeviceMethodReturnValue
-
-    METHOD_CONTEXT = 0
-    TWIN_CONTEXT = 0
-    WAIT_COUNT = 10
-
-    PROTOCOL = IoTHubTransportProvider.MQTT
     CONNECTION_STRING = "{deviceConnectionString}"
     ```
 
 4. 新增下列函式回呼以處理 **lockDoor** 方法：
 
     ```python
-    def device_method_callback(method_name, payload, user_context):
-        if method_name == "lockDoor":
-            print ( "Locking Door!" )
+    def lockdoor_listener(client):
+        while True:
+            # Receive the direct method request
+            method_request = client.receive_method_request("lockDoor")  # blocking call
+            print( "Locking Door!" )
 
-            device_method_return_value = DeviceMethodReturnValue()
-            device_method_return_value.response = "{ \"Response\": \"lockDoor called successfully\" }"
-            device_method_return_value.status = 200
-            return device_method_return_value
+            resp_status = 200
+            resp_payload = {"Response": "lockDoor called successfully"}
+            method_response = MethodResponse(method_request.request_id, resp_status, resp_payload)
+            client.send_method_response(method_response)
     ```
 
 5. 新增另一個函式回呼來處理裝置對應項更新：
 
     ```python
-    def device_twin_callback(update_state, payload, user_context):
-        print ( "")
-        print ( "Twin callback called with:")
-        print ( "payload: %s" % payload )
+    def twin_update_listener(client):
+        while True:
+            patch = client.receive_twin_desired_properties_patch()  # blocking call
+            print ("")
+            print ("Twin desired properties patch received:")
+            print (patch)
     ```
 
 6. 新增下列程式碼以註冊 **lockDoor** 方法的處理常式。 另包含 `main` 常式：
@@ -126,30 +122,28 @@ Azure IoT 中樞是一項完全受控的服務，可讓後端應用程式建立�
     ```python
     def iothub_jobs_sample_run():
         try:
-            client = IoTHubClient(CONNECTION_STRING, PROTOCOL)
-            client.set_device_method_callback(device_method_callback, METHOD_CONTEXT)
-            client.set_device_twin_callback(device_twin_callback, TWIN_CONTEXT)
+            client = IoTHubDeviceClient.create_from_connection_string(CONNECTION_STRING)
 
-            print ( "Direct method initialized." )
-            print ( "Device twin callback initialized." )
-            print ( "IoTHubClient waiting for commands, press Ctrl-C to exit" )
+            print( "Beginning to listen for 'lockDoor' direct method invocations...")
+            lockdoor_listener_thread = threading.Thread(target=lockdoor_listener, args=(client,))
+            lockdoor_listener_thread.daemon = True
+            lockdoor_listener_thread.start()
 
+            # Begin listening for updates to the Twin desired properties
+            print ( "Beginning to listen for updates to Twin desired properties...")
+            twin_update_listener_thread = threading.Thread(target=twin_update_listener, args=(client,))
+            twin_update_listener_thread.daemon = True
+            twin_update_listener_thread.start()
+            
             while True:
-                status_counter = 0
-                while status_counter <= WAIT_COUNT:
-                    time.sleep(10)
-                    status_counter += 1
+                time.sleep(1000)
 
-        except IoTHubError as iothub_error:
-            print ( "Unexpected error %s from IoTHub" % iothub_error )
-            return
         except KeyboardInterrupt:
-            print ( "IoTHubClient sample stopped" )
+            print ( "IoTHubDeviceClient sample stopped" )
 
     if __name__ == '__main__':
         print ( "Starting the IoT Hub Python jobs sample..." )
-        print ( "    Protocol %s" % PROTOCOL )
-        print ( "    Connection string=%s" % CONNECTION_STRING )
+        print ( "IoTHubDeviceClient waiting for commands, press Ctrl-C to exit" )
 
         iothub_jobs_sample_run()
     ```
@@ -162,27 +156,27 @@ Azure IoT 中樞是一項完全受控的服務，可讓後端應用程式建立�
 
 ## <a name="get-the-iot-hub-connection-string"></a>取得 IoT 中樞連接字串
 
-在本文中, 您會建立後端服務, 以在裝置上叫用直接方法, 並更新裝置對應項。 服務需要**服務 connect**許可權, 才能在裝置上呼叫直接方法。 服務也需要登錄**讀取**和登錄**寫入**許可權, 才能讀取和寫入身分識別登錄。 沒有僅包含這些許可權的預設共用存取原則, 因此您需要建立一個。
+在本文中，您會建立後端服務，以在裝置上叫用直接方法，並更新裝置對應項。 服務需要**服務 connect**許可權，才能在裝置上呼叫直接方法。 服務也需要登錄**讀取**和登錄**寫入**許可權，才能讀取和寫入身分識別登錄。 沒有僅包含這些許可權的預設共用存取原則，因此您需要建立一個。
 
-若要建立共用存取原則, 以授與**服務**連線、登錄**讀取**和登錄**寫入**許可權, 以及取得此原則的連接字串, 請遵循下列步驟:
+若要建立共用存取原則，以授與**服務**連線、登錄**讀取**和登錄**寫入**許可權，以及取得此原則的連接字串，請遵循下列步驟：
 
-1. 在[Azure 入口網站](https://portal.azure.com)中開啟您的 IoT 中樞。 若要進入 IoT 中樞, 最簡單的方法是選取 [**資源群組**], 選取您的 iot 中樞所在的資源群組, 然後從資源清單中選取您的 iot 中樞。
+1. 在[Azure 入口網站](https://portal.azure.com)中開啟您的 IoT 中樞。 若要進入 IoT 中樞，最簡單的方法是選取 [**資源群組**]，選取您的 iot 中樞所在的資源群組，然後從資源清單中選取您的 iot 中樞。
 
-2. 在 IoT 中樞的左側窗格中, 選取 [**共用存取原則**]。
+2. 在 IoT 中樞的左側窗格中，選取 [**共用存取原則**]。
 
-3. 從原則清單上方的頂端功能表中, 選取 [**新增**]。
+3. 從原則清單上方的頂端功能表中，選取 [**新增**]。
 
-4. 在 [**新增共用存取原則**] 窗格中, 輸入原則的描述性名稱;例如: *serviceAndRegistryReadWrite*。 在 **[許可權** **]** 底下, 選取 [服務連線及登錄**寫入**] (當您選取 [登錄**寫入**] 時, 會自動選取 [登錄**讀取**]) 然後選取 [建立]。
+4. 在 [**新增共用存取原則**] 窗格中，輸入原則的描述性名稱;例如： *serviceAndRegistryReadWrite*。 在 **[許可權** **]** 底下，選取 [服務連線及登錄**寫入**] （當您選取 [登錄**寫入**] 時，會自動選取 [登錄**讀取**]） 然後選取 [建立]。
 
     ![示範如何新增共用存取原則](./media/iot-hub-python-python-schedule-jobs/add-policy.png)
 
-5. 回到 [**共用存取原則**] 窗格, 從原則清單中選取您的新原則。
+5. 回到 [**共用存取原則**] 窗格，從原則清單中選取您的新原則。
 
-6. 在 [**共用存取金鑰**] 底下, 選取 [**連接字串-主要金鑰**] 的複製圖示, 然後儲存值。
+6. 在 [**共用存取金鑰**] 底下，選取 [**連接字串-主要金鑰**] 的複製圖示，然後儲存值。
 
     ![顯示如何擷取連接字串](./media/iot-hub-python-python-schedule-jobs/get-connection-string.png)
 
-如需 IoT 中樞共用存取原則和許可權的詳細資訊, 請參閱[存取控制和許可權](./iot-hub-devguide-security.md#access-control-and-permissions)。
+如需 IoT 中樞共用存取原則和許可權的詳細資訊，請參閱[存取控制和許可權](./iot-hub-devguide-security.md#access-control-and-permissions)。
 
 ## <a name="schedule-jobs-for-calling-a-direct-method-and-updating-a-device-twins-properties"></a>排定用於呼叫直接方法及更新裝置對應項 (twin) 屬性的作業
 
@@ -195,12 +189,12 @@ Azure IoT 中樞是一項完全受控的服務，可讓後端應用程式建立�
     ```
 
    > [!NOTE]
-   > Azure iothub-服務用戶端和 iothub 裝置用戶端的 pip 套件目前僅適用于 Windows 作業系統。 針對 Linux/Mac OS, 請參閱[準備適用于 Python 的開發環境](https://github.com/Azure/azure-iot-sdk-python/blob/master/doc/python-devbox-setup.md)文章的 Linux 和 Mac os 特定章節。
+   > Azure iothub-服務用戶端和 iothub 裝置用戶端的 pip 套件目前僅適用于 Windows 作業系統。 針對 Linux/Mac OS，請參閱[準備適用于 Python 的開發環境](https://github.com/Azure/azure-iot-sdk-python/blob/master/doc/python-devbox-setup.md)文章的 Linux 和 Mac os 特定章節。
    >
 
 2. 使用文字編輯器，在工作目錄中建立新的 **scheduleJobService.py** 檔案。
 
-3. 在 scheduleJobService.py 檔案`import`的開頭新增下列語句和變數。 將預留位置取代為您先前在[取得 iot 中樞連接字串](#get-the-iot-hub-connection-string)中所複製的 iot 中樞連接字串。 `{IoTHubConnectionString}` 以您在在[IoT 中樞註冊新裝置](#register-a-new-device-in-the-iot-hub)中註冊的裝置識別碼取代預留位置:`{deviceId}`
+3. 在 scheduleJobService.py 檔案`import`的開頭新增下列語句和變數。 將預留位置取代為您先前在[取得 iot 中樞連接字串](#get-the-iot-hub-connection-string)中所複製的 iot 中樞連接字串。 `{IoTHubConnectionString}` 以您在在[IoT 中樞註冊新裝置](#register-a-new-device-in-the-iot-hub)中註冊的裝置識別碼取代預留位置：`{deviceId}`
 
     ```python
     import sys
@@ -352,4 +346,4 @@ Azure IoT 中樞是一項完全受控的服務，可讓後端應用程式建立�
 
 在本教學課程中，您已使用作業來排定裝置的直接方法，以及更新裝置對應項 (twin) 的屬性。
 
-若要繼續開始使用 IoT 中樞和裝置管理模式 (例如遠端透過空中固件更新), 請參閱[如何執行固件更新](tutorial-firmware-update.md)。
+若要繼續開始使用 IoT 中樞和裝置管理模式（例如遠端透過空中固件更新），請參閱[如何執行固件更新](tutorial-firmware-update.md)。

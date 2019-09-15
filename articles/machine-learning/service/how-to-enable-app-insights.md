@@ -1,7 +1,7 @@
 ---
 title: 設定 Azure 應用程式 Insights 來監視 ML 模型
-titleSuffix: Azure Machine Learning service
-description: 使用 Azure 應用程式 Insights 監視以 Azure Machine Learning 服務部署的 web 服務
+titleSuffix: Azure Machine Learning
+description: 使用 Azure 應用程式 Insights 監視以 Azure Machine Learning 部署的 web 服務
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -11,16 +11,16 @@ ms.author: marthalc
 author: marthalc
 ms.date: 07/12/2019
 ms.custom: seoapril2019
-ms.openlocfilehash: ff9261e2720ed80fc96131cea69d2985c8e0883e
-ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
+ms.openlocfilehash: 785507e9ae12d8da564a223c8cdf544a98b8de61
+ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70858750"
+ms.lasthandoff: 09/15/2019
+ms.locfileid: "71002876"
 ---
 # <a name="monitor-your-azure-machine-learning-models-with-application-insights"></a>使用 Application Insights 監視您的 Azure Machine Learning 模型
 
-在本文中，您會了解如何針對 Azure Machine Learning 服務設定 Azure Application Insights。 Application Insights 可讓您監視：
+在本文中，您將瞭解如何設定 Azure Machine Learning 的 Azure 應用程式深入解析。 Application Insights 可讓您監視：
 * 要求速率、回應時間和失敗率。
 * 相依性速率、回應時間和失敗率。
 * 例外狀況。
@@ -30,7 +30,7 @@ ms.locfileid: "70858750"
 
 ## <a name="prerequisites"></a>必要條件
 
-* 如果您沒有 Azure 訂用帳戶，請在開始前先建立一個免費帳戶。 立即試用[免費或付費版本的 Azure Machine Learning 服務](https://aka.ms/AMLFree)。
+* 如果您沒有 Azure 訂用帳戶，請在開始前先建立一個免費帳戶。 立即試用[免費或付費版本的 Azure Machine Learning](https://aka.ms/AMLFree) 。
 
 * 已安裝 Azure Machine Learning 工作區、包含指令碼的本機目錄，以及適用於 Python 的 Azure Machine Learning SDK。 若要了解如何取得這些必要條件，請參閱[如何設定開發環境](how-to-configure-environment.md)。
 * 要部署至 Azure Kubernetes Service (AKS) 或 Azure Container 執行個體 (ACI) 的已訓練機器學習模型。 如果您沒有模型，請參閱[將影像分類模型定型](tutorial-train-models-with-aml.md)教學課程。
@@ -111,7 +111,7 @@ ms.locfileid: "70858750"
  
 
 ## <a name="evaluate-data"></a>評估資料
-服務資料會儲存在您的 Application Insights 帳戶中，這個帳戶位於與 Azure Machine Learning 服務相同的資源群組內。
+您的服務資料會儲存在您的 Application Insights 帳戶中，與 Azure Machine Learning 位於相同的資源群組內。
 若要檢視：
 1. 移至 [Azure 入口網站](https://portal.azure.com)中的 Machine Learning 服務工作區，然後按一下 Application Insights 連結。
 

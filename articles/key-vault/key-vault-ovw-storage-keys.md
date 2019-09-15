@@ -8,12 +8,12 @@ author: msmbaldwin
 ms.author: mbaldwin
 manager: rkarlin
 ms.date: 03/01/2019
-ms.openlocfilehash: 86ac58aea174ca05580da99b6bde0cc3823ab151
-ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
+ms.openlocfilehash: 68c9279333e9ee92cbca1034f70801c153b6cdb8
+ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70883056"
+ms.lasthandoff: 09/15/2019
+ms.locfileid: "71000541"
 ---
 # <a name="manage-storage-account-keys-with-azure-key-vault-and-the-azure-cli"></a>使用 Azure Key Vault 和 Azure CLI 管理儲存體帳戶金鑰 
 
@@ -158,7 +158,7 @@ Key Vault 是在所有 Azure AD 租使用者中預先註冊的 Microsoft 應用�
 - 使用服務主體和憑證。 
 - 使用服務主體和密碼。 不建議使用此方法。
 
-如需詳細資訊， [請參閱 Azure Key Vault：基本概念](key-vault-whatis.md#basic-concepts)。
+如需詳細資訊， [請參閱 Azure Key Vault：基本概念](basic-concepts.md)。
 
 下列範例示範如何提取共用存取簽章權杖。 建立共用存取簽章定義之後，您會提取權杖。 
 

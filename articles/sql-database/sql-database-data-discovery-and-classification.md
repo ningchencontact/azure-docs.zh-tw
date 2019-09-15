@@ -11,16 +11,16 @@ author: barmichal
 ms.author: mibar
 ms.reviewer: vanto
 ms.date: 08/22/2019
-ms.openlocfilehash: 5aaad8c44328e1cc2aeb7729e3e221665823a467
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: 0bba755ec5683e988bb8ae3f2308a1c298b228b0
+ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70073047"
+ms.lasthandoff: 09/15/2019
+ms.locfileid: "71000569"
 ---
 # <a name="azure-sql-database-and-sql-data-warehouse-data-discovery--classification"></a>Azure SQL Database 和 SQL 資料倉儲資料探索 & 分類
 
-資料探索 & 分類提供了內建于 Azure SQL Database 中的先進功能, 可用於**探索**、**分類**、**標記** & **保護**資料庫中的敏感性資料。
+資料探索 & 分類提供了內建于 Azure SQL Database 中的先進功能，可用於**探索**、**分類**、**標記** & **保護**資料庫中的敏感性資料。
 
 對於最具敏感性的資料 (商業、財務、醫療保健與個人識別資料 (PII) 等) 進行探索與分類，在組織的資訊保護方面扮演著關鍵角色。 它可以作為以下的基礎結構：
 
@@ -28,10 +28,10 @@ ms.locfileid: "70073047"
 - 各種安全性案例，例如針對敏感性資料異常存取的監視 (稽核) 及警示。
 - 控制對包含高度敏感性資料之資料庫的存取，並強化安全性。
 
-資料探索 & 分類是[先進的資料安全性](sql-database-advanced-data-security.md)(ADS) 供應專案的一部分, 這是適用于先進 SQL 安全性功能的整合套件。 資料探索與分類可以透過中央 SQL ADS 入口網站存取及管理。
+資料探索 & 分類是[先進的資料安全性](sql-database-advanced-data-security.md)（ADS）供應專案的一部分，這是適用于先進 SQL 安全性功能的整合套件。 資料探索與分類可以透過中央 SQL ADS 入口網站存取及管理。
 
 > [!NOTE]
-> 本檔與 Azure SQL Database 和 Azure SQL 資料倉儲有關。 為了簡單起見，參考 SQL Database 和 SQL 資料倉儲時都會使用 SQL Database。 如 SQL Server (內部部署), 請參閱[SQL 資料探索和分類](https://go.microsoft.com/fwlink/?linkid=866999)。
+> 本檔與 Azure SQL Database 和 Azure SQL 資料倉儲有關。 為了簡單起見，參考 SQL Database 和 SQL 資料倉儲時都會使用 SQL Database。 如 SQL Server （內部部署），請參閱[SQL 資料探索和分類](https://go.microsoft.com/fwlink/?linkid=866999)。
 
 ## <a id="subheading-1"></a>什麼是資料探索與分類
 
@@ -77,7 +77,7 @@ SQL 資料探索與分類隨附一組內建的敏感度標籤與一組內建的�
 
 1. 移至 [Azure 入口網站](https://portal.azure.com)。
 
-2. 瀏覽至 [Azure SQL Database] 窗格中 [安全性] 標題下的 [進階資料安全性]。 按一下以啟用 [advanced data security], 然後按一下 [**資料探索 & 分類**卡]。
+2. 瀏覽至 [Azure SQL Database] 窗格中 [安全性] 標題下的 [進階資料安全性]。 按一下以啟用 [advanced data security]，然後按一下 [**資料探索 & 分類**卡]。
 
    ![掃描資料庫](./media/sql-data-discovery-and-classification/data_classification.png)
 
@@ -138,6 +138,8 @@ SQL 資料探索與分類隨附一組內建的敏感度標籤與一組內建的�
 - 移除一或多個資料行的分類：[卸除敏感度分類](https://docs.microsoft.com/sql/t-sql/statements/drop-sensitivity-classification-transact-sql)
 - 檢視資料庫上的所有分類：[sys.sensitivity_classifications](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-sensitivity-classifications-transact-sql)
 
+### <a name="manage-classifications-using-rest-apis"></a>使用 Rest Api 管理分類
+
 您也可以使用 REST API 以程式設計方式管理分類。 已發行的 REST API 支援下列作業：
 
 - [建立或更新](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/createorupdate) - 建立或更新指定資料行的敏感度標籤
@@ -166,9 +168,9 @@ SQL 資料探索與分類隨附一組內建的敏感度標籤與一組內建的�
 
 ## <a name="permissions"></a>Permissions
 
-下列內建角色可以讀取 Azure SQL database 的資料分類: `Owner`、 `Reader`、 `Contributor` `SQL Security Manager`和`User Access Administrator`。
+下列內建角色可以讀取 Azure SQL database 的資料分類： `Owner`、 `Reader`、 `Contributor` `SQL Security Manager`和`User Access Administrator`。
 
-下列內建角色可以修改 Azure SQL 資料庫的資料分類: `Owner`、 `Contributor`、 `SQL Security Manager`。
+下列內建角色可以修改 Azure SQL 資料庫的資料分類： `Owner`、 `Contributor`、 `SQL Security Manager`。
 
 深入瞭解[適用于 Azure 資源的 RBAC](https://docs.microsoft.com/azure/role-based-access-control/overview)
 

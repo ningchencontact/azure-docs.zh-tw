@@ -1,7 +1,7 @@
 ---
 title: 如何將模型部署至筆記本 Vm
-titleSuffix: Azure Machine Learning service
-description: 瞭解如何使用筆記本 Vm, 將您的 Azure Machine Learning 服務模型部署為 web 服務。
+titleSuffix: Azure Machine Learning
+description: 瞭解如何使用筆記本 Vm，將您的 Azure Machine Learning 模型部署為 web 服務。
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,34 +10,34 @@ ms.author: mnark
 author: MrudulaN
 ms.reviewer: larryfr
 ms.date: 08/08/2019
-ms.openlocfilehash: d6b26dfe1eb8ea65dd7c751a148c599123b0f6db
-ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
+ms.openlocfilehash: 046f998038c47a48a8528bf36d87ac836395eec2
+ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/10/2019
-ms.locfileid: "68947756"
+ms.lasthandoff: 09/15/2019
+ms.locfileid: "71002817"
 ---
 # <a name="deploy-a-model-to-notebook-vms"></a>將模型部署至筆記本 Vm
 
-瞭解如何使用 Azure Machine Learning 服務將模型部署為您筆記本 VM 上的 web 服務。 如果下列其中一個條件成立, 請使用筆記本 Vm:
+瞭解如何使用 Azure Machine Learning 將模型部署為您筆記本 VM 上的 web 服務。 如果下列其中一個條件成立，請使用筆記本 Vm：
 
 - 您需要快速部署及驗證模型。
 - 您正在測試處於開發狀態的模型。
 
 > [!TIP]
-> 從筆記本 VM 上的 Jupyter Notebook 將模型部署至相同 VM 上的 web 服務是_本機部署_。 在此情況下, 「本機」電腦是筆記本 VM。 如需部署的詳細資訊, 請參閱[使用 Azure Machine Learning 服務部署模型](how-to-deploy-and-where.md)。
+> 從筆記本 VM 上的 Jupyter Notebook 將模型部署至相同 VM 上的 web 服務是_本機部署_。 在此情況下，「本機」電腦是筆記本 VM。 如需部署的詳細資訊，請參閱[使用 Azure Machine Learning 部署模型](how-to-deploy-and-where.md)。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
-- 具有執行中筆記本 VM 的 Azure Machine Learning 服務工作區。 如需詳細資訊, 請參閱[設定環境和工作區](tutorial-1st-experiment-sdk-setup.md)。
+- 具有執行中筆記本 VM 的 Azure Machine Learning 工作區。 如需詳細資訊，請參閱[設定環境和工作區](tutorial-1st-experiment-sdk-setup.md)。
 
 ## <a name="deploy-to-the-notebook-vms"></a>部署至筆記本 Vm
 
-您的筆記本 VM 上會包含示範本機部署的範例筆記本。 使用下列步驟來載入筆記本, 並將模型部署為 VM 上的 web 服務:
+您的筆記本 VM 上會包含示範本機部署的範例筆記本。 使用下列步驟來載入筆記本，並將模型部署為 VM 上的 web 服務：
 
-1. 從  [Azure 入口網站](https://portal.azure.com)中, 選取您的 Azure Machine Learning 筆記本 vm。
+1. 從  [Azure 入口網站](https://portal.azure.com)中，選取您的 Azure Machine Learning 筆記本 vm。
 
-1. 開啟子目錄, 然後開啟`how-to-use-azureml/deploy-to-local/register-model-deploy-local.ipynb`。 `samples-*` 一旦開啟, 請執行筆記本。
+1. 開啟子目錄，然後開啟`how-to-use-azureml/deploy-to-local/register-model-deploy-local.ipynb`。 `samples-*` 一旦開啟，請執行筆記本。
 
     ![筆記本上執行中本機服務的螢幕擷取畫面](media/how-to-deploy-local-container-notebookvm/deploy-local-service.png)
 
@@ -45,11 +45,11 @@ ms.locfileid: "68947756"
 
     ![執行中本機服務埠的螢幕擷取畫面](media/how-to-deploy-local-container-notebookvm/deploy-local-service-port.png)
 
-1. 若要從筆記本 VM 測試服務, 請使用`https://localhost:<local_service.port>` URL。 若要從遠端用戶端進行測試, 請取得在筆記本 VM 上執行之服務的公用 URL。您可以使用下列公式來判斷公用 URL:`https://<notebookvm_name>-<local_service_port>.<azure_region_of_notebook>.notebooks.azureml.net/score`. 例如： `https://mynotebookvm-6789.eastus2.notebooks.azureml.net/score` 。
+1. 若要從筆記本 VM 測試服務，請使用`https://localhost:<local_service.port>` URL。 若要從遠端用戶端進行測試，請取得在筆記本 VM 上執行之服務的公用 URL。您可以使用下列公式來判斷公用 URL：`https://<notebookvm_name>-<local_service_port>.<azure_region_of_notebook>.notebooks.azureml.net/score`. 例如： `https://mynotebookvm-6789.eastus2.notebooks.azureml.net/score` 。
 
 ## <a name="test-the-service"></a>測試服務
 
-若要將範例資料提交至執行中的服務, 請使用下列程式碼。 將的值`service_url`取代為上一個步驟中的 URL:
+若要將範例資料提交至執行中的服務，請使用下列程式碼。 將的值`service_url`取代為上一個步驟中的 URL：
 
 ```python
 import requests

@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 06/28/2019
 ms.author: wesmc
-ms.openlocfilehash: 9be0b93335cef919db4efa2fce361bda1f9b934e
-ms.sourcegitcommit: a3a40ad60b8ecd8dbaf7f756091a419b1fe3208e
+ms.openlocfilehash: 18864a662464f77d799e54d583092a371bc2d137
+ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69891985"
+ms.lasthandoff: 09/15/2019
+ms.locfileid: "70999975"
 ---
 # <a name="choose-the-right-iot-hub-tier-for-your-solution"></a>選擇適合您解決方案的 IoT 中樞層
 
@@ -33,7 +33,7 @@ Azure IoT 中樞提供基本和標準兩個層級，兩者所支援的功能數�
 
 標準層的 IoT 中樞可啟用所有功能，想要使用雙向通訊功能的 IoT 解決方案都必須使用此層級。 基本層則可啟用一小部分功能，可供只需要從裝置到雲端進行單向通訊的 IoT 解決方案使用。 這兩個層級均提供相同的安全性和驗證功能。
 
-每個 IoT 中樞只能選擇層次內的一個[版本](https://azure.microsoft.com/pricing/details/iot-hub/)類型。 例如，您建立的 IoT 中樞可以具有多個 S1 單位，但不能具有來自不同版本 (例如 S1 和 B3 或 S1 和 S2) 的混合單位。
+每個 IoT 中樞只能選擇層次內的一個[版本](https://azure.microsoft.com/pricing/details/iot-hub/)類型。 例如，您可以建立具有多個 S1 單位的 IoT 中樞，但不是混合不同版本（例如 S1 和 S2）的單位。
 
 | 功能 | 基本層 | 免費/標準層 |
 | ---------- | ---------- | ------------- |
@@ -86,6 +86,10 @@ IoT 中樞的基本和標準層之間的支援功能差異，代表某些 API �
 | 傳送模組事件 | 僅限 AMQP 和 MQTT | 僅限 AMQP 和 MQTT |
 | [更新檔案上傳狀態](https://docs.microsoft.com/rest/api/iothub/device/updatefileuploadstatus) | 是 | 是 |
 | [大量裝置作業](https://docs.microsoft.com/rest/api/iothub/service/bulkcreateorupdatedevices) | 是，IoT Edge 功能除外 | 是 |
+| [取消匯入匯出作業](https://docs.microsoft.com/rest/api/iothub/service/cancelimportexportjob) | 是 | 是 |
+| [建立匯入匯出作業](https://docs.microsoft.com/rest/api/iothub/service/createimportexportjob) | 是 | 是 |
+| [取得匯入匯出作業](https://docs.microsoft.com/rest/api/iothub/service/getimportexportjob) | 是 | 是 |
+| [取得匯入匯出作業](https://docs.microsoft.com/rest/api/iothub/service/getimportexportjobs) | 是 | 是 |
 | [清除命令佇列](https://docs.microsoft.com/rest/api/iothub/service/purgecommandqueue) |   | 是 |
 | [取得裝置對應項](https://docs.microsoft.com/rest/api/iothub/service/gettwin) |   | 是 |
 | [取得模組對應項](https://docs.microsoft.com/rest/api/iothub/service/getmoduletwin) |   | 是 |
@@ -107,17 +111,17 @@ IoT 中樞的基本和標準層之間的支援功能差異，代表某些 API �
 * 雲端到裝置的訊息
 * 身分識別登錄作業
 
-流量的測量是以單位為基礎，而不是以中樞為基礎。 層級 1 或 2 的 IoT 中樞執行個體最多可以有 200 個相關聯的單位。 層級 3 的 IoT 中樞執行個體最多可以有 10 個單位。 在建立 IoT 中樞後，您不需要中斷現有作業，就可以變更單位數量或是在特定層的 1、2、3 大小之間遷移。 如需詳細資訊，請參閱[如何升級 IoT 中樞](iot-hub-upgrade.md)。
+流量是以每個單位為基礎，針對您的 IoT 中樞進行測量。 當您建立 IoT 中樞時，請選擇其層級和版本，並設定可用的單位數。 您最多可以針對 B1、B2、S1 或 S2 版本購買200單位，或為 B3 或 S3 版本購買最多10個單位。 建立 IoT 中樞之後，您可以變更其版本內可用的單位數、升級或降級其層級（B1 到 B2）中的版本，或從基本升級至標準層（B1 到 S1），而不會中斷現有的作業。 如需詳細資訊，請參閱[如何升級 IoT 中樞](iot-hub-upgrade.md)。  
 
 以每一層的流量功能為例，裝置到雲端訊息會遵循下列持續輸送量指引：
 
-| 層 | 持續的輸送量 | 持續的傳送速率 |
+| 層版 | 持續的輸送量 | 持續的傳送速率 |
 | --- | --- | --- |
 | B1, S1 |每個單位最多 1111 KB/分鐘<br/>(1.5 GB/天/單位) |每個單位平均 278 個訊息/分鐘<br/>(400,000 個訊息/天/單位) |
 | B2, S2 |每個單位最多 16 MB/分鐘<br/>(22.8 GB/天/單位) |每個單位平均 4,167 個訊息/分鐘<br/>(600 萬個訊息/天/單位) |
 | B3, S3 |每個單位最多 814 MB/分鐘<br/>(1144.4 GB/天/單位) |每個單位平均 208,333 個訊息/分鐘<br/>(3 億個訊息/天/單位) |
 
-除了此輸送量資訊之外，請參考 [IoT 中樞配額與節流](iot-hub-devguide-quotas-throttling.md) 並據以設計您的方案。
+裝置到雲端輸送量只是您在設計 IoT 解決方案時必須考慮的其中一個計量。 如需更完整的資訊，請參閱[IoT 中樞配額和](iot-hub-devguide-quotas-throttling.md)節流。
 
 ### <a name="identity-registry-operation-throughput"></a>身分識別登錄作業輸送量
 
@@ -127,10 +131,10 @@ IoT 中樞的基本和標準層之間的支援功能差異，代表某些 API �
 
 ## <a name="auto-scale"></a>自動調整規模
 
-如果您即將達到 IoT 中樞上允許的訊息限制，可以使用這些[步驟來自動調整](https://azure.microsoft.com/resources/samples/iot-hub-dotnet-autoscale/)，以增加相同 IoT 中樞層的 IoT 中樞單位。
+如果您接近 IoT 中樞上允許的訊息限制，您可以使用這些[步驟來自動調整](https://azure.microsoft.com/resources/samples/iot-hub-dotnet-autoscale/)，以便在相同的 IoT 中樞層中遞增 IoT 中樞單位。
 
 ## <a name="next-steps"></a>後續步驟
 
-* 如需 IoT 中樞功能和效能詳細資料的詳細資訊, 請參閱[IoT 中樞定價](https://azure.microsoft.com/pricing/details/iot-hub)或[IoT 中樞配額和](iot-hub-devguide-quotas-throttling.md)節流。
+* 如需 IoT 中樞功能和效能詳細資料的詳細資訊，請參閱[IoT 中樞定價](https://azure.microsoft.com/pricing/details/iot-hub)或[IoT 中樞配額和](iot-hub-devguide-quotas-throttling.md)節流。
 
 * 若要變更 IoT 中樞層，請遵循[升級 IoT 中樞](iot-hub-upgrade.md)內的步驟。

@@ -1,17 +1,17 @@
 ---
 title: Azure Cosmos DB 中的 SQL 常數
-description: 深入了解 Azure Cosmos DB 中的 SQL 常數
+description: 瞭解 Azure Cosmos DB 中的 SQL 常數
 author: timsander1
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/31/2019
 ms.author: tisande
-ms.openlocfilehash: ed337c8330eb8b3e4ad97c92cca1d0c5977f9588
-ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
+ms.openlocfilehash: 41cafeb76b7b9481a78ffcff179676d0aa7bf6fd
+ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/24/2019
-ms.locfileid: "67342733"
+ms.lasthandoff: 09/15/2019
+ms.locfileid: "71002036"
 ---
 # <a name="azure-cosmos-db-sql-query-constants"></a>Azure Cosmos DB SQL 查詢常數  
 
@@ -19,14 +19,14 @@ ms.locfileid: "67342733"
   
  **支援的純量資料類型：**  
   
-|**類型**|**值順序**|  
+|**型別**|**值順序**|  
 |-|-|  
 |**未定義**|單一值： **未定義**|  
 |**Null**|單一值：**Null**|  
 |**布林值**|值：**False**，**True**。|  
 |**Number**|雙精確度浮點數，符合 IEEE 754 標準。|  
 |**String**|零或更多 Unicode 字元的序列。 字串必須以單引號或雙引號括住。|  
-|**Array**|零或更多元素的序列。 每個項目可以是任何純量資料類型的值，除非**Undefined**。|  
+|**Array**|零或更多元素的序列。 除了**Undefined**以外，每個元素都可以是任何純量資料類型的值。|  
 |**物件**|未排序的零或更多名稱/值組。 名稱為 Unicode 字串；除了**未定義**的類型，值可以是任何純量資料類型。|  
   
 ## <a name="bk_syntax"></a>語法
@@ -103,7 +103,7 @@ ms.locfileid: "67342733"
   
   允許下列逸出序列：  
   
-|**逸出序列**|**說明**|**Unicode 字元**|  
+|**逸出序列**|**描述**|**Unicode 字元**|  
 |-|-|-|  
 |\\'|apostrophe (')|U+0027|  
 |\\"|引號 (")|U+0022|  
@@ -118,5 +118,5 @@ ms.locfileid: "67342733"
 
 ## <a name="next-steps"></a>後續步驟
 
-- [Azure Cosmos DB .NET 範例](https://github.com/Azure/azure-cosmosdb-dotnet)
-- [模型文件資料](modeling-data.md)
+- [Azure Cosmos DB .NET 範例](https://github.com/Azure/azure-cosmos-dotnet-v3)
+- [模型檔資料](modeling-data.md)

@@ -13,12 +13,12 @@ author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
 manager: craigg
-ms.openlocfilehash: d2fe8da1c4d49f5b57f907a5940ec9c445d0d1f7
-ms.sourcegitcommit: 909ca340773b7b6db87d3fb60d1978136d2a96b0
+ms.openlocfilehash: 9057cefa5108924c57dbc85bbb895b31e804a51c
+ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/13/2019
-ms.locfileid: "70984327"
+ms.lasthandoff: 09/15/2019
+ms.locfileid: "71000646"
 ---
 # <a name="run-an-ssis-package-with-the-execute-ssis-package-activity-in-azure-data-factory"></a>在 Azure Data Factory 中使用 Execute SSIS 套件活動執行 SSIS 套件
 本文說明如何使用執行 SSIS 套件活動，在 Azure Data Factory （ADF）管線中執行 SQL Server Integration Services （SSIS）套件。 
@@ -269,7 +269,7 @@ ms.locfileid: "70984327"
    }
    ```
 
-若要執行儲存在檔案系統/檔案共用/Azure 檔案儲存體中的封裝，您可以輸入封裝/記錄檔位置屬性的值，如下所示。
+   若要執行儲存在檔案系統/檔案共用/Azure 檔案儲存體中的封裝，您可以輸入封裝/記錄檔位置屬性的值，如下所示。
 
    ```json
    {
@@ -318,7 +318,7 @@ ms.locfileid: "70984327"
    }
    ```
 
-若要在儲存于檔案系統/檔案共用/Azure 檔案儲存體的專案內執行封裝，您可以如下所示輸入套件位置屬性的值。
+   若要在儲存于檔案系統/檔案共用/Azure 檔案儲存體的專案內執行封裝，您可以如下所示輸入套件位置屬性的值。
 
    ```json
    {

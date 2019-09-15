@@ -9,12 +9,12 @@ ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: article
 ms.date: 06/28/2019
-ms.openlocfilehash: 6c16b38cce31c45158a5871c10dbd01339da9203
-ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
+ms.openlocfilehash: be10d144fadb21a695c5573c82681a26136e71d4
+ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70845428"
+ms.lasthandoff: 09/15/2019
+ms.locfileid: "71004095"
 ---
 # <a name="secure-access-and-data-in-azure-logic-apps"></a>保護 Azure Logic Apps 中的存取和資料
 
@@ -185,7 +185,7 @@ POST /subscriptions/<Azure-subscription-ID>/resourceGroups/<Azure-resource-group
 
 在邏輯應用程式執行期間, 所有資料都會在傳輸過程中使用[傳輸層安全性 (TLS)](https://azure.microsoft.com/updates/app-service-and-functions-hosted-apps-can-now-update-tls-versions/)和[待用](../security/fundamentals/encryption-atrest.md)加密。 當您的邏輯應用程式完成執行時, 您可以查看該回合的歷程記錄, 包括與每個動作的狀態、持續時間、輸入和輸出一起執行的步驟。 此豐富的詳細資料可讓您深入瞭解邏輯應用程式的執行方式, 以及您可以從何處開始針對發生的任何問題進行疑難排解。
 
-當您存取邏輯應用程式的執行歷程記錄時, Logic Apps 會驗證您的存取權, 並從邏輯應用程式的執行中提供要求和回應的輸入和輸出連結。 不過, 針對處理任何密碼、秘密、金鑰或其他機密資訊的動作, 您會想要防止其他人查看和存取該資料。 例如, 如果您的邏輯應用程式從[Azure Key Vault](../key-vault/key-vault-whatis.md)取得要在驗證 HTTP 動作時使用的密碼, 您就會想要從 view 中隱藏該秘密。
+當您存取邏輯應用程式的執行歷程記錄時, Logic Apps 會驗證您的存取權, 並從邏輯應用程式的執行中提供要求和回應的輸入和輸出連結。 不過, 針對處理任何密碼、秘密、金鑰或其他機密資訊的動作, 您會想要防止其他人查看和存取該資料。 例如, 如果您的邏輯應用程式從[Azure Key Vault](../key-vault/key-vault-overview.md)取得要在驗證 HTTP 動作時使用的密碼, 您就會想要從 view 中隱藏該秘密。
 
 若要在邏輯應用程式的執行歷程記錄中控制輸入和輸出的存取權, 您有下列選項:
 
@@ -370,7 +370,7 @@ POST /subscriptions/<Azure-subscription-ID>/resourceGroups/<Azure-resource-group
 
 當您使用[Azure Resource Manager 範本](../azure-resource-manager/resource-group-authoring-templates.md#parameters)來自動化部署時, 您可以使用`securestring`和`secureobject`類型定義受保護的範本參數 (在部署時進行評估)。 若要定義範本參數, 請使用您範本的`parameters`最上層區段, 這是獨立的, 而且不同于`parameters`您的工作流程定義區段。 若要提供範本參數的值, 請使用個別的[參數](../azure-resource-manager/resource-group-template-deploy.md#pass-parameter-values)檔。
 
-例如, 如果您使用秘密, 您可以定義和使用安全的範本參數, 在部署時從[Azure Key Vault](../key-vault/key-vault-whatis.md)取出這些秘密。 接著, 您可以在參數檔案中參考金鑰保存庫和密碼。 如需詳細資訊，請參閱下列主題：
+例如, 如果您使用秘密, 您可以定義和使用安全的範本參數, 在部署時從[Azure Key Vault](../key-vault/key-vault-overview.md)取出這些秘密。 接著, 您可以在參數檔案中參考金鑰保存庫和密碼。 如需詳細資訊，請參閱下列主題：
 
 * [使用 Azure Key Vault 在部署時傳遞安全參數值](../azure-resource-manager/resource-manager-keyvault-parameter.md)
 * 在本主題稍後的[Azure Resource Manager 範本中保護參數](#secure-parameters-deployment-template)
@@ -425,7 +425,7 @@ POST /subscriptions/<Azure-subscription-ID>/resourceGroups/<Azure-resource-group
 
 ### <a name="secure-parameters-in-azure-resource-manager-templates"></a>Azure Resource Manager 範本中的安全參數
 
-邏輯應用程式的 Resource Manager 範本有多個`parameters`區段。 若要保護密碼、金鑰、秘密和其他機密資訊, 請使用`securestring`或`secureobject`類型, 在範本層級和工作流程定義層級定義受保護的參數。 然後您可以將這些值儲存在[Azure Key Vault](../key-vault/key-vault-whatis.md)中, 並使用[參數](../azure-resource-manager/resource-group-template-deploy.md#pass-parameter-values)檔案來參考金鑰保存庫和密碼。 然後, 您的範本會在部署時抓取該資訊。 如需詳細資訊, 請參閱[在部署時使用 Azure Key Vault 傳遞安全的參數值](../azure-resource-manager/resource-manager-keyvault-parameter.md)。
+邏輯應用程式的 Resource Manager 範本有多個`parameters`區段。 若要保護密碼、金鑰、秘密和其他機密資訊, 請使用`securestring`或`secureobject`類型, 在範本層級和工作流程定義層級定義受保護的參數。 然後您可以將這些值儲存在[Azure Key Vault](../key-vault/key-vault-overview.md)中, 並使用[參數](../azure-resource-manager/resource-group-template-deploy.md#pass-parameter-values)檔案來參考金鑰保存庫和密碼。 然後, 您的範本會在部署時抓取該資訊。 如需詳細資訊, 請參閱[在部署時使用 Azure Key Vault 傳遞安全的參數值](../azure-resource-manager/resource-manager-keyvault-parameter.md)。
 
 以下是有關這些`parameters`區段的詳細資訊:
 

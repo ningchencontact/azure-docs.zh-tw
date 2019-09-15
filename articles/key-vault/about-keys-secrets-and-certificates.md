@@ -9,12 +9,12 @@ ms.service: key-vault
 ms.topic: conceptual
 ms.date: 09/04/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 8ea7fc5a318775b05c03166df3d9b457ec004273
-ms.sourcegitcommit: a4b5d31b113f520fcd43624dd57be677d10fc1c0
+ms.openlocfilehash: 4bbe9d9bfaf49fe93631787b347a3446e4b0f817
+ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70773117"
+ms.lasthandoff: 09/15/2019
+ms.locfileid: "71000573"
 ---
 # <a name="about-keys-secrets-and-certificates"></a>關於金鑰、祕密與憑證
 
@@ -25,7 +25,7 @@ Azure Key Vault 可讓 Microsoft Azure 應用程式和使用者儲存及使用�
 - 憑證：支援以金鑰和祕密為基礎且新增自動更新功能的憑證。
 - Azure 儲存體：可為您管理「Azure 儲存體」帳戶的金鑰。 Key Vault 可在內部列出 (同步) 金鑰與 Azure 儲存體帳戶，以及定期重新產生 (輪替) 金鑰。 
 
-如需 Key Vault 的一般詳細資訊，請參閱[什麼是 Azure Key Vault？](/azure/key-vault/key-vault-whatis)
+如需 Key Vault 的一般詳細資訊，請參閱[什麼是 Azure Key Vault？](/azure/key-vault/key-vault-overview)
 
 ## <a name="azure-key-vault"></a>Azure Key Vault
 

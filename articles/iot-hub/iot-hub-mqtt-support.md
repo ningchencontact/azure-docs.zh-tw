@@ -7,12 +7,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 10/12/2018
 ms.author: robinsh
-ms.openlocfilehash: 9a6b3a538304f2d09941650e3087130c21422dc0
-ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
+ms.openlocfilehash: 6a43b721b70858d82083538638853c5bbdf1531d
+ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/10/2019
-ms.locfileid: "68946354"
+ms.lasthandoff: 09/15/2019
+ms.locfileid: "71004127"
 ---
 # <a name="communicate-with-your-iot-hub-using-the-mqtt-protocol"></a>使用 MQTT 通訊協定來與 IoT 中樞通訊
 
@@ -29,7 +29,7 @@ IoT 中樞不是功能完整的 MQTT 訊息代理程式，而且不支援 MQTT v
 
 ## <a name="connecting-to-iot-hub"></a>連接到 IoT 中樞
 
-裝置可以使用 MQTT 通訊協定, 使用下列任何選項來連接到 IoT 中樞。
+裝置可以使用 MQTT 通訊協定，使用下列任何選項來連接到 IoT 中樞。
 
 * [Azure IoT sdk](https://github.com/Azure/azure-iot-sdks)中的程式庫。
 * 直接 MQTT 通訊協定。
@@ -48,21 +48,23 @@ IoT 中樞不是功能完整的 MQTT 訊息代理程式，而且不支援 MQTT v
 | [Java](https://github.com/Azure/azure-iot-sdk-java/blob/master/device/iot-device-samples/send-receive-sample/src/main/java/samples/com/microsoft/azure/sdk/iot/SendReceive.java) |IotHubClientProtocol.MQTT |
 | [C](https://github.com/Azure/azure-iot-sdk-c/tree/master/iothub_client/samples/iothub_client_sample_mqtt_dm) |MQTT_Protocol |
 | [C#](https://github.com/Azure/azure-iot-sdk-csharp/tree/master/iothub/device/samples) |TransportType.Mqtt |
-| [Python](https://github.com/Azure/azure-iot-sdk-python/tree/master/device/samples) |IoTHubTransportProvider.MQTT |
+| [Python](https://github.com/Azure/azure-iot-sdk-python/tree/master/azure-iot-device/samples) |一律預設支援 MQTT |
 
 ### <a name="migrating-a-device-app-from-amqp-to-mqtt"></a>將裝置應用程式從 AMQP 移轉至 MQTT
 
-如果您使用[裝置 sdk](https://github.com/Azure/azure-iot-sdks), 從使用 AMQP 切換至 MQTT 時, 必須如先前所述, 在用戶端初始化中變更通訊協定參數。
+如果您使用[裝置 sdk](https://github.com/Azure/azure-iot-sdks)，從使用 AMQP 切換至 MQTT 時，必須如先前所述，在用戶端初始化中變更通訊協定參數。
 
 這麼做時，請務必檢查下列項目︰
 
 * AMQP 在許多情況下會傳回錯誤，而 MQTT 會終止連線。 因此，可能需要稍微變更您的例外狀況處理邏輯。
 
-* MQTT 不支援接收[雲端到裝置訊息](iot-hub-devguide-messaging.md)時的*拒絕*作業。 如果您的後端應用程式需要接收來自裝置應用程式的回應, 請考慮使用[直接方法](iot-hub-devguide-direct-methods.md)。
+* MQTT 不支援接收[雲端到裝置訊息](iot-hub-devguide-messaging.md)時的*拒絕*作業。 如果您的後端應用程式需要接收來自裝置應用程式的回應，請考慮使用[直接方法](iot-hub-devguide-direct-methods.md)。
+
+* Python SDK 不支援 AMQP
 
 ## <a name="using-the-mqtt-protocol-directly-as-a-device"></a>直接使用 MQTT 通訊協定 (作為裝置)
 
-如果裝置無法使用裝置 SDK，它仍可使用連接埠 8883 上的 MQTT 通訊協定連線到公用裝置端點。 在**CONNECT**封包中, 裝置應使用下列值:
+如果裝置無法使用裝置 SDK，它仍可使用連接埠 8883 上的 MQTT 通訊協定連線到公用裝置端點。 在**CONNECT**封包中，裝置應使用下列值：
 
 * 在 [ClientId] 欄位中，使用 **deviceId**。
 
@@ -77,11 +79,11 @@ IoT 中樞不是功能完整的 MQTT 訊息代理程式，而且不支援 MQTT v
   `SharedAccessSignature sig={signature-string}&se={expiry}&sr={URL-encoded-resourceURI}`
 
   > [!NOTE]
-  > 如果您使用 X.509 憑證驗證，則不需要 SAS 權杖密碼。 如需詳細資訊, 請參閱[在 Azure IoT 中樞中設定 x.509 安全性](iot-hub-security-x509-get-started.md), 並遵循[下面](#tlsssl-configuration)的程式碼指示。
+  > 如果您使用 X.509 憑證驗證，則不需要 SAS 權杖密碼。 如需詳細資訊，請參閱[在 Azure IoT 中樞中設定 x.509 安全性](iot-hub-security-x509-get-started.md)，並遵循[下面](#tlsssl-configuration)的程式碼指示。
 
-  如需如何產生 SAS 權杖的詳細資訊, 請參閱[使用 IoT 中樞安全性權杖](iot-hub-devguide-security.md#use-sas-tokens-in-a-device-app)的裝置一節。
+  如需如何產生 SAS 權杖的詳細資訊，請參閱[使用 IoT 中樞安全性權杖](iot-hub-devguide-security.md#use-sas-tokens-in-a-device-app)的裝置一節。
 
-  測試時, 您也可以使用跨平臺[Azure IoT Tools Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools)或[Device Explorer](https://github.com/Azure/azure-iot-sdk-csharp/blob/master/tools/DeviceExplorer)工具來快速產生 SAS 權杖, 讓您可以複製並貼到您自己的程式碼中:
+  測試時，您也可以使用跨平臺[Azure IoT Tools Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools)或[Device Explorer](https://github.com/Azure/azure-iot-sdk-csharp/blob/master/tools/DeviceExplorer)工具來快速產生 SAS 權杖，讓您可以複製並貼到您自己的程式碼中：
 
 ### <a name="for-azure-iot-tools"></a>針對 Azure IoT Tools
 
@@ -135,9 +137,9 @@ IoT 中樞不是功能完整的 MQTT 訊息代理程式，而且不支援 MQTT v
 
 若要直接使用 MQTT 通訊協定，您的用戶端「必須」透過 TLS/SSL 進行連線。 嘗試略過此步驟會因連線錯誤而發生失敗。
 
-為了建立 TLS 連線，您可能必須下載並參考「DigiCert Baltimore 根憑證」。 此憑證是 Azure 用來保護連線的唯一憑證。 您可以在[Azure-iot-sdk-c](https://github.com/Azure/azure-iot-sdk-c/blob/master/certs/certs.c)存放庫中找到此憑證。 如需這些憑證的詳細資訊, 請參閱[Digicert 網站](https://www.digicert.com/digicert-root-certificates.htm)。
+為了建立 TLS 連線，您可能必須下載並參考「DigiCert Baltimore 根憑證」。 此憑證是 Azure 用來保護連線的唯一憑證。 您可以在[Azure-iot-sdk-c](https://github.com/Azure/azure-iot-sdk-c/blob/master/certs/certs.c)存放庫中找到此憑證。 如需這些憑證的詳細資訊，請參閱[Digicert 網站](https://www.digicert.com/digicert-root-certificates.htm)。
 
-如需如何使用[PAHO MQTT 程式庫](https://pypi.python.org/pypi/paho-mqtt)Python 版本來執行此程式的範例, 請參閱 Eclipse Foundation, 如下所示。
+如需如何使用[PAHO MQTT 程式庫](https://pypi.python.org/pypi/paho-mqtt)Python 版本來執行此程式的範例，請參閱 Eclipse Foundation，如下所示。
 
 首先，從您的命令列環境安裝 Paho 程式庫：
 
@@ -200,7 +202,7 @@ client.loop_forever()
 
 [!INCLUDE [iot-hub-include-python-installation-notes](../../includes/iot-hub-include-python-installation-notes.md)]
 
-若要使用裝置憑證進行驗證, 請使用下列變更來更新上述程式碼片段 (請參閱如何針對以憑證為基礎的驗證進行準備的[X.509 CA 憑證](./iot-hub-x509ca-overview.md#how-to-get-an-x509-ca-certificate)):
+若要使用裝置憑證進行驗證，請使用下列變更來更新上述程式碼片段（請參閱如何針對以憑證為基礎的驗證進行準備的[X.509 CA 憑證](./iot-hub-x509ca-overview.md#how-to-get-an-x509-ca-certificate)）：
 
 ```python
 # Create the client as before
@@ -239,7 +241,7 @@ RFC 2396-encoded(<PropertyName1>)=RFC 2396-encoded(<PropertyValue1>)&RFC 2396-en
 
 * IoT 中樞僅支援每個裝置有一個作用中 MQTT 連接。 代表相同裝置識別碼的任何新的 MQTT 連接都會導致 IoT 中樞卸除現有的連接。
 
-如需詳細資訊, 請參閱[訊息開發人員指南](iot-hub-devguide-messaging.md)。
+如需詳細資訊，請參閱[訊息開發人員指南](iot-hub-devguide-messaging.md)。
 
 ## <a name="receiving-cloud-to-device-messages"></a>接收雲端到裝置訊息
 
@@ -255,7 +257,7 @@ IoT 中樞會附上**主題名稱** `devices/{device_id}/messages/devicebound/` 
 
 首先，裝置會訂閱 `$iothub/twin/res/#`，以接收作業的回應。 然後，它會傳送空白訊息給主題 `$iothub/twin/GET/?$rid={request id}`，其中已填入**要求 ID** 的值。 服務接著會使用和要求相同的**要求 ID**，傳送內含關於 `$iothub/twin/res/{status}/?$rid={request id}` 主題之裝置對應項資料的回應訊息。
 
-[要求識別碼] 可以是訊息屬性值的任何有效值 (根據[IoT 中樞訊息開發人員指南](iot-hub-devguide-messaging.md)), 而狀態會驗證為整數。
+[要求識別碼] 可以是訊息屬性值的任何有效值（根據[IoT 中樞訊息開發人員指南](iot-hub-devguide-messaging.md)），而狀態會驗證為整數。
 
 回應本文包含裝置對應項的 properties 區段，如以下回應範例所示：
 
@@ -278,10 +280,10 @@ IoT 中樞會附上**主題名稱** `devices/{device_id}/messages/devicebound/` 
 |狀態 | 描述 |
 | ----- | ----------- |
 | 204 | 成功 (不會傳回任何內容) |
-| 429 | 太多要求 (節流), 依據[IoT 中樞節流](iot-hub-devguide-quotas-throttling.md) |
+| 429 | 太多要求（節流），依據[IoT 中樞節流](iot-hub-devguide-quotas-throttling.md) |
 | 5** | 伺服器錯誤 |
 
-如需詳細資訊, 請參閱[裝置 twins 開發人員指南](iot-hub-devguide-device-twins.md)。
+如需詳細資訊，請參閱[裝置 twins 開發人員指南](iot-hub-devguide-device-twins.md)。
 
 ## <a name="update-device-twins-reported-properties"></a>更新裝置對應項的報告屬性
 
@@ -310,7 +312,7 @@ IoT 中樞會附上**主題名稱** `devices/{device_id}/messages/devicebound/` 
 | ----- | ----------- |
 | 200 | 成功 |
 | 400 | 不正確的要求。 JSON 格式錯誤 |
-| 429 | 太多要求 (節流), 依據[IoT 中樞節流](iot-hub-devguide-quotas-throttling.md) |
+| 429 | 太多要求（節流），依據[IoT 中樞節流](iot-hub-devguide-quotas-throttling.md) |
 | 5** | 伺服器錯誤 |
 
 下列 Python 程式碼片段示範透過 MQTT (使用 Paho MQTT 用戶端) 來進行的對應項報告屬性更新程序：
@@ -329,7 +331,7 @@ client.publish("$iothub/twin/PATCH/properties/reported/?$rid=" +
 
 在上述對應項報告屬性更新作業成功時，來自 IoT 中樞的發佈訊息會有下列主題：`$iothub/twin/res/204/?$rid=1&$version=6`，其中 `204` 是表示成功的狀態碼、`$rid=1` 對應至裝置在程式碼中提供的要求識別碼，`$version` 則對應至更新之後裝置對應項報告屬性區段的版本。
 
-如需詳細資訊, 請參閱[裝置 twins 開發人員指南](iot-hub-devguide-device-twins.md)。
+如需詳細資訊，請參閱[裝置 twins 開發人員指南](iot-hub-devguide-device-twins.md)。
 
 ## <a name="receiving-desired-properties-update-notifications"></a>接收所需屬性更新通知
 
@@ -346,9 +348,9 @@ client.publish("$iothub/twin/PATCH/properties/reported/?$rid=" +
 和屬性更新一樣，`null` 值表示將要刪除的 JSON 物件成員。 另請注意，`$version` 指出對應項所需屬性區段的新版本。
 
 > [!IMPORTANT]
-> IoT 中樞只會在連接裝置時產生變更通知。 請務必執行裝置重新連線[流程](iot-hub-devguide-device-twins.md#device-reconnection-flow), 讓所需的屬性在 IoT 中樞和裝置應用程式之間保持同步。
+> IoT 中樞只會在連接裝置時產生變更通知。 請務必執行裝置重新連線[流程](iot-hub-devguide-device-twins.md#device-reconnection-flow)，讓所需的屬性在 IoT 中樞和裝置應用程式之間保持同步。
 
-如需詳細資訊, 請參閱[裝置 twins 開發人員指南](iot-hub-devguide-device-twins.md)。
+如需詳細資訊，請參閱[裝置 twins 開發人員指南](iot-hub-devguide-device-twins.md)。
 
 ## <a name="respond-to-a-direct-method"></a>回應直接方法
 
@@ -356,15 +358,15 @@ client.publish("$iothub/twin/PATCH/properties/reported/?$rid=" +
 
 若要回應，裝置會將具有有效 JSON 的或內文空白的訊息傳送至 `$iothub/methods/res/{status}/?$rid={request id}` 主題。 在此訊息中，**要求識別碼**必須與要求訊息中的相符，且**狀態**必須是整數。
 
-如需詳細資訊, 請參閱[直接方法開發人員指南](iot-hub-devguide-direct-methods.md)。
+如需詳細資訊，請參閱[直接方法開發人員指南](iot-hub-devguide-direct-methods.md)。
 
 ## <a name="additional-considerations"></a>其他考量
 
-最後要考慮的是, 如果您需要在雲端端自訂 MQTT 通訊協定行為, 則應該查看[Azure IoT 通訊協定閘道](iot-hub-protocol-gateway.md)。 此軟體可讓您部署高效能的自訂通訊協定閘道，而且可直接與 IoT 中樞連接。 Azure IoT 通訊協定閘道器可讓您自訂裝置通訊協定，以順應要重建的 MQTT 部署或其他自訂通訊協定。 不過，這種方法會要求您執行及操作自訂通訊協定閘道。
+最後要考慮的是，如果您需要在雲端端自訂 MQTT 通訊協定行為，則應該查看[Azure IoT 通訊協定閘道](iot-hub-protocol-gateway.md)。 此軟體可讓您部署高效能的自訂通訊協定閘道，而且可直接與 IoT 中樞連接。 Azure IoT 通訊協定閘道器可讓您自訂裝置通訊協定，以順應要重建的 MQTT 部署或其他自訂通訊協定。 不過，這種方法會要求您執行及操作自訂通訊協定閘道。
 
 ## <a name="next-steps"></a>後續步驟
 
-若要深入瞭解 MQTT 通訊協定, 請參閱[MQTT 檔](https://mqtt.org/documentation)。
+若要深入瞭解 MQTT 通訊協定，請參閱[MQTT 檔](https://mqtt.org/documentation)。
 
 若要深入了解如何規劃 IoT 中樞部署，請參閱：
 

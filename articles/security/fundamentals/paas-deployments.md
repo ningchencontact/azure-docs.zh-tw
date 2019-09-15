@@ -1,6 +1,6 @@
 ---
 title: 安全 PaaS 部署的最佳作法-Microsoft Azure
-description: 瞭解在 Azure 上設計、建立和管理安全雲端應用程式的最佳作法, 並瞭解 PaaS 與其他雲端服務模型的安全性優點。
+description: 瞭解在 Azure 上設計、建立和管理安全雲端應用程式的最佳作法，並瞭解 PaaS 與其他雲端服務模型的安全性優點。
 services: security
 documentationcenter: na
 author: TerryLanfear
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/06/2019
 ms.author: terrylan
-ms.openlocfilehash: d20ea4a6e86bb889615d3ab9bfcac5aedf838ceb
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 67a34b2b0a997a118cb2fe1b99de04bd58063307
+ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70098633"
+ms.lasthandoff: 09/15/2019
+ms.locfileid: "70999051"
 ---
 # <a name="securing-paas-deployments"></a>保護 PaaS 部署
 
@@ -31,7 +31,7 @@ ms.locfileid: "70098633"
 - 將您的安全性焦點從以網路為中心變更成以身分識別為中心的周邊安全性方法
 - 實作一般 PaaS 安全性最佳做法建議
 
-[在 Azure 上開發安全的應用程式](abstract-develop-secure-apps.md)是在開發雲端應用程式時, 您應該在軟體發展生命週期的每個階段考慮的安全性問題和控制項的一般指南。
+[在 Azure 上開發安全的應用程式](abstract-develop-secure-apps.md)是在開發雲端應用程式時，您應該在軟體發展生命週期的每個階段考慮的安全性問題和控制項的一般指南。
 
 ## <a name="cloud-security-advantages"></a>雲端安全性優點
 在雲端環境中有一些安全性優點。 在內部部署環境中，組織可能責任重大但可投資在安全性上的資源卻相當有限，導致創造出一種攻擊者能夠利用所有層級弱點的環境。
@@ -88,7 +88,7 @@ PaaS 與傳統內部部署的另一個重大差異在於一個新觀點，就是
 以下是管理身分識別周邊的最佳做法。
 
 **最佳做法**：保護您用來保護 PaaS 部署的金鑰和認證。   
-**詳細資料**：遺失金鑰和認證是相當常見的問題。 您可以使用可在硬體安全模組 (Hsm) 中儲存金鑰和秘密的集中式解決方案。 [Azure Key Vault](../../key-vault/key-vault-whatis.md)使用受 hsm 保護的金鑰來加密驗證金鑰、儲存體帳戶金鑰、資料加密金鑰、.pfx 檔案和密碼, 藉此保護您的金鑰和秘密。
+**詳細資料**：遺失金鑰和認證是相當常見的問題。 您可以使用可在硬體安全模組（Hsm）中儲存金鑰和秘密的集中式解決方案。 [Azure Key Vault](../../key-vault/key-vault-overview.md)使用受 hsm 保護的金鑰來加密驗證金鑰、儲存體帳戶金鑰、資料加密金鑰、.pfx 檔案和密碼，藉此保護您的金鑰和秘密。
 
 **最佳做法**：不要將認證與其他祕密放在原始程式碼或 GitHub 中。   
 **詳細資料**：唯一比遺失金鑰和認證更糟的情況，就是讓未經授權者能夠存取這些機密資料。 攻擊者能夠利用 Bot 技術來尋找存放在程式碼存放庫 (例如 GitHub) 中的金鑰和密碼。 請勿將金鑰和密碼放在這些公用程式碼存放庫中。
@@ -133,7 +133,7 @@ Microsoft [安全性開發週期](https://www.microsoft.com/en-us/sdl)指定小�
 **詳細資料**：對於想要強制執行資料存取安全性原則的組織來說，限制存取是必須做的事。 您可以使用 RBAC 來將權限指派給特定範圍的使用者、群組及應用程式。 若要深入了解授與使用者的應用程式存取權，請參閱[開始使用存取管理](/azure/role-based-access-control/overview)。
 
 **最佳做法**：保護您的金鑰。   
-**詳細資料**：Azure Key Vault 有助於保護雲端應用程式和服務所使用的密碼編譯金鑰和祕密。 您可以使用金鑰保存庫加密金鑰和密碼 (例如驗證金鑰、儲存體帳戶金鑰、資料加密金鑰、.PFX 檔案和密碼)，方法是使用受硬體安全模組 (HSM) 保護的金鑰。 為了加強保證，您可以在 HSM 中匯入或產生金鑰。 若要深入了解，請參閱 [Azure Key Vault](/azure/key-vault/key-vault-whatis)。 您可以使用 Key Vault 藉由自動更新管理 TLS 憑證。
+**詳細資料**：Azure Key Vault 有助於保護雲端應用程式和服務所使用的密碼編譯金鑰和祕密。 您可以使用金鑰保存庫加密金鑰和密碼 (例如驗證金鑰、儲存體帳戶金鑰、資料加密金鑰、.PFX 檔案和密碼)，方法是使用受硬體安全模組 (HSM) 保護的金鑰。 為了加強保證，您可以在 HSM 中匯入或產生金鑰。 若要深入了解，請參閱 [Azure Key Vault](/azure/key-vault/key-vault-overview)。 您可以使用 Key Vault 藉由自動更新管理 TLS 憑證。
 
 **最佳做法**：限制連入來源 IP 位址。   
 **詳細資料**：[App Service 環境](/azure/app-service/environment/intro)具有虛擬網路整合功能，可協助您透過網路安全性群組限制連入來源 IP 位址。 虛擬網路可讓您將 Azure 資源，放在您控制存取權的非網際網路可路由網路中。 若要深入了解，請參閱[將您的應用程式與 Azure 虛擬網路整合](/azure/app-service/web-sites-integrate-with-vnet)。
@@ -156,12 +156,12 @@ Web 應用程式已逐漸成為利用常見已知弱點的惡意攻擊目標。 
 
 使用 [Azure Application Insights](https://azure.microsoft.com/documentation/services/application-insights) 來監視應用程式的可用性、效能及使用情況 (不論該應用程式是裝載在雲端還是內部部署環境)。 使用 Application Insights，您可以快速識別並診斷應用程式的錯誤，不必等使用者回報。 有了所收集的資訊之後，您便可以針對應用程式的維護和改善，進行資訊充分的選擇。
 
-Application Insights 具有廣泛的工具，能與它所收集的資料進行互動。 Application Insights 會將其資料儲存在一般存放庫中。 它可以利用共用功能, 例如警示、儀表板, 以及使用 Kusto 查詢語言的深入分析。
+Application Insights 具有廣泛的工具，能與它所收集的資料進行互動。 Application Insights 會將其資料儲存在一般存放庫中。 它可以利用共用功能，例如警示、儀表板，以及使用 Kusto 查詢語言的深入分析。
 
 ## <a name="perform-security-penetration-testing"></a>執行安全性滲透測試
-驗證安全性防禦與測試任何其他功能一樣重要。 讓[滲透測試](pen-testing.md)成為組建和部署程式的標準部分。 針對已部署的應用程式排程週期性安全性測試和弱點掃描, 並監視開啟的埠、端點和攻擊。
+驗證安全性防禦與測試任何其他功能一樣重要。 讓[滲透測試](pen-testing.md)成為組建和部署程式的標準部分。 針對已部署的應用程式排程週期性安全性測試和弱點掃描，並監視開啟的埠、端點和攻擊。
 
-模糊測試是一種方法, 可將格式不正確的輸入資料提供給剖析和取用此資料的程式介面 (進入點), 藉此尋找程式失敗 (程式碼錯誤)。 [Microsoft 安全性風險偵測](https://www.microsoft.com/en-us/security-risk-detection/)是一種雲端式工具, 可讓您在將其部署至 Azure 之前, 先尋找軟體中的錯誤和其他安全性弱點。 此工具的設計是為了在您部署軟體之前攔截弱點, 因此您不需要修補錯誤、處理損毀, 或在軟體發行後回應攻擊。
+模糊測試是一種方法，可將格式不正確的輸入資料提供給剖析和取用此資料的程式介面（進入點），藉此尋找程式失敗（程式碼錯誤）。 [Microsoft 安全性風險偵測](https://www.microsoft.com/en-us/security-risk-detection/)是一種雲端式工具，可讓您在將其部署至 Azure 之前，先尋找軟體中的錯誤和其他安全性弱點。 此工具的設計是為了在您部署軟體之前攔截弱點，因此您不需要修補錯誤、處理損毀，或在軟體發行後回應攻擊。
 
 
 ## <a name="next-steps"></a>後續步驟
@@ -174,7 +174,7 @@ Application Insights 具有廣泛的工具，能與它所收集的資料進行�
 - Azure 服務匯流排
 - Web 應用程式防火牆
 
-請參閱在[Azure 上開發安全的應用程式](abstract-develop-secure-apps.md), 以取得開發雲端應用程式時, 在軟體發展生命週期的每個階段應該考慮的安全性問題和控制項。
+請參閱在[Azure 上開發安全的應用程式](abstract-develop-secure-apps.md)，以取得開發雲端應用程式時，在軟體發展生命週期的每個階段應該考慮的安全性問題和控制項。
 
 如需更多安全性最佳做法，請參閱 [Azure 安全性最佳做法與模式](best-practices-and-patterns.md)，以便在使用 Azure 設計、部署和管理雲端解決方案時使用。
 
