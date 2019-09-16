@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 08/9/2019
 ms.author: mlearned
-ms.openlocfilehash: 516d4f47cb971dee91bc678ff56eeca71a28183a
-ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
+ms.openlocfilehash: 92accf4317ef8d0e3837ce3789615b5aaf6f6919
+ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70915845"
+ms.lasthandoff: 09/14/2019
+ms.locfileid: "70996887"
 ---
 # <a name="preview---create-and-manage-multiple-node-pools-for-a-cluster-in-azure-kubernetes-service-aks"></a>預覽-在 Azure Kubernetes Service (AKS) 中建立及管理叢集的多個節點集區
 
@@ -76,9 +76,9 @@ az provider register --namespace Microsoft.ContainerService
 當您建立和管理支援多個節點集區的 AKS 叢集時, 適用下列限制:
 
 * 只有在您成功註冊訂用帳戶的*MultiAgentpoolPreview*功能之後，才會有多個節點集區適用于建立的叢集。 您無法新增或管理具有現有 AKS 叢集的節點集區，這項功能在成功註冊之前就已建立。
-* 您無法刪除第一個節點集區。
+* 您無法刪除預設（第一個）節點集區。
 * 無法使用 HTTP 應用程式路由附加元件。
-* 您無法使用現有的 Resource Manager 範本來新增/更新/刪除節點集區, 就像大部分的作業一樣。 相反地, 請[使用個別的 Resource Manager 範本](#manage-node-pools-using-a-resource-manager-template), 對 AKS 叢集中的節點集區進行變更。
+* 您無法使用現有的 Resource Manager 範本來新增或刪除節點集區，就像大部分的作業一樣。 相反地, 請[使用個別的 Resource Manager 範本](#manage-node-pools-using-a-resource-manager-template), 對 AKS 叢集中的節點集區進行變更。
 
 雖然這項功能處於預覽狀態, 但仍適用下列其他限制:
 
@@ -89,6 +89,8 @@ az provider register --namespace Microsoft.ContainerService
 ## <a name="create-an-aks-cluster"></a>建立 AKS 叢集
 
 若要開始使用, 請建立具有單一節點集區的 AKS 叢集。 下列範例會使用[az group create][az-group-create]命令, 在*eastus*區域中建立名為*myResourceGroup*的資源群組。 然後使用[az AKS create][az-aks-create]命令來建立名為*myAKSCluster*的 AKS 叢集。 *--Kubernetes-* *1.13.10*版本是用來示範如何在下列步驟中更新節點集區。 您可以指定任何[支援的 Kubernetes 版本][supported-versions]。
+
+在利用多個節點集區時，強烈建議使用標準 SKU 負載平衡器。 閱讀[這份檔](load-balancer-standard.md)，以深入瞭解如何搭配 AKS 使用標準負載平衡器。
 
 ```azurecli-interactive
 # Create a resource group in East US
@@ -101,7 +103,8 @@ az aks create \
     --vm-set-type VirtualMachineScaleSets \
     --node-count 2 \
     --generate-ssh-keys \
-    --kubernetes-version 1.13.10
+    --kubernetes-version 1.13.10 \
+    --load-balancer-sku standard
 ```
 
 建立叢集需要幾分鐘的時間。
@@ -578,7 +581,7 @@ az group deployment create \
 ## <a name="assign-a-public-ip-per-node-in-a-node-pool"></a>為節點集區中的每個節點指派一個公用 IP
 
 > [!NOTE]
-> 在預覽期間，由於可能的負載平衡器規則與 VM 布建相衝突，因此*在 AKS （預覽）中*使用此功能與 Standard Load Balancer SKU 有一項限制。 在預覽期間，如果您需要為每個節點指派一個公用 IP，請使用*基本 LOAD BALANCER SKU* 。
+> 在針對每個節點指派公用 IP 的預覽期間，因為可能會有負載平衡器規則與 VM 布建衝突，所以無法*在 AKS 中與 STANDARD LOAD BALANCER SKU*搭配使用。 在預覽期間，如果您需要為每個節點指派一個公用 IP，請使用*基本 LOAD BALANCER SKU* 。
 
 AKS 節點不需要自己的公用 IP 位址進行通訊。 不過，某些情況下，節點集區中的節點可能需要有自己的公用 IP 位址。 其中一個範例是遊戲，其中主控台需要直接連線到雲端虛擬機器，以將躍點降至最低。 這可以藉由註冊個別的預覽功能 [節點公用 IP （預覽）] 來達成。
 
