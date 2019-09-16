@@ -1,9 +1,9 @@
-- name: Azure Machine Learning 服務文件
+- name: Azure Machine Learning 文件
   href: ../index.yml
 - name: 概觀
   expanded: true
   items:
-    - name: 什麼是 Azure Machine Learning 服務？
+    - name: 什麼是 Azure Machine Learning？
       displayName: 'AML, services, overview, introduction'
       href: overview-what-is-azure-ml.md
     - name: 架構和條款
@@ -31,6 +31,11 @@
             - name: ML 模型自動定型
               displayName: 'automl, automated, auto ml,'
               href: tutorial-auto-train-models.md
+        - name: 使用管理為批次評分 (進階)
+          items:
+            - name: 批次評分分類模型
+              displayName: pipelines
+              href: tutorial-pipeline-batch-scoring-classification.md
     - name: 視覺化介面
       items:
         - name: 1. 定型迴歸模型
@@ -122,7 +127,7 @@
         - name: 使用 Resource Manager 範本
           displayName: arm
           href: how-to-create-workspace-template.md
-    - name: "設定開發環境\_"
+    - name: 設定開發環境
       items:
         - name: 設定開發環境
           displayName: 'local, remote, azure notebooks, notebook, Jupyter, dsvm, Databricks, ADB'

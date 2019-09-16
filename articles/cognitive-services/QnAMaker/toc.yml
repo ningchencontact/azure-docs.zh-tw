@@ -111,7 +111,7 @@
         - name: 使用中繼資料取得答案
           href: How-To/metadata-generateanswer-usage.md
           displayName: 'isTest, test, route, request, http, post, body, header, json, metadata, top, strictFilters, GenerateAnswer, API, answer, RankerType, id, text, question, context, 200, 2xx, 400, 401, 403, 404'
-        - name: 建立透過知識庫啟用的 Bot
+        - name: 使用 QnA Maker 和 LUIS 建立 Bot
           href: Tutorials/integrate-qnamaker-luis.md
         - name: 以不同語言建立知識庫
           href: How-To/language-knowledge-base.md

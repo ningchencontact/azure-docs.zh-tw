@@ -614,6 +614,12 @@
       items:
         - name: 處理固定寬度的文字檔
           href: how-to-fixed-width.md
+    - name: 從內部部署進行 SSIS 移轉
+      items:
+        - name: SSIS 移轉概觀
+          href: scenario-ssis-migration-overview.md
+        - name: 將 SSISDB 移轉至 Azure SQL Database 受控執行個體
+          href: scenario-ssis-migration-ssisdb-mi.md
 - name: 參考
   items:
     - name: .NET

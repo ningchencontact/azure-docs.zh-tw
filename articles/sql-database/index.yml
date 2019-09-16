@@ -13,7 +13,7 @@ metadata:
   ms.tgt_pltfrm: na
   ms.devlang: null
   ms.topic: overview
-  ms.date: 03/04/2019
+  ms.date: 09/09/2019
   ms.author: sstein
 abstract:
   description: Azure SQL Database 是一般用途關聯式資料庫即服務 (DBaaS)，它是根據最新穩定版本的 Microsoft SQL Server 資料庫引擎而建置。 SQL Database 是高效能、可靠且安全的雲端資料庫，您可以使用選定的程式設計語言來建置資料驅動的應用程式和網站，無需管理基礎結構。 了解如何透過我們的快速入門、教學課程和範例使用 SQL Database。
@@ -27,7 +27,10 @@ abstract:
     href: 'https://azure.microsoft.com/resources/videos/create-sql-database-on-azure/'
     width: 250
 sections:
-  - items:
+  - title: 概念
+    items:
+      - type: paragraph
+        text: 了解平台即服務資料庫帶給您的主要價值，以及您可以從中取得最佳價格/效能組態的購買模型和服務層級。
       - type: list
         style: cards
         className: cardsM
@@ -37,17 +40,41 @@ sections:
             html: <p>PaaS 資料庫一律在最新穩定版本的 SQL Server 資料庫引擎上執行，並可在已修補作業系統達 99.99% 的可用性。</p>
             image:
               src: media/index/i_managed.svg
-            title: 完全受控
+            title: 概觀
           - href: /azure/sql-database/sql-database-service-tiers
             html: <p>透過彈性的服務層級 (從經濟實惠的 $5 美元/月到強大的 80 核心資料庫)，為您量身打造符合需求的性價比。</p>
             image:
               src: media/index/i_perftier.svg
-            title: 價格/服務層級
+            title: 定價模式
+          - href: /azure/sql-database/sql-database-service-tiers-general-purpose-business-critical
+            html: <p>選擇最符合需求，或最符合您在內部部署環境中使用之基礎結構的服務層級和雲端架構。</p>
+            image:
+              src: media/index/gear.svg
+            title: 服務層
           - href: /azure/sql-database/sql-database-scalability-index
-            html: <p>簡單地相應增加或相應放大，或根據需求將您的資料庫分區以提高應用程式的效能。</p>
+            html: <p>簡單地相應增加或相應放大，或根據需求將您的資料庫分區以提高應用程式效能。</p>
             image:
               src: media/index/i_scale.svg
             title: 延展性
+          - href: /azure/sql-database/sql-database-paas
+            html: <p>內建的高可用性、自動備份和異地複寫，讓您免於受到維護作業、基礎結構或硬體失敗而導致的業務中斷。</p>
+            image:
+              src: media/index/i_intelligence.svg
+            title: 平台即服務
+          - href: /azure/sql-database/sql-database-security-index
+            html: <p>透過 Azure AD 驗證、虛擬網路、防火牆及 Always Encrypted 連線等功能保護您的資料庫。 透過內建的安全性識別威脅與弱點。</p>
+            image:
+              src: media/index/i_security.svg
+            title: 進階安全性
+  - title: 部署模型
+    items:
+      - type: paragraph
+        text: 選擇符合需求的部署模型：單一資料庫是新型現代化的雲端應用程式的最佳選擇；彈性集區適合裝載大批資料庫；而受控執行個體則可提供 SQL Server 高度相容性，且可輕鬆進行雲端移轉。
+      - type: list
+        style: cards
+        className: cardsM
+        columns: 3
+        items:
           - href: /azure/sql-database/sql-database-single-index
             html: <p>將 SQL Database 伺服器管理的單一資料庫用於 SaaS 應用程式和微服務 (需要具有可預測效能的單一資料庫)。</p>
             image:
@@ -63,21 +90,6 @@ sections:
             image:
               src: media/index/i_mi.svg
             title: 受控執行個體
-          - href: /azure/sql-database/sql-database-paas
-            html: <p>內建的高可用性、自動備份和異地複寫，讓您免於受到維護作業、基礎結構或硬體失敗而導致的業務中斷。</p>
-            image:
-              src: media/index/gear.svg
-            title: 平台即服務
-          - href: /azure/sql-database/sql-database-security-index
-            html: <p>透過 Azure AD 驗證、虛擬網路、防火牆及 Always Encrypted 等功能，保護您的資料庫。 使用內建的安全性識別威脅與弱點。</p>
-            image:
-              src: media/index/i_security.svg
-            title: 進階安全性
-          - href: /azure/sql-database/sql-database-monitoring-tuning-index
-            html: <p>內建監視和智慧微調功能可協助您大幅降低執行和管理資料庫的成本，並將應用程式的效能最大化。</p>
-            image:
-              src: media/index/i_intelligence.svg
-            title: 監視和微調
   - title: 5 分鐘快速入門
     items:
       - type: paragraph
@@ -116,18 +128,21 @@ sections:
               - href: 'https://medium.com/azure-sqldb-managed-instance/working-with-sql-managed-instance-using-azure-cli-611795fe0b44'
               - href: /azure/sql-database/scripts/sql-database-create-configure-managed-instance-powershell
               - href: 'https://github.com/Azure/azure-quickstart-templates/tree/master/101-sqlmi-new-vnet'
-  - title: 逐步教學課程
+  - title: 逐步教學課程和學習資料
     items:
       - type: paragraph
         text: 了解如何使用 SQL Database 建立、管理和移轉資料庫
       - type: list
         style: ordered
         items:
+          - html: 了解如何判斷<a href="/azure/sql-database/sql-database-paas-vs-sql-server-iaas">最適合您工作負載的是 VM 上的 SQL Server (IaaS) 還是 Azure SQL Database (PaaS)</a>。
+          - html: 了解 <a href="/azure/sql-database/sql-database-features">Azure SQL Database 支援的功能以及行為差異</a>。
           - html: 使用我們的快速入門指南開始使用<a href="/azure/sql-database/sql-database-single-database-quickstart-guide">單一資料庫</a>和<a href="/azure/sql-database/sql-database-managed-instance-quickstart-guide">受控執行個體</a>。
           - html: 使用 <a href="/azure/sql-database/sql-database-design-first-database">SSMS</a> 或 <a href="/azure/sql-database/sql-database-design-first-database-csharp">.NET</a> 建立和設計新單一資料庫的結構描述
-          - html: 使用 <a href="/azure/sql-database/sql-database-managed-instance-get-started-restore">原生 SQL Server 備份檔案</a>、<a href="/azure/sql-database/sql-database-migrate-your-sql-server-database">資料庫移轉小幫手</a>或<a href="/azure/sql-database/sql-database-import">透過匯入 BACPAC 檔案</a>將現有的資料庫移轉至 Azure
+          - html: 使用 <a href="/azure/sql-database/sql-database-managed-instance-get-started-restore">原生 SQL Server 備份檔案</a>、<a href="/azure/sql-database/sql-database-migrate-your-sql-server-database">資料庫移轉小幫手</a>或<a href="/azure/sql-database/sql-database-import">透過匯入 BACPAC 檔案</a>將現有的資料庫移轉至 Azure。
           - html: <a href="/azure/sql-database/sql-database-security-tutorial">保護您的 SQL Database</a>
-          - html: 使用<a href="/azure/sql-database/sql-database-implement-geo-distributed-database">異地分散資料庫</a>將資料散發到全域
+          - html: 使用<a href="/azure/sql-database/sql-database-implement-geo-distributed-database">異地分散資料庫</a>將資料散發到全域。
+          - html: <a href="/azure/sql-database/sql-database-release-notes">在 Azure SQL Database 中尋找記憶體新功能</a>。
   - title: 透過 Microsoft Learn 增進您的技巧
     items:
       - type: list

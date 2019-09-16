@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 06/07/2019
-ms.openlocfilehash: 6877595f191c326ed73b347d46cb1aeb404702b5
-ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
+ms.openlocfilehash: 8bcb6caa418f7bd5c5241d06dbda69ccba360f2c
+ms.sourcegitcommit: 909ca340773b7b6db87d3fb60d1978136d2a96b0
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/03/2019
-ms.locfileid: "70232226"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70984460"
 ---
 # <a name="what-are-the-apache-hadoop-components-and-versions-available-with-hdinsight"></a>可以搭配 HDInsight 使用的 Apache Hadoop 元件和版本有哪些？
 
@@ -31,11 +31,10 @@ Azure HDInsight 支援多個可隨時部署的 Hadoop 叢集版本。 每一個�
 
 | 元件 | HDInsight 4.0 | HDInsight 3.6 (預設) | HDInsight 3.5 | HDInsight 3.4 | HDInsight 3.3 | HDInsight 3.2 |
 |---------------------------|---------------|-----------------------------|---------------|---------------|---------------|----------------------|
-| Hortonworks Data Platform | 3.0 | 2.6 | 2.5 | 2.4 | 2.3 | 2.2 |
 | Apache Hadoop 和 YARN | 3.1.1 | 2.7.3 | 2.7.3 | 2.7.1 | 2.7.1 | 2.6.0 |
 | Apache Tez | 0.9.1 | 0.7.0 | 0.7.0 | 0.7.0 | 0.7.0 | 0.5.2 |
 | Apache Pig | 0.16.0 | 0.16.0 | 0.16.0 | 0.15.0 | 0.15.0 | 0.14.0 |
-| Apache Hive | 3.1.0 | 2.1.0, 1.2。1 | - | - | - | - |
+| Apache Hive | 3.1.0 | 2.1.0，1.2。1 | - | - | - | - |
 | Apache Tez Hive2 | - | 0.8.4 | - | - | - | - |
 | Apache Ranger | 1.1.0 | 0.7.0 | 0.6.0 | - | - | - |
 | Apache HBase (英文) | 2.0.1 | 1.1.2 | 1.1.2 | 1.1.2 | 1.1.1 | 0.98.4 |
@@ -47,7 +46,7 @@ Azure HDInsight 支援多個可隨時部署的 Hadoop 叢集版本。 每一個�
 | Apache Phoenix | 5 | 4.7.0 | 4.7.0 | 4.4.0 | 4.4.0 | 4.2.0 |
 | Apache Spark | 2.3.1、2。4 | 2.3.0, 2.2.0, 2.1.0 | 1.6.2、2.0 | 1.6.0 | 1.5.2 | 1.3.1 (僅限 Windows) |
 | Apache Livy | 0.5 | 0.4、0.4、0。3 | 0.3 | 0.3 | 0.2 | - |
-| Apache Kafka | 1.1.1, 2。1 | 1.1、1.0 *(請參閱下方注意事項) | 0.10.0 | 0.9.0 | - | - |
+| Apache Kafka | 1.1.1，2。1 | 1.1、1.0 *(請參閱下方注意事項) | 0.10.0 | 0.9.0 | - | - |
 | Apache Ambari | 2.7.0 | 2.6.0 | 2.4.0 | 2.2.1 | 2.1.0 | - |
 | Apache Zeppelin | 0.8.0 | 0.7.0 | - | - | - | - |
 | Mono | 4.2.1 | 4.2.1 | 4.2.1 | 3.2.8 | - | - |
@@ -57,7 +56,7 @@ Azure HDInsight 支援多個可隨時部署的 Hadoop 叢集版本。 每一個�
 
 ## <a name="check-for-current-hadoop-component-version-information"></a>檢查目前的 Hadoop 元件版本資訊
 
-在 HDInsight 的更新中，可能會變更與 HDInsight 叢集版本相關聯的 Hadoop 生態系統元件版本。 若要檢查 Hadoop 元件和驗證叢集所使用的版本，請使用 Ambari REST API。 **GetComponentInformation** 命令會擷取服務元件的相關資訊。 如需詳細資訊, 請參閱[Apache Ambari 檔](https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/index.md)。
+在 HDInsight 的更新中，可能會變更與 HDInsight 叢集版本相關聯的 Hadoop 生態系統元件版本。 若要檢查 Hadoop 元件和驗證叢集所使用的版本，請使用 Ambari REST API。 **GetComponentInformation** 命令會擷取服務元件的相關資訊。 如需詳細資訊，請參閱[Apache Ambari 檔](https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/index.md)。
 
 ### <a name="release-notes"></a>版本資訊
 
@@ -176,7 +175,7 @@ Azure HDInsight 支援多個可隨時部署的 Hadoop 叢集版本。 每一個�
 
 ## <a name="default-node-configuration-and-virtual-machine-sizes-for-clusters"></a>適用於叢集的預設節點設定和虛擬機器大小
 
-如需有關為您的叢集選取哪些虛擬機器 Sku 的詳細資訊, 請參閱 Azure HDInsight 叢集設定[詳細資料](hdinsight-supported-node-configuration.md)。
+如需有關為您的叢集選取哪些虛擬機器 Sku 的詳細資訊，請參閱 Azure HDInsight 叢集設定[詳細資料](hdinsight-supported-node-configuration.md)。
 
 ## <a name="next-steps"></a>後續步驟
 - [使用 Hadoop、Spark 及 Kafka 等在 HDInsight 中設定叢集](hdinsight-hadoop-provision-linux-clusters.md)

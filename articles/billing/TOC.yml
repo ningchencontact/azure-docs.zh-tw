@@ -121,6 +121,10 @@
           href: billing-understand-free-service-meter-mapping.md
     - name: 編輯設定檔
       href: billing-how-to-change-azure-account-profile.md
+    - name: 開啟銀行和強式客戶驗證
+      href: billing-open-banking-strong-customer-authentication.md
+    - name: 解析逾期資產負債
+      href: billing-azure-subscription-past-due-balance.md
     - name: 授與帳單存取權
       href: billing-manage-access.md
     - name: Azure 中的各項 Microsoft 客戶合約角色
@@ -131,6 +135,8 @@
       href: billing-view-all-accounts.md
     - name: 利用發票區段整理費用
       href: billing-mca-section-invoice.md
+    - name: Microsoft 客戶合約中的 EA 工作
+      href: billing-mca-enterprise-operations.md
     - name: EA 管理
       items:
         - name: 開始使用 Azure EA 入口網站
@@ -151,8 +157,6 @@
           href: billing-ea-portal-troubleshoot.md
         - name: Microsoft 客戶合約中的 EA 工作
           href: billing-mca-enterprise-operations.md
-    - name: 解析逾期資產負債
-      href: billing-azure-subscription-past-due-balance.md
     - name: 設定 Microsoft 客戶合約的帳單帳戶
       href: billing-mca-setup-account.md
     - name: 使用 Office 365 帳戶註冊

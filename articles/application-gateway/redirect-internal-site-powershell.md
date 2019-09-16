@@ -300,7 +300,7 @@ Get-AzPublicIPAddress -ResourceGroupName myResourceGroupAG -Name myAGPublicIPAdd
 
 ![在應用程式閘道中測試 contoso 網站](./media/redirect-internal-site-powershell/application-gateway-iistest.png)
 
-將位址變更為您其他的網域 (例如 http://www.contoso.org )，就應該會看到流量已重新導向回 www.contoso.com 的接聽程式。
+將位址變更為您其他的網域 (例如 http://www.contoso.org )，就應該會看到流量已重新導向回 [www.contoso.com](www.contoso.com) 的接聽程式。
 
 ## <a name="next-steps"></a>後續步驟
 

@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/19/2018
 ms.author: hrasheed
-ms.openlocfilehash: 17615c0005a3cbc5b20cea697b4c75b5ed06ae0a
-ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
+ms.openlocfilehash: 0fecb41c3417d5b43e0638815d6a7d274ba461b0
+ms.sourcegitcommit: dd69b3cda2d722b7aecce5b9bd3eb9b7fbf9dc0a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70812009"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70961996"
 ---
 # <a name="machine-learning-on-hdinsight"></a>HDInsight 上的機器學習服務
 
@@ -29,7 +29,7 @@ HDInsight 能以巨量資料實現機器學習服務，有能力從大量 (PB，
 
 [R](https://www.r-project.org/) 目前是全球最常用的統計程式設計語言， 是開放原始碼的資料視覺效果工具，社群使用者超過 250 萬人，而且還在持續成長。 憑藉其蓬勃發展的使用者群，加上提供超過 8,000 個封裝，許多需要機器學習服務的公司可能會選擇使用 R。 您可以使用現成可與大量資料集和模型搭配使用的 ML 服務來建立 HDInsight 叢集。 此功能可為資料科學家和統計人員提供一個熟悉的 R 介面，此介面可視需要透過 HDInsight 進行調整，而不會產生叢集設定和維護的額外負荷。
 
-![使用 R 伺服器進行預測訓練](./media/hdinsight-machine-learning-overview/r-training.png)
+![使用 R 伺服器進行預測訓練](./media/hdinsight-machine-learning-overview/training-for-prediction.png)
 
 叢集的邊緣節點提供便利的地方，以便連線到叢集以及執行 R 指令碼。  您也可以選擇透過使用 ScaleR 的 Hadoop Map Reduce 或 Spark 計算內容，跨叢集的節點執行 R 指令碼。
 
@@ -39,7 +39,7 @@ HDInsight 能以巨量資料實現機器學習服務，有能力從大量 (PB，
 
 Azure Machine Learning 提供可建立預測性分析模型的工具，也提供完全受控的服務，您可以透過這項服務將預測模型部署為可供取用的 Web 服務。 Azure Machine Learning 是完整的雲端預測性分析解決方案，您可以快速地建立、測試、操作及管理預測模型。 您可以從大型演算法程式庫中選取、使用 Web 型工作室來建置模型，然後將模型輕鬆部署成 Web 服務。
 
-![使用 Microsoft Azure Machine Learning 可讓 Hadoop 進行進階分析](./media/hdinsight-machine-learning-overview/hadoop-azure-ml.png)
+![使用 Microsoft Azure Machine Learning 可讓 Hadoop 進行進階分析](./media/hdinsight-machine-learning-overview/azure-machine-learning.png)
 
 針對使用 [Hive 查詢](../machine-learning/team-data-science-process/create-features-hive.md)之 HDInsight Hadoop 叢集中的資料建立特徵。 *特徵工程設計*藉由以學習程序的原始資料來建立特徵，以嘗試增加學習演算法的預測能力。 您可以藉由使用[匯入資料模組](../machine-learning/studio/import-data.md)，從 Azure Machine Learning Studio 執行 HiveQL 查詢，並存取在 Hive 中處理及在 Blob 儲存體中儲存的資料。
 

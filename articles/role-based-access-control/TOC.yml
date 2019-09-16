@@ -40,6 +40,8 @@
       items:
         - name: 入口網站
           href: role-assignments-portal.md
+        - name: 入口網站 - 來賓使用者
+          href: role-assignments-external-users.md
         - name: PowerShell
           href: role-assignments-powershell.md
         - name: Azure CLI
@@ -72,8 +74,6 @@
       href: change-history-report.md
     - name: 提高存取權限以管理所有訂用帳戶
       href: elevate-access-global-admin.md
-    - name: 管理外部使用者的存取
-      href: role-assignments-external-users.md
     - name: 傳統系統管理員
       href: classic-administrators.md
     - name: 疑難排解

@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: troubleshooting
 ms.date: 08/15/2019
-ms.openlocfilehash: 4e589e694c728cfbd2237a138ad9a2f2bf2342dd
-ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
+ms.openlocfilehash: 8ec081a758096298036efacfe1b0e6d62ed00cbd
+ms.sourcegitcommit: dd69b3cda2d722b7aecce5b9bd3eb9b7fbf9dc0a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70900161"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70961892"
 ---
 # <a name="troubleshoot-a-slow-or-failing-job-on-a-hdinsight-cluster"></a>針對 HDInsight 叢集上的緩慢或失敗作業進行疑難排解
 
@@ -80,7 +80,7 @@ az hdinsight show --resource-group <ResourceGroup> --name <ClusterName>
 
 Apache Ambari 可讓您透過 Web UI 和 REST API 來管理和監視 HDInsight 叢集。 以 Linux 為基礎的 HDInsight 叢集會隨附 Ambari。 請在 Azure 入口網站 HDInsight 頁面上，選取 [叢集儀表板] 窗格。  選取 [HDInsight 叢集儀表板] 窗格以開啟 Ambari UI，然後輸入叢集登入認證。  
 
-![Ambari UI](./media/hdinsight-troubleshoot-failed-cluster/ambari-ui.png)
+![Ambari UI](./media/hdinsight-troubleshoot-failed-cluster/apache-ambari-overview.png)
 
 若要開啟服務檢視清單，請在 Azure 入口網站頁面上選取 [Ambari 檢視]。  此清單會依所安裝的程式庫而有所不同。 例如，您可能會看到 [YARN 佇列管理員]、[Hive 檢視] 及 [Tez 檢視]。  請選取一個服務連結來查看組態和服務資訊。
 
@@ -127,7 +127,7 @@ curl -u admin:{HTTP PASSWD} https://{CLUSTERNAME}.azurehdinsight.net/templeton/v
 
 Ambari 會顯示警示，當中會指出 WebHCat 服務停止運作的主機。 您可以嘗試在 WebHCat 服務的主機上重新啟動此服務來讓此服務恢復運作。
 
-![重新啟動 WebHCat 伺服器](./media/hdinsight-troubleshoot-failed-cluster/restart-webhcat.png)
+![重新啟動 WebHCat 伺服器](./media/hdinsight-troubleshoot-failed-cluster/restart-webhcat-server.png)
 
 如果 WebHCat 伺服器仍然未恢復運作，則請查看作業記錄是否有失敗訊息。 如需更多詳細資訊，請查看節點上所參考的 `stderr` 和 `stdout` 檔案。
 
@@ -176,7 +176,7 @@ Templeton 會呼叫 YARN 來執行作業，而 Templeton 與 YARN 之間的通�
 
     下圖顯示已達 714.4% 過度使用情況的 joblauncher 佇列。 如果預設佇列仍有可用容量可供借用，此情況是可接受的。 不過，當叢集使用率已滿載且 YARN 記憶體容量已達 100% 時，新作業就必須等候，最終就會造成逾時。
 
-    ![Joblauncher 佇列](./media/hdinsight-troubleshoot-failed-cluster/joblauncher-queue.png)
+    ![Joblauncher 佇列](./media/hdinsight-troubleshoot-failed-cluster/hdi-job-launcher-queue.png)
 
     有兩個方法可以解決此問題：減緩提交新作業的速度，或是擴大叢集規模來加快消耗舊作業的速度。
 
@@ -208,7 +208,7 @@ Templeton 會呼叫 YARN 來執行作業，而 Templeton 與 YARN 之間的通�
 
 Ambari UI [Stack and Version] \(堆疊與版本\) 頁面會提供有關叢集服務組態與服務版本歷程記錄的資訊。  Hadoop 服務程式庫版本如果不正確，可能會導致叢集發生失敗。  在 Ambari UI 中，選取 [Admin] \(系統管理\) 功能表，然後選取 [Stack and Version] \(堆疊與版本\)。  選取頁面上的 [Versions] \(版本\) 索引標籤以查看服務版本資訊：
 
-![堆疊與版本](./media/hdinsight-troubleshoot-failed-cluster/stack-versions.png)
+![堆疊與版本](./media/hdinsight-troubleshoot-failed-cluster/ambari-stack-versions.png)
 
 ## <a name="step-5-examine-the-log-files"></a>步驟 5：檢查記錄檔
 
@@ -232,7 +232,7 @@ HDInsight Ambari UI 包含一些 [Quick Links] \(快速連結\) 區段。  若�
 
 例如，針對 HDFS 記錄：
 
-![Ambari 的記錄檔快速連結](./media/hdinsight-troubleshoot-failed-cluster/quick-links.png)
+![Ambari 的記錄檔快速連結](./media/hdinsight-troubleshoot-failed-cluster/apache-ambari-quick-links.png)
 
 ### <a name="view-hadoop-generated-log-files"></a>檢視 Hadoop 產生的記錄檔
 

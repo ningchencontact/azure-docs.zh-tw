@@ -89,7 +89,7 @@
       items:
         - name: 部署 Azure AD 應用程式 Proxy
           href: deploy-azure-app-proxy.md
-        - name: 設定 SharePoint 伺服器設定檔同步處理的支援
+        - name: 啟用適用於SharePoint 伺服器的設定檔同步處理
           href: deploy-sp-profile-sync.md
     - name: 疑難排解
       items:

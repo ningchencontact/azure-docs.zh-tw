@@ -253,6 +253,10 @@
           href: virtual-network-public-ip-address.md
         - name: 公用 IP 首碼
           href: manage-public-ip-address-prefix.md
+    - name: 跨區域移動
+      items:
+        - name: 虛擬網路 - 入口網站
+          href: virtual-network-azure-to-azure-migrate-vnet-portal.md
     - name: 疑難排解
       items:
         - name: 針對虛擬網路對等互連問題進行疑難排解

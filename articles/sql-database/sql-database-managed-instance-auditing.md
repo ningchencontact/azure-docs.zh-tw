@@ -9,23 +9,23 @@ ms.devlang: ''
 ms.topic: conceptual
 f1_keywords:
 - mi.azure.sqlaudit.general.f1
-author: vainolo
-ms.author: arib
+author: barmichal
+ms.author: mibar
 ms.reviewer: vanto
 ms.date: 04/08/2019
-ms.openlocfilehash: 5a613a2eb6499538199306872f2e415019552686
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: a4941038288b90bcbfd61660458c564ce64add9e
+ms.sourcegitcommit: dd69b3cda2d722b7aecce5b9bd3eb9b7fbf9dc0a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68567722"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70958495"
 ---
 # <a name="get-started-with-azure-sql-database-managed-instance-auditing"></a>開始使用 Azure SQL Database 受控執行個體稽核
 
 [受控執行個體稽核](sql-database-managed-instance.md)會追蹤資料庫事件並將事件寫入您 Azure 儲存體帳戶中的稽核記錄。 稽核也具備下列功能：
 
 - 協助您保持法規遵循、了解資料庫活動，以及深入了解可指出商務考量或疑似安全違規的不一致和異常。
-- 啟用及推動遵循法規標準，但不保證符合法規。 如需有關支援標準合規性之 Azure 程式的詳細資訊, 請參閱[Azure 信任中心](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942), 您可以在其中找到最新的 SQL Database 合規性認證清單。
+- 啟用及推動遵循法規標準，但不保證符合法規。 如需有關支援標準合規性之 Azure 程式的詳細資訊，請參閱[Azure 信任中心](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942)，您可以在其中找到最新的 SQL Database 合規性認證清單。
 
 ## <a name="set-up-auditing-for-your-server-to-azure-storage"></a>設定將伺服器的稽核儲存至 Azure 儲存體
 
@@ -189,7 +189,7 @@ ms.locfileid: "68567722"
    - [建立伺服器稽核規格 T-SQL 指南](https://docs.microsoft.com/sql/t-sql/statements/create-server-audit-specification-transact-sql)
    - [建立資料庫稽核規格 T-SQL 指南](https://docs.microsoft.com/sql/t-sql/statements/create-database-audit-specification-transact-sql)
 
-10. 啟用在步驟8中建立的伺服器 audit:
+10. 啟用在步驟8中建立的伺服器 audit：
  
     ```SQL
     ALTER SERVER AUDIT [<your_audit_name>] WITH (STATE=ON);
@@ -214,9 +214,9 @@ ms.locfileid: "68567722"
 
 ### <a name="consume-and-analyze-logs-stored-in-azure-monitor-logs"></a>取用和分析儲存在 Azure 監視器記錄檔中的記錄
 
-如果將 audit 記錄寫入 Azure 監視器記錄檔, 它們會出現在 Log Analytics 工作區中, 您可以在其中執行 audit 資料的 advanced 搜尋。 作為起點, 流覽至 Log Analytics 工作區, 並在 *[一般*] 區段下按一下 [*記錄*], 然後輸入簡單查詢`search "SQLSecurityAuditEvents"` , 例如: 以查看 audit 記錄。  
+如果將 audit 記錄寫入 Azure 監視器記錄檔，它們會出現在 Log Analytics 工作區中，您可以在其中執行 audit 資料的 advanced 搜尋。 作為起點，流覽至 Log Analytics 工作區，並在 *[一般*] 區段下按一下 [*記錄*]，然後輸入簡單查詢`search "SQLSecurityAuditEvents"` ，例如：以查看 audit 記錄。  
 
-Azure 監視器記錄可讓您使用整合式搜尋和自訂儀表板, 在您的所有工作負載和伺服器上輕鬆分析數百萬筆記錄, 以提供您即時的 operational insights。 如需 Azure 監視器記錄搜尋語言和命令的其他實用資訊, 請參閱[Azure 監視器記錄搜尋參考](https://docs.microsoft.com/azure/azure-monitor/log-query/log-query-overview)。
+Azure 監視器記錄可讓您使用整合式搜尋和自訂儀表板，在您的所有工作負載和伺服器上輕鬆分析數百萬筆記錄，以提供您即時的 operational insights。 如需 Azure 監視器記錄搜尋語言和命令的其他實用資訊，請參閱[Azure 監視器記錄搜尋參考](https://docs.microsoft.com/azure/azure-monitor/log-query/log-query-overview)。
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
@@ -233,7 +233,7 @@ Azure SQL Database 中的資料庫和 SQL Server 中的資料庫兩者之間的�
 向 Azure Blob 儲存體進行稽核的 `CREATE AUDIT` 語法有一個主要差異：
 
 - 已提供新的 `TO URL` 語法，可讓您指定放置 `.xel` 檔案的 Azure Blob 儲存體容器 URL。
-- 提供新的`TO EXTERNAL MONITOR`語法, 以啟用甚至中樞和 Azure 監視器記錄目標。
+- 提供新的`TO EXTERNAL MONITOR`語法，以啟用甚至中樞和 Azure 監視器記錄目標。
 - `TO FILE` 語法**不受支援**，因為 SQL Database 無法存取 Windows 檔案共用。
 - **不支援**關機選項。
 - **不支援**使用 0 的 `queue_delay`。
@@ -241,7 +241,7 @@ Azure SQL Database 中的資料庫和 SQL Server 中的資料庫兩者之間的�
 ## <a name="next-steps"></a>後續步驟
 
 - 如需稽核記錄耗用方法的完整清單，請參閱[開始使用 SQL 資料庫稽核](sql-database-auditing.md)。
-- 如需有關支援標準合規性之 Azure 程式的詳細資訊, 請參閱[Azure 信任中心](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942), 您可以在其中找到最新的 SQL Database 合規性認證清單。
+- 如需有關支援標準合規性之 Azure 程式的詳細資訊，請參閱[Azure 信任中心](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942)，您可以在其中找到最新的 SQL Database 合規性認證清單。
 
 <!--Image references-->
 

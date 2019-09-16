@@ -98,6 +98,10 @@
       href: functions-premium-plan.md
     - name: 部署
       href: functions-deployment-technologies.md
+    - name: 事件和傳訊
+      items:
+        - name: 設計訴求為進行相同輸入
+          href: functions-idempotent.md
     - name: 觸發和繫結
       items:
         - name: 關於觸發程序和繫結

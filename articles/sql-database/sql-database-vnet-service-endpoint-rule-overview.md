@@ -11,12 +11,12 @@ author: rohitnayakmsft
 ms.author: rohitna
 ms.reviewer: vanto, genemi
 ms.date: 08/27/2019
-ms.openlocfilehash: d924f0eb89984fbe77f94eff553d00a25b4b7a3a
-ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
+ms.openlocfilehash: 485c79bab90295cf9af9ef1dbbc209d46931a485
+ms.sourcegitcommit: 909ca340773b7b6db87d3fb60d1978136d2a96b0
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70309609"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70984944"
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-database-servers"></a>對資料庫伺服器使用虛擬網路服務端點和規則
 
@@ -117,7 +117,7 @@ PolyBase 通常用於將資料從 Azure 儲存體帳戶載入 Azure SQL 資料�
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 > [!IMPORTANT]
-> Azure SQL Database 仍然支援 PowerShell Azure Resource Manager 模組，但所有未來的開發都是針對 Az .Sql 模組。 如需這些 Cmdlet，請參閱[AzureRM](https://docs.microsoft.com/powershell/module/AzureRM.Sql/)。 Az 模組和 AzureRm 模組中命令的引數本質上完全相同。
+> Azure SQL Database 仍然支援 PowerShell Azure Resource Manager 模組, 但所有未來的開發都是針對 Az .Sql 模組。 如需這些 Cmdlet, 請參閱[AzureRM](https://docs.microsoft.com/powershell/module/AzureRM.Sql/)。 Az 模組和 AzureRm 模組中命令的引數本質上完全相同。
 
 1.  使用此[指南](https://docs.microsoft.com/powershell/azure/install-az-ps)安裝 Azure PowerShell。
 2.  如果您有一般用途 v1 或 Blob 儲存體帳戶，您必須先使用此[指南](https://docs.microsoft.com/azure/storage/common/storage-account-upgrade)先升級至一般用途 v2。
@@ -244,7 +244,7 @@ SQL VNet 動作的 PowerShell cmdlet 會在內部呼叫 REST API。 您可以直
 3. 將 [允許存取 Azure 服務] 控制項設為 [關閉]。
 
     > [!IMPORTANT]
-    > 如果讓此控制項保持 [開啟]，Azure SQL Database 伺服器會接受來自任何子網路的通訊。 就安全性觀點而言，讓此控制項保持 [開啟] 可能使存取過多。 Microsoft Azure 虛擬網路服務端點功能，連同 SQL Database 的虛擬網路規則功能，可縮小安全性曝露面。
+    > 如果您將此控制項保持設定為 [開啟]，您的 Azure SQL Database 伺服器就會接受來自 Azure 界限內任何子網的通訊，也就是源自 Azure 資料中心定義範圍內的其中一個 IP 位址。 就安全性觀點而言，讓此控制項保持 [開啟] 可能使存取過多。 Microsoft Azure 虛擬網路服務端點功能，連同 SQL Database 的虛擬網路規則功能，可縮小安全性曝露面。
 
 4. 按一下 [虛擬網路] 區段中的 [+ 新增現有的] 控制項。
 

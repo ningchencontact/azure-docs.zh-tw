@@ -147,10 +147,10 @@ ms.locfileid: "68932508"
   
 以下是您目前的應用程式閘道 (標準) 可能會接收到用戶端流量的幾個案例, 以及我們針對每一個的建議:
 
-* **自訂 DNS 區域 (例如 contoso.com), 指向與您的標準 v1 或 WAF v1 閘道相關聯的前端 IP 位址 (使用 A 記錄)**。
+* **自訂 DNS 區域 (例如 contoso.com), 指向與您的標準 v1 或 WAF v1 閘道相關聯的前端 IP 位址 (使用 A 記錄)** 。
 
     您可以更新您的 DNS 記錄, 使其指向與您的 Standard_v2 應用程式閘道相關聯的前端 IP 或 DNS 標籤。 視 DNS 記錄上設定的 TTL 而定, 您的所有用戶端流量可能需要一些時間才能遷移至新的 v2 閘道。
-* **自訂 dns 區域 (例如, [contoso.com](contoso.com) ), 其指向與您 v1 閘道相關聯的 DNS 標籤 (例如: 使用 CNAME 記錄*myappgw.eastus.cloudapp.azure.com* )**。
+* **自訂 dns 區域 (例如, [contoso.com](contoso.com) ), 其指向與您 v1 閘道相關聯的 DNS 標籤 (例如: 使用 CNAME 記錄*myappgw.eastus.cloudapp.azure.com* )** 。
 
    您有兩個選擇:
 

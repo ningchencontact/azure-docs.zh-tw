@@ -4,6 +4,8 @@
   items:
     - name: 關於 Azure 入口網站
       href: azure-portal-overview.md
+    - name: 開始使用 Azure Databricks Center
+      href: azure-portal-quickstart-center.md
     - name: 支援的瀏覽器和裝置
       href: azure-portal-supported-browsers-devices.md
 - name: 概念
@@ -25,7 +27,7 @@
     - name: 匯出或刪除使用者設定
       href: azure-portal-export-delete-settings.md
     - name: Azure 入口網站操作說明影片系列
-      href: 'https://www.youtube.com/playlist?list=PLLasX02E8BPBKgXP4oflOL29TtqTzwhxR'
+      href: azure-portal-video-series.md
 - name: 參考
   items:
     - name: 鍵盤快速鍵

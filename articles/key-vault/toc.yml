@@ -58,6 +58,8 @@
       href: 'https://azure.microsoft.com/resources/samples/?service=key-vault'
 - name: 概念
   items:
+    - name: 基本概念
+      href: basic-concepts.md
     - name: 安全性
       items:
         - name: 安全性概觀
@@ -68,8 +70,6 @@
           href: key-vault-ovw-security-worlds.md
         - name: 保護您的金鑰保存庫
           href: key-vault-secure-your-key-vault.md
-    - name: 什麼是金鑰保存庫？
-      href: key-vault-whatis.md
     - name: 虛刪除
       href: key-vault-ovw-soft-delete.md
     - name: 節流
@@ -92,6 +92,8 @@
           href: create-certificate-scenarios.md
 - name: 使用說明指南
   items:
+    - name: 使用 App Service 受控識別
+      href: managed-identity.md
     - name: Azure Key Vault 記錄
       href: key-vault-logging.md
     - name: 防火牆後的存取

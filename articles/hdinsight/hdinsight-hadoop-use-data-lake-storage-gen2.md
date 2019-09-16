@@ -7,12 +7,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 08/27/2019
 ms.author: hrasheed
-ms.openlocfilehash: 40caabc08b08e4c9268bf60d588819ce81717986
-ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
+ms.openlocfilehash: a8ef347b874bf01fc2832d0a785f6fcec58ef095
+ms.sourcegitcommit: dd69b3cda2d722b7aecce5b9bd3eb9b7fbf9dc0a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70900262"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70961186"
 ---
 # <a name="use-azure-data-lake-storage-gen2-with-azure-hdinsight-clusters"></a>搭配 Azure HDInsight 叢集使用 Data Lake Storage Gen2
 
@@ -56,7 +56,7 @@ Data Lake Storage Gen2 可做為幾乎所有 Azure HDInsight 叢集類型的儲�
 1. 按一下 [建立]。
 1. 在 [**建立儲存體帳戶**] 畫面上：
     1. 選取正確的訂用帳戶和資源群組。
-    1. 輸入 Data Lake Storage Gen2 帳戶的名稱。 如需有關儲存體帳戶命名 convetions 的詳細資訊，請參閱[Azure 資源的命名慣例](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions#storage)。
+    1. 輸入 Data Lake Storage Gen2 帳戶的名稱。 如需儲存體帳戶命名慣例的詳細資訊，請參閱[Azure 資源的命名慣例](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions#storage)。
     1. 按一下 [ **Advanced** ] 索引標籤。
     1. 按一下 [ **Data Lake Storage Gen2**] 底下 [**階層命名空間**] 旁的 [**已啟用**]。
     1. 按一下 [檢閱 + 建立]。
@@ -64,7 +64,7 @@ Data Lake Storage Gen2 可做為幾乎所有 Azure HDInsight 叢集類型的儲�
 
 如需建立儲存體帳戶期間其他選項的詳細資訊， [請參閱快速入門：建立 Azure Data Lake Storage Gen2 儲存體帳戶](../storage/blobs/data-lake-storage-quickstart-create-account.md)。
 
-![顯示在 Azure 入口網站建立儲存體帳戶的螢幕擷取畫面](./media/hdinsight-hadoop-data-lake-storage-gen2/azure-data-lake-storage-account-create-advanced.png)
+![顯示在 Azure 入口網站建立儲存體帳戶的螢幕擷取畫面](./media/hdinsight-hadoop-use-data-lake-storage-gen2/azure-data-lake-storage-account-create-advanced.png)
 
 ### <a name="set-up-permissions-for-the-managed-identity-on-the-data-lake-storage-gen2-account"></a>在 Data Lake Storage Gen2 帳戶上設定受控識別的許可權
 
@@ -73,12 +73,12 @@ Data Lake Storage Gen2 可做為幾乎所有 Azure HDInsight 叢集類型的儲�
 1. 在 [Azure 入口網站](https://portal.azure.com)中，移至您的儲存體帳戶。
 1. 選取您的儲存體帳戶，然後選取 [**存取控制（IAM）** ] 以顯示帳戶的存取控制設定。 選取 [角色指派] 索引標籤，以查看角色指派的清單。
     
-    ![顯示儲存體存取控制設定的螢幕擷取畫面](./media/hdinsight-hadoop-data-lake-storage-gen2/portal-access-control.png)
+    ![顯示儲存體存取控制設定的螢幕擷取畫面](./media/hdinsight-hadoop-use-data-lake-storage-gen2/portal-access-control.png)
     
 1. 選取 [ **+ 新增角色指派**] 按鈕以新增角色。
 1. 在 [**新增角色指派**] 視窗中，選取 [**儲存體 Blob 資料擁有**者] 角色。 然後，選取包含受控識別和儲存體帳戶的訂用帳戶。 接著，搜尋並找出您先前建立的使用者指派受控識別。 最後，選取受控識別，它會列在 [選取的**成員**] 底下。
     
-    ![顯示如何指派 RBAC 角色的螢幕擷取畫面](./media/hdinsight-hadoop-data-lake-storage-gen2/add-rbac-role3.png)
+    ![顯示如何指派 RBAC 角色的螢幕擷取畫面](./media/hdinsight-hadoop-use-data-lake-storage-gen2/add-rbac-role3-window.png)
     
 1. 選取 [ **儲存**]。 您選取的使用者指派身分識別現在會列在選取的角色底下。
 1. 完成此初始設定後，您可以透過入口網站建立叢集。 此叢集必須與儲存體帳戶位在相同的 Azure 區域中。 在叢集建立功能表的 [儲存體] 區段中，選取下列選項︰
@@ -86,11 +86,11 @@ Data Lake Storage Gen2 可做為幾乎所有 Azure HDInsight 叢集類型的儲�
     * 針對 [**主要儲存體類型**]，選取 [ **Azure Data Lake Storage Gen2**]。
     * 在 [**選取儲存體帳戶**] 底下，搜尋並選取新建立的 Data Lake Storage Gen2 儲存體帳戶。
         
-        ![搭配 Azure HDInsight 使用 Data Lake Storage Gen2 的儲存體設定](./media/hdinsight-hadoop-data-lake-storage-gen2/primary-storage-type-adls-gen2.png)
+        ![搭配 Azure HDInsight 使用 Data Lake Storage Gen2 的儲存體設定](./media/hdinsight-hadoop-use-data-lake-storage-gen2/primary-storage-type-adls-gen2.png)
     
     * 在 [身分**識別**] 底下，選取正確的訂用帳戶和新建立的使用者指派受控識別。
         
-        ![搭配 Azure HDInsight 使用 Data Lake Storage Gen2 的身分識別設定](./media/hdinsight-hadoop-data-lake-storage-gen2/managed-identity-cluster-creation.png)
+        ![搭配 Azure HDInsight 使用 Data Lake Storage Gen2 的身分識別設定](./media/hdinsight-hadoop-use-data-lake-storage-gen2/managed-identity-cluster-creation.png)
         
 > [!Note]
 > 若要新增次要 Data Lake Storage Gen2 帳戶，請在儲存體帳戶層級，只將稍早建立的受控識別指派給您要新增的新 Data Lake Storage Gen2 儲存體帳戶。請注意，不支援透過 HDInsight 上的 [其他儲存體帳戶] 分頁來新增次要 Data Lake Storage Gen2 帳戶。 

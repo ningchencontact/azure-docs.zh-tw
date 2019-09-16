@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.topic: article
 ms.date: 11/17/2018
 ms.author: pabutler
-ms.openlocfilehash: 98d33dd1aad726d4da8499006166dfd2c043378f
-ms.sourcegitcommit: 62bd5acd62418518d5991b73a16dca61d7430634
+ms.openlocfilehash: 40170540458b7bc7ddb30f88117d472858937e8c
+ms.sourcegitcommit: dd69b3cda2d722b7aecce5b9bd3eb9b7fbf9dc0a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68977160"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70962944"
 ---
 # <a name="azure-partner-customer-usage-attribution"></a>Azure 合作夥伴客戶使用狀況屬性
 
@@ -99,7 +99,7 @@ Microsoft 現在提供一個模型，協助合作夥伴以更好的方式追蹤�
 > [!Note]
 > 此字串的格式至關重要。 若未包括 **pid-** 前置詞，就無法查詢資料。 不同的 SDK 會以不同的方式追蹤。 若要實作此方法，請檢閱支援和適用於慣用 Azure SDK 的方法。
 
-#### <a name="example-the-python-sdk"></a>範例:Python SDK
+#### <a name="example-the-python-sdk"></a>範例：Python SDK
 
 針對 Python，請使用 **config** 屬性。 您只能將屬性新增到 UserAgent。 以下為範例：
 
@@ -129,7 +129,7 @@ export AZURE_HTTP_USER_AGENT='pid-eb7927c8-dd66-43e1-b0cf-c346a422063'
 
 Terraform 的支援可透過 Azure 提供者的1.21.0 版本取得: [https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/CHANGELOG.md#1210-january-11-2019](https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/CHANGELOG.md#1210-january-11-2019)。  這項支援適用于透過 Terraform 部署其解決方案的所有夥伴, 以及由 Azure 提供者 (1.21.0 或更新版本) 部署和計量的所有資源。
 
-Azure provider for Terraform 新增了名為[*partner_id*](https://www.terraform.io/docs/providers/azurerm/#partner_id)的新選擇性欄位, 您可以在其中指定用於解決方案的追蹤 GUID。 此欄位的值也可以源自*ARM_PARTNER_ID*環境變數。
+Azure provider for Terraform 新增了名為[*partner_id*](https://www.terraform.io/docs/providers/azurerm/#partner_id)的新選擇性欄位，您可以在其中指定用於解決方案的追蹤 GUID。 此欄位的值也可以源自*ARM_PARTNER_ID*環境變數。
 
 ```
 provider "azurerm" {
@@ -142,7 +142,7 @@ provider "azurerm" {
 想要透過客戶使用屬性所追蹤的 Terraform 取得其部署的合作夥伴, 必須執行下列動作:
 
 * 建立 GUID (應新增每個供應專案或 SKU 的 GUID)
-* 更新其 Azure 提供者, 將*partner_id*的值設定為 GUID (不要預先修正 guid 為 "pid-", 只是將它設定為實際的 guid)
+* 更新其 Azure 提供者，將*partner_id*的值設定為 GUID （不要預先修正 guid 為 "pid-"，只是將它設定為實際的 guid）
 
 ## <a name="create-guids"></a>建立 GUID
 
@@ -247,7 +247,7 @@ foreach ($deployment in $deployments){
 
 ## <a name="report"></a>報表
 
-您可以在合作夥伴中心的 [分析] 儀表板中找到客戶使用狀況屬性的報表。 ([https://partner.microsoft.com/en-us/dashboard/mpn/analytics/CPP/MicrosoftAzure](https://partner.microsoft.com/dashboard/mpn/analytics/CPP/MicrosoftAzure)). 若要查看報表, 您必須使用合作夥伴中心認證來登入。 如果您遇到報告或登入的任何問題, 請遵循取得支援一節中的指示, 建立支援要求。
+您可以在合作夥伴中心的 [分析] 儀表板中找到客戶使用狀況屬性的報表。 ([https://partner.microsoft.com/dashboard/mpn/analytics/CPP/MicrosoftAzure](https://partner.microsoft.com/dashboard/mpn/analytics/CPP/MicrosoftAzure)). 若要查看報表, 您必須使用合作夥伴中心認證來登入。 如果您遇到報告或登入的任何問題, 請遵循取得支援一節中的指示, 建立支援要求。
 
 在 [夥伴關聯類型] 的下拉式清單中選擇 [追蹤的範本], 以查看報表。
 
@@ -269,7 +269,7 @@ foreach ($deployment in $deployments){
 
 有兩個支援通道, 視您面臨的問題而定。
 
-如果您在合作夥伴中心遇到任何問題, 例如查看客戶使用方式屬性報告或登入, 請在這裡建立合作夥伴中心支援小組的支援要求:[https://partner.microsoft.com/en-US/support](https://partner.microsoft.com/support)
+如果您在合作夥伴中心遇到任何問題, 例如查看客戶使用方式屬性報告或登入, 請在這裡建立合作夥伴中心支援小組的支援要求:[https://partner.microsoft.com/support](https://partner.microsoft.com/support)
 
 ![](./media/marketplace-publishers-guide/partner-center-log-in-support.png)
 

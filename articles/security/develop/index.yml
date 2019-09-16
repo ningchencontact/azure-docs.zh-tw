@@ -7,13 +7,13 @@ metadata:
   meta.description: Learn how to develop secure apps on Azure.
   services: security
   author: TerryLanfear
-  manager: barbkess
+  manager: rkarlin
   ms.service: security
   ms.subservice: develop
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page
-  ms.date: 08/29/2019
+  ms.date: 09/14/2019
   ms.author: terrylan
 abstract:
   description: 了解如何使用我們的範例應用程式、最佳做法和指引，在 Azure 上開發和部署安全的應用程式。
@@ -27,12 +27,12 @@ sections:
           - href: /azure/security/develop/secure-dev-overview
             html: <p>在 Azure 上開發安全的 Web 應用程式</p>
             image:
-              src: /media/common/i_get-started.svg
+              src: 'https://docs.microsoft.com/media/common/i_get-started.svg'
             title: 開始使用
           - href: 'https://docs.microsoft.com/learn/modules/top-5-security-items-to-consider'
             html: <p>適用於 Web 應用程式的前五大安全性項目</p>
             image:
-              src: /media/common/i_learn-about.svg
+              src: 'https://docs.microsoft.com/media/common/i_learn-about.svg'
             title: 透過 Microsoft Learn 增進您的技巧
   - title: 保護範例應用程式
     items:
@@ -41,6 +41,7 @@ sections:
         className: spaced noBullet
         items:
           - html: <a href="/azure/security/develop/secure-web-app">Linux 容器中的 Web 應用程式</a>
+          - html: <a href="/azure/security/develop/secure-pci-web-app">支付卡產業</a>
   - title: 概念
     items:
       - type: list
