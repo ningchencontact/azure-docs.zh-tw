@@ -57,7 +57,7 @@ IoT 中樞會針對所有裝置到雲端訊息定義[常見格式](iot-hub-devgu
 | contentEncoding | string | 使用者會指定訊息的編碼類型。 允許的值為 UTF-8、UTF-16、UTF-32 (若 contentType 是設為 application/JSON)。 |
 | iothub-connection-device-id | string | 此值是由 IoT 中樞設定，並能識別裝置的識別碼。 若要查詢，請使用 `$connectionDeviceId`。 |
 | iothub-enqueuedtime | string | 此值是由 IoT 中樞設定，並代表將訊息加入佇列的實際時間 (以 UTC 表示)。 若要查詢，請使用 `enqueuedTime`。 |
-| iothub-介面-名稱 | string | 這個值是由使用者設定, 代表實作為遙測訊息的數位對應項介面名稱。 若要查詢，請使用 `$interfaceName`。 這項功能可做為[IoT 隨插即用公開預覽](../iot-pnp/overview-iot-plug-and-play.md)的一部分。 |
+| iothub-interface-name	 | string | 這個值是由使用者設定, 代表實作為遙測訊息的數位對應項介面名稱。 若要查詢，請使用 `$interfaceName`。 這項功能可做為[IoT 隨插即用公開預覽](../iot-pnp/overview-iot-plug-and-play.md)的一部分。 |
 
 如 [IoT 中樞訊息](iot-hub-devguide-messages-construct.md)中所述，訊息中還有其他系統屬性。 除了 **contentType**、**contentEncoding** 和 **enqueuedTime** 之外，可查詢的屬性還包括 **connectionDeviceId** 和 **connectionModuleId**。
 
