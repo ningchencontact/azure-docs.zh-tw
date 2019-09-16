@@ -6,15 +6,15 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: tutorial
-ms.date: 8/27/2019
+ms.date: 09/10/2019
 ms.author: alkohli
 ms.localizationpriority: high
-ms.openlocfilehash: 5b78dc8b815802502cda5baf2bf5e9646922d671
-ms.sourcegitcommit: 49c4b9c797c09c92632d7cedfec0ac1cf783631b
+ms.openlocfilehash: 194b90ab27d02c1fa3eb05bb3ddd78395d351599
+ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/05/2019
-ms.locfileid: "70241439"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70898183"
 ---
 ::: zone target="docs"
 
@@ -77,7 +77,7 @@ ms.locfileid: "70241439"
 
 ::: zone-end
 
-## <a name="ship-in-us-canada-europe"></a>在美國、加拿大、歐洲寄送
+## <a name="in-us-canada-europetabin-us-canada-europe"></a>[美國、加拿大、歐洲](#tab/in-us-canada-europe)
 
 如果在美國、加拿大或歐洲退回裝置，請執行下列步驟。
 
@@ -94,7 +94,7 @@ ms.locfileid: "70241439"
 4. 一旦貨運業者收取資料箱並進行掃描，入口網站的訂單狀態會更新為 [已取貨]  。 此外，也會顯示追蹤識別碼。
 
 
-## <a name="ship-in-australia"></a>在澳洲寄送
+## <a name="in-australiatabin-australia"></a>[澳大利亞](#tab/in-australia)
 
 澳洲的 Azure 資料中心有額外的安全性通知。 所有送達的貨物都必須有預先通知。 在澳洲寄送可採取下列步驟。
 
@@ -126,7 +126,7 @@ ms.locfileid: "70241439"
 - 先傳送取貨的電子郵件。
 - 提供您手機上的訂單名稱。
 
-## <a name="ship-in-japan"></a>在日本寄送 
+## <a name="in-japantabin-japan"></a>[日本](#tab/in-japan) 
 
 1. 保留用來寄送裝置以供退貨的原始外盒。
 2. 關閉裝置電源並移除纜線。

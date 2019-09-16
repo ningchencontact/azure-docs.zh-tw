@@ -22,6 +22,8 @@
       href: view-recommendations.md
     - name: 權限和封鎖動作
       href: permissions.md
+    - name: 設定建議警示
+      href: advisor-alerts.md
 - name: 參考
   items:
     - name: 資訊安全中心

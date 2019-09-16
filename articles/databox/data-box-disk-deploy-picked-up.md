@@ -6,16 +6,16 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: tutorial
-ms.date: 09/05/2019
+ms.date: 09/11/2019
 ms.author: alkohli
 ms.localizationpriority: high
 Customer intent: As an IT admin, I need to be able to order Data Box Disk to upload on-premises data from my server onto Azure.
-ms.openlocfilehash: b982e0bcd87a60e29b11c7123fbe5d675ab017b3
-ms.sourcegitcommit: 88ae4396fec7ea56011f896a7c7c79af867c90a1
+ms.openlocfilehash: 03ca6163b4f788d50f7f27a2fcaf2c9b6c02d84c
+ms.sourcegitcommit: d70c74e11fa95f70077620b4613bb35d9bf78484
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70390414"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70910106"
 ---
 ::: zone target="chromeless"
 
@@ -52,7 +52,7 @@ ms.locfileid: "70390414"
 
 後續步驟則取決於您退回裝置的地點。 美國/加拿大、歐盟 (EU)、澳洲或亞洲國家/地區的指示會有所不同。
 
-### <a name="pick-up-in-us-canada"></a>美國、加拿大取貨
+### <a name="in-us-or-canadatabin-us-or-canada"></a>[美國或加拿大](#tab/in-us-or-canada)
 
 如果在美國或加拿大退回裝置，請執行下列步驟。
 
@@ -68,7 +68,7 @@ ms.locfileid: "70390414"
     - 若未提供追蹤號碼，UPS 將在取貨期間要求您支付額外的費用。
     - 除了排定取貨時間，您也可以在最接近的托運地點托運該資料箱磁碟。
 
-### <a name="pick-up-in-europe"></a>在歐洲取貨
+### <a name="in-europetabin-europe"></a>[歐洲](#tab/in-europe)
 
 如果在歐洲退回裝置，請執行下列步驟。
 
@@ -81,7 +81,7 @@ ms.locfileid: "70390414"
 4. 移至該國家/地區的 DHL Express 網站，然後選擇 [Book a Courier Collection > eReturn Shipment] \(預約快遞收貨 > eReturn 出貨\)  。    
 3. 指定運貨單號碼，然後按一下 [Schedule Pickup] (排程取貨)  以安排取貨。
 
-### <a name="pick-up-in-australia"></a>在澳洲取貨
+### <a name="in-australiatabin-australia"></a>[澳大利亞](#tab/in-australia)
 
 澳洲的 Azure 資料中心有額外的安全性通知。 所有送達的貨物都必須有預先通知。 在澳洲收取可執行下列步驟。
 
@@ -89,9 +89,9 @@ ms.locfileid: "70390414"
 3. 將標籤黏貼在箱子上。 
 4. 按此連結 https://mydhl.express.dhl/au/en/schedule-pickup.html#/schedule-pickup#label-reference 線上預約取貨服務。 
 
-### <a name="pick-up-in-asia"></a>亞洲取貨
+### <a name="in-japan-koreatabin-japan-korea"></a>[日本、南韓](#tab/in-japan-korea)
 
-日本、韓國和新加坡的取貨指示會有所不同。
+以下是日本和南韓的取貨指示。
 
 #### <a name="pick-up-in-japan"></a>日本取貨
 
@@ -134,7 +134,8 @@ ms.locfileid: "70390414"
     3. 如果快遞人員未到府收貨，請撥打 *Quantium Solutions International* 熱線以便尋求替代安排。 
     4. 如果您透過電話提出要求，則會收到口頭確認。
 
-#### <a name="pick-up-in-singapore"></a>在新加坡取貨
+
+### <a name="in-singaporetabin-singapore"></a>[新加坡](#tab/in-singapore)
 
 1. 列印出貨標籤並黏貼在紙箱上。 如果標籤受損或遺失：
     - 移至 [概觀] > [下載出貨標籤]  ，並取得寄回的出貨標籤。

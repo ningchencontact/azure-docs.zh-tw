@@ -5,15 +5,15 @@ services: notification-hubs
 author: spelluru
 ms.service: notification-hubs
 ms.topic: include
-ms.date: 02/05/2019
+ms.date: 09/11/2019
 ms.author: spelluru
 ms.custom: include file
-ms.openlocfilehash: fef6122eceda213fb6353ada53033d0d1e27fd7e
-ms.sourcegitcommit: 79496a96e8bd064e951004d474f05e26bada6fa0
+ms.openlocfilehash: ccb5e40738680181e7339b8652d029597c7d0bd4
+ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/02/2019
-ms.locfileid: "67509150"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70935136"
 ---
 1. 登入 [Firebase 主控台](https://firebase.google.com/console/)。 建立新的 Firebase 專案 (如果您還沒有 Firebase 專案的話)。
 2. 建立專案之後，請選取 [將 Firebase 新增至 Android 應用程式]  。 
@@ -36,7 +36,8 @@ ms.locfileid: "67509150"
     2. 在應用程式層級 build.gradle 檔案 (&lt;project&gt;/&lt;app-module&gt;/build.gradle) 中，將下列陳述式新增至 [相依性]  區段。 
 
         ```
-        implementation 'com.google.firebase:firebase-core:16.0.1'
+        implementation 'com.google.firebase:firebase-core:16.0.8'
+        implementation 'com.google.firebase:firebase-messaging:17.3.4'
         ```
 
     3. 將下行新增至應用程式層級 build.gradle 檔案結尾的相依性區段之後。 

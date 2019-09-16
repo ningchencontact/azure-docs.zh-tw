@@ -1,66 +1,116 @@
-### YamlMime:YamlDocument
-documentType: LandingData
+### YamlMime:Landing
 title: Azure Databricks 文件
+summary: Azure Databricks 是一個 Apache Spark 分析平台，提供單鍵設定、簡化工作流程和互動式工作區，可讓資料科學家、資料工程師和商務分析人員共同作業。
 metadata:
   title: Azure Databricks 文件
-  description: 透過快速入門及此處提供的其他連結，了解如何使用 Azure Databricks。 Azure Databricks 是一個針對 Microsoft Azure 雲端服務平台進行最佳化的 Apache Spark 分析平台。
+  description: Azure Databricks 是一個 Apache Spark 分析平台，提供單鍵設定、簡化工作流程和互動式工作區，可讓資料科學家、資料工程師和商務分析人員共同作業。
   services: azure-databricks
-  author: mamccrea
   ms.service: azure-databricks
   ms.topic: landing-page
-  ms.date: 05/07/2019
+  ms.collection: collection
+  author: mamccrea
   ms.author: mamccrea
-abstract:
-  description: 了解如何使用 Azure Databricks，此 Apache Spark 分析平台提供單鍵設定、簡化工作流程和互動式工作區，可讓資料科學家、資料工程師和商務分析人員共同作業。 快速入門和教學課程將說明如何開始使用 Azure Databricks，並與其他 Azure 服務整合。
-  aside:
-    image:
-      alt: null
-      height: 110
-      src: media/index/video.png
-      width: 250
-    title: 'Azure Databricks 簡介 (3:38)'
-    href: 'https://azure.microsoft.com/resources/videos/connect-2017-introduction-to-azure-databricks/'
-    width: 250
-sections:
-  - title: 5 分鐘快速入門
-    items:
-      - type: paragraph
-        text: 了解如何使用以下工具，建立 Azure Databricks 工作區、Spark 叢集，並接著執行作業：
-      - type: list
-        style: icon48
-        items:
-          - image:
-              src: /azure/azure-databricks/media/index/portal.svg
-            text: Azure 入口網站
-            href: /azure/azure-databricks/quickstart-create-databricks-workspace-portal
-          - image:
-              src: /azure/azure-databricks/media/index/logo_azure_resource_manager.svg
-            text: Resource Manager 範本
-            href: /azure/azure-databricks/quickstart-create-databricks-workspace-resource-manager-template
-          - image:
-              src: /azure/azure-databricks/media/index/virtualnetwork.svg
-            text: 虛擬網路
-            href: /azure/azure-databricks/quickstart-create-databricks-workspace-vnet-injection
-  - title: 逐步教學課程
-    items:
-      - type: paragraph
-        text: 了解如何使用 Azure Databricks：
-      - type: list
-        style: ordered
-        items:
-          - html: <a href="/azure/azure-databricks/vnet-injection-sql-server">在 Docker 容器中執行的查詢 SQL Server</a>
-          - html: <a href="/azure/azure-databricks/service-endpoint-cosmosdb">使用 Cosmos DB 服務端點</a>
-          - html: <a href="/azure/azure-databricks/databricks-extract-load-sql-data-warehouse">擷取、轉換和載入資料</a>
-          - html: <a href="/azure/azure-databricks/databricks-stream-from-eventhubs">串流事件中樞的資料</a>
-          - html: <a href="/azure/azure-databricks/databricks-sentiment-analysis-cognitive-services">使用認知服務進行情緒分析</a>
-          - html: '<a href="https://docs.azuredatabricks.net/spark/latest/structured-streaming/kafka.html" target="_blank">串流 HDInsight Kafka 的資料</a>'
-  - title: 參考
-    items:
-      - type: list
-        style: cards
-        className: cardsD
-        items:
-          - title: REST
-            html: <p><a href="/rest/api/databricks">REST API</a></p>
-          - title: Resource Manager
-            html: <p><a href="/azure/templates/microsoft.databricks/workspaces">範本</a></p>
+  ms.date: 09/11/2019
+  ms.openlocfilehash: 40a023ee9498f8d5c487ab7317bc020260b98cce
+  ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
+  ms.translationtype: HT
+  ms.contentlocale: zh-TW
+  ms.lasthandoff: 09/12/2019
+  ms.locfileid: "70933534"
+landingContent:
+- title: 關於 Azure Databricks
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: 何謂 Azure Databricks？
+      url: what-is-azure-databricks.md
+  - linkListType: concept
+    links:
+    - text: 常見問題集
+      url: frequently-asked-questions-databricks.md
+  - linkListType: reference
+    links:
+    - text: 版本資訊
+      url: https://docs.azuredatabricks.net/release-notes/index.html
+  - linkListType: learn
+    links:
+    - text: Azure Databricks 簡介
+      url: https://docs.microsoft.com/learn/modules/intro-to-azure-databricks
+- title: 開始使用
+  linkLists:
+  - linkListType: quickstart
+    links:
+    - text: 使用 Azure 入口網站建立 Databricks 工作區
+      url: quickstart-create-databricks-workspace-portal.md
+    - text: 使用 Azure Resource Manager 範本在 Databricks 上執行 Apache Spark 作業
+      url: quickstart-create-databricks-workspace-resource-manager-template.md
+  - linkListType: how-to-guide
+    links:
+    - text: 建立 Apache Spark 叢集
+      url: https://docs.azuredatabricks.net/user-guide/clusters/index.html
+    - text: 連接到資料來源
+      url: databricks-connect-to-data-sources.md
+    - text: 在 Azure Cloud Shell 中使用 Databricks CLI
+      url: databricks-cli-from-azure-cloud-shell.md
+  - linkListType: reference
+    links:
+    - text: Azure Resource Manager 範本
+      url: /azure/templates/microsoft.databricks/workspaces
+- title: Azure 解決方案架構師
+  linkLists:
+  - linkListType: tutorial
+    links:
+    - text: 從 Azure Data Factory 執行筆記本
+      url: ../data-factory/transform-data-using-databricks-notebook.md
+    - text: 使用認知服務分析情緒
+      url: databricks-sentiment-analysis-cognitive-services.md
+    - text: 使用 Cosmos DB 服務端點
+      url: service-endpoint-cosmosdb.md
+    - text: 使用 Azure Key Vault 存取儲存體
+      url: store-secrets-azure-key-vault.md
+    - text: 使用 Azure Data Lake Storage Gen2 和 SQL 資料倉儲執行 ETL 作業
+      url: databricks-extract-load-sql-data-warehouse.md
+  - linkListType: how-to-guide
+    links:
+    - text: 連線到 Excel、R 和 Python
+      url: connect-databricks-excel-python-r.md
+- title: 使用虛擬網路
+  linkLists:
+  - linkListType: quickstart
+    links:
+    - text: 在虛擬網路中建立 Databricks 工作區
+      url: quickstart-create-databricks-workspace-vnet-injection.md
+  - linkListType: deploy
+    links:
+    - text: 在虛擬網路中部署 Azure Databricks
+      url: vnet-injection.md
+  - linkListType: tutorial
+    links:
+    - text: 從 Azure Databricks 筆記本查詢虛擬網路中的 SQL Server Linux Docker 容器
+      url: vnet-injection-sql-server.md
+- title: 串流資料
+  linkLists:
+  - linkListType: learn
+    links:
+    - text: 在 Azure Databricks 中使用串流資料
+      url: https://docs.microsoft.com/learn/modules/streaming-in-azure-databricks/
+  - linkListType: tutorial
+    links:
+    - text: 使用事件中樞串流資料
+      url: databricks-stream-from-eventhubs.md
+    - text: 串流 HDInsight Kafka 的資料
+      url: https://docs.azuredatabricks.net/spark/latest/structured-streaming/kafka.html
+- title: 開發人員指南
+  linkLists:
+  - linkListType: learn
+    links:
+    - text: 透過 Azure Databricks 進行深度學習
+      url: https://docs.microsoft.com/learn/modules/deep-learning-in-azure-databricks
+    - text: 執行文字分析
+      url: https://docs.microsoft.com/learn/modules/perform-text-analytics-with-azure-databricks
+  - linkListType: reference
+    links:
+    - text: Databricks REST API
+      url: /rest/api/databricks
+    - text: R 開發人員指南
+      url: ../machine-learning/r-developers-guide.md

@@ -12,12 +12,12 @@ metadata:
   author: spelluru
   ms.author: spelluru
   ms.date: 09/05/2019
-  ms.openlocfilehash: bd96fbc12285faa7c18f9fcd09638ec8816865c8
-  ms.sourcegitcommit: a4b5d31b113f520fcd43624dd57be677d10fc1c0
+  ms.openlocfilehash: 8a4d99c195cd1341e491e5112a4f58013b074115
+  ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
   ms.translationtype: HT
   ms.contentlocale: zh-TW
-  ms.lasthandoff: 09/06/2019
-  ms.locfileid: "70773193"
+  ms.lasthandoff: 09/11/2019
+  ms.locfileid: "70915445"
 landingContent:
 - title: 關於事件中樞
   linkLists:
@@ -71,7 +71,7 @@ landingContent:
     links:
     - text: 建立已啟用 Apache kafka 的事件中樞
       url: event-hubs-create-kafka-enabled.md
-    - text: 在事件中樞中鏡像 Kafka 中斷情況
+    - text: 在事件中樞中鏡像 Kafka 訊息代理程式
       url: event-hubs-kafka-mirror-maker-tutorial.md
     - text: 將 Apache Spark 連線到事件中樞
       url: event-hubs-kafka-spark-tutorial.md

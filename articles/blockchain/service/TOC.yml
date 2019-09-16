@@ -11,8 +11,10 @@
       href: create-member.md
     - name: 建立成員 - CLI
       href: create-member-cli.md
-    - name: 連線到交易節點
+    - name: 連線至交易節點
       items:
+        - name: 使用 VS Code
+          href: connect-vscode.md
         - name: 使用 MetaMask
           href: connect-metamask.md
         - name: 使用 Geth

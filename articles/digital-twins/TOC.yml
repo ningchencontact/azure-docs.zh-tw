@@ -19,7 +19,7 @@
           href: tutorial-facilities-udf.md
         - name: 使用 Logic Apps 發出通知
           href: tutorial-facilities-events.md
-        - name: 使用 TSI 將活動視覺化
+        - name: 使用時間序列深入解析將事件視覺化
           href: tutorial-facilities-analyze.md
 - name: 概念
   items:
