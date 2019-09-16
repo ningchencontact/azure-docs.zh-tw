@@ -8,12 +8,12 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.topic: conceptual
 ms.date: 05/30/2019
-ms.openlocfilehash: 829f3e730b4993a6a7f32a9224d3c6c38bd4c06e
-ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
+ms.openlocfilehash: 070365c79e14b80c50c70aa3277a6eddd9286a37
+ms.sourcegitcommit: 71db032bd5680c9287a7867b923bf6471ba8f6be
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70811953"
+ms.lasthandoff: 09/16/2019
+ms.locfileid: "71018751"
 ---
 # <a name="configure-outbound-network-traffic-for-azure-hdinsight-clusters-using-firewall-preview"></a>使用防火牆設定 Azure HDInsight 叢集的輸出網路流量（預覽）
 
@@ -63,7 +63,8 @@ HDInsight 輸出流量相依性幾乎是以 Fqdn 定義，其後面沒有靜態 
    | **名稱** | **來源位址** | **Protocol:Port** | **目標 FQDN** | **注意事項** |
    | --- | --- | --- | --- | --- |
    | Rule_2 | * | https:443 | login.windows.net | 允許 Windows 登入活動 |
-   | Rule_3 | * | https:443,http:80 | <storage_account_name.blob.core.windows.net> | 如果您的叢集是由 WASB 支援，則請新增 WASB 的規則。 若只要使用 HTTPs 連線，請確定已在儲存體帳戶上啟用「[需要安全傳輸](https://docs.microsoft.com/azure/storage/common/storage-require-secure-transfer)」。 |
+   | Rule_3 | * | https:443 | login.microsoftonline.com | 允許 Windows 登入活動 |
+   | Rule_4 | * | https:443,http:80 | <storage_account_name.blob.core.windows.net> | 如果您的叢集是由 WASB 支援，則請新增 WASB 的規則。 若只要使用 HTTPs 連線，請確定已在儲存體帳戶上啟用「[需要安全傳輸](https://docs.microsoft.com/azure/storage/common/storage-require-secure-transfer)」。 |
 
 1. 按一下 [新增]。
 

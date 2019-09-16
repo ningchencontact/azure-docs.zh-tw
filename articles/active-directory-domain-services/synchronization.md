@@ -47,7 +47,7 @@ Azure Active Directory Domain Services (AD DS) 受控網域中的物件和認證
 | 使用者和群組的 SID 歷程記錄 | 內部部署主要使用者和群組 SID | Azure AD DS 中使用者和群組的*SidHistory*屬性會設定為符合內部部署 AD DS 環境中對應的主要使用者或群組 SID。 這項功能有助於將內部部署應用程式隨即轉移至 Azure AD DS, 因為您不需要重新 ACL 資源。 |
 
 > [!TIP]
-> **使用 UPN 格式登入受控網域***SAMAccountName*屬性 (例如`CONTOSO\driley`) 可能會針對 Azure AD DS 受控網域中的某些使用者帳戶自動產生。 使用者自動產生的*SAMAccountName*可能與其 UPN 前置詞不同, 因此不一定是可靠的登入方式。 例如, 如果有多個使用者具有相同的*mailNickname*屬性, 或使用者的 UPN 前置詞太長, 可能會自動產生這些使用者的*SAMAccountName* 。 使用 UPN 格式 (例如), `driley@contoso.com`以可靠的方式登入 Azure AD DS 受控網域。
+> **使用 UPN 格式登入受控網域** *SAMAccountName*屬性 (例如`CONTOSO\driley`) 可能會針對 Azure AD DS 受控網域中的某些使用者帳戶自動產生。 使用者自動產生的*SAMAccountName*可能與其 UPN 前置詞不同, 因此不一定是可靠的登入方式。 例如, 如果有多個使用者具有相同的*mailNickname*屬性, 或使用者的 UPN 前置詞太長, 可能會自動產生這些使用者的*SAMAccountName* 。 使用 UPN 格式 (例如), `driley@contoso.com`以可靠的方式登入 Azure AD DS 受控網域。
 
 ### <a name="attribute-mapping-for-user-accounts"></a>使用者帳戶的屬性對應
 

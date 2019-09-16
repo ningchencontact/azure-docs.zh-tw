@@ -5,14 +5,14 @@ author: dcurwin
 manager: carmonm
 ms.service: backup
 ms.topic: conceptual
-ms.date: 07/02/2019
+ms.date: 09/13/2019
 ms.author: dacurwin
-ms.openlocfilehash: 62f633b617abb52e1be4003f65cc537cc9ff2a25
-ms.sourcegitcommit: 909ca340773b7b6db87d3fb60d1978136d2a96b0
+ms.openlocfilehash: 1b7e3a8a937682559440086e90af18bfc85b8f75
+ms.sourcegitcommit: 71db032bd5680c9287a7867b923bf6471ba8f6be
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/13/2019
-ms.locfileid: "70983783"
+ms.lasthandoff: 09/16/2019
+ms.locfileid: "71018678"
 ---
 # <a name="support-matrix-for-azure-vm-backup"></a>Azure VM 備份的支援矩陣
 您可以使用[Azure 備份服務](backup-overview.md)來備份內部部署機器和工作負載, 以及 Azure 虛擬機器 (vm)。 本文摘要說明使用 Azure 備份備份 Azure Vm 時的支援設定和限制。
@@ -158,13 +158,13 @@ Gen2 Vm | 支援 <br> Azure 備份支援[Gen2 vm](https://azure.microsoft.com/up
 
 **元件** | **支援**
 --- | ---
-Azure VM 資料磁碟 | 備份具有 16 個或較少資料磁碟的 VM。 <br/><br/> 支援最多 4 TB 磁碟大小。<br/><br/>若要註冊有限的公開預覽，請參閱這[篇文章](backup-azure-vms-introduction.md#limited-public-preview-backup-of-vm-with-disk-sizes-up-to-30tb)，以取得大於 4 tb 且大小高達 30 tb 之磁片的 Azure 備份大型磁片支援。
-資料磁碟大小 | 個別磁碟最多可達 4095 GB。<br/><br/>若要註冊有限的公開預覽，請參閱這[篇文章](backup-azure-vms-introduction.md#limited-public-preview-backup-of-vm-with-disk-sizes-up-to-30tb)，以瞭解4TB 大小大於30TB 的磁片的 Azure 備份大型磁片支援。
+Azure VM 資料磁碟 | 備份具有 16 個或較少資料磁碟的 VM。 <br/><br/> 支援虛擬機器的備份，其每個磁片大小上限為30TB，而 VM 中的所有磁片最多可結合256TB。
+資料磁碟大小 | 個別磁片可以是最大的30TB。
 儲存體類型 | 標準 HDD、標準 SSD 進階 SSD。
 受控磁碟 | 支援。
 加密磁碟 | 支援。<br/><br/> 您可以備份使用 Azure 磁碟加密啟用的 Azure Vm (不論是否有 Azure AD 應用程式)。<br/><br/> 加密的 VM 無法在檔案/資料夾層級復原。 您必須復原整個 VM。<br/><br/> 您可以對已受到 Azure 備份保護的 VM 啟用加密。
 已啟用寫入加速器的磁碟 | 不支援。<br/><br/> Azure 備份會在備份期間自動排除已啟用寫入加速器的磁片。 因為它們不會備份, 所以您將無法從 VM 的復原點還原這些磁片。
-備份已刪除重複資料的磁碟 | 不支援。
+備份 & 還原重復資料刪除的 Vm/磁片 | Azure 備份不支援重復資料刪除。 如需詳細資訊，請參閱這[篇文章](https://docs.microsoft.com/azure/backup/backup-support-matrix#disk-deduplication-support) <br/> <br/>  -Azure 備份不會跨復原服務保存庫中的 Vm 刪除重複 <br/> <br/>  -如果還原期間有 Vm 處於重復資料刪除狀態，則無法還原檔案，因為保存庫不了解格式
 將磁碟新增至受保護的 VM | 支援。
 在受保護的 VM 上調整磁碟大小 | 支援。
 共用存放裝置| 不建議使用叢集共用磁碟區 (CSV) 或向外延展檔案伺服器來備份 Vm。 CSV 寫入器可能會在備份期間失敗。 還原時, 包含 CSV 磁片區的磁片可能無法啟動。

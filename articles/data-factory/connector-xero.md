@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 12/07/2018
+ms.date: 08/01/2019
 ms.author: jingwang
-ms.openlocfilehash: 6793fbcc50711e10231b87fa6e1f11f54f90d325
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
-ms.translationtype: HT
+ms.openlocfilehash: d9e31c1c7decec159de9224f97edfcba15f93966
+ms.sourcegitcommit: a819209a7c293078ff5377dee266fa76fd20902c
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60445429"
+ms.lasthandoff: 09/16/2019
+ms.locfileid: "71007838"
 ---
 # <a name="copy-data-from-xero-using-azure-data-factory-preview"></a>使用 Azure Data Factory 從 Xero 複製資料 (預覽)
 
@@ -27,6 +27,11 @@ ms.locfileid: "60445429"
 > 此連接器目前為預覽版。 您可以親身體驗並提供意見反應。 如果您需要依賴解決方案中的預覽連接器，請連絡 [Azure 支援](https://azure.microsoft.com/support/)。
 
 ## <a name="supported-capabilities"></a>支援的功能
+
+下列活動支援此 Xero 連接器：
+
+- [複製活動](copy-activity-overview.md)與[支援的來源矩陣](copy-activity-overview.md)
+- [查閱活動](control-flow-lookup-activity.md)
 
 您可以將資料從 Xero 複製到任何支援的接收資料存放區。 如需複製活動所支援作為來源/接收器的資料存放區清單，請參閱[支援的資料存放區](copy-activity-overview.md#supported-data-stores-and-formats)表格。
 
@@ -49,7 +54,7 @@ Azure Data Factory 提供的內建驅動程式可啟用連線，因此使用此�
 
 | 屬性 | 描述 | 必要項 |
 |:--- |:--- |:--- |
-| type | 類型屬性必須設定為：**Xero** | 是 |
+| Type | 類型屬性必須設定為：**Xero** | 是 |
 | host | Xero 伺服器的端點 (`api.xero.com`)。  | 是 |
 | consumerKey | 與 Xero 應用程式相關聯的取用者金鑰。 將此欄位標記為 SecureString，將它安全地儲存在 Data Factory 中，或[參考 Azure Key Vault 中儲存的祕密](store-credentials-in-key-vault.md)。 | 是 |
 | privateKey | 從您 Xero 私人應用程式產生之 .pem 檔案的私密金鑰，請參閱[建立公開/私密金鑰組](https://developer.xero.com/documentation/api-guides/create-publicprivate-key)。 使用 `openssl genrsa -out privatekey.pem 512` **產生 numbit 為 512 的 privatekey.pem** 備註；不支援 1024。 包含 .pem 檔案的所有文字，包括 Unix 行尾結束符號 (\n)，請參閱以下範例。<br/><br/>將此欄位標記為 SecureString，將它安全地儲存在 Data Factory 中，或[參考 Azure Key Vault 中儲存的祕密](store-credentials-in-key-vault.md)。 | 是 |
@@ -95,7 +100,7 @@ Azure Data Factory 提供的內建驅動程式可啟用連線，因此使用此�
 
 | 屬性 | 描述 | 必要項 |
 |:--- |:--- |:--- |
-| type | 資料集的類型屬性必須設定為：**XeroObject** | 是 |
+| Type | 資料集的類型屬性必須設定為：**XeroObject** | 是 |
 | tableName | 資料表的名稱。 | 否 (如果已指定活動來源中的"query") |
 
 **範例**
@@ -105,18 +110,19 @@ Azure Data Factory 提供的內建驅動程式可啟用連線，因此使用此�
     "name": "XeroDataset",
     "properties": {
         "type": "XeroObject",
+        "typeProperties": {},
+        "schema": [],
         "linkedServiceName": {
             "referenceName": "<Xero linked service name>",
             "type": "LinkedServiceReference"
-        },
-        "typeProperties": {}
+        }
     }
 }
 ```
 
 ## <a name="copy-activity-properties"></a>複製活動屬性
 
-如需可用來定義活動的區段和屬性完整清單，請參閱[管線](concepts-pipelines-activities.md)一文。 本節提供 Xero 來源所支援的屬性清單。
+如需可用來定義活動的區段和屬性完整清單，請參閱[Pipelines](concepts-pipelines-activities.md)一文。 本節提供 Xero 來源所支援的屬性清單。
 
 ### <a name="xero-as-source"></a>Xero 作為來源
 
@@ -124,7 +130,7 @@ Azure Data Factory 提供的內建驅動程式可啟用連線，因此使用此�
 
 | 屬性 | 描述 | 必要項 |
 |:--- |:--- |:--- |
-| type | 複製活動來源的類型屬性必須設定為：**XeroSource** | 是 |
+| Type | 複製活動來源的類型屬性必須設定為：**XeroSource** | 是 |
 | query | 使用自訂 SQL 查詢來讀取資料。 例如： `"SELECT * FROM Contacts"` 。 | 否 (如果已指定資料集中的 "tableName") |
 
 **範例:**
@@ -212,6 +218,11 @@ Azure Data Factory 提供的內建驅動程式可啟用連線，因此使用此�
 - Complete.Receipt_Line_Items 
 - Complete.Receipt_Line_Item_Tracking 
 - Complete.Tracking_Category_Options
+
+## <a name="lookup-activity-properties"></a>查閱活動屬性
+
+若要瞭解屬性的詳細資料，請檢查[查閱活動](control-flow-lookup-activity.md)。
+
 
 ## <a name="next-steps"></a>後續步驟
 如需複製活動所支援的資料存放區清單，請參閱[支援的資料存放區](copy-activity-overview.md#supported-data-stores-and-formats)。

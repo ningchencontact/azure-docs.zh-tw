@@ -35,7 +35,7 @@ ms.locfileid: "70170751"
 
 ![Azure 入口網站中的函數應用程式概觀](./media/functions-how-to-use-azure-function-app-settings/azure-function-app-main.png)
 
-您可以從 [總覽] 頁面流覽至管理函式應用程式所需的所有專案, 特別是 [ **[應用程式設定](#settings)** ] 和 [ **[平臺] 功能](#platform-features)** 。
+您可以從 [總覽] 頁面流覽至管理函式應用程式所需的所有專案, 特別是 **[應用程式設定](#settings)** 和 **[平臺](#platform-features)** 功能。
 
 ## <a name="settings"></a>應用程式設定
 

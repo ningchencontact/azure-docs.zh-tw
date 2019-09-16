@@ -105,7 +105,7 @@ Azure SQL Server 防火牆可讓您指定接受通訊的 IP 位址範圍, 以 SQ
 
 - 如需從開放原始碼或協力廠商應用程式連線到 Azure SQL 資料庫的說明, 請參閱[SQL Database 的用戶端快速入門程式碼範例](https://msdn.microsoft.com/library/azure/ee336282.aspx)。
 
-- 如需詳細資訊，請參閱[針對 ADO.NET 4.5 及 SQL Database 的 1433 以外的連接埠](sql-database-develop-direct-route-ports-adonet-v12.md)的〈SQL Database：外部與內部**〉一節。
+- 如需詳細資訊，請參閱 [針對 ADO.NET 4.5 及 SQL Database 的 1433 以外的連接埠](sql-database-develop-direct-route-ports-adonet-v12.md)的〈**SQL Database：外部與內部**〉一節。
 
 - 如需 Azure SQL Database 連線的總覽, 請參閱[AZURE SQL 連線架構](sql-database-connectivity-architecture.md)
 

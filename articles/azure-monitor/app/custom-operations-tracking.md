@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 06/30/2017
 ms.reviewer: sergkanz
 ms.author: mbullwin
-ms.openlocfilehash: 34658fb1db84ff09a4c3d22ea95f5bfc7384721d
-ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
+ms.openlocfilehash: 91467f99e7932ce7ffcd5b3300f8544fb848ccfa
+ms.sourcegitcommit: 71db032bd5680c9287a7867b923bf6471ba8f6be
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70883637"
+ms.lasthandoff: 09/16/2019
+ms.locfileid: "71019066"
 ---
 # <a name="track-custom-operations-with-application-insights-net-sdk"></a>使用 Application Insights .NET SDK 追蹤自訂作業
 
@@ -486,7 +486,7 @@ public async Task RunAllTasks()
 ## <a name="next-steps"></a>後續步驟
 
 - 了解 Application Insights 中[遙測相互關聯](correlation.md)的基本概念。
-- 查看相互關聯的資料如何支援[交易診斷體驗](/azure-monitor/app/transaction-diagnostics)和[應用程式對應](/azure-monitor/app/app-map)。
+- 查看相互關聯的資料如何支援[交易診斷體驗](../../azure-monitor/app/transaction-diagnostics.md)和[應用程式對應](../../azure-monitor/app/app-map.md)。
 - 如需 Application Insights 類型和資料模型，請參閱[資料模型](../../azure-monitor/app/data-model.md)。
 - 向 Application Insights 報告自訂[事件和計量](../../azure-monitor/app/api-custom-events-metrics.md)。
 - 請查看內容屬性集合的標準[設定](configuration-with-applicationinsights-config.md#telemetry-initializers-aspnet)。

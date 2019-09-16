@@ -1,21 +1,21 @@
 ---
-title: 使用 Azure Migrate Server 評估來建立評量的最佳做法 |Microsoft Docs
+title: 使用 Azure Migrate Server 評估來建立評量的最佳做法
 description: 提供使用 Azure Migrate Server 評估來建立評量的秘訣。
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 07/15/2019
+ms.date: 09/16/2019
 ms.author: raynew
-ms.openlocfilehash: 18b82b5553f7045c38c9de532199c2a0fd815ee1
-ms.sourcegitcommit: b2db98f55785ff920140f117bfc01f1177c7f7e2
+ms.openlocfilehash: a07e83c805fc422c861f6c644a59da0b42bb8072
+ms.sourcegitcommit: a819209a7c293078ff5377dee266fa76fd20902c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68234306"
+ms.lasthandoff: 09/16/2019
+ms.locfileid: "71007720"
 ---
 # <a name="best-practices-for-creating-assessments"></a>建立評量的最佳做法
 
-[Azure Migrate](migrate-overview.md)提供一種工具中樞, 可協助您探索、評估和遷移應用程式、基礎結構和工作負載, 以 Microsoft Azure。 此中樞包含 Azure Migrate 工具和協力廠商獨立軟體廠商 (ISV) 產品。
+[Azure Migrate](migrate-overview.md) 會提供工具中樞，協助您探索和評估應用程式、基礎結構和工作負載，並且將這些項目遷移至 Microsoft Azure。 此中樞包含 Azure Migrate 工具和第三方獨立軟體廠商 (ISV) 供應項目。
 
 本文摘要說明使用 Azure Migrate Server 評估工具建立評量時的最佳作法。
 
@@ -29,12 +29,12 @@ ms.locfileid: "68234306"
 **依內部部署** | 不使用效能資料來提出建議的評量。 | VM 大小建議是根據內部部署 VM 大小<br/><br> 建議的磁片類型是根據您在評量的 [儲存類型] 設定中所選取的內容。
 
 ### <a name="example"></a>範例
-例如, 如果您的內部部署 VM 有四個核心, 20% 使用率, 而記憶體為 8 GB, 使用率為 10%, 則評量如下:
+例如，如果您的內部部署 VM 有四個核心，20% 使用率，而記憶體為 8 GB，使用率為 10%，則評量如下：
 
 - 以**效能為基礎的評**量:
     - 根據核心 (4 x 0.20 = 0.8) 和記憶體 (8 GB x 0.10 = 0.8) 使用率, 識別有效的核心和記憶體。
-    - 套用評估屬性 (le'ts, 例如 1.3 x) 中所指定的緩和因數, 以取得要用於調整大小的值。 
-    - 建議 Azure 中可支援 ~ 1.4 核心 (0.8 x 1.3) 和 ~ 1.4 GB (0.8 x 1.3) 記憶體的最接近 VM 大小。
+    - 套用評估屬性中所指定的緩和因數（假設為 1.3 x），以取得要用於調整大小的值。 
+    - 建議 Azure 中可支援 ~ 1.04 核心（0.8 x 1.3）和 ~ 1.04 GB （0.8 x 1.3）記憶體的最接近 VM 大小。
 
 - 依身分 **(作為內部部署) 評**量:
     -  建議具有四個核心的 VM;8 GB 的記憶體。
@@ -85,9 +85,9 @@ Azure Migrate 設備會持續分析您的內部部署環境, 並將中繼資料�
 
 - 您未針對正在建立評量的持續時間剖析環境。 例如, 如果您要建立以*效能為基礎的評*量, 並將效能持續時間設定為一周, 則在開始探索以收集所有資料點之後, 您必須至少等候一周。 您隨時可以按一下 [**重新計算**], 以查看最新適用的信賴評等。 信賴評等僅適用于您建立以*效能為基礎*的評量時。
 
-- 少數虛擬機器在評量計算期間關閉。 如果有些 Vm 在某個期間內已關閉電源, 伺服器評估將無法收集該期間的效能資料。
+- 少數虛擬機器在評量計算期間關閉。 如果有某些 VM 在某段期間內關閉電源，伺服器評量將無法收集這段期間的效能資料。
 
-- 伺服器評估中的探索開始之後, 已建立少數 Vm。 例如，如果您要建立過去一個月的效能記錄評量，但是少數虛擬機器在一週前才建立在環境中。 在此情況下, 新 Vm 的效能資料將無法在整個期間內使用, 而信賴評等也會很低。
+- 有少數 VM 是在伺服器評量中的探索啟動後建立的。 例如，如果您要建立過去一個月的效能記錄評量，但是少數虛擬機器在一週前才建立在環境中。 在此情況下，將無法取得新的 VM 在這整段期間內的效能資料，且信賴評等將會偏低。
 
 
 ## <a name="next-steps"></a>後續步驟

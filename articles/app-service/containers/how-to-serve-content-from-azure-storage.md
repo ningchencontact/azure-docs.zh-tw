@@ -8,18 +8,18 @@ ms.workload: web
 ms.topic: article
 ms.date: 2/04/2019
 ms.author: msangapu
-ms.openlocfilehash: 15cb31a3157b034089b1518a4e70eeb93ecc449e
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.openlocfilehash: 97c03ad294bba1f8a0285fff4595991ca0acc8b5
+ms.sourcegitcommit: 71db032bd5680c9287a7867b923bf6471ba8f6be
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67617104"
+ms.lasthandoff: 09/16/2019
+ms.locfileid: "71018266"
 ---
 # <a name="serve-content-from-azure-storage-in-app-service-on-linux"></a>從 Azure 儲存體在 Linux 上的 App Service 中提供內容
 
-本指南說明如何使用 [Azure 儲存體](/azure/storage/common/storage-introduction) 在 Linux 上的 App Service 中提供靜態內容。 好處包括受保護的內容、內容可攜性、可存取多個應用程式，以及多個傳輸方法。
+本指南說明如何使用 [Azure 儲存體](/azure/storage/common/storage-introduction) 在 Linux 上的 App Service 中提供靜態內容。 優點包括安全內容、內容可攜性、持續儲存、存取多個應用程式，以及多個傳輸方法。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 - 現有的 Web 應用程式 (Linux 上的 App Service 或適用於容器的 Web 應用程式)。
 - [Azure CLI](/cli/azure/install-azure-cli) (2.0.46 或更新版本)。
@@ -29,7 +29,7 @@ ms.locfileid: "67617104"
 > [!NOTE]
 > Azure 儲存體為非預設儲存體，並且會分開計費，不包含在 Web 應用程式中。
 >
-> 攜帶您自己的儲存體不支援使用儲存體防火牆組態中，由於基礎結構的限制。
+> 由於基礎結構的限制，因此攜帶您自己的儲存體不支援使用存放裝置防火牆設定。
 >
 
 建立 [Azure 儲存體帳戶](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account?tabs=azure-cli)。
@@ -72,11 +72,11 @@ az webapp config storage-account add --resource-group <group_name> --name <app_n
 az webapp config storage-account list --resource-group <resource_group> --name <app_name>
 ```
 
-## <a name="use-custom-storage-in-docker-compose"></a>使用自訂的儲存體中 Docker Compose
+## <a name="use-custom-storage-in-docker-compose"></a>在 Docker Compose 中使用自訂存放裝置
 
-Azure 儲存體可以裝載多容器應用程式使用的自訂 id。若要檢視自訂識別碼名稱，請執行[ `az webapp config storage-account list --name <app_name> --resource-group <resource_group>` ](/cli/azure/webapp/config/storage-account?view=azure-cli-latest#az-webapp-config-storage-account-list)。
+Azure 儲存體可以透過使用自訂識別碼的多容器應用程式來裝載。若要查看自訂識別碼名稱，請[`az webapp config storage-account list --name <app_name> --resource-group <resource_group>`](/cli/azure/webapp/config/storage-account?view=azure-cli-latest#az-webapp-config-storage-account-list)執行。
 
-在您*docker compose.yml*檔案中，對應`volumes`選項設定為`custom-id`。 例如:
+在您的*docker-compose.dev.debug.yml. yml*檔案中， `volumes`將選項`custom-id`對應至。 例如:
 
 ```yaml
 wordpress:

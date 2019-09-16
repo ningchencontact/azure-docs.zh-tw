@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/01/2018
 ms.author: jingwang
-ms.openlocfilehash: 3b4f1cfe4dbd15f25b4fab92a4bd3b7aee309cb2
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.openlocfilehash: 72cddc56a0b36a1c12b1783fa540f426318df30d
+ms.sourcegitcommit: a819209a7c293078ff5377dee266fa76fd20902c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68720842"
+ms.lasthandoff: 09/16/2019
+ms.locfileid: "71008522"
 ---
 # <a name="copy-data-from-amazon-marketplace-web-service-using-azure-data-factory-preview"></a>使用 Azure Data Factory (預覽) 複製 Amazon Marketplace Web Service 中的資料
 
@@ -27,6 +27,11 @@ ms.locfileid: "68720842"
 > 此連接器目前為預覽版。 您可以親身體驗並提供意見反應。 如果您需要依賴解決方案中的預覽連接器，請連絡 [Azure 支援](https://azure.microsoft.com/support/)。
 
 ## <a name="supported-capabilities"></a>支援的功能
+
+下列活動支援此 Amazon Marketplace Web 服務連接器：
+
+- [複製活動](copy-activity-overview.md)與[支援的來源矩陣](copy-activity-overview.md)
+- [查閱活動](control-flow-lookup-activity.md)
 
 您可以將資料從 Amazon Marketplace Web Service 複製到任何支援的接收資料存放區。 如需複製活動所支援作為來源/接收器的資料存放區清單，請參閱[支援的資料存放區](copy-activity-overview.md#supported-data-stores-and-formats)表格。
 
@@ -42,10 +47,10 @@ Azure Data Factory 提供的內建驅動程式可啟用連線，因此使用此�
 
 以下是針對 Amazon Marketplace Web Service 已連結服務支援的屬性：
 
-| 內容 | 描述 | 必要項 |
+| 屬性 | 描述 | 必要項 |
 |:--- |:--- |:--- |
-| type | 類型屬性必須設定為：**AmazonMWS** | 是 |
-| 端點 | Amazon MWS 伺服器的端點，(也就是 mws.amazonservices.com)  | 是 |
+| Type | 類型屬性必須設定為：**AmazonMWS** | 是 |
+| endpoint | Amazon MWS 伺服器的端點，(也就是 mws.amazonservices.com)  | 是 |
 | marketplaceID | 您想要從中擷取資料的 Amazon Marketplace ID 。 若要從多個 Marketplace 識別碼擷取資料，請以逗號 (`,`) 分隔它們。 (也就是 A2EUQ1WTGCTBG2)  | 是 |
 | sellerID | Amazon 賣方識別碼。  | 是 |
 | mwsAuthToken | Amazon MWS 驗證權杖。 將此欄位標記為 SecureString，將它安全地儲存在 Data Factory 中，或[參考 Azure Key Vault 中儲存的祕密](store-credentials-in-key-vault.md)。 | 是 |
@@ -86,10 +91,10 @@ Azure Data Factory 提供的內建驅動程式可啟用連線，因此使用此�
 
 若要從 Amazon Marketplace Web Service 複製資料，請將資料集的 type 屬性設定為 **AmazonMWSObject**。 以下是支援的屬性：
 
-| 內容 | 描述 | 必要項 |
+| 屬性 | 描述 | 必要項 |
 |:--- |:--- |:--- |
-| type | 資料集的類型屬性必須設定為：**AmazonMWSObject** | 是 |
-| tableName | 資料表的名稱。 | 否 (如果已指定活動來源中的「查詢」) |
+| Type | 資料集的類型屬性必須設定為：**AmazonMWSObject** | 是 |
+| tableName | 資料表的名稱。 | 否 (如果已指定活動來源中的"query") |
 
 **範例**
 
@@ -111,7 +116,7 @@ Azure Data Factory 提供的內建驅動程式可啟用連線，因此使用此�
 
 ## <a name="copy-activity-properties"></a>複製活動屬性
 
-如需可用來定義活動的區段和屬性完整清單，請參閱[管線](concepts-pipelines-activities.md)一文。 本節提供 Amazon Marketplace Web Service 來源所支援的屬性清單。
+如需可用來定義活動的區段和屬性完整清單，請參閱[Pipelines](concepts-pipelines-activities.md)一文。 本節提供 Amazon Marketplace Web Service 來源所支援的屬性清單。
 
 ### <a name="amazon-mws-as-source"></a>Amazon MWS 作為來源
 
@@ -119,8 +124,8 @@ Azure Data Factory 提供的內建驅動程式可啟用連線，因此使用此�
 
 | 屬性 | 描述 | 必要項 |
 |:--- |:--- |:--- |
-| type | 複製活動來源的類型屬性必須設定為：**AmazonMWSSource** | 是 |
-| 查詢 | 使用自訂 SQL 查詢來讀取資料。 例如： `"SELECT * FROM Orders where  Amazon_Order_Id = 'xx'"` 。 | 否 (如果已指定資料集中的 "tableName") |
+| Type | 複製活動來源的類型屬性必須設定為：**AmazonMWSSource** | 是 |
+| query | 使用自訂 SQL 查詢來讀取資料。 例如： `"SELECT * FROM Orders where  Amazon_Order_Id = 'xx'"` 。 | 否 (如果已指定資料集中的 "tableName") |
 
 **範例:**
 
@@ -153,6 +158,10 @@ Azure Data Factory 提供的內建驅動程式可啟用連線，因此使用此�
     }
 ]
 ```
+
+## <a name="lookup-activity-properties"></a>查閱活動屬性
+
+若要瞭解屬性的詳細資料，請檢查[查閱活動](control-flow-lookup-activity.md)。
 
 ## <a name="next-steps"></a>後續步驟
 如需 Azure Data Factory 中的複製活動所支援作為來源和接收器的資料存放區清單，請參閱[支援的資料存放區](copy-activity-overview.md#supported-data-stores-and-formats)。

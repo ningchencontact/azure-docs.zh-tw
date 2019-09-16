@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: 1531ed86c36182daad61f139ced3a814634e8b6e
-ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
+ms.openlocfilehash: 442ceab68851dc108d327cdf212dcf58d5b31084
+ms.sourcegitcommit: a819209a7c293078ff5377dee266fa76fd20902c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70845255"
+ms.lasthandoff: 09/16/2019
+ms.locfileid: "71008570"
 ---
 # <a name="capture-events-through-azure-event-hubs-in-azure-blob-storage-or-azure-data-lake-storage"></a>透過 Azure 事件中樞在 Azure Blob 儲存體或 Azure Data Lake Storage 中擷取事件
 Azure 事件中樞可讓您自動將事件中樞的串流資料擷取至您選擇的 [Azure Blob 儲存體](https://azure.microsoft.com/services/storage/blobs/)或 [Azure Data Lake Storage](https://azure.microsoft.com/services/data-lake-store/) 帳戶，並另外增加了可指定時間或大小間隔的彈性。 設定擷取的作業很快，因此執行時不需要系統管理成本，而且它可以針對事件中樞的[輸送量單位](event-hubs-scalability.md#throughput-units)自動進行調整。 事件中樞擷取是將串流資料載入至 Azure 的最簡單方式，並可讓您專注於處理資料而非擷取資料。
@@ -103,7 +103,7 @@ https://github.com/yorek/apache-drill-azure-blob
 [Avro 工具][Avro Tools]是以 jar 套件的形式提供。 下載 jar 檔案之後，您可以執行下列命令來查看特定 Avro 檔案的結構描述︰
 
 ```shell
-java -jar avro-tools-1.8.2.jar getschema <name of capture file>
+java -jar avro-tools-1.9.1.jar getschema <name of capture file>
 ```
 
 此命令會傳回
@@ -156,7 +156,7 @@ Apache Avro 已完成適用于[JAVA][Java]和[Python][Python]的消費者入門�
 [support request]: https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade
 [Azure Storage Explorer]: https://azurestorageexplorer.codeplex.com/
 [3]: ./media/event-hubs-capture-overview/event-hubs-capture3.png
-[Avro Tools]: https://www.apache.org/dist/avro/stable/java/avro-1.9.1-javadoc.jar
+[Avro Tools]: https://www.apache.org/dist/avro/stable/java/avro-tools-1.9.1.jar
 [Java]: https://avro.apache.org/docs/current/gettingstartedjava.html
 [Python]: https://avro.apache.org/docs/current/gettingstartedpython.html
 [Event Hubs overview]: event-hubs-what-is-event-hubs.md

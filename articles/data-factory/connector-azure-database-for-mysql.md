@@ -1,6 +1,6 @@
 ---
 title: 使用 Azure Data Factory 在適用於 MySQL 的 Azure 資料庫之間複製資料 |Microsoft Docs
-description: 瞭解如何使用 Azure Data Factory 管線中的複製活動, 將資料複製到適用於 MySQL 的 Azure 資料庫。
+description: 瞭解如何使用 Azure Data Factory 管線中的複製活動，將資料複製到適用於 MySQL 的 Azure 資料庫。
 services: data-factory
 documentationcenter: ''
 author: linda33wj
@@ -12,22 +12,27 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/25/2019
 ms.author: jingwang
-ms.openlocfilehash: b6d96ef2d2cdd79bec35f2581876823990e4a971
-ms.sourcegitcommit: ee61ec9b09c8c87e7dfc72ef47175d934e6019cc
+ms.openlocfilehash: c15a60b7329359ee8d3e429159eb178c0c9b4782
+ms.sourcegitcommit: 71db032bd5680c9287a7867b923bf6471ba8f6be
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70172607"
+ms.lasthandoff: 09/16/2019
+ms.locfileid: "71018756"
 ---
 # <a name="copy-data-to-and-from-azure-database-for-mysql-using-azure-data-factory"></a>使用 Azure Data Factory 從適用於 MySQL 的 Azure 資料庫複製資料
 
 本文概述如何使用 Azure Data Factory 中的「複製活動」，從適用於 MySQL 的 Azure 資料庫複製資料。 本文是根據[複製活動概觀](copy-activity-overview.md)一文，該文提供複製活動的一般概觀。
 
-此連接器專為[適用於 MySQL 的 Azure 資料庫服務](../mysql/overview.md)而特製化。 若要從位於內部部署或雲端的一般 MySQL 資料庫複製資料, 請使用[MySQL 連接器](connector-mysql.md)。
+此連接器專為[適用於 MySQL 的 Azure 資料庫服務](../mysql/overview.md)而特製化。 若要從位於內部部署或雲端的一般 MySQL 資料庫複製資料，請使用[MySQL 連接器](connector-mysql.md)。
 
 ## <a name="supported-capabilities"></a>支援的功能
 
-您可以將資料從適用於 MySQL 的 Azure 資料庫複製到任何支援的接收資料存放區。 或者, 您可以將資料從任何支援的來源資料存放區複製到適用於 MySQL 的 Azure 資料庫。 如需複製活動所支援作為來源/接收器的資料存放區清單，請參閱[支援的資料存放區](copy-activity-overview.md#supported-data-stores-and-formats)表格。
+下列活動支援此適用於 MySQL 的 Azure 資料庫連接器：
+
+- [複製活動](copy-activity-overview.md)與[支援的來源/接收矩陣](copy-activity-overview.md)
+- [查閱活動](control-flow-lookup-activity.md)
+
+您可以將資料從適用於 MySQL 的 Azure 資料庫複製到任何支援的接收資料存放區。 或者，您可以將資料從任何支援的來源資料存放區複製到適用於 MySQL 的 Azure 資料庫。 如需複製活動所支援作為來源/接收器的資料存放區清單，請參閱[支援的資料存放區](copy-activity-overview.md#supported-data-stores-and-formats)表格。
 
 Azure Data Factory 提供的內建驅動程式可啟用連線，因此使用此連接器您不需要手動安裝任何驅動程式。
 
@@ -139,13 +144,13 @@ Azure Data Factory 提供的內建驅動程式可啟用連線，因此使用此�
 
 ### <a name="azure-database-for-mysql-as-source"></a>適用於 MySQL 的 Azure 資料庫作為來源
 
-若要從適用於 MySQL 的 Azure 資料庫複製資料, 複製活動的 [**來源**] 區段中支援下列屬性:
+若要從適用於 MySQL 的 Azure 資料庫複製資料，複製活動的 [**來源**] 區段中支援下列屬性：
 
 | 屬性 | 描述 | 必要項 |
 |:--- |:--- |:--- |
 | Type | 複製活動來源的類型屬性必須設定為：**AzureMySqlSource** | 是 |
 | query | 使用自訂 SQL 查詢來讀取資料。 例如： `"SELECT * FROM MyTable"` 。 | 否 (如果已指定資料集中的 "tableName") |
-| queryCommandTimeout | 查詢要求逾時之前的等待時間。預設值為120分鐘 (02:00:00) | 否 |
+| queryCommandTimeout | 查詢要求逾時之前的等待時間。預設值為120分鐘（02:00:00） | 否 |
 
 **範例:**
 
@@ -181,15 +186,14 @@ Azure Data Factory 提供的內建驅動程式可啟用連線，因此使用此�
 
 ### <a name="azure-database-for-mysql-as-sink"></a>做為接收的適用於 MySQL 的 Azure 資料庫
 
-若要將資料複製到適用於 MySQL 的 Azure 資料庫, 複製活動的 [**接收**] 區段中支援下列屬性:
+若要將資料複製到適用於 MySQL 的 Azure 資料庫，複製活動的 [**接收**] 區段中支援下列屬性：
 
 | 屬性 | 描述 | 必要項 |
 |:--- |:--- |:--- |
 | Type | 複製活動接收器的類型屬性必須設定為：**AzureMySqlSink** | 是 |
-| preCopyScript | 指定在每次執行中將資料寫入適用於 MySQL 的 Azure 資料庫之前, 複製活動所要執行的 SQL 查詢。 您可以使用此屬性來清除預先載入的資料。 | 否 |
-| writeBatchSize | 當緩衝區大小達到 writeBatchSize 時, 將資料插入適用於 MySQL 的 Azure 資料庫資料表。<br>允許的值為代表資料列數目的整數。 | 否 (預設值為 10000) |
-| writeBatchTimeout | 在逾時前等待批次插入作業完成的時間。<br> 
-允許的值為時間範圍。 範例是 00:30:00 (30 分鐘)。 | 否 (預設值為 00:00:30) |
+| preCopyScript | 指定在每次執行中將資料寫入適用於 MySQL 的 Azure 資料庫之前，複製活動所要執行的 SQL 查詢。 您可以使用此屬性來清除預先載入的資料。 | 否 |
+| writeBatchSize | 當緩衝區大小達到 writeBatchSize 時，將資料插入適用於 MySQL 的 Azure 資料庫資料表。<br>允許的值為代表資料列數目的整數。 | 否 (預設值為 10000) |
+| writeBatchTimeout | 在逾時前等待批次插入作業完成的時間。<br>允許的值為時間範圍。 範例是 00:30:00 (30 分鐘)。 | 否（預設值為00:00:30） |
 
 **範例:**
 
@@ -223,6 +227,10 @@ Azure Data Factory 提供的內建驅動程式可啟用連線，因此使用此�
     }
 ]
 ```
+
+## <a name="lookup-activity-properties"></a>查閱活動屬性
+
+若要瞭解屬性的詳細資料，請檢查[查閱活動](control-flow-lookup-activity.md)。
 
 ## <a name="data-type-mapping-for-azure-database-for-mysql"></a>適用於 MySQL 的 Azure 資料庫的資料類型對應
 

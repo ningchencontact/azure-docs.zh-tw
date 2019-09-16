@@ -13,21 +13,21 @@ ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: malop
 ms.reviewer: kumud
-ms.openlocfilehash: 80d89914f33273fcb033ab47098a8864b11974c9
-ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
+ms.openlocfilehash: c345b31c218c4678e7811c36113c94e0c4d2ac03
+ms.sourcegitcommit: 71db032bd5680c9287a7867b923bf6471ba8f6be
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "67876154"
+ms.lasthandoff: 09/16/2019
+ms.locfileid: "71019048"
 ---
 # <a name="virtual-network-integration-for-azure-services"></a>Azure 服務的虛擬網路整合
 
 透過將 Azure 服務整合到 Azure 虛擬網路，可以啟用從虛擬機器或虛擬網路中的計算資源對服務進行私下存取。
 您可以使用下列選項，在虛擬網路中整合 Azure 服務：
 - 將服務的專用執行個體部署至虛擬網路。 然後，在虛擬網路和內部部署網路中，可以私下存取這些服務。
-- 透過服務端點將虛擬網路擴充至服務。 服務端點可保障虛擬網路使用得到個別服務資源。
+- 使用[私用連結](../private-link/private-link-overview.md)，從您的虛擬網路和內部部署網路私下存取特定的服務實例。
 
-若要將多個 Azure 服務整合到您的虛擬網路，您可以結合上述一或多種模式。 例如，您可以將 HDInsight 部署到您的虛擬網路，並透過服務端點保護 HDInsight 子網路的儲存體帳戶。
+您也可以透過[服務端點](virtual-network-service-endpoints-overview.md)將虛擬網路擴充至服務，藉以使用公用端點來存取服務。 服務端點可讓服務資源安全地提供給虛擬網路。
  
 ## <a name="deploy-azure-services-into-virtual-networks"></a>將 Azure 服務部署至虛擬網路
 
@@ -57,12 +57,7 @@ ms.locfileid: "67876154"
 | 身分識別 | [Azure Active Directory 網域服務](../active-directory-domain-services/active-directory-ds-getting-started-vnet.md?toc=%2fazure%2fvirtual-network%2ftoc.json) |否 <br/>
 | 容器 | [Azure Kubernetes Service (AKS)](../aks/concepts-network.md?toc=%2fazure%2fvirtual-network%2ftoc.json)<br/>[Azure 容器執行個體 (ACI)](https://www.aka.ms/acivnet)<br/>[Azure Container Service 引擎](https://github.com/Azure/acs-engine)搭配 Azure 虛擬網路 CNI [外掛程式](https://github.com/Azure/acs-engine/tree/master/examples/vnet)|否²<br/> 是 <br/><br/> 否
 | Web | [API 管理](../api-management/api-management-using-with-vnet.md?toc=%2fazure%2fvirtual-network%2ftoc.json)<br/>[App Service 環境](../app-service/web-sites-integrate-with-vnet.md?toc=%2fazure%2fvirtual-network%2ftoc.json)<br/>[Azure Logic Apps](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)<br/>|是 <br/> 是 <br/> 是
-| 裝載 | [Azure 專用 HSM](../dedicated-hsm/index.yml?toc=%2fazure%2fvirtual-network%2ftoc.json)<br/>[Azure NetApp Files](../azure-netapp-files/azure-netapp-files-introduction.md?toc=%2fazure%2fvirtual-network%2ftoc.json)<br/>|是 <br/> 是 <br/>
+| 已裝載 | [Azure 專用 HSM](../dedicated-hsm/index.yml?toc=%2fazure%2fvirtual-network%2ftoc.json)<br/>[Azure NetApp Files](../azure-netapp-files/azure-netapp-files-introduction.md?toc=%2fazure%2fvirtual-network%2ftoc.json)<br/>|是 <br/> 是 <br/>
 | | |
 
 ¹「專用」意指只有服務特定資源可以部署在此子網中, 且無法與客戶 VM/VMSSs 結合 <br/> 建議使用², 但不是服務所加諸的強制需求。
-
-
-## <a name="service-endpoints-for-azure-services"></a>Azure 服務的服務端點
-
-某些 Azure 服務無法部署在虛擬網路中。 您可以選擇將部分的服務資源只開放給特定虛擬網路子網路存取，只要啟用虛擬網路服務端點即可。  深入了解[虛擬網路服務端點](virtual-network-service-endpoints-overview.md)，以及可啟用端點的服務。
