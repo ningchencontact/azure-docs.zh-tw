@@ -142,4 +142,4 @@ export type Configuration = {
 這些僅適用于從 MSAL 角包裝函式程式庫傳遞:
 - **unprotectedResources**:選擇性。  未受保護資源的 Uri 陣列。 MSAL 不會將權杖附加至具有這些 URI 的連出要求。 預設值為 `null`。
 
-- **protectedResourceMap**:選擇性。  這是將資源對應到 MSAL 用來在 Web API 呼叫中自動附加存取權杖的範圍。 會取得資源的單一存取權杖。 因此, 您可以將特定的資源路徑對應如下: https://graph.microsoft.com/v1.0/me {"", ["user. read"]}, 或資源的應用程式 URL, 如下所示: {"https://graph.microsoft.com/", ["user. read", "mail. send"]}。 這是 CORS 呼叫的必要參數。 預設值為 `null`。
+- **protectedResourceMap**:選擇性。  這是將資源對應到 MSAL 用來在 Web API 呼叫中自動附加存取權杖的範圍。 會取得資源的單一存取權杖。 因此, 您可以將特定的資源路徑對應如下: "https://graph.microsoft.com/v1.0/me" {"", ["user. read"]}, 或資源的應用程式 URL, 如下所示: {"https://graph.microsoft.com/", ["user. read", "mail. send"]}。 這是 CORS 呼叫的必要參數。 預設值為 `null`。
