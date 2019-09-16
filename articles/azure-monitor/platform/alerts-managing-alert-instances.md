@@ -1,5 +1,5 @@
 ---
-title: 管理警示執行個體
+title: 管理 Azure 監視器中的警示實例
 description: 管理整個 Azure 中的警示執行個體
 author: anantr
 services: monitoring
@@ -8,42 +8,51 @@ ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: anantr
 ms.subservice: alerts
-ms.openlocfilehash: dbc7d37ce311d203ee051b5a23632d2bf401e27a
-ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
+ms.openlocfilehash: f97fa69926cd9c59a0617f409c72610336120333
+ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/26/2019
-ms.locfileid: "70034834"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70916001"
 ---
-# <a name="manage-alert-instances"></a>管理警示執行個體
-透過 Azure 監視器的[整合警示體驗](https://aka.ms/azure-alerts-overview)，您現在可以在單一窗格，看到整個 Azure 跨越多個訂用帳戶中所有不同類型的警示。 此文章逐步引導您檢視警示執行個體，以及深入使用入口網站來找到特定警示執行個體進行疑難排解。
+# <a name="manage-alert-instances-with-unified-alerts"></a>使用整合警示管理警示實例
+透過 Azure 監視器中的[整合警示體驗](https://aka.ms/azure-alerts-overview)，您可以在 Azure 中查看所有不同類型的警示。 這會跨越單一窗格中的多個訂用帳戶。 本文說明如何查看您的警示實例，以及如何尋找特定的警示實例以進行疑難排解。
 
 > [!NOTE]
-   >  只有在過去30天內產生的警示可以在 UX 或透過 REST Api 存取。
+   >  您只能存取過去30天內產生的警示。
 
-1. 有三種方式可進入 [警示] 頁面
+## <a name="go-to-the-alerts-page"></a>移至 [警示] 頁面
 
-   + 在[入口網站](https://portal.azure.com/)中選取 [監視]，然後在 [監視] 區段下選擇 [警示]。  
-     ![監視](media/alerts-managing-alert-instances/monitoring-alerts-managing-alert-instances-toc.jpg)
+您可以透過下列任何方式移至 [警示] 頁面：
+
+   + 在 [Azure 入口網站](https://portal.azure.com/)中，選取 [**監視** > ] [**警示**]。  
+     ![監視警示的螢幕擷取畫面](media/alerts-managing-alert-instances/monitoring-alerts-managing-alert-instances-toc.jpg)
   
-   + 您可以從特定**資源**的內容中瀏覽 [警示]。 開啟資源之後，透過其目錄瀏覽到 [監視] 區段，然後在為該特定資源預先篩選的登陸頁面，選擇 [警示]。
+   + 使用特定資源的內容。 開啟資源，移至 [**監視**] 區段，然後選擇 [**警示**]。 已針對該特定資源的警示預先篩選登陸頁面。
    
-     ![監視](media/alerts-managing-alert-instances/alert-resource.JPG)
+     ![資源監視警示的螢幕擷取畫面](media/alerts-managing-alert-instances/alert-resource.JPG)
     
-   + 您可以從特定**資源群組**的內容中瀏覽 [警示]。 開啟資源群組之後，透過其目錄瀏覽到 [監視] 區段，然後在為該特定資源群組預先篩選的登陸頁面，選擇 [警示]。    
+   + 使用特定資源群組的內容。 開啟資源群組，移至 [**監視**] 區段，然後選擇 [**警示**]。 已針對該特定資源群組的警示預先篩選登陸頁面。    
    
-     ![監視](media/alerts-managing-alert-instances/alert-rg.JPG)
+     ![資源群組監視警示的螢幕擷取畫面](media/alerts-managing-alert-instances/alert-rg.JPG)
 
-1. 您會進入 [警示摘要] 頁面，該頁面提供整個 Azure 中所有警示執行個體的概觀。 您可以選取**多個訂用帳戶** (以 5 個為限) 或跨**資源群組**、特定**資源**或**時間範圍**篩選，來修改摘要檢視。 按一下 [警示總計] 或任何嚴重性級區，移至警示的清單檢視。     
-   ![警示摘要](media/alerts-managing-alert-instances/alerts-summary.jpg)
+## <a name="find-alert-instances"></a>尋找警示實例
+
+[**警示摘要**] 頁面可讓您大致瞭解 Azure 中的所有警示實例。 您可以選取**多個**訂用帳戶（最多5個），或跨**資源群組**、特定**資源**或**時間範圍**進行篩選，以修改摘要視圖。 選取 [**警示總計**] 或任何嚴重性群組，以移至警示的清單視圖。     
+   ![警示摘要頁面的螢幕擷取畫面](media/alerts-managing-alert-instances/alerts-summary.jpg)
  
-1. 您會進入 [所有警示] 頁面，其中會列出整個 Azure 中的所有警示執行個體。如果您是從警示通知來到入口網站，則可以使用提供的篩選條件，將範圍縮小至該特定警示執行個體。 (**注意**：如果您按一下任何嚴重性級區才來到此頁面時，當您進入時，已針對該嚴重性預先篩選該清單)。 除了先前頁面上提供的篩選條件，您現在也可以根據監視服務 (例如，計量的平台)、監視器條件 (已引發或已解決)、嚴重性、警示狀態 (新增/已通知/已關閉) 或智慧群組識別碼來篩選。
+在 [**所有警示**] 頁面上，會列出 Azure 上的所有警示實例。 如果您是從警示通知來到入口網站，則可以使用提供的篩選條件，將範圍縮小至該特定警示執行個體。
 
-   ![所有警示](media/alerts-managing-alert-instances/all-alerts.jpg)
+> [!NOTE]
+>  如果您藉由選取任何嚴重性區段來進入頁面，則會針對該嚴重性預先篩選清單。
+
+除了上一頁提供的篩選之外，您也可以根據監視服務（例如，適用于計量的平臺）、監視條件（已引發或已解決）、嚴重性、警示狀態（新的/已認可/已關閉）或智慧群組識別碼來進行篩選。
+
+   ![[所有警示] 頁面的螢幕擷取畫面](media/alerts-managing-alert-instances/all-alerts.jpg)
 
    > [!NOTE]
-   >  如果您按一下任何嚴重性級區才來到此頁面時，當您進入此頁面時，已針對該嚴重性預先篩選該清單。
+   >  如果您藉由選取任何嚴重性區段來進入頁面，則會針對該嚴重性預先篩選清單。
  
-1. 按一下任何警示執行個體，隨即會開啟 [警示詳細資料] 頁面，讓您將深入了解到該特定警示執行個體的相關資訊。   
-   ![警示詳細資料](media/alerts-managing-alert-instances/alert-details.jpg)  
+選取任何警示實例會開啟 [**警示詳細資料**] 頁面，讓您可以查看有關該特定警示實例的更多詳細資料。   
+   ![[警示詳細資料] 頁面的螢幕擷取畫面](media/alerts-managing-alert-instances/alert-details.jpg)  
 

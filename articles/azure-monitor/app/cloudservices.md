@@ -13,15 +13,15 @@ ms.topic: conceptual
 ms.workload: tbd
 ms.date: 09/05/2018
 ms.author: mbullwin
-ms.openlocfilehash: 64995ad0560efd06bfa0084c948527e8a01e1890
-ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
+ms.openlocfilehash: 9325d2dd6c897f4c8dacb3dcf3a382f9f0e856a8
+ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "67443344"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70932999"
 ---
 # <a name="application-insights-for-azure-cloud-services"></a>Azure 雲端服務的 Application Insights
-[Application Insights][start]可以藉由結合來自 Application Insights sdk 的資料與雲端服務的[Azure 診斷](https://docs.microsoft.com/azure/monitoring-and-diagnostics/azure-diagnostics)資料, 來監視[Azure 雲端服務應用程式](https://azure.microsoft.com/services/cloud-services/)的可用性、效能、失敗和使用方式。 當您取得有關應用程式在現實世界的效能和效率的意見反應時，您可以在每個開發生命週期中針對設計方向做出明智的抉擇。
+[Application Insights][start]可以藉由結合來自 Application Insights sdk 的資料與雲端服務的[Azure 診斷](https://docs.microsoft.com/azure/monitoring-and-diagnostics/azure-diagnostics)資料，來監視[Azure 雲端服務應用程式](https://azure.microsoft.com/services/cloud-services/)的可用性、效能、失敗和使用方式。 當您取得有關應用程式在現實世界的效能和效率的意見反應時，您可以在每個開發生命週期中針對設計方向做出明智的抉擇。
 
 ![概觀儀表板](./media/cloudservices/overview-graphs.png)
 
@@ -41,7 +41,7 @@ ms.locfileid: "67443344"
 
 如果此選項就是您所需的一切，您就已大功告成。 
 
-接下來的步驟是[從您的應用程式中查看計量](../../azure-monitor/app/metrics-explorer.md),[流量分析查詢您的資料](../../azure-monitor/app/analytics.md)。 
+接下來的步驟是[從您的應用程式中查看計量](../../azure-monitor/app/metrics-explorer.md)，[流量分析查詢您的資料](../../azure-monitor/app/analytics.md)。 
 
 若要在瀏覽器中監視效能，您可以設定[可用性測試](../../azure-monitor/app/monitor-web-app-availability.md)及[在網頁中新增程式碼](../../azure-monitor/app/javascript.md)。
 
@@ -80,12 +80,13 @@ ms.locfileid: "67443344"
 
 如果您已決定為每個角色建立個別的資源，或許也為每個組建組態建立一組個別的資源，則最簡單的方式就是全部都在 Application Insights 入口網站中建立。 如果您要建立很多資源，您可以[將程序自動化](../../azure-monitor/app/powershell.md)。
 
-1. 在 [Azure 入口網站][portal]中, 選取 [**新增** > **開發人員服務** >  **Application Insights**]。  
+1. 在 [Azure 入口網站][portal]中，選取 [**新增** > **開發人員服務** >  **Application Insights**]。  
 
     ![Application Insights 窗格](./media/cloudservices/01-new.png)
 
-1. 在 [應用程式類型] 下拉式清單中，選取 [ASP.NET Web 應用程式]。  
-    每項資源均會以檢測金鑰來識別。 如果您想要手動設定或確認 SDK 的組態，稍後可能會需要此金鑰。
+1. 在 [應用程式類型] 下拉式清單中，選取 [ASP.NET Web 應用程式]。
+
+每項資源均會以檢測金鑰來識別。 如果您想要手動設定或確認 SDK 的組態，稍後可能會需要此金鑰。
 
 
 ## <a name="set-up-azure-diagnostics-for-each-role"></a>設定每個角色的 Azure 診斷
@@ -133,14 +134,15 @@ ms.locfileid: "67443344"
     * [背景工作角色](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/Samples/AzureEmailService/WorkerRoleA/WorkerRoleA.cs#L232)
     * [對於網頁](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/Samples/AzureEmailService/MvcWebRole/Views/Shared/_Layout.cshtml#L13) 
 
-1. 將 *ApplicationInsights.config* 檔案設定為一律複製到輸出目錄。  
-    *.config* 檔案中的訊息會要求您將檢測金鑰放置在此處。 不過針對雲端應用程式，最好是從 *.cscfg* 檔案中設定。 此方法可確保角色會在入口網站中正確識別。
+1. 將 *ApplicationInsights.config* 檔案設定為一律複製到輸出目錄。
 
-## <a name="set-up-status-monitor-to-collect-full-sql-queries-optional"></a>設定狀態監視器以收集完整的 SQL 查詢 (選擇性)
+   *.config* 檔案中的訊息會要求您將檢測金鑰放置在此處。 不過針對雲端應用程式，最好是從 *.cscfg* 檔案中設定。 此方法可確保角色會在入口網站中正確識別。
 
-只有當您想要在 .NET Framework 上捕獲完整的 SQL 查詢時, 才需要執行此步驟。 
+## <a name="set-up-status-monitor-to-collect-full-sql-queries-optional"></a>設定狀態監視器以收集完整的 SQL 查詢（選擇性）
 
-1. 在`\*.csdef` [檔案] 中, 為每個角色新增[啟動](https://docs.microsoft.com/azure/cloud-services/cloud-services-startup-tasks)工作, 如下所示 
+只有當您想要在 .NET Framework 上捕獲完整的 SQL 查詢時，才需要執行此步驟。 
+
+1. 在`\*.csdef` [檔案] 中，為每個角色新增[啟動](https://docs.microsoft.com/azure/cloud-services/cloud-services-startup-tasks)工作，如下所示 
 
     ```xml
     <Startup>
@@ -155,9 +157,9 @@ ms.locfileid: "67443344"
     </Startup>
     ```
     
-2. 下載[InstallAgent](https://github.com/microsoft/ApplicationInsights-Home/blob/master/Samples/AzureEmailService/WorkerRoleA/AppInsightsAgent/InstallAgent.bat)和[InstallAgent](https://github.com/microsoft/ApplicationInsights-Home/blob/master/Samples/AzureEmailService/WorkerRoleA/AppInsightsAgent/InstallAgent.ps1), 將它們放入每個角色專案`AppInsightsAgent`的資料夾中。 請務必透過 Visual Studio 檔案屬性或組建腳本, 將它們複製到輸出目錄。
+2. 下載[InstallAgent](https://github.com/microsoft/ApplicationInsights-Home/blob/master/Samples/AzureEmailService/WorkerRoleA/AppInsightsAgent/InstallAgent.bat)和[InstallAgent](https://github.com/microsoft/ApplicationInsights-Home/blob/master/Samples/AzureEmailService/WorkerRoleA/AppInsightsAgent/InstallAgent.ps1)，將它們放入每個角色專案`AppInsightsAgent`的資料夾中。 請務必透過 Visual Studio 檔案屬性或組建腳本，將它們複製到輸出目錄。
 
-3. 在所有背景工作角色上, 新增環境變數: 
+3. 在所有背景工作角色上，新增環境變數： 
 
     ```xml
       <Environment>
@@ -171,16 +173,19 @@ ms.locfileid: "67443344"
 
 1. 執行應用程式，並且登入 Azure。 
 
-1. 開啟您建立的 Application Insights 資源。  
-    個別資料點會顯示在[搜尋](../../azure-monitor/app/diagnostic-search.md)中，彙總的資料則會顯示在[計量瀏覽器](../../azure-monitor/app/metrics-explorer.md)中。 
+1. 開啟您建立的 Application Insights 資源。
+
+   個別資料點會顯示在[搜尋][diagnostic]中，彙總的資料則會顯示在[計量瀏覽器](../../azure-monitor/app/metrics-explorer.md)中。
 
 1. 新增更多遙測 (請參閱以下章節)，然後再發佈應用程式以取得即時診斷和使用方式的意見反應。 
 
 如果沒有任何資料，請執行下列作業：
-1. 若要查看個別事件, 請開啟 [[搜尋][diagnostic]] 磚。
+
+1. 若要查看個別事件，請開啟 [[搜尋][diagnostic]] 磚。
 1. 在應用程式中開啟各種頁面，以產生一些遙測。
 1. 請稍等片刻，然後按一下 [重新整理]。  
-    如需詳細資訊，請參閱 [疑難排解][qna]。
+
+如需詳細資訊，請參閱 [疑難排解][qna]。
 
 ## <a name="view-azure-diagnostics-events"></a>檢視 Azure 診斷事件
 您可以在 Application Insights 的下列位置中，找到 [Azure 診斷](https://docs.microsoft.com/azure/monitoring-and-diagnostics/azure-diagnostics)資訊：
@@ -254,10 +259,10 @@ ms.locfileid: "67443344"
 * 新增自訂的遙測初始設定式。 您可以在 *ApplicationInsights.config* 檔案或程式碼中執行此作業，[如此範例所示](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/Samples/AzureEmailService/WorkerRoleA/WorkerRoleA.cs#L233)。
 
 ## <a name="client-telemetry"></a>用戶端遙測
-若要取得以瀏覽器為基礎的遙測資料, 例如網頁檢視計數、頁面載入時間或腳本例外狀況, 並在頁面腳本中撰寫自訂遙測, 請參閱[將 JAVASCRIPT SDK 新增至您的網頁][client]。
+若要取得以瀏覽器為基礎的遙測資料，例如網頁檢視計數、頁面載入時間或腳本例外狀況，並在頁面腳本中撰寫自訂遙測，請參閱[將 JAVASCRIPT SDK 新增至您的網頁][client]。
 
 ## <a name="availability-tests"></a>可用性測試
-若要確保您的應用程式保持上線並回應, 請[設定 web 測試][availability]。
+若要確保您的應用程式保持上線並回應，請[設定 web 測試][availability]。
 
 ## <a name="display-everything-together"></a>將所有內容一起顯示
 如需您系統的整體情況，您可以將重要的監視圖表在一個[儀表板](../../azure-monitor/app/overview-dashboard.md)上一起顯示。 例如，您可以釘選每個角色的要求和失敗計數。 

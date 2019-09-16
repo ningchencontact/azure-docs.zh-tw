@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: c4e87b2e7e0d9154d0cb649d334daa394cd51935
-ms.sourcegitcommit: b7b0d9f25418b78e1ae562c525e7d7412fcc7ba0
-ms.translationtype: HT
+ms.openlocfilehash: b28788ac7b3ce4e1997b71c683f8e0445406a391
+ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/08/2019
-ms.locfileid: "70802316"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70915622"
 ---
 # <a name="request-public-transit-data-using-the-azure-maps-mobility-service"></a>使用 Azure 地圖服務行動服務來要求公開傳輸資料 
 
@@ -30,7 +30,7 @@ ms.locfileid: "70802316"
 
 ## <a name="prerequisites"></a>必要條件
 
-若要對 Azure 地圖服務公用傳輸 Api 進行任何呼叫，您需要地圖服務帳戶和金鑰。 如需建立帳戶和擷取金鑰的相關資訊，請參閱[如何管理 Azure 地圖服務帳戶和金鑰](how-to-manage-account-keys.md)。
+若要對 Azure 地圖服務公用傳輸 Api 進行任何呼叫，您需要地圖服務帳戶和金鑰。 如需建立帳戶的相關資訊，請遵循[管理帳戶](https://docs.microsoft.com/azure/azure-maps/how-to-manage-account-keys#create-a-new-account)中的指示，然後依照[取得主要金鑰](./tutorial-search-location.md#getkey)中的步驟來抓取您帳戶的主要訂用帳戶金鑰。
 
 本文使用 [Postman 應用程式](https://www.getpostman.com/apps)來建置 REST 呼叫。 您可以使用您偏好的任何 API 開發環境。
 
