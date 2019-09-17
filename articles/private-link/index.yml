@@ -1,0 +1,55 @@
+### YamlMime:Landing
+title: Private Link 文件
+summary: Azure Private Link 可讓您存取各項 Azure PaaS 服務 (例如 Azure 儲存體和 SQL Database)，並透過虛擬網路中的私人端點裝載 Azure 的客戶擁有/合作夥伴服務。  虛擬網路和服務間的流量會在通過 Microsoft 骨幹網路時隨之減少，降低資料在網際網路中公開的風險。 您也可以在虛擬網路中建立自己的 Private Link 服務，並私下提供給您的客戶。
+metadata:
+  title: Private Link 文件 - -快速入門、操作指南及 API 參考文件
+  description: 了解如何使用 Azure Private Link 服務。 快速入門和教學課程會示範如何部署 Private Link 服務。
+  ms.service: virtual-network
+  ms.topic: landing-page
+  ms.collection: collection
+  author: KumudD
+  ms.author: kumud
+  ms.date: 09/16/2019
+  ms.openlocfilehash: 867c20b96f8a48aeb52e455d718057e686ddfcbe
+  ms.sourcegitcommit: 71db032bd5680c9287a7867b923bf6471ba8f6be
+  ms.translationtype: HT
+  ms.contentlocale: zh-TW
+  ms.lasthandoff: 09/16/2019
+  ms.locfileid: "71020206"
+landingContent:
+- title: 關於 Azure Private Link
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: 什麼是 Private Link？
+      url: private-link-overview.md
+- title: 連線到 Azure 服務
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: 什麼是私人端點？
+      url: private-endpoint-overview.md
+  - linkListType: quickstart
+    links:
+    - text: 建立私人端點
+      url: create-private-endpoint-portal.md
+- title: 建置自己的 Private Link 服務
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: 什麼是 Private Link 服務？
+      url: private-link-service-overview.md
+  - linkListType: how-to-guide
+    links:
+    - text: 建立 Private Link 服務
+      url: create-private-link-service-powershell.md
+- title: 參考
+  linkLists:
+  - linkListType: reference
+    links:
+    - text: Azure CLI
+      url: /cli/azure/network
+    - text: Azure PowerShell
+      url: /powershell/module/az.network
+    - text: REST
+      url: /rest/api/virtualnetwork/privatelinkservices
