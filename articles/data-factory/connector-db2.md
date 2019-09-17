@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 09/04/2019
 ms.author: jingwang
-ms.openlocfilehash: c774725d4a4db4f624cd3980041b2974dfc8ed28
-ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
+ms.openlocfilehash: 033d25d6ff2da580523e13e25771faef14cfe5a9
+ms.sourcegitcommit: a819209a7c293078ff5377dee266fa76fd20902c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70275556"
+ms.lasthandoff: 09/16/2019
+ms.locfileid: "71009450"
 ---
 # <a name="copy-data-from-db2-by-using-azure-data-factory"></a>使用 Azure Data Factory 從 DB2 複製資料
 > [!div class="op_single_selector" title1="選取您目前使用的 Data Factory 服務版本："]
@@ -27,6 +27,11 @@ ms.locfileid: "70275556"
 本文概述如何使用 Azure Data Factory 中的「複製活動」，從 DB2 資料庫複製資料。 本文是根據[複製活動概觀](copy-activity-overview.md)一文，該文提供複製活動的一般概觀。
 
 ## <a name="supported-capabilities"></a>支援的功能
+
+下列活動支援此 DB2 資料庫連接器：
+
+- [複製活動](copy-activity-overview.md)與[支援的來源矩陣](copy-activity-overview.md)
+- [查閱活動](control-flow-lookup-activity.md)
 
 您可以從 DB2 資料庫將資料複製到任何支援的接收資料存放區。 如需複製活動所支援作為來源/接收器的資料存放區清單，請參閱[支援的資料存放區](copy-activity-overview.md#supported-data-stores-and-formats)表格。
 
@@ -102,7 +107,7 @@ ms.locfileid: "70275556"
 
 如需可用來定義資料集的區段和屬性完整清單，請參閱[資料集](concepts-datasets-linked-services.md)一文。 本節提供 DB2 資料集所支援的屬性清單。
 
-若要從 DB2 複製資料, 支援下列屬性:
+若要從 DB2 複製資料，支援下列屬性：
 
 | 屬性 | 描述 | 必要項 |
 |:--- |:--- |:--- |
@@ -129,7 +134,7 @@ ms.locfileid: "70275556"
 }
 ```
 
-如果您使用`RelationalTable`的是具類型的資料集, 則仍會受到支援, 但建議您在未來使用新的 dataset。
+如果您使用`RelationalTable`的是具類型的資料集，則仍會受到支援，但建議您在未來使用新的 dataset。
 
 ## <a name="copy-activity-properties"></a>複製活動屬性
 
@@ -137,7 +142,7 @@ ms.locfileid: "70275556"
 
 ### <a name="db2-as-source"></a>DB2 作為來源
 
-若要從 DB2 複製資料, 複製活動的 [**來源**] 區段中支援下列屬性:
+若要從 DB2 複製資料，複製活動的 [**來源**] 區段中支援下列屬性：
 
 | 屬性 | 描述 | 必要項 |
 |:--- |:--- |:--- |
@@ -176,7 +181,7 @@ ms.locfileid: "70275556"
 ]
 ```
 
-如果您使用`RelationalSource`的是具類型的來源, 則仍會受到支援, 但建議您在未來使用新的來源。
+如果您使用`RelationalSource`的是具類型的來源，則仍會受到支援，但建議您在未來使用新的來源。
 
 ## <a name="data-type-mapping-for-db2"></a>DB2 的資料類型對應
 
@@ -211,6 +216,9 @@ ms.locfileid: "70275556"
 | VarGraphic |String |
 | Xml |Byte[] |
 
+## <a name="lookup-activity-properties"></a>查閱活動屬性
+
+若要瞭解屬性的詳細資料，請檢查[查閱活動](control-flow-lookup-activity.md)。
 
 ## <a name="next-steps"></a>後續步驟
 如需 Azure Data Factory 中的複製活動所支援作為來源和接收器的資料存放區清單，請參閱[支援的資料存放區](copy-activity-overview.md##supported-data-stores-and-formats)。

@@ -8,12 +8,12 @@ manager: rkarlin
 ms.date: 01/02/2019
 ms.service: key-vault
 ms.topic: conceptual
-ms.openlocfilehash: 2617ae7bd1c761ae7977eac518c2e40ca55da00c
-ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
+ms.openlocfilehash: b39482f5c753fbfe6cc6663dda4f5381300c2c21
+ms.sourcegitcommit: 71db032bd5680c9287a7867b923bf6471ba8f6be
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70883233"
+ms.lasthandoff: 09/16/2019
+ms.locfileid: "71017242"
 ---
 # <a name="virtual-network-service-endpoints-for-azure-key-vault"></a>Azure Key Vault 的虛擬網路服務端點
 
@@ -60,7 +60,7 @@ Azure Key Vault 的虛擬網路服務端點可讓您將存取權限制為指定�
 
 以下是已啟用 [允許信任的服務] 選項的情況下，允許存取金鑰保存庫的信任服務清單。
 
-|信任的服務|使用案例|
+|信任的服務|支援的使用案例|
 | --- | --- |
 |Azure 虛擬機器部署服務|[Deploy Certificates to VMs from customer-managed Key Vault (將憑證從客戶管理的 Key Vault 部署到 VM)](https://blogs.technet.microsoft.com/kv/2016/09/14/updated-deploy-certificates-to-vms-from-customer-managed-key-vault/)。|
 |Azure Resource Manager 範本部署服務|[在部署期間傳遞安全值](../azure-resource-manager/resource-manager-keyvault-parameter.md)。|

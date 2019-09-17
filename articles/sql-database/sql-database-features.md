@@ -11,12 +11,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: bonova, sstein
 ms.date: 05/10/2019
-ms.openlocfilehash: 2ddef73121ef2f6c145516ca114989aa12b8003c
-ms.sourcegitcommit: 23389df08a9f4cab1f3bb0f474c0e5ba31923f12
+ms.openlocfilehash: 3cad1a73dd98928ed12748e2acffaea158dc5924
+ms.sourcegitcommit: a819209a7c293078ff5377dee266fa76fd20902c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70873507"
+ms.lasthandoff: 09/16/2019
+ms.locfileid: "71010289"
 ---
 # <a name="azure-sql-database-features"></a>Azure SQL Database 功能
 
@@ -32,7 +32,7 @@ Azure SQL Database 會管理您的資料庫，並保證其高可用性。 某些
 
 下表列出 SQL Server 的主要功能, 並提供有關此功能在受控執行個體或單一資料庫和彈性集區中是否部分或完全支援的資訊, 以及有關此功能的詳細資訊連結。
 
-| **SQL 功能** | **單一資料庫和彈性集區** | **受控實例** |
+| **SQL 功能** | **單一資料庫和彈性集區** | **受控實例和實例集區** |
 | --- | --- | --- |
 | [一律加密](https://docs.microsoft.com/sql/relational-databases/security/encryption/always-encrypted-database-engine) | 是 - 請參閱[憑證存放區](sql-database-always-encrypted.md)和[金鑰保存庫](sql-database-always-encrypted-azure-key-vault.md) | 是 - 請參閱[憑證存放區](sql-database-always-encrypted.md)和[金鑰保存庫](sql-database-always-encrypted-azure-key-vault.md) |
 | [Always On 可用性群組](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/always-on-availability-groups-sql-server) | 每個資料庫皆隨附[高可用性](sql-database-high-availability.md)。 [Azure SQL Database 的業務連續性概觀](sql-database-business-continuity.md)會討論災害復原 | 每個資料庫都包含[高可用性](sql-database-high-availability.md), 而且[不能由使用者管理](sql-database-managed-instance-transact-sql-information.md#always-on-availability)。 [Azure SQL Database 的業務連續性概觀](sql-database-business-continuity.md)會討論災害復原 |
@@ -112,7 +112,7 @@ Azure SQL Database 會管理您的資料庫，並保證其高可用性。 某些
 
 Azure 平臺提供一些 PaaS 功能, 可新增為標準資料庫功能的額外價值。 有一些外部服務可與 Azure SQL Database 服務搭配使用。 
 
-| **平臺功能** | **單一資料庫和彈性集區** | **受控實例** |
+| **平臺功能** | **單一資料庫和彈性集區** | **受控實例和實例集區** |
 | --- | --- | --- |
 | [主動式異地複寫](sql-database-active-geo-replication.md) | 是-超大規模資料庫以外的所有服務層級 | 否, 請參閱[自動容錯移轉群組 (預覽)](sql-database-auto-failover-group.md)做為替代方案 |
 | [自動容錯移轉群組](sql-database-auto-failover-group.md) | 是-超大規模資料庫以外的所有服務層級 | 是，現已在[公開預覽版](sql-database-auto-failover-group.md)中推出|
@@ -131,7 +131,7 @@ Azure 平臺提供一些 PaaS 功能, 可新增為標準資料庫功能的額外
 | [原則式管理](https://docs.microsoft.com/sql/relational-databases/policy-based-management/administer-servers-by-using-policy-based-management) | 否 | 否 |
 | 公用 IP 位址 | 是的。 您可以使用防火牆或服務端點來限制存取權。  | 是的。 需要明確啟用, 而且必須在 NSG 規則中啟用埠3342。 如有需要, 可以停用公用 IP。 如需詳細資訊, 請參閱[公用端點](sql-database-managed-instance-public-endpoint-securely.md)。 | 
 | [資料庫還原時間點](https://docs.microsoft.com/sql/relational-databases/backup-restore/restore-a-sql-server-database-to-a-point-in-time-full-recovery-model) | 是-超大規模資料庫以外的所有服務層級-請參閱[SQL Database](sql-database-recovery-using-backups.md#point-in-time-restore)復原 | 是 - 請參閱 [SQL Database 復原](sql-database-recovery-using-backups.md#point-in-time-restore) |
-| 資源集區 | 是, 身為[彈性](sql-database-elastic-pool.md)集區 | 資料分割 單一受控實例可以有多個共用相同資源集區的資料庫。 受控實例無法共用資源。 |
+| 資源集區 | 是, 身為[彈性](sql-database-elastic-pool.md)集區 | 是的。 單一受控實例可以有多個共用相同資源集區的資料庫。 此外，您可以在實例集區[（預覽）](sql-database-instance-pools.md)中部署可共用資源的多個受控實例。 |
 | 相應增加或相應減少 (線上) | 是, 您可以在最短的停機時間內變更 DTU 或保留的虛擬核心或最大儲存體。 | 是, 您可以在最短的停機時間內變更保留的虛擬核心或最大儲存體。 |
 | SQL 別名 | 是，請參閱[DNS 別名](dns-alias-overview.md) | 否 |
 | [SQL 分析](https://docs.microsoft.com/azure/azure-monitor/insights/azure-sql) | 是 | 是 |
@@ -146,7 +146,7 @@ Azure 平臺提供一些 PaaS 功能, 可新增為標準資料庫功能的額外
 ## <a name="tools"></a>工具
 Azure SQL database 支援各種資料工具，可協助您管理資料。
 
-| **工具** | **單一資料庫和彈性集區** | **受控實例** |
+| **工具** | **單一資料庫和彈性集區** | **受控實例和實例集區** |
 | --- | --- | --- |
 | Azure 入口網站 | 是 | 是 |
 | Azure CLI | 是 | 是|
@@ -167,7 +167,7 @@ Azure SQL database 支援各種資料工具，可協助您管理資料。
 
 您可以使用不同的遷移方法，在 SQL Server、單一資料庫和受控執行個體資料庫之間移動資料。 在執行遷移時，某些方法會在**線上**，並會挑選在來源上所做的所有變更，而在**離線**方法中，您需要在進行遷移時，停止修改來源上資料的工作負載。
 
-| **Source** | **單一資料庫和彈性集區** | **受控執行個體** |
+| **Source** | **單一資料庫和彈性集區** | **受控執行個體和實例集區** |
 | --- | --- | --- |
 | SQL Server （內部內部部署、Add-azurevm、Amazon RDS） | **線上：** [資料移轉服務（DMS）](https://docs.microsoft.com/sql/dma/dma-overview)，[異動複寫](sql-database-managed-instance-transactional-replication.md) <br/> **離線**[BACPAC 檔案（匯入）](https://docs.microsoft.com/sql/relational-databases/data-tier-applications/import-a-bacpac-file-to-create-a-new-user-database)、BCP | **線上：** [資料移轉服務（DMS）](https://docs.microsoft.com/sql/dma/dma-overview)，[異動複寫](sql-database-managed-instance-transactional-replication.md) <br/> **離線**原生備份/還原、 [BACPAC 檔案（匯入）](https://docs.microsoft.com/sql/relational-databases/data-tier-applications/import-a-bacpac-file-to-create-a-new-user-database)、BCP、[快照](sql-database-managed-instance-transactional-replication.md)式複寫 |
 | 單一資料庫 | **離線**[BACPAC 檔案（匯入）](https://docs.microsoft.com/sql/relational-databases/data-tier-applications/import-a-bacpac-file-to-create-a-new-user-database)、BCP | **離線**[BACPAC 檔案（匯入）](https://docs.microsoft.com/sql/relational-databases/data-tier-applications/import-a-bacpac-file-to-create-a-new-user-database)、BCP |
@@ -183,3 +183,4 @@ Microsoft 會持續為 Azure SQL Database 新增功能。 請使用下列篩選�
 如需有關 Azure SQL Database 類別的詳細資訊，請參閱：
 - [什麼是 SQL Database？](sql-database-technical-overview.md)
 - [什麼是受控執行個體？](sql-database-managed-instance.md)
+- [什麼是受控執行個體集區？](sql-database-instance-pools.md)

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 09/02/2019
 ms.author: jingwang
-ms.openlocfilehash: 72019b3bf5c17525b9a0dd8afc126f1bfc248041
-ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
+ms.openlocfilehash: 9a5592c0c5fa06d8319b91c6d624a74c83bdeb1f
+ms.sourcegitcommit: a819209a7c293078ff5377dee266fa76fd20902c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70274450"
+ms.lasthandoff: 09/16/2019
+ms.locfileid: "71010434"
 ---
 # <a name="copy-data-from-sap-hana-using-azure-data-factory"></a>使用 Azure Data Factory 從 SAP HANA 複製資料
 > [!div class="op_single_selector" title1="選取您目前使用的 Data Factory 服務版本："]
@@ -27,16 +27,21 @@ ms.locfileid: "70274450"
 本文概述如何使用 Azure Data Factory 中的「複製活動」，從 SAP HANA 資料庫複製資料。 本文是根據[複製活動概觀](copy-activity-overview.md)一文，該文提供複製活動的一般概觀。
 
 >[!TIP]
->若要瞭解 ADF 對於 SAP 資料整合案例的整體支援, 請參閱[使用 Azure Data Factory 白皮書的 SAP 資料整合](https://github.com/Azure/Azure-DataFactory/blob/master/whitepaper/SAP%20Data%20Integration%20using%20Azure%20Data%20Factory.pdf), 其中包含詳細的簡介、comparsion 和指引。
+>若要瞭解 ADF 對於 SAP 資料整合案例的整體支援，請參閱[使用 Azure Data Factory 白皮書的 SAP 資料整合](https://github.com/Azure/Azure-DataFactory/blob/master/whitepaper/SAP%20Data%20Integration%20using%20Azure%20Data%20Factory.pdf)，其中包含詳細的簡介、comparsion 和指引。
 
 ## <a name="supported-capabilities"></a>支援的功能
+
+下列活動支援此 SAP Hana 連接器：
+
+- [複製活動](copy-activity-overview.md)與[支援的來源/接收矩陣](copy-activity-overview.md)
+- [查閱活動](control-flow-lookup-activity.md)
 
 您可以將資料從 SAP HANA 資料庫複製到任何支援的接收資料存放區。 如需複製活動所支援作為來源/接收器的資料存放區清單，請參閱[支援的資料存放區](copy-activity-overview.md#supported-data-stores-and-formats)表格。
 
 具體而言，這個 SAP HANA 連接器支援：
 
 - 從任何版本的 SAP HANA 資料庫複製資料。
-- 從**HANA 資訊模型**(例如分析和計算視圖) 和資料**列/資料行資料表**複製資料。
+- 從**HANA 資訊模型**（例如分析和計算視圖）和資料**列/資料行資料表**複製資料。
 - 使用 **Basic** 或 **Windows** 驗證來複製資料。
 
 > [!TIP]
@@ -62,12 +67,12 @@ ms.locfileid: "70274450"
 | 屬性 | 描述 | 必要項 |
 |:--- |:--- |:--- |
 | Type | 類型屬性必須設定為：**SapHana** | 是 |
-| connectionString | 指定使用**基本驗證**或**Windows 驗證**連接到 SAP Hana 所需的資訊。 請參考下列範例。<br>在 [連接字串] 中, 伺服器/埠是強制的 (預設通訊埠是 30015), 而使用者名稱和密碼則是在使用基本驗證時的必要項。 如需其他 advanced 設定, 請參閱[SAP HANA ODBC 連接屬性](<https://help.sap.com/viewer/0eec0d68141541d1b07893a39944924e/2.0.02/en-US/7cab593774474f2f8db335710b2f5c50.html>)<br/>您也可以將密碼放在 Azure Key Vault 中, 並從連接字串中提取密碼設定。 如需詳細資訊, 請參閱[將認證儲存在 Azure Key Vault](store-credentials-in-key-vault.md)一文。 | 是 |
-| userName | 使用 Windows 驗證時, 請指定使用者名稱。 範例： `user@domain.com` | 否 |
+| connectionString | 指定使用**基本驗證**或**Windows 驗證**連接到 SAP Hana 所需的資訊。 請參考下列範例。<br>在 [連接字串] 中，伺服器/埠是強制的（預設通訊埠是30015），而使用者名稱和密碼則是在使用基本驗證時的必要項。 如需其他 advanced 設定，請參閱[SAP HANA ODBC 連接屬性](<https://help.sap.com/viewer/0eec0d68141541d1b07893a39944924e/2.0.02/en-US/7cab593774474f2f8db335710b2f5c50.html>)<br/>您也可以將密碼放在 Azure Key Vault 中，並從連接字串中提取密碼設定。 如需詳細資訊，請參閱[將認證儲存在 Azure Key Vault](store-credentials-in-key-vault.md)一文。 | 是 |
+| userName | 使用 Windows 驗證時，請指定使用者名稱。 範例： `user@domain.com` | 否 |
 | password | 指定使用者帳戶的密碼。 將此欄位標記為 SecureString，將它安全地儲存在 Data Factory 中，或[參考 Azure Key Vault 中儲存的祕密](store-credentials-in-key-vault.md)。 | 否 |
 | connectVia | 用來連線到資料存放區的 [Integration Runtime](concepts-integration-runtime.md)。 如[必要條件](#prerequisites)所述，必須要有一個「自我裝載 Integration Runtime」。 |是 |
 
-**範例: 使用基本驗證**
+**範例：使用基本驗證**
 
 ```json
 {
@@ -85,7 +90,7 @@ ms.locfileid: "70274450"
 }
 ```
 
-**範例: 使用 Windows 驗證**
+**範例：使用 Windows 驗證**
 
 ```json
 {
@@ -108,7 +113,7 @@ ms.locfileid: "70274450"
 }
 ```
 
-如果您使用的是具有下列承載的 SAP Hana 連結服務, 它仍會受到支援, 但建議您繼續使用新的服務。
+如果您使用的是具有下列承載的 SAP Hana 連結服務，它仍會受到支援，但建議您繼續使用新的服務。
 
 **範例:**
 
@@ -138,7 +143,7 @@ ms.locfileid: "70274450"
 
 如需可用來定義資料集的區段和屬性完整清單，請參閱[資料集](concepts-datasets-linked-services.md)一文。 本節提供 SAP HANA 資料集所支援的屬性清單。
 
-若要從 SAP Hana 複製資料, 支援下列屬性:
+若要從 SAP Hana 複製資料，支援下列屬性：
 
 | 屬性 | 描述 | 必要項 |
 |:--- |:--- |:--- |
@@ -166,7 +171,7 @@ ms.locfileid: "70274450"
 }
 ```
 
-如果您使用`RelationalTable`的是具類型的資料集, 則仍會受到支援, 但建議您在未來使用新的 dataset。
+如果您使用`RelationalTable`的是具類型的資料集，則仍會受到支援，但建議您在未來使用新的 dataset。
 
 ## <a name="copy-activity-properties"></a>複製活動屬性
 
@@ -174,13 +179,13 @@ ms.locfileid: "70274450"
 
 ### <a name="sap-hana-as-source"></a>SAP HANA 作為來源
 
-若要從 SAP Hana 複製資料, 複製活動的 [**來源**] 區段中支援下列屬性:
+若要從 SAP Hana 複製資料，複製活動的 [**來源**] 區段中支援下列屬性：
 
 | 屬性 | 描述 | 必要項 |
 |:--- |:--- |:--- |
 | Type | 複製活動來源的類型屬性必須設定為：**SapHanaSource** | 是 |
 | query | 指定 SQL 查詢從 SAP HANA 執行個體讀取資料。 | 是 |
-| packetSize | 指定將資料分割成多個區塊的網路封包大小 (以 Kb 為單位)。 如果您要複製大量資料, 增加封包大小可能會在大部分情況下從 SAP Hana 增加讀取速度。 調整封包大小時, 建議執行效能測試。 | 資料分割<br>預設值為 2048 (2MB)。 |
+| packetSize | 指定將資料分割成多個區塊的網路封包大小（以 Kb 為單位）。 如果您要複製大量資料，增加封包大小可能會在大部分情況下從 SAP Hana 增加讀取速度。 調整封包大小時，建議執行效能測試。 | 資料分割<br>預設值為2048（2MB）。 |
 
 **範例:**
 
@@ -214,7 +219,7 @@ ms.locfileid: "70274450"
 ]
 ```
 
-如果您使用`RelationalSource`的是具類型的複製來源, 則仍會受到支援, 但建議您在未來使用新的版本。
+如果您使用`RelationalSource`的是具類型的複製來源，則仍會受到支援，但建議您在未來使用新的版本。
 
 ## <a name="data-type-mapping-for-sap-hana"></a>SAP HANA 的資料類型對應
 
@@ -249,6 +254,10 @@ ms.locfileid: "70274450"
 | VARCHAR            | String                         |
 | TIMESTAMP          | DateTime                       |
 | VARBINARY          | Byte[]                         |
+
+## <a name="lookup-activity-properties"></a>查閱活動屬性
+
+若要瞭解屬性的詳細資料，請檢查[查閱活動](control-flow-lookup-activity.md)。
 
 ## <a name="next-steps"></a>後續步驟
 如需 Azure Data Factory 中的複製活動所支援作為來源和接收器的資料存放區清單，請參閱[支援的資料存放區](copy-activity-overview.md#supported-data-stores-and-formats)。

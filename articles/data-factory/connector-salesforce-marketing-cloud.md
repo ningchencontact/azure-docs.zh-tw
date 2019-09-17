@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/01/2019
 ms.author: jingwang
-ms.openlocfilehash: 6548f4add8a794276bd4e7f7fa3c0bd7e24a2d5c
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.openlocfilehash: f20cccb87bf2da53086f2e7bb14edddaa57b991e
+ms.sourcegitcommit: a819209a7c293078ff5377dee266fa76fd20902c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68726018"
+ms.lasthandoff: 09/16/2019
+ms.locfileid: "71010545"
 ---
 # <a name="copy-data-from-salesforce-marketing-cloud-using-azure-data-factory-preview"></a>使用 Azure Data Factory 從 Salesforce Marketing Cloud 複製資料 (預覽)
 
@@ -27,6 +27,11 @@ ms.locfileid: "68726018"
 > 此連接器目前為預覽版。 您可以親身體驗並提供意見反應。 如果您需要依賴解決方案中的預覽連接器，請連絡 [Azure 支援](https://azure.microsoft.com/support/)。
 
 ## <a name="supported-capabilities"></a>支援的功能
+
+下列活動支援此 Salesforce 行銷雲端連接器：
+
+- [複製活動](copy-activity-overview.md)與[支援的來源矩陣](copy-activity-overview.md)
+- [查閱活動](control-flow-lookup-activity.md)
 
 您可以將資料從 Salesforce Marketing Cloud 複製到任何支援的接收資料存放區。 如需複製活動所支援作為來源/接收器的資料存放區清單，請參閱[支援的資料存放區](copy-activity-overview.md#supported-data-stores-and-formats)表格。
 
@@ -45,9 +50,9 @@ Salesforce Marketing 雲端連接器支援 OAuth 2 驗證。 它建置於[Salesf
 
 以下是針對 Salesforce Marketing Cloud 已連結服務支援的屬性：
 
-| 內容 | 描述 | 必要項 |
+| 屬性 | 描述 | 必要項 |
 |:--- |:--- |:--- |
-| type | 類型屬性必須設定為：**SalesforceMarketingCloud** | 是 |
+| Type | 類型屬性必須設定為：**SalesforceMarketingCloud** | 是 |
 | clientId | 與 Salesforce Marketing Cloud 應用程式相關聯的用戶端識別碼。  | 是 |
 | clientSecret | 與 Salesforce Marketing Cloud 應用程式相關聯的用戶端密碼。 您可以選擇將這個欄位標記為 SecureString 以將它安全地儲存在 ADF，或將密碼儲存在 Azure Key Vault，然後在執行複製資料時，讓 ADF 複製活動從該處提取 - 請參閱[將認證儲存在 Key Vault](store-credentials-in-key-vault.md) 以進一步了解。 | 是 |
 | useEncryptedEndpoints | 指定是否使用 HTTPS 來加密資料來源端點。 預設值為 true。  | 否 |
@@ -82,10 +87,10 @@ Salesforce Marketing 雲端連接器支援 OAuth 2 驗證。 它建置於[Salesf
 
 若要從 Salesforce Marketing Cloud 複製資料，請將資料集的類型屬性設定為 **SalesforceMarketingCloudObject**。 以下是支援的屬性：
 
-| 內容 | 描述 | 必要項 |
+| 屬性 | 描述 | 必要項 |
 |:--- |:--- |:--- |
-| type | 資料集的類型屬性必須設定為：**SalesforceMarketingCloudObject** | 是 |
-| tableName | 資料表的名稱。 | 否 (如果已指定活動來源中的「查詢」) |
+| Type | 資料集的類型屬性必須設定為：**SalesforceMarketingCloudObject** | 是 |
+| tableName | 資料表的名稱。 | 否 (如果已指定活動來源中的"query") |
 
 **範例**
 
@@ -106,7 +111,7 @@ Salesforce Marketing 雲端連接器支援 OAuth 2 驗證。 它建置於[Salesf
 
 ## <a name="copy-activity-properties"></a>複製活動屬性
 
-如需可用來定義活動的區段和屬性完整清單，請參閱[管線](concepts-pipelines-activities.md)一文。 本節提供 Salesforce Marketing Cloud 來源所支援的屬性清單。
+如需可用來定義活動的區段和屬性完整清單，請參閱[Pipelines](concepts-pipelines-activities.md)一文。 本節提供 Salesforce Marketing Cloud 來源所支援的屬性清單。
 
 ### <a name="salesforce-marketing-cloud-as-source"></a>Salesforce Marketing Cloud 作為來源
 
@@ -114,8 +119,8 @@ Salesforce Marketing 雲端連接器支援 OAuth 2 驗證。 它建置於[Salesf
 
 | 屬性 | 描述 | 必要項 |
 |:--- |:--- |:--- |
-| type | 複製活動來源的類型屬性必須設定為：**SalesforceMarketingCloudSource** | 是 |
-| 查詢 | 使用自訂 SQL 查詢來讀取資料。 例如： `"SELECT * FROM MyTable"` 。 | 否 (如果已指定資料集中的 "tableName") |
+| Type | 複製活動來源的類型屬性必須設定為：**SalesforceMarketingCloudSource** | 是 |
+| query | 使用自訂 SQL 查詢來讀取資料。 例如： `"SELECT * FROM MyTable"` 。 | 否 (如果已指定資料集中的 "tableName") |
 
 **範例:**
 
@@ -148,6 +153,10 @@ Salesforce Marketing 雲端連接器支援 OAuth 2 驗證。 它建置於[Salesf
     }
 ]
 ```
+
+## <a name="lookup-activity-properties"></a>查閱活動屬性
+
+若要瞭解屬性的詳細資料，請檢查[查閱活動](control-flow-lookup-activity.md)。
 
 ## <a name="next-steps"></a>後續步驟
 如需 Azure Data Factory 中的複製活動所支援作為來源和接收器的資料存放區清單，請參閱[支援的資料存放區](copy-activity-overview.md#supported-data-stores-and-formats)。

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/27/2019
 ms.author: jingwang
-ms.openlocfilehash: 5920fe4a1addd2188f53a15c1d2232f505009087
-ms.sourcegitcommit: 388c8f24434cc96c990f3819d2f38f46ee72c4d8
+ms.openlocfilehash: 30685e59f6f8318c66a8500f33e8200743e487aa
+ms.sourcegitcommit: a819209a7c293078ff5377dee266fa76fd20902c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/27/2019
-ms.locfileid: "70061487"
+ms.lasthandoff: 09/16/2019
+ms.locfileid: "71009891"
 ---
 # <a name="copy-data-to-and-from-azure-table-storage-by-using-azure-data-factory"></a>使用 Azure Data Factory 將資料複製到 Azure 資料表儲存體或從該處複製資料
 > [!div class="op_single_selector" title1="選取您目前使用的 Data Factory 服務版本："]
@@ -29,6 +29,11 @@ ms.locfileid: "70061487"
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="supported-capabilities"></a>支援的功能
+
+此「Azure 資料表儲存體」連接器支援下列活動：
+
+- [複製活動](copy-activity-overview.md)與[支援的來源/接收矩陣](copy-activity-overview.md)
+- [查閱活動](control-flow-lookup-activity.md)
 
 您可以將資料從支援的來源資料存放區複製到資料表儲存體。 您也可以將資料從資料表儲存體複製到任何支援的接收資料存放區。 如需複製活動所支援作為來源或接收器的資料存放區清單，請參閱[支援的資料存放區](copy-activity-overview.md#supported-data-stores-and-formats)表格。
 
@@ -112,7 +117,7 @@ ms.locfileid: "70061487"
 共用存取簽章可提供您儲存體帳戶中資源的委派存取。 您可以使用它來將儲存體帳戶中物件的有限權限授與用戶端，讓該用戶端可以在一段指定時間內使用一組指定的權限進行存取。 您不需要共用您的帳戶存取金鑰。 共用存取簽章是一種 URI，此 URI 會在其查詢參數中包含對儲存體資源進行驗證式存取所需的一切資訊。 若要使用共用存取簽章存取儲存體資源，用戶端只需在適當的建構函式或方法中傳入共用存取簽章即可。 如需有關共用存取簽章的詳細資訊，請參閱[共用存取簽章：了解共用存取簽章模型](../storage/common/storage-dotnet-shared-access-signature-part-1.md)。
 
 > [!NOTE]
-> Data Factory 現已支援**服務共用存取簽章**和**帳戶共用存取簽章**。 如需共用存取簽章的詳細資訊, 請參閱[使用共用存取簽章 (SAS) 授與 Azure 儲存體資源的有限存取權](../storage/common/storage-sas-overview.md)。 
+> Data Factory 現已支援**服務共用存取簽章**和**帳戶共用存取簽章**。 如需共用存取簽章的詳細資訊，請參閱[使用共用存取簽章（SAS）授與 Azure 儲存體資源的有限存取權](../storage/common/storage-sas-overview.md)。 
 
 > [!TIP]
 > 若要為儲存體帳戶產生服務共用存取簽章，您可以執行下列 PowerShell 命令。 取代預留位置，並授與所需的權限。
@@ -124,7 +129,7 @@ ms.locfileid: "70061487"
 | 屬性 | 描述 | 必要項 |
 |:--- |:--- |:--- |
 | Type | 類型屬性必須設為 **AzureTableStorage**。 |是 |
-| sasUri | 將共用存取簽章 URI 的 SAS URI 指定至資料表。 <br/>將此欄位標記為 SecureString，將它安全地儲存在 Data Factory 中。 您也可以將 SAS 權杖放在 Azure Key Vault 中, 以運用自動輪替並移除權杖部分。 請參閱下列範例和[在 Azure Key Vault 中儲存認證](store-credentials-in-key-vault.md)一文中的更多詳細資料。 | 是 |
+| sasUri | 將共用存取簽章 URI 的 SAS URI 指定至資料表。 <br/>將此欄位標記為 SecureString，將它安全地儲存在 Data Factory 中。 您也可以將 SAS 權杖放在 Azure Key Vault 中，以運用自動輪替並移除權杖部分。 請參閱下列範例和[在 Azure Key Vault 中儲存認證](store-credentials-in-key-vault.md)一文中的更多詳細資料。 | 是 |
 | connectVia | 用來連線到資料存放區的[整合執行階段](concepts-integration-runtime.md)。 您可以使用 Azure Integration Runtime 或自我裝載 Integration Runtime (如果您的資料存放區位於私人網路中)。 如果未指定，就會使用預設的 Azure Integration Runtime。 |否 |
 
 >[!NOTE]
@@ -221,8 +226,8 @@ ms.locfileid: "70061487"
 
 針對無結構描述的資料存放區 (如 Azure 資料表)，Data Factory 會以下列一種方式推斷結構描述：
 
-* 如果您在「複製活動」中指定資料行對應, Data Factory 使用「來來源資料行」清單來取出資料。 在此情況下，如果資料列的資料行沒有值，系統就會為它提供 null 值。
-* 如果您未指定複製活動中的資料行對應, Data Factory 會使用資料中的第一列來推斷架構。 在此情況下, 如果第一個資料列未包含完整的架構 (例如, 某些資料行有 null 值), 則複製作業的結果中會遺漏某些資料行。
+* 如果您在「複製活動」中指定資料行對應，Data Factory 使用「來來源資料行」清單來取出資料。 在此情況下，如果資料列的資料行沒有值，系統就會為它提供 null 值。
+* 如果您未指定複製活動中的資料行對應，Data Factory 會使用資料中的第一列來推斷架構。 在此情況下，如果第一個資料列未包含完整的架構（例如，某些資料行有 null 值），則複製作業的結果中會遺漏某些資料行。
 
 ## <a name="copy-activity-properties"></a>複製活動屬性
 
@@ -339,6 +344,10 @@ ms.locfileid: "70061487"
 | Edm.Int32 |Int32 |32 位元的整數。 |
 | Edm.Int64 |Int64 |64 位元的整數。 |
 | Edm.String |String |UTF 16 編碼值。 字串值最大可達 64 KB。 |
+
+## <a name="lookup-activity-properties"></a>查閱活動屬性
+
+若要瞭解屬性的詳細資料，請檢查[查閱活動](control-flow-lookup-activity.md)。
 
 ## <a name="next-steps"></a>後續步驟
 如需 Data Factory 中的複製活動所支援作為來源和接收的資料存放區清單，請參閱[支援的資料存放區](copy-activity-overview.md#supported-data-stores-and-formats)。

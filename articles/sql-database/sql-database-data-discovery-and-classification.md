@@ -11,12 +11,12 @@ author: barmichal
 ms.author: mibar
 ms.reviewer: vanto
 ms.date: 08/22/2019
-ms.openlocfilehash: 0bba755ec5683e988bb8ae3f2308a1c298b228b0
-ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
+ms.openlocfilehash: b85793223e23aa3d668d6f86494da3ee78c43e91
+ms.sourcegitcommit: a819209a7c293078ff5377dee266fa76fd20902c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/15/2019
-ms.locfileid: "71000569"
+ms.lasthandoff: 09/16/2019
+ms.locfileid: "71009983"
 ---
 # <a name="azure-sql-database-and-sql-data-warehouse-data-discovery--classification"></a>Azure SQL Database 和 SQL 資料倉儲資料探索 & 分類
 
@@ -142,10 +142,13 @@ SQL 資料探索與分類隨附一組內建的敏感度標籤與一組內建的�
 
 您也可以使用 REST API 以程式設計方式管理分類。 已發行的 REST API 支援下列作業：
 
-- [建立或更新](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/createorupdate) - 建立或更新指定資料行的敏感度標籤
+- [建立或更新](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/createorupdate)-建立或更新指定資料行的敏感度標籤
 - [刪除](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/delete) - 刪除指定資料行的敏感度標籤
+- [停用建議](https://docs.microsoft.com/en-us/rest/api/sql/sensitivitylabels/disablerecommendation)-在指定的資料行上停用敏感度建議
+- [啟用建議](https://docs.microsoft.com/en-us/rest/api/sql/sensitivitylabels/enablerecommendation)-在指定的資料行上啟用敏感度建議（預設會在所有資料行上啟用建議）
 - [取得](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/get) - 取得指定資料行的敏感度標籤
 - [依資料庫列出目前的標籤](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/listcurrentbydatabase) \(英文\) - 取得指定資料庫目前的敏感度標籤
+
 - [資料庫建議的清單](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/listrecommendedbydatabase)-取得指定資料庫的建議敏感度標籤
 
 ## <a name="manage-data-discovery-and-classification-using-azure-powershell"></a>使用 Azure PowerShell 管理資料探索和分類

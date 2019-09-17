@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 09/09/2019
 ms.author: jingwang
-ms.openlocfilehash: 0c8c2f2adb11a30b438fb41dca07519b2f74baf7
-ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
+ms.openlocfilehash: 29f5b9b704bcf4648e9c24516d8eff5429a0ce1d
+ms.sourcegitcommit: a819209a7c293078ff5377dee266fa76fd20902c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70813582"
+ms.lasthandoff: 09/16/2019
+ms.locfileid: "71009964"
 ---
 # <a name="copy-data-to-or-from-azure-sql-data-warehouse-by-using-azure-data-factory"></a>使用 Azure Data Factory 將資料複製到 Azure SQL 資料倉儲或從該處複製資料 
 > [!div class="op_single_selector" title1="選取您要使用的 Data Factory 服務版本："]
@@ -28,7 +28,7 @@ ms.locfileid: "70813582"
 
 ## <a name="supported-capabilities"></a>支援的功能
 
-下列活動支援此 Azure Blob 連接器：
+下列活動支援此 Azure SQL 資料倉儲連接器：
 
 - [複製活動](copy-activity-overview.md)與[支援的來源/接收矩陣](copy-activity-overview.md)資料表
 - [對應資料流程](concepts-data-flow-overview.md)
@@ -440,7 +440,7 @@ SQL 資料倉儲 PolyBase 直接支援 Azure Blob、Azure Data Lake Storage Gen1
    3. `rowDelimiter`是**預設值**、 **\n**、 **\r\n**或 **\r**。
    4. `nullValue`會保留為預設值或設為**空字串**（""）， `treatEmptyAsNull`而且會保留為預設值或設為 true。
    5. `encodingName`會保留為預設值或設定為**utf-8**。
-   6. `quoteChar`未`escapeChar`指定、 `skipLineCount`和。 PolyBase 支援略過標頭列，這在 ADF 中可設定為 `firstRowAsHeader`。
+   6. `quoteChar`未`escapeChar`指定、 `skipLineCount`和。 PolyBase 支援略過標頭資料列，可以在`firstRowAsHeader` ADF 中設定為。
    7. `compression` 可以是「無壓縮」、**GZip** 或 **Deflate**。
 
 3. 如果您的來源是資料夾， `recursive`則複製活動中的必須設定為 true。
@@ -625,6 +625,14 @@ NULL 值是一種特殊形式的預設值。 如果資料欄可以是 Null，Blo
 | uniqueidentifier                      | Guid                           |
 | varbinary                             | Byte[]                         |
 | varchar                               | String, Char[]                 |
+
+## <a name="lookup-activity-properties"></a>查閱活動屬性
+
+若要瞭解屬性的詳細資料，請檢查[查閱活動](control-flow-lookup-activity.md)。
+
+## <a name="getmetadata-activity-properties"></a>GetMetadata 活動屬性
+
+若要瞭解有關屬性的詳細資料，請檢查[GetMetadata 活動](control-flow-get-metadata-activity.md) 
 
 ## <a name="next-steps"></a>後續步驟
 如需 Azure Data Factory 中的複製活動所支援作為來源和接收端的資料存放區清單，請參閱[支援的資料存放區和格式](copy-activity-overview.md##supported-data-stores-and-formats)。

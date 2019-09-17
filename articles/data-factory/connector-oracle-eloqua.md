@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/01/2019
 ms.author: jingwang
-ms.openlocfilehash: b62cbe6be7f48aa05bf3756580df0777aeee8cae
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.openlocfilehash: 66b1aebb5197005dc93591e25b10a892d2855c37
+ms.sourcegitcommit: a819209a7c293078ff5377dee266fa76fd20902c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68726087"
+ms.lasthandoff: 09/16/2019
+ms.locfileid: "71010623"
 ---
 # <a name="copy-data-from-oracle-eloqua-using-azure-data-factory-preview"></a>使用 Azure Data Factory 從 Oracle Eloqua 複製資料 (預覽)
 
@@ -27,6 +27,11 @@ ms.locfileid: "68726087"
 > 此連接器目前為預覽版。 您可以親身體驗並提供意見反應。 如果您需要依賴解決方案中的預覽連接器，請連絡 [Azure 支援](https://azure.microsoft.com/support/)。
 
 ## <a name="supported-capabilities"></a>支援的功能
+
+下列活動支援此 Oracle Eloqua 連接器：
+
+- [複製活動](copy-activity-overview.md)與[支援的來源矩陣](copy-activity-overview.md)
+- [查閱活動](control-flow-lookup-activity.md)
 
 您可以將資料從 Oracle Eloqua 複製到任何支援的接收資料存放區。 如需複製活動所支援作為來源/接收器的資料存放區清單，請參閱[支援的資料存放區](copy-activity-overview.md#supported-data-stores-and-formats)表格。
 
@@ -42,12 +47,12 @@ Azure Data Factory 提供的內建驅動程式可啟用連線，因此使用此�
 
 以下是針對 Oracle Eloqua 連結服務支援的屬性：
 
-| 內容 | 描述 | 必要項 |
+| 屬性 | 描述 | 必要項 |
 |:--- |:--- |:--- |
-| type | 類型屬性必須設定為：**Eloqua** | 是 |
-| 端點 | Eloqua 伺服器的端點。 Eloqua 支援多個資料中心，若要決定您的端點，請使用您的認證登入 https://login.eloqua.com ，然後從模式為 `xxx.xxx.eloqua.com` 的重新導向 URL 中複製**基底 URL** 部分。 | 是 |
+| Type | 類型屬性必須設定為：**Eloqua** | 是 |
+| endpoint | Eloqua 伺服器的端點。 Eloqua 支援多個資料中心，若要決定您的端點，請使用您的認證登入 https://login.eloqua.com ，然後從模式為 `xxx.xxx.eloqua.com` 的重新導向 URL 中複製**基底 URL** 部分。 | 是 |
 | username | 您 Eloqua 帳戶的網站名稱與使用者名稱，格式為 `SiteName\Username`，例如 `Eloqua\Alice`。  | 是 |
-| 密碼 | 對應到使用者名稱的密碼。 將此欄位標記為 SecureString，將它安全地儲存在 Data Factory 中，或[參考 Azure Key Vault 中儲存的祕密](store-credentials-in-key-vault.md)。 | 是 |
+| password | 對應到使用者名稱的密碼。 將此欄位標記為 SecureString，將它安全地儲存在 Data Factory 中，或[參考 Azure Key Vault 中儲存的祕密](store-credentials-in-key-vault.md)。 | 是 |
 | useEncryptedEndpoints | 指定是否使用 HTTPS 來加密資料來源端點。 預設值為 true。  | 否 |
 | useHostVerification | 指定在透過 SSL 連線時，是否要求伺服器憑證中的主機名稱符合伺服器的主機名稱。 預設值為 true。  | 否 |
 | usePeerVerification | 指定在透過 SSL 連線時，是否要確認伺服器的身分識別。 預設值為 true。  | 否 |
@@ -77,10 +82,10 @@ Azure Data Factory 提供的內建驅動程式可啟用連線，因此使用此�
 
 若要從 Oracle Eloqua 複製資料，請將資料集的類型屬性設定為 **EloquaObject**。 以下是支援的屬性：
 
-| 內容 | 描述 | 必要項 |
+| 屬性 | 描述 | 必要項 |
 |:--- |:--- |:--- |
-| type | 資料集的類型屬性必須設定為：**EloquaObject** | 是 |
-| tableName | 資料表的名稱。 | 否 (如果已指定活動來源中的「查詢」) |
+| Type | 資料集的類型屬性必須設定為：**EloquaObject** | 是 |
+| tableName | 資料表的名稱。 | 否 (如果已指定活動來源中的"query") |
 
 **範例**
 
@@ -101,16 +106,16 @@ Azure Data Factory 提供的內建驅動程式可啟用連線，因此使用此�
 
 ## <a name="copy-activity-properties"></a>複製活動屬性
 
-如需可用來定義活動的區段和屬性完整清單，請參閱[管線](concepts-pipelines-activities.md)一文。 本節提供 Oracle Eloqua 來源所支援的屬性清單。
+如需可用來定義活動的區段和屬性完整清單，請參閱[Pipelines](concepts-pipelines-activities.md)一文。 本節提供 Oracle Eloqua 來源所支援的屬性清單。
 
 ### <a name="eloqua-as-source"></a>Eloqua 作為來源
 
 若要從 Oracle Eloqua複製資料，請將複製活動中的來源類型設定為 **EloquaSource**。 複製活動的 **source** 區段支援下列屬性：
 
-| 內容 | 描述 | 必要項 |
+| 屬性 | 描述 | 必要項 |
 |:--- |:--- |:--- |
-| type | 複製活動來源的類型屬性必須設定為：**EloquaSource** | 是 |
-| 查詢 | 使用自訂 SQL 查詢來讀取資料。 例如： `"SELECT * FROM Accounts"` 。 | 否 (如果已指定資料集中的 "tableName") |
+| Type | 複製活動來源的類型屬性必須設定為：**EloquaSource** | 是 |
+| query | 使用自訂 SQL 查詢來讀取資料。 例如： `"SELECT * FROM Accounts"` 。 | 否 (如果已指定資料集中的 "tableName") |
 
 **範例:**
 
@@ -143,6 +148,11 @@ Azure Data Factory 提供的內建驅動程式可啟用連線，因此使用此�
     }
 ]
 ```
+
+## <a name="lookup-activity-properties"></a>查閱活動屬性
+
+若要瞭解屬性的詳細資料，請檢查[查閱活動](control-flow-lookup-activity.md)。
+
 
 ## <a name="next-steps"></a>後續步驟
 如需由 Azure Data Factory 儲存的支援資料清單，請參閱[支援的資料存放區](copy-activity-overview.md#supported-data-stores-and-formats)。

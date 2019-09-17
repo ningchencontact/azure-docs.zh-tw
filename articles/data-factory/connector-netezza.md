@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 09/02/2019
 ms.author: jingwang
-ms.openlocfilehash: 20e5e23e2000095a95913964673ce90a72b87e59
-ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
+ms.openlocfilehash: 5d5db9e837846a20bf4b68f7dc5c39ad587f4de9
+ms.sourcegitcommit: a819209a7c293078ff5377dee266fa76fd20902c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70813537"
+ms.lasthandoff: 09/16/2019
+ms.locfileid: "71009965"
 ---
 # <a name="copy-data-from-netezza-by-using-azure-data-factory"></a>使用 Azure Data Factory 從 Netezza 複製資料
 
@@ -27,6 +27,12 @@ ms.locfileid: "70813537"
 >如需從 Netezza 至 Azure 的資料移轉案例，請深入瞭解[使用 Azure Data Factory 將資料從內部部署 Netezza 伺服器遷移至 azure](data-migration-guidance-netezza-azure-sqldw.md)。
 
 ## <a name="supported-capabilities"></a>支援的功能
+
+下列活動支援此 Netezza 連接器：
+
+- [複製活動](copy-activity-overview.md)與[支援的來源矩陣](copy-activity-overview.md)
+- [查閱活動](control-flow-lookup-activity.md)
+
 
 您可以將資料從 Netezza 複製到任何支援的接收資料存放區。 如需複製活動作為來源和接收端支援的資料存放區清單，請參閱[支援的資料存放區和格式](copy-activity-overview.md#supported-data-stores-and-formats)。
 
@@ -161,7 +167,7 @@ Azure Data Factory 會提供內建的驅動程式來啟用連線。 您不需要
 | query | 使用自訂 SQL 查詢來讀取資料。 範例： `"SELECT * FROM MyTable"` | 否 (如果已指定資料集中的 "tableName") |
 | partitionOptions | 指定用來從 Netezza 載入資料的資料分割選項。 <br>允許值為：**無**（預設值）、 **DataSlice**和**DynamicRange**。<br>當分割區選項已啟用（也就是不`None`是）時，從 Netezza 資料庫並行載入資料的平行處理原則程度，是[`parallelCopies`](copy-activity-performance.md#parallel-copy)藉由在複製活動上設定來控制。 | 否 |
 | partitionSettings | 指定資料分割的設定群組。 <br>當資料分割選項不`None`適用時套用。 | 否 |
-| partitionColumnName | **以整數類型**指定來源資料行的名稱，以供範圍分割用於平行複製。 如果未指定，則會自動偵測資料表的主鍵，並使用該索引鍵做為資料分割資料行。 <br>適用于資料分割選項為`DynamicRange`時。 如果您使用查詢來抓取來源資料，請在 WHERE `?AdfRangePartitionColumnName`子句中掛上。 請參閱[Parallel copy From Netezza](#parallel-copy-from-netezza)一節中的範例。 | 否 |
+| partitionColumnName | **以整數類型**指定來源資料行的名稱，以供範圍分割用於平行複製。 如果未指定，則會 autodetected 資料表的主鍵，並當做資料分割資料行使用。 <br>適用于資料分割選項為`DynamicRange`時。 如果您使用查詢來抓取來源資料，請在 WHERE `?AdfRangePartitionColumnName`子句中掛上。 請參閱[Parallel copy From Netezza](#parallel-copy-from-netezza)一節中的範例。 | 否 |
 | partitionUpperBound | 用來複製資料的分割區資料行的最大值。 <br>當資料分割選項為`DynamicRange`時套用。 如果您使用 query 來抓取來源資料，請`?AdfRangePartitionUpbound`在 WHERE 子句中掛上。 如需範例，請參閱[Parallel copy From Netezza](#parallel-copy-from-netezza)一節。 | 否 |
 | partitionLowerBound | 用來複製資料的分割區資料行的最小值。 <br>適用于資料分割選項為`DynamicRange`時。 如果您使用查詢來抓取來源資料，請在 WHERE `?AdfRangePartitionLowbound`子句中掛上。 如需範例，請參閱[Parallel copy From Netezza](#parallel-copy-from-netezza)一節。 | 否 |
 
@@ -237,6 +243,11 @@ Data Factory Netezza 連接器會提供內建的資料分割，以平行方式�
     }
 }
 ```
+
+## <a name="lookup-activity-properties"></a>查閱活動屬性
+
+若要瞭解屬性的詳細資料，請檢查[查閱活動](control-flow-lookup-activity.md)。
+
 
 ## <a name="next-steps"></a>後續步驟
 

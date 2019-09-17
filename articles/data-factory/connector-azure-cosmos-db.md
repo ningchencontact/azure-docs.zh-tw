@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 09/02/2019
 ms.author: jingwang
-ms.openlocfilehash: 3082c568b3ce3fa5199c7a7d0d082db36720d293
-ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
+ms.openlocfilehash: 561f383327738c9a2ab29f2907f00ace1eec6def
+ms.sourcegitcommit: a819209a7c293078ff5377dee266fa76fd20902c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/03/2019
-ms.locfileid: "70233027"
+ms.lasthandoff: 09/16/2019
+ms.locfileid: "71010282"
 ---
 # <a name="copy-data-to-or-from-azure-cosmos-db-sql-api-by-using-azure-data-factory"></a>使用 Azure Data Factory 將資料複製到 Azure Cosmos DB (SQL API) 或從該處複製資料
 
@@ -31,6 +31,11 @@ ms.locfileid: "70233027"
 >此連接器只支援將資料複製到 Cosmos DB SQL API 或從該處複製資料。 針對 MongoDB API，請參閱[適用於 MongoDB 的 Azure Cosmos DB API 連接器](connector-azure-cosmos-db-mongodb-api.md)。 目前不支援其他 API 類型。
 
 ## <a name="supported-capabilities"></a>支援的功能
+
+此 Azure Cosmos DB （SQL API）連接器支援下列活動：
+
+- [複製活動](copy-activity-overview.md)與[支援的來源/接收矩陣](copy-activity-overview.md)
+- [查閱活動](control-flow-lookup-activity.md)
 
 您可以將資料從 Azure Cosmos DB (SQL API) 複製到任何支援的接收資料存放區，或將資料從任何支援的來源資料存放區複製到 Azure Cosmos DB (SQL API)。 如需複製活動作為來源和接收端支援的資料存放區清單，請參閱[支援的資料存放區和格式](copy-activity-overview.md#supported-data-stores-and-formats)。
 
@@ -215,7 +220,7 @@ Data Factory 可與 [Azure Cosmos DB 大量執行程式庫](https://github.com/A
 | writeBehavior |描述如何將資料寫入至 Azure Cosmos DB。 允許的值：**insert** 和 **upsert**。<br/><br/>如果存在具有相同識別碼的文件，**upsert** 的行為會用來取代文件；否則會插入文字。<br /><br />**注意**：如果未在原始文件中或藉由資料行對應來指定識別碼，則 Data Factory 會自動為文件產生識別碼。 這表示您必須確定，為了讓 **upsert** 如預期般運作，您的文件具有識別碼。 |否<br />(預設值為 **insert**) |
 | writeBatchSize | Data Factory 會使用 [Azure Cosmos DB 大量執行程式庫](https://github.com/Azure/azure-cosmosdb-bulkexecutor-dotnet-getting-started)將資料寫入 Cosmos DB 中。 **writeBatchSize** 可控制 ADF 提供給程式庫的文件大小。 您可以嘗試增加 **writeBatchSize** 值來改善效能，而如果您的文件大小很大，請嘗試增加此值 - 請參閱以下祕訣。 |否<br />(預設值為 **10,000**) |
 | nestingSeparator |**source** 資料行名稱中用來表示需要巢狀文件的特殊字元。 <br/><br/>例如，當 **nestedSeparator** 是 **.** (點) 時，輸出資料集結構中的 `Name.First` 會在 Azure Cosmos DB 文件中產生下列 JSON 結構： `"Name": {"First": "[value maps to this column from source]"}`  |否<br />(預設值為 **.** (點)) |
-| disableMetricsCollection | Data Factory 會收集諸如 Cosmos DB ru 的計量, 以取得複製效能優化和建議。 如果您擔心此行為, 請指定`true`將它關閉。 | 否 (預設值為 `false`) |
+| disableMetricsCollection | Data Factory 會收集諸如 Cosmos DB ru 的計量，以取得複製效能優化和建議。 如果您擔心此行為，請指定`true`將它關閉。 | 否 (預設值為 `false`) |
 
 >[!TIP]
 >Cosmos DB 會將單一要求的大小限制為 2MB。 公式為要求大小 = 單一文件大小 * 寫入批次大小。 如果您遇到指出「要求大小太大。」的錯誤，請在複製接收組態中**縮小 `writeBatchSize` 值**。
@@ -251,6 +256,9 @@ Data Factory 可與 [Azure Cosmos DB 大量執行程式庫](https://github.com/A
     }
 ]
 ```
+## <a name="lookup-activity-properties"></a>查閱活動屬性
+
+若要瞭解屬性的詳細資料，請檢查[查閱活動](control-flow-lookup-activity.md)。
 
 ## <a name="import-or-export-json-documents"></a>匯入或匯出 JSON 文件
 

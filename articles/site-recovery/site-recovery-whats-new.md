@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 09/12/2019
 ms.author: raynew
-ms.openlocfilehash: 2d40e6fef215219035720ee64492a91fcdafb472
-ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
+ms.openlocfilehash: 867a2dc9739e839a6957190f93311a811556df15
+ms.sourcegitcommit: a819209a7c293078ff5377dee266fa76fd20902c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70933942"
+ms.lasthandoff: 09/16/2019
+ms.locfileid: "71010253"
 ---
 # <a name="whats-new-in-site-recovery"></a>Site Recovery 最新功能
 
@@ -59,7 +59,7 @@ ms.locfileid: "70933942"
 **容錯回復後的清除** | 容錯移轉至次要 Azure，然後容錯回復到主要區域之後，Site Recovery 會自動清除次要區域中的機器。 不需要手動刪除 VM 和 Nic。
 **測試容錯移轉會保留 IP 位址** | 您現在可以在嚴重損壞修復演練期間保留來源 VM 的 IP 位址，並為測試容錯移轉挑選靜態 IP 位址。
 
-## <a name="vmwarephysical-server-disaster-recovery"></a>VMware/實體伺服器嚴重損壞修復
+### <a name="vmwarephysical-server-disaster-recovery"></a>VMware/實體伺服器嚴重損壞修復
 
 此月份新增的功能摘要于表格中。
 
@@ -67,13 +67,13 @@ ms.locfileid: "70933942"
 --- | ---
 新增進程伺服器警示 | 我們已新增處理伺服器警示。 [深入了解](vmware-physical-azure-monitor-process-server.md)。 
 
-## <a name="hyper-v-disaster-recovery"></a>Hyper-v 嚴重損壞修復
+### <a name="hyper-v-disaster-recovery"></a>Hyper-v 嚴重損壞修復
 
 此月份新增的功能摘要于表格中。
 
 **功能** | **詳細資料**
 --- | ---
-儲存體帳戶 | Site Recovery 現在支援使用已啟用角色型存取控制（RBAC）的儲存體帳戶。 [深入瞭解](../storage/common/storage-account-manage.md#access-control)儲存體帳戶的存取控制。 
+儲存體帳戶 | Site Recovery 現在支援使用已啟用防火牆的儲存體帳戶來進行 Hyper-v 到 Azure 的嚴重損壞修復。  您可以選取已啟用防火牆的儲存體帳戶做為目標帳戶，或用於快取儲存體。 如果您使用已啟用防火牆的帳戶，請確定您已啟用允許信任的 Microsoft 服務的選項。
 
 
 ## <a name="updates-august-2019"></a>更新（2019年8月）

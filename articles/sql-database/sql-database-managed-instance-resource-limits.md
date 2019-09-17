@@ -10,20 +10,20 @@ ms.topic: conceptual
 author: bonova
 ms.author: bonova
 ms.reviewer: carlrab, jovanpop, sachinp, sstein
-ms.date: 08/27/2019
-ms.openlocfilehash: 0dea447ed44a61b20faf9a0a1690b2bbdd674b30
-ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
+ms.date: 09/16/2019
+ms.openlocfilehash: 7f7faf11ed18fa2a85587c193376a3e4ce905fd2
+ms.sourcegitcommit: a819209a7c293078ff5377dee266fa76fd20902c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70930615"
+ms.lasthandoff: 09/16/2019
+ms.locfileid: "71010196"
 ---
 # <a name="overview-azure-sql-database-managed-instance-resource-limits"></a>Azure SQL Database 受控實例資源限制的總覽
 
-本文概述 Azure SQL Database 受控實例的資源限制，並提供如何要求增加至這些限制的相關資訊。
+本文概述 Azure SQL Database 受控實例的技術特性和資源限制，並提供如何要求增加至這些限制的相關資訊。
 
 > [!NOTE]
-> 若想了解支援的功能和 T-SQL 陳述式的差異，請參閱[功能差異](sql-database-features.md)和 [T-SQL 陳述式支援](sql-database-managed-instance-transact-sql-information.md)。
+> 若想了解支援的功能和 T-SQL 陳述式的差異，請參閱[功能差異](sql-database-features.md)和 [T-SQL 陳述式支援](sql-database-managed-instance-transact-sql-information.md)。 如需單一資料庫和受控實例中服務層級之間的一般 differencess，請參閱[服務層級比較](sql-database-service-tiers-general-purpose-business-critical.md#service-tier-comparison)。
 
 ## <a name="instance-level-resource-limits"></a>執行個體層級的資源限制
 
@@ -43,11 +43,11 @@ Azure SQL Database 受控實例可以部署在兩個硬體層代上：第4代和
 
 > [!IMPORTANT]
 > - 第4代硬體即將推出。建議您在第5代硬體上部署新的受控實例。
-> - 第4代硬體目前可在下欄區域使用：歐洲北部、西歐、美國東部、美國中南部、美國中北部、美國西部2、美國中部、加拿大中部、印度南部、東南亞和韓國中部。
+> - 目前，第4代硬體仍可在下欄區域使用：歐洲北部、西歐、美國東部、美國中南部、美國中北部、美國西部2、美國中部、加拿大中部、印度南部、東南亞和韓國中部。
 
 ### <a name="service-tier-characteristics"></a>服務層的特性
 
-受控實例有兩個服務層級：一般用途與業務關鍵。 這些層會提供不同的功能，如下表所述：
+受控實例有兩個服務層級：[一般用途](sql-database-service-tier-general-purpose.md)與[業務關鍵](sql-database-service-tier-business-critical.md)。 這些層級提供[不同的功能](sql-database-service-tiers-general-purpose-business-critical.md)，如下表所述：
 
 | **功能** | **一般用途** | **商務關鍵性** |
 | --- | --- | --- |
@@ -73,6 +73,9 @@ Azure SQL Database 受控實例可以部署在兩個硬體層代上：第4代和
 > - 輸送量和 IOPS 也取決於受控實例未明確限制的頁面大小。
 > 您可以使用自動容錯移轉群組，在不同的 Azure 區域中建立另一個可讀取的複本。
 
+> [!NOTE]
+> [在本文中，尋找受控實例集區中資源限制](sql-database-instance-pools.md#instance-pools-resource-limitations)的詳細資訊。
+
 ## <a name="supported-regions"></a>支援區域
 
 受控實例只能在[支援的區域](https://azure.microsoft.com/global-infrastructure/services/?products=sql-database&regions=all)中建立。 若要在目前不支援的區域中建立受控實例，您可以透過[Azure 入口網站傳送支援要求](#obtaining-a-larger-quota-for-sql-managed-instance)。
@@ -93,7 +96,7 @@ Azure SQL Database 受控實例可以部署在兩個硬體層代上：第4代和
 支援的訂用帳戶類型可包含有限的每一區域資源數目。 受控實例根據訂用帳戶類型的類型，每個 Azure 區域有兩個預設限制：
 
 - **子網路限制**：在單一區域中部署受控執行個體的子網路數目上限。
-- **vCore 限制**：可以在單一區域中的所有實例間部署的虛擬核心數目上限。
+- **vCore 限制**：可以在單一區域中的所有實例間部署的虛擬核心數目上限。 實例總數不會受到限制，只要它在 vCore 限制內即可。
 
 > [!Note]
 > 這些限制是預設設定，而不是技術限制。 如果您在目前的區域中需要更多受控實例，您可以在 Azure 入口網站中建立特殊的[支援要求，以](#obtaining-a-larger-quota-for-sql-managed-instance)增加視需要的限制。 或者，您可以在另一個 Azure 區域中建立新的受控實例，而不需要傳送支援要求。

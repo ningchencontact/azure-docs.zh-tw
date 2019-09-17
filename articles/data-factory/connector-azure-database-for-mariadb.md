@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 09/04/2019
 ms.author: jingwang
-ms.openlocfilehash: 3325cb7170ebe42962c403d25d04c9fe2bae3b45
-ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
+ms.openlocfilehash: 5f85478137b9ab7d24e1466f6b6653b118b02c3c
+ms.sourcegitcommit: a819209a7c293078ff5377dee266fa76fd20902c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70276035"
+ms.lasthandoff: 09/16/2019
+ms.locfileid: "71010150"
 ---
 # <a name="copy-data-from-azure-database-for-mariadb-using-azure-data-factory"></a>使用 Azure Data Factory 從適用於 MariaDB 的 Azure 資料庫複製資料 
 
@@ -25,6 +25,11 @@ ms.locfileid: "70276035"
 
 ## <a name="supported-capabilities"></a>支援的功能
 
+下列活動支援此適用於 MariaDB 的 Azure 資料庫連接器：
+
+- [複製活動](copy-activity-overview.md)與[支援的來源矩陣](copy-activity-overview.md)
+- [查閱活動](control-flow-lookup-activity.md)
+ 
 您可以將資料從適用於 MariaDB 的 Azure 資料庫複製到任何支援的接收資料存放區。 如需複製活動所支援作為來源/接收器的資料存放區清單，請參閱[支援的資料存放區](copy-activity-overview.md#supported-data-stores-and-formats)表格。
 
 Azure Data Factory 提供的內建驅動程式可啟用連線，因此使用此連接器您不需要手動安裝任何驅動程式。
@@ -99,7 +104,7 @@ Azure Data Factory 提供的內建驅動程式可啟用連線，因此使用此�
 
 如需可用來定義資料集的區段和屬性完整清單，請參閱[資料集](concepts-datasets-linked-services.md)一文。 本節提供適用於 MariaDB 的 Azure 資料庫資料集所支援的屬性清單。
 
-若要從適用於 MariaDB 的 Azure 資料庫複製資料, 支援下列屬性:
+若要從適用於 MariaDB 的 Azure 資料庫複製資料，支援下列屬性：
 
 | 屬性 | 描述 | 必要項 |
 |:--- |:--- |:--- |
@@ -129,7 +134,7 @@ Azure Data Factory 提供的內建驅動程式可啟用連線，因此使用此�
 
 ### <a name="azure-database-for-mariadb-as-source"></a>以適用於 MariaDB 的 Azure 資料庫作為來源
 
-若要從適用於 MariaDB 的 Azure 資料庫複製資料, 複製活動的 [**來源**] 區段中支援下列屬性:
+若要從適用於 MariaDB 的 Azure 資料庫複製資料，複製活動的 [**來源**] 區段中支援下列屬性：
 
 | 屬性 | 描述 | 必要項 |
 |:--- |:--- |:--- |
@@ -167,6 +172,9 @@ Azure Data Factory 提供的內建驅動程式可啟用連線，因此使用此�
     }
 ]
 ```
+## <a name="lookup-activity-properties"></a>查閱活動屬性
+
+若要瞭解屬性的詳細資料，請檢查[查閱活動](control-flow-lookup-activity.md)。
 
 ## <a name="next-steps"></a>後續步驟
 如需 Azure Data Factory 中的複製活動所支援作為來源和接收器的資料存放區清單，請參閱[支援的資料存放區](copy-activity-overview.md#supported-data-stores-and-formats)。

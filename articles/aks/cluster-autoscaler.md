@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 07/18/2019
 ms.author: mlearned
-ms.openlocfilehash: 5671c3e36a49680b72b1f7b138cbd6e9c0bc4313
-ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
+ms.openlocfilehash: 877d0a17b9ff06e9b9ac2c843c1847c9cb9726e4
+ms.sourcegitcommit: 71db032bd5680c9287a7867b923bf6471ba8f6be
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70914854"
+ms.lasthandoff: 09/16/2019
+ms.locfileid: "71018720"
 ---
 # <a name="preview---automatically-scale-a-cluster-to-meet-application-demands-on-azure-kubernetes-service-aks"></a>預覽-自動調整叢集，以符合 Azure Kubernetes Service 上的應用程式需求（AKS）
 
@@ -104,7 +104,7 @@ az aks create \
 ## <a name="change-the-cluster-autoscaler-settings"></a>變更叢集自動調整程式設定
 
 > [!IMPORTANT]
-> 如果您的訂用帳戶上已啟用*多個代理程式*集區功能，請跳至[使用多個代理程式組件區自動調整一節](##use-the-cluster-autoscaler-with-multiple-node-pools-enabled)。 啟用多個代理程式組件區的叢集需要`az aks nodepool`使用命令集來變更節點集區特定屬性`az aks`，而不是。 下列指示假設您未啟用多個節點集區。 若要檢查您是否已啟用它， `az feature  list -o table`請執行並`Microsoft.ContainerService/multiagentpoolpreview`尋找。
+> 如果您的訂用帳戶上已啟用*多個代理程式*集區功能，請跳至[使用多個代理程式組件區自動調整一節](#use-the-cluster-autoscaler-with-multiple-node-pools-enabled)。 啟用多個代理程式組件區的叢集需要`az aks nodepool`使用命令集來變更節點集區特定屬性`az aks`，而不是。 下列指示假設您未啟用多個節點集區。 若要檢查您是否已啟用它， `az feature  list -o table`請執行並`Microsoft.ContainerService/multiagentpoolpreview`尋找。
 
 在上一個步驟中，若要建立 AKS 叢集或更新現有的節點集區，叢集自動調整程式的最小節點計數設定為*1*，而節點計數上限設定為*3*。 隨著應用程式需求的變化，您可能需要調整叢集自動調整程式節點計數。
 

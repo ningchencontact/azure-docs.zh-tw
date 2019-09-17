@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 09/04/2019
 ms.author: jingwang
-ms.openlocfilehash: a20a901d5fde251fdc1a044795615acdc1d61c5b
-ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
+ms.openlocfilehash: 1096505a8789d722594cff13841e97930846ee53
+ms.sourcegitcommit: a819209a7c293078ff5377dee266fa76fd20902c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70277637"
+ms.lasthandoff: 09/16/2019
+ms.locfileid: "71010630"
 ---
 # <a name="copy-data-from-and-to-odbc-data-stores-using-azure-data-factory"></a>使用 Azure Data Factory 從 ODBC 資料存放區複製資料及將資料複製到處
 > [!div class="op_single_selector" title1="選取您目前使用的 Data Factory 服務版本："]
@@ -27,6 +27,11 @@ ms.locfileid: "70277637"
 本文概述如何使用 Azure Data Factory 中的「複製活動」，從 ODBC 資料存放區複製資料及將資料複製到該處。 本文是根據[複製活動概觀](copy-activity-overview.md)一文，該文提供複製活動的一般概觀。
 
 ## <a name="supported-capabilities"></a>支援的功能
+
+下列活動支援此 ODBC 連接器：
+
+- [複製活動](copy-activity-overview.md)與[支援的來源/接收矩陣](copy-activity-overview.md)
+- [查閱活動](control-flow-lookup-activity.md)
 
 您可以將資料從 ODBC 來源複製到任何支援的接收資料存放區，或從任何支援的來源資料存放區複製到 ODBC 接收器。 如需複製活動所支援作為來源/接收器的資料存放區清單，請參閱[支援的資料存放區](copy-activity-overview.md#supported-data-stores-and-formats)表格。
 
@@ -116,7 +121,7 @@ ms.locfileid: "70277637"
 
 如需可用來定義資料集的區段和屬性完整清單，請參閱[資料集](concepts-datasets-linked-services.md)一文。 本節提供 ODBC 資料集所支援的屬性清單。
 
-若要將資料從/複製到 ODBC 相容的資料存放區, 則支援下列屬性:
+若要將資料從/複製到 ODBC 相容的資料存放區，則支援下列屬性：
 
 | 屬性 | 描述 | 必要項 |
 |:--- |:--- |:--- |
@@ -142,7 +147,7 @@ ms.locfileid: "70277637"
 }
 ```
 
-如果您使用`RelationalTable`的是具類型的資料集, 則仍會受到支援, 但建議您在未來使用新的 dataset。
+如果您使用`RelationalTable`的是具類型的資料集，則仍會受到支援，但建議您在未來使用新的 dataset。
 
 ## <a name="copy-activity-properties"></a>複製活動屬性
 
@@ -150,7 +155,7 @@ ms.locfileid: "70277637"
 
 ### <a name="odbc-as-source"></a>ODBC 作為來源
 
-若要從 ODBC 相容的資料存放區複製資料, 複製活動的 [**來源**] 區段中支援下列屬性:
+若要從 ODBC 相容的資料存放區複製資料，複製活動的 [**來源**] 區段中支援下列屬性：
 
 | 屬性 | 描述 | 必要項 |
 |:--- |:--- |:--- |
@@ -189,7 +194,7 @@ ms.locfileid: "70277637"
 ]
 ```
 
-如果您使用`RelationalSource`的是具類型的來源, 則仍會受到支援, 但建議您在未來使用新的來源。
+如果您使用`RelationalSource`的是具類型的來源，則仍會受到支援，但建議您在未來使用新的來源。
 
 ### <a name="odbc-as-sink"></a>ODBC 作為接收器
 
@@ -277,6 +282,11 @@ ms.locfileid: "70277637"
 ```
 
 如需在複製作業中使用 ODBC 資料存放區作為來源/接收資料存放區的詳細概觀，請從頭閱讀本文。
+
+## <a name="lookup-activity-properties"></a>查閱活動屬性
+
+若要瞭解屬性的詳細資料，請檢查[查閱活動](control-flow-lookup-activity.md)。
+
 
 ## <a name="troubleshoot-connectivity-issues"></a>疑難排解連線問題
 

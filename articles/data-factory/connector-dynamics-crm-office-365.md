@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 07/01/2019
 ms.author: jingwang
-ms.openlocfilehash: 3f7bf3ce8c01e82fa69b3b041b573b4b31a719d2
-ms.sourcegitcommit: 6cb4dd784dd5a6c72edaff56cf6bcdcd8c579ee7
+ms.openlocfilehash: 18fdb14430eee97ff2780d963abf3e5ceafe1126
+ms.sourcegitcommit: a819209a7c293078ff5377dee266fa76fd20902c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/02/2019
-ms.locfileid: "67514100"
+ms.lasthandoff: 09/16/2019
+ms.locfileid: "71009402"
 ---
 # <a name="copy-data-from-and-to-dynamics-365-common-data-service-or-dynamics-crm-by-using-azure-data-factory"></a>使用 Azure Data Factory 從 Dynamics 365 (Common Data Service) 複製資料以及複製資料至 Dynamics 365
 
@@ -25,15 +25,20 @@ ms.locfileid: "67514100"
 
 ## <a name="supported-capabilities"></a>支援的功能
 
+下列活動支援此連接器：
+
+- [複製活動](copy-activity-overview.md)與[支援的來源/接收矩陣](copy-activity-overview.md)
+- [查閱活動](control-flow-lookup-activity.md)
+
 您可以將資料從 Dynamics 365 (Common Data Service) 或 Dynamics CRM 複製到任何支援的接收資料存放區。 您也可以從任何支援的來源資料存放區將資料複製到 Dynamics 365 (Common Data Service) 或 Dynamics CRM。 如需複製活動所支援作為來源或接收器的資料存放區清單，請參閱[支援的資料存放區](copy-activity-overview.md#supported-data-stores-and-formats)表格。
 
-這個 Dynamics 連接器支援 Dynamics 版本 7.x 兩者 9.x 線上或內部部署。 具體而言：
+這個 Dynamics 連接器支援線上或內部部署的 Dynamics 版本7.x 至 9. x。 具體而言：
 
-- 版本 7.x 對應至 Dynamics CRM 2015
-- 版本 8.x 並對應至 Dynamics CRM 2016 和舊版的 Dynamics 365
-- Dynamics 365 較新版本的版本 9.x 對應
+- 版本7.x 對應至 Dynamics CRM 2015
+- 2\.x 版對應至 Dynamics CRM 2016 和 Dynamics 365 的早期版本
+- 版本6.x 對應至較新版本的 Dynamics 365
 
-請參閱下表上的受支援的驗證類型和適用於個別 Dynamics 版本/產品的組態。 (IFD 是網際網路對向部署的縮寫。)
+請參閱下表，以瞭解個別 Dynamics 版本/產品支援的驗證類型和設定。 (IFD 是網際網路對向部署的縮寫。)
 
 | Dynamics 版本 | 驗證類型 | 已連結的服務範例 |
 |:--- |:--- |:--- |
@@ -50,7 +55,7 @@ ms.locfileid: "67514100"
 
 此連接器不支援其他應用程式類型，例如 Finance and Operations、Talent 等。
 
-這個 Dynamics 連接器為基礎建置的[Dynamics XRM 工具](https://docs.microsoft.com/dynamics365/customer-engagement/developer/build-windows-client-applications-xrm-tools)。
+這個 Dynamics connector 建置於[DYNAMICS XRM 工具](https://docs.microsoft.com/dynamics365/customer-engagement/developer/build-windows-client-applications-xrm-tools)之上。
 
 >[!TIP]
 >若要從 **Dynamics 365 Finance and Operations** 複製資料，您可以使用 [Dynamics AX 連接器](connector-dynamics-ax.md)。
@@ -69,7 +74,7 @@ ms.locfileid: "67514100"
 
 | 屬性 | 描述 | 必要項 |
 |:--- |:--- |:--- |
-| type | type 屬性必須設定為 **Dynamics**。 | 是 |
+| Type | type 屬性必須設定為 **Dynamics**。 | 是 |
 | deploymentType | Dynamics 執行個體的部署類型。 如果是 Dynamics Online，就必須是 **"Online"** 。 | 是 |
 | serviceUri | 您 Dynamics 執行個體的服務 URL，例如 `https://adfdynamics.crm.dynamics.com`。 | 是 |
 | authenticationType | 連線到 Dynamics 伺服器時所使用的驗證類型。 如果是 Dynamics Online，請指定 **"Office365"** 。 | 是 |
@@ -108,11 +113,11 @@ ms.locfileid: "67514100"
 
 ### <a name="dynamics-365-and-dynamics-crm-on-premises-with-ifd"></a>搭配 IFD 的 Dynamics 365 和 Dynamics CRM 內部部署版
 
-相較於 Dyanmics Online，額外的屬性為 "hostName" 和 "port"。 
+相較於 Dyanmics Online，額外的屬性為 "hostName" 和 "port"。
 
 | 屬性 | 描述 | 必要項 |
 |:--- |:--- |:--- |
-| type | type 屬性必須設定為 **Dynamics**。 | 是 |
+| Type | type 屬性必須設定為 **Dynamics**。 | 是 |
 | deploymentType | Dynamics 執行個體的部署類型。 如果是搭配 IFD 的 Dynamics 內部部署版，就必須是 **"OnPremisesWithIfd"** 。| 是 |
 | hostName | 內部部署 Dynamics 伺服器的主機名稱。 | 是 |
 | port | 內部部署 Dynamics 伺服器的連接埠。 | 否，預設值為 443 |
@@ -158,15 +163,15 @@ ms.locfileid: "67514100"
 
 | 屬性 | 描述 | 必要項 |
 |:--- |:--- |:--- |
-| type | 資料集的 type 屬性必須設定為 **DynamicsEntity**。 |是 |
+| Type | 資料集的 type 屬性必須設定為 **DynamicsEntity**。 |是 |
 | entityName | 要擷取之實體的邏輯名稱。 | 否 (來源，如果已指定活動來源中的「查詢」)；是 (接收) |
 
 > [!IMPORTANT]
->- 當您從 Dynamics 複製資料時，"structure"區段是選擇性的但高度 recommanded Dynamics 資料集，以確保具決定性的複製結果。 它會定義您想要複製的 Dynamics 資料之資料行名稱和資料類型。 若要深入了解，請參閱[資料集結構](concepts-datasets-linked-services.md#dataset-structure-or-schema)和 [Dynamics 的資料類型對應](#data-type-mapping-for-dynamics)。
->- 在撰寫 UI 中匯入結構描述時，ADF 會推斷結構描述，方法是從 Dynamics 查詢結果取前幾個資料列作為樣本來進行結構建構初始化，在此情況下，會省略沒有值的資料行。 相同的行為套用至複製的執行，如果沒有任何明確結構的定義。 您可以視需要檢閱及將更多資料行新增至 Dynamics 資料集結構描述/結構，在複製執行階段即會予以採用。
->- 將資料複製到 Dynamics 時，Dynamics 資料集內不一定要有 "structure" 區段。 要複製到哪些資料行取決於來源資料結構描述。 如果來源是沒有標題的 CSV 檔案，在輸入資料集中使用資料行名稱和資料類型指定 "structure"。 它們會按順序一一對應至 CSV 檔案中的欄位。
+>- 當您從 Dynamics 複製資料時，"structure" 區段是選擇性的，但在 Dynamics 資料集中具有高度建議，以確保具有決定性的複製結果。 它會定義您想要複製的 Dynamics 資料之資料行名稱和資料類型。 若要深入了解，請參閱[資料集結構](concepts-datasets-linked-services.md#dataset-structure-or-schema)和 [Dynamics 的資料類型對應](#data-type-mapping-for-dynamics)。
+>- 在撰寫 UI 中匯入結構描述時，ADF 會推斷結構描述，方法是從 Dynamics 查詢結果取前幾個資料列作為樣本來進行結構建構初始化，在此情況下，會省略沒有值的資料行。 如果沒有明確結構定義，則相同的行為適用于複製執行。 您可以視需要檢閱及將更多資料行新增至 Dynamics 資料集結構描述/結構，在複製執行階段即會予以採用。
+>- 將資料複製到 Dynamics 時，Dynamics 資料集內不一定要有 "structure" 區段。 要複製到哪些資料行是由來源資料架構所決定。 如果來源是沒有標題的 CSV 檔案，在輸入資料集中使用資料行名稱和資料類型指定 "structure"。 它們會按順序一一對應至 CSV 檔案中的欄位。
 
-**範例：**
+**範例:**
 
 ```json
 {
@@ -204,21 +209,21 @@ ms.locfileid: "67514100"
 
 ## <a name="copy-activity-properties"></a>複製活動屬性
 
-如需可用來定義活動的區段和屬性完整清單，請參閱[管線](concepts-pipelines-activities.md)一文。 本節提供 Dynamics 來源和接收類型所支援的屬性清單。
+如需可用來定義活動的區段和屬性完整清單，請參閱[Pipelines](concepts-pipelines-activities.md)一文。 本節提供 Dynamics 來源和接收類型所支援的屬性清單。
 
 ### <a name="dynamics-as-a-source-type"></a>Dynamics 作為來源類型
 
-若要從 Dynamics 複製資料，請將複製活動中的來源類型設定為 **DynamicsSource**。 複製活動的 [來源]  區段支援下列屬性。
+若要從 Dynamics 複製資料，請將複製活動中的來源類型設定為 **DynamicsSource**。 複製活動的 [來源] 區段支援下列屬性。
 
 | 屬性 | 描述 | 必要項 |
 |:--- |:--- |:--- |
-| type | 複製活動來源的 type 屬性必須設定為 **DynamicsSource**。 | 是 |
-| query | FetchXML 是在 Dynamics (線上版和內部部署版) 中使用的專屬查詢語言。 請參閱下列範例。 若要進一步了解，請參閱[建置使用 FetchXML 查詢](https://msdn.microsoft.com/library/gg328332.aspx)。 | 否 (如果已指定資料集中的 "entityName") |
+| Type | 複製活動來源的 type 屬性必須設定為 **DynamicsSource**。 | 是 |
+| query | FetchXML 是在 Dynamics (線上版和內部部署版) 中使用的專屬查詢語言。 請參閱下列範例。 若要深入瞭解，請參閱[使用 FetchXML 建立查詢](https://msdn.microsoft.com/library/gg328332.aspx)。 | 否 (如果已指定資料集中的 "entityName") |
 
 >[!NOTE]
 >即使您在 FetchXML 查詢中設定的資料行投影未包含 PK 資料行，還是一律會複製 PK 資料行。
 
-**範例：**
+**範例:**
 
 ```json
 "activities":[
@@ -272,11 +277,11 @@ ms.locfileid: "67514100"
 
 ### <a name="dynamics-as-a-sink-type"></a>Dynamics 作為接收類型
 
-若要複製資料至 Dynamics ，將複製活動中的接收類型設定為 **DynamicsSink**。 複製活動的 [接收]  區段支援下列屬性。
+若要複製資料至 Dynamics ，將複製活動中的接收類型設定為 **DynamicsSink**。 複製活動的 [接收] 區段支援下列屬性。
 
 | 屬性 | 描述 | 必要項 |
 |:--- |:--- |:--- |
-| type | 複製活動接收的 type 屬性必須設定為 **DynamicsSink**。 | 是 |
+| Type | 複製活動接收的 type 屬性必須設定為 **DynamicsSink**。 | 是 |
 | writeBehavior | 作業的寫入行為。<br/>允許的值為 **"Upsert"** 。 | 是 |
 | writeBatchSize | 每個批次中寫入 Dynamics 的資料列計數。 | 否 (預設值為 10) |
 | ignoreNullValues | 指出在寫入作業期間是否要忽略輸入資料中的 Null 值 (索引鍵欄位除外)。<br/>允許的值為 **true** 和 **false**。<br>- **True**：執行 upsert/更新作業時，將目的地物件中的資料保持不變。 執行插入作業時，插入已定義的預設值。<br/>- **False**：執行 upsert/更新作業時，將目的地物件中的資料更新為 NULL。 執行插入作業時，插入 NULL 值。 | 否 (預設值為 false) |
@@ -288,7 +293,7 @@ Dynamics 365 線上版限制[每個組織只能有 2 個並行批次呼叫](http
 
 **writeBatchSize** 和 **parallelCopies** 的最佳組合取決於實體的結構描述，例如資料行數目、資料列大小、連接到這些呼叫的外掛程式/工作流程/工作流程活動數目等等。10 個 writeBatchSize * 10 個 parallelCopies 的預設設定是根據 Dynamics 服務所提出的建議，雖適用於大部分 Dynamics 實體，但可能無法達到最佳效能。 您可以藉由調整複製活動設定中的組合來微調效能。
 
-**範例：**
+**範例:**
 
 ```json
 "activities":[
@@ -330,27 +335,31 @@ Dynamics 365 線上版限制[每個組織只能有 2 個並行批次呼叫](http
 
 | Dynamics 資料類型 | Data Factory 過渡期資料類型 | 支援作為來源 | 支援作為接收 |
 |:--- |:--- |:--- |:--- |
-| AttributeTypeCode.BigInt | long | ✓ | ✓ |
+| AttributeTypeCode.BigInt | 長 | ✓ | ✓ |
 | AttributeTypeCode.Boolean | Boolean | ✓ | ✓ |
 | AttributeType.Customer | Guid | ✓ | |
-| AttributeType.DateTime | DateTime | ✓ | ✓ |
+| AttributeType.DateTime | Datetime | ✓ | ✓ |
 | AttributeType.Decimal | Decimal | ✓ | ✓ |
 | AttributeType.Double | Double | ✓ | ✓ |
-| AttributeType.EntityName | 字串 | ✓ | ✓ |
+| AttributeType.EntityName | String | ✓ | ✓ |
 | AttributeType.Integer | Int32 | ✓ | ✓ |
 | AttributeType.Lookup | Guid | ✓ | ✓ (具有相關聯的單一目標) |
 | AttributeType.ManagedProperty | Boolean | ✓ | |
-| AttributeType.Memo | 字串 | ✓ | ✓ |
+| AttributeType.Memo | String | ✓ | ✓ |
 | AttributeType.Money | Decimal | ✓ | ✓ |
 | AttributeType.Owner | Guid | ✓ | |
 | AttributeType.Picklist | Int32 | ✓ | ✓ |
 | AttributeType.Uniqueidentifier | Guid | ✓ | ✓ |
-| AttributeType.String | 字串 | ✓ | ✓ |
+| AttributeType.String | String | ✓ | ✓ |
 | AttributeType.State | Int32 | ✓ | ✓ |
 | AttributeType.Status | Int32 | ✓ | ✓ |
 
 > [!NOTE]
-> 不支援 Dynamics 資料類型 AttributeType.CalendarRules、 AttributeType.MultiSelectPicklist 和 AttributeType.PartyList。
+> 不支援 Dynamics 資料類型 AttributeType. Attributetype.calendarrules attributetype.partylist、AttributeType. MultiSelectPicklist 和 AttributeType. PartyList。
+
+## <a name="lookup-activity-properties"></a>查閱活動屬性
+
+若要瞭解屬性的詳細資料，請檢查[查閱活動](control-flow-lookup-activity.md)。
 
 ## <a name="next-steps"></a>後續步驟
 如需 Data Factory 中的複製活動所支援作為來源和接收的資料存放區清單，請參閱[支援的資料存放區](copy-activity-overview.md#supported-data-stores-and-formats)。

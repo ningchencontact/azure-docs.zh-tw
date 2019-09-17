@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 09/04/2019
 ms.author: jingwang
-ms.openlocfilehash: a31f0618f7e9dc8fdb0e9b2988d3d3c32fefcf64
-ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
+ms.openlocfilehash: 2d61963f85bc5d2ec6398c8b7439689e7125f9c6
+ms.sourcegitcommit: a819209a7c293078ff5377dee266fa76fd20902c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70277661"
+ms.lasthandoff: 09/16/2019
+ms.locfileid: "71010656"
 ---
 # <a name="copy-data-from-an-odata-source-by-using-azure-data-factory"></a>使用 Azure Data Factory 從 OData 來源複製資料
 
@@ -28,6 +28,11 @@ ms.locfileid: "70277661"
 本文概述如何使用 Azure Data Factory 中的「複製活動」，從 OData 來源複製資料。 本文是以 [Azure Data Factory 中的複製活動](copy-activity-overview.md)為基礎，該文提供複製活動的一般概觀。
 
 ## <a name="supported-capabilities"></a>支援的功能
+
+下列活動支援此 OData 連接器：
+
+- [複製活動](copy-activity-overview.md)與[支援的來源矩陣](copy-activity-overview.md)
+- [查閱活動](control-flow-lookup-activity.md)
 
 您可以將資料從 OData 來源複製到任何支援的接收資料存放區。 如需複製活動作為來源和接收端支援的資料存放區清單，請參閱[支援的資料存放區和格式](copy-activity-overview.md#supported-data-stores-and-formats)。
 
@@ -233,7 +238,7 @@ ms.locfileid: "70277661"
 
 ### <a name="odata-as-source"></a>OData 作為來源
 
-若要從 OData 複製資料, 複製活動的 [**來源**] 區段中支援下列屬性:
+若要從 OData 複製資料，複製活動的 [**來源**] 區段中支援下列屬性：
 
 | 屬性 | 描述 | 必要項 |
 |:--- |:--- |:--- |
@@ -272,7 +277,7 @@ ms.locfileid: "70277661"
 ]
 ```
 
-如果您使用`RelationalSource`的是具類型的來源, 則仍會受到支援, 但建議您在未來使用新的來源。
+如果您使用`RelationalSource`的是具類型的來源，則仍會受到支援，但建議您在未來使用新的來源。
 
 ## <a name="data-type-mapping-for-odata"></a>OData 的資料類型對應
 
@@ -299,6 +304,10 @@ ms.locfileid: "70277661"
 > [!NOTE]
 > 不支援 OData 複雜資料類型 (例如**物件**)。
 
+
+## <a name="lookup-activity-properties"></a>查閱活動屬性
+
+若要瞭解屬性的詳細資料，請檢查[查閱活動](control-flow-lookup-activity.md)。
 
 ## <a name="next-steps"></a>後續步驟
 

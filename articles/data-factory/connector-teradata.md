@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 09/13/2019
 ms.author: jingwang
-ms.openlocfilehash: f17a7ef2131662cdb9ef4d138303556215810fba
-ms.sourcegitcommit: dd69b3cda2d722b7aecce5b9bd3eb9b7fbf9dc0a
+ms.openlocfilehash: b91ec46d47814418de21e9afe3e6e5534473c921
+ms.sourcegitcommit: a819209a7c293078ff5377dee266fa76fd20902c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70959019"
+ms.lasthandoff: 09/16/2019
+ms.locfileid: "71008973"
 ---
 # <a name="copy-data-from-teradata-vantage-by-using-azure-data-factory"></a>使用 Azure Data Factory 從 Teradata 有利複製資料
 > [!div class="op_single_selector" title1="選取您目前使用的 Data Factory 服務版本："]
@@ -28,6 +28,11 @@ ms.locfileid: "70959019"
 本文概述如何使用 Azure Data Factory 中的「複製活動」，從 Teradata 有利複製資料。 它是以[複製活動總覽](copy-activity-overview.md)為基礎。
 
 ## <a name="supported-capabilities"></a>支援的功能
+
+下列活動支援此 Teradata 連接器：
+
+- [複製活動](copy-activity-overview.md)與[支援的來源矩陣](copy-activity-overview.md)
+- [查閱活動](control-flow-lookup-activity.md)
 
 您可以將資料從 Teradata 有利複製到任何支援的接收資料存放區。 如需複製活動所支援作為來源/接收器的資料存放區清單，請參閱[支援的資料存放區](copy-activity-overview.md#supported-data-stores-and-formats)表格。
 
@@ -328,6 +333,11 @@ Data Factory Teradata 連接器會提供內建的資料分割，以平行方式�
 | VarChar |String |
 | VarGraphic |不支援。 在來源查詢中套用明確轉換。 |
 | Xml |不支援。 在來源查詢中套用明確轉換。 |
+
+
+## <a name="lookup-activity-properties"></a>查閱活動屬性
+
+若要瞭解屬性的詳細資料，請檢查[查閱活動](control-flow-lookup-activity.md)。
 
 
 ## <a name="next-steps"></a>後續步驟

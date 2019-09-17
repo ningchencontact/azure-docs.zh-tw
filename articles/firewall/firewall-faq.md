@@ -5,14 +5,14 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: conceptual
-ms.date: 08/29/2019
+ms.date: 09/17/2019
 ms.author: victorh
-ms.openlocfilehash: da5880d27e5dd51d3a5f90b7cd6cf2e7dec50f89
-ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
+ms.openlocfilehash: 4b258df1711aa51ed4edee6ecd209fa39c7fde27
+ms.sourcegitcommit: 71db032bd5680c9287a7867b923bf6471ba8f6be
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70932752"
+ms.lasthandoff: 09/16/2019
+ms.locfileid: "71018857"
 ---
 # <a name="azure-firewall-faq"></a>Azure 防火牆常見問題集
 
@@ -129,11 +129,9 @@ Set-AzFirewall -AzureFirewall $azfw
 
 ## <a name="is-forced-tunnelingchaining-to-a-network-virtual-appliance-supported"></a>受支援的網路虛擬裝置是否有強制通道/連結？
 
-預設不支援強制通道，但可透過支援協助進行啟用。
+目前不支援強制通道。 「Azure 防火牆」必須能夠直接連線到網際網路。 如果您的 AzureFirewallSubnet 學習到透過 BGP 連至您內部部署網路的預設路由，您必須將其覆寫為 0.0.0.0/0 UDR，且 **NextHopType** 值必須設為 [網際網路]，以保有直接網際網路連線。
 
-「Azure 防火牆」必須能夠直接連線到網際網路。 如果您的 AzureFirewallSubnet 學習到透過 BGP 連至您內部部署網路的預設路由，您必須將其覆寫為 0.0.0.0/0 UDR，且 **NextHopType** 值必須設為 [網際網路]，以保有直接網際網路連線。 根據預設，Azure 防火牆不支援對內部部署網路的強制通道。
-
-不過，如果您的設定需要對內部部署網路的強制通道，Microsoft 將以個別案例為原則提供支援。 連絡支援人員，以便我們檢閱您的案例。 受理後，我們會允許您的訂用帳戶，並確實維持必要的防火牆網際網路連線。
+如果您的設定需要對內部部署網路的強制通道，而且您可以決定網際網路目的地的目標 IP 首碼，您可以透過使用者定義的路由，將這些範圍設定為使用內部部署網路做為下一個躍點。AzureFirewallSubnet. 或者，您可以使用 BGP 來定義這些路由。
 
 ## <a name="are-there-any-firewall-resource-group-restrictions"></a>是否有任何防火牆資源群組的限制？
 
