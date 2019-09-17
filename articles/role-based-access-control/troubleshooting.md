@@ -15,12 +15,12 @@ ms.date: 08/22/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: seohack1
-ms.openlocfilehash: c3ca873cb4dd49d77ba818b3d05c3aa41e89276f
-ms.sourcegitcommit: 6d2a147a7e729f05d65ea4735b880c005f62530f
-ms.translationtype: HT
+ms.openlocfilehash: eb7c2cb4a20c89f3a54f23e354d56e5dc3711ef0
+ms.sourcegitcommit: fbea2708aab06c19524583f7fbdf35e73274f657
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69982729"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70967112"
 ---
 # <a name="troubleshoot-rbac-for-azure-resources"></a>針對適用於 Azure 資源的 RBAC 進行疑難排解
 
@@ -182,6 +182,8 @@ Web 應用程式因為幾個互有關聯的資源而顯得複雜。 以下是具
 讀者可以按一下 [平台功能] 索引標籤，然後按一下 [所有設定] 以檢視與函數應用程式相關的一些設定 (類似於 Web 應用程式)，但他們不能修改這些設定。 若要存取這些功能，您將需要「[參與者](built-in-roles.md#contributor)」角色。
 
 ## <a name="next-steps"></a>後續步驟
-* [使用 RBAC 和 Azure 入口網站管理 Azure 資源的存取權](role-assignments-portal.md)
-* [檢視活動記錄中 Azure 資源的各種 RBAC 變更](change-history-report.md)
+
+- [針對來賓使用者進行疑難排解](role-assignments-external-users.md#troubleshoot)
+- [使用 RBAC 和 Azure 入口網站管理 Azure 資源的存取權](role-assignments-portal.md)
+- [檢視活動記錄中 Azure 資源的各種 RBAC 變更](change-history-report.md)
 

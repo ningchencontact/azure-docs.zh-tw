@@ -5,14 +5,14 @@ services: Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security
 author: qianw211
 ms.service: marketplace
 ms.topic: article
-ms.date: 09/04/2019
+ms.date: 09/10/2019
 ms.author: v-qiwe
-ms.openlocfilehash: d1a0f3ea46922b8a684c269c13df068e0c879cbd
-ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
-ms.translationtype: HT
+ms.openlocfilehash: c09e685d10764470d328e7c66293551287b5b1b2
+ms.sourcegitcommit: dd69b3cda2d722b7aecce5b9bd3eb9b7fbf9dc0a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70309091"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70962712"
 ---
 # <a name="your-commercial-marketplace-benefits"></a>您的商業 marketplace 權益
 
@@ -74,7 +74,7 @@ Marketplace 報酬的設計是為了在您的特定成長階段支援您，從�
 
 如需所有這些權益的詳細說明，請參閱[Marketplace 獎勵方案組](https://aka.ms/marketplacerewards)。
 
-除了報酬優勢，使用 Dynamics 供應專案發佈至 Microsoft AppSource 的商務應用程式合作夥伴也會透過[ISV Connect](https://partner.microsoft.com/en-us/solutions/business-applications/isv-overview)提供補充的程式設計。 這包括專為商務應用程式合作夥伴需求而特製化的技術、行銷和銷售支援。
+除了報酬優勢，使用 Dynamics 供應專案發佈至 Microsoft AppSource 的商務應用程式合作夥伴也會透過[ISV Connect](https://partner.microsoft.com/solutions/business-applications/isv-overview)提供補充的程式設計。 這包括專為商務應用程式合作夥伴需求而特製化的技術、行銷和銷售支援。
 
 ## <a name="marketplace-rewards-requirements-and-restrictions"></a>Marketplace 獎勵需求和限制
 
@@ -101,9 +101,9 @@ Microsoft 保留撤銷並終止 Marketplace 獎勵權益的權利，讓發行者
 
 ## <a name="next-steps"></a>後續步驟
 
-如果您已在 Cloud Partner 入口網站中建立供應專案，請登入以建立或設定您的供應專案。
+如果您已在[Cloud Partner 入口網站](https://cloudpartner.azure.com)中建立供應專案，請登入以建立或設定您的供應專案。
 
-如果您已在合作夥伴中心建立供應專案，請登入以建立或設定您的供應專案。
+如果您已在[合作夥伴中心](https://partner.microsoft.com/en-us/dashboard/commercial-marketplace/overview)建立供應專案，請登入以建立或設定您的供應專案。
 
 請參閱[您可以使用的自助資源](https://partner.microsoft.com/asset/collection/azure-marketplace-and-appsource-publisher-toolkit#/)。
 
