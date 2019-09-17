@@ -31,7 +31,7 @@ ms.locfileid: "68640065"
 您可以在已佈建的或無伺服器 (預覽) 計算層中建立單一資料庫。
 
 - 已佈建計算層中的單一資料庫具有已定義數量的預先配置計算資源，以及一組使用兩種[購買模型](sql-database-purchase-models.md)之一的記憶體和儲存體資源。
-- 無伺服器計算層中的單一資料庫具有多種可自動調整的計算資源，以及指定數量的每一核心記憶體，和指定數量的儲存體資源，且僅適用於[以虛擬核心為基礎的購買模型](sql-database-service-tiers-vcore.md)。
+- 無伺服器計算層中的單一資料庫具有多種可自動調整的計算資源，且各核心也都具有指定的記憶體容量，和指定容量的儲存體資源，且僅適用於[以虛擬核心為基礎的購買模型](sql-database-service-tiers-vcore.md)。
 
 當您建立單一資料庫時，您也會定義 [SQL Database 伺服器](sql-database-servers.md)加以管理，並將其放入指定區域中的 [Azure 資源群組](../azure-resource-manager/resource-group-overview.md)內。
 
@@ -84,4 +84,4 @@ ms.locfileid: "68640065"
   - [使用 Azure Data Studio 進行連線及查詢](https://docs.microsoft.com/sql/azure-data-studio/quickstart-sql-database?toc=/azure/sql-database/toc.json)
 - 若要使用 Azure CLI 在已佈建的計算層中建立單一資料庫，請參閱 [Azure CLI 範例](sql-database-cli-samples.md)。
 - 若要使用 Azure PowerShell 在已佈建的計算層中建立單一資料庫，請參閱 [Azure PowerShell 範例](sql-database-powershell-samples.md)。
-- 若要使用 Azure PowerShell 在無伺服器電腦中建立單一資料庫，請參閱[建立無伺服器資料庫](sql-database-serverless.md#create-new-database-in-serverless-compute-tier)。
+- 若要使用 Azure PowerShell 在無伺服器計算層中建立單一資料庫，請參閱[建立無伺服器資料庫](sql-database-serverless.md#create-new-database-in-serverless-compute-tier)。

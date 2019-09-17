@@ -9,12 +9,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 09/09/2019
 ms.author: jingwang
-ms.openlocfilehash: 8925ea9da06ff718f08b7be73944c75d388bc01f
-ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
+ms.openlocfilehash: 5ba530a614dd7eb064e1d9b5a59fc00b9280ef0a
+ms.sourcegitcommit: a819209a7c293078ff5377dee266fa76fd20902c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70814166"
+ms.lasthandoff: 09/16/2019
+ms.locfileid: "71008628"
 ---
 # <a name="copy-data-to-or-from-azure-blob-storage-by-using-azure-data-factory"></a>使用 Azure Data Factory 將資料複製到 Azure Blob 儲存體或從該處複製資料
 > [!div class="op_single_selector" title1="選取您目前使用的 Data Factory 服務版本："]
@@ -33,6 +33,7 @@ ms.locfileid: "70814166"
 - [對應資料流程](concepts-data-flow-overview.md)
 - [查閱活動](control-flow-lookup-activity.md)
 - [GetMetadata 活動](control-flow-get-metadata-activity.md)
+- [刪除活動](delete-activity.md)
 
 具體而言，這個 Blob 儲存體連接器支援：
 
@@ -638,6 +639,18 @@ Azure Blob 連接器支援下列驗證類型，請參閱詳細資料的對應章
 ## <a name="mapping-data-flow-properties"></a>對應資料流程屬性
 
 深入瞭解對應資料流程中[來源轉換](data-flow-source.md)和[接收轉換](data-flow-sink.md)的詳細資料。
+
+## <a name="lookup-activity-properties"></a>查閱活動屬性
+
+若要瞭解屬性的詳細資料，請檢查[查閱活動](control-flow-lookup-activity.md)。
+
+## <a name="getmetadata-activity-properties"></a>GetMetadata 活動屬性
+
+若要瞭解有關屬性的詳細資料，請檢查[GetMetadata 活動](control-flow-get-metadata-activity.md) 
+
+## <a name="delete-activity-properties"></a>刪除活動屬性
+
+若要瞭解屬性的詳細資料，請檢查[刪除活動](delete-activity.md)
 
 ## <a name="next-steps"></a>後續步驟
 

@@ -13,17 +13,18 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/18/2019
-ms.author: xpouyat;anilmur;juliako
-ms.openlocfilehash: 608ca4bc3b58dd3c718d6239f90260154d2f6c3a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: xpouyat
+ms.reviewer: anilmur;juliako
+ms.openlocfilehash: 27bdf82d4515678e28eadf07fe325860fe5df063
+ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61465289"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "69015442"
 ---
 # <a name="using-multiple-input-files-and-component-properties-with-premium-encoder"></a>搭配進階編碼器使用多個輸入檔案和元件屬性
 ## <a name="overview"></a>總覽
-在某些情況下，您可能需要在使用「媒體編碼器高階工作流程」  媒體處理器提交工作時，自訂元件屬性、指定剪輯清單 XML 內容，或傳送多個輸入檔案。 部分範例如下：
+在某些情況下，您可能需要在使用「媒體編碼器高階工作流程」 媒體處理器提交工作時，自訂元件屬性、指定剪輯清單 XML 內容，或傳送多個輸入檔案。 部分範例如下：
 
 * 在每個輸入視訊的執行階段在視訊上覆疊文字並設定文字值 (例如，目前的日期)。
 * 自訂剪輯清單 XML (以指定一或多個包含或不含修剪的來源檔案等)。
@@ -82,7 +83,7 @@ task.OutputAssets.AddNew("Output asset", AssetCreationOptions.None);
 
 **setRuntimeProperties** 可用來覆寫工作流程元件中的屬性。
 
-範例：
+範例:
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -98,7 +99,7 @@ task.OutputAssets.AddNew("Output asset", AssetCreationOptions.None);
 ### <a name="property-with-an-xml-value"></a>具有 XML 值的屬性
 若要設定預期會有 XML 值的屬性，請使用 `<![CDATA[ and ]]>`進行封裝。
 
-範例：
+範例:
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -136,21 +137,21 @@ task.OutputAssets.AddNew("Output asset", AssetCreationOptions.None);
 在上一個範例中，propertyPath 是 "/Media File Input/filename" 或 "/inactiveTimeout" 或 "clipListXml"。
 這通常是元件的名稱，然後是屬性的名稱。 路徑可以有更多或更少層級，例如 "/primarySourceFile" (因為屬性是在工作流程的根目錄)，或 "/Video Processing/Graphic Overlay/Opacity" (因為覆疊是在群組中)。    
 
-若要檢查路徑和屬性名稱，請使用緊鄰每個屬性的動作按鈕。 您可以按一下這個動作按鈕，然後選取 [編輯]  。 這會對您顯示屬性的實際名稱，並在其正上方顯示命名空間。
+若要檢查路徑和屬性名稱，請使用緊鄰每個屬性的動作按鈕。 您可以按一下這個動作按鈕，然後選取 [編輯]。 這會對您顯示屬性的實際名稱，並在其正上方顯示命名空間。
 
 ![動作/編輯](./media/media-services-media-encoder-premium-workflow-multiplefilesinput/capture6_actionedit.png)
 
-![屬性](./media/media-services-media-encoder-premium-workflow-multiplefilesinput/capture7_viewproperty.png)
+![內容](./media/media-services-media-encoder-premium-workflow-multiplefilesinput/capture7_viewproperty.png)
 
 ## <a name="multiple-input-files"></a>多個輸入檔案
-提交給「媒體編碼器高階工作流程」  的每個工作都需要兩個資產︰
+提交給「媒體編碼器高階工作流程」 的每個工作都需要兩個資產︰
 
-* 第一個是「工作流程資產」  ，其中包含工作流程檔案。 您可以使用 [工作流程設計工具](media-services-workflow-designer.md)設計工作流程檔案。
-* 第二個是「媒體資產」  ，其中包含您想要編碼的媒體檔案。
+* 第一個是「工作流程資產」 ，其中包含工作流程檔案。 您可以使用 [工作流程設計工具](media-services-workflow-designer.md)設計工作流程檔案。
+* 第二個是「媒體資產」 ，其中包含您想要編碼的媒體檔案。
 
-傳送多個媒體檔案給「媒體編碼器高階工作流程」  編碼器時有以下限制︰
+傳送多個媒體檔案給「媒體編碼器高階工作流程」 編碼器時有以下限制︰
 
-* 所有媒體檔案必須位於同一個「媒體資產」  。 不支援使用多個媒體資產。
+* 所有媒體檔案必須位於同一個「媒體資產」。 不支援使用多個媒體資產。
 * 您必須在此媒體資產中設定主要檔案 (在理想情況下，這是要求編碼器處理的主要視訊檔案)。
 * 必須將包含 **setRuntimeProperties** 及/或 **transcodeSource** 元素的組態資料傳遞至處理器。
   * **setRuntimeProperties** 可用來覆寫工作流程元件中的檔案名稱屬性或其他屬性。
@@ -163,11 +164,11 @@ task.OutputAssets.AddNew("Output asset", AssetCreationOptions.None);
 
 ![主要來源檔案未連接至媒體檔案輸入](./media/media-services-media-encoder-premium-workflow-multiplefilesinput/capture0_nopin.png)
 
-如果您使用 setRuntimeProperties 來設定檔案名稱屬性，則主要檔案與媒體檔案輸入元件之間不會有連接。 
+如果您使用 setRuntimeProperties 來設定檔案名稱屬性，則主要檔案與媒體檔案輸入元件之間不會有連接。
 
 ![剪輯清單 XML 連接至剪輯清單來源](./media/media-services-media-encoder-premium-workflow-multiplefilesinput/capture1_pincliplist.png)
 
-您可以將剪輯清單 XML 連接到媒體來源並使用 transcodeSource。 
+您可以將剪輯清單 XML 連接到媒體來源並使用 transcodeSource。
 
 ### <a name="clip-list-xml-customization"></a>剪輯清單 XML 自訂
 您可以在組態字串 XML 中使用 **transcodeSource** ，以在執行階段於工作流程中指定剪輯清單 XML。 這需要剪輯清單 XML 接點才能連接到工作流程中的媒體來源元件。
@@ -198,7 +199,7 @@ task.OutputAssets.AddNew("Output asset", AssetCreationOptions.None);
   </transcodeRequest>
 ```
 
-如果您想要指定 /primarySourceFile 使用此屬性，以使用 'Expressions' 來命名輸出檔案，我們建議在 /primarySourceFile 屬性「之後」  將剪輯清單 XML 傳遞為屬性，以避免剪輯清單遭到 /primarySourceFile 設定覆寫。
+如果您想要指定 /primarySourceFile 使用此屬性，以使用 'Expressions' 來命名輸出檔案，我們建議在 /primarySourceFile 屬性「之後」 將剪輯清單 XML 傳遞為屬性，以避免剪輯清單遭到 /primarySourceFile 設定覆寫。
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -270,7 +271,7 @@ task.OutputAssets.AddNew("Output asset", AssetCreationOptions.None);
 
 ## <a name="example-1--overlay-an-image-on-top-of-the-video"></a>範例 1：在視訊上方覆疊影像
 
-### <a name="presentation"></a>展示
+### <a name="presentation"></a>簡報
 請設想視訊編碼時要在輸入視訊上覆疊標誌影像的範例。 在此範例中，輸入視訊的名稱為 "Microsoft_HoloLens_Possibilities_816p24.mp4"，而標誌的名稱為 "logo.png"。 您應執行下列步驟：
 
 * 使用工作流程檔案建立工作流程資產 (參閱下列範例)。
@@ -298,7 +299,7 @@ task.OutputAssets.AddNew("Output asset", AssetCreationOptions.None);
 ### <a name="step-by-step-workflow-creation"></a>逐步建立工作流程
 以下步驟會建立工作流程來將兩個檔案做為輸入︰視訊和影像。 它會在視訊頂端覆疊影像。
 
-開啟**工作流程設計工具**，然後選取 [檔案]   > [新增工作區]   > [轉碼藍圖]  。
+開啟**工作流程設計工具**，然後選取 [檔案] > [新增工作區] > [轉碼藍圖]。
 
 新的工作流程會顯示三個元素︰
 
@@ -334,7 +335,7 @@ task.OutputAssets.AddNew("Output asset", AssetCreationOptions.None);
 
 ![配置類型 = 可設定平面](./media/media-services-media-encoder-premium-workflow-multiplefilesinput/capture12_formatconverter2.png)
 
-<bpt id="p1">*</bpt>Layout type is Configurable Planar<ept id="p1">*</ept>
+*版面配置類型為可設定平面*
 
 接下來，新增視訊覆疊元件，並將 (未壓縮的) 視訊接點連接至媒體檔案輸入的 (未壓縮的) 視訊接點。
 
@@ -363,7 +364,7 @@ task.OutputAssets.AddNew("Output asset", AssetCreationOptions.None);
 
 *MP4 多工器和輸出檔案*
 
-您必須設定輸出檔案的名稱。 按一下 [檔案輸出]  元件，然後編輯檔案的運算式︰
+您必須設定輸出檔案的名稱。 按一下 [檔案輸出] 元件，然後編輯檔案的運算式︰
 
     ${ROOT_outputWriteDirectory}\${ROOT_sourceFileBaseName}_withoverlay.mp4
 
@@ -379,7 +380,7 @@ task.OutputAssets.AddNew("Output asset", AssetCreationOptions.None);
 
 本教學課程示範如何使用 AMSE 管理資產。 有兩種方式可將檔案新增至資產：
 
-* 建立本機資料夾、在其中複製這兩個檔案，然後將資料夾拖放至 [資產]  索引標籤。
+* 建立本機資料夾、在其中複製這兩個檔案，然後將資料夾拖放至 [資產] 索引標籤。
 * 上傳視訊檔案做為資產、顯示資產資訊、移至檔案索引標籤，並上傳其他檔案 (標誌)。
 
 > [!NOTE]

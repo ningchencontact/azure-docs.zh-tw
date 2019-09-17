@@ -12,12 +12,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/09/2019
 ms.author: jingwang
-ms.openlocfilehash: 4bb57190a310e1ea4b8e5c511f1acd90f53b8f09
-ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
+ms.openlocfilehash: 968e356947e99c3b6c4fe9d5acd2efed264be5b0
+ms.sourcegitcommit: a819209a7c293078ff5377dee266fa76fd20902c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70813458"
+ms.lasthandoff: 09/16/2019
+ms.locfileid: "71010101"
 ---
 # <a name="copy-data-to-or-from-azure-data-lake-storage-gen1-using-azure-data-factory"></a>使用 Azure Data Factory 從 Azure Data Lake Storage Gen1 複製資料
 > [!div class="op_single_selector" title1="選取您要使用的 Azure Data Factory 版本："]
@@ -30,10 +30,11 @@ ms.locfileid: "70813458"
 
 下列活動支援此 Azure Data Lake Storage Gen1 連接器：
 
-- [複製活動](copy-activity-overview.md)與[支援的來源或接收矩陣](copy-activity-overview.md)
+- [複製活動](copy-activity-overview.md)與[支援的來源/接收矩陣](copy-activity-overview.md) 
 - [對應資料流程](concepts-data-flow-overview.md)
 - [查閱活動](control-flow-lookup-activity.md)
 - [GetMetadata 活動](control-flow-get-metadata-activity.md)
+- [刪除活動](delete-activity.md)
 
 具體而言，使用此連接器，您可以：
 
@@ -490,6 +491,18 @@ ms.locfileid: "70813458"
 ## <a name="mapping-data-flow-properties"></a>對應資料流程屬性
 
 深入瞭解「對應資料流程」功能中的「[來源轉換](data-flow-source.md)」和「[接收」轉換](data-flow-sink.md)。
+
+## <a name="lookup-activity-properties"></a>查閱活動屬性
+
+若要瞭解屬性的詳細資料，請檢查[查閱活動](control-flow-lookup-activity.md)。
+
+## <a name="getmetadata-activity-properties"></a>GetMetadata 活動屬性
+
+若要瞭解有關屬性的詳細資料，請檢查[GetMetadata 活動](control-flow-get-metadata-activity.md) 
+
+## <a name="delete-activity-properties"></a>刪除活動屬性
+
+若要瞭解屬性的詳細資料，請檢查[刪除活動](delete-activity.md)
 
 ## <a name="next-steps"></a>後續步驟
 

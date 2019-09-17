@@ -10,12 +10,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 09/09/2019
 ms.author: jingwang
-ms.openlocfilehash: 76c50814c66b941310b73e1d2a52867b0da5aa10
-ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
+ms.openlocfilehash: 8f190f6b933c61072df9af954c8db01497e35e82
+ms.sourcegitcommit: a819209a7c293078ff5377dee266fa76fd20902c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70813593"
+ms.lasthandoff: 09/16/2019
+ms.locfileid: "71010221"
 ---
 # <a name="copy-data-to-or-from-azure-data-lake-storage-gen2-using-azure-data-factory"></a>使用 Azure Data Factory 從 Azure Data Lake Storage Gen2 來回複製資料
 
@@ -27,10 +27,11 @@ Azure Data Lake Storage Gen2 （ADLS Gen2）是內建于[Azure Blob 儲存體](.
 
 下列活動支援此 Azure Data Lake Storage Gen2 連接器：
 
-- [複製活動](copy-activity-overview.md)與[支援的來源或接收矩陣](copy-activity-overview.md)
+- [複製活動](copy-activity-overview.md)與[支援的來源/接收矩陣](copy-activity-overview.md)
 - [對應資料流程](concepts-data-flow-overview.md)
 - [查閱活動](control-flow-lookup-activity.md)
 - [GetMetadata 活動](control-flow-get-metadata-activity.md)
+- [刪除活動](delete-activity.md)
 
 具體而言，使用此連接器，您可以：
 
@@ -590,6 +591,17 @@ Azure Data Lake Storage Gen2 連接器支援下列驗證類型。 如需詳細�
 
 深入瞭解「對應資料流程」功能中的「[來源轉換](data-flow-source.md)」和「[接收」轉換](data-flow-sink.md)。
 
+## <a name="lookup-activity-properties"></a>查閱活動屬性
+
+若要瞭解屬性的詳細資料，請檢查[查閱活動](control-flow-lookup-activity.md)。
+
+## <a name="getmetadata-activity-properties"></a>GetMetadata 活動屬性
+
+若要瞭解有關屬性的詳細資料，請檢查[GetMetadata 活動](control-flow-get-metadata-activity.md) 
+
+## <a name="delete-activity-properties"></a>刪除活動屬性
+
+若要瞭解屬性的詳細資料，請檢查[刪除活動](delete-activity.md)
 ## <a name="next-steps"></a>後續步驟
 
 如需 Data Factory 中的複製活動所支援作為來源和接收的資料存放區清單，請參閱[支援的資料存放區](copy-activity-overview.md##supported-data-stores-and-formats)。

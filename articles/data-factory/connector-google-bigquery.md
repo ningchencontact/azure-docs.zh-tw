@@ -12,18 +12,23 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 09/04/2019
 ms.author: jingwang
-ms.openlocfilehash: 61c10055a7f85f849fc366211eb41382c4c3039b
-ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
+ms.openlocfilehash: 70eb70d7c63d66601aebf8e05a2b14b582058296
+ms.sourcegitcommit: a819209a7c293078ff5377dee266fa76fd20902c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70275205"
+ms.lasthandoff: 09/16/2019
+ms.locfileid: "71009250"
 ---
 # <a name="copy-data-from-google-bigquery-by-using-azure-data-factory"></a>使用 Azure Data Factory 從 Google BigQuery 複製資料
 
 本文概述如何使用 Azure Data Factory 中的「複製活動」，從 Google BigQuery 複製資料。 本文是根據[複製活動概觀](copy-activity-overview.md)一文，該文提供複製活動的一般概觀。
 
 ## <a name="supported-capabilities"></a>支援的功能
+
+下列活動支援此 Google BigQuery 連接器：
+
+- [複製活動](copy-activity-overview.md)與[支援的來源矩陣](copy-activity-overview.md)
+- [查閱活動](control-flow-lookup-activity.md)
 
 您可以將資料從 Google BigQuery 複製到任何支援的接收資料存放區。 如需複製活動所支援作為來源或接收器的資料存放區清單，請參閱[支援的資料存放區](copy-activity-overview.md#supported-data-stores-and-formats)表格。
 
@@ -130,7 +135,7 @@ Data Factory 會提供內建的驅動程式來啟用連線。 因此，您不需
 | Type | 資料集的類型屬性必須設定為：**GoogleBigQueryObject** | 是 |
 | 資料集 | Google BigQuery 資料集的名稱。 |否 (如果已指定活動來源中的"query")  |
 | table | 資料表的名稱。 |否 (如果已指定活動來源中的"query")  |
-| tableName | 資料表的名稱。 此屬性支援回溯相容性。 針對新的工作負載`dataset` , `table`請使用和。 | 否 (如果已指定活動來源中的"query") |
+| tableName | 資料表的名稱。 此屬性支援回溯相容性。 針對新的工作負載`dataset` ， `table`請使用和。 | 否 (如果已指定活動來源中的"query") |
 
 **範例**
 
@@ -193,6 +198,10 @@ Data Factory 會提供內建的驅動程式來啟用連線。 因此，您不需
     }
 ]
 ```
+
+## <a name="lookup-activity-properties"></a>查閱活動屬性
+
+若要瞭解屬性的詳細資料，請檢查[查閱活動](control-flow-lookup-activity.md)。
 
 ## <a name="next-steps"></a>後續步驟
 如需 Data Factory 中的複製活動所支援作為來源和接收的資料存放區清單，請參閱[支援的資料存放區](copy-activity-overview.md#supported-data-stores-and-formats)。

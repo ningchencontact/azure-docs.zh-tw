@@ -22,7 +22,7 @@ ms.locfileid: "70070966"
 ---
 # <a name="create-a-python-app-in-azure-app-service-on-linux"></a>在 Linux 上的 Azure App Service 中建立 Python 應用程式
 
-在本快速入門中，您將一個簡單的 Python 應用程式部署到 [Linux 上的 App Service](app-service-linux-intro.md)，它提供了一個可高度擴充、自我修復的 Web 裝載服務。 您可以透過互動式的瀏覽器型 Azure Cloud Shell 使用 Azure 命令列介面 ([Azure CLI](/cli/azure/install-azure-cli))，以便您可以遵循使用 Mac、Linux 或 Windows 電腦的步驟進行操作。
+在本快速入門中，您將一個簡單的 Python 應用程式部署到 [Linux 上的 App Service](app-service-linux-intro.md)，它提供了一個可高度擴充、自我修復的 Web 裝載服務。 您將透過互動式的瀏覽器型 Azure Cloud Shell 使用 Azure 命令列介面 ([Azure CLI](/cli/azure/install-azure-cli))，以便用 Mac、Linux 或 Windows 電腦按照步驟進行操作。
 
 ![在 Azure 中執行的範例應用程式](media/quickstart-python/hello-world-in-browser.png)
 
@@ -43,7 +43,7 @@ git clone https://github.com/Azure-Samples/python-docs-hello-world
 cd python-docs-hello-world
 ```
 
-存放庫包含 *application.py*，這會向 App Service 指出存放庫中包含 Flask 應用程式。 如需詳細資訊，請參閱[容器的啟動程序和自訂](how-to-configure-python.md)。
+存放庫包含 *application.py*，這會向 App Service 指出存放庫中包含 Flask 應用程式。 如需詳細資訊，請參閱[容器的啟動程序和自訂項目](how-to-configure-python.md)。
 
 ## <a name="run-the-app-locally"></a>在本機執行應用程式
 
@@ -169,7 +169,7 @@ return "Hello Azure!"
 
 儲存您的變更並結束編輯器。 使用 `^S` 命令進行儲存，以及使用 `^Q` 來結束作業。
 
-使用 [`az webapp up`](/cli/azure/webapp#az-webapp-up) 命令重新部署應用程式。 將應用程式的名稱替代為 `<app-name>`，並指定 `<location-name>` 的位置 (使用 [`az account list-locations`](/cli/azure/appservice?view=azure-cli-latest.md#az-appservice-list-locations) 命令中其中一個顯示的值)。
+使用 [`az webapp up`](/cli/azure/webapp#az-webapp-up) 命令重新部署應用程式。 將 `<app-name>` 替代為您應用程式的名稱，並指定 `<location-name>` 的位置 (使用 [`az account list-locations`](/cli/azure/appservice?view=azure-cli-latest.md#az-appservice-list-locations) 命令中其中一個顯示的值)。
 
 ```bash
 az webapp up -n <app-name> -l <location-name>

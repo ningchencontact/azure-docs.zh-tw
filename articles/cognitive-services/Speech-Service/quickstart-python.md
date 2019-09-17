@@ -47,7 +47,7 @@ ms.locfileid: "68559292"
     sudo apt-get install build-essential libssl1.0.2 libasound2
     ```
 
-* 在 Windows 上，您需要適用於您平台的[適用於 Visual Studio 2019 的 Microsoft Visual C++ 可轉散發套件](https://support.microsoft.com/help/2977003/the-latest-supported-visual-c-downloads)。
+* 在 Windows 上，您需根據平台來選擇[適用於 Visual Studio 2019 的 Microsoft Visual C++ 可轉散發套件](https://support.microsoft.com/help/2977003/the-latest-supported-visual-c-downloads)。
 
 ## <a name="install-the-speech-sdk"></a>安裝語音 SDK
 
@@ -102,12 +102,12 @@ python quickstart.py
 
 1. 將 [Python 程式碼](#sample-code)複製並貼上到新建立的檔案中，然後儲存它。
 1. 插入您的語音服務訂用帳戶資訊。
-1. 如果已經選取，Python 解譯器會顯示在視窗底部狀態列的左側。
-   否則，會顯示可用 Python 解譯器的清單。 開啟命令選擇區 (Ctrl+Shift+P)，然後輸入 **Python:選取解譯器**。 選擇適當的解譯器。
-1. 您可以從 Visual Studio Code 內安裝語音 SDK Python 套件。 如果您選取的 Python 解譯器尚未安裝該套件，請予以安裝。
+1. 如果已經選取，Python 直譯器會顯示在視窗底部狀態列的左側。
+   否則，會顯示可用 Python 直譯器的清單。 開啟命令選擇區 (Ctrl+Shift+P)，然後輸入 **Python:選取解譯器**。 選擇適當的解譯器。
+1. 您可以從 Visual Studio Code 內安裝語音 SDK Python 套件。 如果您選取的 Python 直譯器尚未安裝該套件，請按照以下步驟安裝。
    若要安裝語音 SDK 套件，請開啟終端機。 再次開啟命令選擇區 (Ctrl+Shift+P)，然後輸入 **Terminal:Create New Integrated Terminal** 來開啟終端機。
    在開啟的終端機中，輸入命令 `python -m pip install azure-cognitiveservices-speech` 或系統所適用的命令。
-1. 若要執行範例程式碼，請以滑鼠右鍵按一下編輯器內的任何一個地方。 選取 [在終端機中執行 Python 檔案]  。
+1. 若要執行範例程式碼，請在編輯器內任意地方按一下滑鼠右鍵。 選取 [在終端機中執行 Python 檔案]  。
    出現提示時，請說出幾個字。 不久之後便會顯示轉譯的文字。
 
    ![執行範例](media/sdk/qs-python-vscode-python-run.png)

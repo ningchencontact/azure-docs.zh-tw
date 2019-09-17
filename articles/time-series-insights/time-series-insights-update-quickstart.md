@@ -29,13 +29,13 @@ ms.locfileid: "68677704"
 > [!IMPORTANT]
 > 如果您沒有 Azure 帳戶，請建立 [免費的 Azure 帳戶](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) 。
 
-## <a name="explore-the-time-series-insights-explorer-in-a-demo-environment"></a>在示範環境中來探索時間序列深入解析
+## <a name="explore-the-time-series-insights-explorer-in-a-demo-environment"></a>在示範環境中來探索時間序列深入解析總管
 
 時間序列深入解析預覽版總管會顯示歷史資料和根本原因分析。 開始進行之前：
 
 1. 移至  [Contoso 風力發電廠示範](https://insights.timeseries.azure.com/preview/samples)環境。  
 
-1. 如果出現提示，請使用您的 Azure 帳戶認證登入時間序列深入解析。
+1. 如果出現提示，請使用您的 Azure 帳戶認證登入時間序列深入解析總管。
 
 ## <a name="work-with-historical-data"></a>使用歷史資料
 
@@ -46,7 +46,7 @@ ms.locfileid: "68677704"
 
       [![Contoso Plant 1 中的 W7](media/v2-update-quickstart/quickstart-one.png)](media/v2-update-quickstart/quickstart-one.png#lightbox)
 
-1. 近期，Contoso 發現風力發電機 **W7** 曾經起火。 導致起火的相關意見不同。 在時間序列深入解析中，我們可以看到在火災期間啟動了起火警示感應器。
+1. 近期，Contoso 發現風力發電機 **W7** 曾經起火。 對於起火原因的相關意見不同。 在時間序列深入解析中，我們可以看到在火災期間啟動了火災警報器。
 
    1. 將檢視範圍變更為 **3/9/17 20:00 至 3/10/17 20:00 (UTC)** 。
    1. 選取 [安全系統]   > [FireAlert]  。
@@ -60,7 +60,7 @@ ms.locfileid: "68677704"
 
       [![檢閱同一時間點前後的其他事件](media/v2-update-quickstart/quickstart-three.png)](media/v2-update-quickstart/quickstart-three.png#lightbox)
 
-1. 油壓和作用中警告感應器在起火之前都急遽升高。 展開顯示的時間序列，以查看其他導致起火的徵象。 兩個感應器都會持續波動一段時間。 波動表示持續而有安全疑慮的模式。
+1. 油壓和作用中警告感應器在起火之前都急遽升高。 展開顯示的時間序列，以查看其他起火前的徵兆。 兩個感應器都持續波動了一段時間。 波動表示持續而有安全疑慮的模式。
 
     * 將檢視範圍變更為 **2/24/17 20:00 至 3/10/17 20:00 (UTC)** 。
 
@@ -76,7 +76,7 @@ ms.locfileid: "68677704"
 
 * 說明實際發生的狀況。
 * 更正問題。
-* 設置妥善的警示通知系統。
+* 設置優越的警示通知系統。
 
 ## <a name="root-cause-analysis"></a>根本原因分析
 
@@ -95,7 +95,7 @@ ms.locfileid: "68677704"
 
        [![將間隔變更為 3d](media/v2-update-quickstart/quickstart-seven.png)](media/v2-update-quickstart/quickstart-seven.png#lightbox)
 
-1. 藉由擴充時間範圍，我們可以判斷問題是否已停止或繼續。
+1. 藉由擴大時間範圍，我們可以判斷問題是否已停止或還持續。
 
     * 將時間範圍延伸至 60 天。
 
@@ -121,7 +121,7 @@ ms.locfileid: "68677704"
 您現在已完成本教學課程，請清除您所建立的資源：
 
 1. 從 [Azure 入口網站](https://portal.azure.com)的左側功能表中，選取 [所有資源]  ，找出 Azure 時間序列深入解析資源群組。
-1. 選取 [刪除]  或個別移除每個資源，以刪除整個資源群組 (和其中包含的所有資源)。
+1. 選取 [刪除]  以刪除整個資源群組 (和其中包含的所有資源)，或個別移除每個資源。
 
 ## <a name="next-steps"></a>後續步驟
 
