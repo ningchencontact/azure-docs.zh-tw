@@ -1,51 +1,51 @@
 ---
-title: 限制輸出流量的 Azure Kubernetes Service (AKS)
-description: 了解哪些連接埠和位址都需要以控制 Azure Kubernetes Service (AKS) 中的輸出流量
+title: 限制 Azure Kubernetes Service 中的輸出流量（AKS）
+description: 瞭解在 Azure Kubernetes Service （AKS）中控制輸出流量所需的埠和位址
 services: container-service
 author: mlearned
 ms.service: container-service
 ms.topic: article
 ms.date: 06/06/2019
 ms.author: mlearned
-ms.openlocfilehash: 12922496bc97ad51d1cc96f7ffe8df05c1fd66ea
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
-ms.translationtype: MT
+ms.openlocfilehash: 9476290669606f6eb6c56b51497f3026b9613698
+ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67614967"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70034953"
 ---
-# <a name="preview---limit-egress-traffic-for-cluster-nodes-and-control-access-to-required-ports-and-services-in-azure-kubernetes-service-aks"></a>預覽-限制輸出流量的叢集節點和控制存取權所需的連接埠和服務在 Azure Kubernetes Service (AKS)
+# <a name="preview---limit-egress-traffic-for-cluster-nodes-and-control-access-to-required-ports-and-services-in-azure-kubernetes-service-aks"></a>預覽-限制叢集節點的輸出流量，並控制 Azure Kubernetes Service 中所需埠和服務的存取（AKS）
 
-根據預設，AKS 叢集中具有無限制存取網際網路的輸出 （輸出）。 節點與您執行視需要存取外部資源的服務，可讓此層級的網路存取。 如果您想要限制輸出流量，有限的數目的連接埠和位址必須能夠維護狀況良好的叢集維護工作。 您的叢集則會設定為僅使用 從 Microsoft 容器登錄 (MCR) 或 Azure Container Registry (ACR)，不是外部公用儲存機制的基底的系統容器映像中。 您必須設定您慣用的防火牆和安全性規則以允許這些連接埠和位址。
+根據預設，AKS 叢集具有不受限制的輸出（傳出）網際網路存取。 此網路存取層級可讓您執行的節點和服務視需要存取外部資源。 如果您想要限制輸出流量，則必須能夠存取有限數目的埠和位址，才能維持狀況良好的叢集維護工作。 接著，您的叢集會設定為只使用 Microsoft Container Registry （MCR）或 Azure Container Registry （ACR）中的基本系統容器映射，而不是外部公用存放庫。 您必須設定慣用的防火牆和安全性規則，以允許這些必要的埠和位址。
 
-本文詳細說明哪些網路連接埠和完整的網域名稱 (Fqdn) 是必要和選擇性，如果您限制在 AKS 叢集中的輸出流量。  此功能目前為預覽狀態。
+本文詳細說明必要的網路埠和完整功能變數名稱（Fqdn），以及當您在 AKS 叢集中限制輸出流量時，是選擇性的。  此功能目前為預覽狀態。
 
 > [!IMPORTANT]
-> AKS 預覽功能包括自助、 選擇加入。 它們可供收集從我們的社群的意見及 bug。 在預覽中，這些功能不適用於實際執行環境。 在公開預覽功能底下 '盡力' 支援。 AKS 技術支援小組的協助時可使用營業時間太平洋 」 (PST) 僅限 timezone。 如需詳細資訊，請參閱下列支援文章：
+> AKS 預覽功能是自助加入宣告。 預覽會以「原樣」和「可用」的方式提供，並從服務等級協定中排除，並享有有限擔保。 AKS 預覽的部分是由客戶支援，以最大的方式來涵蓋。 因此，這些功能並不適用于生產環境使用。 如需其他資訊，請參閱下列支援文章：
 >
 > * [AKS 支援原則][aks-support-policies]
 > * [Azure 支援常見問題集][aks-faq]
 
 ## <a name="before-you-begin"></a>開始之前
 
-您需要 Azure CLI 2.0.66 版或更新版本安裝並設定。 執行 `az --version` 以尋找版本。 如果您需要安裝或升級，請參閱[安裝 Azure CLI][install-azure-cli]。
+您需要安裝並設定 Azure CLI 版本2.0.66 或更新版本。 執行 `az --version` 以尋找版本。 如果您需要安裝或升級，請參閱[安裝 Azure CLI][install-azure-cli]。
 
-若要建立的 AKS 叢集，可能會限制輸出流量，請先啟用您訂用帳戶的功能旗標。 此功能註冊會設定任何您要使用的基本系統從 MCR 或 ACR 的容器映像建立的 AKS 叢集。 若要註冊*AKSLockingDownEgressPreview*功能旗標，請使用[az 功能註冊][az-feature-register]命令，在下列範例所示：
+若要建立可限制傳出流量的 AKS 叢集，請先在您的訂用帳戶上啟用功能旗標。 此功能註冊會設定您所建立的任何 AKS 叢集，以使用來自 MCR 或 ACR 的基礎系統容器映射。 若要註冊*AKSLockingDownEgressPreview*功能旗標，請使用[az feature register][az-feature-register]命令，如下列範例所示：
 
 > [!CAUTION]
-> 當您註冊訂用帳戶上的功能時，您目前無法取消註冊該功能。 啟用某些預覽功能之後，可能會使用預設值，然後在 訂用帳戶中建立的所有 AKS 叢集。 請勿啟用生產訂用帳戶上的預覽功能。 若要測試預覽功能，並收集意見反應中使用不同的訂用帳戶。
+> 當您在訂用帳戶上註冊功能時，目前無法取消註冊該功能。 啟用一些預覽功能之後，預設值可能會用於在訂用帳戶中建立的所有 AKS 叢集。 請勿在生產訂用帳戶上啟用預覽功能。 使用個別的訂用帳戶來測試預覽功能並收集意見反應。
 
 ```azurecli-interactive
 az feature register --name AKSLockingDownEgressPreview --namespace Microsoft.ContainerService
 ```
 
-狀態需要幾分鐘的時間才會顯示「已註冊」  。 您可以藉由檢查註冊狀態[az 功能清單][az-feature-list]命令：
+狀態需要幾分鐘的時間才會顯示「已註冊」。 您可以使用[az feature list][az-feature-list]命令來檢查註冊狀態：
 
 ```azurecli-interactive
 az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/AKSLockingDownEgressPreview')].{Name:name,State:properties.state}"
 ```
 
-準備好時，重新整理的註冊*Microsoft.ContainerService*使用的資源提供者[az provider register][az-provider-register]命令：
+準備好時，請使用[az provider register][az-provider-register]命令重新整理*microsoft.containerservice*資源提供者的註冊：
 
 ```azurecli-interactive
 az provider register --namespace Microsoft.ContainerService
@@ -53,64 +53,66 @@ az provider register --namespace Microsoft.ContainerService
 
 ## <a name="egress-traffic-overview"></a>輸出流量概觀
 
-對於管理和作業目的，在 AKS 叢集中的節點需要存取特定的連接埠和完整的網域名稱 (Fqdn)。 這些動作可以進行通訊與 API 伺服器，或下載並安裝核心 Kubernetes 叢集元件和節點的安全性更新。 根據預設，輸出 （輸出） 的網際網路流量不會限制在 AKS 叢集中的節點。 叢集可能提取基底的系統容器映像從外部存放庫。
+基於管理和操作的目的，AKS 叢集中的節點需要存取特定埠和完整功能變數名稱（Fqdn）。 這些動作可能是與 API 伺服器通訊，或下載並安裝核心 Kubernetes 叢集元件和節點安全性更新。 根據預設，傳出（輸出）網際網路流量不會限制在 AKS 叢集中的節點。 叢集可能會從外部存放庫提取基本系統容器映射。
 
-若要增加您的 AKS 叢集的安全性，您可能想要限制輸出流量。 叢集已設定為提取基底的系統從 MCR 或 ACR 的容器映像。 如果您鎖定的輸出流量，以這種方式時，您必須定義特定連接埠，以便正確地與所需的外部服務進行通訊的 AKS 節點的 Fqdn。 如果沒有這些授權的連接埠和 Fqdn，AKS 節點無法與 API 伺服器通訊，或安裝核心元件。
+若要提高 AKS 叢集的安全性，您可能會想要限制傳出流量。 叢集已設定為從 MCR 或 ACR 提取基礎系統容器映射。 如果您以這種方式鎖定輸出流量，您必須定義特定埠和 Fqdn，才能讓 AKS 節點正確地與所需的外部服務進行通訊。 如果沒有這些授權的埠和 Fqdn，您的 AKS 節點就無法與 API 伺服器通訊或安裝核心元件。
 
-您可以使用[Azure 防火牆][azure-firewall]或第 3 方防火牆應用裝置來保護您的輸出流量，並定義這些必要連接埠和位址。 AKS 不會自動建立這些規則，以供您。 下列連接埠和位址適合參考，當您在網路防火牆中建立適當的規則。
+您可以使用[Azure 防火牆][azure-firewall]或協力廠商防火牆設備來保護您的輸出流量，並定義這些必要的埠和位址。 AKS 不會自動為您建立這些規則。 當您在網路防火牆中建立適當的規則時，可以參考下列埠和位址。
 
-在 AKS，有兩組的連接埠和位址：
+> [!IMPORTANT]
+> 當您使用 Azure 防火牆來限制輸出流量，並建立使用者定義的路由（UDR）來強制執行所有輸出流量時，請務必在防火牆中建立適當的 DNAT 規則，以正確地允許輸入流量。 使用 Azure 防火牆搭配 UDR 會中斷輸入設定，因為非對稱式路由。 （之所以會發生此問題，是因為 AKS 子網具有移至防火牆私人 IP 位址的預設路由，但您使用的是下列類型的公用負載平衡器-輸入或 Kubernetes 服務：LoadBalancer）。 在此情況下，系統會透過傳入負載平衡器流量的公用 IP 位址接收它，但傳回路徑則會通過防火牆的私人 IP 位址。 因為防火牆是具狀態的，所以它會捨棄傳回的封包，因為防火牆並不知道已建立的會話。 若要瞭解如何整合 Azure 防火牆與您的輸入或服務負載平衡器，請參閱[整合 Azure 防火牆與 azure Standard Load Balancer](https://docs.microsoft.com/en-us/azure/firewall/integrate-lb)。
+>
 
-* [AKS 叢集所需的連接埠和位址](#required-ports-and-addresses-for-aks-clusters)詳述已獲授權的輸出流量的最低需求。
-* [選擇性的建議地址和 AKS 叢集中的連接埠](#optional-recommended-addresses-and-ports-for-aks-clusters)並不需要所有的案例，但與其他服務整合，例如 Azure 監視器將無法正常運作。 檢閱的選擇性連接埠和 Fqdn，這份清單，並授權的任何服務和 AKS 叢集中使用的元件。
+在 AKS 中，有兩組埠和位址：
+
+* AKS 叢集所[需的埠和位址](#required-ports-and-addresses-for-aks-clusters)會詳細說明授權輸出流量的最低需求。
+* 並非所有案例都需要[選擇性的 AKS 叢集建議位址和埠](#optional-recommended-addresses-and-ports-for-aks-clusters)，但是與其他服務（例如 Azure 監視器）的整合將無法正確運作。 請參閱這份選擇性埠和 Fqdn 清單，並授權您的 AKS 叢集中使用的任何服務和元件。
 
 > [!NOTE]
-> 限制輸出流量僅適用於新的 AKS 叢集建立之後啟用功能旗標註冊。 現有的叢集，如[執行叢集升級作業][aks-upgrade]使用`az aks upgrade`命令之前限制輸出流量。
+> 限制輸出流量僅適用于啟用功能旗標注冊之後所建立的新 AKS 叢集。 針對現有的叢集，請先使用`az aks upgrade`命令執行[叢集升級作業][aks-upgrade]，再限制輸出流量。
 
-## <a name="required-ports-and-addresses-for-aks-clusters"></a>必要的連接埠和位址 AKS 叢集
+## <a name="required-ports-and-addresses-for-aks-clusters"></a>AKS 叢集所需的埠和位址
 
-下列的輸出連接埠 / 網路規則所需的 AKS 叢集：
+AKS 叢集需要下列輸出埠/網路規則：
 
-* TCP 連接埠*443*
-* TCP 連接埠*9000*和 TCP 連接埠*22*的通道前 pod 通訊通道端 API 伺服器上。
-    * 若要取得更具體，請參閱 * *.hcp。\<位置\>。 azmk8s.io*和 * *。 tun.\<位置\>。 azmk8s.io*下表中的位址。
+* TCP 埠*443*
+* TCP 埠*9000*和 tcp 埠*22* ，通道前端 pod 會與 API 伺服器上的通道結束通訊。
+    * 若要取得更具體的資訊，請參閱 * 「*hcp」。\<location\>. azmk8s.io*和 * *. 執行。\<下\>* 表中的 azmk8s.io 位址。
 
-下列的 FQDN / 必須要有應用程式規則：
+需要下列 FQDN/應用程式規則：
 
-| FQDN                       | Port      | 使用      |
+| FQDN                       | 連接埠      | 使用情況      |
 |----------------------------|-----------|----------|
-| *.hcp.\<location\>.azmk8s.io | HTTPS:443, TCP:22, TCP:9000 | 此位址是 API 的伺服器端點。 取代 *\<位置\>* 與 AKS 叢集部署所在的區域。 |
-| *.tun.\<location\>.azmk8s.io | HTTPS:443, TCP:22, TCP:9000 | 此位址是 API 的伺服器端點。 取代 *\<位置\>* 與 AKS 叢集部署所在的區域。 |
-| aksrepos.azurecr.io        | HTTPS:443 | 此位址，才能存取映像在 Azure Container Registry (ACR)。 |
-| *.blob.core.windows.net    | HTTPS:443 | 此位址是儲存在 ACR 中映像的後端存放區。 |
-| mcr.microsoft.com          | HTTPS:443 | 此位址，才能存取映像在 Microsoft 容器登錄 (MCR)。 |
-| *.cdn.mscr.io              | HTTPS:443 | 此位址是為了使用 MCR 儲存體的 Azure 內容傳遞網路 (CDN)。 |
-| management.azure.com       | HTTPS:443 | Kubernetes GET/PUT 作業需要此位址。 |
+| *.hcp.\<location\>.azmk8s.io | HTTPS：443、TCP：22、TCP：9000 | 此位址是 API 伺服器端點。 將 *\< location\>* 取代為您的 AKS 叢集部署所在的區域。 |
+| *.tun.\<location\>.azmk8s.io | HTTPS：443、TCP：22、TCP：9000 | 此位址是 API 伺服器端點。 將 *\< location\>* 取代為您的 AKS 叢集部署所在的區域。 |
+| aksrepos.azurecr.io        | HTTPS:443 | 需要此位址才能存取 Azure Container Registry （ACR）中的影像。 此登錄包含叢集的升級和調整期間，叢集運作所需的協力廠商映射/圖表（例如計量伺服器、核心 dns 等）|
+| *.blob.core.windows.net    | HTTPS:443 | 此位址是 ACR 中所儲存映射的後端存放區。 |
+| mcr.microsoft.com          | HTTPS:443 | 需要有此位址，才能存取 Microsoft Container Registry （MCR）中的映射。 此登錄包含在叢集的升級和調整期間，叢集運作所需的第一方映射/圖表（例如，moby 等） |
+| *.cdn.mscr.io              | HTTPS:443 | Azure 內容傳遞網路（CDN）支援的 MCR 儲存體需要此位址。 |
+| management.azure.com       | HTTPS:443 | Kubernetes 取得/PUT 作業需要此位址。 |
 | login.microsoftonline.com  | HTTPS:443 | Azure Active Directory 驗證需要此位址。 |
-| api.snapcraft.io           | HTTPS:443, HTTP:80 | 此位址，才能在 Linux 節點上安裝嵌入式管理單元的套件。 |
-| ntp.ubuntu.com             | UDP:123   | 此位址，才能在 Linux 節點上的 NTP 時間同步處理。 |
-| *.docker.io                | HTTPS:443 | 此位址，才能提取通道前的必要的容器映像。 |
+| ntp.ubuntu.com             | UDP：123   | 在 Linux 節點上進行 NTP 時間同步處理時，需要此位址。 |
 
-## <a name="optional-recommended-addresses-and-ports-for-aks-clusters"></a>選擇性的建議地址和 AKS 叢集中的連接埠
+## <a name="optional-recommended-addresses-and-ports-for-aks-clusters"></a>適用于 AKS 叢集的選擇性建議位址和埠
 
-* UDP 連接埠*53* dns
+* 適用于 DNS 的 UDP 埠*53*
 
-下列的 FQDN / 建議的 AKS 叢集，才能正確運作的應用程式規則：
+建議使用下列 FQDN/應用程式規則，讓 AKS 叢集正常運作：
 
-| FQDN                                    | Port      | 使用      |
+| FQDN                                    | 連接埠      | 使用情況      |
 |-----------------------------------------|-----------|----------|
-| *.ubuntu.com                            | HTTP:80   | 此位址可讓您下載的必要的安全性修補程式和更新的 Linux 叢集節點。 |
-| packages.microsoft.com                  | HTTPS:443 | 此位址是使用 Microsoft 封裝存放庫的快取*apt get*作業。 |
-| dc.services.visualstudio.com            | HTTPS:443 | 建議針對正確的計量，並使用 Azure 監視器監視。 |
-| *.opinsights.azure.com                  | HTTPS:443 | 建議針對正確的計量，並使用 Azure 監視器監視。 |
-| *.monitoring.azure.com                  | HTTPS:443 | 建議針對正確的計量，並使用 Azure 監視器監視。 |
-| gov-prod-policy-data.trafficmanager.net | HTTPS:443 | （目前在 AKS 中的預覽） 的正常運作的 Azure 原則使用此位址。 |
-| apt.dockerproject.org                   | HTTPS:443 | 使用此位址是正確的驅動程式安裝和以 GPU 為基礎的節點上的作業。 |
-| nvidia.github.io                        | HTTPS:443 | 使用此位址是正確的驅動程式安裝和以 GPU 為基礎的節點上的作業。 |
+| security.ubuntu.com、azure.archive.ubuntu.com、changelogs.ubuntu.com                           | HTTP:80   | 此位址可讓 Linux 叢集節點下載所需的安全性修補程式和更新。 |
+| packages.microsoft.com                  | HTTPS:443 | 此位址是用於*快取 apt-get*作業的 Microsoft 封裝存放庫。 |
+| dc.services.visualstudio.com            | HTTPS:443 | 建議使用 Azure 監視器進行正確的計量和監視。 |
+| *.opinsights.azure.com                  | HTTPS:443 | 建議使用 Azure 監視器進行正確的計量和監視。 |
+| *.monitoring.azure.com                  | HTTPS:443 | 建議使用 Azure 監視器進行正確的計量和監視。 |
+| gov-prod-policy-data.trafficmanager.net | HTTPS:443 | 此位址用於 Azure 原則的正確作業（目前在 AKS 中為預覽狀態）。 |
+| apt.dockerproject.org                   | HTTPS:443 | 此位址用於以 GPU 為基礎的節點上進行正確的驅動程式安裝和操作。 |
+| nvidia.github.io                        | HTTPS:443 | 此位址用於以 GPU 為基礎的節點上進行正確的驅動程式安裝和操作。 |
 
 ## <a name="next-steps"></a>後續步驟
 
-在本文中，您已了解哪些連接埠和位址，以允許則限制為叢集的輸出流量。 您也可以定義自己的 pod 可以通訊的方式和限制能在叢集內。 如需詳細資訊，請參閱 <<c0> [ 保護在 AKS 中使用網路原則的 pod 之間的流量][network-policy]。
+在本文中，您已瞭解在限制叢集的輸出流量時，要允許哪些埠和位址。 您也可以定義 pod 本身可以通訊的方式，以及它們在叢集內的限制。 如需詳細資訊，請參閱[在 AKS 中使用網路原則來保護 pod 之間的流量][network-policy]。
 
 <!-- LINKS - internal -->
 [aks-quickstart-cli]: kubernetes-walkthrough.md
