@@ -22,9 +22,9 @@ ms.locfileid: "66751767"
 ---
 # <a name="tutorial-create-and-run-a-jupyter-notebook-with-python"></a>教學課程：使用 Python 建立和執行 Jupyter Notebook
 
-本教學課程將逐步引導您完成使用 Azure Notebooks 建立完整 Jupyter Notebook 的流程，以示範簡單的線性迴歸。 在本教學課程中，您將熟悉 Jupyter Notebook UI，其中包括建立不同的資料格、執行資料格，以及透過放映投影片的方式呈現 Notebook。
+本教學將逐步引導您使用 Azure Notebooks 來建立完整的 Jupyter 筆記本，以示範簡單的線性迴歸。 在本教學課程中，您將熟悉 Jupyter Notebook UI，其中包括建立不同的資料格、執行資料格，以及透過放映投影片的方式呈現 Notebook。
 
-您可在 [GitHub - Azure Notebooks 範例](https://github.com/Microsoft/AzureNotebooks/tree/master/Samples/Linear%20Regression%20-%20Cricket%20Chirps)中找到已完成的 Notebook。 不過，本教學課程會從新的專案和空白的 Notebook 開始，讓您得以體驗逐步建立的過程。
+您可在 [GitHub - Azure Notebooks 範例](https://github.com/Microsoft/AzureNotebooks/tree/master/Samples/Linear%20Regression%20-%20Cricket%20Chirps)中找到已完成的 Notebook。 不過，本教學課程會從新的專案和空白的 Notebook 開始，讓您體驗逐步建立的過程的過程。
 
 ## <a name="create-the-project"></a>建立專案
 
@@ -34,22 +34,22 @@ ms.locfileid: "66751767"
 
     ![瀏覽器視窗頂端的 [我的專案] 連結](media/quickstarts/my-projects-link.png)
 
-1. 在 [我的專案]  頁面上，選取 [+ 新增專案]  \(鍵盤快速鍵：n\)；如果瀏覽器視窗過窄，按鈕會顯示為 **+** ：
+1. 在 [我的專案]  頁面上，選取 [+ 新增專案]  \(鍵盤快速鍵：n\)；瀏覽器視窗很窄時，該按鈕會顯示為 **+** ：
 
     ![[我的專案] 頁面上的 [新增專案] 命令](media/quickstarts/new-project-command.png)
 
 1. 在顯示的 [建立新專案]  快顯視窗中，輸入或設定下列詳細資料，然後選取 [建立]  ：
 
     - **專案名稱**：線性迴歸範例 - Cricket Chirps
-    - **專案識別碼**：linear-regression-example
+    - **專案ID**：linear-regression-example
     - **公用專案**：(已清除)
     - **建立 README.md**：(已清除)
 
-1. 幾分鐘後，Azure Notebooks 會帶您瀏覽至新的專案。
+1. 稍後，Azure Notebooks 會帶您至新的專案。
 
 ## <a name="create-the-data-file"></a>建立資料檔案
 
-您在筆記本中建立的線性迴歸模型，會從專案中的 cricket_chirps.csv  檔案取得資料。 您可藉由從 [GitHub - Azure Notebooks 範例](https://github.com/Microsoft/AzureNotebooks/tree/master/Samples/Linear%20Regression%20-%20Cricket%20Chirps)複製此檔案，或直接輸入資料來建立該檔案。 下列幾節會說明這兩種方法。
+您在筆記本中建立的線性迴歸模型，會從您專案中的 cricket_chirps.csv  檔案獲取資料。 您可藉由從 [GitHub - Azure Notebooks 範例](https://github.com/Microsoft/AzureNotebooks/tree/master/Samples/Linear%20Regression%20-%20Cricket%20Chirps)複製此檔案，或直接輸入資料來建立該檔案。 下列幾段會說明這兩種方法。
 
 ### <a name="upload-the-data-file"></a>上傳資料檔案
 
@@ -94,9 +94,9 @@ ms.locfileid: "66751767"
 
 ## <a name="install-project-level-packages"></a>安裝專案層級套件
 
-您隨時可以在筆記本的程式碼資料格中使用 `!pip install` 之類的命令，以安裝必要的套件。 不過，當您每次執行筆記本的程式碼資料格時，此類命令也會隨之執行，並可能需要花費相當長的時間。 因此，您可以改為使用 `requirements.txt` 檔案，在專案層級安裝套件。
+您隨時可以在筆記本的程式碼資料格中使用 `!pip install` 之類的命令，以安裝必要的套件。 不過，當您每次執行筆記本的程式碼資料格時，此類命令也會隨之執行，並可能需要花費相當長的時間。 因此，您可以改為使用 `requirements.txt` 檔案在專案層級安裝套件。
 
-1. 使用[從頭開始建立檔案](#create-a-file-from-scratch)中說明的流程來建立名為 `requirements.txt` 的檔案，其中包含下列內容：
+1. 使用[從頭建立檔案](#create-a-file-from-scratch)中的步驟流程來建立名為 `requirements.txt` 的檔案，其中包含下列內容：
 
     ```text
     matplotlib==3.0.0
@@ -116,28 +116,28 @@ ms.locfileid: "66751767"
 
 ![用於指定 requirements.txt 檔案的 [專案設定環境] 索引標籤](media/tutorial/tutorial-requirements-txt.png)
 
-透過這個安裝步驟，您在專案中執行的任何筆記本都會在安裝這些套件的環境中執行。
+透過這個安裝步驟，您在專案中執行的任何筆記本都會在已安裝這些套件的環境中執行。
 
 ## <a name="create-and-run-a-notebook"></a>建立及執行筆記本
 
-備妥資料檔案並完成專案環境設定後，您現在即可建立並開啟筆記本。
+備妥資料檔案並設定好專案環境後，即可建立並開啟筆記本。
 
 1. 在專案儀表板上，選取 [+ 新增]   > [Notebook]  。
 1. 在快顯視窗的 [項目名稱]  中輸入 [線性迴歸範例 - Cricket Chirps.ipynb]  並選擇 [Python 3.6]  作為程式語言，然後選取 [新增]  。
 1. 在新的筆記本出現在檔案清單之後，選取它來啟動筆記本。 自動開啟新的瀏覽器索引標籤。
 1. 因為您的環境設定中包含 requirements.txt  檔案，所以會看到「等候您的容器完成準備」的訊息。 您可以選取 [確定]  以關閉訊息並繼續在筆記本中操作；不過，在環境全部設定完成之前，您無法執行程式碼資料格。
-1. 以單一空白程式碼資料格作為預設值，在 Jupyter 介面中開啟筆記本。
+1. 筆記本開啓Jupyter 介面時，預設有一個空白程式碼資料格。
 
     [![Azure Notebooks 中新筆記本的起始檢視](media/tutorial/tutorial-new-notebook.png)](media/tutorial/tutorial-new-notebook.png#lightbox)
 
 ## <a name="tour-the-notebook-interface"></a>筆記本介面導覽
 
-執行筆記本的同時，您可以新增程式碼和 Markdown 資料格、執行這些資料格，並管理筆記本作業。 不過，首先您可以花幾分鐘的時間來熟悉介面。 如需閲讀完整的説明文件，請選取 [說明]   > [Notebook 說明]  功能表命令。
+筆記本在執行時，您可以新增程式碼和 Markdown 資料格、執行這些資料格，並管理筆記本作業。 不過，首先您可以花幾分鐘的時間來熟悉介面。 如需閲讀完整的説明文件，請選取 [協助]   >  [筆記本協助]  功能表命令。
 
 在視窗的頂端，您會看到下列項目：
 
-(A) 筆記本的名稱，按一下即可加以編輯。
-(B) 用以瀏覽至包含專案和專案儀表板的按鈕，其可在您的瀏覽器中開啟新的索引標籤。
+(A) 筆記本的名稱，按一下即可編輯。
+(B) 能導航至專案和專案面板的按鈕，按鈕將開啓新的瀏覽器索引標籤。
 (C) 一個功能表，內含搭配筆記本運作的命令。
 (D) 內含一般作業快速鍵的工具列。
 (E) 包含資料格的編輯畫布。
@@ -146,23 +146,23 @@ ms.locfileid: "66751767"
 
 [![Jupyter 介面的主要 UI 區域](media/tutorial/tutorial-notebook-ui.png)](media/tutorial/tutorial-notebook-ui.png#lightbox)
 
-Jupyter 會提供主要 UI 元素的內建導覽。 選取 [說明]   > [使用者介面導覽]  命令並點選快顯功能表，即可開始導覽。
+Jupyter 會提供主要 UI 元素的內建導覽。 選取 [協助]   >  [使用者介面導覽]  命令並點選快顯功能表，即可開始導覽。
 
-功能表命令群組如下所示：
+功能表命令如下所示：
 
 | 功能表 | 說明 |
 | --- | --- |
-| 檔案 | 用以管理筆記本檔案的命令，包括建立和複製筆記本、顯示預覽列印，以及使用各種格式下載筆記本的命令。 |
-| 編輯 | 用以剪下、複製和貼上資料格、尋找和取代值、管理資料格附件，以及插入映像的一般命令。  |
-| 檢視 | 用以控制 Jupyter UI 各部分可見性的命令。 |
-| 插入 | 用以在目前資料格上方或下方插入新資料格的命令。 建立筆記本時，您可以使用這些命令。 |
-| 資料格 | 各種 [Run]  命令會以不同的組合執行一或多個資料格。 [資料格類型]  命令可變更 [程式碼]  、[Markdown]  及 [原始 NBConvert]  (純文字) 之間的資料格類型。 [目前輸出]  和 [所有輸出]  命令可控制如何顯示來自執行程式碼的輸出，並且包含清除所有輸出的命令。 |
+| 檔案 | 用以管理筆記本檔案的命令，命令包括建立和複製筆記本、顯示列印預覽，以及使用各種格式下載筆記本。 |
+| 編輯 | 用以剪下、複製和貼上資料格、尋找和取代值、管理資料格附件，以及插入圖片的一般命令。  |
+| 檢視 | 控制 Jupyter UI 各部分是否顯示的命令。 |
+| 插入 | 用以在目前資料格上方或下方插入新資料格的命令。 建立筆記本時會時常用到這些命令。 |
+| 資料格 | 各種 [Run]  命令會以不同的組合執行一或多個資料格。 [資料格類型]  命令可在 [程式碼]  、[Markdown]  及 [原始 NBConvert]  (純文字) 的類型之間變更。 [目前輸出]  和 [所有輸出]  命令可控制如何顯示來自執行程式碼的輸出，並且包含清除所有輸出的命令。 |
 | 核心 | 用以管理在核心中如何執行程式碼的命令，以及 [變更核心]  用來變更語言或用來執行筆記本的 Python 版本。 |
 | 資料 | 從專案或工作階段上傳和下載檔案的命令。 請參閱[使用專案資料檔案](work-with-project-data-files.md) |
-| 小工具 | 用以管理 [Jupyter Widget](https://ipywidgets.readthedocs.io/en/stable/examples/Widget%20Basics.html) 的命令，其可針對視覺效果、對應及繪圖提供額外功能。|
+| 小工具 | 用以管理 [Jupyter Widget](https://ipywidgets.readthedocs.io/en/stable/examples/Widget%20Basics.html) 的命令，其可針對視覺效果、對映及繪圖提供額外功能。|
 | 説明 | 可提供 Jupyter 介面說明和文件的命令。 |
 
-工具列上大部分的命令都有對等的功能表命令。 其中一個例外狀況，是在[共用及呈現筆記本](present-jupyter-notebooks-slideshow.md)討論過的 [輸入/編輯 RISE 投影片]  。
+工具列上大部分的命令在功能表上都有對等的命令。 除了在[共用及展示筆記本](present-jupyter-notebooks-slideshow.md)討論過的 [輸入/編輯 RISE 投影片]  。
 
 您在後續各節中填入筆記本時會使用其中一些命令。
 

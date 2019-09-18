@@ -22,6 +22,7 @@
     - name: 透過應用程式 Proxy 新增內部部署應用程式
       href: application-proxy-add-on-premises-application.md
 - name: 概念
+  expanded: true
   items:
     - name: 雲端應用程式和單一登入
       items:
@@ -240,6 +241,8 @@
           items:
             - name: 針對使用者佈建進行疑難排解
               href: application-provisioning-config-problem.md
+            - name: 佈建記錄
+              href: /azure/active-directory/reports-monitoring/concept-provisioning-logs?context=azure/active-directory/manage-apps/context/manage-apps-context
             - name: 同步屬性以對應 - 資源庫應用程式
               href: user-provisioning-sync-attributes-for-mapping.md
             - name: 所需時間 - 資源庫應用程式
