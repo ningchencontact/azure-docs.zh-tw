@@ -60,14 +60,14 @@ ms.locfileid: "67203049"
 | --- | --- | --- | --- |
 | sourceType | 是 |   | 執行來源的類型。 允許的值為 **Microsoft.Logic/workflows** 和 **custom**。 |
 | source | 是 |   | 如果來源類型是 **Microsoft.Logic/workflows**，則來源資訊必須遵循此結構描述。 如果來源類型為 **custom**，則結構描述為 JToken。 |
-| systemId | 是 | 字串 | 邏輯應用程式系統識別碼。 |
-| runId | 是 | 字串 | 邏輯應用程式執行識別碼。 |
-| operationName | 是 | 字串 | 作業 (例如動作或觸發程序) 的名稱。 |
-| repeatItemScopeName | 是 | 字串 | 如果動作在 `foreach`/`until` 迴圈內，重複項目名稱。 |
+| systemId | 是 | String | 邏輯應用程式系統識別碼。 |
+| runId | 是 | String | 邏輯應用程式執行識別碼。 |
+| operationName | 是 | String | 作業 (例如動作或觸發程序) 的名稱。 |
+| repeatItemScopeName | 是 | String | 如果動作在 `foreach`/`until` 迴圈內，重複項目名稱。 |
 | repeatItemIndex | 是 | Integer | 動作是否在 `foreach`/`until` 迴圈內。 指出重複的項目索引。 |
-| trackingId | 否 | 字串 | 追蹤識別碼，使訊息相互關聯。 |
-| correlationId | 否 | 字串 | 相互關連識別碼，使訊息相互關聯。 |
-| clientRequestId | 否 | 字串 | 用戶端可以填入此值，使訊息相互關聯。 |
+| trackingId | 否 | String | 追蹤識別碼，使訊息相互關聯。 |
+| correlationId | 否 | String | 相互關連識別碼，使訊息相互關聯。 |
+| clientRequestId | 否 | String | 用戶端可以填入此值，使訊息相互關聯。 |
 | eventLevel | 是 |   | 事件的層級。 |
 | eventTime | 是 |   | 事件的時間，以 UTC 格式 YYYY-MM-DDTHH:MM:SS.00000Z。 |
 | recordType | 是 |   | 追蹤記錄的類型。 允許的值為 **custom**。 |
