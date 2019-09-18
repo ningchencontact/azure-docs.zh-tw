@@ -8,12 +8,12 @@ ms.subservice: cosmosdb-sql
 ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 07/12/2019
-ms.openlocfilehash: cbf039a932c16269f703818e9f0ffef4ce852686
-ms.sourcegitcommit: 3f78a6ffee0b83788d554959db7efc5d00130376
+ms.openlocfilehash: 72e46ca55193bf79971818665a77be49ca5243e1
+ms.sourcegitcommit: 49c4b9c797c09c92632d7cedfec0ac1cf783631b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/26/2019
-ms.locfileid: "70018749"
+ms.lasthandoff: 09/05/2019
+ms.locfileid: "70382874"
 ---
 # <a name="quickstart-build-a-net-console-app-to-manage-azure-cosmos-db-sql-api-resources"></a>快速入門：建置 .NET 主控台應用程式來管理 Azure Cosmos DB SQL API 資源
 
@@ -40,7 +40,6 @@ Azure Cosmos DB 是 Microsoft 的全域分散式多模型資料庫服務。 您�
 
 * Azure 訂用帳戶 - [免費建立一個](https://azure.microsoft.com/free/)，或者您可以[免費試用 Azure Cosmos DB](https://azure.microsoft.com/try/cosmosdb/)，無須 Azure 訂用帳戶，也無須任何費用和約定付款。 
 * [.NET Core 2.1 SDK 或更新版本](https://dotnet.microsoft.com/download/dotnet-core/2.1)。
-* [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest)
 
 ## <a name="setting-up"></a>設定
 
@@ -48,16 +47,22 @@ Azure Cosmos DB 是 Microsoft 的全域分散式多模型資料庫服務。 您�
 
 ### <a id="create-account"></a>建立 Azure Cosmos 帳戶
 
-下列程式碼會建立包含工作階段一致性的 Azure Cosmos 帳戶。 該帳戶會在 `South Central US` 與 `North Central US` 中複寫。 選取 [試試看]  按鈕並貼上程式碼，以在 Azure Cloud Shell 中執行該命令。 
+如果您使用[免費試用 Azure Cosmos DB](https://azure.microsoft.com/try/cosmosdb/) 選項來建立 Azure Cosmos 帳戶，則必須建立類型為 **SQL API** 的 Azure Cosmos DB 帳戶。 已為您建立 Azure Cosmos DB 測試帳戶。 您不需要明確建立帳戶，因此您可以略過此小節並移至下一小節。
+
+如果您有自己的 Azure 訂用帳戶，或已建立免費訂用帳戶，您應該明確地建立 Azure Cosmos 帳戶。 下列程式碼會建立包含工作階段一致性的 Azure Cosmos 帳戶。 該帳戶會在 `South Central US` 與 `North Central US` 中複寫。  
+
+您可以使用 Azure Cloud Shell 來建立 Azure Cosmos 帳戶。 Azure Cloud Shell 是可經由瀏覽器存取的已驗證互動式殼層，應用在 Azure 資源管理上。 它可讓您彈性地選擇最適合您工作方式的殼層體驗 (Bash 或 PowerShell)。 在本快速入門中，選擇 [Bash]  模式。 Azure Cloud Shell 也需要儲存體帳戶，您可以在出現提示時建立一個。
+
+選取下列程式碼旁邊的 [試試看]  按鈕，選擇 [Bash]  模式，再選取 [建立儲存體帳戶]  並登入 Cloud Shell。 接下來，複製下列程式碼並貼到 Azure Cloud Shelll 中執行。 Azure Cosmos 帳戶名稱必須是全域唯一的，請務必先更新 `mysqlapicosmosdb` 值，再執行命令。
 
 ```azurecli-interactive
 
 # Set variables for the new SQL API account, database, and container
 resourceGroupName='myResourceGroup'
 location='southcentralus'
-accountName='mysqlapicosmosdb' 
-databaseName='FamilyDatabase'
-containerName='FamilyContainer'
+
+# The Azure Cosmos account name must be globally unique, make sure to update the `mysqlapicosmosdb` value before you run the command
+accountName='mysqlapicosmosdb'
 
 # Create a resource group
 az group create \
@@ -75,9 +80,11 @@ az cosmosdb create \
 
 ```
 
+建立 Azure Cosmos 帳戶需要一些時間，一旦作業成功，您就可以看到確認輸出。 命令順利完成之後，請登入 [Azure 入口網站](https://portal.azure.com/)，並確認具有指定名稱的 Azure Cosmos 帳戶存在。 您可以在建立資源之後，關閉 [Azure Cloud Shell] 視窗。 
+
 ### <a id="create-dotnet-core-app"></a>建立新的 .NET 應用程式
 
-在您慣用的編輯器或 IDE 中，建立新的 .NET 應用程式。 在主控台視窗中，執行下列 dotnet new 命令來建立名稱為 `todo` 的新應用程式。
+在您慣用的編輯器或 IDE 中，建立新的 .NET 應用程式。 從您的本機電腦開啟 Windows 命令提示字元或終端機視窗。 您將會從命令提示字元或終端機執行下一節中的所有命令。  執行下列 dotnet new 命令來建立名稱為 `todo` 的新應用程式。 --langVersion 參數會設定所建立專案檔中的 LangVersion 屬性。
 
 ```console
 dotnet new console --langVersion 7.1 -n todo
@@ -118,7 +125,7 @@ dotnet add package Microsoft.Azure.Cosmos
 
 1. 登入 [Azure 入口網站](https://portal.azure.com/)。
 
-1. 瀏覽至 Azure Cosmos 帳戶。 
+1. 瀏覽至 Azure Cosmos 帳戶。
 
 1. 開啟 [金鑰]  窗格，然後複製您帳戶的 **URI** 與**主索引鍵**。 在下一個步驟中，您會將 URI 和索引鍵值新增至環境變數。
 
@@ -136,15 +143,15 @@ setx PrimaryKey "<Your_Azure_Cosmos_account_PRIMARY_KEY>"
 **Linux**
 
 ```bash
-export EndpointUrl "<Your_Azure_Cosmos_account_URI>"
-export PrimaryKey "<Your_Azure_Cosmos_account_PRIMARY_KEY>"
+export EndpointUrl = "<Your_Azure_Cosmos_account_URI>"
+export PrimaryKey = "<Your_Azure_Cosmos_account_PRIMARY_KEY>"
 ```
 
 **MacOS**
 
 ```bash
-export EndpointUrl "<Your_Azure_Cosmos_account_URI>"
-export PrimaryKey "<Your_Azure_Cosmos_account_PRIMARY_KEY>"
+export EndpointUrl = "<Your_Azure_Cosmos_account_URI>"
+export PrimaryKey = "<Your_Azure_Cosmos_account_PRIMARY_KEY>"
 ```
 
  ## <a id="object-model"></a>物件模型
@@ -240,7 +247,7 @@ using System.Net;
 using Microsoft.Azure.Cosmos;
 ```
 
-在 `program.cs file` 中加入程式碼，以讀取您在上一個步驟中設定的環境變數。 定義 `CosmosClient`、`Database` 與 `Container` 物件。 接下來，將程式碼新增至 main 方法，以呼叫您管理 Azure Cosmos 帳戶資源的 `GetStartedDemoAsync` 方法。 
+在 **Program.cs** 檔案中加入程式碼，以讀取您在上一個步驟中設定的環境變數。 定義 `CosmosClient`、`Database` 與 `Container` 物件。 接下來，將程式碼新增至 main 方法，以呼叫您管理 Azure Cosmos 帳戶資源的 `GetStartedDemoAsync` 方法。 
 
 ```csharp
 namespace todo
@@ -355,7 +362,7 @@ private async Task AddItemsToContainerAsync()
         },
         Address = new Address { State = "WA", County = "King", City = "Seattle" },
         IsRegistered = false
- };
+    };
 
 try
 {
@@ -370,6 +377,7 @@ catch(CosmosException ex) when (ex.StatusCode == HttpStatusCode.NotFound)
 
     // Note that after creating the item, we can access the body of the item with the Resource property off the ItemResponse. We can also access the RequestCharge property to see the amount of RUs consumed on this request.
     Console.WriteLine("Created item in database with id: {0} Operation consumed {1} RUs.\n", andersenFamilyResponse.Resource.Id, andersenFamilyResponse.RequestCharge);
+}
 }
 
 ```
@@ -429,14 +437,11 @@ private async Task DeleteDatabaseAndCleanupAsync()
 public async Task GetStartedDemoAsync()
 {
     // Create a new instance of the Cosmos Client
-    this.cosmosClient = new CosmosClient(EndpointUri, PrimaryKey);
+    this.cosmosClient = new CosmosClient(EndpointUrl, PrimaryKey);
     await this.CreateDatabaseAsync();
     await this.CreateContainerAsync();
     await this.AddItemsToContainerAsync();
     await this.QueryItemsAsync();
-    await this.ReplaceFamilyItemAsync();
-    await this.DeleteFamilyItemAsync();
-    //await this.DeleteDatabaseAndCleanupAsync();
 }
 ```
 
@@ -477,7 +482,7 @@ End of demo, press any key to exit.
 若不再需要，您可以使用 Azure CLI 或 Azure PowerShell 移除 Azure Cosmos 帳戶與對應的資源群組。 下列命令說明如何使用 Azure CLI 刪除資源群組：
 
 ```azurecli
-az group delete -g "myResourceGroup" -l "southcentralus"
+az group delete -g "myResourceGroup"
 ```
 
 ## <a name="next-steps"></a>後續步驟

@@ -1,5 +1,5 @@
 ---
-title: Node.js 快速入門：使用 Azure 搜尋服務 REST API 建立、載入及查詢索引 - Azure 搜尋服務
+title: 快速入門：使用 REST API 在 Node.js 中建立搜尋索引 - Azure 搜尋服務
 description: 適用於 Azure 搜尋服務的 Node.js 範例，示範如何建立、載入資料，以及從 JavaScript 查詢資料。
 author: lobrien
 manager: nitinme
@@ -8,16 +8,16 @@ services: search
 ms.service: search
 ms.devlang: nodejs
 ms.topic: quickstart
-ms.date: 07/30/2019
+ms.date: 09/10/2019
 ms.author: laobri
-ms.openlocfilehash: b22a6371522674895465afac88e68f556ab09bcb
-ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
+ms.openlocfilehash: 4e17247ea412b5472a0c23fd74ff7e53f375710d
+ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69656293"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70881511"
 ---
-# <a name="quickstart-create-an-azure-search-index-in-nodejs"></a>快速入門：在 Node.js 中建立 Azure 搜尋服務索引
+# <a name="quickstart-create-an-azure-search-index-in-nodejs-using-rest-apis"></a>快速入門：使用 REST API 在 Node.js 中建立 Azure 搜尋索引
 > [!div class="op_single_selector"]
 > * [JavaScript](search-get-started-nodejs.md)
 > * [C#](search-get-started-dotnet.md)
@@ -26,7 +26,7 @@ ms.locfileid: "69656293"
 > * [Python](search-get-started-python.md)
 > * [Postman](search-get-started-postman.md)
 
-建立 Node.js 應用程式，以建立、載入和查詢 Azure 搜尋服務索引。 本文示範如何逐步建立應用程式。 或者，您可以[下載原始程式碼和資料](https://github.com/Azure-Samples/azure-search-javascript-samples/tree/master/quickstart/)，並從命令列執行應用程式。
+建立 Node.js 應用程式，以建立、載入和查詢 Azure 搜尋服務索引。 此文章示範如何逐步建立應用程式。 或者，您可以[下載原始程式碼和資料](https://github.com/Azure-Samples/azure-search-javascript-samples/tree/master/quickstart/)，並從命令列執行應用程式。
 
 如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 。
 
@@ -36,7 +36,7 @@ ms.locfileid: "69656293"
 
 + [Node.js](https://nodejs.org).
 + [NPM](https://www.npmjs.com) 應由 Node.js 安裝。
-+ 本文或[存放庫的**快速入門**目錄](https://github.com/Azure-Samples/azure-search-javascript-samples/)會提供範例索引結構和比對文件。
++ 此文章或[存放庫的**快速入門**目錄](https://github.com/Azure-Samples/azure-search-javascript-samples/)會提供範例索引結構和比對文件。
 + [建立 Azure 搜尋服務](search-create-service-portal.md)，或在您目前的訂用帳戶下方[尋找現有服務](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices)。 您可以使用本快速入門的免費服務。
 
 建議使用：

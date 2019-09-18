@@ -10,12 +10,12 @@ ms.topic: quickstart
 description: 在 Azure 上使用容器和微服務進行小組 Kubernetes 開發
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, 容器, Helm, 服務網格, 服務網格路由傳送, kubectl, k8s
 manager: gwallace
-ms.openlocfilehash: cb1cc62125e668544eb4af9f84b477b273bfe30e
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: 0abfe655e30b62829a7d353b6da85bb51e378f6d
+ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67706263"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70842599"
 ---
 # <a name="quickstart-team-development-on-kubernetes-using-azure-dev-spaces"></a>快速入門：使用 Azure Dev Spaces 在 Kubernetes 上進行小組開發
 
@@ -39,7 +39,7 @@ ms.locfileid: "67706263"
 
 ```cmd
 az group create --name MyResourceGroup --location eastus
-az aks create -g MyResourceGroup -n MyAKS --location eastus --node-vm-size Standard_DS2_v2 --node-count 1 --disable-rbac --generate-ssh-keys
+az aks create -g MyResourceGroup -n MyAKS --location eastus --disable-rbac --generate-ssh-keys
 ```
 
 *MyAKS* 叢集也會搭配單一節點建立、使用 *Standard_DS2_v2* 大小，以及停用 RBAC。
@@ -54,7 +54,7 @@ az aks use-dev-spaces -g MyResourceGroup -n MyAKS --space dev --yes
 
 ## <a name="get-sample-application-code"></a>取得應用程式範例的程式碼
 
-在本文中，您會使用 [Azure Dev Spaces 單車共享範例應用程式](https://github.com/Azure/dev-spaces/tree/master/samples/BikeSharingApp) \(英文\) 來示範如何使用 Azure Dev Spaces。
+在此文章中，您會使用 [Azure Dev Spaces 單車共享範例應用程式](https://github.com/Azure/dev-spaces/tree/master/samples/BikeSharingApp) \(英文\) 來示範如何使用 Azure Dev Spaces。
 
 從 GitHub 複製應用程式，並瀏覽至其目錄：
 
@@ -146,12 +146,12 @@ azds space select -n dev/azureuser2 -y
 
 ```cmd
 $ azds space list
-Name            Selected
---------------  --------
-default         False
-dev             False
-dev/azureuser1  False
-dev/azureuser2  True
+   Name            DevSpacesEnabled
+-  --------------  ----------------
+   default         False
+   dev             True
+   dev/azureuser1  True
+*  dev/azureuser2  True
 ```
 
 使用 `azds list-uris` 來顯示目前所選取空間 (*dev/azureuser2*) 中之範例應用程式的 URL。
@@ -201,6 +201,9 @@ Service 'bikesharingweb' port 80 (http) is available at http://localhost:54256
 開啟顯示於 `azds up` 命令之輸出中的公用 URL，來瀏覽至 *dev/azureuser2* 開發空間的 *bikesharingweb* 服務。 選取 [Aurelia Briggs (customer)]  \(Aurelia Briggs (客戶)\) 作為使用者。 確認您在右上角能看見更新的文字。 如果您無法立即看見這個變更，您可能需要重新整理該頁面或清除瀏覽器的快取。
 
 ![已更新的 Azure Dev Spaces 單車共享範例應用程式](media/quickstart-team-development/bikeshare-update.png)
+
+> [!NOTE]
+> 當您在執行 `azds up` 同時瀏覽至您的服務時，HTTP 要求追蹤也會顯示在 `azds up` 命令的輸出中。 這些追蹤可協助您針對服務進行疑難排解及偵錯。 當執行 `azds up` 時，您可以使用 `--disable-http-traces` 來停用這些追蹤。
 
 ## <a name="verify-other-dev-spaces-are-unchanged"></a>確認其他 Dev Spaces 皆未變更
 

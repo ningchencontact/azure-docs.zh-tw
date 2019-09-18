@@ -1,6 +1,6 @@
 ---
 title: 使用 Azure Data Factory 以累加方式複製資料表 | Microsoft Docs
-description: 在本教學課程中，您會建立 Azure Data Factory 管線，以累加方式將資料從 Azure SQL 資料庫複製到 Azure Blob 儲存體。
+description: 在此教學課程中，您會建立 Azure Data Factory 管線，以累加方式將資料從 Azure SQL 資料庫複製到 Azure Blob 儲存體。
 services: data-factory
 documentationcenter: ''
 author: dearandyxu
@@ -11,17 +11,17 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.date: 01/11/2018
 ms.author: yexu
-ms.openlocfilehash: e9284d34d3c5bc51c7d0648b24877a051df423d9
-ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.openlocfilehash: 3626e68c8cedfdd2d22f47cd92d6e7c4b8b5d180
+ms.sourcegitcommit: b8578b14c8629c4e4dea4c2e90164e42393e8064
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70140699"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70806428"
 ---
 # <a name="incrementally-load-data-from-an-azure-sql-database-to-azure-blob-storage"></a>以累加方式將資料從 Azure SQL 資料庫載入到 Azure Blob 儲存體
-在本教學課程中，您會建立 Azure Data Factory 與管線，以將差異資料從 Azure SQL 資料庫中的資料表載入到 Azure Blob 儲存體。 
+在此教學課程中，您會建立 Azure Data Factory 與管線，以將差異資料從 Azure SQL 資料庫中的資料表載入到 Azure Blob 儲存體。 
 
-您會在本教學課程中執行下列步驟：
+您會在此教學課程中執行下列步驟：
 
 > [!div class="checklist"]
 > * 準備資料存放區來儲存水位線值。
@@ -48,7 +48,7 @@ ms.locfileid: "70140699"
 1. **選取水位線資料行**。
     選取來源資料存放區中的一個資料行，可用於切割每次執行時新增或更新的記錄。 一般來說，當建立或更新資料列時，這個選取的資料行 (例如，last_modify_time 或 ID) 中的資料會持續增加。 此資料行中的最大值就作為水位線。
 
-2. **準備資料存放區來儲存水位線值**。 在本教學課程中，您會將水位線值儲存在 SQL 資料庫中。
+2. **準備資料存放區來儲存水位線值**。 在此教學課程中，您會將水位線值儲存在 SQL 資料庫中。
     
 3. **使用下列工作流程建立管線**： 
     
@@ -87,7 +87,7 @@ ms.locfileid: "70140699"
     (4, 'dddd','9/4/2017 3:21:00 AM'),
     (5, 'eeee','9/5/2017 8:06:00 AM');
     ```
-    在本教學課程中，您會使用 LastModifytime 作為水位線資料行。 下表顯示資料來源存放區中的資料：
+    在此教學課程中，您會使用 LastModifytime 作為水位線資料行。 下表顯示資料來源存放區中的資料：
 
     ```
     PersonID | Name | LastModifytime
@@ -110,7 +110,7 @@ ms.locfileid: "70140699"
     WatermarkValue datetime,
     );
     ```
-2. 使用來源資料存放區的資料表名稱來設定高水位線的預設值。 在本教學課程中，資料表名稱是 data_source_table。
+2. 使用來源資料存放區的資料表名稱來設定高水位線的預設值。 在此教學課程中，資料表名稱是 data_source_table。
 
     ```sql
     INSERT INTO watermarktable
@@ -149,93 +149,72 @@ END
 ## <a name="create-a-data-factory"></a>建立 Data Factory
 
 1. 啟動 **Microsoft Edge** 或 **Google Chrome** 網頁瀏覽器。 目前，只有 Microsoft Edge 和 Google Chrome 網頁瀏覽器支援 Data Factory UI。
-1. 在左側功能表上，選取 [建立資源]   > [資料 + 分析]   > [資料處理站]  ： 
+2. 在左側功能表中，選取 [建立資源]   > [分析]   > [資料處理站]  ： 
    
-   ![在 [新增] 窗格中選取資料處理站](./media/quickstart-create-data-factory-portal/new-azure-data-factory-menu.png)
+   ![在 [新增] 窗格中選取資料處理站](./media/doc-common-process/new-azure-data-factory-menu.png)
 
-2. 在 [新增 Data Factory]  頁面中，輸入 [ADFTutorialOnPremDF]  作為 [名稱]  。 
-      
-     ![新增資料處理站頁面](./media/tutorial-incremental-copy-portal/new-azure-data-factory.png)
+3. 在 [新增 Data Factory]  頁面中，輸入 [ADFTutorialOnPremDF]  作為 [名稱]  。 
  
    Azure Data Factory 的名稱必須是 **全域唯一的**。 如果您看到有以下錯誤的紅色驚嘆號，請變更 Data Factory 名稱 (例如 yournameADFTutorialDataFactory)，然後試著重新建立。 請參閱 [Data Factory - 命名規則](naming-rules.md)一文，以了解 Data Factory 成品的命名規則。
   
        `Data factory name "ADFIncCopyTutorialDF" is not available`
-3. 選取您要在其中建立資料處理站的 Azure **訂用帳戶**。 
-4. 針對 [資源群組]  ，請執行下列其中一個步驟︰
+4. 選取您要在其中建立資料處理站的 Azure **訂用帳戶**。 
+5. 針對 [資源群組]  ，請執行下列其中一個步驟︰
      
       - 選取 [使用現有的]  ，然後從下拉式清單選取現有的資源群組。 
       - 選取 [建立新的]  ，然後輸入資源群組的名稱。   
          
         若要了解資源群組，請參閱 [使用資源群組管理您的 Azure 資源](../azure-resource-manager/resource-group-overview.md)。  
-4. 針對 [版本]  選取 [V2]  。
-5. 選取 Data Factory 的 [位置]  。 只有受到支援的位置會顯示在下拉式清單中。 資料處理站所使用的資料存放區 (Azure 儲存體、Azure SQL Database 等) 和計算 (HDInsight 等) 可位於其他區域。
-6. 選取 [釘選到儀表板]  。     
-7. 按一下頁面底部的 [新增]  。      
-8. 在儀表板上，您會看到狀態如下的下列圖格︰**部署 Data Factory**。 
-
-    ![部署資料處理站圖格](media/tutorial-incremental-copy-portal/deploying-data-factory.png)
+6. 針對 [版本]  選取 [V2]  。
+7. 選取 Data Factory 的 [位置]  。 只有受到支援的位置會顯示在下拉式清單中。 資料處理站所使用的資料存放區 (Azure 儲存體、Azure SQL Database 等) 和計算 (HDInsight 等) 可位於其他區域。
+8. 按一下頁面底部的 [新增]  。      
 9. 建立完成之後，您會看到如圖中所示的 [Data Factory]  頁面。
    
-   ![Data Factory 首頁](./media/tutorial-incremental-copy-portal/data-factory-home-page.png)
+   ![Data Factory 首頁](./media/doc-common-process/data-factory-home-page.png)
 10. 按一下 [撰寫與監視]  圖格，以在另一個索引標籤中啟動 Azure Data Factory 使用者介面 (UI)。
 
 ## <a name="create-a-pipeline"></a>建立管線
-在本教學課程中，您會建立具有兩個查閱活動、一個複製活動和一個 StoredProcedure 活動的管線，這些活動都在一個管線中鏈結。 
+在此教學課程中，您會建立具有兩個查閱活動、一個複製活動和一個 StoredProcedure 活動的管線，這些活動都在一個管線中鏈結。 
 
 1. 在 Data Factory 使用者介面的 [開始使用]  頁面中，按一下 [建立管線]  圖格。 
 
-   ![Data Factory 使用者介面的開始使用網頁](./media/tutorial-incremental-copy-portal/get-started-page.png)    
+   ![Data Factory 使用者介面的開始使用網頁](./media/doc-common-process/get-started-page.png)    
 3. 在管線之 [屬性]  視窗的 [一般]  頁面中，輸入 [IncrementalCopyPipeline]  名稱。 
 
-   ![管線名稱](./media/tutorial-incremental-copy-portal/pipeline-name.png)
 4. 讓我們新增第一個查閱活動來取得舊的浮水印值。 在 [活動]  工具箱中展開 [一般]  ，並將 [查閱]  活動拖放至管線設計工具介面。 將活動名稱變更為 **LookupOldWaterMarkActivity**。
 
    ![第一個查閱活動 - 名稱](./media/tutorial-incremental-copy-portal/first-lookup-name.png)
 5. 切換至 [設定]  索引標籤，然後按一下 [+ 新增]  以新增**來源資料集**。 在此步驟中，您會建立資料集來代表**浮水印資料表**中的資料。 此資料表包含先前複製作業中所使用的舊浮水印。 
 
-   ![新增資料集功能表 - 舊浮水印](./media/tutorial-incremental-copy-portal/new-dataset-old-watermark.png)
-6. 在 [新增資料集]  視窗中選取 [Azure SQL Database]  ，然後按一下 [完成]  。 您會看到為該資料集開啟的新索引標籤。 
+6. 在 [新增資料集]  視窗中選取 [Azure SQL Database]  ，然後按一下 [繼續]  。 您會看到系統為該資料集開啟新視窗。 
 
-   ![選取 Azure SQL Database](./media/tutorial-incremental-copy-portal/select-azure-sql-database-old-watermark.png)
-7. 在該資料集的 [屬性] 視窗中，輸入 **WatermarkDataset** 作為 [名稱]  。
+7. 在該資料集的 [設定屬性]  視窗中，輸入 **WatermarkDataset** 作為 [名稱]  。
 
-   ![浮水印資料集 - 名稱](./media/tutorial-incremental-copy-portal/watermark-dataset-name.png)
-8. 切換至 [連線]  索引標籤，然後按一下 [+ 新增]  即可與 Azure SQL 資料庫進行連線 (建立連結的服務)。 
-
-   ![新增連結服務按鈕](./media/tutorial-incremental-copy-portal/watermark-dataset-new-connection-button.png)
-9. 在 [新增連結服務]  視窗中，執行下列步驟：
+8. 在 [已連結的服務]  視窗中，選取 [新增]  ，然後執行下列步驟：
 
     1. 輸入 **AzureSqlDatabaseLinkedService** 作為 [名稱]  。 
     2. 選取要供**伺服器名稱**使用的 Azure SQL 伺服器。
-    3. 輸入 [使用者名稱]  來存取 Azure SQL 伺服器。 
-    4. 輸入使用者的 [密碼]  。 
+    3. 從下拉式清單中選取您的**資料庫名稱**。 
+    4. 輸入您的**使用者名稱** & **密碼**。 
     5. 若要測試與 Azure SQL 資料庫的連線，請按一下 [測試連線]  。
-    6. 按一下 [檔案]  。
-    7. 在 [連線]  索引標籤上，確認已為**連結服務**選取 **AzureSqlDatabaseLinkedService**。
+    6. 按一下 [完成]  。
+    7. 確認已為 [已連結的服務]  選取 [AzureSqlDatabaseLinkedService]  。
        
         ![新增連結服務視窗](./media/tutorial-incremental-copy-portal/azure-sql-linked-service-settings.png)
-10. 選取 **[dbo].[watermarktable]** 作為 [資料表]  。 如果您想要預覽資料表中的資料，請按一下 [預覽資料]  。
+    8. 選取 [完成]  。
+9. 在 [連線]  索引標籤中，為 [資料表]  選取 [[dbo].[watermarktable]]  。 如果您想要預覽資料表中的資料，請按一下 [預覽資料]  。
 
     ![浮水印資料集 - 連線設定](./media/tutorial-incremental-copy-portal/watermark-dataset-connection-settings.png)
-11. 按一下頂端的 [管線] 索引標籤或左側樹狀檢視中的管線名稱，即可切換到管線編輯器。 在 [查閱]  活動的 [屬性] 視窗中，確認已為 [來源資料集]  欄位選取 **WatermarkDataset**。 
+10. 按一下頂端的 [管線] 索引標籤或左側樹狀檢視中的管線名稱，即可切換到管線編輯器。 在 [查閱]  活動的 [屬性] 視窗中，確認已為 [來源資料集]  欄位選取 **WatermarkDataset**。 
 
-    ![管線 - 舊的浮水印資料集](./media/tutorial-incremental-copy-portal/pipeline-old-watermark-dataset-selected.png)
-12. 在 [活動]  工具箱中展開 [一般]  ，並將另一個 [查閱]  活動拖放至管線設計工具介面，然後在 [屬性] 視窗的 [一般]  索引標籤中，將名稱設為 **LookupNewWaterMarkActivity**。 此查閱活動會從資料表取得新浮水印值，該資料表具備要複製到目的地的來源資料。 
+11. 在 [活動]  工具箱中展開 [一般]  ，並將另一個 [查閱]  活動拖放至管線設計工具介面，然後在 [屬性] 視窗的 [一般]  索引標籤中，將名稱設為 **LookupNewWaterMarkActivity**。 此查閱活動會從資料表取得新浮水印值，該資料表具備要複製到目的地的來源資料。 
 
-    ![第二個查閱活動 - 名稱](./media/tutorial-incremental-copy-portal/second-lookup-activity-name.png)
-13. 在第二個 [查閱]  活動的 [屬性] 視窗中，切換到 [設定]  索引標籤，然後按一下 [新增]  。 您建立的資料集會指向來源資料表，其中包含新浮水印值 (LastModifyTime 最大值)。 
+12. 在第二個 [查閱]  活動的 [屬性] 視窗中，切換到 [設定]  索引標籤，然後按一下 [新增]  。 您建立的資料集會指向來源資料表，其中包含新浮水印值 (LastModifyTime 最大值)。 
 
-    ![第二個查閱活動 - 新增資料集](./media/tutorial-incremental-copy-portal/second-lookup-activity-settings-new-button.png)
-14. 在 [新增資料集]  視窗中選取 [Azure SQL Database]  ，然後按一下 [完成]  。 您會看到為此資料集而開啟的新索引標籤。 你也會在樹狀檢視中看到該資料集。 
-15. 在 [屬性] 視窗的 [一般]  索引標籤中，輸入 [SourceDataset]  作為 [名稱]  。 
-
-    ![來源資料集 - 名稱](./media/tutorial-incremental-copy-portal/source-dataset-name.png)
-16. 切換至 [連線]  索引標籤，然後執行下列步驟： 
-
-    1. 選取 [AzureSqlDatabaseLinkedService]  作為 [連結服務]  。
-    2. 選取 **[dbo].[data_source_table]** 作為 [資料表]。 您稍後可在本教學課程中指定對此資料集的查詢。 查詢會優先於您在此步驟中指定的資料表。 
-
-        ![第二個查閱活動 - 新增資料集](./media/tutorial-incremental-copy-portal/source-dataset-connection.png)
+13. 在 [新增資料集]  視窗中選取 [Azure SQL Database]  ，然後按一下 [繼續]  。 
+14. 在 [設定屬性]  視窗中，輸入 [SourceDataset]  作為 [名稱]  。 選取 [AzureSqlDatabaseLinkedService]  作為 [連結服務]  。
+15. 選取 **[dbo].[data_source_table]** 作為 [資料表]。 您稍後可在此教學課程中指定對此資料集的查詢。 查詢會優先於您在此步驟中指定的資料表。
+16. 選取 [完成]  。 
 17. 按一下頂端的 [管線] 索引標籤或左側樹狀檢視中的管線名稱，即可切換到管線編輯器。 在 [查閱]  活動的 [屬性] 視窗中，確認已為 [來源資料集]  欄位選取 [SourceDataset]  。 
 18. 為[使用查詢]  欄位選取 [查詢]  ，並輸入下列查詢：您從 **data_source_table** 中選取的只有 **LastModifytime** 的最大值。 請確定您也已勾選 [僅限第一列]  。
 
@@ -244,15 +223,13 @@ END
     ```
 
     ![第二個查閱活動 - 查詢](./media/tutorial-incremental-copy-portal/query-for-new-watermark.png)
-19. 在 活動  工具箱中，展開 資料流程  ，並從 活動 工具箱中拖放 複製  活動，以及將名稱設定為 **IncrementalCopyActivity**。 
+19. 在 [活動]  工具箱中，展開 [移動和轉換]  ，並從 [活動] 工具箱中拖放 [複製]  活動，以及將名稱設定為 **IncrementalCopyActivity**。 
 
-    ![複製活動 - 名稱](./media/tutorial-incremental-copy-portal/copy-activity-name.png)
 20. 透過將 [查閱] 活動所附加的**綠色按鈕**拖曳至 [複製] 活動 **，即可將兩個 [查閱] 活動同時連線至 [複製] 活動**。 當您看到 [複製] 活動的框線顏色變為藍色時即鬆開滑鼠按鈕。 
 
     ![將 [查閱] 活動連線至 [複製] 活動](./media/tutorial-incremental-copy-portal/connection-lookups-to-copy.png)
 21. 選取 [複製]  活動並確認您在 [屬性]  視窗中看到活動的屬性。 
 
-    ![複製活動屬性](./media/tutorial-incremental-copy-portal/back-to-copy-activity-properties.png)
 22. 在 [屬性]  視窗中切換至 [來源]  索引標籤，並執行下列步驟：
 
     1. 為 [來源資料集]  欄位選取 [SourceDataset]  。 
@@ -266,40 +243,27 @@ END
         ![複製活動 - 來源](./media/tutorial-incremental-copy-portal/copy-activity-source.png)
 23. 切換至 [接收]  索引標籤，然後按一下 [接收資料集]  欄位的 [+ 新增]  。 
 
-    ![新增資料集按鈕](./media/tutorial-incremental-copy-portal/new-sink-dataset-button.png)
-24. 在本教學課程中，接收資料存放區是 Azure Blob 儲存體類型。 因此，選取 [Azure Blob 儲存體]  ，然後按一下 [新增資料集]  視窗中的 [完成]  。 
-
-    ![選取 Azure Blob 儲存體](./media/tutorial-incremental-copy-portal/select-azure-blob-storage.png)
-25. 在該資料集 [屬性] 視窗中的 [一般]  索引標籤，輸入 [SinkDataset]  作為 [名稱]  。 
-
-    ![接收資料集 - 名稱](./media/tutorial-incremental-copy-portal/sink-dataset-name.png)
-26. 切換至 [連線]  索引標籤，然後按一下 [+ 新增]  。 在此步驟中，您將建立與 **Azure Blob 儲存體**的連線 (連結的服務)。
-
-    ![接收資料集 - 新增連線](./media/tutorial-incremental-copy-portal/sink-dataset-new-connection.png)
-26. 在 [新增連結服務]  視窗中，執行下列步驟： 
+24. 在此教學課程中，接收資料存放區是 Azure Blob 儲存體類型。 因此，選取 [Azure Blob 儲存體]  ，然後按一下 [新增資料集]  視窗中的 [繼續]  。 
+25. 在 [選取格式]  視窗中，選取您資料的格式類型，然後按一下 [繼續]  。
+25. 在 [設定屬性]  視窗中，輸入 **SinkDataset** 作為 [名稱]  。 為 [已連結的服務]  選取 [+ 新增]  。 在此步驟中，您將建立與 **Azure Blob 儲存體**的連線 (連結的服務)。
+26. 在 [新增連結服務 (Azure Blob 儲存體)]  視窗中，執行下列步驟： 
 
     1. 輸入 **AzureStorageLinkedService** 作為 [名稱]  。 
     2. 為 [儲存體帳戶名稱]  選取 Azure 儲存體帳戶。
-    3. 按一下 [檔案]  。 
+    3. 測試連線，然後按一下 [完成]  。 
 
-        ![Azure 儲存體連結服務 - 設定](./media/tutorial-incremental-copy-portal/azure-storage-linked-service-settings.png)
-27. 在 [連線]  索引標籤中，執行下列步驟：
+27. 在 [設定屬性]  視窗中，確認已為 [已連結的服務]  選取 [AzureStorageLinkedService]  。 然後選取 [完成]  。
+28. 移至 SinkDataset 的 [連線]  索引標籤，然後執行下列步驟：
+    1. 在 [檔案路徑]  欄位中，輸入 **adftutorial/incrementalcopy**。 **adftutorial** 是 blob 容器名稱而 **incrementalcopy** 是資料夾名稱。 此程式碼片段假設您在 Blob 儲存體中有一個名為 adftutorial 的 Blob 容器。 建立容器 (若不存在)，或設為現有容器的名稱。 如果輸出資料夾 **incrementalcopy** 不存在，Azure Data Factory 將會自動建立。 您也可以對**檔案路徑**使用 [瀏覽]  按鈕來瀏覽至 blob 容器中的資料夾。
+    2. 為 [檔案路徑]  欄位的 [檔案]  部分選取 [新增動態內容 [Alt+P]]  ，然後在開啟的視窗中輸入 `@CONCAT('Incremental-', pipeline().RunId, '.txt')`。 然後選取 [完成]  。 系統會使用運算式來動態產生此檔案名稱。 每個管線執行都有唯一的識別碼。 複製活動會使用執行識別碼來產生檔案名稱。 
 
-    1. 確認已為 [連結服務]  選取 [AzureStorageLinkedService]  。 
-    2. 在 [檔案路徑]  欄位的**資料夾**部分中，輸入 **adftutorial/incrementalcopy**。 **adftutorial** 是 blob 容器名稱而 **incrementalcopy** 是資料夾名稱。 此程式碼片段假設您在 Blob 儲存體中有一個名為 adftutorial 的 Blob 容器。 建立容器 (若不存在)，或設為現有容器的名稱。 如果輸出資料夾 **incrementalcopy** 不存在，Azure Data Factory 將會自動建立。 您也可以對**檔案路徑**使用 [瀏覽]  按鈕來瀏覽至 blob 容器中的資料夾。 .RunId, '.txt')`.
-    3. 在 [檔案路徑]  欄位的 **filename** 部分中，輸入 `@CONCAT('Incremental-', pipeline().RunId, '.txt')`。 系統會使用運算式來動態產生此檔案名稱。 每個管線執行都有唯一的識別碼。 複製活動會使用執行識別碼來產生檔案名稱。 
-
-        ![接收資料集 - 連線設定](./media/tutorial-incremental-copy-portal/sink-dataset-connection-settings.png)
 28. 按一下頂端的 [管線] 索引標籤或左側樹狀檢視中的管線名稱，即可切換到**管線**編輯器。 
 29. 在 [活動]  工具箱中展開 [一般]  ，並將 [預存程序]  活動從 [活動]  工具箱拖放至管線設計工具介面。 將 [複製]  活動的綠色 (成功) 輸出**連線**至 [預存程序]  活動。 
-    
-    ![複製活動 - 來源](./media/tutorial-incremental-copy-portal/connect-copy-to-stored-procedure-activity.png)
+
 24. 選取管線設計工具中的 [預存程序活動]  ，將其名稱變更為 **StoredProceduretoWriteWatermarkActivity**。 
 
-    ![預存程序活動 - 名稱](./media/tutorial-incremental-copy-portal/stored-procedure-activity-name.png)
-25. 切換至 [SQL 帳戶]  索引標籤，然後為選取 [AzureSqlDatabaseLinkedService]  * 作為 [連結服務]  。 
+25. 切換至 [SQL 帳戶]  索引標籤，然後選取 [AzureSqlDatabaseLinkedService]  作為 [已連結的服務]  。 
 
-    ![預存程序活動 - SQL 帳戶](./media/tutorial-incremental-copy-portal/sp-activity-sql-account-settings.png)
 26. 切換至 [預存程序]  索引標籤，然後執行下列步驟： 
 
     1. 針對 [預存程序名稱]  ，選取 **usp_write_watermark**。 
@@ -313,25 +277,20 @@ END
     ![預存程序活動 - 預存程序設定](./media/tutorial-incremental-copy-portal/sproc-activity-stored-procedure-settings.png)
 27. 若要驗證管線設定，請按一下工具列上的 [驗證]  。 確認沒有任何驗證錯誤。 若要關閉 [管線驗證報告]  視窗，請按一下 [>>]。   
 
-    ![驗證管線](./media/tutorial-incremental-copy-portal/validate-pipeline.png)
 28. 選取 [全部發佈]  按鈕，將實體 (連結的服務、資料集和管線) 發佈至 Azure Data Factory 服務。 請等候直至您看見成功發佈的訊息。 
 
-    ![發佈按鈕](./media/tutorial-incremental-copy-portal/publish-button.png)
 
 ## <a name="trigger-a-pipeline-run"></a>觸發管線執行
-1. 按一下工具列上 [觸發]  ，然後按一下 [立即觸發]  。 
+1. 按一下工具列上的 [新增觸發程序]  ，然後按一下 [立即觸發]  。 
 
-    ![立即觸發按鈕](./media/tutorial-incremental-copy-portal/trigger-now.png)
 2. 在 [管線執行]  視窗中，選取 [完成]  。 
 
 ## <a name="monitor-the-pipeline-run"></a>監視管道執行
 
 1. 切換至左側的 [監視]  索引標籤。 您可以看到手動觸發程序所觸發的管線執行狀態。 按一下 [重新整理]  按鈕即可重新整理清單。 
     
-    ![管線執行](./media/tutorial-incremental-copy-portal/pipeline-runs.png)
 2. 若要檢視與此管線執行相關聯的所有活動執行，請按一下 [動作]  資料行中的第一個連結 ([檢視活動執行]  )。 您可以按一下頂端的 [管線]  ，來回到前一個檢視。 按一下 [重新整理]  按鈕即可重新整理清單。
 
-    ![活動執行](./media/tutorial-incremental-copy-portal/activity-runs.png)
 
 ## <a name="review-the-results"></a>檢閱結果
 1. 透過使用 [Azure 儲存體總管](https://azure.microsoft.com/features/storage-explorer/)等工具來連線到您的 Azure 儲存體帳戶。 確認輸出檔案已建立於 **adftutorial** 容器的 **incrementalcopy** 資料夾中。
@@ -388,23 +347,19 @@ PersonID | Name | LastModifytime
 ## <a name="trigger-another-pipeline-run"></a>觸發另一個管線執行
 1. 切換至 [編輯]  索引標籤。如果管線沒有在設計工具中開啟，請在樹狀檢視中按一下它。 
 
-    ![立即觸發按鈕](./media/tutorial-incremental-copy-portal/edit-tab.png)
-2. 按一下工具列上 [觸發]  ，然後按一下 [立即觸發]  。 
+2. 按一下工具列上的 [新增觸發程序]  ，然後按一下 [立即觸發]  。 
 
-    ![立即觸發按鈕](./media/tutorial-incremental-copy-portal/trigger-now.png)
 
 ## <a name="monitor-the-second-pipeline-run"></a>監視第二次管線執行
 
 1. 切換至左側的 [監視]  索引標籤。 您可以看到手動觸發程序所觸發的管線執行狀態。 按一下 [重新整理]  按鈕即可重新整理清單。 
     
-    ![管線執行](./media/tutorial-incremental-copy-portal/pipeline-runs-2.png)
 2. 若要檢視與此管線執行相關聯的所有活動執行，請按一下 [動作]  資料行中的第一個連結 ([檢視活動執行]  )。 您可以按一下頂端的 [管線]  ，來回到前一個檢視。 按一下 [重新整理]  按鈕即可重新整理清單。
 
-    ![活動執行](./media/tutorial-incremental-copy-portal/activity-runs-2.png)
 
 ## <a name="verify-the-second-output"></a>確認第二個輸出
 
-1. 在 blob 儲存體中，您會看到已建立另一個檔案。 在本教學課程中，新的檔案名稱是 `Incremental-<GUID>.txt`。 開啟該檔案，您會在其中看到兩列記錄。
+1. 在 blob 儲存體中，您會看到已建立另一個檔案。 在此教學課程中，新的檔案名稱是 `Incremental-<GUID>.txt`。 開啟該檔案，您會在其中看到兩列記錄。
 
     ```
     6,newdata,2017-09-06 02:23:00.0000000
@@ -424,7 +379,7 @@ PersonID | Name | LastModifytime
 
      
 ## <a name="next-steps"></a>後續步驟
-在本教學課程中，您已執行下列步驟： 
+在此教學課程中，您已執行下列步驟： 
 
 > [!div class="checklist"]
 > * 準備資料存放區來儲存水位線值。
@@ -440,7 +395,7 @@ PersonID | Name | LastModifytime
 > * 監視第二次管線執行
 > * 檢閱第二次執行的結果
 
-在本教學課程中，管線已從 SQL 資料庫中的單一資料表將資料複製到 Blob 儲存體。 請前進到下列教學課程，了解如何將資料從內部部署 SQL Server 資料庫中的多個資料表複製到 SQL 資料庫。 
+在此教學課程中，管線已從 SQL 資料庫中的單一資料表將資料複製到 Blob 儲存體。 請前進到下列教學課程，了解如何將資料從內部部署 SQL Server 資料庫中的多個資料表複製到 SQL 資料庫。 
 
 > [!div class="nextstepaction"]
 >[以累加方式將 SQL Server 中多個資料表的資料載入到 Azure SQL Database](tutorial-incremental-copy-multiple-tables-portal.md)

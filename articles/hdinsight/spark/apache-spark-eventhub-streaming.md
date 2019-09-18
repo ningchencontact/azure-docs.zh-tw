@@ -1,5 +1,5 @@
 ---
-title: '教學課程：使用 Azure HDInsight 中的 Apache Spark 處理來自 Azure 事件中樞的資料 '
+title: 教學課程：使用 HDInsight 中的 Apache Spark 處理來自 Azure 事件中樞的資料
 description: 教學課程 - 將 Azure HDInsight 中的 Apache Spark 連線至 Azure 事件中樞，並處理串流資料。
 ms.service: hdinsight
 author: hrasheed-msft
@@ -8,18 +8,18 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive,mvc
 ms.topic: tutorial
 ms.date: 05/24/2019
-ms.openlocfilehash: 0d47c3f0838e22ad8c5185a42f5f0c748335dfa8
-ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
+ms.openlocfilehash: 2483ba22d3d502479e87ae385bcc837ec87a103c
+ms.sourcegitcommit: 97605f3e7ff9b6f74e81f327edd19aefe79135d2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/27/2019
-ms.locfileid: "70049489"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70735342"
 ---
 # <a name="tutorial-process-tweets-using-azure-event-hubs-and-apache-spark-in-hdinsight"></a>教學課程：使用 Azure 事件中樞與 HDInsight 中的 Apache Spark 處理推文
 
-在本教學課程中，您會了解如何建立 [Apache Spark](https://spark.apache.org/) \(英文\) 串流應用程式以將推文傳送至 Azure 事件中樞，並建立另一個應用程式以便從事件中樞讀取推文。 如需 Spark 串流的詳細說明，請參閱 [Apache Spark 串流概觀](https://spark.apache.org/docs/latest/streaming-programming-guide.html#overview)。 HDInsight 會將相同的串流功能帶入 Azure 上的 Spark 叢集。
+在此教學課程中，您會了解如何建立 [Apache Spark](https://spark.apache.org/) \(英文\) 串流應用程式以將推文傳送至 Azure 事件中樞，並建立另一個應用程式以便從事件中樞讀取推文。 如需 Spark 串流的詳細說明，請參閱 [Apache Spark 串流概觀](https://spark.apache.org/docs/latest/streaming-programming-guide.html#overview)。 HDInsight 會將相同的串流功能帶入 Azure 上的 Spark 叢集。
 
-在本教學課程中，您了解如何：
+在此教學課程中，您了解如何：
 > [!div class="checklist"]
 > * 將訊息傳送至 Azure 事件中樞
 > * 從 Azure 事件中樞讀取訊息
@@ -36,7 +36,7 @@ ms.locfileid: "70049489"
 
 ## <a name="create-a-twitter-application"></a>建立 Twitter 應用程式
 
-若要收到推文的串流，您必須在 Twitter 中建立應用程式。 依照下列指示建立 Twitter 應用程式，並寫下完成本教學課程所需的值。
+若要收到推文的串流，您必須在 Twitter 中建立應用程式。 依照下列指示建立 Twitter 應用程式，並寫下完成此教學課程所需的值。
 
 1. 瀏覽至 [Twitter 應用程式管理](https://apps.twitter.com/) \(英文\)。
 
@@ -46,9 +46,9 @@ ms.locfileid: "70049489"
 
     |屬性 |值 |
     |---|---|
-    |Name|提供應用程式名稱。 針對本教學課程所使用的值是 **HDISparkStreamApp0423**。 此名稱必須是唯一的名稱。|
-    |說明|提供應用程式的簡短描述。 針對本教學課程所使用的值是**簡單的 HDInsight Spark 串流應用程式**。|
-    |網站|提供應用程式的網站。 不需是有效的網站。  本教學課程使用的值為 `http://www.contoso.com`。|
+    |Name|提供應用程式名稱。 針對此教學課程所使用的值是 **HDISparkStreamApp0423**。 此名稱必須是唯一的名稱。|
+    |說明|提供應用程式的簡短描述。 針對此教學課程所使用的值是**簡單的 HDInsight Spark 串流應用程式**。|
+    |網站|提供應用程式的網站。 不需是有效的網站。  此教學課程使用的值為 `http://www.contoso.com`。|
     |回呼 URL|您可以將其保留為空白。|
 
 1. 選取 [Yes, I have read and agree to the Twitter Developer Agreement]  \(是，我已閱讀並同意 Twitter 開發人員合約\)，然後選取 [Create your Twitter application]  \(建立 Twitter 應用程式\)。
@@ -57,7 +57,7 @@ ms.locfileid: "70049489"
 
 1. 選取頁面底部的 [Create my access token]  \(建立我的存取權杖\)。
 
-1. 寫下頁面上的下列值。  在本教學課程後續的內容中，您會需要這些值：
+1. 寫下頁面上的下列值。  在此教學課程後續的內容中，您會需要這些值：
 
     - **取用者金鑰 (API 金鑰)**    
     - **取用者祕密 (API 祕密)**  
@@ -82,7 +82,7 @@ ms.locfileid: "70049489"
 
     |屬性 |值 |
     |---|---|
-    |Name|輸入事件中樞的名稱。  針對本教學課程所使用的值是 **myeventhubns20180403**。|
+    |Name|輸入事件中樞的名稱。  針對此教學課程所使用的值是 **myeventhubns20180403**。|
     |定價層|選取 [標準]  。|
     |Subscription|選取適當的訂用帳戶。|
     |Resource group|從下拉式清單中選取現有的資源群組，或選取 [新建]  來建立新的資源群組。|
@@ -122,7 +122,7 @@ ms.locfileid: "70049489"
     
      ![設定 Spark 串流範例的事件中樞原則](./media/apache-spark-eventhub-streaming/hdinsight-set-event-hub-policies-for-spark-streaming-example.png "設定 Spark 串流範例的事件中樞原則")
 
-1. 儲存**主索引鍵**和**連接字串-主索引鍵**值，以便稍後在本教學課程中使用。
+1. 儲存**主索引鍵**和**連接字串-主索引鍵**值，以便稍後在此教學課程中使用。
 
      ![檢視 Spark 串流範例的事件中樞原則金鑰](./media/apache-spark-eventhub-streaming/hdinsight-view-event-hub-policy-keys.png "檢視 Spark 串流範例的事件中樞原則金鑰")
 
@@ -258,7 +258,7 @@ ms.locfileid: "70049489"
 
 ## <a name="next-steps"></a>後續步驟
 
-在本教學課程中，您已了解如何建立 Apache Spark 串流應用程式以將推文傳送至 Azure 事件中樞，並建立另一個應用程式從事件中樞讀取推文。  前進到下一篇文章，以查看您如何建立機器學習應用程式。
+在此教學課程中，您已了解如何建立 Apache Spark 串流應用程式以將推文傳送至 Azure 事件中樞，並建立另一個應用程式從事件中樞讀取推文。  前進到下一篇文章，以查看您如何建立機器學習應用程式。
 
 > [!div class="nextstepaction"]
 > [建立機器學習應用程式](./apache-spark-ipython-notebook-machine-learning.md)

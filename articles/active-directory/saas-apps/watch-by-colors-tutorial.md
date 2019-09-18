@@ -13,19 +13,19 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 08/20/2019
+ms.date: 09/09/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ce0882be0419cbbbc7d94cb8d517e27bdb06a780
-ms.sourcegitcommit: dcf3e03ef228fcbdaf0c83ae1ec2ba996a4b1892
+ms.openlocfilehash: e7d0810c393cf9b6060f456c5ff01d03673b62a9
+ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "70013933"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70861312"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-watch-by-colors"></a>教學課程：Azure Active Directory 單一登入 (SSO) 與 Watch by Colors 整合
 
-在本教學課程中，您會了解如何整合 Watch by Colors 與 Azure Active Directory (Azure AD)。 在整合 Watch by Colors 與 Azure AD 時，您可以︰
+在此教學課程中，您會了解如何整合 Watch by Colors 與 Azure Active Directory (Azure AD)。 在整合 Watch by Colors 與 Azure AD 時，您可以︰
 
 * 在 Azure AD 中控制可存取 Watch by Colors 的人員。
 * 讓使用者使用其 Azure AD 帳戶自動登入 Watch by Colors。
@@ -42,7 +42,7 @@ ms.locfileid: "70013933"
 
 ## <a name="scenario-description"></a>案例描述
 
-在本教學課程中，您會在測試環境中設定和測試 Azure AD SSO。
+在此教學課程中，您會在測試環境中設定和測試 Azure AD SSO。
 
 * Watch by Colors 支援由 **SP 和 IDP** 起始的 SSO
 
@@ -56,7 +56,6 @@ ms.locfileid: "70013933"
 1. 若要新增應用程式，請選取 [新增應用程式]  。
 1. 在 [從資源庫新增]  區段的搜尋方塊中，輸入 **Watch by Colors**。
 1. 從結果面板中選取 [Watch by Colors]  ，然後新增應用程式。 當應用程式新增至您的租用戶時，請等候幾秒鐘。
-
 
 ## <a name="configure-and-test-azure-ad-single-sign-on-for-watch-by-colors"></a>設定及測試 Watch by Colors 的 Azure AD 單一登入
 
@@ -123,13 +122,21 @@ ms.locfileid: "70013933"
 
 ## <a name="configure-watch-by-colors-sso"></a>設定 Watch by Colors SSO
 
-1. 開啟新的網頁瀏覽器視窗，並以系統管理員身分登入 Watch by Colors 公司網站，然後執行下列步驟：
+1. 若要自動執行 Watch by Colors 內的設定，您必須按一下 [安裝擴充功能]  來安裝「我的應用程式安全登入瀏覽器擴充功能」  。
 
-1. 在頁面右上角按一下 **設定檔** > [帳戶設定]   > [SSO (單一登入)]  。
+    ![我的應用程式擴充功能](common/install-myappssecure-extension.png)
+
+2. 將延伸模組新增至瀏覽器之後，按一下 [安裝 Watch by Colors]  便會將您導向到 Watch by Colors 應用程式。 請從該處提供用以登入 Watch by Colors 的管理員認證。 瀏覽器擴充功能會自動為您設定應用程式，並自動執行步驟 3 到 5。
+
+    ![設定組態](common/setup-sso.png)
+
+3. 如果您想要手動設定 Watch by Colors，請開啟新的網頁瀏覽器視窗，並以系統管理員身分登入 Watch by Colors 公司網站，然後執行下列步驟：
+
+4. 在頁面右上角按一下 **設定檔** > [帳戶設定]   > [SSO (單一登入)]  。
 
     ![Watch by Colors 組態](./media/watch-by-colors-tutorial/config01.png)
 
-1. 在 [SSO (單一登入)]  頁面上，執行下列步驟：
+5. 在 [SSO (單一登入)]  頁面上，執行下列步驟：
 
     ![Watch by Colors 組態](./media/watch-by-colors-tutorial/config02.png)
 
@@ -183,5 +190,5 @@ ms.locfileid: "70013933"
 
 - [什麼是 Azure Active Directory 中的條件式存取？](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
-- [嘗試搭配 Azure AD 使用 Slack](https://aad.portal.azure.com/)
+- [嘗試搭配 Azure AD 使用 Watch by Colors](https://aad.portal.azure.com/)
 

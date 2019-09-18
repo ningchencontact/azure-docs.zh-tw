@@ -1,24 +1,24 @@
 ---
-title: 教學課程 - 使用企業安全性套件在 HDInsight 中設定 Apache Kafka 原則 - Azure
+title: 教學課程-在 Azure HDInsight 中使用企業安全性套件搭配 Apache Kafka
 description: 教學課程 - 了解如何使用企業安全性套件在 Azure HDInsight 中設定 Kafka 的 Apache Ranger 原則。
 ms.service: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.topic: tutorial
-ms.date: 06/24/2019
-ms.openlocfilehash: ba16a975aa3b1e60393006ef49a7e422c572931e
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.date: 09/04/2019
+ms.openlocfilehash: 6cac4bd05f2acf5b11a8235a4bc1e0d09e0c4dc7
+ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67441379"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70885949"
 ---
 # <a name="tutorial-configure-apache-kafka-policies-in-hdinsight-with-enterprise-security-package-preview"></a>教學課程：使用企業安全性套件在 HDInsight 中設定 Apache Kafka 原則 (預覽)
 
 了解如何對企業安全性套件 (ESP) Apache Kafka 叢集設定 Apache Ranger 原則。 ESP 叢集連線到網域，讓使用者使用網域認證進行驗證。 在此教學課程中，您會建立兩個 Ranger 原則來限制 `sales` 和 `marketingspend` 主題的存取權。
 
-在本教學課程中，您了解如何：
+在此教學課程中，您了解如何：
 
 > [!div class="checklist"]
 > * 建立網域使用者
@@ -64,7 +64,7 @@ ms.locfileid: "67441379"
    * 「*」表示出現零次以上的字元。
    * 「?」表示單一字元。
 
-   ![Apache Ranger 管理員 UI 建立原則](./media/apache-domain-joined-run-kafka/apache-ranger-admin-create-policy.png)
+   ![Apache Ranger 管理員 UI 建立原則1](./media/apache-domain-joined-run-kafka/apache-ranger-admin-create-policy.png)
 
    如果 [選取使用者]  未自動填入網域使用者，請稍候 Ranger 與 Azure AD 同步處理。
 
@@ -79,7 +79,7 @@ ms.locfileid: "67441379"
    |選取使用者  |  marketing_user1 |
    |權限  | 發佈、取用、建立 |
 
-   ![Apache Ranger 管理員 UI 建立原則](./media/apache-domain-joined-run-kafka/apache-ranger-admin-create-policy-2.png)  
+   ![Apache Ranger 管理員 UI 建立原則2](./media/apache-domain-joined-run-kafka/apache-ranger-admin-create-policy-2.png)  
 
 6. 選取 [新增]  以儲存規則。
 
@@ -192,7 +192,7 @@ ms.locfileid: "67441379"
 1. 登入 [Azure 入口網站](https://portal.azure.com/)。
 1. 在頂端的 [搜尋]  方塊中，輸入 **HDInsight**。
 1. 在 [服務]  底下，選取 [HDInsight 叢集]  。
-1. 從出現的 HDInsight 叢集清單中，在您為本教學課程建立的叢集旁按一下 [...]  。 
+1. 從出現的 HDInsight 叢集清單中，在您為此教學課程建立的叢集旁按一下 [...]  。 
 1. 按一下 [刪除]  。 按一下 [是]  。
 
 ## <a name="next-steps"></a>後續步驟

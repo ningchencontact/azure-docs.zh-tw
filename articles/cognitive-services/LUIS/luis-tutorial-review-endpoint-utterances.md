@@ -1,5 +1,5 @@
 ---
-title: 檢閱端點語句 - LUIS
+title: 教學課程：檢閱端點語句 - LUIS
 titleSuffix: Azure Cognitive Services
 description: 藉由驗證或更正透過 LUIS 不確定的 LUIS HTTP 端點所收到的語句來改善應用程式的預測。 有些語句可能會針對意圖進行驗證，而其他語句則可能需要針對實體進行驗證。
 services: cognitive-services
@@ -9,17 +9,17 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: tutorial
-ms.date: 07/16/2019
+ms.date: 09/05/2019
 ms.author: diberry
-ms.openlocfilehash: dd5c0012bad567623fdfc0a70760f692aafe0e3e
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: f81066ed21702dfe94ad7897adc3b82ed5a49f4d
+ms.sourcegitcommit: 88ae4396fec7ea56011f896a7c7c79af867c90a1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68563328"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70387527"
 ---
 # <a name="tutorial-fix-unsure-predictions-by-reviewing-endpoint-utterances"></a>教學課程：檢閱端點語句以修正不確定的預測
-在本教學課程中，藉由驗證或更正透過 LUIS 不確定的 LUIS HTTPS 端點所收到的語句來改善應用程式的預測。 有些語句可能必須針對意圖進行驗證，而其他語句則可能需要針對實體進行驗證。 您應該在排定的 LUIS 維護中定期檢閱端點語句。 
+在此教學課程中，藉由驗證或更正透過 LUIS 不確定的 LUIS HTTPS 端點所收到的語句來改善應用程式的預測。 有些語句可能必須針對意圖進行驗證，而其他語句則可能需要針對實體進行驗證。 您應該在排定的 LUIS 維護中定期檢閱端點語句。 
 
 此檢閱程序是 LUIS 用來了解應用程式領域的另一種方法。 LUIS 選取了檢閱清單中顯示的語句。 此清單是：
 
@@ -29,7 +29,7 @@ ms.locfileid: "68563328"
 
 藉由檢閱端點語句，您可以確認或更正語句的預測意圖。 您也可以將未預測或預測錯誤的自訂實體加上標籤。 
 
-**在本教學課程中，您將了解如何：**
+**在此教學課程中，您將了解如何：**
 
 <!-- green checkmark -->
 > [!div class="checklist"]
@@ -85,15 +85,17 @@ ms.locfileid: "68563328"
     |:--|:--|:--|
     |`I'm looking for a job with Natural Language Processing`|GetJobInfo|Job - "Natural Language Process"|
 
+    若要將 `natural language processing` 從 keyPhrase 實體變更為 Job 實體，請選取片語，然後從清單中選取 [Job]  。 如果您想要針對其他實體只選取 keyPhrase 文字的部分，則您必須將 keyPhrase 移除為實體、以其他實體標示，然後將 keyPhrase 實體重新套用至應用程式。 
+
     新增語句會將語句從 [檢閱端點語句]  移到 [GetJobInformation]  意圖。 端點語句現在是該意圖的語句範例。 
 
     隨著此語句正確調整，應該會有更多的語句新增至 **GetJobInformation** 意圖。 這部分會留作練習讓您自行完成。 每個意圖 (**無**意圖除外) 應該會有數量大致相同的語句範例。 **無**意圖所包含的語句應該會佔應用程式中總語句的 10%。 
 
-1. 檢閱此意圖中剩餘的語句，如果這些語句不正確，請將語句加上標籤並更正 [一致的意圖]  。
+    檢閱此意圖中剩餘的語句，如果這些語句不正確，請將語句加上標籤並更正 [一致的意圖]  。
 
-1. 此清單應該不會再有這些語句。 如果出現更多語句，請繼續檢查清單，更正意圖並將遺漏的實體加上標籤，直到清單清空為止。 
+    [檢閱端點語句]  清單應該不會再有這些語句。 如果出現更多語句，請繼續檢查清單，更正意圖並將遺漏的實體加上標籤，直到清單清空為止。 
 
-1. 選取 [篩選] 清單中的下一個意圖，然後繼續更正語句並將實體加上標籤。 請記住，每個意圖的最後一個步驟都是選取語句資料列上的 [新增至一致的意圖]  或核取每個意圖旁的方塊，然後選取資料表上方的 [新增選取項目]  。
+    選取 [篩選] 清單中的下一個意圖，然後繼續更正語句並將實體加上標籤。 請記住，每個意圖的最後一個步驟都是選取語句資料列上的 [新增至一致的意圖]  或核取每個意圖旁的方塊，然後選取資料表上方的 [新增選取項目]  。
 
     繼續執行，直到篩選清單中的所有意圖和實體都有空白清單為止。 這是非常小型的應用程式。 檢閱程序只會花上幾分鐘的時間。 
 
@@ -236,7 +238,7 @@ LUIS 在定型過後才會知道變更。
 [!INCLUDE [LUIS How to clean up resources](../../../includes/cognitive-services-luis-tutorial-how-to-clean-up-resources.md)]
 
 ## <a name="next-steps"></a>後續步驟
-在本教學課程中，您已檢閱在 LUIS 不確定的端點所提交的語句。 這些語句經過驗證並移至正確的意圖作為範例語句後，LUIS 將會提高預測準確度。
+在此教學課程中，您已檢閱在 LUIS 不確定的端點所提交的語句。 這些語句經過驗證並移至正確的意圖作為範例語句後，LUIS 將會提高預測準確度。
 
 > [!div class="nextstepaction"]
 > [了解如何使用模式](luis-tutorial-pattern.md)

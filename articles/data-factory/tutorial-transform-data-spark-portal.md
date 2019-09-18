@@ -1,6 +1,6 @@
 ---
 title: 使用 Azure Data Factory 中的 Spark 轉換資料 | Microsoft Docs
-description: 本教學課程提供逐步指示，說明如何使用 Azure Data Factory 中的 Spark 活動來轉換資料。
+description: 此教學課程提供逐步指示，說明如何使用 Azure Data Factory 中的 Spark 活動來轉換資料。
 services: data-factory
 documentationcenter: ''
 ms.service: data-factory
@@ -11,17 +11,17 @@ ms.date: 01/10/2018
 author: nabhishek
 ms.author: abnarain
 manager: craigg
-ms.openlocfilehash: 34c8c49166ea13d67c1f3d51805671c63dbb352b
-ms.sourcegitcommit: 5cb0b6645bd5dff9c1a4324793df3fdd776225e4
+ms.openlocfilehash: d13e0b95d57e3063292319961d5e1138f994076e
+ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/21/2019
-ms.locfileid: "67312402"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70812273"
 ---
 # <a name="transform-data-in-the-cloud-by-using-a-spark-activity-in-azure-data-factory"></a>使用 Azure Data Factory 中的 Spark 活動來轉換雲端中的資料
-在本教學課程中，您會使用 Azure 入口網站來建立 Azure Data Factory 管線。 此管線使用 Spark 活動和隨選 Azure HDInsight 連結服務來轉換資料。 
+在此教學課程中，您會使用 Azure 入口網站來建立 Azure Data Factory 管線。 此管線使用 Spark 活動和隨選 Azure HDInsight 連結服務來轉換資料。 
 
-您會在本教學課程中執行下列步驟：
+您會在此教學課程中執行下列步驟：
 
 > [!div class="checklist"]
 > * 建立資料處理站。 
@@ -153,7 +153,7 @@ ms.locfileid: "67312402"
    
    e. 針對 [服務主體識別碼]  ，輸入有權建立 HDInsight 叢集的服務主體識別碼。 
    
-      此服務主體必須是訂用帳戶的參與者角色成員，或建立叢集所在的資源群組成員。 如需詳細資訊，請參閱[建立 Azure Active Directory 應用程式和服務主體](../active-directory/develop/howto-create-service-principal-portal.md)。
+      此服務主體必須是訂用帳戶的參與者角色成員，或建立叢集所在的資源群組成員。 如需詳細資訊，請參閱[建立 Azure Active Directory 應用程式和服務主體](../active-directory/develop/howto-create-service-principal-portal.md)。 **服務主體識別碼**相當於「應用程式識別碼」  ，而**服務主體金鑰**則相當於「用戶端密碼」  的值。
    
    f. 針對 [服務主體金鑰]  ，輸入金鑰。 
    

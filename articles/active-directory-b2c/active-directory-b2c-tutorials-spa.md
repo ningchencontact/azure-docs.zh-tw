@@ -1,27 +1,27 @@
 ---
-title: 教學課程 - 在單頁應用程式中啟用驗證 - Azure Active Directory B2C
+title: 教學課程：在單頁應用程式中啟用驗證 - Azure Active Directory B2C
 description: 了解如何使用 Azure Active Directory B2C 為單頁應用程式 (JavaScript) 提供使用者登入。
 services: active-directory-b2c
 author: mmacy
 manager: celestedg
 ms.author: marsma
 ms.date: 07/24/2019
-ms.custom: mvc
+ms.custom: mvc, seo-javascript-september2019
 ms.topic: tutorial
 ms.service: active-directory
 ms.subservice: B2C
-ms.openlocfilehash: 8683169e0f8464cdcf52600968f67f3622e61445
-ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
+ms.openlocfilehash: 06ac81105ad8871c934715c18cd5f78fc3ea05f5
+ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69509591"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70858511"
 ---
 # <a name="tutorial-enable-authentication-in-a-single-page-application-using-azure-active-directory-b2c"></a>教學課程：使用 Azure Active Directory B2C 在單頁應用程式中啟用驗證
 
-本教學課程將說明如何使用 Azure Active Directory (Azure AD) B2C 在單頁應用程式 (SPA) 中登入和註冊使用者。 Azure AD B2C 可讓您的應用程式使用開放式標準通訊協定向社交帳戶、企業帳戶和 Azure Active Directory 帳戶進行驗證。
+此教學課程將說明如何使用 Azure Active Directory (Azure AD) B2C 在單頁應用程式 (SPA) 中登入和註冊使用者。 Azure AD B2C 可讓您的應用程式使用開放式標準通訊協定向社交帳戶、企業帳戶和 Azure Active Directory 帳戶進行驗證。
 
-在本教學課程中，您會了解如何：
+在此教學課程中，您了解如何：
 
 > [!div class="checklist"]
 > * 在 Azure AD B2C 中更新應用程式
@@ -32,7 +32,7 @@ ms.locfileid: "69509591"
 
 ## <a name="prerequisites"></a>必要條件
 
-您需要先備妥下列 Azure AD B2C 資源，才能繼續本教學課程中的步驟：
+您需要先備妥下列 Azure AD B2C 資源，才能繼續此教學課程中的步驟：
 
 * [Azure AD B2C 租用戶](tutorial-create-tenant.md)
 * 您租用戶中[註冊的應用程式](tutorial-register-applications.md)
@@ -58,7 +58,7 @@ ms.locfileid: "69509591"
 
 ## <a name="get-the-sample-code"></a>取得範例程式碼
 
-在本教學課程中，您會設定您從 GitHub 下載的程式碼範例。 此範例會示範單頁應用程式如何使用 Azure AD B2C 進行使用者註冊、登入及呼叫受保護的 Web API。
+在此教學課程中，您會設定您從 GitHub 下載的程式碼範例。 此範例會示範單頁應用程式如何使用 Azure AD B2C 進行使用者註冊、登入及呼叫受保護的 Web API。
 
 [下載 zip 檔案](https://github.com/Azure-Samples/active-directory-b2c-javascript-msal-singlepageapp/archive/master.zip)，或從 GitHub 複製範例。
 
@@ -87,7 +87,7 @@ git clone https://github.com/Azure-Samples/active-directory-b2c-javascript-msal-
     };
     ```
 
-    本教學課程中使用的使用者流程名稱是 **B2C_1_signupsignin1**。 如果您使用不同的使用者流程名稱，請在 `authority` 值中指定該名稱。
+    此教學課程中使用的使用者流程名稱是 **B2C_1_signupsignin1**。 如果您使用不同的使用者流程名稱，請在 `authority` 值中指定該名稱。
 
 ## <a name="run-the-sample"></a>執行範例
 
@@ -111,7 +111,7 @@ git clone https://github.com/Azure-Samples/active-directory-b2c-javascript-msal-
 
 1. 在瀏覽器中移至 `http://localhost:6420` 可檢視應用程式。
 
-此範例支援註冊、登入、設定檔編輯和密碼重設。 本教學課程特別說明使用者如何以電子郵件地址註冊。
+此範例支援註冊、登入、設定檔編輯和密碼重設。 此教學課程特別說明使用者如何以電子郵件地址註冊。
 
 ### <a name="sign-up-using-an-email-address"></a>使用電子郵件地址註冊
 
@@ -145,7 +145,7 @@ Timestamp: 2019-07-20 22:17:27Z
 
 ## <a name="next-steps"></a>後續步驟
 
-在本文中，您已了解如何：
+在此文章中，您已了解如何：
 
 > [!div class="checklist"]
 > * 在 Azure AD B2C 中更新應用程式

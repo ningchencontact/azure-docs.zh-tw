@@ -1,5 +1,5 @@
 ---
-title: 裝載具有 CORS 支援的 RESTful API - Azure App Service | Microsoft Docs
+title: 教學課程：裝載具有 CORS 支援的 RESTful API - Azure App Service
 description: 了解 Azure App Service 如何協助您裝載具有 CORS 支援的 RESTful API。
 services: app-service\api
 documentationcenter: dotnet
@@ -15,31 +15,31 @@ ms.topic: tutorial
 ms.date: 11/21/2018
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: b8c1130a45f60b9caaacd365cd1c256f50ed7675
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 137b569820ea7394b6a3beb24129c905a2efd123
+ms.sourcegitcommit: 86d49daccdab383331fc4072b2b761876b73510e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66138556"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70743868"
 ---
 # <a name="tutorial-host-a-restful-api-with-cors-in-azure-app-service"></a>教學課程：在 Azure App Service 中裝載具有 CORS 支援的 RESTful API
 
-[Azure App Service](overview.md) 可提供可高度擴充、自我修復的 Web 主控服務。 此外，App Service 有 RESTful API 的內建[跨原始資源共用 (CORS)](https://wikipedia.org/wiki/Cross-Origin_Resource_Sharing) 支援。 本教學課程示範如何將 ASP.NET Core API 應用程式部署至具有 CORS 支援的 App Service。 您可使用命令列工具來設定應用程式，以及使用 Git 部署應用程式。 
+[Azure App Service](overview.md) 可提供可高度擴充、自我修復的 Web 主控服務。 此外，App Service 有 RESTful API 的內建[跨原始資源共用 (CORS)](https://wikipedia.org/wiki/Cross-Origin_Resource_Sharing) 支援。 此教學課程示範如何將 ASP.NET Core API 應用程式部署至具有 CORS 支援的 App Service。 您可使用命令列工具來設定應用程式，以及使用 Git 部署應用程式。 
 
-在本教學課程中，您了解如何：
+在此教學課程中，您了解如何：
 
 > [!div class="checklist"]
 > * 使用 Azure CLI 建立 App Service 資源
 > * 使用 Git 將 RESTful API 部署到 Azure
 > * 啟用 App Service CORS 支援
 
-您可以在 macOS、Linux、Windows 上依照本教學課程中的步驟進行。
+您可以在 macOS、Linux、Windows 上依照此教學課程中的步驟進行。
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 ## <a name="prerequisites"></a>必要條件
 
-若要完成本教學課程：
+若要完成此教學課程：
 
 * [安裝 Git](https://git-scm.com/)。
 * [安裝 .NET Core](https://www.microsoft.com/net/core/)。

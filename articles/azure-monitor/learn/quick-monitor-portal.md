@@ -10,12 +10,12 @@ ms.service: application-insights
 ms.custom: mvc
 ms.topic: quickstart
 manager: carmonm
-ms.openlocfilehash: 6d26cedb0dd836846d7e9f00539fe101c944f478
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 1edb83fcbe03fd113c59986bdbb6afcf2a0970bb
+ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67442216"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70916144"
 ---
 # <a name="start-monitoring-your-aspnet-web-application"></a>開始監視 ASP.NET Web 應用程式
 
@@ -47,7 +47,9 @@ ms.locfileid: "67442216"
 
 4. 選取您的訂用帳戶，然後按一下 [註冊]  。
 
-5. 從 [偵錯]  功能表選取 [開始偵錯]  或按 F5 鍵來執行您的應用程式。
+5. 選取 [專案]   > [管理 NuGet 套件]   > [套件來源: nuget.org]   > [更新]  ，將 Application Insights SDK 套件更新至最新穩定版本。
+
+6. 從 [偵錯]  功能表選取 [開始偵錯]  或按 F5 鍵來執行您的應用程式。
 
 ## <a name="confirm-app-configuration"></a>確認應用程式設定
 

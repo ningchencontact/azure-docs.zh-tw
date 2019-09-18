@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: quickstart
-ms.date: 07/03/2019
+ms.date: 09/06/2019
 ms.author: pafarley
-ms.openlocfilehash: aade8552e7fd39a61334c1c6c7c9ca62085961be
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.openlocfilehash: 7035689f3813a94c7e24e4c6138016b11c1a4ef3
+ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67603265"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70859122"
 ---
 # <a name="quickstart-detect-faces-in-an-image-using-the-face-rest-api-and-nodejs"></a>快速入門：使用 Face REST API 和 Node.js 偵測影像中的臉部
 
@@ -38,7 +38,9 @@ npm install request --save
 
 ## <a name="write-the-nodejs-script"></a>撰寫 Node.js 指令碼
 
-將下列程式碼貼入 facedetection.js  。 這些欄位會指定連線到 Face 服務的方式，以及接收輸入資料的位置。 您將需要以訂用帳戶金鑰更新 `subscriptionKey` 欄位的值，而且可能需要變更 `uriBase` 字串，使其包含正確的區域識別碼 (請參閱[臉部 API 文件](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236)以取得所有區域端點的清單)。 您可以變更 `imageUrl` 欄位以指向您自己的輸入影像。
+將下列程式碼貼入 facedetection.js  。 這些欄位會指定連線到 Face 服務的方式，以及接收輸入資料的位置。 您將需要以訂用帳戶金鑰值更新 `subscriptionKey` 欄位，且您必須變更 `uriBase` 字串，使它包含正確的端點字串。 您可以變更 `imageUrl` 欄位以指向您自己的輸入影像。
+
+[!INCLUDE [subdomains-note](../../../../includes/cognitive-services-custom-subdomains-note.md)]
 
 ```javascript
 'use strict';
@@ -51,7 +53,7 @@ const subscriptionKey = '<Subscription Key>';
 // You must use the same location in your REST call as you used to get your
 // subscription keys. For example, if you got your subscription keys from
 // westus, replace "westcentralus" in the URL below with "westus".
-const uriBase = 'https://westcentralus.api.cognitive.microsoft.com/face/v1.0/detect';
+const uriBase = 'https://<My Endpoint String>.com/face/v1.0/detect';
 
 const imageUrl =
     'https://upload.wikimedia.org/wikipedia/commons/3/37/Dagestani_man_and_woman.jpg';

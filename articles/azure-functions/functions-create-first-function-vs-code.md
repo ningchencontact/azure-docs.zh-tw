@@ -7,17 +7,16 @@ author: ggailey777
 manager: jeconnoc
 keywords: azure functions, 函式, 事件處理, 計算, 無伺服器架構
 ms.service: azure-functions
-ms.devlang: multiple
 ms.topic: quickstart
 ms.date: 06/25/2019
 ms.author: glenga
 ms.custom: mvc, devcenter
-ms.openlocfilehash: fcf9f1d6420dbbde359d386bc3b67a0866aca30d
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 52f682f7c7f06056be122b33d27592a55a01be94
+ms.sourcegitcommit: ee61ec9b09c8c87e7dfc72ef47175d934e6019cc
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67444604"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70744080"
 ---
 # <a name="create-your-first-function-using-visual-studio-code"></a>使用 Visual Studio Code 建立第一個函式
 
@@ -27,7 +26,7 @@ Azure Functions 可讓您在[無伺服器](https://azure.microsoft.com/solutions
 
 ![Visual Studio 專案中的 Azure Functions 程式碼](./media/functions-create-first-function-vs-code/functions-vscode-intro.png)
 
-此擴充功能目前可支援 C#、JavaScript 和 Java 函式，而 Python 的支援目前為預覽狀態。 本文和後續文章中的步驟只支援 JavaScript 和 C# 函式。 若要了解如何使用 Visual Studio Code 來建立和發佈 Python 函式，請參閱[將 Python 部署至 Azure Functions](https://code.visualstudio.com/docs/python/tutorial-azure-functions)。 若要了解如何使用 Visual Studio Code 來建立和發佈 PowerShell 函式，請參閱[在 Azure 中建立您的第一個 PowerShell 函式](functions-create-first-function-powershell.md)。 
+擴充功能目前支援 C#、JavaScript、Java 和 Python 函式。 本文和後續文章中的步驟只支援 JavaScript 和 C# 函式。 若要了解如何使用 Visual Studio Code 來建立和發佈 Python 函式，請參閱[將 Python 部署至 Azure Functions](https://code.visualstudio.com/docs/python/tutorial-azure-functions)。 若要了解如何使用 Visual Studio Code 來建立和發佈 PowerShell 函式，請參閱[在 Azure 中建立您的第一個 PowerShell 函式](functions-create-first-function-powershell.md)。 
 
 此擴充功能目前為預覽狀態。 若要進一步了解，請參閱[適用於 Visual Studio Code 的 Azure Functions 擴充功能]的擴充功能頁面。
 
@@ -64,11 +63,11 @@ Azure Functions 可讓您在[無伺服器](https://azure.microsoft.com/solutions
 
 ## <a name="run-the-function-in-azure"></a>在 Azure 中執行函式
 
-1. 從 [輸出]  面板中複製 HTTP 觸發程序的 URL。 如同以往，務必將查詢字串 `?name=<yourname>` 新增至此 URL 的結尾並執行要求。
+1. 從 [輸出]  面板中複製 HTTP 觸發程序的 URL。 此 URL 包含函式金鑰，會傳至 `code` 查詢參數。 如同以往，務必將查詢字串 `?name=<yourname>` 新增至此 URL 的結尾並執行要求。
 
     呼叫 HTTP URL 觸發函式的 URL 應採用下列格式：
 
-        http://<functionappname>.azurewebsites.net/api/<functionname>?name=<yourname> 
+        http://<functionappname>.azurewebsites.net/api/<functionname>?code=<function_key>&name=<yourname> 
 
 1. 將 HTTP 要求的新 URL 貼到瀏覽器的網址列。 下圖顯示瀏覽器中對於函式傳回之遠端 GET 要求所做出的回應︰ 
 

@@ -1,5 +1,5 @@
 ---
-title: 快速入門：在 Azure 入口網站中建置採用 AI 擴充的索引 - Azure 搜尋服務
+title: 快速入門：了解 Azure 入口網站中的認知搜尋 AI 擴充 - Azure 搜尋服務
 description: 使用Azure 入口網站和範例資料，在 Azure 搜尋服務的索引編製入口網站中使用資料擷取、自然語言和影像處理技能。
 manager: nitinme
 author: HeidiSteen
@@ -7,16 +7,16 @@ services: search
 ms.service: search
 ms.subservice: cognitive-search
 ms.topic: quickstart
-ms.date: 07/09/2019
+ms.date: 09/10/2019
 ms.author: heidist
-ms.openlocfilehash: a4654e5895e9c7768b9fa6b975ef848294bcc8cc
-ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
+ms.openlocfilehash: ff32be5410876d1ba61b3bce2fd5f57868745e50
+ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69648913"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70881099"
 ---
-# <a name="quickstart-create-an-ai-indexing-pipeline-using-cognitive-skills-in-azure-search"></a>快速入門：使用 Azure 搜尋服務中的認知技能，建立 AI 索引管線
+# <a name="quickstart-create-an-ai-enrichment-pipeline-using-cognitive-skills-in-azure-search"></a>快速入門：使用 Azure 搜尋服務中的認知技能，建立 AI 擴充管道
 
 Azure 搜尋服務會與[認知服務](https://azure.microsoft.com/services/cognitive-services/)整合，藉此將內容料擷取、自然語言處理 (NLP) 和影像處理技能新增至 Azure 搜尋服務索引管線，讓無法搜尋或非結構化的內容變得更便於搜尋。 
 
@@ -45,7 +45,7 @@ Azure 搜尋服務會與[認知服務](https://azure.microsoft.com/services/cogn
 
 [認知服務](https://azure.microsoft.com/services/cognitive-services/)會提供 AI。 本快速入門包含指定管線時新增這些內嵌資源的步驟。 您不需要事先設定帳戶。
 
-需使用 Azure 服務來提供索引管線的輸入。 您可以使用任何由 [Azure 搜尋服務索引子](search-indexer-overview.md)支援的資料來源，除了 Azure 表格儲存體以外，其不支援 AI 索引編製。 本快速入門會使用 [Azure Blob 儲存體](https://azure.microsoft.com/services/storage/blobs/)作為來源資料檔案的容器。 
+需使用 Azure 服務來提供索引管線的輸入。 您可以使用 [Azure 搜尋服務索引子](search-indexer-overview.md)所支援的任何資料來源。 本快速入門會使用 [Azure Blob 儲存體](https://azure.microsoft.com/services/storage/blobs/)作為來源資料檔案的容器。 
 
 ### <a name="set-up-azure-blob-service-and-load-sample-data"></a>設定 Azure Blob 服務並載入範例資料
 
@@ -77,7 +77,7 @@ Azure 搜尋服務會與[認知服務](https://azure.microsoft.com/services/cogn
 
 接著，將擴充步驟新增至管線。 如果您沒有認知服務資源，可以註冊免費版，其可提供您每天 20 筆交易。 範例資料包含 14 個檔案，因此您一旦執行此精靈，就幾乎用盡每日配置。
 
-1. 展開 [附加認知服務]  以檢視認知服務 API 的資源處理選項。 針對本教學課程的目的，您可以使用**免費**資源。
+1. 展開 [附加認知服務]  以檢視認知服務 API 的資源處理選項。 針對此教學課程的目的，您可以使用**免費**資源。
 
    ![附加認知服務](media/cognitive-search-quickstart-blob/cog-search-attach.png)
 

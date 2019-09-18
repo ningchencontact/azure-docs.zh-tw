@@ -1,7 +1,7 @@
 ---
-title: Python 快速入門：使用 REST API 建立、載入及查詢索引 - Azure 搜尋服務
+title: 快速入門：使用 REST API 在 Python 中建立搜尋索引 - Azure 搜尋服務
 description: 說明如何使用 Python、Jupyter Notebook 與 Azure 搜尋服務 REST API 建立索引、載入資料以及執行查詢。
-ms.date: 08/28/2019
+ms.date: 09/10/2019
 author: heidisteen
 manager: nitinme
 ms.author: heidist
@@ -9,12 +9,12 @@ services: search
 ms.service: search
 ms.devlang: rest-api
 ms.topic: quickstart
-ms.openlocfilehash: 352d26a1f3e781f7dbb6e502caea44bdb45b398a
-ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
+ms.openlocfilehash: 273cd690c56ef01b4fd38398aaef85570dd758a2
+ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70129394"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70881563"
 ---
 # <a name="quickstart-create-an-azure-search-index-in-python-using-jupyter-notebooks"></a>快速入門：使用 Jupyter 筆記本在 Python 中建立 Azure 搜尋服務索引
 > [!div class="op_single_selector"]
@@ -25,7 +25,7 @@ ms.locfileid: "70129394"
 > * [入口網站](search-create-index-portal.md)
 > 
 
-建立 Jupyter 筆記本，以使用 Python 和 [Azure 搜尋服務 REST API](https://docs.microsoft.com/rest/api/searchservice/) 來建立、載入和查詢 Azure 搜尋服務索引。 本文將說明如何逐步建立筆記本。 或是，您可以[下載並執行已完成的 Jupyter Python 筆記本](https://github.com/Azure-Samples/azure-search-python-samples)。
+建立 Jupyter 筆記本，以使用 Python 和 [Azure 搜尋服務 REST API](https://docs.microsoft.com/rest/api/searchservice/) 來建立、載入和查詢 Azure 搜尋服務索引。 此文章將說明如何逐步建立筆記本。 或是，您可以[下載並執行已完成的 Jupyter Python 筆記本](https://github.com/Azure-Samples/azure-search-python-samples)。
 
 如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 。
 

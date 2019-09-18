@@ -1,26 +1,26 @@
 ---
-title: 批次測試-LUIS
+title: 教學課程：批次測試 - LUIS
 titleSuffix: Azure Cognitive Services
-description: 本教學課程示範如何使用批次測試來找出應用程式中的語句預測問題，並加以修正。
+description: 此教學課程示範如何使用批次測試來找出應用程式中的語句預測問題，並加以修正。
 services: cognitive-services
 author: diberry
 manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
-ms.topic: conceptual
-ms.date: 08/20/2019
+ms.topic: tutorial
+ms.date: 09/04/2019
 ms.author: diberry
-ms.openlocfilehash: 45520d39c822c734e3fc725bca3375e93983a118
-ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
-ms.translationtype: MT
+ms.openlocfilehash: a0aa4d334dc5a42da8a3a8f269f70c874c9ad54d
+ms.sourcegitcommit: aebe5a10fa828733bbfb95296d400f4bc579533c
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69637462"
+ms.lasthandoff: 09/05/2019
+ms.locfileid: "70375523"
 ---
 # <a name="tutorial-batch-test-data-sets"></a>教學課程：批次測試資料集
 
-本教學課程示範如何使用批次測試來找出應用程式中的語句預測問題，並加以修正。  
+此教學課程示範如何使用批次測試來找出應用程式中的語句預測問題，並加以修正。  
 
 批次測試可讓您使用一組已標示的已知語句和實體來驗證作用中且已定型的模型狀態。 在 JSON 格式的批次檔中新增語句，並在語句內設定您需要預測的實體標籤。 
 
@@ -28,11 +28,11 @@ ms.locfileid: "69637462"
 
 * 每個測試最多 1000 個語句。 
 * 沒有重複項目。 
-* 允許的實體類型: 僅限已加工學習的簡單和複合實體。 批次測試僅適用於機器學習的意圖和實體。
+* 允許的實體類型：僅限簡單及複合的機器學習實體。 批次測試僅適用於機器學習的意圖和實體。
 
-使用本教學課程以外的應用程式時，請「不要」使用已新增到某個意圖的範例語句。 
+使用此教學課程以外的應用程式時，請「不要」  使用已新增到某個意圖的範例語句。 
 
-**在本教學課程中，您將了解如何：**
+**在此教學課程中，您將了解如何：**
 
 <!-- green checkmark -->
 > [!div class="checklist"]
@@ -55,7 +55,7 @@ ms.locfileid: "69637462"
 
 2. 將 JSON 匯入新的應用程式中。
 
-3. 從 [管理] 區段的 [版本] 索引標籤上，複製版本並將它命名為 `batchtest`。 複製是一個既可測試各種 LUIS 功能又不影響原始版本的絕佳方式。 因為版本名稱會作為 URL 路由的一部分，所以此名稱不能包含任何在 URL 中無效的字元。 
+3. 從 [管理]  區段的 [版本]  索引標籤上，複製版本並將它命名為 `batchtest`。 複製是一個既可測試各種 LUIS 功能又不影響原始版本的絕佳方式。 因為版本名稱會作為 URL 路由的一部分，所以此名稱不能包含任何在 URL 中無效的字元。 
 
 4. 將應用程式定型。
 
@@ -69,25 +69,25 @@ ms.locfileid: "69637462"
 
 ## <a name="run-the-batch"></a>執行批次
 
-1. 選取頂端導覽列中的 [Test] \(測試\)。 
+1. 選取頂端導覽列中的 [Test] \(測試\)  。 
 
-2. 選取右側面板中的 [Batch testing panel] \(批次測試面板\) 
+2. 選取右側面板中的 [Batch testing panel] \(批次測試面板\)  
 
     [![已醒目提示 [批次測試] 面板的 LUIS 應用程式螢幕擷取畫面](./media/luis-tutorial-batch-testing/hr-batch-testing-panel-link.png)](./media/luis-tutorial-batch-testing/hr-batch-testing-panel-link.png#lightbox)
 
-3. 選取 [Import dataset] \(匯入資料集\)。
+3. 選取 [Import dataset] \(匯入資料集\)  。
 
     [![已醒目提示 [匯入資料集] 的 LUIS 應用程式螢幕擷取畫面](./media/luis-tutorial-batch-testing/hr-import-dataset-button.png)](./media/luis-tutorial-batch-testing/hr-import-dataset-button.png#lightbox)
 
 4. 選擇 `HumanResources-jobs-batch.json` 檔案的檔案位置。
 
-5. 將資料集命名為 `intents only`，然後選取 [完成]。
+5. 將資料集命名為 `intents only`，然後選取 [完成]  。
 
     ![選取檔案](./media/luis-tutorial-batch-testing/hr-import-new-dataset-ddl.png)
 
-6. 選取 [執行] 按鈕。 
+6. 選取 [執行]  按鈕。 
 
-7. 選取 [See results] \(查看結果\)。
+7. 選取 [See results] \(查看結果\)  。
 
 8. 檢閱圖表和圖例中的結果。
 
@@ -103,13 +103,13 @@ ms.locfileid: "69637462"
 
 ### <a name="getjobinformation-test-results"></a>GetJobInformation 測試結果
 
-篩選條件中顯示的 **GetJobInformation** 測試結果顯示四個預測中有 2 個成功。 選取左下方的 [名稱**False** ], 以查看圖表下方的語句。 
+篩選條件中顯示的 **GetJobInformation** 測試結果顯示四個預測中有 2 個成功。 在左下方象限選取 [誤判]  名稱，以在圖表下方查看語句。 
 
-使用鍵盤 Ctrl + E 來切換至 [標籤] 視圖, 以查看使用者語句的確切文字。 
+使用鍵盤 (Ctrl + E) 切換至標籤檢視，以查看使用者語句的確切文字。 
 
-語句`Is there a database position open in Los Colinas?`標示為_GetJobInformation_ , 但目前的模型已預測語句為_ApplyForJob_。 
+語句 `Is there a database position open in Los Colinas?` 標示為 _GetJobInformation_，但目前的模型將語句預測為 _ApplyForJob_。 
 
-比起**GetJobInformation**, **ApplyForJob**的範例幾乎有三倍。 這 unevenness 的範例語句會以**ApplyForJob**意圖的偏好進行權衡, 因而導致不正確的預測。 
+適用於 **ApplyForJob** 的範例幾乎是 **GetJobInformation** 的三倍。 範例語句的不均等，使系統傾向預測為 **ApplyForJob** 意圖，因此造成錯誤預測。 
 
 請注意，這兩個意圖具有相同的錯誤計數。 一個意圖中不正確的預測也會影響另一個意圖。 這兩者都有錯誤，因為針對一個意圖不正確地預測了語句，而且也不會針對另一個意圖進行不正確的預測。 
 
@@ -119,17 +119,17 @@ ms.locfileid: "69637462"
 
 本節目標是藉由修正應用程式，針對 **GetJobInformation** 正確預測所有語句。 
 
-有個看似快速的修正是將這些批次檔語句新增到正確的意圖。 這不是您想要執行的動作。 您想要 LUIS 正確預測這些語句，而不需將它們新增為範例。 
+有個看似快速的修正是將這些批次檔語句新增到正確的意圖。 那不是您想要做的。 您想要 LUIS 正確預測這些語句，而不需將它們新增為範例。 
 
 您可能也會想要從 **ApplyForJob** 移除語句，直到語句數量與 **GetJobInformation** 一樣為止。 那樣做可能會修正測試結果，但會妨礙 LUIS 下一次準確預測該意圖。 
 
-修正方法是將更多語句新增至**GetJobInformation**。 請記得改變語句長度、單字選擇和文字排列, 同時仍以尋找作業資訊的目的為目標, 而_不_是針對作業套用。
+修正方法是將更多語句新增到 **GetJobInformation**。 請記得改變語句長度、單字選擇和文字排列，同時仍以尋找工作資訊為目標意圖，而「不是」  應徵工作。
 
 ### <a name="add-more-utterances"></a>新增更多語句
 
-1. 選取上方瀏覽面板中的 [測試] 按鈕來關閉批次測試面板。 
+1. 選取上方瀏覽面板中的 [測試]  按鈕來關閉批次測試面板。 
 
-2. 從意圖清單中選取 [GetJobInformation]。 
+2. 從意圖清單中選取 [GetJobInformation]  。 
 
 3. 新增更多會隨著長度、選字及字組排列而變動的語句，確定會包含 `resume`、`c.v.` 和 `apply` 等字詞：
 
@@ -153,17 +153,17 @@ ms.locfileid: "69637462"
 
     不要在語句中標示 **Job** 實體。 教學課程的這一節只會將重點放在意圖預測。
 
-4. 藉由在右上方瀏覽列中選取 [定型] 來將應用程式定型。
+4. 藉由在右上方瀏覽列中選取 [定型]  來將應用程式定型。
 
 ## <a name="verify-the-new-model"></a>確認新的模型
 
 為了確認會正確預測批次測試中的語句，請重新執行批次測試。
 
-1. 選取頂端導覽列中的 [Test] \(測試\)。 如果批次結果仍處於開放狀態，請選取 [返回清單]。  
+1. 選取頂端導覽列中的 [Test] \(測試\)  。 如果批次結果仍處於開放狀態，請選取 [返回清單]  。  
 
-1. 選取批次名稱右邊的省略號 (***...***) 按鈕, 然後選取 [**執行**]。 等候批次測試完成。 請注意，[查看結果] 按鈕現在是綠色。 這表示整個批次已成功執行。
+1. 選取批次名稱右邊的省略符號 (***...***) 按鈕，然後選取 [執行]  。 等候批次測試完成。 請注意，[查看結果]  按鈕現在是綠色。 這表示整個批次已成功執行。
 
-1. 選取 [See results] \(查看結果\)。 這些意圖的意圖名稱左邊應該都會有綠色圖示。 
+1. 選取 [See results] \(查看結果\)  。 這些意圖的意圖名稱左邊應該都會有綠色圖示。 
 
 ## <a name="create-batch-file-with-entities"></a>建立含有實體的批次檔 
 
@@ -173,7 +173,7 @@ ms.locfileid: "69637462"
 
 第一次撰寫和測試批次檔時，最好從您熟悉的一些語句和實體以及您認為可能不會正確預測的一些語句和實體開始。 這可協助您快速專注於問題領域。 使用數個無法預測的不同作業名稱來測試 **GetJobInformation** 和 **ApplyForJob** 意圖之後，開發了這個批次測試檔來查看是否有任何包含 **Job** 實體之特定值的預測問題。 
 
-測試語句中提供的 **Job** 實體值，通常是一或兩個文字，以及一些有更多文字的範例。 如果「您自己」的人力資源應用程式的作業名稱通常會有許多文字，則應用程式中已使用 **Job** 實體標示的範例語句就無法正常運作。
+測試語句中提供的 **Job** 實體值，通常是一或兩個文字，以及一些有更多文字的範例。 如果「您自己」  的人力資源應用程式的作業名稱通常會有許多文字，則應用程式中已使用 **Job** 實體標示的範例語句就無法正常運作。
 
 1. 在文字編輯器 (例如 `HumanResources-entities-batch.json`VSCode[) 中建立 ](https://code.visualstudio.com/)，或[下載此項目](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/documentation-samples/tutorials/HumanResources-entities-batch.json)。
 
@@ -184,31 +184,31 @@ ms.locfileid: "69637462"
 
 ## <a name="run-the-batch-with-entities"></a>使用實體執行批次
 
-1. 選取頂端導覽列中的 [Test] \(測試\)。 
+1. 選取頂端導覽列中的 [Test] \(測試\)  。 
 
-2. 選取右側面板中的 [Batch testing panel] \(批次測試面板\) 
+2. 選取右側面板中的 [Batch testing panel] \(批次測試面板\)  
 
-3. 選取 [Import dataset] \(匯入資料集\)。
+3. 選取 [Import dataset] \(匯入資料集\)  。
 
 4. 選擇 `HumanResources-entities-batch.json` 檔案的檔案系統位置。
 
-5. 將資料集命名為 `entities`，然後選取 [完成]。
+5. 將資料集命名為 `entities`，然後選取 [完成]  。
 
-6. 選取 [執行] 按鈕。 等候測試完成。
+6. 選取 [執行]  按鈕。 等候測試完成。
 
-7. 選取 [See results] \(查看結果\)。
+7. 選取 [See results] \(查看結果\)  。
 
 ## <a name="review-entity-batch-results"></a>檢閱實體批次結果
 
-圖表隨即開啟，並顯示已正確預測的所有意圖。 在右邊的篩選中向下移動, 以尋找具有錯誤的實體預測。 
+圖表隨即開啟，並顯示已正確預測的所有意圖。 在右側篩選條件中向下捲動，以尋找有錯誤的實體預測。 
 
-1. 在篩選條件中選取 [作業] 實體。
+1. 在篩選條件中選取 [作業]  實體。
 
-    ![篩選中的錯誤實體預測](./media/luis-tutorial-batch-testing/hr-entities-filter-errors.png)
+    ![篩選條件中的錯誤實體預測](./media/luis-tutorial-batch-testing/hr-entities-filter-errors.png)
 
     此圖表會變更以顯示實體預測。 
 
-2. 在圖表的左下象限中，選取 [誤判]。 然後，使用鍵盤組合 Ctrl + E 鍵來切換至語彙基元檢視。 
+2. 在圖表的左下象限中，選取 [誤判]  。 然後，使用鍵盤組合 Ctrl + E 鍵來切換至語彙基元檢視。 
 
     [![實體預測的語彙基元檢視](./media/luis-tutorial-batch-testing/token-view-entities.png)](./media/luis-tutorial-batch-testing/token-view-entities.png#lightbox)
     
@@ -231,7 +231,7 @@ ms.locfileid: "69637462"
 
 ## <a name="next-steps"></a>後續步驟
 
-本教學課程已使用批次測試來尋找目前模型的問題。 模型已修正，並使用批次檔進行重新測試，以確認變更正確。
+此教學課程已使用批次測試來尋找目前模型的問題。 模型已修正，並使用批次檔進行重新測試，以確認變更正確。
 
 > [!div class="nextstepaction"]
 > [了解模式](luis-tutorial-pattern.md)

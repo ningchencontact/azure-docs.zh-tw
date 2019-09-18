@@ -1,5 +1,5 @@
 ---
-title: JAVA 快速入門：使用 Java 建立、載入及查詢索引
+title: 快速入門：使用 REST API 在 Java 中建立搜尋索引 - Azure 搜尋服務
 description: 說明如何使用 Java 與 Azure 搜尋服務 REST API 來建立索引、載入資料以及執行查詢。
 author: lisaleib
 manager: nitinme
@@ -10,15 +10,15 @@ ms.service: search
 ms.custom: seodec2018, seo-java-july2019, seo-java-august2019
 ms.devlang: java
 ms.topic: quickstart
-ms.date: 07/11/2019
-ms.openlocfilehash: eec22d14c2d71a94f21a2403463315d477032ede
-ms.sourcegitcommit: 7a6d8e841a12052f1ddfe483d1c9b313f21ae9e6
+ms.date: 09/10/2019
+ms.openlocfilehash: 455f3dfdce93d0b39960f9ec87b0938060f87687
+ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70186725"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70881569"
 ---
-# <a name="quickstart-create-load-and-query-indexes-using-azure-search-rest-apis-with-java"></a>快速入門：使用 Azure 搜尋服務 REST API 與 Java 來建立、載入及查詢索引
+# <a name="quickstart-create-an-azure-search-index-in-java-using-rest-apis"></a>快速入門：使用 REST API 在 Java 中建立 Azure 搜尋索引
 > [!div class="op_single_selector"]
 > * [JavaScript](search-get-started-nodejs.md)
 > * [C#](search-get-started-dotnet.md)
@@ -28,7 +28,7 @@ ms.locfileid: "70186725"
 > * [Python](search-get-started-python.md)
 > * [Postman](search-get-started-postman.md)
 
-建立 JAVA 主控台應用程式，以使用 [IntelliJ](https://www.jetbrains.com/idea/)、[JAVA 11 SDK](/java/azure/jdk/?view=azure-java-stable) 和 [Azure 搜尋服務 REST API](/rest/api/searchservice/) 來建立、載入及查詢 Azure 搜尋服務索引。本文提供建立應用程式的逐步指示。 或者，您可以[下載並執行完整應用程式](/samples/azure-samples/azure-search-java-samples/java-sample-quickstart/) \(英文\)。
+建立 JAVA 主控台應用程式，以使用 [IntelliJ](https://www.jetbrains.com/idea/)、[JAVA 11 SDK](/java/azure/jdk/?view=azure-java-stable) 和 [Azure 搜尋服務 REST API](/rest/api/searchservice/) 來建立、載入及查詢 Azure 搜尋服務索引。此文章提供建立應用程式的逐步指示。 或者，您可以[下載並執行完整應用程式](/samples/azure-samples/azure-search-java-samples/java-sample-quickstart/) \(英文\)。
 
 如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 。
 

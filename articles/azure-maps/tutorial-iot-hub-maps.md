@@ -9,18 +9,18 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: 5345bbf2514c8b06ab80d4563227725a398f9407
-ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
+ms.openlocfilehash: b88d355ec1784b3b613369e90cd5fac99d3d69a6
+ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69898347"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70916398"
 ---
 # <a name="implement-iot-spatial-analytics-using-azure-maps"></a>使用 Azure 地圖服務執行 IoT 空間分析
 
-追蹤和擷取在空間和時間中發生的相關事件，是常見的 IoT 案例。 例如，在車隊管理、資產追蹤、行動和智慧城市應用程式中執行這些動作。 本教學課程將引導您完成下列作業的解決方案模式：使用事件方格所提供的事件訂閱模型，對 IoT 中樞所擷取的相關事件使用 Azure 地圖服務 API。
+追蹤和擷取在空間和時間中發生的相關事件，是常見的 IoT 案例。 例如，在車隊管理、資產追蹤、行動和智慧城市應用程式中執行這些動作。 此教學課程將引導您完成下列作業的解決方案模式：使用事件方格所提供的事件訂閱模型，對 IoT 中樞所擷取的相關事件使用 Azure 地圖服務 API。
 
-在本教學課程中，您將：
+在此教學課程中，您將：
 
 > [!div class="checklist"]
 > * 建立 IoT 中樞。
@@ -41,10 +41,10 @@ ms.locfileid: "69898347"
 ```JSON
 {
     "data": {
-         "properties": {
+        "properties": {
             "Engine": "ON"
-         },
-         "systemProperties": {
+        },
+        "systemProperties": {
             "iothub-content-type": "application/json",
             "iothub-content-encoding": "utf-8",
             "iothub-connection-device-id": "ContosoRentalDevice",
@@ -52,18 +52,18 @@ ms.locfileid: "69898347"
             "iothub-connection-auth-generation-id": "636959817064335548",
             "iothub-enqueuedtime": "2019-06-18T00:17:20.608Z",
             "iothub-message-source": "Telemetry"
-         },
-         "body": { 
-                    "location": { 
-                        "type": "Point",
-                        "coordinates": [ -77.025988698005662, 38.9015330523316 ]
-                     } 
-                 } 
+        },
+        "body": { 
+            "location": { 
+                "type": "Point",
+                "coordinates": [ -77.025988698005662, 38.9015330523316 ]
+            } 
+        } 
     }
 }
 ```
 
-車載裝置遙測可用來達成目標。 我們的目標是要執行地理柵欄規則，並在每次收到汽車的位置有所移動的事件時，適當予以追蹤。 為此，我們將透過事件方格訂閱來自 IoT 中樞的裝置遙測事件，讓所需的客戶商務邏輯僅在適當的情況下執行。 有數種方式可訂閱事件方格，在本教學課程中，我們將使用 Azure Functions。 Azure Functions 會對事件方格中發佈的事件做出反應，並根據 Azure 地圖服務空間分析來實做汽車出租商務邏輯。 Azure 函式的功能之一是檢查車輛是否已離開地理柵欄，如果是，則會收集其他資訊，例如與目前的位置相關聯的位址。 此函式也會實作邏輯，將有意義的事件資料儲存在資料 Blob 儲存體中，以利將事件狀況的精確描述提供給汽車出租分析人員和租用客戶。
+車載裝置遙測可用來達成目標。 我們的目標是要執行地理柵欄規則，並在每次收到汽車的位置有所移動的事件時，適當予以追蹤。 為此，我們將透過事件方格訂閱來自 IoT 中樞的裝置遙測事件，讓所需的客戶商務邏輯僅在適當的情況下執行。 有數種方式可訂閱事件方格，在此教學課程中，我們將使用 Azure Functions。 Azure Functions 會對事件方格中發佈的事件做出反應，並根據 Azure 地圖服務空間分析來實做汽車出租商務邏輯。 Azure 函式的功能之一是檢查車輛是否已離開地理柵欄，如果是，則會收集其他資訊，例如與目前的位置相關聯的位址。 此函式也會實作邏輯，將有意義的事件資料儲存在資料 Blob 儲存體中，以利將事件狀況的精確描述提供給汽車出租分析人員和租用客戶。
 
 下圖提供系統的高階概觀。
 
@@ -81,7 +81,7 @@ ms.locfileid: "69898347"
 
 ### <a name="create-a-resource-group"></a>建立資源群組
 
-若要完成本教學課程中的步驟，您必須先在 Azure 入口網站中建立資源群組。 若要建立資源群組，請遵循下列步驟：
+若要完成此教學課程中的步驟，您必須先在 Azure 入口網站中建立資源群組。 若要建立資源群組，請遵循下列步驟：
 
 1. 登入 [Azure 入口網站](https://portal.azure.com)。
 
@@ -104,7 +104,7 @@ ms.locfileid: "69898347"
 
 ### <a name="create-an-azure-maps-account"></a>建立 Azure 地圖服務帳戶 
 
-為了根據 Azure 地圖服務空間分析來實作商務邏輯，我們必須在已建立的資源群組中建立 Azure 地圖服務帳戶。 請依照[管理帳戶](https://docs.microsoft.com/azure/azure-maps/how-to-manage-account-keys)中的指示，建立具有 S1 定價層的 Azure 地圖服務帳戶訂用帳戶，並參閱[驗證詳細資料](https://docs.microsoft.com/azure/azure-maps/how-to-manage-authentication#view-authentication-details)以了解如何取得您的訂用帳戶金鑰。
+為了根據 Azure 地圖服務空間分析來實作商務邏輯，我們必須在已建立的資源群組中建立 Azure 地圖服務帳戶。 請遵循[管理帳戶](https://docs.microsoft.com/azure/azure-maps/how-to-manage-account-keys#create-a-new-account) \(部分機器翻譯\) 中的指示，建立使用 S1 定價層的 Azure 地圖服務帳戶訂用帳戶，並遵循[取得主要金鑰](./tutorial-search-location.md#getkey)中的步驟來取得適用於您帳戶的主要訂用帳戶金鑰。
 
 
 ### <a name="create-a-storage-account"></a>建立儲存體帳戶
@@ -282,7 +282,7 @@ Azure Functions 是無伺服器計算服務，可讓我們依需求執行程式�
 
 ## <a name="next-steps"></a>後續步驟
 
-若要探索本教學課程中使用的 Azure 地圖服務 API，請參閱：
+若要探索此教學課程中使用的 Azure 地圖服務 API，請參閱：
 
 * [取得搜尋位址反轉](https://docs.microsoft.com/rest/api/maps/search/getsearchaddressreverse)
 * [取得地理柵欄](https://docs.microsoft.com/rest/api/maps/spatial/getgeofence)

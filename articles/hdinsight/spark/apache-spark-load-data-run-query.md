@@ -1,5 +1,5 @@
 ---
-title: '教學課程：在 Azure HDInsight 中的 Apache Spark 叢集上載入資料和執行查詢 '
+title: 教學課程：在 Azure HDInsight 中的 Apache Spark 叢集上載入資料和執行查詢
 description: 教學課程 - 了解如何在 Azure HDInsight 中的 Spark 叢集上載入資料和執行互動式查詢。
 author: hrasheed-msft
 ms.reviewer: jasonh
@@ -8,18 +8,18 @@ ms.custom: hdinsightactive,mvc
 ms.topic: tutorial
 ms.author: hrasheed
 ms.date: 05/16/2019
-ms.openlocfilehash: e4ed8bb2631b4dc2f760dc4d92247377db591160
-ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
+ms.openlocfilehash: 109ed1a2ef22e498c2d19fd2e4f1848f289e9b55
+ms.sourcegitcommit: 97605f3e7ff9b6f74e81f327edd19aefe79135d2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67295696"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70735281"
 ---
 # <a name="tutorial-load-data-and-run-queries-on-an-apache-spark-cluster-in-azure-hdinsight"></a>教學課程：在 Azure HDInsight 中的 Apache Spark 叢集上載入資料和執行查詢
 
-在本教學課程中，您將了解如何從 csv 檔案建立資料框架，以及如何在 Azure HDInsight 中對 [Apache Spark](https://spark.apache.org/) 叢集執行互動式 Spark SQL 查詢。 在 Spark 中，資料框架是組織成具名資料行的分散式資料集合。 資料框架在概念上等同於關聯式資料庫中的資料表或 R/Python 中的資料框架。
+在此教學課程中，您將了解如何從 csv 檔案建立資料框架，以及如何在 Azure HDInsight 中對 [Apache Spark](https://spark.apache.org/) 叢集執行互動式 Spark SQL 查詢。 在 Spark 中，資料框架是組織成具名資料行的分散式資料集合。 資料框架在概念上等同於關聯式資料庫中的資料表或 R/Python 中的資料框架。
 
-在本教學課程中，您了解如何：
+在此教學課程中，您了解如何：
 > [!div class="checklist"]
 > * 從 csv 檔案建立資料框架
 > * 在資料框架上執行查詢
@@ -45,7 +45,7 @@ Jupyter Notebook 是支援各種程式設計語言的互動式 Notebook 環境�
 
 ## <a name="create-a-dataframe-from-a-csv-file"></a>從 csv 檔案建立資料框架
 
-應用程式可以直接建立資料框架，其建立來源可以是遠端儲存體 (例如，Azure 儲存體或 Azure Data Lake Storage) 上的檔案或資料夾；Hive 資料表；或是 Spark 所支援的其他資料來源 (例如，Cosmos DB、Azure SQL DB、DW 等等)。下列螢幕擷取畫面顯示本教學課程中使用之 HVAC.csv 檔案的快照集。 該 csv 檔案會隨附於所有 HDInsight Spark 叢集。 資料會擷取相同建築物的溫度變化。
+應用程式可以直接建立資料框架，其建立來源可以是遠端儲存體 (例如，Azure 儲存體或 Azure Data Lake Storage) 上的檔案或資料夾；Hive 資料表；或是 Spark 所支援的其他資料來源 (例如，Cosmos DB、Azure SQL DB、DW 等等)。下列螢幕擷取畫面顯示此教學課程中使用之 HVAC.csv 檔案的快照集。 該 csv 檔案會隨附於所有 HDInsight Spark 叢集。 資料會擷取相同建築物的溫度變化。
     
 ![互動式 Spark SQL 查詢的資料快照集](./media/apache-spark-load-data-run-query/hdinsight-spark-sample-data-interactive-spark-sql-query.png "互動式 Spark SQL 查詢的資料快照集")
 
@@ -103,7 +103,7 @@ Jupyter Notebook 是支援各種程式設計語言的互動式 Notebook 環境�
 
 ## <a name="next-steps"></a>後續步驟
 
-在本教學課程中，您已了解如何從 csv 檔案建立資料框架，以及如何在 Azure HDInsight 中對 Apache Spark 叢集執行互動式 Spark SQL 查詢。 前往下一篇文章，以查看如何將您在 Apache Spark 中註冊的資料提取至 BI 分析工具，例如 Power BI。
+在此教學課程中，您已了解如何從 csv 檔案建立資料框架，以及如何在 Azure HDInsight 中對 Apache Spark 叢集執行互動式 Spark SQL 查詢。 前往下一篇文章，以查看如何將您在 Apache Spark 中註冊的資料提取至 BI 分析工具，例如 Power BI。
 
 > [!div class="nextstepaction"]
 > [使用 BI 工具分析資料](apache-spark-use-bi-tools.md)

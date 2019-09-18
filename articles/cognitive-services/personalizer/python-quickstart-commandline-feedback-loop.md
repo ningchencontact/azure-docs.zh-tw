@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: personalizer
 ms.topic: quickstart
-ms.date: 08/09/2019
+ms.date: 09/06/2019
 ms.author: diberry
-ms.openlocfilehash: ca1478801ad704888266175a23b6f436d067dd10
-ms.sourcegitcommit: 78ebf29ee6be84b415c558f43d34cbe1bcc0b38a
+ms.openlocfilehash: 404ee6fd51493735b8f96e98276f71d1d2f91158
+ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68950590"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70882884"
 ---
 # <a name="quickstart-personalize-client-library-for-python"></a>快速入門：適用於 Python 的個人化工具用戶端程式庫
 
@@ -46,6 +46,9 @@ Azure 認知服務會由您訂閱的 Azure 資源呈現。 請使用 [Azure 入�
 
 * `PERSONALIZER_KEY` 用於資源金鑰。
 * `PERSONALIZER_ENDPOINT` 用於資源端點。
+
+在 Azure 入口網站中，可以從 [快速入門]  頁面取得金鑰和端點值。
+
 
 ### <a name="install-the-python-library-for-personalizer"></a>安裝 Python 個人化工具程式庫
 
@@ -108,6 +111,8 @@ pip install azure-cognitiveservices-personalizer
 ## <a name="get-content-choices-represented-as-actions"></a>取得以動作表示的內容選擇
 
 動作代表您想要讓個人化工具進行排名的內容選擇。 將下列方法新增至 [程式] 類別，以從命令列取得一天時間和目前食物喜好的使用者輸入。
+
+[!code-python[Present time out day preference to the user](~/samples-personalizer/quickstarts/python/sample.py?name=getActions)]
 
 [!code-python[Present time out day preference to the user](~/samples-personalizer/quickstarts/python/sample.py?name=createUserFeatureTimeOfDay)]
 

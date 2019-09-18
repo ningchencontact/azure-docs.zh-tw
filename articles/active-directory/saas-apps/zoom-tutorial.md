@@ -13,19 +13,19 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 08/23/2019
+ms.date: 09/03/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c0d5a87d4723bcc21b75db1b31ada72823abdf02
-ms.sourcegitcommit: ee61ec9b09c8c87e7dfc72ef47175d934e6019cc
+ms.openlocfilehash: 5f9d727154adf0a2099d7a9144c109cef9c91238
+ms.sourcegitcommit: 86d49daccdab383331fc4072b2b761876b73510e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70171364"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70743976"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-zoom"></a>教學課程：Azure Active Directory 單一登入 (SSO) 與 Zoom 整合
 
-在本教學課程中，您將了解如何整合 Zoom 與 Azure Active Directory (Azure AD)。 在整合 Zoom 與 Azure AD 時，您可以︰
+在此教學課程中，您將了解如何整合 Zoom 與 Azure Active Directory (Azure AD)。 在整合 Zoom 與 Azure AD 時，您可以︰
 
 * 在 Azure AD 中控制可存取 Zoom 的人員。
 * 讓使用者使用其 Azure AD 帳戶自動登入 Zoom。
@@ -42,9 +42,10 @@ ms.locfileid: "70171364"
 
 ## <a name="scenario-description"></a>案例描述
 
-在本教學課程中，您會在測試環境中設定和測試 Azure AD SSO。
+在此教學課程中，您會在測試環境中設定和測試 Azure AD SSO。
 
-* Zoom 支援 **SP** 起始的 SSO
+* Zoom 支援 **SP** 起始的 SSO，且 
+* Zoom 支援[**自動**使用者佈建](https://docs.microsoft.com/azure/active-directory/saas-apps/zoom-provisioning-tutorial) \(部分機器翻譯\)。
 
 ## <a name="adding-zoom-from-the-gallery"></a>從資源庫新增 Zoom
 
@@ -87,7 +88,7 @@ ms.locfileid: "70171364"
     b. 在 [識別碼 (實體識別碼)]  文字方塊中，使用下列模式輸入 URL：`<companyname>.zoom.us`
 
     > [!NOTE]
-    > 這些都不是真正的值。 請使用實際的「登入 URL」及「識別碼」來更新這些值。 請連絡 [Zoom 客戶支援小組](https://support.zoom.us/hc/en-us)以取得這些值。 您也可以參考 Azure 入口網站中**基本 SAML 組態**區段所示的模式。
+    > 這些都不是真正的值。 請使用實際的「登入 URL」及「識別碼」來更新這些值。 請連絡 [Zoom 客戶支援小組](https://support.zoom.us/hc/)以取得這些值。 您也可以參考 Azure 入口網站中**基本 SAML 組態**區段所示的模式。
 
 1. 在 [以 SAML 設定單一登入]  頁面的 [SAML 簽署憑證]  區段中，尋找 [憑證 (Base64)]  並選取 [下載]  ，以下載憑證並將其儲存在電腦上。
 
@@ -101,7 +102,7 @@ ms.locfileid: "70171364"
 > 若要了解如何設定 Azure AD 中的角色，請參閱[針對企業應用程式設定 SAML 權杖中發出的角色宣告](https://docs.microsoft.com/azure/active-directory/develop/active-directory-enterprise-app-role-management)。
 
 > [!NOTE]
-> Zoom 可能會預期 SAML 承載中有群組宣告。 如果您已建立任何群組，請連絡 [Zoom 用戶端支援小組](https://support.zoom.us/hc/en-us)並提供群組資訊，讓他們可以在那一端設定群組資訊。 您也必須將物件識別碼提供給 [Zoom 客戶支援小組](https://support.zoom.us/hc/en-us)，讓他們可在那一端設定物件識別碼。 若要取得物件識別碼，請參閱[使用 Azure 設定 Zoom](https://support.zoom.us/hc/en-us/articles/115005887566)。
+> Zoom 可能會預期 SAML 承載中有群組宣告。 如果您已建立任何群組，請連絡 [Zoom 用戶端支援小組](https://support.zoom.us/hc/)並提供群組資訊，讓他們可以在那一端設定群組資訊。 您也必須將物件識別碼提供給 [Zoom 客戶支援小組](https://support.zoom.us/hc/)，讓他們可在那一端設定物件識別碼。 若要取得物件識別碼，請參閱[使用 Azure 設定 Zoom](https://support.zoom.us/hc/articles/115005887566)。
 
 ### <a name="create-an-azure-ad-test-user"></a>建立 Azure AD 測試使用者
 
@@ -172,30 +173,10 @@ ms.locfileid: "70171364"
 
 ### <a name="create-zoom-test-user"></a>建立 Zoom 測試使用者
 
-若要讓 Azure AD 使用者可以登入 Zoom，必須將他們佈建到 Zoom。 Zoom 需以手動的方式佈建。
-
-### <a name="to-provision-a-user-account-perform-the-following-steps"></a>若要佈建使用者帳戶，請執行下列步驟：
-
-1. 以系統管理員身分登入您的 **Zoom** 公司網站。
-
-2. 按一下 [帳戶管理]  索引標籤，再按一下 [使用者管理]  。
-
-3. 在 [使用者管理] 區段中按一下 [新增使用者]  。
-
-    ![使用者管理](./media/zoom-tutorial/ic784703.png "使用者管理")
-
-4. 在 [新增使用者]  頁面上，執行下列步驟：
-
-    ![新增使用者](./media/zoom-tutorial/ic784704.png "新增使用者")
-
-    a. 選取 [基本]  做為 [使用者類型]  。
-
-    b. 在 [電子郵件]  文字方塊中，輸入您要佈建之有效 Azure AD 帳戶的電子郵件地址。
-
-    c. 按一下 [新增]  。
+本節的目標是要在 Zoom 中建立一個名為 B.Simon 的使用者。 Zoom 支援自動使用者佈建，該功能預設為啟用。 您可以在[這裡](https://docs.microsoft.com/azure/active-directory/saas-apps/zoom-provisioning-tutorial)找到關於如何設定自動使用者佈建的更多詳細資料。
 
 > [!NOTE]
-> 您可以使用任何其他的 Zoom 使用者帳戶建立工具，或 Zoom 提供的 API，以佈建 Azure Active Directory 使用者帳戶。
+> 如果您需要手動建立使用者，請連絡 [Zoom 用戶端支援小組](https://support.zoom.us/hc/)
 
 ## <a name="test-sso"></a>測試 SSO 
 

@@ -4,12 +4,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 08/06/2019
 ms.author: erhopf
-ms.openlocfilehash: 156486f4f4f0df3d4bb4ab76492709bbecfb8eb5
-ms.sourcegitcommit: beb34addde46583b6d30c2872478872552af30a1
+ms.openlocfilehash: c737447c3a3bd2d76d3ed620b7c61aaa81250130
+ms.sourcegitcommit: 88ae4396fec7ea56011f896a7c7c79af867c90a1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69906617"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70393826"
 ---
 ## <a name="set-up"></a>設定
 
@@ -23,4 +23,4 @@ Azure 認知服務會由您訂閱的 Azure 資源呈現。 請使用 [Azure 入�
 從試用版訂用帳戶或資源取得金鑰後，請建立兩個[環境變數](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication)：
 
 * `TRANSLATOR_TEXT_SUBSCRIPTION_KEY` - 您翻譯工具文字資源的訂用帳戶金鑰。
-* `TRANSLATOR_TEXT_ENDPOINT` -您資源的區域端點或自訂子網域名稱。
+* `TRANSLATOR_TEXT_ENDPOINT` - 翻譯工具文字的全域端點。 使用 `https://api.cognitive.microsofttranslator.com/`。

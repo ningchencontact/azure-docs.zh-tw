@@ -1,22 +1,22 @@
 ---
 title: 快速入門：轉換文字字集 - 翻譯工具文字
 titleSuffix: Azure Cognitive Services
-description: 在本快速入門中，您將了解如何使用翻譯工具文字 REST API，將文字從一個字集直譯 (轉換) 成另一個字集。 在此範例中，日文會直譯為使用拉丁字母。
+description: 在本快速入門中，您將了解如何使用翻譯工具文字 API，將文字從一個字集直譯 (轉換) 成另一個字集。 在此範例中，日文會直譯為使用拉丁字母。
 services: cognitive-services
 author: erhopf
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: quickstart
-ms.date: 08/19/2019
+ms.date: 09/05/2019
 ms.author: erhopf
 zone_pivot_groups: programming-languages-set-one
-ms.openlocfilehash: 1ed753e9fe24b729f2efeb32bd99f5a721a57083
-ms.sourcegitcommit: beb34addde46583b6d30c2872478872552af30a1
+ms.openlocfilehash: b1da3904c0081a7948adc233878a9a30727f3b37
+ms.sourcegitcommit: 88ae4396fec7ea56011f896a7c7c79af867c90a1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69906514"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70393907"
 ---
 # <a name="quickstart-use-the-translator-text-api-to-transliterate-text"></a>快速入門：使用翻譯工具文字 API 進行文字直譯
 

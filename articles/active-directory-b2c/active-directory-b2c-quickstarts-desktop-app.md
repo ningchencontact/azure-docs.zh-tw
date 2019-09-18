@@ -1,6 +1,6 @@
 ---
-title: 快速入門 - 設定使用 Azure Active Directory B2C 登入傳統型應用程式 | Microsoft Docs
-description: 執行範例 ASP.NET 傳統型應用程式，而該應用程式使用 Azure Active Directory B2C 來提供帳戶登入。
+title: 快速入門 - 設定使用 Azure Active Directory B2C 登入傳統型應用程式
+description: 執行範例 WPF 傳統型應用程式，而該應用程式使用 Azure Active Directory B2C 來提供帳戶登入。
 services: active-directory-b2c
 author: mmacy
 manager: celestedg
@@ -8,15 +8,15 @@ ms.service: active-directory
 ms.workload: identity
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 11/30/2018
+ms.date: 09/12/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 636e47c1d0c689dd9660f8bf01ada571d3824961
-ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
+ms.openlocfilehash: 98d312dbafd399cc8b92e2c4fb70499853c214b5
+ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67835468"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70914266"
 ---
 # <a name="quickstart-set-up-sign-in-for-a-desktop-app-using-azure-active-directory-b2c"></a>快速入門：設定使用 Azure Active Directory B2C 登入傳統型應用程式
 
@@ -27,7 +27,7 @@ Azure Active Directory (Azure AD) B2C 提供雲端身分識別管理，使您的
 ## <a name="prerequisites"></a>必要條件
 
 - [Visual Studio 2019](https://www.visualstudio.com/downloads/)，其中包含 **ASP.NET 和 Web 部署**工作負載。
-- Facebook、Google、Microsoft 或 Twitter 社交帳戶。
+- Facebook、Google 或 Microsoft 社交帳戶。
 - [下載 zip 檔案](https://github.com/Azure-Samples/active-directory-b2c-dotnet-desktop/archive/master.zip)，或從 GitHub 複製範例 Web 應用程式。
 
     ```
@@ -45,10 +45,10 @@ Azure Active Directory (Azure AD) B2C 提供雲端身分識別管理，使您的
 
     ![範例 WPF 應用程式的螢幕擷取畫面](media/active-directory-b2c-quickstarts-desktop-app/wpf-sample-application.png)
 
-    此範例支援數個註冊選項。 這些選項包括使用社交識別提供者或使用電子郵件地址建立本機帳戶。 在本快速入門中，請使用 Facebook、Google、Microsoft 或 Twitter 的社交身分識別提供者帳戶。
+    此範例支援數個註冊選項。 這些選項包括使用社交識別提供者或使用電子郵件地址建立本機帳戶。 在本快速入門中，請使用 Facebook、Google 或 Microsoft 的社交身分識別提供者帳戶。
 
 
-2. Azure AD B2C 會針對範例 Web 應用程式，呈現 Wingtip Toys 虛構品牌的自訂登入頁面。 若要使用社交識別提供者註冊，按一下您想要使用之識別提供者的按鈕。
+2. Azure AD B2C 會針對範例 Web 應用程式，呈現 Fabrikam 虛構公司的登入頁面。 若要使用社交識別提供者註冊，按一下您想要使用之識別提供者的按鈕。
 
     ![顯示識別提供者的登入或註冊頁面](media/active-directory-b2c-quickstarts-desktop-app/sign-in-or-sign-up-wpf.png)
 
@@ -66,7 +66,7 @@ Azure AD B2C 提供讓使用者更新其設定檔的功能。 範例 Web 應用�
 
     ![在 WPF 範例應用程式中醒目提示的 [編輯設定檔] 按鈕](media/active-directory-b2c-quickstarts-desktop-app/edit-profile-wpf.png)
 
-2. 選擇與您建立的帳戶相關聯的識別提供者。 例如，如果建立您的帳戶時使用 Twitter 作為識別提供者，請選擇 Twitter 以修改相關聯的設定檔詳細資料。
+2. 選擇與您建立的帳戶相關聯的識別提供者。 例如，如果建立您的帳戶時使用 Facebook 作為識別提供者，請選擇 Facebook 以修改相關聯的設定檔詳細資料。
 
 3. 變更您的 [顯示名稱]  或 [縣/市]  ，然後按一下 [繼續]  。
 

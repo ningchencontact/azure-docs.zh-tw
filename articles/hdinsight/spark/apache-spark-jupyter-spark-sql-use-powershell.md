@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.date: 06/12/2019
 ms.author: hrasheed
 ms.custom: mvc
-ms.openlocfilehash: 4a075a2c5a5da677ae8d56c918ecab3384209431
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 185d87bfaf909fdffaa56c2dd6ad29838ce635f7
+ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67066075"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70885144"
 ---
 # <a name="quickstart-create-apache-spark-cluster-in-azure-hdinsight-using-powershell"></a>快速入門：使用 PowerShell 在 Azure HDInsight 中建立 Apache Spark 叢集
 
@@ -22,7 +22,7 @@ ms.locfileid: "67066075"
 在本快速入門中，您會使用 Azure PowerShell 來建立 HDInsight Spark 叢集。 叢集會使用 Azure 儲存體 Blob 作為叢集存放區。 如需有關如何使用 Data Lake Storage Gen2 的詳細資訊，請參閱[快速入門：在 HDInsight 中設定叢集](../../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md)。
 
 > [!IMPORTANT]  
-> 不論使用與否，HDInsight 叢集都是按分鐘計費。 請務必在使用完叢集後將其刪除。 如需詳細資訊，請參閱本文的[清除資源](#clean-up-resources)一節。
+> 不論使用與否，HDInsight 叢集都是按分鐘計費。 請務必在使用完叢集後將其刪除。 如需詳細資訊，請參閱此文章的[清除資源](#clean-up-resources)一節。
 
 如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 。
 
@@ -43,7 +43,7 @@ ms.locfileid: "67066075"
 |參數|值|
 |------|------|
 |Azure 資源群組名稱 | 提供資源群組的唯一名稱。|
-|位置| 指定 Azure 區域，例如「美國中部」。 |
+|Location| 指定 Azure 區域，例如「美國中部」。 |
 |預設儲存體帳戶名稱 | 提供儲存體帳戶的唯一名稱。 |
 |叢集名稱 | 提供 HDInsight Spark 叢集的唯一名稱。|
 |叢集登入認證 | 您稍後會在本快速入門中使用此帳戶連線到叢集儀表板。|
@@ -156,7 +156,7 @@ SQL (結構化查詢語言) 是最常見且廣泛使用的語言，可用於查�
 
 1. 確認核心已就緒。 當您在 Notebook 中的核心名稱旁邊看到一個空心圓時，表示核心已準備就緒。 實心圓表示核心忙碌中。
 
-    ![HDInsight Spark 中的 Hive 查詢](./media/apache-spark-jupyter-spark-sql/jupyter-spark-kernel-status.png "HDInsight Spark 中的 Hive 查詢")
+    ![核心狀態](./media/apache-spark-jupyter-spark-sql/jupyter-spark-kernel-status.png "核心狀態")
 
     當您第一次啟動 Notebook 時，核心會在背景執行某些工作。 等待核心準備就緒。 
 2. 將以下程式碼貼入空白儲存格，然後按下 **SHIFT + ENTER** 鍵以執行此程式碼。 此命令會列出叢集上的 Hive 資料表：

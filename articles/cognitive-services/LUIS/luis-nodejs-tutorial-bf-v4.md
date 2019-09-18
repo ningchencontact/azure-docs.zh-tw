@@ -1,5 +1,5 @@
 ---
-title: Language Understanding Bot Node.js v4
+title: 教學課程：Language Understanding Bot Node.js v4
 titleSuffix: Azure Cognitive Services
 description: 使用 Node.js，建置與 Language Understanding (LUIS) 整合的聊天機器人。 此聊天機器人會使用人力資源應用程式來快速實作聊天機器人解決方案。 此 Bot 是使用 Bot Framework 第 4 版和 Azure Web 應用程式 Bot 所建置的。
 services: cognitive-services
@@ -9,20 +9,20 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: tutorial
-ms.date: 08/30/2019
+ms.date: 09/06/2019
 ms.author: diberry
-ms.openlocfilehash: 8455a9c9ecff89643e090f1d763a44f97f5779f5
-ms.sourcegitcommit: 5f67772dac6a402bbaa8eb261f653a34b8672c3a
+ms.openlocfilehash: 8f0438ab015f9d16fd3776421b8d0032fc0a0639
+ms.sourcegitcommit: a4b5d31b113f520fcd43624dd57be677d10fc1c0
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/01/2019
-ms.locfileid: "70206891"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70772892"
 ---
 # <a name="tutorial-use-a-web-app-bot-enabled-with-language-understanding-in-nodejs"></a>教學課程：使用以 Node.js 中 Language Understanding 啟用的 Web 應用程式 Bot 
 
 使用 Node.js 建置與 Language Understanding (LUIS) 整合的聊天 Bot。 此 Bot 是使用 Azure [Web 應用程式 Bot](https://docs.microsoft.com/azure/bot-service/) 資源和 [Bot Framework 版本](https://github.com/Microsoft/botbuilder-dotnet) V4 所建置的。
 
-**在本教學課程中，您將了解如何：**
+**在此教學課程中，您將了解如何：**
 
 > [!div class="checklist"]
 > * 建立 Web 應用程式 Bot。 此程序會為您建立新的 LUIS 應用程式。
@@ -80,12 +80,13 @@ Bot 服務建立流程也會以意圖和語句範例來建立新 LUIS 應用程�
 |--|--|
 |預訂航班|`Travel to Paris`|
 |取消|`bye`|
+|GetWeather|`what's the weather like?`|
 |None|應用程式領域以外的任何項目。|
 
 ## <a name="test-the-bot-in-web-chat"></a>在網路聊天中測試 Bot
 
 1. 針對新的 Bot 仍在 Azure 入口網站時，選取 [在網路聊天中測試]  。 
-1. 在 [輸入您的訊息]  文字方塊中，輸入文字 `hello`。 Bot 會回應 Bot Framework 的相關資訊，以及特定 LUIS 模型 (例如預訂飛往巴黎的班機) 的範例查詢。 
+1. 在 [輸入您的訊息]  文字方塊中，輸入文字 `Book a flight from Seattle to Berlin tomorrow`。 Bot 的回應會驗證您是否要預訂班機。 
 
     ![Azure 入口網站的螢幕擷取畫面，輸入文字 'hello'。](./media/bfv4-nodejs/ask-bot-question-in-portal-test-in-web-chat.png)
 
@@ -100,7 +101,7 @@ Bot 服務建立流程也會以意圖和語句範例來建立新 LUIS 應用程�
 
     [![下載基本 Bot 的 Web 應用程式 Bot 原始程式碼](../../../includes/media/cognitive-services-luis/bfv4/download-code.png)](../../../includes/media/cognitive-services-luis/bfv4/download-code.png#lightbox)
 
-1. 當快顯對話方塊詢問**在下載的 ZIP 檔案中包含應用程式設定嗎？** ，選取 [是]  。
+1. 當快顯對話方塊詢問**在下載的 ZIP 檔案中包含應用程式設定嗎？** ，選取 [是]  。 這會提供 LUIS 設定。 
 
 1. 如果原始程式碼已壓縮為 zip 檔，將會有提供程式碼下載連結的訊息。 選取連結。 
 
@@ -108,242 +109,102 @@ Bot 服務建立流程也會以意圖和語句範例來建立新 LUIS 應用程�
 
 ## <a name="review-code-to-send-utterance-to-luis-and-get-response"></a>檢閱程式碼以將語句傳送至 LUIS 並取得回應
 
-1. 開啟 **dialogs -> luisHelper.js** 檔案。 此階段會將進入 Bot 的使用者語句傳送到 LUIS。 LUIS 提供的回應是從 **bookDetails** JSON 物件方法所傳回。 建立自己的 Bot 時，您也應建立自己的物件以從 LUIS 傳回詳細資料。 
+1. 若要將使用者語句傳送至 LUIS 預測端點，請開啟 [對話方塊] -> [flightBookingRecognizer.js]  檔案。 此階段會將進入 Bot 的使用者語句傳送到 LUIS。 LUIS 提供的回應是從 **executeLuisQuery** 方法所傳回。  
 
-    ```nodejs
-    // Copyright (c) Microsoft Corporation. All rights reserved.
-    // Licensed under the MIT License.
-    
-    const { LuisRecognizer } = require('botbuilder-ai');
-    
-    class LuisHelper {
+    ````javascript
+    class FlightBookingRecognizer {
+
+        ...
+
         /**
          * Returns an object with preformatted LUIS results for the bot's dialogs to consume.
-         * @param {*} logger
          * @param {TurnContext} context
          */
-        static async executeLuisQuery(logger, context) {
-            const bookingDetails = {};
-    
-            try {
-                const recognizer = new LuisRecognizer({
-                    applicationId: process.env.LuisAppId,
-                    endpointKey: process.env.LuisAPIKey,
-                    endpoint: `https://${ process.env.LuisAPIHostName }`
-                }, {}, true);
-    
-                const recognizerResult = await recognizer.recognize(context);
-    
-                const intent = LuisRecognizer.topIntent(recognizerResult);
-    
-                bookingDetails.intent = intent;
-    
-                if (intent === 'Book_flight') {
-                    // We need to get the result from the LUIS JSON which at every level returns an array
-    
-                    bookingDetails.destination = LuisHelper.parseCompositeEntity(recognizerResult, 'To', 'Airport');
-                    bookingDetails.origin = LuisHelper.parseCompositeEntity(recognizerResult, 'From', 'Airport');
-    
-                    // This value will be a TIMEX. And we are only interested in a Date so grab the first result and drop the Time part.
-                    // TIMEX is a format that represents DateTime expressions that include some ambiguity. e.g. missing a Year.
-                    bookingDetails.travelDate = LuisHelper.parseDatetimeEntity(recognizerResult);
-                }
-            } catch (err) {
-                logger.warn(`LUIS Exception: ${ err } Check your LUIS configuration`);
-            }
-            return bookingDetails;
+        async executeLuisQuery(context) {
+            return await this.recognizer.recognize(context);
         }
-    
-        static parseCompositeEntity(result, compositeName, entityName) {
-            const compositeEntity = result.entities[compositeName];
-            if (!compositeEntity || !compositeEntity[0]) return undefined;
-    
-            const entity = compositeEntity[0][entityName];
-            if (!entity || !entity[0]) return undefined;
-    
-            const entityValue = entity[0][0];
-            return entityValue;
-        }
-    
-        static parseDatetimeEntity(result) {
-            const datetimeEntity = result.entities['datetime'];
-            if (!datetimeEntity || !datetimeEntity[0]) return undefined;
-    
-            const timex = datetimeEntity[0]['timex'];
-            if (!timex || !timex[0]) return undefined;
-    
-            const datetime = timex[0].split('T')[0];
-            return datetime;
-        }
+
+        ...
+
     }
-    
-    module.exports.LuisHelper = LuisHelper;
-    ```
+    ````
 
-1. 開啟 **dialogs -> bookingDialog.js** 來了解 BookingDetails 物件如何用來管理對話流程。 旅行的詳細資訊會按步驟詢問，然後確認整個預訂，最後再向使用者重述。 
+1. [對話方塊] -> [mainDialog]  會捕捉語句，並將它傳送至 actStep 方法中的 executeLuisQuery。
 
-    ```nodejs
-    // Copyright (c) Microsoft Corporation. All rights reserved.
-    // Licensed under the MIT License.
-    
-    const { TimexProperty } = require('@microsoft/recognizers-text-data-types-timex-expression');
-    const { ConfirmPrompt, TextPrompt, WaterfallDialog } = require('botbuilder-dialogs');
-    const { CancelAndHelpDialog } = require('./cancelAndHelpDialog');
-    const { DateResolverDialog } = require('./dateResolverDialog');
-    
-    const CONFIRM_PROMPT = 'confirmPrompt';
-    const DATE_RESOLVER_DIALOG = 'dateResolverDialog';
-    const TEXT_PROMPT = 'textPrompt';
-    const WATERFALL_DIALOG = 'waterfallDialog';
-    
-    class BookingDialog extends CancelAndHelpDialog {
-        constructor(id) {
-            super(id || 'bookingDialog');
-    
-            this.addDialog(new TextPrompt(TEXT_PROMPT))
-                .addDialog(new ConfirmPrompt(CONFIRM_PROMPT))
-                .addDialog(new DateResolverDialog(DATE_RESOLVER_DIALOG))
-                .addDialog(new WaterfallDialog(WATERFALL_DIALOG, [
-                    this.destinationStep.bind(this),
-                    this.originStep.bind(this),
-                    this.travelDateStep.bind(this),
-                    this.confirmStep.bind(this),
-                    this.finalStep.bind(this)
-                ]));
-    
-            this.initialDialogId = WATERFALL_DIALOG;
+
+    ````javascript
+    class MainDialog extends ComponentDialog {
+
+        constructor(luisRecognizer, bookingDialog) {
+            ...
+            this.luisRecognizer = luisRecognizer;
+            ...
         }
-    
+
+
+        ...
+
         /**
-         * If a destination city has not been provided, prompt for one.
+         * Second step in the waterfall.  This will use LUIS to attempt to extract the origin, destination and travel dates.
+         * Then, it hands off to the bookingDialog child dialog to collect any remaining details.
          */
-        async destinationStep(stepContext) {
-            const bookingDetails = stepContext.options;
-    
-            if (!bookingDetails.destination) {
-                return await stepContext.prompt(TEXT_PROMPT, { prompt: 'To what city would you like to travel?' });
-            } else {
-                return await stepContext.next(bookingDetails.destination);
-            }
+        async actStep(stepContext) {
+
+            ...
+
+            const luisResult = await this.luisRecognizer.executeLuisQuery(stepContext.context);
+
+            switch (LuisRecognizer.topIntent(luisResult)) {
+                    case 'BookFlight':
+                        // Extract the values for the composite entities from the LUIS result.
+                        const fromEntities = this.luisRecognizer.getFromEntities(luisResult);
+                        const toEntities = this.luisRecognizer.getToEntities(luisResult);
+            
+                        // Show a warning for Origin and Destination if we can't resolve them.
+                        await this.showWarningForUnsupportedCities(stepContext.context, fromEntities, toEntities);
+            
+                        // Initialize BookingDetails with any entities we may have found in the response.
+                        bookingDetails.destination = toEntities.airport;
+                        bookingDetails.origin = fromEntities.airport;
+                        bookingDetails.travelDate = this.luisRecognizer.getTravelDate(luisResult);
+                        console.log('LUIS extracted these booking details:', JSON.stringify(bookingDetails));
+            
+                        // Run the BookingDialog passing in whatever details we have from the LUIS call, it will fill out the remainder.
+                        return await stepContext.beginDialog('bookingDialog', bookingDetails);
+            
+                    case 'GetWeather':
+                        // We haven't implemented the GetWeatherDialog so we just display a TODO message.
+                        const getWeatherMessageText = 'TODO: get weather flow here';
+                        await stepContext.context.sendActivity(getWeatherMessageText, getWeatherMessageText, InputHints.IgnoringInput);
+                        break;
+            
+                    default:
+                        // Catch all for unhandled intents
+                        const didntUnderstandMessageText = `Sorry, I didn't get that. Please try asking in a different way (intent was ${ LuisRecognizer.topIntent(luisResult) })`;
+                        await stepContext.context.sendActivity(didntUnderstandMessageText, didntUnderstandMessageText, InputHints.IgnoringInput);
+                    }
+            
+                    return await stepContext.next();
+
         }
-    
-        /**
-         * If an origin city has not been provided, prompt for one.
-         */
-        async originStep(stepContext) {
-            const bookingDetails = stepContext.options;
-    
-            // Capture the response to the previous step's prompt
-            bookingDetails.destination = stepContext.result;
-            if (!bookingDetails.origin) {
-                return await stepContext.prompt(TEXT_PROMPT, { prompt: 'From what city will you be travelling?' });
-            } else {
-                return await stepContext.next(bookingDetails.origin);
-            }
-        }
-    
-        /**
-         * If a travel date has not been provided, prompt for one.
-         * This will use the DATE_RESOLVER_DIALOG.
-         */
-        async travelDateStep(stepContext) {
-            const bookingDetails = stepContext.options;
-    
-            // Capture the results of the previous step
-            bookingDetails.origin = stepContext.result;
-            if (!bookingDetails.travelDate || this.isAmbiguous(bookingDetails.travelDate)) {
-                return await stepContext.beginDialog(DATE_RESOLVER_DIALOG, { date: bookingDetails.travelDate });
-            } else {
-                return await stepContext.next(bookingDetails.travelDate);
-            }
-        }
-    
-        /**
-         * Confirm the information the user has provided.
-         */
-        async confirmStep(stepContext) {
-            const bookingDetails = stepContext.options;
-    
-            // Capture the results of the previous step
-            bookingDetails.travelDate = stepContext.result;
-            const msg = `Please confirm, I have you traveling to: ${ bookingDetails.destination } from: ${ bookingDetails.origin } on: ${ bookingDetails.travelDate }.`;
-    
-            // Offer a YES/NO prompt.
-            return await stepContext.prompt(CONFIRM_PROMPT, { prompt: msg });
-        }
-    
-        /**
-         * Complete the interaction and end the dialog.
-         */
-        async finalStep(stepContext) {
-            if (stepContext.result === true) {
-                const bookingDetails = stepContext.options;
-    
-                return await stepContext.endDialog(bookingDetails);
-            } else {
-                return await stepContext.endDialog();
-            }
-        }
-    
-        isAmbiguous(timex) {
-            const timexPropery = new TimexProperty(timex);
-            return !timexPropery.types.has('definite');
-        }
+
+        ...
+
     }
-    
-    module.exports.BookingDialog = BookingDialog;
-    ```
-
-
-## <a name="install-dependencies-and-start-the-bot-code-in-visual-studio"></a>安裝相依項目，並在 Visual Studio 中啟動 Bot 程式碼
-
-1. 在 VSCode 的整合式終端中，使用命令 `npm install` 安裝相依項目。
-1. 再從整合式終端中，使用命令 `npm start` 啟動 Bot。 
-
+    ````
+<a name="ask-bot-a-question-for-the-book-flight-intent"></a>
 
 ## <a name="use-the-bot-emulator-to-test-the-bot"></a>使用 Bot 模擬器來測試 Bot
+
+詢問 Bot「預訂航班」意圖的問題。
 
 1. 啟動 Bot 模擬器，然後選取 [開啟 Bot]  。
 1. 在 [開啟 Bot]  快顯對話方塊中，輸入 Bot 的 URL，例如 `http://localhost:3978/api/messages`。 `/api/messages` 路由是 Bot 的網址。
 1. 輸入在您下載的 Bot 程式碼根目錄中 **.env** 檔案中所找到的 **Microsoft 應用程式識別碼**和 **Microsoft 應用程式密碼**。
 
-    (選用) 您可以建立新的 Bot 設定，並從 Bot 的 Visual Studio 專案中 **.env** 檔案複製 `MicrosoftAppId` 和 `MicrosoftAppPassword`。 Bot 設定檔的名稱應與 Bot 名稱相同。 
-
-    ```json
-    {
-        "name": "<bot name>",
-        "description": "<bot description>",
-        "services": [
-            {
-                "type": "endpoint",
-                "appId": "<appId from .env>",
-                "appPassword": "<appPassword from .env>",
-                "endpoint": "http://localhost:3978/api/messages",
-                "id": "<don't change this value>",
-                "name": "http://localhost:3978/api/messages"
-            }
-        ],
-        "padlock": "",
-        "version": "2.0",
-        "overrides": null,
-        "path": "<local path to .bot file>"
-    }
-    ```
-
-1. 在 Bot 模擬器中，輸入 `Hello` 並取得基本 Bot 的相同回應，如同您在**在網路聊天中測試**中所收到。
+1. 在 Bot 模擬器中，輸入 `Book a flight from Seattle to Berlin tomorrow` 並取得基本 Bot 的相同回應，如同您在**在網路聊天中測試**中所收到。
 
     [![模擬器中的基本 Bot 回應](./media/bfv4-nodejs/ask-bot-emulator-a-question-and-get-response.png)](./media/bfv4-nodejs/ask-bot-emulator-a-question-and-get-response.png#lightbox)
-
-
-## <a name="ask-bot-a-question-for-the-book-flight-intent"></a>詢問 Bot「預訂航班」意圖的問題
-
-1. 在 Bot 模擬器中，藉由輸入下列語句來預訂班機： 
-
-    ```console
-    Book a flight from Paris to Berlin on March 22, 2020
-    ```
-
-    Bot 模擬器會要求確認。 
 
 1. 選取 [是]  。 Bot 會回應其動作摘要。 
 1. 從 Bot 模擬器的記錄中，選取包含 `Luis Trace` 的資料行。 這會顯示針對意圖和語句實體 LUIS 的 JSON 回應。

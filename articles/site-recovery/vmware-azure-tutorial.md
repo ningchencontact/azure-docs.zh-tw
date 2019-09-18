@@ -1,29 +1,28 @@
 ---
-title: 使用 Azure Site Recovery 為內部部署 VMware VM 設定災害復原至 Azure | Microsoft Docs
+title: 使用 Azure Site Recovery 為內部部署 VMware VM 設定災害復原至 Azure
 description: 了解如何使用 Azure Site Recovery 為內部部署 VMware VM 設定災害復原至 Azure。
-services: site-recovery
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 05/30/2019
+ms.date: 09/09/2019
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: e93dbc072de7208927eba9e45c09143b56f52a9b
-ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
+ms.openlocfilehash: 268def74a354b19427849738549fbc0c6b197746
+ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66418295"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70813394"
 ---
 # <a name="set-up-disaster-recovery-to-azure-for-on-premises-vmware-vms"></a>為內部部署 VMware VM 設定災害復原至 Azure
 
-本文說明如何針對內部部署 VMware VM 啟用複寫功能，以便使用 [Azure Site Recovery](site-recovery-overview.md) 服務進行 Azure 的災害復原。
+此文章說明如何針對內部部署 VMware VM 啟用複寫功能，以便使用 [Azure Site Recovery](site-recovery-overview.md) 服務進行 Azure 的災害復原。
 
 這是一系列中的第三個教學課程，說明如何為內部部署 VMware VM 設定 Azure 的災害復原。 在上一個教學課程中，我們[準備了內部部署 VMware 環境](vmware-azure-tutorial-prepare-on-premises.md)以便進行 Azure 的災害復原。
 
 
-在本教學課程中，您了解如何：
+在此教學課程中，您了解如何：
 
 > [!div class="checklist"]
 > * 設定來源複寫設定，以及內部部署 Site Recovery 組態伺服器。
@@ -39,10 +38,10 @@ ms.locfileid: "66418295"
 完成先前的教學課程：
 1. 確保您已[設定 Azure](tutorial-prepare-azure.md)，以便將內部部署 VMware 災害復原至 Azure。
 2. 遵循[這些步驟](vmware-azure-tutorial-prepare-on-premises.md)來準備內部部署 VMware 部署，以進行 Azure 的災害復原。
-3. 本教學課程將示範如何複寫單一 VM。 如果您要部署多個 VMware VM，則應該使用[部署規劃工具](https://aka.ms/asr-deployment-planner)。 [深入了解](site-recovery-deployment-planner.md) 此工具。
-4. 本教學課程使用一些您可能想要以不同方式操作的選項：
-    - 本教學課程會使用 OVA 範本來建立組態伺服器 VMware VM。 如果您因為某個理由而無法這麼做，請遵循[這些指示](physical-manage-configuration-server.md)，手動進行設定伺服器的設定。
-    - 在本教學課程中，Site Recovery 會自動下載 MySQL 並安裝到組態伺服器。 如果您願意，您可以改為手動設定它。 [深入了解](vmware-azure-deploy-configuration-server.md#configure-settings)。
+3. 此教學課程將示範如何複寫單一 VM。 如果您要部署多個 VMware VM，則應該使用[部署規劃工具](https://aka.ms/asr-deployment-planner)。 [深入了解](site-recovery-deployment-planner.md) 此工具。
+4. 此教學課程使用一些您可能想要以不同方式操作的選項：
+    - 此教學課程會使用 OVA 範本來建立組態伺服器 VMware VM。 如果您因為某個理由而無法這麼做，請遵循[這些指示](physical-manage-configuration-server.md)，手動進行設定伺服器的設定。
+    - 在此教學課程中，Site Recovery 會自動下載 MySQL 並安裝到組態伺服器。 如果您願意，您可以改為手動設定它。 [深入了解](vmware-azure-deploy-configuration-server.md#configure-settings)。
 
 
 
@@ -153,18 +152,18 @@ ms.locfileid: "66418295"
 選取並確認目標資源。
 
 1. 選取 [準備基礎結構]   > [目標]  。 選取您要使用的 Azure 訂用帳戶。 我們會使用 Resource Manager 模型。
-2. Site Recovery 會檢查您具有一或多個虛擬網路。 當您在本教學課程系列的[第一個教學課程](tutorial-prepare-azure.md)中設定 Azure 元件時，您應擁有這些。
+2. Site Recovery 會檢查您具有一或多個虛擬網路。 當您在此教學課程系列的[第一個教學課程](tutorial-prepare-azure.md)中設定 Azure 元件時，您應擁有這些。
 
    ![目標索引標籤](./media/vmware-azure-tutorial/storage-network.png)
 
 ## <a name="create-a-replication-policy"></a>建立複寫原則
 
 1. 開啟 [Azure 入口網站](https://portal.azure.com)，然後選取 [所有資源]  。
-2. 選取復原服務保存庫 (本教學課程中的 **ContosoVMVault**)。
+2. 選取復原服務保存庫 (此教學課程中的 **ContosoVMVault**)。
 3. 若要建立複寫原則，請選取 [Site Recovery 基礎結構]   > [複寫原則]   > [+複寫原則]  。
 4. 在 [建立複寫原則]  中，輸入原則名稱。 我們會使用 **VMwareRepPolicy**。
 5. 在 [RPO 閾值]  中，使用預設值 60 分鐘。 這個值可定義復原點的建立頻率。 連續複寫超過此限制時會產生警示。
-6. 在 [復原點保留]  中，指定每個復原點的保留時間長度。 在本教學課程中，我們使用會 72 小時。 複寫的 VM 可以還原至保留期內的任何時間點。
+6. 在 [復原點保留]  中，指定每個復原點的保留時間長度。 針對此教學課程，我們會使用 72 小時。 複寫的 VM 可以還原至保留期內的任何時間點。
 7. 在 [應用程式一致快照集頻率]  中，指定建立應用程式一致快照集的頻率。 我們會使用預設值 60 分鐘。 選取 [確定]  以建立原則。
 
    ![建立複寫原則](./media/vmware-azure-tutorial/replication-policy.png)

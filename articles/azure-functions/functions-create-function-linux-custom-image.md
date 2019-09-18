@@ -8,22 +8,22 @@ ms.topic: tutorial
 ms.service: azure-functions
 ms.custom: mvc
 manager: gwallace
-ms.openlocfilehash: 80f7185b69a7953656235d3bd622b7f61611de1a
-ms.sourcegitcommit: d470d4e295bf29a4acf7836ece2f10dabe8e6db2
+ms.openlocfilehash: 1865b1b96b5b8794f1518d639825ccd2f1dcd090
+ms.sourcegitcommit: a4b5d31b113f520fcd43624dd57be677d10fc1c0
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/02/2019
-ms.locfileid: "70210187"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70773144"
 ---
 # <a name="create-a-function-on-linux-using-a-custom-image"></a>在 Linux 上使用自訂映像建立函式
 
 Azure Functions 可讓您在 Linux 的自訂容器中裝載函式。 您也可以[在預設的 Azure App Service 容器上裝載](functions-create-first-azure-function-azure-cli-linux.md)。 此功能需要 [Functions 2.x 執行階段](functions-versions.md)。
 
-在本教學課程中，您將了解如何以自訂 Docker 映像的形式將函式部署到 Azure。 當您需要自訂內建容器映像時，此模式相當有用。 當您的函式需要特定的語言版本，或需要內建映像未提供的特定相依性或設定時，您可能會想使用自訂映像。 在 [Azure Functions 基底映像存放庫](https://hub.docker.com/_/microsoft-azure-functions-base)中可找到針對 Azure Functions 支援的基底映像。 
+在此教學課程中，您將了解如何以自訂 Docker 映像的形式將函式部署到 Azure。 當您需要自訂內建容器映像時，此模式相當有用。 當您的函式需要特定的語言版本，或需要內建映像未提供的特定相依性或設定時，您可能會想使用自訂映像。 在 [Azure Functions 基底映像存放庫](https://hub.docker.com/_/microsoft-azure-functions-base)中可找到針對 Azure Functions 支援的基底映像。 
 
-本教學課程會引導您使用 Azure Functions Core Tools 在自訂 Linux 映像中建立建立函式。 您會將此映像發佈到 Azure 中使用 Azure CLI 建立的函式應用程式。 稍後，您會更新此函式以連線到 Azure 佇列儲存體。 您也會啟用。  
+此教學課程會引導您使用 Azure Functions Core Tools 在自訂 Linux 映像中建立建立函式。 您會將此映像發佈到 Azure 中使用 Azure CLI 建立的函式應用程式。 稍後，您會更新此函式以連線到 Azure 佇列儲存體。 您也會啟用。  
 
-在本教學課程中，您了解如何：
+在此教學課程中，您了解如何：
 
 > [!div class="checklist"]
 > * 使用 Core Tools 建立函式應用程式和 Dockerfile。
@@ -143,9 +143,8 @@ docker run -p 8080:80 -it <docker-ID>/mydockerimage:v1.0.0
 
 ![在本機測試函式應用程式。](./media/functions-create-function-linux-custom-image/run-image-local-success.png)
 
-您可以選擇性地再次測試您的函式，這次請在本機容器中使用下列 URL:
-
-`http://localhost:8080/api/myhttptrigger?name=<yourname>`
+> [!NOTE]
+> 此時，當您嘗試呼叫特定的 HTTP 函式時，您會收到 HTTP 401 錯誤回應。 這是因為您的函式會在本機容器中執行，如同在 Azure 中一樣，這表示需要函式金鑰。 由於容器尚未發佈至函式應用程式，因此沒有可用的函式金鑰。 您稍後會看到當您使用核心工具來發佈容器時，會向您顯示函式金鑰。 如果您想要測試在本機容器中執行的函式，您可以將[授權金鑰](functions-bindings-http-webhook.md#authorization-keys)變更為 `anonymous`。 
 
 在容器中驗證過函式應用程式容器之後，停止執行。 現在，您可以將自訂映像推送到 Docker Hub 帳戶。
 
@@ -185,7 +184,7 @@ v1.0.0: digest: sha256:be080d80770df71234eb893fbe4d... size: 1796
 
 ## <a name="create-a-premium-plan"></a>建立進階方案
 
-針對[專用 (App Service) 方案](functions-scale.md#app-service-plan)和[進階方案](functions-premium-plan.md#features)上支援的自訂 Functions 容器進行 Linux 主控。 本教學課程使用可視需要進行調整的進階方案。 若要深入了解裝載，請參閱 [Azure Functions 裝載方案比較](functions-scale.md)。
+針對[專用 (App Service) 方案](functions-scale.md#app-service-plan)和[進階方案](functions-premium-plan.md#features)上支援的自訂 Functions 容器進行 Linux 主控。 此教學課程使用可視需要進行調整的進階方案。 若要深入了解裝載，請參閱 [Azure Functions 裝載方案比較](functions-scale.md)。
 
 下列範例會在 [彈性進階 1]  定價層 (`--sku EP1`)、在美國西部區域 (`-location WestUS`)，以及在 Linux 容器 (`--is-linux`) 中建立名為 `myPremiumPlan` 的進階方案。
 
@@ -267,7 +266,7 @@ az functionapp deployment container config --enable-cd \
 
 ## <a name="next-steps"></a>後續步驟
 
-在本教學課程中，您已了解如何：
+在此教學課程中，您已了解如何：
 
 > [!div class="checklist"]
 > * 使用 Core Tools 建立函式應用程式和 Dockerfile。

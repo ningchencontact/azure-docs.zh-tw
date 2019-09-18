@@ -1,5 +1,5 @@
 ---
-title: 將自訂事件傳送至 Web 端點 - 事件方格、Azure CLI | Microsoft Docs
+title: 使用 Event Grid 和 Azure CLI 傳送自訂事件
 description: 使用 Azure 事件方格和 Azure CLI 發佈自訂主題，以及訂閱該主題的事件。 事件是由 Web 應用程式處理。
 services: event-grid
 keywords: ''
@@ -8,17 +8,17 @@ ms.author: spelluru
 ms.date: 12/07/2018
 ms.topic: quickstart
 ms.service: event-grid
-ms.custom: seodec18
-ms.openlocfilehash: fe821fbcea78719095e5353b0d4165f85916b67d
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.custom: seodec18, seo-javascript-september2019
+ms.openlocfilehash: a6888179d4d465808dc28f7784db8d1d915e3f80
+ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68958656"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70861096"
 ---
 # <a name="quickstart-route-custom-events-to-web-endpoint-with-azure-cli-and-event-grid"></a>快速入門：使用 Azure CLI 和事件方格將自訂事件路由傳送至 Web 端點
 
-Azure Event Grid 是一項雲端事件服務。 在本文中，您可使用 Azure CLI 建立自訂主題、訂閱自訂主題，以及觸發事件來檢視結果。 通常，您會將事件傳送至可處理事件資料及採取行動的端點。 不過，若要簡化這篇文章，您可將事件傳送至可收集及顯示訊息的 Web 應用程式。
+Azure Event Grid 是一項雲端事件服務。 在此文章中，您可使用 Azure CLI 建立自訂主題、訂閱自訂主題，以及觸發事件來檢視結果。 通常，您會將事件傳送至可處理事件資料及採取行動的端點。 不過，若要簡化這篇文章，您可將事件傳送至可收集及顯示訊息的 Web 應用程式。
 
 當您完成時，您會看到事件資料已傳送至 Web 應用程式。
 
@@ -28,7 +28,7 @@ Azure Event Grid 是一項雲端事件服務。 在本文中，您可使用 Azur
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-如果您選擇在本機安裝和使用 CLI，本文會要求您執行最新版的 Azure CLI (2.0.24 或更新版本)。 若要尋找版本，請執行 `az --version`。 如果您需要安裝或升級，請參閱[安裝 Azure CLI](/cli/azure/install-azure-cli)。
+如果您選擇在本機安裝和使用 CLI，此文章會要求您執行最新版的 Azure CLI (2.0.24 或更新版本)。 若要尋找版本，請執行 `az --version`。 如果您需要安裝或升級，請參閱[安裝 Azure CLI](/cli/azure/install-azure-cli)。
 
 如果您未使用 Cloud Shell，必須先使用 `az login` 登入。
 
@@ -112,7 +112,7 @@ event='[ {"id": "'"$RANDOM"'", "eventType": "recordInserted", "subject": "myapp/
 
 JSON 的 `data` 元素是您的事件承載。 任何語式正確的 JSON 都可以進入這個欄位。 您也可以使用主體欄位進行進階路由傳送或篩選。
 
-CURL 是可傳送 HTTP 要求的公用程式。 本文使用 CURL 將事件傳送到主題。 
+CURL 是可傳送 HTTP 要求的公用程式。 在此文章中，使用 CURL 將事件傳送到主題。 
 
 ```azurecli-interactive
 curl -X POST -H "aeg-sas-key: $key" -d "$event" $endpoint
@@ -137,7 +137,7 @@ curl -X POST -H "aeg-sas-key: $key" -d "$event" $endpoint
 ```
 
 ## <a name="clean-up-resources"></a>清除資源
-如果您打算繼續使用此事件或事件檢視器應用程式，請勿清除在本文中建立的資源。 否則，請使用下列命令來刪除您在本文建立的資源。
+如果您打算繼續使用此事件或事件檢視器應用程式，請勿清除在此文章中建立的資源。 否則，請使用下列命令來刪除您在此文章中建立的資源。
 
 ```azurecli-interactive
 az group delete --name gridResourceGroup

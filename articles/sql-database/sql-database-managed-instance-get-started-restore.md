@@ -11,12 +11,12 @@ author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: sstein, carlrab, bonova
 ms.date: 12/14/2018
-ms.openlocfilehash: 8a3a325cbfced13b6e2ac4cb842b5d5f4f764750
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 2aae0ce7bbf5c8804dcaab90fcb60a66dfe59cf0
+ms.sourcegitcommit: 86d49daccdab383331fc4072b2b761876b73510e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68567471"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70744411"
 ---
 # <a name="quickstart-restore-a-database-to-a-managed-instance"></a>快速入門：將資料庫還原到受控執行個體
 
@@ -37,6 +37,7 @@ ms.locfileid: "68567471"
 - 需要使用 SSMS 以連線到您的受控執行個體。 請參閱這些快速入門以了解如何連線：
   - [從 Azure VM 連線到 Azure SQL Database 受控執行個體](sql-database-managed-instance-configure-vm.md)
   - [設定從內部部署連線至 Azure SQL Database 受控執行個體的點對站連線](sql-database-managed-instance-configure-p2s.md)。
+- 需要**公用 IP** 上以 **SAS 認證**保護的 Azure Blob 儲存體帳戶 (例如 Standard_LRSV2) 具有 `rw` 權限。 目前不支援[由防火牆所保護之 Blob 儲存體的私人 IP](https://docs.microsoft.com/azure/storage/common/storage-network-security) 和 Azure Blob 儲存體服務端點。
 
 > [!NOTE]
 > 如需有關使用 Azure Blob 儲存體和[共用存取簽章 (SAS) 金鑰](https://docs.microsoft.com/azure/storage/common/storage-dotnet-shared-access-signature-part-1)來備份和還原 SQL Server 資料庫的詳細資訊，請參閱 [SQL Server 備份到 URL](sql-database-managed-instance-get-started-restore.md)。

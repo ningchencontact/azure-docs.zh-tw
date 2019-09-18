@@ -1,5 +1,5 @@
 ---
-title: 快速入門：使用 Node.js 來呼叫文字分析 API
+title: 快速入門：使用 Node.js 呼叫文字分析 REST API
 titleSuffix: Azure Cognitive Services
 description: 取得資訊和程式碼範例，協助您在 Azure 認知服務中快速開始使用文字分析 API。
 services: cognitive-services
@@ -10,17 +10,18 @@ ms.subservice: text-analytics
 ms.topic: quickstart
 ms.date: 08/28/2019
 ms.author: aahi
-ms.openlocfilehash: 5d441b51d75f032ecf6e60419218ef3f902e2cbd
-ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.custom: seo-javascript-september2019
+ms.openlocfilehash: 9f9bc3bfe0c8eb023dcc9cca879eeb92175fc094
+ms.sourcegitcommit: b7b0d9f25418b78e1ae562c525e7d7412fcc7ba0
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70142743"
+ms.lasthandoff: 09/08/2019
+ms.locfileid: "70801519"
 ---
 # <a name="quickstart-using-nodejs-to-call-the-text-analytics-cognitive-service"></a>快速入門：使用 Node.js 來呼叫文字分析認知服務  
 <a name="HOLTop"></a>
 
-本文示範如何使用 [文字分析 API](//go.microsoft.com/fwlink/?LinkID=759711)  與 Node.JS 來[偵測語言](#Detect)、[分析情感](#SentimentAnalysis)、[擷取關鍵片語](#KeyPhraseExtraction)，以[及識別已連結實體](#Entities)。
+此文章示範如何使用 [文字分析 API](//go.microsoft.com/fwlink/?LinkID=759711)  與 Node.JS 來[偵測語言](#Detect)、[分析情感](#SentimentAnalysis)、[擷取關鍵片語](#KeyPhraseExtraction)，以[及識別已連結實體](#Entities)。
 
 如需 API 的技術文件，請參閱 [API 定義](//go.microsoft.com/fwlink/?LinkID=759346)。
 

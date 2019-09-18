@@ -1,6 +1,6 @@
 ---
 title: 教學課程：將自訂視覺分類器部署到裝置 - Azure IoT Edge | Microsoft Docs
-description: 在本教學課程中，了解如何使用自訂視覺和 IoT Edge，讓電腦視覺模型以容器的形式執行。
+description: 在此教學課程中，了解如何使用自訂視覺和 IoT Edge，讓電腦視覺模型以容器的形式執行。
 services: iot-edge
 author: kgremban
 manager: philmea
@@ -9,12 +9,12 @@ ms.date: 06/25/2019
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc, seodec18
-ms.openlocfilehash: 63485a41016033b00f787fc8c938b8da7135d657
-ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
+ms.openlocfilehash: 145b643999ff6e4af99ec50c9b0120fc9f11a212
+ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68840147"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70858949"
 ---
 # <a name="tutorial-perform-image-classification-at-the-edge-with-custom-vision-service"></a>教學課程：使用自訂視覺服務在邊緣執行影像分類
 
@@ -22,7 +22,7 @@ Azure IoT Edge 可藉由將工作負載從雲端移至邊緣，來提升 IoT 解
 
 例如，IoT Edge 裝置上的自訂視覺無法判斷高速公路的車流量較平常高或低，也無法判斷停車場的某一排是否有停車位。 這些深入解析可與其他服務共用以便採取動作。
 
-在本教學課程中，您了解如何：
+在此教學課程中，您了解如何：
 
 > [!div class="checklist"]
 >
@@ -39,7 +39,10 @@ Azure IoT Edge 可藉由將工作負載從雲端移至邊緣，來提升 IoT 解
 
 ## <a name="prerequisites"></a>必要條件
 
-在開始本教學課程之前，您應該已經完成先前的教學課程，以針對 Linux 容器開發設定您的開發環境：[開發適用於 Linux 裝置的 IoT Edge 模組](tutorial-develop-for-linux.md)。 完成該教學課程之後，您應該會具備下列必要條件： 
+>[!TIP]
+>此教學課程是 [Raspberry Pi 3 上的自訂視覺和 Azure IoT Edge](https://github.com/Azure-Samples/Custom-vision-service-iot-edge-raspberry-pi) \(英文\) 範例專案的簡化版本。 此教學課程是設計成在雲端 VM 上執行，並使用靜態影像來定型和測試影像分類器，這對於剛開始評估 IoT Edge 社的自訂視覺的人非常有用。 範例專案使用實體硬體並設定即時相機摘要來定型和測試影像分類器，這對於想要嘗試更詳細的真實案例的人非常有用。
+
+在開始此教學課程之前，您應該已經完成先前的教學課程，以針對 Linux 容器開發設定您的環境：[開發適用於 Linux 裝置的 IoT Edge 模組](tutorial-develop-for-linux.md)。 完成該教學課程之後，您應該會具備下列必要條件： 
 
 * Azure 中的免費或標準層 [IoT 中樞](../iot-hub/iot-hub-create-through-portal.md)。
 * [執行 Azure IoT Edge 的 Linux 裝置](quickstart-linux.md)
@@ -51,7 +54,7 @@ Azure IoT Edge 可藉由將工作負載從雲端移至邊緣，來提升 IoT 解
 
 * [Python](https://www.python.org/downloads/)
 * [Git](https://git-scm.com/downloads)
-* 適用於 Visual Studio Code 的 [Python](https://marketplace.visualstudio.com/items?itemName=ms-python.python) 擴充功能
+* [適用於 Visual Studio Code 的 Python 擴充功能](https://marketplace.visualstudio.com/items?itemName=ms-python.python) \(英文\) 
 
 ## <a name="build-an-image-classifier-with-custom-vision"></a>使用電腦視覺建置影像分類器
 
@@ -167,7 +170,7 @@ Visual Studio Code 視窗會載入 IoT Edge 解決方案工作區。
 
 ### <a name="select-your-target-architecture"></a>選取您的目標架構
 
-目前，Visual Studio Code 可以開發適用於 Linux AMD64 和 Linux ARM32v7 裝置的模組。 您必須為每個解決方案都選取要作為目標的架構，因為容器是針對每個架構類型，以不同方式建置和執行。 預設值為 Linux AMD64。 
+目前，Visual Studio Code 可以開發適用於 Linux AMD64 和 Linux ARM32v7 裝置的模組。 您必須為每個解決方案都選取要作為目標的架構，因為容器是針對每個架構類型，以不同方式建置和執行。 預設值為 Linux AMD64，這是我們將在此教學課程中使用的架構。 
 
 1. 開啟命令選擇區並搜尋 **Azure IoT Edge:Set Default Target Platform for Edge Solution**，或選取視窗底部側邊欄的捷徑圖示。 
 
@@ -191,7 +194,7 @@ Visual Studio Code 中的 Python 模組範本包含一些程式碼範例，可�
 
 6. 開啟 classifier 資料夾中的 **module.json** 檔案。 
 
-7. 將 **platforms** 參數更新為指向您所新增的 Dockerfile，然後移除目前不支援用於自訂視覺模組的 ARM32 架構和 AMD64.debug 選項。 
+7. 更新 **platforms** 參數以指向您新增的新 Dockerfile，並移除 AMD64 以外的所有選項，這是我們在此教學課程中唯一使用的架構。 
 
    ```json
    "platforms": {
@@ -343,7 +346,7 @@ Visual Studio Code 中的 Python 模組範本包含一些程式碼範例，可�
 
 #### <a name="add-a-test-image-to-the-container"></a>在容器中新增測試影像
 
-我們將會使用單一測試影像，而不會使用實際的觀景窗來為此案例提供影像饋送。 您稍早在本教學課程中為了獲得訓練影像而下載的 GitHub 存放庫中會有測試影像。 
+我們將會使用單一測試影像，而不會使用實際的觀景窗來為此案例提供影像饋送。 您稍早在此教學課程中為了獲得訓練影像而下載的 GitHub 存放庫中會有測試影像。 
 
 1. 瀏覽至測試影像，其位置是 **Cognitive-CustomVision-Windows** / **Samples** / **Images** / **Test**。 
 
@@ -351,7 +354,7 @@ Visual Studio Code 中的 Python 模組範本包含一些程式碼範例，可�
 
 3. 瀏覽至 IoT Edge 解決方案目錄，並在 **modules** / **cameraCapture** 資料夾中貼上測試影像。 影像所在的資料夾，應該會和您在上一節所編輯的 main.py 檔案相同。 
 
-3. 在 Visual Studio Code 中，開啟 cameraCapture 模組的 **Dockerfile.amd64** 檔案。 (自訂視覺模組目前不支援 ARM32)。 
+3. 在 Visual Studio Code 中，開啟 cameraCapture 模組的 **Dockerfile.amd64** 檔案。 
 
 4. 在建立工作目錄 `WORKDIR /app` 的程式行後面，新增下列程式碼： 
 
@@ -363,7 +366,7 @@ Visual Studio Code 中的 Python 模組範本包含一些程式碼範例，可�
 
 ### <a name="prepare-a-deployment-manifest"></a>準備部署資訊清單
 
-到目前為止，您已在本教學課程中訓練了自訂視覺模型來分類樹木影像，並已將該模型封裝為 IoT Edge 模組。 然後，您建立了第二個模組，其可以查詢影像分類伺服器，並將其結果回報給 IoT 中樞。 現在，您已準備好建立部署資訊清單，以便指示 IoT Edge 裝置要如何一起啟動和執行這兩個模組。 
+到目前為止，您已在此教學課程中訓練了自訂視覺模型來分類樹木影像，並已將該模型封裝為 IoT Edge 模組。 然後，您建立了第二個模組，其可以查詢影像分類伺服器，並將其結果回報給 IoT 中樞。 現在，您已準備好建立部署資訊清單，以便指示 IoT Edge 裝置要如何一起啟動和執行這兩個模組。 
 
 Visual Studio Code 的 IoT Edge 擴充功能會在每個 IoT Edge 解決方案中提供範本，以協助您建立部署資訊清單。 
 
@@ -440,14 +443,14 @@ Visual Studio Code 的 IoT Edge 擴充功能會在每個 IoT Edge 解決方案�
 
 如果您打算繼續閱讀下一篇建議的文章，則可以保留您所建立的資源和組態，並加以重複使用。 您可以也繼續使用相同的 IoT Edge 裝置作為測試裝置。 
 
-否則，可以刪除您在本文中使用的本機設定和 Azure 資源，以避免產生費用。 
+否則，可以刪除您在此文章中使用的本機設定和 Azure 資源，以避免產生費用。 
 
 [!INCLUDE [iot-edge-clean-up-cloud-resources](../../includes/iot-edge-clean-up-cloud-resources.md)]
 
 
 ## <a name="next-steps"></a>後續步驟
 
-在本教學課程中，您已訓練自訂視覺模型，並將它以模組形式部署到 IoT Edge 裝置。 然後，您建置了模組，以便查詢影像分類伺服器，並將其結果回報給 IoT 中樞。 
+在此教學課程中，您已訓練自訂視覺模型，並將它以模組形式部署到 IoT Edge 裝置。 然後，您建置了模組，以便查詢影像分類伺服器，並將其結果回報給 IoT 中樞。 
 
 如果您想要嘗試此案例含有即時觀景窗饋送的更深入版本，請參閱 [Raspberry Pi 3 上的自訂視覺和 Azure IoT Edge](https://github.com/Azure-Samples/Custom-vision-service-iot-edge-raspberry-pi) GitHub 專案。 
 

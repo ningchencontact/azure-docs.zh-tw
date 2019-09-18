@@ -62,26 +62,6 @@ sections:
           - title: 進階安全性
             href: /azure/sql-database/sql-database-security-index
             html: <p>使用內建 Azure SQL 資料庫安全性功能來保護執行個體和資料庫。<p>
-  - title: 新功能與預覽功能
-    items:
-      - type: paragraph
-        text: 我們會持續以新功能改善受控執行個體：
-      - type: list
-        style: unordered
-        items:
-          - html: (預覽) <a href="/azure/sql-database/sql-database-instance-pools"> 執行個體集區</a> - 提供便利且符合成本效益的方式，將較小的 SQL 執行個體遷移到雲端。
-          - html: '<a href="https://aka.ms/four-cores-sql-mi-update"> Gen5 代硬體上的 4 個虛擬核心</a>'
-          - html: '透過 <a href="https://aka.ms/sql-mi-visual-studio-subscribers" > Azure 每月點數，支援 Visual Studio 訂閱者的訂用帳戶</a>'
-          - html: '對 <a href="https://docs.microsoft.com/sharepoint/administration/deploy-azure-sql-managed-instance-with-sharepoint-servers-2016-2019"> SharePoint 2016 和 SharePoint 2019 </a> 以及 <a href="https://docs.microsoft.com/business-applications-release-notes/october18/dynamics365-business-central/support-for-azure-sql-database-managed-instance"> Dynamics 365 Business Central </a> 的支援'
-          - html: '在執行個體建立期間<a href="https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-timezone">設定時區</a>。'
-          - html: '使用<a href="https://aka.ms/managed-instance-collation">您選擇的伺服器層級定序</a>建立執行個體。'
-          - html: '異地還原功能可讓您<a href="https://medium.com/@jocapc/geo-restore-your-databases-on-azure-sql-instances-1451480e90fa">使用 PowerShell 將資料庫還原到其他資料中心</a>。'
-          - html: '(預覽) <a href="https://medium.com/@jocapc/re-create-dropped-databases-in-azure-sql-managed-instance-dc369ed60266">使用 PowerShell 重新建立已卸載的資料庫</a>'
-          - html: 受控執行個體受<a href="sql-database-managed-instance-management-endpoint-verify-built-in-firewall.md">內建防火牆</a>的保護。
-          - html: '(預覽) 移轉已啟用「透明資料加密」(TDE) 的內部部署資料庫時<a href="https://aka.ms/managed-instance-tde-byok">攜帶您自己的加密金鑰</a>。'
-          - html: '(預覽) 使用<a href="https://aka.ms/managed-instance-failover-groups">異地分散的容錯移轉群組</a>將執行個體保留在另一個區域中，確保即使在區域性災害案例中，您的資料仍可供使用。'
-          - html: '為還原時間點<a href="https://aka.ms/managed-instance-configurable-backup-retention">設定最多 35 天的備份保留期限</a>。 請注意，長期備份保留期間 (最多 10 年) 仍未啟用，因此您可以使用<a href="https://docs.microsoft.com/sql/relational-databases/backup-restore/copy-only-backups-sql-server">只複製備份</a>作為替代方案。'
-          - html: '(預覽) 使用 <a href="https://docs.microsoft.com/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current">CREATE LOGIN FROM EXTERNAL PROVIDER</a> 建立<a href="https://aka.ms/managed-instance-aadlogins">執行個體層級 Azure AD 伺服器主體 (登入)</a>。'
   - title: 5 分鐘快速入門
     items:
       - type: paragraph

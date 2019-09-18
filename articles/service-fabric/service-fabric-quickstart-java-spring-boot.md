@@ -1,6 +1,6 @@
 ---
 title: 快速入門：在 Azure Service Fabric 上建立 Spring Boot 應用程式
-description: 在本教學課程中，您會使用 Spring Boot 範例應用程式來部署適用於 Azure Service Fabric 的 Spring Boot 應用程式。
+description: 在此教學課程中，您會使用 Spring Boot 範例應用程式來部署適用於 Azure Service Fabric 的 Spring Boot 應用程式。
 services: service-fabric
 documentationcenter: java
 author: suhuruli
@@ -14,19 +14,19 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 01/29/2019
 ms.author: suhuruli
-ms.custom: mvc, devcenter, seo-java-august2019
-ms.openlocfilehash: 9314acfa56aac50265ee45b356ae00f89f70446f
-ms.sourcegitcommit: ee61ec9b09c8c87e7dfc72ef47175d934e6019cc
+ms.custom: mvc, devcenter, seo-java-august2019, seo-java-september2019
+ms.openlocfilehash: 2aa5879ee3960bd5d26855ac7e7c3e12994ee54e
+ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70173206"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70861340"
 ---
 # <a name="quickstart-deploy-a-java-spring-boot-app-on-azure-service-fabric"></a>快速入門：在 Azure Service Fabric 上部署 Java Spring Boot 應用程式
 
-Azure Service Fabric 是一個分散式系統平台，可讓您部署及管理微服務與容器。
+此快速入門說明如何將 Java Spring Boot 應用程式部署到 Azure Service Fabric。 Azure Service Fabric 是一個分散式系統平台，可讓您部署及管理微服務與容器。 
 
-此快速入門說明如何將 Spring Boot 應用程式部署到 Service Fabric。 本快速入門使用 Spring 網站上的 [Getting Started](https://spring.io/guides/gs/spring-boot/) 範例。 本快速入門使用熟悉的命令列工具，引導您將 Spring Boot 範例部署為 Service Fabric 應用程式。 完成後，您就可以在 Service Fabric 上使用 Spring Boot Getting Started 範例。
+本快速入門使用 Spring 網站上的 [Getting Started](https://spring.io/guides/gs/spring-boot/) 範例。 本快速入門使用熟悉的命令列工具，引導您將 Spring Boot 範例部署為 Service Fabric 應用程式。 完成後，您就可以在 Service Fabric 上使用 Spring Boot Getting Started 範例。
 
 ![應用程式螢幕擷取畫面](./media/service-fabric-quickstart-java-spring-boot/springbootsflocalhost.png)
 

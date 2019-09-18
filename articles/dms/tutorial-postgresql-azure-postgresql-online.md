@@ -10,19 +10,19 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: article
-ms.date: 06/28/2019
-ms.openlocfilehash: 29776c1a49161daf9cf972c43c1378e52f5c3069
-ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.date: 09/06/2019
+ms.openlocfilehash: 5888555e93c28c96445bed1936deda022b0a4b94
+ms.sourcegitcommit: 97605f3e7ff9b6f74e81f327edd19aefe79135d2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70141507"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70734594"
 ---
 # <a name="tutorial-migrate-postgresql-to-azure-database-for-postgresql-online-using-dms"></a>教學課程：在線上使用 DMS 將 PostgreSQL 移轉至適用於 PostgreSQL 的 Azure 資料庫
 
 您可以使用 Azure 資料庫移轉服務，在最短的停機時間內將資料庫從內部部署 PostgreSQL 執行個體移轉至[適用於 PostgreSQL 的 Azure 資料庫](https://docs.microsoft.com/azure/postgresql/)。 換句話說，可在最短的應用程式停機時間內完成移轉。 在此教學課程中，您會在 Azure 資料庫移轉服務中使用線上移轉活動，將 **DVD Rental** 範例資料庫從內部部署的 PostgreSQL 9.6 執行個體移轉至適用於 PostgreSQL 的 Azure 資料庫。
 
-在本教學課程中，您了解如何：
+在此教學課程中，您了解如何：
 > [!div class="checklist"]
 >
 > * 使用 pg_dump 公用程式移轉範例結構描述。
@@ -39,14 +39,11 @@ ms.locfileid: "70141507"
 
 ## <a name="prerequisites"></a>必要條件
 
-若要完成本教學課程，您需要：
+若要完成此教學課程，您需要：
 
 * 下載並安裝 [PostgreSQL 社群版](https://www.postgresql.org/download/) 9.5、9.6 或 10。 來源 PostgreSQL 伺服器版本必須是 9.5.11、9.6.7、10 或更新版本。 如需詳細資訊，請參閱[支援的 PostgreSQL 資料庫版本](https://docs.microsoft.com/azure/postgresql/concepts-supported-versions)一文。
 
     此外，內部部署 PostgreSQL 版本必須符合適用於 PostgreSQL 的 Azure 資料庫版本。 例如，PostgreSQL 9.5.11.5 只能移轉至「適用於 PostgreSQL 的 Azure 資料庫」9.5.11，而無法移轉至 9.6.7。
-
-    > [!NOTE]
-    > 對於 PostgreSQL 第 10 版，目前 DMS 僅支援將 10.3 版移轉到 PostgreSQL 的 Azure 資料庫。
 
 * [在適用於 PostgreSQL 的 Azure 資料庫中建立執行個體](https://docs.microsoft.com/azure/postgresql/quickstart-create-server-database-portal)。  
 * 使用 Azure Resource Manager 部署模型建立 Azure 資料庫移轉服務的 Azure 虛擬網路 (VNet)，以使用 [ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-introduction) 或 [VPN](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways) 為您的內部部署來源伺服器提供站對站連線能力。 如需建立 VNet 的詳細資訊，請參閱[虛擬網路文件](https://docs.microsoft.com/azure/virtual-network/)，特別是快速入門文章，裡面會提供逐步操作詳細資料。
@@ -79,7 +76,7 @@ ms.locfileid: "70141507"
 * 在 postgresql.config 檔案中啟用邏輯複寫，並設定下列參數：
 
   * wal_level = **logical**
-  * max_replication_slots = [插槽數目]，建議設定為 **5 個插槽**
+  * max_replication_slots = [插槽數目]，建議設定為**五個插槽**
   * max_wal_senders =[並行工作數目] - max_wal_senders 參數設定可執行的並行工作數目，建議設定為 **10 個工作**
 
 ## <a name="migrate-the-sample-schema"></a>移轉範例結構描述

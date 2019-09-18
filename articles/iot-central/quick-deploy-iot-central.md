@@ -9,12 +9,12 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: corywink
-ms.openlocfilehash: 0d5f04d9c0cc6dcd8a784ae7a816d93e2aab30aa
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: eb6759d95ab0fb7afd3b6179babf052dfb029ff2
+ms.sourcegitcommit: 23389df08a9f4cab1f3bb0f474c0e5ba31923f12
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70099477"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70873439"
 ---
 # <a name="create-an-azure-iot-central-application"></a>建立 Azure IoT Central 應用程式
 
@@ -37,7 +37,7 @@ ms.locfileid: "70099477"
    - **隨用隨付**應用程式會依據裝置收費，前 5 個裝置免費。 如果您建立**隨用隨付**應用程式，則必須選取*目錄*、*Azure 訂用帳戶*和*區域*：
       - *目錄*是用來建立應用程式的 Azure Active Directory (AD)。 其中包含使用者識別、認證和其他組織資訊。 如果您沒有 Azure AD，系統會在您建立 Azure 訂用帳戶時為您建立。
       - *Azure 訂用帳戶*可讓您建立 Azure 服務執行個體。 IoT Central 會在您的訂用帳戶中佈建資源。 如果您沒有 Azure 訂用帳戶，您可以在 [Azure 註冊頁面](https://aka.ms/createazuresubscription)上建立一個。 建立 Azure 訂用帳戶之後，請瀏覽回到 [建立應用程式]  頁面。 新的訂用帳戶會出現在 [Azure 訂用帳戶]  下拉式清單中。
-      - *區域*是您要在其中建立應用程式的實體位置。 一般而言，您應該選擇實際上最接近裝置的區域，以獲得最佳效能。您可以在 [依區域提供的產品](https://azure.microsoft.com/regions/services/) 頁面上檢視可使用 Azure IoT Central 的區域。 選擇區域後，即無法將應用程式移到不同的區域。
+      - *區域*是您要在其中建立應用程式的實體位置或[地理位置](https://azure.microsoft.com/global-infrastructure/geographies/)。 一般而言，您應該選擇實際上最接近您裝置的區域，以取得最佳效能。 您可以在[依區域提供的產品](https://azure.microsoft.com/global-infrastructure/services/?products=iot-central)頁面上，看到可以使用 Azure IoT 中心的區域。 選擇區域後，即無法將應用程式移到不同的區域。
 
       在 [Azure IoT Central 定價頁面](https://azure.microsoft.com/pricing/details/iot-central/)上深入了解定價。
 

@@ -1,5 +1,5 @@
 ---
-title: 快速入門 - 使用 Azure Active Directory B2C 為單一頁面應用程式設定登入 | Microsoft Docs
+title: 快速入門 - 使用 Azure Active Directory B2C 為單一頁面應用程式設定登入
 description: 執行範例單一頁面應用程式，而該應用程式使用 Azure Active Directory B2C 來提供帳戶登入。
 services: active-directory-b2c
 author: mmacy
@@ -7,15 +7,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: quickstart
-ms.date: 10/24/2018
+ms.date: 09/12/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 47df2cbdf0b083cf672353471d1ef51e03507475
-ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
+ms.openlocfilehash: 353cbae59a26f6e1efd566b99a04318321740590
+ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67835344"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70914439"
 ---
 # <a name="quickstart-set-up-sign-in-for-a-single-page-app-using-azure-active-directory-b2c"></a>快速入門：設定使用 Azure Active Directory B2C 的單頁應用程式登入
 
@@ -27,7 +27,7 @@ Azure Active Directory (Azure AD) B2C 提供雲端身分識別管理，使您的
 
 - [Visual Studio 2019](https://www.visualstudio.com/downloads/)，其中包含 **ASP.NET 和 Web 部署**工作負載。
 - 安裝 [Node.js](https://nodejs.org/en/download/)
-- Facebook、Google、Microsoft 或 Twitter 社交帳戶。
+- Facebook、Google 或 Microsoft 社交帳戶。
 - [下載 zip 檔案](https://github.com/Azure-Samples/active-directory-b2c-javascript-msal-singlepageapp/archive/master.zip)，或從 GitHub 複製範例 Web 應用程式。
 
     ```
@@ -58,9 +58,9 @@ Azure Active Directory (Azure AD) B2C 提供雲端身分識別管理，使您的
 
     ![顯示在瀏覽器中的單一頁面應用程式範例應用程式](media/active-directory-b2c-quickstarts-spa/sample-app-spa.png)
 
-    此範例支援數個登入選項，包括使用社交識別提供者或使用電子郵件地址建立本機帳戶。 在本快速入門中，請使用 Facebook、Google、Microsoft 或 Twitter 的社交身分識別提供者帳戶。
+    此範例支援數個登入選項，包括使用社交識別提供者或使用電子郵件地址建立本機帳戶。 在本快速入門中，請使用 Facebook、Google 或 Microsoft 的社交身分識別提供者帳戶。
 
-2. Azure AD B2C 會針對範例 Web 應用程式，呈現 Wingtip Toys 虛構品牌的自訂登入頁面。 若要使用社交識別提供者註冊，按一下您想要使用之識別提供者的按鈕。
+2. Azure AD B2C 會針對範例 Web 應用程式，呈現 Fabrikam 虛構公司的登入頁面。 若要使用社交識別提供者註冊，按一下您想要使用之識別提供者的按鈕。
 
     ![顯示識別提供者按鈕的登入或註冊頁面](media/active-directory-b2c-quickstarts-spa/sign-in-or-sign-up-spa.png)
 

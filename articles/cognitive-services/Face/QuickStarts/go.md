@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: quickstart
-ms.date: 07/03/2019
+ms.date: 09/06/2019
 ms.author: pafarley
-ms.openlocfilehash: 14d79c6ec7a4e9197aca49e9c98e4f24a890ba54
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.openlocfilehash: 0bcd94c62ec0fe5d9e9ffec18c982e7a102f0ffc
+ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67606847"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70858959"
 ---
 # <a name="quickstart-detect-faces-in-an-image-using-the-rest-api-and-go"></a>快速入門：使用 REST API 和 Go 偵測影像中的人臉
 
@@ -49,7 +49,7 @@ func main() {
     // subscription keys. For example, if you got your subscription keys from
     // westus, replace "westcentralus" in the URL below with "westus".
     const uriBase =
-      "https://westcentralus.api.cognitive.microsoft.com/face/v1.0/detect"
+      "https://<My Endpoint String>.com/face/v1.0/detect"
     const imageUrl =
       "https://upload.wikimedia.org/wikipedia/commons/3/37/Dagestani_man_and_woman.jpg"
 
@@ -108,9 +108,11 @@ func main() {
 }
 ```
 
-您將需要以訂用帳戶金鑰更新 `subscriptionKey` 值，而且可能需要變更 `uriBase` 字串，使其包含正確的區域識別碼 (請參閱[人臉識別 API 文件](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236)以取得所有區域端點的清單)。 
+您將需要以訂用帳戶金鑰更新 `subscriptionKey` 值，並變更 `uriBase` 字串，使它包含正確的端點字串。
 
-您也可以變更 `imageUrl` 欄位以指向您自己的輸入影像。 您也可以變更 `returnFaceAttributes` 欄位，以指定所要擷取的臉部屬性。
+[!INCLUDE [subdomains-note](../../../../includes/cognitive-services-custom-subdomains-note.md)]
+
+您也可以變更 `imageUrl` 欄位以指向您自己的輸入影像。 您可能也想要變更 `returnFaceAttributes` 欄位，以指定所要擷取的臉部屬性。
 
 ## <a name="run-the-script"></a>執行指令碼
 

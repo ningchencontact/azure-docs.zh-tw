@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.service: iot-pnp
 services: iot-pnp
 ms.custom: mvc
-ms.openlocfilehash: 246d3eac8f9d8aff6d603ea8686e430ce0f772ea
-ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+ms.openlocfilehash: a082e4b7896b317bf2b28971d3693bada95a3445
+ms.sourcegitcommit: b8578b14c8629c4e4dea4c2e90164e42393e8064
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69881587"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70806553"
 ---
 # <a name="quickstart-interact-with-an-iot-plug-and-play-preview-device-thats-connected-to-your-solution"></a>快速入門：與已連線至解決方案的 IoT 隨插即用預覽版裝置互動
 
@@ -27,7 +27,10 @@ IoT 隨插即用預覽版讓您無須具備基礎裝置實作的知識，即可�
 
 ## <a name="prepare-an-iot-hub"></a>準備 IoT 中樞
 
-您的 Azure 訂用帳戶中也必須要有 Azure IoT 中樞，才能完成本快速入門。 如果您沒有 Azure 訂用帳戶，請在開始前先建立一個[免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)。
+您的 Azure 訂用帳戶中也必須要有 Azure IoT 中樞，才能完成本快速入門。 如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 。
+
+> [!NOTE]
+> 在公開預覽期間，IoT 隨插即用功能只能在**美國中部**、**歐洲北部**和**日本東部**區域中建立的 IoT 中樞上使用。
 
 新增適用於 Azure CLI 的 Microsoft Azure IoT 延伸模組：
 

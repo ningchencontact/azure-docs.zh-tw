@@ -9,12 +9,12 @@ ms.custom: mvc
 ms.service: iot-pnp
 services: iot-pnp
 manager: philmea
-ms.openlocfilehash: 56a73449c69010bc97122023f7dcbc9e3a9df154
-ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
+ms.openlocfilehash: 27063702729d8a61ab8919c2685fcfc6f743ce09
+ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/27/2019
-ms.locfileid: "70047998"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70859001"
 ---
 # <a name="what-is-iot-plug-and-play-preview"></a>什麼是 IoT 隨插即用預覽版？
 
@@ -30,7 +30,7 @@ IoT 隨插即用預覽版可讓解決方案開發人員將裝置與解決方案�
 
 在 IoT 中樞或 IoT Central 上建置的解決方案，可受益於 IoT 隨插即用。
 
-本文概述：
+此文章概述：
 
 - 與使用 IoT 隨插即用的專案相關聯的一般角色。
 - 如何在您的應用程式中使用 IoT 隨插即用裝置。
@@ -63,7 +63,7 @@ IoT 隨插即用適用於兩種類型的開發人員：
 
 1. 撰寫裝置軟體或韌體，以實作裝置功能模型和介面中宣告的功能。 Azure IoT SDK 包含用來實作裝置功能模型的 API。
 
-[適用於 VS Code 的 IoT Device Workbench](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.vscode-iot-workbench) 延伸模組提供了許多功能來協助您。 例如，身為裝置開發人員，您可以使用此延伸模組從功能模型產生基本架構 C 專案。 不過，您可以使用任何 IDE 來製作和實作裝置功能模型。
+[適用於 VS Code 的 Azure IoT Tools](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools) \(英文\) 擴充套件提供了許多功能來協助您。 例如，身為裝置開發人員，您可以使用此延伸模組從功能模型產生基本架構 C 專案。 不過，您可以使用任何 IDE 來製作和實作裝置功能模型。
 
 ## <a name="certify-an-iot-plug-and-play-device"></a>認證 IoT 隨插即用裝置
 
@@ -76,6 +76,7 @@ IoT 隨插即用適用於兩種類型的開發人員：
 - 發佈至 IoT 認證裝置目錄。
 
 ## <a name="regional-availability"></a>區域可用性
+
 在公開預覽期間，IoT 隨插即用適用於北歐、美國中部和日本東部區域。 請務必在這其中一個區域建立您的中樞。
 
 ## <a name="message-quotas-in-iot-hub"></a>IoT 中樞的訊息配額

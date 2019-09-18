@@ -8,13 +8,13 @@ ms.devlang: java
 ms.topic: quickstart
 ms.date: 04/10/2018
 ms.author: sngun
-ms.custom: seo-java-august2019
-ms.openlocfilehash: 8425710f19c789aa0912ccc813d85f154a0d28f5
-ms.sourcegitcommit: 6d2a147a7e729f05d65ea4735b880c005f62530f
+ms.custom: seo-java-august2019, seo-java-september2019
+ms.openlocfilehash: 4ede3d863ed47b16b12f516d8af778fdb2576d27
+ms.sourcegitcommit: 88ae4396fec7ea56011f896a7c7c79af867c90a1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69981651"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70391042"
 ---
 # <a name="quickstart-build-a-java-app-to-manage-azure-cosmos-db-table-api-data"></a>快速入門：建置 JAVA 應用程式來管理 Azure Cosmos DB 資料表 API 資料
 
@@ -25,7 +25,7 @@ ms.locfileid: "69981651"
 > * [Python](create-table-python.md)
 > 
 
-本快速入門示範如何使用 Java 與 Azure Cosmos DB [資料表 API](table-introduction.md)，以藉由從 GitHub 複製範例來建置應用程式。 本快速入門也會示範如何建立 Azure Cosmos DB 帳戶，以及如何使用資料總管在以 Web 為基礎的 Azure 入口網站中建立資料表和實體。
+本快速入門示範如何使用 Java 與 Azure Cosmos DB [資料表 API](table-introduction.md)，以藉由從 GitHub 複製範例來建置應用程式。 您會了解如何建立 Azure Cosmos DB 帳戶，以及如何使用資料總管，在 Web 型 Azure 入口網站中，建立資料表和實體。
 
 Azure Cosmos DB 是 Microsoft 的全域分散式多模型資料庫服務。 您可以快速建立及查詢文件、索引鍵/值及圖形資料庫，所有這些都受惠於位於 Azure Cosmos DB 核心的全域散發和水平調整功能。 
 

@@ -1,6 +1,6 @@
 ---
 title: 教學課程：在 Azure Service Fabric 上建立 Java 應用程式
-description: 在本教學課程中，了解如何建立含有前端的可靠服務 Java 應用程式、建立具狀態可靠服務後端，以及將應用程式部署到叢集。
+description: 在此教學課程中，了解如何建立含有前端的可靠服務 Java 應用程式、建立具狀態可靠服務後端，以及將應用程式部署到叢集。
 services: service-fabric
 documentationcenter: java
 author: suhuruli
@@ -14,22 +14,21 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 09/01/2018
 ms.author: suhuruli
-ms.custom: mvc, seo-java-july2019, seo-java-august2019
-ms.openlocfilehash: 56a68f852e9eee3303540d6ebd180608935c6135
-ms.sourcegitcommit: ee61ec9b09c8c87e7dfc72ef47175d934e6019cc
+ms.custom: mvc, seo-java-july2019, seo-java-august2019, seo-java-september2019
+ms.openlocfilehash: 57c9bd8caf6e8762ed07ac5e6f4ff16171569723
+ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70172071"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70900677"
 ---
 # <a name="tutorial-create-an-application-with-a-java-api-front-end-service-and-a-stateful-back-end-service-on-azure-service-fabric"></a>教學課程：在 Azure Service Fabric 上使用 Java API 前端服務和具狀態後端服務建立應用程式
 
-本教學課程是一個系列的第一部分。 當您完成時，您會有一個 Voting 應用程式，其 Java Web 前端會將投票結果儲存在叢集中具狀態的後端服務。 此教學課程系列要求您具備一部運作中的 Mac OSX 或 Linux 開發人員電腦。 如果您不需要以手動建立 Voting 應用程式，可以[下載已完成應用程式的原始程式碼](https://github.com/Azure-Samples/service-fabric-java-quickstart)並直接前往[逐步解說投票範例應用程式](service-fabric-tutorial-create-java-app.md#walk-through-the-voting-sample-application)。 此外，請考慮遵循 [Java 可靠服務快速入門](service-fabric-quickstart-java-reliable-services.md)。
-
+此教學課程是一個系列的第一部分。 當您完成時，您會有一個 Voting 應用程式，其 Java Web 前端會將投票結果儲存在 Azure Service Fabric 上的具狀態後端服務中。 此教學課程系列要求您具備一部運作中的 Mac OSX 或 Linux 開發人員電腦。 如果您不需要以手動建立 Voting 應用程式，可以[下載已完成應用程式的原始程式碼](https://github.com/Azure-Samples/service-fabric-java-quickstart)並直接前往[逐步解說投票範例應用程式](service-fabric-tutorial-create-java-app.md#walk-through-the-voting-sample-application)。 此外，請考慮遵循 [Java 可靠服務快速入門](service-fabric-quickstart-java-reliable-services.md)。
 
 ![本機 Voting 應用程式](./media/service-fabric-tutorial-create-java-app/votingjavalocal.png)
 
-在本教學課程系列中，您將了解如何：
+在此教學課程系列中，您將了解如何：
 > [!div class="checklist"]
 > * 建置 Java Service Fabric Reliable Services 應用程式
 > * [在本機叢集上部署及偵錯應用程式](service-fabric-tutorial-debug-log-local-cluster.md)
@@ -48,7 +47,7 @@ ms.locfileid: "70172071"
 
 ## <a name="prerequisites"></a>必要條件
 
-開始進行本教學課程之前：
+開始進行此教學課程之前：
 
 * 如果您沒有 Azure 訂用帳戶，請建立[免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)。
 * 在 [Mac](service-fabric-get-started-mac.md) 或 [Linux](service-fabric-get-started-linux.md) 上設定開發環境。 請遵循指示來安裝 Eclipse 外掛程式、 Gradle、Service Fabric SDK 和 Service Fabric CLI (sfctl)。

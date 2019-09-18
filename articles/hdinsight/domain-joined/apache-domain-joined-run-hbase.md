@@ -1,24 +1,24 @@
 ---
-title: 教學課程 - 使用企業安全性套件在 HDInsight 中設定 Apache HBase 原則 - Azure
+title: 教學課程 - 使用企業安全性套件設定 Apache HBase - Azure
 description: 教學課程 - 了解如何使用企業安全性套件在 Azure HDInsight 中設定 HBase 的 Apache Ranger 原則。
 ms.service: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.topic: tutorial
-ms.date: 06/18/2019
-ms.openlocfilehash: 04592ba307cd696c20778d4a79f03be2eb0ac987
-ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
+ms.date: 09/04/2019
+ms.openlocfilehash: 72e268628560618fb6fa47843f5125d9126a9f3e
+ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67274407"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70885166"
 ---
 # <a name="tutorial-configure-apache-hbase-policies-in-hdinsight-with-enterprise-security-package"></a>教學課程：使用企業安全性套件在 HDInsight 中設定 Apache HBase 原則
 
 了解如何對企業安全性套件 (ESP) Apache HBase 叢集設定 Apache Ranger 原則。 ESP 叢集連線到網域，讓使用者使用網域認證進行驗證。 在此教學課程中，您會建立兩個 Ranger 原則來限制 HBase 資料表中不同資料行系列的存取權。
 
-在本教學課程中，您了解如何：
+在此教學課程中，您了解如何：
 
 > [!div class="checklist"]
 > * 建立網域使用者
@@ -100,7 +100,7 @@ ms.locfileid: "67274407"
 
 2. **原則清單**畫面會顯示為此叢集建立的所有 Ranger 原則。 可能會列出其中一個預先設定的原則。 按一下 [新增原則]  。
 
-    ![Apache Ranger 管理員 UI 建立原則](./media/apache-domain-joined-run-hbase/apache-ranger-hbase-policies-list.png)
+    ![Apache Ranger HBase 原則清單](./media/apache-domain-joined-run-hbase/apache-ranger-hbase-policies-list.png)
 
 3. 在 [建立原則]  畫面上輸入下列值：
 
@@ -119,7 +119,7 @@ ms.locfileid: "67274407"
    * `*` 表示出現零次以上的字元。
    * `?` 表示單一字元。
 
-   ![Apache Ranger 管理員 UI 建立原則](./media/apache-domain-joined-run-hbase/apache-ranger-hbase-policy-create-sales.png)
+   ![Apache Ranger 原則建立銷售](./media/apache-domain-joined-run-hbase/apache-ranger-hbase-policy-create-sales.png)
 
    >[!NOTE]
    >如果 [選取使用者]  未自動填入網域使用者，請稍候 Ranger 與 Azure AD 同步處理。
@@ -138,7 +138,7 @@ ms.locfileid: "67274407"
    |選取使用者  | marketing_user1 |
    |權限  | 讀取 |
 
-   ![Apache Ranger 管理員 UI 建立原則](./media/apache-domain-joined-run-hbase/apache-ranger-hbase-policy-create-marketing.png)  
+   ![Apache Ranger 原則建立行銷](./media/apache-domain-joined-run-hbase/apache-ranger-hbase-policy-create-marketing.png)  
 
 6. 按一下 [新增]  以儲存規則。
 
@@ -146,7 +146,7 @@ ms.locfileid: "67274407"
 
 根據所設定的 Ranger 原則，**sales_user1** 可以檢視 `Name` 和 `Contact` 資料行系列中所有資料行資料。 **Marketing_user1** 只能檢視 `Contact` 資料行系列中的資料。
 
-### <a name="access-data-as-salesuser1"></a>以 sales_user1 的身分存取資料
+### <a name="access-data-as-sales_user1"></a>以 sales_user1 的身分存取資料
 
 1. 對於叢集開啟新的 SSH 連線。 使用下列命令來登入叢集：
 
@@ -188,7 +188,7 @@ ms.locfileid: "67274407"
     2 row(s) in 0.1000 seconds
     ```
 
-### <a name="access-data-as-marketinguser1"></a>以 marketing_user1 的身分存取資料
+### <a name="access-data-as-marketing_user1"></a>以 marketing_user1 的身分存取資料
 
 1. 對於叢集開啟新的 SSH 連線。 下列命令可用來以 **marketing_user1** 身分登入：
 
@@ -237,7 +237,7 @@ ms.locfileid: "67274407"
 1. 登入 [Azure 入口網站](https://portal.azure.com/)。
 2. 在頂端的 [搜尋]  方塊中，輸入 **HDInsight**。 
 1. 在 [服務]  底下，選取 [HDInsight 叢集]  。
-1. 從出現的 HDInsight 叢集清單中，在您為本教學課程建立的叢集旁按一下 [...]  。 
+1. 從出現的 HDInsight 叢集清單中，在您為此教學課程建立的叢集旁按一下 [...]  。 
 1. 按一下 [刪除]  。 按一下 [是]  。
 
 ## <a name="next-steps"></a>後續步驟

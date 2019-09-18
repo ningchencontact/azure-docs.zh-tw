@@ -9,16 +9,16 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: ad67b17d76e811d5977955c40f444c4b7c0a01e3
-ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
+ms.openlocfilehash: 664a2a77203ae1bebd95391fa6a4ae906121465a
+ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68478841"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70916314"
 ---
 # <a name="find-routes-for-different-modes-of-travel-using-azure-maps"></a>使用 Azure 地圖服務尋找不同行進模式的路線
 
-本教學課程說明如何使用 Azure 地圖服務帳戶和路線規劃服務來尋找景點路線 (依行進模式設定優先順序)。 您會在地圖上顯示兩條不同的路線，一條是汽車專用，一條則是可能會因為載送貨物的高度、重量或危險性而導致路線受限的卡車專用。 在本教學課程中，您了解如何：
+此教學課程說明如何使用 Azure 地圖服務帳戶和路線規劃服務來尋找景點路線 (依行進模式設定優先順序)。 您會在地圖上顯示兩條不同的路線，一條是汽車專用，一條則是可能會因為載送貨物的高度、重量或危險性而導致路線受限的卡車專用。 在此教學課程中，您了解如何：
 
 > [!div class="checklist"]
 > * 使用地圖控制項 API 建立新的網頁
@@ -28,7 +28,7 @@ ms.locfileid: "68478841"
 
 ## <a name="prerequisites"></a>必要條件
 
-在繼續之前，請遵循第一個教學課程中的步驟來[建立 Azure 地圖服務帳戶](./tutorial-search-location.md#createaccount)，並[取得帳戶的訂用帳戶金鑰](./tutorial-search-location.md#getkey)。
+在繼續之前，請遵循[管理帳戶](https://docs.microsoft.com/azure/azure-maps/how-to-manage-account-keys#create-a-new-account) \(部分機器翻譯\) 中的指示，建立使用 S1 定價層的 Azure 地圖服務帳戶訂用帳戶，並遵循[取得主要金鑰](./tutorial-search-location.md#getkey)中的步驟來取得適用於您帳戶的主要訂用帳戶金鑰。
 
 ## <a name="create-a-new-map"></a>建立新的地圖
 
@@ -124,7 +124,7 @@ ms.locfileid: "68478841"
 
 ## <a name="define-how-the-route-will-be-rendered"></a>定義呈現路線的方式
 
-在本教學課程中，會在地圖上計算並呈現兩個路線。 一個路線使用供汽車行駛的道路，另一個路線則使用供卡車行駛的道路。 在呈現時，我們將為路線的起點和終點顯示符號圖示，並以不同的彩色線條表示每個路線的路徑。
+在此教學課程中，會在地圖上計算並呈現兩個路線。 一個路線使用供汽車行駛的道路，另一個路線則使用供卡車行駛的道路。 在呈現時，我們將為路線的起點和終點顯示符號圖示，並以不同的彩色線條表示每個路線的路徑。
 
 1. 在初始化地圖後，請在地圖 `ready` 事件處理常式中新增下列 JavaScript 程式碼。
 
@@ -275,7 +275,7 @@ ms.locfileid: "68478841"
 
 ## <a name="next-steps"></a>後續步驟
 
-在本教學課程中，您已了解如何：
+在此教學課程中，您已了解如何：
 
 > [!div class="checklist"]
 > * 使用地圖控制項 API 建立新的網頁

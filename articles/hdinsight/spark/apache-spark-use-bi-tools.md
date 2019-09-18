@@ -8,18 +8,18 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,mvc
 ms.topic: tutorial
 ms.date: 05/16/2019
-ms.openlocfilehash: d5296fe19cef9e8881d39bd9e59eb4c40d049959
-ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
+ms.openlocfilehash: 319668ac81b390f9a8bf70da36dd3cf1508f5c37
+ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67296194"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70885168"
 ---
 # <a name="tutorial-analyze-apache-spark-data-using-power-bi-in-hdinsight"></a>教學課程：在 HDInsight 中使用 Power BI 來分析 Apache Spark 資料
 
-在本教學課程中，了解如何使用 [Microsoft Power BI](https://powerbi.microsoft.com/) 在 [Azure HDInsight](https://azure.microsoft.com/services/hdinsight/) 中將 Apache Spark 叢集中的資料視覺化。
+在此教學課程中，了解如何使用 [Microsoft Power BI](https://powerbi.microsoft.com/) 在 [Azure HDInsight](https://azure.microsoft.com/services/hdinsight/) 中將 Apache Spark 叢集中的資料視覺化。
 
-在本教學課程中，您了解如何：
+在此教學課程中，您了解如何：
 > [!div class="checklist"]
 > * 使用 Power BI 將 Spark 資料視覺化
 
@@ -48,7 +48,7 @@ ms.locfileid: "67296194"
 
     ![顯示 Spark 中的資料表](./media/apache-spark-use-bi-tools/show-tables.png)
 
-    如果在開始本教學課程之前關閉 Notebook，則會清除 `hvactemptable`，因此其不會包含在輸出中。  從 BI 工具只可以存取儲存在中繼存放區的 Hive 資料表 (在 **isTemporary** 資料行下表示為 **False**)。 在此教學課程中，您會連線到您所建立的 **hvac** 資料表。
+    如果在開始此教學課程之前關閉 Notebook，則會清除 `hvactemptable`，因此其不會包含在輸出中。  從 BI 工具只可以存取儲存在中繼存放區的 Hive 資料表 (在 **isTemporary** 資料行下表示為 **False**)。 在此教學課程中，您會連線到您所建立的 **hvac** 資料表。
 
 2. 將以下程式碼貼入空白儲存格，然後按下 **SHIFT + ENTER** 鍵。 該程式碼會驗證資料表中的資料。
 
@@ -72,7 +72,7 @@ ms.locfileid: "67296194"
 使用 Spark 的第一步是連接到 Power BI Desktop 中的叢集，從叢集載入資料，並根據該資料建立基本視覺效果。
 
 > [!NOTE]  
-> 本文中所示範的連接器目前為預覽版本。 請透過 [Power BI 社群](https://community.powerbi.com/) \(英文\) 網站或 [Power BI Ideas](https://ideas.powerbi.com/forums/265200-power-bi-ideas) \(英文\) 提供您的意見反應。
+> 此文章中所示範的連接器目前為預覽版本。 請透過 [Power BI 社群](https://community.powerbi.com/) \(英文\) 網站或 [Power BI Ideas](https://ideas.powerbi.com/forums/265200-power-bi-ideas) \(英文\) 提供您的意見反應。
 
 1. 開啟 Power BI Desktop。 關閉啟動顯示畫面 (如果它已開啟)。
 
@@ -104,21 +104,21 @@ ms.locfileid: "67296194"
 
     2. 將 [BuildingID]  欄位拖曳至 [軸]  ，並將 [ActualTemp]  和 [TargetTemp]  欄位拖曳至 [值]  。
 
-        ![使用 Apache Spark BI 建立 Spark 資料視覺效果](./media/apache-spark-use-bi-tools/apache-spark-bi-add-value-columns.png "使用 Apache Spark BI 建立 Spark 資料視覺效果")
+        ![新增值欄](./media/apache-spark-use-bi-tools/apache-spark-bi-add-value-columns.png "新增值欄")
 
         圖表看起來如下：
 
-        ![使用 Apache Spark BI 建立 Spark 資料視覺效果](./media/apache-spark-use-bi-tools/apache-spark-bi-area-graph-sum.png "使用 Apache Spark BI 建立 Spark 資料視覺效果")
+        ![區域圖總和](./media/apache-spark-use-bi-tools/apache-spark-bi-area-graph-sum.png "區域圖總和")
 
         根據預設，視覺效果會顯示 **ActualTemp** 和 **TargetTemp** 的總和。 在 [視覺效果] 窗格中，選取 [ActualTemp]  與 [TargetTemp]  旁的向下箭頭，您會看到已選取 [總和]  。
 
     3. 在 [視覺效果] 窗格中，選取 [ActualTemp]  與 [TargetTemp]  旁的向下箭頭，選取 [平均值]  以取得每棟建築物之實際溫度與目標溫度的平均值。
 
-        ![使用 Apache Spark BI 建立 Spark 資料視覺效果](./media/apache-spark-use-bi-tools/apache-spark-bi-average-of-values.png "使用 Apache Spark BI 建立 Spark 資料視覺效果")
+        ![平均值](./media/apache-spark-use-bi-tools/apache-spark-bi-average-of-values.png "平均值")
 
         您的資料視覺效果應該類似於螢幕擷取畫面中的視覺效果。 在視覺效果上移動游標可取得相關資料的工具提示。
 
-        ![使用 Apache Spark BI 建立 Spark 資料視覺效果](./media/apache-spark-use-bi-tools/apache-spark-bi-area-graph.png "使用 Apache Spark BI 建立 Spark 資料視覺效果")
+        ![區域圖](./media/apache-spark-use-bi-tools/apache-spark-bi-area-graph.png "區域圖")
 
 9. 巡覽至 [檔案]   > [儲存]  ，輸入檔案的名稱 `BuildingTemperature`，然後選取 [儲存]  。
 
@@ -173,13 +173,13 @@ Power BI 服務可讓您跨組織共用報表和儀表板。 在本節中，您�
 
 ## <a name="clean-up-resources"></a>清除資源
 
-完成本教學課程之後，您可以刪除叢集。 利用 HDInsight，您的資料會儲存在 Azure 儲存體中，以便您在未使用叢集時安全地進行刪除。 您也需支付 HDInsight 叢集的費用 (即使未使用)。 由於叢集費用是儲存體費用的許多倍，所以刪除未使用的叢集符合經濟效益。
+完成此教學課程之後，您可以刪除叢集。 利用 HDInsight，您的資料會儲存在 Azure 儲存體中，以便您在未使用叢集時安全地進行刪除。 您也需支付 HDInsight 叢集的費用 (即使未使用)。 由於叢集費用是儲存體費用的許多倍，所以刪除未使用的叢集符合經濟效益。
 
 若要刪除叢集，請參閱[使用您的瀏覽器、PowerShell 或 Azure CLI 刪除 HDInsight 叢集](../hdinsight-delete-cluster.md)。
 
 ## <a name="next-steps"></a>後續步驟
 
-在本教學課程中，您已了解如何使用 [Microsoft Power BI](https://powerbi.microsoft.com/) 在 [Azure HDInsight](https://azure.microsoft.com/services/hdinsight/) 中將 Apache Spark 叢集中的資料視覺化。 前往下一篇文章，以查看如何將您在 Spark 中註冊的資料提取至 BI 分析工具，例如 Power BI。
+在此教學課程中，您已了解如何使用 [Microsoft Power BI](https://powerbi.microsoft.com/) 在 [Azure HDInsight](https://azure.microsoft.com/services/hdinsight/) 中將 Apache Spark 叢集中的資料視覺化。 前往下一篇文章，以查看如何將您在 Spark 中註冊的資料提取至 BI 分析工具，例如 Power BI。
 
 > [!div class="nextstepaction"]
 > [執行 Apache Spark 串流作業](apache-spark-eventhub-streaming.md)

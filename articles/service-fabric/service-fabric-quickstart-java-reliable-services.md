@@ -14,19 +14,19 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 01/29/2019
 ms.author: suhuruli
-ms.custom: mvc, devcenter, seo-java-august2019
-ms.openlocfilehash: 39bb5191ff0c757fc672d18b4e8e406f91df0509
-ms.sourcegitcommit: ee61ec9b09c8c87e7dfc72ef47175d934e6019cc
+ms.custom: mvc, devcenter, seo-java-august2019, seo-java-september2019
+ms.openlocfilehash: ca6a1063f6ddd5c42d0d08f43b87a3387cc46a14
+ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70173217"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70859260"
 ---
 # <a name="quickstart--deploy-a-java-app-to-azure-service-fabric-on-linux"></a>快速入門：將 Java 應用程式部署至 Linux 上的 Azure Service Fabric
 
-Azure Service Fabric 是一個分散式系統平台，可讓您部署及管理微服務與容器。
+本快速入門示範如何使用 Linux 開發人員機器上的 Eclipse IDE，將第一個 Java 應用程式部署到 Azure Service Fabric。 當您完成時，您會有一個投票應用程式，其 Java Web 前端會將投票結果儲存在叢集中具狀態的後端服務。
 
-本快速入門示範如何使用 Linux 開發人員機器上的 Eclipse IDE，將第一個 Java 應用程式部署到 Service Fabric。 當您完成時，您會有一個投票應用程式，其 Java Web 前端會將投票結果儲存在叢集中具狀態的後端服務。
+Azure Service Fabric 是一個分散式系統平台，可讓您部署及管理微服務與容器。
 
 ![應用程式螢幕擷取畫面](./media/service-fabric-quickstart-java/votingapp.png)
 

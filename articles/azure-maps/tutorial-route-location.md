@@ -9,16 +9,16 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: fd75ca1fbad358e80a2c040b5ead8c50611489e2
-ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
+ms.openlocfilehash: 52355a8896f4891e99d07e2b4106cede77a1f8df
+ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68478884"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70916213"
 ---
 # <a name="route-to-a-point-of-interest-using-azure-maps"></a>使用 Azure 地圖服務的景點路線
 
-本教學課程說明如何使用 Azure 地圖服務帳戶和路線規劃服務 SDK，來尋找景點路線。 在本教學課程中，您了解如何：
+此教學課程說明如何使用 Azure 地圖服務帳戶和路線規劃服務 SDK，來尋找景點路線。 在此教學課程中，您了解如何：
 
 > [!div class="checklist"]
 > * 使用地圖控制項 API 建立新的網頁
@@ -27,7 +27,7 @@ ms.locfileid: "68478884"
 
 ## <a name="prerequisites"></a>必要條件
 
-在繼續之前，請遵循上一個教學課程中的步驟來[建立 Azure 地圖服務帳戶](./tutorial-search-location.md#createaccount)，並[取得帳戶的訂用帳戶金鑰](./tutorial-search-location.md#getkey)。
+在繼續之前，請遵循[管理帳戶](https://docs.microsoft.com/azure/azure-maps/how-to-manage-account-keys#create-a-new-account) \(部分機器翻譯\) 中的指示，建立使用 S1 定價層的 Azure 地圖服務帳戶訂用帳戶，並遵循[取得主要金鑰](./tutorial-search-location.md#getkey)中的步驟來取得適用於您帳戶的主要訂用帳戶金鑰。
 
 <a id="getcoordinates"></a>
 
@@ -104,7 +104,7 @@ ms.locfileid: "68478884"
 
 ## <a name="define-how-the-route-will-be-rendered"></a>定義呈現路線的方式
 
-在本教學課程中，將使用路線起點和終點的符號圖示以及路線路徑的線條來呈現簡易路線。
+在此教學課程中，將使用路線起點和終點的符號圖示以及路線路徑的線條來呈現簡易路線。
 
 1. 在地圖完成初始化後，請新增下列 JavaScript 程式碼。
 
@@ -211,7 +211,7 @@ ms.locfileid: "68478884"
 
 ## <a name="next-steps"></a>後續步驟
 
-在本教學課程中，您已了解如何：
+在此教學課程中，您已了解如何：
 
 > [!div class="checklist"]
 > * 使用地圖控制項 API 建立新的網頁

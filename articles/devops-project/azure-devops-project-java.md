@@ -6,27 +6,26 @@ ms.technology: devops-cicd
 services: vsts
 documentationcenter: vs-devops-build
 author: mlearned
-manager: douge
+manager: gwallace
 editor: ''
 ms.assetid: ''
 ms.workload: web
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: quickstart
 ms.date: 07/09/2018
 ms.author: mlearned
-ms.custom: mvc, seo-java-july2019, seo-java-august2019
+ms.custom: mvc, seo-java-july2019, seo-java-august2019, seo-java-september2019
 monikerRange: vsts
-ms.openlocfilehash: 381af2989a7622501462e574d05b54eea8416518
-ms.sourcegitcommit: 0c906f8624ff1434eb3d3a8c5e9e358fcbc1d13b
+ms.openlocfilehash: d395855de6bb16841d54821c87a6af6d5d62c11c
+ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69543433"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70898061"
 ---
 # <a name="quickstart-set-up-a-cicd-pipeline-for-a-java-app-with-azure-devops-projects"></a>快速入門：使用 Azure DevOps Projects 設定適用於 Java 應用程式的 CI/CD 管線
 
-Azure DevOps Projects 提供簡化的體驗，可建立 Azure 資源，並在 Azure Pipelines 中為您的 Java 應用程式設定持續整合 (CI) 與持續傳遞 (CD) 管線。  
+在本快速入門文章中，您會使用 Azure DevOps Projects 的簡化體驗，在 Azure Pipelines 中為您的 Java 應用程式設定持續整合 (CI) 與持續傳遞 (CD) 管線。 您也可以使用 Azure DevOps Projects 來建立其他 Azure 資源。  
 
 如果您沒有 Azure 訂用帳戶，可以透過 [Visual Studio Dev Essentials](https://visualstudio.microsoft.com/dev-essentials/) 取得一個免費的訂用帳戶。
 

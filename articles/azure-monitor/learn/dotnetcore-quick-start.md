@@ -10,12 +10,12 @@ ms.service: application-insights
 ms.custom: mvc
 ms.topic: quickstart
 manager: carmonm
-ms.openlocfilehash: 931de532aa6e09b2cd00955df6ba1f05d7e4f42c
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 313e0c6cb487ed986c38610131c4bc19f2eeb846
+ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67428500"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70916175"
 ---
 # <a name="start-monitoring-your-aspnet-core-web-application"></a>開始監視 ASP.NET Core Web 應用程式
 
@@ -70,7 +70,9 @@ Application Insights 可以從任何連上網際網路的應用程式收集遙�
 
 3. 選取您的帳戶和訂用帳戶 > 選取您在 Azure 入口網站中建立的 [現有資源]  > 按一下[註冊]  。
 
-4. 選取 [偵錯]   > [啟動但不偵錯]  \(Ctrl + F5) 來啟動您的應用程式
+4. 選取 [專案]   > [管理 NuGet 套件]   > [套件來源: nuget.org]   > [更新]  ，將 Application Insights SDK 套件更新至最新穩定版本。
+
+5. 選取 [偵錯]   > [啟動但不偵錯]  \(Ctrl + F5) 來啟動您的應用程式
 
     ![Application Insights 概觀功能表](./media/dotnetcore-quick-start/3debug.png)
 

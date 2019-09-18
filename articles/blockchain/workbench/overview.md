@@ -1,25 +1,27 @@
 ---
-title: Azure Blockchain Workbench 概觀
-description: Azure Blockchain Workbench 及其功能的概觀。
+title: Azure Blockchain Workbench 預覽概觀
+description: Azure Blockchain Workbench 預覽及其功能的概觀。
 services: azure-blockchain
 keywords: ''
 author: PatAltimore
 ms.author: patricka
-ms.date: 05/20/2019
+ms.date: 09/05/2019
 ms.topic: overview
 ms.service: azure-blockchain
 ms.reviewer: brendal
 manager: femila
-ms.openlocfilehash: 16e2497f4e26d16c008161477fd7d573e59e84db
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.openlocfilehash: 097185502321c8810214ed737047bdf596d18bdb
+ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65955197"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70844112"
 ---
 # <a name="what-is-azure-blockchain-workbench"></a>什麼是 Azure Blockchain Workbench？
 
-Azure Blockchain Workbench 是 Azure 服務和功能的集合，目的是要協助您建立及部署區塊鏈應用程式，以與其他組織共用商務程序和資料。 Azure Blockchain Workbench 能為建置區塊鏈應用程式提供基礎結構 Scaffolding，讓開發人員可以專注於建立商務邏輯和智慧型合約上。 它也可以透過整合數個 Azure 服務和功能來協助自動化一般開發工作，讓使用者能更輕鬆地建立區塊鏈應用程式。
+Azure Blockchain Workbench 預覽是 Azure 服務和功能的集合，目的是要協助您建立及部署區塊鏈應用程式，以與其他組織共用商務程序和資料。 Azure Blockchain Workbench 能為建置區塊鏈應用程式提供基礎結構 Scaffolding，讓開發人員可以專注於建立商務邏輯和智慧型合約上。 它也可以透過整合數個 Azure 服務和功能來協助自動化一般開發工作，讓使用者能更輕鬆地建立區塊鏈應用程式。
+
+[!INCLUDE [Preview note](./includes/preview.md)]
 
 ## <a name="create-blockchain-applications"></a>建立區塊鏈應用程式
 

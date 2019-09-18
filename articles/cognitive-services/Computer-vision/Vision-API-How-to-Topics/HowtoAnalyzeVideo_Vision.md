@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: sample
-ms.date: 03/21/2019
+ms.date: 09/09/2019
 ms.author: kefre
 ms.custom: seodec18
-ms.openlocfilehash: 3432ea20f9fb59524940258e13c46ee6f4c4e890
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 25aed0f042050ebadbc6054fcbf0c68dbf782e5e
+ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68565696"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70859082"
 ---
 # <a name="how-to-analyze-videos-in-real-time"></a>如何即時分析影片
 
@@ -61,7 +61,7 @@ while (true)
     Frame f = GrabFrame();
     if (ShouldAnalyze(f))
     {
-        var t = Task.Run(async () => 
+        var t = Task.Run(async () =>
         {
             AnalysisResult r = await Analyze(f);
             ConsumeResult(r);
@@ -77,20 +77,20 @@ while (true)
 在我們的最後一個「產生者-取用者」系統中，會有一個看起來類似於前述無限迴圈的產生者執行緒。 不過，產生者不會在一有分析結果可用時便立即取用這些結果，而是只會將工作置於佇列中來進行追蹤。
 
 ```csharp
-// Queue that will contain the API call tasks. 
+// Queue that will contain the API call tasks.
 var taskQueue = new BlockingCollection<Task<ResultWrapper>>();
-     
-// Producer thread. 
+
+// Producer thread.
 while (true)
 {
-    // Grab a frame. 
+    // Grab a frame.
     Frame f = GrabFrame();
- 
-    // Decide whether to analyze the frame. 
+
+    // Decide whether to analyze the frame.
     if (ShouldAnalyze(f))
     {
-        // Start a task that will run in parallel with this thread. 
-        var analysisTask = Task.Run(async () => 
+        // Start a task that will run in parallel with this thread.
+        var analysisTask = Task.Run(async () =>
         {
             // Put the frame, and the result/exception into a wrapper object.
             var output = new ResultWrapper(f);
@@ -104,8 +104,8 @@ while (true)
             }
             return output;
         }
-        
-        // Push the task onto the queue. 
+
+        // Push the task onto the queue.
         taskQueue.Add(analysisTask);
     }
 }
@@ -114,16 +114,16 @@ while (true)
 我們還有一個取用者執行緒，會從佇列中取出工作、等候這些工作完成，然後顯示結果或引發被擲回的例外狀況。 我們可以使用佇列，以便能確保依正確順序一次取用一個結果，而無須限制系統的最大畫面播放速率。
 
 ```csharp
-// Consumer thread. 
+// Consumer thread.
 while (true)
 {
-    // Get the oldest task. 
+    // Get the oldest task.
     Task<ResultWrapper> analysisTask = taskQueue.Take();
- 
-    // Await until the task is completed. 
+ 
+    // Await until the task is completed.
     var output = await analysisTask;
-     
-    // Consume the exception or result. 
+
+    // Consume the exception or result.
     if (output.Exception != null)
     {
         throw output.Exception;
@@ -147,42 +147,65 @@ while (true)
 
 ```csharp
 using System;
+using System.Linq;
+using Microsoft.Azure.CognitiveServices.Vision.Face;
+using Microsoft.Azure.CognitiveServices.Vision.Face.Models;
 using VideoFrameAnalyzer;
-using Microsoft.ProjectOxford.Face;
-using Microsoft.ProjectOxford.Face.Contract;
-     
-namespace VideoFrameConsoleApplication
+
+namespace BasicConsoleSample
 {
-    class Program
+    internal class Program
     {
-        static void Main(string[] args)
+        const string ApiKey = "<your API key>";
+        const string Endpoint = "https://<your API region>.api.cognitive.microsoft.com";
+
+        private static void Main(string[] args)
         {
-            // Create grabber, with analysis type Face[]. 
-            FrameGrabber<Face[]> grabber = new FrameGrabber<Face[]>();
-            
-            // Create Face API Client. Insert your Face API key here.
-            FaceServiceClient faceClient = new FaceServiceClient("<subscription key>");
+            // Create grabber.
+            FrameGrabber<DetectedFace[]> grabber = new FrameGrabber<DetectedFace[]>();
 
-            // Set up our Face API call.
-            grabber.AnalysisFunction = async frame => return await faceClient.DetectAsync(frame.Image.ToMemoryStream(".jpg"));
+            // Create Face API Client.
+            FaceClient faceClient = new FaceClient(new ApiKeyServiceClientCredentials(ApiKey))
+            {
+                Endpoint = Endpoint
+            };
 
-            // Set up a listener for when we receive a new result from an API call. 
+            // Set up a listener for when we acquire a new frame.
+            grabber.NewFrameProvided += (s, e) =>
+            {
+                Console.WriteLine($"New frame acquired at {e.Frame.Metadata.Timestamp}");
+            };
+
+            // Set up Face API call.
+            grabber.AnalysisFunction = async frame =>
+            {
+                Console.WriteLine($"Submitting frame acquired at {frame.Metadata.Timestamp}");
+                // Encode image and submit to Face API.
+                return (await faceClient.Face.DetectWithStreamAsync(frame.Image.ToMemoryStream(".jpg"))).ToArray();
+            };
+
+            // Set up a listener for when we receive a new result from an API call.
             grabber.NewResultAvailable += (s, e) =>
             {
-                if (e.Analysis != null)
-                    Console.WriteLine("New result received for frame acquired at {0}. {1} faces detected", e.Frame.Metadata.Timestamp, e.Analysis.Length);
+                if (e.TimedOut)
+                    Console.WriteLine("API call timed out.");
+                else if (e.Exception != null)
+                    Console.WriteLine("API call threw an exception.");
+                else
+                    Console.WriteLine($"New result received for frame acquired at {e.Frame.Metadata.Timestamp}. {e.Analysis.Length} faces detected");
             };
-            
-            // Tell grabber to call the Face API every 3 seconds.
+
+            // Tell grabber when to call API.
+            // See also TriggerAnalysisOnPredicate
             grabber.TriggerAnalysisOnInterval(TimeSpan.FromMilliseconds(3000));
 
-            // Start running.
+            // Start running in the background.
             grabber.StartProcessingCameraAsync().Wait();
 
-            // Wait for keypress to stop
+            // Wait for key press to stop.
             Console.WriteLine("Press any key to stop...");
             Console.ReadKey();
-            
+
             // Stop, blocking until done.
             grabber.StopProcessingAsync().Wait();
         }
@@ -202,12 +225,11 @@ namespace VideoFrameConsoleApplication
 
 1. 從[訂用帳戶](https://azure.microsoft.com/try/cognitive-services/)取得「視覺 API」的 API 金鑰。 若要進行影片畫面分析，適用的 API 包括：
     - [電腦視覺 API](https://docs.microsoft.com/azure/cognitive-services/computer-vision/home)
-    - [表情 API](https://docs.microsoft.com/azure/cognitive-services/emotion/home) \(英文\)
     - [臉部 API](https://docs.microsoft.com/azure/cognitive-services/face/overview)
 2. 複製 [Cognitive-Samples-VideoFrameAnalysis](https://github.com/Microsoft/Cognitive-Samples-VideoFrameAnalysis/) \(英文\) GitHub 存放庫
 
-3. 在 Visual Studio 2015 中開啟範例，然後建置並執行範例應用程式：
-    - 就 BasicConsoleSample 而言，「臉部 API」金鑰會直接以硬式編碼編寫在  [BasicConsoleSample/Program.cs](https://github.com/Microsoft/Cognitive-Samples-VideoFrameAnalysis/blob/master/Windows/BasicConsoleSample/Program.cs) 中。
+3. 在 Visual Studio 2015 或更新版本中開啟範例，然後建置並執行範例應用程式：
+    - 就 BasicConsoleSample 而言，「臉部 API」金鑰會直接以硬式編碼編寫在 [BasicConsoleSample/Program.cs](https://github.com/Microsoft/Cognitive-Samples-VideoFrameAnalysis/blob/master/Windows/BasicConsoleSample/Program.cs) \(英文\) 中。
     - 就 LiveCameraSample 而言，應該在應用程式的 [設定] 窗格中輸入金鑰。 這些金鑰會以使用者資料的形式跨工作階段保存。
 
 當您做好整合準備時，**只需從自己的專案參考 VideoFrameAnalyzer 程式庫**即可。
@@ -216,7 +238,7 @@ VideoFrameAnalyzer 的影像、語音、影片或文字理解功能會使用「A
 
 ## <a name="summary"></a>總結
 
-在本指南中，您已了解如何使用「臉部」、「電腦視覺」和「表情」API，在即時視訊資料流上執行近乎即時的分析，以及如何使用我們的範例程式碼來開始設計程式。 您可以使用 [Azure 認知服務註冊頁面](https://azure.microsoft.com/try/cognitive-services/)的免費 API 金鑰來開始建置應用程式。 
+在本指南中，您已了解如何使用「臉部」和「電腦視覺」API，在即時視訊資料流上執行近乎即時的分析，以及如何使用我們的範例程式碼來開始設計程式。 您可以使用 [Azure 認知服務註冊頁面](https://azure.microsoft.com/try/cognitive-services/)的免費 API 金鑰來開始建置應用程式。
 
-歡迎您在 [GitHub 存放庫](https://github.com/Microsoft/Cognitive-Samples-VideoFrameAnalysis/) 中提供意見反應和建議。若要提供更廣泛的 API 意見反應，請到我們的  [UserVoice 網站](https://cognitive.uservoice.com/)。
+歡迎您在 [GitHub 存放庫](https://github.com/Microsoft/Cognitive-Samples-VideoFrameAnalysis/) \(英文\) 中提供意見反應和建議。若要提供更多廣泛的 API 意見反應，請到我們的 [UserVoice 網站](https://cognitive.uservoice.com/) \(英文\)。
 

@@ -11,18 +11,18 @@ ms.date: 05/28/2019
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: sqlfreshmay19
-ms.openlocfilehash: b7b7d4cfe699ffdef3a8f736f5656d0b0067453a
-ms.sourcegitcommit: 5ded08785546f4a687c2f76b2b871bbe802e7dae
+ms.openlocfilehash: 83475af3cfdd83e718243d80b84599d53716a5d5
+ms.sourcegitcommit: aebe5a10fa828733bbfb95296d400f4bc579533c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69575188"
+ms.lasthandoff: 09/05/2019
+ms.locfileid: "70375844"
 ---
 # <a name="quickstart-create-and-query-an-azure-sql-data-warehouse-in-the-azure-portal"></a>快速入門：在 Azure 入口網站中建立及查詢 Azure SQL 資料倉儲
 
 使用 Azure 入口網站快速建立及查詢 Azure SQL 資料倉儲。
 
-如果您沒有 Azure 訂用帳戶，請在開始前先建立一個[免費帳戶](https://azure.microsoft.com/free/)。
+如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶](https://azure.microsoft.com/free/)。
 
 > [!NOTE]
 > 建立 SQL 資料倉儲可能會導致新的可計費服務。 如需詳細資訊，請參閱 [SQL 資料倉儲價格](https://azure.microsoft.com/pricing/details/sql-data-warehouse/)。
@@ -76,7 +76,7 @@ Azure SQL 資料倉儲會使用一組定義的[計算資源](memory-and-concurre
 
 6. 按一下 [效能等級]  以指定資料倉儲的效能設定。
 
-7. 針對本教學課程，請選取 [Gen2]  。 根據預設，滑桿會設定為 [DW1000c]  。 請嘗試向上和向下移動以查看其運作方式。 
+7. 針對此教學課程，請選取 [Gen2]  。 根據預設，滑桿會設定為 [DW1000c]  。 請嘗試向上和向下移動以查看其運作方式。 
 
     ![設定效能](media/load-data-from-azure-blob-storage-using-polybase/configure-performance.png)
 
@@ -98,7 +98,7 @@ SQL 資料倉儲服務會在伺服器層級建立防火牆。 此防火牆會防
 > SQL 資料倉儲會透過連接埠 1433 通訊。 如果您嘗試從公司網路內進行連線，您網路的防火牆可能不允許透過連接埠 1433 的輸出流量。 若情況如此，除非 IT 部門開啟連接埠 1433，否則您無法連線至 Azure SQL Database 伺服器。
 
 1. 完成部署之後，請從左側功能表選取 [所有服務]  。 選取 [資料庫]  ，然後選取 [SQL 資料倉儲]  旁的星號，將 SQL 資料倉儲加入 [我的最愛] 中。
-1. 從左側功能表中選取 [SQL 資料倉儲]  ，然後在 [SQL 資料倉儲]  頁面上按一下 [mySampleDatabase]  。 資料庫的概觀頁面隨即開啟，其中會顯示完整伺服器名稱 (例如 **mynewserver-20180430.database.windows.net**)，並提供進一步的設定選項。
+1. 從左側功能表中選取 [SQL 資料倉儲]  ，然後在 [SQL 資料倉儲]  頁面上按一下 [mySampleDataWarehouse]  。 資料庫的概觀頁面隨即開啟，其中會顯示完整伺服器名稱 (例如 **mynewserver-20180430.database.windows.net**)，並提供進一步的設定選項。
 1. 在這個及其他快速入門中，請複製此完整伺服器名稱，才能用來連線到伺服器及其資料庫。 若要開啟伺服器設定，請按一下伺服器名稱。
 
    ![尋找伺服器名稱](media/load-data-from-azure-blob-storage-using-polybase/find-server-name.png)
@@ -144,7 +144,7 @@ SQL 資料倉儲服務會在伺服器層級建立防火牆。 此防火牆會防
    | :------ | :-------------- | :---------- |
    | 伺服器類型 | 資料庫引擎 | 這是必要值 |
    | 伺服器名稱 | 完整伺服器名稱 | 以下是範例：**mynewserver-20180430.database.windows.net**。 |
-   | Authentication | SQL Server 驗證 | SQL 驗證是本教學課程中設定的唯一驗證類型。 |
+   | Authentication | SQL Server 驗證 | SQL 驗證是此教學課程中設定的唯一驗證類型。 |
    | 登入 | 伺服器管理帳戶 | 您在建立伺服器時所指定的帳戶。 |
    | 密碼 | 伺服器管理帳戶的密碼 | 這是您在建立伺服器時所指定的密碼。 |
    ||||

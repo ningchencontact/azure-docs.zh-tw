@@ -1,18 +1,18 @@
 ---
 title: 使用 Azure Resource Manager 設定 HDInsight 上的 Apache Kafka - 快速入門
-description: 在本快速入門中，您會了解如何使用 Azure 入口網站，在 Azure HDInsight 上建立 Apache Kafka 叢集。 您也會了解 Kafka 主題、訂閱者與取用者。
+description: 在本快速入門中，您會了解如何使用 Azure Resource Manager 範本，在 Azure HDInsight 上建立 Apache Kafka 叢集。 您也會了解 Kafka 主題、訂閱者與取用者。
 ms.service: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
 ms.custom: mvc
 ms.topic: quickstart
 ms.date: 06/12/2019
-ms.openlocfilehash: 75b774a59d3a2a94f1f1132a79c26dcca7b4b6f7
-ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
+ms.openlocfilehash: 399d1146dc71f4670ee0c9bfa497f34911ade638
+ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/05/2019
-ms.locfileid: "68780790"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70811461"
 ---
 # <a name="quickstart-create-apache-kafka-cluster-in-azure-hdinsight-using-resource-manager-template"></a>快速入門：使用 Resource Manager 範本在 Azure HDInsight 中建立 Apache Kafka 叢集
 
@@ -192,7 +192,7 @@ Kafka 會將資料串流儲存於「主題」  中。 您可以使用 `kafka-top
     此命令會刪除名為 `topicname` 的主題。
 
     > [!WARNING]  
-    > 如果您刪除先前建立的 `test` 主題，則必須加以重新建立。 本文件稍後的步驟會用到此主題。
+    > 如果您刪除先前建立的 `test` 主題，則必須加以重新建立。 此文件稍後的步驟會用到此主題。
 
 如需 `kafka-topics.sh` 公用程式可用命令的詳細資訊，請使用下列命令：
 

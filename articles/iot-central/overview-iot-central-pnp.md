@@ -1,6 +1,6 @@
 ---
 title: 什麼是 Azure IoT 中心 | Microsoft Docs
-description: Azure IoT 中心是一個端對端 SaaS 解決方案，您可用來建置及管理自訂 IoT 解決方案。 本文提供 Azure IoT 中心的功能概觀。
+description: Azure IoT 中心是一個端對端 SaaS 解決方案，您可用來建置及管理自訂 IoT 解決方案。 此文章提供 Azure IoT 中心的功能概觀。
 author: dominicbetts
 ms.author: dobett
 ms.date: 07/06/2019
@@ -9,12 +9,12 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: timlt
-ms.openlocfilehash: af5b16448a39e0106dbc04724607ff603483484c
-ms.sourcegitcommit: 4b8a69b920ade815d095236c16175124a6a34996
+ms.openlocfilehash: bfdad0d81599035e7d8c270ec4e8ee8d6a45125e
+ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69997750"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70858932"
 ---
 # <a name="what-is-azure-iot-central-preview-features"></a>什麼是 IoT Central (預覽功能)？
 
@@ -40,7 +40,7 @@ Azure IoT Central 是一個完全受控的 IoT 軟體即服務解決方案，可
 
 >[!VIDEO https://channel9.msdn.com/Shows/Internet-of-Things-Show/Microsoft-IoT-Central-intro-walkthrough/Player]
 
-本文針對 Azure IoT Central 提供下列概述：
+此文章針對 Azure IoT Central 提供下列概述：
 
 - 與專案相關聯的典型角色。
 - 如何建立您的應用程式。
@@ -62,7 +62,8 @@ Azure IoT Central 是一個完全受控的 IoT 軟體即服務解決方案，可
 - 不支援陣列結構描述類型。
 - 不支援應用程式範本匯出和應用程式複製。
 - 僅支援 C 裝置 SDK 和 Node.js 裝置與服務 SDK。
-- 僅適用於選取的區域。
+- 這僅適用於歐洲北部和美國中部區域。
+- 裝置功能模型必須具有在相同檔案中以內嵌方式定義的所有介面。
 
 ## <a name="personas"></a>角色
 

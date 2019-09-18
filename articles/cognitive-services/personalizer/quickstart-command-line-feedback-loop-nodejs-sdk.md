@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: personalizer
 ms.topic: quickstart
-ms.date: 08/13/2019
+ms.date: 09/06/2019
 ms.author: diberry
-ms.openlocfilehash: fbd86698438e09a0c94c06e0e79800b8d38b57c1
-ms.sourcegitcommit: 0c906f8624ff1434eb3d3a8c5e9e358fcbc1d13b
+ms.openlocfilehash: a7c02c92ed61e4c8c8bd6a634cc9c6ad3538396e
+ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69544810"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70883687"
 ---
 # <a name="quickstart-personalize-client-library-for-nodejs"></a>快速入門：適用於 Node.js 的個人化工具用戶端程式庫
 
@@ -46,6 +46,9 @@ Azure 認知服務會由您訂閱的 Azure 資源呈現。 請使用 [Azure 入�
 
 * `PERSONALIZER_KEY` 用於資源金鑰。
 * `PERSONALIZER_ENDPOINT` 用於資源端點。
+
+在 Azure 入口網站中，可以從 [快速入門]  頁面取得金鑰和端點值。
+
 
 ### <a name="create-a-new-nodejs-application"></a>建立新的 Node.js 應用程式
 

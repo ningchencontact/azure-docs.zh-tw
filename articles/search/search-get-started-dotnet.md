@@ -1,5 +1,5 @@
 ---
-title: C# 快速入門：使用 .NET SDK 建立、載入及查詢索引 - Azure 搜尋服務
+title: 快速入門：使用 .NET SDK 在 C# 中建立搜尋索引 - Azure 搜尋服務
 description: 說明如何使用 C# 與 Azure 搜尋服務 .NET SDK 建立索引、載入資料以及執行查詢。
 author: heidisteen
 manager: nitinme
@@ -9,13 +9,13 @@ services: search
 ms.service: search
 ms.devlang: dotnet
 ms.topic: quickstart
-ms.date: 07/11/2019
-ms.openlocfilehash: 6a77ecd91c0d04f0b449d25686578784921987bf
-ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
+ms.date: 09/10/2019
+ms.openlocfilehash: bda9c29fe3af0bd7d9a6ec61dd5fe40a8e9cc339
+ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69649805"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70881592"
 ---
 # <a name="quickstart-create-an-azure-search-index-in-c-using-the-net-sdk"></a>快速入門：在 C# 中使用 .NET SDK 建立 Azure 搜尋服務索引
 > [!div class="op_single_selector"]
@@ -31,7 +31,7 @@ ms.locfileid: "69649805"
 如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 。
 
 > [!NOTE]
-> 為了簡單起見，本此文章中的範例程式碼使用 Azure 搜尋服務 .NET SDK 的同步方法。 不過，針對生產案例，我們建議您在您自己的應用程式中使用非同步方法，讓應用程式保有可擴充性且回應靈敏。 例如，您可以使用 `CreateAsync` 與 `DeleteAsync`，而非 `Create` 與 `Delete`。
+> 為了簡單起見，此文章中的範例程式碼使用 Azure 搜尋服務 .NET SDK 的同步方法。 不過，針對生產案例，我們建議您在您自己的應用程式中使用非同步方法，讓應用程式保有可擴充性且回應靈敏。 例如，您可以使用 `CreateAsync` 與 `DeleteAsync`，而非 `Create` 與 `Delete`。
 
 ## <a name="prerequisites"></a>必要條件
 

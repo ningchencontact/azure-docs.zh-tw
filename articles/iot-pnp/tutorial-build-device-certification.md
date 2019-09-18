@@ -9,16 +9,16 @@ ms.custom: mvc
 ms.service: iot-pnp
 services: iot-pnp
 manager: philmea
-ms.openlocfilehash: 151f6609375063a68a848f4c799af0b459124f23
-ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
+ms.openlocfilehash: 019b2ba0fd87610195ca9e6c7cb749be9542bd72
+ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/27/2019
-ms.locfileid: "70047902"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70858849"
 ---
 # <a name="build-an-iot-plug-and-play-preview-device-thats-ready-for-certification"></a>建置可供認證的 IoT 隨插即用預覽版裝置
 
-本教學課程說明身為裝置開發人員的您如何建置可供認證的 IoT 隨插即用預覽版裝置。
+此教學課程說明身為裝置開發人員的您如何建置可供認證的 IoT 隨插即用預覽版裝置。
 
 認證測試會檢查：
 
@@ -30,10 +30,10 @@ ms.locfileid: "70047902"
 
 ## <a name="prerequisites"></a>必要條件
 
-若要完成本教學課程，您需要：
+若要完成此教學課程，您需要：
 
 - [Visual Studio Code](https://code.visualstudio.com/download)
-- [適用於 VS Code 的 Azure IoT Workbench 延伸模組](https://github.com/Azure/Azure-IoT-PnP-Preview/blob/master/VSCode/README.md#installation)
+- [適用於 VS Code 的 Azure IoT Tools](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools) \(英文\) 擴充套件
 
 您也需要在下列快速入門中建立的 IoT 隨插即用裝置：[使用裝置功能模型來建立裝置](quickstart-create-pnp-device.md)。
 

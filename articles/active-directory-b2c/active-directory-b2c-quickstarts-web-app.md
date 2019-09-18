@@ -1,5 +1,5 @@
 ---
-title: 快速入門 - 設定使用 Azure Active Directory B2C 登入 ASP.NET 應用程式 | Microsoft Docs
+title: 快速入門 - 設定使用 Azure Active Directory B2C 登入 ASP.NET 應用程式
 description: 執行範例 ASP.NET Web 應用程式，而該應用程式使用 Azure Active Directory B2C 來提供帳戶登入。
 services: active-directory-b2c
 author: mmacy
@@ -7,15 +7,15 @@ manager: celestedg
 ms.service: active-directory
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 11/30/2018
+ms.date: 09/12/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 647ea3bdeb914b97fe131d32078ddb610d4d163e
-ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
+ms.openlocfilehash: 5f5cae82e23fed6a30d5f7ac63a5718c2a057a7d
+ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67835485"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70914309"
 ---
 # <a name="quickstart-set-up-sign-in-for-an-aspnet-application-using-azure-active-directory-b2c"></a>快速入門：設定使用 Azure Active Directory B2C 登入 ASP.NET 應用程式
 
@@ -26,14 +26,14 @@ Azure Active Directory (Azure AD) B2C 提供雲端身分識別管理，使您的
 ## <a name="prerequisites"></a>必要條件
 
 - [Visual Studio 2019](https://www.visualstudio.com/downloads/)，其中包含 **ASP.NET 和 Web 部署**工作負載。
-- Facebook、Google、Microsoft 或 Twitter 社交帳戶。
+- Facebook、Google 或 Microsoft 的社交帳戶。
 - [下載 zip 檔案](https://github.com/Azure-Samples/active-directory-b2c-dotnet-webapp-and-webapi/archive/master.zip)，或從 GitHub 複製範例 Web 應用程式。
 
     ```
     git clone https://github.com/Azure-Samples/active-directory-b2c-dotnet-webapp-and-webapi.git
     ```
 
-    範例解決方案中有兩個專案：
+    範例方案中有兩個專案：
 
     - **TaskWebApp** - 建立和編輯工作清單的 Web 應用程式。 此 Web 應用程式會使用**註冊或登入**使用者流程來註冊或登入使用者。
     - **TaskService** - 支援建立、讀取、更新和刪除工作清單功能的 Web API。 此 Web API 會受到 Azure AD B2C 的保護，且由 Web 應用程式呼叫。
@@ -55,9 +55,9 @@ Azure Active Directory (Azure AD) B2C 提供雲端身分識別管理，使您的
 
     ![瀏覽器中的範例 ASP.NET Web 應用程式，並醒目提示 [註冊/登入] 連結](media/active-directory-b2c-quickstarts-web-app/web-app-sign-in.png)
 
-    此範例支援數個登入選項，包括使用社交識別提供者或使用電子郵件地址建立本機帳戶。 在本快速入門中，請使用 Facebook、Google、Microsoft 或 Twitter 的社交身分識別提供者帳戶。
+    此範例支援數個登入選項，包括使用社交識別提供者或使用電子郵件地址建立本機帳戶。 在本快速入門中，請使用 Facebook、Google 或 Microsoft 的社交身分識別提供者帳戶。
 
-2. Azure AD B2C 會針對範例 Web 應用程式，呈現 Wingtip Toys 虛構品牌的自訂登入頁面。 若要使用社交識別提供者註冊，按一下您想要使用之識別提供者的按鈕。
+2. Azure AD B2C 會針對範例 Web 應用程式，呈現 Fabrikam 虛構公司的登入頁面。 若要使用社交識別提供者註冊，按一下您想要使用之識別提供者的按鈕。
 
     ![顯示識別提供者按鈕的登入或註冊頁面](media/active-directory-b2c-quickstarts-web-app/sign-in-or-sign-up-web.png)
 

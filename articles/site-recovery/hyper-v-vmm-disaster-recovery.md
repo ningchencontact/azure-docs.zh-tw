@@ -1,26 +1,25 @@
 ---
-title: 使用 Azure Site Recovery 設定內部部署網站間的 Hyper-V VM 災害復原 | Microsoft Docs
+title: 使用 Azure Site Recovery 設定內部部署網站間的 Hyper-V VM 災害復原
 description: 了解如何使用 Azure Site Recovery 設定內部部署網站間的 Hyper-V VM 災害復原。
-services: site-recovery
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 05/30/2019
+ms.date: 09/09/2019
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 067040349a5d435860492497dddbf39aad2635eb
-ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
+ms.openlocfilehash: a2eb8bf10454ee01953ddd37025f0c0048d00a0a
+ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66398413"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70813751"
 ---
 # <a name="set-up-disaster-recovery-for-hyper-v-vms-to-a-secondary-on-premises-site"></a>設定從 Hyper-V VM 到次要內部部署網站的災害復原
 
 [Azure Site Recovery](site-recovery-overview.md) 服務可藉由管理及協調內部部署電腦與 Azure 虛擬機器 (VM) 的複寫、容錯移轉及容錯回復，為您的災害復原策略做出貢獻。
 
-本文說明如何設定從 System Center Virtual Machine Manager (VMM) 雲端中管理的內部部署 Hyper-V VM 到次要網站的災害復原。 在本文中，您將了解：
+此文章說明如何設定從 System Center Virtual Machine Manager (VMM) 雲端中管理的內部部署 Hyper-V VM 到次要網站的災害復原。 在此文章中，您將了解：
 
 > [!div class="checklist"]
 > * 準備內部部署 VMM 伺服器和 Hyper-V 主機

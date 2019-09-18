@@ -6,12 +6,12 @@ ms.author: mbaldwin
 ms.date: 05/20/2019
 ms.service: key-vault
 ms.topic: quickstart
-ms.openlocfilehash: c67b24d57117a248559424497939a04ce347658c
-ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
+ms.openlocfilehash: b61dab28ff3fb6710e59e6209282c71a8f52f674
+ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70308949"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70914867"
 ---
 # <a name="quickstart-azure-key-vault-client-library-for-net"></a>快速入門：適用於 .NET 的 Azure Key Vault 用戶端程式庫
 
@@ -156,7 +156,7 @@ az keyvault set-policy -n <your-unique-keyvault-name> --spn <appid-of-your-servi
 
 ### <a name="authenticate-to-your-key-vault"></a>向金鑰保存庫進行驗證
 
-這個 .NET 快速入門會仰賴環境變數來儲存雖不應該、但會放在程式碼中的認證。 
+這個 .NET 快速入門會仰賴環境變數來儲存不應該放在程式碼中的認證。 
 
 在建置和執行應用程式前，請先使用 `setx` 命令將 `akvClientId`、`akvClientSecret`、`akvTenantId` 和 `akvSubscriptionId` 環境變數設定為您在前面記下的值。
 

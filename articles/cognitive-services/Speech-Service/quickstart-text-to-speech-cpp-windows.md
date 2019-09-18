@@ -8,22 +8,20 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart
-ms.date: 07/05/2019
+ms.date: 08/24/2019
 ms.author: yinhew
-ms.openlocfilehash: fdc5e540dd7e84d47aa139768fbfc2614f38b376
-ms.sourcegitcommit: 6cff17b02b65388ac90ef3757bf04c6d8ed3db03
+ms.openlocfilehash: 686b21d3e02266af77687778c32f0d1ca6d55154
+ms.sourcegitcommit: 49c4b9c797c09c92632d7cedfec0ac1cf783631b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68607722"
+ms.lasthandoff: 09/05/2019
+ms.locfileid: "70383081"
 ---
 # <a name="quickstart-synthesize-speech-in-c-on-windows-by-using-the-speech-sdk"></a>快速入門：使用語音 SDK 在 Windows 上以 C++ 合成語音
 
-另備有[語音辨識](quickstart-cpp-windows.md)和[語音翻譯](quickstart-translate-speech-cpp-windows.md)的快速入門。
+[語音辨識](quickstart-cpp-windows.md)和[語音翻譯](quickstart-translate-speech-cpp-windows.md)也提供快速入門。
 
-在本文中，您會建立適用於 Windows 的 C++ 主控台應用程式。 您將使用認知服務[語音 SDK](speech-sdk.md) 即時從文字合成語音，並以電腦的喇叭播放語音。 應用程式是利用[語音 SDK NuGet 套件](https://aka.ms/csspeech/nuget)與 Microsoft Visual Studio 2017 或更新版本 (任何版本) 所建置的。
-
-本文說明的是可從[語音 SDK 1.5.0](https://www.nuget.org/packages/Microsoft.CognitiveServices.Speech/1.5.0) 使用的功能。
+在此文章中，您會建立適用於 Windows 的 C++ 主控台應用程式。 您將使用認知服務[語音 SDK](speech-sdk.md) 即時從文字合成語音，並以電腦的喇叭播放語音。 應用程式是利用[語音 SDK NuGet 套件](https://aka.ms/csspeech/nuget) \(英文\) 與 Microsoft Visual Studio 2019 (任何版本) 所建置的。
 
 如需可進行語音合成的完整語言/語音清單，請參閱[語言支援](language-support.md#text-to-speech)。
 
@@ -37,7 +35,9 @@ ms.locfileid: "68607722"
 
 ## <a name="add-sample-code"></a>新增範例程式碼
 
-1. 開啟來源檔案 helloworld.cpp  。 使用下列項目取代開頭 include 陳述式 (`#include "stdafx.h"` 或 `#include "pch.h"`) 下方的所有程式碼：
+1. 開啟來源檔案 helloworld.cpp  。
+
+1. 使用下列程式碼片段取代所有程式碼：
 
    [!code-cpp[Quickstart Code](~/samples-cognitive-services-speech-sdk/quickstart/text-to-speech/cpp-windows/helloworld/helloworld.cpp#code)]
 
@@ -45,21 +45,17 @@ ms.locfileid: "68607722"
 
 1. 以與您的訂用帳戶 (例如，免費試用訂用帳戶的 `westus`) 相關聯的[區域](regions.md)取代 `YourServiceRegion` 字串。
 
-1. 儲存專案的變更。
+1. 從功能表列中，選擇 [檔案]   > [全部儲存]  。
 
-## <a name="build-and-run-the-app"></a>建置並執行應用程式
+## <a name="build-and-run-the-application"></a>建置並執行應用程式
 
-1. 建置應用程式。 從功能表列中，選擇 [建置]   > [建置解決方案]  。 這應該會編譯程式碼，而且不會出現任何錯誤。
+1. 從功能表列中，選取 [建置]   > [建置方案]  來建置應用程式。 現在會編譯程式碼，而且不會出現任何錯誤。
 
-   ![Visual Studio 應用程式的螢幕擷取畫面，其中 [建置解決方案] 選項已醒目提示](media/sdk/qs-cpp-windows-06-build.png)
+1. 選擇 [偵錯]   > [開始偵錯]  \(或按 **F5**\) 以啟動 **helloworld** 應用程式。
 
-1. 啟動應用程式。 從功能表列中，選擇 [偵錯]   > [開始偵錯]  ，或按 **F5**。
+1. 鍵入英文片語或句子。 應用程式會將您的文字傳送到語音服務，文字會轉換為合成語音並傳送回應用程式，以在喇叭上播放。
 
-   ![Visual Studio 應用程式的螢幕擷取畫面，其中 [開始偵錯] 選項已醒目提示](media/sdk/qs-cpp-windows-07-start-debugging.png)
-
-1. 主控台視窗隨即顯示，提示您輸入某些文字。 請輸入幾個字或句子。 您輸入的文字會傳送至語音服務並合成為語音，然後以喇叭播放。
-
-   ![此螢幕擷取畫面顯示成功合成後的主控台輸出](media/sdk/qs-tts-cpp-windows-console-output.png)
+   ![語音合成成功後的主控台輸出](media/sdk/qs-tts-cpp-windows-console-output.png)
 
 ## <a name="next-steps"></a>後續步驟
 
@@ -70,5 +66,5 @@ ms.locfileid: "68607722"
 
 ## <a name="see-also"></a>另請參閱
 
-- [自訂語音字型](how-to-customize-voice-font.md)
-- [記錄語音範例](record-custom-voice-samples.md)
+- [建立自訂語音](how-to-custom-voice-create-voice.md)
+- [錄製自訂語音樣本](record-custom-voice-samples.md)

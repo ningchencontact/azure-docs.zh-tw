@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: sample
 ms.date: 07/30/2019
 ms.author: aahi
-ms.openlocfilehash: 361dc10aad6f65230e1e0f4c563534d44b45f902
-ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
+ms.openlocfilehash: d34f3a03e1bcd35c270d13c4dda57d0394a36e4b
+ms.sourcegitcommit: 88ae4396fec7ea56011f896a7c7c79af867c90a1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68697800"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70387795"
 ---
 # <a name="example-detect-language-with-text-analytics"></a>範例：使用文字分析來偵測語言
 
@@ -69,7 +69,7 @@ ms.locfileid: "68697800"
 
 + 建立 POST 要求。 若要檢閱適用於此要求的 API 文件，請參閱[語言偵測 API](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c7) \(英文\)。
 
-+ 設定適用於語言偵測的 HTTP 端點。 使用 Azure 文字分析資源或具現化的[文字分析容器](text-analytics-how-to-install-containers.md)。 它必須包括 `/languages` 資源：`https://westus.api.cognitive.microsoft.com/text/analytics/v2.1/languages`。
++ 設定適用於語言偵測的 HTTP 端點。 使用 Azure 文字分析資源或具現化的[文字分析容器](text-analytics-how-to-install-containers.md)。 您必須在 URL 中納入 `/text/analytics/v2.1/languages`。 例如： `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v2.1/languages` 。
 
 + 設定要求標頭以包含文字分析作業的[存取金鑰](../../cognitive-services-apis-create-account.md#get-the-keys-for-your-resource)。
 

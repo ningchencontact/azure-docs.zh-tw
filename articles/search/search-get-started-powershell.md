@@ -1,7 +1,7 @@
 ---
-title: PowerShell 快速入門：使用 REST API 建立、載入及查詢索引 - Azure 搜尋服務
+title: 快速入門：使用 REST API 在 PowerShell 中建立搜尋索引 - Azure 搜尋服務
 description: 說明如何使用 PowerShell 的 Invoke-RestMethod 與 Azure 搜尋服務 REST API 建立索引、載入資料以及執行查詢。
-ms.date: 07/11/2019
+ms.date: 09/10/2019
 author: heidisteen
 manager: nitinme
 ms.author: heidist
@@ -9,12 +9,12 @@ services: search
 ms.service: search
 ms.devlang: rest-api
 ms.topic: quickstart
-ms.openlocfilehash: 171e5a59c59b27469eb3c344fa45c6814b9fbf97
-ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
+ms.openlocfilehash: ab82406fa151f5889a563d8154e02da921f1c4e6
+ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69656278"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70881727"
 ---
 # <a name="quickstart-create-an-azure-search-index-in-powershell-using-rest-apis"></a>快速入門：使用 REST API 在 PowerShell 中建立 Azure 搜尋服務索引
 > [!div class="op_single_selector"]
@@ -25,7 +25,7 @@ ms.locfileid: "69656278"
 > * [入口網站](search-create-index-portal.md)
 > 
 
-本文將逐步引導您完成使用 PowerShell 和 [Azure 搜尋服務 REST API](https://docs.microsoft.com/rest/api/searchservice/) 建立、載入及查詢 Azure 搜尋服務索引的程序。 本文將說明如何以互動方式執行 PowerShell 命令。 或者，您可以[下載並執行 Powershell 指令碼](https://github.com/Azure-Samples/azure-search-powershell-samples/tree/master/Quickstart)來執行相同的作業。
+此文章將逐步引導您完成使用 PowerShell 和 [Azure 搜尋服務 REST API](https://docs.microsoft.com/rest/api/searchservice/) 建立、載入及查詢 Azure 搜尋服務索引的程序。 此文章將說明如何以互動方式執行 PowerShell 命令。 或者，您可以[下載並執行 Powershell 指令碼](https://github.com/Azure-Samples/azure-search-powershell-samples/tree/master/Quickstart)來執行相同的作業。
 
 如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 。
 

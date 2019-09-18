@@ -10,12 +10,12 @@ ms.subservice: personalizer
 ms.topic: overview
 ms.date: 09/03/2019
 ms.author: diberry
-ms.openlocfilehash: 8c21878fc23f3880f6c6e66b1e304c7dd2e9177c
-ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
+ms.openlocfilehash: 3132d31e9e45718fa95c39a1b8160ea303ded25d
+ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70306954"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70883656"
 ---
 # <a name="what-is-personalizer"></a>什麼是個人化工具？
 
@@ -29,7 +29,7 @@ Azure 個人化工具是雲端式 API 服務，可讓您選擇最佳體驗來對
 
 ## <a name="how-does-personalizer-work"></a>個人化工具的運作方式
 
-個人化工具會使用機器學習模型來探索要在內容中排名最高的動作。 您的用戶端應用程式會提供可能的動作清單，內含動作相關資訊，以及內容相關資訊，其中可能包含使用者、裝置等相關資訊。個人化工具可決定要採取的動作。 用戶端應用程式使用所選的動作後，它就會以回報分數的形式將意見反應提供給個人化工具。 收到意見反應後，個人化工具會自動更新用於未來排名的自有模型。
+個人化工具會使用機器學習模型來探索要在內容中排名最高的動作。 您的用戶端應用程式會提供可能的動作清單，內含動作相關資訊，以及內容相關資訊，其中可能包含使用者、裝置等相關資訊。個人化工具可決定要採取的動作。 用戶端應用程式使用所選的動作後，它就會以回報分數的形式將意見反應提供給個人化工具。 收到意見反應後，個人化工具會自動更新用於未來排名的自有模型。 經過一段時間後，個人化工具將會定型一個模型，可根據每個內容的特徵來建議要在內容中選擇的最佳動作。
 
 ## <a name="how-do-i-use-the-personalizer"></a>如何使用個人化工具？
 
@@ -53,6 +53,8 @@ Azure 個人化工具是雲端式 API 服務，可讓您選擇最佳體驗來對
 * 為聊天 Bot 選擇要用來釐清使用者意圖或提出建議動作的回應。
 * 將使用者應該在商務流程中執行的後續建議排列優先順序。
 
+個人化工具不是用來保存和管理使用者設定檔資訊的服務，也不是用來記錄個別使用者的喜好設定或歷程記錄。 個人化工具會學習每個互動的單一模型內容動作特徵，以在類似特徵出現時能得到最大報酬。 
+
 ## <a name="personalization-for-developers"></a>適用於開發人員的個人化
 
 個人化工具服務有兩個 API：
@@ -64,9 +66,9 @@ Azure 個人化工具是雲端式 API 服務，可讓您選擇最佳體驗來對
 
 ## <a name="next-steps"></a>後續步驟
 
-* [快速入門：以 C# 建立意見反應迴圈](csharp-quickstart-commandline-feedback-loop.md)
-* [快速入門：以 Node.js 建立意見反應迴圈](quickstart-command-line-feedback-loop-nodejs-sdk.md)
-* [快速入門：以 Python 建立意見反應迴圈](python-quickstart-commandline-feedback-loop.md)
+* [個人化工具有哪些新功能？](whats-new.md)
+* [個人化工具如何運作？](how-personalizer-works.md)
+* [什麼是增強式學習？](concepts-reinforcement-learning.md)
 * [了解排名要求的功能和動作](concepts-features.md)
 * [了解如何判斷獎勵要求的分數](concept-rewards.md)
 * [使用互動式示範](https://personalizationdemo.azurewebsites.net/)

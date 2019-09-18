@@ -1,5 +1,5 @@
 ---
-title: 教學課程 - 使用 Apache Storm 寫入儲存體/Data Lake Storage - Azure HDInsight
+title: 教學課程 - Apache Storm 寫入儲存體/Data Lake Storage - Azure HDInsight
 description: 教學課程 - 了解如何使用 Apache Storm 寫入 Azure HDInsight 的 HDFS 相容儲存體。
 ms.service: hdinsight
 author: hrasheed-msft
@@ -8,20 +8,20 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: tutorial
 ms.date: 06/24/2019
-ms.openlocfilehash: 17cb1091d34c8c0800d0b4dd1f9044fee0ef313f
-ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
+ms.openlocfilehash: 752bf1919634d29221a00d983b4e88fefaf628d5
+ms.sourcegitcommit: 97605f3e7ff9b6f74e81f327edd19aefe79135d2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/10/2019
-ms.locfileid: "68946459"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70736344"
 ---
 # <a name="tutorial-write-to-apache-hadoop-hdfs-from-apache-storm-on-azure-hdinsight"></a>教學課程：從 Azure HDInsight 上的 Apache Storm 寫入 Apache Hadoop HDFS
 
-本教學課程會示範如何使用 Apache Storm 將資料寫入 HDInsight 上 Apache Storm 所使用的 HDFS 相容儲存體。 HDInsight 可以同時使用 Azure 儲存體以及 Azure Data Lake Storage 作為 HDFS 相容儲存體。 Storm 提供了將資料寫入 HDFS 的 [HdfsBolt](https://storm.apache.org/releases/current/javadocs/org/apache/storm/hdfs/bolt/HdfsBolt.html) 元件。 本文件提供從 HdfsBolt 寫入任一類型儲存體的資訊。
+此教學課程會示範如何使用 Apache Storm 將資料寫入 HDInsight 上 Apache Storm 所使用的 HDFS 相容儲存體。 HDInsight 可以同時使用 Azure 儲存體以及 Azure Data Lake Storage 作為 HDFS 相容儲存體。 Storm 提供了將資料寫入 HDFS 的 [HdfsBolt](https://storm.apache.org/releases/current/javadocs/org/apache/storm/hdfs/bolt/HdfsBolt.html) 元件。 此文件提供從 HdfsBolt 寫入任一類型儲存體的資訊。
 
-本文件使用的範例拓撲依賴 Storm on HDInsight 隨附的元件。 它可能需要進行修改，才能在與其他 Apache Storm 叢集搭配使用時使用 Azure Data Lake Storage。
+此文件使用的範例拓撲依賴 Storm on HDInsight 隨附的元件。 它可能需要進行修改，才能在與其他 Apache Storm 叢集搭配使用時使用 Azure Data Lake Storage。
 
-在本教學課程中，您了解如何：
+在此教學課程中，您了解如何：
 
 > [!div class="checklist"]
 > * 使用指令碼動作來設定叢集
@@ -201,7 +201,7 @@ storm kill hdfswriter
 
 ## <a name="clean-up-resources"></a>清除資源
 
-若要清除本教學課程所建立的資源，您可以刪除資源群組。 刪除資源群組也會刪除相關聯的 HDInsight 叢集，以及與資源群組相關聯的任何其他資源。
+若要清除此教學課程所建立的資源，您可以刪除資源群組。 刪除資源群組也會刪除相關聯的 HDInsight 叢集，以及與資源群組相關聯的任何其他資源。
 
 若要使用 Azure 入口網站移除資源群組：
 
@@ -211,7 +211,7 @@ storm kill hdfswriter
 
 ## <a name="next-steps"></a>後續步驟
 
-在本教學課程中，您會了解如何使用 Apache Storm 將資料寫入 HDInsight 上 Apache Storm 所使用的 HDFS 相容儲存體。
+在此教學課程中，您會了解如何使用 Apache Storm 將資料寫入 HDInsight 上 Apache Storm 所使用的 HDFS 相容儲存體。
 
 > [!div class="nextstepaction"]
 > 探索其他[適用於 HDInsight 的 Apache Storm 範例](apache-storm-example-topology.md)

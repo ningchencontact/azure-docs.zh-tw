@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.service: iot-pnp
 services: iot-pnp
 ms.custom: mvc
-ms.openlocfilehash: 386c2fa23e8d01f696ef3cf6078bac5fcec58f05
-ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
+ms.openlocfilehash: 6e5e08df444f66f2c5500d968c805552d20901c5
+ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/27/2019
-ms.locfileid: "70050129"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70861200"
 ---
 # <a name="quickstart-use-a-device-capability-model-to-create-an-iot-plug-and-play-device"></a>快速入門：使用裝置功能模型來建立 IoT 隨插即用裝置
 
@@ -28,12 +28,12 @@ _裝置功能模型_ (DCM) 可說明 IoT 隨插即用裝置的功能。 DCM 通�
 * [CMake](https://cmake.org/download/)。
 * [Visual Studio Code](https://code.visualstudio.com/)。
 
-### <a name="install-azure-iot-device-workbench"></a>安裝 Azure IoT Device Workbench
+### <a name="install-azure-iot-tools"></a>安裝 Azure IoT Tools
 
-請使用下列步驟，在 VS Code 中安裝 Azure IoT Device Workbench 延伸模組：
+請使用下列步驟安裝[適用於 VS Code 的 Azure IoT Tools](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools) \(英文\) 擴充套件：
 
 1. 在 VS Code 中，選取 [延伸模組]  索引標籤。
-1. 搜尋 **Azure IoT Device Workbench**。
+1. 搜尋 **Azure IoT Tools**。
 1. 選取 [安裝]  。
 
 ### <a name="install-the-azure-iot-explorer"></a>安裝 Azure IoT 檔案總管
@@ -49,6 +49,9 @@ _裝置功能模型_ (DCM) 可說明 IoT 隨插即用裝置的功能。 DCM 通�
 ## <a name="prepare-an-iot-hub"></a>準備 IoT 中樞
 
 您的 Azure 訂用帳戶中也必須要有 Azure IoT 中樞，才能完成本快速入門。 如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 。
+
+> [!NOTE]
+> 在公開預覽期間，IoT 隨插即用功能只能在**美國中部**、**歐洲北部**和**日本東部**區域中建立的 IoT 中樞上使用。
 
 新增適用於 Azure CLI 的 Microsoft Azure IoT 延伸模組：
 

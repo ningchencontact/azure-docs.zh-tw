@@ -1,23 +1,22 @@
 ---
-title: 關於 Azure Site Recovery | Microsoft Docs
+title: 關於 Azure Site Recovery
 description: 提供 Azure Site Recovery 服務的概觀，並摘要說明災難復原和移轉的部署案例。
-services: site-recovery
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: overview
-ms.date: 05/30/2019
+ms.date: 09/09/2019
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 907d12464156f551930098f6bd6a6a24596307cb
-ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
+ms.openlocfilehash: 3f38560c92e91925ab8a18924acdbb74f4b90e59
+ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66479930"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70814390"
 ---
 # <a name="about-site-recovery"></a>關於 Site Recovery
 
-歡迎使用 Azure Site Recovery 服務！ 本文提供快速服務概觀。
+歡迎使用 Azure Site Recovery 服務！ 此文章提供快速服務概觀。
 
 以一個組織而言，您必須採用商務持續性與災害復原 (BCDR) 策略，以便在計劃或未計劃中斷發生時，可以保護您資料的安全，並使您的應用程式和工作負載保持運作。
 

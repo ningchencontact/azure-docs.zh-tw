@@ -10,19 +10,19 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: article
-ms.date: 06/28/2019
-ms.openlocfilehash: 17fb83bc845de61f7ec0e674f09c0dc73537f2fd
-ms.sourcegitcommit: aa66898338a8f8c2eb7c952a8629e6d5c99d1468
+ms.date: 09/06/2019
+ms.openlocfilehash: 6cb10f09772bf6666e197a4b622792c5b62d3ace
+ms.sourcegitcommit: 97605f3e7ff9b6f74e81f327edd19aefe79135d2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67461590"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70734794"
 ---
 # <a name="tutorial-migrate-rds-postgresql-to-azure-database-for-postgresql-online-using-dms"></a>教學課程：在線上使用 DMS 將 RDS PostgreSQL 遷移至適用於 PostgreSQL 的 Azure 資料庫
 
 您可以使用 Azure 資料庫移轉服務，將資料庫從 RDS PostgreSQL 執行個體遷移至[適用於 PostgreSQL 的 Azure 資料庫](https://docs.microsoft.com/azure/postgresql/)，同時讓來源資料庫在移轉期間保持連線。 換句話說，可在最短的應用程式停機時間內完成移轉。 在此教學課程中，您會在 Azure 資料庫移轉服務中使用線上移轉活動，將 **DVD Rental** 範例資料庫從 RDS PostgreSQL 9.6 執行個體移轉至適用於 PostgreSQL 的 Azure 資料庫。
 
-在本教學課程中，您了解如何：
+在此教學課程中，您了解如何：
 > [!div class="checklist"]
 >
 > * 使用 pg_dump 公用程式移轉範例結構描述。
@@ -39,20 +39,17 @@ ms.locfileid: "67461590"
 
 [!INCLUDE [online-offline](../../includes/database-migration-service-offline-online.md)]
 
-本文說明如何在線上從 PostgreSQL 的內部部署執行個體遷移至適用於 PostgreSQL 的 Azure 資料庫。
+此文章說明如何在線上從 PostgreSQL 的內部部署執行個體遷移至適用於 PostgreSQL 的 Azure 資料庫。
 
 ## <a name="prerequisites"></a>必要條件
 
-若要完成本教學課程，您需要：
+若要完成此教學課程，您需要：
 
 * 下載並安裝 [PostgreSQL 社群版](https://www.postgresql.org/download/) 9.5、9.6 或 10。 來源 PostgreSQL 伺服器版本必須是 9.5.11、9.6.7、10 或更新版本。 如需詳細資訊，請參閱[支援的 PostgreSQL 資料庫版本](https://docs.microsoft.com/azure/postgresql/concepts-supported-versions)一文。
 
     此外，RDS PostgreSQL 版本必須符合適用於 PostgreSQL 的 Azure 資料庫版本。 例如，RDS PostgreSQL 9.5.11.5 只能移轉至「適用於 PostgreSQL 的 Azure 資料庫」9.5.11，而無法移轉至 9.6.7。
 
-    > [!NOTE]
-    > 對於 PostgreSQL 第 10 版，目前 DMS 僅支援將 10.3 版移轉到 PostgreSQL 的 Azure 資料庫。
-
-* [在適用於 PostgreSQL 的 Azure 資料庫中建立執行個體](https://docs.microsoft.com/azure/postgresql/quickstart-create-server-database-portal)。 如需如何使用 pgAdmin 連線到 PostgreSQL Server 的詳細資訊，請參閱本文件的此[小節](https://docs.microsoft.com/azure/postgresql/quickstart-create-server-database-portal#connect-to-the-postgresql-server-using-pgadmin)。
+* [在適用於 PostgreSQL 的 Azure 資料庫中建立執行個體](https://docs.microsoft.com/azure/postgresql/quickstart-create-server-database-portal)。 如需如何使用 pgAdmin 連線到 PostgreSQL Server 的詳細資訊，請參閱文件的此[小節](https://docs.microsoft.com/azure/postgresql/quickstart-create-server-database-portal#connect-to-the-postgresql-server-using-pgadmin)。
 * 使用 Azure Resource Manager 部署模型建立 Azure 資料庫移轉服務的 Azure 虛擬網路 (VNet)，以使用 [ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-introduction) 或 [VPN](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways) 為您的內部部署來源伺服器提供站對站連線能力。 如需建立 VNet 的詳細資訊，請參閱[虛擬網路文件](https://docs.microsoft.com/azure/virtual-network/)，特別是快速入門文章，裡面會提供逐步操作詳細資料。
 * 確定您的 VNet 網路安全性群組規則不會對 Azure 資料庫移轉服務封鎖下列輸入通訊埠：443、53、9354、445 及 12000。 如需 Azure VNet NSG 流量篩選的詳細資訊，請參閱[使用網路安全性群組來篩選網路流量](https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg)。
 * 設定[用於 Database Engine 存取的 Windows 防火牆](https://docs.microsoft.com/sql/database-engine/configure-windows/configure-a-windows-firewall-for-database-engine-access)。
@@ -66,7 +63,7 @@ ms.locfileid: "67461590"
 2. 使用主要使用者名稱從 Azure 資料庫移轉服務連接到來源。 如果您使用的帳戶並非非主要使用者帳戶，該帳戶必須具有 rds_superuser 角色和 rds_replication 角色。 Rds_replication 角色會授與邏輯位置的管理權限，以及使用邏輯位置進行資料串流的權限。
 3. 使用下列設定建立新的參數群組：a. 將 DB 參數群組中的 rds.logical_replication 參數設定為 1。
     b. max_wal_senders =[並行工作數目] - max_wal_senders 參數設定可執行的並行工作數目，建議設定為 10 個工作。
-    c. max_replication_slots – = [位置數目]，建議設定為 5 個位置。
+    c. max_replication_slots – = [插槽數目]，建議設定為五個插槽。
 4. 將您建立的參數群組與 RDS PostgreSQL 執行個體建立關聯。
 
 ## <a name="migrate-the-schema"></a>遷移結構描述

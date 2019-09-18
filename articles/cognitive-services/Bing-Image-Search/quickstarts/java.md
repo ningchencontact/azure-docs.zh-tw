@@ -11,17 +11,17 @@ ms.subservice: bing-image-search
 ms.topic: quickstart
 ms.date: 07/22/2019
 ms.author: aahi
-ms.custom: seodec2018, seo-java-july2019, seo-java-august2019
-ms.openlocfilehash: 3cd7af766b3881eb1abe054105423aaa3d0591de
-ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
+ms.custom: seodec2018, seo-java-july2019, seo-java-august2019, seo-java-september2019
+ms.openlocfilehash: 415613d99b3a7b9f3845a458886e93e5655842c8
+ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70124081"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70899702"
 ---
 # <a name="quickstart-search-for-images-with-the-bing-image-search-api-an-azure-cognitive-service"></a>快速入門：使用 Bing 影像搜尋 API (Azure 認知服務) 來搜尋影像 
 
-使用本快速入門，開始將搜尋要求傳送至 Bing 影像搜尋 API。 這個 Java 應用程式會將搜尋查詢傳送至 API，並顯示結果中第一個影像的 URL。 雖然此應用程式是以 Java 撰寫的，但 API 是一種與大多數程式設計語言都相容的 RESTful Web 服務。
+使用本快速入門，將搜尋要求傳送至 Azure 認知服務中的 Bing 影像搜尋 API。 這個 Java 應用程式會將搜尋查詢傳送至 API，並顯示結果中第一個影像的 URL。 雖然此應用程式是以 Java 撰寫的，但 API 是一種與大多數程式設計語言都相容的 RESTful Web 服務。
 
 此範例的原始程式碼可從 [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/java/Search/BingImageSearchv7Quickstart.java) 取得，其中含有其他錯誤處理和註釋。
 

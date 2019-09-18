@@ -1,6 +1,6 @@
 ---
-title: 教學課程：使用 Apache Storm 搭配 Apache Kafka 來讀取和寫入資料 - Azure HDInsight
-description: 了解如何在 HDInsight 上搭配使用 Apache Storm 與 Apache Kafka 以建立串流管線。 在本教學課程中，您會使用 KafkaBolt 與 KafkaSpout 元件從 Kafka 串流處理資料。
+title: 教學課程：Apache Storm 讀取和寫入 Apache Kafka - Azure HDInsight
+description: 了解如何在 HDInsight 上搭配使用 Apache Storm 與 Apache Kafka 以建立串流管線。 在此教學課程中，您會使用 KafkaBolt 與 KafkaSpout 元件從 Kafka 串流處理資料。
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
@@ -8,18 +8,18 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: tutorial
 ms.date: 06/25/2019
-ms.openlocfilehash: 181d052501b9c418fad10a2069dde928a7ff9f38
-ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
+ms.openlocfilehash: 6b370c88e8b230c87bcbadf11d52337bd73b72e2
+ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68840249"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70917026"
 ---
 # <a name="tutorial-use-apache-storm-with-apache-kafka-on-hdinsight"></a>教學課程：在 HDInsight 上搭配使用 Apache Storm 與 Apache Kafka
 
-本教學課程說明如何使用 [Apache Storm](https://storm.apache.org/) 拓撲，對 HDInsight 上的 [Apache Kafka](https://kafka.apache.org/) 讀取和寫入資料。 本教學課程也會說明如何將資料保存至 Storm 叢集上與 [Apache Hadoop HDFS](https://hadoop.apache.org/docs/r1.2.1/hdfs_design.html) 相容的儲存體。
+此教學課程說明如何使用 [Apache Storm](https://storm.apache.org/) 拓撲，對 HDInsight 上的 [Apache Kafka](https://kafka.apache.org/) 讀取和寫入資料。 此教學課程也會說明如何將資料保存至 Storm 叢集上與 [Apache Hadoop HDFS](https://hadoop.apache.org/docs/r1.2.1/hdfs_design.html) 相容的儲存體。
 
-在本教學課程中，您了解如何：
+在此教學課程中，您了解如何：
 
 > [!div class="checklist"]
 > * Storm 和 Kafka
@@ -54,15 +54,15 @@ ms.locfileid: "68840249"
     * 已安裝 Maven 的目錄。
 
 > [!IMPORTANT]  
-> 在本文件的步驟中，Azure 資源群組必須包含 HDInsight 上的 Storm 和 HDInsight 叢集上的 Kafka。 這兩個叢集都位於 Azure 虛擬網路中，可讓 Storm 叢集直接與 Kafka 叢集通訊。
+> 在此文件的步驟中，Azure 資源群組必須包含 HDInsight 上的 Storm 和 HDInsight 叢集上的 Kafka。 這兩個叢集都位於 Azure 虛擬網路中，可讓 Storm 叢集直接與 Kafka 叢集通訊。
 > 
-> 為了方便您使用，本文件會連結至可建立所有必要 Azure 資源的範本。 
+> 為了方便您使用，此文件會連結至可建立所有必要 Azure 資源的範本。 
 >
 > 如需在虛擬網路中使用 HDInsight 的詳細資訊，請參閱[規劃 HDInsight 的虛擬網路](hdinsight-plan-virtual-network-deployment.md)文件。
 
 ## <a name="storm-and-kafka"></a>Storm 和 Kafka
 
-Apache Storm 提供數個用來處理 Apache Kafka 的元件。 在本教學課程中會使用下列元件：
+Apache Storm 提供數個用來處理 Apache Kafka 的元件。 在此教學課程中會使用下列元件：
 
 * `org.apache.storm.kafka.KafkaSpout`：此元件會從 Kafka 讀取資料。 此元件依存於下列元件：
 
@@ -117,14 +117,14 @@ Apache Storm 提供數個用來處理 Apache Kafka 的元件。 在本教學課�
 
 您可以在 [https://github.com/Azure-Samples/hdinsight-storm-java-kafka](https://github.com/Azure-Samples/hdinsight-storm-java-kafka) 上找到此文件中使用的程式碼。
 
-本教學課程中提供兩種拓撲：
+此教學課程中提供兩種拓撲：
 
 * Kafka 寫入器：產生隨機的句子，並將其儲存至 Kafka。
 
 * Kafka 讀取器：從 Kafka 讀取資料，然後將其儲存至 Storm 叢集中與 HDFS 相容的檔案存放區。
 
     > [!WARNING]  
-    > 若要讓 Storm 能夠使用 HDInsight 所使用的 HDFS 相容儲存體，必須執行指令碼動作。 此指令碼會將數個 jar 檔案安裝到 Storm 的 `extlib` 路徑。 本教學課程中的範本會在叢集建立期間自動使用此指令碼。
+    > 若要讓 Storm 能夠使用 HDInsight 所使用的 HDFS 相容儲存體，必須執行指令碼動作。 此指令碼會將數個 jar 檔案安裝到 Storm 的 `extlib` 路徑。 此教學課程中的範本會在叢集建立期間自動使用此指令碼。
     >
     > 如果您未使用此文件中的範本建立 Storm 叢集，則必須手動將指令碼動作套用至您的叢集。
     >
@@ -376,11 +376,11 @@ streams:
 
 ## <a name="create-the-clusters"></a>建立叢集
 
-Apache Kafka on HDInsight 不提供透過公用網際網路存取 Kafka 訊息代理程式。 任何使用 Kafka 的項目都必須位於相同的 Azure 虛擬網路中。 在本教學課程中，Kafka 和 Storm 叢集位於相同的 Azure 虛擬網路中。 
+Apache Kafka on HDInsight 不提供透過公用網際網路存取 Kafka 訊息代理程式。 任何使用 Kafka 的項目都必須位於相同的 Azure 虛擬網路中。 在此教學課程中，Kafka 和 Storm 叢集位於相同的 Azure 虛擬網路中。 
 
 下圖顯示 Storm 與 Kafka 之間的通訊流程︰
 
-![Azure 虛擬網路中的 Storm 和 Kafka 叢集圖表](./media/hdinsight-apache-storm-with-kafka/storm-kafka-vnet.png)
+![Azure 虛擬網路中的 Storm 和 Kafka 叢集圖表](./media/hdinsight-apache-storm-with-kafka/apache-storm-kafka-vnet.png)
 
 > [!NOTE]  
 > 叢集上的其他服務 (例如 SSH 和 [Apache Ambari](https://ambari.apache.org/)) 可以透過網際網路存取。 如需有關適用於 HDInsight 的公用連接埠詳細資訊，請參閱 [HDInsight 所使用的連接埠和 URI](hdinsight-hadoop-port-settings-for-services.md)。
@@ -389,7 +389,7 @@ Apache Kafka on HDInsight 不提供透過公用網際網路存取 Kafka 訊息�
 
 1. 使用以下按鈕，在 Azure 入口網站中登入 Azure 並開啟範本。
    
-    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure-Samples%2Fhdinsight-storm-java-kafka%2Fmaster%2Fcreate-kafka-storm-clusters-in-vnet.json" target="_blank"><img src="./media/hdinsight-apache-storm-with-kafka/deploy-to-azure.png" alt="Deploy to Azure"></a>
+    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure-Samples%2Fhdinsight-storm-java-kafka%2Fmaster%2Fcreate-kafka-storm-clusters-in-vnet.json" target="_blank"><img src="./media/hdinsight-apache-storm-with-kafka/hdi-deploy-to-azure1.png" alt="Deploy to Azure"></a>
    
     Azure Resource Manager 範本位於 **https://github.com/Azure-Samples/hdinsight-storm-java-kafka/blob/master/create-kafka-storm-clusters-in-vnet.json** 。 它會建立下列資源︰
     
@@ -471,9 +471,9 @@ Apache Kafka on HDInsight 不提供透過公用網際網路存取 Kafka 訊息�
 
     傳回的值類似下列文字︰
 
-        ```output
-        wn0-kafka.53qqkiavjsoeloiq3y1naf4hzc.ex.internal.cloudapp.net:9092,wn1-kafka.53qqkiavjsoeloiq3y1naf4hzc.ex.internal.cloudapp.net:9092
-        ```
+    ```output
+    wn0-kafka.53qqkiavjsoeloiq3y1naf4hzc.ex.internal.cloudapp.net:9092,wn1-kafka.53qqkiavjsoeloiq3y1naf4hzc.ex.internal.cloudapp.net:9092
+     ```
 
     > [!IMPORTANT]  
     > 雖然叢集可能有兩個以上的訊息代理程式主機，您並不需要提供客戶端完整的主機名單。 列出一兩個主機便已足夠。
@@ -623,7 +623,7 @@ Kafka 會將資料儲存到_主題_中。 在啟動 Storm 拓撲之前，您必�
 
 ## <a name="clean-up-resources"></a>清除資源
 
-若要清除本教學課程所建立的資源，您可以刪除資源群組。 刪除資源群組也會刪除相關聯的 HDInsight 叢集，以及與資源群組相關聯的任何其他資源。
+若要清除此教學課程所建立的資源，您可以刪除資源群組。 刪除資源群組也會刪除相關聯的 HDInsight 叢集，以及與資源群組相關聯的任何其他資源。
 
 若要使用 Azure 入口網站移除資源群組：
 
@@ -633,7 +633,7 @@ Kafka 會將資料儲存到_主題_中。 在啟動 Storm 拓撲之前，您必�
 
 ## <a name="next-steps"></a>後續步驟
 
-在本教學課程中，您已了解如何使用 [Apache Storm](https://storm.apache.org/) 拓撲對 HDInsight 上的 [Apache Kafka](https://kafka.apache.org/) 進行寫入和讀取。 您也已了解如何將資料儲存至 HDInsight 所使用的 [Apache Hadoop HDFS](https://hadoop.apache.org/docs/r1.2.1/hdfs_design.html) 相容儲存體。
+在此教學課程中，您已了解如何使用 [Apache Storm](https://storm.apache.org/) 拓撲對 HDInsight 上的 [Apache Kafka](https://kafka.apache.org/) 進行寫入和讀取。 您也已了解如何將資料儲存至 HDInsight 所使用的 [Apache Hadoop HDFS](https://hadoop.apache.org/docs/r1.2.1/hdfs_design.html) 相容儲存體。
 
 > [!div class="nextstepaction"]
 > [使用 Apache Kafka 產生者與取用者 API](kafka/apache-kafka-producer-consumer-api.md)

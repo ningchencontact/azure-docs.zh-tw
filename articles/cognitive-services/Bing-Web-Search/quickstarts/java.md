@@ -10,17 +10,17 @@ ms.subservice: bing-web-search
 ms.topic: quickstart
 ms.date: 07/22/2019
 ms.author: aahi
-ms.custom: seodec2018, seo-java-july2019, seo-java-august2019
-ms.openlocfilehash: 24197cc708789381e0f160268bea96b25457ba8f
-ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
+ms.custom: seodec2018, seo-java-july2019, seo-java-august2019, seo-java-september2019
+ms.openlocfilehash: f8a827cf19bec0796fc0e9743d1a2599071468af
+ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70123712"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70899682"
 ---
 # <a name="quickstart-use-java-to-search-the-web-with-the-bing-web-search-rest-api-an-azure-cognitive-service"></a>快速入門：使用 JAVA 以 Bing Web 搜尋 REST API (Azure 認知服務) 來搜尋網頁
 
-使用本快速入門進行對 Bing Web 搜尋 API 第一次的呼叫，並接收 JSON 回應。 這個 Java 應用程式會將搜尋要求傳送給 API，並顯示回應。 雖然此應用程式是以 Java 撰寫的，但 API 是一種與大多數程式設計語言都相容的 RESTful Web 服務。
+在本快速入門中，您會使用 Java 應用程式進行對 Bing Web 搜尋 API 第一次的呼叫，並接收 JSON 回應。 這個 Java 應用程式會將搜尋要求傳送給 API，並顯示回應。 雖然此應用程式是以 Java 撰寫的，但 API 是一種與大多數程式設計語言都相容的 RESTful Web 服務。
 
 ## <a name="prerequisites"></a>必要條件
 
