@@ -104,6 +104,8 @@
               href: concepts-monitoring.md
             - name: 伺服器記錄
               href: concepts-server-logs.md
+            - name: 稽核記錄
+              href: concepts-audit.md
             - name: 查詢存放區
               items:
                 - name: 查詢存放區
