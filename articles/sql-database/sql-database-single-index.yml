@@ -63,19 +63,6 @@ sections:
             html: <p>透過 Azure AD 驗證、虛擬網路、防火牆及 Always Encrypted 連線等功能，協助保護您的資料庫。 使用內建的安全性識別威脅與弱點。</p>
             image:
               src: media/index/i_security.svg
-  - title: 新功能與預覽功能
-    items:
-      - type: paragraph
-        text: 我們會持續推出新功能來改善 SQL Database，希望能聽聽您對下列新功能的意見：
-      - type: list
-        style: unordered
-        items:
-          - html: (預覽) <a href="sql-database-service-tier-hyperscale">超大規模資料庫</a>層，最多支援 100 TB 的資料庫和多個可讀取的複本。
-          - html: '(預覽) 新的 SQL Server 2019 <a href="https://docs.microsoft.com/sql/relational-databases/performance/intelligent-query-processing?toc=%2Fazure%2Fsql-database%2Ftoc.json&view=sql-server-2017">智慧查詢處理</a>功能，例如<a href="https://docs.microsoft.com/sql/relational-databases/performance/intelligent-query-processing?toc=%2Fazure%2Fsql-database%2Ftoc.json&view=sql-server-2017#table-variable-deferred-compilation">資料表變數延後編譯</a>、<a href="https://docs.microsoft.com/sql/relational-databases/performance/intelligent-query-processing?toc=%2Fazure%2Fsql-database%2Ftoc.json&view=sql-server-2017#batch-mode-on-rowstore">資料列存放區批次模式</a>，以及<a href="https://docs.microsoft.com/sql/relational-databases/user-defined-functions/scalar-udf-inlining?view=azuresqldb-current&toc=%2Fazure%2Fsql-database%2Ftoc.json">純量 UDF 內嵌</a>。'
-          - html: '(預覽) 新 Transact-SQL 語言功能，例如 <a href="https://docs.microsoft.com/sql/t-sql/functions/approx-count-distinct-transact-sql?toc=%2Fazure%2Fsql-database%2Ftoc.json&view=sql-server-2017">APPROX_COUNT_DISTINCT 彙總</a>和<a href="https://docs.microsoft.com/sql/relational-databases/import-export/examples-of-bulk-access-to-data-in-azure-blob-storage?toc=%2Fazure%2Fsql-database%2Ftoc.json&view=sql-server-2017">從 Azure Blob 儲存體大量匯入</a>。'
-          - html: '(預覽) 新的 SQL Server 2019 Online 的<a href="https://docs.microsoft.com/sql/t-sql/statements/create-columnstore-index-transact-sql?toc=%2Fazure%2Fsql-database%2Ftoc.json&view=sql-server-2017#online--on--off">建置</a>和重建資料行存放區索引作業。'
-          - html: '(預覽) 新增 <a href="https://docs.microsoft.com/azure/sql-database/sql-database-machine-learning-services-overview">Azure SQL Database 機器學習服務 (搭配 R)</a>。'
-          - html: '（預覽）新<a href="https://docs.microsoft.com/azure/sql-database/sql-database-serverless">無伺服器計算層</a>提供計算自動調整和每秒使用的計算的帳單。'
   - title: 五分鐘快速入門
     items:
       - type: paragraph

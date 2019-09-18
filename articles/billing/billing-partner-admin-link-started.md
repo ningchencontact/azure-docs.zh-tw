@@ -12,15 +12,15 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.openlocfilehash: 0448ffbccddc913bd6359f5f6bbf42988239afb4
-ms.sourcegitcommit: ad9120a73d5072aac478f33b4dad47bf63aa1aaa
-ms.translationtype: MT
+ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/01/2019
+ms.lasthandoff: 09/11/2019
 ms.locfileid: "68706394"
 ---
 # <a name="link-a-partner-id-to-your-azure-accounts"></a>將合作夥伴識別碼連結到您的 Azure 帳戶
 
-Microsoft 合作夥伴提供的服務可協助客戶使用 Microsoft 產品達成商業和任務目標。 代表客戶管理、設定和支援 Azure 服務時, 合作夥伴使用者將需要存取客戶的環境。 合作夥伴可以使用夥伴管理員連結, 將其合作夥伴網路識別碼與用於服務傳遞的認證產生關聯。
+Microsoft 合作夥伴提供的服務可協助客戶使用 Microsoft 產品達成商業和任務目標。 代表客戶管理、設定和支援 Azure 服務時，合作夥伴使用者會需要存取客戶的環境。 合作夥伴可以使用 [合作夥伴管理連結]，將其合作夥伴網路識別碼與用於服務傳遞的認證產生關聯。
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -48,13 +48,13 @@ Microsoft 合作夥伴提供的服務可協助客戶使用 Microsoft 產品達�
 
    ![顯示 [連結到合作夥伴識別碼] 的螢幕擷取畫面](./media/billing-link-partner-id/link-partner-ID.PNG)
 
-4. 若要為另一個客戶連結合作夥伴識別碼，請切換目錄。 在 [切換目錄] 底下，選取您的目錄。
+4. 若要為另一個客戶連結合作夥伴識別碼，請切換目錄。 在 [切換目錄]  底下，選取您的目錄。
 
    ![顯示 [切換目錄] 的螢幕擷取畫面](./media/billing-link-partner-id/directory-switcher.png)
 
 ### <a name="use-powershell-to-link-to-a-new-partner-id"></a>使用 PowerShell 連結到新的合作夥伴識別碼
 
-1. 安裝[Az Azurerm.managementpartner](https://www.powershellgallery.com/packages/Az.ManagementPartner/) PowerShell 模組。
+1. 安裝 [Az.ManagementPartner](https://www.powershellgallery.com/packages/Az.ManagementPartner/) PowerShell 模組。
 
 2. 以使用者帳戶或服務主體登入客戶的租用戶。 如需詳細資訊，請參閱[使用 PowerShell 登入](https://docs.microsoft.com/powershell/azure/authenticate-azureps) \(英文\)。
 
@@ -120,7 +120,7 @@ C:\ az managementpartner delete --partner-id 12345
 
 在 [Microsoft 合作夥伴社群](https://aka.ms/PALdiscussion)中參與討論，以接收更新或傳送意見反應。
 
-## <a name="frequently-asked-questions"></a>常見問答集
+## <a name="frequently-asked-questions"></a>常見問題集
 
 **誰可以連結合作夥伴識別碼？**
 
@@ -128,7 +128,7 @@ C:\ az managementpartner delete --partner-id 12345
 
 **連結合作夥伴識別碼之後可加以改變嗎？**
 
-是的。 連結的合作夥伴識別碼可以變更、新增或移除。
+是。 連結的合作夥伴識別碼可以變更、新增或移除。
 
 **如果使用者在多個客戶租用戶中具有同一帳戶，將會如何？**
 
@@ -139,22 +139,22 @@ C:\ az managementpartner delete --partner-id 12345
 連結會在使用者帳戶層級產生關聯。 只有您才可編輯或移除合作夥伴識別碼的連結。 客戶和其他合作夥伴無法變更合作夥伴識別碼的連結。
 
 
-**如果我的公司有多個, 應該使用哪個 MPN ID？**
+**如果我的公司有多個 MPN 識別碼，我該使用哪一個？**
 
-合作夥伴位置帳戶和相關聯的 MPN 識別碼應用於連結合作夥伴識別碼。  深入瞭解[合作夥伴帳戶](https://docs.microsoft.com/partner-center/account-structure)
+合作夥伴位置帳戶和相關聯的 MPN 識別碼應用於連結合作夥伴識別碼。  深入了解[合作夥伴帳戶](https://docs.microsoft.com/partner-center/account-structure)
 
 **我可以在哪裡找到已連結合作夥伴識別碼的影響收益報告？**
 
-雲端產品效能報告可供 [合作夥伴中心] 的 [[我的見解] 儀表板](https://partner.microsoft.com/membership/reports/myinsights)使用。 您必須選取 [夥伴管理員連結] 做為 [夥伴關聯類型]。
+合作夥伴可在合作夥伴中心的[我的見解儀表板](https://partner.microsoft.com/membership/reports/myinsights)取得雲端產品效能報告。 您必須選取 [合作夥伴管理連結] 作為夥伴關聯類型。
 
-**為什麼我在報表中看不到我的客戶？**
+**為何我在報告中看不到我的客戶？**
 
-因為下列原因, 所以您無法在報表中看到客戶
+您因為下列原因而無法在報告中看到該客戶
 
-1. 連結的使用者帳戶在任何客戶 Azure 訂用帳戶或資源上都沒有以[角色為基礎的存取權](https://docs.microsoft.com/azure/role-based-access-control/overview)。
+1. 連結的使用者帳戶沒有任何客戶 Azure 訂用帳戶或資源的[角色型存取權](https://docs.microsoft.com/azure/role-based-access-control/overview)。
 
-2. 使用者具有[角色型存取](https://docs.microsoft.com/azure/role-based-access-control/overview)權的 Azure 訂用帳戶沒有任何使用方式。
+2. 使用者具有[角色型存取權](https://docs.microsoft.com/azure/role-based-access-control/overview)的 Azure 訂用帳戶沒有任何使用量。
 
-**連結合作夥伴識別碼是否可與 Azure Stack 搭配使用？**
+**連結合作夥伴識別碼是否可搭配 Azure Stack 使用？**
 
-是, 您可以連結 Azure Stack 的合作夥伴識別碼。
+是，您可以連結 Azure Stack 的合作夥伴識別碼。

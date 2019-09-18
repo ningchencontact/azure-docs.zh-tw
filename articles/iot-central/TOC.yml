@@ -35,8 +35,6 @@
   items:
     - name: 連線裝置
       items:
-        - name: 產生裝置連接字串
-          href: howto-generate-connection-string.md
         - name: 準備及連線 Node.js (一般) 應用程式
           href: howto-connect-nodejs.md
         - name: 準備及連線 MXChip IoT DevKit

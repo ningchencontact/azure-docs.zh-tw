@@ -16,10 +16,10 @@ ms.workload: billing
 ms.date: 04/25/2017
 ms.author: banders
 ms.openlocfilehash: f706ad86493981d5b38248ec209a7c8b936f6817
-ms.sourcegitcommit: a874064e903f845d755abffdb5eac4868b390de7
-ms.translationtype: MT
+ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/24/2019
+ms.lasthandoff: 09/11/2019
 ms.locfileid: "68443219"
 ---
 # <a name="overview-of-reporting-apis-for-enterprise-customers"></a>適用於企業客戶的報告 API 概觀
@@ -44,7 +44,7 @@ ms.locfileid: "68443219"
 
 * **價位表** - [價位表 API](/rest/api/billing/enterprise/billing-enterprise-api-pricesheet) 可針對指定註冊和計費週期的每個計量提供適用的費率。
 
-* **保留實例詳細資料**-[保留實例使用方式 API](/rest/api/billing/enterprise/billing-enterprise-api-reserved-instance-usage)會傳回購買保留實例的使用方式。 「[保留實例費用 API](/rest/api/billing/enterprise/billing-enterprise-api-reserved-instance-usage) 」會顯示所進行的計費交易。 
+* **保留執行個體詳細資料** - [保留執行個體使用量 API](/rest/api/billing/enterprise/billing-enterprise-api-reserved-instance-usage) 會傳回所購買保留執行個體的使用量。 [保留執行個體費用 API](/rest/api/billing/enterprise/billing-enterprise-api-reserved-instance-usage) 會顯示所進行的計費交易。 
 
 ## <a name="data-freshness"></a>資料有效期限
 系統會傳回 Etag 以回應上述所有 API。 Etag 的變更表示資料已重新整理。  在使用相同參數對相同 API 進行的後續呼叫中，傳遞所擷取的 Etag，在其中的 http 要求標頭中包含索引鍵 “If-None-Match”。 如果資料未進一步重新整理且未傳回任何資料，則回應狀態碼會是 "NotModified"。 每當 etag 有變更時，API 就會針對所需期間傳回完整的資料集。
@@ -54,12 +54,12 @@ ms.locfileid: "68443219"
 
 
 ## <a name="api-response-codes"></a>API 回應碼   
-|回應狀態碼|Message|描述|
+|回應狀態碼|訊息|說明|
 |-|-|-|
-|200| [確定]|沒有錯誤|
-|401| 未授權| API 金鑰找不到、無效或過期等。|
+|200| OK|沒有錯誤|
+|401| 未經授權| API 金鑰找不到、無效或過期等。|
 |404| 無法使用| 找不到報告端點|
-|400| 錯誤的要求| 無效的參數 - 資料範圍、EA 編號等。|
+|400| 不正確的要求| 無效的參數 - 資料範圍、EA 編號等。|
 |500| 伺服器錯誤| 處理要求時發生未預期的錯誤| 
 
 

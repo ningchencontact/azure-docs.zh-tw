@@ -16,10 +16,10 @@ ms.workload: billing
 ms.date: 6/13/2018
 ms.author: banders
 ms.openlocfilehash: 3d06df9b9a90f26b39afc17b8fcd02c85da567a1
-ms.sourcegitcommit: a874064e903f845d755abffdb5eac4868b390de7
-ms.translationtype: MT
+ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/24/2019
+ms.lasthandoff: 09/11/2019
 ms.locfileid: "68443243"
 ---
 # <a name="automation-scenarios-for-billing-and-cost-management"></a>計費和成本管理的自動化案例
@@ -52,7 +52,7 @@ ms.locfileid: "68443243"
 | 保留建議 |                           |                  |           X          |                  |                    |           |
 | 保留詳細資料         |                           |                  |           X          |         X        |                    |           |
 | 保留摘要       |                           |                  |           X          |         X        |                    |           |
-| 用法詳細資料               |             X             |         X        |           X          |         X        |          X         |     X     |
+| 使用量詳細資料               |             X             |         X        |           X          |         X        |          X         |     X     |
 | 計費期間             |             X             |         X        |           X          |         X        |                    |           |
 | 發票                    |             X             |         X        |           X          |         X        |                    |           |
 | RateCard                    |             X             |                  |           X          |         X        |          X         |           |
@@ -63,7 +63,7 @@ ms.locfileid: "68443243"
 
 ## <a name="api-summaries"></a>API 摘要
 
-### <a name="consumption"></a>使用情況
+### <a name="consumption"></a>耗用量
 Web Direct 和企業客戶可以使用所有下列 API (除了註明的以外)：
 
 -   [預算 API](https://docs.microsoft.com/rest/api/consumption/budgets) \(英文\) (*僅限企業客戶*)：建立資源、資源群組或計費計量的成本或使用量預算。 當您建立預算之後，您可以設定警示，以在您超出定義的預算閾值時通知您。 您也可以設定當到達預算量時會發生的動作。
@@ -84,7 +84,7 @@ Web Direct 和企業客戶可以使用所有下列 API (除了註明的以外)�
 
 -   [未分級使用量 API](/previous-versions/azure/reference/mt219003(v=azure.100))：在 Azure 進行任何計量/計費之前，取得使用量資訊。
 
-### <a name="billing"></a>帳務
+### <a name="billing"></a>計費
 -   [計費週期 API](https://docs.microsoft.com/rest/api/billing/enterprise/billing-enterprise-api-billing-periods) \(英文\)：取得要分析的計費週期，以及該週期的發票識別碼。 您可以搭配使用發票識別碼和發票 API。
 
 -   [發票 API](https://docs.microsoft.com/rest/api/billing/2018-11-01-preview/invoices)：以 PDF 格式取得計費週期的發票下載 URL。
@@ -104,7 +104,7 @@ Web Direct 和企業客戶可以使用所有下列 API (除了註明的以外)�
 
 -   [保留的執行個體建議 API](https://docs.microsoft.com/rest/api/billing/enterprise/billing-enterprise-api-reserved-instance-recommendation) \(英文\)：查看 7 天、30 天或 60 天的虛擬機器使用量，並取得單一和共用購買建議。 您可以使用此 API 來分析預期的成本節省和建議的購買數量。 如需詳細資訊，請參閱[適用於 Azure 保留自動化的 API ](billing-reservation-apis.md)。
 
-## <a name="frequently-asked-questions"></a>常見問答集
+## <a name="frequently-asked-questions"></a>常見問題集
 
 ### <a name="whats-the-difference-between-the-enterprise-reporting-apis-and-the-consumption-apis-when-should-i-use-each"></a>企業報告 API 與使用量 API 之間有何差異？ 各自的使用時機為何？
 這些 API 有一組類似的功能，並且可以回答同一組計費與成本管理空間相關問題。 但它們的目標對象不同： 
@@ -143,4 +143,4 @@ Web Direct 和企業客戶可以使用所有下列 API (除了註明的以外)�
 
 - 若要比較包含每日詳細使用量檔案的發票與 Azure 入口網站中的成本管理報告，請參閱[了解 Microsoft Azure 帳單](billing-understand-your-bill.md)。
 
-- 如果您有任何疑問或需要協助, 請[建立支援要求](https://go.microsoft.com/fwlink/?linkid=2083458)。
+- 如果您有問題或需要協助，請[建立支援要求](https://go.microsoft.com/fwlink/?linkid=2083458)。
