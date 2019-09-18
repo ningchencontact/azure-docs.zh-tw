@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: b14d6f70f4c4163f16c8275f4e071da6a9e0bc78
-ms.sourcegitcommit: 80dff35a6ded18fa15bba633bf5b768aa2284fa8
+ms.openlocfilehash: 3513dc0a1928168d6313e9d49a8f3d5d27aca781
+ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/26/2019
-ms.locfileid: "70019812"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71066338"
 ---
 # <a name="connect-a-windows-iot-core-device-to-your-azure-iot-central-application"></a>將 Windows IoT 核心版裝置連線到 Azure IoT 中心應用程式
 
@@ -43,13 +43,27 @@ ms.locfileid: "70019812"
 
 ## <a name="add-a-real-device"></a>新增真實裝置
 
-在您的 Azure IoT Central 應用程式中，使用 [ **Device Explorer** ] 頁面，從**Windows 10 IoT 核心版**裝置範本新增實際裝置。 記下裝置連線詳細資料（**範圍識別碼**、**裝置識別碼**和**主要金鑰**）。 如需詳細資訊，請參閱[取得連接資訊](howto-generate-connection-string.md#get-connection-information)。
+在您的 Azure IoT Central 應用程式中，使用 [ **Device Explorer** ] 頁面，從**Windows 10 IoT 核心版**裝置範本新增實際裝置。 記下裝置連線詳細資料（**範圍識別碼**、**裝置識別碼**和**主要金鑰**）。
 
 ## <a name="prepare-the-device"></a>準備裝置
 
-若要讓裝置連接到 IoT Central，它需要連接字串。
+若要讓裝置連接到 IoT Central，它需要連接字串：
 
-[!INCLUDE [iot-central-howto-connection-string](../../includes/iot-central-howto-connection-string.md)]
+1. 使用 `dps-keygen` 命令列公用程式產生連接字串：
+
+    若要安裝 [金鑰產生器公用程式](https://github.com/Azure/dps-keygen)，請執行下列命令：
+
+    ```cmd/sh
+    npm i -g dps-keygen
+    ```
+
+1. 若要產生連接字串，請使用您先前記下的連線詳細資料執行下列命令：
+
+    ```cmd/sh
+    dps-keygen -di:<Device ID> -dk:<Primary or Secondary Key> -si:<Scope ID>
+    ```
+
+1. 從 `dps-keygen` 輸出中複製連接字串，在您的裝置程式碼中使用。
 
 若要讓裝置程式碼存取連接字串，請將它儲存在 Windows 10 IoT 核心版裝置上資料夾`C:\Data\Users\DefaultAccount\Documents\`中名為 iothub 的檔案中。
 

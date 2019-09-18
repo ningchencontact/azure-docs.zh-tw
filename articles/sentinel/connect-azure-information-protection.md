@@ -1,11 +1,10 @@
 ---
-title: Azure 資訊保護資料連接至 Azure 的 Sentinel Preview |Microsoft Docs
-description: 了解如何將 Azure 資訊保護中 Azure Sentinel 的資料連接。
+title: 將 Azure 資訊保護資料連線到 Azure Sentinel 預覽 |Microsoft Docs
+description: 瞭解如何在 Azure Sentinel 中連接 Azure 資訊保護資料。
 services: sentinel
 documentationcenter: na
-author: rkarlin
+author: cabailey
 manager: rkarlin
-editor: ''
 ms.assetid: bfa2eca4-abdc-49ce-b11a-0ee229770cdd
 ms.service: azure-sentinel
 ms.subservice: azure-sentinel
@@ -13,51 +12,63 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/07/2019
-ms.author: rkarlin
-ms.openlocfilehash: 3edfdca16141726ea591c8473528fc23ee076c53
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.date: 09/15/2019
+ms.author: cabailey
+ms.openlocfilehash: 0614d24b19ef39cebdf4cb47fdd2d44470ea59c0
+ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67620612"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71067752"
 ---
-# <a name="connect-data-from-azure-information-protection"></a>將資料連接，從 Azure 資訊保護
+# <a name="connect-data-from-azure-information-protection"></a>從 Azure 資訊保護連接資料
 
 > [!IMPORTANT]
 > Azure Sentinel 目前為公開預覽狀態。
 > 此預覽版本是在沒有服務等級協定的情況下提供，不建議用於生產工作負載。 可能不支援特定功能，或可能已經限制功能。 如需詳細資訊，請參閱 [Microsoft Azure 預覽版增補使用條款](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)。
 
-您可以從串流記錄[Azure Information Protection](https://docs.microsoft.com/azure/information-protection/reports-aip)到 Azure Sentinel 只要按一下。 Azure 資訊保護可協助保護您的資料，無論是儲存在雲端或內部部署基礎結構和控制項，並協助保護電子郵件、 文件和您的公司外部共用的敏感性資料。 從簡易的分類到內嵌的標籤和權限，加強資料保護隨時都與 Azure 資訊保護。 當您連接 Azure 資訊保護到 Azure Sentinel，您的資料流的所有警示從 Azure 資訊保護至 Azure 的 Sentinel。
+您可以藉由設定 Azure 資訊保護資料連線器，將[Azure 資訊保護](https://azure.microsoft.com/services/information-protection/)中的記錄資訊串流至 Azure Sentinel。 Azure 資訊保護可協助您控制及保護您的敏感性資料，不論其儲存在雲端或內部部署中。
 
+如果已設定[Azure 資訊保護的中央報告](https://docs.microsoft.com/azure/information-protection/reports-aip)，讓來自此服務的記錄資訊儲存在與您目前為 Azure Sentinel 所選取的相同 Log Analytics 工作區中，您可以略過下列設定：此資料連線器。 Azure 資訊保護的記錄資訊已可供 Azure Sentinel。
 
-## <a name="prerequisites"></a>先決條件
+不過，如果 Azure 資訊保護的記錄資訊會與您目前為 Azure Sentinel 選取的記錄分析工作區不同，請執行下列其中一項動作：
 
-- 使用全域管理員、 安全性系統管理員或資訊的保護權限的使用者
+- 變更 Azure Sentinel 中選取的工作區。
 
+- 變更 Azure 資訊保護的工作區，您可以藉由設定此資料連線器來執行。
+    
+    如果您變更工作區，Azure 資訊保護的新報告資料現在會儲存在您用於 Azure Sentinel 的工作區中，而歷程資料無法供 Azure Sentinel 使用。 此外，如果先前的工作區是針對自訂查詢、警示或 REST Api 進行設定，如果您想要使用它們來進行 Azure 資訊保護，就必須為 Azure Sentinel 工作區重新設定這些專案。 使用 Azure 資訊保護的用戶端和服務不需要重新設定。
 
-## <a name="connect-to-azure-information-protection"></a>連線至 Azure Information Protection
+## <a name="prerequisites"></a>必要條件
 
-如果您已經有 Azure Information Protection，請確定它是[在您網路上啟用](https://docs.microsoft.com/azure/information-protection/activate-service)。
-如果在部署 Azure 資訊保護，而且取得資料，請參閱警示的資料可以輕鬆地串流到 Azure 的 Sentinel。
+- 您租使用者的下列其中一個 Azure AD 系統管理員角色：Azure 資訊保護系統管理員、安全性系統管理員或全域管理員。
+    
+    > [!NOTE]
+    > 如果您的租使用者位於[統一標籤平臺](https://docs.microsoft.com/azure/information-protection/faqs#how-can-i-determine-if-my-tenant-is-on-the-unified-labeling-platform)上，則無法使用 Azure 資訊保護系統管理員角色。
 
+- 讀取和寫入您要用於 Sentinel 和 Azure 資訊保護之 Log Analytics 工作區的許可權。
 
-1. 在 Azure Sentinel，選取**資料連接器**，然後按一下**Azure Information Protection**圖格。
+- Azure 資訊保護已新增至 Azure 入口網站。 如果您需要此步驟的說明，請參閱[將 Azure 資訊保護新增至 Azure 入口網站](https://docs.microsoft.com/azure/information-protection/quickstart-viewpolicy#add-azure-information-protection-to-the-azure-portal)。
 
-2. 移至[Azure Information Protection 入口網站](https://portal.azure.com/?ScannerConfiguration=true&EndpointDiscovery=true#blade/Microsoft_Azure_InformationProtection/DataClassGroupEditBlade/quickstartBlade) 
+## <a name="connect-to-azure-information-protection"></a>連接到 Azure 資訊保護
 
-3. 底下**連接**，設定 Azure Information protection 的記錄檔，以 Azure Sentinel 的資料流，依序按一下[設定分析](https://portal.azure.com/#blade/Microsoft_Azure_InformationProtection/DataClassGroupEditBlade/analyticsOnboardBlade)
+如果您尚未為 Azure 資訊保護設定 Log Analytics 工作區，或需要變更儲存 Azure 資訊保護記錄資訊的工作區，請使用下列指示。 
 
-4. 選取您已部署至 Azure 的 Sentinel 的工作區。 
+1. 在 Azure Sentinel 中，選取 [**資料連線器**]，然後**Azure 資訊保護**。
 
-5. 按一下 [確定 **Deploying Office Solutions**]。
+2. 在 [ **Azure 資訊保護**] 分頁上，選取 [**開啟連接器] 頁面**。
 
-6. 若要使用 Log Analytics 中的 Azure Information Protection 的警示相關的結構描述，搜尋**InformationProtectionLogs_CL**。
+3. 在下一個分頁的 [設定 **] 區段中**，選取 [ **Azure 資訊保護**] 移至 [ **Azure 資訊保護分析**]。
 
+4. 從可用的工作區清單中，選取您目前用來 Azure Sentinel 的工作區。 如果您選取不同的工作區，Azure 資訊保護的報告資料將無法供 Azure Sentinel。
 
+5. 當您選取工作區時，選取 **[確定]** ，連接器**狀態**現在應該會變更為 [**已連線**]。
 
+6. 來自 Azure 資訊保護的報告資料會儲存在所選工作區的**InformationProtectionLogs_CL**資料表中。 
+    
+    若要在此報告資料的 Azure 監視器中使用相關的架構，請搜尋**InformationProtectionEvents**。 如需這些事件函數的詳細資訊，請參閱 Azure 資訊保護檔中的事件函式的[易記架構參考](https://docs.microsoft.com/azure/information-protection/reports-aip#friendly-schema-reference-for-event-functions)一節。
 
 ## <a name="next-steps"></a>後續步驟
-在本文件中，您已了解如何連接到 Azure Sentinel 的 Azure 資訊保護。 若要深入了解 Azure Sentinel，請參閱下列文章：
-- 了解如何[了解您的資料，與潛在的威脅](quickstart-get-visibility.md)。
-- 開始[偵測威脅與 Azure Sentinel](tutorial-detect-threats.md)。
+在本檔中，您已瞭解如何將 Azure 資訊保護連接到 Azure Sentinel。 若要深入了解 Azure Sentinel，請參閱下列文章：
+- 瞭解如何[查看您的資料和潛在威脅](quickstart-get-visibility.md)。
+- 開始[使用 Azure Sentinel 偵測威脅](tutorial-detect-threats.md)。

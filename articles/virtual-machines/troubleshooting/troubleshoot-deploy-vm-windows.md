@@ -4,7 +4,7 @@ description: 針對 Azure Resource Manager 部署模型中的 Windows 虛擬機�
 services: virtual-machines-windows
 documentationcenter: ''
 author: genlin
-manager: gwallace
+manager: dcscontentpm
 editor: ''
 tags: azure-resource-manager
 ms.assetid: 4e383427-4aff-4bf3-a0f4-dbff5c6f0c81
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.topic: troubleshooting
 ms.date: 11/01/2018
 ms.author: genli
-ms.openlocfilehash: d963556a657f4367acca14d5d8340f384ef555a9
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 2baa82bda1f92fe81bb0db69b84e6865b2709e42
+ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70080210"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71058041"
 ---
 # <a name="troubleshoot-deploying-windows-virtual-machine-issues-in-azure"></a>針對 Azure 中的 Windows 虛擬機器部署問題進行疑難排解
 
@@ -31,7 +31,7 @@ ms.locfileid: "70080210"
 [!INCLUDE [virtual-machines-windows-troubleshoot-deploy-vm-top](../../../includes/virtual-machines-windows-troubleshoot-deploy-vm-top.md)]
 
 ## <a name="the-cluster-cannot-support-the-requested-vm-size"></a>叢集無法支援要求的 VM 大小
-\<properties supportTopicIds = "123456789" resourceTags = "windows" productPesIds = "1234, 5678"/>
+\<properties supportTopicIds = "123456789" resourceTags = "windows" productPesIds = "1234，5678"/>
 - 以較小的 VM 大小重試要求。
 - 如果無法變更要求的 VM 的大小︰
     - 停止可用性設定組中的所有 VM。 按一下 [資源群組] > 您的資源群組 > [資源] > 您的可用性設定組 > [虛擬機器] > 您的虛擬機器 > [停止]。
@@ -40,7 +40,7 @@ ms.locfileid: "70080210"
 
 
 ## <a name="the-cluster-does-not-have-free-resources"></a>叢集沒有可用的資源
-\<properties supportTopicIds = "123456789" resourceTags = "windows" productPesIds = "1234, 5678"/>
+\<properties supportTopicIds = "123456789" resourceTags = "windows" productPesIds = "1234，5678"/>
 - 稍後再重試要求。
 - 如果新的 VM 可以屬於不同的可用性設定組
     - 在不同的可用性設定組 (位於相同區域) 中建立 VM。

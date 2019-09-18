@@ -10,20 +10,20 @@ ms.topic: conceptual
 ms.date: 12/13/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 04a37e6faf51787457d7ca4ab8434fd253deb2ed
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 6454d380b0f34e940951e3de44d1dee0ff6b597f
+ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66509149"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71065540"
 ---
 # <a name="configure-password-complexity-using-custom-policies-in-azure-active-directory-b2c"></a>在 Azure Active Directory B2C 中使用自訂原則來設定密碼複雜度
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-在 Azure Active Directory (Azure AD) B2C 中，您可以針對使用者在建立帳戶時所提供的密碼設定複雜度需求。 根據預設，Azure AD B2C 是使用**強式**密碼。 本文說明如何在[自訂原則](active-directory-b2c-overview-custom.md)中設定密碼複雜度。 此外，您也可以在[使用者流程](active-directory-b2c-reference-password-complexity.md)中設定密碼複雜度。
+在 Azure Active Directory B2C （Azure AD B2C）中，您可以設定使用者建立帳戶時所提供之密碼的複雜性需求。 根據預設，Azure AD B2C 是使用**強式**密碼。 本文說明如何在[自訂原則](active-directory-b2c-overview-custom.md)中設定密碼複雜度。 此外，您也可以在[使用者流程](active-directory-b2c-reference-password-complexity.md)中設定密碼複雜度。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 完成[在 Active Directory B2C 中開始使用自訂原則](active-directory-b2c-get-started-custom.md)中的步驟。
 
@@ -112,19 +112,19 @@ ms.locfileid: "66509149"
 ### <a name="upload-the-files"></a>上傳檔案
 
 1. 登入 [Azure 入口網站](https://portal.azure.com/)。
-2. 按一下頂端功能表中的 [目錄和訂用帳戶]  篩選，然後選擇包含您租用戶的目錄，以確定您使用的是包含 Azure AD B2C 租用戶的目錄。
-3. 選擇 Azure 入口網站左上角的 [所有服務]  ，然後搜尋並選取 [Azure AD B2C]  。
-4. 選取 [識別體驗架構]  。
-5. 在 [自訂原則] 頁面上，按一下 [上傳原則]  。
-6. 選取 [覆寫現有的原則]  ，然後搜尋並選取 *SingUpOrSignInPasswordComplexity.xml*檔案。
-7. 按一下 [上傳]  。
+2. 請選取頂端功能表中的 [**目錄 + 訂**用帳戶] 篩選，然後選擇包含您租使用者的目錄，以確定您使用的是包含 Azure AD B2C 租使用者的目錄。
+3. 選擇 Azure 入口網站左上角的 [所有服務]，然後搜尋並選取 [Azure AD B2C]。
+4. 選取 [識別體驗架構]。
+5. 在 [自訂原則] 頁面上，按一下 [上傳原則]。
+6. 選取 [覆寫現有的原則]，然後搜尋並選取 *SingUpOrSignInPasswordComplexity.xml*檔案。
+7. 按一下 [上傳]。
 
 ### <a name="run-the-policy"></a>執行原則
 
 1. 開啟您所變更的原則。 例如 *B2C_1A_signup_signin_password_complexity*。
-2. 針對**應用程式**，請選取您先前註冊的應用程式。 若要查看權杖，[回覆 URL]  應該顯示 `https://jwt.ms`。
-3. 按一下 [立即執行]  。
-4. 選取 [立即註冊]  ，輸入電子郵件地址，然後輸入新密碼。 系統會顯示有關密碼限制的指引。 完成使用者資訊輸入，然後按一下 [建立]  。 您應該會看到傳回的權杖內容。
+2. 針對**應用程式**，請選取您先前註冊的應用程式。 若要查看權杖，[回覆 URL] 應該顯示 `https://jwt.ms`。
+3. 按一下 [立即執行]。
+4. 選取 [立即註冊]，輸入電子郵件地址，然後輸入新密碼。 系統會顯示有關密碼限制的指引。 完成使用者資訊輸入，然後按一下 [建立]。 您應該會看到傳回的權杖內容。
 
 ## <a name="next-steps"></a>後續步驟
 
