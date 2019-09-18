@@ -6,14 +6,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 09/04/2019
+ms.date: 09/17/2019
 ms.author: raynew
-ms.openlocfilehash: ecceb1177d7b7015afc92f10284a9372d0cfb4a2
-ms.sourcegitcommit: aebe5a10fa828733bbfb95296d400f4bc579533c
+ms.openlocfilehash: a0ca483005cf1f5aaadcd7a6107b092d581d6773
+ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/05/2019
-ms.locfileid: "70375305"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71067760"
 ---
 # <a name="support-matrix-for-vmware-assessment-and-migration"></a>VMware 評量和移轉的支援矩陣
 
@@ -43,10 +43,13 @@ ms.locfileid: "70375305"
 Azure Government | US Gov 維吉尼亞州
 亞太地區 | 東亞或東南亞
 澳大利亞 | 澳大利亞東部或澳大利亞東南部
+巴西 | 巴西南部
 加拿大 | 加拿大中部或加拿大東部
 歐洲 | 北歐或西歐
+法國 | 法國中部
 印度 | 印度中部或印度南部
 日本 |  日本東部或日本西部
+韓國 | 韓國中部或南韓南部
 英國 | 英國南部或英國西部
 美國 | 美國中部或美國西部2
 
@@ -73,7 +76,7 @@ Azure Migrate 會執行輕量設備以探索 VMware Vm，並將 VM 中繼資料�
 
 **支援** | **詳細資料**
 --- | ---
-**設備部署** | 您會將設備部署為 VMware VM。 您在 vCenter Server 上需要足夠的資源來配置具有 32 GB RAM 的 VM、8個 vcpu、大約 80 GB 的磁片儲存體，以及外部虛擬交換器。<br/><br/> 設備必須直接或透過 proxy 存取網際網路。<br/> 設備 VM 必須部署在執行5.5 版或更新版本的 ESXi 主機上。 
+**設備部署** | 您會將設備部署為 VMware VM。 您在 vCenter Server 上需要足夠的資源來配置具有 32 GB RAM 的 VM、8個 vcpu、大約 80 GB 的磁片儲存體，以及外部虛擬交換器。<br/><br/> 設備必須直接或透過 proxy 存取網際網路。<br/> 設備 VM 必須部署在執行5.5 版或更新版本的 ESXi 主機上。
 **Azure Migrate 專案** | 應用裝置可以與單一專案相關聯。 <br/> 任何數目的設備都可以與單一專案相關聯。<br/> 您可以在專案中評估最多35000個 Vm。
 **探索** | 設備可以在 vCenter Server 上探索最多10000個 VMware Vm。<br/> 設備可以連接到單一 vCenter Server。
 **評量群組** | 您最多可以在單一群組中新增35000部電腦。

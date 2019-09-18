@@ -1,6 +1,6 @@
 ---
 title: 什麼是 ML 管線
-titleSuffix: Azure Machine Learning service
+titleSuffix: Azure Machine Learning
 description: 在本文中，您將深入了解機器學習管線 (使用適用於 Python 的 Azure Machine Learning 來建置)，以及了解使用管線的優點。 資料科學家會使用機器學習 (ML) 管線來建置、最佳化及管理他們的機器學習工作流程。
 services: machine-learning
 ms.service: machine-learning
@@ -11,16 +11,16 @@ ms.author: sanpil
 author: sanpil
 ms.date: 08/08/2019
 ms.custom: seodec18
-ms.openlocfilehash: 2547ca3af3039af53cb5fd5b244669b9152c21b3
-ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
+ms.openlocfilehash: 07efde7c3664ba1866e59f23c31b9c385ed9c366
+ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/14/2019
-ms.locfileid: "70993290"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71035495"
 ---
-# <a name="what-are-ml-pipelines-in-azure-machine-learning-service"></a>Azure Machine Learning 服務中的 ML 管線為何？
+# <a name="what-are-ml-pipelines-in-azure-machine-learning"></a>Azure Machine Learning 中的 ML 管線為何？
 
-瞭解您可以使用 Azure Machine Learning 服務建立和管理的機器學習管線。 
+瞭解您可以使用 Azure Machine Learning 建立和管理的機器學習管線。 
 
 資料科學家、資料工程師和 IT 專業人員可以使用機器學習 (ML) 管線，共同處理所需的步驟：
 + 資料準備，例如正規化和轉換
@@ -30,7 +30,7 @@ ms.locfileid: "70993290"
 
 了解如何[建立第一個管線](how-to-create-your-first-pipeline.md)。
 
-![Azure Machine Learning 服務中的機器學習管線](./media/concept-ml-pipelines/pipeline-flow.png)
+![Azure Machine Learning 中的機器學習管線](./media/concept-ml-pipelines/pipeline-flow.png)
 
 <a name="compare"></a>
 ### <a name="which-azure-pipeline-technology-should-i-use"></a>我應該使用哪一種 Azure 管線技術？

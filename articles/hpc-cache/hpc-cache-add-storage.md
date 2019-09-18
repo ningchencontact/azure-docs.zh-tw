@@ -6,12 +6,12 @@ ms.service: hpc-cache
 ms.topic: conceptual
 ms.date: 09/06/2019
 ms.author: v-erkell
-ms.openlocfilehash: 4554214b74b4d09fa40e355270208bebda4076b7
-ms.sourcegitcommit: a4b5d31b113f520fcd43624dd57be677d10fc1c0
+ms.openlocfilehash: ca8e13e322c3e192b697248f1252b65f6cbeda7f
+ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70775256"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71037244"
 ---
 # <a name="add-storage"></a>新增儲存體
 
@@ -27,13 +27,15 @@ ms.locfileid: "70775256"
 
 使用 [快取建立嚮導] 的 [**儲存體目標**] 索引標籤，即可在建立快取實例時，同時定義儲存空間。
 
-![[儲存體目標] 頁面的螢幕擷取畫面](media/create-targets.png)
+![儲存體目標頁面的螢幕擷取畫面](media/hpc-cache-storage-targets-pop.png)
 
 按一下 [**新增儲存體目標**] 連結以新增儲存體。
 
 ## <a name="add-storage-targets-from-the-cache"></a>從快取新增儲存體目標
 
 在 Azure 入口網站中，開啟您的快取實例，然後按一下左側邊欄上的 [**儲存體目標**]。 [儲存體目標] 頁面會列出所有現有的目標，並提供連結以加入新的目標。
+
+![提要欄位上的 [儲存體目標] 連結的螢幕擷取畫面，位於 [設定] 標題底下，這是在類別標題設定和監視之間](media/hpc-cache-storage-targets-sidebar.png)
 
 ## <a name="add-a-new-azure-blob-storage-target"></a>新增 Azure Blob 儲存體目標
 
@@ -52,15 +54,13 @@ ms.locfileid: "70775256"
 
 * **虛擬命名空間路徑**-設定此儲存體目標的用戶端面向 filepath。 請參閱[設定匯總命名空間](hpc-cache-namespace.md)，以深入瞭解虛擬命名空間功能。
 
-<!--  The namespace path value must end with a slash (``/``) and should not start with one.  -->
-
 完成後，按一下 **[確定]** 以新增儲存體目標。
 
 ### <a name="add-the-access-control-roles-to-your-account"></a>將存取控制角色新增至您的帳戶
 
 Azure HPC 快取會使用[角色型存取控制（RBAC）](https://docs.microsoft.com/azure/role-based-access-control/index)來授權快取應用程式存取 Azure Blob 儲存體目標的儲存體帳戶。
 
-儲存體帳戶擁有者必須明確地為使用者「StorageCache 資源提供者」新增「匯總[儲存體帳戶參與者](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-account-contributor)」和「[儲存體 Blob 資料參與者](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-contributor)」。
+儲存體帳戶擁有者必須明確地為使用者「StorageCache 資源提供者」新增角色 [[儲存體帳戶參與者](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-account-contributor)] 和 [[儲存體 Blob 資料參與者](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-contributor)]。
 
 您可以提早執行此動作，或按一下頁面上的連結來新增 Blob 儲存體目標。
 
@@ -127,5 +127,5 @@ NFS 儲存體目標有一些額外的欄位，可指定如何連線到儲存體�
 
 建立儲存體目標之後，請考慮下列其中一項工作：
 
-* [裝載 Azure HPC 快取](hpc-cache-mount.md)
+* [掛接 Azure HPC Cache](hpc-cache-mount.md)
 * [將資料移至 Azure Blob 儲存體](hpc-cache-ingest.md)

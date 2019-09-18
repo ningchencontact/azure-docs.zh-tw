@@ -10,22 +10,22 @@ ms.topic: conceptual
 ms.date: 10/09/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: f3621b176e4bbfdfbd171339d6d01a1f91ed0ae7
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 966386bfed5f94556f145afab1c665eb3c90546a
+ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66509291"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71065564"
 ---
 # <a name="manage-sso-and-token-customization-using-custom-policies-in-azure-active-directory-b2c"></a>在 Azure Active Directory B2C 中使用自訂原則來管理 SSO 和權杖自訂
 
-本文提供如何在 Azure Active Directory (Azure AD) B2C 中使用[自訂原則](active-directory-b2c-overview-custom.md)來管理權杖、工作階段及單一登入 (SSO) 組態的資訊。
+本文提供有關如何使用 Azure Active Directory B2C （Azure AD B2C）中的[自訂原則](active-directory-b2c-overview-custom.md)來管理權杖、會話及單一登入（SSO）設定的資訊。
 
 ## <a name="token-lifetimes-and-claims-configuration"></a>權杖存留期和宣告組態
 
-若要變更權杖存留期的設定，您可以在想要影響的原則信賴憑證者中，新增 [ClaimsProviders](claimsproviders.md) 元素。  **ClaimsProviders** 元素是 [TrustFrameworkPolicy](trustframeworkpolicy.md) 元素的子系。 
+若要變更權杖存留期的設定，您可以在想要影響的原則信賴憑證者中，新增 [ClaimsProviders](claimsproviders.md) 元素。  **ClaimsProviders** 元素是 [TrustFrameworkPolicy](trustframeworkpolicy.md) 元素的子系。
 
-插入 BasePolicy 項目和 RelyingParty 元素之間的信賴憑證者的合作對象檔案 ClaimsProviders 項目。
+在 BasePolicy 元素與信賴憑證者檔案的 RelyingParty 專案之間插入 ClaimsProviders 元素。
 
 您必須在其中放入會影響權杖存留期的資訊。 XML 看起來像這個範例：
 
@@ -56,33 +56,33 @@ ms.locfileid: "66509291"
 - **重新整理權杖存留期** - 重新整理權杖存留期的值會透過 **refresh_token_lifetime_secs** 中繼資料項目來設定。 預設值為 1209600 秒 (14 天)。
 - **重新整理權杖滑動視窗存留期** - 如果您想要對重新整理權杖設定滑動視窗存留期，請設定 **rolling_refresh_token_lifetime_secs** 中繼資料的值。 預設值為 7776000 秒 (90 天)。 如果您不想強制執行滑動視窗存留期，請以 `<Item Key="allow_infinite_rolling_refresh_token">True</Item>` 取代此項目。
 - **簽發者 (iss) 宣告** - 簽發者 (iss) 宣告會透過 **IssuanceClaimPattern** 中繼資料項目來設定。 適用的值為 `AuthorityAndTenantGuid` 和 `AuthorityWithTfp`。
-- **設定代表原則識別碼的宣告** - 用來設定此值的選項為 `TFP` (信任架構原則) 和 `ACR` (驗證內容參考)。 `TFP` 是建議值。 使用 `None` 值來設定 **AuthenticationContextReferenceClaimPattern**。 
+- **設定代表原則識別碼的宣告** - 用來設定此值的選項為 `TFP` (信任架構原則) 和 `ACR` (驗證內容參考)。 `TFP` 是建議值。 使用 `None` 值來設定 **AuthenticationContextReferenceClaimPattern**。
 
-    在 **ClaimsSchema** 項目中，新增此項目： 
-    
+    在 **ClaimsSchema** 項目中，新增此項目：
+
     ```XML
     <ClaimType Id="trustFrameworkPolicy">
       <DisplayName>Trust framework policy name</DisplayName>
       <DataType>string</DataType>
     </ClaimType>
     ```
-    
+
     在您的 **OutputClaims** 元素中，新增此元素：
-    
+
     ```XML
     <OutputClaim ClaimTypeReferenceId="trustFrameworkPolicy" Required="true" DefaultValue="{policy}" />
     ```
 
     針對 ACR，請移除 **AuthenticationContextReferenceClaimPattern** 項目。
 
-- **主體 (sub) 宣告** - 此選項的預設值為 ObjectID，如果您想要將此設定切換為 `Not Supported`，請將下列這行： 
+- **主體 (sub) 宣告** - 此選項的預設值為 ObjectID，如果您想要將此設定切換為 `Not Supported`，請將下列這行：
 
     ```XML
     <OutputClaim ClaimTypeReferenceId="objectId" PartnerClaimType="sub" />
     ```
-    
+
     改用這行︰
-    
+
     ```XML
     <OutputClaim ClaimTypeReferenceId="sub" />
     ```
@@ -101,6 +101,6 @@ ms.locfileid: "66509291"
 
 以下是在上述範例中設定的值：
 
-- **單一登入 (SSO)** - 單一登入會透過 **SingleSignOn** 來設定。 適用的值為 `Tenant`、`Application`、`Policy`和 `Suppressed`。 
+- **單一登入 (SSO)** - 單一登入會透過 **SingleSignOn** 來設定。 適用的值為 `Tenant`、`Application`、`Policy`和 `Suppressed`。
 - **Web 應用程式工作階段存留期 (分鐘)** - Web 應用程式工作階段存留期會透過 **SessionExpiryInSeconds** 元素來設定。 預設值為 86400 秒 (1440 分鐘)。
 - **Web 應用程式工作階段逾時** - Web 應用程式工作階段逾時會透過 **SessionExpiryType** 元素來設定。 適用的值為 `Absolute` 和 `Rolling`。

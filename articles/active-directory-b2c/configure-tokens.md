@@ -10,18 +10,18 @@ ms.topic: conceptual
 ms.date: 04/16/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 2ed1426bea920d1ef30fb28ff4a975d1268c12ff
-ms.sourcegitcommit: fa45c2bcd1b32bc8dd54a5dc8bc206d2fe23d5fb
+ms.openlocfilehash: 83f8051fa31b6431d4a8515e2c0912cc1872a402
+ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67846921"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71064380"
 ---
 # <a name="configure-tokens-in-azure-active-directory-b2c"></a>在 Azure Active Directory B2C 中設定權杖
 
-在本文中, 您將瞭解如何在 Azure Active Directory (Azure AD) B2C 中設定[權杖的存留期和相容性](active-directory-b2c-reference-tokens.md)。
+在本文中，您將瞭解如何在 Azure Active Directory B2C （Azure AD B2C）中設定[權杖的存留期和相容性](active-directory-b2c-reference-tokens.md)。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 [建立使用者流程](tutorial-create-user-flows.md)，讓使用者註冊並登入您的應用程式。
 
@@ -30,27 +30,27 @@ ms.locfileid: "67846921"
 您可以在任何使用者流程上設定權杖存留期。
 
 1. 登入 [Azure 入口網站](https://portal.azure.com)。
-2. 請確定您使用的是包含您 Azure AD B2C 租使用者的目錄。 選取頂端功能表中的 [**目錄和訂**用帳戶] 篩選, 然後選擇包含您 Azure AD B2C 租使用者的目錄。
-3. 選擇 Azure 入口網站左上角的 [所有服務]  ，然後搜尋並選取 [Azure AD B2C]  。
+2. 請確定您使用的是包含您 Azure AD B2C 租使用者的目錄。 在頂端功能表中選取 [**目錄 + 訂**用帳戶] 篩選，然後選擇包含您 Azure AD B2C 租使用者的目錄。
+3. 選擇 Azure 入口網站左上角的 [所有服務]，然後搜尋並選取 [Azure AD B2C]。
 4. 選取 **[使用者流程 (原則)** ]。
 5. 開啟您先前建立的使用者流程。
-6. 選取 [屬性]  。
+6. 選取 [屬性]。
 7. 在 [**權杖存留期**] 底下, 調整下列屬性以符合應用程式的需求:
 
     ![Azure 入口網站中的權杖存留期屬性設定](./media/configure-tokens/token-lifetime.png)
 
-8. 按一下 [儲存]  。
+8. 按一下 [儲存]。
 
 ## <a name="configure-token-compatibility"></a>設定權杖相容性
 
 1. 選取 **[使用者流程 (原則)** ]。
 2. 開啟您先前建立的使用者流程。
-3. 選取 [屬性]  。
+3. 選取 [屬性]。
 4. 在 [**權杖相容性設定**] 底下, 調整下列屬性以符合應用程式的需求:
 
     ![Azure 入口網站中的權杖相容性屬性設定](./media/configure-tokens/token-compatibility.png)
 
-5. 按一下 [儲存]  。
+5. 按一下 [儲存]。
 
 ## <a name="next-steps"></a>後續步驟
 

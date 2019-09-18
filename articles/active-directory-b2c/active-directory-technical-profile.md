@@ -10,18 +10,18 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 8b8bbe540d9e296b0f6a0c11a62d3b861e0115d3
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 4383980953147560b9e51e4ccab3032dd8173dd4
+ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66507438"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71064630"
 ---
 # <a name="define-an-azure-active-directory-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>定義 Azure Active Directory B2C 自訂原則中的 Azure Active Directory 技術設定檔
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-Azure Active Directory (Azure AD) B2C 可支援 Azure Active Directory 使用者管理功能。 本文會說明技術設定檔的詳細規格，其可和支援此標準化通訊協定的宣告提供者互動。
+Azure Active Directory B2C （Azure AD B2C）提供 Azure Active Directory 使用者管理的支援。 本文會說明技術設定檔的詳細規格，其可和支援此標準化通訊協定的宣告提供者互動。
 
 ## <a name="protocol"></a>Protocol
 
@@ -31,7 +31,7 @@ Azure Active Directory (Azure AD) B2C 可支援 Azure Active Directory 使用者
 
 - **AAD-UserReadUsingAlternativeSecurityId** 和 **AAD-UserReadUsingAlternativeSecurityId-NoError** - 在目錄中尋找社交帳戶。
 - **AAD-UserWriteUsingAlternativeSecurityId** - 建立新的社交帳戶。
-- **AAD-UserReadUsingEmailAddress** - 在目錄中尋找本機帳戶。 
+- **AAD-UserReadUsingEmailAddress** - 在目錄中尋找本機帳戶。
 - **AAD-UserWriteUsingLogonEmail** - 建立新的本機帳戶。
 - **AAD-UserWritePasswordUsingObjectId** - 更新本機帳戶的密碼。
 - **AAD-UserWriteProfileUsingObjectId** - 更新本機或社交帳戶的使用者設定檔。
@@ -91,7 +91,7 @@ Azure Active Directory (Azure AD) B2C 可支援 Azure Active Directory 使用者
 
 ## <a name="persistedclaims"></a>PersistedClaims
 
-**PersistedClaims** 元素包含 Azure AD 應保留的所有值，以及在原則之 ClaimsSchema 區段中已定義的宣告類型與 Azure AD 屬性名稱之間可能的對應資訊。 
+**PersistedClaims** 元素包含 Azure AD 應保留的所有值，以及在原則之 ClaimsSchema 區段中已定義的宣告類型與 Azure AD 屬性名稱之間可能的對應資訊。
 
 **AAD-UserWriteUsingLogonEmail** 技術設定檔，可建立新的本機帳戶，持續使用下列宣告：
 
@@ -113,16 +113,16 @@ Azure Active Directory (Azure AD) B2C 可支援 Azure Active Directory 使用者
 
 ## <a name="requirements-of-an-operation"></a>作業需求
 
-- 所有 Azure AD 技術設定檔的宣告包中，只能有一個 **InputClaim** 元素。 
+- 所有 Azure AD 技術設定檔的宣告包中，只能有一個 **InputClaim** 元素。
 - 如果作業是 `Write` 或 `DeleteClaims`，則該作業也必須出現在 **PersistedClaims** 元素中。
 - **userPrincipalName** 宣告值的格式必須是 `user@tenant.onmicrosoft.com`。
 - **displayName** 宣告是必要的，而且不可為空白字串。
 
 ## <a name="azure-ad-technical-provider-operations"></a>Azure AD 技術提供者作業
 
-### <a name="read"></a>讀取
+### <a name="read"></a>閱讀
 
-**讀取**作業可讀取單一使用者帳戶的相關資料。 若要讀取使用者資料，需要提供索引碼做為輸入宣告，例如 **objectId** **userPrincipalName**、**signInNames** (任何類型、使用者名稱和以電子郵件為基礎的帳戶) 或 **alternativeSecurityId**。  
+**讀取**作業可讀取單一使用者帳戶的相關資料。 若要讀取使用者資料，需要提供索引碼做為輸入宣告，例如 **objectId** **userPrincipalName**、**signInNames** (任何類型、使用者名稱和以電子郵件為基礎的帳戶) 或 **alternativeSecurityId**。
 
 以下技術設定檔會利用使用者的 objectId 讀取使用者帳戶的相關資料：
 
@@ -152,9 +152,9 @@ Azure Active Directory (Azure AD) B2C 可支援 Azure Active Directory 使用者
 </TechnicalProfile>
 ```
 
-### <a name="write"></a>寫入
+### <a name="write"></a>撰寫
 
-**寫入**作業可建立或更新單一使用者帳戶。 若要寫入使用者資料，需要提供索引碼做為輸入宣告，例如 **objectId** **userPrincipalName**、**signInNames.emailAddress** 或 **alternativeSecurityId**。  
+**寫入**作業可建立或更新單一使用者帳戶。 若要寫入使用者資料，需要提供索引碼做為輸入宣告，例如 **objectId** **userPrincipalName**、**signInNames.emailAddress** 或 **alternativeSecurityId**。
 
 下列技術設定檔會建立新的社交帳戶：
 
@@ -196,7 +196,7 @@ Azure Active Directory (Azure AD) B2C 可支援 Azure Active Directory 使用者
 
 ### <a name="deleteclaims"></a>DeleteClaims
 
-**DeleteClaims** 作業會清除提供之宣告清單中的資訊。 若要刪除宣告中的資訊，需要提供索引碼做為輸入宣告，例如 **objectId**、**userPrincipalName**、**signInNames.emailAddress** 或 **alternativeSecurityId**。  
+**DeleteClaims** 作業會清除提供之宣告清單中的資訊。 若要刪除宣告中的資訊，需要提供索引碼做為輸入宣告，例如 **objectId**、**userPrincipalName**、**signInNames.emailAddress** 或 **alternativeSecurityId**。
 
 下列技術設定檔會刪除宣告：
 
@@ -219,7 +219,7 @@ Azure Active Directory (Azure AD) B2C 可支援 Azure Active Directory 使用者
 
 ### <a name="deleteclaimsprincipal"></a>DeleteClaimsPrincipal
 
-**DeleteClaimsPrincipal** 作業會將單一使用者帳戶從目錄中刪除。 若要刪除使用者資料，需要提供索引碼做為輸入宣告，例如 **objectId** **userPrincipalName**、**signInNames.emailAddress** 或 **alternativeSecurityId**。  
+**DeleteClaimsPrincipal** 作業會將單一使用者帳戶從目錄中刪除。 若要刪除使用者資料，需要提供索引碼做為輸入宣告，例如 **objectId** **userPrincipalName**、**signInNames.emailAddress** 或 **alternativeSecurityId**。
 
 下列技術設定檔會使用使用者主體名稱，將使用者帳戶從目錄中刪除：
 
@@ -254,13 +254,13 @@ Azure Active Directory (Azure AD) B2C 可支援 Azure Active Directory 使用者
 
 | 屬性 | 必要項 | 描述 |
 | --------- | -------- | ----------- |
-| 運算 | 是 | 要執行的作業。 可能的值：`Read`、`Write`、`DeleteClaims` 或 `DeleteClaimsPrincipal`。 | 
-| RaiseErrorIfClaimsPrincipalDoesNotExist | 否 | 如果使用者物件不存在目錄中，會發生錯誤。 可能的值：`true` 或 `false`。 | 
-| UserMessageIfClaimsPrincipalDoesNotExist | 否 | 如果會引發錯誤 (請參閱 RaiseErrorIfClaimsPrincipalDoesNotExist 屬性的說明)，請指定當使用者物件不存在時，要向使用者顯示的訊息。 此值可進行[當地語系化](localization.md)。| 
-| RaiseErrorIfClaimsPrincipalAlreadyExists | 否 | 如果使用者物件已存在，則會引發錯誤。 可能的值：`true` 或 `false`。| 
-| UserMessageIfClaimsPrincipalAlreadyExists | 否 | 如果會引發錯誤 (請參閱 RaiseErrorIfClaimsPrincipalAlreadyExists 屬性說明)，請指定當使用者物件存在時，要向使用者顯示的訊息。 此值可進行[當地語系化](localization.md)。| 
-| ApplicationObjectId | 否 | 擴充屬性的應用程式物件識別碼。 值：應用程式的 ObjectId。 如需詳細資訊，請參閱[在自訂設定檔編輯原則中使用自訂屬性](active-directory-b2c-create-custom-attributes-profile-edit-custom.md)。 | 
-| ClientId | 否 | 以協力廠商身分存取租用戶的用戶端識別碼。 如需詳細資訊，請參閱[在自訂設定檔編輯原則中使用自訂屬性](active-directory-b2c-create-custom-attributes-profile-edit-custom.md) | 
+| 運算 | 是 | 要執行的作業。 可能的值：`Read`、`Write`、`DeleteClaims` 或 `DeleteClaimsPrincipal`。 |
+| RaiseErrorIfClaimsPrincipalDoesNotExist | 否 | 如果使用者物件不存在目錄中，會發生錯誤。 可能的值：`true` 或 `false`。 |
+| UserMessageIfClaimsPrincipalDoesNotExist | 否 | 如果會引發錯誤 (請參閱 RaiseErrorIfClaimsPrincipalDoesNotExist 屬性的說明)，請指定當使用者物件不存在時，要向使用者顯示的訊息。 此值可進行[當地語系化](localization.md)。|
+| RaiseErrorIfClaimsPrincipalAlreadyExists | 否 | 如果使用者物件已存在，則會引發錯誤。 可能的值：`true` 或 `false`。|
+| UserMessageIfClaimsPrincipalAlreadyExists | 否 | 如果會引發錯誤 (請參閱 RaiseErrorIfClaimsPrincipalAlreadyExists 屬性說明)，請指定當使用者物件存在時，要向使用者顯示的訊息。 此值可進行[當地語系化](localization.md)。|
+| ApplicationObjectId | 否 | 擴充屬性的應用程式物件識別碼。 值：應用程式的 ObjectId。 如需詳細資訊，請參閱[在自訂設定檔編輯原則中使用自訂屬性](active-directory-b2c-create-custom-attributes-profile-edit-custom.md)。 |
+| ClientId | 否 | 以協力廠商身分存取租用戶的用戶端識別碼。 如需詳細資訊，請參閱[在自訂設定檔編輯原則中使用自訂屬性](active-directory-b2c-create-custom-attributes-profile-edit-custom.md) |
 
 
 

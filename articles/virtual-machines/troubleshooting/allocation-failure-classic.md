@@ -4,7 +4,7 @@ description: 在 Azure 中建立、重新啟動或調整傳統 VM 大小時，�
 services: azure-service-management
 documentationcenter: ''
 author: genlin
-manager: willchen
+manager: dcscontentpm
 editor: ''
 tags: top-support-issue,azure-resource-manager,azure-service-management
 ms.assetid: bb939e23-77fc-4948-96f7-5037761c30e8
@@ -12,12 +12,12 @@ ms.service: virtual-machines
 ms.topic: troubleshooting
 ms.date: 11/01/2018
 ms.author: genli
-ms.openlocfilehash: 7cd7897e3a0b940bbc636b2fbc3dbbc13b7cf540
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: d43176e04337c2faf7be0bea682428056bc4ab46
+ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60505527"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71059187"
 ---
 # <a name="troubleshooting-steps-specific-to-allocation-failure-scenarios-in-the-classic-deployment-model"></a>傳統部署模型中配置失敗案例的具體疑難排解步驟
 
@@ -116,7 +116,7 @@ New_General* 或 New_VMSizeNotSupported*
 
 **叢集釘選的原因**
 
-在導入區域虛擬網路之前，您必須先將虛擬網路與同質群組產生關聯。 如此一來，放入同質群組的資源由繫結相同的條件約束中所述來計算 「 配置案例：同質群組 （VM/服務鄰近性） 」 一節。 計算資源會繫結至單一叢集。
+在導入區域虛擬網路之前，您必須先將虛擬網路與同質群組產生關聯。 因此，放置在同質群組中的計算資源是由相同的條件約束所系結，如「配置案例：同質群組（VM/服務鄰近性）一節。 計算資源會繫結至單一叢集。
 
 **因應措施**
 

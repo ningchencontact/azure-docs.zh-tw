@@ -1,7 +1,7 @@
 ---
 title: 偵測 AKS 部署上的資料漂移（預覽）
-titleSuffix: Azure Machine Learning service
-description: 偵測 Azure Machine Learning 服務中 Azure Kubernetes Service 部署模型的資料漂移。
+titleSuffix: Azure Machine Learning
+description: 偵測 Azure Machine Learning 中 Azure Kubernetes Service 部署模型的資料漂移。
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,16 +10,16 @@ ms.reviewer: jmartens
 ms.author: copeters
 author: cody-dkdc
 ms.date: 09/13/2019
-ms.openlocfilehash: 80c5ad26150547263469c9f59366e270bf660335
-ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
+ms.openlocfilehash: 59cce0b56a4e54208a454c9f71d9a4c8576b0a8b
+ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/14/2019
-ms.locfileid: "70993189"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71034348"
 ---
 # <a name="detect-data-drift-preview-on-models-deployed-to-azure-kubernetes-service-aks"></a>偵測部署到 Azure Kubernetes Service 的模型上的資料漂移（預覽）（AKS）
 
-在本文中，您將瞭解如何監視訓練資料集與已部署模型的推斷資料之間的資料漂移。 在機器學習環境中，定型的機器學習模型可能會因為漂移而遇到降低的預測效能。 有了 Azure Machine Learning 服務，您就可以監視資料漂移，而當偵測到漂移時，服務可以傳送電子郵件警示給您。
+在本文中，您將瞭解如何監視訓練資料集與已部署模型的推斷資料之間的資料漂移。 在機器學習環境中，定型的機器學習模型可能會因為漂移而遇到降低的預測效能。 使用 Azure Machine Learning，您可以監視資料漂移，而當偵測到漂移時，服務可以傳送電子郵件警示給您。
 
 ## <a name="what-is-data-drift"></a>什麼是資料漂移？
 
@@ -27,7 +27,7 @@ ms.locfileid: "70993189"
 
 ## <a name="what-can-i-monitor"></a>我可以監視什麼？
 
-使用 Azure Machine Learning 服務，您可以監視 AKS 上部署之模型的輸入，並將此資料與模型的訓練資料集進行比較。 在固定間隔，推斷資料會進行[快照和分析](how-to-explore-prepare-data.md)，然後針對基準資料集進行計算，以產生資料漂移分析，如下所示： 
+使用 Azure Machine Learning，您可以監視 AKS 上部署之模型的輸入，並將此資料與模型的訓練資料集進行比較。 在固定間隔，推斷資料會進行[快照和分析](how-to-explore-prepare-data.md)，然後針對基準資料集進行計算，以產生資料漂移分析，如下所示： 
 
 + 測量資料漂移的大小，稱為漂移係數。
 + 測量依特徵的資料漂移比重，通知哪些功能造成資料漂移。
@@ -38,20 +38,20 @@ ms.locfileid: "70993189"
 > [!Note]
 > 這項服務處於（預覽），且限制在設定選項中。 如需詳細資料和更新，請參閱我們的[API 檔](https://docs.microsoft.com/python/api/azureml-contrib-datadrift/?view=azure-ml-py)和[版本](azure-machine-learning-release-notes.md)資訊。 
 
-### <a name="how-data-drift-is-monitored-in-azure-machine-learning-service"></a>如何在 Azure Machine Learning 服務中監視資料漂移
+### <a name="how-data-drift-is-monitored-in-azure-machine-learning"></a>如何在 Azure Machine Learning 中監視資料漂移
 
-使用 Azure Machine Learning 服務，資料漂移會透過資料集或部署進行監視。 若要監視資料漂移，基準資料集-通常會指定模型的訓練資料集。 第二個資料集（通常是從部署收集的模型輸入資料）會針對基準資料集進行測試。 這兩個資料集都會進行分析，並輸入至資料漂移監視服務。 機器學習模型已定型，可偵測這兩個資料集之間的差異。 模型的效能會轉換成漂移係數，測量兩個資料集之間的漂移程度。 使用[模型 interpretability](machine-learning-interpretability-explainability.md)時，會計算構成漂移係數的功能。 從資料集設定檔中，會追蹤每項功能的統計資訊。 
+使用 Azure Machine Learning，資料漂移會透過資料集或部署進行監視。 若要監視資料漂移，基準資料集-通常會指定模型的訓練資料集。 第二個資料集（通常是從部署收集的模型輸入資料）會針對基準資料集進行測試。 這兩個資料集都會進行分析，並輸入至資料漂移監視服務。 機器學習模型已定型，可偵測這兩個資料集之間的差異。 模型的效能會轉換成漂移係數，測量兩個資料集之間的漂移程度。 使用[模型 interpretability](machine-learning-interpretability-explainability.md)時，會計算構成漂移係數的功能。 從資料集設定檔中，會追蹤每項功能的統計資訊。 
 
 ## <a name="prerequisites"></a>必要條件
 
-- Azure 訂用帳戶。 如果您沒有，請在開始前建立免費帳戶。 立即試用[免費或付費版本的 Azure Machine Learning 服務](https://aka.ms/AMLFree)。
+- Azure 訂用帳戶。 如果您沒有，請在開始前建立免費帳戶。 立即試用[免費或付費版本的 Azure Machine Learning](https://aka.ms/AMLFree) 。
 
 - 安裝 Azure Machine Learning SDK for Python。 請依照 [Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py) 中的指示執行下列工作：
 
     - 建立 Miniconda 環境
     - 安裝適用於 Python 的 Azure Machine Learning SDK
 
-- [Azure Machine Learning 服務工作區](how-to-manage-workspace.md)。
+- [Azure Machine Learning 工作區](how-to-manage-workspace.md)。
 
 - 工作區[設定檔](how-to-configure-environment.md#workspace)。
 
@@ -173,7 +173,7 @@ datadrift.disable_schedule()
 
 藉由設定漂移係數警示閾值，並提供電子郵件地址，每當漂移係數高於臨界值時，就會自動傳送[Azure 監視器](https://docs.microsoft.com/azure/azure-monitor/overview)電子郵件警示。 
 
-為了讓您設定自訂警示和動作，所有資料漂移標準都會儲存在與 Azure Machine Learning 服務工作區一起建立的[Application Insights](how-to-enable-app-insights.md)資源中。 您可以遵循電子郵件警示中的連結，Application Insights 查詢。
+為了讓您設定自訂警示和動作，所有資料漂移標準都會儲存在與 Azure Machine Learning 工作區一起建立的[Application Insights](how-to-enable-app-insights.md)資源中。 您可以遵循電子郵件警示中的連結，Application Insights 查詢。
 
 ![資料漂移電子郵件警示](media/how-to-monitor-data-drift/drift_email.png)
 

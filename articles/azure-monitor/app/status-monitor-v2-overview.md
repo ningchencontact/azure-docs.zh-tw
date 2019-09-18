@@ -3,21 +3,21 @@ title: Azure 狀態監視器 v2 總覽 |Microsoft Docs
 description: 狀態監視器 v2 的總覽。 在不重新部署網站的情況下監視網站效能。 適用于內部部署、Vm 或 Azure 上裝載的 ASP.NET web 應用程式。
 services: application-insights
 documentationcenter: .net
-author: MS-TimothyMothra
+author: TimothyMothra
 manager: alexklim
 ms.assetid: 769a5ea4-a8c6-4c18-b46c-657e864e24de
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 04/23/2019
+ms.date: 09/16/2019
 ms.author: tilee
-ms.openlocfilehash: 0264cf3a972c35edb3ad6dc600ca39bdaa076dfd
-ms.sourcegitcommit: e9c866e9dad4588f3a361ca6e2888aeef208fc35
+ms.openlocfilehash: 3060659c5f870be60f1ac02e432dd0a8333f0900
+ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68333697"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71057841"
 ---
 # <a name="status-monitor-v2"></a>狀態監視器 v2
 
@@ -59,7 +59,15 @@ ms.locfileid: "68333697"
   *是*。 有多種方式可以下載狀態監視器 v2。 如果您的電腦可存取網際網路, 您可以使用`-Proxy`參數上架到 PowerShell 資源庫。
 您也可以手動下載模組, 並將它安裝在您的電腦上, 或直接使用它。
 每個選項都會在[詳細指示](status-monitor-v2-detailed-instructions.md)中加以說明。
+
+- 狀態監視器 v2 是否支援 ASP.NET Core 應用程式？
+
+  *否*。 如需啟用 ASP.NET Core 應用程式監視的指示，請參閱[ASP.NET Core 應用程式的 Application Insights](https://docs.microsoft.com/azure/azure-monitor/app/asp-net-core)。 ASP.NET Core 應用程式不需要安裝 StatusMonitor。 即使 ASP.NET Core 應用程式裝載于 IIS 中，也是如此。
   
+狀態監視器 v2 是否支援 ASP.NET Core 應用程式？ 
+
+  *否*。 請遵循[這些](https://docs.microsoft.com/azure/azure-monitor/app/asp-net-core)指示來啟用 ASP.NET Core 應用程式的監視。 ASP.NET Core 應用程式不需要安裝 StatusMonitor。 即使 ASP.NET Core 應用程式裝載于 IIS 中，也是如此。
+
 - 如何? 確認啟用成功嗎？
 
   - [ApplicationInsightsMonitoringStatus](status-monitor-v2-api-get-status.md)指令程式可以用來驗證啟用是否成功。

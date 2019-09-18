@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 04/12/2019
-ms.openlocfilehash: 564bced9ae71213cb534393a7dcc45c929df3794
-ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
+ms.openlocfilehash: f2a153b1eef974c8c73df49a6eed53ef5dbf2353
+ms.sourcegitcommit: 8ef0a2ddaece5e7b2ac678a73b605b2073b76e88
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70917345"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71076204"
 ---
 # <a name="use-apache-sqoop-with-hadoop-in-hdinsight"></a>搭配使用 Apache Sqoop 與 HDInsight 中的 Hadoop
 
@@ -52,7 +52,7 @@ HDInsight 叢集附有某些範例資料。 您將用到以下兩個範例：
   | deviceplatform |string |
   | devicemake |string |
   | devicemodel |string |
-  | 狀態 |string |
+  | state |string |
   | country |string |
   | querydwelltime |double |
   | sessionid |Bigint |
@@ -73,7 +73,7 @@ HDInsight 叢集附有某些範例資料。 您將用到以下兩個範例：
 
 1. 選取下列影像，以在 Azure 入口網站中開啟 [Resource Manager] 範本。
 
-    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-hdinsight-linux-with-sql-database%2Fazuredeploy.json" target="_blank"><img src="./media/hdinsight-use-sqoop/hdi-deploy-to-azure1.png" alt="Deploy to Azure"></a>
+    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-hdinsight-linux-with-sql-database%2Fazuredeploy.json" target="_blank"><img src="./media/hdinsight-use-sqoop/hdi-deploy-to-azure1.png" alt="Deploy to Azure button for new cluster"></a>
 
 2. 輸入下列屬性：
 

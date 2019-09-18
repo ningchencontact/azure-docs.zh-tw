@@ -5,6 +5,7 @@ description: 了解 Azure 中的公用和私人 IP 位址 (傳統)。
 services: virtual-network
 documentationcenter: na
 author: genlin
+manager: dcscontentpm
 ms.service: virtual-network
 ms.devlang: na
 ms.topic: article
@@ -12,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/11/2016
 ms.author: genli
-ms.openlocfilehash: 9e7a5772dd1e10abf43eddf0548833d625ecfb24
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 207e728d25df9192f8a600b13d86330af8311700
+ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60742111"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71058916"
 ---
 # <a name="ip-address-types-and-allocation-methods-classic-in-azure"></a>Azure 中的 IP 位址類型及配置方法 (傳統)
 您可以將 IP 位址指派給 Azure 資源，來與其他 Azure 資源、內部部署網路和網際網路進行通訊。 您可以在 Azure 中使用兩種類型的 IP 位址：公用和私人。
@@ -41,7 +42,7 @@ Azure 資源可透過公用 IP 位址來與網際網路和 Azure 公眾對應服
 * 應用程式閘道
 
 ### <a name="allocation-method"></a>配置方法
-當公用 IP 位址需要指派給 Azure 資源時，會從資源建立位置內的可用公用 IP 位址集區進行動態  配置。 此 IP 位址會在停止資源後釋出。 就雲端服務而言，這會發生在所有角色執行個體都被停止的時候，而使用「靜態」  (保留) IP 位址即可避免這種情形 (請參閱[雲端服務](#cloud-services))。
+當公用 IP 位址需要指派給 Azure 資源時，會從資源建立位置內的可用公用 IP 位址集區進行動態 配置。 此 IP 位址會在停止資源後釋出。 就雲端服務而言，這會發生在所有角色執行個體都被停止的時候，而使用「靜態」 (保留) IP 位址即可避免這種情形 (請參閱[雲端服務](#cloud-services))。
 
 > [!NOTE]
 > 將公用 IP 位址配置給 Azure 資源的 IP 範圍清單已發佈於 [Azure 資料中心 IP 範圍](https://www.microsoft.com/download/details.aspx?id=41653)。
@@ -56,7 +57,7 @@ Azure 資源可透過公用 IP 位址來與網際網路和 Azure 公眾對應服
 
 雲端服務可以包含多個 IaaS VM，或 PaaS 角色執行個體，都是透過相同的雲端服務 VIP 公開。 您也可以將 [多個公用 VIP 指派給一項雲端服務](../load-balancer/load-balancer-multivip.md)，以實現多重 VIP 案例 (例如具有多個 SSL 架構網站的多租用戶環境)。
 
-即使所有角色執行個體都已停止，您可以使用「靜態」  公用 IP 位址 (稱為 [保留 IP](virtual-networks-reserved-public-ip.md))，確保雲端服務的公用 IP 位址維持不變。 您可以在特定位置建立靜態 (保留) IP 資源，並將它指派給該位置中的任何雲端服務。 您無法指定保留 IP 的實際 IP 位址，它會從資源建立位置中可用的 IP 位址集區進行配置。 直到您明確刪除，此 IP 位址才會釋出。
+即使所有角色執行個體都已停止，您可以使用「靜態」 公用 IP 位址 (稱為 [保留 IP](virtual-networks-reserved-public-ip.md))，確保雲端服務的公用 IP 位址維持不變。 您可以在特定位置建立靜態 (保留) IP 資源，並將它指派給該位置中的任何雲端服務。 您無法指定保留 IP 的實際 IP 位址，它會從資源建立位置中可用的 IP 位址集區進行配置。 直到您明確刪除，此 IP 位址才會釋出。
 
 靜態 (保留) 公用 IP 位址常使用於下列案例，其中雲端服務：
 
@@ -79,10 +80,10 @@ Azure 資源可透過公用 IP 位址來與網際網路和 Azure 公眾對應服
 > 
 
 ### <a name="vpn-gateways"></a>VPN 閘道
-[VPN 閘道](../vpn-gateway/vpn-gateway-about-vpngateways.md) 可用來將 Azure VNet 連接到其他 Azure Vnet 或內部部署網路。 VPN 閘道已被動態  指派公用 IP 位址，以便與遠端網路通訊。
+[VPN 閘道](../vpn-gateway/vpn-gateway-about-vpngateways.md) 可用來將 Azure VNet 連接到其他 Azure Vnet 或內部部署網路。 VPN 閘道已被動態指派公用 IP 位址，以便與遠端網路通訊。
 
 ### <a name="application-gateways"></a>應用程式閘道
-Azure [應用程式閘道](../application-gateway/application-gateway-introduction.md) 可用於 Layer7 負載平衡，以便路由傳送以 HTTP 為基礎的網路流量。 應用程式閘道已被動態  指派公用 IP 位址，該 IP 位址可做為負載平衡的 VIP。
+Azure [應用程式閘道](../application-gateway/application-gateway-introduction.md) 可用於 Layer7 負載平衡，以便路由傳送以 HTTP 為基礎的網路流量。 應用程式閘道已被動態指派公用 IP 位址，該 IP 位址可做為負載平衡的 VIP。
 
 ### <a name="at-a-glance"></a>速覽
 下表顯示每個資源類型與可能的配置方法 (動態/靜態)，以及指派多個公用 IP 位址的能力。
@@ -108,15 +109,15 @@ Azure [應用程式閘道](../application-gateway/application-gateway-introducti
 
 請務必注意，有兩種方式可以部署雲端服務：
 
-* 成為獨立  雲端服務，其不在虛擬網路中。
+* 成為獨立 雲端服務，其不在虛擬網路中。
 * 成為虛擬網路的一部分。
 
 #### <a name="allocation-method"></a>配置方法
-如果是「獨立」  雲端服務，資源會取得從 Azure 資料中心私人 IP 位址範圍「動態」  配置的私人 IP 位址。 它只能用於與相同雲端服務內的其他 VM 通訊。 此 IP 位址可在停止並啟動資源時變更。
+如果是「獨立」雲端服務，資源會取得從 Azure 資料中心私人 IP 位址範圍「動態」配置的私人 IP 位址。 它只能用於與相同雲端服務內的其他 VM 通訊。 此 IP 位址可在停止並啟動資源時變更。
 
 如果是虛擬網路中部署的雲端服務，資源會取得從相關聯子網路的位址範圍配置的私人 IP 位址 (如其網路組態中指定)。 此私人 IP 位址可用於 VNet 中所有 VM 之間的通訊。
 
-此外，如果是 VNet 中的雲端服務，預設會動態  配置私人 IP 位址 (使用 DHCP)。 此 IP 位址可在停止並啟動資源時變更。 若要確保 IP 位址維持不變，您需要將配置方法設為 [靜態]  ，並提供對應位址範圍內的有效 IP 位址。
+此外，如果是 VNet 中的雲端服務，預設會動態 配置私人 IP 位址 (使用 DHCP)。 此 IP 位址可在停止並啟動資源時變更。 若要確保 IP 位址維持不變，您需要將配置方法設為 [靜態]，並提供對應位址範圍內的有效 IP 位址。
 
 靜態私人 IP 位址通常用於：
 
@@ -129,18 +130,18 @@ Azure [應用程式閘道](../application-gateway/application-gateway-introducti
 
 當您建立 VM 時，會將主機名稱與其私人 IP 位址的對應加入至 Azure 受控 DNS 伺服器。 就多個 NIC 的 VM 而言，主機名稱會對應至主要 NIC 的私人 IP 位址。 不過，此對應資訊僅限於相同雲端服務或 VNet 內的資源。
 
-如果是獨立  雲端服務，您只能夠解析相同雲端服務內所有 VM/角色執行個體的主機名稱。 如果是 VNet 內的雲端服務，您將能夠解析 VNet 內所有 VM/角色執行個體的主機名稱。
+如果是獨立 雲端服務，您只能夠解析相同雲端服務內所有 VM/角色執行個體的主機名稱。 如果是 VNet 內的雲端服務，您將能夠解析 VNet 內所有 VM/角色執行個體的主機名稱。
 
 ### <a name="internal-load-balancers-ilb--application-gateways"></a>內部負載平衡器 (ILB) 與應用程式閘道
 您可以將私人 IP 位址指派給 [Azure 內部負載平衡器](../load-balancer/load-balancer-internal-overview.md) (ILB) 或 [Azure 應用程式閘道](../application-gateway/application-gateway-introduction.md)的**前端**組態。 此私人 IP 位址可做為內部端點，只能存取其虛擬網路 (VNet) 內的資源與連線到 VNet 的遠端網路。 您可以將動態或靜態私人 IP 位址指派給前端組態。 您也可以指派多個私人 IP 位址，以實現多重 vip 案例。
 
-### <a name="at-a-glance"></a>速覽
+### <a name="at-a-glance"></a>快速概覽
 下表顯示每個資源類型與可能的配置方法 (動態/靜態)，以及指派多個私人 IP 位址的能力。
 
 | Resource | 動態 | Static | 多個 IP 位址 |
 | --- | --- | --- | --- |
-| VM (位於獨立  雲端服務或 VNet 中) |是 |是 |是 |
-| PaaS 角色執行個體 (位於獨立  雲端服務或 VNet 中) |是 |否 |否 |
+| VM (位於獨立雲端服務或 VNet 中) |是 |是 |是 |
+| PaaS 角色執行個體 (位於獨立雲端服務或 VNet 中) |是 |否 |否 |
 | 內部負載平衡器前端 |是 |是 |是 |
 | 應用程式閘道前端 |是 |是 |是 |
 
@@ -149,14 +150,14 @@ Azure [應用程式閘道](../application-gateway/application-gateway-introducti
 
 |  | 預設限制 | 上限 |
 | --- | --- | --- |
-| 公用 IP 位址 (動態) |5 |連絡支援人員 |
+| 公用 IP 位址 (動態) |5 |連絡支援部門 |
 | 保留的公用 IP 位址 |20 |連絡支援人員 |
-| 每個部署 (雲端服務) 的公用 VIP |5 |連絡支援人員 |
+| 每個部署 (雲端服務) 的公用 VIP |5 |連絡支援部門 |
 | 每個部署 (雲端服務) 的私人 VIP (ILB) |1 |1 |
 
 請務必閱讀 Azure 中全部的[網路限制](../azure-subscription-service-limits.md#networking-limits)。
 
-## <a name="pricing"></a>價格
+## <a name="pricing"></a>定價
 在大多數情況下，公用 IP 位址是免費的。 使用額外和 (或) 靜態公用 IP 位址則會有少許費用。 請務必了解 [公用 IP 的價格結構](https://azure.microsoft.com/pricing/details/ip-addresses/)。
 
 ## <a name="differences-between-resource-manager-and-classic-deployments"></a>Resource Manager 與傳統部署之間的差異

@@ -1,7 +1,7 @@
 ---
 title: 部署模型的方式和位置
-titleSuffix: Azure Machine Learning service
-description: 瞭解部署 Azure Machine Learning 服務模型的方式和位置，包括 Azure 容器實例、Azure Kubernetes Service、Azure IoT Edge 和可現場程式化閘道陣列。
+titleSuffix: Azure Machine Learning
+description: 瞭解部署 Azure Machine Learning 模型的方式和位置，包括 Azure 容器實例、Azure Kubernetes Service、Azure IoT Edge 和可現場程式化閘道陣列。
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -11,14 +11,14 @@ author: jpe316
 ms.reviewer: larryfr
 ms.date: 09/13/2019
 ms.custom: seoapril2019
-ms.openlocfilehash: ff3a19a543f87833420f585bbdf7891cc7589746
-ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
+ms.openlocfilehash: f70975749be52e8498488d7019bf5cb8d858df54
+ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/14/2019
-ms.locfileid: "70997197"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71034693"
 ---
-# <a name="deploy-models-with-the-azure-machine-learning-service"></a>使用 Azure Machine Learning 服務部署模型
+# <a name="deploy-models-with-azure-machine-learning"></a>使用 Azure Machine Learning 部署模型
 
 瞭解如何將您的機器學習模型部署為 Azure 雲端中的 web 服務，或 Azure IoT Edge 裝置。
 
@@ -29,11 +29,11 @@ ms.locfileid: "70997197"
 1. 將模型部署到計算目標。
 1. 測試已部署的模型，也稱為 web 服務。
 
-如需部署工作流程中相關概念的詳細資訊，請參閱[使用 Azure Machine Learning 服務來管理、部署和監視模型](concept-model-management-and-deployment.md)。
+如需部署工作流程中相關概念的詳細資訊，請參閱[使用 Azure Machine Learning 來管理、部署和監視模型](concept-model-management-and-deployment.md)。
 
 ## <a name="prerequisites"></a>必要條件
 
-- Azure Machine Learning 服務工作區。 如需詳細資訊，請參閱[建立 Azure Machine Learning 服務工作區](how-to-manage-workspace.md)。
+- Azure Machine Learning 工作區。 如需詳細資訊，請參閱[建立 Azure Machine Learning 工作區](how-to-manage-workspace.md)。
 
 - 模型。 如果您沒有定型的模型，您可以使用[本教學](https://aka.ms/azml-deploy-cloud)課程中提供的模型和相依性檔案。
 
@@ -41,7 +41,7 @@ ms.locfileid: "70997197"
 
 ## <a name="connect-to-your-workspace"></a>連接到您的工作區
 
-下列程式碼示範如何使用快取至本機開發環境的資訊，連接到 Azure Machine Learning 服務的工作區：
+下列程式碼示範如何使用快取至本機開發環境的資訊，連接到 Azure Machine Learning 的工作區：
 
 + **使用 SDK**
 
@@ -118,7 +118,7 @@ ms.locfileid: "70997197"
 
 ### <a name="register-a-model-from-a-local-file"></a>從本機檔案註冊模型
 
-您可以藉由提供模型的本機路徑來註冊模型。 您可以提供資料夾或單一檔案的路徑。 您可以使用這個方法來註冊使用 Azure Machine Learning 服務定型的模型，然後下載。 您也可以使用這個方法來註冊在 Azure Machine Learning 外部定型的模型。
+您可以藉由提供模型的本機路徑來註冊模型。 您可以提供資料夾或單一檔案的路徑。 您可以使用這個方法來註冊使用 Azure Machine Learning 定型的模型，然後下載。 您也可以使用這個方法來註冊在 Azure Machine Learning 外部定型的模型。
 
 [!INCLUDE [trusted models](../../../includes/machine-learning-service-trusted-model.md)]
 
@@ -154,7 +154,7 @@ ms.locfileid: "70997197"
 
 如需詳細資訊，請參閱[模型類別](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py)的檔。
 
-如需有關使用在 Azure Machine Learning 服務外部定型之模型的詳細資訊，請參閱[如何部署現有的模型](how-to-deploy-existing-model.md)。
+如需使用 Azure Machine Learning 外部定型模型的詳細資訊，請參閱[如何部署現有的模型](how-to-deploy-existing-model.md)。
 
 <a name="target"></a>
 
@@ -214,7 +214,7 @@ model_path = Model.get_model_path('sklearn_mnist')
 
 #### <a name="optional-automatic-schema-generation"></a>選擇性自動產生架構
 
-若要自動產生 web 服務的架構，請在其中一個已定義的類型物件的函式中提供輸入和/或輸出的範例。 型別和範例用來自動建立架構。 然後，Azure Machine Learning 服務會在部署期間建立 web 服務的[OpenAPI](https://swagger.io/docs/specification/about/) （Swagger）規格。
+若要自動產生 web 服務的架構，請在其中一個已定義的類型物件的函式中提供輸入和/或輸出的範例。 型別和範例用來自動建立架構。 Azure Machine Learning 接著會在部署期間建立 web 服務的[OpenAPI](https://swagger.io/docs/specification/about/) （Swagger）規格。
 
 目前支援下列類型：
 
@@ -630,7 +630,7 @@ print(response.json())
     "swagger": "2.0",
     "info": {
         "title": "myservice",
-        "description": "API specification for the Azure Machine Learning service myservice",
+        "description": "API specification for Azure Machine Learning myservice",
         "version": "1.0"
     },
     "schemes": [
@@ -762,7 +762,7 @@ print(response.json())
 如需可從規格建立用戶端程式庫的公用程式，請參閱[swagger-codegen](https://github.com/swagger-api/swagger-codegen)。
 
 ### <a id="azuremlcompute"></a>批次推斷
-Azure Machine Learning 計算目標是由 Azure Machine Learning 服務建立和管理。 它們可以用於 Azure Machine Learning 管線的批次預測。
+Azure Machine Learning 計算目標是由 Azure Machine Learning 建立和管理。 它們可以用於 Azure Machine Learning 管線的批次預測。
 
 如需使用 Azure Machine Learning 計算進行批次推斷的逐步解說，請參閱[如何執行批次預測](tutorial-pipeline-batch-scoring-classification.md)。
 
@@ -776,7 +776,7 @@ Azure Machine Learning 計算目標是由 Azure Machine Learning 服務建立和
 
 ## <a name="continuously-deploy-models"></a>持續部署模型
 
-您可以使用[Azure DevOps](https://azure.microsoft.com/services/devops/)的 Machine Learning 延伸模組，持續部署模型。 在 Azure Machine Learning 服務工作區中註冊新的機器學習模型時，您可以使用 Azure DevOps 的 Machine Learning 擴充功能來觸發部署管線。
+您可以使用[Azure DevOps](https://azure.microsoft.com/services/devops/)的 Machine Learning 延伸模組，持續部署模型。 在 Azure Machine Learning 工作區中註冊新的機器學習模型時，您可以使用 Azure DevOps 的 Machine Learning 擴充功能來觸發部署管線。
 
 1. 註冊[Azure Pipelines](https://docs.microsoft.com/azure/devops/pipelines/get-started/pipelines-sign-up?view=azure-devops)，讓您的應用程式持續整合並傳遞至任何平臺或雲端。 （請注意，Azure Pipelines 與[Machine Learning 管線](concept-ml-pipelines.md#compare)不同）。
 
@@ -784,7 +784,7 @@ Azure Machine Learning 計算目標是由 Azure Machine Learning 服務建立和
 
 1. 安裝[Azure Pipelines 的 Machine Learning 延伸](https://marketplace.visualstudio.com/items?itemName=ms-air-aiagility.vss-services-azureml&targetId=6756afbe-7032-4a36-9cb6-2771710cadc2&utm_source=vstsproduct&utm_medium=ExtHubManageList)模組。
 
-1. 使用服務連線來設定與您 Azure Machine Learning 服務工作區的服務主體連線，以便您可以存取您的構件。 移至 專案設定，選取 **服務連接**，然後選取  **Azure Resource Manager**：
+1. 使用服務連線來設定與您 Azure Machine Learning 工作區的服務主體連線，以便您可以存取您的構件。 移至 專案設定，選取 **服務連接**，然後選取  **Azure Resource Manager**：
 
     [![選取 Azure Resource Manager](media/how-to-deploy-and-where/view-service-connection.png)](media/how-to-deploy-and-where/view-service-connection-expanded.png)
 

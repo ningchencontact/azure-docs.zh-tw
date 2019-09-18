@@ -1,7 +1,7 @@
 ---
 title: 使用管線對大型資料執行批次預測
-titleSuffix: Azure Machine Learning service
-description: 了解如何使用 Azure Machine Learning 服務，以非同步方式對大量資料進行批次預測。
+titleSuffix: Azure Machine Learning
+description: 瞭解如何使用 Azure Machine Learning，以非同步方式對大量資料進行批次預測。
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,16 +10,16 @@ ms.reviewer: jmartens, garye
 ms.author: jordane
 author: jpe316
 ms.date: 07/12/2019
-ms.openlocfilehash: b0d8eef025efb6398f1d7c734ca558540b157fef
-ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
+ms.openlocfilehash: 3997f327bd6512eeee2cb5e7a0af802f12d1727a
+ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70128262"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71034303"
 ---
 # <a name="run-batch-predictions-on-large-data-sets-with-azure-machine-learning-pipelines"></a>在具有 Azure Machine Learning 管線的大型資料集上執行批次預測
 
-在本文中, 您將瞭解如何使用 Azure Machine Learning 服務的 ML 管線, 以非同步方式對大量資料進行預測。
+在本文中，您將瞭解如何使用 Azure Machine Learning 的 ML 管線，以非同步方式對大量資料進行預測。
 
 批次預測 (或批次評分) 會針對非同步的應用程式，利用獨特的輸送量來提供符合成本效益的推斷。 批次預測管線可以調整規模，以針對數個 TB 的生產資料執行推斷。 批次預測會對適用於大型資料集合的高輸送量且射後不理的預測進行最佳化。
 
@@ -30,7 +30,7 @@ ms.locfileid: "70128262"
 
 ## <a name="prerequisites"></a>必要條件
 
-- 如果您沒有 Azure 訂用帳戶，請在開始前先建立一個免費帳戶。 試用[免費或付費版本的 Azure Machine Learning 服務](https://aka.ms/AMLFree)。
+- 如果您沒有 Azure 訂用帳戶，請在開始前先建立一個免費帳戶。 試用[免費或付費版本的 Azure Machine Learning](https://aka.ms/AMLFree)。
 
 - 設定開發環境以安裝 Azure Machine Learning SDK。 如需詳細資訊，請參閱[設定 Azure Machine Learning 的開發環境](how-to-configure-environment.md)。
 
@@ -114,7 +114,7 @@ output_dir = PipelineData(name="scores",
 
 ### <a name="set-up-compute-target"></a>設定計算目標
 
-在 Azure Machine Learning 中，*計算* (或*計算目標*) 係指會在您機器學習管線中執行計算步驟的機器或叢集。 例如, 您可以使用[AmlCompute](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.amlcompute%28class%29?view=azure-ml-py)類別來建立 Azure Machine Learning 計算。
+在 Azure Machine Learning 中，*計算* (或*計算目標*) 係指會在您機器學習管線中執行計算步驟的機器或叢集。 例如，您可以使用[AmlCompute](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.amlcompute%28class%29?view=azure-ml-py)類別來建立 Azure Machine Learning 計算。
 
 ```python
 from azureml.core.compute import AmlCompute
@@ -358,4 +358,4 @@ RunDetails(published_pipeline_run).show()
 
 ## <a name="next-steps"></a>後續步驟
 
-若要查看此端對端工作, 請嘗試[GitHub](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/machine-learning-pipelines)中的批次評分筆記本, 或移至[Azure 架構中心](/azure/architecture/reference-architectures/ai/batch-scoring-python)以查看範例解決方案架構。
+若要查看此端對端工作，請嘗試[GitHub](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/machine-learning-pipelines)中的批次評分筆記本，或移至[Azure 架構中心](/azure/architecture/reference-architectures/ai/batch-scoring-python)以查看範例解決方案架構。

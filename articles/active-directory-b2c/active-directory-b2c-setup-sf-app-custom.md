@@ -10,18 +10,18 @@ ms.topic: conceptual
 ms.date: 09/21/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 7cbde2beb03c174facbd145954387a31f6158a9a
-ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
+ms.openlocfilehash: 0bc373649b19b75a8f137e82bf839ac5b27b8692
+ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/08/2019
-ms.locfileid: "67654183"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71064988"
 ---
 # <a name="set-up-sign-in-with-a-salesforce-saml-provider-by-using-custom-policies-in-azure-active-directory-b2c"></a>在 Azure Active Directory B2C 中使用自訂原則註冊並登入 Salesforce SAML 提供者
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-本文說明如何在 Azure Active Directory (Azure AD) B2C 中藉由使用[自訂原則](active-directory-b2c-overview-custom.md)，讓使用者能夠從 Salesforce 組織帳戶登入。 將 [SAML 技術設定檔](saml-technical-profile.md)新增至自訂原則，以啟用登入。
+本文說明如何使用 Azure Active Directory B2C （Azure AD B2C）中的[自訂原則](active-directory-b2c-overview-custom.md)，讓 Salesforce 組織的使用者登入。 將 [SAML 技術設定檔](saml-technical-profile.md)新增至自訂原則，以啟用登入。
 
 ## <a name="prerequisites"></a>必要條件
 
@@ -32,38 +32,38 @@ ms.locfileid: "67654183"
 ### <a name="set-up-salesforce-as-an-identity-provider"></a>將 Salesforce 設定為識別提供者
 
 1. [登入 Salesforce](https://login.salesforce.com/)。
-2. 在左側功能表的 [設定]  下，展開 [身分識別]  ，然後選取 [識別提供者]  。
-3. 選取 [啟用識別提供者]  。
-4. 在 [選取憑證]  下，選取您想要讓 Salesforce 在與 Azure AD B2C 通訊時使用的憑證。 您可以使用預設憑證。
-5. 按一下 [儲存]  。
+2. 在左側功能表的 [設定]下，展開 [身分識別]，然後選取 [識別提供者]。
+3. 選取 [啟用識別提供者]。
+4. 在 [選取憑證] 下，選取您想要讓 Salesforce 在與 Azure AD B2C 通訊時使用的憑證。 您可以使用預設憑證。
+5. 按一下 [儲存]。
 
 ### <a name="create-a-connected-app-in-salesforce"></a>在 Salesforce 中建立連線應用程式
 
-1. 在 [身分識別提供者]  頁面上，選取**服務提供者現已透過連線應用程式建立。** 按一下這裡。
-2. 在 [基本資訊]  下，為連線應用程式輸入必要值。
-3. 在 [Web 應用程式設定]  下，核取 [啟用 SAML]  方塊。
-4. 在 [實體識別碼]  欄位中，輸入下列 URL。 請確保使用 Azure AD B2C 租戶的名稱替換 `your-tenant` 的值。
+1. 在 [身分識別提供者] 頁面上，選取**服務提供者現已透過連線應用程式建立。** 按一下這裡。
+2. 在 [基本資訊] 下，為連線應用程式輸入必要值。
+3. 在 [Web 應用程式設定]下，核取 [啟用 SAML] 方塊。
+4. 在 [實體識別碼] 欄位中，輸入下列 URL。 請確保使用 Azure AD B2C 租戶的名稱替換 `your-tenant` 的值。
 
       ```
       https://your-tenant.b2clogin.com/your-tenant.onmicrosoft.com/B2C_1A_TrustFrameworkBase
       ```
 
-6. 在 [ACS URL]  欄位中，輸入下列 URL。 請確保使用 Azure AD B2C 租戶的名稱替換 `your-tenant` 的值。
+6. 在 [ACS URL] 欄位中，輸入下列 URL。 請確保使用 Azure AD B2C 租戶的名稱替換 `your-tenant` 的值。
 
       ```
       https://your-tenant.b2clogin.com/your-tenant.onmicrosoft.com/B2C_1A_TrustFrameworkBase/samlp/sso/assertionconsumer
       ```
-7. 捲動到清單底部，然後按一下 [儲存]  。
+7. 捲動到清單底部，然後按一下 [儲存]。
 
 ### <a name="get-the-metadata-url"></a>取得中繼資料 URL
 
-1. 在連線應用程式的概觀分頁上，按一下 [管理]  。
+1. 在連線應用程式的概觀分頁上，按一下 [管理]。
 2. 複製**中繼資料探索端點**的值，並將其儲存。 您將在本文稍後使用它。
 
 ### <a name="set-up-salesforce-users-to-federate"></a>設定 Salesforce 使用者以建立同盟
 
-1. 在連線應用程式的 [管理]  分頁上，按一下 [管理設定檔]  。
-2. 選取您想要與 Azure AD B2C 建立同盟的設定檔 (或使用者群組)。 身為系統管理員，選取 [系統管理員]  核取方塊，以便使用您的 Salesforce 帳戶建立同盟。
+1. 在連線應用程式的 [管理] 分頁上，按一下 [管理設定檔]。
+2. 選取您想要與 Azure AD B2C 建立同盟的設定檔 (或使用者群組)。 身為系統管理員，選取 [系統管理員] 核取方塊，以便使用您的 Salesforce 帳戶建立同盟。
 
 ## <a name="generate-a-signing-certificate"></a>產生簽署憑證
 
@@ -88,15 +88,15 @@ Export-PfxCertificate -Cert $Cert -FilePath .\B2CSigningCert.pfx -Password $pwd
 您必須將所建立的憑證儲存在 Azure AD B2C 租用戶中。
 
 1. 登入 [Azure 入口網站](https://portal.azure.com/)。
-2. 按一下頂端功能表中的 [目錄和訂用帳戶]  篩選，然後選擇包含您租用戶的目錄，以確定您使用的是包含 Azure AD B2C 租用戶的目錄。
-3. 選擇 Azure 入口網站左上角的 [所有服務]  ，然後搜尋並選取 [Azure AD B2C]  。
-4. 在 [概觀] 頁面上，選取 [識別體驗架構]  。
-5. 選取 [原則金鑰]  ，然後選取 [新增]  。
-6. 針對 [選項]  選擇 `Upload`。
-7. 輸入原則的 [名稱]  。 例如，SAMLSigningCert。 金鑰名稱前面會自動新增前置詞 `B2C_1A_`。
+2. 請選取頂端功能表中的 [**目錄 + 訂**用帳戶] 篩選，然後選擇包含您租使用者的目錄，以確定您使用的是包含 Azure AD B2C 租使用者的目錄。
+3. 選擇 Azure 入口網站左上角的 [所有服務]，然後搜尋並選取 [Azure AD B2C]。
+4. 在 [概觀] 頁面上，選取 [識別體驗架構]。
+5. 選取 [原則金鑰]，然後選取 [新增]。
+6. 針對 [選項] 選擇 `Upload`。
+7. 輸入原則的 [名稱]。 例如，SAMLSigningCert。 金鑰名稱前面會自動新增前置詞 `B2C_1A_`。
 8. 瀏覽並選取您所建立的 B2CSigningCert.pfx 憑證。
-9. 輸入憑證的 [密碼]  。
-3. 按一下 [建立]  。
+9. 輸入憑證的 [密碼]。
+3. 按一下 [建立]。
 
 ## <a name="add-a-claims-provider"></a>新增宣告提供者
 
@@ -154,9 +154,9 @@ Export-PfxCertificate -Cert $Cert -FilePath .\B2CSigningCert.pfx -Password $pwd
 
 到目前為止，您已設定原則，讓 Azure AD B2C 知道如何與您的 Salesforce 帳戶進行通訊。 嘗試上傳原則的擴充檔案，這只是為了確認它到目前為止沒有任何問題。
 
-1. 在 Azure AD B2C 租用戶的 [自訂原則]  頁面上，選取 [上傳原則]  。
-2. 啟用 [覆寫現有的原則]  ，然後瀏覽並選取 *TrustFrameworkExtensions.xml* 檔案。
-3. 按一下 [上傳]  。
+1. 在 Azure AD B2C 租用戶的 [自訂原則] 頁面上，選取 [上傳原則]。
+2. 啟用 [覆寫現有的原則]，然後瀏覽並選取 *TrustFrameworkExtensions.xml* 檔案。
+3. 按一下 [上傳]。
 
 ## <a name="register-the-claims-provider"></a>註冊宣告提供者
 
@@ -192,19 +192,19 @@ Export-PfxCertificate -Cert $Cert -FilePath .\B2CSigningCert.pfx -Password $pwd
 
     將 **TechnicalProfileReferenceId** 的值更新成您稍早所建立技術設定檔的 **Id**。 例如： `LinkedIn-OAUTH` 。
 
-3. 儲存 TrustFrameworkExtensions.xml  檔案，並再次上傳它以供驗證。
+3. 儲存 TrustFrameworkExtensions.xml 檔案，並再次上傳它以供驗證。
 
 ## <a name="create-an-azure-ad-b2c-application"></a>建立 Azure AD B2C 應用程式
 
 與 Azure AD B2C 的通訊會透過您在租用戶中建立的應用程式進行。 此節會列出您可以視需要完成以建立測試應用程式的步驟 (如果您尚未這麼做)。
 
 1. 登入 [Azure 入口網站](https://portal.azure.com)。
-2. 按一下頂端功能表中的 [目錄和訂用帳戶]  篩選，然後選擇包含您租用戶的目錄，以確定您使用的是包含 Azure AD B2C 租用戶的目錄。
-3. 選擇 Azure 入口網站左上角的 [所有服務]  ，然後搜尋並選取 [Azure AD B2C]  。
-4. 選取 [應用程式]  ，然後選取 [新增]  。
-5. 輸入應用程式的名稱，例如 testapp1  。
-6. 針對 [Web 應用程式 / Web API]  ，選取 `Yes`，然後y在 [回覆 URL]  欄位輸入 `https://jwt.ms`。
-7. 按一下 [建立]  。
+2. 請選取頂端功能表中的 [**目錄 + 訂**用帳戶] 篩選，然後選擇包含您租使用者的目錄，以確定您使用的是包含 Azure AD B2C 租使用者的目錄。
+3. 選擇 Azure 入口網站左上角的 [所有服務]，然後搜尋並選取 [Azure AD B2C]。
+4. 選取 [應用程式]，然後選取 [新增]。
+5. 輸入應用程式的名稱，例如 testapp1。
+6. 針對 [Web 應用程式 / Web API]，選取 `Yes`，然後y在 [回覆 URL] 欄位輸入 `https://jwt.ms`。
+7. 按一下 [建立]。
 
 ## <a name="update-and-test-the-relying-party-file"></a>更新並測試信賴憑證者檔案
 
@@ -215,4 +215,4 @@ Export-PfxCertificate -Cert $Cert -FilePath .\B2CSigningCert.pfx -Password $pwd
 3. 將 **PublicPolicyUri** 的值更新成原則的 URI。 例如：`http://contoso.com/B2C_1A_signup_signin_salesforce`
 4. 更新 **DefaultUserJourney** 中 **ReferenceId** 屬性的值，以符合您所建立新使用者旅程圖 (SignUpSignInSalesforce) 的識別碼。
 5. 儲存您的變更、上傳檔案，然後選取清單中的新原則。
-6. 確定 [選取應用程式]  欄位中已選取您所建立的 Azure AD B2C 應用程式，然後按一下 [立即執行]  來進行測試。
+6. 確定 [選取應用程式] 欄位中已選取您所建立的 Azure AD B2C 應用程式，然後按一下 [立即執行] 來進行測試。

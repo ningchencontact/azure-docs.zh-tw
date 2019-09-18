@@ -1,7 +1,7 @@
 ---
 title: 設定 Python 開發環境
-titleSuffix: Azure Machine Learning service
-description: 了解如何在使用 Azure Machine Learning 服務時設定開發環境。 在本文中，您將瞭解如何使用 Conda 環境、建立設定檔，以及設定您自己的雲端式筆記本伺服器、Jupyter 筆記本、Azure Databricks、Ide、程式碼編輯器和資料科學虛擬機器。
+titleSuffix: Azure Machine Learning
+description: 瞭解如何在使用 Azure Machine Learning 時設定開發環境。 在本文中，您將瞭解如何使用 Conda 環境、建立設定檔，以及設定您自己的雲端式筆記本伺服器、Jupyter 筆記本、Azure Databricks、Ide、程式碼編輯器和資料科學虛擬機器。
 services: machine-learning
 author: rastala
 ms.author: roastala
@@ -11,16 +11,16 @@ ms.reviewer: larryfr
 ms.topic: conceptual
 ms.date: 07/31/2019
 ms.custom: seodec18
-ms.openlocfilehash: 39daff8be5ac072479463dc10c9041cda6b7b628
-ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
+ms.openlocfilehash: 933ae5b70d8e0485360a94ede1fff99c02f75a4c
+ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70860569"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71034879"
 ---
 # <a name="configure-a-development-environment-for-azure-machine-learning"></a>設定 Azure Machine Learning 的開發環境
 
-在本文中，您將了解如何設定開發環境以使用 Azure Machine Learning 服務。 Azure Machine Learning 服務與平臺無關。 您的開發環境唯一的硬性需求是 Python 3。 也建議使用隔離的環境，例如 Anaconda 或 Virtualenv。
+在本文中，您將瞭解如何設定開發環境來與 Azure Machine Learning 搭配使用。 Azure Machine Learning 與平臺無關。 您的開發環境唯一的硬性需求是 Python 3。 也建議使用隔離的環境，例如 Anaconda 或 Virtualenv。
 
 下表顯示本文涵蓋的每個開發環境，以及優缺點。
 
@@ -40,7 +40,7 @@ ms.locfileid: "70860569"
 
 ## <a name="prerequisites"></a>必要條件
 
-Azure Machine Learning 服務工作區。 若要建立工作區, 請參閱[建立 Azure Machine Learning 服務工作區](how-to-manage-workspace.md)。 您只需要工作區，就能開始使用自己的[雲端式筆記本伺服器](#notebookvm)、 [DSVM](#dsvm)或[Azure Databricks](#aml-databricks)。
+Azure Machine Learning 工作區。 若要建立工作區，請參閱[建立 Azure Machine Learning 工作區](how-to-manage-workspace.md)。 您只需要工作區，就能開始使用自己的[雲端式筆記本伺服器](#notebookvm)、 [DSVM](#dsvm)或[Azure Databricks](#aml-databricks)。
 
 若要為您的[本機電腦](#local)安裝 SDK 環境, [Jupyter Notebook server](#jupyter)或[Visual Studio Code](#vscode)您也需要:
 
@@ -70,7 +70,7 @@ Azure Machine Learning 服務工作區。 若要建立工作區, 請參閱[建�
   + 深度學習架構的選取範圍
 
 
-  如果您要進入程式碼, VM 會包含可協助您探索及瞭解如何使用 Azure Machine Learning 服務的教學課程和範例。 範例筆記本會儲存在工作區的 Azure Blob 儲存體帳戶中, 讓它們可在 Vm 之間共用。 執行時, 他們也可以存取您工作區的資料存放區和計算資源。
+  如果您要進入程式碼，VM 會包含可協助您探索及瞭解如何使用 Azure Machine Learning 的教學課程和範例。 範例筆記本會儲存在工作區的 Azure Blob 儲存體帳戶中, 讓它們可在 Vm 之間共用。 執行時, 他們也可以存取您工作區的資料存放區和計算資源。
 
 + **簡單設定**:從您的 Azure Machine Learning 工作區中隨時建立一個。 只提供名稱，並指定 Azure VM 類型。 請在本[教學課程中立即試用：設定環境和工作區](tutorial-1st-experiment-sdk-setup.md)。
 
@@ -145,7 +145,7 @@ Azure Machine Learning SDK 適用於 Ubuntu 或 Windows版本的 DSVM。 但如�
     print(azureml.core.VERSION)
     ```
 
-1. 若要設定 DSVM 使用 Azure Machine Learning 服務工作區，請參閱[建立工作區組態檔](#workspace)一節。
+1. 若要將 DSVM 設定為使用您的 Azure Machine Learning 工作區，請參閱[建立工作區設定檔](#workspace)一節。
 
 如需詳細資訊，請參閱[資料科學虛擬機器](https://azure.microsoft.com/services/virtual-machines/data-science-virtual-machines/)。
 
@@ -255,7 +255,7 @@ Jupyter Notebook 是 [Jupyter 專案](https://jupyter.org/)的一部分。 它�
     sys.path
     ```
     
-1. 若要設定 Jupyter Notebook 使用 Azure Machine Learning 服務工作區，請前往[建立工作區組態檔](#workspace)一節。
+1. 若要設定 Jupyter Notebook 使用您的 Azure Machine Learning 工作區，請移至[建立工作區設定檔](#workspace)一節。
 
 
 ### <a id="vscode"></a>Visual Studio Code
@@ -287,7 +287,7 @@ Visual Studio Code 是跨平台的程式碼編輯器。 它依賴於 Python 支�
 ## <a name="azure-databricks"></a>Azure Databricks
 Azure Databricks 是 Azure 雲端中以 Apache Spark 為基礎的環境。 它提供以 CPU 或 GPU 為基礎的計算叢集的共同作業筆記本型環境。
 
-Azure Databricks 如何與 Azure Machine Learning 服務搭配運作:
+Azure Databricks 如何與 Azure Machine Learning 搭配運作：
 + 您可以使用 Spark MLlib 來定型模型, 並從 Azure Databricks 內將模型部署至 ACI/AKS。
 + 您也可以在具有 Azure Databricks 的特殊 Azure ML SDK 中, 使用[自動化機器學習](concept-automated-ml.md)功能。
 + 您可以使用 Azure Databricks 做為來自[Azure Machine Learning 管線](concept-ml-pipelines.md)的計算目標。
@@ -355,7 +355,7 @@ SDK for Databricks搭配自動化機器![學習服務 sdk, 並在 Databricks 上
 
 ## <a id="workspace"></a>建立工作區組態檔
 
-工作區組態檔是一個 JSON 檔案，可告知 SDK 如何與您的 Azure Machine Learning 服務工作區進行通訊。 檔案名稱為 *config.json*，其格式如下：
+工作區設定檔是一種 JSON 檔案，可告知 SDK 如何與您的 Azure Machine Learning 工作區進行通訊。 檔案名稱為 *config.json*，其格式如下：
 
 ```json
 {

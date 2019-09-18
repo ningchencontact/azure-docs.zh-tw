@@ -1,7 +1,7 @@
 ---
 title: 如何將模型部署至 Azure 容器實例
-titleSuffix: Azure Machine Learning service
-description: 瞭解如何使用 Azure 容器實例, 將您的 Azure Machine Learning 服務模型部署為 web 服務。
+titleSuffix: Azure Machine Learning
+description: 瞭解如何使用 Azure 容器實例，將您的 Azure Machine Learning 模型部署為 web 服務。
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,43 +10,43 @@ ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
 ms.date: 07/08/2019
-ms.openlocfilehash: cb80cb92ef93132aae3c57e74c108293da3a7834
-ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
+ms.openlocfilehash: 27988edaf9d6fe70288352b0ba45945e32976d4d
+ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70279146"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71034639"
 ---
 # <a name="deploy-a-model-to-azure-container-instances"></a>將模型部署到 Azure 容器實例
 
-瞭解如何使用 Azure Machine Learning 服務將模型部署為 Azure 容器實例 (ACI) 上的 web 服務。 如果下列其中一個條件成立, 請使用 Azure 容器實例:
+瞭解如何使用 Azure Machine Learning 將模型部署為 Azure 容器實例（ACI）上的 web 服務。 如果下列其中一個條件成立，請使用 Azure 容器實例：
 
 - 您需要快速部署及驗證模型。 您不需要在一段時間之前建立 ACI 容器。 它們會在部署程式中建立。
 - 您正在測試處於開發狀態的模型。 
 
-如需有關 ACI 配額和區域可用性的詳細資訊, 請參閱[Azure 容器實例的配額和區域可用性](https://docs.microsoft.com/azure/container-instances/container-instances-quotas)一文。
+如需有關 ACI 配額和區域可用性的詳細資訊，請參閱[Azure 容器實例的配額和區域可用性](https://docs.microsoft.com/azure/container-instances/container-instances-quotas)一文。
 
 ## <a name="prerequisites"></a>必要條件
 
-- Azure Machine Learning 服務工作區。 如需詳細資訊, 請參閱[建立 Azure Machine Learning 服務工作區](how-to-manage-workspace.md)。
+- Azure Machine Learning 工作區。 如需詳細資訊，請參閱[建立 Azure Machine Learning 工作區](how-to-manage-workspace.md)。
 
-- 在您的工作區中註冊的機器學習模型。 如果您沒有已註冊的模型, 請參閱[部署模型的方式和位置](how-to-deploy-and-where.md)。
+- 在您的工作區中註冊的機器學習模型。 如果您沒有已註冊的模型，請參閱[部署模型的方式和位置](how-to-deploy-and-where.md)。
 
 - [Machine Learning 服務的 Azure CLI 延伸](reference-azure-machine-learning-cli.md)模組, [Azure Machine Learning Python SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py), 或[Azure Machine Learning Visual Studio Code 延伸](how-to-vscode-tools.md)模組。
 
-- 本文中的__Python__程式碼片段假設已設定下列變數:
+- 本文中的__Python__程式碼片段假設已設定下列變數：
 
     * `ws`-設定為您的工作區。
     * `model`-設定為您已註冊的模型。
     * `inference_config`-設為模型的推斷設定。
 
-    如需有關設定這些變數的詳細資訊, 請參閱[如何和在何處部署模型](how-to-deploy-and-where.md)。
+    如需有關設定這些變數的詳細資訊，請參閱[如何和在何處部署模型](how-to-deploy-and-where.md)。
 
-- 本文中的__CLI__程式碼片段假設您已建立`inferenceconfig.json`檔。 如需有關建立此檔的詳細資訊, 請參閱[如何和部署模型的位置](how-to-deploy-and-where.md)。
+- 本文中的__CLI__程式碼片段假設您已建立`inferenceconfig.json`檔。 如需有關建立此檔的詳細資訊，請參閱[如何和部署模型的位置](how-to-deploy-and-where.md)。
 
 ## <a name="deploy-to-aci"></a>部署到 ACI
 
-若要將模型部署到 Azure 容器實例, 請建立__部署__設定, 以描述所需的計算資源。 例如, 核心和記憶體數目。 您也需要__推斷__設定, 其中描述裝載模型和 web 服務所需的環境。 如需建立推斷設定的詳細資訊, 請參閱[如何和部署模型的位置](how-to-deploy-and-where.md)。
+若要將模型部署到 Azure 容器實例，請建立__部署__設定，以描述所需的計算資源。 例如，核心和記憶體數目。 您也需要__推斷__設定，其中描述裝載模型和 web 服務所需的環境。 如需建立推斷設定的詳細資訊，請參閱[如何和部署模型的位置](how-to-deploy-and-where.md)。
 
 ### <a name="using-the-sdk"></a>使用 SDK
 
@@ -60,7 +60,7 @@ service.wait_for_deployment(show_output = True)
 print(service.state)
 ```
 
-如需此範例中使用之類別、方法和參數的詳細資訊, 請參閱下列參考檔:
+如需此範例中使用之類別、方法和參數的詳細資訊，請參閱下列參考檔：
 
 * [AciWebservice.deploy_configuration](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.aciwebservice?view=azure-ml-py#deploy-configuration-cpu-cores-none--memory-gb-none--tags-none--properties-none--description-none--location-none--auth-enabled-none--ssl-enabled-none--enable-app-insights-none--ssl-cert-pem-file-none--ssl-key-pem-file-none--ssl-cname-none--dns-name-label-none-)
 * [模型。部署](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py#deploy-workspace--name--models--inference-config--deployment-config-none--deployment-target-none-)
@@ -76,7 +76,7 @@ az ml model deploy -m mymodel:1 -n myservice -ic inferenceconfig.json -dc deploy
 
 [!INCLUDE [deploymentconfig](../../../includes/machine-learning-service-aci-deploy-config.md)]
 
-如需詳細資訊, 請參閱[az ml model deploy](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/model?view=azure-cli-latest#ext-azure-cli-ml-az-ml-model-deploy) reference。 
+如需詳細資訊，請參閱[az ml model deploy](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/model?view=azure-cli-latest#ext-azure-cli-ml-az-ml-model-deploy) reference。 
 
 ## <a name="using-vs-code"></a>使用 VS Code
 

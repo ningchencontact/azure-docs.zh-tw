@@ -4,7 +4,7 @@ description: 針對您無法透過遠端桌面連線到 Azure 中 Windows 虛擬
 services: virtual-machines-windows
 documentationcenter: ''
 author: genlin
-manager: gwallace
+manager: dcscontentpm
 editor: ''
 tags: top-support-issue,azure-service-management,azure-resource-manager
 keywords: 無法連線到遠端桌面, 疑難排解遠端桌面, 遠端桌面無法連線, 遠端桌面錯誤, 遠端桌面疑難排解, 遠端桌面問題
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: a0f4c4172661b0f041a30df2d4d63ba58f203e89
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 053a209829f30ea92d76b29f24d028d77ca732e7
+ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70080531"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71058908"
 ---
 # <a name="detailed-troubleshooting-steps-for-remote-desktop-connection-issues-to-windows-vms-in-azure"></a>Azure 中 Windows VM 之遠端桌面連線問題的詳細疑難排解步驟
 本文章提供診斷和修正複雜的以 Windows 為基礎的 Azure 虛擬機器的遠端桌面錯誤的詳細疑難排解步驟。
@@ -63,7 +63,7 @@ ms.locfileid: "70080531"
 * [網路安全性群組](#source-4-network-security-groups)
 * [以 Windows 為基礎的 Azure VM](#source-5-windows-based-azure-vm)
 
-## <a name="source-1-remote-desktop-client-computer"></a>來源 1:遠端桌面用戶端電腦
+## <a name="source-1-remote-desktop-client-computer"></a>來源1：遠端桌面用戶端電腦
 請確認您的電腦能夠建立「遠端桌面」連線，來連接到另一部內部部署且以 Windows 為基礎的電腦。
 
 ![](./media/detailed-troubleshoot-rdp/tshootrdp_1.png)
@@ -77,7 +77,7 @@ ms.locfileid: "70080531"
 
 在所有這些情況下，請暫時停用軟體，然後嘗試透過「遠端連線」連接到內部部署電腦。 如果這樣即可找出造成這個問題的實際原因，請和網路管理員合作，修正軟體設定以允許遠端桌面連線。
 
-## <a name="source-2-organization-intranet-edge-device"></a>來源 2:組織內部網路的邊緣裝置
+## <a name="source-2-organization-intranet-edge-device"></a>來源2：組織內部網路的邊緣裝置
 請確認直接連接到網際網路的電腦能遠端連線到您的 Azure 虛擬機器。
 
 ![](./media/detailed-troubleshoot-rdp/tshootrdp_2.png)
@@ -92,29 +92,29 @@ ms.locfileid: "70080531"
 
 請和網路管理員合作，修正您組織內部網路的邊緣裝置設定，允許以 HTTPS 為基礎的網際網路遠端桌面連線。
 
-## <a name="source-3-cloud-service-endpoint-and-acl"></a>來源 3:雲端服務端點和 ACL
+## <a name="source-3-cloud-service-endpoint-and-acl"></a>來源3：雲端服務端點和 ACL
 對於使用傳統部署模型建立的 VM，請確認另一部位於相同雲端服務或虛擬網路中的 Azure VM 能夠對您的 Azure VM 進行「遠端桌面」連線。
 
 ![](./media/detailed-troubleshoot-rdp/tshootrdp_3.png)
 
 > [!NOTE]
-> 針對在 Resource Manager 中建立的虛擬機器, [請跳至來源 4:網路安全性群組](#source-4-network-security-groups)。
+> 針對在 Resource Manager 中建立的虛擬機器， [請跳至來源4：網路安全性群組](#source-4-network-security-groups)。
 
 如果您沒有另一部虛擬機器位於相同的雲端服務或虛擬網路中，請建立一部。 依照 [在 Azure 中建立執行 Windows 的虛擬機器](../virtual-machines-windows-hero-tutorial.md)中的步驟操作。 測試完成之後，請刪除測試虛擬機器。
 
 如果您可以透過「遠端桌面」連線到位於相同雲端服務或虛擬網路中的虛擬機器，請檢查下列設定：
 
-* 目標 VM 上的遠端桌面流量的端點設定:端點的私用 TCP 埠必須符合 VM 的遠端桌面服務所接聽的 TCP 埠 (預設為 3389)。
-* 目標 VM 上的遠端桌面流量端點的 ACL:Acl 可讓您根據來源 IP 位址, 指定允許或拒絕來自網際網路的連入流量。 設定錯誤的 ACL 會阻止送至端點的連入遠端桌面流量。 檢查您的 ACL，以確保允許來自您的 Proxy 或其他邊緣伺服器的公用 IP 位址之連入流量。 如需詳細資訊，請參閱 [什麼是網路存取控制清單 (ACL)？](../../virtual-network/virtual-networks-acl.md)
+* 目標 VM 上的遠端桌面流量的端點設定：端點的私用 TCP 埠必須符合 VM 的遠端桌面服務所接聽的 TCP 埠（預設為3389）。
+* 目標 VM 上的遠端桌面流量端點的 ACL：Acl 可讓您根據來源 IP 位址，指定允許或拒絕來自網際網路的連入流量。 設定錯誤的 ACL 會阻止送至端點的連入遠端桌面流量。 檢查您的 ACL，以確保允許來自您的 Proxy 或其他邊緣伺服器的公用 IP 位址之連入流量。 如需詳細資訊，請參閱 [什麼是網路存取控制清單 (ACL)？](../../virtual-network/virtual-networks-acl.md)
 
 若要檢查端點是否為問題來源，請移除目前的端點，再選擇外部連接埠號碼介於 49152 到 65535 的隨機連接埠來建立新的端點。 如需詳細資訊，請參閱[如何設定虛擬機器的端點](../windows/classic/setup-endpoints.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)。
 
-## <a name="source-4-network-security-groups"></a>來源 4:網路安全性群組
+## <a name="source-4-network-security-groups"></a>來源4：網路安全性群組
 網路安全性群組能夠更精確地控制受允許的輸入和輸出流量。 您可以在 Azure 虛擬網路中建立跨越子網路和雲端服務的規則。
 
 使用 [IP 流量驗證](../../network-watcher/network-watcher-check-ip-flow-verify-portal.md)來確認網路安全性群組中的規則是否會封鎖虛擬機器的輸入或輸出流量。 您也可以檢閱有效的安全性群組規則，以確保輸入「允許」NSG 規則存在並已針對 RDP 連接埠 (預設值 3389) 設定優先順序。 如需詳細資訊，請參閱[使用有效安全性規則對 VM 流量流程進行疑難排解](../../virtual-network/diagnose-network-traffic-filter-problem.md)。
 
-## <a name="source-5-windows-based-azure-vm"></a>來源 5:以 Windows 為基礎的 Azure VM
+## <a name="source-5-windows-based-azure-vm"></a>來源5：以 Windows 為基礎的 Azure VM
 ![](./media/detailed-troubleshoot-rdp/tshootrdp_5.png)
 
 請依照[本文](../windows/reset-rdp.md)的指示。 這篇文章會重設虛擬機器上的「遠端桌面」服務：

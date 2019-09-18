@@ -10,18 +10,18 @@ ms.topic: conceptual
 ms.date: 08/08/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: ddc42bc9315d50b8b8cdd40264de561d0edf5c7d
-ms.sourcegitcommit: 55e0c33b84f2579b7aad48a420a21141854bc9e3
+ms.openlocfilehash: be347fe33e03b4c2a7ecc1015a407c5a58062326
+ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69622377"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71065139"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-a-linkedin-account-using-azure-active-directory-b2c"></a>使用 Azure Active Directory B2C 設定註冊，並以 LinkedIn 帳戶登入
 
 ## <a name="create-a-linkedin-application"></a>建立 LinkedIn 應用程式
 
-若要在 Azure Active Directory (Azure AD) B2C 中使用 LinkedIn 帳戶做為[識別提供者](active-directory-b2c-reference-oauth-code.md)，您需要在代表該帳戶的租用戶中建立應用程式。 如果您還沒有 LinkedIn 帳戶, 您可以在[https://www.linkedin.com/](https://www.linkedin.com/)註冊。
+若要在 Azure Active Directory B2C （Azure AD B2C）中使用 LinkedIn 帳戶做為[識別提供者](active-directory-b2c-reference-oauth-code.md)，您需要在代表它的租使用者中建立應用程式。 如果您還沒有 LinkedIn 帳戶，您可以在[https://www.linkedin.com/](https://www.linkedin.com/)註冊。
 
 1. 使用您的 LinkedIn 帳戶認證登入 [LinkedIn 開發人員網站](https://www.developer.linkedin.com/)。
 1. 選取 [我的應用程式]，然後按一下 [建立應用程式]。
@@ -33,14 +33,14 @@ ms.locfileid: "69622377"
 ## <a name="configure-a-linkedin-account-as-an-identity-provider"></a>將 LinkedIn 帳戶設為識別提供者
 
 1. 以 Azure AD B2C 租用戶的全域管理員身分登入 [Azure 入口網站](https://portal.azure.com/)。
-1. 請選取頂端功能表中的 [**目錄 + 訂**用帳戶] 篩選, 然後選擇包含您租使用者的目錄, 以確定您使用的是包含 Azure AD B2C 租使用者的目錄。
+1. 請選取頂端功能表中的 [**目錄 + 訂**用帳戶] 篩選，然後選擇包含您租使用者的目錄，以確定您使用的是包含 Azure AD B2C 租使用者的目錄。
 1. 選擇 Azure 入口網站左上角的 [所有服務]，搜尋並選取 [Azure AD B2C]。
-1. 選取 [**識別提供者**], 然後選取 [ **LinkedIn**]。
-1. 輸入 [名稱]。 例如, *LinkedIn*。
-1. 針對 [**用戶端識別碼**], 輸入您稍早建立之 LinkedIn 應用程式的用戶端識別碼。
-1. 針對 [**用戶端密碼**], 輸入您所記錄的用戶端密碼。
-1. 選取 [ **儲存**]。
+1. 選取 [**識別提供者**]，然後選取 [ **LinkedIn**]。
+1. 輸入 [名稱]。 例如， *LinkedIn*。
+1. 針對 [**用戶端識別碼**]，輸入您稍早建立之 LinkedIn 應用程式的用戶端識別碼。
+1. 針對 [**用戶端密碼**]，輸入您所記錄的用戶端密碼。
+1. 選取 [儲存]。
 
 ## <a name="migration-from-v10-to-v20"></a>從 v1.0 遷移至 v2。0
 
-LinkedIn 最近[將其 api 從 v1.0 更新至](https://engineering.linkedin.com/blog/2018/12/developer-program-updates)v2.0。 在進行遷移的過程中, Azure AD B2C 只能在註冊期間取得 LinkedIn 使用者的完整名稱。 如果電子郵件地址是註冊期間所收集的其中一個屬性, 則使用者必須手動輸入電子郵件地址並加以驗證。
+LinkedIn 最近[將其 api 從 v1.0 更新至](https://engineering.linkedin.com/blog/2018/12/developer-program-updates)v2.0。 在進行遷移的過程中，Azure AD B2C 只能在註冊期間取得 LinkedIn 使用者的完整名稱。 如果電子郵件地址是註冊期間所收集的其中一個屬性，則使用者必須手動輸入電子郵件地址並加以驗證。

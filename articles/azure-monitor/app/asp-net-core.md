@@ -12,16 +12,16 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 05/22/2019
 ms.author: mbullwin
-ms.openlocfilehash: 7e0143a25c0bb25b936d072cc2652e8b38a0be66
-ms.sourcegitcommit: af58483a9c574a10edc546f2737939a93af87b73
+ms.openlocfilehash: a48c2fdcce5126747f00cd3b901839864d438346
+ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "68302705"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71058284"
 ---
 # <a name="application-insights-for-aspnet-core-applications"></a>ASP.NET Core 應用程式的 Application Insights
 
-本文說明如何啟用[ASP.NET Core](https://docs.microsoft.com/aspnet/core)應用程式的 Application Insights。 當您完成本文中的指示時, Application Insights 將會從您的 ASP.NET Core 應用程式收集要求、相依性、例外狀況、效能計數器、心跳和記錄。 
+本文說明如何啟用[ASP.NET Core](https://docs.microsoft.com/aspnet/core)應用程式的 Application Insights。 當您完成本文中的指示時, Application Insights 將會從您的 ASP.NET Core 應用程式收集要求、相依性、例外狀況、效能計數器、心跳和記錄。
 
 我們將在此使用的範例是以為目標`netcoreapp2.2`的[MVC 應用程式](https://docs.microsoft.com/aspnet/core/tutorials/first-mvc-app)。 您可以將這些指示套用至所有 ASP.NET Core 應用程式。
 
@@ -35,7 +35,10 @@ ms.locfileid: "68302705"
 * **裝載平臺**:Azure App Service、Azure VM、Docker、Azure Kubernetes Service (AKS) 等的 Web Apps 功能。
 * **IDE**:Visual Studio、VS Code 或命令列。
 
-## <a name="prerequisites"></a>先決條件
+> [!NOTE]
+> 如果您搭配 Application Insights 使用 ASP.NET Core 3.0-preview，請使用[2.8.0-Beta2](https://www.nuget.org/packages/Microsoft.ApplicationInsights.AspNetCore/2.8.0-beta2)版本或更高版本。 這是已知可與 ASP.NET Core 3.0 搭配運作的唯一版本。 此外，ASP.NET Core 3.0 應用程式尚不支援以 Visual Studio 為基礎的上架。
+
+## <a name="prerequisites"></a>必要條件
 
 - 正常運作的 ASP.NET Core 應用程式。 如果您需要建立 ASP.NET Core 應用程式, 請遵循此[ASP.NET Core 教學](https://docs.microsoft.com/aspnet/core/getting-started/)課程。
 - 有效的 Application Insights 檢測金鑰。 必須要有此金鑰, 才能將任何遙測資料傳送至 Application Insights。 如果您需要建立新的 Application Insights 資源來取得檢測金鑰, 請參閱[建立 Application Insights 資源](https://docs.microsoft.com/azure/azure-monitor/app/create-new-resource)。
@@ -45,9 +48,9 @@ ms.locfileid: "68302705"
 1. 在 Visual Studio 中，開啟您的專案。
 
     > [!TIP]
-    > 如果您想要的話, 可以設定專案的原始檔控制, 以便追蹤 Application Insights 進行的所有變更。 若要啟用原始檔控制   > , 請選取 [檔案] [**新增至原始檔控制**]。
+    > 如果您想要的話, 可以設定專案的原始檔控制, 以便追蹤 Application Insights 進行的所有變更。 若要啟用原始檔控制  > , 請選取 [檔案] [**新增至原始檔控制**]。
 
-2. 選取 [專案]   > [新增 Application Insights 遙測]  。
+2. 選取 [專案] > [新增 Application Insights 遙測]。
 
 3. 選取 **[馬上開始]** 。 根據您的 Visual Studio 版本而定, 此選取的文字可能會有所不同。 某些較舊版本則改為使用 [**開始免費**] 按鈕。
 
@@ -125,7 +128,7 @@ ms.locfileid: "68302705"
 
 |要求/相依性 |詳細資料|
 |---------------|-------|
-|Requests | 傳入的 web 要求傳送至您的應用程式。 |
+|要求 | 傳入的 web 要求傳送至您的應用程式。 |
 |HTTP 或 HTTPS | 以進行的`HttpClient`呼叫。 |
 |SQL | 以進行的`SqlClient`呼叫。 |
 |[Azure 儲存體](https://www.nuget.org/packages/WindowsAzure.Storage/) | Azure 儲存體用戶端所提出的呼叫。 |
@@ -137,11 +140,42 @@ ms.locfileid: "68302705"
 
 ASP.NET Core 中的[效能計數器](https://azure.microsoft.com/documentation/articles/app-insights-web-monitor-performance/)支援有限:
 
-   * 如果應用程式是在 Web Apps (Windows) 中執行, SDK 版本2.4.1 和更新版本會收集效能計數器。
-   * SDK 版本 2.7.0-如果應用程式是在 Windows 和目標`NETSTANDARD2.0`或更新版本中執行, Beta3 和更新版本會收集效能計數器。
-   * 針對以 .NET Framework 為目標的應用程式, 所有版本的 SDK 都支援效能計數器。
- 
-當新增 Linux 中的效能計數器支援時, 將會更新本文。
+* 如果應用程式是在 Azure Web Apps （Windows）中執行，SDK 版本2.4.1 和更新版本會收集效能計數器。
+* 如果應用程式是在 Windows 和目標`NETSTANDARD2.0`或更新版本中執行，SDK 版本2.7.1 和更新版本會收集效能計數器。
+* 針對以 .NET Framework 為目標的應用程式, 所有版本的 SDK 都支援效能計數器。
+* SDK 版本 2.8.0-Beta3 和更新版本支援 Linux 中的 cpu/記憶體計數器。 Linux 不支援其他計數器。 在 Linux （和其他非 Windows 環境）中取得系統計數器的建議方式是使用[EventCounters](#eventcounter)
+
+### <a name="eventcounter"></a>EventCounter
+
+[EventCounter](https://github.com/dotnet/corefx/blob/master/src/System.Diagnostics.Tracing/documentation/EventCounterTutorial.md)是一種跨平臺方法，可在 .NET/.net Core 中發佈和使用計數器。 雖然這項功能已存在，但沒有任何內建的提供者會發行這些計數器。 從 .NET Core 3.0 開始，會發行幾個計數器，例如 CLR 計數器、ASP.NET Core 計數器等等。
+
+SDK 版本 2.8.0-Beta3 和更新版本支援 EventCounters 的集合。 根據預設，SDK 會收集下列計數器，而且可以在計量瀏覽器中或使用 PerformanceCounter 資料表下的分析查詢來查詢這些計數器。 計數器的名稱的格式為 "Category |Counter "。
+
+|Category | 計數器|
+|---------------|-------|
+|System.web | cpu 使用量 |
+|System.web | 工作集 |
+|System.web | gc-堆積大小 |
+|System.web | gen-0-gc-計數 |
+|System.web | gen-1-gc-計數 |
+|System.web | gen-2-gc-計數 |
+|System.web | gc 時間 |
+|System.web | gen-0-大小 |
+|System.web | gen-1-大小 |
+|System.web | gen-2-大小 |
+|System.web | loh-大小 |
+|System.web | 配置-速率 |
+|System.web | 元件計數 |
+|System.web | 例外狀況-計數 |
+|System.web | threadpool-執行緒計數 |
+|System.web | 監視-鎖定-爭用計數 |
+|System.web | threadpool-佇列長度 |
+|System.web | threadpool-已完成-個專案-計數 |
+|System.web | 主動-計時器計數 |
+|AspNetCore。裝載 | 每秒要求數 |
+|AspNetCore。裝載 | 總計-要求 |
+|AspNetCore。裝載 | 目前-要求 |
+|AspNetCore。裝載 | 失敗-要求 |
 
 ### <a name="ilogger-logs"></a>ILogger 記錄
 
@@ -197,7 +231,17 @@ ASP.NET Core 中的[效能計數器](https://azure.microsoft.com/documentation/a
     }
 ```
 
-如需詳細資訊, 請參閱[中`ApplicationInsightsServiceOptions`的可設定設定](https://github.com/microsoft/ApplicationInsights-aspnetcore/blob/develop/src/Microsoft.ApplicationInsights.AspNetCore/Extensions/ApplicationInsightsServiceOptions.cs)。
+中的完整設定清單`ApplicationInsightsServiceOptions`
+
+|設定 | 描述 | 預設
+|---------------|-------|-------
+|EnableQuickPulseMetricStream | 啟用/停用 LiveMetrics 功能 | true
+|EnableAdaptiveSampling | 啟用/停用調適型取樣 | true
+|EnableHeartbeat | [啟用/停用心跳] 功能會定期（15分鐘預設）傳送名為 ' HeartBeatState ' 的自訂計量，其中包含執行時間的相關資訊，例如 .NET 版本、Azure 環境資訊（如果適用）等等。 | true
+|AddAutoCollectedMetricExtractor | 啟用/停用 AutoCollectedMetrics 解壓縮程式，這是一種 TelemetryProcessor，會在進行取樣之前，先傳送要求/相依性的預先匯總計量。 | true
+|RequestCollectionOptions.TrackExceptions | 啟用/停用要求收集模組未處理之例外狀況追蹤的報告。 | 在 NETSTANDARD 2.0 中為 false （因為例外狀況是使用 ApplicationInsightsLoggerProvider 來追蹤），否則為 true。
+
+如需最新清單，請參閱[中`ApplicationInsightsServiceOptions`的可設定設定](https://github.com/microsoft/ApplicationInsights-aspnetcore/blob/develop/src/Microsoft.ApplicationInsights.AspNetCore/Extensions/ApplicationInsightsServiceOptions.cs)。
 
 ### <a name="sampling"></a>取樣
 
@@ -220,7 +264,7 @@ ASP.NET Core 中的[效能計數器](https://azure.microsoft.com/documentation/a
 
 ### <a name="removing-telemetryinitializers"></a>移除 TelemetryInitializers
 
-預設會顯示遙測初始化運算式。 若要移除所有或特定的遙測初始化運算式, 請在  呼叫`AddApplicationInsightsTelemetry()`之後使用下列範例程式碼。
+預設會顯示遙測初始化運算式。 若要移除所有或特定的遙測初始化運算式, 請在呼叫`AddApplicationInsightsTelemetry()`之後使用下列範例程式碼。
 
 ```csharp
     public void ConfigureServices(IServiceCollection services)
@@ -259,16 +303,17 @@ ASP.NET Core 中的[效能計數器](https://azure.microsoft.com/documentation/a
 
 ### <a name="configuring-or-removing-default-telemetrymodules"></a>設定或移除預設 TelemetryModules
 
-Application Insights 使用遙測模組自動收集有關特定工作負載的[實用資訊](https://docs.microsoft.com/azure/azure-monitor/app/auto-collect-dependencies), 而不需要額外的設定。
+Application Insights 使用遙測模組自動收集有關特定工作負載的實用遙測，而不需要使用者手動追蹤。
 
 預設會啟用下列自動收集模組。 這些模組負責自動收集遙測。 您可以停用或設定它們來改變其預設行為。
 
-* `RequestTrackingTelemetryModule`
-* `DependencyTrackingTelemetryModule`
-* `PerformanceCollectorModule`
-* `QuickPulseTelemetryModule`
-* `AppServicesHeartbeatTelemetryModule`
-* `AzureInstanceMetadataTelemetryModule`
+* `RequestTrackingTelemetryModule`-從傳入的 web 要求收集 RequestTelemetry。
+* `DependencyTrackingTelemetryModule`-從傳出 HTTP 呼叫和 sql 呼叫收集 DependencyTelemetry。
+* `PerformanceCollectorModule`-收集 Windows PerformanceCounters。
+* `QuickPulseTelemetryModule`-收集遙測以顯示在即時計量入口網站中。
+* `AppServicesHeartbeatTelemetryModule`-收集有關裝載應用程式之 Azure App Service 環境的核心節拍（以自訂計量傳送）。
+* `AzureInstanceMetadataTelemetryModule`-收集關於裝載應用程式之 Azure VM 環境的核心節拍（以自訂計量傳送）。
+* `EventCounterCollectionModule`-收集[EventCounters。](#eventcounter) 此模組是新功能，可在 SDK Version 2.8.0-Beta3 和更高版本中取得。
 
 若要設定任何`TelemetryModule`預設值, 請在`ConfigureTelemetryModule<T>`上`IServiceCollection`使用擴充方法, 如下列範例所示。
 
@@ -286,6 +331,15 @@ using Microsoft.ApplicationInsights.Extensibility.PerfCounterCollector;
                         {
                             module.EnableW3CHeadersInjection = true;
                         });
+
+        // The following removes all default counters from EventCounterCollectionModule, and adds a single one.
+        services.ConfigureTelemetryModule<EventCounterCollectionModule>(
+                            (module, o) =>
+                            {
+                                module.Counters.Clear();
+                                module.Counters.Add(new EventCounterCollectionRequest("System.Runtime", "gen-0-size"));
+                            }
+                        );
 
         // The following removes PerformanceCollectorModule to disable perf-counter collection.
         // Similarly, any other default modules can be removed.
@@ -331,6 +385,8 @@ using Microsoft.ApplicationInsights.Channel;
     }
 ```
 
+請注意，上述動作並不會防止任何自動收集模組收集遙測資料。 只有將遙測傳送至 Application Insights 會使用上述方法來停用。 如果不需要特定的自動收集模組，最好是[移除遙測模組](#configuring-or-removing-default-telemetrymodules)
+
 ## <a name="frequently-asked-questions"></a>常見問題集
 
 ### <a name="how-can-i-track-telemetry-thats-not-automatically-collected"></a>如何追蹤不會自動收集的遙測？
@@ -366,6 +422,8 @@ public class HomeController : Controller
 
 是, 使用此方法啟用 Application Insights 是有效的。 這項技術用於 Visual Studio 上架和 Web Apps 延伸模組中。 不過, 我們建議使用`services.AddApplicationInsightsTelemetry()` , 因為它會提供多載以控制某些設定。 這兩種方法會在內部執行相同的動作, 因此, 如果您不需要套用自訂設定, 則可以呼叫任一種方法。
 
+`IWebHostBuilder``IHostBuilder`在 ASP.NET Core 3.0 中取代為，為了避免混淆，Application Insights 版本 2.8.0-Beta3 開頭會將 .useapplicationinsights （）方法標示為已淘汰，並將在下一個主要版本中移除。
+
 ### <a name="im-deploying-my-aspnet-core-application-to-web-apps-should-i-still-enable-the-application-insights-extension-from-web-apps"></a>我要將 ASP.NET Core 應用程式部署到 Web Apps。 我仍然應該從 Web Apps 啟用 Application Insights 擴充功能嗎？
 
 如果 SDK 是在組建期間安裝, 如本文所示, 您就不需要從 App Service 入口網站啟用[Application Insights 擴充](https://docs.microsoft.com/azure/azure-monitor/app/azure-web-apps)功能。 即使已安裝延伸模組, 當它偵測到 SDK 已新增至應用程式時, 它也會重新開機。 如果您從擴充功能啟用 Application Insights, 就不需要安裝及更新 SDK。 但是, 如果您依照本文中的指示來啟用 Application Insights, 您會有更大的彈性, 原因如下:
@@ -375,6 +433,7 @@ public class HomeController : Controller
        * 所有發行模式, 包括獨立或架構相依。
        * 所有目標 framework, 包括完整的 .NET Framework。
        * 所有裝載選項, 包括 Web Apps、Vm、Linux、容器、Azure Kubernetes Service 和非 Azure 裝載。
+       * 所有 .NET Core 版本，包括預覽版本。
    * 當您從 Visual Studio 進行調試時, 您可以在本機看到遙測。
    * 您可以使用`TrackXXX()` API 來追蹤其他自訂遙測。
    * 您可以完整控制設定。

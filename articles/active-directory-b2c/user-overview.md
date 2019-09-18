@@ -10,37 +10,37 @@ ms.topic: conceptual
 ms.date: 11/30/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 42a38b47f9e49652b5fe80aa5bbd0047dc7d1e74
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 0ef4bca3a2b08271b3623a346df6613b5ad16995
+ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66511954"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71063146"
 ---
 # <a name="overview-of-user-accounts-in-azure-active-directory-b2c"></a>Azure Active Directory B2C 中的使用者帳戶概觀
 
-在 Azure Active Directory (Azure AD) B2C 中，您可以使用不同類型的帳戶。 Azure Active Directory、Azure Active Directory B2B 和 Azure Active Directory B2C 會共用可用的使用者帳戶類型。
+在 Azure Active Directory B2C （Azure AD B2C）中，您可以使用不同類型的帳戶。 Azure Active Directory、Azure Active Directory B2B 和 Azure Active Directory B2C 會共用可用的使用者帳戶類型。
 
 可用的帳戶類型如下：
 
 - **公司帳戶** - 公司帳戶可存取租用戶中的資源，並可在具有系統管理員角色後管理租用戶。
-- **來賓帳戶** - 來賓帳戶只能是 Microsoft 帳戶或 Azure Active Directory 使用者 (後者必須是可用來存取應用程式或管理租用戶的使用者)。 
-- **取用者帳戶** - 取用者帳戶的建立方式為在 Azure AD B2C 應用程式中進行註冊使用者流程，亦可使用 Azure AD 圖形 API 來建立，此帳戶類型可供已向 Azure AD B2C 註冊的應用程式使用者使用。 
+- **來賓帳戶** - 來賓帳戶只能是 Microsoft 帳戶或 Azure Active Directory 使用者 (後者必須是可用來存取應用程式或管理租用戶的使用者)。
+- **取用者帳戶** - 取用者帳戶的建立方式為在 Azure AD B2C 應用程式中進行註冊使用者流程，亦可使用 Azure AD 圖形 API 來建立，此帳戶類型可供已向 Azure AD B2C 註冊的應用程式使用者使用。
 
 ## <a name="work-account"></a>公司帳戶
 
-所有以 Azure AD 為基礎的租用戶，會有相同的公司帳戶建立方式。 若要建立公司帳戶，您可以使用[快速入門：將使用者新增至 Azure Active Directory](../active-directory/fundamentals/add-users-azure-active-directory.md) 中的資訊。 在 Azure 入口網站中使用 [新增使用者]  選項即可建立公司帳戶。
+所有以 Azure AD 為基礎的租用戶，會有相同的公司帳戶建立方式。 若要建立公司帳戶，您可以使用[快速入門：將使用者新增至 Azure Active Directory](../active-directory/fundamentals/add-users-azure-active-directory.md) 中的資訊。 在 Azure 入口網站中使用 [新增使用者] 選項即可建立公司帳戶。
 
 在新增公司帳戶時，您需要考慮下列組態設定：
 
-- **名稱**和**使用者名稱** - **名稱**屬性包含使用者的姓名。 **使用者名稱**是使用者為了登入所輸入的識別碼。 使用者名稱包括完整網域。 使用者名稱的網域名稱部分必須是初始預設網域名稱「your-domain.onmicrosoft.com」  ，或是已驗證的非同盟[自訂網域](../active-directory/fundamentals/add-custom-domain.md)名稱，例如 contoso.com  。
+- **名稱**和**使用者名稱** - **名稱**屬性包含使用者的姓名。 **使用者名稱**是使用者為了登入所輸入的識別碼。 使用者名稱包括完整網域。 使用者名稱的網域名稱部分必須是初始預設網域名稱「your-domain.onmicrosoft.com」，或是已驗證的非同盟[自訂網域](../active-directory/fundamentals/add-custom-domain.md)名稱，例如 contoso.com。
 - **設定檔** - 帳戶會使用使用者資料設定檔來進行設定。 您可以輸入名字、姓氏、職稱和部門名稱。 您可以在建立帳戶之後編輯設定檔。
-- **群組** - 您可以使用群組來執行管理工作，例如將授權或權限一次指派給數個使用者或裝置。 您可以將新的帳戶放到租用戶中的現有[群組](../active-directory/fundamentals/active-directory-groups-create-azure-portal.md)。 
+- **群組** - 您可以使用群組來執行管理工作，例如將授權或權限一次指派給數個使用者或裝置。 您可以將新的帳戶放到租用戶中的現有[群組](../active-directory/fundamentals/active-directory-groups-create-azure-portal.md)。
 - **目錄角色** - 您需要指定使用者帳戶所具有的租用戶資源存取權層級。 可用的權限層級如下：
 
     - **使用者** - 使用者可存取受指派的資源，但無法管理多數租用戶資源。
     - **全域管理員** - 全域管理員可完整控制所有租用戶資源。
-    - **受限的管理員** - 為使用者選取一或多個系統管理角色。 如需可選角色的詳細資訊，請參閱[在 Azure Active Directory 中指派系統管理員角色](../active-directory/users-groups-roles/directory-assign-admin-roles.md)。 
+    - **受限的管理員** - 為使用者選取一或多個系統管理角色。 如需可選角色的詳細資訊，請參閱[在 Azure Active Directory 中指派系統管理員角色](../active-directory/users-groups-roles/directory-assign-admin-roles.md)。
 
 ### <a name="create-a-work-account"></a>建立公司帳戶
 
@@ -58,7 +58,7 @@ ms.locfileid: "66511954"
 
 ### <a name="reset-a-password-for-a-user"></a>重設使用者的密碼
 
-您可以使用下列資訊來重設使用者的密碼： 
+您可以使用下列資訊來重設使用者的密碼：
 
 - [Azure 入口網站](../active-directory/fundamentals/active-directory-users-reset-password-azure-portal.md)
 - [Microsoft Graph](https://docs.microsoft.com/graph/api/user-update?view=graph-rest-1.0)
@@ -67,7 +67,7 @@ ms.locfileid: "66511954"
 
 您可以邀請外部使用者成為租用戶的來賓使用者。 將來賓使用者邀請到 Azure AD B2C 租用戶的典型案例是為了分擔管理責任。 如需使用來賓帳戶的範例，請參閱 [Azure Active Directory B2B 共同作業使用者的屬性](../active-directory/b2b/user-properties.md)。
 
-將來賓使用者邀請到租用戶時，您必須提供收件者的電子郵件地址和描述邀請詳情的訊息。 邀請連結會將使用者帶往同意頁面，該頁面已選取 [開始使用]  按鈕，並已接受權限檢閱。 如果收件匣並未連結至電子郵件地址，使用者可以使用受邀認證移至 Microsoft 頁面以瀏覽至同意頁面。 接著，系統會強制使用者兌換邀請，方式和在電子郵件中按一下連結時相同。 例如： `https://myapps.microsoft.com/B2CTENANTNAME` 。
+將來賓使用者邀請到租用戶時，您必須提供收件者的電子郵件地址和描述邀請詳情的訊息。 邀請連結會將使用者帶往同意頁面，該頁面已選取 [開始使用] 按鈕，並已接受權限檢閱。 如果收件匣並未連結至電子郵件地址，使用者可以使用受邀認證移至 Microsoft 頁面以瀏覽至同意頁面。 接著，系統會強制使用者兌換邀請，方式和在電子郵件中按一下連結時相同。 例如： `https://myapps.microsoft.com/B2CTENANTNAME` 。
 
 您也可以使用 [Microsoft Graph API](https://docs.microsoft.com/graph/api/invitation-post?view=graph-rest-beta) 邀請來賓使用者。
 

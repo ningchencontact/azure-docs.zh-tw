@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 08/08/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 55e4b04814daaaff5bc217a561e9045d313d9675
-ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
+ms.openlocfilehash: c17b344764fd9c1d18f787952a6193f0c8b634d0
+ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70811417"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71065008"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-a-qq-account-using-azure-active-directory-b2c"></a>使用 Azure Active Directory B2C 設定註冊，並以 QQ 帳戶登入
 
@@ -23,7 +23,7 @@ ms.locfileid: "70811417"
 
 ## <a name="create-a-qq-application"></a>建立 QQ 應用程式
 
-若要在 Azure Active Directory (Azure AD) B2C 中使用 QQ 帳戶做為識別提供者，您需要在代表該帳戶的租用戶中建立應用程式。 如果您還沒有 QQ 帳戶，可以在[https://ssl.zc.qq.com/en/index.html?type=1&ptlang=1033](https://ssl.zc.qq.com/en/index.html?type=1&ptlang=1033)註冊。
+若要在 Azure Active Directory B2C （Azure AD B2C）中使用 QQ 帳戶做為識別提供者，您需要在代表它的租使用者中建立應用程式。 如果您還沒有 QQ 帳戶，可以在[https://ssl.zc.qq.com/en/index.html?type=1&ptlang=1033](https://ssl.zc.qq.com/en/index.html?type=1&ptlang=1033)註冊。
 
 ### <a name="register-for-the-qq-developer-program"></a>註冊 QQ 開發人員計劃
 
@@ -54,4 +54,4 @@ ms.locfileid: "70811417"
 1. 輸入 [名稱]。 例如， *QQ*。
 1. 針對 [**用戶端識別碼**]，輸入您稍早建立之 QQ 應用程式的 [應用程式識別碼]。
 1. 針對 [**用戶端密碼**]，輸入您所記錄的應用程式金鑰。
-1. 選取 [ **儲存**]。
+1. 選取 [儲存]。

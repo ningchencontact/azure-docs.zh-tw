@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/14/2017
 ms.author: ashishth
-ms.openlocfilehash: 4bec14cd3aa88d885f83142143c7a901ca82057b
-ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
+ms.openlocfilehash: dde4b4efc62ec444cbbd662a70e7507a1b8f70e7
+ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70918220"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71066989"
 ---
 # <a name="deep-dive---advanced-analytics"></a>深入探討 - 進階分析
 
@@ -23,17 +23,17 @@ HDInsight 提供可從大量結構化、非結構化及快速移動之資料取�
 
 ## <a name="advanced-analytics-process"></a>進階分析程序
 
-![流程圖](./media/apache-hadoop-deep-dive-advanced-analytics/hdinsight-analytic-process.png)
+![Advanced analytics 程式流程](./media/apache-hadoop-deep-dive-advanced-analytics/hdinsight-analytic-process.png)
 
-在您已識別出業務問題並已開始收集和處理資料之後，就必須建立代表所要預測之問題的模型。 您的模型將會使用一或多個機器學習服務演算法，來進行最符合您業務需求的預測類型。  您的大部分資料應該用來將模型定型，其餘部分則用來測試或評估該模型。 
+在您已識別出業務問題並已開始收集和處理資料之後，就必須建立代表所要預測之問題的模型。 您的模型將會使用一或多個機器學習服務演算法，來進行最符合您業務需求的預測類型。  您的大部分資料應該用來將模型定型，其餘部分則用來測試或評估該模型。
 
-在建立、載入、測試及評估您的模型之後，下一步就是部署該模型，讓它開始為您的問題提供解答。 最後一步是監視您模型的效能，並視需要進行微調。 
+在建立、載入、測試及評估您的模型之後，下一步就是部署該模型，讓它開始為您的問題提供解答。 最後一步是監視您模型的效能，並視需要進行微調。
 
 ## <a name="common-types-of-algorithms"></a>常見的演算法類型
 
 進階分析解決方案提供一組機器學習服務演算法。 以下是演算法類別和相關常見業務使用案例的摘要。
 
-![機器學習服務使用案例](./media/apache-hadoop-deep-dive-advanced-analytics/machine-learning-use-cases.png)
+![Machine Learning 類別摘要](./media/apache-hadoop-deep-dive-advanced-analytics/machine-learning-use-cases.png)
 
 除了選取最適合的演算法之外，您還必須考量是否需要提供定型用的資料。 機器學習服務演算法歸類如下：
 
@@ -43,7 +43,7 @@ HDInsight 提供可從大量結構化、非結構化及快速移動之資料取�
 * 增強式 - 演算法使用軟體代理程式來判斷特定內容內的理想行為 (通常用於 Robotics)
 
 
-| 演算法類別| 使用情況 | 學習類型 | 演算法 |
+| 演算法類別| 使用 | 學習類型 | 演算法 |
 | --- | --- | --- | -- |
 | 分類 | 將人員或事項分類成群組 | 監督式 | 決策樹、羅吉斯迴歸、類神經網路 |
 | 叢集 | 將一組範例分割成同質群組 | 未監督式 | K-Means 叢集模型 |
@@ -98,7 +98,7 @@ ML 服務為 HDInsight 的一部分，您可以使用現成可與大量資料集
 
 此範例會使用 Alex Krizhevsky、Vinod Nair 及 Geoffrey Hinton 所編譯並散發的 CIFAR-10 影像集。 CIFAR-10 資料集包含 60,000 個分屬 10 個互斥類別的 32×32 彩色影像：
 
-![映像](./media/apache-hadoop-deep-dive-advanced-analytics/machine-learning-images.png)
+![Machine Learning 範例影像](./media/apache-hadoop-deep-dive-advanced-analytics/machine-learning-images.png)
 
 如需有關此資料集的詳細資料，請參閱 Alex Krizhevsky 的[從小影像學習多層特徵](https://www.cs.toronto.edu/~kriz/learning-features-2009-TR.pdf) \(英文\)。
 
@@ -111,7 +111,7 @@ ML 服務為 HDInsight 的一部分，您可以使用現成可與大量資料集
 
 在一個含有 4 個背景工作節點的叢集上，10,000 個影像的整個前處理/評分工作花費不到 1 分鐘即可完成。 此模型可準確預測大約 9,100 (91%) 個影像的標籤。 混淆矩陣可說明最常見的分類錯誤。 例如，以下矩陣顯示與其他標籤組相比，將狗錯誤標示成貓 (以及將貓錯誤標示成狗) 的發生頻率較高。
 
-![結果](./media/apache-hadoop-deep-dive-advanced-analytics/machine-learning-results.png)
+![Machine Learning 結果圖表](./media/apache-hadoop-deep-dive-advanced-analytics/machine-learning-results.png)
 
 ### <a name="try-it-out"></a>立即試用！
 

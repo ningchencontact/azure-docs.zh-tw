@@ -10,18 +10,18 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 3c728660f1a77c02f1e4b5fdeb467a7dbba4e36a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 4fec742766cebeb5b1d82655e09af77a888c375c
+ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66512651"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71063682"
 ---
 # <a name="define-a-self-asserted-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>在 Azure Active Directory B2C 自訂原則中定義自我判斷技術設定檔
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-Azure Active Directory (Azure AD) B2C 中預期使用者要在其中提供輸入的所有互動均為自我判斷技術設定檔。 例如，註冊頁面、登入頁面或密碼重設頁面。
+使用者預期會提供輸入的 Azure Active Directory B2C （Azure AD B2C）中的所有互動都是自我判斷技術設定檔。 例如，註冊頁面、登入頁面或密碼重設頁面。
 
 ## <a name="protocol"></a>Protocol
 
@@ -34,7 +34,7 @@ Azure Active Directory (Azure AD) B2C 中預期使用者要在其中提供輸入
   <DisplayName>Email signup</DisplayName>
   <Protocol Name="Proprietary" Handler="Web.TPEngine.Providers.SelfAssertedAttributeProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
 ```
- 
+
 ## <a name="input-claims"></a>輸入宣告
 
 在自我判斷技術設定檔中，您可以使用 **InputClaims** 與 **InputClaimsTransformations** 元素，預先填入要出現在自我判斷頁面上的宣告值 (輸出宣告)。 例如，在編輯設定檔原則中，使用者旅程圖會先從 Azure AD B2C 目錄服務中讀取使用者設定檔，接著，自我判斷技術設定檔會使用儲存於使用者設定檔的使用者資料來設定輸入宣告。 這些宣告均收集自使用者設定檔，然後呈現給使用者，讓使用者接著可以編輯現有的資料。
@@ -55,7 +55,7 @@ Azure Active Directory (Azure AD) B2C 中預期使用者要在其中提供輸入
 
 **OutputClaims** 元素包含一份要顯示來向使用者收集資料的宣告清單。 若要使用一些值預先填入輸出宣告，請使用先前所述的輸入宣告。 元素可能也包含預設值。 **OutputClaims** 中宣告的順序會控制 Azure AD B2C 在螢幕上呈現宣告的順序。 **DefaultValue** 屬性只有在先前未曾設定宣告時才會生效。 但是，如果之前已在先前的協調流程步驟中設定它，即使使用者將該值保留為空白，預設值還是不會生效。 若要強制使用預設值，請將 **AlwaysUseDefaultValue** 屬性設定為 `true`。 若要強制使用者提供特定輸出宣告的值，請將 **OutputClaims** 元素的 **Required** 屬性設定為 `true`。
 
-**OutputClaims** 集合中的 **ClaimType** 元素必須將 **UserInputType** 元素設定為 Azure AD B2C 所支援的任何使用者輸入類型，例如 `TextBox` 或 `DropdownSingleSelect`。 或者，**OutputClaim** 元素必須設定 **DefaultValue**。  
+**OutputClaims** 集合中的 **ClaimType** 元素必須將 **UserInputType** 元素設定為 Azure AD B2C 所支援的任何使用者輸入類型，例如 `TextBox` 或 `DropdownSingleSelect`。 或者，**OutputClaim** 元素必須設定 **DefaultValue**。
 
 **OutputClaimsTransformations** 元素可能包含 **OutputClaimsTransformation** 的集合，以用來修改輸出宣告或產生新的輸出宣告。
 
@@ -119,7 +119,7 @@ Azure Active Directory (Azure AD) B2C 中預期使用者要在其中提供輸入
 
 ## <a name="validation-technical-profiles"></a>驗證技術設定檔
 
-驗證技術設定檔可用於驗證參考技術設定檔的部分或所有輸出宣告。 驗證技術設定檔的輸入宣告必須出現在自我判斷技術設定檔的輸出宣告中。 驗證技術設定檔會驗證使用者輸入，並且可將錯誤傳回給使用者。 
+驗證技術設定檔可用於驗證參考技術設定檔的部分或所有輸出宣告。 驗證技術設定檔的輸入宣告必須出現在自我判斷技術設定檔的輸出宣告中。 驗證技術設定檔會驗證使用者輸入，並且可將錯誤傳回給使用者。
 
 驗證技術設定檔可以是原則中的任何技術設定檔，例如 [Azure Active Directory](active-directory-technical-profile.md) 或 [REST API](restful-technical-profile.md) 技術設定檔。 在上述範例中，`LocalAccountSignUpWithLogonEmail` 技術設定檔會驗證 signinName 不存在目錄中。 如果沒有，驗證技術設定檔就會建立本機帳戶，並傳回 objectId、authenticationSource、newUser。 `SelfAsserted-LocalAccountSignin-Email` 技術設定檔會呼叫 `login-NonInteractive` 驗證技術設定檔來驗證使用者認證。
 
@@ -133,7 +133,7 @@ Azure Active Directory (Azure AD) B2C 中預期使用者要在其中提供輸入
 | setting.showCancelButton | 否 | 顯示取消按鈕。 可能的值：`true` (預設) 或 `false` |
 | setting.operatingMode | 否 | 對於登入頁面，此屬性會控制使用者名稱欄位的行為，例如輸入驗證和錯誤訊息。 預期的值：`Username` 或 `Email`。 |
 | ContentDefinitionReferenceId | 是 | 與此技術設定檔相關聯的[內容定義](contentdefinitions.md)識別碼。 |
-| EnforceEmailVerification | 否 | 針對註冊或設定檔編輯，強制執行電子郵件驗證。 可能的值：`true` (預設) 或 `false`。 | 
+| EnforceEmailVerification | 否 | 針對註冊或設定檔編輯，強制執行電子郵件驗證。 可能的值：`true` (預設) 或 `false`。 |
 | setting.showSignupLink | 否 | 顯示註冊按鈕。 可能的值：`true` (預設) 或 `false` |
 | setting.retryLimit | 否 | 控制使用者可嘗試提供資料以針對驗證技術設定檔進行檢查的次數。 例如，使用者嘗試使用已經存在的帳戶進行註冊，並持續嘗試，直到達到限制為止。
 | SignUpTarget | 否 | 註冊目標交換識別碼。 當使用者按一下註冊按鈕時，Azure AD B2C 就會執行指定的交換識別碼。 |

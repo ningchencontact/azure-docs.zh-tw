@@ -10,24 +10,24 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 0a08849340d19055a03f85ca401757a81cd2c95d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: da4fc4704ee72210e180ef95fe6a821c8d116fa2
+ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66511748"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71064567"
 ---
 # <a name="boolean-claims-transformations"></a>布林值宣告轉換
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-此文章提供在 Azure Active Directory (Azure AD) B2C 中，使用識別體驗架構結構描述布林值宣告轉換的範例。 如需詳細資訊，請參閱 [ClaimsTransformations](claimstransformations.md)。
+本文提供範例，說明如何在 Azure Active Directory B2C （Azure AD B2C）中使用 Identity Experience Framework 架構的布林值宣告轉換。 如需詳細資訊，請參閱 [ClaimsTransformations](claimstransformations.md)。
 
 ## <a name="andclaims"></a>AndClaims
 
 執行兩個布林值 inputClaim 的 And 運算，並使用運算的結果來設定 outputClaim。
 
-| Item  | TransformationClaimType  | 資料類型  | 注意 |
+| 項目  | TransformationClaimType  | 資料類型  | 注意 |
 |-------| ------------------------ | ---------- | ----- |
 | InputClaim | inputClaim1 | boolean | 要評估的第一個 ClaimType。 |
 | InputClaim | inputClaim2  | boolean | 要評估的第二個 ClaimType。 |
@@ -40,7 +40,7 @@ ms.locfileid: "66511748"
   <InputClaims>
     <InputClaim ClaimTypeReferenceId="isEmailNotExist" TransformationClaimType="inputClaim1" />
     <InputClaim ClaimTypeReferenceId="isSocialAccount" TransformationClaimType="inputClaim2" />
-  </InputClaims>                    
+  </InputClaims>
   <OutputClaims>
     <OutputClaim ClaimTypeReferenceId="presentEmailSelfAsserted" TransformationClaimType="outputClaim" />
   </OutputClaims>
@@ -60,7 +60,7 @@ ms.locfileid: "66511748"
 
 檢查兩個宣告的布林值相等，如果不相等，則會擲回例外狀況。
 
-| Item | TransformationClaimType  | 資料類型  | 注意 |
+| 項目 | TransformationClaimType  | 資料類型  | 注意 |
 | ---- | ------------------------ | ---------- | ----- |
 | inputClaim | inputClaim | boolean | 要進行判斷的 ClaimType。 |
 | InputParameter |valueToCompareTo | boolean | 要比較的值 (True 或 False)。 |
@@ -117,7 +117,7 @@ ms.locfileid: "66511748"
 
 執行布林值 inputClaim 的 Not 運算，並使用運算的結果來設定 outputClaim。
 
-| Item | TransformationClaimType | 資料類型 | 注意 |
+| 項目 | TransformationClaimType | 資料類型 | 注意 |
 | ---- | ----------------------- | --------- | ----- |
 | InputClaim | inputClaim | boolean | 要運算的宣告。 |
 | OutputClaim | outputClaim | boolean | 叫用此 ClaimsTransformation 之後所產生的 ClaimType (True 或 False)。 |
@@ -141,11 +141,11 @@ ms.locfileid: "66511748"
 - 輸出宣告：
     - **outputClaim**：true
 
-## <a name="orclaims"></a>OrClaims 
+## <a name="orclaims"></a>OrClaims
 
 執行兩個布林值 inputClaim 的 Or 運算，並使用運算的結果來設定 outputClaim。
 
-| Item | TransformationClaimType | 資料類型 | 注意 |
+| 項目 | TransformationClaimType | 資料類型 | 注意 |
 | ---- | ----------------------- | --------- | ----- |
 | InputClaim | inputClaim1 | boolean | 要評估的第一個 ClaimType。 |
 | InputClaim | inputClaim2 | boolean | 要評估的第二個 ClaimType。 |
@@ -158,7 +158,7 @@ ms.locfileid: "66511748"
   <InputClaims>
     <InputClaim ClaimTypeReferenceId="isLastTOSAcceptedNotExists" TransformationClaimType="inputClaim1" />
     <InputClaim ClaimTypeReferenceId="isLastTOSAcceptedGreaterThanNow" TransformationClaimType="inputClaim2" />
-  </InputClaims>                    
+  </InputClaims>
   <OutputClaims>
     <OutputClaim ClaimTypeReferenceId="presentTOSSelfAsserted" TransformationClaimType="outputClaim" />
   </OutputClaims>

@@ -1,6 +1,6 @@
 ---
-title: 精靈應用程式呼叫 web Api （移至生產環境）-Microsoft 身分識別平台
-description: 了解如何建置精靈應用程式呼叫 web Api （移至生產環境）
+title: 呼叫 web Api 的 Daemon 應用程式（移至生產環境）-Microsoft 身分識別平臺
+description: 瞭解如何建立可呼叫 web Api （移至生產環境）的 daemon 應用程式
 services: active-directory
 documentationcenter: dev-center-name
 author: jmprieur
@@ -12,59 +12,62 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 05/07/2019
+ms.date: 09/15/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 627dab0cb23800664c5fb5b3df9c61f5071d4b87
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c509e061c43c81f72682fb428529a8e72b34066a
+ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65545395"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71056314"
 ---
-# <a name="daemon-app-that-calls-web-apis---move-to-production"></a>精靈應用程式呼叫 web Api-移至生產環境
+# <a name="daemon-app-that-calls-web-apis---move-to-production"></a>呼叫 web Api 的 Daemon 應用程式-移至生產環境
 
-既然您已經知道如何取得及使用的權杖進行服務對服務呼叫，了解如何將應用程式移至生產環境。
+現在您已瞭解如何取得並使用權杖來進行服務對服務呼叫，請瞭解如何將您的應用程式移至生產環境。
 
-## <a name="deployment---case-of-multi-tenant-daemon-apps"></a>部署-的多租用戶的精靈應用程式的案例
+## <a name="deployment---case-of-multi-tenant-daemon-apps"></a>部署-多租使用者 daemon 應用程式的案例
 
-如果您是建立可在多個租用戶中執行的精靈應用程式的 ISV，您必須確定租用戶系統管理員：
+如果您是 ISV，而建立可在數個租使用者中執行的 daemon 應用程式，您將需要確定租使用者系統管理員：
 
-- 佈建應用程式的服務主體
-- 授與同意此應用程式
+- 布建應用程式的服務主體
+- 將同意授與應用程式
 
-您必須為您的客戶，說明如何執行這些作業。 如需詳細資訊，請參閱 <<c0> [ 要求對整個租用戶的同意](v2-permissions-and-consent.md#requesting-consent-for-an-entire-tenant)。
+您必須向客戶說明如何執行這些作業。 如需詳細資訊，請參閱[要求對整個租使用者的同意](v2-permissions-and-consent.md#requesting-consent-for-an-entire-tenant)。
 
 [!INCLUDE [Move to production common steps](../../../includes/active-directory-develop-scenarios-production.md)]
 
 ## <a name="next-steps"></a>後續步驟
 
-以下是幾個連結，以了解更多：
+以下是一些深入瞭解的連結：
 
-### <a name="net"></a>.NET
+# <a name="nettabdotnet"></a>[.NET](#tab/dotnet)
 
-- 如果您尚未這麼做，請嘗試本快速入門[取得權杖，然後從使用應用程式的身分識別的主控台應用程式呼叫 Microsoft Graph API](./quickstart-v2-netcore-daemon.md)。
-- 參考文件：
+- 如果您尚未這麼做，請嘗試快速入門[取得權杖，並使用應用程式的身分識別從主控台應用程式呼叫 MICROSOFT GRAPH API](./quickstart-v2-netcore-daemon.md)。
+- 的參考檔：
   - 具現化[ConfidentialClientApplication](https://docs.microsoft.com/dotnet/api/microsoft.identity.client.confidentialclientapplicationbuilder)
   - 呼叫[AcquireTokenForClient](https://docs.microsoft.com/dotnet/api/microsoft.identity.client.acquiretokenforclientparameterbuilder)
-- 其他樣本/教學課程：
-  - [microsoft 身分識別-平台-主控台-精靈](https://github.com/Azure-Samples/microsoft-identity-platform-console-daemon)功能的簡單.NET Core 精靈主控台應用程式會顯示查詢 Microsoft Graph 的租用戶的使用者。
+- 其他範例/教學課程：
+  - [microsoft-身分識別平臺-主控台-daemon](https://github.com/Azure-Samples/microsoft-identity-platform-console-daemon)功能是簡單的 .net Core daemon 主控台應用程式，可顯示查詢 Microsoft Graph 的租使用者使用者。
 
     ![拓撲](media/scenario-daemon-app/daemon-app-sample.svg)
 
-    相同的範例也會說明使用憑證的變化。
+    相同的範例也會說明憑證的變化。
 
     ![拓撲](media/scenario-daemon-app/daemon-app-sample-with-certificate.svg)
 
-  - [microsoft-identity-platform-aspnet-webapp-daemon](https://github.com/Azure-Samples/microsoft-identity-platform-aspnet-webapp-daemon)功能同步處理資料，從 Microsoft Graph 使用的身分識別，而不是代表使用者的應用程式的 ASP.NET MVC web 應用程式。 此範例也會說明系統管理員同意程序。
+  - [webapp](https://github.com/Azure-Samples/microsoft-identity-platform-aspnet-webapp-daemon)是 ASP.NET 的 MVC web 應用程式，它會使用應用程式的身分識別，而不是代表使用者，從 Microsoft Graph 同步處理資料。 此範例也會說明系統管理員同意流程。
 
     ![拓撲](media/scenario-daemon-app/damon-app-sample-web.svg)
 
-### <a name="python"></a>Python
+# <a name="pythontabpython"></a>[Python](#tab/python)
 
-MSAL Python 目前處於公開預覽狀態。 如需詳細資訊，請參閱 < [MSAL Python 用戶端認證在儲存機制範例](https://github.com/AzureAD/azure-activedirectory-library-for-python/blob/dev/sample/client_credentials_sample.py)。
+MSAL Python 目前為公開預覽狀態。
+如需詳細資訊，請參閱[MSAL Python 的存放庫範例](https://github.com/AzureAD/microsoft-authentication-library-for-python/blob/dev/sample)。
 
-### <a name="java"></a>Java
+# <a name="javatabjava"></a>[Java](#tab/java)
 
-MSAL Python 目前處於公開預覽狀態。 如需詳細資訊，請參閱 < [MSAL Java-儲存機制範例](https://github.com/AzureAD/azure-activedirectory-library-for-java/tree/dev/src/samples)。
+msal4j （MSAL。JAVA）目前為公開預覽狀態。 如需詳細資訊，請參閱[MSAL JAVA 的存放庫範例](https://github.com/AzureAD/microsoft-authentication-library-for-java/tree/dev/src/samples)。
+
+---

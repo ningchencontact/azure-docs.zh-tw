@@ -4,7 +4,7 @@ description: 了解如何在 Azure 中建立具有多個子網路的虛擬網路
 services: virtual-network
 documentationcenter: ''
 author: genlin
-manager: cshepard
+manager: dcscontentpm
 editor: ''
 tags: azure-service-management
 ms.assetid: ''
@@ -16,17 +16,17 @@ ms.workload: infrastructure-services
 ms.date: 10/31/2018
 ms.author: genli
 ms.custom: ''
-ms.openlocfilehash: e40648ef47b108050486d43eefdb1564786c053e
-ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
+ms.openlocfilehash: d934386a47c339cd3abdf72578736b44d40e7952
+ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67202881"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71058999"
 ---
 # <a name="create-a-virtual-network-classic-with-multiple-subnets"></a>建立有多個子網路的虛擬網路 (傳統)
 
 > [!IMPORTANT]
-> Azure 有兩種[不同部署模型](../azure-resource-manager/resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-network%2ftoc.json)來建立和使用資源：Resource Manager 和傳統。 本文涵蓋之內容包括使用傳統部署模型。 Microsoft 建議透過 [Resource Manager](quick-create-portal.md) 部署模型建立最新的虛擬網路。
+> Azure 有兩種[不同的部署模型](../azure-resource-manager/resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-network%2ftoc.json)可用於建立及使用資源：Resource Manager 和傳統。 本文涵蓋之內容包括使用傳統部署模型。 Microsoft 建議透過 [Resource Manager](quick-create-portal.md) 部署模型建立最新的虛擬網路。
 
 本教學課程可供了解如何建立具有不同公用和私人子網路的基本 Azure 虛擬網路 (傳統)。 您可以在子網路中建立 Azure 資源，像是虛擬網路、雲端服務。 在虛擬網路 (傳統) 中建立的資源可以互相通訊，也可以和連線到虛擬網路之其他網路中的資源通訊。
 
@@ -40,35 +40,35 @@ ms.locfileid: "67202881"
 ## <a name="portal"></a>入口網站
 
 1. 在網際網路瀏覽器中，移至 [Azure 入口網站](https://portal.azure.com)。 使用您的 [Azure 帳戶](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#account)登入。 如果您沒有 Azure 帳戶，您可以註冊[免費試用](https://azure.microsoft.com/offers/ms-azr-0044p)。
-2. 在 Azure 入口網站中按一下 [建立資源]  。
-3. 在出現的 [新增]  窗格頂端的 [搜尋市集]  方塊中，輸入 [虛擬網路]  。 當搜尋結果中出現虛擬網路時，按一下 [虛擬網路]  。
-4. 在出現的 [虛擬網路]  窗格中，於 [選取部署模型]  方塊中選取 [傳統]  ，然後按一下 [建立]  。 
-5. 在 [建立虛擬網路 (傳統)]  窗格中輸入下列值，然後按一下 [建立]  ：
+2. 在 Azure 入口網站中按一下 [建立資源]。
+3. 在出現的 [新增] 窗格頂端的 [搜尋市集] 方塊中，輸入 [虛擬網路]。 當搜尋結果中出現虛擬網路時，按一下 [虛擬網路]。
+4. 在出現的 [虛擬網路] 窗格中，於 [選取部署模型] 方塊中選取 [傳統]，然後按一下 [建立]。 
+5. 在 [建立虛擬網路 (傳統)] 窗格中輸入下列值，然後按一下 [建立]：
 
     |設定|值|
     |---|---|
-    |名稱|myVnet|
+    |Name|myVnet|
     |位址空間|10.0.0.0/16|
-    |子網路名稱|公開|
+    |子網路名稱|公用|
     |子網路位址範圍|10.0.0.0/24|
-    |資源群組|讓 [新建]  保持選取狀態，然後輸入 **myResourceGroup**。|
+    |資源群組|讓 [新建] 保持選取狀態，然後輸入 **myResourceGroup**。|
     |訂用帳戶和位置|選取您的訂用帳戶和位置。
 
-    如果您不熟悉 Azure，請深入了解[資源群組](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#resource-group)、[訂用帳戶](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#subscription)和[位置](https://azure.microsoft.com/regions) (也稱為「區域」  )。
-4. 當您在入口網站中建立虛擬網路時，您只能建立一個子網路。 在本教學課程中，您會在建立虛擬網路後建立第二個子網路。 稍後您可能會在**公用**子網路中建立可從網際網路存取的資源。 您也可能會在**私人**子網路中建立無法從網際網路存取的資源。 若要建立第二個子網路，在入口網站頂端的 [搜尋資源]  方塊中輸入 **myVnet**。 當 myVnet 出現在搜尋結果中時，按一下 [myVnet]  。
-5. 在出現的 [建立虛擬網路 (傳統)]  窗格中，按一下 [設定]  區段中的 [子網路]  。
-6. 在出現的 [myVnet - 子網路]  窗格中，按一下 [+ 新增]  。
-7. 在 [新增子網路]  窗格中的 [名稱]  輸入**私人**。 在 [位址範圍]  輸入 **10.0.1.0/24**。  按一下 [確定]  。
-8. 您就會在 [myVnet - 子網路]  窗格中看到您建立的 [公用]  和 [私人]  子網路。
-9. **選用**：當您完成本教學課程中時，您可能想要刪除您所建立的資源，以便您產生使用費：
-    - 按一下 [myVnet]  窗格上的 [概觀]  。
-    - 按一下 [myVnet]  窗格上的 [刪除]  圖示。
-    - 若要確認刪除，請在 [刪除虛擬網路]  方塊中，按一下 [是]  。
+    如果您不熟悉 Azure，請深入了解[資源群組](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#resource-group)、[訂用帳戶](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#subscription)和[位置](https://azure.microsoft.com/regions) (也稱為「區域」)。
+4. 當您在入口網站中建立虛擬網路時，您只能建立一個子網路。 在本教學課程中，您會在建立虛擬網路後建立第二個子網路。 稍後您可能會在**公用**子網路中建立可從網際網路存取的資源。 您也可能會在**私人**子網路中建立無法從網際網路存取的資源。 若要建立第二個子網路，在入口網站頂端的 [搜尋資源] 方塊中輸入 **myVnet**。 當 myVnet 出現在搜尋結果中時，按一下 [myVnet]。
+5. 在出現的 [建立虛擬網路 (傳統)] 窗格中，按一下 [設定] 區段中的 [子網路]。
+6. 在出現的 [myVnet - 子網路] 窗格中，按一下 [+ 新增]。
+7. 在 [新增子網路] 窗格中的 [名稱] 輸入**私人**。 在 [位址範圍] 輸入 **10.0.1.0/24**。  按一下 [確定]。
+8. 您就會在 [myVnet - 子網路] 窗格中看到您建立的 [公用] 和 [私人] 子網路。
+9. **選擇性**：當您完成本教學課程時，您可能會想要刪除您所建立的資源，這樣就不會產生使用費用：
+    - 按一下 [myVnet] 窗格上的 [概觀]。
+    - 按一下 [myVnet] 窗格上的 [刪除] 圖示。
+    - 若要確認刪除，請在 [刪除虛擬網路] 方塊中，按一下 [是]。
 
 ## <a name="azure-cli"></a>Azure CLI
 
 1. 您可以[安裝及設定 Azure CLI](../cli-install-nodejs.md?toc=%2fazure%2fvirtual-network%2ftoc.json)，或在 Azure 雲端命令列介面中使用 CLI。 Azure Cloud Shell 是免費的 Bash Shell，您可以直接在 Azure 入口網站內執行。 它具有預先安裝和設定的 Azure CLI，可與您的帳戶搭配使用。 若要取得 CLI 命令的說明，請輸入 `azure <command> --help`。 
-2. 在 CLI 工作階段中，使用下的命令登入 Azure。 如果您按一下方塊下方的 [試試看]  ，系統會開啟雲端命令列介面。 您可以登入您的 Azure 訂用帳戶，而不需需入下列命令：
+2. 在 CLI 工作階段中，使用下的命令登入 Azure。 如果您按一下方塊下方的 [試試看]，系統會開啟雲端命令列介面。 您可以登入您的 Azure 訂用帳戶，而不需需入下列命令：
 
     ```azurecli-interactive
     azure login
@@ -98,14 +98,14 @@ ms.locfileid: "67202881"
     azure network vnet show --vnet myVnet
     ```
 
-7. **選用**：您可能想要刪除的資源，建立當您完成本教學課程中，以便您產生使用費：
+7. **選擇性**：當您完成本教學課程時，您可能會想要刪除您所建立的資源，這樣就不會產生使用費用：
 
     ```azurecli-interactive
     azure network vnet delete --vnet myVnet --quiet
     ```
 
 > [!NOTE]
-> 雖然您無法使用 CLI 指定要建立虛擬網路 (傳統) 的資源群組，Azure 會在名為 Default-Networking  的資源群組中建立虛擬網路。
+> 雖然您無法使用 CLI 指定要建立虛擬網路 (傳統) 的資源群組，Azure 會在名為 Default-Networking 的資源群組中建立虛擬網路。
 
 ## <a name="powershell"></a>PowerShell
 
@@ -153,10 +153,10 @@ ms.locfileid: "67202881"
     Get-AzureVNetSite -VNetName "myVnet"
     ```
 
-8. **選用**：您可能想要刪除的資源，建立當您完成本教學課程中，以便您產生使用費。 若要刪除虛擬網路，再次執行步驟 4-6，這次移除您在步驟 5 中加入的 **VirtualNetworkSite** 元素。
+8. **選擇性**：當您完成本教學課程時，您可能會想要刪除您所建立的資源，這樣就不會產生使用費用。 若要刪除虛擬網路，再次執行步驟 4-6，這次移除您在步驟 5 中加入的 **VirtualNetworkSite** 元素。
  
 > [!NOTE]
-> 雖然您無法使用 PowerShell 指定要建立虛擬網路 (傳統) 的資源群組，Azure 會在名為 Default-Networking  的資源群組中建立虛擬網路。
+> 雖然您無法使用 PowerShell 指定要建立虛擬網路 (傳統) 的資源群組，Azure 會在名為 Default-Networking 的資源群組中建立虛擬網路。
 
 ---
 

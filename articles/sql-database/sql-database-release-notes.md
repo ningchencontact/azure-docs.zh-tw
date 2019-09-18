@@ -9,12 +9,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 05/15/2019
 ms.author: sstein
-ms.openlocfilehash: ed41ccea0754f3eeffdd0248bac567859db1492c
-ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
+ms.openlocfilehash: 21f80a2be09302e47817ccfd4223207bdcdd0413
+ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/15/2019
-ms.locfileid: "71001516"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71066818"
 ---
 # <a name="sql-database-release-notes"></a>SQL Database 版本資訊
 
@@ -26,6 +26,7 @@ ms.locfileid: "71001516"
 
 | 功能 | 詳細資料 |
 | ---| --- |
+| [Azure 私人連結](https://azure.microsoft.com/updates/private-link-now-available-in-preview/)| Private Link 可將資料保留在 Azure 網路中，避免將其暴露於網際網路，藉此簡化了網路架構，同時可保護 Azure 中端點之間的連線安全。 您也可利用 Private Link 在 Azure 上建立及呈現您自己的服務。 |
 | 使用單一資料庫和彈性集區加速資料庫復原 | 如需相關資訊，請參閱[加速資料庫](sql-database-accelerated-database-recovery.md)復原。|
 |近似計數相異|如需相關資訊，請參閱[近似計數相異](https://docs.microsoft.com/sql/relational-databases/performance/intelligent-query-processing#approximate-query-processing)。|
 |Rowstore 上的批次模式（相容性層級150）|如需相關資訊，請參閱[Rowstore 上的批次模式](https://docs.microsoft.com/sql/relational-databases/performance/intelligent-query-processing#batch-mode-on-rowstore)。|
@@ -55,6 +56,24 @@ ms.locfileid: "71001516"
 | &nbsp; |
 
 ---
+
+## <a name="new-features"></a>新功能
+
+### <a name="managed-instance-h2-2019-updates"></a>受控實例 H2 2019 更新
+
+- 使用[全域追蹤旗標](https://azure.microsoft.com/updates/global-trace-flags-are-now-available-in-azure-sql-database-managed-instance/)來設定您的受控實例行為。
+
+### <a name="managed-instance-h1-2019-updates"></a>受控實例 H1 2019 更新
+
+下列功能已在 H1 2019 中的受控實例部署模型中啟用：
+  - 支援訂用帳戶的訂用帳戶， <a href="https://aka.ms/sql-mi-visual-studio-subscribers">Visual Studio 訂閱者的每月點數</a>，以及增加的[地區限制](sql-database-managed-instance-resource-limits.md#regional-resource-limitations)。
+  - 對 <a href="https://docs.microsoft.com/sharepoint/administration/deploy-azure-sql-managed-instance-with-sharepoint-servers-2016-2019"> SharePoint 2016 和 SharePoint 2019 </a> 以及 <a href="https://docs.microsoft.com/business-applications-release-notes/october18/dynamics365-business-central/support-for-azure-sql-database-managed-instance"> Dynamics 365 Business Central </a> 的支援
+  - 建立具有<a href="https://aka.ms/managed-instance-collation">伺服器層級定序</a>和您所選擇<a href="https://azure.microsoft.com/updates/managed-instance-time-zone-ga/">時區</a>的實例。
+  - 受控實例現在會受到<a href="sql-database-managed-instance-management-endpoint-verify-built-in-firewall.md">內建防火牆</a>的保護。
+  - 將實例設定為使用[公用端點](sql-database-managed-instance-public-endpoint-configure.md)、 [Proxy 覆寫](/sql-database-connectivity-architecture.md#connection-policy)連線以取得更佳的網路效能、 <a href="https://aka.ms/four-cores-sql-mi-update">4 虛擬核心在第5代硬體產生</a>，或<a href="https://aka.ms/managed-instance-configurable-backup-retention">將備份保留設定為35天</a>以進行時間點還原。 長期備份保留期（最多10年）仍未啟用，因此您可以使用<a href="https://docs.microsoft.com/sql/relational-databases/backup-restore/copy-only-backups-sql-server">僅限複本備份</a>做為替代方案。
+  - 新功能可讓您<a href="https://medium.com/@jocapc/geo-restore-your-databases-on-azure-sql-instances-1451480e90fa">使用 PowerShell 將資料庫異地還原至另一個資料中心</a>、[重新命名資料庫](https://azure.microsoft.com/updates/azure-sql-database-managed-instance-database-rename-is-supported/)、[刪除虛擬叢集](sql-database-managed-instance-delete-virtual-cluster.md)。
+  - 新的內建[實例參與者角色](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#sql-managed-instance-contributor)可讓責任區隔（SoD）符合安全性原則，並遵循企業標準。
+  - 受控實例可在下列 Azure Government 區域中正式推出（US Gov 德克薩斯州、US Gov 亞利桑那州），以及中國北部2和中國東部2。 這也適用于下列公用區域：澳大利亞中部、澳大利亞中部2、巴西南部、法國南部、阿拉伯聯合大公國中部、阿拉伯聯合大公國北部、南非北部、南非西部。
 
 ## <a name="fixed-known-issues"></a>已修正的已知問題
 

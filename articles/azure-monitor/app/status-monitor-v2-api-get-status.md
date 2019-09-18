@@ -3,7 +3,7 @@ title: Azure 狀態監視器 v2 API 參考:取得狀態 |Microsoft Docs
 description: 狀態監視器 v2 API 參考。 Get-ApplicationInsightsMonitoringStatus. 在不重新部署網站的情況下監視網站效能。 使用裝載於內部部署、VM 中或 Azure 上的 ASP.NET Web 應用程式。
 services: application-insights
 documentationcenter: .net
-author: MS-TimothyMothra
+author: TimothyMothra
 manager: alexklim
 ms.assetid: 769a5ea4-a8c6-4c18-b46c-657e864e24de
 ms.service: application-insights
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: tilee
-ms.openlocfilehash: 50703ede205b42032e9618c1b16b0de2bd7f3a23
-ms.sourcegitcommit: 198c3a585dd2d6f6809a1a25b9a732c0ad4a704f
+ms.openlocfilehash: c3982e7eb78c1113c73a8e7e9d7b00ad403ac486
+ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68424136"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71058263"
 ---
 # <a name="status-monitor-v2-api-get-applicationinsightsmonitoringstatus"></a>狀態監視器 v2 API:ApplicationInsightsMonitoringStatus
 
@@ -34,7 +34,7 @@ ms.locfileid: "68424136"
 
 ## <a name="examples"></a>範例
 
-### <a name="example-application-status"></a>範例:應用程式狀態
+### <a name="example-application-status"></a>範例：應用程式狀態
 
 執行命令`Get-ApplicationInsightsMonitoringStatus`以顯示 [網站] 的監視狀態。
 
@@ -80,7 +80,7 @@ AppAlreadyInstrumented : true
 - **DemoWebApp333**已使用 Application Insights SDK 手動進行檢測。 狀態監視器偵測到 SDK, 且不會監視此網站。
 
 
-### <a name="example-powershell-module-information"></a>範例:PowerShell 模組資訊
+### <a name="example-powershell-module-information"></a>範例：PowerShell 模組資訊
 
 執行命令`Get-ApplicationInsightsMonitoringStatus -PowerShellModule`以顯示目前模組的相關資訊:
 
@@ -134,7 +134,7 @@ ApplicationInsightsSdkPath (Exists: True)
 C:\Program Files\WindowsPowerShell\Modules\Az.ApplicationMonitor\content\Runtime\Microsoft.ApplicationInsights.dll
 ```
 
-### <a name="example-runtime-status"></a>範例:執行階段狀態
+### <a name="example-runtime-status"></a>範例：執行階段狀態
 
 您可以檢查檢測電腦上的處理常式, 以查看是否已載入所有 Dll。 如果監視運作正常, 則至少應載入12個 Dll。
 

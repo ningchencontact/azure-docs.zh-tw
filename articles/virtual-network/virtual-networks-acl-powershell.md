@@ -4,6 +4,7 @@ description: 了解如何使用 PowerShell 管理 ACL
 services: virtual-network
 documentationcenter: na
 author: genlin
+manager: dcscontentpm
 ms.assetid: c84e40af-f351-4572-b3f0-d572d46bafe7
 ms.service: virtual-network
 ms.devlang: na
@@ -12,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/15/2016
 ms.author: genli
-ms.openlocfilehash: c43dacaf7bb5ab17fe740dd429e4a40dbc11bb6e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 4fe8349863c16a15886f9f1d33056f0bbfec31f2
+ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64726925"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71056759"
 ---
 # <a name="manage-endpoint-access-control-lists-using-powershell-in-the-classic-deployment-model"></a>在傳統部署模型中使用 PowerShell 來管理端點存取控制清單
 您可以使用 Azure PowerShell 或在管理入口網站中建立和管理端點的網路存取控制清單 (ACL)。 在本主題中，您會了解一些可使用 PowerShell 完成 ACL 一般工作的程序。 如需 Azure PowerShell Cmdlet 的清單，請參閱＜ [Azure 管理 Cmdlet](https://go.microsoft.com/fwlink/?LinkId=317721)＞。 如需有關 ACL 的詳細資訊，請參閱＜ [什麼是網路存取控制清單 (ACL)？](virtual-networks-acl.md)＞。 若您要使用管理入口網站來管理 ACL，請參閱[如何設定虛擬機器的端點](../virtual-machines/windows/classic/setup-endpoints.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)。
@@ -36,7 +37,7 @@ ms.locfileid: "64726925"
 1. 建立新的網路 ACL 物件。
    
         $acl1 = New-AzureAclConfig
-2. 設定規則以允許從遠端子網路進行存取。 在下方範例中，您可以將規則設定為 100  (其中的優先順序高於 200 及以上) 以允許遠端子網路 10.0.0.0/8  存取虛擬機器端點。 根據您自己的組態需求來取代值。 「SharePoint ACL config」的名稱應該取代為您命名此規則的易記名稱。
+2. 設定規則以允許從遠端子網路進行存取。 在下方範例中，您可以將規則設定為 100 (其中的優先順序高於 200 及以上) 以允許遠端子網路 10.0.0.0/8 存取虛擬機器端點。 根據您自己的組態需求來取代值。 「SharePoint ACL config」的名稱應該取代為您命名此規則的易記名稱。
    
         Set-AzureAclConfig –AddRule –ACL $acl1 –Order 100 `
             –Action permit –RemoteSubnet "10.0.0.0/8" `

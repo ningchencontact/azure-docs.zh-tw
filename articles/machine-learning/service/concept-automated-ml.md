@@ -1,7 +1,7 @@
 ---
 title: 什麼是自動化 ML/automl
-titleSuffix: Azure Machine Learning service
-description: 了解 Azure Machine Learning 服務如何自動為您挑選演算法，以及如何藉由使用您提供來為模型選取最佳演算法的參數與準則，從其中產生模型來節省您的時間。
+titleSuffix: Azure Machine Learning
+description: 瞭解 Azure Machine Learning 如何自動為您挑選演算法，並使用您提供的參數和條件來為您的模型產生模型，以節省您的時間。
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -11,12 +11,12 @@ author: nacharya1
 ms.author: nilesha
 ms.date: 06/20/2019
 ms.custom: seodec18
-ms.openlocfilehash: b7347be086cd9e85dda7b8271548ccb44e8114ff
-ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
+ms.openlocfilehash: 32ff1ba599f4f95cc413bc2bb2c3bbc442405022
+ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70882025"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71035713"
 ---
 # <a name="what-is-automated-machine-learning"></a>什麼是自動化機器學習服務？
 
@@ -39,7 +39,7 @@ ms.locfileid: "70882025"
 
 ## <a name="how-automated-ml-works"></a>自動化 ML 的運作方式
 
-使用**Azure Machine Learning 服務**，您可以使用下列步驟來設計和執行自動化 ML 訓練實驗：
+使用**Azure Machine Learning**，您可以使用下列步驟來設計和執行自動化 ML 訓練實驗：
 
 1. **找出要解決的 ML 問題**：分類、預測或回歸
 
@@ -53,7 +53,7 @@ ms.locfileid: "70882025"
 
   ![自動化機器學習服務](./media/how-to-automated-ml/automl-concept-diagram2.png)
 
-在定型期間，Azure Machine Learning 服務會在並行管線中建立數個，以嘗試不同的演算法和參數。 一旦達到實驗中定義的結束準則，它就會停止。
+在定型期間，Azure Machine Learning 會在並行管線中建立數個，以嘗試不同的演算法和參數。 一旦達到實驗中定義的結束準則，它就會停止。
 
 您也可以檢查已記錄的執行資訊，其中包含執行期間所收集的[計量](how-to-understand-automated-ml.md)。 定型回合會產生 Python 序列化物件（`.pkl` file），其中包含模型和資料前置處理。
 

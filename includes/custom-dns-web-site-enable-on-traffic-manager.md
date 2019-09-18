@@ -4,12 +4,12 @@ ms.service: app-service-web
 ms.topic: include
 ms.date: 11/09/2018
 ms.author: cephalin
-ms.openlocfilehash: 67b9c0ba2566206b0e70db51844b21e5d5d3c261
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: ddeb46a2c7bc7f24f55c22f446926529cee7b598
+ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67174556"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71059614"
 ---
 傳播網域名稱的記錄後，您應該要能夠使用瀏覽器來確認您自訂的網域名稱可用來存取 Azure App Service 中的 Web 應用程式。
 
@@ -26,16 +26,16 @@ ms.locfileid: "67174556"
 > 
 
 1. 在瀏覽器中，開啟 [Azure 入口網站](https://portal.azure.com)。
-2. 在 [Web Apps]  索引標籤中，按一下您 Web 應用程式的名稱，並選取 [設定]  ，然後選取 [自訂網域] 
+2. 在 [Web Apps] 索引標籤中，按一下您 Web 應用程式的名稱，並選取 [設定]，然後選取 [自訂網域]
    
     ![](./media/custom-dns-web-site/dncmntask-cname-6.png)
-3. 在 [自訂網域]  刀鋒視窗中，按一下 [新增主機名稱]  。
-4. 使用 [主機名稱]  文字方塊輸入與此 Web 應用程式相關聯的流量管理員網域名稱。
+3. 在 [自訂網域] 刀鋒視窗中，按一下 [新增主機名稱]。
+4. 使用 [**主機名稱**] 文字方塊輸入要與此 web 應用程式產生關聯的自訂功能變數名稱。
    
     ![](./media/custom-dns-web-site/dncmntask-cname-8.png)
-5. 按一下 [驗證]  以儲存網域名稱設定。
-6. 按一下 [驗證]  後，Azure 便會開始進行網域驗證工作流程。 此流程將會檢查網域擁有權及主機名稱可用性，並回報成功與否。在發生錯誤的情況下，將會提供錯誤詳細資料，以及錯誤修復方式的規範指引。    
-7. 成功驗證後，[新增主機名稱]  按鈕將會變成作用中，使您可以指派主機名稱。 現在請在瀏覽器中瀏覽到您的自訂網域名稱。 您現在應會看到您應用程式正在使用您的自訂網域名稱執行。 
+5. 按一下 [驗證] 以儲存網域名稱設定。
+6. 按一下 [驗證] 後，Azure 便會開始進行網域驗證工作流程。 此流程將會檢查網域擁有權及主機名稱可用性，並回報成功與否。在發生錯誤的情況下，將會提供錯誤詳細資料，以及錯誤修復方式的規範指引。    
+7. 成功驗證後，[新增主機名稱] 按鈕將會變成作用中，使您可以指派主機名稱。 現在請在瀏覽器中瀏覽到您的自訂網域名稱。 您現在應會看到您應用程式正在使用您的自訂網域名稱執行。 
    
    完成設定後，自訂網域名稱將列在 Web 應用程式的 [ **網域名稱** ] 區段中。
 

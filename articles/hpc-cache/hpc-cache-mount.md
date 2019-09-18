@@ -4,14 +4,14 @@ description: 如何將用戶端連線至 Azure HPC 快取服務
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: conceptual
-ms.date: 09/06/2019
+ms.date: 09/12/2019
 ms.author: v-erkell
-ms.openlocfilehash: 0ccd256ed399fff7c364883ada45d2d15c75a120
-ms.sourcegitcommit: a4b5d31b113f520fcd43624dd57be677d10fc1c0
+ms.openlocfilehash: 46f221fd7c340b7f321d317f0e7493448d83177c
+ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70775347"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71036932"
 ---
 # <a name="mount-the-azure-hpc-cache"></a>裝載 Azure HPC 快取
 
@@ -19,13 +19,13 @@ ms.locfileid: "70775347"
 
 使用 [快取總覽] 頁面上所列的掛接位址，以及您在建立儲存體目標時所設定的虛擬命名空間路徑。 
 
-![Azure HPC 快取實例 [總覽] 頁面的螢幕擷取畫面，並在右下方的 [掛接位址] 清單周圍加上醒目提示方塊](media/mount-addresses.png)
+![Azure HPC 快取實例 [總覽] 頁面的螢幕擷取畫面，並在右下方的 [掛接位址] 清單周圍加上醒目提示方塊](media/hpc-cache-mount-addresses.png)
 
 > [!NOTE] 
 > 快取掛接位址會對應至快取子網內的網路介面。 這些 nic 會出現在名稱結尾`-cluster-nic-`為和數位的資源群組中。 請勿更改或刪除這些介面，否則快取將會變成無法使用。
 
-虛擬命名空間路徑會顯示在 [**儲存體目標**] 頁面中。 
-![快取 [儲存體目標] 面板的螢幕擷取畫面，在資料表的 [路徑] 資料行中有一個專案周圍的醒目提示方塊](media/storage-target-path.png)
+虛擬命名空間路徑會顯示在 [**儲存體目標**] 頁面中。 按一下目標名稱以查看詳細資料，包括與其相關聯的匯總命名空間路徑（或路徑）。 
+![快取 [儲存體目標] 面板的螢幕擷取畫面，在資料表的 [路徑] 資料行中有一個專案周圍的醒目提示方塊](media/hpc-cache-view-namespace-paths.png)
 
 ## <a name="mount-command-syntax"></a>掛接命令語法
 

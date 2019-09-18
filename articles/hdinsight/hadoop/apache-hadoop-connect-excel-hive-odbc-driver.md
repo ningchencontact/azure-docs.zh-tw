@@ -9,12 +9,12 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 05/28/2019
 ms.author: hrasheed
-ms.openlocfilehash: b1231a406ac20512e9ce92032379d697c3346af3
-ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
+ms.openlocfilehash: c81c0de98442f576145f2c2e12f0b2053b80e83a
+ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70882787"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71033612"
 ---
 # <a name="connect-excel-to-apache-hadoop-in-azure-hdinsight-with-the-microsoft-hive-odbc-driver"></a>使用 Microsoft Hive ODBC 驅動程式將 Excel 連線到 Azure HDInsight 中的 Apache Hadoop
 
@@ -32,9 +32,11 @@ Microsoft 的巨量資料解決方案會將 Microsoft 商業智慧 (BI) 元件�
 * 具有 Office 2010 專業增強版或更新版本，或是 Excel 2010 或更新版本的工作站。
 
 ## <a name="install-microsoft-hive-odbc-driver"></a>安裝 Microsoft Hive ODBC 驅動程式
+
 下載並安裝符合您將使用 ODBC 驅動程式之應用程式版本的[Microsoft Hive ODBC 驅動程式](https://go.microsoft.com/fwlink/?LinkID=286698)版本。  在本文中，驅動程式是用於 Office Excel。
 
 ## <a name="create-apache-hive-odbc-data-source"></a>建立 Apache Hive ODBC 資料來源
+
 下列步驟將說明如何建立 Hive ODBC 資料來源。
 
 1. 從 Windows 中，瀏覽至 [開始] > [Windows 系統管理工具] > [ODBC 資料來源 (32 位元)/(64 位元)]。  這樣會開啟 [ODBC 資料來源管理員] 視窗。
@@ -65,7 +67,7 @@ Microsoft 的巨量資料解決方案會將 Microsoft 商業智慧 (BI) 元件�
    |  每個區塊擷取的資料列 |在擷取大量記錄時，可能必須調整此參數，以確保最佳效能。 |
    |  預設字串資料行長度、二進位資料行長度、十進位資料行小數位數 |資料類型的長度和精確度可能會影響傳回資料的方式。 如果失去精確度且 (或) 發生截斷狀況，會傳回不正確的資訊。 |
 
-    ![進階選項](./media/apache-hadoop-connect-excel-hive-odbc-driver/hiveodbc-datasource-advancedoptions1.png "進階 DSN 設定選項")
+    ![ADVANCED DSN 設定選項](./media/apache-hadoop-connect-excel-hive-odbc-driver/hiveodbc-datasource-advancedoptions1.png "ADVANCED DSN 設定選項")
 
 1. 選取 [測試] 以測試資料來源。 正確設定資料來源時，測試結果就會顯示**成功！** 。  
 
@@ -83,7 +85,7 @@ Microsoft 的巨量資料解決方案會將 Microsoft 商業智慧 (BI) 元件�
 
 2. 從 [資料] 索引標籤，瀏覽至 [取得資料] > [從其他來源] > [從 ODBC] 以啟動 [從 ODBC] 視窗。
 
-    ![開啟資料連線精靈](./media/apache-hadoop-connect-excel-hive-odbc-driver/simbahiveodbc-excel-dataconnection1.png "開啟資料連線精靈")
+    ![開啟 Excel 資料連線嚮導](./media/apache-hadoop-connect-excel-hive-odbc-driver/simbahiveodbc-excel-dataconnection1.png "開啟 Excel 資料連線嚮導")
 
 3. 從下拉式清單中，選取您在上一節中建立的資料來源名稱，然後選取 **[確定]** 。
 
@@ -91,7 +93,7 @@ Microsoft 的巨量資料解決方案會將 Microsoft 商業智慧 (BI) 元件�
 
 5. 從 [導覽器] 中，瀏覽至 [HIVE] > [預設值] > [hivesampletable]，然後選取 [載入]。 資料需要一些時間才會匯入至 Excel。
 
-    ![HDInsight Hive ODBC 導覽器](./media/apache-hadoop-connect-excel-hive-odbc-driver/hdinsight-hive-odbc-navigator.png "開啟資料連接精靈")
+    ![HDInsight Excel HIVE ODBC 導覽器](./media/apache-hadoop-connect-excel-hive-odbc-driver/hdinsight-hive-odbc-navigator.png "HDInsight Excel HIVE ODBC 導覽器")
 
 ## <a name="next-steps"></a>後續步驟
 

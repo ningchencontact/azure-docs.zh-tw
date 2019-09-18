@@ -1,6 +1,6 @@
 ---
 title: 建立、 執行及追蹤 ML 管線
-titleSuffix: Azure Machine Learning service
+titleSuffix: Azure Machine Learning
 description: 使用適用於 Python 的 Azure Machine Learning SDK 來建立及執行機器學習管線。 使用 ML 管線來建立和管理結合機器學習（ML）階段的工作流程。 這些階段包括資料準備、模型定型、模型部署, 以及推斷/計分。
 services: machine-learning
 ms.service: machine-learning
@@ -11,12 +11,12 @@ ms.author: sanpil
 author: sanpil
 ms.date: 08/09/2019
 ms.custom: seodec18
-ms.openlocfilehash: 12ba2991f22576dc62559d5c62dc4a0e769d2681
-ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
+ms.openlocfilehash: f1a0db395b86f473d2372a5ca779020e54186e45
+ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70858764"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71034848"
 ---
 # <a name="create-and-run-machine-learning-pipelines-with-azure-machine-learning-sdk"></a>使用 Azure Machine Learning SDK 建立及執行機器學習管線
 
@@ -26,13 +26,13 @@ ms.locfileid: "70858764"
 
 ML 管線的每個階段（例如資料準備和模型訓練）都可以包含一或多個步驟。
 
-您所建立的 ML 管線會顯示在 Azure Machine Learning 服務[工作區](how-to-manage-workspace.md)的成員中。 
+您所建立的 ML 管線會顯示在 Azure Machine Learning[工作區](how-to-manage-workspace.md)的成員中。 
 
 ML 管線會使用遠端計算目標來進行計算，以及與該管線相關聯的中繼和最終資料的儲存體。 他們可以在支援的[Azure 儲存體](https://docs.microsoft.com/azure/storage/)位置之間讀取和寫入資料。
 
-如果您沒有 Azure 訂用帳戶，請在開始前先建立一個免費帳戶。 試用[免費或付費版本的 Azure Machine Learning 服務](https://aka.ms/AMLFree)。
+如果您沒有 Azure 訂用帳戶，請在開始前先建立一個免費帳戶。 試用[免費或付費版本的 Azure Machine Learning](https://aka.ms/AMLFree)。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 * 建立 [Azure Machine Learning 工作區](how-to-manage-workspace.md)以保存您的所有管線資源。
 
@@ -283,7 +283,7 @@ trainStep = PythonScriptStep(
 定義步驟之後，您必須使用這些步驟中的部分或全部步驟來建置管線。
 
 > [!NOTE]
-> 當您定義步驟或建置管線時，並不會將任何檔案或資料上傳到 Azure Machine Learning 服務。
+> 當您定義步驟或建立管線時，不會將任何檔案或資料上傳到 Azure Machine Learning。
 
 ```python
 # list of steps to run
@@ -322,7 +322,7 @@ pipeline1 = Pipeline(workspace=ws, steps=steps)
 
 ## <a name="submit-the-pipeline"></a>提交管線
 
-當您提交管線時，Azure Machine Learning 服務會檢查每個步驟的相依性，並上傳您所指定之來源目錄的快照集。 如果未指定來源目錄，則會上傳目前的本機目錄。 快照集也會儲存為您工作區中實驗的一部分。
+當您提交管線時，Azure Machine Learning 會檢查每個步驟的相依性，並上傳您指定之來原始目錄的快照集。 如果未指定來源目錄，則會上傳目前的本機目錄。 快照集也會儲存為您工作區中實驗的一部分。
 
 > [!IMPORTANT]
 > 若要防止檔案包含在快照中, 請在目錄中建立 [.gitignore](https://git-scm.com/docs/gitignore) `.amlignore`或檔案, 並在其中新增檔案。 檔案會使用與 [.gitignore](https://git-scm.com/docs/gitignore) 檔案相同的語法和模式。`.amlignore` 如果這兩個檔案都`.amlignore`存在, 則會優先使用該檔案。

@@ -4,7 +4,7 @@ description: 了解如何使用 PerfInsights 針對 Windows VM 效能問題進�
 services: virtual-machines-windows'
 documentationcenter: ''
 author: anandhms
-manager: cshepard
+manager: dcscontentpm
 editor: na
 tags: ''
 ms.service: virtual-machines-windows
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: eace9c196ebd9f71b7a6f2bac7a59f581e6f313f
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 783b479dd3e5f429516799d7d3ea82f363cac2ec
+ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70090467"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71058167"
 ---
 # <a name="how-to-use-perfinsights"></a>如何使用 PerfInsights
 
@@ -131,10 +131,10 @@ PerfInsights 可以收集並分析多種資訊。 下列幾節會說明常見案
 
 在背景中執行規則引擎來收集資料並診斷進行中的效能問題。 目前支援下列規則：
 
-- HighCpuUsage 規則:偵測高 CPU 使用量週期, 並顯示在這些時段內的 CPU 使用量取用者上限。
-- HighDiskUsage 規則:偵測實體磁片上的高磁片使用量, 並顯示在這些時段內的前幾名磁片使用量取用者。
-- HighResolutionDiskMetric 規則:顯示每個實體磁片每50毫秒的 IOPS、輸送量和 i/o 延遲計量。 它有助於快速找出磁碟節流時段。
-- HighMemoryUsage 規則:會偵測到高記憶體使用週期, 並顯示這些期間的前幾名記憶體使用量取用者。
+- HighCpuUsage 規則：偵測高 CPU 使用量週期，並顯示在這些時段內的 CPU 使用量取用者上限。
+- HighDiskUsage 規則：偵測實體磁片上的高磁片使用量，並顯示在這些時段內的前幾名磁片使用量取用者。
+- HighResolutionDiskMetric 規則：顯示每個實體磁片每50毫秒的 IOPS、輸送量和 i/o 延遲計量。 它有助於快速找出磁碟節流時段。
+- HighMemoryUsage 規則：會偵測到高記憶體使用週期，並顯示這些期間的前幾名記憶體使用量取用者。
 
 > [!NOTE] 
 > 目前支援包含 .NET Framework 4.5 或更新版本的 Windows 版本。

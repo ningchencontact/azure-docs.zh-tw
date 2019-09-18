@@ -4,7 +4,7 @@ description: 在 Azure 客體代理程式未安裝或運作於 VM 的情況下�
 services: virtual-machines-windows
 documentationcenter: ''
 author: genlin
-manager: gwallace
+manager: dcscontentpm
 editor: ''
 ms.assetid: cf353dd3-89c9-47f6-a449-f874f0957013
 ms.service: virtual-machines-windows
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 04/25/2019
 ms.author: genli
-ms.openlocfilehash: 75d6c10ded4038297689835d5ff012f344540e6f
-ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
+ms.openlocfilehash: 6faab5bffaddbbd5d8deb9c3834bf3d8fe3e3445
+ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69638842"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71058654"
 ---
 # <a name="reset-local-windows-password-for-azure-vm-offline"></a>重設離線 Azure VM 的本機 Windows 密碼
 您可以使用 [Azure 入口網站或 Azure PowerShell](reset-rdp.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) 在 Azure 中重設 VM 的本機 Windows 密碼 (假設已安裝 Azure 客體代理程式)。 這個方法是為 Azure VM 重設密碼的主要方式。 如果您遇到 Azure 客體代理程式沒有回應，或無法在上傳自訂映像後進行安裝等問題，您可以手動重設 Windows 密碼。 本文將詳細說明如何將來源 OS 虛擬磁碟連接至另一部 VM，以重設本機帳戶密碼。 本文中所述的步驟不適用於 Windows 網域控制站。 
@@ -32,7 +32,7 @@ ms.locfileid: "69638842"
 1. 停止受影響的 VM。
 1. 為 VM 的 OS 磁片建立快照集。
 1. 從快照集建立 OS 磁片的複本。
-1. 將複製的 OS 磁片連結並掛接至另一個 Windows VM, 然後在磁片上建立一些設定檔。 這些檔案可協助您重設密碼。
+1. 將複製的 OS 磁片連結並掛接至另一個 Windows VM，然後在磁片上建立一些設定檔。 這些檔案可協助您重設密碼。
 1. 從疑難排解 VM 卸載和卸離複製的 OS 磁片。
 1. 交換受影響 VM 的 OS 磁片。
 
@@ -43,7 +43,7 @@ ms.locfileid: "69638842"
 
 一律先嘗試使用 [Azure 入口網站或 Azure PowerShell](reset-rdp.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) 重設密碼，再嘗試下列步驟。 在開始之前，確定您有 VM 的備份。
 
-1. 取得受影響 VM 的 OS 磁片快照集、從快照集建立磁片, 然後將磁片連結至疑難排解 VM。 如需詳細資訊, 請參閱[使用 Azure 入口網站將 OS 磁片連接至復原 VM, 以針對 WINDOWS VM 進行疑難排解](troubleshoot-recovery-disks-portal-windows.md)。
+1. 取得受影響 VM 的 OS 磁片快照集、從快照集建立磁片，然後將磁片連結至疑難排解 VM。 如需詳細資訊，請參閱[使用 Azure 入口網站將 OS 磁片連接至復原 VM，以針對 WINDOWS VM 進行疑難排解](troubleshoot-recovery-disks-portal-windows.md)。
 2. 使用遠端桌面連線到疑難排解 VM。
 3. 在來源 VM 磁碟機的 `\Windows\System32\GroupPolicy` 中建立 `gpt.ini` (如果存在 gpt.ini，請將它重新命名為 gpt.ini.bak)︰
    
@@ -85,7 +85,7 @@ ms.locfileid: "69638842"
    
     定義新的密碼時，必須符合針對 VM 設定的密碼複雜性需求。
 
-6. 在 Azure 入口網站中, 從疑難排解 VM 卸離磁片。
+6. 在 Azure 入口網站中，從疑難排解 VM 卸離磁片。
 
 7. [變更受影響 VM 的 OS 磁片](troubleshoot-recovery-disks-portal-windows.md#swap-the-os-disk-for-the-vm)。
 
@@ -109,7 +109,7 @@ ms.locfileid: "69638842"
 
 1. 在 Azure 入口網站中刪除受影響的 VM。 刪除 VM 只會刪除中繼資料 (Azure 內 VM 的參考)。 刪除 VM 時會保留虛擬磁碟：
    
-   * 在 Azure 入口網站中選取 VM, 然後按一下 *刪除*:
+   * 在 Azure 入口網站中選取 VM，然後按一下 *刪除*：
      
      ![刪除現有的 VM](./media/reset-local-password-without-agent/delete-vm-classic.png)
 
@@ -123,7 +123,7 @@ ms.locfileid: "69638842"
      
       ![選取儲存體帳戶](./media/reset-local-password-without-agent/disks-select-storage-account-classic.png)
      
-   3. 核取標示為 [*顯示傳統儲存體帳戶*] 的方塊, 然後選取來源容器。 來源容器通常是 vhd：
+   3. 核取標示為 [*顯示傳統儲存體帳戶*] 的方塊，然後選取來源容器。 來源容器通常是 vhd：
      
       ![選取儲存體容器](./media/reset-local-password-without-agent/disks-select-container-classic.png)
 
@@ -147,10 +147,10 @@ ms.locfileid: "69638842"
      
       ![檢視連接的資料磁碟](./media/reset-local-password-without-agent/troubleshooting-vm-file-explorer-classic.png)
 
-4. 在`gpt.ini`來源`\Windows\System32\GroupPolicy` VM 磁片磁碟機的中建立 (如果`gpt.ini`存在, 請將`gpt.ini.bak`其重新命名為):
+4. 在`gpt.ini`來源`\Windows\System32\GroupPolicy` VM 磁片磁碟機的中建立（如果`gpt.ini`存在，請將`gpt.ini.bak`其重新命名為）：
    
    > [!WARNING]
-   > 請確定您不會意外地在中`C:\Windows`建立下列檔案, 也就是疑難排解 VM 的 OS 磁片磁碟機。 在連接成為資料磁碟的來源 VM OS 磁碟機中建立下列檔案。
+   > 請確定您不會意外地在中`C:\Windows`建立下列檔案，也就是疑難排解 VM 的 OS 磁片磁碟機。 在連接成為資料磁碟的來源 VM OS 磁碟機中建立下列檔案。
    
    * 將下列幾行新增至您建立的 `gpt.ini` 檔案：
      
@@ -191,7 +191,7 @@ ms.locfileid: "69638842"
    
    1. 在 Azure 入口網站中選取疑難排解 VM，按一下 [磁碟]。
    
-   2. 選取在步驟2中連接的資料磁片, 按一下 [卸**離**], 然後按一下 **[確定]** 。
+   2. 選取在步驟2中連接的資料磁片，按一下 [卸**離**]，然後按一下 **[確定]** 。
 
      ![中斷連接磁碟](./media/reset-local-password-without-agent/data-disks-classic.png)
      
@@ -216,7 +216,7 @@ ms.locfileid: "69638842"
     * 從`%windir%\System32\GroupPolicy\Machine\Scripts`
       * 取消`scripts.ini`
     * 從`%windir%\System32\GroupPolicy`
-      * 移除`gpt.ini` (如果`gpt.ini`之前已存在, 而且您將`.bak`它`gpt.ini.bak`重新命名為, 請將`gpt.ini`檔案重新命名為)
+      * 移除`gpt.ini` （如果`gpt.ini`之前已存在，而且您將`.bak`它`gpt.ini.bak`重新命名為，請將`gpt.ini`檔案重新命名為）
 
 ## <a name="next-steps"></a>後續步驟
 如果您仍然無法使用遠端桌面進行連接，請參閱 [RDP 疑難排解指南](troubleshoot-rdp-connection.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)。 [詳細的 RDP 疑難排解指南](detailed-troubleshoot-rdp.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)會探討疑難排解方法，而不是特定的步驟。 您也可以[開啟 Azure 支援要求](https://azure.microsoft.com/support/options/)，以取得實際操作協助。

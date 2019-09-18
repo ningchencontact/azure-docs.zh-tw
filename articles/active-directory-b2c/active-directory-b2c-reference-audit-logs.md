@@ -11,12 +11,12 @@ ms.date: 09/14/2019
 ms.author: marsma
 ms.subservice: B2C
 ms.custom: fasttrack-edit
-ms.openlocfilehash: cbb748e9856b6de9004d57e4393e205ddfcfffb4
-ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
+ms.openlocfilehash: c216512aef117a332d3aabfc83ec5615b70b202c
+ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/15/2019
-ms.locfileid: "70998822"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71033819"
 ---
 # <a name="accessing-azure-ad-b2c-audit-logs"></a>存取 Azure AD B2C 稽核記錄
 
@@ -92,12 +92,13 @@ Azure 入口網站提供 Azure AD B2C 租使用者中 audit 記錄事件的存�
 * Microsoft Graph
   * 應用程式讀取所有稽核記錄資料
 
-您可以在 B2C 租使用者中的現有應用程式註冊上啟用這些許可權，或建立一個專門用於 audit 記錄自動化的新帳戶。
+您可以在 B2C 租使用者內的現有 Azure Active Directory 應用程式註冊上啟用這些許可權，或建立一個專門用於 audit 記錄自動化的新帳戶。
 
 若要建立新的應用程式，請指派所需的 API 許可權，並建立用戶端密碼，然後執行下列步驟：
 
-1. 登錄應用程式
-    1. 登入[Azure 入口網站](https://portal.azure.com)，切換至包含您 Azure AD B2C 租使用者的目錄，然後流覽至 [ **Azure AD B2C**]。
+1. 在 Azure Active Directory 中註冊應用程式
+    1. 登入[Azure 入口網站](https://portal.azure.com)並切換至包含您 Azure AD B2C 租使用者的目錄。
+    1. 從左側功能表中選取 [ **Azure Active Directory** （*不*Azure AD B2C）]。 或者，選取 [**所有服務**]，然後搜尋並選取 [ **Azure Active Directory**]。
     1. 在左側功能表中的 [**管理**] 底下，選取 **[應用程式註冊（舊版）** ]。
     1. 選取 [**新增應用程式註冊**]
     1. 輸入應用程式的名稱。 例如， *Audit Log 應用程式*。

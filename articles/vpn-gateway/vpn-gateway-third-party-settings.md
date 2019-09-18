@@ -4,7 +4,7 @@ description: 了解適用於 Azure VPN 閘道的社群建議協力廠商 VPN 或
 services: vpn-gateway
 documentationcenter: ''
 author: chadmath
-manager: cshepard
+manager: dcscontentpm
 editor: ''
 tags: azure-vpn-gateway
 ms.assetid: ''
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/15/2018
 ms.author: delhan
-ms.openlocfilehash: fae790f9b2d5ecc492f7ece5d259809e8664898d
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: aa4650897abcd38fec4d45f57969d4bf30b9d773
+ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60457097"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71058851"
 ---
 # <a name="community-suggested-third-party-vpn-or-firewall-device-settings-for-azure-vpn-gateway"></a>適用於 Azure VPN 閘道的社群建議協力廠商 VPN 或防火牆裝置設定
 

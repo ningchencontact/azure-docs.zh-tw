@@ -8,12 +8,12 @@ ms.subservice: cosmosdb-table
 ms.devlang: dotnet
 ms.topic: reference
 ms.date: 08/17/2018
-ms.openlocfilehash: aa9752cdc2148036b3edff8a6002dc81ebff6312
-ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
+ms.openlocfilehash: 5e98c40384207c77b4ea7e9557a7d1ebebd95e47
+ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69036310"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71058574"
 ---
 # <a name="azure-cosmos-db-table-net-api-download-and-release-notes"></a>Azure Cosmos DB 資料表 .NET API：下載和版本資訊
 
@@ -38,6 +38,10 @@ ms.locfileid: "69036310"
 >
 
 ## <a name="release-notes"></a>版本資訊
+
+### <a name="a-name212212"></a><a name="2.1.2"/>2.1.2
+
+* 錯誤修正
 
 ### <a name="a-name210210"></a><a name="2.1.0"/>2.1.0
 
@@ -76,7 +80,7 @@ ms.locfileid: "69036310"
 
 Microsoft 至少會在停用 SDK 的 **12 個月** 之前提供通知，以供順利轉換至較新/支援的版本。
 
-此`Microsoft.Azure.CosmosDB.Table`程式庫目前僅適用于 .NET Framework, 而且處於維護模式, 即將淘汰。 新的特性和功能和優化只會新增至 .NET Standard 程式庫[Cosmos](https://www.nuget.org/packages/Microsoft.Azure.Cosmos.Table), 因此建議您升級至[Cosmos. table. 資料表](https://www.nuget.org/packages/Microsoft.Azure.Cosmos.Table)。
+此`Microsoft.Azure.CosmosDB.Table`程式庫目前僅適用于 .NET Framework，而且處於維護模式，即將淘汰。 新的特性和功能和優化只會新增至 .NET Standard 程式庫[Cosmos](https://www.nuget.org/packages/Microsoft.Azure.Cosmos.Table)，因此建議您升級至[Cosmos. table. 資料表](https://www.nuget.org/packages/Microsoft.Azure.Cosmos.Table)。
 
 Windowsazure.storage 已淘汰[windowsazure.storage-premiumtable](https://www.nuget.org/packages/WindowsAzure.Storage-PremiumTable/0.1.0-preview)預覽套件。 WindowsAzure.Storage-PremiumTable SDK 將於 2018 年 11 月 15 日淘汰，屆時不允許使用已停用 SDK 的要求。 
 
@@ -85,6 +89,7 @@ Windowsazure.storage 已淘汰[windowsazure.storage-premiumtable](https://www.nu
 
 | Version | 發行日期 | 停用日期 |
 | --- | --- | --- |
+| [2.1.2](#2.1.2) |2019年9月16日| |
 | [2.1.0](#2.1.0) |2019 年 1 月 22 日|2020年4月01日 |
 | [2.0.0](#2.0.0) |2018 年 9 月 26 日|2020年3月01日 |
 | [1.1.3](#1.1.3) |2018 年 7 月 17 日|2019年12月01日 |

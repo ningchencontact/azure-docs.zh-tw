@@ -10,18 +10,18 @@ ms.topic: conceptual
 ms.date: 02/07/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: ae6d55180785c9407662776a95fcba31f8ba5275
-ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
+ms.openlocfilehash: e29e2e3e61594870cc9d704d64b1040a4211a520
+ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67835211"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71066219"
 ---
 #  <a name="add-claims-and-customize-user-input-using-custom-policies-in-azure-active-directory-b2c"></a>在 Azure Active Directory B2C 中使用自訂原則來新增宣告並自訂使用者輸入
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-在本文中，您會在您的 Azure Active Directory (Azure AD) B2C 註冊使用者旅程圖中新增使用者所提供的輸入 (宣告)。  您將項目設定為在下拉式清單中，並定義它是否必要。
+在本文中，您會在 Azure Active Directory B2C （Azure AD B2C）中，將新使用者提供的專案（宣告）新增至您的註冊使用者旅程圖。  您可以將專案設定為下拉式清單，並定義它是否為必要專案。
 
 ## <a name="prerequisites"></a>必要條件
 
@@ -29,12 +29,12 @@ ms.locfileid: "67835211"
 
 ## <a name="add-claims"></a>新增宣告
 
-使用註冊或登入使用者旅程圖即可收集使用者的初始資料。 其他宣告則可在稍後透過使用設定檔編輯使用者旅程圖來收集。 每當 Azure AD B2C 直接從使用者收集資訊的互動方式，身分識別體驗架構會使用其自我判斷提示的提供者。
+使用註冊或登入使用者旅程圖即可收集使用者的初始資料。 其他宣告則可在稍後透過使用設定檔編輯使用者旅程圖來收集。 每當 Azure AD B2C 以互動方式直接從使用者收集資訊時，Identity Experience Framework 就會使用其自我判斷提示提供者。
 
 
 ### <a name="define-the-claim"></a>定義宣告
 
-讓我們來要求使用者提供他們的所在城市。 在 TrustFrameworkBase 原則檔的 **ClaimsSchema** 元素中新增下列元素：
+讓我們向使用者詢問其所在的城市。 在 TrustFrameworkBase 原則檔的 **ClaimsSchema** 元素中新增下列元素：
 
 ```xml
 <ClaimType Id="city">
@@ -79,7 +79,7 @@ ms.locfileid: "67835211"
 
 #### <a name="dropdownsingleselect"></a>DropdownSingleSelect
 
-![單一選取下拉式清單控制項中顯示數個選項](./media/active-directory-b2c-configure-signup-self-asserted-custom/dropdown-menu-example.png)
+![單一選取下拉式清單控制項，顯示數個選項](./media/active-directory-b2c-configure-signup-self-asserted-custom/dropdown-menu-example.png)
 
 ```xml
 <ClaimType Id="city">
@@ -96,7 +96,7 @@ ms.locfileid: "67835211"
 
 #### <a name="checkboxmultiselect"></a>CheckboxMultiSelect
 
-![顯示數個選項的複選的核取方塊控制項](./media/active-directory-b2c-configure-signup-self-asserted-custom/multiselect-menu-example.png)
+![多選核取方塊控制項，顯示數個選項](./media/active-directory-b2c-configure-signup-self-asserted-custom/multiselect-menu-example.png)
 
 ```xml
 <ClaimType Id="city">
@@ -261,11 +261,11 @@ ms.locfileid: "67835211"
 ## <a name="test-the-custom-policy"></a>測試自訂原則
 
 1. 登入 [Azure 入口網站](https://portal.azure.com)。
-2. 按一下頂端功能表中的 [目錄和訂用帳戶篩選]  ，然後選擇包含您 Azure AD 租用戶的目錄，以確定您使用的是包含 Azure AD 租用戶的目錄。
-3. 選擇 Azure 入口網站左上角的 [所有服務]  ，然後搜尋並選取 [應用程式註冊]  。
-4. 選取 [識別體驗架構 (預覽)]  。
-5. 選取 [上傳自訂原則]  ，然後上傳您所變更的兩個原則檔案。
-2. 選取您上傳的註冊或登入原則，按一下 [立即執行]  按鈕。
+2. 請選取頂端功能表中的 [**目錄 + 訂**用帳戶] 篩選，然後選擇包含您 Azure AD 租使用者的目錄，以確定您使用的是包含 Azure AD 租使用者的目錄。
+3. 選擇 Azure 入口網站左上角的 [所有服務]，然後搜尋並選取 [應用程式註冊]。
+4. 選取 [識別體驗架構 (預覽)]。
+5. 選取 [上傳自訂原則]，然後上傳您所變更的兩個原則檔案。
+2. 選取您上傳的註冊或登入原則，按一下 [立即執行] 按鈕。
 3. 您應該可以使用電子郵件地址註冊。
 
 註冊畫面看起來應該像這樣：
@@ -294,7 +294,7 @@ ms.locfileid: "67835211"
 }
 ```
 
-## <a name="optional-remove-email-verification"></a>選用：移除電子郵件驗證
+## <a name="optional-remove-email-verification"></a>選擇性：移除電子郵件驗證
 
 若要略過電子郵件驗證，您可以選擇移除 `PartnerClaimType="Verified.Email"`。 在此情況下，除非您移除 “Required” = true，否則電子郵件地址雖為必要項目，但不會進行驗證。  請仔細想清楚此選項是否適用於您的使用案例。
 

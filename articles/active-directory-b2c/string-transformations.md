@@ -10,24 +10,24 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: a06447aaa6579052285e7e2cd93bf40183ed173f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 83379cc194f23ebff977babc7124a7bc90f4bc60
+ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66512593"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71063449"
 ---
 # <a name="string-claims-transformations"></a>字串宣告轉換
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-此文章提供在 Azure Active Directory (Azure AD) B2C 中，使用識別體驗架構結構描述字串宣告轉換的範例。 如需詳細資訊，請參閱 [ClaimsTransformations](claimstransformations.md)。
+本文提供在 Azure Active Directory B2C （Azure AD B2C）中使用 Identity Experience Framework 架構之字串宣告轉換的範例。 如需詳細資訊，請參閱 [ClaimsTransformations](claimstransformations.md)。
 
-## <a name="assertstringclaimsareequal"></a>AssertStringClaimsAreEqual 
+## <a name="assertstringclaimsareequal"></a>AssertStringClaimsAreEqual
 
 比較兩個宣告，如果根據指定的比較 inputClaim1、inputClaim2 和 stringComparison 它們並不相等，即會擲回例外狀況。
 
-| Item | TransformationClaimType | 資料類型 | 注意 |
+| 項目 | TransformationClaimType | 資料類型 | 注意 |
 | ---- | ----------------------- | --------- | ----- |
 | inputClaim | inputClaim1 | string | 要比較的第一個宣告類型。 |
 | inputClaim | inputClaim2 | string | 要比較的第二個宣告類型。 |
@@ -37,7 +37,7 @@ ms.locfileid: "66512593"
 
 ![AssertStringClaimsAreEqual 執行](./media/string-transformations/assert-execution.png)
 
-您可以使用此宣告轉換來確定兩個 ClaimTypes 具有相同的值。 如果沒有，則會擲回錯誤訊息。 下列範例會檢查 **strongAuthenticationEmailAddress** ClaimType 等於 **email** ClaimType。 否則會擲回錯誤訊息。 
+您可以使用此宣告轉換來確定兩個 ClaimTypes 具有相同的值。 如果沒有，則會擲回錯誤訊息。 下列範例會檢查 **strongAuthenticationEmailAddress** ClaimType 等於 **email** ClaimType。 否則會擲回錯誤訊息。
 
 ```XML
 <ClaimsTransformation Id="AssertEmailAndStrongAuthenticationEmailAddressAreEqual" TransformationMethod="AssertStringClaimsAreEqual">
@@ -84,17 +84,17 @@ ms.locfileid: "66512593"
   - **stringComparison**：ordinalIgnoreCase
 - 結果︰擲回錯誤
 
-## <a name="changecase"></a>ChangeCase 
+## <a name="changecase"></a>ChangeCase
 
 根據運算子，將所提供宣告的大小寫變更為小寫或大寫字母。
 
-| Item | TransformationClaimType | 資料類型 | 注意 |
+| 項目 | TransformationClaimType | 資料類型 | 注意 |
 | ---- | ----------------------- | --------- | ----- |
 | InputClaim | inputClaim1 | string | 要變更的 ClaimType。 |
 | InputParameter | toCase | string | 下列其中一個值：`LOWER` 或 `UPPER`。 |
 | OutputClaim | outputClaim | string | 叫用此宣告轉換之後所產生的 ClaimType。 |
 
-使用此宣告轉換來將任何字串 ClaimType 變更為小寫或大寫字母。  
+使用此宣告轉換來將任何字串 ClaimType 變更為小寫或大寫字母。
 
 ```XML
 <ClaimsTransformation Id="ChangeToLower" TransformationMethod="ChangeCase">
@@ -119,11 +119,11 @@ ms.locfileid: "66512593"
 - 輸出宣告：
   - **email**：someone@contoso.com
 
-## <a name="createstringclaim"></a>CreateStringClaim 
+## <a name="createstringclaim"></a>CreateStringClaim
 
 從原則中提供的輸入參數建立字串宣告。
 
-| Item | TransformationClaimType | 資料類型 | 注意 |
+| 項目 | TransformationClaimType | 資料類型 | 注意 |
 |----- | ----------------------- | --------- | ----- |
 | InputParameter | value | string | 要設定的字串 |
 | OutputClaim | createdClaim | string | 叫用此宣告轉換之後所產生的 ClaimType，並含有輸入參數中指定的值。 |
@@ -152,11 +152,11 @@ ms.locfileid: "66512593"
 
 判斷某個字串宣告是否等於另一個。 結果是新的布林值 ClaimType 且含有 `true` 或 `false` 的值。
 
-| Item | TransformationClaimType | 資料類型 | 注意 |
+| 項目 | TransformationClaimType | 資料類型 | 注意 |
 | ---- | ----------------------- | --------- | ----- |
 | inputClaim | inputClaim1 | string | 要比較的第一個宣告類型。 |
 | inputClaim | inputClaim2 | string | 要比較的第二個宣告類型。 |
-| InputParameter | operator | string | 可能的值：`EQUAL` 或 `NOT EQUAL`。 |
+| InputParameter | 運算子 | string | 可能的值：`EQUAL` 或 `NOT EQUAL`。 |
 | InputParameter | ignoreCase | boolean | 指定這個比較是否應忽略要比較之字串的大小寫。 |
 | OutputClaim | outputClaim | boolean | 叫用此宣告轉換之後所產生的 ClaimType。 |
 
@@ -193,10 +193,10 @@ ms.locfileid: "66512593"
 
 判斷宣告值是否等於輸入參數值。
 
-| Item | TransformationClaimType | 資料類型 | 注意 |
+| 項目 | TransformationClaimType | 資料類型 | 注意 |
 | ---- | ----------------------- | --------- | ----- |
 | inputClaim | inputClaim1 | string | 要比較的宣告類型。 |
-| InputParameter | operator | string | 可能的值：`EQUAL` 或 `NOT EQUAL`。 |
+| InputParameter | 運算子 | string | 可能的值：`EQUAL` 或 `NOT EQUAL`。 |
 | InputParameter | compareTo | string | 字串比較，其中一個值：Ordinal、OrdinalIgnoreCase。 |
 | InputParameter | ignoreCase | boolean | 指定這個比較是否應忽略要比較之字串的大小寫。 |
 | OutputClaim | outputClaim | boolean | 叫用此宣告轉換之後所產生的 ClaimType。 |
@@ -224,7 +224,7 @@ ms.locfileid: "66512593"
     - **inputClaim1**：v1
 - 輸入參數：
     - **compareTo**：V1
-    - **運算子**：EQUAL 
+    - **運算子**：EQUAL
     - **ignoreCase**：true
 - 輸出宣告：
     - **outputClaim**：true
@@ -233,7 +233,7 @@ ms.locfileid: "66512593"
 
 使用隨機號碼產生器來建立隨機字串。 如果隨機號碼產生器的類型為 `integer`，可能會選擇性地提供種子參數和最大數。 選擇性的字串格式參數允許使用它來將輸出格式化，而選擇性的 base64 參數會指定輸出是否為 base64 編碼的 randomGeneratorType [guid, integer] outputClaim (字串)。
 
-| Item | TransformationClaimType | 資料類型 | 注意 |
+| 項目 | TransformationClaimType | 資料類型 | 注意 |
 | ---- | ----------------------- | --------- | ----- |
 | InputParameter | randomGeneratorType | string | 指定要產生的隨機值：`GUID` (全域唯一識別碼) 或 `INTEGER` (數字)。 |
 | InputParameter | stringFormat | string | [選擇性] 將隨機值格式化。 |
@@ -258,7 +258,7 @@ ms.locfileid: "66512593"
 
 - 輸入參數：
     - **randomGeneratorType**：GUID
-- 輸出宣告： 
+- 輸出宣告：
     - **outputClaim**：bc8bedd2-aaa3-411e-bdee-2f1810b73dfc
 
 下列範例會產生介於 0 到 1000 之間的整數隨機值。 此值會格式化為 OTP_{隨機值}。
@@ -284,7 +284,7 @@ ms.locfileid: "66512593"
     - **maximumNumber**：1000
     - **stringFormat**：OTP_{0}
     - **base64**：false
-- 輸出宣告： 
+- 輸出宣告：
     - **outputClaim**：OTP_853
 
 
@@ -292,13 +292,13 @@ ms.locfileid: "66512593"
 
 根據提供的格式字串來將宣告格式化。 此轉換會使用 C# `String.Format` 方法。
 
-| Item | TransformationClaimType | 資料類型 | 注意 |
+| 項目 | TransformationClaimType | 資料類型 | 注意 |
 | ---- | ----------------------- | --------- | ----- |
 | InputClaim | inputClaim |string |做為字串格式 {0} 參數的 ClaimType。 |
 | InputParameter | stringFormat | string | 字串格式，包括 {0} 參數。 |
 | OutputClaim | outputClaim | string | 叫用此宣告轉換之後所產生的 ClaimType。 |
 
-使用此宣告轉換，利用一個參數 {0} 來將任何字串格式化。 下列範例會建立 **userPrincipalName**。 所有社交識別提供者技術設定檔 (例如 `Facebook-OAUTH`) 會呼叫 **CreateUserPrincipalName** 來產生 **userPrincipalName**。   
+使用此宣告轉換，利用一個參數 {0} 來將任何字串格式化。 下列範例會建立 **userPrincipalName**。 所有社交識別提供者技術設定檔 (例如 `Facebook-OAUTH`) 會呼叫 **CreateUserPrincipalName** 來產生 **userPrincipalName**。
 
 ```XML
 <ClaimsTransformation Id="CreateUserPrincipalName" TransformationMethod="FormatStringClaim">
@@ -327,7 +327,7 @@ ms.locfileid: "66512593"
 
 根據提供的格式字串來將兩個宣告格式化。 此轉換會使用 C# **String.Format** 方法。
 
-| Item | TransformationClaimType | 資料類型 | 注意 |
+| 項目 | TransformationClaimType | 資料類型 | 注意 |
 | ---- | ----------------------- | --------- | ----- |
 | InputClaim | inputClaim |string | 做為字串格式 {0} 參數的 ClaimType。 |
 | InputClaim | inputClaim | string | 做為字串格式 {1} 參數的 ClaimType。 |
@@ -365,7 +365,7 @@ ms.locfileid: "66512593"
 
 從宣告 **Restriction** 集合查詢項目。
 
-| Item | TransformationClaimType | 資料類型 | 注意 |
+| 項目 | TransformationClaimType | 資料類型 | 注意 |
 | ---- | ----------------------- | --------- | ----- |
 | InputClaim | mapFromClaim | string | 包含要使用 **Restriction** 集合在 **restrictionValueClaim** 宣告中查詢之文字的宣告。  |
 | OutputClaim | restrictionValueClaim | string | 包含 **Restriction** 集合的宣告。 叫用宣告轉換之後，此宣告的值會包含所選取項目的值。 |
@@ -392,7 +392,7 @@ ms.locfileid: "66512593"
     <InputClaim ClaimTypeReferenceId="responseCode" TransformationClaimType="mapFromClaim" />
   </InputClaims>
   <OutputClaims>
-    <OutputClaim ClaimTypeReferenceId="responseMsg" TransformationClaimType="restrictionValueClaim" />         
+    <OutputClaim ClaimTypeReferenceId="responseMsg" TransformationClaimType="restrictionValueClaim" />        
   </OutputClaims>
 </ClaimsTransformation>
 ```
@@ -408,7 +408,7 @@ ms.locfileid: "66512593"
 
 根據另一個宣告的值，從值清單中查詢某個宣告值。
 
-| Item | TransformationClaimType | 資料類型 | 注意 |
+| 項目 | TransformationClaimType | 資料類型 | 注意 |
 | ---- | ----------------------- | --------- | ----- |
 | InputClaim | inputParameterId | string | 包含查閱值的宣告 |
 | InputParameter | |string | InputParameters 的集合。 |
@@ -431,7 +431,7 @@ ms.locfileid: "66512593"
   <OutputClaims>
     <OutputClaim ClaimTypeReferenceId="domainAppId" TransformationClaimType="outputClaim" />
   </OutputClaims>
-</ClaimsTransformation> 
+</ClaimsTransformation>
 ```
 
 ### <a name="example"></a>範例
@@ -450,7 +450,7 @@ ms.locfileid: "66512593"
 
 清除指定宣告的值。
 
-| Item | TransformationClaimType | 資料類型 | 注意 |
+| 項目 | TransformationClaimType | 資料類型 | 注意 |
 | ---- | ----------------------- | --------- | ----- |
 | OutputClaim | claim_to_null | string | 值為 NULL 的宣告。 |
 
@@ -473,7 +473,7 @@ ms.locfileid: "66512593"
 
 取得電子郵件地址的網域部分。
 
-| Item | TransformationClaimType | 資料類型 | 注意 |
+| 項目 | TransformationClaimType | 資料類型 | 注意 |
 | ---- | ----------------------- | --------- | ----- |
 | InputClaim | emailAddress | string | 包含電子郵件地址的 ClaimType。 |
 | OutputClaim | 網域 | string | 叫用此宣告轉換之後所產生的 ClaimType - 網域。 |
@@ -502,7 +502,7 @@ ms.locfileid: "66512593"
 
 檢查宣告字串和 `matchTo` 輸入參數相等，並使用 `stringMatchMsg` 和 `stringMatchMsgCode` 輸入參數中存在的值來設定輸出宣告，以及比較結果輸出宣告，其會根據比較的結果設定為 `true` 或 `false`。
 
-| Item | TransformationClaimType | 資料類型 | 注意 |
+| 項目 | TransformationClaimType | 資料類型 | 注意 |
 | ---- | ----------------------- | --------- | ----- |
 | inputClaim | inputClaim | string | 要比較的宣告類型。 |
 | InputParameter | matchTo | string | 要與 `inputClaim` 比較的字串。 |
@@ -513,7 +513,7 @@ ms.locfileid: "66512593"
 | OutputClaim | outputClaim2 | string | 如果字串相等，此輸出宣告會包含 `stringMatchMsgCode` 輸入參數的值。 |
 | OutputClaim | stringCompareResultClaim | boolean | 比較結果輸出宣告類型，其會根據比較的結果設定為 `true` 或 `false`。 |
 
-您可以使用此宣告轉換來檢查某個宣告是否等於您指定的值。 例如，下列宣告轉換會檢查 **termsOfUseConsentVersion** 宣告的值是否等於 `v1`。 如果是，將值變更為 `v2`。 
+您可以使用此宣告轉換來檢查某個宣告是否等於您指定的值。 例如，下列宣告轉換會檢查 **termsOfUseConsentVersion** 宣告的值是否等於 `v1`。 如果是，將值變更為 `v2`。
 
 ```XML
 <ClaimsTransformation Id="CheckTheTOS" TransformationMethod="SetClaimsIfStringsAreEqual">
@@ -539,7 +539,7 @@ ms.locfileid: "66512593"
     - **inputClaim**：v1
 - 輸入參數：
     - **matchTo**：V1
-    - **stringComparison**：ordinalIgnoreCase 
+    - **stringComparison**：ordinalIgnoreCase
     - **stringMatchMsg**：B2C_V1_90005
     - **stringMatchMsgCode**：TOS 會升級到 v2
 - 輸出宣告：
@@ -551,7 +551,7 @@ ms.locfileid: "66512593"
 
 檢查宣告字串和 `matchTo` 輸入參數相等，並使用 `outputClaimIfMatched` 輸入參數中存在的值來設定輸出宣告，以及比較結果輸出宣告，其會根據比較的結果設定為 `true` 或 `false`。
 
-| Item | TransformationClaimType | 資料類型 | 注意 |
+| 項目 | TransformationClaimType | 資料類型 | 注意 |
 | ---- | ----------------------- | --------- | ----- |
 | inputClaim | claimToMatch | string | 要比較的宣告類型。 |
 | InputParameter | matchTo | string | 要與 inputClaim 比較的字串。 |
@@ -560,7 +560,7 @@ ms.locfileid: "66512593"
 | OutputClaim | outputClaim | string | 如果字串相等，此輸出宣告會包含 `outputClaimIfMatched` 輸入參數的值。 或者，如果字串不符，則為 Null。 |
 | OutputClaim | stringCompareResultClaim | boolean | 比較結果輸出宣告類型，其會根據比較的結果設定為 `true` 或 `false`。 |
 
-例如，下列宣告轉換會檢查 **ageGroup** 宣告的值是否等於 `Minor`。 如果是，會將值傳回到 `B2C_V1_90001`。 
+例如，下列宣告轉換會檢查 **ageGroup** 宣告的值是否等於 `Minor`。 如果是，會將值傳回到 `B2C_V1_90001`。
 
 ```XML
 <ClaimsTransformation Id="SetIsMinor" TransformationMethod="SetClaimsIfStringsMatch">
@@ -585,7 +585,7 @@ ms.locfileid: "66512593"
     - **claimToMatch**：Minor
 - 輸入參數：
     - **matchTo**：Minor
-    - **stringComparison**：ordinalIgnoreCase 
+    - **stringComparison**：ordinalIgnoreCase
     - **outputClaimIfMatched**：B2C_V1_90001
 - 輸出宣告：
     - **isMinorResponseCode**：B2C_V1_90001

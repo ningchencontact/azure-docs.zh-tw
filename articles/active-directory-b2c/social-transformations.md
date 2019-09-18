@@ -10,18 +10,18 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 37fe192e83c946089e2374f24ae10a756134e45a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a25c5fed4fd88866f46a9ca254213cae5db893a4
+ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66807864"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71063593"
 ---
 # <a name="social-accounts-claims-transformations"></a>社交帳戶宣告轉換
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-在 Azure Active Directory (Azure AD) B2C 中，社交帳戶識別儲存在 **alternativeSecurityIdCollection** 宣告類型的 `userIdentities` 屬性中。 **alternativeSecurityIdCollection** 中的每個項目會指定簽發者 (識別提供者名稱，例如 facebook.com)，以及 `issuerUserId`，這是簽發者的唯一使用者識別碼。
+在 Azure Active Directory B2C （Azure AD B2C）中，社交帳戶身分識別會儲存`userIdentities`在**alternativeSecurityIdCollection**宣告類型的屬性中。 **alternativeSecurityIdCollection** 中的每個項目會指定簽發者 (識別提供者名稱，例如 facebook.com)，以及 `issuerUserId`，這是簽發者的唯一使用者識別碼。
 
 ```JSON
 "userIdentities": [{
@@ -40,7 +40,7 @@ ms.locfileid: "66807864"
 
 建立使用者 alternativeSecurityId 屬性的 JSON 表示法，該屬性可用於對 Azure Active Directory 進行呼叫。 如需詳細資訊，請參閱 [AlternativeSecurityId's schema](/previous-versions/azure/ad/graph/api/entity-and-complex-type-reference#alternativesecurityid-type)。
 
-| Item | TransformationClaimType | 資料類型 | 注意 |
+| 項目 | TransformationClaimType | 資料類型 | 注意 |
 | ---- | ----------------------- | --------- | ----- |
 | InputClaim | key | string | 此 ClaimType 可指定社交識別提供者所使用的唯一使用者識別碼。 |
 | InputClaim | identityProvider | string | 此 ClaimType 可指定社交帳戶識別提供者名稱，例如 facebook.com。 |
@@ -72,7 +72,7 @@ ms.locfileid: "66807864"
 
 將 `AlternativeSecurityId` 加入 `alternativeSecurityIdCollection` 宣告。
 
-| Item | TransformationClaimType | 資料類型 | 注意 |
+| 項目 | TransformationClaimType | 資料類型 | 注意 |
 | ---- | ----------------------- | --------- | ----- |
 | InputClaim | item | string | 要新增至輸出宣告的 ClaimType。 |
 | InputClaim | collection | alternativeSecurityIdCollection | 宣告轉換使用的 ClaimTypes (如果在原則中可用)。 如果已提供，則宣告轉換會在集合結尾加入 `item`。 |
@@ -109,7 +109,7 @@ ms.locfileid: "66807864"
 
 將 **alternativeSecurityIdCollection** 宣告的簽發者清單傳回至新的 **stringCollection** 宣告。
 
-| Item | TransformationClaimType | 資料類型 | 注意 |
+| 項目 | TransformationClaimType | 資料類型 | 注意 |
 | ---- | ----------------------- | --------- | ----- |
 | InputClaim | alternativeSecurityIdCollection | alternativeSecurityIdCollection | 用於取得識別提供者 (簽發者) 清單的 ClaimType。 |
 | OutputClaim | identityProvidersCollection | stringCollection | 叫用此 ClaimsTransformation 之後所產生的 ClaimType。 與 alternativeSecurityIdCollection 輸入宣告相關聯的識別提供者清單 |
@@ -136,7 +136,7 @@ ms.locfileid: "66807864"
 
 將 **AlternativeSecurityId** 從 **alternativeSecurityIdCollection** 宣告中移除。
 
-| Item | TransformationClaimType | 資料類型 | 注意 |
+| 項目 | TransformationClaimType | 資料類型 | 注意 |
 | ---- | ----------------------- | --------- | ----- |
 | InputClaim | identityProvider | string | 包含要從集合中移除之識別提供者名稱的 ClaimType。 |
 | InputClaim | collection | alternativeSecurityIdCollection | 宣告轉換所使用的 ClaimType。 宣告轉換會將 identityProvider 從集合中移除。 |

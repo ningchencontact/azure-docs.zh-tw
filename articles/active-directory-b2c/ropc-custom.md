@@ -10,18 +10,18 @@ ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: d01e8ce894bfb1ece3555eddc714d2d3a80e44b5
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: 414dc4e69fda8ccd79b5a48b19bccee35bd11a45
+ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "67164842"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71063696"
 ---
 # <a name="configure-the-resource-owner-password-credentials-flow-in-azure-active-directory-b2c-using-a-custom-policy"></a>在 Azure Active Directory B2C 中使用自訂原則來設定資源擁有者密碼認證流程
 
 [!INCLUDE [active-directory-b2c-public-preview](../../includes/active-directory-b2c-public-preview.md)]
 
-在 Azure Active Directory (Azure AD) B2C 中，資源擁有者密碼認證 (ROPC) 流程是一個 OAuth 標準驗證流程。 在此流程中，應用程式 (也稱為信賴憑證者) 會以有效的認證交換權杖。 認證包含使用者識別碼和密碼。 傳回的權杖為識別碼權杖、存取權杖及重新整理權杖。
+在 Azure Active Directory B2C （Azure AD B2C）中，資源擁有者密碼認證（ROPC）流程是一項 OAuth 標準驗證流程。 在此流程中，應用程式 (也稱為信賴憑證者) 會以有效的認證交換權杖。 認證包含使用者識別碼和密碼。 傳回的權杖為識別碼權杖、存取權杖及重新整理權杖。
 
 以下是 ROPC 流程中支援的選項：
 
@@ -42,12 +42,12 @@ ms.locfileid: "67164842"
 ## <a name="register-an-application"></a>註冊應用程式
 
 1. 登入 [Azure 入口網站](https://portal.azure.com/)。
-2. 按一下頂端功能表中的 [目錄和訂用帳戶]  篩選，然後選擇包含您租用戶的目錄，以確定您使用的是包含 Azure AD B2C 租用戶的目錄。
-3. 選擇 Azure 入口網站左上角的 [所有服務]  ，然後搜尋並選取 [Azure AD B2C]  。
-4. 選取 [應用程式]  ，然後選取 [新增]  。
-5. 輸入應用程式的名稱，例如 ROPC_Auth_app  。
-6. 針對 [Web 應用程式/Web API]  選取 [否]  ，然後針對 [原生用戶端]  選取 [是]  。
-7. 保留所有其他值，然後選取 [建立]  。
+2. 請選取頂端功能表中的 [**目錄 + 訂**用帳戶] 篩選，然後選擇包含您租使用者的目錄，以確定您使用的是包含 Azure AD B2C 租使用者的目錄。
+3. 選擇 Azure 入口網站左上角的 [所有服務]，然後搜尋並選取 [Azure AD B2C]。
+4. 選取 [應用程式]，然後選取 [新增]。
+5. 輸入應用程式的名稱，例如 ROPC_Auth_app。
+6. 針對 [Web 應用程式/Web API] 選取 [否]，然後針對 [原生用戶端] 選取 [是]。
+7. 保留所有其他值，然後選取 [建立]。
 8. 選取新的應用程式，並記錄「應用程式識別碼」以供稍後使用。
 
 ##  <a name="create-a-resource-owner-policy"></a>建立資源擁有者原則
@@ -88,7 +88,7 @@ ms.locfileid: "67164842"
           <OutputClaim ClaimTypeReferenceId="sub" TransformationClaimType="createdClaim" />
         </OutputClaims>
       </ClaimsTransformation>
-    
+
       <ClaimsTransformation Id="AssertRefreshTokenIssuedLaterThanValidFromDate" TransformationMethod="AssertDateTimeIsGreaterThan">
         <InputClaims>
           <InputClaim ClaimTypeReferenceId="refreshTokenIssuedOnDateTime" TransformationClaimType="leftOperand" />
@@ -140,7 +140,7 @@ ms.locfileid: "67164842"
     </TechnicalProfile>
     ```
 
-    取代**DefaultValue**的**client_id** ProxyIdentityExperienceFramework 應用程式在必要的教學課程中所建立的應用程式識別碼。 然後取代**DefaultValue**的**resource_id** IdentityExperienceFramework 應用程式，也會建立必要的教學課程中的應用程式識別碼。  
+    以您在必要條件教學課程中所建立之 ProxyIdentityExperienceFramework 應用程式的應用程式識別碼取代**client_id**的**DefaultValue** 。 然後使用您在必要條件教學課程中所建立之 IdentityExperienceFramework 應用程式的應用程式識別碼，取代**resource_id**的**DefaultValue** 。
 
 5. 將下列 **ClaimsProvider** 元素及其技術設定檔一起新增至 **ClaimsProviders** 元素：
 
@@ -233,9 +233,9 @@ ms.locfileid: "67164842"
     </UserJourney>
     ```
 
-7. 在 Azure AD B2C 租用戶的 [自訂原則]  頁面上，選取 [上傳原則]  。
-8. 啟用 [覆寫現有的原則]  ，然後瀏覽並選取 *TrustFrameworkExtensions.xml* 檔案。
-9. 按一下 [上傳]  。
+7. 在 Azure AD B2C 租用戶的 [自訂原則] 頁面上，選取 [上傳原則]。
+8. 啟用 [覆寫現有的原則]，然後瀏覽並選取 *TrustFrameworkExtensions.xml* 檔案。
+9. 按一下 [上傳]。
 
 ## <a name="create-a-relying-party-file"></a>建立信賴憑證者檔案
 
@@ -245,7 +245,7 @@ ms.locfileid: "67164842"
 2. 開啟新檔案，然後將 **TrustFrameworkPolicy** 的 **PolicyId** 屬性值變更成唯一值。 原則識別碼是您原則的名稱。 例如 **B2C_1A_ROPC_Auth**。
 3. 將 **DefaultUserJourney** 中的 **ReferenceId** 屬性值變更成 `ResourceOwnerPasswordCredentials`。
 4. 將 **OutputClaims** 元素變更成只包含下列宣告：
-    
+
     ```XML
     <OutputClaim ClaimTypeReferenceId="sub" />
     <OutputClaim ClaimTypeReferenceId="objectId" />
@@ -254,9 +254,9 @@ ms.locfileid: "67164842"
     <OutputClaim ClaimTypeReferenceId="surname" DefaultValue="" />
     ```
 
-5. 在 Azure AD B2C 租用戶的 [自訂原則]  頁面上，選取 [上傳原則]  。
-6. 啟用**覆寫的原則，如果存在的話**，然後瀏覽至並選取*ROPC_Auth.xml*檔案。
-7. 按一下 [上傳]  。
+5. 在 Azure AD B2C 租用戶的 [自訂原則] 頁面上，選取 [上傳原則]。
+6. 啟用 **[覆寫原則] （如果有**的話），然後流覽至並選取*ROPC_Auth*檔案。
+7. 按一下 [上傳]。
 
 ## <a name="test-the-policy"></a>測試原則
 

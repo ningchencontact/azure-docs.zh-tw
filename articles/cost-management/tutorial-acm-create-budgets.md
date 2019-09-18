@@ -10,18 +10,18 @@ ms.topic: conceptual
 ms.service: cost-management
 manager: adwise
 ms.custom: seodec18
-ms.openlocfilehash: 59ae3b587751bd4af2c9e5ab0abefb8a5c3bf8e6
-ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
+ms.openlocfilehash: 0cae5166fbbba650b270829b9c8e3711b12a574e
+ms.sourcegitcommit: 8ef0a2ddaece5e7b2ac678a73b605b2073b76e88
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70843930"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71073942"
 ---
 # <a name="tutorial-create-and-manage-azure-budgets"></a>教學課程：建立和管理 Azure 預算
 
 成本管理中的預算可協助您進行規劃並促進組織責任歸屬。 透過預算，您可以說明您在特定期間所取用或訂閱的 Azure 服務。 它們可協助您通知其他人其費用的相關資訊以主動管理成本，並監視費用在經過一段時間的進展方式。 當超過您所建立的預算閾值時，只會觸發通知。 您的資源都會不受到影響，而您的使用量並不會停止。 當您分析成本時，您可以使用預算來比較及追蹤費用。
 
-每月預算將根據每四個小時的支出進行評估。 不過，已取用資源的資料會在八小時內提供。 當達到預算閾值時，通常會在12小時內收到電子郵件通知。 
+成本和使用方式資料通常會在8-12 小時內提供，而預算會每四小時評估一次這些成本。 通常會在12-16 小時內收到電子郵件通知。
 
 當您在未來選取到期日時，預算會在期間 (每月、每季或每年) 結束時自動重設相同的預算金額。 因為它們會使用相同的預算金額重設，所以，在預算的貨幣金額與未來期間不同時您需要另外建立預算。
 
@@ -30,7 +30,7 @@ ms.locfileid: "70843930"
 觀看[如何建立預算以透過 Azure 成本管理影片監視您的支出](https://www.youtube.com/watch?v=ExIVG_Gr45A)，以瞭解如何在 Azure 中建立預算來監視支出。
 
 
-在本教學課程中，您了解如何：
+在本教學課程中，您會了解如何：
 
 > [!div class="checklist"]
 > * 在 Azure 入口網站中建立預算

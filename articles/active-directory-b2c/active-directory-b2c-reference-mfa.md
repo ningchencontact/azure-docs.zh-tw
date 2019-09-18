@@ -10,16 +10,16 @@ ms.topic: conceptual
 ms.date: 11/30/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: a14c648e55c25c6244f1ba09d5b73bf31e5f7337
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 0b872fcfbc2ead2cebdd32ff718b582c13af314e
+ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66509305"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71065571"
 ---
 # <a name="enable-multi-factor-authentication-in-azure-active-directory-b2c"></a>在 Azure Active Directory B2C 中啟用多重要素驗證 | Microsoft Docs
 
-Azure Active Directory (Azure AD) B2C 直接整合 [Azure Multi-Factor Authentication](../active-directory/authentication/multi-factor-authentication.md)，讓您能夠針對應用程式的註冊與登入使用體驗，增添第二層安全性。 您不需要撰寫單一行程式碼，即可啟用多重要素驗證。 如果您已經建立註冊和登入使用者流程，仍然可以啟用多重要素驗證。
+Azure Active Directory B2C （Azure AD B2C）直接與[Azure 多重要素驗證](../active-directory/authentication/multi-factor-authentication.md)整合，讓您可以為應用程式中的註冊和登入體驗增加第二層安全性。 您不需要撰寫單一行程式碼，即可啟用多重要素驗證。 如果您已經建立註冊和登入使用者流程，仍然可以啟用多重要素驗證。
 
 此功能可協助應用程式處理諸如下列的各種案例：
 
@@ -32,20 +32,20 @@ Azure Active Directory (Azure AD) B2C 直接整合 [Azure Multi-Factor Authentic
 
 ![設定多重要素驗證](./media/active-directory-b2c-reference-mfa/add-policy.png)
 
-將 [多重要素驗證]  設定為 [已啟用]  。
+將 [多重要素驗證] 設定為 [已啟用]。
 
-您可以使用 [執行使用者流程]  來驗證體驗。 請確認下列狀況：
+您可以使用 [執行使用者流程] 來驗證體驗。 請確認下列狀況：
 
 在進行多重要素驗證步驟之前，已在租用戶中建立客戶帳戶。 在步驟執行過程中，系統會要求客戶提供電話號碼進行驗證。 若驗證成功，會將電話號碼附加至帳戶以供之後使用。 即使客戶取消或卸除，下次登入時系統可能會要求客戶再度驗證電話號碼 (已啟用多重要素驗證)。
 
 ## <a name="add-multi-factor-authentication"></a>新增多重要素驗證
 
-您可以在先前建立的使用者流程上啟用多重要素驗證。 
+您可以在先前建立的使用者流程上啟用多重要素驗證。
 
 啟用多重要素驗證：
 
-1. 選取使用者流程，然後選取 [屬性]  。 
-2. 選取 [多重要素驗證]  旁邊的 [已啟用]  。
-3. 按一下頁面頂端的 [儲存]  。
+1. 選取使用者流程，然後選取 [屬性]。
+2. 選取 [多重要素驗證] 旁邊的 [已啟用]。
+3. 按一下頁面頂端的 [儲存]。
 
 

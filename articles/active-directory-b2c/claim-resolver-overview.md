@@ -10,20 +10,20 @@ ms.topic: reference
 ms.date: 01/25/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: a13d4b0b44c51f78a068b1619fe083a08756af6b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f08c85cee2378f4a879daf197af7a2adf0c20f45
+ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66511597"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71064406"
 ---
 # <a name="about-claim-resolvers-in-azure-active-directory-b2c-custom-policies"></a>關於 Azure Active Directory B2C 自訂原則中的宣告解析程式
 
-Azure Active Directory (Azure AD) B2C[自訂原則](active-directory-b2c-overview-custom.md)中的宣告解析程式可提供關於授權要求的內容資訊，例如原則名稱、要求相互關聯識別碼、使用者介面語言等等。
+Azure Active Directory B2C （Azure AD B2C）[自訂原則](active-directory-b2c-overview-custom.md)中的宣告解析程式會提供有關授權要求的內容資訊，例如原則名稱、要求相互關聯識別碼、使用者介面語言等等。
 
-若要在輸入或輸出宣告中使用宣告解析程式，您必須在 [ClaimsSchema](claimsschema.md) 元素下方定義字串 **ClaimType**，然後在輸入或輸出宣告元素中設定宣告解析程式的 **DefaultValue**。 Azure AD B2C 會讀取宣告解析程式的值，並在技術設定檔中使用該值。 
+若要在輸入或輸出宣告中使用宣告解析程式，您必須在 [ClaimsSchema](claimsschema.md) 元素下方定義字串 **ClaimType**，然後在輸入或輸出宣告元素中設定宣告解析程式的 **DefaultValue**。 Azure AD B2C 會讀取宣告解析程式的值，並在技術設定檔中使用該值。
 
-在下列範例中，會定義名為 `correlationId`、**DataType** 為 `string` 的宣告類型。  
+在下列範例中，會定義名為 `correlationId`、**DataType** 為 `string` 的宣告類型。
 
 ```XML
 <ClaimType Id="correlationId">
@@ -47,7 +47,7 @@ Azure Active Directory (Azure AD) B2C[自訂原則](active-directory-b2c-overvie
 
 | 宣告 | 描述 | 範例 |
 | ----- | ----------- | --------|
-| {Culture:LanguageName} | 語言的雙字母 ISO 代碼。 | en |
+| {Culture:LanguageName} | 語言的雙字母 ISO 代碼。 | zh-TW |
 | {Culture:LCID}   | 語言代碼的 LCID。 | 1033 |
 | {Culture:RegionName} | 區域的雙字母 ISO 代碼。 | US |
 | {Culture:RFC5646} | RFC5646 語言代碼。 | en-US |
@@ -75,14 +75,14 @@ Azure Active Directory (Azure AD) B2C[自訂原則](active-directory-b2c-overvie
 | {OIDC:Resource} |`resource` 查詢字串參數。 | N/A |
 | {OIDC:scope} |`scope` 查詢字串參數。 | openid |
 
-### <a name="context"></a>Context
+### <a name="context"></a>內容
 
 | 宣告 | 描述 | 範例 |
 | ----- | ----------- | --------|
 | {Context:BuildNumber} | 身分識別體驗架構版本 (組建編號)。  | 1.0.507.0 |
 | {Context:CorrelationId} | 相互關連識別碼。  | 00000000-0000-0000-0000-000000000000 |
 | {Context:DateTimeInUtc} |日期時間 (UTC)。  | 10/10/2018 12:00:00 PM |
-| {Context:DeploymentMode} |原則部署模式。  | Production |
+| {Context:DeploymentMode} |原則部署模式。  | 生產 |
 | {Context:IPAddress} | 使用者 IP 位址。 | 11.111.111.11 |
 
 
@@ -107,7 +107,7 @@ OIDC 或 OAuth2 要求中所包含的任何參數名稱均可對應至使用者�
 
 ### <a name="restful-technical-profile"></a>RESTful 技術設定檔
 
-在 [RESTful](restful-technical-profile.md) 技術設定檔中，您可以傳送使用者語言、原則名稱、範圍和用戶端識別碼。 REST API 可根據這些宣告執行自訂商務邏輯，並在必要時引發當地語系化的錯誤訊息。 
+在 [RESTful](restful-technical-profile.md) 技術設定檔中，您可以傳送使用者語言、原則名稱、範圍和用戶端識別碼。 REST API 可根據這些宣告執行自訂商務邏輯，並在必要時引發當地語系化的錯誤訊息。
 
 下列範例顯示的是 RESTful 技術設定檔：
 

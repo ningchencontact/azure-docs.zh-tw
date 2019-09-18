@@ -10,18 +10,18 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 246e00418c784ee463170d78543e4a9aae3d7da8
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 5ae30b316133b7479b66a69a3467497a7151dbc8
+ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66509061"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71065385"
 ---
 # <a name="single-sign-on-session-management-in-azure-active-directory-b2c"></a>Azure Active Directory B2C 中的單一登入工作階段管理
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-使用者已通過驗證後，Azure Active Directory (Azure AD) B2C 中的單一登入 (SSO) 工作階段管理可讓系統管理員控制與使用者之間的互動。 例如，系統管理員可以控制是否顯示選取的身分識別提供者，或是否需要再輸入一次本機帳戶詳細資料。 本文說明如何設定 Azure AD B2C 的 SSO 設定。
+Azure Active Directory B2C （Azure AD B2C）中的單一登入（SSO）會話管理可讓系統管理員在使用者已通過驗證後，控制與使用者的互動。 例如，系統管理員可以控制是否顯示選取的身分識別提供者，或是否需要再輸入一次本機帳戶詳細資料。 本文說明如何設定 Azure AD B2C 的 SSO 設定。
 
 SSO 工作階段管理有兩個部分。 第一個是處理使用者與 Azure AD B2C 的直接互動，另一個則是處理使用者與外部合作對象 (例如 Facebook) 的互動。 Azure AD B2C 不會覆寫或略過外部合作對象可能保留的 SSO 工作階段。 會「記住」透過 Azure AD B2C 到達外部合作對象的路徑，這樣就不需要重新提示使用者選取其社交或企業身分識別提供者。 最終 SSO 決策是由外部合作對象所決定。
 
@@ -63,7 +63,7 @@ SSO 管理類別是使用技術設定檔的 `<UseTechnicalProfileForSessionManag
 
 ## <a name="externalloginssosessionprovider"></a>ExternalLoginSSOSessionProvider
 
-此提供者用來隱藏「選擇身分識別提供者」畫面。 它通常是在針對外部身分識別提供者 (例如 Facebook) 所設定的技術設定檔中所參照。 
+此提供者用來隱藏「選擇身分識別提供者」畫面。 它通常是在針對外部身分識別提供者 (例如 Facebook) 所設定的技術設定檔中所參照。
 
 ```XML
 <TechnicalProfile Id="SM-SocialLogin">
@@ -89,7 +89,7 @@ SSO 管理類別是使用技術設定檔的 `<UseTechnicalProfileForSessionManag
 
 技術設定檔中有兩個中繼資料項目：
 
-| Item | Default Value | 可能的值 | 描述
+| 項目 | Default Value | 可能的值 | 描述
 | --- | --- | --- | --- |
 | IncludeSessionIndex | true | true/false | 指出應該儲存工作階段索引的提供者。 |
 | RegisterServiceProviders | true | true/false | 指出提供者應該註冊所有已發行判斷提示的 SAML 服務提供者。 |

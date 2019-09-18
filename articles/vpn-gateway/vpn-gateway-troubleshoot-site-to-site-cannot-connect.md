@@ -4,7 +4,7 @@ description: 了解如何針對突然停止運作且無法重新連線的站對�
 services: vpn-gateway
 documentationcenter: na
 author: chadmath
-manager: cshepard
+manager: dcscontentpm
 editor: ''
 tags: ''
 ms.service: vpn-gateway
@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/30/2018
+ms.date: 09/16/2019
 ms.author: genli
-ms.openlocfilehash: 3919243569035be41293ddc97c76a9f964cda7cc
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e196c4b512de3fac97347e4c252b697ed6818227
+ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64688507"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71058863"
 ---
 # <a name="troubleshooting-an-azure-site-to-site-vpn-connection-cannot-connect-and-stops-working"></a>疑難排解：Azure 站對站 VPN 連線無法連線並停止運作
 
@@ -37,7 +37,7 @@ ms.locfileid: "64688507"
 
 1. 移至 [Azure 入口網站](https://portal.azure.com)。
 
-2. 檢查 VPN 閘道的 [概觀]  頁面來取得類型資訊。
+2. 檢查 VPN 閘道的 [概觀] 頁面來取得類型資訊。
     
     ![閘道概觀](media/vpn-gateway-troubleshoot-site-to-site-cannot-connect/gatewayoverview.png)
 
@@ -57,7 +57,7 @@ ms.locfileid: "64688507"
 
 1. 移至您建立的 VPN 閘道站對站連線。
 
-2. 在 [設定]  區段中，按一下 [共用金鑰]  。
+2. 在 [設定] 區段中，按一下 [共用金鑰]。
     
     ![共用金鑰](media/vpn-gateway-troubleshoot-site-to-site-cannot-connect/sharedkey.png)
 
@@ -75,7 +75,7 @@ ms.locfileid: "64688507"
 
 ### <a name="step-3-verify-the-vpn-peer-ips"></a>步驟 3. 確認 VPN 對等互連 IP
 
--   Azure 中「區域網路閘道」  物件內的 IP 定義應與內部部署裝置 IP 相符合。
+-   Azure 中「區域網路閘道」物件內的 IP 定義應與內部部署裝置 IP 相符合。
 -   內部部署裝置上設定的 Azure 閘道 IP 定義應與 Azure 閘道 IP 相符合。
 
 ### <a name="step-4-check-udr-and-nsgs-on-the-gateway-subnet"></a>步驟 4. 檢查閘道子網路上的 UDR 和 NSG

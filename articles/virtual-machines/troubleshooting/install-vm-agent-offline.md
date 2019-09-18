@@ -4,7 +4,7 @@ description: 了解如何在離線模式安裝 Azure VM 代理程式。
 services: virtual-machines-windows
 documentationcenter: ''
 author: genlin
-manager: gwallace
+manager: dcscontentpm
 editor: ''
 tags: azure-resource-manager
 ms.service: virtual-machines-windows
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: article
 ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: 018f27999c4f69c0868e2a8fde6535346c7d0377
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 438143d3253f1cab1afb958a90f427dcba59a98e
+ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70090353"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71059244"
 ---
 # <a name="install-the-azure-virtual-machine-agent-in-offline-mode"></a>在離線模式安裝 Azure 虛擬機器代理程式 
 
@@ -37,7 +37,7 @@ Azure 虛擬機器代理程式 (VM 代理程式) 提供有用的功能，例如�
 
 ### <a name="step-1-attach-the-os-disk-of-the-vm-to-another-vm-as-a-data-disk"></a>步驟 1：將 VM 的 OS 磁碟附加至另一個 VM 當做資料磁碟
 
-1. 取得受影響 VM 的 OS 磁片快照集、從快照集建立磁片, 然後將磁片連結至疑難排解 VM。 如需詳細資訊, 請參閱[使用 Azure 入口網站將 OS 磁片連接至復原 VM, 以針對 WINDOWS VM 進行疑難排解](troubleshoot-recovery-disks-portal-windows.md)。 若為傳統 VM, 請刪除 VM 並保留 OS 磁片, 然後將 OS 磁片連結至疑難排解 VM。
+1. 取得受影響 VM 的 OS 磁片快照集、從快照集建立磁片，然後將磁片連結至疑難排解 VM。 如需詳細資訊，請參閱[使用 Azure 入口網站將 OS 磁片連接至復原 VM，以針對 WINDOWS VM 進行疑難排解](troubleshoot-recovery-disks-portal-windows.md)。 若為傳統 VM，請刪除 VM 並保留 OS 磁片，然後將 OS 磁片連結至疑難排解 VM。
 
 2.  連接至疑難排解 VM。 開啟 [電腦管理]  > [磁碟管理]。 確認 OS 磁碟在線上，且已指派磁碟分割的磁碟機代號。
 
@@ -45,7 +45,7 @@ Azure 虛擬機器代理程式 (VM 代理程式) 提供有用的功能，例如�
 
 1.  建立與虛擬機器 VM 的遠端桌面連線。
 
-2.  在疑難排解員 VM 中, 流覽至您連接的 OS 磁片, 開啟 [\windows\system32\config] 資料夾。 複製此資料夾中的所有檔案作為備份，以在需要復原時使用。
+2.  在疑難排解員 VM 中，流覽至您連接的 OS 磁片，開啟 [\windows\system32\config] 資料夾。 複製此資料夾中的所有檔案作為備份，以在需要復原時使用。
 
 3.  啟動 [登錄編輯器] (regedit.exe)。
 
@@ -98,7 +98,7 @@ Azure 虛擬機器代理程式 (VM 代理程式) 提供有用的功能，例如�
 
 10.  選取 [BROKENSOFTWARE]。 在功能表上，選取 [檔案] >  **[上傳 Hive]** 。
 
-11.  卸離 OS 磁片, 然後[變更受影響 VM 的 os 磁片](troubleshoot-recovery-disks-portal-windows.md#swap-the-os-disk-for-the-vm)。 若為傳統 VM, 請使用已修復的 OS 磁片來建立新的 VM。
+11.  卸離 OS 磁片，然後[變更受影響 VM 的 os 磁片](troubleshoot-recovery-disks-portal-windows.md#swap-the-os-disk-for-the-vm)。 若為傳統 VM，請使用已修復的 OS 磁片來建立新的 VM。
 
 12.  存取 VM。 請注意 RdAgent 正在執行，並且正在產生記錄。
 

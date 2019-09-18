@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/25/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 4c13c0b7601257c120c46ec341156a8e8bba332f
-ms.sourcegitcommit: fbea2708aab06c19524583f7fbdf35e73274f657
+ms.openlocfilehash: da9ab6eef98a602635e5e92dca3bd5628846ce62
+ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/13/2019
-ms.locfileid: "70967777"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71036340"
 ---
 # <a name="planning-for-an-azure-files-deployment"></a>規劃 Azure 檔案服務部署
 
@@ -95,7 +95,7 @@ Azure 備份適用于 premium 檔案共用, Azure Kubernetes Service 支援1.13 
 目前, 您無法直接在標準檔案共用和 premium 檔案共用之間轉換。 如果您想要切換至任一層, 您必須在該階層中建立新的檔案共用, 並手動將資料從原始共用複製到您建立的新共用。 您可以使用任何 Azure 檔案儲存體支援的複製工具 (例如 Robocopy 或 AzCopy) 來執行這項操作。
 
 > [!IMPORTANT]
-> Premium 檔案共用僅適用于 LRS, 而且在提供儲存體帳戶的大部分區域中都有提供。 若要找出您的區域目前是否有 premium 檔案共用, 請參閱 Azure 的[依區域提供的產品](https://azure.microsoft.com/global-infrastructure/services/?products=storage)頁面。
+> 在大部分區域中，提供儲存體帳戶和 ZRS 的高階檔案共用在較小的區域子集中，可供 LRS 使用。 若要找出您的區域目前是否有 premium 檔案共用, 請參閱 Azure 的[依區域提供的產品](https://azure.microsoft.com/global-infrastructure/services/?products=storage)頁面。 若要瞭解哪些區域支援 ZRS，請參閱[支援涵蓋範圍和區域可用性](../common/storage-redundancy-zrs.md#support-coverage-and-regional-availability)。
 
 #### <a name="provisioned-shares"></a>佈建共用
 
@@ -157,7 +157,7 @@ Azure 備份適用于 premium 檔案共用, Azure Kubernetes Service 支援1.13 
 
 Azure 檔案儲存體標準共用支援四個數據冗余選項：本機冗余儲存體（LRS）、區域冗余儲存體（ZRS）、異地多餘儲存體（GRS）和異地區域冗余儲存體（切換）（預覽）。
 
-Azure 檔案儲存體 premium 共用僅支援本機多餘的儲存體 (LRS)。
+Azure 檔案儲存體 premium 共用同時支援 LRS 和 ZRS，但 ZRS 目前可用於較小的區域子集。
 
 下列各節說明不同備援選項之間的差異：
 

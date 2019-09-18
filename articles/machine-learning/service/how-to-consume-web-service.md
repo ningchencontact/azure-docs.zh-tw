@@ -1,6 +1,6 @@
 ---
 title: 建立用戶端以取用已部署的 Web 服務
-titleSuffix: Azure Machine Learning service
+titleSuffix: Azure Machine Learning
 description: 了解如何取用在使用 Azure Machine Learning 模型部署模型時所產生的 Web 服務。 此 Web 服務會公開 REST API。 使用您選擇的程式設計語言來建立此 API 的用戶端。
 services: machine-learning
 ms.service: machine-learning
@@ -11,18 +11,18 @@ author: aashishb
 ms.reviewer: larryfr
 ms.date: 08/15/2019
 ms.custom: seodec18
-ms.openlocfilehash: 5f57be9a1fc5d260ce580b969c8f92c87aea17a8
-ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
+ms.openlocfilehash: e005cf0860faeaad7010ea4da3ca1c5227ade14b
+ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70279119"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71034786"
 ---
 # <a name="consume-an-azure-machine-learning-model-deployed-as-a-web-service"></a>使用部署為 Web 服務的 Azure Machine Learning 模型
 
 將 Azure Machine Learning 模型部署為 Web 服務可建立 REST API。 您可以將資料傳送至此 API 並接收模型傳回的預測。 在本文件中，了解如何使用 C#、Go、Java 和 Python 為Web 服務建立用戶端。
 
-當您將映射部署至 Azure 容器實例、Azure Kubernetes Service 或可現場程式化閘道陣列 (FPGA) 時, 您會建立 web 服務。 您會從已註冊的模型及評分檔案建立映像。 您可以使用 [Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py) 擷取用來存取 Web 服務的 URI。 如果已啟用驗證, 您也可以使用 SDK 來取得驗證金鑰或權杖。
+當您將映射部署至 Azure 容器實例、Azure Kubernetes Service 或可現場程式化閘道陣列（FPGA）時，您會建立 web 服務。 您會從已註冊的模型及評分檔案建立映像。 您可以使用 [Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py) 擷取用來存取 Web 服務的 URI。 如果已啟用驗證，您也可以使用 SDK 來取得驗證金鑰或權杖。
 
 建立使用機器學習 Web 服務的用戶端所適用的一般工作流程是：
 
@@ -31,7 +31,7 @@ ms.locfileid: "70279119"
 1. 建立一個呼叫 Web 服務的應用程式。
 
 > [!TIP]
-> 本檔中的範例是以手動方式建立, 而不使用 OpenAPI (Swagger) 規格。 如果您已針對部署啟用 OpenAPI 規格, 您可以使用[swagger codegen](https://github.com/swagger-api/swagger-codegen)之類的工具來建立服務的用戶端程式庫。
+> 本檔中的範例是以手動方式建立，而不使用 OpenAPI （Swagger）規格。 如果您已針對部署啟用 OpenAPI 規格，您可以使用[swagger codegen](https://github.com/swagger-api/swagger-codegen)之類的工具來建立服務的用戶端程式庫。
 
 ## <a name="connection-information"></a>連線資訊
 
@@ -40,10 +40,10 @@ ms.locfileid: "70279119"
 
 [azureml.core.Webservice](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice(class)?view=azure-ml-py) 類別可提供建立用戶端所需的資訊。 建立用戶端應用程式時，下列 `Webservice` 屬性很有用：
 
-* `auth_enabled`-如果已啟用金鑰驗證, `True`則為, `False`否則為。
-* `token_auth_enabled`-如果已啟用權杖驗證, `True`則為, `False`否則為。
+* `auth_enabled`-如果已啟用金鑰驗證， `True`則為， `False`否則為。
+* `token_auth_enabled`-如果已啟用權杖驗證， `True`則為， `False`否則為。
 * `scoring_uri` - REST API 的位址。
-* `swagger_uri`-OpenAPI 規格的位址。 如果您已啟用自動產生架構, 就可以使用此 URI。 如需詳細資訊, 請參閱[使用 Azure Machine Learning 服務部署模型](how-to-deploy-and-where.md#schema)。
+* `swagger_uri`-OpenAPI 規格的位址。 如果您已啟用自動產生架構，就可以使用此 URI。 如需詳細資訊，請參閱[使用 Azure Machine Learning 部署模型](how-to-deploy-and-where.md#schema)。
 
 有三種方法可以針對已部署的 Web 服務擷取這項資訊：
 
@@ -84,7 +84,7 @@ Azure Machine Learning 提供兩種方式來控制對 web 服務的存取。
 |Key|預設為停用| 預設為啟用|
 |權杖| 無法使用| 預設為停用 |
 
-將要求傳送至以金鑰或權杖保護的服務時, 請使用__Authorization__標頭來傳遞金鑰或權杖。 金鑰或 token 必須格式化為`Bearer <key-or-token>`, 其中`<key-or-token>`是您的金鑰或 token 值。
+將要求傳送至以金鑰或權杖保護的服務時，請使用__Authorization__標頭來傳遞金鑰或權杖。 金鑰或 token 必須格式化為`Bearer <key-or-token>`，其中`<key-or-token>`是您的金鑰或 token 值。
 
 #### <a name="authentication-with-keys"></a>使用金鑰進行驗證
 
@@ -107,14 +107,14 @@ print(primary)
 
 #### <a name="authentication-with-tokens"></a>使用權杖進行驗證
 
-當您啟用 web 服務的權杖驗證時, 使用者必須提供 Azure Machine Learning 的 JWT 權杖給 web 服務, 才能存取它。 
+當您啟用 web 服務的權杖驗證時，使用者必須提供 Azure Machine Learning 的 JWT 權杖給 web 服務，才能存取它。 
 
-* 當您部署到 Azure Kubernetes Service 時, 預設會停用權杖驗證。
-* 當您部署至 Azure 容器實例時, 不支援權杖驗證。
+* 當您部署到 Azure Kubernetes Service 時，預設會停用權杖驗證。
+* 當您部署至 Azure 容器實例時，不支援權杖驗證。
 
-若要控制權杖驗證, 請`token_auth_enabled`在建立或更新部署時使用參數。
+若要控制權杖驗證，請`token_auth_enabled`在建立或更新部署時使用參數。
 
-如果已啟用權杖驗證, 您可以使用`get_token`方法來抓取持有人權杖和權杖到期時間:
+如果已啟用權杖驗證，您可以使用`get_token`方法來抓取持有人權杖和權杖到期時間：
 
 ```python
 token, refresh_by = service.get_token()
@@ -166,11 +166,11 @@ Web 服務可以在單一要求中接受多個資料集。 它會傳回一個 JS
 
 ### <a name="binary-data"></a>二進位資料
 
-如需如何在服務中啟用二進位資料支援的詳細資訊, 請參閱[二進位資料](how-to-deploy-and-where.md#binary)。
+如需如何在服務中啟用二進位資料支援的詳細資訊，請參閱[二進位資料](how-to-deploy-and-where.md#binary)。
 
-### <a name="cross-origin-resource-sharing-cors"></a>跨原始來源資源分享 (CORS)
+### <a name="cross-origin-resource-sharing-cors"></a>跨原始來源資源分享（CORS）
 
-如需在服務中啟用 CORS 支援的詳細資訊, 請參閱[跨原始來源資源分享](how-to-deploy-and-where.md#cors)。
+如需在服務中啟用 CORS 支援的詳細資訊，請參閱[跨原始來源資源分享](how-to-deploy-and-where.md#cors)。
 
 ## <a name="call-the-service-c"></a>呼叫服務 (C#)
 
@@ -495,12 +495,12 @@ print(resp.text)
 
 ## <a name="consume-the-service-from-power-bi"></a>使用來自 Power BI 的服務
 
-Power BI 支援 Azure Machine Learning web 服務的耗用量, 以使用預測來豐富 Power BI 中的資料。 
+Power BI 支援 Azure Machine Learning web 服務的耗用量，以使用預測來豐富 Power BI 中的資料。 
 
-若要產生支援在 Power BI 中取用的 web 服務, 架構必須支援 Power BI 所需的格式。 [瞭解如何建立支援 Power BI 的架構](https://docs.microsoft.com/azure/machine-learning/service/how-to-deploy-and-where#example-entry-script)。
+若要產生支援在 Power BI 中取用的 web 服務，架構必須支援 Power BI 所需的格式。 [瞭解如何建立支援 Power BI 的架構](https://docs.microsoft.com/azure/machine-learning/service/how-to-deploy-and-where#example-entry-script)。
 
-Web 服務一旦部署之後, 就可從 Power BI 資料流程中取用。 [瞭解如何從 Power BI 使用 Azure Machine Learning web 服務](https://docs.microsoft.com/power-bi/service-machine-learning-integration)。
+Web 服務一旦部署之後，就可從 Power BI 資料流程中取用。 [瞭解如何從 Power BI 使用 Azure Machine Learning web 服務](https://docs.microsoft.com/power-bi/service-machine-learning-integration)。
 
 ## <a name="next-steps"></a>後續步驟
 
-若要查看 Python 和深度學習模型的即時評分參考架構, 請移至[Azure 架構中心](/azure/architecture/reference-architectures/ai/realtime-scoring-python)。
+若要查看 Python 和深度學習模型的即時評分參考架構，請移至[Azure 架構中心](/azure/architecture/reference-architectures/ai/realtime-scoring-python)。

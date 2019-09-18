@@ -10,18 +10,18 @@ ms.topic: reference
 ms.date: 01/25/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: bf8d4889c277d59d0c42894281a89345fbf90a84
-ms.sourcegitcommit: a52f17307cc36640426dac20b92136a163c799d0
+ms.openlocfilehash: b1bfa945843d185a46f1f1d79fd4dab0e991c769
+ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68716684"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71063800"
 ---
 # <a name="relyingparty"></a>RelyingParty
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-**RelyingParty** 元素會指定使用者旅程圖以針對目前要求強制執行至 Azure Active Directory (Azure AD) B2C。 它也會指定信賴憑證者 (RP) 應用程式需要用來作為所發出權杖一部分的宣告清單。 RP 應用程式 (例如 Web、行動或傳統型應用程式) 會呼叫 RP 原則檔。 RP 原則檔會執行特定工作，例如登入、重設密碼或編輯設定檔。 多個應用程式可以使用相同的 RP 原則，而單一應用程式可以使用多個原則。 所有的 RP 應用程式都會透過宣告接收相同的權杖，而使用者會經歷相同的使用者旅程圖。
+**RelyingParty**元素會指定要對目前要求強制執行 Azure Active Directory B2C （Azure AD B2C）的使用者旅程圖。 它也會指定信賴憑證者 (RP) 應用程式需要用來作為所發出權杖一部分的宣告清單。 RP 應用程式 (例如 Web、行動或傳統型應用程式) 會呼叫 RP 原則檔。 RP 原則檔會執行特定工作，例如登入、重設密碼或編輯設定檔。 多個應用程式可以使用相同的 RP 原則，而單一應用程式可以使用多個原則。 所有的 RP 應用程式都會透過宣告接收相同的權杖，而使用者會經歷相同的使用者旅程圖。
 
 下列範例顯示 *B2C_1A_signup_signin* 原則檔中的 **RelyingParty** 元素：
 
@@ -110,7 +110,7 @@ ms.locfileid: "68716684"
 
 **UserJourneyBehaviors** 元素包含下列元素：
 
-| 項目 | 發生次數 | 描述 |
+| 元素 | 發生次數 | 描述 |
 | ------- | ----------- | ----------- |
 | SingleSignOn | 0:1 | 使用者旅程圖之單一登入 (SSO) 工作階段行為的範圍。 |
 | SessionExpiryType |0:1 | 工作階段的驗證行為。 可能的值：`Rolling` 或 `Absolute`。 `Rolling` 值 (預設) 表示，只要使用者在應用程式中持續為作用中狀態，該使用者就會保持登入。 `Absolute` 值表示在經過應用程式工作階段存留期所指定的期間之後，就會強制使用者進行重新驗證。 |
@@ -174,7 +174,7 @@ ms.locfileid: "68716684"
 
 **TechnicalProfile** 包含下列元素：
 
-| 項目 | 發生次數 | 描述 |
+| 元素 | 發生次數 | 描述 |
 | ------- | ----------- | ----------- |
 | 顯示名稱 | 0:1 | 字串，其中包含要向使用者顯示的技術設定檔名稱。 |
 | 描述 | 0:1 | 字串，其中包含要向使用者顯示的技術設定檔說明。 |

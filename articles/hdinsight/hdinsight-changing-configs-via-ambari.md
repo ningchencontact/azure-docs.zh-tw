@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 03/26/2019
 ms.author: hrasheed
-ms.openlocfilehash: d34cb7b8bfae14c25950cc4d77c6625c675e813b
-ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
+ms.openlocfilehash: 7261aad8f42168449f2c892fe8aaaa6667964654
+ms.sourcegitcommit: 8ef0a2ddaece5e7b2ac678a73b605b2073b76e88
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70934501"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71076967"
 ---
 # <a name="use-apache-ambari-to-optimize-hdinsight-cluster-configurations"></a>使用 Apache Ambari 將 HDInsight 叢集設定最佳化
 
@@ -23,7 +23,7 @@ HDInsight 提供大規模資料處理應用程式的 [Apache Hadoop](https://had
 
 使用您的叢集認證登入在 `https://CLUSTERNAME.azurehdidnsight.net` 的 Ambari。 初始畫面會顯示概觀儀表板。
 
-![Ambari 儀表板](./media/hdinsight-changing-configs-via-ambari/apache-ambari-dashboard.png)
+![顯示的 Apache Ambari 使用者儀表板](./media/hdinsight-changing-configs-via-ambari/apache-ambari-dashboard.png)
 
 Ambari Web UI 可用來管理主機、服務、警示、設定及檢視。 Ambari 無法用來建立 HDInsight 叢集、升級服務、管理堆疊和版本、解除委任或重新委任主機，或將服務新增到叢集。
 
@@ -31,25 +31,25 @@ Ambari Web UI 可用來管理主機、服務、警示、設定及檢視。 Ambar
 
 組態設定可協助微調特定服務。 若要修改服務的組態設定，請選取 [服務] 資訊看板 (位於左邊) 中的服務，然後瀏覽至服務詳細資料頁面中的 [設定] 索引標籤。
 
-![[服務] 資訊看板](./media/hdinsight-changing-configs-via-ambari/ambari-services-sidebar.png)
+![Apache Ambari Services 提要欄位](./media/hdinsight-changing-configs-via-ambari/ambari-services-sidebar.png)
 
 ### <a name="modify-namenode-java-heap-size"></a>修改 NameNode Java 堆積大小
 
-NameNode Java 堆積大小取決於許多因素，例如叢集的負載、檔案數和區塊數。 1 GB 的預設大小適用於大部分的叢集，而某些工作負載可能需要更多或更少的記憶體。 
+NameNode Java 堆積大小取決於許多因素，例如叢集的負載、檔案數和區塊數。 1 GB 的預設大小適用於大部分的叢集，而某些工作負載可能需要更多或更少的記憶體。
 
 修改 NameNode Java 堆積大小：
 
 1. 選取[服務] 資訊看板中的 [HDFS]，並瀏覽至 [設定] 索引標籤。
 
-    ![HDFS 設定](./media/hdinsight-changing-configs-via-ambari/ambari-apache-hdfs-config.png)
+    ![Apache Ambari HDFS 設定](./media/hdinsight-changing-configs-via-ambari/ambari-apache-hdfs-config.png)
 
 1. 找出 [NameNode Java 堆積大小] 設定。 您也可以使用 [篩選] 文字方塊來輸入並尋找特定的設定。 選取設定名稱旁邊的**畫筆**圖示。
 
-    ![NameNode Java 堆積大小](./media/hdinsight-changing-configs-via-ambari/ambari-java-heap-size.png)
+    ![Apache Ambari NameNode JAVA 堆積大小](./media/hdinsight-changing-configs-via-ambari/ambari-java-heap-size.png)
 
 1. 在文字方塊中輸入新值，然後按 **Enter** 儲存變更。
 
-    ![編輯 NameNode JAVA 堆積 size1](./media/hdinsight-changing-configs-via-ambari/java-heap-size-edit1.png)
+    ![Ambari 編輯 NameNode JAVA 堆積 size1](./media/hdinsight-changing-configs-via-ambari/java-heap-size-edit1.png)
 
 1. NameNode JAVA 堆積大小已從 2 GB 變更為 1 GB。
 
@@ -57,7 +57,7 @@ NameNode Java 堆積大小取決於許多因素，例如叢集的負載、檔案
 
 1. 按一下設定畫面頂端的綠色 [儲存] 按鈕，儲存您的變更。
 
-    ![儲存變更](./media/hdinsight-changing-configs-via-ambari/ambari-save-changes1.png)
+    ![Ambari Ambari 儲存設定](./media/hdinsight-changing-configs-via-ambari/ambari-save-changes1.png)
 
 ## <a name="apache-hive-optimization"></a>Apache Hive 最佳化
 
@@ -72,11 +72,11 @@ Hive 提供兩個執行引擎：[Apache Hadoop MapReduce](https://hadoop.apache.
 
 1. 在 Hive [設定] 索引標籤的 [篩選] 方塊中，輸入**執行引擎**。
 
-    ![搜尋執行引擎](./media/hdinsight-changing-configs-via-ambari/ambari-search-execution.png)
+    ![Apache Ambari 搜尋執行引擎](./media/hdinsight-changing-configs-via-ambari/ambari-search-execution.png)
 
 1. [最佳化] 屬性的預設值是 **Tez**。
 
-    ![最佳化 - Tez](./media/hdinsight-changing-configs-via-ambari/optimization-apache-tez.png)
+    ![優化-Apache Tez 引擎](./media/hdinsight-changing-configs-via-ambari/optimization-apache-tez.png)
 
 ### <a name="tune-mappers"></a>微調對應程式
 
@@ -93,8 +93,8 @@ Hadoop 會嘗試將單一檔案分割 (*對應*) 為多個檔案，並且平行�
 
 1. 將這兩個參數設定為 **33,554,432** 位元組 (32 MB)。
 
-    ![Tez 群組大小](./media/hdinsight-changing-configs-via-ambari/apache-tez-grouping-size.png)
- 
+    ![Apache Ambari Tez 群組大小](./media/hdinsight-changing-configs-via-ambari/apache-tez-grouping-size.png)
+
 這些變更會影響伺服器的所有 Tez 作業。 若要得到最佳結果，請選擇適當的參數值。
 
 ### <a name="tune-reducers"></a>微調歸納器
@@ -109,11 +109,11 @@ Hadoop 會嘗試將單一檔案分割 (*對應*) 為多個檔案，並且平行�
 
 1. 若要修改參數，請瀏覽至 Hive [設定] 索引標籤，並尋找 [設定] 頁面上的 [各歸納器的資料] 參數。
 
-    ![各歸納器的資料](./media/hdinsight-changing-configs-via-ambari/ambari-data-per-reducer.png)
- 
+    ![每個歸納器的 Apache Ambari 資料](./media/hdinsight-changing-configs-via-ambari/ambari-data-per-reducer.png)
+
 1. 選取 [編輯] 將值修改為 128 MB (134,217,728 位元組)，然後按下 **Enter** 儲存。
 
-    ![各歸納器的資料 - 已編輯](./media/hdinsight-changing-configs-via-ambari/data-per-reducer-edited.png)
+    ![每個歸納器的 Ambari 資料-已編輯](./media/hdinsight-changing-configs-via-ambari/data-per-reducer-edited.png)
   
     假設輸入大小為 1024 MB，而且各個歸納器有 128 MB 的資料，則共有八個歸納器 (1024/128)。
 
@@ -123,22 +123,21 @@ Hadoop 會嘗試將單一檔案分割 (*對應*) 為多個檔案，並且平行�
 
 在一個或多個階段中執行 Hive 查詢。 如果可以平行執行獨立階段，即可提升查詢效能。
 
-1.  若要啟用平行查詢執行，請瀏覽至 Hive [設定] 索引標籤，並搜尋 `hive.exec.parallel` 屬性。 預設值為 False。 將值變更為 true，然後按下 **Enter** 儲存值。
- 
-1.  若要限制平行執行的作業數目，請修改`hive.exec.parallel.thread.number`屬性。 預設值為 8。
+1. 若要啟用平行查詢執行，請瀏覽至 Hive [設定] 索引標籤，並搜尋 `hive.exec.parallel` 屬性。 預設值為 False。 將值變更為 true，然後按下 **Enter** 儲存值。
 
-    ![Hive 執行平行](./media/hdinsight-changing-configs-via-ambari/apache-hive-exec-parallel.png)
+1. 若要限制平行執行的作業數目，請修改`hive.exec.parallel.thread.number`屬性。 預設值為 8。
 
+    ![Apache Hive exec 平行顯示](./media/hdinsight-changing-configs-via-ambari/apache-hive-exec-parallel.png)
 
 ### <a name="enable-vectorization"></a>啟用向量化
 
 Hive 會逐列處理資料。 向量化會指示 Hive 處理 1,024 列的資料，而非一次處理一個資料列。 向量化只適用於 ORC 檔案格式。
 
 1. 若要啟用向量化查詢執行，請瀏覽至 Hive [設定] 索引標籤，並搜尋 `hive.vectorized.execution.enabled` 參數。 Hive 0.13.0 或更新版本的預設值為 true。
- 
+
 1. 若要對於查詢的歸納器端啟用向量化執行，將 `hive.vectorized.execution.reduce.enabled` 參數設定為 true。 預設值為 False。
 
-    ![Hive 向量化執行](./media/hdinsight-changing-configs-via-ambari/hive-vectorized-execution.png)
+    ![Apache Hive 向量化執行](./media/hdinsight-changing-configs-via-ambari/hive-vectorized-execution.png)
 
 ### <a name="enable-cost-based-optimization-cbo"></a>啟用以成本為基礎的最佳化 (CBO)
 
@@ -146,7 +145,7 @@ Hive 預設會遵循一組規則，找出一個最佳的查詢執行計畫。 �
 
 若要啟用 CBO，請瀏覽至 Hive [設定] 索引標籤，並搜尋 `parameter hive.cbo.enable`，然後將切換按鈕切換為 [開]。
 
-![CBO 設定](./media/hdinsight-changing-configs-via-ambari/hdinsight-cbo-config.png)
+![以 HDInsight 成本為基礎的優化工具](./media/hdinsight-changing-configs-via-ambari/hdinsight-cbo-config.png)
 
 CBO 啟用時，下列的其他設定參數會提高 Hive 查詢效能：
 
@@ -154,13 +153,13 @@ CBO 啟用時，下列的其他設定參數會提高 Hive 查詢效能：
 
     設定為 true 時，Hive 會使用儲存在其中繼存放區的統計資料，來回答類似 `count(*)` 的簡單查詢。
 
-    ![CBO 統計資料](./media/hdinsight-changing-configs-via-ambari/hive-compute-query-using-stats.png)
+    ![使用統計資料 Apache Hive 計算查詢](./media/hdinsight-changing-configs-via-ambari/hive-compute-query-using-stats.png)
 
 * `hive.stats.fetch.column.stats`
 
     CBO 啟用時，會建立資料行統計資料。 Hive 會使用儲存在中繼存放區的資料將查詢最佳化。 資料行數目較高時，擷取每個資料行的資料行統計資料會花費較長的時間。 設定為 false 時，此設定會停用從中繼存放區擷取資料行統計資料。
 
-    ![Hive 統計資料集合資料行統計資料](./media/hdinsight-changing-configs-via-ambari/hive-stats-fetch-column-stats.png)
+    ![Apache Hive 統計資料集資料行統計資料](./media/hdinsight-changing-configs-via-ambari/hive-stats-fetch-column-stats.png)
 
 * `hive.stats.fetch.partition.stats`
 
@@ -206,7 +205,7 @@ Hadoop 工作通常出現 I/O 瓶頸。 壓縮資料可以加快 I/O 和整體�
 
     e. 按一下 [新增]。
 
-    ![Hive 自訂屬性](./media/hdinsight-changing-configs-via-ambari/hive-custom-property.png)
+    ![Apache Hive 自訂屬性新增](./media/hdinsight-changing-configs-via-ambari/hive-custom-property.png)
 
     這會使用 Snappy 壓縮來壓縮中繼檔案。 新增屬性後，屬性會出現在 [自訂 Hive 網站] 窗格中。
 
@@ -221,7 +220,7 @@ Hadoop 工作通常出現 I/O 瓶頸。 壓縮資料可以加快 I/O 和整體�
 
 1. 若要選擇輸出壓縮轉碼器，請將 `mapred.output.compression.codec` 自訂屬性新增至 [自訂 Hive 網站] 窗格，如上一節的步驟 3 中所述。
 
-    ![Hive 自訂屬性](./media/hdinsight-changing-configs-via-ambari/hive-custom-property2.png)
+    ![Apache Hive 自訂的屬性 add2](./media/hdinsight-changing-configs-via-ambari/hive-custom-property2.png)
 
 ### <a name="enable-speculative-execution"></a>啟用推測性執行
 
@@ -240,9 +239,9 @@ Hive 能夠在將記錄插入資料表時建立動態分割區，不需要預先
 1. 若要 Hive 執行動態分割，`hive.exec.dynamic.partition` 參數值應該為 true (預設值)。
 
 1. 將動態分割模式變更為 [嚴格]。 在嚴格模式中，至少一個分割區必須為靜態。 這可防止在沒有分割區篩選器出現在 WHERE 子句的情況下進行查詢，也就是說，[嚴格] 會防止掃描所有分割區的查詢。 瀏覽至 Hive [設定] 索引標籤，然後將 `hive.exec.dynamic.partition.mode` 設定為 [嚴格]。 預設值為 **nonstrict**。
- 
+
 1. 若要限制建立的動態分割區數目，請修改 `hive.exec.max.dynamic.partitions` 參數。 預設值為 5000。
- 
+
 1. 若要限制每個節點的動態分割區總數，請修改 `hive.exec.max.dynamic.partitions.pernode`。 預設值為 2000。
 
 ### <a name="enable-local-mode"></a>啟用本機模式
@@ -251,7 +250,7 @@ Hive 能夠在將記錄插入資料表時建立動態分割區，不需要預先
 
 若要啟用本機模式，請將 `hive.exec.mode.local.auto` 參數新增至 [自訂 Hive 網站] 面板，如「[啟用中繼壓縮](#enable-intermediate-compression)」一節的步驟 3 所述。
 
-![Hive Exec 模式本機自動](./media/hdinsight-changing-configs-via-ambari/hive-exec-mode-local-auto.png)
+![Apache Hive exec 模式本機自動](./media/hdinsight-changing-configs-via-ambari/hive-exec-mode-local-auto.png)
 
 ### <a name="set-single-mapreduce-multigroup-by"></a>設定單一 MapReduce MultiGROUP BY
 
@@ -269,7 +268,7 @@ Hive 能夠在將記錄插入資料表時建立動態分割區，不需要預先
 
 Hive 的預設聯結類型是*隨機聯結*。 在 Hive 中，特殊對應程式會讀取輸入，並將聯結索引鍵/值組發送至中繼檔案。 Hadoop 會在隨機階段中將這些組排序並合併。 這個隨機階段需要相當高的成本。 依照您的資料選取正確的聯結可大幅提升效能。
 
-| 加入類型 | 時間 | 方式 | Hive 設定 | 註解 |
+| 加入類型 | 當 | 方式 | Hive 設定 | 註解 |
 | -- | -- | -- | -- | -- |
 | 隨機聯結 | <ul><li>預設選擇</li><li>一律運作</li></ul> | <ul><li>讀取其中一個資料表的一部分</li><li>聯結索引鍵的貯體和排序</li><li>將一個貯體傳送至各項減少</li><li>在減少端完成聯結</li></ul> | 不需要特別的 Hive 設定 | 每次運作 |
 | 對應聯結 | <ul><li>一個資料表可放入記憶體中</li></ul> | <ul><li>將小型資料表讀入記憶體雜湊表</li><li>透過大型檔案的一部分進行串流</li><li>聯結雜湊資料表中的每筆記錄</li><li>聯結由對應程式單獨完成</li></ul> | `hive.auto.confvert.join=true` | 非常快速，但有限 |
@@ -297,8 +296,8 @@ Hive 的預設聯結類型是*隨機聯結*。 在 Hive 中，特殊對應程式
 
 1. 選取視窗右上方的 [**儲存**]，以儲存新的值。 某些屬性可能需要服務重新啟動。
 
-    ![進階 pig 屬性](./media/hdinsight-changing-configs-via-ambari/advanced-pig-properties.png)
- 
+    ![Advanced Apache pig 屬性](./media/hdinsight-changing-configs-via-ambari/advanced-pig-properties.png)
+
 > [!NOTE]  
 > 任何工作階段層級設定都會覆寫 `pig.properties` 檔案中的屬性值。
 
@@ -310,7 +309,6 @@ Hive 的預設聯結類型是*隨機聯結*。 在 Hive 中，特殊對應程式
 
 1. 預設值為 **MapReduce**。 將它變更為 [Tez]。
 
-
 ### <a name="enable-local-mode"></a>啟用本機模式
 
 和 Hive 類似，本機模式可用來加速資料量相對較小的作業。
@@ -318,7 +316,6 @@ Hive 的預設聯結類型是*隨機聯結*。 在 Hive 中，特殊對應程式
 1. 若要啟用本機模式，請將 `pig.auto.local.enabled` 設定為 **true**。 預設值為 False。
 
 1. 輸入資料大小比 `pig.auto.local.input.maxbytes` 屬性值小的作業會被視為小型作業。 預設值為 1 GB。
-
 
 ### <a name="copy-user-jar-cache"></a>複製使用者 jar 快取
 
@@ -328,7 +325,6 @@ Pig 會將 UDF 需要的 JAR 檔案複製到分散式快取，以供工作節點
 
 1. 若要設定快取 jar 的基底路徑，請將 `pig.user.cache.location` 設定為基底路徑。 預設為 `/tmp`。
 
-
 ### <a name="optimize-performance-with-memory-settings"></a>使用記憶體設定將效能最佳化
 
 下列記憶體設定有助於將 Pig 指令碼效能最佳化。
@@ -336,7 +332,6 @@ Pig 會將 UDF 需要的 JAR 檔案複製到分散式快取，以供工作節點
 * `pig.cachedbag.memusage`:配置給包的記憶體數量。 包是元組的集合。 元組是欄位的排序集合，欄位則是一段資料。 如果包中的資料超出配置的記憶體，則會溢出到磁碟。 預設值為 0.2，這表示可用記憶體的 20%。 這個記憶體由應用程式中的所有包共用。
 
 * `pig.spill.size.threshold`:大於此溢出大小閾值 (以位元組為單位) 的包會溢出到磁碟。 預設值是 5 MB。
-
 
 ### <a name="compress-temporary-files"></a>壓縮暫存檔
 
@@ -350,16 +345,13 @@ Pig 會在作業執行期間產生暫存檔。 壓縮暫存檔會提升在磁碟
 
 啟用時，小型檔案會合併，以減少對應工作。 對於包含大量小型檔案的作業，這可提升效率。 若要啟用，請將 `pig.noSplitCombination` 設定為 true。 預設值為 False。
 
-
 ### <a name="tune-mappers"></a>微調對應程式
 
 修改屬性 `pig.maxCombinedSplitSize` 可控制對應程式的數目。 這會指定單一對應工作將處理的資料大小。 預設值是檔案系統的預設區塊大小。 增加這個值會減少對應程式工作的數目。
 
-
 ### <a name="tune-reducers"></a>微調歸納器
 
 歸納器的數目是根據 `pig.exec.reducers.bytes.per.reducer` 參數計算而得。 該參數指定每個歸納器處理的位元組數目，預設為 1 GB。 若要限制歸納器數目上限，請設定 `pig.exec.reducers.max` 屬性，預設為 999。
-
 
 ## <a name="apache-hbase-optimization-with-the-ambari-web-ui"></a>使用 Ambari Web UI 的 Apache HBase 最佳化
 
@@ -373,8 +365,7 @@ HBase 堆積大小會指定*區域*和*主要*伺服器將使用的堆積最大�
 
 1. 將預設值變更為 5,000 MB。
 
-    ![HBASE_HEAPSIZE](./media/hdinsight-changing-configs-via-ambari/ambari-hbase-heapsize.png)
-
+    ![Apache Ambari HBase memory heapsize](./media/hdinsight-changing-configs-via-ambari/ambari-hbase-heapsize.png)
 
 ### <a name="optimize-read-heavy-workloads"></a>將大量讀取工作負載最佳化
 
@@ -386,10 +377,9 @@ HBase 堆積大小會指定*區域*和*主要*伺服器將使用的堆積最大�
 
 1. 若要修改此參數，請瀏覽至 HBase [設定] 索引標籤的 [設定] 索引標籤，然後尋找 [配置於讀取緩衝區的 RegionServer 百分比]。
 
-    ![HBase 區塊快取大小](./media/hdinsight-changing-configs-via-ambari/hbase-block-cache-size.png)
- 
-1. 若要變更該值，請選取 [編輯] 圖示。
+    ![Apache HBase 記憶體區塊快取大小](./media/hdinsight-changing-configs-via-ambari/hbase-block-cache-size.png)
 
+1. 若要變更該值，請選取 [編輯] 圖示。
 
 #### <a name="memstore-size"></a>Memstore 大小
 
@@ -401,30 +391,26 @@ HBase 堆積大小會指定*區域*和*主要*伺服器將使用的堆積最大�
 
 若要將隨機讀取最佳化，可以減少 Memstore 上限和下限。
 
-
 #### <a name="number-of-rows-fetched-when-scanning-from-disk"></a>從磁碟掃描時擷取的資料列數目
 
 `hbase.client.scanner.caching` 設定會定義在掃描器上呼叫 `next` 方法時，從磁碟讀取的資料列數目。  預設值是 100。 該數字愈高，從用戶端向區域伺服器進行的遠端呼叫愈少，因此可加快掃描。 不過，這也會增加用戶端的記憶體使用量。
 
-![擷取資料列的 HBase 數目](./media/hdinsight-changing-configs-via-ambari/hbase-num-rows-fetched.png)
+![已提取的 Apache HBase 資料列數目](./media/hdinsight-changing-configs-via-ambari/hbase-num-rows-fetched.png)
 
 > [!IMPORTANT]  
 > 請勿將該值設定過高，以免造成掃描器引動 next 方法的相隔時間大於掃描程式逾時。 掃描器逾時持續期間是由 `hbase.regionserver.lease.period` 屬性所定義。
-
 
 ### <a name="optimize-write-heavy-workloads"></a>將大量寫入工作負載最佳化
 
 下列設定對於改善大量寫入工作負載的效能很重要。
 
-
 #### <a name="maximum-region-file-size"></a>區域檔案大小上限
 
 HBase 會將資料儲存為稱為 *HFile* 的內部檔案格式。 屬性 `hbase.hregion.max.filesize` 會定義區域的單一 HFile 大小。  如果一個區域中的所有 HFiles 總和大於此設定，則一個區域會分割為兩個區域。
- 
-![HBase HRegion 最大檔案大小](./media/hdinsight-changing-configs-via-ambari/hbase-hregion-max-filesize.png)
+
+![Apache HBase HRegion max filesize](./media/hdinsight-changing-configs-via-ambari/hbase-hregion-max-filesize.png)
 
 區域檔案大小愈大，分割數目愈小。 您可以增加檔案大小，以判斷達到最大寫入效能的值。
-
 
 #### <a name="avoid-update-blocking"></a>避免更新封鎖
 
@@ -436,20 +422,17 @@ HBase 會將資料儲存為稱為 *HFile* 的內部檔案格式。 屬性 `hbase
 
     使用排清大小及區塊乘數的預設值時，在 Memstore 大小是 128 * 4 = 512 MB 的情況，將封鎖更新。 若要減少更新封鎖計數，請增加值 `hbase.hregion.memstore.block.multiplier`。
 
-![HBase 區域區塊乘數](./media/hdinsight-changing-configs-via-ambari/hbase-hregion-memstore-block-multiplier.png)
-
+![Apache HBase 區域區塊乘數](./media/hdinsight-changing-configs-via-ambari/hbase-hregion-memstore-block-multiplier.png)
 
 ### <a name="define-memstore-size"></a>定義 Memstore 大小
 
 Memstore 大小是由 `hbase.regionserver.global.memstore.UpperLimit` 和 `hbase.regionserver.global.memstore.LowerLimit` 參數所定義。 設定這些彼此相等的值會減少寫入期間的暫停 (也會導致更頻繁清除)，並且可提升寫入效能。
 
-
 ### <a name="set-memstore-local-allocation-buffer"></a>設定 Memstore 本機配置緩衝區
 
 Memstore 本機配置緩衝區的使用方式取決於屬性 `hbase.hregion.memstore.mslab.enabled`。 啟用 (true) 時，這可防止大量寫入作業期間的堆積分割。 預設值為 true。
- 
-![hbase.hregion.memstore.mslab.enabled](./media/hdinsight-changing-configs-via-ambari/hbase-hregion-memstore-mslab-enabled.png)
 
+![hbase.hregion.memstore.mslab.enabled](./media/hdinsight-changing-configs-via-ambari/hbase-hregion-memstore-mslab-enabled.png)
 
 ## <a name="next-steps"></a>後續步驟
 

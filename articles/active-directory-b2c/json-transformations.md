@@ -10,24 +10,24 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 9a026d205d3ab855ecbb51048e7464df6fb4a094
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ff70b2f54304c83f70ff578e1947d752aafb34a7
+ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66510757"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71064170"
 ---
 # <a name="json-claims-transformations"></a>JSON 宣告轉換
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-此文章提供在 Azure Active Directory (Azure AD) B2C 中，使用識別體驗架構結構描述 JSON 宣告轉換的範例。 如需詳細資訊，請參閱 [ClaimsTransformations](claimstransformations.md)。
+本文提供在 Azure Active Directory B2C （Azure AD B2C）中使用 Identity Experience Framework 架構之 JSON 宣告轉換的範例。 如需詳細資訊，請參閱 [ClaimsTransformations](claimstransformations.md)。
 
 ## <a name="getclaimfromjson"></a>GetClaimFromJson
 
 從 JSON 資料中取得指定的元素。
 
-| Item | TransformationClaimType | 資料類型 | 注意 |
+| 項目 | TransformationClaimType | 資料類型 | 注意 |
 | ---- | ----------------------- | --------- | ----- |
 | InputClaim | inputJson | string | 宣告轉換用來取得項目的 ClaimType。 |
 | InputParameter | claimToExtract | string | 要擷取的 JSON 元素名稱。 |
@@ -55,7 +55,7 @@ ms.locfileid: "66510757"
   - **inputJson**：{"emailAddress": "someone@example.com", "displayName":"Someone"}
 - 輸入參數：
     - **claimToExtract**：emailAddress
-- 輸出宣告： 
+- 輸出宣告：
   - **extractedClaim**：someone@example.com
 
 
@@ -63,7 +63,7 @@ ms.locfileid: "66510757"
 
 從 JSON 資料中取得指定元素的清單。
 
-| Item | TransformationClaimType | 資料類型 | 注意 |
+| 項目 | TransformationClaimType | 資料類型 | 注意 |
 | ---- | ----------------------- | --------- | ----- |
 | InputClaim | jsonSourceClaim | string | 宣告轉換用來取得宣告的 ClaimType。 |
 | InputParameter | errorOnMissingClaims | boolean | 指定如果遺漏其中一個宣告，是否要擲回錯誤。 |
@@ -97,7 +97,7 @@ ms.locfileid: "66510757"
     <OutputClaim ClaimTypeReferenceId="birthdate" />
   </OutputClaims>
 </ClaimsTransformation>
-```    
+```
 
 - 輸入宣告：
   - **jsonSourceClaim**：[{"key":"email","value":"someone@example.com"}, {"key":"displayName","value":"Someone"}, {"key":"membershipNum","value":6353399}, {"key":"active","value": true}, {"key":"birthdate","value":"1980-09-23T00:00:00Z"}]
@@ -117,7 +117,7 @@ ms.locfileid: "66510757"
 
 從 JSON 資料中取得指定的數值 (long) 元素。
 
-| Item | TransformationClaimType | 資料類型 | 注意 |
+| 項目 | TransformationClaimType | 資料類型 | 注意 |
 | ---- | ----------------------- | --------- | ----- |
 | InputClaim | inputJson | string | 宣告轉換用來取得宣告的 ClaimType。 |
 | InputParameter | claimToExtract | string | 要擷取的 JSON 元素名稱。 |
@@ -127,8 +127,8 @@ ms.locfileid: "66510757"
 
 ```JSON
 {
-    "emailAddress": "someone@example.com", 
-    "displayName": "Someone", 
+    "emailAddress": "someone@example.com",
+    "displayName": "Someone",
     "id" : 6353399
 }
 ```
@@ -153,14 +153,14 @@ ms.locfileid: "66510757"
   - **inputJson**：{"emailAddress": "someone@example.com", "displayName":"Someone", "id" :6353399}
 - 輸入參數
     - **claimToExtract**：id
-- 輸出宣告： 
+- 輸出宣告：
     - **extractedClaim**：6353399
 
 ## <a name="getsinglevaluefromjsonarray"></a>GetSingleValueFromJsonArray
 
 從 JSON 資料陣列中取得第一個元素。
 
-| Item | TransformationClaimType | 資料類型 | 注意 |
+| 項目 | TransformationClaimType | 資料類型 | 注意 |
 | ---- | ----------------------- | --------- | ----- |
 | InputClaim | inputJsonClaim | string | 宣告轉換用來從 JSON 陣列中取得項目的 ClaimType。 |
 | OutputClaim | extractedClaim | string | 叫用此 ClaimsTransformation 之後所產生的 ClaimType，JSON 陣列中的第一個元素。 |
@@ -182,17 +182,17 @@ ms.locfileid: "66510757"
 
 - 輸入宣告：
   - **inputJsonClaim**["someone@example.com", "Someone", 6353399]
-- 輸出宣告： 
+- 輸出宣告：
   - **extractedClaim**：someone@example.com
 
 ## <a name="xmlstringtojsonstring"></a>XmlStringToJsonString
 
 將 XML 資料轉換為 JSON 格式。
 
-| Item | TransformationClaimType | 資料類型 | 注意 |
+| 項目 | TransformationClaimType | 資料類型 | 注意 |
 | ---- | ----------------------- | --------- | ----- |
 | InputClaim | Xml | string | 宣告轉換用來將資料從 XML 轉換為 JSON 格式的 ClaimType。 |
-| OutputClaim | json | string | 叫用此 ClaimsTransformation 之後所產生的 ClaimType，JSON 格式的資料。 |
+| OutputClaim | JSON | string | 叫用此 ClaimsTransformation 之後所產生的 ClaimType，JSON 格式的資料。 |
 
 ```XML
 <ClaimsTransformation Id="ConvertXmlToJson" TransformationMethod="XmlStringToJsonString">

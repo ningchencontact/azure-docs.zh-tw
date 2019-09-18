@@ -9,12 +9,12 @@ ms.date: 06/01/2019
 ms.author: tamram
 ms.reviewer: hux
 ms.subservice: blobs
-ms.openlocfilehash: a3f9768043c9acef9640b8e286611de94e44a7ff
-ms.sourcegitcommit: d70c74e11fa95f70077620b4613bb35d9bf78484
+ms.openlocfilehash: aa6bee9cceffc0252dd39d85ebe9d70625e33419
+ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70910499"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71036413"
 ---
 # <a name="store-business-critical-data-in-azure-blob-storage"></a>在 Azure Blob 儲存體中儲存業務關鍵資料
 
@@ -55,7 +55,7 @@ Azure Blob 儲存體的固定儲存體支援兩種 WORM 或固定原則：以時
 > [!IMPORTANT]
 > 必須*鎖定*以時間為基礎的保留原則，blob 才會符合 SEC 17a-4 （f）和其他法規合規性的不變（寫入和刪除保護）狀態。 我們建議您在合理的時間內鎖定原則，通常不到24小時。 套用的以時間為基礎的保留原則初始狀態已*解除鎖定*，可讓您測試功能並對原則進行變更，然後再加以鎖定。 雖然 [已*解除鎖定*] 狀態提供非永久性保護，但不建議針對短期功能試用以外的任何目的使用 [*解除鎖定*] 狀態。 
 
-若在容器上套用以時間為基礎的保留原則，在「有效」保留期限內，容器中的所有 Blob 都會保持固定狀態。 現有 blob 的有效保留期限等於 blob 修改時間與使用者指定的保留間隔之間的差異。
+若在容器上套用以時間為基礎的保留原則，在「有效」保留期限內，容器中的所有 Blob 都會保持固定狀態。 現有 Blob 的有效保留期限等於 Blob 建立時間與使用者指定保留間隔之間的差異。
 
 若為新的 Blob，有效保留期限等於使用者指定的保留間隔。 因為使用者可以延長保留間隔，所以固定儲存體會使用使用者所指定保留間隔的最新值，計算有效的保留期限。
 

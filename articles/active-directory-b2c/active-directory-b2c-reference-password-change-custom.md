@@ -10,26 +10,26 @@ ms.topic: conceptual
 ms.date: 12/13/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: a49f62b6fc1ea00084266d4c5405f8bf96d034cb
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 0775920e1d6572223253edbfc066123a515b5480
+ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66509264"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71065545"
 ---
 # <a name="configure-password-change-using-custom-policies-in-azure-active-directory-b2c"></a>在 Azure Active Directory B2C 中使用自訂原則來設定密碼變更
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-在 Azure Active Directory (Azure AD) B2C 中，您可以讓使用本機帳戶來登入的使用者變更其密碼，而無須透過電子郵件驗證來證實其真確性。 如果在使用者進入密碼變更流程時工作階段到期，系統會提示他們重新登入。 本文說明如何在[自訂原則](active-directory-b2c-overview-custom.md)中設定密碼變更。 此外，您也可以為使用者流程設定[自助式密碼重設](active-directory-b2c-reference-sspr.md)。
+在 Azure Active Directory B2C （Azure AD B2C）中，您可以讓使用本機帳戶登入的使用者變更其密碼，而不需要透過電子郵件驗證來證明其真實性。 如果在使用者進入密碼變更流程時工作階段到期，系統會提示他們重新登入。 本文說明如何在[自訂原則](active-directory-b2c-overview-custom.md)中設定密碼變更。 此外，您也可以為使用者流程設定[自助式密碼重設](active-directory-b2c-reference-sspr.md)。
 
 ## <a name="prerequisites"></a>必要條件
 
 完成[在 Active Directory B2C 中開始使用自訂原則](active-directory-b2c-get-started-custom.md)中的步驟。
 
-## <a name="add-the-elements"></a>新增元素 
+## <a name="add-the-elements"></a>新增元素
 
-1. 開啟 TrustframeworkExtensions.xml  檔案，並將下列識別碼為 `oldPassword` 的 **ClaimType** 元素新增到 [ClaimsSchema](claimsschema.md) 元素： 
+1. 開啟 TrustframeworkExtensions.xml 檔案，並將下列識別碼為 `oldPassword` 的 **ClaimType** 元素新增到 [ClaimsSchema](claimsschema.md) 元素：
 
     ```XML
     <BuildingBlocks>
@@ -156,7 +156,7 @@ ms.locfileid: "66509264"
 7. 將 `<DefaultUserJourney>` 中的 **ReferenceId**屬性修改成符合您所建立新使用者旅程圖的識別碼。 例如 *PasswordChange*。
 8. 儲存您的變更。
 
-您可以在[這裡](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/tree/master/scenarios/password-change)找到範例原則。 
+您可以在[這裡](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/tree/master/scenarios/password-change)找到範例原則。
 
 ## <a name="test-your-policy"></a>測試您的原則
 
@@ -165,20 +165,20 @@ ms.locfileid: "66509264"
 ### <a name="upload-the-files"></a>上傳檔案
 
 1. 登入 [Azure 入口網站](https://portal.azure.com/)。
-2. 按一下頂端功能表中的 [目錄和訂用帳戶]  篩選，然後選擇包含您租用戶的目錄，以確定您使用的是包含 Azure AD B2C 租用戶的目錄。
-3. 選擇 Azure 入口網站左上角的 [所有服務]  ，然後搜尋並選取 [Azure AD B2C]  。
-4. 選取 [識別體驗架構]  。
-5. 在 [自訂原則] 頁面上，按一下 [上傳原則]  。
-6. 選取 [覆寫現有的原則]  ，然後搜尋並選取 TrustframeworkExtensions.xml  檔案。
-7. 按一下 [上傳]  。
+2. 請選取頂端功能表中的 [**目錄 + 訂**用帳戶] 篩選，然後選擇包含您租使用者的目錄，以確定您使用的是包含 Azure AD B2C 租使用者的目錄。
+3. 選擇 Azure 入口網站左上角的 [所有服務]，然後搜尋並選取 [Azure AD B2C]。
+4. 選取 [識別體驗架構]。
+5. 在 [自訂原則] 頁面上，按一下 [上傳原則]。
+6. 選取 [覆寫現有的原則]，然後搜尋並選取 TrustframeworkExtensions.xml 檔案。
+7. 按一下 [上傳]。
 8. 針對信賴憑證者檔案 (例如 *ProfileEditPasswordChange.xml*) 重複步驟 5 到 7。
 
 ### <a name="run-the-policy"></a>執行原則
 
 1. 開啟您所變更的原則。 例如 *B2C_1A_profile_edit_password_change*。
-2. 針對**應用程式**，請選取您先前註冊的應用程式。 若要查看權杖，[回覆 URL]  應該顯示 `https://jwt.ms`。
-3. 按一下 [立即執行]  。 使用您先前建立的帳戶進行登入。 您現在應該有機會變更密碼。 
+2. 針對**應用程式**，請選取您先前註冊的應用程式。 若要查看權杖，[回覆 URL] 應該顯示 `https://jwt.ms`。
+3. 按一下 [立即執行]。 使用您先前建立的帳戶進行登入。 您現在應該有機會變更密碼。
 
 ## <a name="next-steps"></a>後續步驟
 
-- 了解如何[在 Azure Active Directory B2C 中使用自訂原則來設定密碼複雜度](active-directory-b2c-reference-password-complexity-custom.md)。 
+- 了解如何[在 Azure Active Directory B2C 中使用自訂原則來設定密碼複雜度](active-directory-b2c-reference-password-complexity-custom.md)。

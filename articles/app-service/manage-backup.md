@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 07/06/2016
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: d153238c58d72874ddbf7979e68423e21ea7c020
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: 8784a06306f59015b95293d90ff5509dcfcae045
+ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70073169"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71057944"
 ---
 # <a name="back-up-your-app-in-azure"></a>在 Azure 中備份應用程式
 [Azure App Service](overview.md) 中的「備份與還原」功能可讓您以手動或透過排程方式，輕鬆建立應用程式備份。  備份可以設定為最多保留一段無限的時間。 您可以透過覆寫現有的應用程式或還原到另一個應用程式，將應用程式還原到先前狀態的快照。
@@ -39,7 +39,7 @@ App Service 可以將下列資訊備份到您已設定讓應用程式使用的 A
    - [SQL Database](https://azure.microsoft.com/services/sql-database/)
    - [適用於 MySQL 的 Azure 資料庫](https://azure.microsoft.com/services/mysql)
    - [適用於 PostgreSQL 的 Azure 資料庫](https://azure.microsoft.com/services/postgresql)
-   - [應用程式內 MySQL](https://blogs.msdn.microsoft.com/appserviceteam/2017/03/06/announcing-general-availability-for-mysql-in-app)
+   - [應用程式內 MySQL](https://azure.microsoft.com/en-us/blog/mysql-in-app-preview-app-service/)
  
 
 > [!NOTE]
@@ -122,7 +122,7 @@ App Service 可以將下列資訊備份到您已設定讓應用程式使用的 A
 部分備份可讓您精確選擇想要備份的檔案。
 
 > [!NOTE]
-> 備份中的個別資料庫可以是4GB 的上限, 但備份的總大小上限為 10 GB
+> 備份中的個別資料庫可以是4GB 的上限，但備份的總大小上限為 10 GB
 
 ### <a name="exclude-files-from-your-backup"></a>從備份中排除檔案
 假設您有一個應用程式，其中包含已經備份過一次且不會再變更的記錄檔和靜態映像。 在這類情況下，您可以將這些資料夾和檔案排除，而不儲存在您未來的備份中。 若要將檔案和資料夾從您的備份中排除，請在應用程式的 `D:\home\site\wwwroot` 資料夾中建立 `_backup.filter` 檔案。 請在此檔案中指定您想要排除的檔案和資料夾清單。 

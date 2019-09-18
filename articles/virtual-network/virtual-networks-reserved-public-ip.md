@@ -4,7 +4,7 @@ description: 了解保留的 IP 位址 (傳統)，以及如何使用 Azure Power
 services: virtual-network
 documentationcenter: na
 author: genlin
-manager: cshepard
+manager: dcscontentpm
 editor: tysonn
 ms.assetid: 34652a55-3ab8-4c2d-8fb2-43684033b191
 ms.service: virtual-network
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/12/2018
 ms.author: genli
-ms.openlocfilehash: 8afed4eb1add0ba3a7db474e54b2f78a0babab06
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 675e7a7b557a3f19ea4d8d4960316c3859cbb9c1
+ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60789072"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71058484"
 ---
 # <a name="reserved-ip-addresses-classic-deployment"></a>保留的 IP 位址 (傳統部署)
 
@@ -53,7 +53,7 @@ ms.locfileid: "60789072"
 
 ### <a name="using-azure-powershell-classic"></a>使用 Azure PowerShell (傳統)
 
-您必須將保留的 IP 新增至訂用帳戶才能使用。 請在「美國中部」  位置從可用的公用 IP 位址集區建立保留的 IP，如下所示：
+您必須將保留的 IP 新增至訂用帳戶才能使用。 請在「美國中部」位置從可用的公用 IP 位址集區建立保留的 IP，如下所示：
 
 > [!NOTE]
 > 若為傳統部署模型，則必須安裝 Azure PowerShell 的服務管理版本。 如需詳細資訊，請參閱[安裝 Azure PowerShell 服務管理模組](https://docs.microsoft.com/powershell/azure/servicemanagement/install-azure-ps?view=azuresmps-4.0.0)。 
@@ -93,7 +93,7 @@ Remove-AzureReservedIP -ReservedIPName "MyReservedIP"
 ```
 
 ### <a name="using-azure-cli-classic"></a>使用 Azure CLI (傳統)
-請在「美國中部」  位置從可用的公用 IP 位址集區建立保留的 IP，如「使用 Azure 傳統 CLI」所示：
+請在「美國中部」位置從可用的公用 IP 位址集區建立保留的 IP，如「使用 Azure 傳統 CLI」所示：
 
 > [!NOTE]
 > 若為傳統部署，則必須使用 Azure 傳統 CLI。 如需安裝 Azure 傳統 CLI 的相關資訊，請參閱[安裝 Azure 傳統 CLI](https://docs.microsoft.com/cli/azure/install-classic-cli?view=azure-cli-latest)
@@ -126,7 +126,7 @@ azure network reserved-ip list
  azure network reserved-ip delete MyReservedIP
  ```
 ## <a name="reserve-the-ip-address-of-an-existing-cloud-service"></a>保留現有雲端服務的 IP 位址
-您可以新增 `-ServiceName` 參數，以保留現有雲端服務的 IP 位址。 請在「美國中部」  位置保留雲端服務 TestService  的 IP 位址，如下所示：
+您可以新增 `-ServiceName` 參數，以保留現有雲端服務的 IP 位址。 請在「美國中部」位置保留雲端服務 TestService 的 IP 位址，如下所示：
 
 - 使用 Azure PowerShell (傳統)：
 

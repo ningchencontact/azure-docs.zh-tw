@@ -7,16 +7,16 @@ ms.service: service-fabric
 ms.topic: article
 ms.date: 08/09/2019
 ms.author: atsenthi
-ms.openlocfilehash: f8dfaa39f02aefbdda1f34afa5011ce5fadbae49
-ms.sourcegitcommit: 55e0c33b84f2579b7aad48a420a21141854bc9e3
+ms.openlocfilehash: 0cc1e51a4d5f9ad54866066a4247e1588da381a6
+ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69624905"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71037495"
 ---
-# <a name="deploy-service-fabric-application-with-a-user-assigned-managed-identity-preview"></a>以使用者指派的受控識別 (預覽) 部署 Service Fabric 應用程式
+# <a name="deploy-service-fabric-application-with-a-user-assigned-managed-identity-preview"></a>以使用者指派的受控識別（預覽）部署 Service Fabric 應用程式
 
-若要使用受控識別部署 Service Fabric 應用程式, 必須透過 Azure Resource Manager 部署應用程式, 通常會使用 Azure Resource Manager 範本。 如需有關如何透過 Azure Resource Manager 部署 Service Fabric 應用程式的詳細資訊, 請參閱將[應用程式和服務當做 Azure Resource Manager 資源來管理](service-fabric-application-arm-resource.md)。
+若要使用受控識別部署 Service Fabric 應用程式，必須透過 Azure Resource Manager 部署應用程式，通常會使用 Azure Resource Manager 範本。 如需有關如何透過 Azure Resource Manager 部署 Service Fabric 應用程式的詳細資訊，請參閱將[應用程式和服務當做 Azure Resource Manager 資源來管理](service-fabric-application-arm-resource.md)。
 
 > [!NOTE] 
 > 
@@ -27,11 +27,11 @@ ms.locfileid: "69624905"
 
 ## <a name="user-assigned-identity"></a>使用者指派的身分識別
 
-若要使用使用者指派的身分識別來啟用應用程式, 請先將**identity**屬性新增至**userAssigned**類型的應用程式資源, 以及參考的使用者指派的身分識別。 然後在**應用程式**資源的 [**屬性**] 區段內新增**managedIdentities**區段, 其中包含每個使用者指派身分識別的易記名稱清單, 以 principalId 對應。
+若要使用使用者指派的身分識別來啟用應用程式，請先將**identity**屬性新增至**userAssigned**類型的應用程式資源，以及參考的使用者指派的身分識別。 然後在**應用程式**資源的 [**屬性**] 區段內新增**managedIdentities**區段，其中包含每個使用者指派身分識別的易記名稱清單，以 principalId 對應。 如需使用者指派識別的詳細資訊[，請參閱建立、列出或刪除使用者指派的受控識別](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-powershell)。
 
 ### <a name="application-template"></a>應用程式範本
 
-若要啟用具有使用者指派身分識別的應用程式, 請先將 identity 屬性新增至類型為**userAssigned**的應用程式資源, 以及參考的使用者指派**識別**, 然後將**managedIdentities**物件**新增至properties**區段, 其中包含每個使用者指派身分識別的易記名稱 principalId 對應清單。
+若要啟用具有使用者指派身分識別的應用程式，請先將 identity 屬性新增至類型為**userAssigned**的應用程式資源，以及參考的使用者指派**識別**，然後將**managedIdentities**物件**新增至properties**區段，其中包含每個使用者指派身分識別的易記名稱 principalId 對應清單。
 
     {
       "apiVersion": "2019-06-01-preview",
@@ -62,11 +62,11 @@ ms.locfileid: "69624905"
       }
     }
 
-在上述範例中, 使用者指派身分識別的資源名稱會用來作為應用程式受控識別的易記名稱。 下列範例假設實際的易記名稱是 "AdminUser"。
+在上述範例中，使用者指派身分識別的資源名稱會用來作為應用程式受控識別的易記名稱。 下列範例假設實際的易記名稱是 "AdminUser"。
 
 ### <a name="application-package"></a>應用程式封裝
 
-1. 針對 Azure Resource Manager 範本的`managedIdentities`區段中定義的每個識別, 在 [ `<ManagedIdentity>` **主體**] 區段下的應用程式資訊清單中新增標記。 屬性必須符合`managedIdentities`區段中定義`name`的屬性。 `Name`
+1. 針對 Azure Resource Manager 範本的`managedIdentities`區段中定義的每個識別，在 [ `<ManagedIdentity>` **主體**] 區段下的應用程式資訊清單中新增標記。 屬性必須符合`managedIdentities`區段中定義`name`的屬性。 `Name`
 
     **ApplicationManifest .xml**
 
@@ -78,7 +78,7 @@ ms.locfileid: "69624905"
       </Principals>
     ```
 
-2. 在 [ **ServiceManifestImport** ] 區段中, 為使用受控識別的服務新增**IdentityBindingPolicy** 。 此原則會將`AdminUser`身分識別對應至稍後需要新增至服務資訊清單的服務特定身分識別名稱。
+2. 在 [ **ServiceManifestImport** ] 區段中，為使用受控識別的服務新增**IdentityBindingPolicy** 。 此原則會將`AdminUser`身分識別對應至稍後需要新增至服務資訊清單的服務特定身分識別名稱。
 
     **ApplicationManifest .xml**
 
@@ -90,7 +90,7 @@ ms.locfileid: "69624905"
       </ServiceManifestImport>
     ```
 
-3. 更新服務資訊清單, 以在**資源**區段內新增`ServiceIdentityRef` **microsoft.managedidentity** , 其名稱符合應用程式指令`IdentityBindingPolicy`清單中的:
+3. 更新服務資訊清單，以在**資源**區段內新增`ServiceIdentityRef` **microsoft.managedidentity** ，其名稱符合應用程式指令`IdentityBindingPolicy`清單中的：
 
     **ServiceManifest .xml**
 

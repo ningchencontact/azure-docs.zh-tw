@@ -7,12 +7,12 @@ ms.author: shthota
 ms.service: marketplace
 ms.topic: conceptual
 ms.date: 09/09/2019
-ms.openlocfilehash: 4357a91a87648885def69d8e75e19e38a5a3f751
-ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
+ms.openlocfilehash: 87ecf534fa7d4f3609882f5f18b314c246e388bd
+ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/14/2019
-ms.locfileid: "70993727"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71036635"
 ---
 # <a name="analytics-for-the-commercial-marketplace-in-partner-center"></a>合作夥伴中心的商業 Marketplace 分析
 
@@ -250,7 +250,7 @@ ms.locfileid: "70993727"
 | 客戶名字| 客戶| 客戶提供的名稱。 名稱可能與客戶的 Azure 訂用帳戶中提供的名稱不同。| |
 | 客戶識別碼 | Customer、Order | 指派給客戶的唯一識別碼。 客戶可能會有零或多個 Azure Marketplace 訂用帳戶。|  |
 | 客戶郵遞區號  | 客戶| 客戶所提供的郵遞區號。 程式碼可能不同于客戶的 Azure 訂用帳戶中提供的郵遞區號。| |
-| 客戶州| 客戶| 客戶提供的狀態（位址）。 狀態可能與客戶的 Azure 訂用帳戶中提供的姓氏不同。| |
+| 客戶州| 客戶| 客戶提供的狀態（位址）。 狀態可能與客戶的 Azure 訂用帳戶中提供的狀態不同。| |
 | 取得日期| 客戶| 客戶購買您所發佈之任何供應專案的第一個日期。| |
 | 損失日期| 客戶| 客戶最近一次已購買的所有供應專案的最後一個日期。||
 | 是新客戶  | 順序| 此值將會識別一或多個新客戶第一次取得您的供應專案（或非）。 如果在同一個日曆月份內「取得日期」，值會是「是」。 如果客戶已在行事曆月份之前購買任何供應專案，值將會是「否」。 |

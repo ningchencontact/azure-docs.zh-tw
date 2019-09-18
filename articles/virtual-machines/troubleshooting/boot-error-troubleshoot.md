@@ -4,7 +4,7 @@ description: 本文會協助您連結到其他文章，以針對 Azure 虛擬機
 services: virtual-machines-windows
 documentationCenter: ''
 author: genlin
-manager: cshepard
+manager: dcscontentpm
 editor: ''
 ms.service: virtual-machines-windows
 ms.topic: troubleshooting
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 12/12/2018
 ms.author: genli
-ms.openlocfilehash: ce51b462b17a7082fa7951aea8790e28e517401e
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 660c7fa0051654fd9b0012740ce7ed3ee1e91531
+ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70080509"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71059176"
 ---
 # <a name="troubleshoot-azure-virtual-machines-boot-errors"></a>針對 Azure 虛擬機器開機錯誤進行疑難排解
 

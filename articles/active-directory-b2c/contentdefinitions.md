@@ -10,18 +10,18 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: d82785a0f833afb6a9c675fc7022ed19e96c7fc0
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f8acf499d4d82c49096e4e5beff8209d0970b421
+ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66511322"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71064326"
 ---
 # <a name="contentdefinitions"></a>ContentDefinitions
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-您可以自訂任何[自我判斷技術設定檔](self-asserted-technical-profile.md)的外觀與風格。 Azure Active Directory (Azure AD) B2C 會在客戶的瀏覽器中執行程式碼，並使用稱為跨原始資源共用 (CORS) 的新式方法。 
+您可以自訂任何[自我判斷技術設定檔](self-asserted-technical-profile.md)的外觀與風格。 Azure Active Directory B2C （Azure AD B2C）會在客戶的瀏覽器中執行程式碼，並使用稱為跨原始資源分享（CORS）的新式方法。
 
 若要自訂使用者介面，請使用帶有自訂 HTML 內容的 **ContentDefinition** 元素，指定 URL。 在自我判斷技術設定檔或 **OrchestrationStep** 中，請指向該內容定義識別碼。 內容定義可能包含 **LocalizedResourcesReferences** 元素，該元素指定要載入之當地語系化資源的清單。 Azure AD B2C 會合併使用者介面元素與從您 URL 載入的 HTML 內容，然後對使用者顯示此頁面。
 
@@ -70,9 +70,9 @@ ms.locfileid: "66511322"
 | 元素 | 發生次數 | 描述 |
 | ------- | ----------- | ----------- |
 | LoadUri | 1:1 | 此字串包含內容定義之 HTML5 頁面的 URL。 |
-| RecoveryUri | 0:1 | 此字串包含 HTML 頁面的 URL，以顯示與內容定義相關的錯誤。 | 
-| DataUri | 1:1 | 此字串包含 HTML 檔案的相對 URL，該檔案為步驟提供了要叫用的使用者體驗。 |  
-| 中繼資料 | 1:1 | 包含內容定義使用之中繼資料的機碼值組的集合。 | 
+| RecoveryUri | 0:1 | 此字串包含 HTML 頁面的 URL，以顯示與內容定義相關的錯誤。 |
+| DataUri | 1:1 | 此字串包含 HTML 檔案的相對 URL，該檔案為步驟提供了要叫用的使用者體驗。 |
+| 中繼資料 | 1:1 | 包含內容定義使用之中繼資料的機碼值組的集合。 |
 | LocalizedResourcesReferences | 0:1 | 當地語系化資源參考的集合。 使用此元素以自訂使用者介面的當地語系化與宣告屬性。 |
 
 ### <a name="datauri"></a>DataUri
@@ -82,11 +82,11 @@ ms.locfileid: "66511322"
 | 值 |   描述 |
 | ----- | ----------- |
 | `urn:com:microsoft:aad:b2c:elements:globalexception:1.1.0` | 發生例外狀況或錯誤時，會顯示錯誤頁面。 |
-| `urn:com:microsoft:aad:b2c:elements:idpselection:1.0.0` | 列出使用者可以在登入期間選擇的識別提供者。 | 
-| `urn:com:microsoft:aad:b2c:elements:unifiedssp:1.0.0` | 顯示一份表單，可供以電子郵件地址或使用者名稱為基礎的本機帳戶進行登入。 此值也提供 [讓我保持登入功能] 和 [忘記密碼？] 連結。 | 
+| `urn:com:microsoft:aad:b2c:elements:idpselection:1.0.0` | 列出使用者可以在登入期間選擇的識別提供者。 |
+| `urn:com:microsoft:aad:b2c:elements:unifiedssp:1.0.0` | 顯示一份表單，可供以電子郵件地址或使用者名稱為基礎的本機帳戶進行登入。 此值也提供 [讓我保持登入功能] 和 [忘記密碼？] 連結。 |
 | `urn:com:microsoft:aad:b2c:elements:unifiedssd:1.0.0` | 顯示一份表單，可供以電子郵件地址或使用者名稱為基礎的本機帳戶進行登入。 |
 | `urn:com:microsoft:aad:b2c:elements:multifactor:1.1.0` | 在註冊或登入期間，藉由使用簡訊或語音，驗證電話號碼。 |
-| `urn:com:microsoft:aad:b2c:elements:selfasserted:1.1.0` | 顯示一份表單，可供使用者建立或更新其設定檔。 | 
+| `urn:com:microsoft:aad:b2c:elements:selfasserted:1.1.0` | 顯示一份表單，可供使用者建立或更新其設定檔。 |
 
 
 ### <a name="localizedresourcesreferences"></a>LocalizedResourcesReferences
@@ -95,7 +95,7 @@ ms.locfileid: "66511322"
 
 | 元素 | 發生次數 | 描述 |
 | ------- | ----------- | ----------- |
-| LocalizedResourcesReference | 1:n | 內容定義的當地語系化資源參考清單。 | 
+| LocalizedResourcesReference | 1:n | 內容定義的當地語系化資源參考清單。 |
 
 **LocalizedResourcesReferences** 元素包含下列屬性：
 
@@ -141,16 +141,16 @@ ms.locfileid: "66511322"
 
 **ContentDefinition** 元素的識別碼屬性會指定與內容定義相關的頁面類型。 此元素會定義自訂 HTML5/CSS 範本即將套用的內容。 下表說明身分識別體驗架構所能辨識之內容定義識別碼的集合，以及這些識別碼的相關頁面類型。 您可以使用任意識別碼建立自己的內容定義。
 
-| id | 預設範本 | 描述 | 
+| id | 預設範本 | 描述 |
 | -- | ---------------- | ----------- |
-| api.error  | [exception.cshtml](https://login.microsoftonline.com/static/tenant/default/exception.cshtml) | **錯誤頁面** - 發生例外狀況或錯誤時，會顯示錯誤頁面。 |
-| api.idpselections  | [idpSelector.cshtml](https://login.microsoftonline.com/static/tenant/default/idpSelector.cshtml) | **識別提供者選取頁面** - 列出使用者可以在登入期間選擇的識別提供者。 這些選項通常是企業識別提供者、社交識別提供者 (如 Facebook 和 Google+) 或本機帳戶。 |
-| api.idpselections.signup  | [idpSelector.cshtml](https://login.microsoftonline.com/static/tenant/default/idpSelector.cshtml) | **適用於註冊的識別提供者選取項目** - 列出使用者可以在註冊期間選擇的識別提供者。 這些選項通常是企業識別提供者、社交識別提供者 (如 Facebook 和 Google+) 或本機帳戶。 |
-| api.localaccountpasswordreset  | [selfasserted.html](https://login.microsoftonline.com/static/tenant/default/selfAsserted.cshtml) | **忘記密碼頁面** - 顯示一份表單，使用者必須填妥表單，然後才能開始密碼重設。 |
+| api.error | [exception.cshtml](https://login.microsoftonline.com/static/tenant/default/exception.cshtml) | **錯誤頁面** - 發生例外狀況或錯誤時，會顯示錯誤頁面。 |
+| api.idpselections | [idpSelector.cshtml](https://login.microsoftonline.com/static/tenant/default/idpSelector.cshtml) | **識別提供者選取頁面** - 列出使用者可以在登入期間選擇的識別提供者。 這些選項通常是企業識別提供者、社交識別提供者 (如 Facebook 和 Google+) 或本機帳戶。 |
+| api.idpselections.signup | [idpSelector.cshtml](https://login.microsoftonline.com/static/tenant/default/idpSelector.cshtml) | **適用於註冊的識別提供者選取項目** - 列出使用者可以在註冊期間選擇的識別提供者。 這些選項通常是企業識別提供者、社交識別提供者 (如 Facebook 和 Google+) 或本機帳戶。 |
+| api.localaccountpasswordreset | [selfasserted.html](https://login.microsoftonline.com/static/tenant/default/selfAsserted.cshtml) | **忘記密碼頁面** - 顯示一份表單，使用者必須填妥表單，然後才能開始密碼重設。 |
 | **api.localaccountsignin** | [selfasserted.html](https://login.microsoftonline.com/static/tenant/default/selfAsserted.cshtml) | **本機帳戶登入頁面** - 顯示一份表單，可供以電子郵件地址或使用者名稱為基礎的本機帳戶進行登入。 此表單可以包含文字輸入方塊和密碼輸入方塊。 |
 | **api.localaccountsignup** | [selfasserted.html](https://login.microsoftonline.com/static/tenant/default/selfAsserted.cshtml) | **本機帳戶註冊頁面** - 顯示一份表單，可供以電子郵件地址或使用者名稱為基礎的本機帳戶進行註冊。 此表單可以包含各種輸入控制項，例如文字輸入方塊、密碼輸入方塊、選項按鈕、單選下拉式清單方塊和多選核取方塊。 |
 | **api.phonefactor** | [multifactor-1.0.0.cshtml](https://login.microsoftonline.com/static/tenant/default/multifactor-1.0.0.cshtml) | **多重要素驗證頁面** - 在註冊或登入期間，藉由使用簡訊或語音，驗證電話號碼。 |
 | **api.selfasserted** | [selfasserted.html](https://login.microsoftonline.com/static/tenant/default/selfAsserted.cshtml) | **社交帳戶註冊頁面** - 顯示一份表單，使用者在使用社交識別提供者的現有帳戶時，必須填妥此表單。 此頁面類似於上述的社交帳戶註冊頁面，但密碼輸入欄位除外。 |
 | **api.selfasserted.profileupdate** | [updateprofile.html](https://login.microsoftonline.com/static/tenant/default/updateProfile.cshtml) | **設定檔更新頁面** - 顯示一份表單，使用者可用來更新其設定檔。 此頁面類似於社交帳戶註冊頁面，但密碼輸入欄位除外。 |
 | **api.signuporsignin** | [unified.html](https://login.microsoftonline.com/static/tenant/default/unified.cshtml) | **統一的註冊或登入頁面** - 處理使用者註冊或登入程序。 使用者可以使用企業識別提供者、社交識別提供者 (如 Facebook 或 Google+) 或本機帳戶。 |
- 
+

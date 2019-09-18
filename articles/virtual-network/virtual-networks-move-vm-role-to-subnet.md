@@ -4,7 +4,7 @@ description: 了解如何使用 PowerShell 將 VM (傳統) 和雲端服務角色
 services: virtual-network
 documentationcenter: na
 author: genlin
-manager: cshepard
+manager: dcscontentpm
 editor: tysonn
 ms.assetid: de4135c7-dc5b-4ffa-84cc-1b8364b7b427
 ms.service: virtual-network
@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 03/22/2016
 ms.author: genli
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 787a50a0cbf16089cd15f922b494cd12d680cb43
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 275d59a7bddd8b2b609169218afcd15e9a0ce913
+ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60640390"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71058383"
 ---
 # <a name="move-a-vm-classic-or-cloud-services-role-instance-to-a-different-subnet-using-powershell"></a>使用 PowerShell 將 VM (傳統) 或雲端服務角色執行個體移至不同的子網路
 您可以使用 PowerShell 將 VM (傳統) 從一個子網路移至相同虛擬網路 (VNet) 中的另一個子網路。 您可以藉由編輯 CSCFG 檔案，而非使用 PowerShell 來移動角色執行個體。
@@ -49,7 +49,7 @@ ms.locfileid: "60640390"
     | Update-AzureVM
 
 ## <a name="to-move-a-role-instance-to-another-subnet"></a>若要將角色執行個體移至另一個子網路
-若要移動角色執行個體，請編輯 CSCFG 檔案。 在下方範例中，我們會將虛擬網路 VNETName  中的「Role0」從其目前的子網路移至 Subnet-2  。 因為已部署角色執行個體，您僅需變更 Subnet name = Subnet-2 的部份。 請務必編輯該範例來反映您的環境。
+若要移動角色執行個體，請編輯 CSCFG 檔案。 在下方範例中，我們會將虛擬網路 VNETName 中的「Role0」從其目前的子網路移至 Subnet-2。 因為已部署角色執行個體，您僅需變更 Subnet name = Subnet-2 的部份。 請務必編輯該範例來反映您的環境。
 
     <NetworkConfiguration>
         <VirtualNetworkSite name="VNETName" />

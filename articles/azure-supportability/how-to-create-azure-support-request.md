@@ -14,47 +14,47 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/25/2016
 ms.author: gangan
-ms.openlocfilehash: f6d9e683e1feff670c26b01a31ce977557295bff
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 462a14d7845c6723a3482e50b01c50e3d913beee
+ms.sourcegitcommit: 8ef0a2ddaece5e7b2ac678a73b605b2073b76e88
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62129054"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71072090"
 ---
 # <a name="how-to-create-an-azure-support-request"></a>如何建立 Azure 支援要求
 ## <a name="summary"></a>總結
 Azure 客戶可以在 Azure 入口網站 ([https://portal.azure.com](https://portal.azure.com)) 中建立和管理支援要求。
 
 > [!NOTE]
-> 德國的 Azure 入口網站是 [https://portal.microsoftazure.de](https://portal.microsoftazure.de)   
-> 美國政府的 Azure 入口網站為是 [https://portal.azure.us](https://portal.azure.us)。
+> 適用于德國的商業[https://portal.azure.com](https://portal.azure.com)使用 Azure 入口網站是 Azure 入口網站[https://portal.microsoftazure.de](https://portal.microsoftazure.de)   
+> 美國政府的 Azure 入口網站是[https://portal.azure.us](https://portal.azure.us)
 
 
 根據客戶的意見反應，我們已更新支援要求體驗，著重在三個主要目標︰
 
-* **簡化**:減少按下滑鼠，以及讓提交支援要求的程序簡單刀鋒視窗。
-* **整合式**:當您正在疑難排解 Azure 資源的問題時，很輕易就能開啟支援要求以取得該資源，而不需要切換內容。
-* **效率**：收集支援工程師有效率地解決問題所需的金鑰資訊。
+* **簡化**：減少點擊和分葉，以輕鬆提交支援要求。
+* **整合**式：當您針對 Azure 資源的問題進行疑難排解時，不需要切換內容，就能輕鬆開啟該資源的支援要求。
+* **效率**：收集支援工程師所需的重要資訊，以有效率地解決您的問題。
 
 ## <a name="getting-started"></a>使用者入門
 您可以從頂端導覽功能表或直接從資源刀鋒視窗中建立支援要求。
 
 **從頂端導覽列**
 
-![說明與支援](./media/how-to-create-azure-support-request/HelpandSupport.png)
+![說明及支援](./media/how-to-create-azure-support-request/HelpandSupport.png)
 
 在 [說明 + 支援] 頁面中選取 [新增支援要求]。
 
-![新的支援要求](./media/how-to-create-azure-support-request/NewSupportRequest.png)
+![新增支援要求](./media/how-to-create-azure-support-request/NewSupportRequest.png)
 
 **從資源刀鋒視窗**
 
 ![在內容中](./media/how-to-create-azure-support-request/Incontext.png)
 
-## <a name="basics"></a>基本概念
+## <a name="basics"></a>基本知識
 支援要求程序的第一個步驟會收集您的問題和支援計劃的基本資訊。
 
-讓我們來看一個範例：您所面臨技術問題與您的虛擬機器，而且懷疑是網路連線問題。
+讓我們來看一個範例：您遇到虛擬機器的技術問題，並懷疑發生網路連線問題。
 選取服務 (「執行 Windows 的虛擬機器」)，精靈的第一個步驟中的資源 (您的虛擬機器的名稱) 會啟動取得此問題協助的程序。
 
 ![基本概念刀鋒視窗](./media/how-to-create-azure-support-request/Basics.png)
@@ -76,7 +76,7 @@ Azure 客戶可以在 Azure 入口網站 ([https://portal.azure.com](https://por
 ## <a name="related-help"></a>相關說明
 我們會根據問題類型和您選取的類別，提供可協助您解決問題的解決方案。
 
-![相關說明](./media/how-to-create-azure-support-request/RelatedHelp.png)
+![相關的說明](./media/how-to-create-azure-support-request/RelatedHelp.png)
 
 我們也會根據您問題的文字描述，提供內容相關的自助解決方案。
 
@@ -96,17 +96,17 @@ Azure 客戶可以在 Azure 入口網站 ([https://portal.azure.com](https://por
 ![全天候連絡人資訊](./media/how-to-create-azure-support-request/ContactInformation-2.png)
 
 ## <a name="all-support-requests"></a>所有支援要求
-建立支援要求之後，您可以從 [所有支援要求]  頁面檢視詳細資料。
+建立支援要求之後，您可以從 [所有支援要求] 頁面檢視詳細資料。
 
 **從頂端導覽列**
 
-![說明與支援](./media/how-to-create-azure-support-request/HelpandSupport.png)
+![說明及支援](./media/how-to-create-azure-support-request/HelpandSupport.png)
 
 從 [說明與支援] 頁面，選取左功能表中的 [所有支援要求]。
 
 ![所有支援要求連結](./media/how-to-create-azure-support-request/AllSupportRequest-link.png)
 
-在 [所有支援要求]  頁面上，您可以檢視所有的支援要求及其狀態。
+在 [所有支援要求] 頁面上，您可以檢視所有的支援要求及其狀態。
 
 ![所有支援要求](./media/how-to-create-azure-support-request/AllSupportRequest.png)
 
@@ -116,7 +116,7 @@ Azure 客戶可以在 Azure 入口網站 ([https://portal.azure.com](https://por
 選取支援要求以檢視詳細資料，包括嚴重性和支援工程師回應的預期時間。
 ![VID](./media/how-to-create-azure-support-request/VID.png)
 
-如果您想要變更要求的嚴重性，請按一下 [業務衝擊]  圖格。 在先前範例中，要求目前設為嚴重性 C。
+如果您想要變更要求的嚴重性，請按一下 [業務衝擊] 圖格。 在先前範例中，要求目前設為嚴重性 C。
 
 按一下圖格會顯示可以指派給開啟支援要求的嚴重性清單。
 
@@ -127,8 +127,8 @@ Azure 客戶可以在 Azure 入口網站 ([https://portal.azure.com](https://por
 
 ![VID-2](./media/how-to-create-azure-support-request/VID-2.png)
 
-## <a name="feedback"></a>意見反應
+## <a name="feedback"></a>意見
 我們歡迎意見反應和建議！ 請將您的 [建議](https://feedback.azure.com/forums/266794-support-feedback)傳送給我們。 此外，您可以透過 [Twitter](https://twitter.com/azuresupport) 或 [MSDN 論壇](https://social.msdn.microsoft.com/Forums/azure)與我們連絡。
 
-## <a name="learn-more"></a>深入了解
+## <a name="learn-more"></a>更多資訊
 [Azure 支援常見問題集](https://azure.microsoft.com/support/faq)

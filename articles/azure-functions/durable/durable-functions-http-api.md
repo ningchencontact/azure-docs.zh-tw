@@ -9,12 +9,12 @@ ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 09/07/2019
 ms.author: azfuncdf
-ms.openlocfilehash: c81eccaa2b3a4335f034b9667f6e7be317635f43
-ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
+ms.openlocfilehash: 094ae511337556ef0c67c86f6d8692cae005430a
+ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70933393"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71033958"
 ---
 # <a name="http-api-reference"></a>HTTP API 參考
 
@@ -28,7 +28,7 @@ Durable Functions 擴充功能會公開一組內建的 HTTP Api，可用來在�
 | **`connection`** | 查詢字串    | 儲存體帳戶之連接字串的**名稱**。 如果未指定，則會假設為函式應用程式的預設連接字串。 |
 | **`systemKey`**  | 查詢字串    | 叫用 API 所需的授權金鑰。 |
 
-`systemKey`是由 Azure Functions 主機自動產生的授權金鑰。 它特別授與「長期工作」延伸模組 API 的存取權，並且可以用與[其他授權金鑰](https://github.com/Azure/azure-webjobs-sdk-script/wiki/Key-management-API)相同的方式來管理。 探索 `systemKey` 值的最簡單方式是使用先前所述的 `CreateCheckStatusResponse` API。
+`systemKey`是由 Azure Functions 主機自動產生的授權金鑰。 它特別授與「長期工作」延伸模組 API 的存取權，並且可以用與[其他授權金鑰](https://github.com/Azure/azure-webjobs-sdk-script/wiki/Key-management-API)相同的方式來管理。 您可以使用[協調流程用戶端](durable-functions-bindings.md#orchestration-client)系`taskHub`結`connection`api （ `systemKey` `CreateCheckStatusResponse` `CreateHttpManagementPayload`例如 .net 中的和 api）或和，產生包含正確、和查詢字串值的url。`createCheckStatusResponse``createHttpManagementPayload` JavaScript 中的 api。
 
 接下來的幾個章節會涵蓋延伸模組支援的特定 HTTP API，並且提供如何使用的範例。
 

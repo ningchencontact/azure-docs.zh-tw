@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/23/2019
 ms.author: hrasheed
-ms.openlocfilehash: 3ca9c12caa7fa9b54cd63c2655166d95477dffa2
-ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
+ms.openlocfilehash: 5b97e577216f5e34cd0a5bdd66eea2cf2efa0fee
+ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70885310"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71035928"
 ---
 # <a name="manage-hdinsight-clusters-by-using-the-apache-ambari-web-ui"></a>使用 Apache Ambari Web UI 管理 HDInsight 叢集
 
@@ -47,7 +47,7 @@ Ambari Web UI 可在您的 HDInsight `https://CLUSTERNAME.azurehdinsight.net`叢
 
 當頁面開啟時，請注意頂端的資訊列。 此列包含下列資訊和控制項：
 
-![ambari-nav](./media/hdinsight-hadoop-manage-ambari/ambari-nav.png)
+![ambari-nav](./media/hdinsight-hadoop-manage-ambari/apache-ambari-dashboard.png)
 
 |項目 |描述 |
 |---|---|
@@ -80,7 +80,7 @@ Ambari Web UI 可在您的 HDInsight `https://CLUSTERNAME.azurehdinsight.net`叢
 
 您可以使用 [動作] 功能表並選取 [管理警示群組] 來管理這些群組。
 
-![管理警示群組對話方塊](./media/hdinsight-hadoop-manage-ambari/manage-alerts.png)
+![管理警示群組對話方塊](./media/hdinsight-hadoop-manage-ambari/ambari-manage-alerts.png)
 
 您也可以管理警示方法，並從 [動作] 功能表中選取 [管理警示通知] 來建立警示通知。 系統會顯示任何目前的通知。 您也可以從這裡建立通知。 在發生特定警示/嚴重性組合時，便可透過**電子郵件**或 **SNMP** 傳送通知。 例如，您可以在 [YARN 預設] 群組中的任何警示設為 [重要] 時傳送電子郵件訊息。
 
@@ -100,20 +100,20 @@ Ambari Web UI 可在您的 HDInsight `https://CLUSTERNAME.azurehdinsight.net`叢
 
 如需有關叢集中節點的詳細資訊，請選取 [主機]。 然後選取您感興趣的特定節點。
 
-![主機詳細資料](./media/hdinsight-hadoop-manage-ambari/host-details.png)
+![主機詳細資料](./media/hdinsight-hadoop-manage-ambari/ambari-host-details1.png)
 
 ### <a name="services"></a>服務
 
 儀表板上的 [ **服務** ] 提要欄位可讓您快速了解叢集上執行之服務的狀態。 各種圖示用來指出狀態或應採取的動作。 例如，需要回收服務時會顯示黃色回收符號。
 
-![服務提要欄位](./media/hdinsight-hadoop-manage-ambari/service-bar.png)
+![服務提要欄位](./media/hdinsight-hadoop-manage-ambari/apache-ambari-service-bar.png)
 
 > [!NOTE]  
 > 不同 HDInsight 叢集類型和版本之間會顯示不同的服務。 這裡顯示的服務可能會不同於您的叢集所顯示的服務。
 
 選取服務便會顯示服務的詳細資訊。
 
-![服務摘要資訊](./media/hdinsight-hadoop-manage-ambari/service-details.png)
+![服務摘要資訊](./media/hdinsight-hadoop-manage-ambari/ambari-service-details.png)
 
 #### <a name="quick-links"></a>快速連結
 
@@ -168,7 +168,7 @@ Ambari Web UI 可在您的 HDInsight `https://CLUSTERNAME.azurehdinsight.net`叢
 
 在 [儀表板] 或 [服務] 頁面中，使用服務清單底部的 [動作] 按鈕來停止和啟動所有服務。
 
-![服務動作](./media/hdinsight-hadoop-manage-ambari/service-actions.png)
+![服務動作](./media/hdinsight-hadoop-manage-ambari/ambari-service-actions.png)
 
 > [!WARNING]  
 > 雖然 [新增服務] 列在此功能表中，但不應用來將服務新增 HDInsight 叢集。 您應該在叢集佈建期間，使用指令碼動作加入新服務。 如需使用指令碼動作的詳細資訊，請參閱 [使用指令碼動作自訂 HDInsight 叢集](hdinsight-hadoop-customize-cluster-linux.md)。
@@ -195,7 +195,7 @@ Ambari Web UI 可在您的 HDInsight `https://CLUSTERNAME.azurehdinsight.net`叢
 
 2. 選取 [ **設定** ] 索引標籤。隨即會顯示目前的組態。 同時也會顯示先前組態的清單。
 
-    ![組態](./media/hdinsight-hadoop-manage-ambari/service-configs.png)
+    ![組態](./media/hdinsight-hadoop-manage-ambari/ambari-service-configs.png)
 
 3. 使用顯示的欄位修改組態，然後選取 [ **儲存**]。 或選取先前的組態，然後選取 [ **設為現用** ] 以回復到先前的設定。
 

@@ -1,7 +1,7 @@
 ---
 title: 架構 & 重要概念
-titleSuffix: Azure Machine Learning service
-description: 瞭解組成 Azure Machine Learning 服務的架構、術語、概念和工作流程。
+titleSuffix: Azure Machine Learning
+description: 瞭解組成 Azure Machine Learning 的架構、術語、概念和工作流程。
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,18 +10,18 @@ ms.author: larryfr
 author: Blackmist
 ms.date: 07/12/2019
 ms.custom: seodec18
-ms.openlocfilehash: 4e953ad732852f9ee99c7830997e2d1dc29b8f84
-ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
+ms.openlocfilehash: 91c747b8b4ca58e7714dc101777bad51f9f0286f
+ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70845002"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71035585"
 ---
-# <a name="how-azure-machine-learning-service-works-architecture-and-concepts"></a>Azure Machine Learning 服務的運作方式：架構和概念
+# <a name="how-azure-machine-learning-works-architecture-and-concepts"></a>Azure Machine Learning 的運作方式：架構和概念
 
-瞭解 Azure Machine Learning 服務的架構、概念和工作流程。 服務的主要元件以及使用服務時的一般工作流程顯示在下圖中：
+瞭解 Azure Machine Learning 的架構、概念和工作流程。 服務的主要元件以及使用服務時的一般工作流程顯示在下圖中：
 
-![Azure Machine Learning 服務架構和工作流程](./media/concept-azure-machine-learning-architecture/workflow.png)
+![Azure Machine Learning 架構和工作流程](./media/concept-azure-machine-learning-architecture/workflow.png)
 
 ## <a name="workflow"></a>工作流程
 
@@ -47,10 +47,10 @@ ms.locfileid: "70845002"
 +  使用[適用于 python 的 AZURE MACHINE LEARNING SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py), 在任何 Python 環境中與服務互動。
 + 使用[AZURE MACHINE LEARNING CLI](https://docs.microsoft.com/azure/machine-learning/service/reference-azure-machine-learning-cli)自動化您的機器學習活動。
 + 使用[Azure Machine Learning VS Code 延伸](how-to-vscode-tools.md)模組, 在 Visual Studio Code 中撰寫程式碼
-+ 使用[視覺化介面 (預覽) 進行 Azure Machine Learning 服務](ui-concept-visual-interface.md), 而不需要撰寫程式碼即可執行工作流程步驟。
++ 使用[視覺化介面（預覽）進行 Azure Machine Learning](ui-concept-visual-interface.md) ，而不需要撰寫程式碼即可執行工作流程步驟。
 
 > [!NOTE]
-> 雖然本文定義了 Azure Machine Learning 服務使用的詞彙與概念，但並沒有定義 Azure 平台的詞彙與概念。 如需有關 Azure 平台技術的詳細資訊，請參閱 [Microsoft Azure 詞彙](https://docs.microsoft.com/azure/azure-glossary-cloud-terminology)。
+> 雖然本文定義了 Azure Machine Learning 所使用的詞彙和概念，但不會定義 Azure 平臺的詞彙和概念。 如需有關 Azure 平台技術的詳細資訊，請參閱 [Microsoft Azure 詞彙](https://docs.microsoft.com/azure/azure-glossary-cloud-terminology)。
 
 ## <a name="glossary"></a>字彙
 
@@ -75,7 +75,7 @@ ms.locfileid: "70845002"
 
 ### <a name="workspaces"></a>工作區
 
-[工作區](concept-workspace.md)是 Azure Machine Learning 服務的最上層資源。 它可以在您使用 Azure Machine Learning 服務時，提供集中式位置以處理您建立的所有成品。 您可以與其他人共用工作區。 如需工作區的詳細說明，請參閱[什麼是 Azure Machine Learning 的工作區？](concept-workspace.md)。
+[工作區](concept-workspace.md)是 Azure Machine Learning 的最上層資源。 當您使用 Azure Machine Learning 時，它會提供一個集中的位置來處理您建立的所有成品。 您可以與其他人共用工作區。 如需工作區的詳細說明，請參閱[什麼是 Azure Machine Learning 的工作區？](concept-workspace.md)。
 
 ### <a name="experiments"></a>實驗
 
@@ -87,13 +87,13 @@ ms.locfileid: "70845002"
 
 簡單來說，模型是可接受輸入並產生輸出的一段程式碼。 機器學習服務模型的建立作業涵蓋選取演算法、提供資料給演算法，以及調整超參數。 定型是一種反覆進行的程序，可產生定型的模型，其中會封裝模型在定型程序期間學到項目。
 
-模型是由 Azure Machine Learning 中的回合所產生的。 您也可以使用在 Azure Machine Learning 外部定型的模型。 您可以在 Azure Machine Learning 服務工作區中註冊模型。
+模型是由 Azure Machine Learning 中的回合所產生的。 您也可以使用在 Azure Machine Learning 外部定型的模型。 您可以在 Azure Machine Learning 工作區中註冊模型。
 
-Azure Machine Learning 服務與架構無關。 當您建立模型時, 您可以使用任何熱門的機器學習架構, 例如 Scikit-learn-learning、XGBoost、PyTorch、TensorFlow 和 Chainer。
+Azure Machine Learning 與架構無關。 當您建立模型時, 您可以使用任何熱門的機器學習架構, 例如 Scikit-learn-learning、XGBoost、PyTorch、TensorFlow 和 Chainer。
 
-如需使用 scikit-learn-學習和估計工具訓練模型的範例，請參閱[教學課程：使用 Azure Machine Learning 服務將映像分類模型定型](tutorial-train-models-with-aml.md)。
+如需使用 scikit-learn-學習和估計工具訓練模型的範例，請參閱[教學課程：使用 Azure Machine Learning](tutorial-train-models-with-aml.md)將影像分類模型定型。
 
-**模型**登錄會持續追蹤 Azure Machine Learning 服務工作區中的所有模型。
+**模型**登錄會持續追蹤 Azure Machine Learning 工作區中的所有模型。
 
 模型是透過名稱與版本來識別的。 每次註冊與現有模型名稱相同的模型時，登錄都會假設它是一個新版本。 版本會累加，新模型則會以相同的名稱來註冊。
 
@@ -124,8 +124,8 @@ Azure Machine Learning 服務與架構無關。 當您建立模型時, 您可以
 
 * [使用估算器將 ML 模型定型](how-to-train-ml-models.md)。
 * [使用 Azure Machine Learning，大規模地訓練 Pytorch 深度學習模型](how-to-train-pytorch.md)。
-* [使用 Azure Machine Learning 服務，大規模地定型和註冊 TensorFlow 模型](how-to-train-tensorflow.md)。
-* [使用 Azure Machine Learning 服務，大規模地定型和註冊 Chainer 模型](how-to-train-chainer.md)。
+* [使用 Azure Machine Learning，大規模地定型和註冊 TensorFlow 模型](how-to-train-tensorflow.md)。
+* [使用 Azure Machine Learning，大規模地定型和註冊 Chainer 模型](how-to-train-chainer.md)。
 
 ### <a name="datasets-and-datastores"></a>資料集和資料存放區
 
@@ -147,7 +147,7 @@ Azure Machine Learning 服務與架構無關。 當您建立模型時, 您可以
 
 您可以指定包含定型指令碼與相關聯檔案的目錄，以將模型定型。 您也可以指定用來儲存定型期間所收集資訊的實驗名稱。 在定型期間，整個目錄會複製到定型環境 (計算目標)，然後啟動回合組態指定的指令碼。 目錄的快照集也會儲存在工作區中的實驗底下。
 
-如需範例，請參閱[教學課程：使用 Azure Machine Learning 服務將映像分類模型定型](tutorial-train-models-with-aml.md)。
+如需範例，請參閱[教學課程：使用 Azure Machine Learning](tutorial-train-models-with-aml.md)將影像分類模型定型。
 
 ### <a name="runs"></a>回合數
 
@@ -193,7 +193,7 @@ Azure Machine Learning 可以建立兩種類型的映像：
 * **FPGA 映像**：在部署至 Azure 雲端的現場可程式化閘陣列時使用。
 * **Docker 映像**：在部署至 FPGA 以外的計算目標時使用。 例如，Azure 容器執行個體與 Azure Kubernetes Service。
 
-Azure Machine Learning 服務提供預設使用的基底映射。 您也可以提供自己的自訂映射。
+Azure Machine Learning 提供預設使用的基底映射。 您也可以提供自己的自訂映射。
 
 ### <a name="image-registry"></a>映像登錄
 
@@ -239,8 +239,8 @@ Azure IoT Edge 會確保模組正在執行，並監視裝載模組的裝置。
 
 ### <a name="next-steps"></a>後續步驟
 
-若要開始使用 Azure Machine Learning 服務，請參閱：
+若要開始使用 Azure Machine Learning，請參閱：
 
 * [什麼是 Azure Machine Learning 服務？](overview-what-is-azure-ml.md)
-* [建立 Azure Machine Learning 服務工作區](how-to-manage-workspace.md)
+* [建立 Azure Machine Learning 工作區](how-to-manage-workspace.md)
 * [教學課程 (第 1 部分)：將模型定型](tutorial-train-models-with-aml.md)

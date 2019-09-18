@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 08/08/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 056570db89fbe1a3db55c138b46e5b73acc282f8
-ms.sourcegitcommit: 55e0c33b84f2579b7aad48a420a21141854bc9e3
+ms.openlocfilehash: 74c663d8847c2829a5d9466f8e601dd44593a6f8
+ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69622430"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71065207"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-a-github-account-using-azure-active-directory-b2c"></a>使用 Azure Active Directory B2C 設定註冊，並以 GitHub 帳戶登入
 
@@ -23,7 +23,7 @@ ms.locfileid: "69622430"
 
 ## <a name="create-a-github-oauth-application"></a>建立 GitHub OAuth 應用程式
 
-若要在 Azure Active Directory (Azure AD) B2C 中使用 GitHub 帳戶作為[識別提供者](active-directory-b2c-reference-oauth-code.md)，您需要在租用戶中建立代表該帳戶的應用程式。 如果您還沒有 GitHub 帳戶, 您可以在[https://www.github.com/](https://www.github.com/)註冊。
+若要在 Azure Active Directory B2C （Azure AD B2C）中使用 GitHub 帳戶做為[識別提供者](active-directory-b2c-reference-oauth-code.md)，您需要在代表它的租使用者中建立應用程式。 如果您還沒有 GitHub 帳戶，您可以在[https://www.github.com/](https://www.github.com/)註冊。
 
 1. 使用您的 GitHub 認證登入 [GitHub 開發人員](https://github.com/settings/developers)網站。
 1. 選取 [OAuth 應用程式]，然後選取 [新增 OAuth 應用程式]。
@@ -35,10 +35,10 @@ ms.locfileid: "69622430"
 ## <a name="configure-a-github-account-as-an-identity-provider"></a>將 GitHub 帳戶設為識別提供者
 
 1. 以 Azure AD B2C 租用戶的全域管理員身分登入 [Azure 入口網站](https://portal.azure.com/)。
-1. 請選取頂端功能表中的 [**目錄 + 訂**用帳戶] 篩選, 然後選擇包含您租使用者的目錄, 以確定您使用的是包含 Azure AD B2C 租使用者的目錄。
+1. 請選取頂端功能表中的 [**目錄 + 訂**用帳戶] 篩選，然後選擇包含您租使用者的目錄，以確定您使用的是包含 Azure AD B2C 租使用者的目錄。
 1. 選擇 Azure 入口網站左上角的 [所有服務]，搜尋並選取 [Azure AD B2C]。
-1. 選取 [**識別提供者**], 然後選取 **[GitHub (預覽)** ]。
-1. 輸入 [名稱]。 例如, *GitHub*。
-1. 針對 [**用戶端識別碼**], 輸入您稍早建立之 GitHub 應用程式的用戶端識別碼。
-1. 針對 [**用戶端密碼**], 輸入您所記錄的用戶端密碼。
-1. 選取 [ **儲存**]。
+1. 選取 [**識別提供者**]，然後選取 **[GitHub （預覽）** ]。
+1. 輸入 [名稱]。 例如， *GitHub*。
+1. 針對 [**用戶端識別碼**]，輸入您稍早建立之 GitHub 應用程式的用戶端識別碼。
+1. 針對 [**用戶端密碼**]，輸入您所記錄的用戶端密碼。
+1. 選取 [儲存]。

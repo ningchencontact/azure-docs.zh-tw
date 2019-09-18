@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 06/17/2019
 ms.author: mlearned
-ms.openlocfilehash: 30587af098b5ced7962dc45d6a059184f8b5f319
-ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
+ms.openlocfilehash: 8e00053d5ce7c481b026d2fe0ce590d7b8799d8a
+ms.sourcegitcommit: 8ef0a2ddaece5e7b2ac678a73b605b2073b76e88
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70914886"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71075446"
 ---
 # <a name="preview---create-a-windows-server-container-on-an-azure-kubernetes-service-aks-cluster-using-the-azure-cli"></a>預覽-使用 Azure CLI 在 Azure Kubernetes Service （AKS）叢集上建立 Windows Server 容器
 
@@ -149,7 +149,7 @@ az aks create \
 > 如果您收到密碼驗證錯誤，請嘗試在另一個區域中建立您的資源群組。
 > 然後嘗試使用新的資源群組來建立叢集。
 
-在幾分鐘之後，此命令就會完成，並以 JSON 格式傳回叢集的相關資訊。
+在幾分鐘之後，此命令就會完成，並以 JSON 格式傳回叢集的相關資訊。 叢集有時可能需要超過幾分鐘的時間來布建。 在這些情況下，最多允許10分鐘的時間。 
 
 ## <a name="add-a-windows-server-node-pool"></a>新增 Windows Server 節點集區
 
@@ -264,7 +264,7 @@ service/sample created
 
 ## <a name="test-the-application"></a>測試應用程式
 
-執行應用程式時，Kubernetes 服務會向網際網路公開前端應用程式。 此程序需要數分鐘的時間完成。
+執行應用程式時，Kubernetes 服務會向網際網路公開前端應用程式。 此程序需要數分鐘的時間完成。 服務偶爾會花費超過幾分鐘的時間來布建。 在這些情況下，最多允許10分鐘的時間。
 
 若要監視進度，請使用 [kubectl get service][kubectl-get] 命令搭配 `--watch` 引數。
 

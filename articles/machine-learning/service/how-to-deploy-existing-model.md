@@ -1,7 +1,7 @@
 ---
 title: 使用和部署現有的模型
-titleSuffix: Azure Machine Learning service
-description: 瞭解如何使用 Azure Machine Learning 服務與在服務外部定型的模型。 您可以註冊在 Azure Machine Learning 服務外部建立的模型, 然後將其部署為 web 服務或 Azure IoT Edge 模組。
+titleSuffix: Azure Machine Learning
+description: 瞭解如何使用 Azure Machine Learning 與在服務外部定型的模型。 您可以註冊在 Azure Machine Learning 外部建立的模型，然後將其部署為 web 服務或 Azure IoT Edge 模組。
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,32 +10,32 @@ ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
 ms.date: 06/19/2019
-ms.openlocfilehash: f30ac3d5e20b3f797e083972ac179fd29f6b1475
-ms.sourcegitcommit: 7a6d8e841a12052f1ddfe483d1c9b313f21ae9e6
+ms.openlocfilehash: 0de9284896900cb7430f42e1d0266a1c02fab20e
+ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70182532"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71034433"
 ---
-# <a name="use-an-existing-model-with-azure-machine-learning-service"></a>使用現有的模型搭配 Azure Machine Learning 服務
+# <a name="use-an-existing-model-with-azure-machine-learning"></a>使用現有的模型搭配 Azure Machine Learning
 
-瞭解如何搭配 Azure Machine Learning 服務使用現有的機器學習模型。
+瞭解如何搭配 Azure Machine Learning 使用現有的機器學習模型。
 
-如果您有在 Azure Machine Learning 服務外部定型的機器學習模型, 您仍然可以使用此服務, 將模型部署為 web 服務或 IoT Edge 裝置。 
+如果您有在 Azure Machine Learning 外部定型的機器學習模型，您仍然可以使用服務將模型部署為 web 服務或 IoT Edge 裝置。 
 
 > [!TIP]
-> 本文提供註冊和部署現有模型的基本資訊。 一旦部署之後, Azure Machine Learning 服務會為您的模型提供監視。 它也可讓您儲存傳送至部署的輸入資料, 以用於資料漂移分析或訓練新版本的模型。
+> 本文提供註冊和部署現有模型的基本資訊。 一旦部署之後，Azure Machine Learning 會為您的模型提供監視。 它也可讓您儲存傳送至部署的輸入資料，以用於資料漂移分析或訓練新版本的模型。
 >
-> 如需此處所用概念和詞彙的詳細資訊, 請參閱[管理、部署及監視機器學習服務模型](concept-model-management-and-deployment.md)。
+> 如需此處所用概念和詞彙的詳細資訊，請參閱[管理、部署及監視機器學習服務模型](concept-model-management-and-deployment.md)。
 >
-> 如需部署程式的一般資訊, 請參閱[使用 Azure Machine Learning 服務部署模型](how-to-deploy-and-where.md)。
+> 如需部署程式的一般資訊，請參閱[使用 Azure Machine Learning 部署模型](how-to-deploy-and-where.md)。
 
 ## <a name="prerequisites"></a>必要條件
 
-* Azure Machine Learning 服務工作區。 如需詳細資訊, 請參閱[建立工作區](how-to-manage-workspace.md)。
+* Azure Machine Learning 工作區。 如需詳細資訊，請參閱[建立工作區](how-to-manage-workspace.md)。
 
     > [!TIP]
-    > 本文中的 Python 範例假設變數已設定`ws`為您的 Azure Machine Learning 服務工作區。
+    > 本文中的 Python 範例假設變數已設定`ws`為您的 Azure Machine Learning 工作區。
     >
     > CLI 範例會使用`myworkspace`和`myresourcegroup`的預留位置。 以您工作區的名稱和包含它的資源群組取代。
 
@@ -46,11 +46,11 @@ ms.locfileid: "70182532"
 * 已定型的模型。 模型必須保存到開發環境中的一個或多個檔案。
 
     > [!NOTE]
-    > 為了示範如何註冊在 Azure Machine Learning 服務外部定型的模型, 本文中的範例程式碼片段會使用 Paolo Ripamonti 的 Twitter 情感分析專案所建立的[https://www.kaggle.com/paoloripamonti/twitter-sentiment-analysis](https://www.kaggle.com/paoloripamonti/twitter-sentiment-analysis)模型:。
+    > 為了示範如何註冊在 Azure Machine Learning 外部定型的模型，本文中的範例程式碼片段會使用 Paolo Ripamonti 的 Twitter 情感分析專案所建立的[https://www.kaggle.com/paoloripamonti/twitter-sentiment-analysis](https://www.kaggle.com/paoloripamonti/twitter-sentiment-analysis)模型：。
 
 ## <a name="register-the-models"></a>註冊模型
 
-註冊模型可讓您儲存、版本和追蹤工作區中有關模型的中繼資料。 在下列 Python 和 CLI 範例中, `models`目錄`model.h5`包含、 `model.w2v`、 `encoder.pkl`和`tokenizer.pkl`檔案。 這個範例會將`models`目錄中包含的檔案上傳為新的模型註冊, 名為: `sentiment`
+註冊模型可讓您儲存、版本和追蹤工作區中有關模型的中繼資料。 在下列 Python 和 CLI 範例中， `models`目錄`model.h5`包含、 `model.w2v`、 `encoder.pkl`和`tokenizer.pkl`檔案。 這個範例會將`models`目錄中包含的檔案上傳為新的模型註冊，名為： `sentiment`
 
 ```python
 from azureml.core.model import Model
@@ -58,30 +58,30 @@ from azureml.core.model import Model
 #      only some of the files from the directory
 model = Model.register(model_path = "./models",
                        model_name = "sentiment",
-                       description = "Sentiment analysis model trained outside Azure Machine Learning service",
+                       description = "Sentiment analysis model trained outside Azure Machine Learning",
                        workspace = ws)
 ```
 
-如需詳細資訊, 請參閱[Model. register ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model(class)?view=azure-ml-py#register-workspace--model-path--model-name--tags-none--properties-none--description-none--datasets-none--model-framework-none--model-framework-version-none--child-paths-none-)參考。
+如需詳細資訊，請參閱[Model. register （）](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model(class)?view=azure-ml-py#register-workspace--model-path--model-name--tags-none--properties-none--description-none--datasets-none--model-framework-none--model-framework-version-none--child-paths-none-)參考。
 
 ```azurecli
 az ml model register -p ./models -n sentiment -w myworkspace -g myresourcegroup
 ```
 
-如需詳細資訊, 請參閱[az ml model register](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/model?view=azure-cli-latest#ext-azure-cli-ml-az-ml-model-register) reference。
+如需詳細資訊，請參閱[az ml model register](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/model?view=azure-cli-latest#ext-azure-cli-ml-az-ml-model-register) reference。
 
 
-如需模型註冊的一般詳細資訊, 請參閱[管理、部署及監視機器學習模型](concept-model-management-and-deployment.md)。
+如需模型註冊的一般詳細資訊，請參閱[管理、部署及監視機器學習模型](concept-model-management-and-deployment.md)。
 
 
 ## <a name="define-inference-configuration"></a>定義推斷設定
 
-推斷設定會定義用來執行已部署模型的環境。 推斷設定會參考下列實體, 在部署時用來執行模型:
+推斷設定會定義用來執行已部署模型的環境。 推斷設定會參考下列實體，在部署時用來執行模型：
 
-* 輸入腳本。 這個檔案 (名`score.py`為) 會在部署的服務啟動時載入模型。 它也會負責接收資料、將它傳遞至模型, 然後傳迴響應。
-* Azure Machine Learning 服務[環境](how-to-use-environments.md)。 環境會定義執行模型和專案腳本所需的軟體相依性。
+* 輸入腳本。 這個檔案（名`score.py`為）會在部署的服務啟動時載入模型。 它也會負責接收資料、將它傳遞至模型，然後傳迴響應。
+* Azure Machine Learning[環境](how-to-use-environments.md)。 環境會定義執行模型和專案腳本所需的軟體相依性。
 
-下列範例示範如何使用 SDK 來建立環境, 然後將它與推斷設定搭配使用:
+下列範例示範如何使用 SDK 來建立環境，然後將它與推斷設定搭配使用：
 
 ```python
 from azureml.core.model import InferenceConfig
@@ -111,7 +111,7 @@ inference_config = InferenceConfig(entry_script="score.py",
 + [InferenceConfig](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.inferenceconfig?view=azure-ml-py)參考。
 
 
-CLI 會從 YAML 檔案載入推斷設定:
+CLI 會從 YAML 檔案載入推斷設定：
 
 ```yaml
 {
@@ -121,7 +121,7 @@ CLI 會從 YAML 檔案載入推斷設定:
 }
 ```
 
-使用 CLI 時, conda 環境會定義于推斷設定`myenv.yml`所參考的檔案中。 下列 YAML 是此檔案的內容:
+使用 CLI 時，conda 環境會定義于推斷設定`myenv.yml`所參考的檔案中。 下列 YAML 是此檔案的內容：
 
 ```yaml
 name: inference_environment
@@ -135,16 +135,16 @@ dependencies:
     - keras
 ```
 
-如需有關推斷設定的詳細資訊, 請參閱[使用 Azure Machine Learning 服務部署模型](how-to-deploy-and-where.md)。
+如需有關推斷設定的詳細資訊，請參閱[使用 Azure Machine Learning 部署模型](how-to-deploy-and-where.md)。
 
 ### <a name="entry-script"></a>專案腳本
 
-專案腳本只有兩個必要函式: `init()`和`run(data)`。 這些函式是用來在啟動時初始化服務, 並使用用戶端傳入的要求資料來執行模型。 腳本的其餘部分會處理模型的載入和執行。
+專案腳本只有兩個必要函式： `init()`和`run(data)`。 這些函式是用來在啟動時初始化服務，並使用用戶端傳入的要求資料來執行模型。 腳本的其餘部分會處理模型的載入和執行。
 
 > [!IMPORTANT]
-> 沒有適用于所有模型的泛型專案腳本。 它一定是所使用的模型特有的。 它必須瞭解如何載入模型、模型所預期的資料格式, 以及如何使用模型來評分資料。
+> 沒有適用于所有模型的泛型專案腳本。 它一定是所使用的模型特有的。 它必須瞭解如何載入模型、模型所預期的資料格式，以及如何使用模型來評分資料。
 
-下列 Python 程式碼是一個範例專案腳本 (`score.py`):
+下列 Python 程式碼是一個範例專案腳本（`score.py`）：
 
 ```python
 import pickle
@@ -220,16 +220,16 @@ def predict(text, include_neutral=True):
        "elapsed_time": time.time()-start_at}  
 ```
 
-如需有關輸入腳本的詳細資訊, 請參閱[使用 Azure Machine Learning 服務部署模型](how-to-deploy-and-where.md)。
+如需有關輸入腳本的詳細資訊，請參閱[使用 Azure Machine Learning 部署模型](how-to-deploy-and-where.md)。
 
 ## <a name="define-deployment"></a>定義部署
 
-[Webservice](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice?view=azure-ml-py)套件包含用於部署的類別。 您使用的類別會決定模型的部署位置。 例如, 若要在 Azure Kubernetes Service 上部署為 web 服務, 請使用[AksWebService. deploy_configuration ()](/python/api/azureml-core/azureml.core.webservice.akswebservice?view=azure-ml-py#deploy-configuration-autoscale-enabled-none--autoscale-min-replicas-none--autoscale-max-replicas-none--autoscale-refresh-seconds-none--autoscale-target-utilization-none--collect-model-data-none--auth-enabled-none--cpu-cores-none--memory-gb-none--enable-app-insights-none--scoring-timeout-ms-none--replica-max-concurrent-requests-none--max-request-wait-time-none--num-replicas-none--primary-key-none--secondary-key-none--tags-none--properties-none--description-none--gpu-cores-none--period-seconds-none--initial-delay-seconds-none--timeout-seconds-none--success-threshold-none--failure-threshold-none--namespace-none--token-auth-enabled-none-)來建立部署設定。
+[Webservice](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice?view=azure-ml-py)套件包含用於部署的類別。 您使用的類別會決定模型的部署位置。 例如，若要在 Azure Kubernetes Service 上部署為 web 服務，請使用[AksWebService. deploy_configuration （）](/python/api/azureml-core/azureml.core.webservice.akswebservice?view=azure-ml-py#deploy-configuration-autoscale-enabled-none--autoscale-min-replicas-none--autoscale-max-replicas-none--autoscale-refresh-seconds-none--autoscale-target-utilization-none--collect-model-data-none--auth-enabled-none--cpu-cores-none--memory-gb-none--enable-app-insights-none--scoring-timeout-ms-none--replica-max-concurrent-requests-none--max-request-wait-time-none--num-replicas-none--primary-key-none--secondary-key-none--tags-none--properties-none--description-none--gpu-cores-none--period-seconds-none--initial-delay-seconds-none--timeout-seconds-none--success-threshold-none--failure-threshold-none--namespace-none--token-auth-enabled-none-)來建立部署設定。
 
 下列 Python 程式碼會定義本機部署的部署設定。 此設定會將模型當做 web 服務部署到您的本機電腦。
 
 > [!IMPORTANT]
-> 本機部署需要在您的本機電腦上執行[Docker](https://www.docker.com/)的正常安裝:
+> 本機部署需要在您的本機電腦上執行[Docker](https://www.docker.com/)的正常安裝：
 
 ```python
 from azureml.core.webservice import LocalWebservice
@@ -237,9 +237,9 @@ from azureml.core.webservice import LocalWebservice
 deployment_config = LocalWebservice.deploy_configuration()
 ```
 
-如需詳細資訊, 請參閱[LocalWebservice. deploy_configuration ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.localwebservice?view=azure-ml-py#deploy-configuration-port-none-)參考。
+如需詳細資訊，請參閱[LocalWebservice. deploy_configuration （）](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.localwebservice?view=azure-ml-py#deploy-configuration-port-none-)參考。
 
-CLI 會從 YAML 檔案載入部署設定:
+CLI 會從 YAML 檔案載入部署設定：
 
 ```YAML
 {
@@ -247,11 +247,11 @@ CLI 會從 YAML 檔案載入部署設定:
 }
 ```
 
-部署至不同的計算目標 (例如 Azure 雲端中的 Azure Kubernetes Service) 就像變更部署設定一樣簡單。 如需詳細資訊, 請參閱[如何和部署模型的位置](how-to-deploy-and-where.md)。
+部署至不同的計算目標（例如 Azure 雲端中的 Azure Kubernetes Service）就像變更部署設定一樣簡單。 如需詳細資訊，請參閱[如何和部署模型的位置](how-to-deploy-and-where.md)。
 
 ## <a name="deploy-the-model"></a>部署模型
 
-下列範例會在名為`sentiment`的已註冊模型上載入資訊, 然後將它部署為名`sentiment`為的服務。 在部署期間, 會使用推斷設定和部署設定來建立及設定服務環境:
+下列範例會在名為`sentiment`的已註冊模型上載入資訊，然後將它部署為名`sentiment`為的服務。 在部署期間，會使用推斷設定和部署設定來建立及設定服務環境：
 
 ```python
 from azureml.core.model import Model
@@ -264,21 +264,21 @@ print(service.state)
 print("scoring URI: " + service.scoring_uri)
 ```
 
-如需詳細資訊, 請參閱[Model. deploy ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py#deploy-workspace--name--models--inference-config--deployment-config-none--deployment-target-none-)參考。
+如需詳細資訊，請參閱[Model. deploy （）](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py#deploy-workspace--name--models--inference-config--deployment-config-none--deployment-target-none-)參考。
 
-若要從 CLI 部署模型, 請使用下列命令。 此命令會使用儲存`sentiment:1` `inferenceConfig.json`在和`deploymentConfig.json`檔案中的推斷和部署設定, 來部署第1版的已註冊模型 ():
+若要從 CLI 部署模型，請使用下列命令。 此命令會使用儲存`sentiment:1` `inferenceConfig.json`在和`deploymentConfig.json`檔案中的推斷和部署設定，來部署第1版的已註冊模型（）：
 
 ```azurecli
 az ml model deploy -n myservice -m sentiment:1 --ic inferenceConfig.json --dc deploymentConfig.json
 ```
 
-如需詳細資訊, 請參閱[az ml model deploy](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/model?view=azure-cli-latest#ext-azure-cli-ml-az-ml-model-deploy) reference。
+如需詳細資訊，請參閱[az ml model deploy](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/model?view=azure-cli-latest#ext-azure-cli-ml-az-ml-model-deploy) reference。
 
-如需部署的詳細資訊, 請參閱[部署模型的方式和位置](how-to-deploy-and-where.md)。
+如需部署的詳細資訊，請參閱[部署模型的方式和位置](how-to-deploy-and-where.md)。
 
 ## <a name="request-response-consumption"></a>要求-回應耗用量
 
-部署之後, 就會顯示評分 URI。 用戶端可以使用此 URI 將要求提交給服務。 下列範例是將資料提交至服務並顯示回應的基本 Python 用戶端:
+部署之後，就會顯示評分 URI。 用戶端可以使用此 URI 將要求提交給服務。 下列範例是將資料提交至服務並顯示回應的基本 Python 用戶端：
 
 ```python
 import requests
@@ -295,7 +295,7 @@ print(response.elapsed)
 print(response.json())
 ```
 
-如需如何使用已部署服務的詳細資訊, 請參閱[建立用戶端](how-to-consume-web-service.md)。
+如需如何使用已部署服務的詳細資訊，請參閱[建立用戶端](how-to-consume-web-service.md)。
 
 ## <a name="next-steps"></a>後續步驟
 

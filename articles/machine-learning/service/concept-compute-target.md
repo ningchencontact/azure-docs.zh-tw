@@ -1,7 +1,7 @@
 ---
 title: 計算目標：定型和部署模型的位置
-titleSuffix: Azure Machine Learning service
-description: 定義您想要使用 Azure Machine Learning 服務定型或部署模型的位置。
+titleSuffix: Azure Machine Learning
+description: 定義您想要使用 Azure Machine Learning 定型或部署模型的位置。
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,14 +9,14 @@ ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
 ms.date: 07/10/2019
-ms.openlocfilehash: b2e4c9160ccad66b04dd30979f0568da68836d76
-ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
+ms.openlocfilehash: fe60b740312ee49510ea931bba1346ceaef9f31a
+ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70860599"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71035524"
 ---
-#  <a name="what-are-compute-targets-in-azure-machine-learning-service"></a>Azure Machine Learning 服務中的計算目標是什麼？ 
+#  <a name="what-are-compute-targets-in-azure-machine-learning"></a>Azure Machine Learning 中的計算目標是什麼？ 
 
 **計算目標**是指定的計算資源/環境，您可以在其中執行定型腳本或裝載您的服務部署。 此位置可能是您的本機電腦或雲端式計算資源。 使用計算目標可讓您更輕鬆地在稍後變更計算環境，而不需要變更您的程式碼。  
 
@@ -29,7 +29,7 @@ ms.locfileid: "70860599"
 
 ## <a name="train"></a>訓練計算目標
 
-Azure Machine Learning 服務在不同的計算資源上有不同的支援。  您也可以附加自己的計算資源，但支援不同的案例可能會有所不同。
+Azure Machine Learning 在不同的計算資源上有不同的支援。  您也可以附加自己的計算資源，但支援不同的案例可能會有所不同。
 
 [!INCLUDE [aml-compute-target-train](../../../includes/aml-compute-target-train.md)]
 
@@ -46,7 +46,7 @@ Azure Machine Learning 服務在不同的計算資源上有不同的支援。  �
 <a name="amlcompute"></a>
 ## <a name="azure-machine-learning-compute-managed"></a>Azure Machine Learning 計算（受控）
 
-受管理的計算資源是由 Azure Machine Learning 服務來建立和管理。 此計算已針對機器學習工作負載進行優化。 Azure Machine Learning 計算是 2019 5 月30日的唯一受控計算。 未來可能會新增其他受控計算資源。
+受管理的計算資源是由 Azure Machine Learning 來建立和管理。 此計算已針對機器學習工作負載進行優化。 Azure Machine Learning 計算是 2019 5 月30日的唯一受控計算。 未來可能會新增其他受控計算資源。
 
 您可以使用 Azure Machine Learning 計算進行定型和批次推斷（預覽）。  使用此計算資源，您可以：
 
@@ -59,7 +59,7 @@ Azure Machine Learning 服務在不同的計算資源上有不同的支援。  �
 
 ## <a name="unmanaged-compute"></a>非受控計算
 
-非受控計算目標*不*受 Azure Machine Learning 服務管理。 您會在 Azure Machine Learning 外部建立這種類型的計算目標，然後將它附加至您的工作區。 非受控計算資源可能需要額外的步驟，才能維護或改善機器學習工作負載的效能。
+非受控計算目標*不*受 Azure Machine Learning 管理。 您會在 Azure Machine Learning 外部建立這種類型的計算目標，然後將它附加至您的工作區。 非受控計算資源可能需要額外的步驟，才能維護或改善機器學習工作負載的效能。
 
 ## <a name="next-steps"></a>後續步驟
 

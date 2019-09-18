@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 6adc5dfa740d440e78bf2f276447c4585503d7c0
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e407b26091ad559ab458f76d94e2460660ecd14f
+ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65606462"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71036602"
 ---
 # <a name="heading"></a>在 Azure 上處理 SQL Server 虛擬機器中的資料
 本文件涵蓋如何探索資料及如何針對儲存於 Azure 上之 SQL Server VM 中的資料產生功能。 使用 SQL整理資料或使用 Python 這類程式設計語言，即可完成此動作。
@@ -87,7 +87,7 @@ ms.locfileid: "65606462"
 * 正負號告訴我們是否位於地球的北方或南方、東方或西方。
 * 非零的數百個位數告訴我們使用的是經度，而不是緯度！
 * 數十個位數可提供大約 1,000 公里的位置。 它會為我們提供身處哪個大陸或海洋的實用資訊。
-* 單位數 (一個十進位度數) 提供一個最多可達 111 公里 (60 海浬，大約 69 英哩) 的位置。 它會告知我們大致上什麼大的州或國家/地區中。
+* 單位數 (一個十進位度數) 提供一個最多可達 111 公里 (60 海浬，大約 69 英哩) 的位置。 它可以告訴您您目前的州、國家或地區。
 * 第一個小數點最多可達 11.1 km：它能夠分辨某一個大型縣 (市) 的位置與鄰近的大型縣 (市)。
 * 第二個小數位數最多可達 1.1 km：它可以將某一個村莊與下一個村莊分隔開來。
 * 第三個小數位數最多可達 110 m：它可以識別大型農場或學術機構校區。
@@ -116,7 +116,7 @@ ms.locfileid: "65606462"
 > 
 
 ### <a name="sql-aml"></a>連接到 Azure Machine Learning
-新產生的功能可當成資料行新增至現有資料表或儲存於新的資料表中，並與原始資料表加以聯結以進行機器學習服務。 您可以使用 Azure Machine Learning 中的[匯入資料][import-data]模組來產生或存取特徵 (若已建立)，如下所示：
+新產生的功能可當成資料行新增至現有資料表或儲存於新的資料表中，並與原始資料表加以聯結以進行機器學習服務。 您可以使用 Azure Machine Learning 中的匯[入資料][import-data]模組來產生或存取功能（如果已建立），如下所示：
 
 ![azureml 讀取器][1] 
 

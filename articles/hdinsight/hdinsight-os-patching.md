@@ -1,69 +1,70 @@
 ---
-title: 設定作業系統修補排程以 Linux 為基礎的 HDInsight 叢集-Azure
+title: 針對以 Linux 為基礎的 HDInsight 叢集設定作業系統修補排程-Azure
 description: 了解如何為以 Linux 為基礎的 HDInsight 叢集設定作業系統修補排程。
 author: hrasheed-msft
 ms.author: hrasheed
+ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 07/01/2019
-ms.openlocfilehash: efe74618b269000749f7ba6c24d35903e540dcfb
-ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
+ms.openlocfilehash: 06111ec35a127cf17fdcc77ff717de7a4bc7299f
+ms.sourcegitcommit: 8ef0a2ddaece5e7b2ac678a73b605b2073b76e88
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/08/2019
-ms.locfileid: "67657044"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71076863"
 ---
-# <a name="configure-the-os-patching-schedule-for-linux-based-hdinsight-clusters"></a>設定作業系統修補排程以 Linux 為基礎的 HDInsight 叢集 
+# <a name="configure-the-os-patching-schedule-for-linux-based-hdinsight-clusters"></a>為以 Linux 為基礎的 HDInsight 叢集設定作業系統修補排程 
 
 > [!IMPORTANT]
-> Ubuntu 映像都會變成可供發行的三個月內新的 Azure HDInsight 叢集建立的。 截至年 1 月 2019年執行的叢集不是自動修補。 客戶必須使用指令碼動作或其他機制修補執行中的叢集。 新建立的叢集一律會有最新可用的更新，包括最新的安全性修補程式。
+> Ubuntu 映射會在發行後的三個月內，提供新的 Azure HDInsight 叢集建立。 從2019年1月起，執行中的叢集不會自動修補。 客戶必須使用指令碼動作或其他機制修補執行中的叢集。 新建立的叢集一律會有最新可用的更新，包括最新的安全性修補程式。
 
-有時候，您必須重新啟動虛擬機器 (Vm) 在 HDInsight 叢集中安裝重要的安全性修補程式。
+有時候，您必須重新開機 HDInsight 叢集中的虛擬機器（Vm），以安裝重要的安全性修補程式。
 
-藉由使用本文中所述的指令碼動作，您可以修改作業系統修補排程，如下所示：
+藉由使用本文所述的腳本動作，您可以修改 OS 修補排程，如下所示：
 
-1. 安裝所有更新，或都安裝核心 + 安全性更新或核心更新。
-2. 請不要立即重新啟動，或排程在 VM 上的重新啟動。
+1. 安裝所有更新，或只安裝核心 + 安全性更新或核心更新。
+2. 立即重新開機，或在 VM 上排程重新開機。
 
 > [!NOTE]  
-> 這篇文章中所述的指令碼動作只會使用 2016 年 8 月 1 日之後建立的以 Linux 為基礎的 HDInsight 叢集。 修補程式重新啟動 Vm 之後，才是有效的。
-> 指令碼動作不會自動套用更新的所有未來的更新週期。 執行指令碼每次新的更新必須套用安裝的更新，然後再重新啟動 VM。
+> 本文中所述的腳本動作僅適用于2016年8月1日之後建立的以 Linux 為基礎的 HDInsight 叢集。 只有在重新開機 Vm 之後，修補程式才會生效。
+> 腳本動作不會針對所有未來的更新週期自動套用更新。 每次必須套用新的更新以安裝更新，然後重新開機 VM 時，執行腳本。
 
-## <a name="add-information-to-the-script"></a>將資訊新增至指令碼
+## <a name="add-information-to-the-script"></a>將資訊新增至腳本
 
-使用指令碼需要下列資訊：
+使用腳本需要下列資訊：
 
-- 安裝-更新-排程的重新啟動指令碼位置： https://hdiconfigactions.blob.core.windows.net/linuxospatchingrebootconfigv02/install-updates-schedule-reboots.sh 。
+- 安裝-更新-排程-重新開機腳本位置： https://hdiconfigactions.blob.core.windows.net/linuxospatchingrebootconfigv02/install-updates-schedule-reboots.sh 。
     
-   HDInsight 會使用此 URI 來尋找及在叢集中的所有 Vm 上執行指令碼。 此指令碼會提供選項來安裝更新和重新啟動 VM。
+   HDInsight 會使用此 URI，在叢集中的所有 Vm 上尋找並執行腳本。 此腳本提供安裝更新並重新啟動 VM 的選項。
   
-- 排程重新開機指令碼位置： https://hdiconfigactions.blob.core.windows.net/linuxospatchingrebootconfigv02/schedule-reboots.sh 。
+- 排程-重新開機腳本位置： https://hdiconfigactions.blob.core.windows.net/linuxospatchingrebootconfigv02/schedule-reboots.sh 。
     
-   HDInsight 會使用此 URI 來尋找及在叢集中的所有 Vm 上執行指令碼。 此指令碼會重新啟動 VM。
+   HDInsight 會使用此 URI，在叢集中的所有 Vm 上尋找並執行腳本。 此腳本會重新開機 VM。
   
-- 指令碼會套用到叢集節點類型是前端節點、 背景工作節點和 zookeeper。 指令碼套用至叢集中的所有節點類型。 如果指令碼不會套用至節點類型，就不會更新或重新啟動該節點類型的 Vm。
+- 套用腳本的叢集節點類型為 [前端]、[workernode] 和 [zookeeper]。 將腳本套用至叢集中的所有節點類型。 如果腳本未套用至節點類型，則不會更新或重新開機該節點類型的 Vm。
 
-- 安裝-更新-排程的重新開機指令碼接受兩個數值參數：
+- 安裝-更新-排程-重新開機腳本接受兩個數值參數：
 
     | 參數 | 定義 |
     | --- | --- |
-    | 核心只安裝更新 / 安裝所有更新/都安裝核心 + 安全性只會更新|0、 1 或 2。 0 值只會安裝核心更新。 值為 1 會安裝所有更新，和 2 的都安裝只有核心 + 安全性更新。 如果未不提供任何參數，則預設值為 0。 |
-    | 未重新開機/啟用排程重新開機/啟用立即重新開機 |0、 1 或 2。 值為 0 會停用重新啟動。 值為 1 會啟用排程重新啟動，和 2，可讓 「 立即重新啟動。 如果未不提供任何參數，則預設值為 0。 使用者必須變更輸入的參數 1，以輸入參數 2。 |
+    | 僅安裝核心更新/安裝所有更新/僅安裝核心 + 安全性更新|0、1或2。 值為0時，只會安裝核心更新。 值為1會安裝所有更新，而2只會安裝核心 + 安全性更新。 如果未提供任何參數，則預設值為0。 |
+    | 無重新開機/啟用排程重新開機/啟用立即重新開機 |0、1或2。 值為0會停用重新開機。 值為1會啟用排程重新開機，2則可立即重新開機。 如果未提供任何參數，則預設值為0。 使用者必須將輸入參數1變更為輸入參數2。 |
    
- - 排程重新開機指令碼會接受一個數值參數：
+ - 排程-重新開機腳本接受一個數值參數：
 
     | 參數 | 定義 |
     | --- | --- |
-    | 啟用排程重新開機/啟用立即重新啟動 |1 或 2。 值為 1 可讓排程的重新啟動 （排程以 12-24 個小時為單位）。 值為 2 可讓您立即重新啟動 （以 5 分鐘為單位）。 如果未不指定任何參數，則預設值為 1。 |  
+    | 啟用排程重新開機/啟用立即重新開機 |1或2。 值為1會啟用排程重新開機（排程時間為12-24 小時）。 值為2時，會立即重新開機（5分鐘）。 如果未指定參數，預設值為1。 |  
 
 > [!NOTE]
-> 為持續性套用至現有的叢集之後，您必須將標記指令碼。 否則，透過調整作業所建立的新節點會使用預設的修補排程。 如果您套用指令碼做為叢集建立程序的一部分時，它已自動保存。
+> 將腳本套用至現有的叢集之後，您必須將它標示為已保存。 否則，透過調整作業所建立的新節點會使用預設的修補排程。 如果您將腳本套用為叢集建立程式的一部分，則會自動儲存。
 
 
 ## <a name="next-steps"></a>後續步驟
 
-如需使用指令碼動作的特定步驟，請參閱下列各節[使用指令碼動作來自訂以 Linux 為基礎的 HDInsight 叢集](hdinsight-hadoop-customize-cluster-linux.md):
+如需使用腳本動作的特定步驟，請參閱[使用腳本動作自訂以 Linux 為基礎的 HDInsight](hdinsight-hadoop-customize-cluster-linux.md)叢集中的下列各節：
 
 * [在建立叢集期間使用指令碼動作](hdinsight-hadoop-customize-cluster-linux.md#use-a-script-action-during-cluster-creation)
 * [將指令碼動作套用到執行中的叢集](hdinsight-hadoop-customize-cluster-linux.md#apply-a-script-action-to-a-running-cluster)

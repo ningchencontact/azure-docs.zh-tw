@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 07/23/2019
 ms.author: rimman
 ms.reviewer: sngun
-ms.openlocfilehash: 2f0f3d70d51ff35e37506eab1082fc07b16e711c
-ms.sourcegitcommit: 3f78a6ffee0b83788d554959db7efc5d00130376
+ms.openlocfilehash: 4074f26cdefd650c1b927293f422623841dfff7d
+ms.sourcegitcommit: 8ef0a2ddaece5e7b2ac678a73b605b2073b76e88
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/26/2019
-ms.locfileid: "70018773"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71073696"
 ---
 # <a name="change-feed-processor-in-azure-cosmos-db"></a>Azure Cosmos DB 中的變更摘要處理器 
 
@@ -76,9 +76,9 @@ ms.locfileid: "70018773"
 
 如果這三個條件都適用, 則變更摘要處理器會使用相等的散發演算法, 將租用容器中的所有租用散發到所有執行中的實例和平行處理計算。 一個租用只能由一個實例在指定時間擁有, 因此實例數目上限等於租用數目。
 
-實例數目可以擴大和縮小, 而變更摘要處理器會據以動態方式調整負載。
+實例數目可以擴大和縮小，而變更摘要處理器會據以動態方式調整負載。
 
-此外, 變更摘要處理器可以根據輸送量或儲存體的增加, 以動態方式調整容器規模。 當您的容器成長時, 變更摘要處理器會以動態方式增加租用, 並在現有的實例之間散發新的租用, 以明確地處理這些案例。
+此外，變更摘要處理器可以根據輸送量或儲存體的增加，以動態方式調整容器規模。 當您的容器成長時，變更摘要處理器會以動態方式增加租用，並在現有的實例之間散發新的租用，以明確地處理這些案例。
 
 ## <a name="change-feed-and-provisioned-throughput"></a>變更摘要和佈建的輸送量
 
@@ -92,8 +92,9 @@ ms.locfileid: "70018773"
 
 ## <a name="next-steps"></a>後續步驟
 
-您現在可以在下列文章中繼續深入瞭解變更摘要處理器:
+您現在可以在下列文章中繼續深入了解變更摘要處理器：
 
 * [變更摘要的概觀](change-feed.md)
-* [使用變更摘要估計工具](how-to-use-change-feed-estimator.md)
+* [如何從變更摘要處理器程式庫進行遷移](how-to-migrate-from-change-feed-library.md)
+* [使用變更摘要估算器](how-to-use-change-feed-estimator.md)
 * [變更摘要處理器開始時間](how-to-configure-change-feed-start-time.md)

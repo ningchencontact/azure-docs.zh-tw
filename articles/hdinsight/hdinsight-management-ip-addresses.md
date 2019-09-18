@@ -1,52 +1,53 @@
 ---
 title: Azure HDInsight 管理 IP 位址
-description: 瞭解您必須允許輸入流量的 IP 位址, 以便適當地設定網路安全性群組和使用者定義的路由, 以使用 Azure HDInsight 的虛擬網路。
+description: 瞭解您必須允許輸入流量的 IP 位址，以便適當地設定網路安全性群組和使用者定義的路由，以使用 Azure HDInsight 的虛擬網路。
 author: hrasheed-msft
 ms.author: hrasheed
+ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 07/19/2019
-ms.openlocfilehash: 0a41d1d57257db8f88481766e65eb8ee7569da87
-ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
+ms.openlocfilehash: 3f0b31cd3d37c3040ff99a89c1a5201b413fd3fc
+ms.sourcegitcommit: 8ef0a2ddaece5e7b2ac678a73b605b2073b76e88
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68479196"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71076639"
 ---
 # <a name="hdinsight-management-ip-addresses"></a>HDInsight 管理 IP 位址
 
-如果您使用網路安全性群組 (Nsg) 或使用者定義的路由 (Udr) 來控制 HDInsight 叢集的輸入流量, 您必須確定您的叢集可以與重要的 Azure 健康狀態和管理服務進行通訊。  這些服務的某些 IP 位址是特定區域, 而其中一些則適用于所有 Azure 區域。 如果您不是使用自訂 DNS, 您可能也需要允許來自 Azure DNS 服務的流量。
+如果您使用網路安全性群組（Nsg）或使用者定義的路由（Udr）來控制 HDInsight 叢集的輸入流量，您必須確定您的叢集可以與重要的 Azure 健康狀態和管理服務進行通訊。  這些服務的某些 IP 位址是特定區域，而其中一些則適用于所有 Azure 區域。 如果您不是使用自訂 DNS，您可能也需要允許來自 Azure DNS 服務的流量。
 
 下列各節將討論必須允許的特定 IP 位址。
 
 ## <a name="azure-dns-service"></a>Azure DNS 服務
 
-如果您使用 Azure 提供的 DNS 服務, 允許從埠53上的__168.63.129.16__進行存取。 如需詳細資訊，請參閱 [VM 和角色執行個體的名稱解析](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md)文件。 如果您使用的是自訂 DNS, 請略過此步驟。
+如果您使用 Azure 提供的 DNS 服務，允許從埠53上的__168.63.129.16__進行存取。 如需詳細資訊，請參閱 [VM 和角色執行個體的名稱解析](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md)文件。 如果您使用的是自訂 DNS，請略過此步驟。
 
-## <a name="health-and-management-services-all-regions"></a>健全狀況和管理服務:所有區域
+## <a name="health-and-management-services-all-regions"></a>健全狀況和管理服務：所有區域
 
-允許來自下列 IP 位址的流量, 以進行適用于所有 Azure 區域的 Azure HDInsight 健康情況和管理服務:
+允許來自下列 IP 位址的流量，以進行適用于所有 Azure 區域的 Azure HDInsight 健康情況和管理服務：
 
-| 來源 IP 位址 | 目的地  | Direction |
+| 來源 IP 位址 | Destination  | Direction |
 | ---- | ----- | ----- |
 | 168.61.49.99 | \*:443 | 傳入 |
 | 23.99.5.239 | \*:443 | 傳入 |
 | 168.61.48.131 | \*:443 | 傳入 |
 | 138.91.141.162 | \*:443 | 傳入 |
 
-## <a name="health-and-management-services-specific-regions"></a>健全狀況和管理服務:特定區域
+## <a name="health-and-management-services-specific-regions"></a>健全狀況和管理服務：特定區域
 
-允許在資源所在的特定 Azure 區域中, 針對 Azure HDInsight 健康狀態和管理服務列出的 IP 位址進行流量:
+允許在資源所在的特定 Azure 區域中，針對 Azure HDInsight 健康狀態和管理服務列出的 IP 位址進行流量：
 
 > [!IMPORTANT]  
-> 如果未列出您使用的 Azure 區域, 則只會使用上一節中的四個 IP 位址。
+> 如果未列出您使用的 Azure 區域，則只會使用上一節中的四個 IP 位址。
 
 | Country | 區域 | 允許的來源 IP 位址 | 允許的目的地 | Direction |
 | ---- | ---- | ---- | ---- | ----- |
 | 亞洲 | 東亞 | 23.102.235.122</br>52.175.38.134 | \*:443 | 傳入 |
 | &nbsp; | 東南亞 | 13.76.245.160</br>13.76.136.249 | \*:443 | 傳入 |
-| 澳洲 | 澳大利亞東部 | 104.210.84.115</br>13.75.152.195 | \*:443 | 傳入 |
+| 澳大利亞 | 澳大利亞東部 | 104.210.84.115</br>13.75.152.195 | \*:443 | 傳入 |
 | &nbsp; | 澳大利亞東南部 | 13.77.2.56</br>13.77.2.94 | \*:443 | 傳入 |
 | 巴西 | 巴西南部 | 191.235.84.104</br>191.235.87.113 | \*:443 | 傳入 |
 | 加拿大 | 加拿大東部 | 52.229.127.96</br>52.229.123.172 | \*:443 | 傳入 |
@@ -79,7 +80,7 @@ ms.locfileid: "68479196"
 
 如需詳細資訊，請參閱[控制網路流量](hdinsight-plan-virtual-network-deployment.md#networktraffic)一節。
 
-如果您使用的是使用者定義的路由 (Udr), 您應該指定路由, 並允許從 VNET 到上述 Ip 的輸出流量, 並將下一個躍點設為「網際網路」。
+如果您使用的是使用者定義的路由（Udr），您應該指定路由，並允許從 VNET 到上述 Ip 的輸出流量，並將下一個躍點設為「網際網路」。
 
 ## <a name="next-steps"></a>後續步驟
 

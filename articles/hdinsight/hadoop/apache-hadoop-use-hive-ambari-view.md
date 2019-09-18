@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 03/21/2019
 ms.author: hrasheed
-ms.openlocfilehash: 3ab2bf0334b58f3a5ac8ad4abacfcc45e0366240
-ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
+ms.openlocfilehash: da4d1ed7dec8b3b0bc61dd2959a868d03875039c
+ms.sourcegitcommit: 8ef0a2ddaece5e7b2ac678a73b605b2073b76e88
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70917702"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71077002"
 ---
 # <a name="use-apache-ambari-hive-view-with-apache-hadoop-in-hdinsight"></a>在 HDInsight 中搭配 Apache Hadoop 使用 Apache Ambari Hive 檢視
 
@@ -34,7 +34,7 @@ ms.locfileid: "70917702"
 
 3. 從檢視清單中，選取 [Hive 檢視]。
 
-    ![已選取 [Hive 檢視]](./media/apache-hadoop-use-hive-ambari-view/select-apache-hive-view.png)
+    ![Apache Ambari 選取 Apache Hive 視圖](./media/apache-hadoop-use-hive-ambari-view/select-apache-hive-view.png)
 
     Hive 檢視頁面類似於下圖：
 
@@ -98,25 +98,25 @@ ms.locfileid: "70917702"
 若要顯示查詢的 Tez UI，請選取工作表下方的 [ **TEZ ui** ] 索引標籤。
 
 > [!IMPORTANT]  
-> Tez 的用途並非解析所有查詢。 您不需要使用 Tez 便可解析許多查詢。 
+> Tez 的用途並非解析所有查詢。 您不需要使用 Tez 便可解析許多查詢。
 
 ## <a name="view-job-history"></a>檢視工作歷程記錄
 
 [作業] 索引標籤會顯示 Hive 查詢的歷程記錄。
 
-![作業記錄影像](./media/apache-hadoop-use-hive-ambari-view/apache-hive-job-history.png)
+![Apache Hive 查看作業 索引標籤歷程記錄](./media/apache-hadoop-use-hive-ambari-view/apache-hive-job-history.png)
 
 ## <a name="database-tables"></a>資料庫資料表
 
 您可以使用 [資料表] 索引標籤，在 Hive 資料庫中使用資料表。
 
-![[資料表] 索引標籤影像](./media/apache-hadoop-use-hive-ambari-view/hdinsight-tables-tab.png)
+![[Apache Hive 資料表] 索引標籤的影像](./media/apache-hadoop-use-hive-ambari-view/hdinsight-tables-tab.png)
 
 ## <a name="saved-queries"></a>已儲存的查詢
 
 從 [查詢] 索引標籤中，您可以選擇性地儲存查詢。 儲存查詢之後，您就可以從 [儲存的查詢] 索引標籤重複使用它。
 
-![[儲存的查詢] 索引標籤影像](./media/apache-hadoop-use-hive-ambari-view/ambari-saved-queries.png)
+![Apache Hive 查看儲存的查詢 索引標籤](./media/apache-hadoop-use-hive-ambari-view/ambari-saved-queries.png)
 
 > [!TIP]  
 > 已儲存的查詢會存放在預設叢集儲存體中。 您可以路徑 `/user/<username>/hive/scripts` 下找到儲存的查詢。 這些查詢會儲存為純文字 `.hql` 檔案。
@@ -129,7 +129,7 @@ ms.locfileid: "70917702"
 
 使用 [Hive 檢視] 頂端的 [UDF] 索引標籤來宣告並儲存一組 UDF。 這些 UDF 可以在 [查詢編輯器] 中使用。
 
-![[UDF] 索引標籤影像](./media/apache-hadoop-use-hive-ambari-view/user-defined-functions.png)
+![Apache Hive view Udf 索引標籤顯示](./media/apache-hadoop-use-hive-ambari-view/user-defined-functions.png)
 
 在將 UDF 新增至 [Hive 檢視] 後，[插入 udf] 按鈕隨即會出現在 [查詢編輯器] 底端。 選取這個項目會顯示 [Hive 檢視] 中定義之 UDF 的下拉式清單。 選取 UDF 會將 HiveQL 陳述式新增至查詢以啟用 UDF。
 

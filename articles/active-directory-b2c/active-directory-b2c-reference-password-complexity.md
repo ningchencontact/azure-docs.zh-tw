@@ -10,20 +10,20 @@ ms.topic: conceptual
 ms.date: 02/11/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 37f8305d8ed212cf2c6678b35220d823611b9d7a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 642621e2e04d3e96dc6886b1bdb28c161560b28e
+ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66509023"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71065447"
 ---
 # <a name="configure-complexity-requirements-for-passwords-in-azure-active-directory-b2c"></a>設定 Azure Active Directory B2C 中的密碼複雜度需求
 
-Azure Active Directory (Azure AD) B2C 支援在建立帳戶時變更終端使用者提供的密碼複雜度需求。 根據預設，Azure AD B2C 是使用 `Strong` 密碼。 Azure AD B2C 也支援組態選項，可控制客戶可以使用的密碼複雜度。
+Azure Active Directory B2C (Azure AD B2C) 支援的變更密碼複雜度需求，是在建立帳戶時由使用者所提供的。 根據預設，Azure AD B2C 是使用 `Strong` 密碼。 Azure AD B2C 也支援組態選項，可控制客戶可以使用的密碼複雜度。
 
 ## <a name="password-rule-enforcement"></a>密碼規則強制執行
 
-在註冊期間或密碼重設期間，使用者必須提供符合複雜度規則的密碼。 依每個使用者流程強制執行密碼複雜度規則。 可以有一個需要四位數 pin，另一個使用者流程期間註冊的時間在註冊期間需要八個字元字串的使用者流程。 例如，您可能會針對成人的使用者流程與針對兒童的原則使用不同的密碼複雜度。
+在註冊期間或密碼重設期間，使用者必須提供符合複雜度規則的密碼。 依每個使用者流程強制執行密碼複雜度規則。 在註冊期間，有一個使用者流程可能需要四位數的 pin，而另一個使用者流程在註冊期間需要八個字元的字串。 例如，您可能會針對成人的使用者流程與針對兒童的原則使用不同的密碼複雜度。
 
 登入期間一律不會強制要求密碼複雜度。 系統一律不會在登入時提示使用者變更其密碼，因為它不符合目前的複雜度需求。
 
@@ -37,18 +37,18 @@ Azure Active Directory (Azure AD) B2C 支援在建立帳戶時變更終端使用
 ## <a name="configure-password-complexity"></a>設定密碼複雜度
 
 1. 登入 [Azure 入口網站](https://portal.azure.com)。
-2. 按一下頂端功能表中的 [目錄和訂用帳戶]  篩選，然後選擇包含您租用戶的目錄，以確定您使用的是包含 Azure AD B2C 租用戶的目錄。
-3. 選擇 Azure 入口網站左上角的 [所有服務]  ，然後搜尋並選取 [Azure AD B2C]  。
-4. 選取 [使用者流程]  。
-2. 選取一個使用者流程，然後按一下 [屬性]  。
-3. 在 [密碼複雜度]  之下，將這個使用者流程的密碼複雜度變更為 [簡單]  、[強式]  或 [自訂]  。
+2. 請選取頂端功能表中的 [**目錄 + 訂**用帳戶] 篩選，然後選擇包含您租使用者的目錄，以確定您使用的是包含 Azure AD B2C 租使用者的目錄。
+3. 選擇 Azure 入口網站左上角的 [所有服務]，然後搜尋並選取 [Azure AD B2C]。
+4. 選取 [使用者流程]。
+2. 選取一個使用者流程，然後按一下 [屬性]。
+3. 在 [密碼複雜度] 之下，將這個使用者流程的密碼複雜度變更為 [簡單]、[強式] 或 [自訂]。
 
 ### <a name="comparison-chart"></a>比較圖表
 
 | 複雜度 | 描述 |
 | --- | --- |
 | 簡單 | 密碼至少為 8 到 64 個字元。 |
-| 強式 | 密碼至少為 8 到 64 個字元。 它需要小寫字母、大寫字母、數字或符號 4 個之中的 3 個。 |
+| 強 | 密碼至少為 8 到 64 個字元。 它需要小寫字母、大寫字母、數字或符號 4 個之中的 3 個。 |
 | 自訂 | 此選項會對密碼複雜度規則提供最多的控制權。  它允許設定自訂的長度。  它也可以接受僅限數字的密碼 (PIN)。 |
 
 ## <a name="custom-options"></a>自訂選項

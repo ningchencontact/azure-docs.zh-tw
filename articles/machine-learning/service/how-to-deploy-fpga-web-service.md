@@ -1,7 +1,7 @@
 ---
 title: 什麼是 FPGA-如何部署
-titleSuffix: Azure Machine Learning service
-description: 瞭解如何使用在 FPGA 上執行的模型來部署 web 服務，以 Azure Machine Learning 服務進行 ultra 低延遲推斷。
+titleSuffix: Azure Machine Learning
+description: 瞭解如何使用在 FPGA 上執行的模型來部署 web 服務，以 Azure Machine Learning 進行 ultra 低延遲推斷。
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -11,16 +11,16 @@ ms.author: tedway
 author: tedway
 ms.date: 07/25/2019
 ms.custom: seodec18
-ms.openlocfilehash: 8f95846844f9ff498b1b99a0b7a375f1c883457d
-ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
+ms.openlocfilehash: 929ca8e16db73be5cfa226b5d55a30dbb7b2bc99
+ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70860473"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71034456"
 ---
 # <a name="what-are-field-programmable-gate-arrays-fpga-and-how-to-deploy"></a>什麼是可現場程式化閘道陣列（FPGA）和如何部署
 
-本文提供可現場程式化閘道陣列（FPGA）的簡介，並說明如何使用 Azure Machine Learning 服務將模型部署至 Azure FPGA。 
+本文提供可現場程式化閘道陣列（FPGA）的簡介，並說明如何使用 Azure Machine Learning 將模型部署至 Azure FPGA。 
 
 FPGA 包含可程式化邏輯區塊的陣列，以及可重新設定互連的階層。 互連可讓您在製造之後以不同方式設定這些區塊。 與其他晶片相比，FPGA 結合了可程式性和效能。
 
@@ -28,7 +28,7 @@ FPGA 包含可程式化邏輯區塊的陣列，以及可重新設定互連的階
 
 下列圖表示範 FPGA 與其他處理器的比較方式。
 
-![Azure Machine Learning 服務 FPGA 比較圖](./media/concept-accelerate-with-fpgas/azure-machine-learning-fpga-comparison.png)
+![Azure Machine Learning FPGA 比較的圖表](./media/concept-accelerate-with-fpgas/azure-machine-learning-fpga-comparison.png)
 
 |處理器||描述|
 |---|:-------:|------|
@@ -89,7 +89,7 @@ Azure Fpga 會與 Azure Machine Learning 整合。 Microsoft 使用 FPGA 來評�
 
 ### <a name="prerequisites"></a>必要條件
 
-- Azure 訂用帳戶。  如果您沒有，請在開始前建立免費帳戶。 立即試用[免費或付費版本的 Azure Machine Learning 服務](https://aka.ms/AMLFree)。
+- Azure 訂用帳戶。  如果您沒有，請在開始前建立免費帳戶。 立即試用[免費或付費版本的 Azure Machine Learning](https://aka.ms/AMLFree) 。
 
 - FPGA 配額。 使用 Azure CLI 檢查您是否有配額：
 
@@ -112,7 +112,7 @@ Azure Fpga 會與 Azure Machine Learning 整合。 Microsoft 使用 FPGA 來評�
 
     如果您沒有配額，請在上[https://aka.ms/accelerateAI](https://aka.ms/accelerateAI)提交要求。
 
-- 已安裝 Azure Machine Learning services 工作區與適用於 Python 的 Azure Machine Learning SDK。 如需詳細資訊，請參閱[建立工作區](how-to-manage-workspace.md)。
+- 已安裝 Azure Machine Learning 工作區與適用於 Python 的 Azure Machine Learning SDK。 如需詳細資訊，請參閱[建立工作區](how-to-manage-workspace.md)。
  
 - 適用于硬體加速模型的 Python SDK：
 

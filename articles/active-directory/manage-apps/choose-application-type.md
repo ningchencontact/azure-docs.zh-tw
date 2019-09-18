@@ -12,16 +12,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 11/08/2018
+ms.date: 09/03/2019
 ms.author: mimart
 ms.collection: M365-identity-device-management
 ROBOTS: NOINDEX
-ms.openlocfilehash: fb2c49d6436a14e9b6cbb0a92eb0dfba077c8e4d
-ms.sourcegitcommit: 198c3a585dd2d6f6809a1a25b9a732c0ad4a704f
+ms.openlocfilehash: d5bd2397c345a4f670bde343f751cd69f825ecb9
+ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68424253"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71056070"
 ---
 # <a name="choosing-the-application-type-when-adding-an-application-in-azure-active-directory"></a>在 Azure Active Directory 中新增應用程式時，選擇應用程式類型
 
@@ -45,7 +45,7 @@ Azure AD 支援四種主要的應用程式類型，您可以使用 [企業應用
 
 - **快速入門**–遵循[簡單的部署步驟](https://docs.microsoft.com/azure/active-directory/active-directory-integrating-applications-getting-started)快速開始使用應用程式
 
-- **一般屬性管理** – 取得應用程式的[直接深層連結](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)、為應用程式[自訂商標](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-change-app-logo-user-azure-portal)或對所有使用者[停用應用程式](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-disable-app-azure-portal)。
+- **一般屬性管理**-取得應用程式的[直接深層連結](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)、[自訂應用程式的商標](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-change-app-logo-user-azure-portal)，或停用所有使用者[的應用程式](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-disable-app-azure-portal)。
 
 - **使用者和群組管理** – 針對應用程式[指派](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-assign-user-azure-portal)或[移除](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-remove-assignment-azure-portal)使用者和群組，並選擇性地指派這些使用者和群組可存取的特定應用程式角色
 
@@ -63,7 +63,7 @@ Azure AD 支援四種主要的應用程式類型，您可以使用 [企業應用
 
 下表說明前述每個應用程式類型所支援的不同單一登入和佈建模式。 請利用此表格，協助您了解需要新增哪個應用程式以支援特定目標。
 
-  ![資料表:每個應用程式類型所支援的不同 SSO 和布建模式](./media/choose-application-type/table1.png)
+  ![表格：每個應用程式類型所支援的不同 SSO 和布建模式](./media/choose-application-type/table1.png)
 
 ## <a name="how-to-choose-a-single-sign-on-mode"></a>如何選擇單一登入模式
 
@@ -106,7 +106,7 @@ Azure AD 支援四種主要的應用程式類型，您可以使用 [企業應用
 
 ## <a name="how-to-set-an-applications-single-sign-on-mode"></a>如何設定應用程式的單一登入模式
 
-若要設定應用程式的單一登入模式, 請遵循下列指示:
+若要設定應用程式的單一登入模式，請遵循下列指示：
 
 1. 開啟 [Azure 入口網站](https://portal.azure.com/)，然後以**全域管理員**或**共同管理員**身分登入。
 1. 按一下左側主導覽功能表底部的 [所有服務]，以開啟 [Azure Active Directory 延伸模組]。
@@ -124,9 +124,6 @@ Azure AD 支援四種主要的應用程式類型，您可以使用 [企業應用
 - **手動佈建** – 如果您有現有的帳戶，或想要在 Azure AD 外部管理這個應用程式的帳戶，請選擇[手動](https://docs.microsoft.com/azure/active-directory/active-directory-enterprise-apps-manage-provisioning#provisioning-modes)佈建模式。
 
 - **自動佈建** – 如果您想要啟用以 API 為基礎自動佈建和/或取消佈建此應用程式的使用者帳戶，請選擇[自動](https://docs.microsoft.com/azure/active-directory/active-directory-enterprise-apps-manage-provisioning#configuring-automatic-user-account-provisioning)**佈建模式** 
-
-  >[!NOTE]
-  >此功能僅適用於 [Azure AD 應用程式庫](https://docs.microsoft.com/azure/active-directory/active-directory-enterprise-apps-whats-new-azure-portal)的**精選**類別內的應用程式。
 
 - **以 SCIM 為基礎的自動佈建** – 如果您的應用程式支援 SCIM 通訊協定來偵測使用者和群組的變更 (與 Azure AD 整合的任何應用程式變更時會自動發出)，請使用[以 SCIM 為基礎的自動佈建](https://docs.microsoft.com/azure/active-directory/active-directory-scim-provisioning) 
 

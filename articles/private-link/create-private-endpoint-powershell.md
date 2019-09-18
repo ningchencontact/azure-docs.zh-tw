@@ -7,12 +7,12 @@ ms.service: virtual-network
 ms.topic: article
 ms.date: 09/16/2019
 ms.author: kumud
-ms.openlocfilehash: f9a2bd4c4ec176e018948a7a5a01603d075a7ea2
-ms.sourcegitcommit: 71db032bd5680c9287a7867b923bf6471ba8f6be
+ms.openlocfilehash: ca3fec3dbb4fbe77a1d375c0329275b7b799d06b
+ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/16/2019
-ms.locfileid: "71018006"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71067842"
 ---
 # <a name="create-a-private-endpoint-using-azure-powershell"></a>使用 Azure PowerShell 建立私人端點
 私人端點是 Azure 中私用連結的基本建立區塊。 它可讓 Azure 資源（例如虛擬機器（Vm））與私人連結資源私下進行通訊。 
@@ -109,7 +109,7 @@ Set-azsqldatabase 搭配-ResourceGroupName "myResourceGroup" `
     -RequestedServiceObjectiveName "S0" ` -SampleName "AdventureWorksLT"
 
 
-## <a name="create-a-private-endpoint"></a>建立私用端點
+## <a name="create-a-private-endpoint"></a>建立私人端點
 
 具有[AzPrivateLinkServiceConnection](/powershell/module/az.network/New-AzPrivateLinkServiceConnection)之虛擬網路中 SQL Database 伺服器的私用端點： 
 
@@ -182,25 +182,38 @@ mstsc /v:<publicIpAddress>
 2. 輸入您在建立 VM 時指定的使用者名稱和密碼。
   > [!NOTE]
   > 您可能需要選取 [更多選擇] > [使用不同的帳戶]，以指定您在建立 VM 時輸入的認證。 
+  
 3. 選取 **[確定]** 。 
 4. 您可能會收到憑證警告。 如果您這樣做，請選取 **[是] 或 [**   **繼續**]。 
 
 ## <a name="access-sql-database-server-privately-from-the-vm"></a>從 VM 私下存取 SQL Database Server
 
 1. 在 myVM 的遠端桌面中，開啟 PowerShell。
-2. Enternslookup myserver.database.windows.net 您會收到類似下面的訊息：Azure PowerShellCopy Server：未知的位址：168.63.129.16 非權威的答案：名稱： myserver.privatelink.database.windows.net 位址：10.0.0.5 別名： myserver.database.windows.net
-3. 安裝 SQL Server Management Studio
-4. 在 [連線到伺服器] 中，輸入或選取這項資訊：設定值伺服器類型選取 [資料庫引擎]。
-      伺服器名稱選取 [myserver.database.windows.net Username] 輸入建立期間提供的使用者名稱。
-      密碼輸入在建立期間所提供的密碼。
-      記住密碼選取 [是]。
-5. 選取 [連線]。
-6. 流覽左側功能表中的 [資料庫]。 
-7. 也從 mydatabase 建立或查詢資訊
-8. 關閉對 *myVM*的遠端桌面連線。 
+2. 輸入 `nslookup myserver.database.windows.net`。 
 
-## <a name="clean-up-resources"></a>清除資源 
-當您使用私用端點（SQL Database 伺服器和 VM）完成時，請使用[remove-azresourcegroup](/powershell/module/az.resources/remove-azresourcegroup)移除資源群組及其擁有的所有資源：
+    您將收到如下訊息：
+    ```azurepowershell
+    Server:  UnKnown
+    Address:  168.63.129.16
+    Non-authoritative answer:
+    Name:    myserver.privatelink.database.windows.net
+    Address:  10.0.0.5
+    Aliases:   myserver.database.windows.net
+3. Install SQL Server Management Studio
+4. In Connect to server, enter or select this information:
+    Setting Value
+      Server type   Select Database Engine.
+      Server name   Select myserver.database.windows.net
+      Username  Enter a username provided during creation.
+      Password  Enter a password provided during creation.
+      Remember password Select Yes.
+5. Select Connect.
+6. Browse Databases from left menu. 
+7. (Optionally) Create or query information from mydatabase
+8. Close the remote desktop connection to *myVM*. 
+
+## Clean up resources 
+When you're done using the private endpoint, SQL Database server and the VM, use [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) to remove the resource group and all the resources it has:
 
 ```azurepowershell-interactive
 Remove-AzResourceGroup -Name myResourceGroup -Force

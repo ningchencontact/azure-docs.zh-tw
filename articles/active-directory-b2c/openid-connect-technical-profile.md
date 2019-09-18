@@ -10,18 +10,18 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 1e8f03b17c5e8ea68affa9fe83875382fd5d8512
-ms.sourcegitcommit: a52f17307cc36640426dac20b92136a163c799d0
+ms.openlocfilehash: b1262d34f93ecbcdb71586fd551d28fde477f92a
+ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68716707"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71063950"
 ---
 # <a name="define-an-openid-connect-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>在 Azure Active Directory B2C 自訂原則中定義 OpenID Connect 技術設定檔
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-Azure Active Directory (Azure AD) B2C 提供[OpenID connect](https://openid.net/2015/04/17/openid-connect-certification-program/)通訊協定識別提供者的支援。 OpenID Connect 1.0 會定義 OAuth 2.0 上的身分識別層，是先進新式驗證通訊協定的代表。 使用 OpenID Connect 技術設定檔, 您可以與 OpenID Connect 型識別提供者同盟, 例如 Azure AD。 與身分識別提供者聯盟可讓使用者使用其現有的社交或企業身分識別登入。
+Azure Active Directory B2C （Azure AD B2C）提供[OpenID connect](https://openid.net/2015/04/17/openid-connect-certification-program/)通訊協定識別提供者的支援。 OpenID Connect 1.0 會定義 OAuth 2.0 上的身分識別層，是先進新式驗證通訊協定的代表。 使用 OpenID Connect 技術設定檔，您可以與 OpenID Connect 型識別提供者同盟，例如 Azure AD。 與身分識別提供者聯盟可讓使用者使用其現有的社交或企業身分識別登入。
 
 ## <a name="protocol"></a>Protocol
 
@@ -98,11 +98,11 @@ Azure Active Directory (Azure AD) B2C 提供[OpenID connect](https://openid.net/
 
 ## <a name="redirect-uri"></a>重新導向 Uri
 
-在設定識別提供者的重新導向 URI 時，請輸入 `https://login.microsoftonline.com/te/tenant/oauth2/authresp`。 請務必將**tenant**取代為您的租使用者名稱 (例如, contosob2c.onmicrosoft.com) 或租使用者的識別碼。 重新導向 URI 必須全部小寫。
+在設定識別提供者的重新導向 URI 時，請輸入 `https://login.microsoftonline.com/te/tenant/oauth2/authresp`。 請務必將**tenant**取代為您的租使用者名稱（例如，contosob2c.onmicrosoft.com）或租使用者的識別碼。 重新導向 URI 必須全部小寫。
 
 如果使用的是 **b2clogin.com** 網域，而非使用 **login.microsoftonline.com**，請務必使用 b2clogin.com，而非使用 login.microsoftonline.com。
 
-範例:
+例如：
 
 - [使用自訂原則新增 Microsoft 帳戶 (MSA) 作為識別提供者](active-directory-b2c-custom-setup-msa-idp.md)
 - [使用 Azure AD 帳戶來登入](active-directory-b2c-setup-aad-custom.md)

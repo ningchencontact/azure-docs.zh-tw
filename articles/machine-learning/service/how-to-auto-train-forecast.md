@@ -1,7 +1,7 @@
 ---
 title: 自動定型時間序列預測模型
-titleSuffix: Azure Machine Learning service
-description: 瞭解如何使用 Azure Machine Learning 服務，使用自動化機器學習來定型時間序列預測回歸模型。
+titleSuffix: Azure Machine Learning
+description: 瞭解如何使用 Azure Machine Learning，使用自動化機器學習來定型時間序列預測回歸模型。
 services: machine-learning
 author: trevorbye
 ms.author: trbye
@@ -10,16 +10,16 @@ ms.subservice: core
 ms.reviewer: trbye
 ms.topic: conceptual
 ms.date: 06/20/2019
-ms.openlocfilehash: e75de16d0e16bc639a0439220a1c9dfe53e1689b
-ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
+ms.openlocfilehash: c49d8000888d4094ea1df47920c1927747927f5c
+ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70879054"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71035052"
 ---
 # <a name="auto-train-a-time-series-forecast-model"></a>自動定型時間序列預測模型
 
-在本文中，您將瞭解如何使用 Azure Machine Learning 服務中的自動化機器學習來定型時間序列預測回歸模型。 設定預測模型類似于使用自動化機器學習來設定標準回歸模型，但有一些特定的設定選項和前置處理步驟可用於處理時間序列資料。 下列範例示範如何：
+在本文中，您將瞭解如何使用 Azure Machine Learning 中的自動化機器學習來定型時間序列預測回歸模型。 設定預測模型類似于使用自動化機器學習來設定標準回歸模型，但有一些特定的設定選項和前置處理步驟可用於處理時間序列資料。 下列範例示範如何：
 
 * 準備資料以進行時間序列模型化
 * 在[`AutoMLConfig`](/python/api/azureml-train-automl/azureml.train.automl.automlconfig)物件中設定特定的時間序列參數
@@ -37,7 +37,7 @@ ms.locfileid: "70879054"
 
 ## <a name="prerequisites"></a>必要條件
 
-* Azure Machine Learning 服務工作區。 若要建立工作區, 請參閱[建立 Azure Machine Learning 服務工作區](how-to-manage-workspace.md)。
+* Azure Machine Learning 工作區。 若要建立工作區，請參閱[建立 Azure Machine Learning 工作區](how-to-manage-workspace.md)。
 * 本文假設您對設定自動化機器學習實驗的基本概念十分熟悉。 依照[教學](tutorial-auto-train-models.md)課程或[如何](how-to-configure-auto-train.md)操作來查看基本的自動化機器學習實驗設計模式。
 
 ## <a name="preparing-data"></a>準備資料

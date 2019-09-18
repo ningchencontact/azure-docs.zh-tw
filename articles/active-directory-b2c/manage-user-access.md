@@ -10,16 +10,16 @@ ms.topic: conceptual
 ms.date: 07/24/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 1ba36ece6b221908bfbaae58430a52b4753c2ed6
-ms.sourcegitcommit: fa45c2bcd1b32bc8dd54a5dc8bc206d2fe23d5fb
+ms.openlocfilehash: 98d3fa50f405658b33f879ed8e7b95667cddcedf
+ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67846782"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71064136"
 ---
 # <a name="manage-user-access-in-azure-active-directory-b2c"></a>在 Azure Active Directory B2C 中管理使用者存取
 
-本文討論如何使用 Azure Active Directory (Azure AD) B2C 管理使用者對您應用程式的存取。 應用程式的存取管理包括：
+本文討論如何使用 Azure Active Directory B2C （Azure AD B2C）來管理使用者對應用程式的存取。 應用程式的存取管理包括：
 
 - 識別未成年人並控制其對您應用程式的使用者存取。
 - 未成年人需要家長同意才可使用您的應用程式。

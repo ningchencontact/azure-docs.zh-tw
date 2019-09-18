@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 04/04/2019
-ms.openlocfilehash: 1ed722ad68280226387b98b3fefb77647f5cd825
-ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
+ms.openlocfilehash: ad43af0f6f9bd8d5d78cef78b26345436169c0fd
+ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70918558"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71034138"
 ---
 # <a name="connect-hdinsight-to-your-on-premises-network"></a>將 HDInsight 連線至內部部署網路
 
@@ -40,7 +40,7 @@ ms.locfileid: "70918558"
 
 在下列圖表中，綠線表示的資源要求會以虛擬網路的 DNS 尾碼結尾。 藍線表示在內部部署網路或公用網際網路上的資源要求。
 
-![圖表說明如何解決本文件所使用之設定中的 DNS 要求](./media/connect-on-premises-network/on-premises-to-cloud-dns.png)
+![在設定中如何解決 DNS 要求的圖表](./media/connect-on-premises-network/on-premises-to-cloud-dns.png)
 
 ## <a name="prerequisites"></a>必要條件
 
@@ -96,7 +96,7 @@ ms.locfileid: "70918558"
     |Subnet | 為您稍早建立的虛擬網路選取預設子網路。 請__勿__選取 VPN 閘道使用的子網路。|
     |公用 IP | 使用自動填入值。  |
 
-    ![虛擬網路設定](./media/connect-on-premises-network/virtual-network-settings.png)
+    ![HDInsight 虛擬網路設定](./media/connect-on-premises-network/virtual-network-settings.png)
 
     將其他項目保留在預設值，然後選取 [檢閱 + 建立]。
 
@@ -239,7 +239,7 @@ ms.locfileid: "70918558"
 
 4. 選取 [自訂]，並輸入自訂 DNS 伺服器的**私人 IP 位址**。   
 
-5. 選取 [ __儲存__]。  <br />  
+5. 選取 [儲存]。  <br />  
 
     ![設定網路的自訂 DNS 伺服器](./media/connect-on-premises-network/configure-custom-dns.png)
 

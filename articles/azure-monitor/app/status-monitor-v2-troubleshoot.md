@@ -3,7 +3,7 @@ title: Azure 狀態監視器 v2 疑難排解和已知問題 |Microsoft Docs
 description: 狀態監視器 v2 和疑難排解範例的已知問題。 在不重新部署網站的情況下監視網站效能。 適用于內部部署、Vm 或 Azure 上裝載的 ASP.NET web 應用程式。
 services: application-insights
 documentationcenter: .net
-author: MS-TimothyMothra
+author: TimothyMothra
 manager: alexklim
 ms.assetid: 769a5ea4-a8c6-4c18-b46c-657e864e24de
 ms.service: application-insights
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: tilee
-ms.openlocfilehash: e34beba32eace370664893225dd85b6f4b79c886
-ms.sourcegitcommit: 198c3a585dd2d6f6809a1a25b9a732c0ad4a704f
+ms.openlocfilehash: c3e9bffaf3b533ef8fbe3e32c1dca671fb67c911
+ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68424094"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71058300"
 ---
 # <a name="troubleshooting-status-monitor-v2"></a>疑難排解狀態監視器 v2
 

@@ -1,7 +1,7 @@
 ---
 title: 什麼是工作區
-titleSuffix: Azure Machine Learning service
-description: 工作區是 Azure Machine Learning 服務的最上層資源。 它會保留所有定型執行的歷程記錄，包括記錄、計量、輸出，以及腳本的快照集。 您可以使用此資訊來判斷哪一個定型回合會產生最佳模型
+titleSuffix: Azure Machine Learning
+description: 工作區是 Azure Machine Learning 的最上層資源。 它會保留所有定型執行的歷程記錄，包括記錄、計量、輸出，以及腳本的快照集。 您可以使用此資訊來判斷哪一個定型回合會產生最佳模型
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,16 +9,16 @@ ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
 ms.date: 08/06/2019
-ms.openlocfilehash: ef060c083109a7096b62ebb35f2b49bb37a371b8
-ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
+ms.openlocfilehash: 84aad0f1a797bb7eccf1872bd291e72ecefa7eee
+ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70860509"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71035331"
 ---
-# <a name="what-is-an-azure-machine-learning-service-workspace"></a>什麼是 Azure Machine Learning 服務工作區？
+# <a name="what-is-an-azure-machine-learning-workspace"></a>什麼是 Azure Machine Learning 工作區？
 
-工作區是 Azure Machine Learning 服務的最上層資源，提供一個集中的位置來處理您在使用 Azure Machine Learning 服務時所建立的所有成品。  工作區會保留所有定型執行的歷程記錄，包括記錄、計量、輸出，以及腳本的快照集。 您可以使用此資訊來判斷哪一個定型回合會產生最佳模型。  
+工作區是 Azure Machine Learning 的最上層資源，提供一個集中的位置來處理您在使用 Azure Machine Learning 時所建立的所有成品。  工作區會保留所有定型執行的歷程記錄，包括記錄、計量、輸出，以及腳本的快照集。 您可以使用此資訊來判斷哪一個定型回合會產生最佳模型。  
 
 一旦擁有您想要的模型之後，您就可以向工作區註冊它。 接著，您可以使用已註冊的模型和評分腳本，將部署到 Azure 容器實例、Azure Kubernetes Service 或可現場程式化閘道陣列（FPGA），做為 REST 架構的 HTTP 端點。 您也可以將模型部署到 Azure IoT Edge 裝置作為模組。
 
@@ -103,9 +103,9 @@ ms.locfileid: "70860509"
 
 ## <a name="next-steps"></a>後續步驟
 
-若要開始使用 Azure Machine Learning 服務，請參閱：
+若要開始使用 Azure Machine Learning，請參閱：
 
-+ [Azure Machine Learning 服務總覽](overview-what-is-azure-ml.md)
++ [Azure Machine Learning 總覽](overview-what-is-azure-ml.md)
 + [建立工作區](how-to-manage-workspace.md)
 + [管理工作區](how-to-manage-workspace.md)
 + [教學課程：將模型定型](tutorial-train-models-with-aml.md)

@@ -10,23 +10,23 @@ ms.topic: conceptual
 ms.date: 07/24/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 09cdc2fb5dba152e467164fd757225c7a9183264
-ms.sourcegitcommit: c71306fb197b433f7b7d23662d013eaae269dc9c
+ms.openlocfilehash: b0472b10de3641f1575f7f9a5c223ab5032f0e16
+ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68369394"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71066155"
 ---
 # <a name="application-types-that-can-be-used-in-active-directory-b2c"></a>可以在 Active Directory B2C 中使用的應用程式類型
 
-Azure Active Directory (Azure AD) B2C 支援各種現代應用程式架構的驗證。 全部都以業界標準通訊協定 [OAuth 2.0](active-directory-b2c-reference-protocols.md) 或 [OpenID Connect](active-directory-b2c-reference-protocols.md) 為基礎。 本文描述您可以建立的應用程式類型, 與您慣用的語言或平臺無關。 在您開始建置應用程式之前，也可協助您先了解一些高階案例。
+Azure Active Directory B2C （Azure AD B2C）支援各種新式應用程式架構的驗證。 全部都以業界標準通訊協定 [OAuth 2.0](active-directory-b2c-reference-protocols.md) 或 [OpenID Connect](active-directory-b2c-reference-protocols.md) 為基礎。 本文描述您可以建立的應用程式類型，與您慣用的語言或平臺無關。 在您開始建置應用程式之前，也可協助您先了解一些高階案例。
 
 每個使用 Azure AD B2C 的應用程式都必須使用 [Azure 入口網站](https://portal.azure.com/)，在 [Azure AD B2C 租用戶](active-directory-b2c-get-started.md)中註冊。 應用程式註冊程序會收集和指派值，例如：
 
 * 可唯一識別應用程式的**應用程式識別碼**。
 * 可用來將回應導回應用程式的**回覆 URL**。
 
-傳送至 Azure AD B2C 的每個要求會指定**使用者流程**(內建原則), 或控制 Azure AD B2C 行為的**自訂原則**。 這兩種原則類型可讓您建立一組高度可自訂的使用者體驗。
+傳送至 Azure AD B2C 的每個要求會指定**使用者流程**（內建原則），或控制 Azure AD B2C 行為的**自訂原則**。 這兩種原則類型可讓您建立一組高度可自訂的使用者體驗。
 
 每個應用程式的互動都遵循類似的高階模式：
 
@@ -132,12 +132,12 @@ Web API 接收的權杖可以來自許多類型的用戶端，包括 Web 應用�
 
 請勿以下列方式編輯 Azure AD B2C 應用程式：
 
-- 在其他應用程式管理入口網站上，例如 [應用程式註冊入口網站](https://apps.dev.microsoft.com/)。
+- 在其他應用程式管理入口網站上，例如 [應用程式註冊入口網站](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade)。
 - 使用圖形 API 或 PowerShell。
 
 如果您在 Azure 入口網站外部編輯 Azure AD B2C 應用程式，它會變成錯誤的應用程式並且無法再搭配 Azure AD B2C 使用。 刪除應用程式並重新加以建立。
 
-若要刪除應用程式，請移至[應用程式註冊入口網站](https://apps.dev.microsoft.com/)並在此刪除應用程式。 為了讓應用程式得以顯示，您必須是應用程式的擁有者 (而不只是租用戶的系統管理員)。
+若要刪除應用程式，請移至[應用程式註冊入口網站](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade)並在此刪除應用程式。 為了讓應用程式得以顯示，您必須是應用程式的擁有者 (而不只是租用戶的系統管理員)。
 
 ## <a name="next-steps"></a>後續步驟
 

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/11/2018
 ms.author: mikeray
-ms.openlocfilehash: 3ff9a694dca0d2a205c27569a7c744f482b662ec
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 3e954a6c714e525e5bbefe8f62c798cf8ac9a517
+ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70100646"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71036392"
 ---
 # <a name="configure-sql-server-failover-cluster-instance-on-azure-virtual-machines"></a>在 Azure 虛擬機器上設定 SQL Server 容錯移轉叢集執行個體
 
@@ -73,7 +73,7 @@ S2D 支援兩種類型的架構 - 交集和超交集。 本文件中的架構為
 - [Windows 叢集技術](https://docs.microsoft.com/windows-server/failover-clustering/failover-clustering-overview)
 - [SQL Server 容錯移轉叢集執行個體](https://docs.microsoft.com/sql/sql-server/failover-clusters/windows/always-on-failover-cluster-instances-sql-server)。
 
-其中一個重要的差異是, 在 Azure IaaS VM 來賓容錯移轉叢集上, 我們建議每個伺服器 (叢集節點) 和單一子網都有一個 NIC。 Azure 網路有實體備援，因此 Azure IaaS VM 客體叢集上不需要額外的 NIC 和子網路。 雖然叢集驗證報告會發出節點只能在單一網路上連線的警告，但您可以放心地在 Azure IaaS VM 客體容錯移轉叢集上忽略此警告。 
+其中一個重要的差異是，在 Azure IaaS VM 來賓容錯移轉叢集上，我們建議每個伺服器（叢集節點）和單一子網都有一個 NIC。 Azure 網路有實體備援，因此 Azure IaaS VM 客體叢集上不需要額外的 NIC 和子網路。 雖然叢集驗證報告會發出節點只能在單一網路上連線的警告，但您可以放心地在 Azure IaaS VM 客體容錯移轉叢集上忽略此警告。 
 
 此外，您也應對下列技術有大概了解：
 
@@ -267,11 +267,22 @@ S2D 支援兩種類型的架構 - 交集和超交集。 本文件中的架構為
 - 容錯移轉叢集的名稱
 - 容錯移轉叢集的 IP 位址。 您可以使用與叢集節點一樣，沒有在 Azure 虛擬網路和子網路上用過的 IP 位址。
 
-下列 PowerShell 會建立容錯移轉叢集。 使用節點名稱 (虛擬機器名稱) 和 Azure VNET 中可用的 IP 位址來更新指令碼：
+#### <a name="windows-server-2008-2016"></a>Windows Server 2008-2016
+
+下列 PowerShell 會建立適用于**Windows Server 2008-2016**的容錯移轉叢集。 使用節點名稱 (虛擬機器名稱) 和 Azure VNET 中可用的 IP 位址來更新指令碼：
 
 ```powershell
 New-Cluster -Name <FailoverCluster-Name> -Node ("<node1>","<node2>") –StaticAddress <n.n.n.n> -NoStorage
 ```   
+
+#### <a name="windows-server-2019"></a>Windows Server 2019
+
+下列 PowerShell 會建立適用于 Windows Server 2019 的容錯移轉叢集。  如需詳細資訊，請參閱[blog 容錯移轉叢集：叢集網路物件](https://blogs.windows.com/windowsexperience/2018/08/14/announcing-windows-server-2019-insider-preview-build-17733/#W0YAxO8BfwBRbkzG.97)。  使用節點名稱 (虛擬機器名稱) 和 Azure VNET 中可用的 IP 位址來更新指令碼：
+
+```powershell
+New-Cluster -Name <FailoverCluster-Name> -Node ("<node1>","<node2>") –StaticAddress <n.n.n.n> -NoStorage -ManagementPointNetworkType Singleton 
+```
+
 
 ### <a name="create-a-cloud-witness"></a>建立雲端見證
 
@@ -398,7 +409,7 @@ S2D 的磁碟需為空白且不含分割區或其他資料。 若要清理磁碟
 
    - **名稱**：健康情況探查的名稱。
    - **通訊協定**：TCP。
-   - **連接埠**：將設定為您在防火牆中為[此步驟](#ports)中的健康狀態探查所建立的埠。 在本文中, 範例會使用 TCP 通訊`59999`埠。
+   - **連接埠**：將設定為您在防火牆中為[此步驟](#ports)中的健康狀態探查所建立的埠。 在本文中，範例會使用 TCP 通訊`59999`埠。
    - **間隔**：5 秒。
    - **狀況不良閾值**：2 次連續失敗。
 

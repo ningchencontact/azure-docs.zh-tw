@@ -1,7 +1,7 @@
 ---
 title: MLOps管理、部署、& 監視 ML 模型
-titleSuffix: Azure Machine Learning service
-description: 瞭解如何使用 Azure Machine Learning Service for MLOps：部署、管理及監視模型，以持續改進它們。 您可以在本機電腦上或從其他來源中，部署使用 Azure Machine Learning Service 來定型的模型。
+titleSuffix: Azure Machine Learning
+description: 瞭解如何使用 Azure Machine Learning MLOps：部署、管理及監視模型，以持續改進它們。 您可以在本機電腦上或從其他來源中，部署使用 Azure Machine Learning 所訓練的模型。
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -11,25 +11,25 @@ author: jpe316
 ms.author: jordane
 ms.date: 06/24/2019
 ms.custom: seodec18
-ms.openlocfilehash: 2f3c3532637bef041ad1983b7573837dd0f29211
-ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
+ms.openlocfilehash: 98a3102d47504b40a6b62eb329b508468947ca79
+ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70860605"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71035472"
 ---
-# <a name="mlops-manage-deploy-and-monitor-models-with-azure-machine-learning-service"></a>MLOps使用 Azure Machine Learning Service 來管理、部署及監視模型
+# <a name="mlops-manage-deploy-and-monitor-models-with-azure-machine-learning"></a>MLOps使用 Azure Machine Learning 管理、部署和監視模型
 
-在本文中，您將瞭解如何使用 Azure Machine Learning 服務來管理模型的生命週期。 Azure Machine Learning 使用 Machine Learning 作業（MLOps）方法，可改善機器學習解決方案的品質和一致性。 
+在本文中，您將瞭解如何使用 Azure Machine Learning 來管理模型的生命週期。 Azure Machine Learning 使用 Machine Learning 作業（MLOps）方法，可改善機器學習解決方案的品質和一致性。 
 
-Azure Machine Learning 服務提供下列 MLOps 功能：
+Azure Machine Learning 提供下列 MLOps 功能：
 
 - **從任何地方部署 ML 專案**
 - **監視 ml 應用程式的操作和 ML 相關問題**-比較定型和推斷之間的模型輸入、探索模型特定計量，以及提供 ML 基礎結構的監視和警示。
 - **捕捉建立 ML 生命週期的端對端審核記錄所需的資料**，包括正在發佈模型的物件、變更的原因，以及模型部署或用於生產環境中的時間。
 - **使用 Azure Machine Learning 和 Azure DevOps 自動化端對端 ML 生命週期**，以便經常更新模型、測試新模型，以及持續推出新的 ml 模型以及其他應用程式和服務。
 
-若要深入瞭解 MLOps 背後的概念以及如何將其套用到 Azure Machine Learning 服務，請觀看下列影片。
+若要深入瞭解 MLOps 背後的概念以及如何將其套用到 Azure Machine Learning，請觀看下列影片。
 
 > [!VIDEO https://www.microsoft.com/videoplayer/embed/RE2X1GX]
 
@@ -47,10 +47,10 @@ Azure Machine Learning 服務提供下列 MLOps 功能：
 > [!TIP]
 > 已註冊的模型是組成模型的一或多個檔案的邏輯容器。 例如, 如果您的模型儲存在多個檔案中, 您可以將它們註冊為 Azure Machine Learning 工作區中的單一模型。 註冊之後, 您就可以下載或部署已註冊的模型, 並接收所有已註冊的檔案。
  
-已註冊的模型是透過名稱和版本來識別。 每次註冊與現有模型名稱相同的模型時，登錄都會遞加版本。 您也可以在可於搜尋模型時使用的註冊期間提供額外中繼資料標記。 Azure Machine Learning 服務支援可使用 Python 3.5.2 或更高版本載入的任何模型。
+已註冊的模型是透過名稱和版本來識別。 每次註冊與現有模型名稱相同的模型時，登錄都會遞加版本。 您也可以在可於搜尋模型時使用的註冊期間提供額外中繼資料標記。 Azure Machine Learning 支援可使用 Python 3.5.2 或更高版本載入的任何模型。
 
 > [!TIP]
-> 您也可以註冊在 Azure Machine Learning 服務外部定型的模型。
+> 您也可以註冊在 Azure Machine Learning 外部定型的模型。
 
 您無法刪除使用中部署的已註冊模型。
 如需詳細資訊，請參閱[部署模型](how-to-deploy-and-where.md#registermodel)的註冊模型一節。
@@ -65,13 +65,13 @@ Azure Machine Learning 服務提供下列 MLOps 功能：
 
 ### <a name="validate-and-profile-models"></a>驗證和分析模型
 
-Azure Machine Learning 服務可以流量分析來判斷部署模型時所要使用的理想 CPU 和記憶體設定。 模型驗證會在此程式中進行，並使用您為分析程式提供的資料。
+Azure Machine Learning 可以流量分析來判斷部署模型時所要使用的理想 CPU 和記憶體設定。 模型驗證會在此程式中進行，並使用您為分析程式提供的資料。
 
 ### <a name="convert-and-optimize-models"></a>轉換和優化模型
 
 將模型轉換成[Open Neural Network Exchange](https://onnx.ai) （ONNX）可能會改善效能。 平均來說，轉換成 ONNX 可能會增加2倍的效能。
 
-如需 ONNX 與 Azure Machine Learning 服務的詳細資訊，請參閱[建立和加速 ML 模型](concept-onnx.md)一文。
+如需 ONNX 與 Azure Machine Learning 的詳細資訊，請參閱[建立和加速 ML 模型](concept-onnx.md)一文。
 
 ### <a name="use-models"></a>使用模型
 
@@ -90,14 +90,14 @@ Azure Machine Learning 服務可以流量分析來判斷部署模型時所要使
 
 * 啟用 GPU：用來啟用 Docker 映射中的 GPU 支援。 映射必須用於 Microsoft Azure 服務，例如 Azure 容器實例、Azure Kubernetes Service、Azure Machine Learning 計算或 Azure 虛擬機器。
 * 額外的 docker 檔案步驟：檔案，其中包含建立 Docker 映射時要執行的其他 Docker 步驟。
-* 基底映射：要當做基底映射使用的自訂映射。 如果您未使用自訂映射，則基底映射是由 Azure Machine Learning 服務所提供。
+* 基底映射：要當做基底映射使用的自訂映射。 如果您未使用自訂映射，則 Azure Machine Learning 會提供基底映射。
 
 您也會提供目標部署平臺的設定。 例如，VM 系列類型、可用記憶體，以及部署到 Azure Kubernetes Service 時的核心數目。
 
-建立映射時，也會新增 Azure Machine Learning 服務所需的元件。 例如，執行 web 服務和與 IoT Edge 互動所需的資產。
+建立映射時，也會新增 Azure Machine Learning 所需的元件。 例如，執行 web 服務和與 IoT Edge 互動所需的資產。
 
 > [!NOTE]
-> 您無法修改或變更 Docker 映射中使用的 web 伺服器或 IoT Edge 元件。 Azure Machine Learning 服務使用 web 伺服器設定，並 IoT Edge Microsoft 所測試及支援的元件。
+> 您無法修改或變更 Docker 映射中使用的 web 伺服器或 IoT Edge 元件。 Azure Machine Learning 使用 web 伺服器設定，並 IoT Edge Microsoft 所測試及支援的元件。
 
 #### <a name="web-service"></a>Web 服務
 
@@ -153,11 +153,11 @@ Azure ML 讓您能夠追蹤所有 ML 資產的端對端審核記錄。 具體而
 * 在定義服務連接時啟用工作區選取。
 * 可讓發行管線由定型管線中建立的定型模型觸發。
 
-如需有關搭配 Azure Machine Learning 使用 Azure Pipelines 的詳細資訊，請參閱[使用 Azure Pipelines 的持續整合和部署 ML 模型一](/azure/devops/pipelines/targets/azure-machine-learning)文和[Azure Machine Learning 服務 MLOps](https://aka.ms/mlops)存放庫。
+如需有關搭配 Azure Machine Learning 使用 Azure Pipelines 的詳細資訊，請參閱[使用 Azure Pipelines 的持續整合和部署 ML 模型一](/azure/devops/pipelines/targets/azure-machine-learning)文和[Azure Machine Learning MLOps](https://aka.ms/mlops)存放庫。
 
 ## <a name="next-steps"></a>後續步驟
 
-深入了解使用 Azure Machine Learning 服務[部署模型的方式和位置](how-to-deploy-and-where.md)。 如需部署的範例，請[參閱教學課程：在 Azure 容器實例](tutorial-deploy-models-with-aml.md)中部署映射分類模型。
+深入瞭解[您可以使用 Azure Machine Learning 部署模型的方式和位置](how-to-deploy-and-where.md)。 如需部署的範例，請[參閱教學課程：在 Azure 容器實例](tutorial-deploy-models-with-aml.md)中部署映射分類模型。
 
 瞭解如何[使用 Azure Pipelines 建立 ML 模型的持續整合和部署](/azure/devops/pipelines/targets/azure-machine-learning)。 
 

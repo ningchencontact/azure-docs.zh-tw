@@ -1,36 +1,36 @@
 ---
-title: Azure 防火牆記錄檔分析範例
-description: Azure 防火牆記錄檔分析範例
+title: Azure 防火牆 log analytics 範例
+description: Azure 防火牆 log analytics 範例
 services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: article
-ms.date: 2/15/2019
+ms.date: 09/17/2019
 ms.author: victorh
-ms.openlocfilehash: 3f329d3dd4af1faef8f77d08db655cc7d6ef79fd
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: a4ab1263abac67714357594e5bd87a4b910953b1
+ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60461502"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71033988"
 ---
-# <a name="azure-firewall-log-analytics-samples"></a>Azure 防火牆記錄檔分析範例
+# <a name="azure-firewall-log-analytics-samples"></a>Azure 防火牆 log analytics 範例
 
-下列 Azure 監視器記錄檔範例可用來分析您的 Azure 防火牆記錄檔。 Azure 監視器中的檢視表設計工具內建的範例檔案[在 Azure 監視器中的檢視表設計工具](https://docs.microsoft.com/azure/log-analytics/log-analytics-view-designer)發行項的檢視設計概念的詳細資訊。
+下列 Azure 監視器記錄範例可用來分析您的 Azure 防火牆記錄。 範例檔案是內建于 Azure 監視器的視圖設計工具中， [Azure 監視器文章中的視圖設計](https://docs.microsoft.com/azure/log-analytics/log-analytics-view-designer)工具具有視圖設計概念的詳細資訊。
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
-## <a name="azure-monitor-logs-view"></a>Azure 監視器記錄檢視
+## <a name="azure-monitor-logs-view"></a>Azure 監視器記錄檔視圖
 
-以下是如何設定 Azure 監視器記錄視覺效果的範例。 您可以從 [azure-docs-json-samples](https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-firewall/AzureFirewall.omsview) \(英文\) 存放庫下載該範例視覺效果。 最簡單的方法是以滑鼠右鍵按一下本頁面上的超連結，然後選擇 [另存新檔]  ，並提供如 **AzureFirewall.omsview** 的名稱。 
+以下是您可以如何設定範例 Azure 監視器記錄視覺效果的方式。 您可以從 [azure-docs-json-samples](https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-firewall/AzureFirewall.omsview) \(英文\) 存放庫下載該範例視覺效果。 最簡單的方法是以滑鼠右鍵按一下本頁面上的超連結，然後選擇 [另存新檔]，並提供如 **AzureFirewall.omsview** 的名稱。 
 
-執行下列步驟來將檢視新增至您的 Log Analytics 工作區：
+執行下列步驟，將此視圖新增至您的 Log Analytics 工作區：
 
 1. 在 Azure 入口網站中開啟 Log Analytics 工作區。
-2. 開啟位於 [一般]  底下的 [檢視設計工具]  。
-3. 按一下 [匯入]  。
+2. 開啟位於 [一般] 底下的 [檢視設計工具]。
+3. 按一下 [匯入]。
 4. 瀏覽並選取您之前所下載的 **AzureFirewall.omsview** 檔案。
-5. 按一下 [儲存]  。
+5. 按一下 [儲存]。
 
 以下是針對應用程式規則記錄資料的檢視外觀：
 
@@ -40,7 +40,7 @@ ms.locfileid: "60461502"
 
 ![網路規則記錄資料]( ./media/log-analytics-samples/azurefirewall-networkrulelogstats.png)
 
-Azure 防火牆記錄與分類為 AzureDiagnostics 下方的資料**AzureFirewallApplicationRule**或是**AzureFirewallNetworkRule**。 包含詳細資料的資料會儲存在 msg_s 欄位中。 使用 [parse](https://docs.microsoft.com/azure/kusto/query/parseoperator) \(英文\) 運算子，我們便可以從 msg_s 欄位中擷取各種有趣的屬性。 下列查詢會同時從兩個類別中擷取資訊。
+Azure 防火牆會以**AzureFirewallApplicationRule**或**AzureFirewallNetworkRule**的類別，將資料記錄在 AzureDiagnostics 下方。 包含詳細資料的資料會儲存在 msg_s 欄位中。 使用 [parse](https://docs.microsoft.com/azure/kusto/query/parseoperator) \(英文\) 運算子，我們便可以從 msg_s 欄位中擷取各種有趣的屬性。 下列查詢會同時從兩個類別中擷取資訊。
 
 ## <a name="application-rules-log-data-query"></a>應用程式規則記錄資料查詢
 
@@ -70,7 +70,7 @@ SourcePort = tostring(SourcePortInt)
 TargetPort = tostring(TargetPortInt)
 | extend
 //make sure we only have Allowed / Deny in the Action Field
-Action1 = case(Action1 == "denied","Deny","Unknown Action")
+Action1 = case(Action1 == "Deny","Deny","Unknown Action")
 | extend
     Action = case(Action2 == "",Action1,Action2),
     Rule = case(Rule2a == "",case(Rule1 == "",case(Rule2b == "","N/A", Rule2b),Rule1),Rule2a), 
@@ -92,7 +92,7 @@ AzureDiagnostics
 | parse TempDetails with * "Deny." RuleCollection2b ". Proceeding with" Rule2b
 | extend SourcePort = tostring(SourcePortInt)
 | extend TargetPort = tostring(TargetPortInt)
-| extend Action1 = case(Action1 == "denied","Deny","Unknown Action")
+| extend Action1 = case(Action1 == "Deny","Deny","Unknown Action")
 | extend Action = case(Action2 == "",Action1,Action2),Rule = case(Rule2a == "", case(Rule1 == "",case(Rule2b == "","N/A", Rule2b),Rule1),Rule2a), 
 RuleCollection = case(RuleCollection2b == "",case(RuleCollection2a == "","No rule matched",RuleCollection2a), RuleCollection2b),FQDN = case(FQDN == "", "N/A", FQDN),TargetPort = case(TargetPort == "", "N/A", TargetPort)
 | project TimeGenerated, msg_s, Protocol, SourceIP, SourcePort, FQDN, TargetPort, Action ,RuleCollection, Rule
@@ -100,7 +100,7 @@ RuleCollection = case(RuleCollection2b == "",case(RuleCollection2a == "","No rul
 
 ## <a name="network-rules-log-data-query"></a>網路規則記錄資料查詢
 
-下列查詢會剖析網路規則記錄檔資料。 各個不同的註解行中提供有建置查詢之方式的指導：
+下列查詢會剖析網路規則記錄資料。 各個不同的註解行中提供有建置查詢之方式的指導：
 
 ```Kusto
 AzureDiagnostics
@@ -153,7 +153,7 @@ AzureDiagnostics
 
 ## <a name="threat-intelligence-log-data-query"></a>威脅情報記錄資料查詢
 
-下列查詢會剖析威脅情報規則記錄檔資料：
+下列查詢會剖析威脅情報規則記錄資料：
 
 ```Kusto
 AzureDiagnostics
@@ -168,4 +168,4 @@ AzureDiagnostics
 
 ## <a name="next-steps"></a>後續步驟
 
-若要深入了解 Azure 防火牆監視和診斷，請參閱[教學課程：監視 Azure 防火牆記錄檔和度量](tutorial-diagnostics.md)。
+若要深入瞭解 Azure 防火牆監視和診斷， [請參閱教學課程：監視 Azure 防火牆記錄和計量](tutorial-diagnostics.md)。

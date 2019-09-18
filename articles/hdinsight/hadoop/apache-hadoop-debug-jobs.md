@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/14/2017
 ms.author: ashishth
-ms.openlocfilehash: 751d5b47006f5c99a747503ad4f052b3e03a043c
-ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
+ms.openlocfilehash: 8ad2bdd0f12abad08515f0314b9c03cc971127cb
+ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70882442"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71059207"
 ---
 # <a name="analyze-apache-hadoop-logs-in-azure-hdinsight"></a>分析 Azure HDInsight 中的 Apache Hadoop 記錄
 
@@ -110,7 +110,7 @@ Azure HDInsight 中的每個 Apache Hadoop 叢集都有一個 Azure 儲存體帳
 ### <a name="access-the-ambari-ui"></a>存取 Ambari UI
 從 Azure 入口網站中，按一下 HDInsight 叢集名稱以開啟叢集窗格。 從叢集窗格中，按一下 [儀表板]。
 
-![啟動叢集儀表板](./media/apache-hadoop-debug-jobs/hdi-debug-launch-dashboard.png)
+![HDInsight 啟動叢集儀表板](./media/apache-hadoop-debug-jobs/hdi-debug-launch-dashboard.png)
 
 
 ### <a name="access-the-yarn-ui"></a>存取 Yarn UI
@@ -120,7 +120,7 @@ Azure HDInsight 中的每個 Apache Hadoop 叢集都有一個 Azure 儲存體帳
 
 * **取得叢集狀態**。 從左窗格中展開 [叢集]，然後按一下 [關於]。 這樣即會顯示叢集狀態詳細資料，例如配置的記憶體總計、使用的核心數目、叢集資源管理員的狀態、叢集版本等。
   
-    ![啟動叢集儀表板 yarn](./media/apache-hadoop-debug-jobs/hdi-debug-yarn-cluster-state.png "啟動叢集儀表板 yarn")
+    ![HDInsight 啟動叢集儀表板 yarn](./media/apache-hadoop-debug-jobs/hdi-debug-yarn-cluster-state.png "HDInsight 啟動叢集儀表板 yarn")
 * **取得節點狀態**。 從左窗格中展開 [叢集]，然後按一下 [節點]。 這樣會列出叢集中的所有節點、每個節點的 HTTP 位址、配置給每個節點的資源等資訊。
 * **監視工作狀態**。 從左窗格展開 [叢集]，然後按一下 [應用程式] 以列出叢集中的所有工作。 如果您想要查看處於特定狀態 (例如，新增、已提交、執行中等狀態) 的工作，可按一下[應用程式]底下的適當連結。 您可以進一步按一下工作名稱來深入了解該工作，例如包含輸出、記錄等相關資訊。
 

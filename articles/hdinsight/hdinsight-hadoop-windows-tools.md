@@ -3,16 +3,17 @@ title: 使用 Windows PC 搭配 Hadoop on HDInsight - Azure
 description: 從 Hadoop on HDInsight 中的 Windows PC 作業。 使用 PowerShell、Visual Studio 和 Linux 工具來管理和查詢叢集。 使用 .NET 開發巨量資料解決方案。
 author: hrasheed-msft
 ms.author: hrasheed
+ms.reviewer: jasonh
 ms.topic: conceptual
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.date: 04/24/2019
-ms.openlocfilehash: 5045c48a00c51a16d37dcf4b7f72f25633f23b3f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 942ca2fe89441ab7497e98c6ffe1fffb9847da77
+ms.sourcegitcommit: 8ef0a2ddaece5e7b2ac678a73b605b2073b76e88
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64926020"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71076578"
 ---
 # <a name="work-in-the-apache-hadoop-ecosystem-on-hdinsight-from-a-windows-pc"></a>從 Windows 電腦在 HDInsight 上的 Apache Hadoop 生態系統中作業
 
@@ -33,7 +34,7 @@ Azure PowerShell 是一種指令碼環境，可讓您從 Windows 在 HDInsight �
 
 ## <a name="utilities-you-can-run-in-a-browser"></a>您可以在瀏覽器中執行的公用程式
 下列公用程式具有可在瀏覽器中執行的 Web UI：
-* **[Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview)** 是互動式、 命令列殼層執行在瀏覽器，並從 Azure 入口網站。
+* **[Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview)** 是互動式的命令列 Shell，會在您的瀏覽器中以及從 Azure 入口網站內執行。
 * **[Ambari Web UI](hdinsight-hadoop-manage-ambari.md)** 是 Azure 入口網站中可用的管理和監視公用程式，可用來管理不同種類的作業，例如︰
     * [使用 Apache Ambari 搭配 REST API](hdinsight-hadoop-manage-ambari-rest-api.md)
     * [Apache Ambari 中的 Apache Hive 檢視](hadoop/apache-hadoop-use-hive-ambari-view.md)
@@ -78,13 +79,13 @@ HDInsight 中的 Apache Spark 叢集包含可與 Jupyter Notebook 搭配使用�
 
 如果您遇到必須使用只適用於 Linux 之工具或技術的情況，請考慮下列選項︰
 
-* **在 Windows 10 上 Ubuntu 的 bash**在 Windows 上提供 Linux 子系統。 Bash 可讓您直接執行 Linux 公用程式，而不必維護專用的 Linux 安裝。 如需安裝步驟，請參閱 [Windows 10 適用於 Linux 的 Windows 子系統的安裝指南](https://docs.microsoft.com/windows/wsl/install-win10)。  其他 [Unix 殼層](https://www.gnu.org/software/bash/)也可正常運作。
+* **Windows 10 上 Ubuntu 上的 Bash**在 windows 上提供 Linux 子系統。 Bash 可讓您直接執行 Linux 公用程式，而不必維護專用的 Linux 安裝。 如需安裝步驟，請參閱 [Windows 10 適用於 Linux 的 Windows 子系統的安裝指南](https://docs.microsoft.com/windows/wsl/install-win10)。  其他 [Unix 殼層](https://www.gnu.org/software/bash/)也可正常運作。
 * **Docker for Windows** 可供存取許多以 Linux 為基礎的工具，並可以直接從 Windows 執行。 例如，您可以使用 Docker 直接從 Windows 執行 Hive 適用的 Beeline 用戶端。 您也可以使用 Docker 來執行本機 Jupyter Notebook，並從遠端連線到 HDInsight 上的 Spark。 [開始使用 Docker for Windows](https://docs.docker.com/docker-for-windows/)
 * **[MobaXTerm](https://mobaxterm.mobatek.net/)** 可讓您透過 SSH 連線，以圖形方式瀏覽叢集檔案系統。
 
-## <a name="cross-platform-tools"></a>跨平台工具
+## <a name="cross-platform-tools"></a>跨平臺工具
 
-Azure 命令列介面 (CLI) 是用來管理 Azure 資源的 Microsoft 跨平台命令列體驗。  如需詳細資訊，請參閱 < [Azure 命令列介面 (CLI)](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest)。
+Azure 命令列介面 (CLI) 是用來管理 Azure 資源的 Microsoft 跨平台命令列體驗。  如需詳細資訊，請參閱[Azure 命令列介面（CLI）](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest)。
 
 ## <a name="next-steps"></a>後續步驟
 如果您不熟悉使用以 Linux 為基礎的叢集，請參閱下列文章︰

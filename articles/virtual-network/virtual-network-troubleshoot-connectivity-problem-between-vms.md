@@ -4,7 +4,7 @@ description: 了解如何為 Azure VM 之間的連線問題進行疑難排解。
 services: virtual-network
 documentationcenter: na
 author: chadmath
-manager: cshepard
+manager: dcscontentpm
 editor: ''
 tags: azure-resource-manager
 ms.service: virtual-network
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/30/2018
 ms.author: genli
-ms.openlocfilehash: fc3d6ab1d7fdf05963d9ecd350deccd940a95b87
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ab3ae45081ecc481cb90af8961174e23c86e84b5
+ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61036248"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71056808"
 ---
 # <a name="troubleshooting-connectivity-problems-between-azure-vms"></a>為 Azure VM 之間的連線問題疑難排解
 
@@ -47,7 +47,7 @@ ms.locfileid: "61036248"
 
 請遵循下列步驟來疑難排解問題。 完成每個步驟之後，請檢查是否已解決問題。 
 
-### <a name="step-1-check-whether-nic-is-misconfigured"></a>步驟 1：檢查 NIC 是否設定不正確
+### <a name="step-1-check-whether-nic-is-misconfigured"></a>步驟 1:檢查 NIC 是否設定不正確
 
 請遵循[如何重設 Azure Windows VM 的網路介面](../virtual-machines/windows/reset-network-interface.md)中的步驟。 
 
@@ -65,7 +65,7 @@ ms.locfileid: "61036248"
 - [重新部署 Windows VM](../virtual-machines/windows/redeploy-to-new-node.md)
 - [重新部署 Linux VM](../virtual-machines/linux/redeploy-to-new-node.md)
 
-### <a name="step-2-check-whether-network-traffic-is-blocked-by-nsg-or-udr"></a>步驟 2：檢查 NSG 或 UDR 是否封鎖網路流量
+### <a name="step-2-check-whether-network-traffic-is-blocked-by-nsg-or-udr"></a>步驟 2:檢查 NSG 或 UDR 是否封鎖網路流量
 
 使用[網路監看員 IP 流量驗證](../network-watcher/network-watcher-ip-flow-verify-overview.md)和 [NSG 流量記錄](../network-watcher/network-watcher-nsg-flow-logging-overview.md)來判斷是否有「網路安全性群組」(NSG) 或「使用者定義路由」(UDR) 受到流量干擾。
 

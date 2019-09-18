@@ -8,16 +8,17 @@ ms.service: log-analytics
 ms.topic: conceptual
 ms.date: 07/19/2019
 ms.author: bwren
-ms.openlocfilehash: 18e6e162764ce190a1953a4126e4f9ef2eb717f5
-ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
+ms.openlocfilehash: 950768326228960192f48d99e5c5fa849b2c2bda
+ms.sourcegitcommit: 8ef0a2ddaece5e7b2ac678a73b605b2073b76e88
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70899523"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71076830"
 ---
 # <a name="get-started-with-log-analytics-in-azure-monitor"></a>在 Azure 監視器中開始使用 Log Analytics
 
-[!INCLUDE [log-analytics-demo-environment](../../../includes/log-analytics-demo-environment.md)]
+> [!NOTE]
+> 如果您要從至少一部虛擬機器收集資料，您可以在自己的環境中進行此練習。 如果沒有，則使用我們的[示範環境](https://portal.loganalytics.io/demo)，其中包含許多範例資料。
 
 在本教學課程中，您將瞭解如何使用 Azure 入口網站中的 Log Analytics 來撰寫 Azure 監視器記錄查詢。 它會告訴您如何：
 

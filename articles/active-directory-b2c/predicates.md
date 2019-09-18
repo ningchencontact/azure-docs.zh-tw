@@ -10,22 +10,22 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 6163f1cbf878f4d4678b2b66829522b0dd16ae22
-ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
+ms.openlocfilehash: ecec18945b53711094307162c4aeab2e0580bd5e
+ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67835636"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71063860"
 ---
 # <a name="predicates-and-predicatevalidations"></a>Predicates 與 PredicateValidations
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-**Predicates** 和 **PredicateValidations** 元素可讓您執行驗證程序，以確保只能在您的 Azure Active Directory (Azure AD) B2C 租用戶中輸入正確格式的資料。
+述詞和**PredicateValidations**元素可讓您執行驗證**程式，以**確保在您的 Azure Active Directory B2C （Azure AD B2C）租使用者中只輸入正確格式的資料。
 
 下圖顯示元素之間的關聯性：
 
-![此圖顯示述詞和述詞驗證的關聯性](./media/predicates/predicates.png)
+![顯示述詞和述詞驗證關聯性的圖表](./media/predicates/predicates.png)
 
 ## <a name="predicates"></a>述詞
 
@@ -33,9 +33,9 @@ ms.locfileid: "67835636"
 
 **Predicates** 元素包含下列元素：
 
-| 項目 | 發生次數 | 描述 |
+| 元素 | 發生次數 | 描述 |
 | ------- | ----------- | ----------- |
-| Predicate | 1:n | 述詞清單。 |
+| 述詞 | 1:n | 述詞清單。 |
 
 **Predicate** 元素包含下列屬性：
 
@@ -46,7 +46,7 @@ ms.locfileid: "67835636"
 
 **Predicate** 元素包含下列元素：
 
-| 項目 | 發生次數 | 描述 |
+| 元素 | 發生次數 | 描述 |
 | ------- | ----------- | ----------- |
 | UserHelpText | 1:1 | 檢查失敗時提供給使用者的錯誤訊息。 此字串可以使用[語言自訂](localization.md)進行當地語系化。 |
 | 參數 | 1:1 | 適用於字串驗證方法類型的參數。 |
@@ -150,7 +150,7 @@ ms.locfileid: "67835636"
 
 **PredicateGroups** 元素包含下列元素：
 
-| 項目 | 發生次數 | 描述 |
+| 元素 | 發生次數 | 描述 |
 | ------- | ----------- | ----------- |
 | PredicateGroup | 1:n | 述詞清單。 |
 

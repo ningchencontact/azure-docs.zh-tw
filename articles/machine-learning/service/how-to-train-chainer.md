@@ -1,7 +1,7 @@
 ---
 title: 使用 Chainer 訓練深度學習類神經網路
 titleSuffix: Azure Machine Learning
-description: 瞭解如何使用 Azure Machine Learning 的 Chainer 估計工具類別，以企業規模執行您的 PyTorch 訓練腳本。  範例腳本會 classifis 手寫數位影像，使用在 numpy 上執行的 Chainer Python 程式庫來建立深度學習神經網路。
+description: 瞭解如何使用 Azure Machine Learning 的 Chainer 估計工具類別，以企業規模執行您的 PyTorch 訓練腳本。  範例腳本會使用在 numpy 上執行的 Chainer Python 程式庫來分類手寫數位影像，以建立深度學習神經網路。
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,12 +10,12 @@ ms.author: maxluk
 author: maxluk
 ms.reviewer: sdgilley
 ms.date: 08/02/2019
-ms.openlocfilehash: 91e638793d77a6d38f9813345829720d98545293
-ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
+ms.openlocfilehash: 79c0cadc1b266a6d160cd36fc21dcaf36637a2b1
+ms.sourcegitcommit: 8ef0a2ddaece5e7b2ac678a73b605b2073b76e88
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/15/2019
-ms.locfileid: "71002726"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71076413"
 ---
 # <a name="train-and-register-chainer-models-at-scale-with-azure-machine-learning"></a>使用 Azure Machine Learning 大規模定型和註冊 Chainer 模型
 
@@ -84,7 +84,7 @@ os.makedirs(project_folder, exist_ok=True)
 
 若要使用 Azure ML 的追蹤和計量功能，請在您的定型腳本內新增少量的 Azure ML 程式碼。  訓練腳本**chainer_mnist**會示範如何使用腳本中的`Run`物件，將一些計量記錄到您的 Azure ML 執行。
 
-提供的定型腳本會使用 chainer `datasets.mnist.get_mnist`函數中的範例資料。  針對您自己的資料，您可能需要使用[上傳資料集和腳本](how-to-train-keras.md#upload-dataset-and-scripts)等步驟，讓資料可在定型期間使用。
+提供的定型腳本會使用 chainer `datasets.mnist.get_mnist`函數中的範例資料。  針對您自己的資料，您可能需要使用[上傳資料集和腳本](how-to-train-keras.md)等步驟，讓資料可在定型期間使用。
 
 將訓練腳本**chainer_mnist**複製到您的專案目錄。
 

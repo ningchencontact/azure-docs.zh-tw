@@ -4,42 +4,27 @@ description: 如何開啟 Azure HPC 快取的說明要求
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: conceptual
-ms.date: 09/06/2019
+ms.date: 09/12/2019
 ms.author: v-erkell
-ms.openlocfilehash: a252243ae84516fe06a89ef1119c4b4ce58dbeef
-ms.sourcegitcommit: a4b5d31b113f520fcd43624dd57be677d10fc1c0
+ms.openlocfilehash: d845195940fdba81562acf4c0cfe9069245bd34c
+ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70775620"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71036901"
 ---
 # <a name="open-a-support-ticket-for-azure-hpc-cache"></a>開啟 Azure HPC Cache 的支援票證
 
 使用 Azure 入口網站開啟支援票證。 流覽至您的快取實例，然後按一下出現在提要欄位底部的 [**新增支援要求**] 連結。
 
-> [!NOTE]
-> 在預覽期間，您也可以使用[此連結](<https://support.microsoft.com/supportforbusiness/productselection?sapId=6b415938-2927-0d9d-6c3c-fbacea64e42d>)來開啟產品 Azure HPC Cache （預覽）的支援案例。
+若要在沒有作用中快取時開啟票證，請使用 Azure 入口網站的主要 [說明 **+ 支援**] 頁面。 選擇 [**新增支援要求**]，然後選取 [**技術**] 以取得 Azure HPC 快取的特定說明。
 
-<!-- add screenshot of form with thing to select product etc. -->
+從清單中選取您的訂用帳戶。
 
-<!-- 
-[ xxx update procedure - this is copied from Azure FXT Edge Filer but Azure HPC Cache has context, you don't need to fill in everything xxx ]
+若要尋找 Azure HPC Cache preview 服務，請按一下 [**所有服務**] 按鈕，然後搜尋 HPC。
 
-1. Open the [Azure portal](https://portal.azure.com/) and sign in.
-1. In the left panel, scroll to the bottom and click **Help + support**.
-1. Click **New support request**. 
+![[支援要求-基本] 索引標籤的螢幕擷取畫面，部分填入，如所述](media/hpc-cache-support-request.png)
 
-   ![Screenshot of blank support request form](media/fxt-support-blank.png)
+填寫其餘的欄位，連同您的資訊和喜好設定，然後在您準備就緒時提交票證。
 
-1. Fill out the request form.  
-    1. In the **Basics** tab, choose the **Issue type** ``Technical``. 
-    1. Select your subscription. 
-    1. Under **Service**, select **Azure FXT Edge Filer**. You might need to click the **All services** filter control to find it. 
-    1. Enter a **Summary** and choose the **Problem type**. 
-    ![Screenshot of blank support request form](media/fxt-support-populated.png) 
-    1. Click **Next** to continue. 
-1. In the **Details** tab, add more information about the problem and how to contact you. You can upload a file related to the problem. 
-1. In **Review + create**, check the information and click the **Create** button to submit your request.
-
-After you submit the request, you will receive a confirmation email with a ticket number. A support staff member will contact you about the request.
--->
+提交要求之後，您會收到包含票證號碼的確認電子郵件。 支援人員成員將會與您聯絡要求的相關資訊。

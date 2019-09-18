@@ -10,18 +10,18 @@ ms.topic: conceptual
 ms.date: 04/25/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 5dfc1ef732c8456356de82f7fe026476fdfc075b
-ms.sourcegitcommit: 920ad23613a9504212aac2bfbd24a7c3de15d549
+ms.openlocfilehash: 92ac1e6a85023d49ceb8242b93651a60da3d2166
+ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "68227140"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71064173"
 ---
 # <a name="javascript-samples-for-use-in-azure-active-directory-b2c"></a>適用於 Azure Active Directory B2C 中的 JavaScript 範例
 
 [!INCLUDE [active-directory-b2c-public-preview](../../includes/active-directory-b2c-public-preview.md)]
 
-您可以將自己的 JavaScript 用戶端程式碼新增到您的 Azure Active Directory (Azure AD) B2C 應用程式。 若要為您的應用程式啟用 JavaScript, 您必須將元素新增至您的[自訂原則](active-directory-b2c-overview-custom.md)、選取[頁面配置](page-layout.md), 然後在您的要求中使用[b2clogin.com](b2clogin.md) 。 本文說明如何變更自訂原則, 以啟用腳本執行。
+您可以將自己的 JavaScript 用戶端程式代碼新增至您的 Azure Active Directory B2C （Azure AD B2C）應用程式。 若要為您的應用程式啟用 JavaScript, 您必須將元素新增至您的[自訂原則](active-directory-b2c-overview-custom.md)、選取[頁面配置](page-layout.md), 然後在您的要求中使用[b2clogin.com](b2clogin.md) 。 本文說明如何變更自訂原則, 以啟用腳本執行。
 
 > [!NOTE]
 > 如果您想要為使用者流程啟用 JavaScript, 請參閱[Azure Active Directory B2C 中的 javascript 和頁面配置版本](user-flow-javascript-overview.md)。
@@ -72,7 +72,7 @@ ms.locfileid: "68227140"
 
 ### <a name="show-or-hide-a-password"></a>顯示或隱藏密碼
 
-協助客戶成功註冊的常見方式，便是允許他們查看自己所輸入的密碼。 此選項可讓使用者輕鬆地查看其密碼，並視需要做出更正，以協助他們完成註冊。 任何輸入密碼的欄位都會有具有 [顯示密碼]  標籤的核取方塊。  這可讓使用者以純文字的形式查看密碼。 將此程式碼片段包含到您適用於自我判斷頁面的註冊或登入範本：
+協助客戶成功註冊的常見方式，便是允許他們查看自己所輸入的密碼。 此選項可讓使用者輕鬆地查看其密碼，並視需要做出更正，以協助他們完成註冊。 任何輸入密碼的欄位都會有具有 [顯示密碼] 標籤的核取方塊。  這可讓使用者以純文字的形式查看密碼。 將此程式碼片段包含到您適用於自我判斷頁面的註冊或登入範本：
 
 ```Javascript
 function makePwdToggler(pwd){
@@ -118,7 +118,7 @@ setupPwdTogglers();
 
 ### <a name="add-terms-of-use"></a>新增使用規定
 
-將下列程式碼包含到您在自己的頁面中想包含 [使用規定]  核取方塊的位置。 在您的本機帳戶註冊和社交帳戶註冊頁面中，通常會需要這個核取方塊。
+將下列程式碼包含到您在自己的頁面中想包含 [使用規定] 核取方塊的位置。 在您的本機帳戶註冊和社交帳戶註冊頁面中，通常會需要這個核取方塊。
 
 ```Javascript
 function addTermsOfUseLink() {

@@ -1,7 +1,7 @@
 ---
 title: 如何將模型部署至 Azure Kubernetes Service
-titleSuffix: Azure Machine Learning service
-description: 瞭解如何使用 Azure Kubernetes Service，將您的 Azure Machine Learning 服務模型部署為 web 服務。
+titleSuffix: Azure Machine Learning
+description: 瞭解如何使用 Azure Kubernetes Service，將您的 Azure Machine Learning 模型部署為 web 服務。
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,16 +10,16 @@ ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
 ms.date: 07/08/2019
-ms.openlocfilehash: 302fad84a2f0443fb639e57d7bb0cfddef4c3443
-ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
+ms.openlocfilehash: c32560f7bb182ac347e9e5a71b53b57cf80fac38
+ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70858743"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71034617"
 ---
 # <a name="deploy-a-model-to-an-azure-kubernetes-service-cluster"></a>將模型部署到 Azure Kubernetes Service 叢集
 
-瞭解如何使用 Azure Machine Learning 服務，在 Azure Kubernetes Service （AKS）上將模型部署為 web 服務。 Azure Kubernetes Service 適用于大規模的生產環境部署。 如果您需要下列一或多項功能，請使用 Azure Kubernetes 服務：
+瞭解如何使用 Azure Machine Learning，在 Azure Kubernetes Service （AKS）上將模型部署為 web 服務。 Azure Kubernetes Service 適用于大規模的生產環境部署。 如果您需要下列一或多項功能，請使用 Azure Kubernetes 服務：
 
 - __快速回應時間__。
 - 自動調整已__部署的服務__。
@@ -30,15 +30,15 @@ ms.locfileid: "70858743"
 
 部署到 Azure Kubernetes Service 時，您會部署到__連線到工作區__的 AKS 叢集。 有兩種方式可以將 AKS 叢集連線到您的工作區：
 
-* 使用 Azure Machine Learning 服務 SDK、Machine Learning CLI、 [Azure 入口網站](https://portal.azure.com)或[工作區登陸頁面（預覽）](https://ml.azure.com)來建立 AKS 叢集。 此程式會自動將叢集連接到工作區。
-* 將現有的 AKS 叢集附加至您的 Azure Machine Learning 服務工作區。 您可以使用 [Azure Machine Learning 服務 SDK]、[Machine Learning CLI] 或 Azure 入口網站來連接叢集。
+* 使用 Azure Machine Learning SDK、Machine Learning CLI、 [Azure 入口網站](https://portal.azure.com)或[工作區登陸頁面（預覽）](https://ml.azure.com)來建立 AKS 叢集。 此程式會自動將叢集連接到工作區。
+* 將現有的 AKS 叢集附加至您的 Azure Machine Learning 工作區。 您可以使用 [Azure Machine Learning SDK]、[Machine Learning CLI] 或 Azure 入口網站來連接叢集。
 
 > [!IMPORTANT]
 > 建立或附加程式是一次性的工作。 一旦 AKS 叢集連線到工作區，您就可以將它用於部署。 如果您不再需要 AKS 叢集，您可以卸離或刪除該叢集。 一旦 detatched 或刪除之後，您就無法再部署到叢集。
 
 ## <a name="prerequisites"></a>必要條件
 
-- Azure Machine Learning 服務工作區。 如需詳細資訊，請參閱[建立 Azure Machine Learning 服務工作區](how-to-manage-workspace.md)。
+- Azure Machine Learning 工作區。 如需詳細資訊，請參閱[建立 Azure Machine Learning 工作區](how-to-manage-workspace.md)。
 
 - 在您的工作區中註冊的機器學習模型。 如果您沒有已註冊的模型，請參閱[部署模型的方式和位置](how-to-deploy-and-where.md)。
 
@@ -117,7 +117,7 @@ az ml computetarget create aks -n myaks
 如果您的 Azure 訂用帳戶中已經有 AKS 叢集, 而且它是1.12 版。 # #, 您可以使用它來部署您的映射。
 
 > [!TIP]
-> 現有的 AKS 叢集可以在 Azure 區域中，而不是您的 Azure Machine Learning 服務工作區。
+> 現有的 AKS 叢集可以在 Azure 區域中，而不是您的 Azure Machine Learning 工作區。
 >
 > 如果您想要使用 Azure 虛擬網路保護您的 AKS 叢集，您必須先建立虛擬網路。 如需詳細資訊，請參閱[使用 Azure 虛擬網路保護實驗和推斷](how-to-enable-virtual-network.md#aksvnet)。
 

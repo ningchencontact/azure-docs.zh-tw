@@ -8,24 +8,24 @@ author: ecfan
 ms.author: estfan
 ms.reviewer: arthii, LADocs
 ms.topic: article
-ms.date: 07/01/2019
-ms.openlocfilehash: c6994127b504cba31df051c757295f3e575bc23f
-ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
-ms.translationtype: MT
+ms.date: 09/01/2019
+ms.openlocfilehash: 3a197ab8d8c44229328c63330bcbc99fb2e64f01
+ms.sourcegitcommit: 8ef0a2ddaece5e7b2ac678a73b605b2073b76e88
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70931212"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71077275"
 ---
 # <a name="install-on-premises-data-gateway-for-azure-logic-apps"></a>安裝 Azure Logic Apps 的內部部署資料閘道
 
-[從 Azure Logic Apps 連接到內部部署資料來源](../logic-apps/logic-apps-gateway-connection.md)之前，請先在本機電腦上下載並安裝內部部署資料閘道。 閘道可做為橋接器，在內部部署的資料來源與邏輯應用程式之間快速地傳輸和加密資料。 您可以搭配其他雲端服務（例如 Power BI、Microsoft Flow、PowerApps 和 Azure Analysis Services）使用相同的閘道安裝。 如需如何搭配使用閘道與這些服務的相關資訊，請參閱下列文章：
+[從 Azure Logic Apps 連接到內部部署資料來源](../logic-apps/logic-apps-gateway-connection.md)之前，請先在本機電腦上下載並安裝內部[部署資料閘道](https://aka.ms/on-premises-data-gateway-installer)。 閘道可做為橋接器，在內部部署的資料來源與邏輯應用程式之間快速地傳輸和加密資料。 您可以搭配其他雲端服務（例如 Power BI、Microsoft Flow、PowerApps 和 Azure Analysis Services）使用相同的閘道安裝。 如需如何搭配使用閘道與這些服務的相關資訊，請參閱下列文章：
 
 * [Microsoft Power BI 內部部署資料閘道](https://powerbi.microsoft.com/documentation/powerbi-gateway-onprem/)
 * [Microsoft PowerApps 內部部署資料閘道](https://powerapps.microsoft.com/tutorials/gateway-management/)
 * [Microsoft Flow 內部部署資料閘道](https://flow.microsoft.com/documentation/gateway-manage/)
 * [Azure Analysis Services 內部部署資料閘道](../analysis-services/analysis-services-gateway.md)
 
-本文說明如何下載、安裝及設定您的內部部署資料閘道，讓您可以從 Azure Logic Apps 存取內部部署資料來源。 您也可以在本主題稍後深入瞭解[資料閘道的運作方式](#gateway-cloud-service)。
+本文說明如何下載、安裝及設定您的內部部署資料閘道，讓您可以從 Azure Logic Apps 存取內部部署資料來源。 您也可以在本主題稍後深入瞭解[資料閘道的運作方式](#gateway-cloud-service)。 如需閘道的詳細資訊，請參閱[什麼是內部部署閘道](https://docs.microsoft.com/data-integration/gateway/service-gateway-onprem)？
 
 <a name="requirements"></a>
 
@@ -264,8 +264,8 @@ Microsoft 雲端服務會使用[Azure Active Directory （Azure AD）](../active
 
 如需詳細資訊，請參閱下列主題：
 
-* [內部部署資料閘道常見問題集](https://docs.microsoft.com/data-integration/service-gateway-onprem-faq)
-* [針對內部部署資料閘道進行疑難排解](https://docs.microsoft.com/data-integration/gateway-service-gateway-tshoot)
+* [內部部署資料閘道常見問題集](https://docs.microsoft.com/data-integration/gateway/service-gateway-onprem-faq)
+* [針對內部部署資料閘道進行疑難排解](https://docs.microsoft.com/data-integration/gateway/gateway-service-gateway-tshoot)
 * [監視和優化閘道效能](https://docs.microsoft.com/data-integration/gateway/service-gateway-performance)
 
 ## <a name="next-steps"></a>後續步驟

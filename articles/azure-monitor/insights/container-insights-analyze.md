@@ -11,14 +11,14 @@ ms.service: azure-monitor
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/06/2019
+ms.date: 09/17/2019
 ms.author: magoedte
-ms.openlocfilehash: c63feb02712447d2427061cbfabc525622107043
-ms.sourcegitcommit: 86d49daccdab383331fc4072b2b761876b73510e
+ms.openlocfilehash: 945dc6c35eacab99db28172703e1aebed10bd58a
+ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70744582"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71067079"
 ---
 # <a name="understand-aks-cluster-performance-with-azure-monitor-for-containers"></a>使用適用於容器的 Azure 監視器來了解 AKS 叢集效能
 使用容器的 Azure 監視器，您可以使用效能圖表和健全狀況狀態，從兩個角度監視 Azure Kubernetes Service （AKS）叢集的工作負載。 您可以直接從 AKS 叢集進行監視，也可以從 Azure 監視器監視訂用帳戶中的所有 AKS 叢集。 當您監視特定的 AKS 叢集時，也可以查看 Azure 容器實例。
@@ -33,9 +33,9 @@ Azure 監視器提供多叢集的視圖，顯示在訂用帳戶的資源群組�
 
 - 記憶體 RSS 計量不適用於 Windows 節點和容器。
 - 磁片儲存體容量資訊不適用於 Windows 節點。
-- Windows 容器記錄除外，提供即時記錄支援。
-- 只有 pod 環境會受到監視，而不是 Docker 環境。
-- 在預覽版本中，最多可支援30個 Windows Server 容器。 這項限制不適用於 Linux 容器。 
+- Windows 容器記錄除外, 提供即時記錄支援。
+- 只有 pod 環境會受到監視, 而不是 Docker 環境。
+- 在預覽版本中, 最多可支援30個 Windows Server 容器。 這項限制不適用於 Linux 容器。 
 
 ## <a name="sign-in-to-the-azure-portal"></a>登入 Azure 入口網站
 
@@ -112,11 +112,11 @@ Azure 監視器提供多叢集的視圖，顯示在訂用帳戶的資源群組�
 
 使用向左鍵和向右鍵可迴圈顯示圖表上的每個資料點。 使用向上箭號和向下鍵來迴圈顯示百分位數線。 選取任何一個圖表右上角的釘選圖示，將選取的圖表固定至您所查看的最後一個 Azure 儀表板。 您可以從儀表板調整圖表的大小和位置。 從儀表板選取圖表會將您重新導向至容器的 Azure 監視器，並載入正確的範圍和視圖。
 
-容器的 Azure 監視器也支援 Azure 監視器[計量瀏覽器](../platform/metrics-getting-started.md)，您可以在其中建立自己的繪圖圖表、相互關聯和調查趨勢，以及釘選到儀表板。 在計量瀏覽器中，您也可以使用您所設定的準則，將您的計量視覺化為以[度量為基礎的警示規則](../platform/alerts-metric.md)的基礎。 
+容器的 Azure 監視器也支援 Azure 監視器[計量瀏覽器](../platform/metrics-getting-started.md), 您可以在其中建立自己的繪圖圖表、相互關聯和調查趨勢, 以及釘選到儀表板。 在計量瀏覽器中，您也可以使用您所設定的準則，將您的計量視覺化為以[度量為基礎的警示規則](../platform/alerts-metric.md)的基礎。 
 
 ## <a name="view-container-metrics-in-metrics-explorer"></a>在計量瀏覽器中查看容器計量
 
-在計量瀏覽器中，您可以從容器的 Azure 監視器中，查看匯總的節點和 pod 使用率計量。 下表摘要說明的詳細資料，可協助您瞭解如何使用計量圖表來視覺化容器計量。
+在計量瀏覽器中, 您可以從容器的 Azure 監視器中, 查看匯總的節點和 pod 使用率計量。 下表摘要說明的詳細資料, 可協助您瞭解如何使用計量圖表來視覺化容器計量。
 
 |命名空間 | 度量 | 描述 | 
 |----------|--------|-------------|
@@ -170,9 +170,13 @@ Azure 監視器提供多叢集的視圖，顯示在訂用帳戶的資源群組�
 
 選取頁面頂端的 [控制器] 或 [容器]，以查看這些物件的狀態和資源使用率。 若要查看記憶體使用率，請在 [**度量**] 下拉式清單中選取 [**記憶體 RSS** ] 或 [**記憶體工作集**]。 只有 Kubernetes 1.8 版和更新版本才支援**記憶體 RSS**。 否則，您會以 *NaN&nbsp;%* 的形式檢視 **Min&nbsp;%** 的值，這是代表未定義或無法顯示之值的數值資料類型值。
 
-**記憶體工作集**會顯示內含的記憶體和虛擬記憶體（快取），以及應用程式所使用的總數。 **記憶體 RSS**只會顯示主儲存體（也就是常駐記憶體，換句話說）。 此標準會顯示可用記憶體的實際容量。
-
 ![容器節點效能檢視](./media/container-insights-analyze/containers-node-metric-dropdown.png)
+
+**記憶體工作集**會顯示內含的記憶體和虛擬記憶體（快取），以及應用程式所使用的總數。 **記憶體 RSS**只會顯示主儲存體（也就是常駐記憶體，換句話說）。 此標準會顯示可用記憶體的實際容量。 常駐記憶體和虛擬記憶體之間有何差異？
+
+- 常駐記憶體或主儲存體，是叢集節點可用的實際機器記憶體數量。
+
+- 虛擬記憶體是保留的硬碟空間（快取），作業系統會在記憶體不足的壓力下，用來將記憶體中的資料交換到磁片，然後在需要時取回回記憶體。
 
 根據預設，效能資料是以過去六個小時為基礎，但是您可以使用左上方的 [ **TimeRange** ] 選項來變更視窗。 您也可以在 [百分位數] 選取器中選取 [**最小值**]、[**平均**]、[第**50**個 **]、[** 第**95**] 和 [**最大值**]，以篩選 
 

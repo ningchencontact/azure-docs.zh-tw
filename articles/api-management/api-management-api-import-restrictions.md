@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 06/26/2019
 ms.author: apimpm
-ms.openlocfilehash: 1a1196da62b9d28280150dd1ddf1582db64a93d4
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: d1c80e2ab9ae6a893b1adea6bd68e9b585288d8b
+ms.sourcegitcommit: 8ef0a2ddaece5e7b2ac678a73b605b2073b76e88
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70073785"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71074949"
 ---
 # <a name="api-import-restrictions-and-known-issues"></a>API 匯入的限制和已知問題
 
@@ -50,9 +50,6 @@ ms.locfileid: "70073785"
 -   不支援 **Examples**，但是支援 **example**。
 -   **Multipart/form-data** 不受支援。
 
-> [!IMPORTANT]
-> 請參閱此[文件](https://blogs.msdn.microsoft.com/apimanagement/2018/04/11/important-changes-to-openapi-import-and-export/)中 OpenAPI 匯入相關的重要資訊和祕訣。
-
 ## <a name="wsdl"> </a>WSDL
 
 WSDL 檔案是用來建立 SOAP 傳遞和 SOAP 對 REST Api。
@@ -64,7 +61,7 @@ WSDL 檔案是用來建立 SOAP 傳遞和 SOAP 對 REST Api。
 -   **MTOM** - 使用 MTOM 的服務「可能」可以運作。 目前不提供官方支援。
 -   **遞迴** - APIM 不支援遞迴定義的類型 (例如，參考自己的陣列)。
 -   **多個命名空間** - 在結構描述中可使用多個命名空間，但只有目標命名空間可用來定義訊息部分。 命名空間若不是用來定義其他輸入或輸出元素的目標，則不會保留。 雖然這類 WSDL 文件可以匯入，但在匯出慈時，所有訊息部分都會有 WSDL 的目標命名空間。
--   **陣列**-SOAP 對 REST 轉換僅支援下列範例中所示的包裝陣列:
+-   **陣列**-SOAP 對 REST 轉換僅支援下列範例中所示的包裝陣列：
 
 ```xml
     <complexType name="arrayTypeName">

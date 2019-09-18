@@ -13,17 +13,17 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/06/2019
+ms.date: 09/16/2019
 ms.author: ryanwi
 ms.reviewer: elisol, bryanla
 ms.custom: aaddev, seoapril2019
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1cf3eead3a56297efa3bea90ef48eb464ad63da0
-ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
+ms.openlocfilehash: ba4beeff5484f774e801842f06d694af456c4e96
+ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70898523"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71033758"
 ---
 # <a name="how-to-list-your-application-in-the-azure-active-directory-application-gallery"></a>HOW TO：在 Azure Active Directory 應用程式庫中列出您的應用程式
 
@@ -48,12 +48,7 @@ ms.locfileid: "70898523"
 
 - 若為「密碼單一登入」，請確定您的應用程式支援表單驗證，讓密碼保存可以完成，以使單一登入能如預期般運作。
 
-- 若為「自動使用者佈建」要求，應用程式應列於資源庫中，並使用 SAML 2.0/WS-Fed 啟用單一登入功能。 您可以在入口網站上一起要求「單一登入」與「使用者佈建」(若未列出的話)。
-
 - 需要永久帳戶以進行測試，且至少要有2個使用者註冊。
-
-> [!NOTE]
-> 我們正在執行大量的 SCIM 連接器要求, 因此我們已停止在入口網站上提出新的要求。 請保留您的要求, 直到進一步通知為止。 我們對這種延遲深感抱歉，而且可能造成您的任何不便。
 
 ## <a name="submit-the-request-in-the-portal"></a>在入口網站中提交要求
 

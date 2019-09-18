@@ -10,18 +10,18 @@ ms.topic: conceptual
 ms.date: 07/04/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 011fb262ff91c56269c5b7dc9adf4aaeab9acbd5
-ms.sourcegitcommit: 920ad23613a9504212aac2bfbd24a7c3de15d549
+ms.openlocfilehash: 612d2e3a9a5a324f7d6d8e1b63b6b7e297047239
+ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "68229046"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71063848"
 ---
 # <a name="select-a-page-layout-in-azure-active-directory-b2c-using-custom-policies"></a>使用自訂原則在 Azure Active Directory B2C 中選取頁面配置
 
 [!INCLUDE [active-directory-b2c-public-preview](../../includes/active-directory-b2c-public-preview.md)]
 
-無論您使用的是使用者流程或自訂原則, 您都可以在 Azure Active Directory (Azure AD) B2C 原則中啟用 JavaScript 用戶端程式代碼。 若要為您的應用程式啟用 JavaScript, 您必須將元素新增至您的[自訂原則](active-directory-b2c-overview-custom.md)、選取頁面配置, 然後在您的要求中使用[b2clogin.com](b2clogin.md) 。
+無論您使用的是使用者流程或自訂原則，您都可以在 Azure Active Directory B2C （Azure AD B2C）原則中啟用 JavaScript 用戶端程式代碼。 若要為您的應用程式啟用 JavaScript, 您必須將元素新增至您的[自訂原則](active-directory-b2c-overview-custom.md)、選取頁面配置, 然後在您的要求中使用[b2clogin.com](b2clogin.md) 。
 
 頁面配置是 Azure AD B2C 提供的專案與您提供的內容的關聯。
 

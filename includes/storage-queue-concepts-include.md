@@ -4,23 +4,20 @@ ms.service: storage
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: tamram
-ms.openlocfilehash: 8a596293a5c1572b30ea6101dad16328c8db2634
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: 935a6201e24e97deaa0a1a65e499310f74a49e2d
+ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67173879"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71059052"
 ---
 ## <a name="what-is-queue-storage"></a>什麼是佇列儲存體？
-Azure 佇列儲存體是一項儲存大量訊息的服務，全球任何地方都可利用 HTTP 或 HTTPS 並透過驗證的呼叫來存取這些訊息。 單一佇列訊息的大小上限為 64 KB，而一個佇列可以包含數百萬個訊息，以儲存體帳戶的總容量為限。
 
-佇列儲存體的一般用途包括：
-
-* 建立積存的工作供非同步處理
-* 將訊息從 Azure Web 角色傳遞至 Azure 背景工作角色
+Azure 佇列儲存體是一項儲存大量訊息的服務，全球任何地方都可利用 HTTP 或 HTTPS 並透過驗證的呼叫來存取這些訊息。 單一佇列訊息的大小上限為 64 KB，而一個佇列可以包含數百萬個訊息，以儲存體帳戶的總容量為限。 佇列儲存體通常用來建立要以非同步方式處理的待處理專案（backlog）。
 
 ## <a name="queue-service-concepts"></a>佇列服務概念
-佇列服務包含下列元件：
+
+Azure 佇列服務包含下列元件：
 
 ![Queue1](./media/storage-queue-concepts-include/queue1.png)
 

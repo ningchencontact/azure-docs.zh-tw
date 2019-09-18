@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: b8b2cad95929d6132a4f0ae52597fb1633874ff1
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: 673807377914aabad5b90d1ac2ecc16623870d30
+ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68592120"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71063364"
 ---
 # <a name="trustframeworkpolicy"></a>TrustFrameworkPolicy
 
@@ -41,7 +41,7 @@ ms.locfileid: "68592120"
 | 屬性 | 必要項 | 描述 |
 |---------- | -------- | ----------- |
 | PolicySchemaVersion | 是 | 用來執行此原則的結構描述版本。 值必須是 `0.3.0.0` |
-| TenantObjectId | 否 | Azure Active Directory (Azure AD) B2C 租用戶的唯一物件識別碼。 |
+| TenantObjectId | 否 | Azure Active Directory B2C （Azure AD B2C）租使用者的唯一物件識別碼。 |
 | TenantId | 是 | 此原則所屬之租用戶的唯一識別碼。 |
 | `PolicyId` | 是 | 原則的唯一識別碼。 此識別碼必須加上前置詞 *B2C_1A_* |
 | PublicPolicyUri | 是 | 原則的 URI，也就是租用戶識別碼和原則識別碼的組合。 |

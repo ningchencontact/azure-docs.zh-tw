@@ -5,6 +5,7 @@ description: 說明如何在 Azure 中設定反向對應區域用於 SMTP Banner
 services: virtual-network
 documentationcenter: virtual-network
 author: genlin
+manager: dcscontentpm
 ms.service: virtual-network
 ms.devlang: na
 ms.topic: article
@@ -12,16 +13,16 @@ ms.tgt_pltfrm: virtual-network
 ms.workload: infrastructure
 ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: 203c3c5f371af7de891f0949a35378294bb50a0e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 084fdb7f850f3819738a982127fa98efab114197
+ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60713634"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71059028"
 ---
 # <a name="configure-reverse-lookup-zones-for-an-smtp-banner-check"></a>設定反向對應區域用於 SMTP Banner 檢查
 
-本文說明如何使用 Azure DNS 中的反向區域，以及建立反向 DNS (PTR) 記錄進行 SMTP Banner 檢查。
+本文說明如何在 Azure DNS 中使用反向區域，並建立用於 SMTP 橫幅檢查的反向 DNS （PTR）記錄。
 
 ## <a name="symptom"></a>徵兆
 

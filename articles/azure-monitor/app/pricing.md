@@ -11,14 +11,14 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.reviewer: mbullwin
-ms.date: 09/04/2019
+ms.date: 09/17/2019
 ms.author: dalek
-ms.openlocfilehash: f0a3930cfb3ff403e0ce9d9be308370810e2065a
-ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
+ms.openlocfilehash: 62f2ea36468e30b20ef08bde21bfde961faae8f9
+ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70276998"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71067021"
 ---
 # <a name="manage-usage-and-costs-for-application-insights"></a>管理 Application Insights 的使用量和成本
 
@@ -35,7 +35,7 @@ ms.locfileid: "70276998"
 ### <a name="data-volume-details"></a>資料量詳細資料
 
 * 資料量係指 Application Insights 所接收的遙測位元組數。 資料量是以 Application Insights 從應用程式接收的未壓縮 JSON 資料套件大小來測量。 針對[匯入至分析的表格式資料](https://docs.microsoft.com/azure/application-insights/app-insights-analytics-import)，資料量是以傳送至 Application Insights 的檔案解壓縮大小來測量。
-* 從 2018 年 4 月之後，您的應用程式資料磁碟區費用現在會在名為**資料擷取**的新計費計量上報告。 這種新的計量可在監視技術之間共用, 例如 Application Insights 和 Log Analytics, 且目前位於服務名稱**Log analytics**之下。 
+* 從 2018 年 4 月之後，您的應用程式資料磁碟區費用現在會在名為**資料擷取**的新計費計量上報告。 這種新的計量可在監視技術之間共用，例如 Application Insights 和 Log Analytics，且目前位於服務名稱**Log analytics**之下。 
 * [即時計量串流](../../azure-monitor/app/live-stream.md)資料不會計入價格用途。
 
 > [!NOTE]
@@ -67,11 +67,11 @@ Application Insights 費用會加到您的 Azure 帳單中。 您可以在 Azure
 
 ## <a name="managing-your-data-volume"></a>管理您的資料量 
 
-若要瞭解您的應用程式所傳送的資料量, 您可以:
+若要瞭解您的應用程式所傳送的資料量，您可以：
 
 * 開啟 [使用量和估計成本] 窗格以查看每日資料量圖表。 
 * 在 [計量瀏覽器] 中，新增圖表。 針對圖表計量，選取 [資料點量]。 開啟 [群組]，然後依 [資料類型] 分組。
-* `systemEvents`使用資料類型。 比方說, 若要查看過去一天的資料量內嵌, 查詢會是:
+* `systemEvents`使用資料類型。 比方說，若要查看過去一天的資料量內嵌，查詢會是：
 
 ```kusto
 systemEvents 
@@ -82,9 +82,9 @@ systemEvents
 | summarize sum(BillingTelemetrySizeInBytes)
 ```
 
-此查詢可用於[Azure 記錄警示](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-unified-log), 以設定資料磁片區的警示。 
+此查詢可用於[Azure 記錄警示](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-unified-log)，以設定資料磁片區的警示。 
 
-您傳送的資料量可透過三種方式來管理:
+您傳送的資料量可透過三種方式來管理：
 
 * **取樣**：您可以使用取樣來減少從伺服器和用戶端應用程式傳送的遙測量，這對計量的扭曲程度最小。 取樣是您可用來調整所傳送資料量的主要工具。 深入了解[取樣功能](../../azure-monitor/app/sampling.md)。
  
@@ -92,7 +92,7 @@ systemEvents
 
     除非您針對高流量的應用程式要求更高的最大值，否則每日的最高上限是 1,000 GB。 
     
-    有關每日上限的警告電子郵件會傳送給屬於這些角色成員的帳戶, 以供您的 Application Insights 資源:"ServiceAdmin"、"AccountAdmin"、"共同管理員"、"Owner"。
+    有關每日上限的警告電子郵件會傳送給屬於這些角色成員的帳戶，以供您的 Application Insights 資源："ServiceAdmin"、"AccountAdmin"、"共同管理員"、"Owner"。
 
     設定每日上限時，請務必小心。 您的目的應該是「一律不要達到每日上限」。 如果達到每日上限，就會失去當天其餘時間的資料，而無法監視應用程式。 若要變更每日上限，請使用 [每日用量上限] 選項。 您可以在 [使用量和估計成本] 窗格中存取此選項 (本文稍後會有更詳細的說明)。
     
@@ -116,11 +116,11 @@ systemEvents
 
 請不要使用每日用量上限，而是改用[取樣](../../azure-monitor/app/sampling.md)將資料量調整到您想要的程度。 然後，只使用每日上限作為應付萬一應用程式開始未預期地傳送大量遙測時的「最後手段」。
 
-若要變更每日上限, 請在 Application Insights 資源的 [**設定**] 區段的 [**使用量和估計成本**] 頁面中, 選取 [**每日上限**]。
+若要變更每日上限，請在 Application Insights 資源的 [**設定**] 區段的 [**使用量和估計成本**] 頁面中，選取 [**每日上限**]。
 
 ![調整每日遙測資料量上限](./media/pricing/pricing-003.png)
 
-若要透過[Azure Resource Manager 變更每日上限](../../azure-monitor/app/powershell.md), 要變更的屬性為`dailyQuota`。  透過 Azure Resource Manager 您也可以設定`dailyQuotaResetTime`和每日`warningThreshold`上限。 
+若要透過[Azure Resource Manager 變更每日上限](../../azure-monitor/app/powershell.md)，要變更的屬性為`dailyQuota`。  透過 Azure Resource Manager 您也可以設定`dailyQuotaResetTime`和每日`warningThreshold`上限。 
 
 ## <a name="sampling"></a>取樣
 [取樣](../../azure-monitor/app/sampling.md)是一種方法，可降低將遙測傳送到您應用程式時的速率，同時仍保留在診斷搜尋期間尋找相關事件的功能。 此外，也保留正確的事件計數。
@@ -151,15 +151,15 @@ systemEvents
 ## <a name="change-the-data-retention-period"></a>變更資料保留期
 
 > [!NOTE]
-> 我們已暫時移除這項功能, 但我們會解決可能的問題。  我們將在2019年9月的中間將其回復。
+> 我們已暫時移除這項功能，但我們會解決可能的問題。  我們將在2019年10月的第一周回復。
 
 Application Insights 資源的預設保留期為90天。 可以為每個 Application Insights 資源選取不同的保留週期。 一組完整的可用保留週期為30、60、90、120、180、270、365、550或730天。 
 
-若要變更保留期, 請在 Application Insights 資源中, 移至 [**使用量和估計成本**] 頁面, 然後選取 [**資料保留**] 選項:
+若要變更保留期，請在 Application Insights 資源中，移至 [**使用量和估計成本**] 頁面，然後選取 [**資料保留**] 選項：
 
 ![調整每日遙測資料量上限](./media/pricing/pricing-005.png)
 
-針對較長的保留期啟用計費時, 將會以目前為 Azure Log Analytics 資料保留費用的相同費率來計費保留時間超過90天的資料。 若要深入瞭解, 請[Azure 監視器定價頁面](https://azure.microsoft.com/pricing/details/monitor/)。 藉由[投票此建議](https://feedback.azure.com/forums/357324-azure-monitor-application-insights/suggestions/17454031), 隨時掌握最新的可變保留進度。 
+針對較長的保留期啟用計費時，將會以目前為 Azure Log Analytics 資料保留費用的相同費率來計費保留時間超過90天的資料。 若要深入瞭解，請[Azure 監視器定價頁面](https://azure.microsoft.com/pricing/details/monitor/)。 藉由[投票此建議](https://feedback.azure.com/forums/357324-azure-monitor-application-insights/suggestions/17454031)，隨時掌握最新的可變保留進度。 
 
 ## <a name="limits-summary"></a>限制摘要
 
@@ -167,16 +167,16 @@ Application Insights 資源的預設保留期為90天。 可以為每個 Applica
 
 ## <a name="disable-daily-cap-e-mails"></a>停用每日上限電子郵件
 
-若要停用每日數量上限電子郵件，請在 Application Insights 資源的 [設定] 區段之下，從 [使用量和估計成本] 窗格選取 [每日上限]。 此處有設定可在達到上限時，以及已達到可調整的警告層級時傳送電子郵件。 如果您想要停用所有每日上限與磁片區相關的電子郵件, 請取消勾選兩個方塊。
+若要停用每日數量上限電子郵件，請在 Application Insights 資源的 [設定] 區段之下，從 [使用量和估計成本] 窗格選取 [每日上限]。 此處有設定可在達到上限時，以及已達到可調整的警告層級時傳送電子郵件。 如果您想要停用所有每日上限與磁片區相關的電子郵件，請取消勾選兩個方塊。
 
-## <a name="legacy-enterprise-per-node-pricing-tier"></a>舊版企業 (每個節點) 定價層
+## <a name="legacy-enterprise-per-node-pricing-tier"></a>舊版企業（每個節點）定價層
 
-針對 Azure 應用程式深入解析的早期採用者, 仍然有兩個可能的定價層:基本和企業。 基本定價層與上面所述相同, 而且是預設層。 它包含所有企業層功能, 不需額外費用。 基本層帳單主要取決於所內嵌的資料量。 
+針對 Azure 應用程式深入解析的早期採用者，仍然有兩個可能的定價層：基本和企業。 基本定價層與上面所述相同，而且是預設層。 它包含所有企業層功能，不需額外費用。 基本層帳單主要取決於所內嵌的資料量。 
 
 > [!NOTE]
-> 這些舊版定價層已重新命名。 企業定價層現在會**針對每個節點**呼叫, 而基本定價層現在會**針對每 GB**呼叫。 這些新名稱會在 Azure 入口網站中使用。  
+> 這些舊版定價層已重新命名。 企業定價層現在會**針對每個節點**呼叫，而基本定價層現在會**針對每 GB**呼叫。 這些新名稱會在 Azure 入口網站中使用。  
 
-每個節點 (先前稱為「企業」) 層都有每個節點的費用, 而且每個節點都會收到每日資料額度。 在每個節點定價層中, 您需支付超過所包含額度的資料內嵌費用。 如果您使用 Operations Management Suite, 您應該選擇 [每個節點] 層。 
+每個節點（先前稱為「企業」）層都有每個節點的費用，而且每個節點都會收到每日資料額度。 在每個節點定價層中，您需支付超過所包含額度的資料內嵌費用。 如果您使用 Operations Management Suite，您應該選擇 [每個節點] 層。 
 
 如需屬於您貨幣與區域的目前定價，請參閱 [Application Insights 定價](https://azure.microsoft.com/pricing/details/application-insights/)。
 
@@ -185,23 +185,23 @@ Application Insights 資源的預設保留期為90天。 可以為每個 Applica
 
 ### <a name="per-node-tier-and-operations-management-suite-subscription-entitlements"></a>每個節點層和 Operations Management Suite 訂用帳戶權利
 
-購買 Operations Management Suite E1 和 E2 的客戶可以將每個節點 Application Insights 為其他元件, 而不需額外付費, 如[先前所宣佈](https://blogs.technet.microsoft.com/msoms/2017/05/19/azure-application-insights-enterprise-as-part-of-operations-management-suite-subscription/)。 具體來說, Operations Management Suite E1 和 E2 的每個單位都包含每個節點層 Application Insights 的一個節點權利。 每個 Application Insights 節點包含每天最多 200 MB 擷取的資料 (與 Log Analytics 資料擷取分開計算)，資料可保留 90 天而無須額外付費。 本文章稍後會詳細說明此層。 
+購買 Operations Management Suite E1 和 E2 的客戶可以將每個節點 Application Insights 為其他元件，而不需額外付費，如[先前所宣佈](https://blogs.technet.microsoft.com/msoms/2017/05/19/azure-application-insights-enterprise-as-part-of-operations-management-suite-subscription/)。 具體來說，Operations Management Suite E1 和 E2 的每個單位都包含每個節點層 Application Insights 的一個節點權利。 每個 Application Insights 節點包含每天最多 200 MB 擷取的資料 (與 Log Analytics 資料擷取分開計算)，資料可保留 90 天而無須額外付費。 本文章稍後會詳細說明此層。 
 
-因為此層僅適用于具有 Operations Management Suite 訂用帳戶的客戶, 所以沒有 Operations Management Suite 訂用帳戶的客戶不會看到選取此層的選項。
+因為此層僅適用于具有 Operations Management Suite 訂用帳戶的客戶，所以沒有 Operations Management Suite 訂用帳戶的客戶不會看到選取此層的選項。
 
 > [!NOTE]
-> 為確保您取得此權利, 您的 Application Insights 資源必須位於每個節點的定價層。 此權利只能以節點為單位套用。 每 GB 層中的 Application Insights 資源都不會實現任何好處。 在 [使用量和估計成本] 窗格中所顯示的估計成本中看不到此權利。 此外, 如果您在2018年4月將訂用帳戶移至新的 Azure 監視定價模型, 則每 GB 層是唯一可用的層級。 如果您擁有 Operations Management Suite 訂用帳戶，建議您不要將訂用帳戶移轉至新的 Azure 監視定價模型。
+> 為確保您取得此權利，您的 Application Insights 資源必須位於每個節點的定價層。 此權利只能以節點為單位套用。 每 GB 層中的 Application Insights 資源都不會實現任何好處。 在 [使用量和估計成本] 窗格中所顯示的估計成本中看不到此權利。 此外，如果您在2018年4月將訂用帳戶移至新的 Azure 監視定價模型，則每 GB 層是唯一可用的層級。 如果您擁有 Operations Management Suite 訂用帳戶，建議您不要將訂用帳戶移轉至新的 Azure 監視定價模型。
 
 ### <a name="how-the-per-node-tier-works"></a>每個節點層的運作方式
 
-* 針對每個節點層中的任何應用程式傳送遙測資料的每個節點, 您必須支付費用。
+* 針對每個節點層中的任何應用程式傳送遙測資料的每個節點，您必須支付費用。
   * 「節點」是裝載應用程式的實體或虛擬伺服器機器，或是平台即服務 (PaaS) 角色執行個體。
   * 開發用機器、用戶端瀏覽器及行動裝置不算節點。
   * 如果您的應用程式有數個會傳送遙測的元件，例如 Web 服務和後端背景工作角色，則會分開計算元件。
   * [即時計量串流](../../azure-monitor/app/live-stream.md)資料不會計入價格用途。 訂用帳戶的收費是依照每一節點，而非每一應用程式。 如果您有五個節點傳送 12 個應用程式的遙測，則是以五個節點計算收費。
 * 雖然費用是按月報價，您的收費僅適用於一個節點從一個應用程式傳送遙測的任何小時。 每小時的費用是月費報價除以 744 (一個月 31 天的小時數)。
 * 每個節點 (資料粒度為小時) 偵測每日 200 MB 的資料量配置。 未使用的資料配置不會累計到隔天。
-  * 如果您選擇 [每個節點] 定價層, 每個訂用帳戶會根據將遙測傳送至該訂用帳戶中 Application Insights 資源的節點數目, 取得每日的資料額度。 因此，如果您有 5 個節點全天候傳送資料，您會有合起來 1GB 的資料額度，套用至該訂用帳戶中的所有 Application Insights 資源。 由於內含資料會在所有節點之間共用，因此特定節點所傳送的資料是否超過其他節點並無妨。 如果在指定的一天內, Application Insights 資源會收到超過此訂用帳戶的每日資料配置所包含的資料, 則適用每 GB 超額資料費用。 
+  * 如果您選擇 [每個節點] 定價層，每個訂用帳戶會根據將遙測傳送至該訂用帳戶中 Application Insights 資源的節點數目，取得每日的資料額度。 因此，如果您有 5 個節點全天候傳送資料，您會有合起來 1GB 的資料額度，套用至該訂用帳戶中的所有 Application Insights 資源。 由於內含資料會在所有節點之間共用，因此特定節點所傳送的資料是否超過其他節點並無妨。 如果在指定的一天內，Application Insights 資源會收到超過此訂用帳戶的每日資料配置所包含的資料，則適用每 GB 超額資料費用。 
   * 每日資料額度的計算方式，是每個節點在當天傳送遙測資料的時數 (使用 UTC) 除以 24 再乘以 200 MB。 因此，如果您有四個節點在一天 24 個小時的 15 個小時內傳送遙測資料，則當天內含資料量會是 ((4 &#215; 15) / 24) &#215; 200 MB = 500 MB。 以資料超量每一 GB 的價格是 2.30 美元來說，如果節點那一天會傳送 1 GB 的資料，費用就是 1.15 美元。
   * 每個節點層的每日額度不會與您已選擇每個 GB 層的應用程式共用。 未使用額度不會逐日累計。 
 
@@ -210,7 +210,7 @@ Application Insights 資源的預設保留期為90天。 可以為每個 Applica
 | 狀況                               | 每日節點總數 |
 |:---------------------------------------|:----------------:|
 | 1 個應用程式使用 3 個 Azure App Service 執行個體和 1 個虛擬伺服器 | 4 |
-| 3個在2部 Vm 上執行的應用程式;這些應用程式的 Application Insights 資源位於相同的訂用帳戶中, 且位於每個節點層 | 2 | 
+| 3個在2部 Vm 上執行的應用程式;這些應用程式的 Application Insights 資源位於相同的訂用帳戶中，且位於每個節點層 | 2 | 
 | 4 個應用程式的 Application Insights 資源位於相同訂用帳戶中；每個應用程式在離峰的 16 小時期間執行 2 個執行個體，在尖峰的 8 小時期間執行 4 個執行個體 | 13.33 | 
 | 雲端服務有 1 個背景工作角色和 1 個 Web 角色，各執行 2 個執行個體 | 4 | 
 | 5 個節點的 Azure Service Fabric 叢集執行 50 個微服務，每個微服務執行 3 個執行個體 | 5|
@@ -223,7 +223,7 @@ Application Insights 資源的預設保留期為90天。 可以為每個 Applica
 
 ## <a name="automation"></a>自動化
 
-您可以使用 Azure 資源管理來撰寫腳本, 以設定定價層。 [了解作法](powershell.md#price)。
+您可以使用 Azure 資源管理來撰寫腳本，以設定定價層。 [了解作法](powershell.md#price)。
 
 
 ## <a name="next-steps"></a>後續步驟

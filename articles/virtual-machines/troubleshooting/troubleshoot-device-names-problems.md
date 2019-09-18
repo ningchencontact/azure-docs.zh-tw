@@ -4,7 +4,7 @@ description: 說明 Linux VM 裝置名稱變更的原因，以及解決問題的
 services: virtual-machines-linux
 documentationcenter: ''
 author: genlin
-manager: gwallace
+manager: dcscontentpm
 editor: ''
 tags: ''
 ms.service: virtual-machines-linux
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: azurecli
 ms.date: 11/01/2018
 ms.author: genli
-ms.openlocfilehash: 0350b6bdc990ed6c2de60e3e98c3768b18d0d636
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: 7d8a7e7e88837214042fb8f1c109c0b93bfe771b
+ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67710427"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71058212"
 ---
 # <a name="troubleshoot-linux-vm-device-name-changes"></a>針對 Linux VM 裝置名稱變更進行疑難排解
 
@@ -46,7 +46,7 @@ Linux 中的裝置路徑不保證會在重新啟動之間保持一致。 裝置�
 
 在 VM 上安裝 Azure Linux 代理程式時，代理程式會使用 Udev 規則，在 /dev/disk/azure 路徑下方建構一組符號連結。 應用程式與指令碼會使用 Udev 規則，來識別連接至 VM 的磁碟，以及磁碟類型與磁碟 LUN。
 
-如果您已經編輯您的 fstab 方式，您的 VM 無法開機，而且無法以 ssh 連線到您的 VM，您可以使用[VM 序列主控台](./serial-console-linux.md)輸入[單一使用者模式](./serial-console-grub-single-user-mode.md)並修改您的 fstab。
+如果您已編輯 fstab，使 VM 無法開機，而且您無法透過 SSH 連線到您的 VM，您可以使用[VM 序列主控台](./serial-console-linux.md)來進入[單一使用者模式](./serial-console-grub-single-user-mode.md)，並修改您的 fstab。
 
 ### <a name="identify-disk-luns"></a>識別磁碟 LUN
 
@@ -152,8 +152,8 @@ Azure Linux 代理程式 Udev 規則會在 /dev/disk/azure 路徑下方建構一
 
 如需詳細資訊，請參閱下列文章：
 
-- [Ubuntu:使用 UUID](https://help.ubuntu.com/community/UsingUUID)
-- [Red Hat:永續性命名](https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/7/html/Storage_Administration_Guide/persistent_naming.html)
-- [Linux:Uuid 可為您做什麼](https://www.linux.com/news/what-uuids-can-do-you)
-- [Udev:在現代 Linux 系統中的裝置管理簡介](https://www.linux.com/news/udev-introduction-device-management-modern-linux-system)
+- [Ubuntu使用 UUID](https://help.ubuntu.com/community/UsingUUID)
+- [Red Hat：持續性命名](https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/7/html/Storage_Administration_Guide/persistent_naming.html)
+- [廠商Uuid 可以為您做什麼](https://www.linux.com/news/what-uuids-can-do-you)
+- [Udev新式 Linux 系統中的裝置管理簡介](https://www.linux.com/news/udev-introduction-device-management-modern-linux-system)
 
