@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9eab92f044f62a1ca32062753f824ea76a2726a8
-ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
+ms.openlocfilehash: cf732ec97a57a5bc1d2bcaa39e5fd14a305504d0
+ms.sourcegitcommit: 8ef0a2ddaece5e7b2ac678a73b605b2073b76e88
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70860292"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71075506"
 ---
 # <a name="configure-azure-multi-factor-authentication-settings"></a>設定 Azure Multi-Factor Authentication 設定
 
@@ -84,7 +84,7 @@ ms.locfileid: "70860292"
 1. 以系統管理員身分登入 [Azure 入口網站](https://portal.azure.com)。
 2. 瀏覽至 [Azure Active Directory] > [MFA] > [詐騙警示]。
 3. 將 [允許使用者提交詐騙警示] 設定設為 [開啟]。
-4. 選取 [ **儲存**]。
+4. 選取 [儲存]。
 
 ### <a name="configuration-options"></a>設定選項
 
@@ -337,7 +337,7 @@ Azure AD 使用內部部署 Windows Server Active Directory Domain Services (AD 
       * 針對單一 IP 位址，使用如 **xxx.xxx.xxx.xxx/32** 標記法。
       * 最多輸入 50 個 IP 位址範圍。 從這些 IP 位址登入的使用者會略過雙步驟驗證。
 
-5. 選取 [ **儲存**]。
+5. 選取 [儲存]。
 
 ### <a name="enable-the-trusted-ips-feature-by-using-service-settings"></a>使用服務設定啟用信任的 IP 功能
 
@@ -356,7 +356,7 @@ Azure AD 使用內部部署 Windows Server Active Directory Domain Services (AD 
       * 針對單一 IP 位址，使用如 **xxx.xxx.xxx.xxx/32** 標記法。
       * 最多輸入 50 個 IP 位址範圍。 從這些 IP 位址登入的使用者會略過雙步驟驗證。
 
-6. 選取 [ **儲存**]。
+6. 選取 [儲存]。
 
 ## <a name="verification-methods"></a>驗證方法
 
@@ -404,6 +404,8 @@ Azure AD 使用內部部署 Windows Server Active Directory Domain Services (AD 
 >
 >如果您的使用者選取 AD FS 上的 [讓我保持登入]，且將他們的裝置標記為受 Multi-Factor Authentication 信任，在 [記住多重要素驗證] 天數到期之後，並不會自動驗證使用者。 Azure AD 要求重新整理雙步驟驗證，但是 AD FS 會傳回包含原始 Multi-Factor Authentication 宣告及日期的權杖，而不是再次執行雙步驟驗證。 **這個反應會啟動 Azure AD 與 AD FS 之間的驗證迴圈。**
 >
+>[**記住多重要素驗證**] 功能與 b2b 使用者不相容，且在登入受邀的租使用者時不會對其顯示。
+>
 
 ### <a name="enable-remember-multi-factor-authentication"></a>啟用記住 Multi-Factor Authentication
 
@@ -413,7 +415,7 @@ Azure AD 使用內部部署 Windows Server Active Directory Domain Services (AD 
 4. 在 [Multi-Factor Authentication] 下，選取 [服務設定]。
 5. 在 [服務設定] 頁面、[管理記住多重要素驗證]，選取 [允許使用者在其信任的裝置記住多重要素驗證] 選項。
 6. 設定要允許受信任裝置略過雙步驟驗證的天數。 預設值為 14 天。
-7. 選取 [ **儲存**]。
+7. 選取 [儲存]。
 
 ### <a name="mark-a-device-as-trusted"></a>將裝置標示為受信任
 
