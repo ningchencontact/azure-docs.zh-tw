@@ -13,32 +13,32 @@ ms.workload: na
 ms.date: 04/13/2019
 ms.author: banders
 ms.openlocfilehash: 21bf96866c14615009a17279ff2fdd04bf4116ad
-ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
-ms.translationtype: MT
+ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/01/2019
+ms.lasthandoff: 09/11/2019
 ms.locfileid: "67490274"
 ---
-# <a name="view-azure-reservations-in-the-azure-portal"></a>在 Azure 入口網站中檢視 Azure 保留的項目
+# <a name="view-azure-reservations-in-the-azure-portal"></a>在 Azure 入口網站中檢視 Azure 保留
 
-根據您的訂用帳戶類型和權限，有幾種方式來檢視適用於 Azure 的保留項目。
+您可以透過數種方式檢視 Azure 的保留，視您的訂用帳戶類型和權限而定。
 
-## <a name="view-purchased-reservations"></a>檢視購買的保留項目
+## <a name="view-purchased-reservations"></a>檢視已購買的保留
 
-當您購買保留時，您和帳戶管理員預設可以檢視該保留。 您與帳戶管理員會自動取得保留訂單和保留項目擁有者角色。 若要允許其他人可以檢視此保留項目，您必須將其新增為**擁有者**或是**讀取器**保留順序或保留項目上。
+當您購買保留時，您和帳戶管理員預設可以檢視該保留。 您和帳戶管理員會自動取得保留訂單和保留的「擁有者」角色。 若要允許其他人員檢視保留，您必須將他們新增為保留訂單或保留的「擁有者」  或「讀者」  。
 
 如需詳細資訊，請參閱[新增或變更可以管理保留的使用者](billing-manage-reserved-vm-instance.md#add-or-change-users-who-can-manage-a-reservation)。
 
 若要以「擁有者」或「讀者」身分檢視保留，
 
 1. 登入 [Azure 入口網站](https://portal.azure.com)。
-2. 搜尋**保留**。
-    ![螢幕擷取畫面顯示 Azure 入口網站搜尋](./media/billing-view-reservation/portal-reservation-search.png)  
-3. 此清單會顯示所有保留項目具有 「 擁有者 」 或 「 讀取者角色。 每個保留項目顯示的最後一個已知的使用率百分比。  
-    ![範例，顯示一份保留項目](./media/billing-view-reservation/view-reservations.png)
-4. 選取保留並查看過去五天的使用率趨勢。  
-    ![範例顯示保留的使用趨勢](./media/billing-view-reservation/reservation-utilization.png)
-5. 您也可以取得[保留使用率](/rest/api/billing/enterprise/billing-enterprise-api-reserved-instance-usage)使用保留的執行個體使用情況 API 與[Microsoft Azure 耗用量 Insights Power BI 內容套件](/power-bi/service-connect-to-azure-consumption-insights)。
+2. 搜尋 [保留]  。
+    ![顯示 Azure 入口網站搜尋的螢幕擷取畫面](./media/billing-view-reservation/portal-reservation-search.png)  
+3. 清單中會顯示您具備「擁有者」或「讀者」角色的所有保留。 每個保留都會顯示最後的已知使用率百分比。  
+    ![顯示保留清單的範例](./media/billing-view-reservation/view-reservations.png)
+4. 選取保留，並查看過去五天的使用率趨勢。  
+    ![顯示保留使用率趨勢的範例](./media/billing-view-reservation/reservation-utilization.png)
+5. 您也可以使用「保留執行個體使用量 API」和 [Microsoft Azure 使用量見解 Power BI 內容套件](/power-bi/service-connect-to-azure-consumption-insights)，來取得[保留使用率](/rest/api/billing/enterprise/billing-enterprise-api-reserved-instance-usage)。
 
 如果您需要變更保留的範圍、分割保留或變更可管理保留的人員，請參閱 [管理 Azure Reservations](billing-manage-reserved-vm-instance.md)。
 
@@ -49,7 +49,7 @@ ms.locfileid: "67490274"
 若要在 Azure 入口網站中檢視保留交易，
 
 1. 登入 [Azure 入口網站](https://portal.azure.com)。
-1. 搜尋**成本管理 + 計費**。
+1. 搜尋 [成本管理 + 帳單]  。
 
     ![顯示 Azure 入口網站搜尋的螢幕擷取畫面](./media/billing-view-reservation/portal-cm-billing-search.png)
 
@@ -65,8 +65,8 @@ ms.locfileid: "67490274"
 
 若要深入了解 Azure 保留項目，請參閱下列文章：
 
-- [Azure 保留項目有哪些？](billing-save-compute-costs-reservations.md)
-- [管理 Azure 保留項目](billing-manage-reserved-vm-instance.md)
+- [什麼是 Azure 的保留？](billing-save-compute-costs-reservations.md)
+- [管理 Azure 的保留](billing-manage-reserved-vm-instance.md)
 
 購買服務方案：
 
@@ -76,15 +76,15 @@ ms.locfileid: "67490274"
 
 購買軟體方案：
 
-- [預付的 Azure 保留項目從 Red Hat 軟體方案](../virtual-machines/linux/prepay-rhel-software-charges.md)
+- [從 Azure 保留預付 Red Hat 軟體方案](../virtual-machines/linux/prepay-rhel-software-charges.md)
 - [從 Azure 保留預付 SUSE 軟體方案](../virtual-machines/linux/prepay-suse-software-charges.md)
 
-了解使用方式：
+了解使用量：
 
-- [了解隨用隨付方案訂用帳戶的保留項目使用量](billing-understand-reserved-instance-usage.md)
+- [了解隨用隨付訂用帳戶的保留使用量](billing-understand-reserved-instance-usage.md)
 - [了解 Enterprise 註冊的保留項目使用量](billing-understand-reserved-instance-usage-ea.md)
 - [了解 CSP 訂用帳戶的保留使用量](https://docs.microsoft.com/partner-center/azure-reservations)
 
 ## <a name="need-help-contact-us"></a>需要協助嗎？ 與我們連絡
 
-如果您有任何疑問或需要協助，請[建立支援要求](https://go.microsoft.com/fwlink/?linkid=2083458)。
+如有問題或需要協助，請[建立支援要求](https://go.microsoft.com/fwlink/?linkid=2083458)。

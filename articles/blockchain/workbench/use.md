@@ -1,21 +1,21 @@
 ---
-title: 在 Azure Blockchain Workbench 中使用應用程式
-description: 關於如何在 Azure Blockchain Workbench 中使用應用程式合約的教學課程。
+title: 在 Azure Blockchain Workbench 預覽版中使用應用程式
+description: 關於如何在 Azure Blockchain Workbench 預覽版中使用應用程式合約的教學課程。
 services: azure-blockchain
 keywords: ''
 author: PatAltimore
 ms.author: patricka
-ms.date: 04/15/2019
+ms.date: 09/05/2019
 ms.topic: tutorial
 ms.service: azure-blockchain
 ms.reviewer: brendal
 manager: femila
-ms.openlocfilehash: 89c83ed6d02a60978bd54fb97d37063e34f6c0c7
-ms.sourcegitcommit: 48a41b4b0bb89a8579fc35aa805cea22e2b9922c
+ms.openlocfilehash: e1ba09c4fbba6492e2d5f870a6c31a3d5a6d8956
+ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/15/2019
-ms.locfileid: "59578845"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70845133"
 ---
 # <a name="tutorial-using-applications-in-azure-blockchain-workbench"></a>教學課程：在 Azure Blockchain Workbench 中使用應用程式
 
@@ -46,11 +46,11 @@ ms.locfileid: "59578845"
 
 1. 在 Blockchain Workbench 應用程式區段中，選取您想要建立的合約所在的應用程式圖格。 作用中合約的清單會隨即顯示。
 
-2. 若要建立新的合約，請選取 [新增合約]。
+2. 若要建立新的合約，請選取 [新增合約]  。
 
     ![[新增合約] 按鈕](./media/use/contract-list.png)
 
-3. [新增合約] 窗格隨即顯示。 指定初始參數值。 選取 [建立] 。
+3. [新增合約]  窗格隨即顯示。 指定初始參數值。 選取 [建立]  。
 
     ![[新增合約] 窗格](./media/use/new-contract.png)
 
@@ -74,18 +74,18 @@ ms.locfileid: "59578845"
     | 動作 | 最後一個動作的詳細資料 |
     | 活動 | 合約的交易歷程記錄 |
     
-3. 在 [動作] 區段中，選取 [採取動作]。
+3. 在 [動作]  區段中，選取 [採取動作]  。
 
 4. 合約目前狀態的詳細資料會顯示在窗格中。 在下拉式清單中選擇您想要採取的動作。 
 
     ![選擇動作](./media/use/choose-action.png)
 
-5. 選取 [採取動作] 以起始動作。
+5. 選取 [採取動作]  以起始動作。
 6. 若動作需要參數，請指定動作的值。
 
     ![採取動作](./media/use/take-action.png)
 
-7. 選取 [採取動作] 以執行動作。
+7. 選取 [採取動作]  以執行動作。
 
 ## <a name="next-steps"></a>後續步驟
 

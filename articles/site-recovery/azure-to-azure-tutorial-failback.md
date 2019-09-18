@@ -1,20 +1,19 @@
 ---
 title: 使用 Azure Site Recovery 服務，容錯回復已複寫到次要 Azure 區域的 Azure VM，以進行災害復原。
 description: 了解如何使用 Azure Site Recovery 服務容錯回復 Azure VM。
-services: site-recovery
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 05/30/2019
+ms.date: 09/09/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: a3b67e9b0dc41eeb14000400912892fbf29acfe2
-ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
+ms.openlocfilehash: c8be547790452774992b9226ca8010532263aaff
+ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66399490"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70814527"
 ---
 # <a name="fail-back-an-azure-vm-between-azure-regions"></a>在 Azure 區域之間容錯回復 Azure VM
 
@@ -45,25 +44,18 @@ ms.locfileid: "66399490"
 
     ![容錯回復到主要區域](./media/site-recovery-azure-to-azure-failback/azure-to-azure-failback.png)
 
-3. 選取 [測試容錯移轉]  ，以執行要回到主要區域的容錯移轉測試。
-4. 選取測試容錯移轉的復原點和虛擬網路，然後選取 [確定]  。 您可以檢閱在主要區域中建立的測試 VM。
-5. 順利完成測試容錯移轉之後，請選取 [清除測試容錯移轉]  ，以清除在測試容錯移轉的來源區域中建立的資源。
-6. 在 [複寫的項目]  中選取 VM，然後選取 [容錯移轉]  。
-7. 在 [容錯移轉]  中，選取要容錯移轉的目標復原點：
+2. 在 [複寫的項目]  中選取 VM，然後選取 [容錯移轉]  。
+3. 在 [容錯移轉]  中，選取要容錯移轉的目標復原點：
     - **最新 (預設值)** ：在 Site Recovery 服務中處理所有資料，並提供最低的復原點目標 (RPO)。
     - **最近處理**：將 VM 還原到 Site Recovery 所處理的最新復原點。
     - **自訂**：容錯移轉至特定復原點。 此選項適合用於執行測試容錯移轉。
-
-8. 如果想在觸發容錯移轉之前，讓 Site Recovery 嘗試將來源 VM 關機，請選取 [先將機器關機再開始容錯移轉]  。 即使關機失敗，仍會繼續容錯移轉。 請注意，Site Recovery 並不會在容錯移轉後清除來源。
-9. 在 [作業]  頁面上追蹤容錯移轉進度。
-10. 容錯移轉完成後，請登入 VM 進行驗證。 您可以視需要變更復原點。
-11. 驗證容錯移轉之後，請選取 [認可容錯移轉]  。 認可作業會刪除所有可用的復原點。 無法再使用 [變更復原點] 選項。
-12. VM 應會顯示為已容錯移轉且已容錯回復。
+4. 如果想在觸發容錯移轉之前，讓 Site Recovery 嘗試將 DR 區域中的 VM 關機，請選取 [先將機器關機再開始容錯移轉]  。 即使關機失敗，仍會繼續容錯移轉。 
+5. 在 [作業]  頁面上追蹤容錯移轉進度。
+6. 容錯移轉完成後，請登入 VM 進行驗證。 您可以視需要變更復原點。
+7. 驗證容錯移轉之後，請選取 [認可容錯移轉]  。 認可作業會刪除所有可用的復原點。 無法再使用 [變更復原點] 選項。
+8. VM 應會顯示為已容錯移轉且已容錯回復。
 
     ![主要和次要區域上的 VM](./media/site-recovery-azure-to-azure-failback/azure-to-azure-failback-vm-view.png)
-
-> [!NOTE]
-> 災害復原 VM 將維持關機/已解除配置的狀態。 這是故意設計的，因為 Site Recovery 會儲存 VM 資訊，這可能對之後從主要區域到次要區域的容錯移轉很有用。 已解除配置的 VM 不會收費，所以應該保持原狀。
 
 ## <a name="next-steps"></a>後續步驟
 

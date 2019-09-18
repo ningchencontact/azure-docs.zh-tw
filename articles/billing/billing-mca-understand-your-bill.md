@@ -1,6 +1,6 @@
 ---
-title: 了解您的 Microsoft 客戶協議的發票-Azure 上的費用
-description: 了解如何閱讀並了解發票的費用。
+title: 了解 Microsoft 客戶合約發票上的費用 - Azure
+description: 學習如何閱讀並了解發票上的費用。
 author: jureid
 manager: jureid
 tags: billing
@@ -12,171 +12,171 @@ ms.workload: na
 ms.date: 07/01/2019
 ms.author: banders
 ms.openlocfilehash: ee250589133abb1944ff17e39dc650cbae4279c6
-ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
-ms.translationtype: MT
+ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/01/2019
+ms.lasthandoff: 09/11/2019
 ms.locfileid: "67490668"
 ---
-# <a name="understand-charges-on-your-microsoft-customer-agreement-invoice"></a>了解 Microsoft 的客戶合約發票費用
+# <a name="understand-charges-on-your-microsoft-customer-agreement-invoice"></a>了解 Microsoft 客戶合約發票上的費用
 
-您可以瞭解您發票上的費用，藉由分析個別的交易。 Microsoft 客戶合約的帳單帳戶，請在產生的每個計費的設定檔的每個月的發票。 發票會包含上個月的所有費用。 您可以在 Azure 入口網站中檢視您的發票。 如需詳細資訊，請參閱 <<c0> [ 下載發票的 Microsoft 客戶合約](billing-download-azure-invoice-daily-usage-date.md#download-invoices-for-a-microsoft-customer-agreement)。
+您可以藉由分析個別交易來了解發票上的費用。 在 Microsoft 客戶合約的計費帳戶中，每個帳單設定檔都會按月產生發票。 發票中包含上個月的所有費用。 您可以在 Azure 入口網站中檢視您的發票。 如需詳細資訊，請參閱[下載 Microsoft 客戶合約的發票](billing-download-azure-invoice-daily-usage-date.md#download-invoices-for-a-microsoft-customer-agreement)。
 
-這篇文章適用於計費的帳戶 Microsoft 客戶合約。 [檢查您是否擁有存取權的 Microsoft 客戶合約](#check-access-to-a-microsoft-customer-agreement)。
+本文適用於 Microsoft 客戶合約的計費帳戶。 [請確認您是否有 Microsoft 客戶合約的存取權](#check-access-to-a-microsoft-customer-agreement)。
 
-## <a name="view-transactions-for-an-invoice-in-the-azure-portal"></a>發票，Azure 入口網站中檢視交易
+## <a name="view-transactions-for-an-invoice-in-the-azure-portal"></a>在 Azure 入口網站中檢視發票的交易
 
 1. 登入 [Azure 入口網站](https://www.azure.com)。
 
-2. 搜尋**成本管理 + 計費**。
+2. 搜尋 [成本管理 + 帳單]  。
 
-    ![螢幕擷取畫面顯示 Azure 入口網站的搜尋，成本管理 + 計費](./media/billing-understand-your-bill-mca/billing-search-cost-management-billing.png)
+    ![顯示在 Azure 入口網站中搜尋 [成本管理 + 帳單] 的螢幕擷取畫面](./media/billing-understand-your-bill-mca/billing-search-cost-management-billing.png)
 
-3. 選取 **所有交易**從頁面的左側。 根據您的存取權，您可能必須選取計費的帳戶、 計費的設定檔或 [發票] 區段，然後選取**所有交易**。
+3. 從頁面左側選取 [所有交易]  。 根據您的存取權，您可能必須選取計費帳戶、帳單設定檔或發票區段，然後選取 [所有交易]  。
 
-4. 所有的 [交易] 頁面會顯示下列資訊：
+4. [所有交易] 頁面會顯示下列資訊：
 
-    ![顯示計費的交易清單的螢幕擷取畫面](./media/billing-understand-your-bill-mca/mca-billed-transactions-list.png)
+    ![顯示計費交易清單的螢幕擷取畫面](./media/billing-understand-your-bill-mca/mca-billed-transactions-list.png)
 
     |欄  |定義  |
     |---------|---------|
     |Date     | 交易日期  |
-    |發票識別碼     | 交易有以計費發票識別碼。 如果您提交支援要求，則將識別碼分享 Azure 的支援，以加速您的支援要求 |
-    |交易類型     |  購買、 cancel 和使用量的費用等交易的類型  |
-    |產品系列     | 虛擬機器的計算或 Azure SQL database 的資料庫之類的產品類別目錄|
-    |產品 sku     | 識別您產品的執行個體的唯一程式碼 |
-    |Amount     |  交易的數量      |
-    |發票區段     | 交易就會出現在本節中的帳單設定檔的發票 |
-    |帳單設定檔     | 交易就會出現在帳單設定檔的發票 |
+    |發票識別碼     | 交易計費所在發票的識別碼。 如果您提交支援要求，請將識別碼提供給 Azure 支援，以加速支援要求的處理 |
+    |交易類型     |  交易的類型，例如購買、取消和使用量費用  |
+    |產品系列     | 產品的類別，例如 Azure SQL Database 的虛擬機器或資料庫的計算|
+    |產品 SKU     | 識別產品執行個體的唯一代碼 |
+    |Amount     |  交易的金額      |
+    |發票區段     | 交易會顯示在帳單設定檔的這個發票區段上 |
+    |帳單設定檔     | 交易會顯示在此帳單設定檔的發票上 |
 
-5. 搜尋以篩選的發票中交易的發票識別碼。
+5. 搜尋發票識別碼以篩選發票的交易。
 
-### <a name="view-transactions-by-invoice-sections"></a>依發票區段的 檢視交易
+### <a name="view-transactions-by-invoice-sections"></a>依發票區段檢視交易
 
-發票的各節可協助您組織的計費設定檔的發票的成本。 如需詳細資訊，請參閱 <<c0> [ 了解發票區段](billing-mca-overview.md#invoice-sections)。 產生發票時，用於計費的設定檔中的所有區段的費用會顯示在發票上。
+發票區段可協助您彙整帳單設定檔的發票成本。 如需詳細資訊，請參閱[了解發票區段](billing-mca-overview.md#invoice-sections)。 發票產生時，帳單設定檔中所有區段的費用都會顯示在發票上。
 
-下圖顯示範例的發票的費用會計部門發票一節。
+下圖顯示範例發票上的會計部門發票區段的費用。
 
-![範例影像中顯示的發票區段資訊的詳細資料](./media/billing-understand-your-bill-mca/invoicesection-details.png)
+![依發票區段資訊顯示詳細資料的範例影像](./media/billing-understand-your-bill-mca/invoicesection-details.png)
 
-當您已經識別的發票區段的費用時，您可以檢視交易，在 Azure 入口網站，以了解費用。
+當您識別出發票區段的費用時，您可以在 Azure 入口網站中檢視交易以了解費用。
 
-1. 前往 Azure 入口網站，檢視發票的交易中所有的 [交易] 頁面。 如需詳細資訊，請參閱 <<c0> [ 在 Azure 入口網站中檢視發票的交易](#view-transactions-for-an-invoice-in-the-azure-portal)。
+1. 移至 Azure 入口網站中的 [所有交易] 頁面，以檢視發票的交易。 如需詳細資訊，請參閱[在 Azure 入口網站中檢視發票的交易](#view-transactions-for-an-invoice-in-the-azure-portal)。
 
-2. 若要檢視交易的發票區段名稱來篩選。
+2. 依發票區段名稱篩選以檢視交易。
 
-## <a name="review-pending-charges-to-estimate-your-next-invoice"></a>檢閱暫止的估計您下一張發票的費用
+## <a name="review-pending-charges-to-estimate-your-next-invoice"></a>檢閱待決費用以預估您的下一張發票
 
-Microsoft 客戶合約的帳單帳戶，請在會估計費用，並將其視為暫止，直到它們發票中。 您可以檢視擱置中的 Azure 入口網站，若要預估您的下一張發票的費用。 暫止的費用預估金額，它們不含稅。 在您下一張發票上的實際費用也會因暫止的費用。
+在 Microsoft 客戶合約的計費帳戶中，費用在開立發票前，將會受到預估且被視為待決。 您可以在 Azure 入口網站中檢視待決費用，以預估下一張發票。 待決費用會受到預估，且不包含稅金。 下一張發票上的實際費用會與待決費用不同。
 
-### <a name="view-summary-of-pending-charges"></a>檢視暫止的費用的摘要
-
-1. 登入 [Azure 入口網站](https://portal.azure.com)。
-
-2. 搜尋**成本管理 + 計費**。
-
-   ![螢幕擷取畫面顯示 Azure 入口網站的搜尋，成本管理 + 計費](./media/billing-understand-your-bill-mca/billing-search-cost-management-billing.png)
-
-3. 選取計費的設定檔。 根據您的存取權，您可能要選取的計費帳戶。 從計費的帳戶中，選取**帳單設定檔**然後選取 計費的設定檔。
-
-4. 選取 **摘要**從畫面頂端的索引標籤。
-
-5. 到目前的月份和上個月的費用，就會顯示 [費用] 區段。
-
-   ![螢幕擷取畫面顯示 Azure 入口網站的搜尋，成本管理 + 計費](./media/billing-understand-your-bill-mca/mca-billing-profile-summary.png)
-
-月-日的費用是當月的暫止的費用，並以此計費發票時產生的月份。 如果上個月的發票仍未產生，則上個月的費用也會暫止且會出現在您下一張發票。
-
-### <a name="view-pending-transactions"></a>檢視暫止的交易
-
-當您識別暫止的費用時，您可以了解藉由分析提供費用的個別交易費用。 此時，暫止的使用量費用不會顯示全部的 [交易] 頁面上。 您可以在 Azure 訂用帳戶 頁面上檢視暫止的使用量費用。 如需詳細資訊，請參閱[檢視暫止的使用費用](#view-pending-usage-charges)
+### <a name="view-summary-of-pending-charges"></a>檢視待決費用的摘要
 
 1. 登入 [Azure 入口網站](https://portal.azure.com)。
 
-2. 搜尋**成本管理 + 計費**。
+2. 搜尋 [成本管理 + 帳單]  。
 
-   ![螢幕擷取畫面顯示 Azure 入口網站的搜尋，成本管理 + 計費](./media/billing-understand-your-bill-mca/billing-search-cost-management-billing.png)
+   ![顯示在 Azure 入口網站中搜尋 [成本管理 + 帳單] 的螢幕擷取畫面](./media/billing-understand-your-bill-mca/billing-search-cost-management-billing.png)
 
-3. 選取計費的設定檔。 根據您的存取權，您可能要選取的計費帳戶。 從計費的帳戶中，選取**帳單設定檔**然後選取 計費的設定檔。
+3. 選取帳單設定檔。 視存取權之不同，您可能必須選取計費帳戶。 從計費帳戶中選取 [帳單設定檔]  ，然後選取帳單設定檔。
 
-4. 選取 **所有交易**從頁面的左側。
+4. 從畫面頂端選取 [摘要]  索引標籤。
 
-5. 搜尋*暫止*。 使用**Timespan**篩選器來檢視暫止的目前或上個月的費用。
+5. 費用區段會顯示當月費用和上個月的費用。
 
-   ![顯示暫止的交易清單的螢幕擷取畫面](./media/billing-understand-your-bill-mca/mca-pending-transactions-list.png)
+   ![顯示在 Azure 入口網站中搜尋 [成本管理 + 帳單] 的螢幕擷取畫面](./media/billing-understand-your-bill-mca/mca-billing-profile-summary.png)
 
-### <a name="view-pending-usage-charges"></a>檢視暫止的使用費用
+當月費用是當月的待決費用，會在當月的發票產生時計費。 如果上個月的發票尚未產生，則上個月的費用也會列為待決，且會顯示在下一張發票上。
+
+### <a name="view-pending-transactions"></a>檢視擱置交易
+
+當您識別出待決費用時，您可以藉由分析在費用中有佔比的個別交易來了解費用。 此時，待決的使用量費用不會顯示在 [所有交易] 頁面上。 您可以在 Azure 訂用帳戶頁面上檢視待決的使用量費用。 如需詳細資訊，請參閱[檢視待決的使用量費用](#view-pending-usage-charges)
 
 1. 登入 [Azure 入口網站](https://portal.azure.com)。
 
-2. 搜尋*成本管理 + 計費*。
+2. 搜尋 [成本管理 + 帳單]  。
 
-   ![螢幕擷取畫面顯示 Azure 入口網站的搜尋，成本管理 + 計費](./media/billing-understand-your-bill-mca/billing-search-cost-management-billing.png)
+   ![顯示在 Azure 入口網站中搜尋 [成本管理 + 帳單] 的螢幕擷取畫面](./media/billing-understand-your-bill-mca/billing-search-cost-management-billing.png)
 
-3. 選取計費的設定檔。 根據您的存取權，您可能要選取的計費帳戶。 從計費的帳戶中，選取**帳單設定檔**然後選取 計費的設定檔。
+3. 選取帳單設定檔。 視存取權之不同，您可能必須選取計費帳戶。 從計費帳戶中選取 [帳單設定檔]  ，然後選取帳單設定檔。
 
-4. 選取 **所有訂用帳戶**其中頁面的左側。
+4. 從頁面左側選取 [所有交易]  。
 
-5. Azure 訂用帳戶頁面會顯示目前和上個月的費用為每個訂用帳戶計費的設定檔中。 月-日的費用是當月的暫止的費用，並以此計費發票時產生的月份。 如果上個月的發票仍未產生，則上個月的費用也會暫止。
+5. 搜尋「擱置」  。 使用 [時間範圍]  篩選器來檢視當月或上個月的待決費用。
+
+   ![顯示擱置交易清單的螢幕擷取畫面](./media/billing-understand-your-bill-mca/mca-pending-transactions-list.png)
+
+### <a name="view-pending-usage-charges"></a>檢視待決的使用量費用
+
+1. 登入 [Azure 入口網站](https://portal.azure.com)。
+
+2. 搜尋 [成本管理 + 帳單]  。
+
+   ![顯示在 Azure 入口網站中搜尋 [成本管理 + 帳單] 的螢幕擷取畫面](./media/billing-understand-your-bill-mca/billing-search-cost-management-billing.png)
+
+3. 選取帳單設定檔。 視存取權之不同，您可能必須選取計費帳戶。 從計費帳戶中選取 [帳單設定檔]  ，然後選取帳單設定檔。
+
+4. 選取位於頁面左側的 [所有交易]  。
+
+5. [Azure 訂用帳戶] 頁面會顯示帳單設定檔中每個訂用帳戶當月和上個月的費用。 當月費用是當月的待決費用，會在當月的發票產生時計費。 如果上個月的發票尚未產生，則上個月的費用也會列為待決。
 
     ![顯示帳單設定檔的 Azure 訂用帳戶清單的螢幕擷取畫面](./media/billing-understand-your-bill-mca/mca-billing-profile-subscriptions-list.png)
 
 ## <a name="analyze-your-azure-usage-charges"></a>分析您的 Azure 使用量費用
 
-您可以使用 Azure 使用量和費用 CSV 檔案來分析您的使用量費用。 您可以下載檔案的發票或暫止的費用。 如需詳細資訊，請參閱 <<c0> [ 取得您的 Azure 帳單發票和每日使用量資料](billing-download-azure-invoice-daily-usage-date.md)。
+您可以使用 Azure 使用量和費用 CSV 檔案，分析您以使用量為基礎的費用。 您可以下載發票或待決費用的檔案。 如需詳細資訊，請參閱[取得您的 Azure 帳單發票和每日使用量資料](billing-download-azure-invoice-daily-usage-date.md)。
 
-### <a name="view-detailed-usage-by-invoice-section"></a>檢視發票區段的詳細的使用量
+### <a name="view-detailed-usage-by-invoice-section"></a>依發票區段檢視詳細使用量
 
-您可以篩選要協調發票區段的使用量費用的 Azure 使用量和費用檔案。
+您可以篩選 Azure 使用量和費用檔案，以協調發票區段的使用量費用。
 
-下列步驟會引導您完成協調計算費用會計部門發票區段：
+下列步驟會逐步引導您協調會計部門發票區段的計算費用：
 
-![範例影像中顯示的發票區段資訊的詳細資料](./media/billing-understand-your-bill-mca/invoicesection-details.png)
+![依發票區段資訊顯示詳細資料的範例影像](./media/billing-understand-your-bill-mca/invoicesection-details.png)
 
  | 發票 PDF | Azure 使用量和費用 CSV |
  | --- | --- |
  |會計部門 |invoiceSectionName |
- |使用量費用-Microsoft Azure 方案 |productOrderName |
+ |使用量費用 - Microsoft Azure 方案 |productOrderName |
  |計算 |serviceFamily |
 
-1. 篩選條件**invoiceSectionName** CSV 檔案中的資料行**Accounting Dept**。
-2. 篩選條件**productOrderName** CSV 檔案中的資料行**Microsoft Azure 方案**。
-3. 篩選條件**serviceFamily** CSV 檔案中的資料行**Microsoft.Compute**。
+1. 將 CSV 檔案中的 **invoiceSectionName** 資料行篩選到 [會計部門]  。
+2. 將 CSV 檔案中的 **productOrderName** 資料行篩選到 [Microsoft Azure 方案]  。
+3. 將 CSV 檔案中的 **serviceFamily** 資料行篩選到 [Microsoft.Compute]  。
 
-![螢幕擷取畫面，顯示使用量和費用的發票部分篩選的檔案](./media/billing-understand-your-bill-mca/billing-usage-file-filtered-by-invoice-section.png)
+![顯示依發票區段篩選的使用量和費用檔案的螢幕擷取畫面](./media/billing-understand-your-bill-mca/billing-usage-file-filtered-by-invoice-section.png)
 
 
-### <a name="view-detailed-usage-by-subscription"></a>訂用帳戶來檢視詳細的使用量
+### <a name="view-detailed-usage-by-subscription"></a>依訂用帳戶檢視詳細使用量
 
-您可以篩選來協調您的訂用帳戶的使用量計費 Azure 的 使用量和費用 CSV 檔案。 若要檢視所有訂用帳戶計費的設定檔中，請參閱[檢視暫止的使用費用](#view-pending-usage-charges)。
+您可以篩選 Azure 使用量和費用 CSV 檔案，以協調訂用帳戶的使用量費用。 若要檢視帳單設定檔中的所有訂用帳戶，請參閱[檢視待決的使用量費用](#view-pending-usage-charges)。
 
-當您識別訂用帳戶的費用時，可用於 Azure 的使用量和費用 CSV 檔案分析費用。
+當您識別出訂用帳戶的費用時，請使用 Azure 使用量和費用 CSV 檔案來分析費用。
 
 下圖顯示 Azure 入口網站中的訂用帳戶清單。
 
 ![顯示帳單設定檔的 Azure 訂用帳戶清單的螢幕擷取畫面](./media/billing-understand-your-bill-mca/mca-billing-profile-subscriptions-list-highlighted.png)
 
-篩選條件**subscriptionName**到 Azure 的 使用量和費用 CSV 檔案中的資料行**WA_Subscription** WA_Subscription 檢視詳細的使用量費用。
+將 Azure 使用量和費用 CSV 檔案中的 **subscriptionName** 資料行篩選到 **WA_Subscription**，以檢視 WA_Subscription 的詳細使用量費用。
 
-![螢幕擷取畫面，顯示使用量和費用依訂用帳戶篩選的檔案](./media/billing-understand-your-bill-mca/billing-usage-file-filtered-by-subscription.png)
+![顯示依訂用帳戶篩選的使用量和費用檔案的螢幕擷取畫面](./media/billing-understand-your-bill-mca/billing-usage-file-filtered-by-subscription.png)
 
-## <a name="pay-your-bill"></a>支付帳單
+## <a name="pay-your-bill"></a>支付您的帳單
 
-發票底部會顯示，而無須支付帳單的相關指示。 [了解如何用多少付多少](billing-mca-understand-your-invoice.md#how-to-pay)。
+支付帳單的指示會顯示在發票底部。 [了解如何支付](billing-mca-understand-your-invoice.md#how-to-pay)。
 
-如果您已經已支付您的帳單，您可以檢查 Azure 入口網站中的 [發票] 頁面上的付款的狀態。
+如果您已支付帳單，可以在 Azure 入口網站的 [發票] 頁面上查看付款的狀態。
 
-## <a name="check-access-to-a-microsoft-customer-agreement"></a>檢查 Microsoft 客戶合約的存取權
+## <a name="check-access-to-a-microsoft-customer-agreement"></a>檢查對 Microsoft 客戶合約的存取權
 [!INCLUDE [billing-check-mca](../../includes/billing-check-mca.md)]
 
 ## <a name="need-help-contact-us"></a>需要協助嗎？ 與我們連絡。
 
-如果您有任何疑問或需要協助，請[建立支援要求](https://go.microsoft.com/fwlink/?linkid=2083458)。
+如有問題或需要協助，請[建立支援要求](https://go.microsoft.com/fwlink/?linkid=2083458)。
 
 ## <a name="next-steps"></a>後續步驟
 
-若要深入了解您的發票和詳細的使用量，請參閱：
+若要深入了解您的發票和詳細使用量，請參閱：
 
 - [如何取得您的 Azure 帳單發票和每日使用量資料](billing-download-azure-invoice-daily-usage-date.md)
-- [了解您的 Microsoft 客戶合約發票上的字詞](billing-mca-understand-your-invoice.md)
-- [了解您的 Microsoft 客戶合約使用量 CSV 的字詞](billing-mca-understand-your-usage.md)
+- [了解 Microsoft 客戶合約發票上的詞彙](billing-mca-understand-your-invoice.md)
+- [了解 Microsoft 客戶合約使用量 CSV 中的詞彙](billing-mca-understand-your-usage.md)

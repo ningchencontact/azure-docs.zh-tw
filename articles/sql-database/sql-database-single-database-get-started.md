@@ -10,13 +10,13 @@ ms.topic: quickstart
 author: sachinpMSFT
 ms.author: ninarn
 ms.reviewer: carlrab, sstein
-ms.date: 07/29/2019
-ms.openlocfilehash: f9c2ed77075affdfdf464dbf8a468629fc2e610d
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.date: 09/09/2019
+ms.openlocfilehash: 831ebbd3f85ffa9b78ac3e97a6ec68a8c41bceb5
+ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68640065"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70845286"
 ---
 # <a name="quickstart-create-a-single-database-in-azure-sql-database-using-the-azure-portal-powershell-and-azure-cli"></a>快速入門：使用 Azure 入口網站、PowerShell 和 Azure CLI，在 Azure SQL Database 中建立單一資料庫
 
@@ -30,8 +30,8 @@ ms.locfileid: "68640065"
 
 您可以在已佈建的或無伺服器 (預覽) 計算層中建立單一資料庫。
 
-- 已佈建計算層中的單一資料庫具有已定義數量的預先配置計算資源，以及一組使用兩種[購買模型](sql-database-purchase-models.md)之一的記憶體和儲存體資源。
-- 無伺服器計算層中的單一資料庫具有多種可自動調整的計算資源，且各核心也都具有指定的記憶體容量，和指定容量的儲存體資源，且僅適用於[以虛擬核心為基礎的購買模型](sql-database-service-tiers-vcore.md)。
+- 已佈建計算層中的單一資料庫會使用其中一種[購買模型](sql-database-purchase-models.md)，預先配置固定數量的計算資源，包括 CPU 和記憶體。
+- 無伺服器計算層中的單一資料庫具有 CPU 和記憶體等多種可自動調整的計算資源，且僅適用於[以虛擬核心為基礎的購買模型](sql-database-service-tiers-vcore.md)。
 
 當您建立單一資料庫時，您也會定義 [SQL Database 伺服器](sql-database-servers.md)加以管理，並將其放入指定區域中的 [Azure 資源群組](../azure-resource-manager/resource-group-overview.md)內。
 

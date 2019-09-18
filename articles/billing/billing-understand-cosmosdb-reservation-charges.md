@@ -10,21 +10,21 @@ ms.date: 04/13/2019
 ms.author: banders
 ms.reviewer: sngun
 ms.openlocfilehash: d5a13e4466234d73bafe8dbe76cae92955cf64bd
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
-ms.translationtype: MT
+ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 09/11/2019
 ms.locfileid: "60370742"
 ---
 # <a name="understand-how-the-reservation-discount-is-applied-to-azure-cosmos-db"></a>了解保留折扣如何套用至 Azure Cosmos DB
 
 購買 Azure Cosmos DB 保留容量之後，保留折扣會自動套用至符合保留屬性和數量的 Azure Cosmos DB 資源。 保留可涵蓋針對 Azure Cosmos DB 資源所佈建的輸送量。 其未涵蓋軟體、網路、儲存體或預先定義的容器費用。
 
-## <a name="how-reservation-discount-is-applied"></a>保留折扣如何套用
+## <a name="how-reservation-discount-is-applied"></a>保留折扣的套用方式
 
-保留折扣會 「*使用-it-或-遺失-it*"。 因此，如果您沒有任何相符的資源，然後您會遺失保留數量的那一小時。 您無法執行轉送未使用保留的時數。
+保留折扣採「不用則作廢」  的原則。 因此，如果您有任何一小時沒有相符的資源，就會失去該小時的保留數量。 您無法遞轉未使用的保留時數。
 
-當您關閉資源時，保留折扣會自動套用至指定之範圍中的另一個相符的資源。 如果沒有相符的資源位於指定的範圍，則保留的時間為週間*遺失*。
+當您關閉資源時，保留折扣會自動套用至指定範圍中另一個相符的資源。 如果在指定的範圍內找不到相符的資源，則會「失去」  保留時數。
 
 ## <a name="reservation-discount-applied-to-azure-cosmos-db-accounts"></a>套用至 Azure Cosmos DB 帳戶的保留折扣
 
@@ -120,7 +120,7 @@ Azure 計費系統會將保留計費權益指派給第一個處理且符合保�
 * [什麼是 Azure 的保留](../billing/billing-save-compute-costs-reservations.md)  
 * [以 Azure Cosmos DB 保留容量預先支付 Azure Cosmos DB 資源的費用](../cosmos-db/cosmos-db-reserved-capacity.md)  
 * [以 Azure SQL Database 保留容量預先支付 SQL 資料庫計算資源的費用](../sql-database/sql-database-reserved-capacity.md)  
-* [管理 Azure 保留項目](../billing/billing-manage-reserved-vm-instance.md)  
+* [管理 Azure 的保留](../billing/billing-manage-reserved-vm-instance.md)  
 * [了解隨用隨付訂用帳戶的保留使用量](../billing/billing-understand-reserved-instance-usage.md)  
 * [了解 Enterprise 註冊的保留項目使用量](../billing/billing-understand-reserved-instance-usage-ea.md)
 * [了解 CSP 訂用帳戶的保留使用量](https://docs.microsoft.com/partner-center/azure-reservations)

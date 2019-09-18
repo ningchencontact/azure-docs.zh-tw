@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 08/31/2017
 ms.author: banders
 ms.openlocfilehash: 77c1a85136b2117af7396b8eec2d8b92b335d61d
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
-ms.translationtype: MT
+ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 09/11/2019
 ms.locfileid: "60369917"
 ---
 # <a name="understand-terms-on-your-microsoft-azure-invoice"></a>了解您 Microsoft Azure 發票上的字詞
@@ -44,7 +44,7 @@ ms.locfileid: "60369917"
 
 ![發票的帳戶資訊區段](./media/billing-understand-your-invoice/1.png)
 
-| 詞彙 | 描述 |
+| 詞彙 | 說明 |
 | --- | --- |
 | 客戶訂購單號碼。 |您選擇性指派以進行追蹤的訂購單號碼 |
 | 發票編號 |用於追蹤的 Microsoft 所產生之唯一發票編號 |
@@ -65,7 +65,7 @@ ms.locfileid: "60369917"
 #### <a name="understand-the-previous-charges"></a>了解先前的費用
 發票的前期結餘、付款與未付餘額區段會摘要說明上次計費期間之後的交易。
 
-| 詞彙 | 描述 |
+| 詞彙 | 說明 |
 | --- | --- |
 | 前期結餘 |上次計費期間算起的應付總金額 |
 | 付款 |套用至上次計費期間的總付款金額及信用額度 |
@@ -74,7 +74,7 @@ ms.locfileid: "60369917"
 #### <a name="understand-the-current-charges"></a>了解目前費用
 發票的 [目前費用] 區段會顯示有關目前帳單週期的每月費用詳細資料。
 
-| 詞彙 | 描述 |
+| 詞彙 | 說明 |
 | --- | --- |
 | 使用費用 |使用量費用是訂用帳戶目前帳單週期的每月總費用|
 | 折扣 |目前計費期間適用的服務折扣|
@@ -84,7 +84,7 @@ ms.locfileid: "60369917"
 
 下表說明您發票第二頁上顯示的買方和付款指示。
 
-| 詞彙 |描述 |
+| 詞彙 |說明 |
 | --- | --- |
 | 買方 |帳戶上的設定檔地址。 <br/><br/>如果您需要變更地址，請參閱[如何變更連絡人電子郵件、地址和電話號碼等 Azure 帳戶的設定檔資訊](billing-how-to-change-azure-account-profile.md)。|
 | 付款指示 |依付款方式 (例如依信用卡或發票) 說明如何支付的指示。 |
@@ -97,11 +97,11 @@ ms.locfileid: "60369917"
 
 下表描述您發票上顯示的使用量費用資料行標頭。
 
-| 詞彙 |描述 |
+| 詞彙 |說明 |
 | --- | --- |
-| 名稱 |識別使用量的最上層服務 |
-| type |定義可能會影響費率的 Azure 服務類型 |
-| Resource |識別耗用計量的量值單位 |
+| Name |識別使用量的最上層服務 |
+| 類型 |定義可能會影響費率的 Azure 服務類型 |
+| 資源 |識別耗用計量的量值單位 |
 | 區域 |針對以資料中心位置作為基礎所定價的某些服務，識別資料中心的位置 |
 | 已耗用 |計費期間所使用之計量的數量 |
 | 已包括 |目前計費期間免費提供之計量的數量 |
@@ -116,4 +116,4 @@ ms.locfileid: "60369917"
 
 ## <a name="need-help-contact-us"></a>需要協助嗎？ 與我們連絡。
 
-如果您有任何疑問或需要協助，請[建立支援要求](https://go.microsoft.com/fwlink/?linkid=2083458)。
+如果您有問題或需要協助，請[建立支援要求](https://go.microsoft.com/fwlink/?linkid=2083458)。

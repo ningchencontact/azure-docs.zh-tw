@@ -1,6 +1,6 @@
 ---
-title: 以隨用隨付費率個別訂用帳戶的 azure 保留使用情況
-description: 了解如何讀取您的使用量，以了解如何套用個別訂用帳戶以隨用隨付費率的 Azure 保留項目。
+title: 個別訂用帳戶 (採用隨用隨付費率) 的 Azure 保留使用量
+description: 學習如何看懂使用量，以了解個別訂用帳戶 (採用隨用隨付費率) 的 Azure 保留套用情形。
 author: bandersmsft
 manager: yashr
 tags: billing
@@ -12,13 +12,13 @@ ms.workload: na
 ms.date: 07/01/2019
 ms.author: banders
 ms.openlocfilehash: 11f05c3de50f2f82173b6666d304887fbc2038cc
-ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
-ms.translationtype: MT
+ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/01/2019
+ms.lasthandoff: 09/11/2019
 ms.locfileid: "67490372"
 ---
-# <a name="understand-azure-reservation-usage-for-your-individual-subscription-with-pay-as-you-go-rates-subscription"></a>了解個別訂用帳戶與隨用隨付費率訂用帳戶的 Azure 保留使用情況
+# <a name="understand-azure-reservation-usage-for-your-individual-subscription-with-pay-as-you-go-rates-subscription"></a>了解個別訂用帳戶 (採用隨用隨付費率) 的 Azure 保留使用量
 
 使用[保留頁面](https://portal.azure.com/?microsoft_azure_marketplace_ItemHideKey=Reservations&Microsoft_Azure_Reservations=true#blade/Microsoft_Azure_Reservations/ReservationsBrowseBlade)的 ReservationId 和 [Azure 帳戶入口網站](https://account.azure.com)的使用量檔案，來評估保留使用量。
 
@@ -30,7 +30,7 @@ ms.locfileid: "67490372"
 
 針對下列幾個區段，假設您在美國東部區域執行 Standard_DS1_v2 Windows VM，且保留的 VM 執行個體資訊看起來會類似下表：
 
-| 欄位 | Value |
+| 欄位 | 值 |
 |---| :---: |
 |ReservationId |8117adfb-1d94-4675-be2b-f3c1bca808b6|
 |數量 |1|
@@ -59,17 +59,17 @@ CSV 檔案的這個區段會顯示保留的整體使用量。 請對包含 **"Re
 4. [計量識別碼]  是保留的計量識別碼。 此計量的成本為 $0。 任何有資格獲得保留折扣的 VM 都會出現此計量識別碼。
 5. Standard_DS1_v2 是一種 vCPU 虛擬機器，且是在沒有 Azure Hybrid Benefit 的情況下部署的虛擬機器。 因此，這個計量涵蓋 Windows 軟體的額外費用。 若要尋找對應於 D 系列 1 核心 VM 的計量，請參閱 [Azure 保留 VM 執行個體的 Windows 軟體成本](billing-reserved-instance-windows-software-costs.md)。 如果您擁有 Azure Hybrid Benefit，就不會產生此額外費用。
 
-## <a name="usage-for-sql-database--cosmos-db-reservations"></a>使用 SQL Database 和 Cosmos DB 的保留項目
+## <a name="usage-for-sql-database--cosmos-db-reservations"></a>SQL Database 與 Cosmos DB 保留的使用量
 
 下列各節使用 Azure SQL Database 作為範例來說明使用情況報表。 您也可以使用相同步驟來取得 Azure Cosmos DB 的使用情況。
 
 假設您目前在美國東部區域執行 SQL Database Gen 4，且保留資訊看起來類似下表：
 
-| 欄位 | Value |
+| 欄位 | 值 |
 |---| --- |
 |ReservationId |446ec809-423d-467c-8c5c-bbd5d22906b1|
 |數量 |2|
-|產品| SQL Database Gen 4 (2 核心)|
+|Products| SQL Database Gen 4 (2 核心)|
 |區域 | eastus |
 
 ### <a name="statement-section-of-csv-file"></a>CSV 檔案的「說明」區段

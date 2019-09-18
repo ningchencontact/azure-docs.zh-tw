@@ -1,6 +1,6 @@
 ---
-title: 了解 Azure SQL Database 的保留折扣 |Microsoft Docs
-description: 了解如何將保留折扣套用至執行 Azure SQL Database。
+title: 了解 Azure SQL Database 的保留折扣 | Microsoft Docs
+description: 了解保留折扣套用至執行中 Azure SQL Database 的方式。
 documentationcenter: ''
 author: yashesvi
 manager: yashar
@@ -13,25 +13,25 @@ ms.workload: na
 ms.date: 04/13/2019
 ms.author: banders
 ms.openlocfilehash: 4b4c6b390e9b3a0cf764f998523fe3c1cdc66026
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
-ms.translationtype: MT
+ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 09/11/2019
 ms.locfileid: "60370282"
 ---
-# <a name="how-a-reservation-discount-is-applied-to-azure-sql-databases"></a>如何將保留折扣套用至 Azure SQL Database
+# <a name="how-a-reservation-discount-is-applied-to-azure-sql-databases"></a>保留折扣套用至 Azure SQL Database 的方式
 
 購買 Azure SQL Database 保留容量之後，保留折扣就會自動套用至符合保留屬性和數量的 SQL Database。 保留會涵蓋 SQL Database 的計算成本。 您必須依標準費率支付軟體、儲存體和網路的費用。 您可以利用 [Azure Hybrid Benefit](https://azure.microsoft.com/pricing/hybrid-benefit/) 來涵蓋 SQL Database 的授權成本。
 
 若要了解保留的虛擬機器執行個體，請參閱[了解 Azure 保留的 VM 執行個體折扣](billing-understand-vm-reservation-charges.md)。
 
-## <a name="how-reservation-discount-is-applied"></a>保留折扣如何套用
+## <a name="how-reservation-discount-is-applied"></a>保留折扣的套用方式
 
-保留折扣會 「*使用-it-或-遺失-it*"。 因此，如果您沒有任何相符的資源，然後您會遺失保留數量的那一小時。 您無法執行轉送未使用保留的時數。
+保留折扣採「不用則作廢」  的原則。 因此，如果您有任何一小時沒有相符的資源，就會失去該小時的保留數量。 您無法遞轉未使用的保留時數。
 
-當您關閉資源時，保留折扣會自動套用至指定之範圍中的另一個相符的資源。 如果沒有相符的資源位於指定的範圍，則保留的時間為週間*遺失*。
+當您關閉資源時，保留折扣會自動套用至指定範圍中另一個相符的資源。 如果在指定的範圍內找不到相符的資源，則會「失去」  保留時數。
 
-## <a name="discount-applied-to-sql-databases"></a>套用至 SQL Database 的折扣
+## <a name="discount-applied-to-sql-databases"></a>適用於 SQL Database 的折扣
 
  SQL Database 保留容量折扣會套用至執行中的 SQL Database (以小時計算)。 您所購買的保留會與對應到執行中 SQL Database 所發出的計算使用量進行比對。 對於未執行滿一個小時的 SQL Database，此保留會自動套用至其他與保留屬性相符的 SQL Database。 此折扣可以同時套用至各個執行中的 SQL Database。 如果沒有既符合保留屬性又執行滿一個小時的 SQL Database，您就無法獲得該小時的完整保留折扣權益。
 
@@ -49,7 +49,7 @@ ms.locfileid: "60370282"
 
 ## <a name="need-help-contact-us"></a>需要協助嗎？ 與我們連絡
 
-如果您有任何疑問或需要協助，請[建立支援要求](https://go.microsoft.com/fwlink/?linkid=2083458)。
+如有問題或需要協助，請[建立支援要求](https://go.microsoft.com/fwlink/?linkid=2083458)。
 
 ## <a name="next-steps"></a>後續步驟
 

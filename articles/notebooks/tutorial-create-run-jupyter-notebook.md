@@ -1,5 +1,5 @@
 ---
-title: 教學課程：在 Azure 上建立和執行 Jupyter Notebook
+title: 教學：在 Azure 上建立和執行 Jupyter Notebook
 description: 如何在 Azure Notebooks 中建立和執行 Jupyter Notebook，以示範資料科學的線性迴歸流程。
 services: app-service
 documentationcenter: ''
@@ -20,11 +20,11 @@ ms.contentlocale: zh-TW
 ms.lasthandoff: 06/07/2019
 ms.locfileid: "66751767"
 ---
-# <a name="tutorial-create-and-run-a-jupyter-notebook-with-python"></a>教學課程：使用 Python 建立和執行 Jupyter Notebook
+# <a name="tutorial-create-and-run-a-jupyter-notebook-with-python"></a>教學：使用 Python 建立和執行 Jupyter Notebook
 
-本教學將逐步引導您使用 Azure Notebooks 來建立完整的 Jupyter 筆記本，以示範簡單的線性迴歸。 在本教學課程中，您將熟悉 Jupyter Notebook UI，其中包括建立不同的資料格、執行資料格，以及透過放映投影片的方式呈現 Notebook。
+本教學將逐步引導您使用 Azure Notebooks 來建立完整的 Jupyter 筆記本，以示範簡單的線性迴歸。 在本教學中，您將熟悉 Jupyter Notebook UI，其中包括建立不同的資料格、執行資料格，以及透過放映投影片的方式呈現 Notebook。
 
-您可在 [GitHub - Azure Notebooks 範例](https://github.com/Microsoft/AzureNotebooks/tree/master/Samples/Linear%20Regression%20-%20Cricket%20Chirps)中找到已完成的 Notebook。 不過，本教學課程會從新的專案和空白的 Notebook 開始，讓您體驗逐步建立的過程的過程。
+您可在 [GitHub - Azure Notebooks 範例](https://github.com/Microsoft/AzureNotebooks/tree/master/Samples/Linear%20Regression%20-%20Cricket%20Chirps)中找到已完成的 Notebook。 不過，本教學會從新的專案和空白的 Notebook 開始，讓您體驗逐步建立的過程的過程。
 
 ## <a name="create-the-project"></a>建立專案
 
@@ -164,11 +164,11 @@ Jupyter 會提供主要 UI 元素的內建導覽。 選取 [協助]   >  [使用
 
 工具列上大部分的命令在功能表上都有對等的命令。 除了在[共用及展示筆記本](present-jupyter-notebooks-slideshow.md)討論過的 [輸入/編輯 RISE 投影片]  。
 
-您在後續各節中填入筆記本時會使用其中一些命令。
+您接下來填入筆記本時會使用其中一些命令。
 
 ## <a name="create-a-markdown-cell"></a>建立 Markdown 資料格
 
-1. 按一下筆記本畫布上顯示的第一個空白資料格。 根據預設，資料格是一種**程式碼**類型，表示其設計訴求為納入適用於所選核心的可執行程式碼 (Python、R 或 F#)。 目前類型會顯示在工具列上的類型下拉式清單中：
+1. 按一下筆記本畫布上顯示的第一個空白資料格。 資料格預設為程式碼  類型，這個類型用於寫可執行，并且適用於所選核心的程式碼 (Python、R 或 F#) 目前類型會顯示在工具列上的類型下拉式清單中：
 
     ![資料格類型工具列下拉式清單](media/tutorial/tutorial-cell-type-drop-down.png)
 
@@ -199,7 +199,7 @@ Jupyter 會提供主要 UI 元素的內建導覽。 選取 [協助]   >  [使用
 
 1. 若要將 Markdown 轉譯成瀏覽器適用的 HTML，請選取工具列上的 [Run]  命令，或使用 [Cell]   > [Run Cells]  命令。 現在，用於格式化的 Markdown 程式碼和連結會如您所預期出現在瀏覽器中。
 
-1. 當您在筆記本中執行最後資料格時，Jupyter 會在您執行的資料格下面自動建立新的資料格。 使用下列 Markdown 重複這一節的步驟，將更多 Markdown 放入此資料格中：
+1. 當您在執行筆記本最後的資料格時，Jupyter 會在您執行的資料格下面自動建立新的資料格。 使用下列 Markdown 重複上述步驟，將更多 Markdown 放入此資料格中：
 
     ```markdown
     ## Install packages using pip or conda
@@ -219,7 +219,7 @@ Jupyter 會提供主要 UI 元素的內建導覽。 選取 [協助]   >  [使用
 
 如先前的 Markdown 資料格所述，您可以直接在筆記本中包含命令。 您可以使用命令來安裝套件、執行 curl 或 wget 來擷取資料，或任何其他動作。 Jupyter Notebook 會在 Linux 虛擬機器中有效地執行，所以您可以使用完整的 Linux 命令集。
 
-1. 在您於前一個 Markdown 資料格上使用 [Run]  之後出現的程式碼資料格中，輸入以下命令。 如果您沒有看到新的資料格，可使用 [Insert]   > [Insert Cell Below]  ，或使用工具列上的 **+** 按鈕建立。
+1. 在您於前一個 Markdown 資料格上使用[執行]  之後出現的程式碼資料格中，輸入以下命令。 如果您沒有看到新的資料格，可使用 [Insert]   > [Insert Cell Below]  ，或使用工具列上的 **+** 按鈕建立。
 
     ```bash
     !pip install numpy
@@ -234,15 +234,15 @@ Jupyter 會提供主要 UI 元素的內建導覽。 選取 [協助]   >  [使用
     Note that when you run a code block that contains install commands, and also those with `import` statements, it make take the notebooks a little time to complete the task. To the left of the code block you see `In [*]` to indicate that execution is happening. The Notebook's kernel on the upper right also shows a filled-in circle to indicate "busy."
     ```
 
-1. 選取 [Cell]   > [Run All]  命令，以在筆記本中執行所有資料格。 請注意，Markdown 資料格會轉譯為 HTML，而命令會在核心中執行，並如 Markdown 本身所述的方式觀察核心指標：
+1. 選取 [Cell]   > [Run All]  命令，以在筆記本中執行所有資料格。 請注意，Markdown 資料格會轉譯為 HTML，而命令會在核心中執行，并且核心指標會顯示如 Markdown 内容所述：
 
     ![筆記本核心的忙碌指標](media/tutorial/tutorial-kernel-busy.png)
 
-1. 所有 `pip install` 命令都需要花一些時間執行，但因為您已在專案環境中安裝這些套件 (且這些套件也預設包含在 Azure Notebook 中)，所以您會看到許多訊息表示「需求已滿足」。 這些訊息輸出可能會讓使用者感覺畫面過於雜亂，您可以按一下以選取該資料格，然後使用 [Cell]   > [Cell Outputs]   > [Toggle]  來隱藏輸出。 您也可以使用相同子功能表上的 [Clear]  命令，移除所有輸出。
+1. 所有 `pip install` 命令都需要花一些時間執行，而因為您已在專案環境中安裝這些套件 (且這些套件也預設包含在 Azure Notebook 中)，所以您會看到許多訊息表示「需求已滿足」。 這麽多輸出可能擾亂視覺，因此請選取該資料格 (滑鼠按一下)，然後使用 [Cell]   > [Cell Outputs]   > [Toggle]  來隱藏輸出。 您也可以使用同一個子功能表上的 [清除]  命令，移除所有輸出。
 
     [Toggle]  命令只會隱藏來自資料格的最新輸出；如果您再次執行資料格，輸出就會重新出現。
 
-1. 因為套件已安裝於專案環境中，所以可以使用 `#` 來註解排除 `! pip install` 命令；如此一來，這些命令即可留在筆記本中作為指示性資料，但不需花費任何時間來執行，也不會產生不必要的輸出。 在此情況下，在筆記本中保留註解的命令，也可指出筆記本的相依性。
+1. 因為套件已安裝於專案環境中，您可以使用 `#` 來註解排除 `! pip install` 命令；如此這些命令即可作為指示留在筆記本中，但不需花費任何時間來執行，也不會產生不必要的輸出。 在此情況下，在筆記本中保留註解的命令，也可指出筆記本的相依性。
 
     ```bash
     # !pip install numpy
@@ -253,13 +253,13 @@ Jupyter 會提供主要 UI 元素的內建導覽。 選取 [協助]   >  [使用
 
 ## <a name="create-the-remaining-cells"></a>建立其餘的資料格
 
-若要填入筆記本的其餘部分，您可以接著建立一系列的 Markdown 和程式碼資料格。 對於以下所列的每個資料格，首先要做的是建立新的資料格，接著設定類型，然後在內容中貼上。
+若要填入筆記本的其餘部分，您可以接著建立一系列的 Markdown 和程式碼資料格。 對於以下所列的每個資料格，首先要做的是建立新的資料格，接著設定類型，然後貼上內容。
 
-雖然您可以在建立每個資料格之後等待執行筆記本，但是在建立的過程中同時執行會很有趣。 並非所有資料格都會顯示輸出；如果您沒有看到任何錯誤，則請假設資料格均正常執行中。
+雖然您可以等建立好資料格之後再執行筆記本，但是在建立過程中執行會很有趣。 並非所有資料格都會顯示輸出；如果您沒有看到任何錯誤，則假設資料格已正常執行。
 
-每個程式碼資料格會相依於已在先前資料格中執行的程式碼，如果您忘了執行其中一個資料格，則後續的資料格可能會產生錯誤。 如果您發現忘了執行資料格，請先嘗試使用 [Cell]   > [Run All Above]  命令，再執行目前的資料格。
+每個程式碼資料格會相依於已在先前資料格中執行的程式碼，如果您忘了執行其中一個資料格，則後續的資料格可能會產生錯誤。 如果您發現忘了執行資料格，請先嘗試使用 [資料格]   > [執行上列全部]  命令，再執行目前的資料格。
 
-如果您看到非預期的結果 (很有可能會發生！)，請檢查每個資料格是否已依需要設定為 [Code] 或 [Markdown]。 例如，「語法無效」錯誤通常會發生於您已在程式碼資料格中輸入 Markdown 時。
+如果您看到非預期的結果 (這是有可能的！)，請檢查每個資料格是否已依需要設定為 [Code] 或 [Markdown]。 例如，「語法無效」錯誤通常在您在程式碼資料格中輸入 Markdown 時發生。
 
 1. Markdown 資料格：
 
@@ -269,7 +269,7 @@ Jupyter 會提供主要 UI 元素的內建導覽。 選取 [協助]   >  [使用
     In this example we're using numpy, pandas, and matplotlib. Data is in the file cricket_chirps.csv. Because this file is in the same project as this present Notebook, we can just load it using a relative pathname.
     ```
 
-1. 程式碼資料格；執行時，會將資料表內容顯示為輸出。 您可藉由註解排除 `print` 陳述式來隱藏輸出。
+1. 程式碼資料格；執行時，會將資料表內容顯示為輸出。 您可藉由註解排除 `print` 敘述來隱藏輸出。
 
     ```python
     import numpy as np
@@ -358,7 +358,7 @@ Jupyter 會提供主要 UI 元素的內建導覽。 選取 [協助]   >  [使用
     The following code generates a plot: green dots are training data, red dots are test data, blue dots are predictions. Gray line is the regression itself. You see that all the blue dots are exactly on the line, as they should be, because the predictions exactly fit the model (the line).
     ```
 
-1. 程式碼資料格；執行時，此資料格會產生圖表繪圖。 如果您第一次沒有看到此繪圖 (而是看到「圖片大小 640x480，包含 1 個座標軸」)，請再次執行資料格。
+1. 程式碼資料格；執行時，此資料格會產生圖表繪圖。 如果您第一次沒有看到此繪圖 (而是看到「640x480大小，具有 1 個座標軸的圖」)，請再次執行資料格。
 
     ```python
     import matplotlib.pyplot as plt
@@ -389,11 +389,11 @@ Jupyter 會提供主要 UI 元素的內建導覽。 選取 [協助]   >  [使用
 
 ## <a name="clear-outputs-and-rerun-all-cells"></a>清除輸出並重新執行所有資料格
 
-按照上述步驟填入整個筆記本之後，您已在線性迴歸的完整教學課程內容中，建立了執行中程式碼片段。 此種程式碼和文字的直接結合是筆記本的其中一項重要優點！
+按照上述步驟填入整個筆記本之後，您已建立了一套可執行的程式碼，并且完成了線性迴歸的完整教學。 這種程式碼和文字的直接結合是筆記本很大的一個優點！
 
 立即嘗試重新執行整個筆記本：
 
-1. 選取 [Kernel]   > [Restart & Clear Output]  ，以清除所有核心的工作階段資料和所有資料格。 當您完成筆記本時，可以執行這個命令，以確保您並未在程式碼資料格之間建立任何奇怪的相依性。
+1. 選取 [Kernel]   > [Restart & Clear Output]  ，以清除所有核心的工作階段資料和所有資料格輸出。 當您完成筆記本后，執行此命令總是一個良好的習慣，這樣能確保您未在程式碼資料格之間建立任何奇怪的相依性。
 
 1. 使用 [Cell]   > [Run All]  以重新執行筆記本。 請注意，核心指標會在執行程式碼時填入。
 
@@ -403,7 +403,7 @@ Jupyter 會提供主要 UI 元素的內建導覽。 選取 [協助]   >  [使用
 
 ## <a name="save-halt-and-close-the-notebook"></a>儲存、停止及關閉筆記本
 
-在您編輯筆記本期間，可以使用 [File]   > [Save and Checkpoint]  命令或工具列上的 [儲存] 按鈕，儲存其目前狀態。 「檢查點」會建立一個快照集，您可以在工作階段期間隨時加以還原。 檢查點可讓您進行一系列的實驗性變更，如果這些變更沒有效果，只要使用 [File]   > [Revert to Checkpoint]  命令，即可還原至檢查點。 替代方法是建立額外的資料格，以及註解排除任何您不想執行的程式碼；您可以任選一種方法使用。
+在您編輯筆記本期間，可以使用 [File]   > [Save and Checkpoint]  命令或工具列上的 [儲存] 按鈕，儲存其目前狀態。 「檢查點」會建立一個快照集，您可以在工作階段期間隨時將其還原。 檢查點可讓您進行一系列的實驗性變更，如果這些變更沒有效果，只要使用 [File]   > [Revert to Checkpoint]  命令，即可還原至檢查點。 您也可以建立額外的資料格，並註解排除任何您不想要執行的程式碼；兩種方法都可用。
 
 您也可以隨時使用 [File]   > [Make a Copy]  命令，製作筆記本的目前狀態複本，使其成為您專案中的新檔案。 該複本會在新的瀏覽器索引標籤中自動開啟。
 
@@ -411,9 +411,9 @@ Jupyter 會提供主要 UI 元素的內建導覽。 選取 [協助]   >  [使用
 
 ## <a name="debug-notebooks-using-visual-studio-code"></a>使用 Visual Studio Code 進行筆記本偵錯
 
-如果筆記本中的程式碼資料格並未以您預期的方式運作，則可能因為有程式碼錯誤 (bug) 或其他缺失。 不過，除了使用 `print` 陳述式來顯示變數值，Jupyter 環境通常不會提供任何偵錯工具。
+如果筆記本中的程式碼資料格並未以您預期的方式運作，則可能因為有程式碼錯誤 (bug) 或其他缺失。 但是，除了使用 `print` 敘述來顯示變數值，Jupyter 環境通常不會提供任何偵錯工具。
 
-幸運的是，您可以下載筆記本的 *.ipynb* 檔案，然後在 Visual Studio Code 中使用 Python 擴充功能開啟。 擴充功能會直接將筆記本匯入為單一程式碼檔案，在註解中保留您的 Markdown 資料格。 一旦匯入筆記本後，就可以使用 Visual Studio Code 偵錯工具逐步執行程式碼、設定中斷點、檢查狀態，以及進行其他操作。 在更正程式碼之後，您接著要從 Visual Studio Code 匯出 *.ipynb* 檔案，然後將它上傳回 Azure Notebooks。
+幸運的是，您可以下載筆記本的 *.ipynb* 檔案，然後在 Visual Studio Code 中使用 Python 擴充功能開啟。 擴充功能會直接將筆記本匯入為單一程式碼檔案，并且在註解中保留您的 Markdown 資料格。 一旦匯入筆記本後，就可以使用 Visual Studio Code 偵錯工具逐步執行程式碼、設定中斷點、檢查狀態等。 在更正程式碼之後，您需要從 Visual Studio Code 將 *.ipynb* 檔案匯出，然後將它上傳回 Azure Notebooks。
 
 如需詳細資訊，請參閱 Visual Studio Code 文件中的[針對 Jupyter Notebook 進行偵錯](https://code.visualstudio.com/docs/python/jupyter-support#debug-a-jupyter-notebook)。
 

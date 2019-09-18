@@ -1,6 +1,6 @@
 ---
-title: 對 Azure 訂用帳戶登入問題進行疑難排解
-description: 協助解決您無法登入 Azure 入口網站或 Azure 帳戶中心的問題。
+title: 針對 Azure 訂用帳戶登入問題進行疑難排解
+description: 協助解決無法登入 Azure 入口網站或 Azure 帳戶中心的問題。
 author: v-miegge
 manager: na
 editor: na
@@ -13,25 +13,25 @@ ms.workload: na
 ms.date: 08/12/2019
 ms.author: v-miegge
 ms.openlocfilehash: ca641813e8b01a39d31a56e3730424b0fa1d6436
-ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
-ms.translationtype: MT
+ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/20/2019
+ms.lasthandoff: 09/11/2019
 ms.locfileid: "69657043"
 ---
-# <a name="troubleshoot-azure-subscription-sign-in-issues"></a>對 Azure 訂用帳戶登入問題進行疑難排解
+# <a name="troubleshoot-azure-subscription-sign-in-issues"></a>針對 Azure 訂用帳戶登入問題進行疑難排解
 
-本指南可協助您解決無法登入 Azure 入口網站或 Azure 帳戶中心的問題。 
+本指南可協助解決無法登入 Azure 入口網站或 Azure 帳戶中心的問題。 
 
 ## <a name="issues"></a>問題
 
 ### <a name="page-hangs-in-the-loading-status"></a>頁面在載入狀態停止回應
 
-如果您的網際網路瀏覽器頁面停止回應, 請嘗試下列每個步驟, 直到您可以進入 Azure 入口網站為止。
+如果您的網際網路瀏覽器頁面停滯，請嘗試下列每個步驟，直到您可以進入 Azure 入口網站為止。
 
 - 重新整理頁面。
 - 使用另一個網際網路瀏覽器。
-- 使用您瀏覽器的私密瀏覽模式。 若為 Internet Explorer:按一下 [**工具** > ] [**安全性** > ] [**InPrivate 瀏覽**], 然後流覽並登入[Azure 入口網站](https://portal.azure.com/)或[Azure 帳戶中心](https://account.azure.com/Subscriptions)。
+- 使用您瀏覽器的私密瀏覽模式。 若為 Internet Explorer：按一下 [工具]   > [安全性]   > [InPrivate 瀏覽]  ，然後瀏覽並登入 [Azure 入口網站](https://portal.azure.com/)或 [Azure 帳戶中心](https://account.azure.com/Subscriptions)。
 
 ### <a name="you-are-automatically-signed-in-as-a-different-user"></a>自動將您登入為不同的使用者
 
@@ -39,11 +39,11 @@ ms.locfileid: "69657043"
 
 若要解決此問題，請嘗試下列其中一個方法：
 
-- 清除快取並刪除網際網路 Cookie。 在 Internet Explorer 中, 按一下 [**工具** > ] [**網際網路選項** > ] [**刪除**]。 確定已選取暫存檔、Cookie、密碼及瀏覽歷程記錄的核取方塊，然後按一下 [刪除]。
-- 重設 Internet Explorer 設定來還原您所做的任何個人設定。 按一下 [**工具** > ] [**網際網路選項** > ] [**Advanced** > 選取 [**刪除個人設定**] 方塊 >**重設**]。
-- 使用您瀏覽器的私密瀏覽模式。 若為 Internet Explorer:按一下 [**工具** > ] [**安全性** > ] [**InPrivate 瀏覽**], 然後流覽並登入[Azure 入口網站](https://portal.azure.com/)或[Azure 帳戶中心](https://account.azure.com/Subscriptions)。
+- 清除快取並刪除網際網路 Cookie。 在 Internet Explorer 中，按一下 [工具]   > [網際網路選項]   > [刪除]  。 確定已選取暫存檔、Cookie、密碼及瀏覽歷程記錄的核取方塊，然後按一下 [刪除]。
+- 重設 Internet Explorer 設定來還原您所做的任何個人設定。 按一下 [工具]   > [網際網路選項]   > [進階]  > 選取 [刪除個人設定]  方塊 > [重設]  。
+- 使用您瀏覽器的私密瀏覽模式。 若為 Internet Explorer：按一下 [工具]   > [安全性]   > [InPrivate 瀏覽]  ，然後瀏覽並登入 [Azure 入口網站](https://portal.azure.com/)或 [Azure 帳戶中心](https://account.azure.com/Subscriptions)。
 
-### <a name="i-can-sign-in-but-i-see-no-subscriptions-found"></a>我可以登入, 但我看到*找不到任何*訂用帳戶
+### <a name="i-can-sign-in-but-i-see-no-subscriptions-found"></a>我可以登入但收到「找不到訂用帳戶」  錯誤訊息
 
 如果您選取錯誤的目錄或帳戶沒有足夠的權限，就會發生此問題。
 
@@ -52,7 +52,7 @@ ms.locfileid: "69657043"
 若要修正此問題：
 
 - 確定您已選取正確的 Azure 目錄，方法是按一下右上角的帳戶。
-- 如果已選取正確的 Azure 目錄, 但您仍收到錯誤訊息, 請將您的帳戶[新增為](billing-add-change-azure-subscription-administrator.md)擁有者。
+- 若已選取正確的 Azure 目錄，但您仍收到錯誤訊息，請[將您的帳戶新增為擁有者](billing-add-change-azure-subscription-administrator.md)。
 
 **案例 2：** 在 [Azure 帳戶中心](https://account.windowsazure.com/Subscriptions)收到錯誤訊息
 
@@ -60,9 +60,9 @@ ms.locfileid: "69657043"
 
 1. 登入 [Azure 入口網站中的訂用帳戶檢視](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade)。
 
-2. 選取您想要檢查的訂用帳戶，然後查看 [設定]。
+2. 選取您想要檢查的訂用帳戶，然後查看 [設定]  。
 
-3. 選取 [屬性]。 該訂用帳戶的帳戶管理員會顯示在 [帳戶管理員] 方塊中。
+3. 選取 [屬性]  。 該訂用帳戶的帳戶管理員會顯示在 [帳戶管理員]  方塊中。
 
 ## <a name="additional-help-resources"></a>其他說明資源
 
@@ -73,10 +73,10 @@ Azure 計費和訂用帳戶的其他疑難排解文章
 - [找不到訂用帳戶](billing-no-subscriptions-found.md)
 - [已停用企業成本檢視](billing-enterprise-mgmt-grp-troubleshoot-cost-view.md)
 
-## <a name="contact-us-for-help"></a>聯絡我們以取得協助
+## <a name="contact-us-for-help"></a>如需協助，請與我們連絡
 
 如果您有問題或需要協助，請[建立支援要求](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest)。
 
 ## <a name="next-steps"></a>後續步驟
 
-- [Azure 計費檔](index.md)
+- [Azure 計費文件](index.md)

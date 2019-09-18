@@ -1,6 +1,6 @@
 ---
-title: 追蹤 Microsoft 客戶合約的 Azure 信用額度餘額
-description: 了解如何檢查 Microsoft 客戶合約的 Azure 信用額度餘額。
+title: 追蹤 Microsoft 客戶合約的 Azure 點數餘額
+description: 了解如何查看 Microsoft 客戶合約的 Azure 點數餘額。
 author: bandersmsft
 manager: amberb
 tags: billing
@@ -12,66 +12,66 @@ ms.workload: na
 ms.date: 07/01/2019
 ms.author: banders
 ms.openlocfilehash: 352737b3ea61a51a39e066d4211c8f4ceae74184
-ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
-ms.translationtype: MT
+ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/01/2019
+ms.lasthandoff: 09/11/2019
 ms.locfileid: "67490971"
 ---
-# <a name="track-microsoft-customer-agreement-azure-credit-balance"></a>追蹤 Microsoft 客戶合約的 Azure 信用額度餘額
+# <a name="track-microsoft-customer-agreement-azure-credit-balance"></a>追蹤 Microsoft 客戶合約的 Azure 點數餘額
 
-您可以在 Azure 入口網站中，檢查 Microsoft 客戶合約的 Azure 信用額度餘額。 您可以使用點數來支付費用，係由其信用額度。
+您可以在 Azure 入口網站中查看 Microsoft 客戶合約的 Azure 點數餘額。 您可以使用點數支付可由點數涵蓋的費用。
 
-當您使用產品所未涵蓋的信用額度，或您的使用量超過您的信用結餘，就會向您收費。 如需詳細資訊，請參閱 [Azure 信用額度未涵蓋的產品。 (#products-that-aren't-covered-by-azure-credits)。
+若您使用的產品並未以點數涵蓋，或您的使用量超過點數餘額，您就必須支付費用。 如需詳細資訊，請參閱「Azure 點數未涵蓋的產品」(#products-that-arent-covered-by-azure-credits)。
 
-這篇文章適用於計費的帳戶 Microsoft 客戶合約。 [檢查您是否擁有存取權的 Microsoft 客戶合約](#check-access-to-a-microsoft-customer-agreement)。
+本文適用於 Microsoft 客戶合約的計費帳戶。 [請確認您是否有 Microsoft 客戶合約的存取權](#check-access-to-a-microsoft-customer-agreement)。
 
-## <a name="check-your-credit-balance"></a>請檢查您的信用結餘
+## <a name="check-your-credit-balance"></a>查看您的點數餘額
 
 1. 登入 [Azure 入口網站]( https://portal.azure.com)。
 
-2. 搜尋**成本管理 + 計費**。
+2. 搜尋 [成本管理 + 帳單]  。
 
-    ![成本管理 + 計費入口網站中顯示搜尋螢幕擷取畫面](./media/billing-mca-check-azure-credits-balance/billing-search-cost-management-billing.png)
+    ![顯示在入口網站中搜尋 [成本管理 + 帳單] 的螢幕擷取畫面](./media/billing-mca-check-azure-credits-balance/billing-search-cost-management-billing.png)
 
-3.  選取  **Azure 信用額度**從左上方。 根據您的存取權，您可能需要選取的帳單帳戶或帳單的設定檔，然後選取**Azure 信用額度**。
+3.  從左側選取 [Azure 點數]  。 視存取權之不同，您可能必須選取計費帳戶或帳單設定檔，然後選取 [Azure 點數]  。
 
-4. Azure 信用額度 頁面會顯示下列資訊：
+4. [Azure 點數] 頁面會顯示下列資訊：
 
-   ![螢幕擷取畫面的信用結餘和帳單設定檔的交易](./media/billing-mca-check-azure-credits-balance/billing-mca-credits-overview.png)
+   ![帳單設定檔的點數餘額和交易的螢幕擷取畫面](./media/billing-mca-check-azure-credits-balance/billing-mca-credits-overview.png)
 
    | 詞彙               | 定義                           |
    |--------------------|--------------------------------------------------------|
-   | 估計的平衡  | 估計的信用額度金額必須考慮所有計費後和暫止的交易 |
-   | 目前餘額    | 自前期發票開立的信用額度數量。 它不包含任何暫止的交易 |
-   | 交易       | 所有計費的交易影響您的 Azure 信用額度餘額 |
+   | 估計餘額  | 您在考量所有計費交易和擱置交易後所擁有的估計點數金額 |
+   | 目前餘額    | 截至最後一張發票為止的點數金額。 其中不包含任何擱置交易 |
+   | 交易       | 所有會對 Azure 點數餘額造成影響的帳單交易 |
 
-   當您預估的餘額遞減到 0 時，收費以您的所有使用量，包括適用於係由其信用額度的產品。
+   當您的估計餘額降到 0 時，您所有的使用量都必須付費，包括可由點數涵蓋的產品。
 
-6. 選取 **信用額度清單**計費的設定檔的信用額度的檢視清單。 信用額度清單會提供下列資訊：
+6. 選取 [點數清單]  ，以檢視帳單設定檔的點數清單。 點數清單會提供下列資訊：
 
-   ![帳單設定檔的信用額度清單的螢幕擷取畫面](./media/billing-mca-check-azure-credits-balance/billing-mca-credits-list.png)
+   ![帳單設定檔點數清單的螢幕擷取畫面](./media/billing-mca-check-azure-credits-balance/billing-mca-credits-list.png)
 
    | 詞彙 | 定義 |
    |---|---|
-   | 估計的平衡 | 您有減去未開立帳單的信用卡符合資格的費用，從您目前的餘額之後的 Azure 信用額度金額|
-   | 目前餘額 | 您必須考慮未開立帳單的信用卡符合資格的費用之前的 Azure 點數的數量。 其計算方式收到新的 Azure 點數加入當時的前期發票開立的信用結餘|
-   | source | 取得來源的信用額度 |
-   | 開始日期 | 當您取得信用額度的日期 |
-   | 到期日期 | 信用額度到期日期 |
-   | 餘額 | 自前期發票開立平衡 |
-   | 原始的數量 | 原始的信用額度 |
-   | 狀態 | 信用額度的目前狀態。 狀態可以是作用中、 使用、 過期或即將到期 |
+   | 估計餘額 | 在目前餘額減去可用點數支付但尚未計費的費用後，您所擁有的 Azure 點數金額|
+   | 目前餘額 | 在考量可用點數支付但尚未計費的費用前，您所擁有的 Azure 點數金額。 其計算方式，是將您收到的新 Azure 點數加上您最後一張發票上的點數餘額|
+   | 來源 | 點數的取得來源 |
+   | 開始日期 | 您取得點數的日期 |
+   | 到期日期 | 點數到期的日期 |
+   | 餘額 | 截至最後一張發票為止的餘額 |
+   | 原始金額 | 原始點數金額 |
+   | 狀態 | 點數的目前狀態。 狀態可以是有效、已使用、已過期或即將到期 |
 
-## <a name="how-credits-are-used"></a>如何使用信用額度
+## <a name="how-credits-are-used"></a>點數的使用方式
 
-Microsoft 客戶合約的帳單帳戶，在中，您可以使用計費的設定檔來管理您的發票和付款方法。 每個計費的設定檔會產生每月的發票，並按發票付款的情況下，您在使用付款方法。
+在 Microsoft 客戶合約的計費帳戶中，您可以使用帳單設定檔來管理發票和付款方式。 每個帳單設定檔都會按月產生發票，而您可以使用付款方式來支付發票費用。
 
-Azure 信用額度是其中一種付款方法。 您可以從 Microsoft 取得信用額度促銷的點數和服務層級的信用額度。 這些信用額度指派給帳單的設定檔。 發票時產生的計費的設定檔，信用額度會自動套用計費來計算您需要支付的金額的總量。 您支付剩餘的數量與另一個付款方法，例如核取或傳輸的連線。
+Azure 點數是其中一種付款方式。 您會收到 Microsoft 提供的點數，例如促銷點數和服務等級點數。 這些點數會指派給帳單設定檔。 為帳單設定檔產生發票時，點數會自動套用至總計費金額，以計算您需要支付的金額。 您可以使用其他付款方式支付其餘金額，例如支票或電匯。
 
-## <a name="products-that-arent-covered-by-azure-credits"></a>未涵蓋的 Azure 信用額度的產品
+## <a name="products-that-arent-covered-by-azure-credits"></a>Azure 點數未涵蓋的產品
 
- 您的 Azure 信用額度不涵蓋下列產品。 您需支付使用這些產品，無論您的信用額度餘額：
+ 您的 Azure 點數不涵蓋下列產品。 無論您有多少點數餘額，都必須支付這些產品的使用費用：
 
 - Canonical
 - Citrix XenApp Essentials
@@ -87,7 +87,7 @@ Azure 信用額度是其中一種付款方法。 您可以從 Microsoft 取得�
 - Azure Marketplace 產品
 - Azure 支援方案
 
-## <a name="check-access-to-a-microsoft-customer-agreement"></a>檢查 Microsoft 客戶合約的存取權
+## <a name="check-access-to-a-microsoft-customer-agreement"></a>檢查對 Microsoft 客戶合約的存取權
 [!INCLUDE [billing-check-mca](../../includes/billing-check-mca.md)]
 
 ## <a name="need-help-contact-support"></a>需要協助嗎？ 請連絡支援人員。
@@ -96,5 +96,5 @@ Azure 信用額度是其中一種付款方法。 您可以從 Microsoft 取得�
 
 ## <a name="next-steps"></a>後續步驟
 
-- [了解 Microsoft 的客戶合約帳單帳戶](billing-mca-overview.md)
-- [了解您的 Microsoft 客戶合約發票上的字詞](billing-mca-understand-your-invoice.md)
+- [了解 Microsoft 客戶合約的計費帳戶](billing-mca-overview.md)
+- [了解 Microsoft 客戶合約發票上的詞彙](billing-mca-understand-your-invoice.md)

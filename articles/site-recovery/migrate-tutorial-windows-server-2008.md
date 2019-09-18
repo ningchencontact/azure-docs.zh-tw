@@ -5,15 +5,15 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 05/30/2019
+ms.date: 09/09/2019
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: c449b74a9d6185b0616f62d31926feb6ff218cbb
-ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
+ms.openlocfilehash: d0d5c482e2faf5e4a2c2918a64bd56e4aa814323
+ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66400088"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70814510"
 ---
 # <a name="migrate-servers-running-windows-server-2008-to-azure"></a>將執行 Windows Server 2008 的伺服器移轉到 Azure
 
@@ -28,6 +28,9 @@ ms.locfileid: "66400088"
 > * 容錯移轉至 Azure 並完成移轉
 
 ＜限制和已知問題＞一節會列出在將 Windows Server 2008 機器遷移至 Azure 時，所可能遇到的一些限制和已知問題的因應措施。 
+
+> [!NOTE]
+> 您現在可以使用 Azure Migrate 服務，從內部部署遷移至 Azure。 [深入了解](../migrate/migrate-services-overview.md)。
 
 
 ## <a name="supported-operating-systems-and-environments"></a>所支援的作業系統和環境

@@ -1,5 +1,5 @@
 ---
-title: 建立其他 Azure 訂用帳戶帳單帳戶
+title: 為您的計費帳戶建立額外的 Azure 訂用帳戶
 description: 了解如何在 Azure 入口網站中新增 Azure 訂用帳戶。
 author: amberbhargava
 manager: amberb
@@ -13,19 +13,19 @@ ms.workload: na
 ms.date: 07/01/2019
 ms.author: banders
 ms.openlocfilehash: 558410d980d261780f7287d1e27ed704b356fc2b
-ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
-ms.translationtype: MT
+ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/01/2019
+ms.lasthandoff: 09/11/2019
 ms.locfileid: "67490907"
 ---
-# <a name="create-an-additional-azure-subscription-for-microsoft-customer-agreement"></a>Microsoft 客戶協議建立額外的 Azure 訂用帳戶
+# <a name="create-an-additional-azure-subscription-for-microsoft-customer-agreement"></a>為 Microsoft 客戶合約建立額外的 Azure 訂用帳戶
 
-建立額外的訂用帳戶為帳單帳戶設定個別環境進行開發和測試，就會有安全性或隔離資料合規性原因。
+為您的計費帳戶建立額外的訂用帳戶以設定個別環境，用於開發、測試、安全性等用途，或基於相容性因素隔離資料。
 
-這篇文章適用於計費的帳戶 Microsoft 客戶合約。 [檢查您是否擁有存取權的 Microsoft 客戶合約](#check-access)。 如果您想要建立其他類型的計費帳戶的訂用帳戶，請參閱[在 Azure 入口網站中建立的其他訂用帳戶](billing-create-subscription.md)。
+本文適用於 Microsoft 客戶合約的計費帳戶。 請[確認您是否有 Microsoft 客戶合約的存取權](#check-access)。 如果您想要為其他類型的計費帳戶建立訂用帳戶，請參閱[在 Azure 入口網站中建立額外的訂用帳戶](billing-create-subscription.md)。
 
-若要建立訂用帳戶，您必須是**發票區段擁有者**，**發票區段參與者**，或**Azure 訂用帳戶的建立者**。 如需詳細資訊，請參閱 <<c0> [ 訂用帳戶計費的角色和工作](billing-understand-mca-roles.md#subscription-billing-roles-and-tasks)。 若要提供其他人建立為帳單帳戶的 Azure 訂用帳戶的權限，請參閱[讓其他人建立 Azure 訂用帳戶的權限](#give-others-permission)。
+若要建立訂用帳戶，您必須是**發票區段擁有者**、**發票區段參與者**或 **Azure訂用帳戶建立者**。 如需詳細資訊，請參閱[訂用帳戶計費角色和工作](billing-understand-mca-roles.md#subscription-billing-roles-and-tasks)。 若要授與他人為計費帳戶建立 Azure 訂用帳戶的權限，請參閱[授與他人建立 Azure 訂用帳戶的權限](#give-others-permission)。
 
 ## <a name="create-a-subscription"></a>建立訂用帳戶
 
@@ -33,45 +33,45 @@ ms.locfileid: "67490907"
 
 2. 尋找**訂用帳戶**。
 
-   ![在訂用帳戶的入口網站中顯示搜尋螢幕擷取畫面](./media/billing-mca-create-subscription/billing-search-subscriptions.png)
+   ![顯示在入口網站中搜尋訂用帳戶的螢幕擷取畫面](./media/billing-mca-create-subscription/billing-search-subscriptions.png)
 
 3. 選取 [新增] 
 
-4. 如果您有多個計費帳戶的存取權，請選取您的 Microsoft 客戶合約的計費帳戶。
+4. 如果您有多個計費帳戶的存取權，請選取您 Microsoft 客戶合約的計費帳戶。
 
-   ![示範建立訂用帳戶 頁面的螢幕擷取畫面](./media/billing-mca-create-subscription/billing-mca-create-azure-subscription.png)
+   ![顯示 [建立訂用帳戶] 頁面的螢幕擷取畫面](./media/billing-mca-create-subscription/billing-mca-create-azure-subscription.png)
 
-5. 選取計費的設定檔。 選取計費的設定檔將予計費訂用帳戶的費用。 如果您有只有一個帳單寄送的設定檔存取權時，選取項目會呈現灰色。
+5. 選取帳單設定檔。 訂用帳戶的費用將會計入選取的帳單設定檔。 如果您只能存取一個帳單設定檔，選取項目將會呈現為灰色。
 
-6. 選取 [發票] 區段。 訂用帳戶費用會支付帳單設定檔的發票的這一節。 如果您需要存取只能有一個 「 發票 」 區段，選取項目會呈現灰色。
+6. 選取發票區段。 訂用帳戶的費用將會計入帳單設定檔的這個發票區段。 如果您只能存取一個發票區段，選取項目將會呈現為灰色。
 
-7. 選取的訂用帳戶計劃。 選取  **Microsoft Azure 研發/測試計劃**，如果您打算使用此訂用帳戶進行開發，或使用其他的測試工作負載**Microsoft Azure 方案**。 如果您有存取權只能有一個計劃時，選取項目會呈現灰色。
+7. 選取訂用帳戶的方案。 如果您打算將此訂用帳戶用於開發或測試工作負載，請選取 [適用於 DevTest 的 Microsoft Azure 方案]  ，否則請使用 [Microsoft Azure 方案]  。 如果您只能存取一個方案，選取項目將會呈現為灰色。
 
-8. 輸入訂用帳戶名稱。 此名稱有助於您輕鬆地識別在 Azure 入口網站中的訂用帳戶。
+8. 輸入訂用帳戶名稱。 此名稱可協助您輕鬆識別 Azure 入口網站中的訂用帳戶。
 
 9. 選取 [建立]  。
 
-## <a name="give-others-permission"></a>讓其他人的權限
+## <a name="give-others-permission"></a>為其他人授與權限
 
-將使用者新增為 [發票] 區段上提供這些權限來建立 Azure 訂用帳戶的 Azure 訂用帳戶建立者。
+在發票區段上將使用者新增為 Azure 訂用帳戶建立者，為他們授與建立 Azure 訂用帳戶的權限。
 
 1. 登入 [Azure 入口網站](https://portal.azure.com)。
 
-2. 搜尋**成本管理 + 計費**。
+2. 搜尋 [成本管理 + 帳單]  。
 
-   ![在訂用帳戶的入口網站中顯示搜尋螢幕擷取畫面](./media/billing-mca-create-subscription/billing-search-cost-management-billing.png)
+   ![顯示在入口網站中搜尋訂用帳戶的螢幕擷取畫面](./media/billing-mca-create-subscription/billing-search-cost-management-billing.png)
 
-3. 移至 [發票] 區段。 根據您的存取權，您可能需要選取 帳單帳戶或計費的設定檔。 從計費的帳戶或設定檔上，選取**發票區段**，然後從清單中的發票區段。 將使用者所建立的任何訂用帳戶將支付發票本節。
+3. 移至 [發票] 區段。 視存取權之不同，您可能必須選取計費帳戶或帳單設定檔。 請從計費帳戶或帳單設定檔中選取 [發票區段]  ，然後從清單中選取發票區段。 使用者所將建立的任何訂用帳戶，費用都會計入此發票區段。
    
-   ![螢幕擷取畫面顯示選取的發票區段](./media/billing-mca-create-subscription/mca-select-invoice-sections.png)        
+   ![顯示選取發票區段的螢幕擷取畫面](./media/billing-mca-create-subscription/mca-select-invoice-sections.png)        
 
-4. 選取 **存取管理 (IAM)** 從左上方。
+4. 從左上方選取 [存取管理 (IAM)]  。
 
 5. 從頁面頂端選取 [新增]  。
 
-6. 選取  **Azure 訂用帳戶的建立者**角色。
+6. 選取 [Azure 訂用帳戶建立者]  作為角色。
 
-7. 輸入您要授與存取權之使用者的電子郵件地址。
+7. 輸入您要為其授與存取權之使用者的電子郵件地址。
 
 8. 選取 [ **儲存**]。
 
@@ -80,11 +80,11 @@ ms.locfileid: "67490907"
 
 ## <a name="need-help-contact-support"></a>需要協助嗎？ 請連絡支援人員
 
-如果您有任何疑問或需要協助，請[建立支援要求](https://go.microsoft.com/fwlink/?linkid=2083458)。
+如有問題或需要協助，請[建立支援要求](https://go.microsoft.com/fwlink/?linkid=2083458)。
 
 ## <a name="next-steps"></a>後續步驟
 
-- [讓其他人使用內建角色建立 Azure 資源的權限](../role-based-access-control/built-in-roles.md#built-in-role-descriptions)
-- [建立 windows 虛擬機器](../virtual-machines/windows/quick-create-portal.md)
-- [建立 linux 虛擬機器](../virtual-machines/linux/quick-create-portal.md)
+- [授與他人使用內建角色建立 Azure 資源的權限](../role-based-access-control/built-in-roles.md#built-in-role-descriptions)
+- [建立 Windows 虛擬機器](../virtual-machines/windows/quick-create-portal.md)
+- [建立 Linux 虛擬機器](../virtual-machines/linux/quick-create-portal.md)
 - [建立用於資源組織及管理的管理群組](../governance/management-groups/create.md?toc=/azure/billing/TOC.json)

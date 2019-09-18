@@ -17,17 +17,17 @@ ms.date: 05/11/2018
 ms.author: banders
 ms.custom: seodec18
 ms.openlocfilehash: 094d79026a55e651a1f67a5047dff20c769c359a
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
-ms.translationtype: MT
+ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 09/11/2019
 ms.locfileid: "60371221"
 ---
 # <a name="no-subscriptions-found-sign-in-error-for-azure-portal-or-azure-account-center"></a>Azure 入口網站或 Azure 帳戶中心的「找不到訂用帳戶」登入錯誤
 
 嘗試登入 [Azure 入口網站](https://portal.azure.com/)或 [Azure 帳戶中心](https://account.windowsazure.com/Subscriptions)時，您可能會收到「找不到訂用帳戶」錯誤訊息。 本文會提供此問題的解決方案。
 
-## <a name="symptom"></a>徵兆
+## <a name="symptom"></a>徵狀
 
 當您嘗試登入 [Azure 入口網站](https://portal.azure.com/)或 [Azure 帳戶中心](https://account.windowsazure.com/Subscriptions)時，您看到下列錯誤訊息：「找不到訂用帳戶」。
 
@@ -35,7 +35,7 @@ ms.locfileid: "60371221"
 
 如果您選取錯誤的目錄或帳戶沒有足夠的權限，就會發生此問題。 
 
-## <a name="solution"></a>方案
+## <a name="solution"></a>解決方法
 
 ### <a name="scenario-1-error-message-is-received-in-the-azure-portalhttpsportalazurecom"></a>案例 1：在 [Azure 入口網站](https://portal.azure.com)中收到錯誤訊息
 
@@ -56,4 +56,4 @@ ms.locfileid: "60371221"
 
 ## <a name="need-help-contact-us"></a>需要協助嗎？ 與我們連絡。
 
-如果您有任何疑問或需要協助，請[建立支援要求](https://go.microsoft.com/fwlink/?linkid=2083458)。
+如果您有問題或需要協助，請[建立支援要求](https://go.microsoft.com/fwlink/?linkid=2083458)。

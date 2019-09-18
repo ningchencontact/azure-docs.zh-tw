@@ -1,21 +1,21 @@
 ---
 title: 在 Azure Blockchain Workbench 中建立區塊鏈應用程式
-description: 關於如何在 Azure Blockchain Workbench 中建立區塊鏈應用程式的教學課程。
+description: 關於如何在 Azure Blockchain Workbench 預覽版中建立區塊鏈應用程式的教學課程。
 services: azure-blockchain
 keywords: ''
 author: PatAltimore
 ms.author: patricka
-ms.date: 05/30/2019
+ms.date: 09/05/2019
 ms.topic: tutorial
 ms.service: azure-blockchain
 ms.reviewer: brendal
 manager: femila
-ms.openlocfilehash: b444ad799eaa356d654952c32ac58188de8d7131
-ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
+ms.openlocfilehash: adc47ecb06c0e2dbfcae7b85aeec284027315e5b
+ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66417380"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70845151"
 ---
 # <a name="tutorial-create-a-blockchain-application-in-azure-blockchain-workbench"></a>教學課程：在 Azure Blockchain Workbench 中建立區塊鏈應用程式
 

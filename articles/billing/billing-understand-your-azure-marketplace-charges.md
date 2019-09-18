@@ -13,21 +13,21 @@ ms.date: 07/01/2019
 ms.author: banders
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 278e873d01eb3dd7d614d771e5b50b8fe624800a
-ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
-ms.translationtype: MT
+ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/01/2019
+ms.lasthandoff: 09/11/2019
 ms.locfileid: "67490360"
 ---
 # <a name="understand-your-azure-external-services-charges"></a>了解您的 Azure 外部服務費用
-在 Azure marketplace 中的第三方軟體廠商所發佈的外部服務。 比方說，SendGrid 會是您可以在 Azure 中，購買，但不是會由 Microsoft 所發佈的外部服務。 某些 Microsoft 產品會透過 Azure marketplace，太銷售。
+外部服務是由 Azure Marketplace 中的協力廠商軟體廠商發佈。 比方說，SendGrid 是您可以在 Azure 中購買的外部服務，但不是由 Microsoft 所發佈。 有些 Microsoft 產品也會透過 Azure Marketplace 銷售。
 
 ## <a name="how-external-services-are-billed"></a>如何對外部服務計費
 
-- 如果您有[Microsoft 客戶合約](#check-access)，第三方服務計費方式為您的 Azure 服務的其餘部分。
-- 如果您沒有 Microsoft 客戶合約，您的外部服務會從您的 Azure 服務分開計費。
-- 每項外部服務都有各自的計費模式。 某些服務計費以隨用隨付的方式，而其他人有固定的每月費用。
-- 外部服務不適用於每個月的免費信用額度。 如果您使用的 Azure 訂用帳戶，其中包含[免費信用額度](https://azure.microsoft.com/pricing/spending-limits/)，它們無法從外部服務套用費用。 當您佈建新的外部服務或資源時，系統會顯示警告︰
+- 如果您有 [Microsoft 客戶合約](#check-access)，您的第三方服務會與其餘的 Azure 服務一起計費。
+- 如果您沒有 Microsoft 客戶合約，則外部服務會與 Azure 服務分開計費。
+- 每項外部服務都有各自的計費模式。 有些服務採用隨用隨付的方式計費，有些則有每月固定費用。
+- 外部服務不適用於每個月的免費信用額度。 如果您使用含有[免費額度](https://azure.microsoft.com/pricing/spending-limits/)的 Azure 訂用帳戶，這些額度無法套用至外部服務。 當您佈建新的外部服務或資源時，系統會顯示警告︰
 
     ![Marketplace 購買警告](./media/billing-understand-your-azure-marketplace-charges/credit-warning.png)
 
@@ -50,31 +50,31 @@ You can view a list of the external services that are on each subscription withi
 
 ## <a name="view-and-download-invoices"></a>檢視及下載發票
 
-如果您有[Microsoft 客戶合約](#check-access)，您的第三方費用會在您的 Azure 費用為相同的發票上。 了解如何[檢視並下載您的 Azure 發票](billing-download-azure-invoice.md)從 Azure 入口網站，以查看您的第三方費用。
+如果您有 [Microsoft 客戶合約](#check-access)，您的第三方費用會與您的 Azure 費用位於同張發票上。 了解如何從 Azure 入口網站[檢視及下載您的 Azure 發票](billing-download-azure-invoice.md)，以查看第三方費用。
 
-如果您沒有 Microsoft 客戶合約，您會有不同的第三方費用的發票。 您可以檢視，並從 Azure 入口網站下載您的 Azure Marketplace 發票，依照下列步驟：
+如果您沒有 Microsoft 客戶合約，則第三方費用會有不同的發票。 您可以遵循下列步驟，從 Azure 入口網站檢視及下載您的 Azure Marketplace 發票：
 
 1. 登入 [Azure 入口網站](https://portal.azure.com)。
-1. 搜尋**成本管理 + 計費**。
-1. 在左側功能表中，選取**發票**。
-1. 按一下 [ **Azure Marketplace 和保留項目** 索引標籤。![Azure marketplace 和保留項目 索引標籤的圖片](./media/billing-understand-your-azure-marketplace-charges/invoice-tabs.png)
-1. 在訂用帳戶 下拉式清單，選取包含您想要查看的發票的外部服務的訂用帳戶。
+1. 針對 [成本管理 + 帳單]  進行搜尋。
+1. 在左側功能表中，選取 [發票]  。
+1. 按一下 [Azure Marketplace 與保留]  索引標籤。![Azure Marketplace 與保留索引標籤的圖片](./media/billing-understand-your-azure-marketplace-charges/invoice-tabs.png)
+1. 在訂用帳戶下拉式清單中，選取包含您要查看發票之外部服務的訂用帳戶。
 
-## <a name="external-spending-for-ea-customers"></a>EA 客戶消費的外部
+## <a name="external-spending-for-ea-customers"></a>EA 客戶的外部費用
 
 EA 客戶可以在 EA 入口網站看到外部服務消費並下載報告。 請參閱 [EA 客戶的 Azure Marketplace](https://ea.azure.com/helpdocs/azureMarketplace) 以便開始使用。
 
 ## <a name="manage-payment-for-external-services"></a>管理外部服務的付款
 
-當購買外部服務，您會選擇資源的 Azure 訂用帳戶。 選取的 Azure 訂用帳戶的付款方法會變成外部服務的付款方法。 若要變更的外部服務的付款方法，您必須[變更 Azure 訂用帳戶的付款方式](billing-how-to-change-credit-card.md)繫結至該外部的服務。 您可以找出哪個外部服務訂單繫結的訂閱依照下列步驟：
+購買外部服務時，您可以選擇資源的 Azure 訂用帳戶。 所選 Azure 訂用帳戶的付款方式會成為外部服務的付款方式。 若要變更外部服務的付款方式，您必須[變更外部服務所繫結 Azure 訂用帳戶的付款方式](billing-how-to-change-credit-card.md)。 您可以遵循下列步驟，找出外部服務訂單所繫結的訂用帳戶：
 
 1. 登入 [Azure 入口網站](https://portal.azure.com)。
-1. 按一下 **的所有資源**左的導覽功能表中。
-     ![所有資源 功能表項目的螢幕擷取畫面](./media/billing-understand-your-azure-marketplace-charges/all-resources.png)
+1. 按一下左側導覽功能表中的 [所有資源]  。
+     ![所有資源功能表項目的螢幕擷取畫面](./media/billing-understand-your-azure-marketplace-charges/all-resources.png)
 1. 搜尋您的外部服務。
-1. 尋找在訂用帳戶名稱**訂用帳戶**資料行。
-    ![資源的訂用帳戶名稱的螢幕擷取畫面](./media/billing-understand-your-azure-marketplace-charges/sub-selected.png)
-1. 按一下訂用帳戶名稱和[更新使用中付款方式](billing-how-to-change-credit-card.md)。
+1. 在 [訂用帳戶]  資料行中尋找訂用帳戶的名稱。
+    ![資源訂用帳戶名稱的螢幕擷取畫面](./media/billing-understand-your-azure-marketplace-charges/sub-selected.png)
+1. 按一下訂用帳戶名稱並[更新有效付款方式](billing-how-to-change-credit-card.md)。
 
 <!-- Update your payment methods for external service orders from the [Account Center](https://account.windowsazure.com/).
 
@@ -98,13 +98,13 @@ EA 客戶可以在 EA 入口網站看到外部服務消費並下載報告。 請
 如果想要取消外部服務訂單，請在 [Azure 入口網站](https://portal.azure.com)中刪除該資源。
 
 1. 登入 [Azure 入口網站](https://portal.azure.com)。
-1. 按一下 **的所有資源**左的導覽功能表中。
-    ![所有資源 功能表項目的螢幕擷取畫面](./media/billing-understand-your-azure-marketplace-charges/all-resources.png)
+1. 按一下左側導覽功能表中的 [所有資源]  。
+    ![所有資源功能表項目的螢幕擷取畫面](./media/billing-understand-your-azure-marketplace-charges/all-resources.png)
 1. 搜尋您的外部服務。
-1. 請檢查您想要刪除的資源旁的方塊。
-1. 選取 **刪除**命令列中。
-    ![[刪除] 按鈕的螢幕擷取畫面](./media/billing-understand-your-azure-marketplace-charges/delete-button.png)
-1. 型別 *'Yes'* 的確認刀鋒視窗中。
+1. 勾選要刪除的資源旁邊的方塊。
+1. 在命令列中選取 [刪除]  。
+    ![刪除按鈕的螢幕擷取畫面](./media/billing-understand-your-azure-marketplace-charges/delete-button.png)
+1. 在確認刀鋒視窗中輸入 [Yes]  。
     ![刪除資源](./media/billing-understand-your-azure-marketplace-charges/delete-resource.PNG)
 1. 按一下 [刪除]  。
 
@@ -113,7 +113,7 @@ EA 客戶可以在 EA 入口網站看到外部服務消費並下載報告。 請
 
 ## <a name="need-help-contact-us"></a>需要協助嗎？ 與我們連絡。
 
-如果您有任何疑問或需要協助，請[建立支援要求](https://go.microsoft.com/fwlink/?linkid=2083458)。
+如果您有問題或需要協助，請[建立支援要求](https://go.microsoft.com/fwlink/?linkid=2083458)。
 
 ## <a name="next-steps"></a>後續步驟
 - [開始分析成本](../cost-management/quick-acm-cost-analysis.md)

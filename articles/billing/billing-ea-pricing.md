@@ -1,6 +1,6 @@
 ---
-title: 檢視及下載您的組織 Azure 定價
-description: 了解如何檢視和下載定價或估計成本，以及您組織的價格。
+title: 檢視及下載組織的 Azure 定價
+description: 了解如何檢視和下載定價，或利用組織的定價來估計成本。
 author: bandersmsft
 manager: jureid
 tags: billing
@@ -13,22 +13,22 @@ ms.date: 07/01/2019
 ms.author: banders
 ms.custom: seodec18
 ms.openlocfilehash: a7f7da197a06dbbb730a7386882e534b8381cf9e
-ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
-ms.translationtype: MT
+ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/01/2019
+ms.lasthandoff: 09/11/2019
 ms.locfileid: "67491358"
 ---
-# <a name="view-and-download-your-organizations-azure-pricing"></a>檢視及下載您的組織 Azure 定價
+# <a name="view-and-download-your-organizations-azure-pricing"></a>檢視及下載組織的 Azure 定價
 
-Azure 客戶使用 Azure Enterprise 合約 (EA) 或[Microsoft 客戶合約](#check-your-access-to-a-microsoft-customer-agreement)可能檢視和下載 Azure 入口網站中的其定價。
+具有 Azure Enterprise 合約 (EA) 或 [Microsoft 客戶合約](#check-your-access-to-a-microsoft-customer-agreement)的 Azure 客戶可在 Azure 入口網站中檢視及下載其定價資訊。
 
 ## <a name="ea-pricing"></a>EA 定價
 
 根據企業系統管理員為組織所設定的原則，只有特定的系統管理角色可以提供組織 EA 價格資訊的存取權。 如需詳細資訊，請參閱[了解 Azure 中的 Azure Enterprise 合約系統管理角色](billing-understand-ea-roles.md)。
 
-1. 身為企業系統管理員，登入[Azure 入口網站](https://portal.azure.com/)。
-1. 搜尋*成本管理 + 計費*。
+1. 以企業系統管理員身分登入 [Azure 入口網站](https://portal.azure.com/)。
+1. 搜尋 [成本管理 + 帳單]  。
 
    ![顯示 Azure 入口網站搜尋的螢幕擷取畫面](./media/billing-ea-pricing/portal-cm-billing-search.png)
 
@@ -44,35 +44,35 @@ Azure 客戶使用 Azure Enterprise 合約 (EA) 或[Microsoft 客戶合約](#che
 
 ## <a name="microsoft-customer-agreement-pricing"></a>Microsoft 客戶合約定價
 
-您必須是計費的設定檔擁有者、 參與者、 讀取器或發票管理員檢視及下載定價。 若要深入了解計費角色適用於 Microsoft 客戶合約，請參閱[帳單設定檔角色和工作](billing-understand-mca-roles.md#billing-profile-roles-and-tasks)。
+您必須是帳單設定檔擁有者、參與者、讀者或發票管理員，才能檢視及下載定價資訊。 若要深入了解 Microsoft 客戶合約的計費角色，請參閱[帳單設定檔角色和工作](billing-understand-mca-roles.md#billing-profile-roles-and-tasks)。
 
-### <a name="download-price-sheets-for-the-current-billing-period"></a>目前計費週期下載價位表
+### <a name="download-price-sheets-for-the-current-billing-period"></a>下載目前計費期間的價位表
 
 1. 登入 [Azure 入口網站](https://portal.azure.com)。
-1. 搜尋*成本管理 + 計費*。
-1. 選取計費的設定檔。 根據您的存取權，您可能需要先選取計費帳戶。
-1. 在 **概觀**區域中，尋找下方至今的月份費用的下載連結。
-1. 選取  **Azure 價位表**。
-![從 [概觀] 顯示下載的螢幕擷取畫面](./media/billing-ea-pricing/open-pricing.png)
+1. 搜尋 [成本管理 + 帳單]  。
+1. 選取帳單設定檔。 視存取權之不同，您可能必須先選取計費帳戶。
+1. 在 [概觀]  區域中，尋找位於當月費用下方的下載連結。
+1. 選取 [Azure 價位表]  。
+![顯示從概觀下載的螢幕擷取畫面](./media/billing-ea-pricing/open-pricing.png)
 
 ### <a name="download-price-sheets-for-billed-charges"></a>下載計費費用的價位表
 
 1. 登入 [Azure 入口網站](https://portal.azure.com)。
-1. 搜尋*成本管理 + 計費*。
-1. 選取計費的設定檔。 根據您的存取權，您可能需要先選取計費帳戶。
+1. 搜尋 [成本管理 + 帳單]  。
+1. 選取帳單設定檔。 視存取權之不同，您可能必須先選取計費帳戶。
 1. 選取 [發票]  。
-1. 在發票方格中，尋找對應至您想要下載的價位表的發票的資料列。
-1. 按一下省略符號 (`...`) 結尾的資料列。
-![顯示選取的省略符號的螢幕擷取畫面](./media/billing-ea-pricing/billingprofile-invoicegrid.png)
+1. 在發票方格中，尋找與您要下載的價位表相對應的發票資料列。
+1. 按一下資料列結尾處的省略符號 (`...`)。
+![顯示已選取省略符號的螢幕擷取畫面](./media/billing-ea-pricing/billingprofile-invoicegrid.png)
 
-1. 如果您想要查看中選取發票的服務的價格，請選取**發票價位表**。
-1. 如果您想要查看針對給定的計費期間內的所有 Azure 服務的價格，請選取**Azure 價位表**。
+1. 如果您想要查看所選發票中各項服務的價格，請選取 [發票價位表]  。
+1. 如果您想要查看所有 Azure 服務在指定計費期間內的價格，請選取 [Azure 價位表]  。
 
-![顯示包含價位表的內容功能表的螢幕擷取畫面](./media/billing-ea-pricing/contextmenu-pricesheet.png)
+![顯示操作功能表中包含價位表的螢幕擷取畫面](./media/billing-ea-pricing/contextmenu-pricesheet.png)
 
-## <a name="estimate-costs-with-the-azure-pricing-calculator"></a>Azure 定價計算機與預估成本
+## <a name="estimate-costs-with-the-azure-pricing-calculator"></a>使用 Azure 定價計算機來估計成本
 
-您也可以使用貴組織的價格，以使用 Azure 價格計算機估算成本。
+您也可以利用 Azure 定價計算機，使用組織的定價來估計成本。
 
 1. 移至 [Azure 價格計算機](https://azure.microsoft.com/pricing/calculator)。
 1. 在右上方，選取 [登入]  。
@@ -83,25 +83,25 @@ Azure 客戶使用 Azure Enterprise 合約 (EA) 或[Microsoft 客戶合約](#che
 
 1. 選擇組織。
 1. 選取 [套用]  。
-1. 搜尋，然後將產品加入至您的預估值。
+1. 搜尋產品並新增至您的預估。
 1. 顯示的預估價格取決於您針對組織所選取的價格。
 
-## <a name="check-your-access-to-a-microsoft-customer-agreement"></a>請檢查您的存取權的 Microsoft 客戶合約
+## <a name="check-your-access-to-a-microsoft-customer-agreement"></a>檢查您對 Microsoft 客戶合約的存取權
 [!INCLUDE [billing-check-mca](../../includes/billing-check-mca.md)]
 
 ## <a name="next-steps"></a>後續步驟
 
 如果您是 EA 客戶，請參閱：
 
-- [管理您的 EA 計費資訊適用於 Azure 的存取](billing-manage-access.md)
-- [檢視及下載您 Microsoft Azure 發票](billing-download-azure-invoice.md)
+- [管理對 Azure EA 帳單資訊的存取](billing-manage-access.md)
+- [檢視及下載您的 Microsoft Azure 發票](billing-download-azure-invoice.md)
 - [檢視及下載您的 Microsoft Azure 使用量和費用](billing-download-azure-daily-usage.md)
 - [了解 Enterprise 合約客戶的帳單](billing-understand-your-bill-ea.md)
 
-如果您有 Microsoft 的客戶合約，請參閱：
+如果您有 Microsoft 客戶合約，請參閱：
 
-- [了解 Microsoft 的客戶合約的價位表中的條款](billing-mca-understand-pricesheet.md)
-- [檢視及下載您 Microsoft Azure 發票](billing-download-azure-invoice.md)
+- [了解您 Microsoft 客戶合約價位表中的詞彙](billing-mca-understand-pricesheet.md)
+- [檢視及下載您的 Microsoft Azure 發票](billing-download-azure-invoice.md)
 - [檢視及下載您的 Microsoft Azure 使用量和費用](billing-download-azure-daily-usage.md)
 - [檢視及下載帳單設定檔的稅務文件](billing-mca-download-tax-document.md)
-- [了解帳單設定檔的發票費用](billing-mca-understand-your-bill.md)
+- [了解帳單設定檔發票上的費用](billing-mca-understand-your-bill.md)

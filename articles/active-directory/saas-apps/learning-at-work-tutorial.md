@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 08/01/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8f04e6f8df55059e2aa2981f85f40e487c6f0f8b
-ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
+ms.openlocfilehash: 3249957fa20c208d0fd06c676200753163d4bfc8
+ms.sourcegitcommit: aebe5a10fa828733bbfb95296d400f4bc579533c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68823677"
+ms.lasthandoff: 09/05/2019
+ms.locfileid: "70376083"
 ---
 # <a name="tutorial-integrate-learning-at-work-with-azure-active-directory"></a>教學課程：整合 Learning at Work 與 Azure Active Directory
 
@@ -90,9 +90,9 @@ ms.locfileid: "68823677"
     > [!NOTE]
     > 這些都不是真正的值。 請使用實際的「登入 URL」及「識別碼」來更新這些值。 請連絡 [Learning at Work 客戶支援小組](https://www.learninga-z.com/site/contact/support)以取得這些值。 您也可以參考 Azure 入口網站中**基本 SAML 組態**區段所示的模式。
 
-5. Learning at Work 應用程式需要特定格式的 SAML 判斷提示，要求您加入自訂屬性對應到您的 SAML 權杖屬性組態。 下列螢幕擷取畫面顯示預設屬性清單，其中的 **nameidentifier** 與 **user.userprincipalname** 相對應。
+5. Learning at Work 應用程式需要特定格式的 SAML 判斷提示，要求您加入自訂屬性對應到您的 SAML 權杖屬性組態。 下列螢幕擷取畫面顯示預設屬性清單，其中的 **nameidentifier** 與 **user.userprincipalname** 相對應。
 
-    您可以根據組織設定來更新 Azure AD 中的 **nameidentifier** 值，且此值必須與 SABA 雲端中的**使用者識別碼**相符，為此您必須編輯屬性對應，方法是按一下 [ **編輯**]  圖示，然後變更屬性對應。
+    您可以根據組織設定來更新 Azure AD 中的 **nameidentifier** 值，且此值必須與 SABA 雲端中的**使用者識別碼**相符，為此您必須編輯屬性對應，方法是按一下 [編輯]  圖示，然後變更屬性對應。
 
     ![image](common/edit-attribute.png)
 
@@ -140,7 +140,7 @@ ms.locfileid: "68823677"
 
 ### <a name="create-learning-at-work-test-user"></a>建立 Learning at Work 測試使用者
 
-在本節中，您會在 Learning at Work 中建立名為 B.Simon 的使用者。 請與 [Learning at Work 支援小組](https://www.learninga-z.com/site/contact/support)合作，在 Learning at Work 平台中新增使用者。 您必須先建立和啟動使用者，然後才能使用單一登入。
+在本節中，您會在 Learning at Work 中建立名為 B.Simon 的使用者。 請與 [Learning at Work 支援小組](https://www.learninga-z.com/site/contact/support)合作，在 Learning at Work 平台中新增使用者。 您必須先建立和啟動使用者，然後才能使用單一登入。
 
 ### <a name="test-sso"></a>測試 SSO 
 

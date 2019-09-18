@@ -13,15 +13,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 08/29/2019
+ms.date: 09/06/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fa0ec97683fe8597ced234fe4b7251a4daeed49f
-ms.sourcegitcommit: ee61ec9b09c8c87e7dfc72ef47175d934e6019cc
+ms.openlocfilehash: 00cbb5ff4b9354d0d1702161460b2646669f34c2
+ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70174364"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70844361"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-ms-azure-sso-access-for-ethidex-compliance-office"></a>教學課程：Azure Active Directory 單一登入 (SSO) 與 MS Azure SSO Access for Ethidex Compliance Office™ 整合
 
@@ -80,8 +80,14 @@ ms.locfileid: "70174364"
 
    ![編輯基本 SAML 組態](common/edit-urls.png)
 
-1. 在 [基本 SAML 設定]  設定區段上，已預先設定好應用程式，並已經為 Azure 預先填入必要的 URL。 使用者必須按一下 [儲存]  按鈕，才能儲存設定。
+1. 在 [基本 SAML 組態]  區段上，輸入下列欄位的值：
 
+    a. 在 [識別碼]  文字方塊中，使用下列模式來輸入 URL：`com.ethidex.prod.<CLIENTID>`
+
+    b. 在 [回覆 URL]  文字方塊中，使用下列模式來輸入 URL：`https://www.ethidex.com/saml2/sp/acs/<CLIENTID>`
+
+    > [!NOTE]
+    > 這些都不是真正的值。 請使用實際的識別碼和回覆 URL 更新這些值。 請連絡 [MS Azure SSO Access for Ethidex Compliance Office™ 支援小組](mailto:support@ethidex.com)來取得這些值。 您也可以參考 Azure 入口網站中**基本 SAML 組態**區段所示的模式。
 
 1. MS Azure SSO Access for Ethidex Compliance Office™ 應用程式會預期要有特定格式的 SAML 判斷提示，因此您必須將自訂屬性對應新增到您的 SAML 權杖屬性組態。 下列螢幕擷取畫面顯示預設屬性清單，其中的 **nameidentifier** 與 **user.userprincipalname** 相對應。 MS Azure SSO Access for Ethidex Compliance Office™ 應用程式會預期 **nameidentifier** 與 **user.mail** 對應，因此您必須按一下 [編輯]  圖示並變更屬性對應，來編輯屬性對應。
 

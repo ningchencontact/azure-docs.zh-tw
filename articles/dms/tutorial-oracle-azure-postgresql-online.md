@@ -10,13 +10,13 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: article
-ms.date: 05/24/2019
-ms.openlocfilehash: 0b3af3d29e6e938f0301d751a79170c7c1964b45
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.date: 09/10/2019
+ms.openlocfilehash: 8944a5adbe1b9e129b4a95c64aaa7a75fb96ac82
+ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66243807"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70845575"
 ---
 # <a name="tutorial-migrate-oracle-to-azure-database-for-postgresql-online-using-dms-preview"></a>教學課程：使用 DMS 在線上將 Oracle 遷移至適用於 PostgreSQL 的 Azure 資料庫 (預覽)
 
@@ -166,27 +166,6 @@ ms.locfileid: "66243807"
 
     您應該會收到回應 `'YES'`。
 
-> [!IMPORTANT]
-> 針對此案例的公開預覽版本，Azure 資料庫移轉服務可支援 Oracle 10g 或 11g 版本。 執行 Oracle 12c 或更新版本的客戶請注意，想要讓 ODBC 驅動程式能夠連線至 Oracle，驗證通訊協定至少必須是 8。 若為 12c 或更新版本的 Oracle 來源，則必須將驗證通訊協定設定如下：
->
-> * 更新 SQLNET.ORA：
->
->    ```
->    SQLNET.ALLOWED_LOGON_VERSION_CLIENT = 8
->    SQLNET.ALLOWED_LOGON_VERSION_SERVER = 8
->    ```
->
-> * 重新啟動電腦，以使新的設定生效。
-> * 變更現有使用者的密碼：
->
->    ```
->    ALTER USER system IDENTIFIED BY {pswd}
->    ```
->
->   如需詳細資訊，請參閱[這裡](http://www.dba-oracle.com/t_allowed_login_version_server.htm)的頁面。
->
-> 最後請記住，變更驗證通訊協定可能會影響用戶端的驗證。
-
 ## <a name="assess-the-effort-for-an-oracle-to-azure-database-for-postgresql-migration"></a>評估將 Oracle 遷移至適用於 PostgreSQL 的 Azure 資料庫所需進行的工作
 
 建議您使用 ora2pg 來評估從 Oracle 遷移至適用於 PostgreSQL 的 Azure 資料庫時所需進行的工作。 請使用 `ora2pg -t SHOW_REPORT` 指示詞來建立報告，於其中列出所有的 Oracle 物件、估計的移轉成本 (以開發人員工作天數計算)，以及某些可能要在轉換過程中特別注意的資料庫物件。
@@ -215,67 +194,60 @@ psql -f %namespace%\schema\sequences\sequence.sql -h server1-server.postgres.dat
 
 ## <a name="set-up-the-schema-in-azure-database-for-postgresql"></a>在適用於 PostgreSQL 的 Azure 資料庫中設定結構描述
 
-根據預設，Oracle 會將 schema.table.column 保持在全都大寫的狀態，PostgreSQL 則會將 schema.table.column 保持在小寫狀態。 若要讓 Azure 資料庫移轉服務開始將資料從 Oracle 移至適用於 PostgreSQL 的 Azure 資料庫，schema.table.column 的大小寫格式必須和 Oracle 來源相同。
+在 Azure 資料庫移轉服務中啟動移轉管線之前，您可以選擇使用 ora2pg 來轉換 Oracle 資料表結構描述、預存程式、套件和其他資料庫物件，使其與 Postgres 相容。 請參閱下列連結，以了解如何使用 ora2pg：
 
-例如，如果 Oracle 來源的結構描述為 “HR”.”EMPLOYEES”.”EMPLOYEE_ID”，則 PostgreSQL 的結構描述必須使用相同格式。
+* [在 Windows 上安裝 ora2pg](https://github.com/Microsoft/DataMigrationTeam/blob/master/Whitepapers/Steps%20to%20Install%20ora2pg%20on%20Windows.pdf)
+* [從 Oracle 移轉至 Azure PostgreSQL 的逐步指南](https://github.com/Microsoft/DataMigrationTeam/blob/master/Whitepapers/Oracle%20to%20Azure%20PostgreSQL%20Migration%20Cookbook.pdf)
 
-若要確保 schema.table.column 的大小寫格式在 Oracle 和適用於 PostgreSQL 的 Azure 資料庫中是相同的，建議您使用下列步驟。
+Azure 資料庫移轉服務也可以建立 PostgreSQL 資料表結構描述。 此服務會存取已連線 Oracle 來源中的資料表結構描述，並在適用於 PostgreSQL 的 Azure 資料庫中建立相容的資料表結構描述。 請務必在 Azure 資料庫移轉服務完成建立結構描述並移動資料之後，在適用於 PostgreSQL 的 Azure 資料庫中驗證並檢查結構描述格式。
+
+> [!IMPORTANT]
+> Azure 資料庫移轉服務只會建立資料表結構描述；不會建立其他資料庫物件，例如預存程序、套件、索引等等。
+
+也請務必在目標資料庫中放入外部索引鍵，以便能夠執行完整載入。 如需可用來放入外部索引鍵的指令碼，請參閱[此處](https://docs.microsoft.com/azure/dms/tutorial-postgresql-azure-postgresql-online)文章的**遷移結構描述範例**一節。 使用 Azure 資料庫移轉服務來執行完整載入和同步處理。
+
+### <a name="when-the-postgresql-table-schema-already-exists"></a>當 PostgreSQL 資料表結構描述已存在時
+
+如果您在開始使用 Azure 資料庫移轉服務進行資料移動之前，使用 ora2pg 之類的工具建立 PostgreSQL 結構描述，請將來源資料表對應至 Azure 資料庫移轉服務中的目標資料表。
+
+1. 當您對適用於 PostgreSQL 的 Azure 資料庫移轉專案建立新的 Oracle 時，系統會在 [選取結構描述] 步驟中提示您選取目標資料庫和目標結構描述。 填入目標資料庫和目標結構描述。
+
+   ![顯示入口網站訂用帳戶](media/tutorial-oracle-azure-postgresql-online/dms-map-to-target-databases.png)
+
+2. [移轉設定]  畫面會顯示 Oracle 來源中資料表的清單。 Azure 資料庫移轉服務會嘗試根據資料表名稱，來比對來源中的資料表和目標資料表。 如果有多個相符的目標資料表存在不同的大小寫，您可以選取要對應的目標資料表。
+
+    ![顯示入口網站訂用帳戶](media/tutorial-oracle-azure-postgresql-online/dms-migration-settings.png)
 
 > [!NOTE]
-> 您可以使用不同的方法來衍生大寫結構描述。 我們正努力改善此步驟並讓其自動執行。
+> 如果您需要將來源資料表名稱對應至具有不同名稱的資料表，請傳送電子郵件給 [dmsfeedback@microsoft.com](mailto:dmsfeedbac@microsoft.com)，我們便能提供指令碼來讓您將程序自動化。
 
-1. 使用 ora2pg 匯出小寫的結構描述。 在資料表建立 sql 指令碼中，請以手動方式建立大寫的 "SCHEMA" 結構描述。
-2. 將其餘 Oracle 物件 (例如，觸發程序、序列、程序、類型和函式) 匯入到適用於 PostgreSQL 的 Azure 資料庫。
-3. 若要讓 TABLE 和 COLUMN 變成大寫，請執行下列指令碼：
+### <a name="when-the-postgresql-table-schema-doesnt-exist"></a>當 PostgreSQL 資料表結構描述不存在時
 
-   ```
-   -- INPUT: schema name
-   set schema.var = “HR”;
+如果目標 PostgreSQL 資料庫未包含任何資料表結構描述資訊，Azure 資料庫移轉服務便會轉換來源結構描述，並在目標資料庫中加以重新建立。 請記住，Azure 資料庫移轉服務只會建立資料表結構描述；不會建立其他資料庫物件，例如預存程序、套件和索引。
+若要讓 Azure 資料庫移轉服務為您建立結構描述，請確定目標環境包含沒有現有資料表的結構描述。 如果 Azure 資料庫移轉服務探索到任何資料表，便會假設該結構描述是由外部工具 (例如 ora2pg) 所建立的。
 
-   -- Generate statements to rename tables and columns
-   SELECT 1, 'SET search_path = "' ||current_setting('schema.var')||'";'
-   UNION ALL 
-   SELECT 2, 'alter table "'||c.relname||'" rename '||a.attname||' to "'||upper(a.attname)||'";'
-   FROM pg_class c
-   JOIN pg_attribute a ON a.attrelid = c.oid
-   JOIN pg_type t ON a.atttypid = t.oid
-   LEFT JOIN pg_catalog.pg_constraint r ON c.oid = r.conrelid
-    AND r.conname = a.attname
-   WHERE c.relnamespace = (select oid from pg_namespace where nspname=current_setting('schema.var')) AND a.attnum > 0 AND c.relkind ='r'
-   UNION ALL
-   SELECT 3, 'alter table '||c.relname||' rename to "'||upper(c.relname)||'";'
-   FROM pg_catalog.pg_class c
-    LEFT JOIN pg_catalog.pg_namespace n ON n.oid = c.relnamespace
-   WHERE c.relkind ='r' AND n.nspname=current_setting('schema.var')
-   ORDER BY 1;
-   ```
+> [!IMPORTANT]
+> Azure 資料庫移轉服務要求所有資料表都必須以相同方式建立，使用的方法可以是 Azure 資料庫移轉服務或 ora2pg 之類的工具，但不能同時使用兩者。
 
-* 在目標資料庫中放入外部索引鍵，以便能夠執行完整載入。 如需可用來放入外部索引鍵的指令碼，請參閱[此處](https://docs.microsoft.com/azure/dms/tutorial-postgresql-azure-postgresql-online)文章的**遷移結構描述範例**一節。
-* 使用 Azure 資料庫移轉服務來執行完整載入和同步處理。
-* 當作為目標的適用於 PostgreSQL 的 Azure 資料庫執行個體中的資料與來源一致時，請在 Azure 資料庫移轉服務中執行資料庫完全移轉。
-* 若要讓 SCHEMA、TABLE 和 COLUMN 變成小寫 (如果適用於 PostgreSQL 的 Azure 資料庫的結構描述應該使用小寫才能進行應用程式查詢)，請執行下列指令碼：
+開始進行之前：
 
-  ```
-  -- INPUT: schema name
-  set schema.var = hr;
-  
-  -- Generate statements to rename tables and columns
-  SELECT 1, 'SET search_path = "' ||current_setting('schema.var')||'";'
-  UNION ALL
-  SELECT 2, 'alter table "'||c.relname||'" rename "'||a.attname||'" to '||lower(a.attname)||';'
-  FROM pg_class c
-  JOIN pg_attribute a ON a.attrelid = c.oid
-  JOIN pg_type t ON a.atttypid = t.oid
-  LEFT JOIN pg_catalog.pg_constraint r ON c.oid = r.conrelid
-     AND r.conname = a.attname
-  WHERE c.relnamespace = (select oid from pg_namespace where nspname=current_setting('schema.var')) AND a.attnum > 0 AND c.relkind ='r'
-  UNION ALL
-  SELECT 3, 'alter table "'||c.relname||'" rename to '||lower(c.relname)||';'
-  FROM pg_catalog.pg_class c
-     LEFT JOIN pg_catalog.pg_namespace n ON n.oid = c.relnamespace
-  WHERE c.relkind ='r' AND n.nspname=current_setting('schema.var')
-  ORDER BY 1;
-  ```
+1. 根據應用程式需求在目標資料庫中建立結構描述。 根據預設，PostgreSQL 資料表結構描述和資料行的名稱會採用小寫。 另一方面，Oracle 資料表結構描述和資料行則預設會採用全部大寫。
+2. 在 [選取結構描述] 步驟中，指定目標資料庫和目標結構描述。
+3. 根據您在適用於 PostgreSQL 的 Azure 資料庫中建立的結構描述，Azure 資料庫移轉服務會使用下列轉換規則：
+
+    如果 Oracle 來源中的結構描述名稱與適用於 PostgreSQL 的 Azure 資料庫中的結構描述名稱相符，則 Azure 資料庫移轉服務會「使用與目標相同的大小寫來建立資料表結構描述」  。
+
+    例如︰
+
+    | 來源 Oracle 結構描述 | 目標 PostgreSQL Database.Schema | DMS 建立的 schema.table.column |
+    | ------------- | ------------- | ------------- |
+    | HR | targetHR.public | public.countries.country_id |
+    | HR | targetHR.trgthr | trgthr.countries.country_id |
+    | HR | targetHR.TARGETHR | “TARGETHR”.”COUNTRIES”.”COUNTRY_ID” |
+    | HR | targetHR.HR | “HR”.”COUNTRIES”.”COUNTRY_ID” |
+    | HR | targetHR.Hr | *無法對應混合大小寫 |
+
+    *若要在目標 PostgreSQL 中建立混合大小寫的結構描述和資料表名稱，請連絡 [dmsfeedback@microsoft.com](mailto:dmsfeedback@microsoft.com)。 我們可以提供指令碼供您在目標 PostgreSQL 資料庫中設定混合大小寫的資料表結構描述。
 
 ## <a name="register-the-microsoftdatamigration-resource-provider"></a>註冊 Microsoft.DataMigration 資源提供者
 
