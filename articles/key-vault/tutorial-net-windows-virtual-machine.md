@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 01/02/2019
 ms.author: mbaldwin
 ms.custom: mvc
-ms.openlocfilehash: e2e730c623b6ee802938b930c4874f6c4920cc64
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: fbda2f645308e30a6f408335b7a1b37095522921
+ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68934409"
+ms.lasthandoff: 09/15/2019
+ms.locfileid: "71003312"
 ---
 # <a name="tutorial-use-azure-key-vault-with-a-windows-virtual-machine-in-net"></a>教學課程：在 .NET 中搭配使用 Azure Key Vault 與 Windows 虛擬機器
 
@@ -33,7 +33,7 @@ Azure Key Vault 可協助您保護秘密，例如，API 金鑰、存取應用程
 > * 啟用虛擬機器的[受控識別](../active-directory/managed-identities-azure-resources/overview.md)。
 > * 對 VM 身分識別指派權限。
 
-在開始之前，請先閱讀 [Key Vault 基本概念](key-vault-whatis.md#basic-concepts)。 
+在開始之前，請先閱讀 [Key Vault 基本概念](basic-concepts.md)。 
 
 如果您沒有 Azure 訂用帳戶，請建立[免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)。
 
@@ -47,7 +47,7 @@ Azure Key Vault 可協助您保護秘密，例如，API 金鑰、存取應用程
 
 Azure Key Vault 可安全地儲存認證，因此認證不會在程式碼內顯示出來。 不過，您需要向 Azure Key Vault 驗證才能擷取您的金鑰。 若要向 Key Vault 進行驗證，您必須要有認證。 這是典型的啟動程序難題。 受控服務識別 (MSI) 可藉由提供可簡化此程序的「啟動程序身分識別」  來解決此問題。
 
-當您針對 Azure 服務 (例如，Azure 虛擬機器、Azure App Service 或 Azure Functions) 啟用 MSI 時，Azure 會建立[服務主體](key-vault-whatis.md#basic-concepts)。 MSI 會在 Azure Active Directory (Azure AD) 中為服務執行個體執行此作業，並將服務主體的認證插入該執行個體中。 
+當您針對 Azure 服務 (例如，Azure 虛擬機器、Azure App Service 或 Azure Functions) 啟用 MSI 時，Azure 會建立[服務主體](basic-concepts.md)。 MSI 會在 Azure Active Directory (Azure AD) 中為服務執行個體執行此作業，並將服務主體的認證插入該執行個體中。 
 
 ![MSI](media/MSI.png)
 

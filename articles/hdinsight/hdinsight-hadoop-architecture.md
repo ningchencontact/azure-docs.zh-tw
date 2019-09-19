@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/27/2019
-ms.openlocfilehash: 66e0654162d3d0ac68d8fc1622358b36268569cf
-ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
+ms.openlocfilehash: 3767ea10d777a0ea7ad88a2ffa4793e866ffbe6c
+ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70916505"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71091475"
 ---
 # <a name="apache-hadoop-architecture-in-hdinsight"></a>HDInsight 上的 Apache Hadoop 架構
 
@@ -45,7 +45,7 @@ NodeManagers 會執行組成應用程式的各項工作，然後將其進度和�
 
 所有的 HDInsight 叢集類型皆會部署 YARN。 ResourceManager 的部署是為了達到高可用性，有主要和次要執行個體，其分別在叢集內的第一個和第二個前端節點上執行。 一次只會有一個 ResourceManager 執行個體處於使用中狀態。 NodeManager 執行個體會在叢集中可用的背景工作節點上執行。
 
-![HDInsight 上的 YARN](./media/hdinsight-hadoop-architecture/apache-yarn-on-hdinsight.png)
+![Azure HDInsight 上的 Apache YARN](./media/hdinsight-hadoop-architecture/apache-yarn-on-hdinsight.png)
 
 ## <a name="next-steps"></a>後續步驟
 

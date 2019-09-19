@@ -11,16 +11,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 05/07/2019
+ms.date: 09/17/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7b898a93b87811fa5139e148a3273d7051af851b
-ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
-ms.translationtype: HT
+ms.openlocfilehash: 1f9b6d4ce4048b31f17b50184f90aed4d2a8ba81
+ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71056281"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71086563"
 ---
 # <a name="scenario-web-app-that-signs-in-users"></a>案例：登入使用者的 Web 應用程式
 
@@ -32,15 +32,35 @@ ms.locfileid: "71056281"
 
 ## <a name="getting-started"></a>使用者入門
 
+# <a name="aspnet-coretabaspnetcore"></a>[ASP.NET Core](#tab/aspnetcore)
+
 如果您想要建立登入使用者的第一個可攜（ASP.NET Core） web 應用程式，請遵循此快速入門：
 
 > [!div class="nextstepaction"]
 > [快速入門：登入使用者 ASP.NET Core web 應用程式](quickstart-v2-aspnet-core-webapp.md)
 
-如果您想要繼續使用 ASP.NET，請嘗試下列教學課程：
+# <a name="aspnettabaspnet"></a>[ASP.NET](#tab/aspnet)
+
+如果您想要瞭解如何將登入新增至舊版 ASP.NET web 應用程式，請嘗試下列教學課程：
 
 > [!div class="nextstepaction"]
 > [快速入門：登入使用者的 ASP.NET web 應用程式](quickstart-v2-aspnet-webapp.md)
+
+# <a name="javatabjava"></a>[Java](#tab/java)
+
+如果您是 JAVA 開發人員，請嘗試下列快速入門：
+
+> [!div class="nextstepaction"]
+> [快速入門：將使用 Microsoft 的登入新增至 JAVA web 應用程式](quickstart-v2-java-webapp.md)
+
+# <a name="pythontabpython"></a>[Python](#tab/python)
+
+如果您使用 Python 進行開發，請嘗試：
+
+> [!div class="nextstepaction"]
+> [快速入門：將使用 Microsoft 的登入新增至 Python web 應用程式](quickstart-v2-python-webapp.md)
+
+---
 
 ## <a name="overview"></a>總覽
 
@@ -51,7 +71,7 @@ ms.locfileid: "71056281"
 在第二個階段中，您也可以讓應用程式代表登入的使用者呼叫 Web Api。 下一個階段是不同的案例，您可以在[Web 應用程式呼叫 Web api](scenario-web-app-call-api-overview.md)中找到
 
 > [!NOTE]
-> 將登入新增至 web 應用程式時，是關於保護 web 應用程式，以及驗證使用者權杖，這是**中介軟體**程式庫的功能。 此案例尚不需要 Microsoft 驗證程式庫（MSAL），這是關於取得權杖以呼叫受保護的 Api。 只有當 web 應用程式需要呼叫 web Api 時，才會在後續的案例中引進驗證程式庫。
+> 將登入新增至 web 應用程式時，是關於保護 web 應用程式，以及驗證使用者權杖，這是**中介軟體**程式庫的功能。 在 .NET 中，此案例不需要 Microsoft 驗證程式庫（MSAL），這是關於取得權杖以呼叫受保護的 Api。 只有當 web 應用程式需要呼叫 web Api 時，才會在後續的案例中引進驗證程式庫。
 
 ## <a name="specifics"></a>瞭解
 

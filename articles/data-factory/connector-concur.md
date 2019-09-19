@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/01/2019
 ms.author: jingwang
-ms.openlocfilehash: 2b2b1933c19b3f488ba0c1e2b18052be16c8d101
-ms.sourcegitcommit: a819209a7c293078ff5377dee266fa76fd20902c
+ms.openlocfilehash: 89c497286b8fcb7650bac2ed9c4eff6a2a500c1d
+ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/16/2019
-ms.locfileid: "71010666"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71092146"
 ---
 # <a name="copy-data-from-concur-using-azure-data-factory-preview"></a>使用 Azure Data Factory 從 Concur 複製資料 (預覽)
 
@@ -30,7 +30,7 @@ ms.locfileid: "71010666"
 
 下列活動支援此 Concur 連接器：
 
-- [複製活動](copy-activity-overview.md)與[支援的來源矩陣](copy-activity-overview.md)
+- [複製活動](copy-activity-overview.md)與[支援的來源/接收矩陣](copy-activity-overview.md)
 - [查閱活動](control-flow-lookup-activity.md)
 
 您可以將資料從 Concur 複製到任何支援的接收資料存放區。 如需複製活動所支援作為來源/接收器的資料存放區清單，請參閱[支援的資料存放區](copy-activity-overview.md#supported-data-stores-and-formats)表格。
@@ -52,7 +52,7 @@ Azure Data Factory 提供的內建驅動程式可啟用連線，因此使用此�
 
 | 屬性 | 描述 | 必要項 |
 |:--- |:--- |:--- |
-| Type | 類型屬性必須設定為：**Concur** | 是 |
+| 型別 | 類型屬性必須設定為：**Concur** | 是 |
 | clientId | Concur 應用程式管理所提供的應用程式 client_id。  | 是 |
 | username | 您用來存取 Concur 服務的使用者名稱。  | 是 |
 | password | 對應至您在 [使用者名稱] 欄位中提供之使用者名稱的密碼。 將此欄位標記為 SecureString，將它安全地儲存在 Data Factory 中，或[參考 Azure Key Vault 中儲存的祕密](store-credentials-in-key-vault.md)。 | 是 |
@@ -87,7 +87,7 @@ Azure Data Factory 提供的內建驅動程式可啟用連線，因此使用此�
 
 | 屬性 | 描述 | 必要項 |
 |:--- |:--- |:--- |
-| Type | 資料集的類型屬性必須設定為：**ConcurObject** | 是 |
+| 型別 | 資料集的類型屬性必須設定為：**ConcurObject** | 是 |
 | tableName | 資料表的名稱。 | 否 (如果已指定活動來源中的"query") |
 
 
@@ -118,7 +118,7 @@ Azure Data Factory 提供的內建驅動程式可啟用連線，因此使用此�
 
 | 屬性 | 描述 | 必要項 |
 |:--- |:--- |:--- |
-| Type | 複製活動來源的類型屬性必須設定為：**ConcurSource** | 是 |
+| 型別 | 複製活動來源的類型屬性必須設定為：**ConcurSource** | 是 |
 | query | 使用自訂 SQL 查詢來讀取資料。 例如： `"SELECT * FROM Opportunities where Id = xxx "` 。 | 否 (如果已指定資料集中的 "tableName") |
 
 **範例:**

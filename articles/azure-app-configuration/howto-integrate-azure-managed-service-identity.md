@@ -1,6 +1,6 @@
 ---
-title: 整合與 Azure 受管理身分識別 |Microsoft Docs
-description: 了解如何使用 Azure 受管理身分識別來驗證，並存取 Azure 應用程式設定
+title: 與 Azure 受控識別整合 |Microsoft Docs
+description: 瞭解如何使用 Azure 受控識別來進行驗證，並取得 Azure 應用程式組態的存取權
 services: azure-app-configuration
 documentationcenter: ''
 author: yegu-ms
@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/24/2019
 ms.author: yegu
-ms.openlocfilehash: 3977991386dbcd07e92f21d1ac541f486b4f7f0a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 4318c4b4d8f1b1f0974d0fae0a2ae5bd6e94b593
+ms.sourcegitcommit: 8ef0a2ddaece5e7b2ac678a73b605b2073b76e88
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66393656"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71076541"
 ---
 # <a name="integrate-with-azure-managed-identities"></a>與 Azure 受控識別整合
 
@@ -30,13 +30,13 @@ Azure Active Directory [受控識別](https://docs.microsoft.com/azure/active-di
 
 您可以使用任何程式碼編輯器來進行本教學課程中的步驟。 Windows、macOS 及 Linux 平台上都有提供的 [Visual Studio Code](https://code.visualstudio.com/) 是一個絕佳的選項。
 
-在本教學課程中，您了解如何：
+在本教學課程中，您會了解如何：
 
 > [!div class="checklist"]
 > * 授與「應用程式組態」的受控識別存取權。
 > * 設定讓應用程式在您連線到「應用程式組態」時使用受控識別。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 若要完成本教學課程，您必須具備：
 
@@ -49,33 +49,37 @@ Azure Active Directory [受控識別](https://docs.microsoft.com/azure/active-di
 
 若要在入口網站中設定受控身分識別，您需先像平常一樣建立應用程式，然後再啟用此功能。
 
-1. 像平常一樣在 [Azure入口網站](https://portal.azure.com)中建立應用程式。 在入口網站中移至該應用程式。
+1. 如往常一般，在[Azure 入口網站](https://portal.azure.com)中建立應用程式服務實例。 在入口網站中移至該應用程式。
 
-2. 在左側窗格中，向下捲動到 [設定]  群組，然後選取 [身分識別]  。
+2. 在左側窗格中，向下捲動到 [設定] 群組，然後選取 [身分識別]。
 
-3. 在 [系統指派]  索引標籤上，將 [狀態]  切換成 [開啟]  ，然後選取 [儲存]  。
+3. 在 [系統指派] 索引標籤上，將 [狀態] 切換成 [開啟]，然後選取 [儲存]。
+
+4. 當系統指派的受控識別出現提示時，回答 **[是]** 。
 
     ![在 App Service 中設定受控識別](./media/set-managed-identity-app-service.png)
 
 ## <a name="grant-access-to-app-configuration"></a>授與應用程式設定的存取權
 
-1. 在 [Azure 入口網站](https://portal.azure.com)中，選取 [所有資源]  ，然後選取您在快速入門中建立的應用程式組態存放區。
+1. 在 [Azure 入口網站](https://portal.azure.com)中，選取 [所有資源]，然後選取您在快速入門中建立的應用程式組態存放區。
 
-2. 選取 [存取控制 (IAM)]  。
+2. 選取 [存取控制 (IAM)]。
 
-3. 在 [檢查存取權]  索引標籤上，選取 [新增角色指派]  卡片 UI 中的 [新增]  。
+3. 在 [檢查存取權] 索引標籤上，選取 [新增角色指派] 卡片 UI 中的 [新增]。
 
-4. 在 [角色]  底下，選取 [參與者]  。 在 [存取權指派對象為]  底下，選取 [系統指派的受控識別]  底下的 [App Service]  。
+4. 在 [角色] 底下，選取 [參與者]。 在 [存取權指派對象為] 底下，選取 [系統指派的受控識別] 底下的 [App Service]。
 
-5. 在 [訂用帳戶]  底下，選取您的 Azure 訂用帳戶。 選取您應用程式的 App Service 資源。
+5. 在 [訂用帳戶] 底下，選取您的 Azure 訂用帳戶。 選取您應用程式的 App Service 資源。
 
-6. 選取 [ **儲存**]。
+6. 選取 [儲存]。
 
     ![新增受控識別](./media/add-managed-identity.png)
 
 ## <a name="use-a-managed-identity"></a>建立受控識別
 
-1. 開啟 *appsettings.json*，然後新增下列指令碼。 以您應用程式組態存放區的 URL 取代 *\<service_endpoint>* (包括括弧)：
+1. 前往 Azure 入口網站中的 [設定] 畫面，然後按一下 [**存取金鑰**] 索引標籤，以尋找應用程式設定存放區的 URL。
+
+2. 開啟 *appsettings.json*，然後新增下列指令碼。 以應用程式設定存放區的 URL 取代 *\<service_endpoint >* （包括括弧）。 
 
     ```json
     "AppConfig": {
@@ -83,7 +87,7 @@ Azure Active Directory [受控識別](https://docs.microsoft.com/azure/active-di
     }
     ```
 
-2. 開啟 *Program.cs*，然後取代 `config.AddAzureAppConfiguration()` 方法來更新 `CreateWebHostBuilder` 方法。
+3. 開啟 *Program.cs*，然後取代 `config.AddAzureAppConfiguration()` 方法來更新 `CreateWebHostBuilder` 方法。
 
     ```csharp
     public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
@@ -110,6 +114,13 @@ Azure Active Directory [受控識別](https://docs.microsoft.com/azure/active-di
 [!INCLUDE [Configure a deployment user](../../includes/configure-deployment-user-no-h.md)]
 
 ### <a name="enable-local-git-with-kudu"></a>使用 Kudu 啟用本機 Git
+如果您的應用程式還沒有本機 git 存放庫，您必須從應用程式的專案目錄執行下列命令，將它初始化：
+
+```cmd
+git init
+git add .
+git commit -m "Initial version"
+```
 
 若要使用 Kudu 組建伺服器為您的應用程式啟用本機 Git 部署，請在 Cloud Shell 中執行 [`az webapp deployment source config-local-git`](/cli/azure/webapp/deployment/source?view=azure-cli-latest#az-webapp-deployment-source-config-local-git)。
 
@@ -143,7 +154,7 @@ Local git is configured with url of 'https://<username>@<app_name>.scm.azurewebs
 
 ### <a name="deploy-your-project"></a>部署專案
 
-回到「本機終端視窗」  ，將 Azure 遠端新增至本機 Git 存放庫。 使用從[為應用程式啟用 Git](#enable-local-git-with-kudu) 中取得的 Git 遠端 URL 來取代 _\<url>_ 。
+回到「本機終端視窗」，將 Azure 遠端新增至本機 Git 存放庫。 使用從[為應用程式啟用 Git](#enable-local-git-with-kudu) 中取得的 Git 遠端 URL 來取代 _\<url>_ 。
 
 ```bash
 git remote add azure <url>

@@ -8,12 +8,12 @@ ms.service: key-vault
 ms.topic: tutorial
 ms.date: 08/12/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 952126b76b00ff472181c72b1fd7b1a0e1b14e40
-ms.sourcegitcommit: 62bd5acd62418518d5991b73a16dca61d7430634
+ms.openlocfilehash: 51e5c654da95732409c3bbb7acae088d8935a59d
+ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68976354"
+ms.lasthandoff: 09/15/2019
+ms.locfileid: "71000630"
 ---
 # <a name="manage-key-vault-using-the-azure-cli"></a>使用 Azure CLI 來管理 Key Vault 
 
@@ -35,8 +35,8 @@ ms.locfileid: "68976354"
 > 本文並未說明如何撰寫其中一個步驟所包含的 Azure 應用程式，但會示範如何授權應用程式使用金鑰保存庫中的金鑰或密碼。
 >
 
-如需 Azure Key Vault 的概觀，請參閱[什麼是 Azure Key Vault？](key-vault-whatis.md)
-如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 。
+如需 Azure Key Vault 的概觀，請參閱[什麼是 Azure Key Vault？](key-vault-overview.md)
+如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)。
 
 ## <a name="prerequisites"></a>必要條件
 

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 09/16/2019
 ms.author: jingwang
-ms.openlocfilehash: d6b860f43abae2283b4889bff0913bac25c821f5
-ms.sourcegitcommit: 71db032bd5680c9287a7867b923bf6471ba8f6be
+ms.openlocfilehash: 4cb6f420b6d084539dc98a09632d0760a1344012
+ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/16/2019
-ms.locfileid: "71017771"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71092180"
 ---
 # <a name="copy-data-to-and-from-azure-database-for-postgresql-using-azure-data-factory"></a>使用 Azure Data Factory 從適用於 PostgreSQL 的 Azure 資料庫複製資料
 
@@ -29,7 +29,7 @@ ms.locfileid: "71017771"
 
 下列活動支援此適用於 PostgreSQL 的 Azure 資料庫連接器：
 
-- [複製活動](copy-activity-overview.md)與[支援的來源矩陣](copy-activity-overview.md)
+- [複製活動](copy-activity-overview.md)與[支援的來源/接收矩陣](copy-activity-overview.md)
 - [查閱活動](control-flow-lookup-activity.md)
 
 您可以將資料從適用於 PostgreSQL 的 Azure 資料庫複製到任何支援的接收資料存放區。 或者，您可以將資料從任何支援的來源資料存放區複製到適用於 PostgreSQL 的 Azure 資料庫。 如需複製活動所支援作為來源/接收器的資料存放區清單，請參閱[支援的資料存放區](copy-activity-overview.md#supported-data-stores-and-formats)表格。
@@ -48,7 +48,7 @@ Azure Data Factory 提供的內建驅動程式可啟用連線，因此使用此�
 
 | 屬性 | 描述 | 必要項 |
 |:--- |:--- |:--- |
-| Type | 類型屬性必須設定為：**AzurePostgreSql** | 是 |
+| 型別 | 類型屬性必須設定為：**AzurePostgreSql** | 是 |
 | connectionString | ODBC 連接字串，用於連線到適用於 PostgreSQL 的 Azure 資料庫。<br/>將此欄位標記為 SecureString，將它安全地儲存在 Data Factory 中。 您也可以將密碼放在 Azure Key Vault 中，並從連接字串中提取 `password` 組態。 請參閱下列範例和[在 Azure Key Vault 中儲存認證](store-credentials-in-key-vault.md)一文中的更多詳細資料。 | 是 |
 | connectVia | 用來連線到資料存放區的 [Integration Runtime](concepts-integration-runtime.md)。 您可以使用 Azure Integration Runtime 或「自我裝載 Integration Runtime」(如果您的資料存放區位於私人網路中)。 如果未指定，就會使用預設的 Azure Integration Runtime。 |否 |
 
@@ -109,7 +109,7 @@ Azure Data Factory 提供的內建驅動程式可啟用連線，因此使用此�
 
 | 屬性 | 描述 | 必要項 |
 |:--- |:--- |:--- |
-| Type | 資料集的類型屬性必須設定為：**AzurePostgreSqlTable** | 是 |
+| 型別 | 資料集的類型屬性必須設定為：**AzurePostgreSqlTable** | 是 |
 | tableName | 資料表的名稱。 | 否 (如果已指定活動來源中的"query") |
 
 **範例**
@@ -138,7 +138,7 @@ Azure Data Factory 提供的內建驅動程式可啟用連線，因此使用此�
 
 | 屬性 | 描述 | 必要項 |
 |:--- |:--- |:--- |
-| Type | 複製活動來源的類型屬性必須設定為：**AzurePostgreSqlSource** | 是 |
+| 型別 | 複製活動來源的類型屬性必須設定為：**AzurePostgreSqlSource** | 是 |
 | query | 使用自訂 SQL 查詢來讀取資料。 例如： `"SELECT * FROM MyTable"` 。 | 否 (如果已指定資料集中的 "tableName") |
 
 **範例:**
@@ -179,7 +179,7 @@ Azure Data Factory 提供的內建驅動程式可啟用連線，因此使用此�
 
 | 屬性 | 描述 | 必要項 |
 |:--- |:--- |:--- |
-| Type | 複製活動接收器的類型屬性必須設定為：**AzurePostgreSQLSink** | 是 |
+| 型別 | 複製活動接收器的類型屬性必須設定為：**AzurePostgreSQLSink** | 是 |
 | preCopyScript | 指定在每次執行中將資料寫入適用於 PostgreSQL 的 Azure 資料庫之前，複製活動所要執行的 SQL 查詢。 您可以使用此屬性來清除預先載入的資料。 | 否 |
 | writeBatchSize | 當緩衝區大小達到 writeBatchSize 時，將資料插入適用於 PostgreSQL 的 Azure 資料庫資料表。<br>允許的值為代表資料列數目的整數。 | 否 (預設值為 10000) |
 | writeBatchTimeout | 在逾時前等待批次插入作業完成的時間。<br>允許的值為時間範圍。 範例是 00:30:00 (30 分鐘)。 | 否（預設值為00:00:30） |

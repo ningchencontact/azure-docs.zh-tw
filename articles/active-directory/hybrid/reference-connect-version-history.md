@@ -16,12 +16,12 @@ ms.date: 05/23/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e491815f25f3744d839efc09ce34793d80d9943a
-ms.sourcegitcommit: 909ca340773b7b6db87d3fb60d1978136d2a96b0
+ms.openlocfilehash: ce66c0239eee3f31695a942a586766694525fbad
+ms.sourcegitcommit: cd70273f0845cd39b435bd5978ca0df4ac4d7b2c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/13/2019
-ms.locfileid: "70983544"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71097604"
 ---
 # <a name="azure-ad-connect-version-release-history"></a>Azure AD Connect：版本發行歷程記錄
 Azure Active Directory (Azure AD) 團隊會定期以新的特性和功能更新 Azure AD Connect。 並非所有新增項目都適用於所有的對象。
@@ -44,6 +44,9 @@ Azure Active Directory (Azure AD) 團隊會定期以新的特性和功能更新 
 並非所有版本的 Azure AD Connect 都可自動升級。 發行狀態會指出版本是否可自動升級或僅供下載。 如果您的 Azure AD Connect 伺服器上已啟用自動升級，則該伺服器將會自動升級為可自動升級的最新版 Azure AD Connect。 請注意，並非所有 Azure AD Connect 組態都符合自動升級的資格。 請遵循下列連結來深入了解[自動升級](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-install-automatic-upgrade)
 
 ## <a name="14x0"></a>1.4. X 0
+
+>[!IMPORTANT]
+>先前加入內部內部部署 AD 的舊版 Windows 電腦，在某些情況下會不正確地同步到雲端。 例如，會填入 AD 中 Windows 下層裝置的 userCertificate 屬性值。 但是 Azure AD 中的這類裝置一定會保持「擱置」狀態，因為這些作業系統版本並未設計成透過 AAD 同步向 Azure AD 註冊。在此版本的 Azure AD Connect 中，AAD 同步會停止將舊版的 Windows 電腦同步至 Azure AD，同時也會從 Azure AD 移除先前不正確同步處理的舊版 Windows 裝置。 請注意，這項變更不會刪除使用 MSI 套件向 Azure AD 正確註冊的任何舊版 Windows 裝置。 基於裝置型條件式存取的目的，這些裝置會繼續如預期般運作。 某些客戶可能會看到部分或所有舊版的 Windows 裝置從 Azure AD 消失。 這不是問題的原因，因為在條件式存取授權期間，Azure AD 實際上不會使用這些裝置身分識別。 這類客戶可能需要 https://docs.microsoft.com/azure/active-directory/devices/hybrid-azuread-join-plan 重新流覽並讓其舊版的 Windows 裝置正確註冊，以確保這類裝置可以完全參與以裝置為基礎的條件式存取。 請注意，如果您在 Azure AD 中看到舊版電腦/裝置物件的刪除超過匯出的刪除閾值，建議客戶允許這些刪除作業通過。
 
 ### <a name="release-status"></a>發行狀態
 9/10/2019：僅針對自動升級發行

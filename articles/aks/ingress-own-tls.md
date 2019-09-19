@@ -7,29 +7,29 @@ ms.service: container-service
 ms.topic: article
 ms.date: 05/24/2019
 ms.author: mlearned
-ms.openlocfilehash: 2b30ade9971ede6f9544b618504033553392e9bd
-ms.sourcegitcommit: 8e1fb03a9c3ad0fc3fd4d6c111598aa74e0b9bd4
+ms.openlocfilehash: fc7f2180e4166070fe44863aed2b12135b0db8ee
+ms.sourcegitcommit: cd70273f0845cd39b435bd5978ca0df4ac4d7b2c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "67615429"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71097851"
 ---
 # <a name="create-an-https-ingress-controller-and-use-your-own-tls-certificates-on-azure-kubernetes-service-aks"></a>在 Azure Kubernetes Service (AKS) 上建立 HTTPS 輸入控制器及使用自有的 TLS 憑證
 
 輸入控制器是一項可為 Kubernetes 服務提供反向 Proxy、可設定的流量路由和 TLS 終止的軟體。 Kubernetes 輸入資源可用來設定個別 Kubernetes 服務的輸入規則和路由。 透過輸入控制器和輸入規則，您可以使用單一 IP 位址將流量路由至 Kubernetes 叢集中的多個服務。
 
-本文說明如何在 Azure Kubernetes Service (AKS) 叢集中部署[NGINX 輸入控制器][nginx-ingress]。 您會產生自己的憑證，並建立 Kubernetes 祕密以便用於輸入路由。 最後，會有兩個應用程式在 AKS 叢集中執行，且均可透過單一 IP 位址來存取。
+本文說明如何在 Azure Kubernetes Service （AKS）叢集中部署[NGINX 輸入控制器][nginx-ingress]。 您會產生自己的憑證，並建立 Kubernetes 祕密以便用於輸入路由。 最後，會有兩個應用程式在 AKS 叢集中執行，且均可透過單一 IP 位址來存取。
 
 您也可以：
 
 - [建立具有外部網路連線的基本輸入控制器][aks-ingress-basic]
 - [啟用 HTTP 應用程式路由附加元件][aks-http-app-routing]
 - [建立使用內部、私人網路和 IP 位址的輸入控制器][aks-ingress-internal]
-- 建立輸入控制器, 其使用 Let's Encrypt 自動產生[具有動態公用 ip 位址][aks-ingress-tls]或[具有靜態公用 IP 位址][aks-ingress-static-tls]的 TLS 憑證
+- 建立輸入控制器，其使用 Let's Encrypt 自動產生[具有動態公用 ip 位址][aks-ingress-tls]或[具有靜態公用 IP 位址][aks-ingress-static-tls]的 TLS 憑證
 
 ## <a name="before-you-begin"></a>開始之前
 
-本文使用 Helm 來安裝 NGINX 輸入控制器及範例 Web 應用程式。 您需要在 AKS 叢集內將 Helm 初始化，並使用適用於 Tiller 的服務帳戶。 請確定您使用的是 Helm 的最新版本。 如需升級指示, 請參閱[Helm 安裝][helm-install]檔。如需設定和使用 Helm 的詳細資訊, 請參閱[在 Azure Kubernetes Service (AKS) 中使用 Helm 安裝應用程式][use-helm]。
+本文使用 Helm 來安裝 NGINX 輸入控制器及範例 Web 應用程式。 您需要在 AKS 叢集內將 Helm 初始化，並使用適用於 Tiller 的服務帳戶。 請確定您使用的是 Helm 的最新版本。 如需升級指示，請參閱[Helm 安裝][helm-install]檔。如需設定和使用 Helm 的詳細資訊，請參閱[在 Azure Kubernetes Service （AKS）中使用 Helm 安裝應用程式][use-helm]。
 
 本文也會要求您執行 Azure CLI 版本2.0.64 或更新版本。 執行 `az --version` 以尋找版本。 如果您需要安裝或升級，請參閱[安裝 Azure CLI][azure-cli-install]。
 
@@ -37,13 +37,13 @@ ms.locfileid: "67615429"
 
 若要建立輸入控制器，請使用 `Helm` 以安裝 *nginx-ingress*。 為了新增備援，您必須使用 `--set controller.replicaCount` 參數部署兩個 NGINX 輸入控制器複本。 為充分享有執行輸入控制器複本的好處，請確定 AKS 叢集中有多個節點。
 
-輸入控制器也必須在 Linux 節點上排程。 Windows Server 節點 (目前在 AKS 中處於預覽狀態) 不應執行輸入控制器。 使用`--set nodeSelector`參數來指定節點選取器, 以指示 Kubernetes 排程器在以 Linux 為基礎的節點上執行 NGINX 輸入控制器。
+輸入控制器也必須在 Linux 節點上排程。 Windows Server 節點（目前在 AKS 中處於預覽狀態）不應執行輸入控制器。 使用`--set nodeSelector`參數來指定節點選取器，以指示 Kubernetes 排程器在以 Linux 為基礎的節點上執行 NGINX 輸入控制器。
 
 > [!TIP]
-> 下列範例會建立名為「輸入 *-基本*」的輸入資源的 Kubernetes 命名空間。 視需要指定您自己環境的命名空間。 如果您的 AKS 叢集未啟用 RBAC, 請`--set rbac.create=false`將新增至 Helm 命令。
+> 下列範例會建立名為「輸入 *-基本*」的輸入資源的 Kubernetes 命名空間。 視需要指定您自己環境的命名空間。 如果您的 AKS 叢集未啟用 RBAC，請`--set rbac.create=false`將新增至 Helm 命令。
 
 > [!TIP]
-> 如果您想要為叢集中的容器要求啟用[用戶端來源 IP 保留][client-source-ip], 請將`--set controller.service.externalTrafficPolicy=Local`新增至 Helm install 命令。 用戶端來源 IP 會儲存在要求標頭的 [ *X-轉送-* ] 下。 當使用已啟用用戶端來源 IP 保留的輸入控制器時, SSL 傳遞將無法運作。
+> 如果您想要為叢集中的容器要求啟用[用戶端來源 IP 保留][client-source-ip]，請將`--set controller.service.externalTrafficPolicy=Local`新增至 Helm install 命令。 用戶端來源 IP 會儲存在要求標頭的 [ *X-轉送-* ] 下。 當使用已啟用用戶端來源 IP 保留的輸入控制器時，SSL 傳遞將無法運作。
 
 ```console
 # Create a namespace for your ingress resources
@@ -57,7 +57,7 @@ helm install stable/nginx-ingress \
     --set defaultBackend.nodeSelector."beta\.kubernetes\.io/os"=linux
 ```
 
-在安裝期間，會為輸入控制器建立 Azure 公用 IP 位址。 在輸入控制器的生命週期內，此公用 IP 位址都是靜態的。 如果您刪除輸入控制器，公用 IP 位址指派將會遺失。 如果您後續又建立其他輸入控制器，將會指派新的公用 IP 位址。 如果您想要保留使用公用 IP 位址, 您可以改為[建立具有靜態公用 ip 位址][aks-ingress-static-tls]的輸入控制器。
+在安裝期間，會為輸入控制器建立 Azure 公用 IP 位址。 在輸入控制器的生命週期內，此公用 IP 位址都是靜態的。 如果您刪除輸入控制器，公用 IP 位址指派將會遺失。 如果您後續又建立其他輸入控制器，將會指派新的公用 IP 位址。 如果您想要保留使用公用 IP 位址，您可以改為[建立具有靜態公用 ip 位址][aks-ingress-static-tls]的輸入控制器。
 
 若要取得公用 IP 位址，請使用 `kubectl get service` 命令。 將 IP 位址指派給服務需要幾分鐘的時間。
 
@@ -133,7 +133,7 @@ helm install azure-samples/aks-helloworld \
 在下列範例中，傳至位址 `https://demo.azure.com/` 的流量會路由傳送至名為 `aks-helloworld` 的服務。 傳至位址 `https://demo.azure.com/hello-world-two` 的流量會路由至 `ingress-demo` 服務。 在本文中，您不需要變更這些示範主機名稱。 針對生產用途，提供在憑證要求和產生過程中指定的名稱。
 
 > [!TIP]
-> 如果在憑證要求過程中所指定的主機名稱 (CN 名稱) 不符合您輸入路由中定義的主機，則輸入控制器會顯示「Kubernetes 輸入控制器假憑證」。 請確定您的憑證與輸入路由主機名稱相符。
+> 如果在憑證要求程式期間指定的主機名稱（CN 名稱）與輸入路由中定義的主機不符，則輸入控制器會顯示 Kubernetes 輸入*控制器假憑證*警告。 請確定您的憑證與輸入路由主機名稱相符。
 
 tls 區段會告知輸入路由對主機 demo.azure.com 使用名為 aks-ingress-tls 的祕密。 同樣地，針對生產用途，指定您自己的主機位址。
 
@@ -226,17 +226,17 @@ $ curl -v -k --resolve demo.azure.com:443:137.117.36.18 https://demo.azure.com/h
 
 ## <a name="clean-up-resources"></a>清除資源
 
-本文使用 Helm 來安裝輸入元件和範例應用程式。 部署 Helm 圖表時會建立一些 Kubernetes 資源。 這些資源包含 Pod、部署和服務。 若要清除這些資源, 您可以刪除整個範例命名空間或個別資源。
+本文使用 Helm 來安裝輸入元件和範例應用程式。 部署 Helm 圖表時會建立一些 Kubernetes 資源。 這些資源包含 Pod、部署和服務。 若要清除這些資源，您可以刪除整個範例命名空間或個別資源。
 
 ### <a name="delete-the-sample-namespace-and-all-resources"></a>刪除範例命名空間和所有資源
 
-若要刪除整個範例命名空間, 請`kubectl delete`使用命令並指定您的命名空間名稱。 命名空間中的所有資源都會被刪除。
+若要刪除整個範例命名空間，請`kubectl delete`使用命令並指定您的命名空間名稱。 命名空間中的所有資源都會被刪除。
 
 ```console
 kubectl delete namespace ingress-basic
 ```
 
-然後, 移除 AKS hello world 應用程式的 Helm 存放庫:
+然後，移除 AKS hello world 應用程式的 Helm 存放庫：
 
 ```console
 helm repo remove azure-samples
@@ -244,7 +244,7 @@ helm repo remove azure-samples
 
 ### <a name="delete-resources-individually"></a>個別刪除資源
 
-或者, 更細微的方法是刪除所建立的個別資源。 使用`helm list`命令來列出 Helm 版本。 尋找名為nginx-ingress 和 aks-helloworld 的圖表，如下列範例輸出所示：
+或者，更細微的方法是刪除所建立的個別資源。 使用`helm list`命令來列出 Helm 版本。 尋找名為nginx-ingress 和 aks-helloworld 的圖表，如下列範例輸出所示：
 
 ```
 $ helm list
@@ -277,13 +277,13 @@ helm repo remove azure-samples
 kubectl delete -f hello-world-ingress.yaml
 ```
 
-刪除憑證密碼:
+刪除憑證密碼：
 
 ```console
 kubectl delete secret aks-ingress-tls
 ```
 
-最後, 您可以刪除本身的命名空間。 `kubectl delete`使用命令, 並指定您的命名空間名稱:
+最後，您可以刪除本身的命名空間。 `kubectl delete`使用命令，並指定您的命名空間名稱：
 
 ```console
 kubectl delete namespace ingress-basic
@@ -301,7 +301,7 @@ kubectl delete namespace ingress-basic
 - [建立具有外部網路連線的基本輸入控制器][aks-ingress-basic]
 - [啟用 HTTP 應用程式路由附加元件][aks-http-app-routing]
 - [建立使用內部、私人網路和 IP 位址的輸入控制器][aks-ingress-internal]
-- 建立輸入控制器, 其使用 Let's Encrypt 自動產生[具有動態公用 ip 位址][aks-ingress-tls]或[具有靜態公用 IP 位址][aks-ingress-static-tls]的 TLS 憑證
+- 建立輸入控制器，其使用 Let's Encrypt 自動產生[具有動態公用 ip 位址][aks-ingress-tls]或[具有靜態公用 IP 位址][aks-ingress-static-tls]的 TLS 憑證
 
 <!-- LINKS - external -->
 [helm-cli]: https://docs.microsoft.com/azure/aks/kubernetes-helm

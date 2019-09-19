@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/01/2018
 ms.author: jingwang
-ms.openlocfilehash: 72cddc56a0b36a1c12b1783fa540f426318df30d
-ms.sourcegitcommit: a819209a7c293078ff5377dee266fa76fd20902c
+ms.openlocfilehash: 6396aa727abcb253f3fd728e924a066f1c22f16f
+ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/16/2019
-ms.locfileid: "71008522"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71092167"
 ---
 # <a name="copy-data-from-amazon-marketplace-web-service-using-azure-data-factory-preview"></a>使用 Azure Data Factory (預覽) 複製 Amazon Marketplace Web Service 中的資料
 
@@ -30,7 +30,7 @@ ms.locfileid: "71008522"
 
 下列活動支援此 Amazon Marketplace Web 服務連接器：
 
-- [複製活動](copy-activity-overview.md)與[支援的來源矩陣](copy-activity-overview.md)
+- [複製活動](copy-activity-overview.md)與[支援的來源/接收矩陣](copy-activity-overview.md)
 - [查閱活動](control-flow-lookup-activity.md)
 
 您可以將資料從 Amazon Marketplace Web Service 複製到任何支援的接收資料存放區。 如需複製活動所支援作為來源/接收器的資料存放區清單，請參閱[支援的資料存放區](copy-activity-overview.md#supported-data-stores-and-formats)表格。
@@ -49,7 +49,7 @@ Azure Data Factory 提供的內建驅動程式可啟用連線，因此使用此�
 
 | 屬性 | 描述 | 必要項 |
 |:--- |:--- |:--- |
-| Type | 類型屬性必須設定為：**AmazonMWS** | 是 |
+| 型別 | 類型屬性必須設定為：**AmazonMWS** | 是 |
 | endpoint | Amazon MWS 伺服器的端點，(也就是 mws.amazonservices.com)  | 是 |
 | marketplaceID | 您想要從中擷取資料的 Amazon Marketplace ID 。 若要從多個 Marketplace 識別碼擷取資料，請以逗號 (`,`) 分隔它們。 (也就是 A2EUQ1WTGCTBG2)  | 是 |
 | sellerID | Amazon 賣方識別碼。  | 是 |
@@ -93,7 +93,7 @@ Azure Data Factory 提供的內建驅動程式可啟用連線，因此使用此�
 
 | 屬性 | 描述 | 必要項 |
 |:--- |:--- |:--- |
-| Type | 資料集的類型屬性必須設定為：**AmazonMWSObject** | 是 |
+| 型別 | 資料集的類型屬性必須設定為：**AmazonMWSObject** | 是 |
 | tableName | 資料表的名稱。 | 否 (如果已指定活動來源中的"query") |
 
 **範例**
@@ -124,7 +124,7 @@ Azure Data Factory 提供的內建驅動程式可啟用連線，因此使用此�
 
 | 屬性 | 描述 | 必要項 |
 |:--- |:--- |:--- |
-| Type | 複製活動來源的類型屬性必須設定為：**AmazonMWSSource** | 是 |
+| 型別 | 複製活動來源的類型屬性必須設定為：**AmazonMWSSource** | 是 |
 | query | 使用自訂 SQL 查詢來讀取資料。 例如： `"SELECT * FROM Orders where  Amazon_Order_Id = 'xx'"` 。 | 否 (如果已指定資料集中的 "tableName") |
 
 **範例:**

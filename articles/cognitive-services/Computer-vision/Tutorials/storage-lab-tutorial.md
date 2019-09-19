@@ -10,12 +10,12 @@ ms.subservice: computer-vision
 ms.topic: tutorial
 ms.date: 09/04/2019
 ms.author: pafarley
-ms.openlocfilehash: 8ecf5fb7d54e7c9411c1153610d3a637477285bf
-ms.sourcegitcommit: 49c4b9c797c09c92632d7cedfec0ac1cf783631b
+ms.openlocfilehash: 7caf4493db32201a8e83ffb3722c80c5e9b41a8f
+ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/05/2019
-ms.locfileid: "70382949"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71057731"
 ---
 # <a name="tutorial-use-computer-vision-to-generate-image-metadata-in-azure-storage"></a>教學課程：使用電腦視覺在 Azure 儲存體中產生影像中繼資料
 
@@ -29,7 +29,7 @@ ms.locfileid: "70382949"
 > * 將中繼資料連結至 Azure 儲存體影像
 > * 使用 Azure 儲存體總管查看影像中繼資料
 
-如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/) 。 
+如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶](https://azure.microsoft.com/free/)。 
 
 ## <a name="prerequisites"></a>必要條件
 
@@ -46,7 +46,9 @@ ms.locfileid: "70382949"
 
 1. 接著，移至您資源群組的功能表，然後按一下您剛建立的電腦視覺 API 訂用帳戶。 將 [端點]  下方的 URL 複製到您可輕鬆快速加以擷取之處。 然後，按一下 [顯示存取金鑰]  。
 
-    ![Azure 入口網站頁面包含已框出端點的 URL 和存取金鑰連結](../Images/copy-vision-endpoint.png) [!INCLUDE [Custom subdomains notice](../../../../includes/cognitive-services-custom-subdomains-note.md)]
+    ![Azure 入口網站頁面：已框出端點 URL 和存取金鑰連結](../Images/copy-vision-endpoint.png)
+    
+    [!INCLUDE [Custom subdomains notice](../../../../includes/cognitive-services-custom-subdomains-note.md)]
 
 
 1. 在下一個視窗中，將 [金鑰 1]  的值複製到剪貼簿。

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/01/2019
 ms.author: jingwang
-ms.openlocfilehash: 14bcded4e3074023aa496588f5bd79eedbe889cf
-ms.sourcegitcommit: a819209a7c293078ff5377dee266fa76fd20902c
+ms.openlocfilehash: c6cf30a8d4f750aa8e1c2b7531c4a604642e88b4
+ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/16/2019
-ms.locfileid: "71008921"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71092017"
 ---
 # <a name="copy-data-from-jira-using-azure-data-factory-preview"></a>使用 Azure Data Factory 從 Jira 複製資料 (預覽)
 
@@ -30,7 +30,7 @@ ms.locfileid: "71008921"
 
 下列活動支援此 Jira 連接器：
 
-- [複製活動](copy-activity-overview.md)與[支援的來源矩陣](copy-activity-overview.md)
+- [複製活動](copy-activity-overview.md)與[支援的來源/接收矩陣](copy-activity-overview.md)
 - [查閱活動](control-flow-lookup-activity.md)
 
 您可以將資料從 Jira 複製到任何支援的接收資料存放區。 如需複製活動所支援作為來源/接收器的資料存放區清單，請參閱[支援的資料存放區](copy-activity-overview.md#supported-data-stores-and-formats)表格。
@@ -49,7 +49,7 @@ Azure Data Factory 提供的內建驅動程式可啟用連線，因此使用此�
 
 | 屬性 | 描述 | 必要項 |
 |:--- |:--- |:--- |
-| Type | 類型屬性必須設定為：**Jira** | 是 |
+| 型別 | 類型屬性必須設定為：**Jira** | 是 |
 | host | Jira 服務的 IP 位址或主機名稱。 (例如 jira.example.com)  | 是 |
 | port | Jira 伺服器用來接聽用戶端連線的 TCP 連接埠。 若透過 HTTPS 連線，預設值為 443，或者，若透過 HTTP 連線，則為 8080。  | 否 |
 | username | 您用來存取 Jira 服務的使用者名稱。  | 是 |
@@ -86,7 +86,7 @@ Azure Data Factory 提供的內建驅動程式可啟用連線，因此使用此�
 
 | 屬性 | 描述 | 必要項 |
 |:--- |:--- |:--- |
-| Type | 資料集的類型屬性必須設定為：**JiraObject** | 是 |
+| 型別 | 資料集的類型屬性必須設定為：**JiraObject** | 是 |
 | tableName | 資料表的名稱。 | 否 (如果已指定活動來源中的"query") |
 
 **範例**
@@ -116,7 +116,7 @@ Azure Data Factory 提供的內建驅動程式可啟用連線，因此使用此�
 
 | 屬性 | 描述 | 必要項 |
 |:--- |:--- |:--- |
-| Type | 複製活動來源的類型屬性必須設定為：**JiraSource** | 是 |
+| 型別 | 複製活動來源的類型屬性必須設定為：**JiraSource** | 是 |
 | query | 使用自訂 SQL 查詢來讀取資料。 例如： `"SELECT * FROM MyTable"` 。 | 否 (如果已指定資料集中的 "tableName") |
 
 **範例:**

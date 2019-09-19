@@ -1,7 +1,7 @@
 ---
 title: 使用 SSL 保護 web 服務
-titleSuffix: Azure Machine Learning service
-description: 瞭解如何藉由啟用 HTTPS 來保護透過 Azure Machine Learning 服務部署的 web 服務。 HTTPS 會使用傳輸層安全性（TLS）來保護用戶端的資料，這是安全通訊端層（SSL）的替代方案。 用戶端也會使用 HTTPS 來驗證 web 服務的身分識別。
+titleSuffix: Azure Machine Learning
+description: 瞭解如何藉由啟用 HTTPS 來保護透過 Azure Machine Learning 部署的 web 服務。 HTTPS 會使用傳輸層安全性（TLS）來保護用戶端的資料，這是安全通訊端層（SSL）的替代方案。 用戶端也會使用 HTTPS 來驗證 web 服務的身分識別。
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -11,16 +11,16 @@ ms.author: aashishb
 author: aashishb
 ms.date: 08/12/2019
 ms.custom: seodec18
-ms.openlocfilehash: 8805e065c92b42013c1e56f20b4a032d280cb8ac
-ms.sourcegitcommit: a4b5d31b113f520fcd43624dd57be677d10fc1c0
+ms.openlocfilehash: ce60806c26359ae682f5ab468e4f4265d3572c87
+ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70772512"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71034367"
 ---
 # <a name="use-ssl-to-secure-a-web-service-through-azure-machine-learning"></a>使用 SSL 透過 Azure Machine Learning 保護 web 服務
 
-本文說明如何保護透過 Azure Machine Learning 服務部署的 web 服務。
+本文說明如何保護透過 Azure Machine Learning 部署的 web 服務。
 
 您可以使用[HTTPS](https://en.wikipedia.org/wiki/HTTPS)來限制對 web 服務的存取，並保護用戶端所提交的資料。 HTTPS 藉由加密兩者之間的通訊，協助保護用戶端與 web 服務之間的通訊。 加密使用[傳輸層安全性（TLS）](https://en.wikipedia.org/wiki/Transport_Layer_Security)。 TLS 有時仍然稱為*安全通訊端層*（SSL），這是 tls 的前身。
 
@@ -151,7 +151,7 @@ aci_config = AciWebservice.deploy_configuration(
 
   在左窗格中 [**設定**] 底下的 [設定] 索引標籤**上，更新**AKS 叢集之公用 IP 位址的 DNS。 （請參閱下圖）。公用 IP 位址是在包含 AKS 代理程式節點和其他網路資源的資源群組下建立的資源類型。
 
-  [![Azure Machine Learning 服務：使用 SSL 保護 web 服務](./media/how-to-secure-web-service/aks-public-ip-address.png)](./media/how-to-secure-web-service/aks-public-ip-address-expanded.png)
+  [![Azure Machine Learning：使用 SSL 保護 web 服務](./media/how-to-secure-web-service/aks-public-ip-address.png)](./media/how-to-secure-web-service/aks-public-ip-address-expanded.png)
 
 ## <a name="update-the-ssl-certificate"></a>更新 SSL 憑證
 

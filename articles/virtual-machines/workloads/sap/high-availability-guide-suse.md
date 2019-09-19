@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 04/30/2019
 ms.author: sedusch
-ms.openlocfilehash: 534a3e349faaa3a6ef5b6e01082564eda51936c1
-ms.sourcegitcommit: 23389df08a9f4cab1f3bb0f474c0e5ba31923f12
+ms.openlocfilehash: 71c1d1eb91654ea169330715be6bcf2b94207a27
+ms.sourcegitcommit: cd70273f0845cd39b435bd5978ca0df4ac4d7b2c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70101044"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71099052"
 ---
 # <a name="high-availability-for-sap-netweaver-on-azure-vms-on-suse-linux-enterprise-server-for-sap-applications"></a>SAP NetWeaver 在適用於 SAP 應用程式之 SUSE Linux Enterprise Server 上的 Azure VM 高可用性
 
@@ -28,15 +28,15 @@ ms.locfileid: "70101044"
 [deployment-guide]:deployment-guide.md
 [planning-guide]:planning-guide.md
 
-[2205917]: https://launchpad.support.sap.com/#/notes/2205917
-[1944799]: https://launchpad.support.sap.com/#/notes/1944799
-[1928533]: https://launchpad.support.sap.com/#/notes/1928533
-[2015553]: https://launchpad.support.sap.com/#/notes/2015553
-[2178632]: https://launchpad.support.sap.com/#/notes/2178632
-[2191498]: https://launchpad.support.sap.com/#/notes/2191498
-[2243692]: https://launchpad.support.sap.com/#/notes/2243692
-[1984787]: https://launchpad.support.sap.com/#/notes/1984787
-[1999351]: https://launchpad.support.sap.com/#/notes/1999351
+[2205917]:https://launchpad.support.sap.com/#/notes/2205917
+[1944799]:https://launchpad.support.sap.com/#/notes/1944799
+[1928533]:https://launchpad.support.sap.com/#/notes/1928533
+[2015553]:https://launchpad.support.sap.com/#/notes/2015553
+[2178632]:https://launchpad.support.sap.com/#/notes/2178632
+[2191498]:https://launchpad.support.sap.com/#/notes/2191498
+[2243692]:https://launchpad.support.sap.com/#/notes/2243692
+[1984787]:https://launchpad.support.sap.com/#/notes/1984787
+[1999351]:https://launchpad.support.sap.com/#/notes/1999351
 [1410736]:https://launchpad.support.sap.com/#/notes/1410736
 
 [sap-swcenter]:https://support.sap.com/en/my-support/software-downloads.html
@@ -57,20 +57,20 @@ ms.locfileid: "70101044"
 
 請先閱讀下列 SAP Note 和文件
 
-* SAP Note [1928533]，其中包含：
+* SAP Note [1928533][1928533]，其中包含：
   * SAP 軟體部署支援的 Azure VM 大小清單
   * Azure VM 大小的重要容量資訊
   * 支援的 SAP 軟體，以及作業系統 (OS) 與資料庫組合
   * Microsoft Azure 上 Windows 和 Linux 所需的 SAP 核心版本
 
-* SAP Note [2015553] 列出 Azure 中 SAP 支援的 SAP 軟體部署先決條件。
-* SAP Note [2205917] 包含適用於 SUSE Linux Enterprise Server for SAP Applications 的建議 OS 設定
-* SAP Note [1944799] 包含適用於 SUSE Linux Enterprise Server for SAP Applications 的 SAP HANA 指導方針
-* SAP Note [2178632] 包含在 Azure 中針對 SAP 回報的所有監視計量詳細資訊。
-* SAP Note [2191498] 包含 Azure 中 Linux 所需的 SAP Host Agent 版本。
-* SAP Note [2243692] 包含 Azure 中 Linux 上的 SAP 授權相關資訊。
-* SAP Note [1984787] 包含 SUSE LINUX Enterprise Server 12 的一般資訊。
-* SAP Note [1999351] 包含 Azure Enhanced Monitoring Extension for SAP 的其他疑難排解資訊。
+* SAP Note [2015553][2015553] 列出 Azure 中 SAP 支援的 SAP 軟體部署先決條件。
+* SAP Note [2205917][2205917] 包含適用於 SUSE Linux Enterprise Server for SAP Applications 的建議 OS 設定
+* SAP Note [1944799][1944799] 包含適用於 SUSE Linux Enterprise Server for SAP Applications 的 SAP HANA 指導方針
+* SAP Note [2178632][2178632] 包含在 Azure 中針對 SAP 回報的所有監視計量詳細資訊。
+* SAP Note [2191498][2191498] 包含 Azure 中 Linux 所需的 SAP Host Agent 版本。
+* SAP Note [2243692][2243692] 包含 Azure 中 Linux 上的 SAP 授權相關資訊。
+* SAP Note [1984787][1984787] 包含 SUSE LINUX Enterprise Server 12 的一般資訊。
+* SAP Note [1999351][1999351] 包含 Azure Enhanced Monitoring Extension for SAP 的其他疑難排解資訊。
 * [SAP Community WIKI](https://wiki.scn.sap.com/wiki/display/HOME/SAPonLinuxNotes) 包含 Linux 所需的所有 SAP Note。
 * [適用于 SAP on Linux 的 Azure 虛擬機器規劃和執行][planning-guide]
 * [適用于 SAP on Linux 的 Azure 虛擬機器部署][deployment-guide]
@@ -709,7 +709,7 @@ Azure Marketplace 包含 SUSE Linux Enterprise Server for SAP Applications 12 �
 
 ## <a name="install-database"></a>安裝資料庫
 
-在此範例中，SAP NetWeaver 安裝在 SAP Hana 上。 您可以針對此安裝使用每個支援的資料庫。 如需有關如何在 Azure 中安裝 SAP Hana 的詳細資訊，請參閱. For a list of supported databases, see [SAP Note 1928533][1928533] [azure 虛擬機器（vm）上 SAP Hana 的高可用性][sap-hana-ha]。
+在此範例中，SAP NetWeaver 安裝在 SAP Hana 上。 您可以針對此安裝使用每個支援的資料庫。 如需有關如何在 Azure 中安裝 SAP Hana 的詳細資訊，請參閱[azure 虛擬機器（vm）上 SAP Hana 的高可用性][sap-hana-ha]。 如需支援的資料庫清單，請參閱[SAP 附注 1928533][1928533]。
 
 1. 執行 SAP 資料庫執行個體安裝
 

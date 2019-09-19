@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 08/30/2019
 ms.author: surmb
-ms.openlocfilehash: ce1d0542530c4f190ace52d45e2369d6ecc18772
-ms.sourcegitcommit: 49c4b9c797c09c92632d7cedfec0ac1cf783631b
+ms.openlocfilehash: 1fd4e9156e29133b1db4fe9ab9a0825eb1aa3b55
+ms.sourcegitcommit: cd70273f0845cd39b435bd5978ca0df4ac4d7b2c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/05/2019
-ms.locfileid: "70384082"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71097587"
 ---
 <a name="troubleshoot-backend-health-issues-in-application-gateway"></a>針對應用程式閘道中的後端健康情況問題進行疑難排解
 ==================================================
@@ -81,10 +81,10 @@ BackendAddressPoolsText : [
 [後端健全狀況] 索引標籤的 [詳細資料] 欄中顯示的訊息，會提供有關此問題的詳細見解，並根據這些資訊，我們可以開始針對問題進行疑難排解。
 
 > [!NOTE]
-> 預設探查要求會以： <protocol> <port>//127.0.0.1 ../的格式傳送，例如， <http://127.0.0.1/>針對埠80上的 HTTP 探查，並只會將 HTTP 狀態碼200-399 的回應視為狀況良好的回應。 通訊協定和目的地埠會繼承自 HTTP 設定。 如果您想要應用程式閘道在不同的通訊協定、主機名稱或路徑上進行探查，並接受不同的狀態碼為狀況良好，請設定自訂探查，並將其與 HTTP 設定產生關聯。
+> 預設\<探查要求是以通訊協定\>：\<//127.0.0.1 . 埠\>/的格式傳送，例如， <http://127.0.0.1/>針對埠80上的 HTTP 探查，並只將 HTTP 狀態碼200-399 的回應視為狀況良好的回應。 通訊協定和目的地埠會繼承自 HTTP 設定。 如果您想要應用程式閘道在不同的通訊協定、主機名稱或路徑上進行探查，並接受不同的狀態碼為狀況良好，請設定自訂探查，並將其與 HTTP 設定產生關聯。
 
-### <a name="error-messages"></a>錯誤訊息
-
+<a name="error-messages"></a>錯誤訊息
+------------------------
 #### <a name="backend-server-timeout"></a>後端伺服器超時
 
 **訊息：** 後端回應應用程式閘道\'健康情況探查所花費的時間，超過探查設定中的超時閾值。

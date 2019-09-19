@@ -8,22 +8,22 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,mvc
 ms.topic: tutorial
 ms.date: 05/16/2019
-ms.openlocfilehash: 319668ac81b390f9a8bf70da36dd3cf1508f5c37
-ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
+ms.openlocfilehash: bb803861fa64beb0b4afe2202230209493f42a1d
+ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70885168"
+ms.lasthandoff: 09/15/2019
+ms.locfileid: "71003656"
 ---
 # <a name="tutorial-analyze-apache-spark-data-using-power-bi-in-hdinsight"></a>教學課程：在 HDInsight 中使用 Power BI 來分析 Apache Spark 資料
 
-在此教學課程中，了解如何使用 [Microsoft Power BI](https://powerbi.microsoft.com/) 在 [Azure HDInsight](https://azure.microsoft.com/services/hdinsight/) 中將 Apache Spark 叢集中的資料視覺化。
+在本教學課程中，了解如何使用 [Microsoft Power BI](https://powerbi.microsoft.com/) 在 [Azure HDInsight](https://azure.microsoft.com/services/hdinsight/) 中將 Apache Spark 叢集中的資料視覺化。
 
-在此教學課程中，您了解如何：
+在本教學課程中，您會了解如何：
 > [!div class="checklist"]
 > * 使用 Power BI 將 Spark 資料視覺化
 
-如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 。
+如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)。
 
 ## <a name="prerequisites"></a>必要條件
 
@@ -46,9 +46,9 @@ ms.locfileid: "70885168"
 
     輸出看起來如下：
 
-    ![顯示 Spark 中的資料表](./media/apache-spark-use-bi-tools/show-tables.png)
+    ![顯示 Spark 中的資料表](./media/apache-spark-use-bi-tools/apache-spark-show-tables.png)
 
-    如果在開始此教學課程之前關閉 Notebook，則會清除 `hvactemptable`，因此其不會包含在輸出中。  從 BI 工具只可以存取儲存在中繼存放區的 Hive 資料表 (在 **isTemporary** 資料行下表示為 **False**)。 在此教學課程中，您會連線到您所建立的 **hvac** 資料表。
+    如果在開始本教學課程之前關閉 Notebook，則會清除 `hvactemptable`，因此其不會包含在輸出中。  從 BI 工具只可以存取儲存在中繼存放區的 Hive 資料表 (在 **isTemporary** 資料行下表示為 **False**)。 在此教學課程中，您會連線到您所建立的 **hvac** 資料表。
 
 2. 將以下程式碼貼入空白儲存格，然後按下 **SHIFT + ENTER** 鍵。 該程式碼會驗證資料表中的資料。
 
@@ -59,7 +59,7 @@ ms.locfileid: "70885168"
 
     輸出看起來如下：
 
-    ![顯示 Spark 中 hvac 資料表的資料列](./media/apache-spark-use-bi-tools/select-limit.png)
+    ![顯示 Spark 中 hvac 資料表的資料列](./media/apache-spark-use-bi-tools/apache-spark-select-limit.png)
 
 3. 從 Notebook 的 [檔案]  功能表中，選取 [關閉並終止]  。 關閉 Notebook 來釋放資源。
 
@@ -72,7 +72,7 @@ ms.locfileid: "70885168"
 使用 Spark 的第一步是連接到 Power BI Desktop 中的叢集，從叢集載入資料，並根據該資料建立基本視覺效果。
 
 > [!NOTE]  
-> 此文章中所示範的連接器目前為預覽版本。 請透過 [Power BI 社群](https://community.powerbi.com/) \(英文\) 網站或 [Power BI Ideas](https://ideas.powerbi.com/forums/265200-power-bi-ideas) \(英文\) 提供您的意見反應。
+> 本文中所示範的連接器目前為預覽版本。 請透過 [Power BI 社群](https://community.powerbi.com/) \(英文\) 網站或 [Power BI Ideas](https://ideas.powerbi.com/forums/265200-power-bi-ideas) \(英文\) 提供您的意見反應。
 
 1. 開啟 Power BI Desktop。 關閉啟動顯示畫面 (如果它已開啟)。
 
@@ -127,31 +127,32 @@ ms.locfileid: "70885168"
 Power BI 服務可讓您跨組織共用報表和儀表板。 在本節中，您會首次發佈資料集和報表。 然後，您會將報表釘選到儀表板。 儀表板通常用於強調報告中的資料子集；您的報告中只有一個視覺效果，但逐步了解下列步驟仍很有幫助。
 
 1. 開啟 Power BI Desktop。
-2. 在 [首頁]  索引標籤上，按一下 [發佈]  。
+
+1. 在 [首頁]  索引標籤上，按一下 [發佈]  。
 
     ![從 Power BI Desktop 發佈](./media/apache-spark-use-bi-tools/apache-spark-bi-publish.png "從 Power BI Desktop 發佈")
 
-2. 選取要發佈您的資料集和報告的目標工作區，然後按一下 [選取]  。 在下列映像中，已選取預設值 [我的工作區]  。
+1. 選取要發佈您的資料集和報告的目標工作區，然後按一下 [選取]  。 在下列映像中，已選取預設值 [我的工作區]  。
 
     ![選取要發佈資料集和報表的目標工作區](./media/apache-spark-use-bi-tools/apache-spark-bi-select-workspace.png "選取要發佈資料集和報表的目標工作區") 
 
-3. 成功發佈之後，按一下 [在 Power BI 中開啟 'BuildingTemperature.pbix']  。
+1. 成功發佈之後，按一下 [在 Power BI 中開啟 'BuildingTemperature.pbix']  。
 
     ![發佈成功，按一下以輸入認證](./media/apache-spark-use-bi-tools/apache-spark-bi-publish-success.png "發佈成功，按一下以輸入認證") 
 
-4. 在 Power BI 服務中，按一下 [輸入認證]  。
+1. 在 Power BI 服務中，按一下 [輸入認證]  。
 
     ![在 Power BI 服務中輸入認證](./media/apache-spark-use-bi-tools/apache-spark-bi-enter-credentials.png "在 Power BI 服務中輸入認證")
 
-5. 按一下 [編輯認證]  。
+1. 按一下 [編輯認證]  。
 
     ![在 Power BI 服務中編輯認證](./media/apache-spark-use-bi-tools/apache-spark-bi-edit-credentials.png "在 Power BI 服務中編輯認證")
 
-6. 輸入 HDInsight 登入帳戶資訊，然後按一下 [登入]  。 預設帳戶名稱為 *admin*。
+1. 輸入 HDInsight 登入帳戶資訊，然後按一下 [登入]  。 預設帳戶名稱為 *admin*。
 
     ![登入 Spark 叢集](./media/apache-spark-use-bi-tools/apache-spark-bi-sign-in.png "登入 Spark 叢集")
 
-7. 在左側窗格中，移至 [工作區]   > [我的工作區]   > [報表]  ，然後按一下 [BuildingTemperature]  。
+1. 在左側窗格中，移至 [工作區]   > [我的工作區]   > [報表]  ，然後按一下 [BuildingTemperature]  。
 
     ![左側窗格中報告下列出的報表](./media/apache-spark-use-bi-tools/apache-spark-bi-service-left-pane.png "左側窗格中報表下列出的報告")
 
@@ -159,27 +160,27 @@ Power BI 服務可讓您跨組織共用報表和儀表板。 在本節中，您�
 
     現在您在 Power BI Desktop 中建立的視覺效果已可於 Power BI 服務中使用。 
 
-8. 將游標暫留在視覺效果上，然後按一下右上角的釘選圖示。
+1. 將游標暫留在視覺效果上，然後按一下右上角的釘選圖示。
 
     ![Power BI 服務中的報告](./media/apache-spark-use-bi-tools/apache-spark-bi-service-report.png "Power BI 服務中的報告")
 
-9. 選取 [新的儀表板]，輸入名稱 `Building temperature`，然後按一下 [釘選]  。
+1. 選取 [新的儀表板]，輸入名稱 `Building temperature`，然後按一下 [釘選]  。
 
     ![釘選到新的儀表板](./media/apache-spark-use-bi-tools/apache-spark-bi-pin-dashboard.png "釘選到新的儀表板")
 
-10. 在報告中，按一下 [移至儀表板]  。 
+1. 在報告中，按一下 [移至儀表板]  。
 
 您的視覺效果已釘選至儀表板 - 您可以將其他視覺效果新增至報告，並將其釘選至相同的儀表板。 如需關於報告與儀表板的詳細資訊，請參閱 [Power BI 中的報告](https://powerbi.microsoft.com/documentation/powerbi-service-reports/)和 [Power BI 中的儀表板](https://powerbi.microsoft.com/documentation/powerbi-service-dashboards/)。
 
 ## <a name="clean-up-resources"></a>清除資源
 
-完成此教學課程之後，您可以刪除叢集。 利用 HDInsight，您的資料會儲存在 Azure 儲存體中，以便您在未使用叢集時安全地進行刪除。 您也需支付 HDInsight 叢集的費用 (即使未使用)。 由於叢集費用是儲存體費用的許多倍，所以刪除未使用的叢集符合經濟效益。
+完成本教學課程之後，您可以刪除叢集。 利用 HDInsight，您的資料會儲存在 Azure 儲存體中，以便您在未使用叢集時安全地進行刪除。 您也需支付 HDInsight 叢集的費用 (即使未使用)。 由於叢集費用是儲存體費用的許多倍，所以刪除未使用的叢集符合經濟效益。
 
 若要刪除叢集，請參閱[使用您的瀏覽器、PowerShell 或 Azure CLI 刪除 HDInsight 叢集](../hdinsight-delete-cluster.md)。
 
 ## <a name="next-steps"></a>後續步驟
 
-在此教學課程中，您已了解如何使用 [Microsoft Power BI](https://powerbi.microsoft.com/) 在 [Azure HDInsight](https://azure.microsoft.com/services/hdinsight/) 中將 Apache Spark 叢集中的資料視覺化。 前往下一篇文章，以查看如何將您在 Spark 中註冊的資料提取至 BI 分析工具，例如 Power BI。
+在本教學課程中，您已了解如何使用 [Microsoft Power BI](https://powerbi.microsoft.com/) 在 [Azure HDInsight](https://azure.microsoft.com/services/hdinsight/) 中將 Apache Spark 叢集中的資料視覺化。 前往下一篇文章，以查看如何將您在 Spark 中註冊的資料提取至 BI 分析工具，例如 Power BI。
 
 > [!div class="nextstepaction"]
 > [執行 Apache Spark 串流作業](apache-spark-eventhub-streaming.md)

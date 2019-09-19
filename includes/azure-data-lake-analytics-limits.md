@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 11/09/2018
 ms.author: jroth
 ms.openlocfilehash: 7f89dc33c105a82646c8f12422f88a06efdca18b
-ms.sourcegitcommit: 23389df08a9f4cab1f3bb0f474c0e5ba31923f12
+ms.sourcegitcommit: cd70273f0845cd39b435bd5978ca0df4ac4d7b2c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/10/2019
+ms.lasthandoff: 09/18/2019
 ms.locfileid: "67174371"
 ---
 Azure Data Lake Analytics 讓管理分散式基礎結構和複雜程式碼的複雜工作變得簡單。 它會以動態方式布建資源，而您可以使用它來執行資料的 eb 分析。 當作業完成時，它會自動股資源。 您只需支付所使用的處理能力。 當您所儲存的資料量或所用的計算量有所增減時，也無需重新編寫程式碼。 若要提高訂用帳戶的預設限制，請聯絡支援人員。
