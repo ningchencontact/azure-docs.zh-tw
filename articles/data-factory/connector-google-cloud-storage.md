@@ -10,12 +10,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 09/09/2019
 ms.author: jingwang
-ms.openlocfilehash: bd99a7eeafd3a3c038f9a5e23c25bc468d465f46
-ms.sourcegitcommit: a819209a7c293078ff5377dee266fa76fd20902c
+ms.openlocfilehash: 3f8b38e7d6a6a480b7455d33cbf86b512430f39a
+ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/16/2019
-ms.locfileid: "71009829"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71090302"
 ---
 # <a name="copy-data-from-google-cloud-storage-using-azure-data-factory"></a>使用 Azure Data Factory 從 Google Cloud Storage 複製資料
 
@@ -25,7 +25,7 @@ ms.locfileid: "71009829"
 
 下列活動支援此 Google 雲端儲存體連接器：
 
-- [複製活動](copy-activity-overview.md)與[支援的來源矩陣](copy-activity-overview.md)
+- [複製活動](copy-activity-overview.md)與[支援的來源/接收矩陣](copy-activity-overview.md)
 - [查閱活動](control-flow-lookup-activity.md)
 - [GetMetadata 活動](control-flow-get-metadata-activity.md)
 - [刪除活動](delete-activity.md)
@@ -54,7 +54,7 @@ ms.locfileid: "71009829"
 
 | 屬性 | 描述 | 必要項 |
 |:--- |:--- |:--- |
-| Type | 類型屬性必須設定為：**AmazonS3**。 | 是 |
+| 型別 | 類型屬性必須設定為：**AmazonS3**。 | 是 |
 | accessKeyId | 密碼存取金鑰的識別碼。 若要尋找存取金鑰和祕密，請前往 [Google Cloud Storage] > [設定] > [互通性]。 |是 |
 | secretAccessKey | 密碼存取金鑰本身。 將此欄位標記為 SecureString，將它安全地儲存在 Data Factory 中，或[參考 Azure Key Vault 中儲存的祕密](store-credentials-in-key-vault.md)。 |是 |
 | serviceUrl | 指定自訂 S3 端點做為 **`https://storage.googleapis.com`** 。 | 是 |
@@ -94,7 +94,7 @@ ms.locfileid: "71009829"
 
 | 屬性   | 描述                                                  | 必要項 |
 | ---------- | ------------------------------------------------------------ | -------- |
-| Type       | 資料集`location`內的類型屬性必須設定為**AmazonS3Location**。 | 是      |
+| 型別       | 資料集`location`內的類型屬性必須設定為**AmazonS3Location**。 | 是      |
 | bucketName | S3 貯體名稱。                                          | 是      |
 | folderPath | 給定值區下的資料夾路徑。 如果您想要使用萬用字元來篩選資料夾，請略過此設定，並在 [活動來源設定] 中指定。 | 否       |
 | fileName   | 給定值區 + folderPath 下的檔案名。 如果您想要使用萬用字元來篩選檔案，請略過此設定，並在 [活動來源設定] 中指定。 | 否       |
@@ -135,7 +135,7 @@ ms.locfileid: "71009829"
 
 | 屬性 | 描述 | 必要項 |
 |:--- |:--- |:--- |
-| Type | 資料集的類型屬性必須設定為：**AmazonS3Object** |是 |
+| 型別 | 資料集的類型屬性必須設定為：**AmazonS3Object** |是 |
 | bucketName | S3 貯體名稱。 不支援萬用字元篩選。 |[是] 適用於複製/查閱活動，[否] 適用於 GetMetadata 活動 |
 | key | 指定貯體下 S3 物件索引鍵的**名稱或萬用字元篩選**。 未指定 "prefix" 屬性時才適用。 <br/><br/>針對資料夾部分和檔案名稱部分，都支援萬用字元篩選。 允許的萬用字元為：`*` (符合零或多個字元) 和 `?` (符合零或單一字元)。<br/>- 範例 1：`"key": "rootfolder/subfolder/*.csv"`<br/>- 範例 2：`"key": "rootfolder/subfolder/???20180427.txt"`<br/>如需更多範例，請參閱[資料夾和檔案篩選範例](#folder-and-file-filter-examples)。 如果實際資料夾/檔案名稱內有萬用字元或逸出字元 `^`，請使用此逸出字元來逸出。 |否 |
 | prefix | S3 物件索引鍵的前置詞。 系統會選取索引鍵以此前置詞開頭的物件。 未指定 "key" 屬性時才適用。 |否 |
@@ -193,7 +193,7 @@ ms.locfileid: "71009829"
 
 | 屬性                 | 描述                                                  | 必要項                                                    |
 | ------------------------ | ------------------------------------------------------------ | ----------------------------------------------------------- |
-| Type                     | 底下的 type 屬性`storeSettings`必須設定為**AmazonS3ReadSetting**。 | 是                                                         |
+| 型別                     | 底下的 type 屬性`storeSettings`必須設定為**AmazonS3ReadSetting**。 | 是                                                         |
 | recursive                | 指出是否從子資料夾、或只有從指定的資料夾，以遞迴方式讀取資料。 請注意，當遞迴設定為 true 且接收是檔案型存放區時，就不會在接收上複製或建立空的資料夾或子資料夾。 允許的值為 **true** (預設值) 和 **false**。 | 否                                                          |
 | prefix                   | 在資料集內設定的指定值區底下，S3 物件索引鍵的前置詞，用來篩選來源物件。 系統會選取索引鍵以此前置詞開頭的物件。 只有在未`wildcardFolderPath`指定`wildcardFileName`和屬性時才適用。 |                                                             |
 | wildcardFolderPath       | 在資料集內設定的指定值區底下，具有萬用字元的資料夾路徑，用來篩選來源資料夾。 <br>允許的萬用字元為：`*` (比對零或多個字元) 和 `?` (比對零或單一字元)；如果您的實際資料夾名稱包含萬用字元或此逸出字元，請使用 `^` 來逸出。 <br>如需更多範例，請參閱[資料夾和檔案篩選範例](#folder-and-file-filter-examples)。 | 否                                                          |
@@ -252,7 +252,7 @@ ms.locfileid: "71009829"
 
 | 屬性 | 描述 | 必要項 |
 |:--- |:--- |:--- |
-| Type | 複製活動來源的類型屬性必須設定為：**FileSystemSource** |是 |
+| 型別 | 複製活動來源的類型屬性必須設定為：**FileSystemSource** |是 |
 | recursive | 表示是否從子資料夾，或只有從指定的資料夾，以遞迴方式讀取資料。 請注意，當 recursive 設定為 true，而接收器為檔案型存放區時，系統不會在接收器複製/建立空資料夾/子資料夾。<br/>允許的值為：**true** (預設值)、**false** | 否 |
 | maxConcurrentConnections | 連接到儲存體存放區的連線數目。 只有當您想要限制與資料存放區的並行連接時，才指定。 | 否 |
 

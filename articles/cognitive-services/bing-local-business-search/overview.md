@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-local-business
 ms.topic: overview
-ms.date: 11/01/2018
-ms.author: rosh
-ms.openlocfilehash: 8ee5dbe546b78557dde70868d01ec09ae33bee07
-ms.sourcegitcommit: beb34addde46583b6d30c2872478872552af30a1
+ms.date: 09/13/2019
+ms.author: aahi
+ms.openlocfilehash: bdada613ef46881bbf051144efded541ac3d0974
+ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69906331"
+ms.lasthandoff: 09/14/2019
+ms.locfileid: "70996695"
 ---
 # <a name="what-is-bing-local-business-search"></a>什麼是 Bing 當地商家搜尋？
 Bing 當地商家搜尋 API 是一套 RESTful 服務，可讓您的應用程式依搜尋查詢項目，尋找當地商家資訊。 例如，`q=<business-name> in Redmond, Washington` 或 `q=Italian restaurants near me`。 

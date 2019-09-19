@@ -5,13 +5,14 @@ ms.service: hdinsight
 ms.topic: troubleshooting
 author: hrasheed-msft
 ms.author: hrasheed
+ms.reviewer: jasonh
 ms.date: 07/31/2019
-ms.openlocfilehash: 66796b2510e9d07ebfe78f6d083c935f498d7870
-ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
+ms.openlocfilehash: 0f9158164ec598682841b217b9954145f8540c6c
+ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70810647"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71087440"
 ---
 # <a name="converting-service-principal-certificate-contents-to-base-64-encoded-string-format-in-hdinsight"></a>將服務主體憑證內容轉換成 HDInsight 中的 base-64 編碼字串格式
 

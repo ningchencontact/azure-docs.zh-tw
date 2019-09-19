@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/01/2019
 ms.author: jingwang
-ms.openlocfilehash: 22f1394bb23568ac563af54f1df0b295f33f30d8
-ms.sourcegitcommit: a819209a7c293078ff5377dee266fa76fd20902c
+ms.openlocfilehash: 57b3918aba6ec43561e891e39bc1d767be57046d
+ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/16/2019
-ms.locfileid: "71010386"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71089339"
 ---
 # <a name="copy-data-from-shopify-using-azure-data-factory-preview"></a>使用 Azure Data Factory (預覽) 複製 Shopify 中的資料
 
@@ -30,7 +30,7 @@ ms.locfileid: "71010386"
 
 下列活動支援此 Shopify 連接器：
 
-- [複製活動](copy-activity-overview.md)與[支援的來源矩陣](copy-activity-overview.md)
+- [複製活動](copy-activity-overview.md)與[支援的來源/接收矩陣](copy-activity-overview.md)
 - [查閱活動](control-flow-lookup-activity.md)
 
 您可以將資料從 Shopify 複製到任何支援的接收資料存放區。 如需複製活動所支援作為來源/接收器的資料存放區清單，請參閱[支援的資料存放區](copy-activity-overview.md#supported-data-stores-and-formats)表格。
@@ -49,7 +49,7 @@ Azure Data Factory 提供的內建驅動程式可啟用連線，因此使用此�
 
 | 屬性 | 描述 | 必要項 |
 |:--- |:--- |:--- |
-| Type | 類型屬性必須設定為：**Shopify** | 是 |
+| 型別 | 類型屬性必須設定為：**Shopify** | 是 |
 | host | Shopify 伺服器的端點。 (也就是 mystore.myshopify.com)  | 是 |
 | accessToken | 可以用來存取 Shopify 資料的 API 存取權杖。 如果權杖是離線模式，則不會過期。 將此欄位標記為 SecureString，將它安全地儲存在 Data Factory 中，或[參考 Azure Key Vault 中儲存的祕密](store-credentials-in-key-vault.md)。 | 是 |
 | useEncryptedEndpoints | 指定是否使用 HTTPS 來加密資料來源端點。 預設值為 true。  | 否 |
@@ -82,7 +82,7 @@ Azure Data Factory 提供的內建驅動程式可啟用連線，因此使用此�
 
 | 屬性 | 描述 | 必要項 |
 |:--- |:--- |:--- |
-| Type | 資料集的類型屬性必須設定為：**ShopifyObject** | 是 |
+| 型別 | 資料集的類型屬性必須設定為：**ShopifyObject** | 是 |
 | tableName | 資料表的名稱。 | 否 (如果已指定活動來源中的"query") |
 
 **範例**
@@ -112,7 +112,7 @@ Azure Data Factory 提供的內建驅動程式可啟用連線，因此使用此�
 
 | 屬性 | 描述 | 必要項 |
 |:--- |:--- |:--- |
-| Type | 複製活動來源的類型屬性必須設定為：**ShopifySource** | 是 |
+| 型別 | 複製活動來源的類型屬性必須設定為：**ShopifySource** | 是 |
 | query | 使用自訂 SQL 查詢來讀取資料。 例如： `"SELECT * FROM "Products" WHERE Product_Id = '123'"` 。 | 否 (如果已指定資料集中的 "tableName") |
 
 **範例:**

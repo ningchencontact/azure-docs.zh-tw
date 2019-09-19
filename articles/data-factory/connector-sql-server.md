@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 09/09/2019
 ms.author: jingwang
-ms.openlocfilehash: 4b6e5d90d72e84f3a8a54ea0aadcad687b598b2d
-ms.sourcegitcommit: a819209a7c293078ff5377dee266fa76fd20902c
+ms.openlocfilehash: 7b266a21aabf37765de4f4f94cd3939cec697585
+ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/16/2019
-ms.locfileid: "71010354"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71058506"
 ---
 # <a name="copy-data-to-and-from-sql-server-by-using-azure-data-factory"></a>使用 Azure Data Factory 從 SQL Server 複製資料
 > [!div class="op_single_selector" title1="選取您要使用的 Azure Data Factory 版本："]
@@ -64,7 +64,7 @@ ms.locfileid: "71010354"
 
 | 屬性 | 描述 | 必要項 |
 |:--- |:--- |:--- |
-| Type | 類型屬性必須設定為 **SqlServer**。 | 是 |
+| 型別 | 類型屬性必須設定為 **SqlServer**。 | 是 |
 | connectionString |指定使用 SQL 驗證或 Windows 驗證連接到 SQL Server 資料庫所需的**connectionString**資訊。 請參考下列範例。<br/>將此欄位標記為**SecureString** ，將它安全地儲存在 Azure Data Factory 中。 您也可以將密碼放在 Azure Key Vault 中。 如果是 SQL 驗證，請從連接`password`字串中提取設定。 如需詳細資訊，請參閱資料表後面的 JSON 範例，並[將認證儲存在 Azure Key Vault 中](store-credentials-in-key-vault.md)。 |是 |
 | userName |如果您使用 Windows 驗證，請指定使用者名稱。 範例為 **domainname\\username**。 |否 |
 | password |針對您為使用者名稱指定的使用者帳戶指定密碼。 將此欄位標記為**SecureString** ，將它安全地儲存在 Azure Data Factory 中。 或者，您可以[參考儲存在 Azure Key Vault 中的秘密](store-credentials-in-key-vault.md)。 |否 |
@@ -157,8 +157,10 @@ ms.locfileid: "71010354"
 
 | 屬性 | 描述 | 必要項 |
 |:--- |:--- |:--- |
-| Type | 資料集的類型屬性必須設定為 **SqlServerTable**。 | 是 |
-| tableName |此屬性是連結服務所參考之 SQL Server 資料庫實例中的資料表或視圖名稱。 | 否 (來源)；是 (接收) |
+| 型別 | 資料集的類型屬性必須設定為 **SqlServerTable**。 | 是 |
+| schema | 架構的名稱。 |否 (來源)；是 (接收)  |
+| table | 資料表/視圖的名稱。 |否 (來源)；是 (接收)  |
+| tableName | 具有架構的資料表/視圖名稱。 此屬性支援回溯相容性。 針對新的工作負載`schema` ， `table`請使用和。 | 否 (來源)；是 (接收) |
 
 **範例**
 
@@ -174,7 +176,8 @@ ms.locfileid: "71010354"
         },
         "schema": [ < physical schema, optional, retrievable during authoring > ],
         "typeProperties": {
-            "tableName": "MyTable"
+            "schema": "<schema_name>",
+            "table": "<table_name>"
         }
     }
 }
@@ -190,7 +193,7 @@ ms.locfileid: "71010354"
 
 | 屬性 | 描述 | 必要項 |
 |:--- |:--- |:--- |
-| Type | 複製活動來源的 type屬性必須設定為 **SqlSource**。 | 是 |
+| 型別 | 複製活動來源的 type屬性必須設定為 **SqlSource**。 | 是 |
 | sqlReaderQuery |使用自訂 SQL 查詢來讀取資料。 例如 `select * from MyTable`。 |否 |
 | sqlReaderStoredProcedureName |此屬性是從來源資料表讀取資料的預存程序名稱。 最後一個 SQL 陳述式必須是預存程序中的 SELECT 陳述式。 |否 |
 | storedProcedureParameters |這些是預存程序的參數。<br/>允許的值為名稱或值組。 參數的名稱和大小寫必須符合預存程式參數的名稱和大小寫。 |否 |
@@ -296,7 +299,7 @@ GO
 
 | 屬性 | 描述 | 必要項 |
 |:--- |:--- |:--- |
-| Type | 複製活動接收的 type 屬性必須設定為 **SqlSink**。 | 是 |
+| 型別 | 複製活動接收的 type 屬性必須設定為 **SqlSink**。 | 是 |
 | writeBatchSize |要插入 SQL 資料表中*每個批次*的資料列數目。<br/>允許的值為整數的資料列數目。 根據預設，Azure Data Factory 會依據資料列大小，以動態方式決定適當的批次大小。 |否 |
 | writeBatchTimeout |此屬性會指定在逾時前等待批次插入作業完成的時間。<br/>允許的值適用于 timespan。 例如，"00:30:00" 代表30分鐘。 |否 |
 | preCopyScript |這個屬性會指定要在將資料寫入 SQL Server 之前，要執行之複製活動的 SQL 查詢。 每一複製回合只會叫用此查詢一次。 您可以使用此屬性來清除預先載入的資料。 |否 |

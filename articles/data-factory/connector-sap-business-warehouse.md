@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 09/04/2019
 ms.author: jingwang
-ms.openlocfilehash: c71096431a9441ebc3e1feb5bd76b9b6a3745536
-ms.sourcegitcommit: a819209a7c293078ff5377dee266fa76fd20902c
+ms.openlocfilehash: e53cb822d1100b3d13a96c9f86aee6db420e4bb1
+ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/16/2019
-ms.locfileid: "71010506"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71089601"
 ---
 # <a name="copy-data-from-sap-business-warehouse-using-azure-data-factory"></a>使用 Azure Data Factory 從 SAP Business Warehouse 複製資料
 > [!div class="op_single_selector" title1="選取您目前使用的 Data Factory 服務版本："]
@@ -33,7 +33,7 @@ ms.locfileid: "71010506"
 
 此 SAP 商務倉儲連接器支援下列活動：
 
-- [複製活動](copy-activity-overview.md)與[支援的來源矩陣](copy-activity-overview.md)
+- [複製活動](copy-activity-overview.md)與[支援的來源/接收矩陣](copy-activity-overview.md)
 - [查閱活動](control-flow-lookup-activity.md)
 
 您可以將資料從 SAP Business Warehouse 複製到任何支援的接收資料存放區。 如需複製活動所支援作為來源/接收器的資料存放區清單，請參閱[支援的資料存放區](copy-activity-overview.md#supported-data-stores-and-formats)表格。
@@ -68,7 +68,7 @@ ms.locfileid: "71010506"
 
 | 屬性 | 描述 | 必要項 |
 |:--- |:--- |:--- |
-| Type | 類型屬性必須設定為：**SapBw** | 是 |
+| 型別 | 類型屬性必須設定為：**SapBw** | 是 |
 | server | SAP BW 執行個體所在之伺服器的名稱。 | 是 |
 | systemNumber | SAP BW 系統的系統編號。<br/>允許的值：以字串表示的二位數十進位數字。 | 是 |
 | clientId | SAP W 系統中用戶端的用戶端識別碼。<br/>允許的值：以字串表示的三位數十進位數字。 | 是 |
@@ -136,7 +136,7 @@ ms.locfileid: "71010506"
 
 | 屬性 | 描述 | 必要項 |
 |:--- |:--- |:--- |
-| Type | 複製活動來源的類型屬性必須設定為：**SapBwSource** | 是 |
+| 型別 | 複製活動來源的類型屬性必須設定為：**SapBwSource** | 是 |
 | query | 指定 MDX 查詢從 SAP BW 執行個體讀取資料。 | 是 |
 
 **範例:**

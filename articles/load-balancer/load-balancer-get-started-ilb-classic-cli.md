@@ -5,6 +5,7 @@ description: 瞭解如何使用 Azure 傳統 CLI 在傳統部署模型中建立�
 services: load-balancer
 documentationcenter: na
 author: genlin
+manager: dcscontentpm
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: article
@@ -13,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: 991e6554df62591dea5c126f8ea82704373d6ffd
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c0b061da308f2e8635cf1722cb6a735624501374
+ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60781234"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71090985"
 ---
 # <a name="get-started-creating-an-internal-load-balancer-using-the-azure-classic-cli"></a>開始使用 Azure 傳統 CLI 建立內部負載平衡器
 
@@ -104,7 +105,7 @@ azure vm endpoint create db1 1433 --local-port 1433 --protocol tcp --probe-port 
 azure vm show DB1
 ```
 
-輸出如下所示：
+其輸出如下：
 
     azure vm show DB1
     info:    Executing command vm show

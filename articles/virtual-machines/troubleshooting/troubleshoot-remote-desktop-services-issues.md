@@ -4,7 +4,7 @@ description: 了解如何針對在連線到虛擬機器時的遠端桌面服務�
 services: virtual-machines-windows
 documentationCenter: ''
 author: genlin
-manager: cshepard
+manager: dcscontentpm
 editor: ''
 ms.service: virtual-machines-windows
 ms.topic: troubleshooting
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 10/23/2018
 ms.author: genli
-ms.openlocfilehash: 845e9c17d6f7facb4e24f3069b3622b6449295ca
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 9f7957fb0e6e888367c1f8ded1abfb3828697cbb
+ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70103330"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71087085"
 ---
 # <a name="remote-desktop-services-isnt-starting-on-an-azure-vm"></a>遠端桌面服務未在 Azure VM 上啟動
 
@@ -57,7 +57,7 @@ ms.locfileid: "70103330"
 
 - 已將 TermService 服務設定為**停用**。 
 - TermService 服務已損毀或沒有回應。 
-- 因為的設定不正確, 所以無法啟動 TermService。
+- 因為的設定不正確，所以無法啟動 TermService。
 
 ## <a name="solution"></a>方案
 

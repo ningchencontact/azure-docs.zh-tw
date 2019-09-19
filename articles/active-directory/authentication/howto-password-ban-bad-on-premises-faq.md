@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 82fe917f911be45d7f68662e956fe3bd14f92267
-ms.sourcegitcommit: dd69b3cda2d722b7aecce5b9bd3eb9b7fbf9dc0a
+ms.openlocfilehash: 74f81cb1f9b62755d2dd2707518b828466e9ed1b
+ms.sourcegitcommit: cd70273f0845cd39b435bd5978ca0df4ac4d7b2c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70959887"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71097560"
 ---
 # <a name="azure-ad-password-protection-on-premises---frequently-asked-questions"></a>Azure AD 密碼保護內部部署 - 常見問題集
 
@@ -136,6 +136,10 @@ FRS (DFSR 之前的技術) 有許多已知問題，而且在更新版本的 Wind
 **問：即使我已將原則設定為處於 Audit 模式，為什麼 Azure AD 仍會拒絕弱式密碼？**
 
 只有內部部署 Active Directory 環境支援 Audit 模式。 Azure AD 在評估密碼時，會隱含地一律處於「強制」模式。
+
+**問：當 Azure AD 密碼保護拒絕密碼時，我的使用者會看到傳統的 Windows 錯誤訊息。是否可以自訂此錯誤訊息，讓使用者知道究竟發生什麼事？**
+
+資料分割 當網域控制站拒絕密碼時，使用者所看到的錯誤訊息是由用戶端電腦控制，而不是網域控制站。 當預設 Active Directory 密碼原則或密碼篩選器式解決方案（例如 Azure AD 密碼保護）拒絕密碼時，就會發生這種行為。
 
 ## <a name="additional-content"></a>其他內容
 

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 09/04/2019
 ms.author: jingwang
-ms.openlocfilehash: 3f637314045210d89f8ac1da5d8675855e5d8b55
-ms.sourcegitcommit: a819209a7c293078ff5377dee266fa76fd20902c
+ms.openlocfilehash: 4bebdbda8fbba10b3e8817d3958e75d39522538a
+ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/16/2019
-ms.locfileid: "71009044"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71092046"
 ---
 # <a name="copy-data-from-impala-by-using-azure-data-factory-preview"></a>使用 Azure Data Factory 從 Impala 複製資料 (預覽)
 
@@ -30,7 +30,7 @@ ms.locfileid: "71009044"
 
 下列活動支援此 Impala 連接器：
 
-- [複製活動](copy-activity-overview.md)與[支援的來源矩陣](copy-activity-overview.md)
+- [複製活動](copy-activity-overview.md)與[支援的來源/接收矩陣](copy-activity-overview.md)
 - [查閱活動](control-flow-lookup-activity.md)
 
 您可以將資料從 Impala 複製到任何支援的接收資料存放區。 如需複製活動所支援作為來源或接收器的資料存放區清單，請參閱[支援的資料存放區](copy-activity-overview.md#supported-data-stores-and-formats)表格。
@@ -53,7 +53,7 @@ Data Factory 會提供內建的驅動程式來啟用連線。 因此，您不需
 
 | 屬性 | 描述 | 必要項 |
 |:--- |:--- |:--- |
-| Type | type 屬性必須設定為 **Impala**。 | 是 |
+| 型別 | type 屬性必須設定為 **Impala**。 | 是 |
 | host | Impala 伺服器的 IP 位址或主機名稱 (也就是 192.168.222.160)。  | 是 |
 | port | Impala 伺服器用來接聽用戶端連線的 TCP 連接埠。 預設值為 21050。  | 否 |
 | authenticationType | 要使用的驗證類型。 <br/>允許的值為 **Anonymous**、**SASLUsername** 和 **UsernameAndPassword**。 | 是 |
@@ -99,7 +99,7 @@ Data Factory 會提供內建的驅動程式來啟用連線。 因此，您不需
 
 | 屬性 | 描述 | 必要項 |
 |:--- |:--- |:--- |
-| Type | 資料集的類型屬性必須設定為：**ImpalaObject** | 是 |
+| 型別 | 資料集的類型屬性必須設定為：**ImpalaObject** | 是 |
 | schema | 架構的名稱。 |否 (如果已指定活動來源中的"query")  |
 | table | 資料表的名稱。 |否 (如果已指定活動來源中的"query")  |
 | tableName | 具有架構之資料表的名稱。 此屬性支援回溯相容性。 針對`schema`新`table`的工作負載使用和。 | 否 (如果已指定活動來源中的"query") |
@@ -131,7 +131,7 @@ Data Factory 會提供內建的驅動程式來啟用連線。 因此，您不需
 
 | 屬性 | 描述 | 必要項 |
 |:--- |:--- |:--- |
-| Type | 複製活動來源的 type 屬性必須設定為 **ImpalaSource**。 | 是 |
+| 型別 | 複製活動來源的 type 屬性必須設定為 **ImpalaSource**。 | 是 |
 | query | 使用自訂 SQL 查詢來讀取資料。 例如 `"SELECT * FROM MyTable"`。 | 否 (如果已指定資料集中的 "tableName") |
 
 **範例:**

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 09/13/2019
 ms.author: jingwang
-ms.openlocfilehash: b91ec46d47814418de21e9afe3e6e5534473c921
-ms.sourcegitcommit: a819209a7c293078ff5377dee266fa76fd20902c
+ms.openlocfilehash: e538c8b00bddc8a2fa35b158c1e76f9033b73a56
+ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/16/2019
-ms.locfileid: "71008973"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71089175"
 ---
 # <a name="copy-data-from-teradata-vantage-by-using-azure-data-factory"></a>使用 Azure Data Factory 從 Teradata 有利複製資料
 > [!div class="op_single_selector" title1="選取您目前使用的 Data Factory 服務版本："]
@@ -31,7 +31,7 @@ ms.locfileid: "71008973"
 
 下列活動支援此 Teradata 連接器：
 
-- [複製活動](copy-activity-overview.md)與[支援的來源矩陣](copy-activity-overview.md)
+- [複製活動](copy-activity-overview.md)與[支援的來源/接收矩陣](copy-activity-overview.md)
 - [查閱活動](control-flow-lookup-activity.md)
 
 您可以將資料從 Teradata 有利複製到任何支援的接收資料存放區。 如需複製活動所支援作為來源/接收器的資料存放區清單，請參閱[支援的資料存放區](copy-activity-overview.md#supported-data-stores-and-formats)表格。
@@ -66,7 +66,7 @@ Teradata 連結服務支援下列屬性：
 
 | 屬性 | 描述 | 必要項 |
 |:--- |:--- |:--- |
-| Type | Type 屬性必須設定為**Teradata**。 | 是 |
+| 型別 | Type 屬性必須設定為**Teradata**。 | 是 |
 | connectionString | 指定連接到 Teradata 實例所需的資訊。 請參考下列範例。<br/>您也可以將密碼放在 Azure Key Vault 中，並從`password`連接字串中提取設定。 如需詳細資訊，請參閱[在 Azure Key Vault 中儲存認證](store-credentials-in-key-vault.md)。 | 是 |
 | username | 指定要連接到 Teradata 的使用者名稱。 適用于使用 Windows 驗證時。 | 否 |
 | password | 針對您為使用者名稱指定的使用者帳戶指定密碼。 您也可以選擇[參考儲存在 Azure Key Vault 中的秘密](store-credentials-in-key-vault.md)。 <br>適用于當您使用 Windows 驗證，或參考 Key Vault 中的密碼進行基本驗證時。 | 否 |
@@ -146,7 +146,7 @@ Teradata 連結服務支援下列屬性：
 
 | 屬性 | 描述 | 必要項 |
 |:--- |:--- |:--- |
-| Type | 資料集的類型屬性必須設定為`TeradataTable`。 | 是 |
+| 型別 | 資料集的類型屬性必須設定為`TeradataTable`。 | 是 |
 | database | Teradata 實例的名稱。 | 否 (如果已指定活動來源中的"query") |
 | table | Teradata 實例中的資料表名稱。 | 否 (如果已指定活動來源中的"query") |
 
@@ -200,7 +200,7 @@ Teradata 連結服務支援下列屬性：
 
 | 屬性 | 描述 | 必要項 |
 |:--- |:--- |:--- |
-| Type | 複製活動來源的類型屬性必須設定為`TeradataSource`。 | 是 |
+| 型別 | 複製活動來源的類型屬性必須設定為`TeradataSource`。 | 是 |
 | query | 使用自訂 SQL 查詢來讀取資料。 例如 `"SELECT * FROM MyTable"`。<br>當您啟用資料分割載入時，您必須在查詢中攔截任何對應的內建資料分割參數。 如需範例，請參閱[從 Teradata 平行複製](#parallel-copy-from-teradata)一節。 | 否（如果已指定資料集中的資料表） |
 | partitionOptions | 指定用來從 Teradata 載入資料的資料分割選項。 <br>允許值為：**無**（預設值）、 **Hash**和**DynamicRange**。<br>當分割區選項已啟用（也就是不`None`是）時，從 Teradata 並行載入資料的平行處理原則程度，是[`parallelCopies`](copy-activity-performance.md#parallel-copy)由複製活動上的設定所控制。 | 否 |
 | partitionSettings | 指定資料分割的設定群組。 <br>當資料分割選項不`None`適用時套用。 | 否 |

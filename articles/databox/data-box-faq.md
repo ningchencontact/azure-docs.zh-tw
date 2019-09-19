@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: article
-ms.date: 08/21/2019
+ms.date: 09/03/2019
 ms.author: alkohli
-ms.openlocfilehash: f9afd3ae1d1d5d6235cf8bd0a6350a782ea6afbe
-ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.openlocfilehash: 8dbdbe39f613bb8895be6ae21d8aa29b766781cd
+ms.sourcegitcommit: cd70273f0845cd39b435bd5978ca0df4ac4d7b2c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70142937"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71098811"
 ---
 # <a name="azure-data-box-frequently-asked-questions"></a>Azure 資料箱：常見問題集
 
@@ -180,8 +180,19 @@ A.  是的。 資料箱可支援最多 10 個儲存體帳戶、一般用途、�
 ### <a name="q-my-device-was-delivered-but-the-device-seems-to-be-damaged-what-should-i-do"></a>問： 我已收到裝置，但裝置似乎已經損毀。 我該怎麼辦？
 A. 如果您收到的裝置已損毀，或是有遭到竄改的跡象，請勿使用該裝置。 請[連絡 Microsoft 支援服務](data-box-disk-contact-microsoft-support.md)並儘快送回裝置。 您也可以建立新的資料箱訂單來更換裝置。 在此情況下，將不會對您收取更換裝置的費用。
 
-### <a name="q-can-i-use-my-own-shipping-carrier-to-ship-data-box"></a>問： 是否可以使用自己的貨運公司來寄送資料箱？
-A. 針對資料箱服務，Microsoft 會處理進出 Azure 資料中心的物流。 如果您想要使用自己的貨運公司，可以使用 Azure 匯入/匯出服務。 如需詳細資訊，請移至[什麼是 Azure 匯入/匯出服務？](../storage/common/storage-import-export-service.md)
+### <a name="q-can-i-pick-up-my-data-box-order-myself-can-i-return-the-data-box-via-a-carrier-that-i-choose"></a>問： 我可以自行挑選我的資料箱順序嗎？ 我可以透過我選擇的電信公司來傳回資料箱嗎？
+A. 是的。 Microsoft 也只在 US Gov 地區提供自我管理的運送。 下資料箱訂單時，您可以選擇 [自我管理的出貨] 選項。 若要挑選您的資料箱裝置，請執行下列步驟：
+    
+1. 在您下訂單之後，就會處理訂單並準備資料箱。 您會收到電子郵件通知，表示您的訂單已準備好取貨。 
+2. 訂單準備好收取之後，請前往 Azure 入口網站中的訂單，並流覽至 [**總覽**] 分頁。 
+3. 您會在 Azure 入口網站中看到含有程式碼的通知。 以電子郵件傳送[Azure 資料箱作業小組](mailto:adbops@microsoft.com)，並為他們提供程式碼。 小組會提供位置並排程取貨日期和時間。 收到電子郵件通知之後，您必須在5個工作天內呼叫小組。
+
+資料複製完成後，請採取下列步驟來傳回您的裝置：
+
+1. 一旦資料複製完成且沒有錯誤，請執行**寄送準備**。 準備完成後，您會在裝置的本機 web UI 中收到程式碼。 複製並儲存程式碼。
+2. 關閉裝置，並移除連接的纜線。
+3. 纏繞裝置隨附的電源線，並將其安全地放在裝置背後。
+4. 以電子郵件傳送[Azure 資料箱作業小組](mailto:adbops@microsoft.com)，並為他們提供您稍早儲存的程式碼。 他們會提供有關卸載裝置之位置和時機的資訊。
 
 ### <a name="q-will-my-data-box-devices-cross-country-borders-during-shipping"></a>問： 我的資料箱服務在運送期間可以跨國家/地區邊界使用嗎？
 A. 所有的資料箱裝置都是在與目的地相同的國家/地區內寄送，並不會跨越任何跨國界。 唯一的例外狀況是位於歐盟 (EU) 的訂單，該地區的裝置可以在任何歐盟國家/地區之間運送。 這適用於資料箱及 Data Box Heavy 裝置。

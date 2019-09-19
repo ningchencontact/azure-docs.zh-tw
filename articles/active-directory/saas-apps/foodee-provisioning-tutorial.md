@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/30/2019
 ms.author: Zhchia
-ms.openlocfilehash: e444d6254b575ead4b5d436a4b92f960c61b1d1c
-ms.sourcegitcommit: b7b0d9f25418b78e1ae562c525e7d7412fcc7ba0
+ms.openlocfilehash: 171a1141670e55814474390c59ae8d514491edbd
+ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/08/2019
-ms.locfileid: "70802871"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71088099"
 ---
 # <a name="tutorial-configure-foodee-for-automatic-user-provisioning"></a>教學課程：設定 Foodee 來自動布建使用者
 
@@ -29,19 +29,19 @@ ms.locfileid: "70802871"
 > [!NOTE]
 > 本教學課程會說明建置在 Azure AD 使用者佈建服務之上的連接器。 如需此服務的用途、運作方式和常見問題等重要詳細資訊，請參閱[使用 Azure Active Directory 對 SaaS 應用程式自動佈建和取消佈建使用者](../manage-apps/user-provisioning.md)。
 >
-> 此連接器目前為公開預覽版。 如需預覽功能之一般 Microsoft Azure 使用規定的詳細資訊，請參閱[Microsoft Azure 預覽的補充使用](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)規定。
+> 此連接器目前為公開預覽版。 如需預覽功能之一般 Microsoft Azure 使用規定的詳細資訊, 請參閱[Microsoft Azure 預覽的補充使用](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)規定。
 
 ## <a name="prerequisites"></a>必要條件
 
 本教學課程中概述的案例假設您已經具有下列必要條件：
 
 * Azure AD 租用戶。
-* [Foodee 租使用者](https://Foodee.com/pricing/)
+* [Foodee 租使用者](https://www.food.ee/about/)
 * Foodee 中具有系統管理員許可權的使用者帳戶。
 
 ## <a name="assigning-users-to-foodee"></a>將使用者指派給 Foodee 
 
-Azure Active Directory 使用稱為「*指派*」的概念，來判斷哪些使用者應接收所選應用程式的存取權。 在自動使用者布建的內容中，只有已指派給 Azure AD 中應用程式的使用者和/或群組會進行同步處理。
+Azure Active Directory 使用稱為「*指派*」的概念, 來判斷哪些使用者應接收所選應用程式的存取權。 在自動使用者布建的內容中, 只有已指派給 Azure AD 中應用程式的使用者和/或群組會進行同步處理。
 
 在設定並啟用自動使用者布建之前，您應該決定 Azure AD 中的哪些使用者和/或群組需要存取 Foodee。 一旦決定後，您可以遵循此處的指示，將這些使用者和/或群組指派給 Foodee：
 * [將使用者或群組指派給企業應用程式](../manage-apps/assign-user-or-group-access-portal.md)
@@ -75,7 +75,7 @@ Azure Active Directory 使用稱為「*指派*」的概念，來判斷哪些使�
 
 **若要從 Azure AD 應用程式庫新增 Foodee，請執行下列步驟：**
 
-1. 在 **[Azure 入口網站](https://portal.azure.com)** 的左側導覽窗格中，選取 [ **Azure Active Directory**]。
+1. 在 **[Azure 入口網站](https://portal.azure.com)** 的左側導覽窗格中, 選取 [ **Azure Active Directory**]。
 
     ![Azure Active Directory 按鈕](common/select-azuread.png)
 
@@ -83,7 +83,7 @@ Azure Active Directory 使用稱為「*指派*」的概念，來判斷哪些使�
 
     ![企業應用程式刀鋒視窗](common/enterprise-applications.png)
 
-3. 若要新增新的應用程式，請選取窗格頂端的 [**新增應用程式**] 按鈕。
+3. 若要新增新的應用程式, 請選取窗格頂端的 [**新增應用程式**] 按鈕。
 
     ![新增應用程式按鈕](common/add-new-app.png)
 
@@ -100,7 +100,7 @@ Azure Active Directory 使用稱為「*指派*」的概念，來判斷哪些使�
 
 ### <a name="to-configure-automatic-user-provisioning-for-foodee-in-azure-ad"></a>若要在 Azure AD 中設定 Foodee 的自動使用者布建：
 
-1. 登入 [Azure 入口網站](https://portal.azure.com)。 選取 [**企業應用程式**]，然後選取 [**所有應用程式**]。
+1. 登入 [Azure 入口網站](https://portal.azure.com)。 選取 [**企業應用程式**], 然後選取 [**所有應用程式**]。
 
     ![企業應用程式刀鋒視窗](common/enterprise-applications.png)
 

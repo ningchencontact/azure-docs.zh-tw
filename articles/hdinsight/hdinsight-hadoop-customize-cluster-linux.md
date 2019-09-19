@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 04/02/2019
-ms.openlocfilehash: 226a3b0ffa4b770d1738e69fd04592476b9f4075
-ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
+ms.openlocfilehash: df9e6e3a9116b9a4490d8847e9a9d3e9e112f4f7
+ms.sourcegitcommit: cd70273f0845cd39b435bd5978ca0df4ac4d7b2c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70935305"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71098782"
 ---
 # <a name="customize-azure-hdinsight-clusters-by-using-script-actions"></a>使用腳本動作自訂 Azure HDInsight 叢集
 
@@ -45,11 +45,11 @@ Azure HDInsight 提供名為**指令碼動作**的設定方法，會叫用自訂
 指令碼動作是在 HDInsight 叢集中節點上執行的 Bash 指令碼。 指令碼動作的特性和功能如下：
 
 * 必須儲存在可從 HDInsight 叢集存取的 URI 上。 以下是可能的儲存位置：
-    
+
     * 針對一般叢集：
-    
+
       * ADLS Gen1：HDInsight 用來存取 Data Lake Storage 的服務主體必須具有指令碼的讀取存取權。 Data Lake Storage Gen1 中所儲存指令碼的 URI 格式為 `adl://DATALAKESTOREACCOUNTNAME.azuredatalakestore.net/path_to_file`。
-      
+
       * 本身是 HDInsight 叢集主要或額外儲存體帳戶之「Azure 儲存體」帳戶中的 Blob。 在建立叢集期間，已將這兩種儲存體帳戶的存取權都授與 HDInsight。
 
         > [!IMPORTANT]  
@@ -60,9 +60,9 @@ Azure HDInsight 提供名為**指令碼動作**的設定方法，會叫用自訂
         如需範例 URI，請參閱[範例指令碼動作指令碼](#example-script-action-scripts)。
 
      * 針對具有 ESP 的叢集：
-         
+
          * 支援 wasb://或 wasbs://或 HTTP [s]：//Uri。
-            
+
 * 可限制為只在特定節點類型上執行。 例如前端節點或背景工作節點。
 
 * 可以是持續性或臨時性。
@@ -107,14 +107,12 @@ Azure HDInsight 提供名為**指令碼動作**的設定方法，會叫用自訂
 > [!NOTE]  
 > 您可以執行停止和啟動服務 (包括 Apache Hadoop 相關服務) 等作業。 如果您停止服務，請確定 Ambari 服務及其他 Hadoop 相關服務在指令碼完成前處於執行狀態。 在建立叢集時，必須要有這些服務，才能成功地判斷叢集的健康情況和狀態。
 
-
 在叢集建立期間，您可以同時使用許多指令碼動作。 這些指令碼會以指定的順序叫用。
 
 > [!IMPORTANT]  
 > 指令碼動作必須在 60 分鐘內完成，否則就會逾時。在叢集佈建期間，同時執行指令碼與其他安裝和組態程序。 與在您開發環境中的執行時間相較，爭用 CPU 時間和網路頻寬等資源可能會導致指令碼需要較長的時間才能完成。
 >
 > 若要讓執行指令碼所花費的時間縮到最短，請避免進行從來源下載和編譯應用程式之類的工作。 請預先編譯應用程式，並將二進位檔儲存在「Azure 儲存體」中。
-
 
 ### <a name="script-action-on-a-running-cluster"></a>執行中叢集上的指令碼動作
 
@@ -161,13 +159,13 @@ HDInsight 提供一些指令碼以在 HDInsight 叢集上安裝下列元件：
 
 1. 依照[使用 Apache Hadoop、Apache Spark、Apache Kafka 及其他工具在 HDInsight 中設定叢集](hdinsight-hadoop-provision-linux-clusters.md)所述，開始建立叢集。 在叢集建立期間，您會抵達 [叢集摘要] 頁面。 請從 [叢集摘要] 頁面中，選取 [進階設定] 的 [編輯] 連結。
 
-    ![[Advanced settings] \(進階設定\) 連結](./media/hdinsight-hadoop-customize-cluster-linux/advanced-settings-link.png)
+    ![Azure 入口網站叢集的 advanced 設定](./media/hdinsight-hadoop-customize-cluster-linux/advanced-settings-link.png)
 
-3. 從 [進階設定] 區段中，選取 [指令碼動作]。 從 [指令碼動作] 區段中，選取 [+ 送出新的]。
+1. 從 [進階設定] 區段中，選取 [指令碼動作]。 從 [指令碼動作] 區段中，選取 [+ 送出新的]。
 
-    ![送出新的指令碼動作](./media/hdinsight-hadoop-customize-cluster-linux/add-new-script-action.png)
+    ![入口網站腳本動作提交新的](./media/hdinsight-hadoop-customize-cluster-linux/add-new-script-action.png)
 
-4. 使用 [選取指令碼] 項目來選取預先製作的指令碼。 若要使用自訂指令碼，請選取 [自訂]。 然後為您的指令碼提供 [名稱] 和 [Bash 指令碼 URI]。
+1. 使用 [選取指令碼] 項目來選取預先製作的指令碼。 若要使用自訂指令碼，請選取 [自訂]。 然後為您的指令碼提供 [名稱] 和 [Bash 指令碼 URI]。
 
     ![在選取指令碼表單中加入指令碼](./media/hdinsight-hadoop-customize-cluster-linux/hdinsight-select-script.png)
 
@@ -183,13 +181,13 @@ HDInsight 提供一些指令碼以在 HDInsight 叢集上安裝下列元件：
 
     請使用 [保存此指令碼動作] 項目，以確保在執行規模調整作業期間會套用此指令碼。
 
-5. 選取 [Create] \(建立\) 以儲存指令碼。 接著，您可以使用 [+ 送出新的] 來新增另一個指令碼。
+1. 選取 [Create] \(建立\) 以儲存指令碼。 接著，您可以使用 [+ 送出新的] 來新增另一個指令碼。
 
-    ![多個指令碼動作](./media/hdinsight-hadoop-customize-cluster-linux/multiple-scripts-actions.png)
+    ![HDInsight 多個腳本動作](./media/hdinsight-hadoop-customize-cluster-linux/multiple-scripts-actions.png)
 
     新增完指令碼之後，請選取 [選取] 按鈕，然後選取 [下一步] 按鈕以返回 [叢集摘要] 區段。
 
-3. 若要建立叢集，請從 [叢集摘要] 區段選取 [建立]。
+1. 若要建立叢集，請從 [叢集摘要] 區段選取 [建立]。
 
 ### <a name="use-a-script-action-from-azure-resource-manager-templates"></a>從 Azure Resource Manager 範本使用指令碼動作
 
@@ -249,7 +247,7 @@ HDInsight .NET SDK 提供用戶端程式庫，可讓您更輕鬆地從 .NET 應�
 
     ![將指令碼加入執行中的叢集](./media/hdinsight-hadoop-customize-cluster-linux/add-script-running-cluster.png)
 
-4. 使用 [選取指令碼] 項目來選取預先製作的指令碼。 若要使用自訂指令碼，請選取 [自訂]。 然後為您的指令碼提供 [名稱] 和 [Bash 指令碼 URI]。
+1. 使用 [選取指令碼] 項目來選取預先製作的指令碼。 若要使用自訂指令碼，請選取 [自訂]。 然後為您的指令碼提供 [名稱] 和 [Bash 指令碼 URI]。
 
     ![在選取指令碼表單中加入指令碼](./media/hdinsight-hadoop-customize-cluster-linux/hdinsight-select-script.png)
 
@@ -265,7 +263,7 @@ HDInsight .NET SDK 提供用戶端程式庫，可讓您更輕鬆地從 .NET 應�
 
     使用 [保存此指令碼動作] 項目，可確保在執行規模調整作業時套用此指令碼。
 
-5. 最後，選取 [建立] 按鈕以將指令碼套用至叢集。
+1. 最後，選取 [建立] 按鈕以將指令碼套用至叢集。
 
 ### <a name="apply-a-script-action-to-a-running-cluster-from-azure-powershell"></a>從 Azure PowerShell 將指令碼動作套用到執行中的叢集
 
@@ -346,17 +344,17 @@ HDInsight .NET SDK 提供用戶端程式庫，可讓您更輕鬆地從 .NET 應�
 
 1. 從預設檢視的 [設定] 底下，選取 [指令碼動作]。
 
-4. 此叢集的指令碼歷程記錄會顯示在 [指令碼動作] 區段上。 此資訊包含持續性指令碼清單。 以下螢幕擷取畫面顯示 Solr 指令碼已在此叢集上執行。 此螢幕擷取畫面未顯示任何持續性指令碼。
+1. 此叢集的指令碼歷程記錄會顯示在 [指令碼動作] 區段上。 此資訊包含持續性指令碼清單。 以下螢幕擷取畫面顯示 Solr 指令碼已在此叢集上執行。 此螢幕擷取畫面未顯示任何持續性指令碼。
 
-    ![指令碼動作](./media/hdinsight-hadoop-customize-cluster-linux/script-action-history.png)
+    ![入口網站腳本動作提交歷程記錄](./media/hdinsight-hadoop-customize-cluster-linux/script-action-history.png)
 
-5. 從歷程記錄中選取指令碼，以顯示此指令碼的 [屬性] 區段。 從視窗的頂端，您可以重新執行指令碼或將其升階。
+1. 從歷程記錄中選取指令碼，以顯示此指令碼的 [屬性] 區段。 從視窗的頂端，您可以重新執行指令碼或將其升階。
 
-    ![指令碼動作 - 屬性](./media/hdinsight-hadoop-customize-cluster-linux/promote-script-actions.png)
+    ![腳本動作屬性升級](./media/hdinsight-hadoop-customize-cluster-linux/promote-script-actions.png)
 
-6. 您也可以選取 [指令碼動作] 區段上項目右邊的省略符號 ( **...** ) 來執行動作。
+1. 您也可以選取 [指令碼動作] 區段上項目右邊的省略符號 ( **...** ) 來執行動作。
 
-    ![指令碼動作 - 省略符號](./media/hdinsight-hadoop-customize-cluster-linux/hdi-delete-promoted-sa.png)
+    ![保存的腳本動作刪除](./media/hdinsight-hadoop-customize-cluster-linux/hdi-delete-promoted-sa.png)
 
 ### <a name="azure-powershell"></a>Azure PowerShell
 
@@ -414,7 +412,7 @@ HDInsight 服務中有兩種類型的開放原始碼元件可供使用：
 > [!WARNING]  
 > 對隨 HDInsight 叢集提供的元件會有完整支援。 Microsoft 支援服務可協助隔離和解決這些元件的相關問題。
 >
-> 自訂元件則會獲得商務上合理的支援，以協助您進一步針對問題進行疑難排解。 「Microsoft 支援服務」可能能夠解決問題。 或是可能要求您參與可提供該技術深度專業知識的可用開放原始碼技術管道。 您可以使用許多社群網站。 例如 [HDInsight 的 MSDN 論壇](https://social.msdn.microsoft.com/Forums/azure/home?forum=hdinsight)和 [Stack Overflow](https://stackoverflow.com)。 
+> 自訂元件則會獲得商務上合理的支援，以協助您進一步針對問題進行疑難排解。 「Microsoft 支援服務」可能能夠解決問題。 或是可能要求您參與可提供該技術深度專業知識的可用開放原始碼技術管道。 您可以使用許多社群網站。 例如 [HDInsight 的 MSDN 論壇](https://social.msdn.microsoft.com/Forums/azure/home?forum=hdinsight)和 [Stack Overflow](https://stackoverflow.com)。
 >
 > 此外，Apache 專案在 [Apache 網站](https://apache.org)上也有專案網站。 例如 [Hadoop](https://hadoop.apache.org/)。
 
@@ -442,7 +440,7 @@ HDInsight 服務提供數種方式以使用自訂元件。 不論元件在叢集
 
 3. 尋找在 [作業] 欄位中有 **run\_customscriptaction** 的項目。 這些項目是在執行指令碼動作時建立的。
 
-    ![作業的螢幕擷取畫面](./media/hdinsight-hadoop-customize-cluster-linux/ambari-script-action.png)
+    ![Apache Ambari 腳本動作作業](./media/hdinsight-hadoop-customize-cluster-linux/ambari-script-action.png)
 
     若要檢視 **STDOUT** 和 **STDERR** 輸出，請選取 **run\customscriptaction** 項目，然後向下鑽研連結。 這是指令碼執行時所產生的輸出，其中可能包含實用的資訊。
 

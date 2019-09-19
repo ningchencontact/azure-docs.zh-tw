@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 07/18/2019
 ms.author: mlearned
-ms.openlocfilehash: 877d0a17b9ff06e9b9ac2c843c1847c9cb9726e4
-ms.sourcegitcommit: 71db032bd5680c9287a7867b923bf6471ba8f6be
+ms.openlocfilehash: e96d501196a629c7e37de7e5ad66b68863bf556f
+ms.sourcegitcommit: cd70273f0845cd39b435bd5978ca0df4ac4d7b2c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/16/2019
-ms.locfileid: "71018720"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71097905"
 ---
 # <a name="preview---automatically-scale-a-cluster-to-meet-application-demands-on-azure-kubernetes-service-aks"></a>預覽-自動調整叢集，以符合 Azure Kubernetes Service 上的應用程式需求（AKS）
 
@@ -52,12 +52,12 @@ az extension update --name aks-preview
 
 為了適應不斷變化的應用程式需求，例如工作日和晚上之間或在週末，叢集通常需要一種自動調整的方法。 AKS 叢集可以透過下列兩種方式之一進行擴充：
 
-* **叢集自動調整程式**會監看由於資源限制而無法在節點上進行排程的 Pod。 接著，叢集會自動增加節點數目。
-* **水平 Pod 自動調整程式**會在 Kubernetes 叢集中使用計量伺服器，以監視 Pod 的資源需求。 如果服務需要更多資源，Pod 數目會自動增加以符合需求。
+* **叢集自動調整程式**會監看由於資源限制而無法在節點上進行排程的 Pod。 然後，叢集會自動增加節點的數目。
+* **水平 Pod 自動調整程式**會在 Kubernetes 叢集中使用計量伺服器，以監視 Pod 的資源需求。 如果應用程式需要更多資源，pod 數目會自動增加以符合需求。
 
 ![叢集自動調整程式和水平 Pod 自動調整程式通常會共同運作，以支援所需的應用程式需求](media/autoscaler/cluster-autoscaler.png)
 
-然後，水平 Pod 自動調整程式和叢集自動調整程式皆可視需要減少 Pod 和節點數目。 當一段時間內有未使用的容量時，叢集自動調整程式會減少節點數目。 叢集自動調整程式所要移除的節點，其上的 Pod 會安全地排程在叢集中的其他位置。 如果 Pod 無法移動，叢集自動調整程式可能無法相應減少，如下列情況所示：
+水準 pod 自動調整程式和叢集自動調整程式也可以視需要減少 pod 和節點的數目。 當一段時間內有未使用的容量時，叢集自動調整程式會減少節點數目。 叢集自動調整程式所要移除的節點，其上的 Pod 會安全地排程在叢集中的其他位置。 如果 Pod 無法移動，叢集自動調整程式可能無法相應減少，如下列情況所示：
 
 * Pod 會直接建立，而且不受控制器物件支援，例如部署或複本集。
 * Pod 中斷預算 (PDB) 限制太多，而且不允許低於特定閾值的 Pod 數目。
@@ -67,7 +67,7 @@ az extension update --name aks-preview
 
 叢集自動調整程式會使用啟動參數來處理調整事件和資源閾值之間的時間間隔。 這些參數由 Azure 平台定義，而且目前未公開供您調整。 如需叢集自動調整程式所使用之參數的詳細資訊，請參閱[什麼是叢集自動調整程式參數？][autoscaler-parameters]。
 
-叢集和水準 pod autoscalers 可以搭配使用，而且通常會同時部署在叢集中。 當兩者組合時，水平 Pod 自動調整程式著重於執行符合應用程式需求的 Pod 數目。 叢集自動調整程式著重於執行支援排程 Pod 所需的節點數目。
+叢集和水準 pod autoscalers 可以搭配使用，而且通常都是部署在叢集中。 當兩者組合時，水平 Pod 自動調整程式著重於執行符合應用程式需求的 Pod 數目。 叢集自動調整程式著重於執行支援排程 Pod 所需的節點數目。
 
 > [!NOTE]
 > 當您使用叢集自動調整程式時，會停用手動調整。 可讓叢集自動調整程式判斷所需的節點數目。 如果您想要手動調整叢集，[請停用叢集自動調整程式](#disable-the-cluster-autoscaler)。

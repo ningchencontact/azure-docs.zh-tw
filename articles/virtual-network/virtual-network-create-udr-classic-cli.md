@@ -4,7 +4,7 @@ description: 了解如何在傳統部署模型中使用 Azure CLI 來控制 VNet
 services: virtual-network
 documentationcenter: na
 author: genlin
-manager: cshepard
+manager: dcscontentpm
 editor: ''
 tags: azure-service-management
 ms.assetid: ca2b4638-8777-4d30-b972-eb790a7c804f
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/15/2016
 ms.author: genli
-ms.openlocfilehash: e1b8bb3544a08b60564ceb5bd7e1666214059e09
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 1193145b315175e6394db4caf93ab2e76a942ed9
+ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60743916"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71058779"
 ---
 # <a name="control-routing-and-use-virtual-appliances-classic-using-the-azure-cli"></a>使用 Azure CLI 控制路由和使用虛擬應用裝置 (傳統)
 
@@ -91,7 +91,7 @@ ms.locfileid: "60743916"
    
    * **-r (或 --route-table-name)** 。 將會加入路由的路由表的名稱。 在本文案例中為 *UDR-FrontEnd*。
    * **-a (或 --address-prefix)** 。 封包所指向位置的子網路的位址首碼。 在本文案例中為 *192.168.2.0/24*。
-   * **-t (或 --next-hop-type)** 。 將傳送流量的目標物件類型。 可能的值為 VirtualAppliance  、VirtualNetworkGateway  、VNETLocal  、Internet  或 None  。
+   * **-t (或 --next-hop-type)** 。 將傳送流量的目標物件類型。 可能的值為 VirtualAppliance、VirtualNetworkGateway、VNETLocal、Internet 或 None。
    * **-p (或 --next-hop-ip-address)** 。 下個躍點的 IP 位址。 在本文案例中為 *192.168.0.4*。
 4. 執行下列命令，將建立的路由表關聯至 **FrontEnd** 子網路：
 

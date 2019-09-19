@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 09/10/2019
 ms.author: raynew
-ms.openlocfilehash: 75a8207cd214a63258ddb167b887fe83b7aa032a
-ms.sourcegitcommit: a819209a7c293078ff5377dee266fa76fd20902c
+ms.openlocfilehash: 784bf15a58e25ba4cba18494adc295343d0c175a
+ms.sourcegitcommit: cd70273f0845cd39b435bd5978ca0df4ac4d7b2c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/16/2019
-ms.locfileid: "71008837"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71098899"
 ---
 # <a name="support-matrix-for-disaster-recovery-of-on-premises-hyper-v-vms-to-azure"></a>內部部署 Hyper-V VM 至 Azure 的災害復原支援矩陣
 
@@ -132,7 +132,7 @@ RDM | NA | NA
 待用加密 (SSE)| 是 | 是
 進階儲存體 | 是 | 是
 匯入/匯出服務 | 否 | 否
-已啟用防火牆的 Azure 儲存體帳戶 | 否  | 是的。 適用于目標儲存體和快取。
+已啟用防火牆的 Azure 儲存體帳戶 | 是的。 適用于目標儲存體和快取。 | 是的。 適用于目標儲存體和快取。
 修改儲存體帳戶 | 資料分割 啟用複寫之後，即無法修改目標 Azure 儲存體帳戶。 若要修改，請停用再重新啟用嚴重損壞修復。 | 否
 
 

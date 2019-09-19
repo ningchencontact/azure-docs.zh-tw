@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 12/21/2018
 ms.author: mbaldwin
 ms.custom: mvc
-ms.openlocfilehash: 8c142b4c1663a7ccd462836e9aac4ee80accaae4
-ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
+ms.openlocfilehash: 65c59ba299490ee2bbef849b6f7354abc05ad885
+ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "67874826"
+ms.lasthandoff: 09/15/2019
+ms.locfileid: "71003345"
 ---
 # <a name="tutorial-use-a-linux-vm-and-a-net-app-to-store-secrets-in-azure-key-vault"></a>教學課程：使用 Linux VM 和 .NET 應用程式將這些秘密儲存在 Azure Key Vault 中
 
@@ -30,12 +30,12 @@ Azure Key Vault 可協助您保護秘密，例如存取您的應用程式、服�
 > * 授與主控台應用程式從 Key Vault 讀取資料所需的權限
 > * 從 Key Vault 擷取祕密
 
-在進一步討論之前，請先閱讀[金鑰保存庫的基本概念](key-vault-whatis.md#basic-concepts)。
+在進一步討論之前，請先閱讀[金鑰保存庫的基本概念](basic-concepts.md)。
 
 ## <a name="prerequisites"></a>必要條件
 
 * [Git](https://git-scm.com/downloads)。
-* Azure 訂用帳戶。 如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 。
+* Azure 訂用帳戶。 如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)。
 * [Azure CLI 2.0 或更新版本](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)或 Azure Cloud Shell。
 
 [!INCLUDE [Azure Cloud Shell](../../includes/cloud-shell-try-it.md)]
