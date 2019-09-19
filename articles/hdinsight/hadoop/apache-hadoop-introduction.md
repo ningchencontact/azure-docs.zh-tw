@@ -4,16 +4,17 @@ description: 簡介 HDInsight 以及 Apache Hadoop 技術堆疊和元件。
 keywords: azure hadoop, hadoop azure, hadoop 簡介, hadoop 簡介, hadoop 技術堆疊, hadoop 簡介, hadoop 簡介, 什麼是 hadoop 叢集, 什麼是 hadoop 叢集, 什麼是 hadoop
 author: hrasheed-msft
 ms.author: hrasheed
+ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017,mvc,seodec18
 ms.topic: overview
 ms.date: 08/15/2019
-ms.openlocfilehash: 16845e5891117cc01bef5fae28cf4b36c0508651
-ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
+ms.openlocfilehash: 193b8f59a805de4303bfc38d397a821cc068dcc0
+ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70899548"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71088191"
 ---
 # <a name="what-is-apache-hadoop-in-azure-hdinsight"></a>什麼是 Apache HDInsight 中的 Apache Hadoop？
 
@@ -30,6 +31,10 @@ Apache Hadoop MapReduce 是一種可撰寫工作來處理大量資料的軟體�
 * **對應工具**：取用輸入資料、分析 (通常使用篩選及排序作業)，以及發出 Tuple (機碼值組)
 
 * **減壓器**：取用對應程式發出的 Tuple 並執行摘要作業，從對應程式資料建立較小的組合結果
+
+下圖說明了基本字數統計 MapReduce 工作範例：   
+
+ ![HDI.WordCountDiagram](./media/apache-hadoop-introduction/hdi-word-count-diagram.gif)
 
 此工作的輸出是文字中每個單字出現的次數統計。
 
@@ -55,5 +60,3 @@ Hadoop 串流會透過 STDIN 與 STDOUT 與對應工具和歸納工具進行通�
 ## <a name="next-steps"></a>後續步驟
 
 * [在 HDInsight 中建立 Apache Hadoop 叢集](apache-hadoop-linux-create-cluster-get-started-portal.md)
-
-[image-hdi-wordcountdiagram]: ./media/hdinsight-use-mapreduce/HDI.WordCountDiagram.gif

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 09/09/2019
 ms.author: jingwang
-ms.openlocfilehash: d8773b330349356410589cf66e8f50636d92b601
-ms.sourcegitcommit: a819209a7c293078ff5377dee266fa76fd20902c
+ms.openlocfilehash: 4bc6e5570870941f050bc289dddfd85d64843df2
+ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/16/2019
-ms.locfileid: "71009178"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71092084"
 ---
 # <a name="copy-data-from-hdfs-using-azure-data-factory"></a>使用 Azure Data Factory 從 HDFS 複製資料
 > [!div class="op_single_selector" title1="選取您目前使用的 Data Factory 服務版本："]
@@ -30,7 +30,7 @@ ms.locfileid: "71009178"
 
 下列活動支援此 HDFS 連接器：
 
-- [複製活動](copy-activity-overview.md)與[支援的來源矩陣](copy-activity-overview.md)
+- [複製活動](copy-activity-overview.md)與[支援的來源/接收矩陣](copy-activity-overview.md)
 - [查閱活動](control-flow-lookup-activity.md)
 
 具體而言，此 HDFS 連接器支援：
@@ -58,7 +58,7 @@ ms.locfileid: "71009178"
 
 | 屬性 | 描述 | 必要項 |
 |:--- |:--- |:--- |
-| Type | 類型屬性必須設定為：**Hdfs**。 | 是 |
+| 型別 | 類型屬性必須設定為：**Hdfs**。 | 是 |
 | url |到 HDFS 的 URL |是 |
 | authenticationType | 允許的值包括：**匿名**或 **Windows**。 <br><br> 若要對 HDFS 連接器使用 **Kerberos 驗證**，請參閱[此章節](#use-kerberos-authentication-for-hdfs-connector)來據以設定您的內部部署環境。 |是 |
 | userName |Windows 驗證的使用者名稱。 Kerberos 驗證請指定 `<username>@<domain>.com`。 |是 (適用於 Windows 驗證) |
@@ -161,7 +161,7 @@ ms.locfileid: "71009178"
 
 | 屬性 | 描述 | 必要項 |
 |:--- |:--- |:--- |
-| Type | 資料集的類型屬性必須設定為：**FileShare** |是 |
+| 型別 | 資料集的類型屬性必須設定為：**FileShare** |是 |
 | folderPath | 資料夾的路徑。 支援萬用字元篩選，允許的萬用字元為：`*` (比對零或多個字元) 和 `?` (比對零或單一字元)；如果您的實際檔案名稱包含萬用字元或此逸出字元，請使用 `^` 來逸出。 <br/><br/>範例：rootfolder/subfolder/，如需更多範例，請參閱[資料夾和檔案篩選範例](#folder-and-file-filter-examples)。 |是 |
 | fileName |  在指定 "folderPath" 之下檔案的**名稱或萬用字元篩選**。 若未指定此屬性的值，資料集就會指向資料夾中的所有檔案。 <br/><br/>針對篩選，允許的萬用字元為：`*` (符合零或多個字元) 和 `?` (符合零或單一字元)。<br/>- 範例 1：`"fileName": "*.csv"`<br/>- 範例 2：`"fileName": "???20180427.txt"`<br/>如果實際資料夾名稱內有萬用字元或逸出字元 `^`，請使用此逸出字元來逸出。 |否 |
 | modifiedDatetimeStart | 檔案篩選會根據以下屬性：上次修改時間。 如果檔案的上次修改時間在 `modifiedDatetimeStart` 與 `modifiedDatetimeEnd` 之間的時間範圍內，系統就會選取該檔案。 此時間會以 "2018-12-01T05:00:00Z" 格式套用至 UTC 時區。 <br/><br/> 請注意，當您想要從大量檔案進行檔案篩選時，啟用這項設定會影響資料移動的整體效能。 <br/><br/> 屬性可以是 Null，表示不會將檔案屬性篩選套用至資料集。  當 `modifiedDatetimeStart` 具有日期時間值，但 `modifiedDatetimeEnd` 為 NULL 時，意謂著系統將會選取上次更新時間屬性大於或等於此日期時間值的檔案。  當 `modifiedDatetimeEnd` 具有日期時間值，但 `modifiedDatetimeStart` 為 NULL 時，則意謂著系統將會選取上次更新時間屬性小於此日期時間值的檔案。| 否 |
@@ -282,7 +282,7 @@ ms.locfileid: "71009178"
 
 | 屬性 | 描述 | 必要項 |
 |:--- |:--- |:--- |
-| Type | 複製活動來源的類型屬性必須設定為：**HdfsSource** |是 |
+| 型別 | 複製活動來源的類型屬性必須設定為：**HdfsSource** |是 |
 | recursive | 表示是否從子資料夾，或只有從指定的資料夾，以遞迴方式讀取資料。 請注意，當 recursive 設定為 true，而接收器為檔案型存放區時，系統不會在接收器複製/建立空資料夾/子資料夾。<br/>允許的值為：**true** (預設值)、**false** | 否 |
 | distcpSettings | 使用 HDFS DistCp 時的屬性群組。 | 否 |
 | resourceManagerEndpoint | Yarn Resource Manager 端點 | 若使用 DistCp 則為「是」 |

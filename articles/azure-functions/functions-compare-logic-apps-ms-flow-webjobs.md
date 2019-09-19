@@ -11,12 +11,12 @@ ms.topic: overview
 ms.date: 04/09/2018
 ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: 9543e67d0f98836f760ac840fa12ec5718da037e
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 39c40f29f4548f2e7379472427a2c97f1a0b762c
+ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70086050"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70932964"
 ---
 # <a name="what-are-microsoft-flow-logic-apps-functions-and-webjobs"></a>什麼是 Microsoft Flow、Logic Apps、Azure Functions 和 WebJobs？
 
@@ -52,7 +52,7 @@ Microsoft Flow 可讓任何辦公室工作人員有能力執行簡單的整合 (
 
 Functions 和 Logic Apps 都是可啟用無伺服器工作負載的 Azure 服務。 Azure Functions 是無伺服器計算服務，而 Azure Logic Apps 可提供無伺服器工作流程。 兩者皆可建立複雜的「協調流程」  。 協調流程是函式或步驟的集合，在 Logic Apps 中稱為「動作」  ，您可執行其來完成複雜工作。 例如處理命令批次，您可以平行執行許多函式執行個體、等待執行個體完成，然後執行函式來計算彙總結果。
 
-對於 Azure Functions，您可以透過撰寫程式碼和使用 [Durable Functions 擴充功能](durable/durable-functions-concepts.md)來開發協調流程。 對於 Logic apps，您可以使用 GUI 或編輯組態檔來建立協調流程。
+對於 Azure Functions，您可以透過撰寫程式碼和使用 [Durable Functions 擴充功能](durable/durable-functions-overview.md)來開發協調流程。 對於 Logic apps，您可以使用 GUI 或編輯組態檔來建立協調流程。
 
 您可以在建置協調流程時混合搭配服務，從邏輯應用程式呼叫函式和從函式呼叫邏輯應用程式。 選擇如何建置每個協調流程，取決於服務的功能或您的個人喜好。 下表列出這些服務之間的一些主要差異：
  

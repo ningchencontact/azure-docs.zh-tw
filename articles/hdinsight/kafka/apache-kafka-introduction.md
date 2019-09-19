@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: overview
 ms.date: 06/13/2019
-ms.openlocfilehash: e500f08de414a5907a0f1aeeca90d8c2090adcdd
-ms.sourcegitcommit: e5dcf12763af358f24e73b9f89ff4088ac63c6cb
+ms.openlocfilehash: 7cf83af52d5bedee5b4d57ee1b4dda2fb34d1b3f
+ms.sourcegitcommit: dd69b3cda2d722b7aecce5b9bd3eb9b7fbf9dc0a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/14/2019
-ms.locfileid: "67137064"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70960097"
 ---
 # <a name="what-is-apache-kafka-in-azure-hdinsight"></a>什麼是 Azure HDInsight 中的 Apache Kafka
 
@@ -45,7 +45,7 @@ HDInsight 上的 Apache Kafka 特定特性如下：
 
 下圖顯示的典型 Kafka 設定會使用取用者群組、分割及複寫，以提供具有容錯功能的事件平行讀取：
 
-![Kafka 叢集設定圖表](./media/apache-kafka-introduction/kafka-cluster.png)
+![Kafka 叢集設定圖表](./media/apache-kafka-introduction/kafka-cluster-diagram.png)
 
 Apache ZooKeeper 會管理 Kafka 叢集的狀態。 Zookeeper 是針對並行、彈性且低度延遲的交易所建置的。 
 

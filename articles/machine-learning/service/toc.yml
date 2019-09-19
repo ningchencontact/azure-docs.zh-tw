@@ -31,7 +31,7 @@
             - name: ML 模型自動定型
               displayName: 'automl, automated, auto ml,'
               href: tutorial-auto-train-models.md
-        - name: 使用管理為批次評分 (進階)
+        - name: Machine Learning 管線 (進階)
           items:
             - name: 批次評分分類模型
               displayName: pipelines

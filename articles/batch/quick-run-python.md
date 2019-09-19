@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.date: 11/27/2018
 ms.author: lahugh
 ms.custom: mvc
-ms.openlocfilehash: 8b35d2441db654278f9d66f3cbb4e7a79d70e835
-ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
+ms.openlocfilehash: 77ccfc1a67fabca7fde47edac9094c6a68191f0f
+ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70128039"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71090772"
 ---
 # <a name="quickstart-run-your-first-batch-job-with-the-python-api"></a>快速入門：使用 Python API 執行您的第一個 Batch 作業
 
@@ -116,7 +116,7 @@ Batch processing began with mainframe computers and punch cards. Today it still 
 
 ### <a name="preliminaries"></a>準備工作
 
-為了與儲存體帳戶進行互動，應用程式會使用 [azure-storage-blob](https://pypi.python.org/pypi/azure-storage-blob) 套件來建立 [BlockBlobService](/python/api/azure.storage.blob.blockblobservice.blockblobservice) 物件。
+為了與儲存體帳戶進行互動，應用程式會使用 [azure-storage-blob](https://pypi.python.org/pypi/azure-storage-blob) 套件來建立 [BlockBlobService](/python/api/azure-storage-blob/azure.storage.blob.blockblobservice.blockblobservice) 物件。
 
 ```python
 blob_client = azureblob.BlockBlobService(
@@ -124,7 +124,7 @@ blob_client = azureblob.BlockBlobService(
     account_key=config._STORAGE_ACCOUNT_KEY)
 ```
 
-應用程式會使用 `blob_client` 參考在儲存體帳戶中建立容器，並將資料檔案上傳至該容器。 儲存體中的檔案會定義為 Batch [ResourceFile](/python/api/azure.batch.models.resourcefile) 物件，Batch 之後可將這類物件下載到計算節點。
+應用程式會使用 `blob_client` 參考在儲存體帳戶中建立容器，並將資料檔案上傳至該容器。 儲存體中的檔案會定義為 Batch [ResourceFile](/python/api/azure-batch/azure.batch.models.resourcefile) 物件，Batch 之後可將這類物件下載到計算節點。
 
 ```python
 input_file_paths = [os.path.join(sys.path[0], 'taskdata0.txt'),
@@ -149,11 +149,11 @@ batch_client = batch.BatchServiceClient(
 
 ### <a name="create-a-pool-of-compute-nodes"></a>建立計算節點的集區
 
-為了建立 Batch 集區，應用程式會使用 [PoolAddParameter](/python/api/azure.batch.models.pooladdparameter) 類別來設定節點數目、VM 大小和集區設定。 在此，[VirtualMachineConfiguration](/python/api/azure.batch.models.virtualmachineconfiguration) 物件會將 [ImageReference](/python/api/azure.batch.models.imagereference) 指定至 Azure Marketplace 中發佈的 Ubuntu Server 18.04 LTS 映像。 Batch 支援 Azure Marketplace 中各式各樣的 Linux 和 Windows Server 映像，以及自訂 VM 映像。
+為了建立 Batch 集區，應用程式會使用 [PoolAddParameter](/python/api/azure-batch/azure.batch.models.pooladdparameter) 類別來設定節點數目、VM 大小和集區設定。 在此，[VirtualMachineConfiguration](/python/api/azure-batch/azure.batch.models.virtualmachineconfiguration) 物件會將 [ImageReference](/python/api/azure-batch/azure.batch.models.imagereference) 指定至 Azure Marketplace 中發佈的 Ubuntu Server 18.04 LTS 映像。 Batch 支援 Azure Marketplace 中各式各樣的 Linux 和 Windows Server 映像，以及自訂 VM 映像。
 
 節點數目 (`_POOL_NODE_COUNT`) 和 VM 大小 (`_POOL_VM_SIZE`) 都是已定義的常數。 此範例預設建立的集區包含 2 個大小為 Standard_A1_v2  的節點。 建議的大小可為此快速範例提供良好的效能與成本平衡。
 
-[pool.add](/python/api/azure.batch.operations.pooloperations) 方法會將此集區提交至 Batch 服務。
+[pool.add](/python/api/azure-batch/azure.batch.operations.pooloperations) 方法會將此集區提交至 Batch 服務。
 
 ```python
 new_pool = batch.models.PoolAddParameter(
@@ -174,7 +174,7 @@ batch_service_client.pool.add(new_pool)
 
 ### <a name="create-a-batch-job"></a>建立 Batch 作業
 
-Batch 作業是一或多項工作的邏輯群組。 作業包含工作通用的設定，例如優先順序以及要執行工作的集區。 應用程式會使用 [JobAddParameter](/python/api/azure.batch.models.jobaddparameter) 類別在您的集區上建立作業。 [job.add](/python/api/azure.batch.operations.joboperations) 方法會將作業新增至指定的 Batch 帳戶。 一開始作業沒有任何工作。
+Batch 作業是一或多項工作的邏輯群組。 作業包含工作通用的設定，例如優先順序以及要執行工作的集區。 應用程式會使用 [JobAddParameter](/python/api/azure-batch/azure.batch.models.jobaddparameter) 類別在您的集區上建立作業。 [job.add](/python/api/azure-batch/azure.batch.operations.joboperations) 方法會將作業新增至指定的 Batch 帳戶。 一開始作業沒有任何工作。
 
 ```python
 job = batch.models.JobAddParameter(
@@ -185,9 +185,9 @@ batch_service_client.job.add(job)
 
 ### <a name="create-tasks"></a>建立工作
 
-應用程式會使用 [TaskAddParameter](/python/api/azure.batch.models.taskaddparameter) 類別建立工作物件清單。 每項工作都會使用 `command_line` 參數來處理輸入 `resource_files` 物件。 在此範例中，命令列會執行 Bash Shell `cat` 命令以顯示文字檔。 這個命令是用於示範的簡單範例。 當您使用 Batch 時，您會在此命令列中指定您的應用程式或指令碼。 Batch 提供數種方法來將應用程式和指令碼部署至計算節點。
+應用程式會使用 [TaskAddParameter](/python/api/azure-batch/azure.batch.models.taskaddparameter) 類別建立工作物件清單。 每項工作都會使用 `command_line` 參數來處理輸入 `resource_files` 物件。 在此範例中，命令列會執行 Bash Shell `cat` 命令以顯示文字檔。 這個命令是用於示範的簡單範例。 當您使用 Batch 時，您會在此命令列中指定您的應用程式或指令碼。 Batch 提供數種方法來將應用程式和指令碼部署至計算節點。
 
-然後，應用程式會使用 [task.add_collection](/python/api/azure.batch.operations.taskoperations) 方法將工作新增至作業，該方法會將工作排入佇列以在計算節點上執行。 
+然後，應用程式會使用 [task.add_collection](/python/api/azure-batch/azure.batch.operations.taskoperations) 方法將工作新增至作業，該方法會將工作排入佇列以在計算節點上執行。 
 
 ```python
 tasks = list()

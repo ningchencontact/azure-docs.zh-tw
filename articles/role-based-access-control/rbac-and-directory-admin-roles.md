@@ -15,12 +15,12 @@ ms.date: 02/22/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: it-pro;
-ms.openlocfilehash: be37768a5cef38ae0dc49e12f1d83ba8005ab961
-ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
+ms.openlocfilehash: e9ce71f12d50aa414579e5fc7c2961156965a337
+ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70194187"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71037533"
 ---
 # <a name="classic-subscription-administrator-roles-azure-rbac-roles-and-azure-ad-administrator-roles"></a>傳統訂用帳戶管理員角色、Azure RBAC 角色和 Azure AD 管理員角色
 
@@ -112,7 +112,7 @@ Azure AD 管理員用來管理目錄中的 Azure AD 資源，例如建立或編�
 | Azure RBAC 角色 | Azure AD 管理員角色 |
 | --- | --- |
 | 管理 Azure 資源的存取權 | 管理 Azure Active Directory 資源的存取權 |
-| 支援自訂角色 | 無法建立您自己的角色 |
+| 支援自訂角色 | 支援自訂角色 |
 | 您可以在多個層級指定範圍 (管理群組、訂用帳戶、資源群組、資源) | 範圍是在租用戶層級 |
 | 可以在 Azure 入口網站、Azure CLI、Azure PowerShell、Azure Resource Manager 範本、Azure CLI 中存取角色資訊 | 可以在 Azure 入口網站、Microsoft 365 管理中心、Microsoft Graph、AzureAD PowerShell 中存取角色資訊 |
 

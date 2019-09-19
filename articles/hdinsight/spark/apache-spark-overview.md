@@ -8,12 +8,12 @@ ms.custom: hdinsightactive,mvc
 ms.topic: overview
 ms.date: 05/28/2019
 ms.author: hrasheed
-ms.openlocfilehash: 284c9bb1b9032d2f9caf0ce62c45ffa7cd8bf9d4
-ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
+ms.openlocfilehash: e325618ed1cdec6149ac31771c8bd67ecea7d559
+ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68476861"
+ms.lasthandoff: 09/14/2019
+ms.locfileid: "70993826"
 ---
 # <a name="what-is-apache-spark-in-azure-hdinsight"></a>什麼是 Azure HDInsight 中的 Apache Spark
 
@@ -25,7 +25,7 @@ Apache Spark 是一個平行處理架構，可支援記憶體內部處理，以�
 
 Spark 提供用於記憶體內部叢集運算的基本項目。 Spark 作業可將資料載入並快取到記憶體，以便重複查詢。 記憶體內部計算速度優於磁碟型應用程式，例如，會透過 Hadoop 分散式檔案系統 (HDFS) 共用資料的 Hadoop。 Spark 也會整合到 Scala 程式設計語言中，讓您處理分散式資料集 (像是本機集合)。 您不需要將一切建構成對應和縮減作業。
 
-![傳統 MapReduce 與Spark](./media/apache-spark-overview/mapreduce-vs-spark.png)
+![傳統 MapReduce 與Spark](./media/apache-spark-overview/map-reduce-vs-spark1.png)
 
 HDInsight 中的 Spark 叢集可提供完全受控的 Spark 服務。 以下列出在 HDInsight 中建立 Spark 叢集的優點。
 
@@ -57,7 +57,7 @@ HDInsight 中的 Spark 叢集也提供 [ODBC 驅動程式](https://go.microsoft.
 
 ## <a name="spark-cluster-architecture"></a>Spark 叢集架構
 
-![HDInsight Spark 的架構](./media/apache-spark-overview/spark-architecture.png)
+![HDInsight Spark 的架構](./media/apache-spark-overview/hdi-spark-architecture.png)
 
 您可以藉由了解 Spark 在 HDInsight 叢集上的執行方式，輕鬆地了解 Spark 的元件。
 

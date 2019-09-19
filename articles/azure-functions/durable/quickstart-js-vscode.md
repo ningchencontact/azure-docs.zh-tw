@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 11/07/2018
 ms.author: glenga
 ms.reviewer: azfuncdf, cotresne
-ms.openlocfilehash: 9471ca3047090753c30c758f4f41c8558cdf4dd2
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: b47e828f3b8d760594cb04ba40ceaa7248050c52
+ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70744049"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70933481"
 ---
 # <a name="create-your-first-durable-function-in-javascript"></a>使用 JavaScript 建立第一個耐久函式
 
@@ -162,4 +162,4 @@ Azure Functions Core Tools 可讓您在本機開發電腦上執行 Azure Functio
 您已使用 Visual Studio Code 來建立及發佈 JavaScript 耐久函式應用程式。
 
 > [!div class="nextstepaction"]
-> [了解常見的耐久函式模式](durable-functions-concepts.md)
+> [了解常見的耐久函式模式](durable-functions-overview.md#application-patterns)

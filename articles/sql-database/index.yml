@@ -93,7 +93,7 @@ sections:
           - href: /azure/sql-database/sql-database-instance-pools
             html: <p>受控執行個體集區可用來部署多個受控執行個體並共用資源和進行快速調整，是簡單且符合成本效益的解決方案。</p>
             image:
-              src: media/index/i_instancepool.png
+              src: media/index/i-instancepools.svg
             title: 執行個體集區
   - title: 5 分鐘快速入門
     items:

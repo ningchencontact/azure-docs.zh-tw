@@ -9,12 +9,12 @@ ms.topic: overview
 ms.date: 06/28/2019
 ms.author: stevelas
 ms.custom: seodec18, mvc
-ms.openlocfilehash: 8b20c54d2151afae227a085dd66a0d31f2b85305
-ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
+ms.openlocfilehash: 2262948a8368f9448d876166b712ebaf670b5a56
+ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68310661"
+ms.lasthandoff: 09/14/2019
+ms.locfileid: "70994366"
 ---
 # <a name="introduction-to-private-docker-container-registries-in-azure"></a>Azure 中的私人 Docker 容器登錄的簡介
 
@@ -31,7 +31,7 @@ Azure Container Registry 是受控的私人 Docker 登錄服務，架構於開�
 * **可調整的協調流程系統**，它會管理整個主機叢集上的容器化應用程式，包括 [Kubernetes](https://kubernetes.io/docs/)、[DC/OS](https://docs.mesosphere.com/) 與 [Docker Swarm](https://docs.docker.com/swarm/)。
 * **Azure 服務**，會支援依規模建置和執行的應用程式，包括 [Azure Kubernetes Service (AKS)](../aks/index.yml)[App Service](../app-service/index.yml)[Batch](../batch/index.yml)[Service Fabric](/azure/service-fabric/) 和其他應用程式。
 
-開發人員也可以將推送到容器登錄庫，當做容器開發工作流程的一部分。 例如，從 [Azure Pipelines](/azure/devops/pipelines/get-started/what-is-azure-pipelines) 或 [Jenkins](https://jenkins.io/) 等持續整合與傳遞工具中，將容器登錄設定為目標。
+開發人員也可以將推送到容器登錄庫，當做容器開發工作流程的一部分。 例如，從 [Azure Pipelines](/azure/devops/pipelines/ecosystems/containers/acr-template) 或 [Jenkins](https://jenkins.io/) 等持續整合與傳遞工具中，將容器登錄設定為目標。
 
 設定 ACR 工作，在應用程式基礎映像更新時，自動重建應用程式映像，或在您的小組將程式碼認可至 Git 存放庫時，自動建置映像。 建立多步驟工作，在雲端中平行地自動建置、測試及修補多個容器映像。
 

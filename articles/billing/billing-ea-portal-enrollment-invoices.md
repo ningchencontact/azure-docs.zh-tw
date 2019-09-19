@@ -8,12 +8,12 @@ ms.date: 09/09/2019
 ms.topic: conceptual
 ms.service: billing
 manager: boalcsva
-ms.openlocfilehash: dccc9462c6c20f3bce239e3b61cafa3d61e3d383
-ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
+ms.openlocfilehash: 5e3a6249f19df7d16c7051c43eec4275ec6f4131
+ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70901180"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71090707"
 ---
 # <a name="azure-enterprise-enrollment-invoices"></a>Azure 企業註冊發票
 
@@ -43,7 +43,7 @@ ms.locfileid: "70901180"
 
 ## <a name="credits-and-adjustments"></a>信用額度和調整
 
-所有適用於您註冊的信用額度或調整，都可以在 [https://www.ea.azure.com](https://www.ea.azure.com) 的 [報表]  區段看到。 如果您有關於實際信用額度的特定問題，請連絡 [Azure EA 入口網站支援](https://support.microsoft.com/supportrequestform/cf791efa-485b-95a3-6fad-3daf9cd4027c)。
+所有適用於您註冊的信用額度或調整，都可以在 [https://ea.azure.com](https://ea.azure.com) 的 [報表]  區段看到。 如果您有關於實際信用額度的特定問題，請連絡 [Azure EA 入口網站支援](https://support.microsoft.com/supportrequestform/cf791efa-485b-95a3-6fad-3daf9cd4027c)。
 
 ## <a name="request-an-invoice-copy"></a>要求發票副本
 

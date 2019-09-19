@@ -1,5 +1,5 @@
 ---
-title: 使用 Azure AD 保護 Web API | Microsoft Docs
+title: 快速入門：使用 Azure Active Directory 保護 Web API
 description: 了解如何建置能與 Azure AD 整合以進行驗證的 Node.js REST Web API。
 services: active-directory
 documentationcenter: nodejs
@@ -14,14 +14,14 @@ ms.devlang: javascript
 ms.topic: quickstart
 ms.date: 09/24/2018
 ms.author: ryanwi
-ms.custom: aaddev
+ms.custom: seo-javascript-september2019
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7dcbe10c08d581e2ec01e1616da49b7a1b31018d
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.openlocfilehash: 7307afb2ce9e10326c42f96733d3f80979c4a4b3
+ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/11/2019
-ms.locfileid: "65545981"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71056545"
 ---
 # <a name="quickstart-secure-a-web-api-with-azure-active-directory"></a>快速入門：使用 Azure Active Directory 保護 Web API
 
@@ -82,7 +82,7 @@ az ad app create --display-name node-aad-demo --homepage http://localhost --iden
 
 連線到 Azure Active Directory 之前，您需要下列資訊：
 
-| Name  | 說明 | 組態檔中的變數名稱 |
+| 名稱  | 說明 | 組態檔中的變數名稱 |
 | ------------- | ------------- | ------------- |
 | 租用戶名稱  | 您想要用來進行驗證的[租用戶名稱](quickstart-create-new-tenant.md) | `tenantName`  |
 | 用戶端識別碼  | 用戶端識別碼是用於 AAD _應用程式識別碼_ 的 OAuth 字詞。 |  `clientID`  |

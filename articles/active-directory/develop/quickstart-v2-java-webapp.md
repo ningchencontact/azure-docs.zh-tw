@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 08/11/2019
 ms.author: sagonzal
 ms.custom: aaddev
-ms.openlocfilehash: f1ceae17195c08af380a7448dd4dbf3bfa3f9de2
-ms.sourcegitcommit: 8fea78b4521921af36e240c8a92f16159294e10a
+ms.openlocfilehash: 22d65d20220bfda821fe255e08dd056b761a828d
+ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/02/2019
-ms.locfileid: "70211885"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71086984"
 ---
 # <a name="quickstart-add-sign-in-with-microsoft-to-a-java-web-app"></a>快速入門：將「使用 Microsoft 登入」新增至 Java Web 應用程式
 
@@ -32,10 +32,11 @@ ms.locfileid: "70211885"
 
 ![示範本快速入門所產生之範例應用程式的運作方式](media/quickstart-v2-java-webapp/java-quickstart.svg)
 
-> ## <a name="prerequisites"></a>必要條件
-> 若要執行此範例，您將需要： 
-> - Java 開發套件 (JDK) 8 或更新版本及 Maven。
->
+## <a name="prerequisites"></a>必要條件
+
+若要執行此範例，您將需要： 
+- Java 開發套件 (JDK) 8 或更新版本及 Maven。
+
 > [!div renderon="docs"]
 > ## <a name="register-and-download-your-quickstart-app"></a>註冊並下載快速入門應用程式
 > 有兩個選項可用來啟動快速入門應用程式：快速 (選項 1) 或手動 (選項 2)
@@ -74,7 +75,7 @@ ms.locfileid: "70211885"
 > 1. 尋找應用程式的 [目錄 (租用戶) 識別碼]  值。 更新 application.properties  檔案中的 `Enter_the_Tenant_Info_Here` 值。 
 > 1. 選取 [驗證]  功能表，然後新增下列資訊：
 >    - 在 [重新導向 URL]  中新增 `http://localhost:8080/msal4jsamples/secure/aad` 和 `https://localhost:8080/msal4jsamples/graph/users`。
->    - 選取 [ **儲存**]。
+>    - 選取 [儲存]  。
 > 1. 在左側功能表上，選擇 [憑證與祕密]  ，然後在 [用戶端密碼]  區段中，按一下 [新增用戶端密碼]  ：
 >     
 >    - 輸入 (執行個體應用程式祕密的) 金鑰描述。

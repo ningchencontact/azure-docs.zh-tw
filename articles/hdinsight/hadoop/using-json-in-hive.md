@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 06/03/2019
-ms.openlocfilehash: dd1c9f5b10583e886c0357ce64bdf9d8bdc6c4c8
-ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
+ms.openlocfilehash: 629a7c98a7b46b470470445cc56a6f53d9e4f4b4
+ms.sourcegitcommit: 8ef0a2ddaece5e7b2ac678a73b605b2073b76e88
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70883366"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71077223"
 ---
 # <a name="process-and-analyze-json-documents-by-using-apache-hive-in-azure-hdinsight"></a>使用 Azure HDInsight 中的 Apache Hive 處理並分析 JSON 文件
 
@@ -91,7 +91,7 @@ StudentsOneLine Hive 資料表會將資料儲存在 HDInsight 預設檔案系統
 
 以下是 **SELECT** 陳述式的輸出：
 
-![壓平合併 JSON 文件](./media/using-json-in-hive/hdinsight-flatten-json.png)
+![HDInsight 簡維 JSON 檔](./media/using-json-in-hive/hdinsight-flatten-json.png)
 
 ## <a name="analyze-json-documents-in-hive"></a>在 Hive 中分析 JSON 文件
 Hive 提供三種不同的機制，可在 JSON 文件上執行查詢。您也可以自行撰寫：
@@ -115,7 +115,7 @@ FROM StudentsOneLine;
 
 以下是在主控台視窗中執行此查詢時的輸出：
 
-![get_json_object UDF](./media/using-json-in-hive/hdinsight-get-json-object.png)
+![Apache Hive 取得 json 物件 UDF](./media/using-json-in-hive/hdinsight-get-json-object.png)
 
 get-json_object UDF 有幾項限制：
 
@@ -136,7 +136,7 @@ LATERAL VIEW JSON_TUPLE(jt.json_body, 'StudentId', 'Grade') q1
 
 這個指令碼在 Hive 主控台的輸出：
 
-![json_tuple UDF](./media/using-json-in-hive/hdinsight-json-tuple.png)
+![Apache Hive json 查詢結果](./media/using-json-in-hive/hdinsight-json-tuple.png)
 
 json_tuple UDF 會使用 Hive 中的[橫向檢視](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+LateralView)語法，讓 json\_ttuple 將 UDT 函式套用到原始資料表的每個資料列，以建立一個虛擬資料表。 複雜 JSON 會重複使用**橫向檢視**，因此變得難以使用。 此外，**JSON_TUPLE** 無法處理巢狀 JSON。
 

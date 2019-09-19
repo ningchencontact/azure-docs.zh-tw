@@ -1,5 +1,5 @@
 ---
-title: 將 Node.js MongoDB 應用程式連線至 Azure Cosmos DB
+title: 快速入門：將 Node.js MongoDB 應用程式連線至 Azure Cosmos DB
 description: 本快速入門示範如何將以 Node.js 撰寫的現有 MongoDB 應用程式連線到 Azure Cosmos DB。
 author: rimman
 ms.author: rimman
@@ -8,12 +8,13 @@ ms.subservice: cosmosdb-mongo
 ms.devlang: nodejs
 ms.topic: quickstart
 ms.date: 05/21/2019
-ms.openlocfilehash: 0ff15c29fb7d71919b54cbcd73ead30a8673e0f7
-ms.sourcegitcommit: 0c906f8624ff1434eb3d3a8c5e9e358fcbc1d13b
+ms.custom: seo-javascript-september2019
+ms.openlocfilehash: 7fd74e31b0527b256f6bb9f17029a02aaf41568b
+ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69543088"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70931813"
 ---
 # <a name="quickstart-migrate-an-existing-mongodb-nodejs-web-app-to-azure-cosmos-db"></a>快速入門：將現有的 MongoDB Node.js Web 應用程式遷移至 Azure Cosmos DB 
 
@@ -40,7 +41,7 @@ Azure Cosmos DB 是 Microsoft 的全域分散式多模型資料庫服務。 您�
 如果您選擇在本機安裝和使用 CLI，本主題會要求您執行 Azure CLI 2.0 版或更新版本。 執行 `az --version` 以尋找版本。 如果您需要安裝或升級，請參閱[安裝 Azure CLI]( /cli/azure/install-azure-cli)。 
 
 ## <a name="prerequisites"></a>必要條件 
-如果您沒有 Azure 訂用帳戶，請在開始前先建立一個[免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)。 
+如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 。 
 [!INCLUDE [cosmos-db-emulator-mongodb](../../includes/cosmos-db-emulator-mongodb.md)]
 
 除了 Azure CLI，您還需要在本機安裝 [Node.js](https://nodejs.org/) 和 [Git](https://www.git-scm.com/downloads)，才能執行 `npm` 和 `git` 命令。

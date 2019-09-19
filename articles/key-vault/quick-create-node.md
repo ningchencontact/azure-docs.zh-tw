@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.date: 09/03/2010
 ms.author: mbaldwin
 ms.custom: mvc
-ms.openlocfilehash: 4bea46e62f90a41b566781457a39718849ee0e15
-ms.sourcegitcommit: 267a9f62af9795698e1958a038feb7ff79e77909
+ms.openlocfilehash: 02b9c439a932a4b35700871e68bdad7f03451110
+ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70259235"
+ms.lasthandoff: 09/15/2019
+ms.locfileid: "71003511"
 ---
 # <a name="quickstart-set-and-retrieve-a-secret-from-azure-key-vault-by-using-a-node-web-app"></a>快速入門：使用 Node Web 應用程式從 Azure Key Vault 設定及擷取祕密 
 
@@ -27,7 +27,7 @@ ms.locfileid: "70259235"
 * 啟用 Web 應用程式的[受控識別](../active-directory/managed-service-identity/overview.md)。
 * 授與 Web 應用程式從金鑰保存庫讀取資料所需的權限。
 
-繼續之前，請先確定您已熟悉 [Key Vault 的基本概念](key-vault-whatis.md#basic-concepts)。
+繼續之前，請先確定您已熟悉 [Key Vault 的基本概念](basic-concepts.md)。
 
 > [!NOTE]
 > Key Vault 是一個中央存放庫，可透過程式設計方式儲存秘密。 但若要這樣做，應用程式和使用者必須要先向 Key Vault 進行驗證，也就是出具祕密。 為符合安全性最佳做法，第一個秘密必須要定期輪替。 
@@ -39,7 +39,7 @@ ms.locfileid: "70259235"
 * [Node.js](https://nodejs.org/en/)
 * [Git](https://www.git-scm.com/)
 * [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) 2.0.4 或更新版本。 此快速入門需要您在本機執行 Azure CLI。 執行 `az --version` 以尋找版本。 如果您需要安裝或升級 CLI，請參閱[安裝 Azure CLI 2.0](https://review.docs.microsoft.com/en-us/cli/azure/install-azure-cli?branch=master&view=azure-cli-latest)。
-* Azure 訂用帳戶。 如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 。
+* Azure 訂用帳戶。 如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)。
 
 ## <a name="log-in-to-azure"></a>登入 Azure
 

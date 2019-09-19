@@ -4,15 +4,16 @@ description: 在本快速入門中，您會了解如何使用 Azure 入口網站
 ms.service: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
+ms.reviewer: jasonh
 ms.custom: mvc
 ms.topic: quickstart
 ms.date: 06/12/2019
-ms.openlocfilehash: 9fa6ad3c52e9b01fe9a62a2de52f62b1b1a95aa8
-ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
+ms.openlocfilehash: e0a2eecaa4b2f03fa12353854e75b9fda097675d
+ms.sourcegitcommit: dd69b3cda2d722b7aecce5b9bd3eb9b7fbf9dc0a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/05/2019
-ms.locfileid: "68779531"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70960277"
 ---
 # <a name="quickstart-create-apache-kafka-cluster-in-azure-hdinsight-using-azure-portal"></a>快速入門：在 Azure HDInsight 中使用 Azure 入口網站建立 Apache Kafka 叢集
 
@@ -24,7 +25,7 @@ Apache Kafka 是一個開放原始碼的分散式串流平台。 它通常會用
 
 Apache Kafka API 只能由同一個虛擬網路中的資源來存取。 在本快速入門中，您會使用 SSH 直接存取叢集。 若要將其他服務、網路或虛擬機器連線到 Apache Kafka，您必須先建立虛擬網路，然後建立網路中的資源。 如需詳細資訊，請參閱[使用虛擬網路連線到 Apache Kafka](apache-kafka-connect-vpn-gateway.md) 文件。
 
-如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 。
+如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)。
 
 ## <a name="prerequisites"></a>必要條件
 
@@ -38,18 +39,18 @@ SSH 用戶端。 如需詳細資訊，請參閱[使用 SSH 連線至 HDInsight (
 
 2. 從左側功能表，瀏覽至 [+ 建立資源]   > [分析]   > [HDInsight]  。
    
-    ![建立 HDInsight 叢集](./media/apache-kafka-get-started/create-hdinsight.png)
+    ![建立 HDInsight 叢集](./media/apache-kafka-get-started/create-hdinsight-cluster.png)
 
 3. 從 [基本]  中，輸入或選取以下資訊：
 
     | 設定 | 值 |
     | --- | --- |
     | 叢集名稱 | HDInsight 叢集的唯一名稱。 |
-    | Subscription | 選取您的訂用帳戶。 |
+    | 訂用帳戶 | 選取您的訂用帳戶。 |
     
    選取 [叢集類型]  以顯示**叢集設定**。
    
-   ![HDInsight 基本組態上的 Apache Kafka 叢集](./media/apache-kafka-get-started/custom-basics-kafka.png)
+   ![HDInsight 基本組態上的 Apache Kafka 叢集](./media/apache-kafka-get-started/custom-basics-kafka1.png)
 
 4. 從 [叢集設定]  選取下列值：
 
@@ -60,7 +61,7 @@ SSH 用戶端。 如需詳細資訊，請參閱[使用 SSH 連線至 HDInsight (
 
     選取 [選取]  來儲存叢集類型設定，然後返回 [基本]  。
 
-    ![選取叢集類型](./media/apache-kafka-get-started/kafka-cluster-type.png)
+    ![選取叢集類型](./media/apache-kafka-get-started/apache-kafka-cluster-type.png)
 
 5. 從 [基本]  中，輸入或選取以下資訊：
 
@@ -70,7 +71,7 @@ SSH 用戶端。 如需詳細資訊，請參閱[使用 SSH 連線至 HDInsight (
     | 叢集登入密碼 | 存取裝載於叢集上 Web 服務或 REST API 時的登入密碼。 |
     | 安全殼層 (SSH) 使用者名稱 | 透過 SSH 存取叢集時使用的登入資訊。 依預設，密碼要與叢集登入密碼相同。 |
     | 資源群組 | 在其中建立叢集的資源群組。 |
-    | Location | 在其中建立叢集的 Azure 區域。 |
+    | 位置 | 在其中建立叢集的 Azure 區域。 |
 
     每個 Azure 區域 (位置) 提供_容錯網域_。 容錯網域是 Azure 資料中心內基礎硬體的邏輯群組。 每個容錯網域會共用通用電源和網路交換器。 實作 HDInsight 叢集內節點的虛擬機器和受控磁碟會分散於這些容錯網域。 此架構會限制實體硬體故障的潛在影響。
 
@@ -98,7 +99,7 @@ SSH 用戶端。 如需詳細資訊，請參閱[使用 SSH 連線至 HDInsight (
 
     [每個背景工作角色節點的磁碟數]  項目會設定 HDInsight 上 Apache Kafka 的延展性。 HDInsight 上的 Apache Kafka 會在叢集中使用虛擬機器的本機磁碟來儲存資料。 Apache Kafka 的 I/O 非常大量，因此會使用 [Azure 受控磁碟](../../virtual-machines/windows/managed-disks-overview.md)來提供高輸送量，並為每個節點提供更多儲存空間。 受控磁碟的類型可以是__標準__ (HDD) 或__進階__ (SSD)。 磁碟類型取決於背景工作節點 (Apache Kafka 代理程式) 所使用的 VM 大小。 進階磁碟會自動與 DS 和 GS 系列的 VM 搭配使用。 所有其他的 VM 類型是使用標準磁碟。
 
-   ![設定 Apache Kafka 叢集大小](./media/apache-kafka-get-started/kafka-cluster-size.png)
+   ![設定 Apache Kafka 叢集大小](./media/apache-kafka-get-started/apace-kafka-cluster-size.png)
 
 10. 從 [進階設定]  中選取 [下一步]  ，以使用預設設定繼續進行。
 

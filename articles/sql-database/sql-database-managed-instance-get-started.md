@@ -11,12 +11,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: sstein, carlrab
 ms.date: 05/07/2019
-ms.openlocfilehash: cacd67e26b13df8ef456ac8f1391e4396f5bdd96
-ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+ms.openlocfilehash: 0344fc834cb1ef29c91bc52239d1df2706d1ca81
+ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69873880"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71101683"
 ---
 # <a name="quickstart-create-an-azure-sql-database-managed-instance"></a>快速入門：建立 Azure SQL Database 受控執行個體
 
@@ -60,7 +60,7 @@ ms.locfileid: "69873880"
 
    ![受控執行個體表單](./media/sql-database-managed-instance-get-started/managed-instance-create-form.png)
 
-5. 若要以受控執行個體作為次要執行個體容錯移轉群組，請選取 [簽出]，然後指定 DnsAzurePartner 受控執行個體。 這是預覽版功能，不會顯示在下列螢幕擷取畫面中。
+5. 若要以受控執行個體作為次要執行個體容錯移轉群組，請選取 [簽出]，然後指定 DnsAzurePartner 受控執行個體。 
 6. 選取 [定價層]  來調整計算和儲存體資源的大小，以及檢閱定價層選項。 預設值為一般用途定價層，其具有 32 GB 記憶體和 16 個虛擬核心。
 7. 使用滑桿或文字方塊來指定儲存體容量和虛擬核心數目。
 8. 當您完成時，選取 [套用]  來儲存您的選擇。 

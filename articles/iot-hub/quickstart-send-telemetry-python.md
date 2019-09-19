@@ -10,12 +10,12 @@ ms.devlang: python
 ms.topic: quickstart
 ms.custom: mvc
 ms.date: 02/28/2019
-ms.openlocfilehash: c92b019e15c6a9ee5b2d38e240ae4f9891621f72
-ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
+ms.openlocfilehash: a08719d322f044bbf1ced8103af5e4e23ed948c9
+ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68360205"
+ms.lasthandoff: 09/15/2019
+ms.locfileid: "70998463"
 ---
 # <a name="quickstart-send-telemetry-from-a-device-to-an-iot-hub-and-read-it-with-a-back-end-application-python"></a>快速入門：將遙測從裝置傳送至 IoT 中樞，並使用後端應用程式讀取遙測 (Python)
 
@@ -30,22 +30,6 @@ IoT 中樞是一項 Azure 服務，可讓您從 IoT 裝置將大量的遙測擷�
 如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 。
 
 ## <a name="prerequisites"></a>必要條件
-
-您在此快速入門中執行的應用程式範例是使用 Python 所撰寫的。 目前，適用於 Python 的 Microsoft Azure IoT SDK 只對每個平台支援特定版本的 Python。 若要深入了解，請參閱 [Python SDK 讀我檔案](https://github.com/Azure/azure-iot-sdk-python#important-installation-notes---dealing-with-importerror-issues)。
-
-本快速入門假設您使用 Windows 開發電腦。 對於 Windows 系統，僅支援 [Python 3.6.x](https://www.python.org/downloads/release/python-368/)。 您選擇的 Python 安裝程式應該要以您正在使用的系統架構為基礎。 如果您的系統 CPU 架構是 32 位元，則下載 x86 安裝程式；若是 64 位元架構，則下載 x86-64 安裝程式。 此外，請確定[適用於 Visual Studio 2019 的 Microsoft Visual C++ 可轉散發套件](https://support.microsoft.com/en-us/help/2977003/the-latest-supported-visual-c-downloads)已針對您的架構 (x86 或 x64) 安裝。
-
-您可以從 [Python.org](https://www.python.org/downloads/) 下載適用於其他平台的 Python。
-
-您可以使用下列命令之一，以確認開發電腦上目前的 Python 版本：
-
-```python
-python - -version
-```
-
-```python
-python3 - -version
-```
 
 執行下列命令，將適用於 Azure CLI 的 Microsoft Azure IoT 擴充功能新增至您的 Cloud Shell 執行個體。 IoT 擴充功能可將 IoT 中樞、IoT Edge 和 IoT 裝置佈建服務的特定命令新增至 Azure CLI。
 
@@ -100,7 +84,7 @@ az extension add --name azure-cli-iot-ext
 1. 在本機終端機視窗中，執行下列命令以安裝模擬裝置應用程式所需的程式庫：
 
     ```cmd/sh
-    pip install azure-iothub-device-client
+    pip install azure-iot-device
     ```
 
 1. 在本機終端機視窗中，執行下列命令以執行模擬裝置應用程式：
@@ -112,13 +96,7 @@ az extension add --name azure-cli-iot-ext
     下列螢幕擷取畫面顯示模擬裝置應用程式將遙測傳送到 IoT 中樞時的輸出：
 
     ![執行模擬的裝置](media/quickstart-send-telemetry-python/SimulatedDevice.png)
-    
-### <a name="to-avoid-the-import-iothubclient-error"></a>若要避免匯入 iothub_client 錯誤
-目前的 Azure IoT SDK for Python 版本是[我們的 C SDK](https://github.com/azure/azure-iot-sdk-c) 的包裝函式。 該包裝函式是使用 [Boost](https://www.boost.org/) 程式庫來產生。 因而附帶了一些重要的限制。 如需詳細資訊，請參閱[這裡](https://github.com/Azure/azure-iot-sdk-python#important-installation-notes---dealing-with-importerror-issues)。
 
-1. 檢查您是否有正確的 [Python](https://github.com/Azure/azure-iot-sdk-python#important-installation-notes---dealing-with-importerror-issues) 版本。 請注意，只有特定版本適用於此範例。 
-2. 確認您有正確的 C++執行階段版本：[適用於 Visual Studio 2019 的 Microsoft Visual C++ 可轉散發套件](https://support.microsoft.com/en-us/help/2977003/the-latest-supported-visual-c-downloads)。 (我們建議使用最新版本)。
-3. 確認您已安裝 iothub 用戶端：`pip install azure-iothub-device-client`。
 
 ## <a name="read-the-telemetry-from-your-hub"></a>從您的中樞讀取遙測
 

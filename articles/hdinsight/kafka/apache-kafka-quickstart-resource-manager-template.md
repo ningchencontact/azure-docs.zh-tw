@@ -4,15 +4,16 @@ description: 在本快速入門中，您會了解如何使用 Azure Resource Man
 ms.service: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
+ms.reviewer: jasonh
 ms.custom: mvc
 ms.topic: quickstart
 ms.date: 06/12/2019
-ms.openlocfilehash: 399d1146dc71f4670ee0c9bfa497f34911ade638
-ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
+ms.openlocfilehash: e3c8111cee688625ef2002d16f66644bec6fd6ec
+ms.sourcegitcommit: dd69b3cda2d722b7aecce5b9bd3eb9b7fbf9dc0a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70811461"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70960183"
 ---
 # <a name="quickstart-create-apache-kafka-cluster-in-azure-hdinsight-using-resource-manager-template"></a>快速入門：使用 Resource Manager 範本在 Azure HDInsight 中建立 Apache Kafka 叢集
 
@@ -24,7 +25,7 @@ ms.locfileid: "70811461"
 
 Kafka API 只能由同一個虛擬網路中的資源來存取。 在本快速入門中，您會使用 SSH 直接存取叢集。 若要將其他服務、網路或虛擬機器連線到 Kafka，您必須先建立虛擬網路，然後建立網路中的資源。 如需詳細資訊，請參閱[使用虛擬網路連線到 Apache Kafka](apache-kafka-connect-vpn-gateway.md) 文件。
 
-如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 。
+如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)。
 
 ## <a name="prerequisites"></a>必要條件
 
@@ -34,15 +35,15 @@ SSH 用戶端。 如需詳細資訊，請參閱[使用 SSH 連線至 HDInsight (
 
 1. 按一下以下影像，在 Azure 入口網站中開啟範本。
 
-    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure-Samples%2Fhdinsight-kafka-java-get-started%2Fmaster%2Fazuredeploy.json" target="_blank"><img src="./media/apache-kafka-quickstart-resource-manager-template/deploy-to-azure.png" alt="Deploy to Azure"></a>
+    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure-Samples%2Fhdinsight-kafka-java-get-started%2Fmaster%2Fazuredeploy.json" target="_blank"><img src="./media/apache-kafka-quickstart-resource-manager-template/hdi-deploy-to-azure1.png" alt="Deploy to Azure"></a>
 
 2. 若要建立 Kafka 叢集，請使用下列值：
 
     | 屬性 | 值 |
     | --- | --- |
-    | Subscription | 您的 Azure 訂用帳戶。 |
-    | Resource group | 在其中建立叢集的資源群組。 |
-    | Location | 在其中建立叢集的 Azure 區域。 |
+    | 訂用帳戶 | 您的 Azure 訂用帳戶。 |
+    | 資源群組 | 在其中建立叢集的資源群組。 |
+    | 位置 | 在其中建立叢集的 Azure 區域。 |
     | 叢集名稱 | Kafka 叢集的名稱。 |
     | 叢集登入使用者名稱 | 用來登入裝載於叢集上 HTTPS 型服務的帳戶名稱。 |
     | 叢集登入密碼 | 登入使用者名稱的密碼。 |
@@ -192,7 +193,7 @@ Kafka 會將資料串流儲存於「主題」  中。 您可以使用 `kafka-top
     此命令會刪除名為 `topicname` 的主題。
 
     > [!WARNING]  
-    > 如果您刪除先前建立的 `test` 主題，則必須加以重新建立。 此文件稍後的步驟會用到此主題。
+    > 如果您刪除先前建立的 `test` 主題，則必須加以重新建立。 本文件稍後的步驟會用到此主題。
 
 如需 `kafka-topics.sh` 公用程式可用命令的詳細資訊，請使用下列命令：
 
