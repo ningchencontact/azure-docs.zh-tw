@@ -2,18 +2,18 @@
 title: 監視叢集效能 - Azure HDInsight
 description: 如何在 Azure HDInsight 中監視 Apache Hadoop 叢集的健全狀況和效能。
 author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/29/2019
-ms.author: hrasheed
-ms.openlocfilehash: 936307399b658b75962e6969820215f9808d053f
-ms.sourcegitcommit: dd69b3cda2d722b7aecce5b9bd3eb9b7fbf9dc0a
+ms.openlocfilehash: 7a7544ef9fe5724d1f6c11918411a76461d908e5
+ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70961115"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71104407"
 ---
 # <a name="monitor-cluster-performance-in-azure-hdinsight"></a>監視 Azure HDInsight 中的叢集效能
 
@@ -36,11 +36,11 @@ ms.locfileid: "70961115"
 
 您也會看到資料行顯示每個主機的核心數及 RAM 數量，以及磁碟使用量和負載平均。
 
-![主機索引標籤](./media/hdinsight-key-scenarios-to-monitor/apache-ambari-hosts-tab.png)
+![Apache Ambari 主機索引標籤總覽](./media/hdinsight-key-scenarios-to-monitor/apache-ambari-hosts-tab.png)
 
 選取任何主機名稱，以詳細查看該主機和其計量上執行的元件。 計量會顯示為可選取的 CPU 使用量時間軸、負載、磁碟使用量、記憶體使用量、網路使用量和程序的數目。
 
-![主機詳細資料](./media/hdinsight-key-scenarios-to-monitor/apache-ambari-host-details.png)
+![Apache Ambari 主機詳細資料總覽](./media/hdinsight-key-scenarios-to-monitor/apache-ambari-host-details.png)
 
 如需有關設定警示和檢視計量的詳細資料，請參閱[使用 Apache Ambari Web UI 來管理 HDInsight 叢集](hdinsight-hadoop-manage-ambari.md)。
 
@@ -56,7 +56,7 @@ Resource Manager 是純排程器，且會單獨仲裁所有競爭應用程式之
 
 YARN 可讓我們將資源配置給這些佇列，並顯示是否已指派所有可用的資源。 若要檢視您佇列的相關資訊，請登入 Ambari Web UI，然後從頂端功能表中選取 [YARN 佇列管理員]。
 
-![YARN 佇列管理員](./media/hdinsight-key-scenarios-to-monitor/apache-yarn-queue-manager.png)
+![Apache Ambari YARN 佇列管理員](./media/hdinsight-key-scenarios-to-monitor/apache-yarn-queue-manager.png)
 
 [YARN 佇列管理員] 頁面左側會顯示您的佇列清單，以及指派給每個佇列的容量百分比。
 
@@ -68,7 +68,7 @@ YARN 可讓我們將資源配置給這些佇列，並顯示是否已指派所有
 
 在 Resource Manager UI 中，從左側功能表選取 [排程器]。 您會在 [應用程式佇列] 下方看到您的佇列清單。 您可以在這裡查看每個佇列使用的容量，作業在它們之間散發的情況，以及是否有任何作業為有限資源。
 
-![Resource Manager UI 功能表](./media/hdinsight-key-scenarios-to-monitor/resource-manager-ui-menu.png)
+![Apache HAdoop Resource Manager UI 功能表](./media/hdinsight-key-scenarios-to-monitor/resource-manager-ui-menu.png)
 
 ## <a name="storage-throttling"></a>儲存體節流
 

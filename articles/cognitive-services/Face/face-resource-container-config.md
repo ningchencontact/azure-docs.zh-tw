@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: conceptual
-ms.date: 09/06/2019
+ms.date: 09/18/2019
 ms.author: dapine
-ms.openlocfilehash: 752613becb92711866d520e6fcd46ed3a320353f
-ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
+ms.openlocfilehash: a07f088f7f5699a2698c0ea8fb0e853b3d287572
+ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70860264"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71101943"
 ---
 # <a name="configure-face-docker-containers"></a>設定臉部 Docker 容器
 
@@ -138,8 +138,8 @@ ms.locfileid: "70860264"
 
 | 預留位置 | 值 | 格式或範例 |
 |-------------|-------|---|
-|{API_KEY} | 認知服務資源的端點金鑰。 |xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx|
-|{ENDPOINT_URI} | 端點 URL 值。|`https://myresourcename.cognitive.microsoft.com/face/v1.0`|
+| **{API_KEY}** | [Azure `Face` `Face`金鑰] 頁面上資源的端點金鑰。 | `xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx` |
+| **{ENDPOINT_URI}** | 計費端點值可在 Azure `Face`總覽頁面上取得。| 如需明確的範例，請參閱[收集必要的參數](face-how-to-install-containers.md#gathering-required-parameters)。 |
 
 [!INCLUDE [subdomains-note](../../../includes/cognitive-services-custom-subdomains-note.md)]
 

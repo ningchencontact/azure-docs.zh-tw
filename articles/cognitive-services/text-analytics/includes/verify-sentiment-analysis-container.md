@@ -7,25 +7,25 @@ author: IEvangelist
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 08/21/2019
+ms.date: 09/12/2019
 ms.author: dapine
-ms.openlocfilehash: cbc5ad63dd944eb53d3a8052e75744cb5c3709ea
-ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
+ms.openlocfilehash: 2e201b4ec0d1364ea99b376171efabad65af0a50
+ms.sourcegitcommit: fbea2708aab06c19524583f7fbdf35e73274f657
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/27/2019
-ms.locfileid: "70051182"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70968555"
 ---
-## <a name="verify-the-sentiment-analysis-container-instance"></a>確認情感分析的容器實例
+### <a name="verify-the-sentiment-analysis-container-instance"></a>確認情感分析的容器實例
 
-1. 選取 [**總覽**] 索引標籤, 然後複製 [IP 位址]。
-1. 開啟新的瀏覽器索引標籤, 並輸入 IP 位址。 例如, 輸入`http://<IP-address>:5000 (http://55.55.55.55:5000`)。 容器的首頁隨即顯示, 讓您知道容器正在執行。
+1. 選取 [**總覽**] 索引標籤，然後複製 [IP 位址]。
+1. 開啟新的瀏覽器索引標籤，並輸入 IP 位址。 例如, 輸入`http://<IP-address>:5000 (http://55.55.55.55:5000`)。 容器的首頁隨即顯示，讓您知道容器正在執行。
 
     ![查看容器首頁以確認它正在執行](../media/how-tos/container-instance/swagger-docs-on-container.png)
 
-1. 選取 [**服務 API 描述**] 連結, 以移至容器的 Swagger 頁面。
+1. 選取 [**服務 API 描述**] 連結，以移至容器的 Swagger 頁面。
 
-1. 選擇任何**張貼**api, 然後選取 [立即**試用**]。會顯示參數, 其中包括下列範例輸入:
+1. 選擇任何**張貼**api，然後選取 [立即**試用**]。會顯示參數，其中包括下列範例輸入：
 
     ```json
     {
@@ -67,7 +67,7 @@ ms.locfileid: "70051182"
 
 1. 選取 [**執行**] 以決定文字的情感。
 
-    封裝在容器中的模型會產生範圍從0到1的分數, 其中0是負情感, 而1是正向情感。
+    封裝在容器中的模型會產生範圍從0到1的分數，其中0是負情感，而1是正向情感。
 
     傳回的 JSON 回應包含更新文字輸入的情感:
 

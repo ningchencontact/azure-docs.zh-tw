@@ -5,20 +5,20 @@ services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: tutorial
-ms.date: 03/21/2019
+ms.date: 09/06/2019
 ms.author: helohr
-ms.openlocfilehash: cd80ed3c3db2453a333c87ed706dd358ba248b47
-ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
+ms.openlocfilehash: 66441e852ebe0a391a5807b90eeadae230130815
+ms.sourcegitcommit: 97605f3e7ff9b6f74e81f327edd19aefe79135d2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69516193"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70734457"
 ---
 # <a name="tutorial-create-a-tenant-in-windows-virtual-desktop-preview"></a>教學課程：在 Windows 虛擬桌面預覽版中建立租用戶
 
 在 Windows 虛擬桌面預覽版中建立租用戶是建置桌面虛擬化解決方案的第一個步驟。 租用戶是包含一或多個主機集區的群組。 每個主機集區是由多個工作階段主機所組成，這些主機會在 Azure 中當作虛擬機器執行並向 Windows 虛擬桌面服務註冊。 每個主機集區也是由一或多個應用程式群組所組成，這些群組用來對使用者發佈遠端桌面和遠端應用程式資源。 透過租用戶，您可以建置主機集區、建立應用程式群組、指派給使用者，以及透過服務進行連線。
 
-在本教學課程中，您將了解如何：
+在此教學課程中，您將了解如何：
 
 > [!div class="checklist"]
 > * 將 Azure Active Directory 權限授與給 Windows 虛擬桌面服務。
@@ -49,7 +49,7 @@ ms.locfileid: "69516193"
    >https://login.microsoftonline.com/{tenant}/adminconsent?client_id=5a0aa725-4958-4b0c-80a9-34562e23f3b7&redirect_uri=https%3A%2F%2Frdweb.wvd.microsoft.com%2FRDWeb%2FConsentCallback
    >```
 
-2. 使用全域管理員帳戶登入 Windows 虛擬桌面同意頁面。 例如，如果您屬於 Contoso 組織，您的帳戶可能是 admin@contoso.com 或 admin@contoso.onmicrosoft.com。  
+2. 使用全域管理員帳戶登入 Windows 虛擬桌面同意頁面。 例如，如果您屬於 Contoso 組織，您的帳戶可能是 admin@contoso.com 或 admin@contoso.onmicrosoft.com。
 3. 選取 [接受]  。
 4. 請稍後片刻，讓 Azure AD 可記錄同意。
 5. 開啟瀏覽器，並開始進行 [Windows 虛擬桌面用戶端應用程式](https://login.microsoftonline.com/common/adminconsent?client_id=fa4345a4-a730-4230-84a8-7d9651b86739&redirect_uri=https%3A%2F%2Frdweb.wvd.microsoft.com%2FRDWeb%2FConsentCallback)的管理員同意流程。
@@ -73,11 +73,12 @@ ms.locfileid: "69516193"
    如果您正在處理多個 Azure Active Directory 租用戶，最佳做法是開啟私人瀏覽器工作階段，然後將 URL 複製並貼入位址列中。
 2. 在 Azure 入口網站的搜尋列中，搜尋**企業應用程式**，然後選取 [服務]  類別底下出現的項目。
 3. 在 [企業應用程式]  中，搜尋 [Windows 虛擬桌面]  。 您會看到您在上一節中同意的兩個應用程式。 在這兩個應用程式中，選取 [Windows 虛擬桌面]  。
-   ![在 [企業應用程式] 中搜尋「Windows 虛擬桌面」時的搜尋結果螢幕擷取畫面。 已醒目提示名為「Windows 虛擬桌面」的應用程式。](media/tenant-enterprise-app.png)
+   ![在 企業應用程式] 中搜尋「Windows 虛擬桌面」時的搜尋結果螢幕擷取畫面。 已醒目提示名為「Windows 虛擬桌面」的應用程式。](media/tenant-enterprise-app.png)
 4. 選取 [使用者和群組]  。 您可能會看到對應用程式授與同意權的系統管理員已列出，並且已獲派**預設存取**角色。 這還不足以建立 Windows 虛擬桌面租用戶。 請繼續遵循這些指示來對使用者新增 **TenantCreator** 角色。
    ![指派來管理「Windows 虛擬桌面」企業應用程式的使用者和群組螢幕擷取畫面。 螢幕擷取畫面顯示只有一個適用於「預設存取」的指派。](media/tenant-default-access.png)
 5. 選取 [新增使用者]  ，然後在 [新增指派]  刀鋒視窗中選取 [使用者和群組]  。
 6. 搜尋您將建立 Windows 虛擬桌面租用戶的使用者帳戶。 為了簡單起見，這可以是全域管理員帳戶。
+   - 如果您使用的是 Microsoft 身分識別提供者，例如，contosoadmin@live.com 或 contosoadmin@outlook.com，您可能無法登入 Windows 虛擬桌面。 我們建議使用類似 admin@contoso.com 或 admin@contoso.onmicrosoft.com 的網域特定帳戶。
 
    ![選取要新增為 "TenantCreator" 的使用者螢幕擷取畫面。](media/tenant-assign-user.png)
 

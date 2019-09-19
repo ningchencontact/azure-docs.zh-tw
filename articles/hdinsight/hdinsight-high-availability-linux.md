@@ -1,20 +1,20 @@
 ---
 title: Hadoop 高可用性 - Azure HDInsight
 description: 了解如何使用額外的前端節點，讓 HDInsight 叢集可以提高可靠性和可用性。 了解這會如何影響例如 Ambari 和 Hive 等 Hadoop 服務，以及如何使用 SSH 分別連線到每個前端節點。
-ms.reviewer: jasonh
 author: hrasheed-msft
+ms.author: hrasheed
+ms.reviewer: jasonh
 keywords: hadoop 高可用性
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 04/24/2019
-ms.author: hrasheed
-ms.openlocfilehash: 1bfc17d343f6e788d22cd158fcb849c5895b019f
-ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
+ms.openlocfilehash: 615b1e4c5684084b6c5f88d26293b993c1efbf1f
+ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70879746"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71104414"
 ---
 # <a name="availability-and-reliability-of-apache-hadoop-clusters-in-hdinsight"></a>HDInsight 中 Apache Hadoop 叢集的可用性和可靠性
 
@@ -106,7 +106,7 @@ HDInsight 叢集中的節點具有只能自叢集存取的內部 IP 位址和 FQ
 
 當您來到 Ambari 頁面上時，會在該頁面的左邊列出已安裝的服務。
 
-![已安裝的服務](./media/hdinsight-high-availability-linux/hdinsight-installed-services.png)
+![Apache Ambari 已安裝的服務](./media/hdinsight-high-availability-linux/hdinsight-installed-services.png)
 
 服務旁可能會出現一系列圖示以表示狀態。 可以使用在頁面頂端的 [警示] 連結，檢視與服務相關的任何警示。  Ambari 提供數個預先定義的警示。
 
@@ -155,11 +155,11 @@ HDInsight 叢集中的節點具有只能自叢集存取的內部 IP 位址和 FQ
 
 雖然 [服務] 頁面會提供資訊之狀態和每個服務的組態，但並不提供該服務正在哪些前端節點上執行的資訊。 若要檢視這項資訊，請使用在頁面頂端的 [主機] 連結。 此頁面會顯示叢集內的主機，包括前端節點在內。
 
-![主機清單](./media/hdinsight-high-availability-linux/hdinsight-hosts-list.png)
+![Apache Ambari 前端節點主機清單](./media/hdinsight-high-availability-linux/hdinsight-hosts-list.png)
 
 選取其中一個前端節點的連結會顯示該節點上執行的服務與元件。
 
-![元件狀態](./media/hdinsight-high-availability-linux/hdinsight-node-services.png)
+![Apache Ambari 元件狀態](./media/hdinsight-high-availability-linux/hdinsight-node-services.png)
 
 如需有關使用 Ambari 的詳細資訊，請參閱[使用 Apache Ambari Web UI 來監視和管理 HDInsight](hdinsight-hadoop-manage-ambari.md)。
 

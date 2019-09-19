@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 04/04/2019
 ms.author: baselden
 ms.reviewer: ''
-ms.openlocfilehash: 04a2a3f2557ccef510a831a5c9fbf89bb62cb9a7
-ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
+ms.openlocfilehash: 959d959cd269884b3b75c4c23bfd0054ae64ced7
+ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70812843"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71033638"
 ---
 # <a name="plan-an-azure-ad-application-proxy-deployment"></a>規劃 Azure AD 應用程式 Proxy 部署
 
@@ -64,7 +64,7 @@ Azure Active Directory （Azure AD）應用程式 Proxy 是適用于內部部署
 
 *  **Azure 上架**：在部署應用程式 proxy 之前，使用者身分識別必須從內部部署目錄進行同步處理，或直接在您的 Azure AD 租使用者內建立。 身分識別同步處理可讓 Azure AD 在允許使用者存取 App Proxy 發佈的應用程式之前，先預先驗證使用者，以及具有執行單一登入 (SSO) 所需的使用者識別碼資訊。
 
-* **條件式存取需求**：我們不建議使用應用程式 Proxy 進行內部網路存取，因為這會增加會影響使用者的延遲。 我們建議使用應用程式 Proxy 搭配預先驗證和條件式存取原則，以從網際網路進行遠端存取。  提供內部網路使用條件式存取的方法是將應用程式現代化，讓他們可以 diretly 使用 AAD 進行驗證。 如需詳細資訊，請參閱將[應用程式遷移至 AAD 的資源](https://docs.microsoft.com/azure/active-directory/manage-apps/migration-resources)。 
+* **條件式存取需求**：我們不建議使用應用程式 Proxy 進行內部網路存取，因為這會增加會影響使用者的延遲。 我們建議使用應用程式 Proxy 搭配預先驗證和條件式存取原則，以從網際網路進行遠端存取。  提供內部網路使用條件式存取的方法，就是將應用程式現代化，讓他們可以直接向 AAD 進行驗證。 如需詳細資訊，請參閱將[應用程式遷移至 AAD 的資源](https://docs.microsoft.com/azure/active-directory/manage-apps/migration-resources)。 
 
 * **服務限制**：為了防止個別租使用者的資源過度耗用，有針對每個應用程式和租使用者設定的節流限制。 若要查看這些限制，請參閱[Azure AD 的服務限制和限制](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-service-limits-restrictions)。 這些節流限制是根據一般使用量的基準測試，並為大部分的部署提供充足的緩衝區。
 
@@ -239,7 +239,7 @@ Azure Active Directory （Azure AD）應用程式 Proxy 是適用于內部部署
 
 3. 在 [**預先驗證**] 欄位中，使用下拉式清單來選取**Azure Active Directory**，然後選取 [**儲存**]。
 
-啟用預先驗證之後，Azure AD 會先挑戰使用者進行驗證，如果單一登入是 configued，則後端應用程式也會在授與應用程式存取權之前驗證使用者。 將預先驗證模式從「傳遞」變更為 Azure AD 也會使用 HTTPS 設定外部 URL，因此一開始針對 HTTP 設定的任何應用程式都會使用 HTTPS 來保護。
+啟用預先驗證之後，Azure AD 會先挑戰使用者進行驗證，如果已設定單一登入，後端應用程式也會在授與應用程式存取權之前驗證使用者。 將預先驗證模式從「傳遞」變更為 Azure AD 也會使用 HTTPS 設定外部 URL，因此一開始針對 HTTP 設定的任何應用程式都會使用 HTTPS 來保護。
 
 ### <a name="enable-single-sign-on"></a>啟用單一登入
 
@@ -292,11 +292,11 @@ Microsoft 提倡授與最低可能許可權的原則，以 Azure AD 執行所需
 
 ### <a name="reporting-and-monitoring"></a>報告和監控
 
-Azure AD 透過[audit 記錄和報告，](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-audit-logs)為您組織的應用程式使用量和操作健全狀況提供額外的深入解析。 應用程式 Proxy 也可以讓您輕鬆地從 Azure AD 入口網站和 Windows 事件記錄監視連接器。
+Azure AD 透過[audit 記錄和報告，](../reports-monitoring/concept-provisioning-logs.md?context=azure/active-directory/manage-apps/context/manage-apps-context)為您組織的應用程式使用量和操作健全狀況提供額外的深入解析。 應用程式 Proxy 也可以讓您輕鬆地從 Azure AD 入口網站和 Windows 事件記錄監視連接器。
 
 #### <a name="application-audit-logs"></a>應用程式稽核記錄
 
-這些記錄會針對以應用程式 Proxy 和裝置以及存取應用程式的使用者所設定的應用程式，提供登入的詳細資訊。 [Audit 記錄](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-audit-logs)檔位於 Azure 入口網站中，以及用於匯出的[audit API](https://docs.microsoft.com/graph/api/resources/directoryaudit?view=graph-rest-beta)中。 此外，您的應用程式也可以使用 [[使用量] 和 [深入](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-usage-insights-report)解析] 報告。
+這些記錄會針對以應用程式 Proxy 和裝置以及存取應用程式的使用者所設定的應用程式，提供登入的詳細資訊。 [Audit 記錄](../reports-monitoring/concept-provisioning-logs.md?context=azure/active-directory/manage-apps/context/manage-apps-context)檔位於 Azure 入口網站中，以及用於匯出的[audit API](https://docs.microsoft.com/graph/api/resources/directoryaudit?view=graph-rest-beta)中。 此外，您的應用程式也可以使用 [[使用量] 和 [深入](../reports-monitoring/concept-usage-insights-report.md?context=azure/active-directory/manage-apps/context/manage-apps-context)解析] 報告。
 
 #### <a name="application-proxy-connector-monitoring"></a>應用程式 Proxy 連接器監視
 

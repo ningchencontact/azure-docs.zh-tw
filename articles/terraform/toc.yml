@@ -7,11 +7,11 @@
 - name: 快速入門
   expanded: true
   items:
-    - name: 建立多服務應用程式
-      href: terrafom-quickstart.md
     - name: 安裝及設定 Terraform
       href: /azure/virtual-machines/linux/terraform-install-configure
       maintainContext: true
+    - name: 建立多服務應用程式
+      href: terrafom-quickstart.md
     - name: 建立 Linux VM
       href: /azure/virtual-machines/linux/terraform-create-complete-vm
       maintainContext: true
@@ -67,10 +67,6 @@
   items:
     - name: 設定範本
       href: 'https://github.com/terraform-providers/terraform-provider-azurerm/tree/master/examples'
-- name: 概念
-  items:
-    - name: Azure Cloud Shell 整合
-      href: terraform-cloud-shell.md
 - name: 使用說明指南
   items:
     - name: Azure 儲存體中的儲存狀態
@@ -79,7 +75,7 @@
   items:
     - name: Azure 模組登錄
       href: 'https://registry.terraform.io/modules/Azure'
-    - name: Terraform 參考
+    - name: Terraform Azure 提供者
       href: 'https://aka.ms/terraform'
 - name: 資源
   items:

@@ -2,18 +2,18 @@
 title: 機器學習服務概觀 - Azure HDInsight
 description: Azure HDInsight 中叢集的大型資料機器學習選項總覽。
 author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/19/2018
-ms.author: hrasheed
-ms.openlocfilehash: 0fecb41c3417d5b43e0638815d6a7d274ba461b0
-ms.sourcegitcommit: dd69b3cda2d722b7aecce5b9bd3eb9b7fbf9dc0a
+ms.openlocfilehash: 139d82079b5946b0628760f5b05bb08d208cae6f
+ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70961996"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71105406"
 ---
 # <a name="machine-learning-on-hdinsight"></a>HDInsight 上的機器學習服務
 
@@ -39,7 +39,7 @@ HDInsight 能以巨量資料實現機器學習服務，有能力從大量 (PB，
 
 Azure Machine Learning 提供可建立預測性分析模型的工具，也提供完全受控的服務，您可以透過這項服務將預測模型部署為可供取用的 Web 服務。 Azure Machine Learning 是完整的雲端預測性分析解決方案，您可以快速地建立、測試、操作及管理預測模型。 您可以從大型演算法程式庫中選取、使用 Web 型工作室來建置模型，然後將模型輕鬆部署成 Web 服務。
 
-![使用 Microsoft Azure Machine Learning 可讓 Hadoop 進行進階分析](./media/hdinsight-machine-learning-overview/azure-machine-learning.png)
+![Microsoft Azure 機器學習服務總覽](./media/hdinsight-machine-learning-overview/azure-machine-learning.png)
 
 針對使用 [Hive 查詢](../machine-learning/team-data-science-process/create-features-hive.md)之 HDInsight Hadoop 叢集中的資料建立特徵。 *特徵工程設計*藉由以學習程序的原始資料來建立特徵，以嘗試增加學習演算法的預測能力。 您可以藉由使用[匯入資料模組](../machine-learning/studio/import-data.md)，從 Azure Machine Learning Studio 執行 HiveQL 查詢，並存取在 Hive 中處理及在 Blob 儲存體中儲存的資料。
 

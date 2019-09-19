@@ -1,18 +1,18 @@
 ---
 title: 什麼是 Azure 私人連結服務？
 description: 瞭解 Azure 私人連結服務。
-services: virtual-network
+services: private-link
 author: KumudD
-ms.service: virtual-network
+ms.service: private-link
 ms.topic: conceptual
 ms.date: 09/16/2019
 ms.author: kumud
-ms.openlocfilehash: 611fae063288fb73bc1c31b36f98ca6552548792
-ms.sourcegitcommit: 71db032bd5680c9287a7867b923bf6471ba8f6be
+ms.openlocfilehash: 27e927425faec045c4f304ae6de155f2337307d9
+ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/16/2019
-ms.locfileid: "71018880"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71104663"
 ---
 # <a name="what-is-azure-private-link-service"></a>什麼是 Azure 私人連結服務？
 

@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.topic: article
 ms.date: 11/17/2018
 ms.author: pabutler
-ms.openlocfilehash: 40170540458b7bc7ddb30f88117d472858937e8c
-ms.sourcegitcommit: dd69b3cda2d722b7aecce5b9bd3eb9b7fbf9dc0a
+ms.openlocfilehash: 0bbe0e9718a25fdff76e591bf388bf829518502e
+ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70962944"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71105621"
 ---
 # <a name="azure-partner-customer-usage-attribution"></a>Azure 合作夥伴客戶使用狀況屬性
 
@@ -166,43 +166,28 @@ GUID 是具有 32 個十六進位數字的參考號碼。 若要建立 GUID 來�
 
 Guid 必須註冊, 才能啟用客戶使用狀況屬性。
 
-範本 GUID 的所有註冊都會透過 Azure Marketplace 雲端合作夥伴入口網站 (CPP) 來完成。
+範本 Guid 的所有註冊都是在合作夥伴中心內完成。
 
-在您將 GUID 加入至範本或使用者代理程式中，並在 CPP 中註冊該 GUID 之後，便會追蹤所有部署。
+在您將 GUID 新增至範本或使用者代理程式，並在合作夥伴中心註冊 GUID 之後，便會追蹤所有部署。
 
-1. 適用於 [Azure Marketplace](https://aka.ms/listonazuremarketplace)，並可取得 CPP 的存取權。
+1. 註冊為[商業 marketplace 發行者](https://aka.ms/JoinMarketplace)。
 
-   * 合作夥伴必須[在 CPP 中擁有設定檔](https://docs.microsoft.com/azure/marketplace/become-publisher)。 我們鼓勵您在 Azure Marketplace 或 AppSource 中列出該供應項目。
+   * 合作夥伴必須[在合作夥伴中心擁有設定檔](https://docs.microsoft.com/azure/marketplace/become-publisher)。 我們鼓勵您在 Azure Marketplace 或 AppSource 中列出該供應項目。
    * 合作夥伴可以註冊多個 GUID。
    * 合作夥伴可以註冊為非 Marketplace 解決方案範本與供應項目註冊 GUID。
 
-1. 登入 [Cloud Partner 入口網站](https://cloudpartner.azure.com/)。
+1. 登入[合作夥伴中心](https://partner.microsoft.com/dashboard)。
 
-1. 在右上角，選取您的帳戶圖示，然後選取 [發行者設定檔]。
+1. 在右上角，選取 [設定] 齒輪圖示，然後選取 [**開發人員設定**]。
 
-   ![選取發行者設定檔](media/marketplace-publishers-guide/guid-image-for-lu.png)
+1. 在 [**帳戶設定] 頁面**上，選取 [**新增追蹤 GUID]。**
 
-1. 在 [設定檔] 頁面上，選取 [新增追蹤 GUID]。
-
-   ![選取 [新增追蹤 GUID]](media/marketplace-publishers-guide/guid-how-to-add-tracking.png)
-
-1. 在 [追蹤 GUID] 方塊中，輸入您的追蹤 GUID。 只輸入 GUID，不要輸入 **pid-** 前置詞。 在 [自訂描述] 方塊中，輸入您的供應項目名稱或描述。
-
-   ![[設定檔] 頁面](media/marketplace-publishers-guide/guid-dev-center-login.png)
-
-   ![輸入 GUID 與供應項目描述](media/marketplace-publishers-guide/guid-dev-center-example.png)
+1. 在 [ **GUID** ] 方塊中，輸入您的追蹤 GUID。 只輸入 GUID，不要輸入 **pid-** 前置詞。 在 [**描述**] 方塊中，輸入您的供應專案名稱或描述。
 
 1. 若要註冊多個 GUID，請再次選取 [新增追蹤 GUID]。 頁面上會出現額外的方塊。
 
-   ![再次選取 [新增追蹤 GUID]](media/marketplace-publishers-guide/guid-dev-center-example-add.png)
+1. 選取 [儲存]。
 
-   ![輸入另一個 GUID 與供應項目描述](media/marketplace-publishers-guide/guid-dev-center-example-description.png)
-
-1. 選取 [ **儲存**]。
-
-   ![選取 [儲存]](media/marketplace-publishers-guide/guid-dev-center-save.png)
-
-在您將 GUID 加入至範本或使用者代理程式中，並在 CPP 中註冊該 GUID 之後，便會追蹤所有部署。
 
 ## <a name="verify-the-guid-deployment"></a>驗證 GUID 部署
 

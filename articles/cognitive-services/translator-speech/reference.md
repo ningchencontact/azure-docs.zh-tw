@@ -3,20 +3,20 @@ title: 翻譯工具語音 API 參考
 titleSuffix: Azure Cognitive Services
 description: 翻譯工具語音 API 參考文件。
 services: cognitive-services
-author: swmachan
+author: nitinme
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-speech
 ms.topic: reference
 ms.date: 05/18/2018
-ms.author: swmachan
+ms.author: nitinme
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: 0f083a6ca3079128aad4aba3a53013df378a6106
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 9d2f78d05de6b966dd872e0b57a90d1c8e890975
+ms.sourcegitcommit: fbea2708aab06c19524583f7fbdf35e73274f657
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67446910"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70965365"
 ---
 # <a name="translator-speech-api"></a>Translator Speech API
 
@@ -28,10 +28,10 @@ ms.locfileid: "67446910"
 
 翻譯工具語音 API 利用 WebSocket 通訊協定來提供用戶端與伺服器之間的全雙工通訊通道。 應用程式將需要這些步驟，才能使用服務：
 
-## <a name="1-getting-started"></a>1.開始使用
+## <a name="1-getting-started"></a>1.使用者入門
 若要存取翻譯工具語音 API，您需要[註冊 Microsoft Azure](translator-speech-how-to-signup.md)。
 
-## <a name="2-authentication"></a>2.Authentication
+## <a name="2-authentication"></a>2.驗證
 
 使用訂用帳戶金鑰驗證。 翻譯工具語音 API 支援兩種驗證模式：
 
@@ -56,7 +56,7 @@ ms.locfileid: "67446910"
 
 GET /speech/translate 建立語音翻譯的工作階段
 
-### <a name="connecting"></a>連接
+### <a name="connecting"></a>正在連接
 連線至服務之前，請先檢閱本節稍後提供的參數清單。 範例要求如下：
 
 `GET wss://dev.microsofttranslator.com/speech/translate?from=en-US&to=it-IT&features=texttospeech&voice=it-IT-Elsa&api-version=1.0`
@@ -70,7 +70,7 @@ GET /speech/translate 建立語音翻譯的工作階段
 
 音訊輸入為 Waveform 音訊檔案格式 (WAVE，或因其副檔名通稱為 WAV)。 用戶端應用程式應該串流處理以 16 kHz 取樣的單一通道帶正負號 16 位元 PCM 音訊。 用戶端所串流處理的第一組位元組將包括 WAV 標頭。 以 16 kHz 取樣之單一通道帶正負號 16 位元 PCM 資料流的 44-位元組標頭如下：
 
-|Offset|值|
+|位移|值|
 |:---|:---|
 |0 - 3|"RIFF"|
 |4 - 7|0|
@@ -175,7 +175,7 @@ GET /speech/translate 建立語音翻譯的工作階段
 |voice|(空白)|識別要用於翻譯文字之文字轉換語音轉譯的聲音。 此值是 Languages API 回應中來自 tts 範圍 的其中一個語音識別碼。 若未指定語音，則系統會在啟用文字轉換語音功能時自動選擇語音。|query|string|
 |format|(空白)|指定服務所傳回的文字轉換語音音訊資料流格式。 可用選項包括：<ul><li>`audio/wav`:Waveform 音訊資料流。 用戶端應該會使用 WAV 標頭，適當地解譯音訊格式。 文字轉換語音的 WAV 音訊是取樣率為 24kHz 或 16 kHz 的 16 位元單一通道 PCM。</li><li>`audio/mp3`:MP3 音訊資料流。</li></ul>預設值為 `audio/wav`。|query|string|
 |ProfanityAction    |(空白)    |指定服務應該如何處理語音中所辨識的粗話。 有效的動作包括︰<ul><li>`NoAction`:粗話會保持原狀。</li><li>`Marked`:粗話會取代為標記。 請參閱 `ProfanityMarker` 參數。</li><li>`Deleted`:刪除粗話。 例如，若將 `"jackass"` 這個字視為粗話，則片語 `"He is a jackass."` 會變成 `"He is a .".`</li></ul>預設值是 Marked。|query|string|
-|ProfanityMarker|(空白)    |指定 `ProfanityAction` 設定為 `Marked` 時如何處理偵測到的粗話。 有效的選項包括：<ul><li>`Asterisk`:粗話會以字串 `***` 取代。 例如，若將 `"jackass"` 這個字視為粗話，則片語 `"He is a jackass."` 會變成 `"He is a ***.".`</li><li>`Tag`:粗話會括上 profanity XML 標籤。 例如，若將 `"jackass"` 這個字視為粗話，則片語 `"He is a jackass."` 會變成 `"He is a <profanity>jackass</profanity>."`。</li></ul>預設值為 `Asterisk`。|query|string|
+|ProfanityMarker|(空白)    |指定 `ProfanityAction` 設定為 `Marked` 時如何處理偵測到的粗話。 有效的選項包括：<ul><li>`Asterisk`:粗話會以字串 `***` 取代。 例如，若將 `"jackass"` 這個字視為粗話，則片語 `"He is a jackass."` 會變成 `"He is a ***.".`</li><li>`Tag`:粗話會括上 profanity XML 標籤。 例如，若將 `"jackass"` 這個字視為粗話，則片語 `"He is a jackass."` 會變成 `"He is a <profanity>jackass</profanity>."`。</li></ul>預設為 `Asterisk`。|query|string|
 |Authorization|(空白)  |指定用戶端持有人權杖的值。 使用 `Bearer` 字首，後面接著驗證權杖服務所傳回 `access_token` 值的值。|頁首   |string|
 |Ocp-Apim-Subscription-Key|(空白)|若未指定 `Authorization` 標頭，則為必要項目。|頁首|string|
 |access_token|(空白)   |傳遞有效 OAuth 存取權杖的替代方式。 持有人權杖通常會與 `Authorization` 標頭一起提供。 部分 WebSocket 程式庫不允許用戶端程式碼設定標頭。 在這種情況下，用戶端可以使用 `access_token` 查詢參數來傳遞有效的權杖。 使用存取權杖驗證時，若未設定 `Authorization` 標頭，則必須設定 `access_token`。 若同時設定標頭和查詢參數，則會忽略查詢參數。 用戶端應該只使用一種方法來傳遞權杖。|query|string|
@@ -183,11 +183,11 @@ GET /speech/translate 建立語音翻譯的工作階段
 |X-ClientTraceId    |(空白)    |用來追蹤要求之用戶端產生的 GUID。 如需針對問題進行適當地疑難排解，用戶端應該隨著每項要求提供新的值並予以記錄。<br/>此值可以使用 `X-ClientTraceId` 查詢參數傳遞，而不是使用標頭。 若同時設定標頭和查詢參數，則會忽略查詢參數。|頁首|string|
 |X-CorrelationId|(空白)    |用來相互關聯交談中多個通道之用戶端產生的識別碼。 可以建立多個語音翻譯工作階段，以啟用使用者之間的交談。 在這類情況下，所有語音翻譯工作階段都會使用相同的相互關聯識別碼，將通道繫結在一起。 這有助於追蹤和診斷。 識別碼應該符合：`^[a-zA-Z0-9-_.]{1,64}$`<br/>此值可以使用 `X-CorrelationId` 查詢參數傳遞，而不是使用標頭。 若同時設定標頭和查詢參數，則會忽略查詢參數。|頁首|string|
 |X-ClientVersion|(空白)    |識別用戶端應用程式的版本。 範例："2.1.0.123"。<br/>此值可以使用 `X-ClientVersion` 查詢參數傳遞，而不是使用標頭。 若同時設定標頭和查詢參數，則會忽略查詢參數。|頁首|string|
-|X-OsPlatform|(空白)   |識別用戶端應用程式在其上執行的作業系統名稱和版本。 範例："Android 5.0"、"iOs 8.1.3"、"Windows 8.1"。<br/>此值可以使用 `X-OsPlatform` 查詢參數傳遞，而不是使用標頭。 若同時設定標頭和查詢參數，則會忽略查詢參數。|頁首|string|
+|X-OsPlatform|(空白)   |識別用戶端應用程式在其上執行的作業系統名稱和版本。 例如："Android 5.0"、"iOs 8.1.3"、"Windows 8.1"。<br/>此值可以使用 `X-OsPlatform` 查詢參數傳遞，而不是使用標頭。 若同時設定標頭和查詢參數，則會忽略查詢參數。|頁首|string|
 
 ### <a name="response-messages"></a>回應訊息
 
-|HTTP 狀態碼|`Reason`|回應模型|headers|
+|HTTP 狀態碼|`Reason`|回應模型|標頭|
 |:--|:--|:--|:--|
 |101    |WebSocket 升級。|模型範例值 <br/> 物件 {}|X-RequestId<br/>值，識別進行疑難排解的要求。<br/>string|
 |400    |不正確的要求。 請檢查輸入參數，以確保參數有效。 回應物件包括錯誤的更詳細描述。|||

@@ -8,26 +8,26 @@ ms.custom: hdinsightactive,seodec18
 ms.topic: tutorial
 ms.date: 05/22/2019
 ms.author: hrasheed
-ms.openlocfilehash: 9ee39bcc7a1024ff511d0f374c06e1a4e43015b4
-ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
+ms.openlocfilehash: 32e47f688150333ac78091589d8a252641d4c7d6
+ms.sourcegitcommit: 8ef0a2ddaece5e7b2ac678a73b605b2073b76e88
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70917623"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71076986"
 ---
 # <a name="tutorial-use-apache-spark-structured-streaming-with-apache-kafka-on-hdinsight"></a>教學課程：將 Apache Spark 結構化串流用於 HDInsight 上的 Apache Kafka
 
-此教學課程說明如何使用 [Apache Spark 結構化串流](https://spark.apache.org/docs/latest/structured-streaming-programming-guide)，對 Azure HDInsight 上的 [Apache Kafka](https://kafka.apache.org/) 讀取和寫入資料。
+本教學課程說明如何使用 [Apache Spark 結構化串流](https://spark.apache.org/docs/latest/structured-streaming-programming-guide)，對 Azure HDInsight 上的 [Apache Kafka](https://kafka.apache.org/) 讀取和寫入資料。
 
 Spark 結構化串流是建置在 Spark SQL 上的串流處理引擎。 它允許您進行與靜態資料批次計算相同的串流計算。  
 
-在此教學課程中，您了解如何：
+在本教學課程中，您會了解如何：
 
 > [!div class="checklist"]
 > * 使用 Azure Resource Manager 範本來建立叢集
 > * 搭配 Kafka 使用 Spark 結構化串流
 
-當您完成使文件中的步驟時，請記得刪除叢集，以避免產生過多的費用。
+當您完成本文件中的步驟時，請記得刪除叢集，以避免產生過多的費用。
 
 ## <a name="prerequisites"></a>必要條件
 
@@ -40,9 +40,9 @@ Spark 結構化串流是建置在 Spark SQL 上的串流處理引擎。 它允�
 * 熟悉如何建立 Kafka 主題。 如需詳細資訊，請參閱 [HDInsight 上的 Apache Kafka 快速入門](kafka/apache-kafka-get-started.md)文件。
 
 > [!IMPORTANT]  
-> 在此文件的步驟中，Azure 資源群組必須包含 HDInsight 上的 Spark 和 HDInsight 叢集上的 Kafka。 這兩個叢集都位於 Azure 虛擬網路中，可讓 Spark 叢集直接與 Kafka 叢集通訊。
+> 在本文件的步驟中，Azure 資源群組必須包含 HDInsight 上的 Spark 和 HDInsight 叢集上的 Kafka。 這兩個叢集都位於 Azure 虛擬網路中，可讓 Spark 叢集直接與 Kafka 叢集通訊。
 > 
-> 為了方便您使用，此文件會連結至可建立所有必要 Azure 資源的範本。 
+> 為了方便您使用，本文件會連結至可建立所有必要 Azure 資源的範本。 
 >
 > 如需在虛擬網路中使用 HDInsight 的詳細資訊，請參閱[規劃 HDInsight 的虛擬網路](hdinsight-plan-virtual-network-deployment.md)文件。
 
@@ -98,7 +98,7 @@ kafkaStreamDF.select(from_json(col("value").cast("string"), schema) as "trip")
 
 若要搭配使用結構化串流和 Kafka，您的專案必須具有對 `org.apache.spark : spark-sql-kafka-0-10_2.11` 套件的相依性。 此套件的版本應與 HDInsight 上的 Spark 版本相符。 對於 Spark 2.2.0 (適用於 HDInsight 3.6)，您可以在 [https://search.maven.org/#artifactdetails%7Corg.apache.spark%7Cspark-sql-kafka-0-10_2.11%7C2.2.0%7Cjar](https://search.maven.org/#artifactdetails%7Corg.apache.spark%7Cspark-sql-kafka-0-10_2.11%7C2.2.0%7Cjar) 上找到不同專案類型的相依性資訊。
 
-對於此教學課程中使用的 Jupyter Notebook，下列資料格會載入此套件相依性：
+對於本教學課程中使用的 Jupyter Notebook，下列資料格會載入此套件相依性：
 
 ```
 %%configure -f
@@ -112,7 +112,7 @@ kafkaStreamDF.select(from_json(col("value").cast("string"), schema) as "trip")
 
 ## <a name="create-the-clusters"></a>建立叢集
 
-Apache Kafka on HDInsight 不提供透過公用網際網路存取 Kafka 訊息代理程式。 任何使用 Kafka 的項目都必須位於相同的 Azure 虛擬網路中。 在此教學課程中，Kafka 和 Spark 叢集位於相同的 Azure 虛擬網路中。 
+Apache Kafka on HDInsight 不提供透過公用網際網路存取 Kafka 訊息代理程式。 任何使用 Kafka 的項目都必須位於相同的 Azure 虛擬網路中。 在本教學課程中，Kafka 和 Spark 叢集位於相同的 Azure 虛擬網路中。 
 
 下圖顯示 Spark 與 Kafka 之間的通訊流程︰
 
@@ -125,7 +125,7 @@ Apache Kafka on HDInsight 不提供透過公用網際網路存取 Kafka 訊息�
 
 1. 使用以下按鈕，在 Azure 入口網站中登入 Azure 並開啟範本。
 
-    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure-Samples%2Fhdinsight-spark-kafka-structured-streaming%2Fmaster%2Fazuredeploy.json" target="_blank"><img src="./media/hdinsight-apache-kafka-spark-structured-streaming/hdi-deploy-to-azure1.png" alt="Deploy to Azure"></a>
+    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure-Samples%2Fhdinsight-spark-kafka-structured-streaming%2Fmaster%2Fazuredeploy.json" target="_blank"><img src="./media/hdinsight-apache-kafka-spark-structured-streaming/hdi-deploy-to-azure1.png" alt="Deploy to Azure button for new cluster"></a>
 
     Azure Resource Manager 範本位於 **https://raw.githubusercontent.com/Azure-Samples/hdinsight-spark-kafka-structured-streaming/master/azuredeploy.json** 。
 
@@ -136,15 +136,15 @@ Apache Kafka on HDInsight 不提供透過公用網際網路存取 Kafka 訊息�
    * Azure 虛擬網路，其中包含 HDInsight 叢集。
 
      > [!IMPORTANT]  
-     > 此教學課程中使用的結構化串流 Notebook 需要 HDInsight 3.6 上的 Spark 2.2.0。 如果您在 HDInsight 上使用較早版本的 Spark，當使用 Notebook 時會收到錯誤。
+     > 本教學課程中使用的結構化串流 Notebook 需要 HDInsight 3.6 上的 Spark 2.2.0。 如果您在 HDInsight 上使用較早版本的 Spark，當使用 Notebook 時會收到錯誤。
 
 2. 使用下列資訊，填入 [自訂範本]  區段上的項目︰
 
     | 設定 | 值 |
     | --- | --- |
-    | Subscription | 您的 Azure 訂用帳戶 |
-    | Resource group | 包含資源的資源群組。 |
-    | Location | 資源建立所在的 Azure 區域。 |
+    | 訂用帳戶 | 您的 Azure 訂用帳戶 |
+    | 資源群組 | 包含資源的資源群組。 |
+    | 位置 | 資源建立所在的 Azure 區域。 |
     | Spark 叢集名稱 | Spark 叢集的名稱。 前六個字元必須與 Kafka 叢集名稱不同。 |
     | Kafka 叢集名稱 | Kafka 叢集的名稱。 前六個字元必須與 Spark 叢集名稱不同。 |
     | 叢集登入使用者名稱 | 叢集的管理員使用者名稱。 |
@@ -315,7 +315,7 @@ Apache Kafka on HDInsight 不提供透過公用網際網路存取 Kafka 訊息�
 
 ## <a name="clean-up-resources"></a>清除資源
 
-若要清除此教學課程所建立的資源，您可以刪除資源群組。 刪除資源群組也會刪除相關聯的 HDInsight 叢集，以及與資源群組相關聯的任何其他資源。
+若要清除本教學課程所建立的資源，您可以刪除資源群組。 刪除資源群組也會刪除相關聯的 HDInsight 叢集，以及與資源群組相關聯的任何其他資源。
 
 若要使用 Azure 入口網站移除資源群組：
 
@@ -330,7 +330,7 @@ Apache Kafka on HDInsight 不提供透過公用網際網路存取 Kafka 訊息�
 
 ## <a name="next-steps"></a>後續步驟
 
-在此教學課程中，您已了解如何使用 [Apache Spark 結構化串流](https://spark.apache.org/docs/latest/structured-streaming-programming-guide.html)對 HDInsight 上的 [Apache Kafka](https://kafka.apache.org/) 寫入及讀取資料。 請使用下列連結了解如何搭配使用 [Apache Storm](https://storm.apache.org/) 與 Kafka。
+在本教學課程中，您已了解如何使用 [Apache Spark 結構化串流](https://spark.apache.org/docs/latest/structured-streaming-programming-guide.html)對 HDInsight 上的 [Apache Kafka](https://kafka.apache.org/) 寫入及讀取資料。 請使用下列連結了解如何搭配使用 [Apache Storm](https://storm.apache.org/) 與 Kafka。
 
 > [!div class="nextstepaction"]
 > [使用 Apache Storm 搭配 Apache Kafka](hdinsight-apache-storm-with-kafka.md)

@@ -8,41 +8,43 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: anomaly-detector
 ms.topic: conceptual
-ms.date: 06/19/2019
+ms.date: 09/18/2019
 ms.author: dapine
-ms.openlocfilehash: 0c2ff2c745ebed8385df0d351c6d43faf5ab1b9d
-ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
+ms.openlocfilehash: 339aab3ffe228d306738d3c17394bd322ab5e06c
+ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/27/2019
-ms.locfileid: "70050071"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71103777"
 ---
 # <a name="install-and-run-anomaly-detector-containers"></a>安裝和執行異常偵測器容器
 
-異常偵測器具有下列容器: 
+異常偵測器具有下列容器： 
 
 |函數|功能|
 |-|-|
-|異常偵測器| <li> 會偵測即時發生的異常狀況。 <li> 以批次方式偵測整個資料集的異常狀況。 <li> 推斷資料的預期正常範圍。 <li> 支援異常偵測敏感度調整, 更適合您的資料。 |
+|異常偵測器| <li> 會偵測即時發生的異常狀況。 <li> 以批次方式偵測整個資料集的異常狀況。 <li> 推斷資料的預期正常範圍。 <li> 支援異常偵測敏感度調整，更適合您的資料。 |
 
-如需有關 Api 的詳細資訊, 請參閱:
+如需有關 Api 的詳細資訊，請參閱：
 * [深入瞭解異常偵測器 API 服務](https://go.microsoft.com/fwlink/?linkid=2080698&clcid=0x409)
 
 如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 。
 
 ## <a name="prerequisites"></a>必要條件
 
-使用異常偵測器容器之前, 您必須符合下列必要條件:
+使用異常偵測器容器之前，您必須符合下列必要條件：
 
 |必要項|用途|
 |--|--|
 |Docker 引擎| 您必須在[主機電腦](#the-host-computer)上安裝 Docker 引擎。 Docker 提供可在 [macOS](https://docs.docker.com/docker-for-mac/)、[Windows](https://docs.docker.com/docker-for-windows/) 和 [Linux](https://docs.docker.com/engine/installation/#supported-platforms) 上設定 Docker 環境的套件。 如需 Docker 和容器基本概念的入門，請參閱 [Docker 概觀](https://docs.docker.com/engine/docker-overview/) \(英文\)。<br><br> Docker 必須設定為允許容器與 Azure 連線，以及傳送帳單資料至 Azure。 <br><br> **在 Windows 上**，也必須將 Docker 設定為支援 Linux 容器。<br><br>|
 |熟悉 Docker | 您應具備對 Docker 概念 (例如登錄、存放庫、容器和容器映像等) 的基本了解，以及基本 `docker` 命令的知識。| 
-|異常偵測器資源 |若要使用這些容器，您必須具備：<br><br>Azure_異常_偵測器資源, 用來取得相關聯的 API 金鑰和端點 URI。 這兩個值都可在 Azure 入口網站的**異常**偵測器總覽和金鑰頁面上取得, 而且必須要有才能啟動容器。<br><br>**{API_KEY}** :[**金鑰**] 頁面上有兩個可用的資源金鑰之一<br><br>**{ENDPOINT_URI}** :[**總覽**] 頁面上所提供的端點|
+|異常偵測器資源 |若要使用這些容器，您必須具備：<br><br>Azure_異常_偵測器資源，用來取得相關聯的 API 金鑰和端點 URI。 這兩個值都可在 Azure 入口網站的**異常**偵測器總覽和金鑰頁面上取得，而且必須要有才能啟動容器。<br><br>**{API_KEY}** ：[**金鑰**] 頁面上有兩個可用的資源金鑰之一<br><br>**{ENDPOINT_URI}** ：[**總覽**] 頁面上所提供的端點|
+
+[!INCLUDE [Gathering required container parameters](../containers/includes/container-gathering-required-parameters.md)]
 
 ## <a name="request-access-to-the-container-registry"></a>要求存取容器登錄
 
-您必須先完成並提交異常偵測器[容器要求表單](https://aka.ms/adcontainer), 以要求容器的存取權。
+您必須先完成並提交異常偵測器[容器要求表單](https://aka.ms/adcontainer)，以要求容器的存取權。
 
 [!INCLUDE [Request access to the container registry](../../../includes/cognitive-services-containers-request-access-only.md)]
 
@@ -58,10 +60,10 @@ ms.locfileid: "70050071"
 
 下表描述要針對異常偵測器容器配置的最低和建議 CPU 核心和記憶體。
 
-| QPS (每秒查詢數) | 最小值 | 建議 |
+| QPS （每秒查詢數） | 最小值 | 建議 |
 |-----------|---------|-------------|
-| 10 QPS | 4核心, 1 GB 記憶體 | 8核心 2 GB 記憶體 |
-| 20 QPS | 8核心, 2 GB 記憶體 | 16核心 4 GB 記憶體 |
+| 10 QPS | 4核心，1 GB 記憶體 | 8核心 2 GB 記憶體 |
+| 20 QPS | 8核心，2 GB 記憶體 | 16核心 4 GB 記憶體 |
 
 每個核心必須至少 2.6 GHz 或更快。
 
@@ -80,7 +82,6 @@ For a full description of available tags, such as `latest` used in the preceding
 -->
 [!INCLUDE [Tip for using docker list](../../../includes/cognitive-services-containers-docker-list-tip.md)]
 
-
 ### <a name="docker-pull-for-the-anomaly-detector-container"></a>異常偵測器容器的 Docker pull
 
 ```Docker
@@ -96,14 +97,9 @@ docker pull containerpreview.azurecr.io/microsoft/cognitive-services-anomaly-det
 
 ## <a name="run-the-container-with-docker-run"></a>透過 `docker run` 執行容器
 
-使用 [docker run](https://docs.docker.com/engine/reference/commandline/run/) 命令來執行三個容器的其中一個。 此命令會使用下列參數：
+將 [docker run](https://docs.docker.com/engine/reference/commandline/run/) 命令執行容器。 如需如何取得`{ENDPOINT_URI}`和`{API_KEY}`值的詳細資訊，請參閱[收集必要的參數](#gathering-required-parameters)。
 
-| 預留位置 | 值 |
-|-------------|-------|
-|{API_KEY} | 此金鑰用來啟動容器, 並可在 Azure 入口網站的異常偵測器金鑰頁面上取得。  |
-|{ENDPOINT_URI} | [計費端點 URI] 值可在 Azure 入口網站的異常偵測器 [總覽] 頁面上取得。|
-
-請以您自己的值取代下列範例 `docker run` 命令中的參數。
+命令的[範例](anomaly-detector-container-configuration.md#example-docker-run-commands)可供使用。`docker run`
 
 ```bash
 docker run --rm -it -p 5000:5000 --memory 4g --cpus 1 \
@@ -127,7 +123,7 @@ ApiKey={API_KEY}
 
 如果您打算使用公開的連接埠執行多個容器，請務必使用不同的連接埠執行每個容器。 例如，在連接埠 5000 上執行第一個容器，以及在連接埠 5001 上執行第二個容器。
 
-以您使用的容器值，取代 `<container-registry>` 和 `<container-name>`。 這些容器值不必是相同的容器。 您可以在主機上同時執行異常偵測器容器和 LUIS 容器, 或您可以讓多個異常偵測器容器執行。 
+以您使用的容器值，取代 `<container-registry>` 和 `<container-name>`。 這些容器值不必是相同的容器。 您可以在主機上同時執行異常偵測器容器和 LUIS 容器，或您可以讓多個異常偵測器容器執行。 
 
 在連接埠 5000 上執行第一個容器。 
 
@@ -172,7 +168,7 @@ ApiKey={API_KEY}
 
 ## <a name="billing"></a>帳務
 
-異常偵測器容器會使用您 Azure 帳戶上的_異常_偵測器資源, 將帳單資訊傳送至 azure。 
+異常偵測器容器會使用您 Azure 帳戶上的_異常_偵測器資源，將帳單資訊傳送至 azure。 
 
 [!INCLUDE [Container's Billing Settings](../../../includes/cognitive-services-containers-how-to-billing-info.md)]
 
@@ -184,16 +180,16 @@ ApiKey={API_KEY}
 
 ## <a name="summary"></a>總結
 
-在本文中, 您已瞭解下載、安裝及執行異常偵測器容器的概念和工作流程。 摘要說明：
+在本文中，您已瞭解下載、安裝及執行異常偵測器容器的概念和工作流程。 摘要說明：
 
-* 異常偵測器提供一個適用于 Docker 的 Linux 容器, 並使用批次和串流、預期的範圍推斷和敏感度調整來封裝異常偵測。
+* 異常偵測器提供一個適用于 Docker 的 Linux 容器，並使用批次和串流、預期的範圍推斷和敏感度調整來封裝異常偵測。
 * 容器映射是從專用於容器預覽的私人 Azure Container Registry 下載。
 * 容器映像是在 Docker 中執行。
-* 您可以藉由指定容器的主機 URI, 使用 REST API 或 SDK 來呼叫異常偵測器容器中的作業。
+* 您可以藉由指定容器的主機 URI，使用 REST API 或 SDK 來呼叫異常偵測器容器中的作業。
 * 將容器具現化時，您必須指定帳單資訊。
 
 > [!IMPORTANT]
-> 認知服務容器在未連線至 Azure 以進行計量的情況下，將無法被授權以執行。 客戶必須啟用容器以持續與計量服務進行帳單資訊的通訊。 認知服務容器不會將客戶資料 (例如正在分析的時間序列資料) 傳送給 Microsoft。
+> 認知服務容器在未連線至 Azure 以進行計量的情況下，將無法被授權以執行。 客戶必須啟用容器以持續與計量服務進行帳單資訊的通訊。 認知服務容器不會將客戶資料（例如正在分析的時間序列資料）傳送給 Microsoft。
 
 ## <a name="next-steps"></a>後續步驟
 

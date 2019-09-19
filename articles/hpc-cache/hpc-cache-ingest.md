@@ -4,14 +4,14 @@ description: 如何填入 Azure Blob 儲存體以搭配 Azure HPC 快取使用
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: conceptual
-ms.date: 09/06/2019
+ms.date: 09/18/2019
 ms.author: v-erkell
-ms.openlocfilehash: 07a97b1afa8049ace97f1589393cd76c24f21368
-ms.sourcegitcommit: a4b5d31b113f520fcd43624dd57be677d10fc1c0
+ms.openlocfilehash: 0a71efdc0479a69aed8fecc22a6c89c506279d57
+ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70775646"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71105320"
 ---
 # <a name="move-data-to-azure-blob-storage-for-azure-hpc-cache"></a>將資料移至 azure HPC Cache 的 Azure Blob 儲存體
 
@@ -31,15 +31,17 @@ ms.locfileid: "70775646"
 
 ## <a name="pre-load-data-in-blob-storage-with-clfsload"></a>使用 CLFSLoad 在 Blob 儲存體中預先載入資料
 
-您可以使用[Avere CLFSLoad](https://aka.ms/avere-clfsload)公用程式，將資料複製到新的 Blob 儲存體容器，然後再將它新增為儲存體目標。 此公用程式會在 Linux VM 上執行，並以 Azure HPC Cache 所需的專屬格式寫入資料。 這是填入 Blob 儲存體容器以供快取使用的最有效方式。
+您可以使用 <!--[Avere CLFSLoad](https://aka.ms/avere-clfsload)--> Avere CLFSLoad 公用程式，以將資料複製到新的 Blob 儲存體容器，然後再將它新增為儲存體目標。 此公用程式會在單一 Linux 系統上執行，並以 Azure HPC 快取所需的專屬格式寫入資料。 CLFSLoad 是填入 Blob 儲存體容器以供快取使用的最有效方式。
+
+Avere CLFSLoad 公用程式可透過 Azure HPC 快取小組的要求取得。 請洽詢您的小組連絡人，或開啟支援票證以要求協助。
 
 此選項只適用于新的空白容器。 在使用 Avere CLFSLoad 之前，請先建立容器。
 
-詳細資訊包含在[Avere CLFSLoad 讀我檔案](https://github.com/microsoft/Avere-CLFSLoad/blob/master/README.md)中。 <!-- caution literal link -->
+詳細資訊包含在 Avere CLFSLoad 散發套件中，可從 Azure HPC 快取小組的要求取得。 <!-- [Avere CLFSLoad readme](https://github.com/microsoft/Avere-CLFSLoad/blob/master/README.md). --><!-- caution literal link -->
 
 進程的一般總覽：
 
-1. 使用 Python 3.6 版或更新版本來準備 Linux 系統（實體或 VM）。 （建議使用 Python 3.7 以獲得更好的效能）。
+1. 使用 Python 3.6 版或更新版本來準備 Linux 系統（VM 或實體）。 （建議使用 Python 3.7 以獲得更好的效能）。
 1. 在 Linux 系統上安裝 Avere-CLFSLoad 軟體。
 1. 從 Linux 命令列執行傳輸。
 
@@ -50,7 +52,7 @@ Avere CLFSLoad 公用程式需要下列資訊：
 * 允許公用程式寫入容器的共用存取簽章（SAS）權杖
 * 資料來源的本機路徑-包含要複製之資料的本機目錄，或具有該資料之已掛接遠端系統的本機路徑。
 
-[Avere CLFSLoad 讀我檔案](https://aka.ms/avere-clfsload)會詳細說明這些需求。
+<!-- The requirements are explained in detail in the [Avere CLFSLoad readme](https://aka.ms/avere-clfsload). -->
 
 ## <a name="copy-data-through-the-azure-hpc-cache"></a>透過 Azure HPC 快取複製資料
 

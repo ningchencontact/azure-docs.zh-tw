@@ -10,48 +10,46 @@ ms.subservice: custom-vision
 ms.topic: conceptual
 ms.date: 04/02/2019
 ms.author: anroth
-ms.openlocfilehash: 22955ba4b885b264210dc8788f2a410b785b28b4
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: 50325b75280160a3fefa5b5487df29a25e53bddd
+ms.sourcegitcommit: fbea2708aab06c19524583f7fbdf35e73274f657
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68883971"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70966927"
 ---
 # <a name="use-your-model-with-the-prediction-api"></a>搭配預測 API 使用您的模型
 
-定型模型之後, 您可以將影像提交至預測 API 端點, 以程式設計方式測試它們。
+定型模型之後，您可以將影像提交至預測 API 端點，以程式設計方式測試它們。
 
 > [!NOTE]
-> 本文件示範如何使用 C#，送出影像到預測 API。 如需詳細資訊和範例, 請參閱[預測 API 參考](https://southcentralus.dev.cognitive.microsoft.com/docs/services/Custom_Vision_Prediction_3.0/operations/5c82db60bf6a2b11a8247c15)。
+> 本文件示範如何使用 C#，送出影像到預測 API。 如需詳細資訊和範例，請參閱[預測 API 參考](https://southcentralus.dev.cognitive.microsoft.com/docs/services/Custom_Vision_Prediction_3.0/operations/5c82db60bf6a2b11a8247c15)。
 
 ## <a name="publish-your-trained-iteration"></a>發行定型的反復專案
 
 從[自訂視覺網頁](https://customvision.ai) \(英文\) 選取您的專案，然後選取 [效能] 索引標籤。
 
-若要將影像提交至預測 API, 您必須先發佈反復專案以進行預測, 這可以藉由選取 [__發行__] 並指定已發行之反復專案的名稱來完成。 這會讓您的模型可供自訂視覺 Azure 資源的預測 API 存取。
+若要將影像提交至預測 API，您必須先發佈反復專案以進行預測，這可以藉由選取 [__發行__] 並指定已發行之反復專案的名稱來完成。 這會讓您的模型可供自訂視覺 Azure 資源的預測 API 存取。
 
-![[效能] 索引標籤隨即顯示, 並以紅色矩形括住 [發行] 按鈕。](./media/use-prediction-api/unpublished-iteration.png)
+![[效能] 索引標籤隨即顯示，並以紅色矩形括住 [發行] 按鈕。](./media/use-prediction-api/unpublished-iteration.png)
 
-成功發行模型之後, 您會看到左側提要欄位中的反復專案旁邊出現「已發行」標籤, 而且其名稱會出現在反復專案的描述中。
+成功發行模型之後，您會看到左側提要欄位中的反復專案旁邊出現「已發行」標籤，而且其名稱會出現在反復專案的描述中。
 
-![[效能] 索引標籤隨即顯示, 並以紅色矩形括住已發行的標籤和已發佈的反復專案名稱。](./media/use-prediction-api/published-iteration.png)
+![[效能] 索引標籤隨即顯示，並以紅色矩形括住已發行的標籤和已發佈的反復專案名稱。](./media/use-prediction-api/published-iteration.png)
 
 ## <a name="get-the-url-and-prediction-key"></a>取得 URL 和預測金鑰
 
-一旦您的模型發佈之後, 您就可以選取 [__預測 URL__] 來抓取所需的資訊。 這會開啟一個對話方塊, 其中包含使用預測 API 的資訊, 包括__預測 URL__和__預測金鑰__。
+一旦您的模型發佈之後，您就可以選取 [__預測 URL__] 來抓取所需的資訊。 這會開啟一個對話方塊，其中包含使用預測 API 的資訊，包括__預測 URL__和__預測金鑰__。
 
 ![[效能] 索引標籤會顯示在 [預測 URL] 按鈕周圍的紅色矩形。](./media/use-prediction-api/published-iteration-prediction-url.png)
 
-![[效能] 索引標籤會顯示在 [預測 URL] 值周圍的紅色矩形, 用於使用影像檔和預測索引鍵值。](./media/use-prediction-api/prediction-api-info.png)
+![[效能] 索引標籤會顯示在 [預測 URL] 值周圍的紅色矩形，用於使用影像檔和預測索引鍵值。](./media/use-prediction-api/prediction-api-info.png)
 
-> [!TIP]
-> 您的__預測金鑰__也可以在與專案相關聯之自訂視覺 Azure 資源的 [ [Azure 入口網站](https://portal.azure.com)] 頁面中找到, 位於 [__金鑰__] 分頁之下。
 
-在本指南中, 您將使用本機影像, 因此,**如果您有影像檔**案到暫存位置, 請複製下的 URL。 也複製對應的__預測索引鍵值__。
+在本指南中，您將使用本機影像，因此，**如果您有影像檔**案到暫存位置，請複製下的 URL。 也複製對應的__預測索引鍵值__。
 
 ## <a name="create-the-application"></a>建立應用程式
 
-1. 在 Visual Studio 中, 建立新C#的主控台應用程式。
+1. 在 Visual Studio 中，建立新C#的主控台應用程式。
 
 1. 使用下列程式碼作為 __Program.cs__ 檔案的主體。
 
@@ -117,7 +115,7 @@ ms.locfileid: "68883971"
 
 ## <a name="run-the-application"></a>執行應用程式
 
-當您執行應用程式時, 系統會提示您在主控台中輸入影像檔案的路徑。 然後, 影像會提交至預測 API, 而預測結果會以 JSON 格式的字串傳回。 以下是範例回應。
+當您執行應用程式時，系統會提示您在主控台中輸入影像檔案的路徑。 然後，影像會提交至預測 API，而預測結果會以 JSON 格式的字串傳回。 以下是範例回應。
 
 ```json
 {
@@ -134,9 +132,9 @@ ms.locfileid: "68883971"
 
 ## <a name="next-steps"></a>後續步驟
 
-在本指南中, 您已瞭解如何將影像提交至自訂影像分類器/偵測器, 並使用C# SDK 以程式設計方式接收回應。 接下來, 瞭解如何使用C#完成端對端案例, 或開始使用不同的語言 SDK。
+在本指南中，您已瞭解如何將影像提交至自訂影像分類器/偵測器，並使用C# SDK 以程式設計方式接收回應。 接下來，瞭解如何使用C#完成端對端案例，或開始使用不同的語言 SDK。
 
-* [快速入門: .NET SDK](csharp-tutorial.md)
+* [快速入門： .NET SDK](csharp-tutorial.md)
 * [快速入門：Python SDK](python-tutorial.md)
 * [快速入門：Java SDK](java-tutorial.md)
 * [快速入門：Node SDK](node-tutorial.md)

@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: article
 ms.date: 07/30/2019
 ms.author: aahi
-ms.openlocfilehash: 93d5b3de47ec0b3c0494589da0baf87f91a0233a
-ms.sourcegitcommit: 88ae4396fec7ea56011f896a7c7c79af867c90a1
+ms.openlocfilehash: 642b21624ce3ffc993d5f29a413845044d703fd7
+ms.sourcegitcommit: 909ca340773b7b6db87d3fb60d1978136d2a96b0
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70390249"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70984273"
 ---
 # <a name="how-to-use-named-entity-recognition-in-text-analytics"></a>如何在文字分析中使用已命名的實體識別
 
@@ -47,7 +47,6 @@ ms.locfileid: "70390249"
 | 數量      | 數字        | "6"、"six"     |
 | 數量      | 百分比    | "50%"、"fifty percent"|
 | 數量      | 序號       | "2nd"、"second"     |
-| 數量      | 數字範圍   | "4 to 8"     |
 | 數量      | Age           | "90 day old"、"30 years old"    |
 | 數量      | Currency      | "$10.99"     |
 | 數量      | 維度     | "10 miles"、"40 cm"     |
@@ -59,7 +58,6 @@ ms.locfileid: "70390249"
 | DateTime      | 時間範圍     | "6pm to 7pm"     |
 | DateTime      | Duration      | "1 minute and 45 seconds"   |
 | DateTime      | 設定           | "every Tuesday"     |
-| DateTime      | 時區      |    |
 | URL           | N/A\*         | "HTTPs：\//www.bing.com"    |
 | Email         | N/A\*         | "support@contoso.com" |
 

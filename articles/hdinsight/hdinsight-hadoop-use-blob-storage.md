@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 04/23/2019
-ms.openlocfilehash: 5d287165e77597943d298178689c216497361570
-ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
+ms.openlocfilehash: e9ecc34566e6e534b7489c934c0d5fa3b34e219b
+ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70879661"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71104488"
 ---
 # <a name="use-azure-storage-with-azure-hdinsight-clusters"></a>搭配 Azure HDInsight 叢集使用 Azure 儲存體
 
@@ -45,7 +45,7 @@ Azure 儲存體是強大的一般用途儲存體解決方案，其完美整合�
 ## <a name="hdinsight-storage-architecture"></a>HDInsight 儲存架構
 下圖提供使用 Azure 儲存體之 HDInsight 儲存架構的摘要檢視：
 
-![Hadoop 叢集會使用 HDFS API 來存取和儲存 Blob 儲存體中的結構化和非結構化資料。](./media/hdinsight-hadoop-use-blob-storage/storage-architecture.png "HDInsight 儲存體架構")
+![Hadoop 叢集會使用 HDFS API 來存取和儲存 Blob 儲存體中的資料](./media/hdinsight-hadoop-use-blob-storage/storage-architecture.png "HDInsight 儲存體架構")
 
 HDInsight 可以存取本機連接至計算節點的分散式檔案系統。 可使用完整 URI 來存取此檔案系統，例如：
 
@@ -73,6 +73,7 @@ HDInsight 可以存取本機連接至計算節點的分散式檔案系統。 可
 Blob 可使用於結構化和非結構化資料。 Blob 容器以機碼/值組來儲存資料，沒有目錄階層。 但是，機碼名稱中可使用 ( / ) 斜線字元，使檔案變成好像儲存在目錄結構中一樣。 例如，Blob 的機碼可能是 *input/log1.txt*。 實際上， *input* 目錄並不存在，只是因為機碼名稱中有斜線字元，才形成檔案路徑的樣子。
 
 ## <a id="benefits"></a>Azure 儲存體的優點
+
 不共置計算叢集和儲存體資源的隱含效能成本，會因為計算叢集的建立接近 Azure 區域內的儲存體帳戶資源而降低，而高速網路可讓您有效率地進行用來存取 Azure 儲存體內資料的計算節點。
 
 將資料儲存在 Azure 儲存體而非 HDFS 有許多優點：
@@ -93,6 +94,7 @@ Blob 可使用於結構化和非結構化資料。 Blob 容器以機碼/值組�
 > 大部分 HDFS 命令 (例如，`ls`、`copyFromLocal` 和 `mkdir`) 仍可正常運作。 只有原生 HDFS 實作 (稱為 DFS) 的特定命令 (例如 `fschk` 和 `dfsadmin`) 才會在 Azure 儲存體上出現不同的行為。
 
 ## <a name="address-files-in-azure-storage"></a>定址 Azure 儲存體中的檔案
+
 從 HDInsight 存取 Azure 儲存體中的檔案的 URI 配置如下：
 
 ```config
@@ -125,6 +127,7 @@ example/jars/hadoop-mapreduce-examples.jar
 > 在 HDInsight 外部使用 Blob 時，大部分的公用程式無法辨識 WASB 格式而改為預期基本的路徑格式，例如 `example/jars/hadoop-mapreduce-examples.jar`。
 
 ##  <a name="blob-containers"></a>Blob 容器
+
 若要使用 blob，您必須先建立[Azure 儲存體帳戶](../storage/common/storage-create-storage-account.md)。 在這個過程中，您可以指定建立儲存體帳戶所在的 Azure 區域。 叢集與儲存體帳戶必須在相同區域內託管。 Hive 中繼存放區 SQL Server 資料庫和 Apache Oozie 中繼存放區 SQL Server 資料庫也必須位在相同的區域內。
 
 您所建立的每個 Blob 不論位於何處，都屬於 Azure 儲存體帳戶中的某個容器。 此容器可能是在 HDInsight 外建立的現有 Blob，也可能是為 HDInsight 叢集建立的容器。

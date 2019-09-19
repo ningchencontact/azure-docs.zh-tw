@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
-ms.date: 08/30/2019
+ms.date: 09/13/2019
 ms.author: diberry
 ms.custom: seodec18
-ms.openlocfilehash: 28ec42f1634e0546d75f81ed76b1ecbac51f6c3f
-ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
+ms.openlocfilehash: a2b467eed010edbb842d536bd8f6e3f4107fcea8
+ms.sourcegitcommit: 909ca340773b7b6db87d3fb60d1978136d2a96b0
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70277600"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70984369"
 ---
 # <a name="manage-qna-maker-resources"></a>管理 QnA Maker 資源
 
@@ -63,7 +63,7 @@ ms.locfileid: "70277600"
 
     * 選擇您是否要啟用**Application Insights**。 如果啟用 **Application Insights**，QnA Maker 會收集流量、交談記錄和錯誤的遙測資料。
     * 選擇將部署 Application Insights 資源的**App insights 位置**。
-    * 針對成本節約量值，您可以[共用](#share-existing-services-with-qna-maker)部分（而非所有）為 QnA Maker 建立的 Azure 資源。 
+    * 如需節省成本的方法，您可以[共用](#share-existing-services-with-qna-maker)一些 (不是全部) 為 QnA Maker 建立的 Azure 資源。 
 
 1. 驗證所有欄位之後，請選取 [**建立**]。 此程式可能需要幾分鐘的時間才能完成。
 
@@ -86,6 +86,8 @@ ms.locfileid: "70277600"
     ![訂用帳戶金鑰](../media/qnamaker-how-to-key-management/subscription-key.PNG)
 
 ## <a name="find-endpoint-keys-in-the-qna-maker-portal"></a>在 QnA Maker 入口網站中尋找端點金鑰
+
+端點與資源位於相同的區域，因為端點金鑰是用來呼叫知識庫。
 
 您可以從 [QnA Maker 入口網站](https://qnamaker.ai)來管理端點金鑰。
 
@@ -111,6 +113,8 @@ QnA Maker 會建立數個 Azure 資源。 若要減少管理和受益于成本�
 |App Service|X|設計不可行|
 |Application Insights|✔|可以共用|
 |Search 服務|✔|1. `testkb`是 QnAMaker 服務的保留名稱，不能供其他人使用。<br>2.依名稱`synonym-map`的同義字對應會保留給 QnAMaker 服務。<br>3.已發佈的知識庫數目會受到搜尋服務層級的限制。 如果有可用的索引，其他服務就可以使用它們。|
+
+深入瞭解[App service](../../../app-service/index.yml)和[Search 服務](../../../search/index.yml)。
 
 ### <a name="using-a-single-search-service"></a>使用單一搜尋服務
 
@@ -202,6 +206,8 @@ QnAMaker 執行時間是您在 Azure 入口網站中[建立 QnAMaker 服務](./s
 QnA Maker 的管理服務僅適用于 QnA Maker 入口網站，以及用於初始資料處理。 此服務僅適用于美國西部區域。 此美國西部服務中不會儲存任何客戶資料。
 
 ## <a name="next-steps"></a>後續步驟
+
+深入瞭解[App service](../../../app-service/index.yml)和[Search 服務](../../../search/index.yml)。
 
 > [!div class="nextstepaction"]
 > [建立和發佈知識庫](../Quickstarts/create-publish-knowledge-base.md)

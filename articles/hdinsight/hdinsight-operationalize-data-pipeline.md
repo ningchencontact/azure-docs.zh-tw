@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/11/2018
-ms.openlocfilehash: dec3cdd63f3e3ff303bfd60ca1ae77a4c4641190
-ms.sourcegitcommit: dd69b3cda2d722b7aecce5b9bd3eb9b7fbf9dc0a
+ms.openlocfilehash: 122840614aede3ee112f8fd68cf6dabfa91fa225
+ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70961400"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71105519"
 ---
 # <a name="operationalize-a-data-analytics-pipeline"></a>使用資料分析管線進行作業
 
@@ -33,7 +33,7 @@ ms.locfileid: "70961400"
 
 下圖說明此範例管線。
 
-![航班資料管線](./media/hdinsight-operationalize-data-pipeline/flight-pipeline-overview.png)
+![HDI 航班範例資料管線總覽](./media/hdinsight-operationalize-data-pipeline/flight-pipeline-overview.png)
 
 ## <a name="apache-oozie-solution-overview"></a>Apache Oozie 解決方案概觀
 
@@ -43,7 +43,7 @@ Oozie 會根據「動作」、「工作流程和「協調器」來描述其管�
 
 下圖顯示此範例 Oozie 管線的高階設計。
 
-![Oozie 航班資料管線](./media/hdinsight-operationalize-data-pipeline/pipeline-overview-oozie.png)
+![Oozie 航班範例資料管線](./media/hdinsight-operationalize-data-pipeline/pipeline-overview-oozie.png)
 
 ### <a name="provision-azure-resources"></a>佈建 Azure 資源
 
@@ -55,23 +55,23 @@ Oozie 會根據「動作」、「工作流程和「協調器」來描述其管�
 2. 在 `oozie` 資源群組中，佈建 Azure SQL Server 和 SQL Database。 您不需要大於 S1 標準定價層的資料庫。
 3. 使用 Azure 入口網站，瀏覽至新部署 SQL Database 的窗格，然後選取 [工具]。
 
-    ![工具按鈕](./media/hdinsight-operationalize-data-pipeline/hdi-sql-db-tools-button.png)
+    ![HDInsight sql db 工具按鈕圖示](./media/hdinsight-operationalize-data-pipeline/hdi-sql-db-tools-button.png)
 
 4. 選取 [查詢編輯器]。
 
-    ![查詢編輯器按鈕](./media/hdinsight-operationalize-data-pipeline/sql-db-query-editor1.png)
+    ![工具 sql db 查詢編輯器預覽](./media/hdinsight-operationalize-data-pipeline/sql-db-query-editor1.png)
 
 5. 在 [查詢編輯器] 窗格中，選取 [登入]。
 
-    ![登入按鈕](./media/hdinsight-operationalize-data-pipeline/sql-db-login-window1.png)
+    ![查詢編輯器 sql 資料庫登入視窗](./media/hdinsight-operationalize-data-pipeline/sql-db-login-window1.png)
 
 6. 輸入您的 SQL Database 認證，並選取 [確定]。
 
-   ![登入表單](./media/hdinsight-operationalize-data-pipeline/sql-db-login-window2.png)
+   ![查詢編輯器 sql 資料庫登入參數](./media/hdinsight-operationalize-data-pipeline/sql-db-login-window2.png)
 
 7. 在查詢編輯器的文字區域中，輸入下列 SQL 陳述式來建立 `dailyflights` 資料表，該資料表將會儲存管線每個執行的彙總資料。
 
-    ```
+    ```sql
     CREATE TABLE dailyflights
     (
         YEAR INT,
@@ -90,7 +90,7 @@ Oozie 會根據「動作」、「工作流程和「協調器」來描述其管�
 
 8. 選取 [執行] 以執行 SQL 陳述式。
 
-    ![執行按鈕](./media/hdinsight-operationalize-data-pipeline/hdi-sql-db-run-button.png)
+    ![HDInsight sql db 執行按鈕](./media/hdinsight-operationalize-data-pipeline/hdi-sql-db-run-button.png)
 
 您的 Azure SQL Database 現在已準備就緒。
 
@@ -104,12 +104,12 @@ Oozie 會根據「動作」、「工作流程和「協調器」來描述其管�
 
 4. 在 [叢集類型] 窗格中，選取 [Hadoop] 叢集類型，[Linux] 作業系統和最新版的 HDInsight 叢集。 將 [叢集層] 保持為 [標準]。
 
-    ![HDInsight 叢集類型](./media/hdinsight-operationalize-data-pipeline/hdinsight-cluster-type.png)
+    ![Azure 入口網站叢集設定類型](./media/hdinsight-operationalize-data-pipeline/hdinsight-cluster-type.png)
 
 5. 選擇 [選取] 來套用您的叢集類型選取項目。
 6. 提供登入密碼並從清單中選取您的 `oozie` 資源群組，以完成 [基本資料] 窗格，然後選取 [下一步]。
 
-    ![HDInsight 基本資料窗格](./media/hdinsight-operationalize-data-pipeline/hdinsight-basics-pane.png)
+    ![Azure 入口網站建立叢集基本概念窗格](./media/hdinsight-operationalize-data-pipeline/hdinsight-basics-pane.png)
 
 7. 在 [儲存體] 窗格中，將主要儲存體類型設為 [Azure 儲存體]，選取 [建立新項目]，並提供新的帳戶名稱。
 
@@ -123,13 +123,13 @@ Oozie 會根據「動作」、「工作流程和「協調器」來描述其管�
 
     ![HDInsight Hive 中繼存放區驗證](./media/hdinsight-operationalize-data-pipeline/hdi-authenticate-sql.png)
 
-10. 輸入 SQL 資料庫使用者名稱和密碼，然後選擇 [選取]。 
+10. 輸入 SQL 資料庫使用者名稱和密碼，然後選擇 [選取]。
 
        ![HDInsight Hive 中繼存放區驗證登入](./media/hdinsight-operationalize-data-pipeline/hdi-authenticate-sql-login.png)
 
-11. 回到 [中繼存放區設定] 窗格，選取 Oozie 中繼資料存放區的資料庫並如同先前一樣進行驗證。 
+11. 回到 [中繼存放區設定] 窗格，選取 Oozie 中繼資料存放區的資料庫並如同先前一樣進行驗證。
 
-       ![HDInsight 中繼存放區設定](./media/hdinsight-operationalize-data-pipeline/hdi-metastore-settings.png)
+       ![Azure 入口網站中繼存放區設定](./media/hdinsight-operationalize-data-pipeline/hdi-metastore-settings.png)
 
 12. 選取 [下一步]。
 13. 在 [摘要] 窗格中，選取 [建立] 來部署您的叢集。
@@ -176,17 +176,18 @@ Oozie 會根據「動作」、「工作流程和「協調器」來描述其管�
 此範例資料目前可供使用。 不過，管線需要兩個 Hive 資料表以供處理使用，一個用於內送資料 (`rawFlights`)，另一個用於彙總資料 (`flights`)。 如下所示，在 Ambari 中建立這些資料表。
 
 1. 流覽至 HTTP：\//headnodehost：8080以登入 Ambari。
+
 2. 從服務清單中，選取 [Hive]。
 
-    ![在 Ambari 中選取 Hive](./media/hdinsight-operationalize-data-pipeline/hdi-ambari-services-hive.png)
+    ![Apache Ambari services 清單選取 Hive](./media/hdinsight-operationalize-data-pipeline/hdi-ambari-services-hive.png)
 
 3. 選取 Hive 檢視 2.0 標籤旁邊的 [移至檢視]。
 
-    ![在 Ambari 中選取 Hive 檢視](./media/hdinsight-operationalize-data-pipeline/hdi-ambari-services-hive-summary.png)
+    ![Ambari Apache Apache Hive 摘要清單](./media/hdinsight-operationalize-data-pipeline/hdi-ambari-services-hive-summary.png)
 
-4. 在查詢文字區域中，貼上下列陳述式以建立 `rawFlights` 資料表。 `rawFlights` 資料表可為 Azure 儲存體中 `/example/data/flights` 資料夾內的 CSV 檔案提供讀時結構描述。 
+4. 在查詢文字區域中，貼上下列陳述式以建立 `rawFlights` 資料表。 `rawFlights` 資料表可為 Azure 儲存體中 `/example/data/flights` 資料夾內的 CSV 檔案提供讀時結構描述。
 
-    ```
+    ```sql
     CREATE EXTERNAL TABLE IF NOT EXISTS rawflights (
         YEAR INT,
         MONTH INT,
@@ -211,7 +212,7 @@ Oozie 會根據「動作」、「工作流程和「協調器」來描述其管�
 
 5. 選取 [執行] 以建立資料表。
 
-    ![Ambari 中的 Hive 查詢](./media/hdinsight-operationalize-data-pipeline/hdi-ambari-services-hive-query.png)
+    ![hdi ambari services hive 查詢](./media/hdinsight-operationalize-data-pipeline/hdi-ambari-services-hive-query.png)
 
 6. 若要建立 `flights` 資料表，請使用下列陳述式取代查詢文字區域中的文字。 `flights` 資料表是 Hive 管理的資料表，此表格會依據年、月和日將載入其中的資料進行分割。 此資料表將包含所有過去的航班資料，而最低資料粒度出現在每個航班一列的來源資料中。
 
@@ -427,7 +428,7 @@ day=03
 | sqlDatabaseTableName | 在 Azure SQL Database 中摘要資料列會插入其中的資料表名稱。 保持為 `dailyflights`。 |
 | year | 為其計算航班摘要之日期的年度元件。 保持原狀。 |
 | 月 | 為其計算航班摘要之日期的月份元件。 保持原狀。 |
-| 天 | 為其計算航班摘要之日期的日期元件。 保持原狀。 |
+| day | 為其計算航班摘要之日期的日期元件。 保持原狀。 |
 
 > [!NOTE]  
 > 務必先使用您環境的特定值來更新您的 `job.properties` 檔案，才可以部署和執行 Oozie 工作流程。
@@ -463,7 +464,7 @@ day=03
 
 7. 使用 Oozie Web 主控台觀察狀態。 從 Ambari 內選取 [Oozie]、[快速連結]，然後選取 [Oozie Web 主控台]。 在 [工作流程作業] 索引標籤底下，選取 [所有作業]。
 
-    ![Oozie Web 主控台工作流程](./media/hdinsight-operationalize-data-pipeline/hdi-oozie-web-console-workflows.png)
+    ![hdi oozie web 主控台工作流程](./media/hdinsight-operationalize-data-pipeline/hdi-oozie-web-console-workflows.png)
 
 8. 當狀態為 [已成功]，請查詢 SQL 資料庫資料表來檢視插入的資料列。 使用 Azure 入口網站，瀏覽您的 SQL Database 窗格，選取 [工具]，然後開啟 [查詢編輯器]。
 
@@ -475,7 +476,7 @@ day=03
 
 若要安排此工作流程，使其每天執行 (或在日期範圍內的每一天)，您可以使用協調器。 協調器是由 XML 檔案 (例如 `coordinator.xml`) 所定義：
 
-```
+```xml
 <coordinator-app name="daily_export" start="2017-01-01T00:00Z" end="2017-01-05T00:00Z" frequency="${coord:days(1)}" timezone="UTC" xmlns="uri:oozie:coordinator:0.4">
     <datasets>
         <dataset name="ds_input1" frequency="${coord:days(1)}" initial-instance="2016-12-31T00:00Z" timezone="UTC">
@@ -554,7 +555,7 @@ day=03
 
 * 第 2 點：在工作流程的日期範圍內，`dataset` 元素會指定要在 HDFS 中的何處尋找特定日期範圍的資料，以及設定 Oozie 如何判斷資料是否已可供處理。
 
-    ```
+    ```xml
     <dataset name="ds_input1" frequency="${coord:days(1)}" initial-instance="2016-12-31T00:00Z" timezone="UTC">
         <uri-template>${sourceDataFolder}${YEAR}-${MONTH}-FlightData.csv</uri-template>
         <done-flag></done-flag>
@@ -567,7 +568,7 @@ day=03
 
 * 第 3 點：`data-in` 元素會指定取代 `uri-template` 中相關資料集的值時，要用來作為標稱時間的特定時間戳記。
 
-    ```
+    ```xml
     <data-in name="event_input1" dataset="ds_input1">
         <instance>${coord:current(0)}</instance>
     </data-in>

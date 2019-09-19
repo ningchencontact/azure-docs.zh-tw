@@ -19,10 +19,10 @@
 - name: 概念
   expanded: false
   items:
-    - name: 採用條件式存取
-      href: howto-conditional-access-adoption-kit.md
     - name: 一般條件式存取原則
       href: concept-conditional-access-policy-common.md
+    - name: 條件式存取原則元件
+      href: concept-conditional-access-policies.md
     - name: 條件
       href: conditions.md
     - name: 位置條件

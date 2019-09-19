@@ -2,18 +2,18 @@
 title: 查詢 Azure 監視器記錄以監視 Azure HDInsight 叢集
 description: 瞭解如何在 Azure 監視器記錄上執行查詢，以監視在 HDInsight 叢集中執行的作業。
 author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/05/2018
-ms.author: hrasheed
-ms.openlocfilehash: 031879ac1d0d2dd1148c0c37ee72c60d093f8a7d
-ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
+ms.openlocfilehash: 51344ff7381b6392870b1fd0e331eed38a33915d
+ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70809373"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71103511"
 ---
 # <a name="query-azure-monitor-logs-to-monitor-hdinsight-clusters"></a>查詢 Azure 監視器記錄以監視 HDInsight 叢集
 
@@ -27,38 +27,38 @@ ms.locfileid: "70809373"
 
 ## <a name="prerequisites"></a>必要條件
 
-* 您必須已將 HDInsight 叢集設定為使用 Azure 監視器記錄，並將 HDInsight 叢集特定的 Azure 監視器記錄監視解決方案新增至工作區。 如需指示，請參閱[搭配 HDInsight 叢集使用 Azure 監視器記錄](hdinsight-hadoop-oms-log-analytics-tutorial.md)。
+您必須已將 HDInsight 叢集設定為使用 Azure 監視器記錄，並將 HDInsight 叢集特定的 Azure 監視器記錄監視解決方案新增至工作區。 如需指示，請參閱[搭配 HDInsight 叢集使用 Azure 監視器記錄](hdinsight-hadoop-oms-log-analytics-tutorial.md)。
 
 ## <a name="analyze-hdinsight-cluster-metrics"></a>分析 HDInsight 叢集計量
 
 了解如何為您的 HDInsight 叢集尋找特定的計量。
 
 1. 從 Azure 入口網站開啟與您的 HDInsight 叢集相關聯的 Log Analytics 工作區。
-2. 選取 [記錄搜尋] 圖格。
-3. 在 [搜尋] 方塊中輸入下列查詢，以搜尋所有已設定為使用 Azure 監視器記錄的 HDInsight 叢集之所有可用計量的計量，然後選取 [**執行**]。
+1. 選取 [記錄搜尋] 圖格。
+1. 在 [搜尋] 方塊中輸入下列查詢，以搜尋所有已設定為使用 Azure 監視器記錄的 HDInsight 叢集之所有可用計量的計量，然後選取 [**執行**]。
 
         search *
 
-    ![搜尋所有計量](./media/hdinsight-hadoop-oms-log-analytics-use-queries/hdinsight-log-analytics-search-all-metrics.png "搜尋所有計量")
+    ![Apache Ambari 分析會搜尋所有計量](./media/hdinsight-hadoop-oms-log-analytics-use-queries/hdinsight-log-analytics-search-all-metrics.png "搜尋所有計量")
 
     輸出應該看起來像：
 
-    ![搜尋所有計量的輸出](./media/hdinsight-hadoop-oms-log-analytics-use-queries/hdinsight-log-analytics-search-all-metrics-output.png "都搜尋所有計量的輸出")
+    ![log analytics 搜尋所有計量](./media/hdinsight-hadoop-oms-log-analytics-use-queries/hdinsight-log-analytics-search-all-metrics-output.png "搜尋所有計量輸出")
 
-5. 在左窗格中的 [類型] 下方，選取您想要深入探討的計量，然後選取 [套用]。 以下螢幕擷取畫面顯示選取了 `metrics_resourcemanager_queue_root_default_CL` 類型。
+1. 在左窗格中的 [類型] 下方，選取您想要深入探討的計量，然後選取 [套用]。 以下螢幕擷取畫面顯示選取了 `metrics_resourcemanager_queue_root_default_CL` 類型。
 
     > [!NOTE]  
     > 您可能需要選取 [[+] 更多資訊] 按鈕來尋找您要的計量。 此外，[套用] 按鈕位於清單底部，您必須向下捲動才看的到。
 
     請注意，文字方塊中的查詢會如同以下螢幕擷取畫面所示：
 
-    ![搜尋特定計量](./media/hdinsight-hadoop-oms-log-analytics-use-queries/hdinsight-log-analytics-search-specific-metrics.png "搜尋特定計量")
+    ![log analytics 搜尋特定計量](./media/hdinsight-hadoop-oms-log-analytics-use-queries/hdinsight-log-analytics-search-specific-metrics.png "搜尋特定計量")
 
-6. 深入探討此特定計量。 例如，您可以使用下列查詢精簡既有輸出，探討每 10 分鐘內不同叢集名稱的平均使用資源：
+1. 深入探討此特定計量。 例如，您可以使用下列查詢精簡既有輸出，探討每 10 分鐘內不同叢集名稱的平均使用資源：
 
         search in (metrics_resourcemanager_queue_root_default_CL) * | summarize AggregatedValue = avg(UsedAMResourceMB_d) by ClusterName_s, bin(TimeGenerated, 10m)
 
-7. 除了根據平均使用資源精簡輸出外，還可以使用下列查詢，以每 10 分鐘為範圍，根據資源使用的尖峰時間 (以及第 90 個或第 95 個百分位數) 來精簡結果：
+1. 除了根據平均使用資源精簡輸出外，還可以使用下列查詢，以每 10 分鐘為範圍，根據資源使用的尖峰時間 (以及第 90 個或第 95 個百分位數) 來精簡結果：
 
         search in (metrics_resourcemanager_queue_root_default_CL) * | summarize ["max(UsedAMResourceMB_d)"] = max(UsedAMResourceMB_d), ["pct95(UsedAMResourceMB_d)"] = percentile(UsedAMResourceMB_d, 95), ["pct90(UsedAMResourceMB_d)"] = percentile(UsedAMResourceMB_d, 90) by ClusterName_s, bin(TimeGenerated, 10m)
 
@@ -68,15 +68,16 @@ ms.locfileid: "70809373"
 
 1. 從 Azure 入口網站開啟與您的 HDInsight 叢集相關聯的 Log Analytics 工作區。
 2. 選取 [記錄搜尋] 圖格。
-3. 輸入下列查詢，以搜尋設定為使用 Azure 監視器記錄的所有 HDInsight 叢集的所有錯誤訊息，然後選取 [**執行**]。 
+3. 輸入下列查詢，以搜尋設定為使用 Azure 監視器記錄的所有 HDInsight 叢集的所有錯誤訊息，然後選取 [**執行**]。
 
          search "Error"
 
     您應該會看到如下的輸出：
 
-    ![搜尋所有錯誤的輸出](./media/hdinsight-hadoop-oms-log-analytics-use-queries/hdinsight-log-analytics-search-all-errors-output.png "搜尋所有錯誤的輸出")
+    ![Azure 入口網站記錄檔搜尋錯誤](./media/hdinsight-hadoop-oms-log-analytics-use-queries/hdinsight-log-analytics-search-all-errors-output.png "搜尋所有錯誤輸出")
 
 4. 在左窗格中的 [類型] 類別下方，選取您想要深入探討的錯誤類型，然後選取 [套用]。  請注意結果會調整成只顯示您所選取類型的錯誤。
+
 5. 您可以使用左側窗格提供的選項深入探討此特定錯誤。 例如:
 
     - 查看特定背景工作節點的錯誤訊息：

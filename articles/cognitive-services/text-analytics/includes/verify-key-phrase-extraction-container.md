@@ -7,25 +7,25 @@ author: IEvangelist
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 08/21/2019
+ms.date: 09/12/2019
 ms.author: dapine
-ms.openlocfilehash: 1a14ea186b3e1127928a36600d1047a633aea568
-ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
+ms.openlocfilehash: 1e2001c1f4cb2da195a3dcd0ca8fe198de8dd264
+ms.sourcegitcommit: fbea2708aab06c19524583f7fbdf35e73274f657
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/27/2019
-ms.locfileid: "70052116"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70968554"
 ---
-## <a name="verify-the-key-phrase-extraction-container-instance"></a>確認關鍵片語擷取的容器實例
+### <a name="verify-the-key-phrase-extraction-container-instance"></a>確認關鍵片語擷取的容器實例
 
-1. 選取 [**總覽**] 索引標籤, 然後複製 [IP 位址]。
-1. 開啟新的瀏覽器索引標籤, 並輸入 IP 位址。 例如, 輸入`http://<IP-address>:5000 (http://55.55.55.55:5000`)。 容器的首頁隨即顯示, 讓您知道容器正在執行。
+1. 選取 [**總覽**] 索引標籤，然後複製 [IP 位址]。
+1. 開啟新的瀏覽器索引標籤，並輸入 IP 位址。 例如, 輸入`http://<IP-address>:5000 (http://55.55.55.55:5000`)。 容器的首頁隨即顯示，讓您知道容器正在執行。
 
     ![查看容器首頁以確認它正在執行](../media/how-tos/container-instance/swagger-docs-on-container.png)
 
-1. 選取 [**服務 API 描述**] 連結, 以移至容器的 Swagger 頁面。
+1. 選取 [**服務 API 描述**] 連結，以移至容器的 Swagger 頁面。
 
-1. 選擇任何**張貼**api, 然後選取 [立即**試用**]。會顯示參數, 其中包括下列範例輸入:
+1. 選擇任何**張貼**api，然後選取 [立即**試用**]。會顯示參數，其中包括下列範例輸入：
 
     ```json
     {
@@ -68,7 +68,7 @@ ms.locfileid: "70052116"
 
 1. 選取 [**執行**] 以決定文字的情感。
 
-    封裝在容器中的模型會產生範圍從0到1的分數, 其中0是負數, 而1是正數。
+    封裝在容器中的模型會產生範圍從0到1的分數，其中0是負數，而1是正數。
 
     傳回的 JSON 回應包含更新文字輸入的情感:
 
@@ -100,4 +100,4 @@ ms.locfileid: "70052116"
     }
     ```
 
-我們現在可以將回應裝載`id`的 JSON 資料檔案與原始要求裝載檔`id`相互關聯。 產生的檔具有`keyPhrases`陣列, 其中包含已從對應的輸入檔解壓縮的主要片語清單。 此外, 每個產生的檔都`characterCount`有`transactionCount`各種統計資料 (例如和)。
+我們現在可以將回應裝載`id`的 JSON 資料檔案與原始要求裝載檔`id`相互關聯。 產生的檔具有`keyPhrases`陣列，其中包含已從對應的輸入檔解壓縮的主要片語清單。 此外，每個產生的檔都`characterCount`有`transactionCount`各種統計資料（例如和）。

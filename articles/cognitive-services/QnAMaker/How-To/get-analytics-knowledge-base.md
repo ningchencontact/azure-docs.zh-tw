@@ -9,14 +9,14 @@ displayName: chat history, history, chat logs, logs
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
-ms.date: 08/30/2019
+ms.date: 09/12/2019
 ms.author: diberry
-ms.openlocfilehash: ebc06057dfa4bce72821ddf807cda46270e8ff3e
-ms.sourcegitcommit: 5f67772dac6a402bbaa8eb261f653a34b8672c3a
+ms.openlocfilehash: 5c55084a57e46931049841f5011941b2115e9e69
+ms.sourcegitcommit: dd69b3cda2d722b7aecce5b9bd3eb9b7fbf9dc0a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/01/2019
-ms.locfileid: "70206829"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70961518"
 ---
 # <a name="get-analytics-on-your-knowledge-base"></a>取得知識庫的分析
 
@@ -26,9 +26,7 @@ ms.locfileid: "70206829"
 
     ![選取您的 Application Insights 資源](../media/qnamaker-how-to-analytics-kb/resources-created.png)
 
-2. 選取 [分析]。 您可以查詢 QnA Maker 遙測的新視窗隨即開啟。
-
-    ![選取 [分析]](../media/qnamaker-how-to-analytics-kb/analytics.png)
+2. 選取 [Log Analytics]。 您可以查詢 QnA Maker 遙測的新視窗隨即開啟。
 
 3. 貼上並執行下列查詢。
 
@@ -48,7 +46,7 @@ ms.locfileid: "70206829"
 
     選取 [執行] 執行查詢。
 
-    ![執行查詢](../media/qnamaker-how-to-analytics-kb/run-query.png)
+    [![執行查詢以判斷使用者的問題、解答和分數](../media/qnamaker-how-to-analytics-kb/run-query.png)](../media/qnamaker-how-to-analytics-kb/run-query.png#lightbox)
 
 ## <a name="run-queries-for-other-analytics-on-your-qna-maker-knowledge-base"></a>對於 QnA Maker 知識庫執行其他分析的查詢
 

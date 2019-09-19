@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 7/20/2018
 ms.author: atsenthi
-ms.openlocfilehash: 123e63fb79ba966e4e17b0c55440049a79add905
-ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
+ms.openlocfilehash: d8925f1c31b7a0c8f45e65e783077e8f5e2b0add
+ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70931180"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71103251"
 ---
 # <a name="dns-service-in-azure-service-fabric"></a>Azure Service Fabric 中的 DNS 服務
 「DNS 服務」是一個選用的系統服務，您可以在叢集中啟用以使用 DNS 通訊協定來探索其他服務。 
@@ -73,16 +73,16 @@ DNS 服務不支援動態連接埠。 若要解決動態連接埠上所公開的
 
    - 若要使用預設設定啟用 DNS 服務，將其新增至 `properties` 區段內的 `addonFeatures`區段，如下列範例所示：
 
-       ```json
-           "properties": {
-              ...
-
-              "addonFeatures": [
-                "DnsService"
+        ```json
+          "properties": {
+            ...
+            "addonFeatures": [
+              "DnsService"
               ],
-              ...
-           }
-       ```
+            ...
+          }
+        ```
+
    - 若要以預設值以外的設定啟用服務，請將 `DnsService` 區段新增至 `properties` 區段內的 `fabricSettings` 區段。 在此案例中，您不需要將 DnsService 新增至 `addonFeatures`。 若要深入了解可為 DNS 服務設定的屬性，請參閱 [DNS 服務設定](./service-fabric-cluster-fabric-settings.md#dnsservice)。
 
        ```json
@@ -111,7 +111,10 @@ DNS 服務不支援動態連接埠。 若要解決動態連接埠上所公開的
               ]
             }
        ```
-1. 在使用您的變更將叢集範本更新之後，請加以套用，使升級完成。 升級完成後，DNS 系統服務就會開始在叢集中執行。 服務名稱是 `fabric:/System/DnsService`，而且您可以在 Service Fabric Explorer 的 [系統] 服務區段下找到它。 
+3. 在使用您的變更將叢集範本更新之後，請加以套用，使升級完成。 升級完成後，DNS 系統服務就會開始在叢集中執行。 服務名稱是 `fabric:/System/DnsService`，而且您可以在 Service Fabric Explorer 的 [系統] 服務區段下找到它。 
+
+> [!NOTE]
+> 從 [停用] 將 DNS 升級為 [已啟用] 時，Service Fabric Explorer 可能不會反映新的狀態。 若要解決此問題，請修改 Azure Resource Manager 範本中的 UpgradePolicy 來重新開機節點。 如需詳細資訊，請參閱[Service Fabric 範本參考](https://docs.microsoft.com/azure/templates/microsoft.servicefabric/2019-03-01/clusters/applications)。
 
 
 ## <a name="setting-the-dns-name-for-your-service"></a>為您的服務設定 DNS 名稱

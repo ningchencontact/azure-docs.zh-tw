@@ -6,12 +6,12 @@ ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 02/03/2019
-ms.openlocfilehash: f9fd346d4c4eaed0797d564fe52dd44e9f0e240a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: dd51cc2d5f95598154b76b5da8e3fc9e4801100d
+ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65795659"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71104940"
 ---
 # <a name="mapping-data-flow-conditional-split-transformation"></a>對應資料流程條件式分割轉換
 
@@ -27,8 +27,8 @@ ms.locfileid: "65795659"
 
 若要新增額外的條件，請選取設定窗格底部的 [加入資料流]，然後按一下 [運算式產生器] 文字方塊以建置您的運算式。
 
-![條件式分割多重](media/data-flow/conditionalsplit3.png "分割多個條件")
+![條件式分割多]個(media/data-flow/conditionalsplit3.png "條件式分割多")個
 
 ## <a name="next-steps"></a>後續步驟
 
-一般資料流程轉換搭配條件式分割：[聯結轉換](data-flow-join.md)， [Loopup 轉換](data-flow-lookup.md)，[選取轉換](data-flow-select.md)
+搭配條件式分割使用的一般資料流程轉換：[聯結轉換](data-flow-join.md)，[查閱轉換](data-flow-lookup.md)，[選取轉換](data-flow-select.md)

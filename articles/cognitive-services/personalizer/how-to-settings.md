@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: personalizer
 ms.topic: conceptual
-ms.date: 05/07/2019
+ms.date: 09/12/2019
 ms.author: diberry
-ms.openlocfilehash: cd67f435ff390267e01acd99594b9063db4c4ee1
-ms.sourcegitcommit: a6888fba33fc20cc6a850e436f8f1d300d03771f
+ms.openlocfilehash: 376c2efbf3269092d0534870108ef6d753f8743e
+ms.sourcegitcommit: dd69b3cda2d722b7aecce5b9bd3eb9b7fbf9dc0a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69559101"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70962536"
 ---
 # <a name="personalizer-settings"></a>個人化工具設定
 
@@ -67,7 +67,7 @@ ms.locfileid: "69559101"
 
 若您想要密切追蹤使用者行為的變更，可使用較高的模型更新頻率。 例如播放即時新聞、熱門內容或即時產品競標的網站。 在這些案例中，您可以使用 15 分鐘的頻率。 針對大多數使用案例，較低的更新頻率會比較有效。 一分鐘的更新頻率即適用於使用個人化工具對應用程式的程式碼進行偵錯、示範，或以互動方式測試機器學習服務的面向。
 
-![模型更新頻率會設定要將新的個人化工具模型重新定型的頻率。](media/settings/configure-model-update-frequency-settings.png)
+![模型更新頻率會設定要將新的個人化工具模型重新定型的頻率。](media/settings/configure-model-update-frequency-settings-15-minutes.png)
 
 在變更此設定之後，請務必選取 [儲存]。
 
@@ -86,7 +86,7 @@ ms.locfileid: "69559101"
 ## <a name="import-and-export-learning-policy"></a>匯入和匯出學習原則
 
 從 [資源管理] 的 [模型和原則] 區段，匯入新的學習原則或匯出目前的學習原則。
-您可以從先前的匯出取得學習原則檔案, 或下載在離線評估期間探索到的優化原則。 對這些檔案進行手動變更將會影響機器學習服務的效能和離線評估的正確性, 而且 Microsoft 無法擔保機器學習和評估的正確性, 或手動編輯的原則所產生的服務例外狀況。
+您可以從先前的匯出取得學習原則檔案，或下載在離線評估期間探索到的優化原則。 對這些檔案進行手動變更將會影響機器學習服務的效能和離線評估的正確性，而且 Microsoft 無法擔保機器學習和評估的正確性，或手動編輯的原則所產生的服務例外狀況。
 
 ## <a name="next-steps"></a>後續步驟
 

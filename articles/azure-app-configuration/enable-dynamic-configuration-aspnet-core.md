@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.date: 02/24/2019
 ms.author: yegu
 ms.custom: mvc
-ms.openlocfilehash: 9eccb4ca505dac312dd22123a3585863c67f3ad7
-ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
+ms.openlocfilehash: 235b55bcd727e3e3ea947ce086209e0a94f70752
+ms.sourcegitcommit: 8ef0a2ddaece5e7b2ac678a73b605b2073b76e88
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68359866"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71076374"
 ---
 # <a name="tutorial-use-dynamic-configuration-in-an-aspnet-core-app"></a>教學課程：在 ASP.NET Core 應用程式中使用動態設定
 
@@ -33,7 +33,7 @@ ASP.NET Core 具有插入式設定系統，可從各種來源讀取設定資料�
 
 您可以使用任何程式碼編輯器來進行本教學課程中的步驟。 Windows、macOS 及 Linux 平台上都有提供的 [Visual Studio Code](https://code.visualstudio.com/) 是一個絕佳的選項。
 
-在本教學課程中，您了解如何：
+在本教學課程中，您會了解如何：
 
 > [!div class="checklist"]
 > * 設定您的應用程式，使其在應用程式組態存放區發生變更時更新其設定。
@@ -63,9 +63,9 @@ ASP.NET Core 具有插入式設定系統，可從各種來源讀取設定資料�
                            {
                                refresh.Register("TestApp:Settings:BackgroundColor")
                                       .Register("TestApp:Settings:FontColor")
-                                      .Register("TestApp:Settings:Message")
+                                      .Register("TestApp:Settings:Message");
                            });
-                }
+                });
             })
             .UseStartup<Startup>();
     ```

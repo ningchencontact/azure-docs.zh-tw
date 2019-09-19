@@ -1,7 +1,7 @@
 ---
 title: 企業安全性
-titleSuffix: Azure Machine Learning service
-description: 安全地使用 Azure Machine Learning 服務：驗證、授權、網路安全性、資料加密和監視。
+titleSuffix: Azure Machine Learning
+description: 安全地使用 Azure Machine Learning：驗證、授權、網路安全性、資料加密和監視。
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,16 +10,16 @@ ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
 ms.date: 08/07/2019
-ms.openlocfilehash: e1029ad34a05d342e5aed5bb30407dee7c914f3c
-ms.sourcegitcommit: 23389df08a9f4cab1f3bb0f474c0e5ba31923f12
+ms.openlocfilehash: 309cef6ec058d8192bc7a6341b49a59c0000a305
+ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70873568"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71035567"
 ---
-# <a name="enterprise-security-for-the-azure-machine-learning-service"></a>Azure Machine Learning 服務的企業安全性
+# <a name="enterprise-security-for-azure-machine-learning"></a>Azure Machine Learning 的企業安全性
 
-在本文中，您將瞭解 Azure Machine Learning 服務可用的安全性功能。
+在本文中，您將瞭解 Azure Machine Learning 可用的安全性功能。
 
 當您使用雲端服務時，最佳做法是限制只有需要它的使用者才能存取。 一開始先瞭解服務所使用的驗證和授權模型。 您也可能想要限制網路存取，或安全地將內部部署網路中的資源與雲端聯結。 資料加密也很重要，不論是待用，還是資料在服務之間移動。 最後，您必須能夠監視服務，並產生所有活動的審核記錄。
 
@@ -28,10 +28,10 @@ ms.locfileid: "70873568"
 如果 Azure Active Directory （Azure AD）設定為使用多重要素驗證，則支援。 以下是驗證程式：
 
 1. 用戶端登入以 Azure AD 並取得 Azure Resource Manager token。  完全支援使用者和服務主體。
-1. 用戶端會呈現權杖，以 Azure Resource Manager 和所有 Azure Machine Learning 服務。
+1. 用戶端會呈現權杖，以 Azure Resource Manager 和所有 Azure Machine Learning。
 1. Machine Learning 服務會為使用者計算目標提供 Machine Learning 的服務權杖（例如，Machine Learning Compute）。 在執行完成之後，使用者計算目標會使用此權杖來回呼 Machine Learning 服務。 範圍僅限於工作區。
 
-[![Azure Machine Learning 服務中的驗證](./media/enterprise-readiness/authentication.png)](./media/enterprise-readiness/authentication-expanded.png)
+[![Azure Machine Learning 中的驗證](./media/enterprise-readiness/authentication.png)](./media/enterprise-readiness/authentication-expanded.png)
 
 ### <a name="authentication-for-web-service-deployment"></a>Web 服務部署的驗證
 
@@ -94,9 +94,9 @@ print(token)
 * 參與者
 * 讀者
 
-下表列出一些主要 Azure Machine Learning 服務作業，以及可以執行它們的角色：
+下表列出一些主要 Azure Machine Learning 作業，以及可以執行它們的角色：
 
-| Azure Machine Learning 服務作業 | 擁有者 | 參與者 | 讀者 |
+| Azure Machine Learning 作業 | 擁有者 | 參與者 | 讀者 |
 | ---- |:----:|:----:|:----:|
 | 建立工作區 | ✓ | ✓ | |
 | 共用工作區 | ✓ | |  |
@@ -132,11 +132,11 @@ print(token)
 
 我們不建議系統管理員撤銷上表所述資源的受控識別存取權。 您可以使用 [重新同步金鑰] 作業來還原存取權。
 
-Azure Machine Learning 服務會針對每個工作區區域，在您`aml-`的`Microsoft-AzureML-Support-App-`訂用帳戶中建立額外的應用程式（名稱開頭為或）。 例如，如果您在美國東部有一個工作區，而在同一個訂用帳戶中有一個位於北歐的另一個工作區，您會看到這兩個應用程式。 這些應用程式可讓 Azure Machine Learning 服務協助您管理計算資源。
+Azure Machine Learning 會針對每個工作區區域，在`aml-`您`Microsoft-AzureML-Support-App-`的訂用帳戶中建立額外的應用程式（名稱開頭為或）。 例如，如果您在美國東部有一個工作區，而在同一個訂用帳戶中有一個位於北歐的另一個工作區，您會看到這兩個應用程式。 這些應用程式可讓 Azure Machine Learning 協助您管理計算資源。
 
 ## <a name="network-security"></a>網路安全性
 
-Azure Machine Learning 服務依賴其他 Azure 服務來處理計算資源。 計算資源 (計算目標) 用於定型和部署模型。 您可以在虛擬網路中建立這些計算目標。 例如，您可以使用 Azure 資料科學虛擬機器來定型模型，然後將模型部署至 AKS。  
+Azure Machine Learning 依賴其他 Azure 服務來計算資源。 計算資源 (計算目標) 用於定型和部署模型。 您可以在虛擬網路中建立這些計算目標。 例如，您可以使用 Azure 資料科學虛擬機器來定型模型，然後將模型部署至 AKS。  
 
 如需詳細資訊，請參閱[如何在虛擬網路中執行實驗和推斷](how-to-enable-virtual-network.md)。
 
@@ -146,7 +146,7 @@ Azure Machine Learning 服務依賴其他 Azure 服務來處理計算資源。 �
 
 #### <a name="azure-blob-storage"></a>Azure Blob 儲存體
 
-Azure Machine Learning 服務會在與 Azure Machine Learning 服務工作區和您的訂用帳戶系結的 Azure Blob 儲存體帳戶中儲存快照集、輸出和記錄。 Azure Blob 儲存體中儲存的所有資料都會使用 Microsoft 管理的金鑰進行待用加密。
+Azure Machine Learning 會將快照、輸出和記錄儲存在與 Azure Machine Learning 工作區和您的訂用帳戶相關聯的 Azure Blob 儲存體帳戶中。 Azure Blob 儲存體中儲存的所有資料都會使用 Microsoft 管理的金鑰進行待用加密。
 
 如需如何針對儲存在 Azure Blob 儲存體中的資料使用您自己的金鑰的相關資訊，請參閱[Azure Key Vault 中的 Azure 儲存體使用客戶管理的金鑰加密](https://docs.microsoft.com/azure/storage/common/storage-service-encryption-customer-managed-keys)。
 
@@ -156,15 +156,15 @@ Azure Machine Learning 服務會在與 Azure Machine Learning 服務工作區和
 
 #### <a name="azure-cosmos-db"></a>Azure Cosmos DB
 
-Azure Machine Learning 服務會在與 Azure Machine Learning 服務所管理之 Microsoft 訂用帳戶相關聯的 Azure Cosmos DB 實例中儲存計量和中繼資料。 Azure Cosmos DB 中儲存的所有資料都會使用 Microsoft 管理的金鑰進行待用加密。
+Azure Machine Learning 會在與 Azure Machine Learning 所管理之 Microsoft 訂用帳戶相關聯的 Azure Cosmos DB 實例中儲存計量和中繼資料。 Azure Cosmos DB 中儲存的所有資料都會使用 Microsoft 管理的金鑰進行待用加密。
 
 #### <a name="azure-container-registry"></a>Azure 容器登錄
 
-登錄（Azure Container Registry）中的所有容器映射都會在待用時加密。 Azure 會在儲存映射之前自動將其加密，並在 Azure Machine Learning 服務提取映射時，即時將它解密。
+登錄（Azure Container Registry）中的所有容器映射都會在待用時加密。 Azure 會在儲存映射前自動將其加密，並在 Azure Machine Learning 提取映射時立即將其解密。
 
 #### <a name="machine-learning-compute"></a>Machine Learning Compute
 
-儲存在 Azure 儲存體中的每個計算節點的 OS 磁片都會使用 Azure Machine Learning 服務儲存體帳戶中 Microsoft 管理的金鑰進行加密。 此計算目標是暫時的，而且叢集通常會在沒有任何執行排入佇列時相應減少。 基礎虛擬機器已解除布建，且作業系統磁片已刪除。 OS 磁片不支援 Azure 磁碟加密。
+儲存在 Azure 儲存體中的每個計算節點的 OS 磁片都會使用 Azure Machine Learning 儲存體帳戶中 Microsoft 管理的金鑰進行加密。 此計算目標是暫時的，而且叢集通常會在沒有任何執行排入佇列時相應減少。 基礎虛擬機器已解除布建，且作業系統磁片已刪除。 OS 磁片不支援 Azure 磁碟加密。
 
 每部虛擬機器也會有本機暫存磁片供 OS 作業使用。 如果您想要的話，可以使用磁片來暫存定型資料。 磁片未加密。
 如需 Azure 中待用加密運作方式的詳細資訊，請參閱[azure 待用資料加密](https://docs.microsoft.com/azure/security/fundamentals/encryption-atrest)。
@@ -177,13 +177,13 @@ Azure Machine Learning 服務會在與 Azure Machine Learning 服務所管理之
 
 ### <a name="using-azure-key-vault"></a>編輯 Azure Key Vault
 
-Azure Machine Learning 服務使用與工作區相關聯的 Azure Key Vault 實例來儲存各種類型的認證：
+Azure Machine Learning 使用與工作區相關聯的 Azure Key Vault 實例來儲存各種類型的認證：
 
 * 相關聯的儲存體帳戶連接字串
 * Azure 容器存放庫實例的密碼
 * 資料存放區的連接字串
 
-SSH 密碼和計算目標（例如 Azure HDInsight 和 Vm）的金鑰會儲存在與 Microsoft 訂用帳戶相關聯的個別金鑰保存庫中。 Azure Machine Learning 服務不會儲存使用者所提供的任何密碼或金鑰。 相反地，它會產生、授權及儲存自己的 SSH 金鑰，以連線到 Vm 和 HDInsight 來執行實驗。
+SSH 密碼和計算目標（例如 Azure HDInsight 和 Vm）的金鑰會儲存在與 Microsoft 訂用帳戶相關聯的個別金鑰保存庫中。 Azure Machine Learning 不會儲存使用者所提供的任何密碼或金鑰。 相反地，它會產生、授權及儲存自己的 SSH 金鑰，以連線到 Vm 和 HDInsight 來執行實驗。
 
 每個工作區都有相關聯的系統指派受控識別，其名稱與工作區相同。 此受控識別可存取金鑰保存庫中的所有金鑰、秘密和憑證。
 
@@ -191,7 +191,7 @@ SSH 密碼和計算目標（例如 Azure HDInsight 和 Vm）的金鑰會儲存�
 
 ### <a name="metrics"></a>計量
 
-您可以使用 Azure 監視器計量來查看和監視 Azure Machine Learning 服務工作區的計量。 在 [Azure 入口網站](https://portal.azure.com)中，選取您的工作區，然後選取 [**計量**]：
+您可以使用 Azure 監視器計量來查看和監視 Azure Machine Learning 工作區的計量。 在 [Azure 入口網站](https://portal.azure.com)中，選取您的工作區，然後選取 [**計量**]：
 
 [![顯示工作區範例計量的螢幕擷取畫面](./media/enterprise-readiness/workspace-metrics.png)](./media/enterprise-readiness/workspace-metrics-expanded.png)
 
@@ -220,9 +220,9 @@ SSH 密碼和計算目標（例如 Azure HDInsight 和 Vm）的金鑰會儲存�
 
 下圖顯示 [建立工作區工作流程]。
 
-* 使用者從其中一個支援的 Azure Machine Learning 服務用戶端（Azure CLI、Python SDK、Azure 入口網站）登入 Azure AD，並要求適當的 Azure Resource Manager token。
+* 使用者從其中一個支援的 Azure Machine Learning 用戶端（Azure CLI、Python SDK、Azure 入口網站）登入 Azure AD，並要求適當的 Azure Resource Manager token。
 * 使用者會呼叫 Azure Resource Manager 來建立工作區。 
-* Azure Resource Manager 聯絡 Azure Machine Learning 服務資源提供者以布建工作區。
+* Azure Resource Manager 聯絡 Azure Machine Learning 資源提供者以布建工作區。
 
 建立工作區時，會在使用者的訂用帳戶中建立額外的資源：
 
@@ -239,7 +239,7 @@ SSH 密碼和計算目標（例如 Azure HDInsight 和 Vm）的金鑰會儲存�
 
 下圖顯示程式碼快照集工作流程。
 
-與 Azure Machine Learning 服務工作區相關聯的目錄（實驗）包含原始程式碼（訓練腳本）。 這些腳本會儲存在您的本機電腦和雲端（在您的訂用帳戶的 Azure Blob 儲存體中）。 程式碼快照集會用來執行或檢查歷程記錄。
+與 Azure Machine Learning 工作區相關聯的目錄（實驗）包含原始程式碼（訓練腳本）。 這些腳本會儲存在您的本機電腦和雲端（在您的訂用帳戶的 Azure Blob 儲存體中）。 程式碼快照集會用來執行或檢查歷程記錄。
 
 [![程式碼快照集工作流程](./media/enterprise-readiness/code-snapshot.png)](./media/enterprise-readiness/code-snapshot-expanded.png)
 
@@ -247,10 +247,10 @@ SSH 密碼和計算目標（例如 Azure HDInsight 和 Vm）的金鑰會儲存�
 
 下圖顯示訓練工作流程。
 
-* 會使用上一節中所儲存之程式碼快照集的快照集識別碼來呼叫 Azure Machine Learning 服務。
-* Azure Machine Learning 服務會建立執行識別碼（選擇性）和 Machine Learning 服務權杖，稍後由計算目標（例如 Machine Learning Compute/Vm）用來與 Machine Learning 服務進行通訊。
+* 會使用上一節中所儲存之程式碼快照集的快照集識別碼來呼叫 Azure Machine Learning。
+* Azure Machine Learning 會建立執行識別碼（選擇性）和 Machine Learning 服務權杖，稍後由計算目標（例如 Machine Learning Compute/Vm）用來與 Machine Learning 服務進行通訊。
 * 您可以選擇受控計算目標（例如 Machine Learning Compute）或非受控計算目標（例如 Vm）來執行定型作業。 以下是這兩種案例的資料流程：
-   * 由 Microsoft 訂用帳戶中的金鑰保存庫中的 SSH 認證存取的 Vm/HDInsight。 Azure Machine Learning 服務會在計算目標上執行管理程式碼，其：
+   * 由 Microsoft 訂用帳戶中的金鑰保存庫中的 SSH 認證存取的 Vm/HDInsight。 Azure Machine Learning 會在計算目標上執行管理程式碼，其：
 
    1. 準備環境。 （Docker 是 Vm 和本機電腦的選項。 如需瞭解如何在 Docker 容器上執行實驗的運作方式 Machine Learning Compute，請參閱下列步驟。）
    1. 下載程式代碼。
@@ -266,7 +266,7 @@ SSH 密碼和計算目標（例如 Azure HDInsight 和 Vm）的金鑰會儲存�
 
 #### <a name="querying-runs-and-metrics"></a>查詢執行和計量
 
-在下面的流程圖中，當定型計算目標將執行計量從 Cosmos DB 資料庫中的儲存體寫回 Azure Machine Learning 服務時，就會發生此步驟。 用戶端可以呼叫 Azure Machine Learning 服務。 Machine Learning 接著會從 Cosmos DB 資料庫中提取計量，並將其傳回用戶端。
+在下面的流程圖中，當定型計算目標將執行計量從 Cosmos DB 資料庫中的儲存體寫回 Azure Machine Learning 時，就會發生此步驟。 用戶端可以呼叫 Azure Machine Learning。 Machine Learning 接著會從 Cosmos DB 資料庫中提取計量，並將其傳回用戶端。
 
 [![訓練工作流程](./media/enterprise-readiness/training-and-metrics.png)](./media/enterprise-readiness/training-and-metrics-expanded.png)
 
@@ -292,7 +292,7 @@ SSH 密碼和計算目標（例如 Azure HDInsight 和 Vm）的金鑰會儲存�
 * [如何執行批次預測](how-to-run-batch-predictions.md)
 * [使用 Application Insights 監視您的 Azure Machine Learning 模型](how-to-enable-app-insights.md)
 * [在生產環境中收集模型資料](how-to-enable-data-collection.md)
-* [Azure Machine Learning 服務 SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py)
-* [使用 Azure 虛擬網路的 Azure Machine Learning 服務](how-to-enable-virtual-network.md)
+* [Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py)
+* [搭配 Azure 虛擬網路使用 Azure Machine Learning](how-to-enable-virtual-network.md)
 * [建置建議系統的最佳作法](https://github.com/Microsoft/Recommenders)
 * [在 Azure 上建置即時建議 API](https://docs.microsoft.com/azure/architecture/reference-architectures/ai/real-time-recommendation)

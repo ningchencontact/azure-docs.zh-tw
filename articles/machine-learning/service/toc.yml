@@ -152,6 +152,9 @@
         - name: 新增和註冊資料集
           displayName: 'data, dataset'
           href: how-to-create-register-datasets.md
+        - name: 使用資料集定型
+          displayName: 'data, dataset'
+          href: how-to-train-with-datasets.md
     - name: 將模型定型
       items:
         - name: 設定訓練環境

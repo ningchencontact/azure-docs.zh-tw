@@ -123,6 +123,14 @@
       href: load-balancer-query-metrics-rest-api.md
     - name: 設定內部負載平衡器的高可用性連接埠
       href: load-balancer-configure-ha-ports.md
+    - name: 跨區域移動
+      items:
+        - name: 外部負載平衡器 - 入口網站
+          href: move-across-regions-external-load-balancer-portal.md
+        - name: 外部負載平衡器 - PowerShell
+          href: move-across-regions-external-load-balancer-powershell.md
+        - name: 內部負載平衡器 - PowerShell
+          href: move-across-regions-internal-load-balancer-powershell.md
     - name: 疑難排解
       items:
         - name: 針對 Azure Load Balancer 進行疑難排解

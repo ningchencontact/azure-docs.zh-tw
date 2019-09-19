@@ -7,15 +7,15 @@ author: luiscabrer
 ms.service: search
 ms.workload: search
 ms.topic: conceptual
-ms.date: 05/02/2019
+ms.date: 09/18/2019
 ms.author: luisca
 ms.subservice: cognitive-search
-ms.openlocfilehash: 0c591bb72ba859be2c5b52d8d8cc5040deffda7d
-ms.sourcegitcommit: 7a6d8e841a12052f1ddfe483d1c9b313f21ae9e6
+ms.openlocfilehash: c69c757be482a7e95f31a9f31cac8d324c1e0216
+ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70183381"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71103298"
 ---
 #   <a name="key-phrase-extraction-cognitive-skill"></a>關鍵片語擷取認知技能
 
@@ -33,7 +33,7 @@ ms.locfileid: "70183381"
 Microsoft.Skills.Text.KeyPhraseExtractionSkill 
 
 ## <a name="data-limits"></a>資料限制
-記錄的大小上限應為50000個字元, 如所測量[`String.Length`](https://docs.microsoft.com/dotnet/api/system.string.length)。 如果您需要先分割資料，然後再將該資料傳送至關鍵片語擷取器，請考慮使用 [文字分割技能](cognitive-search-skill-textsplit.md)。
+記錄的大小上限應為50000個字元，如所測量[`String.Length`](https://docs.microsoft.com/dotnet/api/system.string.length)。 如果您需要先分割資料，然後再將該資料傳送至關鍵片語擷取器，請考慮使用 [文字分割技能](cognitive-search-skill-textsplit.md)。
 
 ## <a name="skill-parameters"></a>技能參數
 
@@ -59,7 +59,7 @@ Microsoft.Skills.Text.KeyPhraseExtractionSkill
     "inputs": [
       {
         "name": "text",
-        "source": "/document/text"
+        "source": "/document/content"
       },
       {
         "name": "languageCode",

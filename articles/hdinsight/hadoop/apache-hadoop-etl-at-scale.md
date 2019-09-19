@@ -8,20 +8,20 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/13/2019
 ms.author: ashishth
-ms.openlocfilehash: e4168b2aec73efcaa282398cbe145df49a117da0
-ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
+ms.openlocfilehash: d19640d19c3b7fa611f5bfe0e4fd0868924650c5
+ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70810754"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71066929"
 ---
 # <a name="extract-transform-and-load-etl-at-scale"></a>大規模擷取、轉換和載入 (ETL)
 
-擷取、轉換和載入 (ETL) 是一個程序，其中會從各種來源取得資料、將資料收集在標準位置中、進行清理和處理，然後最終載入至資料存放區以供查詢。 傳統 ETL 會處理匯入資料、適當地清理該資料，然後將其儲存在關聯式資料引擎中。 使用 HDInsight 時，各種 Apache Hadoop 生態系統元件都可支援大規模執行 ETL。 
+擷取、轉換和載入 (ETL) 是一個程序，其中會從各種來源取得資料、將資料收集在標準位置中、進行清理和處理，然後最終載入至資料存放區以供查詢。 傳統 ETL 會處理匯入資料、適當地清理該資料，然後將其儲存在關聯式資料引擎中。 使用 HDInsight 時，各種 Apache Hadoop 生態系統元件都可支援大規模執行 ETL。
 
 ETL 程序中的 HDInsight 使用可以由以下管線來摘要說明：
 
-![HDInsight ETL 概觀](./media/apache-hadoop-etl-at-scale/hdinsight-etl-at-scale-overview.png)
+![HDInsight ETL 大規模總覽](./media/apache-hadoop-etl-at-scale/hdinsight-etl-at-scale-overview.png)
 
 下列各節會探索每一個 ETL 階段及其相關元件。
 
@@ -35,11 +35,11 @@ ETL 程序中的 HDInsight 使用可以由以下管線來摘要說明：
 
 Apache Oozie 是一個可管理 Hadoop 作業的工作流程協調系統。 Oozie 會在 HDInsight 叢集內執行，並與 Hadoop 堆疊整合。 Oozie 支援 Apache Hadoop MapReduce、Apache Pig、Apache Hive 及 Apache Sqoop 的 Hadoop 作業。 Oozie 也可用來排定系統特定作業，例如 Java 程式或 Shell 指令碼。
 
-如需詳細資訊，請參閱[使用 Apache Oozie 搭配 Apache Hadoop 在 HDInsight 上定義和執行工作流程](../hdinsight-use-oozie-linux-mac.md)。若要深入探討如何使用 Oozie 來驅動端對端管線，請參閱[使用資料管線](../hdinsight-operationalize-data-pipeline.md)。 
+如需詳細資訊，請參閱[使用 Apache Oozie 搭配 Apache Hadoop 在 HDInsight 上定義和執行工作流程](../hdinsight-use-oozie-linux-mac.md)。若要深入探討如何使用 Oozie 來驅動端對端管線，請參閱[使用資料管線](../hdinsight-operationalize-data-pipeline.md)。
 
 ### <a name="azure-data-factory"></a>Azure Data Factory
 
-Azure Data Factory 以平台即服務的形式提供協調流程功能。 這是一項雲端式資料整合服務，可讓您在雲端建立資料驅動工作流程，以便協調及自動進行資料移動和資料轉換。 
+Azure Data Factory 以平台即服務的形式提供協調流程功能。 這是一項雲端式資料整合服務，可讓您在雲端建立資料驅動工作流程，以便協調及自動進行資料移動和資料轉換。
 
 使用 Azure Data Factory 時，您可以：
 

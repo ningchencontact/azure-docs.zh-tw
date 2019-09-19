@@ -12,12 +12,12 @@ metadata:
   author: mmacy
   ms.author: marsma
   ms.date: 08/29/2019
-  ms.openlocfilehash: 445e3bf68b3ce75ca2d9e51dc6f69c638f2f6b44
-  ms.sourcegitcommit: 388c8f24434cc96c990f3819d2f38f46ee72c4d8
+  ms.openlocfilehash: ea07432d4637b06ae69fc12ff30122a9ae3d2098
+  ms.sourcegitcommit: 8ef0a2ddaece5e7b2ac678a73b605b2073b76e88
   ms.translationtype: HT
   ms.contentlocale: zh-TW
-  ms.lasthandoff: 08/27/2019
-  ms.locfileid: "70061346"
+  ms.lasthandoff: 09/17/2019
+  ms.locfileid: "71075751"
 landingContent:
 - title: 了解基本概念
   linkLists:
@@ -33,10 +33,10 @@ landingContent:
       url: tutorial-register-applications.md
     - text: 設定使用者流程
       url: tutorial-create-user-flows.md
-  - linkListType: learn
+  - linkListType: video
     links:
-    - text: 視訊：透過 Azure AD B2C 進行客戶身分識別管理
-      url: https://channel9.msdn.com/Shows/On-NET/Customer-Identity-Management-with-Azure-AD-B2C
+    - text: 什麼是 Azure AD B2C？ (9:35)
+      url: https://www.youtube.com/watch?v=GmBKlXED9Ug
 - title: 將身分識別新增到 ASP.NET 應用程式中
   linkLists:
   - linkListType: quickstart
@@ -105,6 +105,10 @@ landingContent:
       url: customize-ui-overview.md
     - text: 啟用以 Facebook 登入功能
       url: active-directory-b2c-setup-fb-app.md
+  - linkListType: video
+    links:
+    - text: 如何設定基本原則 (9:41)
+      url: https://www.youtube.com/watch?v=nWJ3m82536A
 - title: 建置進階身分識別案例
   linkLists:
   - linkListType: concept
@@ -121,3 +125,7 @@ landingContent:
       url: active-directory-b2c-setup-commonaad-custom.md
     - text: 透過 REST API 新增您自己的商務邏輯
       url: active-directory-b2c-rest-api-validation-custom.md
+  - linkListType: video
+    links:
+    - text: Azure AD B2C 的進階使用案例 (4:54)
+      url: https://www.youtube.com/watch?v=-ZmPBuMZY-Y

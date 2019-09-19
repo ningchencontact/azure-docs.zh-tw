@@ -3,22 +3,22 @@ title: 翻譯工具語音 API 語言方法
 titleSuffix: Azure Cognitive Services
 description: 翻譯工具語音 API 語言方法。
 services: cognitive-services
-author: swmachan
+author: nitinme
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-speech
 ms.topic: conceptual
 ms.date: 05/18/2018
-ms.author: swmachan
+ms.author: nitinme
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: 4abe6330d0359f7d7c922facecaaf1a8b1fc7174
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 46ac3928238382f56db5a799226bd3d9243b7ca2
+ms.sourcegitcommit: fbea2708aab06c19524583f7fbdf35e73274f657
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67446961"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70966400"
 ---
-# <a name="translator-speech-api-languages"></a>翻譯工具語音 API：Languages
+# <a name="translator-speech-api-languages"></a>翻譯工具語音 API：語言
 
 [!INCLUDE [Deprecation note](../../../includes/cognitive-services-translator-speech-deprecation-note.md)]
 
@@ -65,7 +65,7 @@ ms.locfileid: "67446961"
 與語音轉換文字屬性 (`speech`) 相關聯的值是 (索引鍵，值) 組字典。 每個索引鍵都識別語音轉換文字支援的語言。 索引鍵是用戶端傳遞至 API 的識別碼。 與索引鍵相關聯的值是具有以下屬性的物件：
 
 * `name`:語言的顯示名稱。
-* `language`:相關書寫語言的語言標籤。 下面，請參閱 「 文字交易 」。
+* `language`:相關書寫語言的語言標籤。 請參閱下方的「文字交易」。
 範例如下：
 
 ```
@@ -130,9 +130,9 @@ ModelExample 值：
 
 Langagues { speech (object, optional), text (object, optional), tts (object, optional) }
 
-### <a name="headers"></a>headers
+### <a name="headers"></a>標頭
 
-|頁首|描述|類型|
+|標頭|描述|Type|
 :--|:--|:--|
 X-RequestId|伺服器產生用來識別要求的值，並作為疑難排解之用。|string|
 

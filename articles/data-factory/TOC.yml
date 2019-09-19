@@ -584,6 +584,8 @@
           href: solution-template-bulk-copy-with-control-table.md
         - name: 從資料庫進行差異複製
           href: solution-template-delta-copy-with-control-table.md
+        - name: 將資料從 Amazon S3 遷移到 Azure 儲存體
+          href: solution-template-migration-s3-azure.md
         - name: 移動檔案
           href: solution-template-move-files.md
         - name: 使用 Databricks 轉換資料

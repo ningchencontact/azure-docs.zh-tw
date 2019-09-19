@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: conceptual
-ms.date: 06/19/2019
+ms.date: 09/18/2019
 ms.author: dapine
 ms.custom: seodec18
-ms.openlocfilehash: 3e1dc68ec67e8a7a24c3459519df80a8faf2fc01
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 186f2f60aad15b336265114d7c85c757e0dd333f
+ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68565643"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71102294"
 ---
 # <a name="configure-recognize-text-docker-containers"></a>設定辨識文字 Docker 容器
 
@@ -31,7 +31,7 @@ ms.locfileid: "68565643"
 
 ## <a name="apikey-configuration-setting"></a>ApiKey 組態設定
 
-設定會指定用來`Cognitive Services`追蹤容器帳單資訊的 Azure 資源金鑰。 `ApiKey` 您必須指定 ApiKey 的值, 且值必須是為設定所指定[`Billing`](#billing-configuration-setting)之_認知服務_資源的有效金鑰。
+設定會指定用來`Cognitive Services`追蹤容器帳單資訊的 Azure 資源金鑰。 `ApiKey` 您必須指定 ApiKey 的值，且值必須是為設定所指定[`Billing`](#billing-configuration-setting)之_認知服務_資源的有效金鑰。
 
 此設定可在下列位置找到：
 
@@ -43,17 +43,17 @@ ms.locfileid: "68565643"
 
 ## <a name="billing-configuration-setting"></a>Billing 組態設定
 
-設定會指定 Azure 上用來計量容器帳單資訊之認知服務資源的端點 URI。 `Billing` 您必須指定此設定的值, 且該值必須是 Azure 上_認知服務_資源的有效端點 URI。 容器會每隔 10 到 15 分鐘回報使用量。
+設定會指定 Azure 上用來計量容器帳單資訊之認知服務資源的端點 URI。 `Billing` 您必須指定此設定的值，且該值必須是 Azure 上_認知服務_資源的有效端點 URI。 容器會每隔 10 到 15 分鐘回報使用量。
 
 此設定可在下列位置找到：
 
-* Azure 入口網站：**認知服務**總覽, 加上標籤`Endpoint`
+* Azure 入口網站：**認知服務**總覽，加上標籤`Endpoint`
 
-請記得將`vision/v1.0`路由新增至端點 URI, 如下表所示。 
+請記得將`vision/v1.0`路由新增至端點 URI，如下表所示。 
 
-|必要項| 名稱 | 資料類型 | 描述 |
+|必要項| Name | 資料類型 | 描述 |
 |--|------|-----------|-------------|
-|是| `Billing` | String | 計費端點 URI<br><br>範例:<br>`Billing=https://westcentralus.api.cognitive.microsoft.com/vision/v1.0` |
+|是| `Billing` | String | 計費端點 URI<br><br>範例：<br>`Billing=https://westcentralus.api.cognitive.microsoft.com/vision/v1.0` |
 
 ## <a name="eula-setting"></a>Eula 設定
 
@@ -79,10 +79,10 @@ ms.locfileid: "68565643"
 
 主機裝載位置的正確語法會隨著主機作業系統而有所不同。 此外，[主機電腦](computer-vision-how-to-install-containers.md#the-host-computer)的裝載位置可能會因為 Docker 服務帳戶所使用的權限與主機裝載位置的權限互相衝突，而無法存取。 
 
-|選擇性| 名稱 | 資料類型 | 描述 |
+|選擇性| Name | 資料類型 | 描述 |
 |-------|------|-----------|-------------|
 |不允許| `Input` | String | 電腦視覺容器不會使用此項目。|
-|選擇性| `Output` | String | 輸出裝載的目標。 預設值是 `/output`。 這是記錄的位置。 這包括容器記錄。 <br><br>範例:<br>`--mount type=bind,src=c:\output,target=/output`|
+|選擇性| `Output` | String | 輸出裝載的目標。 預設值為 `/output`。 這是記錄的位置。 這包括容器記錄。 <br><br>範例：<br>`--mount type=bind,src=c:\output,target=/output`|
 
 ## <a name="example-docker-run-commands"></a>範例 docker run 命令 
 
@@ -91,14 +91,16 @@ ms.locfileid: "68565643"
 * **行接續字元**：以下幾節的 Docker 命令會使用反斜線 `\` 作為行接續字元。 請根據您主機作業系統的需求加以替換或移除。 
 * **引數順序**：若非十分熟悉 Docker 容器，請勿變更引數的順序。
 
-請記得將`vision/v1.0`路由新增至端點 URI, 如下表所示。 
+請記得將`vision/v1.0`路由新增至端點 URI，如下表所示。 
 
 請將 {_argument_name_} 取代為您自己的值：
 
 | 預留位置 | 值 | 格式或範例 |
 |-------------|-------|---|
-|{API_KEY} | 認知服務資源的端點金鑰。 |xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx|
-|{ENDPOINT_URI} | 包括區域的計費端點值。|`https://westcentralus.api.cognitive.microsoft.com/vision/v1.0`|
+| **{API_KEY}** | [Azure `Computer Vision` `Computer Vision`金鑰] 頁面上資源的端點金鑰。 | `xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx` |
+| **{ENDPOINT_URI}** | 計費端點值可在 Azure `Computer Vision`總覽頁面上取得。| 如需明確的範例，請參閱[收集必要的參數](computer-vision-how-to-install-containers.md#gathering-required-parameters)。 |
+
+[!INCLUDE [subdomains-note](../../../includes/cognitive-services-custom-subdomains-note.md)]
 
 > [!IMPORTANT]
 > 必須指定 `Eula`、`Billing` 及 `ApiKey` 選項以執行容器，否則容器將不會啟動。  如需詳細資訊，請參閱[帳單](computer-vision-how-to-install-containers.md#billing)。

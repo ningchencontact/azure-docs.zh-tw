@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 07/29/2019
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: 78e113f881d1f62c9848ba40f039fa19eeb09055
-ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
+ms.openlocfilehash: e07d154ce5dae8a461bf9db19303db685f8a4152
+ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/14/2019
-ms.locfileid: "70996457"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71103070"
 ---
 # <a name="troubleshoot-azure-file-sync"></a>疑難排解 Azure 檔案同步
 使用 Azure 檔案同步，將組織的檔案共用集中在 Azure 檔案服務中，同時保有內部部署檔案伺服器的彈性、效能及相容性。 Azure 檔案同步會將 Windows Server 轉換成 Azure 檔案共用的快速快取。 您可以使用 Windows Server 上可用的任何通訊協定來從本機存取資料，包括 SMB、NFS 和 FTPS。 您可以視需要存取多個散佈於世界各地的快取。
@@ -293,6 +293,7 @@ PerItemErrorCount: 1006.
 | 0x8000ffff | -2147418113 | E_UNEXPECTED | 因為發生未預期的錯誤，所以無法同步檔案。 | 如果錯誤持續數天，請開啟支援案例。 |
 | 0x80070020 | -2147024864 | ERROR_SHARING_VIOLATION | 無法同步檔案，因為它正在使用中。 檔案不再處於使用中狀態時即會同步。 | 不需要任何動作。 |
 | 0x80c80017 | -2134376425 | ECS_E_SYNC_OPLOCK_BROKEN | 檔案在同步處理期間已變更，因此必須再次同步。 | 不需要任何動作。 |
+| 0x80c80200 | -2134375936 | ECS_E_SYNC_CONFLICT_NAME_EXISTS | 無法同步檔案，因為已達到衝突檔案的最大數目。 Azure 檔案同步支援每個檔案100個衝突檔案。 若要深入瞭解檔案衝突，請參閱 Azure 檔案同步[常見問題](https://docs.microsoft.com/azure/storage/files/storage-files-faq#afs-conflict-resolution)。 | 若要解決此問題，請減少衝突檔案數。 一旦衝突檔案的數目小於100，檔案就會同步處理。 |
 
 #### <a name="handling-unsupported-characters"></a>處理不支援的字元
 如果**Filesyncerrorsreport.ps1** PowerShell 腳本因為不支援的字元（錯誤碼0x8007007b 或0x80c80255）而顯示失敗，您應該從個別的檔案名中移除或重新命名錯誤的字元。 由於這些字元大多沒有標準的視覺編碼，PowerShell 可能會將這些字元列印為問號或空的矩形。 [評估工具](storage-sync-files-planning.md#evaluation-cmdlet)可用來識別不受支援的字元。

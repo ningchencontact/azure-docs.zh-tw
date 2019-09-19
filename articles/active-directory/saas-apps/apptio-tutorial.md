@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 07/08/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c07a978004ee8d2e25772f0d393529cbb509380a
-ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
+ms.openlocfilehash: d0ac86dcdb698c554c40325d6a20d6d27de908f8
+ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68967232"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71104374"
 ---
 # <a name="tutorial-integrate-apptio-with-azure-active-directory"></a>教學課程：整合 Apptio 與 Azure Active Directory
 
@@ -85,7 +85,7 @@ ms.locfileid: "68967232"
 
     在 [識別碼]  文字方塊中，輸入值：`urn:federation:apptio`
 
-5. Apptio 應用程式需要特定格式的 SAML 判斷提示，需要您加入自訂屬性對應到您的 SAML 權杖屬性設定。 以下螢幕擷取畫面顯示預設屬性清單。 按一下 [ **編輯**] 圖示以開啟 [使用者屬性] 對話方塊。
+5. Apptio 應用程式需要特定格式的 SAML 判斷提示，需要您加入自訂屬性對應到您的 SAML 權杖屬性設定。 以下螢幕擷取畫面顯示預設屬性清單。 按一下 [編輯]  圖示以開啟 [使用者屬性] 對話方塊。
 
     ![image](common/edit-attribute.png)
 
@@ -94,7 +94,7 @@ ms.locfileid: "68967232"
 
 6. 除了以上屬性外，Apptio 應用程式還需要在 SAML 回應中傳回更多屬性。 在 [使用者屬性] 對話方塊的 [使用者宣告] 區段中，執行下列步驟以設定 SAML 權杖屬性，如下表所示： 
 
-    | Name |  來源屬性|
+    | 名稱 |  來源屬性|
     | -------------- | -------------------- |
     | fullname       | user.displayname |
     | mail           | user.mail |
@@ -112,7 +112,7 @@ ms.locfileid: "68967232"
 
     f. 按一下 [檔案]  。
 
-4. 在 [以 SAML 設定單一登入]  頁面上的 [SAML 簽署憑證]  區段中，尋找 [同盟中繼資料 XML]  ，然後選取 [下載]  ，以下載憑證，並將其儲存在電腦上。
+4. 在 [以 SAML 設定單一登入]  頁面上的 [SAML 簽署憑證]  區段中，尋找 [同盟中繼資料 XML]  ，然後選取 [下載]  來下載憑證，並將其儲存在電腦上。
 
     ![憑證下載連結](common/metadataxml.png)
 
@@ -156,7 +156,7 @@ ms.locfileid: "68967232"
 
 ### <a name="create-apptio-test-user"></a>建立 Apptio 測試使用者
 
-在本節中，您要在 Apptio 中建立名為 B.Simon 的使用者。 請與 [Apptio 支援小組](https://www.apptio.com/about/contact)合作，在 Apptio 平台中新增使用者。 您必須先建立和啟動使用者，然後才能使用單一登入。
+在本節中，您要在 Apptio 中建立名為 B.Simon 的使用者。 請與 [Apptio 支援小組](https://www.apptio.com/about/contact)合作，在 Apptio 平台中新增使用者。 您必須先建立和啟動使用者，然後才能使用單一登入。
 
 ## <a name="test-sso"></a>測試 SSO 
 

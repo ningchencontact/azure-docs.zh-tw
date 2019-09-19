@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 06/19/2019
+ms.date: 09/18/2019
 ms.author: dapine
-ms.openlocfilehash: 7708133fcba0d594ecd420afd8da1b2881055aa7
-ms.sourcegitcommit: 6794fb51b58d2a7eb6475c9456d55eb1267f8d40
+ms.openlocfilehash: 4b8ea102c7acc55acec05234303ff4c215a4bc0f
+ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70241025"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71105152"
 ---
 # <a name="install-and-run-speech-service-containers"></a>安裝和執行語音服務容器
 
@@ -39,6 +39,8 @@ ms.locfileid: "70241025"
 |Docker 引擎| 您必須在[主機電腦](#the-host-computer)上安裝 Docker 引擎。 Docker 提供可在 [macOS](https://docs.docker.com/docker-for-mac/)、[Windows](https://docs.docker.com/docker-for-windows/) 和 [Linux](https://docs.docker.com/engine/installation/#supported-platforms) 上設定 Docker 環境的套件。 如需 Docker 和容器基本概念的入門，請參閱 [Docker 概觀](https://docs.docker.com/engine/docker-overview/) \(英文\)。<br><br> Docker 必須設定為允許容器與 Azure 連線，以及傳送帳單資料至 Azure。 <br><br> **在 Windows 上**，也必須將 Docker 設定為支援 Linux 容器。<br><br>|
 |熟悉 Docker | 您應具備對 Docker 概念 (例如登錄、存放庫、容器和容器映像等) 的基本了解，以及基本 `docker` 命令的知識。| 
 |語音資源 |若要使用這些容器，您必須具備：<br><br>Azure_語音_資源，用來取得相關聯的 API 金鑰和端點 URI。 這兩個值都可在 Azure 入口網站的 [**語音**總覽] 和 [金鑰] 頁面上取得。 這兩者都是啟動容器的必要項。<br><br>**{API_KEY}** ：[**金鑰**] 頁面上有兩個可用的資源金鑰之一<br><br>**{ENDPOINT_URI}** ：[**總覽**] 頁面上所提供的端點|
+
+[!INCLUDE [Gathering required container parameters](../containers/includes/container-gathering-required-parameters.md)]
 
 ## <a name="request-access-to-the-container-registry"></a>要求存取容器登錄
 
@@ -174,16 +176,12 @@ docker pull containerpreview.azurecr.io/microsoft/cognitive-services-text-to-spe
 
 ## <a name="run-the-container-with-docker-run"></a>透過 `docker run` 執行容器
 
-使用 [docker run](https://docs.docker.com/engine/reference/commandline/run/) 命令來執行三個容器的其中一個。 此命令會使用下列參數：
+將 [docker run](https://docs.docker.com/engine/reference/commandline/run/) 命令執行容器。 如需如何取得`{ENDPOINT_URI}`和`{API_KEY}`值的詳細資訊，請參閱[收集必要的參數](#gathering-required-parameters)。
 
-在**預覽期間**，計費設定必須是有效的，才能啟動容器，但您不需支付使用量的費用。
+命令的[範例](speech-container-configuration.md#example-docker-run-commands)可供使用。`docker run`
 
-| 預留位置 | 值 |
-|-------------|-------|
-|{API_KEY} | 此金鑰用來啟動容器，並可在 Azure 入口網站的 [語音金鑰] 頁面上取得。  |
-|{ENDPOINT_URI} | [計費端點 URI] 值可在 Azure 入口網站的語音總覽頁面上取得。|
-
-請以您自己的值取代下列範例 `docker run` 命令中的參數。
+> [!NOTE]
+> 在**預覽期間**，計費設定必須是有效的，才能啟動容器，但您不需支付使用量的費用。
 
 ### <a name="text-to-speech"></a>文字轉換語音
 

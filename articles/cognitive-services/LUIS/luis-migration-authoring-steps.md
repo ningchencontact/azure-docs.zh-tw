@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 09/10/2019
+ms.date: 09/12/2019
 ms.author: diberry
-ms.openlocfilehash: 7a6091ac1a0d54d997c40fe284d58426ecadf765
-ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
-ms.translationtype: HT
+ms.openlocfilehash: 7e79d3119f5d2d0fe1894de0ab9535dd988706f8
+ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70898848"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70935208"
 ---
 # <a name="steps-to-migrate-to-the-azure-authoring-resource"></a>遷移至 Azure 撰寫資源的步驟
 
@@ -94,6 +94,13 @@ ms.locfileid: "70898848"
 1. 存取您的應用程式之前，請先選取訂用帳戶，然後 LUIS 撰寫資源，以查看您可以撰寫的應用程式。
 
     ![選取 [訂用帳戶] 和 [LUIS 撰寫資源]，以查看您可以撰寫的應用程式。](./media/migrate-authoring-key/app-list-by-subscription-and-resource.png)
+
+
+## <a name="app-contributor-begins-the-migration-process"></a>應用程式參與者開始進行遷移流程
+
+遵循與應用程式擁有者相同的步驟來進行遷移。 此程式會建立種類`LUIS.Authoring`的新撰寫資源。 
+
+您必須遷移您的帳戶，才能將其新增為其他人所擁有之已遷移應用程式的參與者。  
 
 ## <a name="after-the-migration-process-add-contributors-to-your-authoring-resource"></a>在遷移程式之後，將參與者新增至您的撰寫資源
 

@@ -9,16 +9,16 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 2b68da881edd0406a85692d6e0586427a57b7806
-ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
+ms.openlocfilehash: bf30e805a06222bf8c74429df54565073d7d919b
+ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70916448"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70933073"
 ---
 # <a name="create-a-store-locator-by-using-azure-maps"></a>使用 Azure 地圖服務建立商店定位器
 
-此教學課程將引導您完成使用 Azure 地圖服務建立簡單商店定位器的程序。 商店定位器是通用的。 這類應用程式中使用的概念大多也都適用於許多其他類型的應用程式。 大多數直接對消費者進行銷售的企業，都有需要為客戶提供商店定位器。 在此教學課程中，您了解如何：
+本教學課程將引導您完成使用 Azure 地圖服務建立簡單商店定位器的程序。 商店定位器是通用的。 這類應用程式中使用的概念大多也都適用於許多其他類型的應用程式。 大多數直接對消費者進行銷售的企業，都有需要為客戶提供商店定位器。 在本教學課程中，您會了解如何：
     
 > [!div class="checklist"]
 > * 使用 Azure 地圖控制項 API 建立新的網頁。
@@ -39,7 +39,7 @@ ms.locfileid: "70916448"
 
 ## <a name="design"></a>設計
 
-在跳到程式碼之前，先進行設計是個不錯的做法。 商店定位器可依據您的需要調整複雜或簡單程度。 在此教學課程中，我們會建立簡單的商店定位器。 我們在過程中提供了一些秘訣，可協助您依個人需求擴充某些功能。 我們會為名為 Contoso Coffee 的虛構公司建立商店定位器。 下圖顯示我們在此教學課程中建置的商店定位器所採用的一般配置框線：
+在跳到程式碼之前，先進行設計是個不錯的做法。 商店定位器可依據您的需要調整複雜或簡單程度。 在本教學課程中，我們會建立簡單的商店定位器。 我們在過程中提供了一些秘訣，可協助您依個人需求擴充某些功能。 我們會為名為 Contoso Coffee 的虛構公司建立商店定位器。 下圖顯示我們在本教學課程中建置的商店定位器所採用的一般配置框線：
 
 <br/>
 <center>
@@ -53,7 +53,7 @@ ms.locfileid: "70916448"
 
 ![Contoso Coffee 商店定位器在行動裝置上的框線](./media/tutorial-create-store-locator/SimpleStoreLocatorMobileWireframe.png)</center>
 
-框線可直觀地顯示應用程式。 應用程式具有搜尋方塊、鄰近商店清單、附有一些標記 (符號) 的地圖，和一個在使用者選取標記時顯示相關資訊的快顯視窗。 以下詳細列出我們在此教學課程中建置到此商店定位器的功能：
+框線可直觀地顯示應用程式。 應用程式具有搜尋方塊、鄰近商店清單、附有一些標記 (符號) 的地圖，和一個在使用者選取標記時顯示相關資訊的快顯視窗。 以下詳細列出我們在本教學課程中建置到此商店定位器的功能：
 
 * 從匯入的 Tab 鍵分隔資料檔案匯入的所有位置，都會載入至地圖上。
 * 使用者可以移動瀏覽和縮放地圖、執行搜尋，以及選取 [我的位置 GPS] 按鈕。
@@ -71,7 +71,7 @@ ms.locfileid: "70916448"
 
 ## <a name="create-the-store-location-dataset"></a>建立商店位置資料集
 
-在開發商店定位器應用程式之前，我們必須先為要顯示在地圖上的商店建立資料集。 在此教學課程中，我們將使用虛構咖啡廳 Contoso Coffee 的資料集。 我們以 Excel 活頁簿來管理此簡單商店定位器的資料集。 資料集中包含 10,213 個遍布於九個國家/地區的 Contoso Coffee 咖啡廳所在位置：美國、加拿大、英國、法國、德國、義大利、荷蘭、丹麥和西班牙。 其資料如下列螢幕擷取畫面所示：
+在開發商店定位器應用程式之前，我們必須先為要顯示在地圖上的商店建立資料集。 在本教學課程中，我們將使用虛構咖啡廳 Contoso Coffee 的資料集。 我們以 Excel 活頁簿來管理此簡單商店定位器的資料集。 資料集中包含 10,213 個遍布於九個國家/地區的 Contoso Coffee 咖啡廳所在位置：美國、加拿大、英國、法國、德國、義大利、荷蘭、丹麥和西班牙。 其資料如下列螢幕擷取畫面所示：
 
 <br/>
 <center>
@@ -417,7 +417,7 @@ ms.locfileid: "70916448"
             center: [-90, 40],
             zoom: 2,
 
-            //Add your Azure Maps subscription key to the map SDK.
+            //Add your Azure Maps primary subscription key to the map SDK.
             authOptions: {
                 authType: 'subscriptionKey',
                 subscriptionKey: '<Your Azure Maps Key>'
@@ -951,7 +951,7 @@ ms.locfileid: "70916448"
 
 ## <a name="next-steps"></a>後續步驟
 
-在此教學課程中，您已了解如何使用 Azure 地圖服務建立基本的商店定位器。 您在此教學課程中建立的商店定位器可能已有您所需的所有功能。 您可以在商店定位器中新增功能，或使用更進階的功能以滿足自訂使用者體驗： 
+在本教學課程中，您已了解如何使用 Azure 地圖服務建立基本的商店定位器。 您在本教學課程中建立的商店定位器可能已有您所需的所有功能。 您可以在商店定位器中新增功能，或使用更進階的功能以滿足自訂使用者體驗： 
 
 > [!div class="checklist"]
 > * 啟用[在搜尋方塊中鍵入時提供建議](https://azuremapscodesamples.azurewebsites.net/?sample=Search%20Autosuggest%20and%20JQuery%20UI)的功能。  

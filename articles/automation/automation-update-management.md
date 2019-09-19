@@ -9,12 +9,12 @@ ms.author: robreed
 ms.date: 05/22/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: daa075518c569e257fd86a478809a1d1650d4345
-ms.sourcegitcommit: cd70273f0845cd39b435bd5978ca0df4ac4d7b2c
-ms.translationtype: HT
+ms.openlocfilehash: 20d8106f06b708527fc60e025a19c6b07656acb3
+ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
+ms.translationtype: MT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 09/18/2019
-ms.locfileid: "71098114"
+ms.locfileid: "71102656"
 ---
 # <a name="update-management-solution-in-azure"></a>Azure 中的更新管理解決方案
 
@@ -108,7 +108,7 @@ Windows 代理程式必須設定為可與 WSUS 伺服器通訊，或必須能夠
 
 #### <a name="linux"></a>Linux
 
-針對 Linux，機器必須能夠存取更新存放庫。 更新存放庫可以是私人或公用。 必須使用 TLS 1.1 或 TLS 1.2，才能與更新管理互動。 此解決方案不支援已設定為向多個 Log Analytics 工作區回報的「適用於 Linux 的 Log Analytics 代理程式」。
+針對 Linux，機器必須能夠存取更新存放庫。 更新存放庫可以是私人或公用。 必須使用 TLS 1.1 或 TLS 1.2，才能與更新管理互動。 此解決方案不支援已設定為向多個 Log Analytics 工作區回報的「適用於 Linux 的 Log Analytics 代理程式」。  電腦也必須安裝 Python 2.x。
 
 如需有關如何安裝適用于 Linux 的 Log Analytics 代理程式及下載最新版本的詳細資訊, 請參閱[適用于 linux 的 Log Analytics 代理程式](https://github.com/microsoft/oms-agent-for-linux)。 如需有關如何安裝適用于 Windows 的 Log Analytics 代理程式的詳細資訊, 請參閱[適用于 windows 的 Microsoft Monitoring Agent](../log-analytics/log-analytics-windows-agent.md)。
 

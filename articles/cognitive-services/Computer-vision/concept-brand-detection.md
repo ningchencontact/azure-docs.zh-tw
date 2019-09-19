@@ -10,12 +10,12 @@ ms.subservice: computer-vision
 ms.topic: conceptual
 ms.date: 08/08/2019
 ms.author: pafarley
-ms.openlocfilehash: b4bcd07cf7549029d09f5acd58fdf8f92fffed74
-ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
+ms.openlocfilehash: c3a80cbdd166f77681665ee3675c1a71ce3a9bd6
+ms.sourcegitcommit: fbea2708aab06c19524583f7fbdf35e73274f657
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/10/2019
-ms.locfileid: "68945295"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70967080"
 ---
 # <a name="detect-popular-brands-in-images"></a>偵測影像中的熱門品牌
 
@@ -74,7 +74,7 @@ ms.locfileid: "68945295"
 
 ## <a name="use-the-api"></a>使用 API
 
-品牌偵測功能是[分析影像](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) API 的一部分。 您可以透過原生 SDK 或 REST 呼叫來呼叫此 API。 包含`Brands`在**visualFeatures**查詢參數中。 然後, 當您取得完整的 JSON 回應時, 只要剖析`"brands"`區段內容的字串即可。
+品牌偵測功能是[分析影像](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) API 的一部分。 您可以透過原生 SDK 或 REST 呼叫來呼叫此 API。 包含`Brands`在**visualFeatures**查詢參數中。 然後，當您取得完整的 JSON 回應時，只要剖析`"brands"`區段內容的字串即可。
 
-* [快速入門：分析影像 (.NET SDK)](./quickstarts-sdk/csharp-analyze-sdk.md)
+* [快速入門：電腦視覺 .NET SDK](./quickstarts-sdk/csharp-sdk.md)
 * [快速入門：分析影像 (REST API)](./quickstarts/csharp-analyze.md)

@@ -3,20 +3,20 @@ title: 使用 C# 服務程式庫來開始使用 Microsoft 語音辨識 API | Mic
 titlesuffix: Azure Cognitive Services
 description: 使用 Bing 語音辨識服務程式庫將口語轉換成文字。
 services: cognitive-services
-author: zhouwangzw
-manager: wolfma
+author: nitinme
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-speech
 ms.topic: article
 ms.date: 09/18/2018
-ms.author: zhouwang
+ms.author: nitinme
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: 0f445d1fff48ee7a04c0b1c1d64c808f87d824b7
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 71c3e471a8844eb6c6b70921e40c94338a084a8b
+ms.sourcegitcommit: fbea2708aab06c19524583f7fbdf35e73274f657
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60515215"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70965850"
 ---
 # <a name="quickstart-use-the-bing-speech-recognition-service-library-in-c35-for-net-windows"></a>快速入門：以適用於 .NET Windows 的 C&#35; 開始使用 Bing 語音辨識服務程式庫
 
@@ -40,28 +40,28 @@ ms.locfileid: "60515215"
 
 ### <a name="subscribe-to-the-speech-recognition-api-and-get-a-free-trial-subscription-key"></a>訂閱語音辨識 API 並取得免費試用訂用帳戶金鑰
 
-Speech API 是「認知服務」(先前稱為 Project Oxford) 的組件。 您可以從[認知服務訂用帳戶](https://azure.microsoft.com/try/cognitive-services/)頁面，取得免費試用訂用帳戶金鑰。 選取 Speech API 之後，請選取 [取得 API 金鑰]  以取得金鑰。 這會傳回主要和次要金鑰。 兩個金鑰都繫結至同一個配額，因此你可以使用任一金鑰。
+Speech API 是「認知服務」(先前稱為 Project Oxford) 的組件。 您可以從[認知服務訂用帳戶](https://azure.microsoft.com/try/cognitive-services/)頁面，取得免費試用訂用帳戶金鑰。 選取 Speech API 之後，請選取 [取得 API 金鑰] 以取得金鑰。 這會傳回主要和次要金鑰。 兩個金鑰都繫結至同一個配額，因此你可以使用任一金鑰。
 
 > [!IMPORTANT]
 > * 取得訂用帳戶金鑰。 您必須有[訂用帳戶金鑰](https://azure.microsoft.com/try/cognitive-services/)，才能使用語音用戶端程式庫。
 >
 > * 使用您的訂用帳戶金鑰。 使用所提供的 C# 服務程式庫範例應用程式時，您必須提供提供訂用帳戶金鑰作為其中一個命令列參數。 如需詳細資訊，請參閱[執行範例應用程式](#step-3-run-the-sample-application)。
 
-## <a name="step-1-install-the-sample-application"></a>步驟 1：安裝範例應用程式
+## <a name="step-1-install-the-sample-application"></a>步驟 1:安裝範例應用程式
 
-1. 啟動 Visual Studio 2015，然後選取 [檔案]   > [開啟]   > [專案/方案]  。
+1. 啟動 Visual Studio 2015，然後選取 [檔案] > [開啟] > [專案/方案]。
 
 2. 按兩下以開啟名為 SpeechClient.sln 的 Visual Studio 2015 解決方案 (.sln) 檔案。 此解決方案隨即在 Visual Studio 中開啟。
 
-## <a name="step-2-build-the-sample-application"></a>步驟 2：建置範例應用程式
+## <a name="step-2-build-the-sample-application"></a>步驟 2:建置範例應用程式
 
-按 Ctrl+Shift+B，或選取功能區功能表上的 [建置]  。 然後選取 [建置方案]  。
+按 Ctrl+Shift+B，或選取功能區功能表上的 [建置]。 然後選取 [建置方案]。
 
 ## <a name="step-3-run-the-sample-application"></a>步驟 3：執行範例應用程式
 
-1. 在建置完成之後，按 F5 或選取功能區功能表上的 [啟動]  來執行範例。
+1. 在建置完成之後，按 F5 或選取功能區功能表上的 [啟動] 來執行範例。
 
-2. 開啟範例的輸出目錄，例如 SpeechClientSample\bin\Debug。 按 Shift 和滑鼠右鍵，然後選取 [在此處開啟命令視窗]  。
+2. 開啟範例的輸出目錄，例如 SpeechClientSample\bin\Debug。 按 Shift 和滑鼠右鍵，然後選取 [在此處開啟命令視窗]。
 
 3. 搭配下列參數執行 `SpeechClientSample.exe`：
 

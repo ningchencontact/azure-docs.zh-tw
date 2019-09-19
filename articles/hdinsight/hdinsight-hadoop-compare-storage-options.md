@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 06/17/2019
-ms.openlocfilehash: 5cb3b5c2d36707875c87bd589e3d96c0a2f4f939
-ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
+ms.openlocfilehash: d036e56a4ccf826ccd19fb7424b7b76568839b23
+ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70885209"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71104542"
 ---
 # <a name="compare-storage-options-for-use-with-azure-hdinsight-clusters"></a>比較與 Azure HDInsight 叢集搭配使用的儲存體選項
 
@@ -34,7 +34,7 @@ ms.locfileid: "70885209"
 |Azure 儲存體| Blob 儲存體 * * | 物件 | 區塊 Blob | 標準 | 經常性存取、非經常性存取、封存 | 全部 | 全部 |
 |Azure Data Lake Storage Gen1| N/A | 階層式（filesystem） | N/A | N/A | N/A | 僅限3。6 | HBase 以外的所有 |
 
-\* * 對於 HDInsight 叢集，只有次要儲存體帳戶可以是 BlobStorage 類型。
+\* * 對於 HDInsight 叢集，只有次要儲存體帳戶可以屬於類型 BlobStorage，而分頁 Blob 不是支援的儲存體選項。
 
 如需 Azure 儲存體帳戶類型的詳細資訊，請參閱[Azure 儲存體帳戶總覽](../storage/common/storage-account-overview.md)
 
@@ -129,7 +129,7 @@ Azure 儲存體是強大的一般用途儲存體解決方案，其完美整合�
 
 下圖提供 Azure 儲存體的 HDInsight 架構摘要檢視：
 
-![此圖顯示 Hadoop 叢集如何使用 HDFS API 來存取和儲存 Blob 儲存體中的結構化和非結構化資料](./media/hdinsight-hadoop-compare-storage-options/storage-architecture.png "HDInsight 儲存體架構")
+![HDInsight 儲存體架構](./media/hdinsight-hadoop-compare-storage-options/storage-architecture.png "HDInsight 儲存體架構")
 
 HDInsight 可以存取本機連接至計算節點的分散式檔案系統。 可使用完整 URI 來存取此檔案系統，例如：
 

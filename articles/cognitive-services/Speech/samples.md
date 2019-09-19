@@ -3,20 +3,20 @@ title: Bing 語音的使用範例 |Microsoft Docs
 titlesuffix: Azure Cognitive Services
 description: 使用將語音傳換成文字之 Microsoft 語音服務的範例。
 services: cognitive-services
-author: zhouwangzw
-manager: wolfma
+author: nitinme
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-speech
 ms.topic: article
 ms.date: 09/18/2018
-ms.author: zhouwang
+ms.author: nitinme
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: 4db95bdc5e83badef0170bfb3b1c52bb8610c655
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 6f2e5d46063397d401a426662c86b175e9706bea
+ms.sourcegitcommit: fbea2708aab06c19524583f7fbdf35e73274f657
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60514958"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70966464"
 ---
 # <a name="bing-speech-client-samples"></a>Bing 語音用戶端範例
 

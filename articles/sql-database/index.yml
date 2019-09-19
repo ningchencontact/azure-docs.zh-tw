@@ -73,7 +73,7 @@ sections:
       - type: list
         style: cards
         className: cardsM
-        columns: 3
+        columns: 2
         items:
           - href: /azure/sql-database/sql-database-single-index
             html: <p>將 SQL Database 伺服器管理的單一資料庫用於 SaaS 應用程式和微服務 (需要具有可預測效能的單一資料庫)。</p>
@@ -90,6 +90,11 @@ sections:
             image:
               src: media/index/i_mi.svg
             title: 受控執行個體
+          - href: /azure/sql-database/sql-database-instance-pools
+            html: <p>受控執行個體集區可用來部署多個受控執行個體並共用資源和進行快速調整，是簡單且符合成本效益的解決方案。</p>
+            image:
+              src: media/index/i_instancepool.png
+            title: 執行個體集區
   - title: 5 分鐘快速入門
     items:
       - type: paragraph
@@ -128,6 +133,12 @@ sections:
               - href: 'https://medium.com/azure-sqldb-managed-instance/working-with-sql-managed-instance-using-azure-cli-611795fe0b44'
               - href: /azure/sql-database/scripts/sql-database-create-configure-managed-instance-powershell
               - href: 'https://github.com/Azure/azure-quickstart-templates/tree/master/101-sqlmi-new-vnet'
+          - title: 建立執行個體集區
+            values:
+              - href: null
+              - href: null
+              - href: '/azure/sql-database/sql-database-instance-pools-how-to#create-an-instance-pool'
+              - href: null
   - title: 逐步教學課程和學習資料
     items:
       - type: paragraph

@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: anomaly-detector
 ms.topic: conceptual
-ms.date: 06/19/2019
+ms.date: 09/18/2019
 ms.author: dapine
-ms.openlocfilehash: a2f743b2b7e63df8b81a1024b20e3e27a3f247a9
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: 4a961080bc124e53a8c5fe4dcc5f3cd6f21e9e5c
+ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68933001"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71102561"
 ---
 # <a name="configure-anomaly-detector-containers"></a>設定異常偵測器容器
 
@@ -41,7 +41,7 @@ ms.locfileid: "68933001"
 
 ## <a name="apikey-configuration-setting"></a>ApiKey 組態設定
 
-`ApiKey` 設定會指定用來追蹤容器帳單資訊的 Azure資源金鑰。 您必須指定 ApiKey 的值, 且值必須是針對設定所指定[`Billing`](#billing-configuration-setting)之_異常_偵測器資源的有效索引鍵。
+`ApiKey` 設定會指定用來追蹤容器帳單資訊的 Azure資源金鑰。 您必須指定 ApiKey 的值，且值必須是針對設定所指定[`Billing`](#billing-configuration-setting)之_異常_偵測器資源的有效索引鍵。
 
 此設定可在下列位置找到：
 
@@ -53,15 +53,15 @@ ms.locfileid: "68933001"
 
 ## <a name="billing-configuration-setting"></a>Billing 組態設定
 
-設定會指定 Azure 上用來計量容器帳單資訊的異常偵測器資源端點 URI。 `Billing` 您必須指定此設定的值, 且該值必須是 Azure 上_異常_偵測器資源的有效端點 URI。
+設定會指定 Azure 上用來計量容器帳單資訊的異常偵測器資源端點 URI。 `Billing` 您必須指定此設定的值，且該值必須是 Azure 上_異常_偵測器資源的有效端點 URI。
 
 此設定可在下列位置找到：
 
-* Azure 入口網站：**異常**偵測器總覽, 加上標籤`Endpoint`
+* Azure 入口網站：**異常**偵測器總覽，加上標籤`Endpoint`
 
-|必要項| 名稱 | 資料類型 | 描述 |
+|必要項| Name | 資料類型 | 描述 |
 |--|------|-----------|-------------|
-|是| `Billing` | String | 計費端點 URI<br><br>範例:<br>`Billing=https://westus2.api.cognitive.microsoft.com` |
+|是| `Billing` | String | 計費端點 URI<br><br>範例：<br>`Billing=https://westus2.api.cognitive.microsoft.com` |
 
 ## <a name="eula-setting"></a>Eula 設定
 
@@ -88,10 +88,10 @@ ms.locfileid: "68933001"
 
 主機裝載位置的正確語法會隨著主機作業系統而有所不同。 此外，[主機電腦](anomaly-detector-container-howto.md#the-host-computer)的裝載位置可能會因為 Docker 服務帳戶所使用的權限與主機裝載位置的權限互相衝突，而無法存取。 
 
-|選擇性| 名稱 | 資料類型 | 描述 |
+|選擇性| Name | 資料類型 | 描述 |
 |-------|------|-----------|-------------|
 |不允許| `Input` | String | 異常偵測器容器不會使用此。|
-|選擇性| `Output` | String | 輸出裝載的目標。 預設值為 `/output`。 這是記錄的位置。 這包括容器記錄。 <br><br>範例:<br>`--mount type=bind,src=c:\output,target=/output`|
+|選擇性| `Output` | String | 輸出裝載的目標。 預設值為 `/output`。 這是記錄的位置。 這包括容器記錄。 <br><br>範例：<br>`--mount type=bind,src=c:\output,target=/output`|
 
 ## <a name="example-docker-run-commands"></a>範例 docker run 命令 
 
@@ -100,12 +100,14 @@ ms.locfileid: "68933001"
 * **行接續字元**：以下幾節的 Docker 命令會使用反斜線 `\` 作為 bash shell 的行接續字元。 請根據您主機作業系統的需求加以替換或移除。 例如，適用於 Windows 的行接續字元是插入號 `^`。 以插入號取代反斜線。 
 * **引數順序**：若非十分熟悉 Docker 容器，請勿變更引數的順序。
 
-將括弧`{}`中的值取代為您自己的值:
+將括弧`{}`中的值取代為您自己的值：
 
 | 預留位置 | 值 | 格式或範例 |
 |-------------|-------|---|
-|{API_KEY} | 異常偵測器資源的端點金鑰。 |xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx|
-|{ENDPOINT_URI} | 包括區域的計費端點值。|`https://westus2.api.cognitive.microsoft.com`|
+| **{API_KEY}** | [Azure `Anomaly Detector` `Anomaly Detector`金鑰] 頁面上資源的端點金鑰。 | `xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx` |
+| **{ENDPOINT_URI}** | 計費端點值可在 Azure `Anomaly Detector`總覽頁面上取得。| 如需明確的範例，請參閱[收集必要的參數](anomaly-detector-container-howto.md#gathering-required-parameters)。 |
+
+[!INCLUDE [subdomains-note](../../../includes/cognitive-services-custom-subdomains-note.md)]
 
 > [!IMPORTANT]
 > 必須指定 `Eula`、`Billing` 及 `ApiKey` 選項以執行容器，否則容器將不會啟動。  如需詳細資訊，請參閱[帳單](anomaly-detector-container-howto.md#billing)。

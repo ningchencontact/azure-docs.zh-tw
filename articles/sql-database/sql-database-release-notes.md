@@ -9,12 +9,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 05/15/2019
 ms.author: sstein
-ms.openlocfilehash: 21f80a2be09302e47817ccfd4223207bdcdd0413
-ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
+ms.openlocfilehash: 232f8b13174aed19477ee0b139c83fba439049ac
+ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71066818"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71101538"
 ---
 # <a name="sql-database-release-notes"></a>SQL Database 版本資訊
 
@@ -48,7 +48,6 @@ ms.locfileid: "71066818"
 | ---| --- |
 | <a href="/azure/sql-database/sql-database-instance-pools">實例集區</a> | 方便且符合成本效益的方式，將較小的 SQL 實例遷移至雲端。 |
 | <a href="https://aka.ms/managed-instance-tde-byok">具有攜帶您自己的金鑰的透明資料加密（TDE）（BYOK）</a> |如需詳細資訊[，請參閱 Azure Key Vault 中客戶管理的金鑰的 Azure SQL 透明資料加密：攜帶您自己的金鑰支援](transparent-data-encryption-byok-azure-sql.md)。|
-| <a href="https://aka.ms/managed-instance-failover-groups">地理位置分散的容錯移轉群組</a> | 將實例的複本保存在另一個區域中，並確保您的資料即使在區域嚴重損壞情況下仍可供使用。 |
 | <a href="https://aka.ms/managed-instance-aadlogins">實例層級 Azure AD 伺服器主體（登入）</a> | 使用<a href="https://docs.microsoft.com/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current">CREATE LOGIN FROM EXTERNAL PROVIDER</a>語句來建立伺服器層級的登入。 |
 | [異動複寫](sql-database-managed-instance-transactional-replication.md) | 將資料表中的變更複寫到位於受控實例、單一資料庫或 SQL Server 實例上的其他資料庫，或在其他受控實例或 SQL Server 實例中變更某些資料列時，更新您的資料表。 如需相關資訊，請參閱[在 Azure SQL Database 受控實例資料庫中設定](replication-with-sql-database-managed-instance.md)複寫。 |
 | 威脅偵測 |如需相關資訊，請參閱[在 Azure SQL Database 受控實例中設定威脅偵測](sql-database-managed-instance-threat-detection.md)。|

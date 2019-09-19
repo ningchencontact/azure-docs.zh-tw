@@ -16,12 +16,12 @@ ms.author: mimart
 ms.reviewer: japere
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bdb1e26d9f10ae9b9549421e72a99f2c4e5341c2
-ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
+ms.openlocfilehash: b3d758b63b56bb84b1cb4e5793731da5eb4f5209
+ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71056091"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71103865"
 ---
 # <a name="enable-remote-access-to-power-bi-mobile-with-azure-ad-application-proxy"></a>使用 Azure AD 應用程式 Proxy 啟用 Power BI 行動版的遠端存取
 
@@ -29,7 +29,7 @@ ms.locfileid: "71056091"
 
 ## <a name="prerequisites"></a>必要條件
 
-本文假設您已部署報表服務並 [啟用應用程式 Proxy](application-proxy-add-on-premises-application.md)。
+本文假設您已部署報表服務並[啟用應用程式 Proxy](application-proxy-add-on-premises-application.md)。
 
 - 啟用應用程式 Proxy 需要在 Windows server 上安裝連接器，並完成[必要條件](application-proxy-add-on-premises-application.md#prepare-your-on-premises-environment)，讓連接器可以與 Azure AD 服務進行通訊。  
 - 發佈 Power BI 時，建議您使用相同的內部和外部網域。 若要深入瞭解自訂網域，請參閱[在應用程式 Proxy 中使用自訂網域](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-configure-custom-domain)。
@@ -37,7 +37,7 @@ ms.locfileid: "71056091"
 
 ## <a name="step-1-configure-kerberos-constrained-delegation-kcd"></a>步驟 1:設定 Kerberos 限制委派 (KCD)
 
-對於使用 Windows 驗證的內部部署應用程式來說，您可以使用 Kerberos 驗證通訊協定和稱為 Kerberos 限制委派 (KCD) 的功能來達成單一登入 (SSO)。 當設定時，KCD 允許應用程式 Proxy 連接器取得使用者的 Windows token，即使使用者未直接登入 Windows。 若要深入瞭解 KCD，請參閱 [Kerberos 限制委派總覽](https://technet.microsoft.com/library/jj553400.aspx)和[kerberos 限制委派，以使用應用程式 Proxy 單一登入您的應用程式](application-proxy-configure-single-sign-on-with-kcd.md)。
+對於使用 Windows 驗證的內部部署應用程式來說，您可以使用 Kerberos 驗證通訊協定和稱為 Kerberos 限制委派 (KCD) 的功能來達成單一登入 (SSO)。 當設定時，KCD 允許應用程式 Proxy 連接器取得使用者的 Windows token，即使使用者未直接登入 Windows。 若要深入瞭解 KCD，請參閱[Kerberos 限制委派總覽](https://technet.microsoft.com/library/jj553400.aspx)和[kerberos 限制委派，以使用應用程式 Proxy 單一登入您的應用程式](application-proxy-configure-single-sign-on-with-kcd.md)。
 
 在 Reporting Services 端不會有太多的設定。 只要確定具備有效的服務主體名稱（SPN），即可進行適當的 Kerberos 驗證。 也請確定已啟用 Reporting Services 伺服器進行 Negotiate 驗證。
 
@@ -45,8 +45,8 @@ ms.locfileid: "71056091"
 
 ### <a name="configure-the-service-principal-name-spn"></a>設定服務主體名稱（SPN）
 
-SPN 是使用 Kerberos 驗證之服務的唯一識別碼。 您必須確定您的報表伺服器有適當的 HTTP SPN 存在。 如需如何為報表伺服器設定適當服務主體名稱（SPN）的詳細資訊，請參閱 [為報表伺服器註冊服務主體名稱（spn）](https://msdn.microsoft.com/library/cc281382.aspx)。
-您可以執行 Setspn 命令並搭配 -L 選項，來確認是否已新增 SPN。 若要深入瞭解此命令，請參閱 [Setspn](https://social.technet.microsoft.com/wiki/contents/articles/717.service-principal-names-spn-setspn-syntax.aspx)。
+SPN 是使用 Kerberos 驗證之服務的唯一識別碼。 您必須確定您的報表伺服器有適當的 HTTP SPN 存在。 如需如何為報表伺服器設定適當服務主體名稱（SPN）的詳細資訊，請參閱[為報表伺服器註冊服務主體名稱（spn）](https://msdn.microsoft.com/library/cc281382.aspx)。
+您可以執行 Setspn 命令並搭配 -L 選項，來確認是否已新增 SPN。 若要深入了解此命令，請參閱 [Setspn](https://social.technet.microsoft.com/wiki/contents/articles/717.service-principal-names-spn-setspn-syntax.aspx)。
 
 ### <a name="enable-negotiate-authentication"></a>啟用 Negotiate 驗證
 
@@ -60,20 +60,20 @@ SPN 是使用 Kerberos 驗證之服務的唯一識別碼。 您必須確定您�
 </AuthenticationTypes>
 ```
 
-如需詳細資訊，請參閱 [修改 Reporting Services 設定檔](https://msdn.microsoft.com/library/bb630448.aspx) 和 [在報表伺服器上設定 Windows 驗證](https://msdn.microsoft.com/library/cc281253.aspx)。
+如需詳細資訊，請參閱[修改 Reporting Services 設定檔](https://msdn.microsoft.com/library/bb630448.aspx)和[在報表伺服器上設定 Windows 驗證](https://msdn.microsoft.com/library/cc281253.aspx)。
 
 ### <a name="ensure-the-connector-is-trusted-for-delegation-to-the-spn-added-to-the-reporting-services-application-pool-account"></a>請確定連接器受信任，可委派給新增至 Reporting Services 應用程式集區帳戶的 SPN
 設定 KCD，讓 Azure AD 應用程式 Proxy 服務可以將使用者身分識別委派給 Reporting Services 的應用程式集區帳戶。 啟用應用程式 Proxy 連接器來設定 KCD，以便為已在 Azure AD 中驗證的使用者擷取 Kerberos 票證。 然後，該伺服器會將內容傳遞至目標應用程式，或在此情況下 Reporting Services。
 
 若要設定 KCD，請針對每個連接器電腦重複執行下列步驟：
 
-1. 以網域系統管理員身分登入網域控制站，然後開啟 **Active Directory 使用者和電腦**。
+1. 以網域系統管理員身分登入網域控制站，然後開啟**Active Directory 使用者和電腦**。
 2. 尋找連接器執行所在的電腦。  
-3. 按兩下該電腦，然後選取 [ **委派** ] 索引標籤。
-4. 將 [委派設定] 設定為 [ **信任這台電腦，但只委派指定的服務**]。 然後，選取 [ **使用任何驗證通訊協定**]。
+3. 按兩下該電腦，然後選取 [**委派**] 索引標籤。
+4. 將 [委派設定] 設定為 [**信任這台電腦，但只委派指定的服務**]。 然後，選取 [使用任何驗證通訊協定]。
 5. 選取 [**新增**]，然後選取 [**使用者或電腦**]。
 6. 輸入您要用來 Reporting Services 的服務帳戶。 這是您在 Reporting Services 設定中新增 SPN 的帳戶。
-7. 按一下 **[確定]** 。 若要儲存變更，請再按一次 **[確定]**  。
+7. 按一下 [確定]。 若要儲存變更，請再按一次 **[確定]** 。
 
 如需詳細資訊，請參閱[使用應用程式 Proxy 單一登入應用程式的 Kerberos 限制委派](application-proxy-configure-single-sign-on-with-kcd.md)。
 
@@ -81,7 +81,7 @@ SPN 是使用 Kerberos 驗證之服務的唯一識別碼。 您必須確定您�
 
 現在您已經準備好設定 Azure AD 應用程式 Proxy。
 
-1. 使用下列設定，透過應用程式 Proxy 發行報表服務。 如需有關如何透過應用程式 Proxy 發佈應用程式的逐步指示，請參閱 [使用 Azure AD 應用程式 Proxy 發佈應用](application-proxy-add-on-premises-application.md#add-an-on-premises-app-to-azure-ad)程式。
+1. 使用下列設定，透過應用程式 Proxy 發行報表服務。 如需有關如何透過應用程式 Proxy 發佈應用程式的逐步指示，請參閱[使用 Azure AD 應用程式 Proxy 發佈應用](application-proxy-add-on-premises-application.md#add-an-on-premises-app-to-azure-ad)程式。
    - **內部 URL**：輸入連接器可以在公司網路中連接之報表伺服器的 URL。 請確定可從安裝連接器的伺服器連線到此 URL。 最佳做法是使用最上層網域`https://servername/` （例如）來避免子路徑的問題（例如， `https://servername/reports/`和`https://servername/reportserver/`）不會透過應用程式 Proxy 發佈。
      > [!NOTE]
      > 我們建議您對報表伺服器使用安全的 HTTPS 連接。 如需的詳細資訊，請參閱[在原生模式報表伺服器上設定 SSL 連線](https://docs.microsoft.com/sql/reporting-services/security/configure-ssl-connections-on-a-native-mode-report-server?view=sql-server-2017)。
@@ -91,17 +91,17 @@ SPN 是使用 Kerberos 驗證之服務的唯一識別碼。 您必須確定您�
 
 2. 發佈您的應用程式之後，請按照下列步驟設定單一登入設定：
 
-   a. 在入口網站的 [應用程式] 頁面上，選取 [ **單一登入**]。
+   a. 在入口網站的應用程式頁面上，選取 [單一登入]。
 
-   b. 針對 [**單一登入模式]** ，選取 [ **整合式 Windows 驗證**]。
+   b. 針對 [**單一登入模式]** ，選取 [**整合式 Windows 驗證**]。
 
    c. 將**內部應用程式 SPN** 設定為您先前設定的值。  
 
-   d. 選擇要代表您的使用者使用之連接器的**委派登** 入身分識別。 如需詳細資訊，請參閱 [使用不同的內部部署和雲端](application-proxy-configure-single-sign-on-with-kcd.md#working-with-different-on-premises-and-cloud-identities)身分識別。
+   d. 針對要代表使用者使用的連接器選擇 [委派的登入身分識別]。 如需詳細資訊，請參閱[使用不同的內部部署和雲端](application-proxy-configure-single-sign-on-with-kcd.md#working-with-different-on-premises-and-cloud-identities)身分識別。
 
    e. 按一下 [確定] 儲存變更。
 
-若要完成應用程式的設定，請移至 **[使用者和群組** ] 區段，並指派使用者以存取此應用程式。
+若要完成應用程式的設定，請移至 **[使用者和群組**] 區段，並指派使用者以存取此應用程式。
 
 ## <a name="step-3-modify-the-reply-uris-for-the-application"></a>步驟 3：修改應用程式的回復 URI
 
@@ -127,13 +127,13 @@ SPN 是使用 Kerberos 驗證之服務的唯一識別碼。 您必須確定您�
 
 ## <a name="step-4-connect-from-the-power-bi-mobile-app"></a>步驟 4：從 Power BI 行動版應用程式連接
 
-1. 在 Power BI 行動裝置應用程式中，連接到您的 Reporting Services 實例。 若要這麼做，請輸入您透過應用程式 Proxy 發佈之應用程式的 **外部 URL**  。
+1. 在 Power BI 行動裝置應用程式中，連接到您的 Reporting Services 實例。 若要這麼做，請輸入您透過應用程式 Proxy 發佈之應用程式的**外部 URL** 。
 
    ![Power BI 具有外部 URL 的行動應用程式](media/application-proxy-integrate-with-power-bi/app-proxy-power-bi-mobile-app.png)
 
 2. 選取 [ **連接**]。 系統會將您導向至 Azure Active Directory 登入 頁面。
 
-3. 為您的使用者輸入有效的認證，然後選取 [登 **入**]。 您會看到 Reporting Services 伺服器中的元素。
+3. 為您的使用者輸入有效的認證，然後選取 [登**入**]。 您會看到 Reporting Services 伺服器中的元素。
 
 ## <a name="step-5-configure-intune-policy-for-managed-devices-optional"></a>步驟 5：設定受管理裝置的 Intune 原則（選擇性）
 
@@ -142,7 +142,7 @@ SPN 是使用 Kerberos 驗證之服務的唯一識別碼。 您必須確定您�
 
 您可以使用 Microsoft Intune 來管理公司員工使用的用戶端應用程式。 Intune 可讓您使用資料加密和其他存取需求之類的功能。 若要深入瞭解透過 Intune 管理應用程式，請參閱 Intune 應用程式管理。 若要讓 Power BI 行動應用程式使用 Intune 原則，請使用下列步驟。
 
-1. 前往 [ **Azure Active Directory**  ]，然後移至 [ **應用程式註冊**]。
+1. 前往 [ **Azure Active Directory** ]，然後移至 [**應用程式註冊**]。
 2. 在註冊您的原生用戶端應用程式時，選取在步驟3中設定的應用程式。
 3. 在應用程式的頁面上，選取 [ **API 許可權**]。
 4. 按一下 [**新增許可權**]。 

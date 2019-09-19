@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 04/15/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1341f0def306a1167e1e4876365c70901cf89cd2
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 5fc1f6434bea8f75c7bcc7859c6f90d7abdd031b
+ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67086996"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71091045"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-workable"></a>教學課程：Azure Active Directory 與 Workable 整合
 
@@ -142,7 +142,7 @@ Workable 與 Azure AD 整合可提供下列優點：
 
 3. 登出 URL
 
-在單一登入啟用後，您的 Workable 帳戶管理員將會通知您，屆時您即可在 [Workable 的 SSO 頁面](https://id.workable.com/sso/signin)中使用 Workable 帳戶子網域進行登入。
+在單一登入啟用後，您的 Workable 帳戶管理員將會通知您，屆時您即可在 [Workable 的 SSO 頁面](https://help.workable.com/hc/en-us/articles/360000067753-Single-Sign-on-SSO-Overview-Pro)中使用 Workable 帳戶子網域進行登入。
 
 ### <a name="create-an-azure-ad-test-user"></a>建立 Azure AD 測試使用者
 

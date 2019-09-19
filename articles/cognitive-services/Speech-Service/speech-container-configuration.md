@@ -10,16 +10,16 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 06/11/2019
 ms.author: dapine
-ms.openlocfilehash: c4598e5e99012694a798e44c0d37e9578486751b
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: f7e2e95b553039b88267f730787fbbac82099948
+ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68932115"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71105174"
 ---
 # <a name="configure-speech-service-containers"></a>設定語音服務容器
 
-語音容器可讓客戶建立一個已優化的語音應用程式架構, 以充分利用強大的雲端功能和邊緣位置。 我們現在支援的兩個語音容器是**語音轉換文字**和**文字轉換語音**。 
+語音容器可讓客戶建立一個已優化的語音應用程式架構，以充分利用強大的雲端功能和邊緣位置。 我們現在支援的兩個語音容器是**語音轉換文字**和**文字轉換語音**。 
 
 **語音**容器執行時間環境是使用`docker run`命令引數來設定。 此容器有數個必要的設定，和一些選擇性的設定。 命令有相關[範例](#example-docker-run-commands)可供參考。 容器專屬設定包括計費設定。 
 
@@ -32,7 +32,7 @@ ms.locfileid: "68932115"
 
 ## <a name="apikey-configuration-setting"></a>ApiKey 組態設定
 
-`ApiKey` 設定會指定用來追蹤容器帳單資訊的 Azure資源金鑰。 您必須指定 ApiKey 的值, 且值必須是為設定所指定[`Billing`](#billing-configuration-setting)之_語音_資源的有效金鑰。
+`ApiKey` 設定會指定用來追蹤容器帳單資訊的 Azure資源金鑰。 您必須指定 ApiKey 的值，且值必須是為設定所指定[`Billing`](#billing-configuration-setting)之_語音_資源的有效金鑰。
 
 此設定可在下列位置找到：
 
@@ -44,15 +44,15 @@ ms.locfileid: "68932115"
 
 ## <a name="billing-configuration-setting"></a>Billing 組態設定
 
-設定會指定 Azure 上用來計量容器帳單資訊的語音資源端點 URI。 `Billing` 您必須指定此設定的值, 且該值必須是 Azure 上_語音_資源的有效端點 URI。 容器會每隔 10 到 15 分鐘回報使用量。
+設定會指定 Azure 上用來計量容器帳單資訊的語音資源端點 URI。 `Billing` 您必須指定此設定的值，且該值必須是 Azure 上_語音_資源的有效端點 URI。 容器會每隔 10 到 15 分鐘回報使用量。
 
 此設定可在下列位置找到：
 
-* Azure 入口網站：**語音**總覽, 加上標籤`Endpoint`
+* Azure 入口網站：**語音**總覽，加上標籤`Endpoint`
 
-|必要項| 名稱 | 資料類型 | 描述 |
+|必要項| Name | 資料類型 | 描述 |
 |--|------|-----------|-------------|
-|是| `Billing` | String | 計費端點 URI<br><br>範例:<br>`Billing=https://westus.api.cognitive.microsoft.com/sts/v1.0` |
+|是| `Billing` | String | 計費端點 URI<br><br>範例：<br>`Billing=https://westus.api.cognitive.microsoft.com/sts/v1.0` |
 
 ## <a name="eula-setting"></a>Eula 設定
 
@@ -78,10 +78,10 @@ ms.locfileid: "68932115"
 
 主機裝載位置的正確語法會隨著主機作業系統而有所不同。 此外，[主機電腦](speech-container-howto.md#the-host-computer)的裝載位置可能會因為 Docker 服務帳戶所使用的權限與主機裝載位置的權限互相衝突，而無法存取。 
 
-|選擇性| 名稱 | 資料類型 | 描述 |
+|選擇性| Name | 資料類型 | 描述 |
 |-------|------|-----------|-------------|
 |不允許| `Input` | String | 語音容器不會使用此功能。|
-|選擇性| `Output` | String | 輸出裝載的目標。 預設值為 `/output`。 這是記錄的位置。 這包括容器記錄。 <br><br>範例:<br>`--mount type=bind,src=c:\output,target=/output`|
+|選擇性| `Output` | String | 輸出裝載的目標。 預設值為 `/output`。 這是記錄的位置。 這包括容器記錄。 <br><br>範例：<br>`--mount type=bind,src=c:\output,target=/output`|
 
 ## <a name="example-docker-run-commands"></a>範例 docker run 命令 
 
@@ -94,8 +94,10 @@ ms.locfileid: "68932115"
 
 | 預留位置 | 值 | 格式或範例 |
 |-------------|-------|---|
-|{API_KEY} | 語音資源的 API 金鑰。 |xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx|
-|{ENDPOINT_URI} | 端點值, 包括區域。|`https://westus.api.cognitive.microsoft.com/sts/v1.0`|
+| **{API_KEY}** | [Azure `Speech` `Speech`金鑰] 頁面上資源的端點金鑰。 | `xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx` |
+| **{ENDPOINT_URI}** | 計費端點值可在 Azure `Speech`總覽頁面上取得。| 如需明確的範例，請參閱[收集必要的參數](speech-container-howto.md#gathering-required-parameters)。 |
+
+[!INCLUDE [subdomains-note](../../../includes/cognitive-services-custom-subdomains-note.md)]
 
 > [!IMPORTANT]
 > 必須指定 `Eula`、`Billing` 及 `ApiKey` 選項以執行容器，否則容器將不會啟動。  如需詳細資訊，請參閱[帳單](#billing-configuration-setting)。

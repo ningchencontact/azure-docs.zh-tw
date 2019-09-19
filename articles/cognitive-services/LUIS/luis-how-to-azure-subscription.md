@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 09/09/2019
 ms.author: diberry
-ms.openlocfilehash: 5c2e81cd11826a0325cd78384a22ec7eefb3a565
-ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
+ms.openlocfilehash: 1fb57a7c6cc694c56667d589eae39442ee9e82ac
+ms.sourcegitcommit: 909ca340773b7b6db87d3fb60d1978136d2a96b0
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70844877"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70984371"
 ---
 # <a name="using-authoring-and-runtime-resource-keys"></a>使用撰寫和執行時間資源金鑰
 
@@ -56,7 +56,7 @@ ms.locfileid: "70844877"
 1. 選取 [+ 建立資源]。
 1. 在搜尋方塊中，輸入 `Language understanding`。
 1. 選取 [建立] 來開始建立程序。 
-1. 建立**兩者**以建立撰寫和預測端點執行時間索引鍵。 
+1. 選取 [**兩者**] 以建立撰寫和預測端點執行時間索引鍵。 
 1. 輸入建立資源所需的資訊，然後選取 [**建立**] 以完成程式。
 
     ![建立語言理解資源](./media/luis-how-to-azure-subscription/create-resource-in-azure.png)
@@ -111,7 +111,7 @@ ms.locfileid: "70844877"
 
 1. 登入[LUIS 入口網站](https://www.luis.ai)。
 1. 在上方導覽列中，選取最右側的 [使用者帳戶]，然後選取 [**設定**]。
-1. 在 [**使用者設定**] 頁面上，選取 [**新增撰寫資源**]，然後選取現有的撰寫資源。 選取 [ **儲存**]。 
+1. 在 [**使用者設定**] 頁面上，選取 [**新增撰寫資源**]，然後選取現有的撰寫資源。 選取 [儲存]。 
 
 ## <a name="assign-a-resource-to-an-app"></a>將資源指派給應用程式
 

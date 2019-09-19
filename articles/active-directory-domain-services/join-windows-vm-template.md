@@ -1,106 +1,148 @@
 ---
-title: 將 Windows Server VM 加入 Azure Active Directory Domain Services | Microsoft Docs
-description: 使用 Azure Resource Manager 範本將 Windows Server 虛擬機器加入受控網域。
+title: 使用範本將 Windows Server VM 加入 Azure AD DS |Microsoft Docs
+description: 瞭解如何使用 Azure Resource Manager 範本將新的或現有的 Windows Server VM 加入 Azure Active Directory Domain Services 受控網域。
 services: active-directory-ds
-documentationcenter: ''
 author: iainfoulds
 manager: daveba
-editor: curtand
 ms.assetid: 4eabfd8e-5509-4acd-86b5-1318147fddb5
 ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/20/2019
+ms.date: 09/17/2019
 ms.author: iainfou
-ms.openlocfilehash: 599d474b7c45274c87878c622149a86bc93af318
-ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
+ms.openlocfilehash: d4e6beb376172e5ec5285d26b47fd23b396d5e38
+ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69612266"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71104118"
 ---
-# <a name="join-a-windows-server-virtual-machine-to-a-managed-domain-using-a-resource-manager-template"></a>使用 Resource Manager 範本將 Windows Server 虛擬機器加入受控網域
-本文示範如何使用 Resource Manager 範本，將 Windows Server 虛擬機器加入至 Azure Active Directory Domain Services 之受控網域。
+# <a name="join-a-windows-server-virtual-machine-to-an-azure-active-directory-domain-services-managed-domain-using-a-resource-manager-template"></a>使用 Resource Manager 範本將 Windows Server 虛擬機器加入 Azure Active Directory Domain Services 受控網域
 
-[!INCLUDE [active-directory-ds-prerequisites.md](../../includes/active-directory-ds-prerequisites.md)]
+若要將 Azure 虛擬機器（Vm）的部署和設定自動化，您可以使用 Resource Manager 範本。 這些範本可讓您每次都建立一致的部署。 延伸模組也可以包含在範本中，以自動將 VM 設定為部署的一部分。 有一個有用的延伸模組會將 Vm 加入網域，而該網域可以搭配 Azure Active Directory Domain Services （Azure AD DS）受控網域使用。
 
-## <a name="before-you-begin"></a>開始之前
-若要執行本文中所列的工作，您需要︰
-1. 有效的 **Azure 訂用帳戶**。
-2. **Azure AD 目錄** - 與內部部署目錄或僅限雲端的目錄同步處理。
-3. **Azure AD 網域服務** 必須已針對 Azure AD 目錄啟用。 如果還沒有啟用，請按照 [入門指南](tutorial-create-instance.md)所述的所有工作來進行。
-4. 確保您尚未將受控網域的 IP 位址設定為虛擬網路的 DNS 伺服器。 如需詳細資訊，請參閱[如何更新 Azure 虛擬網路的 DNS 設定](tutorial-create-instance.md#update-dns-settings-for-the-azure-virtual-network)
-5. 完成[將密碼同步處理至您的 Azure AD Domain Services 受控網域](tutorial-create-instance.md#enable-user-accounts-for-azure-ad-ds)所需的步驟。
+本文說明如何使用 Resource Manager 範本，建立 Windows Server VM 並將其加入 Azure AD DS 受控網域。 您也會瞭解如何將現有的 Windows Server VM 加入 Azure AD DS 網域。
 
+## <a name="prerequisites"></a>必要條件
 
-## <a name="install-and-configure-required-tools"></a>安裝並設定必要的工具
-您可以使用下列選項之一來執行這份文件所述的步驟：
-* **Azure PowerShell**：[安裝及設定](https://azure.microsoft.com/documentation/articles/powershell-install-configure/) \(英文\)
-* **Azure CLI**：[安裝及設定](https://azure.microsoft.com/documentation/articles/xplat-cli-install/)
+若要完成此教學課程，您需要下列資源和權限：
 
+* 有效的 Azure 訂用帳戶。
+    * 如果您沒有 Azure 訂用帳戶，請先[建立帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)。
+* 與您的訂用帳戶相關聯的 Azure Active Directory 租用戶，可與內部部署目錄或僅限雲端的目錄同步。
+    * 如果需要，請[建立 Azure Active Directory 租用戶][create-azure-ad-tenant]或[將 Azure 訂用帳戶與您的帳戶建立關聯][associate-azure-ad-tenant]。
+* 已在您的 Azure AD 租用戶中啟用並設定 Azure Active Directory Domain Services 受控網域。
+    * 如有需要，第一個教學課程會引導您[建立並設定 Azure Active Directory Domain Services 執行個體][create-azure-ad-ds-instance]。
+* 屬於您 Azure AD 租用戶中 Azure AD DC 系統管理員群組成員的使用者帳戶。
 
-## <a name="option-1-provision-a-new-windows-server-vm-and-join-it-to-a-managed-domain"></a>選項 1：佈建新的 Windows Server VM，並將它加入受控網域
-**快速入門範本名稱**:[201-vm-domain-join](https://azure.microsoft.com/resources/templates/201-vm-domain-join/)
+## <a name="azure-resource-manager-template-overview"></a>Azure Resource Manager 範本總覽
 
-若要部署 Windows Server 虛擬機器，並將它加入至受控網域，請執行下列步驟：
-1. 流覽至[快速入門範本](https://azure.microsoft.com/resources/templates/201-vm-domain-join/)。
-2. 按一下 [ **部署至 Azure**]。
-3. 在 [自訂部署] 頁面上，提供必要的資訊來佈建虛擬機器。
-4. 選取 [Azure 訂用帳戶] 來佈建虛擬機器。 挑選已啟用 Azure AD Domain Services 的相同 Azure 訂用帳戶。
-5. 選擇現有的**資源群組**或建立新群組。
-6. 挑選要部署新虛擬機器的**位置**。
-7. 在 [現有 VNET 名稱]，指定已部署 Azure AD Domain Services 受控網域之虛擬網路。
-8. 在 [現有的子網路名稱] 中，指定想要部署此虛擬機器之虛擬網路內的子網路。 請勿在虛擬網路中選取閘道子網路。 此外，請勿選取部署受控網域中的專用子網路。
-9. 在 [DNS 標籤首碼] 中，指定正在佈建虛擬機器的主機名稱。 例如，'contoso-win'。
-10. 選取虛擬機器的適當 **VM 大小**。
-11. 在 [要加入的網域] 中，指定受控網域之 DNS 網域名稱。
-12. 在 [網域使用者名稱]，指定受控網域上的使用者帳戶名稱，您應使用它將 VM 加入受控網域。
-13. 在 [網域密碼] 中，使用 'domainUsername' 參數指定網域使用者帳戶參照到的密碼。
-14. 選擇性：您可以指定自訂 OU 的 **OU 路徑**，在其中新增虛擬機器。 如果您未指定此參數的值，要將虛擬機器新增到受控網域上的預設 **AAD DC 電腦** OU。
-15. 在 [VM 系統管理員使用者名稱] 欄位中，指定虛擬機器的本機系統管理員帳戶名稱。
-16. 在 [VM 系統管理員密碼] 欄位中，指定虛擬機器的本機系統管理員密碼。 提供虛擬機器的強式本機系統管理員密碼，以防止暴力密碼破解攻擊。
-17. 按一下 [我同意上方所述的條款及條件]。
-18. 按一下 [購買] 來佈建虛擬機器。
+Resource Manager 範本可讓您在程式碼中定義 Azure 基礎結構。 Vm 的必要資源、網路連線或設定都可以在範本中定義。 這些範本會每次建立一致且可重現的部署，並在您進行變更時進行版本設定。 如需詳細資訊，請參閱[Azure Resource Manager 範本總覽][template-overview]。
+
+每個資源都是在使用 JSON 的範本中定義。 下列 JSON 範例會使用*virtualMachines/extensions*資源類型來安裝 Active Directory 網域加入延伸模組。 系統會使用您在部署時指定的參數。 部署擴充功能之後，VM 會加入指定的 Azure AD DS 受控網域。
+
+```json
+ {
+      "apiVersion": "2015-06-15",
+      "type": "Microsoft.Compute/virtualMachines/extensions",
+      "name": "[concat(parameters('dnsLabelPrefix'),'/joindomain')]",
+      "location": "[parameters('location')]",
+      "dependsOn": [
+        "[concat('Microsoft.Compute/virtualMachines/', parameters('dnsLabelPrefix'))]"
+      ],
+      "properties": {
+        "publisher": "Microsoft.Compute",
+        "type": "JsonADDomainExtension",
+        "typeHandlerVersion": "1.3",
+        "autoUpgradeMinorVersion": true,
+        "settings": {
+          "Name": "[parameters('domainToJoin')]",
+          "OUPath": "[parameters('ouPath')]",
+          "User": "[concat(parameters('domainToJoin'), '\\', parameters('domainUsername'))]",
+          "Restart": "true",
+          "Options": "[parameters('domainJoinOptions')]"
+        },
+        "protectedSettings": {
+          "Password": "[parameters('domainPassword')]"
+        }
+      }
+    }
+```
+
+即使您未在相同的範本中建立 VM，也可以部署此 VM 擴充功能。 本文中的範例會示範下列兩種方法：
+
+* [建立 Windows Server VM 並加入受控網域](#create-a-windows-server-vm-and-join-to-a-managed-domain)
+* [將現有的 Windows Server VM 加入受控網域](#join-an-existing-windows-server-vm-to-a-managed-domain)
+
+## <a name="create-a-windows-server-vm-and-join-to-a-managed-domain"></a>建立 Windows Server VM 並加入受控網域
+
+如果您需要 Windows Server VM，您可以使用 Resource Manager 範本來建立及設定它。 部署 VM 時，接著會安裝延伸模組，以將 VM 加入 Azure AD DS 受控網域。 如果您已經有想要加入 Azure AD DS 受控網域的 VM，請跳到將[現有的 Windows SERVER VM 加入受控網域](#join-an-existing-windows-server-vm-to-a-managed-domain)。
+
+若要建立 Windows Server VM，然後將它加入 Azure AD DS 受控網域，請完成下列步驟：
+
+1. 流覽至[快速入門範本](https://azure.microsoft.com/resources/templates/201-vm-domain-join/)。 選取要**部署至 Azure**的選項。
+1. 在 [**自訂部署**] 頁面上，輸入下列資訊，以建立 WINDOWS Server VM 並將其加入 Azure AD DS 受控網域：
+
+    | 設定                   | 值 |
+    |---------------------------|-------|
+    | 訂閱              | 挑選已啟用 Azure AD Domain Services 的相同 Azure 訂用帳戶。 |
+    | 資源群組            | 選擇您 VM 的資源群組。 |
+    | Location                  | 選取 VM 的位置。 |
+    | 現有的 VNET 名稱        | 要連接 VM 的現有虛擬網路名稱，例如*myVnet*。 |
+    | 現有的子網名稱      | 現有虛擬網路子網的名稱，例如*工作負載*。 |
+    | DNS 標籤首碼          | 輸入要用於 VM 的 DNS 名稱，例如*myvm*。 |
+    | VM 大小                   | 指定 VM 大小，例如*Standard_DS2_v2*。 |
+    | 要加入的網域            | Azure AD DS 受控網域 DNS 名稱，例如*contoso.com*。 |
+    | 網域使用者名稱           | Azure AD DS 受控網域中的使用者帳戶，應該用來將 VM 加入受控網域。 此帳戶必須是*AZURE AD DC 系統管理員*群組的成員。 |
+    | 網域密碼           | 先前設定中所指定使用者帳戶的密碼。 |
+    | 選用 OU 路徑          | 要在其中新增 VM 的自訂 OU。 如果您未指定此參數的值，VM 會新增至預設*AAD DC 電腦*OU。 |
+    | VM 系統管理員使用者名稱         | 指定要在 VM 上建立的本機系統管理員帳戶。 |
+    | VM 系統管理員密碼         | 指定 VM 的本機系統管理員密碼。 建立強式本機系統管理員密碼，以防範密碼暴力密碼破解攻擊。 |
+
+1. 檢查條款及條件，然後核取 [**我同意上方所述的條款及條件**] 方塊。 準備好時，請選取 [**購買**] 以建立 VM 並將其加入 Azure AD DS 受控網域。
 
 > [!WARNING]
 > **處理密碼時多加注意。**
-> 範本參數檔案包含網域帳戶的密碼，以及虛擬機器的本機系統管理員密碼。 請確定您未保留檔案共用上的此檔案，或其他共用位置。 完成虛擬機器部署後，我們建議您處置此檔案。
->
+> 範本參數檔案會要求屬於*AZURE AD DC 系統管理員*群組成員之使用者帳戶的密碼。 請勿手動輸入此檔案中的值，並讓它可在檔案共用或其他共用位置上存取。
 
-順利完成部署之後，您最近佈建的 Windows 虛擬機器已加入受控網域。
+部署需要幾分鐘的時間才能順利完成。 完成時，會建立 Windows VM，並將其加入 Azure AD DS 受控網域。 VM 可以使用網域帳戶進行管理或登入。
 
+## <a name="join-an-existing-windows-server-vm-to-a-managed-domain"></a>將現有 Windows Server VM 加入受控網域
 
-## <a name="option-2-join-an-existing-windows-server-vm-to-a-managed-domain"></a>選項 2：將現有 Windows Server VM 加入受控網域
-**快速入門範本**:[201-vm-domain-join-existing](https://azure.microsoft.com/resources/templates/201-vm-domain-join-existing/)
+如果您想要將現有的 VM 或 Vm 群組加入 Azure AD DS 受控網域，您可以使用 Resource Manager 範本，只部署 VM 擴充功能。
 
-若要將現有的 Windows Server 虛擬機器加入至受控網域，請執行下列步驟：
-1. 流覽至[快速入門範本](https://azure.microsoft.com/resources/templates/201-vm-domain-join-existing/)。
-2. 按一下 [ **部署至 Azure**]。
-3. 在 [自訂部署] 頁面上，提供必要的資訊來佈建虛擬機器。
-4. 選取 [Azure 訂用帳戶] 來佈建虛擬機器。 挑選已啟用 Azure AD Domain Services 的相同 Azure 訂用帳戶。
-5. 選擇現有的**資源群組**或建立新群組。
-6. 挑選要部署新虛擬機器的**位置**。
-7. 在 [VM 清單] 欄位中，指定要加入至受控網域之現有虛擬機器的名稱。 使用逗號來分隔個別的 VM 名稱。 例如，**contoso-web, contoso-api**。
-8. 在 [網域加入使用者名稱]，指定受控網域上的使用者帳戶名稱，您應使用它將 VM 加入受控網域。
-9. 在 [網域加入使用者密碼] 中，使用 'domainUsername' 參數指定網域使用者帳戶參照到的密碼。
-10. 在 [網域 FQDN] 中，指定受控網域之 DNS 網域名稱。
-11. 選擇性：您可以指定自訂 OU 的 **OU 路徑**，在其中新增虛擬機器。 如果您未指定此參數的值，要將虛擬機器新增到受控網域上的預設 **AAD DC 電腦** OU。
-12. 按一下 [我同意上方所述的條款及條件]。
-13. 按一下 [購買] 來佈建虛擬機器。
+若要將現有的 Windows Server VM 加入 Azure AD DS 受控網域，請完成下列步驟：
+
+1. 流覽至[快速入門範本](https://azure.microsoft.com/resources/templates/201-vm-domain-join-existing/)。 選取要**部署至 Azure**的選項。
+1. 在 [**自訂部署**] 頁面上，輸入下列資訊以將 VM 加入 Azure AD DS 受控網域：
+
+    | 設定                   | 值 |
+    |---------------------------|-------|
+    | 訂閱              | 挑選已啟用 Azure AD Domain Services 的相同 Azure 訂用帳戶。 |
+    | 資源群組            | 選擇包含現有 VM 的資源群組。 |
+    | Location                  | 選取現有 VM 的位置。 |
+    | VM 清單                   | 輸入要加入 Azure AD DS 受控網域的現有 VM 逗號分隔清單，例如*myVM1、myVM2*。 |
+    | 加入網域的使用者名稱     | Azure AD DS 受控網域中的使用者帳戶，應該用來將 VM 加入受控網域。 此帳戶必須是*AZURE AD DC 系統管理員*群組的成員。 |
+    | 加入網域的使用者密碼 | 先前設定中所指定使用者帳戶的密碼。 |
+    | 選用 OU 路徑          | 要在其中新增 VM 的自訂 OU。 如果您未指定此參數的值，VM 會新增至預設*AAD DC 電腦*OU。 |
+
+1. 檢查條款及條件，然後核取 [**我同意上方所述的條款及條件**] 方塊。 準備好時，請選取 [**購買**]，將 VM 加入 Azure AD DS 受控網域。
 
 > [!WARNING]
 > **處理密碼時多加注意。**
-> 範本參數檔案包含網域帳戶的密碼，以及虛擬機器的本機系統管理員密碼。 請確定您未保留檔案共用上的此檔案，或其他共用位置。 完成虛擬機器部署後，我們建議您處置此檔案。
->
+> 範本參數檔案會要求屬於*AZURE AD DC 系統管理員*群組成員之使用者帳戶的密碼。 請勿手動輸入此檔案中的值，並讓它可在檔案共用或其他共用位置上存取。
 
-順利完成部署之後，指定的 Windows 虛擬機器會加入至受控網域。
+部署需要幾分鐘的時間才能順利完成。 完成時，指定的 Windows Vm 會加入 Azure AD DS 受控網域，並可使用網域帳戶進行管理或登入。
 
+## <a name="next-steps"></a>後續步驟
 
-## <a name="related-content"></a>相關內容
-* [Azure PowerShell 的概觀](/powershell/azure/overview)
-* [Azure 快速入門範本-網域加入新的 VM](https://azure.microsoft.com/resources/templates/201-vm-domain-join/)
-* [Azure 快速入門範本-網域加入現有的 Vm](https://azure.microsoft.com/resources/templates/201-vm-domain-join-existing/)
-* [使用 Resource Manager 範本與 Azure PowerShell 來部署資源](../azure-resource-manager/resource-group-template-deploy.md)
+在本文中，您已使用 Azure 入口網站，透過範本來設定和部署資源。 您也可以使用[Azure PowerShell][deploy-powershell]或[Azure CLI][deploy-cli]，透過 Resource Manager 範本來部署資源。
+
+<!-- INTERNAL LINKS -->
+[create-azure-ad-tenant]: ../active-directory/fundamentals/sign-up-organization.md
+[associate-azure-ad-tenant]: ../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md
+[create-azure-ad-ds-instance]: tutorial-create-instance.md
+[template-overview]: ../azure-resource-manager/template-deployment-overview.md
+[deploy-powershell]: ../azure-resource-manager/resource-group-template-deploy.md
+[deploy-cli]: ../azure-resource-manager/resource-group-template-deploy-cli.md

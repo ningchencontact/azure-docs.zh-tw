@@ -1,18 +1,18 @@
 ---
 title: Azure 私人連結常見問題（FAQ）
 description: 瞭解 Azure 私用連結。
-services: virtual-network
+services: private-link
 author: KumudD
-ms.service: virtual-network
+ms.service: private-link
 ms.topic: conceptual
 ms.date: 09/16/2019
 ms.author: kumud
-ms.openlocfilehash: 7e08c91636089abf25e46e1303097fc27b2d75b1
-ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
+ms.openlocfilehash: 32e570e098c9a3f95dfc5393348cccb1ebe1fb60
+ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71037516"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71104594"
 ---
 # <a name="azure-private-link-frequently-asked-questions-faq"></a>Azure 私人連結常見問題（FAQ）
 
@@ -23,7 +23,7 @@ ms.locfileid: "71037516"
 - **[Azure 私用端點](private-endpoint-overview.md)** ：Azure 私用端點是一種網路介面，可讓您私下且安全地連線到 Azure 私用連結所支援的服務。 您可以使用私人端點來連線到支援私人連結或您自己私人連結服務的 Azure PaaS 服務。
 - **[Azure 私人連結服務](private-link-service-overview.md)** ：Azure 私用連結服務是由服務提供者所建立的服務。 目前，私人連結服務可以附加至 Standard Load Balancer 的前端 IP 設定。 
 
-### <a name="how-is-traffic-being-send-when-using-private-link"></a>使用私用連結時，傳送流量的方式為何？
+### <a name="how-is-traffic-being-sent-when-using-private-link"></a>使用私用連結時，如何傳送流量？
 流量會使用 Microsoft 骨幹私下傳送。 它不會跨越網際網路。  
  
 ### <a name="what-is-the-difference-between-a-service-endpoints-and-a-private-endpoints"></a>服務端點和私人端點之間的差異為何？

@@ -164,7 +164,7 @@
           href: sql-database-reserved-capacity.md
         - name: 從進階 RS 服務層級遷移
           href: sql-database-service-tiers-prs.md
-    - name: 計算和儲存體
+    - name: 服務層
       items:
         - name: 概觀
           href: sql-database-service-tiers-general-purpose-business-critical.md
@@ -302,6 +302,8 @@
                   href: sql-database-vnet-service-endpoint-rule-overview.md
                 - name: 虛擬網路端點 - PowerShell
                   href: sql-database-vnet-service-endpoint-rule-powershell.md
+            - name: 私人連結
+              href: sql-database-private-endpoint-overview.md
         - name: 存取控制
           items:
             - name: 存取控制

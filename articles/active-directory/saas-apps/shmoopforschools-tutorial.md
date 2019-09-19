@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 08/12/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e5fa47e029434b70166403b8603c820d611690f2
-ms.sourcegitcommit: 62bd5acd62418518d5991b73a16dca61d7430634
+ms.openlocfilehash: c88457653d73931600c37f5e332cc4327dc7957a
+ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68975992"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71102890"
 ---
 # <a name="tutorial-integrate-shmoop-for-schools-with-azure-active-directory"></a>教學課程：整合 Shmoop For Schools 與 Azure Active Directory
 
@@ -91,16 +91,16 @@ ms.locfileid: "68975992"
     > [!NOTE]
     > 這些都不是真正的值。 請使用實際的「登入 URL」及「識別碼」來更新這些值。 請連絡 [Shmoop For Schools 用戶端支援小組](mailto:support@shmoop.com)以取得這些值。 您也可以參考 Azure 入口網站中**基本 SAML 組態**區段所示的模式。
 
-5. Shmoop For Schools 應用程式需要特定格式的 SAML 判斷提示，因此您必須將自訂屬性對應新增至 SAML 權杖屬性組態。 以下螢幕擷取畫面顯示預設屬性清單。 按一下 [ **編輯**] 圖示，以開啟 [ **使用者屬性**] 對話方塊。
+5. Shmoop For Schools 應用程式需要特定格式的 SAML 判斷提示，因此您必須將自訂屬性對應新增至 SAML 權杖屬性組態。 以下螢幕擷取畫面顯示預設屬性清單。 按一下 **編輯** 圖示以開啟 [使用者屬性] 對話方塊。 
 
     ![image](common/edit-attribute.png)
 
     > [!NOTE]
     > Shmoop For Schools 支援兩種使用者角色：**老師**和**學生**。 在 Azure AD 中設定這些角色，以便您可以將使用者指派為適當的角色。 若要了解如何在 Azure AD 中設定角色，請參閱[此文章](https://docs.microsoft.com/azure/active-directory/develop/active-directory-enterprise-app-role-management)。
 
-6. 除了以上屬性外，Shmoop For Schools 應用程式還需要在 SAML 回應中傳回更多屬性。 在 [使用者屬性] ****  對話方塊的 [使用者宣告] ****  區段中，執行下列步驟以設定 SAML 權杖屬性，如下表所示： 
+6. 除了以上屬性外，Shmoop For Schools 應用程式還需要在 SAML 回應中傳回更多屬性。 在 [使用者屬性]  對話方塊的 [使用者宣告]  區段中，執行下列步驟以設定 SAML 權杖屬性，如下表所示： 
 
-    | Name |  來源屬性|
+    | 名稱 |  來源屬性|
     | --------- | --------------- |
     | 角色      | user.assignedroles |
 

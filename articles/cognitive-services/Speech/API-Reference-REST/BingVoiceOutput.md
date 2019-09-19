@@ -3,20 +3,20 @@ title: Microsoft 語音服務的文字轉換語音 API | Microsoft Docs
 titlesuffix: Azure Cognitive Services
 description: 使用文字轉換語音 API 以各種不同的語音和語言，提供即時文字到語音的轉換
 services: cognitive-services
-author: priyaravi20
-manager: yanbo
+author: nitinme
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-speech
 ms.topic: article
 ms.date: 09/18/2018
-ms.author: priyar
+ms.author: nitinme
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: a046bec5d81d828d88716d31c84e9cbcdcea1a08
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: ee9b0b47fb88cba948bc06db6eb83fe9c076fe40
+ms.sourcegitcommit: fbea2708aab06c19524583f7fbdf35e73274f657
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "60515431"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70966862"
 ---
 # <a name="bing-text-to-speech-api"></a>Bing 文字轉換語音 API
 
@@ -32,7 +32,7 @@ ms.locfileid: "60515431"
 
 每個語音合成要求都需要 JSON Web 權杖 (JWT) 存取權杖。 JWT 存取權杖是在語音要求標頭中傳遞。 權杖的到期時間為 10 分鐘。 如需有關訂閱並取得用於擷取有效 JWT 存取權杖之 API 金鑰的資訊，請參閱[認知服務訂閱](https://azure.microsoft.com/try/cognitive-services/)。
 
-API 金鑰會傳遞至權杖服務。 例如：
+API 金鑰會傳遞至權杖服務。 例如:
 
 ```HTTP
 POST https://api.cognitive.microsoft.com/sts/v1.0/issueToken
@@ -41,11 +41,11 @@ Content-Length: 0
 
 權杖存取所需的標頭資訊如下。
 
-名稱| 格式 | 說明
+Name| 格式 | 描述
 ----|----|----
 Ocp-Apim-Subscription-Key | ASCII | 您的訂用帳戶金鑰
 
-權杖服務會以 `text/plain` 形式傳回 JWT 存取權杖。 接著，JWT 會以 `Base64 access_token` 形式傳遞至語音端點，作為字首字串為 `Bearer` 的授權標頭。 例如：
+權杖服務會以 `text/plain` 形式傳回 JWT 存取權杖。 接著，JWT 會以 `Base64 access_token` 形式傳遞至語音端點，作為字首字串為 `Bearer` 的授權標頭。 例如:
 
 `Authorization: Bearer [Base64 access_token]`
 
@@ -60,7 +60,7 @@ Ocp-Apim-Subscription-Key | ASCII | 您的訂用帳戶金鑰
 
 下表顯示用於語音合成要求的 HTTP 標頭。
 
-頁首 |Value |註解
+標頭 |值 |註解
 ----|----|----
 Content-Type | application/ssml+xml | 輸入內容類型。
 X-Microsoft-OutputFormat | **1.** ssml-16khz-16bit-mono-tts <br> **2.** raw-16khz-16bit-mono-pcm <br>**3.** audio-16khz-16kbps-mono-siren <br> **4.** riff-16khz-16kbps-mono-siren <br> **5.** riff-16khz-16bit-mono-pcm <br> **6.** audio-16khz-128kbitrate-mono-mp3 <br> **7.** audio-16khz-64kbitrate-mono-mp3 <br> **8.** audio-16khz-32kbitrate-mono-mp3 | 輸出音訊格式。
@@ -122,7 +122,7 @@ Content-Length: 0
 
 ### <a name="ErrorResponse"></a>錯誤回應
 
-Error | 說明
+Error | 描述
 ----|----
 HTTP/400 不正確的要求 | 必要參數遺漏、空白或 Null，或傳遞至必要或選用參數的值無效。 取得「無效」回應的其中一個原因是傳遞超過允許長度的字串值。 其中包含有問題的參數的簡短描述。
 HTTP 401 未經授權 | 此要求未經授權。
@@ -215,9 +215,9 @@ en-IE | 男 | "Microsoft Server Speech Text to Speech Voice (en-IE, Sean)"
 en-IN | 女 | "Microsoft Server Speech Text to Speech Voice (en-IN, Heera, Apollo)"
 en-IN | 女 | "Microsoft Server Speech Text to Speech Voice (en-IN, PriyaRUS)"
 en-IN | 男 | "Microsoft Server Speech Text to Speech Voice (en-IN, Ravi, Apollo)"
-zh-TW | 女 | "Microsoft Server Speech Text to Speech Voice (en-US, ZiraRUS)"
-zh-TW | 女 | "Microsoft Server Speech Text to Speech Voice (en-US, JessaRUS)"
-zh-TW | 男 | "Microsoft Server Speech Text to Speech Voice (en-US, BenjaminRUS)"
+en-US | 女 | "Microsoft Server Speech Text to Speech Voice (en-US, ZiraRUS)"
+en-US | 女 | "Microsoft Server Speech Text to Speech Voice (en-US, JessaRUS)"
+en-US | 男 | "Microsoft Server Speech Text to Speech Voice (en-US, BenjaminRUS)"
 es-ES | 女 | "Microsoft Server Speech Text to Speech Voice (es-ES, Laura, Apollo)"
 es-ES | 女 | "Microsoft Server Speech Text to Speech Voice (es-ES, HelenaRUS)"
 es-ES | 男 | "Microsoft Server Speech Text to Speech Voice (es-ES, Pablo, Apollo)"

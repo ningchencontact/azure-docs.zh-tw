@@ -7,12 +7,12 @@ ms.author: v-qiwe
 ms.service: marketplace
 ms.topic: conceptual
 ms.date: 07/10/2019
-ms.openlocfilehash: 3fa485c9fb2835b8270cb35fc75b57251476005f
-ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.openlocfilehash: a244e4f7ac406fecd4c053b39a5e9a9cb6ecab2c
+ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70141783"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71105503"
 ---
 # <a name="metered-billing-using-the-marketplace-metering-service"></a>使用 marketplace 計量服務的計量付費計費
 
@@ -55,7 +55,7 @@ ms.locfileid: "70141783"
     * 超過50000封電子郵件, 每個100的電子郵件須支付 $0。5
     * 超過10000文字, 針對每個文字支付 $0.01
 
-訂閱 CNS 服務的 Azure 客戶將能夠根據選取的方案, 每月傳送包含的文字和電子郵件數量。  當客戶取用超過所包含的數量時, 就不需要變更方案或執行任何不同的動作。  Contoso 會測量超過所包含數量的超額部分, 並開始使用[Marketplace 計量服務 API](./marketplace-metering-service-apis.md), 向 Microsoft 發出使用事件以取得額外的使用量。  Microsoft 接著會向客戶收取發行者所指定的額外使用量。
+訂閱 CNS 服務的 Azure 客戶將能夠根據選取的方案, 每月傳送包含的文字和電子郵件數量。  Contoso 會測量所包含數量的使用量，而不會將任何使用方式事件傳送給 Microsoft。  當客戶取用超過所包含的數量時, 就不需要變更方案或執行任何不同的動作。  Contoso 會測量超過所包含數量的超額部分, 並開始使用[Marketplace 計量服務 API](./marketplace-metering-service-apis.md), 向 Microsoft 發出使用事件以取得額外的使用量。  Microsoft 接著會向客戶收取發行者所指定的額外使用量。
 
 ## <a name="billing-dimensions"></a>計費維度
 

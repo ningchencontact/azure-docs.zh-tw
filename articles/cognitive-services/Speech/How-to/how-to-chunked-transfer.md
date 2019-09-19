@@ -3,20 +3,20 @@ title: 如何使用區塊傳輸來傳送音訊資料流 | Microsoft Docs
 titlesuffix: Azure Cognitive Services
 description: 如何使用區塊傳輸將音訊資料流傳送給 Bing 語音服務
 services: cognitive-services
-author: zhouwangzw
-manager: wolfma
+author: nitinme
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-speech
 ms.topic: article
 ms.date: 09/18/2018
-ms.author: zhouwang
+ms.author: nitinme
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: d9796cf60e2695c21d781131c935d24891401efa
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 60428a7a5e28b7c9d6cd76f31374f24df48423a6
+ms.sourcegitcommit: fbea2708aab06c19524583f7fbdf35e73274f657
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60514996"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70966496"
 ---
 # <a name="chunked-transfer-encoding"></a>區塊傳輸編碼
 

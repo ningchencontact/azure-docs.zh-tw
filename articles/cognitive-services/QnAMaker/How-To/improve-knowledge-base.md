@@ -8,14 +8,14 @@ services: cognitive-services
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
-ms.date: 08/30/2019
+ms.date: 09/11/2019
 ms.author: diberry
-ms.openlocfilehash: ae186209395078ed56a046aafdbe01bb513fc3a0
-ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
+ms.openlocfilehash: b5528d8cd23893248170bdb15588925f3c92c02b
+ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70277420"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70934707"
 ---
 # <a name="use-active-learning-to-improve-your-knowledge-base"></a>使用主動式學習來改善您的知識庫
 
@@ -72,6 +72,9 @@ QnA Maker 的隱含意見反應會使用演算法來判斷分數鄰近性，然�
 1. 尋找 QnA Maker 服務，然後切換**主動式學習**。 
 
     [![在 [服務設定] 頁面上，開啟 [主動式學習] 功能。如果您無法切換此功能，您可能需要升級您的服務。](../media/improve-knowledge-base/turn-active-learning-on-at-service-setting.png)](../media/improve-knowledge-base/turn-active-learning-on-at-service-setting.png#lightbox)
+
+    > [!Note]
+    > 上述影像上的確切版本只會顯示為範例。 您的版本可能不同。 
 
     啟用**主動式學習**之後，知識庫會根據使用者提交的問題，定期提供新問題的建議。 您可以再次切換設定以停用**主動式學習**。
 
@@ -193,10 +196,10 @@ JSON 主體有數個設定：
 
 |JSON 主體屬性|Type|用途|
 |--|--|--|--|
-|`feedbackRecords`|陣列|意見反應清單。|
+|`feedbackRecords`|array|意見反應清單。|
 |`userId`|string|接受建議問題之人員的使用者識別碼。 使用者識別碼格式是由您負責。 例如，電子郵件地址可以是您架構中的有效使用者識別碼。 選擇性。|
 |`userQuestion`|string|使用者查詢的確切文字。 必要。|
-|`qnaID`|號|問題的識別碼，可在[GenerateAnswer 回應](metadata-generateanswer-usage.md#generateanswer-response-properties)中找到。 |
+|`qnaID`|number|問題的識別碼，可在[GenerateAnswer 回應](metadata-generateanswer-usage.md#generateanswer-response-properties)中找到。 |
 
 範例 JSON 主體如下所示：
 

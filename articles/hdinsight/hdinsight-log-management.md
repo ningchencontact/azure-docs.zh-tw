@@ -2,18 +2,18 @@
 title: 管理 HDInsight 叢集的記錄 - Azure HDInsight
 description: 判斷 HDInsight 活動記錄檔的類型、大小及保留原則。
 author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 03/19/2019
-ms.author: hrasheed
-ms.openlocfilehash: 4e9a6a9ca435971d64ec8f59203a518287e6db4e
-ms.sourcegitcommit: dd69b3cda2d722b7aecce5b9bd3eb9b7fbf9dc0a
+ms.openlocfilehash: c069b620e129177be5d374f5b23b5e54befd8ca2
+ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70961007"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71105435"
 ---
 # <a name="manage-logs-for-an-hdinsight-cluster"></a>管理 HDInsight 叢集的記錄
 
@@ -79,11 +79,11 @@ Apache Ambari 提供 Web UI 和 REST API，可簡化 HDInsight 叢集的管理�
 
 若要開啟服務檢視清單，請在 Azure 入口網站的 HDInsight 頁面上選取 [Ambari 檢視]。  此清單會依您已安裝的程式庫而有所不同。  例如，您可能會看到 [YARN 佇列管理員]、[Hive 檢視] 及 [Tez 檢視]。  請選取任何服務連結來查看組態和服務資訊。  Ambari UI [Stack and Version] \(堆疊與版本\) 頁面會提供有關叢集服務組態與服務版本歷程記錄的資訊。 若要瀏覽至 Ambari UI 的這個區段，請選取 [Admin] \(系統管理\) 功能表，然後選取 [Stack and Version] \(堆疊與版本\)。  選取 [Versions] \(版本\) 索引標籤以查看服務版本資訊。
 
-![堆疊與版本](./media/hdinsight-log-management/ambari-stack-versions.png)
+![Apache Ambari 管理堆疊和版本](./media/hdinsight-log-management/ambari-stack-versions.png)
 
 使用 Ambari UI 時，您可以下載在叢集中特定主機 (或節點) 上執行之任何 (或所有) 服務的組態。  請選取 [Hosts] \(主機\) 功能表，然後選取感興趣之主機的連結。 在該主機的頁面上，選取 [Host Actions] \(主機動作\) 按鈕，然後選取 [Download Client Configs] \(下載用戶端組態\)。
 
-![主機用戶端組態](./media/hdinsight-log-management/download-client-configs.png)
+![Apache Ambari 下載主機用戶端](./media/hdinsight-log-management/download-client-configs.png)
 
 ### <a name="view-the-script-action-logs"></a>檢視指令碼動作記錄
 
@@ -93,7 +93,7 @@ HDInsight [指令碼動作](hdinsight-hadoop-customize-cluster-linux.md)會以�
 
 下一步是檢閱各種服務的作業執行記錄檔。  服務可能包括 Apache HBase、Apache Spark 及許多其他服務。 Hadoop 叢集會產生大量的詳細資訊記錄，因此判斷哪些記錄有用 (以及哪些記錄沒用) 會相當耗時。  對於目標性的記錄檔管理來說，了解記錄系統相當重要。  以下是一個範例記錄檔。
 
-![HDInsight 記錄檔範例](./media/hdinsight-log-management/hdi-log-file-example.png)
+![HDInsight 範例記錄檔範例輸出](./media/hdinsight-log-management/hdi-log-file-example.png)
 
 ### <a name="access-the-hadoop-log-files"></a>存取 Hadoop 記錄檔
 
@@ -146,9 +146,9 @@ YARN ResourceManager UI 會在叢集前端節點上執行，您可以透過 Amba
 
 在判斷哪些記錄檔可以刪除之後，您可以調整許多 Hadoop 服務上的記錄參數，以在指定的期間之後，便自動刪除記錄檔。
 
-針對特定的記錄檔，您可以使用較低廉的記錄檔封存方法。 針對 Azure Resource Manager 活動記錄，您可以使用 Azure 入口網站來探索此功能。  請在 HDInsight 執行個體的 Azure 入口網站中選取 [活動記錄] 連結，來設定 ARM 記錄的封存。  在 [活動記錄] 搜尋頁面的頂端，選取 [匯出] 功能表項目來開啟 [匯出活動記錄] 窗格。  填入訂用帳戶、區域、是否要匯出至儲存體帳戶，以及記錄的保留天數。 在這同一個窗格上，您也可以指出是否要匯出至事件中樞。 
+針對特定的記錄檔，您可以使用較低廉的記錄檔封存方法。 針對 Azure Resource Manager 活動記錄，您可以使用 Azure 入口網站來探索此功能。  請在 HDInsight 執行個體的 Azure 入口網站中選取 [活動記錄] 連結，來設定 ARM 記錄的封存。  在 [活動記錄] 搜尋頁面的頂端，選取 [匯出] 功能表項目來開啟 [匯出活動記錄] 窗格。  填入訂用帳戶、區域、是否要匯出至儲存體帳戶，以及記錄的保留天數。 在這同一個窗格上，您也可以指出是否要匯出至事件中樞。
 
-![匯出記錄檔](./media/hdinsight-log-management/hdi-export-log-files.png)
+![Azure 入口網站匯出活動記錄檔預覽](./media/hdinsight-log-management/hdi-export-log-files.png)
 
 或者，您也可以使用 PowerShell 來撰寫記錄封存指令碼。  如需範例 PowerShell 指令碼，請參閱[將 Azure 自動化記錄封存至 Azure Blob 儲存體](https://gallery.technet.microsoft.com/scriptcenter/Archive-Azure-Automation-898a1aa8)(英文\)。
 

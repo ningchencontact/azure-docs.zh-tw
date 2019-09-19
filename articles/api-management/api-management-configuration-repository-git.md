@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 03/12/2019
 ms.author: apimpm
-ms.openlocfilehash: b4ee4ca2ede2e0a2d6d1af906cc34051c76353bd
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: 9bbd62bc05e03641c2abe9308d9238bef23877c2
+ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70073748"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71104973"
 ---
 # <a name="how-to-save-and-configure-your-api-management-service-configuration-using-git"></a>如何使用 Git 儲存和設定 API 管理服務組態
 
@@ -52,7 +52,7 @@ ms.locfileid: "70073748"
 ![啟用 GIT][api-management-enable-git]
 
 > [!IMPORTANT]
-> 未定義為指名值的任何秘密都會儲存在存放庫中, 並且會保留在其歷程記錄中, 直到您停用再重新啟用 Git 存取為止。 「命名值」提供一個安全的地方來管理所有 API 設定和原則中的常數位串值 (包括秘密), 因此您不需要直接在原則語句中儲存它們。 如需詳細資訊, 請參閱[如何在 AZURE API 管理原則中使用已命名的值](api-management-howto-properties.md)。
+> 未定義為指名值的任何秘密都會儲存在存放庫中，並且會保留在其歷程記錄中，直到您停用再重新啟用 Git 存取為止。 「命名值」提供一個安全的地方來管理所有 API 設定和原則中的常數位串值（包括秘密），因此您不需要直接在原則語句中儲存它們。 如需詳細資訊, 請參閱[如何在 AZURE API 管理原則中使用已命名的值](api-management-howto-properties.md)。
 >
 >
 
@@ -99,7 +99,7 @@ git clone https://username:password@{name}.scm.azure-api.net/
 如果發生錯誤，請嘗試 URL 編碼命令的密碼部分。 完成這項操作的其中一個快速方法是開啟 Visual Studio，並且在 [即時運算視窗]發出下列命令。 若要開啟 [即時運算視窗]，請在 Visual Studio 中開啟任何解決方案或專案 (或建立新的空白主控台應用程式)，然後從 [偵錯] 功能表選擇 [視窗]、[即時運算]。
 
 ```
-?System.NetWebUtility.UrlEncode("password from the Azure portal")
+?System.Net.WebUtility.UrlEncode("password from the Azure portal")
 ```
 
 使用編碼的密碼以及使用者名稱和儲存機制位置以建構 git 命令。

@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 09/08/2019
+ms.date: 09/12/2019
 ms.author: diberry
-ms.openlocfilehash: 5828d4f453afeccfaac206195f064e43a20d1ba0
-ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
-ms.translationtype: HT
+ms.openlocfilehash: 8e732496c4523646f02ef461b7d3c52314c28dae
+ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70844763"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70932837"
 ---
 # <a name="migrate-to-an-azure-resource-authoring-key"></a>遷移至 Azure 資源撰寫金鑰
 
@@ -35,7 +35,8 @@ Language Understanding （LUIS）編寫驗證從電子郵件帳戶變更為 Azur
 
 遷移包括：
 
-* **所有**擁有者的應用程式。
+* LUIS、擁有者和參與者的所有使用者。
+* **所有**應用程式。
 * **單向**遷移。
 
 擁有者無法選擇要遷移的應用程式子集，而且進程無法復原。 
@@ -87,13 +88,17 @@ Language Understanding （LUIS）編寫驗證從電子郵件帳戶變更為 Azur
 
 ## <a name="migration-for-the-app-contributor"></a>應用程式參與者的遷移
 
+LUIS 的每個使用者都需要遷移，包括共同作業者/參與者。 
+
 ### <a name="before-the-app-is-migrated"></a>遷移應用程式之前
 
 您可以選擇匯出您是共同作業者的應用程式，然後將應用程式匯入回 LUIS。 匯入程式會使用您為擁有者的新應用程式識別碼來建立新的應用程式。
 
 ### <a name="after-the-app-is-migrated"></a>在應用程式遷移之後
 
-在遷移程式之後，如果您需要存取原始應用程式，您必須將應用程式擁有者新增至 Azure 撰寫資源，做為共同作業者。  
+應用程式擁有者必須[將您的電子郵件新增至 Azure 撰寫資源，做為](luis-how-to-collaborate.md#add-contributor-to-azure-authoring-resource)共同作業者。 
+
+在遷移程式之後，您擁有的任何應用程式都可以在 LUIS 入口網站的 [**我的應用程式**] 頁面上取得。  
 
 ## <a name="next-steps"></a>後續步驟
 

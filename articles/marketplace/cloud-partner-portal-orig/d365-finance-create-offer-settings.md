@@ -1,45 +1,23 @@
 ---
-title: 如何填寫優惠設定表單 |Azure Marketplace
-description: 說明針對新的 Dynamics 365 Business Central 應用程式，[供應項目設定] 表單中需要值的各種欄位。
-services: Azure, Marketplace, Cloud Partner Portal,
-author: v-miclar
+title: 如何填寫供應專案設定表單 |Azure Marketplace
+description: 已淘汰且含有電腦文章連結的文章;was 「說明新 Dynamics 365 Business Central 應用程式的供應專案設定表單中需要值的各種欄位」。
+services: Azure, Marketplace, Cloud Partner Portal
+author: ChJenk
 ms.service: marketplace
 ms.topic: conceptual
-ms.date: 09/17/2018
+ms.date: 09/18/2019
 ms.author: pabutler
-ms.openlocfilehash: d29b17e1a109b37a51a0e6bd2af2a7bb02b977a9
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 84932d693c9c74c74095eb78e750f8d3b1452068
+ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64934914"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71105557"
 ---
-<a name="how-to-fill-out-the-offer-settings-form"></a>如何填寫供應項目設定表單
-=======================================
+# <a name="how-to-fill-out-the-offer-settings-form"></a>如何填寫供應項目設定表單
 
-供應項目設定表單是指定供應項目設定的基本表單。
-下面說明必要欄位。
+[Cloud Partner 入口網站](https://cloudpartner.azure.com/)不再支援建立和管理 Dynamics 365 Business Central 供應專案。 相反地, 此功能已移至 Microsoft[合作夥伴中心入口網站](https://partner.microsoft.com/)。 如需詳細資訊，請參閱[建立新的 Dynamics 365 Business Central 供應](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-new-business-central-offer)專案。
 
-### <a name="offer-id"></a>供應項目識別碼
+## <a name="next-steps"></a>後續步驟
 
-`OfferId` 是發行者設定檔內供應項目的唯一識別碼。
-此識別碼會出現在產品 URL 中。 此識別碼只能包含小寫英數字元或連字號 (-)。 此識別碼不能以連字號結尾，且不能超過 50 個字元。 供應項目上架後，此欄位便會鎖住。
-
-例如，若夥伴 "Contoso" 建立稱為 "sample-Web App" 的供應項目識別碼，它將會在 AppSource 中顯示為：
-
-&emsp; `https://appsource.microsoft.com/marketplace/apps/contoso.sample-Web App?tab=Overview`
-
-
-### <a name="publisher-id"></a>發行者識別碼
-
-此下拉式表單，可讓您選擇您想要在什麼發行者設定檔之下發佈此供應項目。 供應項目上架後，此欄位便會鎖住。
-
-
-### <a name="name"></a>名稱
-
-這是您應用程式/供應項目的顯示名稱，將會顯示在 Microsoft [AppSource](https://appsource.microsoft.com/) 中。 它最多不能超過 50 個字元。
-
-> [!NOTE]
-> 簡短名稱必須與應用程式資訊清單中的發行者名稱相同。
-
-按一下 [儲存]  以儲存您的進度。 下一個步驟是為您的供應項目新增技術資訊。
+建立新的 Dynamics 365 Business Central 供應專案之前，您應該先閱讀[建立合作夥伴中心帳戶](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account)，然後開啟 [[商業 Marketplace] 儀表板](https://partner.microsoft.com/dashboard/directory)，並選取 [**總覽**] 頁面。 請依照[建立新的 Dynamics 365 Business Central 供應](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-new-business-central-offer)專案中的指示來建立您的供應專案。

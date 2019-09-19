@@ -1,18 +1,18 @@
 ---
 title: 使用 Azure CLI 建立 Azure 私人連結服務
 description: 瞭解如何使用 Azure CLI 建立 Azure 私人連結服務
-services: virtual-network
+services: private-link
 author: KumudD
-ms.service: virtual-network
+ms.service: private-link
 ms.topic: article
 ms.date: 09/16/2019
 ms.author: kumud
-ms.openlocfilehash: 6955e1147bbe7b3e777ce4f06ac64901b0392f42
-ms.sourcegitcommit: 71db032bd5680c9287a7867b923bf6471ba8f6be
+ms.openlocfilehash: 87d0f08d67dbbe6a0fa1725aba850c8d9b6c5619
+ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/16/2019
-ms.locfileid: "71018071"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71104712"
 ---
 # <a name="create-a-private-link-service-using-azure-cli"></a>使用 Azure CLI 建立私人連結服務
 本文說明如何使用 Azure CLI 在 Azure 中建立私人連結服務。
@@ -20,7 +20,7 @@ ms.locfileid: "71018071"
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
 如果您決定在本機安裝和使用 Azure CLI，本快速入門會要求您使用最新的 Azure CLI 版本。 若要尋找您安裝的版本，請執行 `az --version`。 如需安裝或升級的資訊，請參閱[安裝 Azure CLI](/cli/azure/install-azure-cli)。
-## <a name="create-a-private-link-service"></a>建立私用連結服務
+## <a name="create-a-private-link-service"></a>建立 Private Link 服務
 ### <a name="create-a-resource-group"></a>建立資源群組
 
 建立虛擬網路之前，您必須先建立資源群組來裝載虛擬網路。 使用 [az group create](/cli/azure/group) 來建立資源群組。 這個範例會在*westcentralus*位置建立名為*myResourceGroup*的資源群組：
@@ -88,7 +88,7 @@ az network lb create --resource-group myResourceGroup --name myILB --sku standar
 az network vnet subnet update --resource-group myResourceGroup --vnet-name myVirtualNetwork --name mySubnet --disable-private-link-service-network-policies true 
 ```
  
-## <a name="create-a-private-link-service"></a>建立私用連結服務  
+## <a name="create-a-private-link-service"></a>建立 Private Link 服務  
  
 使用 Standard Load Balancer 前端 IP 設定搭配[az network private-Link-服務 create](/cli/azure/network/az-network-private-link-service-create)來建立私人連結服務。 這個範例會使用名為*myResourceGroup*的資源群組中名為*myLoadBalancer*的 Standard Load Balancer，建立名為*myPLS*的私用連結服務。 
  

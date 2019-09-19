@@ -100,6 +100,8 @@
       href: acs-aks-migration.md
     - name: 支援的 Kubernetes 版本
       href: supported-kubernetes-versions.md
+    - name: 主機 OS 中的安全性強化
+      href: security-hardened-vm-host-image.md
 - name: 使用說明指南
   items:
     - name: 叢集作業
@@ -116,7 +118,7 @@
         - name: 刪除 AKS 叢集
           href: '/cli/azure/aks#az-aks-delete'
           maintainContext: true
-        - name: 建立具有 AKS 叢集的 ACR (預覽)
+        - name: 建立具有 AKS 叢集的 ACR
           href: cluster-container-registry-integration.md
         - name: 建立虛擬節點
           items:

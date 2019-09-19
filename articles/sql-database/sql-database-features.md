@@ -11,12 +11,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: bonova, sstein
 ms.date: 05/10/2019
-ms.openlocfilehash: 3cad1a73dd98928ed12748e2acffaea158dc5924
-ms.sourcegitcommit: a819209a7c293078ff5377dee266fa76fd20902c
+ms.openlocfilehash: 594edab4e6a69edb49c8a1ce407c9fd943d11f2b
+ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/16/2019
-ms.locfileid: "71010289"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71103162"
 ---
 # <a name="azure-sql-database-features"></a>Azure SQL Database 功能
 
@@ -114,8 +114,8 @@ Azure 平臺提供一些 PaaS 功能, 可新增為標準資料庫功能的額外
 
 | **平臺功能** | **單一資料庫和彈性集區** | **受控實例和實例集區** |
 | --- | --- | --- |
-| [主動式異地複寫](sql-database-active-geo-replication.md) | 是-超大規模資料庫以外的所有服務層級 | 否, 請參閱[自動容錯移轉群組 (預覽)](sql-database-auto-failover-group.md)做為替代方案 |
-| [自動容錯移轉群組](sql-database-auto-failover-group.md) | 是-超大規模資料庫以外的所有服務層級 | 是，現已在[公開預覽版](sql-database-auto-failover-group.md)中推出|
+| [主動式異地複寫](sql-database-active-geo-replication.md) | 是-超大規模資料庫以外的所有服務層級 | 否，請參閱[自動容錯移轉群組](sql-database-auto-failover-group.md)作為替代方案 |
+| [自動容錯移轉群組](sql-database-auto-failover-group.md) | 是-超大規模資料庫以外的所有服務層級 | 是，請參閱[自動容錯移轉群組](sql-database-auto-failover-group.md)|
 | 自動調整規模 | 是，但僅適用于[無伺服器模型](sql-database-serverless.md)。 在非伺服器模型中，服務層級的變更（vCore、儲存體或 DTU 的變更）會快速且上線。 服務層級的變更需要最少或無停機時間。 | 否, 您必須選擇保留的計算和儲存體。 服務層（vCore 或最大儲存體）的變更已上線，需要最少或無停機時間。 |
 | [自動備份](sql-database-automated-backups.md) | 是的。 每隔7天、差異12小時和記錄備份每隔5-10 分鐘會執行一次完整備份。 | 是的。 每隔7天、差異12小時和記錄備份每隔5-10 分鐘會執行一次完整備份。 |
 | [自動調整 (索引)](https://docs.microsoft.com/sql/relational-databases/automatic-tuning/automatic-tuning) \(機器翻譯\)| [是](sql-database-automatic-tuning.md)| 否 |

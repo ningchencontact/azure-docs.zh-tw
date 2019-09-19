@@ -2,18 +2,18 @@
 title: 使用 SSH 通道存取 Azure HDInsight
 description: 了解如何使用 SSH 通道，安全地瀏覽以 Linux 為基礎的 HDInsight 節點上裝載的 Web 資源。
 author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/28/2019
-ms.author: hrasheed
-ms.openlocfilehash: cad2988a9b6d6cdf557eeabee7cc93e0bbba9267
-ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
+ms.openlocfilehash: d976826fe90946697a32c5b1edb9dd323b01cc1c
+ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70879568"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71105461"
 ---
 # <a name="use-ssh-tunneling-to-access-apache-ambari-web-ui-jobhistory-namenode-apache-oozie-and-other-uis"></a>使用 SSH 通道來存取 Apache Ambari web UI、JobHistory、NameNode、Apache Oozie 和其他 Ui
 
@@ -90,19 +90,19 @@ ssh -C2qTnNf -D 9876 sshuser@clustername-ssh.azurehdinsight.net
 
 1. 選取 [儲存]。
 
-    ![建立 SSH 工作階段](./media/hdinsight-linux-ambari-ssh-tunnel/hdinsight-create-putty-session.png)
+    ![HDInsight 建立 putty 會話](./media/hdinsight-linux-ambari-ssh-tunnel/hdinsight-create-putty-session.png)
 
 1. 在對話方塊左側的 [類別] 區段中，依序展開 [連線] 和 [SSH]，然後選取 [通道]。
 
 1. 在 [ **控制 SSH 連接埠轉送的選項** ] 表單中提供下列資訊：
-   
+
    * **來源連接埠** - 您想要轉送之用戶端上的連接埠。 例如， **9876**。
 
    * **目的地** - HDInsight 叢集的 SSH 位址。 例如， **mycluster-ssh.azurehdinsight.net**。
 
    * **動態** - 啟用動態 SOCKS Proxy 路由。
-     
-     ![通道處理選項的影像](./media/hdinsight-linux-ambari-ssh-tunnel/hdinsight-putty-tunnel.png)
+
+     ![PuTTY 設定通道選項](./media/hdinsight-linux-ambari-ssh-tunnel/hdinsight-putty-tunnel.png)
 
 1. 選取 [**新增**] 以新增設定，然後按一下 [**開啟**] 以開啟 SSH 連線。
 
@@ -114,9 +114,9 @@ ssh -C2qTnNf -D 9876 sshuser@clustername-ssh.azurehdinsight.net
 > 本節中的步驟使用 Mozilla FireFox 瀏覽器，因為它在所有平台上提供相同的 Proxy 設定。 其他現代瀏覽器 (例如 Google Chrome) 可能需要延伸模組 (例如 FoxyProxy) 才能使用通道。
 
 1. 將瀏覽器設定為使用建立通道時所使用的 **localhost** 和連接埠做為 **SOCKS v5** Proxy。 Firefox 的設定如下所示。 如果您使用與 9876 不同的連接埠，請將連接埠變更為您所用的連接埠：
-   
-    ![Firefox 設定的影像](./media/hdinsight-linux-ambari-ssh-tunnel/firefox-proxy-settings.png)
-   
+
+    ![firefox 瀏覽器 proxy 設定](./media/hdinsight-linux-ambari-ssh-tunnel/firefox-proxy-settings.png)
+
    > [!NOTE]  
    > 選取 [遠端 DNS] 會使用 HDInsight 叢集解析網域名稱系統 (DNS) 要求。 這項設定會使用叢集的前端節點來解析 DNS。
 
@@ -133,7 +133,7 @@ ssh -C2qTnNf -D 9876 sshuser@clustername-ssh.azurehdinsight.net
 
 2. 在 Ambari Web UI 中，選取頁面左邊清單中的 HDFS。
 
-    ![選取 HDFS 的影像](./media/hdinsight-linux-ambari-ssh-tunnel/hdfs-service-selected.png)
+    ![已選取 Apache Ambari hdfs 服務](./media/hdinsight-linux-ambari-ssh-tunnel/hdfs-service-selected.png)
 
 3. 顯示 HDFS 服務資訊時，請選取 [快速連結]。 叢集前端節點的清單隨即出現。 選取其中一個前端節點，然後選取 [NameNode UI]。
 
@@ -146,7 +146,7 @@ ssh -C2qTnNf -D 9876 sshuser@clustername-ssh.azurehdinsight.net
 
 4. 將會顯示與下圖類似的頁面：
 
-    ![NameNode UI 的影像](./media/hdinsight-linux-ambari-ssh-tunnel/hdinsight-namenode-ui.png)
+    ![Hadoop NameNode UI 的影像](./media/hdinsight-linux-ambari-ssh-tunnel/hdinsight-namenode-ui.png)
 
     > [!NOTE]  
     > 請注意此頁面的 URL;它應該類似`http://hn1-CLUSTERNAME.randomcharacters.cx.internal.cloudapp.net:8088/cluster`。 此 URI 使用節點的內部完整網域名稱 (FQDN)，而且必須使用 SSH 通道才能存取。

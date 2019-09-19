@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: conceptual
 ms.date: 06/18/2019
 ms.author: aahi
-ms.openlocfilehash: 558ce8950a1848f0cddc247f60dd4e75dd20ccf0
-ms.sourcegitcommit: 770b060438122f090ab90d81e3ff2f023455213b
+ms.openlocfilehash: efac8755be8435ae7929fdcb2ecedb4959c363b9
+ms.sourcegitcommit: cd70273f0845cd39b435bd5978ca0df4ac4d7b2c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "68305487"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71097147"
 ---
 # <a name="language-and-region-support-for-the-text-analytics-api"></a>文字分析 API 支援的語言和區域
 
@@ -48,17 +48,18 @@ ms.locfileid: "68305487"
 |:----------- |:-------------:|:---------:|:-----------:|:-----------:|:-----------:
 | 阿拉伯文      | `ar`          |           |             | ✔ \*                     | |
 | 捷克文       | `cs`          |           |             | ✔ \*                     | |
-| 中文-簡體 | `zh-CN`|           |             | ✔         |    |
+| 中文-簡體 | `zh-hans`| ✔ \***     |             | ✔         |    |
+| 中文-繁體 | `zh-hant`| ✔ \***     |             | ✔         |    |
 | 丹麥文      | `da`          | ✔ \*     | ✔           | ✔ \*            |     |
 | 荷蘭文       | `nl`          | ✔ \*     | ✔          |  ✔ \*           |     |
-| 英文     | `en`          | ✔        | ✔           |  ✔ \*\*     |      |
+| 英文     | `en`          | ✔ \***       | ✔           |  ✔ \*\*     |      |
 | 芬蘭文     | `fi`          | ✔ \*     | ✔           |  ✔ \*           |     |
-| 法文      | `fr`          | ✔        | ✔           |  ✔            |     |
+| 法文      | `fr`          | ✔ \***       | ✔           |  ✔            |     |
 | 德文      | `de`          | ✔ \*     | ✔           |  ✔           |     |
 | 希臘文       | `el`          | ✔ \*     |             |            |     |
 | 匈牙利文   | `hu`          |           |             |  ✔ \*          |     | 
-| 義大利文     | `it`          | ✔ \*     | ✔           |  ✔ \*           |     |
-| 日文    | `ja`          |          | ✔           |  ✔ \*          |     |
+| 義大利文     | `it`          | ✔ \***     | ✔           |  ✔ \*           |     |
+| 日文    | `ja`          | ✔ \***         | ✔           |  ✔ \*          |     |
 | 韓文      | `ko`          |          | ✔           |  ✔ \*          |     |
 | 挪威文 (巴克摩) | `no`  | ✔ \*     |  ✔          | ✔ \*            |     |
 | 波蘭文      | `pl`          | ✔ \*     |  ✔          |  ✔ \*           |     |
@@ -71,7 +72,9 @@ ms.locfileid: "68305487"
 
 \*語言支援現供預覽
 
-\*\*[命名實體](how-tos/text-analytics-how-to-entity-linking.md#named-entity-recognition-ner)辨識和[實體連結](how-tos/text-analytics-how-to-entity-linking.md#entity-linking)皆適用于此語言。    
+\*\*[命名實體](how-tos/text-analytics-how-to-entity-linking.md#named-entity-recognition-ner)辨識和[實體連結](how-tos/text-analytics-how-to-entity-linking.md#entity-linking)皆適用于此語言。  
+
+\** *[情感分析 V3 公開預覽](https://docs.microsoft.com/en-us/azure/cognitive-services/text-analytics/how-tos/text-analytics-how-to-sentiment-analysis#sentiment-analysis-v3-public-preview)版本
 
 ## <a name="see-also"></a>另請參閱
 

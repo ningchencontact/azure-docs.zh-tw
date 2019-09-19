@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: personalizer
 ms.topic: conceptual
-ms.date: 05/07/2019
+ms.date: 09/13/2019
 ms.author: diberry
-ms.openlocfilehash: 465fba3a466aceaf9ef7b71e4b1957bfdbcad766
-ms.sourcegitcommit: e3b0fb00b27e6d2696acf0b73c6ba05b74efcd85
+ms.openlocfilehash: 87065709b16a5a0c7076584e8fc33c3830319e4f
+ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68663649"
+ms.lasthandoff: 09/15/2019
+ms.locfileid: "70999637"
 ---
 # <a name="where-can-you-use-personalizer"></a>個人化工具可以應用在何處？
 
@@ -33,10 +33,10 @@ ms.locfileid: "68663649"
 * 從使用者的整體行為和總報酬分數，將能學習到最佳選擇，且應該這麼做。
 * 在為了個人化而使用機器學習時，有遵循[負責任的使用指導方針](ethics-responsible-use.md)和您選擇的選項。
 * 根據內容做決策的行為，可以透過從一組有限選項來決定最佳選項 (動作) 排名的方式來表示。
-* 藉由測量使用者行為的某些層面，並透過「報酬分數」  來加以表示，可以判斷經過排名的選項對您應用程式的適用程度。 報酬分數是 -1 到 1 之間的數字。
+* 藉由測量使用者行為的某些層面，並透過「報酬分數」來加以表示，可以判斷經過排名的選項對您應用程式的適用程度。 報酬分數是 -1 到 1 之間的數字。
 * 報酬分數中不會放入太多干擾因素或外部因素。 實驗的持續時間不會太久，既能計算出報酬分數，又不會喪失其關聯性。
 * 您可以將排名的內容以至少有 5 個[特性](concepts-features.md)的清單來表示，這些特性是您認為有助於做出正確選擇，且不包含個人識別資訊的特性 (PII)。
-* 您擁有每個內容選項 (即動作  ) 的相關資訊，其形式為含有至少 5 個您認為有助於個人化工具做出正確選擇的[特性](concepts-features.md)。
+* 您擁有每個內容選項 (即動作) 的相關資訊，其形式為含有至少 5 個您認為有助於個人化工具做出正確選擇的[特性](concepts-features.md)。
 * 應用程式可以長時間保留資料，而足以累積至少 100,000 個互動的歷程記錄。
 
 ## <a name="machine-learning-considerations-for-applying-personalizer"></a>適用於套用個人化工具的機器學習考量

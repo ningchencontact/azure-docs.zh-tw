@@ -4,14 +4,14 @@ description: 了解如何使用 Azure Cosmos DB SDK 來註冊和呼叫預存程�
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 05/21/2019
+ms.date: 09/17/2019
 ms.author: mjbrown
-ms.openlocfilehash: 7732039ff2494ef16fda5afe384a824ec786a8cf
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 3cc144c1b8748710f0500b6ca2a418cd8bf5a2b7
+ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70092934"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71104836"
 ---
 # <a name="how-to-register-and-use-stored-procedures-triggers-and-user-defined-functions-in-azure-cosmos-db"></a>如何在 Azure Cosmos DB 中註冊和使用預存程序、觸發程序和使用者定義函式
 
@@ -26,9 +26,9 @@ Azure Cosmos DB 中的 SQL API 支援註冊和叫用以 JavaScript 撰寫的預�
 > [!NOTE]
 > 對分割容器執行預存程序時，必須在要求選項中提供分割區索引鍵值。 預存程序的範圍一律為分割區索引鍵。 具有不同分割區索引鍵值的項目，將不會對預存程序顯示。 這也適用於觸發程序。
 
-### <a name="stored-procedures---net-sdk"></a>預存程序 - .NET SDK
+### <a name="stored-procedures---net-sdk-v2"></a>預存程式-.NET SDK V2
 
-下列範例說明如何使用 .NET SDK 註冊預存程序：
+下列範例顯示如何使用 .NET SDK V2 來註冊預存程式：
 
 ```csharp
 string storedProcedureId = "spCreateToDoItem";
@@ -42,7 +42,7 @@ var response = await client.CreateStoredProcedureAsync(containerUri, newStoredPr
 StoredProcedure createdStoredProcedure = response.Resource;
 ```
 
-下列程式碼說明如何使用 .NET SDK 呼叫預存程序：
+下列程式碼說明如何使用 .NET SDK V2 呼叫預存程式：
 
 ```csharp
 dynamic newItem = new
@@ -56,7 +56,32 @@ dynamic newItem = new
 Uri uri = UriFactory.CreateStoredProcedureUri("myDatabase", "myContainer", "spCreateToDoItem");
 RequestOptions options = new RequestOptions { PartitionKey = new PartitionKey("Personal") };
 var result = await client.ExecuteStoredProcedureAsync<string>(uri, options, newItem);
-var id = result.Response;
+```
+
+### <a name="stored-procedures---net-sdk-v3"></a>預存程式-.NET SDK V3
+
+下列範例顯示如何使用 .NET SDK V3 來註冊預存程式：
+
+```csharp
+StoredProcedureResponse storedProcedureResponse = await client.GetContainer("database", "container").Scripts.CreateStoredProcedureAsync(new StoredProcedureProperties
+{
+    Id = "spCreateToDoItem",
+    Body = File.ReadAllText(@"..\js\spCreateToDoItem.js")
+});
+```
+
+下列程式碼說明如何使用 .NET SDK V3 呼叫預存程式：
+
+```csharp
+dynamic newItem = new
+{
+    category = "Personal",
+    name = "Groceries",
+    description = "Pick up strawberries",
+    isComplete = false
+};
+
+var result = await client.GetContainer("database", "container").Scripts.ExecuteStoredProcedureAsync<string>("spCreateToDoItem", new PartitionKey("Personal"), newItem);
 ```
 
 ### <a name="stored-procedures---java-sdk"></a>預存程序 - Java SDK
@@ -176,9 +201,9 @@ client.ExecuteStoredProcedure(sproc_link, new_item, {'partitionKey': 'Personal'}
 > [!NOTE]
 > 即使以清單的形式傳入觸發程序的名稱，每個作業仍然只能執行一個觸發程序。
 
-### <a name="pre-triggers---net-sdk"></a>預先觸發程序 - .NET SDK
+### <a name="pre-triggers---net-sdk-v2"></a>預先觸發程式-.NET SDK V2
 
-下列程式碼說明如何使用 .NET SDK 註冊預先觸發程序：
+下列程式碼說明如何使用 .NET SDK V2 註冊預先觸發程式：
 
 ```csharp
 string triggerId = "trgPreValidateToDoItemTimestamp";
@@ -193,7 +218,7 @@ Uri containerUri = UriFactory.CreateDocumentCollectionUri("myDatabase", "myConta
 await client.CreateTriggerAsync(containerUri, trigger);
 ```
 
-下列程式碼說明如何使用 .NET SDK 呼叫預先觸發程序：
+下列程式碼說明如何使用 .NET SDK V2 呼叫預先觸發程式：
 
 ```csharp
 dynamic newItem = new
@@ -207,6 +232,34 @@ dynamic newItem = new
 Uri containerUri = UriFactory.CreateDocumentCollectionUri("myDatabase", "myContainer");
 RequestOptions requestOptions = new RequestOptions { PreTriggerInclude = new List<string> { "trgPreValidateToDoItemTimestamp" } };
 await client.CreateDocumentAsync(containerUri, newItem, requestOptions);
+```
+
+### <a name="pre-triggers---net-sdk-v3"></a>預先觸發程式-.NET SDK V3
+
+下列程式碼說明如何使用 .NET SDK V3 註冊預先觸發程式：
+
+```csharp
+await client.GetContainer("database", "container").Scripts.CreateTriggerAsync(new TriggerProperties
+{
+    Id = "trgPreValidateToDoItemTimestamp",
+    Body = File.ReadAllText("@..\js\trgPreValidateToDoItemTimestamp.js"),
+    TriggerOperation = TriggerOperation.Create,
+    TriggerType = TriggerType.Pre
+});
+```
+
+下列程式碼說明如何使用 .NET SDK V3 呼叫預先觸發程式：
+
+```csharp
+dynamic newItem = new
+{
+    category = "Personal",
+    name = "Groceries",
+    description = "Pick up strawberries",
+    isComplete = false
+};
+
+await client.GetContainer("database", "container").CreateItemAsync(newItem, null, new ItemRequestOptions { PreTriggers = new List<string> { "trgPreValidateToDoItemTimestamp" } });
 ```
 
 ### <a name="pre-triggers---java-sdk"></a>預先觸發程序 - Java SDK
@@ -301,9 +354,9 @@ client.CreateItem(container_link, item, {
 
 下列範例說明如何使用 Azure Cosmos DB SDK 來註冊後續觸發程序。 請參閱[後續觸發程序範例](how-to-write-stored-procedures-triggers-udfs.md#post-triggers)作為來源，因為此後續觸發程序儲存為 `trgPostUpdateMetadata.js`。
 
-### <a name="post-triggers---net-sdk"></a>後續觸發程序 - .NET SDK
+### <a name="post-triggers---net-sdk-v2"></a>後續觸發程式-.NET SDK V2
 
-下列程式碼說明如何使用 .NET SDK 註冊後續觸發程序：
+下列程式碼示範如何使用 .NET SDK V2 註冊後置觸發程式：
 
 ```csharp
 string triggerId = "trgPostUpdateMetadata";
@@ -318,7 +371,7 @@ Uri containerUri = UriFactory.CreateDocumentCollectionUri("myDatabase", "myConta
 await client.CreateTriggerAsync(containerUri, trigger);
 ```
 
-下列程式碼說明如何使用 .NET SDK 呼叫後續觸發程序：
+下列程式碼說明如何使用 .NET SDK V2 呼叫後續觸發程式：
 
 ```csharp
 var newItem = { 
@@ -330,6 +383,32 @@ var newItem = {
 RequestOptions options = new RequestOptions { PostTriggerInclude = new List<string> { "trgPostUpdateMetadata" } };
 Uri containerUri = UriFactory.CreateDocumentCollectionUri("myDatabase", "myContainer");
 await client.createDocumentAsync(containerUri, newItem, options);
+```
+
+### <a name="post-triggers---net-sdk-v3"></a>後續觸發程式-.NET SDK V3
+
+下列程式碼示範如何使用 .NET SDK V3 註冊後置觸發程式：
+
+```csharp
+await client.GetContainer("database", "container").Scripts.CreateTriggerAsync(new TriggerProperties
+{
+    Id = "trgPostUpdateMetadata",
+    Body = File.ReadAllText(@"..\js\trgPostUpdateMetadata.js"),
+    TriggerOperation = TriggerOperation.Create,
+    TriggerType = TriggerType.Post
+});
+```
+
+下列程式碼說明如何使用 .NET SDK V3 呼叫後續觸發程式：
+
+```csharp
+var newItem = { 
+    name: "artist_profile_1023",
+    artist: "The Band",
+    albums: ["Hellujah", "Rotators", "Spinning Top"]
+};
+
+await client.GetContainer("database", "container").CreateItemAsync(newItem, null, new ItemRequestOptions { PostTriggers = new List<string> { "trgPostUpdateMetadata" } });
 ```
 
 ### <a name="post-triggers---java-sdk"></a>後續觸發程序 - Java SDK
@@ -422,16 +501,16 @@ client.CreateItem(container_link, item, {
 
 下列範例說明如何使用 Azure Cosmos DB SDK 來註冊使用者定義函式。 請參閱[使用者定義函式範例](how-to-write-stored-procedures-triggers-udfs.md#udfs)作為來源，因為此後續觸發程序儲存為 `udfTax.js`。
 
-### <a name="user-defined-functions---net-sdk"></a>使用者定義函式 - .NET SDK
+### <a name="user-defined-functions---net-sdk-v2"></a>使用者定義函數-.NET SDK V2
 
-下列程式碼說明如何使用 .NET SDK 註冊使用者定義函式：
+下列程式碼說明如何使用 .NET SDK V2 註冊使用者定義函式：
 
 ```csharp
 string udfId = "Tax";
 var udfTax = new UserDefinedFunction
 {
     Id = udfId,
-    Body = File.ReadAllText($@"..\js\{udfId}.js"),
+    Body = File.ReadAllText($@"..\js\{udfId}.js")
 };
 
 Uri containerUri = UriFactory.CreateDocumentCollectionUri("myDatabase", "myContainer");
@@ -439,7 +518,7 @@ await client.CreateUserDefinedFunctionAsync(containerUri, udfTax);
 
 ```
 
-下列程式碼說明如何使用 .NET SDK 呼叫使用者定義函式：
+下列程式碼說明如何使用 .NET SDK V2 呼叫使用者定義函數：
 
 ```csharp
 Uri containerUri = UriFactory.CreateDocumentCollectionUri("myDatabase", "myContainer");
@@ -448,6 +527,32 @@ var results = client.CreateDocumentQuery<dynamic>(containerUri, "SELECT * FROM I
 foreach (var result in results)
 {
     //iterate over results
+}
+```
+
+### <a name="user-defined-functions---net-sdk-v3"></a>使用者定義函數-.NET SDK V3
+
+下列程式碼說明如何使用 .NET SDK V3 註冊使用者定義函式：
+
+```csharp
+await client.GetContainer("database", "container").Scripts.CreateUserDefinedFunctionAsync(new UserDefinedFunctionProperties
+{
+    Id = "Tax",
+    Body = File.ReadAllText(@"..\js\Tax.js")
+});
+```
+
+下列程式碼說明如何使用 .NET SDK V3 呼叫使用者定義函數：
+
+```csharp
+var iterator = client.GetContainer("database", "container").GetItemQueryIterator<dynamic>("SELECT * FROM Incomes t WHERE udf.Tax(t.income) > 20000");
+while (iterator.HasMoreResults)
+{
+    var results = await iterator.ReadNextAsync();
+    foreach (var result in results)
+    {
+        //iterate over results
+    }
 }
 ```
 

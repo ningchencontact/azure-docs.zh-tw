@@ -3,20 +3,20 @@ title: 向 Bing 語音進行驗證 |Microsoft Docs
 titlesuffix: Azure Cognitive Services
 description: 要求驗證以使用 Bing 語音 API
 services: cognitive-services
-author: zhouwangzw
-manager: wolfma
+author: nitinme
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-speech
 ms.topic: article
 ms.date: 09/18/2018
-ms.author: zhouwang
+ms.author: nitinme
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: 11d6256fb63452b849a80abab181876d14b3b6a6
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: d1e708ff29293b87935d0d191ba44ad4a11917a0
+ms.sourcegitcommit: fbea2708aab06c19524583f7fbdf35e73274f657
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60515045"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70965664"
 ---
 # <a name="authenticate-to-the-speech-api"></a>向 Speech API 進行驗證
 
@@ -29,13 +29,13 @@ ms.locfileid: "60515045"
 
 ## <a name="use-a-subscription-key"></a>使用訂用帳戶金鑰
 
-若要使用「語音服務」，您必須先訂閱 Speech API，這是「認知服務」(先前稱為 Project Oxford) 的組件。 您可以從[認知服務訂用帳戶](https://azure.microsoft.com/try/cognitive-services/)頁面，取得免費試用訂用帳戶金鑰。 選取 Speech API 之後，請選取 [取得 API 金鑰]  以取得金鑰。 這會傳回主要和次要金鑰。 兩個金鑰都繫結至同一個配額，因此你可以使用任一金鑰。
+若要使用「語音服務」，您必須先訂閱 Speech API，這是「認知服務」(先前稱為 Project Oxford) 的組件。 您可以從[認知服務訂用帳戶](https://azure.microsoft.com/try/cognitive-services/)頁面，取得免費試用訂用帳戶金鑰。 選取 Speech API 之後，請選取 [取得 API 金鑰] 以取得金鑰。 這會傳回主要和次要金鑰。 兩個金鑰都繫結至同一個配額，因此你可以使用任一金鑰。
 
 若要長期使用或增加配額，請註冊 [Azure 帳戶](https://azure.microsoft.com/free/)。
 
 若要使用「語音 REST API」，您必須在要求標頭的 `Ocp-Apim-Subscription-Key` 欄位中傳遞訂用帳戶金鑰。
 
-名稱| 格式| 描述
+Name| 格式| 描述
 ----|-------|------------
 Ocp-Apim-Subscription-Key | ASCII | YOUR_SUBSCRIPTION_KEY
 
