@@ -29,7 +29,7 @@ IoT 隨插即用預覽模型存放庫會儲存裝置功能模型和介面。 儲
 
 有兩種類型的模型存放庫可用於儲存裝置功能模型和介面：
 
-- 有一個公用存放_庫_，可儲存[Azure IoT 認證裝置目錄](https://aka.ms/iotdevcat)中裝置的裝置功能模型和介面。 此存放庫也會儲存[Microsoft 合作夥伴所發行的](./howto-onboard-portal.md)[通用介面](./concepts-common-interfaces.md)和 DCMs 和介面。 若要瞭解如何認證裝置，並將其裝置功能模型新增至公用存放庫，請參閱 <<c0>認證您的 IoT 隨插即用裝置教學課程。
+- 有一個公用存放_庫_，可儲存[Azure IoT 認證裝置目錄](https://aka.ms/iotdevcat)中裝置的裝置功能模型和介面。 此存放庫也會儲存[Microsoft 合作夥伴所發行的](./howto-onboard-portal.md) [通用介面](./concepts-common-interfaces.md)和 DCMs 和介面。 若要瞭解如何認證裝置，並將其裝置功能模型新增至公用存放庫，請參閱 [<c0>認證您的 IoT 隨插即用裝置教學課程](./tutorial-certification-test.md)。
 - 有多個_公司存放庫_。 當您上[架到 Azure IoT 認證入口網站](./howto-onboard-portal.md)時，系統會自動為您的組織建立公司存放庫。 您可以使用公司存放庫，在開發和測試期間儲存裝置功能模型和介面。
 
 ## <a name="azure-certified-for-iot-portal"></a>Azure IoT 認證入口網站

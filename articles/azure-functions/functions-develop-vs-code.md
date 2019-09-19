@@ -44,7 +44,7 @@ Azure Functions 延伸模組提供下列優點：
 
 ## <a name="prerequisites"></a>必要條件
 
-在您安裝並執行 Visual Studio Code 的[Azure Functions 延伸]模組[Azure Functions 延伸]模組之前，您必須符合下列需求：
+在您安裝並執行 Visual Studio Code 的[Azure Functions 延伸模組][適用於 visual studio code 的 azure functions 擴充功能]模組之前，您必須符合下列需求：
 
 * [Visual Studio Code](https://code.visualstudio.com/)安裝在其中一個[支援的平臺](https://code.visualstudio.com/docs/supporting/requirements#_platforms)上。
 

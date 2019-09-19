@@ -171,7 +171,7 @@ ms.locfileid: "70208311"
 
 1. **我可以在向 SQL Server VM 資源提供者註冊之後, 升級我的 SQL Server 2008/2008 R2 實例嗎？**
 
-   是的。 您可以使用任何安裝媒體來升級 SQL Server 的版本, 然後將您的[SQL IaaS 延伸模組模式從 [](virtual-machines-windows-sql-register-with-resource-provider.md#change-management-modes) _無代理程式_] 升級為 [_完整_]。 這麼做可讓您存取 SQL IaaS 擴充功能的所有優點, 例如入口網站管理性、自動備份和自動修補。 
+   是的。 您可以使用任何安裝媒體來升級 SQL Server 的版本, 然後將您的[SQL IaaS 延伸模組模式從](virtual-machines-windows-sql-register-with-resource-provider.md#change-management-modes) _無代理程式_ 升級為 [_完整_]。 這麼做可讓您存取 SQL IaaS 擴充功能的所有優點, 例如入口網站管理性、自動備份和自動修補。 
 
 ## <a name="general"></a>一般
 

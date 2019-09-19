@@ -11,12 +11,12 @@ ms.author: jovanpop
 ms.reviewer: sstein, carlrab, bonova
 ms.date: 08/12/2019
 ms.custom: seoapril2019
-ms.openlocfilehash: cad04df9ba76ce483a308411949e6f98bab23bf9
-ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
-ms.translationtype: HT
+ms.openlocfilehash: 388e676fbabf427801688cbfb47a1455444fd02e
+ms.sourcegitcommit: 71db032bd5680c9287a7867b923bf6471ba8f6be
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70858554"
+ms.lasthandoff: 09/16/2019
+ms.locfileid: "71019000"
 ---
 # <a name="managed-instance-t-sql-differences-limitations-and-known-issues"></a>受控實例的 T-sql 差異、限制和已知問題
 
@@ -24,7 +24,7 @@ ms.locfileid: "70858554"
 
 ![遷移](./media/sql-database-managed-instance/migration.png)
 
-受控執行個體引進了一些 PaaS 限制，相較于 SQL Server，某些行為會有所變更。 差異分成下列類別：<a name="Differences"></a>
+受控執行個體引進了一些 PaaS 限制，相較于 SQL Server，還有一些行為變更。 差異分成下列類別：<a name="Differences"></a>
 
 - [可用性](#availability)包括[Always On](#always-on-availability)和[備份](#backup)的差異。
 - [安全性](#security)包括[審核](#auditing)、[憑證](#certificates)、[認證](#credential)、[密碼編譯提供者](#cryptographic-providers)、[登入和使用者](#logins-and-users)以及[服務金鑰和服務主要金鑰](#service-key-and-service-master-key)的差異。
@@ -339,14 +339,14 @@ WITH PRIVATE KEY (<private_key_options>)
 - `ALTER ASSEMBLY` 無法參考檔案。 請參閱 [ALTER ASSEMBLY](https://docs.microsoft.com/sql/t-sql/statements/alter-assembly-transact-sql)。
 
 ### <a name="database-mail-db_mail"></a>Database Mail （db_mail）
- - `sp_send_dbmail`無法使用@file_attachments參數傳送附件。 本機檔案系統和 extental 共用或 Azure blob 儲存體無法存取此程式。
+ - `sp_send_dbmail`無法使用@file_attachments參數傳送附件。 本機檔案系統和外部共用或 Azure Blob 儲存體無法從這個程式存取。
  - 查看與`@query`參數和驗證相關的已知問題。
  
 ### <a name="dbcc"></a>DBCC
 
 受控實例中不支援在 SQL Server 中啟用的未記載 DBCC 語句。
 
-- 僅支援有限的全域`Trace flags`數目。 不支援會話`Trace flags`層級。 請參閱[追蹤旗標](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-traceon-trace-flags-transact-sql)。
+- 僅支援有限數目的全域追蹤旗標。 不支援會話`Trace flags`層級。 請參閱[追蹤旗標](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-traceon-trace-flags-transact-sql)。
 - [DBCC TRACEOFF](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-traceoff-transact-sql)和[dbcc TRACEON](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-traceon-transact-sql)會使用有限數目的全域追蹤旗標。
 - 無法使用選項 REPAIR_ALLOW_DATA_LOSS、REPAIR_FAST 和 REPAIR_REBUILD 的[DBCC CHECKDB](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-checkdb-transact-sql) ，因為無法在模式中`SINGLE_USER`設定資料庫，請參閱[ALTER database 差異](#alter-database-statement)。 Azure 支援小組會處理潛在的資料庫損毀。 如果您注意到應該修正的資料庫損毀，請洽詢 Azure 支援。
 
@@ -479,9 +479,12 @@ WITH PRIVATE KEY (<private_key_options>)
 - 在受控執行個體上無法還原包含本`FILESTREAM` `FILETABLE` 檔中所述任何限制之資料庫的檔案還原（例如`.BAK`或物件）。
 - `.BAK`無法還原包含多個備份組的檔案。 
 - `.BAK`無法還原包含多個記錄檔的檔案。
-- 包含大於8TB、作用中記憶體內部 OLTP 物件或超過280個檔案之資料庫的備份，無法在一般用途的實例上還原。 
-- 包含大於4TB 或記憶體內部 OLTP 物件且大小總計大於[資源限制](sql-database-managed-instance-resource-limits.md)中所述大小之資料庫的備份，無法在業務關鍵實例上還原。
+- 包含大於 8 TB、作用中記憶體內部 OLTP 物件的資料庫，或每個實例超過280個檔案的備份，都無法在一般用途的實例上還原。 
+- 包含大於 4 TB 的資料庫或記憶體內部 OLTP 物件的備份，其大小總計大於[資源限制](sql-database-managed-instance-resource-limits.md)中所述的大小，因此無法在業務關鍵實例上還原。
 如需 restore 語句的詳細資訊, 請參閱[restore 語句](https://docs.microsoft.com/sql/t-sql/statements/restore-statements-transact-sql)。
+
+ > [!IMPORTANT]
+ > 相同的限制適用于內建的時間點還原作業。 例如，無法在業務關鍵實例上還原超過 4 TB 的一般目的資料庫。 具有記憶體內部 OLTP 檔案或超過280個檔案的商務關鍵資料庫，無法在一般用途實例上還原。
 
 ### <a name="service-broker"></a>Service broker
 
@@ -541,6 +544,16 @@ WITH PRIVATE KEY (<private_key_options>)
 
 ## <a name="Issues"></a>已知問題
 
+### <a name="missing-validations-in-restore-process"></a>還原過程中缺少驗證
+
+**日期**Sep 2019
+
+`RESTORE`語句和內建的時間點還原不會對還原的資料庫執行一些 nessecary 檢查：
+- **DBCC CHECKDB**  -  `DBCC CHECKDB`語句不會在還原的資料庫上執行。`RESTORE` 如果原始資料庫已損毀，或備份檔案在複製到 Azure blob 儲存體時損毀，將不會執行自動備份，Azure 支援將會與客戶聯繫。 
+- 內建的時間點還原程式並不會檢查來自「商務關鍵性」實例的「自動備份」是否包含[記憶體內部 OLTP 物件](sql-database-in-memory.md#in-memory-oltp)。 
+
+**因應措施**：請先確定您是在`DBCC CHECKDB`源資料庫上執行，再進行備份，並使用`WITH CHECKSUM`備份中的選項來避免可能在受控實例上還原的損毀。 如果您要在一般用途層進行還原，請確定您的源資料庫未包含[記憶體內部 OLTP 物件](sql-database-in-memory.md#in-memory-oltp)。
+
 ### <a name="resource-governor-on-business-critical-service-tier-might-need-to-be-reconfigured-after-failover"></a>業務關鍵服務層級上的 Resource Governor 可能需要在容錯移轉之後重新設定
 
 **日期**Sep 2019
@@ -549,19 +562,19 @@ WITH PRIVATE KEY (<private_key_options>)
 
 **因應措施**：當您使用[Resource Governor](https://docs.microsoft.com/sql/relational-databases/resource-governor/resource-governor)時，定期執行，或當做sql代理程式作業的一部分，在實例啟動時執行sql工作。`ALTER RESOURCE GOVERNOR RECONFIGURE`
 
-### <a name="cannot-authenicate-to-external-mail-servers-using-secure-connection-ssl"></a>無法使用安全連線（SSL）驗證到外部郵件伺服器
+### <a name="cannot-authenticate-to-external-mail-servers-using-secure-connection-ssl"></a>無法使用安全連線（SSL）向外部郵件伺服器進行驗證
 
 **日期**2019年8月
 
 [使用安全連線（SSL）設定](https://docs.microsoft.com/sql/relational-databases/database-mail/configure-database-mail)的 Database mail 無法在 Azure 外部的某些電子郵件伺服器上進行驗證。 這是即將解決的安全性設定問題。
 
-**因應措施：** 暫時移除安全連線（SSL）會形成 database mail 設定，直到問題解決為止。 
+**因應措施：** 暫時從 database mail 設定中移除安全連線（SSL），直到問題解決為止。 
 
 ### <a name="cross-database-service-broker-dialogs-must-be-re-initialized-after-service-tier-upgrade"></a>服務層升級之後，必須重新初始化跨資料庫 Service Broker 對話方塊
 
 **日期**2019年8月
 
-跨資料庫 Service Broker 對話方塊會在變更服務層級作業之後，停止將訊息傳遞至其他資料庫中的服務。 訊息不會**遺失**，而且可以在寄件者佇列中找到。 受控執行個體中的虛擬核心或實例儲存體大小變更時，將`service_broke_guid`會針對所有資料庫變更[sys.databases](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-databases-transact-sql) view 中的值。 任何`DIALOG`在其他資料庫中參考 Service broker 的已建立 using [BEGIN DIALOG](https://docs.microsoft.com/en-us/sql/t-sql/statements/begin-dialog-conversation-transact-sql)語句，都會停止將訊息傳遞至目標服務。
+跨資料庫 Service Broker 對話方塊會在變更服務層級作業之後，停止將訊息傳遞至其他資料庫中的服務。 訊息不會**遺失**，而且可以在寄件者佇列中找到。 受控執行個體中的虛擬核心或實例儲存體大小變更時，將`service_broke_guid`會針對所有資料庫變更[sys.databases](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-databases-transact-sql) view 中的值。 任何`DIALOG`在其他資料庫中參考服務代理人的已建立 using [BEGIN DIALOG](https://docs.microsoft.com/en-us/sql/t-sql/statements/begin-dialog-conversation-transact-sql)語句，都會停止將訊息傳遞至目標服務。
 
 **因應措施：** 請先停止使用跨資料庫 Service Broker 對話交談的任何活動，再更新服務層級，然後在之後重新初始化。 如果有剩餘的訊息在服務層級變更後無法傳遞，請從來源佇列讀取訊息，然後將它們重新傳送至目標佇列。
 
@@ -589,7 +602,7 @@ WITH PRIVATE KEY (<private_key_options>)
 
 **日期**Jan 2019
 
-SQL Server Management Studio 和 SQL Server Data Tools 不也完全支援 Azure Acctive 目錄登入和使用者。
+SQL Server Management Studio 和 SQL Server Data Tools 不完全支援 Azure Active directory 登入和使用者。
 - 目前不支援搭配 SQL Server Data Tools 使用 Azure AD 伺服器主體 (登入) 和使用者 (公開預覽)。
 - SQL Server Management Studio 不支援 Azure AD 伺服器主體 (登入) 和使用者的腳本 (公開預覽)。
 
@@ -609,7 +622,7 @@ SQL Server Management Studio 和 SQL Server Data Tools 不也完全支援 Azure 
 
 每個一般用途的受控實例最多可保留 35 TB 的儲存體, 以供 Azure Premium 磁碟空間之用。 每個資料庫檔案都會放在個別的實體磁片上。 磁碟大小可以是 128 GB、256 GB、512 GB、1 TB 或 4 TB。 磁片上未使用的空間不會收費, 但 Azure Premium 磁片大小的總計總和不能超過 35 TB。 在某些情況下, 不需要 8 TB 的受控實例總計可能會超過 35 TB 的 Azure 儲存體大小限制, 因為內部分散。
 
-例如，一般用途的受控實例可能會有一個大檔案，其大小為 1.2 TB，放在 4 TB 的磁片上。 它也可能有248個檔案1GB 的檔案，分別放在不同的 128 GB 磁片上。 在此範例中：
+例如，一般用途的受控實例可能會有一個大小為 1.2 TB 的大型檔案，放在 4 TB 的磁片上。 它也可能有248個檔案，每個檔案都有 1 GB 的大小，每個檔案放在不同的 128 GB 磁片上。 在此範例中：
 
 - 配置的磁碟儲存體大小總計為 1 x 4 TB + 248 x 128 GB = 35 TB。
 - 為執行個體上的資料庫保留的大小總計為 1 x 1.2 TB + 248 x 1 GB = 1.4 TB。
