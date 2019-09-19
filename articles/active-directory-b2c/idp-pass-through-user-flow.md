@@ -1,6 +1,6 @@
 ---
 title: 透過使用者流程將存取權杖傳遞至您的應用程式-Azure Active Directory B2C
-description: 瞭解如何在 Azure Active Directory B2C 的使用者流程中, 以宣告形式傳遞 OAuth 2.0 身分識別提供者的存取權杖。
+description: 瞭解如何在 Azure Active Directory B2C 的使用者流程中，以宣告形式傳遞 OAuth 2.0 身分識別提供者的存取權杖。
 services: active-directory-b2c
 author: mmacy
 manager: celestedg
@@ -10,16 +10,16 @@ ms.topic: conceptual
 ms.date: 08/17/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 66b3dc4aba5d1b29cc0c6190877fbd6b26a11f0c
-ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
+ms.openlocfilehash: a1a9ad0c615e50db746548a1ed5b557fe6fdea5a
+ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69510090"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71064291"
 ---
 # <a name="pass-an-access-token-through-a-user-flow-to-your-application-in-azure-active-directory-b2c"></a>透過使用者流程將存取權杖傳遞到 Azure Active Directory B2C 中的應用程式
 
-Azure Active Directory B2C (Azure AD B2C) 中的[使用者流程](active-directory-b2c-reference-policies.md)可讓您的應用程式使用者有機會使用身分識別提供者註冊或登入。 當發生這種情況時，Azure AD B2C 會從身分識別提供者處收到[存取權杖](active-directory-b2c-reference-tokens.md)。 Azure AD B2C 會使用該權杖來擷取使用者的相關資訊。 您在使用者流程中啟用宣告，以將權杖傳遞至您在 Azure AD B2C 中註冊的應用程式。
+Azure Active Directory B2C （Azure AD B2C）中的[使用者流程](active-directory-b2c-reference-policies.md)可讓您的應用程式使用者有機會使用身分識別提供者註冊或登入。 當發生這種情況時，Azure AD B2C 會從身分識別提供者處收到[存取權杖](active-directory-b2c-reference-tokens.md)。 Azure AD B2C 會使用該權杖來擷取使用者的相關資訊。 您在使用者流程中啟用宣告，以將權杖傳遞至您在 Azure AD B2C 中註冊的應用程式。
 
 Azure AD B2C 目前僅支援傳遞 [OAuth 2.0](active-directory-b2c-reference-oauth-code.md) 身分識別提供者的存取權杖，其中包括 [Facebook](active-directory-b2c-setup-fb-app.md) 和 [Google](active-directory-b2c-setup-goog-app.md)。 對於所有其他識別提供者，宣告會傳回空白。
 
@@ -31,9 +31,9 @@ Azure AD B2C 目前僅支援傳遞 [OAuth 2.0](active-directory-b2c-reference-oa
 ## <a name="enable-the-claim"></a>啟用宣告
 
 1. 以 Azure AD B2C 租用戶的全域管理員身分登入 [Azure 入口網站](https://portal.azure.com/)。
-2. 請確定您使用的是包含您 Azure AD B2C 租使用者的目錄。 選取頂端功能表中的 [**目錄和訂**用帳戶] 篩選, 然後選擇包含您租使用者的目錄。
+2. 請確定您使用的是包含您 Azure AD B2C 租使用者的目錄。 在頂端功能表中選取 [**目錄 + 訂**用帳戶] 篩選，然後選擇包含您租使用者的目錄。
 3. 選擇 Azure 入口網站左上角的 [所有服務]，搜尋並選取 [Azure AD B2C]。
-4. 選取 **[使用者流程 (原則)** ], 然後選取您的使用者流程。 例如, **B2C_1_signupsignin1**。
+4. 選取 **[使用者流程 (原則)** ], 然後選取您的使用者流程。 例如， **B2C_1_signupsignin1**。
 5. 選取 [應用程式宣告]。
 6. 啟用身分**識別提供者存取權杖**宣告。
 

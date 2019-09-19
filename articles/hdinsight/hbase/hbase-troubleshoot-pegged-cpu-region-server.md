@@ -5,13 +5,14 @@ ms.service: hdinsight
 ms.topic: troubleshooting
 author: hrasheed-msft
 ms.author: hrasheed
+ms.reviewer: jasonh
 ms.date: 08/01/2019
-ms.openlocfilehash: b1fba84e7841713b005e387bcd806344f6a9e7a1
-ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
+ms.openlocfilehash: 0712e6e8e9fe6db370d913d04e562c19b72d69a7
+ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70810790"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71091669"
 ---
 # <a name="scenario-pegged-cpu-on-region-server-in-apache-hbase-cluster-in-azure-hdinsight"></a>案例：在 Azure HDInsight 中的 Apache HBase 叢集中的區域伺服器上限定 CPU
 

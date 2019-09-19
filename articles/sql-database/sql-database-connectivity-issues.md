@@ -9,15 +9,16 @@ ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
 author: dalechen
+manager: dcscontentpm
 ms.author: ninarn
 ms.reviewer: carlrab
 ms.date: 06/14/2019
-ms.openlocfilehash: da2107a0573fafd10394931be21fb446f83fd5f2
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: eb34395e0a9ec881c2f5e303383555fa6544369d
+ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68569071"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71090909"
 ---
 # <a name="working-with-sql-database-connection-issues-and-transient-errors"></a>處理 SQL Database 連線問題和暫時性錯誤
 
@@ -90,9 +91,9 @@ ms.locfileid: "68569071"
 您可以測試重試邏輯的方法，就是在程式執行時中斷用戶端電腦與網路的連接。 錯誤是：
 
 - **SqlException.Number** = 11001
-- 訊息:「不知道這種主機」
+- 訊息：「不知道這種主機」
 
-第一次重試時, 您可以將用戶端電腦重新連線到網路, 然後嘗試連接。
+第一次重試時，您可以將用戶端電腦重新連線到網路，然後嘗試連接。
 
 若要使這項測試可行，請先中斷電腦的網路連線，再啟動您的程式。 然後，您的程式會辨識一個執行階段參數，以便程式：
 
@@ -108,7 +109,7 @@ ms.locfileid: "68569071"
 在第一次連接嘗試之前，您的程式可以故意拼錯使用者名稱。 錯誤是：
 
 - **SqlException.Number** = 18456
-- 訊息:「使用者 ' WRONG_MyUserName ' 登入失敗。」
+- 訊息：「使用者 ' WRONG_MyUserName ' 登入失敗。」
 
 第一次重試時，您的程式可以更正拼字錯誤，然後嘗試連線。
 
@@ -133,12 +134,12 @@ ms.locfileid: "68569071"
 當您為 [SqlConnection](https://msdn.microsoft.com/library/System.Data.SqlClient.SqlConnection.connectionstring.aspx) 物件建立**連接字串**時，請調整下列參數的值：
 
 - **ConnectRetryCount**：&nbsp;&nbsp;預設值為 1。 範圍是 0 到 255。
-- **ConnectRetryInterval** &nbsp; :&nbsp;預設值為10秒。 範圍是 1 到 60。
+- **ConnectRetryInterval** &nbsp; ：&nbsp;預設值為10秒。 範圍是 1 到 60。
 - **Connection Timeout**：&nbsp;&nbsp;預設值為 15 秒。 範圍是 0 到 2147483647。
 
 具體來說，您選擇的值應該會讓下列等式成立：Connection Timeout = ConnectRetryCount * ConnectionRetryInterval
 
-例如, 如果計數等於 3, 且間隔等於10秒, 則只有29秒的時間才會讓系統有足夠的時間來進行第三個和最後一次的重試連接:29 < 3 * 10。
+例如，如果計數等於3，且間隔等於10秒，則只有29秒的時間才會讓系統有足夠的時間來進行第三個和最後一次的重試連接：29 < 3 * 10。
 
 <a id="connection-versus-command" name="connection-versus-command"></a>
 
@@ -266,7 +267,7 @@ TCP port 1433 (ms-sql-s service): LISTENING
 
 您的用戶端可以記錄其遇到的所有錯誤來協助診斷。 您可以使記錄項目與 SQL Database 本身內部記錄的錯誤資料相互關聯。
 
-Enterprise Library 6 (EntLib60) 提供 .NET 受控類別來協助記錄。 如需詳細資訊, [請參閱 5-簡單地關閉記錄檔:使用記錄應用程式區塊](https://msdn.microsoft.com/library/dn440731.aspx)。
+Enterprise Library 6 (EntLib60) 提供 .NET 受控類別來協助記錄。 如需詳細資訊， [請參閱 5-簡單地關閉記錄檔：使用記錄應用程式區塊](https://msdn.microsoft.com/library/dn440731.aspx)。
 
 <a id="h-diagnostics-examine-logs-errors" name="h-diagnostics-examine-logs-errors"></a>
 
@@ -310,7 +311,7 @@ ORDER BY
 ;
 ```
 
-#### <a name="a-few-returned-rows-from-sysfnxetelemetryblobtargetreadfile"></a>數個從 sys.fn_xe_telemetry_blob_target_read_file 傳回的資料列
+#### <a name="a-few-returned-rows-from-sysfn_xe_telemetry_blob_target_read_file"></a>數個從 sys.fn_xe_telemetry_blob_target_read_file 傳回的資料列
 
 下列範例顯示傳回的資料列可能的樣子。 顯示的 null 值通常在其他資料列不是 null。
 
@@ -326,7 +327,7 @@ database_xml_deadlock_report  2015-10-16 20:28:01.0090000  NULL   NULL   NULL   
 
 Enterprise Library 6 (EntLib60) 是 .NET 類別的架構，可協助您實作雲端服務的健全用戶端，其中之一就是 SQL Database 服務。 若要找出 EntLib60 所能協助之每個領域的專用主題，請參閱 [Enterprise Library 6 - 2013 年 4 月](https://msdn.microsoft.com/library/dn169621%28v=pandp.60%29.aspx)。
 
-在 EntLib60 可以協助的一個領域中用於處理暫時性錯誤的重試邏輯。 如需詳細資訊, [請參閱 4-堅持是, all 成功秘方的秘密:使用暫時性錯誤處理應用程式區塊](https://msdn.microsoft.com/library/dn440719%28v=pandp.60%29.aspx)。
+在 EntLib60 可以協助的一個領域中用於處理暫時性錯誤的重試邏輯。 如需詳細資訊， [請參閱 4-堅持是，all 成功秘方的秘密：使用暫時性錯誤處理應用程式區塊](https://msdn.microsoft.com/library/dn440719%28v=pandp.60%29.aspx)。
 
 > [!NOTE]
 > EntLib60 的原始程式碼可從[下載中心](https://go.microsoft.com/fwlink/p/?LinkID=290898)公開下載。 Microsoft 沒有計劃進一步更新或維護 EntLib 的功能。
@@ -353,9 +354,9 @@ Enterprise Library 6 (EntLib60) 是 .NET 類別的架構，可協助您實作雲
 
 以下是 EntLib60 相關資訊的一些連結：
 
-- 免費書籍下載:[Microsoft Enterprise Library 第2版的開發人員指南](https://www.microsoft.com/download/details.aspx?id=41145)。
+- 免費書籍下載：[Microsoft Enterprise Library 第2版的開發人員指南](https://www.microsoft.com/download/details.aspx?id=41145)。
 - 最佳做法：[重試一般指引](../best-practices-retry-general.md)提供重試邏輯的絕佳深入討論。
-- NuGet 下載:[企業程式庫-暫時性錯誤處理應用程式區塊 6.0](https://www.nuget.org/packages/EnterpriseLibrary.TransientFaultHandling/)。
+- NuGet 下載：[企業程式庫-暫時性錯誤處理應用程式區塊 6.0](https://www.nuget.org/packages/EnterpriseLibrary.TransientFaultHandling/)。
 
 <a id="entlib60-the-logging-block" name="entlib60-the-logging-block"></a>
 
@@ -367,7 +368,7 @@ Enterprise Library 6 (EntLib60) 是 .NET 類別的架構，可協助您實作雲
   - 收集有助於偵錯和追蹤的內容資訊，以及用於稽核和一般記錄需求的內容資訊。
 - 記錄區塊可彙總來自記錄目的地的記錄功能，使應用程式程式碼能夠一致，而不必理會目標記錄存放區的的位置和類型。
 
-如需詳細資訊, [請參閱 5-簡單地關閉記錄檔:使用記錄應用程式區塊](https://msdn.microsoft.com/library/dn440731%28v=pandp.60%29.aspx)。
+如需詳細資訊， [請參閱 5-簡單地關閉記錄檔：使用記錄應用程式區塊](https://msdn.microsoft.com/library/dn440731%28v=pandp.60%29.aspx)。
 
 <a id="entlib60-istransient-method-source-code" name="entlib60-istransient-method-source-code"></a>
 

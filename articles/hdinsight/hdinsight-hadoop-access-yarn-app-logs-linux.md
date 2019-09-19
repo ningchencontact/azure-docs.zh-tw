@@ -2,18 +2,18 @@
 title: 存取以 Linux 為基礎之 HDInsight 上的 Apache Hadoop YARN 應用程式記錄 - Azure
 description: 了解如何使用命令列和網頁瀏覽器存取以 Linux 為基礎之 HDInsight (Apache Hadoop) 叢集上的 YARN 應用程式記錄。
 author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 03/22/2018
-ms.author: hrasheed
-ms.openlocfilehash: 2b230f91b9d6b169b89b125bdd0394c2c7ecd96f
-ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
+ms.openlocfilehash: 6eb24e85d1d7ffa4f3377d4c2fe8b168303c15f0
+ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70879896"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71091512"
 ---
 # <a name="access-apache-hadoop-yarn-application-logs-on-linux-based-hdinsight"></a>在以 Linux 為基礎的 HDInsight 上存取 Apache Hadoop YARN 應用程式記錄
 
@@ -62,11 +62,11 @@ YARN ResourceManager UI 是在叢集前端節點上執行。 可透過 Ambari We
 1. 在您的網頁瀏覽器中，瀏覽至 https://CLUSTERNAME.azurehdinsight.net 。 將 CLUSTERNAME 取代為 HDInsight 叢集的名稱。
 2. 從左邊的服務清單中選取 [YARN]。
 
-    ![選取的 Yarn 服務](./media/hdinsight-hadoop-access-yarn-app-logs-linux/yarn-service-selected.png)
+    ![已選取 Apache Ambari Yarn 服務](./media/hdinsight-hadoop-access-yarn-app-logs-linux/yarn-service-selected.png)
 
 3. 在 [快速連結] 下拉式清單中，選取其中一個叢集前端節點，然後選取 [ResourceManager 記錄]。
 
-    ![Yarn 快速連結](./media/hdinsight-hadoop-access-yarn-app-logs-linux/hdi-yarn-quick-links.png)
+    ![Apache Ambari Yarn 快速連結](./media/hdinsight-hadoop-access-yarn-app-logs-linux/hdi-yarn-quick-links.png)
 
     您會看到一份 YARN 記錄的連結清單。
 

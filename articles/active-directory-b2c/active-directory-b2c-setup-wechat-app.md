@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 08/08/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 377fd5c2be9e49e077303aac2a48fa2a0b8288ef
-ms.sourcegitcommit: 55e0c33b84f2579b7aad48a420a21141854bc9e3
+ms.openlocfilehash: ad5e5b766c38b2ce3c48c22e62dd1fd2b9a79853
+ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69622117"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71064954"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-a-wechat-account-using-azure-active-directory-b2c"></a>使用 Azure Active Directory B2C 設定註冊，並以 WeChat 帳戶登入
 
@@ -23,7 +23,7 @@ ms.locfileid: "69622117"
 
 ## <a name="create-a-wechat-application"></a>建立 WeChat 應用程式
 
-若要在 Azure Active Directory (Azure AD) B2C 中使用 WeChat 帳戶做為識別提供者，您需要在代表該帳戶的租用戶中建立應用程式。 如果您還沒有 WeChat 帳戶, 可以在[https://kf.qq.com/faq/161220Brem2Q161220uUjERB.html](https://kf.qq.com/faq/161220Brem2Q161220uUjERB.html)取得相關資訊。
+若要在 Azure Active Directory B2C （Azure AD B2C）中使用 WeChat 帳戶做為識別提供者，您需要在代表它的租使用者中建立應用程式。 如果您還沒有 WeChat 帳戶，可以在[https://kf.qq.com/faq/161220Brem2Q161220uUjERB.html](https://kf.qq.com/faq/161220Brem2Q161220uUjERB.html)取得相關資訊。
 
 ### <a name="register-a-wechat-application"></a>註冊 WeChat 應用程式
 
@@ -36,10 +36,10 @@ ms.locfileid: "69622117"
 ## <a name="configure-wechat-as-an-identity-provider-in-your-tenant"></a>在租用戶中將 WeChat 設為識別提供者
 
 1. 以 Azure AD B2C 租用戶的全域管理員身分登入 [Azure 入口網站](https://portal.azure.com/)。
-1. 請選取頂端功能表中的 [**目錄 + 訂**用帳戶] 篩選, 然後選擇包含您租使用者的目錄, 以確定您使用的是包含 Azure AD B2C 租使用者的目錄。
+1. 請選取頂端功能表中的 [**目錄 + 訂**用帳戶] 篩選，然後選擇包含您租使用者的目錄，以確定您使用的是包含 Azure AD B2C 租使用者的目錄。
 1. 選擇 Azure 入口網站左上角的 [所有服務]，搜尋並選取 [Azure AD B2C]。
-1. 選取 [**識別提供者**], 然後選取 **[WeChat (預覽)** ]。
-1. 輸入 [名稱]。 例如, *WeChat*。
-1. 針對 [**用戶端識別碼**], 輸入您稍早建立之 WeChat 應用程式的 [應用程式識別碼]。
-1. 針對 [**用戶端密碼**], 輸入您所記錄的應用程式金鑰。
-1. 選取 [ **儲存**]。
+1. 選取 [**識別提供者**]，然後選取 **[WeChat （預覽）** ]。
+1. 輸入 [名稱]。 例如， *WeChat*。
+1. 針對 [**用戶端識別碼**]，輸入您稍早建立之 WeChat 應用程式的 [應用程式識別碼]。
+1. 針對 [**用戶端密碼**]，輸入您所記錄的應用程式金鑰。
+1. 選取 [儲存]。

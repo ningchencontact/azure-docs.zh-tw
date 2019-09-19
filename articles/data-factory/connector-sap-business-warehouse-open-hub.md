@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 09/04/2019
 ms.author: jingwang
-ms.openlocfilehash: a42b31a1392dd11638bae195b039a15a81d12897
-ms.sourcegitcommit: a819209a7c293078ff5377dee266fa76fd20902c
+ms.openlocfilehash: a35246aff99ec78e665e3be4afd47409959bef63
+ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/16/2019
-ms.locfileid: "71010527"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71089731"
 ---
 # <a name="copy-data-from-sap-business-warehouse-via-open-hub-using-azure-data-factory"></a>使用 Azure Data Factory 透過 Open Hub 從 SAP Business Warehouse 複製資料
 
@@ -30,7 +30,7 @@ ms.locfileid: "71010527"
 
 下列活動支援透過開放式中樞連接器的此 SAP 商務倉儲：
 
-- [複製活動](copy-activity-overview.md)與[支援的來源矩陣](copy-activity-overview.md)
+- [複製活動](copy-activity-overview.md)與[支援的來源/接收矩陣](copy-activity-overview.md)
 - [查閱活動](control-flow-lookup-activity.md)
 
 您可以透過 Open Hub 將資料從 SAP Business Warehouse 複製到任何支援的接收資料存放區。 如需複製活動所支援作為來源/接收器的資料存放區清單，請參閱[支援的資料存放區](copy-activity-overview.md#supported-data-stores-and-formats)表格。
@@ -106,7 +106,7 @@ ADF SAP BW 開放式中樞連接器提供兩個選擇性屬性`excludeLastReques
 
 | 屬性 | 描述 | 必要項 |
 |:--- |:--- |:--- |
-| Type | 類型屬性必須設定為：**SapOpenHub** | 是 |
+| 型別 | 類型屬性必須設定為：**SapOpenHub** | 是 |
 | server | SAP BW 執行個體所在之伺服器的名稱。 | 是 |
 | systemNumber | SAP BW 系統的系統編號。<br/>允許的值：以字串表示的二位數十進位數字。 | 是 |
 | clientId | SAP W 系統中用戶端的用戶端識別碼。<br/>允許的值：以字串表示的三位數十進位數字。 | 是 |
@@ -148,7 +148,7 @@ ADF SAP BW 開放式中樞連接器提供兩個選擇性屬性`excludeLastReques
 
 | 屬性 | 描述 | 必要項 |
 |:--- |:--- |:--- |
-| Type | 類型屬性必須設為 **SapOpenHubTable**。  | 是 |
+| 型別 | 類型屬性必須設為 **SapOpenHubTable**。  | 是 |
 | openHubDestinationName | 要從中複製資料的 Open Hub Destination 名稱。 | 是 |
 
 如果您是在`excludeLastRequest`資料`baseRequestId`集內設定和，則仍會受到支援，但建議您繼續使用活動來源中的新模型。
@@ -182,7 +182,7 @@ ADF SAP BW 開放式中樞連接器提供兩個選擇性屬性`excludeLastReques
 
 | 屬性 | 描述 | 必要項 |
 |:--- |:--- |:--- |
-| Type | 複製活動來源的**類型**屬性必須設定為**SapOpenHubSource**。 | 是 |
+| 型別 | 複製活動來源的**類型**屬性必須設定為**SapOpenHubSource**。 | 是 |
 | excludeLastRequest | 是否要排除最後一個要求的記錄。 | 否 (預設值為 **true**) |
 | baseRequestId | 差異載入的要求識別碼。 設定之後，將只會擷取 requestId **大於**此屬性值的資料。  | 否 |
 

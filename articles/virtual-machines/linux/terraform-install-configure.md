@@ -1,5 +1,5 @@
 ---
-title: 安裝和設定 Terraform 以便與 Azure 搭配使用 | Microsoft Docs
+title: 安裝和設定 Terraform 以布建 Azure 資源 |Microsoft Docs
 description: 了解如何安裝和設定 Terraform 以建立 Azure 資源
 services: virtual-machines-linux
 documentationcenter: virtual-machines
@@ -12,16 +12,16 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 06/19/2018
-ms.author: gwallace
-ms.openlocfilehash: 105b3805e1297f796e0353f9328044896248aaa0
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.date: 09/17/2019
+ms.author: tarcher
+ms.openlocfilehash: cd6052db1328fce5ef1a846fbab94fd7066079f6
+ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70081762"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71090727"
 ---
-# <a name="install-and-configure-terraform-to-provision-vms-and-other-infrastructure-into-azure"></a>安裝和設定 Terraform 以在 Azure 中佈建 VM 和的其他基礎結構
+# <a name="install-and-configure-terraform-to-provision-azure-resources"></a>安裝和設定 Terraform 以布建 Azure 資源
  
 Terraform 使用[簡易範本化語言](https://www.terraform.io/docs/configuration/syntax.html)，提供簡單的方法來定義、預覽及部署雲端基礎結構。 本文說明在 Azure 中使用 Terraform 來佈建資源的必要步驟。
 
@@ -46,7 +46,7 @@ Usage: terraform [--version] [--help] <command> [args]
 
 若要讓 Terraform 將資源佈建至 Azure，請建立 [Azure AD 服務主體](/cli/azure/create-an-azure-service-principal-azure-cli)。 此服務主體會授與您的 Terraform 指令碼，讓您可以在 Azure 訂用帳戶中佈建資源。
 
-如果您有多個 Azure 訂用帳戶, 請先使用[az account list](/cli/azure/account#az-account-list)查詢您的帳戶, 以取得訂用帳戶識別碼和租使用者識別碼值的清單:
+如果您有多個 Azure 訂用帳戶，請先使用[az account list](/cli/azure/account#az-account-list)查詢您的帳戶，以取得訂用帳戶識別碼和租使用者識別碼值的清單：
 
 ```azurecli-interactive
 az account list --query "[].{name:name, subscriptionId:id, tenantId:tenantId}"

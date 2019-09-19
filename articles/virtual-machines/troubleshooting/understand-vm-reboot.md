@@ -4,7 +4,7 @@ description: 列出可能導致 VM 重新啟動的事件
 services: virtual-machines
 documentationcenter: ''
 author: genlin
-manager: willchen
+manager: dcscontentpm
 editor: ''
 tags: ''
 ms.service: virtual-machines
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: aea4c20ceeb9b4f1ad70187da2690fd5d202fe7a
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: a536eb89f2040333617329e963ce00f5c6b1ba7a
+ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70089538"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71086970"
 ---
 # <a name="understand-a-system-reboot-for-azure-vm"></a>了解 Azure VM 的系統重新啟動
 
@@ -101,7 +101,7 @@ VM 會裝載於在 Azure 資料中心內執行的實體伺服器。 除了少數
 
 在少數情況下，Azure 作業小組可能需要執行維護活動，以確保 Azure 平台的整體健全狀況。 此行為可能會影響 VM 可用性，且通常會導致如先前所述的相同自動復原動作。  
 
-非計畫中的維護包括下列各項:
+非計畫中的維護包括下列各項：
 
 - 緊急節點磁碟重組
 - 緊急網路交換器更新

@@ -5,29 +5,30 @@ ms.service: hdinsight
 ms.topic: troubleshooting
 author: hrasheed-msft
 ms.author: hrasheed
+ms.reviewer: jasonh
 ms.date: 08/08/2019
-ms.openlocfilehash: e42ab97b4508a606781af76f8dd5927b1a14a8b3
-ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
+ms.openlocfilehash: 94423fa1f7596eb42ad6112003ad202b2eb21766
+ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/10/2019
-ms.locfileid: "68947834"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71091638"
 ---
-# <a name="scenario-hdp-upgrade-causes-no-data-in-apache-phoenix-views-in-azure-hdinsight"></a>案例:HDP 升級會導致 Azure HDInsight 的 Apache Phoenix views 中沒有任何資料
+# <a name="scenario-hdp-upgrade-causes-no-data-in-apache-phoenix-views-in-azure-hdinsight"></a>案例：HDP 升級會導致 Azure HDInsight 的 Apache Phoenix views 中沒有任何資料
 
-本文說明與 Azure HDInsight 叢集互動時, 問題的疑難排解步驟和可能的解決方法。
+本文說明與 Azure HDInsight 叢集互動時，問題的疑難排解步驟和可能的解決方法。
 
 ## <a name="issue"></a>問題
 
-從 HDP 2.4 升級至 HDP 2.5 之後, Apache Phoenix view 不會包含日期。
+從 HDP 2.4 升級至 HDP 2.5 之後，Apache Phoenix view 不會包含日期。
 
 ## <a name="cause"></a>原因
 
-適用于 views 的索引表 (view 的所有索引都儲存在單一實體 Apache HBase 資料表中) 會在升級期間截斷
+適用于 views 的索引表（view 的所有索引都儲存在單一實體 Apache HBase 資料表中）會在升級期間截斷
 
-## <a name="resolution"></a>解決方法
+## <a name="resolution"></a>解析度
 
-升級之後, 請卸載並重新建立所有視圖索引。
+升級之後，請卸載並重新建立所有視圖索引。
 
 ## <a name="next-steps"></a>後續步驟
 
@@ -35,6 +36,6 @@ ms.locfileid: "68947834"
 
 * 透過[Azure 社區支援](https://azure.microsoft.com/support/community/)取得 azure 專家的解答。
 
-* [@AzureSupport](https://twitter.com/azuresupport)連接-官方 Microsoft Azure 帳戶, 以改善客戶體驗。 將 Azure 社區連接到正確的資源: 解答、支援和專家。
+* [@AzureSupport](https://twitter.com/azuresupport)連接-官方 Microsoft Azure 帳戶，以改善客戶體驗。 將 Azure 社區連接到正確的資源：解答、支援和專家。
 
-* 如果您需要更多協助, 您可以從[Azure 入口網站](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/)提交支援要求。 從功能表列選取 [**支援**], 或開啟 [說明 **+ 支援**] 中樞。 如需詳細資訊, 請參閱[如何建立 Azure 支援要求](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request)。 您的 Microsoft Azure 訂用帳戶包含訂用帳戶管理和帳單支援的存取權, 而技術支援則透過其中一項[Azure 支援方案](https://azure.microsoft.com/support/plans/)提供。
+* 如果您需要更多協助，您可以從[Azure 入口網站](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/)提交支援要求。 從功能表列選取 [**支援**]，或開啟 [說明 **+ 支援**] 中樞。 如需詳細資訊，請參閱[如何建立 Azure 支援要求](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request)。 您的 Microsoft Azure 訂用帳戶包含訂用帳戶管理和帳單支援的存取權，而技術支援則透過其中一項[Azure 支援方案](https://azure.microsoft.com/support/plans/)提供。

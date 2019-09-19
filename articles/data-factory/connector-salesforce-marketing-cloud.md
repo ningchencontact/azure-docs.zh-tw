@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/01/2019
 ms.author: jingwang
-ms.openlocfilehash: f20cccb87bf2da53086f2e7bb14edddaa57b991e
-ms.sourcegitcommit: a819209a7c293078ff5377dee266fa76fd20902c
+ms.openlocfilehash: ddac58129d964f39770e4f8fb37b39625c690603
+ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/16/2019
-ms.locfileid: "71010545"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71089634"
 ---
 # <a name="copy-data-from-salesforce-marketing-cloud-using-azure-data-factory-preview"></a>使用 Azure Data Factory 從 Salesforce Marketing Cloud 複製資料 (預覽)
 
@@ -30,7 +30,7 @@ ms.locfileid: "71010545"
 
 下列活動支援此 Salesforce 行銷雲端連接器：
 
-- [複製活動](copy-activity-overview.md)與[支援的來源矩陣](copy-activity-overview.md)
+- [複製活動](copy-activity-overview.md)與[支援的來源/接收矩陣](copy-activity-overview.md)
 - [查閱活動](control-flow-lookup-activity.md)
 
 您可以將資料從 Salesforce Marketing Cloud 複製到任何支援的接收資料存放區。 如需複製活動所支援作為來源/接收器的資料存放區清單，請參閱[支援的資料存放區](copy-activity-overview.md#supported-data-stores-and-formats)表格。
@@ -52,7 +52,7 @@ Salesforce Marketing 雲端連接器支援 OAuth 2 驗證。 它建置於[Salesf
 
 | 屬性 | 描述 | 必要項 |
 |:--- |:--- |:--- |
-| Type | 類型屬性必須設定為：**SalesforceMarketingCloud** | 是 |
+| 型別 | 類型屬性必須設定為：**SalesforceMarketingCloud** | 是 |
 | clientId | 與 Salesforce Marketing Cloud 應用程式相關聯的用戶端識別碼。  | 是 |
 | clientSecret | 與 Salesforce Marketing Cloud 應用程式相關聯的用戶端密碼。 您可以選擇將這個欄位標記為 SecureString 以將它安全地儲存在 ADF，或將密碼儲存在 Azure Key Vault，然後在執行複製資料時，讓 ADF 複製活動從該處提取 - 請參閱[將認證儲存在 Key Vault](store-credentials-in-key-vault.md) 以進一步了解。 | 是 |
 | useEncryptedEndpoints | 指定是否使用 HTTPS 來加密資料來源端點。 預設值為 true。  | 否 |
@@ -89,7 +89,7 @@ Salesforce Marketing 雲端連接器支援 OAuth 2 驗證。 它建置於[Salesf
 
 | 屬性 | 描述 | 必要項 |
 |:--- |:--- |:--- |
-| Type | 資料集的類型屬性必須設定為：**SalesforceMarketingCloudObject** | 是 |
+| 型別 | 資料集的類型屬性必須設定為：**SalesforceMarketingCloudObject** | 是 |
 | tableName | 資料表的名稱。 | 否 (如果已指定活動來源中的"query") |
 
 **範例**
@@ -119,7 +119,7 @@ Salesforce Marketing 雲端連接器支援 OAuth 2 驗證。 它建置於[Salesf
 
 | 屬性 | 描述 | 必要項 |
 |:--- |:--- |:--- |
-| Type | 複製活動來源的類型屬性必須設定為：**SalesforceMarketingCloudSource** | 是 |
+| 型別 | 複製活動來源的類型屬性必須設定為：**SalesforceMarketingCloudSource** | 是 |
 | query | 使用自訂 SQL 查詢來讀取資料。 例如： `"SELECT * FROM MyTable"` 。 | 否 (如果已指定資料集中的 "tableName") |
 
 **範例:**

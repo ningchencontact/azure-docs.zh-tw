@@ -5,27 +5,28 @@ ms.service: hdinsight
 ms.topic: troubleshooting
 author: hrasheed-msft
 ms.author: hrasheed
+ms.reviewer: jasonh
 ms.date: 08/09/2019
-ms.openlocfilehash: 139c9a8c89b18588ee6e640feb105f06ff94ae5f
-ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
+ms.openlocfilehash: 8440bbc1cf7019e77c6274cbb11c013fb4e3e69d
+ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/10/2019
-ms.locfileid: "68947730"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71091386"
 ---
-# <a name="scenario-permission-denied-error-when-trying-to-create-an-apache-hive-table-in-azure-hdinsight"></a>案例:嘗試在 Azure HDInsight 中建立 Apache Hive 資料表時發生許可權拒絕錯誤
+# <a name="scenario-permission-denied-error-when-trying-to-create-an-apache-hive-table-in-azure-hdinsight"></a>案例：嘗試在 Azure HDInsight 中建立 Apache Hive 資料表時發生許可權拒絕錯誤
 
-本文說明在 Azure HDInsight 叢集中使用互動式查詢元件時, 針對問題的疑難排解步驟和可能的解決方法。
+本文說明在 Azure HDInsight 叢集中使用互動式查詢元件時，針對問題的疑難排解步驟和可能的解決方法。
 
 ## <a name="issue"></a>問題
 
-嘗試建立資料表時, 您會看到下列錯誤:
+嘗試建立資料表時，您會看到下列錯誤：
 
 ```
 java.sql.SQLException: Error while compiling statement: FAILED: HiveAccessControlException Permission denied: user [hdiuser] does not have [ALL] privilege on [wasbs://data@xxxxx.blob.core.windows.net/path/table]
 ```
 
-如果您執行下列 HDFS 儲存體命令, 將會看到類似的錯誤訊息:
+如果您執行下列 HDFS 儲存體命令，將會看到類似的錯誤訊息：
 
 ```
 hdfs dfs -mkdir wasbs://data@xxxxx.blob.core.windows.net/path/table
@@ -33,11 +34,11 @@ hdfs dfs -mkdir wasbs://data@xxxxx.blob.core.windows.net/path/table
 
 ## <a name="cause"></a>原因
 
-在 Apache Hive 中建立資料表的功能是由套用至叢集儲存體帳戶的許可權決定。 如果叢集儲存體帳戶的許可權不正確, 您將無法建立資料表。 這表示您可以有正確的 Ranger 原則來建立資料表, 而且仍然會看到「許可權被拒」錯誤。
+在 Apache Hive 中建立資料表的功能是由套用至叢集儲存體帳戶的許可權決定。 如果叢集儲存體帳戶的許可權不正確，您將無法建立資料表。 這表示您可以有正確的 Ranger 原則來建立資料表，而且仍然會看到「許可權被拒」錯誤。
 
-## <a name="resolution"></a>解決方法
+## <a name="resolution"></a>解析度
 
-這是因為使用的儲存體容器上缺乏足夠的許可權。 建立 Hive 資料表的使用者需要容器的讀取、寫入和執行許可權。 如需詳細資訊, 請參閱[在 HDP 2.2 中使用 Apache Ranger 進行 Hive 授權的最佳做法](https://hortonworks.com/blog/best-practices-for-hive-authorization-using-apache-ranger-in-hdp-2-2/)。
+這是因為使用的儲存體容器上缺乏足夠的許可權。 建立 Hive 資料表的使用者需要容器的讀取、寫入和執行許可權。 如需詳細資訊，請參閱[在 HDP 2.2 中使用 Apache Ranger 進行 Hive 授權的最佳做法](https://hortonworks.com/blog/best-practices-for-hive-authorization-using-apache-ranger-in-hdp-2-2/)。
 
 ## <a name="next-steps"></a>後續步驟
 
@@ -45,6 +46,6 @@ hdfs dfs -mkdir wasbs://data@xxxxx.blob.core.windows.net/path/table
 
 * 透過[Azure 社區支援](https://azure.microsoft.com/support/community/)取得 azure 專家的解答。
 
-* [@AzureSupport](https://twitter.com/azuresupport)連接-官方 Microsoft Azure 帳戶, 藉由將 Azure 社區連接至適當的資源來改善客戶體驗: 解答、支援及專家。
+* [@AzureSupport](https://twitter.com/azuresupport)連接-官方 Microsoft Azure 帳戶，藉由將 Azure 社區連接至適當的資源來改善客戶體驗：解答、支援及專家。
 
-* 如果您需要更多協助, 您可以從[Azure 入口網站](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/)提交支援要求。 從功能表列選取 [**支援**], 或開啟 [說明 **+ 支援**] 中樞。 如需詳細資訊, 請參閱[如何建立 Azure 支援要求](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request)。 您的 Microsoft Azure 訂用帳戶包含訂用帳戶管理和帳單支援的存取權, 而技術支援則透過其中一項[Azure 支援方案](https://azure.microsoft.com/support/plans/)提供。
+* 如果您需要更多協助，您可以從[Azure 入口網站](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/)提交支援要求。 從功能表列選取 [**支援**]，或開啟 [說明 **+ 支援**] 中樞。 如需詳細資訊，請參閱[如何建立 Azure 支援要求](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request)。 您的 Microsoft Azure 訂用帳戶包含訂用帳戶管理和帳單支援的存取權，而技術支援則透過其中一項[Azure 支援方案](https://azure.microsoft.com/support/plans/)提供。

@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/27/2018
 ms.author: hrasheed
-ms.openlocfilehash: 68be0d7d13785c9631044766a290eec93637ea64
-ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
+ms.openlocfilehash: 5df6ab47c45a64077a39974a30c65fe13f3c851d
+ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70879905"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71091490"
 ---
 # <a name="enable-heap-dumps-for-apache-hadoop-services-on-linux-based-hdinsight"></a>在以 Linux 為基礎的 HDInsight 上啟用 Apache Hadoop 服務的堆積傾印
 
@@ -94,11 +94,11 @@ map 和 reduce 處理序會稍有不同，因為這些作業是 MapReduce 服務
 
 3. 在 [篩選...] 項目中輸入 **opts**。 只會顯示包含此文字的項目。
 
-    ![篩選的清單](./media/hdinsight-hadoop-collect-debug-heap-dump-linux/hdinsight-filter-list.png)
+    ![Apache Ambari 設定篩選清單](./media/hdinsight-hadoop-collect-debug-heap-dump-linux/hdinsight-filter-list.png)
 
 4. 針對您想要啟用堆積傾印的服務尋找 **\*\_OPTS** 項目，並新增您想要啟用的選項。 在下圖中，我將 `-XX:+HeapDumpOnOutOfMemoryError -XX:HeapDumpPath=/tmp/` 新增至 **HADOOP\_NAMENODE\_OPTS** 項目：
 
-    ![含有 -XX:+HeapDumpOnOutOfMemoryError -XX:HeapDumpPath=/tmp/ 的 HADOOP_NAMENODE_OPTS](./media/hdinsight-hadoop-collect-debug-heap-dump-linux/hadoop-namenode-opts.png)
+    ![Apache Ambari hadoop-namenode-選擇](./media/hdinsight-hadoop-collect-debug-heap-dump-linux/hadoop-namenode-opts.png)
 
    > [!NOTE]  
    > 啟用 map 或 reduce 子處理序的堆積傾印時，請尋找名為 **mapreduce.admin.map.child.java.opts** 和 **mapreduce.admin.reduce.child.java.opts** 的欄位。
@@ -111,11 +111,11 @@ map 和 reduce 處理序會稍有不同，因為這些作業是 MapReduce 服務
 
 6. 選取每個需要重新啟動的服務，並使用 [服務動作] 按鈕**開啟維護模式**。 維護模式可避免您在重新啟動服務產生警示。
 
-    ![開啟維護模式功能表](./media/hdinsight-hadoop-collect-debug-heap-dump-linux/hdi-maintenance-mode.png)
+    ![開啟 hdi 維護模式功能表](./media/hdinsight-hadoop-collect-debug-heap-dump-linux/hdi-maintenance-mode.png)
 
 7. 啟用維護模式後，請使用服務的 [重新啟動] 按鈕來**重新啟動所有受影響的項目**。
 
-    ![重新啟動所有受影響的項目](./media/hdinsight-hadoop-collect-debug-heap-dump-linux/hdi-restart-all-button.png)
+    ![Apache Ambari 重新開機所有受影響的專案](./media/hdinsight-hadoop-collect-debug-heap-dump-linux/hdi-restart-all-button.png)
 
    > [!NOTE]  
    > 其他服務的 [重新啟動] 按鈕項目可能會有所不同。

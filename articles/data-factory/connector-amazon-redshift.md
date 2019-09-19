@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 09/04/2018
 ms.author: jingwang
-ms.openlocfilehash: 38eb57b6f6a04dac7d77bbdddf54695af50a43c6
-ms.sourcegitcommit: a819209a7c293078ff5377dee266fa76fd20902c
+ms.openlocfilehash: c4f04bf8e1003e33a98c44e6776f8cf887a4645b
+ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/16/2019
-ms.locfileid: "71008589"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71090565"
 ---
 # <a name="copy-data-from-amazon-redshift-using-azure-data-factory"></a>使用 Azure Data Factory 從 Amazon Redshift 複製資料
 > [!div class="op_single_selector" title1="選取您目前使用的 Data Factory 服務版本："]
@@ -31,7 +31,7 @@ ms.locfileid: "71008589"
 
 下列活動支援此 Amazon Redshift 連接器：
 
-- [複製活動](copy-activity-overview.md)與[支援的來源矩陣](copy-activity-overview.md)
+- [複製活動](copy-activity-overview.md)與[支援的來源/接收矩陣](copy-activity-overview.md)
 - [查閱活動](control-flow-lookup-activity.md)
 
 您可以將資料從 Amazon Redshift 複製到任何支援的接收資料存放區。 如需複製活動所支援作為來源/接收器的資料存放區清單，請參閱[支援的資料存放區](copy-activity-overview.md#supported-data-stores-and-formats)表格。
@@ -58,7 +58,7 @@ ms.locfileid: "71008589"
 
 | 屬性 | 描述 | 必要項 |
 |:--- |:--- |:--- |
-| Type | 類型屬性必須設定為：**AmazonRedshift** | 是 |
+| 型別 | 類型屬性必須設定為：**AmazonRedshift** | 是 |
 | server |Amazon Redshift 伺服器的 IP 位址或主機名稱。 |是 |
 | port |Amazon Redshift 伺服器用來接聽用戶端連線的 TCP 連接埠號碼。 |否，預設值為 5439 |
 | database |Amazon Redshift 資料庫的名稱。 |是 |
@@ -100,7 +100,7 @@ ms.locfileid: "71008589"
 
 | 屬性 | 描述 | 必要項 |
 |:--- |:--- |:--- |
-| Type | 資料集的類型屬性必須設定為：**AmazonRedshiftTable** | 是 |
+| 型別 | 資料集的類型屬性必須設定為：**AmazonRedshiftTable** | 是 |
 | schema | 架構的名稱。 |否 (如果已指定活動來源中的"query")  |
 | table | 資料表的名稱。 |否 (如果已指定活動來源中的"query")  |
 | tableName | 具有架構之資料表的名稱。 此屬性支援回溯相容性。 針對`schema`新`table`的工作負載使用和。 | 否 (如果已指定活動來源中的"query") |
@@ -135,7 +135,7 @@ ms.locfileid: "71008589"
 
 | 屬性 | 描述 | 必要項 |
 |:--- |:--- |:--- |
-| Type | 複製活動來源的類型屬性必須設定為：**AmazonRedshiftSource** | 是 |
+| 型別 | 複製活動來源的類型屬性必須設定為：**AmazonRedshiftSource** | 是 |
 | query |使用自訂查詢來讀取資料。 例如：select * from MyTable。 |否 (如果已指定資料集中的 "tableName") |
 | redshiftUnloadSettings | 使用 Amazon Redshift UNLOAD 時的屬性群組。 | 否 |
 | s3LinkedServiceName | 係指要作為暫時存放區的 Amazon S3 (藉由指定 "AmazonS3" 類型的已連結服務名稱)。 | 如果使用 UNLOAD，則為必要 |

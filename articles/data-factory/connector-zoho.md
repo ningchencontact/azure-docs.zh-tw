@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/01/2019
 ms.author: jingwang
-ms.openlocfilehash: 04945906e1a1506a3a56fe4565233e960ec6b797
-ms.sourcegitcommit: a819209a7c293078ff5377dee266fa76fd20902c
+ms.openlocfilehash: e87ec0f24c07cc703b623043080d8968d08e0817
+ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/16/2019
-ms.locfileid: "71008486"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71089060"
 ---
 # <a name="copy-data-from-zoho-using-azure-data-factory-preview"></a>使用 Azure Data Factory 從 Zoho 複製資料 (預覽)
 
@@ -30,7 +30,7 @@ ms.locfileid: "71008486"
 
 下列活動支援此 Zoho 連接器：
 
-- [複製活動](copy-activity-overview.md)與[支援的來源矩陣](copy-activity-overview.md)
+- [複製活動](copy-activity-overview.md)與[支援的來源/接收矩陣](copy-activity-overview.md)
 - [查閱活動](control-flow-lookup-activity.md)
 
 
@@ -50,7 +50,7 @@ Azure Data Factory 提供的內建驅動程式可啟用連線，因此使用此�
 
 | 屬性 | 描述 | 必要項 |
 |:--- |:--- |:--- |
-| Type | 類型屬性必須設定為：**Zoho** | 是 |
+| 型別 | 類型屬性必須設定為：**Zoho** | 是 |
 | endpoint | Zoho 伺服器的端點 (`crm.zoho.com/crm/private`)。 | 是 |
 | accessToken | 用於 Zoho 驗證的存取權杖。 將此欄位標記為 SecureString，將它安全地儲存在 Data Factory 中，或[參考 Azure Key Vault 中儲存的祕密](store-credentials-in-key-vault.md)。 | 是 |
 | useEncryptedEndpoints | 指定是否使用 HTTPS 來加密資料來源端點。 預設值為 true。  | 否 |
@@ -83,7 +83,7 @@ Azure Data Factory 提供的內建驅動程式可啟用連線，因此使用此�
 
 | 屬性 | 描述 | 必要項 |
 |:--- |:--- |:--- |
-| Type | 資料集的類型屬性必須設定為：**ZohoObject** | 是 |
+| 型別 | 資料集的類型屬性必須設定為：**ZohoObject** | 是 |
 | tableName | 資料表的名稱。 | 否 (如果已指定活動來源中的"query") |
 
 **範例**
@@ -113,7 +113,7 @@ Azure Data Factory 提供的內建驅動程式可啟用連線，因此使用此�
 
 | 屬性 | 描述 | 必要項 |
 |:--- |:--- |:--- |
-| Type | 複製活動來源的類型屬性必須設定為：**ZohoSource** | 是 |
+| 型別 | 複製活動來源的類型屬性必須設定為：**ZohoSource** | 是 |
 | query | 使用自訂 SQL 查詢來讀取資料。 例如： `"SELECT * FROM Accounts"` 。 | 否 (如果已指定資料集中的 "tableName") |
 
 **範例:**

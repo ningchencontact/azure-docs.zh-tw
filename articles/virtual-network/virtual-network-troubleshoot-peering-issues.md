@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/28/2019
 ms.author: kaushika
-ms.openlocfilehash: fc01a20a077a1c624ed490600db919fe3197556c
-ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
+ms.openlocfilehash: 68d4f55d4a382f59386e72779a5f60cfc2a65338
+ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70901759"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71091108"
 ---
 # <a name="troubleshoot-virtual-network-peering-issues"></a>針對虛擬網路對等互連問題進行疑難排解
 
@@ -58,7 +58,7 @@ ms.locfileid: "70901759"
 若要為不同訂用帳戶或 Active Directory 租使用者中的虛擬網路設定虛擬網路對等互連，請依照 Azure CLI 的不同訂用帳戶中[建立對等互連](https://docs.microsoft.com/azure/virtual-network/create-peering-different-subscriptions#cli)中的步驟
 
 > [!Note]
-> 若要設定網路對等互連，您必須在這兩個訂用帳戶中具有**網路參與者**許可權。 如需詳細資訊，請參閱對[等互連許可權](https://docs.microsoft.com/azure/virtual-network/virtual-network-manage-peering%23permissions)。
+> 若要設定網路對等互連，您必須在這兩個訂用帳戶中具有**網路參與者**許可權。 如需詳細資訊，請參閱對[等互連許可權](virtual-network-manage-peering.md#permissions)。
 
 ## <a name="scenario-2-configure-virtual-network-peering-with-hub-spoke-topology-that-uses-on-premises-resources"></a>案例 2：以使用內部部署資源的中樞輪輻拓撲來設定虛擬網路對等互連
 
@@ -104,7 +104,7 @@ ms.locfileid: "70901759"
 
 ## <a name="scenario-4-i-have-a-connectivity-issue-between-two-peered-virtual-networks"></a>案例 4：我在兩個對等互連的虛擬網路之間有連線問題
 
-使用具有必要[角色和許可權](https://docs.microsoft.com/azure/virtual-network/virtual-network-manage-peering#roles-permissions)的帳戶登入[Azure 入口網站](https://portal.azure.com/)。 選取虛擬網路，選取 [對**等**]，然後檢查 [**狀態**] 欄位。 狀態為何？
+使用具有必要[角色和許可權](virtual-network-manage-peering.md#permissions)的帳戶登入[Azure 入口網站](https://portal.azure.com/)。 選取虛擬網路，選取 [對**等**]，然後檢查 [**狀態**] 欄位。 狀態為何？
 
 ### <a name="connection-type-1-the-peering-status-shows-connected"></a>連線類型1：對等互連狀態會顯示「已連線」
 

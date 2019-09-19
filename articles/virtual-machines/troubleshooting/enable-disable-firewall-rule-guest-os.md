@@ -4,7 +4,7 @@ description: ''
 services: virtual-machines-windows
 documentationcenter: ''
 author: Deland-Han
-manager: willchen
+manager: dcscontentpm
 editor: ''
 tags: ''
 ms.service: virtual-machines
@@ -14,14 +14,14 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: azurecli
 ms.date: 11/22/2018
 ms.author: delhan
-ms.openlocfilehash: 7a547efb7af69c58f8e04615d24dd7c230f0c8b0
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 782240c51833fc841af9f4260860db4c03897c03
+ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67444640"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71086441"
 ---
-# <a name="enable-or-disable-a-firewall-rule-on-an-azure-vm-guest-os"></a>啟用或停用 Azure VM 客體 OS 上的防火牆規則
+# <a name="enable-or-disable-a-firewall-rule-on-an-azure-vm-guest-os"></a>啟用或停用 Azure VM 的客體作業系統上的防火牆規則
 
 本文針對您懷疑客體作業系統防火牆篩選虛擬機器 (VM) 之部分流量的情況，提供進行疑難排解的參考資訊。 這可能很有用，原因如下：
 
@@ -29,7 +29,7 @@ ms.locfileid: "67444640"
 
 *   與設定 RDP 專用的防火牆規則相比，停用所有防火牆設定檔是更加安全的方法。
 
-## <a name="solution"></a>解決方法
+## <a name="solution"></a>方案
 
 設定防火牆規則的方式取決於虛擬機器所需的存取權層級而定。 下列範例使用 RDP 規則。 不過，藉由指向正確的登錄機碼，可以將相同的方法套用至任何其他類型的流量。
 
@@ -97,9 +97,9 @@ ms.locfileid: "67444640"
 
 如果虛擬機器為連線狀態，而且可以在相同的虛擬網路上存取另一個虛擬機器，您可以在其他虛擬機器上使用[遠端登錄](https://support.microsoft.com/help/314837/how-to-manage-remote-access-to-the-registry)。
 
-1.  在疑難排解虛擬機器上，啟動登錄編輯程式 (regedit.exe)，然後選取 [檔案]   > [連線網路登錄]  。
+1.  在疑難排解虛擬機器上，啟動登錄編輯程式 (regedit.exe)，然後選取 [檔案] > [連線網路登錄]。
 
-2.  開啟*目標機器*\SYSTEM 分支，，然後再指定下列值：
+2.  開啟*目的機器*\SYSTEM 分支，然後指定下列值：
 
     * 若要啟用規則，請開啟下列登錄值：
     
@@ -107,7 +107,7 @@ ms.locfileid: "67444640"
     
         然後，在字串中，將 **Active=FALSE** 變更為 **Active=TRUE**：
 
-        **v2.22 |動作 = 允許 |作用中 = TRUE |Dir = In |通訊協定 = 6 |設定檔 = Domain |設定檔 = 私密金鑰 |設定檔 = 公用 |LPort = 3389 |App=%SystemRoot%\system32\svchost.exe|Svc = termservice |名稱 =\@還可使用 FirewallAPI.dll，-28775 |Desc =\@還可使用 FirewallAPI.dll，-28756 |EmbedCtxt =\@還可使用 FirewallAPI.dll，-28752 |**
+        **v 2.22 |動作 = 允許 |Active = TRUE |Dir = In |通訊協定 = 6 |設定檔 = 網域 |設定檔 = 私用 |設定檔 = 公用 |LPort = 3389 |應用程式 =%SystemRoot%\system32\svchost.exe |Svc = termservice |名稱 =\@FirewallAPI，-28775 |Desc =\@FirewallAPI，-28756 |EmbedCtxt =\@FirewallAPI，-28752 |**
     
     * 若要停用規則，請開啟下列登錄值：
     
@@ -115,7 +115,7 @@ ms.locfileid: "67444640"
 
         然後，將 **Active =TRUE** 變更為 **Active=FALSE**：
         
-        **v2.22 |動作 = 允許 |作用中 = FALSE |Dir = In |通訊協定 = 6 |設定檔 = Domain |設定檔 = 私密金鑰 |設定檔 = 公用 |LPort = 3389 |App=%SystemRoot%\system32\svchost.exe|Svc = termservice |名稱 =\@還可使用 FirewallAPI.dll，-28775 |Desc =\@還可使用 FirewallAPI.dll，-28756 |EmbedCtxt =\@還可使用 FirewallAPI.dll，-28752 |**
+        **v 2.22 |動作 = 允許 |Active = FALSE |Dir = In |通訊協定 = 6 |設定檔 = 網域 |設定檔 = 私用 |設定檔 = 公用 |LPort = 3389 |應用程式 =%SystemRoot%\system32\svchost.exe |Svc = termservice |名稱 =\@FirewallAPI，-28775 |Desc =\@FirewallAPI，-28756 |EmbedCtxt =\@FirewallAPI，-28752 |**
 
 3.  重新啟動虛擬機器以套用變更。
 
@@ -129,24 +129,24 @@ ms.locfileid: "67444640"
 
 2.  啟動復原 VM 的遠端桌面連線。
 
-3.  確定該磁碟在磁碟管理主控台中標示為 [線上]  。 記下指派給已連結系統磁碟的磁碟機代號。
+3.  確定該磁碟在磁碟管理主控台中標示為 [線上]。 記下指派給已連結系統磁碟的磁碟機代號。
 
-4.  在進行任何變更之前，建立 \windows\system32\config 資料夾的複本，以防是必要的變更回復。
+4.  在進行任何變更之前，請先建立 \windows\system32\config 資料夾的複本，以便在需要回復變更時使用。
 
-5.  疑難排解在 VM 上，啟動登錄編輯程式 (regedit.exe)。
+5.  在疑難排解 VM 上，啟動登錄編輯程式（regedit.exe）。
 
-6.  反白顯示**HKEY_LOCAL_MACHINE**鍵，然後按**檔案** > **載入 hive 控制檔**從功能表。
+6.  反白顯示**HKEY_LOCAL_MACHINE**機碼，然後從功能表**中選取** > [檔案] [**載入 Hive** ]。
 
     ![Regedit](./media/enable-or-disable-firewall-rule-guest-os/load-registry-hive.png)
 
 7.  找出，然後開啟 \windows\system32\config\SYSTEM 檔案。 
 
     > [!Note]
-    > 系統會提示您輸入名稱。 請輸入**BROKENSYSTEM**，然後展開**HKEY_LOCAL_MACHINE**。 您現在會看到名為額外索引鍵**BROKENSYSTEM**。 如需此疑難排解，我們會掛接為這些問題 hive **BROKENSYSTEM**。
+    > 系統會提示您輸入名稱。 輸入**BROKENSYSTEM**，然後展開**HKEY_LOCAL_MACHINE**。 您現在會看到名為**BROKENSYSTEM**的其他索引鍵。 在此疑難排解中，我們會將這些問題 hive 裝載為**BROKENSYSTEM**。
 
 8.  在 BROKENSYSTEM 分支上進行下列變更：
 
-    1.  檢查虛擬機器從哪個 **ControlSet** 登錄機碼開始。 您會看到在 HKLM\BROKENSYSTEM\Select\Current 中索引鍵的編號。
+    1.  檢查虛擬機器從哪個 **ControlSet** 登錄機碼開始。 您會在 HKLM\BROKENSYSTEM\Select\Current. 中看到其金鑰編號
 
     2.  若要啟用規則，請開啟下列登錄值：
     
@@ -154,7 +154,7 @@ ms.locfileid: "67444640"
         
         然後，將 **Active=FALSE** 變更為 **Active=True**。
         
-        **v2.22 |動作 = 允許 |作用中 = TRUE |Dir = In |通訊協定 = 6 |設定檔 = Domain |設定檔 = 私密金鑰 |設定檔 = 公用 |LPort = 3389 |App=%SystemRoot%\system32\svchost.exe|Svc = termservice |名稱 =\@還可使用 FirewallAPI.dll，-28775 |Desc =\@還可使用 FirewallAPI.dll，-28756 |EmbedCtxt =\@還可使用 FirewallAPI.dll，-28752 |**
+        **v 2.22 |動作 = 允許 |Active = TRUE |Dir = In |通訊協定 = 6 |設定檔 = 網域 |設定檔 = 私用 |設定檔 = 公用 |LPort = 3389 |應用程式 =%SystemRoot%\system32\svchost.exe |Svc = termservice |名稱 =\@FirewallAPI，-28775 |Desc =\@FirewallAPI，-28756 |EmbedCtxt =\@FirewallAPI，-28752 |**
 
     3.  若要停用規則，請開啟下列登錄機碼：
 
@@ -162,9 +162,9 @@ ms.locfileid: "67444640"
 
         然後，將 **Active=True** 變更為 **Active=FALSE**。
         
-        **v2.22 |動作 = 允許 |作用中 = FALSE |Dir = In |通訊協定 = 6 |設定檔 = Domain |設定檔 = 私密金鑰 |設定檔 = 公用 |LPort = 3389 |App=%SystemRoot%\system32\svchost.exe|Svc = termservice |名稱 =\@還可使用 FirewallAPI.dll，-28775 |Desc =\@還可使用 FirewallAPI.dll，-28756 |EmbedCtxt =\@還可使用 FirewallAPI.dll，-28752 |**
+        **v 2.22 |動作 = 允許 |Active = FALSE |Dir = In |通訊協定 = 6 |設定檔 = 網域 |設定檔 = 私用 |設定檔 = 公用 |LPort = 3389 |應用程式 =%SystemRoot%\system32\svchost.exe |Svc = termservice |名稱 =\@FirewallAPI，-28775 |Desc =\@FirewallAPI，-28756 |EmbedCtxt =\@FirewallAPI，-28752 |**
 
-9.  反白顯示**BROKENSYSTEM**，然後選取**檔案** > **解除載入 Hive**從功能表。
+9.  反白顯示**BROKENSYSTEM**，然後從功能表**中選取** > [檔案] **[卸載 Hive** ]。
 
 10. [中斷連結系統磁碟並重新建立 VM](troubleshoot-recovery-disks-portal-windows.md)。
 

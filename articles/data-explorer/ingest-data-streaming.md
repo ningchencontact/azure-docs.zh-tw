@@ -7,12 +7,12 @@ ms.reviewer: tzgitlin
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 08/30/2019
-ms.openlocfilehash: 5aa2d694c2c74b493a7fd1a2a89d39866928d1d4
-ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
+ms.openlocfilehash: 712273ddfb8b6f781627e2cc7915a1f538f57b4d
+ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70843867"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71090621"
 ---
 # <a name="streaming-ingestion-preview"></a>串流內嵌（預覽）
 
@@ -35,14 +35,15 @@ ms.locfileid: "70843867"
 
 1. 在 Azure 入口網站中，移至您的 Azure 資料總管叢集。 在 [設定] 中 **，選取 [** **設定**]。 
 1. **在 [設定**] 窗格中，選取 [**開啟**] 以啟用**串流**內嵌。
-1. 選取 [ **儲存**]。
+1. 選取 [儲存]。
  
     ![串流內嵌于](media/ingest-data-streaming/streaming-ingestion-on.png)
  
 1. 在[WEB UI](https://dataexplorer.azure.com/)中，定義將接收串流資料之資料表或資料庫的[串流內嵌原則](/azure/kusto/concepts/streamingingestionpolicy)。 
 
-    > [!TIP]
-    > 如果原則是在資料庫層級定義，則資料庫中的所有資料表都會啟用串流內嵌。
+    > [!NOTE]
+    > * 如果原則是在資料庫層級定義，則資料庫中的所有資料表都會啟用串流內嵌。
+    > * 套用的原則只能參考新內嵌的資料，而不是資料庫中的其他資料表。
 
 ## <a name="use-streaming-ingestion-to-ingest-data-to-your-cluster"></a>使用串流內嵌將資料內嵌至您的叢集
 
@@ -66,7 +67,7 @@ ms.locfileid: "70843867"
 1. 從所有相關的資料表和資料庫中卸載[串流內嵌原則](/azure/kusto/concepts/streamingingestionpolicy)。 串流的內嵌原則移除會觸發從初始儲存體到資料行存放區（範圍或分區）中的永久儲存體的串流內嵌資料移動。 視初始儲存體中的資料量和叢集的 CPU 和記憶體使用量而定，資料移動可以在數秒到幾個小時之間持續。
 1. 在 Azure 入口網站中，移至您的 Azure 資料總管叢集。 在 [設定] 中 **，選取 [** **設定**]。 
 1. **在 [設定**] 窗格中，選取 [**關閉**] 以停用**串流**內嵌。
-1. 選取 [ **儲存**]。
+1. 選取 [儲存]。
 
     ![串流內嵌已關閉](media/ingest-data-streaming/streaming-ingestion-off.png)
 

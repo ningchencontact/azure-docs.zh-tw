@@ -5,29 +5,30 @@ ms.service: hdinsight
 ms.topic: troubleshooting
 author: hrasheed-msft
 ms.author: hrasheed
+ms.reviewer: jasonh
 ms.date: 08/16/2019
-ms.openlocfilehash: 6e734a661557b024257fcd1b9d9c2da6a3bc8f85
-ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
+ms.openlocfilehash: 377a75d098ab4238fadc16b218bc69235f2e732a
+ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69640233"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71091540"
 ---
 # <a name="issues-with-region-servers-in-azure-hdinsight"></a>Azure HDInsight 中區域伺服器的問題
 
-本文說明與 Azure HDInsight 叢集互動時, 問題的疑難排解步驟和可能的解決方法。
+本文說明與 Azure HDInsight 叢集互動時，問題的疑難排解步驟和可能的解決方法。
 
 ## <a name="scenario-unassigned-regions"></a>案例：未指派的區域
 
 ### <a name="issue"></a>問題
 
-`hbase hbck`執行命令時, 您會看到類似下列的錯誤訊息:
+`hbase hbck`執行命令時，您會看到類似下列的錯誤訊息：
 
 ```
 multiple regions being unassigned or holes in the chain of regions
 ```
 
-從 Apache HBase Master UI 中, 您可以看到所有區域伺服器之間不平衡的區域數目。 然後，您可以執行 `hbase hbck` 命令來查看區域鏈結中的漏洞。
+從 Apache HBase Master UI 中，您可以看到所有區域伺服器之間不平衡的區域數目。 然後，您可以執行 `hbase hbck` 命令來查看區域鏈結中的漏洞。
 
 ### <a name="cause"></a>原因
 
@@ -47,7 +48,7 @@ multiple regions being unassigned or holes in the chain of regions
 
 1. 開啟 Apache Ambari UI，然後重新啟動 Active HBase Master 服務。
 
-1. 再次`hbase hbck`執行命令 (不含任何進一步的選項)。 檢查輸出, 並確定已指派所有區域。
+1. 再次`hbase hbck`執行命令（不含任何進一步的選項）。 檢查輸出，並確定已指派所有區域。
 
 ---
 
@@ -61,9 +62,9 @@ multiple regions being unassigned or holes in the chain of regions
 
 多個分割 WAL 目錄。
 
-1. 取得目前 Wal 的清單: `hadoop fs -ls -R /hbase/WALs/ > /tmp/wals.out`。
+1. 取得目前 Wal 的清單： `hadoop fs -ls -R /hbase/WALs/ > /tmp/wals.out`。
 
-1. `wals.out`檢查檔案。 如果有太多分割目錄 (從 *-分割開始), 區域伺服器可能會因為這些目錄而失敗。
+1. `wals.out`檢查檔案。 如果有太多分割目錄（從 *-分割開始），區域伺服器可能會因為這些目錄而失敗。
 
 ### <a name="resolution"></a>解析度
 
@@ -71,7 +72,7 @@ multiple regions being unassigned or holes in the chain of regions
 
 1. 執行`hadoop fs -ls -R /hbase/WALs/ > /tmp/wals.out`以取得最新的 wal 清單。
 
-1. 將 *-分割目錄移至暫存資料夾, `splitWAL`並刪除 * 分割目錄。
+1. 將 *-分割目錄移至暫存資料夾， `splitWAL`並刪除 * 分割目錄。
 
 1. 執行`hbase zkcli`命令以使用 zookeeper shell 進行連接。
 
@@ -85,6 +86,6 @@ multiple regions being unassigned or holes in the chain of regions
 
 * 透過[Azure 社區支援](https://azure.microsoft.com/support/community/)取得 azure 專家的解答。
 
-* [@AzureSupport](https://twitter.com/azuresupport)連接-官方 Microsoft Azure 帳戶, 以改善客戶體驗。 將 Azure 社區連接到正確的資源: 解答、支援和專家。
+* [@AzureSupport](https://twitter.com/azuresupport)連接-官方 Microsoft Azure 帳戶，以改善客戶體驗。 將 Azure 社區連接到正確的資源：解答、支援和專家。
 
-* 如果您需要更多協助, 您可以從[Azure 入口網站](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/)提交支援要求。 從功能表列選取 [**支援**], 或開啟 [說明 **+ 支援**] 中樞。 如需詳細資訊, 請參閱[如何建立 Azure 支援要求](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request)。 您的 Microsoft Azure 訂用帳戶包含訂用帳戶管理和帳單支援的存取權, 而技術支援則透過其中一項[Azure 支援方案](https://azure.microsoft.com/support/plans/)提供。
+* 如果您需要更多協助，您可以從[Azure 入口網站](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/)提交支援要求。 從功能表列選取 [**支援**]，或開啟 [說明 **+ 支援**] 中樞。 如需詳細資訊，請參閱[如何建立 Azure 支援要求](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request)。 您的 Microsoft Azure 訂用帳戶包含訂用帳戶管理和帳單支援的存取權，而技術支援則透過其中一項[Azure 支援方案](https://azure.microsoft.com/support/plans/)提供。

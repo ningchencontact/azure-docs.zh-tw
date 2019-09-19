@@ -4,7 +4,7 @@ description: 瞭解如何準備 Windows VHD 或 VHDX 以將它上傳至 Azure
 services: virtual-machines-windows
 documentationcenter: ''
 author: glimoli
-manager: gwallace
+manager: dcscontentpm
 editor: ''
 tags: azure-resource-manager
 ms.assetid: 7802489d-33ec-4302-82a4-91463d03887a
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 05/11/2019
 ms.author: genli
-ms.openlocfilehash: 903c5f31f5039270b1edc65f53b248cd0a5b1355
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: a14dca066ec60f4aeec79fe6b4c532445b4392f1
+ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70088936"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71086912"
 ---
 # <a name="prepare-a-windows-vhd-or-vhdx-to-upload-to-azure"></a>準備 Windows VHD 或 VHDX 以上傳至 Azure
 
@@ -32,7 +32,7 @@ ms.locfileid: "70088936"
 > [!NOTE]
 > 本文中的指示適用于:
 >1. 64位版本的 Windows Server 2008 R2 和更新版本的 Windows Server 作業系統。 如需在 Azure 中執行32位作業系統的詳細資訊, 請參閱[Azure vm 中的32位作業系統支援](https://support.microsoft.com/help/4021388/support-for-32-bit-operating-systems-in-azure-virtual-machines)。
->2. 如果將使用任何嚴重損壞修復工具來遷移工作負載 (例如 Azure Site Recovery 或 Azure Migrate), 仍必須執行此程式, 並在虛擬作業系統上進行準備, 然後再進行遷移。
+>2. 如果將使用任何嚴重損壞修復工具來遷移工作負載（例如 Azure Site Recovery 或 Azure Migrate），仍必須執行此程式，並在虛擬作業系統上進行準備，然後再進行遷移。
 
 ## <a name="convert-the-virtual-disk-to-a-fixed-size-and-to-vhd"></a>將虛擬磁片轉換成固定大小和 VHD
 

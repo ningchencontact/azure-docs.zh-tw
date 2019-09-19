@@ -8,12 +8,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/08/2019
 ms.author: atsenthi
-ms.openlocfilehash: f2621abcb2bac55ff123a11efa0ae9a082a1acbd
-ms.sourcegitcommit: fbea2708aab06c19524583f7fbdf35e73274f657
+ms.openlocfilehash: 467b202cf6b981969316a2646aac99f788f7a2f4
+ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/13/2019
-ms.locfileid: "70968254"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71091188"
 ---
 # <a name="granting-a-service-fabric-applications-managed-identity-access-to-azure-resources-preview"></a>將 Service Fabric 應用程式的受控識別存取權授與 Azure 資源（預覽）
 
@@ -40,9 +40,14 @@ ms.locfileid: "70968254"
 
 ![Key Vault 存取原則](../key-vault/media/vs-secure-secret-appsettings/add-keyvault-access-policy.png)
 
-下列範例說明如何透過範本部署授與保存庫的存取權;將下列程式碼片段新增至範本`resources`元素下的另一個專案。
+下列範例說明如何透過範本部署授與保存庫的存取權;將下列程式碼片段新增至範本`resources`元素下的另一個專案。 此範例示範授與使用者指派和系統指派的身分識別類型的存取權，分別選擇適用的身分。
 
 ```json
+    # under 'variables':
+  "variables": {
+        "userAssignedIdentityResourceId" : "[resourceId('Microsoft.ManagedIdentity/userAssignedIdentities/', parameters('userAssignedIdentityName'))]",
+    }
+    # under 'resources':
     {
         "type": "Microsoft.KeyVault/vaults/accessPolicies",
         "name": "[concat(parameters('keyVaultName'), '/add')]",
@@ -64,6 +69,42 @@ ms.locfileid: "70968254"
             ]
         }
     },
+```
+而針對系統指派的受控識別：
+```json
+    # under 'variables':
+  "variables": {
+        "sfAppSystemAssignedIdentityResourceId": "[concat(resourceId('Microsoft.ServiceFabric/clusters/applications/', parameters('clusterName'), parameters('applicationName')), '/providers/Microsoft.ManagedIdentity/Identities/default')]"
+    }
+    # under 'resources':
+    {
+        "type": "Microsoft.KeyVault/vaults/accessPolicies",
+        "name": "[concat(parameters('keyVaultName'), '/add')]",
+        "apiVersion": "2018-02-14",
+        "properties": {
+            "accessPolicies": [
+            {
+                    "name": "[concat(parameters('clusterName'), '/', parameters('applicationName'))]",
+                    "tenantId": "[reference(variables('sfAppSystemAssignedIdentityResourceId'), '2018-11-30').tenantId]",
+                    "objectId": "[reference(variables('sfAppSystemAssignedIdentityResourceId'), '2018-11-30').principalId]",
+                    "dependsOn": [
+                        "[variables('sfAppSystemAssignedIdentityResourceId')]"
+                    ],
+                    "permissions": {
+                        "secrets": [
+                            "get",
+                            "list"
+                        ],
+                        "certificates": 
+                        [
+                            "get", 
+                            "list"
+                        ]
+                    }
+            },
+        ]
+        }
+    }
 ```
 
 如需詳細資訊，請參閱保存[庫-更新存取原則](https://docs.microsoft.com/rest/api/keyvault/vaults/updateaccesspolicy)。
