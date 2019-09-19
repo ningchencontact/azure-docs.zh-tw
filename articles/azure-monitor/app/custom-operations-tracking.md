@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 06/30/2017
 ms.reviewer: sergkanz
 ms.author: mbullwin
-ms.openlocfilehash: 91467f99e7932ce7ffcd5b3300f8544fb848ccfa
-ms.sourcegitcommit: 71db032bd5680c9287a7867b923bf6471ba8f6be
+ms.openlocfilehash: d966ff3bc00d5190ebc163d4f4bfa35ba73d21ab
+ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/16/2019
-ms.locfileid: "71019066"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71087666"
 ---
 # <a name="track-custom-operations-with-application-insights-net-sdk"></a>使用 Application Insights .NET SDK 追蹤自訂作業
 
@@ -354,7 +354,7 @@ public async Task Process(MessagePayload message)
 
 ### <a name="dependency-types"></a>相依性類型
 
-Application Insights 使用相依性類型來 cusomize UI 體驗。 對於佇列，它會識別下列`DependencyTelemetry`可改善[交易診斷體驗](/azure-monitor/app/transaction-diagnostics)的類型：
+Application Insights 使用相依性類型來 cusomize UI 體驗。 對於佇列，它會識別下列`DependencyTelemetry`可改善[交易診斷體驗](/azure/azure-monitor/app/transaction-diagnostics)的類型：
 - `Azure queue`針對 Azure 儲存體佇列
 - `Azure Event Hubs`針對 Azure 事件中樞
 - `Azure Service Bus`針對 Azure 服務匯流排

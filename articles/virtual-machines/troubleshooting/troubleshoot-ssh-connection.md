@@ -5,7 +5,7 @@ keywords: ssh 連線被拒, ssh 錯誤, azure ssh, ssh 連線失敗
 services: virtual-machines-linux
 documentationcenter: ''
 author: genlin
-manager: gwallace
+manager: dcscontentpm
 editor: ''
 tags: top-support-issue,azure-service-management,azure-resource-manager
 ms.assetid: dcb82e19-29b2-47bb-99f2-900d4cfb5bbb
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: troubleshooting
 ms.date: 05/30/2017
 ms.author: genli
-ms.openlocfilehash: fd3c40d56e0ba9cdb50847832051606f81d0e952
-ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
+ms.openlocfilehash: 006dbbe1b7472982a894691d019eb88ef2041dac
+ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68677682"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71088273"
 ---
 # <a name="troubleshoot-ssh-connections-to-an-azure-linux-vm-that-fails-errors-out-or-is-refused"></a>針對 SSH 連線至 Azure Linux VM 失敗、發生錯誤或被拒進行疑難排解
 本文可協助您找出並更正當您嘗試連接到 Linux 虛擬機器 (VM) 時，因為安全殼層 (SSH) 錯誤、SSH 連線失敗或 SSH 被拒而發生的問題。 您可以使用 Azure 入口網站、Azure CLI 或適用於 Linux 的 VM 存取擴充功能，針對連線問題進行疑難排解並予以解決。
@@ -49,7 +49,7 @@ ms.locfileid: "68677682"
 您可以使用下列方法之一重設認證或 SSH 組態：
 
 * [Azure 入口網站](#use-the-azure-portal) - 適用於您需要快速重設 SSH 組態或 SSH 金鑰，而且未安裝 Azure 工具時。
-* [AZURE Vm 序列主控台](https://aka.ms/serialconsolelinux)-無論 SSH 設定為何, VM 序列主控台都會正常執行, 並可為您提供 VM 的互動式主控台。 事實上, 「無法 SSH」的情況特別是序列主控台設計來協助解決的。 以下是更多詳細資料。
+* [AZURE Vm 序列主控台](https://aka.ms/serialconsolelinux)-無論 SSH 設定為何，VM 序列主控台都會正常執行，並可為您提供 VM 的互動式主控台。 事實上，「無法 SSH」的情況特別是序列主控台設計來協助解決的。 以下提供更多詳細資料。
 * [Azure CLI](#use-the-azure-cli) - 如果您已在命令列上，請快速重設 SSH 設定或認證。 如果您正在使用傳統 VM，可以使用 [Azure 傳統 CLI](#use-the-azure-classic-cli)。
 * [Azure VMAccessForLinux 擴充功能](#use-the-vmaccess-extension) - 建立並重複使用 json 定義檔案，以重設 SSH 組態或使用者認證。
 
@@ -79,21 +79,21 @@ Azure 入口網站可供快速重設 SSH 組態或使用者認證，而不需在
 使用網路監看員的[下一個躍點](../../network-watcher/network-watcher-check-next-hop-portal.md)功能，確認路由不會防止流量從虛擬機器往返路由傳送。 您也可以檢閱有效路由，以查看網路介面的所有有效路由。 如需詳細資訊，請參閱[使用有效路由來針對 VM 流量流程進行疑難排解](../../virtual-network/diagnose-network-routing-problem.md)。
 
 ## <a name="use-the-azure-vm-serial-console"></a>使用 Azure VM 序列主控台
-[AZURE VM 序列主控台](./serial-console-linux.md)可讓您存取 Linux 虛擬機器的文字型主控台。 您可以使用主控台, 在互動式 shell 中針對 SSH 連線進行疑難排解。 請確定您已符合使用序列主控台的[必要條件](./serial-console-linux.md#prerequisites), 並嘗試下列命令以進一步疑難排解您的 SSH 連線能力。
+[AZURE VM 序列主控台](./serial-console-linux.md)可讓您存取 Linux 虛擬機器的文字型主控台。 您可以使用主控台，在互動式 shell 中針對 SSH 連線進行疑難排解。 請確定您已符合使用序列主控台的[必要條件](./serial-console-linux.md#prerequisites)，並嘗試下列命令以進一步疑難排解您的 SSH 連線能力。
 
 ### <a name="check-that-ssh-is-running"></a>檢查 SSH 是否正在執行
-您可以使用下列命令來確認 SSH 是否正在您的 VM 上執行:
+您可以使用下列命令來確認 SSH 是否正在您的 VM 上執行：
 ```
 $ ps -aux | grep ssh
 ```
-如果有任何輸出, SSH 就會啟動並執行。
+如果有任何輸出，SSH 就會啟動並執行。
 
 ### <a name="check-which-port-ssh-is-running-on"></a>檢查 SSH 正在哪個埠上執行
-您可以使用下列命令來檢查 SSH 執行所在的埠:
+您可以使用下列命令來檢查 SSH 執行所在的埠：
 ```
 $ sudo grep Port /etc/ssh/sshd_config
 ```
-您的輸出看起來會像這樣:
+您的輸出看起來會像這樣：
 ```
 Port 22
 ```

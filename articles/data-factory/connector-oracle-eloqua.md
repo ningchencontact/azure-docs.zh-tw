@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/01/2019
 ms.author: jingwang
-ms.openlocfilehash: 66b1aebb5197005dc93591e25b10a892d2855c37
-ms.sourcegitcommit: a819209a7c293078ff5377dee266fa76fd20902c
+ms.openlocfilehash: 3c29ec0283caa2b20d7974ed11748080b3dc0339
+ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/16/2019
-ms.locfileid: "71010623"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71089978"
 ---
 # <a name="copy-data-from-oracle-eloqua-using-azure-data-factory-preview"></a>使用 Azure Data Factory 從 Oracle Eloqua 複製資料 (預覽)
 
@@ -30,7 +30,7 @@ ms.locfileid: "71010623"
 
 下列活動支援此 Oracle Eloqua 連接器：
 
-- [複製活動](copy-activity-overview.md)與[支援的來源矩陣](copy-activity-overview.md)
+- [複製活動](copy-activity-overview.md)與[支援的來源/接收矩陣](copy-activity-overview.md)
 - [查閱活動](control-flow-lookup-activity.md)
 
 您可以將資料從 Oracle Eloqua 複製到任何支援的接收資料存放區。 如需複製活動所支援作為來源/接收器的資料存放區清單，請參閱[支援的資料存放區](copy-activity-overview.md#supported-data-stores-and-formats)表格。
@@ -49,7 +49,7 @@ Azure Data Factory 提供的內建驅動程式可啟用連線，因此使用此�
 
 | 屬性 | 描述 | 必要項 |
 |:--- |:--- |:--- |
-| Type | 類型屬性必須設定為：**Eloqua** | 是 |
+| 型別 | 類型屬性必須設定為：**Eloqua** | 是 |
 | endpoint | Eloqua 伺服器的端點。 Eloqua 支援多個資料中心，若要決定您的端點，請使用您的認證登入 https://login.eloqua.com ，然後從模式為 `xxx.xxx.eloqua.com` 的重新導向 URL 中複製**基底 URL** 部分。 | 是 |
 | username | 您 Eloqua 帳戶的網站名稱與使用者名稱，格式為 `SiteName\Username`，例如 `Eloqua\Alice`。  | 是 |
 | password | 對應到使用者名稱的密碼。 將此欄位標記為 SecureString，將它安全地儲存在 Data Factory 中，或[參考 Azure Key Vault 中儲存的祕密](store-credentials-in-key-vault.md)。 | 是 |
@@ -84,7 +84,7 @@ Azure Data Factory 提供的內建驅動程式可啟用連線，因此使用此�
 
 | 屬性 | 描述 | 必要項 |
 |:--- |:--- |:--- |
-| Type | 資料集的類型屬性必須設定為：**EloquaObject** | 是 |
+| 型別 | 資料集的類型屬性必須設定為：**EloquaObject** | 是 |
 | tableName | 資料表的名稱。 | 否 (如果已指定活動來源中的"query") |
 
 **範例**
@@ -114,7 +114,7 @@ Azure Data Factory 提供的內建驅動程式可啟用連線，因此使用此�
 
 | 屬性 | 描述 | 必要項 |
 |:--- |:--- |:--- |
-| Type | 複製活動來源的類型屬性必須設定為：**EloquaSource** | 是 |
+| 型別 | 複製活動來源的類型屬性必須設定為：**EloquaSource** | 是 |
 | query | 使用自訂 SQL 查詢來讀取資料。 例如： `"SELECT * FROM Accounts"` 。 | 否 (如果已指定資料集中的 "tableName") |
 
 **範例:**

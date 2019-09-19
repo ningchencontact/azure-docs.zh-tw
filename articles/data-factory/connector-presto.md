@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 09/04/2019
 ms.author: jingwang
-ms.openlocfilehash: 666df827af9d6af38757b3f13c788d091a2c7c4a
-ms.sourcegitcommit: a819209a7c293078ff5377dee266fa76fd20902c
+ms.openlocfilehash: f584112ae10493a5aed8a74fe62783bcbf1bc2a1
+ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/16/2019
-ms.locfileid: "71010610"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71089747"
 ---
 # <a name="copy-data-from-presto-using-azure-data-factory-preview"></a>使用 Azure Data Factory 從 Presto 複製資料 (預覽)
 
@@ -30,7 +30,7 @@ ms.locfileid: "71010610"
 
 下列活動支援此 Presto 連接器：
 
-- [複製活動](copy-activity-overview.md)與[支援的來源矩陣](copy-activity-overview.md)
+- [複製活動](copy-activity-overview.md)與[支援的來源/接收矩陣](copy-activity-overview.md)
 - [查閱活動](control-flow-lookup-activity.md)
 
 您可以將資料從 Presto 複製到任何支援的接收資料存放區。 如需複製活動所支援作為來源/接收器的資料存放區清單，請參閱[支援的資料存放區](copy-activity-overview.md#supported-data-stores-and-formats)表格。
@@ -49,7 +49,7 @@ Azure Data Factory 提供的內建驅動程式可啟用連線，因此使用此�
 
 | 屬性 | 描述 | 必要項 |
 |:--- |:--- |:--- |
-| Type | 類型屬性必須設定為：**Presto** | 是 |
+| 型別 | 類型屬性必須設定為：**Presto** | 是 |
 | host | Presto 伺服器的 IP 位址或主機名稱。 (亦即 192.168.222.160)  | 是 |
 | serverVersion | Presto 伺服器的版本。 (亦即 0.148-t)  | 是 |
 | 目錄 | 對伺服器之所有要求的目錄內容。  | 是 |
@@ -96,7 +96,7 @@ Azure Data Factory 提供的內建驅動程式可啟用連線，因此使用此�
 
 | 屬性 | 描述 | 必要項 |
 |:--- |:--- |:--- |
-| Type | 資料集的類型屬性必須設定為：**PrestoObject** | 是 |
+| 型別 | 資料集的類型屬性必須設定為：**PrestoObject** | 是 |
 | schema | 架構的名稱。 |否 (如果已指定活動來源中的"query")  |
 | table | 資料表的名稱。 |否 (如果已指定活動來源中的"query")  |
 | tableName | 具有架構之資料表的名稱。 此屬性支援回溯相容性。 針對`schema`新`table`的工作負載使用和。 | 否 (如果已指定活動來源中的"query") |
@@ -128,7 +128,7 @@ Azure Data Factory 提供的內建驅動程式可啟用連線，因此使用此�
 
 | 屬性 | 描述 | 必要項 |
 |:--- |:--- |:--- |
-| Type | 複製活動來源的類型屬性必須設定為：**PrestoSource** | 是 |
+| 型別 | 複製活動來源的類型屬性必須設定為：**PrestoSource** | 是 |
 | query | 使用自訂 SQL 查詢來讀取資料。 例如： `"SELECT * FROM MyTable"` 。 | 否 (如果已指定資料集中的 "tableName") |
 
 **範例:**

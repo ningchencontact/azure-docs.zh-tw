@@ -5,21 +5,22 @@ ms.service: hdinsight
 ms.topic: troubleshooting
 author: hrasheed-msft
 ms.author: hrasheed
+ms.reviewer: jasonh
 ms.date: 08/13/2019
-ms.openlocfilehash: 3e4745d1c9e28e907d87298d1ab8ef3c9b104b1d
-ms.sourcegitcommit: fe50db9c686d14eec75819f52a8e8d30d8ea725b
+ms.openlocfilehash: 7b511ab0c3093747d6e713754c04533e5f25b6ad
+ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/14/2019
-ms.locfileid: "69014598"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71087405"
 ---
 # <a name="unable-to-access-data-lake-storage-files-in-azure-hdinsight"></a>無法存取 Azure HDInsight 中的 Data Lake 儲存體檔案
 
-本文說明與 Azure HDInsight 叢集互動時, 問題的疑難排解步驟和可能的解決方法。
+本文說明與 Azure HDInsight 叢集互動時，問題的疑難排解步驟和可能的解決方法。
 
-## <a name="issue-acl-verification-failed"></a>問題:ACL 驗證失敗
+## <a name="issue-acl-verification-failed"></a>問題：ACL 驗證失敗
 
-您會收到類似下列的錯誤訊息:
+您會收到類似下列的錯誤訊息：
 
 ```
 LISTSTATUS failed with error 0x83090aa2 (Forbidden. ACL verification failed. Either the resource does not exist or the user is not authorized to perform the requested operation.).
@@ -27,23 +28,23 @@ LISTSTATUS failed with error 0x83090aa2 (Forbidden. ACL verification failed. Eit
 
 ### <a name="cause"></a>原因
 
-使用者可能已撤銷檔案/資料夾上服務主體 (SP) 的許可權。
+使用者可能已撤銷檔案/資料夾上服務主體（SP）的許可權。
 
-### <a name="resolution"></a>解決方法
+### <a name="resolution"></a>解析度
 
-1. 檢查 SP 是否有 ' x ' 許可權可以沿著路徑進行遍歷。 如需詳細資訊，請參閱 [權限](https://hdinsight.github.io/ClusterCRUD/ADLS/adls-create-permission-setup.html)。 檢查 Data Lake 儲存體帳戶中檔案/資料夾存取權的範例 dfs 命令:
+1. 檢查 SP 是否有 ' x ' 許可權可以沿著路徑進行遍歷。 如需詳細資訊，請參閱 [權限](https://hdinsight.github.io/ClusterCRUD/ADLS/adls-create-permission-setup.html)。 檢查 Data Lake 儲存體帳戶中檔案/資料夾存取權的範例 dfs 命令：
 
     ```
     hdfs dfs -ls /<path to check access>
     ```
 
-1. 根據所執行的讀取/寫入作業, 設定必要的許可權來存取路徑。 請參閱這裡以取得各種檔案系統作業所需的許可權。
+1. 根據所執行的讀取/寫入作業，設定必要的許可權來存取路徑。 請參閱這裡以取得各種檔案系統作業所需的許可權。
 
 ---
 
-## <a name="issue-service-principal-certificate-expiry"></a>問題:服務主體憑證過期
+## <a name="issue-service-principal-certificate-expiry"></a>問題：服務主體憑證過期
 
-您會收到類似下列的錯誤訊息:
+您會收到類似下列的錯誤訊息：
 
 ```
 Token Refresh failed - Received invalid http response: 500
@@ -53,13 +54,13 @@ Token Refresh failed - Received invalid http response: 500
 
 提供給服務主體存取的憑證可能已過期。
 
-1. 透過 SSH 連線到前端節點。 使用下列 dfs 命令檢查儲存體帳戶的存取權:
+1. 透過 SSH 連線到前端節點。 使用下列 dfs 命令檢查儲存體帳戶的存取權：
 
     ```
     hdfs dfs -ls /
     ```
 
-1. 確認錯誤訊息如下所示:
+1. 確認錯誤訊息如下所示：
 
     ```
     {"stderr": "-ls: Token Refresh failed - Received invalid http response: 500, text = Response{protocol=http/1.1, code=500, message=Internal Server Error, url=http://gw0-abccluster.24ajrd4341lebfgq5unsrzq0ue.fx.internal.cloudapp.net:909/api/oauthtoken}}...
@@ -73,13 +74,13 @@ Token Refresh failed - Received invalid http response: 500
     curl gw0-abccluster.24ajrd4341lebfgq5unsrzq0ue.fx.internal.cloudapp.net:909/api/oauthtoken
     ```
 
-1. 有效服務主體的輸出應該如下所示:
+1. 有效服務主體的輸出應該如下所示：
 
     ```
     {"AccessToken":"MIIGHQYJKoZIhvcNAQcDoIIGDjCCBgoCAQA…….","ExpiresOn":1500447750098}
     ```
 
-1. 如果服務主體憑證已過期, 輸出看起來會像這樣:
+1. 如果服務主體憑證已過期，輸出看起來會像這樣：
 
     ```
     Exception in OAuthTokenController.GetOAuthToken: 'System.InvalidOperationException: Error while getting the OAuth token from AAD for AppPrincipalId 23abe517-2ffd-4124-aa2d-7c224672cae2, ResourceUri https://management.core.windows.net/, AADTenantId https://login.windows.net/80abc8bf-86f1-41af-91ab-2d7cd011db47, ClientCertificateThumbprint C49C25705D60569884EDC91986CEF8A01A495783 ---> Microsoft.IdentityModel.Clients.ActiveDirectory.AdalServiceException: AADSTS70002: Error validating credentials. AADSTS50012: Client assertion contains an invalid signature. **[Reason - The key used is expired.**, Thumbprint of key used by client: 'C49C25705D60569884EDC91986CEF8A01A495783', Found key 'Start=08/03/2016, End=08/03/2017, Thumbprint=C39C25705D60569884EDC91986CEF8A01A4956D1', Configured keys: [Key0:Start=08/03/2016, End=08/03/2017, Thumbprint=C39C25705D60569884EDC91986CEF8A01A4956D1;]]
@@ -90,17 +91,17 @@ Token Refresh failed - Received invalid http response: 500
     at Microsoft.IdentityModel.Clients.ActiveDirectory.HttpWebRequestWrapper.<GetResponseSyncOrAsync>d__2.MoveNext()
     ```
 
-1. 任何其他 Azure Active Directory 相關錯誤/憑證相關錯誤, 都可以藉由 ping 閘道 url 來取得 OAuth 權杖來辨識。
+1. 任何其他 Azure Active Directory 相關錯誤/憑證相關錯誤，都可以藉由 ping 閘道 url 來取得 OAuth 權杖來辨識。
 
-1. 如果您在嘗試從 HDI 叢集中存取 ADLS 時發生下列錯誤。 遵循上述步驟, 檢查憑證是否已過期。
+1. 如果您在嘗試從 HDI 叢集中存取 ADLS 時發生下列錯誤。 遵循上述步驟，檢查憑證是否已過期。
 
     ```
     Error: java.lang.IllegalArgumentException: Token Refresh failed - Received invalid http response: 500, text = Response{protocol=http/1.1, code=500, message=Internal Server Error, url=http://clustername.hmssomerandomstringc.cx.internal.cloudapp.net:909/api/oauthtoken}
     ```
 
-### <a name="resolution"></a>解決方法
+### <a name="resolution"></a>解析度
 
-使用下列 PowerShell 腳本建立新憑證或指派現有憑證:
+使用下列 PowerShell 腳本建立新憑證或指派現有憑證：
 
 ```powershell
 $clusterName = 'CLUSTERNAME'
@@ -160,9 +161,9 @@ Invoke-AzureRmResourceAction `
 
 ```
 
-針對 [指派現有憑證], 建立憑證, 並備妥 .pfx 檔案和密碼。 將憑證與建立叢集所使用的服務主體建立關聯, 並備妥 AppId。
+針對 [指派現有憑證]，建立憑證，並備妥 .pfx 檔案和密碼。 將憑證與建立叢集所使用的服務主體建立關聯，並備妥 AppId。
 
-將參數取代為實際值之後, 請執行 PowerShell 命令。
+將參數取代為實際值之後，請執行 PowerShell 命令。
 
 ## <a name="next-steps"></a>後續步驟
 
@@ -170,6 +171,6 @@ Invoke-AzureRmResourceAction `
 
 * 透過[Azure 社區支援](https://azure.microsoft.com/support/community/)取得 azure 專家的解答。
 
-* [@AzureSupport](https://twitter.com/azuresupport)連接-官方 Microsoft Azure 帳戶, 以改善客戶體驗。 將 Azure 社區連接到正確的資源: 解答、支援和專家。
+* [@AzureSupport](https://twitter.com/azuresupport)連接-官方 Microsoft Azure 帳戶，以改善客戶體驗。 將 Azure 社區連接到正確的資源：解答、支援和專家。
 
-* 如果您需要更多協助, 您可以從[Azure 入口網站](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/)提交支援要求。 從功能表列選取 [**支援**], 或開啟 [說明 **+ 支援**] 中樞。 如需詳細資訊, 請參閱[如何建立 Azure 支援要求](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request)。 您的 Microsoft Azure 訂用帳戶包含訂用帳戶管理和帳單支援的存取權, 而技術支援則透過其中一項[Azure 支援方案](https://azure.microsoft.com/support/plans/)提供。
+* 如果您需要更多協助，您可以從[Azure 入口網站](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/)提交支援要求。 從功能表列選取 [**支援**]，或開啟 [說明 **+ 支援**] 中樞。 如需詳細資訊，請參閱[如何建立 Azure 支援要求](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request)。 您的 Microsoft Azure 訂用帳戶包含訂用帳戶管理和帳單支援的存取權，而技術支援則透過其中一項[Azure 支援方案](https://azure.microsoft.com/support/plans/)提供。

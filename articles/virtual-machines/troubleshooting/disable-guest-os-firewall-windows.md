@@ -4,7 +4,7 @@ description: ''
 services: virtual-machines-windows
 documentationcenter: ''
 author: Deland-Han
-manager: willchen
+manager: dcscontentpm
 editor: ''
 tags: ''
 ms.service: virtual-machines
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: azurecli
 ms.date: 11/22/2018
 ms.author: delhan
-ms.openlocfilehash: a8856bd46f516aa3c64965648d4f23b9ba665b1b
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 9ae8620b803fa9a911f44840a5fff5d190a316a1
+ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60505456"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71086524"
 ---
 # <a name="disable-the-guest-os-firewall-in-azure-vm"></a>停用 Azure VM 中的客體 OS 防火牆
 
@@ -33,7 +33,7 @@ ms.locfileid: "60505456"
 
 如果 VM 為連線狀態，並可透過相同虛擬網路上的其他 VM 來存取，您即可使用另一部 VM 來進行這些緩解措施。
 
-#### <a name="mitigation-1-custom-script-extension-or-run-command-feature"></a>降低風險 1：自訂指令碼擴充功能或執行命令的功能
+#### <a name="mitigation-1-custom-script-extension-or-run-command-feature"></a>降低風險 1：自訂腳本延伸模組或執行命令功能
 
 如果您具備使用中的 Azure 代理程式，即可使用[自訂指令碼延伸模組](../extensions/custom-script-windows.md)或[執行命令](../windows/run-command.md)功能 (僅限 Resource Manager VM)，從遠端執行下列指令碼。
 
@@ -70,7 +70,7 @@ ms.locfileid: "60505456"
     ```
 
 > [!Note]
-> 如果您透過群組原則物件設定防火牆，這個方法可能不會運作，因為此命令會變更本機登錄項目。 如果已備有原則，該原則會覆寫這項變更。 
+> 如果防火牆是透過群組原則物件所設定，則此方法可能無法使用，因為此命令只會變更本機登錄專案。 如果已備有原則，該原則會覆寫這項變更。 
 
 #### <a name="mitigation-3-pstools-commands"></a>降低風險 3：PSTools 命令
 
@@ -90,7 +90,7 @@ ms.locfileid: "60505456"
 
 請遵循下列步驟使用[遠端登錄](https://support.microsoft.com/help/314837/how-to-manage-remote-access-to-the-registry)。
 
-1.  在要對其進行疑難排解的 VM 上，啟動登錄編輯程式 ，然後前往 [檔案]   > [連線網路登錄]  。
+1.  在要對其進行疑難排解的 VM 上，啟動登錄編輯程式 ，然後前往 [檔案] > [連線網路登錄]。
 
 2.  開啟  *TARGET MACHINE*\SYSTEM 分支，然後指定下列值：
 
@@ -104,9 +104,9 @@ ms.locfileid: "60505456"
 
 4.  開啟  **Services.msc** 的執行個體。
 
-5.  按一下 [服務 (本機)]  。
+5.  按一下 [服務 (本機)]。
 
-6.  選取 [連線到另一部電腦]  。
+6.  選取 [連線到另一部電腦]。
 
 7.  輸入問題 VM 的 **私人 IP 位址 (DIP)**  。
 

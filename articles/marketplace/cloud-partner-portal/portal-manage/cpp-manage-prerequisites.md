@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.topic: conceptual
 ms.date: 04/01/2019
 ms.author: pabutler
-ms.openlocfilehash: d98a5f04f60cb7d933ea91e0657f6067fb1c59a8
-ms.sourcegitcommit: dd69b3cda2d722b7aecce5b9bd3eb9b7fbf9dc0a
+ms.openlocfilehash: 9c55688674fe16f64bfb27788a6e038059694a77
+ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70962808"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71087469"
 ---
 # <a name="prerequisites-for-managing-accounts-on-the-cloud-partner-portal"></a>在 Cloud Partner 入口網站上管理帳戶的必要條件 
 
@@ -21,7 +21,7 @@ ms.locfileid: "70962808"
 
 ## <a name="account-terms-and-guidelines"></a>帳戶條款和指導方針
 
-建立帳戶之前，請仔細檢查您在[Microsoft 服務合約](https://www.microsoft.com/servicesagreement)和[Microsoft 使用](https://www.microsoft.com/us-en/legal/intellectualproperty/copyright/default.aspx)規定下的權利和責任。  
+建立帳戶之前，請仔細檢查您在[Microsoft 服務合約](https://www.microsoft.com/servicesagreement)和[Microsoft 使用](https://www.microsoft.com/en-us/legal/intellectualproperty/copyright)規定下的權利和責任。  
 
 請小心選擇您的帳戶名稱。  它代表您的組織，因此不應包含任何受著作權或爭議的單字。  例如，Microsoft 禁止在帳戶名稱中使用其著作權的詞彙，例如 "Azure" 與 "Microsoft"。  如需詳細資訊，請參閱[Azure Marketplace 的方針](https://docs.microsoft.com/azure/marketplace/guidelines)
 

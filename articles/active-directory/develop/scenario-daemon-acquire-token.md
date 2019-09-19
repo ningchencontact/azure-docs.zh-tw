@@ -1,6 +1,6 @@
 ---
-title: 呼叫 web Api 的 Daemon 應用程式 (取得應用程式的權杖)-Microsoft 身分識別平臺
-description: 瞭解如何建立可呼叫 web Api (取得權杖) 的 daemon 應用程式
+title: 呼叫 web Api 的 Daemon 應用程式（取得應用程式的權杖）-Microsoft 身分識別平臺
+description: 瞭解如何建立可呼叫 web Api （取得權杖）的 daemon 應用程式
 services: active-directory
 documentationcenter: dev-center-name
 author: jmprieur
@@ -12,64 +12,63 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 05/07/2019
+ms.date: 09/15/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6a5f15aa5264c0abf87cb15f0468e8a3a924e0b5
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: ef28520edd8500be0da52996e6484a0407fb03c8
+ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68562354"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71056434"
 ---
 # <a name="daemon-app-that-calls-web-apis---acquire-a-token"></a>呼叫 web Api 的 Daemon 應用程式-取得權杖
 
-一旦建立機密用戶端應用程式, 您就可以藉由呼叫``AcquireTokenForClient``、傳遞範圍, 以及強制或不重新整理權杖來取得應用程式的權杖。
+一旦建立機密用戶端應用程式，您就可以藉由呼叫``AcquireTokenForClient``、傳遞範圍，以及強制或不重新整理權杖來取得應用程式的權杖。
 
 ## <a name="scopes-to-request"></a>要求的範圍
 
-要求用戶端認證流程的範圍是資源的名稱, 後面接著`/.default`。 此標記法會告訴 Azure AD 在應用程式註冊期間, 使用靜態宣告的**應用層級許可權**。 此外, 如先前所見, 這些 API 許可權必須由租使用者系統管理員授與
+要求用戶端認證流程的範圍是資源的名稱，後面接著`/.default`。 此標記法會告訴 Azure AD 在應用程式註冊期間，使用靜態宣告的**應用層級許可權**。 此外，如先前所見，這些 API 許可權必須由租使用者系統管理員授與
 
-### <a name="net"></a>.NET
+# <a name="nettabdotnet"></a>[.NET](#tab/dotnet)
 
 ```CSharp
 ResourceId = "someAppIDURI";
 var scopes = new [] {  ResourceId+"/.default"};
 ```
 
-### <a name="python"></a>Python
+# <a name="pythontabpython"></a>[Python](#tab/python)
 
-在 MSAL 中。Python, 設定檔看起來會像下列程式碼片段:
+在 MSAL 中。Python，設定檔看起來會像下列程式碼片段：
 
-```Python
+```Json
 {
-    "authority": "https://login.microsoftonline.com/organizations",
-    "client_id": "your_client_id",
-    "secret": "This is a sample only. You better NOT persist your password."
-    "scope": ["https://graph.microsoft.com/.default"]
+    "scope": ["https://graph.microsoft.com/.default"],
 }
 ```
 
-### <a name="java"></a>Java
+# <a name="javatabjava"></a>[Java](#tab/java)
 
 ```Java
-public final static String KEYVAULT_DEFAULT_SCOPE = "https://vault.azure.net/.default";
+final static String GRAPH_DEFAULT_SCOPE = "https://graph.microsoft.com/.default";
 ```
 
-### <a name="all"></a>全部
+---
+
+### <a name="case-of-azure-ad-v10-resources"></a>Azure AD （v1.0）資源的案例
 
 用於用戶端認證的範圍應該一律是 resourceId + "/.default"
 
-### <a name="case-of-azure-ad-v10-resources"></a>Azure AD (v1.0) 資源的案例
-
 > [!IMPORTANT]
-> 針對 MSAL (Microsoft 身分識別平臺端點), 針對接受 v1.0 存取權杖的資源要求存取權杖, Azure AD 藉由在最後一個斜線之前取得所有專案, 並使用它作為資源識別碼, 從要求的範圍剖析所需的物件。
-> 因此, 如果 azure sql ( **https://database.windows.net** ) 之類的資源預期以斜線結尾的物件 (適用于 azure sql: `https://database.windows.net/` ), 您將需要要求的範圍`https://database.windows.net//.default` (請注意雙斜線)。 另請參閱 MSAL.NET 問題[#747](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/issues/747):會省略資源 url 的尾端斜線, 這會導致 sql 驗證失敗。
+> 對於要求接受 v1.0 存取權杖的資源存取權杖的 MSAL，Azure AD 會在最後一個斜線之前取得所有專案，並使用它作為資源識別碼，以從要求的範圍中剖析所需的物件。
+> 因此，如果 azure sql （ **https://database.windows.net** ）之類的資源預期以斜線結尾的物件（適用于 azure sql： `https://database.windows.net/` ），您將需要要求的範圍`https://database.windows.net//.default` （請注意雙斜線）。 另請參閱 MSAL.NET 問題[#747](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/issues/747)：會省略資源 url 的尾端斜線，這會導致 sql 驗證失敗。
 
 ## <a name="acquiretokenforclient-api"></a>AcquireTokenForClient API
 
-### <a name="net"></a>.NET
+若要取得應用程式的權杖，您將使用`AcquireTokenForClient`或對等的（視平臺而定）。
+
+# <a name="nettabdotnet"></a>[.NET](#tab/dotnet)
 
 ```CSharp
 using Microsoft.Identity.Client;
@@ -98,13 +97,12 @@ catch (MsalServiceException ex) when (ex.Message.Contains("AADSTS70011"))
 }
 ```
 
-#### <a name="application-token-cache"></a>應用程式權杖快取
-
-在 MSAL.NET 中`AcquireTokenForClient` , 使用**應用程式權杖**快取 (所有其他的 AcquireTokenXX 方法使用使用者 token 快取) `AcquireTokenSilent`在呼叫`AcquireTokenForClient`之前`AcquireTokenSilent`不會呼叫, 而是使用**使用者**權杖快取。 `AcquireTokenForClient`檢查**應用程式**權杖快取本身並加以更新。
-
-### <a name="python"></a>Python
+# <a name="pythontabpython"></a>[Python](#tab/python)
 
 ```Python
+# The pattern to acquire a token looks like this.
+result = None
+
 # Firstly, looks up a token from cache
 # Since we are looking for token for the current app, NOT for an end user,
 # notice we give account parameter as None.
@@ -113,24 +111,46 @@ result = app.acquire_token_silent(config["scope"], account=None)
 if not result:
     logging.info("No suitable token exists in cache. Let's get a new one from AAD.")
     result = app.acquire_token_for_client(scopes=config["scope"])
+
+if "access_token" in result:
+    # Call a protected API with the access token
+    print(result["token_type"])
+    print(result["expires_in"])  # You don't normally need to care about this.
+                                 # It will be good for at least 5 minutes.
+else:
+    print(result.get("error"))
+    print(result.get("error_description"))
+    print(result.get("correlation_id"))  # You may need this when reporting a bug
 ```
 
-### <a name="java"></a>Java
+# <a name="javatabjava"></a>[Java](#tab/java)
 
 ```Java
-ClientCredentialParameters parameters = ClientCredentialParameters
-        .builder(Collections.singleton(KEYVAULT_DEFAULT_SCOPE))
+ClientCredentialParameters clientCredentialParam = ClientCredentialParameters.builder(
+        Collections.singleton(GRAPH_DEFAULT_SCOPE))
         .build();
 
-CompletableFuture<AuthenticationResult> future = cca.acquireToken(parameters);
+CompletableFuture<IAuthenticationResult> future = app.acquireToken(clientCredentialParam);
 
-// You can complete the future in many different ways. Here we use .get() for simplicity
-AuthenticationResult result = future.get();
+BiConsumer<IAuthenticationResult, Throwable> processAuthResult = (res, ex) -> {
+    if (ex != null) {
+        System.out.println("Oops! We have an exception - " + ex.getMessage());
+    }
+    System.out.println("Returned ok - " + res);
+    System.out.println("ID Token - " + res.idToken());
+
+    /* call a protected API with res.accessToken() */
+};
+
+future.whenCompleteAsync(processAuthResult);
+future.join();
 ```
+
+---
 
 ### <a name="protocol"></a>Protocol
 
-如果您還沒有適用于您所選語言的程式庫, 您可能會想要直接使用此通訊協定:
+如果您還沒有適用于您所選語言的程式庫，您可能會想要直接使用此通訊協定：
 
 #### <a name="first-case-access-token-request-with-a-shared-secret"></a>第一種情況︰使用共用密碼的存取權杖要求
 
@@ -159,20 +179,22 @@ scope=https%3A%2F%2Fgraph.microsoft.com%2F.default
 &grant_type=client_credentials
 ```
 
-### <a name="learn-more-about-the-protocol"></a>深入瞭解通訊協定
+如需詳細資訊，請參閱通訊協定檔：[Microsoft 身分識別平臺和 OAuth 2.0 用戶端認證流程](v2-oauth2-client-creds-grant-flow.md)。
 
-如需詳細資訊, 請參閱通訊協定檔:[Microsoft 身分識別平臺和 OAuth 2.0 用戶端認證流程](v2-oauth2-client-creds-grant-flow.md)。
+## <a name="application-token-cache"></a>應用程式權杖快取
+
+在 MSAL.NET 中`AcquireTokenForClient` ，使用**應用程式權杖**快取（所有其他的 AcquireTokenXX 方法使用使用者 token 快取） `AcquireTokenSilent`在呼叫`AcquireTokenForClient`之前`AcquireTokenSilent`不會呼叫，而是使用**使用者**權杖快取。 `AcquireTokenForClient`檢查**應用程式**權杖快取本身並加以更新。
 
 ## <a name="troubleshooting"></a>疑難排解
 
 ### <a name="did-you-use-the-resourcedefault-scope"></a>您使用的是 resource/. 預設範圍嗎？
 
-如果您收到錯誤訊息, 告知您使用了不正確範圍, 表示您可能未使用`resource/.default`範圍。
+如果您收到錯誤訊息，告知您使用了不正確範圍，表示您可能未使用`resource/.default`範圍。
 
-### <a name="did-you-forget-to-provide-admin-consent-daemon-apps-need-it"></a>您忘了提供系統管理員同意嗎？ Daemon 應用程式需要!
+### <a name="did-you-forget-to-provide-admin-consent-daemon-apps-need-it"></a>您忘了提供系統管理員同意嗎？ Daemon 應用程式需要！
 
-如果您在呼叫 API 的**許可權不足而無法完成**作業時收到錯誤, 則租使用者系統管理員必須授與許可權給應用程式。 請參閱上面的註冊用戶端應用程式的步驟6。
-您通常會看到和錯誤, 如下列錯誤描述所示:
+如果您在呼叫 API 的**許可權不足而無法完成**作業時收到錯誤，則租使用者系統管理員必須授與許可權給應用程式。 請參閱上面的註冊用戶端應用程式的步驟6。
+您通常會看到和錯誤，如下列錯誤描述所示：
 
 ```JSon
 Failed to call the web API: Forbidden

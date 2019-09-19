@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/27/2019
 ms.author: jingwang
-ms.openlocfilehash: 9b7f63606733c8be1a6f9593db0862d39e432d68
-ms.sourcegitcommit: a819209a7c293078ff5377dee266fa76fd20902c
+ms.openlocfilehash: f01607e6b7dbe5f126d240a51219a6829ff5aaf6
+ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/16/2019
-ms.locfileid: "71010065"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71090061"
 ---
 # <a name="copy-data-from-and-to-microsoft-access-data-stores-using-azure-data-factory"></a>使用 Azure Data Factory 將資料從和複製到 Microsoft 存取資料存放區
 
@@ -27,7 +27,7 @@ ms.locfileid: "71010065"
 
 此 Microsoft Access 連接器支援下列活動：
 
-- [複製活動](copy-activity-overview.md)與[支援的來源矩陣](copy-activity-overview.md)
+- [複製活動](copy-activity-overview.md)與[支援的來源/接收矩陣](copy-activity-overview.md)
 - [查閱活動](control-flow-lookup-activity.md)
 
 您可以將資料從 Microsoft Access 來源複製到任何支援的接收資料存放區。 如需複製活動所支援作為來源/接收器的資料存放區清單，請參閱[支援的資料存放區](copy-activity-overview.md#supported-data-stores-and-formats)表格。
@@ -54,7 +54,7 @@ ms.locfileid: "71010065"
 
 | 屬性 | 描述 | 必要項 |
 |:--- |:--- |:--- |
-| Type | 類型屬性必須設定為：**MicrosoftAccess** | 是 |
+| 型別 | 類型屬性必須設定為：**MicrosoftAccess** | 是 |
 | connectionString | 不包括認證部分的 ODBC 連接字串。 您可以指定連接字串，或使用您在 Integration Runtime 機上設定的系統 DSN （資料來源名稱）（您仍然需要在連結服務中指定認證部分）。<br>將此欄位標記為 SecureString，將它安全地儲存在 Data Factory 中，或[參考 Azure Key Vault 中儲存的祕密](store-credentials-in-key-vault.md)。| 是 |
 | authenticationType | 用來連接到 Microsoft Access 資料存放區的驗證類型。<br/>允許的值包括：**基本**與**匿名**。 | 是 |
 | userName | 如果您要使用 Basic 驗證，請指定使用者名稱。 | 否 |
@@ -97,7 +97,7 @@ ms.locfileid: "71010065"
 
 | 屬性 | 描述 | 必要項 |
 |:--- |:--- |:--- |
-| Type | 資料集的類型屬性必須設定為：**MicrosoftAccessTable** | 是 |
+| 型別 | 資料集的類型屬性必須設定為：**MicrosoftAccessTable** | 是 |
 | tableName | Microsoft Access 中的資料表名稱。 | 就來源而言為非必要 (如果已指定活動來源中的「查詢」)；<br/>就接收器而言為必要 |
 
 **範例**
@@ -128,7 +128,7 @@ ms.locfileid: "71010065"
 
 | 屬性 | 描述 | 必要項 |
 |:--- |:--- |:--- |
-| Type | 複製活動來源的類型屬性必須設定為：**MicrosoftAccessSource** | 是 |
+| 型別 | 複製活動來源的類型屬性必須設定為：**MicrosoftAccessSource** | 是 |
 | query | 使用自訂查詢來讀取資料。 例如： `"SELECT * FROM MyTable"` 。 | 否 (如果已指定資料集中的 "tableName") |
 
 **範例:**

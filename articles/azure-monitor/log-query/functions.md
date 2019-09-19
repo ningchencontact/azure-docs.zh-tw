@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 11/15/2018
 ms.author: bwren
-ms.openlocfilehash: 4b3116230a085bfbb9a6139fbada4179d802bf5e
-ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
+ms.openlocfilehash: 75beb7b66863efd2fb3679f034a3663dca4a6d2f
+ms.sourcegitcommit: 8ef0a2ddaece5e7b2ac678a73b605b2073b76e88
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67296076"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71076708"
 ---
 # <a name="using-functions-in-azure-monitor-log-queries"></a>在 Azure 監視器記錄查詢中使用函式
 
@@ -26,20 +26,18 @@ ms.locfileid: "67296076"
 
 ## <a name="create-a-function"></a>建立函式
 
-按一下 Azure 入口網站中建立的函式與 Log Analytics**儲存**然後提供下表中的資訊。
+按一下 [**儲存**]，然後提供下表中的資訊，在 Azure 入口網站中建立具有 Log Analytics 的函式。
 
 | 設定 | 描述 |
 |:---|:---|
-| Name           | 在 [查詢總管]  中顯示查詢名稱。 |
-| 另存新檔        | 函式 |
+| Name           | 在 [查詢總管] 中顯示查詢名稱。 |
+| 另存新檔        | 函數 |
 | 函式別名 | 簡短名稱，以在其他查詢中使用函式。 不能包含空格，且必須是唯一的。 |
-| Category       | 在 [查詢總管]  用來組織已儲存查詢與函式的類別。 |
+| Category       | 在 [查詢總管] 用來組織已儲存查詢與函式的類別。 |
 
 > [!NOTE]
 > Azure 監視器中的函式不能包含另一個函式。
 
-> [!NOTE]
-> 您可以在 Azure 監視器記錄查詢中儲存函式，但目前不適用於 Application Insights 查詢。
 
 
 

@@ -14,11 +14,11 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 54e0648ff9aab12ad6a579fc7f6e45b98a9d6d03
-ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
+ms.openlocfilehash: c2eff9c0edf6797c08d0ef9732c903a81a6c764a
+ms.sourcegitcommit: cd70273f0845cd39b435bd5978ca0df4ac4d7b2c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/10/2019
+ms.lasthandoff: 09/18/2019
 ms.locfileid: "70861171"
 ---
 # <a name="administrator-role-permissions-in-azure-active-directory"></a>Azure Active Directory 中的系統管理員角色權限
@@ -79,12 +79,6 @@ ms.locfileid: "70861171"
 * Azure AD 外部其他服務 (例如，Exchange Online、Office 安全性與合規性中心和人力資源系統) 中的系統管理員。
 * 非系統管理員，例如主管、法律顧問和人力資源員工，他們可以存取機密或私人資訊。
 
-### <a name="azure-devops-administratorazure-devops-administrator-permissions"></a>[Azure DevOps 系統管理員](#azure-devops-administrator-permissions)
-
-具有此角色的使用者可以管理 Azure DevOps 原則，將新的 Azure DevOps 組織建立限制為一組可設定的使用者/AAD 群組。 此角色中的使用者可以透過任何支援公司 Azure AD 的 Azure DevOps 組織來管理此原則。
-
-未來，所有企業 Azure DevOps 原則都會由此角色中的使用者管理。
-
 ### <a name="azure-information-protection-administratorazure-information-protection-administrator-permissions"></a>[Azure 資訊保護系統管理員](#azure-information-protection-administrator-permissions)
 
 具有此角色的使用者在 Azure 資訊保護服務上擁有所有權限。 此角色允許設定「Azure 資訊保護」原則的標籤、管理保護範本，以及啟用保護。 此角色並未授與「Identity Protection 中心」、Privileged Identity Management、「監視 Office 365 服務健康情況」及「Office 365 安全與規範中心」中的任何權限。
@@ -130,7 +124,7 @@ ms.locfileid: "70861171"
 
 具備此角色的使用者有權限管理 Microsoft 365 合規性中心、Microsoft 365 系統管理中心、Azure 和 Office 365 安全性與合規性中心中的合規性相關功能。 「代理人」也可以管理 Exchange 系統管理中心內的所有功能，以及 & 「商務用 Skype 系統管理中心」的小組，並建立 Azure 和 Microsoft 365 的支援票證。 如需詳細資訊，請參閱[關於 Office 365 管理員角色](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d)。
 
-入 | 可以執行
+在 | 可以執行
 ----- | ----------
 [Microsoft 365 合規性中心](https://protection.office.com) | 保護和管理您組織在所有 Microsoft 365 服務中的資料<br>管理合規性警示
 [合規性管理員](https://docs.microsoft.com/office365/securitycompliance/meet-data-protection-and-regulatory-reqs-using-microsoft-cloud) | 追蹤、指派和確認您組織的法規合規性活動
@@ -142,7 +136,7 @@ ms.locfileid: "70861171"
 
 具有此角色的使用者具有在 Microsoft 365 合規性中心、Microsoft 365 系統管理中心和 Azure 中追蹤資料的許可權。 使用者也可以追蹤 Exchange 系統管理中心、合規性管理員和小組 & 商務用 Skype 系統管理中心的相容性資料，並建立 Azure 和 Microsoft 365 的支援票證。
 
-入 | 可以執行
+在 | 可以執行
 ----- | ----------
 [Microsoft 365 合規性中心](https://protection.office.com) | 監視跨 Microsoft 365 服務的合規性相關原則<br>管理合規性警示
 [合規性管理員](https://docs.microsoft.com/office365/securitycompliance/meet-data-protection-and-regulatory-reqs-using-microsoft-cloud) | 追蹤、指派和確認您組織的法規合規性活動
@@ -312,7 +306,7 @@ ms.locfileid: "70861171"
 
 具備此角色的使用者有權限管理 Microsoft 365 資訊安全中心、Azure Active Directory Identity Protection、Azure 資訊保護和 Office 365 安全性與合規性中心中的安全性相關功能。 關於 Office 365 權限的詳細資訊可在 [Office 365 安全性與法規遵循中心的權限](https://support.office.com/article/Permissions-in-the-Office-365-Security-Compliance-Center-d10608af-7934-490a-818e-e68f17d0e9c1)中取得。
 
-入 | 可以執行
+在 | 可以執行
 --- | ---
 [Microsoft 365 資訊安全中心](https://protection.office.com) | 監視所有 Microsoft 365 服務的安全性相關原則<br>管理安全性威脅和警示<br>檢視報告
 Identity Protection 中心 | 「安全性讀取者」角色的所有權限<br>此外，還能夠執行除了重設密碼以外的所有身分識別防護中心作業
@@ -329,7 +323,7 @@ Windows Defender ATP 和 EDR | 指派角色<br>管理電腦群組<br>設定端�
 
 具有此角色的使用者可以管理警示, 並具有安全性相關功能的全域唯讀存取權, 包括 Microsoft 365 資訊安全中心、Azure Active Directory、身分識別保護、Privileged Identity Management 和 Office 365 中的所有資訊安全性 & 合規性中心。 關於 Office 365 權限的詳細資訊可在 [Office 365 安全性與法規遵循中心的權限](https://docs.microsoft.com/office365/securitycompliance/permissions-in-the-security-and-compliance-center)中取得。
 
-入 | 可以執行
+在 | 可以執行
 --- | ---
 [Microsoft 365 資訊安全中心](https://protection.office.com) | 「安全性讀取者」角色的所有權限<br>查看、調查及回應安全性威脅警示
 Identity Protection 中心 | 「安全性讀取者」角色的所有權限<br>此外，還能夠執行除了重設密碼以外的所有身分識別防護中心作業
@@ -344,7 +338,7 @@ Windows Defender ATP 和 EDR | 「安全性讀取者」角色的所有權限<br>
 
 具備此角色的使用者具有安全性相關功能的全域唯讀存取權 (含 Microsoft 365 資訊安全中心、Azure Active Directory、Identity Protection、Privileged Identity Management 中的所有資訊)，並能讀取 Azure Active Directory 登入報告與稽核記錄，且具有 Office 365 安全性與合規性中心的全域唯讀存取權。 關於 Office 365 權限的詳細資訊可在 [Office 365 安全性與法規遵循中心的權限](https://support.office.com/article/Permissions-in-the-Office-365-Security-Compliance-Center-d10608af-7934-490a-818e-e68f17d0e9c1)中取得。
 
-入 | 可以執行
+在 | 可以執行
 --- | ---
 [Microsoft 365 資訊安全中心](https://protection.office.com) | 檢視所有 Microsoft 365 服務的安全性相關原則<br>檢視安全性威脅和警示<br>檢視報告
 Identity Protection 中心 | 讀取安全性功能的所有安全性報告和設定資訊<br><ul><li>反垃圾郵件<li>加密<li>資料外洩防護<li>反惡意程式碼<li>進階威脅防護<li>防網路釣魚<li>郵件流程規則
@@ -497,19 +491,6 @@ Windows Defender ATP 和 EDR | 查看和調查警示。 當您在 Windows Defend
 | microsoft.office365.serviceHealth/allEntities/allTasks | 讀取及設定 Office 365 服務健康情況。 |
 | microsoft.office365.supportTickets/allEntities/allTasks | 建立和管理 Office 365 支援票證。 |
 | microsoft 目錄/使用者/密碼/更新 | 更新 Office 365 組織中所有使用者的密碼。 如需詳細資訊，請參閱線上文件。 |
-
-### <a name="azure-devops-administrator-permissions"></a>Azure DevOps 系統管理員許可權
-
-可以管理 Azure DevOps 的組織原則和設定。
-
-> [!NOTE]
-> 此角色具有 Azure Active Directory 以外的其他權限。 如需詳細資訊，請參閱上述[角色說明](#azure-devops-administrator)。
->
->
-
-| **動作** | **描述** |
-| --- | --- |
-| devOps/allEntities/allTasks | 讀取和設定 Azure DevOps。 |
 
 ### <a name="azure-information-protection-administrator-permissions"></a>Azure 資訊保護系統管理員許可權
 
@@ -1515,7 +1496,6 @@ Windows Defender ATP 和 EDR | 查看和調查警示。 當您在 Windows Defend
 應用程式系統管理員 | 應用程式系統管理員 | 9B895D92-2CD3-44C7-9D02-A6AC2D5EA5C3
 應用程式開發人員 | 應用程式開發人員 | CF1C38E5-3621-4004-A7CB-879624DCED7C
 驗證管理員 | 驗證管理員 | c4e39bd9-1100-46d3-8c65-fb160da0071f
-Azure DevOps 系統管理員 | Azure DevOps 系統管理員 | e3973bdf-4987-49ae-837a-ba8e231c7286
 Azure 資訊保護系統管理員 | Azure 資訊保護系統管理員 | 7495fdc4-34c4-4d15-a289-98788ce399fd
 B2C 使用者流程管理員 | B2C 使用者流程管理員 | 6e591065-9bad-43ed-90f3-e9424366d2f0
 B2C 使用者流程屬性管理員 | B2C 使用者流程屬性管理員 | 0f971eea-41eb-4569-a71e-57bb8a3eff1e

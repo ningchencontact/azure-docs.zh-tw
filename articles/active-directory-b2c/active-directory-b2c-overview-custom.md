@@ -10,18 +10,18 @@ ms.topic: conceptual
 ms.date: 03/20/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: a3ded11ac6a68e82fba76e7551699f29f3cb6075
-ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
+ms.openlocfilehash: 335b6c1a12f3786d7c0f1083f5b052aaac4beccb
+ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/15/2019
-ms.locfileid: "70998425"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71065782"
 ---
 # <a name="custom-policies-in-azure-active-directory-b2c"></a>Azure Active Directory B2C 中的自訂原則
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-自訂原則是定義 Azure Active Directory (Azure AD) B2C 租用戶行為的組態檔。 對於最常用的身分識別工作，Azure AD B2C 入口網站中預先定義了使用者流程。 身分識別開發人員可以完全編輯自訂原則，以完成許多不同的工作。
+自訂原則是定義 Azure Active Directory B2C （Azure AD B2C）租使用者行為的設定檔。 對於最常用的身分識別工作，Azure AD B2C 入口網站中預先定義了使用者流程。 身分識別開發人員可以完全編輯自訂原則，以完成許多不同的工作。
 
 ## <a name="comparing-user-flows-and-custom-policies"></a>比較使用者流程與自訂原則
 

@@ -8,18 +8,18 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 04/22/2019
 ms.author: cawa
-ms.openlocfilehash: c4aad2f2f5bca25ead03518b2de9ac9315172052
-ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
+ms.openlocfilehash: 2b923a381be9d6cdb1a83f582a541c9e17e117a4
+ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70934752"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71086638"
 ---
 # <a name="get-started-with-storage-explorer"></a>開始使用儲存體總管
 
 ## <a name="overview"></a>總覽
 
-Microsoft Azure 儲存體總管是獨立應用程式，可讓您輕鬆地使用 Windows、macOS 和 Linux 上的 Azure 儲存體資料。 在本文中，您將了解連線及管理 Azure 儲存體帳戶的數種方式。
+Microsoft Azure 儲存體總管是獨立應用程式，可讓您輕鬆地使用 Windows、macOS 和 Linux 上的 Azure 儲存體資料。 在本文中，您將瞭解幾種連接和管理 Azure 儲存體帳戶的方式。
 
 ![Microsoft Azure 儲存體總管][0]
 
@@ -33,7 +33,7 @@ Microsoft Azure 儲存體總管是獨立應用程式，可讓您輕鬆地使用 
 * Windows 8
 * Windows 7
 
-所有 Windows 版本都需要 .NET Framework 4.6.2 或更新版本。
+針對所有版本的 Windows，需要 .NET Framework 4.6.2 或更新版本。
 
 # <a name="macostabmacos"></a>[macOS](#tab/macos)
 
@@ -43,11 +43,11 @@ Microsoft Azure 儲存體總管是獨立應用程式，可讓您輕鬆地使用 
 
 # <a name="linuxtablinux"></a>[Linux](#tab/linux)
 
-儲存體總管適用于最常見的 Linux 發行版本的[貼齊存放區](https://snapcraft.io/storage-explorer)，而且是建議的安裝方法。 [儲存體總管] 嵌入式管理單元會在新版本發行至 [貼齊存放區] 時，自動安裝其所有相依性和更新。
+儲存體總管適用于最常見的 Linux 發行版本的[貼齊存放區](https://snapcraft.io/storage-explorer)，而且是建議的安裝方法。 當新版本發行至 [貼齊存放區] 時，[儲存體總管] 嵌入式管理單元會自動安裝其所有相依性和更新。
 
-如需支援的發行版本清單，請造訪[snapd 安裝頁面](https://snapcraft.io/docs/installing-snapd)。
+如需支援的發行版本清單，請移至[snapd 安裝頁面](https://snapcraft.io/docs/installing-snapd)。
 
-儲存體總管需要使用密碼管理員，這可能需要手動連接，儲存體總管才能正常運作。 您可以使用下列命令，將儲存體總管連接到系統的密碼管理員：
+儲存體總管需要使用密碼管理員，您可能必須先手動連接，儲存體總管才能正常運作。 您可以執行下列命令，將儲存體總管連接到系統的密碼管理員：
 
 ```bash
 snap connect storage-explorer:password-manager-service :password-manager-service
@@ -59,7 +59,7 @@ snap connect storage-explorer:password-manager-service :password-manager-service
 * Ubuntu 16.04 x64
 * Ubuntu 14.04 x64
 
-Gz 安裝可能會在其他散發套件上執行，但只會正式支援上面列出的版本。
+Gz 安裝可能適用于其他散發套件，但僅正式支援這些發行版本。
 
 如需在 Linux 上安裝儲存體總管的詳細說明，請參閱[疑難排解指南](https://docs.microsoft.com/azure/storage/common/storage-explorer-troubleshooting#linux-dependencies)。
 
@@ -79,19 +79,19 @@ Gz 安裝可能會在其他散發套件上執行，但只會正式支援上面�
 ### <a name="sign-in-to-azure"></a>登入 Azure
 
 > [!NOTE]
-> 若要在登入之後完整存取資源，儲存體總管需要管理（ARM）和資料層許可權。 這表示您需要 Azure AD 許可權，讓您能夠存取儲存體帳戶、帳戶中的容器，以及容器中的資料。 如果您只有資料層的許可權，請考慮使用 [[附加于 Azure AD](#add-a-resource-via-azure-ad)]。 如需儲存體總管需要之確切許可權的詳細資訊，請參閱[疑難排解指南](https://docs.microsoft.com/azure/storage/common/storage-explorer-troubleshooting?tabs=1804#role-based-access-control-permission-issues)。
+> 若要在登入之後完整存取資源，儲存體總管需要管理（Azure Resource Manager）和資料層許可權。 這表示您需要 Azure Active Directory （Azure AD）許可權，這可讓您存取儲存體帳戶、帳戶中的容器，以及容器中的資料。 如果您只有資料層的許可權，請考慮[透過 Azure AD 新增資源](#add-a-resource-via-azure-ad)。 如需儲存體總管需要之特定許可權的詳細資訊，請參閱[疑難排解指南](https://docs.microsoft.com/azure/storage/common/storage-explorer-troubleshooting?tabs=1804#role-based-access-control-permission-issues)。
 
-1. 在儲存體總管中，選取 [管理帳戶] 以移至 [帳戶管理面板]。
+1. 在儲存體總管中，選取 [**管理帳戶**] 以移至 [帳戶管理] 面板。
 
     ![管理帳戶][1]
 
-2. 左窗格現在會顯示您已登入的所有 Azure 帳戶。 若要連線到另一個帳戶，請選取 [新增帳戶]
+2. 左窗格現在會顯示您已登入的所有 Azure 帳戶。 若要連線到另一個帳戶，請選取 [**新增帳戶**]。
 
-3. 如果您要登入國家雲端或 Azure Stack，請按一下 [Azure 環境] 下拉式清單以選取您要使用的 Azure 雲端。 選擇您的環境之後，請按一下 [登**入**] 按鈕。 如需詳細資訊，請參閱[將儲存體總管連接到 Azure Stack 訂](/azure-stack/user/azure-stack-storage-connect-se)用帳戶。
+3. 如果您想要登入國家雲端或 Azure Stack，請選取 [ **azure 環境**] 下拉式清單，選擇您想要使用的 azure 雲端。 選擇您的環境之後，請選取 [登**入**] 按鈕。 如需詳細資訊，請參閱[將儲存體總管連接到 Azure Stack 訂](/azure-stack/user/azure-stack-storage-connect-se)用帳戶。
 
     ![登入選項][2]
 
-4. 使用 Azure 帳戶成功登入後，左窗格中會新增該帳戶以及與該帳戶相關聯的 Azure 訂用帳戶。 選取您要使用的 Azure 訂用帳戶，然後選取 [套用] \(選取 [所有訂用帳戶:] 切換方塊，可選取全部或不選取任何列出的 Azure 訂用帳戶)。
+4. 使用 Azure 帳戶成功登入後，左窗格中會新增該帳戶以及與該帳戶相關聯的 Azure 訂用帳戶。 選取您想要使用的 Azure 訂用帳戶，然後選取 [套用]。 （選取 [**所有**訂用帳戶] 會在列出的所有 Azure 訂用帳戶之間切換您的選擇。）
 
     ![選取 Azure 訂用帳戶][3]
 
@@ -101,79 +101,79 @@ Gz 安裝可能會在其他散發套件上執行，但只會正式支援上面�
 
 ### <a name="attach-a-specific-resource"></a>附加特定資源
 
-您可以使用不同的選項，附加至儲存體總管中的資源：
+有多種方式可將連結至儲存體總管中的資源：
 
-* 透過[Azure AD 新增資源](#add-a-resource-via-azure-ad)：如果您只有資料層的許可權，則可以使用此選項來新增 Blob 容器或 ADLS Gen2 Blob 容器。
-* [使用連接字串](#use-a-connection-string)：如果您有儲存體帳戶的連接字串，則為。 儲存體總管同時支援金鑰和[SAS](storage/common/storage-dotnet-shared-access-signature-part-1.md)連接字串。
-* [使用 SAS URI](#use-a-sas-uri)：如果您有 Blob 容器、檔案共用、佇列或資料表的[SAS](storage/common/storage-dotnet-shared-access-signature-part-1.md) URI。 若要取得 SAS URI，您可以使用[儲存體總管](#generate-a-sas-in-storage-explorer)或[Azure 入口網站](https://portal.azure.com)。
-* [使用名稱和金鑰](#use-a-name-and-key)：如果您知道儲存體帳戶的其中一個帳戶金鑰，您可以使用此選項來快速連接。 儲存體帳戶的金鑰位於[Azure 入口網站](https://portal.azure.com)的儲存體帳戶**存取金鑰**面板上。
-* [附加至本機模擬器](#attach-to-a-local-emulator)：如果您使用其中一個可用的 Azure 儲存體模擬器，請使用此選項輕鬆地連接到您的模擬器。
-* [使用連接字串連線到 Azure Cosmos DB 帳戶](#connect-to-an-azure-cosmos-db-account-by-using-a-connection-string)：如果您有 CosmosDB 實例的連接字串，則為。
-* [依 URI 連接到 Azure Data Lake 存放區](#connect-to-azure-data-lake-store-by-uri)：如果您有 Azure Data Lake 存放區的 URI。
+* 透過[Azure AD 新增資源](#add-a-resource-via-azure-ad)。 如果您只有資料層的許可權，請使用此選項來新增 blob 容器或 Azure Data Lake Storage Gen2 Blob 儲存體容器。
+* [使用連接字串](#use-a-connection-string)。 如果您有儲存體帳戶的連接字串，請使用此選項。 儲存體總管同時支援金鑰和[SAS](storage/common/storage-dotnet-shared-access-signature-part-1.md)連接字串。
+* [使用 SAS URI](#use-a-sas-uri)。 如果您有 blob 容器、檔案共用、佇列或資料表的[SAS URI](storage/common/storage-dotnet-shared-access-signature-part-1.md) ，請使用它來附加至資源。 若要取得 SAS URI，您可以使用[儲存體總管](#generate-a-sas-in-storage-explorer)或[Azure 入口網站](https://portal.azure.com)。
+* [使用名稱和金鑰](#use-a-name-and-key)。 如果您知道儲存體帳戶的其中一個帳戶金鑰，您可以使用此選項來快速連接。 儲存體帳戶的金鑰位於[Azure 入口網站](https://portal.azure.com)中的 [儲存體帳戶**存取金鑰**] 面板上。
+* [附加至本機模擬器](#attach-to-a-local-emulator)。 如果您使用其中一個可用的 Azure 儲存體模擬器，請使用此選項輕鬆地連接到您的模擬器。
+* [使用連接字串連接到 Azure Cosmos DB 帳戶](#connect-to-an-azure-cosmos-db-account-by-using-a-connection-string)。 如果您有 CosmosDB 實例的連接字串，請使用此選項。
+* [依 URI 連接到 Azure Data Lake 存放區](#connect-to-azure-data-lake-store-by-uri)。 如果您有 Azure Data Lake 存放區的 URI，請使用此選項。
 
 #### <a name="add-a-resource-via-azure-ad"></a>透過 Azure AD 新增資源
 
-1. 按一下左側的 [**連接] 按鈕**（垂直工具列），以開啟 [**連接] 對話方塊**。
+1. 選取左側垂直工具列上的 [**連接**] 按鈕，以開啟 [**連接**] 對話方塊：
 
     ![連接至 Azure 儲存體選項][9]
 
-2. 如果您尚未這麼做，請使用 [**新增 Azure 帳戶**] 選項來登入可存取資源的 azure 帳戶。 登入之後，請返回 [**連接] 對話方塊**。
+2. 如果您尚未這麼做，請使用 [**新增 Azure 帳戶**] 選項來登入可存取資源的 azure 帳戶。 登入之後，請**返回 [連線] 對話方塊**。
 
-3. 選取 [透過**Azure Active Directory （Azure AD）新增資源**] 選項，然後按 **[下一步]** 。
+3. 選取 [透過**Azure Active Directory （Azure AD）新增資源**]，然後選取 **[下一步]** 。
 
-4. 選取可存取您想要附加之儲存體資源的 Azure 帳戶和租使用者。 按一下 [下一步]。
+4. 選取可存取您想要附加之儲存體資源的 Azure 帳戶和租使用者。 選取 [下一步]。
 
-5. 選擇您想要附加的資源類型，然後輸入連接所需的資訊。 此頁面上的輸入會根據您要新增的資源類型而變更。 請務必選擇正確的資源類型。 填入所需的資訊之後，請按 **[下一步]** 。
+5. 選擇您想要附加的資源類型，然後輸入連接所需的資訊。 您在此頁面上輸入的資訊取決於您要新增的資源類型。 請務必選擇正確的資源類型。 輸入必要資訊之後，請選取 **[下一步]** 。
 
-6. 請檢查連線摘要，並確定所有資訊都正確無誤。 如果所有資訊看起來都正確，請按一下 **[連接]** 。 否則，請使用 [**上一步**] 按鈕返回前一頁，以更正任何不正確的資訊。
+6. 請檢查連線摘要，並確定所有資訊都正確無誤。 如果是，請選取 **[連線]** 。 否則，請使用 [**上一步**] 按鈕返回先前的頁面，以修正任何不正確的資訊。
 
-成功新增連接之後，資源樹狀結構會自動流覽至代表連線的節點。 您也可以查看 [**本機 &** ] → [**儲存體帳戶**→ **（已附加的容器）** ] → [ **Blob 容器**] （如果有的話）。 如果儲存體總管無法新增您的連線，或如果您在成功新增連線之後無法存取您的資料，請參閱[疑難排解指南](https://docs.microsoft.com/azure/storage/common/storage-explorer-troubleshooting)以取得說明。
+成功新增連接之後，資源樹狀結構會自動移至代表連接的節點。 如果未移至該節點，請查看 [**本機 &**  > 連結的**儲存體帳戶** > （已連結的**容器）**  > ] [**Blob 容器**]。 如果儲存體總管無法新增您的連線，或如果您在成功新增連線之後無法存取資料，請參閱[疑難排解指南](https://docs.microsoft.com/azure/storage/common/storage-explorer-troubleshooting)。
 
 #### <a name="use-a-connection-string"></a>使用連接字串
 
-1. 按一下左側的 [**連接] 按鈕**（垂直工具列），以開啟 [**連接] 對話方塊**。
+1. 選取左側垂直工具列上的 [**連接**] 按鈕，以開啟 [**連接**] 對話方塊：
 
     ![連接至 Azure 儲存體選項][9]
 
-2. 選取 [**使用連接字串**] 選項，然後按 **[下一步]** 。
+2. 選取 [**使用連接字串**]，然後選取 **[下一步]** 。
 
-3. 選擇連接的顯示名稱，然後在您的連接字串中輸入。 然後按 [下一步]。
+3. 為您的連線選擇 [顯示名稱]，然後輸入您的連接字串。 然後，選取 [下一步]。
 
-4. 請檢查連線摘要，並確定所有資訊都正確無誤。 如果所有資訊看起來都正確，請按一下 **[連接]** ，否則請使用 [**上一步**] 按鈕返回前一頁，以更正任何不正確的資訊。
+4. 請檢查連線摘要，並確定所有資訊都正確無誤。 如果是，請選取 **[連線]** 。 否則，請使用 [**上一步**] 按鈕返回先前的頁面，以修正任何不正確的資訊。
 
-成功新增連接之後，資源樹狀結構會自動流覽至代表連線的節點。 如果基於某些原因，您也可以在 [已**附加的本機 &** →**儲存體帳戶**] 下查看。 如果儲存體總管無法新增您的連線，或如果您在成功新增連線之後無法存取您的資料，請參閱[疑難排解指南](https://docs.microsoft.com/azure/storage/common/storage-explorer-troubleshooting)以取得說明。
+成功新增連接之後，資源樹狀結構會自動移至代表連接的節點。 如果不是移至該節點，請查看 [**本機 & 連接** > 的**儲存體帳戶**]。 如果儲存體總管無法新增您的連線，或如果您在成功新增連線之後無法存取資料，請參閱[疑難排解指南](https://docs.microsoft.com/azure/storage/common/storage-explorer-troubleshooting)。
 
 #### <a name="use-a-sas-uri"></a>使用 SAS URI
 
-1. 按一下左側的 [**連接] 按鈕**（垂直工具列），以開啟 [**連接] 對話方塊**。
+1. 選取左側垂直工具列上的 [**連接**] 按鈕，以開啟 [**連接**] 對話方塊：
 
     ![連接至 Azure 儲存體選項][9]
 
-2. 選取 [**使用共用存取簽章（SAS） URI** ] 選項，然後按 **[下一步]** 。
+2. 選取 [**使用共用存取簽章（SAS） URI**]，然後選取 **[下一步]** 。
 
-3. 為您的連線選擇 [顯示名稱]，然後在您的 SAS URI 中輸入。 您要附加之資源類型的服務端點應該自動填入。 如果您使用的是自訂端點，則可能不是。 按一下 [下一步]。
+3. 為您的連線選擇 [顯示名稱]，然後輸入您的 SAS URI。 您要附加之資源類型的服務端點應該自動填入。 如果您使用的是自訂端點，則可能不是。 選取 [下一步]。
 
-4. 請檢查連線摘要，並確定所有資訊都正確無誤。 如果所有資訊看起來都正確，請按一下 **[連接]** ，否則請使用 [**上一步**] 按鈕返回前一頁以更正任何錯誤的資訊。
+4. 請檢查連線摘要，並確定所有資訊都正確無誤。 如果是，請選取 **[連線]** 。 否則，請使用 [**上一步**] 按鈕返回先前的頁面，以修正任何不正確的資訊。
 
-成功新增連接之後，資源樹狀結構會自動流覽至代表連線的節點。 您也可以在 [**本機 & 連接**] → [**儲存體帳戶**→（已連結的**容器）** ] 下，→**您附加的容器類型的服務節點**（如果有的話）。 如果儲存體總管無法新增您的連線，或如果您在成功新增連線之後無法存取您的資料，請參閱[疑難排解指南](https://docs.microsoft.com/azure/storage/common/storage-explorer-troubleshooting)以取得說明。
+成功新增連接之後，資源樹狀結構會自動移至代表連接的節點。 如果未移至該節點，請在 [**本機 &**  > 連結的**儲存體帳戶** > （已連結的**容器）**  > ] 下，查看*您所附加容器類型的服務節點*。 如果儲存體總管無法新增您的連線，或如果您在成功新增連線之後無法存取資料，請參閱[疑難排解指南](https://docs.microsoft.com/azure/storage/common/storage-explorer-troubleshooting)。
 
 #### <a name="use-a-name-and-key"></a>使用名稱和金鑰
 
-1. 按一下左側的 [**連接] 按鈕**（垂直工具列），以開啟 [**連接] 對話方塊**。
+1. 選取左側垂直工具列上的 [**連接**] 按鈕，以開啟 [**連接**] 對話方塊：
 
     ![連接至 Azure 儲存體選項][9]
 
-2. 選取 [**使用儲存體帳戶名稱和金鑰**] 選項，然後按 **[下一步]** 。
+2. 選取 [**使用儲存體帳戶名稱和金鑰**]，然後選取 **[下一步]** 。
 
 3. 選擇連接的顯示名稱。
 
 4. 輸入您的儲存體帳戶名稱和它的其中一個存取金鑰。
 
-5. 選擇要使用的**儲存體網域**，然後按 **[下一步]** 。
+5. 選擇要使用的**儲存體網域**，然後選取 **[下一步]** 。
 
-4. 請檢查連線摘要，並確定所有資訊都正確無誤。 如果所有資訊看起來都正確，請按一下 **[連接]** ，否則請使用 [**上一步**] 按鈕返回前一頁，以更正任何不正確的資訊。
+6. 請檢查連線摘要，並確定所有資訊都正確無誤。 如果是，請選取 **[連線]** 。 否則，請使用 [**上一步**] 按鈕返回先前的頁面，以修正任何不正確的資訊。
 
-成功新增連接之後，資源樹狀結構會自動流覽至代表連線的節點。 如果基於某些原因，您也可以在 [已**附加的本機 &** →**儲存體帳戶**] 下查看。 如果儲存體總管無法新增您的連線，或如果您在成功新增連線之後無法存取您的資料，請參閱[疑難排解指南](https://docs.microsoft.com/azure/storage/common/storage-explorer-troubleshooting)以取得說明。
+成功新增連接之後，資源樹狀結構會自動移至代表連接的節點。 如果不是移至該節點，請查看 [**本機 & 連接** > 的**儲存體帳戶**]。 如果儲存體總管無法新增您的連線，或如果您在成功新增連線之後無法存取資料，請參閱[疑難排解指南](https://docs.microsoft.com/azure/storage/common/storage-explorer-troubleshooting)。
 
 #### <a name="attach-to-a-local-emulator"></a>附加至本機模擬器
 
@@ -181,65 +181,65 @@ Gz 安裝可能會在其他散發套件上執行，但只會正式支援上面�
 * [Azure 儲存體模擬器](storage/common/storage-use-emulator.md)（僅限 Windows）
 * [Azurite](https://github.com/azure/azurite)（Windows、macOS 或 Linux）
 
-如果您的模擬器正在接聽預設埠，您可以使用 [**模擬器-預設埠**] 節點（在 [**本機 &** ] 底下連結→ [**儲存體帳戶**]）來快速存取您的模擬器。
+如果您的模擬器正在接聽預設埠，您可以使用 [**模擬器-預設埠**] 節點（在 [**本機 & 連接** > 的**儲存體帳戶**] 下找到）來快速存取您的模擬器。
 
-如果您想要使用不同的名稱來連接，或如果您的模擬器不是在預設埠上執行：
+如果您想要使用不同的名稱來連接，或如果您的模擬器不是在預設埠上執行，請遵循下列步驟：
 
 1. 啟動您的模擬器。 當您這麼做時，請記下模擬器針對每個服務類型接聽的埠。
 
    > [!IMPORTANT]
-   > 儲存體總管不會自動啟動您的模擬器。 您必須自行加以啟動。
+   > 儲存體總管不會自動啟動您的模擬器。 您必須以手動方式啟動它。
 
-2. 按一下左側的 [**連接] 按鈕**（垂直工具列），以開啟 [**連接] 對話方塊**。
+2. 選取左側垂直工具列上的 [**連接**] 按鈕，以開啟 [**連接**] 對話方塊：
 
     ![連接至 Azure 儲存體選項][9]
 
-3. 選取 [**附加至本機模擬器**] 選項，然後按 **[下一步]** 。
+3. 選取 [**附加至本機模擬器**]，然後選取 **[下一步]** 。
 
-4. 為您的連線選擇 [顯示名稱]，並輸入您的模擬器在每個服務類型上接聽的埠。 文字方塊的開頭會是大部分模擬器的預設埠值。 檔案**埠**會保留空白，因為目前沒有任何一項官方模擬器支援檔案服務。 如果您所使用的模擬器支援檔案，則您可以輸入正在使用的通訊埠。 按一下 [下一步]。
+4. 為您的連線選擇 [顯示名稱]，並針對每個服務類型輸入模擬器正在接聽的埠。 文字方塊的開頭會是大部分模擬器的預設埠值。 [檔案**埠**] 方塊會保留空白，因為目前沒有任何一項官方模擬器支援檔案服務。 如果您所使用的模擬器支援檔案，您可以輸入正在使用的埠。 然後，選取 [下一步]。
 
-5. 請檢查連線摘要，並確定所有資訊都正確無誤。 如果所有資訊看起來都正確，請按一下 **[連接]** ，否則請使用 [上一**步**] 按鈕返回前一頁以更正任何錯誤的資訊。
+5. 請檢查連線摘要，並確定所有資訊都正確無誤。 如果是，請選取 **[連線]** 。 否則，請使用 [**上一步**] 按鈕返回先前的頁面，以修正任何不正確的資訊。
 
-成功新增連接之後，資源樹狀結構會自動流覽至代表連線的節點。 如果基於某些原因，您也可以在 [已**附加的本機 &** →**儲存體帳戶**] 下查看。 如果儲存體總管無法新增您的連線，或如果您在成功新增連線之後無法存取您的資料，請參閱[疑難排解指南](https://docs.microsoft.com/azure/storage/common/storage-explorer-troubleshooting)以取得說明。
+成功新增連接之後，資源樹狀結構會自動移至代表連接的節點。 如果不是移至該節點，請查看 [**本機 & 連接** > 的**儲存體帳戶**]。 如果儲存體總管無法新增您的連線，或如果您在成功新增連線之後無法存取資料，請參閱[疑難排解指南](https://docs.microsoft.com/azure/storage/common/storage-explorer-troubleshooting)。
 
 #### <a name="connect-to-an-azure-cosmos-db-account-by-using-a-connection-string"></a>使用連接字串連線到 Azure Cosmos DB 帳戶
 
-除了透過 Azure 訂用帳戶管理 Azure Cosmos DB 帳戶，另一種連線到 Azure Cosmos DB 的方法是使用連接字串。 使用下列步驟來使用連接字串進行連線。
+除了透過 Azure 訂用帳戶管理 Azure Cosmos DB 帳戶以外，您也可以使用連接字串連接到 Azure Cosmos DB。 若要這樣做，請遵循下列步驟：
 
-1. 在左邊的樹狀目錄中尋找 [Local and Attached] \(本機與已連結)，以滑鼠右鍵按一下 [Azure Cosmos DB 帳戶]，選擇 [連線到 Azure Cosmos DB...]
+1. 在資源樹狀結構的左側，展開 [**本機] 和**[已附加]，以滑鼠右鍵按一下 [ **Azure Cosmos DB 帳戶**]，然後選取 **[連接到 Azure Cosmos DB]** 。
 
-    ![透過連接字串連線到 Azure Cosmos DB][21]
+    ![使用連接字串連線到 Azure Cosmos DB][21]
 
-2. 選擇 Azure Cosmos DB API，貼上您的 [連接字串]，然後按一下 [確定] 以連接 Azure Cosmos DB 帳戶。 如需擷取連接字串的資訊，請參閱[取得連接字串](https://docs.microsoft.com/azure/cosmos-db/manage-account)。
+2. 選取 [Azure Cosmos DB API]，輸入您的**連接字串**資料，然後選取 **[確定**] 以連接 Azure Cosmos DB 帳戶。 如需有關如何抓取連接字串的詳細資訊，請參閱[取得連接字串](https://docs.microsoft.com/azure/cosmos-db/manage-account)。
 
-    ![connection-string][22]
+    ![連接字串][22]
 
 #### <a name="connect-to-azure-data-lake-store-by-uri"></a>以 URI 連線至 Azure Data Lake Store
 
-如果您需要存取不在訂用帳戶中的資源，您將需要具有存取權的人員提供資源 URI。 登入之後，您可以依照下列步驟，使用 URI 來連線到 Data Lake Store：
+如果您想要存取不在訂用帳戶中的資源，您將需要可存取該資源的人員，以提供您資源 URI。 登入之後，您可以使用 URI 來連線到 Data Lake Store。 若要這樣做，請遵循下列步驟：
 
 1. 開啟儲存體總管。
 2. 在左窗格中，展開 [本機與已連結的資源]。
-3. 以滑鼠右鍵按一下 **Data Lake Store**，然後從內容功能表中選取 [連線至 Data Lake Store...]。
+3. 以滑鼠右鍵按一下 [ **Data Lake Store**]。 從快捷方式功能表中，選取 **[連接到 Data Lake Store]** 。
 
-    ![連線至 Data Lake Store 內容功能表](./media/vs-azure-tools-storage-manage-with-storage-explorer/storageexplorer-adls-uri-attach.png)
+    ![連接到 Data Lake Store 內容功能表](./media/vs-azure-tools-storage-manage-with-storage-explorer/storageexplorer-adls-uri-attach.png)
 
-4. 輸入 URI，工具即會瀏覽至您剛才輸入的 URL 位置。
+4. 輸入 URI。 此工具會移至您剛才輸入的 URL 位置。
 
-    ![連線至 Data Lake Store 內容對話方塊](./media/vs-azure-tools-storage-manage-with-storage-explorer/storageexplorer-adls-uri-attach-dialog.png)
+    ![[連接到 Data Lake Store 內容] 對話方塊](./media/vs-azure-tools-storage-manage-with-storage-explorer/storageexplorer-adls-uri-attach-dialog.png)
 
-    ![連線至 Data Lake Store 結果](./media/vs-azure-tools-storage-manage-with-storage-explorer/storageexplorer-adls-attach-finish.png)
+    ![連接到 Data Lake Store 結果](./media/vs-azure-tools-storage-manage-with-storage-explorer/storageexplorer-adls-attach-finish.png)
 
 
 ## <a name="generate-a-sas-in-storage-explorer"></a>在儲存體總管中產生 SAS
 
 ### <a name="account-level-sas"></a>帳戶層級 SAS
 
-1. 以滑鼠右鍵按一下您要共用的儲存體帳戶，然後選取 [**取得共用存取**簽章 ...]。
+1. 以滑鼠右鍵按一下您要共用的儲存體帳戶，然後選取 [**取得共用存取**簽章]。
 
     ![取得 SAS 內容功能表選項][14]
 
-2. 在 [**產生共用存取**簽章] 對話方塊中，指定您要用於帳戶的時間範圍和許可權。 按一下 [建立]。
+2. 在 [**產生共用存取**簽章] 對話方塊中，指定您要用於帳戶的時間範圍和許可權，然後選取 [**建立**]。
 
     ![取得 SAS 對話方塊][15]
 
@@ -258,13 +258,13 @@ Gz 安裝可能會在其他散發套件上執行，但只會正式支援上面�
 ![儲存體帳戶搜尋][23]
 
 > [!NOTE]
-> 使用 [帳戶管理面板] 來取消選取任何不包含您要搜尋之項目的訂用帳戶，以改善搜尋的執行時間。 您也可以在節點上按一下滑鼠右鍵，並選擇 [從這裡搜尋] 以從特定節點開始搜尋。
+> 若要加快搜尋速度，請使用 [帳戶管理] 面板取消選取任何不包含您要搜尋之專案的訂用帳戶。 您也可以在節點上按一下滑鼠右鍵，然後選取 [**從這裡搜尋**]，開始從特定節點進行搜尋。
 >
 >
 
 ## <a name="next-steps"></a>後續步驟
 
-* [使用儲存體總管來管理 Azure Blob 儲存體資源](vs-azure-tools-storage-explorer-blobs.md)
+* [使用儲存體總管管理 Azure Blob 儲存體資源](vs-azure-tools-storage-explorer-blobs.md)
 * [在儲存體總管中管理 Azure Cosmos DB （預覽）](./cosmos-db/storage-explorer.md)
 * [使用儲存體總管來管理 Azure Data Lake Store 資源](./data-lake-store/data-lake-store-in-storage-explorer.md)
 

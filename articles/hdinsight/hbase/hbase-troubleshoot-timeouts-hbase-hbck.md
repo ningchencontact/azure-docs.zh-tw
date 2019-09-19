@@ -1,29 +1,30 @@
 ---
 title: 在 Azure HDInsight 中使用 ' hbase hbck ' 命令的超時
-description: 修正區域指派時, ' hbase hbck ' 命令的問題時間
+description: 修正區域指派時，' hbase hbck ' 命令的問題時間
 ms.service: hdinsight
 ms.topic: troubleshooting
 author: hrasheed-msft
 ms.author: hrasheed
+ms.reviewer: jasonh
 ms.date: 08/16/2019
-ms.openlocfilehash: 941a710e4c3be3e93263bb63a60c3e0fbcfc4fc4
-ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
+ms.openlocfilehash: 800182498ab77993d0861c9b5383e0d71b302b6f
+ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69638388"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71091566"
 ---
 # <a name="scenario-timeouts-with-hbase-hbck-command-in-azure-hdinsight"></a>案例：在 Azure HDInsight 中使用 ' hbase hbck ' 命令的超時
 
-本文說明與 Azure HDInsight 叢集互動時, 問題的疑難排解步驟和可能的解決方法。
+本文說明與 Azure HDInsight 叢集互動時，問題的疑難排解步驟和可能的解決方法。
 
 ## <a name="issue"></a>問題
 
-修正區域指派`hbase hbck`時, 遇到命令逾時。
+修正區域指派`hbase hbck`時，遇到命令逾時。
 
 ## <a name="cause"></a>原因
 
-使用 `hbck` 命令時所發生的逾時問題，可能是由於數個區域長時間處於「轉換中」狀態所造成。 您可以在 HBase Master UI 中看到這些區域處於離線狀態。 因為有大量的區域嘗試進行轉換, HBase Master 可能會超時, 而無法讓這些區域恢復上線。
+使用 `hbck` 命令時所發生的逾時問題，可能是由於數個區域長時間處於「轉換中」狀態所造成。 您可以在 HBase Master UI 中看到這些區域處於離線狀態。 因為有大量的區域嘗試進行轉換，HBase Master 可能會超時，而無法讓這些區域恢復上線。
 
 ## <a name="resolution"></a>解析度
 
@@ -35,11 +36,11 @@ ms.locfileid: "69638388"
 
 1. `hbase zkcli` 使用`exit`命令從 shell 結束。
 
-1. 從 Apache Ambari UI, 重新開機 Active HBase Master 服務。
+1. 從 Apache Ambari UI，重新開機 Active HBase Master 服務。
 
 1. 執行 `hbase hbck -fixAssignments` 命令。
 
-1. 在 [轉換中] 區段中監視 HBase Master UI 「區域」, 以確保不會停滯任何區域。
+1. 在 [轉換中] 區段中監視 HBase Master UI 「區域」，以確保不會停滯任何區域。
 
 ## <a name="next-steps"></a>後續步驟
 
@@ -47,6 +48,6 @@ ms.locfileid: "69638388"
 
 - 透過[Azure 社區支援](https://azure.microsoft.com/support/community/)取得 azure 專家的解答。
 
-- [@AzureSupport](https://twitter.com/azuresupport)連接-官方 Microsoft Azure 帳戶, 以改善客戶體驗。 將 Azure 社區連接到正確的資源: 解答、支援和專家。
+- [@AzureSupport](https://twitter.com/azuresupport)連接-官方 Microsoft Azure 帳戶，以改善客戶體驗。 將 Azure 社區連接到正確的資源：解答、支援和專家。
 
-- 如果您需要更多協助, 您可以從[Azure 入口網站](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/)提交支援要求。 從功能表列選取 [**支援**], 或開啟 [說明 **+ 支援**] 中樞。 如需詳細資訊, 請參閱[如何建立 Azure 支援要求](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request)。 您的 Microsoft Azure 訂用帳戶包含訂用帳戶管理和帳單支援的存取權, 而技術支援則透過其中一項[Azure 支援方案](https://azure.microsoft.com/support/plans/)提供。
+- 如果您需要更多協助，您可以從[Azure 入口網站](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/)提交支援要求。 從功能表列選取 [**支援**]，或開啟 [說明 **+ 支援**] 中樞。 如需詳細資訊，請參閱[如何建立 Azure 支援要求](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request)。 您的 Microsoft Azure 訂用帳戶包含訂用帳戶管理和帳單支援的存取權，而技術支援則透過其中一項[Azure 支援方案](https://azure.microsoft.com/support/plans/)提供。

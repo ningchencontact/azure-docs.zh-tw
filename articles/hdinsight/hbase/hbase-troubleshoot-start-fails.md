@@ -1,21 +1,22 @@
 ---
 title: Apache HBase Master 無法在 Azure HDInsight 中啟動
-description: Apache HBase Master (HMaster) 無法在 Azure HDInsight 中啟動
+description: Apache HBase Master （HMaster）無法在 Azure HDInsight 中啟動
 ms.service: hdinsight
 ms.topic: troubleshooting
 author: hrasheed-msft
 ms.author: hrasheed
+ms.reviewer: jasonh
 ms.date: 08/14/2019
-ms.openlocfilehash: 6d729d9303326dd43f3bc5ae943d6ab788c818f3
-ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
+ms.openlocfilehash: d994fe1501dedf6a8ea2c3366f6559c7abac0892
+ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69534434"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71091620"
 ---
-# <a name="apache-hbase-master-hmaster-fails-to-start-in-azure-hdinsight"></a>Apache HBase Master (HMaster) 無法在 Azure HDInsight 中啟動
+# <a name="apache-hbase-master-hmaster-fails-to-start-in-azure-hdinsight"></a>Apache HBase Master （HMaster）無法在 Azure HDInsight 中啟動
 
-本文說明與 Azure HDInsight 叢集互動時, 問題的疑難排解步驟和可能的解決方法。
+本文說明與 Azure HDInsight 叢集互動時，問題的疑難排解步驟和可能的解決方法。
 
 ## <a name="scenario-atomic-renaming-failure"></a>案例：不可部分完成的重新命名失敗
 
@@ -25,15 +26,15 @@ ms.locfileid: "69534434"
 
 ### <a name="cause"></a>原因
 
-在啟動過程中, HMaster 會執行許多初始化步驟, 包括將資料從臨時 (.tmp) 資料夾移至資料檔案夾。 HMaster 也會查看預先寫入記錄 (WAL) 資料夾, 以查看是否有任何無回應的區域伺服器。
+在啟動過程中，HMaster 會執行許多初始化步驟，包括將資料從臨時（.tmp）資料夾移至資料檔案夾。 HMaster 也會查看預先寫入記錄（WAL）資料夾，以查看是否有任何無回應的區域伺服器。
 
 HMaster 會在 WAL 資料夾上執行基本的 list 命令。 如果任何時間 HMaster 在任一資料夾中看到未預期的檔案，則會擲回例外狀況，而且不會啟動。
 
 ### <a name="resolution"></a>解析度
 
-請檢查呼叫堆疊, 並嘗試判斷哪個資料夾可能造成此問題 (例如, 它可能是 WAL 資料夾或 .tmp 資料夾)。 接著，在 Cloud Explorer 中或使用 HDFS 命令嘗試找出問題檔案。 這通常是`*-renamePending.json`檔案。 `*-renamePending.json` (檔案是用來在 WASB 驅動程式中執行不可部分完成的重新命名作業的日誌檔案。 由於此實作中發生錯誤 (bug)，因此這些檔案可能會在發生處理序損毀等狀況之後遺留下來。)請在 Cloud Explorer 中或使用 HDFS 命令強制刪除此檔案。
+請檢查呼叫堆疊，並嘗試判斷哪個資料夾可能造成此問題（例如，它可能是 WAL 資料夾或 .tmp 資料夾）。 接著，在 Cloud Explorer 中或使用 HDFS 命令嘗試找出問題檔案。 這通常是`*-renamePending.json`檔案。 `*-renamePending.json` （檔案是用來在 WASB 驅動程式中執行不可部分完成的重新命名作業的日誌檔案。 由於此實作中發生錯誤 (bug)，因此這些檔案可能會在發生處理序損毀等狀況之後遺留下來。)請在 Cloud Explorer 中或使用 HDFS 命令強制刪除此檔案。
 
-有時候, 可能也會有一個名為的暫存檔案`$$$.$$$` , 如這個位置所示。 您必須使用 HDFS `ls` 命令來查看此檔案；您無法在 Cloud Explorer 中查看此檔案。 若要刪除此檔案，請使用 HDFS 命令 `hdfs dfs -rm /\<path>\/\$\$\$.\$\$\$`。
+有時候，可能也會有一個名為的暫存檔案`$$$.$$$` ，如這個位置所示。 您必須使用 HDFS `ls` 命令來查看此檔案；您無法在 Cloud Explorer 中查看此檔案。 若要刪除此檔案，請使用 HDFS 命令 `hdfs dfs -rm /\<path>\/\$\$\$.\$\$\$`。
 
 執行這些命令之後，HMaster 應立即啟動。
 
@@ -43,11 +44,11 @@ HMaster 會在 WAL 資料夾上執行基本的 list 命令。 如果任何時間
 
 ### <a name="issue"></a>問題
 
-您可能會看到一則訊息, 指出`hbase: meta`資料表不在線上。 執行可能會`hbase: meta table replicaId 0 is not found on any region.`回報在 HMaster 記錄中, 您可能會看到下列訊息`No server address listed in hbase: meta for region hbase: backup <region name>`:。 `hbck`  
+您可能會看到一則訊息，指出`hbase: meta`資料表不在線上。 執行可能會`hbase: meta table replicaId 0 is not found on any region.`回報在 HMaster 記錄中，您可能會看到下列訊息`No server address listed in hbase: meta for region hbase: backup <region name>`：。 `hbck`  
 
 ### <a name="cause"></a>原因
 
-重新開機 HBase 之後, HMaster 無法初始化。
+重新開機 HBase 之後，HMaster 無法初始化。
 
 ### <a name="resolution"></a>解析度
 
@@ -70,19 +71,19 @@ HMaster 會在 WAL 資料夾上執行基本的 list 命令。 如果任何時間
 
 ---
 
-## <a name="scenario-javaioioexception-timedout"></a>案例: IOException:Timedout
+## <a name="scenario-javaioioexception-timedout"></a>案例： IOException：Timedout
 
 ### <a name="issue"></a>問題
 
-HMaster 超時, 發生嚴重例外狀況, 類似`java.io.IOException: Timedout 300000ms waiting for namespace table to be assigned`于:。
+HMaster 超時，發生嚴重例外狀況，類似`java.io.IOException: Timedout 300000ms waiting for namespace table to be assigned`于：。
 
 ### <a name="cause"></a>原因
 
-如果您有許多資料表和區域在重新啟動 HMaster 服務時尚未排清，則可能會遇到此問題。 超時是 HMaster 的已知缺陷。 一般叢集啟動工作可能需要很長的時間。 如果尚未指派命名空間資料表, HMaster 會關閉。 當大量的未清除資料存在, 而且有五分鐘的超時時間不足時, 就會發生冗長的啟動工作。
+如果您有許多資料表和區域在重新啟動 HMaster 服務時尚未排清，則可能會遇到此問題。 超時是 HMaster 的已知缺陷。 一般叢集啟動工作可能需要很長的時間。 如果尚未指派命名空間資料表，HMaster 會關閉。 當大量的未清除資料存在，而且有五分鐘的超時時間不足時，就會發生冗長的啟動工作。
 
 ### <a name="resolution"></a>解析度
 
-1. 在 Apache Ambari UI 中, 移至 [ **HBase**  > ] [進行] [連線]。 在自訂`hbase-site.xml`檔案中, 新增下列設定:
+1. 在 Apache Ambari UI 中，移至 [ **HBase**  > ] [進行] [連線 **]。** 在自訂`hbase-site.xml`檔案中，新增下列設定：
 
     ```
     Key: hbase.master.namespace.init.timeout Value: 2400000  
@@ -96,7 +97,7 @@ HMaster 超時, 發生嚴重例外狀況, 類似`java.io.IOException: Timedout 3
 
 ### <a name="issue"></a>問題
 
-節點會定期重新開機。 從 [區域伺服器記錄] 中, 您可能會看到類似下列的專案:
+節點會定期重新開機。 從 [區域伺服器記錄] 中，您可能會看到類似下列的專案：
 
 ```
 2017-05-09 17:45:07,683 WARN  [JvmPauseMonitor] util.JvmPauseMonitor: Detected pause in JVM or host machine (eg GC): pause of approximately 31000ms
@@ -106,15 +107,15 @@ HMaster 超時, 發生嚴重例外狀況, 類似`java.io.IOException: Timedout 3
 
 ### <a name="cause"></a>原因
 
-較`regionserver`長的 JVM GC 暫停。 暫停會導致`regionserver`沒有回應, 而且無法在 zk 會話超時 .40s 內傳送 HMaster 的信號。 HMaster 會相信`regionserver`已失效, 並會`regionserver`中止並重新啟動。
+較`regionserver`長的 JVM GC 暫停。 暫停會導致`regionserver`沒有回應，而且無法在 zk 會話超時 .40s 內傳送 HMaster 的信號。 HMaster 會相信`regionserver`已失效，並會`regionserver`中止並重新啟動。
 
 ### <a name="resolution"></a>解析度
 
-變更 Zookeeper 會話超時, 而不只`hbase-site`是`zookeeper.session.timeout`設定, 但`zoo.cfg`也`maxSessionTimeout`需要變更 Zookeeper 設定。
+變更 Zookeeper 會話超時，而不只`hbase-site`是`zookeeper.session.timeout`設定，但`zoo.cfg`也`maxSessionTimeout`需要變更 Zookeeper 設定。
 
-1. 存取 Ambari UI, 移至**HBase-> 設定-> 設定**, 在 [超時] 區段中, 將 [Zookeeper 會話超時] 的值變更為。
+1. 存取 Ambari UI，移至**HBase-> 設定-> 設定**，在 [超時] 區段中，將 [Zookeeper 會話超時] 的值變更為。
 
-1. 存取 Ambari UI, 移至**Zookeeper-> 設定-> 自訂** `zoo.cfg`, 新增/變更下列設定。 請確定值與 HBase `zookeeper.session.timeout`相同。
+1. 存取 Ambari UI，移至**Zookeeper-> 設定-> 自訂** `zoo.cfg`，新增/變更下列設定。 請確定值與 HBase `zookeeper.session.timeout`相同。
 
     ```
     Key: maxSessionTimeout Value: 120000  
@@ -136,7 +137,7 @@ HMasters 無法出現在 HBase 叢集上。
 
 ### <a name="resolution"></a>解析度
 
-設定 rootdir: wasb://@.blob.core.windows.net/hbase並在 Ambari 上重新開機服務。
+設定 rootdir： wasb://@.blob.core.windows.net/hbase並在 Ambari 上重新開機服務。
 
 ---
 
@@ -146,6 +147,6 @@ HMasters 無法出現在 HBase 叢集上。
 
 * 透過[Azure 社區支援](https://azure.microsoft.com/support/community/)取得 azure 專家的解答。
 
-* [@AzureSupport](https://twitter.com/azuresupport)連接-官方 Microsoft Azure 帳戶, 以改善客戶體驗。 將 Azure 社區連接到正確的資源: 解答、支援和專家。
+* [@AzureSupport](https://twitter.com/azuresupport)連接-官方 Microsoft Azure 帳戶，以改善客戶體驗。 將 Azure 社區連接到正確的資源：解答、支援和專家。
 
-* 如果您需要更多協助, 您可以從[Azure 入口網站](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/)提交支援要求。 從功能表列選取 [**支援**], 或開啟 [說明 **+ 支援**] 中樞。 如需詳細資訊, 請參閱[如何建立 Azure 支援要求](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request)。 您的 Microsoft Azure 訂用帳戶包含訂用帳戶管理和帳單支援的存取權, 而技術支援則透過其中一項[Azure 支援方案](https://azure.microsoft.com/support/plans/)提供。
+* 如果您需要更多協助，您可以從[Azure 入口網站](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/)提交支援要求。 從功能表列選取 [**支援**]，或開啟 [說明 **+ 支援**] 中樞。 如需詳細資訊，請參閱[如何建立 Azure 支援要求](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request)。 您的 Microsoft Azure 訂用帳戶包含訂用帳戶管理和帳單支援的存取權，而技術支援則透過其中一項[Azure 支援方案](https://azure.microsoft.com/support/plans/)提供。

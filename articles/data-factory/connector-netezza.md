@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 09/02/2019
 ms.author: jingwang
-ms.openlocfilehash: 5d5db9e837846a20bf4b68f7dc5c39ad587f4de9
-ms.sourcegitcommit: a819209a7c293078ff5377dee266fa76fd20902c
+ms.openlocfilehash: 5d0c09c9cff2fefcc2eee20b9fd2f93dd375115f
+ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/16/2019
-ms.locfileid: "71009965"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71090009"
 ---
 # <a name="copy-data-from-netezza-by-using-azure-data-factory"></a>使用 Azure Data Factory 從 Netezza 複製資料
 
@@ -30,7 +30,7 @@ ms.locfileid: "71009965"
 
 下列活動支援此 Netezza 連接器：
 
-- [複製活動](copy-activity-overview.md)與[支援的來源矩陣](copy-activity-overview.md)
+- [複製活動](copy-activity-overview.md)與[支援的來源/接收矩陣](copy-activity-overview.md)
 - [查閱活動](control-flow-lookup-activity.md)
 
 
@@ -56,7 +56,7 @@ Azure Data Factory 會提供內建的驅動程式來啟用連線。 您不需要
 
 | 屬性 | 描述 | 必要項 |
 |:--- |:--- |:--- |
-| Type | **type** 屬性必須設為 **Netezza**。 | 是 |
+| 型別 | **type** 屬性必須設為 **Netezza**。 | 是 |
 | connectionString | 連線到 Netezza 的 ODBC 連接字串。 <br/>將此欄位標記為 SecureString，將它安全地儲存在 Data Factory 中。 您也可以將密碼放在 Azure Key Vault 中，並從連接字串中提取 `pwd` 組態。 請參閱下列範例和[在 Azure Key Vault 中儲存認證](store-credentials-in-key-vault.md)一文中的更多詳細資料。 | 是 |
 | connectVia | 用來連線到資料存放區的[整合執行階段](concepts-integration-runtime.md)。 深入瞭解[必要條件](#prerequisites)一節。 如果未指定，則會使用預設的 Azure Integration Runtime。 |否 |
 
@@ -127,7 +127,7 @@ Azure Data Factory 會提供內建的驅動程式來啟用連線。 您不需要
 
 | 屬性 | 描述 | 必要項 |
 |:--- |:--- |:--- |
-| Type | 資料集的類型屬性必須設定為：**NetezzaTable** | 是 |
+| 型別 | 資料集的類型屬性必須設定為：**NetezzaTable** | 是 |
 | schema | 架構的名稱。 |否 (如果已指定活動來源中的"query")  |
 | table | 資料表的名稱。 |否 (如果已指定活動來源中的"query")  |
 | tableName | 具有架構之資料表的名稱。 此屬性支援回溯相容性。 針對`schema`新`table`的工作負載使用和。 | 否 (如果已指定活動來源中的"query") |
@@ -163,7 +163,7 @@ Azure Data Factory 會提供內建的驅動程式來啟用連線。 您不需要
 
 | 屬性 | 描述 | 必要項 |
 |:--- |:--- |:--- |
-| Type | 複製活動來源的 **type** 屬性必須設定為 **NetezzaSource**。 | 是 |
+| 型別 | 複製活動來源的 **type** 屬性必須設定為 **NetezzaSource**。 | 是 |
 | query | 使用自訂 SQL 查詢來讀取資料。 範例： `"SELECT * FROM MyTable"` | 否 (如果已指定資料集中的 "tableName") |
 | partitionOptions | 指定用來從 Netezza 載入資料的資料分割選項。 <br>允許值為：**無**（預設值）、 **DataSlice**和**DynamicRange**。<br>當分割區選項已啟用（也就是不`None`是）時，從 Netezza 資料庫並行載入資料的平行處理原則程度，是[`parallelCopies`](copy-activity-performance.md#parallel-copy)藉由在複製活動上設定來控制。 | 否 |
 | partitionSettings | 指定資料分割的設定群組。 <br>當資料分割選項不`None`適用時套用。 | 否 |
