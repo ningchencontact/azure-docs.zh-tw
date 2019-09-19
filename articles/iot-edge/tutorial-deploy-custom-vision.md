@@ -1,6 +1,6 @@
 ---
 title: 教學課程：將自訂視覺分類器部署到裝置 - Azure IoT Edge | Microsoft Docs
-description: 在此教學課程中，了解如何使用自訂視覺和 IoT Edge，讓電腦視覺模型以容器的形式執行。
+description: 在本教學課程中，了解如何使用自訂視覺和 IoT Edge，讓電腦視覺模型以容器的形式執行。
 services: iot-edge
 author: kgremban
 manager: philmea
@@ -9,12 +9,12 @@ ms.date: 06/25/2019
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc, seodec18
-ms.openlocfilehash: 145b643999ff6e4af99ec50c9b0120fc9f11a212
-ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
+ms.openlocfilehash: 55203c4b555b54514425b484b367f8b735e98e40
+ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70858949"
+ms.lasthandoff: 09/15/2019
+ms.locfileid: "71003906"
 ---
 # <a name="tutorial-perform-image-classification-at-the-edge-with-custom-vision-service"></a>教學課程：使用自訂視覺服務在邊緣執行影像分類
 
@@ -22,7 +22,7 @@ Azure IoT Edge 可藉由將工作負載從雲端移至邊緣，來提升 IoT 解
 
 例如，IoT Edge 裝置上的自訂視覺無法判斷高速公路的車流量較平常高或低，也無法判斷停車場的某一排是否有停車位。 這些深入解析可與其他服務共用以便採取動作。
 
-在此教學課程中，您了解如何：
+在本教學課程中，您會了解如何：
 
 > [!div class="checklist"]
 >
@@ -74,7 +74,7 @@ Azure IoT Edge 可藉由將工作負載從雲端移至邊緣，來提升 IoT 解
 
    | 欄位 | 值 |
    | ----- | ----- |
-   | Name | 提供專案名稱，例如 **EdgeTreeClassifier**。 |
+   | 名稱 | 提供專案名稱，例如 **EdgeTreeClassifier**。 |
    | 說明 | 選擇性的專案描述。 |
    | 資源群組 | 選取包含自訂視覺服務資源的其中一個 Azure 資源群組，或如果您尚未新增，請**建立新項目**。 |
    | 專案類型 | **分類** |
@@ -237,35 +237,22 @@ Visual Studio Code 中的 Python 模組範本包含一些程式碼範例，可�
     import os
     import requests
     import json
-
-    import iothub_client
-    # pylint: disable=E0611
-    from iothub_client import IoTHubModuleClient, IoTHubClientError, IoTHubTransportProvider
-    from iothub_client import IoTHubMessage, IoTHubMessageDispositionResult, IoTHubError
-    # pylint: disable=E0401
-
-    # messageTimeout - the maximum time in milliseconds until a message times out.
-    # The timeout period starts at IoTHubModuleClient.send_event_async.
-    MESSAGE_TIMEOUT = 10000
-
-    # Choose HTTP, AMQP or MQTT as transport protocol.  
-    PROTOCOL = IoTHubTransportProvider.MQTT
+    from azure.iot.device import IoTHubModuleClient, Message
 
     # global counters
-    SEND_CALLBACKS = 0
+    SENT_IMAGES = 0
+
+    # global client
+    CLIENT = None
 
     # Send a message to IoT Hub
     # Route output1 to $upstream in deployment.template.json
     def send_to_hub(strMessage):
-        message = IoTHubMessage(bytearray(strMessage, 'utf8'))
-        hubManager.send_event_to_output("output1", message, 0)
-
-    # Callback received when the message that we send to IoT Hub is processed.
-    def send_confirmation_callback(message, result, user_context):
-        global SEND_CALLBACKS
-        SEND_CALLBACKS += 1
-        print ( "Confirmation received for message with result = %s" % result )
-        print ( "   Total calls confirmed: %d \n" % SEND_CALLBACKS )
+        message = Message(bytearray(strMessage, 'utf8'))
+        CLIENT.send_message_to_output(message, "output1")
+        global SENT_IMAGES
+        SENT_IMAGES += 1
+        print( "Total images sent: {}".format(SENT_IMAGES) )
 
     # Send an image to the image classifying server
     # Return the JSON response from the server with the prediction result
@@ -282,28 +269,15 @@ Visual Studio Code 中的 Python 模組範本包含一些程式碼範例，可�
 
         return json.dumps(response.json())
 
-    class HubManager(object):
-        def __init__(self, protocol, message_timeout):
-            self.client_protocol = protocol
-            self.client = IoTHubModuleClient()
-            self.client.create_from_environment(protocol)
-            # set the time until a message times out
-            self.client.set_option("messageTimeout", message_timeout)
-            
-        # Sends a message to an output queue, to be routed by IoT Edge hub. 
-        def send_event_to_output(self, outputQueueName, event, send_context):
-            self.client.send_event_async(
-                outputQueueName, event, send_confirmation_callback, send_context)
-
     def main(imagePath, imageProcessingEndpoint):
         try:
             print ( "Simulated camera module for Azure IoT Edge. Press Ctrl-C to exit." )
 
             try:
-                global hubManager 
-                hubManager = HubManager(PROTOCOL, MESSAGE_TIMEOUT)
-            except IoTHubError as iothub_error:
-                print ( "Unexpected error %s from IoTHub" % iothub_error )
+                global CLIENT
+                CLIENT = IoTHubModuleClient.create_from_edge_environment()
+            except Exception as iothub_error:
+                print ( "Unexpected error {} from IoTHub".format(iothub_error) )
                 return
 
             print ( "The sample is now sending images for processing and will indefinitely.")
@@ -346,7 +320,7 @@ Visual Studio Code 中的 Python 模組範本包含一些程式碼範例，可�
 
 #### <a name="add-a-test-image-to-the-container"></a>在容器中新增測試影像
 
-我們將會使用單一測試影像，而不會使用實際的觀景窗來為此案例提供影像饋送。 您稍早在此教學課程中為了獲得訓練影像而下載的 GitHub 存放庫中會有測試影像。 
+我們將會使用單一測試影像，而不會使用實際的觀景窗來為此案例提供影像饋送。 您稍早在本教學課程中為了獲得訓練影像而下載的 GitHub 存放庫中會有測試影像。 
 
 1. 瀏覽至測試影像，其位置是 **Cognitive-CustomVision-Windows** / **Samples** / **Images** / **Test**。 
 
@@ -366,7 +340,7 @@ Visual Studio Code 中的 Python 模組範本包含一些程式碼範例，可�
 
 ### <a name="prepare-a-deployment-manifest"></a>準備部署資訊清單
 
-到目前為止，您已在此教學課程中訓練了自訂視覺模型來分類樹木影像，並已將該模型封裝為 IoT Edge 模組。 然後，您建立了第二個模組，其可以查詢影像分類伺服器，並將其結果回報給 IoT 中樞。 現在，您已準備好建立部署資訊清單，以便指示 IoT Edge 裝置要如何一起啟動和執行這兩個模組。 
+到目前為止，您已在本教學課程中訓練了自訂視覺模型來分類樹木影像，並已將該模型封裝為 IoT Edge 模組。 然後，您建立了第二個模組，其可以查詢影像分類伺服器，並將其結果回報給 IoT 中樞。 現在，您已準備好建立部署資訊清單，以便指示 IoT Edge 裝置要如何一起啟動和執行這兩個模組。 
 
 Visual Studio Code 的 IoT Edge 擴充功能會在每個 IoT Edge 解決方案中提供範本，以協助您建立部署資訊清單。 
 
@@ -443,14 +417,14 @@ Visual Studio Code 的 IoT Edge 擴充功能會在每個 IoT Edge 解決方案�
 
 如果您打算繼續閱讀下一篇建議的文章，則可以保留您所建立的資源和組態，並加以重複使用。 您可以也繼續使用相同的 IoT Edge 裝置作為測試裝置。 
 
-否則，可以刪除您在此文章中使用的本機設定和 Azure 資源，以避免產生費用。 
+否則，可以刪除您在本文中使用的本機設定和 Azure 資源，以避免產生費用。 
 
 [!INCLUDE [iot-edge-clean-up-cloud-resources](../../includes/iot-edge-clean-up-cloud-resources.md)]
 
 
 ## <a name="next-steps"></a>後續步驟
 
-在此教學課程中，您已訓練自訂視覺模型，並將它以模組形式部署到 IoT Edge 裝置。 然後，您建置了模組，以便查詢影像分類伺服器，並將其結果回報給 IoT 中樞。 
+在本教學課程中，您已訓練自訂視覺模型，並將它以模組形式部署到 IoT Edge 裝置。 然後，您建置了模組，以便查詢影像分類伺服器，並將其結果回報給 IoT 中樞。 
 
 如果您想要嘗試此案例含有即時觀景窗饋送的更深入版本，請參閱 [Raspberry Pi 3 上的自訂視覺和 Azure IoT Edge](https://github.com/Azure-Samples/Custom-vision-service-iot-edge-raspberry-pi) GitHub 專案。 
 

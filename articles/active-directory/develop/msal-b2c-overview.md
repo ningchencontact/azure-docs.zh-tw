@@ -12,17 +12,17 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 05/04/2019
+ms.date: 09/16/2019
 ms.author: negoe
 ms.reviewer: nacanuma
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 784ec507027d6ec0ac1b5288c101e2a76cab436e
-ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
+ms.openlocfilehash: 0eea0fd03b1df49e912a867b0c667ff0fd28c08a
+ms.sourcegitcommit: cd70273f0845cd39b435bd5978ca0df4ac4d7b2c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68835064"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71097609"
 ---
 # <a name="use-microsoft-authentication-library-to-interoperate-with-azure-active-directory-b2c"></a>使用 Microsoft 驗證程式庫來與 Azure Active Directory B2C 整合
 
@@ -40,11 +40,11 @@ Azure AD B2C 也可讓您為您的應用程式設定品牌及自訂其 UI，進�
 
 下列步驟會示範單頁應用程式如何使用 Azure AD B2C 來進行註冊、登入，以及呼叫受保護的 Web API。
 
-### <a name="step-1-register-your-application"></a>步驟 1：註冊您的應用程式
+### <a name="step-1-register-your-application"></a>步驟 1:註冊您的應用程式
 
 若要實作驗證，您必須先註冊您的應用程式。 請參閱[註冊您的應用程式](https://github.com/Azure-Samples/active-directory-b2c-javascript-msal-singlepageapp#step-4-register-your-own-web-application-with-azure-ad-b2c) \(英文\) 以取得詳細步驟。
 
-### <a name="step-2-download-the-sample-application"></a>步驟 2：下載範例應用程式
+### <a name="step-2-download-the-sample-application"></a>步驟 2:下載範例應用程式
 
 將範例下載為 ZIP 檔案，或是從 GitHub 複製它：
 
@@ -56,21 +56,30 @@ git clone https://github.com/Azure-Samples/active-directory-b2c-javascript-msal-
 
 1. 開啟範例中的 **index.html** 檔案。
 
-1. 使用您稍早在註冊應用程式時所記錄的應用程式識別碼與金鑰來設定範例。 變更下列幾行程式碼，做法是將其中的值取代為您的目錄和 API 名稱：
+1. 使用您稍早在註冊應用程式時所記錄的用戶端識別碼和金鑰來設定範例。 變更下列幾行程式碼，做法是將其中的值取代為您的目錄和 API 名稱：
 
    ```javascript
-   // The current application coordinates were pre-registered in a B2C directory.
+   // The current application coordinates were pre-registered in a B2C tenant.
 
-   const msalConfig = {
-       auth:{
-           clientId: "Enter_the_Application_Id_here",
-           authority: "https://login.microsoftonline.com/tfp/<your-tenant-name>.onmicrosoft.com/<your-sign-in-sign-up-policy>",
-           b2cScopes: ["https://<your-tenant-name>.onmicrosoft.com/hello/demo.read"],
-           webApi: 'http://localhost:5000/hello',
-     };
+    var appConfig = {
+        b2cScopes: ["https://fabrikamb2c.onmicrosoft.com/helloapi/demo.read"],
+        webApi: "https://fabrikamb2chello.azurewebsites.net/hello"
+    };
 
-   // create UserAgentApplication instance
-   const myMSALObj = new UserAgentApplication(msalConfig);
+    const msalConfig = {
+        auth: {
+            clientId: "e760cab2-b9a1-4c0d-86fb-ff7084abd902" //This is your client/application ID
+            authority: "https://fabrikamb2c.b2clogin.com/fabrikamb2c.onmicrosoft.com/b2c_1_susi", //This is your tenant info
+            validateAuthority: false
+        },
+        cache: {
+            cacheLocation: "localStorage",
+            storeAuthStateInCookie: true
+        }
+    };
+    // create UserAgentApplication instance
+    const myMSALObj = new Msal.UserAgentApplication(msalConfig);
+
    ```
 
 本教學課程中[使用者流程](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-reference-policies) \(部分機器翻譯\) 的名稱是 **B2C_1_signupsignin1**。 如果您使用的是不同的使用者流程名稱，請將 **authority** 值設定為該名稱。

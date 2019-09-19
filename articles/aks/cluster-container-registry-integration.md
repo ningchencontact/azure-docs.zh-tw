@@ -6,43 +6,28 @@ author: mlearned
 manager: gwallace
 ms.service: container-service
 ms.topic: article
-ms.date: 08/15/2018
+ms.date: 09/17/2018
 ms.author: mlearned
-ms.openlocfilehash: 3c11367945b74db9be20ade86c7bc26901440e4d
-ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
+ms.openlocfilehash: ab744efd205d826cb7ae2c3eda7bba28f4a9bee0
+ms.sourcegitcommit: cd70273f0845cd39b435bd5978ca0df4ac4d7b2c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70305154"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71097811"
 ---
-# <a name="preview---authenticate-with-azure-container-registry-from-azure-kubernetes-service"></a>預覽-從 Azure Kubernetes Service 使用 Azure Container Registry 進行驗證
+# <a name="authenticate-with-azure-container-registry-from-azure-kubernetes-service"></a>從 Azure Kubernetes Service 對 Azure Container Registry 進行驗證
 
 當您搭配使用 Azure Container Service (AKS) 與 Azure Kubernetes Registry (ACR) 時，必須建立驗證機制。 本文詳細說明在這兩個 Azure 服務之間進行驗證所建議的組態。
 
 您可以使用 Azure CLI 的幾個簡單命令來設定 ACR 整合的 AKS。
-
-> [!IMPORTANT]
-> AKS 預覽功能是自助加入宣告。 預覽會以「原樣」和「可用」的方式提供，並從服務等級協定中排除，並享有有限擔保。 AKS 預覽的部分是由客戶支援，以最大的方式來涵蓋。 因此，這些功能並不適用于生產環境使用。 如需其他資訊，請參閱下列支援文章：
->
-> * [AKS 支援原則](support-policies.md)
-> * [Azure 支援常見問題集](faq.md)
 
 ## <a name="before-you-begin"></a>開始之前
 
 您必須滿足以下條件：
 
 * **Azure 訂**用帳戶的**擁有**者或**azure 帳戶管理員**角色
-* 您也需要 Azure CLI version 2.0.70 或更新版本，以及 aks-preview 0.4.8 擴充功能
+* 您也需要 Azure CLI 版2.0.73 或更新版本
 * 您需要在用戶端上[安裝 docker](https://docs.docker.com/install/) ，而且需要[docker hub](https://hub.docker.com/)的存取權
-
-## <a name="install-latest-aks-cli-preview-extension"></a>安裝最新的 AKS CLI preview 擴充功能
-
-您需要**aks-preview 0.4.13**延伸模組或更新版本。
-
-```azurecli
-az extension remove --name aks-preview 
-az extension add -y --name aks-preview
-```
 
 ## <a name="create-a-new-aks-cluster-with-acr-integration"></a>使用 ACR 整合建立新的 AKS 叢集
 
@@ -52,7 +37,7 @@ az login
 az acr create -n myContainerRegistry -g myContainerRegistryResourceGroup --sku basic [in case you do not have an existing ACR]
 az aks create -n myAKSCluster -g myResourceGroup --attach-acr <acr-name-or-resource-id>
 ```
-\* * ACR 資源識別碼的格式如下： 
+**ACR 資源識別碼的格式如下：** 
 
 /subscriptions/< 訂用帳戶-d >/resourceGroups/< 資源群組-名稱 >/providers/Microsoft.ContainerRegistry/registries/{name} 
   

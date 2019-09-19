@@ -9,12 +9,12 @@ ms.topic: article
 ms.service: security
 ms.subservice: security-fundamentals
 ms.workload: identity
-ms.openlocfilehash: e702a5921e785100c5971057d1652db9aab26acf
-ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
+ms.openlocfilehash: d1c69cd1cf9990fc77a24e18d87690210453cf75
+ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69899961"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71091960"
 ---
 # <a name="a-world-without-passwords-with-azure-active-directory"></a>沒有密碼的世界 Azure Active Directory
 
@@ -107,7 +107,7 @@ Windows Hello 企業版提供便利的登入體驗, 可驗證使用者以 Azure 
 
 #### <a name="user-manages-their-windows-hello-for-business-credentials"></a>使用者管理其 Windows Hello 企業版認證
 
-[MICROSOFT PIN 重設服務](https://docs.microsoft.com/windows/security/identity-protection/hello-for-business/hello-features#pin-reset)是 Azure AD 中的一項功能, 可讓使用者視需要重設其 PIN。 系統管理員可以使用群組原則、Microsoft Intune 或相容的 MDM, 將 Windows 10 裝置設定為安全地使用 Microsoft PIN 重設服務, 讓使用者可以透過設定或在鎖定畫面上重設忘記的 PIN, 而不需要重新註冊。
+[MICROSOFT PIN 重設服務](/windows/security/identity-protection/hello-for-business/hello-feature-pin-reset)是 Azure AD 中的一項功能, 可讓使用者視需要重設其 PIN。 系統管理員可以使用群組原則、Microsoft Intune 或相容的 MDM, 將 Windows 10 裝置設定為安全地使用 Microsoft PIN 重設服務, 讓使用者可以透過設定或在鎖定畫面上重設忘記的 PIN, 而不需要重新註冊。
 
 有時候使用者必須切換回使用密碼。 [自助式密碼重設](../../active-directory/authentication/howto-sspr-deployment.md)(SSPR) 是另一項 Azure AD 功能, 可讓使用者重設其密碼, 而不需要洽詢 IT 人員。 使用者必須註冊或註冊自助式密碼重設, 才能使用服務。 在註冊期間, 使用者會選擇其組織所啟用的一或多個驗證方法。 SSPR 可讓使用者無論在何處或當天的時間, 都能快速地解除封鎖並繼續工作。 藉由允許使用者解除封鎖自己, 您的組織可以減少非生產力的時間, 以及最常見的密碼相關問題的高支援成本。
 
@@ -125,7 +125,7 @@ Microsoft Authenticator 應用程式可讓使用者驗證其身分識別, 並向
 
 * 終端使用者已啟用 Azure 多重要素驗證
 
-* 建議使用者使用 Microsoft Intune 或協力廠商行動裝置管理 (MDM) 解決方案來註冊其裝置, 以簡化應用程式的部署
+* 建議使用者使用 Microsoft Intune 或協力廠商行動裝置管理（MDM）解決方案來註冊其裝置，以簡化應用程式的部署
 
 假設符合這些需求, 系統管理員就可以使用[Windows PowerShell](../../active-directory/authentication/howto-authentication-passwordless-phone.md) , 在租使用者中啟用無密碼電話登入。 在租使用者中啟用手機登入之後, 終端使用者可以在應用程式的 [**帳戶**] 畫面上選取其公司或學校帳戶, 然後選取 [**啟用手機登入**], 以選擇使用其電話登入。
 

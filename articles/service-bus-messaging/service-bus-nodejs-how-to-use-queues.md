@@ -1,5 +1,5 @@
 ---
-title: 如何使用 Node.js 中的 Azure 服務匯流排佇列 |Microsoft Docs
+title: 在 node.js 中使用 Azure 服務匯流排的佇列
 description: 了解如何從 Node.js 應用程式，在 Azure 中使用服務匯流排佇列。
 services: service-bus-messaging
 documentationcenter: nodejs
@@ -14,42 +14,43 @@ ms.devlang: nodejs
 ms.topic: article
 ms.date: 04/10/2019
 ms.author: aschhab
-ms.openlocfilehash: 1426b3d31159280ad9aac2dd240a5f083c40752d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.custom: seo-javascript-september2019
+ms.openlocfilehash: df3f5a3773265249751352ce8d9c966c54bf197d
+ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65988295"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71091802"
 ---
-# <a name="how-to-use-service-bus-queues-with-nodejs-and-the-azure-sb-package"></a>如何使用 Node.js 和 azure sb 封裝中使用服務匯流排佇列
+# <a name="how-to-use-service-bus-queues-with-nodejs-and-the-azure-sb-package"></a>如何搭配使用服務匯流排佇列與 node.js 和 azure sb 套件
 > [!div class="op_multi_selector" title1="程式設計語言" title2="Node.js 套件"]
 > - [(Node.js | azure-sb)](service-bus-nodejs-how-to-use-queues.md)
 > - [(Node.js | @azure/service-bus)](service-bus-nodejs-how-to-use-queues-new-package.md)
 
-在本教學課程，了解如何建立 Node.js 應用程式來傳送和接收來自服務匯流排佇列使用的訊息[azure sb](https://www.npmjs.com/package/azure-sb)封裝。 這些範例均以 JavaScript 撰寫並使用 Node.js [Azure 模組](https://www.npmjs.com/package/azure)內部使用`azure-sb`封裝。
+在本教學課程中，您將瞭解如何建立 node.js 應用程式，以使用[azure sb](https://www.npmjs.com/package/azure-sb)封裝來傳送訊息，並接收來自服務匯流排佇列的訊息。 這些範例是以 JavaScript 撰寫，並使用在內部使用`azure-sb`套件的 node.js [Azure 模組](https://www.npmjs.com/package/azure)。
 
-[Azure sb](https://www.npmjs.com/package/azure-sb)封裝會使用[服務匯流排 REST 執行階段 Api](/rest/api/servicebus/service-bus-runtime-rest)。 您可以取得使用新的速度[ @azure/service-bus ](https://www.npmjs.com/package/@azure/service-bus)封裝，它會使用速度就越快[AMQP 1.0 通訊協定](service-bus-amqp-overview.md)。 若要深入了解新的封裝，請參閱[如何透過 Node.js 使用服務匯流排佇列和@azure/service-bus封裝](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-nodejs-how-to-use-queues-new-package)，否則請繼續閱讀以了解如何使用[azure](https://www.npmjs.com/package/azure)封裝。
+[Azure sb](https://www.npmjs.com/package/azure-sb)套件會使用[服務匯流排 REST 執行時間 api](/rest/api/servicebus/service-bus-runtime-rest)。 您可以使用使用更快速[@azure/service-bus](https://www.npmjs.com/package/@azure/service-bus) [AMQP 1.0 通訊協定](service-bus-amqp-overview.md)的新套件，取得更快的體驗。 若要深入瞭解新的套件，請參閱[如何搭配使用服務匯流排佇列與 node.js @azure/service-bus和套件](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-nodejs-how-to-use-queues-new-package)，否則請繼續閱讀以瞭解如何使用[azure](https://www.npmjs.com/package/azure)封裝。
 
-## <a name="prerequisites"></a>先決條件
-- Azure 訂用帳戶。 若要完成此教學課程，您需要 Azure 帳戶。 您可以啟用您[MSDN 訂閱者權益](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers/?WT.mc_id=A85619ABF)或是註冊[免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF)。
-- 如果您沒有要使用的佇列，後續步驟[使用 Azure 入口網站來建立服務匯流排佇列](service-bus-quickstart-portal.md)文章，以建立佇列。
-    1. 閱讀快速**概觀**的服務匯流排**佇列**。 
+## <a name="prerequisites"></a>必要條件
+- Azure 訂用帳戶。 若要完成此教學課程，您需要 Azure 帳戶。 您可以啟用[MSDN 訂閱者權益](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers/?WT.mc_id=A85619ABF)或註冊[免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF)。
+- 如果您沒有要使用的佇列，請遵循[使用 Azure 入口網站建立服務匯流排佇列一](service-bus-quickstart-portal.md)文中的步驟來建立佇列。
+    1. 閱讀服務匯流排**佇列**的快速**總覽**。 
     2. 建立服務匯流排**命名空間**。 
     3. 取得**連接字串**。 
 
         > [!NOTE]
-        > 您將建立**佇列**在本教學課程使用 Node.js 服務匯流排命名空間中。 
+        > 在本教學課程中，您將使用 node.js 在服務匯流排命名空間中建立**佇列**。 
  
 
 ## <a name="create-a-nodejs-application"></a>建立 Node.js 應用程式
-建立空白的 Node.js 應用程式。 如需有關建立 Node.js 應用程式的指示，請參閱[建立 Node.js 應用程式並將其部署到 Azure 網站][Create and deploy a Node.js application to an Azure Website]或 [Node.js 雲端服務][Node.js Cloud Service] (使用 Windows PowerShell)。
+建立空白的 Node.js 應用程式。 如需建立 Node.js 應用程式的相關指示，請參閱使用 Windows PowerShell [建立 Node.js 應用程式並將其部署到 Azure 網站][Create and deploy a Node.js application to an Azure Website]或 [Node.js 雲端服務][Node.js Cloud Service]。
 
 ## <a name="configure-your-application-to-use-service-bus"></a>設定應用程式以使用服務匯流排
 若要使用 Azure 服務匯流排，請下載及使用 Node.js Azure 套件。 此封裝含有一組能與服務匯流排 REST 服務通訊的便利程式庫。
 
 ### <a name="use-node-package-manager-npm-to-obtain-the-package"></a>使用 Node Package Manager (NPM) 取得套件
 1. 使用 **Windows PowerShell for Node.js** 命令視窗巡覽至已建立範例應用程式的 **c:\\node\\sbqueues\\WebRole1** 資料夾。
-2. 型別**npm 安裝 azure**在命令視窗中，這應該會產生類似下例的輸出中：
+2. 在命令視窗中輸入**npm install azure** ，這應該會產生類似下列範例的輸出：
 
     ```
     azure@0.7.5 node_modules\azure
@@ -64,7 +65,7 @@ ms.locfileid: "65988295"
         ├── xml2js@0.2.7 (sax@0.5.2)
         └── request@2.21.0 (json-stringify-safe@4.0.0, forever-agent@0.5.0, aws-sign@0.3.0, tunnel-agent@0.3.0, oauth-sign@0.3.0, qs@0.6.5, cookie-jar@0.3.0, node-uuid@1.4.0, http-signature@0.9.11, form-data@0.0.8, hawk@0.13.1)
     ```
-3. 您可以手動執行 **ls** 命令，確認已建立 **node_modules** 資料夾。 在該資料夾中找到**azure**封裝，其中包含您需要存取服務匯流排佇列的程式庫。
+3. 您可以手動執行 **ls** 命令，確認已建立 **node_modules** 資料夾。 在該資料夾內，找出**azure**套件，其中包含您存取服務匯流排佇列所需的程式庫。
 
 ### <a name="import-the-module"></a>匯入模組
 使用記事本或其他文字編輯器將以下內容新增至應用程式 **server.js** 檔案的頂端：
@@ -74,9 +75,9 @@ var azure = require('azure');
 ```
 
 ### <a name="set-up-an-azure-service-bus-connection"></a>設定 Azure 服務匯流排連接
-Azure 模組會讀取環境變數 `AZURE_SERVICEBUS_CONNECTION_STRING`，以取得連接服務匯流排所需的資訊。 如果未設定這個環境變數，呼叫時，您必須指定帳戶資訊`createServiceBusService`。
+Azure 模組會讀取環境變數 `AZURE_SERVICEBUS_CONNECTION_STRING`，以取得連接服務匯流排所需的資訊。 如果未設定此環境變數，您必須在呼叫`createServiceBusService`時指定帳戶資訊。
 
-如需在 [Azure 入口網站][Azure portal]中設定 Azure 網站環境變數的範例，請參閱[使用儲存體的 Node.js Web 應用程式][Node.js Web Application with Storage]。
+如需在 Azure 網站的[Azure 入口網站][Azure portal]中設定環境變數的範例，請參閱[使用儲存體的 Node.js Web 應用程式][Node.js Web Application with Storage]。
 
 ## <a name="create-a-queue"></a>建立佇列
 **ServiceBusService** 物件可讓您使用服務匯流排佇列。 下列程式碼將建立 **ServiceBusService** 物件。 請將程式碼新增至 **server.js** 檔案的頂端附近，放置在匯入 Azure 模型的陳述式後方：
@@ -123,7 +124,7 @@ function handle (requestOptions, next)
 function (returnObject, finalCallback, next)
 ```
 
-在此回呼中，並在處理之後`returnObject`（回應要求到伺服器），回呼必須叫用`next`以繼續處理其他篩選器，或叫用有`finalCallback`，結束服務叫用.
+在此回呼中，以及處理`returnObject` （來自對伺服器之要求的回應）之後，回呼必須`next`叫用（如果存在）以繼續處理其他篩選準則，或是叫`finalCallback`用結束服務叫用的 invoke.
 
 Azure SDK for Node.js 包含了兩個實作重試邏輯的篩選器： `ExponentialRetryPolicyFilter` 與 `LinearRetryPolicyFilter`。 下列程式碼會建立使用 `ExponentialRetryPolicyFilter` 的 `ServiceBusService` 物件：
 
@@ -150,14 +151,14 @@ serviceBusService.sendQueueMessage('myqueue', message, function(error){
 });
 ```
 
-服務匯流排佇列支援的訊息大小上限：在[標準層](service-bus-premium-messaging.md)中為 256 KB 以及在[進階層](service-bus-premium-messaging.md)中為 1 MB。 標頭 (包含標準和自訂應用程式屬性) 可以容納 64 KB 的大小上限。 保留在佇列中的訊息數目沒有限制，但佇列所保存的訊息總大小沒有上限。 此佇列大小會在建立時定義，上限是 5 GB。 如需有關配額的詳細資訊，請參閱[服務匯流排配額][Service Bus quotas]。
+服務匯流排佇列支援的訊息大小上限：在[標準層](service-bus-premium-messaging.md)中為 256 KB 以及在[進階層](service-bus-premium-messaging.md)中為 1 MB。 標頭 (包含標準和自訂應用程式屬性) 可以容納 64 KB 的大小上限。 佇列中保留的訊息數目沒有限制，但佇列所持有的訊息大小總計有上限。 此佇列大小會在建立時定義，上限是 5 GB。 如需有關配額的詳細資訊，請參閱 [服務匯流排配額][Service Bus quotas]。
 
 ## <a name="receive-messages-from-a-queue"></a>從佇列接收訊息
 對於 **ServiceBusService** 物件使用 `receiveQueueMessage` 方法即可從佇列接收訊息。 預設會從佇列刪除唯讀的訊息，不過，您可以將 `isPeekLock` 設定為 **true**，不需要從佇列刪除訊息，即可讀取 (查看) 並鎖定訊息。
 
-讀取和刪除訊息的接收作業一部分的預設行為是最簡單的模型，以及適合應用程式可容許在發生失敗時不處理訊息的案例。 若要了解此行為，請考慮取用者發出接收要求，接著系統在處理此要求之前當機的案例。 因為服務匯流排會將訊息標示為已取用，則當應用程式重新啟動，並開始重新取用訊息，它將會遺漏當機前已取用的訊息。
+在接收作業中讀取和刪除訊息的預設行為是最簡單的模型，且最適合可容許在發生失敗時不處理訊息的應用程式案例。 若要了解此行為，請考慮取用者發出接收要求，接著系統在處理此要求之前當機的案例。 因為服務匯流排會將訊息標示為已取用，所以當應用程式重新開機並開始重新取用訊息時，它將會遺漏當機前使用的訊息。
 
-如果`isPeekLock`參數設定為 **，則為 true**，接收會變成兩階段作業，因此可以支援無法容許遺漏訊息的應用程式。 當服務匯流排收到要求時，它會尋找要取用的下一個訊息、將其鎖定以防止其他取用者接收此訊息，然後將它傳回應用程式。 在應用程式完成處理訊息 (或可靠地儲存此訊息以供未來處理) 之後，它可透過呼叫 `deleteMessage` 方法和以參數形式提供要刪除的訊息，完成接收程序的第二個階段。 `deleteMessage` 方法會將訊息標示為已取用，並將其從佇列中移除。
+如果參數設定為 true，接收會變成兩階段作業，因此可以支援無法容許遺漏訊息的應用程式。 `isPeekLock` 當服務匯流排收到要求時，它會尋找要取用的下一個訊息、將其鎖定以防止其他取用者接收此訊息，然後將它傳回應用程式。 在應用程式完成處理訊息 (或可靠地儲存此訊息以供未來處理) 之後，它可透過呼叫 `deleteMessage` 方法和以參數形式提供要刪除的訊息，完成接收程序的第二個階段。 `deleteMessage` 方法會將訊息標示為已取用，並將其從佇列中移除。
 
 下列範例示範如何使用 `receiveQueueMessage` 來接收和處理訊息。 範例首先會接收並刪除訊息，然後使用設定為 **true** 的 `isPeekLock` 接收訊息，接著使用 `deleteMessage` 刪除訊息：
 
@@ -180,11 +181,11 @@ serviceBusService.receiveQueueMessage('myqueue', { isPeekLock: true }, function(
 ```
 
 ## <a name="how-to-handle-application-crashes-and-unreadable-messages"></a>如何處理應用程式當機與無法讀取的訊息
-服務匯流排提供一種功能，可協助您從應用程式的錯誤或處理訊息的問題中順利復原。 如果接收者應用程式因為某些原因無法處理訊息，它可以呼叫 **ServiceBusService** 物件上的 `unlockMessage` 方法。 它會導致服務匯流排佇列中的將訊息解除鎖定，並使其可以被相同取用應用程式或其他取用應用程式再次接收。
+服務匯流排提供一種功能，可協助您從應用程式的錯誤或處理訊息的問題中順利復原。 如果接收者應用程式因為某些原因無法處理訊息，它可以呼叫 **ServiceBusService** 物件上的 `unlockMessage` 方法。 這會導致服務匯流排將佇列中的訊息解除鎖定，讓它可以由相同的取用應用程式或其他取用應用程式重新接收。
 
-另外還有佇列內鎖定訊息相關聯的逾時，如果應用程式無法處理訊息之前在鎖定逾時過期 （例如，如果應用程式當機），則服務匯流排會自動解除鎖定訊息，並讓它可以被重新接收。
+在佇列內鎖定的訊息也有相關的超時時間，如果應用程式無法在鎖定超時到期之前處理訊息（例如，如果應用程式當機），則服務匯流排會自動解除鎖定訊息，並將它設為可供重新接收。
 
-如果應用程式在處理訊息之後，尚未呼叫 `deleteMessage` 方法時當機，則會在應用程式重新啟動時將訊息重新傳遞給該應用程式。 這種方法通常稱為*至少處理一次*，也就是每個訊息會被處理一次，但在某些情況下可能會重新傳遞相同訊息。 如果案例無法容許重複處理，應用程式開發人員應該將其他邏輯新增至他們的應用程式，以處理重複的訊息傳遞。 它通常用來達成**MessageId**會保持不變各個傳遞嘗試的訊息屬性。
+如果應用程式在處理訊息之後，尚未呼叫 `deleteMessage` 方法時當機，則會在應用程式重新啟動時將訊息重新傳遞給該應用程式。 這個方法通常稱為「*至少處理一次*」，也就是說，每個訊息至少會被處理一次，但在某些情況下，可能會重新傳遞相同的訊息。 如果案例無法容許重複處理，則應用程式開發人員應該在其應用程式中加入其他邏輯，以處理重複的訊息傳遞。 通常會使用訊息的**MessageId**屬性來達成，這會在各個傳遞嘗試中保持不變。
 
 > [!NOTE]
 > 您可以使用[服務匯流排總管](https://github.com/paolosalvatori/ServiceBusExplorer/)來管理服務匯流排資源。 服務匯流排總管可讓使用者連線到服務匯流排命名空間，並以簡便的方式管理傳訊實體。 此工具提供進階的功能 (例如匯入/匯出功能) 或測試主題、佇列、訂用帳戶、轉送服務、通知中樞和事件中樞的能力。 

@@ -1,6 +1,6 @@
 ---
-title: Azure AD 密碼保護的作業和報告-Azure Active Directory
-description: Azure AD 密碼保護後的部署作業和報告
+title: Azure AD 密碼保護作業和報告-Azure Active Directory
+description: Azure AD 的密碼保護部署後作業和報告
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ca85007bb016cc98d1be61ce08865945e699ad4a
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: b5ff7f0bbf1bf474a611ae033165bca6dfaac676
+ms.sourcegitcommit: cd70273f0845cd39b435bd5978ca0df4ac4d7b2c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60358172"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71097639"
 ---
 # <a name="azure-ad-password-protection-operational-procedures"></a>Azure AD 密碼保護作業程序
 
@@ -28,11 +28,11 @@ ms.locfileid: "60358172"
 
 ## <a name="enable-password-protection"></a>啟用密碼保護
 
-1. 登入[Azure 入口網站](https://portal.azure.com)並瀏覽至**Azure Active Directory**，**驗證方法**，然後**密碼保護**。
-1. 將 [啟用 Windows Server Active Directory 上的密碼保護]  設定為 [是] 
-1. 如[部署指南](howto-password-ban-bad-on-premises-deploy.md#deployment-strategy)所述，建議您一開始就將 [模式]  設定為 [稽核] 
-   * 對功能感到滿意後，您可以將 [模式]  切換為 [已強制] 
-1. 按一下 [儲存] 
+1. 登入[Azure 入口網站](https://portal.azure.com)，然後流覽至 [ **Azure Active Directory**]、[**驗證方法**] 和 [**密碼保護**]。
+1. 將 [啟用 Windows Server Active Directory 上的密碼保護] 設定為 [是]
+1. 如[部署指南](howto-password-ban-bad-on-premises-deploy.md#deployment-strategy)所述，建議您一開始就將 [模式] 設定為 [稽核]
+   * 對功能感到滿意後，您可以將 [模式] 切換為 [已強制]
+1. 按一下 [儲存]
 
 ![在 Azure 入口網站中啟用 Azure AD 密碼保護元件](./media/howto-password-ban-bad-on-premises-operations/authentication-methods-password-protection-on-prem.png)
 
@@ -55,9 +55,12 @@ ms.locfileid: "60358172"
 
 受影響的終端使用者可能需要與其 IT 人員合作，以了解新的需求，並更加能夠選擇安全的密碼。
 
+> [!NOTE]
+> 當弱式密碼遭到拒絕時，Azure AD 密碼保護無法控制用戶端電腦所顯示的特定錯誤訊息。
+
 ## <a name="enable-mode"></a>啟用模式
 
-這項設定通常應保持為預設的啟用 (是) 狀態。 將此設定設為停用 (否)，會導致所有已部署的 Azure AD 密碼保護 DC 代理程式進入靜止模式，依現況接受其中的所有密碼，而在任何情況下，都不會執行任何驗證活動 (例如，甚至不會發出稽核事件)。
+此設定應保持為其預設啟用（是）狀態。 將此設定設為停用 (否)，會導致所有已部署的 Azure AD 密碼保護 DC 代理程式進入靜止模式，依現況接受其中的所有密碼，而在任何情況下，都不會執行任何驗證活動 (例如，甚至不會發出稽核事件)。
 
 ## <a name="next-steps"></a>後續步驟
 

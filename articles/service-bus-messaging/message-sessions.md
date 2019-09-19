@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2019
 ms.author: aschhab
-ms.openlocfilehash: 67f3fd8f3166abac987e8fefbbf4a020f165c8bf
-ms.sourcegitcommit: acffa72239413c62662febd4e39ebcb6c6c0dd00
+ms.openlocfilehash: 7264b8e5a536c90d106b3bf4a5e26093744327d6
+ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68951876"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71091819"
 ---
 # <a name="message-sessions-first-in-first-out-fifo"></a>訊息工作階段：先進先出 (FIFO) 
 
@@ -40,6 +40,9 @@ Microsoft Azure 服務匯流排工作階段能夠聯合和依序處理未繫結�
 在入口網站中，使用下列核取方塊來設定旗標：
 
 ![][2]
+
+> [!NOTE]
+> 當會話在佇列或訂用帳戶上啟用時，用戶端應用程式將無法***再***傳送/接收一般訊息。 所有訊息都必須以會話的一部分傳送（藉由設定會話識別碼），並接收會話接收。
 
 適用於工作階段的 API 會存在於佇列和訂用帳戶用戶端上。 有一個命令式模型可讓您控制接收工作階段與訊息的時間，還有一個以處理常式為基礎的模型，類似於 OnMessage，會隱藏管理接收迴圈的複雜度。
 
@@ -79,13 +82,13 @@ Microsoft Azure 服務匯流排工作階段能夠聯合和依序處理未繫結�
 
 ## <a name="impact-of-delivery-count"></a>傳遞計數的影響
 
-會話內容中每個訊息的傳遞計數定義, 與會話未提供中的定義稍有不同。 以下是摘要說明傳遞計數何時遞增的資料表。
+會話內容中每個訊息的傳遞計數定義，與會話未提供中的定義稍有不同。 以下是摘要說明傳遞計數何時遞增的資料表。
 
 | 狀況 | 訊息的傳遞計數會遞增 |
 |----------|---------------------------------------------|
-| 已接受會話, 但會話鎖定過期 (因為超時) | 是 |
-| 已接受會話, 會話中的訊息不會完成 (即使已鎖定), 而且會話已關閉 | 否 |
-| 已接受會話, 訊息已完成, 然後會話已明確關閉 | N/A (這是標準流程。 這裡的訊息會從會話中移除) |
+| 已接受會話，但會話鎖定過期（因為超時） | 是 |
+| 已接受會話，會話中的訊息不會完成（即使已鎖定），而且會話已關閉 | 否 |
+| 已接受會話，訊息已完成，然後會話已明確關閉 | N/A （這是標準流程。 這裡的訊息會從會話中移除） |
 
 ## <a name="next-steps"></a>後續步驟
 

@@ -10,12 +10,12 @@ ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 04/04/2019
 ms.author: glenga
-ms.openlocfilehash: 7220c72625697490d9c42dab7e18ca4bf64d3f43
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 8092108ef13f4b86f20cf5a8a0b41b49d75aa626
+ms.sourcegitcommit: cd70273f0845cd39b435bd5978ca0df4ac4d7b2c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70085616"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71098690"
 ---
 # <a name="monitor-azure-functions"></a>監視 Azure Functions
 
@@ -151,9 +151,9 @@ traces
 
 Azure Functions 記錄器包括每個記錄的「類別」。 類別指出寫入記錄的是哪個部分的執行階段程式碼或函式程式碼。 
 
-函式執行時間會建立具有以 "Host" 開頭之類別的記錄。 在1.x 版中`function started`,、 `function executed`和`function completed`記錄檔具有類別目錄`Host.Executor`。 從2.x 版開始, 這些記錄具有類別目錄`Function.<YOUR_FUNCTION_NAME>`。
+函式執行時間會建立具有以 "Host" 開頭之類別的記錄。 在1.x 版中`function started`，、 `function executed`和`function completed`記錄檔具有類別目錄`Host.Executor`。 從2.x 版開始，這些記錄具有類別目錄`Function.<YOUR_FUNCTION_NAME>`。
 
-如果您在函式程式碼中寫入記錄, 則`Function`類別會在版本1.x 的函式執行時間中。 在2.x 版中, 類別是`Function.<YOUR_FUNCTION_NAME>.User`。
+如果您在函式程式碼中寫入記錄，則`Function`類別會在版本1.x 的函式執行時間中。 在2.x 版中，類別是`Function.<YOUR_FUNCTION_NAME>.User`。
 
 ### <a name="log-levels"></a>記錄層級
 
@@ -606,13 +606,13 @@ module.exports = function (context, req) {
 
 ## <a name="streaming-logs"></a>資料流記錄
 
-開發應用程式時, 您通常會想要在 Azure 中執行時, 以近乎即時的方式將寫入記錄檔。
+開發應用程式時，您通常會想要在 Azure 中執行時，以近乎即時的方式將寫入記錄檔。
 
 有兩種方式可查看函數執行所產生之記錄檔的資料流程。
 
-* **內建記錄串流**: App Service 平臺可讓您查看應用程式記錄檔的資料流程。 這相當於當您在[本機開發](functions-develop-local.md)期間, 以及在入口網站中使用 [**測試**] 索引標籤時, 會看到的輸出。 所有以記錄為基礎的資訊都會顯示出來。 如需詳細資訊，請參閱[如何串流處理記錄](../app-service/troubleshoot-diagnostic-logs.md#streamlogs)。 此串流方法僅支援單一實例, 且不能與在使用方式方案中的 Linux 上執行的應用程式搭配使用。
+* **內建記錄串流**： App Service 平臺可讓您查看應用程式記錄檔的資料流程。 這相當於當您在[本機開發](functions-develop-local.md)期間，以及在入口網站中使用 [**測試**] 索引標籤時，會看到的輸出。 所有以記錄為基礎的資訊都會顯示出來。 如需詳細資訊，請參閱[串流記錄](../app-service/troubleshoot-diagnostic-logs.md#stream-logs)。 此串流方法僅支援單一實例，且不能與在使用方式方案中的 Linux 上執行的應用程式搭配使用。
 
-* **即時計量資料流**: 當您的函式應用程式[連線到 Application Insights](#enable-application-insights-integration)時, 您可以使用[即時計量資料流](../azure-monitor/app/live-stream.md), 在 Azure 入口網站中近乎即時地查看記錄資料和其他計量。 當您在取用方案中監視多個實例或 Linux 上執行的函數時, 請使用此方法。 這個方法會使用[取樣的資料](#configure-sampling)。
+* **即時計量資料流**：當您的函式應用程式[連線到 Application Insights](#enable-application-insights-integration)時，您可以使用[即時計量資料流](../azure-monitor/app/live-stream.md)，在 Azure 入口網站中近乎即時地查看記錄資料和其他計量。 當您在取用方案中監視多個實例或 Linux 上執行的函數時，請使用此方法。 這個方法會使用[取樣的資料](#configure-sampling)。
 
 您可以在入口網站和大部分的本機開發環境中查看記錄資料流程。 
 
@@ -632,9 +632,9 @@ module.exports = function (context, req) {
 
 #### <a name="live-metrics-stream"></a>即時計量資料流
 
-若要查看應用程式的即時計量資料流, 請選取函數應用程式的 [**總覽**] 索引標籤。 當您 Application Insights 啟用時, 您會在 [**已設定的功能**] 下看到**Application Insights**連結。 此連結會帶您前往應用程式的 [Application Insights] 頁面。
+若要查看應用程式的即時計量資料流，請選取函數應用程式的 [**總覽**] 索引標籤。 當您 Application Insights 啟用時，您會在 [**已設定的功能**] 下看到**Application Insights**連結。 此連結會帶您前往應用程式的 [Application Insights] 頁面。
 
-在 Application Insights 中, 選取 [**即時計量資料流**]。 [取樣的記錄專案](#configure-sampling)會顯示在 [**範例遙測**] 底下。
+在 Application Insights 中，選取 [**即時計量資料流**]。 [取樣的記錄專案](#configure-sampling)會顯示在 [**範例遙測**] 底下。
 
 ![在入口網站中觀看即時計量資料流](./media/functions-monitoring/live-metrics-stream.png) 
 

@@ -6,14 +6,14 @@ author: dcurwin
 manager: carmonm
 ms.service: backup
 ms.topic: conceptual
-ms.date: 06/28/2019
+ms.date: 09/17/2019
 ms.author: dacurwin
-ms.openlocfilehash: 26d07ac0b09655e170b53af91f890f21d15afb1b
-ms.sourcegitcommit: d70c74e11fa95f70077620b4613bb35d9bf78484
+ms.openlocfilehash: e1cfb9bf0e8b17df67b2f7060f665d169a71c8d6
+ms.sourcegitcommit: cd70273f0845cd39b435bd5978ca0df4ac4d7b2c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70909790"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71098390"
 ---
 # <a name="frequently-asked-questions-back-up-azure-vms"></a>常見問題-備份 Azure Vm
 
@@ -126,6 +126,10 @@ Azure 虛擬機器備份原則最多可支援7天的最小保留範圍9999天。
 在您變更已加密 VM 的 KeyVault 設定之後，備份將會繼續使用新的一組詳細資料，不過，從變更之前的復原點還原之後，您必須先還原 KeyVault 中的密碼，才能建立 VM。 這樣. 如需詳細資訊，請參閱這[篇文章](https://docs.microsoft.com/azure/backup/backup-azure-restore-key-secret)
 
 秘密/金鑰變換之類的作業不需要此步驟，而且可以在還原之後使用相同的 KeyVault。
+
+### <a name="can-i-access-the-vm-once-restored-due-to-an-vm-having-broken-relationship-with-domain-controller"></a>因為 VM 與網域控制站的關聯性中斷，我可以在還原後存取 VM 嗎？
+
+是，因為 VM 與網域控制站的關聯性中斷，所以您會在還原後存取 VM。 如需詳細資訊，請參閱這[篇文章](https://docs.microsoft.com/azure/backup/backup-azure-arm-restore-vms#post-restore-steps)
 
 ## <a name="manage-vm-backups"></a>管理 VM 備份
 

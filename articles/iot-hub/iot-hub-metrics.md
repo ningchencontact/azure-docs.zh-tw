@@ -7,12 +7,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 04/24/2019
 ms.author: jlian
-ms.openlocfilehash: 948cdb2ab1af3fe93566497186c025f7f8f39b2e
-ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+ms.openlocfilehash: f0bcf12a43a4732b371dd2d64c0b174a0087bea9
+ms.sourcegitcommit: cd70273f0845cd39b435bd5978ca0df4ac4d7b2c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69877084"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71098946"
 ---
 # <a name="understand-iot-hub-metrics"></a>了解 IoT 中樞計量
 
@@ -63,14 +63,14 @@ IoT 中樞提供數個度量，以讓您概略了解中樞的健全狀況和所�
 |d2c<br>.endpoints<br>.latency<br>.serviceBusQueues|路由：服務匯流排佇列的訊息延遲|毫秒數|Average|訊息輸入到 IoT 中樞與遙測訊息輸入到服務匯流排佇列端點之間的平均延遲 (毫秒)。|無維度|
 |d2c<br>.endpoints<br>.egress<br>.serviceBusTopics|路由：傳遞至服務匯流排主題的訊息|Count|總計|IoT 中樞路由成功將訊息傳遞至服務匯流排主題端點的次數。|無維度|
 |d2c<br>.endpoints<br>.latency<br>.serviceBusTopics|路由：服務匯流排主題的訊息延遲|毫秒數|Average|訊息輸入到 IoT 中樞與遙測訊息輸入到服務匯流排佇列端點之間的平均延遲 (毫秒)。|無維度|
-|d2c<br>.endpoints<br>.egress<br>.builtIn<br>.events|路由：傳遞至訊息/事件的訊息|Count|總計|IoT 中樞路由成功將訊息傳遞至內建端點 (訊息/事件) 的次數。 只有在啟用路由 (https://aka.ms/iotrouting) IoT 中樞) 時, 此計量才會開始運作。|無維度|
-|d2c<br>.endpoints<br>.latency<br>.builtIn.events|路由：訊息/事件的訊息延遲|毫秒數|Average|訊息輸入到 IoT 中樞與遙測訊息輸入到內建端點 (訊息/事件) 之間的平均延遲 (毫秒)。 只有在啟用路由 (https://aka.ms/iotrouting) IoT 中樞) 時, 此計量才會開始運作。|無維度|
+|d2c<br>.endpoints<br>.egress<br>.builtIn<br>.events|路由：傳遞至訊息/事件的訊息|Count|總計|IoT 中樞路由成功將訊息傳遞至內建端點 (訊息/事件) 的次數。 只有在啟用路由（ https://aka.ms/iotrouting) IoT 中樞）時，此計量才會開始運作。|無維度|
+|d2c<br>.endpoints<br>.latency<br>.builtIn.events|路由：訊息/事件的訊息延遲|毫秒數|Average|訊息輸入到 IoT 中樞與遙測訊息輸入到內建端點 (訊息/事件) 之間的平均延遲 (毫秒)。 只有在啟用路由（ https://aka.ms/iotrouting) IoT 中樞）時，此計量才會開始運作。|無維度|
 |d2c<br>.endpoints<br>.egress<br>.storage|路由：傳遞至儲存體的訊息|Count|總計|IoT 中樞路由成功將訊息傳遞至儲存體端點的次數。|無維度|
 |d2c<br>.endpoints<br>.latency<br>.storage|路由：儲存體的訊息延遲|毫秒數|Average|訊息輸入到 IoT 中樞與遙測訊息輸入到儲存體端點之間的平均延遲 (毫秒)。|無維度|
 |d2c<br>.endpoints<br>.egress<br>.storage<br>.bytes|路由：傳遞至儲存體的資料|位元組|總計|IoT 中樞路由傳遞至儲存體端點的資料量 (位元組)。|無維度|
 |d2c<br>.endpoints<br>.egress<br>.storage<br>.blobs|路由：傳遞至儲存體的 BLOB|Count|總計|IoT 中樞路由將 BLOB 傳遞至儲存體端點的次數。|無維度|
-|EventGridDeliveries|事件方格傳遞 (預覽)|Count|總計|已發佈至事件方格的 IoT 中樞事件數目。 使用 [結果] 維度來取得成功和失敗的要求數目。 [事件種類] 維度會顯示事件 https://aka.ms/ioteventgrid) 的類型 (。 若要查看要求來自何處, 請使用 [事件數] 維度。|結果, 事件|
-|EventGridLatency|事件方格延遲 (預覽)|毫秒數|Average|當事件發佈至事件方格時, 從 Iot 中樞事件產生的平均延遲 (毫秒)。 這個數位是所有事件種類之間的平均值。 使用 [事件種類] 維度來查看特定事件種類的延遲。|EventType|
+|EventGridDeliveries|事件方格傳遞（預覽）|Count|總計|已發佈至事件方格的 IoT 中樞事件數目。 使用 [結果] 維度來取得成功和失敗的要求數目。 [事件種類] 維度會顯示事件 https://aka.ms/ioteventgrid) 的類型（。 若要查看要求來自何處，請使用 [事件數] 維度。|結果，事件|
+|EventGridLatency|事件方格延遲（預覽）|毫秒數|Average|當事件發佈至事件方格時，從 Iot 中樞事件產生的平均延遲（毫秒）。 這個數位是所有事件種類之間的平均值。 使用 [事件種類] 維度來查看特定事件種類的延遲。|EventType|
 |d2c<br>.twin<br>.read<br>.success|裝置的成功對應項讀取|Count|總計|裝置起始的所有成功對應項讀取的計數。|無維度|
 |d2c<br>.twin<br>.read<br>.failure|裝置的失敗對應項讀取|Count|總計|裝置起始的所有失敗對應項讀取的計數。|無維度|
 |d2c<br>.twin<br>.read<br>.size|裝置的對應項讀取回應大小|位元組|Average|裝置起始的所有成功對應項讀取的平均值、最小值和最大值。|無維度|
@@ -81,7 +81,7 @@ IoT 中樞提供數個度量，以讓您概略了解中樞的健全狀況和所�
 |c2d<br>.methods<br>.failure|失敗直接方法叫用|Count|總計|所有失敗直接方法呼叫的計數。|無維度|
 |c2d<br>.methods<br>.requestSize|直接方法叫用的要求大小|位元組|Average|所有成功直接方法要求的平均值、最小值和最大值。|無維度|
 |c2d<br>.methods<br>.responseSize|直接方法叫用的回應大小|位元組|Average|所有成功直接方法回應的平均值、最小值和最大值。|無維度|
-|c2d<br>.twin<br>.read<br>.success|後端的成功對應項讀取|Count|總計|後端起始的所有成功對應項讀取的計數。|無維度|
+|c2d<br>.twin<br>.read<br>.success|後端的成功對應項讀取|Count|總計|後端起始的所有成功對應項讀取的計數。 此計數不包含從對應項查詢起始的對應項讀取。|無維度|
 |c2d<br>.twin<br>.read<br>.failure|後端的失敗對應項讀取|Count|總計|後端起始的所有失敗對應項讀取的計數。|無維度|
 |c2d<br>.twin<br>.read<br>.size|後端的對應項讀取回應大小|位元組|Average|後端起始的所有成功對應項讀取的平均值、最小值和最大值。|無維度|
 |c2d<br>.twin<br>.update<br>.success|後端的成功對應項更新|Count|總計|後端起始的所有成功對應項更新的計數。|無維度|

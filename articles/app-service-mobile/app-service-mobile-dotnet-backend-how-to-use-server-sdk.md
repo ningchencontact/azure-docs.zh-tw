@@ -15,12 +15,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 10/01/2016
 ms.author: crdun
-ms.openlocfilehash: 195a2dd88f443120f337ba441358389f0dc290f8
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: d277786fd08e1448b3d5ccf4fd45055fe069e4c0
+ms.sourcegitcommit: cd70273f0845cd39b435bd5978ca0df4ac4d7b2c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62119503"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71097768"
 ---
 # <a name="work-with-the-net-backend-server-sdk-for-azure-mobile-apps"></a>使用適用於 Azure Mobile Apps 的 .NET 後端伺服器 SDK
 [!INCLUDE [app-service-mobile-selector-server-sdk](../../includes/app-service-mobile-selector-server-sdk.md)]
@@ -28,12 +28,12 @@ ms.locfileid: "62119503"
 本主題說明如何在主要的 Azure App Service Mobile Apps 案例中使用 .NET 後端伺服器 SDK Azure Mobile Apps SDK 可協助您從 ASP.NET 應用程式使用行動用戶端。
 
 > [!TIP]
-> [適用於 Azure Mobile Apps 的 .NET 伺服器 SDK][2]是 GitHub 上的開放原始碼。 儲存機制包含所有原始程式碼，其中包括整個伺服器 SDK 單元測試組件和一些範例專案。
+> [適用于 Azure Mobile Apps 的 .net SERVER SDK][2]是 GitHub 上的開放原始碼。 儲存機制包含所有原始程式碼，其中包括整個伺服器 SDK 單元測試組件和一些範例專案。
 >
 >
 
 ## <a name="reference-documentation"></a>參考文件
-伺服器 SDK 的參考文件位於此處：[Azure Mobile Apps .NET 參考資料][1]。
+伺服器 SDK 的參考文件位於此處：[Azure Mobile Apps .Net 參考][1]。
 
 ## <a name="create-app"></a>操作說明：建立 .NET 行動應用程式後端
 如果您開始新的專案，您可以使用 [Azure 入口網站] 或 Visual Studio，建立 App Service 應用程式。 您可以在本機執行 App Service 應用程式，或將專案發佈至雲端架構 App Service 行動應用程式。
@@ -41,41 +41,41 @@ ms.locfileid: "62119503"
 如果您將行動功能新增至現有的專案，請參閱 [下載並初始化 SDK](#install-sdk) 一節。
 
 ### <a name="create-a-net-backend-using-the-azure-portal"></a>使用 Azure 入口網站建立 .NET 後端
-若要建立 App Service 行動後端，請遵循[快速入門教學課程][3]或遵循下列步驟︰
+若要建立 App Service 行動後端，請遵循[快速入門教學][3]課程或遵循下列步驟：
 
 [!INCLUDE [app-service-mobile-dotnet-backend-create-new-service-classic](../../includes/app-service-mobile-dotnet-backend-create-new-service-classic.md)]
 
-回到 [開始使用]  刀鋒視窗，在 [建立資料表 API]  底下，選擇 [C#]  作為您的 [後端語言]  。 按一下 [下載]  ，將壓縮的專案檔案解壓縮至您的本機電腦，並在 Visual Studio 中開啟方案。
+回到 [開始使用] 刀鋒視窗，在 [建立資料表 API] 底下，選擇 [C#] 作為您的 [後端語言]。 按一下 [下載]，將壓縮的專案檔案解壓縮至您的本機電腦，並在 Visual Studio 中開啟方案。
 
 ### <a name="create-a-net-backend-using-visual-studio-2017"></a>使用 Visual Studio 2017 建立 .NET 後端
 
 透過 Visual Studio 安裝程式安裝 Azure 工作負載，以從 Visual Studio 發佈至 Azure 行動應用程式專案。 當您安裝 SDK 之後，使用下列步驟建立 ASP.NET 應用程式：
 
-1. 開啟 [新增專案]  對話方塊 (從 [檔案]   >  [新增]   >  [專案...]  )。
-2. 展開 [Visual C#]  ，然後選取 [Web]  。
-3. 選取 [ASP.NET Web 應用程式 (.NET Framework)]  。
-4. 填入專案名稱。 然後按一下 [確定]  。
-5. 從範本清單選取 [Azure 行動應用程式]  。
-6. 按一下 [確定]  以建立方案。
-7. 以滑鼠右鍵按一下 [方案總管]  中的專案，選擇 [發佈]  ，然後選擇 [應用程式服務]  作為發佈目標。
+1. 開啟 [新增專案] 對話方塊 (從 [檔案]  >  [新增]  >  [專案...])。
+2. 展開 [Visual C#]，然後選取 [Web]。
+3. 選取 [ASP.NET Web 應用程式 (.NET Framework)]。
+4. 填入專案名稱。 然後按一下 [確定]。
+5. 從範本清單選取 [Azure 行動應用程式]。
+6. 按一下 [確定] 以建立方案。
+7. 以滑鼠右鍵按一下 [方案總管] 中的專案，選擇 [發佈]，然後選擇 [應用程式服務] 作為發佈目標。
 8. 遵循提示進行驗證，並選擇新的或現有 Azure 應用程式服務來發佈。
 
 ### <a name="create-a-net-backend-using-visual-studio-2015"></a>使用 Visual Studio 2015 建立 .NET 後端
 
-安裝 [Azure SDK for .NET][4] (2.9.0 版或更新版本)，以在 Visual Studio 中建立 Azure Mobile Apps 專案。 當您安裝 SDK 之後，使用下列步驟建立 ASP.NET 應用程式：
+安裝[AZURE SDK for .net][4] （2.9.0 版版或更新版本）以在 Visual Studio 中建立 azure Mobile Apps 專案。 當您安裝 SDK 之後，使用下列步驟建立 ASP.NET 應用程式：
 
-1. 開啟 [新增專案]  對話方塊 (從 [檔案]   >  [新增]   >  [專案...]  )。
-2. 展開 [範本]   > [Visual C#]  ，然後選取 [Web]  。
-3. 選取 [ASP.NET Web 應用程式]  。
-4. 填入專案名稱。 然後按一下 [確定]  。
-5. 在 [ASP.NET 4.5.2 範本]  底下，選取 [Azure 行動應用程式]  。 核取 [雲端中的主機]  以在雲端 (您可以在其中發佈這個專案) 建立行動後端。
-6. 按一下 [確定]  。
+1. 開啟 [新增專案] 對話方塊 (從 [檔案]  >  [新增]  >  [專案...])。
+2. 展開 [範本] > [Visual C#]，然後選取 [Web]。
+3. 選取 [ASP.NET Web 應用程式]。
+4. 填入專案名稱。 然後按一下 [確定]。
+5. 在 [ASP.NET 4.5.2 範本] 底下，選取 [Azure 行動應用程式]。 核取 [雲端中的主機] 以在雲端 (您可以在其中發佈這個專案) 建立行動後端。
+6. 按一下 [確定]。
 
 ## <a name="install-sdk"></a>操作說明：下載並初始化 SDK
 SDK 可於 [NuGet.org]取得。此封裝包含開始使用 SDK 所需的基本功能。 若要初始化 SDK，您需要在 **HttpConfiguration** 物件上執行動作。
 
 ### <a name="install-the-sdk"></a>安裝 SDK
-若要安裝 SDK，請以滑鼠右鍵按一下 Visual Studio 中的伺服器專案，選取 [管理 NuGet 套件]  ，搜尋 [Microsoft.Azure.Mobile.Server] 套件，然後按一下 [安裝]  。
+若要安裝 SDK，請以滑鼠右鍵按一下 Visual Studio 中的伺服器專案，選取 [管理 NuGet 套件]，搜尋 [Microsoft.Azure.Mobile.Server] 套件，然後按一下 [安裝]。
 
 ### <a name="server-project-setup"></a> 初始化伺服器專案
 初始化 .NET 後端伺服器專案的方式類似其他 ASP.NET 專案，可藉由包含 OWIN 啟動類別來完成。 請確定您已參考 NuGet 封裝 `Microsoft.Owin.Host.SystemWeb`。 若要在 Visual Studio 中新增這個類別，請在伺服器專案上按一下滑鼠右鍵，選取 **[新增]**  >
@@ -131,7 +131,7 @@ Azure 入口網站的伺服器快速入門會呼叫 **UseDefaultConfiguration()*
 下列 NuGet 型擴充套件提供了許多您應用程式可以使用的行動功能。 您可以使用 **MobileAppConfiguration** 物件，在初始化期間啟用擴充功能。
 
 * [Microsoft.Azure.Mobile.Server.Quickstart] 支援基本的 Mobile Apps 設定。 在初始化期間，透過呼叫 **UseDefaultConfiguration** 擴充方法來新增到組態。 此擴充包含下列擴充功能：通知、驗證、實體、資料表、跨網域和首頁封裝。 此封裝由 Azure 入口網站上可取得的 Mobile Apps 快速入門使用。
-* [Microsoft.Azure.Mobile.Server.Home](https://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.Home/) 實作網站根目錄的預設 [此行動應用程式已啟動並執行中] 頁面  。 透過呼叫 **AddMobileAppHomeController** 擴充方法來新增到組態。
+* [Microsoft.Azure.Mobile.Server.Home](https://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.Home/) 實作網站根目錄的預設 [此行動應用程式已啟動並執行中] 頁面。 透過呼叫 **AddMobileAppHomeController** 擴充方法來新增到組態。
 * [Microsoft.Azure.Mobile.Server.Tables](https://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.Tables/) 包含適用於處理資料與設定資料管線的類別。 透過呼叫 **AddTables** 擴充方法來加入設定中。
 * [Microsoft.Azure.Mobile.Server.Entity](https://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.Entity/) 讓 Entity Framework 能存取 SQL Database 中的資料。 透過呼叫 **AddTablesWithEntityFramework** 擴充方法來加入設定中。
 * [Microsoft.Azure.Mobile.Server.Authentication] 啟用驗證，並設定用來驗證權杖的 OWIN 中介軟體。 透過呼叫 **AddAppServiceAuthentication** 與 **IAppBuilder**.**UseAppServiceAuthentication** 擴充方法來新增到組態。
@@ -143,15 +143,15 @@ Azure 入口網站的伺服器快速入門會呼叫 **UseDefaultConfiguration()*
 本節說明如何從 Visual Studio 發佈 .NET 後端專案。 您也可以使用 [Git](../app-service/deploy-local-git.md) 或那裡提供的任何其他方法來部署後端專案。
 
 1. 在 Visual Studio 中，重新建置專案以還原 NuGet 封裝。
-2. 在 [方案總管] 中，於專案上按一下滑鼠右鍵，然後按一下 [發佈]  。 第一次發佈時，您必須定義發行設定檔。 在定義設定檔後，您可以選取該設定檔，然後按一下 [發佈]  。
-3. 如果系統要求您選取發佈目標，請按一下 [Microsoft Azure App Service]   > [下一步]  ，然後視需要使用您的 Azure 認證來登入。
+2. 在 [方案總管] 中，於專案上按一下滑鼠右鍵，然後按一下 [發佈]。 第一次發佈時，您必須定義發行設定檔。 在定義設定檔後，您可以選取該設定檔，然後按一下 [發佈]。
+3. 如果系統要求您選取發佈目標，請按一下 [Microsoft Azure App Service] > [下一步]，然後視需要使用您的 Azure 認證來登入。
    Visual Studio 會直接從 Azure 下載並安全地儲存您的發佈設定。
 
     ![](./media/app-service-mobile-dotnet-backend-how-to-use-server-sdk/publish-wizard-1.png)
-4. 選擇您的 [訂用帳戶]  ，從 [檢視]  中選取 [資源類型]  ，展開 [行動應用程式]  ，按一下您的行動應用程式後端，然後按一下 [確定]  。
+4. 選擇您的 [訂用帳戶]，從 [檢視] 中選取 [資源類型]，展開 [行動應用程式]，按一下您的行動應用程式後端，然後按一下 [確定]。
 
     ![](./media/app-service-mobile-dotnet-backend-how-to-use-server-sdk/publish-wizard-2.png)
-5. 驗證發佈設定檔資訊，然後按一下 [發佈]  。
+5. 驗證發佈設定檔資訊，然後按一下 [發佈]。
 
     ![](./media/app-service-mobile-dotnet-backend-how-to-use-server-sdk/publish-wizard-3.png)
 
@@ -197,13 +197,13 @@ DTO 用來定義 SQL Database 內的資料表。  若要建立資料庫項目，
 
 如果已安裝 Azure SDK，您現在可以建立範本資料表控制器，如下所示︰
 
-1. 以滑鼠右鍵按一下 [控制器] 資料夾，然後選取 [新增]   >   。
-2. 選取 [Azure Mobile Apps 資料表控制器]  選項，然後按一下 [新增]  。
-3. 在 [新增控制器]  對話方塊中：
-   * 在 [模型類別]  下拉式清單中，選取您新的 DTO。
-   * 在 [DbContext]  下拉式清單中，選取 [行動服務 DbContext] 類別。
+1. 以滑鼠右鍵按一下 [控制器] 資料夾，然後選取 [新增] > 。
+2. 選取 [Azure Mobile Apps 資料表控制器] 選項，然後按一下 [新增]。
+3. 在 [新增控制器] 對話方塊中：
+   * 在 [模型類別] 下拉式清單中，選取您新的 DTO。
+   * 在 [DbContext] 下拉式清單中，選取 [行動服務 DbContext] 類別。
    * 為您建立控制器名稱。
-4. 按一下 [新增]  。
+4. 按一下 [新增]。
 
 快速入門伺服器專案包含簡單的 **TodoItemController**範例。
 
@@ -217,8 +217,8 @@ DTO 用來定義 SQL Database 內的資料表。  若要建立資料庫項目，
 ## <a name="how-to-define-a-custom-api-controller"></a>HOW TO：定義自訂 API 控制器
 自訂 API 控制器透過公開端點，提供最基本的功能給您的行動應用程式後端。 您可以使用屬性 [MobileAppController] 來註冊行動裝置特定 API 控制器。 `MobileAppController` 屬性會註冊路由、設定 Mobile Apps JSON 序列化程式，以及開啟 [用戶端版本檢查](app-service-mobile-client-and-server-versioning.md)。
 
-1. 在 Visual Studio 中，以滑鼠右鍵按一下 [控制器] 資料夾，然後按一下 [新增]   > [控制器]  ，選取 [Web API 2 控制器&mdash;空白]  ，然後按一下 [新增]  。
-2. 提供 [控制器名稱]  \(例如 `CustomController`)，然後按一下 [新增]  。
+1. 在 Visual Studio 中，以滑鼠右鍵按一下 [控制器] 資料夾，然後按一下 [新增] > [控制器]，選取 [Web API 2 控制器&mdash;空白]，然後按一下 [新增]。
+2. 提供 [控制器名稱] \(例如 `CustomController`)，然後按一下 [新增]。
 3. 在新的控制器類別檔案中，新增下列 Using 陳述式：
 
         using Microsoft.Azure.Mobile.Server.Config;
@@ -299,7 +299,7 @@ Azure Mobile Apps 會使用 App Service 驗證 / 授權來保護您的行動後�
             }
         }
 
-`AppServiceLoginHandler.CreateToken()` 方法包含 audience  和 issuer  參數。 這兩個參數會使用 HTTPS 配置設定為應用程式根目錄的 URL。 同樣地，您應該將 secretKey  設定為您應用程式的簽署金鑰值。 請勿散發用戶端中的簽署金鑰，因為它可用來仿造金鑰和模擬使用者。 您可以藉由參考 WEBSITE\_AUTH\_SIGNING\_KEY  環境變數，在裝載於 App Service 時取得此簽署金鑰。 如果在本機偵錯內容中有需要，請依照 [使用驗證進行本機偵錯](#local-debug) 一節中的指示以取出金鑰，並將它儲存為應用程式設定。
+`AppServiceLoginHandler.CreateToken()` 方法包含 audience 和 issuer 參數。 這兩個參數會使用 HTTPS 配置設定為應用程式根目錄的 URL。 同樣地，您應該將 secretKey 設定為您應用程式的簽署金鑰值。 請勿散發用戶端中的簽署金鑰，因為它可用來仿造金鑰和模擬使用者。 您可以藉由參考 WEBSITE\_AUTH\_SIGNING\_KEY 環境變數，在裝載於 App Service 時取得此簽署金鑰。 如果在本機偵錯內容中有需要，請依照 [使用驗證進行本機偵錯](#local-debug) 一節中的指示以取出金鑰，並將它儲存為應用程式設定。
 
 發行的權杖可能也包含其他宣告和到期日。  發行的權杖至少必須包含一個主體 (**sub**) 宣告。
 
@@ -364,7 +364,7 @@ App Service 也可讓您向登入提供者要求特定宣告。 每個識別提�
 ## <a name="how-to-add-push-notifications-to-a-server-project"></a>HOW TO：將推播通知新增至伺服器專案
 透過擴充 **MobileAppConfiguration** 物件並建立通知中樞用戶端，將推播通知加入您的伺服器專案中。
 
-1. 在 Visual Studio 中，以滑鼠右鍵按一下伺服器專案並按一下 [管理 NuGet 封裝]  ，搜尋 `Microsoft.Azure.Mobile.Server.Notifications`，然後按一下 [安裝]  。
+1. 在 Visual Studio 中，以滑鼠右鍵按一下伺服器專案並按一下 [管理 NuGet 封裝]，搜尋 `Microsoft.Azure.Mobile.Server.Notifications`，然後按一下 [安裝]。
 2. 重複這個步驟以安裝 `Microsoft.Azure.NotificationHubs` 封裝，其中包含通知中樞用戶端程式庫。
 3. 在 App_Start/Startup.MobileApp.cs 中，於初始化期間新增對 **AddPushNotifications** 擴充方法的呼叫：
 
@@ -410,7 +410,7 @@ App Service 也可讓您向登入提供者要求特定宣告。 每個識別提�
 
 建立安裝時，後端會忽略用戶端在推播通知註冊期間提供的任何標籤。 若要讓用戶端將標籤加入安裝，您必須建立自訂 API，以便加入使用上述模式的標籤。
 
-如需相關範例，請參閱 App Service Mobile Apps 完整快速入門範例中的[用戶端新增的推播通知標籤][5]。
+如需範例，請參閱 App Service Mobile Apps 完成的快速入門範例中的[用戶端新增推播通知標記][5]。
 
 ## <a name="push-user"></a>操作說明：將推播通知傳送給已驗證的使用者
 當驗證的使用者註冊推播通知之後，使用者識別碼便會自動加入到註冊中。 藉由使用這個標籤，您可以傳送推播通知給該人員已註冊的所有裝置。 下列程式碼會取得提出要求之使用者的 SID，並將範本推播通知傳送至該人員的每個裝置註冊︰
@@ -426,7 +426,7 @@ App Service 也可讓您向登入提供者要求特定宣告。 每個識別提�
     // Send a template notification to the user ID.
     await hub.SendTemplateNotificationAsync(notification, userTag);
 
-在註冊來自已驗證用戶端的推播通知時，請確定驗證已完成，然後再嘗試註冊。 如需詳細資訊，請參閱適用於 .NET 後端之 App Service Mobile Apps 完整快速入門範例中的[推播給使用者][6]。
+在註冊來自已驗證用戶端的推播通知時，請確定驗證已完成，然後再嘗試註冊。 如需詳細資訊，請參閱 .NET 後端的 App Service Mobile Apps 完成的快速入門範例中的[推播給使用者][6]。
 
 ## <a name="how-to-debug-and-troubleshoot-the-net-server-sdk"></a>HOW TO：針對 .NET 伺服器 SDK 進行偵錯和疑難排解
 Azure App Service 提供了數個適用於 ASP.NET 應用程式的偵錯和疑難排解技術：
@@ -440,7 +440,7 @@ Azure App Service 提供了數個適用於 ASP.NET 應用程式的偵錯和疑�
 
 若要啟用診斷並寫入至記錄：
 
-1. 依照 [如何啟用診斷](../app-service/troubleshoot-diagnostic-logs.md#enablediag)中的步驟執行。
+1. 依照[啟用應用程式記錄（Windows）](../app-service/troubleshoot-diagnostic-logs.md#enable-application-logging-windows)中的步驟進行。
 2. 在您的程式碼檔案中新增下列 using 陳述式：
 
         using System.Web.Http.Tracing;
@@ -449,10 +449,10 @@ Azure App Service 提供了數個適用於 ASP.NET 應用程式的偵錯和疑�
         ITraceWriter traceWriter = this.Configuration.Services.GetTraceWriter();
         traceWriter.Info("Hello, World");
 4. 重新發佈您的伺服器專案，並存取行動應用程式後端，以執行記錄的程式碼路徑。
-5. 下載記錄並進行評估，如 [操作說明：下載記錄](../app-service/troubleshoot-diagnostic-logs.md#download)中所述。
+5. 下載並評估記錄檔，如[存取記錄](../app-service/troubleshoot-diagnostic-logs.md#access-log-files)檔中所述。
 
 ### <a name="local-debug"></a>使用驗證進行本機偵錯
-您可以在將變更發佈至雲端之前，在本機執行您的應用程式以測試變更。 對於大部分的 Azure Mobile Apps 後端，請在Visual Studio 中時按 F5  。 不過，使用驗證時有一些其他考量。
+您可以在將變更發佈至雲端之前，在本機執行您的應用程式以測試變更。 對於大部分的 Azure Mobile Apps 後端，請在Visual Studio 中時按 F5 。 不過，使用驗證時有一些其他考量。
 
 您必須擁有雲端式行動應用程式並且已設定 App Service 驗證/授權，而且您的用戶端必須有指定的雲端端點做為替代登入主機。 請參閱您用戶端平台的文件，以取得所需的特定步驟。
 
@@ -466,15 +466,15 @@ Azure App Service 提供了數個適用於 ASP.NET 應用程式的偵錯和疑�
             TokenHandler = config.GetAppServiceTokenHandler()
         });
 
-在上述範例中，您應該使用 HTTPS 配置，將 Web.config 檔案中的 authAudience  和 authIssuer  應用程式設定，都設定為您應用程式根目錄的 URL。 同樣地，您應該將 authSigningKey  設定為您應用程式的簽署金鑰值。
+在上述範例中，您應該使用 HTTPS 配置，將 Web.config 檔案中的 authAudience 和 authIssuer 應用程式設定，都設定為您應用程式根目錄的 URL。 同樣地，您應該將 authSigningKey 設定為您應用程式的簽署金鑰值。
 若要取得簽署金鑰：
 
 1. 在 [Azure 入口網站]
-2. 按一下 [工具]  、[Kudu]  、[執行]  。
-3. 在 Kudu 管理網站中，按一下 [環境]  。
+2. 按一下 [工具]、[Kudu]、[執行]。
+3. 在 Kudu 管理網站中，按一下 [環境]。
 4. 尋找 *WEBSITE\_AUTH\_SIGNING\_KEY* 的值。
 
-在本機應用程式組態中使用 authSigningKey  參數的簽署金鑰。您的行動後端現已裝備，可在本機執行時驗證用戶端從雲端式端點取得的權杖。
+在本機應用程式組態中使用 authSigningKey 參數的簽署金鑰。您的行動後端現已裝備，可在本機執行時驗證用戶端從雲端式端點取得的權杖。
 
 [1]: https://msdn.microsoft.com/library/azure/dn961176.aspx
 [2]: https://github.com/Azure/azure-mobile-apps-net-server

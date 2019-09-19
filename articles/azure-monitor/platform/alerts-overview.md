@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 01/28/2018
 ms.author: robb
 ms.subservice: alerts
-ms.openlocfilehash: ae3e45ece1bd53846ab7728c29c0da1b709fe42c
-ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
+ms.openlocfilehash: eab6e7e0fb834447a55b67dfc9a17c470e9e3361
+ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70915955"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71091766"
 ---
 # <a name="overview-of-alerts-in-microsoft-azure"></a>Microsoft Azure 中的警示概觀 
 
@@ -82,7 +82,7 @@ ms.locfileid: "70915955"
 
 | State | 描述 |
 |:---|:---|
-| 換一個 | 已偵測到此問題，而且尚未進行審核。 |
+| 新增 | 已偵測到此問題，而且尚未進行審核。 |
 | 已認可 | 系統管理員已檢閱警示，且已開始處理。 |
 | 已關閉 | 已解決問題。 關閉警示之後，您可以將警示變更為另一個狀態以重新開啟它。 |
 
@@ -202,9 +202,9 @@ ms.locfileid: "70915955"
   }
 }
 ```
-您可以查詢這些警示的[必要](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-common-schema-definitions#essentials-fields)欄位。
+您可以查詢這些警示的[必要](alerts-common-schema-definitions.md#essentials)欄位。
 
-使用[警示管理 REST API](https://aka.ms/alert-management-api)取得特定警示的詳細資訊，包括其[警示內容](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-common-schema-definitions#alert-context-fields)欄位。
+使用[警示管理 REST API](https://aka.ms/alert-management-api)取得特定警示的詳細資訊，包括其[警示內容](alerts-common-schema-definitions.md#alert-context)欄位。
 
 ## <a name="next-steps"></a>後續步驟
 

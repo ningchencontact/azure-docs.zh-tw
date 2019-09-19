@@ -16,12 +16,12 @@ ms.workload: na
 ms.date: 03/04/2016
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 9102d6f3ce3be44107268419517dc9ebe434ac7a
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: bfb66789df3236c096ea00bcc83ddc435e87f047
+ms.sourcegitcommit: cd70273f0845cd39b435bd5978ca0df4ac4d7b2c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70098450"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71097652"
 ---
 # <a name="azure-app-service-local-cache-overview"></a>Azure App Service 本機快取概觀
 
@@ -34,7 +34,7 @@ Azure App Service 的內容儲存在 Azure 儲存體中，並且會持久顯示�
 * 內容會由應用程式的多個虛擬機器 (VM) 執行個體共用。
 * 內容具有持久性，且可透過執行應用程式來修改。
 * 記錄檔和診斷資料檔案會在相同的共用內容資料夾底下提供使用。
-* 發佈新內容時會直接更新內容資料夾。 您可以透過 SCM 網站和執行中應用程式立即查看相同的內容 (通常某些技術 (例如 ASP.NET) 會在某些檔案變更時起始應用程式重新開機以取得最新內容)。
+* 發佈新內容時會直接更新內容資料夾。 您可以透過 SCM 網站和執行中應用程式立即查看相同的內容（通常某些技術（例如 ASP.NET）會在某些檔案變更時起始應用程式重新開機以取得最新內容）。
 
 雖然許多應用程式會使用上述其中一項功能或所有功能，但某些應用程式只需要可從中執行的內容存放區，而且此存放區具備高效能、唯讀和高可用性。 這些應用程式可以受益於特定本機快取的 VM 執行個體。
 
@@ -49,7 +49,7 @@ Azure App Service 本機快取功能可讓您以 Web 角色檢視您的內容。
 * 本機快取中包含共用內容存放區上 _/site_ 和 _/siteextensions_ 資料夾的一次性副本，分別位在 _D:\home\site_ 和 _D:\home\siteextensions_。 檔案會在應用程式啟動時複製到本機快取。 針對每個應用程式，兩個資料夾的大小限制預設為 300 MB，但最多可以增加至 2 GB。
 * 本機快取具有讀寫屬性。 不過，當應用程式移動虛擬機器或重新啟動時，將會捨棄任何修改。 因此，請勿針對會在內容存放區中儲存關鍵任務資料的應用程式使用本機快取。
 * _D:\home\LogFiles_ 和 _D:\home\Data_ 中包含記錄檔和應用程式資料。 這兩個子資料夾會儲存在本機上的 VM 執行個體中，並定期複製到共用內容存放區。 應用程式可以藉由將記錄檔和資料寫入這些資料夾來加以保存。 不過，複製到共用內容存放區已是最佳方式，記錄檔和資料還是可能會因為 VM 執行個體突然當機而遺失。
-* [記錄串流](troubleshoot-diagnostic-logs.md#streamlogs)會受到此最佳複製方式的影響。 您可能會看到串流處理的記錄中有最多一分鐘的延遲。
+* [記錄串流](troubleshoot-diagnostic-logs.md#stream-logs)會受到此最佳複製方式的影響。 您可能會看到串流處理的記錄中有最多一分鐘的延遲。
 * 在共用內容存放區中，針對使用本機快取的應用程式，其 _LogFiles_ 和 _Data_ 資料夾的資料夾結構有所變更。 這些資料夾現在有子資料夾，且這些子資料夾會遵循「唯一識別碼」+ 時間戳記的命名模式。 每個子資料夾都對應到將要用來執行或已用來執行應用程式的 VM 執行個體。
 * _D:\home_ 中的其他資料夾會保留在本機快取中，而且不會複製到共用內容存放區。
 * 透過任何支援方法執行的應用程式部署會直接發佈到永久的共用內容存放區中。 若要重新整理本機快取中的 _D:\home\site_ 和 _D:\home\siteextensions_ 資料夾，必須重新啟動應用程式。 為了讓整個生命週期順暢前進，請參閱本文稍後的資訊。
