@@ -126,7 +126,7 @@ ms.locfileid: "71067720"
     mydata = all_datasets['my-data'] 
     ```
     
-    + 引進`parition_format`做為`Dataset.Tabular.from_delimited_files`和`Dataset.Tabular.from_parquet.files`的引數。 每個資料路徑的分割區資訊將會根據指定的格式，解壓縮到資料行中。 ' {column_name} ' 會建立字串資料行，而 ' {column_name： yyyy/MM/dd/HH/mm/ss} ' 會建立 datetime 資料行，其中 ' yyyy '、' MM '、' dd '、' HH '、' mm ' 和 ' ss ' 是用來針對日期時間類型來解壓縮 year、month、day、hour、minute 和 second Partition_format 應該從第一個分割區索引鍵的位置開始，直到檔路徑結束為止。 例如，假設路徑為 '.。/USA/2019/01/01/data.csv '，其中分割區是依據國家和時間，partition_format = '/{Country}/{PartitionDate： yyyy/MM/dd}/data .csv ' 會建立字串資料行 ' Country '，其值為 ' USA '，而 datetime 資料行 ' PartitionDate ' 的值為 ' 2019-01-01 '。
+    + 引進`parition_format`做為`Dataset.Tabular.from_delimited_files`和`Dataset.Tabular.from_parquet.files`的引數。 每個資料路徑的分割區資訊將會根據指定的格式，解壓縮到資料行中。 ' {column_name} ' 會建立字串資料行，而 ' {column_name： yyyy/MM/dd/HH/mm/ss} ' 會建立 datetime 資料行，其中 ' yyyy '、' MM '、' dd '、' HH '、' mm ' 和 ' ss ' 是用來針對日期時間類型來解壓縮 year、month、day、hour、minute 和 second Partition_format 應該從第一個分割區索引鍵的位置開始，直到檔路徑結束為止。 例如，假設路徑為 '.../USA/2019/01/01/data.csv '，其中分割區是依據國家和時間，partition_format = '/{Country}/{PartitionDate： yyyy/MM/dd}/data .csv ' 會建立字串資料行 ' Country '，其值為 ' USA '，而 datetime 資料行 ' PartitionDate ' 的值為 ' 2019-01-01 '。
     + `to_csv_files`和`to_parquet_files`方法已加入至`TabularDataset`。 這些方法會將資料轉換`TabularDataset`成指定`FileDataset`格式的檔案，以啟用與之間的轉換。
     + 儲存 Model. package （）所產生的 Dockerfile 時，會自動登入基底映射登錄。
     + 不再需要 ' gpu_support ';AzureML 現在會自動偵測並使用 nvidia docker 擴充功能（如果有的話）。 它將在未來的版本中移除。
