@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
 ms.date: 05/15/2019
-ms.openlocfilehash: 65daf1468d27825d9904a14e42e43796d3985321
-ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
+ms.openlocfilehash: f560887a48ce4754b26a54ef0e18093c5577af34
+ms.sourcegitcommit: 2ed6e731ffc614f1691f1578ed26a67de46ed9c2
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/14/2019
-ms.locfileid: "70996513"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71128814"
 ---
 # <a name="what-is-the-visual-interface-for-azure-machine-learning"></a>Azure Machine Learning 的視覺化介面是什麼？ 
 
@@ -95,8 +95,8 @@ Web 服務會在應用程式和評分模型之間提供介面。 外部應用程
 
 * 使用[教學課程來瞭解預測性分析和機器學習的基本概念：透過視覺化介面預測汽車價格](ui-tutorial-automobile-price-train-score.md)
 * 使用其中一個範例，並進行修改以符合您的需求：
-    * [範例 1-回歸：預測價格](ui-sample-regression-predict-automobile-price-basic.md)
-    * [範例 2-回歸：預測價格和比較演算法](ui-sample-regression-predict-automobile-price-compare-algorithms.md)
-    * [範例 3-分類：預測信用風險](ui-sample-classification-predict-credit-risk-basic.md)
-    * [範例 4-分類：預測信用風險（區分成本）](ui-sample-classification-predict-credit-risk-cost-sensitive.md)
-    * [範例 5-分類：預測流失、appetency 和向上銷售](ui-sample-classification-predict-churn.md)
+    * [範例 1-回歸：預測價格](how-to-ui-sample-regression-predict-automobile-price-basic.md)
+    * [範例 2-回歸：預測價格和比較演算法](how-to-ui-sample-regression-predict-automobile-price-compare-algorithms.md)
+    * [範例 3-分類：預測信用風險](how-to-ui-sample-classification-predict-credit-risk-basic.md)
+    * [範例 4-分類：預測信用風險（區分成本）](how-to-ui-sample-classification-predict-credit-risk-cost-sensitive.md)
+    * [範例 5-分類：預測流失、appetency 和向上銷售](how-to-ui-sample-classification-predict-churn.md)

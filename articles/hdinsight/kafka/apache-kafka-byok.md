@@ -1,18 +1,18 @@
 ---
 title: 在 Azure HDInsight 上攜帶您自己的 Apache Kafka 金鑰
 description: 本文說明如何使用您自己在 Azure Key Vault 中的金鑰，來加密 Azure HDInsight 上的 Apache Kafka 中所儲存的資料。
-ms.service: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: hrasheed
+ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 05/06/2019
-ms.openlocfilehash: 15638d90fe24938a45f6d4cce156e998f1f9afc2
-ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
+ms.openlocfilehash: ba49944011546db45d25cc87c2c4b93c8b99502a
+ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/15/2019
-ms.locfileid: "71000108"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71122690"
 ---
 # <a name="bring-your-own-key-for-apache-kafka-on-azure-hdinsight"></a>在 Azure HDInsight 上攜帶您自己的 Apache Kafka 金鑰
 
@@ -22,7 +22,7 @@ HDInsight 中的所有受控磁碟都會使用 Azure 儲存體服務加密 (SSE)
 
 BYOK 加密是單一步驟的程序，您可在叢集建立期間免費處理此程序。 您只需要使用 Azure Key Vault 將 HDInsight 註冊為受控識別，並在建立叢集時新增加密金鑰即可。
 
-所有傳送到 Kafka 叢集的訊息 (包括 Kafka 所維護的複本) 都會使用對稱資料加密金鑰 (DEK) 來加密。 DEK 會使用金鑰保存庫中的金鑰加密金鑰 (KEK) 來加以保護。 加密和解密程序完全由 Azure HDInsight 來處理。 
+所有傳送到 Kafka 叢集的訊息 (包括 Kafka 所維護的複本) 都會使用對稱資料加密金鑰 (DEK) 來加密。 DEK 會使用金鑰保存庫中的金鑰加密金鑰 (KEK) 來加以保護。 加密和解密程序完全由 Azure HDInsight 來處理。
 
 您可以使用 Azure 入口網站或 Azure CLI，在金鑰保存庫中安全地輪替金鑰。 金鑰輪替時，HDInsight Kafka 叢集就會在幾分鐘內開始使用新的金鑰。 啟用「虛刪除」金鑰保護功能，以防範勒索軟體案例和意外刪除。 不支援不含此保護功能的金鑰保存庫。
 
@@ -46,6 +46,7 @@ BYOK 加密是單一步驟的程序，您可在叢集建立期間免費處理此
    1. 若要建立新的金鑰保存庫，請遵循 [Azure Key Vault](../../key-vault/key-vault-overview.md) 快速入門。 如需如何匯入現有金鑰的詳細資訊，請瀏覽[關於金鑰、祕密和憑證](../../key-vault/about-keys-secrets-and-certificates.md)。
 
    2. 使用[az keyvault update](/cli/azure/keyvault?view=azure-cli-latest#az-keyvault-update) cli 命令，在金鑰保存庫上啟用「虛刪除」。
+
         ```Azure CLI
         az keyvault update --name <Key Vault Name> --enable-soft-delete
         ```
@@ -58,16 +59,16 @@ BYOK 加密是單一步驟的程序，您可在叢集建立期間免費處理此
 
         b. 將 [選項] 設定為 [產生]，並為金鑰提供名稱。
 
-        ![產生金鑰名稱](./media/apache-kafka-byok/apache-kafka-create-key.png "產生金鑰名稱")
+        ![Apache kafka 產生金鑰名稱](./media/apache-kafka-byok/apache-kafka-create-key.png "產生金鑰名稱")
 
         c. 從金鑰清單中選取您建立的金鑰。
 
-        ![Azure Key Vault 金鑰清單](./media/apache-kafka-byok/kafka-key-vault-key-list.png)
+        ![Apache kafka key vault 金鑰清單](./media/apache-kafka-byok/kafka-key-vault-key-list.png)
 
         d. 當您使用自己的金鑰進行 Kafka 叢集加密時，需要提供金鑰 URI。 複製**金鑰識別碼**並將其儲存到某處，直到您準備好建立叢集為止。
 
-        ![複製金鑰識別碼](./media/apache-kafka-byok/kafka-get-key-identifier.png)
-   
+        ![Apache kafka 取得金鑰識別碼](./media/apache-kafka-byok/kafka-get-key-identifier.png)
+
     4. 將受控識別新增至金鑰保存庫存取原則。
 
         a. 建立新的 Azure Key Vault 存取原則。
@@ -99,6 +100,7 @@ BYOK 加密是單一步驟的程序，您可在叢集建立期間免費處理此
    叢集建立期間，請提供完整的金鑰 URL，包括金鑰版本。 例如： `https://contoso-kv.vault.azure.net/keys/kafkaClusterKey/46ab702136bc4b229f8b10e8c2997fa4` 。 您也需要將受控識別指派給叢集，並提供金鑰 URI。
 
 ## <a name="rotating-the-encryption-key"></a>輪替加密金鑰
+
    在某些情況下，您可能會想要變更 Kafka 叢集在建立之後所使用的加密金鑰。 這可以透過入口網站輕鬆地進行。 針對此作業，叢集必須能夠存取目前的金鑰和預定的新金鑰，否則輪替金鑰作業將會失敗。
 
    若要旋轉金鑰，您必須擁有新金鑰的完整 url （請參閱[設定 Key Vault 和金鑰](#setup-the-key-vault-and-keys)的步驟3）。 一旦您這樣做，請移至入口網站中的 Kafka 叢集屬性區段，然後按一下 [**磁片加密金鑰 URL**] 底下的 [**變更金鑰**]。 輸入新的金鑰 url 並提交以旋轉金鑰。
@@ -122,7 +124,7 @@ BYOK 加密是單一步驟的程序，您可在叢集建立期間免費處理此
 **如果叢集失去對金鑰保存庫或金鑰的存取權，會發生什麼事？**
 如果叢集失去金鑰的存取權，Apache Ambari 入口網站中將會顯示警告。 在此狀態下，**變更金鑰**作業將會失敗。 一旦還原金鑰存取權，Ambari 警告就會消失，而且可以順利執行金鑰輪替之類的作業。
 
-   ![Kafka 金鑰存取 Ambari 警示](./media/apache-kafka-byok/kafka-byok-ambari-alert.png)
+   ![Apache Kafka 金鑰存取 Ambari 警示](./media/apache-kafka-byok/kafka-byok-ambari-alert.png)
 
 **如果金鑰已刪除，要如何復原叢集？**
 

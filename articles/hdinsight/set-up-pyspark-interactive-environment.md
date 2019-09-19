@@ -2,18 +2,18 @@
 title: Azure HDInsight 工具-適用于 Visual Studio Code 的 PySpark 互動式環境
 description: 了解如何使用適用於 Visual Studio Code 的 Azure HDInsight 工具來建立及提交查詢和指令碼。
 keywords: VScode,Azure HDInsight 工具,Hive,Python,PySpark,Spark,HDInsight,Hadoop,LLAP,互動式 Hive,互動式查詢
-ms.service: hdinsight
 author: jejiang
 ms.author: jejiang
 ms.reviewer: jasonh
+ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 06/13/2019
-ms.openlocfilehash: d220d81b8dc57541113f7ef1e477bb77d394e206
-ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
+ms.openlocfilehash: f62f7994818e487202e35e4931472355fb6ac3d2
+ms.sourcegitcommit: 2ed6e731ffc614f1691f1578ed26a67de46ed9c2
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70879285"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71130183"
 ---
 # <a name="set-up-the-pyspark-interactive-environment-for-visual-studio-code"></a>設定 Visual Studio Code 的 PySpark 互動式環境
 
@@ -21,20 +21,19 @@ ms.locfileid: "70879285"
 
 我們會使用 **python/pip** 命令在您的首頁路徑中建置虛擬環境。 如果想要使用其他版本，您需要手動變更 **python/pip** 命令的預設版本。 請參閱[更新替代項目](https://linux.die.net/man/8/update-alternatives)了解更多詳細資料。
 
-1. 安裝 [Python](https://www.python.org/downloads/) 和 [pip](https://pip.pypa.io/en/stable/installing/)。
-   
+1. 安裝[Python](https://www.python.org/downloads/)和[pip](https://pip.pypa.io/en/stable/installing/)。
+
    + 從 [https://www.python.org/downloads/](https://www.python.org/downloads/) 安裝 Python。
    + 從[https://pip.pypa.io/en/stable/installing](https://pip.pypa.io/en/stable/installing/)安裝 pip （如果它不是從 Python 安裝安裝）。
    + 使用下列命令來驗證是否已成功安裝 Python 和 pip。 (選用)
- 
-        ![Python pip 版本](./media/set-up-pyspark-interactive-environment/check-python-pip-version.png)
+
+        ![檢查 Python pip 版本命令](./media/set-up-pyspark-interactive-environment/check-python-pip-version.png)
 
      > [!NOTE]
      > 建議您手動安裝 Python，而不是使用 macOS 預設版本。
 
-
 2. 執行下列命令來安裝 **virtualenv**。
-   
+
    ```
    pip install virtualenv
    ```
@@ -43,7 +42,7 @@ ms.locfileid: "70879285"
 
 如果您遇到錯誤訊息，請執行下列命令來安裝必要的套件：
 
-   ![libkrb5-dev 套件](./media/set-up-pyspark-interactive-environment/install-libkrb5-package.png)
+   ![安裝適用于 python 的 libkrb5-dev 套件](./media/set-up-pyspark-interactive-environment/install-libkrb5-package.png)
 
 ```
 sudo apt-get install libkrb5-dev

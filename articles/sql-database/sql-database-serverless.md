@@ -11,12 +11,12 @@ author: moslake
 ms.author: moslake
 ms.reviewer: sstein, carlrab
 ms.date: 09/06/2019
-ms.openlocfilehash: e6c815b317e60d7a65a2f26249782451bc917097
-ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
+ms.openlocfilehash: 04e3881b553f639bb2df948b6ad1154f86f1c9da
+ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/14/2019
-ms.locfileid: "70993457"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71123092"
 ---
 # <a name="azure-sql-database-serverless-preview"></a>Azure SQL Database 無伺服器（預覽）
 
@@ -160,6 +160,12 @@ SQL 快取會隨著資料以相同的方式從磁片提取，而且速度與布�
    |GP_S_Gen5_1|一般目的|Gen5|1|
    |GP_S_Gen5_2|一般目的|Gen5|2|
    |GP_S_Gen5_4|一般目的|Gen5|4|
+   |GP_S_Gen5_6|一般目的|Gen5|6|
+   |GP_S_Gen5_8|一般目的|Gen5|8|
+   |GP_S_Gen5_10|一般目的|Gen5|10|
+   |GP_S_Gen5_12|一般目的|Gen5|12|
+   |GP_S_Gen5_14|一般目的|Gen5|14|
+   |GP_S_Gen5_16|一般目的|Gen5|16|
 
 2. （選擇性）指定最小虛擬核心和自動暫停延遲，以變更其預設值。 下表顯示這些參數的可用值。
 

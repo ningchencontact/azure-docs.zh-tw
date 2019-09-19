@@ -1,18 +1,18 @@
 ---
 title: 在 Azure HDInsight 中對 YARN 進行疑難排解
 description: 取得有關使用 Apache Hadoop YARN 和 Azure HDInsight 的常見問題解答。
-ms.service: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
+ms.service: hdinsight
 ms.topic: troubleshooting
 ms.date: 08/15/2019
-ms.openlocfilehash: 107230a4d8c2e0427c2fcf2a8862559c707831a1
-ms.sourcegitcommit: 8ef0a2ddaece5e7b2ac678a73b605b2073b76e88
+ms.openlocfilehash: a0eb0d15d931cf1b2f71740c7a9359cf16205481
+ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71076576"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71122521"
 ---
 # <a name="troubleshoot-apache-hadoop-yarn-by-using-azure-hdinsight"></a>使用 Azure HDInsight 針對 Apache Hadoop YARN 問題進行疑難排解
 
@@ -26,7 +26,7 @@ ms.locfileid: "71076576"
 
 在本例中，兩個現有的佇列 (**預設**和 **thriftsvr**) 都從 50% 的容量變更為 25% 的容量，讓新的佇列 (spark) 有 50% 的容量。
 
-| 佇列 | 容量 | 最大容量 |
+| 佇列 | Capacity | 最大容量 |
 | --- | --- | --- |
 | 預設值 | 25% | 50% |
 | thrftsvr | 25% | 50% |
@@ -34,24 +34,24 @@ ms.locfileid: "71076576"
 
 1. 選取 [Ambari 檢視] 圖示，然後選取格線模式。 接著，選取 [YARN 佇列管理員]。
 
-    ![選取 Ambari 檢視圖示](media/hdinsight-troubleshoot-yarn/apache-yarn-create-queue-1.png)
+    ![Apache Ambari 儀表板 YARN 佇列管理員](media/hdinsight-troubleshoot-yarn/apache-yarn-create-queue-1.png)
 2. 選取 [預設] 佇列。
 
-    ![選取預設佇列](media/hdinsight-troubleshoot-yarn/apache-yarn-create-queue-2.png)
+    ![Apache Ambari YARN 選取預設佇列](media/hdinsight-troubleshoot-yarn/apache-yarn-create-queue-2.png)
 3. 對於 [預設] 佇列，將 [容量] 從 50% 變更為 25%。 對於 [thriftsvr] 佇列，將 [容量] 變更為 25%。
 
     ![將預設和 thriftsvr 佇列的容量變更為 25%](media/hdinsight-troubleshoot-yarn/apache-yarn-create-queue-3.png)
 4. 若要建立新的佇列，請選取 [新增佇列]。
 
-    ![選取 [新增佇列]](media/hdinsight-troubleshoot-yarn/apache-yarn-create-queue-4.png)
+    ![Apache Ambari YARN 儀表板新增佇列](media/hdinsight-troubleshoot-yarn/apache-yarn-create-queue-4.png)
 
 5. 命名新的佇列。
 
-    ![將佇列命名為 Spark](media/hdinsight-troubleshoot-yarn/apache-yarn-create-queue-5.png)  
+    ![Apache Ambari YARN 儀表板名稱佇列](media/hdinsight-troubleshoot-yarn/apache-yarn-create-queue-5.png)  
 
 6. 將 [容量] 值保持在 50%，然後選取 [動作] 按鈕。
 
-    ![選取 [動作] 按鈕](media/hdinsight-troubleshoot-yarn/apache-yarn-create-queue-6.png)  
+    ![Apache Ambari YARN 選取動作](media/hdinsight-troubleshoot-yarn/apache-yarn-create-queue-6.png)  
 7. 選取 [Save and Refresh Queues] \(儲存並重新整理佇列)。
 
     ![選取 [Save and Refresh Queues] \(儲存並重新整理佇列)。](media/hdinsight-troubleshoot-yarn/apache-yarn-create-queue-7.png)  
@@ -64,7 +64,7 @@ ms.locfileid: "71076576"
 
 ## <a name="how-do-i-download-yarn-logs-from-a-cluster"></a>如何下載叢集的 YARN 記錄？
 
-### <a name="resolution-steps"></a>解決步驟 
+### <a name="resolution-steps"></a>解決步驟
 
 1. 使用安全殼層 (SSH) 用戶端連線到 HDInsight 叢集。 如需詳細資訊，請參閱[其他閱讀資料](#additional-reading-2)。
 

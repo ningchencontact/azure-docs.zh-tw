@@ -1,19 +1,19 @@
 ---
 title: Apache Kafka 的 Azure 監視器記錄-Azure HDInsight
 description: 瞭解如何在 Azure HDInsight 上使用 Azure 監視器記錄來分析 Apache Kafka 叢集的記錄。
-ms.service: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
+ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/02/2019
-ms.openlocfilehash: 44eea1bc6390e743aff104550e5b6d7e97c45929
-ms.sourcegitcommit: dd69b3cda2d722b7aecce5b9bd3eb9b7fbf9dc0a
+ms.openlocfilehash: 5739883984d4087d2b2a1bda66c01ff3cfa10eb0
+ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70960124"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71122604"
 ---
 # <a name="analyze-logs-for-apache-kafka-on-hdinsight"></a>在 HDInsight 上分析 Apache Kafka 的記錄
 
@@ -43,7 +43,7 @@ ms.locfileid: "70960124"
 * 磁片使用量：
 
     ```kusto
-    Perf 
+    Perf
     | where ObjectName == "Logical Disk" and CounterName == "Free Megabytes" and InstanceName == "_Total" and ((Computer startswith_cs "hn" and Computer contains_cs "-") or (Computer startswith_cs "wn" and Computer contains_cs "-")) 
     | summarize AggregatedValue = avg(CounterValue) by Computer, bin(TimeGenerated, 1h)
     ```
@@ -82,17 +82,17 @@ ms.locfileid: "70960124"
 
     > [!IMPORTANT]  
     > 請將查詢值取代為叢集特有的資訊。 例如，`ClusterName_s` 必須設定為您的叢集名稱。 `HostName_s` 必須設定為叢集中背景工作角色節點的網域名稱。
-    
+
     您也可以輸入 `*` 來搜尋所有記錄的類型。 目前我們提供以下記錄的查詢：
-    
+
     | 記錄類型 | 描述 |
     | ---- | ---- |
     | log\_kafkaserver\_CL | Kafka broker server.log |
     | log\_kafkacontroller\_CL | Kafka broker controller.log |
     | metrics\_kafka\_CL | Kafka JMX metrics |
-    
-    ![CPU 使用率搜尋的影像](./media/apache-kafka-log-analytics-operations-management/apache-kafka-cpu-usage.png)
- 
+
+    ![Apache kafka log analytics cpu 使用量](./media/apache-kafka-log-analytics-operations-management/apache-kafka-cpu-usage.png)
+
 ## <a name="next-steps"></a>後續步驟
 
 如需有關 Azure 監視器的詳細資訊，請參閱[Azure 監視器總覽](../../log-analytics/log-analytics-get-started.md)，並[查詢 Azure 監視器記錄以監視 HDInsight](../hdinsight-hadoop-oms-log-analytics-use-queries.md)叢集。

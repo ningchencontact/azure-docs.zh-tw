@@ -9,12 +9,12 @@ ms.date: 09/17/2019
 ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
-ms.openlocfilehash: 3640d2d88fc679b78395472c667fcde39979728a
-ms.sourcegitcommit: 8ef0a2ddaece5e7b2ac678a73b605b2073b76e88
+ms.openlocfilehash: 6a598ad3f68c613a745fd56f3b368e309afeb8b6
+ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71074342"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71122968"
 ---
 # <a name="azure-storage-redundancy"></a>Azure 儲存體備援
 
@@ -28,12 +28,7 @@ Azure 儲存體會定期驗證使用迴圈冗余檢查（CRCs）所儲存之資�
 
 建立儲存體帳戶時，您可以選取下列其中一個備援選項：
 
-- [本地備援儲存體 (LRS)](storage-redundancy-lrs.md)
-- [區域備援儲存體 (ZRS)](storage-redundancy-zrs.md)
-- [異地備援儲存體 (GRS)](storage-redundancy-grs.md)
-- [讀取權限異地備援儲存體 (RA-GRS)](storage-redundancy-grs.md#read-access-geo-redundant-storage)
-- [異地區域-多餘儲存體（切換）](storage-redundancy-gzrs.md)
-- [讀取權限異地區域-多餘儲存體（RA-切換）](storage-redundancy-gzrs.md)
+[!INCLUDE [azure-storage-redundancy](../../../includes/azure-storage-redundancy.md)]
 
 下表快速簡要說明針對所指定類型的事件 (或具有類似影響的事件)，每個複寫策略將為您提供的持久性和可用性範圍。
 
@@ -55,7 +50,7 @@ Azure 儲存體會定期驗證使用迴圈冗余檢查（CRCs）所儲存之資�
 如需 Azure 儲存體持續性和可用性保證的相關資訊，請參閱 [Azure 儲存體 SLA](https://azure.microsoft.com/support/legal/sla/storage/)。
 
 > [!NOTE]
-> Azure 進階儲存體僅支援本機多餘的儲存體（LRS）。
+> Azure 進階儲存體目前僅支援本機多餘的儲存體（LRS）。
 
 ## <a name="changing-replication-strategy"></a>變更複寫策略
 

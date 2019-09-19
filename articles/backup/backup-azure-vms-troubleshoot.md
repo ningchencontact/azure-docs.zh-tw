@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 08/30/2019
 ms.author: dacurwin
-ms.openlocfilehash: 1b3d02d5cfdae2f196f2f35f075dd8c250b5ece1
-ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
+ms.openlocfilehash: 280ac51dbc32bca7024f850a379f29fb86d5e684
+ms.sourcegitcommit: 2ed6e731ffc614f1691f1578ed26a67de46ed9c2
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70860338"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71130106"
 ---
 # <a name="troubleshooting-backup-failures-on-azure-virtual-machines"></a>針對 Azure 虛擬機器上的備份失敗進行疑難排解
 
@@ -35,7 +35,7 @@ ms.locfileid: "70860338"
 * **事件記錄**檔可能會顯示來自其他備份產品的備份失敗（例如，Windows Server backup），而不是 Azure 備份所致。 使用下列步驟來判斷問題是否為 Azure 備份：
    * 如果事件來源或訊息中的專案**備份**發生錯誤，請檢查 AZURE IaaS VM 備份是否成功，以及是否使用所需的快照集類型建立還原點。
     * 如果 Azure 備份運作中，則問題可能是另一個備份解決方案。
-    * 以下是事件檢視器錯誤的範例，其中 Azure 備份正常運作，但 "Windows Server Backup" 失敗：<br>
+    * 以下是事件檢視器錯誤517的範例，其中 Azure 備份正常運作，但 "Windows Server Backup" 失敗：<br>
     ![Windows Server Backup 失敗](media/backup-azure-vms-troubleshoot/windows-server-backup-failing.png)
     * 如果 Azure 備份失敗，請在本文的常見 VM 備份錯誤一節中尋找對應的錯誤碼。
 
@@ -185,10 +185,10 @@ REG ADD "HKLM\SOFTWARE\Microsoft\BcdrAgentPersistentKeys" /v CalculateSnapshotTi
 
 | 錯誤詳細資料 | 因應措施 |
 | ------ | --- |
-| **錯誤碼**：320001<br/> **錯誤訊息**：因為 VM 已經不存在，所以無法執行此作業。 <br/> <br/> **錯誤碼**：400094 <br/> **錯誤訊息**：虛擬機器不存在 <br/> <br/>  找不到 Azure 虛擬機器。  |此錯誤會在已刪除主要 VM，但備份原則仍然在尋找 VM 來備份時發生。 若要修正此錯誤，請遵循下列步驟： <ol><li> 重新建立具有相同名稱和相同資源群組名稱 (**雲端服務名稱**) 的虛擬機器，<br>**or**</li><li> 停止保護虛擬機器 (不論是否刪除備份資料)。 如需詳細資訊，請參閱[停止保護虛擬機器](backup-azure-manage-vms.md#stop-protecting-a-vm)。</li></ol>|
-| VM 處於失敗的佈建狀態： <br>請將 VM 重新啟動，並確定 VM 正在執行或已關機。 | 此錯誤會在因其中一個延伸模組發生失敗，而使 VM 處於失敗的佈建狀態時發生。 請移至延伸模組清單，查看是否有失敗的延伸模組並將它移除，然後嘗試重新啟動虛擬機器。 如果所有延伸模組都是處於執行中的狀態，請檢查 VM 代理程式服務是否正在執行。 若否，請重新啟動 VM 代理程式服務。 |
+| **錯誤碼**：320001、ResourceNotFound <br/> **錯誤訊息**：因為 VM 已經不存在，所以無法執行此作業。 <br/> <br/> **錯誤碼**：400094、BCMV2VMNotFound <br/> **錯誤訊息**：虛擬機器不存在 <br/> <br/>  找不到 Azure 虛擬機器。  |此錯誤會在已刪除主要 VM，但備份原則仍然在尋找 VM 來備份時發生。 若要修正此錯誤，請遵循下列步驟： <ol><li> 重新建立具有相同名稱和相同資源群組名稱 (**雲端服務名稱**) 的虛擬機器，<br>**or**</li><li> 停止保護虛擬機器 (不論是否刪除備份資料)。 如需詳細資訊，請參閱[停止保護虛擬機器](backup-azure-manage-vms.md#stop-protecting-a-vm)。</li></ol>|
+| **錯誤碼**：UserErrorVmProvisioningStateFailed<br/> **錯誤訊息**：VM 處於失敗的佈建狀態： <br>請將 VM 重新啟動，並確定 VM 正在執行或已關機。 | 此錯誤會在因其中一個延伸模組發生失敗，而使 VM 處於失敗的佈建狀態時發生。 請移至延伸模組清單，查看是否有失敗的延伸模組並將它移除，然後嘗試重新啟動虛擬機器。 如果所有延伸模組都是處於執行中的狀態，請檢查 VM 代理程式服務是否正在執行。 若否，請重新啟動 VM 代理程式服務。 |
 |**錯誤碼**：UserErrorBCMPremiumStorageQuotaError<br/> **錯誤訊息**：因為儲存體帳戶中的可用空間不足，所以無法複製虛擬機器的快照集 | 針對 VM 備份堆疊 V1 上的進階 VM，我們會將快照集複製到儲存體帳戶。 此步驟是為了確定快照集上運作的備份管理流量不會限制可供使用進階磁碟的應用程式使用的 IOPS 數目。 <br><br>我們建議您僅配置 50% (17.5 TB) 的總儲存體帳戶空間。 然後 Azure 備份服務便可以將快照集複製到儲存體帳戶，並從儲存體帳戶中的這個複製位置將資料傳送到到保存庫。 |
-| **錯誤碼：380008** <br/> **錯誤訊息**：因為虛擬機器不在執行中，所以無法安裝 Microsoft 復原服務延伸模組 | VM 代理程式是 Azure 復原服務延伸模組的必要條件。 請安裝 Azure 虛擬機器代理程式並重新啟動註冊作業。 <br> <ol> <li>檢查是否已正確安裝 VM 代理程式。 <li>確定已正確設定 VM 設定上的旗標。</ol> 深入了解如何安裝 VM 代理程式，以及如何驗證 VM 代理程式安裝。 |
+| **錯誤碼**：380008、AzureVmOffline <br/> **錯誤訊息**：因為虛擬機器不在執行中，所以無法安裝 Microsoft 復原服務延伸模組 | VM 代理程式是 Azure 復原服務延伸模組的必要條件。 請安裝 Azure 虛擬機器代理程式並重新啟動註冊作業。 <br> <ol> <li>檢查是否已正確安裝 VM 代理程式。 <li>確定已正確設定 VM 設定上的旗標。</ol> 深入了解如何安裝 VM 代理程式，以及如何驗證 VM 代理程式安裝。 |
 | **錯誤碼**：ExtensionSnapshotBitlockerError <br/> **錯誤訊息**：快照集作業失敗且發生磁碟區陰影複製服務 (VSS) 作業錯誤：**這個磁碟機已由 BitLocker 磁碟機加密鎖定。您必須至 [控制台] 解除鎖定這個磁碟機。** |對 VM 上的所有磁碟機關閉 BitLocker，並檢查是否已解決 VSS 問題。 |
 | **錯誤碼**：VmNotInDesirableState <br/> **錯誤訊息**：VM 目前的狀態不允許備份。 |<ul><li>如果 VM 處於 [正在執行] 和 [關機] 之間的暫時性狀態，請等候狀態變更。 然後再觸發備份作業。 <li> 如果 VM 是 Linux VM 並使用安全性強化的 Linux 核心模組，請從安全性原則中排除 Azure Linux 代理程式路徑 **/var/lib/waagent**，並確定已安裝備份延伸模組。  |
 | 虛擬機器上沒有 VM 代理程式： <br>請安裝所有必要條件和 VM 代理程式。 接著請重新啟動作業。 |深入了解 [VM 代理程式安裝，以及如何驗證 VM 代理程式安裝](#vm-agent)。 |

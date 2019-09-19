@@ -1,30 +1,31 @@
 ---
 title: 將 HDInsight 叢集升級為更新的版本 - Azure
 description: 瞭解將您的 Azure HDInsight 叢集升級為較新版本的指導方針。
-ms.service: hdinsight
 author: omidm1
 ms.author: omidm
 ms.reviewer: jasonh
+ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 04/04/2017
-ms.openlocfilehash: a62da0d27d21589f7b75a89cc184ce9f456f1fed
-ms.sourcegitcommit: dd69b3cda2d722b7aecce5b9bd3eb9b7fbf9dc0a
+ms.openlocfilehash: 808e592a01bca2066b7d3d37a5fdfa697d739d4b
+ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70960721"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71122441"
 ---
 # <a name="upgrade-hdinsight-cluster-to-a-newer-version"></a>將 HDInsight 叢集升級為更新的版本
+
 若要充分利用最新的 HDInsight 功能，建議您將 HDInsight 叢集升級到最新的版本。 依照下面的指導方針升級您的 HDInsight 叢集版本。
 
 > [!NOTE]  
 > 如需受支援 HDInsight 版本的詳細資訊，請參閱 [HDInsight 元件版本](hdinsight-component-versioning.md#supported-hdinsight-versions)。
 
 ## <a name="upgrade-tasks"></a>升級工作
-升級 HDInsight 叢集的工作流程如下。
 
-![升級工作流程圖表](./media/hdinsight-upgrade-cluster/upgrade-workflow-diagram.png)
+升級 HDInsight 叢集的工作流程如下。
+![HDInsight 升級工作流程圖表](./media/hdinsight-upgrade-cluster/upgrade-workflow-diagram.png)
 
 1. 閱讀此文件的每一節，以了解在升級 HDInsight 叢集時，可能需要進行的變更。
 2. 將叢集建立為測試/品質保證環境。 如需建立叢集的詳細資訊，請參閱[了解如何建立 Linux 型 HDInsight 叢集](hdinsight-hadoop-provision-linux-clusters.md)
@@ -40,7 +41,7 @@ ms.locfileid: "70960721"
 5.  使用新叢集啟動工作/繼續處理。
 
 ## <a name="next-steps"></a>後續步驟
+
 * [了解如何建立 Linux 型 HDInsight 叢集](hdinsight-hadoop-provision-linux-clusters.md)
 * [使用 SSH 連線到 HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md)
 * [使用 Apache Ambari 管理 Linux 型叢集](hdinsight-hadoop-manage-ambari.md)
-

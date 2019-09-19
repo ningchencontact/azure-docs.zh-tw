@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 07/01/2019
 ms.author: ganesr
 ms.custom: seodec18
-ms.openlocfilehash: 55b5207e4c05712b4d96d4272f9ae193cc4c1720
-ms.sourcegitcommit: 79496a96e8bd064e951004d474f05e26bada6fa0
+ms.openlocfilehash: c49b1fa1e2e8421146f5d5012de983c14934c23c
+ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/02/2019
-ms.locfileid: "67508600"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71122930"
 ---
 # <a name="configure-route-filters-for-microsoft-peering-azure-portal"></a>針對 Microsoft 對等互連設定路由篩選：Azure 入口網站
 > [!div class="op_single_selector"]
@@ -24,7 +24,7 @@ ms.locfileid: "67508600"
 
 路由篩選是透過 Microsoft 對等互連使用支援服務子集的方式。 這篇文章中的步驟可協助您設定和管理 ExpressRoute 線路的路由篩選。
 
-透過 Microsoft 對等互連，既可以存取 Dynamics 365 服務和 Office 365 服務 (例如 Exchange Online、SharePoint Online 和商務用 Skype)，也可以存取 Azure 服務 (例如儲存體和 SQL DB)。 當 Microsoft 對等互連在 ExpressRoute 線路中設定時，與這些服務相關的所有前置詞都會透過建立的 BGP 工作階段進行公告。 BGP 社群值附加至每個前置詞，來識別透過前置詞提供的服務。 如需 BGP 社群值和它們對應之服務的清單，請參閱 [BGP 社群](expressroute-routing.md#bgp)。
+Office 365 服務（例如 Exchange Online、SharePoint Online 和商務用 Skype）和 Azure 服務（例如儲存體和 SQL DB）都可透過 Microsoft 對等互連來存取。 當 Microsoft 對等互連在 ExpressRoute 線路中設定時，與這些服務相關的所有前置詞都會透過建立的 BGP 工作階段進行公告。 BGP 社群值附加至每個前置詞，來識別透過前置詞提供的服務。 如需 BGP 社群值和它們對應之服務的清單，請參閱 [BGP 社群](expressroute-routing.md#bgp)。
 
 如果您需要連線到所有服務，則會透過 BGP 公告大量前置詞。 這會大幅增加網路內路由器維護的路由資料表大小。 如果您計劃僅使用透過 Microsoft 對等互連提供的服務子集，您可以用兩種方式減少路由資料表大小。 您可以：
 
@@ -36,12 +36,12 @@ ms.locfileid: "67508600"
 
 當 Microsoft 對等互連在 ExpressRoute 線路上設定時，Microsoft 邊緣路由器會建立一組 BGP 工作階段與邊緣路由器 (您或您的連線提供者)。 沒有路由會公告至您的網路。 若要讓路由公告至您的網路，您必須建立與路由篩選的關聯。
 
-路由篩選可讓您識別想要透過 ExpressRoute 線路的 Microsoft 對等互連使用的服務。 它是基本上是您想要允許的所有 BGP 社群值的清單。 一旦定義路由篩選資源，並且連結至 ExpressRoute 線路，對應到 BGP 社群值的所有前置詞都會公告至您的網路。
+路由篩選可讓您識別想要透過 ExpressRoute 線路的 Microsoft 對等互連使用的服務。 它基本上是您想要允許的所有 BGP 社區值的清單。 一旦定義路由篩選資源，並且連結至 ExpressRoute 線路，對應到 BGP 社群值的所有前置詞都會公告至您的網路。
 
-您必須具有透過 ExpressRoute 使用 Office 365 服務的授權，才能在上面連結路由篩選與 Office 365 服務。 如果您未獲授權透過 ExpressRoute 使用 Office 365 服務，連結路由篩選的作業會失敗。 如需授權程序的詳細資訊，請參閱 [Azure ExpressRoute for Office 365](https://support.office.com/article/Azure-ExpressRoute-for-Office-365-6d2534a2-c19c-4a99-be5e-33a0cee5d3bd)。 Dynamics 365 服務的連線不需要任何先前的授權。
+您必須具有透過 ExpressRoute 使用 Office 365 服務的授權，才能在上面連結路由篩選與 Office 365 服務。 如果您未獲授權透過 ExpressRoute 使用 Office 365 服務，連結路由篩選的作業會失敗。 如需授權程序的詳細資訊，請參閱 [Azure ExpressRoute for Office 365](https://support.office.com/article/Azure-ExpressRoute-for-Office-365-6d2534a2-c19c-4a99-be5e-33a0cee5d3bd)。
 
 > [!IMPORTANT]
-> 在 2017 年 8 月 1 日以前設定之 ExpressRoute 線路的 Microsoft 對等互連會透過 Microsoft 對等互連公告所有服務前置詞，即使未定義路由篩選也一樣。 在 2017 年 8 月 1 日當日或以後設定之 ExpressRoute 線路的 Microsoft 對等互連不會公告任何前置詞，直到路由篩選連結至線路為止。
+> 在 2017 年 8 月 1 日以前設定之 ExpressRoute 線路的 Microsoft 對等互連，會透過 Microsoft 對等互連公告所有服務首碼，即使未定義路由篩選也一樣。 在 2017 年 8 月 1 日當日或以後設定之 ExpressRoute 線路的 Microsoft 對等互連不會公告任何前置詞，直到路由篩選連結至線路為止。
 > 
 > 
 
@@ -79,14 +79,14 @@ ms.locfileid: "67508600"
 
 ### <a name="2-make-a-list-of-the-values-that-you-want-to-use"></a>2.製作您想要使用的值清單
 
-建立一份清單[BGP 社群值](expressroute-routing.md#bgp)您想要在路由篩選中使用。 
+建立您想要在路由篩選中使用的[BGP 社區值](expressroute-routing.md#bgp)清單。 
 
 ## <a name="filter"></a>步驟 2：建立路由篩選和篩選規則
 
 路由篩選只能有一個規則，且規則的類型必須是 'Allow'。 此規則可以具有與其相關聯的 BGP 社群值清單。
 
 ### <a name="1-create-a-route-filter"></a>1.建立路由篩選
-您可以選取建立新資源的選項來建立路由篩選。 按一下 [建立資源]   >  [網路]   >  [RouteFilter]  ，如下圖所示：
+您可以選取建立新資源的選項來建立路由篩選。 按一下 [建立資源]  >  [網路]  >  [RouteFilter]，如下圖所示：
 
 ![建立路由篩選](./media/how-to-routefilter-portal/CreateRouteFilter1.png)
 
@@ -101,14 +101,14 @@ ms.locfileid: "67508600"
 ![建立路由篩選](./media/how-to-routefilter-portal/ManageRouteFilter.png)
 
 
-您可以選取您想要連線到，從下拉式清單並儲存規則完成的服務。
+您可以從下拉式清單中選取您想要連接的服務，並在完成時儲存規則。
 
 ![建立路由篩選](./media/how-to-routefilter-portal/AddRouteFilterRule.png)
 
 
 ## <a name="attach"></a>步驟 3：將路由篩選連結至 ExpressRoute 線路
 
-您可以附加至線路的路由篩選，選取 新增線路 按鈕，然後從下拉式清單中選取 ExpressRoute 線路。
+您可以藉由選取 [新增線路] 按鈕，並從下拉式清單中選取 ExpressRoute 線路，將路由篩選附加至線路。
 
 ![建立路由篩選](./media/how-to-routefilter-portal/AddCktToRouteFilter.png)
 
@@ -137,7 +137,7 @@ ms.locfileid: "67508600"
 
 ### <a name="detach"></a>若要從 ExpressRoute 線路取消連結路由篩選
 
-中斷連結的電路與路由篩選，以滑鼠右鍵按一下電路，然後按一下 「 取消關聯 」。
+若要從路由篩選卸離電路，請以滑鼠右鍵按一下線路，然後按一下 [取消關聯]。
 
 ![建立路由篩選](./media/how-to-routefilter-portal/DetachRouteFilter.png) 
 
@@ -152,4 +152,4 @@ ms.locfileid: "67508600"
 
 * 如需有關 ExpressRoute 的詳細資訊，請參閱 [ExpressRoute 常見問題集](expressroute-faqs.md)。
 
-* 路由器組態範例的相關資訊，請參閱[設定和管理路由的路由器組態範例](expressroute-config-samples-routing.md)。 
+* 如需路由器設定範例的詳細資訊，請參閱[設定和管理路由的路由器設定範例](expressroute-config-samples-routing.md)。 

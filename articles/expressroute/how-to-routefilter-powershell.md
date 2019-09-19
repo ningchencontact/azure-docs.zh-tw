@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 02/25/2019
 ms.author: ganesr
 ms.custom: seodec18
-ms.openlocfilehash: e5d94fad5ddcfd0b34e36cb96727cff48b62ea0b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c5a5ca4949ca223e9123d59c9578a2628dacd351
+ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66730224"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71123412"
 ---
 # <a name="configure-route-filters-for-microsoft-peering-powershell"></a>針對 Microsoft 對等互連設定路由篩選：PowerShell
 > [!div class="op_single_selector"]
@@ -24,7 +24,7 @@ ms.locfileid: "66730224"
 
 路由篩選是透過 Microsoft 對等互連使用支援服務子集的方式。 這篇文章中的步驟可協助您設定和管理 ExpressRoute 線路的路由篩選。
 
-透過 Microsoft 對等互連，既可存取 Dynamics 365 服務和 Office 365 服務 (例如 Exchange Online、SharePoint Online 和商務用 Skype)，也可以存取 Azure 公用服務 (例如儲存體和 SQL DB)。 Azure 公用服務可針對每個區域選取，但無法針對每個公用服務加以定義。
+Office 365 服務（例如 Exchange Online、SharePoint Online 和商務用 Skype），以及 Azure 公用服務（例如儲存體和 SQL DB）都可透過 Microsoft 對等互連來存取。 Azure 公用服務可針對每個區域選取，但無法針對每個公用服務加以定義。
 
 在 ExpressRoute 線路中設定 Microsoft 對等互連且已連結路由篩選時，針對這些服務選取的所有前置詞都會透過建立的 BGP 工作階段進行公告。 BGP 社群值附加至每個前置詞，來識別透過前置詞提供的服務。 如需 BGP 社群值和它們對應之服務的清單，請參閱 [BGP 社群](expressroute-routing.md#bgp)。
 
@@ -40,10 +40,10 @@ ms.locfileid: "66730224"
 
 路由篩選可讓您識別想要透過 ExpressRoute 線路的 Microsoft 對等互連使用的服務。 它基本上是 BGP 社群值的允許清單。 一旦定義路由篩選資源，並且連結至 ExpressRoute 線路，對應到 BGP 社群值的所有前置詞都會公告至您的網路。
 
-您必須具有透過 ExpressRoute 使用 Office 365 服務的授權，才能在上面連結路由篩選與 Office 365 服務。 如果您未獲授權透過 ExpressRoute 使用 Office 365 服務，連結路由篩選的作業會失敗。 如需授權程序的詳細資訊，請參閱 [Azure ExpressRoute for Office 365](https://support.office.com/article/Azure-ExpressRoute-for-Office-365-6d2534a2-c19c-4a99-be5e-33a0cee5d3bd)。 Dynamics 365 服務的連線不需要任何先前的授權。
+您必須具有透過 ExpressRoute 使用 Office 365 服務的授權，才能在上面連結路由篩選與 Office 365 服務。 如果您未獲授權透過 ExpressRoute 使用 Office 365 服務，連結路由篩選的作業會失敗。 如需授權程序的詳細資訊，請參閱 [Azure ExpressRoute for Office 365](https://support.office.com/article/Azure-ExpressRoute-for-Office-365-6d2534a2-c19c-4a99-be5e-33a0cee5d3bd)。
 
 > [!IMPORTANT]
-> 在 2017 年 8 月 1 日以前設定之 ExpressRoute 線路的 Microsoft 對等互連會透過 Microsoft 對等互連公告所有服務前置詞，即使未定義路由篩選也一樣。 在 2017 年 8 月 1 日當日或以後設定之 ExpressRoute 線路的 Microsoft 對等互連不會公告任何前置詞，直到路由篩選連結至線路為止。
+> 在 2017 年 8 月 1 日以前設定之 ExpressRoute 線路的 Microsoft 對等互連，會透過 Microsoft 對等互連公告所有服務首碼，即使未定義路由篩選也一樣。 在 2017 年 8 月 1 日當日或以後設定之 ExpressRoute 線路的 Microsoft 對等互連不會公告任何前置詞，直到路由篩選連結至線路為止。
 > 
 > 
 
@@ -112,7 +112,7 @@ Get-AzBgpServiceCommunity
 ```
 ### <a name="2-make-a-list-of-the-values-that-you-want-to-use"></a>2.製作您想要使用的值清單
 
-製作您想要在路由篩選中使用的 BGP 社群值清單。 例如，Dynamics 365 服務的 BGP 社群值是 12076:5040。
+製作您想要在路由篩選中使用的 BGP 社群值清單。
 
 ## <a name="filter"></a>步驟 2：建立路由篩選和篩選規則
 
@@ -120,7 +120,7 @@ Get-AzBgpServiceCommunity
 
 ### <a name="1-create-a-route-filter"></a>1.建立路由篩選
 
-首先，建立路由篩選。 命令 ' 新增 AzRouteFilter' 只會建立路由篩選資源。 建立資源之後，您必須建立規則，然後將它附加到路由篩選物件。 執行下列命令以建立路由篩選資源：
+首先，建立路由篩選。 ' AzRouteFilter ' 命令只會建立路由篩選資源。 建立資源之後，您必須建立規則，然後將它附加到路由篩選物件。 執行下列命令以建立路由篩選資源：
 
 ```azurepowershell-interactive
 New-AzRouteFilter -Name "MyRouteFilter" -ResourceGroupName "MyResourceGroup" -Location "West US"

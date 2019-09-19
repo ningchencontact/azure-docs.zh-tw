@@ -1,19 +1,19 @@
 ---
 title: 在 Azure HDInsight 中使用 Power BI 將互動式查詢 Hive 資料視覺化
 description: 使用 Microsoft Power BI 將 Azure HDInsight 的互動式查詢 Hive 資料視覺化
-ms.service: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
+ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/17/2019
-ms.openlocfilehash: 6311ae7e89cab67611396c607d38fd0f00f99dad
-ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
+ms.openlocfilehash: 0f273f75c33362bc99efbd7ac6bc46c3778ae88b
+ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70811611"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71123024"
 ---
 # <a name="visualize-interactive-query-apache-hive-data-with-microsoft-power-bi-using-direct-query-in-hdinsight"></a>在 HDInsight 中使用直接查詢以 Microsoft Power BI 將互動式查詢 Apache Hive 資料視覺化
 
@@ -37,7 +37,7 @@ ms.locfileid: "70811611"
 
 2. 從功能表列，流覽至 [**首頁** > ] [**取得資料** > ] [**其他 ...** ]。
 
-    ![HDInsight Power BI 開放式資料](./media/apache-hadoop-connect-hive-power-bi-directquery/hdinsight-power-bi-open-odbc.png)
+    ![HDInsight Power BI 取得更多資料](./media/apache-hadoop-connect-hive-power-bi-directquery/hdinsight-power-bi-open-odbc.png)
 
 3. 從 [**取得資料**] 視窗的 [搜尋] 方塊中，輸入**hdinsight** 。  
 

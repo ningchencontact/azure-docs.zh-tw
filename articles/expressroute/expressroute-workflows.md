@@ -5,15 +5,15 @@ services: expressroute
 author: cherylmc
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 12/07/2018
+ms.date: 09/18/2018
 ms.author: cherylmc
 ms.custom: seodec18
-ms.openlocfilehash: 3ffcc5ac2193e607573ceb93717258f5349d1f15
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 1e0f4d356bb6addf735bf148a80e6be3ca550c8f
+ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60883169"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71123386"
 ---
 # <a name="expressroute-workflows-for-circuit-provisioning-and-circuit-states"></a>ExpressRoute 工作流程線路佈建和線路狀態
 這個頁面以高階觀點引導您完成服務佈建和路由設定的工作流程。
@@ -29,7 +29,7 @@ ms.locfileid: "60883169"
    
    * 啟用 Azure 私用對等互連 - 啟用此對等互連才能連接到部署在虛擬網路內的虛擬機器 / 雲端服務。
 
-   * 啟用 Microsoft 對等互連 - 啟用此對等互連才能存取 Office 365 和 Dynamics 365。 此外，透過 Microsoft 對等互連可存取所有 Azure PaaS 服務。
+   * 啟用 Microsoft 對等互連-啟用此對等存取 Office 365。 此外，透過 Microsoft 對等互連可存取所有 Azure PaaS 服務。
      
      > [!IMPORTANT]
      > 必須確定您使用個別的 Proxy / 邊緣來連接到 Microsoft，而不是您用於網際網路的 Proxy / 邊緣。 ExpressRoute 和網際網路使用相同的邊緣會導致路由不對稱，並造成網路連線中斷。

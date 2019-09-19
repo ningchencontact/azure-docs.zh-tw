@@ -4,18 +4,18 @@ summary: Azure Private Link 可讓您存取各項 Azure PaaS 服務 (例如 Azur
 metadata:
   title: Private Link 文件 - -快速入門、操作指南及 API 參考文件
   description: 了解如何使用 Azure Private Link 服務。 快速入門和教學課程會示範如何部署 Private Link 服務。
-  ms.service: virtual-network
+  ms.service: private-link
   ms.topic: landing-page
   ms.collection: collection
   author: KumudD
   ms.author: kumud
   ms.date: 09/16/2019
-  ms.openlocfilehash: 867c20b96f8a48aeb52e455d718057e686ddfcbe
-  ms.sourcegitcommit: 71db032bd5680c9287a7867b923bf6471ba8f6be
+  ms.openlocfilehash: 24b6d3ce2514ef25a015182e4a4fcd641ac76d50
+  ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
   ms.translationtype: HT
   ms.contentlocale: zh-TW
-  ms.lasthandoff: 09/16/2019
-  ms.locfileid: "71020206"
+  ms.lasthandoff: 09/18/2019
+  ms.locfileid: "71104597"
 landingContent:
 - title: 關於 Azure Private Link
   linkLists:

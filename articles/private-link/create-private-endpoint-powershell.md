@@ -7,12 +7,12 @@ ms.service: private-link
 ms.topic: article
 ms.date: 09/16/2019
 ms.author: kumud
-ms.openlocfilehash: 5aa9201e969d9224527d0deea333dc61bda8e444
-ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
+ms.openlocfilehash: 569bc021d978714472bf40bcf39f7134fec95970
+ms.sourcegitcommit: 2ed6e731ffc614f1691f1578ed26a67de46ed9c2
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71104777"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71130337"
 ---
 # <a name="create-a-private-endpoint-using-azure-powershell"></a>使用 Azure PowerShell 建立私人端點
 私人端點是 Azure 中私用連結的基本建立區塊。 它可讓 Azure 資源（例如虛擬機器（Vm））與私人連結資源私下進行通訊。 
@@ -54,7 +54,7 @@ Azure 會將資源部署到虛擬網路內的子網，因此您必須建立子�
 
 ```azurepowershell
 $subnetConfig = Add-AzVirtualNetworkSubnetConfig `
-  -Name mySubnet ` 
+  -Name mySubnet `
   -AddressPrefix 10.0.0.0/24 `
   -PrivateEndpointNetworkPoliciesFlag "Disabled" `
   -VirtualNetwork $virtualNetwork
@@ -99,15 +99,21 @@ Id     Name            PSJobTypeName   State         HasMoreData     Location   
 
 使用 AzSqlServer 命令來建立 SQL Database 伺服器。 請記住，您 SQL Database 伺服器的名稱在整個 Azure 中必須是唯一的，因此請以您自己唯一的值取代括弧中的預留位置值：
 
-$adminSqlLogin = "SqlAdmin" $password = "ChangeYourAdminPassword1"
+```azurepowershell-interactive
+$adminSqlLogin = "SqlAdmin"
+$password = "ChangeYourAdminPassword1"
 
-$server = New-AzSqlServer-ResourceGroupName "myResourceGroup" `
-    -ServerName "myserver" ` -Location "WestCentralUS" '-SqlAdministratorCredentials $ （$ （新物件-TypeName system.web-ArgumentList $adminSqlLogin，$ （Convertto-html-SecureString-String $password-AsPlainText-Force））
+$server = New-AzSqlServer -ResourceGroupName "myResourceGroup" `
+    -ServerName "myserver" `
+    -Location "WestCentralUS" `
+    -SqlAdministratorCredentials $(New-Object -TypeName System.Management.Automation.PSCredential -ArgumentList $adminSqlLogin, $(ConvertTo-SecureString -String $password -AsPlainText -Force))
 
-Set-azsqldatabase 搭配-ResourceGroupName "myResourceGroup" `
-    -ServerName "myserver"` -DatabaseName "myda"`
-    -RequestedServiceObjectiveName "S0" ` -SampleName "AdventureWorksLT"
-
+New-AzSqlDatabase  -ResourceGroupName "myResourceGroup" `
+    -ServerName "myserver"`
+    -DatabaseName "myda"`
+    -RequestedServiceObjectiveName "S0" `
+    -SampleName "AdventureWorksLT"
+```
 
 ## <a name="create-a-private-endpoint"></a>建立私人端點
 
@@ -115,20 +121,20 @@ Set-azsqldatabase 搭配-ResourceGroupName "myResourceGroup" `
 
 ```azurepowershell
 
-$privateEndpointConnection = New-AzPrivateLinkServiceConnection -Name "myConnection" ` 
-  -PrivateLinkServiceId $server.ResourceId ` 
+$privateEndpointConnection = New-AzPrivateLinkServiceConnection -Name "myConnection" `
+  -PrivateLinkServiceId $server.ResourceId `
   -GroupId "sqlServer" 
  
 $virtualNetwork = Get-AzVirtualNetwork -ResourceGroupName  "myResourceGroup" -Name "MyVirtualNetwork"  
  
-$subnet = $virtualNetwork ` 
-  | Select -ExpandProperty subnets ` 
+$subnet = $virtualNetwork `
+  | Select -ExpandProperty subnets `
   | Where-Object  {$_.Name -eq 'mysubnet'}  
  
-$privateEndpoint = New-AzPrivateEndpoint -ResourceGroupName "myResourceGroup" ` 
-  -Name "myPrivateEndpoint" ` 
-  -Location "westcentralus" ` 
-  -Subnet  $subnet` 
+$privateEndpoint = New-AzPrivateEndpoint -ResourceGroupName "myResourceGroup" `
+  -Name "myPrivateEndpoint" `
+  -Location "westcentralus" `
+  -Subnet  $subnet`
   -PrivateLinkServiceConnection $privateEndpointConnection
 ``` 
 
@@ -137,12 +143,12 @@ $privateEndpoint = New-AzPrivateEndpoint -ResourceGroupName "myResourceGroup" `
 
 ```azurepowershell
 
-$zone = New-AzPrivateDnsZone -ResourceGroupName "myResourceGroup" ` 
+$zone = New-AzPrivateDnsZone -ResourceGroupName "myResourceGroup" `
   -Name "privatelink.database.windows.net" 
  
-$link  = New-AzPrivateDnsVirtualNetworkLink -ResourceGroupName "myResourceGroup" ` 
-  -ZoneName "privatelink.database.windows.net"` 
-  -Name "mylink" `  
+$link  = New-AzPrivateDnsVirtualNetworkLink -ResourceGroupName "myResourceGroup" `
+  -ZoneName "privatelink.database.windows.net"`
+  -Name "mylink" `
   -VirtualNetworkId $virtualNetwork.Id  
  
 $networkInterface = Get-AzResource -ResourceId $privateEndpoint.NetworkInterfaces[0].Id -ApiVersion "2019-04-01" 
@@ -152,8 +158,8 @@ foreach ($fqdn in $ipconfig.properties.privateLinkConnectionProperties.fqdns) {
 Write-Host "$($ipconfig.properties.privateIPAddress) $($fqdn)"  
 $recordName = $fqdn.split('.',2)[0] 
 $dnsZone = $fqdn.split('.',2)[1] 
-New-AzPrivateDnsRecordSet -Name $recordName -RecordType A -ZoneName "privatelink.database.windows.net"  ` 
--ResourceGroupName "myResourceGroup" -Ttl 600 ` 
+New-AzPrivateDnsRecordSet -Name $recordName -RecordType A -ZoneName "privatelink.database.windows.net"  `
+-ResourceGroupName "myResourceGroup" -Ttl 600 `
 -PrivateDnsRecords (New-AzPrivateDnsRecordConfig -IPv4Address $ipconfig.properties.privateIPAddress)  
 } 
 } 
@@ -164,9 +170,9 @@ New-AzPrivateDnsRecordSet -Name $recordName -RecordType A -ZoneName "privatelink
 使用 [get-azpublicipaddress](/powershell/module/az.network/Get-AzPublicIpAddress)  來傳回 VM 的公用 IP 位址。 這個範例會傳回 *myVM*  VM 的公用 IP 位址：
 
 ```azurepowershell
-Get-AzPublicIpAddress ` 
-  -Name myPublicIpAddress ` 
-  -ResourceGroupName myResourceGroup ` 
+Get-AzPublicIpAddress `
+  -Name myPublicIpAddress `
+  -ResourceGroupName myResourceGroup `
   | Select IpAddress 
 ```  
 在您的本機電腦上開啟命令提示字元。 執行 mstsc 命令。 將 <publicIpAddress>取代 為上一個步驟所傳回的公用 IP 位址： 

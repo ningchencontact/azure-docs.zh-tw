@@ -39,7 +39,7 @@ Azure Data Factory 可以存取超過80的原生連接器。 若要在資料流�
 
 新增來源之後，請透過 [**來源設定**] 索引標籤進行設定。您可以在這裡挑選或建立來源點的資料集。 您也可以選取資料的架構和取樣選項。
 
-[![來源設定]]索引標籤[(media/data-flow/source1.png "來源設定]")索引標籤
+![來源設定 索引標籤](media/data-flow/source1.png "來源設定索 引標籤
 
 **架構漂移：** [架構漂移](concepts-data-flow-schema-drift.md)是 data factory 能夠以原生方式處理您資料流程中的彈性架構，而不需要明確地定義資料行變更。
 
@@ -83,11 +83,11 @@ Azure Data Factory 可以存取超過80的原生連接器。 若要在資料流�
 
 首先，設定萬用字元以包含所有分割資料夾的路徑，加上您想要讀取的分葉檔案。
 
-資料![分割來源檔案設定]資料(media/data-flow/partfile2.png "分割檔案設定")
+![資料 分割來源檔案設定 資料](media/data-flow/partfile2.png "分割檔案設定")
 
 使用 [資料分割根路徑] 設定來定義資料夾結構的最上層。 當您透過資料預覽來查看資料的內容時，您會看到 ADF 會新增在您的每個資料夾層級中找到的已解析磁碟分割。
 
-![分割區根路徑]資料(media/data-flow/partfile1.png "分割根路徑預覽")
+![分割區根路徑 資料](media/data-flow/partfile1.png "分割根路徑預覽")
 
 **檔案清單：** 這是檔案集。 建立文字檔，其中包含要處理的相對路徑檔案清單。 指向這個文字檔。
 
@@ -155,7 +155,7 @@ Azure Data Factory 可以存取超過80的原生連接器。 若要在資料流�
 
 在來源轉換的 [**優化**] 索引標籤上，您可能會看到**來源**分割區類型。 只有當您的來源是 Azure SQL Database 時，才可以使用此選項。 這是因為 Data Factory 嘗試讓連接平行處理，以對您的 SQL Database 來源執行大型查詢。
 
-![來源分割區設定]資料(media/data-flow/sourcepart3.png "分割")
+![來源分割區設定 資料](media/data-flow/sourcepart3.png "分割")
 
 您不需要分割 SQL Database 來源上的資料，但磁碟分割對於大型查詢很有用。 您可以根據資料行或查詢來建立資料分割的基礎。
 

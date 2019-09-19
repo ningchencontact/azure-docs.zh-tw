@@ -5,15 +5,15 @@ services: expressroute
 author: mialdrid
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 04/24/2019
+ms.date: 09/18/2019
 ms.author: mialdrid
 ms.custom: seodec18
-ms.openlocfilehash: c4290473a7c1edce02d74a4a787c62ccf0d9c052
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 864b834fcc6810b52f067d8e67b4a48febd0f787
+ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64924319"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71123484"
 ---
 # <a name="expressroute-circuits-and-peering"></a>ExpressRoute 線路和對等互連
 
@@ -22,7 +22,7 @@ ExpressRoute 線路可透過連線提供者將內部部署基礎結構連線到 
 ![](./media/expressroute-circuit-peerings/expressroute-basic.png)
 
 > [!IMPORTANT]
-> Azure 公用對等互連已被取代，並不適用於新的 ExpressRoute 線路。 新的線路支援 Microsoft 對等互連和私人對等互連。  
+> Azure 公用對等互連已被取代，不適用於新的 ExpressRoute 線路。 新線路支援 Microsoft 對等互連和私用對等互連。  
 >
 
 ## <a name="circuits"></a>ExpressRoute 線路
@@ -55,14 +55,14 @@ ExpressRoute 線路有多個相關聯的路由網域/對等互連：Azure 公用
 
 [!INCLUDE [expressroute-office365-include](../../includes/expressroute-office365-include.md)]
 
-與 Microsoft 線上服務 (Office 365、Dynamics 365 及 Azure PaaS 服務) 的連線會透過 Microsoft 對等互連進行。 我們會透過 Microsoft 對等路由網域啟用 WAN 與 Microsoft 雲端服務之間的雙向連線。 您只能透過您或連線提供者所擁有的公用 IP 位址連線到 Microsoft 雲端服務，且必須遵守所有已定義的規則。 如需詳細資訊，請參閱 [ExpressRoute 必要條件](expressroute-prerequisites.md)頁面。
+Microsoft 線上服務（Office 365 和 Azure PaaS 服務）的連線會透過 Microsoft 對等互連進行。 我們會透過 Microsoft 對等路由網域啟用 WAN 與 Microsoft 雲端服務之間的雙向連線。 您只能透過您或連線提供者所擁有的公用 IP 位址連線到 Microsoft 雲端服務，且必須遵守所有已定義的規則。 如需詳細資訊，請參閱 [ExpressRoute 必要條件](expressroute-prerequisites.md)頁面。
 
 如需支援的服務、費用和組態的詳細資訊，請參閱 [常見問題集頁面](expressroute-faqs.md) 。 如需有關提供 Microsoft 對等支援的連線提供者清單的詳細資訊，請參閱 [ExpressRoute 位置](expressroute-locations.md) 頁面。
 
 ### <a name="publicpeering"></a>Azure 公用對等互連 (已被新的線路取代)
 
 > [!Note]
-> Azure 公用對等互連有 1 個 NAT IP 位址與每個 BGP 工作階段相關聯。 針對大於 2 的 NAT IP 位址，將移至 Microsoft 對等互連。 Microsoft 對等互連可讓您設定您自己的 NAT 配置，以及用於選擇性的前置詞公告的路由篩選。 如需詳細資訊，請參閱 <<c0> [ 移至 Microsoft 對等互連](https://docs.microsoft.com/azure/expressroute/how-to-move-peering)。
+> Azure 公用對等互連具有1個與每個 BGP 會話相關聯的 NAT IP 位址。 若為大於2個 NAT IP 位址，請移至 Microsoft 對等互連。 Microsoft 對等互連可讓您設定自己的 NAT 配置，以及使用選擇性前置詞通告的路由篩選。 如需詳細資訊，請參閱[移至 Microsoft 對等互連](https://docs.microsoft.com/azure/expressroute/how-to-move-peering)。
 >
 
 公用 IP 位址上提供如 Azure 儲存體、SQL Database 和網站等服務。 您可以透過公用對等互連路由網域，私人連線到在公用 IP 位址上託管的服務 (包括雲端服務的 VIP)。 您可以將公用對等網域連線到 DMZ，並從您的 WAN 連線到所有 Azure 服務的公用 IP 位址，而無需透過網際網路進行連線。

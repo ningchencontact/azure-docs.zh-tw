@@ -2,24 +2,23 @@
 author: cephalin
 ms.service: app-service
 ms.topic: include
-ms.date: 06/18/2019
+ms.date: 09/18/2019
 ms.author: cephalin
-ms.openlocfilehash: 0691b1a531ffebbb2c368bdb37dd4d8025fb4a4e
-ms.sourcegitcommit: 55e0c33b84f2579b7aad48a420a21141854bc9e3
+ms.openlocfilehash: e00db06346b19ef85eb77626eb2ed169d2224b6c
+ms.sourcegitcommit: 2ed6e731ffc614f1691f1578ed26a67de46ed9c2
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69623681"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71129699"
 ---
-當您複製其他部署位置的組態時，可以編輯複製的組態。 某些設定元素會遵循交換的內容 (非位置特定), 而其他設定元素會保留在交換之後的相同位置 (位置特定)。 以下清單顯示當您交換位置時會變更的設定。
+當您複製其他部署位置的組態時，可以編輯複製的組態。 某些設定元素會遵循交換的內容（非位置特定），而其他設定元素會保留在交換之後的相同位置（位置特定）。 以下清單顯示當您交換位置時會變更的設定。
 
 **交換的設定**：
 
-* 一般設定, 例如 framework 版本、32/64 位、web 通訊端
+* 一般設定，例如 framework 版本、32/64 位、web 通訊端
 * 應用程式設定 (可以設定為停在某一個位置)
 * 連接字串 (可以設定為停在某一個位置)
 * 處理常式對應
-* 監視與診斷設定
 * 公開憑證
 * WebJobs 內容
 * 混合式連接 *
@@ -27,19 +26,20 @@ ms.locfileid: "69623681"
 * 服務端點 *
 * Azure 內容傳遞網路 *
 
-以星號 (*) 標示的功能計畫會在位置上出現。 
+以星號（*）標示的功能會規劃為 unswapped。 
 
 **無法交換的設定**：
 
 * 正在發行端點
 * 自訂網域名稱
-* 私人憑證與 SSL 繫結
+* 非公用憑證和 TLS/SSL 設定
 * 調整設定
 * WebJobs 排程器
 * IP 限制
 * Always On
-* 通訊協定設定 (HTTPS、TLS 版本、用戶端憑證)
 * 診斷記錄設定
-* 跨原始來源資源分享 (CORS)
+* 跨原始來源資源分享（CORS）
 
-<!-- VNET and hybrid connections not yet sticky to slot -->
+> [!NOTE]
+> 套用至 unswapped 設定的特定應用程式設定也不會進行交換。 例如，由於診斷記錄設定不會交換， `WEBSITE_HTTPLOGGING_RETENTION_DAYS`因此和`DIAGNOSTICS_AZUREBLOBRETENTIONDAYS`等相關應用程式設定也不會交換，即使它們未顯示為位置設定也一樣。
+>

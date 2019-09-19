@@ -9,12 +9,12 @@ ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 09/04/2018
 ms.author: glenga
-ms.openlocfilehash: 7e0b5137355c9fd89600fa48c075c81cfb1190e3
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: c50615b9cbe5c3ca926d893858bb39eeb5720067
+ms.sourcegitcommit: 2ed6e731ffc614f1691f1578ed26a67de46ed9c2
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70085441"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71129599"
 ---
 # <a name="code-and-test-azure-functions-locally"></a>撰寫 Azure Functions 並在本機進行測試
 
@@ -33,7 +33,7 @@ ms.locfileid: "70085441"
 
 [!INCLUDE [Don't mix development environments](../../includes/functions-mixed-dev-environments.md)]
 
-每個本機開發環境都可讓您建立函式應用程式專案，並使用預先定義的 Functions 範本來建立新的函式。 每個環境都會使用 Core Tool，以便您在自己的電腦上針對實際的 Functions 執行階段進行您的函式測試和偵錯，就如同處理任何其他應用程式一樣。 您也可以從上述任何環境將您的函式應用程式專案發佈至 Azure。  
+每個本機開發環境都可讓您建立函式應用程式專案，並使用預先定義的 Functions 範本來建立新的函式。 每個環境都會使用 Core Tool，以便您在自己的電腦上針對實際的 Functions 執行階段進行您的函式測試和偵錯，就如同處理任何其他應用程式一樣。 您也可以將您的函式應用程式專案從這些環境中的任何一個發行至 Azure。  
 
 ## <a name="next-steps"></a>後續步驟
 

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/22/2019
 ms.author: aschhab
-ms.openlocfilehash: 139ebe02727bab8cc80f6f0c6bbbd2156f025c21
-ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
+ms.openlocfilehash: a35ad4f8d480b0f95f4dc782aa06734e33bc54f8
+ms.sourcegitcommit: 2ed6e731ffc614f1691f1578ed26a67de46ed9c2
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/14/2019
-ms.locfileid: "70992312"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71130300"
 ---
 # <a name="authenticate-a-managed-identity-with-azure-active-directory-to-access-azure-service-bus-resources"></a>使用 Azure Active Directory 來驗證受控識別，以存取 Azure 服務匯流排資源
 [Azure 資源的受控識別](../active-directory/managed-identities-azure-resources/overview.md)是一個跨 Azure 功能，可讓您建立與應用程式程式碼執行所在之部署相關聯的安全識別。 然後您可以將該識別與存取控制角色產生關連，該角色會授與用來存取應用程式所需之特定 Azure 資源的自訂權限。
@@ -31,7 +31,7 @@ ms.locfileid: "70992312"
  1. 首先，安全性主體的身分識別已通過驗證，並傳回 OAuth 2.0 權杖。 要求權杖的資源名稱是`https://servicebus.azure.net`。
  1. 接下來，權杖會當做要求的一部分傳遞給服務匯流排服務，以授權存取指定的資源。
 
-驗證步驟要求應用程式要求在執行時間包含 OAuth 2.0 存取權杖。 如果應用程式是在 azure 實體（例如 Azure VM、虛擬機器擴展集或 Azure 函式應用程式）內執行，它可以使用受控識別來存取資源。 若要瞭解如何驗證受控識別對服務匯流排服務所提出的要求，請參閱[使用 Azure 資源的 Azure Active Directory 和受控識別來驗證 Azure 服務匯流排資源的存取權](service-bus-managed-service-identity.md)。 
+驗證步驟要求應用程式要求在執行時間包含 OAuth 2.0 存取權杖。 如果應用程式是在 azure 實體（例如 Azure VM、虛擬機器擴展集或 Azure 函式應用程式）內執行，它可以使用受控識別來存取資源。 
 
 授權步驟需要將一個或多個 RBAC 角色指派給安全性主體。 Azure 服務匯流排提供 RBAC 角色，其中包含服務匯流排資源的許可權集。 指派給安全性主體的角色會決定主體將擁有的許可權。 若要深入瞭解如何將 RBAC 角色指派給 Azure 服務匯流排，請參閱[Azure 服務匯流排的內建 rbac 角色](#built-in-rbac-roles-for-azure-service-bus)。 
 
@@ -111,7 +111,7 @@ Azure Active Directory (Azure AD) 會透過[角色型存取控制 (RBAC)](../rol
 4.  在 [**新增角色指派**] 頁面上，選取您要指派的 Azure 服務匯流排角色。 然後搜尋以找出您已註冊來指派角色的服務身分識別。
     
     ![[新增角色指派] 頁面](./media/service-bus-managed-service-identity/add-role-assignment-page.png)
-5.  選取 [ **儲存**]。 您對其指派角色的身分識別會出現在該角色下方。 例如，下圖顯示服務識別具有 Azure 服務匯流排資料擁有者。
+5.  選取 [儲存]。 您對其指派角色的身分識別會出現在該角色下方。 例如，下圖顯示服務識別具有 Azure 服務匯流排資料擁有者。
     
     ![指派給角色的身分識別](./media/service-bus-managed-service-identity/role-assigned.png)
 

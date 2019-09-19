@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 09/18/2019
 ms.author: dacurwin
-ms.openlocfilehash: 0e8dacb97b6ccfb57573fc21c3a4df3694cc7ec8
-ms.sourcegitcommit: cd70273f0845cd39b435bd5978ca0df4ac4d7b2c
+ms.openlocfilehash: 9e7d6a027a60590396446479aecf1644ef753ecf
+ms.sourcegitcommit: 2ed6e731ffc614f1691f1578ed26a67de46ed9c2
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71098391"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71130162"
 ---
 # <a name="manage-azure-vm-backups-with-azure-backup-service"></a>使用 Azure 備份服務管理 Azure VM 備份
 
@@ -164,6 +164,13 @@ ms.locfileid: "71098391"
 
   > [!NOTE]
   > 當您刪除備份資料時，會刪除所有相關聯的復原點。 您無法選擇要刪除的特定復原點。
+
+### <a name="backup-item-where-primary-data-source-no-longer-exists"></a>主要資料來源已不存在的備份專案
+
+- 如果已刪除或移動為 Azure 備份設定的 Azure Vm，但未停止保護，則排定的備份作業和隨選（臨機操作）備份工作將會失敗，並出現錯誤 UserErrorVmNotFoundV2。 只有失敗的臨機操作備份作業（不會顯示失敗的排程工作），備份前置檢查才會顯示為 [重大]。 
+- 這些備份專案會在系統中保持作用中狀態，遵循使用者所設定的備份和保留原則。 這些 Azure Vm 的備份資料將會根據保留原則加以保留。 已過期的復原點（最後一個復原點除外）會根據備份原則中設定的保留範圍來清除。
+- 建議使用者刪除主要資料來源已不存在的備份專案，以避免任何額外的成本，如果已不再需要刪除資源的備份專案/資料，因為最後一個復原點會永久保留，而使用者的費用為依據適用的備份定價。
+
 
 ## <a name="next-steps"></a>後續步驟
 - 瞭解如何[從 VM 的設定備份 Azure vm](backup-azure-vms-first-look-arm.md)。

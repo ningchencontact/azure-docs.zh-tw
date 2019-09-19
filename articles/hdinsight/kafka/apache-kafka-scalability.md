@@ -1,19 +1,19 @@
 ---
 title: Apache Kafka 提高級別 - Azure HDInsight
 description: 了解如何設定在 Azure HDInsight 上 Apache Kafka 叢集的受控磁碟來提高延展性。
-ms.service: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
+ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/30/2018
-ms.openlocfilehash: a3c4f78e9d3b46b66cb2a893c4eed39f865172dc
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ef32a5d3a1439cded6cd092f076e7b26c178cb7a
+ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64711731"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71122099"
 ---
 # <a name="configure-storage-and-scalability-for-apache-kafka-on-hdinsight"></a>在 HDInsight 上設定 Apache Kafka 的儲存體和延展性
 
@@ -23,18 +23,18 @@ HDInsight 上的 Kafka 會在 HDInsight 叢集中使用虛擬機器的本機磁�
 
 下圖提供 HDInsight 上的 Kafka 採用受控磁碟之前與 HDInsight 上的 Kafka 採用受控磁碟之間的比較：
 
-![圖表顯示 HDInsight 上的 Kafka 每個 VM 使用單一 VHD 與每個 VM 使用多個受控磁碟](./media/apache-kafka-scalability/kafka-with-managed-disks-architecture.png)
+![具有受控磁片的 kafka 架構](./media/apache-kafka-scalability/kafka-with-managed-disks-architecture.png)
 
 ## <a name="configure-managed-disks-azure-portal"></a>設定受控磁碟：Azure 入口網站
 
 1. 請遵循[建立 HDInsight 叢集](../hdinsight-hadoop-create-linux-clusters-portal.md)中的步驟，了解使用入口網站建立叢集的一般步驟。 請勿完成入口網站建立程序。
 
-2. 從 [叢集大小]  區段，使用 [每個背景工作角色節點的磁碟]  欄位來設定磁碟的數目。
+2. 從 [叢集大小] 區段，使用 [每個背景工作角色節點的磁碟] 欄位來設定磁碟的數目。
 
     > [!NOTE]  
     > 受控磁碟的類型可以是__標準__ (HDD) 或__進階__ (SSD)。 進階磁碟會與 DS 和 GS 系列搭配使用。 所有其他的 VM 類型是使用標準磁碟。
 
-    ![叢集大小區段的映像，其中每個背景工作角色節點的磁碟都會醒目提示](./media/apache-kafka-scalability/set-managed-disks-portal.png)
+    ![已反白顯示每個背景工作節點之磁片的 [叢集大小] 區段](./media/apache-kafka-scalability/set-managed-disks-portal.png)
 
 ## <a name="configure-managed-disks-resource-manager-template"></a>設定受控磁碟：Resource Manager 範本
 

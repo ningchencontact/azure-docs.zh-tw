@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 09/13/2019
-ms.openlocfilehash: 2f5029ccbf80551721ecc363aa4c3930961d9154
-ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
+ms.openlocfilehash: 8b3572182832dc7692f6475be44281f56cf58571
+ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/14/2019
-ms.locfileid: "70993066"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71122765"
 ---
 # <a name="how-to-create-and-manage-read-replicas-in-azure-database-for-mariadb-using-the-azure-cli-and-rest-api"></a>如何使用 Azure CLI 和 REST API 來建立和管理適用於 MariaDB 的 Azure 資料庫中的讀取複本
 
@@ -44,7 +44,12 @@ az mariadb server replica create --name mydemoreplicaserver --source-server myde
 | name | mydemoreplicaserver | 所建立的新複本伺服器名稱。 |
 | source-server | mydemoserver | 要從中複寫的現有主要伺服器的名稱或識別碼。 |
 
-若要建立跨區域讀取複本，請使用`--location`參數。 下列 CLI 範例會在美國西部建立複本。
+若要建立跨區域讀取複本，請使用`--location`參數。 
+
+> [!NOTE]
+> 跨區域複寫處於預覽狀態。
+
+下列 CLI 範例會在美國西部建立複本。
 
 ```azurecli-interactive
 az mariadb server replica create --name mydemoreplicaserver --source-server mydemoserver --resource-group myresourcegroup --location westus

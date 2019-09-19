@@ -1,6 +1,6 @@
 ---
-title: 回應 HTTP 要求-Azure Logic Apps
-description: 使用 Azure Logic Apps，透過 HTTP 即時回應事件
+title: 接收和回應 HTTPS 呼叫-Azure Logic Apps
+description: 使用 Azure Logic Apps 即時處理 HTTPS 要求和事件
 services: logic-apps
 ms.service: logic-apps
 ms.suite: integration
@@ -12,20 +12,22 @@ ms.assetid: 566924a4-0988-4d86-9ecd-ad22507858c0
 ms.topic: article
 ms.date: 09/06/2019
 tags: connectors
-ms.openlocfilehash: 07f143b261d0cff9eba0d4b1803753446c311818
-ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
+ms.openlocfilehash: 668e815f1dc1ead0ad38264bdc71fc3c315b751c
+ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70914359"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71122719"
 ---
-# <a name="respond-to-http-requests-by-using-azure-logic-apps"></a>使用 Azure Logic Apps 回應 HTTP 要求
+# <a name="receive-and-respond-to-incoming-https-calls-by-using-azure-logic-apps"></a>使用 Azure Logic Apps 接收和回應連入的 HTTPS 呼叫
 
-透過[Azure Logic Apps](../logic-apps/logic-apps-overview.md)和內建的要求觸發程式或回應動作，您可以建立自動化的工作和工作流程，以即時接收和回應 HTTP 要求。 例如，您可以有邏輯應用程式：
+透過[Azure Logic Apps](../logic-apps/logic-apps-overview.md)和內建的要求觸發程式或回應動作，您可以建立自動化的工作和工作流程，以接收和回應連入的 HTTPS 要求。 例如，您可以有邏輯應用程式：
 
-* 回應內部部署資料庫中資料的 HTTP 要求。
+* 接收和回應內部部署資料庫中資料的 HTTPS 要求。
 * 在發生外部 webhook 事件時觸發工作流程。
-* 從另一個邏輯應用程式內呼叫邏輯應用程式。
+* 接收並回應來自另一個邏輯應用程式的 HTTPS 呼叫。
+
+要求觸發程式*僅*支援 HTTPS。 若要改為發出傳出 HTTP 或 HTTPS 呼叫，請使用內建的[HTTP 觸發程式或動作](../connectors/connectors-native-http.md)。
 
 ## <a name="prerequisites"></a>必要條件
 
@@ -35,15 +37,15 @@ ms.locfileid: "70914359"
 
 <a name="add-request"></a>
 
-## <a name="add-a-request-trigger"></a>新增要求觸發程式
+## <a name="add-request-trigger"></a>新增要求觸發程式
 
-這個內建的觸發程式會建立可接收傳入 HTTP 要求的手動呼叫端點。 當此事件發生時，觸發程式會引發並執行邏輯應用程式。 如需有關觸發程式的基礎 JSON 定義和如何呼叫此觸發程式的詳細資訊，請參閱[要求觸發程式類型](../logic-apps/logic-apps-workflow-actions-triggers.md#request-trigger)和[在 AZURE LOGIC APPS 中使用 HTTP 端點呼叫、觸發或將工作流程嵌套](../logic-apps/logic-apps-http-endpoint.md)
+此內建觸發程式會建立可*只*接收傳入 HTTPs 要求的手動呼叫 HTTPs 端點。 當此事件發生時，觸發程式會引發並執行邏輯應用程式。 如需有關觸發程式的基礎 JSON 定義和如何呼叫此觸發程式的詳細資訊，請參閱[要求觸發程式類型](../logic-apps/logic-apps-workflow-actions-triggers.md#request-trigger)，以及[在 AZURE LOGIC APPS 中使用 HTTP 端點呼叫、觸發或將工作流程嵌套](../logic-apps/logic-apps-http-endpoint.md)。
 
 1. 登入 [Azure 入口網站](https://portal.azure.com)。 建立空白邏輯應用程式。
 
 1. 邏輯應用程式設計工具開啟之後，在搜尋方塊中，輸入「HTTP 要求」作為篩選準則。 從 [觸發程式] 清單中，選取 [**收到 HTTP 要求時**] 觸發程式，這是邏輯應用程式工作流程中的第一個步驟。
 
-   ![選取 HTTP 要求觸發程序](./media/connectors-native-reqres/select-request-trigger.png)
+   ![選取要求觸發程式](./media/connectors-native-reqres/select-request-trigger.png)
 
    要求觸發程式會顯示這些屬性：
 
@@ -52,10 +54,10 @@ ms.locfileid: "70914359"
    | 屬性名稱 | JSON 屬性名稱 | 必要項 | 描述 |
    |---------------|--------------------|----------|-------------|
    | **HTTP POST URL** | {無} | 是 | 在您儲存邏輯應用程式並用於呼叫邏輯應用程式之後，所產生的端點 URL |
-   | **要求本文 JSON 架構** | `schema` | 否 | 描述傳入 HTTP 要求主體中的屬性和值的 JSON 架構 |
+   | **要求本文 JSON 架構** | `schema` | 否 | 描述傳入要求主體中的屬性和值的 JSON 架構 |
    |||||
 
-1. 在 [**要求本文 Json 架構**] 方塊中，選擇性地輸入 JSON 架構，以描述傳入要求中的 HTTP 要求主體，例如：
+1. 在 [**要求本文 Json 架構**] 方塊中，選擇性地輸入 JSON 架構來描述傳入要求中的主體，例如：
 
    ![範例 JSON 架構](./media/connectors-native-reqres/provide-json-schema.png)
 
@@ -182,15 +184,15 @@ ms.locfileid: "70914359"
 
 | JSON 屬性名稱 | 資料類型 | 描述 |
 |--------------------|-----------|-------------|
-| `headers` | 物件 | 描述要求標頭的 JSON 物件 |
-| `body` | 物件 | JSON 物件，描述來自要求的本文內容 |
+| `headers` | Object | 描述要求標頭的 JSON 物件 |
+| `body` | Object | JSON 物件，描述來自要求的本文內容 |
 ||||
 
 <a name="add-response"></a>
 
 ## <a name="add-a-response-action"></a>新增回應動作
 
-您可以使用 [回應] 動作，以將承載（資料）回應到傳入 HTTP 要求，但僅限於 HTTP 要求所觸發的邏輯應用程式。 您可以在工作流程中的任何時間點新增回應動作。 如需此觸發程式之基礎 JSON 定義的詳細資訊，請參閱[回應動作類型](../logic-apps/logic-apps-workflow-actions-triggers.md#response-action)。
+您可以使用 [回應] 動作，以將承載（資料）回應到傳入的 HTTPS 要求，但僅限於由 HTTPS 要求觸發的邏輯應用程式。 您可以在工作流程中的任何時間點新增回應動作。 如需此觸發程式之基礎 JSON 定義的詳細資訊，請參閱[回應動作類型](../logic-apps/logic-apps-workflow-actions-triggers.md#response-action)。
 
 您的邏輯應用程式只會將傳入要求保持開啟一分鐘。 假設您的邏輯應用程式工作流程包含回應動作，如果邏輯應用程式在這段時間過後不會傳迴響應，則邏輯應用`504 GATEWAY TIMEOUT`程式會將傳回給呼叫者。 否則，如果邏輯應用程式未包含回應動作，則邏輯應用程式會立即`202 ACCEPTED`將回應傳回給呼叫者。
 
@@ -224,7 +226,7 @@ ms.locfileid: "70914359"
 
    | 屬性名稱 | JSON 屬性名稱 | 必要項 | 描述 |
    |---------------|--------------------|----------|-------------|
-   | **狀態碼** | `statusCode` | 是 | 要在回應中傳回的 HTTP 狀態碼 |
+   | **狀態碼** | `statusCode` | 是 | 要在回應中傳回的狀態碼 |
    | **標頭** | `headers` | 否 | JSON 物件，描述要包含在回應中的一個或多個標頭 |
    | **內文** | `body` | 否 | 回應本文 |
    |||||

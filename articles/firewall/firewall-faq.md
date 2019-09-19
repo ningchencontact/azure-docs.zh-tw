@@ -5,14 +5,14 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: conceptual
-ms.date: 09/17/2019
+ms.date: 09/20/2019
 ms.author: victorh
-ms.openlocfilehash: 4b258df1711aa51ed4edee6ecd209fa39c7fde27
-ms.sourcegitcommit: 71db032bd5680c9287a7867b923bf6471ba8f6be
+ms.openlocfilehash: cb5b8bbb322dc401c7a8b057418d392120ef68e3
+ms.sourcegitcommit: 2ed6e731ffc614f1691f1578ed26a67de46ed9c2
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/16/2019
-ms.locfileid: "71018857"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71130214"
 ---
 # <a name="azure-firewall-faq"></a>Azure 防火牆常見問題集
 
@@ -163,3 +163,7 @@ Azure 防火牆必須在調整規模時布建更多虛擬機器實例。 /26 位
 ## <a name="does-the-firewall-subnet-size-need-to-change-as-the-service-scales"></a>當服務調整時，防火牆子網大小是否需要變更？
 
 資料分割 Azure 防火牆不需要大於/26 的子網。
+
+## <a name="does-azure-firewall-allow-access-to-active-directory-by-default"></a>Azure 防火牆預設允許存取 Active Directory 嗎？
+
+資料分割 根據預設，Azure 防火牆會封鎖 Active Directory 存取。 若要允許存取，請設定 AzureActiveDirectory 服務標記。 如需詳細資訊，請參閱[Azure 防火牆服務標記](service-tags.md)。

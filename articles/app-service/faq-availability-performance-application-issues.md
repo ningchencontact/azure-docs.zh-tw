@@ -4,7 +4,7 @@ description: 對於 Azure App Service 的 Web 應用程式功能之中的可用�
 services: app-service\web
 documentationcenter: ''
 author: genlin
-manager: cshepard
+manager: dcscontentpm
 editor: ''
 tags: top-support-issue
 ms.assetid: 2fa5ee6b-51a6-4237-805f-518e6c57d11b
@@ -15,17 +15,17 @@ ms.topic: article
 ms.date: 10/31/2018
 ms.author: genli
 ms.custom: seodec18
-ms.openlocfilehash: 2b9689eeecb0549fae9f7131dd424e15c040b042
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: 9cd529424a022edfa64f9053a53cbbe9f756637e
+ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70073171"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71122078"
 ---
 # <a name="application-performance-faqs-for-web-apps-in-azure"></a>Azure Web 應用程式的應用程式效能常見問題集
 
 > [!NOTE]
-> 下列部分指導方針只能在 Windows 或 Linux 應用程式服務上使用。 例如, Linux 應用程式服務預設會在64位模式下執行。
+> 下列部分指導方針只能在 Windows 或 Linux 應用程式服務上使用。 例如，Linux 應用程式服務預設會在64位模式下執行。
 >
 
 對於 [Azure App Service 的 Web 應用程式功能](https://azure.microsoft.com/services/app-service/web/)的應用程式效能問題，本文提供常見問題集的解答。
@@ -108,7 +108,7 @@ ms.locfileid: "70073171"
 1. 在 Azure 入口網站中，移至您的 Web 應用程式。
 3. 選取 [所有設定] >  [診斷記錄]。
 4. 針對 [失敗的要求追蹤]，選取 [開啟]。
-5. 選取 [ **儲存**]。
+5. 選取 [儲存]。
 6. 在 Web 應用程式刀鋒視窗上，選取 [工具]。
 7. 選取 [Visual Studio Online]。
 8. 如果設定不是 [開啟]，請選取 [開啟]。

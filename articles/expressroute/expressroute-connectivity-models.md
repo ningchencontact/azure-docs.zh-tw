@@ -1,19 +1,19 @@
 ---
 title: ExpressRoute 連線模型：Azure | Microsoft Docs
-description: 本文說明在客戶網路與 Microsoft Azure、Office 365 和 Dynamics 365 服務之間的各種連線模式。 客戶可以使用 MPLS 提供者、雲端 Exchange 和乙太網路提供者。
+description: 本文說明客戶網路與 Microsoft Azure 與 Office 365 服務之間不同的連線模式。 客戶可以使用 MPLS 提供者、雲端 Exchange 和乙太網路提供者。
 services: expressroute
 author: cherylmc
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 12/06/2018
+ms.date: 09/18/2019
 ms.author: cherylmc
 ms.custom: seodec18
-ms.openlocfilehash: ef53f9d3cefa35624d6f94dc98db4ebe8b6646cd
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: c9cfe089cd486a822af192353b2a01a08f57d9e2
+ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60367436"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71123471"
 ---
 # <a name="expressroute-connectivity-models"></a>ExpressRoute 連線模型
 有三種方法可以在內部部署網路與 Microsoft Cloud 之間建立連線：[CloudExchange 共置](#CloudExchange)、[點對點乙太網路連線](#Ethernet)和[任意點對任意點 (IPVPN) 連線](#IPVPN)。 連線提供者可以提供一或多個連線模型。 您可以洽詢連線提供者來選擇最適合您的模型。

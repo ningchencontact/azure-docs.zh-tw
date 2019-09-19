@@ -8,12 +8,12 @@ ms.date: 02/07/2019
 ms.service: storage
 ms.subservice: data-lake-storage-gen2
 ms.reviewer: rugopala
-ms.openlocfilehash: 7c018ad15ee653bcdc903492028ec5ed058dbd14
-ms.sourcegitcommit: 007ee4ac1c64810632754d9db2277663a138f9c4
+ms.openlocfilehash: 4c01cd36d489d8e7128bed645c8cb1127c6c0c25
+ms.sourcegitcommit: 2ed6e731ffc614f1691f1578ed26a67de46ed9c2
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69992225"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71130415"
 ---
 # <a name="upgrade-your-big-data-analytics-solutions-from-azure-data-lake-storage-gen1-to-azure-data-lake-storage-gen2"></a>將您的巨量資料分析解決方案從 Azure Data Lake Storage Gen1 升級為 Azure Data Lake Storage Gen2
 
@@ -45,7 +45,7 @@ ms.locfileid: "69992225"
 
 **圖 2** 顯示如何使用特定技術實作這些元件的範例。
 
-**圖 1** 中的「儲存」功能是由 Data Lake Storage Gen1 提供 (**圖 2**)。 請注意資料流程中的各種元件如何使用 REST API 或 Java SDK 與 Data Lake Storage Gen1 互動。 也請注意，跨領域功能元件與 Data Lake Storage Gen1 互動的方式。 布建元件會使用 Azure 資源範本, 而使用 Azure 監視器記錄的監視元件會利用來自 Data Lake Storage Gen1 的運算元據。
+**圖 1** 中的「儲存」功能是由 Data Lake Storage Gen1 提供 (**圖 2**)。 請注意資料流程中的各種元件如何使用 REST API 或 Java SDK 與 Data Lake Storage Gen1 互動。 也請注意，跨領域功能元件與 Data Lake Storage Gen1 互動的方式。 布建元件會使用 Azure 資源範本，而使用 Azure 監視器記錄的監視元件會利用來自 Data Lake Storage Gen1 的運算元據。
 
 若要將解決方案從使用 Data Lake Storage Gen1 升級為 Data Lake Storage Gen2 方案，您需要複製資料和中繼資料，重新串連資料流程，然後所有元件都必須能夠使用 Data Lake Storage Gen2。
 
@@ -82,7 +82,7 @@ ms.locfileid: "69992225"
 | |平行分析工作負載的效能最佳化。 高輸送量和 IOPS。 | 平行分析工作負載的效能最佳化。 高輸送量和 IOPS。 | *現已推出* |
 | 虛擬網路 (VNet) 支援  | [使用虛擬網路整合](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-network-security)  | [使用 Azure 儲存體的服務端點](https://docs.microsoft.com/azure/storage/common/storage-network-security?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) | *現已推出* |
 | 大小限制 | 帳戶大小、檔案大小或檔案數目沒有限制 | 帳戶大小或檔案數目沒有限制。 檔案大小限制為 5TB。 | *現已推出*|
-| 異地備援| 本地備援 (LRS) | 本機多餘 (LRS) 區域冗余 (ZRS) 異地冗余 (GRS) 讀取權限異地冗余 (RA-GRS) 如需詳細資訊, 請參閱[這裡](https://docs.microsoft.com/azure/storage/common/storage-redundancy)| *現已推出* |
+| 異地備援| 本地備援 (LRS) | 本機多餘（LRS）區域冗余（ZRS）異地冗余（GRS）讀取權限異地冗余（RA-GRS）如需詳細資訊，請參閱[這裡](https://docs.microsoft.com/azure/storage/common/storage-redundancy)| *現已推出* |
 | 區域可用性 | 請參閱 [這裡](https://azure.microsoft.com/regions/) | 所有 [Azure 區域](https://azure.microsoft.com/global-infrastructure/regions/)                                                                                                                                                                                                                                                                                                                                       | *現已推出*                                                                                                                           |
 | 價格                                       | 請參閱 [價格](https://azure.microsoft.com/pricing/details/data-lake-store/)                                                                            | 請參閱 [價格](https://azure.microsoft.com/pricing/details/storage/data-lake/)                                                                                                                                                                                                                                                                                                                                         |                                                                                                                                           |
 | 可用性 SLA                            | [請參閱 SLA](https://azure.microsoft.com/support/legal/sla/data-lake-store/v1_0/)                                                                   | [請參閱 SLA](https://azure.microsoft.com/support/legal/sla/storage/v1_3/)                                                                                                                                                                                                                                                                                                                                                | *現已推出*                                                                                                                           |
@@ -90,9 +90,9 @@ ms.locfileid: "69992225"
 
 ### <a name="programming-interfaces"></a>程式設計介面
 
-下表說明有哪些 API 集合可供您的自訂應用程式使用。 為了讓事情更清楚, 我們將這些 API 集合分成2種類型: 管理 Api 和檔案系統 Api。
+下表說明有哪些 API 集合可供您的自訂應用程式使用。 為了讓事情更清楚，我們將這些 API 集合分成2種類型：管理 Api 和檔案系統 Api。
 
-管理 Api 可協助您管理帳戶, 而檔案系統 Api 則可協助您操作檔案和資料夾。
+管理 Api 可協助您管理帳戶，而檔案系統 Api 則可協助您操作檔案和資料夾。
 
 |  API 集合                           |  Data Lake Storage Gen1                                                                                                                                                                                                                                                                                                   | Data Lake Storage Gen2 的可用性 - 採用共用金鑰驗證 | Data Lake Storage Gen2 的可用性 - 採用 OAuth 驗證                                                                                                  |
 |----------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -235,7 +235,7 @@ Data Lake Storage Gen1 會將特定資訊和資料推送給其他可協助您運
 
 * 如果您使用不會複製 ACL 的工具，或您不想複製 ACL，則需要在適當的最上層手動設定目的地的 ACL。 您可以使用儲存體總管來執行此作業。 確保這些 ACL 是預設 ACL，您複製的檔案和資料夾才能繼承它們。
 
-* 在 Data Lake Storage Gen1 中，您可以設定 ACL 的最高層級位於帳戶的根目錄。 不過, 在 Data Lake Storage Gen2 中, 您可以設定 Acl 的最高層級位於容器中的根資料夾, 而不是整個帳戶。 因此，如果您想要在帳戶層級設定預設 ACL，則必須在 Data Lake Storage Gen2 帳戶中的所有檔案系統間複製這些 ACL。
+* 在 Data Lake Storage Gen1 中，您可以設定 ACL 的最高層級位於帳戶的根目錄。 不過，在 Data Lake Storage Gen2 中，您可以設定 Acl 的最高層級位於容器中的根資料夾，而不是整個帳戶。 因此，如果您想要在帳戶層級設定預設 ACL，則必須在 Data Lake Storage Gen2 帳戶中的所有檔案系統間複製這些 ACL。
 
 * 兩個儲存系統之間的檔案命名限制不同。 從 Data Lake Storage Gen2 複製到 Data Lake Storage Gen1 時，這些差異格外令人關切，因為後者有更多受限的條件約束。
 
@@ -245,11 +245,11 @@ Data Lake Storage Gen1 會將特定資訊和資料推送給其他可協助您運
 
 #### <a name="uri-changes"></a>URI 變更
 
-此處的主要工作是轉譯 uri, 其前置詞為, 並`adl://` `abfss://`具有前置詞的 uri。
+此處的主要工作是轉譯 uri，其前置詞為，並`adl://` `abfss://`具有前置詞的 uri。
 
 Data Lake Storage Gen1 的 URI 配置會在[這裡](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-use-data-lake-store)詳述，但大致上說，其為 *adl://mydatalakestore.azuredatalakestore.net/\<file_path\>。*
 
-[這裡](../../hdinsight/hdinsight-hadoop-use-data-lake-storage-gen2.md)會詳細說明用來存取 Data Lake Storage Gen2 檔案的 URI 配置, 但大致上說, 它`abfss://<FILE_SYSTEM_NAME>@<ACCOUNT_NAME>.dfs.core.widows.net/<PATH>`是。
+[這裡](../../hdinsight/hdinsight-hadoop-use-data-lake-storage-gen2.md)會詳細說明用來存取 Data Lake Storage Gen2 檔案的 URI 配置，但大致上說，它`abfss://<FILE_SYSTEM_NAME>@<ACCOUNT_NAME>.dfs.core.windows.net/<PATH>`是。
 
 您必須瀏覽現有的應用程式，並確保已將 URI 適度變更為指向 Data Lake Storage Gen2 URI。 此外，您必須新增適當的認證。 最後，您淘汰原始應用程式並取代為新應用程式的方式必須密切符合您的整體升級策略。
 

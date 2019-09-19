@@ -5,15 +5,15 @@ services: expressroute
 author: cherylmc
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 07/23/2019
+ms.date: 09/18/2019
 ms.author: cherylmc
 ms.custom: seodec18
-ms.openlocfilehash: f16f797afca6d60029c1f39fea7235ce84e4f954
-ms.sourcegitcommit: a874064e903f845d755abffdb5eac4868b390de7
+ms.openlocfilehash: 4ef1a768356078c160b798c1a96412adda0330f6
+ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68442220"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71123301"
 ---
 # <a name="expressroute-prerequisites--checklist"></a>ExpressRoute 必要條件和檢查清單
 若要使用 ExpressRoute 連線到 Microsoft 雲端服務，您必須確認是否符合以下各節中所列的下列需求。
@@ -21,7 +21,7 @@ ms.locfileid: "68442220"
 [!INCLUDE [expressroute-office365-include](../../includes/expressroute-office365-include.md)]
 
 ## <a name="azure-account"></a>Azure 帳戶
-* 使用中的有效 Microsoft Azure 帳戶。 需要有此帳戶才能設定 ExpressRoute 循環。 ExpressRoute 循環是 Azure 訂用帳戶內的資源。 即使連線只限於非 Azure Microsoft 雲端服務 (例如 Office 365 服務和 Dynamics 365)，Azure 訂用帳戶還是一項需求。
+* 使用中的有效 Microsoft Azure 帳戶。 需要有此帳戶才能設定 ExpressRoute 循環。 ExpressRoute 循環是 Azure 訂用帳戶內的資源。 即使連線只限于非 Azure Microsoft 雲端服務（例如 Office 365），Azure 訂用帳戶也是一項需求。
 * 使用中的 Office 365 訂用帳戶 (如果使用的是 Office 365 服務)。 如需詳細資訊，請參閱本文的「Office 365 特定需求」一節。
 
 ## <a name="connectivity-provider"></a>連線提供者
@@ -30,8 +30,8 @@ ms.locfileid: "68442220"
 * 如果您的提供者不是 ExpressRoute 連線合作夥伴，您仍可透過 [雲端交換服務提供者](expressroute-locations.md#connectivity-through-exchange-providers)連線到 Microsoft Cloud。
 
 ## <a name="network-requirements"></a>網路需求
-* **每個對等互連位置的冗余**:Microsoft 需要在 Microsoft 的路由器與每個 ExpressRoute 線路上的對等路由器之間設定多餘的 BGP 會話 (即使您只有[一個與雲端交換的實體](expressroute-faqs.md#onep2plink)連線時)。
-* 嚴重損壞**修復的冗余**:Microsoft 強烈建議您在不同的對等互連位置中至少設定兩個 ExpressRoute 線路, 以避免發生單一失敗點。
+* **每個對等互連位置的冗余**：Microsoft 需要在 Microsoft 的路由器與每個 ExpressRoute 線路上的對等路由器之間設定多餘的 BGP 會話（即使您只有[一個與雲端交換的實體](expressroute-faqs.md#onep2plink)連線時）。
+* 嚴重損壞**修復的冗余**：Microsoft 強烈建議您在不同的對等互連位置中至少設定兩個 ExpressRoute 線路，以避免發生單一失敗點。
 * **路由**︰根據您連線到 Microsoft Cloud 的方式，您或您的提供者需要設定及管理用於[路由網域](expressroute-circuit-peerings.md)的 BGP 工作階段。 某些乙太網路連線服務提供者或雲端交換服務提供者可能會提供 BGP 管理功能做為附加價值服務。
 * **NAT**：Microsoft 只接受透過 Microsoft 對等互連的公用 IP 位址。 如果您在內部部署網路中使用私人 IP 位址，您或您的提供者必須[使用 NAT](expressroute-nat.md) 將私人 IP 位址轉譯成公用 IP 位址。
 * **QoS**：「商務用 Skype」具有各種服務 (例如語音、視訊、文字)，其所要求的 QoS 處理方式各有差異。 您和您的提供者應該遵循 [QoS 需求](expressroute-qos.md)。
@@ -48,9 +48,6 @@ ms.locfileid: "68442220"
 * [網路頻寬計算機和工具](https://support.office.com/article/Network-and-migration-planning-for-Office-365-f5ee6c33-bcd7-4b0b-b0f8-dc1d9fb8d132)
 * [整合 Office 365 與內部部署環境](https://support.office.com/article/Office-365-integration-with-on-premises-environments-263faf8d-aa21-428b-aed3-2021837a4b65)
 * [Office 365 上的 ExpressRoute 進階訓練影片](https://channel9.msdn.com/series/aer/)
-
-## <a name="dynamics-365"></a>Dynamics 365
-如果您打算在 ExpressRoute 上啟用 Dynamics 365, 請參閱[Dynamics 365 url](https://support.microsoft.com/kb/2655102)和[IP 位址範圍](https://support.microsoft.com/kb/2728473)。
 
 ## <a name="next-steps"></a>後續步驟
 * 如需有關 ExpressRoute 的詳細資訊，請參閱 [ExpressRoute 常見問題集](expressroute-faqs.md)。

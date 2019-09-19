@@ -11,12 +11,12 @@ ms.author: jovanpop
 ms.reviewer: sstein, carlrab, bonova
 ms.date: 08/12/2019
 ms.custom: seoapril2019
-ms.openlocfilehash: 388e676fbabf427801688cbfb47a1455444fd02e
-ms.sourcegitcommit: 71db032bd5680c9287a7867b923bf6471ba8f6be
+ms.openlocfilehash: dc01f8556fb1c88899cae1a8767cb23d6b6041eb
+ms.sourcegitcommit: 2ed6e731ffc614f1691f1578ed26a67de46ed9c2
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/16/2019
-ms.locfileid: "71019000"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71128875"
 ---
 # <a name="managed-instance-t-sql-differences-limitations-and-known-issues"></a>受控實例的 T-sql 差異、限制和已知問題
 
@@ -543,6 +543,14 @@ WITH PRIVATE KEY (<private_key_options>)
 受控實例會將詳細資訊放在錯誤記錄檔中。 錯誤記錄檔中有許多內部系統事件會記錄下來。 使用自訂程式來讀取篩選掉一些不相關專案的錯誤記錄檔。 如需詳細資訊，請參閱[受控實例– sp_readmierrorlog](https://blogs.msdn.microsoft.com/sqlcat/2018/05/04/azure-sql-db-managed-instance-sp_readmierrorlog/)。
 
 ## <a name="Issues"></a>已知問題
+
+### <a name="change-service-tier-and-create-instance-operations-are-blocked-by-ongioing-database-restore"></a>Ongioing 資料庫還原會封鎖變更服務層級和建立實例作業
+
+**日期**Sep 2019
+
+持續`RESTORE`的語句、資料移轉服務遷移程式和內建的還原時間點，將會封鎖更新服務層級或重新調整現有實例的大小，並建立新的實例，直到還原程式完成為止。 還原程式將會在還原程式執行所在的相同子網中，封鎖受控實例和實例集區上的這些作業。 實例集區中的實例不受影響。 建立或變更服務層作業不會失敗或超時，一旦還原程式完成或取消，就會繼續進行。
+
+**因應措施**：等到還原程式完成，或如果建立或更新服務層級作業的優先順序較高，則取消還原程式。
 
 ### <a name="missing-validations-in-restore-process"></a>還原過程中缺少驗證
 

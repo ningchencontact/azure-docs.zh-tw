@@ -4,7 +4,7 @@ description: 說明使用 Microsoft Azure 新支援要求檔案上傳公用程�
 services: ''
 documentationcenter: ''
 author: genlin
-manager: ''
+manager: dcscontentpm
 editor: ''
 tags: billing
 ms.assetid: 86697fdf-3499-4cab-ab3f-10d40d3c1f70
@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: 949d6b00b4e04921ea745dd4efa1b8a58c49f534
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 088835f6983814bbe47afeeec210ac41964e7863
+ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60995618"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71121167"
 ---
 # <a name="microsoft-azure-new-support-request-file-upload-utility-guidelines"></a>Microsoft Azure 新支援要求檔案上傳公用程式指導方針
 [建立支援要求](https://portal.azure.com/#create/Microsoft.Support)時，「檔案上傳」公用程式可協助您輕鬆上傳診斷檔案或您認為與事件相關的任何其他檔案。  

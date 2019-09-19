@@ -4,7 +4,7 @@ description: 對於 Azure App Service 的 Web 應用程式功能之中的部署�
 services: app-service\web
 documentationcenter: ''
 author: genlin
-manager: cshepard
+manager: dcscontentpm
 editor: ''
 tags: top-support-issue
 ms.assetid: 2fa5ee6b-51a6-4237-805f-518e6c57d11b
@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 11/01/2018
 ms.author: genli
 ms.custom: seodec18
-ms.openlocfilehash: c7551a13c84798b5a594d4646b8faa619619724b
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: 0a01f25894d1226466473dec7333859c7415f1fd
+ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70073140"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71121210"
 ---
 # <a name="deployment-faqs-for-web-apps-in-azure"></a>Azure 中 Web 應用程式的部署常見問題集
 
@@ -39,14 +39,14 @@ ms.locfileid: "70073140"
 
 ## <a name="i-see-an-error-message-when-i-try-to-deploy-from-visual-studio-how-do-i-resolve-this-error"></a>當我嘗試從 Visual Studio 部署時，我看到一則錯誤訊息。 如何? 解決此錯誤？
 
-如果您看到下列訊息，表示您可能使用較舊版本的 SDK：「部署資源群組 'YourResourceGroup' 中的資源 'YourResourceName' 時發生錯誤：MissingRegistrationForLocation：未對於位置「美國中部」的資源類型「元件」註冊訂用帳戶。 請為此提供者重新註冊, 才能存取此位置。」 
+如果您看到下列訊息，表示您可能使用較舊版本的 SDK：「部署資源群組 'YourResourceGroup' 中的資源 'YourResourceName' 時發生錯誤：MissingRegistrationForLocation：未對於位置「美國中部」的資源類型「元件」註冊訂用帳戶。 請為此提供者重新註冊，才能存取此位置。」 
 
 若要解決這個錯誤，請升級為[最新的 SDK](https://azure.microsoft.com/downloads/)。 如果您看到此訊息，而且您有最新的 SDK，請提交支援要求。
 
 ## <a name="how-do-i-deploy-an-aspnet-application-from-visual-studio-to-app-service"></a>如何將 ASP.NET 應用程式從 Visual Studio 部署到 App Service？
 <a id="deployasp"></a>
 
-本教學課程會[在五分鐘內于 Azure 中建立您的第一個 ASP.NET web 應用](app-service-web-get-started-dotnet.md)程式說明如何使用 Visual Studio, 在 App Service 中將 ASP.NET web 應用程式部署至 web 應用程式。
+本教學課程會[在五分鐘內于 Azure 中建立您的第一個 ASP.NET web 應用](app-service-web-get-started-dotnet.md)程式說明如何使用 Visual Studio，在 App Service 中將 ASP.NET web 應用程式部署至 web 應用程式。
 
 ## <a name="what-are-the-different-types-of-deployment-credentials"></a>不同類型的部署認證有哪些？
 
@@ -58,7 +58,7 @@ App Service 支援兩種認證類型，用於本機 Git 部署和 FTP/S 部署�
 
 ## <a name="how-do-i-resolve-ftp-error-550---there-is-not-enough-space-on-the-disk-when-i-try-to-ftp-my-files"></a>當我嘗試 FTP 我的檔案時，如何解決「FTP 錯誤 550 - 磁碟空間不足」？
 
-如果您看到此訊息, 可能是因為您的 web 應用程式服務方案中的磁片配額不足。 您可能需要根據您的磁碟空間需求，相應增加至較高服務層級。 如需定價方案和資源限制的詳細資訊，請參閱 [App Service 定價](https://azure.microsoft.com/pricing/details/app-service/)。
+如果您看到此訊息，可能是因為您的 web 應用程式服務方案中的磁片配額不足。 您可能需要根據您的磁碟空間需求，相應增加至較高服務層級。 如需定價方案和資源限制的詳細資訊，請參閱 [App Service 定價](https://azure.microsoft.com/pricing/details/app-service/)。
 
 ## <a name="how-do-i-set-up-continuous-deployment-for-my-app-service-web-app"></a>如何為 App Service Web 應用程式設定持續部署？
 

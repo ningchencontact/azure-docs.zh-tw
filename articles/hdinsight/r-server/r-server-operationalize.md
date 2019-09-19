@@ -1,19 +1,19 @@
 ---
 title: 在 HDInsight 上運作 ML 服務 - Azure
 description: 瞭解如何讓您的資料模型，以 Azure HDInsight 中的 ML 服務進行預測。
-ms.service: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
+ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/27/2018
-ms.openlocfilehash: 4980b4d3a4ec7165a4aba3d02561f6c666150924
-ms.sourcegitcommit: fbea2708aab06c19524583f7fbdf35e73274f657
+ms.openlocfilehash: a05bcdef2b7456fbab852e9728c156e57f847f57
+ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/13/2019
-ms.locfileid: "70967694"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71123573"
 ---
 # <a name="operationalize-ml-services-cluster-on-azure-hdinsight"></a>在 Azure HDInsight 上運作 ML 服務叢集
 
@@ -50,31 +50,31 @@ ms.locfileid: "70967694"
 
 1. 您會看到可從中選擇的選項。 選擇第一個選項 (如下列螢幕擷取畫面所示) 來**設定要運作的 ML Server**。
 
-    ![一個 box op1](./media/r-server-operationalize/admin-util-one-box-1.png)
+    ![R 伺服器管理公用程式選取](./media/r-server-operationalize/admin-util-one-box-1.png)
 
 1. 系統會顯示可讓您選擇 ML Server 運作方式的選項。 從顯示的選項中，輸入 **A** 來選擇第一項。
 
-    ![一個 box op2](./media/r-server-operationalize/admin-util-one-box-2.png)
+    ![R 伺服器管理公用程式讓](./media/r-server-operationalize/admin-util-one-box-2.png)
 
 1. 出現提示時，輸入並重新輸入本機系統管理員使用者的密碼。
 
 1. 您應該會看到意味著作業已成功的輸出。 您也會看見從功能表中選取另一個選項的提示。 選取 E 以返回主功能表。
 
-    ![一個 box op3](./media/r-server-operationalize/admin-util-one-box-3.png)
+    ![R 伺服器管理公用程式成功](./media/r-server-operationalize/admin-util-one-box-3.png)
 
 1. 您也可以選擇性地執行診斷測試來執行診斷檢查，如下所示：
 
     a. 從主功能表中，選取 **6** 來執行診斷測試。
 
-    ![diagnostic1](./media/r-server-operationalize/hdinsight-diagnostic1.png)
+    ![R 伺服器管理公用程式診斷](./media/r-server-operationalize/hdinsight-diagnostic1.png)
 
     b. 從 [診斷測試] 功能表中，選取 **A**。出現提示時，輸入您針對本機系統管理員使用者所提供的密碼。
 
-    ![diagnostic2](./media/r-server-operationalize/hdinsight-diagnostic2.png)
+    ![R 伺服器管理公用程式測試](./media/r-server-operationalize/hdinsight-diagnostic2.png)
 
     c. 確認輸出會顯示整體健康情況是良好的。
 
-    ![diagnostic3](./media/r-server-operationalize/hdinsight-diagnostic3.png)
+    ![R 伺服器管理公用程式通過](./media/r-server-operationalize/hdinsight-diagnostic3.png)
 
     d. 從顯示的功能表選項中，輸入 **E** 以返回主功能表，然後輸入 **8** 以結束管理公用程式。
 
@@ -148,7 +148,7 @@ ML 服務叢集並非透過 [Apache Hadoop YARN](https://hadoop.apache.org/docs/
 
 1. 按一下 [Actions] \(動作\) > [Selected Hosts] \(選取的主機\) > [Hosts] \(主機\) > [Turn ON Maintenance Mode] \(開啟維護模式\)。 例如，在以下映像中，我們選取了要解除委任 wn3 和 wn4。  
 
-   ![解除委任背景工作節點](./media/r-server-operationalize/get-started-operationalization.png)  
+   ![Apache Ambari 開啟維護模式](./media/r-server-operationalize/get-started-operationalization.png)  
 
 * 選取 [Actions] \(動作\) > [Selected Hosts] \(選取的主機\) > [DataNode] > 按一下 [Decommission] \(解除委任\)。
 * 選取 [Actions] \(動作\) > [Selected Hosts] \(選取的主機\) > [NodeManagers] > 按一下 [Decommission] \(解除委任\)。

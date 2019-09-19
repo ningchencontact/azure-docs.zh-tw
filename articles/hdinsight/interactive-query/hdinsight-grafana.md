@@ -1,21 +1,20 @@
 ---
 title: 在 Azure HDInsight 上使用 Grafana
 description: 瞭解如何在 Azure HDInsight 中使用 Apache Hadoop 叢集來存取 Grafana 儀表板
-ms.service: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
+ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 12/11/2018
-ms.openlocfilehash: a61188ce5a0c3ba5e4170e15ed81d599af205205
-ms.sourcegitcommit: dd69b3cda2d722b7aecce5b9bd3eb9b7fbf9dc0a
+ms.openlocfilehash: cea0e9709afb65caa23d28be093c28498f2b82d0
+ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70961582"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71122986"
 ---
 # <a name="access-grafana-in-azure-hdinsight"></a>在 Azure HDInsight 中存取 Grafana
-
 
 [Grafana](https://grafana.com/) \(英文\) 是廣受使用的開放原始碼圖形和儀表板產生器。 Grafana 的功能非常豐富；不僅可讓使用者建立可自訂和可共用的儀表板，也提供樣板化/指令碼式儀表板、LDAP 整合、多種資料來源等功能。
 
@@ -27,9 +26,9 @@ ms.locfileid: "70961582"
 
 在本節中，您會使用 Azure Resource Manager 範本，在 HDInsight 中建立互動式查詢叢集。 進行本文並不需要具備 Resource Manager 範本體驗。 
 
-1. 按一下以下的 [部署至 Azure] 按鈕，在 Azure 入口網站中登入 Azure 並開啟 Resource Manager 範本。 
+1. 按一下以下的 [部署至 Azure] 按鈕，在 Azure 入口網站中登入 Azure 並開啟 Resource Manager 範本。
    
-    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-hdinsight-interactive-hive%2Fazuredeploy.json" target="_blank"><img src="./media/hdinsight-grafana/hdi-deploy-to-azure1.png" alt="Deploy to Azure"></a>
+    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-hdinsight-interactive-hive%2Fazuredeploy.json" target="_blank"><img src="./media/hdinsight-grafana/hdi-deploy-to-azure1.png" alt="Deploy to Azure button for new cluster"></a>
 
 2. 輸入或選取如下列螢幕擷取畫面所建議的值：
 
@@ -51,17 +50,17 @@ ms.locfileid: "70961582"
     |**叢集名稱**     | 輸入 Apache Hadoop 叢集的名稱。 由於 HDInsight 中的所有叢集共用相同的 DNS 命名空間，因此這個名稱必須是唯一的。 名稱最多可包含 59 個字元，而這些字元可以是字母、數字和連字號。 名稱的第一個和最後一個字元不可以是連字號。 |
     |**叢集登入名稱和密碼**     | 預設登入名稱為 **admin**。密碼長度至少必須為 10 個字元，且必須包含至少一個數字、一個大寫字母及一個小寫字母、一個非英數字元 (除了字元 ' " ` \)。 確定您**不會提供**常見密碼，例如 "Pass@word1"。|
     |**SSH 使用者名稱和密碼**     | 預設的使用者名稱為 **sshuser**。  您可以將 SSH 使用者名稱重新命名。  SSH 使用者密碼與叢集登入密碼具有相同的需求。|
-       
+
     某些屬性已硬式編碼在範本中。  您可以從範本設定這些值。 如需這些屬性的詳細說明，請參閱[在 HDInsight 中建立 Apache Hadoop 叢集](../hdinsight-hadoop-provision-linux-clusters.md)。
 
 3. 選取 [我同意上方所述的條款及條件] 和 [釘選到儀表板]，然後選取 [購買]。 您應該會在入口網站儀表板上看到標題為**正在提交部署**的新圖格。 大約需要 20 分鐘的時間來建立叢集。
 
-    ![範本部署進度](./media/hdinsight-grafana/deployment-progress-tile.png "Azure 範本部署進度")
+    ![Azure 範本部署進度](./media/hdinsight-grafana/deployment-progress-tile.png "Azure 範本部署進度")
 
-4. 建立叢集後，此圖格的標題會變更為您指定的資源群組名稱。 此圖格也會列出資源群組內所建立的 HDInsight 叢集。 
-   
+4. 建立叢集後，此圖格的標題會變更為您指定的資源群組名稱。 此圖格也會列出資源群組內所建立的 HDInsight 叢集。
+
     ![HDInsight Linux 開始使用的資源群組](./media/hdinsight-grafana/hdinsight-linux-get-started-resource-group.png "Azure HDInsight 叢集資源群組")
-    
+
 5. 此圖格也會列出與叢集相關聯的預設儲存體。 每個叢集都具備 [Azure 儲存體帳戶](../hdinsight-hadoop-use-blob-storage.md)或 [Azure Data Lake 帳戶](../hdinsight-hadoop-use-data-lake-store.md)相依性。 也稱為預設儲存體帳戶。 HDInsight 叢集及其預設儲存體帳戶必須共置於相同的 Azure 區域中。 刪除叢集並不會刪除儲存體帳戶。
     
 
@@ -84,9 +83,7 @@ ms.locfileid: "70961582"
 
 6. Grafana 儀表板隨即出現，且看起來如以下範例：
 
-    ![HDInsight Grafana 儀表板](./media/hdinsight-grafana/hdinsight-grafana-dashboard.png "HDInsight Grafana 儀表板")
-
-   
+    ![HDInsight Grafana web 儀表板](./media/hdinsight-grafana/hdinsight-grafana-dashboard.png "HDInsight Grafana 儀表板")
 
 ## <a name="clean-up-resources"></a>清除資源
 完成本文之後，您可能想要刪除叢集。 利用 HDInsight，您的資料會儲存在 Azure 儲存體中，以便您在未使用叢集時安全地進行刪除。 您也需支付 HDInsight 叢集的費用 (即使未使用)。 由於叢集費用是儲存體費用的許多倍，所以刪除未使用的叢集符合經濟效益。 
@@ -98,7 +95,7 @@ ms.locfileid: "70961582"
 
 1. 回到瀏覽器索引標籤，您可在其中存取 Azure 入口網站。 您應該位於叢集的 [概觀] 頁面上。 如果您只想刪除叢集，但保留預設儲存體帳戶，請選取 [刪除]。
 
-    ![HDInsight 刪除叢集](./media/hdinsight-grafana/hdinsight-delete-cluster.png "刪除 HDInsight 叢集")
+    ![Azure 入口網站刪除叢集圖示](./media/hdinsight-grafana/hdinsight-delete-cluster.png "刪除 HDInsight")叢集
 
 2. 如果您想要刪除叢集以及預設儲存體帳戶，則選取資源群組名稱 (上一個螢幕擷取畫面中醒目提示的項目) 來開啟資源群組頁面。
 

@@ -10,12 +10,12 @@ ms.subservice: core
 ms.reviewer: trbye
 ms.topic: conceptual
 ms.date: 06/20/2019
-ms.openlocfilehash: c49d8000888d4094ea1df47920c1927747927f5c
-ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
+ms.openlocfilehash: 5339d963b84c5922138d53e44abe9340d55b4dde
+ms.sourcegitcommit: 2ed6e731ffc614f1691f1578ed26a67de46ed9c2
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71035052"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71130240"
 ---
 # <a name="auto-train-a-time-series-forecast-model"></a>自動定型時間序列預測模型
 
@@ -95,10 +95,10 @@ y_test = X_test.pop("sales_quantity").values
 |`time_column_name`|用來指定輸入資料中用來建立時間序列並推斷其頻率的日期時間資料行。|✓|
 |`grain_column_names`|在輸入資料中定義個別數列群組的名稱。 如果未定義細微性，則會假設資料集為一個時間序列。||
 |`max_horizon`|以時間序列頻率的單位，定義所需的預測範圍上限。 單位是以定型資料的時間間隔為基礎，例如每個月、每週 forecaster 應預測。|✓|
-|`target_lags`|在模型定型之前，要向前延後的目標值為*n*個期間。||
+|`target_lags`|要根據資料頻率延後目標值的資料列數目。 這會以清單或單一整數表示。||
 |`target_rolling_window_size`|*n*要用來產生預測值的歷程記錄期間，< = 定型集大小。 如果省略，則*n*是完整的定型集大小。||
 
-將時間序列設定建立為 dictionary 物件。 將設定`day_datetime`為資料集內的欄位。 `time_column_name` 定義參數以確保針對資料建立**兩個不同的時間序列群組**，一個用於儲存 A 和 B。 `max_horizon`最後，將設定為50，以便預測整個測試集。 `grain_column_names` 使用`target_rolling_window_size`將 [預測] 視窗設定為10個週期，並使用`target_lags`參數來延後2個週期的目標值。
+將時間序列設定建立為 dictionary 物件。 將設定`day_datetime`為資料集內的欄位。 `time_column_name` 定義參數以確保針對資料建立**兩個不同的時間序列群組**，一個用於儲存 A 和 B。 `max_horizon`最後，將設定為50，以便預測整個測試集。 `grain_column_names` 使用`target_rolling_window_size`將 [預測] 視窗設定為10個週期，並在 [目標值] 上指定 [前2個`target_lags`期間的單一延遲] 參數。
 
 ```python
 time_series_settings = {
@@ -111,8 +111,14 @@ time_series_settings = {
 }
 ```
 
+
+
 > [!NOTE]
 > 自動化機器學習前置處理步驟 (功能正規化、處理遺漏的資料、將文字轉換成數值等等) 會成為基礎模型的一部分。 使用模型進行預測時，定型期間所套用的相同前置處理步驟會自動套用至您的輸入資料。
+
+藉由定義`grain_column_names`上述程式碼片段中的，AutoML 會建立兩個不同的時間序列群組，又稱為多個時間序列。 如果未定義任何細微性，則 AutoML 會假設資料集為單一時間序列。 若要深入瞭解單一時間序列，請參閱[energy_demand_notebook](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/automated-machine-learning/forecasting-energy-demand)。
+
+
 
 現在，請建立`AutoMLConfig`標準物件，並`forecasting`指定工作類型並提交實驗。 在模型完成之後，請抓取最佳的執行反復專案。
 

@@ -11,12 +11,12 @@ author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, carlrab
 ms.date: 03/06/2019
-ms.openlocfilehash: 9922d347fae154a3a9b1c37e813014225c28442d
-ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
+ms.openlocfilehash: d782c2d9dff45dc152cab2246c95dda063bfd900
+ms.sourcegitcommit: 2ed6e731ffc614f1691f1578ed26a67de46ed9c2
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71103168"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71130398"
 ---
 # <a name="automatic-tuning-in-azure-sql-database"></a>Azure SQL Database 中的自動調整
 
@@ -75,7 +75,7 @@ Azure SQL Database 中可用的自動調整選項有：
 
 您可以使用入口網站來手動套用調整建議，或是讓自動調整為您自動套用調整建議。 讓系統為您自動套用調整建議的好處，就是系統會自動驗證工作負載效能是否有正面的改善，或者如果未偵測到明顯的效能改善，系統會自動還原調整建議。 請注意，針對受到沒有經常執行之調整建議所影響的查詢，其驗證階段根據設計可能需要最多 72 小時才能完成。
 
-如果您要透過 T-sql 套用微調建議，則無法使用自動效能驗證和反轉機制。 以這種方式套用的建議將維持作用中狀態，並顯示于24-48 小時的微調建議清單中。 系統自動將其收回之前。 如果您想要更快移除此清單中的建議，您可以將它從 Azure 入口網站中捨棄。
+如果您要透過 T-sql 套用微調建議，則無法使用自動效能驗證和反轉機制。 以這種方式套用的建議將維持作用中狀態，並顯示于24-48 小時的微調建議清單中。 系統自動將其收回之前。 如果您想要更快移除建議，可以將它從 Azure 入口網站中捨棄。
 
 自動微調選項可以針對每個資料庫個別地啟用或停用，或可以在 SQL Database 伺服器上設定，並在從伺服器繼承設定的每個資料庫上套用。 SQL Database 伺服器可以繼承 Azure 的自動調整設定預設值。 Azure 預設值此時會設為已啟用 FORCE_LAST_GOOD_PLAN 和 CREATE_INDEX，且已停用 DROP_INDEX。
 

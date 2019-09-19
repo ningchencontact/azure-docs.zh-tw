@@ -5,15 +5,15 @@ services: expressroute
 author: jaredr80
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 06/28/2019
+ms.date: 09/18/2019
 ms.author: jaredro
 ms.custom: seodec18
-ms.openlocfilehash: 9a5e5dc414d487efd5f6762c89cecb77da74e3d5
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: 6e3045ba8363965fcfc198356ed68447a187308d
+ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68592069"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71123423"
 ---
 # <a name="expressroute-faq"></a>ExpressRoute 常見問題集
 
@@ -55,11 +55,23 @@ ExpressRoute 連線不會經過公用網際網路。 相較於網際網路一般
 
 ## <a name="supported-services"></a>支援的服務
 
-ExpressRoute 針對各種服務類型支援[三種路由網域](expressroute-circuit-peerings.md)。
+ExpressRoute 支援[三種路由網域](expressroute-circuit-peerings.md)，適用于各種類型的服務：私用對等互連、Microsoft 對等互連和公用對等互連。
 
 ### <a name="private-peering"></a>私用對等
 
 * 包括所有虛擬機器和雲端服務在內的虛擬網路
+
+### <a name="microsoft-peering"></a>Microsoft 對等
+
+* [Office 365](https://aka.ms/ExpressRouteOffice365)
+* Power BI-可透過 Azure 區域的社區取得, 請參閱[這裡](https://docs.microsoft.com/power-bi/service-admin-where-is-my-tenant-located)以瞭解如何找出 Power BI 租使用者的區域。
+* Azure Active Directory
+* [Azure DevOps](https://blogs.msdn.microsoft.com/devops/2018/10/23/expressroute-for-azure-devops/) (Azure 全域服務社群)
+* 支援大部分 Azure 服務。 請直接檢查您要用來驗證支援的服務。<br><br>**不支援下列服務**：
+    * CDN
+    * Azure Front Door
+    * 多因素驗證
+    * 流量管理員
 
 ### <a name="public-peering"></a>公用對等
 
@@ -68,7 +80,6 @@ ExpressRoute 針對各種服務類型支援[三種路由網域](expressroute-cir
 >
 
 * Power BI
-* Dynamics 365 for Finance and Operations (先前稱為 Dynamics AX Online)
 * 支援大部分 Azure 服務。 請直接檢查您要用來驗證支援的服務。<br><br>
   **不支援下列服務**：
     * CDN
@@ -76,18 +87,10 @@ ExpressRoute 針對各種服務類型支援[三種路由網域](expressroute-cir
     * 多因素驗證
     * 流量管理員
 
-### <a name="microsoft-peering"></a>Microsoft 對等
+### <a name="is-dynamics-365-supported-on-expressroute"></a>ExpressRoute 支援 Dynamics 365 嗎？
 
-* [Office 365](https://aka.ms/ExpressRouteOffice365)
-* Dynamics 365 
-* Power BI-可透過 Azure 區域的社區取得, 請參閱[這裡](https://docs.microsoft.com/power-bi/service-admin-where-is-my-tenant-located)以瞭解如何找出 Power BI 租使用者的區域。 
-* Azure Active Directory
-* [Azure DevOps](https://blogs.msdn.microsoft.com/devops/2018/10/23/expressroute-for-azure-devops/) (Azure 全域服務社群)
-* 支援大部分 Azure 服務。 請直接檢查您要用來驗證支援的服務。<br><br>**不支援下列服務**：
-    * CDN
-    * Azure Front Door
-    * 多因素驗證
-    * 流量管理員
+Dynamics 365 和 Common Data Service （CD）環境裝載于 Azure 上，因此客戶可以從 Azure 資源的基礎 ExpressRoute 支援獲益。 如果您的路由器篩選器包含您的 Dynamics 365/CD 環境裝載所在的 Azure 區域，您可以連接到其服務端點。
+
 
 ## <a name="data-and-connections"></a>資料與連線
 
@@ -262,7 +265,7 @@ ExpressRoute Premium 是下列功能的集合：
 
 * 將私用對等互連的路由表限制，從 4000 個路由提高到 10,000 個路由。
 * 可在 ExpressRoute 線路 (預設為 10) 上啟用的增加的 VNet 與 ExpressRoute Global Reach 連線數目。 如需詳細資訊，請參閱 [ExpressRoute 限制](#limits)表格。
-* 連線到 Office 365 和 Dynamics 365。
+* Office 365 的連線能力
 * 透過 Microsoft 核心網路的全球連線。 您現在可將某一個地緣政治區域中的 VNet 與另一個區域中的 ExpressRoute 線路連結。<br>
     **範例：**
 
@@ -332,7 +335,7 @@ ExpressRoute Local 可在對等互連位置取得, 其中一或兩個 Azure 區�
 > 
 > 
 
-### <a name="can-my-existing-expressroute-circuits-support-connectivity-to-office-365-services-and-dynamics-365"></a>我的現有 ExpressRoute 線路是否支援與 Office 365 服務和 Dynamics 365 連線？
+### <a name="can-my-existing-expressroute-circuits-support-connectivity-to-office-365-services"></a>我的現有 ExpressRoute 線路是否可支援與 Office 365 服務的連線？
 
 是的。 您可以設定現有 ExpressRoute 電路以支援與 Office 365 服務的連線。 請確保您有足夠的容量可以連線到 Office 365 服務，並已啟用 Premium 附加元件。 [Office 365 的網路規劃和效能調整](https://aka.ms/tune/)可協助您規劃連線需求。 另請參閱 [建立和修改 ExpressRoute 電路](expressroute-howto-circuit-classic.md)。
 
@@ -369,13 +372,9 @@ ExpressRoute Local 可在對等互連位置取得, 其中一或兩個 Azure 區�
 
 當使用路由篩選時，任何客戶都可開啟 Microsoft 對等互連。 不過，若要使用 Office 365 服務，您仍然需要取得 Office 365 的授權。
 
-### <a name="do-i-need-to-get-authorization-for-turning-on-dynamics-365-over-microsoft-peering"></a>我是否需要取得授權才能透過 Microsoft 對等互連來開啟 Dynamics 365？
-
-否，您不需要 Dynamics 365 的授權。 您不需授權就可建立規則和選取 Dynamics 365 社群。
-
 ### <a name="i-enabled-microsoft-peering-prior-to-august-1-2017-how-can-i-take-advantage-of-route-filters"></a>我在 2017 年 8 月 1 日之前啟用了 Microsoft 對等互連，該如何利用路由篩選？
 
-您現有的線路會繼續公告 Office 365 和 Dynamics 365 的前置詞。 如果您需要透過相同的 Microsoft 對等互連新增 Azure 公用首碼公告，可以建立路由篩選器、選取您需要公告的服務 (包括您需要的 Office 365 服務和 Dynamics 365)，並將篩選連接到您的 Microsoft 對等互連。 如需指示，請參閱[針對 Microsoft 對等互連設定路由篩選](how-to-routefilter-powershell.md)。
+您現有的線路會繼續為 Office 365 公告首碼。 如果您想要在相同的 Microsoft 對等互連上新增 Azure 公用首碼公告，您可以建立路由篩選、選取您需要通告的服務（包括所需的 Office 365 服務），並將篩選準則附加至您的 Microsoft 對等互連。 如需指示，請參閱[針對 Microsoft 對等互連設定路由篩選](how-to-routefilter-powershell.md)。
 
 ### <a name="i-have-microsoft-peering-at-one-location-now-i-am-trying-to-enable-it-at-another-location-and-i-am-not-seeing-any-prefixes"></a>我在某個位置有 Microsoft 對等互連，現在正嘗試於另一個位置啟用它，但沒有看見任何首碼。
 

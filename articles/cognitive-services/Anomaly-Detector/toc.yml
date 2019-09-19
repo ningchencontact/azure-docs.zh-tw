@@ -16,12 +16,14 @@
           href: quickstarts/detect-data-anomalies-java.md
         - name: 使用 Python
           href: quickstarts/detect-data-anomalies-python.md
-    - name: 用戶端
+    - name: 用戶端程式庫
       items:
         - name: '使用 C#'
           href: quickstarts/detect-data-anomalies-csharp-sdk.md
         - name: 使用 Python
           href: quickstarts/detect-data-anomalies-python-sdk.md
+        - name: 使用 Node.js
+          href: quickstarts/detect-data-anomalies-nodejs-sdk.md
 - name: 教學課程
   items:
     - name: 使用 Power BI 將異常情況以批次方式加以視覺化

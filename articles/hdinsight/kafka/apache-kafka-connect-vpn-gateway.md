@@ -1,19 +1,19 @@
 ---
 title: 使用虛擬網路連線到 Kafka - Azure HDInsight
 description: 了解如何透過 Azure 虛擬網路，直接連線到 HDInsight 上的 Kafka。 了解如何使用 VPN 閘道從開發用戶端連線到 Kafka，或使用 VPN 閘道裝置從內部部署網路的用戶端進行連線。
-ms.service: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
+ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/28/2019
-ms.openlocfilehash: ab5f8c35334b6b6c56b0ebe8714d04ad5c7c8084
-ms.sourcegitcommit: dd69b3cda2d722b7aecce5b9bd3eb9b7fbf9dc0a
+ms.openlocfilehash: 66bb054ab75c5a4e387995bc64dbc026c073413f
+ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70960404"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71122613"
 ---
 # <a name="connect-to-apache-kafka-on-hdinsight-through-an-azure-virtual-network"></a>透過 Azure 虛擬網路連線到 HDInsight 上的 Apache Kafka
 
@@ -252,7 +252,7 @@ Apache Zookeeper 預設會將 Kafka 代理程式的網域名稱傳回給用戶�
 
 3. 若要檢視 Kafka 組態，請從正上方選取 [Configs (設定)]。
 
-    ![Kafka 的 Configs (設定) 連結](./media/apache-kafka-connect-vpn-gateway/select-kafka-config1.png)
+    ![Apache Ambari services 設定](./media/apache-kafka-connect-vpn-gateway/select-kafka-config1.png)
 
 4. 若要找出 __kafka-env__ 組態，請在右上角的 [Filter (篩選)] 欄位中輸入 `kafka-env`。
 
@@ -274,7 +274,7 @@ Apache Zookeeper 預設會將 Kafka 代理程式的網域名稱傳回給用戶�
 
 8. 若要儲存組態變更，請使用 [Save (儲存)] 按鈕。 輸入描述變更的文字訊息。 儲存變更後，請選取 [OK (確定)]。
 
-    ![儲存組態按鈕](./media/apache-kafka-connect-vpn-gateway/save-configuration-button.png)
+    ![Apache Ambari 儲存設定](./media/apache-kafka-connect-vpn-gateway/save-configuration-button.png)
 
 9. 若要避免重新啟動 Kafka 時發生錯誤，請使用 [Service Actions (服務動作)] 按鈕，然後選取 [Turn On Maintenance Mode (開啟維護模式)]。 選取 [OK (確定)] 以完成此作業。
 

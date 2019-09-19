@@ -4,7 +4,7 @@ description: 以下是雲端服務角色無法啟動的一些常見原因。 此
 services: cloud-services
 documentationcenter: ''
 author: simonxjx
-manager: felixwu
+manager: dcscontentpm
 editor: ''
 tags: top-support-issue
 ms.assetid: 674b2faf-26d7-4f54-99ea-a9e02ef0eb2f
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 06/15/2018
 ms.author: v-six
-ms.openlocfilehash: 9e1ae9ca6106a6a55e0cfc933ad47a5944ed5abb
-ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
+ms.openlocfilehash: 869453d92f536a62aacc2be52598223158566ae0
+ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/10/2019
-ms.locfileid: "68945402"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71122737"
 ---
 # <a name="troubleshoot-cloud-service-roles-that-fail-to-start"></a>對無法啟動的雲端服務角色進行疑難排解
 以下是與無法啟動的 Azure 雲端服務角色相關的一些常見問題和解決方案。
@@ -74,8 +74,8 @@ ms.locfileid: "68945402"
 瀏覽至網站現在會傳回更明確的錯誤訊息：
 
 * '/' 應用程式中有伺服器錯誤。
-* 描述:執行目前的 web 要求期間發生未處理的例外狀況。 請檢閱堆疊追蹤，以進一步了解錯誤以及它產生於程式碼中的何處。
-* 例外狀況詳細資料:System.IO.FIleNotFoundException:無法載入檔案或元件 ' Windowsazure.storage. Microsoft.windowsazure.storageclient, Version = 1.1.0.0, Culture = 中性, PublicKeyToken = 31bf856ad364e35 ' 或其相依性的其中之一。 系統找不到指定的檔案。
+* Description:執行目前的 web 要求期間發生未處理的例外狀況。 請檢閱堆疊追蹤，以進一步了解錯誤以及它產生於程式碼中的何處。
+* 例外狀況詳細資料：System.IO.FIleNotFoundException:無法載入檔案或元件 ' Windowsazure.storage. Microsoft.windowsazure.storageclient，Version = 1.1.0.0，Culture = 中性，PublicKeyToken = 31bf856ad364e35 ' 或其相依性的其中之一。 系統找不到指定的檔案。
 
 例如:
 

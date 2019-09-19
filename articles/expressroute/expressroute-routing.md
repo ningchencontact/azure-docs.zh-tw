@@ -5,15 +5,15 @@ services: expressroute
 author: cherylmc
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 09/04/2019
+ms.date: 09/19/2019
 ms.author: cherylmc
 ms.custom: seodec18
-ms.openlocfilehash: 9d4822d07a95fcdec32c0c4146562884302fa4f8
-ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
+ms.openlocfilehash: 9bc0d1b31ebeaecce8b4be8699cf87811047b6f9
+ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70308325"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71123267"
 ---
 # <a name="expressroute-routing-requirements"></a>ExpressRoute 路由需求
 若要使用 ExpressRoute 連線到 Microsoft 雲端服務，您必須設定和管理路由。 有些連線提供者會以受控服務形式提供路由的設定和管理。 請洽詢您的連線服務提供者，以查看他們是否提供這類服務。 如果沒有，您必須遵循下列需求：
@@ -84,7 +84,7 @@ ms.locfileid: "70308325"
 您可以選擇使用公用或私人 IPv4 位址進行私人對等互連。 我們會提供流量的端對端隔離，因此在私人對等互連的情況下不可能發生位址與其他客戶重疊。 這些位址不會向網際網路公告。 
 
 ### <a name="microsoft-peering"></a>Microsoft 對等
-Microsoft 對等路徑可讓您連線到 Microsoft 雲端服務。 服務清單包括 Office 365 服務，例如 Exchange Online、SharePoint Online、商務用 Skype、Microsoft 團隊和 Dynamics 365。 Microsoft 支援在 Microsoft 對等上的雙向連線能力。 以 Microsoft 雲端服務為目的地的流量，必須使用有效的公用 IPv4 位址，才能進入 Microsoft 網路。
+Microsoft 對等路徑可讓您連線到 Microsoft 雲端服務。 服務清單包括 Office 365 服務，例如 Exchange Online、SharePoint Online、商務用 Skype 和 Microsoft 團隊。 Microsoft 支援在 Microsoft 對等上的雙向連線能力。 以 Microsoft 雲端服務為目的地的流量，必須使用有效的公用 IPv4 位址，才能進入 Microsoft 網路。
 
 確定已在下列其中一個登錄中註冊您的 IP 位址和 AS 號碼：
 
@@ -183,7 +183,7 @@ ExpressRoute 不能設定為傳輸路由器。 您必須依賴連線提供者的
 | 日本東部 | 12076:51012 | 12076:52012 | 12076:53012 | 12076:54012 |
 | 日本西部 | 12076:51013 | 12076:52013 | 12076:53013 | 12076:54013 |
 | **澳大利亞** | |
-| 澳大利亞東部 | 12076:51015 | 12076:52015 | 12076:53015 | 12076:54015 |
+| 澳洲東部 | 12076:51015 | 12076:52015 | 12076:53015 | 12076:54015 |
 | 澳大利亞東南部 | 12076:51016 | 12076:52016 | 12076:53016 | 12076:54016 |
 | **澳洲政府** | |
 | 澳大利亞中部 | 12076:51032 | 12076:52032 | 12076:53032 | 12076:54032 |
@@ -218,7 +218,6 @@ ExpressRoute 不能設定為傳輸路由器。 您必須依賴連線提供者的
 | Exchange Online | 12076:5010 |
 | SharePoint Online | 12076:5020 |
 | 商務用 Skype Online | 12076:5030 |
-| Dynamics 365 | 12076:5040 |
 | Azure 全域服務* | 12076:5050 |
 | 其他 Office 365 Online 服務 | 12076:5100 |
 
@@ -235,11 +234,11 @@ ExpressRoute 不能設定為傳輸路由器。 您必須依賴連線提供者的
 | **國家雲端 Azure 區域**| **BGP 社群值** |
 | --- | --- |
 | **美國政府** |  |
-| US Gov 亞利桑那州 | 12076:51106 |
+| 美國政府亞利桑那州 | 12076:51106 |
 | US Gov 愛荷華州 | 12076:51109 |
-| US Gov 維吉尼亞州 | 12076:51105 |
-| US Gov 德克薩斯州 | 12076:51108 |
-| 美國 DoD 中部 | 12076:51209 |
+| 美國政府維吉尼亞州 | 12076:51105 |
+| 美國政府德克薩斯州 | 12076:51108 |
+| 美國國防部中央 | 12076:51209 |
 | 美國 DoD 東部 | 12076:51205 |
 
 
@@ -249,7 +248,6 @@ ExpressRoute 不能設定為傳輸路由器。 您必須依賴連線提供者的
 | Exchange Online |12076:5110 |
 | SharePoint Online |12076:5120 |
 | 商務用 Skype Online |12076:5130 |
-| Dynamics 365 |12076:5140 |
 | 其他 Office 365 Online 服務 |12076:5200 |
 
 ## <a name="next-steps"></a>後續步驟

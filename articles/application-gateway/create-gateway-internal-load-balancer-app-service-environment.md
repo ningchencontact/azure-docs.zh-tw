@@ -4,7 +4,7 @@ description: 了解如何在 Azure 中使用內部負載平衡器搭配 App Serv
 services: vpn-gateway
 documentationCenter: na
 author: genlin
-manager: cshepard
+manager: dcscontentpm
 editor: ''
 tags: ''
 ms.service: vpn-gateway
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/06/2018
 ms.author: genli
-ms.openlocfilehash: baed2b23a321c53a614303d3085fbb3a4bf6ad0b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 9c3216af283ebd9d84a5469d4d50d18c19f67534
+ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60831090"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71121959"
 ---
 # <a name="back-end-server-certificate-is-not-whitelisted-for-an-application-gateway-using-an-internal-load-balancer-with-an-app-service-environment"></a>使用內部負載平衡器搭配 App Service Environment 的應用程式閘道並未將後端伺服器憑證列入允許清單
 
@@ -66,7 +66,7 @@ ms.locfileid: "60831090"
 
 - 在 ILB 和後端伺服器上使用萬用字元憑證，這樣該憑證對所有網站就會是通用的。 不過，此解決方案只適用於子網域的情況，如果每個網站需要不同的主機名稱就不適用。
 
-- 將應用程式閘道的 [為應用程式服務使用]  選項取消選取，以免您是使用 ILB 的 IP 位址。
+- 將應用程式閘道的 [為應用程式服務使用] 選項取消選取，以免您是使用 ILB 的 IP 位址。
 
 若要減少額外負荷，您可以上傳 HTTP 設定中的 ILB 憑證，以進行探查路徑工作。 (此步驟只適用於加入允許清單。 不會用於 SSL 通訊。)若要擷取 ILB 憑證，您可以從瀏覽器使用 HTTPS 上的 IP 位址來存取 ILB，然後以 Base-64 編碼的 CER 格式匯出 SSL 憑證，並上傳個別 HTTP 設定上的憑證。
 

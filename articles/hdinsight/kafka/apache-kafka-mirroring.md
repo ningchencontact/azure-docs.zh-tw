@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/24/2019
-ms.openlocfilehash: 8565ee03ddff67afb3700aa1cda91ae696a0fc93
-ms.sourcegitcommit: dd69b3cda2d722b7aecce5b9bd3eb9b7fbf9dc0a
+ms.openlocfilehash: 270bc5401e58f4e5c99cae3c5ab06b4f03ae9543
+ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70960228"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71123250"
 ---
 # <a name="use-mirrormaker-to-replicate-apache-kafka-topics-with-kafka-on-hdinsight"></a>使用 MirrorMaker，透過 HDInsight 上的 Kafka 來複寫 Apache Kafka 主題
 
@@ -84,7 +84,7 @@ ms.locfileid: "70960228"
     1. 按一下 [新增]。
     1. 在 [**新增對等互連**] 畫面上，輸入詳細資料，如下列螢幕擷取畫面所示。
 
-        ![新增 vnet 對等互連](./media/apache-kafka-mirroring/hdi-add-vnet-peering.png)
+        ![HDInsight Kafka 新增 vnet 對等互連](./media/apache-kafka-mirroring/hdi-add-vnet-peering.png)
 
 1. 設定 IP 公告：
     1. 移至主要叢集的 [Ambari] 儀表板`https://PRIMARYCLUSTERNAME.azurehdinsight.net`：。
@@ -104,7 +104,7 @@ ms.locfileid: "70960228"
     1. 在 [儲存設定**變更**] 上按一下 **[確定]** 。
     1. 按一下 [**重新** > 啟動**需要重新開機**的**所有受影響**的] 通知。 按一下 [**確認全部重新開機**]。
 
-        ![重新開機 kafka 節點](./media/apache-kafka-mirroring/ambari-restart-notification.png)
+        ![Apache Ambari 重新開機所有受影響的](./media/apache-kafka-mirroring/ambari-restart-notification.png)
 
 1. 設定 Kafka 以接聽所有網路介面。
     1. 停留在 [**服務** >  **Kafka**] 底下的 [**進行中]** 索引標籤。 在 [ **Kafka Broker** ] 區段中 **，將 [接聽**程式] 屬性設為`PLAINTEXT://0.0.0.0:9092`。
@@ -115,7 +115,7 @@ ms.locfileid: "70960228"
     1. 按一下 [Ambari] 儀表板上的 [**主機**]。
     1. 記下訊息代理程式和 Zookeeper 的 IP 位址。 訊息代理程式節點的**w)** 是主機名稱的前兩個字母，而 zookeeper 節點則具有**zk**做為主機名稱的前兩個字母。
 
-        ![查看 ip 位址](./media/apache-kafka-mirroring/view-node-ip-addresses2.png)
+        ![Apache Ambari view node ip 位址](./media/apache-kafka-mirroring/view-node-ip-addresses2.png)
 
 1. 針對第二個叢集 kafka 重複前面的三個步驟 **-[次要**叢集]：設定 IP 廣告、設定接聽程式，並記下 Broker 和 Zookeeper IP 位址。
 
@@ -251,7 +251,7 @@ ms.locfileid: "70960228"
         6. 將 `auto.create.topics.enable` 的值變更為 true，然後選取 [儲存]。 新增附註，然後再次選取 [儲存]。
         7. 依序選取 [Kafka] 服務、[重新啟動] 和 [重新啟動所有受影響的]。 出現提示時，選取 [確認全部重新啟動]。
 
-        ![設定自動建立主題](./media/apache-kafka-mirroring/kafka-enable-auto-create-topics.png)
+        ![kafka 啟用自動建立主題](./media/apache-kafka-mirroring/kafka-enable-auto-create-topics.png)
 
 ## <a name="start-mirrormaker"></a>啟動 MirrorMaker
 

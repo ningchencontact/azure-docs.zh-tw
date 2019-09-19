@@ -13,12 +13,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 9/11/2018
 ms.author: dekapur
-ms.openlocfilehash: 78db25fed7c284b31491bdc9e5498493da4c7479
-ms.sourcegitcommit: 08d3a5827065d04a2dc62371e605d4d89cf6564f
+ms.openlocfilehash: dad37af030c456f9ba2cd814fa92a7811dce6aa1
+ms.sourcegitcommit: 2ed6e731ffc614f1691f1578ed26a67de46ed9c2
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68618840"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71130319"
 ---
 # <a name="plan-and-prepare-your-service-fabric-standalone-cluster-deployment"></a>規劃和準備您的 Service Fabric 獨立叢集部署
 
@@ -65,10 +65,11 @@ ms.locfileid: "68618840"
 * 至少 40 GB 的可用磁碟空間
 * 4 核心或更高的 CPU
 * 所有電腦的安全網路連線
-* 已安裝 Windows Server 作業系統 (有效版本：2012 R2、2016、1709、1803或 2019)
+* 已安裝 Windows Server 作業系統 (有效版本：2012 R2、2016、1709或1803）。 Service Fabric version 6.4.654.9590 和更新版本也支援伺服器2019和1809。
 * [.NET Framework 4.5.1 或更高版本](https://www.microsoft.com/download/details.aspx?id=40773)，完整安裝
 * [Windows PowerShell 3.0](https://msdn.microsoft.com/powershell/scripting/setup/installing-windows-powershell)
 * [RemoteRegistry 服務](https://technet.microsoft.com/library/cc754820) 應該在所有電腦上執行
+* Service Fabric 安裝磁片磁碟機必須是 NTFS 檔案系統
 
 部署和設定叢集的叢集系統管理員必須擁有每部電腦的 [系統管理員權限](https://social.technet.microsoft.com/wiki/contents/articles/13436.windows-server-2012-how-to-add-an-account-to-a-local-administrator-group.aspx) 。 您無法在網域控制站上安裝 Service Fabric。
 
@@ -83,7 +84,7 @@ ms.locfileid: "68618840"
 
 從您下載的封裝中開啟其中一個 ClusterConfig.json 檔案，然後修改下列設定︰
 
-| **組態設定** | **說明** |
+| **組態設定** | **描述** |
 | --- | --- |
 | **NodeTypes** |節點類型可讓您將叢集節點分成不同的群組。 一個叢集至少必須有一個節點類型。 群組中的所有節點都有下列共同的特性： <br> **Name** - 這是節點類型名稱。 <br>**Endpoint Ports** - 這些是與這個節點類型相關聯的各種具名端點 (連接埠)。 您可以使用任何您想要的連接埠號碼，只要該號碼未與此資訊清單中的其他任何號碼衝突，而且目前沒有任何其他在電腦/VM 上執行的應用程式在使用該號碼即可。 <br> **Placement Properties** - 此節點類型的這些屬性是用來做為系統服務或您的服務的放置條件約束。 這些屬性是使用者定義的索引鍵/值組，可針對指定節點提供額外的中繼資料。 節點屬性的範例包括節點是否有硬碟機或圖形卡、其硬碟機的磁針數、核心，以及其他實體屬性。 <br> **Capacities** - 節點容量會定義特定節點可以使用的特定資源名稱和數量。 例如，節點可能會定義它具有名為 "MemoryInMb" 的度量容量，而且預設有 2048 MB 的可用記憶體。 這些容量會在執行階段使用，以確保需要特定資源數量的服務會放在需要的數量中有這些資源的節點上。<br>**IsPrimary** - 如果有一個以上已定義的節點類型，請確定只有一個設為主要 (且值為 *true*)，這是系統服務執行的位置。 其他所有節點類型應該設定為值 *false* |
 | **Nodes** |這些是屬於叢集一部分的每個節點的詳細資料 (節點類型、節點名稱、IP 位址、節點的容錯網域和升級網域)。 您想要建立叢集所在的電腦必須與其 IP 位址一起列在這裡。 <br> 如果您為所有節點使用相同的 IP 位址，則會建立一整體叢集，您可以將此叢集用於測試之用。 不要使用一整體叢集部署生產工作負載。 |

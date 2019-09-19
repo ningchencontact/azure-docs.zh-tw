@@ -1,6 +1,6 @@
 ---
-title: 從 Azure Logic Apps 連接到 HTTP 或 HTTPS 端點
-description: 使用 Azure Logic Apps 監視自動化工作、進程和工作流程中的 HTTP 或 HTTPS 端點
+title: 呼叫 HTTP 和 HTTPS 端點-Azure Logic Apps
+description: 使用 Azure Logic Apps 將連出要求傳送至 HTTP 和 HTTPS 端點
 services: logic-apps
 ms.service: logic-apps
 ms.suite: integration
@@ -10,24 +10,26 @@ ms.reviewer: klam, LADocs
 ms.topic: conceptual
 ms.date: 07/05/2019
 tags: connectors
-ms.openlocfilehash: 04d9beaef29e76d40c0bb3f9dcf0bb6f4fe3152d
-ms.sourcegitcommit: b2db98f55785ff920140f117bfc01f1177c7f7e2
+ms.openlocfilehash: df856e0d76dbd5903964bc80aa01b97b7461128a
+ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68234338"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71122705"
 ---
-# <a name="call-http-or-https-endpoints-by-using-azure-logic-apps"></a>使用 Azure Logic Apps 呼叫 HTTP 或 HTTPS 端點
+# <a name="send-outgoing-calls-to-http-or-https-endpoints-by-using-azure-logic-apps"></a>使用 Azure Logic Apps 將撥出電話傳送至 HTTP 或 HTTPS 端點
 
-使用[Azure Logic Apps](../logic-apps/logic-apps-overview.md)和內建 HTTP 連接器, 您可以藉由建立邏輯應用程式, 將定期呼叫任何 HTTP 或 HTTPS 端點的工作流程自動化。 例如, 您可以在指定的排程上檢查該端點, 以監視網站的服務端點。 當特定事件發生在該端點時 (例如您的網站停止運作), 事件會觸發邏輯應用程式的工作流程, 並執行指定的動作。
+透過[Azure Logic Apps](../logic-apps/logic-apps-overview.md)和內建的 HTTP 觸發程式或動作，您可以建立自動化的工作和工作流程，定期將要求傳送至任何 HTTP 或 HTTPS 端點。 若要改為接收和回應傳入的 HTTP 或 HTTPS 呼叫，請使用內建的[要求觸發程式或回應動作](../connectors/connectors-native-reqres.md)。
 
-若要定期檢查或*輪詢*端點, 您可以使用 HTTP 觸發程式做為工作流程中的第一個步驟。 在每次檢查時，觸發程序會將呼叫或「要求」  傳送至端點。 端點的回應會決定是否執行邏輯應用程式的工作流程。 觸發程序會將回應的任何內容，傳遞至邏輯應用程式中的動作。
+例如, 您可以在指定的排程上檢查該端點, 以監視網站的服務端點。 當特定事件發生在該端點時 (例如您的網站停止運作), 事件會觸發邏輯應用程式的工作流程, 並執行指定的動作。
+
+若要定期檢查或*輪詢*端點, 您可以使用 HTTP 觸發程式做為工作流程中的第一個步驟。 在每次檢查時，觸發程序會將呼叫或「要求」傳送至端點。 端點的回應會決定是否執行邏輯應用程式的工作流程。 觸發程序會將回應的任何內容，傳遞至邏輯應用程式中的動作。
 
 您可以使用 HTTP 動作作為工作流程中的任何其他步驟，在您想要的時候檢查端點。 端點的回應會決定工作流程的剩餘動作如何執行。
 
 根據目標端點的功能, HTTP 連接器支援傳輸層安全性 (TLS) 版本1.0、1.1 和1.2。 Logic Apps 使用支援的最高版本來與端點協調。 因此, 例如, 如果端點支援 1.2, 連接器會先使用1.2。 否則, 連接器會使用下一個支援的最高版本。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 * Azure 訂用帳戶。 如果您沒有 Azure 訂用帳戶，請先[註冊免費的 Azure 帳戶](https://azure.microsoft.com/free/)。
 
@@ -59,7 +61,7 @@ ms.locfileid: "68234338"
 
 1. 請使用當引發觸發程序時執行的動作，繼續建置邏輯應用程式的工作流程。
 
-1. 完成後, 請記得儲存您的邏輯應用程式。 在設計工具工具列上, 選取 [**儲存**]。
+1. 完成後, 請記得儲存您的邏輯應用程式。 在設計工具的工具列上，選取 [儲存]。
 
 ## <a name="add-an-http-action"></a>新增 HTTP 動作
 
@@ -87,7 +89,7 @@ ms.locfileid: "68234338"
 
 1. 若要加入其他可用的參數, 請開啟 [**加入新的參數**] 清單, 然後選取您想要的參數。
 
-1. 當您完成時, 請記得儲存您的邏輯應用程式。 在設計工具工具列上, 選取 [**儲存**]。
+1. 當您完成時, 請記得儲存您的邏輯應用程式。 在設計工具的工具列上，選取 [儲存]。
 
 ## <a name="content-with-multipartform-data-type"></a>具有多部分/表單資料類型的內容
 

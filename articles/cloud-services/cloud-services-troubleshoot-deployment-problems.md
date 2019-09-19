@@ -4,7 +4,7 @@ description: 將雲端服務部署至 Azure 時，可能會發生幾個常見的
 services: cloud-services
 documentationcenter: ''
 author: simonxjx
-manager: felixwu
+manager: dcscontentpm
 editor: ''
 tags: top-support-issue
 ms.assetid: a18ae415-0d1c-4bc4-ab6c-c1ddea02c870
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 06/15/2018
 ms.author: v-six
-ms.openlocfilehash: e8ed7066025dd60f0c157a4ce4caec925fe08792
-ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
+ms.openlocfilehash: ccb08f853ae0f941dd5f9c0eca8c77f0f650905a
+ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/10/2019
-ms.locfileid: "68945380"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71122758"
 ---
 # <a name="troubleshoot-cloud-service-deployment-problems"></a>對雲端服務部署問題進行疑難排解
 當您將雲端服務應用程式封裝部署至 Azure 時，您可以從 Azure 入口網站中的 [屬性] 窗格取得部署的相關資訊。 您可以利用此窗格中的詳細資料來排解雲端服務的問題，也可以在開啟新的支援要求時將這項資訊提供給 Azure 支援。
@@ -35,7 +35,7 @@ ms.locfileid: "68945380"
 
 [!INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
 
-## <a name="problem-i-cannot-access-my-website-but-my-deployment-is-started-and-all-role-instances-are-ready"></a>問題：我無法存取我的網站, 但我的部署已啟動, 且所有角色實例都已就緒
+## <a name="problem-i-cannot-access-my-website-but-my-deployment-is-started-and-all-role-instances-are-ready"></a>問題：我無法存取我的網站，但我的部署已啟動，且所有角色實例都已就緒
 入口網站中顯示的網站 URL 連結未包含連接埠。 網站的預設連接埠為 80。 如果您的應用程式設定為在不同的連接埠執行，您必須在存取網站時將正確的連接埠號碼新增至 URL。
 
 1. 在 Azure 入口網站中，按一下您的雲端服務部署。

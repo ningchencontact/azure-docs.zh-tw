@@ -7,12 +7,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 09/13/2019
 ms.author: dacurwin
-ms.openlocfilehash: 4fb88cbed4e73a7cea2b0ccf01b1429a3ff321f3
-ms.sourcegitcommit: 71db032bd5680c9287a7867b923bf6471ba8f6be
+ms.openlocfilehash: b882b8ee08c38b6313558916ab46f80ce9dd5130
+ms.sourcegitcommit: 2ed6e731ffc614f1691f1578ed26a67de46ed9c2
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/16/2019
-ms.locfileid: "71018190"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71129343"
 ---
 # <a name="security-features-to-help-protect-cloud-workloads-that-use-azure-backup"></a>協助保護使用 Azure 備份之雲端工作負載的安全性功能
 
@@ -122,9 +122,9 @@ Azure 儲存體會在將資料保存到雲端時，自動將其加密。 加密�
 
 如果保存庫中有已虛刪除狀態的備份專案，則無法刪除復原服務保存庫。 刪除作業14天后，會永久刪除虛刪除的專案。 只有在清除所有已虛刪除的專案之後，才能刪除保存庫。  
 
-#### <a name="how-can-i-delete-the-data-earlier-than-the-14-days-soft-delete-period-after-deletion"></a>刪除之後，要如何刪除14天之前的資料？
+#### <a name="can-i-delete-the-data-earlier-than-the-14-days-soft-delete-period-after-deletion"></a>刪除之後，我可以刪除14天之前的資料嗎？
 
-在刪除後的14天內，沒有任何方法可以清除資料。 如果它是封鎖程式或合規性問題，請洽詢 Microsoft 支援服務。
+資料分割 您不能強制刪除虛刪除的專案，它們會在14天之後自動刪除。 這項安全性功能可防止意外或惡意刪除已備份的資料。  在 VM 上執行任何其他動作之前，您應該先等待14天。  虛刪除的專案將不會收費。  如果您需要在14天內重新保護標示為要虛刪除的 Vm 至新的保存庫，請洽詢 Microsoft 支援服務。
 
 #### <a name="can-soft-delete-operations-be-performed-in-powershell-or-cli"></a>可以在 PowerShell 或 CLI 中執行虛刪除作業嗎？
 

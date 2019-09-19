@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 04/18/2018
-ms.openlocfilehash: 5d990a1c39495090fed1c78f1ddf5e879490e6c4
-ms.sourcegitcommit: dd69b3cda2d722b7aecce5b9bd3eb9b7fbf9dc0a
+ms.openlocfilehash: 393087f4d5c5e7a52fd2dd10d20362a045a0075b
+ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70960677"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71122658"
 ---
 # <a name="how-to-configure-apache-kafka-on-hdinsight-to-automatically-create-topics"></a>如何將 HDInsight 上的 Apache Kafka 設定為自動建立主題
 
@@ -25,7 +25,7 @@ ms.locfileid: "70960677"
 
 1. 從 [Azure 入口網站](https://portal.azure.com)，選取 Kafka 叢集。
 
-2. 從 [叢集概觀]，選取 [叢集儀表板]。 
+2. 從 [叢集概觀]，選取 [叢集儀表板]。
 
     ![已選取叢集儀表板的入口網站影像](./media/apache-kafka-auto-create-topics/kafka-cluster-overview.png)
 
@@ -35,15 +35,15 @@ ms.locfileid: "70960677"
 
 3. 從頁面左邊的清單中，選取 [Kafka] 服務。
 
-    ![服務清單](./media/apache-kafka-auto-create-topics/hdinsight-service-list.png)
+    ![[Apache Ambari 服務清單] 索引標籤](./media/apache-kafka-auto-create-topics/hdinsight-service-list.png)
 
 4. 選取頁面中間的 [設定]。
 
-    ![服務設定索引標籤](./media/apache-kafka-auto-create-topics/hdinsight-service-config.png)
+    ![Apache Ambari 服務的 [選項] 索引標籤](./media/apache-kafka-auto-create-topics/hdinsight-service-config.png)
 
-5. 在 [篩選] 欄位中，輸入 `auto.create` 的值。 
+5. 在 [篩選] 欄位中，輸入 `auto.create` 的值。
 
-    ![篩選欄位的影像](./media/apache-kafka-auto-create-topics/hdinsight-filter-field.png)
+    ![Apache Ambari 搜尋篩選欄位](./media/apache-kafka-auto-create-topics/hdinsight-filter-field.png)
 
     這會篩選屬性清單並顯示 `auto.create.topics.enable` 設定。
 
@@ -53,7 +53,7 @@ ms.locfileid: "70960677"
 
 7. 依序選取 [Kafka] 服務、[重新啟動] 和 [重新啟動所有受影響的]。 出現提示時，選取 [確認全部重新啟動]。
 
-    ![重新啟動選取項目的影像](./media/apache-kafka-auto-create-topics/restart-all-affected.png)
+    ![Apache Ambari 重新開機所有受影響的](./media/apache-kafka-auto-create-topics/restart-all-affected.png)
 
 > [!NOTE]  
 > 您也可以透過 Ambari REST API 設定 Ambari 值。 這通常更困難，因為您必須進行多個 REST 呼叫以擷取目前的設定、修改它等。如需詳細資訊，請參閱[使用 Apache Ambari REST API 管理 HDInsight 叢集](../hdinsight-hadoop-manage-ambari-rest-api.md)文件。

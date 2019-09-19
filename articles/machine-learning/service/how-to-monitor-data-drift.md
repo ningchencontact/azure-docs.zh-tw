@@ -10,12 +10,12 @@ ms.reviewer: jmartens
 ms.author: copeters
 author: cody-dkdc
 ms.date: 09/13/2019
-ms.openlocfilehash: 59cce0b56a4e54208a454c9f71d9a4c8576b0a8b
-ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
+ms.openlocfilehash: 3b3fbce40c93389037435a7cdb1271e773163de3
+ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71034348"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71123274"
 ---
 # <a name="detect-data-drift-preview-on-models-deployed-to-azure-kubernetes-service-aks"></a>偵測部署到 Azure Kubernetes Service 的模型上的資料漂移（預覽）（AKS）
 
@@ -23,7 +23,7 @@ ms.locfileid: "71034348"
 
 ## <a name="what-is-data-drift"></a>什麼是資料漂移？
 
-在生產環境中提供給模型的資料與用來定型模型的資料不同時，就會發生資料漂移。 這是模型精確度隨著時間而下降的其中一個主要原因，因此監視資料漂移有助於偵測模型效能問題。 
+在機器學習環境中，資料漂移是模型輸入資料的變更，會導致模型效能降低。 這是模型精確度隨著時間而下降的其中一個主要原因，因此監視資料漂移有助於偵測模型效能問題。 
 
 ## <a name="what-can-i-monitor"></a>我可以監視什麼？
 

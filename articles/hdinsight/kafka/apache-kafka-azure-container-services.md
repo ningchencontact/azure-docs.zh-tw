@@ -1,19 +1,19 @@
 ---
 title: 使用 Azure Kubernetes Service 搭配 HDInsight 上的 Kafka
 description: 了解如何從 Azure Kubernetes Service (AKS) 中裝載的容器映像使用 HDInsight 上的 Kafka。
-ms.service: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
+ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/07/2018
-ms.openlocfilehash: e87ac268ab5448f38470f46bd6b0c7f2cdd204ce
-ms.sourcegitcommit: dd69b3cda2d722b7aecce5b9bd3eb9b7fbf9dc0a
+ms.openlocfilehash: 31eefbad8e8d7cb626d87d53690388d09b85257e
+ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70960539"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71122650"
 ---
 # <a name="use-azure-kubernetes-service-with-apache-kafka-on-hdinsight"></a>使用 Azure Kubernetes Service 搭配 HDInsight 上的 Apache Kafka
 
@@ -43,10 +43,9 @@ ms.locfileid: "70960539"
 
 HDInsight 和 AKS 均使用 Azure 虛擬網路作為計算資源的容器。 若要啟用 HDInsight 與 AKS 之間的通訊，您必須啟用其網路之間的通訊。 本文件中的步驟使用網路的虛擬網路對等互連。 其他連線 (例如 VPN) 也應該能運作。 如需對等互連詳細資訊，請參閱[虛擬網路對等互連](../../virtual-network/virtual-network-peering-overview.md)文件。
 
-
 下圖說明本文件中使用的網路拓撲：
 
-![一個虛擬網路中的 HDInsight、另一個虛擬網路中的 AKS，以及使用對等互連連線的網路](./media/apache-kafka-azure-container-services/kafka-aks-architecture.png)
+![一個虛擬網路中的 HDInsight，使用對等互連 AKS 另一個](./media/apache-kafka-azure-container-services/kafka-aks-architecture.png)
 
 > [!IMPORTANT]  
 > 系統不會啟用對等互連網路之間的名稱解析，所以會使用 IP 定址。 根據預設，Kafka on HDInsight 已設定為在用戶端連線時傳回主機名稱，而不是 IP 位址。 本文件中的步驟將 Kafka 修改為使用 IP 通告。
@@ -113,7 +112,7 @@ HDInsight 和 AKS 均使用 Azure 虛擬網路作為計算資源的容器。 若
 
 3. 若要檢視 Kafka 組態，請從正上方選取 [Configs (設定)]。
 
-    ![Kafka 的 Configs (設定) 連結](./media/apache-kafka-azure-container-services/select-kafka-config1.png)
+    ![Apache Ambari services 設定](./media/apache-kafka-azure-container-services/select-kafka-config1.png)
 
 4. 若要找出 __kafka-env__ 組態，請在右上角的 [Filter (篩選)] 欄位中輸入 `kafka-env`。
 
@@ -135,7 +134,7 @@ HDInsight 和 AKS 均使用 Azure 虛擬網路作為計算資源的容器。 若
 
 8. 若要儲存組態變更，請使用 [Save (儲存)] 按鈕。 輸入描述變更的文字訊息。 儲存變更後，請選取 [OK (確定)]。
 
-    ![儲存組態按鈕](./media/apache-kafka-azure-container-services/save-configuration-button.png)
+    ![Apache Ambari 儲存設定](./media/apache-kafka-azure-container-services/save-configuration-button.png)
 
 9. 若要避免重新啟動 Kafka 時發生錯誤，請使用 [Service Actions (服務動作)] 按鈕，然後選取 [Turn On Maintenance Mode (開啟維護模式)]。 選取 [OK (確定)] 以完成此作業。
 
@@ -192,6 +191,7 @@ HDInsight 和 AKS 均使用 Azure 虛擬網路作為計算資源的容器。 若
     ```bash
     docker push <acrLoginServer>/kafka-aks-test:v1
     ```
+
     此作業需要幾分鐘才能完成。
 
 8. 編輯 Kubernetes 資訊清單檔案 (`kafka-aks-test.yaml`)，並將 `microsoft` 取代為在步驟 4 擷取的 ACR loginServer 名稱。
@@ -212,7 +212,7 @@ HDInsight 和 AKS 均使用 Azure 虛擬網路作為計算資源的容器。 若
 
 11. 開啟 Web 瀏覽器並輸入服務的外部 IP 位址。 您會抵達類似下圖的頁面：
 
-    ![網頁的影像](./media/apache-kafka-azure-container-services/test-web-page-image1.png)
+    ![Apache Kafka 測試網頁影像](./media/apache-kafka-azure-container-services/test-web-page-image1.png)
 
 12. 在欄位中輸入文字，然後選取 [傳送] 按鈕。 資料便會傳送給 Kafka。 然後應用程式中的 Kafka 取用者會讀取訊息，並將它新增至 [來自 Kafka 的訊息] 區段。
 

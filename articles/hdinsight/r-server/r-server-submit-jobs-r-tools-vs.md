@@ -1,19 +1,19 @@
 ---
 title: 從 Visual Studio R 工具提交作業 - Azure HDInsight
 description: 從您的本機 Visual Studio 機器將 R 作業提交至 HDInsight 叢集。
-ms.service: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
+ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/19/2019
-ms.openlocfilehash: 2d53f1bfc6eade535bfb1b3bb07d5115ffe5fc80
-ms.sourcegitcommit: fbea2708aab06c19524583f7fbdf35e73274f657
+ms.openlocfilehash: 1323e46d734d047f68652d0b21902e03182e6b62
+ms.sourcegitcommit: 2ed6e731ffc614f1691f1578ed26a67de46ed9c2
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/13/2019
-ms.locfileid: "70967893"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71130247"
 ---
 # <a name="submit-jobs-from-r-tools-for-visual-studio"></a>從 Visual Studio R 工具提交作業
 
@@ -41,7 +41,7 @@ RTVS 會增強您的 R 工作流程，方法是提供例如 [R 互動視窗](htt
 
    2. 移至 [R 工具] 功能表項目，然後選取 [資料科學設定...].
 
-       ![資料科學設定...](./media/r-server-submit-jobs-r-tools-vs/data-science-settings.png)
+       ![Visual Studio 資料科學設定](./media/r-server-submit-jobs-r-tools-vs/data-science-settings.png)
 
       > [!NOTE]  
       > 使用步驟 1 中的方法，您也可以儲存和還原您的個人化資料科學家版面配置，而不用重複 [資料科學設定] 命令。
@@ -56,11 +56,11 @@ RTVS 會增強您的 R 工作流程，方法是提供例如 [R 互動視窗](htt
 6. 從檔案頂端開始，按下 Ctrl+Enter 一次傳送一行到 R 互動視窗。 有些行會安裝套件，所以可能需要一些時間。
     * 或者，您可以選取 R 檔案中的所有行 (Ctrl+A)，然後全部執行 (Ctrl+Enter)，或者選取工具列上的 [執行互動] 圖示。
 
-        ![執行互動式](./media/r-server-submit-jobs-r-tools-vs/execute-interactive1.png)
+        ![Visual Studio 執行互動](./media/r-server-submit-jobs-r-tools-vs/execute-interactive1.png)
 
 7. 執行指令碼中的所有行之後，您應該會看到類似以下的輸出：
 
-    ![工作區](./media/r-server-submit-jobs-r-tools-vs/visual-studio-workspace.png)
+    ![Visual Studio 工作區 R 工具](./media/r-server-submit-jobs-r-tools-vs/visual-studio-workspace.png)
 
 ## <a name="submit-jobs-to-an-hdinsight-ml-services-cluster"></a>將作業提交至 HDInsight ML 服務叢集
 
@@ -96,7 +96,7 @@ RTVS 會增強您的 R 工作流程，方法是提供例如 [R 互動視窗](htt
     rxSetComputeContext(mySparkCluster)
     ```
 
-   ![設定 Spark 內容](./media/r-server-submit-jobs-r-tools-vs/apache-spark-context.png)
+   ![apache spark 設定內容](./media/r-server-submit-jobs-r-tools-vs/apache-spark-context.png)
 
 1. 在 R 互動視窗中執行下列命令：
 
@@ -113,17 +113,17 @@ RTVS 會增強您的 R 工作流程，方法是提供例如 [R 互動視窗](htt
 
     1. 從 Azure 中的 HDInsight ML 服務叢集窗格，選取左側功能表的 [儲存體帳戶]。
 
-        ![儲存體帳戶](./media/r-server-submit-jobs-r-tools-vs/hdinsight-storage-accounts.png)
+        ![Azure HDInsight 儲存體帳戶](./media/r-server-submit-jobs-r-tools-vs/hdinsight-storage-accounts.png)
 
     2. 選取叢集的預設儲存體帳戶，記下容器/目錄名稱。
 
     3. 從儲存體帳戶窗格的左側功能表選取 [容器]。
 
-        ![容器](./media/r-server-submit-jobs-r-tools-vs/hdi-storage-containers.png)
+        ![Azure HDInsight 儲存體容器](./media/r-server-submit-jobs-r-tools-vs/hdi-storage-containers.png)
 
     4. 選取叢集的容器名稱，瀏覽至 **user** 資料夾 (您可能必須按一下清單底部的 [載入更多])，然後依序選取 [RevoShare]、[newUser]。 `people.json` 檔案應該會顯示在 `newUser` 資料夾中。
 
-        ![複製的檔案](./media/r-server-submit-jobs-r-tools-vs/hdinsight-copied-file.png)
+        ![HDInsight 複製的檔案資料夾位置](./media/r-server-submit-jobs-r-tools-vs/hdinsight-copied-file.png)
 
 1. 對目前的 Apache Spark 內容使用完畢之後，您必須將它停止。 您無法同時執行多個內容。
 
@@ -135,4 +135,3 @@ RTVS 會增強您的 R 工作流程，方法是提供例如 [R 互動視窗](htt
 
 * [在 HDInsight 上計算 ML 服務的內容選項](r-server-compute-contexts.md)
 * [結合 ScaleR 和 SparkR](../hdinsight-hadoop-r-scaler-sparkr.md)提供航班延誤預測的範例。
-

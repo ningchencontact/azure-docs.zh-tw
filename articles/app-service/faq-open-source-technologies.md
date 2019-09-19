@@ -4,7 +4,7 @@ description: 獲得有關 Azure App Service 之 Web Apps 功能的開放原始�
 services: app-service\web
 documentationcenter: ''
 author: genlin
-manager: cshepard
+manager: dcscontentpm
 editor: ''
 tags: top-support-issue
 ms.assetid: 2fa5ee6b-51a6-4237-805f-518e6c57d11b
@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 10/31/2018
 ms.author: genli
 ms.custom: seodec18
-ms.openlocfilehash: cc71d2a53241753272610a14c30e44f1cf45e95c
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: 941a218dbda2c27a598e5a53f2b947184ee78085
+ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70073109"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71121228"
 ---
 # <a name="open-source-technologies-faqs-for-web-apps-in-azure"></a>Azure 中的 Web Apps 相關開放原始碼技術常見問題集
 
@@ -40,7 +40,7 @@ ms.locfileid: "70073109"
 6. 將檔案名稱設定為 **.user.ini**。
 7. 選取 **.user.ini** 旁邊的鉛筆圖示。
 8. 在檔案中，新增下列程式碼：`log_errors=on`
-9. 選取 [ **儲存**]。
+9. 選取 [儲存]。
 10. 選取 **wp-config.php** 旁邊的鉛筆圖示。
 11. 將文字變更為下列程式碼：
     ```php
