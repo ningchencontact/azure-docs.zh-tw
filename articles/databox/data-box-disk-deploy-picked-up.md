@@ -6,16 +6,16 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: tutorial
-ms.date: 09/11/2019
+ms.date: 09/19/2019
 ms.author: alkohli
 ms.localizationpriority: high
 Customer intent: As an IT admin, I need to be able to order Data Box Disk to upload on-premises data from my server onto Azure.
-ms.openlocfilehash: 03ca6163b4f788d50f7f27a2fcaf2c9b6c02d84c
-ms.sourcegitcommit: d70c74e11fa95f70077620b4613bb35d9bf78484
+ms.openlocfilehash: 9f0bdbf69336f792479c0089be351e468d3babe2
+ms.sourcegitcommit: 2ed6e731ffc614f1691f1578ed26a67de46ed9c2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70910106"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71128693"
 ---
 ::: zone target="chromeless"
 
@@ -89,11 +89,7 @@ ms.locfileid: "70910106"
 3. 將標籤黏貼在箱子上。 
 4. 按此連結 https://mydhl.express.dhl/au/en/schedule-pickup.html#/schedule-pickup#label-reference 線上預約取貨服務。 
 
-### <a name="in-japan-koreatabin-japan-korea"></a>[日本、南韓](#tab/in-japan-korea)
-
-以下是日本和南韓的取貨指示。
-
-#### <a name="pick-up-in-japan"></a>日本取貨
+### <a name="in-japantabin-japan"></a>[日本](#tab/in-japan)
 
 1. 在理貨單上寫下貴公司名稱和地址資訊，作為您的寄件者資訊。
 2. 使用下列電子郵件範本傳送電子郵件給 Quantium Solutions。
@@ -120,7 +116,7 @@ ms.locfileid: "70910106"
 - 電子郵件：Customerservice.JP@quantiumsolutions.com 
 - 電話：03-5755-0150 
 
-#### <a name="pick-up-in-korea"></a>韓國取貨
+### <a name="in-koreatabin-korea"></a>[南韓](#tab/in-korea)
 
 1. 請務必附上退貨理貨單。
 2. 若要在附有理貨單時要求取貨：
