@@ -8,19 +8,18 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/17/2017
-ms.openlocfilehash: bb234e5b34bd8046c4e65d7cc6812cde0db3b5b2
-ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
+ms.openlocfilehash: e0490913029efc17d12139378369646c286a276c
+ms.sourcegitcommit: b03516d245c90bca8ffac59eb1db522a098fb5e4
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/14/2019
-ms.locfileid: "70995678"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71145716"
 ---
 # <a name="use-caffe-on-azure-hdinsight-spark-for-distributed-deep-learning"></a>在 Azure HDInsight Spark 上使用 Caffe 進行分散式深入學習
 
-
 ## <a name="introduction"></a>簡介
 
-深入學習的影響遍及醫療保健到傳輸到製造商等等。 公司轉型為深度學習來解決艱難的問題，例如[影像分類](https://blogs.microsoft.com/next/2015/12/10/microsoft-researchers-win-imagenet-computer-vision-challenge/)、[語音辨識](https://googleresearch.blogspot.jp/2015/08/the-neural-networks-behind-google-voice.html)、物件辨識和機器翻譯。 
+深入學習的影響遍及醫療保健到傳輸到製造商等等。 公司轉型為深度學習來解決艱難的問題，例如[影像分類](https://blogs.microsoft.com/next/2015/12/10/microsoft-researchers-win-imagenet-computer-vision-challenge/)、[語音辨識](https://googleresearch.blogspot.jp/2015/08/the-neural-networks-behind-google-voice.html)、物件辨識和機器翻譯。
 
 有[許多受歡迎的架構](https://en.wikipedia.org/wiki/Comparison_of_deep_learning_software)，包括 [Microsoft Cognitive Toolkit](https://www.microsoft.com/en-us/research/product/cognitive-toolkit/)、[Tensorflow](https://www.tensorflow.org/)、[Apache MXNet](https://mxnet.apache.org/)、Theano 等等。[Caffe](https://caffe.berkeleyvision.org/) 是其中一個最著名的非符號 (命令式) 類神經網路架構，並廣泛用在許多方面，包括電腦視覺。 此外，[CaffeOnSpark](https://yahoohadoop.tumblr.com/post/139916563586/caffeonspark-open-sourced-for-distributed-deep) 使用 Apache Spark 結合了 Caffe，這樣的深入學習可以輕鬆地使用在現有的 Hadoop 叢集。 您可以使用結合 Spark ETL 管線的深入學習，降低系統複雜性和延遲，以學習完整的解決方案。
 
@@ -59,7 +58,6 @@ ms.locfileid: "70995678"
     sudo ldconfig
     echo "protobuf installation done"
 
-
 指令碼動作中有兩個步驟。 第一個步驟是安裝所有必要的程式庫。 這些程式庫包含編譯 Caffe (例如 gflags、glog) 和執行 Caffe (例如 numpy) 的必要程式庫。 您將針對 CPU 最佳化使用 libatlas，但您一律可以依照 CaffeOnSpark wiki 安裝其他最佳化程式庫，例如 MKL 或 CUDA (適用於 GPU)。
 
 第二個步驟是在執行階段期間下載、編譯和安裝 Caffe 的 protobuf 2.5.0。 [需要](https://github.com/yahoo/CaffeOnSpark/issues/87) Protobuf 2.5.0，但這個版本不在 Ubuntu 16 以套件形式提供，因此您需要從原始程式碼編譯它。 另外在網際網路上還有一些關於如何加以編譯的資源。 如需詳細資訊，請參閱[這裡](https://jugnu-life.blogspot.com/2013/09/install-protobuf-25-on-ubuntu.html)。
@@ -68,10 +66,9 @@ ms.locfileid: "70995678"
 
 ![安裝相依性的指令碼動作](./media/apache-spark-deep-learning-caffe/submit-script-action.png)
 
-
 ## <a name="step-2-build-caffe-on-apache-spark-for-hdinsight-on-the-head-node"></a>步驟 2:在前端節點上建置適用於 HDInsight 的 Apache Spark Caffe
 
-第二個步驟是在前端節點上建立 Caffe，然後將已編譯的程式庫傳送到所有背景工作角色節點。 在此步驟中，您必須[使用 SSH 連線到前端節點](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-linux-use-ssh-unix)。 完成之後，您必須遵循 [CaffeOnSpark 建置程序](https://github.com/yahoo/CaffeOnSpark/wiki/GetStarted_yarn) \(英文\)。 使用以下指令碼，加上幾個額外步驟，就能建置 CaffeOnSpark。 
+第二個步驟是在前端節點上建立 Caffe，然後將已編譯的程式庫傳送到所有背景工作角色節點。 在此步驟中，您必須[使用 SSH 連線到前端節點](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-linux-use-ssh-unix)。 完成之後，您必須遵循 [CaffeOnSpark 建置程序](https://github.com/yahoo/CaffeOnSpark/wiki/GetStarted_yarn) \(英文\)。 使用以下指令碼，加上幾個額外步驟，就能建置 CaffeOnSpark。
 
     #!/bin/bash
     git clone https://github.com/yahoo/CaffeOnSpark.git --recursive
@@ -115,7 +112,6 @@ ms.locfileid: "70995678"
 - 將資料集放到 Blob 儲存體，也就是可以存取所有背景工作角色節點以供稍後使用的共用位置。
 - 將已編譯的 Caffe 程式庫放至 Blob 儲存體，稍後您會將這些程式庫複製到使用指令碼動作以避免額外編譯時間的所有節點。
 
-
 ### <a name="troubleshooting-an-ant-buildexception-has-occurred-exec-returned-2"></a>疑難排解：發生 Ant BuildException：exec 傳回：2
 
 當第一次嘗試建置 CaffeOnSpark 時，有時它會說
@@ -134,7 +130,6 @@ ms.locfileid: "70995678"
     INFO: I/O exception (java.net.SocketException) caught when processing request to {s}->https://repo.maven.apache.org:443: Connection timed out (Read failed)
 
 您必須在幾分鐘後重試。
-
 
 ### <a name="troubleshooting-test-failure-for-caffe"></a>疑難排解：Caffe 測試失敗
 
@@ -167,7 +162,7 @@ Caffe 是使用「快速架構」，其中針對撰寫模型，您只需要定�
 
 您要訓練的模型是 MNIST 訓練的範例模型。 手寫數字的 MNIST 資料庫有 60,000 個範例的訓練集，以及 10,000 個範例的測試集。 它是一組可從 NIST 提供之較大集的子集。 數字已大小正規化且在固定大小的影像置中。 CaffeOnSpark 有一些指令碼可下載資料集，並將它轉換成正確的格式。
 
-CaffeOnSpark 針對 MNIST 訓練提供一些網路拓樸範例。 它具有不錯的網路架構 (網路的拓撲) 分割設計和最佳化。 在此情況下，需要兩個檔案︰ 
+CaffeOnSpark 針對 MNIST 訓練提供一些網路拓樸範例。 它具有不錯的網路架構 (網路的拓撲) 分割設計和最佳化。 在此情況下，需要兩個檔案︰
 
 "Solver" 檔案 (${CAFFE_ON_SPARK}/data/lenet_memory_solver.prototxt) 用於監視最佳化並產生參數更新。 例如，它會定義要使用 CPU 還是 GPU、趨勢為何，以及有多少反覆運算等等。它也會定義程式應該使用哪個神經網路拓撲 (也就是您需要的第二個檔案)。 如需 Solver 的詳細資訊，請參閱 [Caffe 文件](https://caffe.berkeleyvision.org/tutorial/solver.html) \(英文\)。
 
@@ -176,7 +171,7 @@ CaffeOnSpark 針對 MNIST 訓練提供一些網路拓樸範例。 它具有不�
     # solver mode: CPU or GPU
     solver_mode: CPU
 
-![Caffe Config1](./media/apache-spark-deep-learning-caffe/caffe-configuration1.png
+![HDInsight caffe 設定範例](./media/apache-spark-deep-learning-caffe/caffe-configuration1.png
 )
 
 您可以視需要變更其他行。
@@ -186,7 +181,7 @@ CaffeOnSpark 針對 MNIST 訓練提供一些網路拓樸範例。 它具有不�
 - 將 "file:/Users/mridul/bigml/demodl/mnist_train_lmdb" 變更為 "wasb:///projects/machine_learning/image_dataset/mnist_train_lmdb"
 - 將 "file:/Users/mridul/bigml/demodl/mnist_test_lmdb/" 變更為 "wasb:///projects/machine_learning/image_dataset/mnist_test_lmdb"
 
-![Caffe Config2](./media/apache-spark-deep-learning-caffe/caffe-configuration2.png)
+![再次 HDInsight caffe 設定範例](./media/apache-spark-deep-learning-caffe/caffe-configuration2.png)
 
 如需有關如何定義網路的詳細資訊，請參閱 [MNIST 資料集上的 Caffe 文件](https://caffe.berkeleyvision.org/gathered/examples/mnist.html) \(英文\)
 
@@ -202,19 +197,19 @@ CaffeOnSpark 針對 MNIST 訓練提供一些網路拓樸範例。 它具有不�
 
     17/02/01 23:22:16 INFO Client: Application report for application_1485916338528_0015 (state: RUNNING)
 
-如果您想要知道發生了什麼事，通常需要取得 Spark 驅動程式的記錄檔，會有更多的資訊。 在此情況下，您需要前往 YARN UI 以尋找相關的 YARN 記錄。 您可以藉由此 URL 取得 YARN UI： 
+如果您想要知道發生了什麼事，通常需要取得 Spark 驅動程式的記錄檔，會有更多的資訊。 在此情況下，您需要前往 YARN UI 以尋找相關的 YARN 記錄。 您可以藉由此 URL 取得 YARN UI：
 
     https://yourclustername.azurehdinsight.net/yarnui
-   
-![YARN UI](./media/apache-spark-deep-learning-caffe/apache-yarn-window-1.png)
+
+![apache yarn 排程器瀏覽器視圖](./media/apache-spark-deep-learning-caffe/apache-yarn-window-1.png)
 
 您可以看看此特定應用程式配置了多少資源。 您可以按一下 [排程器] 連結，然後您會看到這個應用程式有 9 個執行中的容器。 您將要求 YARN 提供 8 個執行程式，以及另一個容器供驅動程式程序使用。 
 
-![YARN 排程器](./media/apache-spark-deep-learning-caffe/apache-yarn-scheduler.png)
+![HDI apache YARN 排程器視圖](./media/apache-spark-deep-learning-caffe/apache-yarn-scheduler.png)
 
 如果發生失敗，您要檢查驅動程式記錄或容器記錄。 針對驅動程式記錄檔，您可以按一下 YARN UI 中的應用程式識別碼，然後按一下 [記錄] 按鈕。 驅動程式記錄會寫入 stderr。
 
-![YARN UI 2](./media/apache-spark-deep-learning-caffe/apache-yarn-window-2.png)
+![apache yarn 視窗瀏覽器視圖](./media/apache-spark-deep-learning-caffe/apache-yarn-window-2.png)
 
 例如，您可能會在下方看到一些來自驅動程式記錄的錯誤，表示配置太多的執行程式。
 
@@ -262,7 +257,6 @@ CaffeOnSpark 針對 MNIST 訓練提供一些網路拓樸範例。 它具有不�
     WARNING: Logging before InitGoogleLogging() is written to STDERR
     F0201 07:10:48.309725 11624 common.cpp:79] Cannot use GPU in CPU-only Caffe: check mode.
 
-
 ## <a name="getting-results"></a>取得結果
 
 因為您將配置 8 個執行程式，且網路拓撲很簡單，應該只需花費大約 30 分鐘的時間執行結果。 從命令列中，您可以看到此模型已放到 wasb:///mnist.model，並將結果放到名為 wasb:///mnist_features_result 的資料夾。
@@ -285,19 +279,19 @@ CaffeOnSpark 針對 MNIST 訓練提供一些網路拓樸範例。 它具有不�
 
 SampleID 代表 MNIST 資料集的識別碼，且標籤是此模型識別的數字。
 
-
 ## <a name="conclusion"></a>結論
 
 在本文件中，您已嘗試執行簡單的範例來安裝 CaffeOnSpark。 HDInsight 是完全受控雲端分散式計算平台，並且是在大型資料集上執行機器學習和進階分析工作負載的最佳位置，而針對分散式深入學習，您可以使用 Caffe on HDInsight Spark 來執行深入學習工作。
 
-
 ## <a name="seealso"></a>另請參閱
+
 * [概觀：Azure HDInsight 上的 Apache Spark](apache-spark-overview.md)
 
 ### <a name="scenarios"></a>案例
+
 * [Apache Spark 和機器學習服務：使用 HDInsight 中的 Spark，利用 HVAC 資料來分析建築物溫度](apache-spark-ipython-notebook-machine-learning.md)
 * [Apache Spark 和 Machine Learning：使用 HDInsight 中的 Spark 來預測食品檢查結果](apache-spark-machine-learning-mllib-ipython.md)
 
 ### <a name="manage-resources"></a>管理資源
-* [在 Azure HDInsight 中管理 Apache Spark 叢集的資源](apache-spark-resource-manager.md)
 
+* [在 Azure HDInsight 中管理 Apache Spark 叢集的資源](apache-spark-resource-manager.md)

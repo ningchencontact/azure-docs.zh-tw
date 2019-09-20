@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/24/2018
 ms.author: allensu
-ms.openlocfilehash: b276766d69c187e2268f5896f23e3bd435ed63c3
-ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
+ms.openlocfilehash: b4c1fcd6a719f341dcebfd9f4efc4423241ca3dd
+ms.sourcegitcommit: b03516d245c90bca8ffac59eb1db522a098fb5e4
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68274827"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71147351"
 ---
 # <a name="overview-of-ipv6-for-azure-load-balancer"></a>Azure Load Balancer 的 IPv6 概觀
 
@@ -27,7 +27,7 @@ ms.locfileid: "68274827"
 >[!NOTE] 
 >Azure Load Balancer 支援兩種不同類型：基本和標準。 本文討論基本 Load Balancer。 如需標準 Load Balancer 的詳細資訊，請參閱[標準 Load Balancer 概觀](load-balancer-standard-overview.md)。
 
-網際網路面向的負載平衡器可以部署 IPv6 位址。 除了 IPv4 連線功能，這還具有下列功能︰
+基本 SKU 網際網路面向的負載平衡器可以使用 IPv6 位址進行部署。 除了 IPv4 連線功能，這還具有下列功能︰
 
 * 原生端對端 IPv6 連線能力 - 在公用網際網路用戶端和 Azure 虛擬機器 (VM) 之間透過負載平衡器連接。
 * 原生端對端 IPv6 輸出連線能力 - 在 VM 和公用網際網路上已啟用 IPv6 的用戶端之間。
@@ -79,6 +79,7 @@ ms.locfileid: "68274827"
 * **目前不支援**變更 IPv6 的 loadDistributionMethod 參數。
 * **目前不支援**保留的 IPv6 IP (其中 IPAllocationMethod = 靜態)。
 * 不支援 NAT64 (IPv6 至 IPv4 的轉譯)。
+* 標準 SKU 負載平衡器目前不支援 IPv6 位址。
 
 ## <a name="next-steps"></a>後續步驟
 

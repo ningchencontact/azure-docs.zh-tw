@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: article
 ms.date: 11/26/2018
 ms.author: cynthn
-ms.openlocfilehash: aa56cfafdcca163d3bdb3f339f84ceeaa37f3dc5
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 1980ee0bdea1316f6117d9deb7d2adb9df941768
+ms.sourcegitcommit: a7a9d7f366adab2cfca13c8d9cbcf5b40d57e63a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70079915"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71162618"
 ---
 # <a name="how-to-connect-and-sign-on-to-an-azure-virtual-machine-running-windows"></a>如何連接和登入執行 Windows 的 Azure 虛擬機器
 您會使用 Azure 入口網站中的 [連線] 按鈕，從 Windows 桌面啟動遠端桌面 (RDP) 工作階段。 首先您必須連線到虛擬機器，然後登入。
@@ -57,7 +57,7 @@ ms.locfileid: "70079915"
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-如果您使用 PowerShell, 並已安裝 Aure PowerShell 模組, 您也可以使用`Get-AzRemoteDesktopFile` Cmdlet 來連接, 如下所示。
+如果您使用 PowerShell，並已安裝 Azure PowerShell 模組，您也可以使用`Get-AzRemoteDesktopFile` Cmdlet 來連接，如下所示。
 
 此範例會立即啟動 RDP 連線，帶您進行類似上面的提示。
 

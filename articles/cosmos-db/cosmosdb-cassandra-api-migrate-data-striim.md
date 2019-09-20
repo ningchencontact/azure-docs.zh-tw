@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 07/22/2019
 ms.author: sngun
 ms.reviewer: sngun
-ms.openlocfilehash: 39427ac12dc6214630d6c3e5ace62692b1ea30b6
-ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
+ms.openlocfilehash: ad690fa78f794b26b6cf496ea4485599486752b0
+ms.sourcegitcommit: b03516d245c90bca8ffac59eb1db522a098fb5e4
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/15/2019
-ms.locfileid: "71003074"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71146966"
 ---
 # <a name="migrate-data-to-azure-cosmos-db-cassandra-api-account-using-striim"></a>使用 Striim 將資料移轉至 Azure Cosmos DB Cassandra API 帳戶
 
@@ -160,6 +160,8 @@ Azure marketplace 中的 Striim 映射提供從資料倉儲和資料庫到 Azure
 1. 輸入目標 Azure Cosmos DB 實例的設定屬性，然後選取 [**儲存**] 以繼續。 以下是要注意的主要參數：
 
    * **介面卡**-使用**DatabaseWriter**。 寫入 Azure Cosmos DB Cassandra API 時，需要 DatabaseWriter。 Cassandra driver 3.6.0 隨附于 Striim。 如果 DatabaseWriter 超過 Azure Cosmos 容器上所布建的 ru 數目，應用程式將會損毀。
+
+   * **連接 URL** -指定您的 Azure Cosmos DB JDBC 連接 url。 URL 的格式為`jdbc:cassandra://<contactpoint>:10350/<databaseName>?SSL=true`
 
    * **Username** -指定您的 Azure Cosmos 帳戶名稱。
    

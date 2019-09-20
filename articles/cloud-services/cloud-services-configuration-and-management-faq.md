@@ -4,7 +4,7 @@ description: 本文列出 Microsoft Azure 雲端服務之設定和管理的相�
 services: cloud-services
 documentationcenter: ''
 author: genlin
-manager: cshepard
+manager: dcscontentpm
 editor: ''
 tags: top-support-issue
 ms.assetid: 84985660-2cfd-483a-8378-50eef6a0151d
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 07/23/2018
 ms.author: genli
-ms.openlocfilehash: 480ca33f02242499bdf9fff3fa35695e7d4841a0
-ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
+ms.openlocfilehash: 0c694ffe6ccd23803fbe16001f54b7c1611635cd
+ms.sourcegitcommit: 116bc6a75e501b7bba85e750b336f2af4ad29f5a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/10/2019
-ms.locfileid: "68945458"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71154726"
 ---
 # <a name="configuration-and-management-issues-for-azure-cloud-services-frequently-asked-questions-faqs"></a>Azure 雲端服務之設定和管理問題：常見問題集 (FAQ)
 
@@ -207,7 +207,7 @@ Windows 10 和 Windows Server 2016 隨附用戶端和伺服器端上的 HTTP/2 �
 這項作業完成之後，您可以使用下列方法之一來確認是否已啟用 HTTP/2：
 
 - 啟用 IIS 記錄中的通訊協定版本，並查看 IIS 記錄。 它會在記錄中顯示 HTTP/2。 
-- 在 Internet Explorer/Microsoft Edge 中啟用 F12 開發人員工具，並切換至 [網路] 索引標籤以確認通訊協定。 
+- 在 Internet Explorer 或 Microsoft Edge 中啟用 F12 開發人員工具，並切換至 [網路] 索引標籤以確認通訊協定。 
 
 如需詳細資訊，請參閱 [IIS 上的 HTTP/2](https://blogs.iis.net/davidso/http2)。
 
@@ -281,7 +281,7 @@ Microsoft 會遵循嚴格的程序，不允許內部工程師在沒有擁有者�
 ### <a name="why-does-the-drive-on-my-cloud-service-vm-show-very-little-free-disk-space"></a>為什麼我雲端服務虛擬機器上的磁碟機顯示幾乎沒有可用的磁碟空間？
 這是預期的行為，並不會對您的應用程式造成任何問題。 在 Azure PaaS 虛擬機器中會開啟 %approot% 磁碟機的日誌記錄，基本上會消耗兩倍檔案通常所佔用的空間量。 不過，要留意幾件事，基本上這就會變得沒有問題。
 
-% Approot% 磁片磁碟機大小的計算方式\<為: .cspkg + 最大日誌大小和可用空間的邊界 > 或 1.5 GB, 取兩者中較大者。 您 VM 的大小對這個計算方式並無任何影響。 (VM 大小只會影響暫存 C: 磁碟機的大小。) 
+% Approot% 磁片磁碟機大小的計算方式\<為： .cspkg + 最大日誌大小和可用空間的邊界 > 或 1.5 GB，取兩者中較大者。 您 VM 的大小對這個計算方式並無任何影響。 (VM 大小只會影響暫存 C: 磁碟機的大小。) 
 
 它不支援寫入 %approot% 磁碟機。 如果您要寫入 Azure VM 中，必須在暫存 LocalStorage 資源中進行 (或其他選項，例如 Blob 儲存體、Azure 檔案等)。 因此在 %approot% 資料夾上的可用空間數量沒有任何意義。 如果您不確定應用程式是否要寫入 %approot% 磁碟機中，一律可以讓您的服務執行幾天，然後比較「之前」和「之後」的大小。 
 

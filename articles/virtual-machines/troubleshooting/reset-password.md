@@ -4,7 +4,7 @@ description: 介紹在 Azure VM 上重設本機 Linux 密碼的步驟
 services: virtual-machines-linux
 documentationcenter: ''
 author: Deland-Han
-manager: cshepard
+manager: dcscontentpm
 editor: ''
 tags: ''
 ms.service: virtual-machines-linux
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: troubleshooting
 ms.date: 08/20/2019
 ms.author: delhan
-ms.openlocfilehash: 8fc51dfb90158316b3fe6c11b5265f1cf3251505
-ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
+ms.openlocfilehash: 83751538efe4f3d3af5928caa04b265b6c867442
+ms.sourcegitcommit: 116bc6a75e501b7bba85e750b336f2af4ad29f5a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69641039"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71153564"
 ---
 # <a name="how-to-reset-local-linux-password-on-azure-vms"></a>如何在 Azure VM 上重設本機 Linux 密碼
 
@@ -33,11 +33,11 @@ ms.locfileid: "69641039"
 > [!NOTE]
 > 下列步驟不適用於具有非受控磁片的 VM。
 
-1. 取得受影響 VM 的 OS 磁片快照集、從快照集建立磁片, 然後將磁片連結至疑難排解 VM。 如需詳細資訊, 請參閱[使用 Azure 入口網站將 OS 磁片連接至復原 VM, 以針對 WINDOWS VM 進行疑難排解](troubleshoot-recovery-disks-portal-linux.md)。
+1. 取得受影響 VM 的 OS 磁片快照集、從快照集建立磁片，然後將磁片連結至疑難排解 VM。 如需詳細資訊，請參閱[使用 Azure 入口網站將 OS 磁片連接至復原 VM，以針對 WINDOWS VM 進行疑難排解](troubleshoot-recovery-disks-portal-linux.md)。
 
 2. 使用遠端桌面連線到疑難排解 VM。
 
-3.  在疑難排解 VM 上執行下列 SSH 命令, 使其成為超級使用者。
+3.  在疑難排解 VM 上執行下列 SSH 命令，使其成為超級使用者。
 
     ```bash
     sudo su
@@ -101,7 +101,7 @@ ms.locfileid: "69641039"
     umount /tempmount
     ```
 
-11. 在 Azure 入口網站中, 從疑難排解 VM 卸離磁片。
+11. 在 Azure 入口網站中，從疑難排解 VM 卸離磁片。
 
 12. [變更受影響 VM 的 OS 磁片](troubleshoot-recovery-disks-portal-linux.md#swap-the-os-disk-for-the-vm)。
 
@@ -109,4 +109,4 @@ ms.locfileid: "69641039"
 
 * [將 OS 磁碟連結至另一個 Azure VM，以針對 Azure VM 進行疑難排解](https://social.technet.microsoft.com/wiki/contents/articles/18710.troubleshoot-azure-vm-by-attaching-os-disk-to-another-azure-vm.aspx) \(英文\)
 
-* [Azure CLI:如何從 VHD 刪除和重新部署 VM](https://blogs.msdn.microsoft.com/linuxonazure/2016/07/21/azure-cli-how-to-delete-and-re-deploy-a-vm-from-vhd/)
+* [Azure CLI：如何從 VHD 刪除和重新部署 VM](https://blogs.msdn.microsoft.com/linuxonazure/2016/07/21/azure-cli-how-to-delete-and-re-deploy-a-vm-from-vhd/)

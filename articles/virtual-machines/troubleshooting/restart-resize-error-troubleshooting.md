@@ -4,7 +4,7 @@ description: 針對在 Azure 中重新啟動或調整現有虛擬機器時的 Re
 services: virtual-machines
 documentationcenter: ''
 author: Deland-Han
-manager: felixwu
+manager: dcscontentpm
 editor: ''
 tags: top-support-issue
 ms.assetid: 0756b52d-4f5a-4503-ae45-c00a6a2edcdf
@@ -13,12 +13,12 @@ ms.topic: troubleshooting
 ms.date: 06/15/2018
 ms.author: delhan
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: f510a111a6c8846b300c09f368a3a2a05b2bb7ad
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: cd05f9f7db0db22759c5e19dbfb59cc377e63f4d
+ms.sourcegitcommit: 116bc6a75e501b7bba85e750b336f2af4ad29f5a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64719889"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71155474"
 ---
 # <a name="troubleshoot-deployment-issues-with-restarting-or-resizing-an-existing-windows-vm-in-azure"></a>針對在 Azure 中重新啟動或調整現有 Windows VM 大小的部署問題進行疑難排解
 當您嘗試啟動已停止的 Azure 虛擬機器 (VM)，或調整現有 Azure VM 的大小時，常會遇到的錯誤是配置失敗。 當叢集或區域沒有可用的資源或無法支援所要求的 VM 大小，就會產生此錯誤。
@@ -38,28 +38,28 @@ ms.locfileid: "64719889"
 ### <a name="cause"></a>原因
 必須在架設雲端服務的原始叢集上嘗試提出啟動已停止的 VM 要求。 不過，叢集沒有足夠空間可完成要求。
 
-### <a name="resolution"></a>解決方案
+### <a name="resolution"></a>解析度
 * 停止可用性設定組中的所有 VM，然後重新啟動每一部 VM。
   
-  1. 按一下 [資源群組]   > [您的資源群組]   > [資源]   > [您的可用性設定組]   > [虛擬機器]   > [您的虛擬機器]   > [停止]  。
+  1. 按一下 [資源群組] > [您的資源群組] > [資源] > [您的可用性設定組] > [虛擬機器] > [您的虛擬機器] > [停止]。
   2. 所有 VM 都停止後，選取每個已停止的 VM，然後按一下 [開始]。
 * 稍後再重試重新啟動要求。
 
-## <a name="issue-error-when-resizing-an-existing-vm"></a>問題：調整現有 VM 時發生錯誤
+## <a name="issue-error-when-resizing-an-existing-vm"></a>問題：調整現有 VM 的大小時發生錯誤
 您嘗試調整現有 VM 的大小，但是發現配置失敗。
 
 ### <a name="cause"></a>原因
 必須在架設雲端服務的原始叢集上嘗試提出調整 VM 大小的要求。 不過，叢集不支援要求的 VM 大小。
 
-### <a name="resolution"></a>解決方案
+### <a name="resolution"></a>解析度
 * 以較小的 VM 大小重試要求。
 * 如果無法變更要求的 VM 的大小︰
   
   1. 停止可用性設定組中的所有 VM。
      
-     * 按一下 [資源群組]   > [您的資源群組]   > [資源]   > [您的可用性設定組]   > [虛擬機器]   > [您的虛擬機器]   > [停止]  。
+     * 按一下 [資源群組] > [您的資源群組] > [資源] > [您的可用性設定組] > [虛擬機器] > [您的虛擬機器] > [停止]。
   2. 所有 VM 都停止後，將所需 VM 調整為較大的大小。
-  3. 選取已調整大小的 VM，按一下 [啟動]  ，然後啟動每個已停止的 VM。
+  3. 選取已調整大小的 VM，按一下 [啟動]，然後啟動每個已停止的 VM。
 
 ## <a name="next-steps"></a>後續步驟
 如果您在 Azure 中建立新的 Windows VM 時遇到問題，請參閱[針對在 Azure 中建立新 Windows 虛擬機器的部署問題進行疑難排解](../windows/troubleshoot-deployment-new-vm.md)。

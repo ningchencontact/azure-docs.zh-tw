@@ -12,12 +12,12 @@ ms.topic: reference
 ms.date: 09/05/2019
 ms.author: cshoe
 ms.reviewer: jehollan
-ms.openlocfilehash: 09bcce6daf519c7d5e99c7c120064f5c8bb92475
-ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
+ms.openlocfilehash: e1cf67abcc44a3ca134e5435137869d4fff1a7eb
+ms.sourcegitcommit: a7a9d7f366adab2cfca13c8d9cbcf5b40d57e63a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/14/2019
-ms.locfileid: "70996882"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71162354"
 ---
 # <a name="use-dependency-injection-in-net-azure-functions"></a>在 .NET Azure Functions 中使用相依性插入
 
@@ -197,6 +197,9 @@ public class HttpTrigger
 ```
 
 如需有關使用選項的詳細資訊，請參閱[ASP.NET Core 中的選項模式](https://docs.microsoft.com/aspnet/core/fundamentals/configuration/options)。
+
+> [!WARNING]
+> *請避免*嘗試從檔案（例如，appsettings）讀取值 *。 {環境}. json* （使用方式方案）。 因為裝載基礎結構無法存取設定資訊，所以無法在應用程式調整時使用從這些與觸發連線相關的檔案中讀取的值。
 
 ## <a name="next-steps"></a>後續步驟
 

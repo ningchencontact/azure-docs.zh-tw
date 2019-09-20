@@ -4,7 +4,7 @@ description: ''
 services: virtual-machines-windows
 documentationcenter: ''
 author: Deland-Han
-manager: cshepard
+manager: dcscontentpm
 editor: ''
 tags: ''
 ms.service: virtual-machines
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: azurecli
 ms.date: 01/11/2018
 ms.author: delhan
-ms.openlocfilehash: 513ce98703e67053ab0bcac3e6fc7a3e959f6870
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 70d777fe2e939c1871bc318eed439214fd3e3f60
+ms.sourcegitcommit: 116bc6a75e501b7bba85e750b336f2af4ad29f5a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64717280"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71155737"
 ---
 # <a name="use-remote-tools-to-troubleshoot-azure-vm-issues"></a>使用遠端工具對 Azure VM 問題進行疑難排解
 
@@ -39,7 +39,7 @@ psexec \\<computer>-u user -s cmd
 
 >[!Note]
 >* 必須在相同 VNET 中的電腦上執行命令。
->* DIP 或主機名稱可以用來取代\<電腦 >。
+>* DIP 或 HostName 可以用來取代\<computer >。
 >* -s 參數可確保使用系統帳戶 (系統管理員權限) 來叫用命令。
 >* PsExec 會使用 TCP 連接埠 135 和 445。 因此，防火牆上必須開啟這兩個連接埠。
 
@@ -213,7 +213,7 @@ Invoke-Command -ComputerName "<<COMPUTERNAME>" -ScriptBlock {"<<SCRIPT BLOCK>>"}
 
 1. 從相同 VNET 上的另一個 VM 中，開啟登錄編輯程式 (regedit.exe)。
 
-2. 選取 [檔案]   >[連線網路登錄]  。
+2. 選取 [檔案] >[連線網路登錄]。
 
    ![遠端選項](./media/remote-tools-troubleshoot-azure-vm-issues/remote-registry.png) 
 
@@ -236,9 +236,9 @@ Invoke-Command -ComputerName "<<COMPUTERNAME>" -ScriptBlock {"<<SCRIPT BLOCK>>"}
 
 1. 從相同 VNET 上的另一個 VM 中，開啟 **Services.msc** 的執行個體。
 
-2. 以滑鼠右鍵按一下 [服務 (本機)\]  。
+2. 以滑鼠右鍵按一下 [服務 (本機)\]。
 
-3. 選取 [連線到另一部電腦]  。
+3. 選取 [連線到另一部電腦]。
 
    ![遠端服務](./media/remote-tools-troubleshoot-azure-vm-issues/remote-services.png)
 

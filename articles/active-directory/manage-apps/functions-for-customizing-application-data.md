@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 07/31/2019
 ms.author: mimart
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ec23d3f08fb22f73618c27443bcd8b72c43a9862
-ms.sourcegitcommit: 8e1fb03a9c3ad0fc3fd4d6c111598aa74e0b9bd4
+ms.openlocfilehash: cd7abdeef7c13c272a0e4bbf2075c6eda8f73a07
+ms.sourcegitcommit: a7a9d7f366adab2cfca13c8d9cbcf5b40d57e63a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70113551"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71162385"
 ---
 # <a name="writing-expressions-for-attribute-mappings-in-azure-active-directory"></a>在 Azure Active Directory 中撰寫屬性對應的運算式
 當您設定佈建到 SaaS 應用程式時，您可以指定的其中一種屬性對應類型是運算式對應。 您必須撰寫類似指令碼的運算式，以便讓您將使用者的資料轉換成 SaaS 應用程式更能接受的格式。
@@ -93,8 +93,8 @@ ms.locfileid: "70113551"
 | Name | 必要 / 重複 | 型別 | 注意 |
 | --- | --- | --- | --- |
 | **source** |必要項 |String |通常為屬性的名稱。 |
-| **start** |必要項 |整數 |子字串在 **source** 字串中起始位置的索引。 字串第一個字元的索引為 1，第二個字元的索引為 2，依此類推。 |
-| **length** |必要項 |整數 |子字串的長度。 如果長度超出 **source** 字串結尾，函式會傳回從 **start** 索引一直到 **source** 字串結尾的子字串。 |
+| **start** |必要項 |integer |子字串在 **source** 字串中起始位置的索引。 字串第一個字元的索引為 1，第二個字元的索引為 2，依此類推。 |
+| **length** |必要項 |integer |子字串的長度。 如果長度超出 **source** 字串結尾，函式會傳回從 **start** 索引一直到 **source** 字串結尾的子字串。 |
 
 ---
 ### <a name="normalizediacritics"></a>NormalizeDiacritics
@@ -133,16 +133,16 @@ ms.locfileid: "70113551"
 * 提供 **oldValue** 和 **template** 時：
   
   * 以 **source** 值取代 **template** 中所有的 **oldValue** 項目
-* 當提供**RegExPattern**和**replacementValue**時:
+* 當提供**RegExPattern**和**replacementValue**時：
 
-  * 函式會將**RegExPattern**套用至**來源**字串, 而且您可以使用 RegEx 組名來建立**replacementValue**的字串
+  * 函式會將**RegExPattern**套用至**來源**字串，而且您可以使用 RegEx 組名來建立**replacementValue**的字串
 * 提供 **regexPattern**、**regexGroupName**、**replacementValue** 時：
   
-  * 函式會將**RegExPattern**套用至**來源**字串, 並將所有符合**RegexGroupName**的值取代為**replacementValue**
-* 提供**RegExPattern**、 **RegExGroupName**、 **replacementAttributeName**時:
+  * 函式會將**RegExPattern**套用至**來源**字串，並將所有符合**RegexGroupName**的值取代為**replacementValue**
+* 提供**RegExPattern**、 **RegExGroupName**、 **replacementAttributeName**時：
   
   * 如果 **source** 沒有值，則傳回 **source**
-  * 如果**source**有值, 函數會將**RegExPattern**套用至**來源**字串, 並將所有符合**RegExGroupName**的值取代為與**replacementAttributeName**相關聯的值。
+  * 如果**source**有值，函數會將**RegExPattern**套用至**來源**字串，並將所有符合**RegExGroupName**的值取代為與**replacementAttributeName**相關聯的值。
 
 **參數：**<br> 
 
@@ -150,11 +150,11 @@ ms.locfileid: "70113551"
 | --- | --- | --- | --- |
 | **source** |必要項 |String |通常是來自**來源**物件的屬性名稱。 |
 | **oldValue** |選擇性 |String |在 **source** 或 **template** 中要被取代的值。 |
-| **regexPattern** |選擇性 |String |在 **source**中要被取代的值的規則運算式模式。 或者, 使用**replacementPropertyName**時, 會從**replacementPropertyName**中取出值的模式。 |
-| **regexGroupName** |選擇性 |String |**regexPattern**內的群組名稱。 只有在使用**replacementPropertyName**時, 我們會將此群組的值從**ReplacementPropertyName**解壓縮為**replacementValue** 。 |
+| **regexPattern** |選擇性 |String |在 **source**中要被取代的值的規則運算式模式。 或者，使用**replacementPropertyName**時，會從**replacementPropertyName**中取出值的模式。 |
+| **regexGroupName** |選擇性 |String |**regexPattern**內的群組名稱。 只有在使用**replacementPropertyName**時，我們會將此群組的值從**ReplacementPropertyName**解壓縮為**replacementValue** 。 |
 | **replacementValue** |選擇性 |String |要取代舊值的新值。 |
 | **replacementAttributeName** |選擇性 |String |要用於取代值的屬性名稱 |
-| **template** |選用 |String |當提供**範本**值時, 我們會尋找範本內部的**oldValue** , 並將其取代為**來源**值。 |
+| **template** |選用 |String |當提供**範本**值時，我們會尋找範本內部的**oldValue** ，並將其取代為**來源**值。 |
 
 ---
 ### <a name="selectuniquevalue"></a>SelectUniqueValue
@@ -163,9 +163,10 @@ ms.locfileid: "70113551"
 **說明：**<br> 至少需要兩個引數，也就是使用運算式定義的唯一值產生規則。 此函式會評估每個規則，接著檢查所產生的值在目標應用程式/目錄中的唯一性。 將會傳回所找到的第一個唯一值。 如果所有值都已存在於目標中，則項目會進行委付且原因會記錄於稽核記錄中。 可提供的引數數目沒有上限。
 
 > [!NOTE]
->1. 這是最上層函式，無法巢狀處理。
->2. 此函式不能套用至具有相符優先順序的屬性。  
->3. 此函式只能用於建立項目。 搭配屬性使用此函式時，請將 [套用對應] 屬性設定為 [僅限物件建立期間]。
+> - 這是最上層函式，無法巢狀處理。
+> - 此函式不能套用至具有相符優先順序的屬性。  
+> - 此函式只能用於建立項目。 搭配屬性使用此函式時，請將 [套用對應] 屬性設定為 [僅限物件建立期間]。
+> - 此函式目前僅支援「Workday 到 Active Directory 使用者布建」。 它不能與其他布建應用程式搭配使用。 
 
 
 **參數：**<br> 
@@ -191,7 +192,7 @@ ms.locfileid: "70113551"
 ### <a name="split"></a>分割
 **函式：**<br> Split(source, delimiter)
 
-**說明：**<br> 使用指定的分隔符號字元將字串分割成多重值陣列。
+**說明：**<br> 使用指定的分隔符號，將字串分割成多重值陣列。
 
 **參數：**<br> 
 

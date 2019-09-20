@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 04/10/2019
 ms.author: aschhab
 ms.custom: seo-java-july2019, seo-java-august2019, seo-java-september2019
-ms.openlocfilehash: b85099605d7f660b792186f7e17b0ed4ea43ef04
-ms.sourcegitcommit: fbea2708aab06c19524583f7fbdf35e73274f657
+ms.openlocfilehash: 19cfd2c5dd4229e4687fcb1a3286509c9b768d7a
+ms.sourcegitcommit: 116bc6a75e501b7bba85e750b336f2af4ad29f5a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/13/2019
-ms.locfileid: "70967860"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71155478"
 ---
 # <a name="use-azure-service-bus-queues-with-java-to-send-and-receive-messages"></a>搭配 JAVA 使用 Azure 服務匯流排佇列來傳送和接收訊息
 [!INCLUDE [service-bus-selector-queues](../../includes/service-bus-selector-queues.md)]
@@ -42,7 +42,7 @@ ms.locfileid: "70967860"
 ## <a name="configure-your-application-to-use-service-bus"></a>設定應用程式以使用服務匯流排
 先確定已安裝 [Azure SDK for Java][Azure SDK for Java] 再建置此範例。 如果使用 Eclipse，您可以安裝包含 Azure SDK for Java 的 [Azure Toolkit for Eclipse][Azure Toolkit for Eclipse]。 然後您可以將 **Microsoft Azure Libraries for Java** 新增至您的專案：
 
-![可新增程式庫之 [媒體櫃] 索引標籤的螢幕擷取畫面](./media/service-bus-java-how-to-use-queues/eclipselibs.png)
+![將適用于 JAVA 的 Microsoft Azure 程式庫新增至您的 Eclipse 專案](./media/service-bus-java-how-to-use-queues/eclipse-azure-libraries-java.png)
 
 在 Java 檔案頂端新增下列 `import` 陳述式：
 

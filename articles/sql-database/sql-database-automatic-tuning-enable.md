@@ -11,12 +11,12 @@ author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, carlrab
 ms.date: 01/25/2019
-ms.openlocfilehash: 457ee34daf368150a8703ea32a39b2350d654523
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 67a05d065cba8286c837487e21fc2f5be54e2c0b
+ms.sourcegitcommit: a7a9d7f366adab2cfca13c8d9cbcf5b40d57e63a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68569423"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71162335"
 ---
 # <a name="enable-automatic-tuning-to-monitor-queries-and-improve-workload-performance"></a>啟用自動調整以監視查詢並改進工作負載效能
 
@@ -25,10 +25,10 @@ Azure SQL Database 是自動受控的資料服務，會不斷地監視您的查�
 您可以透過 [Azure 入口網站](sql-database-automatic-tuning-enable.md#azure-portal)、[REST API](sql-database-automatic-tuning-enable.md#rest-api) 呼叫和 [T-SQL](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql-set-options?view=azuresqldb-current) 命令，在伺服器或資料庫層級啟用自動調整。
 
 > [!NOTE]
-> 針對受控執行個體, 支援的選項 FORCE_LAST_GOOD_PLAN 只能透過[t-sql](https://azure.microsoft.com/blog/automatic-tuning-introduces-automatic-plan-correction-and-t-sql-management)來設定。 這篇文章中所述的以入口網站為基礎的設定和自動索引微調選項不適用於受控執行個體。
+> 針對受控執行個體，支援的選項 FORCE_LAST_GOOD_PLAN 只能透過[t-sql](https://azure.microsoft.com/blog/automatic-tuning-introduces-automatic-plan-correction-and-t-sql-management)來設定。 這篇文章中所述的以入口網站為基礎的設定和自動索引微調選項不適用於受控執行個體。
 
 > [!NOTE]
-> 目前不支援透過 ARM (Azure Resource Manager) 範本設定自動調整選項。
+> 目前不支援透過 ARM （Azure Resource Manager）範本設定自動調整選項。
 
 ## <a name="enable-automatic-tuning-on-server"></a>在伺服器上啟用自動調整
 
@@ -41,7 +41,7 @@ Azure SQL Database 是自動受控的資料服務，會不斷地監視您的查�
 ![伺服器](./media/sql-database-automatic-tuning-enable/server.png)
 
 > [!NOTE]
-> 請注意，此時 [DROP_INDEX] 選項與使用分割區切換和索引提示的應用程式不相容，而且不應該在這些情況下啟用。
+> 請注意，此時 [DROP_INDEX] 選項與使用分割區切換和索引提示的應用程式不相容，而且不應該在這些情況下啟用。 高階和商務關鍵服務層級不支援卸載未使用的索引。
 >
 
 依序選取您想要啟用的自動調整以及 [套用]。

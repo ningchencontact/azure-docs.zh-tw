@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 06/10/2019
-ms.openlocfilehash: dad796c8a7a34a782a4f78260ac38bd966eddde9
-ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
+ms.openlocfilehash: 4a1d835ebe47ec36bb839da8dcbcd107ffcb9c4c
+ms.sourcegitcommit: a7a9d7f366adab2cfca13c8d9cbcf5b40d57e63a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71105405"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71161964"
 ---
 # <a name="scale-azure-hdinsight-clusters"></a>調整 Azure HDInsight 叢集
 
@@ -42,7 +42,7 @@ Microsoft 提供下列公用程式來調整叢集：
 只要使用上述任一方法，您即可在幾分鐘內相應增加或相應減少 HDInsight 叢集。
 
 > [!IMPORTANT]  
-> * Aure 傳統 CLI 已淘汰，應僅與傳統部署模型搭配使用。 針對所有其他部署，請使用[Azure CLI](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest)。  
+> * Azure 傳統 CLI 已淘汰，應僅與傳統部署模型搭配使用。 針對所有其他部署，請使用[Azure CLI](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest)。  
 > * PowerShell AzureRM 模組已被取代。  請盡可能使用[Az 模組](https://docs.microsoft.com/powershell/azure/new-azureps-module-az?view=azps-1.4.0)。
 
 ## <a name="impact-of-scaling-operations"></a>調整作業的影響

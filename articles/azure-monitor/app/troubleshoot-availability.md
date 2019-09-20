@@ -10,15 +10,15 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 06/19/2019
+ms.date: 09/19/2019
 ms.reviewer: sdash
 ms.author: lagayhar
-ms.openlocfilehash: c3f3d9437a6e796cc91ff1782b3a0774382c5f8b
-ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
+ms.openlocfilehash: ee64a8af35f938def94e369bdb400fed6e2798c0
+ms.sourcegitcommit: b03516d245c90bca8ffac59eb1db522a098fb5e4
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71067065"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71146588"
 ---
 # <a name="troubleshooting"></a>疑難排解
 
@@ -46,10 +46,9 @@ ms.locfileid: "71067065"
 
 ## <a name="intermittent-test-failure-with-a-protocol-violation-error"></a>具有通訊協定違規錯誤的間歇性測試失敗
 
-|徵兆/錯誤訊息| 可能的原因|
-|----|---------|
-通訊協定違規 CR 後面必須接著 LF | 偵測到不正確的標頭時，就會發生這種情況 具體而言，某些標頭可能不會使用 CRLF 來指出行尾，這違反了 HTTP 規格，因此在 .NET WebRequest 層級驗證會失敗。
- || 這也可能是由負載平衡器或 Cdn 所造成。
+|徵兆/錯誤訊息| 可能的原因| 可能的解決方式 |
+|----|---------|-----|
+|伺服器已認可通訊協定違規。 Section = ResponseHeader Detail = CR 後面必須接著 LF | 偵測到不正確的標頭時，就會發生這種情況 具體而言，某些標頭可能不會使用 CRLF 來指出行尾，這違反了 HTTP 規格。 Application Insights 會強制執行此 HTTP 規格，並以格式不正確的標頭回應失敗。| a. 請洽詢網站主機提供者/CDN 提供者，以修正故障的伺服器。 <br> b. 如果失敗的要求是資源（例如樣式檔案、影像、腳本），您可以考慮停用相依要求的剖析。 請記住，如果這麼做，您將無法監視這些檔案的可用性）。
 
 > [!NOTE]
 > 在 HTTP 標頭驗證寬鬆的瀏覽器上，此 URL 可能不會失敗。 如需問題的詳細說明，請參閱此部落格文章： http://mehdi.me/a-tale-of-debugging-the-linkedin-api-net-and-http-protocol-violations/  

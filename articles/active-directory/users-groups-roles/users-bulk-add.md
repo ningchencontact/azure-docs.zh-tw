@@ -1,5 +1,5 @@
 ---
-title: 大量匯入，以在 Azure Active Directory 入口網站中新增使用者（預覽） |Microsoft Docs
+title: Azure Active Directory 入口網站中的大量建立使用者（預覽） |Microsoft Docs
 description: 在 Azure AD 系統管理中心的 Azure Active Directory 中加入大量使用者
 services: active-directory
 author: curtand
@@ -13,14 +13,14 @@ ms.workload: identity
 ms.custom: it-pro
 ms.reviewer: jeffsta
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a22052117448cdb71bbc16e1df7899e6d3eb764e
-ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
-ms.translationtype: HT
+ms.openlocfilehash: 87c62cbe71f2e02c6f2c09620a8470a97ae57392
+ms.sourcegitcommit: b03516d245c90bca8ffac59eb1db522a098fb5e4
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70901486"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71146326"
 ---
-# <a name="bulk-import-users-preview-in-azure-active-directory"></a>Azure Active Directory 中的大量匯入使用者（預覽）
+# <a name="bulk-create-users-preview-in-azure-active-directory"></a>Azure Active Directory 中的大量建立使用者（預覽）
 
 Azure Active Directory （Azure AD）支援大量使用者建立和刪除作業、大量邀請來賓，以及支援下載使用者、群組和群組成員的清單。
 
@@ -37,6 +37,9 @@ Azure Active Directory （Azure AD）支援大量使用者建立和刪除作業�
 1. 使用組織中使用者系統管理員的帳戶登[入您的 Azure AD 組織](https://aad.portal.azure.com)。
 1. 在 Azure AD 中，選取 [**使用者** > ] [**大量建立**]。
 1. 在 [**大量建立使用者**] 頁面上，選取 [**下載**] 以接收使用者屬性的有效逗號分隔值（CSV）檔案，然後新增您的新使用者。
+
+   ![CSV 檔案包含要建立之使用者的名稱和識別碼](./media/users-bulk-add/add-csv-file.png)
+
 1. 當您完成編輯 CSV 檔案，或如果您已準備好上傳，請選取 [**上傳您的 csv**檔案以進行驗證] 底下的檔案。
 
    ![選取您要加入的本機 CSV 檔案，其中列出您要新增的使用者](./media/users-bulk-add/upload-button.png)

@@ -9,12 +9,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 05/15/2019
 ms.author: sstein
-ms.openlocfilehash: 232f8b13174aed19477ee0b139c83fba439049ac
-ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
+ms.openlocfilehash: 90482fc859c4dcdd04a70e91da2fd6adb079a795
+ms.sourcegitcommit: a7a9d7f366adab2cfca13c8d9cbcf5b40d57e63a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71101538"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71162278"
 ---
 # <a name="sql-database-release-notes"></a>SQL Database 版本資訊
 
@@ -60,6 +60,7 @@ ms.locfileid: "71101538"
 
 ### <a name="managed-instance-h2-2019-updates"></a>受控實例 H2 2019 更新
 
+- [自動容錯移轉群組](https://azure.microsoft.com/updates/azure-sql-database-auto-failover-groups-feature-now-available-in-all-regions/)可讓您將主要實例的所有資料庫複寫至另一個區域中的次要實例。
 - 使用[全域追蹤旗標](https://azure.microsoft.com/updates/global-trace-flags-are-now-available-in-azure-sql-database-managed-instance/)來設定您的受控實例行為。
 
 ### <a name="managed-instance-h1-2019-updates"></a>受控實例 H1 2019 更新

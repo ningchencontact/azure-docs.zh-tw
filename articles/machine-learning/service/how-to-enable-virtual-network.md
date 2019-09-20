@@ -10,12 +10,12 @@ ms.reviewer: jmartens
 ms.author: aashishb
 author: aashishb
 ms.date: 08/05/2019
-ms.openlocfilehash: f12c77a25bad9781d5f23b9563f6684997a2a6c4
-ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
+ms.openlocfilehash: 9299959eef24f6890218dc2d2aa733cc227e1a32
+ms.sourcegitcommit: a7a9d7f366adab2cfca13c8d9cbcf5b40d57e63a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/15/2019
-ms.locfileid: "71002782"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71162574"
 ---
 # <a name="secure-azure-ml-experimentation-and-inference-jobs-within-an-azure-virtual-network"></a>在 Azure 虛擬網路中保護 Azure ML 實驗和推斷作業
 
@@ -345,6 +345,22 @@ aks_target = ComputeTarget.create(workspace=ws,
 ```
 
 當建立程式完成時，您可以在虛擬網路背後的 AKS 叢集上執行推斷或模型評分。 如需詳細資訊，請參閱[部署至 AKS 的方式](how-to-deploy-to-aks.md)。
+
+## <a name="use-azure-firewall"></a>使用 Azure 防火牆
+
+使用 Azure 防火牆時，您必須設定網路規則，以允許進出下列位址的流量：
+
+- `*.batchai.core.windows.net`
+- `ml.azure.com`
+- `*.azureml.ms`
+- `*.experiments.azureml.net`
+- `*.modelmanagement.azureml.net`
+- `mlworkspace.azure.ai`
+- `*.aether.ms`
+
+新增規則時，請將__通訊協定__設定為 [任何]，並`*`將埠設為。
+
+如需設定網路規則的詳細資訊，請參閱[部署和設定 Azure 防火牆](/azure/firewall/tutorial-firewall-deploy-portal#configure-a-network-rule)。
 
 ## <a name="next-steps"></a>後續步驟
 

@@ -1,5 +1,5 @@
 ---
-title: Azure 和 Dynamics 365 諮詢服務供應項目 |Azure Marketplace
+title: Azure 和 Dynamics 365 諮詢服務供應專案 |Azure Marketplace
 description: 在「Cloud Partner 入口網站」中定義和發佈 Azure 或 Dynamcis 365 諮詢服務供應項目的指南。
 services: Azure, Marketplace, Cloud Partner Portal,
 author: qianw211
@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.topic: conceptual
 ms.date: 11/30/2018
 ms.author: pabutler
-ms.openlocfilehash: a033ad80b59dc29b6d08624dee400d496eb28005
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 6c75664e558602429250420f1896b75a74546e67
+ms.sourcegitcommit: b03516d245c90bca8ffac59eb1db522a098fb5e4
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64942856"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71145449"
 ---
 # <a name="azure-and-dynamics-365-consulting-service-offer"></a>Azure 與 Dynamcis 365 諮詢服務供應項目
 
@@ -33,6 +33,7 @@ ms.locfileid: "64942856"
 
 - [諮詢服務必要條件](./cpp-consulting-service-prerequisites.md)列出發佈諮詢服務的需求，適用於：
  
+    - Microsoft Azure
     - Dynamics 365 for Customer Engagement 
     - Dynamics 365 for Finance & Operations 
     - Dynamics 365 Business Central 

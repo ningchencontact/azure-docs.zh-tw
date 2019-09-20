@@ -6,19 +6,20 @@ ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 09/18/2019
-ms.openlocfilehash: 8b4cbe309e310ef1fc384224c952a6f04385b1dd
-ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
+ms.openlocfilehash: 198ab5f567652a76d209168041f305b9da4d0b43
+ms.sourcegitcommit: b03516d245c90bca8ffac59eb1db522a098fb5e4
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71092257"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71147177"
 ---
 # <a name="audit-logging-in-azure-database-for-postgresql---single-server"></a>適用於 PostgreSQL 的 Azure 資料庫中的審核記錄-單一伺服器
 
 在適用於 PostgreSQL 的 Azure 資料庫-單一伺服器中的資料庫活動的審核記錄可透過於 postgresql Audit Extension： [pgAudit](https://www.pgaudit.org/)取得。 pgAudit 會提供詳細的會話和/或物件的 audit 記錄。
 
 > [!NOTE]
-> 只能在一般用途和記憶體優化伺服器上啟用 pgAudit。
+> 適用於 PostgreSQL 的 Azure 資料庫上的 pgAudit 處於預覽狀態。
+> 延伸模組只能在一般用途和記憶體優化伺服器上啟用。
 
 ## <a name="usage-considerations"></a>使用考慮
 根據預設，pgAudit 記錄語句會與您的一般記錄語句一起發出，方法是使用 Postgres 的標準記錄功能。 在適用於 PostgreSQL 的 Azure 資料庫中，可以透過 Azure 入口網站或 CLI 下載這些 .log 檔案。 檔案集合的最大儲存空間為 1 GB，每個檔案最多可使用七天（預設值為三天）。 這項服務是短期儲存選項。

@@ -13,23 +13,26 @@ ms.workload: identity
 ms.custom: it-pro
 ms.reviewer: jeffsta
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6c2204c572ca1f74f8060d0b6176df69359fe69a
-ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
+ms.openlocfilehash: eb01b46d61b6ba99c3ec9c537dccc350074f5e05
+ms.sourcegitcommit: b03516d245c90bca8ffac59eb1db522a098fb5e4
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70901707"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71146447"
 ---
 # <a name="bulk-delete-users-preview-in-azure-active-directory"></a>Azure Active Directory 中的大量刪除使用者（預覽）
 
-Azure Active Directory （Azure AD）支援大量使用者建立和刪除作業、大量邀請來賓，以及支援下載使用者、群組和群組成員的清單。
+使用 Azure Active Directory （Azure AD）入口網站，您可以使用逗號分隔值（CSV）檔案來大量刪除使用者，藉以移除群組中大量的成員。
 
 ## <a name="to-bulk-delete-users"></a>大量刪除使用者
 
 1. 使用組織中使用者系統管理員的帳戶登入您的 Azure AD 組織。
 1. 在 Azure AD 中，選取 [**使用者** > ] [**大量刪除**]。
 1. 在 [**大量刪除使用者**] 頁面上，選取 [**下載**] 以接收有效的使用者屬性 CSV 檔案，然後新增您想要刪除的使用者。
-1. 當您完成編輯 CSV 檔案，或如果您已準備好上傳，請選取 [**上傳您的 csv**檔案以進行驗證] 底下的檔案。
+
+   ![CSV 檔案包含要刪除之使用者的名稱和識別碼](./media/users-bulk-delete/delete-csv-file.png)
+
+1. 完成 CSV 檔案的編輯後，請選取 [**上傳您的 csv**檔案以進行驗證] 底下的檔案。
 
    ![選取您要刪除的使用者所在的本機 CSV 檔案](./media/users-bulk-delete/bulk-delete.png)
 

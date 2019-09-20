@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 04/15/2019
 ms.author: aschhab
 ms.custom: seo-java-july2019, seo-java-august2019, seo-java-september2019
-ms.openlocfilehash: 7cd7bcd4bd10152ecd2fa60e4e8418f17db16b61
-ms.sourcegitcommit: fbea2708aab06c19524583f7fbdf35e73274f657
+ms.openlocfilehash: affd62bd7cae0103b7d2510022fc12a66d26c865
+ms.sourcegitcommit: 116bc6a75e501b7bba85e750b336f2af4ad29f5a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/13/2019
-ms.locfileid: "70967841"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71155598"
 ---
 # <a name="use-service-bus-topics-and-subscriptions-with-java"></a>搭配 JAVA 使用服務匯流排主題和訂用帳戶
 
@@ -41,7 +41,7 @@ ms.locfileid: "70967841"
 ## <a name="configure-your-application-to-use-service-bus"></a>設定應用程式以使用服務匯流排
 先確定已安裝 [Azure SDK for Java][Azure SDK for Java] 再建置此範例。 如果使用 Eclipse，您可以安裝包含 Azure SDK for Java 的 [Azure Toolkit for Eclipse][Azure Toolkit for Eclipse]。 然後您可以將 **Microsoft Azure Libraries for Java** 新增至您的專案：
 
-![Eclipse 組建路徑中的程式庫](media/service-bus-java-how-to-use-topics-subscriptions/eclipselibs.png)
+![將適用于 JAVA 的 Microsoft Azure 程式庫新增至您的 Eclipse 專案](media/service-bus-java-how-to-use-topics-subscriptions/eclipse-azure-libraries-java.png)
 
 您也需要將下列 JAR 新增至 Java 組建路徑：
 

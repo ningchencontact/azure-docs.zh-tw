@@ -5,14 +5,14 @@ author: dcurwin
 manager: carmonm
 ms.service: backup
 ms.topic: conceptual
-ms.date: 09/10/2019
+ms.date: 09/20/2019
 ms.author: dacurwin
-ms.openlocfilehash: 719f7f1c30a79b9057f25d6137423451cc606bfa
-ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
+ms.openlocfilehash: 5f10bb2062d7c805b485d5cfbfe8989a6aee0995
+ms.sourcegitcommit: a7a9d7f366adab2cfca13c8d9cbcf5b40d57e63a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71088425"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71162221"
 ---
 # <a name="delete-an-azure-backup-recovery-services-vault"></a>刪除 Azure 備份復原服務保存庫
 
@@ -33,6 +33,9 @@ ms.locfileid: "71088425"
 
   ![刪除受保護的伺服器錯誤。](./media/backup-azure-delete-vault/error-message.jpg)
 
+- 如果備份專案處於虛刪除狀態，則會出現下列警告訊息，而且您必須等到它們永久刪除為止。 如需詳細資訊，請參閱[此文章](https://aka.ms/SoftDeleteCloudWorkloads)。
+
+   ![刪除保存庫錯誤。](./media/backup-azure-delete-vault/error-message-soft-delete.png)
   
 若要刪除保存庫，請選擇符合您設定的案例，並遵循建議的步驟：
 

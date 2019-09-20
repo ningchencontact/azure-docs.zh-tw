@@ -1,24 +1,24 @@
 ---
 title: 了解效果的運作方式
-description: 「Azure 原則」定義有各種效果，可決定合規性的管理和回報方式。
+description: Azure 原則定義有各種不同的效果，可決定合規性的管理和報告方式。
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 03/29/2019
+ms.date: 09/17/2019
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
-ms.openlocfilehash: 1ac0e70700b4b093fad09b4d10c6bdcf2e06adac
-ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
+ms.openlocfilehash: 06a5ffbef2b841acc7ea7ecc82d05dfccbc0cab1
+ms.sourcegitcommit: b03516d245c90bca8ffac59eb1db522a098fb5e4
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/03/2019
-ms.locfileid: "70231537"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71147008"
 ---
 # <a name="understand-azure-policy-effects"></a>了解 Azure 原則效果
 
 「Azure 原則」中的每個原則定義都有一個效果。 該效果決定了當原則規則評估為相符時會發生的情況。 這些效果在針對新資源、已更新的資源或現有的資源時，各有不同的行為表現。
 
-原則定義中目前支援這些效果:
+原則定義中目前支援這些效果：
 
 - [追加](#append)
 - [稽核](#audit)
@@ -27,13 +27,14 @@ ms.locfileid: "70231537"
 - [DeployIfNotExists](#deployifnotexists)
 - [Disabled](#disabled)
 - [EnforceRegoPolicy](#enforceregopolicy)預覽
+- [編輯](#modify)
 
 ## <a name="order-of-evaluation"></a>評估順序
 
-透過 Azure Resource Manager 來建立或更新資源的要求, 會先由 Azure 原則評估。 Azure 原則會建立適用于資源的所有指派清單, 然後根據每個定義來評估資源。 Azure 原則會先處理數個效果, 再將要求交給適當的資源提供者。 這麼做可避免資源提供者在資源不符合 Azure 原則的設計治理控制項時進行不必要的處理。
+透過 Azure Resource Manager 來建立或更新資源的要求，會先由 Azure 原則評估。 Azure 原則會建立適用于資源的所有指派清單，然後根據每個定義來評估資源。 Azure 原則會先處理數個效果，再將要求交給適當的資源提供者。 這麼做可避免資源提供者在資源不符合 Azure 原則的設計治理控制項時進行不必要的處理。
 
 - 首先會檢查 **Disabled**，以決定是否應評估原則規則。
-- 接著評估的是 **Append**。 由於 Append 可以改變要求，因此 Append 所進行的變更可能會導致無法觸發 Audit 或 Deny 效果。
+- 接著會評估 [**附加**] 和 [**修改**]。 由於可能會改變要求，因此所做的變更可能會導致無法觸發 audit 或 deny 的影響。
 - 接著評估的是 **Deny**。 在 Audit 前先評估 Deny 可防止重複記錄不想要的資源。
 - 接著會先評估 **Audit**，然後才將要求傳遞給「資源提供者」。
 
@@ -47,7 +48,10 @@ ms.locfileid: "70231537"
 
 ## <a name="append"></a>附加
 
-Append 可用來在建立或更新所要求的資源時，為資源新增額外的欄位。 其中一個常見的範例就是在資源上新增標籤 (例如 costCenter)，或是為儲存體資源指定允許的 IP。
+Append 可用來在建立或更新所要求的資源時，為資源新增額外的欄位。 常見的範例是針對儲存體資源指定允許的 Ip。
+
+> [!IMPORTANT]
+> Append 適用于非標記屬性。 雖然 Append 可以在建立或更新要求期間將標籤新增至資源，但建議您改為使用標籤的[修改](#modify)效果。
 
 ### <a name="append-evaluation"></a>Append 評估
 
@@ -61,36 +65,7 @@ Append 效果只有一個 **details** 陣列且為必要。 由於 **details** �
 
 ### <a name="append-examples"></a>Append 範例
 
-範例 1：用以附加一個標籤的單一 **field/value** 配對。
-
-```json
-"then": {
-    "effect": "append",
-    "details": [{
-        "field": "tags.myTag",
-        "value": "myTagValue"
-    }]
-}
-```
-
-範例 2：用以附加一組標籤的兩個 **field/value** 配對。
-
-```json
-"then": {
-    "effect": "append",
-    "details": [{
-            "field": "tags.myTag",
-            "value": "myTagValue"
-        },
-        {
-            "field": "tags.myOtherTag",
-            "value": "myOtherTagValue"
-        }
-    ]
-}
-```
-
-範例 3：使用非 **[\*]** [別名](definition-structure.md#aliases)搭配具有陣列**值**的單一**欄位/值**組, 以設定儲存體帳戶的 IP 規則。 當非 **[\*]** 別名是陣列時，效果會將 **value** 當做整個陣列來附加。 如果陣列已經存在，就會因為衝突而發生拒絕事件。
+範例 1：使用非 **[\*]** [別名](definition-structure.md#aliases)搭配具有陣列**值**的單一**欄位/值**組，以設定儲存體帳戶的 IP 規則。 當非 **[\*]** 別名是陣列時，效果會將 **value** 當做整個陣列來附加。 如果陣列已經存在，就會因為衝突而發生拒絕事件。
 
 ```json
 "then": {
@@ -105,7 +80,7 @@ Append 效果只有一個 **details** 陣列且為必要。 由於 **details** �
 }
 ```
 
-範例 4：使用 **[\*]** [別名](definition-structure.md#aliases)搭配 **value** 陣列以設定儲存體帳戶相關 IP 規則的單一 **field/value** 配對。 藉由使用 **[\*]** 別名，效果會將 **value** 附加至可能預先存在的陣列。 如果陣列不存在，則會加以建立。
+範例 2：使用 **[\*]** [別名](definition-structure.md#aliases)搭配 **value** 陣列以設定儲存體帳戶相關 IP 規則的單一 **field/value** 配對。 藉由使用 **[\*]** 別名，效果會將 **value** 附加至可能預先存在的陣列。 如果陣列尚不存在，則會建立它。
 
 ```json
 "then": {
@@ -117,6 +92,122 @@ Append 效果只有一個 **details** 陣列且為必要。 由於 **details** �
             "action": "Allow"
         }
     }]
+}
+```
+
+## <a name="modify"></a>修改
+
+在建立或更新期間，會使用 Modify 來新增、更新或移除資源上的標記。 常見的範例是在資源（例如 costCenter）上更新標記。 修改原則應一律`mode`設定為 [_索引_]。 您可以使用[補救](../how-to/remediate-resources.md)工作來補救現有不符合規範的資源。
+單一修改規則可以有任意數目的作業。
+
+> [!IMPORTANT]
+> Modify 目前僅供與標記搭配使用。 如果您要管理標記，建議使用 [修改] 而非 [附加] 做為 [修改]，提供額外的作業類型以及補救現有資源的能力。 不過，如果您無法建立受控識別，則建議使用 [附加]。
+
+### <a name="modify-evaluation"></a>修改評估
+
+在建立或更新資源期間，由資源提供者處理要求之前，請先修改評估。 當符合原則規則的**if**條件時，Modify 會在資源上新增或更新標記。
+
+當使用 Modify 效果的原則定義在評估週期中執行時，不會對已經存在的資源進行變更。 取而代之的是，會將符合 **if** 條件的所有資源標示為不符合規範。
+
+### <a name="modify-properties"></a>修改屬性
+
+[修改] 效果的 [**詳細資料**] 屬性具有所有子屬性，可定義補救所需的許可權，以及用來新增、更新或移除標記值的**作業**。
+
+- **roleDefinitionIds** [必要]
+  - 此屬性必須包含與訂用帳戶可存取之角色型存取控制角色識別碼相符的字串陣列。 如需詳細資訊，請參閱[補救 - 設定原則定義](../how-to/remediate-resources.md#configure-policy-definition)。
+  - 定義的角色必須包括授與[參與者](../../../role-based-access-control/built-in-roles.md#contributor)角色的所有作業。
+- **作業**具備
+  - 要在比對資源上完成之所有標記作業的陣列。
+  - 屬性：
+    - 作業具備
+      - 定義要對相符資源採取的動作。 選項包括： _addOrReplace_、 _Add_、 _Remove_。 _新增_的行為類似于[附加](#append)效果。
+    - **欄位**具備
+      - 要加入、取代或移除的標記。 標記名稱必須遵守其他[欄位](./definition-structure.md#fields)的相同命名慣例。
+    - **值**選擇性
+      - 要設定標記的值。
+      - 如果作業是_addOrReplace_或_Add_ **，就**需要這個屬性。
+
+### <a name="modify-operations"></a>修改作業
+
+**Operations**屬性陣列可讓您從單一原則定義以不同的方式更改數個標記。 每項作業都是由 [作業]、[**欄位**] 和 [**值**] 屬性**所組成。** 作業會決定補救工作對標記執行的動作，欄位會決定要更改的標記，而值則會定義該標記的新設定。 以下範例會變更下列標記：
+
+- `environment`將標記設定為 "Test"，即使它已經存在且具有不同的值。
+- 移除標記`TempResource`。
+- 將標記設定為原則指派上設定的原則參數_DeptName。_ `Dept`
+
+```json
+"details": {
+    ...
+    "operations": [
+        {
+            "operation": "addOrReplace",
+            "field": "tags['environment']",
+            "value": "Test"
+        },
+        {
+            "operation": "Remove",
+            "field": "tags['TempResource']",
+        },
+        {
+            "operation": "addOrReplace",
+            "field": "tags['Dept']",
+            "field": "[parameters('DeptName')]"
+        }
+    ]
+}
+```
+
+**Operation**屬性具有下列選項：
+
+|運算 |描述 |
+|-|-|
+|addOrReplace |將已定義的標籤和值新增至資源，即使標記已經存在且具有不同的值。 |
+|加入 |將已定義的標記和值加入至資源。 |
+|移除 |從資源中移除已定義的標記。 |
+
+### <a name="modify-examples"></a>修改範例
+
+範例 1：新增標記，並將現有`environment`標記取代為 "Test"： `environment`
+
+```json
+"then": {
+    "effect": "modify",
+    "details": {
+        "roleDefinitionIds": [
+            "/providers/Microsoft.Authorization/roleDefinitions/b24988ac-6180-42a0-ab88-20f7382dd24c"
+        ],
+        "operations": [
+            {
+                "operation": "addOrReplace",
+                "field": "tags['environment']",
+                "value": "Test"
+            }
+        ]
+    }
+}
+```
+
+範例 2：移除標記並`environment`新增標記，或以參數化`environment`的值取代現有標記： `env`
+
+```json
+"then": {
+    "effect": "modify",
+    "details": {
+        "roleDefinitionIds": [
+            "/providers/Microsoft.Authorization/roleDefinitions/b24988ac-6180-42a0-ab88-20f7382dd24c"
+        ],
+        "operations": [
+            {
+                "operation": "Remove",
+                "field": "tags['env']"
+            },
+            {
+                "operation": "addOrReplace",
+                "field": "tags['environment']",
+                "value": "[parameters('tagValue')]"
+            }
+        ]
+    }
 }
 ```
 
@@ -150,7 +241,7 @@ Audit 效果可用來在評估到不符合規範的資源時，在活動記錄�
 
 ### <a name="audit-evaluation"></a>Audit 評估
 
-Audit 是在建立或更新資源期間 Azure 原則所檢查的最後一個效果。 Azure 原則接著會將資源傳送至資源提供者。 Audit 對資源要求和評估週期的運作方式相同。 Azure 原則將作業`Microsoft.Authorization/policies/audit/action`新增至活動記錄檔, 並將該資源標示為不符合規範。
+Audit 是在建立或更新資源期間 Azure 原則所檢查的最後一個效果。 Azure 原則接著會將資源傳送至資源提供者。 Audit 對資源要求和評估週期的運作方式相同。 Azure 原則將作業`Microsoft.Authorization/policies/audit/action`新增至活動記錄檔，並將該資源標示為不符合規範。
 
 ### <a name="audit-properties"></a>Audit 屬性
 
@@ -172,7 +263,7 @@ AuditIfNotExists 可讓您稽核符合下列條件的資源：符合 **if** 條�
 
 ### <a name="auditifnotexists-evaluation"></a>AuditIfNotExists 評估
 
-AuditIfNotExists 的執行順序是在「資源提供者」已處理建立或更新資源要求，並且已傳回成功狀態碼之後。 如果沒有任何相關資源，或 **ExistenceCondition** 所定義的資源未評估為 true，就會進行稽核。 Azure 原則會將`Microsoft.Authorization/policies/audit/action`作業新增至活動記錄, 其方式與審核效果相同。 當觸發時，滿足 **if** 條件的資源會是標示為不符合規範的資源。
+AuditIfNotExists 的執行順序是在「資源提供者」已處理建立或更新資源要求，並且已傳回成功狀態碼之後。 如果沒有任何相關資源，或 **ExistenceCondition** 所定義的資源未評估為 true，就會進行稽核。 Azure 原則會將`Microsoft.Authorization/policies/audit/action`作業新增至活動記錄，其方式與審核效果相同。 當觸發時，滿足 **if** 條件的資源會是標示為不符合規範的資源。
 
 ### <a name="auditifnotexists-properties"></a>AuditIfNotExists 屬性
 
@@ -180,10 +271,10 @@ AuditIfNotExists 效果的 **details** 屬性含有定義所要比對相關資�
 
 - **Type** [必要]
   - 指定要比對之相關資源的類型。
-  - 如果**details. type**是在**if**條件資源下的資源類型, 原則就會在評估的資源範圍內查詢此**類型**的資源。 否則, 原則查詢會在與評估資源相同的資源群組內。
+  - 如果**details. type**是在**if**條件資源下的資源類型，原則就會在評估的資源範圍內查詢此**類型**的資源。 否則，原則查詢會在與評估資源相同的資源群組內。
 - **Name** (選擇性)
   - 指定要比對的資源確切名稱，然後使原則擷取一個特定資源，而不是所指定類型的所有資源。
-  - **如果 if. field. type**和 **. details.** 類型相符, 則**Name**會變成_必要_, 而且必須是`[field('name')]`。 不過, 應該改為考慮[審核](#audit)效果。
+  - **如果 if. field. type**和 **. details.** 類型相符，則**Name**會變成_必要_，而且必須是`[field('name')]`。 不過，應該改為考慮[審核](#audit)效果。
 - **ResourceGroupName** (選擇性)
   - 允許比對來自不同資源群組的相關資源。
   - 如果 **type** 是一個會在 **if** 條件資源下的資源，則不適用。
@@ -234,7 +325,7 @@ AuditIfNotExists 效果的 **details** 屬性含有定義所要比對相關資�
 
 ## <a name="deployifnotexists"></a>DeployIfNotExists
 
-DeployIfNotExists 與 AuditIfNotExists 類似，也會在符合條件時執行範本部署。
+類似于 AuditIfNotExists，DeployIfNotExists 原則定義會在符合條件時執行範本部署。
 
 > [!NOTE]
 > 使用 **deployIfNotExists** 時，支援[巢狀範本](../../../azure-resource-manager/resource-group-linked-templates.md#nested-template)，但目前不支援[連結的範本](../../../azure-resource-manager/resource-group-linked-templates.md)。
@@ -247,14 +338,14 @@ DeployIfNotExists 的執行順序是在「資源提供者」已處理建立或�
 
 ### <a name="deployifnotexists-properties"></a>DeployIfNotExists 屬性
 
-DeployIfNotExists 效果的 **details** 屬性含有定義所要比對相關資源及所要執行範本部署的所有子屬性。
+DeployIfNotExists 效果的**details**屬性具有所有子屬性，可定義要符合的相關資源，以及要執行的範本部署。
 
 - **Type** [必要]
   - 指定要比對之相關資源的類型。
   - 從嘗試在 **if** 條件資源下擷取資源開始著手，然後在與 **if** 條件資源相同的資源群組內進行查詢。
 - **Name** (選擇性)
   - 指定要比對的資源確切名稱，然後使原則擷取一個特定資源，而不是所指定類型的所有資源。
-  - **如果 if. field. type**和 **. details.** 類型相符, 則**Name**會變成_必要_, 而且必須是`[field('name')]`。
+  - **如果 if. field. type**和 **. details.** 類型相符，則**Name**會變成_必要_，而且必須是`[field('name')]`。
 - **ResourceGroupName** (選擇性)
   - 允許比對來自不同資源群組的相關資源。
   - 如果 **type** 是一個會在 **if** 條件資源下的資源，則不適用。
@@ -341,15 +432,15 @@ DeployIfNotExists 效果的 **details** 屬性含有定義所要比對相關資�
 
 ## <a name="enforceregopolicy"></a>EnforceRegoPolicy
 
-此效果會與的原則定義*模式* `Microsoft.ContainerService.Data`搭配使用。 它可用來傳遞以[Rego](https://www.openpolicyagent.org/docs/how-do-i-write-policies.html#what-is-rego)定義的許可控制規則, 以在[Azure Kubernetes Service](../../../aks/intro-kubernetes.md)上[開啟原則代理程式](https://www.openpolicyagent.org/)(OPA)。
+此效果會與的原則定義*模式* `Microsoft.ContainerService.Data`搭配使用。 它可用來傳遞以[Rego](https://www.openpolicyagent.org/docs/how-do-i-write-policies.html#what-is-rego)定義的許可控制規則，以在[Azure Kubernetes Service](../../../aks/intro-kubernetes.md)上[開啟原則代理程式](https://www.openpolicyagent.org/)（OPA）。
 
 > [!NOTE]
-> [適用于 Kubernetes 的 Azure 原則](rego-for-aks.md)處於公開預覽狀態, 而且只支援內建原則定義。
+> [適用于 Kubernetes 的 Azure 原則](rego-for-aks.md)處於公開預覽狀態，而且只支援內建原則定義。
 
 ### <a name="enforceregopolicy-evaluation"></a>EnforceRegoPolicy 評估
 
 開放原則代理程式許可控制站會即時評估叢集上的任何新要求。
-每隔5分鐘會完成叢集的完整掃描, 並回報結果以 Azure 原則。
+每隔5分鐘會完成叢集的完整掃描，並回報結果以 Azure 原則。
 
 ### <a name="enforceregopolicy-properties"></a>EnforceRegoPolicy 屬性
 
@@ -364,7 +455,7 @@ EnforceRegoPolicy 效果的**details**屬性具有描述 Rego 許可控制規則
 
 ### <a name="enforceregopolicy-example"></a>EnforceRegoPolicy 範例
 
-範例：Rego 許可控制規則, 以只允許 AKS 中指定的容器映射。
+範例：Rego 許可控制規則，以只允許 AKS 中指定的容器映射。
 
 ```json
 "if": {

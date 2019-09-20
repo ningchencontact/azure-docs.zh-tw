@@ -10,14 +10,14 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 09/12/2019
+ms.date: 09/20/2019
 ms.author: mbullwin
-ms.openlocfilehash: f3b093b8d5f772bad759d3384405f4ca9f0cee15
-ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
+ms.openlocfilehash: 21a68c1daa3c7a2ab6689a72e23100be7582de1e
+ms.sourcegitcommit: a7a9d7f366adab2cfca13c8d9cbcf5b40d57e63a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70933762"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71162194"
 ---
 # <a name="application-insights-for-web-pages"></a>適用於網頁的 Application Insights
 
@@ -120,7 +120,7 @@ appInsights.trackTrace({message: 'this message will not be sent'}); // Not sent
 | disableAjaxTracking | false | 若為 true，則不會實驗自動收集 Ajax 呼叫。 預設值為 false。 |
 | disableFetchTracking | true | 若為 true，則不會實驗自動收集提取要求。 預設值為 true |
 | overridePageViewDuration | false | 若為 true，則在呼叫 trackPageView 時，trackPageView 的預設行為會變更為 [記錄] 網頁檢視持續時間間隔的結尾。 如果為 false，而且沒有提供任何自訂持續時間來 trackPageView，則會使用導覽計時 API 來計算網頁檢視效能。 預設值為 false。 |
-| maxAjaxCallsPerView | 500 | 預設值 500-控制每個網頁檢視要監視的 AJAX 呼叫數目。 設定為-1 可監視頁面上所有（無限制的） AJAX 呼叫。 |
+| maxAjaxCallsPerView | 500 | 預設值 500-控制每個網頁檢視要監視的 Ajax 呼叫數目。 設定為-1 可監視頁面上所有（無限制的） Ajax 呼叫。 |
 | disableDataLossAnalysis | true | 若為 false，則會在啟動時檢查尚未傳送的內部遙測寄件者緩衝區。 |
 | disableCorrelationHeaders | false | 若為 false，SDK 會將兩個標頭（「要求識別碼」和「要求-內容」）新增至所有相依性要求，以便將它們與伺服器端上的對應要求相互關聯。 預設值為 false。 |
 | correlationHeaderExcludedDomains |  | 停用特定網域的相互關聯標頭 |
@@ -132,12 +132,16 @@ appInsights.trackTrace({message: 'this message will not be sent'}); // Not sent
 | isRetryDisabled | false | 預設值為 false。 若為 false，則重試206（部分成功）、408（超時）、429（太多要求）、500（內部伺服器錯誤）、503（服務無法使用）和0（只有在偵測到時才會離線） |
 | isStorageUseDisabled | false | 若為 true，則 SDK 不會儲存或讀取本機和會話儲存體中的任何資料。 預設值為 false。 |
 | isBeaconApiDisabled | true | 若為 false，SDK 會使用指標[API](https://www.w3.org/TR/beacon)傳送所有遙測 |
+| onunloadDisableBeacon | false | 預設值為 false。 當索引標籤關閉時，SDK 會使用指標[API](https://www.w3.org/TR/beacon)傳送所有剩餘的遙測 |
 | sdkExtension | Null | 設定 sdk 延伸模組名稱。 只允許字母字元。 擴充功能名稱會新增為 ' sdkVersion ' 標記的前置詞（例如 ' ext_javascript： 2.0.0 '）。 預設值為 null。 |
 | isBrowserLinkTrackingEnabled | false | 預設值為 false。 若為 true，SDK 將會追蹤所有[瀏覽器連結](https://docs.microsoft.com/aspnet/core/client-side/using-browserlink)要求。 |
 | appId | Null | AppId 會用於用戶端上發生的 AJAX 相依性與伺服器端要求之間的相互關聯。 啟用「指標 API」時，無法自動使用它，但可在設定中手動設定。 預設值為 null |
 | enableCorsCorrelation | false | 若為 true，SDK 會將兩個標頭（「要求識別碼」和「要求-內容」）新增至所有 CORS 要求，以將外寄 AJAX 相依性與伺服器端上的對應要求相互關聯。 預設值為 false |
 | namePrefix | 未定義 | 選擇性值，將會作為 localStorage 和 cookie 名稱的名稱後置詞使用。
 | enableAutoRouteTracking | false | 自動追蹤單一頁面應用程式（SPA）中的路由變更。 若為 true，則每個路由變更都會將新的 Pageview 傳送至 Application Insights。 雜湊路由變更`example.com/foo#bar`（）也會記錄為新的頁面流覽。
+| enableRequestHeaderTracking | false | 若為 true，則會追蹤 AJAX & 提取要求標頭，預設值為 false。
+| enableResponseHeaderTracking | false | 若為 true，則會追蹤 AJAX & 提取要求的回應標頭，預設值為 false。
+| distributedTracingMode | `DistributedTracingModes.AI` | 設定分散式追蹤模式。 如果已設定 AI_AND_W3C 模式或 W3C 模式，則會產生 W3C 追蹤內容標頭（traceparent/tracestate），並將其包含在所有傳出的要求中。 AI_AND_W3C 是為了與任何舊版 Application Insights 檢測服務的回溯相容性而提供。
 
 ## <a name="single-page-applications"></a>單一頁面應用程式
 

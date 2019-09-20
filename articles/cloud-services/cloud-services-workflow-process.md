@@ -4,7 +4,7 @@ description: 本文概述當您部署服務時的工作流程程式。
 services: cloud-services
 documentationcenter: ''
 author: genlin
-manager: Willchen
+manager: dcscontentpm
 editor: ''
 tags: top-support-issue
 ms.assetid: 9f2af8dd-2012-4b36-9dd5-19bf6a67e47d
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 04/08/2019
 ms.author: kwill
-ms.openlocfilehash: 383f4d26d44871936ccc910f15575db5aec3ec8c
-ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
+ms.openlocfilehash: 5dd57a87658554bf59acf5cee1b6daf67b8692b8
+ms.sourcegitcommit: a7a9d7f366adab2cfca13c8d9cbcf5b40d57e63a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/10/2019
-ms.locfileid: "68945332"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71162154"
 ---
 #    <a name="workflow-of-windows-azure-classic-vm-architecture"></a>Windows Azure 傳統 VM 架構的工作流程 
 本文概述當您部署或更新 Azure 資源 (例如虛擬機器) 時所發生的工作流程程式。 
@@ -37,15 +37,16 @@ ms.locfileid: "68945332"
 
 **B.** 網狀架構控制器負責維護和監視資料中心內的所有資源。 它會與光纖 OS 上的網狀架構主機代理程式通訊, 以傳送資訊, 例如客體作業系統版本、服務套件、服務設定和服務狀態。
 
-**C**。 主機代理程式位於主機 OSsystem 上, 負責設定虛擬作業系統並與來賓代理程式 (WindowsAzureGuestAgent) 進行通訊, 以便將角色更新為預期的目標狀態, 並使用來賓代理程式進行檢查檢測。 如果主機代理程式未收到10分鐘的回應時間, 主機代理程式就會重新開機客體作業系統。
+**C**。 主機代理程式位於主機 OS 上，並且負責設定來賓 OS 和與來賓代理程式（WindowsAzureGuestAgent）通訊，以便將角色更新為預定目標狀態，並使用來賓代理程式進行檢查。 如果主機代理程式未收到10分鐘的回應時間, 主機代理程式就會重新開機客體作業系統。
 
 **C2**。 WaAppAgent 負責安裝、設定和更新 WindowsAzureGuestAgent。
 
 **D.**  WindowsAzureGuestAgent 負責下列各項:
 
-1. 設定客體作業系統, 包括防火牆、Acl、LocalStorage 資源、服務套件和設定, 以及憑證。設定角色將在其下執行之使用者帳戶的 SID。
-2. 將角色狀態與網狀架構通訊。
-3. 開始 Wahostbootstrapper.exe 並監視它, 以確定角色處於目標狀態。
+1. 設定客體作業系統，包括防火牆、Acl、LocalStorage 資源、服務套件和設定，以及憑證。
+2. 設定角色將在其下執行之使用者帳戶的 SID。
+3. 將角色狀態與網狀架構通訊。
+4. 開始 Wahostbootstrapper.exe 並監視它, 以確定角色處於目標狀態。
 
 **E**。 Wahostbootstrapper.exe 負責:
 
@@ -60,7 +61,7 @@ ms.locfileid: "68945332"
 3. 在服務模型中設定所設定角色的 AppPool
 4. 設定 IIS 記錄以指向 DiagnosticStore LocalStorage 資料夾
 5. 設定許可權和 Acl
-6. 網站位於% roleroot%: \sitesroot\0, 而 apppool 指向這個位置以執行 IIS。 
+6. 網站位於% roleroot%： \sitesroot\0，而 AppPool 指向這個位置以執行 IIS。 
 
 **G.** 啟動工作是由角色模型所定義, 並由 Wahostbootstrapper.exe 啟動。 啟動工作可以設定為在背景中以非同步方式執行, 而主機啟動載入器將會開始啟動工作, 然後繼續執行其他啟動工作。 啟動工作也可以設定為以簡單 (預設) 模式執行, 讓主機啟動載入器會等候啟動工作完成執行, 並傳回成功 (0) 結束代碼, 然後再繼續進行下一個啟動工作。
 
@@ -76,7 +77,7 @@ ms.locfileid: "68945332"
 
 ## <a name="workflow-processes"></a>工作流程處理
 
-1. 使用者提出要求, 例如上傳 .cspkg 和 .cscfg 檔案, 告訴資源停止或進行設定變更等等。 這可以透過 Azure 入口網站或使用服務管理 API 的工具 (例如 Visual Studio 發佈功能) 來完成。 此要求會前往 RDFE 來執行所有與訂用帳戶相關的工作, 然後將要求傳達給 FFE。 這些工作流程步驟的其餘部分是部署新的套件, 並加以啟動。
+1. 使用者提出要求，例如上傳 ". .cspkg" 和 ".cscfg" 檔案、告訴資源停止或進行設定變更等等。 這可以透過 Azure 入口網站或使用服務管理 API 的工具 (例如 Visual Studio 發佈功能) 來完成。 此要求會前往 RDFE 來執行所有與訂用帳戶相關的工作, 然後將要求傳達給 FFE。 這些工作流程步驟的其餘部分是部署新的套件, 並加以啟動。
 2. FFE 會尋找正確的電腦集區 (根據客戶輸入, 例如, 同質群組或地理位置, 再加上網狀架構的輸入, 例如機器可用性), 並與該電腦集區中的主要網狀架構控制器通訊。
 3. 網狀架構控制器會尋找具有可用 CPU 核心 (或啟動新主機) 的主機。 服務封裝和設定會複製到主機, 而網狀架構控制器會與主機 OS 上的主機代理程式通訊, 以部署套件 (設定 Dip、埠、客體作業系統等)。
 4. 主機代理程式會啟動「來賓 OS」並與「來賓代理程式」 (WindowsAzureGuestAgent) 通訊。 主機會將心跳傳送給來賓, 以確定角色正朝著其目標狀態運作。
@@ -85,8 +86,8 @@ ms.locfileid: "68945332"
 7. Wahostbootstrapper.exe 會從 E:\RoleModel.xml 讀取**啟動**工作, 並開始執行啟動工作。 Wahostbootstrapper.exe 會等到所有簡單啟動工作都完成, 並傳回「成功」訊息為止。
 8. 針對完整的 IIS web 角色, wahostbootstrapper.exe 會告知 iisconfigurator 找到設定 IIS AppPool 並將網站指向, `E:\Sitesroot\<index>`其中`<index>`是針對服務所定義之`<Sites>`專案數目的以零為起始的索引。
 9. Wahostbootstrapper.exe 會根據角色類型來啟動主機進程:
-    1. 背景**工作角色**:Waworkerhost.exe 已啟動。 Wahostbootstrapper.exe 會執行 OnStart () 方法。傳回之後, Wahostbootstrapper.exe 會開始執行 Run () 方法, 然後將該角色同時標示為就緒, 並將其放入負載平衡器迴圈中 (如果已定義 InputEndpoints)。 WaHostBootsrapper 接著會進入檢查角色狀態的迴圈。
-    1. **SDK 1.2 HWC Web 角色**:WaWebHost 已啟動。 Wahostbootstrapper.exe 會執行 OnStart () 方法。 傳回之後, Wahostbootstrapper.exe 會開始執行 Run () 方法, 然後將該角色同時標示為就緒, 並將其放入負載平衡器迴圈中。 WaWebHost 會發出準備要求 (GET/do.rd_runtime_init)。 所有的 web 要求都會傳送至 WaWebHost。 WaHostBootsrapper 接著會進入檢查角色狀態的迴圈。
+    1. 背景**工作角色**:Waworkerhost.exe 已啟動。 Wahostbootstrapper.exe 會執行 OnStart () 方法。 傳回之後，Wahostbootstrapper.exe 會開始執行 Run （）方法，然後將該角色同時標示為就緒，並將其放入負載平衡器迴圈中（如果已定義 InputEndpoints）。 WaHostBootsrapper 接著會進入檢查角色狀態的迴圈。
+    1. **SDK 1.2 HWC Web 角色**:WaWebHost 已啟動。 Wahostbootstrapper.exe 會執行 OnStart () 方法。 傳回之後, Wahostbootstrapper.exe 會開始執行 Run () 方法, 然後將該角色同時標示為就緒, 並將其放入負載平衡器迴圈中。 WaWebHost 會發出準備要求（GET/do.rd_runtime_init）。 所有的 web 要求都會傳送至 WaWebHost。 WaHostBootsrapper 接著會進入檢查角色狀態的迴圈。
     1. **完整的 IIS Web 角色**: aIISHost 已啟動。 Wahostbootstrapper.exe 會執行 OnStart () 方法。 傳回之後, 它會開始執行 Run () 方法, 然後將該角色同時標示為就緒, 並將其放入負載平衡器迴圈中。 WaHostBootsrapper 接著會進入檢查角色狀態的迴圈。
 10. 對完整 IIS web 角色的傳入 web 要求會觸發 IIS 來啟動 W3WP.EXE 程式並提供要求, 就像在內部部署 IIS 環境中所做的一樣。
 

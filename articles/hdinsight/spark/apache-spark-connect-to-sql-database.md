@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/21/2019
-ms.openlocfilehash: c262d3841acd3497667c00a9deee04b304ddae76
-ms.sourcegitcommit: 909ca340773b7b6db87d3fb60d1978136d2a96b0
+ms.openlocfilehash: 74bff4059442c85cfcde589c5a6cc7ab36472881
+ms.sourcegitcommit: b03516d245c90bca8ffac59eb1db522a098fb5e4
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/13/2019
-ms.locfileid: "70984824"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71147031"
 ---
 # <a name="use-hdinsight-spark-cluster-to-read-and-write-data-to-azure-sql-database"></a>使用 HDInsight Spark 叢集對 Azure SQL 資料庫讀取及寫入資料
 
@@ -38,7 +38,7 @@ ms.locfileid: "70984824"
 1. 從 [Azure 入口網站](https://portal.azure.com/)，開啟您的叢集。
 1. 在右側選取 [叢集儀表板] 下方的 **Jupyter Notebook**。  如果您沒有看到 [叢集**儀表板**]，請從左側功能表中選取 **[總覽**]。 出現提示時，輸入叢集的系統管理員認證。
 
-    ![Spark 上的 Jupyter Notebook](./media/apache-spark-connect-to-sql-database/hdinsight-spark-cluster-dashboard-jupyter-notebook.png "Spark 上的 Jupyter Notebook")
+    ![Apache Spark 上的 Jupyter 筆記本](./media/apache-spark-connect-to-sql-database/hdinsight-spark-cluster-dashboard-jupyter-notebook.png "Spark 上的 Jupyter 筆記本")
    
    > [!NOTE]  
    > 您也可以在瀏覽器中開啟下列 URL，以存取 Spark 叢集上的 Jupyter Notebook。 使用您叢集的名稱取代 **CLUSTERNAME** ：
@@ -182,7 +182,7 @@ ms.locfileid: "70984824"
 
 1. 輸出會顯示 **HVAC.csv** 的結構描述。 **Hvactable** 也具有相同的結構描述。 輸出會列出資料表中的資料行。
 
-    ![資料表的結構描述](./media/apache-spark-connect-to-sql-database/hdinsight-schema-table.png "資料表的結構描述")
+    ![hdinsight Apache Spark 架構資料表](./media/apache-spark-connect-to-sql-database/hdinsight-schema-table.png "資料表的架構")
 
 1. 最後，使用下列程式碼片段從 HVAC.csv 讀取資料，並將其串流至 Azure SQL 資料庫中的 **hvactable**。 在程式碼單元中貼上程式碼片段，並以您的 Azure SQL 資料庫的值取代預留位置值，然後按 **SHIFT + ENTER** 加以執行。
 

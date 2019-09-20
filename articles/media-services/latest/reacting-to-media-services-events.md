@@ -11,12 +11,12 @@ ms.workload: ''
 ms.topic: article
 ms.date: 08/08/2019
 ms.author: juliako
-ms.openlocfilehash: 64bf8f5c8de5f56ee1140e91d0472a33b35570cf
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: d8cb8fdebb5a7e4bcbc9f979c98085e90ebd4c68
+ms.sourcegitcommit: b03516d245c90bca8ffac59eb1db522a098fb5e4
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68878775"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71147164"
 ---
 # <a name="handling-event-grid-events"></a>處理事件方格事件
 
@@ -38,6 +38,9 @@ Event Grid 使用[事件訂閱](../../event-grid/concepts.md#event-subscriptions
 * 同樣地，檢查 eventType 也是必須進行的步驟之一，而且不要假設您收到的所有事件都是您預期的類型。
 * 請忽略您不了解的欄位。  此做法將有助於保持未來可能新增功能的彈性。
 * 使用 "subject" 前置詞和後置詞相符，將事件限制為特定的事件。
+
+> [!NOTE]
+> 事件會受到事件方格[服務等級協定（SLA）](https://azure.microsoft.com/support/legal/sla/event-grid/v1_0/)所約束。 如果您想要使用 Api 取得事件通知，請參閱如何使用[.NET sdk](https://github.com/Azure-Samples/media-services-v3-dotnet/tree/master/ContentProtection/BasicAESClearKey)或[JAVA sdk](https://github.com/Azure-Samples/media-services-v3-java/tree/master/ContentProtection/BasicAESClearKey)來取用事件的範例。
 
 ## <a name="next-steps"></a>後續步驟
 

@@ -4,7 +4,7 @@ description: ''
 services: virtual-machines-windows
 documentationcenter: ''
 author: Deland-Han
-manager: willchen
+manager: dcscontentpm
 editor: ''
 tags: ''
 ms.service: virtual-machines
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: azurecli
 ms.date: 11/22/2018
 ms.author: delhan
-ms.openlocfilehash: 0a0da446385c592bfeda2e01e209ef1fb75b7de3
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 6e90b164fac4ea1123f5f9a43eea1169d93d9a04
+ms.sourcegitcommit: 116bc6a75e501b7bba85e750b336f2af4ad29f5a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60711550"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71154029"
 ---
 # <a name="azure-vm-guest-os-firewall-is-blocking-inbound-traffic"></a>Azure VM 客體 OS 防火牆封鎖輸入流量
 
@@ -53,7 +53,7 @@ ms.locfileid: "60711550"
 
 #### <a name="mitigation-1"></a>緩解措施 1
 
-1.  如果 VM 上已安裝 Azure 代理程式並正常運作，您可以使用 VM 功能表中 [支援與疑難排解]   > [重設密碼]  下方的 [僅重設設定] 選項。
+1.  如果 VM 上已安裝 Azure 代理程式並正常運作，您可以使用 VM 功能表中 [支援與疑難排解] > [重設密碼] 下方的 [僅重設設定] 選項。
 
 2.  執行此復原選項時會執行下列動作：
 

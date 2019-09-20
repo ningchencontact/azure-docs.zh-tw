@@ -4,12 +4,12 @@ ms.author: robinsh
 ms.service: iot-hub
 ms.topic: include
 ms.date: 10/26/2018
-ms.openlocfilehash: 104849557a8580e16fa1860b7919d1c0252debe9
-ms.sourcegitcommit: cd70273f0845cd39b435bd5978ca0df4ac4d7b2c
+ms.openlocfilehash: 689322614e2cea4e59a5a573b72bfeb2aafda847
+ms.sourcegitcommit: b03516d245c90bca8ffac59eb1db522a098fb5e4
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "67174374"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71148379"
 ---
 下表列出與不同服務層級 S1、S2、S3 和 F1 相關聯的限制。 如需每一層中每個*單位*成本的相關資訊，請參閱[Azure IoT 中樞定價](https://azure.microsoft.com/pricing/details/iot-hub/)。
 
@@ -38,6 +38,7 @@ ms.locfileid: "67174374"
 | 雲端到裝置訊息的大小上限 |64 KB |
 | 雲端到裝置訊息的 TTL 上限 |2 天 |
 | 雲端到裝置訊息的傳遞計數 <br/> 訊息 |100 |
+| 每一裝置的雲端到裝置佇列深度上限 |50 |
 | 回應雲端到裝置訊息之反應訊息的 <br/> 傳遞計數上限 |100 |
 | 回應雲端到裝置訊息之反應訊息的 <br/> TTL 上限 |2 天 |
 | [裝置對應項的大小上限](../articles/iot-hub/iot-hub-devguide-device-twins.md#device-twin-size) <br/> (標記、報告的屬性，以及所需的屬性) | 8 KB |
