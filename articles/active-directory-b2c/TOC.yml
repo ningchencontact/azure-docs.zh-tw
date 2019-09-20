@@ -5,6 +5,8 @@
     - name: 關於 Azure AD B2C
       expanded: true
       href: active-directory-b2c-overview.md
+    - name: 技術和功能概觀
+      href: technical-overview.md
 - name: 快速入門
   expanded: true
   items:

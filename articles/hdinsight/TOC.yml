@@ -271,6 +271,14 @@
           href: ./spark/apache-spark-ipython-notebook-machine-learning.md
         - name: 在 IntelliJ 中建立 Apache Spark 應用程式
           href: ./spark/apache-spark-create-standalone-application.md
+    - name: 概念
+      items:
+        - name: Spark 在 HDInsight 中的最佳做法
+          href: ./spark/spark-best-practices.md
+        - name: 設定 Apache Spark 設定
+          href: ./spark/apache-spark-settings.md
+        - name: 最佳化 Apache Spark 作業
+          href: ./spark/apache-spark-perf.md
     - name: 作法
       items:
         - name: 使用工具
@@ -323,10 +331,6 @@
               href: ./spark/apache-spark-resource-manager.md
             - name: 使用擴充的記錄伺服器管理 Apache Spark 應用程式
               href: ./spark/apache-azure-spark-history-server.md
-            - name: 設定 Apache Spark 設定
-              href: ./spark/apache-spark-settings.md
-            - name: 最佳化 Apache Spark 作業
-              href: ./spark/apache-spark-perf.md
             - name: 使用 IO 快取啟用快取
               href: ./spark/apache-spark-improve-performance-iocache.md
             - name: 透過 Apache Spark 使用 Notebook

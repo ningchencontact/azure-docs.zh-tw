@@ -195,7 +195,7 @@
           href: howto-data-in-replication.md
         - name: 在 Azure 入口網站中建立讀取複本
           href: howto-read-replicas-portal.md
-        - name: 在 Azure CLI中建立讀取複本
+        - name: 建立讀取複本 Azure CLI，REST API
           href: howto-read-replicas-cli.md
     - name: 疑難排解
       items:

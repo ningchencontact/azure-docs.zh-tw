@@ -239,17 +239,17 @@
           href: cognitive-search-concept-troubleshooting.md
         - name: 文件連結
           href: cognitive-search-resources-documentation.md
-    - name: 知識存放區 (預覽)
-      items:
-        - name: 在 Azure 入口網站中建立知識存放區
-          href: knowledge-store-create-portal.md
-        - name: 使用 REST 和 Postman 建立
-          href: knowledge-store-howto.md
-        - name: 以儲存體總管檢視
-          href: knowledge-store-view-storage-explorer.md
-        - name: 使用 Power BI 進行連接
-          href: knowledge-store-connect-power-bi.md
-    - name: 查詢資料
+        - name: 知識存放區 (預覽)
+          items:
+            - name: 在 Azure 入口網站中建立知識存放區
+              href: knowledge-store-create-portal.md
+            - name: 使用 REST 和 Postman 建立
+              href: knowledge-store-howto.md
+            - name: 以儲存體總管檢視
+              href: knowledge-store-view-storage-explorer.md
+            - name: 使用 Power BI 進行連接
+              href: knowledge-store-connect-power-bi.md
+    - name: 查詢文件
       items:
         - name: 建立基本查詢
           href: search-query-overview.md
@@ -265,7 +265,7 @@
           href: search-query-lucene-examples.md
         - name: moreLikeThis (預覽)
           href: search-more-like-this.md
-    - name: 使用篩選條件
+    - name: 套用篩選條件
       items:
         - name: 篩選條件概觀
           href: search-filters.md
@@ -283,18 +283,14 @@
       items:
         - name: 網頁相關功能
           href: search-pagination-page-layout.md
-    - name: 相關性微調
-      items:
-        - name: 新增評分設定檔
+        - name: 評分調整 (評分設定檔)
           href: index-add-scoring-profiles.md
-    - name: 系統管理
+    - name: 管理和監視
       items:
         - name: 入口網站系統管理員
           href: search-manage.md
         - name: PowerShell 系統管理員
           href: search-manage-powershell.md
-    - name: 監視
-      items:
         - name: 監視活動和記錄
           href: search-monitor-usage.md
         - name: 搜尋流量分析

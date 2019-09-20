@@ -103,6 +103,8 @@
           href: sizes-hpc.md
         - name: 上一代
           href: sizes-previous-gen.md
+        - name: 隔離大小
+          href: isolation.md
         - name: Azure 計算單位 (ACU)
           href: acu.md
         - name: vCPU 配額

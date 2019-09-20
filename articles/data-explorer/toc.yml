@@ -128,12 +128,18 @@
           href: dealing-with-duplicates.md
     - name: 監視
       items:
+        - name: 使用診斷記錄來監視擷取
+          href: using-diagnostic-logs.md
         - name: 使用計量來監視叢集健康情況
           href: using-metrics.md
     - name: 與其他工具整合
       items:
-        - name: 使用 Azure Data Factory 範本大量複製資料
-          href: data-factory-template.md
+        - name: Azure Data Factory
+          items:
+            - name: 使用 Azure Data Factory 範本大量複製資料
+              href: data-factory-template.md
+            - name: 使用 Azure Data Factory 執行控制項
+              href: data-factory-command-activity.md
         - name: Apache Spark 連接器
           href: spark-connector.md
         - name: 使用 Python 從 Databricks 連線

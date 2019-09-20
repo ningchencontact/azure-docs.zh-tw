@@ -232,7 +232,7 @@
       items:
         - name: 管理讀取複本 Azure 入口網站
           href: howto-read-replicas-portal.md
-        - name: 管理讀取複本 Azure CLI
+        - name: 管理讀取複本 Azure CLI，REST API
           href: howto-read-replicas-cli.md
 - name: 參考
   items:
