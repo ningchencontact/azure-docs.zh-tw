@@ -42,9 +42,9 @@ ms.locfileid: "69015326"
 
 | 名稱 | 選項。 | 描述 | 預設 |
 | --- | --- | --- | --- |
-| sensitivityLevel |字串：'low'、'medium'、'high' |設定要報告哪些動作的敏感度等級。 調整該項目可調整誤判的數目。 |'medium' |
+| sensitivityLevel |String：'low'、'medium'、'high' |設定要報告哪些動作的敏感度等級。 調整該項目可調整誤判的數目。 |'medium' |
 | frameSamplingValue |正整數 |設定演算法的執行頻率。 1 等於每個畫面，2 表示每 2 個畫面，依此類推。 |1 |
-| detectLightChange |布林值：'true'、'false' |設定是否要在結果中報告光源變化 |'False' |
+| detectLightChange |Boolean：'true'、'false' |設定是否要在結果中報告光源變化 |'False' |
 | mergeTimeThreshold |Xs-time：Hh:mm:ss<br/>範例:00:00:03 |指定要將 2 個事件合併及回報為 1 個事件的動作事件時間間隔。 |00:00:00 |
 | detectionZones |偵測區域的陣列︰<br/>- 偵測區域是 3 個或更多個點的陣列<br/>- 點是介於 0 到 1 之間的 x 和 y 座標。 |描述要使用的多邊形偵測區域清單。<br/>結果會使用區域為識別碼報告，第一個為 'id':0 |涵蓋整個畫面的單一區域。 |
 
