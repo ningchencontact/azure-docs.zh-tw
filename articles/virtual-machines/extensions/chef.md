@@ -3,7 +3,7 @@ title: 適用於 Azure VM 的 Chef 擴充功能 | Microsoft Docs
 description: 使用 Chef VM Extension，將 Chef Client 部署至虛擬機器。
 services: virtual-machines-linux
 documentationcenter: ''
-author: roiyz-msft
+author: axayjo
 manager: gwallace
 editor: ''
 tags: azure-resource-manager
@@ -12,13 +12,13 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.topic: article
 ms.date: 09/21/2018
-ms.author: roiyz
-ms.openlocfilehash: 0ed042b3b004fd43bc03304c3042c2ac3e1a6482
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.author: akjosh
+ms.openlocfilehash: e82a5fefcc7f582df65d945735d9840fc3e49829
+ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70092560"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71169139"
 ---
 # <a name="chef-vm-extension-for-linux-and-windows"></a>適用於 Linux 和 Windows 的 Chef VM Extension
 
@@ -71,7 +71,7 @@ Chef VM Extension 需要目標虛擬機器連線至網際網路，才能夠從�
 | ---- | ---- | ----
 | apiVersion | `2017-12-01` | string (date) |
 | publisher | `Chef.Bootstrap.WindowsAzure` | string |
-| Type | `LinuxChefClient` (Linux)，`ChefClient` (Windows) | string |
+| 型別 | `LinuxChefClient` (Linux)，`ChefClient` (Windows) | string |
 | typeHandlerVersion | `1210.12` | string (double) |
 
 ### <a name="settings"></a>設定

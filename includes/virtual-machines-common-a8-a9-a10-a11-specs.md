@@ -6,14 +6,14 @@ author: vermagit
 ms.service: virtual-machines
 ms.topic: include
 ms.date: 05/29/2018
-ms.author: azcspmt;jonbeck;cynthn;danlep;amverma
+ms.author: azcspmt;jonbeck;cynthn;amverma
 ms.custom: include file
-ms.openlocfilehash: 88d9491bae1fcc6acb7ab631514aa4f6244f593d
-ms.sourcegitcommit: 084630bb22ae4cf037794923a1ef602d84831c57
+ms.openlocfilehash: 0930fa371500125c15cd969b9e9f4b7a2853612e
+ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/03/2019
-ms.locfileid: "67538034"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71174934"
 ---
 ## <a name="deployment-considerations"></a>部署考量
 * **Azure 訂用帳戶** – 若要部署的不只是少數的計算密集執行個體，請考慮隨用隨付訂用帳戶或其他購買選項。 如果您使用 [Azure 免費帳戶](https://azure.microsoft.com/free/)，您只能使用有限數目的 Azure 計算核心。
@@ -29,11 +29,11 @@ ms.locfileid: "67538034"
 * **調整大小** – 因為其特殊硬體，所以您只能夠在相同大小系列內重新調整計算密集型執行個體的大小 (H 系列或計算密集型 A 系列)。 例如，您只能將 H 系列 VM 的大小，從某一個 H 系列大小重新調整為另一個大小。 此外，不支援從非計算密集型大小重新調整為計算密集型大小。  
 
 ## <a name="rdma-capable-instances"></a>支援 RDMA 的執行個體
-計算密集型執行個體 （A8、 A9、 H16r、 H16mr、 HB 和 HC） 子集的功能用於遠端直接記憶體存取 (RDMA) 連線的網路介面。 選取例如 NC24rs 組態 （NC24rs_v2 和 NC24rs_v3） 加註 'r' 的 N 系列大小也會具備 RDMA 功能。 這是可供其他 VM 大小使用之標準 Azure 網路介面的額外界面。 
+計算密集型實例（A8、A9、H16r、H16mr、HB 和 HC）的子集，功能是遠端直接記憶體存取（RDMA）連線的網路介面。 使用 ' r ' （如 NC24rs 設定（NC24rs_v2 和 NC24rs_v3））指定的 N 系列大小也支援 RDMA。 這是可供其他 VM 大小使用之標準 Azure 網路介面的額外界面。 
   
-這個介面允許支援 RDMA 的執行個體透過 InfiniBand (IB) 網路，作業系統 EDR 費率 HB HC、 FDR 費率，針對 H16r、 H16mr，與支援 RDMA 的 N 系列虛擬機器，以及針對 A8 與 A9 虛擬機器以 QDR 速率進行通訊。 這些 RDMA 功能可以提高特定訊息傳遞介面 (MPI) 應用程式的延展性和效能。 如需有關速度的詳細資訊，請參閱此頁面上的資料表中的詳細資料。
+此介面可讓支援 RDMA 的實例透過「未使用」（IB）網路進行通訊，並以 EDR 速率針對 H16r、H16mr 和具備 RDMA 功能的 N 系列虛擬機器進行 HB、HC、FDR 速率的作業，以及 A8 和 A9 虛擬機器的 QDR 速率。 這些 RDMA 功能可以提高特定訊息傳遞介面 (MPI) 應用程式的延展性和效能。 如需速度的詳細資訊，請參閱此頁面上的表格中的詳細資料。
 
 > [!NOTE]
-> 在 Azure 中，透過 IB 的 IP 僅適用於在 SR-IOV 已啟用虛擬機器 (SR-IOV InfiniBand、 目前 HB 和 HC)。 所有具備 RDMA 功能的執行個體可支援透過 IB 的 RDMA。
+> 在 Azure 中，只有在已啟用 SR-IOV 的 Vm （SR-IOV，目前為 HB 和 HC）才支援透過 IB 的 IP。 所有具備 RDMA 功能的實例都支援透過 IB 的 RDMA。
 >
 

@@ -14,12 +14,12 @@ ms.workload: identity
 ms.date: 09/11/2019
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 1b898f42fa6f66fba7c84daa67769249642bd986
-ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
+ms.openlocfilehash: 3420374e90790bd1ffe4c845c19de1bfed317302
+ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/14/2019
-ms.locfileid: "70996490"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71173744"
 ---
 # <a name="manage-access-to-azure-resources-using-rbac-and-azure-cli"></a>使用 RBAC 與 Azure CLI 管理對 Azure 資源的存取
 
@@ -369,6 +369,22 @@ az role assignment create --role <role_name_or_id> --assignee <assignee> --scope
 
 ```azurecli
 az role assignment create --role "Billing Reader" --assignee alain@example.com --scope /providers/Microsoft.Management/managementGroups/marketing-group
+```
+
+### <a name="create-a-role-assignment-for-a-new-service-principal"></a>為新的服務主體建立角色指派
+
+如果您建立新的服務主體，並立即嘗試將角色指派給該服務主體，在某些情況下，該角色指派可能會失敗。 例如，如果您使用腳本來建立新的受控識別，然後嘗試將角色指派給該服務主體，則角色指派可能會失敗。 此失敗的原因可能是複寫延遲。 服務主體會建立在一個區域中;不過，角色指派可能會發生在另一個尚未複寫服務主體的區域中。 若要解決這種情況，您應該在建立角色指派時指定主體類型。
+
+若要建立角色指派，請使用[az role 指派 create](/cli/azure/role/assignment#az-role-assignment-create)，指定的`--assignee-object-id`值，然後將設定`--assignee-principal-type`為。 `ServicePrincipal`
+
+```azurecli
+az role assignment create --role <role_name_or_id> --assignee-object-id <assignee_object_id> --assignee-principal-type <assignee_principal_type> --resource-group <resource_group> --scope </subscriptions/subscription_id>
+```
+
+下列範例會將「*虛擬機器參與者*」角色指派給*醫藥-sales*資源群組範圍內的*msi 測試*受控識別：
+
+```azurecli
+az role assignment create --role "Virtual Machine Contributor" --assignee-object-id 33333333-3333-3333-3333-333333333333 --assignee-principal-type ServicePrincipal --resource-group pharma-sales
 ```
 
 ## <a name="remove-access"></a>移除存取權

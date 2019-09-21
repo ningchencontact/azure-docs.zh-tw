@@ -15,12 +15,12 @@ ms.date: 04/01/2019
 ms.author: mimart
 ms.reviewer: arvinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 395957099a19d11d26fb5bdd2a1eecdd5590dd64
-ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
+ms.openlocfilehash: ba51e10503a3aab7afa2e9639453448d03b91852
+ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71056140"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71170467"
 ---
 # <a name="managing-user-account-provisioning-for-enterprise-apps-in-the-azure-portal"></a>在 Azure 入口網站中管理企業應用程式的使用者帳戶佈建
 
@@ -81,7 +81,7 @@ Azure AD 使用者物件和每個 SaaS 應用程式的使用者物件之間，�
 
 您可以在 [布建 **] 畫面的 [** **設定**] 區域中，啟動和停止所選應用程式的 Azure AD 布建服務。 您也可以選擇清除布建快取，然後重新開機服務。
 
-如果是初次為應用程式啟用佈建，將 [佈建狀態] 變更為 [開啟] 即可開啟服務。 這種變更會導致 Azure AD 布建服務執行初始迴圈。 它會讀取 [**使用者和群組**] 區段中指派的使用者、查詢目標應用程式，然後執行在 **[Azure AD 對應**] 區段中定義的布建動作。 在此程式中，布建服務會儲存有關其管理之使用者帳戶的快取資料，因此不在指派範圍內的目標應用程式中的非受控帳戶不會受到解除布建作業的影響。 在初始迴圈之後，布建服務會在十分鐘的間隔內自動同步處理使用者和群組物件。
+如果是初次為應用程式啟用佈建，將 [佈建狀態] 變更為 [開啟] 即可開啟服務。 這種變更會導致 Azure AD 布建服務執行初始迴圈。 它會讀取 [**使用者和群組**] 區段中指派的使用者、查詢目標應用程式，然後執行在 **[Azure AD 對應**] 區段中定義的布建動作。 在此程式中，布建服務會儲存有關其管理之使用者帳戶的快取資料，因此不在指派範圍內的目標應用程式中的非受控帳戶不會受到解除布建作業的影響。 在初始迴圈之後，布建服務會在40分鐘的間隔自動同步處理使用者和群組物件。
 
 將布建**狀態**變更為 [**關閉**]，以暫停布建服務。 在此狀態下，Azure 不會建立、更新或移除應用程式中的任何使用者或群組物件。 將狀態變更回 [**開啟**]，服務就會從中斷處繼續進行。
 

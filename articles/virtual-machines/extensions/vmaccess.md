@@ -3,7 +3,7 @@ title: 將存取重設為 Azure Linux VM | Microsoft Docs
 description: 如何使用 VMAccess 擴充功能和 Azure CLI 在 Linux VM 上管理系統管理使用者及重設存取
 services: virtual-machines-linux
 documentationcenter: ''
-author: roiyz-msft
+author: axayjo
 manager: gwallace
 editor: ''
 tags: azure-resource-manager
@@ -14,13 +14,13 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: azurecli
 ms.topic: article
 ms.date: 05/10/2018
-ms.author: roiyz
-ms.openlocfilehash: 2841aedc1a4fe69e2604d3c6b95cc12dab4c7716
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.author: akjosh
+ms.openlocfilehash: 447c10037503c627092bb23e23b4fe1ee88ca45d
+ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67706610"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71173961"
 ---
 # <a name="manage-administrative-users-ssh-and-check-or-repair-disks-on-linux-vms-using-the-vmaccess-extension-with-the-azure-cli"></a>使用 VMAccess 擴充功能搭配 Azure CLI 在 Linux VM 上管理系統管理使用者、SSH 及檢查或修復磁碟
 ## <a name="overview"></a>總覽
@@ -31,12 +31,12 @@ Linux VM 的磁碟顯示錯誤。 您不知怎麼重設 Linux VM的根密碼，�
 > [!NOTE]
 > 如果您在安裝 AAD 登入擴充功能之後，使用 VMAccess 擴充功能重設 VM 的密碼，則您必須重新執行 AAD 登入擴充功能以便為您的機器重新啟用 AAD 登入。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 ### <a name="operating-system"></a>作業系統
 
 您可以對這類 Linux 發行版執行 VM 存取擴充功能。
 
-| 配送映像 | Version |
+| 發佈 | Version |
 |---|---|
 | Ubuntu | 16.04 LTS、14.04 LTS 和 12.04 LTS |
 | Debian | Debian 7.9+、8.2+ |

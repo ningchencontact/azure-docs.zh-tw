@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 05/31/2019
-ms.openlocfilehash: 87dca4cf06bd8c5982e5f83a2498496c4bec69fd
-ms.sourcegitcommit: 909ca340773b7b6db87d3fb60d1978136d2a96b0
+ms.openlocfilehash: 386dc737bb45eec031aaa1a0c55f4478b8302c54
+ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/13/2019
-ms.locfileid: "70984868"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71173576"
 ---
 # <a name="understand-outputs-from-azure-stream-analytics"></a>了解來自 Azure 串流分析的輸出
 
@@ -121,7 +121,7 @@ Azure Blob 儲存體提供符合成本效益且可調整的解決方案, 讓您�
 | 編碼 | 對於 CSV 和 JSON 而言，UTF-8 是目前唯一支援的編碼格式。 |
 | 分隔符號 | 僅適用于 CSV 序列化。 串流分析支援多種序列化 CSV 格式資料的通用分隔符號。 支援的值是逗號、分號、空格、索引標籤和分隔號。 |
 | 格式 | 僅適用于 JSON 序列化。 **分隔的行會**指定輸出的格式化方式是讓每個 JSON 物件都以新行分隔。 **陣列**指定將輸出格式化為 JSON 物件的陣列。 只有在作業停止或串流分析已移動到下一個時間範圍時，才會關閉這個陣列。 一般來說, 最好使用以行分隔的 JSON, 因為它不需要任何特殊處理, 而輸出檔案仍會寫入。 |
-| 屬性資料行 | 選擇性。 以逗號分隔的資料行, 必須附加為外寄訊息的使用者屬性, 而不是承載。 如需此功能的詳細資訊, 請[查看輸出的自訂中繼資料屬性](#custom-metadata-properties-for-output)一節。 |
+| 屬性資料行 | 選擇性。 以逗號分隔的資料行, 必須附加為外寄訊息的使用者屬性, 而不是承載。 如需此功能的詳細資訊，請[查看輸出的自訂中繼資料屬性](#custom-metadata-properties-for-output)一節。 |
 
 ## <a name="power-bi"></a>Power BI
 
@@ -209,7 +209,8 @@ Datetime | String | String |  Datetime | String
 | 編碼 |對於 CSV 和 JSON 而言，UTF-8 是目前唯一支援的編碼格式。 |
 | 分隔符號 |僅適用于 CSV 序列化。 串流分析支援多種序列化 CSV 格式資料的通用分隔符號。 支援的值是逗號、分號、空格、索引標籤和分隔號。 |
 | 格式 |僅適用于 JSON 類型。 **分隔的行會**指定輸出的格式化方式是讓每個 JSON 物件都以新行分隔。 **陣列**指定將輸出格式化為 JSON 物件的陣列。 |
-| 屬性資料行 | 選擇性。 以逗號分隔的資料行, 必須附加為外寄訊息的使用者屬性, 而不是承載。 如需此功能的詳細資訊, 請[查看輸出的自訂中繼資料屬性](#custom-metadata-properties-for-output)一節。 |
+| 屬性資料行 | 選擇性。 以逗號分隔的資料行, 必須附加為外寄訊息的使用者屬性, 而不是承載。 如需此功能的詳細資訊，請[查看輸出的自訂中繼資料屬性](#custom-metadata-properties-for-output)一節。 |
+| 系統屬性資料行 | 選擇性。 系統屬性的機碼值組，以及需要附加至外寄訊息而非承載的對應資料行名稱。 如需這項功能的詳細資訊，請[服務匯流排佇列和主題輸出的系統屬性](#system-properties-for-service-bus-queue-and-topic-outputs)一節。  |
 
 分割區數目是[根據服務匯流排 SKU 和大小](../service-bus-messaging/service-bus-partitioning.md)。 分割區索引鍵是每個分割區的唯一整數值。
 
@@ -228,7 +229,8 @@ Datetime | String | String |  Datetime | String
 | 事件序列化格式 |輸出資料的序列化格式。 支援 JSON、CSV 和 Avro。 |
 | 編碼 |如果您使用 CSV 或 JSON 格式, 則必須指定編碼。 UTF-8 是目前唯一支援的編碼格式。 |
 | 分隔符號 |僅適用于 CSV 序列化。 串流分析支援多種序列化 CSV 格式資料的通用分隔符號。 支援的值是逗號、分號、空格、索引標籤和分隔號。 |
-| 屬性資料行 | 選擇性。 以逗號分隔的資料行, 必須附加為外寄訊息的使用者屬性, 而不是承載。 如需此功能的詳細資訊, 請[查看輸出的自訂中繼資料屬性](#custom-metadata-properties-for-output)一節。 |
+| 屬性資料行 | 選擇性。 以逗號分隔的資料行, 必須附加為外寄訊息的使用者屬性, 而不是承載。 如需此功能的詳細資訊，請[查看輸出的自訂中繼資料屬性](#custom-metadata-properties-for-output)一節。 |
+| 系統屬性資料行 | 選擇性。 系統屬性的機碼值組，以及需要附加至外寄訊息而非承載的對應資料行名稱。 如需這項功能的詳細資訊，請[服務匯流排佇列和主題輸出的系統屬性](#system-properties-for-service-bus-queue-and-topic-outputs)一節。 |
 
 分割區數目是[根據服務匯流排 SKU 和大小](../service-bus-messaging/service-bus-partitioning.md)。 資料分割索引鍵是每個分割區的唯一整數值。
 
@@ -294,6 +296,25 @@ Azure 串流分析會透過 HTTP 觸發程序叫用 Azure Functions。 Azure Fun
 下列螢幕擷取畫面顯示在 EventHub 中透過[服務匯流排 Explorer](https://github.com/paolosalvatori/ServiceBusExplorer)檢查的輸出訊息屬性。
 
 ![事件自訂屬性](./media/stream-analytics-define-outputs/09-stream-analytics-custom-properties.png)
+
+## <a name="system-properties-for-service-bus-queue-and-topic-outputs"></a>服務匯流排佇列和主題輸出的系統屬性 
+您可以將查詢資料行當做[系統屬性](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.brokeredmessage?view=azure-dotnet#properties)附加至傳出的服務匯流排佇列或主題訊息。 這些資料行不會進入裝載，而是會以查詢資料行值填入對應的 BrokeredMessage[系統屬性](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.brokeredmessage?view=azure-dotnet#properties)。
+支援這些系統屬性- `MessageId, ContentType, Label, PartitionKey, ReplyTo, SessionId, CorrelationId, To, ForcePersistence, TimeToLive, ScheduledEnqueueTimeUtc`。
+這些資料行的字串值會剖析為對應的系統屬性數值型別，而任何剖析錯誤都會被視為資料錯誤。
+此欄位是以 JSON 物件格式提供。 此格式的詳細資料如下所示-
+* 以大括弧{}括住。
+* 以索引鍵/值組寫入。
+* 索引鍵和值必須是字串。
+* Key 是系統屬性名稱，而值則是查詢資料行名稱。
+* 索引鍵和值是以冒號分隔。
+* 每個索引鍵/值組都是以逗號分隔。
+
+這會顯示如何使用這個屬性–
+
+* 查詢： `select *, column1, column2 INTO queueOutput FROM iotHubInput`
+* 系統屬性資料行：`{ "MessageId": "column1", "PartitionKey": "column2"}`
+
+這會`MessageId`在服務匯流排佇列`column1`訊息上設定，其值為，而 PartitionKey `column2`是以的值設定。
 
 ## <a name="partitioning"></a>分割
 

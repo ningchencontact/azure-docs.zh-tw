@@ -3,7 +3,7 @@ title: 安裝和設定 Terraform 以布建 Azure 資源 |Microsoft Docs
 description: 了解如何安裝和設定 Terraform 以建立 Azure 資源
 services: virtual-machines-linux
 documentationcenter: virtual-machines
-author: echuvyrov
+author: tomarchermsft
 manager: gwallace
 editor: na
 tags: azure-resource-manager
@@ -12,14 +12,14 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 09/17/2019
+ms.date: 09/20/2019
 ms.author: tarcher
-ms.openlocfilehash: cd6052db1328fce5ef1a846fbab94fd7066079f6
-ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
+ms.openlocfilehash: cd3c8d7d862788f626356b4cfcdccccca36227b3
+ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71090727"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71168726"
 ---
 # <a name="install-and-configure-terraform-to-provision-azure-resources"></a>安裝和設定 Terraform 以布建 Azure 資源
  
@@ -37,7 +37,7 @@ Terraform 預設會安裝在 [Cloud Shell](/azure/terraform/terraform-cloud-shel
 
 使用 `terraform` 命令確認路徑組態。 可用的 Terraform 選項清單會隨即顯示，如下列輸出範例所示：
 
-```bash
+```console
 azureuser@Azure:~$ terraform
 Usage: terraform [--version] [--help] <command> [args]
 ```
@@ -94,7 +94,7 @@ export ARM_ENVIRONMENT=public
 
 在空的目錄中建立檔案 `test.tf`，並在下列指令碼中貼上。
 
-```tf
+```hcl
 provider "azurerm" {
 }
 resource "azurerm_resource_group" "rg" {
@@ -111,7 +111,7 @@ terraform init
 
 輸出類似於下列範例：
 
-```bash
+```console
 * provider.azurerm: version = "~> 0.3"
 
 Terraform has been successfully initialized!
@@ -125,7 +125,7 @@ terraform apply
 
 輸出類似於下列範例：
 
-```bash
+```console
 An execution plan has been generated and is shown below.
 Resource actions are indicated with the following symbols:
   + create

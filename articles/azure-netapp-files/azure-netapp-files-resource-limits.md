@@ -1,6 +1,6 @@
 ---
 title: Azure NetApp Files 的資源限制 | Microsoft Docs
-description: 說明 Azure NetApp Files 資源的限制，包括 NetApp 帳戶、容量集區、磁碟區、快照集和委派子網路的限制。
+description: 說明 Azure NetApp Files 資源的限制，以及如何要求增加資源限制。
 services: azure-netapp-files
 documentationcenter: ''
 author: b-juche
@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 08/07/2019
+ms.date: 09/20/2019
 ms.author: b-juche
-ms.openlocfilehash: 15d0a584d88045f6020162a88124cd9d6a4735bf
-ms.sourcegitcommit: 909ca340773b7b6db87d3fb60d1978136d2a96b0
+ms.openlocfilehash: f7213ddee5d7bdfd41508f5fee66de63cde5b7c4
+ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/13/2019
-ms.locfileid: "70984013"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71170030"
 ---
 # <a name="resource-limits-for-azure-netapp-files"></a>Azure NetApp Files 的資源限制
 
@@ -40,10 +40,27 @@ ms.locfileid: "70984013"
 |  單一容量集區的大小下限   |  4 TiB     |    否  |
 |  單一容量集區的大小上限    |  500 TiB   |   否   |
 |  單一磁片區的大小下限    |    100 GiB    |    否    |
-|  單一磁片區的大小上限     |    100 TiB    |    否       |
-|  每個磁片區的檔案數目上限（inode）     |    50000000    |    否    |    
+|  單一磁片區的大小上限     |    100 TiB    |    否    |
+|  每個磁片區的檔案數目上限（[maxfiles](#maxfiles)）     |    1 億    |    是    |    
+|  單一檔案的大小上限     |    16 TiB    |    否    |    
 
-## <a name="request-limit-increase"></a>增加要求限制 
+## Maxfiles 限制<a name="maxfiles"></a> 
+
+Azure NetApp Files 磁片區有一個稱為*maxfiles*的限制。 Maxfiles 限制是磁片區可以包含的檔案數目。 Azure NetApp Files 磁片區的 maxfiles 限制會根據磁片區的大小（配額）編制索引。 磁片區的 maxfiles 限制會隨著布建磁片區大小的每個 TiB 而增加或減少20000000檔案的速率。 
+
+服務會根據布建的大小，以動態方式調整磁片區的 maxfiles 限制。 例如，一開始設定大小為 1 TiB 的磁片區會有20000000的 maxfiles 限制。 磁片區大小的後續變更會根據下列規則，自動 readjustment maxfiles 限制： 
+
+|    磁片區大小（配額）     |  Maxfiles 限制的自動 readjustment    |
+|----------------------------|-------------------|
+|    < 1 TiB                 |    20000000     |
+|    > = 1 TiB 但 < 2 TiB    |    40000000     |
+|    > = 2 TiB，但 < 3 TiB    |    6000 萬     |
+|    > = 3 TiB，但 < 4 TiB    |    80000000     |
+|    > = 4 TiB                |    1 億    |
+
+針對任何磁片區大小，您可以起始[支援要求](#limit_increase)，以增加100000000以外的 maxfiles 限制。
+
+## 增加要求限制<a name="limit_increase"></a> 
 
 您可以建立 Azure 支援要求，以增加上表中的可調整限制。 
 
@@ -64,6 +81,7 @@ ms.locfileid: "70984013"
         |  帳戶 |  *訂用帳戶識別碼*   |  *已要求新的**帳戶**號碼上限*    |  *哪種案例或使用案例會提示要求？*  |
         |  集區    |  *訂用帳戶識別碼、帳戶 URI*  |  *已要求新的**集**區數目上限*   |  *哪種案例或使用案例會提示要求？*  |
         |  磁碟區  |  *訂用帳戶識別碼、帳戶 URI、集區 URI*   |  *已要求新的**磁片**區數目上限*     |  *哪種案例或使用案例會提示要求？*  |
+        |  Maxfiles  |  *訂用帳戶識別碼、帳戶 URI、集區 URI、磁片區 URI*   |  *已要求新的最大**maxfiles**數目*     |  *哪種案例或使用案例會提示要求？*  |    
 
     2. 指定適當的支援方法，並提供您的合約資訊。
 

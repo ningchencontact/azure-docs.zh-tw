@@ -3,7 +3,7 @@ title: 搭配 Azure CLI 使用內部 DNS 進行 VM 名稱解析 | Microsoft Docs
 description: 如何搭配 Azure CLI 在 Azure 上建立虛擬網路介面卡並使用內部 DNS 進行 VM 名稱解析
 services: virtual-machines-linux
 documentationcenter: ''
-author: vlivech
+author: cynthn
 manager: gwallace
 editor: ''
 tags: azure-resource-manager
@@ -14,13 +14,13 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: azurecli
 ms.topic: article
 ms.date: 02/16/2017
-ms.author: gwallace
-ms.openlocfilehash: d53c4c2120701ca99d0865e2c074c85e629ae81c
-ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
+ms.author: cynthn
+ms.openlocfilehash: b143a28216d0d8417615ad2c40a3b66c9c5d1be2
+ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "67875165"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71173880"
 ---
 # <a name="create-virtual-network-interface-cards-and-use-internal-dns-for-vm-name-resolution-on-azure"></a>在 Azure 上建立虛擬網路介面卡並使用內部 DNS 進行 VM 名稱解析
 

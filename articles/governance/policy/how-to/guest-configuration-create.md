@@ -3,16 +3,16 @@ title: 如何建立來賓設定原則
 description: 瞭解如何建立適用于 Windows 或 Linux Vm 的 Azure 原則來賓設定原則。
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 07/26/2019
+ms.date: 09/20/2019
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
-ms.openlocfilehash: 0c1c3470ae18b2a600af0d5e930b6fc114123728
-ms.sourcegitcommit: a7a9d7f366adab2cfca13c8d9cbcf5b40d57e63a
+ms.openlocfilehash: 8fd50ed571e42a1eb6673c56a61314d2adfe27f2
+ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
 ms.translationtype: MT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 09/20/2019
-ms.locfileid: "71161939"
+ms.locfileid: "71172460"
 ---
 # <a name="how-to-create-guest-configuration-policies"></a>如何建立來賓設定原則
 
@@ -58,28 +58,26 @@ ms.locfileid: "71161939"
 
 建立來賓設定之自訂原則的第一個步驟是建立 DSC 設定。 如需 DSC 概念和術語的總覽，請參閱[POWERSHELL Dsc 總覽](/powershell/dsc/overview/overview)。
 
-如果您的設定只需要安裝來賓設定代理程式內建的資源，則您只需要撰寫設定 MOF 檔案。 如果您需要執行額外的腳本，就必須撰寫自訂資源模組。
+如果您的設定只需要安裝來賓設定代理程式內建的資源，則您只需要撰寫設定 MOF 檔案。 如果您需要執行其他腳本，則需要撰寫自訂資源模組。
 
 ### <a name="requirements-for-guest-configuration-custom-resources"></a>來賓設定自訂資源的需求
 
-當來賓設定審核電腦時，它會先`Test-TargetResource`執行，以判斷它是否處於正確的狀態。  函數所傳回的布林值會決定來賓指派的 Azure Resource Manager 狀態是否應該符合規範。  如果布林值`$false`適用于設定中的任何資源，則提供者將會`Get-TargetResource`執行。
-如果布林值為`$true` `Get-TargetResource` ，則不會呼叫。
+當來賓設定審核電腦時，它會先`Test-TargetResource`執行，以判斷它是否處於正確的狀態。 函數所傳回的布林值會決定來賓指派的 Azure Resource Manager 狀態是否應該符合規範。 如果布林值`$false`適用于設定中的任何資源，則提供者將會`Get-TargetResource`執行。 如果布林值為`$true` ， `Get-TargetResource`則不會呼叫。
 
-此函式具有 Windows Desired State Configuration 不需要之來賓設定的特殊需求。 `Get-TargetResource`
+此函式具有 Windows Desired State Configuration 尚未需要之來賓設定的特殊需求。 `Get-TargetResource`
 
 - 傳回的雜湊表必須包含名為「**原因**」的屬性。
 - 原因屬性必須是陣列。
 - 陣列中的每個專案都應該是具有名為**Code**和**片語**之索引鍵的雜湊表。
 
-當電腦不符合規範時，服務會使用 [原因] 屬性來標準化資訊的呈現方式。
-您可以將每個專案視為「原因」，原因是資源不符合規範。 屬性是一個陣列，因為資源可能會因為一個以上的原因而不符合規範。
+當電腦不符合規範時，服務會使用 [原因] 屬性來標準化資訊的呈現方式。 您可以將每個專案視為「原因」，原因是該資源不符合規範。 屬性是一個陣列，因為資源可能會因為一個以上的原因而不符合規範。
 
-服務應該會有屬性**代碼**和**片語**。 撰寫自訂資源時，請將您想要顯示的文字（通常是 stdout）設定為資源不符合 [**片語**] 值的原因。  程式**代碼**有特定的格式需求，因此報告可以清楚顯示用來執行 audit 的資源相關資訊。 此解決方案可讓來賓設定可擴充。 只要輸出可以被捕捉並當做 [**片語**] 屬性的字串值傳回，即可執行任何命令來審核電腦。
+服務應該會有屬性**代碼**和**片語**。 撰寫自訂資源時，請將您想要顯示的文字（通常是 stdout）設定為資源不符合 [**片語**] 值的原因。 程式**代碼**有特定的格式需求，因此報告可以清楚顯示用來執行 audit 的資源相關資訊。 此解決方案可讓來賓設定可擴充。 只要輸出可以被捕捉並當做 [**片語**] 屬性的字串值傳回，即可執行任何命令來審核電腦。
 
-- 程式**代碼**（字串）：資源的名稱，重複，再加上不含空格的簡短名稱作為原因的識別碼。  這三個值應該以冒號分隔，且不含空格。
-    - 範例會是 ' registry： registry： keynotpresent '。
-- **片語**（字串）：人們可讀取的文字，以說明設定不符合規範的原因。
-    - 其中一個範例是「登錄機碼 $key 不存在於電腦上。」
+- 程式**代碼**（字串）：資源的名稱，重複，再加上不含空格的簡短名稱作為原因的識別碼。 這三個值應該以冒號分隔，且不含空格。
+  - 例如，`registry:registry:keynotpresent`
+- **片語**（字串）：人們可讀取的文字，以說明為何設定不符合規範。
+  - 例如，`The registry key $key is not present on the machine.`
 
 ```powershell
 $reasons = @()
@@ -94,7 +92,7 @@ return @{
 
 #### <a name="scaffolding-a-guest-configuration-project"></a>設定來賓設定專案的架構
 
-對於想要加速開始使用和從範例程式碼執行程式的開發人員，名為「來賓設定**專案**」的社區專案會以[Plaster](https://github.com/powershell/plaster) PowerShell 模組的範本形式存在。  這項工具可用來 scaffold 專案，包括可運作的設定和範例資源，以及一組用來驗證專案的[Pester](https://github.com/pester/pester)測試。  此範本也包含 Visual Studio Code 的工作執行程式，可自動建立及驗證來賓設定套件。 如需詳細資訊，請參閱 GitHub 專案[來賓設定專案](https://github.com/microsoft/guestconfigurationproject)。
+對於想要加速開始使用和從範例程式碼執行程式的開發人員，名為「來賓設定**專案**」的社區專案會以[Plaster](https://github.com/powershell/plaster) PowerShell 模組的範本形式存在。 這項工具可用來 scaffold 專案，包括可運作的設定和範例資源，以及一組用來驗證專案的[Pester](https://github.com/pester/pester)測試。 此範本也包含 Visual Studio Code 的工作執行程式，可自動建立及驗證來賓設定套件。 如需詳細資訊，請參閱 GitHub 專案[來賓設定專案](https://github.com/microsoft/guestconfigurationproject)。
 
 ### <a name="custom-guest-configuration-configuration-on-linux"></a>Linux 上的自訂來賓設定設定
 
@@ -177,15 +175,23 @@ New-GuestConfigurationPackage -Name '{PackageName}' -Configuration '{PathToMOF}'
 
 在 Azure 原則來賓設定中，管理在執行時間使用之秘密的最佳方式是將它們儲存在 Azure Key Vault 中。 這種設計會在自訂 DSC 資源內執行。
 
-首先，在 Azure 中建立使用者指派的受控識別。 電腦會使用此身分識別來存取儲存在 Key Vault 中的秘密。 如需詳細步驟，請參閱[使用 Azure PowerShell 建立、列出或刪除使用者指派的受控識別](../../../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-powershell.md)。
+1. 首先，在 Azure 中建立使用者指派的受控識別。
 
-建立 Key Vault 實例。 如需詳細步驟，請參閱[設定和取出秘密-PowerShell](../../../key-vault/quick-create-powershell.md)。
-指派許可權給實例，以授與使用者指派的身分識別，存取儲存在 Key Vault 中的秘密。 如需詳細步驟，請參閱[設定和取出密碼-.net](../../../key-vault/quick-create-net.md#give-the-service-principal-access-to-your-key-vault)。
+   電腦會使用此身分識別來存取儲存在 Key Vault 中的秘密。 如需詳細步驟，請參閱[使用 Azure PowerShell 建立、列出或刪除使用者指派的受控識別](../../../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-powershell.md)。
 
-將使用者指派的身分識別指派給您的電腦。 如需詳細步驟，請參閱[使用 PowerShell 在 AZURE VM 上設定 azure 資源的受控](../../../active-directory/managed-identities-azure-resources/qs-configure-powershell-windows-vm.md#user-assigned-managed-identity)識別。
-請大規模使用 Azure Resource Manager 透過 Azure 原則指派此身分識別。 如需詳細步驟，請參閱[使用範本在 AZURE VM 上設定 azure 資源的受控](../../../active-directory/managed-identities-azure-resources/qs-configure-template-windows-vm.md#assign-a-user-assigned-managed-identity-to-an-azure-vm)識別。
+1. 建立 Key Vault 實例。
 
-最後，在您的自訂資源內使用上述產生的用戶端識別碼，以使用機器提供的權杖來存取 Key Vault。 Key Vault `client_id`實例的和 url 可以當做[屬性](/powershell/dsc/resources/authoringresourcemof#creating-the-mof-schema)傳遞至資源，因此不需要更新多個環境的資源，或如果需要變更這些值。
+   如需詳細步驟，請參閱[設定和取出秘密-PowerShell](../../../key-vault/quick-create-powershell.md)。
+   指派許可權給實例，以授與使用者指派的身分識別，存取儲存在 Key Vault 中的秘密。 如需詳細步驟，請參閱[設定和取出密碼-.net](../../../key-vault/quick-create-net.md#give-the-service-principal-access-to-your-key-vault)。
+
+1. 將使用者指派的身分識別指派給您的電腦。
+
+   如需詳細步驟，請參閱[使用 PowerShell 在 AZURE VM 上設定 azure 資源的受控](../../../active-directory/managed-identities-azure-resources/qs-configure-powershell-windows-vm.md#user-assigned-managed-identity)識別。
+   請大規模使用 Azure Resource Manager 透過 Azure 原則指派此身分識別。 如需詳細步驟，請參閱[使用範本在 AZURE VM 上設定 azure 資源的受控](../../../active-directory/managed-identities-azure-resources/qs-configure-template-windows-vm.md#assign-a-user-assigned-managed-identity-to-an-azure-vm)識別。
+
+1. 最後，在您的自訂資源內使用上述產生的用戶端識別碼，以使用機器提供的權杖來存取 Key Vault。
+
+   Key Vault `client_id`實例的和 url 可以當做[屬性](/powershell/dsc/resources/authoringresourcemof#creating-the-mof-schema)傳遞至資源，因此不需要更新多個環境的資源，或如果需要變更這些值。
 
 下列程式碼範例可用於自訂資源，以使用使用者指派的身分識別從 Key Vault 取出秘密。 從要求傳回到 Key Vault 的值是純文字。 最佳做法是將它儲存在 credential 物件中。
 
@@ -264,8 +270,7 @@ Cmdlet 輸出會傳回物件，其中包含原則檔的計畫顯示名稱和路�
 
 「來賓設定」支援在執行時間覆寫設定的屬性。 這項功能表示封裝中 MOF 檔案中的值不一定要被視為靜態。 覆寫值是透過 Azure 原則提供，而且不會影響撰寫或編譯設定的方式。
 
-Cmdlet `New-GuestConfigurationPolicy`和`Test-GuestConfigurationPolicyPackage`包含名為**Parameters**的參數。
-這個參數會採用 hashtable 定義，包括每個參數的所有詳細資料，並自動建立用來建立每個 Azure 原則定義之檔案的所有必要區段。
+Cmdlet `New-GuestConfigurationPolicy`和`Test-GuestConfigurationPolicyPackage`包含名為**Parameters**的參數。 這個參數會採用 hashtable 定義，包括每個參數的所有詳細資料，並自動建立用來建立每個 Azure 原則定義之檔案的所有必要區段。
 
 下列範例會建立 Azure 原則來審核服務，而使用者會在原則指派時從服務清單中選取。
 
@@ -294,7 +299,7 @@ New-GuestConfigurationPolicy
     -Verbose
 ```
 
-針對 Linux 原則，請在您`AttributesYmlContent`的設定中包含屬性，並據以覆寫值。 來賓設定代理程式會自動建立 InSpec 用來儲存屬性的 YaML 檔案。 請參閱下方的範例。
+針對 Linux 原則，請在您的設定中包含屬性**AttributesYmlContent** ，並據以覆寫這些值。 來賓設定代理程式會自動建立 InSpec 用來儲存屬性的 YaML 檔案。 請參閱下方的範例。
 
 ```azurepowershell-interactive
 Configuration FirewalldEnabled {
@@ -356,18 +361,14 @@ New-GuestConfigurationPolicy -ContentUri 'https://storageaccountname.blob.core.w
 
 當您使用自訂內容套件發佈自訂 Azure 原則之後，如果您想要發佈新的版本，則必須更新兩個欄位。
 
-- **版本**：當您執行`New-GuestConfigurationPolicy` Cmdlet 時，您必須指定大於目前發行的版本號碼。  屬性會更新新原則檔案中的來賓設定指派版本，讓擴充功能能夠辨識封裝已更新。
-- **contentHash**：`New-GuestConfigurationPolicy` Cmdlet 會自動更新此屬性。  這是所建立`New-GuestConfigurationPackage`之封裝的雜湊值。  屬性對於您發行的`.zip`檔案而言必須是正確的。  如果只`contentUri`更新屬性（例如，在有人可以從入口網站手動變更原則定義的情況下），延伸模組就不會接受內容套件。
+- **版本**：當您執行`New-GuestConfigurationPolicy` Cmdlet 時，您必須指定大於目前發行的版本號碼。 屬性會更新新原則檔案中的來賓設定指派版本，讓擴充功能能夠辨識封裝已更新。
+- **contentHash**：`New-GuestConfigurationPolicy` Cmdlet 會自動更新此屬性。 這是所建立`New-GuestConfigurationPackage`之封裝的雜湊值。 屬性對於您發行的`.zip`檔案而言必須是正確的。 如果只更新**contentUri**屬性（例如，在有人可以從入口網站手動變更原則定義的情況下），延伸模組就不會接受內容套件。
 
-釋放更新套件的最簡單方式是重複本文中所述的程式，並提供更新的版本號碼。
-該進程可確保所有屬性都已正確更新。
+釋放更新套件的最簡單方式是重複本文中所述的程式，並提供更新的版本號碼。 該進程可確保所有屬性都已正確更新。
 
 ## <a name="converting-windows-group-policy-content-to-azure-policy-guest-configuration"></a>將 Windows 群組原則內容轉換成 Azure 原則來賓設定
 
-「來賓設定」在「Windows 機器」執行時，是 PowerShell Desired State Configuration 語法的實施。
-DSC 社區已發佈工具，可將匯出的群組原則範本轉換成 DSC 格式。
-將此工具與上述的來賓設定 Cmdlet 搭配使用，您就可以轉換 Windows 群組原則內容，並將其封裝/發佈以供 Azure 原則進行審核。
-如需使用此工具的詳細資訊，請[參閱快速入門：將群組原則轉換成](/powershell/dsc/quickstarts/gpo-quickstart)DSC。
+「來賓設定」在「Windows 機器」執行時，是 PowerShell Desired State Configuration 語法的實施。 DSC 社區已發佈工具，可將匯出的群組原則範本轉換成 DSC 格式。 將此工具與上述的來賓設定 Cmdlet 搭配使用，您就可以轉換 Windows 群組原則內容，並將其封裝/發佈以供 Azure 原則進行審核。 如需使用此工具的詳細資訊，請[參閱快速入門：將群組原則轉換成](/powershell/dsc/quickstarts/gpo-quickstart)DSC。
 內容轉換後，上述步驟會建立套件，並將其發佈為 Azure 原則將與任何 DSC 內容相同。
 
 ## <a name="optional-signing-guest-configuration-packages"></a>選擇性：簽署來賓設定套件
@@ -403,15 +404,13 @@ $Cert | Export-Certificate -FilePath "$env:temp\DscPublicKey.cer" -Force
 
 建立 GPG 金鑰以搭配 Linux 機器使用的良好參考，是由 GitHub 上的文章所提供，[產生新的 GPG 金鑰](https://help.github.com/en/articles/generating-a-new-gpg-key)。
 
-發佈內容之後，請將具有名稱`GuestConfigPolicyCertificateValidation`和值`enabled`的標籤，附加至需要程式碼簽署的所有虛擬機器。 您可以使用 Azure 原則，大規模地傳遞這個標記。 請參閱[Apply 標記及其預設值](../samples/apply-tag-default-value.md)範例。
-一旦此標記已就緒，使用`New-GuestConfigurationPolicy` Cmdlet 產生的原則定義就會透過「來賓設定」延伸模組來啟用需求。
+發佈內容之後，請將具有名稱`GuestConfigPolicyCertificateValidation`和值`enabled`的標籤，附加至需要程式碼簽署的所有虛擬機器。 您可以使用 Azure 原則，大規模地傳遞這個標記。 請參閱[Apply 標記及其預設值](../samples/apply-tag-default-value.md)範例。 一旦此標記已就緒，使用`New-GuestConfigurationPolicy` Cmdlet 產生的原則定義就會透過「來賓設定」延伸模組來啟用需求。
 
 ## <a name="preview-troubleshooting-guest-configuration-policy-assignments"></a>預覽針對來賓設定原則指派進行疑難排解
 
-預覽中提供了一項工具，可協助 Azure 原則來賓設定指派進行疑難排解。
-此工具目前為預覽狀態，並已發佈至 PowerShell 資源庫做為模組名稱[來賓設定疑難排解](https://www.powershellgallery.com/packages/GuestConfigurationTroubleshooter/)員。
+預覽中提供了一項工具，可協助 Azure 原則來賓設定指派進行疑難排解。 此工具目前為預覽狀態，並已發佈至 PowerShell 資源庫做為模組名稱[來賓設定疑難排解](https://www.powershellgallery.com/packages/GuestConfigurationTroubleshooter/)員。
 
-如需此工具中 Cmdlet 的詳細資訊，請在 PowerShell 中使用 Get-help 命令，以顯示內建的指導方針。  當此工具取得經常更新時，這是取得最新資訊的最佳方式。
+如需此工具中 Cmdlet 的詳細資訊，請在 PowerShell 中使用 Get-help 命令，以顯示內建的指導方針。 當此工具取得經常更新時，這是取得最新資訊的最佳方式。
 
 ## <a name="next-steps"></a>後續步驟
 

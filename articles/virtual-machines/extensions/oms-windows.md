@@ -3,7 +3,7 @@ title: 適用于 Windows 的 Azure 監視器虛擬機器擴充功能 |Microsoft 
 description: 使用虛擬機器擴充功能在 Windows 虛擬機器上部署 Log Analytics 代理程式。
 services: virtual-machines-windows
 documentationcenter: ''
-author: roiyz-msft
+author: axayjo
 manager: gwallace
 editor: ''
 tags: azure-resource-manager
@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 08/12/2019
-ms.author: roiyz
-ms.openlocfilehash: 393b01d7815d94e4ad623c552f4110421c9d98bd
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.author: akjosh
+ms.openlocfilehash: fe8bafcb63c1a27b905bdc339c07d30c9f0a5982
+ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70092260"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71168922"
 ---
 # <a name="azure-monitor-virtual-machine-extension-for-windows"></a>適用于 Windows 的 Azure 監視器虛擬機器擴充功能
 
@@ -31,7 +31,7 @@ Azure 監視器記錄可提供跨雲端和內部部署資產的監視功能。 M
 
 ### <a name="operating-system"></a>作業系統
 
-如需有關支援的 Windows 作業系統的詳細資訊, 請參閱[Log Analytics 代理程式總覽](../../azure-monitor/platform/log-analytics-agent.md#supported-windows-operating-systems)一文。
+如需有關支援的 Windows 作業系統的詳細資訊，請參閱[Log Analytics 代理程式總覽](../../azure-monitor/platform/log-analytics-agent.md#supported-windows-operating-systems)一文。
 
 ### <a name="agent-and-vm-extension-version"></a>代理程式和 VM 擴充功能版本
 下表提供每個版本的 Windows Azure 監視器 VM 擴充功能和 Log Analytics 代理程式套件組合的對應。 
@@ -39,7 +39,7 @@ Azure 監視器記錄可提供跨雲端和內部部署資產的監視功能。 M
 | Log Analytics Windows 代理程式套件組合版本 | Azure 監視器 Windows VM 延伸模組版本 | 發行日期 | 版本資訊 |
 |--------------------------------|--------------------------|--------------------------|--------------------------|
 | 10.20.18011 | 1.0.18011 | 2019年7月 | <ul><li> 次要錯誤修正和穩定改良功能 </li><li> 將 MaxExpressionDepth 增加至10000 </li></ul> |
-| 10.20.18001 | 1.0.18001 | 2019 年 6 月 | <ul><li> 次要錯誤修正和穩定改良功能 </li><li> 已新增在進行 proxy 連線時停用預設認證的功能 (對 WINHTTP_AUTOLOGON_SECURITY_LEVEL_HIGH 的支援) </li></ul>|
+| 10.20.18001 | 1.0.18001 | 2019 年 6 月 | <ul><li> 次要錯誤修正和穩定改良功能 </li><li> 已新增在進行 proxy 連線時停用預設認證的功能（對 WINHTTP_AUTOLOGON_SECURITY_LEVEL_HIGH 的支援） </li></ul>|
 | 10.19.13515 | 1.0.13515 | 2019 年 3 月 | <ul><li>次要穩定修正 </li></ul> |
 | 10.19.10006 | n/a | 12月2018 | <ul><li> 次要穩定修正 </li></ul> | 
 | 8.0.11136 | n/a | 2018年9月 |  <ul><li> 已新增偵測 VM 移動上資源識別碼變更的支援 </li><li> 已新增使用非延伸模組安裝時的報告資源識別碼支援 </li></ul>| 
@@ -50,7 +50,7 @@ Azure 監視器記錄可提供跨雲端和內部部署資產的監視功能。 M
 
 ### <a name="azure-security-center"></a>Azure 資訊安全中心
 
-Azure 資訊安全中心會自動布建 Log Analytics 代理程式, 並將它與 Azure 訂用帳戶的預設 Log Analytics 工作區連接。 如果您使用的是 Azure 資訊安全中心，請不要執行此文件中的步驟。 這樣做會覆寫已設定的工作區，並中斷與 Azure 資訊安全中心的連線。
+Azure 資訊安全中心會自動布建 Log Analytics 代理程式，並將它與 Azure 訂用帳戶的預設 Log Analytics 工作區連接。 如果您使用的是 Azure 資訊安全中心，請不要執行此文件中的步驟。 這樣做會覆寫已設定的工作區，並中斷與 Azure 資訊安全中心的連線。
 
 ### <a name="internet-connectivity"></a>網際網路的連線能力
 適用於 Windows 的 Log Analytics 代理程式擴充功能會要求目標虛擬機器連線到網際網路。 
@@ -88,7 +88,7 @@ Azure 資訊安全中心會自動布建 Log Analytics 代理程式, 並將它與
 | ---- | ---- |
 | apiVersion | 2015-06-15 |
 | publisher | Microsoft.EnterpriseCloud.Monitoring |
-| Type | MicrosoftMonitoringAgent |
+| 型別 | MicrosoftMonitoringAgent |
 | typeHandlerVersion | 1.0 |
 | workspaceId (例如)* | 6f680a37-00c6-41c7-a93f-1437e3462574 |
 | workspaceKey (例如) | z4bU3p1/GrnWpQkky4gdabWXAhbWSTz70hm4m2Xt92XI+rSRgE8qVvRhsGo9TXffbrTahyrwv35W0pOqQAU7uQ== |
@@ -100,7 +100,7 @@ Azure 資訊安全中心會自動布建 Log Analytics 代理程式, 並將它與
 也可以使用 Azure Resource Manager 範本部署 Azure VM 擴充功能。 上一節中詳述的 JSON 結構描述可在部署 Azure Resource Manager 範本期間，在 Azure Resource Manager 範本中用來執行 Log Analytics 代理程式擴充功能。 在 [Azure 快速入門資源庫](https://github.com/Azure/azure-quickstart-templates/tree/master/201-oms-extension-windows-vm) \(英文\) 上可以找到包含 Log Analytics 代理程式 VM 擴充功能的範例範本。 
 
 >[!NOTE]
->當您想要將代理程式設定為向多個工作區報告時, 此範本不支援指定多個工作區識別碼和工作區金鑰。 若要將代理程式設定為向多個工作區報告, 請參閱[新增或移除工作區](../../azure-monitor/platform/agent-manage.md#adding-or-removing-a-workspace)。  
+>當您想要將代理程式設定為向多個工作區報告時，此範本不支援指定多個工作區識別碼和工作區金鑰。 若要將代理程式設定為向多個工作區報告，請參閱[新增或移除工作區](../../azure-monitor/platform/agent-manage.md#adding-or-removing-a-workspace)。  
 
 虛擬機器擴充功能的 JSON 可以巢狀方式置於虛擬機器資源內部，或放在 Resource Manager JSON 範本的根目錄或最上層。 JSON 的放置會影響資源名稱和類型的值。 如需詳細資訊，請參閱[設定子資源的名稱和類型](../../azure-resource-manager/child-resource-name-type.md)。 
 

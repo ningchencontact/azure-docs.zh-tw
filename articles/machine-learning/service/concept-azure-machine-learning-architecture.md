@@ -10,12 +10,12 @@ ms.author: larryfr
 author: Blackmist
 ms.date: 07/12/2019
 ms.custom: seodec18
-ms.openlocfilehash: 91c747b8b4ca58e7714dc101777bad51f9f0286f
-ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
+ms.openlocfilehash: 85ca03bee728ec075383566be14d2484dd7431af
+ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71035585"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71170443"
 ---
 # <a name="how-azure-machine-learning-works-architecture-and-concepts"></a>Azure Machine Learning 的運作方式：架構和概念
 
@@ -63,10 +63,10 @@ ms.locfileid: "71035585"
 + <a href="#compute-targets">計算目標</a>
 + <a href="#training-scripts">訓練腳本</a>
 + <a href="#runs">Run</a>
++ <a href="#environments">環境</a>
 + <a href="#github-tracking-and-integration">Git 追蹤</a>
 + <a href="#snapshots">快照集</a>
 + <a href="#activities">活動</a>
-+ <a href="#images">影像</a>
 + <a href="#deployment">部署</a>
 + <a href="#web-service-deployments">Web 服務</a>
 + <a href="#iot-module-deployments">IoT 模組</a>
@@ -180,28 +180,15 @@ Azure Machine Learning 與架構無關。 當您建立模型時, 您可以使用
 
 活動可透過 SDK 或 Web UI 提供通知，方便您輕鬆監視這些作業的進度。
 
-### <a name="images"></a>映像
+### <a name="environments"></a>環境
 
-映像提供一個可靠的方式來部署模型以及使用模型時所需的所有元件。 映像包含下列項目：
+Azure ML 環境可用來指定設定（Docker/Python/Spark/等等），用來建立可重現的環境來進行資料準備、模型定型和模型服務。 它們是您 Azure Machine Learning 工作區內的受控和版本設定實體，可讓您跨不同的計算目標來進行可重現、可審核和便攜的機器學習工作流程。
 
-* 模型。
-* 評分指令碼或應用程式。 您可以使用此指令碼來傳送輸入給模型，並傳回模型的輸出。
-* 模型或評分指令碼或應用程式所需的相依性。 例如，您可以會包含列出 Python 套件相依性的 Conda 環境檔案。
+您可以在本機計算上使用環境物件來開發您的定型腳本、在 Azure Machine Learning 計算上重複使用相同的環境，以進行大規模的模型定型，甚至使用相同的環境部署您的模型。 
 
-Azure Machine Learning 可以建立兩種類型的映像：
+瞭解[如何建立及管理可重複使用的 ML 環境](how-to-use-environments.md)，以進行定型和推斷。
 
-* **FPGA 映像**：在部署至 Azure 雲端的現場可程式化閘陣列時使用。
-* **Docker 映像**：在部署至 FPGA 以外的計算目標時使用。 例如，Azure 容器執行個體與 Azure Kubernetes Service。
 
-Azure Machine Learning 提供預設使用的基底映射。 您也可以提供自己的自訂映射。
-
-### <a name="image-registry"></a>映像登錄
-
-映射會在您工作區的**映射**登錄中進行編目。 您可以在建立映射時提供額外的元資料標記, 讓您可以在稍後查詢它們以尋找您的映射。
-
-如需建立映像的範例，請參閱[在 Azure 容器執行個體中部署映像分類模型](tutorial-deploy-models-with-aml.md)。
-
-如需使用自訂映射部署模型的範例, 請參閱[如何使用自訂 Docker 映射部署模型](how-to-deploy-custom-docker-image.md)。
 
 ### <a name="deployment"></a>部署
 

@@ -10,12 +10,12 @@ ms.subservice: development
 ms.date: 09/05/2019
 ms.author: xiaoyul
 ms.reviewer: nibruno; jrasnick
-ms.openlocfilehash: 85c2607ae163ab2d29a53440cd65672bdbe0fddf
-ms.sourcegitcommit: 909ca340773b7b6db87d3fb60d1978136d2a96b0
+ms.openlocfilehash: 6ed6e21f16287148c8764dd98bda378451440e58
+ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/13/2019
-ms.locfileid: "70985346"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71172780"
 ---
 # <a name="performance-tuning-with-materialized-views"></a>使用具體化視圖進行效能微調 
 Azure SQL 資料倉儲中的具體化視圖可針對複雜的分析查詢提供較低的維護方法，以在沒有任何查詢變更的情況下取得快速效能。 本文討論使用具體化視圖的一般指引。
@@ -84,19 +84,21 @@ Azure 資料倉儲是分散式大量平行處理（MPP）系統。   資料倉�
 
 **針對您的工作負載設計**
 
-- 在您開始建立具體化視圖之前，請務必先深入瞭解查詢模式、重要性、頻率和產生的資料大小等方面的工作負載。  
+在您開始建立具體化視圖之前，請務必先深入瞭解查詢模式、重要性、頻率和產生的資料大小等方面的工作負載。  
 
-- 使用者可以針對查詢最佳化工具所建議的具體化視圖，執行說明 WITH_RECOMMENDATIONS < SQL_statement >。  由於這些建議是查詢專屬的，因此，針對相同工作負載中的其他查詢，受益于單一查詢的具體化視圖可能不是最理想的。  請考慮您的工作負載需求來評估這些建議。  理想的具體化視圖是可受益于工作負載效能的瀏覽器。  
+使用者可以針對查詢最佳化工具所建議的具體化視圖，執行說明 WITH_RECOMMENDATIONS < SQL_statement >。  由於這些建議是查詢專屬的，因此，針對相同工作負載中的其他查詢，受益于單一查詢的具體化視圖可能不是最理想的。  請考慮您的工作負載需求來評估這些建議。  理想的具體化視圖是可受益于工作負載效能的瀏覽器。  
 
 **請留意速度較快的查詢與成本之間的取捨** 
 
-- 針對每個具體化的視圖，元組移動器會有儲存成本和查看維護的成本。 每個 Azure SQL 資料倉儲伺服器實例都有一個元組移動器。  如果有太多具體化視圖，元組移動器的工作負載將會增加，而如果元組移動器無法將資料移至索引區段的速度夠快，則利用具體化視圖的查詢效能可能會降低。  使用者應該檢查所有具體化視圖所產生的成本是否可以由查詢效能提升來位移。  針對資料庫中的具體化視圖清單執行此查詢： 
+針對每個具體化視圖，會有資料儲存成本，以及維護此視圖的成本。  當基表中的資料變更時，具體化視圖的大小會增加，而且其實體結構也會變更。  為了避免查詢效能降低，每個具體化視圖都會由資料倉儲引擎分別維護，包括將資料列從差異存放區移到資料行存放區索引區段，以及合併資料變更。  當具體化視圖和基表變更的數目增加時，維護工作負載會變高。   使用者應該檢查所有具體化視圖所產生的成本是否可以由查詢效能提升來位移。  
+
+您可以針對資料庫中的具體化視圖清單執行此查詢： 
 
 ```sql
 SELECT V.name as materialized_view, V.object_id 
 FROM sys.views V 
 JOIN sys.indexes I ON V.object_id= I.object_id AND I.index_id < 2;
-```
+``` 
 
 減少具體化視圖數的選項： 
 
