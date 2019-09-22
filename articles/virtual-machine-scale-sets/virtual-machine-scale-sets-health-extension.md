@@ -67,15 +67,15 @@ ms.locfileid: "70114477"
 | ---- | ---- | ---- 
 | apiVersion | `2018-10-01` | date |
 | publisher | `Microsoft.ManagedServices` | string |
-| Type | `ApplicationHealthLinux` (Linux)，`ApplicationHealthWindows` (Windows) | string |
+| type | `ApplicationHealthLinux` (Linux)，`ApplicationHealthWindows` (Windows) | string |
 | typeHandlerVersion | `1.0` | ssNoversion |
 
 ### <a name="settings"></a>設定
 
 | Name | 值 / 範例 | 資料類型
 | ---- | ---- | ----
-| 通訊協定 | `http` 或 `tcp` | string |
-| port | 通訊協定是 `http` 時為選擇性項目；通訊協定是 `tcp` 時則為必要項目 | ssNoversion |
+| protocol | `http` 或 `tcp` | string |
+| port | 通訊協定是 `http` 時為選擇性項目；通訊協定是 `tcp` 時則為必要項目 | int |
 | requestPath | 通訊協定是 `http` 時為必要項目；通訊協定是 `tcp` 時則不允許使用 | string |
 
 ## <a name="deploy-the-application-health-extension"></a>部署應用程式健康狀態延伸模組
