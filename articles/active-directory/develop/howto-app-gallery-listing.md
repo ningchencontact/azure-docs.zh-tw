@@ -18,12 +18,12 @@ ms.author: ryanwi
 ms.reviewer: elisol, bryanla
 ms.custom: aaddev, seoapril2019
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ba4beeff5484f774e801842f06d694af456c4e96
-ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
+ms.openlocfilehash: 88d74fe794f4de95b7ba8b0dd5575ca56d2016e5
+ms.sourcegitcommit: 83df2aed7cafb493b36d93b1699d24f36c1daa45
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71033758"
+ms.lasthandoff: 09/22/2019
+ms.locfileid: "71176905"
 ---
 # <a name="how-to-list-your-application-in-the-azure-active-directory-application-gallery"></a>HOW TO：在 Azure Active Directory 應用程式庫中列出您的應用程式
 
@@ -80,7 +80,7 @@ ms.locfileid: "71033758"
     ![在資源庫中列出 OpenID Connect 應用程式的時間表](./media/howto-app-gallery-listing/openid.png)
 
     * 如果您想要使用 OpenID Connect 將應用程式新增至資源庫中的清單，請選取如上所述的 **OpenID Connect 和 OAuth 2.0**。
-    * 如果您有任何存取方面的問題，請與 [Azure AD SSO 整合小組](<mailto:SaaSApplicationIntegrations@service.microsoft.com>)連絡。 
+    * 如果您有任何存取方面的問題，請與 [Azure AD SSO 整合小組](<mailto:SaaSApplicationIntegrations@service.microsoft.com>)連絡。
 
 - **SAML 2.0** 或 **WS-Fed**：如果您的應用程式支援 SAML 2.0，便可以使用[新增自訂應用程式的指示](../active-directory-saas-custom-apps.md)直接將其與 Azure AD 租用戶整合。
 
@@ -98,6 +98,12 @@ ms.locfileid: "71033758"
 * 如果您想要使用密碼 SSO 將應用程式新增至資源庫中的清單，請選取如上所述的**密碼 SSO**。
 * 如果您有任何存取方面的問題，請與 [Azure AD SSO 整合小組](<mailto:SaaSApplicationIntegrations@service.microsoft.com>)連絡。
 
+## <a name="requesting-for-user-provisioning"></a>要求提供使用者布建
+
+依照下列程式要求使用者布建-
+
+   ![在資源庫中列出 SAML 應用程式的時間表](./media/howto-app-gallery-listing/user-provisioning.png)
+
 ## <a name="updateremove-existing-listing"></a>更新/移除現有的清單
 
 若要更新或移除 Azure AD App 資源庫中現有的應用程式，您必須先在[應用程式網路入口網站](https://microsoft.sharepoint.com/teams/apponboarding/Apps)中提交要求。 如果您有 Office 365 帳戶，請使用該帳戶登入此入口網站。 如果沒有，則使用您的 Microsoft 帳戶 (例如 Outlook 或 Hotmail) 來登入。
@@ -106,9 +112,9 @@ ms.locfileid: "71033758"
 
     ![在資源庫中列出 SAML 應用程式的時間表](./media/howto-app-gallery-listing/updateorremove.png)
 
-    * 如果您想要更新現有的應用程式，請選取 [更新現有的應用程式清單]。
-    * 如果您想要從 Azure AD 資源庫中移除現有的應用程式，請選取 [移除現有的應用程式清單]。
-    * 如果您有任何存取方面的問題，請與 [Azure AD SSO 整合小組](<mailto:SaaSApplicationIntegrations@service.microsoft.com>)連絡。 
+    * 如果您想要更新現有的應用程式，請根據您的需求選取適當的選項。
+    * 如果您想要從 Azure AD 資源庫中移除現有的應用程式，請從資源庫中選取 **[移除我的應用程式清單**]。
+    * 如果您有任何存取方面的問題，請與 [Azure AD SSO 整合小組](<mailto:SaaSApplicationIntegrations@service.microsoft.com>)連絡。
 
 ## <a name="listing-requests-by-customers"></a>列出客戶提出的要求
 
@@ -124,11 +130,11 @@ ms.locfileid: "71033758"
 
 在應用程式庫中列出 SAML 2.0 或 WS-Fed 應用程式的程序時間表為 7-10 個工作天。
 
-   ![在資源庫中列出 SAML 應用程式的時程表](./media/howto-app-gallery-listing/timeline.png)
+  ![在資源庫中列出 SAML 應用程式的時程表](./media/howto-app-gallery-listing/timeline.png)
 
 在應用程式庫中列出 OpenID Connect 應用程式的程序時間表為 2-5 個工作天。
 
-   ![在資源庫中列出 SAML 應用程式的時程表](./media/howto-app-gallery-listing/timeline2.png)
+  ![在資源庫中列出 SAML 應用程式的時程表](./media/howto-app-gallery-listing/timeline2.png)
 
 ## <a name="escalations"></a>呈報
 

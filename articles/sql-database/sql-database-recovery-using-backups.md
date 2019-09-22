@@ -11,12 +11,12 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 ms.date: 08/27/2019
-ms.openlocfilehash: 6f1a0485dbae3234d476ba5df62126f05d52f435
-ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
+ms.openlocfilehash: ab0a622dcb72072621e6696d423a1d4d2917bedc
+ms.sourcegitcommit: 83df2aed7cafb493b36d93b1699d24f36c1daa45
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70813353"
+ms.lasthandoff: 09/22/2019
+ms.locfileid: "71178415"
 ---
 # <a name="recover-an-azure-sql-database-using-automated-database-backups"></a>使用自動資料庫備份復原 Azure SQL 資料庫
 
@@ -66,7 +66,7 @@ ms.locfileid: "70813353"
 目前沒有可還原整部伺服器的內建方法。 [Azure SQL Database:完整伺服器修復](https://gallery.technet.microsoft.com/Azure-SQL-Database-Full-82941666)腳本是如何完成這項工作的範例。
 
 > [!IMPORTANT]
-> 若要使用自動備份復原，您必須是訂用帳戶中 SQL Server 參與者角色的成員或訂用帳戶擁有者 - 請參閱 [RBAC：內建角色](../role-based-access-control/built-in-roles.md)。 您可以使用 Azure 入口網站、PowerShell 或 REST API 來進行復原。 您無法使用 Transact-SQL。
+> 若要使用自動備份復原，您必須是訂用帳戶中 SQL Server 參與者角色的成員或訂用帳戶擁有者 - 請參閱 [RBAC：內建角色](../role-based-access-control/built-in-roles.md)。 您可以使用 Azure 入口網站、PowerShell 或 REST API 復原。 您無法使用 Transact-SQL。
 
 ## <a name="point-in-time-restore"></a>還原時間點
 
@@ -82,7 +82,7 @@ ms.locfileid: "70813353"
 
   如果您打算從還原的資料庫抓取資料，以從使用者或應用程式錯誤中復原，您必須撰寫並執行資料復原腳本，以從還原的資料庫中解壓縮資料，並將其套用至原始資料庫。 雖然還原作業可能要花很長的時間才能完成，但還原中的資料庫在整個還原過程中都會顯示在資料庫清單上。 如果您在還原期間刪除資料庫，還原作業將會取消，且不會向您收取未完成還原的資料庫費用。
 
-若要使用 Azure 入口網站來將單一、集區或執行個體資料庫復原至某個時間點，請開啟資料庫頁面，然後按一下工具列上的 [還原]。
+若要使用 Azure 入口網站將單一、集區或實例資料庫復原到某個時間點，請開啟資料庫頁面，然後按一下工具列上的 [**還原**]。
 
 ![point-in-time-restore](./media/sql-database-recovery-using-backups/point-in-time-recovery.png)
 
@@ -117,27 +117,62 @@ ms.locfileid: "70813353"
 
 ![異地還原](./media/sql-database-geo-restore/geo-restore-2.png)
 
-> [!TIP]
-> 如需示範如何執行異地還原的 PowerShell 指令碼範例，請參閱[使用 PowerShell 還原 SQL 資料庫](scripts/sql-database-restore-database-powershell.md)。
+### <a name="geo-restore-using-azure-portal"></a>使用 Azure 入口網站進行異地還原
+
+從 Azure 入口網站異地還原資料庫的一般概念是透過建立新的單一或受控實例資料庫，然後在資料庫建立畫面上選取可用的異地還原備份來執行。 新建立的資料庫將包含異地還原的備份資料。
+
+#### <a name="single-azure-sql-database"></a>單一 Azure SQL Database
+
+若要從您選擇的區域和伺服器中的 Azure 入口網站異地還原單一 Azure SQL Database，請遵循下列步驟：
+
+1. 按一下 marketplace 中的 [新增 **+ 新增**]，然後選取 [**建立 SQL Database**]，在 [**基本]** 索引標籤底下填寫必要資訊
+2. [選取**其他設定**] 索引標籤
+3. 在 [使用現有資料] 下，按一下 [**備份**]
+4. 從可用異地還原備份的下拉式清單中選取備份
+
+![異地還原單一 Azure SQL Database](./media/sql-database-recovery-using-backups/geo-restore-azure-sql-database-list-annotated.png)
+
+完成建立新資料庫的程式。 建立單一 Azure SQL Database 之後，它就會包含還原的異地還原備份。
+
+#### <a name="managed-instance-database"></a>受控實例資料庫
+
+若要將受控實例資料庫從 Azure 入口網站異地還原至您所選區域中的現有受控實例，請選取您想要在其中還原資料庫的受控實例，並遵循下列步驟：
+
+1. 按一下 [ **+ 新增資料庫**]
+2. 輸入想要的資料庫名稱
+3. 在 [使用現有資料] 下，選取 [**備份**]
+4. 從可用異地還原備份的下拉式清單中選取備份
+
+![異地還原受控實例資料庫](./media/sql-database-recovery-using-backups/geo-restore-sql-managed-instance-list-annotated.png)
+
+完成建立新資料庫的程式。 建立實例資料庫之後，它會包含已還原的異地還原備份。
+
+### <a name="geo-restore-using-powershell"></a>使用 PowerShell 進行異地還原
+
+#### <a name="single-azure-sql-database"></a>單一 Azure SQL Database
+
+如需示範如何針對單一 Azure SQL Database 執行異地還原的 PowerShell 腳本，請參閱[使用 powershell 將 AZURE SQL 單一資料庫還原至較早的時間點](scripts/sql-database-restore-database-powershell.md)。
+
+#### <a name="managed-instance-database"></a>受控實例資料庫
+
+如需顯示如何針對受控實例資料庫執行異地還原的 PowerShell 腳本，請參閱[使用 powershell 將受控執行個體資料庫還原到另一個地理區域](scripts/sql-managed-instance-restore-geo-backup.md)。
+
+### <a name="geo-restore-considerations"></a>異地還原考慮
 
 目前不支援異地次要資料庫上的時間點復原。 只有在主要資料庫上才可進行時間點復原。 如需使用異地還原來從中斷復原的詳細資訊，請參閱[從中斷復原](sql-database-disaster-recovery.md)。
 
 > [!IMPORTANT]
 > 異地還原是 SQL Database 中最基本的嚴重損壞修復解決方案。 它依賴自動建立的異地複寫備份，RPO = 1 小時，以及最多12小時的預估復原時間。 它不保證在區域 ourage 之後，目的地區域將會擁有還原資料庫的容量，因為需求可能會明顯增加。 對於使用相對較小資料庫的非商務關鍵性應用程式，異地還原是適當的嚴重損壞修復解決方案。 對於使用大型資料庫且必須確保業務持續性的商務關鍵應用程式，您應該使用[自動容錯移轉群組](sql-database-auto-failover-group.md)。 它提供較低的 RPO 和 RTO，而且一律保證容量。 如需商務持續性選項的詳細資訊，請參閱[商務持續性概觀](sql-database-business-continuity.md)。
 
-### <a name="geo-restore-using-the-azure-portal"></a>使用 Azure 入口網站進行異地還原
-
-若要使用 Azure 入口網站來異地還原資料庫，請開啟 [SQL 資料庫] 頁面，然後按一下 [**新增**]。 在 [選取來源] 文字方塊中，選取 [備份]。 指定要在區域和您選擇的伺服器上，執行復原的來源備份。 
-
 ## <a name="programmatically-performing-recovery-using-automated-backups"></a>使用自動備份以程式設計方式執行復原
 
-如先前所述，除了 Azure 入口網站之外，還可使用 Azure PowerShell 或 REST API，以程式設計方式執行資料庫復原。 下表描述可用的命令集。
+如先前所述，除了 Azure 入口網站以外，您還可以使用 Azure PowerShell 或 REST API，以程式設計方式執行資料庫復原。 下表描述可用的命令集。
 
 ### <a name="powershell"></a>PowerShell
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 > [!IMPORTANT]
-> Azure SQL Database 仍然支援 PowerShell Azure Resource Manager 模組，但所有未來的開發都是針對 Az .Sql 模組。 如需這些 Cmdlet，請參閱[AzureRM](https://docs.microsoft.com/powershell/module/AzureRM.Sql/)。 Az 模組和 AzureRm 模組中命令的引數本質上完全相同。
+> Azure SQL Database 仍然支援 PowerShell Azure Resource Manager 模組, 但所有未來的開發都是針對 Az .Sql 模組。 如需這些 Cmdlet, 請參閱[AzureRM](https://docs.microsoft.com/powershell/module/AzureRM.Sql/)。 Az 模組和 AzureRm 模組中命令的引數本質上完全相同。
 
 - 若要還原獨立或集區資料庫，請參閱[restore-set-azsqldatabase 搭配](/powershell/module/az.sql/restore-azsqldatabase)。
 

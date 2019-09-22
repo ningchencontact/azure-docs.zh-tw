@@ -6,14 +6,14 @@ manager: bertvanhoof
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 07/29/2019
+ms.date: 09/17/2019
 ms.author: alinast
-ms.openlocfilehash: 0bb7309ae452b2885be279d1ab38b8467397f2f8
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.openlocfilehash: 37f2afbd9bae4ca6bccc5062515f166687d8913c
+ms.sourcegitcommit: 83df2aed7cafb493b36d93b1699d24f36c1daa45
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68638489"
+ms.lasthandoff: 09/22/2019
+ms.locfileid: "71177063"
 ---
 # <a name="understand-digital-twins-object-models-and-spatial-intelligence-graph"></a>了解 Digital Twins 物件模型和空間智慧圖形
 
@@ -23,9 +23,7 @@ Digital Twins 物件模型能描述網域特定的概念、類別和屬性。 �
 
 Digital Twins 物件模型和本體皆準備就緒後，即可填入「空間圖形」。 空間圖形是與 IoT 解決方案相關的空間、裝置和人員之間各種關聯性的虛擬表示法。 此圖表顯示使用智慧建築本體的空間圖形範例。
 
-![Digital Twins 空間圖形建築][1]
-
-<a id="model"></a>
+[![數位 Twins 空間圖表建築物](media/concepts/digital-twins-spatial-graph-building.png)](media/concepts/digital-twins-spatial-graph-building.png#lightbox)
 
 空間圖形可將空間、裝置、感應器和使用者結合在一起。 每個空間圖形都會以模仿真實世界的方式互相連結。 在此範例中，場地 43 具有四個樓層，每個樓層都有許多不同的區域。 使用者會與其工作站相關聯，並取得圖形某些部分的存取權。 系統管理員有權對空間圖形進行變更，而訪客只有檢視特定建築資料的權限。
 
@@ -56,8 +54,6 @@ Digital Twins 物件模型支援下列主要物件類別：
 - **比對器**是可決定針對指定遙測訊息應執行哪些 UDF 的物件。
 - **端點**是可路由遙測訊息和 Digital Twins 事件的位置，例如 `Event Hub`、`Service Bus`及 `Event Grid`。
 
-<a id="graph"></a>
-
 ## <a name="spatial-intelligence-graph"></a>空間智慧圖形
 
 空間圖形是定義於 Digital Twins 物件模型中的空間、裝置和人員的階層式圖形。 空間圖形支援繼承、篩選、周遊、延展性和擴充性。 您可透過 REST API 集合來管理空間圖形並與其互動。
@@ -82,14 +78,14 @@ Digital Twins 物件模型支援下列主要物件類別：
 https://YOUR_INSTANCE_NAME.YOUR_LOCATION.azuresmartspaces.net/management/swagger
 ```
 
-| 名稱 | 更換為 |
+| Name | 更換為 |
 | --- | --- |
 | YOUR_INSTANCE_NAME | Digital Twins 執行個體的名稱 |
 | YOUR_LOCATION | 裝載您執行個體的伺服器區域 |
 
  完整的 URL 格式顯示在下列影像中。
 
-![Digital Twins 入口網站管理 API][2]
+(![Digital Twins 入口網站管理 API](media/concepts/digital-twins-spatial-graph-management-api-url.png)] （media/概念/digital-twins-spatial-graph-management-api-url .png # lightbox）
 
 如需如何使用空間智慧圖形的詳細資料，請瀏覽「Azure Digital Twins 管理 API 搶先預覽」。
 
@@ -106,7 +102,3 @@ https://YOUR_INSTANCE_NAME.YOUR_LOCATION.azuresmartspaces.net/management/swagger
 - 若要了解裝置連線能力，以及如何將遙測訊息傳送至 Digital Twins，請參閱 [Azure Digital Twins 裝置連線能力和遙測輸入](concepts-device-ingress.md)。
 
 - 若要深入了解管理 API 的限制和節流，請參閱 [Azure Digital Twins API 管理和限制](concepts-service-limits.md)。
-
-<!-- Images -->
-[1]: media/concepts/digital-twins-spatial-graph-building.png
-[2]: media/concepts/digital-twins-spatial-graph-management-api-url.png

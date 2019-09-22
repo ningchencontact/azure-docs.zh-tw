@@ -10,17 +10,17 @@ ms.subservice: design
 ms.date: 11/26/2018
 ms.author: martinle
 ms.reviewer: igorstan
-ms.openlocfilehash: 9c9e293a6e9c8126f2b82f68d591aee56ec32aec
-ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
+ms.openlocfilehash: a89988fd369a382ac86f0f4b1ef0f61c0b7b9cad
+ms.sourcegitcommit: 83df2aed7cafb493b36d93b1699d24f36c1daa45
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "67672286"
+ms.lasthandoff: 09/22/2019
+ms.locfileid: "71178435"
 ---
 # <a name="best-practices-for-azure-sql-data-warehouse"></a>Azure SQL 資料倉儲最佳做法
 本文集合讓您從 Azure SQL 資料倉儲獲得最佳效能的最佳做法。  文章中有些基本概念很容易說明，有些概念則更進階，我們在文中只做概述。  這篇文章的目的是要提供您一些基本指引，以及讓您對建立資料倉儲時需注意的重要領域有所認知。  每一節都會介紹一個概念，並提供您哪裡可以閱讀深度討論的詳細文章。
 
-如果您剛開始使用 Azure SQL 資料倉儲，千萬別讓這篇文章嚇到您。  主題的順序是大部分是按照重要性排列。  如果您從前幾項概念開始，您的進展會很順利。  當您更熟悉並使用 SQL 資料倉儲時, 請回頭查看一些其他概念。  融會貫通不需要很長時間。
+如果您剛開始使用 Azure SQL 資料倉儲，千萬別讓這篇文章嚇到您。  主題的順序是大部分是按照重要性排列。  如果您從前幾項概念開始，您的進展會很順利。  當您更熟悉並使用 SQL 資料倉儲時，請回頭查看一些其他概念。  融會貫通不需要很長時間。
 
 如需載入指引，請參閱[載入資料的指引](guidance-for-loading-data.md)。
 
@@ -49,7 +49,7 @@ SQL 資料倉儲支援透過數種工具 (包括 Azure Data Factory、PolyBase�
 另請參閱 [使用 PolyBase 的指南][Guide for using PolyBase]
 
 ## <a name="hash-distribute-large-tables"></a>雜湊分散大型資料表
-根據預設，資料表是以「循環配置資源」方式分散。  這可讓使用者更容易開始建立資料表，而不必決定應該如何分散其資料表。  循環配置資源的資料表在某些工作負載中執行良好，但某些狀況下選取分散資料行的執行效能會更好。  依資料行分散資料表的效能遠勝於循環配置資源資料表的最常見例子，是聯結兩個大型事實資料表。  例如，如果您有一個依 order_id 分散的訂單資料表，以及一個也是依 order_id 分散的交易資料表，當您將訂單資料聯結至交易資料表上的 order_id，此查詢會變成傳遞查詢，也就是資料移動作業會被消除。  較少的步驟代表較快的查詢。  較少的資料移動也會讓查詢更快。  這樣的說明只能讓您略知皮毛。 載入分散的資料表時，請確定您的內送資料的分散式索引鍵沒有排序，因為這會拖慢載入。  如需有關如何選取散發資料行來改善效能, 以及如何在 CREATE TABLE 語句的 WITH 子句中定義分散式資料表的詳細資訊, 請參閱下列連結。
+根據預設，資料表是以「循環配置資源」方式分散。  這可讓使用者更容易開始建立資料表，而不必決定應該如何分散其資料表。  循環配置資源的資料表在某些工作負載中執行良好，但某些狀況下選取分散資料行的執行效能會更好。  依資料行分散資料表的效能遠勝於循環配置資源資料表的最常見例子，是聯結兩個大型事實資料表。  例如，如果您有一個依 order_id 分散的訂單資料表，以及一個也是依 order_id 分散的交易資料表，當您將訂單資料聯結至交易資料表上的 order_id，此查詢會變成傳遞查詢，也就是資料移動作業會被消除。  較少的步驟代表較快的查詢。  較少的資料移動也會讓查詢更快。  這樣的說明只能讓您略知皮毛。 載入分散的資料表時，請確定您的內送資料的分散式索引鍵沒有排序，因為這會拖慢載入。  如需有關如何選取散發資料行來改善效能，以及如何在 CREATE TABLE 語句的 WITH 子句中定義分散式資料表的詳細資訊，請參閱下列連結。
 
 另請參閱[資料表概觀][Table overview]、[資料表散發][Table distribution]、[選取資料表散發][Selecting table distribution]、[CREATE TABLE][CREATE TABLE]、[CREATE TABLE AS SELECT][CREATE TABLE AS SELECT]
 
@@ -62,6 +62,9 @@ SQL 資料倉儲支援透過數種工具 (包括 Azure Data Factory、PolyBase�
 在交易中執行的 INSERT、UPDATE、DELETE 陳述式，失敗時必須回復。  為了將長時間回復的可能性降到最低，請盡可能將交易大小最小化。  這可以透過將 INSERT、UPDATE、DELETE 陳述式分成小部分來達成。  例如，如果您預期您的 INSERT 需要 1 小時，可能的話，將 INSERT 分成 4 個部分，每個執行 15 分鐘。  利用特殊的最低限度記錄案例，像是 CTAS、TRUNCATE、DROP TABLE 或 INSERT 空資料表，來降低回復的風險。  另一個消除回復的作法是使用「僅中繼資料」作業 (像是資料分割切換) 進行資料管理。  例如，不要執行 DELETE 陳述式來刪除資料表中所有 order_date 為 2001 年 10 月的資料列，而是將資料每月分割後，再從另一個資料表將有空分割之資料的分割調動出來 (請參閱 ALTER TABLE 範例)。  針對未分割的資料表，請考慮使用 CTAS 將您想要保留的資料寫入資料表中，而不是使用 DELETE。  如果 CTAS 需要的時間一樣長，則較安全的作業，是在它具有極小交易記錄的條件下執行它，且必要時可以快速地取消。
 
 另請參閱[了解交易][Understanding transactions]、[最佳化交易][Optimizing transactions]、[資料表分割][Table partitioning]、[TRUNCATE TABLE][TRUNCATE TABLE]、[ALTER TABLE][ALTER TABLE]、[Create table as select (CTAS)][Create table as select (CTAS)]
+
+## <a name="reduce-query-result-sizes"></a>減少查詢結果大小  
+這可協助您避免大型查詢結果所造成的用戶端問題。  您可以編輯您的查詢，以減少傳回的資料列數目。 某些查詢產生工具可讓您在每個查詢中加入 "top N" 語法。  您也可以將查詢結果 CETAS 至臨時表，然後使用 PolyBase export 進行舊版處理。
 
 ## <a name="use-the-smallest-possible-column-size"></a>使用最小的可能資料行大小
 在定義 DDL 時，使用可支援您的資料的最小資料類型，將能夠改善查詢效能。  這對 CHAR 和 VARCHAR 資料行尤其重要。  如果資料行中最長的值是 25 個字元，請將您的資料行定義為 VARCHAR(25)。  避免將所有字元資料行定義為較大的預設長度。  此外，將資料行定義為 VARCHAR (當它只需要這樣的大小時) 而非 NVARCHAR。

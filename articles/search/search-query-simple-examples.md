@@ -1,33 +1,35 @@
 ---
-title: 使用「簡單」搜尋語法的查詢範例-Azure 搜尋服務
-description: 全文檢索搜尋、篩選搜尋、地理搜尋、多面向搜尋，和其他用來查詢 Azure 搜尋服務索引的查詢字串適用的簡單查詢範例。
+title: 建立簡單查詢-Azure 搜尋服務
+description: 根據針對全文檢索搜尋、篩選搜尋、地理搜尋、針對 Azure 搜尋服務索引進行多面向搜尋的簡單語法來執行查詢，以瞭解範例。
 author: HeidiSteen
 manager: nitinme
 tags: Simple query analyzer syntax
 services: search
 ms.service: search
 ms.topic: conceptual
-ms.date: 05/02/2019
+ms.date: 09/20/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: df84686e512db90351d5a9815706890bce49848b
-ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
+ms.openlocfilehash: 7c4aeef07d34159e01f188effae77926895e2857
+ms.sourcegitcommit: 83df2aed7cafb493b36d93b1699d24f36c1daa45
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69647624"
+ms.lasthandoff: 09/22/2019
+ms.locfileid: "71179185"
 ---
-# <a name="query-examples-using-the-simple-search-syntax-in-azure-search"></a>在 Azure 搜尋服務中使用「簡單」搜尋語法的查詢範例
+# <a name="create-a-simple-query-in-azure-search"></a>在 Azure 搜尋服務中建立簡單查詢
 
-[簡單查詢語法](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search)會叫用預設查詢剖析器，以對 Azure 搜尋服務索引執行全文檢索搜尋查詢。 簡單查詢分析器速度快，可處理 Azure 搜尋服務中的常見案例，包括全文檢索搜尋、篩選搜尋、多面向搜尋和地理搜尋。 本文中的範例示範在使用簡單語法時可用的查詢作業，請逐步執行這些範例。
+在 Azure 搜尋服務中，[簡單查詢語法](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search)會叫用預設的查詢剖析器，以對索引執行全文檢索搜尋查詢。 此剖析器很快就會處理常見的案例，包括全文檢索搜尋、篩選和多面向搜尋，以及地理搜尋。 
 
-替代的查詢語法是[完整 Lucene](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search)，可支援如模糊和萬用字元搜尋等較複雜的查詢結構，而其處理時間可能會比較久。 如需詳細資訊和示範完整語法的範例，請參閱 [Lucene 語法查詢範例](search-query-lucene-examples.md)。
+在本文中，我們會使用範例來說明簡單的語法。
+
+替代的查詢語法是[完整 Lucene](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search)，可支援更複雜的查詢結構，例如模糊和萬用字元搜尋，這可能需要更多時間來處理。 如需詳細資訊和示範完整語法的範例，請參閱[使用完整的 Lucene 語法](search-query-lucene-examples.md)。
 
 ## <a name="formulate-requests-in-postman"></a>以 Postman 編寫要求
 
 下列範例會根據 [紐約市 OpenData](https://nycopendata.socrata.com/) 計劃所提供的資料集，利用由可用工作組成的 NYC 工作搜尋索引。 這項資料不應視為目前的或已完成。 此索引屬於 Microsoft 所提供的沙箱服務，這表示您不需要 Azure 訂用帳戶或 Azure 搜尋服務，即可嘗試執行這些查詢。
 
-您的需要是 Postman，或可對 GET 發出 HTTP 要求的對等工具。 如需詳細資訊，請參閱[使用 REST 用戶端瀏覽](search-get-started-postman.md)。
+您的需要是 Postman，或可對 GET 發出 HTTP 要求的對等工具。 如需詳細資訊，請參閱[快速入門：使用 Postman](search-get-started-postman.md)探索 Azure 搜尋服務 REST API。
 
 ### <a name="set-the-request-header"></a>設定要求標頭
 
@@ -55,9 +57,9 @@ URL 組合具有下列元素：
 
 ## <a name="send-your-first-query"></a>傳送第一個查詢
 
-在驗證步驟中，將下列要求貼到 GET 中，然後按一下 [傳送]。 結果會以詳細 JSON 文件的形式傳回。 系統會傳回整份檔, 讓您查看所有欄位和所有值。
+在驗證步驟中，將下列要求貼到 GET 中，然後按一下 [傳送]。 結果會以詳細 JSON 文件的形式傳回。 系統會傳回整份檔，讓您查看所有欄位和所有值。
 
-將此 URL 貼入 REST 用戶端做為驗證步驟, 並查看檔結構。
+將此 URL 貼入 REST 用戶端做為驗證步驟，並查看檔結構。
 
   ```http
   https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2019-05-06&$count=true&search=*
@@ -211,7 +213,7 @@ POST /indexes/nycjobs/docs/search?api-version=2019-05-06
       "count": "true"
     }
 ```
-針對更容易閱讀的結果, 搜尋結果會被修剪以包含作業識別碼、職稱和工作位置。 起始座標是從索引中的隨機文件取得 (在此例中為史泰登島上的工作地點)。
+針對更容易閱讀的結果，搜尋結果會被修剪以包含作業識別碼、職稱和工作位置。 起始座標是從索引中的隨機文件取得 (在此例中為史泰登島上的工作地點)。
 
 您也可以使用 GET 在 Postman 中試用看看：
 

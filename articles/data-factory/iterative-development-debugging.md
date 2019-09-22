@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 author: djpmsft
 ms.author: daperlov
 manager: craigg
-ms.openlocfilehash: afc51735fcbd8f4131b2a4066a0fc4adbb8f1a41
-ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.openlocfilehash: a1c4bf55fbb8242293fc0e30bbe16a6884b901cb
+ms.sourcegitcommit: 83df2aed7cafb493b36d93b1699d24f36c1daa45
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70142342"
+ms.lasthandoff: 09/22/2019
+ms.locfileid: "71178610"
 ---
 # <a name="iterative-development-and-debugging-with-azure-data-factory"></a>透過 Azure Data Factory 的反覆式開發與偵錯
 
@@ -51,6 +51,10 @@ Azure Data Factory 可讓您反覆地開發和偵錯 Data Factory 管線。
 ![選取 [檢視作用中偵錯回合] 圖示](media/iterative-development-debugging/view-debug-runs-image1.png)
 
 ![作用中偵錯回合的範例清單](media/iterative-development-debugging/view-debug-runs-image2.png)
+
+如果您有作用中的資料流程 debug 會話，這些會話將會出現在 [作用中的調試] 視窗的下半部。 您可以選取作用中的資料流程會話，並停止個別的叢集。
+
+![作用中資料流程調試執行的範例清單](media/data-flow/dfsessions.png)
 
 ## <a name="monitoring-debug-runs"></a>監視偵錯回合
 

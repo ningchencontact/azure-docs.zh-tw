@@ -11,12 +11,12 @@ ms.service: azure-functions
 ms.topic: reference
 ms.date: 04/01/2017
 ms.author: cshoe
-ms.openlocfilehash: f2bdfab82e1b9fb05d74f69536ec672a4b18a4bf
-ms.sourcegitcommit: 8e1fb03a9c3ad0fc3fd4d6c111598aa74e0b9bd4
+ms.openlocfilehash: 7dcc69434e017d6564030d83b14098344bc8ac0d
+ms.sourcegitcommit: 83df2aed7cafb493b36d93b1699d24f36c1daa45
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70114369"
+ms.lasthandoff: 09/22/2019
+ms.locfileid: "71178346"
 ---
 # <a name="azure-service-bus-bindings-for-azure-functions"></a>Azure Functions 的 Azure 服務匯流排繫結
 
@@ -33,6 +33,9 @@ ms.locfileid: "70114369"
 ## <a name="packages---functions-2x"></a>套件 - Functions 2.x
 
 [Microsoft.Azure.WebJobs.Extensions.ServiceBus](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.ServiceBus) NuGet 套件 3.x 版會提供服務匯流排繫結。 套件的原始程式碼位於 [azure-webjobs-sdk](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.Extensions.ServiceBus/) GitHub 存放庫中。
+
+> [!NOTE]
+> 2\.x 版不會建立在`ServiceBusTrigger`實例中設定的主題或訂用帳戶。 2\.x 版是以[Microsoft Azure](https://www.nuget.org/packages/Microsoft.Azure.ServiceBus)為基礎，而且不會處理佇列管理。
 
 [!INCLUDE [functions-package-v2](../../includes/functions-package-v2.md)]
 
@@ -216,7 +219,7 @@ module.exports = function(context, myQueueItem) {
 
 下列範例示範如何透過觸發程式來讀取「執行匯流排佇列」訊息。
 
-在函式中定義了 「匯流排系結」, 其中*類型*設定為`serviceBusTrigger`。
+在函式中定義了「匯流排系結 」，其中類型`serviceBusTrigger`設定*為。*
 
 ```json
 {
@@ -233,7 +236,7 @@ module.exports = function(context, myQueueItem) {
 }
 ```
 
-`func.ServiceBusMessage`  *_.Py\__ 中\_* 的程式碼會宣告參數, 以讓您讀取函數中的佇列訊息。
+`func.ServiceBusMessage`  *_.Py\_中_的程式碼會宣告參數，以讓您讀取函數中的佇列訊息。\_*
 
 ```python
 import azure.functions as func
@@ -613,7 +616,7 @@ module.exports = function (context, myTimer) {
 
 下列範例示範如何寫出 Python 中的執行匯流排佇列。
 
-ServiceBue 系結定義定義于*function json*中, 其中*type*設為`serviceBus`。
+ServiceBue 系結定義定義于*function json*中，其中*type*設為`serviceBus`。
 
 ```json
 {
@@ -645,7 +648,7 @@ ServiceBue 系結定義定義于*function json*中, 其中*type*設為`serviceBu
 }
 ```
 
-在 *.py  _\__ 中, 您可以藉由將值傳遞給方法, 將訊息寫出至佇列。\_*  `set`
+`set`  *_\__ 在 .py 中，您可以藉由將值傳遞給方法，將訊息寫出至佇列。\_*
 
 ```python
 import azure.functions as func
@@ -714,19 +717,19 @@ public static string Run([HttpTrigger] dynamic input, ILogger log)
 * `out T paramName` - `T` 可以是任何可序列化 JSON 的類型。 當函式結束時，如果參數值為 Null，則 Functions 會使用 Null 物件建立訊息。
 * `out string` - 當函式結束時，如果參數值為 Null，則 Functions 不會建立一則訊息。
 * `out byte[]` - 當函式結束時，如果參數值為 Null，則 Functions 不會建立一則訊息。
-* `out BrokeredMessage`-如果函式結束時, 參數值為 null, 函數不會建立訊息 (針對函式 1.x)
-* `out Message`-如果函式結束時, 參數值為 null, 函數不會建立訊息 (針對函式 2.x)
+* `out BrokeredMessage`-如果函式結束時，參數值為 null，函數不會建立訊息（針對函式1.x）
+* `out Message`-如果函式結束時，參數值為 null，函數不會建立訊息（針對函式2.x）
 * `ICollector<T>` 或 `IAsyncCollector<T>` - 適用於建立多個訊息。 當您呼叫 `Add` 方法時，就會建立一則訊息。
 
-使用C#函數時:
+使用C#函數時：
 
-* 非同步函數需要傳回值或`IAsyncCollector` , 而不`out`是參數。
+* 非同步函數需要傳回值或`IAsyncCollector` ，而不`out`是參數。
 
-* 若要存取會話識別碼, 請系結[`Message`](https://docs.microsoft.com/dotnet/api/microsoft.azure.servicebus.message)至類型, 並`sessionId`使用屬性。
+* 若要存取會話識別碼，請系結[`Message`](https://docs.microsoft.com/dotnet/api/microsoft.azure.servicebus.message)至類型，並`sessionId`使用屬性。
 
-在 JavaScript 中，使用 `context.bindings.<name from function.json>` 來存取佇列或主題。 您可以將字串、位元組陣列或 JavaScript 物件 (還原序列化為 JSON) 指派給`context.binding.<name>`。
+在 JavaScript 中，使用 `context.bindings.<name from function.json>` 來存取佇列或主題。 您可以將字串、位元組陣列或 JavaScript 物件（還原序列化為 JSON）指派給`context.binding.<name>`。
 
-若要以非C#語言將訊息傳送至啟用會話的佇列, 請使用[Azure 服務匯流排 SDK](https://docs.microsoft.com/azure/service-bus-messaging) , 而不是內建的輸出系結。
+若要以非C#語言將訊息傳送至啟用會話的佇列，請使用[Azure 服務匯流排 SDK](https://docs.microsoft.com/azure/service-bus-messaging) ，而不是內建的輸出系結。
 
 ## <a name="exceptions-and-return-codes"></a>例外狀況和傳回碼
 

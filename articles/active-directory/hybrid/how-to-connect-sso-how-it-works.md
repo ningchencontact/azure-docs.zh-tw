@@ -16,12 +16,12 @@ ms.date: 04/16/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 907abe3b09f9999b30703281f7e4ff286e2bae14
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: bd4743bc38c3b2b4b9495b33535b4b73f48d1372
+ms.sourcegitcommit: 83df2aed7cafb493b36d93b1699d24f36c1daa45
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60242328"
+ms.lasthandoff: 09/22/2019
+ms.locfileid: "71176682"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-technical-deep-dive"></a>Azure Active Directory 無縫單一登入：深入技術性討論
 
@@ -39,12 +39,12 @@ ms.locfileid: "60242328"
 
 無縫 SSO 是使用 Azure AD Connect 所啟用，如[這裏](how-to-connect-sso-quick-start.md)所示。 啟用此功能時，會執行下列步驟：
 
-- 電腦帳戶 (`AZUREADSSOACC`) 會在您內部部署 Active Directory (AD)，在您同步處理至 Azure AD （使用 Azure AD Connect） 每個 AD 樹系中建立。
-- 此外，要使用 Azure AD 登入程序期間建立的 Kerberos 服務主體名稱 (Spn) 許多。
-- 電腦帳戶的 Kerberos 解密金鑰可安全地與 Azure AD 共用。 如果有多個 AD 樹系，每個電腦帳戶將會有自己唯一的 Kerberos 解密金鑰。
+- 在您同步處理`AZUREADSSOACC`至 Azure AD 的每個 AD 樹系（使用 Azure AD Connect）中，會在您的內部部署 Active Directory （ad）中建立電腦帳戶（）。
+- 此外，系統會建立一些 Kerberos 服務主體名稱（Spn），以在 Azure AD 登入程式期間使用。
+- 電腦帳戶的 Kerberos 解密金鑰可安全地與 Azure AD 共用。 如果有多個 AD 樹系，每個電腦帳戶都會有自己唯一的 Kerberos 解密金鑰。
 
 >[!IMPORTANT]
-> `AZUREADSSOACC`電腦帳戶需要強保護，基於安全性考量。 只有網域系統管理員應該能夠管理的電腦帳戶。 確定的已停用電腦帳戶的 Kerberos 委派，，而且沒有 Active Directory 中的其他帳戶有委派權限`AZUREADSSOACC`電腦帳戶... 它們是安全遭到意外刪除，而且只有網域系統管理員可以存取儲存的電腦帳戶在組織單位 (OU)。 電腦帳戶的 Kerberos 解密金鑰也應視為是為機密的。 強烈建議您至少每隔 30 天變換一次 `AZUREADSSOACC` 電腦帳戶的 [Kerberos 解密金鑰](how-to-connect-sso-faq.md#how-can-i-roll-over-the-kerberos-decryption-key-of-the-azureadssoacc-computer-account)。
+> 基於`AZUREADSSOACC`安全考慮，電腦帳戶必須受到嚴格的保護。 只有網域系統管理員才能夠管理電腦帳戶。 請確定已停用電腦帳戶上的 Kerberos 委派，而且 Active Directory 中的其他帳戶都具有電腦帳戶的`AZUREADSSOACC`委派許可權。 將電腦帳戶儲存在組織單位（OU）中，以防止意外刪除，而且只有網域系統管理員才有存取權。 電腦帳戶上的 Kerberos 解密金鑰也應該被視為機密。 強烈建議您至少每隔 30 天變換一次 `AZUREADSSOACC` 電腦帳戶的 [Kerberos 解密金鑰](how-to-connect-sso-faq.md)。
 
 設定完成之後，無縫 SSO 登入的運作方式與其他任何使用整合式 Windows 驗證 (IWA) 的登入相同。
 
@@ -57,7 +57,7 @@ ms.locfileid: "60242328"
 3. 使用者將他們的使用者名稱鍵入 Azure AD 登入頁面中。
 
    >[!NOTE]
-   >針對[某些應用程式](./how-to-connect-sso-faq.md#what-applications-take-advantage-of-domain_hint-or-login_hint-parameter-capability-of-seamless-sso)，會略過步驟 2 和 3。
+   >針對[某些應用程式](./how-to-connect-sso-faq.md)，會略過步驟 2 和 3。
 
 4. 在背景中使用 JavaScript 時，Azure AD 會透過 401 未授權回應來挑戰瀏覽器，以提供 Kerberos 票證。
 5. 瀏覽器接著會從 Active Directory 要求 `AZUREADSSOACC` 電腦帳戶 (代表 Azure AD) 的票證。

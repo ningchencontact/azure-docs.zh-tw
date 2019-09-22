@@ -1,25 +1,25 @@
 ---
-title: Contoso 移轉系列 |Microsoft Docs
+title: Contoso 遷移系列 |Microsoft Docs
 description: 提供 Contoso 將內部部署資料中心移轉至 Azure 時使用的移轉策略和案例概觀。
 author: rayne-wiselman
 manager: carmonm
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 05/23/2019
+ms.date: 09/22/2019
 ms.author: raynew
-ms.openlocfilehash: 82585a6f1df369e299bd9df4d57f6106aad4ead7
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: d20c0be47f44cdce8ea895007494565d37f5923f
+ms.sourcegitcommit: 83df2aed7cafb493b36d93b1699d24f36c1daa45
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67696209"
+ms.lasthandoff: 09/22/2019
+ms.locfileid: "71179152"
 ---
 # <a name="contoso-migration-series"></a>Contoso 移轉系列
 
 
-我們有一系列的文章會示範如何移轉 Contoso 的虛構組織內部部署基礎結構[Microsoft Azure](https://azure.microsoft.com/overview/what-is-azure/)雲端。 
+我們有一系列文章，示範虛構的組織 Contoso 如何將內部部署基礎結構遷移至[Microsoft Azure](https://azure.microsoft.com/overview/what-is-azure/)雲端。 
 
-整個系列文章中包含資訊以及一些案例，用以說明如何設定基礎結構移轉，以及執行不同類型的移轉。 案例變得更複雜的過程中它們。 這些文章將會說明 Contoso 公司如何完成移轉任務，而一般閱讀要點和具體指示則會在下文完整提供。
+整個系列文章中包含資訊以及一些案例，用以說明如何設定基礎結構移轉，以及執行不同類型的移轉。 案例會隨著進度而變得越來越複雜。 這些文章將會說明 Contoso 公司如何完成移轉任務，而一般閱讀要點和具體指示則會在下文完整提供。
 
 ## <a name="migration-articles"></a>移轉文章
 
@@ -41,14 +41,11 @@ ms.locfileid: "67696209"
 [文章 9：在 Azure Web 應用程式和 Azure SQL Database 中重構應用程式](https://docs.microsoft.com/azure/architecture/cloud-adoption/migrate/azure-best-practices/contoso-migration-refactor-web-app-sql) | Contoso 會將其 SmartHotel360 應用程式移轉至 Azure Web 應用程式，以及使用 Database Migration Assistant 將應用程式資料庫移轉至 Azure SQL Server 執行個體。     
 [文章 10：在 Azure Web 應用程式和適用於 MySQL 的 Azure 資料庫中重構 Linux 應用程式](https://docs.microsoft.com/azure/architecture/cloud-adoption/migrate/azure-best-practices/contoso-migration-refactor-linux-app-service-mysql) | Contoso 會使用 Azure 流量管理員，將 Linux osTicket 應用程式移轉至多個 Azure 區域的 Azure Web 應用程式，與 GitHub 整合以進行持續傳遞。 Contoso 會將應用程式資料庫遷移至適用於 MySQL 的 Azure 資料庫執行個體。 
 [文章 11：在 Azure DevOps Services 上重構 Team Foundation Server](https://docs.microsoft.com/azure/architecture/cloud-adoption/migrate/azure-best-practices/contoso-migration-tfs-vsts) | Contoso 會將其內部部署 Team Foundation Server 部署移轉至 Azure 中的 Azure DevOps Services。
-[文章 12：在 Azure 容器和 Azure SQL Database 中重新建構應用程式](https://docs.microsoft.com/azure/architecture/cloud-adoption/migrate/azure-best-practices/contoso-migration-rearchitect-container-sql) | Contoso 會將其 SmartHotel 應用程式移轉至 Azure。 然後，它會重新建構應用程式 Web 層，作為在 Azure Service Fabric 中執行的 Windows 容器，以及具有 Azure SQL Database 的資料庫。 
-[文章 13：在 Azure 中重建應用程式](https://docs.microsoft.com/azure/architecture/cloud-adoption/migrate/azure-best-practices/contoso-migration-rebuild) | Contoso 會藉由使用各種 Azure 功能和服務 (包括 Azure App Service、Azure Kubernetes Service (AKS)、Azure Functions、Azure 認知服務及 Azure Cosmos DB) 重建其 SmartHotel 應用程式。  
-[文章 14：對 Azure 進行大規模移轉](https://docs.microsoft.com/azure/architecture/cloud-adoption/migrate/azure-best-practices/contoso-migration-scale) | Contoso 在試驗完移轉組合後，準備對 Azure 進行完整規模的移轉。 
-
-
-    
+[文章 12：在 Azure 容器和 Azure SQL Database 中重新建構應用程式](https://docs.microsoft.com/azure/architecture/cloud-adoption/migrate/azure-best-practices/contoso-migration-rearchitect-container-sql) | Contoso 會將其 SmartHotel 應用程式移轉至 Azure。 然後，它會重新建構應用程式 Web 層，作為在 Azure Service Fabric 中執行的 Windows 容器，以及具有 Azure SQL Database 的資料庫。
+[文章 13：在 Azure 中重建應用程式](https://docs.microsoft.com/azure/architecture/cloud-adoption/migrate/azure-best-practices/contoso-migration-rebuild) | Contoso 會藉由使用各種 Azure 功能和服務 (包括 Azure App Service、Azure Kubernetes Service (AKS)、Azure Functions、Azure 認知服務及 Azure Cosmos DB) 重建其 SmartHotel 應用程式。
+[文章 14：對 Azure 進行大規模移轉](https://docs.microsoft.com/azure/architecture/cloud-adoption/migrate/azure-best-practices/contoso-migration-scale) | Contoso 在試驗完移轉組合後，準備對 Azure 進行完整規模的移轉。
 
 ## <a name="next-steps"></a>後續步驟
 
-[深入了解](https://docs.microsoft.com/azure/architecture/cloud-adoption/migrate/)雲端移轉。 
-
+- [瞭解](https://docs.microsoft.com/azure/architecture/cloud-adoption/migrate/)雲端遷移。
+- 瞭解[資料庫移轉指南](https://datamigration.microsoft.com/)中其他案例（來源/目標群組）的遷移策略。

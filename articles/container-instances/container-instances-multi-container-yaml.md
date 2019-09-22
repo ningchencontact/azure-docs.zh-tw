@@ -8,12 +8,12 @@ ms.service: container-instances
 ms.topic: article
 ms.date: 04/03/2019
 ms.author: danlep
-ms.openlocfilehash: 599339b0591245462dcc0840400ad5241cd5922c
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: a38b0cfe7072975e4bcaf61b65ab7733694f714c
+ms.sourcegitcommit: 83df2aed7cafb493b36d93b1699d24f36c1daa45
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68325818"
+ms.lasthandoff: 09/22/2019
+ms.locfileid: "71178561"
 ---
 # <a name="tutorial-deploy-a-multi-container-group-using-a-yaml-file"></a>教學課程：使用 YAML 檔案部署多容器群組
 
@@ -24,7 +24,7 @@ ms.locfileid: "68325818"
 
 Azure 容器執行個體支援使用[容器群組](container-instances-container-groups.md)將多個容器部署至單一主機。 當建立應用程式側車以進行記錄、監視或任何其他設定 (其中服務需要第二個附加的進程) 時, 容器群組會很有用。
 
-在本教學課程中, 您會遵循使用 Azure CLI 部署 YAML 檔案, 以執行簡單的雙容器側車設定的步驟。 YAML 檔案提供精簡的格式來指定實例設定。 您會了解如何：
+在本教學課程中，您會遵循使用 Azure CLI 部署[YAML](container-instances-reference-yaml.md)檔案，以執行簡單的雙容器側車設定的步驟。 YAML 檔案提供精簡的格式來指定實例設定。 您會了解如何：
 
 > [!div class="checklist"]
 > * 設定 YAML 檔案
