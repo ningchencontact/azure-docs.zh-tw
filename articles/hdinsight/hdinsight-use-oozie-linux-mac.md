@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 05/06/2019
-ms.openlocfilehash: c24370c91c7164786503cdd8e3c44de60abc8370
-ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
+ms.openlocfilehash: b0cb5f9fa0a0bc64b38225fba03568cf31021572
+ms.sourcegitcommit: a19bee057c57cd2c2cd23126ac862bd8f89f50f5
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71122485"
+ms.lasthandoff: 09/23/2019
+ms.locfileid: "71181085"
 ---
 # <a name="use-apache-oozie-with-apache-hadoop-to-define-and-run-a-workflow-on-linux-based-azure-hdinsight"></a>在 Linux 型 Azure HDInsight 上搭配 Apache Hadoop 使用 Apache Oozie 來定義並執行工作流程
 
@@ -37,7 +37,7 @@ ms.locfileid: "71122485"
 
 * **Azure SQL Database**。  請參閱[在 Azure 入口網站中建立 AZURE SQL 資料庫](../sql-database/sql-database-get-started.md)。  本文使用名為`oozietest`的資料庫。
 
-* 您叢集主要儲存體的 [URI 配置](./hdinsight-hadoop-linux-information.md#URI-and-scheme)。 `wasb://` 適用於 Azure 儲存體，`abfs://` 適用於 Azure Data Lake Storage Gen2 或 `adl://` 適用於 Azure Data Lake Storage Gen1。 如果針對 Azure 儲存體或 Data Lake Storage Gen2 已啟用安全傳輸，則 URI 分別會是 `wasbs://` 或 `abfss://`。另請參閱[安全傳輸](../storage/common/storage-require-secure-transfer.md)。
+* 您叢集主要儲存體的 [URI 配置](./hdinsight-hadoop-linux-information.md#URI-and-scheme)。 `wasb://` 適用於 Azure 儲存體，`abfs://` 適用於 Azure Data Lake Storage Gen2 或 `adl://` 適用於 Azure Data Lake Storage Gen1。 如果已啟用 Azure 儲存體的安全傳輸，則 URI 會是`wasbs://`。 另請參閱[安全傳輸](../storage/common/storage-require-secure-transfer.md)。
 
 ## <a name="example-workflow"></a>範例工作流程
 
@@ -493,7 +493,7 @@ Oozie 工作流程定義是以 Hadoop 流程定義語言 (hPDL)，也就是 XML 
 
 Oozie Web UI 可讓您用網頁檢視叢集上 Oozie 作業的狀態。 透過 Web UI，您可以檢視下列資訊：
 
-   * 工作狀態
+   * 作業狀態
    * 工作定義
    * 組態
    * 工作中的動作圖表

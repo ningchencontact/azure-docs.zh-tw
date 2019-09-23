@@ -1,19 +1,19 @@
 ---
-title: 開啟 Azure HPC Cache 的支援票證
+title: 開啟 Azure HPC Cache 的支援票證（預覽）
 description: 如何開啟 Azure HPC 快取的說明要求
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: conceptual
 ms.date: 09/12/2019
 ms.author: v-erkell
-ms.openlocfilehash: d845195940fdba81562acf4c0cfe9069245bd34c
-ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
+ms.openlocfilehash: 29750ab19f74ef1ceab8c69792d12b9f9ca2a297
+ms.sourcegitcommit: a19bee057c57cd2c2cd23126ac862bd8f89f50f5
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71036901"
+ms.lasthandoff: 09/23/2019
+ms.locfileid: "71180882"
 ---
-# <a name="open-a-support-ticket-for-azure-hpc-cache"></a>開啟 Azure HPC Cache 的支援票證
+# <a name="open-a-support-ticket-for-azure-hpc-cache-preview"></a>開啟 Azure HPC Cache 的支援票證（預覽）
 
 使用 Azure 入口網站開啟支援票證。 流覽至您的快取實例，然後按一下出現在提要欄位底部的 [**新增支援要求**] 連結。
 

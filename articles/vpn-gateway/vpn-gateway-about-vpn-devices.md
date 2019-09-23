@@ -5,14 +5,14 @@ services: vpn-gateway
 author: yushwang
 ms.service: vpn-gateway
 ms.topic: article
-ms.date: 09/18/2019
+ms.date: 09/20/2019
 ms.author: yushwang
-ms.openlocfilehash: c7d7fcc16fe10c1d4cd4b0dfb6d60575b98212b1
-ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
+ms.openlocfilehash: 1d80c30e3573d76aabcf854b2d97ea849197577c
+ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71105594"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71173046"
 ---
 # <a name="about-vpn-devices-and-ipsecike-parameters-for-site-to-site-vpn-gateway-connections"></a>關於 VPN 裝置和站對站 VPN 閘道連線的 IPsec/IKE 參數
 
@@ -39,14 +39,14 @@ ms.locfileid: "71105594"
 | ---                | ---                  | ---                   | ---            | ---           |
 | A10 Networks, Inc. |Thunder CFW           |ACOS 4.1.1             |不相容  |[設定指南](https://www.a10networks.com/wp-content/uploads/A10-DG-16161-EN.pdf)|
 | Allied Telesis     |AR 系列 VPN 路由器 |AR 系列 5.4.7+               | [設定指南](https://www.alliedtelesis.com/documents/how-to/configure/site-to-site-vpn-between-azure-and-ar-series-router) |[設定指南](https://www.alliedtelesis.com/documents/how-to/configure/site-to-site-vpn-between-azure-and-ar-series-router)|
-| Barracuda Networks, Inc. |Barracuda NextGen Firewall F-series |原則式︰5.4.3<br>路由式：6.2.0 |[設定指南](https://techlib.barracuda.com/NGF/AzurePolicyBasedVPNGW) |[設定指南](https://techlib.barracuda.com/NGF/AzureRouteBasedVPNGW) |
-| Barracuda Networks, Inc. |Barracuda NextGen Firewall X-series |Barracuda Firewall 6.5 |[設定指南](https://techlib.barracuda.com/BFW/ConfigAzureVPNGateway) |不相容 |
+| Barracuda Networks, Inc. |Barracuda CloudGen 防火牆 |原則式︰5.4.3<br>路由式：6.2.0 |[設定指南](https://campus.barracuda.com/product/cloudgenfirewall/doc/79462887/how-to-configure-an-ikev1-ipsec-site-to-site-vpn-to-the-static-microsoft-azure-vpn-gateway/) |[設定指南](https://campus.barracuda.com/product/cloudgenfirewall/doc/79462889/how-to-configure-bgp-over-ikev2-ipsec-site-to-site-vpn-to-an-azure-vpn-gateway/) |
 | Check Point |Security Gateway |R80.10 |[設定指南](https://supportcenter.checkpoint.com/supportcenter/portal?eventSubmit_doGoviewsolutiondetails=&solutionid=sk101275) |[設定指南](https://supportcenter.checkpoint.com/supportcenter/portal?eventSubmit_doGoviewsolutiondetails=&solutionid=sk101275) |
 | Cisco              |ASA       |8.3<br>8.4+ (IKEv2\*) |支援 |[設定指南\*](https://www.cisco.com/c/en/us/support/docs/security/adaptive-security-appliance-asa-software/214109-configure-asa-ipsec-vti-connection-to-az.html) |
 | Cisco |ASR |原則式︰IOS 15.1<br>路由式：IOS 15.2 |支援 |支援 |
 | Cisco | CSR | 路由式：IOS-XE 16.10 | （未測試） | [組態指令碼](vpn-gateway-download-vpndevicescript.md) |
 | Cisco |ISR |原則式︰IOS 15.0<br>路由式*：IOS 15.1 |支援 |支援 |
 | Cisco |Meraki |N/A |不相容 |不相容 |
+| Cisco | vEdge （Viptela OS） | 18.4.0 （主動/被動模式）<br><br>19.2 （主動/主動模式） | 不相容 |  [手動設定（主動/被動）](https://community.cisco.com/t5/networking-documents/how-to-configure-ipsec-vpn-connection-between-cisco-vedge-and/ta-p/3841454)<br><br>[雲端通往設定（主動/主動）](https://www.cisco.com/c/en/us/td/docs/routers/sdwan/configuration/Network-Optimization-and-High-Availability/Network-Optimization-High-Availability-book/b_Network-Optimization-and-HA_chapter_00.html) |
 | Citrix |NetScaler MPX、SDX、VPX |10.1 和更新版本 |[設定指南](https://docs.citrix.com/en-us/netscaler/11-1/system/cloudbridge-connector-introduction/cloudbridge-connector-azure.html) |不相容 |
 | F5 |BIG-IP 系列 |12.0 |[設定指南](https://devcentral.f5.com/articles/connecting-to-windows-azure-with-the-big-ip) |[設定指南](https://devcentral.f5.com/articles/big-ip-to-azure-dynamic-ipsec-tunneling) |
 | Fortinet |FortiGate |FortiOS 5.6 | （未測試） |[設定指南](https://docs.fortinet.com/document/fortigate/5.6.0/cookbook/255100/ipsec-vpn-to-azure) |
@@ -67,7 +67,7 @@ ms.locfileid: "71105594"
 | Synology | MR2200ac <br>RT2600ac <br>RT1900ac | SRM1.1.5/VpnPlusServer-1.2.0 | （未測試） | [設定指南](https://www.synology.com/en-global/knowledgebase/SRM/tutorial/VPN/How_to_set_up_Site_to_Site_VPN_between_Synology_Router_and_MS_Azure) |
 | Ubiquiti | EdgeRouter | EdgeOS v1.10 | （未測試） | [透過 IKEv2/IPsec 的 BGP](https://help.ubnt.com/hc/en-us/articles/115012374708) \(英文\)<br><br>[透過 IKEv2/IPsec 的 VTI](https://help.ubnt.com/hc/en-us/articles/115012305347) \(英文\)
 | WatchGuard |全部 |Fireware XTM<br> 原則式：v11.11.x<br>路由式：v11.12.x |[設定指南](http://watchguardsupport.force.com/publicKB?type=KBArticle&SFDCID=kA2F00000000LI7KAM&lang=en_US) |[設定指南](http://watchguardsupport.force.com/publicKB?type=KBArticle&SFDCID=kA22A000000XZogSAG&lang=en_US)|
-| Zyxel |ZyWALL USG 系列<br>ZyWALL ATP 系列<br>ZyWALL VPN 系列 | ZLD v 4.32 + | （未測試） | [透過 IKEv2/IPsec 的 VTI](https://businessforum.zyxel.com/discussion/2648/) \(英文\)<br>[透過 IKEv2/IPsec 的 BGP](https://businessforum.zyxel.com/discussion/2650/) \(英文\)|
+| Zyxel |ZyWALL USG 系列<br>ZyWALL ATP 系列<br>ZyWALL VPN 系列 | ZLD v 4.32 + | （未測試） | [透過 IKEv2/IPsec 的 VTI](https://businessforum.zyxel.com/discussion/2648/) \(英文\)<br><br>[透過 IKEv2/IPsec 的 BGP](https://businessforum.zyxel.com/discussion/2650/) \(英文\)|
 
 > [!NOTE]
 >

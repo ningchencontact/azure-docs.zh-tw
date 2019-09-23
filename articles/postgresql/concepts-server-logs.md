@@ -54,7 +54,7 @@ ms.locfileid: "71091125"
 | ResourceGroup | 伺服器所屬資源群組的名稱 |
 | ResourceProvider | 資源提供者名稱。 一律為 `MICROSOFT.DBFORPOSTGRESQL` |
 | ResourceType | `Servers` |
-| resourceId | 資源 URI |
+| ResourceId | 資源 URI |
 | Resource | 伺服器的名稱 |
 | Category | `PostgreSQLLogs` |
 | OperationName | `LogEvent` |
@@ -67,7 +67,7 @@ ms.locfileid: "71091125"
 | DatatypeName | 資料類型的名稱 (如果適用) |
 | LogicalServerName | 伺服器的名稱 | 
 | _ResourceId | 資源 URI |
-| 前置詞 | 記錄行的前置詞 |
+| Prefix | 記錄行的前置詞 |
 
 
 

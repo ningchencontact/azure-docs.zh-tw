@@ -13,13 +13,13 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-multiple
 ms.topic: article
 ms.date: 03/31/2017
-ms.author: roiyz
-ms.openlocfilehash: e6e81732c0e25bc46d28172cdf085f6c3f457ca8
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.author: akjosh
+ms.openlocfilehash: 315cb5f22a3667db93c2421b924ac0d988e56164
+ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70084263"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71168860"
 ---
 # <a name="how-to-install-and-configure-symantec-endpoint-protection-on-a-windows-vm"></a>如何在 Windows VM 上安裝和設定 Symantec Endpoint Protection
 > [!IMPORTANT] 
@@ -27,7 +27,7 @@ ms.locfileid: "70084263"
 
 本文說明如何在執行 Windows Server 的現有虛擬機器 (VM) 上，安裝和設定 Symantec Endpoint Protection 用戶端。 此完整用戶端包括服務 (例如病毒和間諜軟體防護、防火牆及入侵防禦)。 透過使用 VM 代理程式，用戶端會安裝為安全性延伸模組。
 
-如果您已有 Symantec 的內部部署解決方案現有訂用帳戶，您可以用它來保護 Azure 虛擬機器的安全。 如果您還不是 Symantec 客戶，您可以註冊試用訂用帳戶。 如需此解決方案的詳細資訊, 請參閱[Microsoft Azure 平臺上的 Symantec Endpoint Protection][Symantec]。 如果您已經是 Symantec 客戶，此頁面還提供授權資訊的連結，以及安裝用戶端的指示。
+如果您已有 Symantec 的內部部署解決方案現有訂用帳戶，您可以用它來保護 Azure 虛擬機器的安全。 如果您還不是 Symantec 客戶，您可以註冊試用訂用帳戶。 如需此解決方案的詳細資訊，請參閱[Microsoft Azure 平臺上的 Symantec Endpoint Protection][Symantec]。 如果您已經是 Symantec 客戶，此頁面還提供授權資訊的連結，以及安裝用戶端的指示。
 
 ## <a name="install-symantec-endpoint-protection-on-an-existing-vm"></a>在現有 VM 上安裝 Symantec Endpoint Protection
 在開始之前，您需要下列項目：
@@ -47,7 +47,7 @@ $vm = Get-AzureVM -ServiceName $CSName -Name $VMName
 write-host $vm.VM.ProvisionGuestAgent
 ```
 
-如果 **write-host** 命令顯示 **True**，則會安裝 VM 代理程式。 如果顯示**False**, 請參閱 Azure Blog 文章[VM 代理程式和延伸模組-第2部分][Agent]中的指示和下載連結。
+如果 **write-host** 命令顯示 **True**，則會安裝 VM 代理程式。 如果顯示**False**，請參閱 Azure Blog 文章[VM 代理程式和延伸模組-第2部分][Agent]中的指示和下載連結。
 
 如果已安裝 VM 代理程式，請執行下列命令來安裝 Symantec Endpoint Protection 代理程式。
 

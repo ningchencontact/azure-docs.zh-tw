@@ -1,19 +1,19 @@
 ---
-title: 將資料移至 Azure HPC Cache 雲端容器
+title: 將資料移至 Azure HPC Cache （預覽）雲端容器
 description: 如何填入 Azure Blob 儲存體以搭配 Azure HPC 快取使用
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: conceptual
 ms.date: 09/18/2019
 ms.author: v-erkell
-ms.openlocfilehash: 0a71efdc0479a69aed8fecc22a6c89c506279d57
-ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
+ms.openlocfilehash: 103470861383ff411cfaa670d70412086045a418
+ms.sourcegitcommit: a19bee057c57cd2c2cd23126ac862bd8f89f50f5
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71105320"
+ms.lasthandoff: 09/23/2019
+ms.locfileid: "71180715"
 ---
-# <a name="move-data-to-azure-blob-storage-for-azure-hpc-cache"></a>將資料移至 azure HPC Cache 的 Azure Blob 儲存體
+# <a name="move-data-to-azure-blob-storage-for-azure-hpc-cache-preview"></a>將資料移至 azure HPC Cache 的 Azure Blob 儲存體（預覽）
 
 如果您的工作流程包含將資料移至 Azure Blob 儲存體，請確定您是使用有效率的策略，透過 Azure HPC 快取複製您的資料。
 
@@ -33,7 +33,7 @@ ms.locfileid: "71105320"
 
 您可以使用 <!--[Avere CLFSLoad](https://aka.ms/avere-clfsload)--> Avere CLFSLoad 公用程式，以將資料複製到新的 Blob 儲存體容器，然後再將它新增為儲存體目標。 此公用程式會在單一 Linux 系統上執行，並以 Azure HPC 快取所需的專屬格式寫入資料。 CLFSLoad 是填入 Blob 儲存體容器以供快取使用的最有效方式。
 
-Avere CLFSLoad 公用程式可透過 Azure HPC 快取小組的要求取得。 請洽詢您的小組連絡人，或開啟支援票證以要求協助。
+Avere CLFSLoad 公用程式可透過 Azure HPC 快取小組的要求取得。 請洽詢您的小組連絡人，或開啟[支援票證](hpc-cache-support-ticket.md)以要求協助。
 
 此選項只適用于新的空白容器。 在使用 Avere CLFSLoad 之前，請先建立容器。
 
@@ -60,7 +60,7 @@ Avere CLFSLoad 公用程式需要下列資訊：
 
 ![顯示多用戶端、多執行緒資料移動的圖表：左上方有一個內部部署硬體儲存體的圖示，其中有多個來自它的箭頭。 這些箭頭指向四部用戶端機器。 從每部用戶端電腦的三個箭號指向 Azure HPC 快取。 從 Azure HPC 快取中，多個箭號指向 Blob 儲存體。](media/hpc-cache-parallel-ingest.png) 
 
-您``cp``通常``copy``用來將資料從某個儲存系統傳輸到另一個儲存體系統的或命令，是一次只複製一個檔案的單一執行緒進程。 這意謂著檔案伺服器一次只會擷取一個檔案 - 這相當浪費叢集資源。
+您``cp``通常``copy``用來將資料從某個儲存系統傳輸到另一個儲存體系統的或命令，是一次只複製一個檔案的單一執行緒進程。 這表示檔案伺服器一次只會內嵌一個檔案，也就是浪費快取的資源。
 
 本節說明使用 Azure HPC 快取來建立多用戶端、多執行緒檔案複製系統以將資料移至 Blob 儲存體的策略。 它說明檔案傳輸概念和決策點，這些可用來以多個用戶端和簡單的複製命令進行有效率的資料複製。
 

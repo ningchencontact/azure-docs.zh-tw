@@ -12,13 +12,13 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 01/09/2019
-ms.author: roiyz
-ms.openlocfilehash: c44722403967f3563472692f97cb2a114e6294cd
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.author: akjosh
+ms.openlocfilehash: 4526456b608f0920c73ae28446a822661995acab
+ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70084468"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71173998"
 ---
 # <a name="nvidia-gpu-driver-extension-for-windows"></a>適用於 Windows 的 NVIDIA GPU 驅動程式擴充功能
 
@@ -26,7 +26,7 @@ ms.locfileid: "70084468"
 
 此擴充功能可在 Windows N 系列虛擬機器上安裝 NVIDIA GPU 驅動程式。 視虛擬機器系列而定，擴充功能會安裝 CUDA 或 GRID 驅動程式。 若您使用此擴充功能安裝 NVIDIA 驅動程式，即表示您接受並同意 [NVIDIA End-User License Agreement](https://go.microsoft.com/fwlink/?linkid=874330) (NVIDIA 使用者授權合約) 的條款。 在安裝過程中，VM 可能會重新開機以便完成驅動程式設定。
 
-如需手動安裝驅動程式和目前支援版本的指示, 請參閱[這裡](https://docs.microsoft.com/azure/virtual-machines/windows/n-series-driver-setup)。
+如需手動安裝驅動程式和目前支援版本的指示，請參閱[這裡](https://docs.microsoft.com/azure/virtual-machines/windows/n-series-driver-setup)。
 在 [Linux N 系列 VM](hpccompute-gpu-linux.md) 上也有擴充功能可用來安裝 NVIDIA GPU 驅動程式。
 
 ## <a name="prerequisites"></a>必要條件
@@ -75,7 +75,7 @@ ms.locfileid: "70084468"
 | ---- | ---- | ---- |
 | apiVersion | 2015-06-15 | date |
 | publisher | Microsoft.HpcCompute | string |
-| Type | NvidiaGpuDriverWindows | string |
+| 型別 | NvidiaGpuDriverWindows | string |
 | typeHandlerVersion | 1.2 | int |
 
 

@@ -1,5 +1,5 @@
 ---
-title: 以程式設計方式建立原則並檢視合規性資料
+title: 以程式設計方式建立原則
 description: 本文會逐步引導您以程式設計方式建立及管理 Azure 原則的原則。
 author: DCtheGeek
 ms.author: dacoulte
@@ -7,14 +7,14 @@ ms.date: 01/31/2019
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
-ms.openlocfilehash: 1039073aaaf9d1a6b7bd9ac21a95c73871ce3ba3
-ms.sourcegitcommit: 6794fb51b58d2a7eb6475c9456d55eb1267f8d40
+ms.openlocfilehash: 695e04dcbc7762c85dd0dd9aaff6e5fd9fe99348
+ms.sourcegitcommit: 116bc6a75e501b7bba85e750b336f2af4ad29f5a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70239031"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71155567"
 ---
-# <a name="programmatically-create-policies-and-view-compliance-data"></a>以程式設計方式建立原則並檢視合規性資料
+# <a name="programmatically-create-policies"></a>以程式設計方式建立原則
 
 本文會逐步引導您以程式設計方式建立及管理原則。 Azure 原則定義會對您的資源強制執行不同的規則和效果。 強制作業可確保資源會符合您的公司標準及服務等級協定規範。
 
@@ -28,7 +28,7 @@ ms.locfileid: "70239031"
 
 1. 將您的 Azure PowerShell 模組更新為最新版本。 如需詳細資訊，請參閱[安裝 Azure PowerShell 模組](/powershell/azure/install-az-ps)。 如需最新版本的詳細資訊，請參閱 [Azure PowerShell](https://github.com/Azure/azure-powershell/releases)。
 
-1. 使用 Azure PowerShell 註冊 Azure 原則 Insights 資源提供者, 以驗證您的訂用帳戶可搭配資源提供者使用。 若要註冊資源提供者，您必須有權執行資源提供者的註冊動作作業。 這項作業包含在「參與者」和「擁有者」角色中。 執行下列命令以註冊資源提供者：
+1. 使用 Azure PowerShell 註冊 Azure 原則 Insights 資源提供者，以驗證您的訂用帳戶可搭配資源提供者使用。 若要註冊資源提供者，您必須有權執行資源提供者的註冊動作作業。 這項作業包含在「參與者」和「擁有者」角色中。 執行下列命令以註冊資源提供者：
 
    ```azurepowershell-interactive
    Register-AzResourceProvider -ProviderNamespace 'Microsoft.PolicyInsights'
@@ -145,7 +145,7 @@ ms.locfileid: "70239031"
 
    使用您訂用帳戶的 ID 來取代上述 {subscriptionId}，或使用[管理群組](../../management-groups/overview.md)的 ID 來取代 {managementGroupId}。
 
-   如需查詢結構的詳細資訊, 請參閱[Azure 原則定義–建立或更新](/rest/api/resources/policydefinitions/createorupdate)和[原則定義–在管理群組中建立或更新](/rest/api/resources/policydefinitions/createorupdateatmanagementgroup)
+   如需查詢結構的詳細資訊，請參閱[Azure 原則定義–建立或更新](/rest/api/resources/policydefinitions/createorupdate)和[原則定義–在管理群組中建立或更新](/rest/api/resources/policydefinitions/createorupdateatmanagementgroup)
 
 使用下列程序來建立原則指派，並在資源群組層級指派原則定義。
 
@@ -227,7 +227,7 @@ ms.locfileid: "70239031"
    - 訂用帳戶 - `/subscriptions/{subID}`
    - 管理群組 - `/providers/Microsoft.Management/managementGroups/{mgName}`
 
-您可以使用 PowerShell 搭配下列命令來取得 Azure 原則定義識別碼:
+您可以使用 PowerShell 搭配下列命令來取得 Azure 原則定義識別碼：
 
 ```azurecli-interactive
 az policy definition show --name 'Audit Storage Accounts with Open Public Networks'

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 7/9/2019
 ms.author: b-juche
-ms.openlocfilehash: 06733103980086fad0975514ae3489c3652e428a
-ms.sourcegitcommit: fa45c2bcd1b32bc8dd54a5dc8bc206d2fe23d5fb
+ms.openlocfilehash: 45164acd89fc9634d6929bafb35e64a5dc9f2b86
+ms.sourcegitcommit: 83df2aed7cafb493b36d93b1699d24f36c1daa45
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67846733"
+ms.lasthandoff: 09/22/2019
+ms.locfileid: "71178231"
 ---
 # <a name="create-an-nfs-volume-for-azure-netapp-files"></a>建立適用於 Azure NetApp Files 的 NFS 磁碟區
 
@@ -37,14 +37,16 @@ Azure NetApp Files 支援 NFS 和 SMBv3 磁片區。 磁碟區的容量耗用量
 
     ![流覽至磁片區](../media/azure-netapp-files/azure-netapp-files-navigate-to-volumes.png)
 
-2.  按一下 [+ 新增磁碟區]  以建立磁碟區。  
+2.  按一下 [+ 新增磁碟區] 以建立磁碟區。  
     [建立磁片區] 視窗隨即出現。
 
 3.  在 [建立磁片區] 視窗中, 按一下 [**建立**], 並提供下欄欄位的資訊:   
     * **磁片區名稱**      
         為您要建立的磁碟區指定名稱。   
 
-        在每個容量集區中, 磁片區名稱都必須是唯一的。 長度至少必須有三個字元。 您可以使用任何英數位元。
+        在每個容量集區中, 磁片區名稱都必須是唯一的。 長度至少必須有三個字元。 您可以使用任何英數位元。   
+
+        您不能`default`使用做為磁片區名稱。
 
     * **容量集區**  
         指定您想要在其中建立磁片區的容量集區。
@@ -52,7 +54,7 @@ Azure NetApp Files 支援 NFS 和 SMBv3 磁片區。 磁碟區的容量耗用量
     * **配額**  
         指定配置給磁碟區的邏輯儲存體大小。  
 
-        [可用配額]  欄位會顯示所選容量集區中可用來建立新磁碟區的未使用空間量。 新磁碟區的大小不可超過可用配額。  
+        [可用配額] 欄位會顯示所選容量集區中可用來建立新磁碟區的未使用空間量。 新磁碟區的大小不可超過可用配額。  
 
     * **虛擬網路**  
         指定您要從中存取磁碟區的 Azure 虛擬網路 (Vnet)。  
@@ -63,13 +65,13 @@ Azure NetApp Files 支援 NFS 和 SMBv3 磁片區。 磁碟區的容量耗用量
         指定要用於磁碟區的子網路。  
         您指定的子網路必須委派給 Azure NetApp Files。 
         
-        如果您尚未委派子網路，您可以按一下 [建立磁碟區] 頁面上的 [新建]  。 在 [建立子網路] 頁面上指定子網路資訊，然後選取 [Microsoft.NetApp/volumes]  以委派 Azure NetApp Files 的子網路。 在每個 Vnet 中, 只有一個子網可委派給 Azure NetApp Files。   
+        如果您尚未委派子網路，您可以按一下 [建立磁碟區] 頁面上的 [新建]。 在 [建立子網路] 頁面上指定子網路資訊，然後選取 [Microsoft.NetApp/volumes] 以委派 Azure NetApp Files 的子網路。 在每個 Vnet 中, 只有一個子網可委派給 Azure NetApp Files。   
  
-        ![建立磁片區](../media/azure-netapp-files/azure-netapp-files-new-volume.png)
+        ![建立磁碟區](../media/azure-netapp-files/azure-netapp-files-new-volume.png)
     
         ![建立子網路](../media/azure-netapp-files/azure-netapp-files-create-subnet.png)
 
-4. 按一下 [通訊協定]  ，然後選取 **NFS** 作為磁碟區的通訊協定類型。   
+4. 按一下 [通訊協定]，然後選取 **NFS** 作為磁碟區的通訊協定類型。   
     * 指定將用來建立新磁片區匯出路徑的檔案**路徑**。 匯出路徑會用來掛接和存取磁碟區。
 
         檔案路徑名稱只能包含字母、數字和連字號 ("-")。 長度必須介於 16 到 40 個字元之間。 

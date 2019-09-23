@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/25/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: da9ab6eef98a602635e5e92dca3bd5628846ce62
-ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
+ms.openlocfilehash: 3140aff93c9afcf9a911fe1f381859ff93efef14
+ms.sourcegitcommit: 83df2aed7cafb493b36d93b1699d24f36c1daa45
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71036340"
+ms.lasthandoff: 09/22/2019
+ms.locfileid: "71178365"
 ---
 # <a name="planning-for-an-azure-files-deployment"></a>規劃 Azure 檔案服務部署
 
@@ -215,6 +215,7 @@ GRS 會將您的資料複寫到次要區域中的另一個資料中心，但如�
 |East US        |LRS     |否    |尚未提供|
 |法國中部 |LRS、ZRS|否    |LRS-是，ZRS-尚未|
 |法國南部   |LRS     |否    |是|
+|北歐   |LRS     |否    |是|
 |印度南部    |LRS     |否    |尚未提供|
 |東南亞 |LRS、ZRS|否    |是|
 |美國中西部|LRS     |否    |尚未提供|

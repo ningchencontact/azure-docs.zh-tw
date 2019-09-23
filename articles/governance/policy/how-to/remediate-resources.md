@@ -1,36 +1,36 @@
 ---
 title: 補救不相容的資源
-description: 此操作說明將逐步引導您補救不符合「Azure 原則」中原則規範的資源。
+description: 本指南會逐步引導您在 Azure 原則中，修復不符合原則的資源。
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 01/23/2019
+ms.date: 09/09/2019
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
-ms.openlocfilehash: 40658412f19c444cfa06f5663f567a78453c7e9a
-ms.sourcegitcommit: 6794fb51b58d2a7eb6475c9456d55eb1267f8d40
+ms.openlocfilehash: d6ca7827200815cf9b9b1c7ac697d06f9c6b306d
+ms.sourcegitcommit: b03516d245c90bca8ffac59eb1db522a098fb5e4
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70241146"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71147058"
 ---
 # <a name="remediate-non-compliant-resources-with-azure-policy"></a>補救不符合 Azure 原則規範的資源
 
-您可以透過「補救」讓不符合 **deployIfNotExists** 原則規範的資源變成符合規範狀態。 藉由指示 Azure 原則在現有資源上執行指派之原則的**deployIfNotExists**效果, 即可完成補救。 本文說明使用 Azure 原則來瞭解及完成補救所需的步驟。
+不符合**deployIfNotExists**或**修改**原則的資源可以透過**補救**進入符合規範的狀態。 藉由指示 Azure 原則在現有資源上執行所指派原則的**deployIfNotExists**效果或標記**作業**，即可完成補救。 本文說明使用 Azure 原則來瞭解及完成補救所需的步驟。
 
 ## <a name="how-remediation-security-works"></a>補救安全性的運作方式
 
-當 Azure 原則在**deployIfNotExists**原則定義中執行範本時, 會使用[受控識別](../../../active-directory/managed-identities-azure-resources/overview.md)來執行此動作。
-Azure 原則會為每個指派建立受控識別, 但必須具有要授與受控識別之角色的詳細資料。 如果受控識別缺少角色，在指派原則或方案時，就會顯示此錯誤。 使用入口網站時, Azure 原則會在啟動指派之後, 自動授與受管理的身分識別所列出的角色。
+當 Azure 原則在**deployIfNotExists**原則定義中執行範本時，會使用[受控識別](../../../active-directory/managed-identities-azure-resources/overview.md)來執行此動作。
+Azure 原則會為每個指派建立受控識別，但必須具有要授與受控識別之角色的詳細資料。 如果受控識別缺少角色，在指派原則或方案時，就會顯示此錯誤。 使用入口網站時，Azure 原則會在啟動指派之後，自動授與受管理的身分識別所列出的角色。
 
 ![受控識別 - 遺漏角色](../media/remediate-resources/missing-role.png)
 
 > [!IMPORTANT]
-> 如果 **deployIfNotExists** 所修改的資源在原則指派的範圍外，或範本會存取在原則指派範圍外之資源的屬性，您就必須對該指派項目的受控識別[手動授與存取權](#manually-configure-the-managed-identity)，否則補救部署將會失敗。
+> 如果由**deployIfNotExists**或**modify**修改的資源超出原則指派的範圍，或範本在原則指派範圍以外的資源上存取屬性，則指派的受控識別必須是[手動授與存取權](#manually-configure-the-managed-identity)，或補救部署將會失敗。
 
 ## <a name="configure-policy-definition"></a>設定原則定義
 
-第一步是在原則定義中定義 **deployIfNotExists** 成功部署所含範本內容所需的角色。 請在 **details** 屬性底下，新增 **roleDefinitionIds** 屬性。 此屬性是一個與您環境中角色相符的字串陣列。 如需完整範例，請參閱 [deployIfNotExists 範例](../concepts/effects.md#deployifnotexists-example)。
+第一個步驟是在原則定義中定義**deployIfNotExists**和**修改**需求的角色，以成功部署您所包含範本的內容。 請在 **details** 屬性底下，新增 **roleDefinitionIds** 屬性。 此屬性是一個與您環境中角色相符的字串陣列。 如需完整範例，請參閱[deployIfNotExists 範例](../concepts/effects.md#deployifnotexists-example)或[修改範例](../concepts/effects.md#modify-examples)。
 
 ```json
 "details": {
@@ -42,7 +42,7 @@ Azure 原則會為每個指派建立受控識別, 但必須具有要授與受控
 }
 ```
 
-**roleDefinitionIds** 會使用完整資源識別碼，而不會採用角色的簡短 **roleName**。 若要取得您環境中 'Contributor' 角色的識別碼，請使用下列程式碼：
+**RoleDefinitionIds**屬性會使用完整的資源識別碼，而不會採用角色**的簡短用途**。 若要取得您環境中 'Contributor' 角色的識別碼，請使用下列程式碼：
 
 ```azurecli-interactive
 az role definition list --name 'Contributor'
@@ -50,7 +50,7 @@ az role definition list --name 'Contributor'
 
 ## <a name="manually-configure-the-managed-identity"></a>手動設定受控識別
 
-使用入口網站建立指派時, Azure 原則都會產生受控識別, 並將**roleDefinitionIds**中定義的角色授與它。 在下列情況下，必須手動執行建立受控識別並為它指派權限的步驟：
+使用入口網站建立指派時，Azure 原則都會產生受控識別，並將**roleDefinitionIds**中定義的角色授與它。 在下列情況下，必須手動執行建立受控識別並為它指派權限的步驟：
 
 - 使用 SDK (例如 Azure PowerShell) 時
 - 當範本修改指派範圍外的資源時
@@ -126,7 +126,7 @@ if ($roleDefinitionIds.Count -gt 0)
 
 ### <a name="create-a-remediation-task-through-portal"></a>透過入口網站建立補救工作
 
-在評估期間，具有 **deployIfNotExists** 效果的原則指派會判斷是否有不符合規範的資源。 當找到不符合規範的資源時，會在 [補救] 頁面上提供詳細資料。 具有不符合規範之資源的原則清單會隨附一個可觸發**補救工作**的選項。 此選項會從 **deployIfNotExists** 範本建立部署。
+在評估期間，具有**deployIfNotExists**或**modify**效果的原則指派會決定是否有不符合規範的資源。 當找到不符合規範的資源時，會在 [補救] 頁面上提供詳細資料。 具有不符合規範之資源的原則清單會隨附一個可觸發**補救工作**的選項。 此選項會從**deployIfNotExists**範本或**修改**作業建立部署。
 
 若要建立**補救工作**，請依照下列步驟進行操作：
 
@@ -138,7 +138,7 @@ if ($roleDefinitionIds.Count -gt 0)
 
    ![在 [原則] 頁面上選取 [補救]](../media/remediate-resources/select-remediation.png)
 
-1. [用以補救的原則] 索引標籤和資料表格上會包含所有具有不符合規範之資源的 **deployIfNotExists** 原則指派。 按一下具有不符合規範之資源的原則。 [新的補救工作] 頁面隨即開啟。
+1. 具有不符合規範之資源的所有**deployIfNotExists**和**修改**原則指派都會包含在 [**要補救的原則**] 索引標籤和資料表中。 按一下具有不符合規範之資源的原則。 [新的補救工作] 頁面隨即開啟。
 
    > [!NOTE]
    > 有一個開啟 [補救工作] 頁面的替代方式，就是從 [合規性] 頁面尋找並按一下原則，然後按一下 [建立補救工作] 按鈕。
@@ -161,7 +161,7 @@ if ($roleDefinitionIds.Count -gt 0)
 
 ### <a name="create-a-remediation-task-through-azure-cli"></a>透過 Azure CLI 建立補救工作
 
-若要建立具有 Azure CLI 的**補救**工作, 請`az policy remediation`使用命令。 請`{subscriptionId}`以您的訂用`{myAssignmentId}`帳戶識別碼取代, 並以您的**deployIfNotExists**原則指派識別碼取代。
+若要建立具有 Azure CLI 的**補救**工作，請`az policy remediation`使用命令。 請`{subscriptionId}`以您的訂用`{myAssignmentId}`帳戶 ID 取代，並以您的**deployIfNotExists**或**修改**原則指派識別碼取代。
 
 ```azurecli-interactive
 # Login first with az login if not using Cloud Shell
@@ -170,11 +170,11 @@ if ($roleDefinitionIds.Count -gt 0)
 az policy remediation create --name myRemediation --policy-assignment '/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/policyAssignments/{myAssignmentId}'
 ```
 
-如需其他修復命令和範例, 請參閱[az policy 補救](/cli/azure/policy/remediation)命令。
+如需其他修復命令和範例，請參閱[az policy 補救](/cli/azure/policy/remediation)命令。
 
 ### <a name="create-a-remediation-task-through-azure-powershell"></a>透過 Azure PowerShell 建立補救工作
 
-若要建立具有 Azure PowerShell 的**補救**工作, 請`Start-AzPolicyRemediation`使用命令。 請`{subscriptionId}`以您的訂用`{myAssignmentId}`帳戶識別碼取代, 並以您的**deployIfNotExists**原則指派識別碼取代。
+若要建立具有 Azure PowerShell 的**補救**工作，請`Start-AzPolicyRemediation`使用命令。 請`{subscriptionId}`以您的訂用`{myAssignmentId}`帳戶 ID 取代，並以您的**deployIfNotExists**或**修改**原則指派識別碼取代。
 
 ```azurepowershell-interactive
 # Login first with Connect-AzAccount if not using Cloud Shell
@@ -183,7 +183,7 @@ az policy remediation create --name myRemediation --policy-assignment '/subscrip
 Start-AzPolicyRemediation -Name 'myRemedation' -PolicyAssignmentId '/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/policyAssignments/{myAssignmentId}'
 ```
 
-如需其他補救 Cmdlet 和範例, 請參閱[microsoft.policyinsights](/powershell/module/az.policyinsights/#policy_insights)模組。
+如需其他補救 Cmdlet 和範例，請參閱[microsoft.policyinsights](/powershell/module/az.policyinsights/#policy_insights)模組。
 
 ## <a name="next-steps"></a>後續步驟
 

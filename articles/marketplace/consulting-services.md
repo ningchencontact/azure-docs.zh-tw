@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.topic: article
 ms.date: 10/29/2018
 ms.author: pabutler
-ms.openlocfilehash: 4986f888abca94549e921bfe5400d68f6d28c01f
-ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
+ms.openlocfilehash: bc2be73f85ebec7785b9aa06d6152447eee7e33e
+ms.sourcegitcommit: b03516d245c90bca8ffac59eb1db522a098fb5e4
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "67876684"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71147297"
 ---
 # <a name="consulting-services-for-azure-marketplace-and-appsource"></a>Azure Marketplace 和 AppSource 的諮詢服務
 Azure Marketplace 和 AppSource 中的諮詢服務會為 Microsoft 合作夥伴提供一個目標，希望以服務連結客戶，支援並擴大客戶對 Azure 的使用和商務目標。 
@@ -24,15 +24,17 @@ Azure Marketplace 和 AppSource 支援列出 Microsoft 系統整合者 (SI) 合�
 ## <a name="consulting-services-in-azure-marketplace-vs-appsource-storefront"></a>Azure Marketplace 和 AppSource Storefront 的諮詢服務
 市集店面是專為目標對象與 Microsoft 雲端產品提供，協助客戶找到所需。 每個店面都提供專屬的發行選項，有助於讓發行投資發揮最大效用。 下表摘要說明這些選項：
 
-|         |Azure Marketplace  |AppSource |
+|         |Azure Marketplace  |Microsoft AppSource |
 |---------|---------|---------|
 |**目標對象**   |**IT 專業人員與雲端開發人員**|**商務使用者/企業營運決策者**|
 |方案相關性     |適用於 Azure 或在 Azure 上建立的技術應用程式|運用/擴充 D365、Power BI、O365、Azure 的商務應用程式。 (已完成增益集或附加元件的應用程式)|
-|發行選項     |與我聯絡、試用版、交易或諮詢服務|與我聯絡、試用版或諮詢服務|
+|發行選項     |Azure 的連絡人、試用版、交易或服務|為 Dynamics 365 和 Power BI 聯絡 Me、試用版或服務|
 |產品經驗      |Azure 管理入口網站|Dynamics 365、Office 365、Office 用戶端應用程式| 
-|其他      |透過 Azure Stack 進行內部部署發佈|Dynamics 和 Power BI 的諮詢服務|
+|其他      |透過 Azure Stack 的內部部署發行、適用于 Azure 的諮詢服務、適用于 azure 的受控服務|Dynamics 和 Power BI 的諮詢服務|
 
-以 Microsoft Dynamics 365、Office 365 和 Power BI 為基礎的服務供應項目有資格列入 AppSource。 如需詳細資訊，請參閱 [Microsoft AppSource 諮詢服務清單指導方針](https://smp-cdn-prod.azureedge.net/documents/Microsoft%20AppSource%20Partner%20Listing%20Guidelines.pdf)。 
+以 Microsoft Dynamics 365 和 Power BI 為基礎的諮詢服務供應專案有資格在 Microsoft AppSource 上列出。 如需詳細資訊，請參閱 [Microsoft AppSource 諮詢服務清單指導方針](https://smp-cdn-prod.azureedge.net/documents/Microsoft%20AppSource%20Partner%20Listing%20Guidelines.pdf)。 
+
+以 Microsoft Azure 為基礎的諮詢服務和受控服務供應專案，都有資格在 Azure Marketplace 上列出。 如需詳細資訊，請參閱[發佈 Azure 諮詢服務](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/consulting-services/cloud-partner-portal-consulting-services-publishing-offer)和[發行受管理的服務供應](https://docs.microsoft.com/azure/lighthouse/how-to/publish-managed-services-offers)專案的相關文章以 Azure Marketplace。
 
 > [!Note]
 > Azure Marketplace 的諮詢服務應該利用**技術受眾導向的供應項目，著重於 *Azure 技術解決方案和服務*。 ** AppSource 中的諮詢服務應利用其專業面向的供應項目，針對要在 AppSource 上列出諮詢服務供應項目的 Dynamics 365、Power BI 或 PowerApps 提供高品質的解決方案
@@ -128,7 +130,7 @@ Azure Marketplace 和 AppSource 支援列出 Microsoft 系統整合者 (SI) 合�
 * **概念證明**：可以判斷解決方案是否符合客戶需求的有限範圍實作。 
 * **研討會**：在客戶場地進行的互動式交流。 它可以包含以客戶資料或環境為基礎的訓練、簡報、評量或示範。 
 
-**注意：** 除了「簡報」  服務類型以外，其他諮詢服務皆可透過親赴現場 (亦即在客戶的場地或合作夥伴的設備舉辦) 或虛擬方式 (亦即透過電話會議、網路會議、遠端實作舉辦) 提供。 簡報必須親赴現場提供。
+**注意：** 除了「簡報」服務類型以外，其他諮詢服務皆可透過親赴現場 (亦即在客戶的場地或合作夥伴的設備舉辦) 或虛擬方式 (亦即透過電話會議、網路會議、遠端實作舉辦) 提供。 簡報必須親赴現場提供。
 
 一旦您已設定以上所列的必要元素，內容檢閱小組將會針對您的目標對象，驗證供應項目描述是否具有足夠資訊且完整。 
 
@@ -136,7 +138,7 @@ Azure Marketplace 和 AppSource 支援列出 Microsoft 系統整合者 (SI) 合�
 
 標題欄位具有 50 個字元的限制，而且必須傳達供應項目的持續時間和服務類型，以將搜尋引擎最佳化發揮到極致。 必要格式如下：名稱：持續時間類型
 
-範例：
+例如：
 
 
 |範例標題  |正確格式  |

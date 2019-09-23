@@ -15,12 +15,12 @@ ms.author: curtand
 ms.reviewer: elkuzmen
 ms.custom: it-pro;seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c05e1dc720f49eb190ccdbe1826a1a347fba7fa1
-ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
+ms.openlocfilehash: 00753ee8d7d128222e9fb773f00a23720813a237
+ms.sourcegitcommit: b03516d245c90bca8ffac59eb1db522a098fb5e4
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70914767"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71146452"
 ---
 # <a name="take-over-an-unmanaged-directory-as-administrator-in-azure-active-directory"></a>如何以系統管理員身分接管 Azure Active Directory 中非受控目錄
 
@@ -88,14 +88,11 @@ ms.locfileid: "70914767"
 ### <a name="support-for-external-admin-takeover"></a>對外部管理員接管的支援
 以下是支援外部管理員接管的線上服務：
 
-- Power BI
 - Azure Rights Management
 - Exchange Online
 
 支援的服務方案包括：
 
-- Power BI Free
-- Power BI Pro
 - PowerApps Free
 - PowerFlow Free
 - 個人版 RMS
@@ -113,10 +110,6 @@ ms.locfileid: "70914767"
 當非受控租用戶位於不同的區域時，金鑰和範本並不會移動。 例如，如果非受控租使用者位於歐洲，而您擁有的組織在北美洲中。
 
 雖然個人版 RMS 是針對支援 Azure AD 驗證來開啟受保護內容所設計，但它並不會阻止使用者同時保護內容。 如果使用者使用個人版 RMS 訂用帳戶來保護內容，且金鑰和範本不會移動，則該內容在網域接管之後就無法存取。
-
-#### <a name="more-information-about-power-bi"></a>Power BI 的詳細資訊
-
-當您執行外部接管時，接管前所建立的 Power BI 內容會置於 [Power BI 封存工作區](/power-bi/service-admin-power-bi-archived-workspace)中。 您必須手動遷移您要使用於新租用戶中的任何內容。
 
 ### <a name="azure-ad-powershell-cmdlets-for-the-forcetakeover-option"></a>Azure AD 的 ForceTakeover 選項 PowerShell Cmdlet
 您可以在 [PowerShell 範例](#powershell-example)中看到使用這些 Cmdlet。

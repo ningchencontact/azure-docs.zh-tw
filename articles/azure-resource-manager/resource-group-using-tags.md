@@ -6,12 +6,12 @@ ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 07/17/2019
 ms.author: tomfitz
-ms.openlocfilehash: e18fc040249954ce7ea6a8a686e121a4b56fb54a
-ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
+ms.openlocfilehash: 9bcbfe1bdb501cac6ff31156db5382d1174eb8ad
+ms.sourcegitcommit: b03516d245c90bca8ffac59eb1db522a098fb5e4
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68312127"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71146826"
 ---
 # <a name="use-tags-to-organize-your-azure-resources"></a>使用標記來組織 Azure 資源
 
@@ -23,7 +23,7 @@ ms.locfileid: "68312127"
 
 ## <a name="policies"></a>policies
 
-您可以使用 [Azure 原則](../governance/policy/overview.md)來強制標記規則和慣例。 建立原則，就可以避免將資源部署到不符合貴組織預期標記的訂用帳戶。 您可以建立一個原則，以便在部署期間自動套用所需的標記，而不需手動套用標記或搜尋不符合規範的資源。 下列區段會顯示標籤的範例原則。
+您可以使用 [Azure 原則](../governance/policy/overview.md)來強制標記規則和慣例。 建立原則，就可以避免將資源部署到不符合貴組織預期標記的訂用帳戶。 您可以建立一個原則，以便在部署期間自動套用所需的標記，而不需手動套用標記或搜尋不符合規範的資源。 標籤現在也可以套用至具有新[修改](../governance/policy/concepts/effects.md#modify)效果和[補救](../governance/policy/how-to/remediate-resources.md)工作的現有資源。 下列區段會顯示標籤的範例原則。
 
 [!INCLUDE [Tag policies](../../includes/azure-policy-samples-general-tags.md)]
 
@@ -46,31 +46,31 @@ Dept                           IT
 Environment                    Test
 ```
 
-若要查看「具有指定之資源識別碼的資源」  的現有標記，請使用：
+若要查看「具有指定之資源識別碼的資源」的現有標記，請使用：
 
 ```azurepowershell-interactive
 (Get-AzResource -ResourceId /subscriptions/<subscription-id>/resourceGroups/<rg-name>/providers/Microsoft.Storage/storageAccounts/<storage-name>).Tags
 ```
 
-或者，若要查看「具有指定之名稱和資源群組的資源」  的現有標記，請使用：
+或者，若要查看「具有指定之名稱和資源群組的資源」的現有標記，請使用：
 
 ```azurepowershell-interactive
 (Get-AzResource -ResourceName examplevnet -ResourceGroupName examplegroup).Tags
 ```
 
-若要取得「具有特定標記的資源群組」  ，請使用：
+若要取得「具有特定標記的資源群組」，請使用：
 
 ```azurepowershell-interactive
 (Get-AzResourceGroup -Tag @{ Dept="Finance" }).ResourceGroupName
 ```
 
-若要取得「具有特定標記的資源」  ，請使用：
+若要取得「具有特定標記的資源」，請使用：
 
 ```azurepowershell-interactive
 (Get-AzResource -Tag @{ Dept="Finance"}).Name
 ```
 
-若要取得「具有特定標記名稱的資源」  ，請使用：
+若要取得「具有特定標記名稱的資源」，請使用：
 
 ```azurepowershell-interactive
 (Get-AzResource -TagName Dept).Name
@@ -84,7 +84,7 @@ Environment                    Test
 Set-AzResourceGroup -Name examplegroup -Tag @{ Dept="IT"; Environment="Test" }
 ```
 
-若要將標記新增至「具有現有標記的資源群組」  ，請擷取現有標記、新增標記，然後重新套用標記：
+若要將標記新增至「具有現有標記的資源群組」，請擷取現有標記、新增標記，然後重新套用標記：
 
 ```azurepowershell-interactive
 $tags = (Get-AzResourceGroup -Name examplegroup).Tags
@@ -99,7 +99,7 @@ $r = Get-AzResource -ResourceName examplevnet -ResourceGroupName examplegroup
 Set-AzResource -Tag @{ Dept="IT"; Environment="Test" } -ResourceId $r.ResourceId -Force
 ```
 
-若要將標記新增至「沒有現有標記的資源」  ，請使用：
+若要將標記新增至「沒有現有標記的資源」，請使用：
 
 ```azurepowershell-interactive
 $r = Get-AzResource -ResourceName examplevnet -ResourceGroupName examplegroup
@@ -168,13 +168,13 @@ az group show -n examplegroup --query tags
 }
 ```
 
-或者，若要查看「具有指定之名稱、類型和資源群組的資源」  的現有標籤，請使用：
+或者，若要查看「具有指定之名稱、類型和資源群組的資源」的現有標籤，請使用：
 
 ```azurecli
 az resource show -n examplevnet -g examplegroup --resource-type "Microsoft.Network/virtualNetworks" --query tags
 ```
 
-對資源的集合執行迴圈時，您可能想要依據資源識別碼顯示資源。 本文稍後會示範完整範例。 若要查看「具有指定之資源識別碼的資源」  的現有標記，請使用：
+對資源的集合執行迴圈時，您可能想要依據資源識別碼顯示資源。 本文稍後會示範完整範例。 若要查看「具有指定之資源識別碼的資源」的現有標記，請使用：
 
 ```azurecli
 az resource show --id <resource-id> --query tags
@@ -405,7 +405,7 @@ Azure 入口網站和 PowerShell 在幕後都使用 [Resource Manager REST API](
 
 您可以使用標籤將您的計費資料分組。 例如，如果您針對不同組織執行多個 VM，請使用標籤依成本中心將使用量分組。 您也可以使用標籤來根據執行階段環境將成本分類。例如，在生產環境中執行之 VM 的計費使用量。
 
-您可以透過 [Azure 資源使用狀況和 RateCard API](../billing/billing-usage-rate-card-overview.md) 或使用狀況逗號分隔值 (CSV) 檔案，擷取關於標記的資訊。 您可以從 [Azure 帳戶中心](https://account.azure.com/Subscriptions)或 Azure 入口網站下載使用量檔案。 如需詳細資訊，請參閱[下載或檢視您的 Azure 帳單發票和每日使用量資料](../billing/billing-download-azure-invoice-daily-usage-date.md)。 從「Azure 帳戶中心」下載使用量檔案時，請選取 [版本 2]  。 針對支援在計費方面使用標籤的服務，標籤會顯示在 [標籤]  資料行中。
+您可以透過 [Azure 資源使用狀況和 RateCard API](../billing/billing-usage-rate-card-overview.md) 或使用狀況逗號分隔值 (CSV) 檔案，擷取關於標記的資訊。 您可以從 [Azure 帳戶中心](https://account.azure.com/Subscriptions)或 Azure 入口網站下載使用量檔案。 如需詳細資訊，請參閱[下載或檢視您的 Azure 帳單發票和每日使用量資料](../billing/billing-download-azure-invoice-daily-usage-date.md)。 從「Azure 帳戶中心」下載使用量檔案時，請選取 [版本 2]。 針對支援在計費方面使用標籤的服務，標籤會顯示在 [標籤] 資料行中。
 
 若為 REST API 作業，請參閱 [Azure 計費 REST API 參考](/rest/api/billing/)。
 

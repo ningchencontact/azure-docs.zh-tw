@@ -4,7 +4,7 @@ description: ''
 services: virtual-machines-windows
 documentationcenter: ''
 author: Deland-Han
-manager: willchen
+manager: dcscontentpm
 editor: ''
 tags: ''
 ms.service: virtual-machines
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: azurecli
 ms.date: 11/22/2018
 ms.author: delhan
-ms.openlocfilehash: fcea5e4e6bb108f1a8d8036e51a5dae8a9e6431b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 8f04d943e1db49beed13c183fbd06e401546fc03
+ms.sourcegitcommit: 116bc6a75e501b7bba85e750b336f2af4ad29f5a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60711011"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71153901"
 ---
 # <a name="azure-vm-guest-os-firewall-is-misconfigured"></a>Azure 虛擬機器客體作業系統防火牆設定不正確
 
@@ -98,7 +98,7 @@ ms.locfileid: "60711011"
 
 ### <a name="offline-mitigations"></a>離線風險降低措施
 
-1.  若要啟用或停用防火牆規則，請參閱[啟用或停用 Azure VM 客體 OS 上的防火牆規則](enable-disable-firewall-rule-guest-os.md)。
+1.  若要啟用或停用防火牆規則，請參閱[啟用或停用 AZURE VM 的客體作業系統上的防火牆規則](enable-disable-firewall-rule-guest-os.md)。
 
 2.  請檢查您是否處於[客體作業系統防火牆封鎖傳入流量的情況](guest-os-firewall-blocking-inbound-traffic.md) (英文)。
 

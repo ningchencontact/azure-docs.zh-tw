@@ -6,14 +6,14 @@ manager: bertvanhoof
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 07/29/2019
+ms.date: 09/17/2019
 ms.author: alinast
-ms.openlocfilehash: f4aa7e6660e3febdca6e0e5b1ad9f11bebaa48ea
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.openlocfilehash: 07facf06702a63df8ea93d43b9896b72322b209f
+ms.sourcegitcommit: 83df2aed7cafb493b36d93b1699d24f36c1daa45
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68638468"
+ms.lasthandoff: 09/22/2019
+ms.locfileid: "71178260"
 ---
 # <a name="data-processing-and-user-defined-functions"></a>資料處理與各項使用者定義功能
 
@@ -23,7 +23,7 @@ Azure Digital Twins 提供進階計算功能。 開發人員可定義自訂函�
 
 裝置將遙測資料傳送至 Azure Digital Twins 後，開發人員可依四階段處理資料：*驗證*、*比對*、*計算*和*分派*。
 
-![Azure Digital Twins 資料處理流程][1]
+[![Azure 數位 Twins 資料處理流程](media/concepts/digital-twins-data-processing-flow.png)](media/concepts/digital-twins-data-processing-flow.png#lightbox)
 
 1. 驗證階段會將傳入的遙測訊息轉換為一般認知的[資料轉送物件](https://docs.microsoft.com/aspnet/web-api/overview/data/using-web-api-with-entity-framework/part-5)格式。 此階段也會執行裝置和感應器驗證。
 1. 比對階段會尋找適當的使用者定義函式並加以執行。 預先定義的比對器會根據傳入的遙測訊息中包含的裝置、感應器和空間資訊，來尋找使用者定義函式。
@@ -34,9 +34,7 @@ Azure Digital Twins 提供進階計算功能。 開發人員可定義自訂函�
 
 Azure Digital Twins 中的資料處理由三個物件的定義所組成：*比對器*、*使用者定義函式*和*角色指派*。
 
-![Azure Digital Twins 資料處理物件][2]
-
-<div id="matcher"></div>
+[![Azure 數位 Twins 資料處理物件](media/concepts/digital-twins-user-defined-functions.png)](media/concepts/digital-twins-user-defined-functions.png#lightbox)
 
 ### <a name="matchers"></a>比對器
 
@@ -92,7 +90,7 @@ Azure Digital Twins 中的資料處理由三個物件的定義所組成：*比�
 
 ### <a name="user-defined-functions"></a>使用者定義函式
 
-使用者定義函式是可在隔離之 Azure Digital Twins 環境內執行的自訂函式。 使用者定義函式可存取所接收到的原始感應器遙測訊息。 使用者定義函式也可存取空間圖形和發送器服務。 在圖形內註冊使用者定義函式之後，就必須建立比對器 (詳細說明請見[上方](#matcher))，以指定何時要執行 UDF。 例如，當 Azure Digital Twins 從指定的感應器接收新的遙測資料時，相符的使用者定義函式可計算過去數個感應器讀數的移動平均值。
+使用者定義函式是可在隔離之 Azure Digital Twins 環境內執行的自訂函式。 使用者定義函式可存取所接收到的原始感應器遙測訊息。 使用者定義函式也可存取空間圖形和發送器服務。 在圖形內註冊使用者定義函式之後，就必須建立比對器 (詳細說明請見[上方](#matchers))，以指定何時要執行 UDF。 例如，當 Azure Digital Twins 從指定的感應器接收新的遙測資料時，相符的使用者定義函式可計算過去數個感應器讀數的移動平均值。
 
 可使用 JavaScript 寫入使用者定義函式。 協助程式方法可在使用者定義的執行環境中用來與圖形互動。 開發人員可對感應器遙測訊息執行自訂程式碼片段。 範例包括：
 
@@ -103,14 +101,11 @@ Azure Digital Twins 中的資料處理由三個物件的定義所組成：*比�
 
 如需詳細資訊，請參閱[如何使用使用者定義的函式](./how-to-user-defined-functions.md)。
 
-
 #### <a name="examples"></a>範例
 
 [Digital Twins C# 範例的 GitHub 存放庫](https://github.com/Azure-Samples/digital-twins-samples-csharp/)包含一些使用者定義函式範例：
 - [此函式](https://github.com/Azure-Samples/digital-twins-samples-csharp/blob/master/occupancy-quickstart/src/actions/userDefinedFunctions/availabilityForTutorial.js)會尋找二氧化碳、動作和溫度值，來判斷是否有房間的這些值是在範圍內。 [Digital Twins 教學課程](tutorial-facilities-udf.md)會更詳細地探討此函式。 
 - [此函式](https://github.com/Azure-Samples/digital-twins-samples-csharp/blob/master/occupancy-quickstart/src/actions/userDefinedFunctions/multiplemotionsensors.js)會尋找多個動作感應器中的資料，如果沒有任何感應器偵測到任何動作，則判斷該空間可供使用。 您可以透過進行檔案註解區段中所述的變更，輕鬆地取代[快速入門](quickstart-view-occupancy-dotnet.md)或[教學課程](tutorial-facilities-setup.md)中使用的使用者定義函式。 
-
-
 
 ### <a name="role-assignment"></a>角色指派
 
@@ -125,7 +120,3 @@ Azure Digital Twins 中的資料處理由三個物件的定義所組成：*比�
 - 若要深入了解如何建立比對器、使用者定義函式和角色指派，請參閱[使用者定義函式的使用指南](./how-to-user-defined-functions.md)。
 
 - 檢閱[使用者定義函式用戶端程式庫參考文件](./reference-user-defined-functions-client-library.md)。
-
-<!-- Images -->
-[1]: media/concepts/digital-twins-data-processing-flow.png
-[2]: media/concepts/digital-twins-user-defined-functions.png

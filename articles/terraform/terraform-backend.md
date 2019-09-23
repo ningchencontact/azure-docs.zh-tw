@@ -5,14 +5,14 @@ services: terraform
 author: tomarchermsft
 ms.service: azure
 ms.topic: article
-ms.date: 09/13/2018
+ms.date: 09/20/2019
 ms.author: tarcher
-ms.openlocfilehash: a88ad25e335026d5172c7997f62629d5ada46f6e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e9b447f4f4dc9d0ee090da9729e483cc17ac7c15
+ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66693306"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71169938"
 ---
 # <a name="store-terraform-state-in-azure-storage"></a>在 Azure 儲存體中儲存 Terraform 狀態
 
@@ -28,7 +28,7 @@ Terraform 包含狀態後端的概念，也就是 Terraform 狀態的遠端儲�
 
 若要使用 Azure 儲存體做為後端，必須先建立儲存體帳戶。 可以透過 Azure 入口網站、PowerShell、Azure CLI 或 Terraform 本身建立儲存體帳戶。 使用下列範例，透過 Azure CLI 設定儲存體帳戶。
 
-```azurecli-interactive
+```azurecli
 #!/bin/bash
 
 RESOURCE_GROUP_NAME=tstate
@@ -67,13 +67,13 @@ echo "access_key: $ACCOUNT_KEY"
 
 使用 Azure 儲存體存取金鑰的值建立名為 `ARM_ACCESS_KEY` 的環境變數。
 
-```console
+```bash
 export ARM_ACCESS_KEY=<storage access key>
 ```
 
-若要進一步保護 Azure 儲存體帳戶存取金鑰，請將它儲存在 Azure Key Vault 中。 接著便可使用類似下列的命令來設定環境變數。 如需 Azure Key Vault 的詳細資訊，請參閱 [Azure Key Vault 文件][azure-key-vault]。
+若要進一步保護 Azure 儲存體帳戶存取金鑰，請將它儲存在 Azure Key Vault 中。 接著便可使用類似下列的命令來設定環境變數。 如需 Azure Key Vault 的詳細資訊，請參閱[Azure Key Vault 檔][azure-key-vault]。
 
-```console
+```bash
 export ARM_ACCESS_KEY=$(az keyvault secret show --name terraform-backend-key --vault-name myKeyVault --query value -o tsv)
 ```
 
@@ -81,7 +81,7 @@ export ARM_ACCESS_KEY=$(az keyvault secret show --name terraform-backend-key --v
 
 下列範例會設定 Terraform 後端，並建立 Azure 資源群組。 請以您環境中的值取代這些值。
 
-```json
+```hcl
 terraform {
   backend "azurerm" {
     storage_account_name  = "tstate09762"
@@ -100,9 +100,9 @@ resource "azurerm_resource_group" "state-demo-secure" {
 
 ## <a name="state-locking"></a>狀態鎖定
 
-使用 Azure 儲存體 Blob 做為狀態儲存體時，執行任何寫入狀態的作業之前 Blob 會自動鎖定。 此設定可防止多個並行處理狀態作業，並行作業可能會導致損毀。 如需詳細資訊，請參閱 Terraform 文件中的[「狀態鎖定」][terraform-state-lock]。
+使用 Azure 儲存體 Blob 做為狀態儲存體時，執行任何寫入狀態的作業之前 Blob 會自動鎖定。 此設定可防止多個並行處理狀態作業，並行作業可能會導致損毀。 如需詳細資訊，請參閱 Terraform 檔上的[狀態鎖定][terraform-state-lock]。
 
-檢查 Azure 入口網站或其他 Azure 管理工具，透過 blob 時，就可以看到鎖定。
+透過 Azure 入口網站或其他 Azure 管理工具來檢查 blob 時，可以看到鎖定。
 
 ![帶有鎖定圖示的 Azure Blob](media/terraform-backend/lock.png)
 
@@ -110,11 +110,11 @@ resource "azurerm_resource_group" "state-demo-secure" {
 
 根據預設，儲存在 Azure Blob 中的資料會先經過加密，再保存至儲存體基礎結構。 Terraform 需要狀態時，系統會從後端擷取狀態，並儲存在您開發系統上的記憶體中。 在此設定中，Azure 儲存體中的狀態受到保護，且系統不會將其寫入本機磁碟中。
 
-如需 Azure 儲存體加密的詳細資訊，請參閱[待用資料的 Azure 儲存體服務加密][azure-storage-encryption]。
+如需 Azure 儲存體加密的詳細資訊，請參閱[靜態資料的 Azure 儲存體服務加密][azure-storage-encryption]。
 
 ## <a name="next-steps"></a>後續步驟
 
-如需深入了解 Terraform 後端設定，請參閱 [Terraform 後端文件][terraform-backend]。
+若要深入瞭解 Terraform 後端設定，請[參閱 Terraform 後端檔][terraform-backend]。
 
 <!-- LINKS - internal -->
 [azure-key-vault]: ../key-vault/quick-create-cli.md

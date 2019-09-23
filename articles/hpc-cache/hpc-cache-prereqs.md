@@ -1,19 +1,19 @@
 ---
-title: Azure HPC 快取必要條件
+title: Azure HPC 快取（預覽）必要條件
 description: 使用 Azure HPC 快取的必要條件
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: conceptual
 ms.date: 09/06/2019
 ms.author: v-erkell
-ms.openlocfilehash: 50c60e38b58815be04cfb892c3622b9579529e67
-ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
+ms.openlocfilehash: 29dc5256424ea4fe7c3a72624ce8d1b3d9e59f3c
+ms.sourcegitcommit: a19bee057c57cd2c2cd23126ac862bd8f89f50f5
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71036861"
+ms.lasthandoff: 09/23/2019
+ms.locfileid: "71180906"
 ---
-# <a name="prerequisites-for-azure-hpc-cache"></a>Azure HPC 快取的必要條件
+# <a name="prerequisites-for-azure-hpc-cache-preview"></a>Azure HPC 快取的必要條件（預覽）
 
 在使用 Azure 入口網站建立新的 Azure HPC 快取之前，請確定您的環境符合這些需求。
 
@@ -59,7 +59,7 @@ Azure HPC 快取需要 DNS 才能存取其虛擬網路外部的資源。 視您�
 * Azure HPC 快取必須能夠建立虛擬網路介面（Nic）。 建立快取的使用者在訂用帳戶中必須具有足夠的許可權，才能建立 Nic。
 <!-- There are several ways to authorize this access; read [Additional prerequisites](media/preview-prereqs.md) to learn more. -->
 
-* 如果使用 Blob 儲存體，Azure HPC 快取實例需要授權才能存取您的儲存體帳戶。 您可以使用角色型存取控制（RBAC），為您的 Blob 儲存體提供快取存取權。 需要兩個角色：儲存體帳戶參與者和儲存體 Blob 資料參與者。 依照[將儲存體新增至](hpc-cache-add-storage.md#add-the-access-control-roles-to-your-account)快取中的指示進行。
+* 如果使用 Blob 儲存體，Azure HPC 快取實例需要授權才能存取您的儲存體帳戶。 您可以使用角色型存取控制（RBAC），為您的 Blob 儲存體提供快取存取權。 需要兩個角色：儲存體帳戶參與者和儲存體 Blob 資料參與者。 依照[新增儲存體目標](hpc-cache-add-storage.md#add-the-access-control-roles-to-your-account)中的指示進行。
 
 ## <a name="storage-infrastructure"></a>儲存體基礎結構
 
@@ -86,7 +86,7 @@ NFS 後端存放裝置必須是相容的硬體/軟體平臺。 如需詳細資�
 
 最佳做法是在與快取相同的位置中使用儲存體帳戶。
 
-您也必須為快取應用程式提供您 Azure 儲存體帳戶的存取權。 遵循[將儲存體新增至](hpc-cache-add-storage.md#add-the-access-control-roles-to-your-account)快取中的說明，為快取授與存取角色儲存體帳戶參與者和儲存體 Blob 資料參與者。 如果您不是儲存體帳戶擁有者，請讓擁有者執行此步驟。
+您也必須為快取應用程式提供您 Azure 儲存體帳戶的存取權。 遵循[新增儲存體目標](hpc-cache-add-storage.md#add-the-access-control-roles-to-your-account)中的說明，為快取授與存取角色儲存體帳戶參與者和儲存體 Blob 資料參與者。 如果您不是儲存體帳戶擁有者，請讓擁有者執行此步驟。
 
 ## <a name="next-steps"></a>後續步驟
 

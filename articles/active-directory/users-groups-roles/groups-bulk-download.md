@@ -13,12 +13,12 @@ ms.workload: identity
 ms.custom: it-pro
 ms.reviewer: jeffsta
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b1d0f94e9cf9b91bc365586dafc147dc73b17876
-ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
+ms.openlocfilehash: 76aafa978732b3f4bae82f8ad3c09e67caf297ae
+ms.sourcegitcommit: b03516d245c90bca8ffac59eb1db522a098fb5e4
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70914762"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71146293"
 ---
 # <a name="bulk-download-a-list-of-groups-preview-in-azure-active-directory"></a>大量下載 Azure Active Directory 中的群組清單（預覽）
 
@@ -26,10 +26,6 @@ ms.locfileid: "70914762"
 
 > [!NOTE]
 > Azure AD 大量作業是 Azure AD 的公開預覽功能，適用于任何付費 Azure AD 授權方案。 如需預覽使用詞彙的詳細資訊，請參閱[Microsoft Azure 預覽的補充使用](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)規定。
-
-## <a name="bulk-download-service-limits"></a>大量下載服務限制
-
-每個要下載群組清單的大量活動最多可以執行一小時。 這可讓您下載至少300000個群組的清單。
 
 ## <a name="to-download-a-list-of-groups"></a>下載群組清單
 
@@ -44,6 +40,10 @@ ms.locfileid: "70914762"
 您可以在 [**大量作業結果（預覽）** ] 頁面中查看所有擱置大量要求的狀態。
 
    ![[大量作業結果] 頁面會顯示大量要求狀態](./media/groups-bulk-download/bulk-center.png)
+
+## <a name="bulk-download-service-limits"></a>大量下載服務限制
+
+每個要下載群組清單的大量活動最多可以執行一小時。 這可讓您下載至少300000個群組的清單。
 
 ## <a name="next-steps"></a>後續步驟
 

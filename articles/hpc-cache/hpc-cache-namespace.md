@@ -1,22 +1,21 @@
 ---
-title: 建立 Azure HPC Cache
+title: 建立 Azure HPC 快取（預覽）
 description: 如何建立 Azure HPC Cache 執行個體
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: conceptual
 ms.date: 09/06/2019
 ms.author: v-erkell
-ms.openlocfilehash: c3d14eaefaa1f317cb061273866ffee83747f12b
-ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
+ms.openlocfilehash: 677d42dfa1c468417f18ba4222cb0d5fd3ebb189
+ms.sourcegitcommit: a19bee057c57cd2c2cd23126ac862bd8f89f50f5
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71036849"
+ms.lasthandoff: 09/23/2019
+ms.locfileid: "71180982"
 ---
-# <a name="configure-aggregated-namespace"></a>設定匯總命名空間
-<!-- change link in GUI -->
+# <a name="plan-the-aggregated-namespace"></a>規劃匯總的命名空間
 
-Azure HPC 快取可讓用戶端透過會隱藏後端儲存系統詳細資料的虛擬命名空間，來存取各種不同的儲存系統。
+Azure HPC 快取（預覽）可讓用戶端透過會隱藏後端儲存系統詳細資料的虛擬命名空間，來存取各種不同的儲存系統。
 
 當您新增儲存體目標時，會設定用戶端面向的 filepath。 用戶端電腦會掛接這個 filepath。 您可以變更與該路徑相關聯的儲存體目標。 例如，您可以更換硬體儲存系統與雲端存放裝置，而不需要重寫用戶端面向的程式。
 
@@ -31,7 +30,7 @@ Azure HPC 快取可讓用戶端透過會隱藏後端儲存系統詳細資料的�
     /goldline/templates/acme2017/sku798
     /goldline/templates/acme2017/sku980 
 
-資料中心儲存體系統會公開這些匯出： 
+資料中心儲存體系統會公開這些匯出：
 
     /
     /goldline

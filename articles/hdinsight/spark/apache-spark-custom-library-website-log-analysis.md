@@ -2,27 +2,25 @@
 title: 在 Spark 中搭配 Python 程式庫分析網站記錄 - Azure
 description: 此 Notebook 示範如何使用自訂程式庫搭配 Azure HDInsight 上的 Spark 來分析記錄資料。
 author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/28/2017
-ms.author: hrasheed
-ms.openlocfilehash: 5492f4865e464cf8bedaee6e9b0ab25532e21459
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 6d23e8cfa8d20169d2b63723138b60dafb1069de
+ms.sourcegitcommit: b03516d245c90bca8ffac59eb1db522a098fb5e4
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67448748"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71146986"
 ---
 # <a name="analyze-website-logs-using-a-custom-python-library-with-apache-spark-cluster-on-hdinsight"></a>使用自訂 Python 程式庫搭配 HDInsight 上的 Apache Spark 叢集來分析網站記錄
 
 此 Notebook 示範如何使用自訂程式庫搭配 HDInsight 上的 Apache Spark 來分析記錄資料。 我們使用的自訂程式庫是名為 **iislogparser.py**的 Python 程式庫。
 
 > [!TIP]  
-> 這篇文章也會提供您在 HDInsight 中建立的 Spark (Linux) 叢集上的 Jupyter notebook 的。 Notebook 的體驗能讓您從 Notebook 本身執行 Python 程式碼片段。 執行從 notebook 中的文章，請建立 Spark 叢集、 啟動 Jupyter notebook (`https://CLUSTERNAME.azurehdinsight.net/jupyter`)，然後執行 notebook**的 使用自訂 library.ipynb 的 Spark 分析記錄檔**下**PySpark**資料夾。
->
->
+> 本文也可作為您在 HDInsight 中建立之 Spark （Linux）叢集上的 Jupyter 筆記本。 Notebook 的體驗能讓您從 Notebook 本身執行 Python 程式碼片段。 若要從筆記本內執行文章，請建立 Spark 叢集、啟動 Jupyter 筆記本（`https://CLUSTERNAME.azurehdinsight.net/jupyter`），然後執行筆記本**使用自訂程式庫來分析具有 Spark 的記錄。 ipynb**在**PySpark**資料夾底下。
 
 **必要條件：**
 
@@ -37,18 +35,19 @@ ms.locfileid: "67448748"
 
 一旦將資料儲存成 Apache Hive 資料表之後，下一節我們將使用 Power BI 和 Tableau 等 BI 工具連接 Hive 資料表。
 
-1. 在 [Azure 入口網站](https://portal.azure.com/)的開始面板中，按一下您的 Spark 叢集格圖格 (如果您已將其釘選到開始面板)。 您也可以按一下 [瀏覽全部]   > [HDInsight 叢集]  來瀏覽至您的叢集。   
-2. 從 Spark 叢集刀鋒視窗按一下 [叢集儀表板]  ，然後按一下 [Jupyter Notebook]  。 出現提示時，輸入叢集的系統管理員認證。
+1. 在 [Azure 入口網站](https://portal.azure.com/)的開始面板中，按一下您的 Spark 叢集格圖格 (如果您已將其釘選到開始面板)。 您也可以按一下 [瀏覽全部] > [HDInsight 叢集] 來瀏覽至您的叢集。
+
+2. 從 Spark 叢集刀鋒視窗按一下 [叢集儀表板]，然後按一下 [Jupyter Notebook]。 出現提示時，輸入叢集的系統管理員認證。
 
    > [!NOTE]
    > 您也可以在瀏覽器中開啟下列 URL，來連接到您的叢集的 Jupyter Notebook。 使用您叢集的名稱取代 **CLUSTERNAME** ：
    >
    > `https://CLUSTERNAME.azurehdinsight.net/jupyter`
-   >
-   >
-3. 建立新的 Notebook。 按一下 [新增]  ，然後按一下 [PySpark]  。
 
-    ![建立新的 Jupyter Notebook](./media/apache-spark-custom-library-website-log-analysis/hdinsight-create-jupyter-notebook.png "建立新的 Jupyter Notebook")
+3. 建立新的 Notebook。 按一下 [新增]，然後按一下 [PySpark]。
+
+    ![建立新的 Apache Jupyter 筆記本](./media/apache-spark-custom-library-website-log-analysis/hdinsight-create-jupyter-notebook.png "建立新的 Jupyter 筆記本")
+
 4. 系統隨即會建立新 Notebook，並以 Untitled.pynb 的名稱開啟。 在頂端按一下 Notebook 名稱，然後輸入好記的名稱。
 
     ![提供 Notebook 的名稱](./media/apache-spark-custom-library-website-log-analysis/hdinsight-name-jupyter-notebook.png "提供 Notebook 的名稱")
@@ -57,13 +56,11 @@ ms.locfileid: "67448748"
         from pyspark.sql import Row
         from pyspark.sql.types import *
 
-
-1. 使用叢集上已有的範例記錄資料來建立 RDD。 您可以在 **\HdiSamples\HdiSamples\WebsiteLogSampleData\SampleLog\909f2b.log** 上存取與叢集相關聯之預設儲存體帳戶中的資料。
+6. 使用叢集上已有的範例記錄資料來建立 RDD。 您可以在 **\HdiSamples\HdiSamples\WebsiteLogSampleData\SampleLog\909f2b.log** 上存取與叢集相關聯之預設儲存體帳戶中的資料。
 
         logs = sc.textFile('wasb:///HdiSamples/HdiSamples/WebsiteLogSampleData/SampleLog/909f2b.log')
 
-
-1. 擷取範例記錄組，以確認先前的步驟已順利完成。
+7. 擷取範例記錄組，以確認先前的步驟已順利完成。
 
         logs.take(5)
 
@@ -80,12 +77,12 @@ ms.locfileid: "67448748"
          u'2014-01-01 02:01:09 SAMPLEWEBSITE GET /blogposts/mvc4/step4.png X-ARR-LOG-ID=4bea5b3d-8ac9-46c9-9b8c-ec3e9500cbea 80 - 1.54.23.196 Mozilla/5.0+(Windows+NT+6.3;+WOW64)+AppleWebKit/537.36+(KHTML,+like+Gecko)+Chrome/31.0.1650.63+Safari/537.36 - http://weblogs.asp.net/sample/archive/2007/12/09/asp-net-mvc-framework-part-4-handling-form-edit-and-post-scenarios.aspx www.sample.com 200 0 0 72177 871 47']
 
 ## <a name="analyze-log-data-using-a-custom-python-library"></a>使用自訂 Python 程式庫來分析記錄資料
+
 1. 在上述輸出中，前幾行包含標頭資訊，其餘各行則符合該標頭中所說明的結構描述。 剖析這類記錄可能是複雜的作業。 因此，我們使用自訂 Python 程式庫 (**iislogparser.py**)，它可大幅簡化這類記錄的剖析。 依預設，此程式庫會包含在位於以下位置的 HDInsight 上的 Spark 叢集中： **/HdiSamples/HdiSamples/WebsiteLogSampleData/iislogparser.py**。
 
     不過，此程式庫不在 `PYTHONPATH` 中，因此無法藉由 `import iislogparser` 之類的匯入陳述式來使用它。 若要使用此程式庫，我們必須將它散發到所有的背景工作角色節點。 執行下列程式碼片段。
 
         sc.addPyFile('wasb:///HdiSamples/HdiSamples/WebsiteLogSampleData/iislogparser.py')
-
 
 1. `iislogparser` 提供一個函數 `parse_log_line`，在記錄行為標頭資料列時會傳回 `None`，在發現記錄行時則傳回 `LogLine` 類別的執行個體。 使用 `LogLine` 類別，僅從 RDD 擷取記錄行：
 
@@ -93,7 +90,8 @@ ms.locfileid: "67448748"
             import iislogparser
             return iislogparser.parse_log_line(l)
         logLines = logs.map(parse_line).filter(lambda p: p is not None).cache()
-2. 擷取幾個記錄行，以確認步驟已順利完成。
+
+1. 擷取幾個記錄行，以確認步驟已順利完成。
 
        logLines.take(2)
 
@@ -105,7 +103,8 @@ ms.locfileid: "67448748"
 
        [2014-01-01 02:01:09 SAMPLEWEBSITE GET /blogposts/mvc4/step2.png X-ARR-LOG-ID=2ec4b8ad-3cf0-4442-93ab-837317ece6a1 80 - 1.54.23.196 Mozilla/5.0+(Windows+NT+6.3;+WOW64)+AppleWebKit/537.36+(KHTML,+like+Gecko)+Chrome/31.0.1650.63+Safari/537.36 - http://weblogs.asp.net/sample/archive/2007/12/09/asp-net-mvc-framework-part-4-handling-form-edit-and-post-scenarios.aspx www.sample.com 200 0 0 53175 871 46,
         2014-01-01 02:01:09 SAMPLEWEBSITE GET /blogposts/mvc4/step3.png X-ARR-LOG-ID=9eace870-2f49-4efd-b204-0d170da46b4a 80 - 1.54.23.196 Mozilla/5.0+(Windows+NT+6.3;+WOW64)+AppleWebKit/537.36+(KHTML,+like+Gecko)+Chrome/31.0.1650.63+Safari/537.36 - http://weblogs.asp.net/sample/archive/2007/12/09/asp-net-mvc-framework-part-4-handling-form-edit-and-post-scenarios.aspx www.sample.com 200 0 0 51237 871 32]
-3. `LogLine` 類別也有一些有用的方法，像是 `is_error()`，它會傳回記錄項目是否有錯誤碼。 它可用來計算已擷取的記錄行中有多少錯誤，然後將所有錯誤記錄到另一個檔案。
+
+1. `LogLine` 類別也有一些有用的方法，像是 `is_error()`，它會傳回記錄項目是否有錯誤碼。 它可用來計算已擷取的記錄行中有多少錯誤，然後將所有錯誤記錄到另一個檔案。
 
        errors = logLines.filter(lambda p: p.is_error())
        numLines = logLines.count()
@@ -120,7 +119,7 @@ ms.locfileid: "67448748"
        # -----------------
 
        There are 30 errors and 646 log entries
-4. 您也可以使用 **Matplotlib** 來建構資料的視覺效果。 例如，如果您想要找出要求長時間執行的原因，您可以尋找平均佔用最多服務資源的檔案。
+1. 您也可以使用 **Matplotlib** 來建構資料的視覺效果。 例如，如果您想要找出要求長時間執行的原因，您可以尋找平均佔用最多服務資源的檔案。
    下列程式碼片段會擷取耗費最多時間為要求提供服務的前 25 個資源。
 
        def avgTimeTakenByKey(rdd):
@@ -162,7 +161,8 @@ ms.locfileid: "67448748"
         (u'/blogposts/sqlvideos/sqlvideos.jpg', 102.0),
         (u'/blogposts/mvcrouting/step21.jpg', 101.0),
         (u'/blogposts/mvc4/step1.png', 98.0)]
-5. 您也可以用繪圖的形式呈現這項資訊。 建立繪圖的第一個步驟是建立暫存資料表 **AverageTime**。 此資料表會依時間將記錄分組，以查看在任何特定時間中是否出現異常的延遲尖峰。
+
+1. 您也可以用繪圖的形式呈現這項資訊。 建立繪圖的第一個步驟是建立暫存資料表 **AverageTime**。 此資料表會依時間將記錄分組，以查看在任何特定時間中是否出現異常的延遲尖峰。
 
        avgTimeTakenByMinute = avgTimeTakenByKey(logLines.map(lambda p: (p.datetime.minute, p))).sortByKey()
        schema = StructType([StructField('Minutes', IntegerType(), True),
@@ -170,7 +170,8 @@ ms.locfileid: "67448748"
 
        avgTimeTakenByMinuteDF = sqlContext.createDataFrame(avgTimeTakenByMinute, schema)
        avgTimeTakenByMinuteDF.registerTempTable('AverageTime')
-6. 接著，您可以執行下列 SQL 查詢取得 **AverageTime** 資料表中的所有記錄。
+
+1. 接著，您可以執行下列 SQL 查詢取得 **AverageTime** 資料表中的所有記錄。
 
        %%sql -o averagetime
        SELECT * FROM AverageTime
@@ -179,10 +180,11 @@ ms.locfileid: "67448748"
 
    您應該會看到如下的輸出：
 
-   ![SQL 查詢輸出](./media/apache-spark-custom-library-website-log-analysis/hdinsight-jupyter-sql-qyery-output.png "SQL 查詢輸出")
+   ![hdinsight jupyter sql qyery 輸出](./media/apache-spark-custom-library-website-log-analysis/hdinsight-jupyter-sql-qyery-output.png "SQL 查詢輸出")
 
    如需 `%%sql` magic 的詳細資訊，請參閱 [%%sql magic 支援的參數](apache-spark-jupyter-notebook-kernels.md#parameters-supported-with-the-sql-magic)。
-7. 現在您可以使用 Matplotlib (用於建構資料視覺效果的程式庫) 建立繪圖。 因為必須從保存在本機上的 **averagetime** 資料框架建立繪圖，所以程式碼片段的開頭必須為 `%%local` magic。 這可確保程式碼是在 Jupyter 伺服器的本機上執行。
+
+1. 現在您可以使用 Matplotlib (用於建構資料視覺效果的程式庫) 建立繪圖。 因為必須從保存在本機上的 **averagetime** 資料框架建立繪圖，所以程式碼片段的開頭必須為 `%%local` magic。 這可確保程式碼是在 Jupyter 伺服器的本機上執行。
 
        %%local
        %matplotlib inline
@@ -194,8 +196,9 @@ ms.locfileid: "67448748"
 
    您應該會看到如下的輸出：
 
-   ![Matplotlib 輸出](./media/apache-spark-custom-library-website-log-analysis/hdinsight-apache-spark-web-log-analysis-plot.png "Matplotlib 輸出")
-8. 應用程式執行完畢之後，您應該要關閉 Notebook 來釋放資源。 若要這樣做，請從 Notebook 的 [檔案]  功能表中，按一下 [關閉並停止]  。 這樣就能夠結束並關閉 Notebook。
+   ![apache spark web 記錄分析繪圖](./media/apache-spark-custom-library-website-log-analysis/hdinsight-apache-spark-web-log-analysis-plot.png "Matplotlib 輸出")
+
+1. 應用程式執行完畢之後，您應該要關閉 Notebook 來釋放資源。 若要這樣做，請從 Notebook 的 [檔案] 功能表中，按一下 [關閉並停止]。 這樣就能夠結束並關閉 Notebook。
 
 ## <a name="seealso"></a>另請參閱
 * [概觀：Azure HDInsight 上的 Apache Spark](apache-spark-overview.md)
@@ -218,5 +221,5 @@ ms.locfileid: "67448748"
 * [在電腦上安裝 Jupyter 並連接到 HDInsight Spark 叢集](apache-spark-jupyter-notebook-install-locally.md)
 
 ### <a name="manage-resources"></a>管理資源
-* [管理 Azure HDInsight 中 Apache Spark 群集的资源](apache-spark-resource-manager.md)
+* [在 Azure HDInsight 中管理 Apache Spark 叢集的資源](apache-spark-resource-manager.md)
 * [追蹤和偵錯在 HDInsight 中的 Apache Spark 叢集上執行的作業](apache-spark-job-debugging.md)

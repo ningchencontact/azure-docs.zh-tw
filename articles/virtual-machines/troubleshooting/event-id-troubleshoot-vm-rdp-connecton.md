@@ -4,7 +4,7 @@ description: ''
 services: virtual-machines-windows
 documentationcenter: ''
 author: Deland-Han
-manager: cshepard
+manager: dcscontentpm
 editor: ''
 tags: ''
 ms.service: virtual-machines
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: azurecli
 ms.date: 11/01/2018
 ms.author: delhan
-ms.openlocfilehash: 4c783c70217a84bbe5ccf15accc4a2bec0b7cca8
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 166648402eec7f8033c090a3f7862a902bae4be6
+ms.sourcegitcommit: 116bc6a75e501b7bba85e750b336f2af4ad29f5a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61485342"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71154198"
 ---
 # <a name="troubleshoot-azure-vm-rdp-connection-issues-by-event-id"></a>依事件識別碼對 Azure VM 的 RDP 連線問題進行疑難排解 
 
@@ -59,7 +59,7 @@ wevtutil qe system /c:1 /f:text /q:"Event[System[Provider[@Name='Microsoft-Windo
 **日期：**          *時間* <br />
 **事件識別碼：**    1058 <br />
 **工作類別：** None <br />
-**等級：**       錯誤 <br />
+**等級：**       Error <br />
 **關鍵字：**    傳統 <br />
 **使用者：**        N/A <br />
 **電腦：**      *電腦* <br />
@@ -70,7 +70,7 @@ wevtutil qe system /c:1 /f:text /q:"Event[System[Provider[@Name='Microsoft-Windo
 **日期：**          *時間* <br />
 **事件識別碼：**    1058 <br />
 **工作類別：** None <br />
-**等級：**       錯誤 <br />
+**等級：**       Error <br />
 **關鍵字：**    傳統 <br />
 **使用者：**        N/A <br />
 **電腦：**      *電腦* <br />
@@ -81,7 +81,7 @@ wevtutil qe system /c:1 /f:text /q:"Event[System[Provider[@Name='Microsoft-Windo
 **日期：**          *時間* <br />
 **事件識別碼：**    1057 <br />
 **工作類別：** None <br />
-**等級：**       錯誤 <br />
+**等級：**       Error <br />
 **關鍵字：**    傳統 <br />
 **使用者：**        N/A <br />
 **電腦：**      *電腦* <br />
@@ -99,7 +99,7 @@ wevtutil qe system /c:1 /f:text /q:"Event[System[Provider[@Name='Schannel'] and 
 **日期：**          — <br />
 **事件識別碼：**    36870 <br />
 **工作類別：** None <br />
-**等級：**       錯誤 <br />
+**等級：**       Error <br />
 **關鍵字：**       <br />
 **使用者：**        系統 <br />
 **電腦：**      *電腦* <br />
@@ -113,7 +113,7 @@ wevtutil qe system /c:1 /f:text /q:"Event[System[Provider[@Name='Schannel'] and 
 
 2. RSA 金鑰損毀或遺失。
 
-### <a name="resolution"></a>解決方案
+### <a name="resolution"></a>解析度
 
 若要對此問題進行疑難排解，您必須依照下列步驟為 RDP 憑證設定正確的權限。
 
@@ -156,23 +156,23 @@ Start-Service -Name "SessionEnv"
 
 如果您無法更新憑證，請依照下列步驟嘗試刪除憑證：
 
-1. 在相同 VNET 中的另一個 VM 上開啟 [執行]  方塊，並輸入 **mmc**，然後按 [確定]  。 
+1. 在相同 VNET 中的另一個 VM 上開啟 [執行] 方塊，並輸入 **mmc**，然後按 [確定]。 
 
-2. 在 [檔案]  功能表上，選取 [新增/移除嵌入式管理單元]  。
+2. 在 [檔案] 功能表上，選取 [新增/移除嵌入式管理單元]。
 
-3. 在 [可用的嵌入式管理單元]  清單中選取 [憑證]  ，然後選取 [新增]  。
+3. 在 [可用的嵌入式管理單元] 清單中選取 [憑證]，然後選取 [新增]。
 
-4. 選取 [電腦帳戶]  ，然後選取 [下一步]  。
+4. 選取 [電腦帳戶]，然後選取 [下一步]。
 
-5. 選取 [其他電腦]  ，然後針對有問題 VM 新增 IP 位址。
+5. 選取 [其他電腦]，然後針對有問題 VM 新增 IP 位址。
    >[!Note]
    >請嘗試使用內部網路，以避免使用虛擬 IP 位址。
 
-6. 選取 [完成]  ，然後選取 [確定]  。
+6. 選取 [完成]，然後選取 [確定]。
 
    ![選取電腦](./media/event-id-troubleshoot-vm-rdp-connecton/select-computer.png)
 
-7. 展開憑證，移至 Remote Desktop\Certificates 資料夾，以滑鼠右鍵按一下憑證，然後選取 [刪除]  。
+7. 展開憑證，移至 Remote Desktop\Certificates 資料夾，以滑鼠右鍵按一下憑證，然後選取 [刪除]。
 
 8. 重新啟動遠端桌面組態服務：
 
@@ -221,7 +221,7 @@ wevtutil qe system /c:1 /f:text /q:"Event[System[Provider[@Name='Schannel'] and 
 **日期：**          — <br />
 **事件識別碼：**    36871 <br />
 **工作類別：** None <br />
-**等級：**       錯誤 <br />
+**等級：**       Error <br />
 **關鍵字：**       <br />
 **使用者：**        系統 <br />
 **電腦：**      *電腦* <br />
@@ -231,7 +231,7 @@ wevtutil qe system /c:1 /f:text /q:"Event[System[Provider[@Name='Schannel'] and 
 
 此問題由安全性原則所導致。 當較舊版本的 TLS (例如 1.0) 停用時，RDP 存取會失敗。
 
-### <a name="resolution"></a>解決方案
+### <a name="resolution"></a>解析度
 
 RDP 使用 TLS 1.0 作為預設通訊協定。 不過，您可以將此通訊協定變更為已成為新標準的 TLS 1.1。
 
@@ -251,7 +251,7 @@ wevtutil qe system /c:1 /f:text /q:"Event[System[Provider[@Name=' Microsoft-Wind
 **日期：**          *時間* <br />
 **事件識別碼：**    2056 <br />
 **工作類別：** (109) <br />
-**等級：**       錯誤 <br />
+**等級：**       Error <br />
 **關鍵字：**       <br />
 **使用者：**        NETWORK SERVICE <br />
 **電腦：**      *電腦 FQDN* <br />
@@ -267,7 +267,7 @@ NULL <br />
 **日期：**          *時間* <br />
 **事件識別碼：**    1296 <br />
 **工作類別：** (104) <br />
-**等級：**       錯誤 <br />
+**等級：**       Error <br />
 **關鍵字：**       <br />
 **使用者：**        NETWORK SERVICE <br />
 **電腦：**      *電腦 FQDN* <br />
@@ -284,7 +284,7 @@ NULL <br />
 
 主機名稱具有 Windows 內部資料庫的項目和相依性，而這是遠端桌面服務伺服器陣列的正常運作所不可或缺的。 在伺服器陣列建置之後變更主機名稱將造成許多錯誤，並且可能導致代理人伺服器停止運作。
 
-### <a name="resolution"></a>解決方案 
+### <a name="resolution"></a>解析度 
 
 若要修正此問題，必須重新安裝遠端桌面連線代理人角色與 Windows 內部資料庫。
 

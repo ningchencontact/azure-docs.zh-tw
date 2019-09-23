@@ -17,9 +17,9 @@
   items:
     - name: 建立以排程為基礎的工作流程
       href: tutorial-build-schedule-recurring-logic-app-workflow.md
-    - name: 管理郵寄清單要求
+    - name: 建立以核准為基礎的工作流程
       href: tutorial-process-mailing-list-subscriptions-workflow.md
-    - name: 處理電子郵件附件
+    - name: 建立 Azure 儲存體和 Azure Functions 工作流程
       href: tutorial-process-email-attachments-workflow.md
 - name: 範例
   items:
@@ -31,7 +31,7 @@
   items:
     - name: 適用於 Logic Apps 的連接器
       href: ../connectors/apis-list.md
-    - name: 排程自動化週期性工作流程
+    - name: 排程週期性工作流程
       href: concepts-schedule-automated-recurring-tasks-workflows.md
     - name: 透過 Azure 進行無伺服器運算
       href: logic-apps-serverless-overview.md
@@ -111,6 +111,12 @@
           href: logic-apps-enterprise-integration-partners.md
         - name: 合約
           href: logic-apps-enterprise-integration-agreements.md
+        - name: XML 驗證的結構描述
+          href: logic-apps-enterprise-integration-schemas.md
+        - name: XML 轉換的對應
+          href: logic-apps-enterprise-integration-maps.md
+        - name: 憑證
+          href: logic-apps-enterprise-integration-certificates.md
         - name: 構件中繼資料
           href: logic-apps-enterprise-integration-metadata.md
         - name: 接收 B2B 訊息
@@ -141,20 +147,14 @@
           href: logic-apps-scenario-edi-send-batch-messages.md
         - name: 處理一般檔案
           href: logic-apps-enterprise-integration-flatfile.md
+        - name: 轉換 XML
+          href: logic-apps-enterprise-integration-transform.md
         - name: 處理 XML
           href: logic-apps-enterprise-integration-xml.md
         - name: 驗證 XML
           href: logic-apps-enterprise-integration-xml-validation.md
-        - name: 新增結構描述以進行 XML 驗證
-          href: logic-apps-enterprise-integration-schemas.md
-        - name: 轉換 XML
-          href: logic-apps-enterprise-integration-transform.md
-        - name: 新增對應以進行 XML 轉換
-          href: logic-apps-enterprise-integration-maps.md
         - name: 轉換 JSON
           href: logic-apps-enterprise-integration-liquid-transform.md
-        - name: 新增安全性憑證
-          href: logic-apps-enterprise-integration-certificates.md
         - name: 針對 B2B 錯誤進行疑難排解
           href: logic-apps-enterprise-integration-b2b-list-errors-solutions.md
         - name: 建置災害復原方案

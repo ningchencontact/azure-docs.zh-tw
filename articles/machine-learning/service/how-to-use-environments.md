@@ -1,5 +1,5 @@
 ---
-title: 建立、使用及管理模型定型和部署的環境
+title: 建立可重複使用的 ML 環境
 titleSuffix: Azure Machine Learning
 description: 建立和管理用於模型定型和部署的環境。 管理環境的 Python 套件和其他設定。
 services: machine-learning
@@ -9,16 +9,15 @@ ms.reviewer: nibaccam
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
-ms.date: 08/16/2019
-ms.custom: seodec18
-ms.openlocfilehash: 242f3cec0ac766e537bd0483725ba51685bb7ced
-ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
+ms.date: 09/16/2019
+ms.openlocfilehash: b46ca59bc93477c338001009ff7eeeddc7248684
+ms.sourcegitcommit: b03516d245c90bca8ffac59eb1db522a098fb5e4
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/14/2019
-ms.locfileid: "70996627"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71147320"
 ---
-# <a name="create-and-manage-environments-for-training-and-deployment"></a>建立和管理用於定型和部署的環境
+# <a name="create-and-manage-reusable-environments-for-training-and-deployment-with-azure-machine-learning"></a>建立和管理可重複使用的環境，以 Azure Machine Learning 進行定型和部署。
 
 在本文中，您將瞭解如何建立和管理 Azure Machine Learning[環境](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment.environment?view=azure-ml-py)，讓您可以追蹤和重現專案的軟體相依性。
 

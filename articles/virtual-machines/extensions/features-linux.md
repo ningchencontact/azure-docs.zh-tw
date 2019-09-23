@@ -3,7 +3,7 @@ title: 適用於 Linux 的 Azure 虛擬機器擴充功能和功能 | Microsoft D
 description: 了解哪些擴充功能適用於 Azure 虛擬機器，並依它們提供或改善的內容來分組。
 services: virtual-machines-linux
 documentationcenter: ''
-author: roiyz-msft
+author: axayjo
 manager: gwallace
 editor: ''
 tags: azure-service-management,azure-resource-manager
@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 03/30/2018
-ms.author: roiyz
-ms.openlocfilehash: 1a3fe1f70143e2c33a3e4d309991f1174eb2d6dd
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.author: akjosh
+ms.openlocfilehash: f66ec2ea9d0c042b698db1725980e981a27a55d0
+ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70092382"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71169007"
 ---
 # <a name="virtual-machine-extensions-and-features-for-linux"></a>適用於 Linux 的虛擬機器擴充功能和功能
 
@@ -85,7 +85,7 @@ Azure 虛擬機器擴充功能可以在現有的虛擬機器上執行，這在�
 
 ### <a name="azure-cli"></a>Azure CLI
 
-Azure 虛擬機器擴充功能可以透過 [az vm extension set](/cli/azure/vm/extension#az-vm-extension-set) 命令，針對現有的虛擬機器執行。 下列範例會針對名為*myResourceGroup*的資源群組中名為*myVM*的 VM 執行自訂腳本延伸模組。 以您自己的資訊取代範例資源組名、VM 名稱和要執行\/的腳本 (HTTPs:/raw.githubusercontent.com/me/project/hello.sh)。 
+Azure 虛擬機器擴充功能可以透過 [az vm extension set](/cli/azure/vm/extension#az-vm-extension-set) 命令，針對現有的虛擬機器執行。 下列範例會針對名為*myResourceGroup*的資源群組中名為*myVM*的 VM 執行自訂腳本延伸模組。 以您自己的資訊取代範例資源組名、VM 名稱和要執行\/的腳本（HTTPs：/raw.githubusercontent.com/me/project/hello.sh）。 
 
 ```azurecli
 az vm extension set `
@@ -336,7 +336,7 @@ INFO [Microsoft.OSTCExtensions.LinuxDiagnostic-2.3.9027] Launch command:diagnost
 
 1. 若要查看 Linux 代理程式記錄，請在 */var/log/waagent.log* 中檢視您佈建擴充功能時的活動
 
-2. 檢查實際的擴充記錄, 以取得 *\</var/log/azure/extensionName >* 中的詳細資料
+2. 檢查實際的擴充記錄，以取得 *\</var/log/azure/extensionName >* 中的詳細資料
 
 3. 在擴充功能特定的疑難排解章節中，查看錯誤碼、已知問題等。
 

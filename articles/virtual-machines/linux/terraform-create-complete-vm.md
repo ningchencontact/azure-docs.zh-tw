@@ -3,7 +3,7 @@ title: 使用 Terraform 在 Azure 中建立完整的 Linux VM | Microsoft Docs
 description: 了解如何使用 Terraform 在 Azure 中建立及管理完整的 Linux 虛擬機器環境
 services: virtual-machines-linux
 documentationcenter: virtual-machines
-author: echuvyrov
+author: tomarchermsft
 manager: gwallace
 editor: na
 tags: azure-resource-manager
@@ -12,14 +12,14 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 09/14/2017
-ms.author: gwallace
-ms.openlocfilehash: 83fba1ae29c2912e440f8983ded844414443a1a7
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.date: 09/20/2019
+ms.author: tarcher
+ms.openlocfilehash: b9e379907f28c0d8698eb11aacb88970cf8d6dc4
+ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70100807"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71173859"
 ---
 # <a name="create-a-complete-linux-virtual-machine-infrastructure-in-azure-with-terraform"></a>在 Azure 中使用 Terraform 建立完整的 Linux 虛擬機器基礎結構
 
@@ -35,7 +35,7 @@ Terraform 可讓您在 Azure 中定義和建立完整的基礎結構部署。 �
 > [!TIP]
 > 如果您為這些值建立環境變數，或使用 [Azure Cloud Shell 體驗](/azure/cloud-shell/overview)，則不需要在此區段中併入變數宣告。
 
-```tf
+```hcl
 provider "azurerm" {
     subscription_id = "xxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
     client_id       = "xxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
@@ -46,7 +46,7 @@ provider "azurerm" {
 
 下一節會在 `eastus` 位置建立名為 `myResourceGroup` 的資源群組：
 
-```tf
+```hcl
 resource "azurerm_resource_group" "myterraformgroup" {
     name     = "myResourceGroup"
     location = "eastus"
@@ -62,7 +62,7 @@ resource "azurerm_resource_group" "myterraformgroup" {
 ## <a name="create-virtual-network"></a>建立虛擬網路
 以下區段可在 *10.0.0.0/16* 位址空間中建立名為 *myVnet* 的虛擬網路：
 
-```tf
+```hcl
 resource "azurerm_virtual_network" "myterraformnetwork" {
     name                = "myVnet"
     address_space       = ["10.0.0.0/16"]
@@ -77,7 +77,7 @@ resource "azurerm_virtual_network" "myterraformnetwork" {
 
 下列區段會在 *myVnet* 虛擬網路中建立名為 *mySubnet* 的子網路：
 
-```tf
+```hcl
 resource "azurerm_subnet" "myterraformsubnet" {
     name                 = "mySubnet"
     resource_group_name  = "${azurerm_resource_group.myterraformgroup.name}"
@@ -90,7 +90,7 @@ resource "azurerm_subnet" "myterraformsubnet" {
 ## <a name="create-public-ip-address"></a>建立公用 IP 位址
 若要存取網際網路上的資源，請建立公用 IP 位址並指派給您的 VM。 以下區段會建立名為 *myPublicIP* 的公用 IP 位址：
 
-```tf
+```hcl
 resource "azurerm_public_ip" "myterraformpublicip" {
     name                         = "myPublicIP"
     location                     = "eastus"
@@ -107,7 +107,7 @@ resource "azurerm_public_ip" "myterraformpublicip" {
 ## <a name="create-network-security-group"></a>建立網路安全性群組
 網路安全性群組會控制進出 VM 的網路流量。 以下區段會建立名為 *myNetworkSecurityGroup* 的網路安全性群組，並定義規則以允許 TCP 通訊埠 22 上的 SSH 流量：
 
-```tf
+```hcl
 resource "azurerm_network_security_group" "myterraformnsg" {
     name                = "myNetworkSecurityGroup"
     location            = "eastus"
@@ -135,7 +135,7 @@ resource "azurerm_network_security_group" "myterraformnsg" {
 ## <a name="create-virtual-network-interface-card"></a>建立虛擬網路介面卡
 虛擬網路介面卡 (NIC) 會將您的 VM 連線至指定的虛擬網路、公用 IP 位址，及網路安全性群組。 Terraform 範本中的下列區段會建立名為 myNIC 的虛擬 NIC，以連線至您所建立的虛擬網路資源：
 
-```tf
+```hcl
 resource "azurerm_network_interface" "myterraformnic" {
     name                = "myNIC"
     location            = "eastus"
@@ -159,7 +159,7 @@ resource "azurerm_network_interface" "myterraformnic" {
 ## <a name="create-storage-account-for-diagnostics"></a>建立診斷用的儲存體帳戶
 若要儲存 VM 的開機診斷，您需要儲存體帳戶。 這些開機診斷可協助您疑難排解問題及監視您的 VM 狀態。 您建立的儲存體帳戶只是用來儲存開機診斷資料。 由於每個儲存體帳戶都必須有唯一的名稱，因此下列區段會產生一些隨機文字：
 
-```tf
+```hcl
 resource "random_id" "randomId" {
     keepers = {
         # Generate a new ID only when a new resource group is defined
@@ -172,7 +172,7 @@ resource "random_id" "randomId" {
 
 現在您可以建立儲存體帳戶。 以下區段會根據上一個步驟中產生的隨機文字的名稱來建立儲存體帳戶：
 
-```tf
+```hcl
 resource "azurerm_storage_account" "mystorageaccount" {
     name                = "diag${random_id.randomId.hex}"
     resource_group_name = "${azurerm_resource_group.myterraformgroup.name}"
@@ -193,7 +193,7 @@ resource "azurerm_storage_account" "mystorageaccount" {
 
  SSH 金鑰資料是在 *ssh_keys* 中提供。 在 *key_data* 欄位中提供有效的公用 SSH 金鑰。
 
-```tf
+```hcl
 resource "azurerm_virtual_machine" "myterraformvm" {
     name                  = "myVM"
     location              = "eastus"
@@ -243,7 +243,7 @@ resource "azurerm_virtual_machine" "myterraformvm" {
 
 若要將所有這些區段結合在一起，並查看運作中的 Terraform，請建立名為 *terraform_azure.tf* 的檔案並貼上下列內容：
 
-```tf
+```hcl
 # Configure the Microsoft Azure Provider
 provider "azurerm" {
     subscription_id = "xxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
@@ -421,7 +421,7 @@ terraform plan
 
 執行上述命令之後，您應該會看到如下列畫面的內容：
 
-```bash
+```console
 Refreshing Terraform state in-memory prior to plan...
 The refreshed state will be used to calculate this plan, but will not be
 persisted to local or remote state storage.
@@ -456,7 +456,7 @@ terraform apply
 
 Terraform 完成之後，您的 VM 基礎結構即已備妥。 使用 [az vm show](/cli/azure/vm) 取得虛擬機器的 IP 位址：
 
-```azurecli
+```azurecli-interactive
 az vm show --resource-group myResourceGroup --name myVM -d --query [publicIps] --o tsv
 ```
 

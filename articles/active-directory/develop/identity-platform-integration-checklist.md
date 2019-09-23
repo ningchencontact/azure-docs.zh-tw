@@ -16,12 +16,12 @@ ms.date: 09/11/2019
 ms.author: ryanwi
 ms.reviewer: lenalepa, sureshja, jesakowi
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: 4e7b89fbb4b6343db62cf3476f3c35220b12649b
-ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
+ms.openlocfilehash: 1f4afe1c31ae964aab82664de12144185069af5a
+ms.sourcegitcommit: b03516d245c90bca8ffac59eb1db522a098fb5e4
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71104035"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71145665"
 ---
 # <a name="microsoft-identity-platform-best-practices-and-recommendations"></a>Microsoft 身分識別平臺最佳做法和建議
 
@@ -78,6 +78,7 @@ ms.locfileid: "71104035"
 | ![核取方塊](./media/active-directory-integration-checklist/checkbox-two.svg) |  若為行動應用程式，請使用應用程式註冊體驗來設定每個平臺。 為了讓您的應用程式利用 Microsoft Authenticator 或 Microsoft 公司入口網站來進行單一登入，您的應用程式需要設定「broker 重新導向 URI」。 這可讓 Microsoft 在驗證之後將控制權交還給您的應用程式。 在設定每個平臺時，應用程式註冊體驗會引導您完成整個過程。 使用快速入門來下載實用的範例。 在 iOS 上，請盡可能使用訊息代理程式和系統 web 程式。|
 | ![核取方塊](./media/active-directory-integration-checklist/checkbox-two.svg) |  在 web 應用程式或 web Api 中，每個帳戶保留一個權杖快取。  針對 web 應用程式，權杖快取應該以帳戶識別碼做為索引鍵。  針對 web Api，此帳戶應使用用來呼叫 API 之權杖的雜湊來做為索引鍵。 MSAL.NET 提供 .NET Framework 和 .NET Core subplatforms 中的自訂權杖快取序列化。 基於安全性和效能的考慮，我們建議您將每個使用者的一個快取序列化。 如需詳細資訊，請參閱權杖快取[序列化](msal-net-token-cache-serialization.md#token-cache-for-a-web-app-confidential-client-application)。|
 | ![核取方塊](./media/active-directory-integration-checklist/checkbox-two.svg) | 如果您的應用程式所需的資料可透過[Microsoft Graph](https://developer.microsoft.com/graph)取得，請使用 Microsoft Graph 端點（而不是個別 API）來要求此資料的許可權。 |
+| ![核取方塊](./media/active-directory-integration-checklist/checkbox-two.svg) |請不要查看 [存取權杖] 值，或嘗試將它剖析為用戶端。  如果您的用戶端需要瞭解使用者的相關資訊，或是呼叫 Microsoft Graph，他們可以變更值、格式，甚至是在不發出警告的情況下，一律使用 id_token。  只有 web Api 會剖析存取權杖（因為它們是定義格式和設定加密金鑰的）。 |
 
 ## <a name="end-user-experience"></a>使用者體驗
 

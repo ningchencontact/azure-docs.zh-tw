@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 05/22/2019
 ms.author: mbullwin
-ms.openlocfilehash: a48c2fdcce5126747f00cd3b901839864d438346
-ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
+ms.openlocfilehash: 9e14a9f3f2f27112a591f14e9a93580f66aadef7
+ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71058284"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71169561"
 ---
 # <a name="application-insights-for-aspnet-core-applications"></a>ASP.NET Core 應用程式的 Application Insights
 
@@ -29,14 +29,14 @@ ms.locfileid: "71058284"
 
 [適用于 ASP.NET Core 的 APPLICATION INSIGHTS SDK](https://nuget.org/packages/Microsoft.ApplicationInsights.AspNetCore)可以監視您的應用程式, 不論其執行位置或方式為何。 如果您的應用程式正在執行, 且具有與 Azure 的網路連線, 則可以收集遙測。 支援 .NET Core 的任何位置都支援 Application Insights 監視。 支援涵蓋:
 * **作業系統**：Windows、Linux 或 Mac。
-* **裝載方法**:進程內或進程外。 
+* **裝載方法**:進程內或進程外。
 * **部署方法**:架構相依或獨立的。
-* **網頁伺服器**:IIS (Internet Information Server) 或 Kestrel。 
+* **網頁伺服器**:IIS (Internet Information Server) 或 Kestrel。
 * **裝載平臺**:Azure App Service、Azure VM、Docker、Azure Kubernetes Service (AKS) 等的 Web Apps 功能。
 * **IDE**:Visual Studio、VS Code 或命令列。
 
 > [!NOTE]
-> 如果您搭配 Application Insights 使用 ASP.NET Core 3.0-preview，請使用[2.8.0-Beta2](https://www.nuget.org/packages/Microsoft.ApplicationInsights.AspNetCore/2.8.0-beta2)版本或更高版本。 這是已知可與 ASP.NET Core 3.0 搭配運作的唯一版本。 此外，ASP.NET Core 3.0 應用程式尚不支援以 Visual Studio 為基礎的上架。
+> 如果您搭配 Application Insights 使用 ASP.NET Core 3.0-preview，請使用[2.8.0-Beta3](https://www.nuget.org/packages/Microsoft.ApplicationInsights.AspNetCore/2.8.0-beta3)版本或更高版本。 這是已知可與 ASP.NET Core 3.0 搭配運作的唯一版本。 此外，ASP.NET Core 3.0 應用程式尚不支援以 Visual Studio 為基礎的上架。
 
 ## <a name="prerequisites"></a>必要條件
 
@@ -241,7 +241,7 @@ SDK 版本 2.8.0-Beta3 和更新版本支援 EventCounters 的集合。 根據�
 |AddAutoCollectedMetricExtractor | 啟用/停用 AutoCollectedMetrics 解壓縮程式，這是一種 TelemetryProcessor，會在進行取樣之前，先傳送要求/相依性的預先匯總計量。 | true
 |RequestCollectionOptions.TrackExceptions | 啟用/停用要求收集模組未處理之例外狀況追蹤的報告。 | 在 NETSTANDARD 2.0 中為 false （因為例外狀況是使用 ApplicationInsightsLoggerProvider 來追蹤），否則為 true。
 
-如需最新清單，請參閱[中`ApplicationInsightsServiceOptions`的可設定設定](https://github.com/microsoft/ApplicationInsights-aspnetcore/blob/develop/src/Microsoft.ApplicationInsights.AspNetCore/Extensions/ApplicationInsightsServiceOptions.cs)。
+如需最新清單，請參閱[中`ApplicationInsightsServiceOptions`的可設定設定](https://github.com/microsoft/ApplicationInsights-aspnetcore/blob/develop/src/Shared/Extensions/ApplicationInsightsServiceOptions.cs)。
 
 ### <a name="sampling"></a>取樣
 

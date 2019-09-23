@@ -9,12 +9,12 @@ ms.date: 11/28/2018
 ms.topic: conceptual
 ms.service: service-fabric-mesh
 manager: timlt
-ms.openlocfilehash: c716ae0a2bb30e7e8eb249a1d230097efc0d3795
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 46b2a9a0c4d8a1d9e0fa069d512670dffb94fc28
+ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62097788"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71173778"
 ---
 # <a name="set-up-service-fabric-mesh-cli"></a>設定 Service Fabric Mesh CLI
 必須使用 Service Fabric Mesh 命令列介面 (CLI)，才能在本機和 Azure Service Fabric Mesh 中部署及管理資源。 
@@ -25,14 +25,14 @@ ms.locfileid: "62097788"
 |---|---|---|
 | az mesh | Azure Service Fabric Mesh | 可讓您在 Azure Service Fabric Mesh 環境中部署應用程式和管理資源的主要 CLI。 
 | sfctl | 本機叢集 | 可讓您對本機叢集部署及測試 Service Fabric 資源的 Service Fabric CLI。  
-| Maven CLI | 本機叢集和 Azure Service Fabric Mesh | 周圍的包裝函式`az mesh`和`sfctl`，可讓 Java 開發人員使用熟悉的命令列體驗獲得本機和 Azure 的開發體驗。  
+| Maven CLI | 本機叢集和 Azure Service Fabric Mesh | `az mesh` 和`sfctl`的包裝函式，可讓 JAVA 開發人員使用熟悉的命令列體驗來進行本機和 Azure 開發體驗。  
 
 針對預覽版本，Azure Service Fabric Mesh CLI 是以 Azure CLI 擴充功能的形式撰寫。 您可以將其安裝在 Azure Cloud Shell 或 Azure CLI 的本機安裝上。 
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)] 
 
 ## <a name="install-the-azure-service-fabric-mesh-cli"></a>安裝 Azure Service Fabric Mesh CLI
-1. 您必須安裝 Azure CLI 2.0.43 版或更新版本。 執行 `az --version` 以尋找版本。 若要安裝或升級至最新版本的 CLI，請參閱[安裝 Azure CLI][azure-cli-install]。
+1. 您必須安裝 Azure CLI 版2.0.67 或更新版本。 執行 `az --version` 以尋找版本。 若要安裝或升級至最新版本的 CLI，請參閱[安裝 Azure CLI][azure-cli-install]。
 
 2. 使用下列命令安裝 Azure Service Fabric Mesh CLI 擴充功能模組。 
 

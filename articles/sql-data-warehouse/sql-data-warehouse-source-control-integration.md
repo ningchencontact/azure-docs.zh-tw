@@ -37,7 +37,7 @@ ms.locfileid: "70098752"
 
    ![管理連線](media/sql-data-warehouse-source-control-integration/2-manage-connections.png "管理連線")
 
-   ![連線]連線(media/sql-data-warehouse-source-control-integration/3-connect.png "")
+   ![連線 ](media/sql-data-warehouse-source-control-integration/3-connect.png "連線")
 
 3. 將您的 Azure Repo 存放庫從您的專案複製到本機電腦
 
@@ -55,7 +55,7 @@ ms.locfileid: "70098752"
 
 3. 在 Visual Studio 的 Team Explorer 中，將您的所有變更認可至本機 Git 存放庫 
 
-   ![認可]認可(media/sql-data-warehouse-source-control-integration/6.5-commit-push-changes.png "")  
+   ![認可](media/sql-data-warehouse-source-control-integration/6.5-commit-push-changes.png "認可")  
 
 4. 現在您已在複製的存放庫中將變更認可到本機，接著請同步您的變更並將變更推送至 Azure DevOps 專案中的 Azure Repo 存放庫。
 

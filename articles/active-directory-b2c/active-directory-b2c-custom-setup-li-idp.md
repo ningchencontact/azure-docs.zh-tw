@@ -76,7 +76,7 @@ ms.locfileid: "71066044"
 
 將 LinkedIn 帳戶定義為宣告提供者，方法是將它新增至原則擴充檔中的**ClaimsProviders**元素。
 
-1. 在您的編輯器中開啟*SocialAndLocalAccounts/ **TrustFrameworkExtensions** *檔案。 此檔案位於您在其中一個必要條件中下載的[自訂原則入門套件][starter-pack]。
+1. 在您的編輯器中開啟*SocialAndLocalAccounts/**TrustFrameworkExtensions*** 檔案。 此檔案位於您在其中一個必要條件中下載的[自訂原則入門套件][starter-pack]。
 1. 尋找 **ClaimsProviders** 元素。 如果不存在，請在根元素下新增。
 1. 新增新的 **ClaimsProvider**，如下所示：
 

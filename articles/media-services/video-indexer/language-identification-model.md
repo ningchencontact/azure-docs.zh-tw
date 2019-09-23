@@ -10,12 +10,12 @@ ms.subservice: video-indexer
 ms.topic: article
 ms.date: 09/12/2019
 ms.author: ellbe
-ms.openlocfilehash: 843b92d3fe34d592b39cd86ece447fef2ff9af67
-ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
+ms.openlocfilehash: 729ac9fc7c8ec6a85b3497c51888d3b5a6fc8558
+ms.sourcegitcommit: b03516d245c90bca8ffac59eb1db522a098fb5e4
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70931119"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71147183"
 ---
 # <a name="automatically-identify-the-spoken-language-with-language-identification-model"></a>使用語言識別模型自動識別說話語言
 
@@ -53,7 +53,7 @@ ms.locfileid: "70931119"
 * 如果音訊包含上述支援清單以外的語言，則會產生非預期的結果。
 * 如果影片索引子無法識別具有足夠信賴（`>0.6`）的語言，則回復語言為英文。
 * 目前不支援混合語言為音訊的檔案。 如果音訊包含混合語言，則會產生非預期的結果。 
-* 低品質的音訊主動可能會影響模型結果。
+* 低品質的音訊可能會影響模型結果。
 * 此模型在音訊中至少需要一分鐘的語音。
 * 此模型的設計目的是要辨識自發對話語音（非語音命令、唱歌等等）。
 

@@ -1,67 +1,131 @@
-### YamlMime:YamlDocument
-documentType: LandingData
+### YamlMime:Landing
 title: Azure 搜尋服務文件
+summary: 若您的內容為非結構化或是無法搜尋的原始形式，可以使用各種 AI 的擴充選項，透過雲端搜尋私人異質性內容。
 metadata:
-  document_id: null
-  title: Azure 搜尋服務文件 - 教學課程、快速入門和 API 參考
-  description: 了解如何使用 Azure 搜尋服務，在私人和異質性內容中建立企業搜尋解決方案。 教學課程、API 參考和其他文件會說明如何使用簡單及進階語法並搭配各種案例，將可搜尋的內容合併到可供查詢的單一快速索引。
+  title: Azure 搜尋服務文件
+  description: 若您的內容為非結構化或是無法搜尋的原始形式，可以使用各種 AI 的擴充選項，透過雲端搜尋私人異質性內容。
   services: search
-  author: HeidiSteen
-  manager: nitinme
-  ms.service: search
+  ms.service: service
+  ms.subservice: cognitive-search
   ms.topic: landing-page
-  ms.date: 08/12/2019
+  ms.collection: collection
+  author: HeidiSteen
   ms.author: heidist
-abstract:
-  description: 了解如何使用 Azure 搜尋服務，在私人和異質性內容中建立企業搜尋解決方案。 教學課程、API 參考和其他文件會說明如何使用簡單及進階語法並搭配各種案例，將可搜尋的內容合併到可供查詢的單一快速索引。 <p/><a href="/azure/search/cognitive-search-concept-intro"><b>認知搜尋</b></a>是 Azure 搜尋服務的一項功能，可附加 AI 程式來編制索引、偵測影像檔案中的文字和特性，以及在大型非結構化文字區塊中尋找模式。 AI 流程由認知服務支援。<p/><a href="/azure/search/knowledge-store-concept-intro"><b>知識存放區 (預覽)</b></a> 擴充認知搜尋，將 AI 擴充儲存至儲存體，讓您可以在用戶端應用程式或下游程序中檢視、調整及取用。
-  aside:
-    image:
-      alt: null
-      height: 110
-      src: 'https://docs.microsoft.com/azure/search/media/index/search-page-callouts3.png'
-      width: 250
-    title: '何謂 Azure 搜尋服務 (1:27)'
-    href: 'https://channel9.msdn.com/Blogs/Azure/What-is-Azure-Search/player'
-    width: 250
-sections:
-  - title: 5 分鐘快速入門
-    items:
-      - type: paragraph
-        text: '從入口網站中的搜尋服務開始，再以 C# 或 REST 來定義、載入和查詢索引。'
-      - type: list
-        style: icon48
-        items:
-          - image:
-              src: /azure/search/media/index/portal.svg
-            text: Azure 入口網站
-            href: 'https://docs.microsoft.com/azure/search/search-create-service-portal'
-          - image:
-              src: /azure/search/media/index/logo_Csharp.svg
-            text: .NET
-            href: 'https://docs.microsoft.com/azure/search/search-create-index-dotnet'
-          - image:
-              src: /azure/search/media/index/rest.svg
-            text: REST
-            href: 'https://docs.microsoft.com/azure/search/search-get-started-postman'
-  - title: 逐步教學課程
-    items:
-      - type: paragraph
-        text: 以 .NET 或 REST 撰寫程式碼，或嘗試在入口網站中進行快速證明測試。
-      - type: list
-        style: ordered
-        items:
-          - html: <a href="/azure/search/search-get-started-portal">使用入口網站編製索引並進行查詢測試</a>
-          - html: <a href="/azure/search/search-howto-dotnet-sdk">使用 .NET 撰寫第一個搜尋服務方案</a>
-          - html: <a href="/azure/search/cognitive-search-tutorial-blob">透過 AI 擴充 (認知服務)</a>
-          - html: <a href="/azure/search/search-indexer-tutorial">使用 .NET 為 Azure SQL Database 編製索引</a>
-          - html: <a href="/azure/search/search-semi-structured-data">使用 REST 為 Azure Blob 中的半結構資料編製索引</a>
-  - title: 參考
-    items:
-      - type: list
-        style: cards
-        className: cardsD
-        items:
-          - title: Languages
-            html: '<p><a href="/dotnet/api/?term=microsoft.azure.search">.NET</a></p><p><a href="/dotnet/api/?term=microsoft.azure.management.search">.NET (管理)</a></p><p><a href="https://docs.microsoft.com/python/api/?view=azure-python&term=search">Python (管理)</a></p>'
-          - title: REST
-            html: <p><a href="/rest/api/searchservice">服務 API 參考</a></p><p><a href="/rest/api/searchmanagement">管理 API 參考</a></p>
+  ms.date: 09/20/2019
+  ms.openlocfilehash: 113ee13c1667e00f1052c88c9b29b881f312b00c
+  ms.sourcegitcommit: b03516d245c90bca8ffac59eb1db522a098fb5e4
+  ms.translationtype: HT
+  ms.contentlocale: zh-TW
+  ms.lasthandoff: 09/19/2019
+  ms.locfileid: "71147282"
+landingContent:
+- title: 關於 Azure 搜尋服務
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: 何謂 Azure 搜尋服務？
+      url: search-what-is-azure-search.md
+  - linkListType: architecture
+    links:
+    - text: 全文檢索搜尋如何在 Azure 搜尋服務中運作
+      url: search-lucene-query-architecture.md
+  - linkListType: video
+    links:
+    - text: 什麼是 Azure 搜尋服務 (1 分 27 秒)
+      url: https://channel9.msdn.com/Blogs/Azure/What-is-Azure-Search/player
+- title: 開始使用
+  linkLists:
+  - linkListType: quickstart
+    links:
+    - text: 建立服務
+      url: search-create-service-portal.md
+    - text: 建立索引
+      url: search-get-started-portal.md
+    - text: 建立擴充管線
+      url: cognitive-search-quickstart-blob.md
+  - linkListType: learn
+    links:
+    - text: Azure 搜尋服務簡介
+      url: https://docs.microsoft.com/learn/modules/intro-to-azure-search/
+- title: 為資料編製索引
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: 定義索引
+      url: search-what-is-an-index.md
+    - text: 匯入資料
+      url: search-what-is-data-import.md
+    - text: 使用索引子
+      url: search-indexer-overview.md
+  - linkListType: how-to-guide
+    links:
+    - text: 從 Blob 儲存體編製索引
+      url: search-howto-indexing-azure-blob-storage.md
+    - text: 索引 JSON Blob
+      url: search-howto-index-json-blobs.md
+    - text: 從 Azure SQL Database 編製索引
+      url: search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md
+    - text: 從 Cosmos DB 資料編製索引
+      url: search-howto-index-cosmosdb.md
+  - linkListType: reference
+    links:
+    - text: 建立索引 (REST)
+      url: https://docs.microsoft.com/rest/api/searchservice/create-index
+    - text: 建立索引子 (REST)
+      url: https://docs.microsoft.com/rest/api/searchservice/create-indexer
+- title: 擴充資料
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: 什麼是認知搜尋？
+      url: cognitive-search-concept-intro.md
+    - text: 技能集
+      url: cognitive-search-defining-skillset.md
+    - text: 知識存放區
+      url: knowledge-store-concept-intro.md
+    - text: 投影
+      url: knowledge-store-projection-overview.md
+  - linkListType: how-to-guide
+    links:
+    - text: 附加認知服務
+      url: cognitive-search-attach-cognitive-services.md
+    - text: 定義技能集
+      url: cognitive-search-defining-skillset.md
+    - text: 建立知識存放區
+      url: knowledge-store-create-portal.md
+  - linkListType: reference
+    links:
+    - text: 預先定義的技能
+      url: cognitive-search-predefined-skills.md
+- title: 查詢資料
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: 概觀
+      url: search-query-overview.md
+    - text: 簡單語法 (預設)
+      url: query-simple-syntax.md
+    - text: 完整 Lucene 語法
+      url: query-lucene-syntax.md
+  - linkListType: how-to-guide
+    links:
+    - text: 建立簡易查詢
+      url: search-query-simple-examples.md
+    - text: 使用完整語法
+      url: search-query-lucene-examples.md
+  - linkListType: reference
+    links:
+    - text: OData 語言參考
+      url: query-odata-filter-orderby-syntax.md
+    - text: 搜尋文件 (REST)
+      url: https://docs.microsoft.com/rest/api/searchservice/search-documents
+- title: 說明與意見反應
+  linkLists:
+  - linkListType: reference
+    links:
+    - text: 常見問題集
+      url: search-faq-frequently-asked-questions.md
+    - text: 提出 Stack Overflow 相關問題
+      url: https://stackoverflow.com/questions/tagged/azure-search
+    - text: 要求功能
+      url: https://feedback.azure.com/forums/263029-azure-search

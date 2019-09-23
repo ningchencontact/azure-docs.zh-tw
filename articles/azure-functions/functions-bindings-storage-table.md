@@ -10,12 +10,12 @@ ms.service: azure-functions
 ms.topic: reference
 ms.date: 09/03/2018
 ms.author: cshoe
-ms.openlocfilehash: d647a643dafe50a5768261c2b09bf8c4154be469
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 464c1a8ab27f6615fdffd8efa6ab20d75e10a7c1
+ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70086251"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71171176"
 ---
 # <a name="azure-table-storage-bindings-for-azure-functions"></a>Azure Functions 的 Azure 資料表儲存體繫結
 
@@ -529,7 +529,7 @@ public int run(
 
 * **讀取 JavaScript 中的一或多個資料列**
 
-  請設定 `filter` 和 `take` 屬性。 請勿設定 `partitionKey` 或 `rowKey`。 使用 `context.bindings.<name>` 來存取輸入資料表實體 (或多個實體)。 還原序列化的物件具有 `RowKey` 和 `PartitionKey` 屬性。
+  請設定 `filter` 和 `take` 屬性。 請勿設定 `partitionKey` 或 `rowKey`。 使用 `context.bindings.<BINDING_NAME>` 來存取輸入資料表實體 (或多個實體)。 還原序列化的物件具有 `RowKey` 和 `PartitionKey` 屬性。
 
 ## <a name="output"></a>Output
 
@@ -786,7 +786,7 @@ public static MyPoco TableOutput(
 
 * **寫入 JavaScript 中的一或多個資料列**
 
-  在 JavaScript 函式中，會使用 `context.bindings.<name>` 來存取資料表輸出。
+  在 JavaScript 函式中，會使用 `context.bindings.<BINDING_NAME>` 來存取資料表輸出。
 
 ## <a name="exceptions-and-return-codes"></a>例外狀況和傳回碼
 

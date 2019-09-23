@@ -27,15 +27,15 @@ ms.locfileid: "69036551"
 
 |命令|描述|
 | --- | --- |
-| 建立 | 使用指定的描述來建立 Service Fabric 應用程式。 |
-| 刪除 | 刪除現有 Service Fabric 應用程式。 |
+| create | 使用指定的描述來建立 Service Fabric 應用程式。 |
+| delete | 刪除現有 Service Fabric 應用程式。 |
 | deployed | 取得 Service Fabric 節點上所部署應用程式的相關資訊。 |
 | deployed-health | 取得 Service Fabric 節點上所部署應用程式健康情況的相關資訊。 |
 | deployed-list | 取得 Service Fabric 節點上所部署的應用程式清單。 |
-| 健康狀態 | 取得 Service Fabric 應用程式的健康情況。 |
-| 資訊 | 取得 Service Fabric 應用程式的相關資訊。 |
-| 清單 | 取得在 Service Fabric 叢集中建立且符合所指定篩選條件的應用程式清單。 |
-| 載入 | 取得 Service Fabric 應用程式的載入資訊。 |
+| health | 取得 Service Fabric 應用程式的健康情況。 |
+| info | 取得 Service Fabric 應用程式的相關資訊。 |
+| list | 取得在 Service Fabric 叢集中建立且符合所指定篩選條件的應用程式清單。 |
+| load | 取得 Service Fabric 應用程式的載入資訊。 |
 | manifest | 取得可描述應用程式類型的資訊清單。 |
 | provision | 使用外部存放區中的 .sfpkg 套件或使用映像存放區中的應用程式套件，向叢集佈建或註冊 Service Fabric 應用程式類型。 |
 | report-health | 傳送 Service Fabric 應用程式的健康情況報告。 |

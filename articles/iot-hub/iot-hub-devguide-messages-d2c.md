@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 05/15/2019
 ms.author: asrastog
-ms.openlocfilehash: 6ee9e334c10bd2d0f291b5fd1bb547ba3ba83ddb
-ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+ms.openlocfilehash: d2c84f5b6389ac83206472440d26aa8d81ba76be
+ms.sourcegitcommit: b03516d245c90bca8ffac59eb1db522a098fb5e4
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69877194"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71147369"
 ---
 # <a name="use-iot-hub-message-routing-to-send-device-to-cloud-messages-to-different-endpoints"></a>使用 IoT 中樞訊息路由將裝置到雲端訊息傳送至不同的端點
 
@@ -25,13 +25,17 @@ ms.locfileid: "69877194"
 
 * 套用多種查詢**篩選資料再將資料傳送到眾多端點**。 訊息路由可讓您對訊息屬性和訊息本文，以及裝置對應項標記和裝置對應項屬性進行查詢。 進一步了解使用[訊息路由中的查詢](iot-hub-devguide-routing-query-syntax.md)。
 
-IoT 中樞需要這些服務端點的寫入權限，才能將訊息路由傳送至工作。 如果您透過 Azure 入口網站設定您的端點，則會為您新增必要的權限。 請務必設定您的服務，以支援預期的輸送量。 當您第一次設定您的 IoT 解決方案時，您可能需要監視其他端點，然後對實際負載進行必要的調整。
+IoT 中樞需要這些服務端點的寫入權限，才能將訊息路由傳送至工作。 如果您透過 Azure 入口網站設定您的端點，則會為您新增必要的權限。 請務必設定您的服務，以支援預期的輸送量。 例如，如果您使用事件中樞做為自訂端點，您必須設定該事件中樞的**輸送量單位**，使其可以處理您計畫透過 IoT 中樞訊息路由傳送的事件輸入。 同樣地，使用服務匯流排佇列做為端點時，您必須設定**大小上限**以確保佇列可以保存所有資料輸入，直到取用者輸出為止。 當您第一次設定您的 IoT 解決方案時，您可能需要監視其他端點，然後對實際負載進行必要的調整。
 
 IoT 中樞會針對所有裝置到雲端訊息定義[常見格式](iot-hub-devguide-messages-construct.md)，以在通訊協定之間提供互通性。 如果訊息符合多個指向相同端點的路由，則 IoT 中樞只會將訊息傳遞至該端點一次。 因此，您不需要在您的服務匯流排佇列或主題上設定重複資料刪除。 在分割佇列中，分割區同質性可保證訊息排序。 本教學課程可用來了解如何[設定訊息路由](tutorial-routing.md)。
 
 ## <a name="routing-endpoints"></a>路由端點
 
-IoT 中樞都有與事件中樞相容的預設內建端點 (**訊息/事件**)。 您可以將訂用帳戶中的其他服務連結到 IoT 中樞，來建立要路由傳送訊息的目標[自訂端點](iot-hub-devguide-endpoints.md#custom-endpoints)。 IoT 中樞目前支援下列服務做為自訂端點︰
+IoT 中樞都有與事件中樞相容的預設內建端點 (**訊息/事件**)。 您可以將訂用帳戶中的其他服務連結到 IoT 中樞，來建立要路由傳送訊息的目標[自訂端點](iot-hub-devguide-endpoints.md#custom-endpoints)。 
+
+每個訊息都會路由傳送到其符合的路由查詢的所有端點。 換句話說，訊息可以路由傳送至多個端點。
+
+IoT 中樞目前支援下列服務做為自訂端點︰
 
 ### <a name="built-in-endpoint"></a>內建端點
 
@@ -43,9 +47,9 @@ IoT 中樞支援以[Apache Avro](https://avro.apache.org/)格式和 JSON 格式�
 
 ![Blob 儲存體端點編碼](./media/iot-hub-devguide-messages-d2c/blobencoding.png)
 
-IoT 中樞也支援將訊息路由至 ADLS Gen2 帳戶，這是以 Blob 儲存體為基礎的已啟用[階層命名空間](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-namespace)的儲存體帳戶。 這項功能處於公開預覽狀態，適用于美國西部2和美國中西部中的新 ADLS Gen2 帳戶。 我們很快就會將這項功能推出給所有雲端區域。
+IoT 中樞也支援將訊息路由至[Azure Data Lake Storage](https://docs.microsoft.com/en-us/azure/storage/blobs/data-lake-storage-introduction) （ADLS） Gen2 帳戶，這是以 Blob 儲存體為基礎的已啟用[階層命名空間](../storage/blobs/data-lake-storage-namespace.md)的儲存體帳戶。 這項功能處於公開預覽狀態，適用于美國西部2和美國中西部中的新 ADLS Gen2 帳戶。 請[註冊](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR2EUNXd_ZNJCq_eDwZGaF5VURjFLTDRGS0Q4VVZCRFY5MUVaTVJDTkROMi4u)以預覽此版本。 我們很快就會將這項功能推出給所有雲端區域。 
 
-「IoT 中樞」會批次處理訊息，然後在批次達到特定大小或經過一段特定時間之後，就將資料寫入至 Blob。 「IoT 中樞」預設會採用下列檔案命名慣例：
+「IoT 中樞」會批次處理訊息，然後在批次達到特定大小或經過一段特定時間之後，就將資料寫入至 Blob。 「IoT 中樞」預設會採用下列檔案命名慣例： 
 
 ```
 {iothub}/{partition}/{YYYY}/{MM}/{DD}/{HH}/{mm}

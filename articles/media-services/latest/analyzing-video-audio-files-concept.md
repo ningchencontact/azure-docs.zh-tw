@@ -9,18 +9,18 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 04/21/2019
+ms.date: 09/21/2019
 ms.author: juliako
-ms.openlocfilehash: 477733dcb76647b2c03f79dea4f55c3102d262b8
-ms.sourcegitcommit: aebe5a10fa828733bbfb95296d400f4bc579533c
+ms.openlocfilehash: bc4be8eaafe805e5d9a985b005efe80bc4af1d21
+ms.sourcegitcommit: 83df2aed7cafb493b36d93b1699d24f36c1daa45
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/05/2019
-ms.locfileid: "70376193"
+ms.lasthandoff: 09/22/2019
+ms.locfileid: "71177991"
 ---
 # <a name="analyzing-video-and-audio-files"></a>分析視訊和音訊檔案
 
-Azure 媒體服務 v3 可讓您使用影片索引子，透過 AMS v3 分析器預設值從視訊及音訊檔案中擷取深入解析 (如本文所說明)。 若您希望獲得更多詳細深入解析，請直接使用影片索引器。 若要了解使用影片索引器以及媒體服務分析器預設的時機，請參閱[比較文件](../video-indexer/compare-video-indexer-with-media-services-presets.md)。
+Azure 媒體服務 v3 可讓您透過媒體服務 v3 分析器預設值（如本文所述），利用影片索引子從您的影片和音訊檔案中提取見解。 若您希望獲得更多詳細深入解析，請直接使用影片索引器。 若要了解使用影片索引器以及媒體服務分析器預設的時機，請參閱[比較文件](../video-indexer/compare-video-indexer-with-media-services-presets.md)。
 
 若要使用媒體服務 v3 分析您的內容，請建立**轉換**，並提交使用下列其中一個預設值的**作業**：[VideoAnalyzerPreset](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#videoanalyzerpreset) 或 **AudioAnalyzerPreset**。 下列文章示範如何使用 **VideoAnalyzerPreset**：[教學課程：使用 Azure 媒體服務分析影片](analyze-videos-tutorial-with-api.md)。
 

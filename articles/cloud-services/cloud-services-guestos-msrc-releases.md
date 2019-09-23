@@ -10,17 +10,56 @@ ms.service: cloud-services
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 9/4/2019
+ms.date: 9/20/2019
 ms.author: raiye
-ms.openlocfilehash: 71febe6544a4f53215ec4dbee2bcef86bda23386
-ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
+ms.openlocfilehash: 6168e877022eccd9cbe818c20e81266cc3ea1f69
+ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70275514"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71169360"
 ---
 # <a name="azure-guest-os"></a>Azure 客體作業系統
 下表為適用於 Azure 客體作業系統的 Microsoft Security Response Center (MSRC) 更新。 請搜尋本文章以判斷特定更新是否適用於您使用的客體作業系統。 針對在中引進的特定[系列][family-explain], 一律會繼續進行更新。
+
+## <a name="september-2019-guest-os"></a>2019年9月的客體作業系統
+
+>[!NOTE]
+>目前正在向已設定為自動更新的雲端服務 Vm 推出9月的客體作業系統。 推展完成時，我們會透過 Azure 入口網站和組態檔來提供此版本，以便您可以手動更新。 下列修補套裝程式含在9月的客體作業系統中。 此清單會隨時變動。
+
+| 產品類別 | 上層知識庫文章 | 弱點說明 | 客體作業系統 | 首次引進日期 |
+| --- | --- | --- | --- | --- |
+|  Rel 19-09   |  [4516046]  |  Internet Explorer   |  2.90、3.77、4.70  |  2019年9月10日  |
+|  Rel 19-09   |  [4516115]  |  閃爍   |  2.90、3.77、4.70、5.35、6.11  |  2019年9月10日  |
+|  Rel 19-09   |  [4512578]  |  最新累計更新   |  6.11  |  2019年9月10日  |
+|  Rel 19-09   |  [4514366]  |  .NET Framework 3.5 和4.7。2   |  6.11  |  2019年9月10日  |
+|  Rel 19-09   |  [4516044]  |  最新累計更新   |  5.35  |  2019年9月10日  |
+|  Rel 19-09   |  [4516064]  |  Windows 安全性   |  4.7  |  2019年9月10日  |
+|  Rel 19-09   |  [4514350]  |  .NET Framework 3.5   |  4.7  |  2019年9月10日  |
+|  Rel 19-09   |  [4514341]  |  .NET Framework 4.5.2   |  4.7  |  2019年9月10日  |
+|  Rel 19-09   |  [4516062]  |  Windows 安全性   |  3.77  |  2019年9月10日  |
+|  Rel 19-09   |  [4514349]  |  .NET Framework 3.5   |  3.77  |  2019年9月10日  |
+|  Rel 19-09   |  [4514342]  |  .NET Framework 4.5.2   |  3.77  |  2019年9月10日  |
+|  Rel 19-09   |  [4516033]  |  Windows 安全性   |  2.9  |  2019年9月12日  |
+|  Rel 19-09   |  [4512488]  |  非安全性   |  4.7  |  2019年8月13日  |
+|  Rel 19-09   |  [4512518]  |  非安全性   |  3.77  |  2019年8月13日  |
+|  Rel 19-09   |  [4512506]  |  非安全性   |  2.9  |  2019年8月13日  |
+
+[4516046]: https://support.microsoft.com/kb/4516046
+[4516115]: https://support.microsoft.com/kb/4516115
+[4512578]: https://support.microsoft.com/kb/4512578
+[4514366]: https://support.microsoft.com/kb/4514366
+[4516044]: https://support.microsoft.com/kb/4516044
+[4516064]: https://support.microsoft.com/kb/4516064
+[4514350]: https://support.microsoft.com/kb/4514350
+[4514341]: https://support.microsoft.com/kb/4514341
+[4516062]: https://support.microsoft.com/kb/4516062
+[4514349]: https://support.microsoft.com/kb/4514349
+[4514342]: https://support.microsoft.com/kb/4514342
+[4516033]: https://support.microsoft.com/kb/4516033
+[4512488]: https://support.microsoft.com/kb/4512488
+[4512518]: https://support.microsoft.com/kb/4512518
+[4512506]: https://support.microsoft.com/kb/4512506
 
 
 ## <a name="august-2019-guest-os"></a>2019年8月的客體作業系統

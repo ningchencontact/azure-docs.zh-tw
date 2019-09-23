@@ -4,7 +4,7 @@ description: 本文列出 Microsoft Azure 雲端服務之連線能力和網路�
 services: cloud-services
 documentationcenter: ''
 author: genlin
-manager: cshepard
+manager: dcscontentpm
 editor: ''
 tags: top-support-issue
 ms.assetid: 84985660-2cfd-483a-8378-50eef6a0151d
@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 08/23/2018
 ms.author: genli
-ms.openlocfilehash: eef99c7d7a108618b570988dd5d7ec9c2fdb8db4
-ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
+ms.openlocfilehash: c6d470b9c14f53558d09e6876701cb25ddc15183
+ms.sourcegitcommit: 116bc6a75e501b7bba85e750b336f2af4ad29f5a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/10/2019
-ms.locfileid: "68941742"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71154880"
 ---
-# <a name="connectivity-and-networking-issues-for-azure-cloud-services-frequently-asked-questions-faqs"></a>Azure 雲端服務的連線能力和網路問題:常見問題集 (FAQ)
+# <a name="connectivity-and-networking-issues-for-azure-cloud-services-frequently-asked-questions-faqs"></a>Azure 雲端服務的連線能力和網路問題：常見問題集 (FAQ)
 
 本文包含 [Azure 雲端服務](https://azure.microsoft.com/services/cloud-services)之連線能力和網路服務問題的相關常見問題集。 如需有關規模大小的資訊，請參閱[雲端服務 VM 大小頁面](cloud-services-sizes-specs.md)。
 
@@ -64,14 +64,14 @@ Azure 會實作多層的網路安全性，可保護其平台服務免於遭受�
 
 ## <a name="how-can-i-redirect-incoming-traffic-to-the-default-url-of-my-cloud-service-to-a-custom-url"></a>如何將我雲端服務預設 URL 的傳入流量重新導向自訂的 URL？
 
-IIS 的 URL Rewrite 模組可用來將流向雲端服務 (例如，\*.cloudapp.net) 預設 URL 的流量重新導向至某些自訂名稱/URL。 由於預設會在 web 角色上啟用 URL 重寫模組, 且其規則是在應用程式的 web.config 中進行設定, 因此無論重新開機/重新安裝, 它一律會在 VM 上使用。如需詳細資訊, 請參閱:
+IIS 的 URL Rewrite 模組可用來將流向雲端服務 (例如，\*.cloudapp.net) 預設 URL 的流量重新導向至某些自訂名稱/URL。 由於預設會在 web 角色上啟用 URL 重寫模組，且其規則是在應用程式的 web.config 中進行設定，因此無論重新開機/重新安裝，它一律會在 VM 上使用。如需詳細資訊，請參閱：
 
 - [建立 URL Rewrite 模組的重寫規則](https://docs.microsoft.com/iis/extensions/url-rewrite-module/creating-rewrite-rules-for-the-url-rewrite-module)
 - [移除預設的連結](https://stackoverflow.com/questions/32286487/azure-website-how-to-remove-default-link?answertab=votes#tab-top)
 
 ## <a name="how-can-i-blockdisable-incoming-traffic-to-the-default-url-of-my-cloud-service"></a>如何封鎖/停用我雲端服務的預設 URL 傳入流量？
 
-您可以阻止傳向您雲端服務 (例如 \*.cloudapp.net) 預設 URL/名稱的傳入流量。 在雲端服務定義 (*) 檔案的 [網站系結設定\.] 底下, 將主機標頭設為自訂 DNS 名稱 (例如, www MyCloudService.com), 如下所示:
+您可以阻止傳向您雲端服務 (例如 \*.cloudapp.net) 預設 URL/名稱的傳入流量。 在雲端服務定義（*）檔案的 [網站系結設定\.] 底下，將主機標頭設為自訂 DNS 名稱（例如，www MyCloudService.com），如下所示：
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -103,7 +103,7 @@ IIS 的 URL Rewrite 模組可用來將流向雲端服務 (例如，\*.cloudapp.n
 - [保留現有雲端服務的 IP 位址](../virtual-network/virtual-networks-reserved-public-ip.md#reserve-the-ip-address-of-an-existing-cloud-service)
 - [使用服務組態檔建立保留的 IP 至雲端服務的關聯](../virtual-network/virtual-networks-reserved-public-ip.md#associate-a-reserved-ip-to-a-cloud-service-by-using-a-service-configuration-file)
 
-如果您的角色有多個實例, 請將 RIP 與您的雲端服務產生關聯, 而不會造成任何停機時間。或者, 您可以將 Azure 資料中心的 IP 範圍列入允許清單。您可以在[Microsoft 下載中心](https://www.microsoft.com/en-us/download/details.aspx?id=41653)找到所有 Azure IP 範圍。
+如果您的角色有多個執行個體時，將 RIP 與您的雲端服務建立關聯就應該不會導致任何停機時間。 或者，您可以將 Azure 資料中心的 IP 範圍新增至允許清單。 您可以在 [Microsoft 下載中心](https://www.microsoft.com/en-us/download/details.aspx?id=41653)找到所有 Azure IP 範圍。
 
 這個檔案包含 Azure 資料中心使用的 IP 位址範圍 (包括計算、SQL 和儲存體範圍)。 每週會公佈已更新的檔案，以反映目前已部署的範圍及任何即將進行的 IP 範圍變更。 出現在檔案中的新範圍至少有一週的時間不會在資料中心中使用。 請每週下載新的 .xml 檔案，並在您的站台上執行必要的變更，以正確識別在 Azure 中執行的服務。 Azure Express Route 使用者可能會注意到，在每個月的第一週會使用此檔案來更新 Azure 空間的 BGP 公告。
 

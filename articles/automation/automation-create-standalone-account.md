@@ -9,16 +9,16 @@ ms.author: robreed
 ms.date: 01/15/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 32fafaeb6332ca0e76dbc8d72f11872a82ca1cbe
-ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
+ms.openlocfilehash: 1cdea358daa3bd0f9e738a0454613ea774a0e6dc
+ms.sourcegitcommit: b03516d245c90bca8ffac59eb1db522a098fb5e4
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/05/2019
-ms.locfileid: "68779143"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71146654"
 ---
 # <a name="create-a-standalone-azure-automation-account"></a>建立獨立的 Azure 自動化帳戶
 
-本文示範如何在 Azure 入口網站中建立 Azure 自動化帳戶。 您可以使用入口網站自動化帳戶來評估和瞭解自動化, 而不需使用額外的管理解決方案或與 Azure 監視器記錄整合。 您可以新增這些管理解決方案, 或與 Azure 監視器記錄整合, 以便在未來的任何時間點進行 runbook 作業的先進監視。
+本文示範如何在 Azure 入口網站中建立 Azure 自動化帳戶。 您可以使用入口網站自動化帳戶來評估和瞭解自動化，而不需使用額外的管理解決方案或與 Azure 監視器記錄整合。 您可以新增這些管理解決方案，或與 Azure 監視器記錄整合，以便在未來的任何時間點進行 runbook 作業的先進監視。
 
 使用自動化帳戶，您可以藉由在 Azure Resource Manager 或傳統部署模型中管理資源來驗證 Runbook。 一個「自動化帳戶」可以管理所指定租用戶之所有區域和訂用帳戶的資源。
 
@@ -28,7 +28,6 @@ ms.locfileid: "68779143"
   * 在 Azure Active Directory (Azure AD) 中建立服務主體。
   * 建立憑證。
   * 指派參與者角色型存取控制 (RBAC)，此控制可使用 Runbook 來管理 Azure Resource Manager 資源。
-* **傳統執行身分帳戶**。 此帳戶會上傳管理憑證。 憑證會使用 Runbook 來管理傳統資源。
 
 利用這些為您建立的帳戶，您可以快速開始建置和部署 Runbook 以支援您的自動化需求。
 
@@ -37,7 +36,7 @@ ms.locfileid: "68779143"
 若要建立或更新自動化帳戶，以及完成本文中所述的工作，您必須具有下列權限：
 
 * 若要建立自動化帳戶，必須將您的 Azure AD 使用者帳戶加入至權限相當於 **Microsoft自動化**資源之擁有者角色的角色。 如需詳細資訊，請參閱 [Azure 自動化中的角色型存取控制](automation-role-based-access-control.md)。
-* 在 [Azure 入口網站] 的 [ **Azure Active Directory**  > **管理** > **使用者設定**] 下, 如果**應用程式註冊**設定為 **[是]** , 則您 Azure AD 租使用者中的非系統管理員使用者可以[註冊 Active目錄應用程式](../active-directory/develop/howto-create-service-principal-portal.md#check-azure-subscription-permissions)。 如果將 [應用程式註冊] 設為 [否]，則執行此動作的使用者必須是 Azure AD 中的全域管理員。
+* 在 [Azure 入口網站] 的 [ **Azure Active Directory**  > **管理** > **使用者設定**] 下，如果**應用程式註冊**設定為 **[是]** ，則您 Azure AD 租使用者中的非系統管理員使用者可以[註冊 Active目錄應用程式](../active-directory/develop/howto-create-service-principal-portal.md#check-azure-subscription-permissions)。 如果將 [應用程式註冊] 設為 [否]，則執行此動作的使用者必須是 Azure AD 中的全域管理員。
 
 若您在加入至訂用帳戶的全域管理員/共同管理員角色之前，並非訂用帳戶 Active Directory 執行個體的成員，系統會將您以來賓身分加入至 Active Directory。 在此案例中，您會在 [新增自動化帳戶] 頁面中看到此訊息：「您無權建立」。
 
@@ -97,14 +96,13 @@ ms.locfileid: "68779143"
 | AzureRunAsCertificate |在建立自動化帳戶時自動建立，或針對現有帳戶使用 PowerShell 指令碼建立的憑證資產。 此憑證會向 Azure 進行驗證，讓您可以從 Runbook 管理 Azure Resource Manager 資源。 此憑證有一年的有效期。 |
 | AzureRunAsConnection |在建立自動化帳戶時自動建立，或針對現有帳戶使用 PowerShell 指令碼建立的連線資產。 |
 
-下表摘要說明傳統執行身分帳戶的資源。
+## <a name="classic-run-as-accounts"></a>傳統執行身分帳戶
 
-| Resource | 描述 |
-| --- | --- |
-| AzureClassicAutomationTutorial Runbook |圖形化 Runbook 範例。 Runbook 會使用傳統執行身分帳戶 (憑證)，來取得訂用帳戶中的所有傳統 VM。 然後，它會顯示 VM 名稱和狀態。 |
-| AzureClassicAutomationTutorial 指令碼 Runbook |PowerShell Runbook 範例。 Runbook 會使用傳統執行身分帳戶 (憑證)，來取得訂用帳戶中的所有傳統 VM。 然後，它會顯示 VM 名稱和狀態。 |
-| AzureClassicRunAsCertificate |自動建立的憑證資產。 此憑證會向 Azure 進行驗證，讓您可以從 Runbook 管理 Azure 傳統資源。 此憑證有一年的有效期。 |
-| AzureClassicRunAsConnection |自動建立的連線資產。 此資產會向 Azure 進行驗證，讓您可以從 Runbook 管理 Azure 傳統資源。 |
+根據預設，當您建立 Azure 自動化帳戶時，不會再建立傳統的執行身分帳戶。 如果您仍然需要傳統的執行身分帳戶，請執行下列步驟。
+
+1. 從您的 [**自動化帳戶**] 頁面，選取 [**帳戶設定**] 下的 [**執行身分帳戶**]。
+2. 選取 [ **Azure 傳統執行身分帳戶**]。
+3. 按一下 [**建立**]，繼續建立傳統執行身分帳戶。
 
 ## <a name="next-steps"></a>後續步驟
 

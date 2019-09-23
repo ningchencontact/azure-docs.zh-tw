@@ -79,11 +79,11 @@ ms.locfileid: "68385339"
 
 | 屬性 | 必要項 | Type | 描述 |
 |-----------|----------|------|-------------|
-| <*參數-名稱*> | 是 | String | 您想要定義之參數的名稱 |
+| <*parameter-name*> | 是 | String | 您想要定義之參數的名稱 |
 | <*parameter-type*> | 是 | int、float、string、bool、array、object、securestring、secureobject <p><p>**注意**：對於所有密碼、金鑰和秘密, 請使用`securestring`或`secureobject`類型, 因為`GET`作業不會傳回這些類型。 如需保護參數的詳細資訊, 請參閱[動作和輸入參數的安全性建議](../logic-apps/logic-apps-securing-a-logic-app.md#secure-action-parameters)。 | 參數的類型 |
-| <*預設-參數-值*> | 是 | 與 `type` 相同 | 當工作流程具現化時, 若未指定任何值時, 所要使用的預設參數值。 `defaultValue`屬性是必要的, 讓邏輯應用程式設計工具可以正確地顯示參數, 但您可以指定空值。 |
+| <*default-parameter-value*> | 是 | 與 `type` 相同 | 當工作流程具現化時, 若未指定任何值時, 所要使用的預設參數值。 `defaultValue`屬性是必要的, 讓邏輯應用程式設計工具可以正確地顯示參數, 但您可以指定空值。 |
 | <*array-with-permitted-parameter-values*> | 否 | Array | 具有參數可接受值的陣列 |
-| <*參數-描述*> | 否 | JSON 物件 | 任何其他參數詳細資料, 例如參數的描述 |
+| <*parameter-description*> | 否 | JSON 物件 | 任何其他參數詳細資料, 例如參數的描述 |
 ||||
 
 接下來, 為您的工作流程定義建立[Azure Resource Manager 範本](../azure-resource-manager/resource-group-overview.md)、定義範本參數, 以在部署時接受您想要的值, 並以範本或工作流程定義參數的參考取代硬式編碼的值。適用, 並儲存要在部署中使用的值, 以用於不同的[參數](../azure-resource-manager/resource-group-template-deploy.md#parameter-files)檔案。 如此一來, 您就可以更輕鬆地透過參數檔案來變更這些值, 而不需要更新和重新部署邏輯應用程式。 對於機密或必須受到保護的資訊, 例如使用者名稱、密碼和秘密, 您可以將這些值儲存在 Azure Key Vault 中, 並讓您的參數檔案從您的金鑰保存庫中抓取這些值。 如需在範本和工作流程定義層級定義參數的詳細資訊和範例[, 請參閱總覽:使用 Azure Resource Manager 範本](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md)自動部署邏輯應用程式。

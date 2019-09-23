@@ -10,12 +10,12 @@ ms.subservice: video-indexer
 ms.topic: article
 ms.date: 09/17/2019
 ms.author: juliako
-ms.openlocfilehash: a30fa858ea7befa2363e0ac2742e16d46037d0e0
-ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
-ms.translationtype: HT
+ms.openlocfilehash: a4b7ccf6ece8ed40d6f6c6a22410d4bbe99e590a
+ms.sourcegitcommit: b03516d245c90bca8ffac59eb1db522a098fb5e4
+ms.translationtype: MT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 09/19/2019
-ms.locfileid: "71123519"
+ms.locfileid: "71146479"
 ---
 # <a name="what-is-video-indexer"></a>什麼是影片索引子？
 
@@ -54,10 +54,13 @@ Azure 媒體服務影片索引子是以 Azure 認知服務為基礎的 AI 解決
 * **黑色畫面偵測**：識別影片中出現的黑色畫面。
 * **主要畫面格擷取**：偵測影片中的穩定主要畫面格。
 * 輪流**點數**：在電視節目和電影結束後，識別輪流點數的開始和結束。
+* **動畫字元偵測**（預覽）：透過與[認知服務自訂視覺](https://azure.microsoft.com/services/cognitive-services/custom-vision-service/)的整合，偵測、分組和辨識動畫內容中的字元。 如需詳細資訊，請參閱[動畫字元偵測](animated-characters-recognition.md)。
+* **編輯快照類型偵測**：根據其類型標記照片（例如寬照、中度、收盤、近、近、兩次、多人、戶外和室內等等）。 如需詳細資訊，請參閱[編輯快照類型偵測](scenes-shots-keyframes.md#editorial-shot-type-detection)。
 
 ### <a name="audio-insights"></a>音訊見解
 
 * **自動語言偵測**：自動識別主要口說語言。 支援的語言包括英文、西班牙文、法文、德文、義大利文、中文（簡體）、日文、俄文和巴西葡萄牙文。 如果無法放心識別語言，影片索引子會假設說語言為英文。 如需詳細資訊，請參閱[語言識別模型](language-identification-model.md)。
+* **多種語言的語音辨識與**轉譯（預覽）：會自動從音訊識別不同區段中的說話語言，傳送要轉譯之媒體檔案的每個區段，並將轉譯合併回一個整合轉譯。 如需詳細資訊，請參閱[自動識別和轉譯多語言內容](multi-language-identification-transcription.md)。
 * **音訊轉譯**：將語音轉換為 12 種語言的文字，並允許擴充。 支援的語言包括英文、西班牙文、法文、德文、義大利文、中文（簡體）、日文、阿拉伯文、俄文、巴西葡萄牙文、印度文和韓文。
 * **隱藏式輔助字幕**：建立三種格式的隱藏式輔助字幕：VTT、TTML、SRT。
 * **雙通道處理**：自動偵測分離的文字記錄並合併到單一時間軸。
@@ -75,6 +78,7 @@ Azure 媒體服務影片索引子是以 Azure 認知服務為基礎的 AI 解決
 依單一通道進行編製索引時，將會提供那些模型的部分結果
 
 * **關鍵字擷取**：擷取語音和視覺文字中的關鍵字。
+* **命名實體的解壓縮**：透過自然語言處理（NLP），從語音和視覺文字中解壓縮品牌、位置和人員。
 * **品牌擷取**：擷取語音和視覺文字中的品牌。
 * **主題推斷**：從文字記錄中推斷主要主題。 包含第 1 層級的 IPTC 分類法。
 * **成品**：為每個模型擷取一組豐富的「下一個詳細資料層級」成品。

@@ -3,23 +3,23 @@ title: 原則定義結構的詳細資料
 description: 說明「Azure 原則」如何使用資源原則定義，藉由描述強制執行原則的時機及所產生的效果，為您組織中的資源建立慣例。
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 03/13/2019
+ms.date: 09/09/2019
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
-ms.openlocfilehash: 1999a47d18fd3ce6388d6177be85c7debd3c1e97
-ms.sourcegitcommit: 6794fb51b58d2a7eb6475c9456d55eb1267f8d40
+ms.openlocfilehash: b2b38fe2d9a2bf4c645e5b1cda4b8fba356353d3
+ms.sourcegitcommit: a19bee057c57cd2c2cd23126ac862bd8f89f50f5
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70239193"
+ms.lasthandoff: 09/23/2019
+ms.locfileid: "71181197"
 ---
 # <a name="azure-policy-definition-structure"></a>Azure 原則定義結構
 
 「Azure 原則」會使用資源原則定義為資源建立慣例。 每個定義都會描述資源合規性，以及當資源不符合規範時應套用的效果。
 藉由定義慣例，您可以控制成本以及更輕鬆地管理您的資源。 例如，您可以指定僅允許特定類型的虛擬機器。 或者，您可以要求所有資源都有特定標籤。 原則會由所有子資源繼承。 如果將某個原則套用至資源群組，它會適用於該資源群組中的所有資源。
 
-Azure 原則所使用的結構描述位於此處：[https://schema.management.azure.com/schemas/2018-05-01/policyDefinition.json](https://schema.management.azure.com/schemas/2018-05-01/policyDefinition.json)
+Azure 原則所使用的結構描述位於此處：[https://docs.microsoft.com/azure/templates/microsoft.authorization/2019-01-01/policydefinitions](/azure/templates/microsoft.authorization/2019-01-01/policydefinitions)
 
 使用 JSON 來建立原則定義。 原則定義中包含以下的項目︰
 
@@ -69,7 +69,7 @@ Azure 原則所使用的結構描述位於此處：[https://schema.management.az
 
 ## <a name="mode"></a>模式
 
-根據原則是以 Azure Resource Manager 屬性或資源提供者屬性為目標, 設定**模式**。
+根據原則是以 Azure Resource Manager 屬性或資源提供者屬性為目標，設定**模式**。
 
 ### <a name="resource-manager-modes"></a>Resource Manager 模式
 
@@ -80,14 +80,14 @@ Azure 原則所使用的結構描述位於此處：[https://schema.management.az
 
 我們建議您在大部分的情況下都將 **mode** 設定為 `all`。 透過入口網站使用 `all` 模式建立的所有原則定義。 如果您是使用 PowerShell 或 Azure CLI，則可手動指定 **mode** 參數。 如果原則定義未包含 **mode** 值，則在 Azure PowerShell 中會預設為 `all`，而在 Azure CLI 中會預設為 `null`。 `null` 模式與使用 `indexed` 來支援回溯相容性相同。
 
-建立會強制執行標籤或位置的原則時，應該使用 `indexed`。 雖然並非必要，但它可防止不支援標籤和位置的資源在合規性結果中顯示為不符合規範。 有一個例外，就是**資源群組**。 原則如果會在資源群組上強制執行位置或標籤，就應該將 **mode** 設定為 `all`，並明確地以 `Microsoft.Resources/subscriptions/resourceGroups` 類型作為目標。 如需範例，請參閱[強制執行資源群組標籤](../samples/enforce-tag-rg.md)。 如需支援標記的資源清單, 請參閱[Azure 資源的標記支援](../../../azure-resource-manager/tag-support.md)。
+建立會強制執行標籤或位置的原則時，應該使用 `indexed`。 雖然並非必要，但它可防止不支援標籤和位置的資源在合規性結果中顯示為不符合規範。 有一個例外，就是**資源群組**。 原則如果會在資源群組上強制執行位置或標籤，就應該將 **mode** 設定為 `all`，並明確地以 `Microsoft.Resources/subscriptions/resourceGroups` 類型作為目標。 如需範例，請參閱[強制執行資源群組標籤](../samples/enforce-tag-rg.md)。 如需支援標記的資源清單，請參閱[Azure 資源的標記支援](../../../azure-resource-manager/tag-support.md)。
 
 ### <a name="resource-provider-modes"></a>資源提供者模式
 
-目前唯一支援的資源提供者模式`Microsoft.ContainerService.Data` , 是用來管理[Azure Kubernetes Service](../../../aks/intro-kubernetes.md)上的許可控制站規則。
+目前唯一支援的資源提供者模式`Microsoft.ContainerService.Data` ，是用來管理[Azure Kubernetes Service](../../../aks/intro-kubernetes.md)上的許可控制站規則。
 
 > [!NOTE]
-> [適用于 Kubernetes 的 Azure 原則](rego-for-aks.md)處於公開預覽狀態, 而且只支援內建原則定義。
+> [適用于 Kubernetes 的 Azure 原則](rego-for-aks.md)處於公開預覽狀態，而且只支援內建原則定義。
 
 ## <a name="parameters"></a>參數
 
@@ -107,7 +107,7 @@ Azure 原則所使用的結構描述位於此處：[https://schema.management.az
   - `description`:參數用途的說明。 能用來提供可接受值的範例。
   - `displayName`:參數在入口網站中顯示的易記名稱。
   - `strongType`:(選擇性) 透過入口網站指派原則定義時會使用。 提供內容感知清單。 如需詳細資訊，請參閱 [strongType](#strongtype)。
-  - `assignPermissions`:選擇性設定為_true_ , 讓 Azure 入口網站在原則指派期間建立角色指派。 如果您想要在指派範圍之外指派許可權, 此屬性會很有用。 原則中的每個角色定義 (或計畫中的所有原則中的每個角色定義) 都有一個角色指派。 參數值必須是有效的資源或範圍。
+  - `assignPermissions`:選擇性設定為_true_ ，讓 Azure 入口網站在原則指派期間建立角色指派。 如果您想要在指派範圍之外指派許可權，此屬性會很有用。 原則中的每個角色定義（或計畫中的所有原則中的每個角色定義）都有一個角色指派。 參數值必須是有效的資源或範圍。
 - `defaultValue`:(選擇性) 如果沒有提供值，就在指派中設定參數的值。
   更新已指派的現有原則定義時需要。
 - `allowedValues`:選擇性提供參數在指派期間接受的值陣列。
@@ -247,7 +247,7 @@ Azure 原則所使用的結構描述位於此處：[https://schema.management.az
 使用 **like** 和 **notLike** 條件時，您可以在值中提供 `*` 萬用字元。
 值不應包含多個 `*` 萬用字元。
 
-當使用**match**和**notMatch**條件時, 請`#`提供來比對數位`?` 、針對字母, `.`以比對任何字元, 以及任何其他字元以符合該實際字元。
+當使用**match**和**notMatch**條件時，請`#`提供來比對數位`?` 、針對字母， `.`以比對任何字元，以及任何其他字元以符合該實際字元。
 **match** 和 **notMatch** 都會區分大小寫。 不會區分大小寫的替代項目，可在 **matchInsensitively** 和 **notMatchInsensitively** 中取得。 如需範例，請參閱[允許數個名稱模式](../samples/allow-multiple-name-patterns.md)。
 
 ### <a name="fields"></a>欄位
@@ -307,7 +307,7 @@ Azure 原則所使用的結構描述位於此處：[https://schema.management.az
 **value** 已和任何支援的 [condition](#conditions) 配對。
 
 > [!WARNING]
-> 如果_範本_函式的結果是錯誤, 原則評估會失敗。 失敗的評估是隱含的**拒絕**。 如需詳細資訊, 請參閱[避免範本失敗](#avoiding-template-failures)。
+> 如果_範本_函式的結果是錯誤，原則評估會失敗。 失敗的評估是隱含的**拒絕**。 如需詳細資訊，請參閱[避免範本失敗](#avoiding-template-failures)。
 
 #### <a name="value-examples"></a>Value 範例
 
@@ -351,7 +351,7 @@ Azure 原則所使用的結構描述位於此處：[https://schema.management.az
 
 #### <a name="avoiding-template-failures"></a>避免範本失敗
 
-在**值**中使用樣板函式, 可允許許多複雜的嵌套函數。 如果_範本_函式的結果是錯誤, 原則評估會失敗。 失敗的評估是隱含的**拒絕**。 在某些情況下失敗的**值**範例:
+在**值**中_使用_樣板函式，可允許許多複雜的嵌套函數。 如果_範本_函式的結果是錯誤，原則評估會失敗。 失敗的評估是隱含的**拒絕**。 在某些情況下失敗的**值**範例：
 
 ```json
 {
@@ -367,9 +367,9 @@ Azure 原則所使用的結構描述位於此處：[https://schema.management.az
 }
 ```
 
-上述範例原則規則使用[substring ()](../../../azure-resource-manager/resource-group-template-functions-string.md#substring)來比較**名稱**的前三個字元和**abc**。 如果**名稱**少於3個字元, `substring()`函數會產生錯誤。 此錯誤會導致原則變成**拒絕**效果。
+上述範例原則規則使用[substring （）](../../../azure-resource-manager/resource-group-template-functions-string.md#substring)來比較**名稱**的前三個字元和**abc**。 如果**名稱**少於3個字元， `substring()`函數會產生錯誤。 此錯誤會導致原則變成**拒絕**效果。
 
-相反地, 請使用[if ()](../../../azure-resource-manager/resource-group-template-functions-logical.md#if)函式來檢查**name**的前三個字元是否等於**abc** , 而不允許少於3個字元的**名稱**導致錯誤:
+相反地，請使用[if （）](../../../azure-resource-manager/resource-group-template-functions-logical.md#if)函式來檢查**name**的前三個字元是否等於**abc** ，而不允許少於3個字元的**名稱**導致錯誤：
 
 ```json
 {
@@ -385,11 +385,11 @@ Azure 原則所使用的結構描述位於此處：[https://schema.management.az
 }
 ```
 
-使用修改過的原則規則`if()` , 會先檢查**名稱**的長度, 再`substring()`嘗試取得少於三個字元的值。 如果**名稱**太短, 則會改為傳回值「不是以 abc 開頭」, 並與**abc**比較。 簡短名稱不是**abc**開頭的資源仍會失敗原則規則, 但在評估期間不會再造成錯誤。
+使用修改過的原則規則`if()` ，會先檢查**名稱**的長度，再`substring()`嘗試取得少於三個字元的值。 如果**名稱**太短，則會改為傳回值「不是以 abc 開頭」，並與**abc**比較。 簡短名稱不是**abc**開頭的資源仍會失敗原則規則，但在評估期間不會再造成錯誤。
 
 ### <a name="effect"></a>效果
 
-Azure 原則支援下列類型的效果:
+Azure 原則支援下列類型的效果：
 
 - **Deny**：會在活動記錄中產生事件，並讓要求失敗
 - **Audit**：會在活動記錄中產生警告事件，但不會讓要求失敗
@@ -397,7 +397,8 @@ Azure 原則支援下列類型的效果:
 - **AuditIfNotExists**：如果資源不存在，便啟用稽核
 - **DeployIfNotExists**：如果資源不存在，便部署該資源
 - **Disabled**：不會評估資源是否符合原則規則的規範
-- **EnforceRegoPolicy**: 在 Azure Kubernetes Service 中設定開啟的原則代理程式許可控制器 (預覽)
+- **EnforceRegoPolicy**：在 Azure Kubernetes Service 中設定開啟的原則代理程式許可控制器（預覽）
+- **修改**：新增、更新或移除資源中已定義的標記
 
 對於 **append**，您必須提供下列詳細資料：
 
@@ -425,29 +426,31 @@ Azure 原則支援下列類型的效果:
 }
 ```
 
-如需每個效果、評估順序、屬性和範例的完整詳細資料, 請參閱[瞭解 Azure 原則效果](effects.md)。
+同樣地，在[補救](../how-to/remediate-resources.md)工作的原則規則的**詳細資料**部分中， **Modify**需要**roleDefinitionId**屬性。 **Modify**也需要**作業**陣列，以定義要對資源標記採取哪些動作。
+
+如需每個效果、評估順序、屬性和範例的完整詳細資料，請參閱[瞭解 Azure 原則效果](effects.md)。
 
 ### <a name="policy-functions"></a>原則函式
 
-除了下列函數和使用者定義函數之外, 所有[Resource Manager 範本](../../../azure-resource-manager/resource-group-template-functions.md)函式都可在原則規則中使用:
+除了下列函數和使用者定義函數之外，所有[Resource Manager 範本](../../../azure-resource-manager/resource-group-template-functions.md)函式都可在原則規則中使用：
 
 - copyIndex()
 - deployment()
 - list*
-- newGuid ()
+- newGuid （）
 - pickZones()
 - providers()
 - reference()
 - resourceId()
 - variables()
 
-下列函式可在原則規則中使用, 但與 Azure Resource Manager 範本中的用法不同:
+下列函式可在原則規則中使用，但與 Azure Resource Manager 範本中的用法不同：
 
 - addDays(dateTime, numberOfDaysToAdd)
-  - **datetime**: [Required] 通用 ISO 8601 dateTime 格式 ' Yyyy-mm-dd ' ddTHH: MM: Ss. ss.fffffffz ' 中的 string 字串
-  - **numberOfDaysToAdd**: [必要] 整數-要加入的天數
-- utcNow ()-與 Resource Manager 範本不同的是, 這可以在 defaultValue 以外使用。
-  - 傳回設定為目前日期和時間的字串, 其為通用 ISO 8601 DateTime 格式 ' yyyy-mm-dd ' ddTHH: MM: ss. Ss.fffffffz '
+  - **datetime**： [Required] 通用 ISO 8601 dateTime 格式 ' Yyyy-mm-dd ' ddTHH： MM： Ss. ss.fffffffz ' 中的 string 字串
+  - **numberOfDaysToAdd**： [必要] 整數-要加入的天數
+- utcNow （）-與 Resource Manager 範本不同的是，這可以在 defaultValue 以外使用。
+  - 傳回設定為目前日期和時間的字串，其為通用 ISO 8601 DateTime 格式 ' yyyy-mm-dd ' ddTHH： MM： ss. Ss.fffffffz '
 
 此外，`field` 函式可用於原則規則。 `field` 主要是與 **AuditIfNotExists** 和 **DeployIfNotExists** 搭配使用，以參考所評估資源上的欄位。 如需此用法的範例，請參閱 [DeployIfNotExists 範例](effects.md#deployifnotexists-example)。
 
@@ -512,9 +515,9 @@ Azure 原則支援下列類型的效果:
 - `Microsoft.Storage/storageAccounts/networkAcls.ipRules`
 - `Microsoft.Storage/storageAccounts/networkAcls.ipRules[*]`
 
-' Normal ' 別名會將欄位表示為單一值。 此欄位適用于完全相符的比較案例, 因為整個值集合必須完全依照定義, 而不是更多或更少。
+' Normal ' 別名會將欄位表示為單一值。 此欄位適用于完全相符的比較案例，因為整個值集合必須完全依照定義，而不是更多或更少。
 
-**[\*]** 別名可讓您比較陣列中每個專案的值, 以及每個元素的特定屬性。 這個方法可讓您比較「如果沒有 '、' (如果有的話)」和「if 所有」案例的元素屬性。 使用**ipRules [\*]** , 範例會驗證每個_動作_是否為「_拒絕_」, 但不會擔心有多少規則存在或 IP_值_為何。 此範例規則會檢查是否有任何相符的**ipRules [\*]. value** to **10.0.4.1** , 而且只有在找不到至少一個相符專案時, 才會套用**effectType** :
+**[\*]** 別名可讓您比較陣列中每個專案的值，以及每個元素的特定屬性。 這個方法可讓您比較「如果沒有 '、' （如果有的話）」和「if 所有」案例的元素屬性。 使用**ipRules [\*]** ，範例會驗證每個_動作_是否為「_拒絕_」，但不會擔心有多少規則存在或 IP_值_為何。 此範例規則會檢查是否有任何相符的**ipRules [\*]. value** to **10.0.4.1** ，而且只有在找不到至少一個相符專案時，才會套用**effectType** ：
 
 ```json
 "policyRule": {
@@ -536,7 +539,7 @@ Azure 原則支援下列類型的效果:
 }
 ```
 
-如需詳細資訊, 請參閱[評估\*[] 別名](../how-to/author-policies-for-arrays.md#evaluating-the--alias)。
+如需詳細資訊，請參閱[評估\*[] 別名](../how-to/author-policies-for-arrays.md#evaluating-the--alias)。
 
 ## <a name="initiatives"></a>方案
 

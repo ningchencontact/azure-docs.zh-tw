@@ -11,12 +11,12 @@ author: bonova
 ms.author: bonova
 ms.reviewer: carlrab, jovanpop, sachinp, sstein
 ms.date: 09/16/2019
-ms.openlocfilehash: d0356ff61ec8073e7fe69c3b09cbbdd8845fb787
-ms.sourcegitcommit: 2ed6e731ffc614f1691f1578ed26a67de46ed9c2
-ms.translationtype: HT
+ms.openlocfilehash: 85ab8a61e0aebadf212217bc88e07e0066eca02b
+ms.sourcegitcommit: b03516d245c90bca8ffac59eb1db522a098fb5e4
+ms.translationtype: MT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 09/19/2019
-ms.locfileid: "71128904"
+ms.locfileid: "71146795"
 ---
 # <a name="overview-azure-sql-database-managed-instance-resource-limits"></a>Azure SQL Database 受控實例資源限制的總覽
 
@@ -55,11 +55,11 @@ Azure SQL Database 受控實例可以部署在兩個硬體層代上：第4代和
 | 最大記憶體 | 第 4 代：56 GB-168 GB （7GB/vCore）<br/>第 5 代：20.4 GB-408 GB （5.1 GB/vCore）<br/>新增更多虛擬核心以取得更多記憶體。 | 第 4 代：56 GB-168 GB （7GB/vCore）<br/>第 5 代：20.4 GB-408 GB （5.1 GB/vCore）<br/>新增更多虛擬核心以取得更多記憶體。 |
 | 最大實例儲存體大小（保留） | -2 TB 適用于4虛擬核心（僅限第5代）<br/>-適用于其他大小的 8 TB | 第 4 代：1 TB <br/> 第 5 代： <br/>-1 TB 適用于4、8、16虛擬核心<br/>- 2 TB (適用於 24 個虛擬核心)<br/>- 4 TB (適用於 32、40、64、80 個虛擬核心) |
 | 資料庫大小上限 | 目前可用的實例大小上限（最多 2 TB-8 TB，視虛擬核心的數目而定）。 | 目前可用的實例大小上限（最多 1 TB-4 TB，視虛擬核心的數目而定）。 |
-| 最大 tempDB 大小 | 限制為 24 GB/vCore （96-1920 GB）和目前可用的實例大小。<br/>新增更多虛擬核心以取得更多 TempDB 空間。 | 最高可達目前可用的實例大小。 TempDB 記錄檔大小目前僅限於 24GB/vCore。 |
+| 最大 tempDB 大小 | 限制為 24 GB/vCore （96-1920 GB）和目前可用的實例儲存體大小。<br/>新增更多虛擬核心以取得更多 TempDB 空間。 | 最高可達目前可用的實例儲存體大小。 TempDB 記錄檔大小目前僅限於 24GB/vCore。 |
 | 每個執行個體的資料庫數目上限 | 100，除非已達到實例儲存體大小限制。 | 100，除非已達到實例儲存體大小限制。 |
 | 每個實例的資料庫檔案數目上限 | 最多280，除非已達到實例儲存體大小或[Azure Premium 磁片儲存體配置空間](sql-database-managed-instance-transact-sql-information.md#exceeding-storage-space-with-small-database-files)的限制。 | 32767每個資料庫的檔案，除非已達到實例儲存體大小限制。 |
-| 檔案大小上限 | 限制為 8 TB，目前可用的實例大小（最多 2 TB-8 TB）和[Azure Premium 磁片儲存體配置空間](sql-database-managed-instance-transact-sql-information.md#exceeding-storage-space-with-small-database-files)。 | 限制為 4 TB 和目前可用的實例大小（最多 1 TB-4 TB）。 |
-| 記錄檔大小上限 | 限制為 2 TB，目前可用的實例大小和[Azure Premium 磁片儲存體配置空間](sql-database-managed-instance-transact-sql-information.md#exceeding-storage-space-with-small-database-files)。 | 限制為 2 TB 和目前可用的實例大小。 |
+| 資料檔案大小上限 | 受限於目前可用的實例儲存體大小（最多 2 TB-8 TB）和[Azure Premium 磁片儲存體配置空間](sql-database-managed-instance-transact-sql-information.md#exceeding-storage-space-with-small-database-files)。 | 受限於目前可用的實例儲存體大小（最多 1 TB-4 TB）。 |
+| 記錄檔大小上限 | 受限於 2 TB 和目前可用的實例儲存體大小。 | 受限於 2 TB 和目前可用的實例儲存體大小。 |
 | 資料/記錄 IOPS (大約) | 每個檔案 500 - 7,500<br/>\*[增加檔案大小以取得更多 IOPS](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage-performance#premium-storage-disk-sizes)| 5.5 K-110 K （1375/vCore）<br/>新增更多虛擬核心，以取得更佳的 IO 效能。 |
 | 記錄寫入輸送量限制（每個實例） | 每個虛擬核心 3 MB/秒<br/>最大值 22 MB/秒 | 每個 vCore 4 MB/秒<br/>最大 48 MB/秒 |
 | 資料輸送量 (大約) | 每個檔案 100 - 250 MB/秒<br/>\*[增加檔案大小以取得更佳的 IO 效能](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage-performance#premium-storage-disk-sizes) | 不受限制。 |
@@ -69,6 +69,7 @@ Azure SQL Database 受控實例可以部署在兩個硬體層代上：第4代和
 | [唯讀複本](sql-database-read-scale-out.md) | 0 | 1（包含在價格中） |
 
 > [!NOTE]
+> - **目前可用的實例儲存體大小**是保留實例大小與已使用的儲存空間之間的差異。
 > - 使用者和系統資料庫中的資料和記錄檔大小都會計入執行個體儲存體大小，並與儲存體大小上限相比較。 使用 <a href="https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-master-files-transact-sql">sys.master_files</a> 系統檢視來判斷資料庫所使用的總空間。 錯誤記錄不會持續留存，也不計入大小。 備份並未計入儲存體大小。
 > - 輸送量和 IOPS 也取決於受控實例未明確限制的頁面大小。
 > 您可以使用自動容錯移轉群組，在不同的 Azure 區域中建立另一個可讀取的複本。

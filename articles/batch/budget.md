@@ -50,7 +50,7 @@ Batch 集區會使用網路資源。 特別是, **VirtualMachineConfiguration**�
 1. 在 Azure 入口網站中, 從左側導覽列選取 **成本管理 + 帳單**。
 1. 從 [**我的訂閱**] 區段中選取您的訂用帳戶
 1. 在左側流覽列的 [**成本管理**] 區段下, 移至 [**成本分析**], 這將會顯示如下的視圖:
-1. 選取 [**新增篩選**]。 在第一個下拉式選單中, 選取 [**資源** ![] [選取資源篩選器]](./media/batch-budget/resource-filter.png)
+1. 選取 [**新增篩選**]。 在第一個下拉式選單中, 選取 **資源** ![選取資源篩選器](./media/batch-budget/resource-filter.png)
 1. 在第二個下拉式選單中, 選取 Batch 集區。 選取集區時, 成本分析看起來會類似下列分析。
     ![集區的成本分析](./media/batch-budget/pool-cost-analysis.png)
 

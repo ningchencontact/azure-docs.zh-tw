@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 02/19/2019
 ms.reviewer: mbullwin
 ms.author: cithomas
-ms.openlocfilehash: 925264bb69093ab70465665e1d2da615a7a3e53d
-ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
+ms.openlocfilehash: acc7a218d40ec7b752d9495bd48e5f37436d736d
+ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68261763"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71169468"
 ---
 # <a name="applicationinsightsloggerprovider-for-net-core-ilogger-logs"></a>適用于 .NET Core ILogger 記錄的 ApplicationInsightsLoggerProvider
 
@@ -221,6 +221,10 @@ public class Startup
 
 ## <a name="console-application"></a>主控台應用程式
 
+> [!NOTE]
+> 有一個新的搶鮮版（Beta） Application Insights SDK，稱為[WorkerService](https://www.nuget.org/packages/Microsoft.ApplicationInsights.WorkerService) ，可用來為任何主控台應用程式啟用 Application Insights （ILogger 和其他 Application Insights 遙測）。 建議您在[這裡](../../azure-monitor/app/worker-service.md)使用此封裝和相關聯的指示。
+當此新封裝的穩定版本發行之後，下列範例會被取代。
+
 下列程式碼顯示的範例主控台應用程式, 已設定為將 ILogger 追蹤傳送至 Application Insights。
 
 安裝的封裝：
@@ -363,7 +367,7 @@ class Program
 
 ### <a name="what-are-the-old-and-new-versions-of-applicationinsightsloggerprovider"></a>新舊版本的 ApplicationInsightsLoggerProvider 有哪些？
 
-[ApplicationInsights](https://www.nuget.org/packages/Microsoft.ApplicationInsights.AspNetCore)包含內建的 ApplicationInsightsLoggerProvider (ApplicationInsights), 這是透過 ApplicationInsightsLoggerProvider 啟用的功能所提供  擴充方法。 此提供者已從版本 2.7.0-Beta2 標記為過時。 它將在下一個主要版本變更中完全移除。 [ApplicationInsights. AspNetCore 2.6.1](https://www.nuget.org/packages/Microsoft.ApplicationInsights.AspNetCore)套件本身並不會過時。 您必須啟用對要求、相依性等的監視。
+[ApplicationInsights](https://www.nuget.org/packages/Microsoft.ApplicationInsights.AspNetCore)包含內建的 ApplicationInsightsLoggerProvider (ApplicationInsights), 這是透過 ApplicationInsightsLoggerProvider 啟用的功能所提供擴充方法。 此提供者已從版本 2.7.0-Beta2 標記為過時。 它將在下一個主要版本變更中完全移除。 [ApplicationInsights. AspNetCore 2.6.1](https://www.nuget.org/packages/Microsoft.ApplicationInsights.AspNetCore)套件本身並不會過時。 您必須啟用對要求、相依性等的監視。
 
 建議的替代方案是[ApplicationInsights](https://www.nuget.org/packages/Microsoft.Extensions.Logging.ApplicationInsights)的新獨立套件, 其中包含改良的 ApplicationInsightsLoggerProvider (ApplicationInsights. ApplicationInsightsLoggerProvider) 和 ILoggerBuilder 上的擴充方法來啟用它。
 

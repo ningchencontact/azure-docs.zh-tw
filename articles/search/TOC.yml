@@ -251,18 +251,18 @@
               href: knowledge-store-connect-power-bi.md
     - name: 查詢文件
       items:
-        - name: 建立基本查詢
+        - name: 查詢類型和組合
           href: search-query-overview.md
-        - name: 搜尋總管 (入口網站)
+        - name: 建立簡易查詢
+          href: search-query-simple-examples.md
+        - name: 使用完整 Lucene 語法
+          href: search-query-lucene-examples.md
+        - name: 使用搜尋總管 (入口網站)
           href: search-explorer.md
         - name: 簡單查詢語法
           href: query-simple-syntax.md
         - name: 完整的 Lucene 查詢語法
           href: query-lucene-syntax.md
-        - name: 範例 (簡單語法)
-          href: search-query-simple-examples.md
-        - name: 範例 (完整 Lucene)
-          href: search-query-lucene-examples.md
         - name: moreLikeThis (預覽)
           href: search-more-like-this.md
     - name: 套用篩選條件

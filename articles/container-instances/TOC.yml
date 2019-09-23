@@ -29,6 +29,10 @@
           href: container-instances-multi-container-yaml.md
         - name: 部署容器群組 - Resource Manager
           href: container-instances-multi-container-group.md
+    - name: 與 Azure 服務整合
+      items:
+        - name: 透過 Azure Functions 觸發
+          href: container-instances-tutorial-azure-function-trigger.md
 - name: 範例
   items:
     - name: 程式碼範例
@@ -121,6 +125,8 @@
       href: /javascript/api/overview/azure/containerinstances
     - name: Resource Manager 範本
       href: /azure/templates/microsoft.containerinstance/containergroups
+    - name: YAML
+      href: container-instances-reference-yaml.md
     - name: 連接器
       href: /connectors/aci
 - name: 資源

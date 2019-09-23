@@ -47,6 +47,7 @@
     - name: 將 SSIS 套件遷移至 Azure SQL Database 受控執行個體
       href: how-to-migrate-ssis-packages-managed-instance.md
 - name: 資源
+  expanded: true
   items:
     - name: 資料庫移轉案例狀態
       href: resource-scenario-status.md

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 08/22/2019
 ms.author: cherylmc
 ms.custom: seodec18
-ms.openlocfilehash: 92ec03e20fb6e681a0afd14048449ad004ebca0c
-ms.sourcegitcommit: 007ee4ac1c64810632754d9db2277663a138f9c4
+ms.openlocfilehash: dbe03ef29bd28d465fa671abc915d63d4b038cb2
+ms.sourcegitcommit: 116bc6a75e501b7bba85e750b336f2af4ad29f5a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69991513"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71154773"
 ---
 # <a name="expressroute-monitoring-metrics-and-alerts"></a>ExpressRoute 監視、計量和警示
 
@@ -23,59 +23,52 @@ ms.locfileid: "69991513"
 >不建議使用**傳統計量**。
 >
 
-## <a name="circuit-metrics"></a>線路計量
+## <a name="expressroute-metrics"></a>ExpressRoute 計量
 
-若要瀏覽至 [計量]，請針對您想要監視的線路按一下 [ExpressRoute] 頁面。 在 [監視] 下方，可檢視 [計量]。 從下列計量中選取。 將會套用預設匯總。 (選擇性) 您可以套用 [分割], 這將會顯示具有不同維度的計量。
+若要查看**計量**，請流覽至 [ *Azure 監視器*] 頁面，然後按一下 [*計量*]。 若要依資源類型的 expressroute*線路*來查看**expressroute**計量，請使用檔案管理工具。 若要查看**全球**觸達計量，請依資源類型的*expressroute 線路*進行篩選，然後選取已啟用全域觸達的 ExpressRoute 線路資源。 若要查看**Expressroute Direct**計量，請依*Expressroute 埠*篩選資源類型。 
 
-### <a name="metrics-available"></a>可用的計量: 
-* **Availability** 
-    * Arp 可用性
-      * 可用的維度:
-        * 對等 (主要/次要 ExpressRoute 路由器)
-        * 對等互連類型 (私用/公用/Microsoft)
-    * Bgp 可用性
-      * 可用的維度:
-        * 對等 (主要/次要 ExpressRoute 路由器)
-        * 對等互連類型 (私用/公用/Microsoft)
-* **流量**
-    * BitsInPerSecond
-      * 可用的維度:
-        * 對等互連類型 (私用/公用/Microsoft)
-    * BitsOutPerSecond
-      * 可用的維度:
-        * 對等互連類型 (私用/公用/Microsoft)
-    * GlobalReachBitsInPerSecond
-      * 可用的維度:
-        * 對等互連線路 Skey (服務金鑰)
-    * GlobalReachBitsOutPerSecond
-      * 可用的維度:
-        * 對等互連線路 Skey (服務金鑰)
+選取度量之後，將會套用預設匯總。 （選擇性）您可以套用 [分割]，這將會顯示具有不同維度的度量。
 
+### <a name="available-metrics"></a>可用的計量
+|**度量**|**分類**|**維度**|**功能**|
+| --- | --- | --- | --- |
+|ARP 可用性|可用性|<ui><li>對等（主要/次要 ExpressRoute 路由器）</ui></li><ui><li> 對等互連類型（私用/公用/Microsoft）</ui></li>|ExpressRoute|
+|Bgp 可用性|可用性|<ui><li> 對等（主要/次要 ExpressRoute 路由器）</ui></li><ui><li> 對等互連類型</ui></li>|ExpressRoute|
+|BitsInPerSecond|流量|<ui><li> 對等互連類型（ExpressRoute）</ui></li><ui><li>連結（ExpressRoute Direct）</ui></li>| <li> ExpressRoute</li><li>ExpressRoute Direct|
+|BitsOutPerSecond|流量| <ui><li>對等互連類型（ExpressRoute）</ui></li><ui><li> 連結（ExpressRoute Direct） | <ui><li>ExpressRoute<ui><li>ExpressRoute Direct</ui></li> |
+|GlobalReachBitsInPerSecond|流量|<ui><li>對等互連線路 Skey （服務金鑰）</ui></li>|Global Reach|
+|GlobalReachBitsOutPerSecond|流量|<ui><li>對等互連線路 Skey （服務金鑰）</ui></li>|Global Reach|
+|AdminState|實體連線能力|連結|ExpressRoute Direct|
+|LineProtocol|實體連線能力|連結|ExpressRoute Direct|
+|RxLightLevel|實體連線能力|<ui><li>Link</ui></li><ui><li>Lane</ui></li>|ExpressRoute Direct|
+|TxLightLevel|實體連線能力|<ui><li>Link</ui></li><ui><li>Lane</ui></li>|ExpressRoute Direct|
 >[!NOTE]
->只有在至少建立了一個全域連線時, 才會顯示使用*GlobalGlobalReachBitsInPerSecond*和*GlobalGlobalReachBitsOutPerSecond* 。
+>只有在至少建立了一個全域連線時，才會顯示使用*GlobalGlobalReachBitsInPerSecond*和*GlobalGlobalReachBitsOutPerSecond* 。
 >
 
-## <a name="bits-in-and-out---metrics-across-all-peerings"></a>位 In 和 Out-所有對等互連之間的計量
+## <a name="circuits-metrics"></a>線路計量
+
+### <a name="bits-in-and-out---metrics-across-all-peerings"></a>位 In 和 Out-所有對等互連之間的計量
 
 您可以跨給定 ExpressRoute 線路上的所有對等互連來查看計量。
 
 ![線路計量](./media/expressroute-monitoring-metrics-alerts/ermetricspeering.jpg)
 
-## <a name="bits-in-and-out---metrics-per-peering"></a>位 In 和 Out-每個對等互連的計量
+### <a name="bits-in-and-out---metrics-per-peering"></a>位 In 和 Out-每個對等互連的計量
 
 您可以檢視私用、公用及 Microsoft 對等互連的計量 (以位元/秒為單位)。
 
 ![每個對等互連的計量](./media/expressroute-monitoring-metrics-alerts/erpeeringmetrics.jpg) 
 
-## <a name="bgp-availability---split-by-peer"></a>BGP 可用性-依對等分割  
+### <a name="bgp-availability---split-by-peer"></a>BGP 可用性-依對等分割  
 
-您可以在對等互連和對等 (主要和次要 ExpressRoute 路由器) 上, 查看 BGP 的即時可用性。 此儀表板會顯示私人對等互連的主要 BGP 會話, 以及針對私人對等互連關閉的第二個 BGP 會話。 
+您可以在對等互連和對等（主要和次要 ExpressRoute 路由器）上，查看 BGP 的即時可用性。 此儀表板會顯示私人對等互連的主要 BGP 會話，以及針對私人對等互連關閉的第二個 BGP 會話。 
 
 ![每個對等的 BGP 可用性](./media/expressroute-monitoring-metrics-alerts/erBgpAvailabilityMetrics.jpg) 
 
-## <a name="arp-availability---split-by-peering"></a>ARP 可用性-依對等互連分割  
+### <a name="arp-availability---split-by-peering"></a>ARP 可用性-依對等互連分割  
 
-您可以在對等互連和對等 (主要和次要 ExpressRoute 路由器) 上查看[ARP](https://docs.microsoft.com/azure/expressroute/expressroute-troubleshooting-arp-resource-manager)的即時可用性。 此儀表板會顯示在這兩個對等互連之間的私用對等互連 ARP 會話, 但會在對等互連的 Microsoft 對等互連完成 在兩個對等之間使用預設匯總 (平均)。  
+您可以在對等互連和對等（主要和次要 ExpressRoute 路由器）上查看[ARP](https://docs.microsoft.com/azure/expressroute/expressroute-troubleshooting-arp-resource-manager)的即時可用性。 此儀表板會顯示在這兩個對等互連之間的私用對等互連 ARP 會話，但會在對等互連的 Microsoft 對等互連完成 在兩個對等之間使用預設匯總（平均）。  
 
 ![每個對等的 ARP 可用性](./media/expressroute-monitoring-metrics-alerts/erArpAvailabilityMetrics.jpg) 
 

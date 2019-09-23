@@ -1,33 +1,30 @@
 ---
-title: 適用於在 Azure 入口網站中查詢資料的搜尋總管工具 - Azure 搜尋服務
-description: 如何在 Azure 搜尋服務中使用搜尋總管之類的 Azure 入口網站工具來查詢索引。 輸入搜尋字詞或完全符合條件的進階語法搜尋字串。
+title: 使用搜尋瀏覽器工具來查詢 Azure 入口網站 Azure 搜尋服務中的資料
+description: 搜尋瀏覽器內建于 Azure 入口網站中，適用于在 Azure 搜尋服務中探索內容和驗證查詢。 輸入詞彙或片語搜尋的字串，或使用 advanced 語法的完整搜尋運算式。
 manager: nitinme
 author: HeidiSteen
 services: search
 ms.service: search
 ms.topic: conceptual
-ms.date: 05/02/2019
+ms.date: 09/20/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: e941e487adaac38c4ec3bd61a58b4b0c61f4c80a
-ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
+ms.openlocfilehash: fe66787ea82a8f97470199e99faadb72b85c83b2
+ms.sourcegitcommit: 83df2aed7cafb493b36d93b1699d24f36c1daa45
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69649957"
+ms.lasthandoff: 09/22/2019
+ms.locfileid: "71178146"
 ---
-# <a name="search-explorer-for-querying-data-in-azure-search"></a>適用於在 Azure 搜尋服務中查詢資料的搜尋總管工具 
+# <a name="use-search-explorer-in-the-azure-portal-for-querying-documents-in-azure-search"></a>在 Azure 入口網站中使用 [搜尋瀏覽器] 來查詢檔 Azure 搜尋服務 
 
-本文說明如何在 Azure 入口網站中使用**搜尋總管**查詢現有的 Azure 搜尋服務索引。 您可以使用搜尋總管，在您的服務中對於任何現有的索引送出簡單或完整的 Lucene 查詢字串。 
+本文說明如何在 Azure 入口網站中使用**搜尋總管**查詢現有的 Azure 搜尋服務索引。 您可以從命令列啟動 [搜尋瀏覽器]，將簡單或完整的 Lucene 查詢運算式提交至服務中任何現有的索引。 
 
    ![入口網站中的搜尋總管命令](./media/search-explorer/search-explorer-cmd2.png "入口網站中的搜尋總管命令")
 
-
-如需開始使用的說明，請參閱[開啟 [搜尋總管]](#start-search-explorer)。
-
 ## <a name="basic-search-strings"></a>基本搜尋字串
 
-下列範例假設內建的房地產範例索引。 如需建立此索引的說明，請參閱[快速入門：Azure 入口網站中的匯入、索引和查詢](search-get-started-portal.md)。
+下列範例假設內建的房地產範例索引。 您可以使用入口網站中的 [匯入資料] 建立此索引，選擇 [**範例**] 做為資料來源。
 
 ### <a name="example-1---empty-search"></a>範例 1 - 空的搜尋
 
@@ -94,7 +91,7 @@ Azure 搜尋服務會根據搜尋排名傳回前 50 個相符項目。 若要取
 
 ## <a name="filter-expressions-greater-than-less-than-equal-to"></a>篩選條件運算式 (大於、小於、等於)
 
-如果要指定精確的準則而不是任意文字搜尋，請使用 **$filter** 參數。 這個範例會搜尋大於3的臥室:
+如果要指定精確的準則而不是任意文字搜尋，請使用 **$filter** 參數。 這個範例會搜尋大於3的臥室：
 
    ```Input
    search=seattle condo&$filter=beds gt 3&$count=true
@@ -106,7 +103,7 @@ Azure 搜尋服務會根據搜尋排名傳回前 50 個相符項目。 若要取
 
 ## <a name="order-by-expressions"></a>Order-by 運算式
 
-新增 **$orderby** 以依照搜尋分數以外的其他欄位對結果進行排序。 您可以用來測試此程式的範例運算式為:
+新增 **$orderby** 以依照搜尋分數以外的其他欄位對結果進行排序。 您可以用來測試此程式的範例運算式為：
 
    ```Input
    search=seattle condo&$select=listingId,beds,price&$filter=beds gt 3&$count=true&$orderby=price asc

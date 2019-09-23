@@ -1,19 +1,19 @@
 ---
-title: 裝載 Azure HPC 快取
+title: 裝載 Azure HPC 快取（預覽）
 description: 如何將用戶端連線至 Azure HPC 快取服務
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: conceptual
 ms.date: 09/12/2019
 ms.author: v-erkell
-ms.openlocfilehash: 46f221fd7c340b7f321d317f0e7493448d83177c
-ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
+ms.openlocfilehash: 3b7a59afa0dea300e200b953d045d38218e99b22
+ms.sourcegitcommit: a19bee057c57cd2c2cd23126ac862bd8f89f50f5
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71036932"
+ms.lasthandoff: 09/23/2019
+ms.locfileid: "71180919"
 ---
-# <a name="mount-the-azure-hpc-cache"></a>裝載 Azure HPC 快取
+# <a name="mount-the-azure-hpc-cache-preview"></a>裝載 Azure HPC 快取（預覽）
 
 建立快取之後，NFS 用戶端就可以使用簡單的 mount 命令來存取它。
 
@@ -54,7 +54,7 @@ root@test-client:/tmp#
 
 | 建議的掛接命令設定 | |
 --- | --- 
-``hard`` | 對 vFXT 叢集執行軟掛接可能會產生應用程式失敗和資料遺失的狀況。 
+``hard`` | 軟掛接至 Azure HPC 快取會與應用程式失敗和可能的資料遺失相關聯。 
 ``proto=netid`` | 此選項支援適當處理 NFS 網路錯誤的功能。
 ``mountproto=netid`` | 此選項支援在掛接作業中適當處理網路錯誤的功能。
 ``retry=n`` | 設定 ``retry=30`` 可避免暫時性的掛接失敗。 (執行前景掛接時建議使用不同的值)。

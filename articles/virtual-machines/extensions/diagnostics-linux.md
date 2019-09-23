@@ -3,18 +3,18 @@ title: Azure 計算 - Linux 診斷擴充功能 | Microsoft Docs
 description: 如何設定 Azure Linux 診斷擴充功能 (LAD) 從 Azure 中執行的 Linux VM 中收集計量並記錄事件。
 services: virtual-machines-linux
 author: abhijeetgaiha
-manager: sankalpsoni
+manager: gwallace
 ms.service: virtual-machines-linux
 ms.tgt_pltfrm: vm-linux
 ms.topic: article
 ms.date: 12/13/2018
 ms.author: gwallace
-ms.openlocfilehash: c4028ff4fef5472ba2a964f70db6d4fe11eeaba6
-ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
+ms.openlocfilehash: 1da5d8aba92ac5cca5f7cdc281e169ce284b202d
+ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70918807"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71169184"
 ---
 # <a name="use-linux-diagnostic-extension-to-monitor-metrics-and-logs"></a>使用 Linux 診斷擴充功能監視計量與記錄
 
@@ -168,7 +168,7 @@ sinksConfig | (選擇性) 可將計量與事件傳遞至的替代目的地詳細
 元素 | 值
 ------- | -----
 name | 用來在擴充功能組態中的其他位置參考此接收的字串。
-Type | 正在定義的接收類型。 決定此類型執行個體中的其他值 (若有的話)。
+型別 | 正在定義的接收類型。 決定此類型執行個體中的其他值 (若有的話)。
 
 3\.0 版的 Linux 診斷擴充功能支援兩種接收類型：EventHub 與 JsonBlob。
 
@@ -310,7 +310,7 @@ scheduledTransferPeriod | 系統會計算彙總計量的頻率並傳輸至 Azure
 元素 | 值
 ------- | -----
 sinks | (選擇性) 以逗號分隔的接收名稱清單，LAD 會將彙總的計量結果傳送至此清單。 系統會將所有彙總的計量發佈至每個列出的接收。 請參閱 [sinksConfig](#sinksconfig)。 範例： `"EHsink1, myjsonsink"`.
-Type | 識別計量的實際提供者。
+型別 | 識別計量的實際提供者。
 class | 與 "counter" 一起使用，可識別提供者命名空間內的特定計量。
 counter | 與 "class" 一起使用，可識別提供者命名空間內的特定計量。
 counterSpecifier | 可識別 Azure 計量命名空間內的特定計量。

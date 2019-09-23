@@ -8,23 +8,23 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 03/20/2019
-ms.openlocfilehash: 1904ab07a188e4e877a4fb2f2b7682d923c08fb2
-ms.sourcegitcommit: a874064e903f845d755abffdb5eac4868b390de7
+ms.openlocfilehash: 7f97348999f2cab6509afeb44bc704d5109ee0f7
+ms.sourcegitcommit: a19bee057c57cd2c2cd23126ac862bd8f89f50f5
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68441999"
+ms.lasthandoff: 09/23/2019
+ms.locfileid: "71181102"
 ---
 # <a name="information-about-using-hdinsight-on-linux"></a>在 Linux 上使用 HDInsight 的相關資訊
 
 Azure HDInsight 叢集可在您熟悉的 Linux 環境中提供於 Azure 雲端中執行的 Apache Hadoop。 其操作大多與 Linux 安裝上的任何其他 Hadoop 相同。 本文件會指出其中應注意的特殊不同之處。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 本文件中的許多步驟都使用下列公用程式，可能需要安裝在您的系統上。
 
 * [cURL](https://curl.haxx.se/) - 用來與 Web 型服務通訊。
-* **jq**, 這是一個命令列 JSON 處理器。  請參閱 [https://stedolan.github.io/jq/](https://stedolan.github.io/jq/)。
+* **jq**，這是一個命令列 JSON 處理器。  請參閱 [https://stedolan.github.io/jq/](https://stedolan.github.io/jq/)。
 * [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) - 用來從遠端管理 Azure 服務。
 * **SSH 用戶端**。 如需詳細資訊，請參閱[使用 SSH 連線至 HDInsight (Apache Hadoop)](hdinsight-hadoop-linux-use-ssh-unix.md)。
 
@@ -36,7 +36,7 @@ Azure HDInsight 叢集可在您熟悉的 Linux 環境中提供於 Azure 雲端�
 
 ## <a name="domain-names"></a>網域名稱
 
-從網際網路連線到叢集時所要使用的完整功能變數名稱 (FQDN) 是`CLUSTERNAME.azurehdinsight.net`或`CLUSTERNAME-ssh.azurehdinsight.net` (僅適用于 SSH)。
+從網際網路連線到叢集時所要使用的完整功能變數名稱（FQDN）是`CLUSTERNAME.azurehdinsight.net`或`CLUSTERNAME-ssh.azurehdinsight.net` （僅適用于 SSH）。
 
 就內部而言，叢集中的每個節點都具有在叢集組態期間指派的名稱。 若要尋找叢集名稱，請參閱 Ambari Web UI 上的 [主機] 頁面。 您也可以使用下列命令從 Ambari REST API 傳回主機清單︰
 
@@ -48,13 +48,13 @@ Azure HDInsight 叢集可在您熟悉的 Linux 環境中提供於 Azure 雲端�
 
     curl -u admin -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/services/HDFS/components/NAMENODE" | jq '.host_components[].HostRoles.host_name'
 
-此命令會傳回描述服務的 JSON 檔, 然後[jq](https://stedolan.github.io/jq/)只會提取主機的`host_name`值。
+此命令會傳回描述服務的 JSON 檔，然後[jq](https://stedolan.github.io/jq/)只會提取主機的`host_name`值。
 
 ## <a name="remote-access-to-services"></a>遠端存取服務
 
-* **Ambari (web)**  - https://CLUSTERNAME.azurehdinsight.net
+* **Ambari （web）**  - https://CLUSTERNAME.azurehdinsight.net
 
-    使用叢集系統管理員使用者和密碼進行驗證, 然後登入 Ambari。
+    使用叢集系統管理員使用者和密碼進行驗證，然後登入 Ambari。
 
     驗證是純文字的 - 請一律使用 HTTPS 來協助確保連線的安全性。
 
@@ -70,7 +70,7 @@ Azure HDInsight 叢集可在您熟悉的 Linux 環境中提供於 Azure 雲端�
     >
     > 驗證是純文字的 - 請一律使用 HTTPS 來協助確保連線的安全性。
 
-* **WebHCat (Templeton)**  - https://CLUSTERNAME.azurehdinsight.net/templeton
+* **WebHCat （Templeton）**  - https://CLUSTERNAME.azurehdinsight.net/templeton
 
     > [!NOTE]  
     > 使用叢集系統管理員使用者和密碼進行驗證。
@@ -88,7 +88,7 @@ Azure HDInsight 叢集可在您熟悉的 Linux 環境中提供於 Azure 雲端�
 
 Hadoop 相關檔案可以在叢集節點的 `/usr/hdp`上找到。 此目錄包含下列子目錄：
 
-* **2.6.5.3006-29**:目錄名稱是 HDInsight 所使用的 Hortonworks Data Platform 版本。 叢集上的數字可能不同於此處所列的數字。
+* **2.6.5.3006-29**：目錄名稱是 HDInsight 所使用的 Hortonworks Data Platform 版本。 叢集上的數字可能不同於此處所列的數字。
 * **current**︰此目錄包含**2.6.5.3006-29**目錄底下子目錄的連結。 因為有此目錄，您就不必記住版本號碼。
 
 在 Hadoop 分散式檔案系統的 `/example` 和 `/HdiSamples` 可取得範例資料和 JAR 檔案。
@@ -124,11 +124,9 @@ Hadoop 相關檔案可以在叢集節點的 `/usr/hdp`上找到。 此目錄包�
 
 * `wasb://<container-name>@<account-name>.blob.core.windows.net/`:與非預設儲存體帳戶進行通訊時使用。 例如，當您有其他儲存體帳戶，或在可公開存取的儲存體帳戶中存取儲存的資料時。
 
-使用 __Azure Data Lake Storage Gen2__ 時，可使用下列其中一種 URI 配置︰
+使用__Azure Data Lake Storage Gen2__時，請使用下列 URI 配置：
 
-* `abfs:///`:使用未加密通訊存取預設儲存體。
-
-* `abfss:///`:使用加密通訊存取預設儲存體。  HDInsight 3.6 版和更新版本才支援 abfss 配置。
+* `abfs://`:使用加密通訊存取預設儲存體。
 
 * `abfs://<container-name>@<account-name>.dfs.core.windows.net/`:與非預設儲存體帳戶進行通訊時使用。 例如，當您有其他儲存體帳戶，或在可公開存取的儲存體帳戶中存取儲存的資料時。
 
@@ -240,7 +238,7 @@ curl -u admin -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTER
 
     * **Storm UI**︰使用下列步驟來重新平衡使用 Storm UI 的拓撲。
 
-        1. 在`https://CLUSTERNAME.azurehdinsight.net/stormui`您的網頁瀏覽器中`CLUSTERNAME`開啟, 其中是您的風暴叢集的名稱。 出現提示時，輸入建立叢集時所指定的 HDInsight 叢集系統管理員 (管理員) 名稱和密碼。
+        1. 在`https://CLUSTERNAME.azurehdinsight.net/stormui`您的網頁瀏覽器中`CLUSTERNAME`開啟，其中是您的風暴叢集的名稱。 出現提示時，輸入建立叢集時所指定的 HDInsight 叢集系統管理員 (管理員) 名稱和密碼。
         2. 選取您要重新平衡的拓撲，然後選取 [重新平衡] 按鈕。 在執行重新平衡作業之前輸入延遲。
 
 * **Kafka**：您應該在調整作業完成後重新平衡磁碟分割複本。 如需詳細資訊，請參閱[使用 HDInsight 上的 Apache Kafka 確保資料的高可用性](./kafka/apache-kafka-high-availability.md)文件。

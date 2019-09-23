@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jairoc
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6d4a0f00c8bcf511f220d3e0df81adac1e9ff0d4
-ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
+ms.openlocfilehash: 49658e3e57748ffb7542508530940aa5331f5db1
+ms.sourcegitcommit: a7a9d7f366adab2cfca13c8d9cbcf5b40d57e63a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/14/2019
-ms.locfileid: "70995228"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71162415"
 ---
 # <a name="troubleshooting-hybrid-azure-active-directory-joined-devices"></a>針對混合式 Azure Active Directory 已加入裝置進行疑難排解 
 
@@ -110,7 +110,7 @@ WamDefaultAuthority: organizations
 
 #### <a name="windows-10-1803-and-above"></a>Windows 10 1803 和更新版本
 
-在聯結狀態輸出的 [診斷資料] 區段中, 尋找「先前的註冊」小節。
+在聯結狀態輸出的 [診斷資料] 區段中, 尋找「先前的註冊」小節。 只有當裝置已加入網域, 且無法進行混合式 Azure AD 聯結時, 才會顯示此區段。
 「錯誤階段」欄位代表聯結失敗的階段, 而「用戶端 ErrorCode」則代表聯結作業的錯誤碼。
 
 ```
@@ -181,7 +181,7 @@ WamDefaultAuthority: organizations
 
 ##### <a name="windows-10-1803-and-above"></a>Windows 10 1803 和更新版本
 
-在聯結狀態輸出的 [診斷資料] 區段中, 尋找 [DRS 探勘測試]。
+在聯結狀態輸出的 [診斷資料] 區段中, 尋找 [DRS 探勘測試]。 只有當裝置已加入網域, 且無法進行混合式 Azure AD 聯結時, 才會顯示此區段。
 
 ```
 +----------------------------------------------------------------------+
@@ -305,7 +305,7 @@ WamDefaultAuthority: organizations
 
 #### <a name="windows-10-1803-and-above"></a>Windows 10 1803 和更新版本
 
-在聯結狀態輸出的 [診斷資料] 區段中, 尋找「先前的註冊」小節。
+在聯結狀態輸出的 [診斷資料] 區段中, 尋找「先前的註冊」小節。 只有當裝置已加入網域, 且無法進行混合式 Azure AD 聯結時, 才會顯示此區段。
 [註冊類型] 欄位表示已執行的聯結類型。
 
 ```

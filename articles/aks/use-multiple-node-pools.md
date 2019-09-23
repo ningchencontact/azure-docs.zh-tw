@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 08/9/2019
 ms.author: mlearned
-ms.openlocfilehash: 92accf4317ef8d0e3837ce3789615b5aaf6f6919
-ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
+ms.openlocfilehash: 7a58e8559587ddcb307c338f5ce87cd6b8e52021
+ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/14/2019
-ms.locfileid: "70996887"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71171499"
 ---
 # <a name="preview---create-and-manage-multiple-node-pools-for-a-cluster-in-azure-kubernetes-service-aks"></a>預覽-在 Azure Kubernetes Service (AKS) 中建立及管理叢集的多個節點集區
 
@@ -79,6 +79,7 @@ az provider register --namespace Microsoft.ContainerService
 * 您無法刪除預設（第一個）節點集區。
 * 無法使用 HTTP 應用程式路由附加元件。
 * 您無法使用現有的 Resource Manager 範本來新增或刪除節點集區，就像大部分的作業一樣。 相反地, 請[使用個別的 Resource Manager 範本](#manage-node-pools-using-a-resource-manager-template), 對 AKS 叢集中的節點集區進行變更。
+* 節點集區的名稱必須以小寫字母開頭，而且只能包含英數位元。 針對 Linux 節點集區，長度必須介於1到12個字元之間，而 Windows 節點集區的長度必須介於1到6個字元之間。
 
 雖然這項功能處於預覽狀態, 但仍適用下列其他限制:
 
@@ -130,6 +131,9 @@ az aks nodepool add \
     --node-count 3 \
     --kubernetes-version 1.12.7
 ```
+
+> [!NOTE]
+> 節點集區的名稱必須以小寫字母開頭，而且只能包含英數位元。 針對 Linux 節點集區，長度必須介於1到12個字元之間，而 Windows 節點集區的長度必須介於1到6個字元之間。
 
 若要查看節點集區的狀態, 請使用[az aks node pool list][az-aks-nodepool-list]命令, 並指定您的資源群組和叢集名稱:
 
@@ -580,8 +584,8 @@ az group deployment create \
 
 ## <a name="assign-a-public-ip-per-node-in-a-node-pool"></a>為節點集區中的每個節點指派一個公用 IP
 
-> [!NOTE]
-> 在針對每個節點指派公用 IP 的預覽期間，因為可能會有負載平衡器規則與 VM 布建衝突，所以無法*在 AKS 中與 STANDARD LOAD BALANCER SKU*搭配使用。 在預覽期間，如果您需要為每個節點指派一個公用 IP，請使用*基本 LOAD BALANCER SKU* 。
+> [!WARNING]
+> 在針對每個節點指派公用 IP 的預覽期間，因為可能會有負載平衡器規則與 VM 布建衝突，所以無法*在 AKS 中與 STANDARD LOAD BALANCER SKU*搭配使用。 在預覽期間，如果您需要為每個節點指派一個公用 IP，則必須使用*基本 LOAD BALANCER SKU* 。
 
 AKS 節點不需要自己的公用 IP 位址進行通訊。 不過，某些情況下，節點集區中的節點可能需要有自己的公用 IP 位址。 其中一個範例是遊戲，其中主控台需要直接連線到雲端虛擬機器，以將躍點降至最低。 這可以藉由註冊個別的預覽功能 [節點公用 IP （預覽）] 來達成。
 

@@ -10,12 +10,12 @@ ms.subservice: core
 ms.reviewer: trbye
 ms.topic: conceptual
 ms.date: 06/20/2019
-ms.openlocfilehash: 5339d963b84c5922138d53e44abe9340d55b4dde
-ms.sourcegitcommit: 2ed6e731ffc614f1691f1578ed26a67de46ed9c2
+ms.openlocfilehash: 03c5d46221dc385a390e840381270c01c40bdc6d
+ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71130240"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71170399"
 ---
 # <a name="auto-train-a-time-series-forecast-model"></a>自動定型時間序列預測模型
 
@@ -95,8 +95,10 @@ y_test = X_test.pop("sales_quantity").values
 |`time_column_name`|用來指定輸入資料中用來建立時間序列並推斷其頻率的日期時間資料行。|✓|
 |`grain_column_names`|在輸入資料中定義個別數列群組的名稱。 如果未定義細微性，則會假設資料集為一個時間序列。||
 |`max_horizon`|以時間序列頻率的單位，定義所需的預測範圍上限。 單位是以定型資料的時間間隔為基礎，例如每個月、每週 forecaster 應預測。|✓|
-|`target_lags`|要根據資料頻率延後目標值的資料列數目。 這會以清單或單一整數表示。||
-|`target_rolling_window_size`|*n*要用來產生預測值的歷程記錄期間，< = 定型集大小。 如果省略，則*n*是完整的定型集大小。||
+|`target_lags`|要根據資料頻率延後目標值的資料列數目。 這會以清單或單一整數表示。 當獨立變數與相依變數之間的關聯性預設不相符或相互關聯時，應該使用 Lag。 例如，當您嘗試預測產品的需求時，任何月份的需求可能取決於之前3個月的特定商品價格。 在此範例中，您可能會想要讓目標（需求）對3個月造成負面的延遲，讓模型在正確的關聯性上定型。||
+|`target_rolling_window_size`|*n*要用來產生預測值的歷程記錄期間，< = 定型集大小。 如果省略，則*n*是完整的定型集大小。 當您只想要在定型模型時考慮特定數量的歷程記錄時，請指定此參數。||
+
+如需詳細資訊，請參閱[參考檔](https://docs.microsoft.com/python/api/azureml-train-automl/azureml.train.automl.automlconfig?view=azure-ml-py)。
 
 將時間序列設定建立為 dictionary 物件。 將設定`day_datetime`為資料集內的欄位。 `time_column_name` 定義參數以確保針對資料建立**兩個不同的時間序列群組**，一個用於儲存 A 和 B。 `max_horizon`最後，將設定為50，以便預測整個測試集。 `grain_column_names` 使用`target_rolling_window_size`將 [預測] 視窗設定為10個週期，並在 [目標值] 上指定 [前2個`target_lags`期間的單一延遲] 參數。
 

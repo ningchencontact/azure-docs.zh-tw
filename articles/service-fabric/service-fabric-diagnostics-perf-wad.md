@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/21/2018
 ms.author: srrengar
-ms.openlocfilehash: 20fa8945f01a3431d2fd78d545c43d6215c83f56
-ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
+ms.openlocfilehash: e29c32c27e7f6c62eb2c6a9cbe2e4d3f1294f038
+ms.sourcegitcommit: 116bc6a75e501b7bba85e750b336f2af4ad29f5a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "66110292"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71155155"
 ---
 # <a name="performance-monitoring-with-the-windows-azure-diagnostics-extension"></a>使用 Windows Azure 診斷延伸模組進行效能監視
 
@@ -192,9 +192,6 @@ ms.locfileid: "66110292"
 ....
 ```
 
- >[!NOTE]
- >雖然您可以使用 `*` 指定類似命名的效能計數器群組，但透過接收來傳送任何計數器 (至 Application Insights) 則需要單獨宣告。 
-
 1. 新增需要收集的適用效能計數器之後，需要升級叢集資源，以便讓這些變更反映在正在執行的叢集中。 儲存修改的 `template.json`，並開啟 PowerShell。 您可以使用 `New-AzResourceGroupDeployment` 升級叢集。 呼叫需要資源群組的名稱、更新的範本檔案，以及參數檔案，並提示資源管理員對您更新的資源進行適當的變更。 一旦登入您的帳戶並進入正確的訂用帳戶，請使用下列命令以執行升級：
 
     ```sh
@@ -206,4 +203,4 @@ ms.locfileid: "66110292"
 ## <a name="next-steps"></a>後續步驟
 * 為您的叢集收集更多效能計數器。 請參閱[效能度量](service-fabric-diagnostics-event-generation-perf.md)，以取得您應該收集的計數器清單。
 * [透過 Windows VM 與 Azure Resource Manager 範本使用監視和診斷](../virtual-machines/windows/extensions-diagnostics-template.md)，對 `WadCfg` 做進一步的修改，包括設定診斷資料要傳送到的其他儲存體帳戶。
-* 請造訪[diagnostics.wadcfg builder](https://azure.github.io/azure-diagnostics-tools/config-builder/) , 從頭開始建立範本, 並確定您的語法正確。(https://azure.github.io/azure-diagnostics-tools/config-builder/) 若要從頭開始建立範本, 請確定您的語法正確。
+* 請造訪[diagnostics.wadcfg builder](https://azure.github.io/azure-diagnostics-tools/config-builder/) ，從頭開始建立範本，並確定您的語法正確。（ https://azure.github.io/azure-diagnostics-tools/config-builder/) 若要從頭開始建立範本，請確定您的語法正確。

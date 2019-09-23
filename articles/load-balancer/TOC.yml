@@ -18,7 +18,7 @@
       href: quickstart-load-balancer-standard-public-cli.md
     - name: 建立標準 Load Balancer - Azure PowerShell
       href: quickstart-create-standard-load-balancer-powershell.md
-    - name: 建立 Standard Load Balancer - Azure Resource Manager 範本
+    - name: 建立 Standard Load Balancer - 範本
       displayName: ARM
       href: quickstart-load-balancer-standard-public-template.md
 - name: 教學課程

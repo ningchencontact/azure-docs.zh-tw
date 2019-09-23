@@ -4,30 +4,30 @@ ms.service: storage
 ms.topic: include
 ms.date: 06/07/2019
 ms.author: rogarana
-ms.openlocfilehash: 368f08272173b019873dfe20e1164d6baf72ff5e
-ms.sourcegitcommit: 5bdd50e769a4d50ccb89e135cfd38b788ade594d
+ms.openlocfilehash: b28427b3ede0cfaeb9e08d3c73b15ea7f2961f1b
+ms.sourcegitcommit: 83df2aed7cafb493b36d93b1699d24f36c1daa45
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/03/2019
-ms.locfileid: "67542642"
+ms.lasthandoff: 09/22/2019
+ms.locfileid: "71180037"
 ---
-#### <a name="additional-premium-file-share-level-limits"></a>其他進階檔案共用層級的限制
+#### <a name="additional-premium-file-share-level-limits"></a>其他 premium 檔案共用層級限制
 
-|領域  |目標  |
+|區域  |目標  |
 |---------|---------|
-|最小的大小增加/減少    |1 GiB      |
-|基準 IOPS    |每 GiB，最多 100,000 個 1 IOPS|
-|負載平衡的 IOPS    |3 個 x IOPS 每 GiB，最多 100,000 個|
-|輸出速率         |60 MiB/秒 + $0.06 * 佈建 GiB        |
-|輸入速率| 40 MiB/秒 + 0.04 * 佈建 GiB |
+|最小大小增加/減少    |1 GiB      |
+|基準 IOPS    |每個 GiB 1 個 IOPS，最多100000|
+|IOPS 高載    |每個 GiB 3 倍的 IOPS，最多100000|
+|輸出速率         |60 MiB/s + 0.06 * 已布建 GiB        |
+|輸入速率| 40 MiB/s + 0.04 * 已布建 GiB |
 
-#### <a name="file-level-limits"></a>檔案層級的限制
+#### <a name="file-level-limits"></a>檔案層級限制
 
-|領域  |進階檔案  |標準檔案 |
+|區域  |Premium 檔案  |標準檔案 |
 |---------|---------|---------|
-|大小                  |1 TiB         |1 TiB|
+|Size                  |1 TiB         |1 TiB|
 |每個檔案的最大 IOPS     |5,000         |1,000|
-|並行控制代碼    |2,000         |2,000|
-|輸入  |300 MiB/sec|      請參閱標準檔案處理量值|
-|輸出   |200 Mib/sec| 請參閱標準檔案處理量值|
-|Throughput| 請參閱進階檔案輸入/輸出值| 最高 60 MiB/秒|
+|並行控制碼    |2,000         |2,000|
+|輸出  |300 MiB/秒|      請參閱標準檔案輸送量值|
+|輸入  |200 MiB/秒| 請參閱標準檔案輸送量值|
+|輸送量| 請參閱 premium 檔案輸入/輸出值| 最高 60 MiB/秒|

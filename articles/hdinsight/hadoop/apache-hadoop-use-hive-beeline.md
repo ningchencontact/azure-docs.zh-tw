@@ -7,12 +7,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 04/03/2019
 ms.author: hrasheed
-ms.openlocfilehash: 4ebdf1d14b1f8721a3709a7e8c90f2a1db76b6fc
-ms.sourcegitcommit: 267a9f62af9795698e1958a038feb7ff79e77909
+ms.openlocfilehash: 8a1bb4f0315be70cfe8debab0ee9eb1e4b576738
+ms.sourcegitcommit: a19bee057c57cd2c2cd23126ac862bd8f89f50f5
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70259139"
+ms.lasthandoff: 09/23/2019
+ms.locfileid: "71181123"
 ---
 # <a name="use-the-apache-beeline-client-with-apache-hive"></a>使用 Apache Beeline 用戶端搭配 Apache Hive
 
@@ -24,7 +24,7 @@ Beeline 是 Hive 用戶端，隨附於您的 HDInsight 叢集的前端節點。 
 
 ### <a name="from-an-ssh-session"></a>從 SSH 會話
 
-從 SSH 會話連線到叢集前端節點時, 您可以連接到埠`headnodehost` `10001`上的位址:
+從 SSH 會話連線到叢集前端節點時，您可以連接到埠`headnodehost` `10001`上的位址：
 
 ```bash
 beeline -u 'jdbc:hive2://headnodehost:10001/;transportMode=http'
@@ -34,7 +34,7 @@ beeline -u 'jdbc:hive2://headnodehost:10001/;transportMode=http'
 
 ### <a name="over-an-azure-virtual-network"></a>透過 Azure 虛擬網路
 
-透過 Azure 虛擬網路從用戶端連接到 HDInsight 時, 您必須提供叢集前端節點的完整功能變數名稱 (FQDN)。 由於此連線是直接連線到叢集節點，因此會使用連接埠 `10001` 進行連線：
+透過 Azure 虛擬網路從用戶端連接到 HDInsight 時，您必須提供叢集前端節點的完整功能變數名稱（FQDN）。 由於此連線是直接連線到叢集節點，因此會使用連接埠 `10001` 進行連線：
 
 ```bash
 beeline -u 'jdbc:hive2://<headnode-FQDN>:10001/;transportMode=http'
@@ -44,28 +44,28 @@ beeline -u 'jdbc:hive2://<headnode-FQDN>:10001/;transportMode=http'
 
 ---
 
-### <a name="to-hdinsight-enterprise-security-package-esp-cluster-using-kerberos"></a>使用 Kerberos 的 HDInsight 企業安全性套件 (ESP) 叢集
+### <a name="to-hdinsight-enterprise-security-package-esp-cluster-using-kerberos"></a>使用 Kerberos 的 HDInsight 企業安全性套件（ESP）叢集
 
-從用戶端連接到已加入至叢集相同領域之電腦上 Azure Active Directory (AAD)-DS 的企業安全性套件 (ESP) 叢集時, 您也必須指定`<AAD-Domain>`功能變數名稱和網域使用者帳戶的名稱, 以及存取叢集的`<username>`許可權:
+從用戶端連接到已加入至叢集相同領域之電腦上 Azure Active Directory （AAD）-DS 的企業安全性套件（ESP）叢集時，您也必須指定`<AAD-Domain>`功能變數名稱和網域使用者帳戶的名稱，以及存取叢集的`<username>`許可權：
 
 ```bash
 kinit <username>
 beeline -u 'jdbc:hive2://<headnode-FQDN>:10001/default;principal=hive/_HOST@<AAD-Domain>;auth-kerberos;transportMode=http' -n <username>
 ```
 
-以網域上具備叢集存取權限的帳戶名稱取代 `<username>`。 將`<AAD-DOMAIN>`取代為叢集加入的 Azure Active Directory (AAD) 名稱。 請使用大寫字串作為`<AAD-DOMAIN>`值, 否則找不到認證。 如`/etc/krb5.conf`有需要, 請檢查領域名稱。
+以網域上具備叢集存取權限的帳戶名稱取代 `<username>`。 將`<AAD-DOMAIN>`取代為叢集加入的 Azure Active Directory （AAD）名稱。 請使用大寫字串作為`<AAD-DOMAIN>`值，否則找不到認證。 如`/etc/krb5.conf`有需要，請檢查領域名稱。
 
 ---
 
 ### <a name="over-public-or-private-endpoints"></a>透過公用或私用端點
 
-使用公用或私人端點連接到叢集時, 您必須提供叢集登入帳戶名稱 (預設值`admin`) 和密碼。 例如，使用 Beeline 從用戶端系統連線到 `<clustername>.azurehdinsight.net` 位址。 此連線是透過連接埠 `443`，並使用 SSL 加密：
+使用公用或私人端點連接到叢集時，您必須提供叢集登入帳戶名稱（預設值`admin`）和密碼。 例如，使用 Beeline 從用戶端系統連線到 `<clustername>.azurehdinsight.net` 位址。 此連線是透過連接埠 `443`，並使用 SSL 加密：
 
 ```bash
 beeline -u 'jdbc:hive2://clustername.azurehdinsight.net:443/;ssl=true;transportMode=http;httpPath=/hive2' -n admin -p password
 ```
 
-或適用于私人端點:
+或適用于私人端點：
 
 ```bash
 beeline -u 'jdbc:hive2://clustername-int.azurehdinsight.net:443/;ssl=true;transportMode=http;httpPath=/hive2' -n admin -p password
@@ -81,13 +81,13 @@ Apache Spark 提供自己的 HiveServer2 (有時稱為 Spark Thrift 伺服器) �
 
 #### <a name="through-public-or-private-endpoints"></a>透過公用或私用端點
 
-使用的連接字串稍有不同。 而不是`httpPath=/hive2` `httpPath/sparkhive2`包含:
+使用的連接字串稍有不同。 而不是`httpPath=/hive2` `httpPath/sparkhive2`包含：
 
 ```bash 
 beeline -u 'jdbc:hive2://clustername.azurehdinsight.net:443/;ssl=true;transportMode=http;httpPath=/sparkhive2' -n admin -p password
 ```
 
-或適用于私人端點:
+或適用于私人端點：
 
 ```bash 
 beeline -u 'jdbc:hive2://clustername-int.azurehdinsight.net:443/;ssl=true;transportMode=http;httpPath=/sparkhive2' -n admin -p password
@@ -99,7 +99,7 @@ beeline -u 'jdbc:hive2://clustername-int.azurehdinsight.net:443/;ssl=true;transp
 
 #### <a name="from-cluster-head-or-inside-azure-virtual-network-with-apache-spark"></a>從叢集標頭或內部的 Azure 虛擬網路與 Apache Spark
 
-直接從叢集前端節點，或是從 Azure 虛擬網路 (與 HDInsight 叢集相同) 內的資源進行連線時，應對 Spark Thrift 伺服器使用連接埠 `10002`，而非 `10001`。 下列範例顯示如何直接連接到前端節點:
+直接從叢集前端節點，或是從 Azure 虛擬網路 (與 HDInsight 叢集相同) 內的資源進行連線時，應對 Spark Thrift 伺服器使用連接埠 `10002`，而非 `10001`。 下列範例顯示如何直接連接到前端節點：
 
 ```bash
 /usr/hdp/current/spark2-client/bin/beeline -u 'jdbc:hive2://headnodehost:10002/;transportMode=http'
@@ -111,7 +111,7 @@ beeline -u 'jdbc:hive2://clustername-int.azurehdinsight.net:443/;ssl=true;transp
 
 * HDInsight 上的 Hadoop 叢集。 請參閱[開始在 Linux 上使用 HDInsight](./apache-hadoop-linux-tutorial-get-started.md)。
 
-* 請注意叢集主要儲存體的[URI 配置](../hdinsight-hadoop-linux-information.md#URI-and-scheme)。 例如, `wasb://`針對 Azure 儲存體、 `abfs://` Azure Data Lake Storage Gen2, 或`adl://`用於 Azure Data Lake Storage Gen1。 如果已啟用 Azure 儲存體或 Data Lake Storage Gen2 的安全傳輸, 則 URI 分別`wasbs://`為`abfss://`或。 如需詳細資訊, 請參閱[安全傳輸](../../storage/common/storage-require-secure-transfer.md)。
+* 請注意叢集主要儲存體的[URI 配置](../hdinsight-hadoop-linux-information.md#URI-and-scheme)。 例如， `wasb://`針對 Azure 儲存體、 `abfs://` Azure Data Lake Storage Gen2，或`adl://`用於 Azure Data Lake Storage Gen1。 如果已啟用 Azure 儲存體的安全傳輸，URI 為`wasbs://`。 如需詳細資訊，請參閱[安全傳輸](../../storage/common/storage-require-secure-transfer.md)。
 
 
 * 選項 1：SSH 用戶端。 如需詳細資訊，請參閱[使用 SSH 連線至 HDInsight (Apache Hadoop)](../hdinsight-hadoop-linux-use-ssh-unix.md)。 本文件中的大部分步驟都假設您從連往叢集的 SSH 工作階段使用 Beeline。
@@ -123,13 +123,13 @@ beeline -u 'jdbc:hive2://clustername-int.azurehdinsight.net:443/;ssl=true;transp
 
 此範例是以從 SSH 連線使用 Beeline 用戶端為基礎。
 
-1. 使用下列程式碼開啟與叢集的 SSH 連線。 將 `sshuser` 取代為叢集的 SSH 使用者，並將 `CLUSTERNAME` 取代為叢集的名稱。 出現提示時, 請輸入 SSH 使用者帳戶的密碼。
+1. 使用下列程式碼開啟與叢集的 SSH 連線。 將 `sshuser` 取代為叢集的 SSH 使用者，並將 `CLUSTERNAME` 取代為叢集的名稱。 出現提示時，請輸入 SSH 使用者帳戶的密碼。
 
     ```cmd
     ssh sshuser@CLUSTERNAME-ssh.azurehdinsight.net
     ```
 
-2. 輸入下列命令, 從開啟的 SSH 會話連接到 HiveServer2 與您的 Beeline 用戶端:
+2. 輸入下列命令，從開啟的 SSH 會話連接到 HiveServer2 與您的 Beeline 用戶端：
 
     ```bash
     beeline -u 'jdbc:hive2://headnodehost:10001/;transportMode=http'
@@ -172,7 +172,7 @@ beeline -u 'jdbc:hive2://clustername-int.azurehdinsight.net:443/;ssl=true;transp
 
     此資訊描述資料表中的資料行。
 
-5. 輸入下列陳述式，以使用 HDInsight 叢集隨附的範例資料來建立名為 **log4jLogs** 的資料表：(根據您的[URI 配置](../hdinsight-hadoop-linux-information.md#URI-and-scheme), 視需要修訂)。
+5. 輸入下列陳述式，以使用 HDInsight 叢集隨附的範例資料來建立名為 **log4jLogs** 的資料表：（根據您的[URI 配置](../hdinsight-hadoop-linux-information.md#URI-and-scheme)，視需要修訂）。
 
     ```hiveql
     DROP TABLE log4jLogs;

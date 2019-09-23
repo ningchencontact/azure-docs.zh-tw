@@ -9,17 +9,17 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: article
-ms.date: 09/05/2019
+ms.date: 09/20/2019
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c2eff9c0edf6797c08d0ef9732c903a81a6c764a
-ms.sourcegitcommit: cd70273f0845cd39b435bd5978ca0df4ac4d7b2c
+ms.openlocfilehash: 27c38b23849eef535b17657f48c1c50cc998f72f
+ms.sourcegitcommit: 116bc6a75e501b7bba85e750b336f2af4ad29f5a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "70861171"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71155013"
 ---
 # <a name="administrator-role-permissions-in-azure-active-directory"></a>Azure Active Directory 中的系統管理員角色權限
 
@@ -78,6 +78,12 @@ ms.locfileid: "70861171"
 * 安全性群組和 Office 365 群組擁有者，他們可以管理群組成員資格。 這個群組可以存取機密或私人資訊或者 Azure AD 和其他位置中的重要組態。
 * Azure AD 外部其他服務 (例如，Exchange Online、Office 安全性與合規性中心和人力資源系統) 中的系統管理員。
 * 非系統管理員，例如主管、法律顧問和人力資源員工，他們可以存取機密或私人資訊。
+
+### <a name="azure-devops-administratorazure-devops-administrator-permissions"></a>[Azure DevOps 系統管理員](#azure-devops-administrator-permissions)
+
+具有此角色的使用者可以管理 Azure DevOps 原則，將新的 Azure DevOps 組織建立限制為一組可設定的使用者或群組。 此角色中的使用者可以透過任何支援公司 Azure AD 組織的 Azure DevOps 組織來管理此原則。
+
+此角色中的使用者可以管理所有企業 Azure DevOps 的原則。
 
 ### <a name="azure-information-protection-administratorazure-information-protection-administrator-permissions"></a>[Azure 資訊保護系統管理員](#azure-information-protection-administrator-permissions)
 
@@ -491,6 +497,19 @@ Windows Defender ATP 和 EDR | 查看和調查警示。 當您在 Windows Defend
 | microsoft.office365.serviceHealth/allEntities/allTasks | 讀取及設定 Office 365 服務健康情況。 |
 | microsoft.office365.supportTickets/allEntities/allTasks | 建立和管理 Office 365 支援票證。 |
 | microsoft 目錄/使用者/密碼/更新 | 更新 Office 365 組織中所有使用者的密碼。 如需詳細資訊，請參閱線上文件。 |
+
+### <a name="azure-devops-administrator-permissions"></a>Azure DevOps 系統管理員許可權
+
+可以管理 Azure DevOps 的組織原則和設定。
+
+> [!NOTE]
+> 此角色具有 Azure Active Directory 以外的其他權限。 如需詳細資訊，請參閱上述[角色說明](#azure-devops-administrator)。
+>
+>
+
+| **動作** | **描述** |
+| --- | --- |
+| devOps/allEntities/allTasks | 讀取和設定 Azure DevOps。 |
 
 ### <a name="azure-information-protection-administrator-permissions"></a>Azure 資訊保護系統管理員許可權
 

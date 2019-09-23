@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 05/06/2019
-ms.openlocfilehash: 3f64bce34a1bdb11bdbebb99fe28cdf3ff16dfb8
-ms.sourcegitcommit: 2ed6e731ffc614f1691f1578ed26a67de46ed9c2
+ms.openlocfilehash: 8c35877c7de2fa89a8fe7a94c11787814183df9e
+ms.sourcegitcommit: a7a9d7f366adab2cfca13c8d9cbcf5b40d57e63a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71128713"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71162262"
 ---
 # <a name="faq-about-azure-sql-hyperscale-databases"></a>關於 Azure SQL 超大規模資料庫的常見問題
 
@@ -361,6 +361,11 @@ IOPS 和 IO 延遲會根據工作負載模式而有所不同。  如果需要存
 ### <a name="how-do-i-connect-to-these-secondary-compute-nodes"></a>如何連線至這些次要計算節點
 
 您可以將連接字串的 `ApplicationIntent` 引數設為 `readonly`，藉以連線至這些額外的唯讀計算節點。 任何標示為 `readonly` 的連線都會自動路由至其中一個額外的唯讀計算節點。  
+
+### <a name="how-do-i-validate-if-i-have-successfully-connected-to-secondary-compute-node-using-ssms--other-client-tools"></a>如何? 驗證是否已使用 SSMS/其他用戶端工具成功連線到次要計算節點？
+
+您可以使用 SSMS/其他用戶端工具來執行下列 T-SQL 查詢： `SELECT DATABASEPROPERTYEX ( '<database_name>' , 'updateability' )`。
+如果您的`READ_ONLY`連接指向唯讀次要節點，或`READ_WRITE`如果您的連線指向主要節點，則結果會是。
 
 ### <a name="can-i-create-a-dedicated-endpoint-for-the-read-scale-replica"></a>是否可以建立讀取規模複本的專用端點
 

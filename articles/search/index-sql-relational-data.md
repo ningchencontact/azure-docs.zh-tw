@@ -35,7 +35,7 @@ ON Rooms$.HotelID = Hotels$.HotelID
 ```
 此查詢的結果會傳回所有的飯店欄位，後面接著所有的房間欄位，並針對每個房間值重複的初步飯店資訊。
 
-   反正規化![的資料，新增會議室欄位時的重複飯店資料]反正規化(media/index-sql-relational-data/denormalize-data-query.png "的資料，新增會議室欄位時的重複飯店資料")
+   ![反正規化 的資料，新增會議室欄位時的重複飯店資料 反正規化](media/index-sql-relational-data/denormalize-data-query.png "的資料，新增會議室欄位時的重複飯店資料")
 
 
 雖然此查詢會在介面上成功（以一般資料列集提供所有資料），但它卻無法針對預期的搜尋體驗傳遞正確的檔結構。 在編制索引期間，Azure 搜尋服務會針對每個資料列內嵌建立一個搜尋檔。 如果您的搜尋檔看起來像上述結果，您會發現重複專案有七個獨立的檔，分別適用于對應項圓頂飯店。 「佛羅里達州飯店」的查詢只會針對對應項圓頂飯店傳回7個結果，並將其他相關飯店向下推送至搜尋結果。
@@ -102,7 +102,7 @@ ON Rooms$.HotelID = Hotels$.HotelID
 
 1. 執行`SELECT * FROM dbo.HotelRooms`以取得資料列集。 此查詢會傳回50個數據列（每個飯店一個），並將相關聯的會議室資訊當做 JSON 集合。 
 
-   ![HotelRooms view 的]資料列集(media/index-sql-relational-data/hotelrooms-rowset.png "HotelRooms view 的")資料列集
+   ![HotelRooms view 的 資料列集](media/index-sql-relational-data/hotelrooms-rowset.png "HotelRooms view 的 資料列集")
 
 此資料列集現在已準備好匯入 Azure 搜尋服務。
 
@@ -152,9 +152,9 @@ ON Rooms$.HotelID = Hotels$.HotelID
 
 ## <a name="next-steps"></a>後續步驟
 
-使用您自己的資料集，您可以使用 [匯[入資料] wizard](search-import-data-portal.md)來建立和載入索引。 此嚮導會偵測內嵌的 JSON 集合（例如*會議室*中所包含的集合），並推斷包含複雜型別集合的索引架構。 
+使用您自己的資料集，您可以使用 匯[入資料 wizard](search-import-data-portal.md) 來建立和載入索引。 此嚮導會偵測內嵌的 JSON 集合（例如*會議室*中所包含的集合），並推斷包含複雜型別集合的索引架構。 
 
-  匯![入資料 wizard 所推斷的索引]匯(media/index-sql-relational-data/search-index-rooms-complex-collection.png "入資料 wizard 所推斷的索引")
+  匯![入資料 wizard 所推斷的索引匯](media/index-sql-relational-data/search-index-rooms-complex-collection.png "入資料 wizard 所推斷的索引")
 
 請嘗試下列快速入門，以瞭解 [匯入資料] 嚮導的基本步驟。
 

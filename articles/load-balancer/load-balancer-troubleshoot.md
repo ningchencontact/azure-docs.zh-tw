@@ -5,7 +5,7 @@ description: 針對 Azure Load Balancer 的已知問題進行疑難排解
 services: load-balancer
 documentationcenter: na
 author: chadmath
-manager: cshepard
+manager: dcscontentpm
 ms.custom: seodoc18
 ms.service: load-balancer
 ms.devlang: na
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/09/2018
 ms.author: genli
-ms.openlocfilehash: c5f92d564a93823fd9c0f932fa95f20d4e827761
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 4e0e3cf6067467947bcb799a915a93d1bb342ea1
+ms.sourcegitcommit: 116bc6a75e501b7bba85e750b336f2af4ad29f5a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60734468"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71154931"
 ---
 # <a name="troubleshoot-azure-load-balancer"></a>針對 Azure Load Balancer 進行疑難排解
 
@@ -62,7 +62,7 @@ ms.locfileid: "60734468"
 
 * 如果已啟用防火牆，請檢查它是否已設定為允許探查連接埠。 如果不允許，請將防火牆設定為允許探查連接埠上的流量，然後重新測試。 
 * 從網路安全性群組的清單中，檢查探查連接埠上的傳入或傳出流量是否有干擾。 
-* 此外，檢查 VM 之 NIC 上或子網路上的 [全部拒絕]  網路安全性群組規則的優先順序是否高於允許 LB 探查與流量的預設規則 (網路安全性群組必須允許 168.63.129.16 的負載平衡器 IP)。 
+* 此外，檢查 VM 之 NIC 上或子網路上的 [全部拒絕] 網路安全性群組規則的優先順序是否高於允許 LB 探查與流量的預設規則 (網路安全性群組必須允許 168.63.129.16 的負載平衡器 IP)。 
 * 如果有任何規則封鎖探查流量，請移除並重新設定規則以允許探查流量。  
 * 測試 VM 現在是否已開始回應健康狀態探查。 
 
@@ -77,7 +77,7 @@ ms.locfileid: "60734468"
     - 在目標後端集區 VM 上以及從相同 VNet 的另一個測試 VM 同時執行 Netsh trace。 現在，執行 PsPing 測試一段時間、收集一些網路追蹤資料，然後停止測試。 
     - 分析網路擷取，並查看是否有與 ping 查詢相關的傳入和傳出封包。 
         - 如果後端集區 VM 上觀察不到任何傳入封包，則可能是網路安全性群組或 UDR 設定錯誤而封鎖流量。 
-        - 如果後端集區 VM 上觀察不到任何傳出封包，VM 就必須檢查任何相關問題 （例如，應用程式封鎖探查連接埠）。 
+        - 如果在後端集區 VM 上觀察不到任何輸出封包，則必須檢查 VM 是否有任何不相關的問題（例如，應用程式封鎖探查埠）。 
     - 確認探查封包是否在到達負載平衡器之前被強制傳送到另一個目的地 (可能是透過 UDR 設定)。 這可能會導致流量永遠都無法到達後端 VM。 
 * 變更探查類型 (例如，將 HTTP 變更為 TCP)，並在網路安全性群組 ACL 和防火牆中設定對應的連接埠以驗證探查回應的組態是否有問題。 如需健康狀態探查組態的詳細資訊，請參閱[端點負載平衡健康狀態探查組態 (英文)](https://blogs.msdn.microsoft.com/mast/2016/01/26/endpoint-load-balancing-heath-probe-configuration-details/)。
 
@@ -106,7 +106,7 @@ ms.locfileid: "60734468"
 * 列出在後端 VM 上設定的網路安全性群組。 如需詳細資訊，請參閱[管理網路安全性群組](../virtual-network/manage-network-security-group.md)。
 * 從網路安全性群組的清單中，檢查︰
     - 資料連接埠上的傳入或傳出流量是否有干擾。 
-    - VM 之 NIC 上或子網路上的 [全部拒絕]  網路安全性群組規則的優先順序是否高於允許負載平衡器探查與流量的預設規則 (網路安全性群組必須允許 168.63.129.16 的負載平衡器 IP，亦即探查連接埠)。 
+    - VM 之 NIC 上或子網路上的 [全部拒絕] 網路安全性群組規則的優先順序是否高於允許負載平衡器探查與流量的預設規則 (網路安全性群組必須允許 168.63.129.16 的負載平衡器 IP，亦即探查連接埠)。 
 * 如果有任何規則封鎖流量，請移除並重新設定這些規則以允許資料流量。  
 * 測試 VM 現在是否已開始回應健康狀態探查。
 

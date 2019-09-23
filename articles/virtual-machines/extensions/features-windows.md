@@ -3,7 +3,7 @@ title: 適用於 Windows 的 Azure VM 擴充功能和功能 | Microsoft Docs
 description: 了解哪些擴充功能適用於 Azure 虛擬機器，並依它們提供或改善的內容來分組。
 services: virtual-machines-windows
 documentationcenter: ''
-author: roiyz-msft
+author: axayjo
 manager: gwallace
 editor: ''
 tags: azure-service-management,azure-resource-manager
@@ -13,14 +13,14 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 03/30/2018
-ms.author: roiyz
+ms.author: akjosh
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 9a7f204245e59cbda11c663a80828a20a79c9923
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: a19b6bd8da82498aae45657d30883db14efd9343
+ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70084566"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71174068"
 ---
 # <a name="virtual-machine-extensions-and-features-for-windows"></a>適用於 Windows 的虛擬機器擴充功能和功能
 
@@ -35,7 +35,7 @@ Azure 虛擬機器 (VM) 擴充功能是小型的應用程式，可在 Azure 虛�
 有數個不同的 Azure VM 擴充功能可供使用，各有特定使用案例。 部分範例包括：
 
 - 使用適用於 Windows 的 DSC 擴充功能將 PowerShell 預期狀態設定套用至 VM。 如需詳細資訊，請參閱 [Azure 期望狀態組態擴充功能簡介](dsc-overview.md)。
-- 使用 Microsoft 監視代理程式虛擬機器擴充功能來設定虛擬機器的監視。 如需詳細資訊, 請參閱[將 Azure vm 連線至 Azure 監視器記錄](../../log-analytics/log-analytics-azure-vm-extension.md)。
+- 使用 Microsoft 監視代理程式虛擬機器擴充功能來設定虛擬機器的監視。 如需詳細資訊，請參閱[將 Azure vm 連線至 Azure 監視器記錄](../../log-analytics/log-analytics-azure-vm-extension.md)。
 - 使用 Chef 設定 Azure VM。 如需詳細資訊，請參閱[使用 Chef 自動化 Azure VM 部署](../windows/chef-automation.md)。
 - 使用 Datadog 副檔名設定 Azure 基礎結構的監視。 如需詳細資訊，請參閱 [Datadog 部落格](https://www.datadoghq.com/blog/introducing-azure-monitoring-with-one-click-datadog-deployment/)。
 
@@ -367,7 +367,7 @@ AutoUpgradeMinorVersion     : True
 
 ### <a name="view-extension-status"></a>檢視擴充功能狀態
 
-針對 VM 執行 VM 擴充功能之後, 請使用 Update-azvm 來傳回擴充[功能](https://docs.microsoft.com/powershell/module/az.compute/get-azvm)狀態。 *Substatuses[0]* 顯示擴充功能佈建成功，這表示擴充功能已成功部署至 VM，但在 VM 內部執行失敗，而顯示 *Substatuses[1]* 。
+針對 VM 執行 VM 擴充功能之後，請使用 Update-azvm 來傳回擴充[功能](https://docs.microsoft.com/powershell/module/az.compute/get-azvm)狀態。 *Substatuses[0]* 顯示擴充功能佈建成功，這表示擴充功能已成功部署至 VM，但在 VM 內部執行失敗，而顯示 *Substatuses[1]* 。
 
 ```powershell
 Get-AzVM -ResourceGroupName "myResourceGroup" -VMName "myVM" -Status

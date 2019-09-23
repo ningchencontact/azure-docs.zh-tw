@@ -15,31 +15,33 @@ ms.topic: article
 ms.date: 08/22/2019
 ms.author: magattus
 ms.custom: ''
-ms.openlocfilehash: bc8e8219c8f8de75b01c584a2a5ce13cc1429fec
-ms.sourcegitcommit: 007ee4ac1c64810632754d9db2277663a138f9c4
+ms.openlocfilehash: f677d6b8edfe60646c6368acce9d47b23a35237d
+ms.sourcegitcommit: b03516d245c90bca8ffac59eb1db522a098fb5e4
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69991768"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71146882"
 ---
-# <a name="retrieve-the-current-verizon-pop-ip-list-for-azure-cdn"></a>取得 Azure CDN 的目前 Verizon POP IP 清單
+# <a name="retrieve-the-current-pop-ip-list-for-azure-cdn"></a>取得 Azure CDN 的目前 POP IP 清單
+
+## <a name="retrieve-the-current-verizon-pop-ip-list-for-azure-cdn"></a>取得 Azure CDN 的目前 Verizon POP IP 清單
 
 您可以使用 REST API 來為 Verizon 的存在點 (PoP) 伺服器擷取一組 IP。 這些 POP 伺服器會將要求發給與 Verizon 設定檔 (**來自 Verizon 的 Azure CDN 標準**或**來自 Verizon 的 Azure CDN 進階**) 上的 Azure 內容傳遞網路 (CDN) 端點相關聯的原始伺服器。 請注意，這組 IP 與用戶端在將要求發給 POP 時所會看到的 IP 不同。 
 
 如需用於擷取 POP 清單的 REST API 作業語法，請參閱[邊緣節點 - 清單](https://docs.microsoft.com/rest/api/cdn/edgenodes/list)。
 
-# <a name="retrieve-the-current-microsoft-pop-ip-list-for-azure-cdn"></a>取得 Azure CDN 的目前 Microsoft POP IP 清單
+## <a name="retrieve-the-current-microsoft-pop-ip-list-for-azure-cdn"></a>取得 Azure CDN 的目前 Microsoft POP IP 清單
 
-若要鎖定您的應用程式, 只接受來自 Microsoft 的 Azure CDN 的流量, 您必須為後端設定 IP Acl。 您也可以針對由 Microsoft Azure CDN 傳送的標頭 ' X-轉送-主機 ', 限制已接受的值集合。 這些步驟的詳細說明如下:
+若要鎖定您的應用程式，只接受來自 Microsoft 的 Azure CDN 的流量，您必須為後端設定 IP Acl。 您也可以針對由 Microsoft Azure CDN 傳送的標頭 ' X-轉送-主機 '，限制已接受的值集合。 這些步驟的詳細說明如下：
 
-設定後端的 IP 執行 acl, 以接受來自 Microsoft 的後端 IP 位址空間和 Azure 基礎結構服務的來自 Azure CDN 的流量。 
+設定後端的 IP 執行 acl，以接受來自 Microsoft 的後端 IP 位址空間和 Azure 基礎結構服務的來自 Azure CDN 的流量。 
 
-* 來自 Microsoft 的 IPv4 後端 IP 空間的 Azure CDN:147.243.0.0/16
-* 來自 Microsoft IPv6 後端 IP 空間的 Azure CDN:2a01: 111: 2050::/44
+* 來自 Microsoft 的 IPv4 後端 IP 空間的 Azure CDN：147.243.0.0/16
+* 來自 Microsoft IPv6 後端 IP 空間的 Azure CDN：2a01：111：2050：：/44
 
 您可以在[這裡](https://www.microsoft.com/download/details.aspx?id=56519)找到 Microsoft 服務的 IP 範圍和服務標記
 
-針對來自 Microsoft 的 Azure CDN 所傳送的傳入標頭 ' X-轉送-主機 ' 的值進行篩選。 標頭唯一允許的值應該是 CDN 設定中所定義的所有端點主機。事實上, 只有您想要接受流量的主機名稱 (在您的特定來源上)。
+針對來自 Microsoft 的 Azure CDN 所傳送的傳入標頭 ' X-轉送-主機 ' 的值進行篩選。 標頭唯一允許的值應該是 CDN 設定中所定義的所有端點主機。事實上，只有您想要接受流量的主機名稱（在您的特定來源上）。
 
 ## <a name="typical-use-case"></a>典型的使用案例
 

@@ -9,12 +9,12 @@ ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 11/29/2017
 ms.author: cshoe
-ms.openlocfilehash: dc113417be3df97b9ab9509c30a1f23e1eeaf35b
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: a0d12639ce074c3ed105513a3d90e323e30d1087
+ms.sourcegitcommit: 116bc6a75e501b7bba85e750b336f2af4ad29f5a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70086288"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71155082"
 ---
 # <a name="azure-functions-sendgrid-bindings"></a>Azure Functions SendGrid 繫結
 
@@ -31,6 +31,9 @@ ms.locfileid: "70086288"
 ## <a name="packages---functions-2x"></a>套件 - Functions 2.x
 
 [Microsoft.Azure.WebJobs.Extensions.SendGrid](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.SendGrid) NuGet 套件版本 3.x 中提供了 SendGrid 繫結。 套件的原始程式碼位於 [azure-webjobs-sdk-extensions](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.SendGrid/) GitHub 存放庫中。
+
+> [!NOTE]
+> 2\.x 版不會建立在`ServiceBusTrigger`實例中設定的主題或訂用帳戶。 2\.x 版是以[Microsoft Azure](https://www.nuget.org/packages/Microsoft.Azure.ServiceBus)為基礎，而且不會處理佇列管理。
 
 [!INCLUDE [functions-package-v2](../../includes/functions-package-v2.md)]
 
@@ -163,7 +166,7 @@ public class Message
 
 ### <a name="java-example"></a>Java 範例
 
-下列範例會使用 JAVA `@SendGridOutput`函式執行時間連結[庫](/java/api/overview/azure/functions/runtime)中的注釋, 以使用 SendGrid 輸出系結來傳送電子郵件。
+下列範例會使用 JAVA `@SendGridOutput`函式執行時間連結[庫](/java/api/overview/azure/functions/runtime)中的注釋，以使用 SendGrid 輸出系結來傳送電子郵件。
 
 ```java
 @FunctionName("SendEmail")
@@ -287,7 +290,7 @@ public static void Run(
 
 |屬性  |預設 | 描述 |
 |---------|---------|---------| 
-|寄件者|n/a|所有函式的寄件者電子郵件地址。| 
+|from|n/a|所有函式的寄件者電子郵件地址。| 
 
 
 ## <a name="next-steps"></a>後續步驟

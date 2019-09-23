@@ -2,18 +2,18 @@
 title: 包含檔案
 description: 包含檔案
 services: virtual-machines-linux
-author: dlepow
+author: cynthn
 ms.service: virtual-machines-linux
 ms.topic: include
 ms.date: 12/21/2018
-ms.author: danlep
+ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: bca78e2963f19b60071b1b27c8dc65c76818e10e
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: 3f9b86dd3716a25ab95265cf46b616144f57163b
+ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67173989"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71168613"
 ---
 ## <a name="overview-of-ssh-and-keys"></a>SSH 和金鑰的概觀
 
@@ -21,7 +21,7 @@ ms.locfileid: "67173989"
 
 * *公開金鑰*會置於您的 Linux VM 或任何您要搭配公開金鑰加密使用的其他服務上。
 
-* 「私密金鑰」  會保留在您的本機系統上。 保護此私密金鑰。 不要共用它。
+* 「私密金鑰」會保留在您的本機系統上。 保護此私密金鑰。 不要共用它。
 
 當您使用 SSH 用戶端連線到您的 Linux VM (其有公開金鑰) 時，遠端 VM 會測試用戶端以確保它擁有私密金鑰。 如果用戶端具有私密金鑰，則會獲得 VM 的存取權。 
 

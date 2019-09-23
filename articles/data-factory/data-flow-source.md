@@ -39,7 +39,7 @@ Azure Data Factory 可以存取超過80的原生連接器。 若要在資料流�
 
 新增來源之後，請透過 [**來源設定**] 索引標籤進行設定。您可以在這裡挑選或建立來源點的資料集。 您也可以選取資料的架構和取樣選項。
 
-![來源設定 索引標籤](media/data-flow/source1.png "來源設定索 引標籤
+![來源設定 索引標籤](media/data-flow/source1.png "來源設定索 引標籤")
 
 **架構漂移：** [架構漂移](concepts-data-flow-schema-drift.md)是 data factory 能夠以原生方式處理您資料流程中的彈性架構，而不需要明確地定義資料行變更。
 

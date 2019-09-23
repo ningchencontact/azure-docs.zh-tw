@@ -8,24 +8,24 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/06/2019
-ms.openlocfilehash: e747f39ca84bb859b37550efef51e01cffd96876
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: e6b3fc4f9badeedbed55f89702933b41a952977b
+ms.sourcegitcommit: a19bee057c57cd2c2cd23126ac862bd8f89f50f5
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67056744"
+ms.lasthandoff: 09/23/2019
+ms.locfileid: "71180812"
 ---
 # <a name="use-apache-spark-to-read-and-write-apache-hbase-data"></a>使用 Apache Spark 來讀取和寫入 Apache HBase 資料
 
 Apache HBase 通常會使用其低階 API (scan、get、put) 或者使用 Apache Phoenix 以 SQL 語法來查詢。 Apache 也提供 Apache Spark HBase Connector，這是查詢及修改 HBase 儲存之資料的方便且高效能替代方式。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
-* 兩個不同的部署相同的虛擬網路中的 HDInsight 叢集。 一個 HBase 和一個 Spark 與至少已安裝的 Spark 2.1 (HDInsight 3.6)。 如需詳細資訊，請參閱[使用 Azure 入口網站在 HDInsight 中建立以 Linux 為基礎的叢集](hdinsight-hadoop-create-linux-clusters-portal.md)。
+* 在相同的虛擬網路中部署兩個不同的 HDInsight 叢集。 一個 HBase，以及至少已安裝 Spark 2.1 （HDInsight 3.6）的一個 Spark。 如需詳細資訊，請參閱[使用 Azure 入口網站在 HDInsight 中建立以 Linux 為基礎的叢集](hdinsight-hadoop-create-linux-clusters-portal.md)。
 
 * SSH 用戶端。 如需詳細資訊，請參閱[使用 SSH 連線至 HDInsight (Apache Hadoop)](hdinsight-hadoop-linux-use-ssh-unix.md)。
 
-* 您叢集主要儲存體的 [URI 配置](hdinsight-hadoop-linux-information.md#URI-and-scheme)。 這會是 wasb: / / Azure Blob 儲存體，abfs: / / Azure Data Lake 儲存體 Gen2 或 adl: / / Azure Data Lake 儲存體 Gen1。 如果 Blob 儲存體或 Data Lake 儲存體 Gen2 啟用安全傳輸，則 URI 會是 wasbs: / / 或 abfss: / / 分別另請參閱[安全傳輸](../storage/common/storage-require-secure-transfer.md)。
+* 您叢集主要儲存體的 [URI 配置](hdinsight-hadoop-linux-information.md#URI-and-scheme)。 這會是 wasb://，適用于 Azure Data Lake Storage Gen1 的 Azure Data Lake Storage Gen2 或 adl://的 Azure Blob 儲存體、abfs://。 如果已啟用 Blob 儲存體的安全傳輸，則 URI 會是`wasbs://`。  另請參閱[安全傳輸](../storage/common/storage-require-secure-transfer.md)。
 
 ## <a name="overall-process"></a>整體程序
 
@@ -40,27 +40,27 @@ Apache HBase 通常會使用其低階 API (scan、get、put) 或者使用 Apache
 
 ## <a name="prepare-sample-data-in-apache-hbase"></a>在 Apache HBase 中準備範例資料
 
-在此步驟中，您可以建立並填入您就可以查詢使用 Spark 的 Apache HBase 中的資料表。
+在此步驟中，您會在 Apache HBase 中建立並填入資料表，然後您就可以使用 Spark 來進行查詢。
 
-1. 使用`ssh`命令，以連接到 HBase 叢集。 編輯下列命令取代`HBASECLUSTER`同名的 HBase 叢集，然後輸入命令：
+1. 使用命令`ssh`連接到您的 HBase 叢集。 以 HBase 叢集的名稱取代`HBASECLUSTER`來編輯下面的命令，然後輸入命令：
 
     ```cmd
     ssh sshuser@HBASECLUSTER-ssh.azurehdinsight.net
     ```
 
-2. 使用`hbase shell`命令來啟動 HBase 互動式殼層。 在您的 SSH 連線中輸入下列命令：
+2. `hbase shell`使用命令來啟動 HBase 互動式 shell。 在您的 SSH 連線中輸入下列命令：
 
     ```bash
     hbase shell
     ```
 
-3. 使用`create`命令，以使用兩個資料行系列建立 HBase 資料表。 輸入下列命令：
+3. `create`使用命令來建立具有兩個數據行系列的 HBase 資料表。 輸入下列命令：
 
     ```hbase
     create 'Contacts', 'Personal', 'Office'
     ```
 
-4. 使用`put`命令，以在指定的資料行中指定的資料列特定資料表中插入值。 輸入下列命令：
+4. 您可以使用命令，在特定資料表的指定資料列中的指定資料行插入值。 `put` 輸入下列命令：
 
     ```hbase
     put 'Contacts', '1000', 'Personal:Name', 'John Dole'
@@ -73,7 +73,7 @@ Apache HBase 通常會使用其低階 API (scan、get、put) 或者使用 Apache
     put 'Contacts', '8396', 'Office:Address', '5415 San Gabriel Dr.'
     ```
 
-5. 使用`exit`命令來停止 HBase 互動式殼層。 輸入下列命令：
+5. `exit`使用命令來停止 HBase 互動式 shell。 輸入下列命令：
 
     ```hbase
     exit
@@ -81,25 +81,25 @@ Apache HBase 通常會使用其低階 API (scan、get、put) 或者使用 Apache
 
 ## <a name="copy-hbase-sitexml-to-spark-cluster"></a>將 hbase-site.xml 複製到 Spark 叢集
 
-將 hbase-site.xml 從本機儲存體複製到您的 Spark 叢集預設儲存體的根目錄。  編輯下列命令來反映您的設定。  然後，從開啟 SSH 工作階段到 HBase 叢集，請輸入命令：
+將 hbase-site.xml 從本機儲存體複製到 Spark 叢集預設儲存體的根目錄。  編輯下列命令以反映您的設定。  然後，從您開啟的 SSH 會話到 HBase 叢集，輸入下列命令：
 
-| 語法值 | 新的值|
+| 語法值 | 新增值|
 |---|---|
-|[URI 配置](hdinsight-hadoop-linux-information.md#URI-and-scheme) | 修改以反映您的儲存體。  下列語法會為已啟用安全傳輸的 blob 儲存體。|
-|`SPARK_STORAGE_CONTAINER`|取代為用於 Spark 叢集的預設儲存體容器名稱。|
-|`SPARK_STORAGE_ACCOUNT`|取代為用於 Spark 叢集的預設儲存體帳戶名稱。|
+|[URI 配置](hdinsight-hadoop-linux-information.md#URI-and-scheme) | 修改以反映您的儲存體。  以下語法適用于已啟用安全傳輸的 blob 儲存體。|
+|`SPARK_STORAGE_CONTAINER`|以用於 Spark 叢集的預設儲存體容器名稱取代。|
+|`SPARK_STORAGE_ACCOUNT`|以用於 Spark 叢集的預設儲存體帳戶名稱取代。|
 
 ```bash
 hdfs dfs -copyFromLocal /etc/hbase/conf/hbase-site.xml wasbs://SPARK_STORAGE_CONTAINER@SPARK_STORAGE_ACCOUNT.blob.core.windows.net/
 ```
 
-然後結束程式 ssh 連線到 HBase 叢集。
+然後結束您與 HBase 叢集的 ssh 連線。
 
 ## <a name="put-hbase-sitexml-on-your-spark-cluster"></a>將 hbase-site.xml 放置在您的 Spark 叢集
 
 1. 使用 SSH 連線到 Spark 叢集的前端節點。
 
-2. 輸入下列命令來複製`hbase-site.xml`從 Spark 叢集的 Spark 2 設定資料夾，在叢集的本機儲存體的預設儲存體：
+2. 輸入下列命令，從 spark `hbase-site.xml`叢集的預設儲存體複製到叢集本機儲存體上的 spark 2 設定資料夾：
 
     ```bash
     sudo hdfs dfs -copyToLocal /hbase-site.xml /etc/spark2/conf
@@ -107,7 +107,7 @@ hdfs dfs -copyFromLocal /etc/hbase/conf/hbase-site.xml wasbs://SPARK_STORAGE_CON
 
 ## <a name="run-spark-shell-referencing-the-spark-hbase-connector"></a>執行參照 Spark HBase Connector 的 Spark Shell
 
-1. 從 Spark 叢集您開啟 SSH 工作階段，請輸入下列命令來啟動 spark 殼層：
+1. 從開啟的 SSH 會話到 Spark 叢集，輸入下列命令以啟動 spark shell：
 
     ```bash
     spark-shell --packages com.hortonworks:shc-core:1.1.1-2.1-s_2.11 --repositories https://repo.hortonworks.com/content/groups/public/
@@ -119,7 +119,7 @@ hdfs dfs -copyFromLocal /etc/hbase/conf/hbase-site.xml wasbs://SPARK_STORAGE_CON
 
 在這個步驟中，您會定義目錄物件，該目錄物件將結構描述從 Apache Spark 對應至 Apache HBase。  
 
-1. 在您開啟的 Spark Shell 中，輸入下列`import`陳述式：
+1. 在您的 open Spark Shell 中，輸入`import`下列語句：
 
     ```scala
     import org.apache.spark.sql.{SQLContext, _}
@@ -128,7 +128,7 @@ hdfs dfs -copyFromLocal /etc/hbase/conf/hbase-site.xml wasbs://SPARK_STORAGE_CON
     import spark.sqlContext.implicits._
     ```  
 
-2. 輸入下列命令來定義類別目錄的 [連絡人] 資料表在 HBase 中所建立：
+2. 輸入下列命令，為您在 HBase 中建立的 [連絡人] 資料表定義目錄：
 
     ```scala
     def catalog = s"""{
@@ -144,13 +144,13 @@ hdfs dfs -copyFromLocal /etc/hbase/conf/hbase-site.xml wasbs://SPARK_STORAGE_CON
     |}""".stripMargin
     ```
 
-    程式碼會執行下列作業：  
+    此程式碼會執行下列動作：  
 
      a. 針對名為 `Contacts` 的 HBase 資料表定義目錄結構描述。  
      b. 將 rowkey 識別為 `key`，並且將 Spark 中使用的資料行名稱對應至 HBase 中使用的資料行系列、資料行名稱以及資料行類型。  
      c. rowkey 也必須詳細定義為具名資料行 (`rowkey`)，其具有 `rowkey` 的特定資料行系列 `cf`。  
 
-3. 輸入下列命令來定義方法，以提供周圍的 DataFrame 您`Contacts`在 HBase 資料表：
+3. 輸入下列命令以定義方法，以在 HBase 中提供`Contacts`資料表的資料框架：
 
     ```scala
     def withCatalog(cat: String): DataFrame = {
@@ -254,7 +254,7 @@ hdfs dfs -copyFromLocal /etc/hbase/conf/hbase-site.xml wasbs://SPARK_STORAGE_CON
     +------+--------------------+--------------+------------+--------------+
     ```
 
-6. 關閉 spark 殼層輸入下列命令：
+6. 輸入下列命令以關閉 spark shell：
 
     ```scala
     :q

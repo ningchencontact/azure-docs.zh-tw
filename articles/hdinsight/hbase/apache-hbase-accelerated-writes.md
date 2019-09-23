@@ -8,12 +8,12 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.topic: conceptual
 ms.date: 08/21/2019
-ms.openlocfilehash: c24ed7efe9e046a36a05ec5924cbd61d218b1b01
-ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
+ms.openlocfilehash: bcc9736280b144a77bca57b4f4df1303f4b54796
+ms.sourcegitcommit: 83df2aed7cafb493b36d93b1699d24f36c1daa45
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71091737"
+ms.lasthandoff: 09/22/2019
+ms.locfileid: "71179082"
 ---
 # <a name="azure-hdinsight-accelerated-writes-for-apache-hbase"></a>適用于 Apache HBase 的 Azure HDInsight 加速寫入
 
@@ -54,6 +54,12 @@ flush 'mytable'
 ```
 disable 'mytable'
 ```
+
+相應減少叢集時，請遵循類似的步驟：清除資料表並停用資料表以停止傳入的資料。 您無法將叢集擴充到三個以下的節點。
+
+遵循這些步驟可確保成功相應減少，並避免因複寫中或暫存檔案而導致 namenode 進入安全模式的可能性。
+
+如果您的 namenode 在相應減少之後進入安全模式，請使用 hdfs 命令來重新複寫不受複寫的區塊，並從安全模式取得 hdfs。 此重新複寫可讓您順利重新開機 HBase。
 
 ## <a name="next-steps"></a>後續步驟
 

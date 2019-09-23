@@ -7,76 +7,60 @@ ms.author: heidist
 services: search
 ms.service: search
 ms.topic: conceptual
-ms.date: 05/13/2019
-ms.custom: seodec2018
-ms.openlocfilehash: 30c3b233a1454d04fb281e049376b2b3aafe1879
-ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
+ms.date: 09/20/2019
+ms.openlocfilehash: 4646cb30ef7602da990e24f923c8eceada4debd0
+ms.sourcegitcommit: 83df2aed7cafb493b36d93b1699d24f36c1daa45
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69647961"
+ms.lasthandoff: 09/22/2019
+ms.locfileid: "71178030"
 ---
-# <a name="how-to-compose-a-query-in-azure-search"></a>如何在 Azure 搜尋服務中撰寫查詢
+# <a name="query-types-and-composition-in-azure-search"></a>Azure 搜尋服務中的查詢類型和組合
 
-在 Azure 搜尋服務中，查詢是往返作業的完整規格。 要求中的參數會提供比對準則 (用於尋找索引中文件)、引擎的執行指示和用於形成回應的指示詞。 
+在 Azure 搜尋服務中，查詢是往返作業的完整規格。 要求的參數會提供比對準則，以尋找索引中的檔、要包含或排除的欄位、傳遞至引擎的執行指令，以及塑造回應的指示詞。 未指定`search=*`（），查詢會針對所有可搜尋的欄位執行，做為全文檢索搜尋作業，以任意順序傳回計分的結果集。
 
-查詢要求是豐富的建構，可以指定哪些欄位在搜尋範圍內、搜尋方式、要傳回哪些欄位，以及是否要排序或篩選等等。 未指定時，將會以全文檢索搜尋作業的形式對所有可搜尋的欄位執行查詢，並以任意順序傳回未計分的結果集。
-
-## <a name="apis-and-tools-for-testing"></a>測試用的 API 和工具
-
-下表列出使用 API 和工具來提交查詢的方法。
-
-| 方法 | 描述 |
-|-------------|-------------|
-| [搜尋總管 (入口網站)](search-explorer.md) | 提供搜尋列以及選取索引和 API 版本的選項。 結果會以 JSON 文件的形式傳回。 <br/>[深入了解。](search-get-started-portal.md#query-index) | 
-| [Postman 或 Fiddler](search-get-started-postman.md) | Web 測試工具是擬定 REST 呼叫的絕佳選擇。 REST API 支援 Azure 搜尋服務中之每個可能的作業。 在本文中，了解如何設定 HTTP 要求標頭和主體，以傳送要求到 Azure 搜尋服務。  |
-| [SearchIndexClient (.NET)](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.searchindexclient?view=azure-dotnet) | 可用來查詢 Azure 搜尋服務索引的用戶端。  <br/>[深入了解。](search-howto-dotnet-sdk.md#core-scenarios)  |
-| [搜尋文件 (REST API)](https://docs.microsoft.com/rest/api/searchservice/search-documents) | 索引的 GET 或 POST 方法，使用查詢參數作為額外輸入。  |
-
-## <a name="a-first-look-at-query-requests"></a>初窺查詢要求
-
-範例適合用來介紹新的概念。 作為 [REST API](https://docs.microsoft.com/rest/api/searchservice/search-documents) 中所建構的代表性查詢，下列範例鎖定[不動產示範索引](search-get-started-portal.md)，並包含常見參數。
+下列範例是[REST API](https://docs.microsoft.com/rest/api/searchservice/search-documents)中所建立的代表性查詢。 此範例以[飯店示範索引](search-get-started-portal.md)為目標，並包含一般參數。
 
 ```
 {
     "queryType": "simple" 
-    "search": "seattle townhouse* +\"lake\"",
-    "searchFields": "description, city",
-    "count": "true",
-    "select": "listingId, street, status, daysOnMarket, description",
+    "search": "+New York +restaurant",
+    "searchFields": "Description, Address/City, Tags",
+    "select": "HotelId, HotelName, Description, Rating, Address/City, Tags",
     "top": "10",
-    "orderby": "daysOnMarket"
+    "count": "true",
+    "orderby": "Rating desc"
 }
 ```
 
-+ **`queryType`** 會設定剖析器，在 Azure 搜尋服務中，這既可以是[預設的簡單查詢剖析器](search-query-simple-examples.md) (最適合全文檢索搜尋)，也可以是[完整的 Lucene 查詢剖析器](search-query-lucene-examples.md) (用於進階的查詢建構，例如規則運算式、鄰近搜尋、模糊和萬用字元搜尋等等)。
++ **`queryType`** 設定剖析器，這是預設的[簡單查詢](search-query-simple-examples.md)剖析器（最適用于全文檢索搜尋），或是用於高階運算式、鄰近搜尋、模糊和萬用字元搜尋等先進查詢結構的[完整 Lucene 查詢](search-query-lucene-examples.md)剖析器，用來命名幾.
 
 + **`search`** 會提供比對準則，這通常是文字，但往往會伴隨布林運算子。 單一的獨立字詞是「字詞」查詢。 用引號括住、有多個部分的查詢則是「關鍵片語」查詢。 搜尋可能是未定義的 (如 **`search=*`** 中)，但更可能會包含字詞、片語和運算子，如下列範例所示。
 
-+ **`searchFields`** 是選擇性的，可用來將查詢執行限制在特定欄位。
++ **`searchFields`** 將查詢執行限制為特定欄位。 在索引*架構中屬性*化為可搜尋的任何欄位，都是此參數的候選項。
 
-回應也會由查詢中所包含的參數來形成。 在範例中，結果集包含 **`select`** 陳述式中所列的欄位。 此查詢只會傳回前 10 個相符項目，但 **`count`** 會告訴您總共有多少份文件相符。 在此查詢中，資料列會依 daysOnMarket 來排序。
+回應也會由查詢中所包含的參數來形成。 在範例中，結果集包含 **`select`** 陳述式中所列的欄位。 只有標示*為可抓取的欄位*可以在 $select 語句中使用。 此外，此查詢 **`top`** 只會傳回10個叫用，而 **`count`** 會告訴您整體相符的檔數目，而這可能會超過傳回的內容。 在此查詢中，資料列會依評等的遞減順序排序。
 
 在 Azure 搜尋服務中，查詢一律會針對單一索引來執行，並使用要求中提供 API 金鑰進行驗證。 在 REST 中，則會於要求標頭中同時提供這兩者。
 
 ### <a name="how-to-run-this-query"></a>如何執行這項查詢
 
-若要執行這項查詢，請使用[搜尋總管和不動產示範索引](search-get-started-portal.md)。 
+若要執行此查詢，請使用[[搜尋瀏覽器] 和 [飯店示範索引](search-get-started-portal.md)]。 
 
-您可以將這個查詢字串貼到總管中的搜尋列：`search=seattle townhouse +lake&searchFields=description, city&$count=true&$select=listingId, street, status, daysOnMarket, description&$top=10&$orderby=daysOnMarket`
+您可以將這個查詢字串貼到總管中的搜尋列：`search=+"New York" +restaurant&searchFields=Description, Address/City, Tags&$select=HotelId, HotelName, Description, Rating, Address/City, Tags&$top=10&$orderby=Rating desc&$count=true`
 
 ## <a name="how-query-operations-are-enabled-by-the-index"></a>索引如何啟用查詢作業
 
 Azure 搜尋服務緊密結合了索引設計和查詢設計。 事先要知道的重要事實是，「索引結構描述」與每個欄位上的屬性會決定您可以建置的查詢類型。 
 
-欄位上的索引屬性會設定允許的作業 - 欄位在索引中是否「可搜尋」、在結果中是否「可擷取」、是否「可排序」、是否「可篩選」，不一而足。 在查詢字串範例中，只有當 daysOnMarket 欄位在索引結構描述中標記為「可排序」時，`"$orderby": "daysOnMarket"` 才會有作用。 
+欄位上的索引屬性會設定允許的作業 - 欄位在索引中是否「可搜尋」、在結果中是否「可擷取」、是否「可排序」、是否「可篩選」，不一而足。 在範例查詢字串中， `"$orderby": "Rating"`只有在索引架構中將 [評等] 欄位標示為 [可*排序*] 時，才會運作。 
 
-![不動產範例的索引定義](./media/search-query-overview/realestate-sample-index-definition.png "不動產範例的索引定義")
+![飯店範例的索引定義](./media/search-query-overview/hotel-sample-index-definition.png "飯店範例的索引定義")
 
-上述螢幕擷取畫面列出了一部分不動產範例的索引屬性。 您可以在入口網站中檢視整個索引結構描述。 如需索引屬性的詳細資訊，請參閱[建立索引 REST API](https://docs.microsoft.com/rest/api/searchservice/create-index)。
+上述螢幕擷取畫面是旅館範例之索引屬性的部分清單。 您可以在入口網站中檢視整個索引結構描述。 如需索引屬性的詳細資訊，請參閱[建立索引 REST API](https://docs.microsoft.com/rest/api/searchservice/create-index)。
 
 > [!Note]
-> 某些查詢功能會在整個索引 (而非個別欄位) 啟用。 這些功能包括:[同義字對應](search-synonyms.md)、[自訂分析器](index-add-custom-analyzers.md)、[建議工具結構 (適用于自動完成和建議的查詢)](index-add-suggesters.md)、[排名結果的評分邏輯](index-add-scoring-profiles.md)。
+> 某些查詢功能會在整個索引 (而非個別欄位) 啟用。 這些功能包括：[同義字對應](search-synonyms.md)、[自訂分析器](index-add-custom-analyzers.md)、[建議工具結構（適用于自動完成和建議的查詢）](index-add-suggesters.md)、[排名結果的評分邏輯](index-add-scoring-profiles.md)。
 
 ## <a name="elements-of-a-query-request"></a>查詢要求的元素
 
@@ -92,22 +76,33 @@ Azure 搜尋服務緊密結合了索引設計和查詢設計。 事先要知道�
 
 其他所有搜尋參數都是選用的。 如需屬性的完整清單，請參閱[建立索引 (REST)](https://docs.microsoft.com/rest/api/searchservice/create-index)。 若要深入了解處理期間要如何使用參數，請參閱[全文檢索搜尋在 Azure 搜尋服務中的運作方式](search-lucene-query-architecture.md)。
 
+## <a name="choose-apis-and-tools"></a>選擇 Api 和工具
+
+下表列出使用 API 和工具來提交查詢的方法。
+
+| 方法 | 描述 |
+|-------------|-------------|
+| [搜尋總管 (入口網站)](search-explorer.md) | 提供搜尋列以及選取索引和 API 版本的選項。 結果會以 JSON 文件的形式傳回。 建議用於探索、測試和驗證。 <br/>[深入了解。](search-get-started-portal.md#query-index) | 
+| [Postman 或其他 REST 工具](search-get-started-postman.md) | Web 測試工具是擬定 REST 呼叫的絕佳選擇。 REST API 支援 Azure 搜尋服務中之每個可能的作業。 在本文中，了解如何設定 HTTP 要求標頭和主體，以傳送要求到 Azure 搜尋服務。  |
+| [SearchIndexClient (.NET)](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.searchindexclient?view=azure-dotnet) | 可用來查詢 Azure 搜尋服務索引的用戶端。  <br/>[深入了解。](search-howto-dotnet-sdk.md#core-scenarios)  |
+| [搜尋文件 (REST API)](https://docs.microsoft.com/rest/api/searchservice/search-documents) | 索引的 GET 或 POST 方法，使用查詢參數作為額外輸入。  |
+
 ## <a name="choose-a-parser-simple--full"></a>選擇剖析器：簡單 | 完整
 
 Azure 搜尋服務位於 Apache Lucene 之上，並可讓您從兩種查詢剖析器中選擇其一來處理一般和特製化查詢。 使用簡單剖析器的要求會使用[簡單查詢語法](query-simple-syntax.md)來制訂，可選取作為預設值，以透過自由格式的文字查詢來獲得其速度和效能。 此語法支援許多常見的搜尋運算子，包括 AND、OR、NOT、片語、尾碼和優先順序運算子。
 
 [完整的 Lucene 查詢語法](query-Lucene-syntax.md#bkmk_syntax)會在您將 `queryType=full` 新增至要求時啟用，可公開廣為採用、且開發作為 [Apache Lucene](https://lucene.apache.org/core/6_6_1/queryparser/org/apache/lucene/queryparser/classic/package-summary.html) 一部分的表達式查詢語言。 完整語法可延伸簡單語法。 您為簡單語法所撰寫的查詢，均可在完整的 Lucene 剖析器下執行。 
 
-下列範例可說明這點：相同的查詢，但有不同的 queryType 設定，會產生不同的結果。 在第一個查詢中，系統會將 `^3` 視為搜尋字詞的一部分。
+下列範例可說明這點：相同的查詢，但有不同的 queryType 設定，會產生不同的結果。 在第一個查詢中， `^3`會`historic`將 after 視為搜尋詞彙的一部分。 此查詢的排名最高的結果是 "Marquis Plaza & suite"，其描述中有*海洋*
 
 ```
-queryType=simple&search=mountain beach garden ranch^3&searchFields=description&$count=true&$select=listingId, street, status, daysOnMarket, description&$top=10&$orderby=daysOnMarket
+queryType=simple&search=ocean historic^3&searchFields=Description, Tags&$select=HotelId, HotelName, Tags, Description&$count=true
 ```
 
-使用完整 Lucene 剖析器的相同查詢會解譯關於 "ranch" 的欄位內提升，這可提升包含該特定字詞的結果搜尋順位。
+使用完整 Lucene 剖析器的相同查詢會`^3`解讀為現場詞彙增強功能。 切換剖析器會變更排名，其中包含的結果*會移至*最上層。
 
 ```
-queryType=full&search=mountain beach garden ranch^3&searchFields=description&$count=true&$select=listingId, street, status, daysOnMarket, description&$top=10&$orderby=daysOnMarket
+queryType=full&search=ocean historic^3&searchFields=Description, Tags&$select=HotelId, HotelName, Tags, Description&$count=true
 ```
 
 <a name="types-of-queries"></a>
@@ -146,7 +141,7 @@ Azure 搜尋服務支援廣泛的查詢類型。
 
 + 將 **`searchMode=any`** (預設值) 變更為 **`searchMode=all`** ，以要求須符合所有準則，而非任何準則。 此做法在查詢中包含布林運算子時特別有用。
 
-+ 如果文字或語彙分析是必要的，但查詢類型無法進行語言處理，請變更查詢技術。 在全文檢索搜尋中, 文字或詞彙分析會更正拼寫錯誤、單複數單字形式, 甚至是不規則的動詞或名詞。 在像是模糊或萬用字元搜尋等某些查詢中，文字分析並不是查詢剖析管線的一部分。 在某些情況下，規則運算式是既有的因應措施。 
++ 如果文字或語彙分析是必要的，但查詢類型無法進行語言處理，請變更查詢技術。 在全文檢索搜尋中，文字或詞彙分析會更正拼寫錯誤、單複數單字形式，甚至是不規則的動詞或名詞。 在像是模糊或萬用字元搜尋等某些查詢中，文字分析並不是查詢剖析管線的一部分。 在某些情況下，規則運算式是既有的因應措施。 
 
 ### <a name="paging-results"></a>分頁結果
 Azure 搜尋服務可讓您輕鬆地對搜尋結果分頁。 透過使用 **`top`** 和 **`skip`** 參數，您就可以順利地發出搜尋要求，將所收到的整組搜尋結果分拆成方便管理且經過排序的子集，輕鬆實現良好的搜尋 UI 做法。 在收到這些分拆成較小子集的結果時，您也會收到整組搜尋結果中所含文件的計數。

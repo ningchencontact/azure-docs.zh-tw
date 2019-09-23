@@ -6,14 +6,14 @@ manager: bertvanhoof
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 07/29/2019
+ms.date: 09/17/2019
 ms.author: alinast
-ms.openlocfilehash: a013525109fe85ad70e5aaa5895da20f5abc3237
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.openlocfilehash: 81f2cc32ee10e891ffab127d6ecd7909eb75abd6
+ms.sourcegitcommit: 83df2aed7cafb493b36d93b1699d24f36c1daa45
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68638526"
+ms.lasthandoff: 09/22/2019
+ms.locfileid: "71177077"
 ---
 # <a name="routing-events-and-messages"></a>活動及訊息路線規劃
 
@@ -21,7 +21,7 @@ IoT 解決方案通常會結合數個功能強大的服務，包括儲存體、�
 
 ## <a name="route-types"></a>路由類型  
 
-Azure 數位 Twins 提供兩種方式來將 IoT 事件連接至其他 Azure 服務或商務應用程式:
+Azure 數位 Twins 提供兩種方式來將 IoT 事件連接至其他 Azure 服務或商務應用程式：
 
 * **路由傳送 Azure Digital Twins 事件**：當空間圖表中的物件發生變更、收到遙測資料，或使用者定義的函式根據預先定義的條件建立通知時，都可能觸發 Azure Digital Twins 事件。 使用者可以將這些事件傳送至 [Azure 事件中樞](https://azure.microsoft.com/services/event-hubs/)、[Azure 服務匯流排主題](https://azure.microsoft.com/services/service-bus/)或 [Azure 事件方格](https://azure.microsoft.com/services/event-grid/)，以執行進一步的處理。
 
@@ -29,7 +29,7 @@ Azure 數位 Twins 提供兩種方式來將 IoT 事件連接至其他 Azure 服�
 
 使用者可以指定一個或多個輸出端點來傳送事件或轉送訊息。 事件和訊息會根據這些預先定義的路由喜好設定來傳送至端點。 換句話說，使用者可以指定特定端點來接收圖表作業事件，並指定另一個端點來接收裝置遙測事件，依此類推。
 
-![Azure Digital Twins 事件路由][1]
+[![Azure 數位 Twins 事件路由](media/concepts/digital-twins-events-routing.png)](media/concepts/digital-twins-events-routing.png#lightbox)
 
 路由傳送至事件中樞可維持遙測訊息的傳送順序。 所以它們會以原先接收的相同順序抵達端點。 事件方格和服務匯流排則不保證端點收到事件的順序會與事件發生順序相同。 不過，事件結構描述包含可用來識別事件抵達端點後之順序的時間戳記。
 
@@ -67,6 +67,3 @@ Azure Digital Twins 目前支援將下列 **EventTypes** 傳送至所選的端�
 - 若要了解 Azure Digital Twins 預覽版限制，請參閱[公開預覽版服務限制](concepts-service-limits.md)。
 
 - 若要試用 Azure Digital Twins 的範例，請參閱[尋找可用會議室的快速入門](quickstart-view-occupancy-dotnet.md)。
-
-<!-- Images -->
-[1]: media/concepts/digital-twins-events-routing.png

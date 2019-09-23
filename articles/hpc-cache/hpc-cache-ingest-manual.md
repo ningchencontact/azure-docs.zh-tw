@@ -1,19 +1,19 @@
 ---
-title: Azure HPC 快取資料內嵌-手動複製
+title: Azure HPC 快取預覽資料內嵌-手動複製
 description: 如何在 Azure HPC 快取中使用 cp 命令將資料移至 Blob 儲存體目標
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: conceptual
 ms.date: 08/30/2019
 ms.author: v-erkell
-ms.openlocfilehash: 2d89a74d4b79e74c2bc6667a5f76c2348ca3c274
-ms.sourcegitcommit: a4b5d31b113f520fcd43624dd57be677d10fc1c0
+ms.openlocfilehash: 217f976d53a7be8931be9f8d21b000549a9ed68a
+ms.sourcegitcommit: a19bee057c57cd2c2cd23126ac862bd8f89f50f5
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70775230"
+ms.lasthandoff: 09/23/2019
+ms.locfileid: "71180983"
 ---
-# <a name="azure-hpc-cache-data-ingest---manual-copy-method"></a>Azure HPC 快取資料內嵌-手動複製方法
+# <a name="azure-hpc-cache-preview-data-ingest---manual-copy-method"></a>Azure HPC 快取（預覽）資料內嵌-手動複製方法
 
 本文提供詳細的指示，說明如何手動將資料複製到 Blob 儲存體容器，以與 Azure HPC 快取搭配使用。 它會使用多執行緒平行作業來優化複製速度。
 
