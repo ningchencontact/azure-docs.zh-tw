@@ -64,7 +64,7 @@ ms.locfileid: "69996059"
 
 3. 按 [要求新的金鑰組和憑證], 以使用您應用程式的公開金鑰來要求私密金鑰和新的已簽署憑證。
 
-   ![產生新的金鑰]組(media/howto-opc-vault-secure/generate-new-key-pair.png "產生新的金鑰")組
+   ![產生新的金鑰 組](media/howto-opc-vault-secure/generate-new-key-pair.png "產生新的金鑰 組")
 
 4. 在表單中填入主旨、功能變數名稱, 然後選擇 [以密碼提供私密金鑰的 PEM 或 PFX]。 按下`Generate New Certificate`按鈕以建立憑證要求。
 
@@ -73,7 +73,7 @@ ms.locfileid: "69996059"
 5. 核准步驟需要使用者具有「核准者」角色, 並具有 Azure Key Vault 的簽署許可權。 在一般工作流程中, 必須將核准者和要求者角色指派給不同的使用者。
 6. 核准或拒絕憑證要求, 以開始或取消實際建立金鑰組和簽署作業。 新的金鑰組會建立並安全地儲存在 Azure Key Vault 中, 直到憑證要求者下載為止。 具有公開金鑰的產生憑證是由 CA 簽署。 這些作業可能需要幾秒鐘的時間才能完成。
 
-   ![視圖金鑰]組(media/howto-opc-vault-secure/view-key-pair.png "視圖金鑰")組
+   ![視圖金鑰 組](media/howto-opc-vault-secure/view-key-pair.png "視圖金鑰 組")
 
 7. 您可以從這裡下載所產生的私密金鑰 (PFX 或 PEM) 和憑證 (DER), 格式為 [二進位檔下載]。 您也可以使用 base64 編碼版本, 例如, 將憑證貼到命令列或文字輸入。 
 8. 私密金鑰下載並安全地儲存之後, 即可使用`Delete Private Key`按鈕從服務中刪除。 具有公開金鑰的憑證仍然可供日後使用。

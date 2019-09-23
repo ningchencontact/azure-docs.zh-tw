@@ -29,7 +29,7 @@ Azure 資訊安全中心中的 Endpoint protection 評估和建議會偵測並�
 
 ## <a name="windows-defender"></a>Windows Defender
 
-* [MpComputerStatus](https://docs.microsoft.com/powershell/module/defender/get-mpcomputerstatus?view=win10-ps)執行時，會產生「 ****在虛擬機器上安裝端點保護解決方案**」建議，且結果為 AMServiceEnabled：False**
+* [MpComputerStatus](https://docs.microsoft.com/powershell/module/defender/get-mpcomputerstatus?view=win10-ps)執行時，會產生「 **在虛擬機器上安裝端點保護解決方案**」建議，且結果為 AMServiceEnabled **：**False**
 
 * [MpComputerStatus](https://docs.microsoft.com/powershell/module/defender/get-mpcomputerstatus?view=win10-ps)執行時，會產生「**解決電腦上的端點保護健康情況問題**」的建議，並會發生下列其中一種或兩種情況：
 

@@ -72,7 +72,7 @@ ms.locfileid: "70128558"
       
       資料行中的值會使用下列公式進行轉換:  
   
-      ![使用 min&#45;max 函數]進行正規化(media/module/aml-normalization-minmax.png "AML_normalization-minmax")  
+      ![使用 min&#45;max 函數 進行正規化](media/module/aml-normalization-minmax.png "AML_normalization-minmax")  
   
     - **羅吉斯**:資料行中的值會使用下列公式進行轉換:
 
@@ -90,7 +90,7 @@ ms.locfileid: "70128558"
     
       資料行中的值會使用下列公式進行轉換:
     
-      ![使用 tanh 函數]進行正規化(media/module/aml-normalization-tanh.png "AML_normalization-tanh")
+      ![使用 tanh 函數 進行正規化](media/module/aml-normalization-tanh.png "AML_normalization-tanh")
 
 6. 執行實驗, 或按兩下 [正規化**資料**] 模組, 然後選取 [**執行已選取**]。 
 

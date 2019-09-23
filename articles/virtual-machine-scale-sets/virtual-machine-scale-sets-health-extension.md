@@ -68,7 +68,7 @@ ms.locfileid: "70114477"
 | apiVersion | `2018-10-01` | date |
 | publisher | `Microsoft.ManagedServices` | string |
 | type | `ApplicationHealthLinux` (Linux)，`ApplicationHealthWindows` (Windows) | string |
-| typeHandlerVersion | `1.0` | ssNoversion |
+| typeHandlerVersion | `1.0` | int |
 
 ### <a name="settings"></a>設定
 

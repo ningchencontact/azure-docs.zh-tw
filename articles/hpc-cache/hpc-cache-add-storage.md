@@ -1,19 +1,19 @@
 ---
-title: 將儲存體新增至 Azure HPC 快取
+title: 將儲存體新增至 Azure HPC 快取（預覽）
 description: 如何定義儲存體目標，讓您的 Azure HPC 快取可以使用您的內部部署 NFS 系統或 Azure Blob 容器進行長期檔案儲存
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: conceptual
 ms.date: 09/06/2019
 ms.author: v-erkell
-ms.openlocfilehash: ca8e13e322c3e192b697248f1252b65f6cbeda7f
-ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
+ms.openlocfilehash: a17952e193f3e03becaab044f55637372bac7b0d
+ms.sourcegitcommit: a19bee057c57cd2c2cd23126ac862bd8f89f50f5
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71037244"
+ms.lasthandoff: 09/23/2019
+ms.locfileid: "71181000"
 ---
-# <a name="add-storage"></a>新增儲存體
+# <a name="add-storage-targets"></a>新增儲存體目標
 
 *儲存體目標*是透過 Azure HPC 快取實例存取之檔案的後端儲存體。 您可以新增 NFS 儲存體（例如內部部署硬體系統），或將資料儲存在 Azure Blob 中。
 
@@ -112,8 +112,8 @@ NFS 儲存體目標有一些額外的欄位，可指定如何連線到儲存體�
 
 完成後，按一下 **[確定]** 以新增儲存體目標。
 
-### <a name="choose-a-usage-model"></a>選擇使用方式模型 
-<!-- link in GUI to this heading -->
+### <a name="choose-a-usage-model"></a>選擇使用方式模型
+<!-- referenced from GUI - update aka.ms link if you change this heading -->
 
 當您建立指向 NFS 儲存體系統的儲存體目標時，您需要選擇該目標的*使用方式模型*。 此模型會決定資料的快取方式。
 

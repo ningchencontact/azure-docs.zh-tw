@@ -1,19 +1,19 @@
 ---
-title: Azure HPC 快取資料內嵌-平行複製腳本
+title: Azure HPC 快取預覽資料內嵌-平行複製腳本
 description: 如何使用平行複製腳本，將資料移至 Azure HPC Cache 中的 Blob 儲存體目標
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: conceptual
 ms.date: 08/30/2019
 ms.author: v-erkell
-ms.openlocfilehash: 7414d830f5a2e6fc12066b2f408da041838283db
-ms.sourcegitcommit: a4b5d31b113f520fcd43624dd57be677d10fc1c0
+ms.openlocfilehash: 852b4e692a4316c7701c8c179039104bee561949
+ms.sourcegitcommit: a19bee057c57cd2c2cd23126ac862bd8f89f50f5
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70775360"
+ms.lasthandoff: 09/23/2019
+ms.locfileid: "71180964"
 ---
-# <a name="azure-hpc-cache-data-ingest---parallel-copy-script-method"></a>Azure HPC 快取資料內嵌-平行複製腳本方法
+# <a name="azure-hpc-cache-preview-data-ingest---parallel-copy-script-method"></a>Azure HPC Cache （預覽）資料內嵌-平行複製腳本方法
 
 本文提供的指示可讓您``parallelcp``建立腳本，並使用它將資料移至 Blob 儲存體容器，以與 Azure HPC 快取搭配使用。
 

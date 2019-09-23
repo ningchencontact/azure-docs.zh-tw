@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 04/03/2019
-ms.openlocfilehash: 673c83c861e1f044a521786a903dd7b21db8c170
-ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
+ms.openlocfilehash: 64dfd26e02526664a4edb204521f7a47a4463a12
+ms.sourcegitcommit: a19bee057c57cd2c2cd23126ac862bd8f89f50f5
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/14/2019
-ms.locfileid: "70995574"
+ms.lasthandoff: 09/23/2019
+ms.locfileid: "71181073"
 ---
 # <a name="optimize-apache-spark-jobs-in-hdinsight"></a>將 HDInsight 中的 Apache Spark 作業優化
 
@@ -60,7 +60,7 @@ Spark 支援許多格式，例如 csv、json、xml、parquet、orc 和 avro。 S
 | 存放區類型 | 檔案系統 | 速度 | 暫時性 | 使用案例 |
 | --- | --- | --- | --- | --- |
 | Azure Blob 儲存體 | **wasb:** //url/ | **標準** | 是 | 暫時性叢集 |
-| Azure Data Lake Storage Gen 2| **abfs [s]：** //url/ | **更快** | 是 | 暫時性叢集 |
+| Azure Data Lake Storage Gen 2| **abfs：** //url/ | **更快** | 是 | 暫時性叢集 |
 | Azure Data Lake Storage Gen 1| **adl:** //url/ | **更快** | 是 | 暫時性叢集 |
 | 本機 HDFS | **hdfs:** //url/ | **最快** | 否 | 互動式全天候叢集 |
 
