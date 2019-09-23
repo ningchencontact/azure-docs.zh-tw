@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 09/04/2019
 ms.author: hrasheed
-ms.openlocfilehash: 2fd8dd09da8080e9eff60bcec7d595476243cd02
-ms.sourcegitcommit: 97605f3e7ff9b6f74e81f327edd19aefe79135d2
+ms.openlocfilehash: 0acd4c2793c7c13fb687f591d01e6d8753f71bdc
+ms.sourcegitcommit: a19bee057c57cd2c2cd23126ac862bd8f89f50f5
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70736126"
+ms.lasthandoff: 09/23/2019
+ms.locfileid: "71181137"
 ---
 # <a name="migrate-on-premises-apache-hadoop-clusters-to-azure-hdinsight"></a>將內部部署 Apache Hadoop 叢集遷移至 Azure HDInsight
 
@@ -110,7 +110,7 @@ Data Lake Storage Gen2 的基本功能是將 [階層式命名空間](../../stor
 
 您可以使用下列其中一種格式來存取儲存在 ADLS Gen2 中的資料：
 - `abfs:///`:存取叢集的預設 Data Lake Storage。
-- `abfs[s]://file_system@account_name.dfs.core.windows.net`:與非預設 Data Lake Storage 進行通訊時使用。
+- `abfs://file_system@account_name.dfs.core.windows.net`:與非預設 Data Lake Storage 進行通訊時使用。
 
 如需詳細資訊，請參閱下列文章：
 

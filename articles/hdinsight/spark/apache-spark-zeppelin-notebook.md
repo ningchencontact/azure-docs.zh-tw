@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 03/04/2019
-ms.openlocfilehash: 6801f2b3bca1fbfa221ec2eba07f51b76712b4ff
-ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
+ms.openlocfilehash: 26634e2fe23e0a23540638c4559af6e11eccbe72
+ms.sourcegitcommit: a19bee057c57cd2c2cd23126ac862bd8f89f50f5
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70813982"
+ms.lasthandoff: 09/23/2019
+ms.locfileid: "71180741"
 ---
 # <a name="use-apache-zeppelin-notebooks-with-apache-spark-cluster-on-azure-hdinsight"></a>在 Azure HDInsight 上搭配使用 Apache Zeppelin Notebook 和 Apache Spark 叢集
 
@@ -23,7 +23,7 @@ HDInsight Spark 叢集包含可用來執行 [Apache Spark](https://spark.apache.
 
 * Azure 訂用帳戶。 請參閱[取得 Azure 免費試用](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/)。
 * HDInsight 上的 Apache Spark 叢集。 如需指示，請參閱[在 Azure HDInsight 中建立 Apache Spark 叢集](apache-spark-jupyter-spark-sql.md)。
-* 叢集主要儲存體的 URI 配置。 這適用于 Azure Blob 儲存體、 `abfs://` Azure Data Lake Storage Gen2 或`adl://` Azure Data Lake Storage Gen1。 `wasb://` 如果已啟用 Blob 儲存體或 Data Lake Storage Gen2 的安全傳輸，則 URI 會分別`wasbs://`是`abfss://`或。  如需詳細資訊，請參閱[Azure 儲存體中的「需要安全傳輸](../../storage/common/storage-require-secure-transfer.md)」。
+* 叢集主要儲存體的 URI 配置。 這適用于 Azure Blob 儲存體、 `abfs://` Azure Data Lake Storage Gen2 或`adl://` Azure Data Lake Storage Gen1。 `wasb://` 如果已啟用 Blob 儲存體的安全傳輸，則 URI 會是`wasbs://`。  如需詳細資訊，請參閱[Azure 儲存體中的「需要安全傳輸](../../storage/common/storage-require-secure-transfer.md)」。
 
 ## <a name="launch-an-apache-zeppelin-notebook"></a>啟動 Apache Zeppelin Notebook
 
@@ -101,7 +101,7 @@ HDInsight Spark 叢集包含可用來執行 [Apache Spark](https://spark.apache.
     select buildingID, date, targettemp, (targettemp - actualtemp) as temp_diff from hvac where targettemp > "${Temp = 65,65|75|85}"
     ```
 
-    將此程式碼片段貼到新的段落中，然後按下 **SHIFT + ENTER**。 然後選取 [ **65** ]，從 [ **Temp** ] 下拉式的 [ist]。 
+    將此程式碼片段貼到新的段落中，然後按下 **SHIFT + ENTER**。 然後從 [**暫存**] 下拉式清單中選取 [ **65** ]。 
 
 8. 選取**橫條圖**圖示以變更顯示。  然後選取 [**設定**]，並進行下列變更：
 
@@ -118,7 +118,7 @@ HDInsight Spark 叢集包含可用來執行 [Apache Spark](https://spark.apache.
 
 10. 流覽至**livy**，然後選取 [**重新開機**]。  在提示中選取 **[確定]** 。
 
-    ![重新啟動 Livy 解譯器](./media/apache-spark-zeppelin-notebook/hdinsight-zeppelin-restart-interpreter.png "重新啟動 Zeppelin 解譯器")
+    ![重新開機 Livy 解釋]器(./media/apache-spark-zeppelin-notebook/hdinsight-zeppelin-restart-interpreter.png "重新開機 Zeppelin 解釋")器
 
 ## <a name="how-do-i-use-external-packages-with-the-notebook"></a>如何搭配 Notebook 使用外部套件？
 您可以在 HDInsight 上的 Apache Spark 叢集中設定 Zeppelin 筆記本，以使用不是叢集中現成可用的外部、提供社區的套件。 您可以搜尋 [Maven 儲存機制](https://search.maven.org/) 來取得可用套件的完整清單。 您也可以從其他來源取得可用套件清單。 例如，從 [Spark 套件](https://spark-packages.org/)可以取得社群提供套件的完整清單。
@@ -169,7 +169,7 @@ Zeppelin Notebook 會儲存到叢集前端節點。 因此，如果您刪除叢�
 
 2. 流覽至**livy**，然後選取 [**重新開機**]。
 
-    ![重新啟動 Livy 解譯器](./media/apache-spark-zeppelin-notebook/hdinsight-zeppelin-restart-interpreter.png "重新啟動 Zeppelin 解譯器")
+    ![重新開機 Livy 解釋]器(./media/apache-spark-zeppelin-notebook/hdinsight-zeppelin-restart-interpreter.png "重新開機 Zeppelin 解釋")器
 
 3. 從現有的 Zeppelin Notebook 執行程式碼單元。 這會在 HDInsight 叢集中建立新的 Livy 工作階段。
 

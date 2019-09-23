@@ -10,12 +10,12 @@ manager: carmonm
 ms.reviewer: klam, LADocs
 ms.topic: conceptual
 ms.date: 09/20/2019
-ms.openlocfilehash: 016ab15b2ca4b2e6278752b166c746f6f5aef72d
-ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
+ms.openlocfilehash: 0f7947e4a96a49e3a7a3b0059a1b20b21ac8cbd1
+ms.sourcegitcommit: a19bee057c57cd2c2cd23126ac862bd8f89f50f5
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71171396"
+ms.lasthandoff: 09/23/2019
+ms.locfileid: "71180780"
 ---
 # <a name="store-and-manage-values-by-using-variables-in-azure-logic-apps"></a>在 Azure Logic Apps 中使用變數來儲存和管理值
 
@@ -99,6 +99,9 @@ ms.locfileid: "71171396"
    }
 },
 ```
+
+> [!NOTE]
+> 雖然 [**初始化變數**] 動作具有`variables`結構化為陣列的區段，但動作一次只能建立一個變數。 每個新的變數都需要個別的**初始化變數**動作。
 
 以下是一些其他變數類型的範例：
 
@@ -200,7 +203,7 @@ ms.locfileid: "71171396"
 
    若要在現有步驟之間新增動作，請將滑鼠移至連接箭頭上，如此就會出現加號 (+)。 選取加號，然後選取 [**新增動作**]。
 
-1. 在搜尋方塊中，輸入 "increment variable" 作為篩選條件。 從動作清單中，選取 [變數 - 遞增變數]。
+1. 在搜尋方塊中，輸入 "increment variable" 作為篩選條件。 在 [動作] 清單中，選取 [**遞增變數**]。
 
    ![選取 [遞增變數] 動作](./media/logic-apps-create-variables-store-values/select-increment-variable-action.png)
 

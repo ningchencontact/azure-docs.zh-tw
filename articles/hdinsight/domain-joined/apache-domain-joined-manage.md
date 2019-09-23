@@ -58,7 +58,7 @@ ms.locfileid: "71034110"
 
 3. 如果輸入資訊正確無誤，您可以在 [HDInsight] 節點中看見連結的叢集。 您現在可以將應用程式提交至此連結的叢集。
 
-   ![Azure Explorer 連結]的叢集 intellij(./media/apache-domain-joined-manage/linked-cluster-intellij.png "連結的叢集 intellij]")
+   ![Azure Explorer 連結 的叢集 intellij](./media/apache-domain-joined-manage/linked-cluster-intellij.png "連結的叢集 intellij]")
 
 4. 您也可以從 [Azure 總管] 取消連結叢集。
 

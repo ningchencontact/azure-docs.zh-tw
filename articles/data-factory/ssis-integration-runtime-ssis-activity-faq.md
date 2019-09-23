@@ -151,7 +151,7 @@ ms.locfileid: "71104912"
   * 您可以在[SSMS 報告](https://docs.microsoft.com/sql/integration-services/performance/monitor-running-packages-and-other-operations?view=sql-server-2017#reports)或在 [SSIS 封裝執行] 活動中指定的記錄檔資料夾中找到執行記錄。
   * vNet 也可以用來存取內部部署資料做為替代方案。 如需更多詳細資料，請參閱將[AZURE SSIS 整合執行時間加入虛擬網路](join-azure-ssis-integration-runtime-virtual-network.md)。
 
-### <a name="error-message-staging-task-status-failed-staging-task-error-errorcode-2906-errormessage-package-execution-failed-output-operationerrormessages-ssis-executor-exit-code--1n-loglocation-ssistelemetryexecutionlog-effectiveintegrationruntime--executionduration--durationinqueue--integrationruntimequeue--"></a>錯誤訊息：「預備工作狀態：失敗。 暫存工作錯誤：ErrorCode：2906，ErrorMessage：封裝執行失敗。，輸出： {"OperationErrorMessages"："SSIS 執行程式結束代碼：-1. \ n"，"LogLocation"： ".。。\\SSISTelemetryExecutionLog...\\"，" effectiveIntegrationRuntime "：" ... "，" executionDuration "： ...，" durationInQueue "： {" integrationRuntimeQueue "： ...}}"\\
+### <a name="error-message-staging-task-status-failed-staging-task-error-errorcode-2906-errormessage-package-execution-failed-output-operationerrormessages-ssis-executor-exit-code--1n-loglocation-ssistelemetryexecutionlog-effectiveintegrationruntime--executionduration--durationinqueue--integrationruntimequeue--"></a>錯誤訊息：「預備工作狀態：失敗。 暫存工作錯誤：ErrorCode：2906，ErrorMessage：封裝執行失敗。，輸出： {"OperationErrorMessages"："SSIS 執行程式結束代碼：-1. \ n"，"LogLocation"： "...\\SSISTelemetryExecutionLog...\\"，" effectiveIntegrationRuntime "：" ... "，" executionDuration "： ...，" durationInQueue "： {" integrationRuntimeQueue "： ...}}"\\
 
 請確定 Visual C++ runtime 已安裝在自我裝載整合執行時間電腦上。 如需更多詳細資料，請參閱[設定自我裝載 IR 作為 AZURE SSIS IR 在 ADF 中的 proxy](self-hosted-integration-runtime-proxy-ssis.md#prepare-self-hosted-ir)
 

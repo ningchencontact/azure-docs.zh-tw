@@ -112,7 +112,7 @@ Azure 搜尋服務可透過 AI 認知技能和自訂技能來擴充內容，做�
 ```
 如本範例所示，主要片語和實體會模型化為不同的資料表，而且將包含每個資料列之父系（MainTable）的參考。 
 
-下圖是[如何開始使用知識存放區](knowledge-store-howto.md)中 Caselaw 練習的參考。 在案例中有多項意見，而且每個意見都藉由識別包含在其中的實體而擴充時，您可以建立預測的模型，如下所示。
+下圖是 [如何開始使用知識存放區](knowledge-store-howto.md) 中 Caselaw 練習的參考。 在案例中有多項意見，而且每個意見都藉由識別包含在其中的實體而擴充時，您可以建立預測的模型，如下所示。
 
 ![資料表中的實體和關聯]性(media/knowledge-store-projection-overview/TableRelationships.png "資料表投影中的模型關聯")性
 

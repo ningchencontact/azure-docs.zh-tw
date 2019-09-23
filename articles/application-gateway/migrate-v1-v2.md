@@ -150,13 +150,13 @@ ms.locfileid: "68932508"
 * **自訂 DNS 區域 (例如 contoso.com), 指向與您的標準 v1 或 WAF v1 閘道相關聯的前端 IP 位址 (使用 A 記錄)** 。
 
     您可以更新您的 DNS 記錄, 使其指向與您的 Standard_v2 應用程式閘道相關聯的前端 IP 或 DNS 標籤。 視 DNS 記錄上設定的 TTL 而定, 您的所有用戶端流量可能需要一些時間才能遷移至新的 v2 閘道。
-* **自訂 dns 區域 (例如,contoso.com), 其指向與您 v1 閘道相關聯的 DNS 標籤 (例如: 使用 CNAME 記錄*myappgw.eastus.cloudapp.azure.com* )** 。
+* **自訂 dns 區域 (例如,contoso.com), 其指向與您 v1 閘道相關聯的 DNS 標籤 (例如: 使用 CNAME 記錄 *myappgw.eastus.cloudapp.azure.com*)** 。
 
    您有兩個選擇:
 
   * 如果您在應用程式閘道上使用公用 IP 位址, 您可以使用流量管理員設定檔進行受控制的細微遷移, 以累加方式將流量 (加權流量路由方法) 路由傳送至新的 v2 閘道。
 
-    若要這麼做, 您可以將 v1 和 v2 應用程式閘道的 DNS 標籤新增至[流量管理員設定檔](../traffic-manager/traffic-manager-routing-methods.md#weighted-traffic-routing-method), 並將自訂 DNS 記錄 (例如 [www.contoso.com](www.contoso.com)) CNAMEing 到流量管理員網域 (例如 contoso.trafficmanager.net).
+    若要這麼做, 您可以將 v1 和 v2 應用程式閘道的 DNS 標籤新增至[流量管理員設定檔](../traffic-manager/traffic-manager-routing-methods.md#weighted-traffic-routing-method), 並將自訂 DNS 記錄 (例如 www.contoso.com) CNAMEing 到流量管理員網域 (例如 contoso.trafficmanager.net).
   * 或者, 您可以更新您的自訂網域 DNS 記錄, 以指向新 v2 應用程式閘道的 DNS 標籤。 視 DNS 記錄上設定的 TTL 而定, 您的所有用戶端流量可能需要一些時間才能遷移至新的 v2 閘道。
 * **您的用戶端會連線至您應用程式閘道的前端 IP 位址**。
 
