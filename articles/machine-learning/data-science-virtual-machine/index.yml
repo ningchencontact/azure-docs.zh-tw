@@ -1,29 +1,28 @@
 ### YamlMime:Landing
 title: Azure 資料科學虛擬機器文件
-summary: Azure 資料科學虛擬機器 (DSVM) 是具有資料科學和 ML 工具的自訂 VM 映像。 使用此 VM 來建置智慧型應用程式以進行進階分析。
+summary: Azure 資料科學虛擬機器 (DSVM) 具有資料科學和機器學習工具，且已預先載入虛擬機器映像。 使用此 VM 來建置智慧型應用程式以進行進階分析。
 metadata:
   title: 資料科學虛擬機器文件 - Azure
-  description: 資料科學虛擬機器是針對資料科學所建置的實驗環境，位於 Azure 雲端。 已預先安裝熱門資料科學和 ML 工具。
-  services: machine-learning
+  description: Azure 資料科學虛擬機器 (DSVM) 具有資料科學和機器學習工具，且已預先載入虛擬機器映像。
   ms.service: machine-learning
   ms.subservice: data-science-vm
   ms.topic: landing-page
   ms.collection: collection
-  author: j-martens
-  ms.author: jmartens
-  ms.date: 09/03/2019
-  ms.openlocfilehash: c33504124bdef2edf44842581143a8468cbb1e20
-  ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
+  author: gvashishtha
+  ms.author: gopalv
+  ms.date: 09/13/2019
+  ms.openlocfilehash: 3fdd30274796072fcca6a5cfe41651334cf62aee
+  ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
   ms.translationtype: HT
   ms.contentlocale: zh-TW
-  ms.lasthandoff: 09/04/2019
-  ms.locfileid: "70308803"
+  ms.lasthandoff: 09/20/2019
+  ms.locfileid: "71170701"
 landingContent:
 - title: 開始使用您的 DSVM
   linkLists:
   - linkListType: overview
     links:
-    - text: 什麼是 Azure DSVM？
+    - text: 什麼是 DSVM？
       url: overview.md
     - text: 什麼是 Geo AI DSVM？
       url: geo-ai-dsvm-overview.md
@@ -39,6 +38,10 @@ landingContent:
       url: provision-geo-ai-dsvm.md
 - title: 管理您的 DSVM
   linkLists:
+  - linkListType: architecture
+    links:
+    - text: 企業安全性和指導方針
+      url: dsvm-enterprise-overview.md
   - linkListType: how-to-guide
     links:
     - text: 建立自動調整 DSVM 集區
@@ -49,7 +52,7 @@ landingContent:
       url: dsvm-secure-access-keys.md
 - title: 更多 Azure Machine Learning 技術
   linkLists:
-  - linkListType: reference
+  - linkListType: learn
     links:
     - text: Azure Machine Learning 服務
       url: /azure/machine-learning/

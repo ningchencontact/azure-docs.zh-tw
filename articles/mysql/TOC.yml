@@ -229,8 +229,8 @@
       href: /rest/api/mysql
     - name: Resource Manager 範本
       href: /azure/templates/microsoft.dbformysql/allversions
-    - name: 複寫中的資料預存程序
-      href: reference-data-in-stored-procedures.md
+    - name: Azure 預存程序
+      href: reference-stored-procedures.md
 - name: 資源
   items:
     - name: 部署範本

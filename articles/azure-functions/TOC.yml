@@ -192,6 +192,8 @@
           href: functions-deployment-slots.md
         - name: 使用 Azure Pipelines 建置和部署
           href: functions-how-to-azure-devops.md
+        - name: 使用 GitHub Actions 建置和部署
+          href: functions-how-to-github-actions.md
         - name: ZIP 部署
           href: deployment-zip-push.md
         - name: 從套件執行

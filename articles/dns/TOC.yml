@@ -9,12 +9,22 @@
 - name: 快速入門
   expanded: true
   items:
-    - name: 名稱解析 - 入口網站
-      href: dns-getstarted-portal.md
-    - name: 名稱解析 - PowerShell
-      href: dns-getstarted-powershell.md
-    - name: 名稱解析 - CLI
-      href: dns-getstarted-cli.md
+    - name: 公用 DNS
+      items:
+        - name: 建立公用區域 - 入口網站
+          href: dns-getstarted-portal.md
+        - name: 建立公用區域 - PowerShell
+          href: dns-getstarted-powershell.md
+        - name: 建立公用區域 - CLI
+          href: dns-getstarted-cli.md
+    - name: 私人 DNS
+      items:
+        - name: 建立私人區域 - 入口網站
+          href: private-dns-getstarted-portal.md
+        - name: 建立私人區域 - CLI
+          href: private-dns-getstarted-cli.md
+        - name: 建立私人區域 - PowerShell
+          href: private-dns-getstarted-powershell.md
 - name: 教學課程
   items:
     - name: 公用 DNS
@@ -29,10 +39,6 @@
           href: tutorial-alias-pip.md
         - name: 區域記錄的別名記錄
           href: tutorial-alias-rr.md
-    - name: 私人 DNS
-      items:
-        - name: 建立私人 DNS 區域和記錄
-          href: private-dns-portal.md
 - name: 範例
   items:
     - name: Azure CLI
@@ -63,12 +69,6 @@
           href: private-dns-scenarios.md
 - name: 作法
   items:
-    - name: 私人 DNS
-      items:
-        - name: 建立私人區域 - CLI
-          href: private-dns-getstarted-cli.md
-        - name: 建立私人區域 - PowerShell
-          href: private-dns-getstarted-powershell.md
     - name: 公用 DNS
       items:
         - name: 負載平衡的 Web 應用程式別名記錄

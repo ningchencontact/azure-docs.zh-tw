@@ -134,8 +134,10 @@
       href: ../../virtual-machine-scale-sets/overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
     - name: 基礎結構自動化
       href: infrastructure-automation.md
-    - name: 安全性與原則
-      href: security-policy.md
+    - name: 安全性
+      items:
+        - name: 安全性與原則
+          href: security-policy.md
     - name: 狀態和生命週期
       href: states-lifecycle.md
     - name: 監視
@@ -183,6 +185,8 @@
           href: windows-desktop-multitenant-hosting-deployment.md
     - name: 保護 VM
       items:
+        - name: 建議
+          href: security-recommendations.md
         - name: Just-In-Time 存取
           href: ../../security-center/security-center-just-in-time.md
         - name: 加密
@@ -259,6 +263,14 @@
           href: instance-metadata-service.md
         - name: 啟用巢狀虛擬化
           href: nested-virtualization.md
+    - name: 監視 VM
+      items:
+        - name: 適用於 VM 的 Azure 監視器
+          href: ../../azure-monitor/insights/vminsights-overview.md
+        - name: 建立計量警示
+          href: ../../azure-monitor/platform/alerts-metric.md
+        - name: 建立記錄警示
+          href: ../../azure-monitor/platform/alerts-log.md
     - name: 管理成本
       items:
         - name: 預付 VM - Azure 保留項目

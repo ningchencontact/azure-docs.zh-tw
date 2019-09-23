@@ -26,7 +26,7 @@
               href: tutorial-train-models-with-aml.md
             - name: 2. 部署模型
               href: tutorial-deploy-models-with-aml.md
-        - name: 迴歸 (紐約市計程車資料)
+        - name: 使用自動化 ML 進行迴歸處理 (紐約計程車資料)
           items:
             - name: ML 模型自動定型
               displayName: 'automl, automated, auto ml,'
@@ -44,7 +44,7 @@
         - name: 2. 部署迴歸模型
           displayName: studio
           href: ui-tutorial-automobile-price-deploy.md
-    - name: 自動化機器學習
+    - name: 自動化 ML (介面)
       items:
         - name: 分類 (銀行資料)
           displayName: 'automl, automated, auto ml, portal, ui'
@@ -107,13 +107,13 @@
         - name: 使用 Resource Manager 範本
           displayName: arm
           href: how-to-create-workspace-template.md
-    - name: 設定開發環境
+    - name: 設定環境
       items:
         - name: 設定開發環境
           displayName: 'local, remote, azure notebooks, notebook, Jupyter, dsvm, Databricks, ADB'
           href: how-to-configure-environment.md
-        - name: 管理軟體環境
-          displayName: 'pip, Conda'
+        - name: 設定軟體環境
+          displayName: 'pip, Conda, anaconda'
           href: how-to-use-environments.md
         - name: 啟用記錄
           displayName: 'troubleshoot, log, files, tracing'
