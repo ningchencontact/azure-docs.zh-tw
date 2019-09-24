@@ -42,10 +42,12 @@
               href: tutorial-python-windows-virtual-machine.md
     - name: 儲存體帳戶金鑰
       items:
-        - name: 使用 Azure CLI 的受控儲存體帳戶金鑰
+        - name: 使用 Azure CLI 管理儲存體帳戶金鑰
           href: key-vault-ovw-storage-keys.md
-        - name: 使用 PowerShell 的受控儲存體帳戶金鑰
+        - name: 使用 PowerShell 管理儲存體帳戶金鑰
           href: key-vault-overview-storage-keys-powershell.md
+        - name: 擷取程式碼中的共用存取簽章權杖
+          href: storage-keys-sas-tokens-code.md
     - name: Azure 容器
       href: ../container-instances/container-instances-managed-identity.md
     - name: Azure Resource Manager 範本

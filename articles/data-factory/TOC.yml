@@ -538,6 +538,8 @@
       items:
         - name: 從 SSDT 在 Azure 中執行 SSIS 套件
           href: how-to-invoke-ssis-package-ssdt.md
+        - name: 使用啟用 Azure 的 dtexec 執行 SSIS 套件
+          href: how-to-invoke-ssis-package-azure-enabled-dtexec.md
         - name: 使用 Execute SSIS Package 活動執行 SSIS 套件
           href: how-to-invoke-ssis-package-ssis-activity.md
         - name: 使用預存程序活動執行 SSIS 套件

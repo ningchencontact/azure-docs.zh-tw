@@ -257,6 +257,12 @@
     - name: 了解原則效果
       displayName: 'order, evaluation'
       href: ./concepts/effects.md
+    - name: Azure 原則指派結構
+      displayName: 'parameters, enforcementmode, policyDefinitionId'
+      href: ./concepts/assignment-structure.md
+    - name: 評估新原則的影響
+      displayName: 'audit, enforcementmode, compliance'
+      href: ./concepts/evaluate-impact.md
     - name: 適用於 Kubernetes 的 Azure 原則
       displayName: 'aks, rego, k8s, opa, open policy agent, gatekeeper'
       href: ./concepts/rego-for-aks.md

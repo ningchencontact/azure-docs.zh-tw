@@ -36,6 +36,8 @@
           href: virtual-machines-windows-sql-automated-backup-v2.md
     - name: 管理性
       items:
+        - name: 專用主機
+          href: virtual-machines-windows-sql-dedicated-host.md
         - name: 透過 Azure 入口網站
           href: virtual-machines-windows-sql-manage-portal.md
         - name: 擴充 SQL 2008 和 R2 的支援
