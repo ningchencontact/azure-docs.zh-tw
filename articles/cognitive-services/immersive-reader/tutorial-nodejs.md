@@ -10,16 +10,16 @@ ms.subservice: immersive-reader
 ms.topic: tutorial
 ms.date: 06/20/2019
 ms.author: metan
-ms.openlocfilehash: ea9728ac54ae357925bd666ffecf270172137f77
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
+ms.openlocfilehash: e0c85dba22a7c689631a853bc22d58d1cc4093aa
+ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68990390"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71104996"
 ---
 # <a name="tutorial-launch-the-immersive-reader-nodejs"></a>教學課程：啟動沈浸式閱讀程式 (Node.js)
 
-在[概觀](./overview.md)中，您會了解什麼是沈浸式閱讀程式，及其如何實作經實證的技術，針對語言學習者、沈浸式讀者及存在學習差異的學生改善其閱讀理解程度。 本教學課程涵蓋如何建立會啟動沈浸式閱讀程式的 Node.js Web 應用程式。 在本教學課程中，您了解如何：
+在[概觀](./overview.md)中，您會了解什麼是沈浸式閱讀程式，及其如何實作經實證的技術，針對語言學習者、沈浸式讀者及存在學習差異的學生改善其閱讀理解程度。 本教學課程涵蓋如何建立會啟動沈浸式閱讀程式的 Node.js Web 應用程式。 在本教學課程中，您會了解如何：
 
 > [!div class="checklist"]
 > * 使用 Express 建立 Node.js Web 應用程式
@@ -29,7 +29,7 @@ ms.locfileid: "68990390"
 > * 指定沈浸式閱讀程式介面的語言
 > * 使用數學內容啟動沈浸式閱讀程式
 
-如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 。
+如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)。
 
 ## <a name="prerequisites"></a>必要條件
 
@@ -85,7 +85,7 @@ SUBDOMAIN={YOUR_SUBDOMAIN}
 require('dotenv').config();
 ```
 
-開啟 _routes\index.js_ 檔案和檔案頂端的下列匯入：
+開啟 _routes\index.js_ 檔案，並在檔案頂端加入下列程式碼：
 
 ```javascript
 var request = require('request');

@@ -1,7 +1,7 @@
 ---
 title: 教學課程：透過視覺化介面部署機器學習模型
-titleSuffix: Azure Machine Learning service
-description: 了解如何在 Azure Machine Learning 服務的視覺化介面中建置預測性分析解決方案。 使用拖放模組進行機器學習模型的定型、評分和部署。 此教學課程是使用線性迴歸預測汽車價格相關系列的第二部分 (共兩個部分)。
+titleSuffix: Azure Machine Learning
+description: 了解如何在 Azure Machine Learning 的視覺化介面中建置預測性分析解決方案。 使用拖放模組進行機器學習模型的定型、評分和部署。 本教學課程是使用線性迴歸預測汽車價格相關系列的第二部分 (共兩個部分)。
 author: peterclu
 ms.author: peterlu
 services: machine-learning
@@ -9,12 +9,12 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
 ms.date: 07/11/2019
-ms.openlocfilehash: 64062aeab9a807d2aee7f4bca05d4019a3d9b736
-ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
+ms.openlocfilehash: 22d5c41e8b815fd99450962cb63d11e9560c787f
+ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70858643"
+ms.lasthandoff: 09/14/2019
+ms.locfileid: "70997019"
 ---
 # <a name="tutorial-deploy-a-machine-learning-model-with-the-visual-interface"></a>教學課程：透過視覺化介面部署機器學習模型
 
@@ -105,7 +105,7 @@ ms.locfileid: "70858643"
 
 ## <a name="manage-models-and-deployments"></a>管理模型和部署
 
-您也可以透過 Azure Machine Learning 服務工作區來管理在視覺化介面中建立的模型和 Web 服務部署。
+您也可以透過 Azure Machine Learning 工作區來管理在視覺化介面中建立的模型和 Web 服務部署。
 
 1. 在 [Azure 入口網站](https://portal.azure.com/)中開啟工作區。  
 
@@ -127,7 +127,7 @@ ms.locfileid: "70858643"
 
 ## <a name="next-steps"></a>後續步驟
 
-在此教學課程中，您已了解在視覺化介面中建立、部署和使用機器學習模型的關鍵步驟。 若要深入了解如何使用視覺化介面來解決其他類型的問題，請參閱我們的其他範例實驗。
+在本教學課程中，您已了解在視覺化介面中建立、部署和使用機器學習模型的關鍵步驟。 若要深入了解如何使用視覺化介面來解決其他類型的問題，請參閱我們的其他範例實驗。
 
 > [!div class="nextstepaction"]
 > [信用風險分類範例](ui-sample-classification-predict-credit-risk-cost-sensitive.md)

@@ -1,7 +1,7 @@
 ---
-title: 範例：呼叫分析影像 API - 電腦視覺
+title: 呼叫電腦視覺 API
 titleSuffix: Azure Cognitive Services
-description: 了解如何使用「Azure 認知服務」中的 REST 呼叫電腦視覺 API。
+description: 了解如何使用「Azure 認知服務」中的 REST API 呼叫電腦視覺 API。
 services: cognitive-services
 author: KellyDF
 manager: nitinme
@@ -11,53 +11,61 @@ ms.topic: sample
 ms.date: 09/09/2019
 ms.author: kefre
 ms.custom: seodec18
-ms.openlocfilehash: 386503a7089c910b52a87cca8d9f2f2203ae0cad
-ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
+ms.openlocfilehash: 417ff7ac345b9a83b3d3f4c50e9fd141d74bc99c
+ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70859063"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71103553"
 ---
-# <a name="example-how-to-call-the-computer-vision-api"></a>範例：如何呼叫電腦視覺 API
+# <a name="call-the-computer-vision-api"></a>呼叫電腦視覺 API
 
-此指南示範如何使用 REST 呼叫電腦視覺 API。 這些範例均使用電腦視覺 API 用戶端程式庫以 C# 撰寫，並作為 HTTP POST/GET 呼叫。 我們將著重在：
+本文將示範如何使用 REST API 呼叫電腦視覺 API。 這些範例會藉由使用電腦視覺 API 用戶端程式庫以 C# 撰寫，並作為 HTTP POST 或 GET 呼叫。 此文章著重於：
 
-- 如何取得「標籤」、「描述」與「類別」。
-- 如何取得「特定領域」資訊 (名人)。
+- 取得標籤、描述與類別
+- 取得特定領域資訊或「名人」
 
 ## <a name="prerequisites"></a>必要條件
 
-- 在本機儲存影像的影像 URL 或路徑。
-- 支援的輸入法：應用程式/八位元資料流或影像 URL 形式的原始影像二進位檔
-- 支援的影像格式：JPEG、PNG、GIF、BMP
-- 影像檔大小：小於 4MB
-- 影像尺寸：大於 50 x 50 像素
+- 本機儲存影像的影像 URL 或路徑
+- 支援的輸入方法：應用程式/八位元資料流或影像 URL 形式的原始影像二進位檔
+- 支援的影像檔案格式：JPEG、PNG、GIF 和 BMP
+- 影像檔大小：4MB 或更少
+- 影像尺寸：50 &times; 50 像素或更高
   
-下面的範例會示範下列功能：
+本文的範例會示範下列功能：
 
-1. 分析影像並取得傳回的標籤與描述陣列。
-2. 以特定領域模型 (具體而言，「名人」模型) 分析影像，然後取得所傳回 JSON 中的對應結果。
+* 分析影像以傳回標籤陣列與描述
+* 以特定領域模型 (具體而言是「名人」模型) 分析影像，然後以 JSON 傳回對應結果
 
-功能細分如下：
+這些功能提供下列選項：
 
-- **選項一：** 特定範圍分析 - 只分析指定的模型
-- **選項二：** 強化分析 - 使用 [86 個類別的分類法](../Category-Taxonomy.md)分析，提供其他詳細資料
+- **選項 1**：特定範圍分析 - 只分析指定的模型
+- **選項 2**：強化分析 - 使用 [86 個類別的分類法](../Category-Taxonomy.md)分析，以提供其他詳細資料
   
 ## <a name="authorize-the-api-call"></a>授權 API 呼叫
 
-每次呼叫電腦視覺 API 時，都需要訂用帳戶金鑰。 這個金鑰必須透過查詢字串參數傳遞，或是在要求標頭中指定。
+每次呼叫電腦視覺 API 時，都需要訂用帳戶金鑰。 此金鑰必須透過查詢字串參數來傳遞，或在要求標頭中指定。
 
-您可以從[試用認知服務](https://azure.microsoft.com/try/cognitive-services/?api=computer-vision)取得免費試用的金鑰。 或者，依照[建立認知服務帳戶](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account)中的指示訂閱電腦視覺並取得金鑰。
+若要取得免費試用金鑰，請執行下列其中一項動作：
+* 前往[試用認知服務](https://azure.microsoft.com/try/cognitive-services/?api=computer-vision)頁面。 
+* 前往[建立認知服務帳戶](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account)頁面訂閱電腦視覺。
 
-1. 透過查詢字串傳遞訂用帳戶金鑰，請參閱下面的電腦視覺 API 範例：
+您可以執行下列任一動作來傳遞訂用帳戶金鑰：
 
-    ```https://westus.api.cognitive.microsoft.com/vision/v2.0/analyze?visualFeatures=Description,Tags&subscription-key=<Your subscription key>```
+* 透過查詢字串傳遞，如下列電腦視覺 API 範例所示：
 
-1. 傳遞訂用帳戶金鑰的作業也可以在 HTTP 要求標頭中指定：
+  ```
+  https://westus.api.cognitive.microsoft.com/vision/v2.0/analyze?visualFeatures=Description,Tags&subscription-key=<Your subscription key>
+  ```
 
-    ```ocp-apim-subscription-key: <Your subscription key>```
+* 在 HTTP 要求標頭中指定：
 
-1. 使用用戶端程式庫時，訂用帳戶金鑰會透過 ComputerVisionClient 的建構函式傳入，而區域是在用戶端的屬性中指定：
+  ```
+  ocp-apim-subscription-key: <Your subscription key>
+  ```
+
+* 當您使用用戶端程式庫時，透過 ComputerVisionClient 的建構函式傳遞金鑰，並在用戶端的屬性中指定區域：
 
     ```
     var visionClient = new ComputerVisionClient(new ApiKeyServiceClientCredentials("Your subscriptionKey"))
@@ -66,13 +74,13 @@ ms.locfileid: "70859063"
     }
     ```
 
-## <a name="upload-an-image-to-the-computer-vision-api-service-and-get-back-tags-descriptions-and-celebrities"></a>將影像上傳到電腦視覺 API 服務，並取回標籤、描述與名人
+## <a name="upload-an-image-to-the-computer-vision-api-service"></a>將影像上傳至電腦視覺 API 服務
 
-執行電腦視覺 API 呼叫的基本方式，就是直接上傳影像。 這是透過傳送 "POST" 要求並附上應用程式/八位元資料流內容類型，以及從影像讀取的資料來完成。 針對「標籤」與「描述」，所有電腦視覺 API 呼叫都使用這一種上傳方法。 唯一的差異是使用者指定的查詢參數。 
+執行電腦視覺 API 呼叫的基本方式，就是直接上傳影像以傳回標籤、描述及名人。 若要這麼做，您可以使用 HTTP 主體中的二進位影像，連同從影像讀取的資料來傳送 "POST" 要求。 所有電腦視覺 API 呼叫的上傳方法都相同。 唯一的差異是您指定的查詢參數。 
 
-以下說明如何取得指定影像的「標籤」與「描述」:
+針對指定影像，使用下列其中一個選項來取得標籤和描述：
 
-**選項一：** 取得「標籤」清單與一個「描述」
+### <a name="option-1-get-a-list-of-tags-and-a-description"></a>選項 1：取得標籤清單與描述
 
 ```
 POST https://westus.api.cognitive.microsoft.com/vision/v2.0/analyze?visualFeatures=Description,Tags&subscription-key=<Your subscription key>
@@ -92,16 +100,16 @@ using (var fs = new FileStream(@"C:\Vision\Sample.jpg", FileMode.Open))
 }
 ```
 
-**選項二：** 只取得「標籤」清單，或只有「描述」清單
+### <a name="option-2-get-a-list-of-tags-only-or-a-description-only"></a>選項 2：僅取得標籤清單或僅取得描述
 
-###### <a name="tags-only"></a>僅限標籤：
+若是僅取得標籤，請執行：
 
 ```
 POST https://westus.api.cognitive.microsoft.com/vision/v2.0/tag?subscription-key=<Your subscription key>
 var tagResults = await visionClient.TagImageAsync("http://contoso.com/example.jpg");
 ```
 
-###### <a name="description-only"></a>僅限說明：
+若是僅取得描述，請執行：
 
 ```
 POST https://westus.api.cognitive.microsoft.com/vision/v2.0/describe?subscription-key=<Your subscription key>
@@ -111,9 +119,9 @@ using (var fs = new FileStream(@"C:\Vision\Sample.jpg", FileMode.Open))
 }
 ```
 
-### <a name="get-domain-specific-analysis-celebrities"></a>取得特定領域的分析 (名人)
+## <a name="get-domain-specific-analysis-celebrities"></a>取得特定領域的分析 (名人)
 
-**選項一：** 特定範圍分析 - 只分析指定的模型
+### <a name="option-1-scoped-analysis---analyze-only-a-specified-model"></a>選項 1：特定範圍分析 - 只分析指定的模型
 ```
 POST https://westus.api.cognitive.microsoft.com/vision/v2.0/models/celebrities/analyze
 var celebritiesResult = await visionClient.AnalyzeImageInDomainAsync(url, "celebrities");
@@ -126,17 +134,17 @@ GET https://westus.api.cognitive.microsoft.com/vision/v2.0/models
 var models = await visionClient.ListModelsAsync();
 ```
 
-**選項二：** 強化分析 - 使用 [86 個類別的分類法](../Category-Taxonomy.md)分析，提供其他詳細資料
+### <a name="option-2-enhanced-analysis---analyze-to-provide-additional-details-by-using-86-categories-taxonomy"></a>選項 2：強化分析 - 使用 86 個類別的分類法分析，以提供其他詳細資料
 
-除了一或多個特定領域模型中的詳細資料之外，針對您還想要取得一般影像分析的應用程式，我們使用模型查詢參數來擴充 v1 API。
+除了一或多個特定領域模型中的詳細資料之外，針對您還想要取得一般影像分析的應用程式，可使用模型查詢參數來擴充 v1 API。
 
 ```
 POST https://westus.api.cognitive.microsoft.com/vision/v2.0/analyze?details=celebrities
 ```
 
-叫用此方法時，將先呼叫 86 類別分類器。 如果有任何類別符合已知/比對模型的類別，則會發生第二輪的分類器叫用。 例如，如果 "details=all" 或 "details" 包含 ‘celebrities’，將在呼叫 86 類別分類器之後，呼叫名人模型，而結果會包含該類別的人員。 相較於選項一，這對於對名人感興趣的使用者，會增加延遲。
+當您叫用這個方法時，您會先呼叫 [86 個類別](../Category-Taxonomy.md)分類器。 如果有任何類別符合已知或比對模型的類別，則會發生第二輪的分類器叫用。 例如，如果 "details = all" 或 "details" 包含 "celebrities"，則在呼叫 86 個類別分類器之後，您會呼叫名人模型。 結果會包含該類別的人員。 相較於選項 1，這個方法會使對名人感興趣的使用者有更多延遲。
 
-在此案例中，所有 v1 查詢參數的運作方式都會相同。  如果未指定 visualFeatures=categories，則會隱含地啟用。
+在此案例中，所有 v1 查詢參數的運作方式都會相同。 如果您未指定 visualFeatures=categories，其依然會隱含地啟用。
 
 ## <a name="retrieve-and-understand-the-json-output-for-analysis"></a>擷取和了解 JSON 輸出以供分析
 
@@ -171,19 +179,19 @@ POST https://westus.api.cognitive.microsoft.com/vision/v2.0/analyze?details=cele
 
 欄位 | 類型 | 內容
 ------|------|------|
-Tags  | `object` | 標籤陣列的最上層物件
-tags[].Name | `string`  | 標籤分類器的關鍵字
+Tags  | `object` | 標籤陣列的最上層物件。
+tags[].Name | `string`  | 標籤分類器的關鍵字。
 tags[].Score    | `number`  | 信賴分數，介於 0 到 1 之間。
 description  | `object` | 描述的最上層物件。
 description.tags[] |    `string`    | 標籤清單。  如果能否產生標題的信賴度不足，呼叫者可能僅有標籤的資訊可用。
 description.captions[].text | `string`  | 描述影像的片語。
-description.captions[].confidence   | `number`  | 片語的信賴度。
+description.captions[].confidence   | `number`  | 片語的信賴分數。
 
 ## <a name="retrieve-and-understand-the-json-output-of-domain-specific-models"></a>擷取和了解特定領域模型的 JSON 輸出
 
-**選項一：** 特定範圍分析 - 只分析指定的模型
+### <a name="option-1-scoped-analysis---analyze-only-a-specified-model"></a>選項 1：特定範圍分析 - 只分析指定的模型
 
-輸出就是標籤陣列，範例如下：
+輸出是一組標籤，如下列範例所示：
 
 ```json
 {  
@@ -200,9 +208,9 @@ description.captions[].confidence   | `number`  | 片語的信賴度。
 }
 ```
 
-**選項二：** 強化分析 - 使用 86 個類別的分類法分析，提供其他詳細資料
+### <a name="option-2-enhanced-analysis---analyze-to-provide-additional-details-by-using-the-86-categories-taxonomy"></a>選項 2：強化分析 - 使用「86 個類別」的分類法分析，以提供其他詳細資料
 
-針對使用「選項二 (強化分析)」的特定領域模型，會擴充類別傳回類型。 範例如下：
+針對使用選項 2 (強化分析) 的特定領域模型，會擴充類別傳回類型，如下列範例所示：
 
 ```json
 {  
@@ -229,20 +237,20 @@ description.captions[].confidence   | `number`  | 片語的信賴度。
 }
 ```
 
-類別欄位是原始分類法中 [86 個類別](../Category-Taxonomy.md)的一或多個類別。 也請注意，以底線結尾的類別會符合該類別與其子項 (例如，名人模型的 people_ 與 people_group)。
+類別欄位是原始分類法中 [86 個類別](../Category-Taxonomy.md)的一或多個類別。 以底線結尾的類別會符合該類別與其子項 (例如，名人模型的 "people_" 或 "people_group")。
 
 欄位   | 類型  | 內容
 ------|------|------|
-categories | `object`   | 最上層物件
-categories[].name    | `string` | 86 個類別分類法的名稱
-categories[].score  | `number`  | 信賴分數，介於 0 到 1 之間
-categories[].detail  | `object?`      | 選擇性的詳細資料物件
+categories | `object`   | 最上層物件。
+categories[].name    | `string` | 86 個類別分類法清單中的名稱。
+categories[].score  | `number`  | 信賴分數，介於 0 到 1 之間。
+categories[].detail  | `object?`      | (選擇性) 詳細資料物件。
 
-請注意，如果多個類別皆符合 (例如，當 model=celebrities 時，86 個類型分類器傳回 people_ 與 people_young 兩者的分數)，以附加在最一般層級的詳細資料為符合者 (在該範例中為 people_ in)。
+如果多個類別皆符合 (例如，當 model=celebrities 時，86 個類型分類器傳回 "people_" 與 "people_young" 兩者的分數)，以附加在最一般層級的詳細資料為符合者 (在該範例中為 "people_")。
 
-## <a name="errors-responses"></a>錯誤回應
+## <a name="error-responses"></a>錯誤回應
 
-這些和 vision.analyze 完全相同，還有可能會在「選項一」與「選項二」情節中傳回 NotSupportedModel error (HTTP 400) 的其他錯誤。 針對「選項二 (強化分析)」，如果無法辨識詳細資料中指定的任何模型，即使其中一或多個有效，API 也會傳回 NotSupportedModel。  使用者可以呼叫 listModels，以了解支援哪些模型。
+這些錯誤和 vision.analyze 中的完全相同，還有可能會在「選項 1」與「選項 2」情節中傳回 NotSupportedModel 錯誤 (HTTP 400) 的其他錯誤。 針對選項 2 (強化分析)，如果無法辨識詳細資料中指定的任何模型，即使其中一或多個模型有效，API 也會傳回 NotSupportedModel。 若要了解支援的模型有哪些，您可以呼叫 listModels。
 
 ## <a name="next-steps"></a>後續步驟
 

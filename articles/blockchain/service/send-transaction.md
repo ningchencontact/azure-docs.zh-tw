@@ -1,28 +1,27 @@
 ---
-title: 在 Azure 區塊鏈服務上使用智慧型合約
-description: 說明如何使用 Azure 區塊鏈服務部署智慧型合約並透過交易執行函式的教學課程。
+title: 在 Visual Studio Code 中使用 Azure 區塊鏈服務建立、建置及部署智慧型合約
+description: 本教學課程說明如何在 Visual Studio Code 中使用適用於 Ethereum 的 Azure 區塊鏈開發套件擴充功能，在 Azure 區塊鏈服務上建立、建置及部署智慧型合約。
 services: azure-blockchain
 author: PatAltimore
 ms.author: patricka
-ms.date: 07/31/2019
+ms.date: 09/10/2019
 ms.topic: tutorial
 ms.service: azure-blockchain
 ms.reviewer: chrisseg
-ms.openlocfilehash: 1843bd66e11a6686c9ae81fb8e30c7b030e889b7
-ms.sourcegitcommit: ad9120a73d5072aac478f33b4dad47bf63aa1aaa
+ms.openlocfilehash: 96fe4d77efdd1fda309d7da021bcc208edd2dfe9
+ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68705121"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70935064"
 ---
-# <a name="tutorial-use-smart-contracts-on-azure-blockchain-service"></a>教學課程：在 Azure 區塊鏈服務上使用智慧型合約
+# <a name="tutorial-usevisual-studio-code-to-create-buildanddeploysmartcontracts"></a>教學課程：使用  Visual Studio Code 建立、建置及部署智慧型合約
 
-在本教學課程中，您會使用適用於 Ethereum 的 Azure 區塊鏈服務開發套件來建立和部署智慧型合約，然後透過交易在聯盟區塊鏈網路上執行智慧型合約函式。
+在本教學課程中，在 Visual Studio Code 中使用適用於 Ethereum 的 Azure 區塊鏈開發套件擴充功能，在 Azure 區塊鏈服務上建立、建置及部署智慧型合約。 您也可使用 Truffle 以透過交易執行智慧型合約函式。
 
 您可以使用適用於 Ethereum 的 Azure 區塊鏈服務開發套件來：
 
 > [!div class="checklist"]
-> * 連線至 Azure 區塊鏈服務聯盟區塊鏈成員
 > * 建立智慧型合約
 > * 部署智慧型合約
 > * 透過交易執行智慧型合約函式
@@ -32,52 +31,11 @@ ms.locfileid: "68705121"
 
 ## <a name="prerequisites"></a>必要條件
 
-* 完成[快速入門：使用 Azure 入口網站建立區塊鏈成員](create-member.md)或[快速入門：使用 Azure CLI 建立 Azure 區塊鏈服務的區塊鏈成員](create-member-cli.md)
-* [Visual Studio Code](https://code.visualstudio.com/Download)
-* [適用於 Ethereum 的 Azure 區塊鏈服務開發套件擴充功能](https://marketplace.visualstudio.com/items?itemName=AzBlockchain.azure-blockchain)
-* [Node.js](https://nodejs.org)
-* [Git](https://git-scm.com)
-* [Python](https://www.python.org/downloads/release/python-2715/)。 將 python.exe 新增至您的路徑。 Azure 區塊鏈服務開發套件需要您的路徑中有 Python。
-* [Truffle](https://www.trufflesuite.com/docs/truffle/getting-started/installation)
-* [Ganache CLI](https://github.com/trufflesuite/ganache-cli)
-
-### <a name="verify-azure-blockchain-development-kit-environment"></a>確認 Azure 區塊鏈服務開發套件環境
-
-Azure 區塊鏈服務開發套件會確認您是否已符合開發環境的必要條件。 若要確認開發環境：
-
-從 VS Code 命令選擇區選擇 [Azure 區塊鏈服務:  顯示歡迎頁面]。
-
-Azure 區塊鏈服務開發套件會執行驗證指令碼，其大約需要一分鐘的時間才能完成。 您可以藉由選取 [終端機] > [新增終端機]  來檢視輸出。 在終端機的功能表列中，於下拉式清單內選取 [輸出]  索引標籤和 [Azure 區塊鏈服務]  。 驗證成功時會如下圖所示：
-
-![有效的開發環境](./media/send-transaction/valid-environment.png)
-
- 如果您缺少必要工具，名為 [Azure 區塊鏈服務開發套件 - 預覽]  的新索引標籤會列出要安裝的必要應用程式以及可用來下載工具的連結。
-
-![開發套件所需的應用程式](./media/send-transaction/required-apps.png)
-
-## <a name="connect-to-consortium-member"></a>連線至聯盟成員
-
-您可以使用 Azure 區塊鏈服務開發套件 VS Code 擴充功能來連線至聯盟成員。 在連線至聯盟後，您就可以對 Azure 區塊鏈服務聯盟成員編譯、建置和部署智慧型合約。
-
-如果您無法存取 Azure 區塊鏈服務聯盟成員，請完成必要的[快速入門：使用 Azure 入口網站建立區塊鏈成員](create-member.md)或[快速入門：使用 Azure CLI 建立 Azure 區塊鏈服務的區塊鏈成員](create-member-cli.md)。
-
-1. 在 Visual Studio Code (VS Code) 總管的窗格中，展開 [Azure 區塊鏈服務]  擴充功能。
-1. 選取 [連線至聯盟]  。
-
-   ![連線至聯盟](./media/send-transaction/connect-consortium.png)
-
-    如果系統提示您進行 Azure 驗證，請遵循提示以使用瀏覽器進行驗證。
-1. 在命令選擇區的下拉式清單中，選擇 [連線至 Azure 區塊鏈服務聯盟]  。
-1. 選擇與 Azure 區塊鏈服務聯盟成員相關聯的訂用帳戶和資源群組。
-1. 從清單中選擇聯盟。
-
-Visual Studio 總管的提要欄位中會列出聯盟和區塊鏈成員。
-
-![總管中顯示的聯盟](./media/send-transaction/consortium-node.png)
+* 完成[快速入門：使用 Visual Studio Code 連線至聯盟網路](connect-vscode.md)
 
 ## <a name="create-a-smart-contract"></a>建立智慧型合約
 
-適用於 Ethereum 的 Azure 區塊鏈服務開發套件會使用專案範本和 Truffle 工具來協助進行合約的 Scaffold、建置及部署。
+適用於 Ethereum 的 Azure 區塊鏈服務開發套件會使用專案範本和 Truffle 工具來協助進行合約的 Scaffold、建置及部署。 開始之前，請完成先決條件[快速入門：使用 Visual Studio Code 連線至聯盟網路](connect-vscode.md)。 本快速入門引導您進行適用於 Ethereum 的 Azure 區塊鏈開發套件安裝和設定。
 
 1. 從 VS Code 命令選擇區選擇 [Azure 區塊鏈服務:  新增 Solidity 專案]。
 1. 選擇 [建立基本專案]  。
@@ -107,7 +65,7 @@ Azure 區塊鏈服務開發套件會使用 Truffle 來編譯智慧型合約。
 Truffle 會使用移轉指令碼將合約部署至 Ethereum 網路。 移轉項目是位於專案 [移轉]  目錄中的 JavaScript 檔案。
 
 1. 若要部署智慧型合約，請對 [HelloBlockchain.sol]  按一下滑鼠右鍵，然後從功能表中選擇 [部署合約]  。
-1. 在 [從 truffle-config.js]  底下選擇您的 Azure 區塊鏈服務聯盟網路。 當您建立專案時，系統會在專案的 Truffle 設定檔中新增聯盟區塊鏈網路。
+1. 請在命令選擇區中選擇您的 Azure 區塊鏈聯盟網路。 當您建立專案時，系統會在專案的 Truffle 設定檔中新增聯盟區塊鏈網路。
 1. 選擇 [產生助憶檔]  。 選擇檔案名稱，並將助憶檔案儲存在專案資料夾中。 例如： `myblockchainmember.env` 。 助憶檔案可用來為區塊鏈成員產生 Ethereum 私密金鑰。
 
 Azure 區塊鏈服務開發套件會使用 Truffle 來執行移轉指令碼，以將合約部署至區塊鏈。
@@ -173,7 +131,7 @@ Truffle 就會在區塊鏈網路上執行指令碼。
     函式會根據合約的目前狀態，傳回狀態變數中所儲存的訊息。
 
 1. 以滑鼠右鍵按一下 [HelloBlockchain.sol]  ，然後從功能表中選擇 [建置合約]  來編譯智慧型合約的變更。
-1. 若要部署，請對 [HelloBlockchain.sol]  按一下滑鼠右鍵，然後從功能表中選擇 [部署合約]  。
+1. 若要部署，請對 [HelloBlockchain.sol]  按一下滑鼠右鍵，然後從功能表中選擇 [部署合約]  。 出現提示時，請在命令選擇區中選擇您的 Azure 區塊鏈聯盟網路。
 1. 接下來，使用 **getMessage** 函式的呼叫來建立指令碼。 在 Truffle 專案的根目錄中建立新的檔案，並將其命名為 `getmessage.js`。 在該檔案中新增下列 Web3 JavaScript 程式碼。
 
     ```javascript

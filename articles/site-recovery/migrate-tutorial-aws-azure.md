@@ -1,6 +1,6 @@
 ---
 title: 使用 Azure Site Recovery 服務將 AWS VM 移轉至 Azure | Microsoft Docs
-description: 此文章說明如何使用 Azure Site Recovery 將 Amazon Web Services (AWS) 中執行的 Windows VM 移轉至 Azure。
+description: 本文說明如何使用 Azure Site Recovery 將 Amazon Web Services (AWS) 中執行的 Windows VM 移轉至 Azure。
 services: site-recovery
 author: rayne-wiselman
 manager: carmonm
@@ -9,16 +9,16 @@ ms.topic: tutorial
 ms.date: 09/09/2019
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 1f5f2dc6babbca219f0efbb1d7013d4e6e3270e6
-ms.sourcegitcommit: 23389df08a9f4cab1f3bb0f474c0e5ba31923f12
+ms.openlocfilehash: 1533ceebcda15c45a71c04580c35432de4125ccd
+ms.sourcegitcommit: 909ca340773b7b6db87d3fb60d1978136d2a96b0
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70873300"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70984990"
 ---
 # <a name="migrate-amazon-web-services-aws-vms-to-azure"></a>將 Amazon Web Services (AWS) VM 移轉至 Azure
 
-此教學課程將教導您如何使用 Azure Site Recovery，將 Amazon Web Services (AWS) 虛擬機器 (VM) 移轉至 Azure VM。 將 AWS EC2 執行個體移轉至 Azure 時，VM 會被視為實體的內部部署電腦。 在此教學課程中，您了解如何：
+本教學課程將教導您如何使用 Azure Site Recovery，將 Amazon Web Services (AWS) 虛擬機器 (VM) 移轉至 Azure VM。 將 AWS EC2 執行個體移轉至 Azure 時，VM 會被視為實體的內部部署電腦。 在本教學課程中，您會了解如何：
 
 > [!div class="checklist"]
 > * 驗證必要條件
@@ -29,7 +29,7 @@ ms.locfileid: "70873300"
 > * 測試容錯移轉以確定一切都沒問題
 > * 執行一次性容錯移轉至 Azure
 
-如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/pricing/free-trial/) 。
+如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶](https://azure.microsoft.com/pricing/free-trial/)。
 
 
 > [!NOTE]
@@ -70,7 +70,7 @@ Azure 中必須有幾個資源可供移轉的 EC2 執行個體使用。 其中�
     - 只包含數字和小寫字母
 3. 保留 [部署模型]  、[帳戶種類]  、[效能]  和 [需要安全傳輸]  的預設值。
 5. 針對 [複寫]  選取預設值 [RA-GRS]  。
-6. 選取您要用於此教學課程的訂用帳戶。
+6. 選取您要用於本教學課程的訂用帳戶。
 7. 在 [資源群組]  中，選取 [新建]  。 在此範例中，我們使用 **migrationRG** 作為資源群組名稱。
 8. 在 [位置]  中，選取 [西歐]  。
 9. 選取 [建立]  以建立儲存體帳戶。
@@ -117,6 +117,7 @@ Azure 中必須有幾個資源可供移轉的 EC2 執行個體使用。 其中�
 |---------|-----------|
 | 您的電腦位於何處? |選取 [內部部署]  。|
 | 您要將電腦複寫到何處? |選取 [至 Azure]  。|
+| 您正在執行移轉嗎？ | 選取 [是]  ，然後核取 [我了解，但想要繼續使用 Azure Site Recovery]  旁的方塊。
 | 您的電腦虛擬化了嗎? |選取 [未虛擬化 / 其他]  。|
 
 當您完成時，選取 [確定]  以移至下一個區段。
@@ -152,11 +153,11 @@ Azure 中必須有幾個資源可供移轉的 EC2 執行個體使用。 其中�
 
 ### <a name="4-prepare-target"></a>4：準備目標
 
-在本節中，針對您稍早在此教學課程的[準備 Azure 資源](#prepare-azure-resources)中所建立的資源，輸入相關資訊。
+在本節中，針對您稍早在本教學課程的[準備 Azure 資源](#prepare-azure-resources)中所建立的資源，輸入相關資訊。
 
 1. 在 [訂用帳戶]  中，選取您原先用於[準備 Azure](tutorial-prepare-azure.md) 教學課程的 Azure 訂用帳戶。
 2. 選取 [Resource Manager]  做為部署模型。
-3. Site Recovery 會確認您是否有一或多個相容的 Azure 儲存體帳戶和網路。 這些應該是您稍早在此教學課程的[準備 Azure 資源](#prepare-azure-resources)中所建立的資源。
+3. Site Recovery 會確認您是否有一或多個相容的 Azure 儲存體帳戶和網路。 這些應該是您稍早在本教學課程的[準備 Azure 資源](#prepare-azure-resources)中所建立的資源。
 4. 完成後，選取 [確定]  。
 
 ### <a name="5-prepare-replication-settings"></a>5：準備複寫設定
@@ -260,7 +261,7 @@ Azure 中必須有幾個資源可供移轉的 EC2 執行個體使用。 其中�
 
 ## <a name="next-steps"></a>後續步驟
 
-在此文章中，您已了解如何將 AWS EC2 執行個體移轉至 Azure VM。 若要深入了解 Azure VM，請繼續 Windows VM 的教學課程。
+在本文中，您已了解如何將 AWS EC2 執行個體移轉至 Azure VM。 若要深入了解 Azure VM，請繼續 Windows VM 的教學課程。
 
 > [!div class="nextstepaction"]
 > [Azure Windows 虛擬機器教學課程](../virtual-machines/windows/tutorial-manage-vm.md)

@@ -9,18 +9,18 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: b88d355ec1784b3b613369e90cd5fac99d3d69a6
-ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
+ms.openlocfilehash: 618931c3a45fcb25b2a9221ea3f6069e9ff11de5
+ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70916398"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70933210"
 ---
 # <a name="implement-iot-spatial-analytics-using-azure-maps"></a>使用 Azure 地圖服務執行 IoT 空間分析
 
-追蹤和擷取在空間和時間中發生的相關事件，是常見的 IoT 案例。 例如，在車隊管理、資產追蹤、行動和智慧城市應用程式中執行這些動作。 此教學課程將引導您完成下列作業的解決方案模式：使用事件方格所提供的事件訂閱模型，對 IoT 中樞所擷取的相關事件使用 Azure 地圖服務 API。
+追蹤和擷取在空間和時間中發生的相關事件，是常見的 IoT 案例。 例如，在車隊管理、資產追蹤、行動和智慧城市應用程式中執行這些動作。 本教學課程將引導您完成下列作業的解決方案模式：使用事件方格所提供的事件訂閱模型，對 IoT 中樞所擷取的相關事件使用 Azure 地圖服務 API。
 
-在此教學課程中，您將：
+在本教學課程中，您將：
 
 > [!div class="checklist"]
 > * 建立 IoT 中樞。
@@ -63,7 +63,7 @@ ms.locfileid: "70916398"
 }
 ```
 
-車載裝置遙測可用來達成目標。 我們的目標是要執行地理柵欄規則，並在每次收到汽車的位置有所移動的事件時，適當予以追蹤。 為此，我們將透過事件方格訂閱來自 IoT 中樞的裝置遙測事件，讓所需的客戶商務邏輯僅在適當的情況下執行。 有數種方式可訂閱事件方格，在此教學課程中，我們將使用 Azure Functions。 Azure Functions 會對事件方格中發佈的事件做出反應，並根據 Azure 地圖服務空間分析來實做汽車出租商務邏輯。 Azure 函式的功能之一是檢查車輛是否已離開地理柵欄，如果是，則會收集其他資訊，例如與目前的位置相關聯的位址。 此函式也會實作邏輯，將有意義的事件資料儲存在資料 Blob 儲存體中，以利將事件狀況的精確描述提供給汽車出租分析人員和租用客戶。
+車載裝置遙測可用來達成目標。 我們的目標是要執行地理柵欄規則，並在每次收到汽車的位置有所移動的事件時，適當予以追蹤。 為此，我們將透過事件方格訂閱來自 IoT 中樞的裝置遙測事件，讓所需的客戶商務邏輯僅在適當的情況下執行。 有數種方式可訂閱事件方格，在本教學課程中，我們將使用 Azure Functions。 Azure Functions 會對事件方格中發佈的事件做出反應，並根據 Azure 地圖服務空間分析來實做汽車出租商務邏輯。 Azure 函式的功能之一是檢查車輛是否已離開地理柵欄，如果是，則會收集其他資訊，例如與目前的位置相關聯的位址。 此函式也會實作邏輯，將有意義的事件資料儲存在資料 Blob 儲存體中，以利將事件狀況的精確描述提供給汽車出租分析人員和租用客戶。
 
 下圖提供系統的高階概觀。
 
@@ -81,7 +81,7 @@ ms.locfileid: "70916398"
 
 ### <a name="create-a-resource-group"></a>建立資源群組
 
-若要完成此教學課程中的步驟，您必須先在 Azure 入口網站中建立資源群組。 若要建立資源群組，請遵循下列步驟：
+若要完成本教學課程中的步驟，您必須先在 Azure 入口網站中建立資源群組。 若要建立資源群組，請遵循下列步驟：
 
 1. 登入 [Azure 入口網站](https://portal.azure.com)。
 
@@ -167,7 +167,7 @@ IoT 中樞是雲端中的受控服務，可作為 IoT 應用程式及其管理�
     
     URL 路徑中，`dataFormat` 參數的 "geojson" 值代表上傳資料的格式。
 
-3. 按一下 [Params]  (參數)，然後輸入下列金鑰/值組用於 POST 要求 URL。 將 subscription-key 值取代為您的 Azure 地圖服務訂用帳戶金鑰。
+3. 按一下 [Params]  (參數)，然後輸入下列金鑰/值組用於 POST 要求 URL。 將 subscription-key 值取代為您的 Azure 地圖服務主要訂用帳戶金鑰。
    
     ![金鑰-值參數 Postman](./media/tutorial-iot-hub-maps/postman-key-vals.png)
 
@@ -224,7 +224,7 @@ Azure Functions 是無伺服器計算服務，可讓我們依需求執行程式�
 6. 將 [C# 程式碼](https://github.com/Azure-Samples/iothub-to-azure-maps-geofencing/blob/master/src/Azure%20Function/run.csx)複製到您的函式中，然後按一下 [儲存]  。
  
 7. 在 C# 指令碼中，取代下列參數：
-    * 將 **SUBSCRIPTION_KEY** 取代為您的 Azure 地圖服務帳戶訂用帳戶金鑰。
+    * 將 **SUBSCRIPTION_KEY** 取代為您的 Azure 地圖服務帳戶主要訂用帳戶金鑰。
     * 將 **UDID** 取代為您上傳之地理柵欄的 udId。 
     * 指令碼中的 **CreateBlobAsync** 函式會在資料儲存體帳戶中為每個事件建立一個 Blob。 將 **ACCESS_KEY**、**ACCOUNT_NAME** 和 **STORAGE_CONTAINER_NAME** 取代為您儲存體帳戶的存取金鑰和帳戶名稱以及資料儲存體容器。
 
@@ -282,7 +282,7 @@ Azure Functions 是無伺服器計算服務，可讓我們依需求執行程式�
 
 ## <a name="next-steps"></a>後續步驟
 
-若要探索此教學課程中使用的 Azure 地圖服務 API，請參閱：
+若要探索本教學課程中使用的 Azure 地圖服務 API，請參閱：
 
 * [取得搜尋位址反轉](https://docs.microsoft.com/rest/api/maps/search/getsearchaddressreverse)
 * [取得地理柵欄](https://docs.microsoft.com/rest/api/maps/spatial/getgeofence)

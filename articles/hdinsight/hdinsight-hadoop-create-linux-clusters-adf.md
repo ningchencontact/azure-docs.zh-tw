@@ -2,24 +2,24 @@
 title: 教學課程：Azure HDInsight 中建立隨選 Apache Hadoop 叢集 - Data Factory
 description: 教學課程 - 了解如何使用 Azure Data Factory 在 HDInsight 中建立隨選 Apache Handooop 叢集。
 author: hrasheed-msft
-ms.reviewer: jasonh
 ms.author: hrasheed
+ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: tutorial
 ms.date: 04/18/2019
-ms.openlocfilehash: de12725952a2bac6a0b86b1d2e239428c0eaa709
-ms.sourcegitcommit: 97605f3e7ff9b6f74e81f327edd19aefe79135d2
+ms.openlocfilehash: 0b3062e14873ec971163c125fccd6852d8662663
+ms.sourcegitcommit: cd70273f0845cd39b435bd5978ca0df4ac4d7b2c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70736171"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71098729"
 ---
 # <a name="tutorial-create-on-demand-apache-hadoop-clusters-in-hdinsight-using-azure-data-factory"></a>教學課程：使用 Azure Data Factory 在 HDInsight 中建立隨選 Apache Hadoop 叢集
 [!INCLUDE [selector](../../includes/hdinsight-create-linux-cluster-selector.md)]
 
-在此教學課程中，您會了解如何使用 Azure Data Factory，在 Azure HDInsight 中隨選建立 [Apache Hadoop](https://hadoop.apache.org/) 叢集。 接著，您會在 Azure Data Factory 中使用資料管線，以執行 Hive 作業並刪除該叢集。 在此教學課程結束時，您會了解如何讓巨量資料作業執行能夠運作，其中會依排程執行叢集建立、作業執行及叢集刪除。
+在本教學課程中，您會了解如何使用 Azure Data Factory，在 Azure HDInsight 中隨選建立 [Apache Hadoop](https://hadoop.apache.org/) 叢集。 接著，您會在 Azure Data Factory 中使用資料管線，以執行 Hive 作業並刪除該叢集。 在本教學課程結束時，您會了解如何讓巨量資料作業執行能夠運作，其中會依排程執行叢集建立、作業執行及叢集刪除。
 
-此教學課程涵蓋下列工作： 
+本教學課程涵蓋下列工作： 
 
 > [!div class="checklist"]
 > * 建立 Azure 儲存體帳戶
@@ -37,7 +37,7 @@ ms.locfileid: "70736171"
 
 * 安裝 PowerShell [Az 模組](https://docs.microsoft.com/powershell/azure/overview)。
 
-* Azure Active Directory 服務主體。 當您建立服務主體之後，請務必使用連結文章中的指示來擷取**應用程式識別碼**和**驗證金鑰**。 在此教學課程後續的內容中，您會需要這些值。 此外，請確定服務主體是訂用帳戶的「參與者」  角色成員，或建立叢集所在的資源群組成員。 如需擷取所需的值並為角色指派權限的指示，請參閱[建立 Azure Active Directory 服務主體](../active-directory/develop/howto-create-service-principal-portal.md)。
+* Azure Active Directory 服務主體。 當您建立服務主體之後，請務必使用連結文章中的指示來擷取**應用程式識別碼**和**驗證金鑰**。 在本教學課程後續的內容中，您會需要這些值。 此外，請確定服務主體是訂用帳戶的「參與者」  角色成員，或建立叢集所在的資源群組成員。 如需擷取所需的值並為角色指派權限的指示，請參閱[建立 Azure Active Directory 服務主體](../active-directory/develop/howto-create-service-principal-portal.md)。
 
 ## <a name="create-preliminary-azure-objects"></a>建立 Azure 的預備物件
 
@@ -164,13 +164,13 @@ Write-host "`nScript completed" -ForegroundColor Green
 在 Azure Data Factory 中，資料處理站可以有一或多個資料管線。 資料管線具有一或多個活動。 活動可分為兩種：
 
 - [資料移動活動](../data-factory/copy-activity-overview.md)：您可以使用資料移動活動，將資料從來源資料存放區移到目的地資料存放區。
-- [資料轉換活動](../data-factory/transform-data.md)。 使用資料轉換活動以處理/轉換資料。 HDInsight Hive 活動是 Data Factory 所支援的其中一個轉換活動。 您在此教學課程中使用 Hive 轉換活動。
+- [資料轉換活動](../data-factory/transform-data.md)。 使用資料轉換活動以處理/轉換資料。 HDInsight Hive 活動是 Data Factory 所支援的其中一個轉換活動。 您在本教學課程中使用 Hive 轉換活動。
 
-在此文章中，您會設定 Hive 活動，以建立隨選 HDInsight Hadoop 叢集。 當活動執行以處理資料時，即會發生下列情況：
+在本文中，您會設定 Hive 活動，以建立隨選 HDInsight Hadoop 叢集。 當活動執行以處理資料時，即會發生下列情況：
 
 1. 系統會適時自動建立 HDInsight Hadoop 叢集來處理配量。 
 
-2. 會在叢集上執行 HiveQL 指令碼以處理輸入資料。 在此教學課程中，與 Hive 活動相關聯的 HiveQL 指令碼會執行下列動作︰
+2. 會在叢集上執行 HiveQL 指令碼以處理輸入資料。 在本教學課程中，與 Hive 活動相關聯的 HiveQL 指令碼會執行下列動作︰
 
     - 使用現有的資料表 (*hivesampletable*) 來建立另一個資料表 **HiveSampleOut**。
     - 在 **HiveSampleOut** 中只填入原始資料表 *hivesampletable* 的特定資料行。
@@ -189,11 +189,11 @@ Write-host "`nScript completed" -ForegroundColor Green
 
     |屬性  |值  |
     |---------|---------|
-    |Name | 輸入資料處理站的名稱。 此名稱必須是全域唯一的。|
+    |名稱 | 輸入資料處理站的名稱。 此名稱必須是全域唯一的。|
     |Subscription | 選取 Azure 訂用帳戶。 |
     |Resource group | 選取 [使用現有的]  ，然後選取您使用 PowerShell 指令碼建立的資源群組。 |
     |版本 | 保持為 **V2**。 |
-    |Location | 系統會自動將位置設定為您先前在建立資源群組時所指定的位置。 針對此教學課程，位置會設定為 [美國東部]  。 |
+    |Location | 系統會自動將位置設定為您先前在建立資源群組時所指定的位置。 針對本教學課程，位置會設定為 [美國東部]  。 |
 
     ![使用 Azure 入口網站建立 Azure Data Factory](./media/hdinsight-hadoop-create-linux-clusters-adf/create-data-factory-portal.png "使用 Azure 入口網站建立 Azure Data Factory")
 
@@ -203,7 +203,7 @@ Write-host "`nScript completed" -ForegroundColor Green
 
 6. 選取 [撰寫與監視]  以啟動 Azure Data Factory 撰寫與監視入口網站。
 
-    ![Azure Data Factory 概觀](./media/hdinsight-hadoop-create-linux-clusters-adf/data-factory-portal-overview.png "Azure Data Factory 概觀")
+    ![Azure Data Factory 入口網站概觀](./media/hdinsight-hadoop-create-linux-clusters-adf/data-factory-portal-overview.png "Azure Data Factory 概觀")
 
 ## <a name="create-linked-services"></a>建立連結的服務
 
@@ -230,7 +230,7 @@ Write-host "`nScript completed" -ForegroundColor Green
 
     |屬性 |值 |
     |---|---|
-    |Name |輸入 `HDIStorageLinkedService` 。|
+    |名稱 |輸入 `HDIStorageLinkedService` 。|
     |Azure 訂用帳戶 |從下拉式清單中選取訂用帳戶。|
     |儲存體帳戶名稱 |選取您建立為 PowerShell 指令碼一部分的 Azure 儲存體帳戶。|
 
@@ -252,7 +252,7 @@ Write-host "`nScript completed" -ForegroundColor Green
 
     | 屬性 | 值 |
     | --- | --- |
-    | Name | 輸入 `HDInsightLinkedService` 。|
+    | 名稱 | 輸入 `HDInsightLinkedService` 。|
     | 類型 | 選取 [隨選 HDInsight]  。 |
     | Azure 儲存體連結服務 | 選取 `HDIStorageLinkedService`。 |
     | 叢集類型 | 選取 [Hadoop]  |
@@ -328,7 +328,7 @@ Write-host "`nScript completed" -ForegroundColor Green
 
 ## <a name="verify-the-output"></a>驗證輸出
 
-1. 若要驗證輸出，請在 Azure 入口網站中，瀏覽至您針對此教學課程使用的儲存體帳戶。 您應該會看到下列資料夾或容器：
+1. 若要驗證輸出，請在 Azure 入口網站中，瀏覽至您針對本教學課程使用的儲存體帳戶。 您應該會看到下列資料夾或容器：
 
     - 您會看到 **adfgerstarted/outputfolder**，其中包含作為管線一部分來執行的 Hive 指令碼輸出。
 
@@ -352,7 +352,7 @@ Write-host "`nScript completed" -ForegroundColor Green
 1. 除非您與其他專案共用資源群組，否則 [資源]  圖格應列出預設儲存體帳戶和 Data Factory。
 1. 選取 [刪除資源群組]  。 這麼做會刪除儲存體帳戶和此儲存體帳戶中儲存的資料。
 
-    ![刪除資源群組](./media/hdinsight-hadoop-create-linux-clusters-adf/delete-resource-group.png "刪除資源群組")
+    ![Azure 入口網站刪除資源群組](./media/hdinsight-hadoop-create-linux-clusters-adf/delete-resource-group.png "刪除資源群組")
 
 1. 輸入資源群組名稱以確認刪除，然後選取 [刪除]  。
 

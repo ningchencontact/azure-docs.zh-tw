@@ -3,16 +3,16 @@ title: 範例 - 加拿大聯邦 PBMM 藍圖 - 控制項對應
 description: 加拿大聯邦 PBMM 藍圖範例對於 Azure 原則的控制項對應。
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 08/21/2019
+ms.date: 09/04/2019
 ms.topic: sample
 ms.service: blueprints
 manager: carmonm
-ms.openlocfilehash: 068e3253dbcb7ef8d0a5c0191ac1a0b75bd8c0e9
-ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
+ms.openlocfilehash: baafb0fbcf1dba1cadfff1d5f5e02e2df4f34a25
+ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70918773"
+ms.lasthandoff: 09/15/2019
+ms.locfileid: "71002901"
 ---
 # <a name="control-mapping-of-the-canada-federal-pbmm-blueprint-sample"></a>加拿大聯邦 PBMM 藍圖範例的控制項對應
 
@@ -310,6 +310,12 @@ Just-In-Time (JIT) 虛擬機器存取可鎖定 Azure 虛擬機器的連入流量
 > 特定 Azure 原則定義的可用性可能因 Azure Government 和其他國家雲端而異。 
 
 ## <a name="next-steps"></a>後續步驟
+
+您已檢閱了加拿大聯邦 PBMM 藍圖範例的控制項對應。 接下來，請瀏覽下列文章，以深入了解概觀及部署此範例的方法：
+
+> [!div class="nextstepaction"]
+> [加拿大聯邦 PBMM 藍圖 - 概觀](./control-mapping.md)
+> [加拿大聯邦 PBMM 藍圖 - 部署步驟](./deploy.md)
 
 有關藍圖及其使用方式的其他文件：
 

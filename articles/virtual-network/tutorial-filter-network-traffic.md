@@ -14,16 +14,16 @@ ms.tgt_pltfrm: virtual-network
 ms.workload: infrastructure
 ms.date: 12/13/2018
 ms.author: kumud
-ms.openlocfilehash: 4097d4fc46aac88cd44d21a4cdcf0d7d5093feea
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: 2d0519abdf25a6fc8373f9d1a3a7232a9783d316
+ms.sourcegitcommit: 909ca340773b7b6db87d3fb60d1978136d2a96b0
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66242727"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70984896"
 ---
 # <a name="tutorial-filter-network-traffic-with-a-network-security-group-using-the-azure-portal"></a>教學課程：使用 Azure 入口網站透過網路安全性群組篩選網路流量
 
-您可以透過網路安全性群組篩選輸入虛擬網路子網路和從中輸出的網路流量。 網路安全性群組包含可依 IP 位址、連接埠和通訊協定篩選網路流量的安全性規則。 安全性規則會套用至子網路中部署的資源。 在本教學課程中，您了解如何：
+您可以透過網路安全性群組篩選輸入虛擬網路子網路和從中輸出的網路流量。 網路安全性群組包含可依 IP 位址、連接埠和通訊協定篩選網路流量的安全性規則。 安全性規則會套用至子網路中部署的資源。 在本教學課程中，您會了解如何：
 
 > [!div class="checklist"]
 > * 建立網路安全性群組和安全性規則
@@ -33,7 +33,7 @@ ms.locfileid: "66242727"
 
 您可以依偏好使用 [Azure CLI](tutorial-filter-network-traffic-cli.md) 或 [PowerShell](tutorial-filter-network-traffic-powershell.md) 完成本教學課程。
 
-如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 。
+如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)。
 
 ## <a name="sign-in-to-azure"></a>登入 Azure
 
@@ -47,7 +47,7 @@ ms.locfileid: "66242727"
 
     | 設定                 | 值                                              |
     | ---                     | ---                                                |
-    | Name                    | myVirtualNetwork                                   |
+    | 名稱                    | myVirtualNetwork                                   |
     | 位址空間           | 10.0.0.0/16                                        |
     | 訂用帳戶            | 選取您的訂用帳戶。                          |
     | 資源群組          | 選取 [新建]  ，然後輸入 *myResourceGroup*。 |
@@ -65,7 +65,7 @@ ms.locfileid: "66242727"
 
     | 設定        | 值                                                         |
     | ---            | ---                                                           |
-    | Name           | myAsgWebServers                                               |
+    | 名稱           | myAsgWebServers                                               |
     | 訂用帳戶   | 選取您的訂用帳戶。                                     |
     | 資源群組 | 選取 [使用現有的]  ，然後選取 [myResourceGroup]  。 |
     | 位置       | 美國東部                                                       |
@@ -74,7 +74,7 @@ ms.locfileid: "66242727"
 
     | 設定        | 值                                                         |
     | ---            | ---                                                           |
-    | Name           | myAsgMgmtServers                                              |
+    | 名稱           | myAsgMgmtServers                                              |
     | 訂用帳戶   | 選取您的訂用帳戶。                                     |
     | 資源群組 | 選取 [使用現有的]  ，然後選取 [myResourceGroup]  。 |
     | 位置       | 美國東部                                                       |
@@ -87,7 +87,7 @@ ms.locfileid: "66242727"
 
     |設定|值|
     |---|---|
-    |Name|myNsg|
+    |名稱|myNsg|
     |訂用帳戶| 選取您的訂用帳戶。|
     |資源群組 | 選取 [使用現有的]  ，然後選取 [myResourceGroup]  。|
     |位置|美國東部|
@@ -114,7 +114,7 @@ ms.locfileid: "66242727"
     | 目的地             | 選取 [應用程式安全性群組]  ，然後針對 [應用程式安全性群組]  選取 [myAsgWebServers]  。  |
     | 目的地連接埠範圍 | 輸入 80,443                                                                                                    |
     | 通訊協定                | 選取 TCP                                                                                                      |
-    | Name                    | Allow-Web-All                                                                                                   |
+    | 名稱                    | Allow-Web-All                                                                                                   |
 
 3. 使用下列值再次完成步驟 2：
 
@@ -124,7 +124,7 @@ ms.locfileid: "66242727"
     | 目的地連接埠範圍 | 輸入 3389                                                                                                      |
     | 通訊協定                | 選取 TCP                                                                                                      |
     | 優先順序                | 輸入 110                                                                                                       |
-    | Name                    | Allow-RDP-All                                                                                                   |
+    | 名稱                    | Allow-RDP-All                                                                                                   |
 
     在本教學課程中，RDP (連接埠 3389) 會公開至 VM 的網際網路，且這個 VM 會指派給 myAsgMgmtServers  應用程式安全性群組。 在生產環境中則不應將連接埠 3389 公開至網際網路，而是建議您使用 VPN 或私人網路連線連接到您想要管理的 Azure 資源。
 
@@ -140,27 +140,29 @@ ms.locfileid: "66242727"
 
 1. 選取 Azure 入口網站左上角的 [+ 建立資源]  。
 2. 選取 [計算]  ，然後選取 [Windows Server 2016 Datacenter]  。
-3. 輸入或選取下列資訊、接受其餘設定的預設值，然後選取 [確定]  ：
+3. 輸入或選取下列資訊，然後接受其餘設定的預設值：
 
     |設定|值|
     |---|---|
-    |Name|myVmWeb|
-    |使用者名稱| 輸入您選擇的使用者名稱。|
-    |密碼| 輸入您選擇的密碼。 密碼長度至少必須有 12 個字元，而且符合[定義的複雜度需求](../virtual-machines/windows/faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm)。|
     |訂用帳戶| 選取您的訂用帳戶。|
     |資源群組| 選取 [使用現有項目]  ，然後選取 [myResourceGroup]  。|
-    |位置| 選取 [美國東部] |
+    |名稱|myVmWeb|
+    |位置| 選取 [美國東部]  。|
+    |使用者名稱| 輸入您選擇的使用者名稱。|
+    |密碼| 輸入您選擇的密碼。 密碼長度至少必須有 12 個字元，而且符合[定義的複雜度需求](../virtual-machines/windows/faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm)。|
+
+   
 
 4. 選取 VM 的大小，然後選取 [選取]  。
-5. 在 [設定]  下，選取下列值、接受其餘預設值，然後選取 [確定]  ：
+5. 在 [網路]  下，選取下列值，然後接受其餘預設值：
 
     |設定|值|
     |---|---|
-    |虛擬網路 |選取 **myVirtualNetwork**|
-    |網路安全性群組 | 選取 [進階]  。|
-    |網路安全性群組 (防火牆)| 選取 [(新建) myVmWeb-nsg]  ，然後在 [選擇網路安全性群組]  下，選取 [無]  。 |
+    |虛擬網路 |選取 **myVirtualNetwork**。|
+    |NIC 網路安全性群組 |選取 [進階]  。|
+    |公用輸入連接埠|選取 [無]  。 |
 
-6. 在 [摘要]  的 [建立]  底下，選取 [建立]  來開始部署 VM。
+6. 選取左下角的 [檢閱 + 建立]  ，然後選取 [建立]  以開始 VM 部署。
 
 ### <a name="create-the-second-vm"></a>建立第二個 VM
 

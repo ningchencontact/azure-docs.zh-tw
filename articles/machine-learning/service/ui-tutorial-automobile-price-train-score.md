@@ -1,6 +1,6 @@
 ---
 title: 教學課程：透過視覺化介面預測汽車價格
-titleSuffix: Azure Machine Learning service
+titleSuffix: Azure Machine Learning
 description: 了解如何使用拖放視覺化介面進行機器學習模型的訓練、評分和部署。 本教學課程是使用線性迴歸預測汽車價格相關系列的第一部分 (共兩個部分)。
 author: peterclu
 ms.author: peterlu
@@ -9,16 +9,16 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
 ms.date: 08/16/2019
-ms.openlocfilehash: a2134853c48ca09faa150f038be2d9327af75eee
-ms.sourcegitcommit: a3a40ad60b8ecd8dbaf7f756091a419b1fe3208e
+ms.openlocfilehash: 11c65c217ef6c150c47f387f7f80070488a8df89
+ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69891683"
+ms.lasthandoff: 09/14/2019
+ms.locfileid: "70996768"
 ---
 # <a name="tutorial-predict-automobile-price-with-the-visual-interface"></a>教學課程：透過視覺化介面預測汽車價格
 
-在這個分成兩部分的教學課程中，您會了解如何使用 Azure Machine Learning 服務的視覺化介面來開發和部署預測性分析解決方案，以預測任何汽車的價格。 
+在這個分成兩部分的教學課程中，您將了解如何使用 Azure Machine Learning 的視覺化介面來開發和部署預測性分析解決方案，以預測任何汽車的價格。 
 
 > [!VIDEO https://www.microsoft.com/videoplayer/embed/RE2X1GY]
 
@@ -45,7 +45,7 @@ ms.locfileid: "69891683"
 
 ### <a name="create-a-new-workspace"></a>建立新的工作區
 
-如果您有 Azure Machine Learning 服務工作區，請跳至下一節。
+如果您有 Azure Machine Learning 工作區，請跳至下一節。
 
 [!INCLUDE [aml-create-portal](../../../includes/aml-create-in-portal.md)]
 

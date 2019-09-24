@@ -10,18 +10,18 @@ ms.date: 03/24/2019
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc, seodec18
-ms.openlocfilehash: 55cdb70a02aae62a69f4fc930f4c6ee385a24702
-ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
+ms.openlocfilehash: 2784d57f3f85094230b481dd9fedca191edb39d4
+ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68839539"
+ms.lasthandoff: 09/15/2019
+ms.locfileid: "71001113"
 ---
 # <a name="tutorial-develop-and-deploy-a-python-iot-edge-module-for-linux-devices"></a>教學課程：為 Linux 裝置開發及部署 Python IoT Edge 模組
 
 使用 Visual Studio Code 開發 C 程式碼，並將它部署到執行 Azure IoT Edge 的 Linux 裝置。 
 
-您可以使用 Azure IoT Edge 模組來部署程式碼，直接在 IoT Edge 裝置上實作您的商務邏輯。 本教學課程會逐步引導您建立並部署 IoT Edge 模組，該模組可在您於快速入門中設定的 IoT Edge 裝置上篩選感應器資料。 在本教學課程中，您了解如何：    
+您可以使用 Azure IoT Edge 模組來部署程式碼，直接在 IoT Edge 裝置上實作您的商務邏輯。 本教學課程會逐步引導您建立並部署 IoT Edge 模組，該模組可在您於快速入門中設定的 IoT Edge 裝置上篩選感應器資料。 在本教學課程中，您會了解如何：    
 
 > [!div class="checklist"]
 > * 使用 Visual Studio Code 建立 IoT Edge Python 模組。
@@ -33,6 +33,9 @@ ms.locfileid: "68839539"
 您於此教學課程中建立的 IoT Edge 模組，能夠篩選由您裝置所產生的溫度資料。 它只有在溫度超過指定的閾值時，才會將訊息往上游傳送。 這類於邊緣所進行的分析，對於減少針對雲端所傳輸及儲存的資料量相當有幫助。 
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+
+> [!NOTE]
+> 下列指南適用於 V1 Python SDK，其已被取代。 我們目前正致力於讓這份指南 V2 相容。 請觀看此空間以取得更新。
 
 ## <a name="solution-scope"></a>解決方案範圍
 

@@ -1,7 +1,7 @@
 ---
 title: 迴歸模型教學課程：自動化 ML
-titleSuffix: Azure Machine Learning service
-description: 了解如何使用自動化機器學習來產生機器學習模型。 Azure Machine Learning 可以用自動化方式，為您執行資料前處理、演算法選擇及超參數選擇。 然後使用 Azure Machine Learning 服務來部署最終模型。
+titleSuffix: Azure Machine Learning
+description: 了解如何使用自動化機器學習來產生機器學習模型。 Azure Machine Learning 可以用自動化方式，為您執行資料前處理、演算法選擇及超參數選擇。 然後使用 Azure Machine Learning 來部署最終模型。
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,16 +10,16 @@ author: trevorbye
 ms.author: trbye
 ms.reviewer: trbye
 ms.date: 08/21/2019
-ms.openlocfilehash: 990755b247190f689a90d5cdf3d60d6eff9f4ae7
-ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
+ms.openlocfilehash: f08f2f07137e518925ee4dbe9b128e100be870c9
+ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/26/2019
-ms.locfileid: "70036254"
+ms.lasthandoff: 09/15/2019
+ms.locfileid: "71003982"
 ---
 # <a name="tutorial-use-automated-machine-learning-to-predict-taxi-fares"></a>教學課程：使用自動化機器學習預測計程車車資
 
-在本教學課程中，您將使用 Azure Machine Learning 服務中的自動化機器學習建立迴歸模型，以預測 NYC 計程車車資價格。 此程序接受定型資料和組態設定，並自動逐一查看不同功能正規化/標準化方法、模型及超參數設定的組合，以獲得最佳模型。
+在本教學課程中，您將使用 Azure Machine Learning 中的自動化機器學習建立迴歸模型，以預測 NYC 計程車車資價格。 此程序接受定型資料和組態設定，並自動逐一查看不同功能正規化/標準化方法、模型及超參數設定的組合，以獲得最佳模型。
 
 ![流程圖](./media/tutorial-auto-train-models/flow2.png)
 
@@ -30,11 +30,11 @@ ms.locfileid: "70036254"
 > * 為自動化機器學習迴歸模型定型
 > * 計算模型精確度
 
-如果您沒有 Azure 訂用帳戶，請在開始前先建立一個免費帳戶。 立即試用[免費或付費版本](https://aka.ms/AMLFree)的 Azure Machine Learning 服務。
+如果您沒有 Azure 訂用帳戶，請在開始前先建立一個免費帳戶。 立即試用[免費或付費版本的 Azure Machine Learning](https://aka.ms/AMLFree)。
 
 ## <a name="prerequisites"></a>必要條件
 
-* 如果您還沒有 Azure Machine Learning 服務工作區或 Notebook 虛擬機器，請完成[設定教學課程](tutorial-1st-experiment-sdk-setup.md)。
+* 如果您還沒有 Azure Machine Learning 工作區或 Notebook 虛擬機器，請完成[設定教學課程](tutorial-1st-experiment-sdk-setup.md)。
 * 完成設定教學課程之後，請使用相同的 Notebook 伺服器開啟 **tutorials/regression-automated-ml.ipynb** Notebook。
 
 如果您想要在自己的[本機環境](how-to-configure-environment.md#local)中執行此教學課程，也可以在 [GitHub](https://github.com/Azure/MachineLearningNotebooks/tree/master/tutorials) 上取得。 執行 `pip install azureml-sdk[automl] azureml-opendatasets azureml-widgets` 以取得必要套件。
@@ -1057,7 +1057,7 @@ print(1 - mean_abs_percent_error)
 
 ## <a name="clean-up-resources"></a>清除資源
 
-如果您打算執行其他 Azure Machine Learning 服務教學課程，請不要完成本節。
+如果您打算執行其他 Azure Machine Learning 教學課程，請不要完成本節。
 
 ### <a name="stop-the-notebook-vm"></a>停止 Notebook VM
 
@@ -1088,4 +1088,4 @@ print(1 - mean_abs_percent_error)
 > * 搭配自訂參數在本機使用自動化迴歸模型來進行定型。
 > * 瀏覽及檢閱定型結果。
 
-使用 Azure Machine Learning 服務[部署模型](tutorial-deploy-models-with-aml.md)。
+使用 Azure Machine Learning [部署模型](tutorial-deploy-models-with-aml.md)。

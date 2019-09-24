@@ -9,20 +9,20 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: b4e9b72be5d03e0b3441983ca991a16688f5f4cd
-ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
+ms.openlocfilehash: a020ef91e52a5d801557399df827d3641bfb974e
+ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70916450"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70934194"
 ---
 # <a name="set-up-a-geofence-by-using-azure-maps"></a>使用 Azure 地圖服務設定地理柵欄
 
-此教學課程會引導您完成使用 Azure 地圖服務來設定地理柵欄的基本步驟。 我們在此教學課程中所講解的，是協助建築工地主任監視是否有潛在的危險設備移到指定建築區域外的案例。 建築工地會有昂貴的設備，且有嚴格的規範。 一般都會要求設備必須留置於建築工地內，未經許可不得移出。
+本教學課程會引導您完成使用 Azure 地圖服務來設定地理柵欄的基本步驟。 我們在本教學課程中所講解的，是協助建築工地主任監視是否有潛在的危險設備移到指定建築區域外的案例。 建築工地會有昂貴的設備，且有嚴格的規範。 一般都會要求設備必須留置於建築工地內，未經許可不得移出。
 
 我們將使用 Azure 地圖服務的 Data Upload API 儲存地理柵欄，並使用 Azure 地圖服務的地理柵欄 API 來檢查設備與地理柵欄的相對位置。 我們將使用 Azure 事件方格來串流地理柵欄結果，並設定以地理柵欄結果為基礎的通知。
 若要深入了解事件方格，請參閱 [Azure 事件方格](https://docs.microsoft.com/azure/event-grid/overview)。
-在此教學課程中，您將了解如何：
+在本教學課程中，您將了解如何：
 
 > [!div class="checklist"]
 > * 使用 Data Upload API 在 Azure 地圖服務的資料服務中上傳地理柵欄區域。
@@ -40,7 +40,7 @@ ms.locfileid: "70916450"
 
 ## <a name="upload-geofences"></a>上傳地理柵欄
 
-為了使用 Data Upload API 來上傳建築工地的地理柵欄，我們將使用 Postman 應用程式。 為了方便進行此教學課程，我們假設有一個整體的建築工地區域，而這是一個建築設備不應違反的硬參數。 超出此柵欄視同嚴重違規，將回報給營運經理知悉。 此外也可另行使用一組最佳化的柵欄，依據預定進度追蹤整體建築區域內的不同建築區域。 我們可以假設主要地理柵欄包含 subsite1，此工地已設定到期時間，而將在該時間之後到期。 您可以依據本身的需求建立更多巢狀地理柵欄。 例如，subsite1 可以是將在預定進度的第 1 到 4 週進行施工的工地，而 subsite2 則是在第 5 到 7 週施工的工地。 這類柵欄全都可以在專案開始之初載入作為單一資料集，用以根據時間和空間追蹤規則。 如需關於地理柵欄資料格式的詳細資訊，請參閱[地理柵欄 GeoJSON 資料](https://docs.microsoft.com/azure/azure-maps/geofence-geojson)。 如需關於將資料上傳至 Azure 地圖服務的詳細資訊，請參閱 [Data Upload API 文件](https://docs.microsoft.com/rest/api/maps/data/uploadpreview)。
+為了使用 Data Upload API 來上傳建築工地的地理柵欄，我們將使用 Postman 應用程式。 為了方便進行本教學課程，我們假設有一個整體的建築工地區域，而這是一個建築設備不應違反的硬參數。 超出此柵欄視同嚴重違規，將回報給營運經理知悉。 此外也可另行使用一組最佳化的柵欄，依據預定進度追蹤整體建築區域內的不同建築區域。 我們可以假設主要地理柵欄包含 subsite1，此工地已設定到期時間，而將在該時間之後到期。 您可以依據本身的需求建立更多巢狀地理柵欄。 例如，subsite1 可以是將在預定進度的第 1 到 4 週進行施工的工地，而 subsite2 則是在第 5 到 7 週施工的工地。 這類柵欄全都可以在專案開始之初載入作為單一資料集，用以根據時間和空間追蹤規則。 如需關於地理柵欄資料格式的詳細資訊，請參閱[地理柵欄 GeoJSON 資料](https://docs.microsoft.com/azure/azure-maps/geofence-geojson)。 如需關於將資料上傳至 Azure 地圖服務的詳細資訊，請參閱 [Data Upload API 文件](https://docs.microsoft.com/rest/api/maps/data/uploadpreview)。
 
 開啟 Postman 應用程式，並依照下列步驟使用 Azure 地圖服務的 Data Upload API 上傳建築工地地理柵欄。
 
@@ -56,7 +56,7 @@ ms.locfileid: "70916450"
     
     URL 路徑中的 GEOJSON 參數代表上傳資料的資料格式。
 
-3. 按一下 [Params]  (參數)，然後輸入下列金鑰/值組用於 POST 要求 URL。 將 subscription-key 值取代為您的 Azure 地圖服務訂用帳戶金鑰。
+3. 按一下 [Params]  (參數)，然後輸入下列金鑰/值組用於 POST 要求 URL。 將 subscription-key 值取代為您的 Azure 地圖服務主要訂用帳戶金鑰。
    
     ![金鑰-值參數 Postman](./media/tutorial-geofence/postman-key-vals.png)
 
@@ -258,7 +258,7 @@ Azure 地圖服務支援三種事件類型。 您可以在[這裡](https://docs.
 
 ## <a name="next-steps"></a>後續步驟
 
-在此教學課程中您了解到，如何使用 Data Upload API 在 Azure 地圖服務的資料服務中上傳地理柵欄，藉以設定地理柵欄。 您也已了解如何使用 Azure 地圖服務的事件方格來訂閱及處理地理柵欄事件。 
+在本教學課程中您了解到，如何使用 Data Upload API 在 Azure 地圖服務的資料服務中上傳地理柵欄，藉以設定地理柵欄。 您也已了解如何使用 Azure 地圖服務的事件方格來訂閱及處理地理柵欄事件。 
 
 * 請參閱[處理 Azure Logic Apps 中的內容類型](https://docs.microsoft.com/azure/logic-apps/logic-apps-content-type)，了解如何使用 Logic Apps 剖析 JSON 以建置更複雜的邏輯。
 * 若要深入了解事件方格中的事件處理常式，請參閱[事件方格中支援的事件處理常式](https://docs.microsoft.com/azure/event-grid/event-handlers)。

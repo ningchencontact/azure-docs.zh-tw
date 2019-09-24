@@ -1,7 +1,7 @@
 ---
 title: 範例 Jupyter Notebook
-titleSuffix: Azure Machine Learning service
-description: 尋找並使用 Jupyter Notebook 範例探索 Azure Machine Learning 服務 Python SDK。
+titleSuffix: Azure Machine Learning
+description: 尋找並使用 Jupyter Notebook 範例探索適用於 Python 的 Azure Machine Learning SDK。
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -11,14 +11,14 @@ ms.author: sgilley
 ms.reviewer: sgilley
 ms.date: 07/31/2019
 ms.custom: seodec18
-ms.openlocfilehash: 14962b936d1c09a6c50daa7bec460ce11dbefe5d
-ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
+ms.openlocfilehash: dd93e4e621a4fd474283f788e2cf67b305a1be3d
+ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70860389"
+ms.lasthandoff: 09/14/2019
+ms.locfileid: "70997068"
 ---
-# <a name="explore-azure-machine-learning-service-with-jupyter-notebooks"></a>使用 Jupyter Notebook 探索 Azure Machine Learning 服務
+# <a name="explore-azure-machine-learning-with-jupyter-notebooks"></a>使用 Jupyter Notebook 探索 Azure Machine Learning
 
 [範例 Azure Machine Learning Notebook 存放庫](https://github.com/azure/machinelearningnotebooks)包含最新的 Azure Machine Learning Python SDK 範例。 這些 Juypter Notebook 可協助您探索 SDK，並且可供您自己的機器學習服務專案作為模型。
 
@@ -55,7 +55,7 @@ ms.locfileid: "70860389"
 
 ## <a name="next-steps"></a>後續步驟
 
-瀏覽[範例 Notebook](https://aka.ms/aml-notebooks) 以探索 Azure Machine Learning 服務的功用，或嘗試進行下列教學課程：
+瀏覽[範例 Notebook](https://aka.ms/aml-notebooks) 以探索 Azure Machine Learning 的功用，或嘗試進行下列教學課程：
 
 - [使用 MNIST 定型和部署影像分類模型](tutorial-train-models-with-aml.md)
 

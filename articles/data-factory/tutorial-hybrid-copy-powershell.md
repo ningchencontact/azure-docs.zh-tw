@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.date: 01/22/2018
 ms.author: abnarain
-ms.openlocfilehash: b520d9fd3fc20d17223edc63db9800748f92cb23
-ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.openlocfilehash: 1d779c44faabc30ddfa624e7b2d8e5d5de8b6cc7
+ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70140650"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71091859"
 ---
 # <a name="tutorial-copy-data-from-an-on-premises-sql-server-database-to-azure-blob-storage"></a>教學課程：將資料從內部部署 SQL Server 資料庫複製到 Azure Blob 儲存體
 在本教學課程中，您會使用 Azure PowerShell 建立資料處理站管線，以將資料從內部部署 SQL Server 資料庫複製到 Azure Blob 儲存體。 您要建立及使用自我裝載的整合執行階段，其會在內部部署與雲端資料存放區之間移動資料。 
@@ -55,15 +55,22 @@ ms.locfileid: "70140650"
  
 1. 在 [新增資料庫]  視窗中，輸入資料庫的名稱，然後選取 [確定]  。 
 
-1. 若要建立 **emp** 資料表並在其中插入一些範例資料，請針對資料庫執行下列查詢指令碼：
+1. 若要建立 **emp** 資料表並在其中插入一些範例資料，請針對資料庫執行下列查詢指令碼。 在樹狀檢視中，以滑鼠右鍵按一下您建立的資料庫，然後選取 [新增查詢]  。
 
-   ```
-       INSERT INTO emp VALUES ('John', 'Doe')
-       INSERT INTO emp VALUES ('Jane', 'Doe')
-       GO
-   ```
+    ```sql
+    CREATE TABLE dbo.emp
+    (
+        ID int IDENTITY(1,1) NOT NULL,
+        FirstName varchar(50),
+        LastName varchar(50)
+    )
+    GO
+    
+    INSERT INTO emp (FirstName, LastName) VALUES ('John', 'Doe')
+    INSERT INTO emp (FirstName, LastName) VALUES ('Jane', 'Doe')
+    GO
+    ```
 
-1. 在樹狀檢視中，以滑鼠右鍵按一下您建立的資料庫，然後選取 [新增查詢]  。
 
 ### <a name="azure-storage-account"></a>Azure 儲存體帳戶
 在本教學課程中，您可以使用一般用途的 Azure 儲存體帳戶 (特別是 Blob 儲存體) 作為目的地/接收資料存放區。 如果您沒有一般用途的 Azure 儲存體帳戶，請參閱[建立儲存體帳戶](../storage/common/storage-quickstart-create-account.md)戶。 您在本教學課程中建立於 Data Factory 的管線會將資料從內部部署 SQL Server 資料庫 (來源) 複製到此 Azure Blob 儲存體 (接收)。 
@@ -92,15 +99,11 @@ ms.locfileid: "70140650"
 
 1. 在 [Blob 服務]  視窗中，選取 [容器]  。 
 
-    ![新增容器按鈕](media/tutorial-hybrid-copy-powershell/add-container-button.png)
-
 1. 在 [新容器]  視窗的 [名稱]  方塊中，輸入 **adftutorial**，然後選取 [確定]  。 
 
     ![輸入容器名稱](media/tutorial-hybrid-copy-powershell/new-container-dialog.png)
 
 1. 在容器清單中選取 [adftutorial]  。  
-
-    ![選取容器](media/tutorial-hybrid-copy-powershell/select-adftutorial-container.png)
 
 1. 保留 [容器]  視窗以供 **adftutorial** 開啟。 您可以在本快速入門結尾處使用它來確認輸出。 Data Factory 會在此容器中自動建立輸出資料夾，因此您不需要建立輸出資料夾。
 
@@ -116,8 +119,6 @@ ms.locfileid: "70140650"
 #### <a name="log-in-to-powershell"></a>登入 PowerShell
 
 1. 在您的電腦上啟動 PowerShell，並透過完成本快速入門教學課程，讓它保持開啟狀態。 如果您關閉並重新開啟它，則需要再次執行這些命令。
-
-    ![啟動 PowerShell](media/tutorial-hybrid-copy-powershell/search-powershell.png)
 
 1. 執行下列命令，然後輸入您用來登入 Azure 入口網站的 Azure 使用者名稱和密碼：
        
@@ -135,14 +136,14 @@ ms.locfileid: "70140650"
 
 1. 定義資源群組名稱的變數，以便稍後在 PowerShell 命令中使用。 將下列命令複製到 PowerShell，指定 [Azure 資源群組](../azure-resource-manager/resource-group-overview.md)的名稱 (以雙引號括住；例如 `"adfrg"`)，然後執行命令。 
    
-     ```powershell
+    ```powershell
     $resourceGroupName = "ADFTutorialResourceGroup"
     ```
 
 1. 若要建立 Azure 資源群組，請執行下列命令： 
 
     ```powershell
-    New-AzResourceGroup $resourceGroupName $location
+    New-AzResourceGroup $resourceGroupName -location 'East US'
     ``` 
 
     如果資源群組已經存在，您可能不想覆寫它。 將不同的值指派給 `$resourceGroupName` 變數，然後執行一次命令。
@@ -194,15 +195,16 @@ ms.locfileid: "70140650"
     ```powershell
     Set-AzDataFactoryV2IntegrationRuntime -ResourceGroupName $resourceGroupName -DataFactoryName $dataFactoryName -Name $integrationRuntimeName -Type SelfHosted -Description "selfhosted IR description"
     ``` 
+
     以下是範例輸出：
 
     ```json
-    Id                : /subscriptions/<subscription ID>/resourceGroups/ADFTutorialResourceGroup/providers/Microsoft.DataFactory/factories/onpremdf0914/integrationruntimes/myonpremirsp0914
+    Name              : ADFTutorialIR
     Type              : SelfHosted
-    ResourceGroupName : ADFTutorialResourceGroup
-    DataFactoryName   : onpremdf0914
-    Name              : myonpremirsp0914
+    ResourceGroupName : <resourceGroupName>
+    DataFactoryName   : <dataFactoryName>
     Description       : selfhosted IR description
+    Id                : /subscriptions/<subscription ID>/resourceGroups/<resourceGroupName>/providers/Microsoft.DataFactory/factories/<dataFactoryName>/integrationruntimes/<integrationRuntimeName>
     ```
 
 1. 若要擷取所建立整合執行階段的狀態，請執行下列命令：
@@ -214,20 +216,24 @@ ms.locfileid: "70140650"
     以下是範例輸出：
     
     ```json
-    Nodes                     : {}
-    CreateTime                : 9/14/2017 10:01:21 AM
-    InternalChannelEncryption :
-    Version                   :
-    Capabilities              : {}
-    ScheduledUpdateDate       :
-    UpdateDelayOffset         :
-    LocalTimeZoneOffset       :
-    AutoUpdate                :
-    ServiceUrls               : {eu.frontend.clouddatahub.net, *.servicebus.windows.net}
-    ResourceGroupName         : <ResourceGroup name>
-    DataFactoryName           : <DataFactory name>
-    Name                      : <Integration Runtime name>
     State                     : NeedRegistration
+    Version                   : 
+    CreateTime                : 9/10/2019 3:24:09 AM
+    AutoUpdate                : On
+    ScheduledUpdateDate       : 
+    UpdateDelayOffset         : 
+    LocalTimeZoneOffset       : 
+    InternalChannelEncryption : 
+    Capabilities              : {}
+    ServiceUrls               : {eu.frontend.clouddatahub.net}
+    Nodes                     : {}
+    Links                     : {}
+    Name                      : <Integration Runtime name>
+    Type                      : SelfHosted
+    ResourceGroupName         : <resourceGroup name>
+    DataFactoryName           : <dataFactory name>
+    Description               : selfhosted IR description
+    Id                        : /subscriptions/<subscription ID>/resourceGroups/<resourceGroupName>/providers/Microsoft.DataFactory/factories/<dataFactoryName>/integrationruntimes/<integrationRuntimeName>
     ```
 
 1. 若要擷取*驗證金鑰*，用以向雲端中的 Data Factory 服務註冊自我裝載整合執行階段，請執行下列命令。 複製其中一個金鑰 (不含引號)，以註冊您在下一個步驟中安裝於電腦上的自我裝載整合執行階段。 
@@ -256,28 +262,19 @@ ms.locfileid: "70140650"
 
 1. 在 [準備好要安裝 Microsoft Integration Runtime]  視窗中，選取 [安裝]  。 
 
-1. 如果您看到一則有關正在設定不使用時要進入睡眠或休眠模式的電腦警告訊息，請選取 [確定]  。 
-
-1. 如果顯示 [電源選項]  視窗，請將它關閉，然後切換到安裝視窗。 
-
 1. 在 [完成 Microsoft Integration Runtime 設定]  精靈中，選取 [完成]  。
 
 1. 在 [註冊 Integration Runtime (自我裝載)]  視窗中，貼上您在上一節中儲存的金鑰，然後選取 [註冊]  。 
 
     ![監視整合執行階段](media/tutorial-hybrid-copy-powershell/register-integration-runtime.png)
 
-    當自我裝載的整合執行階段註冊成功時，隨即顯示下列訊息： 
-
-    ![已成功註冊](media/tutorial-hybrid-copy-powershell/registered-successfully.png)
-
-1. 在 [新增 Integration Runtime (自我裝載) 節點]  視窗中，選取 [下一步]  。 
+1. 在 [新增 Integration Runtime (自我裝載) 節點]  視窗中，選取 [完成]  。 
 
     ![新增 Integration Runtime 節點視窗](media/tutorial-hybrid-copy-powershell/new-integration-runtime-node-page.png)
 
-1. 在 [內部網路通訊通道]  視窗中，選取 [略過]  。  
-    您可以選取 TLS/SSL 憑證，以便保護在多節點整合執行階段環境中的內部節點通訊。
+ 1. 當自我裝載的整合執行階段註冊成功時，隨即顯示下列訊息： 
 
-    ![內部網路通訊通道視窗](media/tutorial-hybrid-copy-powershell/intranet-communication-channel-page.png)
+    ![已成功註冊](media/tutorial-hybrid-copy-powershell/registered-successfully.png)
 
 1. 在 [註冊 Integration Runtime (自我裝載)]  視窗中，選取 [啟動組態管理員]  。 
 
@@ -286,8 +283,6 @@ ms.locfileid: "70140650"
     ![節點已連線](media/tutorial-hybrid-copy-powershell/node-is-connected.png)
 
 1. 執行下列作業，以測試 SQL Server 資料庫的連線能力：
-
-    ![[診斷] 索引標籤](media/tutorial-hybrid-copy-powershell/config-manager-diagnostics-tab.png)   
 
     a. 在 [組態管理員]  視窗中，切換到 [診斷]  索引標籤。
 
@@ -304,6 +299,8 @@ ms.locfileid: "70140650"
     g. 輸入與使用者名稱相關聯的密碼。
 
     h. 若要確認整合執行階段可以連線到 SQL Server，請選取 [測試]  。  
+    ![連線成功](media/tutorial-hybrid-copy-powershell/config-manager-diagnostics-tab.png) 
+  
     如果連線成功，隨即顯示綠色的核取記號。 否則，您會收到與失敗相關聯的錯誤訊息。 修正所有問題，並確定整合執行階段可連線到您的 SQL Server 執行個體。
 
     請記下所有先前的值，以便稍後在本教學課程中使用。
@@ -321,20 +318,21 @@ ms.locfileid: "70140650"
 
    ```json
     {
+        "name": "AzureStorageLinkedService",
         "properties": {
-            "type": "AzureStorage",
+            "annotations": [],
+            "type": "AzureBlobStorage",
             "typeProperties": {
-                "connectionString": {
-                    "type": "SecureString",
-                    "value": "DefaultEndpointsProtocol=https;AccountName=<accountname>;AccountKey=<accountkey>;EndpointSuffix=core.windows.net"
-                }
+                "connectionString": "DefaultEndpointsProtocol=https;AccountName=<accountName>;AccountKey=<accountKey>;EndpointSuffix=core.windows.net"
             }
-        },
-        "name": "AzureStorageLinkedService"
+        }
     }
    ```
 
 1. 在 PowerShell 中，切換至 C:\ADFv2Tutorial  資料夾。
+   ```powershell
+   Set-Location 'C:\ADFv2Tutorial'    
+   ```
 
 1. 若要建立 AzureStorageLinkedService 連結服務，請執行下列 `Set-AzDataFactoryV2LinkedService` Cmdlet： 
 
@@ -346,9 +344,9 @@ ms.locfileid: "70140650"
 
     ```json
     LinkedServiceName : AzureStorageLinkedService
-    ResourceGroupName : ADFTutorialResourceGroup
-    DataFactoryName   : onpremdf0914
-    Properties        : Microsoft.Azure.Management.DataFactory.Models.AzureStorageLinkedService
+    ResourceGroupName : <resourceGroup name>
+    DataFactoryName   : <dataFactory name>
+    Properties        : Microsoft.Azure.Management.DataFactory.Models.AzureBlobStorageLinkedService
     ```
 
     如果您收到「找不到檔案」錯誤，請執行 `dir` 命令來確認檔案存在。 如果檔案名稱具有 .txt  副檔名 (例如，AzureStorageLinkedService.json.txt)，請將它移除，然後再次執行 PowerShell 命令。 
@@ -364,48 +362,50 @@ ms.locfileid: "70140650"
     **使用 SQL 驗證 (sa)：**
 
     ```json
-    {
-        "properties": {
-            "type": "SqlServer",
-            "typeProperties": {
-                "connectionString": {
-                    "type": "SecureString",
-                    "value": "Server=<servername>;Database=<databasename>;User ID=<username>;Password=<password>;Timeout=60"
-                }
+    {  
+        "name":"SqlServerLinkedService",
+        "type":"Microsoft.DataFactory/factories/linkedservices",
+        "properties":{  
+            "annotations":[  
+    
+            ],
+            "type":"SqlServer",
+            "typeProperties":{  
+                "connectionString":"integrated security=False;data source=<serverName>;initial catalog=<databaseName>;user id=<userName>;password=<password>"
             },
-            "connectVia": {
-                "type": "integrationRuntimeReference",
-                "referenceName": "<integration runtime name>"
+            "connectVia":{  
+                "referenceName":"<integration runtime name> ",
+                "type":"IntegrationRuntimeReference"
             }
-        },
-        "name": "SqlServerLinkedService"
+        }
     }
    ```    
 
     **使用 Windows 驗證：**
 
     ```json
-    {
-        "properties": {
-            "type": "SqlServer",
-            "typeProperties": {
-                "connectionString": {
-                    "type": "SecureString",
-                    "value": "Server=<server>;Database=<database>;Integrated Security=True"
-                },
-                "userName": "<user> or <domain>\\<user>",
-                "password": {
-                    "type": "SecureString",
-                    "value": "<password>"
+    {  
+        "name":"SqlServerLinkedService",
+        "type":"Microsoft.DataFactory/factories/linkedservices",
+        "properties":{  
+            "annotations":[  
+    
+            ],
+            "type":"SqlServer",
+            "typeProperties":{  
+                "connectionString":"integrated security=True;data source=<serverName>;initial catalog=<databaseName>",
+                "userName":"<username> or <domain>\\<username>",
+                "password":{  
+                    "type":"SecureString",
+                    "value":"<password>"
                 }
             },
-            "connectVia": {
-                "type": "integrationRuntimeReference",
-                "referenceName": "<integration runtime name>"
+            "connectVia":{  
+                "referenceName":"<integration runtime name>",
+                "type":"IntegrationRuntimeReference"
             }
-        },
-        "name": "SqlServerLinkedService"
-    }    
+        }
+    } 
     ```
 
     > [!IMPORTANT]
@@ -435,34 +435,26 @@ ms.locfileid: "70140650"
 在此步驟中，您要定義代表 SQL Server 資料庫執行個體中資料的資料集。 資料集的類型為 SqlServerTable。 它會參考您在前一個步驟中建立的 SQL Server 連結服務。 此連結服務具有連線資訊，可供 Data Factory 服務在執行階段用來連線到您的 SQL Server 執行個體。 此資料集會指定包含資料的資料庫中的 SQL 資料表。 在本教學課程中，**emp** 資料表包含來源資料。 
 
 1. 使用下列程式碼，在 C:\ADFv2Tutorial  資料夾中建立名為 SqlServerDataset.json  的 JSON 檔案：  
-
     ```json
-    {
-       "properties": {
-            "type": "SqlServerTable",
-            "typeProperties": {
-                "tableName": "dbo.emp"
+    {  
+        "name":"SqlServerDataset",
+        "properties":{  
+            "linkedServiceName":{  
+                "referenceName":"EncryptedSqlServerLinkedService",
+                "type":"LinkedServiceReference"
             },
-            "structure": [
-                 {
-                    "name": "ID",
-                    "type": "String"
-                },
-                {
-                    "name": "FirstName",
-                    "type": "String"
-                },
-                {
-                    "name": "LastName",
-                    "type": "String"
-                }
+            "annotations":[  
+    
             ],
-            "linkedServiceName": {
-                "referenceName": "EncryptedSqlServerLinkedService",
-                "type": "LinkedServiceReference"
+            "type":"SqlServerTable",
+            "schema":[  
+    
+            ],
+            "typeProperties":{  
+                "schema":"dbo",
+                "table":"emp"
             }
-        },
-        "name": "SqlServerDataset"
+        }
     }
     ```
 
@@ -476,9 +468,9 @@ ms.locfileid: "70140650"
 
     ```json
     DatasetName       : SqlServerDataset
-    ResourceGroupName : ADFTutorialResourceGroup
-    DataFactoryName   : onpremdf0914
-    Structure         : {"name": "ID" "type": "String", "name": "FirstName" "type": "String", "name": "LastName" "type": "String"}
+    ResourceGroupName : <resourceGroupName>
+    DataFactoryName   : <dataFactoryName>
+    Structure         : 
     Properties        : Microsoft.Azure.Management.DataFactory.Models.SqlServerTableDataset
     ```
 
@@ -490,21 +482,32 @@ ms.locfileid: "70140650"
 1. 使用下列程式碼，在 C:\ADFv2Tutorial  資料夾中建立名為 AzureBlobDataset.json  的 JSON 檔案：
 
     ```json
-    {
-        "properties": {
-            "type": "AzureBlob",
-            "typeProperties": {
-                "folderPath": "adftutorial/fromonprem",
-                "format": {
-                    "type": "TextFormat"
-                }
+    {  
+        "name":"AzureBlobDataset",
+        "properties":{  
+            "linkedServiceName":{  
+                "referenceName":"AzureStorageLinkedService",
+                "type":"LinkedServiceReference"
             },
-            "linkedServiceName": {
-                "referenceName": "AzureStorageLinkedService",
-                "type": "LinkedServiceReference"
-            }
+            "annotations":[  
+    
+            ],
+            "type":"DelimitedText",
+            "typeProperties":{  
+                "location":{  
+                    "type":"AzureBlobStorageLocation",
+                    "folderPath":"fromonprem",
+                    "container":"adftutorial"
+                },
+                "columnDelimiter":",",
+                "escapeChar":"\\",
+                "quoteChar":"\""
+            },
+            "schema":[  
+    
+            ]
         },
-        "name": "AzureBlobDataset"
+        "type":"Microsoft.DataFactory/factories/datasets"
     }
     ```
 
@@ -518,10 +521,10 @@ ms.locfileid: "70140650"
 
     ```json
     DatasetName       : AzureBlobDataset
-    ResourceGroupName : ADFTutorialResourceGroup
-    DataFactoryName   : onpremdf0914
+    ResourceGroupName : <resourceGroupName>
+    DataFactoryName   : <dataFactoryName>
     Structure         :
-    Properties        : Microsoft.Azure.Management.DataFactory.Models.AzureBlobDataset
+    Properties        : Microsoft.Azure.Management.DataFactory.Models.DelimitedTextDataset
     ```
 
 ## <a name="create-a-pipeline"></a>建立管線
@@ -530,34 +533,59 @@ ms.locfileid: "70140650"
 1. 使用下列程式碼，在 C:\ADFv2Tutorial  資料夾中建立名為 SqlServerToBlobPipeline.json  的 JSON 檔案：
 
     ```json
-    {
-       "name": "SQLServerToBlobPipeline",
-        "properties": {
-            "activities": [       
-                {
-                    "type": "Copy",
-                    "typeProperties": {
-                        "source": {
-                            "type": "SqlSource"
-                        },
-                        "sink": {
-                            "type":"BlobSink"
-                        }
+    {  
+        "name":"SqlServerToBlobPipeline",
+        "properties":{  
+            "activities":[  
+                {  
+                    "name":"CopySqlServerToAzureBlobActivity",
+                    "type":"Copy",
+                    "dependsOn":[  
+    
+                    ],
+                    "policy":{  
+                        "timeout":"7.00:00:00",
+                        "retry":0,
+                        "retryIntervalInSeconds":30,
+                        "secureOutput":false,
+                        "secureInput":false
                     },
-                    "name": "CopySqlServerToAzureBlobActivity",
-                    "inputs": [
-                        {
-                            "referenceName": "SqlServerDataset",
-                            "type": "DatasetReference"
+                    "userProperties":[  
+    
+                    ],
+                    "typeProperties":{  
+                        "source":{  
+                            "type":"SqlServerSource"
+                        },
+                        "sink":{  
+                            "type":"DelimitedTextSink",
+                            "storeSettings":{  
+                                "type":"AzureBlobStorageWriteSettings"
+                            },
+                            "formatSettings":{  
+                                "type":"DelimitedTextWriteSettings",
+                                "quoteAllText":true,
+                                "fileExtension":".txt"
+                            }
+                        },
+                        "enableStaging":false
+                    },
+                    "inputs":[  
+                        {  
+                            "referenceName":"SqlServerDataset",
+                            "type":"DatasetReference"
                         }
                     ],
-                    "outputs": [
-                        {
-                            "referenceName": "AzureBlobDataset",
-                            "type": "DatasetReference"
+                    "outputs":[  
+                        {  
+                            "referenceName":"AzureBlobDataset",
+                            "type":"DatasetReference"
                         }
                     ]
                 }
+            ],
+            "annotations":[  
+    
             ]
         }
     }
@@ -573,8 +601,8 @@ ms.locfileid: "70140650"
 
     ```json
     PipelineName      : SQLServerToBlobPipeline
-    ResourceGroupName : ADFTutorialResourceGroup
-    DataFactoryName   : onpremdf0914
+    ResourceGroupName : <resourceGroupName>
+    DataFactoryName   : <dataFactoryName>
     Activities        : {CopySqlServerToAzureBlobActivity}
     Parameters        :  
     ```
@@ -608,20 +636,23 @@ $runId = Invoke-AzDataFactoryV2Pipeline -DataFactoryName $dataFactoryName -Resou
 
     執行範例的輸出如下：
 
-    ```jdon
-    ResourceGroupName : <resourceGroupName>
-    DataFactoryName   : <dataFactoryName>
-    ActivityName      : copy
-    PipelineRunId     : 4ec8980c-62f6-466f-92fa-e69b10f33640
-    PipelineName      : SQLServerToBlobPipeline
-    Input             :  
-    Output            :  
-    LinkedServiceName :
-    ActivityRunStart  : 9/13/2017 1:35:22 PM
-    ActivityRunEnd    : 9/13/2017 1:35:42 PM
-    DurationInMs      : 20824
-    Status            : Succeeded
-    Error             : {errorCode, message, failureType, target}
+    ```JSON
+    ResourceGroupName    : <resourceGroupName>
+    DataFactoryName      : <dataFactoryName>
+    ActivityRunId        : 24af7cf6-efca-4a95-931d-067c5c921c25
+    ActivityName         : CopySqlServerToAzureBlobActivity
+    ActivityType         : Copy
+    PipelineRunId        : 7b538846-fd4e-409c-99ef-2475329f5729
+    PipelineName         : SQLServerToBlobPipeline
+    Input                : {source, sink, enableStaging}
+    Output               : {dataRead, dataWritten, filesWritten, sourcePeakConnections...}
+    LinkedServiceName    : 
+    ActivityRunStart     : 9/11/2019 7:10:37 AM
+    ActivityRunEnd       : 9/11/2019 7:10:58 AM
+    DurationInMs         : 21094
+    Status               : Succeeded
+    Error                : {errorCode, message, failureType, target}
+    AdditionalProperties : {[retryAttempt, ], [iterationHash, ], [userProperties, {}], [recoveryStatus, None]...}
     ```
 
 1. 您可以取得 SQLServerToBlobPipeline管線 的執行識別碼，並執行下列命令來檢查詳細的活動執行結果： 
@@ -634,15 +665,41 @@ $runId = Invoke-AzDataFactoryV2Pipeline -DataFactoryName $dataFactoryName -Resou
     執行範例的輸出如下：
 
     ```json
-    {
-      "dataRead": 36,
-      "dataWritten": 24,
-      "rowsCopied": 2,
-      "copyDuration": 3,
-      "throughput": 0.01171875,
-      "errors": [],
-      "effectiveIntegrationRuntime": "MyIntegrationRuntime",
-      "billedDuration": 3
+    {  
+        "dataRead":36,
+        "dataWritten":32,
+        "filesWritten":1,
+        "sourcePeakConnections":1,
+        "sinkPeakConnections":1,
+        "rowsRead":2,
+        "rowsCopied":2,
+        "copyDuration":18,
+        "throughput":0.01,
+        "errors":[  
+    
+        ],
+        "effectiveIntegrationRuntime":"ADFTutorialIR",
+        "usedParallelCopies":1,
+        "executionDetails":[  
+            {  
+                "source":{  
+                    "type":"SqlServer"
+                },
+                "sink":{  
+                    "type":"AzureBlobStorage",
+                    "region":"CentralUS"
+                },
+                "status":"Succeeded",
+                "start":"2019-09-11T07:10:38.2342905Z",
+                "duration":18,
+                "usedParallelCopies":1,
+                "detailedDurations":{  
+                    "queuingDuration":6,
+                    "timeToFirstByte":0,
+                    "transferDuration":5
+                }
+            }
+        ]
     }
     ```
 
@@ -650,8 +707,6 @@ $runId = Invoke-AzDataFactoryV2Pipeline -DataFactoryName $dataFactoryName -Resou
 管道會自動在 `adftutorial` Blob 容器中建立名為 fromonprem  的輸出資料夾。 確認您在輸出資料夾中看到 *dbo.emp.txt* 檔案。 
 
 1. 在 Azure 入口網站的 [adftutorial]  容器視窗中，選取 [重新整理]  可查看輸出資料夾。
-
-    ![已建立輸出資料夾](media/tutorial-hybrid-copy-powershell/fromonprem-folder.png)
 1. 在資料夾清單中選取 `fromonprem`。 
 1. 確認您看到名為 `dbo.emp.txt` 的檔案。
 

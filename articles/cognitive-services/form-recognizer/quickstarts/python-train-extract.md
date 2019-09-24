@@ -9,18 +9,18 @@ ms.subservice: forms-recognizer
 ms.topic: quickstart
 ms.date: 07/03/2019
 ms.author: pafarley
-ms.openlocfilehash: 53409769fc85422f4c34a14d22e7c44b2d5cce35
-ms.sourcegitcommit: a874064e903f845d755abffdb5eac4868b390de7
+ms.openlocfilehash: e7a63d09c3116c7504e9d409b32a44be140d8fe4
+ms.sourcegitcommit: 8ef0a2ddaece5e7b2ac678a73b605b2073b76e88
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68443837"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71074131"
 ---
 # <a name="quickstart-train-a-form-recognizer-model-and-extract-form-data-by-using-the-rest-api-with-python"></a>快速入門：搭配使用 REST API 與 Python 將表單辨識器模型定型並擷取表單資料
 
 在本快速入門中，您將搭配使用 Azure 表單辨識器的 REST API 與 Python 來定型及評分表單，以擷取金鑰/值組和資料表。
 
-如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 。
+如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)。
 
 ## <a name="prerequisites"></a>必要條件
 若要完成此快速入門，您必須：
@@ -38,7 +38,7 @@ ms.locfileid: "68443837"
 
 若要使用 Azure Blob 容器中的文件來訓練表單辨識器模型，請執行下列 Python 程式碼以呼叫**訓練** API。 執行程式碼之前，請進行下列變更：
 
-1. 在您取得訂用帳戶金鑰的 Azure 區域中，將 `<Endpoint>` 取代為表單辨識器資源的端點 URL。
+1. 將 `<Endpoint>` 取代為您表單辨識器資源的端點 URL。
 1. 將 `<Subscription key>` 取代為您在先前的步驟中複製的訂用帳戶金鑰。
 1. 將 `<SAS URL>` 取代為 Azure Blob 儲存體容器的共用存取簽章 (SAS) URL。 若要擷取 SAS URL，請開啟 Microsoft Azure 儲存體總管、以滑鼠右鍵按一下您的容器，然後選取 [取得共用存取簽章]  。 確定 [讀取]  和 [列出]  權限均已勾選，再按一下 [建立]  。 然後，複製 [URL]  區段的值。 其格式應該為：`https://<storage account>.blob.core.windows.net/<container name>?<SAS value>`。
 

@@ -1,7 +1,7 @@
 ---
 title: 教學課程：定型第一個 ML 模型
-titleSuffix: Azure Machine Learning service
-description: 在本教學課程中，您將了解 Azure Machine Learning 服務中的基本設計模式，並根據糖尿病資料集來定型簡單的 Scikit-learn 模型。
+titleSuffix: Azure Machine Learning
+description: 在本教學課程中，您將了解 Azure Machine Learning 中的基本設計模式，並根據糖尿病資料集來定型簡單的 Scikit-learn 模型。
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,16 +10,16 @@ author: trevorbye
 ms.author: trbye
 ms.reviewer: trbye
 ms.date: 09/03/2019
-ms.openlocfilehash: 989775916454b6710aef6c2c5be6792920622dab
-ms.sourcegitcommit: 6794fb51b58d2a7eb6475c9456d55eb1267f8d40
+ms.openlocfilehash: b5d3a687adc8ecefcf581f7eda3b9e13d1973c62
+ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70241301"
+ms.lasthandoff: 09/15/2019
+ms.locfileid: "71004022"
 ---
 # <a name="tutorial-train-your-first-ml-model"></a>教學課程：定型第一個 ML 模型
 
-本教學課程是**兩部分教學課程系列的第二部分**。 在上一個教學課程中，您已[建立工作區並選擇了開發環境](tutorial-1st-experiment-sdk-setup.md)。 在本教學課程中，您將了解 Azure Machine Learning 服務中的基本設計模式，並根據糖尿病資料集來定型簡單的 Scikit-learn 模型。 完成本教學課程之後，您將具備 SDK 的實際知識，進而開發更複雜的實驗和工作流程。
+本教學課程是**兩部分教學課程系列的第二部分**。 在上一個教學課程中，您已[建立工作區並選擇了開發環境](tutorial-1st-experiment-sdk-setup.md)。 在本教學課程中，您將了解 Azure Machine Learning 中的基本設計模式，並根據糖尿病資料集來定型簡單的 Scikit-learn 模型。 完成本教學課程之後，您將具備 SDK 的實際知識，進而開發更複雜的實驗和工作流程。
 
 在本教學課程中，您會了解下列工作：
 
@@ -135,7 +135,7 @@ for alpha in alphas:
 experiment
 ```
 
-<table style="width:100%"><tr><th>Name</th><th>工作區</th><th>報表頁面</th><th>文件頁面</th></tr><tr><td>diabetes-experiment</td><td>your-workspace-name</td><td>Azure 入口網站的連結</td><td>文件的連結</td></tr></table>
+<table style="width:100%"><tr><th>名稱</th><th>工作區</th><th>報表頁面</th><th>文件頁面</th></tr><tr><td>diabetes-experiment</td><td>your-workspace-name</td><td>Azure 入口網站的連結</td><td>文件的連結</td></tr></table>
 
 ## <a name="view-training-results-in-portal"></a>在入口網站中查看定型結果
 
@@ -197,7 +197,7 @@ best_run.download_file(name="model_alpha_0.1.pkl")
 
 ## <a name="clean-up-resources"></a>清除資源
 
-如果您打算執行其他 Azure Machine Learning 服務教學課程，請不要完成本節。
+如果您打算執行其他 Azure Machine Learning 教學課程，請不要完成本節。
 
 ### <a name="stop-the-notebook-vm"></a>停止 Notebook VM
 

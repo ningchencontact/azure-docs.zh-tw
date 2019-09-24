@@ -13,12 +13,12 @@ ms.devlang: csharp
 ms.topic: tutorial
 ms.date: 07/01/2019
 ms.author: abarora
-ms.openlocfilehash: 1649fefda5073761d616fc48c602cab84d293ed0
-ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
+ms.openlocfilehash: 3eee34f594cb23a8b64f6fd10837c9a641eda62d
+ms.sourcegitcommit: 8ef0a2ddaece5e7b2ac678a73b605b2073b76e88
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67799087"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71075979"
 ---
 # <a name="tutorial-use-dynamic-configuration-in-a-net-core-app"></a>教學課程：使用 .NET Core 應用程式中的動態設定
 
@@ -30,7 +30,7 @@ ms.locfileid: "67799087"
 
 您可以使用任何程式碼編輯器來進行本教學課程中的步驟。 Windows、macOS 及 Linux 平台上都有提供的 [Visual Studio Code](https://code.visualstudio.com/) 是一個絕佳的選項。
 
-在本教學課程中，您了解如何：
+在本教學課程中，您會了解如何：
 
 > [!div class="checklist"]
 > * 將應用程式設定為可依需求使用應用程式設定存放區來更新其設定。
@@ -44,9 +44,14 @@ ms.locfileid: "67799087"
 
 ## <a name="reload-data-from-app-configuration"></a>從應用程式設定重新載入資料
 
-開啟 Program.cs  ，並更新該檔案以在 `AddAzureAppConfiguration` 方法中指定重新整理組態，並使用 `Refresh` 方法觸發手動重新整理。
+開啟 Program.cs  ，並更新該檔案來將參考新增至 `System.Threading.Tasks` 命名空間，以在 `AddAzureAppConfiguration` 方法中指定重新整理組態，並使用 `Refresh` 方法觸發手動重新整理。
 
 ```csharp
+using System;
+using System.Threading.Tasks;
+
+namespace TestConsole
+{
 class Program
 {
     private static IConfiguration _configuration = null;
@@ -83,6 +88,7 @@ class Program
         await _refresher.Refresh();
         Console.WriteLine(_configuration["TestApp:Settings:Message"] ?? "Hello world!");
     }
+}
 }
 ```
 

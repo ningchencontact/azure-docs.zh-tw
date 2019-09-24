@@ -9,16 +9,16 @@ ms.custom: mvc
 ms.service: iot-pnp
 services: iot-pnp
 manager: philmea
-ms.openlocfilehash: 019b2ba0fd87610195ca9e6c7cb749be9542bd72
-ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
+ms.openlocfilehash: 524bc3b2650ad7b435cba6b6b9d4084ffa5cf96c
+ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70858849"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70932669"
 ---
 # <a name="build-an-iot-plug-and-play-preview-device-thats-ready-for-certification"></a>建置可供認證的 IoT 隨插即用預覽版裝置
 
-此教學課程說明身為裝置開發人員的您如何建置可供認證的 IoT 隨插即用預覽版裝置。
+本教學課程說明身為裝置開發人員的您如何建置可供認證的 IoT 隨插即用預覽版裝置。
 
 認證測試會檢查：
 
@@ -30,7 +30,7 @@ ms.locfileid: "70858849"
 
 ## <a name="prerequisites"></a>必要條件
 
-若要完成此教學課程，您需要：
+若要完成本教學課程，您需要：
 
 - [Visual Studio Code](https://code.visualstudio.com/download)
 - [適用於 VS Code 的 Azure IoT Tools](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools) \(英文\) 擴充套件
@@ -84,6 +84,18 @@ ms.locfileid: "70858849"
 1. 在公用模型存放庫中選取 [介面]  索引標籤，選取篩選圖示，然後在 [篩選] 欄位中輸入**裝置資訊**。
 
 1. 若要建立**裝置資訊**介面的本機複本，請在篩選過的清單中加以選取，然後選取 [下載]  。 VS Code 會顯示介面檔案。
+
+若要使用 Azure CLI 檢視 [裝置資訊]  介面：
+
+1. [安裝 Azure IoT CLI 擴充功能](howto-install-pnp-cli.md)。
+
+1. 使用下列 Azure CLI 命令來顯示具有裝置資訊介面識別碼的介面：
+
+    ```cmd/sh
+    az iot pnp interface show --interface urn:azureiot:DeviceManagement:DeviceInformation:1
+    ```
+
+如需詳細資訊，請參閱[安裝和使用適用於 Azure CLI 的 Azure IoT 擴充功能](howto-install-pnp-cli.md)。
 
 ## <a name="update-device-code"></a>更新裝置程式碼
 

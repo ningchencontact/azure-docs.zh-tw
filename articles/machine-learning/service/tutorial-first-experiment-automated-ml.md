@@ -1,6 +1,6 @@
 ---
 title: 建立您的第一個自動化機器學習實驗
-titleSuffix: Azure Machine Learning service
+titleSuffix: Azure Machine Learning
 description: 了解如何在 Azure Machine Learning 的工作區登陸頁面 (預覽) 中，使用自動化機器學習來定型及部署分類模型。
 services: machine-learning
 ms.service: machine-learning
@@ -10,12 +10,12 @@ ms.author: tzvikei
 author: tsikiksr
 ms.reviewer: nibaccam
 ms.date: 09/09/2019
-ms.openlocfilehash: 0dd4447736469644875dff914c6284b087be87d0
-ms.sourcegitcommit: d70c74e11fa95f70077620b4613bb35d9bf78484
+ms.openlocfilehash: 2422a4525c94f3997dd0a9a0859135e9acf59ffa
+ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70910211"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71092015"
 ---
 # <a name="tutorial-create-your-first-classification-model-with-automated-machine-learning"></a>教學課程：使用自動化機器學習建立第一個分類模型
 
@@ -23,10 +23,10 @@ ms.locfileid: "70910211"
 
 透過自動化機器學習，您可以將耗費大量時間的工作自動化。 自動化機器學習會快速地逐一嘗試多種演算法和超參數的組合，協助您根據所選擇的成功計量找到最佳模型。
 
-在此教學課程中，您將了解如何執行下列工作：
+在本教學課程中，您將了解如何執行下列工作：
 
 > [!div class="checklist"]
-> * 建立 Azure Machine Learning 服務工作區。
+> * 建立 Azure Machine Learning 工作區。
 > * 執行自動化機器學習實驗。
 > * 檢視實驗詳細資料。
 > * 部署模型。
@@ -35,7 +35,7 @@ ms.locfileid: "70910211"
 
 * Azure 訂用帳戶。 如果您沒有 Azure 訂用帳戶，請建立[免費帳戶](https://aka.ms/AMLFree)。
 
-* 下載 [**bankmarketing_train.csv**](https://automlsamplenotebookdata.blob.core.windows.net/automl-sample-notebook-data/bankmarketing_train.csv) 資料檔案。 **y** 資料行指出客戶是否申請定期存款，稍後此教學課程會將其識別為預測的目標資料行。 
+* 下載 [**bankmarketing_train.csv**](https://automlsamplenotebookdata.blob.core.windows.net/automl-sample-notebook-data/bankmarketing_train.csv) 資料檔案。 **y** 資料行指出客戶是否申請定期存款，稍後本教學課程會將其識別為預測的目標資料行。 
 
 ## <a name="create-a-workspace"></a>建立工作區
 
@@ -67,7 +67,7 @@ Azure Machine Learning 工作區是雲端中您用來實驗、定型及部署機
 
 1. 輸入 **my-1st-automl-experiment** 作為實驗名稱。
 
-1. 選取 [Create a new compute]  \(建立新計算\)。 
+1. 選取 [Create a new compute]  \(建立新計算\)。 計算是本機或雲端式資源環境，用來執行定型指令碼，或裝載服務部署。 在此實驗中，我們會使用雲端式計算。 
 
     1. 設定此實驗的計算內容。
         
@@ -99,7 +99,8 @@ Azure Machine Learning 工作區是雲端中您用來實驗、定型及部署機
         檔案格式| Delimited (分隔檔)
         分隔符號| Comma (逗號)
         編碼| UTF-8
-        資料行標題| All files have same headers (所有檔案都有相同的標頭)            Skip rows (跳過資料列) | None
+        資料行標題| All files have same headers (所有檔案都有相同的標頭)
+        Skip rows (略過資料列) | None
 
         >[!NOTE]
         > 如果更新此表單上的任何設定，預覽將會據以更新。
@@ -146,9 +147,9 @@ Azure Machine Learning 工作區是雲端中您用來實驗、定型及部署機
 
 ## <a name="deploy-the-model"></a>部署模型
 
-藉由使用工作區登陸頁面中的自動化機器學習，我們可以將最佳模型部署為 Web 服務，以根據新資料進行預測，並找出潛在的商機區域。 此實驗中的部署表示金融機構現在有可反覆進行且可調整的解決方案，能識別潛在的定期存款客戶。
+藉由使用工作區登陸頁面中的自動化機器學習，您可以透過幾個步驟來將最佳模型部署為 Web 服務。 部署是模型的整合，因此可以根據新資料進行預測，並找出潛在的商機區域。 此實驗中對 Web 服務的部署表示金融機構現在有可反覆進行且可調整的 Web 解決方案，能識別潛在的定期存款客戶。 
 
-在此實驗內容中，根據 **AUC_weighted** 計量，**VotingEnsemble** 會被視為最佳模型。  我們會部署此模型，但提醒您部署大約需要 20 分鐘的時間才能完成。
+在此實驗內容中，根據 **AUC_weighted** 計量，**VotingEnsemble** 會被視為最佳模型。  我們會部署此模型，但提醒您部署大約需要 20 分鐘的時間才能完成。 部署程序需要幾個步驟，包括註冊模型、產生資源，以及為 Web 服務設定這些資源。
 
 1. 在 [Run Detail]  \(執行詳細資料\) 頁面上，選取 [Deploy Best Model]  \(部署最佳模型\) 按鈕。
 
@@ -161,7 +162,7 @@ Azure Machine Learning 工作區是雲端中您用來實驗、定型及部署機
     評分指令碼| 自動產生
     環境指令碼| 自動產生
     
-1. 選取 [部署]  。
+1. 選取 [部署]  。  
 
     當部署成功完成後，會出現部署完成的訊息。
     

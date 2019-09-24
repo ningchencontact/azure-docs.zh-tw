@@ -10,12 +10,12 @@ ms.subservice: ''
 ms.topic: quickstart
 ms.date: 07/25/2019
 ms.author: pafarley
-ms.openlocfilehash: fd8abf81589f3338f9e45c6c1d23681269ccc654
-ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
+ms.openlocfilehash: 16a487dc007526f685edb52726f5797303a30c11
+ms.sourcegitcommit: fbea2708aab06c19524583f7fbdf35e73274f657
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70164844"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70966979"
 ---
 # <a name="quickstart-computer-vision-client-library-for-java"></a>快速入門：適用於 Java 的電腦視覺用戶端程式庫
 
@@ -103,10 +103,10 @@ dependencies {
 
 下列類別和介面會處理電腦視覺 Java SDK 的一些主要功能。
 
-|Name|說明|
+|名稱|說明|
 |---|---|
 | [ComputerVisionClient](https://docs.microsoft.com/java/api/com.microsoft.azure.cognitiveservices.vision.computervision.computervisionclient?view=azure-java-stable) | 所有電腦視覺功能都需要此類別。 您可以使用訂用帳戶資訊來具現化此類別，並用其來產生其他類別的執行個體。|
-|[ComputerVision](https://docs.microsoft.com/java/api/com.microsoft.azure.cognitiveservices.vision.computervision.computervision?view=azure-java-stable)| 此類別來自用戶端物件，並且會直接處理所有影像作業，例如影像分析、文字偵測和縮圖產生。
+|[ComputerVision](https://docs.microsoft.com/java/api/com.microsoft.azure.cognitiveservices.vision.computervision.computervision?view=azure-java-stable)| 此類別來自用戶端物件，並且會直接處理所有影像作業，例如影像分析、文字偵測和縮圖產生。|
 |[VisualFeatureTypes](https://docs.microsoft.com/java/api/com.microsoft.azure.cognitiveservices.vision.computervision.models.visualfeaturetypes?view=azure-java-stable)| 此列舉會定義可在標準分析作業中完成的不同影像分析類型。 視您的需求而定，您可以指定一組 VisualFeatureTypes 值。 |
 
 ## <a name="code-examples"></a>程式碼範例
@@ -172,17 +172,17 @@ dependencies {
 
 ### <a name="get-image-tags"></a>取得影像標籤
 
-下列程式碼會取得影像中已偵測到的一組標籤。 如需詳細資訊，請參閱[內容標籤](../concept-tagging-images.md)
+下列程式碼會取得影像中已偵測到的一組標籤。 如需詳細資訊，請參閱[內容標籤](../concept-tagging-images.md)。
 
 [!code-java[](~/cognitive-services-quickstart-code/java/ComputerVision/ComputerVisionQuickstart.java?name=snippet_analyzelocal_tags)]
 
-### <a name="get-faces"></a>取得臉部
+### <a name="detect-faces"></a>偵測臉部
 
 下列程式碼會傳回影像中偵測到的臉部及其矩形座標，然後選取臉部特性。 如需詳細資訊，請參閱[臉部偵測](../concept-detecting-faces.md)。
 
 [!code-java[](~/cognitive-services-quickstart-code/java/ComputerVision/ComputerVisionQuickstart.java?name=snippet_analyzelocal_faces)]
 
-### <a name="get-adult-or-racy-content"></a>取得成人或猥褻內容
+### <a name="detect-adult-or-racy-content"></a>偵測成人或猥褻內容
 
 下列程式碼會列印影像中偵測到的成人或猥褻內容。 如需詳細資訊，請參閱[成人和猥褻內容](../concept-detecting-adult-content.md)。
 
@@ -205,6 +205,12 @@ dependencies {
 下列程式碼會剖析影像中偵測到的地標相關資料。
 
 [!code-java[](~/cognitive-services-quickstart-code/java/ComputerVision/ComputerVisionQuickstart.java?name=snippet_analyzelocal_landmarks)]
+
+### <a name="get-the-image-type"></a>取得影像類型
+
+下列程式碼可列印影像類型相關資訊&mdash;不論是美工圖案或線條繪圖。
+
+[!code-java[](~/cognitive-services-quickstart-code/java/ComputerVision/ComputerVisionQuickstart.java?name=snippet_imagetype)]
 
 ## <a name="run-the-application"></a>執行應用程式
 

@@ -14,14 +14,14 @@ ms.tgt_pltfrm: mobile-android
 ms.devlang: java
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 07/15/2019
+ms.date: 09/11/2019
 ms.author: jowargo
-ms.openlocfilehash: a01a71190f6de4bd08ee306f0175b01fee3db3d5
-ms.sourcegitcommit: 920ad23613a9504212aac2bfbd24a7c3de15d549
+ms.openlocfilehash: f1a6980efd7614ce245c45852b6ce08eb71d1cfd
+ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "68227888"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70935135"
 ---
 # <a name="tutorial-push-notifications-to-android-devices-by-using-azure-notification-hubs-and-google-firebase-cloud-messaging"></a>教學課程：使用 Azure 通知中樞和 Google Firebase 雲端通訊將通知推送至 Android 裝置
 
@@ -190,7 +190,7 @@ ms.locfileid: "68227888"
      > [!IMPORTANT]
      > 請輸入中樞的**名稱**和 **DefaultListenSharedAccessSignature**，再繼續進行。 
 
-3. 將另一個新類別新增至名為 `RegistrationIntentService`的專案。 此類別會實作 `IntentService` 介面。 此類別也會處理[重新整理 GCM 權杖](https://developers.google.com/instance-id/guides/android-implementation#refresh_tokens)和[向通知中樞註冊](notification-hubs-push-notification-registration-management.md)的作業。
+2. 將另一個新類別新增至名為 `RegistrationIntentService`的專案。 此類別會實作 `IntentService` 介面。 此類別也會處理[重新整理 GCM 權杖](https://developers.google.com/instance-id/guides/android-implementation#refresh_tokens)和[向通知中樞註冊](notification-hubs-push-notification-registration-management.md)的作業。
 
     針對此類別使用下列程式碼。
 
@@ -292,7 +292,7 @@ ms.locfileid: "68227888"
     }
     ```
 
-4. 在 `MainActivity` 類別中，在類別宣告上面新增下列 `import` 陳述式。
+3. 在 `MainActivity` 類別中，在類別宣告上面新增下列 `import` 陳述式。
 
     ```java
     import com.google.android.gms.common.ConnectionResult;
@@ -303,7 +303,7 @@ ms.locfileid: "68227888"
     import android.widget.Toast;
     ```
 
-5. 在類別的最上方新增下列成員。 您會使用這些欄位來[檢查 Google 所建議的 Google Play 服務可用性](https://developers.google.com/android/guides/setup#ensure_devices_have_the_google_play_services_apk)。
+4. 在類別的最上方新增下列成員。 您會使用這些欄位來[檢查 Google 所建議的 Google Play 服務可用性](https://developers.google.com/android/guides/setup#ensure_devices_have_the_google_play_services_apk)。
 
     ```java
     public static MainActivity mainActivity;
@@ -312,7 +312,7 @@ ms.locfileid: "68227888"
     private static final int PLAY_SERVICES_RESOLUTION_REQUEST = 9000;
     ```
 
-6. 在 `MainActivity` 類別中，新增下列方法以檢查 Google Play 服務的可用性。
+5. 在 `MainActivity` 類別中，新增下列方法以檢查 Google Play 服務的可用性。
 
     ```java
     /**
@@ -339,7 +339,7 @@ ms.locfileid: "68227888"
     }
     ```
 
-7. 在 `MainActivity` 類別中加入下列程式碼，以在呼叫 `IntentService` 之前檢查 Google Play 服務，進而取得 FCM 註冊權杖並向中樞註冊：
+6. 在 `MainActivity` 類別中加入下列程式碼，以在呼叫 `IntentService` 之前檢查 Google Play 服務，進而取得 FCM 註冊權杖並向中樞註冊：
 
     ```java
     public void registerWithNotificationHubs()
@@ -352,7 +352,7 @@ ms.locfileid: "68227888"
     }
     ```
 
-8. 在 `MainActivity` 類別的 `OnCreate` 方法中，加入下列程式碼以便在活動建立時開始註冊程序：
+7. 在 `MainActivity` 類別的 `OnCreate` 方法中，加入下列程式碼以便在活動建立時開始註冊程序：
 
     ```java
     @Override
@@ -366,7 +366,7 @@ ms.locfileid: "68227888"
     }
     ```
 
-9. 為了驗證應用程式狀態及報告您的應用程式狀態，請將上述其他方法新增至 `MainActivity`：
+8. 為了驗證應用程式狀態及報告您的應用程式狀態，請將上述其他方法新增至 `MainActivity`：
 
     ```java
     @Override
@@ -405,15 +405,17 @@ ms.locfileid: "68227888"
     }
     ```
 
-10. `ToastNotify` 方法會使用 *"Hello World"* `TextView` 控制項持續在應用程式中報告狀態和通知。 在 **res** > **layout** > **activity_main.xml** 配置中，為該控制項新增下列識別碼。
+9. `ToastNotify` 方法會使用 *"Hello World"* `TextView` 控制項持續在應用程式中報告狀態和通知。 在 **res** > **layout** > **activity_main.xml** 配置中，為該控制項新增下列識別碼。
 
     ```java
     android:id="@+id/text_hello"
     ```
 
-11. 接下來，您會為 AndroidManifest.xml 中所定義的接收者新增子類別。 將另一個新類別新增至名為 `FirebaseService`的專案。
+    ![Azure 通知中樞 - 測試傳送](./media/notification-hubs-android-push-notification-google-fcm-get-started/activity-main-xml.png)
 
-12. 在 `FirebaseService.java` 頂端新增下列 import 陳述式：
+10. 接下來，您會為 AndroidManifest.xml 中所定義的接收者新增子類別。 將另一個新類別新增至名為 `FirebaseService`的專案。
+
+11. 在 `FirebaseService.java` 頂端新增下列 import 陳述式：
 
     ```java
     import com.google.firebase.messaging.FirebaseMessagingService;
@@ -428,10 +430,10 @@ ms.locfileid: "68227888"
     import android.net.Uri;
     import android.os.Build;
     import android.os.Bundle;
-    import android.support.v4.app.NotificationCompat;
+    import androidx.core.app.NotificationCompat;
     ```
 
-13. 在 `FirebaseService` 類別中新增下列程式碼，使其成為 `FirebaseMessagingService` 的子類別。
+12. 在 `FirebaseService` 類別中新增下列程式碼，使其成為 `FirebaseMessagingService` 的子類別。
 
     此程式碼會覆寫 `onMessageReceived` 方法，並報告所收到的通知。 它也會使用 `sendNotification()` 方法，將推播通知傳送給 Android 通知管理員。 當應用程式並未執行卻收到通知時，請呼叫 `sendNotification()` 方法。
 
@@ -518,12 +520,16 @@ ms.locfileid: "68227888"
     }
     ```
 
-14. 在 Android Studio 的功能表列上，選取 [建置]   > [重新建置專案]  ，來確保程式碼中未沒有任何錯誤。 如果您收到有關 `ic_launcher` 圖示的錯誤，請移除 AndroidManifest.xml 檔案中的下列陳述式： 
+13. 在 Android Studio 的功能表列上，選取 [建置]   > [重新建置專案]  ，來確保程式碼中未沒有任何錯誤。 如果您收到有關 `ic_launcher` 圖示的錯誤，請移除 AndroidManifest.xml 檔案中的下列陳述式： 
 
     ```
         android:icon="@mipmap/ic_launcher"
     ```
-15. 在您的裝置上執行應用程式，並確認該應用程式已向中樞註冊成功。
+14. 確定您有可供執行應用程式的虛擬裝置。 如果沒有，請如下所示加以新增：
+    1. ![開啟裝置管理員](./media/notification-hubs-android-push-notification-google-fcm-get-started/open-device-manager.png)
+    2. ![建立虛擬裝置](./media/notification-hubs-android-push-notification-google-fcm-get-started/your-virtual-devices.PNG)
+
+15. 在您所選的裝置上執行應用程式，並確認該應用程式已向中樞註冊成功。
 
     > [!NOTE]
     > 註冊可能會在初始啟動期間失敗，直到呼叫執行個體識別碼服務的 `onTokenRefresh()` 方法為止。 重新整理作業應該會起始向通知中樞註冊的作業並且會成功。

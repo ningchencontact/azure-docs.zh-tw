@@ -9,12 +9,12 @@ ms.subservice: face-api
 ms.topic: quickstart
 ms.date: 07/26/2019
 ms.author: pafarley
-ms.openlocfilehash: 2a74dbe9c306c1bf2420fdaac78a9b9183cacab1
-ms.sourcegitcommit: aebe5a10fa828733bbfb95296d400f4bc579533c
+ms.openlocfilehash: f237af58bb98f667d4481a88bbb4daa77657468c
+ms.sourcegitcommit: fbea2708aab06c19524583f7fbdf35e73274f657
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/05/2019
-ms.locfileid: "70376143"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70966917"
 ---
 # <a name="quickstart-face-client-library-for-python"></a>快速入門：適用於 Python 的臉部用戶端程式庫
 
@@ -72,7 +72,7 @@ pip install --upgrade azure-cognitiveservices-Face
 
 下列類別和介面會處理臉部 Python SDK 的一些主要功能。
 
-|Name|說明|
+|名稱|說明|
 |---|---|
 |[FaceClient](https://docs.microsoft.com/python/api/azure-cognitiveservices-vision-face/azure.cognitiveservices.vision.face.faceclient?view=azure-python) | 此類別代表可使用臉部服務的授權，需要有此授權才能執行所有臉部功能。 您可以使用訂用帳戶資訊來具現化此類別，並用其來產生其他類別的執行個體。 |
 |[FaceOperations](https://docs.microsoft.com/python/api/azure-cognitiveservices-vision-face/azure.cognitiveservices.vision.face.operations.faceoperations?view=azure-python)|此類別會處理可使用人臉來執行的基本偵測和辨識工作。 |
@@ -285,7 +285,7 @@ python quickstart-file.py
 
 ## <a name="next-steps"></a>後續步驟
 
-在本快速入門中，您已了解如何使用適用於 Java 的臉部程式庫來執行基本工作。 接下來，請瀏覽參考文件來深入了解此程式庫。
+在本快速入門中，您已了解如何使用適用於 Python 的臉部程式庫來執行基本工作。 接下來，請瀏覽參考文件來深入了解此程式庫。
 
 > [!div class="nextstepaction"]
 > [臉部 API 參考 (Python)](https://docs.microsoft.com/python/api/azure-cognitiveservices-vision-face/?view=azure-python)

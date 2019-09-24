@@ -11,12 +11,12 @@ ms.topic: overview
 ms.date: 07/03/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 4f823b62237e8018f092d7a94fb479f7fbdd38da
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 915388b850b1b046dae91a20540881480694a944
+ms.sourcegitcommit: fbea2708aab06c19524583f7fbdf35e73274f657
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68565774"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70967049"
 ---
 # <a name="what-is-computer-vision"></a>什麼是電腦視覺？
 
@@ -75,6 +75,6 @@ Azure 的電腦視覺服務可供開發人員存取進階演算法，以處理�
 
 藉由遵循快速入門指南來開始使用電腦視覺：
 
-- [快速入門：分析影像](quickstarts-sdk/csharp-analyze-sdk.md)
-- [快速入門：擷取手寫文字](quickstarts-sdk/csharp-hand-text-sdk.md)
-- [快速入門：產生縮圖](quickstarts-sdk/csharp-thumb-sdk.md)
+- [快速入門：電腦視覺 .NET SDK](quickstarts-sdk/csharp-sdk.md)
+- [快速入門：電腦視覺 Python SDK](quickstarts-sdk/python-sdk.md)
+- [快速入門：電腦視覺 Java SDK](quickstarts-sdk/java-sdk.md)

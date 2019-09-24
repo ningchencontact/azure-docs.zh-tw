@@ -1,0 +1,69 @@
+---
+title: 使用儲存體總管來檢視知識存放區 - Azure 搜尋服務
+description: 使用 Azure 入口網站的儲存體總管來檢視和分析 Azure 搜尋服務的知識存放區。
+author: lisaleib
+services: search
+ms.service: search
+ms.subservice: cognitive-search
+ms.topic: tutorial
+ms.date: 09/03/2019
+ms.author: v-lilei
+ms.openlocfilehash: 6c90cec91e85f64397f70b015ffde15a2ea6deaf
+ms.sourcegitcommit: dd69b3cda2d722b7aecce5b9bd3eb9b7fbf9dc0a
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70963115"
+---
+# <a name="view-a-knowledge-store-with-storage-explorer"></a>使用儲存體總管來檢視知識存放區
+
+> [!Note]
+> 知識存放區處於預覽狀態，不應用於生產環境。 [Azure 搜尋服務 REST API 版本 2019-05-06-Preview](search-api-preview.md) 會提供此功能。 目前沒有 .NET SDK 支援。
+>
+在本文中，您將了解如何使用 Azure 入口網站中的儲存體總管來連接及探索知識存放區。 若要建立本逐步解說中使用的知識存放區範例，請參閱[在 Azure 入口網站中建立知識存放區](knowledge-store-create-portal.md)。
+
+## <a name="prerequisites"></a>必要條件
+
++ 遵循[在 Azure 入口網站中建立知識存放區](knowledge-store-create-portal.md)中的步驟，建立本逐步解說中所使用的知識存放區範例。
+
++ 您也需要用來建立知識存放區的 Azure 儲存體帳戶名稱，以及其來自 Azure 入口網站的存取金鑰。
+
+## <a name="view-edit-and-query-a-knowledge-store-in-storage-explorer"></a>在儲存體總管中檢視、編輯和查詢知識存放區
+
+1. 在 Azure 入口網站中，開啟您用來建立知識存放區的儲存體帳戶。
+
+1. 在儲存體帳戶的左側瀏覽窗格中，按一下 [儲存體總管]  。
+
+1. 展開 [資料表]  清單，以顯示當您對飯店檢閱資料範例執行 [匯入資料]  精靈時所建立的 Azure 資料表預測清單。
+
+選取任何資料表來檢視擴充的資料，包括關鍵片語的情感分數、經緯度位置資料等等。
+
+   ![在儲存體總管中檢視資料表](media/knowledge-store-view-storage-explorer/storage-explorer-tables.png "在儲存體總管中檢視資料表")
+
+若要變更任何資料表值的資料類型，或變更資料表中的個別值，請按一下 [編輯]  。 當您變更某個資料表資料列中任何資料行的資料類型時，系統變會將該類型套用至所有資料列。
+
+   ![在儲存體總管中編輯資料表](media/knowledge-store-view-storage-explorer/storage-explorer-edit-table.png "在儲存體總管中編輯資料表")
+
+若要執行查詢，請在命令列上按一下 [查詢]  ，然後輸入您的條件。  
+
+   ![在儲存體總管中查詢資料表](media/knowledge-store-view-storage-explorer/storage-explorer-query-table.png "在儲存體總管中查詢資料表")
+
+## <a name="clean-up"></a>清除
+
+使用您自己的訂用帳戶時，在專案結束後確認您是否還需要您建立的資源，是很好的做法。 讓資源繼續執行可能會產生費用。 您可以個別刪除資源，或刪除資源群組以刪除整組資源。
+
+您可以使用左導覽窗格中的 [所有資源]  或 [資源群組]  連結，在入口網站中尋找和管理資源。
+
+如果您使用免費服務，請記住您會有三個索引、索引子和資料來源的限制。 您可以在入口網站中刪除個別項目，以避免超出限制。
+
+## <a name="next-steps"></a>後續步驟
+
+若要了解如何將此知識存放區連線到 Power BI，請參閱下列文章。
+
+> [!div class="nextstepaction"]
+> [與 Power BI 連線](knowledge-store-connect-power-bi.md)
+
+若要了解如何使用 REST API 和 Postman 建立知識存放區，請參閱下列文章。  
+
+> [!div class="nextstepaction"]
+> [在 REST 中建立知識存放區](knowledge-store-howto.md)
