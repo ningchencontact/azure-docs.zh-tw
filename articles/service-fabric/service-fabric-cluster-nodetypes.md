@@ -89,7 +89,7 @@ Service Fabric 虛擬機器擴充功能可用來啟動 Service Fabric 至 Azure 
 | commonNames | string[] | --- | 已安裝叢集憑證的一般名稱 |
 | x509StoreName | string | --- | 安裝的叢集憑證所在的存放區名稱 |
 | typeHandlerVersion | 1.1 | --- | 延伸模組的版本。 1.0 建議將傳統版本的擴充功能更新至1。1 |
-| 資料路徑 | string | --- | 用來儲存 Service Fabric 系統服務和應用程式資料狀態的磁片磁碟機路徑。 
+| dataPath | string | --- | 用來儲存 Service Fabric 系統服務和應用程式資料狀態的磁片磁碟機路徑。 
 
 ## <a name="next-steps"></a>後續步驟
 * 請參閱[「到處部署」功能和與 Azure 受控叢集比較的概觀](service-fabric-deploy-anywhere.md)。
