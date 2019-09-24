@@ -6,12 +6,12 @@ ms.service: load-balancer
 ms.topic: article
 ms.date: 09/17/2019
 ms.author: allensu
-ms.openlocfilehash: eda0d6e8fe56b985c3b29fa80cee880444d63741
-ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
+ms.openlocfilehash: ad7e4c5aaa20722e6158973571fb95eb8d853f4d
+ms.sourcegitcommit: 3fa4384af35c64f6674f40e0d4128e1274083487
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71105298"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71219798"
 ---
 # <a name="move-azure-external-load-balancer-to-another-region-using-the-azure-portal"></a>使用 Azure 入口網站將 Azure 外部 Load Balancer 移至另一個區域
 
@@ -27,7 +27,7 @@ Azure 外部負載平衡器無法從一個區域移至另一個區域。 不過�
 - Azure 外部負載平衡器無法在區域之間移動。  您必須將新的負載平衡器關聯至目的地區域中的資源。
 
 - 若要匯出外部負載平衡器設定並部署範本，以在另一個區域中建立外部負載平衡器，您需要網路參與者角色或更高版本。
-   
+
 - 識別來源網路配置，以及您目前使用的所有資源。 此配置包括但不限於負載平衡器、網路安全性群組、公用 Ip 和虛擬網路。
 
 - 確認您的 Azure 訂用帳戶可讓您在使用的目的地區域中建立外部負載平衡器。 請連絡支援人員啟用所需的配額。
@@ -43,7 +43,7 @@ Azure 外部負載平衡器無法從一個區域移至另一個區域。 不過�
 
 ### <a name="export-the-public-ip-template-and-deploy-from-the-portal"></a>匯出公用 IP 範本並從入口網站部署
 
-1. 登入[Azure 入口網站](http://portal.azure.com) > **資源群組**。
+1. 登入[Azure 入口網站](https://portal.azure.com) > **資源群組**。
 2. 找出包含來源公用 IP 的資源群組，然後按一下它。
 3. 選取 >**設定** >  **匯出範本**。
 4. 在 [**匯出範本**] 分頁中，選擇 [**部署**]。
@@ -65,7 +65,7 @@ Azure 外部負載平衡器無法從一個區域移至另一個區域。 不過�
 
     按一下編輯器中的 [**儲存**]。
 
-9.  按一下 [**範本** > ] [**編輯範本**]，在線上編輯器中開啟**範本. json**檔案。 
+9.  按一下 [**範本** > ] [**編輯範本**]，在線上編輯器中開啟**範本. json**檔案。
 
 10. 若要編輯將移動公用 IP 的目的地區域，請變更 [**資源**] 底下的 [**位置**] 屬性：
 
@@ -90,11 +90,11 @@ Azure 外部負載平衡器無法從一個區域移至另一個區域。 不過�
                 "ipTags": []
                }
                }
-             ]             
+             ]
     ```
-  
+
 11. 若要取得區域位置代碼，請參閱[Azure 位置](https://azure.microsoft.com/global-infrastructure/locations/)。  區域的程式碼是不含空格、**美國** = 中部**centralus**的區功能變數名稱稱。
-    
+
 12. 您也可以根據您的需求，變更範本中的其他參數，而且是選擇性的：
 
     * **Sku** -您可以藉由變更**範本. json**檔案中的**sku**  > **名稱**屬性，將設定中的公用 IP sku 從標準變更為基本或基本設定為標準：
@@ -135,17 +135,17 @@ Azure 外部負載平衡器無法從一個區域移至另一個區域。 不過�
                 "publicIPAllocationMethod": "Dynamic",
                 "idleTimeoutInMinutes": 4,
                 "ipTags": []
-        
+
         ```
 
         如需配置方法和閒置超時值的詳細資訊，請參閱[建立、變更或刪除公用 IP 位址](https://docs.microsoft.com/azure/virtual-network/virtual-network-public-ip-address)。
 
- 
+
 13. 按一下線上編輯器中的 [**儲存**]。
 
 14. 按一下 [**基本** > ] [**訂**用帳戶]，選擇將部署目標公用 IP 的訂用帳戶。
 
-15. 按一下 [**基本** > ] [**資源群組**]，選擇將部署目標公用 IP 的資源群組。  您可以按一下 [**建立新**的]，為目標公用 IP 建立新的資源群組。  請確定名稱與現有來源公用 IP 的來源資源群組不同。 
+15. 按一下 [**基本** > ] [**資源群組**]，選擇將部署目標公用 IP 的資源群組。  您可以按一下 [**建立新**的]，為目標公用 IP 建立新的資源群組。  請確定名稱與現有來源公用 IP 的來源資源群組不同。
 
 16. 確認 [**基本** > ] [**位置**] 已設定為您想要部署公用 IP 的目標位置。
 
@@ -158,7 +158,7 @@ Azure 外部負載平衡器無法從一個區域移至另一個區域。 不過�
 
 ### <a name="export-the-external-load-balancer-template-and-deploy-from-the-azure-portal"></a>匯出外部負載平衡器範本，並從 Azure 入口網站部署
 
-1. 登入[Azure 入口網站](http://portal.azure.com) > **資源群組**。
+1. 登入[Azure 入口網站](https://portal.azure.com) > **資源群組**。
 2. 找出包含來源外部負載平衡器的資源群組，然後按一下它。
 3. 選取 >**設定** >  **匯出範本**。
 4. 在 [**匯出範本**] 分頁中，選擇 [**部署**]。
@@ -180,8 +180,8 @@ Azure 外部負載平衡器無法從一個區域移至另一個區域。 不過�
     ```
 
 6.  若要編輯上方移動的目標公用 IP 值，您必須先取得資源識別碼，然後將它複製並貼到**parameters json**檔案中。 若要取得識別碼：
-    
-    1. 在另一個瀏覽器索引標籤或視窗中，登入[Azure 入口網站](http://portal.azure.com) > **資源群組**。
+
+    1. 在另一個瀏覽器索引標籤或視窗中，登入[Azure 入口網站](https://portal.azure.com) > **資源群組**。
     2. 從上述步驟中找出包含已移動公用 IP 的目標資源群組，然後按一下它。
     3. 選取 [>**設定** > ] [**屬性**]。
     4. 在右側的分頁中，反白顯示**資源識別碼**，並將它複製到剪貼簿。  或者，您可以按一下**資源識別碼**路徑右邊的 [**複製到剪貼**簿] 按鈕。
@@ -201,7 +201,7 @@ Azure 外部負載平衡器無法從一個區域移至另一個區域。 不過�
 
         ```
     6. 按一下線上編輯器中的 [**儲存**]。
-   
+
 
 7.  如果您已設定負載平衡器的輸出 NAT 和輸出規則，此檔案中會有第三個專案作為輸出公用 IP 的外部識別碼。  在**目的地區域**中重複上述步驟，取得輸出公用 IP 的識別碼，並將該專案貼入**parameters json**檔案：
 
@@ -211,15 +211,15 @@ Azure 外部負載平衡器無法從一個區域移至另一個區域。 不過�
             "parameters": {
                 "loadBalancers_myLoadbalancer_ext_name": {
                 "value": "<target-external-lb-name>",
-                
+
             },
                 "publicIPAddresses_myPubIP_in_externalid": {
                 "value": "<target-publicIP-resource-ID>",
-                
+
             },
                 "publicIPAddresses_myPubIP_out_externalid": {
                 "defaultValue": "<target-publicIP-outbound-resource-ID>",
-                
+
             }
         },
     ```
@@ -243,7 +243,7 @@ Azure 外部負載平衡器無法從一個區域移至另一個區域。 不過�
 10. 若要取得區域位置代碼，請參閱[Azure 位置](https://azure.microsoft.com/global-infrastructure/locations/)。  區域的程式碼是不含空格、**美國** = 中部**centralus**的區功能變數名稱稱。
 
 11. 您也可以根據您的需求，變更範本中的其他參數，而且是選擇性的：
-    
+
     * **Sku** -您可以變更**範本. json**檔案中的**sku**  > **名稱**屬性，將設定中的外部負載平衡器 sku 從標準變更為基本或基本設定為標準：
 
         ```json
@@ -389,10 +389,10 @@ Azure 外部負載平衡器無法從一個區域移至另一個區域。 不過�
          如需輸出規則的詳細資訊，請參閱[Load Balancer 輸出規則](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-rules-overview)
 
 12. 按一下線上編輯器中的 [**儲存**]。
-    
+
 13. 按一下 [**基本** > ] [**訂**用帳戶]，選擇將部署目標外部負載平衡器的訂用帳戶。
 
-15. 按一下 [**基本** > ] [**資源群組**]，選擇將部署目標負載平衡器的資源群組。  您可以按一下 [**建立新**的]，為目標外部負載平衡器建立新的資源群組，或選擇先前針對公用 IP 所建立的現有資源群組。  請確定名稱與現有來源外部負載平衡器的來源資源群組不同。 
+15. 按一下 [**基本** > ] [**資源群組**]，選擇將部署目標負載平衡器的資源群組。  您可以按一下 [**建立新**的]，為目標外部負載平衡器建立新的資源群組，或選擇先前針對公用 IP 所建立的現有資源群組。  請確定名稱與現有來源外部負載平衡器的來源資源群組不同。
 
 16. 確認 [**基本** > ] [**位置**] 已設定為您想要部署外部負載平衡器的目標位置。
 
@@ -402,7 +402,7 @@ Azure 外部負載平衡器無法從一個區域移至另一個區域。 不過�
 
 19. 按一下 [**購買**] 按鈕以部署目標公用 IP。
 
-## <a name="discard"></a>捨棄 
+## <a name="discard"></a>捨棄
 
 如果您想要捨棄目標公用 IP 和外部負載平衡器，請刪除包含目標公用 IP 和外部負載平衡器的資源群組。  若要這麼做，請從入口網站的儀表板中選取資源群組，然後選取 [總覽] 頁面頂端的 [**刪除**]。
 

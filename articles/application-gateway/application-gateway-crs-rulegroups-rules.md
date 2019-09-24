@@ -7,22 +7,22 @@ ms.service: application-gateway
 ms.date: 4/11/2019
 ms.author: victorh
 ms.topic: conceptual
-ms.openlocfilehash: e56301e98ca773369631e2f7ae137c63d0b9ddef
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.openlocfilehash: 9f90f373bd6f1cfd34de1605783bf3a7f0185f4c
+ms.sourcegitcommit: 992e070a9f10bf43333c66a608428fcf9bddc130
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67613302"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71240345"
 ---
 # <a name="web-application-firewall-crs-rule-groups-and-rules"></a>Web 應用程式防火牆 CRS 規則群組與規則
 
-應用程式閘道 web 應用程式防火牆 (WAF) 會保護 web 應用程式免於一般安全性弱點和攻擊。 這是透過定義的規則根據 OWASP 核心規則集 3.0 或 2.2.9。 可依規則基礎在規則上停用這些規則。 這篇文章包含目前的規則和提供的規則集。
+應用程式閘道 web 應用程式防火牆 (WAF) 會保護 web 應用程式免於一般安全性弱點和攻擊。 這會透過根據 OWASP 核心規則集3.0 或2.2.9 所定義的規則來完成。 可依規則基礎在規則上停用這些規則。 這篇文章包含目前的規則和提供的規則集。
 
-當使用應用程式閘道 web 應用程式防火牆，會出現下列規則群組和規則。
+使用應用程式閘道搭配 web 應用程式防火牆時，可以使用下列規則群組和規則。
 
 # <a name="owasp-30tabowasp3"></a>[OWASP 3.0](#tab/owasp3)
 
-## <a name="owasp30"></a> 規則集
+## <a name="owasp30"></a>規則集
 
 ### <a name="General"></a> <p x-ms-format-detection="none">一般</p>
 
@@ -39,7 +39,7 @@ ms.locfileid: "67613302"
 
 ### <a name="crs913"></a> <p x-ms-format-detection="none">REQUEST-913-SCANNER-DETECTION</p>
 
-|RuleId|說明|
+|RuleId|描述|
 |---|---|
 |913100|找到與安全性掃描程式相關聯的使用者代理程式|
 |913110|找到與安全性掃描程式相關聯的要求標頭|
@@ -49,11 +49,11 @@ ms.locfileid: "67613302"
 
 ### <a name="crs920"></a> <p x-ms-format-detection="none">REQUEST-920-PROTOCOL-ENFORCEMENT</p>
 
-|RuleId|說明|
+|RuleId|描述|
 |---|---|
 |920100|無效的 HTTP 要求列|
 |920130|無法剖析要求內文。|
-|920140|多部分要求內文的嚴格驗證失敗|
+|920140|多部分要求主體失敗嚴格驗證|
 |920160|內容長度 HTTP 標頭不是數值。|
 |920170|具有內文內容的 GET 或 HEAD 要求。|
 |920180|POST 要求遺失 Content-Length 標頭。|
@@ -91,7 +91,7 @@ ms.locfileid: "67613302"
 |920202|範圍 = 太多 pdf 要求的欄位 (6 個或以上)|
 |920273|要求 (非常嚴格的設定之外) 中的字元無效|
 |920274|要求標頭 (非常嚴格的設定之外) 中的字元無效|
-|920460|異常的逸出字元|
+|920460|異常的換用字元|
 
 ### <a name="crs921"></a> <p x-ms-format-detection="none">REQUEST-921-PROTOCOL-ATTACK</p>
 
@@ -105,7 +105,7 @@ ms.locfileid: "67613302"
 |921150|透過承載 (偵測到 CR/LF) 的 HTTP 標頭插入式攻擊|
 |921160|透過承載 (偵測到 CR/LF 和 header-name) 的 HTTP 標頭插入式攻擊|
 |921151|透過承載 (偵測到 CR/LF) 的 HTTP 標頭插入式攻擊|
-|921170|HTTP 參數侵害|
+|921170|HTTP 參數污染|
 |921180|HTTP 參數侵害 (%@{TX.1})|
 
 ### <a name="crs930"></a> <p x-ms-format-detection="none">REQUEST-930-APPLICATION-ATTACK-LFI</p>
@@ -139,7 +139,7 @@ ms.locfileid: "67613302"
 
 ### <a name="crs933"></a> <p x-ms-format-detection="none">REQUEST-933-APPLICATION-ATTACK-PHP</p>
 
-|RuleId|說明|
+|RuleId|描述|
 |---|---|
 |933100|PHP 插入式攻擊 = 找到開頭/結尾標記|
 |933110|PHP 插入式攻擊 = 找到 PHP 指令碼檔案上傳|
@@ -163,17 +163,17 @@ ms.locfileid: "67613302"
 |941140|XSS 篩選器 - 類別 4 = JavaScript URI 向量|
 |941150|XSS 篩選器 - 類別 5 = 不允許的 HTML 屬性|
 |941180|節點狀態驗證黑名單關鍵字|
-|941190|使用樣式表的 XSS|
-|941200|XSS 使用 VML 畫面格|
-|941210|XSS 使用經過混淆處理的 Javascript|
-|941220|使用的 XSS 混淆的 VB 指令碼|
-|941230|使用的 XSS 的 '內嵌' 標籤|
-|941240|使用 'import' 或 'implementation' 屬性的 XSS|
-|941260|使用 'meta' 標記的 XSS|
-|941270|使用 'l' href 的 XSS|
-|941280|使用 'base' 標記的 XSS|
-|941290|使用 'applet' 標記的 XSS|
-|941300|使用 'object' 標記的 XSS|
+|941190|使用樣式表單的 XSS|
+|941200|使用 VML 框架的 XSS|
+|941210|使用模糊 JAVAscript 的 XSS|
+|941220|使用模糊 VB 腳本的 XSS|
+|941230|使用 ' embed ' 標記的 XSS|
+|941240|使用 [匯入] 或 [執行中] 屬性的 XSS|
+|941260|使用 ' meta ' 標記的 XSS|
+|941270|使用「連結」 href 的 XSS|
+|941280|使用 ' base ' 標記的 XSS|
+|941290|使用 ' applet ' 標記的 XSS|
+|941300|使用 ' object ' 標記的 XSS|
 |941310|US-ASCII 格式不正確編碼 XSS 篩選器 - 偵測到攻擊。|
 |941330|IE XSS 篩選器 - 偵測到攻擊。|
 |941340|IE XSS 篩選器 - 偵測到攻擊。|
@@ -197,6 +197,7 @@ ms.locfileid: "67613302"
 |942270|尋找基本的 SQL 插入。 MySQL Oracle 和其他的常見攻擊字串。|
 |942290|尋找基本 MongoDB SQL 插入嘗試|
 |942300|偵測到 MySQL 註解、條件和 ch(a)r 插入|
+|942310|偵測連鎖的 SQL 插入嘗試2/2|
 |942320|偵測到 MySQL 與 PostgreSQL 預存程序/函式插入|
 |942330|偵測到傳統 SQL 插入探測 1/2|
 |942340|偵測到基本 SQL 驗證略過嘗試 3/3|
@@ -219,9 +220,9 @@ ms.locfileid: "67613302"
 |943110|可能的工作階段 Fixation 攻擊 = 具有關閉網域查閱者的工作階段識別碼參數名稱|
 |943120|可能的工作階段 Fixation 攻擊 = 沒有查閱者的工作階段識別碼參數名稱|
 
-# <a name="owasp-229tabowasp2"></a>[OWASP 2.2.9](#tab/owasp2)
+# <a name="owasp-229tabowasp2"></a>[OWASP 2.2。9](#tab/owasp2)
 
-## <a name="owasp229"></a> 規則集
+## <a name="owasp229"></a>規則集
 
 ### <a name="crs20"></a> crs_20_protocol_violations
 
@@ -230,7 +231,7 @@ ms.locfileid: "67613302"
 |960911|無效的 HTTP 要求列|
 |981227|Apache 錯誤 = 要求中無效的 URI。|
 |960912|無法剖析要求內文。|
-|960914|多部分要求內文的嚴格驗證失敗|
+|960914|多部分要求主體失敗嚴格驗證|
 |960915|多部分剖析偵測到可能的不相符界限。|
 |960016|內容長度 HTTP 標頭不是數值。|
 |960011|具有內文內容的 GET 或 HEAD 要求。|
@@ -275,7 +276,7 @@ ms.locfileid: "67613302"
 
 ### <a name="crs30"></a> crs_30_http_policy
 
-|RuleId|說明|
+|RuleId|描述|
 |---|---|
 |960032|原則不允許方法|
 |960010|原則不允許要求內容類型|
@@ -323,7 +324,7 @@ ms.locfileid: "67613302"
 
 ### <a name="crs41sql"></a> crs_41_sql_injection_attacks
 
-|RuleId|說明|
+|RuleId|描述|
 |---|---|
 |981231|偵測到 SQL 註解順序。|
 |981260|識別到 SQL 十六進位編碼|
@@ -465,7 +466,7 @@ ms.locfileid: "67613302"
 
 ### <a name="crs42"></a> crs_42_tight_security
 
-|RuleId|說明|
+|RuleId|描述|
 |---|---|
 |950103|路徑周遊攻擊|
 
@@ -481,4 +482,4 @@ ms.locfileid: "67613302"
 
 ## <a name="next-steps"></a>後續步驟
 
-了解如何停用 WAF 規則：[自訂 WAF 規則](application-gateway-customize-waf-rules-portal.md)
+瞭解如何停用 WAF 規則：[自訂 WAF 規則](application-gateway-customize-waf-rules-portal.md)

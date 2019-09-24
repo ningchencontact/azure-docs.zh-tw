@@ -6,12 +6,12 @@ ms.service: virtual-network
 ms.topic: article
 ms.date: 08/31/2019
 ms.author: allensu
-ms.openlocfilehash: 0dd460f7ed829bf82c285b80e59778dacd882404
-ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
+ms.openlocfilehash: 839e608aa4bba26712ae5b0c160da40db279bbc9
+ms.sourcegitcommit: 3fa4384af35c64f6674f40e0d4128e1274083487
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71059316"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71219198"
 ---
 # <a name="move-azure-network-security-group-nsg-to-another-region-using-the-azure-portal"></a>使用 Azure 入口網站將 Azure 網路安全性群組（NSG）移至另一個區域
 
@@ -27,7 +27,7 @@ Azure 安全性群組無法從一個區域移至另一個區域。 不過，您�
 - Azure 網路安全性群組無法在區域之間移動。  您必須將新的 NSG 與目的地區域中的資源產生關聯。
 
 - 若要匯出 NSG 設定並部署範本以在另一個區域中建立 NSG，您將需要網路參與者角色或更高版本。
-   
+
 - 識別來源網路配置，以及您目前使用的所有資源。 此配置包括但不限於負載平衡器、公用 Ip 和虛擬網路。
 
 - 確認您的 Azure 訂用帳戶可讓您在使用的目的地區域中建立 Nsg。 請連絡支援人員啟用所需的配額。
@@ -41,7 +41,7 @@ Azure 安全性群組無法從一個區域移至另一個區域。 不過，您�
 
 ### <a name="export-the-template-and-deploy-from-the-portal"></a>匯出範本並從入口網站部署
 
-1. 登入[Azure 入口網站](http://portal.azure.com) > **資源群組**。
+1. 登入[Azure 入口網站](https://portal.azure.com) > **資源群組**。
 2. 找出包含來源 NSG 的資源群組，然後按一下它。
 3. 選取 >**設定** >  **匯出範本**。
 4. 在 [**匯出範本**] 分頁中，選擇 [**部署**]。
@@ -77,19 +77,19 @@ Azure 安全性群組無法從一個區域移至另一個區域。 不過，您�
             "location": "<target-region>",
             "properties": {
                 "provisioningState": "Succeeded",
-                "resourceGuid": "2c846acf-58c8-416d-be97-ccd00a4ccd78", 
+                "resourceGuid": "2c846acf-58c8-416d-be97-ccd00a4ccd78",
              }
             }
            ]
 
     ```
-  
+
 11. 若要取得區域位置代碼，請參閱[Azure 位置](https://azure.microsoft.com/global-infrastructure/locations/)。  區域的程式碼是不含空格、**美國** = 中部**centralus**的區功能變數名稱稱。
-    
+
 12. 您也可以根據您的需求，變更範本中的其他參數，而且是選擇性的：
 
     * **安全性規則**-您可以在**範本. Json**檔案的**securityRules**區段中新增或移除規則，以編輯要部署到目標 NSG 的規則：
-    
+
         ```json
            "resources": [
             {
@@ -155,7 +155,7 @@ Azure 安全性群組無法從一個區域移至另一個區域。 不過，您�
 
 14. 按一下 [**基本** > ] [**訂**用帳戶]，選擇將部署目標 NSG 的訂用帳戶。
 
-15. 按一下 [**基本** > ] [**資源群組**]，選擇將在其中部署目標 NSG 的資源群組。  您可以按一下 [**建立新**的]，為目標 NSG 建立新的資源群組。  請確定名稱與現有 NSG 的來源資源群組不同。 
+15. 按一下 [**基本** > ] [**資源群組**]，選擇將在其中部署目標 NSG 的資源群組。  您可以按一下 [**建立新**的]，為目標 NSG 建立新的資源群組。  請確定名稱與現有 NSG 的來源資源群組不同。
 
 16. 確認 [**基本** > ] [**位置**] 已設定為您想要部署 NSG 的目標位置。
 
@@ -165,7 +165,7 @@ Azure 安全性群組無法從一個區域移至另一個區域。 不過，您�
 
 19. 按一下 [**購買**] 按鈕以部署目標網路安全性群組。
 
-## <a name="discard"></a>捨棄 
+## <a name="discard"></a>捨棄
 
 如果您想要捨棄目標 NSG，請刪除包含目標 NSG 的資源群組。  若要這麼做，請從入口網站的儀表板中選取資源群組，然後選取 [總覽] 頁面頂端的 [**刪除**]。
 

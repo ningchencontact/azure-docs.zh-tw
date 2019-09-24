@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 07/23/2019
 ms.reviewer: sngun
 ms.custom: seodec18
-ms.openlocfilehash: 20ca823f60ced4260c2e61ca15ae04e158b7d952
-ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
+ms.openlocfilehash: f50f1b3e2ee7f98d14d29f1e2205a97d76eaacc8
+ms.sourcegitcommit: 3fa4384af35c64f6674f40e0d4128e1274083487
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69615676"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71219901"
 ---
 # <a name="change-feed-in-azure-cosmos-db---overview"></a>Azure Cosmos DB 中的變更摘要 - 概觀
 
@@ -42,7 +42,7 @@ Azure Cosmos DB 中的變更摘要可讓您針對每一個模式建置有效率�
 
 ## <a name="change-feed-and-different-operations"></a>變更摘要和不同的作業
 
-現在，您會看到變更摘要中的所有作業。 可讓您控制變更摘要的功能還無法使用，只能執行特定作業，例如更新，無法執行像插入等作業。 在變更摘要中處理項目時，您可以在項目上新增「軟標記」以用於更新，並據以篩選。 目前變更摘要不會記錄刪除項目。 您可以像先前的範例那樣，在正在刪除的項目上新增軟標記，可以在項目中新增稱為 "deleted" 的屬性，並將它設定為 "true"，然後在項目上設定 TTL，讓它可以被自動刪除。 您可以讀取變更摘要以瞭解有哪些的歷程記錄項目，例如，五年前新增的項目。 如果項目未刪除，您可以讀取至原始容器的變更摘要。
+現在，您會看到變更摘要中的所有作業。 可讓您控制變更摘要的功能還無法使用，只能執行特定作業，例如更新，無法執行像插入等作業。 在變更摘要中處理項目時，您可以在項目上新增「軟標記」以用於更新，並據以篩選。 目前變更摘要不會記錄刪除項目。 您可以像先前的範例那樣，在正在刪除的項目上新增軟標記，可以在項目中新增稱為 "deleted" 的屬性，並將它設定為 "true"，然後在項目上設定 TTL，讓它可以被自動刪除。 您可以讀取歷程記錄專案的變更摘要（對應至專案的最新變更，不包括中繼變更），例如五年前新增的專案。 如果項目未刪除，您可以讀取至原始容器的變更摘要。
 
 ### <a name="sort-order-of-items-in-change-feed"></a>變更摘要中項目的排序順序
 

@@ -9,12 +9,12 @@ ms.date: 09/13/2019
 ms.topic: conceptual
 ms.service: azure-portal
 manager: mtillman
-ms.openlocfilehash: 78c752423d20d183c561d5bcf0bb95246b84ab49
-ms.sourcegitcommit: 8ef0a2ddaece5e7b2ac678a73b605b2073b76e88
+ms.openlocfilehash: 9618d99495e65231de22eb719355e2ca75a17600
+ms.sourcegitcommit: 3fa4384af35c64f6674f40e0d4128e1274083487
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71076666"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71218049"
 ---
 # <a name="safelist-the-azure-portal-urls-on-your-firewall-or-proxy-server"></a>將防火牆或 proxy 伺服器上的 Azure 入口網站 Url
 
@@ -80,8 +80,8 @@ Azure 入口網站的安全的 URL 端點是您組織部署所在的 Azure 雲�
 需要將 IP 位址加入至安全的名稱嗎？ 下載您雲端的 Microsoft Azure datacenter IP 範圍清單：
 
 * [國際](https://www.microsoft.com/download/details.aspx?id=56519)
-* [于身份證](http://www.microsoft.com/download/details.aspx?id=57063)
-* [德國](http://www.microsoft.com/download/details.aspx?id=57064)
-* [中國](http://www.microsoft.com/download/details.aspx?id=57062)
+* [于身份證](https://www.microsoft.com/download/details.aspx?id=57063)
+* [德國](https://www.microsoft.com/download/details.aspx?id=57064)
+* [中國](https://www.microsoft.com/download/details.aspx?id=57062)
 
 其他 Microsoft 服務會使用額外的 Url 和 IP 位址來進行連線。 若要將 Microsoft 365 服務的網路連線優化，請參閱[設定您的網路以進行 Office 365](/office365/enterprise/set-up-network-for-office-365)。

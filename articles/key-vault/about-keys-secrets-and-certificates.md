@@ -9,12 +9,12 @@ ms.service: key-vault
 ms.topic: conceptual
 ms.date: 09/04/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 4bbe9d9bfaf49fe93631787b347a3446e4b0f817
-ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
+ms.openlocfilehash: cca4f794fd3f84b991c7882307f74bcfadf6835b
+ms.sourcegitcommit: 992e070a9f10bf43333c66a608428fcf9bddc130
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/15/2019
-ms.locfileid: "71000573"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71241062"
 ---
 # <a name="about-keys-secrets-and-certificates"></a>關於金鑰、祕密與憑證
 
@@ -196,7 +196,7 @@ nbf / exp 範圍外尚未生效和過期的金鑰，將會用於**解密**、**�
 
 ###  <a name="key-access-control"></a>金鑰存取控制
 
-對於由 Key Vault 管理的金鑰，其存取控制是在 Key Vault 層級上提供的，Key Vault 則是用來作為金鑰的容器。 在相同 Key Vault 中，金鑰的存取控制原則與秘密的存取控制原則並不相同。 使用者可建立一或多個保存庫來保存秘密，且必須維護適當區分和管理秘密的案例。 金鑰的存取控制獨立於秘密的存取控制。  
+對於由 Key Vault 管理的金鑰，其存取控制是在 Key Vault 層級上提供的，Key Vault 則是用來作為金鑰的容器。 金鑰的存取控制原則與相同 Key Vault 中的秘密存取控制原則不同。 使用者可建立一或多個保存庫來保存秘密，且必須維護適當區分和管理秘密的案例。 金鑰的存取控制獨立於秘密的存取控制。  
 
 您可以在保存庫上的金鑰存取控制項目中授與下列權限 (以每個使用者 / 服務主體為基礎)。 這些許可權會與金鑰組象上允許的作業緊密地進行鏡像。  將存取權授與 key vault 中的服務主體是一項 onetime 作業，所有 Azure 訂用帳戶的訂用帳戶都保持不變。 您可以使用它來部署您想要的多個憑證。 
 

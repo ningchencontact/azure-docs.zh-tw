@@ -1,6 +1,6 @@
 ---
 title: Azure NetApp Files Sdk 和 CLI 工具 |Microsoft Docs
-description: 列出 Azure NetApp Files 支援的 Sdk 和命令列 (CLI) 工具。
+description: 列出 Azure NetApp Files 支援的 Sdk 和命令列（CLI）工具。
 services: azure-netapp-files
 documentationcenter: ''
 author: b-juche
@@ -14,16 +14,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 08/28/2019
 ms.author: b-juche
-ms.openlocfilehash: a99fb3b61d8193f1671fa1d8e228439941659d57
-ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.openlocfilehash: 09a1e48d2eb9ab9b117cb1b1161d5137607400ad
+ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70141170"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71212094"
 ---
-# <a name="azure-netapp-files-sdks-and-cli-tools"></a>Azure NetApp Files Sdk 和 CLI 工具
+# <a name="azure-netapp-files-sdks-and-cli-tools"></a>Azure NetApp Files SDK 和 CLI 工具
 
-本文列出 Azure NetApp Files 支援的 Sdk 和命令列 (CLI) 工具。
+本文列出 Azure NetApp Files 支援的 Sdk 和命令列（CLI）工具。
 
 ## <a name="supported-sdks"></a>支援的 SDK 
 
@@ -33,7 +33,7 @@ ms.locfileid: "70141170"
 |------------------|--------------------------------------------------------------|
 |    .NET  |    [Azure/azure-sdk-適用于-net](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/netapp)    |
 |    Python  |  [Azure/azure-適用于 python 的 sdk](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/netapp)    |
-|    移至    |    [Azure/azure-sdk-適用于 go](https://github.com/Azure/azure-sdk-for-go/tree/master/services/netapp)       |
+|    Go    |    [Azure/azure-sdk-適用于 go](https://github.com/Azure/azure-sdk-for-go/tree/master/services/netapp)       |
 |    Java |     [Azure/azure-sdk-適用于 java](https://github.com/Azure/azure-sdk-for-java/tree/master/netapp/resource-manager) |
 |    JavaScript    |    [Azure/azure-適用于 js 的 sdk](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/netapp/arm-netapp)    |
 |    拼音   |    [Azure/azure-sdk-ruby](https://github.com/Azure/azure-sdk-for-ruby/tree/master/management/azure_mgmt_netapp)    |
@@ -54,7 +54,7 @@ ms.locfileid: "70141170"
 |    語言/工具    |    程式碼範例檔    |
 |------------------|--------------------------------------------|
 |    .NET   |    [適用于的 Azure NetApp Files SDK 範例。NETCore](https://docs.microsoft.com/samples/azure-samples/netappfiles-dotnetcore-sdk-sample/azure-netappfiles-sdk-sample-for-netcore/)    |    
-|    Pythons    |    [適用于 Python 的 Azure NetApp Files SDK 範例](https://docs.microsoft.com/samples/azure-samples/netappfiles-python-sdk-sample/azure-netappfiles-sdk-sample-for-python/)    |
+|    Python    |    [適用于 Python 的 Azure NetApp Files SDK 範例](https://docs.microsoft.com/samples/azure-samples/netappfiles-python-sdk-sample/azure-netappfiles-sdk-sample-for-python/)    |
 
 ## <a name="next-steps"></a>後續步驟   
  [下載 Azure Sdk](https://azure.microsoft.com/downloads/)

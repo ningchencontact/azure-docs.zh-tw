@@ -1,0 +1,96 @@
+---
+title: 使用以 Azure Sentinel 中的 Azure 監視器活頁簿為基礎的儀表板來監視您的資料 |Microsoft Docs
+description: 使用此教學課程來瞭解如何使用以 Azure Sentinel 中的活頁簿為基礎的儀表板來監視資料。
+services: sentinel
+documentationcenter: na
+author: rkarlin
+manager: rkarlin
+editor: ''
+ms.service: azure-sentinel
+ms.subservice: azure-sentinel
+ms.devlang: na
+ms.topic: conceptual
+ms.tgt_pltfrm: na
+ms.workload: na
+ms.date: 09/23/2019
+ms.author: rkarlin
+ms.openlocfilehash: 3f5e01a0ceebac092084e339994161763a11c49b
+ms.sourcegitcommit: 992e070a9f10bf43333c66a608428fcf9bddc130
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71240416"
+---
+# <a name="tutorial-monitor-your-data"></a>教學課程：監視您的資料
+
+
+
+將 [資料來源](quickstart-onboard.md) 連接到 Azure Sentinel 之後，您可以使用與 Azure 監視器活頁簿的 Azure Sentinel 整合來監視資料，這可提供建立自訂儀表板的豐富功能。 雖然活頁簿在 Azure Sentinel 中的顯示方式不同，但您還是可以查看如何[使用 Azure 監視器活頁簿建立互動式報表](../azure-monitor/app/usage-workbooks.md)。 Azure Sentinel 可讓您在資料中建立自訂活頁簿，同時也隨附內建的活頁簿範本，可讓您在連接資料來源之後，快速取得資料的深入解析。
+
+
+本教學課程可協助您監視 Azure Sentinel 中的資料。
+> [!div class="checklist"]
+> * 使用內建活頁簿
+> * 建立新的活頁簿
+
+## <a name="prerequisites"></a>必要條件
+
+- 在 Azure Sentinel 工作區的資源群組上，您至少必須擁有活頁簿讀取者或活頁簿參與者許可權。
+
+> [!NOTE]
+> 您可以在 Azure Sentinel 中看到的活頁簿會儲存在 Azure Sentinel 工作區資源群組中，並由其建立所在的工作區加以標記。
+
+## <a name="use-built-in-workbooks"></a>使用內建活頁簿
+
+1. 移至 [活頁**簿**]，然後選取 [**範本**]，以查看 Azure Sentinel 內建活頁簿的完整清單。 若要查看哪些與您已連接的資料類型有關，每個活頁簿中的 [**必要資料類型**] 欄位將會列出綠色核取記號旁的資料類型（如果您已經將相關資料串流至 Azure Sentinel。
+  ![前往活頁簿](./media/tutorial-monitor-data/access-workbooks.png)
+1. 按一下 [ **View 活頁簿**] 以查看填入資料的範本。
+  
+1. 若要編輯活頁簿，請選取 [**儲存**]，然後選取您要為範本儲存 json 檔案的位置。 
+
+   > [!NOTE]
+   > 這會根據相關範本建立 Azure 資源，並儲存範本 Json 檔案本身，而不是資料。
+
+
+1. 選取 [ **View 活頁簿**]。 然後，按一下頂端的 [**編輯**] 按鈕。 您現在可以編輯活頁簿，並根據您的需求進行自訂。 如需如何自訂活頁簿的詳細資訊，請參閱如何[使用 Azure 監視器活頁簿建立互動式報表](../azure-monitor/app/usage-workbooks.md)。
+![查看活頁簿](./media/tutorial-monitor-data/workbook-graph.png)
+1. 進行變更之後，您就可以儲存活頁簿。 
+
+1. 您也可以複製活頁簿：依序選取 [**編輯**] 和 [**另存**新檔]，並確定在相同的訂用帳戶和資源群組下，以另一個名稱儲存該檔案。 這些活頁簿會顯示在 [我的活頁**簿**] 索引標籤底下。
+
+
+## <a name="create-new-workbook"></a>建立新的活頁簿
+
+1. 移至 [活頁**簿**]，然後選取 [**加入活頁簿**]，從頭開始建立新的活頁簿。
+  ![前往活頁簿](./media/tutorial-monitor-data/create-workbook.png)
+
+1. 若要編輯活頁簿，請選取 [**編輯**]，然後視需要加入文字、查詢和參數。 如需如何自訂活頁簿的詳細資訊，請參閱如何[使用 Azure 監視器活頁簿建立互動式報表](../azure-monitor/app/usage-workbooks.md)。 
+
+1. 建立查詢時，請將 [**資料來源**] 設定為 [**記錄**]，將 [**資源類型**] 設定為 [ **Log Analytics** ]，然後選擇相關的工作區。 
+
+1. 建立活頁簿之後，請儲存活頁簿，並確定您將它儲存在 Azure Sentinel 工作區的訂用帳戶和資源群組底下。
+
+1. 如果您想要讓組織中的其他人使用活頁簿，請在 [**儲存**] 底下選取 [**共用報表**]。 如果您想要讓此活頁簿僅供您使用，請選取 [**我的報表**]。
+
+1. 若要在工作區中的活頁簿之間切換，您可以](./media/tutorial-monitor-data/switch.png)在任何活頁簿的上方窗格中，選取 [**開啟** ![切換活頁簿]。 在開啟右側的視窗中，于活頁簿之間切換。
+
+   ![切換活頁簿](./media/tutorial-monitor-data/switch-workbooks.png)
+
+
+## <a name="how-to-delete-workbooks"></a>如何刪除活頁簿
+
+您可以刪除從 Azure Sentinel 範本建立的活頁簿。 
+
+若要刪除自訂的活頁簿：
+1.  選取 [ **View 活頁簿**]。
+2.  選取頂端的 [**開啟**]。
+3.  在列出活頁簿的表格中，于您想要刪除的活頁簿行中，選取該行結尾的三個點 .。。開啟功能表，然後選取 [**刪除**]。 這會移除已儲存的活頁簿。
+
+> [!NOTE]
+> 這會移除資源，以及您對範本所做的任何變更。 原始範本仍可供使用。
+
+## <a name="next-steps"></a>後續步驟
+
+在本教學課程中，您已瞭解如何在 Azure Sentinel 中查看您的資料。
+
+若要瞭解如何將威脅的回應自動化，請參閱[在 Azure Sentinel 中設定自動威脅回應](tutorial-respond-threats-playbook.md)。

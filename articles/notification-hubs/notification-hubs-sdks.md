@@ -3,25 +3,27 @@ title: Azure 通知中樞 SDK
 description: 可用 Azure 通知中樞 SDK 的清單
 services: notification-hubs
 documentationcenter: ''
-author: jwargo
-manager: patniko
-editor: spelluru
+author: sethmanheim
+manager: femila
+editor: jwargo
 ms.assetid: 91188310-307a-11e9-b210-d663bd873d93
 ms.service: notification-hubs
 ms.workload: mobile
 ms.topic: article
-ms.author: jowargo
 ms.date: 02/14/2019
-ms.openlocfilehash: 9ed69ac3526098cd5426c966952de97c948322b5
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.author: sethm
+ms.reviewer: jowargo
+ms.lastreviewed: 02/14/2019
+ms.openlocfilehash: 8a4b05c0ee76aca07fd740a16a76a634727504e9
+ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60559937"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71213019"
 ---
 # <a name="azure-notification-hubs-sdks"></a>Azure 通知中樞 SDK
 
-Microsoft 和協力廠商發行適用於 Azure 通知中樞的 SDK。 適用於 Android、 iOS 和.NET 的 Microsoft 存放庫也包含每個目標平台的範例應用程式。
+Microsoft 和協力廠商發行適用於 Azure 通知中樞的 SDK。 適用于 Android、iOS 和 .NET 的 Microsoft 存放庫也包含適用于每個目標平臺的範例應用程式。
 
 | SDK            | 發行者      |
 | -------------- | -------------- |

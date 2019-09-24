@@ -1,59 +1,86 @@
 ---
-title: 連接到 Azure Sentinel 預覽版的 威脅情報資料 |Microsoft Docs
-description: 深入了解如何連接到 Azure Sentinel 的 威脅情報資料。
+title: 將威脅情報資料連線到 Azure Sentinel |Microsoft Docs
+description: 深入瞭解如何將威脅情報資料連線到 Azure Sentinel。
 documentationcenter: na
 author: rkarlin
 manager: rkarlin
 editor: ''
-ms.assetid: 56412543-5664-44c1-b026-2dbaf78a9a50
 ms.service: security-center
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/07/2019
+ms.date: 09/24/2019
 ms.author: rkarlin
-ms.openlocfilehash: 266e487a7c345f75e966afbde567c5bc4683b5c0
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: cbdf05c714971db5a618ca2a8bb35fe286d6804c
+ms.sourcegitcommit: 992e070a9f10bf43333c66a608428fcf9bddc130
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65233757"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71240678"
 ---
-# <a name="connect-data-from-threat-intelligence-providers"></a>威脅情報提供者從連線資料 
+# <a name="connect-data-from-threat-intelligence-providers---preview"></a>從威脅情報提供者連接資料-預覽
 
 > [!IMPORTANT]
-> Azure Sentinel 目前為公開預覽狀態。
-> 此預覽版本是在沒有服務等級協定的情況下提供，不建議用於生產工作負載。 可能不支援特定功能，或可能已經限制功能。 如需詳細資訊，請參閱 [Microsoft Azure 預覽版增補使用條款](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)。
+> Azure Sentinel 中的威脅情報目前處於公開預覽狀態。
+> 這項功能是在沒有服務等級協定的情況下提供，不建議用於生產工作負載。 可能不支援特定功能，或可能已經限制功能。 如需詳細資訊，請參閱 [Microsoft Azure 預覽版增補使用條款](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)。
 
-您將您的資料串流至 Azure 的 Sentinel 之後，您可以擴充它使用威脅情報摘要，您使用您的組織。 
+Azure Sentinel 可讓您匯入您的組織所使用的威脅指標，這可以增強您的安全性分析師偵測已知威脅的能力，並排定其優先順序。 Azure Sentinel 中的幾項功能會變成可用或已增強：
 
-若要可讓您跨洽詢您的警示和規則，則為 true 的威脅情報，例如，如果您收到警示來自特定 IP 位址，您的威脅情報提供者整合都能夠讓您知道是否最近找到該 IP 位址為惡意Azure 的 Sentinel 可整合[威脅情報提供者](https://aka.ms/graphsecuritytips)。 
+- **分析**包含一組已排程的規則範本，可讓您根據威脅指標的記錄事件的相符專案，來產生警示和事件。
 
-可以從 威脅情報提供者的記錄檔串流至 Azure 的 Sentinel，只要按一下。 此連線可讓您將指標包含各種類型的可預見值，例如 IP 位址、 網域、 URL 和檔案雜湊，以搜尋，並建立自訂警示規則，在 Azure 的 Sentinel。  
-> [!NOTE]
-> 您可以輸入自訂的威脅指標 Azure Sentinel 警示規則、 儀表板和追捕案例中使用藉由整合[Microsoft Graph Security tiIndicator](https://aka.ms/graphsecuritytiindicators)實體或使用[Microsoft圖形安全性整合威脅智慧平台](https://aka.ms/graphsecuritytips)。
+- 活頁**簿**會提供已匯入 Azure Sentinel 的威脅指標相關摘要資訊，以及與您的威脅指標相符的分析規則所產生的任何警示。
 
-## <a name="prerequisites"></a>先決條件  
+- **搜尋**查詢可讓安全性調查人員在常見的搜尋案例內容中，使用威脅指示器。
 
-- 以全域系統管理員或安全性系統管理員權限的使用者 
+- 當您調查異常並尋找惡意行為時，**筆記本**可以使用威脅指標。
 
-- 威脅智慧應用程式與 Microsoft Intelligent Security Graph 整合 
+您可以使用下一節所列的其中一個整合式威脅情報平臺（TIP）產品，或使用[Microsoft Graph Security TIINDICATORS API](https://aka.ms/graphsecuritytiindicators)的直接整合，將威脅指標串流至 Azure Sentinel。
 
-## <a name="connect-to-threat-intelligence"></a>連接到的威脅情報 
+## <a name="integrated-threat-intelligence-platform-products"></a>整合式威脅情報平台產品
 
-1. 如果您已經使用威脅情報提供者，請務必瀏覽至應用程式提示，並將指標傳送給 Microsoft，並為 Azure Sentinel 指定服務的權限授與。  
+- [MISP 開放原始碼威脅情報平臺](https://www.misp-project.org/)
+    
+    如需為用戶端提供 MISP 實例以將威脅指標遷移至 Microsoft Graph 安全性 API 的範例腳本，請參閱[MISP to Microsoft Graph Security 腳本](https://github.com/microsoftgraph/security-api-solutions/tree/master/Samples/MISP)。
 
-2. 在 Azure Sentinel，選取**資料連接器**，然後按一下**威脅情報**圖格。
+- [Palo Alto Networks MineMeld](https://www.paloaltonetworks.com/products/secure-the-network/subscriptions/minemeld)
+    
+    如需引導式指示，請參閱[使用 MineMeld 將 ioc 傳送至 Microsoft Graph 安全性 API](https://live.paloaltonetworks.com/t5/MineMeld-Articles/Sending-IOCs-to-the-Microsoft-Graph-Security-API-using-MineMeld/ta-p/258540)。
 
-3. 按一下 **[連接]** 。 
+- [ThreatConnect 平臺](https://threatconnect.com/solution/)
 
-4. 若要使用 Log Analytics 中的相關的結構描述，如威脅情報摘要，搜尋**ThreatIntelligenceIndicator**。 
 
- 
+## <a name="prerequisites"></a>必要條件  
+
+- 全域管理員或安全性系統管理員的 Azure AD 角色，以授與許可權給您的 TIP 產品或自訂應用程式，其使用與 Microsoft Graph Security tiIndicators API 的直接整合。
+
+- [Azure Sentinel] 工作區的 [讀取] 和 [寫入] 許可權，以儲存您的威脅指示器。
+
+## <a name="connect-azure-sentinel-to-your-threat-intelligence-provider"></a>將 Azure Sentinel 連線到您的威脅情報提供者
+
+1. 在 Azure Active Directory 中[註冊應用程式](/graph/auth-v2-service#1-register-your-app)，以取得應用程式識別碼、應用程式密碼，以及 Azure Active Directory 的租使用者識別碼。 當您設定整合式秘訣產品或使用與 Microsoft Graph Security tiIndicators API 直接整合的應用程式時，您需要這些值。
+
+2. 設定已註冊應用程式的[API 許可權](/graph/auth-v2-service#2-configure-permissions-for-microsoft-graph)：將 Microsoft Graph 應用程式許可權**ThreatIndicators. ReadWrite. OwnedBy**新增至您已註冊的應用程式。
+
+3. 要求您的 Azure Active Directory 租使用者系統管理員將管理員同意授與貴組織已註冊的應用程式。 從 Azure 入口網站：**Azure Active Directory**  > **應用程式註冊** ***應用程式*名稱View>API許可權授與系統管理員同意\<**   >   >   >  ***租使用者*名稱。> \<**
+
+4. 設定您的 TIP 產品或應用程式，使用與 Microsoft Graph Security tiIndicators API 的直接整合，藉由指定下列各項，將指標傳送給 Azure Sentinel：
+    
+    a. 已註冊應用程式的識別碼、密碼和租使用者識別碼的值。
+    
+    b. 針對目標產品，指定 Azure Sentinel。
+    
+    c. 針對 [動作]，指定 [警示]。
+
+5. 在 Azure 入口網站中，流覽至  **Azure Sentinel**  > **資料連線器**，然後選取 **威脅情報平臺（預覽）**  連接器。
+
+6. 選取 [**開啟連接器] 頁面**，然後按一下 **[連接]** 。
+
+7. 若要查看匯入 Azure Sentinel 的威脅指標，請流覽至 [ **Azure Sentinel 記錄** > ]**SecurityInsights**，然後展開 [ **ThreatIntelligenceIndicator**]。
+
 ## <a name="next-steps"></a>後續步驟
 
-本文件中，您已了解如何在您的威脅情報提供者連線到 Azure 的 Sentinel。 若要深入了解 Azure Sentinel，請參閱下列文章。
+在本檔中，您已瞭解如何將威脅情報提供者連接到 Azure Sentinel。 若要深入瞭解 Azure Sentinel，請參閱下列文章。
 
-- 若要開始使用 Azure Sentinel，您需要 Microsoft Azure 訂用帳戶。 如果您沒有訂用帳戶，可以註冊[免費試用](https://azure.microsoft.com/free/)。
-- 了解如何[將資料上架到 Azure Sentinel](quickstart-onboard.md)，並[掌握您的資料和潛在威脅](quickstart-get-visibility.md)。
+- 瞭解如何[查看您的資料和潛在威脅](quickstart-get-visibility.md)。
+- 開始[使用 Azure Sentinel 偵測威脅](tutorial-detect-threats.md)。

@@ -3,9 +3,9 @@ title: 使用 Azure 通知中樞向使用者傳送跨平台通知 (ASP.NET)
 description: 了解如何使用通知中樞範本，在單一要求中傳送以所有平台為目標的跨平台通知。
 services: notification-hubs
 documentationcenter: ''
-author: jwargo
-manager: patniko
-editor: spelluru
+author: sethmanheim
+manager: femila
+editor: jwargo
 ms.assetid: 11d2131b-f683-47fd-a691-4cdfc696f62b
 ms.service: notification-hubs
 ms.workload: mobile
@@ -13,19 +13,21 @@ ms.tgt_pltfrm: mobile-windows
 ms.devlang: multiple
 ms.topic: article
 ms.date: 01/04/2019
-ms.author: jowargo
-ms.openlocfilehash: 0f92b49c9d77029a9624782b49eb23f7083c49aa
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: sethm
+ms.reviewer: jowargo
+ms.lastreviewed: 01/04/2019
+ms.openlocfilehash: cea0d63c20af781fcfc6ba5d7c06061b12992702
+ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60872249"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71212019"
 ---
 # <a name="send-cross-platform-notifications-to-users-with-notification-hubs"></a>使用通知中心向使用者傳送跨平台通知
 
 在之前的[使用通知中心來通知使用者]教學課程中，您已了解如何將通知推播至所有由特定經驗證使用者所註冊的裝置。 在該教學課程中，需要用多個要求來傳送通知給每個支援的用戶端平台。 Azure 通知中心可支援範本，讓您指定特定裝置接收通知的方式。 此方法使得傳送跨平台通知變得更簡單。
 
-本文示範如何運用範本，在單一要求中傳送以所有平台為目標的跨平台通知。 如需這些範本的詳細資訊，請參閱 [Azure 通知中樞概觀][Templates]。
+本文示範如何運用範本，在單一要求中傳送以所有平台為目標的跨平台通知。 如需範本的詳細資訊，請參閱[Azure 通知中樞總覽][Templates]。
 
 > [!IMPORTANT]
 > Windows Phone 8.1 及更早版本的專案不支援 Visual Studio 2017。 如需詳細資訊，請參閱 [Visual Studio 2017 平台目標及相容性](https://www.visualstudio.com/en-us/productinfo/vs2017-compatibility-vs)。
@@ -37,7 +39,7 @@ ms.locfileid: "60872249"
 
 若要使用範本傳送跨平台通知，請執行下列動作：
 
-1. 在 Visual Studio 的 [方案總管] 中展開 [控制器]  資料夾，然後開啟 RegisterController.cs 檔案。
+1. 在 Visual Studio 的 [方案總管] 中展開 [控制器] 資料夾，然後開啟 RegisterController.cs 檔案。
 
 2. 在 `Put` 方法中找出建立新註冊的程式碼區塊，並將 `switch` 內容取代為下列程式碼：
 
@@ -101,7 +103,7 @@ ms.locfileid: "60872249"
 您已完成本教學課程，現在可參閱下列主題進一步了解通知中心和範本：
 
 * [Use Notification Hubs to send breaking news]: Demonstrates another scenario for using templates.
-* [Azure 通知中樞概觀][Templates]：在範本上包含更詳細的資訊。
+* [Azure 通知中樞總覽][Templates]：在範本上包含更詳細的資訊。
 
 <!-- Anchors. -->
 

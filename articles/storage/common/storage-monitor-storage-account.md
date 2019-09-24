@@ -1,5 +1,5 @@
 ---
-title: 如何監視 Azure 儲存體帳戶 | Microsoft Docs
+title: 如何監視 Azure 入口網站中的 Azure 儲存體帳戶 |Microsoft Docs
 description: 了解如何使用 Azure 入口網站來監視 Azure 中的儲存體帳戶。
 author: normesta
 ms.service: storage
@@ -8,16 +8,18 @@ ms.date: 07/31/2018
 ms.author: normesta
 ms.reviewer: fryu
 ms.subservice: common
-ms.openlocfilehash: 912c1c3403191f40dac054f99f29ac60ba84ce8f
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: 143574ff02960fcd0fd33ccaed5a80a9bb4f3147
+ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68844911"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71211864"
 ---
 # <a name="monitor-a-storage-account-in-the-azure-portal"></a>在 Azure 入口網站中監視儲存體帳戶
 
-[Azure 儲存體分析](storage-analytics.md)會提供所有儲存體服務的計量以及 Blob、佇列和資料表的記錄。 您可以使用 [Azure 入口網站](https://portal.azure.com)設定要為帳戶記錄哪些計量和記錄，並設定可利用視覺方式呈現計量資料的圖表。
+[Azure 儲存體分析](storage-analytics.md)會提供所有儲存體服務的計量以及 Blob、佇列和資料表的記錄。 您可以使用 [Azure 入口網站](https://portal.azure.com)設定要為帳戶記錄哪些計量和記錄，並設定可利用視覺方式呈現計量資料的圖表。 
+
+我們建議您參閱[儲存體的 Azure 監視器](../../azure-monitor/insights/storage-insights-overview.md)（預覽）。 它是 Azure 監視器的一項功能，藉由提供 Azure 儲存體服務效能、容量和可用性的統一觀點，提供 Azure 儲存體帳戶的全面監視。 您不需要啟用或設定任何專案，而且可以立即從預先定義的互動式圖表和包含的其他視覺效果中查看這些計量。
 
 > [!NOTE]
 > 在 Azure 入口網站中查看監視資料會衍生相關成本。 如需詳細資訊，請參閱[儲存體分析](storage-analytics.md)。
@@ -41,7 +43,7 @@ ms.locfileid: "68844911"
    若要設定資料保留原則，請移動 [保留期 (天)] 滑桿，或輸入要保留資料的天數，範圍從 1 到 365 天。 新儲存體帳戶的預設值是 7 天。 如果不想設定保留原則，則請輸入零。 如果沒有保留原則，您可以決定是否刪除監視資料。
 
    > [!WARNING]
-   > 若您以手動方式刪除計量資料，將需要付費。 過時的分析資料 (存在時間超過保留原則的資料) 則會由系統刪除，不必付費。 建議您根據要將帳戶的儲存體分析資料保留多久來設定保留原則。 如需詳細資訊, 請參閱[儲存體計量的計費](storage-analytics-metrics.md#billing-on-storage-metrics)。
+   > 若您以手動方式刪除計量資料，將需要付費。 過時的分析資料 (存在時間超過保留原則的資料) 則會由系統刪除，不必付費。 建議您根據要將帳戶的儲存體分析資料保留多久來設定保留原則。 如需詳細資訊，請參閱[儲存體計量的計費](storage-analytics-metrics.md#billing-on-storage-metrics)。
    >
 
 1. 監視組態完成時，選取 [儲存]。
@@ -138,7 +140,7 @@ ms.locfileid: "68844911"
 
 診斷記錄會儲存在儲存體帳戶中名為 *$logs* 的 Blob 容器內。 若要檢視記錄資料，您可以使用 [Microsoft 儲存體總管](https://storageexplorer.com)之類的儲存體總管，或使用儲存體用戶端程式庫或 PowerShell 以程式設計方式進行檢視。
 
-如需存取 $logs 容器的相關資訊, 請參閱[儲存體分析記錄](storage-analytics-logging.md)。
+如需存取 $logs 容器的相關資訊，請參閱[儲存體分析記錄](storage-analytics-logging.md)。
 
 ## <a name="next-steps"></a>後續步驟
 

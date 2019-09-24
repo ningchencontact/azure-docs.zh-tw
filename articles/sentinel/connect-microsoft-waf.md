@@ -1,6 +1,6 @@
 ---
-title: Microsoft web 應用程式防火牆資料連線至 Azure 的 Sentinel Preview |Microsoft Docs
-description: 了解如何將 Microsoft web 應用程式防火牆資料連接至 Azure 的 Sentinel。
+title: 將 Microsoft web 應用程式防火牆資料連線到 Azure Sentinel |Microsoft Docs
+description: 瞭解如何將 Microsoft web 應用程式防火牆資料連線到 Azure Sentinel。
 services: sentinel
 documentationcenter: na
 author: rkarlin
@@ -13,44 +13,42 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/07/2019
+ms.date: 09/23/2019
 ms.author: rkarlin
-ms.openlocfilehash: 0a308394c3cfa77f80db1361b5a49a485ee5ca0e
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.openlocfilehash: 9d85b5a72c2e37719348d61250d167eb9a5688a1
+ms.sourcegitcommit: 992e070a9f10bf43333c66a608428fcf9bddc130
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67611341"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71240031"
 ---
-# <a name="connect-data-from-microsoft-web-application-firewall"></a>將資料連接，從 Microsoft web 應用程式防火牆
-
-> [!IMPORTANT]
-> Azure Sentinel 目前為公開預覽狀態。
-> 此預覽版本是在沒有服務等級協定的情況下提供，不建議用於生產工作負載。 可能不支援特定功能，或可能已經限制功能。 如需詳細資訊，請參閱 [Microsoft Azure 預覽版增補使用條款](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)。
-
-您可以串流處理來自 Azure 應用程式閘道的 Microsoft web 應用程式防火牆 (WAF) 的記錄。 此 WAF 保護您的應用程式免於常見 web 弱點，例如 SQL 插入式攻擊和跨網站指令碼，並可讓您自訂規則，以減少誤判。 請遵循下列指示，在您的 Microsoft Web 應用程式防火牆記錄檔串流至 Azure 的 Sentinel。
+# <a name="connect-data-from-microsoft-web-application-firewall"></a>從 Microsoft web 應用程式防火牆連接資料
 
 
-## <a name="prerequisites"></a>先決條件
+
+您可以從 Azure 應用程式閘道的 Microsoft web 應用程式防火牆（WAF）串流記錄。 這 WAF 可保護您的應用程式免于遭受常見的 web 弱點，例如 SQL 插入式攻擊和跨網站腳本，並可讓您自訂規則以減少誤報。 遵循這些指示，將您的 Microsoft Web 應用程式防火牆記錄串流至 Azure Sentinel。
+
+
+## <a name="prerequisites"></a>必要條件
 
 - 現有的應用程式閘道資源
 
-## <a name="connect-to-microsoft-web-application-firewall"></a>連接到 Microsoft 的 web 應用程式防火牆
+## <a name="connect-to-microsoft-web-application-firewall"></a>連接到 Microsoft web 應用程式防火牆
 
 如果您已經有 Microsoft web 應用程式防火牆，請確定您有現有的閘道資源。
-一旦部署您的 Microsoft web 應用程式防火牆，並取得資料，請參閱警示的資料可以輕鬆地串流到 Azure 的 Sentinel。
+一旦部署 Microsoft web 應用程式防火牆並取得資料之後，就可以輕鬆地將警示資料串流至 Azure Sentinel。
     
-1. 在 Azure Sentinel 入口網站中，選取**資料連接器**。
-1. 在 [資料連接器] 頁面中，選取**WAF**圖格。
-1. 移至[應用程式閘道資源](https://ms.portal.azure.com/#blade/HubsExtension/BrowseAllResourcesBlade/resourceType/Microsoft.Network%2FapplicationGateways) 選擇 WAF。
-    1. 選取  **診斷設定**。
-    1. 選取  **+ 新增診斷設定**資料表下。
-    1. 在  **診斷設定**頁面上，輸入 **名稱**，然後選取 **傳送至 Log Analytics**。
-    1. 底下**Log Analytics 工作區**選取 [Azure Sentinel] 工作區。
-    1. 選取您想要分析的記錄類型。 我們建議使用：ApplicationGatewayAccessLog 和 ApplicationGatewayFirewallLog。
-1. 若要使用 Log Analytics 中 Microsoft 的 web 應用程式防火牆警示相關的結構描述，搜尋**AzureDiagnostics**。
+1. 在 Azure Sentinel 入口網站中，選取 [**資料連線器**]。
+1. 在 [資料連線器] 頁面中，選取 [ **WAF** ] 圖格。
+1. 移至 [[應用程式閘道資源](https://ms.portal.azure.com/#blade/HubsExtension/BrowseAllResourcesBlade/resourceType/Microsoft.Network%2FapplicationGateways) ]，然後選擇您的 WAF。
+    1. 選取 [ **診斷設定**]。
+    1. 選取資料表底下的 [ **+ 新增診斷設定**]。
+    1. 在 [ **診斷設定**] 頁面中，輸入 **名稱**，然後選取 [ **傳送至 Log Analytics**]。
+    1. 在 [ **Log Analytics 工作區**] 底下，選取 [Azure Sentinel] 工作區。
+    1. 選取您想要分析的記錄類型。 我們建議：ApplicationGatewayAccessLog 和 ApplicationGatewayFirewallLog。
+1. 若要在 Log Analytics 中使用適用于 Microsoft web 應用程式防火牆警示的相關架構，請搜尋**AzureDiagnostics**。
 
 ## <a name="next-steps"></a>後續步驟
-在本文件中，您已了解如何連接至 Azure 的 Sentinel 的 Microsoft web 應用程式防火牆。 若要深入了解 Azure Sentinel，請參閱下列文章：
-- 了解如何[了解您的資料，與潛在的威脅](quickstart-get-visibility.md)。
-- 開始[偵測威脅與 Azure Sentinel](tutorial-detect-threats.md)。
+在本檔中，您已瞭解如何將 Microsoft web 應用程式防火牆連接到 Azure Sentinel。 若要深入了解 Azure Sentinel，請參閱下列文章：
+- 瞭解如何[查看您的資料和潛在威脅](quickstart-get-visibility.md)。
+- 開始[使用 Azure Sentinel 偵測威脅](tutorial-detect-threats-built-in.md)。

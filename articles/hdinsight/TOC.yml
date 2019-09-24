@@ -217,6 +217,8 @@
               href: ./hdinsight-release-notes.md
             - name: HDInsight 3.6 完整版本資訊
               href: ./hdinsight-release-notes-archive.md
+        - name: 常見問題集
+          href: ./hdinsight-faq.md
         - name: 移轉至叢集組態中以角色為基礎的細微存取
           href: ./hdinsight-migrate-granular-access-cluster-configurations.md
         - name: 在 Linux 上使用 HDInsight 的相關資訊

@@ -4,16 +4,16 @@ description: 使用儲存體分析、用戶端記錄及其他協力廠商工具�
 author: normesta
 ms.service: storage
 ms.topic: conceptual
-ms.date: 05/11/2017
+ms.date: 09/23/2019
 ms.author: normesta
 ms.reviewer: fryu
 ms.subservice: common
-ms.openlocfilehash: 08c19daa0af226834ea70db8847e1637c2373351
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: 34aa4ff6c54b34acf865af0b57c3dfa7945a637c
+ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68855359"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71212827"
 ---
 # <a name="monitor-diagnose-and-troubleshoot-microsoft-azure-storage"></a>監視、診斷與疑難排解 Microsoft Azure 儲存體
 [!INCLUDE [storage-selector-portal-monitoring-diagnosing-troubleshooting](../../../includes/storage-selector-portal-monitoring-diagnosing-troubleshooting.md)]
@@ -102,6 +102,8 @@ ms.locfileid: "68855359"
 
 您可以選擇要在 [Azure 入口網站](https://portal.azure.com)中顯示哪些每小時計量，並設定規則以在每次每小時計量超出特定臨界值時，便以電子郵件通知系統管理員。 如需詳細資訊，請參閱[接收警示通知](/azure/monitoring-and-diagnostics/monitoring-overview-alerts)。
 
+我們建議您參閱[儲存體的 Azure 監視器](../../azure-monitor/insights/storage-insights-overview.md)（預覽）。 它是 Azure 監視器的一項功能，藉由提供 Azure 儲存體服務效能、容量和可用性的統一觀點，提供 Azure 儲存體帳戶的全面監視。 您不需要啟用或設定任何專案，而且可以立即從預先定義的互動式圖表和包含的其他視覺效果中查看這些計量。
+
 儲存體服務會盡其所能收集各項度量，但是不一定會記錄每一次的儲存體操作。
 
 在 Azure 入口網站中，您可以檢視儲存體帳戶的計量，例如可用性、總要求總及平均延遲數。 同時設定了一個通知規則，會在可用性降至特定水準以下時，通知管理員。 藉由檢視這項資料，我們發現低於 100% 的資料表服務成功百分比是可以調查的方向之一 (如需詳細資訊，請參閱「[度量顯示低 PercentSuccess，或是分析記錄項目內含具有 ClientOtherErrors 交易狀態的作業項目]」一節說明)。
@@ -123,7 +125,7 @@ ms.locfileid: "68855359"
 您可以使用 [Azure 入口網站](https://portal.azure.com)來檢視全球所有 Azure 區域中儲存體服務 (及其他 Azure 服務) 的健康情況。 監視可讓您立即瞭解，不受您控制的問題所影響的區域，是否也涵蓋了您為應用程式使用儲存體服務區域。
 
 [Azure 入口網站](https://portal.azure.com)也可以針對會影響各種 Azure 服務的事件提供通知。
-注意:此項資訊之前會隨著歷程資料一起顯示在 [Azure 服務儀表板](https://status.azure.com)上。
+注意：此項資訊之前會隨著歷程資料一起顯示在 [Azure 服務儀表板](https://status.azure.com)上。
 
 雖然 [Azure 入口網站](https://portal.azure.com)會從 Azure 資料中心內收集健康情況資訊 (從內到外的監視)，但是您也可以考慮採用從外到內的監視方式，從多個位置定期存取 Azure 裝載的 Web 應用程式，來產生綜合性的處理。 [Dynatrace](https://www.dynatrace.com/en/synthetic-monitoring) 與 Application Insights for Azure DevOps 所提供的各項服務，都是此方法的範例。 如需 Application Insights for Azure DevOps 的詳細資訊，請參閱「[附錄 5：使用 Application Insights for Azure DevOps 監視](#appendix-5)」。
 
@@ -425,7 +427,7 @@ queueServicePoint.UseNagleAlgorithm = false;
 **PercentThrottlingError** 的增加通常會伴隨著儲存體要求數量增加一起發生，或是當您第一次對應用程式進行負載測試時。 當儲存體作業出現「503 伺服器忙碌」或是「500 作業逾時」狀態訊息時，用戶端也會明顯出現這個情況。
 
 #### <a name="transient-increase-in-PercentThrottlingError"></a>PercentThrottlingError 的暫時性增加
-如果應用程式中與高活動期間同時發生的 **PercentThrottlingError** 值突然增加，則您會在用戶端中針對重試作業實作指數型 (而非線性) 輪詢策略。 輪詢重試會減少資料分割上的即時負載，協助應用程式緩和突然增加的流量。 如需如何使用儲存體用戶端程式庫來執行重試原則的詳細資訊, 請參閱[microsoft.windowsazure.storage.retrypolicies 命名空間](/dotnet/api/microsoft.azure.storage.retrypolicies)。
+如果應用程式中與高活動期間同時發生的 **PercentThrottlingError** 值突然增加，則您會在用戶端中針對重試作業實作指數型 (而非線性) 輪詢策略。 輪詢重試會減少資料分割上的即時負載，協助應用程式緩和突然增加的流量。 如需如何使用儲存體用戶端程式庫來執行重試原則的詳細資訊，請參閱[microsoft.windowsazure.storage.retrypolicies 命名空間](/dotnet/api/microsoft.azure.storage.retrypolicies)。
 
 > [!NOTE]
 > **PercentThrottlingError** 值的突然增加也可能與應用程式的大量活動期間非同時發生：最可能的原因是儲存體服務移動資料分割以改善負載平衡。
@@ -520,7 +522,7 @@ queueServicePoint.UseNagleAlgorithm = false;
 | 07b26a5d-... |收到回應。 狀態碼 = 200，要求 ID = eeead849-...Content-MD5 =，ETag =    &quot;0x8D14D2DC63D059B&quot;。 |
 | 07b26a5d-... |回應標頭已成功處理完畢，並繼續剩下的作業。 |
 | 07b26a5d-... |正在下載回應內文。 |
-| 07b26a5d-... |作業已順利完成。 |
+| 07b26a5d-... |作業順利完成。 |
 | 07b26a5d-... |啟動對 https://domemaildist.blob.core.windows.net/azuremmblobcontainer 的同步要求。 |
 | 07b26a5d-... |StringToSign = DELETE............x-ms-client-request-id:07b26a5d-....x-ms-date:Tue, 03 Jun 2014 10:33:12    GMT.x-ms-version:2014-02-14./domemaildist/azuremmblobcontainer.restype:container. |
 | 07b26a5d-... |等候回應。 |
@@ -538,7 +540,7 @@ queueServicePoint.UseNagleAlgorithm = false;
 | e2d06d78-... |收到回應。 狀態碼 = 404，要求 ID = 353ae3bc-...，Content-MD5 = ，ETag = . |
 | e2d06d78-... |回應標頭已成功處理完畢，並繼續剩下的作業。 |
 | e2d06d78-... |正在下載回應內文。 |
-| e2d06d78-... |作業已順利完成。 |
+| e2d06d78-... |作業順利完成。 |
 | e2d06d78-... |啟動對 https://domemaildist.blob.core.windows.net/azuremmblobcontainer 的非同步要求。 |
 | e2d06d78-... |StringToSign = PUT...0.........x-ms-client-request-id:e2d06d78-....x-ms-date:Tue, 03 Jun 2014 10:33:12 GMT.x-ms-version:2014-02-14./domemaildist/azuremmblobcontainer.restype:container. |
 | e2d06d78-... |等候回應。 |
@@ -560,7 +562,7 @@ queueServicePoint.UseNagleAlgorithm = false;
 
 下列資料表顯示來自儲存體記錄檔案的伺服器端記錄訊息範例：
 
-| 名稱 | 值 |
+| Name | 值 |
 | --- | --- |
 | 要求開始時間 | 2014-05-30T06:17:48.4473697Z |
 | 作業類型     | GetBlobProperties            |
@@ -625,7 +627,7 @@ client.SetServiceProperties(sp);
 ### <a name="the-client-is-receiving-409-messages"></a>用戶端收到 HTTP 409 (衝突) 訊息
 下表顯示來自伺服器端記錄檔的兩項用戶端作業摘要：**DeleteIfExists** 隨後緊接使用相同 Blob 容器名稱的 **CreateIfNotExists**。 每個用戶端作業都會導致兩個要求傳送至伺服器，首先傳送的 **GetContainerProperties** 要求會檢查該容器是否存在，緊接著會傳送 **DeleteContainer** 或 **CreateContainer** 要求。
 
-| 時間戳記 | 運算 | 結果 | 容器名稱 | 用戶端要求識別碼 |
+| Timestamp | 運算 | 結果 | 容器名稱 | 用戶端要求識別碼 |
 | --- | --- | --- | --- | --- |
 | 05:10:13.7167225 |GetContainerProperties |200 |mmcont |c9f52c89-… |
 | 05:10:13.8167325 |DeleteContainer |202 |mmcont |c9f52c89-… |
@@ -677,8 +679,8 @@ client.SetServiceProperties(sp);
 ### <a name="you-are-encountering-problems-installing-the-Windows-Azure-SDK"></a>安裝 Azure SDK for .NET 時發生問題
 當您嘗試安裝 SDK 時，系統在您的本機電腦上安裝儲存體模擬器時失敗。 安裝記錄內含下列其中一則訊息：
 
-* CAQuietExec：錯誤:無法存取 SQL 執行個體
-* CAQuietExec：錯誤:無法建立資料庫
+* CAQuietExec：Error:無法存取 SQL 執行個體
+* CAQuietExec：Error:無法建立資料庫
 
 此問題原因出在現有的 LocalDB 安裝。 根據預設，儲存體模擬器在模擬 Azure 儲存體服務時，使用 LocalDB 來永久儲存資料。 您可以在嘗試安裝 SDK 之前，先於命令提示字元中執行下列命令以重設您的 LocalDB 執行個體。
 
@@ -809,7 +811,7 @@ Microsoft Message Analyzer 內建的 **Web Proxy** 追蹤功能是依據 Fiddler
 
 ## <a name="next-steps"></a>後續步驟
 
-如需 Azure 儲存體中分析的詳細資訊, 請參閱下列資源:
+如需 Azure 儲存體中分析的詳細資訊，請參閱下列資源：
 
 * [在 Azure 入口網站中監視儲存體帳戶](storage-monitor-storage-account.md)
 * [儲存體分析](storage-analytics.md)

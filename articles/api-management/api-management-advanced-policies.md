@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 11/28/2017
 ms.author: apimpm
-ms.openlocfilehash: efc439d56ee864d940942369b3d226ed2a94a383
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: 166ff5f8866fca955cbe99c5896eb509f52261f6
+ms.sourcegitcommit: 3fa4384af35c64f6674f40e0d4128e1274083487
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70072641"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71219559"
 ---
 # <a name="api-management-advanced-policies"></a>API 管理進階原則
 
@@ -38,7 +38,7 @@ ms.locfileid: "70072641"
 -   [設定要求方法](#SetRequestMethod) - 允許您變更要求的 HTTP 方法。
 -   [設定狀態碼](#SetStatus) - 將 HTTP 狀態碼變更為指定的值。
 -   [設定變數](api-management-advanced-policies.md#set-variable) - 保存具名[內容](api-management-policy-expressions.md#ContextVariables)變數中的值，供日後存取使用。
--   [追蹤](#Trace) - 將字串新增至 [API 檢查器](https://azure.microsoft.com/documentation/articles/api-management-howto-api-inspector/)輸出。
+-   [追蹤](#Trace)-將自訂追蹤新增至[API 偵測器](https://azure.microsoft.com/documentation/articles/api-management-howto-api-inspector/)輸出、Application Insights 遙測和診斷記錄中。
 -   [等候](#Wait) - 等候括住的 [Send 要求](api-management-advanced-policies.md#SendRequest)、[取得快取的值](api-management-caching-policies.md#GetFromCacheByKey)或[控制流程](api-management-advanced-policies.md#choose)原則完成後再繼續。
 
 ## <a name="choose"></a>控制流程
@@ -592,7 +592,7 @@ status code and media type. If no example or schema found, the content is empty.
 
 | 屬性     | 描述                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 | 必要項 | 預設  |
 | ------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- | -------- |
-| mode="string" | 判斷這是新要求還是現行要求的複本。 在輸出模式中，mode=copy 不會初始化要求本文。                                                                                                                                                                                                                                                                                                                                                                                                                                                                | 否       | 換一個      |
+| mode="string" | 判斷這是新要求還是現行要求的複本。 在輸出模式中，mode=copy 不會初始化要求本文。                                                                                                                                                                                                                                                                                                                                                                                                                                                                | 否       | 新增      |
 | name          | 指定要設定之標頭的名稱。                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 | 是      | N/A      |
 | exists-action | 指定當已指定標頭時要採取的動作。 此屬性必須具有下列其中一個值。<br /><br /> -override-取代現有標頭的值。<br />-skip-不取代現有的標頭值。<br />-append-將值附加至現有的標頭值。<br />-delete-移除要求中的標頭。<br /><br /> 設為 `override` 時，編列多個相同名稱的項目會導致根據所有項目來設定標頭 (列出多次)；只有列出的值才會設定在結果中。 | 否       | override |
 
@@ -676,7 +676,7 @@ status code and media type. If no example or schema found, the content is empty.
 
 | 屬性                       | 描述                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 | 必要項 | 預設  |
 | ------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- | -------- |
-| mode="string"                   | 判斷這是新要求還是現行要求的複本。 在輸出模式中，mode=copy 不會初始化要求本文。                                                                                                                                                                                                                                                                                                                                                                                                                                                                | 否       | 換一個      |
+| mode="string"                   | 判斷這是新要求還是現行要求的複本。 在輸出模式中，mode=copy 不會初始化要求本文。                                                                                                                                                                                                                                                                                                                                                                                                                                                                | 否       | 新增      |
 | response-variable-name="string" | 將會收到回應物件之內容變數的名稱。 如果變數不存在，就會在原則成功執行時建立，且將可透過 [`context.Variable`](api-management-policy-expressions.md#ContextVariables) 集合存取。                                                                                                                                                                                                                                                                                                                          | 是      | N/A      |
 | timeout="integer"               | 以秒為單位的逾時間隔，URL 的呼叫在經過此間隔後便會失敗。                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           | 否       | 60       |
 | ignore-error                    | 如果為 true，則要求會導致錯誤︰<br /><br /> -如果已指定回應變數名稱，則會包含 null 值。<br />-如果未指定回應變數名稱，則為 coNtext。將不會更新要求。                                                                                                                                                                                                                                                                                                                                                                                   | 否       | false    |
@@ -913,16 +913,31 @@ status code and media type. If no example or schema found, the content is empty.
 
 ## <a name="Trace"></a>追蹤
 
-原則會將字串新增至 [API 偵測器](https://azure.microsoft.com/documentation/articles/api-management-howto-api-inspector/)輸出。`trace` 此原則只會在觸發追蹤時執行，也就是 `Ocp-Apim-Trace` 要求標頭存在且設為 `true` 以及 `Ocp-Apim-Subscription-Key` 要求標頭存在且含有與管理帳戶相關聯的有效金鑰時。
+`trace`原則會將自訂追蹤新增至 API 偵測器輸出、Application Insights 遙測和/或診斷記錄中。 
+
+* 此原則會在觸發追蹤時，將自訂追蹤新增至[API 偵測器](https://azure.microsoft.com/documentation/articles/api-management-howto-api-inspector/)輸出`Ocp-Apim-Trace` ，亦即，要求標頭存在且`Ocp-Apim-Subscription-Key`設定為 true 且要求標頭存在，並保留允許追蹤的有效金鑰。 
+* 當[Application Insights 整合](https://docs.microsoft.com/azure/api-management/api-management-howto-app-insights)已啟用，且原則中指定的`severity`層級高於或高於診斷中指定的`verbosity`層級時，原則會在 Application Insights 中建立[追蹤](https://docs.microsoft.com/azure/azure-monitor/app/data-model-trace-telemetry)遙測設. 
+* 啟用[診斷記錄](https://docs.microsoft.com/en-us/azure/api-management/api-management-howto-use-azure-monitor#diagnostic-logs)時，原則會在記錄專案中新增一個屬性，而在原則中指定的嚴重性層級為或高於 [診斷] 設定中指定的詳細資訊層級。  
+
 
 ### <a name="policy-statement"></a>原則陳述式
 
 ```xml
 
-<trace source="arbitrary string literal">
-    <!-- string expression or literal -->
+<trace source="arbitrary string literal" severity="verbose|information|error">
+    <message>String literal or expressions</message>
+    <metadata name="string literal or expressions" value="string literal or expressions"/>
 </trace>
 
+```
+
+### <a name="traceExample"></a>範例
+
+```xml
+<trace source="PetStore API" severity="verbose">
+    <message>@((string)context.Variables["clientConnectionID"])</message>
+    <metadata name="Operation Name" value="New-Order"/>
+</trace>
 ```
 
 ### <a name="elements"></a>元素
@@ -930,12 +945,17 @@ status code and media type. If no example or schema found, the content is empty.
 | 元素 | 描述   | 必要項 |
 | ------- | ------------- | -------- |
 | trace   | 根元素。 | 是      |
+| message | 要記錄的字串或運算式。 | 是 |
+| 中繼資料 | 將自訂屬性新增至 Application Insights 的[追蹤](https://docs.microsoft.com/en-us/azure/azure-monitor/app/data-model-trace-telemetry)遙測。 | 否 |
 
 ### <a name="attributes"></a>屬性
 
 | 屬性 | 描述                                                                             | 必要項 | 預設 |
 | --------- | --------------------------------------------------------------------------------------- | -------- | ------- |
 | 來源    | 對追蹤檢視器有意義，並指定了訊息來源的字串常值。 | 是      | N/A     |
+| 嚴重性    | 指定追蹤的嚴重性層級。 允許的值`verbose`為`information`、 `error` 、（從最低到最高）。 | 否      | 詳細資訊     |
+| name    | 屬性的名稱。 | 是      | N/A     |
+| value    | 屬性的值。 | 是      | N/A     |
 
 ### <a name="usage"></a>使用量
 

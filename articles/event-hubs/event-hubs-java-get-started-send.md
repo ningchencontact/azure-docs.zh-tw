@@ -10,12 +10,12 @@ ms.topic: article
 ms.custom: seodec18, seo-java-august2019, seo-java-september2019
 ms.date: 04/15/2019
 ms.author: shvija
-ms.openlocfilehash: a24263e80f50d880be269238441545785e2f51e8
-ms.sourcegitcommit: fbea2708aab06c19524583f7fbdf35e73274f657
+ms.openlocfilehash: 054289de296488036dd0855d228d272fdea18baf
+ms.sourcegitcommit: 3fa4384af35c64f6674f40e0d4128e1274083487
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/13/2019
-ms.locfileid: "70967622"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71219419"
 ---
 # <a name="use-java-to-send-events-to-or-receive-events-from-azure-event-hubs"></a>使用 JAVA 將事件傳送到或接收來自 Azure 事件中樞的事件
 
@@ -181,11 +181,11 @@ eventHubClient.closeSync();
 1. 登入[Azure 入口網站](https://portal.azure.com)，然後選取畫面左側的 [**建立資源**]。
 2. 選取 [**儲存體**]，然後選取 [**儲存體帳戶**]。 在 [建立儲存體帳戶] 視窗中，輸入儲存體帳戶名稱。 完成其餘欄位，選取您想要的區域，然後選取 [**建立**]。
    
-    ![建立儲存體帳戶](./media/event-hubs-dotnet-framework-getstarted-receive-eph/create-storage2.png)
+    ![在 Azure 入口網站中建立儲存體帳戶](./media/event-hubs-dotnet-framework-getstarted-receive-eph/create-azure-storage-account.png)
 
 3. 選取新建立的儲存體帳戶，然後選取 [**存取金鑰**]：
    
-    ![取得存取金鑰](./media/event-hubs-dotnet-framework-getstarted-receive-eph/create-storage3.png)
+    ![取得 Azure 入口網站中的存取金鑰](./media/event-hubs-dotnet-framework-getstarted-receive-eph/select-azure-storage-access-keys.png)
 
     將 key1 值複製到暫存位置。 您將在本教學課程稍後使用它。
 

@@ -8,20 +8,22 @@ manager: femila
 ms.service: media-services
 ms.subservice: video-indexer
 ms.topic: article
-ms.date: 09/17/2019
+ms.date: 09/23/2019
 ms.author: juliako
-ms.openlocfilehash: d346f68534a9fdbc286cd5521c00d81c2a5fec78
-ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
+ms.openlocfilehash: 3c8d0d3ec0f11592610363e9150be47112995853
+ms.sourcegitcommit: 3fa4384af35c64f6674f40e0d4128e1274083487
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71203554"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71219868"
 ---
 # <a name="what-is-video-indexer"></a>什麼是影片索引子？
 
-Azure 媒體服務影片索引子是以 Azure 認知服務為基礎的 AI 解決方案。 影片索引子可讓您使用以多個通道（語音、人聲、視覺效果）為基礎的機器學習模型，來解壓縮深入解析（而不需要資料分析或編碼技能）。 您可以進一步自訂和定型模型。 此服務可進行深入搜尋、降低營運成本、讓新的營收商機、新的使用者體驗大型的影片封存（具有低進入障礙）。 
+影片索引子（VI）是 Azure 媒體服務 AI 解決方案和 Microsoft 認知服務品牌的一部分。 影片索引子可讓您使用以多個通道（語音、人聲、視覺效果）為基礎的機器學習模型，來解壓縮深入解析（而不需要資料分析或編碼技能）。 您可以進一步自訂和定型模型。 此服務可進行深入搜尋、降低營運成本、讓新的營收商機、新的使用者體驗大型的影片封存（具有低進入障礙）。 
 
 若要開始使用影片索引子來解壓縮深入解析，您必須建立帳戶並上傳影片。 當您將影片上傳到影片索引子時，它會執行不同的 AI 模型來分析視覺效果和音訊。 影片索引子會分析您的影片，這是由模型所解壓縮的深入解析。
+
+下圖為圖例，而不是影片索引子在後端運作方式的技術說明。
 
 ![流程圖](./media/video-indexer-overview/model-chart.png)
 

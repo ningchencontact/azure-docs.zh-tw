@@ -3,9 +3,9 @@ title: 範本
 description: 本主題說明 Azure 通知中樞的範本。
 services: notification-hubs
 documentationcenter: .net
-author: jwargo
-manager: patniko
-editor: spelluru
+author: sethmanheim
+manager: femila
+editor: jwargo
 ms.assetid: a41897bb-5b4b-48b2-bfd5-2e3c65edc37e
 ms.service: notification-hubs
 ms.workload: mobile
@@ -13,13 +13,15 @@ ms.tgt_pltfrm: mobile-multiple
 ms.devlang: multiple
 ms.topic: article
 ms.date: 01/04/2019
-ms.author: jowargo
-ms.openlocfilehash: 02473eb5649c7d201b6a54fd57faea997c1a21cc
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: sethm
+ms.reviewer: jowargo
+ms.lastreviewed: 01/04/2019
+ms.openlocfilehash: 54c53fee260062960d6bce9c1822971c935d88d1
+ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60872076"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71212981"
 ---
 # <a name="templates"></a>範本
 
@@ -131,7 +133,7 @@ iOS 用戶端 app 註冊的範本如下：
 
 下表顯示範本中允許使用的語言：
 
-| 運算是       | 描述 |
+| 運算式       | 描述 |
 | ---------------- | --- |
 | $(prop)          | 具有指定名稱之事件屬性的參考。 屬性名稱不區分大小寫。 如果屬性不存在，這個運算式就會解析成屬性的文字值或空字串。 |
 | $(prop, n)       | 同上，但文字會明確裁剪成 n 字元，例如 $(title, 20) 會將 title 屬性內容裁剪成 20 個字元。 |

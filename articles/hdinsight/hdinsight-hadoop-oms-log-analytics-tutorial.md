@@ -7,18 +7,18 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 08/05/2019
-ms.openlocfilehash: 7d015f485a51ae1f929e2ecaf1a05811d21594a2
-ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
+ms.openlocfilehash: a693b14bb61eb52a09ab1f1ecd5d00b339357d5d
+ms.sourcegitcommit: 992e070a9f10bf43333c66a608428fcf9bddc130
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68816025"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71240378"
 ---
 # <a name="use-azure-monitor-logs-to-monitor-hdinsight-clusters"></a>使用 Azure 監視器記錄來監視 HDInsight 叢集
 
-瞭解如何啟用 Azure 監視器記錄來監視 HDInsight 中的 Hadoop 叢集作業, 以及如何新增 HDInsight 監視解決方案。
+瞭解如何啟用 Azure 監視器記錄來監視 HDInsight 中的 Hadoop 叢集作業，以及如何新增 HDInsight 監視解決方案。
 
-[Azure 監視器記錄](../log-analytics/log-analytics-overview.md)是 Azure 監視器中的一項服務, 可監視您的雲端和內部部署環境, 以維護其可用性和效能。 它會收集您的雲端和內部部署環境中的資源所產生的資料，以及從其他監視工具提供橫跨多個來源的分析。
+[Azure 監視器記錄](../log-analytics/log-analytics-overview.md)是 Azure 監視器中的一項服務，可監視您的雲端和內部部署環境，以維護其可用性和效能。 它會收集您的雲端和內部部署環境中的資源所產生的資料，以及從其他監視工具提供橫跨多個來源的分析。
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
@@ -26,9 +26,9 @@ ms.locfileid: "68816025"
 
 ## <a name="prerequisites"></a>必要條件
 
-* **Log Analytics 工作區**。 您可以將此工作區視為唯一的 Azure 監視器記錄環境, 其具有自己的資料存放庫、資料來源和解決方案。 如需指示，請參閱[建立 Log Analytics 工作區](../azure-monitor/learn/quick-collect-azurevm.md#create-a-workspace)。
+* **Log Analytics 工作區**。 您可以將此工作區視為唯一的 Azure 監視器記錄環境，其具有自己的資料存放庫、資料來源和解決方案。 如需指示，請參閱[建立 Log Analytics 工作區](../azure-monitor/learn/quick-collect-azurevm.md#create-a-workspace)。
 
-* **Azure HDInsight 叢集**。 目前, 您可以使用 Azure 監視器記錄搭配下列 HDInsight 叢集類型:
+* **Azure HDInsight 叢集**。 目前，您可以使用 Azure 監視器記錄搭配下列 HDInsight 叢集類型：
 
   * Hadoop
   * hbase
@@ -48,7 +48,7 @@ ms.locfileid: "68816025"
 
 在本節中，您會設定現有 HDInsight Hadoop 叢集，以使用 Azure Log Analytics 工作區來監視作業、偵錯記錄等等。
 
-1. 從 [ [Azure 入口網站](https://portal.azure.com/)] 中, 選取您的叢集。  請參閱[列出和顯示叢集](./hdinsight-administer-use-portal-linux.md#showClusters)以取得指示。 叢集會在新的入口網站頁面中開啟。
+1. 從 [ [Azure 入口網站](https://portal.azure.com/)] 中，選取您的叢集。  請參閱[列出和顯示叢集](./hdinsight-administer-use-portal-linux.md#showClusters)以取得指示。 叢集會在新的入口網站頁面中開啟。
 
 1. 在左邊的 [監視]下方，選取 [Operations Management Suite]。
 
@@ -56,7 +56,7 @@ ms.locfileid: "68816025"
 
 1. 從 [選取工作區] 下拉式清單中，選取現有的 Log Analytics 工作區。
 
-1. 選取 [ **儲存**]。  需要一些時間來儲存設定。
+1. 選取 [儲存]。  需要一些時間來儲存設定。
 
     ![針對 HDInsight 叢集啟用監視](./media/hdinsight-hadoop-oms-log-analytics-tutorial/hdinsight-enable-monitoring.png "針對 HDInsight 叢集啟用監視")
 
@@ -81,7 +81,7 @@ $PrimaryKey = (Get-AzOperationalInsightsWorkspace -ResourceGroupName $resourceGr
 Enable-AzHDInsightOperationsManagementSuite -ResourceGroupName $resourceGroup -Name $cluster -WorkspaceId $WorkspaceId -PrimaryKey $PrimaryKey
 ```
 
-若要停用, 請使用[AzHDInsightOperationsManagementSuite](https://docs.microsoft.com/powershell/module/az.hdinsight/disable-azhdinsightoperationsmanagementsuite) Cmdlet:
+若要停用，請使用[AzHDInsightOperationsManagementSuite](https://docs.microsoft.com/powershell/module/az.hdinsight/disable-azhdinsightoperationsmanagementsuite) Cmdlet：
 
 ```powershell
 Disable-AzHDInsightOperationsManagementSuite -Name "<your-cluster>"
@@ -89,7 +89,7 @@ Disable-AzHDInsightOperationsManagementSuite -Name "<your-cluster>"
 
 ## <a name="install-hdinsight-cluster-management-solutions"></a>安裝 HDInsight 叢集管理解決方案
 
-HDInsight 提供叢集特定的管理解決方案, 可讓您針對 Azure 監視器記錄進行新增。 [管理解決方案](../log-analytics/log-analytics-add-solutions.md)可將功能新增至 Azure 監視器記錄, 以提供其他資料和分析工具。 這些解決方案會從您的 HDInsight 叢集收集重要效能計量，並且提供工具以搜尋計量。 這些解決方案也會針對 HDInsight 中支援的大部分叢集類型，提供視覺效果和儀表板。 藉由使用您以解決方案收集的計量，您可以建立自訂的監視規則和警示。
+HDInsight 提供叢集特定的管理解決方案，可讓您針對 Azure 監視器記錄進行新增。 [管理解決方案](../log-analytics/log-analytics-add-solutions.md)可將功能新增至 Azure 監視器記錄，以提供其他資料和分析工具。 這些解決方案會從您的 HDInsight 叢集收集重要效能計量，並且提供工具以搜尋計量。 這些解決方案也會針對 HDInsight 中支援的大部分叢集類型，提供視覺效果和儀表板。 藉由使用您以解決方案收集的計量，您可以建立自訂的監視規則和警示。
 
 可用的 HDInsight 解決方案如下：
 
@@ -100,7 +100,7 @@ HDInsight 提供叢集特定的管理解決方案, 可讓您針對 Azure 監視�
 * HDInsight Spark 監視
 * HDInsight Storm 監視
 
-如需安裝管理解決方案的指示，請參閱[在 Azure 中的管理解決方案](../azure-monitor/insights/solutions.md#install-a-monitoring-solution)。 若要進行實驗, 請安裝 HDInsight Hadoop 監視解決方案。 完成後，您會看到 **HDInsightHadoop** 圖格列示於 [摘要] 下方。 選取 **HDInsightHadoop** 圖格。 HDInsightHadoop 解決方案顯示如下：
+如需安裝管理解決方案的指示，請參閱[在 Azure 中的管理解決方案](../azure-monitor/insights/solutions.md#install-a-monitoring-solution)。 若要進行實驗，請安裝 HDInsight Hadoop 監視解決方案。 完成後，您會看到 **HDInsightHadoop** 圖格列示於 [摘要] 下方。 選取 **HDInsightHadoop** 圖格。 HDInsightHadoop 解決方案顯示如下：
 
 ![HDInsight 監視解決方案檢視](media/hdinsight-hadoop-oms-log-analytics-tutorial/hdinsight-oms-hdinsight-hadoop-monitoring-solution.png)
 
@@ -108,7 +108,16 @@ HDInsight 提供叢集特定的管理解決方案, 可讓您針對 Azure 監視�
 
 ## <a name="configuring-performance-counters"></a>正在設定效能計數器
 
-Azure 監視器也支援收集和分析叢集中節點的效能計量。 如需啟用和設定這項功能的詳細資訊, 請參閱[Azure 監視器中的 Linux 效能資料來源](https://docs.microsoft.com/azure/azure-monitor/platform/data-sources-performance-counters#linux-performance-counters)。
+Azure 監視器也支援收集和分析叢集中節點的效能計量。 如需啟用和設定這項功能的詳細資訊，請參閱[Azure 監視器中的 Linux 效能資料來源](https://docs.microsoft.com/azure/azure-monitor/platform/data-sources-performance-counters#linux-performance-counters)。
+
+## <a name="cluster-auditing"></a>叢集審核
+
+HDInsight 會藉由匯入下列類型的記錄，以 Azure 監視器記錄來支援叢集審核：
+
+* `log_gateway_audit_CL`-此表格提供來自叢集閘道節點的審核記錄，以顯示成功和失敗的登入嘗試。
+* `log_auth_CL`-此資料表會提供 SSH 記錄檔，其中包含成功和失敗的登入嘗試。
+* `log_ambari_audit_CL`-此資料表提供來自 Ambari 的 audit 記錄。
+* `log_ranger_audti_CL`-此資料表會從 ESP 叢集上的 Apache Ranger 提供 audit 記錄。
 
 ## <a name="next-steps"></a>後續步驟
 

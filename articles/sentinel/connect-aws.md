@@ -1,5 +1,5 @@
 ---
-title: 將 Symantec AWS 資料連線至 Azure Sentinel 預覽 |Microsoft Docs
+title: 將 Symantec AWS 資料連線至 Azure Sentinel |Microsoft Docs
 description: 瞭解如何將 Symantec AWS 資料連線至 Azure Sentinel。
 services: sentinel
 documentationcenter: na
@@ -12,20 +12,20 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/10/2019
+ms.date: 09/23/2019
 ms.author: rkarlin
-ms.openlocfilehash: 246d4cd7d64554ae575767cdba2e26066ad1720d
-ms.sourcegitcommit: a8b638322d494739f7463db4f0ea465496c689c6
+ms.openlocfilehash: 46ad8f6478e632cd57c009700de182993ce01be1
+ms.sourcegitcommit: 992e070a9f10bf43333c66a608428fcf9bddc130
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "68295611"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71240872"
 ---
 # <a name="connect-azure-sentinel-to-aws-cloudtrail"></a>將 Azure Sentinel 連線至 AWS CloudTrail
 
 使用 AWS 連接器將所有 AWS CloudTrail 事件串流至 Azure Sentinel。 此連線程式會將 Azure Sentinel 的存取權委派給 AWS 資源記錄, 並建立 AWS CloudTrail 與 Azure Sentinel 之間的信任關係。 這是在 AWS 上完成, 藉由建立可授與存取 AWS 記錄 Azure Sentinel 許可權的角色。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 您必須擁有 Azure Sentinel 工作區的 [寫入] 許可權。
 
@@ -37,7 +37,7 @@ ms.locfileid: "68295611"
 
 1. 在 Azure Sentinel 中選取 [**資料連線器**], 然後選取資料表中的**Amazon Web Services**行, 然後在右側的 [AWS] 窗格中, 按一下 [**開啟連接器] 頁面**。
 
-1. 使用下列步驟,  遵循 [設定] 底下的指示。
+1. 使用下列步驟,遵循 [設定] 底下的指示。
  
 1.  在 Amazon Web Services 主控台中的 [**安全性]、[識別 & 相容性**] 底下, 選取 [ **IAM**]。
 
@@ -82,5 +82,5 @@ ms.locfileid: "68295611"
 ## <a name="next-steps"></a>後續步驟
 在本檔中, 您已瞭解如何將 AWS CloudTrail 連接到 Azure Sentinel。 若要深入了解 Azure Sentinel，請參閱下列文章：
 - 瞭解如何[查看您的資料和潛在威脅](quickstart-get-visibility.md)。
-- 開始[使用 Azure Sentinel 偵測威脅](tutorial-detect-threats.md)。
+- 開始[使用 Azure Sentinel 偵測威脅](tutorial-detect-threats-built-in.md)。
 

@@ -8,26 +8,26 @@ ms.service: search
 ms.topic: conceptual
 ms.date: 09/19/2019
 ms.author: heidist
-ms.openlocfilehash: 44a8136c4e02d4eceb5b11231bbbfed010159e75
-ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
+ms.openlocfilehash: e3240ca40b9dcf866c5e4a5cf570b5575b7586d8
+ms.sourcegitcommit: 992e070a9f10bf43333c66a608428fcf9bddc130
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71172868"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71240364"
 ---
 # <a name="how-to-index-large-data-sets-in-azure-search"></a>如何在 Azure 搜尋服務中為大型資料集編製索引
 
-隨著資料量的成長或處理需求的變更，您可能會發現簡單或預設的索引編制策略已不再具有生產力。 Azure 搜尋服務有好幾種可因應較大型資料集的方法，範圍從如何建構資料上傳要求，到使用來源專屬的索引子來處理排程式和分散式的工作負載。
+隨著資料量的成長或處理需求的變更，您可能會發現簡單或預設的索引編制策略已不再可行。 Azure 搜尋服務有好幾種可因應較大型資料集的方法，範圍從如何建構資料上傳要求，到使用來源專屬的索引子來處理排程式和分散式的工作負載。
 
-對大型資料適用的技術，同樣適用於長時間執行的程序。 具體來說，[平行索引編製](#parallel-indexing)中概述的步驟就適用於需要密集計算的索引編製作業，例如[認知搜尋管線](cognitive-search-concept-intro.md)中的影像分析或自然語言處理。
+相同的技術也適用于長時間執行的進程。 具體來說，[平行索引編製](#parallel-indexing)中概述的步驟就適用於需要密集計算的索引編製作業，例如[認知搜尋管線](cognitive-search-concept-intro.md)中的影像分析或自然語言處理。
 
 下列各節將探索用來編制大量資料索引的三項技術。
 
 ## <a name="option-1-pass-multiple-documents"></a>選項 1：傳遞多個檔
 
-若要為較大型的資料集編製索引，其中一個最簡單的機制是在單一要求中提交多個文件或記錄。 只要整個承載的大小在 16 MB 以內，要求便可以在大量上傳作業中處理多達 1000 個文件。 無論您使用的是 .NET SDK 中的[REST API](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents)或[IndexBatch](https://docs.microsoft.com/otnet/api/microsoft.azure.search.models.indexbatch?view=azure-dotnet) ，都適用這些限制。 針對任一 API，您會在每個要求的主體中封裝1000檔。
+若要為較大型的資料集編製索引，其中一個最簡單的機制是在單一要求中提交多個文件或記錄。 只要整個承載的大小在 16 MB 以內，要求便可以在大量上傳作業中處理多達 1000 個文件。 無論您在 .NET SDK 中使用的是 [[新增檔（REST）](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents) ] 或 [[索引] 類別](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.index?view=azure-dotnet)，都適用這些限制。 針對任一 API，您會在每個要求的主體中封裝1000檔。
 
-在為個別要求實作批次索引編製時，會使用 REST、.NET 或透過索引子。 少數索引子會有不同的運作限制。 具體而言，Azure Blob 索引編製作業會在發現平均文件大小較大時，將批次大小設定為 10 個文件。 針對以[建立索引子 REST API](https://docs.microsoft.com/rest/api/searchservice/Create-Indexer ) 為基礎的索引子，您可以設定 `BatchSize` 引數以自訂此設定，以便更加符合資料的特性。 
+在為個別要求實作批次索引編製時，會使用 REST、.NET 或透過索引子。 少數索引子會有不同的運作限制。 具體而言，Azure Blob 索引編製作業會在發現平均文件大小較大時，將批次大小設定為 10 個文件。 針對以[建立索引子（REST）](https://docs.microsoft.com/rest/api/searchservice/Create-Indexer )為基礎的索引子，您`BatchSize`可以設定引數來自訂此設定，以更符合資料的特性。 
 
 > [!NOTE]
 > 若要讓檔案大小保持關閉，請避免將不可查詢的資料加入至索引。 影像和其他二進位資料無法直接搜尋，而且不應該儲存於索引中。 若要將不可查詢的資料整合到搜尋結果，請定義不可搜尋的欄位，以儲存資源的 URL 參考。
@@ -40,11 +40,11 @@ ms.locfileid: "71172868"
 
 ## <a name="option-3-use-indexers"></a>選項 3：使用索引子
 
-[索引子](search-indexer-overview.md)是用來將支援的 Azure 資料平臺上的外部資料源編目，以取得可搜尋的內容。 有幾個索引子功能雖然不是專門用於大規模的索引編製作業，但特別適用於因應較大型的資料集：
+[索引子](search-indexer-overview.md)可用來編目支援的 Azure 資料來源，以取得可搜尋的內容。 有幾個索引子功能雖然不是專門用於大規模的索引編製作業，但特別適用於因應較大型的資料集：
 
 + 排程器可讓您以固定間隔分拆索引編製作業，以將作業分散到不同時間進行。
 + 排程的索引編製作業可以在最後一個已知的停止點繼續進行。 如果資料來源未能在 24 小時內完整搜耙一遍，索引子會在第二天從上次停下的地方繼續開始索引編製作業。
-+ 將資料分割成較小的個別資料來源可實現平行處理作業。 您可以將大型資料集分割成較小的資料集，然後建立可平行編制索引的多個索引子資料來源定義。
++ 將資料分割成較小的個別資料來源可實現平行處理作業。 您可以將大型資料集分割成您來源資料平臺（例如 Azure Blob 儲存體或 Azure SQL Database）上較小的資料集，然後在可平行編制索引的 Azure 搜尋服務上建立多個[資料來源物件](https://docs.microsoft.com/rest/api/searchservice/create-data-source)。
 
 > [!NOTE]
 > 索引子有專門適用的資料來源，因此使用索引子的方法只適用於 Azure 上的選定資料來源：[SQL Database](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md)、[Blob 儲存體](search-howto-indexing-azure-blob-storage.md)、[資料表儲存體](search-howto-indexing-azure-tables.md)、[Cosmos DB](search-howto-index-cosmosdb.md)。

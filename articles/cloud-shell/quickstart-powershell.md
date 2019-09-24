@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/18/2018
 ms.author: damaerte
-ms.openlocfilehash: 36683d04b6f087f1d326458a07b043a0932191f1
-ms.sourcegitcommit: d060947aae93728169b035fd54beef044dbe9480
+ms.openlocfilehash: f1184f9f3a4cf827f0afef9bca8a72308c371d76
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/02/2019
-ms.locfileid: "68741995"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "71224558"
 ---
 # <a name="quickstart-for-powershell-in-azure-cloud-shell"></a>Azure Cloud Shell 中 PowerShell 的快速入門
 
@@ -147,7 +147,7 @@ MyFileShare3  \\MyStorageAccountName.file.core.windows.net\MyFileShare3;AccountN
 net use <DesiredDriveLetter>: \\<MyStorageAccountName>.file.core.windows.net\<MyFileShareName> <AccountKey> /user:Azure\<MyStorageAccountName>
 ```
 
-如需詳細資訊, 請參閱[掛接 Azure 檔案儲存體共用並在 Windows 中存取共用][azmount]。
+如需詳細資訊，請參閱[掛接 Azure 檔案儲存體共用並在 Windows 中存取共用][azmount]。
 
 您也可以導覽 Azure 檔案共用下的目錄，如下所示：
 
@@ -186,14 +186,15 @@ TestVm10   MyResourceGroup2   eastus    Standard_DS1_v2 Windows           mytest
   假設您有名為 MyVM1 的 VM，讓我們使用 `Invoke-AzVMCommand` 在遠端機器上叫用 PowerShell 指令碼區塊。
 
   ```azurepowershell-interactive
-  Invoke-AzVMCommand -Name MyVM1 -ResourceGroupName MyResourceGroup -Scriptblock {Get-ComputerInfo} -EnableRemoting
+  Enable-AzVMPSRemoting -Name MyVM1 -ResourceGroupname MyResourceGroup
+  Invoke-AzVMCommand -Name MyVM1 -ResourceGroupName MyResourceGroup -Scriptblock {Get-ComputerInfo} -Credential (Get-Credential)
   ```
 
   您也可以先導覽至 VirtualMachines 目錄，並執行 `Invoke-AzVMCommand`，如下所示。
 
   ```azurepowershell-interactive
-  PS Azure:\> cd MySubscriptionName\MyResourceGroup\Microsoft.Compute\virtualMachines
-  PS Azure:\MySubscriptionName\MyResourceGroup\Microsoft.Compute\virtualMachines> Get-Item MyVM1 | Invoke-AzVMCommand -Scriptblock {Get-ComputerInfo}
+  PS Azure:\> cd MySubscriptionName\ResourceGroups\MyResourceGroup\Microsoft.Compute\virtualMachines
+  PS Azure:\MySubscriptionName\ResourceGroups\MyResourceGroup\Microsoft.Compute\virtualMachines> Get-Item MyVM1 | Invoke-AzVMCommand -Scriptblock {Get-ComputerInfo} -Credential (Get-Credential)
 
   # You will see output similar to the following:
 
@@ -215,13 +216,13 @@ TestVm10   MyResourceGroup2   eastus    Standard_DS1_v2 Windows           mytest
 您可以使用 `Enter-AzVM`，以互動方式登入在 Azure 中執行的 VM。
 
   ```azurepowershell-interactive
-  PS Azure:\> Enter-AzVM -Name MyVM1 -ResourceGroupName MyResourceGroup -EnableRemoting
+  PS Azure:\> Enter-AzVM -Name MyVM1 -ResourceGroupName MyResourceGroup -Credential (Get-Credential)
   ```
 
 您也可以先導覽至 `VirtualMachines` 目錄，並執行 `Enter-AzVM`，如下所示。
 
   ```azurepowershell-interactive
- PS Azure:\MySubscriptionName\ResourceGroups\MyResourceGroup\Microsoft.Compute\virtualMachines> Get-Item MyVM1 | Enter-AzVM
+ PS Azure:\MySubscriptionName\ResourceGroups\MyResourceGroup\Microsoft.Compute\virtualMachines> Get-Item MyVM1 | Enter-AzVM -Credential (Get-Credential)
  ```
 
 ### <a name="discover-webapps"></a>探索 WebApp
@@ -267,7 +268,7 @@ mywebapp3       Running  MyResourceGroup3   {mywebapp3.azurewebsites.net...   So
 
 ### <a name="using-ssh"></a>使用 SSH
 
-依照[這裡](https://docs.microsoft.com/azure/virtual-machines/linux/quick-create-powershell)的指示, 使用 Azure PowerShell Cmdlet 來建立新的 VM 設定。
+依照[這裡](https://docs.microsoft.com/azure/virtual-machines/linux/quick-create-powershell)的指示，使用 Azure PowerShell Cmdlet 來建立新的 VM 設定。
 在呼叫至 `New-AzVM` 以開始部署之前，請將 SSH 公開金鑰新增至 VM 組態。
 新建立的 VM 將會在 `~\.ssh\authorized_keys` 位置包含公開金鑰，因而對 VM 啟用免認證 SH 工作階段。
 
@@ -334,11 +335,11 @@ Hello World!
 您可以建立 PowerShell 設定檔 - `profile.ps1` (或 `Microsoft.PowerShell_profile.ps1`) 來自訂 PowerShell 環境。
 將它儲存到 `$profile.CurrentUserAllHosts` (或 `$profile.CurrentUserAllHosts`) 下，以便將它載入至 Cloud Shell 工作階段中的每個 PowerShell。
 
-如需如何建立設定檔的相關資訊, 請參閱[關於設定檔][profile]。
+如需如何建立設定檔的相關資訊，請參閱[關於設定檔][profile]。
 
 ## <a name="use-git"></a>使用 Git
 
-若要在 Cloud Shell 中複製 Git 存放庫, 您需要建立[個人存取權杖][githubtoken], 並使用它做為使用者名稱。 有了權杖之後，請複製存放庫，如下所示：
+若要在 Cloud Shell 中複製 Git 存放庫，您需要建立[個人存取權杖][githubtoken]，並使用它做為使用者名稱。 有了權杖之後，請複製存放庫，如下所示：
 
 ```azurepowershell-interactive
   git clone https://<your-access-token>@github.com/username/repo.git

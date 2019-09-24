@@ -3,9 +3,9 @@ title: 使用 Azure 通知中樞將通知推送至特定 iOS 裝置| Microsoft D
 description: 在本教學課程中，您將了解如何使用 Azure 通知中樞將推播通知傳送至特定的 iOS 裝置。
 services: notification-hubs
 documentationcenter: ios
-author: jwargo
-manager: patniko
-editor: spelluru
+author: sethmanheim
+manager: femila
+editor: jwargo
 ms.assetid: 6ead4169-deff-4947-858c-8c6cf03cc3b2
 ms.service: notification-hubs
 ms.workload: mobile
@@ -13,13 +13,15 @@ ms.tgt_pltfrm: mobile-ios
 ms.devlang: objective-c
 ms.topic: article
 ms.date: 07/28/2019
-ms.author: jowargo
-ms.openlocfilehash: f83afa62859dee5963749daf2555af08cf6a0e0b
-ms.sourcegitcommit: e3b0fb00b27e6d2696acf0b73c6ba05b74efcd85
+ms.author: sethm
+ms.reviewer: jowargo
+ms.lastreviewed: 07/28/2019
+ms.openlocfilehash: 8299725cf6977ca309d57b40f4792ff9b074a8cb
+ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68663829"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71213222"
 ---
 # <a name="tutorial-push-notifications-to-specific-ios-devices-using-azure-notification-hubs"></a>教學課程：使用 Azure 通知中樞將通知推播至特定 iOS 裝置
 
@@ -39,7 +41,7 @@ ms.locfileid: "68663829"
 > * 從裝置傳送通知
 > * 執行應用程式並產生通知
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 本主題以您在以下教學課程中建立的應用程式為基礎：[教學課程：使用 Azure 通知中樞][get-started]將通知推送至 iOS 應用程式。 開始本教學課程之前，您必須已完成[教學課程：使用 Azure 通知中樞][get-started]將通知推送至 iOS 應用程式。
 
@@ -174,7 +176,7 @@ ms.locfileid: "68663829"
 
     此時，`didRegisterForRemoteNotificationsWithDeviceToken` 方法中不應有任何其他程式碼。
 
-10. 完成[開始使用通知中樞][get-started]教學課程之前, `AppDelegate.m`下列方法應該已出現在中。 否則，請予以新增。
+10. 完成[開始使用通知中樞][get-started]教學課程之前， `AppDelegate.m`下列方法應該已出現在中。 否則，請予以新增。
 
     ```objc
     - (void)MessageBox:(NSString *)title message:(NSString *)messageText
@@ -250,7 +252,7 @@ ms.locfileid: "68663829"
 
 ## <a name="optional-send-notifications-from-the-device"></a>(選擇性) 從裝置傳送通知
 
-通知通常會由後端服務傳送，但您可直接從應用程式傳送即時新聞通知。 若要這麼做, 請更新`SendNotificationRESTAPI`您在[開始使用通知中樞][get-started]教學課程中所定義的方法。
+通知通常會由後端服務傳送，但您可直接從應用程式傳送即時新聞通知。 若要這麼做，請更新`SendNotificationRESTAPI`您在[開始使用通知中樞][get-started]教學課程中所定義的方法。
 
 1. 在 `ViewController.m` 中，以下列方式更新 `SendNotificationRESTAPI` 方法，使其接受參數作為類別標記，並會傳送正確的[範本](notification-hubs-templates-cross-platform-push-messages.md)通知。
 

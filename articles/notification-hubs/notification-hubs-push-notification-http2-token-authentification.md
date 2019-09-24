@@ -3,22 +3,24 @@ title: 適用於 Azure 通知中樞 APNS 的權杖型 (HTTP/2) 驗證 | Microsof
 description: 本主題說明如何運用適用於 APNS 的新權杖驗證
 services: notification-hubs
 documentationcenter: .net
-author: jwargo
-manager: patniko
-editor: spelluru
+author: sethmanheim
+manager: femila
+editor: jwargo
 ms.service: notification-hubs
 ms.workload: mobile
 ms.tgt_pltfrm: mobile-multiple
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 02/13/2019
-ms.author: jowargo
-ms.openlocfilehash: 890577c013a96fc06acf3b05881649ad8202a083
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: sethm
+ms.reviewer: jowargo
+ms.lastreviewed: 02/13/2019
+ms.openlocfilehash: a7fdaae33e28bd543b44c54868324339d1269bc2
+ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60872324"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71213131"
 ---
 # <a name="token-based-http2-authentication-for-apns"></a>適用於 APNS 的權杖型 (HTTP/2) 驗證
 
@@ -76,13 +78,13 @@ ms.locfileid: "60872324"
 
 若要在入口網站中啟用權杖型驗證，請登入 Azure 入口網站，並移至 [通知中樞] > [Notification Services] > [APNS] 面板。
 
-我們已提供新屬性 – 驗證模式  。 選取權杖可讓您透過所有相關的權杖屬性更新您的中樞。
+我們已提供新屬性 – 驗證模式。 選取權杖可讓您透過所有相關的權杖屬性更新您的中樞。
 
 ![](./media/notification-hubs-push-notification-http2-token-authentification/azure-portal-apns-settings.png)
 
 * 輸入您從 Apple 開發人員帳戶擷取的屬性
 * 選擇您的應用程式模式 (「生產」或「沙箱」)
-* 按一下 [儲存]  按鈕以更新 APNS 認證
+* 按一下 [儲存] 按鈕以更新 APNS 認證
 
 ### <a name="configure-via-management-api-rest"></a>透過管理 API (REST) 進行設定
 

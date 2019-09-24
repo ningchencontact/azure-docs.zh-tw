@@ -4,9 +4,9 @@ description: 了解如何使用通知中樞，從 Node.js 應用程式傳送推�
 keywords: 推播通知, 推播通知, node.js 推播,ios 推播
 services: notification-hubs
 documentationcenter: nodejs
-author: jwargo
-manager: patniko
-editor: spelluru
+author: sethmanheim
+manager: femila
+editor: jwargo
 ms.assetid: ded4749c-6c39-4ff8-b2cf-1927b3e92f93
 ms.service: notification-hubs
 ms.workload: mobile
@@ -14,13 +14,15 @@ ms.tgt_pltfrm: na
 ms.devlang: javascript
 ms.topic: article
 ms.date: 01/04/2019
-ms.author: jowargo
-ms.openlocfilehash: 129127a2a43cd9a86e0a1e1cf538358b62381257
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.author: sethm
+ms.reviewer: jowargo
+ms.lastreviewed: 01/04/2019
+ms.openlocfilehash: 6e109c5a7f4911893c81c88ae84322fb962fff6e
+ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "67706219"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71213185"
 ---
 # <a name="sending-push-notifications-with-azure-notification-hubs-and-nodejs"></a>使用 Azure 通知中樞和 Node.js 傳送推播通知
 
@@ -46,7 +48,7 @@ Azure 通知中樞提供易用、多平台、可調整的基礎結構，用以�
 
 ## <a name="create-a-nodejs-application"></a>建立 Node.js 應用程式
 
-本教學課程的第一個步驟是建立新的空白 Node.js 應用程式。 如需建立 node.js 應用程式的指示, 請參閱[建立 node.js 應用程式並將其部署到 Azure 網站][nodejswebsite]、使用 Windows PowerShell 的 Node.js[雲端服務][Node.js Cloud Service], 或[使用 WebMatrix 的網站][webmatrix]。
+本教學課程的第一個步驟是建立新的空白 Node.js 應用程式。 如需建立 node.js 應用程式的指示，請參閱[建立 node.js 應用程式並將其部署到 Azure 網站][nodejswebsite]、使用 Windows PowerShell 的 Node.js[雲端服務][Node.js Cloud Service]，或[使用 WebMatrix 的網站][webmatrix]。
 
 ## <a name="configure-your-application-to-use-notification-hubs"></a>將應用程式設為使用通知中樞
 
@@ -80,7 +82,7 @@ var notificationHubService = azure.createNotificationHubService('hubname','conne
 藉由執行下列步驟，從 [Azure 入口網站]取得連線 `connectionstring` 值：
 
 1. 在左導覽窗格中，按一下 [瀏覽]。
-2. 選取 [通知中樞]，然後尋找您要用於範例的中樞。 如果您需要建立新通知中樞的協助, 您可以參閱[Windows Store 消費者入門教學](notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md)課程。
+2. 選取 [通知中樞]，然後尋找您要用於範例的中樞。 如果您需要建立新通知中樞的協助，您可以參閱[Windows Store 消費者入門教學](notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md)課程。
 3. 選取 [Settings] \(設定)。
 4. 按一下 [存取原則]。 您會看到兩個共用和完整存取連接字串。
 
@@ -106,7 +108,7 @@ var notificationHubService = azure.createNotificationHubService('hubname','conne
 - **Payload** - 訊息的 JSON 或原始字串承載。
 - **Callback** - 回呼函數。
 
-如需裝載格式的詳細資訊, 請參閱裝載[檔](https://distriqt.github.io/ANE-PushNotifications/m.FCM-GCM%20Payload)。
+如需裝載格式的詳細資訊，請參閱裝載[檔](https://distriqt.github.io/ANE-PushNotifications/m.FCM-GCM%20Payload)。
 
 下列程式碼使用 `NotificationHubService` 所公開的 `GcmService` 執行個體，傳送推播通知至所有已註冊的用戶端。
 

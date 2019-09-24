@@ -1,6 +1,6 @@
 ---
-title: 連線至 Azure 的 Sentinel Preview 的 Windows 安全性事件資料 |Microsoft Docs
-description: 了解如何連接到 Azure Sentinel 的 Windows 安全性事件資料。
+title: 將 Windows 安全性事件資料連線到 Azure Sentinel |Microsoft Docs
+description: 瞭解如何將 Windows 安全性事件資料連線到 Azure Sentinel。
 services: sentinel
 documentationcenter: na
 author: rkarlin
@@ -13,41 +13,41 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/17/2019
+ms.date: 09/23/2019
 ms.author: rkarlin
-ms.openlocfilehash: 188febf090ddb3f685f9d3c3b94d822f15bbcfcb
-ms.sourcegitcommit: 80aaf27e3ad2cc4a6599a3b6af0196c6239e6918
+ms.openlocfilehash: 34762d561edfa5b37b1841c55f3fff6a4b8337a3
+ms.sourcegitcommit: 992e070a9f10bf43333c66a608428fcf9bddc130
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67673770"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71240508"
 ---
 # <a name="connect-windows-security-events"></a>連線 Windows 安全性事件 
 
-> [!IMPORTANT]
-> Azure Sentinel 目前為公開預覽狀態。
-> 此預覽版本是在沒有服務等級協定的情況下提供，不建議用於生產工作負載。 可能不支援特定功能，或可能已經限制功能。 如需詳細資訊，請參閱 [Microsoft Azure 預覽版增補使用條款](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)。
 
-您可以串流處理來自連接到您 Azure Sentinel 的工作區之 Windows 伺服器的所有安全性事件。 此連線可讓您檢視儀表板、 建立自訂警示，以及改善的調查。 這可讓您更多深入您的組織網路，並改善您的安全性作業功能。  您可以選取所要串流處理事件：
 
-- **所有事件**-所有的 Windows 安全性及 AppLocker 事件。
-- **常見**-一組標準的稽核事件。 在此集合中包含的完整使用者稽核記錄。 比方說，這個集合所包含的使用者登入和登出事件 （事件識別碼 4634） 的使用者。 納入了各種稽核動作，例如安全性群組變更、主要網域控制站 Kerberos 作業，以及業界組織建議的其他事件。
+您可以從連線到您 Azure Sentinel 工作區的 Windows 伺服器，串流所有安全性事件。 此連線可讓您查看儀表板、建立自訂警示，以及改善調查。 這可讓您深入瞭解組織的網路，並改善您的安全性作業功能。  您可以選取要串流的事件：
+
+- **所有事件**-所有 Windows 安全性和 AppLocker 事件。
+- **一般**-用於進行審核的一組標準事件。 此集合中包含完整的使用者 audit 記錄。 例如，此集合同時包含使用者登入和使用者登出事件（事件識別碼4634）。 納入了各種稽核動作，例如安全性群組變更、主要網域控制站 Kerberos 作業，以及業界組織建議的其他事件。
 
 「一般」集合包含的事件相當少，因為選擇一般集合而非其他事件的主要動機在於降低數量，且不篩選出特定事件。
-- **最小**位較少的可能指出潛在的威脅的事件。 藉由啟用此選項，您無法擁有完整的稽核線索。  這個集合所涵蓋可能表示發生成功入侵的事件和極低的磁碟區的重要事件。 比方說，這個集合包含使用者成功和失敗登入 （事件識別碼 4624、 4625），但它不包含登出很重要的稽核，但不是偵測才有意義且其相對高的磁碟區的資訊。 大部分的資料量，這個集合是登入事件和處理程序建立事件 （事件識別碼 4688）。
+- **最少**-可能表示潛在威脅的一小部分事件。 藉由啟用此選項，您將無法擁有完整的審核記錄。  此集合僅涵蓋可能表示成功缺口的事件，以及具有極低磁片區的重要事件。 例如，此集合包含使用者成功和失敗的登入（事件識別碼4624、4625），但它不包含登出資訊，這對於審核而言很重要，但對偵測而言則不具意義，而且具有相當高的磁片區。 此集合的大部分資料量是登入事件和進程建立事件（事件識別碼4688）。
 - **無**-沒有安全性或 AppLocker 事件。
 
 > [!NOTE]
 > 
-> - 資料會儲存在您在執行 Azure Sentinel 的工作區的地理位置。
+> - 資料將會儲存在您執行 Azure Sentinel 之工作區的地理位置中。
+> - 如果 Azure 資訊安全中心和 Azure Sentinel 都是在相同的工作區上執行，安全性事件連接器就只能從 Azure 資訊安全中心或 Azure Sentinel 連接。 若要從 Azure Sentinel 管理這些事件，建議您將它與 Azure 資訊安全中心中斷連線，並只將它連接到 Azure Sentinel。
 
-下列清單提供為每一組完整的詳細資訊的安全性和 App Locker 事件識別碼：
+
+下列清單提供每個集合的安全性和應用程式保險箱事件識別碼的完整細目：
 
 | 資料層 | 收集的事件指標 |
 | --- | --- |
-| 有限 | 1102,4624,4625,4657,4663,4688,4700,4702,4719,4720,4722,4723,4724,4727,4728,4732,4735,4737,4739,4740,4754,4755, |
+| 最小 | 1102,4624,4625,4657,4663,4688,4700,4702,4719,4720,4722,4723,4724,4727,4728,4732,4735,4737,4739,4740,4754,4755, |
 | | 4756,4767,4799,4825,4946,4948,4956,5024,5033,8001,8002,8003,8004,8005,8006,8007,8222 |
-| 一般 | 1,299,300,324,340,403,404,410,411,412,413,431,500,501,1100,1102,1107,1108,4608,4610,4611,4614,4622, |
+| 通用 | 1，299，300，324，340，403，404，410，411，412，413，431，500，501，1100，1102，1107，1108，4608，4610，4611，4614，4622， |
 | |  4624,4625,4634,4647,4648,4649,4657,4661,4662,4663,4665,4666,4667,4688,4670,4672,4673,4674,4675,4689,4697, |
 | | 4700,4702,4704,4705,4716,4717,4718,4719,4720,4722,4723,4724,4725,4726,4727,4728,4729,4733,4732,4735,4737, |
 | | 4738,4739,4740,4742,4744,4745,4746,4750,4751,4752,4754,4755,4756,4757,4760,4761,4762,4764,4767,4768,4771, |
@@ -55,23 +55,23 @@ ms.locfileid: "67673770"
 | | 4904,4905,4907,4931,4932,4933,4946,4948,4956,4985,5024,5033,5059,5136,5137,5140,5145,5632,6144,6145,6272, |
 | | 6273,6278,6416,6423,6424,8001,8002,8003,8004,8005,8006,8007,8222,26401,30004 |
 
-## <a name="set-up-the-windows-security-events-connector"></a>設定 Windows 安全性事件 connector
+## <a name="set-up-the-windows-security-events-connector"></a>設定 Windows 安全性事件連接器
 
-若要完全與 Azure Sentinel 整合您的 Windows 安全性事件：
+若要將您的 Windows 安全性事件與 Azure Sentinel 完全整合：
 
-1. 在 Azure Sentinel 入口網站中，選取**資料連接器**，然後按一下**Windows 安全性事件**圖格。 
-1. 選取您要串流處理的資料類型。
-1. 按一下 [更新]  。
-6. 若要使用 Log Analytics 中的 Windows 安全性事件相關的結構描述，搜尋**SecurityEvent**。
+1. 在 Azure Sentinel 入口網站中，選取 [**資料連線器**]，然後按一下 [ **Windows 安全性事件**] 圖格。 
+1. 選取您想要串流的資料類型。
+1. 按一下 [更新]。
+6. 若要在 Log Analytics 中使用適用于 Windows 安全性事件的相關架構，請搜尋**SecurityEvent**。
 
 ## <a name="validate-connectivity"></a>驗證連線能力
 
-可能需要大約 20 分鐘，直到您的記錄檔開始出現在 Log Analytics 中。 
+大約需要20分鐘的時間，記錄才會開始出現在 Log Analytics 中。 
 
 
 
 ## <a name="next-steps"></a>後續步驟
-在本文件中，您已了解如何將 Windows 安全性事件連線至 Azure 的 Sentinel。 若要深入了解 Azure Sentinel，請參閱下列文章：
-- 了解如何[了解您的資料，與潛在的威脅](quickstart-get-visibility.md)。
-- 開始[偵測威脅與 Azure Sentinel](tutorial-detect-threats.md)。
+在本檔中，您已瞭解如何將 Windows 安全性事件連接到 Azure Sentinel。 若要深入了解 Azure Sentinel，請參閱下列文章：
+- 瞭解如何[查看您的資料和潛在威脅](quickstart-get-visibility.md)。
+- 開始[使用 Azure Sentinel 偵測威脅](tutorial-detect-threats-built-in.md)。
 

@@ -11,12 +11,12 @@ author: MayMSFT
 ms.reviewer: nibaccam
 ms.date: 08/2/2019
 ms.custom: seodec18
-ms.openlocfilehash: eaed6e7b0ea044ba39a1055ad14de13d5deb9b05
-ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
+ms.openlocfilehash: ecd1212385473e33d05f38f67db5708bff060daa
+ms.sourcegitcommit: 3fa4384af35c64f6674f40e0d4128e1274083487
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71035303"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71218250"
 ---
 # <a name="access-data-in-azure-storage-services"></a>存取 Azure 儲存體服務中的資料
 
@@ -147,7 +147,8 @@ datastore.download(target_path='your target path',
 <a name="train"></a>
 ## <a name="access-your-data-during-training"></a>在定型期間存取您的資料
 
-若要在定型期間存取資料，您可以透過資料存放區將資料從您的 Azure 儲存體服務下載或掛接至計算目標。
+> [!IMPORTANT]
+> 使用[Azure Machine Learning 資料集（預覽）](how-to-create-register-datasets.md)是在定型中存取資料的新建議方式。 資料集提供將表格式資料載入 pandas 或 spark 資料框架的功能，以及從 Azure Blob、Azure 檔案、Azure Data Lake Gen 1、Azure Data Lake Gen 2、Azure SQL、Azure 于 postgresql 下載或掛接任何格式檔案的功能。 深入瞭解[如何使用資料集進行定型](how-to-train-with-datasets.md)。
 
 下表列出指示計算目標如何在執行期間使用資料存放區的方法。 
 

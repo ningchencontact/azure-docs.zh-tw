@@ -6,12 +6,12 @@ ms.service: virtual-network
 ms.topic: article
 ms.date: 08/26/2019
 ms.author: allensu
-ms.openlocfilehash: 2a1ee358a6c97b721ec6f0da3eb70269239b0737
-ms.sourcegitcommit: 8ef0a2ddaece5e7b2ac678a73b605b2073b76e88
+ms.openlocfilehash: a09ce7b77dfcaa51e7c82f67a5d20000f3e22b61
+ms.sourcegitcommit: 3fa4384af35c64f6674f40e0d4128e1274083487
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71077668"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71220004"
 ---
 # <a name="move-azure-virtual-network-to-another-region-using-the-azure-portal"></a>使用 Azure 入口網站將 Azure 虛擬網路移至另一個區域
 
@@ -27,7 +27,7 @@ ms.locfileid: "71077668"
 - 若要匯出虛擬網路並部署範本以在另一個區域中建立虛擬網路，您將需要網路參與者角色或更高版本。
 
 - 虛擬網路對等互連將不會重新建立，如果它們仍然存在於範本中，將會失敗。  您必須先移除任何虛擬網路對等，然後再匯出範本，然後在移動虛擬網路之後重新建立對等。
-    
+
 - 識別來源網路配置，以及您目前使用的所有資源。 此配置包括但不限於負載平衡器、網路安全性群組（Nsg）和公用 Ip。
 
 - 確認您的 Azure 訂用帳戶可讓您在使用的目的地區域中建立虛擬網路。 請連絡支援人員啟用所需的配額。
@@ -40,13 +40,13 @@ ms.locfileid: "71077668"
 
 ### <a name="export-the-template-and-deploy-from-the-portal"></a>匯出範本並從入口網站部署
 
-1. 登入[Azure 入口網站](http://portal.azure.com) > **資源群組**。
+1. 登入[Azure 入口網站](https://portal.azure.com) > **資源群組**。
 2. 找出包含來源虛擬網路的資源群組，然後按一下它。
 3. 選取 >**設定** >  **匯出範本**。
 4. 在 [**匯出範本**] 分頁中，選擇 [**部署**]。
 5. 按一下 [**範本** > ] [**編輯參數**]，在線上編輯器中開啟**parameters json**檔案。
 6. 若要編輯虛擬網路名稱的參數，請變更 [**參數**] 底下的 [**值**] 屬性：
-    
+
     ```json
     {
         "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
@@ -62,7 +62,7 @@ ms.locfileid: "71077668"
 
 8.  按一下編輯器中的 [**儲存**]。
 
-9.  按一下 [**範本** > ] [**編輯範本**]，在線上編輯器中開啟**範本. json**檔案。 
+9.  按一下 [**範本** > ] [**編輯範本**]，在線上編輯器中開啟**範本. json**檔案。
 
 10. 若要編輯將移動 VNET 的目的地區域，請在線上編輯器中變更 [**資源**] 底下的 [**位置**] 屬性：
 
@@ -83,11 +83,11 @@ ms.locfileid: "71077668"
                         },
 
     ```
- 
+
 11. 若要取得區域位置代碼，請參閱[Azure 位置](https://azure.microsoft.com/global-infrastructure/locations/)。  區域的程式碼是不含空格、**美國** = 中部**centralus**的區功能變數名稱稱。
- 
+
 12. 您也可以根據您的需求，變更範本中的其他參數，而且是選擇性的：
-    
+
     * **位址空間**-您可以修改**resources**  >  **addressSpace**區段並變更**範本. json**檔案中的**addressPrefixes**屬性，以在儲存前變更 VNET 的位址空間：
 
         ```json
@@ -179,7 +179,7 @@ ms.locfileid: "71077668"
 
 14. 按一下 [**基本** > ] [**訂**用帳戶]，選擇將部署目標 VNET 的訂用帳戶。
 
-15. 按一下 [**基本** > ] [**資源群組**]，選擇將部署目標 VNET 的資源群組。  您可以按一下 [**建立新**的]，為目標 VNET 建立新的資源群組。  請確定名稱與現有 VNET 的來源資源群組不同。 
+15. 按一下 [**基本** > ] [**資源群組**]，選擇將部署目標 VNET 的資源群組。  您可以按一下 [**建立新**的]，為目標 VNET 建立新的資源群組。  請確定名稱與現有 VNET 的來源資源群組不同。
 
 16. 確認 [**基本** > ] [**位置**] 已設定為您想要部署 VNET 的目標位置。
 
@@ -189,7 +189,7 @@ ms.locfileid: "71077668"
 
 19. 按一下 [**購買**] 按鈕以部署目標虛擬網路。
 
-## <a name="discard"></a>捨棄 
+## <a name="discard"></a>捨棄
 
 如果您想要捨棄目標虛擬網路，請刪除包含目標虛擬網路的資源群組。  若要這麼做，請從入口網站的儀表板中選取資源群組，然後選取 [總覽] 頁面頂端的 [**刪除**]。
 

@@ -12,19 +12,21 @@ ms.workload: infrastructure-services
 ms.date: 05/31/2019
 ms.author: kumud
 ms.reviewer: tyao
-ms.openlocfilehash: d2d52d2faf9122b7dc87f71ac7b1be53eaa99878
-ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
+ms.openlocfilehash: adca1bdd0cf525627cc284b1c0d3509beddef131
+ms.sourcegitcommit: 3fa4384af35c64f6674f40e0d4128e1274083487
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69534979"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71219383"
 ---
 # <a name="configure-an-ip-restriction-rule-with-a-web-application-firewall-for-azure-front-door-service"></a>使用 Azure Front 開門服務的 web 應用程式防火牆來設定 IP 限制規則
 本文說明如何使用 Azure CLI、Azure PowerShell 或 Azure Resource Manager 範本, 在 Azure Front 門板服務的 web 應用程式防火牆 (WAF) 中設定 IP 限制規則。
 
 以 IP 位址為基礎的存取控制規則是自訂的 WAF 規則, 可讓您控制對 web 應用程式的存取。 它會以無類別網域間路由 (CIDR) 格式來指定 IP 位址或 IP 位址範圍的清單來執行這項工作。
 
-根據預設, 您的 web 應用程式可以從網際網路存取。 如果您想要從已知的 IP 位址或 IP 位址範圍清單限制用戶端的存取權, 您可以建立包含 IP 位址清單的 IP 比對規則做為符合的值, 並將運算子設為 "Not" (否定為 true) 和要**封鎖**的動作。 套用 IP 限制規則之後, 源自此允許清單以外位址的要求會收到403禁止的回應。  
+根據預設, 您的 web 應用程式可以從網際網路存取。 如果您想要從已知的 IP 位址或 IP 位址範圍清單限制用戶端的存取權，您可以建立包含 IP 位址清單的 IP 比對規則做為符合的值，並將運算子設為 "Not" （否定為 true）和要**封鎖**的動作。 套用 IP 限制規則之後, 源自此允許清單以外位址的要求會收到403禁止的回應。  
+
+用戶端 IP 位址可能與 IP 位址 WAF 觀察不同，例如，當用戶端透過 proxy 存取 WAF 時。 您可以根據 WAF （SocketAddr）所見的用戶端 IP 位址（RemoteAddr）或通訊端 IP 位址，建立 IP 限制規則。 
 
 ## <a name="configure-a-waf-policy-with-the-azure-cli"></a>使用 Azure CLI 設定 WAF 原則
 
@@ -50,13 +52,13 @@ az network front-door waf-policy create \
   ```
 ### <a name="add-a-custom-ip-access-control-rule"></a>新增自訂 IP 存取控制規則
 
-使用[az network front waf-policy custom-rule create](/cli/azure/ext/front-door/network/front-door/waf-policy/rule?view=azure-cli-latest#ext-front-door-az-network-front-door-waf-policy-rule-create)命令, 為您剛建立的 waf 原則新增自訂 IP 存取控制規則。
+使用[az network front waf-policy custom-rule create](/cli/azure/ext/front-door/network/front-door/waf-policy/rule?view=azure-cli-latest#ext-front-door-az-network-front-door-waf-policy-rule-create)命令，為您剛建立的 waf 原則新增自訂 IP 存取控制規則。
 
 在下列範例中:
 -  將*IPAllowPolicyExampleCLI*取代為您稍早建立的唯一原則。
 -  以您自己的範圍取代*ip-位址範圍 1*, *ip 位址範圍為 2* 。
 
-首先, 為上一個步驟所建立的原則建立 IP 允許規則。 注意 **--延遲**是必要的, 因為規則必須包含至少一個比對條件。 
+首先，為上一個步驟所建立的原則建立 IP 允許規則。 注意 **--延遲**是必要的，因為規則必須包含至少一個比對條件。 
 
 ```azurecli
 az network front-door waf-policy rule create \
@@ -67,7 +69,7 @@ az network front-door waf-policy rule create \
   --resource-group <resource-group-name> \
   --policy-name IPAllowPolicyExampleCLI --defer
 ```
-接下來, 將符合條件新增至規則:
+接下來，將用戶端 IP 比對條件新增至規則：
 
 ```azurecli
 az network front-door waf-policy rule match-condition add\
@@ -79,9 +81,19 @@ az network front-door waf-policy rule match-condition add\
   --resource-group <resource-group-name> \
   --policy-name IPAllowPolicyExampleCLI 
   ```
-                                                   
-### <a name="find-the-id-of-a-waf-policy"></a>尋找 WAF 原則的識別碼 
-使用[az network front WAF-policy show](/cli/azure/ext/front-door/network/front-door/waf-policy?view=azure-cli-latest#ext-front-door-az-network-front-door-waf-policy-show)命令來尋找 WAF 原則的識別碼。 以您稍早建立的唯一原則取代下列範例中的*IPAllowPolicyExampleCLI* 。
+針對通訊端 IP （SocketAddr）比對條件：
+  ```azurecli
+az network front-door waf-policy rule match-condition add\
+--match-variable SocketAddr \
+--operator IPMatch
+--values "ip-address-range-1" "ip-address-range-2"
+--negate true\
+--name IPAllowListRule\
+  --resource-group <resource-group-name> \
+  --policy-name IPAllowPolicyExampleCLI                                                  
+
+### Find the ID of a WAF policy 
+Find a WAF policy's ID by using the [az network front-door waf-policy show](/cli/azure/ext/front-door/network/front-door/waf-policy?view=azure-cli-latest#ext-front-door-az-network-front-door-waf-policy-show) command. Replace *IPAllowPolicyExampleCLI* in the following example with your unique policy that you created earlier.
 
    ```azurecli
    az network front-door  waf-policy show \
@@ -99,7 +111,7 @@ az network front-door waf-policy rule match-condition add\
      --name <frontdoor-name>
      --resource-group <resource-group-name>
    ```
-在此範例中, WAF 原則會套用至**FrontendEndpoints [0]** 。 您可以將 WAF 原則連結至您的任何前端。
+在此範例中，WAF 原則會套用至**FrontendEndpoints [0]** 。 您可以將 WAF 原則連結至您的任何前端。
 > [!Note]
 > 您只需要將**WebApplicationFirewallPolicyLink**屬性設定為一次, 即可將 WAF 原則連結至 Azure Front 門板服務前端。 後續的原則更新會自動套用至前端。
 
@@ -141,10 +153,20 @@ $IPMatchCondition = New-AzFrontDoorWafMatchConditionObject `
 -MatchValue "ip-address-range-1", "ip-address-range-2"
 -NegateCondition 1
 ```
-     
+
+針對通訊端 IP （SocketAddr）比對條件：   
+```powershell
+$IPMatchCondition = New-AzFrontDoorWafMatchConditionObject `
+-MatchVariable  SocketAddr `
+-OperatorProperty IPMatch `
+-MatchValue "ip-address-range-1", "ip-address-range-2"
+-NegateCondition 1
+```
+
+
 ### <a name="create-a-custom-ip-allow-rule"></a>建立自訂 IP 允許規則
 
-使用[AzFrontDoorCustomRuleObject](/powershell/module/Az.FrontDoor/New-azfrontdoorwafcustomruleobject)命令來定義動作並設定優先順序。 在下列範例中, 將會封鎖不是來自用戶端 Ip 且符合清單的要求。
+使用[AzFrontDoorCustomRuleObject](/powershell/module/Az.FrontDoor/New-azfrontdoorwafcustomruleobject)命令來定義動作並設定優先順序。 在下列範例中，將會封鎖不是來自用戶端 Ip 且符合清單的要求。
 
 ```powershell
 $IPAllowRule = New-AzFrontDoorCustomRuleObject `
@@ -155,7 +177,7 @@ $IPAllowRule = New-AzFrontDoorCustomRuleObject `
 ```
 
 ### <a name="configure-a-waf-policy"></a>設定 WAF 原則
-使用`Get-AzResourceGroup`來尋找包含 Azure Front 服務設定檔的資源組名。 接下來, 使用[AzFrontDoorWafPolicy](/powershell/module/az.frontdoor/new-azfrontdoorwafpolicy)來設定具有 IP 規則的 WAF 原則。
+使用`Get-AzResourceGroup`來尋找包含 Azure Front 服務設定檔的資源組名。 接下來，使用[AzFrontDoorWafPolicy](/powershell/module/az.frontdoor/new-azfrontdoorwafpolicy)來設定具有 IP 規則的 WAF 原則。
 
 ```powershell
   $IPAllowPolicyExamplePS = New-AzFrontDoorWafPolicy `
@@ -179,7 +201,7 @@ $IPAllowRule = New-AzFrontDoorCustomRuleObject `
 ```
 
 > [!NOTE]
-> 在此範例中, WAF 原則會套用至**FrontendEndpoints [0]** 。 您可以將 WAF 原則連結至您的任何前端。 您只需要將**WebApplicationFirewallPolicyLink**屬性設定為一次, 即可將 WAF 原則連結至 Azure Front 門板服務前端。 後續的原則更新會自動套用至前端。
+> 在此範例中，WAF 原則會套用至**FrontendEndpoints [0]** 。 您可以將 WAF 原則連結至您的任何前端。 您只需要將**WebApplicationFirewallPolicyLink**屬性設定為一次, 即可將 WAF 原則連結至 Azure Front 門板服務前端。 後續的原則更新會自動套用至前端。
 
 
 ## <a name="configure-a-waf-policy-with-a-resource-manager-template"></a>使用 Resource Manager 範本來設定 WAF 原則

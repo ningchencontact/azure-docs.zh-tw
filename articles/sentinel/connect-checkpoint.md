@@ -1,104 +1,101 @@
 ---
-title: 將檢查點資料連線到 Azure Sentinel 預覽 |Microsoft Docs
+title: 將檢查點資料連線到 Azure Sentinel |Microsoft Docs
 description: 瞭解如何將檢查點資料連線到 Azure Sentinel。
 services: sentinel
 documentationcenter: na
 author: rkarlin
 manager: rkarlin
 editor: ''
-ms.assetid: 3229233d-400d-4971-8d76-eaa0d6591d75
 ms.service: azure-sentinel
 ms.subservice: azure-sentinel
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/31/2019
+ms.date: 09/23/2019
 ms.author: rkarlin
-ms.openlocfilehash: ea9cb7997f86c10bb09c01dfc345aaeeef46708a
-ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
+ms.openlocfilehash: 1bfa59e92ce2cde45b448174260396f4e93a6282
+ms.sourcegitcommit: 992e070a9f10bf43333c66a608428fcf9bddc130
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68679345"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71240129"
 ---
 # <a name="connect-your-check-point-appliance"></a>連接您的檢查點設備
 
-> [!IMPORTANT]
-> Azure Sentinel 目前為公開預覽狀態。
-> 此預覽版本是在沒有服務等級協定的情況下提供，不建議用於生產工作負載。 可能不支援特定功能，或可能已經限制功能。 如需詳細資訊，請參閱 [Microsoft Azure 預覽版增補使用條款](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)。
 
-您可以將記錄檔儲存為 Syslog CEF, 以將 Azure Sentinel 連接到任何檢查點設備。 與 Azure Sentinel 的整合, 可讓您輕鬆地從檢查點執行跨記錄檔資料的分析和查詢。 如需有關 Azure Sentinel 如何內嵌 CEF 資料的詳細資訊, 請參閱[連接 CEF 設備](connect-common-event-format.md)。
+
+您可以將記錄檔儲存為 Syslog CEF，以將 Azure Sentinel 連接到任何檢查點設備。 與 Azure Sentinel 的整合，可讓您輕鬆地從檢查點執行跨記錄檔資料的分析和查詢。 如需有關 Azure Sentinel 如何內嵌 CEF 資料的詳細資訊，請參閱[連接 CEF 設備](connect-common-event-format.md)。
 
 > [!NOTE]
 > 資料將會儲存在您執行 Azure Sentinel 之工作區的地理位置中。
 
 ## <a name="step-1-connect-your-check-point-appliance-using-an-agent"></a>步驟 1:使用代理程式連接您的檢查點設備
 
-若要將您的檢查點設備連線到 Azure Sentinel, 您需要在專用電腦 (VM 或內部內部部署) 上部署代理程式, 以支援設備和 Azure Sentinel 之間的通訊。 
+若要將您的檢查點設備連線到 Azure Sentinel，您需要在專用電腦（VM 或內部內部部署）上部署代理程式，以支援設備和 Azure Sentinel 之間的通訊。 
 
 或者，您可以透過手動方式在現有的 Azure VM、在另一個雲端中的 VM 或在內部部署機器上部署代理程式。
 
 > [!NOTE]
-> 請務必根據貴組織的安全性原則來設定電腦的安全性。 例如, 您可以設定您的網路以配合公司網路安全性原則, 並變更背景程式中的埠和通訊協定, 以符合您的需求。 
+> 請務必根據貴組織的安全性原則來設定電腦的安全性。 例如，您可以設定您的網路以配合公司網路安全性原則，並變更背景程式中的埠和通訊協定，以符合您的需求。 
 
-若要查看這兩個選項的網狀圖, 請參閱[連接資料來源](connect-data-sources.md)。
+若要查看這兩個選項的網狀圖，請參閱[連接資料來源](connect-data-sources.md)。
 
 ### <a name="deploy-the-agent"></a>部署代理程式
-1. 在 Azure Sentinel 入口網站中, 按一下 [**資料連線器**], 然後依序選取 [**檢查點**] 和 [**開啟連接器] 頁面**。 
+1. 在 Azure Sentinel 入口網站中，按一下 [**資料連線器**]，然後依序選取 [**檢查點**] 和 [**開啟連接器] 頁面**。 
 
-1. 在 **[下載並安裝 Syslog 代理程式**] 底下, 選取 [Azure] 或 [內部部署] 電腦類型。 
-1. 在開啟的 [**虛擬機器**] 畫面中, 選取您要使用的機器, 然後按一下 [連線 **]** 。
-1. 如果您選擇 [**下載並安裝 Azure Linux 虛擬機器的代理程式**], 請選取該機器, 然後按一下 [連線 **]** 。 如果您選擇 [**下載並安裝非 Azure Linux 虛擬機器的代理程式**], 請在 [**直接代理程式**] 畫面中, 執行 [**下載並上架代理程式**] 底下的腳本。
+1. 在 **[下載並安裝 Syslog 代理程式**] 底下，選取 [Azure] 或 [內部部署] 電腦類型。 
+1. 在開啟的 [**虛擬機器**] 畫面中，選取您要使用的機器，然後按一下 [連線 **]** 。
+1. 如果您選擇 [**下載並安裝 Azure Linux 虛擬機器的代理程式**]，請選取該機器，然後按一下 [連線 **]** 。 如果您選擇 [**下載並安裝非 Azure Linux 虛擬機器的代理程式**]，請在 [**直接代理程式**] 畫面中，執行 [**下載並上架代理程式**] 底下的腳本。
  
-1. 在 [連接器] 畫面的 [**設定並轉寄 Syslog**] 底下, 設定 syslog daemon 為**rsyslog**或**syslog-ng**。 
-1. 複製這些命令, 並在您的應用裝置上執行:
-     - 如果您已選取 [rsyslog]:
+1. 在 [連接器] 畫面的 [**設定並轉寄 Syslog**] 底下，設定 syslog daemon 為**rsyslog**或**syslog-ng**。 
+1. 複製這些命令，並在您的應用裝置上執行：
+     - 如果您已選取 [rsyslog]：
             
-       1. 告訴 Syslog 守護程式在設施 local_4 和「檢查點」上進行接聽, 並使用埠25226將 Syslog 訊息傳送至 Azure Sentinel 代理程式。 `sudo bash -c "printf 'local4.debug  @127.0.0.1:25226\n\n:msg, contains, \"Check Point\"  @127.0.0.1:25226' > /etc/rsyslog.d/security-config-omsagent.conf"`
+       1. 告訴 Syslog 守護程式在設施 local_4 和「檢查點」上進行接聽，並使用埠25226將 Syslog 訊息傳送至 Azure Sentinel 代理程式。 `sudo bash -c "printf 'local4.debug  @127.0.0.1:25226\n\n:msg, contains, \"Check Point\"  @127.0.0.1:25226' > /etc/rsyslog.d/security-config-omsagent.conf"`
            
-       2. 下載並安裝[security_events 設定檔](https://aka.ms/asi-syslog-config-file-linux), 將 Syslog 代理程式設定為在埠25226上接聽。 `sudo wget -O /etc/opt/microsoft/omsagent/{0}/conf/omsagent.d/security_events.conf "https://aka.ms/syslog-config-file-linux"`其中{0}應該取代為您的工作區 GUID。
+       2. 下載並安裝[security_events 設定檔](https://aka.ms/asi-syslog-config-file-linux)，將 Syslog 代理程式設定為在埠25226上接聽。 `sudo wget -O /etc/opt/microsoft/omsagent/{0}/conf/omsagent.d/security_events.conf "https://aka.ms/syslog-config-file-linux"`其中{0}應該取代為您的工作區 GUID。
            
        1. 重新開機 syslog daemon`sudo service rsyslog restart`
              
-    - 如果您選取 syslog-ng:
+    - 如果您選取 syslog-ng：
 
-         1. 告訴 Syslog 守護程式在設施 local_4 和「檢查點」上進行接聽, 並使用埠25226將 Syslog 訊息傳送至 Azure Sentinel 代理程式。 `sudo bash -c "printf 'filter f_local4_oms { facility(local4); };\n  destination security_oms { tcp(\"127.0.0.1\" port(25226)); };\n  log { source(src); filter(f_local4_oms); destination(security_oms); };\n\nfilter f_msg_oms { match(\"Check Point\" value(\"MESSAGE\")); };\n  destination security_msg_oms { tcp(\"127.0.0.1\" port(25226)); };\n  log { source(src); filter(f_msg_oms); destination(security_msg_oms); };' > /etc/syslog-ng/security-config-omsagent.conf"`
-         2. 下載並安裝[security_events 設定檔](https://aka.ms/asi-syslog-config-file-linux), 將 Syslog 代理程式設定為在埠25226上接聽。 `sudo wget -O /etc/opt/microsoft/omsagent/{0}/conf/omsagent.d/security_events.conf "https://aka.ms/syslog-config-file-linux"`其中{0}應該取代為您的工作區 GUID。
+         1. 告訴 Syslog 守護程式在設施 local_4 和「檢查點」上進行接聽，並使用埠25226將 Syslog 訊息傳送至 Azure Sentinel 代理程式。 `sudo bash -c "printf 'filter f_local4_oms { facility(local4); };\n  destination security_oms { tcp(\"127.0.0.1\" port(25226)); };\n  log { source(src); filter(f_local4_oms); destination(security_oms); };\n\nfilter f_msg_oms { match(\"Check Point\" value(\"MESSAGE\")); };\n  destination security_msg_oms { tcp(\"127.0.0.1\" port(25226)); };\n  log { source(src); filter(f_msg_oms); destination(security_msg_oms); };' > /etc/syslog-ng/security-config-omsagent.conf"`
+         2. 下載並安裝[security_events 設定檔](https://aka.ms/asi-syslog-config-file-linux)，將 Syslog 代理程式設定為在埠25226上接聽。 `sudo wget -O /etc/opt/microsoft/omsagent/{0}/conf/omsagent.d/security_events.conf "https://aka.ms/syslog-config-file-linux"`其中{0}應該取代為您的工作區 GUID。
 
         3. 重新開機 syslog daemon`sudo service syslog-ng restart`
-2. 使用此命令重新開機 Syslog 代理程式:`sudo /opt/microsoft/omsagent/bin/service_control restart [{workspace GUID}]`
-1. 執行下列命令, 確認代理程式記錄檔中沒有任何錯誤:`tail /var/opt/microsoft/omsagent/log/omsagent.log`
+2. 使用此命令重新開機 Syslog 代理程式：`sudo /opt/microsoft/omsagent/bin/service_control restart [{workspace GUID}]`
+1. 執行下列命令，確認代理程式記錄檔中沒有任何錯誤：`tail /var/opt/microsoft/omsagent/log/omsagent.log`
 
 
  
 ## <a name="step-2-forward-check-point-logs-to-the-syslog-agent"></a>步驟 2:將檢查點記錄轉送到 Syslog 代理程式
 
-設定您的檢查點設備, 以透過 Syslog 代理程式將 Syslog 訊息以 CEF 格式轉送至您的 Azure 工作區。
+設定您的檢查點設備，以透過 Syslog 代理程式將 Syslog 訊息以 CEF 格式轉送至您的 Azure 工作區。
 
 1. 移至[檢查點記錄檔匯出](https://aka.ms/asi-syslog-checkpoint-forwarding)。
-2. 使用下列指導方針, 向下流覽至 [**基本部署**], 並遵循指示來設定連線:
+2. 使用下列指導方針，向下流覽至 [**基本部署**]，並遵循指示來設定連線：
    - 將**Syslog 埠**設定為**514**或您在代理程式上設定的埠。
      - 以 Syslog 代理程式名稱和 IP 位址取代 CLI 中的**名稱**和**目標伺服器 IP 位址**。
      - 將格式設定為**CEF**。
-3. 如果您使用的是 R 77.30 或 R 80.10 版本, 請向上快到**安裝**, 並遵循指示來安裝您版本的記錄匯出程式。
+3. 如果您使用的是 R 77.30 或 R 80.10 版本，請向上快到**安裝**，並遵循指示來安裝您版本的記錄匯出程式。
  
 ## <a name="step-3-validate-connectivity"></a>步驟 3：驗證連線能力
 
-可能需要20分鐘的時間, 您的記錄才會開始出現在 Log Analytics 中。 
+可能需要20分鐘的時間，您的記錄才會開始出現在 Log Analytics 中。 
 
-1. 請確定您使用的是正確的設備。 設備和 Azure Sentinel 中的設備必須相同。 您可以在 Azure Sentinel 中檢查您所使用的設施檔案, 並在檔案中`security-config-omsagent.conf`加以修改。 
+1. 請確定您使用的是正確的設備。 設備和 Azure Sentinel 中的設備必須相同。 您可以在 Azure Sentinel 中檢查您所使用的設施檔案，並在檔案中`security-config-omsagent.conf`加以修改。 
 
-2. 請確定您的記錄檔會到達 Syslog 代理程式中的正確埠。 在 Syslog 代理程式電腦上執行此命令:`tcpdump -A -ni any  port 514 -vv`此命令會顯示從裝置串流到 Syslog 電腦的記錄。 請確定已從正確埠和適當設施的來源應用裝置接收記錄。
+2. 請確定您的記錄檔會到達 Syslog 代理程式中的正確埠。 在 Syslog 代理程式電腦上執行此命令：`tcpdump -A -ni any  port 514 -vv`此命令會顯示從裝置串流到 Syslog 電腦的記錄。 請確定已從正確埠和適當設施的來源應用裝置接收記錄。
 
 3. 請確定您傳送的記錄符合[RFC 3164](https://tools.ietf.org/html/rfc3164)。
 
-4. 在執行 Syslog 代理程式的電腦上, 使用命令`netstat -a -n:`確定這些埠514、25226已開啟且正在接聽。 如需使用此命令的詳細資訊, 請參閱[netstat (8)-Linux man 頁面](https://linux.die.net/man/8/netstat)。 如果接聽正常, 您會看到:
+4. 在執行 Syslog 代理程式的電腦上，使用命令`netstat -a -n:`確定這些埠514、25226已開啟且正在接聽。 如需使用此命令的詳細資訊，請參閱[netstat （8）-Linux man 頁面](https://linux.die.net/man/8/netstat)。 如果接聽正常，您會看到：
 
    ![Azure Sentinel 埠](./media/connect-cef/ports.png) 
 
 5. 請確定守護程式已設定為在您要傳送記錄的埠514上接聽。
-    - 針對 rsyslog:<br>請確定`/etc/rsyslog.conf`檔案包含下列設定:
+    - 針對 rsyslog：<br>請確定`/etc/rsyslog.conf`檔案包含下列設定：
 
            # provides UDP syslog reception
            module(load="imudp")
@@ -108,40 +105,40 @@ ms.locfileid: "68679345"
            module(load="imtcp")
            input(type="imtcp" port="514")
 
-      如需詳細資訊, [請參閱 imudp:UDP Syslog 輸入模組](https://www.rsyslog.com/doc/v8-stable/configuration/modules/imudp.html#imudp-udp-syslog-input-module)和[imtcp:TCP Syslog 輸入模組](https://www.rsyslog.com/doc/v8-stable/configuration/modules/imtcp.html#imtcp-tcp-syslog-input-module)
+      如需詳細資訊， [請參閱 imudp：UDP Syslog 輸入模組](https://www.rsyslog.com/doc/v8-stable/configuration/modules/imudp.html#imudp-udp-syslog-input-module)和[imtcp：TCP Syslog 輸入模組](https://www.rsyslog.com/doc/v8-stable/configuration/modules/imtcp.html#imtcp-tcp-syslog-input-module)
 
-   - 針對 syslog-ng:<br>請確定`/etc/syslog-ng/syslog-ng.conf`檔案包含下列設定:
+   - 針對 syslog-ng：<br>請確定`/etc/syslog-ng/syslog-ng.conf`檔案包含下列設定：
 
            # source s_network {
             network( transport(UDP) port(514));
              };
-    如需詳細資訊, 請參閱[syslog-Ng 開放原始碼版本 3.16-系統管理指南](https://www.syslog-ng.com/technical-documents/doc/syslog-ng-open-source-edition/3.16/administration-guide/19#TOPIC-956455)。
+    如需詳細資訊，請參閱[syslog-Ng 開放原始碼版本 3.16-系統管理指南](https://www.syslog-ng.com/technical-documents/doc/syslog-ng-open-source-edition/3.16/administration-guide/19#TOPIC-956455)。
 
-1. 檢查 Syslog daemon 和代理程式之間是否有通訊。 在 Syslog 代理程式電腦上執行此命令:`tcpdump -A -ni any  port 25226 -vv`此命令會顯示從裝置串流到 Syslog 電腦的記錄。 請確定代理程式上也收到記錄。
+1. 檢查 Syslog daemon 和代理程式之間是否有通訊。 在 Syslog 代理程式電腦上執行此命令：`tcpdump -A -ni any  port 25226 -vv`此命令會顯示從裝置串流到 Syslog 電腦的記錄。 請確定代理程式上也收到記錄。
 
-6. 如果這兩個命令都提供成功的結果, 請檢查 Log Analytics, 以查看您的記錄是否到達。 所有從這些設備串流的事件都會以原始格式顯示在 Log `CommonSecurityLog` Analytics 的 [類型] 之下。
+6. 如果這兩個命令都提供成功的結果，請檢查 Log Analytics，以查看您的記錄是否到達。 所有從這些設備串流的事件都會以原始格式顯示在 Log `CommonSecurityLog` Analytics 的 [類型] 之下。
 
-7. 若要檢查是否有錯誤, 或記錄檔未抵達, 請查看`tail /var/opt/microsoft/omsagent/<workspace id>/log/omsagent.log`。 如果出現記錄檔格式不符的錯誤, 請移至`/etc/opt/microsoft/omsagent/{0}/conf/omsagent.d/security_events.conf "https://aka.ms/syslog-config-file-linux"`並查看`security_events.conf`檔案, 並確定您的記錄檔符合您在此檔案中看到的 RegEx 格式。
+7. 若要檢查是否有錯誤，或記錄檔未抵達，請查看`tail /var/opt/microsoft/omsagent/<workspace id>/log/omsagent.log`。 如果出現記錄檔格式不符的錯誤，請移至`/etc/opt/microsoft/omsagent/{0}/conf/omsagent.d/security_events.conf "https://aka.ms/syslog-config-file-linux"`並查看`security_events.conf`檔案，並確定您的記錄檔符合您在此檔案中看到的 RegEx 格式。
 
-8. 請確定您的 Syslog 訊息預設大小限制為2048個位元組 (2 KB)。 如果記錄太長, 請使用此命令更新 security_events:`message_length_limit 4096`
+8. 請確定您的 Syslog 訊息預設大小限制為2048個位元組（2 KB）。 如果記錄太長，請使用此命令更新 security_events：`message_length_limit 4096`
 
-4. 請務必執行下列命令:
+4. 請務必執行下列命令：
   
-   - 如果您使用 Syslog-ng, 請執行下列命令 (請注意, 它會重新開機 Syslog 代理程式):
+   - 如果您使用 Syslog-ng，請執行下列命令（請注意，它會重新開機 Syslog 代理程式）：
 
          sudo bash -c "printf 'filter f_local4_oms { facility(local4); };\n  destination security_oms { tcp(\"127.0.0.1\" port(25226)); };\n  log { source(src); filter(f_local4_oms); destination(security_oms); };\n\nfilter f_msg_oms { match(\"Check Point\" value(\"MESSAGE\")); };\n  destination security_msg_oms { tcp(\"127.0.0.1\" port(25226)); };\n  log { source(src); filter(f_msg_oms); destination(security_msg_oms); };' > /etc/syslog-ng/security-config-omsagent.conf"
-        重新開機 Syslog daemon:`sudo service syslog-ng restart`
+        重新開機 Syslog daemon：`sudo service syslog-ng restart`
 
-   - 如果您使用 rsyslog, 請執行下列命令 (請注意, 它會重新開機 Syslog 代理程式): 
+   - 如果您使用 rsyslog，請執行下列命令（請注意，它會重新開機 Syslog 代理程式）： 
 
          sudo bash -c "printf 'local4.debug @127.0.0.1:25226\n\n:msg, contains, "Check Point" @127.0.0.1:25226' > /etc/rsyslog.d/security-config-omsagent.conf"
-     重新開機 Syslog daemon:`sudo service rsyslog restart`
+     重新開機 Syslog daemon：`sudo service rsyslog restart`
 
 
 
 
 ## <a name="next-steps"></a>後續步驟
-在本檔中, 您已瞭解如何將檢查點設備連接到 Azure Sentinel。 若要深入了解 Azure Sentinel，請參閱下列文章：
+在本檔中，您已瞭解如何將檢查點設備連接到 Azure Sentinel。 若要深入了解 Azure Sentinel，請參閱下列文章：
 - 瞭解如何[查看您的資料和潛在威脅](quickstart-get-visibility.md)。
-- 開始[使用 Azure Sentinel 偵測威脅](tutorial-detect-threats.md)。
+- 開始[使用 Azure Sentinel 偵測威脅](tutorial-detect-threats-built-in.md)。
 

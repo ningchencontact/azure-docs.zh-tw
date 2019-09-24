@@ -6,12 +6,12 @@ ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 01/30/2019
-ms.openlocfilehash: 41037e0687274d123bea742cee5cf2887548aa0f
-ms.sourcegitcommit: 4b5dcdcd80860764e291f18de081a41753946ec9
+ms.openlocfilehash: 4df831c1329ab13f19e6ecf979e404d4a90e5f72
+ms.sourcegitcommit: 3fa4384af35c64f6674f40e0d4128e1274083487
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/03/2019
-ms.locfileid: "68775217"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71219758"
 ---
 # <a name="mapping-data-flows-column-patterns"></a>對應資料流程資料行模式
 
@@ -19,7 +19,7 @@ ms.locfileid: "68775217"
 
 數個 Azure Data Factory 資料流程轉換支援「資料行模式」的概念，因此您可以根據模式建立範本資料行，而不是硬式編碼的資料行名稱。 您可以在運算式產生器中使用這項功能來定義模式, 以符合轉換的資料行, 而不需要精確的特定功能變數名稱。 如果傳入來源欄位經常變更, 則模式非常有用, 特別是在變更文字檔或 NoSQL 資料庫中的資料行時。 這種情況有時稱為「架構漂移」。
 
-此「彈性架構」處理目前是在衍生的資料行和匯總轉換, 以及做為「規則型對應」的選取和接收轉換中找到。
+此「彈性架構」處理目前是在衍生的資料行和匯總轉換，以及做為「規則型對應」的選取和接收轉換中找到。
 
 ![資料行模式](media/data-flow/columnpattern2.png "資料行模式")
 
@@ -42,20 +42,20 @@ ms.locfileid: "68775217"
 資料![行位置](media/data-flow/position.png "資料 行位置")
 
 ## <a name="rule-based-mapping"></a>以規則為基礎的對應
-對應來源中的資料行並選取轉換時, 您可以選擇 [固定對應] 或 [規則型對應]。 當您知道資料的架構, 而且預期源資料集的特定資料行永遠符合特定的靜態名稱時, 您可以使用固定對應。 但是當您使用彈性的架構時, 請使用以規則為基礎的對應。 您將能夠使用上述規則來建立模式比對。
+對應來源中的資料行並選取轉換時，您可以選擇 [固定對應] 或 [規則型對應]。 當您知道資料的架構，而且預期源資料集的特定資料行永遠符合特定的靜態名稱時，您可以使用固定對應。 但是當您使用彈性的架構時，請使用以規則為基礎的對應。 您將能夠使用上述規則來建立模式比對。
 
 以![規則為基礎的對應](media/data-flow/rule2.png "以 規則為基礎的對應")
 
-使用運算式產生器建立您的規則。 您的運算式會傳回布林值, 使其符合資料行 (true) 或排除資料行 (false)。
+使用運算式產生器建立您的規則。 您的運算式會傳回布林值，使其符合資料行（true）或排除資料行（false）。
 
 ## <a name="pattern-matching-special-columns"></a>模式比對特殊資料行
 
-* `$$`會在設計階段以「偵測模式」和在執行時間執行時, 轉譯為每個相符項的名稱
+* `$$`會在設計階段以「偵測模式」和在執行時間執行時，轉譯為每個相符項的名稱
 * `name`代表每個傳入資料行的名稱
 * `type`代表每個傳入資料行的資料類型
-* `stream`表示在您的流程中, 與每個資料流程或轉換相關聯的名稱
+* `stream`表示在您的流程中，與每個資料流程或轉換相關聯的名稱
 * `position`這是資料流程中資料行的序數位置
 
 ## <a name="next-steps"></a>後續步驟
-* 深入瞭解資料轉換的 ADF 對應資料流程[運算式語言](http://aka.ms/dataflowexpressions)
-* 使用[接收轉換](data-flow-sink.md)中的資料行模式, 並選取 [使用以規則為基礎的對應進行[轉換](data-flow-select.md)]
+* 深入瞭解資料轉換的 ADF 對應資料流程[運算式語言](https://aka.ms/dataflowexpressions)
+* 使用[接收轉換](data-flow-sink.md)中的資料行模式，並選取 [使用以規則為基礎的對應進行[轉換](data-flow-select.md)]

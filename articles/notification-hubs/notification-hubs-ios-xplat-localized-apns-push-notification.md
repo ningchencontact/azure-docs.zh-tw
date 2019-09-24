@@ -3,9 +3,9 @@ title: 使用 Azure 通知中樞將當地語系化通知推送至 iOS 裝置| Mi
 description: 了解如何使用 Azure 通知中樞將當地語系化的通知推送至 iOS 裝置。
 services: notification-hubs
 documentationcenter: ios
-author: jwargo
-manager: patniko
-editor: spelluru
+author: sethmanheim
+manager: femila
+editor: jwargo
 ms.assetid: 484914b5-e081-4a05-a84a-798bbd89d428
 ms.service: notification-hubs
 ms.workload: mobile
@@ -13,13 +13,15 @@ ms.tgt_pltfrm: ios
 ms.devlang: objective-c
 ms.topic: article
 ms.date: 01/04/2019
-ms.author: jowargo
-ms.openlocfilehash: a293f0b656c075ae3b21ccf98e602e43ed761958
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: sethm
+ms.reviewer: jowargo
+ms.lastreviewed: 01/04/2019
+ms.openlocfilehash: 8eb4cf5e12c16c3c164ecce41a84a9cd32fd85ee
+ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66428450"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71211886"
 ---
 # <a name="tutorial-push-localized-notifications-to-ios-devices-using-azure-notification-hubs"></a>教學課程：了解如何使用 Azure 通知中樞將當地語系化通知推播至 iOS 裝置
 
@@ -27,7 +29,7 @@ ms.locfileid: "66428450"
 > * [Windows 市集 C#](notification-hubs-windows-store-dotnet-xplat-localized-wns-push-notification.md)
 > * [iOS](notification-hubs-ios-xplat-localized-apns-push-notification.md)
 
-本教學課程說明如何使用 Azure 通知中樞的[範本](notification-hubs-templates-cross-platform-push-messages.md)功能，廣播已依語言及裝置進行當地語系化的即時新聞通知。 在本教學課程中，您必須以在[使用通知中樞傳送即時新聞]中所建立 iOS 應用程式為基礎。 完成時，您可以註冊您感興趣的類別、 指定要接收通知，語言和接收推播通知選取的類別以該語言。
+本教學課程說明如何使用 Azure 通知中樞的[範本](notification-hubs-templates-cross-platform-push-messages.md)功能，廣播已依語言及裝置進行當地語系化的即時新聞通知。 在本教學課程中，您必須以在[使用通知中樞傳送即時新聞]中所建立 iOS 應用程式為基礎。 完成時，您可以註冊您感興趣的類別、指定用來接收通知的語言，以及僅接收該語言中所選類別的推播通知。
 
 此案例分成兩部分：
 
@@ -49,7 +51,7 @@ ms.locfileid: "66428450"
 > [!NOTE]
 > 傳送當地語系化通知的其中一個方法，是為每個標記建立多個版本。 例如，若要支援英文、法文和中文，您必須為世界新聞建立三個不同的標記："world_en"、"world_fr" 和 "world_ch"。 接著，您必須將世界新聞的當地語系化版本分別傳送至這三個標記。 在本主題中，您會使用範本來避免使用過多的標籤和傳送過多訊息。
 
-範本會指定如何在特定的裝置應該會收到通知的方法。 範本可參照您的應用程式後端所傳送的訊息中包含的屬性，藉以指定確切的裝載格式。 在您的案例中，您會傳送地區設定無從驗證且包含所有支援語言的訊息：
+範本是指定特定裝置應如何接收通知的方式。 範本可參照您的應用程式後端所傳送的訊息中包含的屬性，藉以指定確切的裝載格式。 在您的案例中，您會傳送地區設定無從驗證且包含所有支援語言的訊息：
 
 ```json
 {
@@ -71,7 +73,7 @@ ms.locfileid: "66428450"
 
 如需範本的詳細資訊，請參閱[範本](notification-hubs-templates-cross-platform-push-messages.md)一文。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 * 完成[將通知推送至特定的 iOS 裝置](notification-hubs-ios-xplat-segmented-apns-push-notification.md)教學課程並具備該教學課程中的程式碼，因為本教學課程是以該程式碼為基礎。
 * Visual Studio 2019 是選擇性的。
@@ -90,7 +92,7 @@ ms.locfileid: "66428450"
 
 ## <a name="build-the-ios-app"></a>建置 iOS 應用程式
 
-1. 在您`Notification.h`，新增`retrieveLocale`方法，並修改儲存和訂閱方法，如下列程式碼所示：
+1. 在您`Notification.h`的中， `retrieveLocale`新增方法，並修改 store 和訂閱者法，如下列程式碼所示：
 
     ```objc
     - (void) storeCategoriesAndSubscribeWithLocale:(int) locale categories:(NSSet*) categories completion: (void (^)(NSError* error))completion;

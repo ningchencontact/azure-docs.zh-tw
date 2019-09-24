@@ -13,12 +13,12 @@ ms.workload: identity
 ms.date: 08/27/2019
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: dce9308230c2a82c66b1d8689123d9d34fc6e408
-ms.sourcegitcommit: 8e1fb03a9c3ad0fc3fd4d6c111598aa74e0b9bd4
+ms.openlocfilehash: 2c0f763dcc03d0ed2e4fb335342f39c2708572c0
+ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70114675"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71213542"
 ---
 # <a name="azure-resource-manager-resource-provider-operations"></a>Azure Resource Manager 資源提供者作業
 
@@ -1193,11 +1193,11 @@ ms.locfileid: "70114675"
 > | DataAction | CognitiveServices/accounts/臉部/persongroup/訓練/閱讀 | 檢查人員群組訓練狀態已完成或仍在進行中。 PersonGroup 訓練是觸發的非同步作業 |
 > | DataAction | CognitiveServices/accounts/臉部/persongroup/write | 使用指定的 personGroupId、名稱和使用者提供的 userData, 建立新的人員群組。 更新現有人員群組的名稱和 userData。 如果內容不在要求本文中, 屬性會保持不變。 |
 > | DataAction | CognitiveServices/帳戶/臉部/驗證/動作 | 確認兩個臉部是否屬於同一人, 或某個臉部是否屬於某個人。 |
-> | DataAction | CognitiveServices/accounts/ImageSearch/details/action | 傳回影像的相關見解, 例如包含影像的網頁。 |
+> | DataAction | CognitiveServices/accounts/ImageSearch/details/action | 傳回影像的相關見解，例如包含影像的網頁。 |
 > | DataAction | CognitiveServices/帳戶/ImageSearch/搜尋/動作 | 取得給定查詢的相關影像。 |
 > | DataAction | CognitiveServices/accounts/ImageSearch/趨勢/動作 | 取得目前的趨勢影像。 |
 > | DataAction | CognitiveServices/accounts/ImmersiveReader/getcontentmodelforreader/action | 建立沉浸式讀取器會話 |
-> | DataAction | CognitiveServices/accounts/InkRecognizer/辨識/動作 | 假設有一組筆劃資料會分析內容, 並產生可辨識的實體清單, 包括已辨識的文字。 |
+> | DataAction | CognitiveServices/accounts/InkRecognizer/辨識/動作 | 假設有一組筆劃資料會分析內容，並產生可辨識的實體清單，包括已辨識的文字。 |
 > | Action | Microsoft.CognitiveServices/accounts/listKeys/action | 列出金鑰 |
 > | DataAction | CognitiveServices/accounts/LUIS/predict/action | 取得給定查詢的已發行端點預測。 |
 > | DataAction | CognitiveServices/accounts/NewsSearch/categorysearch/action | 傳回所提供分類的新聞。 |
@@ -1212,15 +1212,15 @@ ms.locfileid: "70114675"
 > | DataAction | CognitiveServices/accounts/Microsoft.azure.cognitiveservices.language.textanalytics/語言/動作 | 此 API 傳回偵測到的語言，以及 0 到 1 之間的數值分數。 接近 1 的分數表示 100% 確定識別的語言正確。 總共支援 120 種語言。 |
 > | DataAction | CognitiveServices/accounts/Microsoft.azure.cognitiveservices.language.textanalytics/情感/action | 此 API 會傳回 0 到 1 之間的數值分數。<br>接近 1 的分數表示正面的情感，而接近 0 的分數則表示負面的情感。<br>分數0.5 表示缺少情感 (例如<br>模擬語句)。 |
 > | Action | Microsoft.CognitiveServices/accounts/usages/read | 取得現有資源的配額使用情況。 |
-> | DataAction | CognitiveServices/accounts/VideoSearch/details/action | 取得影片的深入解析, 例如相關影片。 |
+> | DataAction | CognitiveServices/accounts/VideoSearch/details/action | 取得影片的深入解析，例如相關影片。 |
 > | DataAction | CognitiveServices/帳戶/VideoSearch/搜尋/動作 | 取得與指定查詢相關的影片。 |
 > | DataAction | CognitiveServices/accounts/VideoSearch/趨勢/動作 | 取得目前的發燒影片。 |
 > | DataAction | CognitiveServices/帳戶/VisualSearch/搜尋/動作 | 傳回與所提供影像相關的標記清單 |
 > | DataAction | CognitiveServices/帳戶/WebSearch/搜尋/動作 | 取得給定查詢的 web、影像、新聞、& 影片結果。 |
 > | Action | Microsoft.CognitiveServices/accounts/write | 寫入 API 帳戶。 |
-> | Action | Microsoft.CognitiveServices/checkDomainAvailability/action | 讀取訂用帳戶的可用 SKU。 |
-> | Action | Microsoft.CognitiveServices/locations/checkSkuAvailability/action | 讀取訂用帳戶的可用 SKU。 |
-> | Action | Microsoft.CognitiveServices/locations/checkSkuAvailability/action | 讀取訂用帳戶的可用 SKU。 |
+> | Action | Microsoft.CognitiveServices/checkDomainAvailability/action | 讀取訂用帳戶的可用 Sku。 |
+> | Action | Microsoft.CognitiveServices/locations/checkSkuAvailability/action | 讀取訂用帳戶的可用 Sku。 |
+> | Action | Microsoft.CognitiveServices/locations/checkSkuAvailability/action | 讀取訂用帳戶的可用 Sku。 |
 > | Action | Microsoft.CognitiveServices/locations/deleteVirtualNetworkOrSubnets/action | 來自 Microsoft 的通知正在刪除 VirtualNetworks 或子網。 |
 > | Action | Microsoft.CognitiveServices/Operations/read | 列出所有可用作業 |
 > | Action | Microsoft.CognitiveServices/register/action | 註冊認知服務的訂用帳戶 |
@@ -1660,7 +1660,7 @@ ms.locfileid: "70114675"
 > [!div class="mx-tdCol2BreakAll"]
 > | 動作類型 | 運算 | 描述 |
 > | --- | --- | --- |
-> | Action | Microsoft.Databricks/locations/getNetworkPolicies/action | 根據 NRP 所使用的位置, 取得子網的網路意圖原則 |
+> | Action | Microsoft.Databricks/locations/getNetworkPolicies/action | 根據 NRP 所使用的位置，取得子網的網路意圖原則 |
 > | Action | Microsoft.Databricks/register/action | 註冊 Databricks。 |
 > | Action | Microsoft.Databricks/workspaces/delete | 移除 Databricks 工作區。 |
 > | Action | Microsoft.Databricks/workspaces/providers/Microsoft.Insights/diagnosticSettings/read | 設定 Databricks 工作區的可用診斷設定 |

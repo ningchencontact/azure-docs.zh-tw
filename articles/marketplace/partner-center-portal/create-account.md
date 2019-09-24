@@ -7,12 +7,12 @@ ms.author: parthp
 ms.service: marketplace
 ms.topic: guide
 ms.date: 09/10/2019
-ms.openlocfilehash: fd1da6a43e4c1d7d6b66d5dbacb2d7a587c2856a
-ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
+ms.openlocfilehash: 9d19b31ccce8feeb2d5ce12353d9b79841b40724
+ms.sourcegitcommit: 3fa4384af35c64f6674f40e0d4128e1274083487
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70898690"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71219439"
 ---
 # <a name="create-a-commercial-marketplace-account-in-partner-center"></a>在合作夥伴中心建立商業 Marketplace 帳戶
 
@@ -60,7 +60,7 @@ ms.locfileid: "70898690"
 
 ### <a name="agree-to-terms-and-conditions"></a>同意條款及條件
 
-您必須同意[Microsoft Marketplace 發行者合約](http://go.microsoft.com/fwlink/?LinkID=699560)中的條款及條件。
+您必須同意[Microsoft Marketplace 發行者合約](https://go.microsoft.com/fwlink/?LinkID=699560)中的條款及條件。
 
 ### <a name="provide-your-publisher-profile"></a>提供您的發行者設定檔
 
@@ -103,7 +103,7 @@ ms.locfileid: "70898690"
 
 1. 從 [合作夥伴中心] 選取 [**設定** > ] [**合作夥伴設定** > ] [**程式** > **開始**使用]。
 2. Microsoft 合作夥伴網路會偵測您的訂用帳戶，並顯示 [發行者設定檔] 頁面，讓您輸入公司名稱和 MPN 識別碼。
-3. 閱讀[Microsoft Marketplace 發行者合約](http://go.microsoft.com/fwlink/?LinkID=699560)中的條款及條件，然後選取 [**接受並繼續**] 完成您的註冊。
+3. 閱讀[Microsoft Marketplace 發行者合約](https://go.microsoft.com/fwlink/?LinkID=699560)中的條款及條件，然後選取 [**接受並繼續**] 完成您的註冊。
 
 註冊之後，您會進入 [商業 Marketplace] [總覽] 頁面。 **商業 Marketplace**會顯示在左側導覽列中。 如果您選取 [**設定** > ] [**合作夥伴設定** > ] [**程式**]，您會看到 [商業 Marketplace] 列為 [已註冊]。
 

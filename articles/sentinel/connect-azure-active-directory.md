@@ -1,6 +1,6 @@
 ---
-title: 將 Azure AD 資料連接至 Azure 的 Sentinel Preview |Microsoft Docs
-description: 了解如何將 Azure Active Directory 資料連接至 Azure 的 Sentinel。
+title: 將 Azure AD 資料連線到 Azure Sentinel |Microsoft Docs
+description: 瞭解如何將 Azure Active Directory 資料連線到 Azure Sentinel。
 services: sentinel
 documentationcenter: na
 author: rkarlin
@@ -13,44 +13,44 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/17/2019
+ms.date: 09/23/2019
 ms.author: rkarlin
-ms.openlocfilehash: 5784101c9f2e0dc238ac48c5d0f6fbe4c0dc596f
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.openlocfilehash: 43405bd3e97dbee325f0a5ed82c5848880775eee
+ms.sourcegitcommit: 992e070a9f10bf43333c66a608428fcf9bddc130
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67620669"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71240808"
 ---
-# <a name="connect-data-from-azure-active-directory"></a>從 Azure Active Directory 連線資料
-
-> [!IMPORTANT]
-> Azure Sentinel 目前為公開預覽狀態。
-> 此預覽版本是在沒有服務等級協定的情況下提供，不建議用於生產工作負載。 可能不支援特定功能，或可能已經限制功能。 如需詳細資訊，請參閱 [Microsoft Azure 預覽版增補使用條款](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)。
-
-Azure 的 Sentinel 可讓您要從中收集資料[Azure Active Directory](../active-directory/fundamentals/active-directory-whatis.md)並將它串流到 Azure 的 Sentinel。 您可以選擇資料流[單一登入](../active-directory/reports-monitoring/concept-sign-ins.md)並[稽核記錄檔](../active-directory/reports-monitoring/concept-audit-logs.md)。
-
-## <a name="prerequisites"></a>先決條件
-
-- 如果您想要匯出從 Active Directory 的登入資料，您必須將 Azure AD P1 或 P2 授權。
-
-- 具有全域管理員或安全性系統管理員權限在您想要從記錄檔串流的租用戶上的使用者。
-
-- 若要能夠看見連線狀態，您必須存取 Azure AD 的診斷記錄檔的權限。 
+# <a name="connect-data-from-azure-active-directory"></a>從 Azure Active Directory 連接資料
 
 
-## <a name="connect-to-azure-ad"></a>連接至 Azure AD
 
-1. 在 Azure Sentinel，選取**資料連接器**，然後按一下**Azure Active Directory**圖格。
+Azure Sentinel 可讓您從[Azure Active Directory](../active-directory/fundamentals/active-directory-whatis.md)收集資料，並將它串流至 Azure Sentinel。 您可以選擇串流[登入記錄](../active-directory/reports-monitoring/concept-sign-ins.md)和[審核記錄](../active-directory/reports-monitoring/concept-audit-logs.md)。
 
-2. 記錄檔，您想要串流處理至 Azure 的 Sentinel，旁邊按一下  **Connect**。
+## <a name="prerequisites"></a>必要條件
 
-6. 若要使用 Log Analytics 中的 Azure AD 警示相關的結構描述，搜尋**SigninLogs**並**AuditLogs**。
+- 如果您想要從 Active Directory 匯出登入資料，您必須具有 Azure AD P1 或 P2 授權。
+
+- 在您想要串流處理記錄的租使用者上具有全域管理員或安全性系統管理員許可權的使用者。
+
+- 若要能夠查看線上狀態，您必須擁有存取 Azure AD 診斷記錄的許可權。 
+
+
+## <a name="connect-to-azure-ad"></a>連線到 Azure AD
+
+1. 在 Azure Sentinel 中，選取 [**資料連線器**]，然後按一下 [ **Azure Active Directory** ] 磚。
+
+1. 在您要串流至 Azure Sentinel 的記錄旁，按一下 [連線 **]** 。
+
+1. 您可以選取是否要讓警示 Azure AD 自動在 Azure Sentinel 中自動產生事件。 在 [**建立事件**] 底下，選取 [**啟用**] 以啟用預設分析規則，以自動從已連線的安全性服務中產生的警示建立事件。 接著，您可以在 [**分析**] 和 [作用中**規則**] 底下編輯此規則。
+
+1. 若要在 Log Analytics 中針對 Azure AD 警示使用相關的架構，請搜尋**SigninLogs**和**AuditLogs**。
 
 
 
 
 ## <a name="next-steps"></a>後續步驟
-在本文件中，您已了解如何連接至 Azure 的 Sentinel 的 Azure AD。 若要深入了解 Azure Sentinel，請參閱下列文章：
-- 了解如何[了解您的資料，與潛在的威脅](quickstart-get-visibility.md)。
-- 開始[偵測威脅與 Azure Sentinel](tutorial-detect-threats.md)。
+在本檔中，您已瞭解如何將 Azure AD 連接到 Azure Sentinel。 若要深入了解 Azure Sentinel，請參閱下列文章：
+- 瞭解如何[查看您的資料和潛在威脅](quickstart-get-visibility.md)。
+- 開始[使用 Azure Sentinel 偵測威脅](tutorial-detect-threats-built-in.md)。

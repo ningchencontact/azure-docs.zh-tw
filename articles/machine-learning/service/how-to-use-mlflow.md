@@ -9,14 +9,14 @@ ms.service: machine-learning
 ms.subservice: core
 ms.reviewer: nibaccam
 ms.topic: conceptual
-ms.date: 08/07/2019
+ms.date: 09/23/2019
 ms.custom: seodec18
-ms.openlocfilehash: b1b2255b4e0f5aa34e3c7159b00156aee5224928
-ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
+ms.openlocfilehash: c32b587464d66148957672be16493b66dc051ada
+ms.sourcegitcommit: 3fa4384af35c64f6674f40e0d4128e1274083487
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/15/2019
-ms.locfileid: "70999279"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71219686"
 ---
 # <a name="track-metrics-and-deploy-models-with-mlflow-and-azure-machine-learning-preview"></a>使用 MLflow 和 Azure Machine Learning 追蹤計量和部署模型（預覽）
 
@@ -146,6 +146,7 @@ run = exp.submit(src)
 若要使用 Azure Databricks 執行您的 Mlflow 實驗，您必須先建立[Azure Databricks 工作區和](https://docs.microsoft.com/azure/azure-databricks/quickstart-create-databricks-workspace-portal)叢集
 
 在您的叢集中, 請務必從 PyPi 安裝*azureml mlflow*程式庫, 以確保您的叢集能夠存取必要的函式和類別。
+從這裡匯入您的實驗筆記本，將您的叢集附加至該筆記本並執行您的實驗。 
 
 ### <a name="install-libraries"></a>安裝程式庫
 
@@ -184,10 +185,17 @@ workspace_name = 'workspace_name'
 ws = Workspace.get(name=workspace_name,
                    subscription_id=subscription_id,
                    resource_group=resource_group)
-
 ```
+
+#### <a name="connect-your-azure-databricks-and-azure-machine-learning-workspaces"></a>連接您的 Azure Databricks 和 Azure Machine Learning 工作區
+
+在  [Azure 入口網站](https://ms.portal.azure.com)上，您可以將 AZURE DATABRICKS （ADB）工作區連結至新的或現有的 Azure Machine Learning 工作區。 若要這麼做，請流覽至您的 ADB 工作區，然後選取右下方的 [**連結 Azure Machine Learning 工作區**] 按鈕。 連結您的工作區可讓您在 Azure Machine Learning 工作區中追蹤實驗資料。 
+
 ### <a name="link-mlflow-tracking-to-your-workspace"></a>將 MLflow 追蹤連結至您的工作區
+
 在您具現化工作區之後, 請設定 MLflow 追蹤 URI。 如此一來, 您就可以將 MLflow 追蹤連結到 Azure Machine Learning 工作區。 在此之後, 您的所有實驗都會進入受控 Azure Machine Learning 追蹤服務。
+
+#### <a name="directly-set-mlflow-tracking-in-your-notebook"></a>直接在您的筆記本中設定 MLflow 追蹤
 
 ```python
 uri = ws.get_mlflow_tracking_uri()
@@ -200,6 +208,12 @@ mlflow.set_tracking_uri(uri)
 import mlflow 
 mlflow.log_metric('epoch_loss', loss.item()) 
 ```
+
+#### <a name="automate-setting-mlflow-tracking"></a>自動設定 MLflow 追蹤
+
+不是在叢集的每個後續實驗筆記本會話中手動設定追蹤 URI，而是使用此[Azure Machine Learning 追蹤叢集 Init 腳本](https://github.com/Azure/MachineLearningNotebooks/blob/3ce779063b000e0670bdd1acc6bc3a4ee707ec13/how-to-use-azureml/azure-databricks/linking/README.md)自動執行此動作。
+
+正確設定時，您可以在 Azure Machine Learning 的 REST API 和所有用戶端，以及透過 MLflow 使用者介面或使用 MLflow 用戶端的 Azure Databricks 中，看到您的 MLflow 追蹤資料。
 
 ## <a name="view-metrics-and-artifacts-in-your-workspace"></a>在您的工作區中查看計量和成品
 

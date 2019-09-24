@@ -10,12 +10,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 07/02/2019
 ms.author: memildin
-ms.openlocfilehash: 0070ab94196dfe752e048e97dd40a8f69cf98373
-ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
+ms.openlocfilehash: 0d6f05524be41693ba280b0f0162f65b517ec281
+ms.sourcegitcommit: 3fa4384af35c64f6674f40e0d4128e1274083487
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71202602"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71219629"
 ---
 # <a name="threat-detection-for-vms-and-servers-in-azure-security-center"></a>Azure 資訊安全中心中 Vm 和伺服器的威脅偵測
 
@@ -35,7 +35,7 @@ Azure 資訊安全中心與 Azure 服務整合，以監視及保護您的 Window
 > [!NOTE]
 > Windows Server Defender ATP 感應器會在使用資訊安全中心的 Windows 伺服器上自動啟用。
 
-當 Windows Server Defender ATP 偵測到威脅時, 就會觸發警示。 警示會顯示在 [資訊安全中心] 儀表板上。 從儀表板，您可以將資料透視到 Windows Defender ATP 主控台，並執行詳細的調查，以找出攻擊的範圍。 如需 Windows Server Defender ATP 的詳細資訊, 請參閱[將伺服器上架到 Windows DEFENDER atp 服務](https://docs.microsoft.com/windows/security/threat-protection/microsoft-defender-atp/configure-server-endpoints)。
+當 Windows Server Defender ATP 偵測到威脅時, 就會觸發警示。 警示會顯示在 [資訊安全中心] 儀表板上。 從儀表板，您可以將資料透視到 Microsoft Defender ATP 主控台，並執行詳細的調查，以找出攻擊的範圍。 如需 Windows Server Defender ATP 的詳細資訊，請參閱[將伺服器上架到 Microsoft DEFENDER atp 服務](https://docs.microsoft.com/windows/security/threat-protection/microsoft-defender-atp/configure-server-endpoints)。
 
 ### 損毀傾印分析<a nanme="windows-dump"></a>
 

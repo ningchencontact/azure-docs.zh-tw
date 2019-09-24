@@ -54,7 +54,7 @@
     - name: 搭配使用 Functions 與 Logic Apps
       href: functions-twitter-email.md
     - name: 使用 VS Code 部署 Python functions
-      href: tutorial-vs-code-serverless-python.md
+      href: /azure/python/tutorial-vs-code-serverless-python-01
     - name: 無伺服器 API 的 OpenAPI 定義
       href: functions-openapi-definition.md
     - name: 連線至虛擬網路

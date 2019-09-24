@@ -1,5 +1,5 @@
 ---
-title: 建立 Azure Marketplace 虛擬機器供應項目的的技術資產
+title: 建立 Azure Marketplace 虛擬機器供應專案的技術資產
 description: 說明如何在 Azure Marketplace 中為虛擬機器供應項目建立技術資產。
 services: Azure, Marketplace, Cloud Partner Portal,
 author: pbutlerm
@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.topic: article
 ms.date: 08/20/2018
 ms.author: pabutler
-ms.openlocfilehash: 6113c10cd152a22bd31e7212d86925b0c2107e58
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c1ef00f846dfad76629b0603ab79fba17249417c
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64938420"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "71224532"
 ---
 # <a name="create-technical-assets-for-a-virtual-machine-offer"></a>建立虛擬機器供應項目的技術資產
 
@@ -34,7 +34,7 @@ VM 映像包含一個作業系統磁碟以及零或多個資料磁碟。 每個�
 
 ## <a name="fundamental-technical-knowledge"></a>基本技術知識
 
-設計、建置和測試這些資產需要時間，且需要具備關於 Azure 平台與建置供應項目所用技術的技術知識。 除了解決方案領域外，工程小組還應具備下列 Microsoft 技術的知識： 
+設計、建立及測試這些資產需要一些時間，而且需要 Azure 平臺和用來建立供應專案之技術的技術知識。 除了您的解決方案網域以外，您的工程小組也應具備下列 Microsoft 技術的知識： 
 -   對於 [Azure 服務](https://azure.microsoft.com/services/)的基本了解 
 -   如何[設計和架構 Azure 應用程式](https://azure.microsoft.com/solutions/architecture/)
 -   具備 [Azure 虛擬機器](https://azure.microsoft.com/services/virtual-machines/)、[Azure 儲存體](https://azure.microsoft.com/services/?filter=storage)和 [Azure 網路](https://azure.microsoft.com/services/?filter=networking)的運用知識

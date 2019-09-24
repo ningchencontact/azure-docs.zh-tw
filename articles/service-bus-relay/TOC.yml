@@ -32,12 +32,14 @@
       href: 'https://github.com/Azure/azure-relay/tree/master/samples/wcf-relay'
 - name: 概念
   items:
-    - name: 驗證和授權
-      href: relay-authentication-and-authorization.md
+    - name: 安全性
+      items:
+        - name: 驗證和授權
+          href: relay-authentication-and-authorization.md
+        - name: 內建安全性控制
+          href: service-bus-relay-security-controls.md
     - name: 混合式連線通訊協定
       href: relay-hybrid-connections-protocol.md
-    - name: 內建安全性控制
-      href: service-bus-relay-security-controls.md
 - name: 作法
   items:
     - name: 規劃和設計

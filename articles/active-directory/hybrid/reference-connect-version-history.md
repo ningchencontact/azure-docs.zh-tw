@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 05/23/2019
+ms.date: 09/23/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ce66c0239eee3f31695a942a586766694525fbad
-ms.sourcegitcommit: cd70273f0845cd39b435bd5978ca0df4ac4d7b2c
+ms.openlocfilehash: 2a875e028a38c085d45d062984764cd840983fc3
+ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71097604"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71212320"
 ---
 # <a name="azure-ad-connect-version-release-history"></a>Azure AD Connect：版本發行歷程記錄
 Azure Active Directory (Azure AD) 團隊會定期以新的特性和功能更新 Azure AD Connect。 並非所有新增項目都適用於所有的對象。
@@ -46,7 +46,13 @@ Azure Active Directory (Azure AD) 團隊會定期以新的特性和功能更新 
 ## <a name="14x0"></a>1.4. X 0
 
 >[!IMPORTANT]
->先前加入內部內部部署 AD 的舊版 Windows 電腦，在某些情況下會不正確地同步到雲端。 例如，會填入 AD 中 Windows 下層裝置的 userCertificate 屬性值。 但是 Azure AD 中的這類裝置一定會保持「擱置」狀態，因為這些作業系統版本並未設計成透過 AAD 同步向 Azure AD 註冊。在此版本的 Azure AD Connect 中，AAD 同步會停止將舊版的 Windows 電腦同步至 Azure AD，同時也會從 Azure AD 移除先前不正確同步處理的舊版 Windows 裝置。 請注意，這項變更不會刪除使用 MSI 套件向 Azure AD 正確註冊的任何舊版 Windows 裝置。 基於裝置型條件式存取的目的，這些裝置會繼續如預期般運作。 某些客戶可能會看到部分或所有舊版的 Windows 裝置從 Azure AD 消失。 這不是問題的原因，因為在條件式存取授權期間，Azure AD 實際上不會使用這些裝置身分識別。 這類客戶可能需要 https://docs.microsoft.com/azure/active-directory/devices/hybrid-azuread-join-plan 重新流覽並讓其舊版的 Windows 裝置正確註冊，以確保這類裝置可以完全參與以裝置為基礎的條件式存取。 請注意，如果您在 Azure AD 中看到舊版電腦/裝置物件的刪除超過匯出的刪除閾值，建議客戶允許這些刪除作業通過。
+>註冊為混合式 Azure AD 聯結的 Windows 電腦會在 Azure AD 中表示為裝置物件。 這些裝置物件可以用來進行條件式存取。 Windows 10 電腦會透過 Azure AD Connect 同步處理至雲端，而下層的 Windows 電腦則直接使用 AD FS 或無縫單一登入來註冊。
+>
+>只有具有混合式 Azure AD Join 所設定之特定 userCertificate 屬性值的 Windows 10 電腦，才應該透過 Azure AD Connect 同步處理到雲端。  在舊版的 Azure AD Connect 不會嚴格強制執行這項需求，而是在 Azure AD 中產生不必要的裝置物件。 Azure AD 中的這類裝置一律會保持「擱置」狀態，因為這些電腦不打算向 Azure AD 註冊。
+>
+>此版本的 Azure AD Connect 只會同步已正確設定為混合式 Azure AD 聯結的 Windows 10 電腦。 Azure AD Connect 應該永遠不會同步[下層的 Windows 裝置](../../active-directory/devices/hybrid-azuread-join-plan.md#windows-down-level-devices)。  Azure AD 中的任何裝置先前未正確同步處理，現在會從 Azure AD 中刪除。  不過，這種變更不會刪除所有已正確向 Azure AD 註冊混合式 Azure AD Join 的 Windows 裝置。 
+>
+>某些客戶可能會看到部分或所有的 Windows 裝置從 Azure AD 消失。 這不是問題的原因，因為在條件式存取授權期間，Azure AD 不會使用這些裝置身分識別。 有些客戶可能需要[重新流覽如何：規劃您的混合式 Azure Active Directory](../../active-directory/devices/hybrid-azuread-join-plan.md)聯結執行，以正確註冊其 Windows 電腦，並確保這類裝置可以完全參與以裝置為基礎的條件式存取。 如果 Azure AD Connect 嘗試刪除舊版[windows 裝置](../../active-directory/devices/hybrid-azuread-join-plan.md#windows-down-level-devices)，則裝置不是由[Microsoft Workplace Join 為非 Windows 10 電腦的 MSI](https://www.microsoft.com/download/details.aspx?id=53554)所建立，且無法由任何其他 Azure AD 功能使用。  如果您在 Azure AD 中看到電腦/裝置物件的刪除超過匯出的刪除閾值，建議客戶允許這些刪除作業進行。
 
 ### <a name="release-status"></a>發行狀態
 9/10/2019：僅針對自動升級發行
@@ -1272,7 +1278,7 @@ AD FS 管理
 **新功能︰**
 
 * 現在支援透過以屬性為基礎的篩選進行密碼同步處理。 如需詳細資訊，請參閱[透過篩選進行密碼同步處理](how-to-connect-sync-configure-filtering.md)。
-* ms-DS-ExternalDirectoryObjectID 屬性會寫回至 Active Directory。 這項功能會新增適用於 Office 365 應用程式的支援。 它會使用 OAuth2 存取混合式 Exchange 部署的線上和內部部署信箱。
+* ms-DS-ExternalDirectoryObjectID 屬性會寫回至 Active Directory。 這項功能會新增適用於 Office 365 應用程式的支援。 它會使用 OAuth2 來存取混合式 Exchange 部署中的線上和內部部署信箱。
 
 **已修正的升級問題︰**
 

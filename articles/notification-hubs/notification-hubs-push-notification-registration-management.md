@@ -3,40 +3,42 @@ title: 註冊管理
 description: 本主題說明如何向通知中樞註冊裝置以接收推播通知。
 services: notification-hubs
 documentationcenter: .net
-author: jwargo
-manager: patniko
-editor: spelluru
+author: sethmanheim
+manager: femila
+editor: jwargo
 ms.assetid: fd0ee230-132c-4143-b4f9-65cef7f463a1
 ms.service: notification-hubs
 ms.workload: mobile
 ms.tgt_pltfrm: mobile-multiple
 ms.devlang: dotnet
 ms.topic: article
-ms.author: jowargo
 ms.date: 04/08/2019
-ms.openlocfilehash: fffa6784702f239e0af0e9e88a4b9937d20b86ed
-ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
+ms.author: sethm
+ms.reviewer: jowargo
+ms.lastreviewed: 04/08/2019
+ms.openlocfilehash: 0725b4fc80fc3a41491bdb9ed084d33b36b490b8
+ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67488638"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71213083"
 ---
 # <a name="registration-management"></a>註冊管理
 
-## <a name="overview"></a>概觀
+## <a name="overview"></a>總覽
 
 本主題說明如何向通知中樞註冊裝置以接收推播通知。 本主題會概要說明註冊，然後介紹註冊裝置的兩個主要模式：直接從裝置向通知中樞註冊，以及透過應用程式後端註冊。
 
 ## <a name="what-is-device-registration"></a>什麼是裝置註冊
 
-向「通知中樞」註冊裝置是藉由使用 [註冊]  或 [安裝]  來完成。
+向「通知中樞」註冊裝置是藉由使用 [註冊] 或 [安裝] 來完成。
 
 ### <a name="registrations"></a>註冊
 
 註冊會將裝置的「平台通知服務」(PNS) 控制代碼與標記 (以及也可能與範本) 建立關聯。 PNS 控制代碼可能是 ChannelURI、裝置權杖或 FCM 註冊識別碼。標記是用來將通知路由至一組正確的裝置控制代碼。 如需詳細資訊，請參閱 [路由與標記運算式](notification-hubs-tags-segment-push-message.md)。 範本是用來實作每一註冊的轉換。 如需詳細資訊，請參閱 [範本](notification-hubs-templates-cross-platform-push-messages.md)。
 
 > [!NOTE]
-> Azure 通知中樞的每個裝置的 60 標籤最多可支援。
+> Azure 通知中樞支援每個裝置最多60個標記。
 
 ### <a name="installations"></a>安裝
 
@@ -45,7 +47,7 @@ ms.locfileid: "67488638"
 以下是使用安裝的一些主要優點：
 
 - 建立或更新安裝是完全等冪的。 因此您可以重試它，而不需顧慮重複註冊的情況。
-- 「 安裝 」 模型支援特殊的標記格式 (`$InstallationId:{INSTALLATION_ID}`)，可讓您直接將傳送通知到特定的裝置。 例如，如果應用程式的程式碼設定的安裝識別碼`joe93developer`針對這個特定的裝置，開發人員可以目標此裝置時傳送通知給`$InstallationId:{joe93developer}`標記。 這可讓您套用至特定的裝置，而不需要進行任何額外的程式碼。
+- 安裝模型支援特殊標記格式（`$InstallationId:{INSTALLATION_ID}`），可讓您直接將通知傳送至特定裝置。 例如，如果應用程式的程式碼`joe93developer`為此特定裝置設定安裝識別碼，開發人員可以在傳送通知`$InstallationId:{joe93developer}`給標記時，將此裝置設為目標。 這可讓您以特定裝置為目標，而不需要執行任何額外的編碼。
 - 使用安裝也可讓您進行部分註冊更新。 要求部分安裝更新時，是使用 [JSON-Patch 標準](https://tools.ietf.org/html/rfc6902)以 PATCH 方法來要求。 當您想要更新註冊的相關標記時，這會特別有用。 您不需要移除整個註冊，然後再次重新傳送所有先前的標記。
 
 安裝可以包含下列屬性。 如需完整的安裝屬性清單，請參閱[使用 REST API 建立或覆寫安裝](https://docs.microsoft.com/rest/api/notificationhubs/create-overwrite-installation)或[安裝屬性](https://docs.microsoft.com/dotnet/api/microsoft.azure.notificationhubs.installation)。
@@ -92,7 +94,7 @@ ms.locfileid: "67488638"
 註冊與安裝必須包含每個裝置/通道的有效 PNS 控制代碼。 由於 PNS 控制代碼只能在裝置上的用戶端 app 中取得，因此有一種模式是直接在該裝置上使用用戶端 app 進行註冊。 另一方面，與標記相關的安全性考量和商務邏輯可能會需要您在 app 後端管理裝置註冊。
 
 > [!NOTE]
-> 安裝 API 不支援百度服務 （雖然註冊 API）。 
+> 安裝 API 不支援百度服務（雖然註冊 API 會執行）。 
 
 ### <a name="templates"></a>範本
 

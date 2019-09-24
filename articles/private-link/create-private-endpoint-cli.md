@@ -7,12 +7,12 @@ ms.service: private-link
 ms.topic: article
 ms.date: 09/16/2019
 ms.author: kumud
-ms.openlocfilehash: 46c08f48efc00c1e4d88ceccb680c0cfd1671b2f
-ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
+ms.openlocfilehash: 30994133b19c4f59ae9e8be26caffe14348638f6
+ms.sourcegitcommit: 3fa4384af35c64f6674f40e0d4128e1274083487
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71203569"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71219377"
 ---
 # <a name="create-a-private-endpoint-using-azure-cli"></a>使用 Azure CLI 建立私人端點
 私人端點是 Azure 中私用連結的基本建立區塊。 它可讓 Azure 資源（例如虛擬機器（Vm））私下與私人連結資源進行通訊。 在本快速入門中，您將瞭解如何使用 Azure CLI，在虛擬網路、具有私人端點的 SQL Database 伺服器上建立 VM。 然後，您可以存取 VM，並安全地存取私人連結資源（在此範例中為私用 Azure SQL Database 伺服器）。 
@@ -123,13 +123,13 @@ az network private-dns record-set a add-record --record-set-name myserver --zone
 
 從網際網路連線至 VM *myVm* ，如下所示：
 
-1. 在入口網站的搜尋列中，輸入*myVm*。
+1. 在入口網站的搜尋列中，輸入 myVm。
 
 1. 選取 [連線] 按鈕。 選取 [連線] 按鈕之後，隨即會開啟 [連線至虛擬機器]。
 
 1. 選取 [下載 RDP 檔案]。 Azure 會建立一個「遠端桌面通訊協定」( *.rdp*) 檔案，並下載至您的電腦。
 
-1. 開啟下載的 .rdp * 檔案。
+1. 開啟下載的 .rdp* 檔案。
 
     1. 如果出現提示，請選取 [連接]。
 
@@ -144,11 +144,11 @@ az network private-dns record-set a add-record --record-set-name myserver --zone
 
 1. 當 VM 桌面出現之後，將它最小化以回到您的本機桌面。  
 
-## <a name="access-dql-database-server-privately-from-the-vm"></a>從 VM 私下存取 DQL 資料庫伺服器
+## <a name="access-sql-database-server-privately-from-the-vm"></a>從 VM 私下存取 SQL Database Server
 
 在本節中，您會使用私人端點從 VM 連接到 SQL Database 伺服器。
 
- 1. 在 *myVM*的遠端桌面中，開啟 PowerShell。
+ 1. 在 myVM ** 的遠端桌面中，開啟 PowerShell。
  2. 輸入 nslookup myserver.database.windows.net  ，您會收到類似下面的訊息： 
 
 ```
