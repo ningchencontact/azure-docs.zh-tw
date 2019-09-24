@@ -3,9 +3,8 @@ title: Azure 資訊安全中心中的安全性建議 |Microsoft Docs
 description: 本文件將逐步引導您了解「Azure 資訊安全中心」的建議如何協助您保護 Azure 資源及遵守安全性原則。
 services: security-center
 documentationcenter: na
-author: monhaber
-manager: barbkess
-editor: ''
+author: memildin
+manager: rkarlin
 ms.assetid: 86c50c9f-eb6b-4d97-acb3-6d599c06133e
 ms.service: security-center
 ms.devlang: na
@@ -13,16 +12,16 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/29/2019
-ms.author: v-mohabe
-ms.openlocfilehash: 229b8949facae34a809c0789154a3b56264ee2c5
-ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
+ms.author: memildin
+ms.openlocfilehash: 32b7f1d699c0d620d70614c441a8c18520c1b2d5
+ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/05/2019
-ms.locfileid: "68779011"
+ms.lasthandoff: 09/23/2019
+ms.locfileid: "71201054"
 ---
 # <a name="security-recommendations-in-azure-security-center"></a>Azure 資訊安全中心的安全性建議 
-本主題說明如何在 Azure 資訊安全中心中查看及瞭解建議, 以協助您保護 Azure 資源。
+本主題說明如何在 Azure 資訊安全中心中查看及瞭解建議，以協助您保護 Azure 資源。
 
 > [!NOTE]
 > 本文件將使用範例部署來介紹服務。  本文件不是一份逐步解說指南。
@@ -32,18 +31,18 @@ ms.locfileid: "68779011"
 
 建議是為了保護您的資源而採取的動作。
 
-資訊安全中心定期分析 Azure 資源的安全性狀態, 以找出潛在的安全性弱點。 接著, 它會提供您有關如何移除它們的建議。
+資訊安全中心定期分析 Azure 資源的安全性狀態，以找出潛在的安全性弱點。 接著，它會提供您有關如何移除它們的建議。
 
-每個建議都會提供下列各項:
+每個建議都會提供下列各項：
 
 - 建議的簡短描述。
-- 要執行的補救步驟, 以便執行建議。 <!-- In some cases, one-click remediation is available. -->
+- 要執行的補救步驟，以便執行建議。 <!-- In some cases, one-click remediation is available. -->
 - 您需要對這些資源執行建議的動作。
-- **安全分數會影響**, 這是您執行此建議時, 您的安全分數將會增加的數量。
+- **安全分數會影響**，這是您執行此建議時，您的安全分數將會增加的數量。
 
 ## 監視建議<a name="monitor-recommendations"></a>
 
-資訊安全中心會分析您資源的安全性狀態, 以找出潛在的弱點。 [**總覽**] 底下的 [**建議**] 圖格會顯示資訊安全中心所識別的建議總數。
+資訊安全中心會分析您資源的安全性狀態，以找出潛在的弱點。 [**總覽**] 底下的 [**建議**] 圖格會顯示資訊安全中心所識別的建議總數。
 
 ![安全性中心總覽](./media/security-center-recommendations/asc-overview.png)
 
@@ -53,17 +52,17 @@ ms.locfileid: "68779011"
 
     您可以篩選建議。 若要篩選建議，請選取 [建議] 刀鋒視窗上的 [篩選]。 即會開啟 [篩選] 刀鋒視窗，您可以選取想要查看的嚴重性和狀態值。
 
-   * **建議**:建議。
-   * **安全分數的影響**:資訊安全中心使用您的安全性建議所產生的分數, 並套用先進的演算法來判斷每個建議的重要程度。 如需詳細資訊, 請參閱[安全分數計算](security-center-secure-score.md#secure-score-calculation)。
+   * **建議**：建議。
+   * **安全分數的影響**：資訊安全中心使用您的安全性建議所產生的分數，並套用先進的演算法來判斷每個建議的重要程度。 如需詳細資訊，請參閱[安全分數計算](security-center-secure-score.md#secure-score-calculation)。
    * **資源**：列出這個建議適用的資源。
-   * **狀態列**:描述該特定建議的嚴重性：
-       * **高 (紅色)** :某個有意義的資源 (例如應用程式、VM 或網路安全性群組) 有弱點存在，並且需要注意。
-       * **中 (橙色)** :有弱點存在，需要非關鍵性步驟或其他步驟才能將其消除或完成程序。
-       * **低 (藍色)** :應該處理但不需要立即注意的弱點存在。 (預設不會顯示嚴重性低的建議，但是如果您要查看它們，則可以篩選嚴重性低的建議。) 
-       * **狀況良好 (綠色)** :
-       * **無法使用 (灰色)** :
+   * **狀態列**：描述該特定建議的嚴重性：
+       * **高（紅色）** ：某個有意義的資源 (例如應用程式、VM 或網路安全性群組) 有弱點存在，並且需要注意。
+       * **中（橙色）** ：有弱點存在，需要非關鍵性步驟或其他步驟才能將其消除或完成程序。
+       * **低（藍色）** ：應該處理但不需要立即注意的弱點存在。 (預設不會顯示嚴重性低的建議，但是如果您要查看它們，則可以篩選嚴重性低的建議。) 
+       * **狀況良好（綠色）** ：
+       * **無法使用（灰色）** ：
 
-1. 若要查看每個建議的詳細資料, 請按一下 [建議]。
+1. 若要查看每個建議的詳細資料，請按一下 [建議]。
 
     ![建議詳細資料](./media/security-center-recommendations/recommendation-details.png)
 
@@ -72,6 +71,6 @@ ms.locfileid: "68779011"
  
 ## <a name="next-steps"></a>後續步驟
 
-在本文件中，已向您介紹「資訊安全中心」的安全性建議。 若要瞭解如何修復建議:
+在本文件中，已向您介紹「資訊安全中心」的安全性建議。 若要瞭解如何修復建議：
 
-* [補救建議](security-center-remediate-recommendations.md): 瞭解如何為您的 Azure 訂用帳戶和資源群組設定安全性原則。
+* [補救建議](security-center-remediate-recommendations.md)：瞭解如何為您的 Azure 訂用帳戶和資源群組設定安全性原則。

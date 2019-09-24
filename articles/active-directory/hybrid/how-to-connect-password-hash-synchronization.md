@@ -15,12 +15,12 @@ ms.author: billmath
 search.appverid:
 - MET150
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 98101973627750f87fd06d3f617a1af764a837ee
-ms.sourcegitcommit: 4b5dcdcd80860764e291f18de081a41753946ec9
+ms.openlocfilehash: 0ce0ac4f40f3dd1bd7252689618459769d0aeb56
+ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/03/2019
-ms.locfileid: "68774240"
+ms.lasthandoff: 09/23/2019
+ms.locfileid: "71203076"
 ---
 # <a name="implement-password-hash-synchronization-with-azure-ad-connect-sync"></a>使用 Azure AD Connect 同步來實作密碼雜湊同步處理
 本文提供您所需資訊，以讓您將使用者密碼從內部部署 Active Directory 執行個體同步處理至雲端式 Azure Active Directory (Azure AD) 執行個體。
@@ -46,49 +46,105 @@ Active Directory 網域服務是以使用者實際密碼的雜湊值表示法格
 > 只有 Active Directory 的物件類型使用者才支援密碼同步。 不支援 iNetOrgPerson 物件類型。
 
 ### <a name="detailed-description-of-how-password-hash-synchronization-works"></a>密碼雜湊同步處理運作方式的詳細描述
+
 下列小節深入說明 Active Directory 與 Azure AD 之間的密碼雜湊同步處理運作方式。
 
 ![詳細的密碼流程](./media/how-to-connect-password-hash-synchronization/arch3b.png)
 
-
 1. AD Connect 伺服器上的密碼雜湊同步處理代理程式每隔兩分鐘就會向 DC 要求儲存的密碼雜湊 (unicodePwd 屬性)。  此要求是使用標準 [MS-DRSR](https://msdn.microsoft.com/library/cc228086.aspx) \(英文\)複寫通訊協定，用來在 DC 之間同步資料。 服務帳戶必須具有複寫目錄變更和複寫目錄變更所有 AD 權限 (預設在安裝時授與)，以取得密碼雜湊。
 2. 在傳送之前，DC 會使用金鑰 (它是 RPC 工作階段金鑰和 salt 的 [MD5](https://www.rfc-editor.org/rfc/rfc1321.txt) 雜湊)，來加密 MD4 密碼雜湊。 然後它會透過 RPC 將結果傳送給密碼雜湊同步處理代理程式。 DC 也會使用 DC 複寫通訊協定將 salt 傳送至同步處理代理程式，讓代理程式可以解密信封。
-3.  在密碼雜湊同步處理代理程式將信封加密後，它會使用 [MD5CryptoServiceProvider](https://msdn.microsoft.com/library/System.Security.Cryptography.MD5CryptoServiceProvider.aspx) 和 salt 來產生金鑰，以將接收的資料解密回其原始 MD4 格式。 密碼雜湊同步處理代理程式永遠不會存取純文字密碼。 密碼雜湊同步處理代理程式使用 MD5 純粹是為了與 DC 的複寫通訊協定相容，並且只會在內部部署環境中的 DC 和密碼雜湊同步處理代理程式之間使用。
-4.  密碼雜湊同步處理代理程式會將 16 位元組二進位密碼雜湊擴展成 64 位元組，方法是先將該雜湊轉換成 32 位元組十六進位字串，再將此字串轉換回具有 UTF-16 編碼的二進位檔。
-5.  密碼雜湊同步處理代理程式會將每位使用者 salt 處理 (由 10 位元組長度 salt 所組成) 新增至 64 位元組二進位檔，以進一步保護原始雜湊。
-6.  接著，密碼雜湊同步處理代理程式會結合 MD4 雜湊加上每位使用者 salt 處理，然後將其輸入至 [PBKDF2](https://www.ietf.org/rfc/rfc2898.txt) 函式。 系統會使用 [HMAC-SHA256](https://msdn.microsoft.com/library/system.security.cryptography.hmacsha256.aspx) 索引雜湊演算法的 1000 次反覆運算。 
-7.  密碼雜湊同步處理代理程式會使用產生的 32 位元組雜湊，將每位使用者 salt 處理和 SHA256 反覆運算數與其串連 (以供 Azure AD 使用)，然後透過 SSL 將字串從 Azure AD Connect 傳輸至 Azure AD。</br> 
-8.  當使用者嘗試登入 Azure AD 並且輸入其密碼時，密碼會執行相同的 MD4+salt+PBKDF2+HMAC-SHA256 程序。 如果產生的雜湊符合 Azure AD 中儲存的雜湊，使用者輸入的密碼正確並且通過驗證。 
+3. 在密碼雜湊同步處理代理程式將信封加密後，它會使用 [MD5CryptoServiceProvider](https://msdn.microsoft.com/library/System.Security.Cryptography.MD5CryptoServiceProvider.aspx) 和 salt 來產生金鑰，以將接收的資料解密回其原始 MD4 格式。 密碼雜湊同步處理代理程式永遠不會存取純文字密碼。 密碼雜湊同步處理代理程式使用 MD5 純粹是為了與 DC 的複寫通訊協定相容，並且只會在內部部署環境中的 DC 和密碼雜湊同步處理代理程式之間使用。
+4. 密碼雜湊同步處理代理程式會將 16 位元組二進位密碼雜湊擴展成 64 位元組，方法是先將該雜湊轉換成 32 位元組十六進位字串，再將此字串轉換回具有 UTF-16 編碼的二進位檔。
+5. 密碼雜湊同步處理代理程式會將每位使用者 salt 處理 (由 10 位元組長度 salt 所組成) 新增至 64 位元組二進位檔，以進一步保護原始雜湊。
+6. 接著，密碼雜湊同步處理代理程式會結合 MD4 雜湊加上每位使用者 salt 處理，然後將其輸入至 [PBKDF2](https://www.ietf.org/rfc/rfc2898.txt) 函式。 系統會使用 [HMAC-SHA256](https://msdn.microsoft.com/library/system.security.cryptography.hmacsha256.aspx) 索引雜湊演算法的 1000 次反覆運算。 
+7. 密碼雜湊同步處理代理程式會使用產生的 32 位元組雜湊，將每位使用者 salt 處理和 SHA256 反覆運算數與其串連 (以供 Azure AD 使用)，然後透過 SSL 將字串從 Azure AD Connect 傳輸至 Azure AD。</br> 
+8. 當使用者嘗試登入 Azure AD 並且輸入其密碼時，密碼會執行相同的 MD4+salt+PBKDF2+HMAC-SHA256 程序。 如果產生的雜湊符合 Azure AD 中儲存的雜湊，使用者輸入的密碼正確並且通過驗證。
 
->[!Note] 
->系統不會將原始的 MD4 雜湊傳輸至 Azure AD。 而是會傳輸原始 MD4 雜湊的 SHA256 雜湊。 如此一來，如果取得儲存在 Azure AD 的雜湊，它不能在內部部署傳遞雜湊攻擊中使用。
+> [!NOTE]
+> 系統不會將原始的 MD4 雜湊傳輸至 Azure AD。 而是會傳輸原始 MD4 雜湊的 SHA256 雜湊。 如此一來，如果取得儲存在 Azure AD 的雜湊，它不能在內部部署傳遞雜湊攻擊中使用。
 
 ### <a name="security-considerations"></a>安全性考量
+
 同步密碼時，不會向密碼雜湊同步處理功能、Azure AD 或任何相關的服務公開純文字版本的密碼。
 
 使用者驗證是針對 Azure AD 進行，而不是針對組織自己的 Active Directory 執行個體進行。 儲存在 Azure AD 中的 SHA256 密碼資料 (原始 MD4 雜湊的雜湊)，比儲存在 Active Directory 中的資料更安全。 此外，因為此 SHA256 雜湊無法解密，所以無法帶回組織的 Active Directory 環境，並且在傳遞雜湊攻擊中顯示為有效的使用者密碼。
 
 ### <a name="password-policy-considerations"></a>密碼原則考量
+
 啟用密碼雜湊同步處理會影響兩種類型的密碼原則：
 
 * 密碼複雜性原則
 * 密碼到期原則
 
-#### <a name="password-complexity-policy"></a>密碼複雜性原則  
+#### <a name="password-complexity-policy"></a>密碼複雜性原則
+
 啟用密碼雜湊同步處理時，內部部署 Active Directory 執行個體中的密碼複雜性原則，會覆寫所同步處理使用者在雲端中的複雜性原則。 您可以使用內部部署 Active Directory 執行個體的所有有效密碼，來存取 Azure AD 服務。
 
 > [!NOTE]
 > 直接在雲端建立的使用者的密碼仍受制於在雲端定義的密碼原則。
 
-#### <a name="password-expiration-policy"></a>密碼到期原則  
-如果使用者位於密碼雜湊同步處理範圍內，則雲端帳戶的密碼會設為「永不到期」。
+#### <a name="password-expiration-policy"></a>密碼到期原則
+
+如果使用者在密碼雜湊同步處理的範圍內，則雲端帳戶密碼預設會設定為*永不過期*。
 
 您可以使用內部部署環境中已過期的同步處理密碼，繼續登入雲端服務。 您的雲端密碼會於下一次您在內部部署環境中變更密碼時更新。
 
+##### <a name="public-preview-of-the-enforcecloudpasswordpolicyforpasswordsyncedusers-feature"></a>*EnforceCloudPasswordPolicyForPasswordSyncedUsers*功能的公開預覽
+
+如果有同步處理的使用者只與 Azure AD 整合式服務互動，而且也必須符合密碼到期原則，您 Azure AD 可以藉由啟用*EnforceCloudPasswordPolicyForPasswordSyncedUsers*功能。
+
+停用 *EnforceCloudPasswordPolicyForPasswordSyncedUsers*  時（這是預設設定），Azure AD Connect 將同步處理使用者的 PasswordPolicies 屬性設定為 "DisablePasswordExpiration"。 這會在每次同步處理使用者的密碼時完成，並指示 Azure AD 忽略該使用者的雲端密碼到期原則。 您可以使用 Azure AD PowerShell 模組搭配下列命令來檢查屬性的值：
+
+`(Get-AzureADUser -objectID <User Object ID>).passwordpolicies`
+
+
+若要啟用 EnforceCloudPasswordPolicyForPasswordSyncedUsers 功能，請使用 MSOnline PowerShell 模組執行下列命令：
+
+`Set-MsolDirSyncFeature -Feature EnforceCloudPasswordPolicyForPasswordSyncedUsers  $true`
+
+啟用之後，Azure AD 不會移至每個已同步處理的`DisablePasswordExpiration`使用者，以從 PasswordPolicies 屬性中移除值。 相反地，當每位使用者`None`下次在內部部署 AD 中變更其密碼時，其值會設定為。  
+
+建議您先啟用 EnforceCloudPasswordPolicyForPasswordSyncedUsers，再啟用密碼雜湊同步處理，讓密碼雜湊的初始同步處理不會將`DisablePasswordExpiration`值新增至使用者的 PasswordPolicies 屬性。
+
+預設 Azure AD 密碼原則會要求使用者每90天變更密碼一次。 如果您在 AD 中的原則也是90天，則這兩個原則應相符。 不過，如果 AD 原則不是90天，您可以使用 Set-msolpasswordpolicy PowerShell 命令，將 Azure AD 密碼原則更新為相符。
+
+Azure AD 針對每個已註冊的網域支援不同的密碼到期原則。
+
+一點如果已同步處理的帳戶在 Azure AD 中需要有未過期的密碼，您必須在 Azure AD 中`DisablePasswordExpiration`明確地將此值新增至使用者物件的 PasswordPolicies 屬性。  您可以藉由執行下列命令來完成此動作。
+
+`Set-AzureADUser -ObjectID <User Object ID> -PasswordPolicies "DisablePasswordExpiration"`
+
+> [!NOTE]
+> 這項功能目前處於公開預覽狀態。
+
+#### <a name="public-preview-of-synchronizing-temporary-passwords-and-force-password-on-next-logon"></a>同步處理暫時密碼和「下次登入時強制密碼」的公開預覽
+
+通常會強制使用者在第一次登入時變更其密碼，特別是在發生系統管理員密碼重設之後。  這通常稱為設定「暫時」密碼，並透過在 Active Directory （AD）中的使用者物件上核取 [使用者必須在下次登入時變更密碼] 旗標來完成。
+  
+暫時密碼功能有助於確保認證的擁有權轉移會在第一次使用時完成，以將多個個人知道該認證的持續時間減到最短。
+
+若要支援同步處理使用者 Azure AD 中的暫時密碼，您可以啟用*ForcePasswordResetOnLogonFeature*功能，方法是在 Azure AD Connect 伺服器上執行下列命令， <AAD Connector Name>並以連接器名稱取代適用于您的環境：
+
+`Set-ADSyncAADCompanyFeature -ConnectorName "<AAD Connector name>" -ForcePasswordResetOnLogonFeature $true`
+
+您可以使用下列命令來判斷連接器名稱：
+
+`(Get-ADSyncConnector | where{$_.ListName -eq "Windows Azure Active Directory (Microsoft)"}).Name`
+
+一點強制使用者在下次登入時變更其密碼時，需要同時變更密碼。  AD Connect 不會單獨收取「強制密碼變更」旗標，它是在密碼雜湊同步處理期間偵測到的密碼變更補充。
+
+> [!CAUTION]
+> 如果您未在 Azure AD 中啟用自助式密碼重設（SSPR），使用者在 Azure AD 重設其密碼時將會有令人混淆的體驗，然後嘗試使用新密碼登入 Active Directory，因為新密碼在中無效 Active Directory. 只有在租使用者上啟用 SSPR 和密碼回寫時，您才應該使用這項功能。
+
+> [!NOTE]
+> 這項功能目前處於公開預覽狀態。
+
 #### <a name="account-expiration"></a>帳戶到期
+
 如果您的組織使用 accountExpires 屬性作為使用者帳戶管理的一部分，這個屬性不會同步處理至 Azure AD。 如此一來，在針對密碼雜湊同步處理設定之環境中已到期的 Active Directory 帳戶在 Azure AD 將仍然為作用中。 我們的建議是，如果帳戶到期，工作流程動作應觸發 PowerShell 指令碼，以停用使用者的 Azure AD 帳戶 (使用 [Set-AzureADUser](https://docs.microsoft.com/powershell/module/azuread/set-azureaduser?view=azureadps-2.0) \(英文\) Cmdlet)。 相反地，當帳戶開啟時，Azure AD 執行個體也應開啟。
 
 ### <a name="overwrite-synchronized-passwords"></a>覆寫已同步的密碼
+
 系統管理員可以使用 Windows PowerShell 手動重設您的密碼。
 
 在此情況下，新的密碼會覆寫您已同步處理的密碼，且雲端中定義的所有密碼原則都會套用到新的密碼。
@@ -104,36 +160,36 @@ Active Directory 網域服務是以使用者實際密碼的雜湊值表示法格
 
 ## <a name="password-hash-sync-process-for-azure-ad-domain-services"></a>Azure AD Domain Services 的密碼雜湊同步處理常式
 
-如果您使用 Azure AD Domain Services 為需要使用 Keberos、LDAP 或 NTLM 的應用程式和服務提供舊版驗證, 某些額外的進程就是密碼雜湊同步處理流程的一部分。 Azure AD Connect 使用下列額外的程式, 將密碼雜湊同步處理至 Azure AD 以用於 Azure AD Domain Services:
+如果您使用 Azure AD Domain Services 為需要使用 Keberos、LDAP 或 NTLM 的應用程式和服務提供舊版驗證，某些額外的進程就是密碼雜湊同步處理流程的一部分。 Azure AD Connect 使用下列額外的程式，將密碼雜湊同步處理至 Azure AD 以用於 Azure AD Domain Services：
 
 > [!IMPORTANT]
-> Azure AD Connect 只有在為 Azure AD 租使用者啟用 Azure AD DS 時, 才會同步處理舊版密碼雜湊。 如果您只使用 Azure AD Connect 來同步處理內部部署 AD DS 環境與 Azure AD, 則不會使用下列步驟。
+> Azure AD Connect 只有在為 Azure AD 租使用者啟用 Azure AD DS 時，才會同步處理舊版密碼雜湊。 如果您只使用 Azure AD Connect 來同步處理內部部署 AD DS 環境與 Azure AD，則不會使用下列步驟。
 >
-> 如果您的繼承應用程式未使用 NTLM 驗證或 LDAP 簡單系結, 我們建議您停用 Azure AD DS 的 NTLM 密碼雜湊同步處理。 如需詳細資訊, 請參閱[停用弱式加密套件和 NTLM 認證雜湊同步](../../active-directory-domain-services/secure-your-domain.md)處理。
+> 如果您的繼承應用程式未使用 NTLM 驗證或 LDAP 簡單系結，我們建議您停用 Azure AD DS 的 NTLM 密碼雜湊同步處理。 如需詳細資訊，請參閱[停用弱式加密套件和 NTLM 認證雜湊同步](../../active-directory-domain-services/secure-your-domain.md)處理。
 
 1. Azure AD Connect 會抓取租使用者之 Azure AD Domain Services 實例的公開金鑰。
-1. 當使用者變更其密碼時, 內部部署網域控制站會將密碼變更 (雜湊) 的結果儲存在兩個屬性中:
+1. 當使用者變更其密碼時，內部部署網域控制站會將密碼變更（雜湊）的結果儲存在兩個屬性中：
     * NTLM 密碼雜湊的*unicodePwd* 。
     * Kerberos 密碼雜湊的*supplementalCredentials* 。
-1. Azure AD Connect 透過目錄複寫通道偵測密碼變更 (需要複寫到其他網域控制站的屬性變更)。
-1. 針對每個密碼已變更的使用者, Azure AD Connect 執行下列步驟:
+1. Azure AD Connect 透過目錄複寫通道偵測密碼變更（需要複寫到其他網域控制站的屬性變更）。
+1. 針對每個密碼已變更的使用者，Azure AD Connect 執行下列步驟：
     * 產生隨機 AES 256 位對稱金鑰。
     * 產生第一輪加密所需的隨機初始化向量。
     * 從*supplementalCredentials*屬性解壓縮 Kerberos 密碼雜湊。
     * 檢查 [Azure AD Domain Services 安全性設定*SyncNtlmPasswords* ] 設定。
-        * 如果停用此設定, 則會產生隨機的高熵 NTLM 雜湊 (與使用者的密碼不同)。 然後, 此雜湊會與*supplementalCrendetials*屬性中的 exacted Kerberos 密碼雜湊結合成一個資料結構。
-        * 啟用時, 會將*unicodePwd*屬性的值與從*supplementalCredentials*屬性解壓縮的 Kerberos 密碼雜湊結合成一個資料結構。
+        * 如果停用此設定，則會產生隨機的高熵 NTLM 雜湊（與使用者的密碼不同）。 然後，此雜湊會與*supplementalCrendetials*屬性中的 exacted Kerberos 密碼雜湊結合成一個資料結構。
+        * 啟用時，會將*unicodePwd*屬性的值與從*supplementalCredentials*屬性解壓縮的 Kerberos 密碼雜湊結合成一個資料結構。
     * 使用 AES 對稱金鑰來加密單一資料結構。
     * 使用租使用者的 Azure AD Domain Services 公開金鑰來加密 AES 對稱金鑰。
-1. Azure AD Connect 會傳輸加密的 AES 對稱金鑰、包含密碼雜湊的加密資料結構, 以及要 Azure AD 的初始化向量。
-1. Azure AD 會儲存加密的 AES 對稱金鑰、加密的資料結構, 以及使用者的初始化向量。
-1. Azure AD 使用內部同步處理機制, 透過加密的 HTTP 會話, 將加密的 AES 對稱金鑰、加密的資料結構和初始化向量推送至 Azure AD Domain Services。
+1. Azure AD Connect 會傳輸加密的 AES 對稱金鑰、包含密碼雜湊的加密資料結構，以及要 Azure AD 的初始化向量。
+1. Azure AD 會儲存加密的 AES 對稱金鑰、加密的資料結構，以及使用者的初始化向量。
+1. Azure AD 使用內部同步處理機制，透過加密的 HTTP 會話，將加密的 AES 對稱金鑰、加密的資料結構和初始化向量推送至 Azure AD Domain Services。
 1. Azure AD Domain Services 從 Azure Key vault 抓取租使用者實例的私密金鑰。
-1. 針對每一組加密的資料 (代表單一使用者的密碼變更), Azure AD Domain Services 接著執行下列步驟:
+1. 針對每一組加密的資料（代表單一使用者的密碼變更），Azure AD Domain Services 接著執行下列步驟：
     * 會使用其私密金鑰來解密 AES 對稱金鑰。
     * 使用 AES 對稱金鑰搭配初始化向量來解密包含密碼雜湊的加密資料結構。
-    * 將接收到的 Kerberos 密碼雜湊寫入 Azure AD Domain Services 網域控制站。 雜湊會儲存到使用者物件的*supplementalCredentials*屬性中, 並加密為 Azure AD Domain Services 網域控制站的公開金鑰。
-    * Azure AD Domain Services 會將收到的 NTLM 密碼雜湊寫入 Azure AD Domain Services 網域控制站。 雜湊會儲存到使用者物件的*unicodePwd*屬性中, 並加密為 Azure AD Domain Services 網域控制站的公開金鑰。
+    * 將接收到的 Kerberos 密碼雜湊寫入 Azure AD Domain Services 網域控制站。 雜湊會儲存到使用者物件的*supplementalCredentials*屬性中，並加密為 Azure AD Domain Services 網域控制站的公開金鑰。
+    * Azure AD Domain Services 會將收到的 NTLM 密碼雜湊寫入 Azure AD Domain Services 網域控制站。 雜湊會儲存到使用者物件的*unicodePwd*屬性中，並加密為 Azure AD Domain Services 網域控制站的公開金鑰。
 
 ## <a name="enable-password-hash-synchronization"></a>啟用密碼雜湊同步處理
 

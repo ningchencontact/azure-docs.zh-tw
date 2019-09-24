@@ -3,9 +3,8 @@ title: Azure 資訊安全中心威脅情報報告 | Microsoft Docs
 description: 本文件可協助您在調查期間使用 Azure 資訊安全中心威脅情報報告，找出更多關於安全性警示的資訊。
 services: security-center
 documentationcenter: na
-author: rkarlin
-manager: barbkess
-editor: ''
+author: memildin
+manager: rkarlin
 ms.assetid: 5662e312-e8c2-4736-974e-576eeb333484
 ms.service: security-center
 ms.devlang: na
@@ -13,19 +12,19 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/28/2018
-ms.author: v-mohabe
-ms.openlocfilehash: 7ab42fdb03209173c61b70fdf498aa77b39a1c23
-ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
+ms.author: memildin
+ms.openlocfilehash: c389fd72d9b185bc920ffeefdfb84e05b3d13001
+ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/26/2019
-ms.locfileid: "70036390"
+ms.lasthandoff: 09/23/2019
+ms.locfileid: "71200721"
 ---
 # <a name="azure-security-center-threat-intelligence-report"></a>Azure 資訊安全中心威脅情報報告
 本文件說明 Azure 資訊安全中心威脅情報報告可如何協助您深入了解產生安全性警示的威脅。
 
 ## <a name="what-is-a-threat-intelligence-report"></a>何謂威脅情報報告？
-資訊安全中心威脅偵測的運作方式如下：監視來自 Azure 資源、網路和已連線合作夥伴解決方案的安全性資訊。 它會分析這項資訊 (通常是來自多個來源的相互關聯資訊) 以識別威脅。 如需詳細資訊, 請參閱[Azure 資訊安全中心偵測和回應威脅的方式](security-center-alerts-overview.md#detect-threats)。
+資訊安全中心威脅偵測的運作方式如下：監視來自 Azure 資源、網路和已連線合作夥伴解決方案的安全性資訊。 它會分析這項資訊 (通常是來自多個來源的相互關聯資訊) 以識別威脅。 如需詳細資訊，請參閱[Azure 資訊安全中心偵測和回應威脅的方式](security-center-alerts-overview.md#detect-threats)。
 
 當資訊安全中心識別到威脅時，便會觸發[安全性警示](security-center-managing-and-responding-alerts.md)，其內含關於特定事件的詳細資訊，包括修復方面的建議。 為了協助事件回應小組調查和補救威脅，資訊安全中心包含威脅情報報告，其中包含所偵測到威脅的相關資訊，包括如下資訊：
 
@@ -48,7 +47,7 @@ ms.locfileid: "70036390"
 * **活動報告**︰著重說明特定攻擊活動的詳細資料。
 * **威脅摘要報告**︰涵蓋先前兩種報告的所有項目。
 
-這種類型的資訊在事件回應程式期間非常有用, 因為它會持續進行調查, 以瞭解攻擊來源、攻擊者的動機, 以及如何解決此問題。
+這種類型的資訊在事件回應程式期間非常有用，因為它會持續進行調查，以瞭解攻擊來源、攻擊者的動機，以及如何解決此問題。
 
 ## <a name="how-to-access-the-threat-intelligence-report"></a>如何存取威脅情報報告？
 您可以查看 [安全性警示] 圖格來檢視目前的警示。 開啟 Azure 入口網站並遵循下列步驟來查看有關每個警示的詳細資料：

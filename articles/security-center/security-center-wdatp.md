@@ -3,22 +3,21 @@ title: Windows Defender 進階威脅防護與 Azure 資訊安全中心
 description: 本文件會介紹 Azure 資訊安全中心與 Windows Defender 進階威脅防護的整合。
 services: security-center
 documentationcenter: na
-author: monhaber
-manager: barbkess
-editor: ''
+author: memildin
+manager: rkarlin
 ms.service: security-center
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/21/2019
-ms.author: v-mohabe
-ms.openlocfilehash: 5342ec14e32b87c5cccdb36206122ce1168aeb56
-ms.sourcegitcommit: 388c8f24434cc96c990f3819d2f38f46ee72c4d8
+ms.author: memildin
+ms.openlocfilehash: b1af4f99b1446599f53448884d3147601fba56a8
+ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/27/2019
-ms.locfileid: "70061430"
+ms.lasthandoff: 09/23/2019
+ms.locfileid: "71200637"
 ---
 # <a name="windows-defender-advanced-threat-protection-with-azure-security-center"></a>Windows Defender 進階威脅防護與 Azure 資訊安全中心
 

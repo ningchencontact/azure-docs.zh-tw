@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 09/11/2019
 ms.author: saudas
 ms.custom: mvc
-ms.openlocfilehash: b7e079e92c2f438fa7acc87a7d7333c371fe8e54
-ms.sourcegitcommit: cd70273f0845cd39b435bd5978ca0df4ac4d7b2c
+ms.openlocfilehash: 5c2ecd5a53bb77193469ba1135c46d9b5fa65b2c
+ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71099456"
+ms.lasthandoff: 09/23/2019
+ms.locfileid: "71202969"
 ---
 # <a name="security-hardening-in-aks-virtual-machine-hosts"></a>AKS 虛擬機器主機中的安全性強化 
 
@@ -76,8 +76,6 @@ AKS 引擎目前不會升階或遵守任何特定的安全性標準，但在適�
 |5.4.1.4 |確保非使用中的密碼鎖定為30天或更少 |
 |5.4.4 |確保預設使用者 umask 為027或更嚴格的限制 |
 |5.6 |確保對 su 命令的存取受到限制|
-
-(*)必須啟用。 請參閱叢集定義[檔](https://github.com/Azure/aks-engine/blob/master/docs/topics/clusterdefinitions.md)。
 
 ## <a name="additional-notes"></a>其他備註
  

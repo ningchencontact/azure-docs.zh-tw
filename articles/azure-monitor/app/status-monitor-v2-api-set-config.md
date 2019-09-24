@@ -3,7 +3,7 @@ title: Azure 狀態監視器 v2 API 參考:設定 config |Microsoft Docs
 description: 狀態監視器 v2 API 參考。 Set-ApplicationInsightsMonitoringConfig. 在不重新部署網站的情況下監視網站效能。 適用于內部部署、Vm 或 Azure 上裝載的 ASP.NET web 應用程式。
 services: application-insights
 documentationcenter: .net
-author: MS-TimothyMothra
+author: TimothyMothra
 manager: alexklim
 ms.assetid: 769a5ea4-a8c6-4c18-b46c-657e864e24de
 ms.service: application-insights
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: tilee
-ms.openlocfilehash: f3a55caba13b3b96884d446e0750d9fb67a343df
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: 6d93be5b01be63a75041b939f6b8deb9106c4262
+ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68326284"
+ms.lasthandoff: 09/23/2019
+ms.locfileid: "71200439"
 ---
 # <a name="status-monitor-v2-api-set-applicationinsightsmonitoringconfig"></a>狀態監視器 v2 API:設定-ApplicationInsightsMonitoringConfig
 
@@ -72,7 +72,7 @@ PS C:\> Enable-ApplicationInsightsMonitoring -InstrumentationKeyMap
 > [!IMPORTANT]
 > 應用程式會依照規則的提供順序來比對規則。 因此, 您應該先指定最特定的規則, 最後是最常見的規則。
 
-#### <a name="schema"></a>結構描述
+#### <a name="schema"></a>架構
 `@(@{MachineFilter='.*';AppFilter='.*';InstrumentationKey='xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx'})`
 
 - **MachineFilter**是電腦或C# VM 名稱的必要 RegEx。

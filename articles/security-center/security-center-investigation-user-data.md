@@ -3,9 +3,8 @@ title: 管理 Azure 資訊安全中心調查中找到的使用者資料 | Micros
 description: " 了解如何管理 Azure 資訊安全中心調查功能中的使用者資料。 "
 services: operations-management-suite
 documentationcenter: na
-author: rkarlin
-manager: barbkess
-editor: ''
+author: memildin
+manager: rkarlin
 ms.assetid: 411d7bae-c9d4-4e83-be63-9f2f2312b075
 ms.service: security-center
 ms.devlang: na
@@ -13,23 +12,23 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/20/2018
-ms.author: rkarlin
-ms.openlocfilehash: 1fd979be117104186b2dfce47cc79947a092eb9e
-ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
+ms.author: memildin
+ms.openlocfilehash: 8b6bde69f233fee9fe20b260e392966298f13a9a
+ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67672336"
+ms.lasthandoff: 09/23/2019
+ms.locfileid: "71202047"
 ---
 # <a name="manage-user-data-found-in-an-azure-security-center-investigation"></a>管理 Azure 資訊安全中心調查中找到的使用者資料
-本文提供有關如何管理 Azure 資訊安全中心調查功能中找到的使用者資料的資訊。 調查資料會儲存在[Azure 監視器記錄](../log-analytics/log-analytics-overview.md)並公開在資訊安全中心。 管理使用者資料包含了刪除或匯出資料的能力。
+本文提供有關如何管理 Azure 資訊安全中心調查功能中找到的使用者資料的資訊。 調查資料會儲存在[Azure 監視器記錄](../log-analytics/log-analytics-overview.md)檔中，並在資訊安全中心中公開。 管理使用者資料包含了刪除或匯出資料的能力。
 
 [!INCLUDE [gdpr-intro-sentence.md](../../includes/gdpr-intro-sentence.md)]
 
 ## <a name="searching-for-and-identifying-personal-data"></a>搜尋及識別個人資料
-在 Azure 入口網站中，您可以使用資訊安全中心的[調查功能](../security-center/security-center-investigation.md)搜尋個人資料。 調查功能位於 [安全性警示]  下。
+在 Azure 入口網站中，您可以使用資訊安全中心的[調查功能](../security-center/security-center-investigation.md)搜尋個人資料。 調查功能位於 [安全性警示] 下。
 
-調查功能顯示 [實體]  索引標籤下的所有實體、使用者資訊和資料。
+調查功能顯示 [實體] 索引標籤下的所有實體、使用者資訊和資料。
 
 ## <a name="securing-and-controlling-access-to-personal-information"></a>保護與控制個人資訊存取
 指派j為讀者、擁有者、參與者或帳戶管理員角色的資訊安全中心使用者可以存取在此工具中的客戶資料。
@@ -54,8 +53,8 @@ https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{reso
 ```
 
 ## <a name="exporting-personal-data"></a>匯出個人資料
-指派為擁有者、參與者或帳戶管理員角色的資訊安全中心使用者可以匯出調查資訊。 若要匯出調查資訊，請移至 [實體]  索引標籤以複製和貼上相關資訊。
+指派為擁有者、參與者或帳戶管理員角色的資訊安全中心使用者可以匯出調查資訊。 若要匯出調查資訊，請移至 [實體] 索引標籤以複製和貼上相關資訊。
 
 ## <a name="next-steps"></a>後續步驟
 如需有關如何管理使用者資料的詳細資訊，請參閱[管理 Azure 資訊安全中心中的使用者資料](security-center-privacy.md)。
-若要深入了解刪除 Azure 監視器記錄檔中的私用資料，請參閱[如何匯出及刪除私用資料](../azure-monitor/platform/personal-data-mgmt.md#how-to-export-and-delete-private-data)。
+若要深入瞭解如何刪除 Azure 監視器記錄中的私用資料，請參閱[如何匯出及刪除私人資料](../azure-monitor/platform/personal-data-mgmt.md#how-to-export-and-delete-private-data)。

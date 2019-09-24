@@ -11,12 +11,12 @@ author: MayMSFT
 manager: cgronlun
 ms.reviewer: nibaccam
 ms.date: 08/22/2019
-ms.openlocfilehash: 6c3a8d62bd6b3650f834540bd7bb13027792b091
-ms.sourcegitcommit: 8ef0a2ddaece5e7b2ac678a73b605b2073b76e88
+ms.openlocfilehash: d2b9e53fc6c58f0477e252c751e25a99bdbfba42
+ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71076974"
+ms.lasthandoff: 09/23/2019
+ms.locfileid: "71200097"
 ---
 # <a name="create-and-access-datasets-preview-in-azure-machine-learning"></a>在 Azure Machine Learning 中建立和存取資料集（預覽）
 
@@ -47,7 +47,7 @@ ms.locfileid: "71076974"
 
 資料集會根據使用者在定型中取用它們的方式，分類成兩種類型。 
 
-* [TabularDataset](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py)藉由剖析提供的檔案或檔案清單，以表格格式表示資料。 這讓您能夠將資料具體化為 pandas 資料框架。 您可以從 csv、tsv、parquet 檔案、SQL 查詢結果等建立物件。`TabularDataset`如需完整清單，請流覽我們的[檔](https://aka.ms/tabulardataset-api-reference)。
+* [TabularDataset](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py)藉由剖析提供的檔案或檔案清單，以表格格式表示資料。 這讓您能夠將資料具體化為 pandas 或 spark 資料框架。 您可以從 csv、tsv、parquet 檔案、SQL 查詢結果等建立物件。`TabularDataset`如需完整清單，請流覽我們的[檔](https://aka.ms/tabulardataset-api-reference)。
 
 * [FileDataset](https://docs.microsoft.com/python/api/azureml-core/azureml.data.file_dataset.filedataset?view=azure-ml-py)會參考您資料存放區或公用 url 中的單一或多個檔案。 這讓您能夠將檔案下載或掛接至您的計算。 這些檔案可以是任何格式，讓更廣泛的機器學習服務案例，包括深度學習。
 
@@ -110,6 +110,16 @@ titanic_ds.take(3).to_pandas_dataframe()
 1|2|1|1|Cumings，Mrs John Bradley （Florence Briggs Th 。|female|38.0|1|0|電腦17599|71.2833|C85|C
 2|3|1|3|Heikkinen，錯過。 Laina|female|26.0|0|0|STON/O2。 3101282|7.9250||S
 
+在類別上`TabularDatasetFactory`使用[方法，以從AzureSQLDatabase中讀取。`from_sql_query()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.dataset_factory.tabulardatasetfactory?view=azure-ml-py#from-sql-query-query--validate-true--set-column-types-none-)
+
+```Python
+
+from azureml.core import Dataset, Datastore
+
+# create tabular dataset from a SQL database in datastore
+sql_datastore = Datastore.get(workspace, 'mssql')
+sql_ds = Dataset.Tabular.from_sql_query((sql_datastore, 'SELECT * FROM my_table'))
+```
 在類別上`TabularDataset`使用[方法，可讓您依時間輕鬆且有效率地進行篩選。`with_timestamp_columns()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py#with-timestamp-columns-fine-grain-timestamp--coarse-grain-timestamp-none--validate-false-) 您可以在[這裡](http://aka.ms/azureml-tsd-notebook)找到更多範例和詳細資料。 
 
 ```Python
@@ -197,7 +207,7 @@ titanic_ds = titanic_ds.register(workspace = workspace,
 ```
 
 
-## <a name="access-your-data-during-training"></a>在定型期間存取您的資料
+## <a name="access-datasets-in-your-script"></a>存取腳本中的資料集
 
 已註冊的資料集會在計算叢集（例如 Azure Machine Learning 計算）上，從本機和遠端存取。 若要跨實驗存取已註冊的資料集，請使用下列程式碼，依名稱取得您的工作區和已註冊的資料集。 根據預設， [`get_by_name()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset.dataset?view=azure-ml-py#get-by-name-workspace--name--version--latest--) 類別上的方法會傳回已向工作區註冊之資料集的最新版本。`Dataset`
 
@@ -220,5 +230,6 @@ df = titanic_ds.to_pandas_dataframe()
 
 ## <a name="next-steps"></a>後續步驟
 
+* 瞭解[如何使用資料集進行定型](how-to-train-with-datasets.md)
 * 使用自動化機器學習來[訓練 TabularDatasets](https://aka.ms/automl-dataset)。
 * 如需使用資料集進行定型的更多範例，請參閱[範例筆記本](https://aka.ms/dataset-tutorial)。

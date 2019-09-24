@@ -7,12 +7,12 @@ ms.subservice: data-science-vm
 ms.author: gopalv
 ms.date: 09/11/2019
 ms.topic: reference
-ms.openlocfilehash: 8ed083ad39c3ace3a0f66a61936974b462ed418f
-ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
+ms.openlocfilehash: be4397de477891f2a698c9f7dcb131da79479529
+ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71174691"
+ms.lasthandoff: 09/23/2019
+ms.locfileid: "71200024"
 ---
 # <a name="reference-windows-data-science-virtual-machine"></a>參考：Windows 資料科學虛擬機器
 
@@ -132,4 +132,6 @@ Python SDK 會預先安裝在「Microsoft 資料科學虛擬機器」上。 若�
 > [!NOTE]
 > 在 Windows Server 2012 版本的 DSVM 及 2018 年 3 月之前的 Windows Server 2016 版本上，預設的 Anaconda 環境是 Python 2.7。 次要環境是位於 C:\Anaconda\envs\py35 的 Python 3.5。
 
+## <a name="next-steps"></a>後續步驟
 
+有其他問題嗎？ 請考慮建立[支援票證](https://azure.microsoft.com/support/create-ticket/)。

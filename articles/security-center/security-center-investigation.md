@@ -3,9 +3,8 @@ title: 在 Azure 資訊安全中心調查事件和警示 | Microsoft Docs
 description: 這份文件可協助您使用 Azure 資訊安全中心的調查功能，以調查安全性事件和警示。
 services: security-center
 documentationcenter: na
-author: rkarlin
-manager: barbkess
-editor: ''
+author: memildin
+manager: rkarlin
 ms.assetid: a8e894a9-8781-4749-ae8f-8c8e01658566
 ms.service: security-center
 ms.devlang: na
@@ -13,19 +12,19 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/29/2018
-ms.author: rkarlin
-ms.openlocfilehash: 476bdd50a56b953585a8a4e9cea05975c9922e0f
-ms.sourcegitcommit: e3b0fb00b27e6d2696acf0b73c6ba05b74efcd85
+ms.author: memildin
+ms.openlocfilehash: 32cc4b01d68ee7a15ae7cfa2259d234cbcd143c4
+ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68662961"
+ms.lasthandoff: 09/23/2019
+ms.locfileid: "71202057"
 ---
-# <a name="investigate-incidents-and-alerts-in-azure-security-center-retired"></a>調查 Azure 資訊安全中心中的事件和警示 (已淘汰)
-本檔可協助您使用 Azure 資訊安全中心中的調查功能 (預覽) 來調查安全性事件和警示。
+# <a name="investigate-incidents-and-alerts-in-azure-security-center-retired"></a>調查 Azure 資訊安全中心中的事件和警示（已淘汰）
+本檔可協助您使用 Azure 資訊安全中心中的調查功能（預覽）來調查安全性事件和警示。
 
 > [!NOTE]
-> 警示與事件調查 (預覽) 體驗已于2019年7月31日淘汰。 如需詳細資訊和替代服務, 請參閱[淘汰資訊安全中心功能 (2019 年7月)](security-center-features-retirement-july2019.md#menu_investigate)。
+> 警示與事件調查（預覽）體驗已于2019年7月31日淘汰。 如需詳細資訊和替代服務，請參閱[淘汰資訊安全中心功能（2019年7月）](security-center-features-retirement-july2019.md#menu_investigate)。
 
 ## <a name="what-is-investigation-in-security-center"></a>資訊安全中心的調查是什麼？
 資訊安全中心的 [調查] 功能可讓您分級、了解範圍，並追蹤可能[安全性事件](https://docs.microsoft.com/azure/security-center/security-center-incident)的根本原因。
@@ -99,7 +98,7 @@ ms.locfileid: "68662961"
 
 ## <a name="how-to-perform-an-investigation"></a>如何執行調查？
 
-您可以從安全性事件或從警示開始調查，您所選擇的選項會根據您的需求而異。 接下來的步驟是用來從警示開始調查:
+您可以從安全性事件或從警示開始調查，您所選擇的選項會根據您的需求而異。 接下來的步驟是用來從警示開始調查：
 
 1.  開啟 [資訊安全中心] 儀表板。
 2.  按一下 [安全性警示]，然後選取您想要調查的事件。

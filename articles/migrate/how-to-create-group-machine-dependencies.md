@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: article
 ms.date: 07/17/2019
 ms.author: hamusa
-ms.openlocfilehash: c48323bb4c8798a0f36d3fda99a4c659187e0e81
-ms.sourcegitcommit: beb34addde46583b6d30c2872478872552af30a1
+ms.openlocfilehash: 8e793891ea646ae8c91077ead36be9b84c1b08c8
+ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69906378"
+ms.lasthandoff: 09/23/2019
+ms.locfileid: "71200196"
 ---
 # <a name="set-up-dependency-visualization-for-assessment"></a>設定評估的相依性視覺效果
 
@@ -38,9 +38,9 @@ ms.locfileid: "69906378"
 --- | ---
 可用性 | Azure Government 無法使用相依性視覺效果。
 服務對應 | 相依性視覺效果使用 Azure 監視器中的服務對應解決方案。 [服務對應](../azure-monitor/insights/service-map.md)會自動探索並顯示伺服器之間的連接。
-Agent | 若要使用相依性視覺效果, 請在您想要對應的電腦上安裝下列代理程式:<br/> - [Log Analytics 代理](../azure-monitor/platform/log-analytics-agent.md)程式代理程式 (先前稱為 MICROSOFT MONITORING AGENT (MMA)。<br/> - [服務對應 Dependency agent](../azure-monitor/insights/vminsights-enable-overview.md#the-microsoft-dependency-agent)。<br/><br/> 若要自動安裝代理程式, 您可以使用部署工具, 例如 System Center Configuration Manager 或具有 Azure Migrate 之代理程式部署解決方案的合作夥伴工具 (例如[Intigua](https://www.intigua.com/getting-started-intigua-for-azure-migration))。
+Agent | 若要使用相依性視覺效果，請在您想要對應的電腦上安裝下列代理程式：<br/> - [Log Analytics 代理](../azure-monitor/platform/log-analytics-agent.md)程式代理程式（先前稱為 MICROSOFT MONITORING AGENT （MMA）。<br/> - [服務對應 Dependency agent](../azure-monitor/insights/vminsights-enable-overview.md#the-microsoft-dependency-agent)。<br/><br/> 若要自動安裝代理程式, 您可以使用部署工具, 例如 System Center Configuration Manager 或具有 Azure Migrate 之代理程式部署解決方案的合作夥伴工具 (例如[Intigua](https://www.intigua.com/getting-started-intigua-for-azure-migration))。
 相依性代理程式 | 審查[Dependency agent](../azure-monitor/insights/vminsights-enable-overview.md#the-microsoft-dependency-agent)對 Windows 和 Linux 的支援。<br/><br/> [深入瞭解](../azure-monitor/insights/vminsights-enable-hybrid-cloud.md#installation-script-examples)如何使用腳本來安裝 Dependency agent。
-Log Analytics 代理程式 (MMA) | [深入瞭解](../azure-monitor/platform/log-analytics-agent.md#install-and-configure-agent)MMA 安裝方法。<br/><br/> 針對 System Center Operations Manager 2012 R2 或更新版本監視的機器, 您不需要安裝 MMA 代理程式。 服務對應與 Operations Manager 整合。 您可以使用[此處](https://docs.microsoft.com/azure/azure-monitor/insights/service-map-scom#prerequisites)的指導方針來啟用整合。 不過要注意的是, 相依性代理程式必須安裝在這些電腦上。<br/><br/> 請[參閱](../azure-monitor/platform/log-analytics-agent.md#supported-linux-operating-systems)Log Analytics 代理程式所支援的 Linux 作業系統。
+Log Analytics 代理程式 (MMA) | [深入瞭解](../azure-monitor/platform/log-analytics-agent.md#install-and-configure-agent)MMA 安裝方法。<br/><br/> 針對 System Center Operations Manager 2012 R2 或更新版本監視的機器, 您不需要安裝 MMA 代理程式。 服務對應與 Operations Manager 整合。 您可以使用[此處](https://docs.microsoft.com/azure/azure-monitor/insights/service-map-scom#prerequisites)的指導方針來啟用整合。 不過要注意的是，相依性代理程式必須安裝在這些電腦上。<br/><br/> 請[參閱](../azure-monitor/platform/log-analytics-agent.md#supported-linux-operating-systems)Log Analytics 代理程式所支援的 Linux 作業系統。
 評量群組 | 您想要將相依性視覺化的群組不應該包含超過 10 部的機器。 如果您有超過10部電腦, 請將它們分割成較小的群組, 以將相依性視覺化。
 
 ## <a name="associate-a-log-analytics-workspace"></a>與 Log Analytics 工作區建立關聯
@@ -61,7 +61,7 @@ Log Analytics 代理程式 (MMA) | [深入瞭解](../azure-monitor/platform/log-
 
     ![新增工作區](./media/how-to-create-group-machine-dependencies/workspace.png)
 
-    - 在您為新的工作區指定名稱之後, 它會建立在與 Azure Migrate 專案相同的地理位置中。
+    - 為新的工作區指定名稱之後，您可以選擇將在其中建立工作區的[區域](https://azure.microsoft.com/global-infrastructure/regions/)。
     - 當您連結現有的工作區時，您能以和移轉專案相同的方式，從相同訂用帳戶中所有的可用工作區中挑選。
     - 您需要讀取器存取工作區才能附加。
     - 附加專案之後, 您就無法修改與其相關聯的工作區。

@@ -3,9 +3,8 @@ title: Azure 資訊安全中心中 IaaS 的先進資料安全性 |Microsoft Docs
 description: " 瞭解如何在 Azure 資訊安全中心中啟用 IaaS 的先進資料安全性。 "
 services: security-center
 documentationcenter: na
-author: monhaber
-manager: barbkess
-editor: monhaber
+author: memildin
+manager: rkarlin
 ms.assetid: ba46c460-6ba7-48b2-a6a7-ec802dd4eec2
 ms.service: security-center
 ms.devlang: na
@@ -13,13 +12,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/29/2019
-ms.author: v-mohabe
-ms.openlocfilehash: 0b83575baa2221f0b502abbf919654492c7ab6cf
-ms.sourcegitcommit: a8b638322d494739f7463db4f0ea465496c689c6
+ms.author: memildin
+ms.openlocfilehash: 287da68617a9527bc398df577cf8d10773fa8557
+ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "68295764"
+ms.lasthandoff: 09/23/2019
+ms.locfileid: "71202169"
 ---
 # <a name="advanced-data-security-for-sql-servers-on-azure-virtual-machines-public-preview"></a>Azure 上 SQL server 的 Advanced data security 虛擬機器 (公開預覽)
 Azure 上 SQL Server 的 advanced data security 虛擬機器是先進 SQL 安全性功能的整合套件。 它目前 (處於公開預覽狀態) 包含可呈現和減輕潛在資料庫弱點, 以及偵測可能表示對資料庫有威脅之異常活動的功能。 
@@ -49,7 +48,7 @@ Azure 上 SQL Server 的 advanced data security 虛擬機器是先進 SQL 安全
 
     ![IaaS 的先進資料安全性](./media/security-center-advanced-iaas-data/sql-advanced-data-security.png)
 
-1. 按一下 [建立]  。 隨即顯示工作場所。
+1. 按一下 [建立]。 隨即顯示工作場所。
 
     ![Advanced Data Security 建立](./media/security-center-advanced-iaas-data/sql-advanced-data-create.png)
 

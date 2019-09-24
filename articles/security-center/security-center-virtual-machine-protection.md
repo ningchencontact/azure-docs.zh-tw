@@ -3,9 +3,8 @@ title: 保護 Azure 資訊安全中心內的機器和應用程式 | Microsoft Do
 description: 本文件說明資訊安全中心為了協助您保護虛擬機器和電腦以及 Web 應用程式和 App Service 環境所提供的建議。
 services: security-center
 documentationcenter: na
-author: monhaber
-manager: barbkess
-editor: ''
+author: memildin
+manager: rkarlin
 ms.assetid: 47fa1f76-683d-4230-b4ed-d123fef9a3e8
 ms.service: security-center
 ms.devlang: na
@@ -13,13 +12,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/20/2019
-ms.author: v-mohabe
-ms.openlocfilehash: c8f381a3440d742cca880f44b73cbc22bde92ecc
-ms.sourcegitcommit: d70c74e11fa95f70077620b4613bb35d9bf78484
+ms.author: memildin
+ms.openlocfilehash: a3bce8d6312dd09a7f10f8d5d2eaebd4e312d95d
+ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70910551"
+ms.lasthandoff: 09/23/2019
+ms.locfileid: "71200782"
 ---
 # <a name="protecting-your-machines-and-applications-in-azure-security-center"></a>保護 Azure 資訊安全中心內的機器和應用程式
 Azure 資訊安全中心會分析 Azure 資源、非 Azure 伺服器和虛擬機器的安全性狀態。 當資訊安全中心發現潛在的安全性弱點時，它會建立可引導您完成所需控制之設定程序的建議。 這些建議適用於下列 Azure 資源類型︰虛擬機器 (VM) 和電腦、應用程式、網路、SQL、身分識別與存取。
@@ -85,11 +84,11 @@ Azure 資訊安全中心會分析 Azure 資源、非 Azure 伺服器和虛擬機
 
 
 > [!NOTE]
-> 此處的安全性建議與 [建議] 圖格下的相同。 如需如何處理建議的詳細資訊，請參閱[實作 Azure 資訊安全中心的安全性建議](security-center-recommendations.md)一文。
+> 此處的安全性建議與 [建議] 圖格下的相同。 如需如何解決建議的詳細資訊，請參閱[在 Azure 資訊安全中心中執行安全性建議](security-center-recommendations.md)。
 >
 >
 
-### <a name="vms-and-computers"></a>VM 和電腦
+### <a name="vms-and-computers"></a>VM 與電腦
 [VM 和電腦] 區段提供所有 VM 和電腦的建議概觀。 每一欄表示一組建議。
 
 ![VM 和電腦的建議](./media/security-center-virtual-machine-recommendations/vm-computers.png)
@@ -108,6 +107,7 @@ Azure 資訊安全中心會分析 Azure 資源、非 Azure 伺服器和虛擬機
 每個建議底下出現的圖示，可協助您快速識別需要關注的 VM 和電腦，以及建議的類型。 您也可以使用篩選，依**資源類型**及依**嚴重性**來搜尋清單。
 
 若要向下切入到每個 VM 的安全性建議，請按一下該 VM。
+您可在此處查看 VM 或電腦的安全性詳細資料。 在底部，您可以看到建議的動作和每個問題的嚴重性。
 ![雲端服務](./media/security-center-virtual-machine-recommendations/recommendation-list.png)
 
 ### <a name="cloud-services"></a>雲端服務

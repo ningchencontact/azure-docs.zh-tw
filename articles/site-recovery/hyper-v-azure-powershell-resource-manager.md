@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 06/18/2019
 ms.author: sutalasi
-ms.openlocfilehash: bc1d52a1062d1848daaaeef7977f96cd270567c8
-ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
+ms.openlocfilehash: 1779a33e4ac021c1807ce10dc224e0b8c8c53ebb
+ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67203477"
+ms.lasthandoff: 09/23/2019
+ms.locfileid: "71200529"
 ---
 # <a name="set-up-disaster-recovery-to-azure-for-hyper-v-vms-using-powershell-and-azure-resource-manager"></a>針對 Hyper-V VM，使用 PowerShell 和 Azure Resource Manager 設定至 Azure 的災害復原
 
@@ -38,7 +38,7 @@ Azure PowerShell 提供 Cmdlet，讓您使用 Windows PowerShell 管理 Azure。
 確認您已備妥這些必要條件：
 
 * [Microsoft Azure](https://azure.microsoft.com/) 帳戶。 您可以從 [免費試用](https://azure.microsoft.com/pricing/free-trial/)開始。 此外，您可以參閱 [Azure Site Recovery 管理員價格](https://azure.microsoft.com/pricing/details/site-recovery/)。
-* Azure PowerShell。 此版本和安裝方式的相關資訊，請參閱[安裝 Azure PowerShell](/powershell/azure/install-az-ps)。
+* Azure PowerShell。 如需有關此版本及如何安裝的詳細資訊，請參閱[安裝 Azure PowerShell](/powershell/azure/install-az-ps)。
 
 此外，本文所述的特定範例有下列先決條件：
 
@@ -47,7 +47,7 @@ Azure PowerShell 提供 Cmdlet，讓您使用 Windows PowerShell 管理 Azure。
 
 ## <a name="step-1-sign-in-to-your-azure-account"></a>步驟 1：登入您的 Azure 帳戶
 
-1. 開啟 PowerShell 主控台並執行這個命令，登入您的 Azure 帳戶。 此 Cmdlet 會開啟網頁，提示您輸入帳戶認證：**連接 AzAccount**。
+1. 開啟 PowerShell 主控台並執行這個命令，登入您的 Azure 帳戶。 此 Cmdlet 會開啟網頁，提示您輸入帳戶認證：**連接-disconnect-azaccount**。
     - 或者，您可以使用 **-Credential** 參數，以參數形式將您的帳戶認證加入 **Connect-AzAccount** Cmdlet。
     - 如果您是代表租用戶工作的 CSP 合作夥伴，請使用客戶的 tenantID 或租用戶主要網域名稱將客戶指定為租用戶。 例如: **Connect-AzAccount -Tenant "fabrikam.com"**
 2. 由於一個帳戶可以有多個訂用帳戶，因此您必須將要使用的訂用帳戶與帳戶建立關聯：
@@ -58,7 +58,7 @@ Azure PowerShell 提供 Cmdlet，讓您使用 Windows PowerShell 管理 Azure。
 
     `Get-AzResourceProvider -ProviderNamespace  Microsoft.RecoveryServices`
 
-4. 確認 **RegistrationState** 在命令輸出中設為 [已註冊]  ，您可以繼續執行步驟 2。 如果未設定，請執行下列命令來註冊訂用帳戶中遺漏的提供者：
+4. 確認 **RegistrationState** 在命令輸出中設為 [已註冊]，您可以繼續執行步驟 2。 如果未設定，請執行下列命令來註冊訂用帳戶中遺漏的提供者：
 
     `Register-AzResourceProvider -ProviderNamespace Microsoft.RecoveryServices`
 
@@ -66,18 +66,18 @@ Azure PowerShell 提供 Cmdlet，讓您使用 Windows PowerShell 管理 Azure。
 
     `Get-AzResourceProvider -ProviderNamespace  Microsoft.RecoveryServices`
 
-## <a name="step-2-set-up-the-vault"></a>步驟 2：設定保存庫
+## <a name="step-2-set-up-the-vault"></a>步驟 2:設定保存庫
 
 1. 建立將在其中建立保存庫的 Azure Resource Manager 資源群組，或使用現有的資源群組。 建立新的資源群組，如下所示。 $ResourceGroupName 變數包含您想要建立的資源群組名稱，而 $Geo 變數包含要在其中建立資源群組的 Azure 區域 (例如：巴西南部)。
 
     `New-AzResourceGroup -Name $ResourceGroupName -Location $Geo`
 
-2. 若要取得一份執行您訂用帳戶中的資源群組**Get AzResourceGroup** cmdlet。
+2. 若要取得訂用帳戶中的資源群組清單，請執行**remove-azresourcegroup** Cmdlet。
 2. 建立新的 Azure 復原服務保存庫，如下所示：
 
         $vault = New-AzRecoveryServicesVault -Name <string> -ResourceGroupName <string> -Location <string>
 
-    您可以擷取現有的保存庫與清單**Get AzRecoveryServicesVault** cmdlet。
+    您可以使用**new-azrecoveryservicesvault** Cmdlet 來抓取現有保存庫的清單。
 
 
 ## <a name="step-3-set-the-recovery-services-vault-context"></a>步驟 3：設定復原服務保存庫內容
@@ -107,7 +107,7 @@ Azure PowerShell 提供 Cmdlet，讓您使用 Windows PowerShell 管理 Azure。
 ## <a name="step-5-install-the-provider-and-agent"></a>步驟 5：安裝 Provider 和代理程式
 
 1. 從 [Microsoft](https://aka.ms/downloaddra)下載最新版提供者的安裝程式。
-2. 在 HYPER-V 主機上執行安裝程式。
+2. 在 Hyper-v 主機上執行安裝程式。
 3. 在安裝結尾繼續註冊步驟。
 4. 當系統提示時，請提供下載金鑰，並完成 Hyper-V 主機註冊。
 5. 確認 Hyper-V 主機向網站註冊，如下所示：
@@ -115,8 +115,8 @@ Azure PowerShell 提供 Cmdlet，讓您使用 Windows PowerShell 管理 Azure。
         $server =  Get-AsrFabric -Name $siteName | Get-AsrServicesProvider -FriendlyName $server-friendlyname
 
 如果您執行的是 Hyper-V 核心伺服器，請下載安裝檔案並執行下列步驟：
-1. 解壓縮的檔案從 AzureSiteRecoveryProvider.exe 至本機目錄執行下列命令： ```AzureSiteRecoveryProvider.exe /x:. /q```
-2. 執行```.\setupdr.exe /i```結果都會記錄到 %programdata%\asrlogs\drasetupwizard.log。
+1. 執行下列命令，將檔案從 Azuresiterecoveryprovider.exe 解壓縮至本機目錄：```AzureSiteRecoveryProvider.exe /x:. /q```
+2. 執行```.\setupdr.exe /i```結果會記錄到%Programdata%\ASRLogs\DRASetupWizard.log。
 
 3. 執行下列命令以註冊伺服器：
 
@@ -143,9 +143,13 @@ Azure PowerShell 提供 Cmdlet，讓您使用 Windows PowerShell 管理 Azure。
         $protectionContainer = Get-AsrProtectionContainer
 3. 建立保護容器與複寫原則的關聯，如下所示：
 
-     $Policy = Get-AsrPolicy -FriendlyName $PolicyName   $associationJob  = New-AsrProtectionContainerMapping -Name $mappingName -Policy $Policy -PrimaryProtectionContainer $protectionContainer[0]
-
+        $Policy = Get-AsrPolicy -FriendlyName $PolicyName
+        $associationJob  = New-AsrProtectionContainerMapping -Name $mappingName -Policy $Policy -PrimaryProtectionContainer $protectionContainer[0]
 4. 等到關聯工作順利完成。
+
+5. 取出保護容器對應。
+
+        $ProtectionContainerMapping = Get-ASRProtectionContainerMapping -ProtectionContainer $protectionContainer
 
 ## <a name="step-7-enable-vm-protection"></a>步驟 7：啟用 VM 保護
 
@@ -153,10 +157,10 @@ Azure PowerShell 提供 Cmdlet，讓您使用 Windows PowerShell 管理 Azure。
 
         $VMFriendlyName = "Fabrikam-app"                    #Name of the VM
         $ProtectableItem = Get-AsrProtectableItem -ProtectionContainer $protectionContainer -FriendlyName $VMFriendlyName
-2. 保護 VM。 如果您要保護的 VM 有多個連接到它的磁碟，請使用 OSDiskName  參數指定作業系統磁碟。
+2. 保護 VM。 如果您要保護的 VM 有多個連接到它的磁碟，請使用 OSDiskName 參數指定作業系統磁碟。
 
-        $Ostype = "Windows"                                 # "Windows" or "Linux"
-        $DRjob = New-AsrReplicationProtectedItem -ProtectableItem $VM -Name $VM.Name -ProtectionContainerMapping $ProtectionContainerMapping -RecoveryAzureStorageAccountId $StorageAccountID -OSDiskName $OSDiskNameList[$i] -OS Windows -RecoveryResourceGroupId
+        $OSType = "Windows"                                 # "Windows" or "Linux"
+        $DRjob = New-AsrReplicationProtectedItem -ProtectableItem $VM -Name $VM.Name -ProtectionContainerMapping $ProtectionContainerMapping -RecoveryAzureStorageAccountId $StorageAccountID -OSDiskName $OSDiskNameList[$i] -OS $OSType -RecoveryResourceGroupId $ResourceGroupID
 
 3. 在初始複寫後，等待 VM 達到受保護的狀態。 所需時間長短，受到要複寫的資料量和可用的 Azure 上游頻寬等因素影響。 達到受保護的狀態時，作業的 State 和 StateDescription 就會更新，如下所示：
 

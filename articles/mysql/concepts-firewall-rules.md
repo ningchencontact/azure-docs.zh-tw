@@ -5,13 +5,13 @@ author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 02/28/2018
-ms.openlocfilehash: 0802185b7fb0d1a6d7d41cd1fa5a30f5ce10424b
-ms.sourcegitcommit: a874064e903f845d755abffdb5eac4868b390de7
+ms.date: 09/22/2019
+ms.openlocfilehash: e84dfb35a435e32cd14b244b29044d700c79d14d
+ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68443918"
+ms.lasthandoff: 09/23/2019
+ms.locfileid: "71203594"
 ---
 # <a name="azure-database-for-mysql-server-firewall-rules"></a>適用於 MySQL 的 Azure 資料庫伺服器防火牆規則
 防火牆會防止對您資料庫伺服器的所有存取，直到您指定哪些電腦擁有權限。 此防火牆會根據每一個要求的來源 IP 位址來授與伺服器存取權。
@@ -46,7 +46,7 @@ ms.locfileid: "68443918"
 ## <a name="programmatically-managing-firewall-rules"></a>以程式設計方式管理防火牆規則
 除了 Azure 入口網站之外，防火牆規則還可以程式設計方式使用 Azure CLI 來管理。 另請參閱[使用 Azure CLI 建立和管理適用於 MySQL 的 Azure 資料庫防火牆規則](./howto-manage-firewall-using-cli.md)
 
-## <a name="troubleshooting-the-database-firewall"></a>針對資料庫防火牆問題進行疑難排解
+## <a name="troubleshooting-firewall-issues"></a>疑難排解防火牆問題
 若對於適用於 MySQL 的 Microsoft Azure 資料庫伺服器服務的存取未如預期般運作，請考慮下列幾點：
 
 * **允許清單的變更尚未生效：** 適用於 MySQL 的 Azure 資料庫伺服器防火牆組態變更可能會延遲最多 5 分鐘才能生效。
@@ -55,9 +55,11 @@ ms.locfileid: "68443918"
 
 * **動態 IP 位址：** 如果您有使用動態 IP 位址的網際網路連線，並且在通過防火牆時遇到問題，您可以嘗試下列其中一個解決方案：
 
-* 要求您的網際網路服務提供者 (ISP) 將可存取適用於 MySQL 的 Azure 資料庫伺服器之 IP 位址範圍指派給您的用戶端電腦，然後將 IP 位址範圍新增為防火牆規則。
+   * 要求您的網際網路服務提供者 (ISP) 將可存取適用於 MySQL 的 Azure 資料庫伺服器之 IP 位址範圍指派給您的用戶端電腦，然後將 IP 位址範圍新增為防火牆規則。
 
-* 改為針對您的用戶端電腦取得靜態 IP 位址，然後將 IP 位址新增為防火牆規則。
+   * 改為針對您的用戶端電腦取得靜態 IP 位址，然後將 IP 位址新增為防火牆規則。
+
+* **伺服器的 IP 看起來是公用的：** 適用於 MySQL 的 Azure 資料庫伺服器的連線會透過可公開存取的 Azure 閘道進行路由傳送。 不過，實際的伺服器 IP 會受到防火牆保護。 如需詳細資訊，請流覽連線[架構一文](concepts-connectivity-architecture.md)。 
 
 ## <a name="next-steps"></a>後續步驟
 

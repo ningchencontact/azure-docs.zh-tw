@@ -3,9 +3,8 @@ title: Azure 資訊安全中心常見問題集 (FAQ) | Microsoft Docs
 description: 這個常見問題集回答「Azure 資訊安全中心」的相關問題。
 services: security-center
 documentationcenter: na
-author: monhaber
-manager: barbkess
-editor: ''
+author: memildin
+manager: rkarlin
 ms.assetid: be2ab6d5-72a8-411f-878e-98dac21bc5cb
 ms.service: security-center
 ms.devlang: na
@@ -13,13 +12,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/19/2019
-ms.author: v-mohabe
-ms.openlocfilehash: 33ce4c3c7f7cba8310ca75ffd0de3ecb24ad6d8d
-ms.sourcegitcommit: 23389df08a9f4cab1f3bb0f474c0e5ba31923f12
+ms.author: memildin
+ms.openlocfilehash: b8ca4dfe8b1bba169b1234461dc5e8855fef1d7e
+ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70873403"
+ms.lasthandoff: 09/23/2019
+ms.locfileid: "71202295"
 ---
 # <a name="azure-security-center-frequently-asked-questions-faq"></a>Azure 資訊安全中心常見問題集 (FAQ)
 這個常見問題集回答「Azure 資訊安全中心」的相關問題，此資訊安全中心是一項針對 Microsoft Azure 資源的安全性提供更深入的洞悉和更佳控制的服務，可協助您預防、偵測及回應威脅。
@@ -55,7 +54,7 @@ Azure 資訊安全中心會使用[角色型存取控制 (RBAC)](../role-based-ac
 請參閱[Azure 資訊安全中心的權限](security-center-permissions.md)以深入了解角色與資訊安全中心允許的動作。
 
 ## <a name="data-collection-agents-and-workspaces"></a>資料收集、代理程式及工作區
-資訊安全中心會從您的 Azure 虛擬機器（Vm）、虛擬機器擴展集（VMSS）、IaaS 容器和非 Azure （包括內部部署）電腦收集資料，以監視是否有安全性弱點和威脅。 資料是使用 Microsoft Monitoring Agent 收集而得，收集的方式是讀取機器的各種安全性相關組態和事件記錄，並將資料複製到工作區進行分析。
+資訊安全中心會從您的 Azure 虛擬機器（Vm）、虛擬機器擴展集、IaaS 容器和非 Azure 電腦（包括內部部署）收集資料，以監視安全性弱點和威脅。 資料是使用 Microsoft Monitoring Agent 收集而得，收集的方式是讀取機器的各種安全性相關組態和事件記錄，並將資料複製到工作區進行分析。
 
 ### <a name="am-i-billed-for-azure-monitor-logs-on-the-workspaces-created-by-security-center"></a>在資訊安全中心所建立的工作區上，我是否需支付 Azure 監視器記錄的費用？
 資料分割 資訊安全中心建立的工作區，而針對每個節點計費的 Azure 監視器記錄設定，則不會產生 Azure 監視器記錄費用。 資訊安全中心的計費一律根據您的資訊安全中心的安全性原則，以及工作區安裝的解決方案：
@@ -105,7 +104,7 @@ Azure 資訊安全中心會使用[角色型存取控制 (RBAC)](../role-based-ac
    >
    >
 
-3. 選取 [ **儲存**]。
+3. 選取 [儲存]。
 4. 選取 [儲存] 之後，會詢問您是否要重新設定受監控的虛擬機器。
 
    - 如果您希望新的工作區設定**僅套用在新的虛擬機器**，請選取 [否]。 新的工作區設定只會套用在新安裝的代理程式，以及新探索到的未安裝 Microsoft Monitoring Agent 之虛擬機器。
@@ -133,10 +132,10 @@ Azure 資訊安全中心會使用[角色型存取控制 (RBAC)](../role-based-ac
 
 針對訂用帳戶上架到2019-03-17 之前資訊安全中心的現有電腦，當偵測到現有的代理程式時，將不會安裝 Microsoft Monitoring Agent 延伸模組，且電腦不會受到影響。 如需這些電腦的相關資訊，請參閱「解決電腦上的監視代理程式健康情況問題」的建議，以解決這些電腦上的代理程式安裝問題
 
- 如需詳細資訊，請參閱下一節：[如果虛擬機器上已安裝 SCOM 或 OMS 直接代理程式，會發生什麼狀況？](#scomomsinstalled)
+ 如需詳細資訊，請參閱下一節[如果我的 VM 上已安裝 System Center Operations Manager 或 OMS 直接代理程式，會發生什麼情況？](#scomomsinstalled)
 
-### 如果我的 VM 上已安裝 System Center Operations Manager （SCOM）代理程式，會發生什麼事？<a name="scomomsinstalled"></a>
-[安全性中心] 會將 Microsoft Monitoring Agent 延伸模組並存安裝到現有的 System Center Operations Manager 代理程式。 現有的 SCOM 代理程式會繼續正常地向 System Center Operations Manager 伺服器報告。 請注意，System Center Operations Manager 代理程式和 Microsoft Monitoring Agent 共用一般執行時間程式庫，在此過程中將會更新為最新版本。 注意：如果已安裝 System Center Operations Manager 代理程式版本2012，請勿開啟自動布建（當 System Center Operations Manager 伺服器也是2012版時，管理功能可能會遺失）。
+### 如果我的 VM 上已安裝 System Center Operations Manager 代理程式，會發生什麼事？<a name="scomomsinstalled"></a>
+[安全性中心] 會將 Microsoft Monitoring Agent 延伸模組並存安裝到現有的 System Center Operations Manager 代理程式。 現有的代理程式會繼續正常地向 System Center Operations Manager 伺服器報告。 請注意，Operations Manager 代理程式和 Microsoft Monitoring Agent 共用一般執行時間程式庫，在此過程中將會更新為最新版本。 注意-如果已安裝 Operations Manager 代理程式的2012版，請勿開啟自動布建（當 Operations Manager 伺服器也是2012版時，管理功能可能會遺失）。
 
 ### <a name="what-is-the-impact-of-removing-these-extensions"></a>移除這些擴充功能會有什麼影響？
 如果您移除了 Microsoft Monitoring 擴充功能，資訊安全中心會無法收集虛擬機器送出的安全性資料，且特定安全性建議及警示將無法使用。 24 小時內，資訊安全中心會判定虛擬機器缺少了擴充功能，並重新安裝。
@@ -160,8 +159,8 @@ Azure 資訊安全中心會使用[角色型存取控制 (RBAC)](../role-based-ac
 
 如果您符合下列條件，您可以選擇退出自動佈建：
 
-- 資訊安全中心的自動代理程式安裝適用於整個訂用帳戶。  您無法將自動安裝套用到虛擬機器的子集。 如果有重要虛擬機器無法使用 Microsoft Monitoring Agent 安裝，您應該退出自動佈建。
-- 安裝 Microsoft Monitoring Agent （MMA）擴充功能會更新代理程式的版本。 這適用于直接代理程式和 SCOM 代理程式（在後者中，SCOM 和 MMA 會共用通用執行時間程式庫，這會在程式中更新）。 如果已安裝的 SCOM 代理程式是 2012 版並且已升級，那麼當 SCOM 伺服器也是 2012 版時，管理性功能可能會遺失。 如果已安裝的 SCOM 代理程式為2012版，請考慮退出宣告自動布建。
+- 資訊安全中心的自動代理程式安裝適用於整個訂用帳戶。 您無法將自動安裝套用到虛擬機器的子集。 如果有重要虛擬機器無法使用 Microsoft Monitoring Agent 安裝，您應該退出自動佈建。
+- 安裝 Microsoft Monitoring Agent （MMA）擴充功能會更新代理程式的版本。 這適用于直接代理程式和 System Center Operations Manager 代理程式（在後者中，Operations Manager 和 MMA 共用通用執行時間程式庫，會在進程中更新）。 如果安裝的 Operations Manager 代理程式是2012版，而且已升級，當 Operations Manager 伺服器也是2012版時，管理功能可能會遺失。 如果已安裝的 Operations Manager 代理程式為2012版，請考慮退出宣告自動布建。
 - 如果您在訂用帳戶 (集中式工作區) 之外還有自訂工作區，則您應該退出自動佈建。 您可以手動安裝 Microsoft Monitoring Agent 擴充功能，然後將其連線至您的工作區，而不是由資訊安全中心覆寫連線。
 - 如果您不想在每個訂用帳戶上建立多個工作區，而且訂用帳戶中有您自己的自訂工作區，則您有兩個選項：
 
@@ -298,7 +297,7 @@ Microsoft Security Response Center (MSRC) 執行 Azure 網路和基礎結構的�
 Azure 資訊安全中心會監視下列 Azure 資源：
 
 * 虛擬機器 (VM) (包括 [雲端服務](../cloud-services/cloud-services-choose-me.md))
-* 虛擬機器擴展集（VMSSs）
+* 虛擬機器擴展集
 * Azure 虛擬網路
 * Azure SQL 服務
 * Azure 儲存體帳戶

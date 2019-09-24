@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 08/9/2019
 ms.author: mlearned
-ms.openlocfilehash: 7a58e8559587ddcb307c338f5ce87cd6b8e52021
-ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
+ms.openlocfilehash: 93eddc0ff8f1a1af8b485fcdb891f72d874b5c0a
+ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71171499"
+ms.lasthandoff: 09/23/2019
+ms.locfileid: "71202958"
 ---
 # <a name="preview---create-and-manage-multiple-node-pools-for-a-cluster-in-azure-kubernetes-service-aks"></a>預覽-在 Azure Kubernetes Service (AKS) 中建立及管理叢集的多個節點集區
 
@@ -35,7 +35,7 @@ ms.locfileid: "71171499"
 
 ### <a name="install-aks-preview-cli-extension"></a>安裝 aks-preview CLI 擴充功能
 
-若要使用多個節點集區，您需要*aks-preview* CLI 擴充功能版本0.4.12 或更高版本。 使用[az extension add][az-extension-add]命令來安裝*aks-preview* Azure CLI 擴充功能，然後使用[az extension update][az-extension-update]命令檢查是否有任何可用的更新：：
+若要使用多個節點集區，您需要*aks-preview* CLI 擴充功能版本0.4.16 或更高版本。 使用[az extension add][az-extension-add]命令來安裝*aks-preview* Azure CLI 擴充功能，然後使用[az extension update][az-extension-update]命令檢查是否有任何可用的更新：：
 
 ```azurecli-interactive
 # Install the aks-preview extension
@@ -178,7 +178,9 @@ $ az aks nodepool list --resource-group myResourceGroup --cluster-name myAKSClus
 > [!NOTE]
 > 叢集或節點集區上的升級和調整作業不能同時發生，如果嘗試，將會傳回錯誤。 相反地，每個作業類型必須在目標資源上完成，然後才在該相同資源上進行下一個要求。 請在我們的[疑難排解指南](https://aka.ms/aks-pending-upgrade)中閱讀更多相關資訊。
 
-當您的 AKS 叢集最初是在第一個步驟中建立`--kubernetes-version`時，就會指定*1.13.10*的。 這會設定控制平面和預設節點集區的 Kubernetes 版本。 本節中的命令說明如何升級單一特定的節點集區。 [下一節](#upgrade-a-cluster-control-plane-with-multiple-node-pools)將說明升級控制平面和節點集區的 Kubernetes 版本之間的關聯性。
+當您的 AKS 叢集最初是在第一個步驟中建立`--kubernetes-version`時，就會指定*1.13.10*的。 這會設定控制平面和預設節點集區的 Kubernetes 版本。 本節中的命令說明如何升級單一特定的節點集區。
+
+[下一節](#upgrade-a-cluster-control-plane-with-multiple-node-pools)將說明升級控制平面和節點集區的 Kubernetes 版本之間的關聯性。
 
 > [!NOTE]
 > 節點集區 OS 映射版本會系結至叢集的 Kubernetes 版本。 在叢集升級之後，您只會取得 OS 映射升級。
@@ -193,9 +195,6 @@ az aks nodepool upgrade \
     --kubernetes-version 1.13.10 \
     --no-wait
 ```
-
-> [!Tip]
-> 若要將控制平面升級至*1.14.6*， `az aks upgrade -k 1.14.6`請執行。 [在這裡深入瞭解具有多個節點集區的控制平面升級](#upgrade-a-cluster-control-plane-with-multiple-node-pools)。
 
 使用[az aks node pool list][az-aks-nodepool-list]命令再次列出節點集區的狀態。 下列範例顯示*mynodepool*處於*1.13.10*的*升級*狀態：
 
@@ -232,7 +231,7 @@ $ az aks nodepool list -g myResourceGroup --cluster-name myAKSCluster
 
 將節點升級為指定的版本需要幾分鐘的時間。
 
-最佳做法是將 AKS 叢集中的所有節點集區升級至相同的 Kubernetes 版本。 升級個別節點集區的功能可讓您執行輪流升級，並在節點集區之間排程 pod，以維護上述條件約束內的應用程式執行時間。
+最佳做法是將 AKS 叢集中的所有節點集區升級至相同的 Kubernetes 版本。 的預設行為`az aks upgrade`是將所有節點集區與控制平面同時升級，以達成這種對齊方式。 升級個別節點集區的功能可讓您執行輪流升級，並在節點集區之間排程 pod，以維護上述條件約束內的應用程式執行時間。
 
 ## <a name="upgrade-a-cluster-control-plane-with-multiple-node-pools"></a>升級具有多個節點集區的叢集控制平面
 
@@ -243,11 +242,12 @@ $ az aks nodepool list -g myResourceGroup --cluster-name myAKSCluster
 > * 節點集區版本可能是一個小於控制平面版本的次要版本。
 > * 節點集區版本可能是任何修補程式版本，只要遵循其他兩個條件約束即可。
 
-AKS 叢集有兩個叢集資源物件。 第一個是控制平面 Kubernetes 版本。 第二個是具有 Kubernetes 版本的代理程式組件區。 控制平面會對應至一或多個節點集區，而且每個節點集區都有自己的 Kubernetes 版本。 升級作業的行為取決於哪些資源已設為目標，以及呼叫了哪個版本的基礎 API。
+AKS 叢集有兩個叢集資源物件與 Kubernetes 版本相關聯。 第一個是控制平面 Kubernetes 版本。 第二個是具有 Kubernetes 版本的代理程式組件區。 控制平面會對應至一或多個節點集區。 升級作業的行為取決於所使用的 Azure CLI 命令。
 
 1. 升級控制平面需要使用`az aks upgrade`
-   * 這也會升級叢集中的所有節點集區
-1. 升級方式`az aks nodepool upgrade`
+   * 這會升級叢集中的控制平面版本和所有節點集區
+   * 藉由`az aks upgrade` `--control-plane-only`使用旗標傳遞，您只會升級叢集控制平面，而且不會有任何相關聯的節點集區 * **AKS-preview extension v 0.4.16**或更高版本中提供此旗標`--control-plane-only`
+1. 升級個別節點集區需要使用`az aks nodepool upgrade`
    * 這只會升級具有指定 Kubernetes 版本的目標節點集區
 
 節點集區所保留的 Kubernetes 版本之間的關聯性也必須遵循一組規則。

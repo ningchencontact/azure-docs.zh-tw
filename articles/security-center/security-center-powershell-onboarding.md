@@ -3,23 +3,22 @@ title: 使用 PowerShell 上架 Azure 資訊安全中心，並保護您的網路
 description: 本文件將逐步引導您完成使用 PowerShell Cmdlet 上架 Azure 資訊安全中心的程序。
 services: security-center
 documentationcenter: na
-author: rkarlin
-manager: barbkess
-editor: ''
+author: memildin
+manager: rkarlin
 ms.assetid: e400fcbf-f0a8-4e10-b571-5a0d0c3d0c67
 ms.service: security-center
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/2/2018
-ms.author: rkarlin
-ms.openlocfilehash: 9bf2704fbbaa2c7a469dcefa3dc3f3cd7e4d5504
-ms.sourcegitcommit: c0419208061b2b5579f6e16f78d9d45513bb7bbc
+ms.date: 10/02/2018
+ms.author: memildin
+ms.openlocfilehash: 8e2f7b87efe89166175748cec310f24575b7f102
+ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/08/2019
-ms.locfileid: "67626271"
+ms.lasthandoff: 09/23/2019
+ms.locfileid: "71201214"
 ---
 # <a name="automate-onboarding-of-azure-security-center-using-powershell"></a>使用 PowerShell 自動化上架 Azure 資訊安全中心
 
@@ -42,7 +41,7 @@ ms.locfileid: "67626271"
 
 6. 指派資訊安全中心的[預設安全性原則](tutorial-security-policy.md)。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 在執行資訊安全中心 Cmdlet 之前，應該執行這些步驟：
 
@@ -59,7 +58,7 @@ ms.locfileid: "67626271"
         Set-AzContext -Subscription "d07c0080-170c-4c24-861d-9c817742786c"
         Register-AzResourceProvider -ProviderNamespace 'Microsoft.Security' 
 
-2.  選用：設定訂用帳戶的涵蓋範圍等級 (定價層) (如果未定義，則定價層設定為「免費」)：
+2.  選擇性：設定訂用帳戶的涵蓋範圍等級 (定價層) (如果未定義，則定價層設定為「免費」)：
 
         Set-AzContext -Subscription "d07c0080-170c-4c24-861d-9c817742786c"
         Set-AzSecurityPricing -Name "default" -PricingTier "Standard"
@@ -79,7 +78,7 @@ ms.locfileid: "67626271"
     > 建議您啟用自動佈建，以確定 Azure 資訊安全中心會自動保護您的 Azure 虛擬機器。
     >
 
-5.  選用：強烈建議您定義上架之訂用帳戶的安全性連絡人詳細資料，這些訂用帳戶將作為資訊安全中心所產生之警示和通知的收件者：
+5.  選擇性：強烈建議您定義上架之訂用帳戶的安全性連絡人詳細資料，這些訂用帳戶將作為資訊安全中心所產生之警示和通知的收件者：
 
         Set-AzSecurityContact -Name "default1" -Email "CISO@my-org.com" -Phone "2142754038" -AlertAdmin -NotifyOnAlert 
 

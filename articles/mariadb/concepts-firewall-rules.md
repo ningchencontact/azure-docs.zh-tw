@@ -5,13 +5,13 @@ author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 09/24/2018
-ms.openlocfilehash: 6fb9099ebfe884fc6eee58882ee23e46ba550e13
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 09/22/2019
+ms.openlocfilehash: 94efc87cdea8e1d9b63361d4652b63909c6ce3e7
+ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60734406"
+ms.lasthandoff: 09/23/2019
+ms.locfileid: "71203605"
 ---
 # <a name="azure-database-for-mariadb-server-firewall-rules"></a>適用於 MariaDB 的 Azure 資料庫伺服器防火牆規則
 防火牆會防止對您資料庫伺服器的所有存取，直到您指定哪些電腦擁有權限。 此防火牆會根據每一個要求的來源 IP 位址來授與伺服器存取權。
@@ -35,7 +35,7 @@ ms.locfileid: "60734406"
 如果要求的 IP 位址不在任何資料庫層級或伺服器層級防火牆規則中指定的範圍內，則連線要求會失敗。
 
 ## <a name="connecting-from-azure"></a>從 Azure 連線
-若要允許應用程式從 Azure 連線到您適用於 MariaDB 的 Azure 資料庫伺服器，必須啟用 Azure 連線。 例如，裝載 Azure Web Apps 應用程式或在 Azure VM 中執行的應用程式，或是從 Azure Data Factory 資料管理閘道連線。 資源不需要在相同虛擬網路 (VNet) 或資源群組，防火牆規則就可以啟用這些連線。 當 Azure 的應用程式嘗試連線到您的資料庫伺服器時，防火牆會確認是否允許 Azure 連線。 有幾種方法可以啟用這些類型的連線。 開始和結束位址等於 0.0.0.0 的防火牆設定表示允許這些連線。 或者，您可以在入口網站中從 [連線安全性]  窗格將 [允許存取 Azure 服務]  選項設為 [開啟]  ，然後點擊 [儲存]  。 如果不允許連線嘗試，要求就不會到達適用於 MariaDB 的 Azure 資料庫伺服器。
+若要允許應用程式從 Azure 連線到您適用於 MariaDB 的 Azure 資料庫伺服器，必須啟用 Azure 連線。 例如，裝載 Azure Web Apps 應用程式或在 Azure VM 中執行的應用程式，或是從 Azure Data Factory 資料管理閘道連線。 資源不需要在相同虛擬網路 (VNet) 或資源群組，防火牆規則就可以啟用這些連線。 當 Azure 的應用程式嘗試連線到您的資料庫伺服器時，防火牆會確認是否允許 Azure 連線。 有幾種方法可以啟用這些類型的連線。 開始和結束位址等於 0.0.0.0 的防火牆設定表示允許這些連線。 或者，您可以在入口網站中從 [連線安全性] 窗格將 [允許存取 Azure 服務] 選項設為 [開啟]，然後點擊 [儲存]。 如果不允許連線嘗試，要求就不會到達適用於 MariaDB 的 Azure 資料庫伺服器。
 
 > [!IMPORTANT]
 > 這個選項會設定防火牆，以允許所有來自 Azure 的連線，包括來自其他客戶訂用帳戶的連線。 選取這個選項時，請確定您的登入和使用者權限會限制為只有授權的使用者才能存取。
@@ -48,7 +48,7 @@ ms.locfileid: "60734406"
 
 <!--See also [Create and manage Azure Database for MariaDB firewall rules using Azure CLI](./howto-manage-firewall-using-cli.md)-->
 
-## <a name="troubleshooting-the-database-firewall"></a>針對資料庫防火牆問題進行疑難排解
+## <a name="troubleshooting-firewall-issues"></a>疑難排解防火牆問題
 若對於適用於 MariaDB 的 Microsoft Azure 資料庫伺服器服務的存取未如預期般運作，請考慮下列幾點：
 
 * **允許清單的變更尚未生效：** 適用於 MariaDB 的 Azure 資料庫伺服器防火牆組態變更可能會延遲最多 5 分鐘才能生效。
@@ -57,9 +57,11 @@ ms.locfileid: "60734406"
 
 * **動態 IP 位址：** 如果您有使用動態 IP 位址的網際網路連線，並且在通過防火牆時遇到問題，您可以嘗試下列其中一個解決方案：
 
-* 要求您的網際網路服務提供者 (ISP) 將可存取適用於 MariaDB 的 Azure 資料庫伺服器的 IP 位址範圍指派給您用戶端電腦，然後將 IP 位址範圍新增為防火牆規則。
+   * 要求您的網際網路服務提供者 (ISP) 將可存取適用於 MariaDB 的 Azure 資料庫伺服器的 IP 位址範圍指派給您用戶端電腦，然後將 IP 位址範圍新增為防火牆規則。
 
-* 改為針對您的用戶端電腦取得靜態 IP 位址，然後將 IP 位址新增為防火牆規則。
+   * 改為針對您的用戶端電腦取得靜態 IP 位址，然後將 IP 位址新增為防火牆規則。
+
+* **伺服器的 IP 看起來是公用的：** 適用於 MariaDB 的 Azure 資料庫伺服器的連線會透過可公開存取的 Azure 閘道進行路由傳送。 不過，實際的伺服器 IP 會受到防火牆保護。 如需詳細資訊，請流覽連線[架構一文](concepts-connectivity-architecture.md)。 
 
 ## <a name="next-steps"></a>後續步驟
 - [使用 Azure 入口網站建立和管理適用於 MariaDB 的 Azure 資料庫防火牆規則](./howto-manage-firewall-portal.md)

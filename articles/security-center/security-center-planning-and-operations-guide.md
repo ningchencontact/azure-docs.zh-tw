@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 09/10/2019
 ms.author: memildin
-ms.openlocfilehash: b731c5fe6b6c7055b7397386b1e9fd4bed47db8a
-ms.sourcegitcommit: d70c74e11fa95f70077620b4613bb35d9bf78484
+ms.openlocfilehash: 62387fe7ddbde75e79724c77dd7eeedd5cae64c3
+ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70910601"
+ms.lasthandoff: 09/23/2019
+ms.locfileid: "71201866"
 ---
 # <a name="azure-security-center-planning-and-operations-guide"></a>Azure 資訊安全中心規劃和操作指南
 本指南適用于規劃使用 Azure 資訊安全中心的資訊技術（IT）專業人員、IT 架構設計師、資訊安全分析師和雲端系統管理員。
@@ -182,13 +182,13 @@ Azure 資訊安全中心使用 Microsoft Monitoring Agent –這是 Azure 監視
 計劃造訪[威脅情報](https://docs.microsoft.com/azure/security-center/security-center-threat-intel)選項，作為每日安全性作業的一部分。 您可以在那裡識別會對環境造成威脅的安全性威脅，例如識別特定電腦是否為殭屍網路的一份子。
 
 ### <a name="monitoring-for-new-or-changed-resources"></a>監視新的或已變更的資源
-大多數 Azure 環境是動態的，包含定期上下波動的新資源、組態或變更等。資訊安全中心有助於確保您看得到這些新資源的安全性狀態。
+大部分的 Azure 環境都是動態的，其資源會定期建立、啟動或減少、重新設定和變更。 資訊安全中心有助於確保您看得到這些新資源的安全性狀態。
 
 當您將新資源 (VM、SQL DB) 新增至 Azure 環境時，資訊安全中心會自動探索這些資源並開始監視其安全性。 這也包括 PaaS Web 角色和背景工作角色。 如果已在 [安全性原則](tutorial-security-policy.md)中啟用資料收集，則會自動為您的虛擬機器啟用其他監視功能。
 
 ![主要領域](./media/security-center-planning-and-operations-guide/security-center-planning-and-operations-guide-fig3-newUI.png)
 
-1. 針對虛擬機器，按一下 [預防] 區段下的 [計算]。 [概觀] 索引標籤和 [監視建議] 區段會呈現有關啟用資料的問題或相關建議。
+1. 針對虛擬機器，按一下 [**資源安全性**防護] 區段下的 [**計算 & 應用程式**]。 [概觀] 索引標籤和 [監視建議] 區段會呈現有關啟用資料的問題或相關建議。
 2. 檢視 [建議] 以查看針對新資源所找出的任何 (若有的話) 安全性風險。
 3. 將新的 VM 新增至您的環境時，通常一開始只會安裝作業系統。 資源擁有者可能需要一些時間來部署這些 VM 將使用的其他應用程式。  在理想情況下，您應該知道此工作負載的最終目的。 它會成為應用程式伺服器？ 以這個新工作負載將會成為的項目為基礎，您可以啟用適當的 **安全性原則**(這是此工作流程中的第三個步驟)。
 4. 當新的資源新增至您的 Azure 環境時，[**安全性警示**] 圖格中可能會出現新的警示。 在此磚中尋找新的警示，並遵循建議。

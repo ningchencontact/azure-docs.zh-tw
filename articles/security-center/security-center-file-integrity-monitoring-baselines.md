@@ -3,9 +3,8 @@ title: 比較基準與 Azure 資訊安全中心中的檔案完整性監視 |Micr
 description: 瞭解如何在 Azure 資訊安全中心中比較基準與檔案完整性監視。
 services: security-center
 documentationcenter: na
-author: monhaber
-manager: barbkess
-editor: ''
+author: memildin
+manager: rkarlin
 ms.assetid: c8a2a589-b737-46c1-b508-7ea52e301e8f
 ms.service: security-center
 ms.devlang: na
@@ -13,13 +12,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/29/2019
-ms.author: v-mohabe
-ms.openlocfilehash: afc03baa71f17deb0b923f483fde214a86c5e9b4
-ms.sourcegitcommit: a8b638322d494739f7463db4f0ea465496c689c6
+ms.author: memildin
+ms.openlocfilehash: 116f295365084e7570ed9afc493d9179ea2dfb5a
+ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "68296475"
+ms.lasthandoff: 09/23/2019
+ms.locfileid: "71202149"
 ---
 # <a name="compare-baselines-using-file-integrity-monitoring-fim"></a>使用檔案完整性監視 (FIM) 比較基準
 
@@ -35,7 +34,7 @@ ms.locfileid: "68296475"
 
 ## <a name="enable-built-in-recursive-registry-checks"></a>啟用內建遞迴登錄檢查
 
-FIM 登錄 hive 預設值提供便利的方式來監視一般安全性區域中的遞迴變更。  例如, 敵人可以設定在啟動或關閉時執行, 在 LOCAL_SYSTEM 內容中執行腳本。  若要監視此類型的變更, 請啟用內建的檢查。  
+FIM 登錄 hive 預設值提供便利的方式來監視一般安全性區域中的遞迴變更。  例如，敵人可以設定在啟動或關閉時執行，在 LOCAL_SYSTEM 內容中執行腳本。  若要監視此類型的變更, 請啟用內建的檢查。  
 
 ![登錄](./media/security-center-file-integrity-monitoring-baselines/baselines-registry.png)
 

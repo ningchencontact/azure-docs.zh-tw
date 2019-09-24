@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 07/18/2019
 ms.author: hamusa
-ms.openlocfilehash: e7b69e57d4e01c292a2c6d032ba995d1936b88dc
-ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.openlocfilehash: 33594e09778b9a629645e12357e6bafe561ad35e
+ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70142894"
+ms.lasthandoff: 09/23/2019
+ms.locfileid: "71202906"
 ---
 # <a name="dependency-visualization"></a>相依性視覺效果
 
@@ -44,11 +44,14 @@ Azure Migrate 使用[Azure 監視器記錄](../log-analytics/log-analytics-overv
     ![新增工作區](./media/how-to-create-group-machine-dependencies/workspace.png)
 
 - 與工作區建立關聯時，您可以選擇建立新的工作區，或連結現有的工作區：
-  - 建立新工作區時，您必須指定工作區的名稱。 然後會在和移轉專案相同之 [Azure 地理區](https://azure.microsoft.com/global-infrastructure/geographies/)的區域中建立工作區。
+  - 建立新工作區時，您必須指定工作區的名稱。 您可以選擇將在其中建立工作區的[區域](https://azure.microsoft.com/global-infrastructure/regions/)。
   - 當您連結現有的工作區時，您能以和移轉專案相同的方式，從相同訂用帳戶中所有的可用工作區中挑選。 請注意，系統只會列出那些在[支援服務對應](../azure-monitor/insights/vminsights-enable-overview.md#prerequisites)的區域中建立的工作區。 若要能夠連結工作區，請確定您有工作區的「讀取者」存取權。
 
   > [!NOTE]
   > 一旦您將工作區連結到專案，您之後便無法變更它。
+
+  > [!NOTE]
+  > Azure Migrate 目前支援在「美國東部」、「東南亞」和「西歐」區域中建立 OMS 工作區。 如果工作區是在任何其他區域的 Azure Migrate 外部建立，則目前無法與 Azure Migrate 專案相關聯。 
 
 - 相關聯的工作區會以索引鍵 **Migration Project** 和**專案名稱**的值標記，您可用來在 Azure 入口網站中搜尋。
 - 若要瀏覽到與專案相關聯的工作區，您可以移至專案 [概觀] 頁面的 [基本資訊] 區段，然後存取該工作區

@@ -3,9 +3,8 @@ title: 在 Azure 資訊安全中心中套用磁碟加密 | Microsoft Docs
 description: 本文件說明如何實作 Azure 資訊安全中心建議的「套用磁碟加密」。
 services: security-center
 documentationcenter: na
-author: rkarlin
-manager: barbkess
-editor: ''
+author: memildin
+manager: rkarlin
 ms.assetid: 6cc7824a-8d6b-4a5f-ab40-e3bbaebc4a91
 ms.service: security-center
 ms.devlang: na
@@ -13,13 +12,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/28/2018
-ms.author: rkarlin
-ms.openlocfilehash: 1abb0a5f5523032440086932eb9a1621d4cef455
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.author: memildin
+ms.openlocfilehash: 0ae2b695a64e55b493453549627860872166ed25
+ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68726244"
+ms.lasthandoff: 09/23/2019
+ms.locfileid: "71202497"
 ---
 # <a name="apply-disk-encryption-in-azure-security-center"></a>在 Azure 資訊安全中心中套用磁碟加密
 如果您有未使用 Azure 磁碟加密進行加密的 Windows 或 Linux VM 磁碟，Azure 資訊安全中心會建議您套用磁碟加密。 磁碟加密可讓您替 Windows 和 Linux IaaS VM 磁碟加密。  建議您的 VM 上的作業系統和資料磁碟區都進行加密。

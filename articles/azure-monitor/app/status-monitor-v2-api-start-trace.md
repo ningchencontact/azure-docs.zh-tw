@@ -3,7 +3,7 @@ title: Azure 狀態監視器 v2 API 參考:啟動追蹤 |Microsoft Docs
 description: 狀態監視器 v2 API 參考。 開始追蹤。 從狀態監視器和 Application Insights SDK 收集 ETW 記錄檔。
 services: application-insights
 documentationcenter: .net
-author: MS-TimothyMothra
+author: TimothyMothra
 manager: alexklim
 ms.assetid: 769a5ea4-a8c6-4c18-b46c-657e864e24de
 ms.service: application-insights
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: tilee
-ms.openlocfilehash: 3060a48e297082f5b70c8bd96030fe519f6e8b6f
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: f4c43e6bdb70687606041c2f0859ab072db2b587
+ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68326315"
+ms.lasthandoff: 09/23/2019
+ms.locfileid: "71200365"
 ---
 # <a name="status-monitor-v2-api-start-applicationinsightsmonitoringtrace"></a>狀態監視器 v2 API:開始-ApplicationInsightsMonitoringTrace
 

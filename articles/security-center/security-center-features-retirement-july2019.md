@@ -8,25 +8,24 @@ ms.service: security-center
 ms.topic: article
 ms.date: 09/10/2019
 ms.author: memildin
-ms.openlocfilehash: b4367bacf13e121220f12b6587c5ad60ad59d031
-ms.sourcegitcommit: d70c74e11fa95f70077620b4613bb35d9bf78484
+ms.openlocfilehash: 6e7263dfa0faf0bf2fd7e8b7d6e050ca6bc95e2a
+ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70910580"
+ms.lasthandoff: 09/23/2019
+ms.locfileid: "71202202"
 ---
+# <a name="retirement-of-security-center-features-july-2019"></a>淘汰資訊安全中心功能（2019年7月）
+
 > [!NOTE]
 > 本檔詳述從2019年7月31日 Azure 資訊安全中心淘汰的功能清單。
 >
 >
 
-
-# <a name="retirement-of-security-center-features-july-2019"></a>淘汰資訊安全中心功能（2019年7月）
-
 我們在2019年7月前六個月對 Azure 資訊安全中心進行了幾項[改進](https://azure.microsoft.com/updates/?product=security-center)。
 有了這些改良的功能，我們從2019年7月31日資訊安全中心移除一些多餘的功能和相關的 Api。
 
-這些淘汰功能大部分都可以取代為 Azure 資訊安全中心或 Azure Log Analytics 中的新功能。 您可以使用[Azure Sentinel （預覽）](https://azure.microsoft.com/services/azure-sentinel/)來執行其他功能。
+這些已淘汰的功能大部分都可以取代為 Azure 資訊安全中心或 Azure Log Analytics 中的其他功能。 您可以使用[Azure Sentinel （預覽）](https://azure.microsoft.com/services/azure-sentinel/)來執行其他功能。
 
 已淘汰的資訊安全中心功能包括：
 
@@ -104,11 +103,11 @@ Log Analytics 儀表板已在單一工作區上顯示深入解析。 不過，�
 
 ![安全性警示對應-按鈕][10]
 
-當您選取 [**移至安全性事件對應**] 按鈕時，您會開啟 [威脅情報] 儀表板。 我們已淘汰「威脅情報儀表板」。
+當您選取 [**前往安全性事件對應**] 按鈕時，它會開啟 [（現已淘汰）] 威脅情報儀表板。
 
 ![威脅情報儀表板][11]
 
-當您選擇工作區來查看其威脅情報儀表板時，您會在 Log Analytics 中開啟 [安全性警示對應（預覽）] 畫面。 我們已淘汰此畫面。
+當您選擇工作區來查看其威脅情報儀表板時，您會在 Log Analytics 中開啟 [（現在已淘汰）安全性警示對應（預覽）] 畫面。
 
 ![Log Analytics 中的安全性警示對應][12]
 

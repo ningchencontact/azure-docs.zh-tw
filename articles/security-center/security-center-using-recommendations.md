@@ -3,28 +3,27 @@ title: 使用 Azure 資訊安全中心建議增強安全性 | Microsoft Docs
 description: " 了解如何使用「Azure 資訊安全中心」中的安全性原則和建議，來協助降低安全性攻擊的危害。 "
 services: security-center
 documentationcenter: na
-author: monhaber
-manager: barbkess
-editor: ''
+author: memildin
+manager: rkarlin
 ms.assetid: ''
 ms.service: security-center
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 8/22/2019
-ms.author: v-mohabe
-ms.openlocfilehash: 13d6eb64b2089cf93f08c294cc9b6a2034b64fa0
-ms.sourcegitcommit: 007ee4ac1c64810632754d9db2277663a138f9c4
+ms.date: 08/22/2019
+ms.author: memildin
+ms.openlocfilehash: 69fa9d24d24c26a7d945c27e86739475f9883b27
+ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69990548"
+ms.lasthandoff: 09/23/2019
+ms.locfileid: "71200692"
 ---
 # <a name="use-azure-security-center-recommendations-to-enhance-security"></a>使用 Azure 資訊安全中心建議增強安全性
 您可以設定安全性原則，然後實作 Azure 資訊安全中心提供的建議，以降低發生重大安全性事件的機會。 本文說明如何使用資訊安全中心的安全性原則和建議，以協助減少安全性攻擊。 
 
-資訊安全中心會自動執行連續掃描來分析 Azure 資源的安全性狀態。 當資訊安全中心發現潛在的安全性弱點時會建立建議，引導您完成設定所需安全性控制項的程序。 資訊安全中心會在24小時內更新其建議, 但有下列例外狀況:
+資訊安全中心會自動執行連續掃描來分析 Azure 資源的安全性狀態。 當資訊安全中心發現潛在的安全性弱點時會建立建議，引導您完成設定所需安全性控制項的程序。 資訊安全中心會在24小時內更新其建議，但有下列例外狀況：
 
 - 作業系統安全性設定建議會在48小時內更新
 - Endpoint Protection 問題建議會在8小時內更新
@@ -41,30 +40,30 @@ Contoso 最近將一些內部部署資源移轉至 Azure。 Contoso 想要保護
 
 資訊安全中心會自動分析 Contoso Azure 資源的安全性狀態並套用預設安全性原則。 當資訊安全中心發現潛在的安全性弱點時，它會根據安全性原則中設定的控制來提出**建議**。 
 
-David 會在其所有訂用帳戶中執行 Azure 安全性標準層, 以取得完整的建議和安全性功能套件。 Jeff 也會將上線所有尚未遷移至雲端的現有內部部署伺服器, 使其能夠利用其[Windows](quick-onboard-windows-computer.md)和[Linux](quick-onboard-linux-computer.md)伺服器上的資訊安全中心混合式支援。
+David 會在其所有訂用帳戶中執行 Azure 安全性標準層，以取得完整的建議和安全性功能套件。 Jeff 也會將上線所有尚未遷移至雲端的現有內部部署伺服器，使其能夠利用其[Windows](quick-onboard-windows-computer.md)和[Linux](quick-onboard-linux-computer.md)伺服器上的資訊安全中心混合式支援。
 
 Jeff 是雲端工作負載擁有者。 Jeff 負責根據 Contoso 的安全性原則，套用安全性控制項。 
 
 Jeff 會執行下列工作：
 
 - 監視資訊安全中心提供的安全性建議
-- 評估安全性建議, 並決定是否應套用或解除建議。
+- 評估安全性建議，並決定是否應套用或解除建議。
 - 套用安全性建議
 
 ### <a name="remediate-threats-using-recommendations"></a>利用建議補救威脅
-在日常監視活動中, Jeff 會登入 Azure 並開啟資訊安全中心。 
+在日常監視活動中，Jeff 會登入 Azure 並開啟資訊安全中心。 
 
 1. Jeff 會選取工作負載的訂閱。
 
-2. Jeff 會檢查**安全分數**, 以取得訂用帳戶如何保護的整體圖片, 並查看分數為548。
+2. Jeff 會檢查**安全分數**，以取得訂用帳戶如何保護的整體圖片，並查看分數為548。
 
 3. Jeff 必須決定要先處理哪些建議。 所以 Jeff 會按一下安全分數，並根據建議可改善其[安全分數影響](security-center-secure-score.md)的程度，開始處理建議。
 
 4. Jeff 有大量已連線的 VM 和伺服器，因此決定著重於 [計算和應用程式]。
 
-5. 當 Jeff 按一下 [**計算和應用程式**] 時, 他們會看到建議清單, 並根據安全分數影響來處理它們。
+5. 當 Jeff 按一下 [**計算和應用程式**] 時，他們會看到建議清單，並根據安全分數影響來處理它們。
 
-6. Jeff 有許多網際網路對應的 Vm, 而且因為其埠已公開, 所以他們會擔心攻擊者可以取得伺服器的控制權。 因此 Jeff 會選擇使用 (**Just-In-Time VM 存取**)[security-center-just-in-time.md]。
+6. Jeff 有許多網際網路對應的 Vm，而且因為其埠已公開，所以他們會擔心攻擊者可以取得伺服器的控制權。 因此 Jeff 會選擇使用 (**Just-In-Time VM 存取**)[security-center-just-in-time.md]。
 
 Jeff 繼續瀏覽高優先權和中優先順序的建議，然後進行實作決策。 針對每項建議，Jeff 會查看資訊安全中心所提供的詳細資訊，以了解哪些資源受到影響、安全分數影響為何、每項建議的用意，以及如何緩和每個問題的補救步驟。
 

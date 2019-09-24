@@ -3,9 +3,8 @@ title: Azure 資訊安全中心中的彈性網路強化 |Microsoft Docs
 description: " 瞭解如何在 Azure 資訊安全中心中啟用彈性網路強化功能。 "
 services: security-center
 documentationcenter: na
-author: monhaber
-manager: barbkess
-editor: monhaber
+author: memildin
+manager: rkarlin
 ms.assetid: 09d62d23-ab32-41f0-a5cf-8d80578181dd
 ms.service: security-center
 ms.devlang: na
@@ -13,13 +12,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/24/2019
-ms.author: v-mohabe
-ms.openlocfilehash: 2f82f3fe6f5cb6808ba606125ee0869475a60274
-ms.sourcegitcommit: a8b638322d494739f7463db4f0ea465496c689c6
+ms.author: memildin
+ms.openlocfilehash: 7de0d7bacdf2194b3e1a303842c56a6a017d8d62
+ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "68295896"
+ms.lasthandoff: 09/23/2019
+ms.locfileid: "71202776"
 ---
 # <a name="adaptive-network-hardening-in-azure-security-center"></a>Azure 資訊安全中心中的彈性網路強化
 瞭解如何在 Azure 資訊安全中心中設定彈性網路強化功能。
@@ -120,7 +119,7 @@ ms.locfileid: "68295896"
 
    ![新增規則](./media/security-center-adaptive-network-hardening/add-hard-rule.png)
 
-1. 在 [**新增規則**] 視窗中, 輸入詳細資料  , 然後按一下 [新增]。
+1. 在 [**新增規則**] 視窗中, 輸入詳細資料, 然後按一下 [新增]。
 
    > [!NOTE]
    > 按一下 [**新增**] 之後, 您已成功新增規則, 並列出其他建議的規則。 不過, 您尚未在 NSG 上套用它。 若要啟用它, 您必須在清單中選取規則, 然後按一下 [**強制**] (如下一個步驟所述)。

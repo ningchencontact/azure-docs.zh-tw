@@ -3,9 +3,8 @@ title: Azure 資訊安全中心的檔案完整性監視 | Microsoft Docs
 description: " 了解如何在 Azure 資訊安全中心啟用檔案完整性監視。 "
 services: security-center
 documentationcenter: na
-author: monhaber
-manager: barbkess
-editor: monhaber
+author: memildin
+manager: rkarlin
 ms.assetid: 411d7bae-c9d4-4e83-be63-9f2f2312b075
 ms.service: security-center
 ms.devlang: na
@@ -13,13 +12,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/13/2019
-ms.author: v-mohabe
-ms.openlocfilehash: cc0c319357b39ddb3e88d515613273a6f7dc0867
-ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
+ms.author: memildin
+ms.openlocfilehash: f7f5c257b23cd273a2cda40f874f5edfc62c0dbd
+ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "65968811"
+ms.lasthandoff: 09/23/2019
+ms.locfileid: "71202189"
 ---
 # <a name="file-integrity-monitoring-in-azure-security-center"></a>Azure 資訊安全中心的檔案完整性監視
 了解如何利用此逐步解說，在 Azure 資訊安全中心設定檔案完整性監視 (FIM)。
@@ -38,10 +37,10 @@ ms.locfileid: "65968811"
 > [!NOTE]
 > 檔案完整性監視 (FIM) 功能適用於 Windows 和 Linux 電腦及 VM，並可在資訊安全中心的標準層使用。 若要深入了解資訊安全中心的定價層，請參閱[價格](security-center-pricing.md)。 FIM 會將資料上傳到 Log Analytics 工作區。 根據您上傳的資料量，需要支付資料費用。 請參閱 [Log Analytics 定價](https://azure.microsoft.com/pricing/details/log-analytics/)以深入了解。
 
-FIM 使用 Azure 變更追蹤解決方案來追蹤及識別您環境中的變更。 啟用檔案完整性監視時, 您會有一個類型為 [**方案**] 的**變更追蹤**資源。 如需資料收集頻率的詳細資訊, 請參閱 Azure 變更追蹤的[變更追蹤資料收集詳細資料](https://docs.microsoft.com/azure/automation/automation-change-tracking#change-tracking-data-collection-details)。
+FIM 使用 Azure 變更追蹤解決方案來追蹤及識別您環境中的變更。 啟用檔案完整性監視時，您會有一個類型為 [**方案**] 的**變更追蹤**資源。 如需資料收集頻率的詳細資訊，請參閱 Azure 變更追蹤的[變更追蹤資料收集詳細資料](https://docs.microsoft.com/azure/automation/automation-change-tracking#change-tracking-data-collection-details)。
 
 > [!NOTE]
-> 如果您移除**變更追蹤**資源, 您也會在資訊安全中心中停用檔案完整性監視功能。
+> 如果您移除**變更追蹤**資源，您也會在資訊安全中心中停用檔案完整性監視功能。
 
 ## <a name="which-files-should-i-monitor"></a>我應該監視哪些檔案？
 選擇要監視的檔案時，您應該考慮對系統和應用程式重要的檔案。 請考慮選擇不會未經計劃就變更的檔案。 選擇應用程式或作業系統經常變更的檔案 (例如記錄檔和文字檔) 會造成許多干擾而難以識別攻擊。
@@ -178,7 +177,7 @@ FIM 使用 Azure 變更追蹤解決方案來追蹤及識別您環境中的變更
 
    ![將 [已啟用] 設定為 False][19]
 
-6. 選取 [ **儲存**]。
+6. 選取 [儲存]。
 
 ## <a name="folder-and-path-monitoring-using-wildcards"></a>使用萬用字元監視資料夾與路徑
 

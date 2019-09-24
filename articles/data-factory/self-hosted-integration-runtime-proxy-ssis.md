@@ -12,12 +12,12 @@ author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
 manager: craigg
-ms.openlocfilehash: de9e0a936c68f181665e44ea6115f60c6dc60e98
-ms.sourcegitcommit: 83df2aed7cafb493b36d93b1699d24f36c1daa45
+ms.openlocfilehash: 2ade270011ad5c1e1e5f5940ca305687e52bba86
+ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/22/2019
-ms.locfileid: "71179062"
+ms.lasthandoff: 09/23/2019
+ms.locfileid: "71200309"
 ---
 # <a name="configure-self-hosted-ir-as-a-proxy-for-azure-ssis-ir-in-adf"></a>設定自我裝載 IR 作為 ADF 中的 Azure SSIS IR 的 proxy
 本文說明如何使用設定為 proxy 的自我裝載 IR，在 Azure Data Factory （ADF）中的 Azure SSIS Integration Runtime （IR）上執行 SQL Server Integration Services （SSIS）套件。  這項功能可讓您存取內部部署資料，而不需要將[您的 AZURE SSIS IR 加入虛擬網路](https://docs.microsoft.com/azure/data-factory/join-azure-ssis-integration-runtime-virtual-network)。  當您的公司網路具有過於複雜的設定/限制原則，讓您在其中插入您的 Azure SSIS IR 時，這會很有用。
@@ -86,10 +86,11 @@ ms.locfileid: "71179062"
 在您的 Azure SSIS IR 上執行的第二個預備工作將不會分開計費，但執行中的 Azure SSIS IR 會依照[AZURE SSIS ir 定價](https://azure.microsoft.com/pricing/details/data-factory/ssis/)一文中的指定計費。
 
 ## <a name="current-limitations"></a>目前的限制
-- 目前僅支援 OLEDB/一般檔案連接管理員和 OLEDB/一般檔案來源。
+
+- 目前僅支援 OLEDB/一般檔案連接管理員和 OLEDB/一般檔案來源。 
 - 目前僅支援以**帳戶金鑰**/ **SAS URI** /**服務主體**驗證設定 Azure Blob 儲存體連結服務。
 - 目前僅支援在您布建 Azure SSIS IR 的相同 ADF 下布建的自我裝載 IR。
-- 不支援 SSIS 變數和參數。
+- 不支援在 OLEDB/一般檔案來源的屬性和連線管理員中使用 SSIS 參數/變數。
 
 ## <a name="next-steps"></a>後續步驟
 將自我裝載 IR 設定為 Azure SSIS IR 的 proxy 之後，您就可以部署並執行封裝，以在 ADF 管線中以「執行 SSIS 套件」活動的形式存取內部部署資料，請參閱[在 adf 管線中將 ssis 套件執行為 EXECUTE Ssis 套件活動](https://docs.microsoft.com/azure/data-factory/how-to-invoke-ssis-package-ssis-activity).

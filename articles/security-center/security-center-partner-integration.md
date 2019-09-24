@@ -3,29 +3,28 @@ title: 在 Azure 資訊安全中心整合安全性解決方案 | Microsoft Docs
 description: 了解 Azure 資訊安全中心如何與夥伴整合，以提高您 Azure 資源的整體安全性。
 services: security-center
 documentationcenter: na
-author: rkarlin
-manager: barbkess
-editor: ''
+author: memildin
+manager: rkarlin
 ms.assetid: 6af354da-f27a-467a-8b7e-6cbcf70fdbcb
 ms.service: security-center
 ms.topic: conceptual
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 3/20/2019
-ms.author: rkarlin
-ms.openlocfilehash: 9d52526f87f20a855c045f4e565793ac29abf04a
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.date: 03/20/2019
+ms.author: memildin
+ms.openlocfilehash: 25e7262842de2bcf3823a51dfe6d97b5558b16fe
+ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70101004"
+ms.lasthandoff: 09/23/2019
+ms.locfileid: "71201753"
 ---
 # <a name="integrate-security-solutions-in-azure-security-center"></a>在 Azure 資訊安全中心整合安全性解決方案
 這份文件可協助您管理已連線到 Azure 資訊安全中心的安全性解決方案，並且新增新的項目。
 
 > [!NOTE]
-> 安全性解決方案的子集已于2019年7月31日淘汰。 如需詳細資訊和替代服務, 請參閱[淘汰資訊安全中心功能 (2019 年7月)](security-center-features-retirement-july2019.md#menu_solutions)。
+> 安全性解決方案的子集已于2019年7月31日淘汰。 如需詳細資訊和替代服務，請參閱[淘汰資訊安全中心功能（2019年7月）](security-center-features-retirement-july2019.md#menu_solutions)。
 
 ## <a name="integrated-azure-security-solutions"></a>整合式 Azure 安全性解決方案
 資訊安全中心可以使得在 Azure 中啟用整合式安全性解決方案變得簡單。 優點包括：
@@ -34,7 +33,7 @@ ms.locfileid: "70101004"
 - **整合偵測**：來自夥伴解決方案的安全性事件會自動收集、彙總以及顯示為資訊安全中心警示和事件的一部分。 這些事件也會與來自其他來源的偵測整合，以提供進階的威脅偵測功能。
 - **統一的健全狀況監視與管理**：客戶可使用整合式的健全狀況事件，一眼監視所有夥伴解決方案。 提供基本管理功能，而且可以讓您輕鬆使用夥伴解決方案存取進階設定。
 
-目前, 整合式安全性解決方案包含[Qualys](https://www.qualys.com/public-cloud/#azure)和[Rapid7](https://www.rapid7.com/products/insightvm/)和 Microsoft 應用程式閘道 Web 應用程式防火牆的弱點評量。
+目前，整合式安全性解決方案包含[Qualys](https://www.qualys.com/public-cloud/#azure)和[Rapid7](https://www.rapid7.com/products/insightvm/)和 Microsoft 應用程式閘道 Web 應用程式防火牆的弱點評量。
 
 > [!NOTE]
 > 資訊安全中心不會在合作夥伴虛擬設備上安裝 Microsoft Monitoring Agent，因為大部分的安全防護廠商都禁止在其設備上執行的外部代理程式。
@@ -42,7 +41,7 @@ ms.locfileid: "70101004"
 >
 
 ## <a name="how-security-solutions-are-integrated"></a>安全性解決方案如何整合
-從資訊安全中心部署的 Azure 安全性解決方案會自動連線。 您也可以連接其他安全性資料來源, 包括內部部署或其他雲端中執行的電腦。
+從資訊安全中心部署的 Azure 安全性解決方案會自動連線。 您也可以連接其他安全性資料來源，包括內部部署或其他雲端中執行的電腦。
 
 ![夥伴解決方案整合](./media/security-center-partner-integration/security-center-partner-integration-fig8.png)
 

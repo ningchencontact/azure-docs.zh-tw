@@ -3,9 +3,8 @@ title: Azure 資訊安全中心的信賴分數 | Microsoft Docs
 description: " 了解如何使用 Azure 資訊安全中心的信賴分數。 "
 services: security-center
 documentationcenter: na
-author: rkarlin
-manager: barbkess
-editor: ''
+author: memildin
+manager: rkarlin
 ms.assetid: e88198f8-2e16-409d-a0b0-a62e68c2f999
 ms.service: security-center
 ms.devlang: na
@@ -13,13 +12,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/23/2018
-ms.author: rkarlin
-ms.openlocfilehash: 64bab5c1b99720eecb189834d7a11802cf919ca3
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: memildin
+ms.openlocfilehash: 0f0380ca4a285d9cb4a8472a40c77130a8f63035
+ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60916563"
+ms.lasthandoff: 09/23/2019
+ms.locfileid: "71202372"
 ---
 # <a name="alert-confidence-score"></a>警示信賴分數 
 
@@ -43,7 +42,7 @@ Azure 資訊安全中心可讓您檢視在 Azure 中執行的各項資源，並�
  ![信賴分數][1]
 
 若要檢視警示中構成資訊安全中心信賴度的資料：
-- 在 [安全性警示] 刀鋒視窗中的 [信賴度]  下方，檢視構成信賴分數的觀察值，並取得該警示的相關深入解析。 這可讓您深入了解造成警示的活動所屬的性質。
+- 在 [安全性警示] 刀鋒視窗中的 [信賴度] 下方，檢視構成信賴分數的觀察值，並取得該警示的相關深入解析。 這可讓您深入了解造成警示的活動所屬的性質。
 
   ![可疑信賴分數][2]
 

@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 09/10/2019
 ms.author: memildin
-ms.openlocfilehash: 9948f4d9e6287530004b073adf10bb723899e96d
-ms.sourcegitcommit: d70c74e11fa95f70077620b4613bb35d9bf78484
+ms.openlocfilehash: 2abe917d1713bbc5f5844aced5e688baacc7d397
+ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70910615"
+ms.lasthandoff: 09/23/2019
+ms.locfileid: "71202007"
 ---
 # <a name="manage-virtual-machine-access-using-just-in-time"></a>使用 Just-In-Time 管理虛擬機器存取
 
@@ -38,7 +38,7 @@ ms.locfileid: "70910615"
 
 啟用 Just-In-Time 時，資訊安全中心會建立 NSG 規則，藉此鎖定進入 Azure VM 的流量。 系統會鎖定選取的 VM 連接埠的輸入流量。 Just-In-Time 解決方案會控制這些連接埠。
 
-當使用者要求存取虛擬機器時，資訊安全中心會檢查該使用者是否擁有可成功要求虛擬機器存取權限的[角色型存取控制 (RBAC)](../role-based-access-control/role-assignments-portal.md) 權限。 如果要求經過核准，資訊安全中心會自動設定網路安全性群組（Nsg）和 Azure 防火牆，以允許輸入流量進入選取的埠，以及要求的來源 IP 位址或範圍（以指定的時間量為限）。 時間到期之後，資訊安全中心會將 NSG 還原為其先前的狀態。 但是，已經建立的連線不會中斷。
+當使用者要求存取 VM 時，資訊安全中心會檢查使用者是否有該 VM 的[角色型存取控制（RBAC）](../role-based-access-control/role-assignments-portal.md)許可權。 如果要求經過核准，資訊安全中心會自動設定網路安全性群組（Nsg）和 Azure 防火牆，以允許輸入流量進入選取的埠，以及要求的來源 IP 位址或範圍（以指定的時間量為限）。 時間到期之後，資訊安全中心會將 NSG 還原為其先前的狀態。 但是，已經建立的連線不會中斷。
 
  > [!NOTE]
  > 如果已針對 Azure 防火牆後方的 VM 核准 JIT 存取要求，資訊安全中心會自動變更 NSG 和防火牆原則規則。 針對指定的時間長度，規則允許輸入流量進入選取的埠，並要求來源 IP 位址或範圍。 經過一段時間之後，資訊安全中心會將防火牆和 NSG 規則還原成先前的狀態。

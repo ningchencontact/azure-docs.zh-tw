@@ -3,39 +3,38 @@ title: Azure 資訊安全中心支援的平臺 |Microsoft Docs
 description: 本檔提供 Azure 資訊安全中心支援的平臺清單。
 services: security-center
 documentationcenter: na
-author: monhaber
+author: memildin
 manager: rkarlin
-editor: ''
 ms.assetid: 70c076ef-3ad4-4000-a0c1-0ac0c9796ff1
 ms.service: security-center
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 8/29/2019
-ms.author: v-mohabe
-ms.openlocfilehash: c094ef5f3e7c7bfa96f95264e137fd8938296bb4
-ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
+ms.date: 08/29/2019
+ms.author: memildin
+ms.openlocfilehash: 1d13db922ae84e4032304a8865ba6fcdafa65748
+ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/03/2019
-ms.locfileid: "70232212"
+ms.lasthandoff: 09/23/2019
+ms.locfileid: "71201626"
 ---
 # <a name="supported-platforms"></a>支援的平台 
 
 ## 虛擬機器/伺服器<a name="vm-server"></a>
 
-資訊安全中心在不同類型的混合式環境中支援虛擬機器/伺服器:
+資訊安全中心在不同類型的混合式環境中支援虛擬機器/伺服器：
 
 * 僅限 Azure
 * Azure 和內部部署
 * Azure 和其他雲端
 * Azure、其他雲端及內部部署
 
-針對在 Azure 訂用帳戶上啟用的 Azure 環境, Azure 資訊安全中心會自動探索在訂用帳戶內部署的 IaaS 資源。
+針對在 Azure 訂用帳戶上啟用的 Azure 環境，Azure 資訊安全中心會自動探索在訂用帳戶內部署的 IaaS 資源。
 
 > [!NOTE]
-> 若要接收一組完整的安全性功能, 您必須擁有[Log Analytics 代理程式](../azure-monitor/platform/agents-overview.md#log-analytics-agent)(由 Azure 資訊安全中心所使用), 並已安裝並正確設定,[以將資料傳送至 Azure 資訊安全中心](security-center-enable-data-collection.md#manual-agent)。
+> 若要接收一組完整的安全性功能，您必須擁有[Log Analytics 代理程式](../azure-monitor/platform/agents-overview.md#log-analytics-agent)（由 Azure 資訊安全中心所使用），並已安裝並正確設定，[以將資料傳送至 Azure 資訊安全中心](security-center-enable-data-collection.md#manual-agent)。
 
 
 下列各節列出 Azure 資訊安全中心所使用之[Log Analytics 代理程式](../azure-monitor/platform/agents-overview.md#log-analytics-agent)可執行檔支援伺服器作業系統。
@@ -52,7 +51,7 @@ ms.locfileid: "70232212"
 > [!NOTE]
 > 與 Microsoft Defender ATP 的整合僅支援 Windows Server 2012 R2 和 Windows Server 2016。
 
-若要深入瞭解上述 Windows 作業系統支援的功能, 請參閱[虛擬機器/伺服器支援的功能](security-center-services.md##vm-server-features)。
+若要深入瞭解上述 Windows 作業系統支援的功能，請參閱[虛擬機器/伺服器支援的功能](security-center-services.md##vm-server-features)。
 
 ### Linux 作業系統<a name="os-linux"></a>
 
@@ -76,11 +75,11 @@ ms.locfileid: "70232212"
 > [!NOTE]
 > 由於支援的 Linux 作業系統清單經常變更, 如果您想要的話, 請按一下[這裡](https://github.com/microsoft/OMS-Agent-for-Linux#supported-linux-operating-systems), 以查看最新的支援版本清單, 以防上次發行此主題之後已經發生變更。
 
-若要深入瞭解 Linux 作業系統支援的功能, 請參閱[虛擬機器/伺服器支援的功能](security-center-services.md##vm-server-features)。
+若要深入瞭解 Linux 作業系統支援的功能，請參閱[虛擬機器/伺服器支援的功能](security-center-services.md##vm-server-features)。
 
 ### 受管理的虛擬機器服務<a name="virtual-machine"></a>
 
-此外, 也會在客戶訂用帳戶中建立虛擬機器作為部分 Azure 受控服務的一部分, 例如 Azure Kubernetes (AKS)、Azure Databricks 等等。 Azure 資訊安全中心也會探索這些虛擬機器, 而且可以根據上列支援的[Windows/Linux 作業系統](#os-windows)來安裝和設定 Log analytics 代理程式。
+此外，也會在客戶訂用帳戶中建立虛擬機器作為部分 Azure 受控服務的一部分，例如 Azure Kubernetes （AKS）、Azure Databricks 等等。 Azure 資訊安全中心也會探索這些虛擬機器，而且可以根據上列支援的[Windows/Linux 作業系統](#os-windows)來安裝和設定 Log analytics 代理程式。
 
 ### 雲端服務<a name="cloud-services"></a>
 
@@ -88,7 +87,7 @@ ms.locfileid: "70232212"
 
 ## PaaS 服務<a name="paas-services"></a>
 
-Azure 資訊安全中心支援下列 Azure PaaS 資源:
+Azure 資訊安全中心支援下列 Azure PaaS 資源：
 
 * SQL
 * 于 postgresql
@@ -116,7 +115,7 @@ Azure 資訊安全中心支援下列 Azure PaaS 資源:
 * Data Lake Store
 * 金鑰保存庫
 
-若要深入瞭解上述 PaaS 資源清單所支援的功能, 請參閱[paas 服務支援的功能](security-center-services.md#paas-services)。
+若要深入瞭解上述 PaaS 資源清單所支援的功能，請參閱[paas 服務支援的功能](security-center-services.md#paas-services)。
 
 ## <a name="next-steps"></a>後續步驟
 

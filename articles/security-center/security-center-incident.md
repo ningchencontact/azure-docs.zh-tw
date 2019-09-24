@@ -4,17 +4,16 @@ description: 本檔可協助您使用 Azure 資訊安全中心來管理安全性
 services: security-center
 author: memildin
 manager: rkarlin
-editor: ''
 ms.service: security-center
 ms.topic: conceptual
 ms.date: 09/09/2019
 ms.author: memildin
-ms.openlocfilehash: c492c4023df30eb51692aa4ae21fb938067c6ebb
-ms.sourcegitcommit: 23389df08a9f4cab1f3bb0f474c0e5ba31923f12
+ms.openlocfilehash: 2a22039b3499f1ba0f2d7acb2e86a1991d35a380
+ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70873379"
+ms.lasthandoff: 09/23/2019
+ms.locfileid: "71202131"
 ---
 # <a name="manage-security-incidents-in-azure-security-center"></a>管理 Azure 資訊安全中心中的安全性事件
 

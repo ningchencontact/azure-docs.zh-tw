@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 03/23/2018
 ms.author: chackdan
-ms.openlocfilehash: f33b25112b5c4ee77f1f7d2a419ffb8e926a27d9
-ms.sourcegitcommit: a0b37e18b8823025e64427c26fae9fb7a3fe355a
+ms.openlocfilehash: f929ca1cd0fe6f2a94864ae3eb4df28e7b1927db
+ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68501353"
+ms.lasthandoff: 09/23/2019
+ms.locfileid: "71200468"
 ---
 # <a name="azure-service-fabric-node-types-and-virtual-machine-scale-sets"></a>Azure Service Fabric 節點類型與虛擬機器擴展集
 [虛擬機器擴展集](/azure/virtual-machine-scale-sets)是 Azure 計算資源。 您可以使用擴展集來將虛擬機器集合以一組的方式加以部署和管理。 在 Azure Service Fabric 叢集中定義的每個節點類型會設定不同的擴展集。  ServiceFabric 虛擬機器擴充功能會在擴展集內的每部虛擬機器上安裝 Service Fabric 執行時間。 您可以分開相應增加或減少每個節點類型、變更每個叢集節點上執行的 OS SKU、開啟不同組的連接埠，並使用不同的容量計量。
@@ -34,14 +34,14 @@ ms.locfileid: "68501353"
 當您相應增加擴展集，系統就會建立一個新的執行個體。 新擴展集執行個體的名稱通常是擴展集名稱 + 下一個執行個體編號。 在我們的範例中是 BackEnd_5。
 
 ## <a name="map-scale-set-load-balancers-to-node-types-and-scale-sets"></a>將擴展集負載平衡器對應至節點類型和擴展集
-如果您已 Azure 入口網站中部署叢集，或已使用範例 Azure Resource Manager 範本部署叢集，系統會列出資源群組下的所有資源都。 可以看到每個擴展集或節點類型的負載平衡器。 負載平衡器名稱使用下列格式:**LB-&lt;節點類型名稱&gt;** 。 例如下圖中顯示的 LB-sfcluster4doc-0：
+如果您已 Azure 入口網站中部署叢集，或已使用範例 Azure Resource Manager 範本部署叢集，系統會列出資源群組下的所有資源都。 可以看到每個擴展集或節點類型的負載平衡器。 負載平衡器名稱使用下列格式：**LB-&lt;節點類型名稱&gt;** 。 例如下圖中顯示的 LB-sfcluster4doc-0：
 
 ![資源][Resources]
 
 ## <a name="service-fabric-virtual-machine-extension"></a>Service Fabric 虛擬機器擴充功能
-Service Fabric 虛擬機器擴充功能可用來啟動 Service Fabric 至 Azure 虛擬機器, 並設定節點安全性。
+Service Fabric 虛擬機器擴充功能可用來啟動 Service Fabric 至 Azure 虛擬機器，並設定節點安全性。
 
-以下是 Service Fabric 虛擬機器擴充功能的程式碼片段:
+以下是 Service Fabric 虛擬機器擴充功能的程式碼片段：
 
 ```json
 "extensions": [
@@ -73,23 +73,23 @@ Service Fabric 虛擬機器擴充功能可用來啟動 Service Fabric 至 Azure 
    },
 ```
 
-以下是屬性描述:
+以下是屬性描述：
 
 | **名稱** | **允許的值** | ** --- ** | **指引或簡短描述** |
 | --- | --- | --- | --- |
 | name | string | --- | 延伸模組的唯一名稱 |
-| type | "ServiceFabricLinuxNode" 或 "ServiceFabricWindowsNode | --- | 識別要啟動的 OS Service Fabric |
+| 型別 | "ServiceFabricLinuxNode" 或 "ServiceFabricWindowsNode" | --- | 識別要啟動的 OS Service Fabric |
 | autoUpgradeMinorVersion | True 或 False | --- | 啟用自動升級 SF 執行時間次要版本 |
 | publisher | Microsoft.Azure.ServiceFabric | --- | Service Fabric 擴充功能發行者的名稱 |
-| clusterEndpont | string | --- | URI: 管理端點的埠 |
+| clusterEndpont | string | --- | URI：管理端點的埠 |
 | nodeTypeRef | string | --- | nodeType 的名稱 |
-| durabilityLevel | 銅, 銀級, 金級, 白金 | --- | 允許暫停不可變 Azure 基礎結構的時間 |
-| enableParallelJobs | True 或 False | --- | 啟用計算 ParallelJobs, 例如以平行方式移除相同擴展集中的 VM 和重新開機 VM |
-| nicPrefixOverride | string | --- | 子網首碼, 例如 "10.0.0.0/24" |
+| durabilityLevel | 銅，銀級，金級，白金 | --- | 允許暫停不可變 Azure 基礎結構的時間 |
+| enableParallelJobs | True 或 False | --- | 啟用計算 ParallelJobs，例如以平行方式移除相同擴展集中的 VM 和重新開機 VM |
+| nicPrefixOverride | string | --- | 子網首碼，例如 "10.0.0.0/24" |
 | commonNames | string[] | --- | 已安裝叢集憑證的一般名稱 |
 | x509StoreName | string | --- | 安裝的叢集憑證所在的存放區名稱 |
 | typeHandlerVersion | 1.1 | --- | 延伸模組的版本。 1.0 建議將傳統版本的擴充功能更新至1。1 |
-| dataPath | string | --- | 用來儲存 Service Fabric 系統服務和應用程式資料狀態的磁片磁碟機路徑。 
+| 資料路徑 | string | --- | 用來儲存 Service Fabric 系統服務和應用程式資料狀態的磁片磁碟機路徑。 
 
 ## <a name="next-steps"></a>後續步驟
 * 請參閱[「到處部署」功能和與 Azure 受控叢集比較的概觀](service-fabric-deploy-anywhere.md)。

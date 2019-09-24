@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 06/14/2019
 ms.author: haroldw
-ms.openlocfilehash: ab8814f1620cc019a0bee872c7b8f42cbb427365
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 8dae521902d0568f2d79725bad792d4df64daa1c
+ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70091731"
+ms.lasthandoff: 09/23/2019
+ms.locfileid: "71204017"
 ---
 # <a name="common-prerequisites-for-deploying-openshift-in-azure"></a>在 Azure 中開發 OpenShift 的一般必要條件
 
@@ -27,11 +27,11 @@ ms.locfileid: "70091731"
 
 OpenShift 安裝是使用 Ansible 腳本。 Ansible 使用安全殼層 (SSH) 連接到所有叢集主機，以完成安裝步驟。
 
-當 ansible 對遠端主機進行 SSH 連線時, 它無法輸入密碼。 因此，私密金鑰不能有相關聯的密碼 (複雜密碼)，否則部署會失敗。
+當 ansible 對遠端主機進行 SSH 連線時，它無法輸入密碼。 因此，私密金鑰不能有相關聯的密碼 (複雜密碼)，否則部署會失敗。
 
-由於所有虛擬機器 (VM) 是透過 Azure Resource Manager 範本部署的，因此會使用相同的公開金鑰存取所有 VM。 對應的私密金鑰也必須位於執行所有腳本的 VM 上。 為了安全地執行此動作, 會使用 Azure 金鑰保存庫將私密金鑰傳遞至 VM。
+由於所有虛擬機器 (VM) 是透過 Azure Resource Manager 範本部署的，因此會使用相同的公開金鑰存取所有 VM。 對應的私密金鑰也必須位於執行所有腳本的 VM 上。 為了安全地執行此動作，會使用 Azure 金鑰保存庫將私密金鑰傳遞至 VM。
 
-如果容器有永續性儲存體的需求，則需要永久性磁碟區。 OpenShift 支援適用于持續性磁片區的 Azure 虛擬硬碟 (Vhd), 但必須先將 Azure 設定為雲端提供者。
+如果容器有永續性儲存體的需求，則需要永久性磁碟區。 OpenShift 支援適用于持續性磁片區的 Azure 虛擬硬碟（Vhd），但必須先將 Azure 設定為雲端提供者。
 
 在此模型中，OpenShift 將會：
 
@@ -68,7 +68,7 @@ az group create --name keyvaultrg --location eastus
 ```
 
 ## <a name="create-a-key-vault"></a>建立金鑰保存庫
-使用 [az keyvault create](/cli/azure/keyvault) 命令來建立要儲存叢集之 SSH 金鑰的金鑰保存庫。 金鑰保存庫名稱必須是全域唯一的, 而且必須啟用範本部署, 否則部署將會失敗並出現 "KeyVaultParameterReferenceSecretRetrieveFailed" 錯誤。
+使用 [az keyvault create](/cli/azure/keyvault) 命令來建立要儲存叢集之 SSH 金鑰的金鑰保存庫。 金鑰保存庫名稱必須是全域唯一的，而且必須啟用範本部署，否則部署將會失敗並出現 "KeyVaultParameterReferenceSecretRetrieveFailed" 錯誤。
 
 下列範例會在 *keyvaultrg* 資源群組中，建立名為 *keyvault* 的金鑰保存庫：
 
@@ -98,7 +98,7 @@ az keyvault secret set --vault-name keyvault --name keysecret --file ~/.ssh/open
 ```
 
 ## <a name="create-a-service-principal"></a>建立服務主體 
-OpenShift 會使用使用者名稱與密碼或服務主體與 Azure 進行通訊。 Azure 服務主體是安全性識別，可供您與應用程式、服務及諸如 OpenShift 等自動化工具搭配使用。 您可以控制和定義關於服務主體可以在 Azure 中執行哪些作業的權限。 最好將服務主體的許可權範圍限定在特定的資源群組, 而不是整個訂用帳戶。
+OpenShift 會使用使用者名稱與密碼或服務主體與 Azure 進行通訊。 Azure 服務主體是安全性識別，可供您與應用程式、服務及諸如 OpenShift 等自動化工具搭配使用。 您可以控制和定義關於服務主體可以在 Azure 中執行哪些作業的權限。 最好將服務主體的許可權範圍限定在特定的資源群組，而不是整個訂用帳戶。
 
 使用 [az ad sp create-for-rbac](/cli/azure/ad/sp) 建立服務主體，並輸出 OpenShift 所需的認證。
 
@@ -116,7 +116,7 @@ az group create -l eastus -n openshiftrg
 scope=`az group show --name openshiftrg --query id`
 az ad sp create-for-rbac --name openshiftsp \
       --role Contributor --password {Strong Password} \
-      --scopes $scope
+      --scopes $scope \
 ```
 如果您使用 Windows，請執行 ```az group show --name openshiftrg --query id``` 並以輸出代替 $scope。
 
@@ -137,15 +137,15 @@ az ad sp create-for-rbac --name openshiftsp \
 
 ## <a name="prerequisites-applicable-only-to-resource-manager-template"></a>僅適用于 Resource Manager 範本的必要條件
 
-必須為 SSH 私密金鑰 (**sshPrivateKey**)、Azure AD 用戶端密碼 (**AadClientSecret**)、OpenShift 系統管理員密碼 (**OpenshiftPassword**), 以及 Red Hat 訂用帳戶管理員密碼或啟用金鑰建立秘密 (**rhsmPasswordOrActivationKey**)。  此外, 如果使用自訂 SSL 憑證, 則必須建立六個額外的密碼- **routingcafile**、 **routingcertfile**、 **routingkeyfile**、 **mastercafile**、 **mastercertfile**和**masterkeyfile**。  這些參數將會更詳細地說明。
+必須為 SSH 私密金鑰（**sshPrivateKey**）、Azure AD 用戶端密碼（**AadClientSecret**）、OpenShift 系統管理員密碼（**OpenshiftPassword**），以及 Red Hat 訂用帳戶管理員密碼或啟用金鑰建立秘密（**rhsmPasswordOrActivationKey**）。  此外，如果使用自訂 SSL 憑證，則必須建立六個額外的密碼- **routingcafile**、 **routingcertfile**、 **routingkeyfile**、 **mastercafile**、 **mastercertfile**和**masterkeyfile**。  這些參數將會更詳細地說明。
 
-範本會參考特定的秘密名稱, 因此您**必須**使用以上所列的粗體名稱 (區分大小寫)。
+範本會參考特定的秘密名稱，因此您**必須**使用以上所列的粗體名稱（區分大小寫）。
 
 ### <a name="custom-certificates"></a>自訂憑證
 
-根據預設, 範本會使用 OpenShift web 主控台和路由網域的自我簽署憑證來部署 OpenShift 叢集。 如果您想要使用自訂 SSL 憑證, 請將 ' routingCertType ' 設為 ' custom ', 並將 ' masterCertType ' 設定為 ' custom '。  您將需要憑證的 CA、Cert 和金鑰檔 (如 pem 格式)。  您可以將自訂憑證用於其中一個, 而不是另一個。
+根據預設，範本會使用 OpenShift web 主控台和路由網域的自我簽署憑證來部署 OpenShift 叢集。 如果您想要使用自訂 SSL 憑證，請將 ' routingCertType ' 設為 ' custom '，並將 ' masterCertType ' 設定為 ' custom '。  您將需要憑證的 CA、Cert 和金鑰檔（如 pem 格式）。  您可以將自訂憑證用於其中一個，而不是另一個。
 
-您必須將這些檔案儲存在 Key Vault 的秘密中。  使用與用於私密金鑰相同的 Key Vault。  範本會以硬式編碼的形式, 為每個 SSL 憑證檔案使用特定的秘密名稱, 而不需要額外輸入6個密碼名稱。  使用下表中的資訊來儲存憑證資料。
+您必須將這些檔案儲存在 Key Vault 的秘密中。  使用與用於私密金鑰相同的 Key Vault。  範本會以硬式編碼的形式，為每個 SSL 憑證檔案使用特定的秘密名稱，而不需要額外輸入6個密碼名稱。  使用下表中的資訊來儲存憑證資料。
 
 | 秘密名稱      | 憑證檔案   |
 |------------------|--------------------|

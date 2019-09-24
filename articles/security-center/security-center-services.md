@@ -3,9 +3,8 @@ title: Azure 資訊安全中心提供支援的功能 |Microsoft Docs
 description: 本檔提供 Azure 資訊安全中心所支援的服務清單。
 services: security-center
 documentationcenter: na
-author: monhaber
+author: memildin
 manager: rkarlin
-editor: ''
 ms.assetid: 870ebc8d-1fad-435b-9bf9-c477f472ab17
 ms.service: security-center
 ms.devlang: na
@@ -13,18 +12,18 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/29/2019
-ms.author: v-mohabe
-ms.openlocfilehash: 0d2b417dd01e26f0f93722be66d82972b52aca83
-ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
+ms.author: memildin
+ms.openlocfilehash: 97708fa3211aa203aab56253b1c7720d04329014
+ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/03/2019
-ms.locfileid: "70234578"
+ms.lasthandoff: 09/23/2019
+ms.locfileid: "71200809"
 ---
 # <a name="supported-features-available-in-azure-security-center"></a>Azure 資訊安全中心提供支援的功能
 
 > [!NOTE]
->某些功能僅適用于標準層。 如果您尚未註冊資訊安全中心的標準層, 則可以使用免費試用期間。 如需詳細資訊，請參閱[資訊安全中心定價頁面](https://azure.microsoft.com/pricing/details/security-center/)。
+>某些功能僅適用于標準層。 如果您尚未註冊資訊安全中心的標準層，則可以使用免費試用期間。 如需詳細資訊，請參閱[資訊安全中心定價頁面](https://azure.microsoft.com/pricing/details/security-center/)。
 
 下列各節顯示[支援的平臺](security-center-os-coverage.md)可用的資訊安全中心功能。
 
@@ -77,7 +76,7 @@ ms.locfileid: "70234578"
 | McAfee v10+ | Linux 伺服器系列  | 否 | 是的 **\*** |
 | Sophos V9 +| Linux 伺服器系列  | 否 | 是的 **\***  |
 
- **\*** 涵蓋範圍狀態和支援的資料目前僅適用于與受保護的訂用帳戶相關聯的 Log Analytics 工作區, 而且不會反映在 Azure 資訊安全中心入口網站中。
+ **\*** 涵蓋範圍狀態和支援的資料目前僅適用于與受保護的訂用帳戶相關聯的 Log Analytics 工作區，而且不會反映在 Azure 資訊安全中心入口網站中。
 
 > [!NOTE]
 >
@@ -87,7 +86,7 @@ ms.locfileid: "70234578"
 
 ## PaaS 服務支援的<a name="paas-services"></a>功能
 
-Azure 資訊安全中心支援下列 PaaS 資源:
+Azure 資訊安全中心支援下列 PaaS 資源：
 
 |服務|建議 (免費)|威脅偵測 (標準)|
 |----|----|----|
@@ -121,7 +120,7 @@ Azure 資訊安全中心支援下列 PaaS 資源:
 
 \* 這些功能目前以公開預覽形式支援。
 
-\*\*Azure Active Directory (Azure AD) 建議僅適用于標準訂閱。
+\*\*Azure Active Directory （Azure AD）建議僅適用于標準訂閱。
 
 ## <a name="next-steps"></a>後續步驟
 

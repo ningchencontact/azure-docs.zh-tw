@@ -7,12 +7,12 @@ ms.subservice: data-science-vm
 ms.author: gopalv
 ms.date: 09/11/2019
 ms.topic: reference
-ms.openlocfilehash: 9366eb1bde05d80b8882ee28aa9eb03a75f75964
-ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
+ms.openlocfilehash: d50bb18d15bcad72eed3a97088b61c623e6208fe
+ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71174717"
+ms.lasthandoff: 09/23/2019
+ms.locfileid: "71199983"
 ---
 # <a name="reference-centos-linux-data-science-virtual-machine"></a>參考：CentOS （Linux）資料科學虛擬機器
 
@@ -341,3 +341,7 @@ rattle()
 1. 選取 [匯出] 按鈕，將名為 weather_script.R 的 R 指令檔儲存到主資料夾。
 
 您可以結束 Rattle 和 R。現在，您可以修改產生的 R 指令碼。 或者，您可以照原樣使用，並且隨時執行，以便重複執行在 Rattle UI 中完成的所有動作。 這是特別適合 R 初學者的方法，他們將可在簡單的圖形化介面中快速進行分析和機器學習，同時自動產生 R 程式碼來修改或學習。
+
+## <a name="next-steps"></a>後續步驟
+
+有其他問題嗎？ 請考慮建立[支援票證](https://azure.microsoft.com/support/create-ticket/)。

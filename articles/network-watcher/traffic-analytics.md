@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/15/2018
 ms.author: kumud
-ms.reviewer: yagup
-ms.openlocfilehash: dbc0829adc29848c9047368295a2ade589834e8b
-ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
+ms.reviewer: vinigam
+ms.openlocfilehash: 6c11f415fc1ea3a578893f6d14a60dfc1c4fddb0
+ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/26/2019
-ms.locfileid: "70031864"
+ms.lasthandoff: 09/23/2019
+ms.locfileid: "71203004"
 ---
 # <a name="traffic-analytics"></a>流量分析
 
@@ -30,6 +30,8 @@ ms.locfileid: "70031864"
 - 了解各個 Azure 區域間和網際網路的流量模式，使網路部署達到最理想的效能和容量。
 - 找出導致網路連線失敗的網路設定錯誤。
 
+> [!NOTE]
+> 流量分析現在支援以較高的10分鐘頻率收集 NSG 流量記錄資料
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -55,7 +57,7 @@ Azure 虛擬網路具有 NSG 流量記錄，可為您了解透過與個別網路
 
 ![NSG 流量記錄處理的資料流程](./media/traffic-analytics/data-flow-for-nsg-flow-log-processing.png)
 
-## <a name="supported-regions-nsg"></a>支援的區域:NSG 
+## <a name="supported-regions-nsg"></a>支援的區域：NSG 
 
 您可以在下列任何支援的區域中使用 NSG 的流量分析：
 
@@ -85,7 +87,7 @@ Azure 虛擬網路具有 NSG 流量記錄，可為您了解透過與個別網路
 * 日本西部
 * US Gov 維吉尼亞州
 
-## <a name="supported-regions-log-analytics-workspaces"></a>支援的區域:Log Analytics 工作區
+## <a name="supported-regions-log-analytics-workspaces"></a>支援的區域：Log Analytics 工作區
 
 Log Analytics 工作區必須存在於下列區域：
 * 加拿大中部
@@ -176,20 +178,20 @@ New-AzStorageAccount `
 
 1. 針對 [狀態] 選取 [開啟]。
 2. 選取 [*第2版*] 作為 [**流量記錄版本**]。 第 2 版包含流量工作階段統計資料 (位元組和封包)
-3. 選取用來儲存流量記錄的現有儲存體帳戶。 如果您想要永久儲存資料，請將值設為 *0*。 您的儲存體帳戶會產生 Azure 儲存體費用。 請確定您的儲存體未將 [Data Lake Storage Gen2 階層式命名空間] 設定為 [true]。 此外, NSG 流量記錄不能儲存在具有防火牆的儲存體帳戶中。 
+3. 選取用來儲存流量記錄的現有儲存體帳戶。 如果您想要永久儲存資料，請將值設為 *0*。 您的儲存體帳戶會產生 Azure 儲存體費用。 請確定您的儲存體未將 [Data Lake Storage Gen2 階層式命名空間] 設定為 [true]。 此外，NSG 流量記錄不能儲存在具有防火牆的儲存體帳戶中。 
 4. 將 [保留] 設為您要儲存資料的天數。
 > [!IMPORTANT]
 > 目前有一個問題是，系統不會根據保留原則設定從 Blob 儲存體自動刪除網路監看員的[網路安全性群組 (NSG) 流量記錄](network-watcher-nsg-flow-logging-overview.md)。 如果您有現有的非零保留原則，建議您定期刪除超過其保留期間的儲存體 Blob 以避免產生任何費用。 如需如何刪除 NSG 流量記錄儲存體 Blob 的詳細資訊，請參閱[刪除 NSG 流量記錄儲存體 Blob](network-watcher-delete-nsg-flow-log-blobs.md)。
 5. 針對 [流量分析狀態]，選取 [開啟]。
-6. 選取 [處理間隔]。 根據您的選擇, 會從儲存體帳戶收集流量記錄, 並由流量分析進行處理。 您可以選擇每隔1小時或每隔10分鐘的處理間隔。
+6. 選取 [處理間隔]。 根據您的選擇，會從儲存體帳戶收集流量記錄，並由流量分析進行處理。 您可以選擇每隔1小時或每隔10分鐘的處理間隔。 
 7. 選取現有的 Log Analytics (OMS) 工作區，或選取 [建立新的工作區] 以建立新工作區。 流量分析會使用 Log Analytics 工作區來儲存已彙總並編製索引的資料，而這些資料後續將用來產生分析。 如果您選取現有的工作區時，該工作區必須存在於其中一個[支援區域](#supported-regions-log-analytics-workspaces)中，並且已升級至新的查詢語言。 如果您不想要升級現有的工作區，或是沒有支援區域中的工作區，請建立新的工作區。 如需關於查詢語言的詳細資訊，請參閱 [Azure Log Analytics 升級為新的記錄搜尋](../log-analytics/log-analytics-log-search-upgrade.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json)。
 
     裝載流量分析解決方案和 NSG 的記錄分析工作區不需要位於相同區域中。 例如，您可以用西歐區域的工作區來處理流量分析，而 NSG 則位於美國東部和美國西部。 在相同的工作區中可設定多個 NSG。
-8. 選取 [ **儲存**]。
+8. 選取 [儲存]。
 
     ![選取儲存體帳戶、Log Analytics 工作區和啟用流量分析](./media/traffic-analytics/ta-customprocessinginterval.png)
 
-針對要啟用流量分析的任何其他 NSG 重複前述步驟。 流量記錄中的資料會傳送至工作區，因此請確定您所在國家/地區的當地法律和規範允許在工作區所在的區域中進行資料儲存。 如果您針對不同的 Nsg 設定了不同的處理間隔, 資料將會以不同的間隔收集。 例如: 您可以選擇針對 [重大 Vnet] 啟用 [10 分鐘] 的處理間隔, 並針對非關鍵性的 Vnet 選擇 [1 小時]。
+針對要啟用流量分析的任何其他 NSG 重複前述步驟。 流量記錄中的資料會傳送至工作區，因此請確定您所在國家/地區的當地法律和規範允許在工作區所在的區域中進行資料儲存。 如果您針對不同的 Nsg 設定了不同的處理間隔，資料將會以不同的間隔收集。 例如: 您可以選擇針對 [重大 Vnet] 啟用 [10 分鐘] 的處理間隔，並針對非關鍵性的 Vnet 選擇 [1 小時]。
 
 您也可以在 Azure PowerShell 中使用[AzNetworkWatcherConfigFlowLog](/powershell/module/az.network/set-aznetworkwatcherconfigflowlog) PowerShell Cmdlet 來設定流量分析。 執行 `Get-Module -ListAvailable Az` 來了解您安裝的版本。 如果您需要升級，請參閱[安裝 Azure PowerShell 模組](/powershell/azure/install-Az-ps)。
 

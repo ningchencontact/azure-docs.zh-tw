@@ -3,9 +3,8 @@ title: Azure 資訊安全中心資料安全性 | Microsoft Docs
 description: 本文件說明如何在 Azure 資訊安全中心管理和保護資料。
 services: security-center
 documentationcenter: na
-author: rkarlin
-manager: barbkess
-editor: ''
+author: memildin
+manager: rkarlin
 ms.assetid: 33f2c9f4-21aa-4f0c-9e5e-4cd1223e39d7
 ms.service: security-center
 ms.devlang: na
@@ -13,13 +12,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/28/2018
-ms.author: rkarlin
-ms.openlocfilehash: cd91b83bc808d811fc50293fbf1726d609ad5b46
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: memildin
+ms.openlocfilehash: 30f4358bea2670cfa8d825bf1ef75feeba7ea851
+ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65234080"
+ms.lasthandoff: 09/23/2019
+ms.locfileid: "71202352"
 ---
 # <a name="azure-security-center-data-security"></a>Azure 資訊安全中心資料安全性
 為了協助客戶防範、偵測和回應威脅，Azure 資訊安全中心會收集和處理安全性的相關資料，包括組態資訊、中繼資料、事件記錄、損毀傾印檔等等。 Microsoft 從撰寫程式碼到運作服務均遵守嚴格的規範與安全性指導方針。
@@ -48,12 +47,12 @@ Azure 資訊安全中心會分析來自下列來源的資料，以掌握您的�
 
 | VM 地區                              | 工作區地區 |
 |-------------------------------------|---------------|
-| 美國、 巴西、 南非 | 美國 |
+| 美國、巴西、南非 | 美國 |
 | 加拿大                              | 加拿大        |
-| 歐洲 （不含 United Kingdom）   | 歐洲        |
+| 歐洲（英國除外）   | 歐洲        |
 | 英國                      | 英國 |
-| 亞太地區 （不含印度、 日本、 韓國、 中國）   | 亞太地區  |
-| 南韓                              | 亞太地區  |
+| 亞洲（印度、日本、韓國、中國除外）   | 亞太地區  |
+| 韓國                              | 亞太地區  |
 | 印度                               | 印度         |
 | 日本                               | 日本         |
 | 中國                               | 中國         |
@@ -82,7 +81,7 @@ Microsoft Monitoring Agent 會掃描各種安全性相關設定，並將其轉�
 客戶可以取用來自不同資料流的資訊安全中心相關資料，如下所示：
 
 * **Azure 活動**：所有的安全性警示、已核准的資訊安全中心 [Just-In-Time](https://docs.microsoft.com/azure/security-center/security-center-just-in-time) 要求，以及[調適性應用程式控制](https://docs.microsoft.com/azure/security-center/security-center-adaptive-application)產生的所有警示。
-* **Azure 監視器記錄**： 所有安全性警示。
+* **Azure 監視器記錄**：所有安全性警示。
 
 
 > [!NOTE]

@@ -2,18 +2,18 @@
 title: Azure 資訊安全中心監控的 Azure 原則定義 | Microsoft Docs
 description: Azure 資訊安全中心監控的 Azure 原則定義。
 services: security-center
-author: monhaber
-manager: barbkess
+author: memildin
+manager: rkarlin
 ms.service: security-center
 ms.topic: conceptual
 ms.date: 8/22/2019
-ms.author: v-mohabe
-ms.openlocfilehash: 37c29a40596a0ea7989b91d1ffcbabf930e5ed93
-ms.sourcegitcommit: d70c74e11fa95f70077620b4613bb35d9bf78484
+ms.author: memildin
+ms.openlocfilehash: 892b33f52788bd37d430f221f14ba4c98f764cfb
+ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70910362"
+ms.lasthandoff: 09/23/2019
+ms.locfileid: "71201676"
 ---
 # <a name="azure-security-policies-monitored-by-security-center"></a>受資訊安全中心監視的 Azure 安全性原則
 本文提供您可以在 Azure 資訊安全中心中監視的 Azure 原則定義清單。 如需有關安全性原則的詳細資訊，請參閱[搭配使用安全性原則](tutorial-security-policy.md)。

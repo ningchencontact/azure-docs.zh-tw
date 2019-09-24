@@ -7,12 +7,12 @@ ms.service: private-link
 ms.topic: article
 ms.date: 09/16/2019
 ms.author: kumud
-ms.openlocfilehash: 09158a935aac023382049d3aa9ce23a711972023
-ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
+ms.openlocfilehash: 8ed3b8e507a93f75b036b3a97eb34395ce525314
+ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71104752"
+ms.lasthandoff: 09/23/2019
+ms.locfileid: "71202932"
 ---
 # <a name="create-a-private-link-service-using-azure-powershell"></a>使用 Azure PowerShell 建立私人連結服務
 本文說明如何使用 Azure PowerShell 在 Azure 中建立私人連結服務。
@@ -98,7 +98,7 @@ $privateLinkService = New-AzPrivateLinkService `
 -ServiceName $plsName `
 -ResourceGroupName $rgName `
 -Location $location `
--LoadBalancerFrontendIpConfiguration $frontendIP`
+-LoadBalancerFrontendIpConfiguration $frontendIP `
 -IpConfiguration $IPConfig 
 ```
 
@@ -133,6 +133,7 @@ $vnetPE = New-AzVirtualNetwork `
 -AddressPrefix "11.0.0.0/16" `
 -Subnet $peSubnet 
 ```
+
 ### <a name="create-a-private-endpoint"></a>建立私用端點
 針對在您的虛擬網路中建立的取用私人連結服務，建立私用端點：
  
@@ -141,13 +142,14 @@ $vnetPE = New-AzVirtualNetwork `
 $plsConnection= New-AzPrivateLinkServiceConnection `
 -Name plsConnection `
 -PrivateLinkServiceId  $privateLinkService.Id  
+
 $privateEndpoint = New-AzPrivateEndpoint -ResourceGroupName $rgName -Name $peName -Location $location -Subnet $vnetPE.subnets[0] -PrivateLinkServiceConnection $plsConnection -ByManualRequest 
- ```
-### Get private endpoint
-Get the IP address of the private endpoint with `Get-AzPrivateEndpoint` as follows:
+```
+ 
+### <a name="get-private-endpoint"></a>取得私用端點
+使用`Get-AzPrivateEndpoint`取得私人端點的 IP 位址，如下所示：
 
 ```azurepowershell
-
 # Get Private Endpoint and its IP Address 
 $pe =  Get-AzPrivateEndpoint `
 -Name $peName `
@@ -155,8 +157,9 @@ $pe =  Get-AzPrivateEndpoint `
 -ExpandResource networkinterfaces
 
 $pe.NetworkInterfaces[0].IpConfigurations[0].PrivateIpAddress 
- ```
-  
+
+```
+
 ### <a name="approve-the-private-endpoint-connection"></a>核准私人端點連接
 使用「核准-AzPrivateEndpointConnection」來核准私人連結服務的私用端點連線。
 
@@ -167,7 +170,9 @@ $pls = Get-AzPrivateLinkService `
 -ResourceGroupName $rgName 
 
 Approve-AzPrivateEndpointConnection -ResourceId $pls.PrivateEndpointConnections[0].Id -Description "Approved" 
- ``` 
+
+``` 
+
 ## <a name="next-steps"></a>後續步驟
 - 深入瞭解[Azure 私人連結](private-link-overview.md)
  

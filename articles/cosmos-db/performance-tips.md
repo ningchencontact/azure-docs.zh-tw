@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/20/2019
 ms.author: sngun
-ms.openlocfilehash: bdf81eb447596c8f580809eed99004186a81eacf
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: 9a758ce56356da21fc94f426d575a55f7dc762a0
+ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70065927"
+ms.lasthandoff: 09/23/2019
+ms.locfileid: "71200330"
 ---
 # <a name="performance-tips-for-azure-cosmos-db-and-net"></a>Azure Cosmos DB 和 .NET 的效能祕訣
 
@@ -32,18 +32,17 @@ Azure Cosmos DB 是一個既快速又彈性的分散式資料庫，可在獲得�
 
     用戶端連線到 Azure Cosmos DB 的方式，對於效能有重大影響 (尤其對觀察到的用戶端延遲而言)。 有兩個重要組態設定可用來設定用戶端連接原則 - 連接*模式*和連接*通訊協定*。  兩個可用的模式︰
 
-   * 閘道模式 (預設值)
+   * 閘道模式
       
-     所有 SDK 平台都支援閘道模式並設為預設值。 如果您的應用程式在有嚴格防火牆限制的公司網路中執行，則閘道模式會是最佳的選擇，因為它會使用標準 HTTPS 連接埠與單一端點。 不過，對於效能的影響是每次讀取或寫入 Azure Cosmos DB 資料時，閘道模式都會涉及額外的網路躍點。 因此，直接模式因為網路躍點較少，所以可提供較佳的效能。 此外，當您在通訊端連線數目有限的環境中執行應用程式時，也建議使用閘道連線模式，例如，使用 Azure Functions 時，或當您處於使用情況方案時。 
+     所有 SDK 平臺都支援閘道模式，而且是針對[Microsoft. Azure DOCUMENTDB SDK](sql-api-sdk-dotnet.md)設定的預設值。 如果您的應用程式在具有嚴格防火牆限制的公司網路中執行，則閘道模式是最佳選擇，因為它會使用標準 HTTPS 埠和單一端點。 不過，效能的取捨是每次讀取或寫入資料到 Azure Cosmos DB 時，閘道模式都會涉及額外的網路躍點。 因此，直接模式因為網路躍點較少，所以可提供較佳的效能。 當您在通訊端連線數目有限的環境中執行應用程式時，也建議使用閘道連線模式。 
+
+     在 Azure Functions 中使用 SDK 時，特別是在取用[方案](../azure-functions/functions-scale.md#consumption-plan)中，請注意目前的連線[限制](../azure-functions/manage-connections.md)。 在此情況下，如果您也在 Azure Functions 應用程式中使用其他 HTTP 型用戶端，可能會建議使用閘道模式。
 
    * 直接模式
 
-     直接模式支援透過 TCP 和 HTTPS 通訊協定連線。 如果您使用的是最新版本的 .NET SDK, .NET Standard 2.0 和 .NET framework 都支援直接連接模式。 使用直接模式時，有兩個可用的通訊協定選項：
+     直接模式支援透過 TCP 和 HTTPS 通訊協定連線，而且如果您使用[Cosmos/.Net V3 SDK](sql-api-sdk-dotnet-standard.md)，則是預設的連線模式。
 
-     * TCP
-     * HTTPS
-
-     使用閘道模式時，Cosmos DB 會在使用適用於 MongoDB 的 Azure Cosmos DB API 時，使用連接埠 443 與連接埠 10250、10255 及 10256。 10250 連接埠會對應至預設 MongoDB 執行個體而不使用異地複寫，10255/10256 連接埠則會使用異地複寫功能對應至 MongoDB 執行個體。 在直接模式下使用 TCP 時，除了「閘道」連接埠之外，您還務必要開啟 10000 到 20000 之間的連接埠範圍，因為 Azure Cosmos DB 使用動態 TCP 連接埠。 如果未開啟這些連接埠而您嘗試使用 TCP，您就會收到「503 服務無法使用」錯誤。 下表顯示不同 API 的可用連線模式，以及每個 API 的服務連接埠使用者：
+     使用閘道模式時，Cosmos DB 在使用適用于 MongoDB 的 Azure Cosmos DB API 時，會使用埠443和埠10250、10255和10256。 10250 連接埠會對應至預設 MongoDB 執行個體而不使用異地複寫，10255/10256 連接埠則會使用異地複寫功能對應至 MongoDB 執行個體。 在直接模式下使用 TCP 時，除了「閘道」連接埠之外，您還務必要開啟 10000 到 20000 之間的連接埠範圍，因為 Azure Cosmos DB 使用動態 TCP 連接埠。 如果未開啟這些連接埠而您嘗試使用 TCP，您就會收到「503 服務無法使用」錯誤。 下表顯示不同 API 的可用連線模式，以及每個 API 的服務連接埠使用者：
 
      |連線模式  |支援的通訊協定  |支援的 SDK  |API/服務連接埠  |
      |---------|---------|---------|---------|
@@ -53,7 +52,20 @@ Azure Cosmos DB 是一個既快速又彈性的分散式資料庫，可在獲得�
 
      Azure Cosmos DB 提供透過 HTTPS 的簡單且開放 RESTful 程式設計模型。 此外，它可提供有效率的 TCP 通訊協定，此 TCP 通訊協定在通訊模型中也符合 REST 限制，並且可以透過 .NET 用戶端 SDK 取得。 直接 TCP 和 HTTPS 皆使用 SSL 來進行初始驗證和加密流量。 為了達到最佳效能，儘可能使用 TCP 通訊協定。
 
-     連接模式設定於使用 ConnectionPolicy 參數建構 DocumentClient 執行個體期間。 如果使用直接模式，也可以在 ConnectionPolicy 參數內設定 Protocol。
+     針對 SDK V3，在建立 CosmosClient 實例時，會在 CosmosClientOptions 中設定連線模式。
+
+     ```csharp
+     var serviceEndpoint = new Uri("https://contoso.documents.net");
+     var authKey = "your authKey from the Azure portal";
+     CosmosClient client = new CosmosClient(serviceEndpoint, authKey,
+     new CosmosClientOptions
+     {
+        ConnectionMode = ConnectionMode.Direct,
+        ConnectionProtocol = Protocol.Tcp
+     });
+     ```
+
+     針對 Microsoft. Azure DocumentDB SDK，連接模式是在使用 ConnectionPolicy 參數來 DocumentClient 實例的結構期間設定。 如果使用直接模式，也可以在 ConnectionPolicy 參數內設定 Protocol。
 
      ```csharp
      var serviceEndpoint = new Uri("https://contoso.documents.net");
@@ -66,19 +78,23 @@ Azure Cosmos DB 是一個既快速又彈性的分散式資料庫，可在獲得�
      });
      ```
 
-     因為只有直接模式支援 TCP，所以如果使用閘道模式，則 HTTPS 通訊協定一律用來與閘道通訊，並忽略 ConnectionPolicy 中的 Protocol 值。
+     因為只有直接模式支援 TCP，所以如果使用閘道模式，則 HTTPS 通訊協定一律會用來與閘道通訊，而且會忽略 ConnectionPolicy 中的通訊協定值。
 
      ![Azure Cosmos DB 連接原則的圖例](./media/performance-tips/connection-policy.png)
 
 2. **呼叫 OpenAsync 以避免第一次要求的啟動延遲**
 
-    根據預設，第一個要求會因為必須擷取位址路由表而有較高的延遲。 若要避免此第一次要求的啟動延遲，您應該在初始化期間呼叫 OpenAsync() 一次，如下所示。
+    根據預設，第一個要求會因為必須擷取位址路由表而有較高的延遲。 使用[SDK V2](sql-api-sdk-dotnet.md)時，若要避免第一次要求的啟動延遲，您應該在初始化期間呼叫 OpenAsync （）一次，如下所示。
 
         await client.OpenAsync();
+
+    > [!NOTE] 
+    > OpenAsync 方法會產生要求，以取得帳戶中所有容器的位址路由表。 對於有多個容器但其應用程式存取其子集的帳戶，它會產生不必要的流量，使初始化變慢。 因此，在此案例中，使用 OpenAsync 方法可能會使應用程式啟動變慢。
+
    <a id="same-region"></a>
 3. **為了效能在相同 Azure 區域中共置用戶端**
 
-    可能的話, 請將任何呼叫 Azure Cosmos DB 的應用程式放在與 Azure Cosmos 資料庫相同的區域中。 以約略的比較來說，在相同區域內對 Azure Cosmos DB 進行的呼叫會在 1-2 毫秒內完成，但美國西岸和美國東岸之間的延遲則會大於 50 毫秒。 視要求所採用的路由而定，各項要求從用戶端傳遞至 Azure 資料中心界限時的這類延遲可能有所不同。 確保呼叫端應用程式與佈建的 Azure Cosmos DB 端點位於相同的 Azure 區域中，將可能達到最低的延遲。 如需可用區域的清單，請參閱 [Azure 區域](https://azure.microsoft.com/regions/#services)。
+    可能的話，請將任何呼叫 Azure Cosmos DB 的應用程式放在與 Azure Cosmos 資料庫相同的區域中。 以約略的比較來說，在相同區域內對 Azure Cosmos DB 進行的呼叫會在 1-2 毫秒內完成，但美國西岸和美國東岸之間的延遲則會大於 50 毫秒。 視要求所採用的路由而定，各項要求從用戶端傳遞至 Azure 資料中心界限時的這類延遲可能有所不同。 確保呼叫端應用程式與佈建的 Azure Cosmos DB 端點位於相同的 Azure 區域中，將可能達到最低的延遲。 如需可用區域的清單，請參閱 [Azure 區域](https://azure.microsoft.com/regions/#services)。
 
     ![Azure Cosmos DB 連接原則的圖例](./media/performance-tips/same-region.png)
    <a id="increase-threads"></a>
@@ -95,15 +111,22 @@ Azure Cosmos DB 是一個既快速又彈性的分散式資料庫，可在獲得�
 1. **安裝最新的 SDK**
 
     Azure Cosmos DB SDK 會持續改善以提供最佳效能。 請參閱 [Azure Cosmos DB SDK](sql-api-sdk-dotnet-standard.md) 頁面來判斷最新的 SDK 並檢閱改善項目。
-2. **在應用程式存留期內使用單一 Azure Cosmos DB 用戶端**
 
-    每個 DocumentClient 執行個體都是安全執行緒，並且在直接模式中運作時執行有效率的連線管理和位址快取。 若要藉由 DocumentClient 獲得有效率的連接管理和更佳的效能，建議在應用程式存留期內對每個 AppDomain 使用單一 DocumentClient 執行個體。
+2. **使用串流 Api**
+
+    [.NET SDK V3](sql-api-sdk-dotnet-standard.md)包含可接收和傳回資料的串流 api，而不需要進行序列化。 
+
+    不會直接使用來自 SDK 的回應，而是將它們轉送至其他應用層的仲介層應用程式，可受益于串流 Api。 如需串流處理的範例，請參閱[專案管理](https://github.com/Azure/azure-cosmos-dotnet-v3/blob/master/Microsoft.Azure.Cosmos.Samples/Usage/ItemManagement)範例。
+
+3. **在應用程式存留期內使用單一 Azure Cosmos DB 用戶端**
+
+    每個 DocumentClient 和 CosmosClient 實例都是安全線程，並且會在直接模式中運作時執行有效率的連線管理和位址快取。 為了讓 SDK 用戶端能夠有效率地進行連線管理和更佳的效能，建議您在應用程式的存留期間，針對每個 AppDomain 使用單一實例。
 
    <a id="max-connection"></a>
-3. **增加使用閘道模式時每部主機的 System.Net MaxConnections**
+4. **增加使用閘道模式時每部主機的 System.Net MaxConnections**
 
     使用閘道模式時，Azure Cosmos DB 要求是透過 HTTPS/REST 發出，並受制於每個主機名稱或 IP 位址的預設連線限制。 您可能必須將 MaxConnections 設定成較高的值 (100-1000)，以便用戶端程式庫利用多個同時連到 Azure Cosmos DB 的連線。 在 .NET SDK 1.8.0 和更新版本中，[ServicePointManager.DefaultConnectionLimit](https://msdn.microsoft.com/library/system.net.servicepointmanager.defaultconnectionlimit.aspx) 的預設值為 50，而若要變更此值，您可以將 [Documents.Client.ConnectionPolicy.MaxConnectionLimit](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.connectionpolicy.maxconnectionlimit.aspx) 設定為更高的值。   
-4. **微調分割之集合的平行查詢**
+5. **微調分割之集合的平行查詢**
 
      SQL .NET SDK 1.9.0 版和更新版本支援平行查詢，可讓您平行查詢分割的集合。 如需詳細資訊，請參閱使用 SDK 的相關[程式碼範例](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/Queries/Program.cs)。 平行查詢的設計目的是要改善其連續對應項目的查詢延遲和輸送量。 平行查詢提供兩個可供使用者微調以符合其需求的參數：(a) MaxDegreeOfParallelism：用來控制可平行查詢的分割數目上限，以及 (b) MaxBufferedItemCount：用來控制預先擷取的結果數目。
 
@@ -114,10 +137,10 @@ Azure Cosmos DB 是一個既快速又彈性的分散式資料庫，可在獲得�
     (b) ***微調 MaxBufferedItemCount\:*** 平行查詢是設計成可以在用戶端處理目前的結果批次時預先擷取結果。 預先擷取有助於改善查詢的整體延遲。 MaxBufferedItemCount 是用來限制預先擷取之結果數量的參數。 將 MaxBufferedItemCount 設定為預期傳回的結果數目 (或更高的數目)，可讓查詢透過預先擷取獲得最大效益。
 
     預先擷取會以相同方式運作，不受 MaxDegreeOfParallelism 的影響，而且來自所有分割的資料會有單一緩衝區。  
-5. **開啟伺服器端 GC**
+6. **開啟伺服器端 GC**
 
     在某些情況下，降低廢棄項目收集頻率可能會有幫助。 在 .NET 中，請將 [gcServer](https://msdn.microsoft.com/library/ms229357.aspx) 設定為 true。
-6. **在 RetryAfter 間隔實作降速**
+7. **在 RetryAfter 間隔實作降速**
 
     在進行效能測試期間，您應該增加負載，直到系統對小部分要求進行節流處理為止。 如果進行節流處理，用戶端應用程式應該在節流時降速，且持續時間達伺服器指定的重試間隔。 採用降速可確保您在重試之間花費最少的等待時間。 重試原則支援包含於 SQL [.NET](sql-api-sdk-dotnet.md) 和 [Java](sql-api-sdk-java.md) 的版本 1.8.0 和以上版本中，[Node.js](sql-api-sdk-node.md) 和 [Python](sql-api-sdk-python.md) 的版本 1.9.0 或以上版本中，以及 [.NET 核心](sql-api-sdk-dotnet-core.md) SDK 所有支援的版本。 如需詳細資訊，請參閱 [RetryAfter](https://msdn.microsoft.com/library/microsoft.azure.documents.documentclientexception.retryafter.aspx) \(英文\)。
     
@@ -127,15 +150,15 @@ Azure Cosmos DB 是一個既快速又彈性的分散式資料庫，可在獲得�
     readDocument.RequestDiagnosticsString 
     ```
     
-7. **相應放大用戶端工作負載**
+8. **相應放大用戶端工作負載**
 
     如果您是以高輸送量層級 (> 50,000 RU/秒) 進行測試，用戶端應用程式可能會成為瓶頸，因為電腦對 CPU 或網路的使用率將達到上限。 如果到了這一刻，您可以將用戶端應用程式向外延展至多部伺服器，以繼續將 Azure Cosmos DB 帳戶再往前推進一步。
-8. **快取較低讀取延遲的文件 URI**
+9. **快取較低讀取延遲的文件 URI**
 
     盡可能快取文件 URI 以達到最佳讀取效能。 您必須在建立資源時，定義快取 resourceid 的邏輯。 以 Resourceid 為基礎的查閱比以名稱為基礎的查閱更快，因此快取這些值可改善效能。 
 
    <a id="tune-page-size"></a>
-1. **調整查詢/讀取摘要的頁面大小以獲得更好的效能**
+10. **調整查詢/讀取摘要的頁面大小以獲得更好的效能**
 
    使用讀取摘要功能 (例如 ReadDocumentFeedAsync) 執行大量文件讀取時，或發出 SQL 查詢時，如果結果集太大，則會以分段方式傳回結果。 根據預設，會以 100 個項目或 1 MB 的區塊傳回結果 (以先達到的限制為準)。
 
@@ -144,7 +167,7 @@ Azure Cosmos DB 是一個既快速又彈性的分散式資料庫，可在獲得�
    > [!NOTE] 
    > Feedoptions.maxitemcount 屬性不應該僅用於分頁用途。 其主要用途是藉由減少在單一頁面中傳回的最大專案數, 來改善查詢的效能。  
 
-   您也可以使用可用的 Azure Cosmos DB Sdk 來設定頁面大小。 FeedOptions 中的[feedoptions.maxitemcount](/dotnet/api/microsoft.azure.documents.client.feedoptions.maxitemcount?view=azure-dotnet)屬性可讓您設定要在 enmuration 作業中傳回的最大專案數。 當`maxItemCount`設定為-1 時, SDK 會根據檔案大小自動尋找最理想的值。 例如:
+   您也可以使用可用的 Azure Cosmos DB Sdk 來設定頁面大小。 FeedOptions 中的[feedoptions.maxitemcount](/dotnet/api/microsoft.azure.documents.client.feedoptions.maxitemcount?view=azure-dotnet)屬性可讓您設定要在列舉作業中傳回的最大專案數。 當`maxItemCount`設定為-1 時, SDK 會根據檔案大小自動尋找最理想的值。 例如:
     
    ```csharp
     IQueryable<dynamic> authorResults = client.CreateDocumentQuery(documentCollection.SelfLink, "SELECT p.Author FROM Pages p WHERE p.Title = 'About Seattle'", new FeedOptions { MaxItemCount = 1000 });
@@ -152,11 +175,11 @@ Azure Cosmos DB 是一個既快速又彈性的分散式資料庫，可在獲得�
     
    執行查詢時, 會在 TCP 封包內傳送產生的資料。 如果您為指定的`maxItemCount`值太低, 則在 TCP 封包內傳送資料所需的往返次數會很高, 因而影響效能。 因此, 如果您不確定要為屬性設定的`maxItemCount`值, 最好將它設為-1, 並讓 SDK 選擇預設值。 
 
-10. **增加執行緒/工作數目**
+11. **增加執行緒/工作數目**
 
     請參閱＜網路＞一節中的[增加執行緒/工作數目](#increase-threads)。
 
-11. **使用 64 位元主機處理序**
+12. **使用 64 位元主機處理序**
 
     當您使用 SQL .NET SDK 版本 1.11.4 和更新版本時，SQL SDK 會在 32 位元主機處理序中運作。 不過，若使用跨分割區查詢，建議您使用 64 位元主機處理以獲得改進的效能。 下列的應用程式類型預設使用 32 位元主機處理序，若要將其變更為 64 位元，請根據您的應用程式類型依照下列步驟執行：
 

@@ -3,23 +3,19 @@ title: 在 Azure 資訊安全中心內保護 App Service | Microsoft Docs
 description: 本文可協助您開始在「Azure 資訊安全中心」內保護 App Service。
 services: security-center
 documentationcenter: na
-author: monhaber
-manager: barbkess
-editor: ''
+author: memildin
+manager: rkarlin
 ms.assetid: e8518710-fcf9-44a8-ae4b-8200dfcded1a
 ms.service: security-center
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 1/27/2019
-ms.author: v-mohabe
-ms.openlocfilehash: 6a6b5b6e247bd7c105286b86257a6ae11c1d1c60
-ms.sourcegitcommit: 978e1b8cac3da254f9d6309e0195c45b38c24eb5
+ms.date: 01/27/2019
+ms.author: memildin
+ms.openlocfilehash: 68f7c47f0a0f56085d632f1c1741318f440b41ee
+ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/03/2019
-ms.locfileid: "67551869"
+ms.lasthandoff: 09/23/2019
+ms.locfileid: "71202476"
 ---
 # <a name="protect-app-service-with-azure-security-center"></a>使用 Azure 資訊安全中心來保護 App Service
 本文可協助您使用「Azure 資訊安全中心」來監視及保護在 App Service 上執行的應用程式。
@@ -47,19 +43,19 @@ Web 應用程式中的弱點經常會遭到攻擊者利用，因為對網際網�
 ## <a name="enabling-monitoring-and-protection-of-app-service"></a>啟用 App Service 監視和保護
 
 1. 在 Azure 中，選擇 [資訊安全中心]。
-2. 移至**價格和設定**，然後選擇 訂用帳戶。
-3. 在 [定價層]  底下的 [應用程式服務]  資料列中，將方案切換至 [已啟用]  。
+2. 移至 **定價 & 設定**，然後選擇訂用帳戶。
+3. 在 [定價層] 底下的 [應用程式服務] 資料列中，將方案切換至 [已啟用]。
 
 ![App Service 切換](./media/security-center-app-services/app-services-toggle.png)
 
 >[!NOTE]
 > 針對資源數量列出的執行個體數目代表您開啟定價層刀鋒視窗時，作用中的相關 App Service 執行個體數目。 由於此數目會依據您選取的調整規模選項變更，因此您需付費的執行個體數目也會相應地修改。
 
-若要停用您 App Service 的監視和建議，請重複此程序並將 **App Service** 方案切換至 [已停用]  。
+若要停用您 App Service 的監視和建議，請重複此程序並將 **App Service** 方案切換至 [已停用]。
 
 
 
-## <a name="see-also"></a>請參閱
+## <a name="see-also"></a>另請參閱
 在本文中，您已來了解如何使用「Azure 資訊安全中心」的監視功能。 若要深入了解「Azure 資訊安全中心」，請參閱下列主題：
 
 * [在 Azure 資訊安全中心設定安全性原則](tutorial-security-policy.md)：了解如何在 Azure 資訊安全中心設定安全性設定。
