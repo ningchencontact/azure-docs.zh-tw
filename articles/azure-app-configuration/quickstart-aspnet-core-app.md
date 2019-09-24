@@ -14,12 +14,12 @@ ms.tgt_pltfrm: ASP.NET Core
 ms.workload: tbd
 ms.date: 02/24/2019
 ms.author: yegu
-ms.openlocfilehash: 600c808c0bda991bb7203bbf60c098918e274da6
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: b4642ecfad17bf3e926e9efdec034bbe4aa6c20e
+ms.sourcegitcommit: 8ef0a2ddaece5e7b2ac678a73b605b2073b76e88
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68326635"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71076316"
 ---
 # <a name="quickstart-create-an-aspnet-core-app-with-azure-app-configuration"></a>快速入門：使用 Azure 應用程式設定建立 ASP.NET Core 應用程式
 
@@ -57,9 +57,9 @@ ms.locfileid: "68326635"
 
 ## <a name="add-secret-manager"></a>新增祕密管理員
 
-將[祕密管理員工具](https://docs.microsoft.com/aspnet/core/security/app-secrets) \(機器翻譯\) 新增至您的專案。 祕密管理員工具能儲存專案樹狀結構外開發工作的敏感性資料。 此作法能協助避免於原始程式碼內意外共用應用程式祕密。
+若要使用秘密管理員，請將 `UserSecretsId` 元素新增至 .csproj  檔案。
 
-- 開啟 .csproj  檔案。 新增 `UserSecretsId` 元素 (如下所示)，並將其值更換為您自己的值 (此值通常是 GUID)。 儲存檔案。
+- 開啟 .csproj  檔案。 新增 `UserSecretsId` 元素，如下所示。 您可以使用相同的 GUID，也可以將此值取代為您自己的值。 儲存檔案。
 
     ```xml
     <Project Sdk="Microsoft.NET.Sdk.Web">
@@ -77,11 +77,13 @@ ms.locfileid: "68326635"
     </Project>
     ```
 
+祕密管理員工具能儲存專案樹狀結構外開發工作的敏感性資料。 此作法能協助避免於原始程式碼內意外共用應用程式祕密。 如需秘密管理員的詳細資訊，請參閱[在 ASP.NET Core 中的開發中安全儲存應用程式秘密](https://docs.microsoft.com/aspnet/core/security/app-secrets)
+
 ## <a name="connect-to-an-app-configuration-store"></a>連線至應用程式設定存放區
 
 1. 透過執行下列命令，將參考新增至 `Microsoft.Azure.AppConfiguration.AspNetCore` NuGet 套件：
 
-        dotnet add package Microsoft.Azure.AppConfiguration.AspNetCore --version 2.0.0-preview-009200001-7
+        dotnet add package Microsoft.Azure.AppConfiguration.AspNetCore --version 2.0.0-preview-009470001-12
 
 2. 執行下列命令以還原您專案的套件：
 
@@ -94,6 +96,9 @@ ms.locfileid: "68326635"
     此命令必須在和 *.csproj* 檔案相同的目錄中執行。
 
         dotnet user-secrets set ConnectionStrings:AppConfig <your_connection_string>
+
+    > [!IMPORTANT]
+    > 請以引號括住連接字串，否則某些殼層會截斷連接字串。 請確定 `dotnet user-secrets` 命令的輸出會顯示整個連接字串。 如果不是，請重新執行命令，並以引號括住連接字串。
 
     祕密管理員僅可用於在本機測試 Web 應用程式。 例如，將應用程式部署至 [Azure App Service](https://azure.microsoft.com/services/app-service/web) 時，您會使用 App Service 中的應用程式設定**連接字串**，而不會使用祕密管理員來儲存連接字串。
 
@@ -182,7 +187,7 @@ ms.locfileid: "68326635"
 
 ## <a name="next-steps"></a>後續步驟
 
-在本快速入門中，您已建立新的應用程式設定存放區，並透過[應用程式設定提供者](https://go.microsoft.com/fwlink/?linkid=2074664)將其與 ASP.NET Core Web 應用程式搭配使用。 若要深入了解如何使用應用程式設定，請繼續進行下一個示範驗證的教學課程。
+在本快速入門中，您已建立新的應用程式設定存放區，並透過[應用程式設定提供者](https://go.microsoft.com/fwlink/?linkid=2074664)將其與 ASP.NET Core Web 應用程式搭配使用。 若要深入了解如何使用應用程式組態，請繼續進行下一個教學課程，其中會示範如何將 Web 應用程式設定為以動態方式重新整理設定。
 
 > [!div class="nextstepaction"]
-> [受控識別整合](./howto-integrate-azure-managed-service-identity.md)
+> [在 ASP.NET Core 應用程式中使用動態設定](./enable-dynamic-configuration-aspnet-core.md)

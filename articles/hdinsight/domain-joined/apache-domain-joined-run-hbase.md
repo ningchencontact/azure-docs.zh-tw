@@ -7,18 +7,18 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.topic: tutorial
 ms.date: 09/04/2019
-ms.openlocfilehash: 72e268628560618fb6fa47843f5125d9126a9f3e
-ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
+ms.openlocfilehash: 5823bed08e0fc2ed67dbbf3c58c39982f3a1897e
+ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70885166"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71037276"
 ---
 # <a name="tutorial-configure-apache-hbase-policies-in-hdinsight-with-enterprise-security-package"></a>教學課程：使用企業安全性套件在 HDInsight 中設定 Apache HBase 原則
 
 了解如何對企業安全性套件 (ESP) Apache HBase 叢集設定 Apache Ranger 原則。 ESP 叢集連線到網域，讓使用者使用網域認證進行驗證。 在此教學課程中，您會建立兩個 Ranger 原則來限制 HBase 資料表中不同資料行系列的存取權。
 
-在此教學課程中，您了解如何：
+在本教學課程中，您會了解如何：
 
 > [!div class="checklist"]
 > * 建立網域使用者
@@ -88,7 +88,8 @@ ms.locfileid: "70885166"
     ```hbaseshell
     scan 'Contacts'
     ```
-    ![HDInsight Hadoop HBase 殼層](./media/apache-domain-joined-run-hbase/hbase-shell-scan-table.png)
+
+    ![HDInsight Hadoop HBase 殼層輸出](./media/apache-domain-joined-run-hbase/hbase-shell-scan-table.png)
 
 ## <a name="create-ranger-policies"></a>建立 Ranger 原則
 
@@ -96,7 +97,7 @@ ms.locfileid: "70885166"
 
 1. 開啟 **Ranger 管理員 UI**。 按一下 **HBase** 底下的 **\<ClusterName>_hbase**。
 
-   ![Apache Ranger 管理員 UI](./media/apache-domain-joined-run-hbase/apache-ranger-admin-login.png)
+   ![HDInsight Apache Ranger 系統管理員 UI](./media/apache-domain-joined-run-hbase/apache-ranger-admin-login.png)
 
 2. **原則清單**畫面會顯示為此叢集建立的所有 Ranger 原則。 可能會列出其中一個預先設定的原則。 按一下 [新增原則]  。
 
@@ -202,14 +203,14 @@ ms.locfileid: "70885166"
    kinit marketing_user1
    ```
 
-2. 開啟 HBase 殼層，並掃描資料表 `Customers`：
+1. 開啟 HBase 殼層，並掃描資料表 `Customers`：
 
     ```hbaseshell
     hbase shell
     scan `Customers`
     ```
 
-3. 請注意，行銷使用者只能檢視 `Contact` 資料行系列的五個資料行。
+1. 請注意，行銷使用者只能檢視 `Contact` 資料行系列的五個資料行。
 
     ```hbaseshell
     ROW                                COLUMN+CELL
@@ -226,9 +227,9 @@ ms.locfileid: "70885166"
     2 row(s) in 0.0730 seconds
     ```
 
-9. 從 Ranger UI 檢視稽核存取事件。
+1. 從 Ranger UI 檢視稽核存取事件。
 
-   ![Ranger UI 原則稽核](./media/apache-domain-joined-run-hbase/apache-ranger-admin-audit.png)
+   ![HDInsight Ranger UI 原則稽核](./media/apache-domain-joined-run-hbase/apache-ranger-admin-audit.png)
 
 ## <a name="clean-up-resources"></a>清除資源
 
@@ -237,7 +238,7 @@ ms.locfileid: "70885166"
 1. 登入 [Azure 入口網站](https://portal.azure.com/)。
 2. 在頂端的 [搜尋]  方塊中，輸入 **HDInsight**。 
 1. 在 [服務]  底下，選取 [HDInsight 叢集]  。
-1. 從出現的 HDInsight 叢集清單中，在您為此教學課程建立的叢集旁按一下 [...]  。 
+1. 從出現的 HDInsight 叢集清單中，在您為本教學課程建立的叢集旁按一下 [...]  。 
 1. 按一下 [刪除]  。 按一下 [是]  。
 
 ## <a name="next-steps"></a>後續步驟

@@ -6,12 +6,12 @@ ms.author: mbaldwin
 ms.date: 05/20/2019
 ms.service: key-vault
 ms.topic: quickstart
-ms.openlocfilehash: b61dab28ff3fb6710e59e6209282c71a8f52f674
-ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
+ms.openlocfilehash: d24323996e222caf6456372cbc65681d2055c3db
+ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70914867"
+ms.lasthandoff: 09/14/2019
+ms.locfileid: "70996632"
 ---
 # <a name="quickstart-azure-key-vault-client-library-for-net"></a>快速入門：適用於 .NET 的 Azure Key Vault 用戶端程式庫
 
@@ -26,7 +26,6 @@ Azure 金鑰保存庫可協助保護雲端應用程式和服務所使用的密�
 - 使用經 FIPS 140-2 Level 2 驗證的 HSM。
 
 [API 參考文件](/dotnet/api/overview/azure/key-vault?view=azure-dotnet) | [程式庫原始程式碼](https://github.com/Azure/azure-sdk-for-net/tree/AutoRest/src/KeyVault) | [套件 (NuGet)](https://www.nuget.org/packages/Microsoft.Azure.KeyVault/)
-
 
 ## <a name="prerequisites"></a>必要條件
 
@@ -118,26 +117,14 @@ az ad sp create-for-rbac -n "http://mySP" --sdk-auth
 }
 ```
 
-請記下 clientId、clientSecret、subscriptionId 和 tenantId，以供在下面的[向金鑰保存庫驗證](#authenticate-to-your-key-vault)步驟中使用。
-
-您也會需要服務主體的 appID。 您可以執行 [az ad sp list](https://docs.microsoft.com/en-us/cli/azure/ad/sp?view=azure-cli-latest#az-ad-sp-list) 並搭配 `--show-mine` 參數來加以尋找：
-
-```azurecli
-az ad sp list --show-mine
-```
-
-`appID` 會出現在傳回的 JSON 中：
-
-```json
-    "appId": "2cf5aa18-0100-445a-9438-0b93e577a3ed",
-```
+請記下 clientId 和 clientSecret，以供在下面的[向金鑰保存庫驗證](#authenticate-to-your-key-vault)步驟中使用。
 
 #### <a name="give-the-service-principal-access-to-your-key-vault"></a>對服務主體授與金鑰保存庫的存取權
 
-建立金鑰保存庫的存取原則以對服務主體授與權限。 請使用 [az keyvault set-policy](/cli/azure/keyvault?view=azure-cli-latest#az-keyvault-set-policy) 命令來進行此作業。 我們將會對服務主體授與金鑰和祕密的取得、列出及設定權限。
+建立金鑰保存庫的存取原則，其藉由將 clientId 傳遞至 [az keyvault set-policy](/cli/azure/keyvault?view=azure-cli-latest#az-keyvault-set-policy) 命令，將權限授予您的服務主體。 對服務主體授與金鑰和祕密的取得、列出及設定權限。
 
 ```azurecli
-az keyvault set-policy -n <your-unique-keyvault-name> --spn <appid-of-your-service-principal> --secret-permissions delete get list set --key-permissions create decrypt delete encrypt get list unwrapKey wrapKey
+az keyvault set-policy -n <your-unique-keyvault-name> --spn <clientId-of-your-service-principal> --secret-permissions delete get list set --key-permissions create decrypt delete encrypt get list unwrapKey wrapKey
 ```
 
 ## <a name="object-model"></a>物件模型
@@ -164,10 +151,6 @@ az keyvault set-policy -n <your-unique-keyvault-name> --spn <appid-of-your-servi
 setx akvClientId <your-clientID>
 
 setx akvClientSecret <your-clientSecret>
-
-setx akvTenantId <your-tentantId>
-
-setx akvSubscriptionId <your-subscriptionId>
 ````
 
 每次呼叫 `setx` 時，都應該會收到「成功：指定的值已儲存」的回應。

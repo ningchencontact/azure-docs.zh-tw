@@ -15,18 +15,18 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/19/2019
 ms.author: banders
-ms.openlocfilehash: 16b2eaef74a7aa0e3e28bfcbb6dbd9da568db6cf
-ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
+ms.openlocfilehash: 45f4a45828501afea52f0ad522c3f3f6777f7ccd
+ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "67491414"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71057709"
 ---
 # <a name="download-or-view-your-azure-billing-invoice-and-daily-usage-data"></a>下載或檢視您的 Azure 帳單發票和每日使用量資料
 
 針對大多數的訂用帳戶，您可以從 [Azure 入口網站](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade)下載您的發票，或透過電子郵件傳送它。 如果您是 Azure Enterprise 合約客戶 (EA 客戶)，您無法下載您的組織發票。 發票會傳送給已設定接收註冊發票的人員。
 
-如果您是 EA 客戶或擁有 [Microsoft 客戶合約](#check-access-to-a-microsoft-customer-agreement)，您可以在 [Azure 入口網站](https://portal.azure.com/)中下載使用量。 針對其他訂用帳戶，請前往 [Azure 帳戶中心](https://account.azure.com/Subscriptions)來下載使用量。
+如果您是 EA 客戶或擁有 [Microsoft 客戶合約](#check-access-to-a-microsoft-customer-agreement)，您可以在 [Azure 入口網站](https://portal.azure.com/)中下載使用量。
 
 只有某些角色有權取得帳單發票和使用量資訊 (例如帳戶管理員或企業系統管理員)。 若要深入了解取得計費資訊的存取權，請參閱[使用角色管理 Azure 計費的存取權](billing-manage-access.md)。
 
@@ -46,11 +46,13 @@ ms.locfileid: "67491414"
 
     ![顯示 [帳單和使用量] 選項的螢幕擷取畫面](./media/billing-download-azure-invoice-daily-usage-date/billingandusage.png)
 
-3. 按 [下載發票]  以檢視 PDF 發票的副本。 如果它顯示**無法使用**，請參閱[為什麼我沒有看到上期的發票？](#noinvoice)
+3. 按一下 [下載] 按鈕以下載 PDF 發票的複本，然後選取 [下載發票]  。 如果它顯示**無法使用**，請參閱[為什麼我沒有看到上期的發票？](#noinvoice)
 
-    ![顯示計費期間、下載發票和每個計費期間總費用的螢幕擷取畫面](./media/billing-download-azure-invoice-daily-usage-date/billing4.png)
+    ![顯示計費期間、下載發票和每個計費期間總費用的螢幕擷取畫面](./media/billing-download-azure-invoice-daily-usage-date/downloadinvoice.png)
 
-4. 按一下計費期間，還可檢視每日使用量。
+4. 您也可以按一下 [下載 csv]  ，下載已耗用數量的每日明細和預估費用。
+
+    ![顯示 [下載發票和使用 量] 的螢幕擷取畫面](./media/billing-download-azure-invoice-daily-usage-date/usageandinvoice.png)
 
 如需發票的詳細資訊，請參閱[了解 Microsoft Azure 帳單](billing-understand-your-bill.md)。 如需管理成本的說明，請參閱[使用 Azure 計費與成本管理避免非預期的成本](billing-getting-started.md)。
 
@@ -62,8 +64,8 @@ ms.locfileid: "67491414"
 2. 選取帳單設定檔。
 3. 選取 [發票]  。
 4. 在發票方格中，尋找您要下載之發票的資料列。
-5. 按一下資料列結尾處的省略符號 (`...`)。
-6. 在下載快顯功能表中，選取 [發票]  。
+5. 按一下資料列結尾的 [下載] 按鈕。
+6. 在下載操作功能表中，選取 [發票]  。
 
 如果您沒有看到上一個計費期間的發票，請參閱**其他資訊**。 <!-- Fix this -->
 ### <a name="noinvoice"></a>為什麼我沒有看到上期的發票？
@@ -119,37 +121,19 @@ ms.locfileid: "67491414"
 
 您可以遵循上述步驟，然後按一下 [退出]  ，選擇不要透過電子郵件取得發票。所有擁有者、參與者、讀者和發票管理員也都會選擇不要透過電子郵件取得發票。 如果您是讀者，則無法變更電子郵件發票喜好設定。
 
-## <a name="download-usage"></a>下載使用量
+## <a name="download-usage-in-azure-portal"></a>在 Azure 入口網站中下載使用量
 
- 針對大多數的訂用帳戶，請在 [Azure 帳戶中心](https://account.azure.com/Subscriptions)內尋找您的每日使用量檔案。 如果您是 EA 客戶或擁有 Microsoft 客戶合約，您可以在 [Azure 入口網站](https://portal.azure.com/)中下載使用量。 <!-- TO DO: update PayG experience to Ibiza once it ships-->
+ 針對大部分的訂用帳戶，請遵循下列步驟來尋找您的每日使用量：
 
-### <a name="download-usage-from-the-account-center-csv"></a>從帳戶中心下載使用量 (.csv)
+1. 從 Azure 入口網站的 [[訂用帳戶] 頁面](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade)選取您的訂用帳戶作為[具有發票存取權的使用者](billing-manage-access.md)。
 
-1. 以帳戶管理員身分登入 [Azure 帳戶中心](https://account.windowsazure.com/subscriptions)。
+2. 選取 [發票]  。
 
-2. 選取您需要發票和使用資訊的訂用帳戶。
+    ![顯示 [帳單和使用量] 選項的螢幕擷取畫面](./media/billing-download-azure-invoice-daily-usage-date/billingandusage.png)
 
-3. 選取 [帳單記錄]  。
+3. 針對您要查看的發票期間按一下 [下載] 按鈕。
 
-    ![顯示帳單記錄選項的螢幕擷取畫面](./media/billing-download-azure-invoice-daily-usage-date/Billinghisotry.png)
-
-4. 您可以查看過去六個計費期間和目前未收帳期間的對帳單。
-
-    ![顯示計費期間、下載發票和每日使用量的選項，以及每個計費期間總費用的螢幕擷取畫面](./media/billing-download-azure-invoice-daily-usage-date/billingSum.png)
-
-5. 選取 [檢視目前的對帳單]  ，以查看產生估計時的估計費用。 此資訊每天只會更新一次，可能不會包含您的所有使用量。 您的每月發票可能會與這項估計有所不同。
-
-    ![顯示 [檢視目前對帳單] 選項的螢幕擷取畫面](./media/billing-download-azure-invoice-daily-usage-date/billingSum2.png)
-
-    ![顯示目前費用預估的螢幕擷取畫面](./media/billing-download-azure-invoice-daily-usage-date/billingSum3.png)
-
-6. 選取 [下載使用量]  ，以 CSV 檔案形式下載每日使用量資料。 如果您看到兩個可用版本，請下載第 2 個版本。
-
-    ![顯示 [下載使用量] 選項的螢幕擷取畫面](./media/billing-download-azure-invoice-daily-usage-date/DLusage.png)
-
-只有帳戶管理員可以存取 Azure 帳戶中心。 其他計費系統管理員 (例如擁有者) 可以使用 [計費 API](billing-usage-rate-card-overview.md)取得使用量資訊。
-
-如需每日使用量的詳細資訊，請參閱[了解 Microsoft Azure 帳單](billing-understand-your-bill.md)。 如需管理成本的說明，請參閱[使用 Azure 計費與成本管理避免非預期的成本](billing-getting-started.md)。
+4. 按一下 [下載 csv]  ，可下載已耗用數量的每日明細和預估費用。  準備 csv 檔案可能需要幾分鐘的時間。
 
 ### <a name="download-usage-for-ea-customers"></a>下載 EA 客戶的使用量
 
@@ -189,7 +173,7 @@ ms.locfileid: "67491414"
 
 ## <a name="need-help-contact-us"></a>需要協助嗎？ 與我們連絡
 
-如果您有問題或需要協助，請[建立支援要求](https://go.microsoft.com/fwlink/?linkid=2083458)。
+如有問題或需要協助，請[建立支援要求](https://go.microsoft.com/fwlink/?linkid=2083458)。
 
 ## <a name="next-steps"></a>後續步驟
 
@@ -198,7 +182,7 @@ ms.locfileid: "67491414"
 - [了解 Microsoft Azure 帳單](billing-understand-your-bill.md)
 - [了解 Azure 發票上的詞彙](billing-understand-your-invoice.md)
 - [了解您 Microsoft Azure 詳細使用量上的字詞](billing-understand-your-usage.md)
-- [檢視貴組織的 Azure 定價](billing-ea-pricing.md)
+- [檢視組織的 Azure 定價](billing-ea-pricing.md)
 
 如果您有 Microsoft 客戶合約，請參閱：
 
@@ -206,4 +190,4 @@ ms.locfileid: "67491414"
 - [了解帳單設定檔發票上的詞彙](billing-mca-understand-your-invoice.md)
 - [了解帳單設定檔的 Azure 使用量和費用檔案](billing-mca-understand-your-usage.md)
 - [檢視及下載帳單設定檔的稅務文件](billing-mca-download-tax-document.md)
-- [檢視貴組織的 Azure 定價](billing-ea-pricing.md)
+- [檢視組織的 Azure 定價](billing-ea-pricing.md)

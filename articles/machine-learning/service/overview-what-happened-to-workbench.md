@@ -1,7 +1,7 @@
 ---
 title: Machine Learning Workbench 發生什麼事？
-titleSuffix: Azure Machine Learning service
-description: 了解 Machine Learning Workbench 應用程式發生什麼事、Azure Machine Learning 服務中有什麼變更，以及支援時間表為何。
+titleSuffix: Azure Machine Learning
+description: 了解 Machine Learning Workbench 應用程式發生什麼事、Azure Machine Learning 中有什麼變更，以及支援時間表為何。
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -11,12 +11,12 @@ author: j-martens
 ms.author: jmartens
 ms.date: 05/14/2019
 ms.custom: seodec18
-ms.openlocfilehash: d3d7a4ed5ae3bf2c9015625f41ea9cdb10fa1bba
-ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
+ms.openlocfilehash: 724e120a8ed92f71ff2e7f2bdda7d1884d80bc10
+ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70860444"
+ms.lasthandoff: 09/14/2019
+ms.locfileid: "70997157"
 ---
 # <a name="what-happened-to-azure-machine-learning-workbench"></a>Azure Machine Learning Workbench 發生什麼事？
 
@@ -24,23 +24,23 @@ Azure Machine Learning Workbench 應用程式和一些其他早期的功能已�
 
 為了改善您的體驗，該版本中包含了許多由客戶意見反應所促成的重大更新。 從實驗執行到模型部署的核心功能沒有變更。 但您現在可以使用健全的 <a href="https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py" target="_blank">SDK</a> 和 [Azure CLI](reference-azure-machine-learning-cli.md) 來完成機器學習工作和管線。
 
-在舊版 Azure Machine Learning 服務中建立的大部分成品都儲存在您的本機或雲端儲存體。 這些成品永遠不會消失。
+在舊版 Azure Machine Learning 中建立的大部分成品都儲存在您的本機或雲端儲存體。 這些成品永遠不會消失。
 
 在本文中，您會了解變更的項目為何，以及它們如何影響使用 Azure Machine Learning Workbench 和其 API 的既有工作。
 
 >[!Warning]
->本文適用對象不是 Azure Machine Learning Studio 使用者。 這適用於 Azure Machine Learning 服務客戶，而這些客戶已安裝 Workbench (預覽) 應用程式及/或具有實驗和模型管理預覽帳戶。
+>本文適用對象不是 Azure Machine Learning Studio 使用者。 這適用於 Azure Machine Learning 客戶，而這些客戶已安裝 Workbench (預覽) 應用程式及/或具有實驗和模型管理預覽帳戶。
 
 
 ## <a name="what-changed"></a>變更的項目為何？
 
-最新版的 Azure Machine Learning 服務包括下列功能：
+最新版的 Azure Machine Learning 包括下列功能：
 + [簡化的 Azure 資源模型](concept-azure-machine-learning-architecture.md)。
 + [新的入口網站 UI](how-to-track-experiments.md)，可管理您的實驗和計算目標。
 + 全新且更全面的 Python <a href="https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py" target="_blank">SDK</a>。
 + 全新且經過擴充的適用於機器學習的 [Azure CLI 擴充功能](reference-azure-machine-learning-cli.md)。
 
-[架構](concept-azure-machine-learning-architecture.md)已經過重新設計，以方便您使用。 您只需要一個 [Azure Machine Learning 服務工作區](concept-workspace.md)，而不是多個 Azure 資源和帳戶。 您可以在 [Azure 入口網站](how-to-manage-workspace.md)中快速建立工作區。 藉由使用工作區，多個使用者可以儲存定型和部署計算目標、模型實驗、Docker 映像、已部署的模型等等。
+[架構](concept-azure-machine-learning-architecture.md)已經過重新設計，以方便您使用。 您只需要一個 [Azure Machine Learning 工作區](concept-workspace.md)，而不是多個 Azure 資源和帳戶。 您可以在 [Azure 入口網站](how-to-manage-workspace.md)中快速建立工作區。 藉由使用工作區，多個使用者可以儲存定型和部署計算目標、模型實驗、Docker 映像、已部署的模型等等。
 
 雖然目前的版本中有改善的新 CLI 和 SDK 用戶端，但桌面工作區應用程式本身已被淘汰。 您可以在 [Azure 入口網站中的工作區儀表板](how-to-track-experiments.md#view-the-experiment-in-the-web-portal)中管理實驗。 使用儀表板來取得實驗記錄、管理附加到工作區的計算目標、管理模型和 Docker 映像，甚至可以部署 Web 服務。
 
@@ -62,7 +62,7 @@ Azure Machine Learning Workbench 應用程式和一些其他早期的功能已�
 
 [![線上入口網站](./media/overview-what-happened-to-workbench/image001.png)](./media/overview-what-happened-to-workbench/image001.png#lightbox)
 
-開始使用新的 CLI 和 SDK 來訓練模型以及追蹤執行歷程記錄。 您可以了解如何使用[教學課程：使用 Azure Machine Learning 服務訓練模型](tutorial-train-models-with-aml.md)。
+開始使用新的 CLI 和 SDK 來訓練模型以及追蹤執行歷程記錄。 您可以了解如何使用[教學課程：使用 Azure Machine Learning 訓練模型](tutorial-train-models-with-aml.md)。
 
 ## <a name="can-i-still-prep-data"></a>我是否仍可以準備資料？
 
@@ -72,7 +72,7 @@ Azure Machine Learning Workbench 應用程式和一些其他早期的功能已�
 
 ## <a name="will-projects-persist"></a>專案是否會保存？
 
-您不會遺失任何程式碼或作品。 在舊版中，專案是具有本機目錄的雲端實體。 在最新版中，您將使用本機設定檔將本機目錄附加到 Azure Machine Learning 服務工作區。 [請參閱最新架構的圖表](concept-azure-machine-learning-architecture.md)。
+您不會遺失任何程式碼或作品。 在舊版中，專案是具有本機目錄的雲端實體。 在最新版中，您將使用本機設定檔將本機目錄連結到 Azure Machine Learning 工作區。 [請參閱最新架構的圖表](concept-azure-machine-learning-architecture.md)。
 
 大部分專案內容都已經在您的本機電腦上。 因此，您只需要在該目錄中建立設定檔，並在您的程式碼中參照它，就能連線到您的工作區。 若要繼續使用包含您檔案和指令碼的本機目錄，請在 ['experiment.submit'](https://docs.microsoft.com/python/api/azureml-core/azureml.core.experiment.experiment?view=azure-ml-py) Python 命令中或使用 `az ml project attach` CLI 命令指定目錄的名稱。  例如︰
 ```python
@@ -96,13 +96,13 @@ run = exp.submit(source_directory=script_folder,
 
 請在下列文章中深入了解：
 + [部署模型的位置和方式](how-to-deploy-and-where.md)
-+ [教學課程：使用 Azure Machine Learning 服務來部署模型](tutorial-deploy-models-with-aml.md)
++ [教學課程：使用 Azure Machine Learning 部署模型](tutorial-deploy-models-with-aml.md)
 
 ## <a name="what-about-the-old-sdk-and-cli"></a>那麼舊的 SDK 和 CLI 呢？
 
 請參閱上述的[時間表](#timeline)。 建議您開始使用最新的 SDK 或 CLI 來建立新的實驗和模型。
 
-藉由使用最新版本中的新 Python SDK，您可以在任何 Python 環境中與 Azure Machine Learning 服務互動。 了解如何安裝最新的 <a href="https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py" target="_blank">SDK</a>。 您也可以使用更新的 [Azure Machine Learning CLI 擴充功能](reference-azure-machine-learning-cli.md)，其中包含豐富的 `az ml` 命令集，可在任何命令列環境 (包括 Azure Cloud Shell) 中與服務互動。
+藉由使用最新版本中的新 Python SDK，您可以在任何 Python 環境中與 Azure Machine Learning 互動。 了解如何安裝最新的 <a href="https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py" target="_blank">SDK</a>。 您也可以使用更新的 [Azure Machine Learning CLI 擴充功能](reference-azure-machine-learning-cli.md)，其中包含豐富的 `az ml` 命令集，可在任何命令列環境 (包括 Azure Cloud Shell) 中與服務互動。
 
 ## <a name="what-about-visual-studio-code-tools-for-ai"></a>Visual Studio Code Tools for AI 有何改變？
 
@@ -116,10 +116,10 @@ run = exp.submit(source_directory=script_folder,
 
 ## <a name="next-steps"></a>後續步驟
 
-了解 [Azure Machine Learning 服務的最新架構](concept-azure-machine-learning-architecture.md)。
+了解 [Azure Machine Learning 的最新架構](concept-azure-machine-learning-architecture.md)。
 
-如需此服務的概觀，請參閱[什麼是 Azure Machine Learning 服務？](overview-what-is-azure-ml.md)。
+如需此服務的概觀，請參閱[什麼是 Azure Machine Learning？](overview-what-is-azure-ml.md)。
 
 使用有兩個部分的教學課程來建立您的第一個實驗，以[設定環境和工作區](tutorial-1st-experiment-sdk-setup.md)並[訓練您的第一個模型](tutorial-1st-experiment-sdk-train.md)
 
-如需此工作流程的更深入體驗，請遵循[完整教學課程](tutorial-train-models-with-aml.md)，其中包含使用 Azure Machine Learning 服務訓練和部署模型的詳細步驟。
+如需此工作流程的更深入體驗，請遵循[完整教學課程](tutorial-train-models-with-aml.md)，其中包含使用 Azure Machine Learning 訓練和部署模型的詳細步驟。

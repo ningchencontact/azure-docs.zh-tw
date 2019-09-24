@@ -11,14 +11,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/22/2019
 ms.author: banders
-ms.openlocfilehash: 7719ae83525883a6d3f014dbb99877b7319f2ccd
-ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
+ms.openlocfilehash: 05b1fe3d061e735322e6eb6c65e60f63d8adb4d6
+ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "68383672"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70933873"
 ---
 # <a name="add-update-or-remove-a-credit-card-for-azure"></a>新增、更新或移除用於 Azure 的信用卡
+
+本文件適用於使用信用卡註冊 Azure Online 的客戶。
 
 在 Azure 入口網站中，您可以新增信用卡、更新現有的信用卡或刪除不再使用的信用卡。 您必須是[帳戶管理員](billing-subscription-transfer.md#whoisaa)才能進行這些變更。
 
@@ -69,7 +71,7 @@ ms.locfileid: "68383672"
     ![顯示已選取信用卡的螢幕擷取畫面。](./media/billing-how-to-change-credit-card/edit-card-x.png)
 
 1. 更新信用卡詳細資料。
-1. 選取 [ **儲存**]。
+1. 選取 [儲存]  。
 
 ## <a name="use-a-different-credit-card"></a>使用不同的信用卡
 
@@ -209,7 +211,7 @@ If your credit card is associated with other active Microsoft subscriptions, you
 
 ## <a name="need-help-contact-us"></a>需要協助嗎？ 與我們連絡。
 
-如果您有問題或需要協助，請[建立支援要求](https://go.microsoft.com/fwlink/?linkid=2083458)。
+如有問題或需要協助，請[建立支援要求](https://go.microsoft.com/fwlink/?linkid=2083458)。
 
 ## <a name="next-steps"></a>後續步驟
 - 了解 [Azure 保留](billing-save-compute-costs-reservations.md)，以查看是否能為您節省費用。

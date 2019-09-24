@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 02/03/2019
-ms.openlocfilehash: 5ecd5ee4a053d3ebb550b6f2387a0e915b3c2c23
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 5366fb1d32020bfbcfaba36c60c0eb5441e92070
+ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68569406"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71055256"
 ---
 # <a name="azure-cli-samples-for-azure-sql-database"></a>Azure SQL Database 的 Azure CLI 範例
 
@@ -28,7 +28,7 @@ ms.locfileid: "68569406"
 
 如果您選擇在本機安裝和使用 CLI，本主題會要求您執行 Azure CLI 2.0 版或更新版本。 執行 `az --version` 以尋找版本。 如果您需要安裝或升級，請參閱[安裝 Azure CLI]( /cli/azure/install-azure-cli)。
 
-## <a name="single-database--elastic-pools"></a>單一資料庫與彈性集區
+## <a name="single-database--elastic-poolstabsingle-database"></a>[單一資料庫與彈性集區](#tab/single-database)
 
 下表包含適用於 Azure SQL Database 之 Azure CLI 指令碼範例的連結。
 
@@ -46,7 +46,7 @@ ms.locfileid: "68569406"
 
 深入了解[單一資料庫 Azure CLI API](sql-database-single-databases-manage.md#azure-cli-manage-sql-database-servers-and-single-databases)。
 
-## <a name="managed-instance"></a>受控執行個體
+## <a name="managed-instancetabmanaged-instance"></a>[受控執行個體](#tab/managed-instance)
 
 下表包含適用於 Azure SQL Database 之 Azure CLI 指令碼範例的連結 - 受控執行個體。
 
@@ -58,3 +58,5 @@ ms.locfileid: "68569406"
 |||
 
 深入了解[受控執行個體 Azure CLI API](sql-database-managed-instance-create-manage.md#azure-cli-create-and-manage-managed-instances) 並尋找[其他範例](https://medium.com/azure-sqldb-managed-instance/working-with-sql-managed-instance-using-azure-cli-611795fe0b44)。
+
+---

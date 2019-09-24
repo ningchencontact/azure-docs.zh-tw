@@ -1,5 +1,5 @@
 ---
-title: Azure Application Insights 快速入門 | Microsoft Docs
+title: 快速入門：透過 Azure Application Insights 來監視
 description: 提供指示說明如何快速設定 Node.js Web 應用程式，以透過 Application Insights 來監視
 services: application-insights
 keywords: ''
@@ -7,15 +7,15 @@ author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 07/12/2019
 ms.service: application-insights
-ms.custom: mvc
+ms.custom: mvc, seo-javascript-2019
 ms.topic: quickstart
 manager: carmonm
-ms.openlocfilehash: f7c8e4e240d4278257da9df5cea67a7e55eb1019
-ms.sourcegitcommit: 0c906f8624ff1434eb3d3a8c5e9e358fcbc1d13b
+ms.openlocfilehash: 3312822d3e4f74a2db39712d61880c8dd0dd8d5e
+ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69543062"
+ms.lasthandoff: 09/15/2019
+ms.locfileid: "71001177"
 ---
 # <a name="start-monitoring-your-nodejs-web-application"></a>開始監視 Node.js Web 應用程式
 
@@ -31,7 +31,7 @@ Azure Application Insights 可讓您輕鬆監視 Web 應用程式的可用性、
 
 如果您沒有 Node.js Web 應用程式，請依照[建立 Node.js Web 應用程式快速入門](https://docs.microsoft.com/azure/app-service/app-service-web-get-started-nodejs)來建立。
 
-如果您沒有 Azure 訂用帳戶，請在開始前先建立一個[免費帳戶](https://azure.microsoft.com/free/)。
+如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶](https://azure.microsoft.com/free/)。
 
 ## <a name="sign-in-to-the-azure-portal"></a>登入 Azure 入口網站
 

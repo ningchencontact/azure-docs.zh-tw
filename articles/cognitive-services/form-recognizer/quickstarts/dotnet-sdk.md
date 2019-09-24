@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: quickstart
 ms.date: 07/12/2019
 ms.author: pafarley
-ms.openlocfilehash: ada570196c916a8101e8e968d284a3b280199cf3
-ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.openlocfilehash: ce1cdadcdc69fb5539394aa9bf402aa9463311e9
+ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70142811"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71057667"
 ---
 # <a name="quickstart-form-recognizer-client-library-for-net"></a>快速入門：適用於 .NET 的表單辨識器用戶端程式庫
 
@@ -22,9 +22,11 @@ ms.locfileid: "70142811"
 
 使用適用於 .NET 的表單辨識器用戶端程式庫執行下列動作：
 
-* 定型自訂表單辨識器模型
-* 使用自訂模型分析表單
-* 取得自訂模型的清單
+* [定型自訂表單辨識器模型](#train-a-custom-model)
+* [取得已擷取的索引鍵清單](#get-a-list-of-extracted-keys)
+* [使用自訂模型分析表單](#analyze-forms-with-a-custom-model)
+* [取得自訂模型的清單](#get-a-list-of-custom-models)
+* [刪除自訂模型](#delete-a-custom-model)
 
 [參考文件](https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/formrecognizer?view=azure-dotnet-preview) | [程式庫原始程式碼](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/cognitiveservices/Vision.FormRecognizer) | [套件 (NuGet)](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.FormRecognizer/)
 
@@ -68,14 +70,7 @@ Build succeeded.
 
 從專案目錄，在慣用的編輯器或 IDE 中開啟 _Program.cs_ 檔案。 新增下列 `using` 陳述式：
 
-```csharp
-using Microsoft.Azure.CognitiveServices.FormRecognizer;
-using Microsoft.Azure.CognitiveServices.FormRecognizer.Models;
-
-using System;
-using System.IO;
-using System.Threading.Tasks;
-```
+[!code-csharp[](~/cognitive-services-quickstart-code/dotnet/FormRecognizer/Program.cs?name=snippet_using)]
 
 然後，在應用程式的 **Main** 方法中新增下列程式碼。 您稍後會定義此非同步工作。
 
@@ -95,7 +90,7 @@ dotnet add package Microsoft.Azure.CognitiveServices.FormRecognizer --version 0.
 
 下列類別會處理表單辨識器 SDK 的主要功能。
 
-|Name|說明|
+|名稱|說明|
 |---|---|
 |[FormRecognizerClient](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.formrecognizer.formrecognizerclient?view=azure-dotnet-preview)|所有表單辨識器功能都需要此類別。 您可以使用訂用帳戶資訊來具現化此類別，並用其來產生其他類別的執行個體。|
 |[TrainRequest](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.formrecognizer.models.trainrequest?view=azure-dotnet-preview)| 您可以透過此類別使用您自己的訓練輸入資料來定型自訂表單辨識器模型。 |
@@ -115,10 +110,12 @@ dotnet add package Microsoft.Azure.CognitiveServices.FormRecognizer --version 0.
 
 * [驗證用戶端](#authenticate-the-client)
 * [定型自訂表單辨識器模型](#train-a-custom-model)
+* [取得已擷取的索引鍵清單](#get-a-list-of-extracted-keys)
 * [使用自訂模型分析表單](#analyze-forms-with-a-custom-model)
 * [取得自訂模型的清單](#get-a-list-of-custom-models)
+* [刪除自訂模型](#delete-a-custom-model)
 
-### <a name="define-variables"></a>定義變數
+## <a name="define-variables"></a>定義變數
 
 定義任何方法之前，請先將下列變數定義新增至 **Program** 類別的頂端。 您必須自行填入一些變數。 
 
@@ -127,13 +124,13 @@ dotnet add package Microsoft.Azure.CognitiveServices.FormRecognizer --version 0.
 
 [!code-csharp[](~/cognitive-services-quickstart-code/dotnet/FormRecognizer/Program.cs?name=snippet_variables)]
 
-### <a name="authenticate-the-client"></a>驗證用戶端
+## <a name="authenticate-the-client"></a>驗證用戶端
 
 在 `Main` 方法下方，定義 `Main` 中所參考的工作。 在這裡，您將使用上方所定義的訂用帳戶變數來驗證用戶端物件。 您稍後將會定義其他方法。
 
 [!code-csharp[](~/cognitive-services-quickstart-code/dotnet/FormRecognizer/Program.cs?name=snippet_maintask)]
 
-### <a name="train-a-custom-model"></a>定型自訂模型
+## <a name="train-a-custom-model"></a>定型自訂模型
 
 下列方法會使用您的表單辨識器用戶端物件，對儲存在 Azure Blob 容器的文件定型新辨識模型。 其中會使用 Helper 方法來顯示最新定型模型 (以 [ModelResult](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.formrecognizer.models.modelresult?view=azure-dotnet-preview) 物件表示) 的相關資訊，並傳回模型識別碼。
 
@@ -143,9 +140,18 @@ dotnet add package Microsoft.Azure.CognitiveServices.FormRecognizer --version 0.
 
 [!code-csharp[](~/cognitive-services-quickstart-code/dotnet/FormRecognizer/Program.cs?name=snippet_displaymodel)]
 
-### <a name="analyze-forms-with-a-custom-model"></a>使用自訂模型分析表單
+## <a name="get-a-list-of-extracted-keys"></a>取得已擷取的索引鍵清單
+
+定型完成後，自訂模型會保留已從定型文件中擷取的索引鍵清單。 其預期會有未來的表單文件來包含這些索引鍵，而且會擷取其在分析作業中對應的值。 使用下列方法來取得已擷取的索引鍵清單，並將其列印到主控台。 這是驗證定型程序是否有效的好方法。
+
+[!code-csharp[](~/cognitive-services-quickstart-code/dotnet/FormRecognizer/Program.cs?name=snippet_getkeys)]
+
+## <a name="analyze-forms-with-a-custom-model"></a>使用自訂模型分析表單
 
 此方法會使用表單辨識器用戶端和模型識別碼來分析 PDF 表單文件，並擷取索引鍵/值資料。 其中會使用 Helper 方法來顯示結果 (以 [AnalyzeResult](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.formrecognizer.models.analyzeresult?view=azure-dotnet-preview) 物件表示)。
+
+> [!NOTE]
+> 下列方法會分析 PDF 表單。 如需分析 JPEG 和 PNG 表單的類似方法，請參閱 [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/tree/master/dotnet/FormRecognizer) 上的完整範例程式碼。
 
 [!code-csharp[](~/cognitive-services-quickstart-code/dotnet/FormRecognizer/Program.cs?name=snippet_analyzepdf)]
 
@@ -153,11 +159,17 @@ dotnet add package Microsoft.Azure.CognitiveServices.FormRecognizer --version 0.
 
 [!code-csharp[](~/cognitive-services-quickstart-code/dotnet/FormRecognizer/Program.cs?name=snippet_displayanalyze)]
 
-### <a name="get-a-list-of-custom-models"></a>取得自訂模型的清單
+## <a name="get-a-list-of-custom-models"></a>取得自訂模型的清單
 
 您可以傳回帳戶所屬的所有已定型模型清單，而且可以擷取模型建立時的相關資訊。 模型清單會由 [ModelsResult](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.formrecognizer.models.modelsresult?view=azure-dotnet-preview) 物件表示。
 
 [!code-csharp[](~/cognitive-services-quickstart-code/dotnet/FormRecognizer/Program.cs?name=snippet_getmodellist)]
+
+## <a name="delete-a-custom-model"></a>刪除自訂模型
+
+如果您想要從帳戶中刪除自訂模型，請使用下列方法：
+
+[!code-csharp[](~/cognitive-services-quickstart-code/dotnet/FormRecognizer/Program.cs?name=snippet_deletemodel)]
 
 ## <a name="run-the-application"></a>執行應用程式
 
@@ -174,9 +186,7 @@ dotnet run
 * [入口網站](../../cognitive-services-apis-create-account.md#clean-up-resources)
 * [Azure CLI](../../cognitive-services-apis-create-account-cli.md#clean-up-resources)
 
-此外，如果您已訓練想要從帳戶中刪除的自訂模型，請使用下列方法：
-
-[!code-csharp[](~/cognitive-services-quickstart-code/dotnet/FormRecognizer/Program.cs?name=snippet_deletemodel)]
+此外，如果您已訓練想要從帳戶中刪除的自訂模型，請在[刪除自訂模型](#delete-a-custom-model)中執行方法。
 
 ## <a name="next-steps"></a>後續步驟
 

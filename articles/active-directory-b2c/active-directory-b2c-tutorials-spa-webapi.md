@@ -10,18 +10,18 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.service: active-directory
 ms.subservice: B2C
-ms.openlocfilehash: b53ce30f4c49580bcd8ad3e259adf0300d8bd4a6
-ms.sourcegitcommit: c71306fb197b433f7b7d23662d013eaae269dc9c
+ms.openlocfilehash: 6d354ab25125b0df90ac3d6852d7eafe5d5aba46
+ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68369318"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71064682"
 ---
 # <a name="tutorial-grant-access-to-an-aspnet-core-web-api-from-a-single-page-application-using-azure-active-directory-b2c"></a>教學課程：使用 Azure Active Directory B2C 授與從單頁應用程式存取 ASP.NET Core Web API 的權限
 
-本教學課程將說明如何從單頁應用程式呼叫 Azure Active Directory (Azure AD) B2C 所保護的 ASP.NET Core Web API 資源。
+本教學課程將說明如何從單頁應用程式呼叫 Azure Active Directory B2C (Azure AD B2C) 所保護的 ASP.NET Core Web API 資源。
 
-在本教學課程中，您了解如何：
+在本教學課程中，您會了解如何：
 
 > [!div class="checklist"]
 > * 新增 Web API 應用程式
@@ -41,7 +41,7 @@ ms.locfileid: "68369318"
 Web API 資源必須先在您的租用戶中註冊，才能接受及回應受到用戶端應用程式保護而提供存取權杖的資源要求。
 
 1. 登入 [Azure 入口網站](https://portal.azure.com)。
-1. 按一下頂端功能表中的 [目錄和訂用帳戶]  篩選，然後選擇包含您租用戶的目錄，以確定您使用的是包含 Azure AD B2C 租用戶的目錄。
+1. 選取頂端功能表中的 [目錄 + 訂用帳戶]  篩選，然後選擇包含您租用戶的目錄，以確定您使用的是包含 Azure AD B2C 租用戶的目錄。
 1. 選擇 Azure 入口網站左上角的 [所有服務]  ，然後搜尋並選取 [Azure AD B2C]  。
 1. 選取 [應用程式]  ，然後選取 [新增]  。
 1. 輸入應用程式的名稱。 例如，*webapi1*。
@@ -60,7 +60,7 @@ Web API 資源必須先在您的租用戶中註冊，才能接受及回應受到
 1. 選取 [發佈的範圍]  。
 1. 針對 [範圍]  請輸入 `Hello.Read`，並輸入 `Read access to hello` 作為 [描述]  。
 1. 針對 [範圍]  請輸入 `Hello.Write`，並輸入 `Write access to hello` 作為 [描述]  。
-1. 選取 [ **儲存**]。
+1. 選取 [儲存]  。
 1. 在設定單頁應用程式時，請記錄 `Hello.Read` 範圍的 [完整範圍值]  ，以供後續步驟使用。 完整範圍值會類似於 `https://yourtenant.onmicrosoft.com/api/Hello.Read`。
 
 發佈的範圍可以用來為用戶端應用程式授與對 Web API 的權限。

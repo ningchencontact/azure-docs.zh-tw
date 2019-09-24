@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: personalizer
 ms.topic: quickstart
-ms.date: 09/06/2019
+ms.date: 09/12/2019
 ms.author: diberry
-ms.openlocfilehash: 404ee6fd51493735b8f96e98276f71d1d2f91158
-ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
+ms.openlocfilehash: 5b5efa4a8c6d92f9937709f57f99851c90058dda
+ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70882884"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71067690"
 ---
 # <a name="quickstart-personalize-client-library-for-python"></a>快速入門：適用於 Python 的個人化工具用戶端程式庫
 
@@ -37,7 +37,7 @@ ms.locfileid: "70882884"
 
 ### <a name="create-a-personalizer-azure-resource"></a>建立個人化工具 Azure 資源
 
-Azure 認知服務會由您訂閱的 Azure 資源呈現。 請使用 [Azure 入口網站](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account)或 [Azure CLI](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account-cli) 在本機電腦上建立個人化工具的資源。 您也可以：
+Azure 認知服務會由您訂閱的 Azure 資源呈現。 請使用 [Azure 入口網站](https://portal.azure.com/)或 [Azure CLI](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account-cli) 在本機電腦上建立個人化工具的資源。 如需詳細資訊，請參閱[如何使用 Azure 入口網站建立認知服務資源](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account)。 您也可以：
 
 * 取得可免費使用 7 天的[試用版金鑰](https://azure.microsoft.com/try/cognitive-services)。 註冊之後，即可在 [Azure 網站](https://azure.microsoft.com/try/cognitive-services/my-apis/)上取得該金鑰。  
 * 在 [Azure 入口網站](https://portal.azure.com/)上檢視您的資源。

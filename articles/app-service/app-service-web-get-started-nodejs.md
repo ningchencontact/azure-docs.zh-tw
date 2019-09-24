@@ -14,12 +14,12 @@ ms.topic: quickstart
 ms.date: 02/15/2019
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 989bff7d8be5c234d9536afa8afc0beb6870807e
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: d03b209902d3ab0bcdb247b1deefdd70d01905cb
+ms.sourcegitcommit: 71db032bd5680c9287a7867b923bf6471ba8f6be
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70071669"
+ms.lasthandoff: 09/16/2019
+ms.locfileid: "71018485"
 ---
 # <a name="create-a-nodejs-web-app-in-azure"></a>在 Azure 中建立 Node.js Web 應用程式
 
@@ -51,7 +51,7 @@ ms.locfileid: "70071669"
 const port = process.env.PORT || 1337;
 ```
 
-App Service 會將 process.env.PORT 插入您的應用程式中，讓程式碼使用變數來知道要接聽哪個通訊埠。 
+App Service 會填入環境變數：**process.env.PORT**。 在您的應用程式中使用此變數，可讓程式碼知道要接聽哪一個連接埠。
 
 在終端機視窗中，瀏覽至 Node.js 專案範例的**根目錄** (包含 index.js  的目錄)。
 

@@ -7,18 +7,18 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.topic: tutorial
 ms.date: 09/04/2019
-ms.openlocfilehash: 6cac4bd05f2acf5b11a8235a4bc1e0d09e0c4dc7
-ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
+ms.openlocfilehash: 6d92ebc743bae97ecfa1591add27f470792dcafc
+ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70885949"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71037161"
 ---
 # <a name="tutorial-configure-apache-kafka-policies-in-hdinsight-with-enterprise-security-package-preview"></a>教學課程：使用企業安全性套件在 HDInsight 中設定 Apache Kafka 原則 (預覽)
 
 了解如何對企業安全性套件 (ESP) Apache Kafka 叢集設定 Apache Ranger 原則。 ESP 叢集連線到網域，讓使用者使用網域認證進行驗證。 在此教學課程中，您會建立兩個 Ranger 原則來限制 `sales` 和 `marketingspend` 主題的存取權。
 
-在此教學課程中，您了解如何：
+在本教學課程中，您會了解如何：
 
 > [!div class="checklist"]
 > * 建立網域使用者
@@ -36,7 +36,7 @@ ms.locfileid: "70885949"
 
 2. 使用您的 Azure Active Directory (AD) 管理員認證登入。 Azure AD 管理員認證與 HDInsight 叢集認證或 Linux HDInsight 節點 SSH 認證並非相同。
 
-   ![Apache Ranger 管理員 UI](./media/apache-domain-joined-run-kafka/apache-ranger-admin-login.png)
+   ![HDInsight Apache Ranger 系統管理員 UI](./media/apache-domain-joined-run-kafka/apache-ranger-admin-login.png)
 
 ## <a name="create-domain-users"></a>建立網域使用者
 
@@ -183,7 +183,7 @@ ms.locfileid: "70885949"
 
 9. 從 Ranger UI 檢視稽核存取事件。
 
-   ![Ranger UI 原則稽核](./media/apache-domain-joined-run-kafka/apache-ranger-admin-audit.png)
+   ![Ranger UI 原則稽核存取事件 ](./media/apache-domain-joined-run-kafka/apache-ranger-admin-audit.png)
 
 ## <a name="clean-up-resources"></a>清除資源
 
@@ -192,7 +192,7 @@ ms.locfileid: "70885949"
 1. 登入 [Azure 入口網站](https://portal.azure.com/)。
 1. 在頂端的 [搜尋]  方塊中，輸入 **HDInsight**。
 1. 在 [服務]  底下，選取 [HDInsight 叢集]  。
-1. 從出現的 HDInsight 叢集清單中，在您為此教學課程建立的叢集旁按一下 [...]  。 
+1. 從出現的 HDInsight 叢集清單中，在您為本教學課程建立的叢集旁按一下 [...]  。 
 1. 按一下 [刪除]  。 按一下 [是]  。
 
 ## <a name="next-steps"></a>後續步驟

@@ -10,12 +10,12 @@ services: iot-dps
 manager: timlt
 ms.devlang: python
 ms.custom: mvc
-ms.openlocfilehash: c302b18e34533a564904562ed39879bbe37b82ca
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: df12acad5fa9287f43cc256bfcc89fa6775c3e3b
+ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65908205"
+ms.lasthandoff: 09/15/2019
+ms.locfileid: "71001313"
 ---
 # <a name="create-and-provision-a-simulated-tpm-device-using-python-device-sdk-for-iot-hub-device-provisioning-service"></a>使用適用於 IoT 中樞裝置佈建服務的 Python 裝置 SDK 來建立及佈建模擬 TPM 裝置
 
@@ -33,6 +33,9 @@ Azure IoT 裝置佈建服務支援兩種類型的註冊：
 
 [!INCLUDE [IoT Device Provisioning Service basic](../../includes/iot-dps-basic.md)]
 
+> [!NOTE]
+> 本指南僅適用於現已淘汰的 V1 Python SDK。 V2 尚未支援模擬的 TPM 裝置。 小組目前正努力將 V2 帶至功能同位。
+
 ## <a name="prepare-the-environment"></a>準備環境 
 
 1. 請務必安裝 [Visual Studio](https://visualstudio.microsoft.com/vs/) 2015 或更新版本，並為您的 Visual Studio 安裝啟用 [使用 C++ 的桌面開發] 工作負載。
@@ -44,7 +47,7 @@ Azure IoT 裝置佈建服務支援兩種類型的註冊：
 1. 開啟命令提示字元或 Git Bash。 複製裝置模擬程式碼範例的 GitHub 存放庫：
     
     ```cmd/sh
-    git clone https://github.com/Azure/azure-iot-sdk-python.git --recursive
+    git clone --single-branch --branch v1-deprecated https://github.com/Azure/azure-iot-sdk-python.git --recursive
     ```
 
 1. 在此 GitHub 存放庫的本機複本中針對 CMake 建置流程建立資料夾。 
@@ -74,7 +77,7 @@ Azure IoT 裝置佈建服務支援兩種類型的註冊：
 
 1. 開啟在 *cmake* 資料夾中產生的方案 (名為 `azure_iot_sdks.sln`)，並且在 Visual Studio 中建置。
 
-1. 以滑鼠右鍵按一下 **tpm_device_provision** 專案，然後選取 [設為起始專案]  。 執行方案。 輸出視窗會顯示裝置註冊所需的 [簽署金鑰]     和 [登錄識別碼]    。 請記下這些值。 
+1. 以滑鼠右鍵按一下 **tpm_device_provision** 專案，然後選取 [設為起始專案]  。 執行方案。 輸出視窗會顯示裝置註冊所需的 [簽署金鑰]  和 [登錄識別碼]  。 請記下這些值。 
 
     ![TPM 安裝程式](./media/python-quick-create-simulated-device/tpm-setup.png)
 

@@ -6,12 +6,12 @@ ms.service: hpc-cache
 ms.topic: tutorial
 ms.date: 09/06/2019
 ms.author: v-erkell
-ms.openlocfilehash: 479adf9419cdd6b04e50fa479d47b56762b2bdc6
-ms.sourcegitcommit: a4b5d31b113f520fcd43624dd57be677d10fc1c0
+ms.openlocfilehash: e1b69f17d964647944f23f4d16a0a1a5f112b60d
+ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70774621"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71036996"
 ---
 # <a name="create-an-azure-hpc-cache"></a>建立 Azure HPC Cache
 
@@ -21,7 +21,7 @@ ms.locfileid: "70774621"
 
 ## <a name="define-basic-details"></a>定義基本詳細資料
 
-![Azure 入口網站中專案詳細資料頁面的螢幕擷取畫面](media/create-1.png)
+![Azure 入口網站中專案詳細資料頁面的螢幕擷取畫面](media/hpc-cache-create-basics.png)
 
 在 [專案詳細資料]  中，選取將裝載 Azure HPC Cache 的訂用帳戶和資源群組。 請確定訂用帳戶位於[預覽權限](hpc-cache-prereqs.md#azure-subscription)清單上。
 
@@ -47,7 +47,7 @@ ms.locfileid: "70774621"
 
 針對快取儲存體，Azure HPC Cache 會管理要快取和預先載入哪些檔案，以最大化快取命中率。 系統會持續評估快取內容，並將較不常存取的檔案移至長期儲存體。 選擇可輕鬆保存使用中檔案集的快取儲存體大小，且有額外空間可容納中繼資料和其他負荷。
 
-![快取大小頁面的螢幕擷取畫面](media/create-cache-iops.png)
+![快取大小頁面的螢幕擷取畫面](media/hpc-cache-create-iops.png)
 
 ## <a name="add-storage-targets"></a>新增儲存體目標
 
@@ -55,19 +55,21 @@ ms.locfileid: "70774621"
 
 您可以在建立快取時定義儲存體目標，但您也可以在稍後，使用入口網站中快取頁面 [設定]  區段中的連結來新增它們。
 
-![儲存體目標頁面的螢幕擷取畫面](media/create-targets.png)
+![儲存體目標頁面的螢幕擷取畫面](media/hpc-cache-storage-targets-pop.png)
 
 按一下 [新增儲存體目標]  連結，以定義您的後端儲存體系統。 儲存體可以是 Azure Blob 容器或內部部署 NFS 系統。
 
 您最多可以定義十個不同的儲存體目標。
 
-如需新增儲存體目標的逐步指示，請參閱[新增儲存體](hpc-cache-add-storage.md)。 Blob 儲存體和 NFS 匯出的程序不同。
+[新增儲存體](hpc-cache-add-storage.md)中有新增儲存體目標的逐步指示。 Blob 儲存體和 NFS 匯出的程序不同。
 
-對於這兩種類型的儲存體，您都必須指定如何尋找後端儲存體系統 (NFS 位址或 Blob 容器名稱) 和用戶端對應的命名空間路徑。
+以下是一些秘訣： 
 
-建立 Blob 儲存體目標時，請確定快取具有儲存體帳戶的存取權限，如[新增存取控制角色](hpc-cache-add-storage.md#add-the-access-control-roles-to-your-account)中所述。 如果您不確定角色設定是否會成功，請先建立快取，然後再新增 Blob 儲存體。
+* 對於這兩種類型的儲存體，您都必須指定如何尋找後端儲存體系統 (NFS 位址或 Blob 容器名稱) 和用戶端對應的命名空間路徑。
 
-建立 NFS 儲存體目標時，請指定[使用量模型](hpc-cache-add-storage.md#choose-a-usage-model)。 使用量模型設定可協助快取將您的工作流程最佳化。
+* 建立 Blob 儲存體目標時，請確定快取具有儲存體帳戶的存取權限，如[新增存取控制角色](hpc-cache-add-storage.md#add-the-access-control-roles-to-your-account)中所述。 如果您不確定角色設定是否會成功，請先建立快取，然後再新增 Blob 儲存體。
+
+* 建立 NFS 儲存體目標時，請指定[使用量模型](hpc-cache-add-storage.md#choose-a-usage-model)。 使用量模型設定可協助快取將您的工作流程最佳化。
 
 ## <a name="add-resource-tags-optional"></a>新增資源標記 (選擇性)
 
@@ -77,11 +79,13 @@ ms.locfileid: "70774621"
 
 設定新的快取之後，按一下 [檢閱 + 建立]  索引標籤。入口網站會驗證您的選擇，並讓您檢閱您的選擇。 如果所有設定都正確，請按一下 [建立]  。 
 
-建立快取需要大約 10 分鐘。 您可以在 Azure 入口網站的通知面板中追蹤進度。 完成時，會出現包含新 Azure HPC Cache 執行個體連結的通知。 
+建立快取需要大約 10 分鐘。 您可以在 Azure 入口網站的通知面板中追蹤進度。 
 
-快取也會顯示在您訂用帳戶的 [資源]  清單中。 
+![入口網站中快取建立的「部署進行中」和「通知」頁面螢幕擷取畫面](media/hpc-cache-deploy-status.png)
 
-![Azure 入口網站中 Azure HPC Cache 執行個體的螢幕擷取畫面](media/finished-hpc-cache.png)
+建立完成後，會出現包含新 Azure HPC Cache 執行個體連結的通知，而快取會出現在訂用帳戶的**資源**清單中。 
+
+![Azure 入口網站中 Azure HPC Cache 執行個體的螢幕擷取畫面](media/hpc-cache-new-overview.png)
 
 ## <a name="next-steps"></a>後續步驟
 

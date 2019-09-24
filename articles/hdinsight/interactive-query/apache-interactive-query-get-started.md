@@ -7,13 +7,13 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: overview
-ms.date: 06/14/2019
-ms.openlocfilehash: 29b2a9378abaaa697d2d869145d5e912d6c06d6c
-ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
+ms.date: 09/17/2019
+ms.openlocfilehash: 3e0fddc03ad880d36876276827198b0ac180a00d
+ms.sourcegitcommit: 8ef0a2ddaece5e7b2ac678a73b605b2073b76e88
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70811591"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71076367"
 ---
 # <a name="what-is-interactive-query-in-azure-hdinsight"></a>Azure HDInsight 中的互動式查詢是什麼
 
@@ -28,6 +28,9 @@ ms.locfileid: "70811591"
 ## <a name="create-an-interactive-query-cluster"></a>建立互動式查詢叢集
 
 如需建立 HDInsight 叢集的相關資訊，請參閱[在 HDInsight 中建立 Apache Hadoop 叢集](../hdinsight-hadoop-provision-linux-clusters.md)。 選擇互動式查詢叢集類型。
+
+> [!IMPORTANT]
+> 互動式查詢叢集的最小前端節點大小為 Standard_D13_v2。 如需詳細資訊，請參閱 [Azure VM 調整大小圖表](../../cloud-services/cloud-services-sizes-specs.md#dv2-series)。
 
 ## <a name="execute-apache-hive-queries-from-interactive-query"></a>從互動式查詢執行 Apache Hive 查詢
 

@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.service: azure-blockchain
 ms.reviewer: jackyhsu
 manager: femila
-ms.openlocfilehash: 822402f548fe0fc866051a9c77adef6e37c3fa75
-ms.sourcegitcommit: 6794fb51b58d2a7eb6475c9456d55eb1267f8d40
+ms.openlocfilehash: ea64e3fe4789ac0558463ded81c8179db83469d5
+ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70240905"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70932586"
 ---
 # <a name="quickstart-use-truffle-to-connect-to-a-transaction-node"></a>快速入門：使用 Truffle 連線到交易節點
 
@@ -25,7 +25,7 @@ Truffle 是可用來連線至 Azure 區塊鏈服務交易節點的區塊鏈開�
 
 ## <a name="prerequisites"></a>必要條件
 
-* [建立 Azure 區塊鏈成員](create-member.md)
+* 完成[快速入門：使用 Azure 入口網站建立區塊鏈成員](create-member.md)或[快速入門：使用 Azure CLI 建立 Azure 區塊鏈服務的區塊鏈成員](create-member-cli.md)
 * 安裝 [Truffle](https://github.com/trufflesuite/truffle)。 Truffle 需要安裝數個工具，包括 [Node.js](https://nodejs.org) 和 [Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)。
 * 安裝 [Python 2.7.15](https://www.python.org/downloads/release/python-2715/)。 Web3 需要 Python。
 
@@ -124,7 +124,7 @@ Truffle 是可用來連線至 Azure 區塊鏈服務交易節點的區塊鏈開�
 
 在本快速入門中，您已建立連線至 Azure 區塊鏈服務預設交易節點的 Truffle 專案。
 
-請嘗試進行下一個教學課程，使用適用於 Ethereum 和 Truffle 的 Azure 區塊鏈服務開發套件來透過交易在聯盟區塊鏈網路上執行智慧型合約函式。
+請嘗試進行下一個教學課程，使用適用於 Ethereum 和 Truffle 的 Azure 區塊鏈開發套件，透過交易建立、建置、部署及執行智慧型合約函式。
 
 > [!div class="nextstepaction"]
-> [在 Azure 區塊鏈服務上使用智慧型合約](send-transaction.md)
+> [使用  Visual Studio Code 建立、建置和部署智慧型合約](send-transaction.md)

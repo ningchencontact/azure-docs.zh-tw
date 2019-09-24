@@ -1,6 +1,6 @@
 ---
 title: 教學課程：建立您的第一個 ML 實驗：設定
-titleSuffix: Azure Machine Learning service
+titleSuffix: Azure Machine Learning
 description: 在本教學課程系列中，您會遵循端對端步驟來開始使用在 Jupyter 筆記本中執行的 Azure Machine Learning Python SDK。  第一部分中已建立雲端筆記本伺服器環境及工作區來管理您的實驗和機器學習模型。
 services: machine-learning
 ms.service: machine-learning
@@ -10,12 +10,12 @@ author: trevorbye
 ms.author: trbye
 ms.reviewer: trbye
 ms.date: 08/28/2019
-ms.openlocfilehash: d968d6e799b75940d1fb73aa31c22eb84068df7d
-ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
+ms.openlocfilehash: 9bc5b9688a8cd568b47fe2dad88d6d007ceca0c4
+ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70860419"
+ms.lasthandoff: 09/15/2019
+ms.locfileid: "71004061"
 ---
 # <a name="tutorial-get-started-creating-your-first-ml-experiment-with-the-python-sdk"></a>教學課程：使用 Python SDK 開始建立您的第一個 ML 實驗
 
@@ -27,11 +27,11 @@ ms.locfileid: "70860419"
 > * 建立要在下一個教學課程中使用的 [Azure Machine Learning 工作區](concept-workspace.md)。
 > * 建立已安裝並預先設定 Azure Machine Learning Python SDK 的雲端式 Jupyter Notebook VM。
 
-如果您沒有 Azure 訂用帳戶，請在開始前先建立一個免費帳戶。 立即試用[免費或付費版本的 Azure Machine Learning 服務](https://aka.ms/AMLFree)。
+如果您沒有 Azure 訂用帳戶，請在開始前先建立一個免費帳戶。 立即試用[免費或付費版本的 Azure Machine Learning](https://aka.ms/AMLFree)。
 
 ## <a name="create-a-workspace"></a>建立工作區
 
-Azure Machine Learning 工作區是雲端中您用來實驗、定型及部署機器學習模型的基礎資源。 工作區可將您的 Azure 訂用帳戶和資源群組與 SDK 中容易使用的物件結合。 如果您已有 Azure Machine Learning 服務工作區，請跳至[下一節](#azure)。 否則，請建立此工作區。
+Azure Machine Learning 工作區是雲端中您用來實驗、定型及部署機器學習模型的基礎資源。 工作區可將您的 Azure 訂用帳戶和資源群組與 SDK 中容易使用的物件結合。 如果您已有 Azure Machine Learning 工作區，請跳至[下一節](#azure)。 否則，請建立此工作區。
 
 [!INCLUDE [aml-create-portal](../../../includes/aml-create-in-portal.md)]
 
@@ -39,7 +39,7 @@ Azure Machine Learning 工作區是雲端中您用來實驗、定型及部署機
 
 此範例會使用您工作區中的雲端 Notebook 伺服器，讓您擁有免安裝和預先設定的體驗。 如果您想要控制您的環境、套件和相依性，[請使用您自己的環境](how-to-configure-environment.md#local)。
 
-從您的工作區建立雲端資源，以開始使用 Jupyter Notebook。 這項資源是雲端式 Linux 虛擬機器，其已預先設定執行 Azure Machine Learning 服務所需的一切。
+從您的工作區建立雲端資源，以開始使用 Jupyter Notebook。 這項資源是雲端式 Linux 虛擬機器，其已預先設定執行 Azure Machine Learning 所需的一切。
 
 1. 在 [Azure 入口網站](https://portal.azure.com/)中開啟工作區。  如果您不確定如何在入口網站中找出您的工作區，請參閱如何[尋找您的工作區](how-to-manage-workspace.md#view)。
 
@@ -69,7 +69,7 @@ Azure Machine Learning 工作區是雲端中您用來實驗、定型及部署機
 
 在本教學課程中，您已完成下列工作：
 
-* 建立 Azure Machine Learning 服務工作區。
+* 建立 Azure Machine Learning 工作區。
 * 建立及設定您工作區中的雲端 Notebook 伺服器。
 
 在本教學課程的**第二部分**中，您會在 `tutorial-1st-experiment-sdk-train.ipynb` 中執行程式碼以定型機器學習模型。 

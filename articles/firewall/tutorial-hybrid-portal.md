@@ -5,15 +5,15 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: tutorial
-ms.date: 08/29/2019
+ms.date: 09/17/2019
 ms.author: victorh
 customer intent: As an administrator, I want to control network access from an on-premises network to an Azure virtual network.
-ms.openlocfilehash: 08c1a8940bedb1093f618c8de53abc78f81c10dd
-ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
+ms.openlocfilehash: 50f1d0bca958ef4504394cad1d771459cc8be27d
+ms.sourcegitcommit: 71db032bd5680c9287a7867b923bf6471ba8f6be
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70918794"
+ms.lasthandoff: 09/16/2019
+ms.locfileid: "71018982"
 ---
 # <a name="tutorial-deploy-and-configure-azure-firewall-in-a-hybrid-network-using-the-azure-portal"></a>教學課程：使用 Azure 入口網站在混合式網路中部署及設定 Azure 防火牆
 
@@ -29,7 +29,7 @@ ms.locfileid: "70918794"
 
 ![混合式網路中的防火牆](media/tutorial-hybrid-ps/hybrid-network-firewall.png)
 
-在本教學課程中，您了解如何：
+在本教學課程中，您會了解如何：
 
 > [!div class="checklist"]
 > * 宣告變數
@@ -58,20 +58,20 @@ ms.locfileid: "70918794"
 請參閱本教學課程中的[建立路由](#create-the-routes)一節，了解如何建立這些路由。
 
 >[!NOTE]
->「Azure 防火牆」必須能夠直接連線到網際網路。 如果您的 AzureFirewallSubnet 學習到透過 BGP 連至您內部部署網路的預設路由，您必須將其覆寫為 0.0.0.0/0 UDR，且 **NextHopType** 值必須設為 [網際網路]  ，以保有直接網際網路連線。 根據預設，Azure 防火牆不支援對內部部署網路的強制通道。
+>「Azure 防火牆」必須能夠直接連線到網際網路。 如果您的 AzureFirewallSubnet 學習到透過 BGP 連至您內部部署網路的預設路由，您必須將其覆寫為 0.0.0.0/0 UDR，且 **NextHopType** 值必須設為 [網際網路]  ，以保有直接網際網路連線。
 >
->不過，如果您的設定需要對內部部署網路的強制通道，Microsoft 將以個別案例為原則提供支援。 連絡支援人員，以便我們檢閱您的案例。 受理後，我們會允許您的訂用帳戶，並確實維持必要的防火牆網際網路連線。
+>Azure 防火牆目前不支援強制通道。 如果您的設定需要對內部部署網路使用強制通道，而且您可以決定網際網路目的地的目標 IP 首碼，則您可以透過 AzureFirewallSubnet 上的使用者定義路由，將使用內部部署網路的這些範圍設定為下一個躍點。 或者，您可以使用 BGP 來定義這些路由。
 
 >[!NOTE]
 >即使 UDR 指向「Azure 防火牆」作為預設閘道，系統仍會直接路由直接對等互連之 VNet 間的流量。 在此案例中若要將子網路對子網路流量傳送到防火牆，UDR 必須在這兩個子網路上同時明確包含目標子網路網路首碼。
 
-如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 。
+如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)。
 
 ## <a name="create-the-firewall-hub-virtual-network"></a>建立防火牆中樞虛擬網路
 
 首先，建立資源群組，以包含本教學課程中的資源：
 
-1. 在 [https://portal.azure.com](https://portal.azure.com) 登入 Azure 入口網站。
+1. 登入 Azure 入口網站：[https://portal.azure.com](https://portal.azure.com)。
 2. 在 Azure 入口網站首頁上，選取 [資源群組]   > [新增]  。
 3. 在 [資源群組名稱]  中，輸入 **FW-Hybrid-Test**。
 4. 在 [訂用帳戶]  中，選取您的訂用帳戶。
@@ -84,20 +84,20 @@ ms.locfileid: "70918794"
 > [!NOTE]
 > AzureFirewallSubnet 子網路的大小是 /26。 如需有關子網路大小的詳細資訊，請參閱 [Azure 防火牆的常見問題集](firewall-faq.md#why-does-azure-firewall-need-a-26-subnet-size)。
 
-1. 從 Azure 入口網站首頁選取 [建立資源]  。
+1. 從 Azure 入口網站首頁，選取 [建立資源]  。
 2. 在 [網路]  底下，選取 [虛擬網路]  。
 4. 在 [名稱]  中，輸入 **VNet-hub**。
 5. 在 [位址空間]  中，輸入 **10.5.0.0/16**。
 6. 在 [訂用帳戶]  中，選取您的訂用帳戶。
 7. 在 [資源群組]  中，選取 **FW-Hybrid-Test**。
 8. 在 [位置]  中，選取 [美國東部]  。
-9. 在 [子網路]  底下的 [名稱]  中鍵入 **AzureFirewallSubnet**。 防火牆會在此子網路中，且子網路名稱「必須」  是 AzureFirewallSubnet。
+9. 在 [子網路]  底下的 [名稱]  中，鍵入 **AzureFirewallSubnet**。 防火牆會在此子網路中，且子網路名稱**必須**是 AzureFirewallSubnet。
 10. 在 [位址範圍]  中，輸入 **10.5.0.0/26**。 
 11. 接受其他預設設定，然後選取 [建立]  。
 
 ## <a name="create-the-spoke-virtual-network"></a>建立輪輻虛擬網路
 
-1. 從 Azure 入口網站首頁選取 [建立資源]  。
+1. 從 Azure 入口網站首頁，選取 [建立資源]  。
 2. 在 [網路]  底下，選取 [虛擬網路]  。
 4. 在 [名稱]  中，輸入 **VNet-Spoke**。
 5. 在 [位址空間]  中，輸入 **10.6.0.0/16**。
@@ -118,7 +118,7 @@ ms.locfileid: "70918794"
 
 ## <a name="create-the-on-premises-virtual-network"></a>建立內部部署虛擬網路
 
-1. 從 Azure 入口網站首頁選取 [建立資源]  。
+1. 從 Azure 入口網站首頁，選取 [建立資源]  。
 2. 在 [網路]  底下，選取 [虛擬網路]  。
 4. 在 [名稱]  中，輸入 **VNet-OnPrem**。
 5. 在 [位址空間]  中，輸入 **192.168.0.0/16**。
@@ -141,7 +141,7 @@ ms.locfileid: "70918794"
 
 這是用於內部部署閘道的公用 IP 位址。
 
-1. 從 Azure 入口網站首頁選取 [建立資源]  。
+1. 從 Azure 入口網站首頁，選取 [建立資源]  。
 2. 在搜尋文字方塊中，輸入**公用 IP 位址**，然後按 **Enter**。
 3. 選取 [公用 IP 位址]  ，然後選取 [建立]  。
 4. 在 [名稱] 中，輸入 **VNet-Onprem-GW-pip**。
@@ -153,16 +153,16 @@ ms.locfileid: "70918794"
 
 現在將防火牆部署到防火牆中樞虛擬網路中。
 
-1. 從 Azure 入口網站首頁選取 [建立資源]  。
+1. 從 Azure 入口網站首頁，選取 [建立資源]  。
 2. 在左欄中，選取 [網路]  ，然後選取 [防火牆]  。
 4. 在 [建立防火牆]  頁面上，使用下表來設定防火牆：
 
    |設定  |值  |
    |---------|---------|
-   |Subscription     |\<您的訂用帳戶\>|
-   |Resource group     |**FW-Hybrid-Test** |
-   |Name     |**AzFW01**|
-   |Location     |選取您先前使用的相同位置|
+   |訂用帳戶     |\<您的訂用帳戶\>|
+   |資源群組     |**FW-Hybrid-Test** |
+   |名稱     |**AzFW01**|
+   |位置     |選取您先前使用的相同位置|
    |選擇虛擬網路     |**使用現有項目**︰<br> **VNet-hub**|
    |公用 IP 位址     |建立新項目： <br>**名稱** - **fw-pip**。 |
 
@@ -208,7 +208,7 @@ ms.locfileid: "70918794"
 
 現在建立中樞虛擬網路的 VPN 閘道。 網路對網路組態需要 RouteBased VpnType。 建立 VPN 閘道通常可能需要 45 分鐘或更久，視選取的 VPN 閘道 SKU 而定。
 
-1. 從 Azure 入口網站首頁選取 [建立資源]  。
+1. 從 Azure 入口網站首頁，選取 [建立資源]  。
 2. 在搜尋文字方塊中，輸入**輸入虛擬網路閘道**，然後按 **Enter**。
 3. 選取 [虛擬網路閘道]  ，然後選取 [建立]  。
 4. 在 [名稱]  中，輸入 **GW-hub**。
@@ -225,7 +225,7 @@ ms.locfileid: "70918794"
 
 現在建立虛擬網路的 VPN 內部部署閘道。 網路對網路組態需要 RouteBased VpnType。 建立 VPN 閘道通常可能需要 45 分鐘或更久，視選取的 VPN 閘道 SKU 而定。
 
-1. 從 Azure 入口網站首頁選取 [建立資源]  。
+1. 從 Azure 入口網站首頁，選取 [建立資源]  。
 2. 在搜尋文字方塊中，輸入**輸入虛擬網路閘道**，然後按 **Enter**。
 3. 選取 [虛擬網路閘道]  ，然後選取 [建立]  。
 4. 在 [名稱]  中，輸入 **GW-Onprem**。
@@ -292,7 +292,7 @@ ms.locfileid: "70918794"
 2. 在左欄中選取 [對等互連]  。
 3. 選取 **SpoketoHub** 對等互連。
 4. 在 [允許從 VNet-hub 到 VNet-Spoke 的轉送流量]  中，選取 [啟用]  。
-5. 選取 [ **儲存**]。
+5. 選取 [儲存]  。
 
 ## <a name="create-the-routes"></a>建立路由
 
@@ -301,7 +301,7 @@ ms.locfileid: "70918794"
 - 透過防火牆 IP 位址，從中樞閘道子網路到輪輻子網路的路由
 - 透過防火牆 IP 位址，從輪輻子網路開始的預設路由
 
-1. 從 Azure 入口網站首頁選取 [建立資源]  。
+1. 從 Azure 入口網站首頁，選取 [建立資源]  。
 2. 在搜尋文字方塊中，輸入**路由表**，然後按 **Enter**。
 3. 選取 [路由表]  。
 4. 選取 [建立]  。
@@ -329,7 +329,7 @@ ms.locfileid: "70918794"
 
 現在，從輪輻子網路中建立預設路由。
 
-1. 從 Azure 入口網站首頁選取 [建立資源]  。
+1. 從 Azure 入口網站首頁，選取 [建立資源]  。
 2. 在搜尋文字方塊中，輸入**路由表**，然後按 **Enter**。
 3. 選取 [路由表]  。
 5. 選取 [建立]  。
@@ -364,16 +364,16 @@ ms.locfileid: "70918794"
 
 在輪輻虛擬網路中建立虛擬機器，該虛擬機器會執行 IIS、沒有公用 IP 位址。
 
-1. 從 Azure 入口網站首頁選取 [建立資源]  。
+1. 從 Azure 入口網站首頁，選取 [建立資源]  。
 2. 在 [熱門]  底下，選取 [Windows Server 2016 Datacenter]  。
-3. 針對虛擬機器，請輸入這些值：
+3. 依虛擬機器輸入這些值：
     - [資源群組]  - 選取 **FW-Hybrid-Test**。
     - **虛擬機器名稱**：VM-Spoke-01  。
     - **區域** - 您先前使用的相同區域。
     - **使用者名稱**：azureuser  。
     - **密碼**：*Azure123456!*
 4. 選取 [下一步：磁碟]  。
-5. 接受預設值，然後選取 [下一步：網路]  。
+5. 接受預設值，然後選取 [下一步：  網路]。
 6. 選取 [VNet-Spoke]  作為虛擬網路，而子網路為 **SN-Workload**。
 7. 在 [公用 IP]  中，選取 [無]  。
 8. 在 [公用輸入連接埠]  中選取 [允許選取的連接埠]  ，然後選取 [HTTP (80)]  和 [RDP (3389)] 
@@ -402,9 +402,9 @@ ms.locfileid: "70918794"
 
 這是一部虛擬機器，您可使用遠端桌面連線到公用 IP 位址。 從該處，您可透過防火牆接著連線到內部部署伺服器。
 
-1. 從 Azure 入口網站首頁選取 [建立資源]  。
+1. 從 Azure 入口網站首頁，選取 [建立資源]  。
 2. 在 [熱門]  底下，選取 [Windows Server 2016 Datacenter]  。
-3. 針對虛擬機器，請輸入這些值：
+3. 依虛擬機器輸入這些值：
     - [資源群組]  - 選取 [使用現有的]，然後選取 [FW-Hybrid-Test]  。
     - **虛擬機器名稱** - VM-Onprem  。
     - **區域** - 您先前使用的相同區域。
@@ -446,7 +446,7 @@ ms.locfileid: "70918794"
 2. 選取 [規則]  。
 3. 選取 [網路規則集合]  索引標籤，然後選取 [RCNet01]  規則集合。
 4. 在 [動作]  中，選取 [拒絕]  。
-5. 選取 [ **儲存**]。
+5. 選取 [儲存]  。
 
 在測試已變更的規則之前，請關閉任何現有的遠端桌面。 現在再次執行測試。 這次所有測試應該都會失敗。
 

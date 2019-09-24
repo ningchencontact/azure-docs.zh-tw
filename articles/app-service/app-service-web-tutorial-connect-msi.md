@@ -11,15 +11,15 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: tutorial
-ms.date: 08/06/2019
+ms.date: 09/16/2019
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: 09e9a89fc79763eee5d154ba589b599fe8a180b2
-ms.sourcegitcommit: 86d49daccdab383331fc4072b2b761876b73510e
+ms.openlocfilehash: d4e0d632fe476df159710f800eca3a2a283f7908
+ms.sourcegitcommit: 71db032bd5680c9287a7867b923bf6471ba8f6be
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70743389"
+ms.lasthandoff: 09/16/2019
+ms.locfileid: "71018292"
 ---
 # <a name="tutorial-secure-azure-sql-database-connection-from-app-service-using-a-managed-identity"></a>教學課程：使用受控識別保護來自 App Service 的 Azure SQL Database 連線
 
@@ -83,10 +83,22 @@ az sql server ad-admin create --resource-group myResourceGroup --server-name <se
 
 ## <a name="set-up-visual-studio"></a>設定 Visual Studio
 
-若要啟用在 Visual Studio 中的開發和偵錯，請從功能表中選取 [檔案]   > [帳戶設定]  ，然後按一下 [新增帳戶]  ，以在 Visual Studio 中新增您的 Azure AD 使用者。
+### <a name="windows"></a>Windows
+Visual Studio for Windows 會與 Azure AD 驗證整合。 若要啟用在 Visual Studio 中的開發和偵錯，請從功能表中選取 [檔案]   > [帳戶設定]  ，然後按一下 [新增帳戶]  ，以在 Visual Studio 中新增您的 Azure AD 使用者。
 
 若要設定 Azure 服務驗證的 Azure AD 使用者，請從功能表中選取 [工具]   > [選項]  ，然後選取 [Azure 服務驗證]   > [帳戶選取]  。 選取您新增的 Azure AD 使用者，然後按一下 [確定]  。
 
+現在您已可開始將 SQL Database 作為後端，使用 Azure AD 驗證開發和偵錯您的應用程式。
+
+### <a name="macos"></a>MacOS
+
+Visual Studio for Mac 不會與 Azure AD 驗證整合。 不過，稍後會用到的 [Microsoft.Azure.Services.AppAuthentication](https://www.nuget.org/packages/Microsoft.Azure.Services.AppAuthentication) 程式庫可以使用 Azure CLI 中的權杖。 若要在 Visual Studio 中啟用開發和偵錯工具，您必須先在本機電腦上安裝 [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli)。
+
+在本機電腦上安裝 Azure CLI 後，請使用 Azure AD 使用者以下列命令登入 Azure CLI：
+
+```bash
+az login --allow-no-subscriptions
+```
 現在您已可開始將 SQL Database 作為後端，使用 Azure AD 驗證開發和偵錯您的應用程式。
 
 ## <a name="modify-your-project"></a>修改專案

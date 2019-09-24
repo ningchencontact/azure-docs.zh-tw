@@ -1,5 +1,5 @@
 ---
-title: 將遙測傳送至 Azure IoT 中樞快速入門 (Node.js) | Microsoft Docs
+title: 快速入門：將遙測傳送至 Azure IoT (Node.js)
 description: 本快速入門中，您會執行兩個範例 Node.js 應用程式，以將模擬的遙測資料傳送至 IoT 中樞和從 IoT 中樞讀取遙測資料，以便在雲端中處理。
 author: wesmc7777
 manager: philmea
@@ -8,14 +8,14 @@ ms.service: iot-hub
 services: iot-hub
 ms.devlang: nodejs
 ms.topic: quickstart
-ms.custom: mvc
+ms.custom: mvc, seo-javascript-september2019
 ms.date: 06/21/2019
-ms.openlocfilehash: 755f21911a9d3e2b6d81ff70922421c1031f9b36
-ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
+ms.openlocfilehash: 859bb580f5fa974eec70c120297f094247fa2a9b
+ms.sourcegitcommit: fbea2708aab06c19524583f7fbdf35e73274f657
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/27/2019
-ms.locfileid: "70050144"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70967194"
 ---
 # <a name="quickstart-send-telemetry-from-a-device-to-an-iot-hub-and-read-it-with-a-back-end-application-nodejs"></a>快速入門：將遙測從裝置傳送至 IoT 中樞，並使用後端應用程式讀取遙測 (Node.js)
 

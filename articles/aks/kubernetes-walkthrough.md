@@ -1,19 +1,19 @@
 ---
-title: 快速入門 - 建立 Azure Kubernetes Service (AKS) 叢集
+title: 快速入門：部署 Azure Kubernetes Service 叢集
 description: 了解如何使用 Azure CLI 快速建立 Kubernetes 叢集、部署應用程式，以及監視 Azure Kubernetes Service (AKS) 的效能。
 services: container-service
 author: mlearned
 ms.service: container-service
 ms.topic: quickstart
-ms.date: 05/20/2019
+ms.date: 09/13/2019
 ms.author: mlearned
-ms.custom: H1Hack27Feb2017, mvc, devcenter
-ms.openlocfilehash: 8a5fb9313fca2a8d787d0fbde47401f6d3e1d229
-ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
+ms.custom: H1Hack27Feb2017, mvc, devcenter, seo-javascript-september2019
+ms.openlocfilehash: 0ad1bb4acf27ff542b94b2e6f4aef82705f4b46a
+ms.sourcegitcommit: cd70273f0845cd39b435bd5978ca0df4ac4d7b2c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68880670"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71097993"
 ---
 # <a name="quickstart-deploy-an-azure-kubernetes-service-aks-cluster-using-the-azure-cli"></a>快速入門：使用 Azure CLI 部署 Azure Kubernetes Service (AKS) 叢集
 
@@ -25,11 +25,14 @@ Azure Kubernetes Service (AKS) 是受控 Kubernetes 服務，可讓您快速部�
 
 本快速入門假設您已有 Kubernetes 概念的基本知識。 如需詳細資訊，請參閱 [Azure Kubernetes Services (AKS) 的 Kubernetes 核心概念][kubernetes-concepts]。
 
-如果您沒有 Azure 訂用帳戶，請在開始前先建立 [免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 。
+如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)。
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
 如果您選擇在本機安裝和使用 CLI，本快速入門會要求您執行 Azure CLI 2.0.64 版或更新版本。 執行 `az --version` 以尋找版本。 如果您需要安裝或升級，請參閱[安裝 Azure CLI][azure-cli-install]。
+
+> [!Note]
+> 如果在本機 (而不是 Azure Cloud Shell) 執行本快速入門中的命令，請確定您是以系統管理員身分執行命令。
 
 ## <a name="create-a-resource-group"></a>建立資源群組
 
@@ -58,15 +61,10 @@ az group create --name myResourceGroup --location eastus
 
 ## <a name="create-aks-cluster"></a>建立 AKS 叢集
 
-使用 [az aks create][az-aks-create] 命令來建立 AKS 叢集。 下列範例會建立名為 myAKSCluster  並包含一個節點的叢集。 使用 *--enable-addons monitoring* 參數也可啟用適用於容器的 Azure 監視器。
+使用 [az aks create][az-aks-create] 命令來建立 AKS 叢集。 下列範例會建立名為 myAKSCluster  並包含一個節點的叢集。 使用 *--enable-addons monitoring* 參數也可啟用適用於容器的 Azure 監視器。  這需要數分鐘的時間才能完成。
 
 ```azurecli-interactive
-az aks create \
-    --resource-group myResourceGroup \
-    --name myAKSCluster \
-    --node-count 1 \
-    --enable-addons monitoring \
-    --generate-ssh-keys
+az aks create --resource-group myResourceGroup --name myAKSCluster --node-count 1 --enable-addons monitoring --generate-ssh-keys
 ```
 
 在幾分鐘之後，此命令就會完成，並以 JSON 格式傳回叢集的相關資訊。
@@ -234,30 +232,11 @@ azure-vote-front   LoadBalancer   10.0.37.27   52.179.23.131   80:30572/TCP   2m
 
 ![瀏覽至 Azure 投票的影像](media/container-service-kubernetes-walkthrough/azure-vote.png)
 
-## <a name="monitor-health-and-logs"></a>監視健康情況和記錄
-
-建立 AKS 叢集時，會啟用適用於容器的 Azure 監視器來擷取叢集節點和 pod 的健康狀態計量。 在 Azure 入口網站中可取得這些健康狀態度量。
-
-若要查看目前的狀態、運作時間，以及 Azure 投票 pod 的資源使用量，請完成下列步驟：
-
-1. 開啟網頁瀏覽器並移至 Azure 入口網站[https://portal.azure.com][azure-portal]。
-1. 選取您的資源群組 (例如 myResourceGroup  )，然後選取您的 AKS 叢集 (例如 myAKSCluster  )。
-1. 在左側的 [監視]  底下，選取 [見解]  。
-1. 在頂端選取 [+ 新增篩選]  。
-1. 選取 [命名空間]  作為屬性，然後選擇 \<除了 kube-system 以外的所有項目\>  。
-1. 選取 [容器]  。
-
-系統會顯示 azure-vote-back  和 azure-vote-front  容器，如下列範例所示：
-
-![檢視 AKS 中執行的容器健康情況](media/kubernetes-walkthrough/monitor-containers.png)
-
-若要查看 `azure-vote-back` Pod 的記錄，請選擇 [在 Analytics 中檢視]  的選項，然後選取容器清單右側的 [檢視容器記錄]  連結。 這些記錄包含來自容器的 stdout  和 stderr  資料流。
-
-![在 AKS 中檢視容器記錄](media/kubernetes-walkthrough/monitor-container-logs.png)
+建立 AKS 叢集時，會啟用[適用於容器的 Azure 監視器](../azure-monitor/insights/container-insights-overview.md)來擷取叢集節點和 pod 的健康狀態計量。 在 Azure 入口網站中可取得這些健康狀態度量。
 
 ## <a name="delete-the-cluster"></a>刪除叢集
 
-若不再需要叢集，可使用 [az group delete][az-group-delete] 命令來移除資源群組、容器服務和所有相關資源。
+若要避免 Azure 費用，您應該清除不需要的資源。  若不再需要叢集，可使用 [az group delete][az-group-delete] 命令來移除資源群組、容器服務和所有相關資源。
 
 ```azurecli-interactive
 az group delete --name myResourceGroup --yes --no-wait

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: ASP.NET Core
 ms.workload: tbd
 ms.date: 04/19/2019
 ms.author: yegu
-ms.openlocfilehash: 41947de18ae27b41d046fd4358f0039a1b56374d
-ms.sourcegitcommit: e72073911f7635cdae6b75066b0a88ce00b9053b
+ms.openlocfilehash: 6f9094a52ff3558fa8d1f2fee1d80ed8eb09a416
+ms.sourcegitcommit: 8ef0a2ddaece5e7b2ac678a73b605b2073b76e88
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68347922"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71076333"
 ---
 # <a name="quickstart-add-feature-flags-to-an-aspnet-core-app"></a>快速入門：將功能旗標新增至 ASP.NET Core 應用程式
 
@@ -36,7 +36,7 @@ ms.locfileid: "68347922"
 
 [!INCLUDE [azure-app-configuration-create](../../includes/azure-app-configuration-create.md)]
 
-6. 選取 [功能管理員]   > [+建立]  以新增下列功能旗標：
+6. 選取 [功能管理員]   > [+新增]  以新增下列功能旗標：
 
     | Key | State |
     |---|---|
@@ -81,10 +81,11 @@ ms.locfileid: "68347922"
 
 ## <a name="connect-to-an-app-configuration-store"></a>連線至應用程式組態存放區
 
-1. 透過執行下列命令，將參考新增至 `Microsoft.Azure.AppConfiguration.AspNetCore` NuGet 套件：
+1. 藉由執行下列命令，將參考新增至 `Microsoft.Azure.AppConfiguration.AspNetCore` 和 `Microsoft.FeatureManagement.AspNetCore` NuGet 套件：
 
     ```
-    dotnet add package Microsoft.Azure.AppConfiguration.AspNetCore --version 2.0.0-preview-009200001-7
+    dotnet add package Microsoft.Azure.AppConfiguration.AspNetCore --version 2.0.0-preview-009470001-12
+    dotnet add package Microsoft.FeatureManagement.AspNetCore --version 1.0.0-preview-009000001-1251
     ```
 
 1. 執行下列命令以還原您專案的套件：
@@ -266,6 +267,8 @@ ms.locfileid: "68347922"
     |---|---|
     | Beta | 另一 |
 
+1. 切換回命令提示字元，然後按 `Ctrl-C` 取消執行 `dotnet` 的程序，然後重新執行 `dotnet run`，以重新啟動您的應用程式。
+
 1. 重新整理瀏覽器頁面，以查看新的組態設定。
 
     ![快速入門應用程式啟動本機](./media/quickstarts/aspnet-core-feature-flag-local-after.png)
@@ -281,3 +284,4 @@ ms.locfileid: "68347922"
 - 深入了解[功能管理](./concept-feature-management.md)。
 - [管理功能旗標](./manage-feature-flags.md)。
 - [在 ASP.NET Core 應用程式中使用功能旗標](./use-feature-flags-dotnet-core.md)。
+- [在 ASP.NET Core 應用程式中使用動態設定](./enable-dynamic-configuration-aspnet-core.md)

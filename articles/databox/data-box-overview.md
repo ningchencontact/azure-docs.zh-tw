@@ -7,14 +7,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: overview
-ms.date: 07/03/2019
+ms.date: 09/17/2019
 ms.author: alkohli
-ms.openlocfilehash: cd2a776988ba27add54c69b0feccbc3fce8337aa
-ms.sourcegitcommit: 978e1b8cac3da254f9d6309e0195c45b38c24eb5
+ms.openlocfilehash: a3e27cf427de3a33f71d6f4a0af9b1590abeb573
+ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/03/2019
-ms.locfileid: "67551517"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71067008"
 ---
 # <a name="what-is-azure-data-box"></a>什麼是 Azure 資料箱？
 
@@ -111,14 +111,7 @@ Microsoft Azure 資料箱雲端解決方案可讓您以快速、實惠和可靠�
 
 資料箱可以根據其服務所部署的區域、裝置所寄送的國家/地區，以及資料傳輸後所在的目標 Azure 儲存體帳戶來傳輸資料。 
 
-- **服務可用性** - 針對此版本，下列區域提供資料箱服務：
-    - 位於美國的所有區域 - 美國中西部、美國西部2、美國西部、美國中南部、美國中部、美國中北部、美國東部，以及美國東部2。
-    - 歐盟 - 西歐及北歐。
-    - 英國 - 英國南部與英國西部。
-    - 法國 - 法國中部與法國南部。
-    - 日本 - 日本東部和日本西部。
-    - 澳大利亞 - 澳大利亞東部和澳大利亞東南部。
-    - 加拿大 - 加拿大東部和加拿大中部。
+- **服務可用性** - 如需區域可用性的資訊，請移至[依區域提供的 Azure 產品](https://azure.microsoft.com/global-infrastructure/services/?products=databox&regions=all)。 資料箱也可部署在 Azure Government 雲端中。 如需詳細資訊，請參閱[何謂 Azure Government？](https://docs.microsoft.com/azure/azure-government/documentation-government-welcome)。
 
 - **目的地儲存體帳戶** - 儲存資料的儲存體帳戶在服務可用的所有 Azure 區域都可用。  
 

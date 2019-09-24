@@ -1,5 +1,5 @@
 ---
-title: 使用 Node.js 查詢 Azure SQL Database | Microsoft Docs
+title: 快速入門：使用 Node.js 查詢 Azure SQL Database
 description: 如何使用 Node.js 來建立可連線到 Azure SQL 資料庫的程式，並使用 T-SQL 陳述式加以查詢。
 services: sql-database
 ms.service: sql-database
@@ -10,12 +10,13 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: v-masebo
 ms.date: 03/25/2019
-ms.openlocfilehash: 72e509a9a7f820c26895bdfac9216b0373729f6c
-ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
+ms.custom: seo-javascript-september2019
+ms.openlocfilehash: b865bca5db11c4a34a1be4deb2e3145d73599e81
+ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/10/2019
-ms.locfileid: "68947105"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71059284"
 ---
 # <a name="quickstart-use-nodejs-to-query-an-azure-sql-database"></a>快速入門：使用 Node.js 查詢 Azure SQL 資料庫
 

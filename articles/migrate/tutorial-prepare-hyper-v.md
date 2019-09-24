@@ -5,15 +5,15 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: azure-migrate
 ms.topic: tutorial
-ms.date: 07/24/2019
+ms.date: 09/16/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 87df37cc6baa863bb0b068bdfeb9cde873e38836
-ms.sourcegitcommit: acffa72239413c62662febd4e39ebcb6c6c0dd00
+ms.openlocfilehash: 2f45f70f1c131e1690997cda18a8d612d3af9dee
+ms.sourcegitcommit: a819209a7c293078ff5377dee266fa76fd20902c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68952088"
+ms.lasthandoff: 09/16/2019
+ms.locfileid: "71010312"
 ---
 # <a name="prepare-for-assessment-and-migration-of-hyper-v-vms-to-azure"></a>準備 Hyper-V VM 的評量並將其移轉至 Azure
 
@@ -21,7 +21,7 @@ ms.locfileid: "68952088"
 
 [Azure Migrate](migrate-overview.md) 會提供工具中樞，協助您探索和評估應用程式、基礎結構和工作負載，並且將這些項目遷移至 Microsoft Azure。 此中樞包含 Azure Migrate 工具和第三方獨立軟體廠商 (ISV) 供應項目。 
 
-本教學課程是一個系列中的第一篇，說明如何評估 Hyper-V VM 並將其遷移至 Azure。 在本教學課程中，您了解如何：
+本教學課程是一個系列中的第一篇，說明如何評估 Hyper-V VM 並將其遷移至 Azure。 在本教學課程中，您會了解如何：
 
 > [!div class="checklist"]
 > * 準備 Azure。 設定 Azure 帳戶和資源的權限，以搭配使用 Azure Migrate。
@@ -33,7 +33,7 @@ ms.locfileid: "68952088"
 > 教學課程將會針對案例示範最簡單的部署路徑，讓您可以快速設定概念證明。 教學課程在情況允許時都會使用預設選項，且不會顯示所有可能的設定與路徑。 如需詳細指示，請參閱 Hyper-V 評量和移轉的操作說明。
 
 
-如果您沒有 Azure 訂用帳戶，請在開始前先建立 [免費帳戶](https://azure.microsoft.com/pricing/free-trial/) 。
+如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶](https://azure.microsoft.com/pricing/free-trial/)。
 
 
 ## <a name="prepare-azure"></a>準備 Azure
@@ -99,7 +99,7 @@ ms.locfileid: "68952088"
 1. 確認 Hyper-V 主機設定。
 2. 在每部主機上設定 PowerShell 遠端功能，讓 Azure Migrate 設備可以透過 WinRM 連線在主機上執行 PowerShell 命令。
 3. 如果 VM 磁碟位於遠端 SMB 存放裝置，則需要委派認證。 
-    - 啟用 CredSSP 委派，讓 Azure Migrate 設備可作為用戶端，並將認證委派給主機。 T
+    - 啟用 CredSSP 委派，讓 Azure Migrate 設備可作為用戶端，並將認證委派給主機。
     - 您可以讓每部主機成為設備的委派，如下所述。
     - 之後，當您設定設備時，您就可以在設備上啟用委派。
 4. 檢閱設備需求及設備所需的 URL/連接埠存取權。
@@ -129,7 +129,7 @@ ms.locfileid: "68952088"
 
 1. 請確定您已在 Hyper-V 主機上安裝 PowerShell 4.0 版或更新版本。
 2. 從 [Microsoft 下載中心](https://aka.ms/migrate/script/hyperv)下載指令碼。 此指令碼會由 Microsoft 以密碼編譯方式進行簽署。
-3. 使用 MD5 或 SHA256 雜湊檔案來驗證指令碼完整性。 執行此命令以產生指令碼的雜湊：
+3. 使用 MD5 或 SHA256 雜湊檔案來驗證指令碼完整性。 主題標籤值如下。 執行此命令以產生指令碼的雜湊：
     ```
     C:\>CertUtil -HashFile <file_location> [Hashing Algorithm]
     ```
@@ -138,19 +138,20 @@ ms.locfileid: "68952088"
     C:\>CertUtil -HashFile C:\Users\Administrators\Desktop\ MicrosoftAzureMigrate-Hyper-V.ps1
     SHA256
     ```
-    
-    雜湊值為：
-    雜湊 | 值
-    --- | ---
-    **MD5** | 0ef418f31915d01f896ac42a80dc414e
-    **SHA256** | 0ad60e7299925eff4d1ae9f1c7db485dc9316ef45b0964148a3c07c80761ade2
-
 
 4.  驗證指令碼完整性之後，請使用此 PowerShell 命令在每部 Hyper-V 主機上執行指令碼：
     ```
     PS C:\Users\Administrators\Desktop> MicrosoftAzureMigrate-Hyper-V.ps1
     ```
 
+#### <a name="hashtag-values"></a>主題標籤值
+
+雜湊值為：
+
+| **雜湊** | **值** |
+| --- | --- |
+| **MD5** | 0ef418f31915d01f896ac42a80dc414e |
+| **SHA256** | 0ad60e7299925eff4d1ae9f1c7db485dc9316ef45b0964148a3c07c80761ade2 |
 
 ### <a name="verify-hyper-v-host-settings"></a>確認 Hyper-V 主機設定
 

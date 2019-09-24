@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: overview
-ms.date: 08/15/2019
+ms.date: 08/29/2019
 ms.author: alkohli
-ms.openlocfilehash: 1ac91853c78a33645c0ccb234437e3cabc188f88
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: eee33a2e1f5d081c1394368152d0d9afb7091e34
+ms.sourcegitcommit: cd70273f0845cd39b435bd5978ca0df4ac4d7b2c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70076883"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71098831"
 ---
 # <a name="azure-data-box-disk-frequently-asked-questions"></a>Azure 資料箱磁碟：常見問題集
 
@@ -88,6 +88,24 @@ A.  您可以在 Azure 入口網站中追蹤資料箱磁碟訂單的狀態。 �
 
 ### <a name="q-how-do-i-return-the-disks"></a>問： 如何送回磁碟？ 
 A.  Microsoft 會在寄送包裹中提供隨附於資料箱磁碟的出貨標籤。 請將標籤黏貼於寄送包裹，並將密封的包裹投遞到貨運公司地點。 如果標籤受損或遺失，請移至 [概觀] > [下載出貨標籤]  ，並下載新的寄返標籤。
+
+### <a name="can-i-pick-up-my-data-box-disk-order-myself-can-i-return-the-disks-via-a-carrier-that-i-choose"></a>我可以自取我的資料箱磁碟訂單嗎？ 我可以透過我選擇的貨運公司來寄回磁碟嗎？
+A. 是。 Microsoft 也提供僅 US Gov 區域適用的自助運送。 當您對資料箱磁碟下訂單時，您可以選擇自助運送選項。 若要自取資料箱磁碟訂單，請執行下列步驟：
+    
+1. 在您下訂單之後，我們就會處理訂單並準備磁碟。 當您的訂單可供取貨時，您會收到電子郵件通知。 
+2. 當訂單可供取貨之後，請您前往 Azure 入口網站中的訂單，並瀏覽至 [概觀]  刀鋒視窗。 
+3. 您會在 Azure 入口網站中看到含有代碼的通知。 請傳送電子郵件至 [Azure資料箱作業小組](mailto:adbops@microsoft.com)，並將代碼提供給他們。 小組會提供位置並安排取貨日期和時間。 收到電子郵件通知之後，您必須在 5 個工作天內連絡小組。
+
+資料複製和驗證完成後，請採取下列步驟來寄回您的磁碟：
+
+1. 一旦完成資料驗證，請拔除磁碟。 移除連接纜線。
+2. 使用發泡包裝材料將所有磁碟和連接纜線包裝在一起，然後放入包裹。 如果遺漏配件，則可能酌收費用。
+
+    - 重複使用最初出貨的包裝。 我們建議您使用安全的氣泡片來包裝磁碟。
+    - 確保穩固裝入磁碟，以免在箱子內移動。
+3. 在 Azure 入口網站中，移至您訂單的 [概觀]  刀鋒視窗。 您應該會看到含有代碼的通知。
+4. 請使用該代碼並傳送電子郵件至 [Azure資料箱作業小組](mailto:adbops@microsoft.com)，並將代碼提供給他們。 他們會提供您交送磁碟的位置和時間。
+
 
 ## <a name="migrate-data"></a>移轉資料
 

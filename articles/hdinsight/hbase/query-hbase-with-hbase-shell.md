@@ -9,18 +9,18 @@ ms.custom: hdinsightactive
 ms.topic: quickstart
 ms.date: 06/12/2019
 ms.author: hrasheed
-ms.openlocfilehash: d937e090895a5b02026c755b1efb7dd1e0b35000
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 033227f085cd23c5fa26313cb4a2816070676560
+ms.sourcegitcommit: 8ef0a2ddaece5e7b2ac678a73b605b2073b76e88
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67054293"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71076435"
 ---
 # <a name="quickstart-query-apache-hbase-in-azure-hdinsight-with-hbase-shell"></a>快速入門：使用 HBase Shell 在 Azure HDInsight 中查詢 Apache HBase
 
 在本快速入門中，您將了解如何使用 Apache HBase Shell 來建立 HBase 資料表、插入資料，然後查詢資料表。
 
-如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 。
+如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)。
 
 ## <a name="prerequisites"></a>必要條件
 
@@ -32,11 +32,11 @@ ms.locfileid: "67054293"
 
 對大多數人而言，資料會以表格形式出現：
 
-![HDInsight HBase 表格式資料](./media/query-hbase-with-hbase-shell/hdinsight-hbase-contacts-tabular.png)
+![HDInsight Apache HBase 表格式資料](./media/query-hbase-with-hbase-shell/hdinsight-hbase-contacts-tabular.png)
 
 在 HBase (實作 [Cloud BigTable](https://cloud.google.com/bigtable/)) 中，相同的資料看起來如下：
 
-![HDInsight HBase BigTable 資料](./media/query-hbase-with-hbase-shell/hdinsight-hbase-contacts-bigtable.png)
+![HDInsight Apache HBase BigTable 資料](./media/query-hbase-with-hbase-shell/hdinsight-hbase-contacts-bigtable.png)
 
 您可以使用 SSH 來連線到 HBase 叢集，然後使用 Apache HBase Shell 來建立 HBase 資料表、插入資料及查詢資料。
 

@@ -4,16 +4,16 @@ description: 本文將說明要與您 Azure 企業註冊搭配使用的 REST API
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 09/09/2019
+ms.date: 09/18/2019
 ms.topic: conceptual
 ms.service: billing
 manager: boalcsva
-ms.openlocfilehash: 4b56ef09525473920c5f5925485aae9c793ecc04
-ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
+ms.openlocfilehash: a8cf0d2eb87a823ee4b1d27484e7ea8d89c1abfc
+ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70900857"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71105447"
 ---
 # <a name="azure-enterprise-rest-apis"></a>Azure 企業版 REST API
 
@@ -31,7 +31,7 @@ Microsoft Enterprise Azure 客戶可以透過 REST API 取得使用量和帳單�
 
 **Marketplace 市集費用 -** [Marketplace 市集費用 API](billing-enterprise-api-marketplace-storecharge.md) 可針對指定的計費週期或開始和結束日期，傳回以使用量為基礎的 Marketplace 費用每日明細 (不含一次性費用)。 如需詳細資訊，請參閱[適用於企業客戶的報告 API - Marketplace 市集費用](/rest/api/billing/enterprise/billing-enterprise-api-marketplace-storecharge)。
 
-**價位表 -** [價位表 API](/billing-enterprise-api-pricesheet.md) 可針對註冊和計費期間的每個計量提供適用的費率。 如需詳細資訊，請參閱[適用於企業客戶的報告 API - 價位表](/rest/api/billing/enterprise/billing-enterprise-api-pricesheet)。
+**價位表 -** [價位表 API](/rest/api/billing/enterprise/billing-enterprise-api-pricesheet) 可針對註冊和計費期間的每個計量提供適用的費率。 如需詳細資訊，請參閱[適用於企業客戶的報告 API - 價位表](/rest/api/billing/enterprise/billing-enterprise-api-pricesheet)。
 
 **列出計費週期 -** [計費週期 API](billing-enterprise-api-billing-periods.md) 會傳回計費週期清單，其中包含註冊的使用情況資料 (以反向時間順序排列)。 每個週期包含的屬性會指向四組資料 (BalanceSummary、UsageDetails、MarketplaceCharges 和 PriceSheet) 的 API 路由。 如需詳細資訊，請參閱[適用於企業客戶的報告 API - 計費週期](/rest/api/billing/enterprise/billing-enterprise-api-billing-periods)。
 
@@ -109,7 +109,7 @@ Swagger 端點可在下列 API 的 [Enterprise Reporting v3 API](https://consump
 
 JSON 格式是從 CSV 報表產生的。 因此，此格式與摘要 CSV 格式相同。 資料行名稱已加入，因此當您取用 JSON 摘要資料時，應該還原序列化為資料表。
 
-| CSV 資料行名稱 | Json 資料行名稱 | Json 新資料行 | 註解 |
+| CSV 資料行名稱 | JSON 資料行名稱 | JSON 新資料行 | 註解 |
 | --- | --- | --- | --- |
 | AccountOwnerId | AccountOwnerLiveId | AccountOwnerLiveId |   |
 | 帳戶名稱 | AccountName | AccountName |   |
@@ -145,7 +145,7 @@ JSON 格式是從 CSV 報表產生的。 因此，此格式與摘要 CSV 格式�
 
 #### <a name="azure-marketplace-report"></a>Azure Marketplace 報表
 
-| CSV 資料行名稱 | Json 資料行名稱 | Json 新資料行 |
+| CSV 資料行名稱 | JSON 資料行名稱 | JSON 新資料行 |
 | --- | --- | --- |
 | AccountOwnerId | AccountOwnerId | AccountOwnerId |
 | 帳戶名稱 | AccountName | AccountName |
@@ -174,7 +174,7 @@ JSON 格式是從 CSV 報表產生的。 因此，此格式與摘要 CSV 格式�
 
 #### <a name="price-sheet"></a>價位表
 
-| CSV 資料行名稱 | Json 資料行名稱 | 註解 |
+| CSV 資料行名稱 | JSON 資料行名稱 | 註解 |
 | --- | --- | --- |
 | 服務 | 服務 |  價格不會變更 |
 | 測量單位 | UnitOfMeasure |   |

@@ -9,16 +9,16 @@ ms.custom: hdinsightactive,hdiseo17may2017,mvc,seodec18
 ms.topic: quickstart
 ms.date: 07/02/2019
 ms.author: hrasheed
-ms.openlocfilehash: be7ff67f07ed8eaeb3f04a15c6185191bf107cf2
-ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
+ms.openlocfilehash: 33f70ba33168190577baf1757e9be0ece5d315ba
+ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70918436"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71066898"
 ---
 # <a name="quickstart-create-apache-hadoop-cluster-in-azure-hdinsight-using-azure-portal"></a>快速入門：使用 Azure 入口網站在 Azure HDInsight 中建立 Apache Hadoop 叢集
 
-在此文章中，您會了解如何使用 Azure 入口網站在 HDInsight 中建立 [Apache Hadoop](https://hadoop.apache.org/) \(英文\) 叢集，然後在 HDInsight 中執行 Apache Hive 作業。 大部分 Hadoop 作業都是批次作業。 您會建立叢集、執行一些工作，然後刪除叢集。 在此文章中，您會執行所有這三個工作。
+在本文中，您會了解如何使用 Azure 入口網站在 HDInsight 中建立 [Apache Hadoop](https://hadoop.apache.org/) \(英文\) 叢集，然後在 HDInsight 中執行 Apache Hive 作業。 大部分 Hadoop 作業都是批次作業。 您會建立叢集、執行一些工作，然後刪除叢集。 在本文中，您會執行所有這三個工作。
 
 在本快速入門中，您會使用 Azure 入口網站來建立 HDInsight Hadoop 叢集。 您也可以使用 [Azure Resource Manager 範本](apache-hadoop-linux-tutorial-get-started.md)來建立叢集。
 
@@ -34,20 +34,20 @@ HDInsight 目前隨附 [7 個不同的叢集類型](../hdinsight-overview.md#clu
 
 1. 在 Azure 入口網站中，移至 [建立資源]   > [分析]   > [HDInsight]  。
 
-    ![Azure 入口網站上的 Databricks](./media/apache-hadoop-linux-create-cluster-get-started-portal/create-hdinsight-cluster.png "Azure 入口網站上的 Databricks")
+    ![建立資源 HDInsight 叢集](./media/apache-hadoop-linux-create-cluster-get-started-portal/create-hdinsight-cluster.png "建立資源 HDInsight 叢集")
 
 1. 在 [HDInsight]   > [快速建立]   > [基本]  下方，輸入或選取下列值：
 
     |屬性  |說明  |
     |---------|---------|
     |叢集名稱   | 輸入 Hadoop 叢集的名稱。 由於 HDInsight 中的所有叢集共用相同的 DNS 命名空間，因此這個名稱必須是唯一的。 名稱最多可包含 59 個字元，而這些字元可以是字母、數字和連字號。 名稱的第一個和最後一個字元不可以是連字號。 |
-    |Subscription    |  選取 Azure 訂用帳戶。 |
+    |訂用帳戶    |  選取 Azure 訂用帳戶。 |
     |叢集類型     | 暫時略過此欄位。 您會在此程序的下一個步驟中提供此輸入。|
     |叢集登入使用者名稱和密碼    | 預設登入名稱為 **admin**。密碼長度至少必須為 10 個字元，且必須包含至少一個數字、一個大寫字母及一個小寫字母、一個非英數字元 (除了字元 ' " ` \)。 確定您**不會提供**常見密碼，例如 "Pass@word1"。|
     |安全殼層 (SSH) 使用者名稱 | 預設的使用者名稱為 **sshuser**。  您可以為 SSH 使用者名稱提供另一個名稱。 |
     |將叢集登入密碼用於 SSH| 選取此核取方塊，讓 SSH 使用者所使用的密碼等同於您提供給叢集登入使用者的密碼。|
-    |Resource group     | 建立資源群組，或選取現有的資源群組。  資源群組是 Azure 元件的容器。  在此案例中，資源群組包含 HDInsight 叢集和相依的 Azure 儲存體帳戶。 |
-    |Location    | 選取您要建立叢集的 Azure 位置。  選擇靠近您的位置，以獲得最佳效能。 |
+    |資源群組     | 建立資源群組，或選取現有的資源群組。  資源群組是 Azure 元件的容器。  在此案例中，資源群組包含 HDInsight 叢集和相依的 Azure 儲存體帳戶。 |
+    |位置    | 選取您要建立叢集的 Azure 位置。  選擇靠近您的位置，以獲得最佳效能。 |
 
     ![HDInsight Linux 開始提供叢集基本值](./media/apache-hadoop-linux-create-cluster-get-started-portal/quick-create-basics1.png "提供用於建立 HDInsight 叢集的基本值")
 
@@ -66,8 +66,8 @@ HDInsight 目前隨附 [7 個不同的叢集類型](../hdinsight-overview.md#clu
 
     |屬性  |說明  |
     |---------|---------|
-    |主要儲存體類型    | 針對此文章，請選取 [Azure 儲存體]，以使用 Azure 儲存體 Blob 作為預設儲存體帳戶。 您也可以使用 Azure Data Lake Storage 作為預設儲存體。 |
-    |選取方法     |  針對此文章，請選取 [我的訂用帳戶]  ，以使用您 Azure 訂用帳戶的儲存體帳戶。 若要使用其他訂用帳戶的儲存體帳戶，請選取 [存取金鑰]  ，然後提供該帳戶的存取金鑰。 |
+    |主要儲存體類型    | 在本文中請選取 [Azure 儲存體]，以使用 Azure 儲存體 Blob 作為預設儲存體帳戶。 您也可以使用 Azure Data Lake Storage 作為預設儲存體。 |
+    |選取方法     |  針對本文，請選取 [我的訂用帳戶]  ，以使用您 Azure 訂用帳戶的儲存體帳戶。 若要使用其他訂用帳戶的儲存體帳戶，請選取 [存取金鑰]  ，然後提供該帳戶的存取金鑰。 |
     |選取儲存體帳戶   | 選取 [選取儲存體帳戶]  以選取現有的儲存體帳戶，或選取 [新建]  。 如果您建立新的帳戶，其名稱的長度必須介於 3 到 24 個字元之間，且只能包含數字和小寫字母。|
 
     接受所有其他預設值，然後選取 [下一步]  進入摘要頁面。
@@ -101,7 +101,7 @@ HDInsight 目前隨附 [7 個不同的叢集類型](../hdinsight-overview.md#clu
 
 3. 開啟 [Hive 檢視]  ，如下列螢幕擷取畫面所示：
 
-    ![選取 Ambari 檢視](./media/apache-hadoop-linux-create-cluster-get-started-portal/hdi-select-hive-view.png "HDInsight Hive 檢視器功能表")
+    ![從 Ambari 選取 Hive 檢視](./media/apache-hadoop-linux-create-cluster-get-started-portal/hdi-select-hive-view.png "HDInsight Hive 檢視器功能表")
 
 4. 在 [查詢]  索引標籤中，將下列 HiveQL 陳述式貼到工作表中：
 
@@ -109,13 +109,13 @@ HDInsight 目前隨附 [7 個不同的叢集類型](../hdinsight-overview.md#clu
     SHOW TABLES;
     ```
 
-    ![HDInsight Hive 檢視](./media/apache-hadoop-linux-create-cluster-get-started-portal/hdi-apache-hive-view1.png "HDInsight Hive 檢視查詢編輯器")
+    ![HDInsight Hive 檢視查詢編輯器](./media/apache-hadoop-linux-create-cluster-get-started-portal/hdi-apache-hive-view1.png "HDInsight Hive 檢視查詢編輯器")
 
 5. 選取 [執行]  。 [結果]  索引標籤會出現 [查詢]  索引標籤下方，並顯示作業相關資訊。 
 
     查詢完成之後，[查詢]  索引標籤會顯示作業的結果。 您應該會看到一個名為 hivesampletable  的資料表。 所有 HDInsight 叢集都提供此範例 Hive 資料表。
 
-    ![HDInsight Hive 檢視結果](./media/apache-hadoop-linux-create-cluster-get-started-portal/hdinsight-hive-views.png "HDInsight Hive 檢視結果")
+    ![HDInsight Apache Hive 檢視結果](./media/apache-hadoop-linux-create-cluster-get-started-portal/hdinsight-hive-views.png "HDInsight Apache Hive 檢視結果")
 
 6. 重複步驟 4 和 5，以執行下列查詢：
 
@@ -125,7 +125,7 @@ HDInsight 目前隨附 [7 個不同的叢集類型](../hdinsight-overview.md#clu
 
 7. 您也可以儲存查詢的結果。 選取右側功能表按鈕，然後指定您是否要以 CSV 檔案格式下載結果，或將其儲存至與叢集相關聯的儲存體帳戶。
 
-    ![儲存 Hive 查詢的結果](./media/apache-hadoop-linux-create-cluster-get-started-portal/hdinsight-linux-hive-view-save-results.png "儲存 Hive 查詢的結果")
+    ![儲存 Apache Hive 查詢的結果](./media/apache-hadoop-linux-create-cluster-get-started-portal/hdinsight-linux-hive-view-save-results.png "儲存 Apache Hive 查詢的結果")
 
 完成 Hive 工作之後，您可以[將結果匯出至 Azure SQL 資料庫或 SQL Server 資料庫](apache-hadoop-use-sqoop-mac-linux.md)，也可以[使用 Excel 將結果視覺化](apache-hadoop-connect-excel-power-query.md)。 如需有關在 HDInsight 中使用 Hive 的詳細資訊，請參閱[搭配 HDInsight 中的 Apache Hadoop 使用 Apache Hive 和 HiveQL 來分析範例 Apache log4j 檔案](hdinsight-use-hive.md)。
 
@@ -140,7 +140,7 @@ HDInsight 目前隨附 [7 個不同的叢集類型](../hdinsight-overview.md#clu
 
 1. 回到瀏覽器索引標籤，您可在其中存取 Azure 入口網站。 您應該位於叢集的 [概觀] 頁面上。 如果您只想刪除叢集，但保留預設儲存體帳戶，請選取 [刪除]  。
 
-    ![HDInsight 刪除叢集](./media/apache-hadoop-linux-create-cluster-get-started-portal/hdinsight-delete-cluster.png "刪除 HDInsight 叢集")
+    ![Azure HDInsight 刪除叢集](./media/apache-hadoop-linux-create-cluster-get-started-portal/hdinsight-delete-cluster.png "刪除 Azure HDInsight 叢集")
 
 2. 如果您想要刪除叢集以及預設儲存體帳戶，則選取資源群組名稱 (上一個螢幕擷取畫面中醒目提示的項目) 來開啟資源群組頁面。
 

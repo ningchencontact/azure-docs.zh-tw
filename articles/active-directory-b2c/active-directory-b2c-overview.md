@@ -10,16 +10,16 @@ ms.topic: overview
 ms.date: 02/20/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: ca9d8a8373bd73d527862864d436319eb45b5f48
-ms.sourcegitcommit: 920ad23613a9504212aac2bfbd24a7c3de15d549
+ms.openlocfilehash: ca636079439f811a887d16b627473e7d73930799
+ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "68227173"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71065700"
 ---
 # <a name="what-is-azure-active-directory-b2c"></a>什麼是 Azure Active Directory B2C？
 
-Azure Active Directory (Azure AD) B2C 是一項企業對消費者身分識別管理服務。 此服務可讓您自訂和控制使用者如何安全地與您的 Web、桌面、行動或單頁應用程式互動。 透過 Azure AD B2C，使用者可以註冊、登入、重設密碼及編輯設定檔。 Azure AD B2C 可實作某種形式的 OpenID Connect 和 OAuth 2.0 通訊協定。 安全性權杖及其宣告可讓您提供資源的安全存取，這是此類通訊協定實作中的關鍵要素。
+Azure Active Directory B2C (Azure AD B2C) 是一項企業對消費者的身分識別管理服務。 此服務可讓您自訂和控制使用者如何安全地與您的 Web、桌面、行動或單頁應用程式互動。 透過 Azure AD B2C，使用者可以註冊、登入、重設密碼及編輯設定檔。 Azure AD B2C 可實作某種形式的 OpenID Connect 和 OAuth 2.0 通訊協定。 安全性權杖及其宣告可讓您提供資源的安全存取，這是此類通訊協定實作中的關鍵要素。
 
 *使用者旅程圖*是一個指定原則的要求，可控制使用者和您的應用程式與 Azure AD B2C 互動的行為。 您可以透過兩種途徑在 Azure AD B2C 中定義使用者旅程圖。
 

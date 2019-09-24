@@ -9,18 +9,18 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: tutorial
 ms.date: 06/25/2019
 ms.author: hrasheed
-ms.openlocfilehash: df216c4d634ac20365cc5a1cc6e26fbd78be7ab9
-ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
+ms.openlocfilehash: e43d2d64535085a9b22d2febc761fc7026498ba8
+ms.sourcegitcommit: 8ef0a2ddaece5e7b2ac678a73b605b2073b76e88
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70917395"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71077145"
 ---
 # <a name="tutorial-use-apache-hbase-in-azure-hdinsight"></a>教學課程：使用 Azure HDInsight 中的 Apache HBase
 
 本教學課程示範如何使用 Apache Hive 在 Azure HDInsight 中建立 Apache HBase 叢集、建立 HBase 資料表，以及查詢資料表。  如需一般 HBase 資訊，請參閱 [HDInsight HBase 概觀](./apache-hbase-overview.md)。
 
-在本教學課程中，您了解如何：
+在本教學課程中，您會了解如何：
 
 > [!div class="checklist"]
 > * 建立 Apache HBase 叢集
@@ -41,15 +41,15 @@ ms.locfileid: "70917395"
 
 1. 選取以下影像，在 Azure 入口網站中開啟範本。 範本位在 [Azure 快速入門範本](https://azure.microsoft.com/resources/templates/)。
 
-    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-hdinsight-hbase-linux%2Fazuredeploy.json" target="_blank"><img src="./media/apache-hbase-tutorial-get-started-linux/hdi-deploy-to-azure1.png" alt="Deploy to Azure"></a>
+    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-hdinsight-hbase-linux%2Fazuredeploy.json" target="_blank"><img src="./media/apache-hbase-tutorial-get-started-linux/hdi-deploy-to-azure1.png" alt="Deploy to Azure button for new cluster"></a>
 
 2. 從 [自訂部署]  刀鋒視窗，輸入下列值：
 
     |屬性 |說明 |
     |---|---|
-    |Subscription|選取用來建立叢集的 Azure 訂用帳戶。|
-    |Resource group|建立 Azure 資源管理群組，或使用現有的群組。|
-    |Location|指定資源群組的位置。 |
+    |訂用帳戶|選取用來建立叢集的 Azure 訂用帳戶。|
+    |資源群組|建立 Azure 資源管理群組，或使用現有的群組。|
+    |位置|指定資源群組的位置。 |
     |ClusterName|輸入 HBase 叢集的名稱。|
     |叢集登入名稱和密碼|預設登入名稱為 **admin**。|
     |SSH 使用者名稱和密碼|預設的使用者名稱為 **sshuser**。|
@@ -68,11 +68,11 @@ ms.locfileid: "70917395"
 
 對大多數人而言，資料會以表格形式出現：
 
-![HDInsight HBase 表格式資料](./media/apache-hbase-tutorial-get-started-linux/hdinsight-hbase-contacts-tabular.png)
+![HDInsight Apache HBase 表格式資料](./media/apache-hbase-tutorial-get-started-linux/hdinsight-hbase-contacts-tabular.png)
 
 在 HBase (實作 [Cloud BigTable](https://cloud.google.com/bigtable/)) 中，相同的資料看起來如下：
 
-![HDInsight HBase BigTable 資料](./media/apache-hbase-tutorial-get-started-linux/hdinsight-hbase-contacts-bigtable.png)
+![HDInsight Apache HBase BigTable 資料](./media/apache-hbase-tutorial-get-started-linux/hdinsight-hbase-contacts-bigtable.png)
 
 **使用 HBase Shell**
 
@@ -115,7 +115,7 @@ ms.locfileid: "70917395"
     scan 'Contacts'
     ```
 
-    ![HDInsight Hadoop HBase 殼層](./media/apache-hbase-tutorial-get-started-linux/hdinsight-hbase-shell.png)
+    ![HDInsight Apache Hadoop HBase 殼層](./media/apache-hbase-tutorial-get-started-linux/hdinsight-hbase-shell.png)
 
 1. 使用 `get` 命令來擷取資料列的內容。 輸入下列命令：
 
@@ -284,7 +284,7 @@ HDInsight 中的 HBase 隨附於 Web UI，以供監視叢集。 使用 Web UI，
 
 1. 選取頁面頂端的 [快速連結]  ，指向作用中的 Zookeeper 節點連結，然後選取 [HBase Master UI]  。  UI 會在另一個瀏覽器索引標籤中開啟：
 
-   ![HDInsight HBase HMaster UI](./media/apache-hbase-tutorial-get-started-linux/hdinsight-hbase-hmaster-ui.png)
+   ![HDInsight Apache HBase HMaster UI](./media/apache-hbase-tutorial-get-started-linux/hdinsight-hbase-hmaster-ui.png)
 
    HBase 主要 UI 包含下列區段：
 

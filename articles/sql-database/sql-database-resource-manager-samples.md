@@ -11,18 +11,18 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: sstein
 ms.date: 02/04/2019
-ms.openlocfilehash: 81f3e4beb29f21f1b752a876827e9b35856c713a
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: c501bed9220c08013d44836066e46df92cf69eaa
+ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68566898"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71037441"
 ---
 # <a name="azure-resource-manager-templates-for-azure-sql-database"></a>適用於 Azure SQL Database 的 Azure Resource Manager 範本
 
 Azure Resource Manager 範本可讓您定義基礎結構即程式碼，並將解決方案部署至 Azure 雲端。
 
-## <a name="single-database--elastic-pool"></a>單一資料庫和彈性集區
+## <a name="single-database--elastic-pooltabsingle-database"></a>[單一資料庫和彈性集區](#tab/single-database)
 
 下表包含適用於 Azure SQL Database 的 Azure Resource Manager 範本的連結。
 
@@ -41,7 +41,7 @@ Azure Resource Manager 範本可讓您定義基礎結構即程式碼，並將解
 | [HDInsight 叢集與 SQL Database](https://github.com/Azure/azure-quickstart-templates/tree/master/101-hdinsight-linux-with-sql-database) | 此範本可讓您建立 HDInsight 叢集、SQL Database 伺服器、SQL Database 和兩個資料表。 [搭配使用 Sqoop 與 HDInsight 中的 Hadoop](https://docs.microsoft.com/azure/hdinsight/hadoop/hdinsight-use-sqoop) 一文中使用了此範本 |
 | [依排程執行 SQL 預存程序的 Azure 邏輯應用程式](https://github.com/Azure/azure-quickstart-templates/tree/master/101-logic-app-sql-proc) | 此範本可讓您建立會依排程執行 SQL 預存程序的邏輯應用程式。 此程序的任何引數都可放入範本的本文區段中。|
 
-## <a name="managed-instance"></a>受控執行個體
+## <a name="managed-instancetabmanaged-instance"></a>[受控執行個體](#tab/managed-instance)
 
 下表包含適用於 Azure SQL Database - 受控執行個體的 Azure Resource Manager 範本的連結。
 
@@ -51,3 +51,5 @@ Azure Resource Manager 範本可讓您定義基礎結構即程式碼，並將解
 | [受控執行個體的網路環境](https://github.com/Azure/azure-quickstart-templates/tree/master/101-sql-managed-instance-azure-environment) | 此部署會建立已設定的 Azure 虛擬網路和兩個子網路 - 一個專門用於您的受控執行個體，另一個則可用來放置其他資源 (例如 VM、App Service 環境等)。 此範本會建立已適當設定的網路環境，供您在其中部署受控執行個體。 |
 | [具有 P2S 連線的受控執行個體](https://github.com/Azure/azure-quickstart-templates/tree/master/201-sqlmi-new-vnet-w-point-to-site-vpn) | 此部署會建立具有兩個子網路 `ManagedInstance` 和 `GatewaySubnet` 的 Azure 虛擬網路。 受控執行個體將部署在 ManagedInstance 子網路中。 虛擬網路閘道會建立在 `GatewaySubnet` 子網路中，並設定點對站 VPN 連線。 |
 | [受控執行個體與虛擬機器](https://github.com/Azure/azure-quickstart-templates/tree/master/201-sqlmi-new-vnet-w-jumpbox) | 此部署會建立具有兩個子網路 `ManagedInstance` 和 `Management` 的 Azure 虛擬網路。 受控執行個體將部署在 `ManagedInstance` 子網路中。 具有最新版 SQL Server Management Studio (SSMS) 的虛擬機器會部署在 `Management` 子網路中。 |
+
+---

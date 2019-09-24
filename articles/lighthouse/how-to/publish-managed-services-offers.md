@@ -4,15 +4,15 @@ description: 了解如何發佈將客戶上線至 Azure 委派資源管理的受
 author: JnHs
 ms.author: jenhayes
 ms.service: lighthouse
-ms.date: 08/29/2019
+ms.date: 09/19/2019
 ms.topic: overview
 manager: carmonm
-ms.openlocfilehash: c0c2ccf03292434b3f23b26857ec0d2b3fc3ceed
-ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
+ms.openlocfilehash: 4a1adf1be8798f4bb21b89ff0654287a2958146e
+ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70165257"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71105254"
 ---
 # <a name="publish-a-managed-services-offer-to-azure-marketplace"></a>將受控服務供應項目發佈到 Azure Marketplace
 
@@ -71,7 +71,7 @@ ms.locfileid: "70165257"
   - **Azure AD 物件識別碼**：使用者、使用者群組或應用程式的 Azure AD 識別碼，系統將會授與它們您客戶資源的特定權限 (按角色定義所描述)。
   - **Azure AD 物件顯示名稱**：協助客戶了解此授權用途的易記名稱。 客戶會在委派資源時看到此名稱。
   - **角色定義**：從清單中選取其中一個可用的 Azure AD 內建角色。 此角色將會決定 [Azure AD 物件識別碼]  欄位中的使用者，對於您的客戶資源會有那些權限。 如需這些角色的資訊，請參閱[內建角色](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles) \(部分機器翻譯\)。
-  - **可指派的角色**：如果您為此授權在 [角色定義]  中選取 [使用者存取系統管理員]，您可以在此新增一或多個可指派的角色。 [Azure AD 物件識別碼]  欄位中的使用者，可以將這些**可指派的角色**指派給[受控識別](https://docs.microsoft.com/azure/managed-applications/publish-managed-identity) \(部分機器翻譯\)。 請注意，不會有其他一般與「使用者存取系統管理員」角色相關聯的權限套用至此使用者。 (如果您沒有為此使用者的 [角色定義] 選取 [使用者存取系統管理員]，則此欄位無效。)
+  - **可指派的角色**：如果您為此授權在 [角色定義]  中選取 [使用者存取系統管理員]，則這是必要項目。 若是如此，您必須在此新增一或多個可指派的角色。 [Azure AD 物件識別碼]  欄位中的使用者，可以將這些**可指派的角色**指派給[受控識別](https://docs.microsoft.com/azure/managed-applications/publish-managed-identity) \(部分機器翻譯\)。 請注意，不會有其他一般與「使用者存取系統管理員」角色相關聯的權限套用至此使用者。 如果您未在此選取一個或多個角色，您的提交將不會通過認證。 (如果您沒有為此使用者的 [角色定義] 選取 [使用者存取系統管理員]，則此欄位無效。)
 
 > [!TIP]
 > 在多數情況下，建議您指派權限給 Azure AD 使用者群組或服務主體，而不是指派給一系列個別使用者帳戶。 如此一來，當您的存取需求變更時，就可以新增或移除個別使用者的存取權，而不需要更新並重新發佈方案。

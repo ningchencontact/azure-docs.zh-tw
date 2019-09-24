@@ -1,6 +1,6 @@
 ---
-title: 什麼是 Azure Machine Learning 服務
-description: Azure Machine Learning 服務的概觀 - 一整合的端對端資料科學解決方案，可供專業資料科學家進行雲端規模的開發、實驗及部署先進的分析應用程式。
+title: 什麼是 Azure Machine Learning？
+description: Azure Machine Learning 概觀 - 整合的端對端資料科學解決方案，可供專業資料科學家進行雲端規模的開發、實驗及部署先進的分析應用程式。
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,16 +9,16 @@ author: j-martens
 ms.author: jmartens
 ms.date: 08/05/2019
 ms.custom: seodec18
-ms.openlocfilehash: 99514002f0a259b7e981c2db498e72865d4f1bd4
-ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
+ms.openlocfilehash: 0a70b1c9d3ac888f0f77cf0f6e9ca37bc6cd4324
+ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70858646"
+ms.lasthandoff: 09/15/2019
+ms.locfileid: "70999925"
 ---
-# <a name="what-is-azure-machine-learning-service"></a>什麼是 Azure Machine Learning 服務？
+# <a name="what-is-azure-machine-learning"></a>什麼是 Azure Machine Learning？
 
-Azure Machine Learning 服務是用來定型、部署、自動化及管理機器學習模型的雲端服務，而這一切都在雲端所提供的廣泛規模下進行。
+Azure Machine Learning 是用來定型、部署、自動化及管理機器學習模型的雲端服務，而這一切都在雲端所提供的廣泛規模下進行。
 
 ## <a name="what-is-machine-learning"></a>什麼是機器學習？
 
@@ -26,9 +26,9 @@ Azure Machine Learning 服務是用來定型、部署、自動化及管理機器
 
 機器學習的預測可讓應用程式和裝置更聰明。 例如，當您線上購物時，機器學習服務可根據您已經購買的產品，協助推薦其他您可能會想要的產品。 或是當您的信用卡被刷過時，機器學習服務可將該筆交易與交易資料庫進行比對，協助偵測詐騙。 而且，當您的吸塵器機器人清潔房間時，機器學習服務可協助它判斷作業是否已完成。
 
-## <a name="what-is-azure-machine-learning-service"></a>什麼是 Azure Machine Learning 服務？
+## <a name="what-is-azure-machine-learning"></a>什麼是 Azure Machine Learning？
 
-Azure Machine Learning 服務提供雲端架構的環境，可用於準備資料、定型、測試、部署、管理及追蹤機器學習服務模型。 開始訓練您的本機電腦，然後向外擴充到雲端。 此服務完全支援開放原始碼技術，例如 PyTorch、TensorFlow 和 scikit-learn，並可用於任何一種機器學習，從傳統 ML 以至深度學習、監督式和非監督式學習。
+Azure Machine Learning 提供雲端架構的環境，可用於準備資料、定型、測試、部署、管理及追蹤機器學習服務模型。 開始訓練您的本機電腦，然後向外擴充到雲端。 此服務完全支援開放原始碼技術，例如 PyTorch、TensorFlow 和 scikit-learn，並可用於任何一種機器學習，從傳統 ML 以至深度學習、監督式和非監督式學習。
 
 探索和準備資料、定型和測試模型，以及使用豐富工具加以部署，例如：
 + [視覺化介面](ui-tutorial-automobile-price-train-score.md)，您可以在其中拖放模組來建置您的實驗，然後部署模型
@@ -38,9 +38,9 @@ Azure Machine Learning 服務提供雲端架構的環境，可用於準備資料
 
 > [!VIDEO https://channel9.msdn.com/Events/Connect/Microsoft-Connect--2018/D240/player]
 
-## <a name="what-can-i-do-with-azure-machine-learning-service"></a>可利用 Azure Machine Learning 服務做什麼？
+## <a name="what-can-i-do-with-azure-machine-learning"></a>Azure Machine Learning 有何功用？
 
-您可以使用 <a href="https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py" target="_blank">Azure Machine Learning Python SDK</a> 搭配開放原始碼 Python 套件，或使用[視覺化介面 (預覽)](ui-tutorial-automobile-price-train-score.md)，在 Azure Machine Learning 服務工作區中自行建置及定型高精確度的機器學習和深度學習模型。
+您可以使用 <a href="https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py" target="_blank">Azure Machine Learning Python SDK</a> 搭配開放原始碼 Python 套件，或使用[視覺化介面 (預覽)](ui-tutorial-automobile-price-train-score.md)，在 Azure Machine Learning 工作區中自行建置及定型高精確度的機器學習和深度學習模型。
 
 您可選擇開放原始碼 Python 套件中所提供的許多機器學習元件，例如 <a href="https://scikit-learn.org/stable/" target="_blank">Scikit-learn</a>、<a href="https://www.tensorflow.org" target="_blank">Tensorflow</a>、<a href="https://pytorch.org" target="_blank">PyTorch</a> 和 <a href="https://mxnet.io" target="_blank">MXNet</a>。
 
@@ -58,7 +58,7 @@ Azure Machine Learning 服務提供雲端架構的環境，可用於準備資料
 
 + 在便於使用的介面中建立[自動化 ML 實驗](tutorial-first-experiment-automated-ml.md)。
 + [視覺化介面中的拖放實驗](ui-tutorial-automobile-price-train-score.md)。
-  ![Azure Machine Learning 服務的視覺化介面](media/overview-what-is-azure-ml/visual-interface.png)
+  ![Azure Machine Learning 的視覺化介面](media/overview-what-is-azure-ml/visual-interface.png)
 
 
 
@@ -77,17 +77,17 @@ Azure Machine Learning 服務提供雲端架構的環境，可用於準備資料
 * 在每個步驟中使用不同的計算資源
 * 執行批次評分工作
 
-若要開始使用 Azure Machine Learning 服務，請參閱以下的[後續步驟](#next-steps)。
+若要開始使用 Azure Machine Learning，請參閱以下的[後續步驟](#next-steps)。
 
-## <a name="how-does-azure-machine-learning-service-differ-from-studio"></a>Azure Machine Learning 服務與 Studio 有何不同？
+## <a name="how-does-azure-machine-learning-differ-from-studio"></a>Azure Machine Learning 與 Studio 有何不同？
 
 [Machine Learning Studio](../studio/what-is-ml-studio.md) 是可進行共同作業的拖放式視覺化工作區，您可於該處建置、測試及部署機器學習解決方案，而無須撰寫任何程式碼。 它會使用預先建置且預先設定的機器學習演算法和資料處理模組，以及專屬計算平台。
 
-Azure Machine Learning 服務同時提供 SDK **與**視覺化介面 (預覽)，可快速準備資料、定型及部署機器學習服務模型。 視覺化介面 (預覽) 對 Studio 提供類似的拖放體驗。 不過，不同於 Studio 的專屬計算平台，視覺化介面會使用您自己的計算資源，且已完全整合到 Azure Machine Learning 服務中。
+Azure Machine Learning 同時提供 SDK **與**視覺化介面 (預覽)，可快速準備資料、定型及部署機器學習服務模型。 視覺化介面 (預覽) 對 Studio 提供類似的拖放體驗。 不過，不同於 Studio 的專屬計算平台，視覺化介面會使用您自己的計算資源，且已完全整合到 Azure Machine Learning 中。
 
 以下是快速的比較。
 
-|| Machine Learning Studio | Azure Machine Learning 服務：<br/>視覺化介面|
+|| Machine Learning Studio | Azure Machine Learning：<br/>視覺化介面|
 |---| --- | --- |
 || 正式上市 (GA) | 預覽狀態|
 |介面適用的模組| 多種 | 初始的受歡迎模組集合|
@@ -98,11 +98,11 @@ Azure Machine Learning 服務同時提供 SDK **與**視覺化介面 (預覽)，
 試用視覺介面 (預覽)，經由[教學課程：透過視覺化介面預測汽車價格](ui-tutorial-automobile-price-train-score.md)。
 
 > [!NOTE]
-> 在 Studio 中建立的模型無法由 Azure Machine Learning 服務進行部署或管理。 不過，可以透過 Azure Machine Learning 服務工作區管理在服務視覺化介面中建立和部署的模型。
+> 在 Studio 中建立的模型無法由 Azure Machine Learning 進行部署或管理。 不過，可以透過 Azure Machine Learning 工作區管理在服務視覺化介面中建立和部署的模型。
 
 ## <a name="free-trial"></a>免費試用
 
-如果您沒有 Azure 訂用帳戶，請在開始前建立一個免費帳戶。 立即試用[免費或付費版本的 Azure Machine Learning 服務](https://aka.ms/AMLFree)。
+如果您沒有 Azure 訂用帳戶，請在開始前先建立一個免費帳戶。 立即試用[免費或付費版本的 Azure Machine Learning](https://aka.ms/AMLFree)。
 
 即可取得用於 Azure 服務的點數。 信用額度用完之後，您可以保留帳戶並使用[免費的 Azure 服務](https://azure.microsoft.com/free/)。 除非您明確變更您的設定且同意付費，否則我們絕對不會從您的信用卡收取任何費用。 或是[啟用 MSDN 訂閱者權益](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F)，此服務每月提供您可以用於 Azure 付費服務的額度。
 
@@ -112,11 +112,11 @@ Azure Machine Learning 服務同時提供 SDK **與**視覺化介面 (預覽)，
 
 - 請遵循完整的教學課程：
   + [建立工作區並定型您的第一個 ML 模型](tutorial-1st-experiment-sdk-setup.md)
-  + [使用 Azure Machine Learning 服務將映像分類模型定型](tutorial-train-models-with-aml.md)
+  + [使用 Azure Machine Learning 將影像分類模型定型](tutorial-train-models-with-aml.md)
 
 
 - 了解用來建置、最佳化及管理機器學習案例的[機器學習管線](/azure/machine-learning/service/concept-ml-pipelines)。
 
-- 進一步閱讀 [Azure Machine Learning 服務的架構和概念](concept-azure-machine-learning-architecture.md)一文。
+- 進一步閱讀 [Azure Machine Learning 的架構和概念](concept-azure-machine-learning-architecture.md)一文。
 
 - 如需詳細資訊，請參閱 [Microsoft 的其他機器學習產品](/azure/architecture/data-guide/technology-choices/data-science-and-machine-learning)。

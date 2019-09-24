@@ -1,5 +1,5 @@
 ---
-title: 使用 Azure 監視器從混合式 Linux 電腦收集資料 | Microsoft Docs
+title: 快速入門：使用 Azure 監視器從混合式 Linux 電腦收集資料
 description: 在本快速入門中，您將了解如何針對在 Azure 外部執行的 Linux 電腦上部署 Log Analytics 代理程式，並使用 Azure 監視器記錄來啟用資料收集。
 services: azure-monitor
 documentationcenter: azure-monitor
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.topic: quickstart
 ms.date: 08/22/2019
 ms.author: magoedte
-ms.custom: mvc
-ms.openlocfilehash: 6fa26adab64a91ac2910607e4a828f9362490d08
-ms.sourcegitcommit: 007ee4ac1c64810632754d9db2277663a138f9c4
+ms.custom: mvc, seo-javascript-september2019
+ms.openlocfilehash: cdaca0fd3e314ecb5c0b68438eaaf87fbfb699b0
+ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69991760"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70933038"
 ---
 # <a name="collect-data-from-a-linux-computer-in-a-hybrid-environment-with-azure-monitor"></a>使用 Azure 監視器從混合式環境中的 Linux 電腦收集資料
 
@@ -27,11 +27,11 @@ ms.locfileid: "69991760"
 
 若要了解支援的組態，請參閱[支援的 Windows 作業系統](../../azure-monitor/platform/log-analytics-agent.md#supported-linux-operating-systems)和[網路防火牆組態](../../azure-monitor/platform/log-analytics-agent.md#network-firewall-requirements)。
  
-如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 。
+如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)。
 
 ## <a name="sign-in-to-the-azure-portal"></a>登入 Azure 入口網站
 
-在 [https://portal.azure.com](https://portal.azure.com) 登入 Azure 入口網站。 
+登入 Azure 入口網站：[https://portal.azure.com](https://portal.azure.com)。 
 
 ## <a name="create-a-workspace"></a>建立工作區
 

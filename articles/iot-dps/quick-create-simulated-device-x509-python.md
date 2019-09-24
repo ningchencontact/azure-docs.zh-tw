@@ -10,14 +10,15 @@ services: iot-dps
 manager: timlt
 ms.devlang: python
 ms.custom: mvc
-ms.openlocfilehash: 12ccff3676cb35ac27126360dbcf5a1b9b3e131f
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: 3474d30d051e88d0e9150ea649958caa460932c7
+ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65914144"
+ms.lasthandoff: 09/15/2019
+ms.locfileid: "71001286"
 ---
 # <a name="create-and-provision-a-simulated-x509-device-using-python-device-sdk-for-iot-hub-device-provisioning-service"></a>使用適用於 IoT 中樞裝置佈建服務的 Python 裝置 SDK 來建立及佈建模擬 X.509 裝置
+
 [!INCLUDE [iot-dps-selector-quick-create-simulated-device-x509](../../includes/iot-dps-selector-quick-create-simulated-device-x509.md)]
 
 這些步驟顯示如何在執行 Windows OS 的開發電腦上模擬 X.509 裝置，並使用 Python 程式碼範例將此模擬裝置與裝置佈建服務和 IoT 中樞進行連線。 
@@ -31,6 +32,9 @@ Azure IoT 裝置佈建服務支援兩種類型的註冊：
 本文將示範個別註冊。
 
 [!INCLUDE [IoT Device Provisioning Service basic](../../includes/iot-dps-basic.md)]
+
+> [!NOTE]
+> 本指南僅適用於現已淘汰的 V1 Python SDK。 V2 尚未支援模擬的 x.509 裝置。 小組目前正努力將 V2 帶至功能同位。
 
 ## <a name="prepare-the-environment"></a>準備環境 
 
@@ -88,7 +92,7 @@ Azure IoT 裝置佈建服務支援兩種類型的註冊：
 
     ![Dice 裝置註冊應用程式](./media/python-quick-create-simulated-device-x509/dice-device-enrollment.png)
  
-4. 在 Windows 電腦上建立名為 X509testcertificate.pem     的檔案，在您選擇的編輯器中開啟該檔案，並將剪貼簿內容複製到這個檔案。 儲存檔案。 
+4. 在 Windows 電腦上建立名為 X509testcertificate.pem  的檔案，在您選擇的編輯器中開啟該檔案，並將剪貼簿內容複製到這個檔案。 儲存檔案。 
 
 5. 登入 Azure 入口網站，按一下左側功能表上的 [所有資源]  按鈕，然後開啟您的佈建服務。
 

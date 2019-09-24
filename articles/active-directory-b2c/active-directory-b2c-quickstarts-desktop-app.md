@@ -11,16 +11,16 @@ ms.custom: mvc
 ms.date: 09/12/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 98d312dbafd399cc8b92e2c4fb70499853c214b5
-ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
+ms.openlocfilehash: e11fd2c8ff250ff505f312507a577d67ff9c1454
+ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70914266"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71065834"
 ---
 # <a name="quickstart-set-up-sign-in-for-a-desktop-app-using-azure-active-directory-b2c"></a>快速入門：設定使用 Azure Active Directory B2C 登入傳統型應用程式
 
-Azure Active Directory (Azure AD) B2C 提供雲端身分識別管理，使您的應用程式、企業和客戶受到保護。 Azure AD B2C 可讓您的應用程式使用開放式標準通訊協定，向社交帳戶和企業帳戶進行驗證。 本快速入門中，您會使用 Windows Presentation Foundation (WPF) 傳統型應用程式，透過社交識別提供者登入，並呼叫受 Azure AD B2C 保護的 Web API。
+Azure Active Directory B2C (Azure AD B2C) 提供雲端身分識別管理，使您的應用程式、企業和客戶受到保護。 Azure AD B2C 可讓您的應用程式使用開放式標準通訊協定，向社交帳戶和企業帳戶進行驗證。 本快速入門中，您會使用 Windows Presentation Foundation (WPF) 傳統型應用程式，透過社交識別提供者登入，並呼叫受 Azure AD B2C 保護的 Web API。
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
