@@ -474,7 +474,7 @@ PowerShell 語言背景工作角色通常會使用數個模組。 這些模組�
 
 目前的模組清單如下所示：
 
-* [ [Archive](https://www.powershellgallery.com/packages/Microsoft.PowerShell.Archive)]：用來處理封存的模組， `.zip`例如、 `.nupkg`和其他。
+* [Microsoft.PowerShell.Archive](https://www.powershellgallery.com/packages/Microsoft.PowerShell.Archive)：用來處理封存的模組， `.zip`例如、 `.nupkg`和其他。
 * **ThreadJob**：以執行緒為基礎的 PowerShell 工作 Api 執行。
 
 函式會使用這些模組的最新版本。 若要使用這些模組的特定版本，您可以將特定版本放在函數`Modules`應用程式的資料夾中。
