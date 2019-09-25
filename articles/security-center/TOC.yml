@@ -57,6 +57,8 @@
           href: security-center-alerts-integration.md
         - name: 雲端智慧警示相互關聯 (事件)
           href: security-center-alerts-cloud-smart.md
+        - name: 安全性警示地圖和威脅情報
+          href: security-center-threat-intel.md
         - name: 警示驗證 (EICAR 測試檔案)
           href: security-center-alert-validation.md
 - name: 使用說明指南
@@ -65,7 +67,7 @@
       href: security-center-secure-score.md
     - name: 升級為進階安全性
       href: security-center-onboarding.md
-    - name: 使用 Windows Defender ATP 進行伺服器保護
+    - name: 使用 Windows Defender ATP 保護伺服器
       href: security-center-wdatp.md
     - name: 適用於 Azure VM 上 SQL 的進階資料安全性 (公開預覽)
       href: security-center-iaas-advanced-data.md

@@ -425,7 +425,7 @@
       href: hyper-v-azure-powershell-resource-manager.md
     - name: 使用 PowerShell 設定 Hyper-V VM 至 Azure 的災害復原 (透過 VMM)
       href: hyper-v-vmm-powershell-resource-manager.md
-    - name: 將 Azure 自動化 Runbook 新增至復原方案以協調容錯移轉
+    - name: 將自動化 Runbook 新增至復原方案
       href: site-recovery-runbook-automation.md
 - name: 監視
   items:

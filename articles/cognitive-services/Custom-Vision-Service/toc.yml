@@ -56,6 +56,8 @@
       href: getting-started-improving-your-classifier.md
     - name: 使用預測 API
       href: use-prediction-api.md
+    - name: 使用建議的標籤
+      href: suggested-tags.md
     - name: 匯出模型
       items:
         - name: 將您的模型匯出至行動裝置

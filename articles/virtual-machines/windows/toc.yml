@@ -46,10 +46,96 @@
       href: tutorial-secure-web-server.md
 - name: 範例
   items:
-    - name: PowerShell
+    - name: PowerShell 索引
       href: powershell-samples.md
-    - name: Azure CLI
+    - name: PowerShell
+      items:
+        - name: 建立
+          items:
+            - name: 快速
+              href: ./../scripts/virtual-machines-windows-powershell-sample-create-vm-quick.md
+            - name: 完整設定的 VM
+              href: ./../scripts/virtual-machines-windows-powershell-sample-create-vm.md
+            - name: 具有高可用性的 VM
+              href: ./../scripts/virtual-machines-windows-powershell-sample-create-nlb-vm.md
+            - name: 自訂指令碼範例
+              href: ./../scripts/virtual-machines-windows-powershell-sample-create-vm-iis.md
+            - name: 使用 DSC
+              href: ./../scripts/virtual-machines-windows-powershell-sample-create-iis-using-dsc.md
+            - name: VHD 上傳的 VM
+              href: ./../scripts/virtual-machines-windows-powershell-upload-generalized-script.md
+            - name: 連結 OS 磁碟
+              href: ./../scripts/virtual-machines-windows-powershell-sample-create-vm-from-managed-os-disks.md
+            - name: 來自快照集的 VM
+              href: ./../scripts/virtual-machines-windows-powershell-sample-create-vm-from-snapshot.md
+        - name: 管理儲存體
+          items:
+            - name: 從 VHD 建立受控磁碟
+              href: ../scripts/virtual-machines-windows-powershell-sample-create-managed-disk-from-vhd.md
+            - name: 從快照集建立受控磁碟
+              href: ../scripts/virtual-machines-windows-powershell-sample-create-managed-disk-from-snapshot.md
+            - name: 複製受控磁碟
+              href: ../scripts/virtual-machines-windows-powershell-sample-copy-managed-disks-to-same-or-different-subscription.md
+            - name: 將快照集以 VHD 形式匯出到儲存體帳戶
+              href: ../scripts/virtual-machines-windows-powershell-sample-copy-snapshot-to-storage-account.md
+            - name: 將受控磁碟的 VHD 匯出到儲存體帳戶
+              href: ../scripts/virtual-machines-windows-powershell-sample-copy-managed-disks-vhd.md
+            - name: 從 VDH 建立快照集
+              href: ../scripts/virtual-machines-windows-powershell-sample-create-snapshot-from-vhd.md
+            - name: 複製快照集
+              href: ../scripts/virtual-machines-windows-powershell-sample-copy-snapshot-to-same-or-different-subscription.md
+        - name: 安全
+          items:
+            - name: 加密 VM 及其資料磁碟
+              href: ./../scripts/virtual-machines-windows-powershell-sample-encrypt-vm.md?
+        - name: 監視
+          items:
+            - name: Azure 監視器
+              href: ./../scripts/virtual-machines-windows-powershell-sample-create-vm-oms.md
+            - name: 收集訂用帳戶中所有 VM 的詳細資料
+              href: ../scripts/virtual-machines-powershell-sample-collect-vm-details.md
+    - name: Azure CLI 索引
       href: cli-samples.md
+    - name: CLI
+      items:
+        - name: 建立
+          items:
+            - name: 快速
+              href: ./../scripts/virtual-machines-windows-cli-sample-create-vm-quick-create.md
+            - name: 完整設定的 VM
+              href: ./../scripts/virtual-machines-windows-cli-sample-create-vm.md
+            - name: 具有高可用性的 VM
+              href: ./../scripts/virtual-machines-windows-cli-sample-nlb.md
+            - name: 自訂指令碼範例
+              href: ./../scripts/virtual-machines-windows-cli-sample-create-vm-iis.md
+            - name: 使用 DSC 組態
+              href: ./../scripts/virtual-machines-windows-cli-sample-create-iis-using-dsc.md
+        - name: 管理儲存體
+          items:
+            - name: 從 VHD 建立受控磁碟
+              href: ../scripts/virtual-machines-windows-cli-sample-create-managed-disk-from-vhd.md
+            - name: 從快照集建立受控磁碟
+              href: ../scripts/virtual-machines-windows-cli-sample-create-managed-disk-from-snapshot.md
+            - name: 複製受控磁碟
+              href: ../scripts/virtual-machines-windows-cli-sample-copy-managed-disks-to-same-or-different-subscription.md
+            - name: 將快照集以 VHD 格式匯出至儲存體帳戶
+              href: ../scripts/virtual-machines-windows-cli-sample-copy-snapshot-to-storage-account.md
+            - name: 將受控磁碟的 VHD 匯出到儲存體帳戶
+              href: ../scripts/virtual-machines-windows-cli-sample-copy-managed-disks-vhd.md
+            - name: 複製快照集
+              href: ../scripts/virtual-machines-windows-cli-sample-copy-snapshot-to-same-or-different-subscription.md
+        - name: 網路
+          items:
+            - name: 保護 VM 之間的網路流量
+              href: ./../scripts/virtual-machines-windows-cli-sample-create-vm-nsg.md
+        - name: 安全
+          items:
+            - name: 加密 VM 和資料磁碟
+              href: ./../scripts/virtual-machines-windows-cli-sample-encrypt-vm.md
+            - name: 監視
+              items:
+                - name: Azure 監視器
+                  href: ./../scripts/virtual-machines-windows-cli-sample-create-vm-oms.md
 - name: 概念
   items:
     - name: Azure Resource Manager
@@ -388,6 +474,8 @@
           href: expand-os-disk.md
         - name: 製作磁碟的快照集
           href: snapshot-copy-managed-disk.md
+        - name: 建立增量快照
+          href: disks-incremental-snapshots.md
         - name: 備份非受控磁碟
           href: incremental-snapshots.md
         - name: 移轉和轉換

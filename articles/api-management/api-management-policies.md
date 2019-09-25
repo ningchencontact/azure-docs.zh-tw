@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 11/19/2017
 ms.author: apimpm
-ms.openlocfilehash: ed20ef023a884ac79150cd31f25fde86b715c752
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: 2b6e056fbfb134f0b1218b4281b9f971a0e24202
+ms.sourcegitcommit: 3fa4384af35c64f6674f40e0d4128e1274083487
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70073398"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71219480"
 ---
 # <a name="api-management-policies"></a>API 管理原則
 本節提供下列「API 管理」原則的參考。 如需有關新增和設定原則的資訊，請參閱 [API 管理中的原則](api-management-howto-policies.md)。  
@@ -50,8 +50,8 @@ ms.locfileid: "70073398"
     -   [設定變數](api-management-advanced-policies.md#set-variable) - 將值保存在具名的 context 變數中以供日後存取。  
     -   [設定要求方法](api-management-advanced-policies.md#SetRequestMethod) - 允許您變更要求的 HTTP 方法。  
     -   [設定狀態碼](api-management-advanced-policies.md#SetStatus) - 將 HTTP 狀態碼變更為指定的值。  
-    -   [追蹤](api-management-advanced-policies.md#Trace) - 將字串新增至 [API 檢查器](https://azure.microsoft.com/documentation/articles/api-management-howto-api-inspector/)輸出。  
-    -   [等候](api-management-advanced-policies.md#Wait) - 等候括住的 [Send 要求](api-management-advanced-policies.md#SendRequest)、[從快取取得值](api-management-caching-policies.md#GetFromCacheByKey)或[控制流程](api-management-advanced-policies.md#choose)原則完成後再繼續進行。  
+    -   [追蹤](api-management-advanced-policies.md#Trace)-將自訂追蹤新增至[API 偵測器](https://azure.microsoft.com/documentation/articles/api-management-howto-api-inspector/)輸出、Application Insights 遙測和診斷記錄中。  
+    -   [等候](api-management-advanced-policies.md#Wait) - 等候括住的 [Send 要求](api-management-advanced-policies.md#SendRequest)、[取得快取的值](api-management-caching-policies.md#GetFromCacheByKey)或[控制流程](api-management-advanced-policies.md#choose)原則完成後再繼續。  
 -   [驗證原則](api-management-authentication-policies.md#AuthenticationPolicies)  
     -   [使用基本驗證進行驗證](api-management-authentication-policies.md#Basic) - 使用基本驗證來驗證後端服務。  
     -   [使用用戶端憑證進行驗證](api-management-authentication-policies.md#ClientCertificate) - 使用用戶端憑證來驗證後端服務。  
