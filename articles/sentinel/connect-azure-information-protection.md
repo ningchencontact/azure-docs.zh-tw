@@ -14,14 +14,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/24/2019
 ms.author: cabailey
-ms.openlocfilehash: 7584a884d41451c5a248b84a40eb45815bfb6bdf
-ms.sourcegitcommit: 992e070a9f10bf43333c66a608428fcf9bddc130
+ms.openlocfilehash: a2760b53dbb9776501cb5e58c681045743471166
+ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71240735"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71261826"
 ---
 # <a name="connect-data-from-azure-information-protection"></a>從 Azure 資訊保護連接資料
+
+> [!IMPORTANT]
+> Azure Sentinel 中的 Azure 資訊保護資料連線器目前處於公開預覽狀態。
+> 這項功能是在沒有服務等級協定的情況下提供，不建議用於生產工作負載。 可能不支援特定功能，或可能已經限制功能。 如需詳細資訊，請參閱 [Microsoft Azure 預覽版增補使用條款](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)。
 
 您可以藉由設定 Azure 資訊保護資料連線器，將[Azure 資訊保護](https://azure.microsoft.com/services/information-protection/)中的記錄資訊串流至 Azure Sentinel。 Azure 資訊保護可協助您控制及保護您的敏感性資料，不論其儲存在雲端或內部部署中。
 
@@ -54,10 +58,6 @@ ms.locfileid: "71240735"
 - Azure 資訊保護已新增至 Azure 入口網站。 如果您需要此步驟的說明，請參閱[將 Azure 資訊保護新增至 Azure 入口網站](https://docs.microsoft.com/azure/information-protection/quickstart-viewpolicy#add-azure-information-protection-to-the-azure-portal)。
 
 ## <a name="connect-to-azure-information-protection"></a>連接到 Azure 資訊保護
-
-> [!IMPORTANT]
-> Azure Sentinel 中的 Azure 資訊保護資料連線器目前處於公開預覽狀態。
-> 這項功能是在沒有服務等級協定的情況下提供，不建議用於生產工作負載。 可能不支援特定功能，或可能已經限制功能。 如需詳細資訊，請參閱 [Microsoft Azure 預覽版增補使用條款](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)。
 
 如果您尚未為 Azure 資訊保護設定 Log Analytics 工作區，或需要變更儲存 Azure 資訊保護記錄資訊的工作區，請使用下列指示。
 

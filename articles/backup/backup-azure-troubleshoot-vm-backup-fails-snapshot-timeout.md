@@ -9,12 +9,12 @@ ms.service: backup
 ms.topic: troubleshooting
 ms.date: 07/05/2019
 ms.author: dacurwin
-ms.openlocfilehash: 85c0cbc1e516730018f80e1978ba565e311117fe
-ms.sourcegitcommit: 71db032bd5680c9287a7867b923bf6471ba8f6be
+ms.openlocfilehash: ab03056557c7c67c5b75d701c9995c9ad500caae
+ms.sourcegitcommit: 263a69b70949099457620037c988dc590d7c7854
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/16/2019
-ms.locfileid: "71018161"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71268766"
 ---
 # <a name="troubleshoot-azure-backup-failure-issues-with-the-agent-or-extension"></a>針對 Azure 備份失敗進行疑難排解：與代理程式或擴充功能相關的問題
 
@@ -110,7 +110,7 @@ Azure VM 代理程式可能已停止、過期、處於不一致的狀態，或�
 **錯誤碼**：UserErrorUnsupportedDiskSize <br>
 **錯誤訊息**：Azure 備份目前不支援已設定的磁片大小。 <br>
 
-當備份磁片大小大於 30 TB 的 VM 時，您的備份操作可能會失敗。 此外，目前不支援備份大於4TB 大小的加密磁片。 藉由分割磁片，確定磁片大小小於或等於支援的限制值。
+當備份磁片大小大於 30 TB 的 VM 時，您的備份操作可能會失敗。 此外，目前不支援備份大小大於 4 TB 的加密磁片。 藉由分割磁片，確定磁片大小小於或等於支援的限制值。
 
 ## <a name="usererrorbackupoperationinprogress---unable-to-initiate-backup-as-another-backup-operation-is-currently-in-progress"></a>UserErrorBackupOperationInProgress - 無法起始備份，因為另一個備份作業正在進行中
 
@@ -233,7 +233,11 @@ VM 備份仰賴發給底層儲存體帳戶的快照命令。 備份可能會失�
 
 ### <a name="clean_up_restore_point_collection"></a> 清除還原點集合
 
-移除鎖定之後，必須清除還原點。 若要清除還原點，請遵循下列任一方法：<br>
+移除鎖定之後，必須清除還原點。
+
+如果您刪除 VM 的資源群組或 VM 本身，受控磁片的立即還原快照集會維持作用中狀態，並會根據保留集而過期。 若要刪除儲存在還原點集合中的立即還原快照集（如果不需要的話），請根據以下所述的步驟來清除還原點集合。
+
+若要清除還原點，請遵循下列任一方法：<br>
 
 - [藉由執行臨機操作備份來清除還原點集合](#clean-up-restore-point-collection-by-running-ad-hoc-backup)<br>
 - [從 Azure 入口網站清除還原點集合](#clean-up-restore-point-collection-from-azure-portal)<br>

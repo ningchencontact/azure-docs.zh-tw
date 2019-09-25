@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 74f81cb1f9b62755d2dd2707518b828466e9ed1b
-ms.sourcegitcommit: cd70273f0845cd39b435bd5978ca0df4ac4d7b2c
+ms.openlocfilehash: 2c2e737360d6b1eeb8df28a95b8c36d4cca80ee4
+ms.sourcegitcommit: 263a69b70949099457620037c988dc590d7c7854
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71097560"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71268630"
 ---
 # <a name="azure-ad-password-protection-on-premises---frequently-asked-questions"></a>Azure AD 密碼保護內部部署 - 常見問題集
 
@@ -100,6 +100,8 @@ FRS (DFSR 之前的技術) 有許多已知問題，而且在更新版本的 Wind
 **問：Azure AD 密碼保護 Proxy 服務是否可以與其他服務 (例如 Azure AD Connect) 一起部署？**
 
 是的。 Azure AD 密碼保護 Proxy 服務與 Azure AD Connect 之間永遠不會產生直接衝突。
+
+可惜的是，在 Azure AD 密碼保護 Proxy 軟體所安裝的 Microsoft Azure AD Connect 代理程式更新程式服務版本與 Azure Active 的所安裝的服務版本之間，發現不相容[目錄應用程式 Proxy](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy)軟體。 此不相容可能會導致代理程式更新者服務無法連線到 Azure 進行軟體更新。 不建議您在同一部電腦上安裝 Azure AD 密碼保護 Proxy 和 Azure Active Directory 應用程式 Proxy。
 
 **問：DC 代理程式和 proxy 的安裝和註冊順序為何？**
 

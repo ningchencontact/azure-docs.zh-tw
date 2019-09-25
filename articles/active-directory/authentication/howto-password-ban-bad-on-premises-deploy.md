@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 895d44ea7ab6bfebee44014ad4e96016a555c08e
-ms.sourcegitcommit: dd69b3cda2d722b7aecce5b9bd3eb9b7fbf9dc0a
+ms.openlocfilehash: 5ad8f24c9d23e9412a4f6e4e5f97692bba2c0c39
+ms.sourcegitcommit: 263a69b70949099457620037c988dc590d7c7854
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70959927"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71268677"
 ---
 # <a name="deploy-azure-ad-password-protection"></a>部署 Azure AD 密碼保護
 
@@ -43,23 +43,24 @@ ms.locfileid: "70959927"
 ## <a name="deployment-requirements"></a>部署需求
 
 * 您可以在[排除組織中不正確密碼](concept-password-ban-bad.md#license-requirements)一文中找到 Azure AD 密碼保護的授權需求。
-* 所有取得 DC 代理程式服務以安裝 Azure AD 密碼保護的網域控制站, 都必須執行 Windows Server 2012 或更新版本。 這項需求並不表示 Active Directory 網域或樹系也必須位於 Windows Server 2012 網域或樹系功能等級。 如[設計原則](concept-password-ban-bad-on-premises.md#design-principles)中所述, 執行 DC 代理程式或 proxy 軟體時, 不需要最少的 DFL 或 FFL。
+* 將安裝 Azure AD 密碼保護 DC 代理程式軟體的所有電腦都必須執行 Windows Server 2012 或更新版本。 這項需求並不表示 Active Directory 網域或樹系也必須位於 Windows Server 2012 網域或樹系功能等級。 如[設計原則](concept-password-ban-bad-on-premises.md#design-principles)中所述, 執行 DC 代理程式或 proxy 軟體時, 不需要最少的 DFL 或 FFL。
 * 所有已安裝 DC 代理程式服務的電腦都必須安裝 .NET 4.5。
-* 所有取得已安裝之 Azure AD 密碼保護之 proxy 服務的電腦, 都必須執行 Windows Server 2012 R2 或更新版本。
+* 將安裝 Azure AD 密碼保護 Proxy 服務的所有電腦都必須執行 Windows Server 2012 R2 或更新版本。
    > [!NOTE]
-   > Proxy 服務部署是部署 Azure AD 密碼保護的必要需求, 即使網域控制站可能具有輸出直接網際網路連線能力。 
+   > Proxy 服務部署是部署 Azure AD 密碼保護的必要需求，即使網域控制站可能具有輸出直接網際網路連線能力。 
    >
 * 將安裝 Azure AD 密碼保護 Proxy 服務的所有電腦都必須安裝 .NET 4.7。
   .NET 4.7 應該已經安裝在完全更新的 Windows 伺服器上。 如果不是這種情況, 請下載並執行[適用于 Windows 的 .NET Framework 4.7 離線安裝程式](https://support.microsoft.com/help/3186497/the-net-framework-4-7-offline-installer-for-windows)中找到的安裝程式。
-* 已安裝 Azure AD 密碼保護元件的所有機器 (包括網域控制站) 都必須安裝通用 C 執行時間。 您可以藉由確定您有 Windows Update 的所有更新, 來取得執行時間。 或者, 您也可以在 OS 特定的更新套件中取得。 如需詳細資訊, 請參閱[Windows 中的通用 C 執行時間更新](https://support.microsoft.com/help/2999226/update-for-uniersal-c-runtime-in-windows)。
+* 已安裝 Azure AD 密碼保護元件的所有機器（包括網域控制站）都必須安裝通用 C 執行時間。 您可以藉由確定您有 Windows Update 的所有更新, 來取得執行時間。 或者, 您也可以在 OS 特定的更新套件中取得。 如需詳細資訊, 請參閱[Windows 中的通用 C 執行時間更新](https://support.microsoft.com/help/2999226/update-for-uniersal-c-runtime-in-windows)。
 * 每個網域中至少要有一個網域控制站, 以及至少一部裝載 proxy 服務以進行密碼保護的伺服器之間, 必須有網路連線能力。 此連線能力必須允許網域控制站存取 proxy 服務上的 RPC 端點對應程式埠135和 RPC 伺服器埠。 根據預設, RPC 伺服器埠是動態 RPC 埠, 但可以設定為[使用靜態埠](#static)。
-* 裝載 proxy 服務的所有電腦都必須具備下列端點的網路存取權:
+* 將安裝 Azure AD 密碼保護 Proxy 服務的所有電腦都必須具備下列端點的網路存取權：
 
     |**端點**|**用途**|
     | --- | --- |
     |`https://login.microsoftonline.com`|驗證要求|
     |`https://enterpriseregistration.windows.net`|Azure AD 密碼保護功能|
 
+  您也必須針對在[應用程式 Proxy 環境安裝](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-add-on-premises-application#prepare-your-on-premises-environment)程式中指定的一組埠和 url，啟用網路存取。 若要讓 Microsoft Azure AD Connect Agent 更新程式服務能夠運作（這項服務會與 Proxy 服務並存安裝），則需要這些設定步驟。 不建議將 Azure AD 密碼保護 Proxy 和應用程式 Proxy 並存安裝在同一部電腦上，因為 Microsoft Azure AD Connect 代理程式更新軟體的版本之間不相容。
 * 裝載 proxy 服務以進行密碼保護的所有電腦都必須設定為授與網域控制站登入 proxy 服務的能力。 這是透過「從網路存取這台電腦」許可權指派來控制。
 * 裝載 proxy 服務以進行密碼保護的所有機器, 都必須設定為允許輸出 TLS 1.2 HTTP 流量。
 * 全域系統管理員帳戶, 用來向 Azure AD 註冊密碼保護和樹系的 proxy 服務。

@@ -8,12 +8,12 @@ ms.service: security
 ms.topic: article
 ms.date: 05/02/2018
 ms.author: jomolesk
-ms.openlocfilehash: 7b07fee46bce4c7b80346eb0b4c0fccd5245d87f
-ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
+ms.openlocfilehash: 9850c5f064815315db6f85a931e7e175d605dcc1
+ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/10/2019
-ms.locfileid: "68946881"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71257581"
 ---
 # <a name="azure-security-and-compliance-blueprint-analytics-for-fedramp"></a>Azure 安全性與合規性藍圖：FedRAMP 的分析
 
@@ -63,7 +63,7 @@ SQL/資料管理員會建立大量資料匯入函式和操作資料更新函式�
 - Azure Analysis Service
 - Azure Active Directory
 - Azure Key Vault
-- Azure 監視器 (記錄)
+- Azure 監視器（記錄）
 - Azure 儲存體
 - ExpressRoute/VPN 閘道
 - Power BI 儀表板
@@ -73,11 +73,11 @@ SQL/資料管理員會建立大量資料匯入函式和操作資料更新函式�
 
 ![替代文字](images/fedramp-analytics-components.png?raw=true "適用於 FedRAMP 的分析元件圖表")
 
-**Azure Functions**：[Azure Functions](https://docs.microsoft.com/azure/azure-functions/functions-overview)是透過大部分的程式設計語言, 在雲端中執行一小段程式碼的解決方案。 此解決方案中的函式會整合 Azure 儲存體，以自動將客戶資料提取到雲端，藉此加速與其他 Azure 服務的整合。 函式可輕鬆地進行擴充，且只需在執行時支付費用。
+**Azure Functions**：[Azure Functions](https://docs.microsoft.com/azure/azure-functions/functions-overview)是透過大部分的程式設計語言，在雲端中執行一小段程式碼的解決方案。 此解決方案中的函式會整合 Azure 儲存體，以自動將客戶資料提取到雲端，藉此加速與其他 Azure 服務的整合。 函式可輕鬆地進行擴充，且只需在執行時支付費用。
 
-**Azure 分析服務**:[Azure Analysis Service](https://docs.microsoft.com/azure/analysis-services/analysis-services-overview)可提供企業資料模型化, 並與 Azure 資料平臺服務整合。 Azure Analysis Service 可透過將多個來源的資料結合至單一資料模型中，來加快瀏覽大量資料的速度。
+**Azure 分析服務**：[Azure Analysis Service](https://docs.microsoft.com/azure/analysis-services/analysis-services-overview)可提供企業資料模型化，並與 Azure 資料平臺服務整合。 Azure Analysis Service 可透過將多個來源的資料結合至單一資料模型中，來加快瀏覽大量資料的速度。
 
-**Power BI**：[Power BI](https://docs.microsoft.com/power-bi/service-azure-and-power-bi)提供分析和報告功能, 讓客戶嘗試從其資料處理工作中提取更深入的見解。
+**Power BI**：[Power BI](https://docs.microsoft.com/power-bi/service-azure-and-power-bi)提供分析和報告功能，讓客戶嘗試從其資料處理工作中提取更深入的見解。
 
 ### <a name="networking"></a>網路功能
 **網路安全性群組**：[Nsg](../../virtual-network/virtual-network-vnet-plan-design-arm.md)是設定來管理已部署的資源和服務所導向的流量。 網路安全性群組會設定為使用「預設為拒絕」配置，而且只允許存取控制清單 (ACL) 中預先設定的流量。
@@ -111,9 +111,9 @@ SQL/資料管理員會建立大量資料匯入函式和操作資料更新函式�
 [Azure 監視器](../../azure-monitor/overview.md)會將監視資料全部顯示出來，包括活動記錄、計量和診斷資料，讓客戶可以完整地看到系統健康情況。  
 [Azure 監視器記錄](../azure-security-disk-encryption-overview.md)檔可提供系統、使用者活動及系統健康情況的廣泛記錄。 它可收集及分析 Azure 和內部部署環境中資源所產生的資料。
 - **活動記錄**：[活動記錄](../../azure-monitor/platform/activity-logs-overview.md)能讓您深入了解在訂用帳戶資源上執行的作業。
-- **診斷記錄**：[診斷記錄](../../azure-monitor/platform/diagnostic-logs-overview.md)包含每個資源發出的所有記錄。 這些記錄包含 Windows 事件系統記錄，以及 Azure Blob 儲存體、資料表和佇列記錄。
+- **診斷記錄**：[診斷記錄](../../azure-monitor/platform/resource-logs-overview.md)包含每個資源發出的所有記錄。 這些記錄包含 Windows 事件系統記錄，以及 Azure Blob 儲存體、資料表和佇列記錄。
 - **防火牆記錄**：應用程式閘道會提供完整的診斷和存取記錄。 防火牆記錄可供已啟用 WAF 的應用程式閘道資源使用。
-- **記錄封存**：所有診斷記錄都會寫入到集中且加密的 Azure 儲存體帳戶進行封存，並包含定義的保留期 (2 天)。 這些記錄會連接到 Azure 監視器記錄, 以進行處理、儲存及儀表板報告。
+- **記錄封存**：所有診斷記錄都會寫入到集中且加密的 Azure 儲存體帳戶進行封存，並包含定義的保留期 (2 天)。 這些記錄會連接到 Azure 監視器記錄，以進行處理、儲存及儀表板報告。
 
 此外，此架構包含下列監視解決方案：
 -   [Azure 自動化](https://docs.microsoft.com/azure/automation/automation-hybrid-runbook-worker)：Azure 自動化解決方案會儲存、執行和管理 Runbook。
@@ -141,10 +141,10 @@ SQL/資料管理員會建立大量資料匯入函式和操作資料更新函式�
 
 ### <a name="additional-services"></a>其他服務
 #### <a name="iaas---vm-considerations"></a>IaaS-VM 考慮
-此 PaaS 解決方案不會結合任何 Azure IaaS VM。 客戶可以建立 Azure VM 來執行這幾個 PaaS 服務。 在此情況下, 您可以利用商務持續性和 Azure 監視器記錄的特定功能和服務:
+此 PaaS 解決方案不會結合任何 Azure IaaS VM。 客戶可以建立 Azure VM 來執行這幾個 PaaS 服務。 在此情況下，您可以利用商務持續性和 Azure 監視器記錄的特定功能和服務：
 
 ##### <a name="business-continuity"></a>業務持續性
-- **高可用性**：伺服器工作負載會群組在[可用性設定組](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-manage-availability?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)中, 以協助確保 Azure 中虛擬機器的高可用性。 在進行計劃性或非計劃性的維護事件期間，至少有一部虛擬機器可使用，進而符合 99.95% 的 Azure SLA。
+- **高可用性**：伺服器工作負載會群組在[可用性設定組](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-manage-availability?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)中，以協助確保 Azure 中虛擬機器的高可用性。 在進行計劃性或非計劃性的維護事件期間，至少有一部虛擬機器可使用，進而符合 99.95% 的 Azure SLA。
 
 - **復原服務保存庫**：[復原服務保存庫](https://docs.microsoft.com/azure/backup/backup-azure-recovery-services-vault-overview)可裝載備份資料，並保護此架構中所有 Azure 虛擬機器的組態。 客戶可以使用復原服務保存庫，從 IaaS VM 還原檔案和資料夾，而非還原整個 VM，這樣可加速還原時間。
 

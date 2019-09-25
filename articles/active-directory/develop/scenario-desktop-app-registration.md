@@ -17,12 +17,12 @@ ms.date: 09/09/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b996b2387e324c7e318536c2a13bdc9de39a7a5e
-ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
+ms.openlocfilehash: 648652ed32a5dea30de665b7fa49190171a7f10a
+ms.sourcegitcommit: 263a69b70949099457620037c988dc590d7c7854
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70860873"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71268398"
 ---
 # <a name="desktop-app-that-calls-web-apis---app-registration"></a>呼叫 web Api 的桌面應用程式-應用程式註冊
 
@@ -51,6 +51,7 @@ ms.locfileid: "70860873"
   > [!IMPORTANT]
   > 今日 MSAL.NET 預設會在 Windows 上執行的桌面應用程式中，使用`urn:ietf:wg:oauth:2.0:oob`另一個重新導向 URI （）。 在未來，我們會想要變更此預設值，因此建議您使用`https://login.microsoftonline.com/common/oauth2/nativeclient`
 
+- 如果您要為 macOS 建立原生的目標 C 或 Swift 應用程式，您會想要根據應用程式的套件組合識別碼，以下列格式註冊 redirectUri： **msauth。 < 您的 app.config。 id >：//auth** （replace <應用程式套件組合識別碼 > 識別碼）
 - 如果您的應用程式只使用整合式 Windows 驗證或使用者名稱/密碼，您就不需要為應用程式註冊重新導向 URI。 這些流程會執行 Microsoft 身分識別平臺 v2.0 端點的來回行程，而您的應用程式將不會在任何特定的 URI 上被回呼。
 - 若要區分裝置程式碼流程、整合式 Windows 驗證和使用者名稱/密碼，來自不具重新導向 Uri 的機密用戶端應用程式流程（用於 daemon 應用程式的用戶端認證流程），您需要表達應用程式是公用用戶端應用程式。 若要達到此設定，請移至應用程式的 [**驗證**] 區段。 然後，在 [**高級設定**] 子區段的 [**預設用戶端類型**] 段落中，針對 [將**應用程式視為公用用戶端**] 問題選擇 [**是]** 。
 

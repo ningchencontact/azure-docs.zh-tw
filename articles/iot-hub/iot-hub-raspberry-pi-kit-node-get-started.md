@@ -1,6 +1,6 @@
 ---
 title: Raspberry Pi 至 cloud (Node.js) - 將 Raspberry Pi 連接至 Azure IoT 中樞 | Microsoft Docs
-description: 瞭解如何在本教學課程中設定 Raspberry Pi, 並將其連線至 Raspberry Pi 的 Azure IoT 中樞, 以將資料傳送到 Azure 雲端平臺。
+description: 瞭解如何在本教學課程中設定 Raspberry Pi，並將其連線至 Raspberry Pi 的 Azure IoT 中樞，以將資料傳送到 Azure 雲端平臺。
 author: wesmc7777
 manager: philmea
 keywords: azure iot raspberry pi, raspberry pi iot 中樞, raspberry pi 將資料傳送至雲端, raspberry pi 至 cloud
@@ -10,12 +10,12 @@ ms.devlang: nodejs
 ms.topic: conceptual
 ms.date: 07/17/2019
 ms.author: wesmc
-ms.openlocfilehash: e7346fa0f9cc977755c441077a50707dd207019f
-ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
+ms.openlocfilehash: 79e565668db661d02833d22d2ef619fc67708115
+ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69638282"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71266158"
 ---
 # <a name="connect-raspberry-pi-to-azure-iot-hub-nodejs"></a>將 Raspberry Pi 連接至 Azure IoT Hub (Node.js)
 
@@ -94,7 +94,7 @@ ms.locfileid: "69638282"
 
 1. 下載 Raspbian。
 
-   a. [使用桌面的 Raspbian Buster](https://www.raspberrypi.org/downloads/raspbian/)(.zip 檔案)。
+   a. [使用桌面的 Raspbian Buster](https://www.raspberrypi.org/downloads/raspbian/)（.zip 檔案）。
 
    b. 將 Raspbian 映像解壓縮到您電腦上的資料夾。
 
@@ -116,7 +116,7 @@ ms.locfileid: "69638282"
 
 1. 將 Pi 連接至監視器、鍵盤及滑鼠。
 
-2. 啟動 Pi, 然後使用`pi`做為使用者名稱和`raspberry`密碼來登入 Raspbian。
+2. 啟動 Pi，然後使用`pi`做為使用者名稱和`raspberry`密碼來登入 Raspbian。
 
 3. 按一下 Raspberry 圖示 > [偏好設定] > [Raspberry Pi 組態]。
 
@@ -135,7 +135,7 @@ ms.locfileid: "69638282"
 
 ![Raspberry Pi 和感應器連接](./media/iot-hub-raspberry-pi-kit-node-get-started/3-raspberry-pi-sensor-connection.png)
 
-BME280 感應器可以收集溫度和溼度資料。 當裝置將訊息傳送至雲端時，LED 會閃爍。 
+BME280 感應器可以收集溫度和溼度資料。 當裝置將訊息傳送至雲端時，LED 會閃爍。
 
 針對感應器針腳，請使用下列接線方式：
 
@@ -170,8 +170,8 @@ BME280 感應器可以收集溫度和溼度資料。 當裝置將訊息傳送至
 1. 使用下列其中一個 SSH 用戶端，從您的主機電腦連接到 Raspberry Pi：
 
    **Windows 使用者**
-  
-   a. 下載並安裝適用於 Windows 的 [PuTTY](https://www.putty.org/)。 
+
+   a. 下載並安裝適用於 Windows 的 [PuTTY](https://www.putty.org/)。
 
    b. 將 Pi 的 IP 位址複製到 [主機名稱] 或 [IP 位址] 區段，並且選取 SSH 作為連線類型。
 
@@ -192,10 +192,10 @@ BME280 感應器可以收集溫度和溼度資料。 當裝置將訊息傳送至
    node -v
    ```
 
-   如果版本低於 11. x, 或 Pi 上沒有 node.js, 請安裝最新版本。
+   如果版本低於 10. x，或 Pi 上沒有 node.js，請安裝最新版本。
 
    ```bash
-   curl -sL https://deb.nodesource.com/setup_11.x | sudo -E bash
+   curl -sL https://deb.nodesource.com/setup_10.x | sudo -E bash
    sudo apt-get -y install nodejs
    ```
 
@@ -209,7 +209,7 @@ BME280 感應器可以收集溫度和溼度資料。 當裝置將訊息傳送至
 
    ```bash
    cd iot-hub-node-raspberrypi-client-app
-   sudo npm install
+   npm install
    ```
 
    > [!NOTE]
@@ -228,6 +228,8 @@ BME280 感應器可以收集溫度和溼度資料。 當裝置將訊息傳送至
    此檔案中有兩個您可以設定的項目。 第一個是 `interval`，這定義傳送至雲端之訊息間的時間間隔 (以毫秒為單位)。 第二個是 `simulatedData`，這是指出是否要使用模擬感應器資料的布林值。
 
    如果**沒有感應器**，請將 `simulatedData` 值設定為 `true`，使範例應用程式建立和使用模擬感應器資料。
+
+   *注意：根據預設，本教學課程中使用的 i2c 位址是0x77。根據您的設定，可能也會 0x76 . 如果您遇到 i2c 錯誤，請嘗試將此值變更為118，並查看是否有更好的效果。若要查看您的感應器所使用的位址， `sudo i2cdetect -y 1`請在 raspberry pi 上的 shell 中執行*
 
 2. 輸入 Control-O > 按 Enter 鍵 > Control-X 來儲存並結束。
 

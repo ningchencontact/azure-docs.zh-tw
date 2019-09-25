@@ -12,28 +12,28 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 04/29/2019
 ms.author: jingwang
-ms.openlocfilehash: 9108f83e854b51720c64c5a74a828543cc5e7688
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b705123dc6492466c30b3c1ddaf4b330b0d684a1
+ms.sourcegitcommit: a6718e2b0251b50f1228b1e13a42bb65e7bf7ee2
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64875808"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71272270"
 ---
 # <a name="schema-mapping-in-copy-activity"></a>複製活動中的結構描述對應
 
-本文說明 Azure Data Factory 複製活動在執行資料複製時，如何將來源資料中的結構描述和資料類型對應到接收資料。
+本文說明在執行資料複製時，Azure Data Factory 複製活動如何從來源資料與接收資料進行架構對應和資料類型對應。
 
 ## <a name="schema-mapping"></a>結構描述對應
 
-從來源到接收複製資料時，適用於資料行對應。 根據預設，複製活動**對應到接收的資料行名稱的來源資料**。 您可以指定[明確對應](#explicit-mapping)來自訂您的需求為基礎的資料行對應。 更具體來說，複製活動會：
+將資料從來源複製到接收時，會套用資料行對應。 根據預設，複製活動會將**來源資料對應至依資料行名稱的接收**。 您可以指定[明確對應](#explicit-mapping)，依據您的需求自訂資料行對應。 更具體來說，複製活動會：
 
 1. 從來源讀取資料，並判斷來源結構描述
-2. 使用預設資料行對應資料行對應名稱，或如果指定，將明確的資料行對應。
+2. 使用預設資料行對應依名稱對應資料行，或在指定的情況下套用明確的資料行對應。
 3. 撰寫要接收的資料
 
 ### <a name="explicit-mapping"></a>明確對應
 
-您可以指定要在複製活動中對應的資料行]-> [ `translator`  ->  `mappings`屬性。 下列範例會定義複製活動的管線，以將資料從分隔的文字複製到 Azure SQL Database 中。
+您可以在 [複製活動-> `translator`  ->  `mappings` ] 屬性中指定要對應的資料行。 下列範例會在管線中定義複製活動，以將資料從分隔的文字複製到 Azure SQL Database。
 
 ```json
 {
@@ -86,33 +86,33 @@ ms.locfileid: "64875808"
 }
 ```
 
-以下支援的屬性底下`translator`  ->  `mappings` ]-> [物件`source`和`sink`:
+下列屬性在 > 的物件`translator`  ->  `mappings`下支援`sink`和： `source`
 
 | 屬性 | 描述                                                  | 必要項 |
 | -------- | ------------------------------------------------------------ | -------- |
-| name     | 來源或接收器的資料行名稱。                           | 是      |
-| ordinal  | 資料行索引。 從 1 開始。 <br>套用並使用分隔標頭行沒有文字時所需。 | 否       |
-| path     | 每個欄位來擷取，或對應的 JSON 路徑運算式。 適用於階層式資料例如 MongoDB/REST。<br>根物件下的欄位，JSON 路徑的開頭根 $;所選陣列內的欄位`collectionReference`屬性中，JSON 路徑的開頭的陣列項目。 | 否       |
-| type     | Data Factory 過渡期資料類型的來源或接收器的資料行。 | 否       |
-| culture  | 來源或接收器的資料行的文化特性。 <br>類型是時，適用`Datetime`或`Datetimeoffset`。 預設為 `en-us`。 | 否       |
-| format   | 格式字串類型時，使用`Datetime`或`Datetimeoffset`。 有關如何格式化日期時間的資訊，請參閱[自訂日期和時間格式字串](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings)。 | 否       |
+| name     | 來源或接收資料行的名稱。                           | 是      |
+| ordinal  | 資料行索引。 從1開始。 <br>使用不含標頭行的分隔文字時，請套用和必要。 | 否       |
+| path     | 要解壓縮或對應之每個欄位的 JSON 路徑運算式。 適用于階層式資料，例如 MongoDB/REST。<br>對於根物件下的欄位，JSON 路徑的開頭為 root $;對於`collectionReference`屬性所選陣列內的欄位，JSON 路徑會從陣列元素開始。 | 否       |
+| 型別     | 來源或接收資料行的 Data Factory 過渡資料類型。 | 否       |
+| culture  | 來源或接收資料行的文化特性。 <br>當類型為`Datetime`或`Datetimeoffset`時套用。 預設為 `en-us`。 | 否       |
+| format   | 當類型為`Datetime`或`Datetimeoffset`時，所要使用的格式字串。 有關如何格式化日期時間的資訊，請參閱[自訂日期和時間格式字串](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings)。 | 否       |
 
-以下支援的屬性底下`translator`  ->  `mappings`除了物件`source`和`sink`:
+`translator`除了具有`mappings`  -> 和的物件之外，還支援下列屬性`sink`： `source`
 
 | 屬性            | 描述                                                  | 必要項 |
 | ------------------- | ------------------------------------------------------------ | -------- |
-| collectionReference | 支援階層式資料，例如 MongoDB/REST 時才來源。<br>如果您想要逐一查看**陣列欄位內**相同模式的物件並擷取資料，然後轉換為每個物件一個資料列，則請指定該陣列的 JSON 路徑，以執行交叉套用。 | 否       |
+| collectionReference | 只有在階層式資料（例如 MongoDB/REST）為來源時才支援。<br>如果您想要逐一查看**陣列欄位內**相同模式的物件並擷取資料，然後轉換為每個物件一個資料列，則請指定該陣列的 JSON 路徑，以執行交叉套用。 | 否       |
 
-### <a name="alternative-column-mapping"></a>替代的資料行對應
+### <a name="alternative-column-mapping"></a>替代資料行對應
 
-您可以指定複製活動-> `translator`  ->  `columnMappings`表格式圖形化資料之間的對應。 在此情況下，為必要的輸入和輸出資料集 「 結構 」 區段。 資料行對應支援將來源資料集「結構」中的所有或一部分資料行，對應至接收資料集「結構」中的所有資料行。 以下是會導致發生例外狀況的錯誤狀況：
+您可以指定 [複製活動- `translator` >  ->  `columnMappings` ]，以在表格式資料之間進行對應。 在此情況下，輸入和輸出資料集都必須要有 "structure" 區段。 資料行對應支援將來源資料集「結構」中的所有或一部分資料行，對應至接收資料集「結構」中的所有資料行。 以下是會導致發生例外狀況的錯誤狀況：
 
 * 來源資料存放區查詢結果在輸入資料集的「結構」區段中並未指定資料行名稱。
 * 接收資料存放區 (如果含有預先定義的結構描述) 在輸出資料集的「結構」區段中並未指定資料行名稱。
 * 接收資料集「結構」中的資料行數量多於或少於對應中所指定的數量。
 * 重複的對應。
 
-在下列範例中，輸入資料集有一個結構，並指向內部部署 Oracle 資料庫中的資料表。
+在下列範例中，輸入資料集具有結構，且指向內部部署 Oracle 資料庫中的資料表。
 
 ```json
 {
@@ -136,7 +136,7 @@ ms.locfileid: "64875808"
 }
 ```
 
-在此範例中，輸出資料集都有一個結構，並指向 Salesfoce 中的資料表。
+在此範例中，輸出資料集具有結構，並指向 Salesfoce 中的資料表。
 
 ```json
 {
@@ -160,7 +160,7 @@ ms.locfileid: "64875808"
 }
 ```
 
-下列 JSON 定義了管線中的複製活動。 使用對應至接收器中的資料行的來源資料行**translator** -> **columnMappings**屬性。
+下列 JSON 定義了管線中的複製活動。 來源中的資料行會使用**translator**  ->  **columnMappings**屬性，對應至接收器中的資料行。
 
 ```json
 {
@@ -197,17 +197,17 @@ ms.locfileid: "64875808"
 
 如果您正在使用 `"columnMappings": "UserId: MyUserId, Group: MyGroup, Name: MyName"` 的語法指定資料行對應，則仍會依原狀支援該對應。
 
-### <a name="alternative-schema-mapping"></a>替代的結構描述對應
+### <a name="alternative-schema-mapping"></a>替代架構對應
 
-您可以指定複製活動-> `translator`  ->  `schemaMapping`對應階層式圖形化的資料與表格式圖形化的資料，例如複製 MongoDB/REST 到文字檔案和從 Oracle 複製到 Azure Cosmos DB 的 API for MongoDB。 複製活動的 `translator` 區段支援下列屬性：
+您可以指定複製活動-> `translator`  ->  `schemaMapping`在階層式資料和表格式資料之間進行對應，例如從 MongoDB/REST 複製到文字檔，然後從 Oracle 複製到 Azure Cosmos DB 適用于 MongoDB 的 API。 複製活動的 `translator` 區段支援下列屬性：
 
 | 屬性 | 描述 | 必要項 |
 |:--- |:--- |:--- |
-| type | 複製活動轉譯程式的類型屬性必須設定為：**TabularTranslator** | 是 |
-| schemaMapping | 索引鍵 / 值組的集合表示的對應關聯性**從來源到接收端的側邊**。<br/>- **Key：** 代表來源。 針對**表格式來源**，指定資料行名稱，因為定義資料集結構中; 如**階層式的來源**，指定每個欄位擷取，並將對應的 JSON 路徑運算式。<br>- **Value：** 代表接收。 針對**表格式接收**，指定資料行名稱，因為定義資料集結構中; 如**階層式接收**，指定每個欄位擷取，並將對應的 JSON 路徑運算式。 <br>JSON 路徑開頭根 $; 若為階層式資料，根物件下的欄位所選陣列內的欄位`collectionReference`屬性中，JSON 路徑的開頭的陣列項目。  | 是 |
+| 型別 | 複製活動轉譯程式的類型屬性必須設定為：**TabularTranslator** | 是 |
+| schemaMapping | 索引鍵/值組的集合，表示**從來源端到接收端**的對應關聯性。<br/>- **Key：** 代表來源。 針對 [**表格式來源**]，指定資料集結構中所定義的資料行名稱;針對 [**階層式來源**]，為每個要解壓縮和對應的欄位指定 JSON 路徑運算式。<br>- **Value：** 代表接收。 若為**表格式接收**，請指定資料集結構中所定義的資料行名稱;針對**階層式接收**，為每個要解壓縮和對應的欄位指定 JSON 路徑運算式。 <br>在階層式資料的情況下，針對根物件下的欄位，JSON 路徑會以根 $ 開頭;對於`collectionReference`屬性所選陣列內的欄位，JSON 路徑會從陣列元素開始。  | 是 |
 | collectionReference | 如果您想要逐一查看**陣列欄位內**相同模式的物件並擷取資料，然後轉換為每個物件一個資料列，則請指定該陣列的 JSON 路徑，以執行交叉套用。 只有在階層式資料是來源時，才支援這個屬性。 | 否 |
 
-**範例： 從 MongoDB 複製到 Oracle:**
+**範例：從 MongoDB 複製到 Oracle：**
 
 例如，如果您有具備下列內容的 MongoDB 文件：
 
@@ -297,7 +297,7 @@ Data Factory 支援下列過渡資料類型：在[資料集結構](concepts-data
 * Int64
 * Single
 * String
-* Timespan
+* 時間範圍
 
 ## <a name="next-steps"></a>後續步驟
 請參閱其他複製活動文章：

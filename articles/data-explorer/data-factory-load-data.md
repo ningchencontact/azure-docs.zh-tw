@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 04/15/2019
-ms.openlocfilehash: b3bd9b800da4f096639d02c78b718216441621a9
-ms.sourcegitcommit: 95b180c92673507ccaa06f5d4afe9568b38a92fb
+ms.openlocfilehash: 5eb05df7ed97839ef80798a752565234d180f0e2
+ms.sourcegitcommit: 263a69b70949099457620037c988dc590d7c7854
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/08/2019
-ms.locfileid: "70803976"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71268828"
 ---
 # <a name="copy-data-to-azure-data-explorer-using-azure-data-factory"></a>使用 Azure Data Factory 將資料複製到 Azure 資料總管 
 
@@ -96,6 +96,9 @@ Azure Data Factory 提供將資料載入 Azure 資料總管的下列優點：
     * 指定 [祕密存取金鑰] 值。
     * 選取 [**測試連接**] 來測試您所建立的連結服務連接。
     * 選取 [完成]。
+    
+    > [!NOTE]
+    > 在 Amazon S3 的導覽列中，選取您的 Amazon 使用者名稱，然後選取 [**我的安全性認證**] 以找出您的**存取金鑰**。 
 
 1. 在 [**來源資料存放區**] 頁面中，您會看到新的 AmazonS31 連接。 選取 [下一步]。
 

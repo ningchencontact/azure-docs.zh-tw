@@ -11,12 +11,12 @@ author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: sstein, bonova, carlrab
 ms.date: 02/22/2019
-ms.openlocfilehash: 4b627b13fb79cd5105a95d9161d9239f28f2e062
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 167e243b1fe4ea5ba9403ac3ca1fcea42f02f59a
+ms.sourcegitcommit: a6718e2b0251b50f1228b1e13a42bb65e7bf7ee2
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68567510"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71273564"
 ---
 # <a name="determine-vnet-subnet-size-for-azure-sql-database-managed-instance"></a>決定 Azure SQL Database 受控執行個體的 VNet 子網路大小
 
@@ -26,10 +26,10 @@ Azure SQL Database 受控執行個體必須部署在 Azure [虛擬網路 (VNet)]
 
 當您建立受控執行個體時，Azure 會依據您在佈建期間選取的層來配置虛擬機器數目。 因為這些虛擬機器與您的子網路相關聯，所以它們需要 IP 位址。 為了確保正常作業和服務維護期間的高可用性，Azure 可能會配置額外的虛擬機器。 因此，子網路中所需的 IP 位址數目會大於該子網路中的受控執行個體數目。
 
-根據設計，受控執行個體在子網路中需要最少 16 個 IP 位址，可能會使用多達 256 個 IP 位址。 因此, 定義子網 IP 範圍時, 您可以使用/28 和/24 之間的子網路遮罩。 網路遮罩位/28 (每個網路14部主機) 是單一一般用途或業務關鍵部署的理想大小。 遮罩位/27 (每個網路30部主機) 非常適合相同 VNet 中的多個受控執行個體部署。 /26 (62 主機) 和/24 (254 主機) 的 Mask 位設定允許進一步向外延展 VNet, 以支援其他受控實例。
+根據設計，受控執行個體在子網路中需要最少 16 個 IP 位址，可能會使用多達 256 個 IP 位址。 因此，定義子網 IP 範圍時，您可以使用/28 和/24 之間的子網路遮罩。 網路遮罩位/28 （每個網路14部主機）是單一一般用途或業務關鍵部署的理想大小。 遮罩位/27 （每個網路30部主機）非常適合相同 VNet 中的多個受控執行個體部署。 /26 （62主機）和/24 （254主機）的 Mask 位設定允許進一步向外延展 VNet，以支援其他受控實例。
 
 > [!IMPORTANT]
-> 具有16個 IP 位址的子網大小是最小的, 而且可能會進一步受控執行個體相應放大。強烈建議您選擇前置詞為 /27 或以下的子網路。
+> 具有16個 IP 位址的子網大小是最小的，而且在不支援 vCore 大小變更的調整作業時，可能會受到限制。 強烈建議您選擇前置詞為/27 或最長前置詞的子網。
 
 ## <a name="determine-subnet-size"></a>決定子網路大小
 

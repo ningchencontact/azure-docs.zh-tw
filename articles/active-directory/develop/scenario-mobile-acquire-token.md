@@ -16,12 +16,12 @@ ms.author: jmprieur
 ms.reviwer: brandwe
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d49717355cab5441d26608fa12333bd1b8b73d44
-ms.sourcegitcommit: c556477e031f8f82022a8638ca2aec32e79f6fd9
+ms.openlocfilehash: 454d62f871290d2e7dd8d0eee4b1a2429625a5fc
+ms.sourcegitcommit: 263a69b70949099457620037c988dc590d7c7854
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68413545"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71268258"
 ---
 # <a name="mobile-app-that-calls-web-apis---get-a-token"></a>呼叫 web Api 的行動應用程式-取得權杖
 
@@ -40,7 +40,7 @@ String[] SCOPES = {"https://graph.microsoft.com/.default"};
 
 #### <a name="ios"></a>iOS
 ```swift
-let scopes: [String] = ["https://graph.microsoft.com/.default"]
+let scopes = ["https://graph.microsoft.com/.default"]
 ```
 
 #### <a name="xamarin"></a>Xamarin
@@ -50,7 +50,7 @@ var scopes = new [] {"https://graph.microsoft.com/.default"};
 
 ## <a name="get-tokens"></a>取得權杖
 
-### <a name="via-msal"></a>Via MSAL
+### <a name="acquire-tokens-via-msal"></a>透過 MSAL 取得權杖
 
 MSAL 可讓應用程式以無訊息和互動方式取得權杖。 只要呼叫這些方法, MSAL 就會傳回所要求之範圍的存取權杖。 正確的模式是執行無訊息要求, 並切換回互動式要求。
 
@@ -86,61 +86,114 @@ sampleApp.acquireToken(getActivity(), SCOPES, getAuthInteractiveCallback());
 
 #### <a name="ios"></a>iOS
 
+**第一次嘗試以無訊息方式取得權杖：**
+
+Objective-C：
+
+```objc
+
+NSArray *scopes = @[@"https://graph.microsoft.com/.default"];
+NSString *accountIdentifier = @"my.account.id";
+    
+MSALAccount *account = [application accountForIdentifier:accountIdentifier error:nil];
+    
+MSALSilentTokenParameters *silentParams = [[MSALSilentTokenParameters alloc] initWithScopes:scopes account:account];
+[application acquireTokenSilentWithParameters:silentParams completionBlock:^(MSALResult *result, NSError *error) {
+        
+    if (!error)
+    {
+        // You'll want to get the account identifier to retrieve and reuse the account
+        // for later acquireToken calls
+        NSString *accountIdentifier = result.account.identifier;
+            
+        // Access token to call the Web API
+        NSString *accessToken = result.accessToken;
+    }
+        
+    // Check the error
+    if (error && [error.domain isEqual:MSALErrorDomain] && error.code == MSALErrorInteractionRequired)
+    {
+        // Interactive auth will be required, call acquireTokenWithParameters:error:
+        return;
+    }
+}];
+```
+ 
+快速
+
 ```swift
-// Initialize the app.
-guard let authorityURL = URL(string: kAuthority) else {
-    self.loggingText.text = "Unable to create authority URL"
-    return
-}
-let authority = try MSALAADAuthority(url: authorityURL)
-let msalConfiguration = MSALPublicClientApplicationConfig(clientId: kClientID, redirectUri: nil, authority: authority)
-self.applicationContext = try MSALPublicClientApplication(configuration: msalConfiguration)
 
-// Get tokens.
-let parameters = MSALSilentTokenParameters(scopes: kScopes, account: account)
-applicationContext.acquireTokenSilent(with: parameters) { (result, error) in
-    if let error = error {
-        let nsError = error as NSError
-
-        // interactionRequired means you need to ask the user to sign in. This usually happens
-        // when the user's refresh token is expired or when the user has changed the password,
-        // among other possible reasons.
-        if (nsError.domain == MSALErrorDomain) {
-            if (nsError.code == MSALError.interactionRequired.rawValue) {    
-                DispatchQueue.main.async {
-                    guard let applicationContext = self.applicationContext else { return }
-                    let parameters = MSALInteractiveTokenParameters(scopes: kScopes)
-                    applicationContext.acquireToken(with: parameters) { (result, error) in
-                        if let error = error {
-                            self.updateLogging(text: "Could not acquire token: \(error)")
-                            return
-                        }
-
-                        guard let result = result else {
-                            self.updateLogging(text: "Could not acquire token: No result returned")
-                            return
-                        }
-                        
-                        // Token is ready via interaction!
-                        self.accessToken = result.accessToken
-                    }
-                }
-                return
-            }
-        }
-
-        self.updateLogging(text: "Could not acquire token silently: \(error)")
-        return
-    }
-    guard let result = result else {
-        self.updateLogging(text: "Could not acquire token: No result returned")
-        return
-    }
-
-    // Token is ready via silent acquisition.
-    self.accessToken = result.accessToken
+let scopes = ["https://graph.microsoft.com/.default"]
+let accountIdentifier = "my.account.id"
+        
+guard let account = try? application.account(forIdentifier: accountIdentifier) else { return }
+let silentParameters = MSALSilentTokenParameters(scopes: scopes, account: account)
+application.acquireTokenSilent(with: silentParameters) { (result, error) in
+            
+    guard let authResult = result, error == nil else {
+                
+    let nsError = error! as NSError
+                
+    if (nsError.domain == MSALErrorDomain &&
+        nsError.code == MSALError.interactionRequired.rawValue) {
+                    
+            // Interactive auth will be required, call acquireToken()
+            return
+         }
+         return
+     }
+            
+    // You'll want to get the account identifier to retrieve and reuse the account
+    // for later acquireToken calls
+    let accountIdentifier = authResult.account.identifier
+            
+    // Access token to call the Web API
+    let accessToken = authResult.accessToken
 }
 ```
+
+**然後`MSALErrorInteractionRequired`，如果 MSAL 傳回，請嘗試以互動方式取得權杖：**
+
+Objective-C：
+
+```objc
+UIViewController *viewController = ...; // Pass a reference to the view controller that should be used when getting a token interactively
+MSALWebviewParameters *webParameters = [[MSALWebviewParameters alloc] initWithParentViewController:viewController];
+MSALInteractiveTokenParameters *interactiveParams = [[MSALInteractiveTokenParameters alloc] initWithScopes:scopes webviewParameters:webParameters];
+[application acquireTokenWithParameters:interactiveParams completionBlock:^(MSALResult *result, NSError *error) {
+    if (!error) 
+    {
+        // You'll want to get the account identifier to retrieve and reuse the account
+        // for later acquireToken calls
+        NSString *accountIdentifier = result.account.identifier;
+            
+        NSString *accessToken = result.accessToken;
+    }
+}];
+```
+
+快速
+
+```swift
+let viewController = ... // Pass a reference to the view controller that should be used when getting a token interactively
+let webviewParameters = MSALWebviewParameters(parentViewController: viewController)
+let interactiveParameters = MSALInteractiveTokenParameters(scopes: scopes, webviewParameters: webviewParameters)
+application.acquireToken(with: interactiveParameters, completionBlock: { (result, error) in
+                
+    guard let authResult = result, error == nil else {
+        print(error!.localizedDescription)
+        return
+    }
+                
+    // Get access token from result
+    let accessToken = authResult.accessToken
+})
+```
+
+MSAL for iOS 和 macOS 在以互動或無訊息方式取得權杖時，支援各種修飾詞。
+* [取得權杖時的一般參數](https://azuread.github.io/microsoft-authentication-library-for-objc/Classes/MSALTokenParameters.html#/Configuration%20parameters)
+* [取得互動式權杖的參數](https://azuread.github.io/microsoft-authentication-library-for-objc/Classes/MSALInteractiveTokenParameters.html#/Configuring%20MSALInteractiveTokenParameters)
+* [取得無訊息權杖的參數](https://azuread.github.io/microsoft-authentication-library-for-objc/Classes/MSALSilentTokenParameters.html)
 
 #### <a name="xamarin"></a>Xamarin
 
@@ -163,15 +216,15 @@ catch(MsalUiRequiredException)
 }
 ```
 
-### <a name="mandatory-parameters"></a>必要參數
+#### <a name="mandatory-parameters-in-msalnet"></a>MSAL.NET 中的必要參數
 
 `AcquireTokenInteractive`只有一個強制參數``scopes``, 其中包含定義需要權杖之範圍的字串列舉。 如果權杖適用于 Microsoft Graph, 則在名為「許可權」的區段中, 您可以在每個 Microsoft Graph API 的 api 參考中找到所需的範圍。 例如, 若要[列出使用者的連絡人](https://developer.microsoft.com/graph/docs/api-reference/v1.0/api/user_list_contacts), 則必須使用「使用者. 讀取」、「連絡人」等範圍。 另請參閱[Microsoft Graph 許可權參考](https://developer.microsoft.com/graph/docs/concepts/permissions_reference)。
 
-如果您在建立應用程式時未指定它, 則在 Android 上, 您也必須指定父活動 (使用`.WithParentActivityOrWindow`, 請參閱下方), 讓權杖在互動之後回到該父活動。 如果您未指定, 則會在呼叫`.ExecuteAsync()`時擲回例外狀況。
+如果您在建立應用程式時未指定它，則在 Android 上，您也必須指定父活動（使用`.WithParentActivityOrWindow`，請參閱下方），讓權杖在互動之後回到該父活動。 如果您未指定, 則會在呼叫`.ExecuteAsync()`時擲回例外狀況。
 
-### <a name="specific-optional-parameters"></a>特定的選擇性參數
+#### <a name="specific-optional-parameters-in-msalnet"></a>MSAL.NET 中的特定選擇性參數
 
-#### <a name="withprompt"></a>WithPrompt
+##### <a name="withprompt"></a>WithPrompt
 
 `WithPrompt()`是用來透過指定提示來控制使用者的互動性
 
@@ -185,7 +238,7 @@ catch(MsalUiRequiredException)
 - ``Never``(僅適用于 .NET 4.5 和 WinRT) 不會提示使用者, 而是會嘗試使用儲存在隱藏的內嵌 web 視圖中的 cookie (請參閱下文:MSAL.NET 中的 Web Views)。 使用這個選項可能會失敗, 而且在此`AcquireTokenInteractive`情況下, 會擲回例外狀況以通知需要 UI 互動, 而且您必須使用另一個`Prompt`參數。
 - ``NoPrompt``:不會將任何提示傳送給識別提供者。 此選項僅適用于 Azure AD B2C 編輯設定檔原則 (請參閱[B2C 細節](https://aka.ms/msal-net-b2c-specificities))。
 
-#### <a name="withextrascopetoconsent"></a>WithExtraScopeToConsent
+##### <a name="withextrascopetoconsent"></a>WithExtraScopeToConsent
 
 這個修飾詞用於您想要讓使用者預先同意數個資源的先進案例 (而不想要使用累加式同意, 這通常與 MSAL.NET/Microsoft 身分識別平臺 v2.0 搭配使用)。 如需詳細資訊, 請參閱[如何: 將使用者同意預先用於數個資源](scenario-desktop-production.md#how-to-have--the-user-consent-upfront-for-several-resources)。
 
@@ -195,11 +248,11 @@ var result = await app.AcquireTokenInteractive(scopesForCustomerApi)
                      .ExecuteAsync();
 ```
 
-#### <a name="other-optional-parameters"></a>其他選擇性參數
+##### <a name="other-optional-parameters"></a>其他選擇性參數
 
 `AcquireTokenInteractive`從[AcquireTokenInteractiveParameterBuilder](/dotnet/api/microsoft.identity.client.acquiretokeninteractiveparameterbuilder?view=azure-dotnet-preview#methods)的參考檔深入瞭解的所有其他選擇性參數
 
-### <a name="via-the-protocol"></a>Via 通訊協定
+### <a name="acquire-tokens-via-the-protocol"></a>透過通訊協定取得權杖
 
 我們不建議您直接使用此通訊協定。 如果您這樣做, 應用程式將不會支援某些單一登入 (SSO)、裝置管理和條件式存取案例。
 

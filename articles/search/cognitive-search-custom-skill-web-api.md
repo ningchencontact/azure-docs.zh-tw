@@ -9,17 +9,16 @@ ms.workload: search
 ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: luisca
-ms.subservice: cognitive-search
-ms.openlocfilehash: a01518158e063d68734b1230f11cae78f461faac
-ms.sourcegitcommit: 7a6d8e841a12052f1ddfe483d1c9b313f21ae9e6
+ms.openlocfilehash: 89539d42e9ac9456c7ee971f6ea607b6b2c6befa
+ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70183463"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71266316"
 ---
 # <a name="custom-web-api-skill"></a>自訂 Web API 技能
 
-**自訂 WEB api**技能可讓您向外呼叫提供自訂作業的 Web API 端點, 以擴充認知搜尋。 與內建的技能類似，**自訂 Web API** 技能具有輸入和輸出。 視輸入而定, 您的 Web API 會在索引子執行時接收 JSON 承載, 並輸出 JSON 承載作為回應, 以及成功狀態碼。 預期回應應該具有您的自訂技能所指定的輸出。 任何其他的回應會被視為錯誤，並且不會執行任何擴充。
+**自訂 WEB api**技能可讓您向外呼叫提供自訂作業的 Web API 端點，以擴充認知搜尋。 與內建的技能類似，**自訂 Web API** 技能具有輸入和輸出。 視輸入而定，您的 Web API 會在索引子執行時接收 JSON 承載，並輸出 JSON 承載作為回應，以及成功狀態碼。 預期回應應該具有您的自訂技能所指定的輸出。 任何其他的回應會被視為錯誤，並且不會執行任何擴充。
 
 JSON 承載的結構會在本文件中進一步描述。
 
@@ -41,7 +40,7 @@ Microsoft.Skills.Custom.WebApiSkill
 | URI | 要將_JSON_承載傳送至其中的 WEB API URI。 僅允許 **https** URI 配置 |
 | httpMethod | 傳送承載時使用的方法。 允許的方法為 `PUT` 和 `POST` |
 | httpHeaders | 機碼值組的集合，其中機碼代表標頭名稱，而值代表將與承載一起傳送至 Web API 的標頭值。 下列標頭禁止加入此集合：`Accept`、`Accept-Charset`、`Accept-Encoding`、`Content-Length`、`Content-Type`、`Cookie`、`Host`、`TE`、`Upgrade`、`Via` |
-| 逾時 | (選擇性) 指定時，表示進行 API 呼叫的 http 用戶端逾時。 其必須格式化為 XSD "dayTimeDuration" 值 ( [ISO 8601 持續時間](https://www.w3.org/TR/xmlschema11-2/#dayTimeDuration) 值的受限子集)。 例如，`PT60S` 為 60 秒。 如果沒有設定，則選擇的預設值為 30 秒。 [超時] 可以設定為最大值230秒, 最小值為1秒。 |
+| 逾時 | (選擇性) 指定時，表示進行 API 呼叫的 http 用戶端逾時。 其必須格式化為 XSD "dayTimeDuration" 值 ( [ISO 8601 持續時間](https://www.w3.org/TR/xmlschema11-2/#dayTimeDuration) 值的受限子集)。 例如，`PT60S` 為 60 秒。 如果沒有設定，則選擇的預設值為 30 秒。 [超時] 可以設定為最大值230秒，最小值為1秒。 |
 | batchSize | (選擇性) 指出每個 API 呼叫將傳送多少「資料記錄」(請參閱下面的 _JSON_ 承載結構)。 如果未設定，則選擇的預設值為 1000。 我們建議您使用此參數在編製索引的輸送量和 API 負載之間達到適當的取捨 |
 
 ## <a name="skill-inputs"></a>技能輸入
@@ -139,7 +138,7 @@ Microsoft.Skills.Custom.WebApiSkill
 
 ## <a name="sample-output-json-structure"></a>範例輸出 JSON 結構
 
-「輸出」對應于從您的 Web API 傳回的回應。 Web API 應該只會傳回_JSON_承載 (藉由查看`Content-Type`回應標頭來驗證), 而且應符合下列條件約束:
+「輸出」對應于從您的 Web API 傳回的回應。 Web API 應該只會傳回_JSON_承載（藉由查看`Content-Type`回應標頭來驗證），而且應符合下列條件約束：
 
 * 應該有一個名為 `values` 的最上層實體，它應該是物件陣列。
 * 陣列中的物件數目應該與傳送至 Web API 的物件數目相同。

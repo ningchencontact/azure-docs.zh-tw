@@ -16,12 +16,12 @@ ms.author: jmprieur
 ms.reviwer: brandwe
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 76f0cddfa889376d3795726e74d82e53417b31f1
-ms.sourcegitcommit: c556477e031f8f82022a8638ca2aec32e79f6fd9
+ms.openlocfilehash: 1ada6ee6247deb3d4c72edb8237a40a0f47f96be
+ms.sourcegitcommit: 263a69b70949099457620037c988dc590d7c7854
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68413569"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71268322"
 ---
 # <a name="mobile-app-that-calls-web-apis---call-a-web-api"></a>呼叫 web Api 的行動應用程式-呼叫 Web API
 
@@ -88,28 +88,34 @@ MSAL 也會提供的抽象概念`Account`。 `Account`代表目前使用者的�
         queue.add(request);
 ```
 
-### <a name="ios"></a>iOS
+### <a name="msal-for-ios-and-macos"></a>適用于 iOS 和 macOS 的 MSAL
+
+取得權杖`MSALResult`的方法會傳回物件。 `MSALResult`公開可用於呼叫 Web API 的屬性。`accessToken` 存取權杖應新增至 HTTP 授權標頭，才能進行呼叫以存取受保護的 Web API。
+
+Objective-C：
+
+```objc
+NSMutableURLRequest *urlRequest = [NSMutableURLRequest new];
+urlRequest.URL = [NSURL URLWithString:"https://contoso.api.com"];
+urlRequest.HTTPMethod = @"GET";
+urlRequest.allHTTPHeaderFields = @{ @"Authorization" : [NSString stringWithFormat:@"Bearer %@", accessToken] };
+        
+NSURLSessionDataTask *task =
+[[NSURLSession sharedSession] dataTaskWithRequest:urlRequest
+     completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {}];
+[task resume];
+```
+
+快速
 
 ```swift
-        let url = URL(string: kGraphURI)
-        var request = URLRequest(url: url!)
-
-        // Put access token in HTTP request.
-        request.setValue("Bearer \(self.accessToken)", forHTTPHeaderField: "Authorization")
-
-        URLSession.shared.dataTask(with: request) { data, response, error in
-            if let error = error {
-                self.updateLogging(text: "Couldn't get graph result: \(error)")
-                return
-            }
-            guard let result = try? JSONSerialization.jsonObject(with: data!, options: []) else {
-                self.updateLogging(text: "Couldn't deserialize result JSON")
-                return
-            }
-
-            // Successfully got data from Graph.
-            self.updateLogging(text: "Result from Graph: \(result))")
-        }.resume()
+let urlRequest = NSMutableURLRequest()
+urlRequest.url = URL(string: "https://contoso.api.com")!
+urlRequest.httpMethod = "GET"
+urlRequest.allHTTPHeaderFields = [ "Authorization" : "Bearer \(accessToken)" ]
+     
+let task = URLSession.shared.dataTask(with: urlRequest as URLRequest) { (data: Data?, response: URLResponse?, error: Error?) in }
+task.resume()
 ```
 
 ### <a name="xamarin"></a>Xamarin
@@ -125,7 +131,7 @@ MSAL 也會提供的抽象概念`Account`。 `Account`代表目前使用者的�
 
 ## <a name="calling-several-apis-in-xamarin-or-uwp---incremental-consent-and-conditional-access"></a>以 Xamarin 或 UWP 呼叫數個 Api-累加同意和條件式存取
 
-如果您需要為相同的使用者呼叫數個 api, 一旦您取得使用者的權杖, 您可以藉由後續呼叫`AcquireTokenSilent`來取得權杖, 以避免重複要求使用者提供認證。
+如果您需要為相同的使用者呼叫數個 api，一旦您取得使用者的權杖，您可以藉由後續呼叫`AcquireTokenSilent`來取得權杖，以避免重複要求使用者提供認證。
 
 ```CSharp
 var result = await app.AcquireTokenXX("scopeApi1")
@@ -135,10 +141,10 @@ result = await app.AcquireTokenSilent("scopeApi2")
                   .ExecuteAsync();
 ```
 
-需要進行互動的情況如下:
+需要進行互動的情況如下：
 
-- 使用者同意第一個 API, 但現在需要同意更多範圍 (增量同意)
-- 第一個 API 不需要多重要素驗證, 但下一個則是。
+- 使用者同意第一個 API，但現在需要同意更多範圍（增量同意）
+- 第一個 API 不需要多重要素驗證，但下一個則是。
 
 ```CSharp
 var result = await app.AcquireTokenXX("scopeApi1")

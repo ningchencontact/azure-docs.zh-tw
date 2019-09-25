@@ -15,44 +15,44 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 01/23/2019
 ms.author: aschhab
-ms.openlocfilehash: 7d4cb8e55c5d1561c09cf85122550a66e3671f17
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 6443cb727573645792a4e6c929b80c3406d72025
+ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60714102"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71261812"
 ---
 # <a name="service-bus-diagnostic-logs"></a>服務匯流排診斷記錄
 
 您可以檢視「Azure 服務匯流排」的兩種記錄：
 * **[活動記錄](../azure-monitor/platform/activity-logs-overview.md)** 。 這些記錄包含在工作上執行之操作的相關資訊。 系統一律會啟用這些記錄。
-* **[診斷記錄](../azure-monitor/platform/diagnostic-logs-overview.md)** 。 您可以設定診斷記錄，以取得在工作內所發生之所有事件的更詳細資訊。 診斷記錄涵蓋從建立工作到刪除工作期間的活動，包括工作執行時發生的更新與活動。
+* **[診斷記錄](../azure-monitor/platform/resource-logs-overview.md)** 。 您可以設定診斷記錄，以取得在工作內所發生之所有事件的更詳細資訊。 診斷記錄涵蓋從建立工作到刪除工作期間的活動，包括工作執行時發生的更新與活動。
 
 ## <a name="turn-on-diagnostic-logs"></a>開啟診斷記錄
 
 診斷記錄預設為停用。 若要啟用診斷記錄，請執行下列步驟：
 
-1.  在 [Azure 入口網站](https://portal.azure.com)的 [監視 + 管理]  下，按一下 [診斷記錄]  。
+1.  在 [Azure 入口網站](https://portal.azure.com)的 [監視 + 管理] 下，按一下 [診斷記錄]。
 
     ![瀏覽到診斷記錄的刀鋒視窗](./media/service-bus-diagnostic-logs/image1.png)
 
 2. 按一下您想要監視的資源。  
 
-3.  按一下 [開啟診斷]  。
+3.  按一下 [開啟診斷]。
 
     ![開啟診斷記錄](./media/service-bus-diagnostic-logs/image2.png)
 
-4.  針對 [狀態]  ，按一下 [開啟]  。
+4.  針對 [狀態]，按一下 [開啟]。
 
     ![變更診斷記錄狀態](./media/service-bus-diagnostic-logs/image3.png)
 
-5.  設定的封存目標，您想要的選項;例如，儲存體帳戶、 事件中樞或 Azure 監視器記錄。
+5.  設定您想要的封存目標;例如，儲存體帳戶、事件中樞或 Azure 監視器記錄。
 
 6.  儲存新的診斷設定。
 
-新的設定大約會在 10 分鐘內生效。 之後，記錄就會顯示在 [診斷記錄]  刀鋒視窗上已設定的封存目標中。
+新的設定大約會在 10 分鐘內生效。 之後，記錄就會顯示在 [診斷記錄] 刀鋒視窗上已設定的封存目標中。
 
-如需設定診斷的詳細資訊，請參閱 [Azure 診斷記錄概觀](../azure-monitor/platform/diagnostic-logs-overview.md)。
+如需設定診斷的詳細資訊，請參閱 [Azure 診斷記錄概觀](../azure-monitor/platform/resource-logs-overview.md)。
 
 ## <a name="diagnostic-logs-schema"></a>診斷記錄結構描述
 
@@ -64,7 +64,7 @@ ms.locfileid: "60714102"
 
 作業記錄 JSON 字串包括下表所列的元素：
 
-名稱 | 描述
+Name | 描述
 ------- | -------
 ActivityId | 用於追蹤的內部識別碼
 EventName | 作業名稱           

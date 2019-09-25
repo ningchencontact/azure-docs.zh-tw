@@ -15,12 +15,12 @@ ms.date: 07/16/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a5409b5619f8be16ef92f517b4b598e2a8e5e2b7
-ms.sourcegitcommit: 23389df08a9f4cab1f3bb0f474c0e5ba31923f12
+ms.openlocfilehash: 3e8d46e873d48de5f7e507566b5af6095b9c4e1c
+ms.sourcegitcommit: 263a69b70949099457620037c988dc590d7c7854
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70872812"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71268376"
 ---
 # <a name="desktop-app-that-calls-web-apis---acquire-a-token"></a>呼叫 web Api 的桌面應用程式-取得權杖
 
@@ -32,6 +32,8 @@ Web API 是由其`scopes`所定義。 無論您在應用程式中提供的體驗
 
 - 有系統地嘗試從權杖快取取得權杖, 方法是呼叫`AcquireTokenSilent`
 - 如果這個呼叫失敗, 請使用`AcquireToken`您想要使用的流程 (此處`AcquireTokenXX`以表示)
+
+### <a name="in-msalnet"></a>在 MSAL.NET 中
 
 ```CSharp
 AuthenticationResult result;
@@ -50,12 +52,52 @@ catch(MsalUiRequiredException ex)
                     .ExecuteAsync();
 }
 ```
+### <a name="in-msal-for-ios-and-macos"></a>適用于 iOS 和 macOS 的 MSAL
+
+Objective-C：
+
+```objc
+MSALAccount *account = [application accountForIdentifier:accountIdentifier error:nil];
+    
+MSALSilentTokenParameters *silentParams = [[MSALSilentTokenParameters alloc] initWithScopes:scopes account:account];
+[application acquireTokenSilentWithParameters:silentParams completionBlock:^(MSALResult *result, NSError *error) {
+    
+    // Check the error
+    if (error && [error.domain isEqual:MSALErrorDomain] && error.code == MSALErrorInteractionRequired)
+    {
+        // Interactive auth will be required, call acquireTokenWithParameters:error:
+    }
+}];
+```
+快速
+
+```swift
+guard let account = try? application.account(forIdentifier: accountIdentifier) else { return }
+let silentParameters = MSALSilentTokenParameters(scopes: scopes, account: account)
+application.acquireTokenSilent(with: silentParameters) { (result, error) in
+            
+    guard let authResult = result, error == nil else {
+                
+    let nsError = error! as NSError
+                
+        if (nsError.domain == MSALErrorDomain &&
+            nsError.code == MSALError.interactionRequired.rawValue) {
+                    
+            // Interactive auth will be required, call acquireToken()
+            return
+        }
+        return
+    }
+}
+```
 
 以下是在桌面應用程式中取得權杖的各種方式的詳細資料
 
 ## <a name="acquiring-a-token-interactively"></a>以互動方式取得權杖
 
 下列範例顯示使用 Microsoft Graph 以互動方式取得權杖的最少程式碼, 以讀取使用者的設定檔。
+
+### <a name="in-msalnet"></a>在 MSAL.NET 中
 
 ```CSharp
 string[] scopes = new string[] {"user.read"};
@@ -74,13 +116,47 @@ catch(MsalUiRequiredException)
 }
 ```
 
+### <a name="in-msal-for-ios-and-macos"></a>適用于 iOS 和 macOS 的 MSAL
+
+Objective-C：
+
+```objc
+MSALInteractiveTokenParameters *interactiveParams = [[MSALInteractiveTokenParameters alloc] initWithScopes:scopes webviewParameters:[MSALWebviewParameters new]];
+[application acquireTokenWithParameters:interactiveParams completionBlock:^(MSALResult *result, NSError *error) {
+    if (!error) 
+    {
+        // You'll want to get the account identifier to retrieve and reuse the account
+        // for later acquireToken calls
+        NSString *accountIdentifier = result.account.identifier;
+            
+        NSString *accessToken = result.accessToken;
+    }
+}];
+```
+
+快速
+
+```swift
+let interactiveParameters = MSALInteractiveTokenParameters(scopes: scopes, webviewParameters: MSALWebviewParameters())
+application.acquireToken(with: interactiveParameters, completionBlock: { (result, error) in
+                
+    guard let authResult = result, error == nil else {
+        print(error!.localizedDescription)
+        return
+    }
+                
+    // Get access token from result
+    let accessToken = authResult.accessToken
+})
+```
+
 ### <a name="mandatory-parameters"></a>必要參數
 
 `AcquireTokenInteractive`只有一個強制參數``scopes``, 其中包含定義需要權杖之範圍的字串列舉。 如果權杖適用于 Microsoft Graph, 則在名為「許可權」的區段中, 您可以在每個 Microsoft Graph API 的 api 參考中找到所需的範圍。 例如, 若要[列出使用者的連絡人](https://developer.microsoft.com/graph/docs/api-reference/v1.0/api/user_list_contacts), 則必須使用「使用者. 讀取」、「連絡人」等範圍。 另請參閱[Microsoft Graph 許可權參考](https://developer.microsoft.com/graph/docs/concepts/permissions_reference)。
 
 在 Android 上, 您也必須指定父活動 (使用`.WithParentActivityOrWindow`, 請參閱下方), 讓權杖在互動之後回到該父活動。 如果您未指定, 則會在呼叫`.ExecuteAsync()`時擲回例外狀況。
 
-### <a name="specific-optional-parameters"></a>特定的選擇性參數
+### <a name="specific-optional-parameters-in-msalnet"></a>MSAL.NET 中的特定選擇性參數
 
 #### <a name="withparentactivityorwindow"></a>WithParentActivityOrWindow
 

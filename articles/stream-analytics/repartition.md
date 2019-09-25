@@ -7,12 +7,12 @@ ms.author: mamccrea
 ms.date: 09/19/2019
 ms.topic: conceptual
 ms.custom: mvc
-ms.openlocfilehash: 82e4a225d26bac04ed4754169cc4a79e0a8f9b32
-ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
+ms.openlocfilehash: fcbef434d3b88c20cdaaeab92a973e5fbe41680d
+ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71101502"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71266432"
 ---
 # <a name="use-repartitioning-to-optimize-processing-with-azure-stream-analytics"></a>使用 Azure 串流分析進行重新分割以優化處理
 
@@ -56,7 +56,7 @@ SELECT * INTO output FROM step1 PARTITION BY DeviceID UNION step2 PARTITION BY D
 
 當您的作業使用 SQL database 做為輸出時，請使用明確重新分割來比對最佳的磁碟分割計數，以將輸送量最大化。 由於 SQL 最適用于八個寫入器，因此在清除之前將流程重新分割為八個，或進一步上游，可能會使作業效能受益。 
 
-當輸入資料分割超過 8 個時，繼承輸入資料分割配置可能不會是適當的選擇。 請考慮在您的查詢中使用[INTO](/stream-analytics-query/into-azure-stream-analytics.md#into-shard-count) ，以明確指定輸出寫入器的數目。 
+當輸入資料分割超過 8 個時，繼承輸入資料分割配置可能不會是適當的選擇。 請考慮在您的查詢中使用[INTO](/stream-analytics-query/into-azure-stream-analytics#into-shard-count) ，以明確指定輸出寫入器的數目。 
 
 下列範例會從輸入讀取（不論其是否為自然分割），並根據 DeviceID 維度會重新分割資料流程十倍，並將資料排清到輸出。 
 

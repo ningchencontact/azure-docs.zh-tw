@@ -7,12 +7,12 @@ ms.service: private-link
 ms.topic: conceptual
 ms.date: 09/16/2019
 ms.author: kumud
-ms.openlocfilehash: 7394a9e1b1fa90741bc26fc0e9b6b7e6284d75e0
-ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
+ms.openlocfilehash: 80f2e8a8fd41fbafbaf6d30bc1001b86c5dcdd50
+ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71104688"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71266375"
 ---
 # <a name="what-is-azure-private-endpoint"></a>什麼是 Azure 私用端點？
 
@@ -43,7 +43,7 @@ Azure 私用端點是一種網路介面，可讓您私下且安全地連線到 A
  
 - 您可以使用相同的私人連結資源來建立多個私人端點。 針對使用一般 DNS 伺服器設定的單一網路，建議的作法是針對指定的私人連結資源使用單一私人端點，以避免 DNS 解析中出現重複的專案或衝突。 
  
-- 可以在相同的虛擬網路內，于相同或不同的子網上建立多個私人端點。 您可以在訂用帳戶中建立的私人端點數目有所限制。 如需詳細資訊，請參閱 [Azure 限制](https://docs.microsoft.com/azure/azure-subscription-service-limits.md#networking-limits)。
+- 可以在相同的虛擬網路內，于相同或不同的子網上建立多個私人端點。 您可以在訂用帳戶中建立的私人端點數目有所限制。 如需詳細資訊，請參閱 [Azure 限制](https://docs.microsoft.com/azure/azure-subscription-service-limits#networking-limits)。
 
 
  
@@ -128,8 +128,8 @@ Azure 會在公用 DNS 上建立正式名稱 DNS 記錄（CNAME），以將解�
 |  入口網站不支援使用別名建立私人端點  |   入口網站只允許使用資源 URI 建立私人端點      | 使用資源 URI 來要求私人端點連接        |
 
 ## <a name="next-steps"></a>後續步驟
-- [使用入口網站建立 SQL Database 伺服器的私用端點](create-private-endpoint-portal.md)
-- [使用 PowerShell 建立 SQL Database 伺服器的私用端點](create-private-endpoint-powershell.md)
-- [使用 CLI 建立 SQL Database 伺服器的私用端點](create-private-endpoint-cli.md)
-- [使用入口網站建立儲存體帳戶的私用端點](create-private-endpoint-storage-portal.md)
-- [使用 Azure PowerShell 建立您自己的私人連結服務](create-private-link-service-powershell.md)
+- [使用入口網站建立適用於 SQL Database 伺服器的私人端點](create-private-endpoint-portal.md)
+- [使用 PowerShell 建立適用於 SQL Database 伺服器的私人端點](create-private-endpoint-powershell.md)
+- [使用 CLI 建立適用於 SQL Database 伺服器的私人端點](create-private-endpoint-cli.md)
+- [使用入口網站建立適用於儲存體帳戶的私人端點](create-private-endpoint-storage-portal.md)
+- [使用 Azure PowerShell 建立您自己的 Private Link 服務](create-private-link-service-powershell.md)

@@ -11,12 +11,12 @@ ms.reviewer: larryfr
 ms.topic: conceptual
 ms.date: 07/31/2019
 ms.custom: seodec18
-ms.openlocfilehash: 933ae5b70d8e0485360a94ede1fff99c02f75a4c
-ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
+ms.openlocfilehash: 0bd4b1d969de0b54a1836048b5cb5910470f1ffa
+ms.sourcegitcommit: 263a69b70949099457620037c988dc590d7c7854
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71034879"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71269227"
 ---
 # <a name="configure-a-development-environment-for-azure-machine-learning"></a>設定 Azure Machine Learning 的開發環境
 
@@ -36,7 +36,7 @@ ms.locfileid: "71034879"
 
 * [Jupyter Notebook](#jupyter)：如果您已經在使用 Jupyter Notebook，則 SDK 有一些您應該安裝的附加功能。
 
-* [Visual Studio Code](#vscode)：如果您使用 Visual Studio Code，則有一些您可以安裝的實用擴充功能。
+* [Visual Studio Code](#vscode)：如果您使用 Visual Studio Code， [Azure Machine Learning 延伸](https://marketplace.visualstudio.com/items?itemName=ms-toolsai.vscode-ai)模組包含 Python 的廣泛語言支援，以及可讓您使用 Azure Machine Learning 服務更方便且更有效率的功能。
 
 ## <a name="prerequisites"></a>必要條件
 
@@ -76,7 +76,7 @@ Azure Machine Learning 工作區。 若要建立工作區，請參閱[建立 Azu
 
 + **可自訂**。 在受管理且安全的 VM 供應專案中, 您可以保留硬體功能的完整存取權, 並根據您的需求進行自訂。 例如, 您可以快速建立最新的 NVidia V100 供電 VM, 以執行 novel 類神經網路架構的逐步偵錯工具。
 
-若要停止產生筆記本 VM 費用, 請[停止筆記本 vm](tutorial-1st-experiment-sdk-train.md#clean-up-resources)。 
+若要停止產生筆記本 VM 費用, 請[停止筆記本 vm](tutorial-1st-experiment-sdk-train.md#clean-up-resources)。
 
 ## <a id="dsvm"></a>資料科學虛擬機器
 
@@ -90,7 +90,7 @@ DSVM 是自訂的虛擬機器 (VM) 映像。 它是針對使用下列項目預�
 
 Azure Machine Learning SDK 適用於 Ubuntu 或 Windows版本的 DSVM。 但如果您也打算使用 DSVM 作為計算目標，則僅支援 Ubuntu。
 
-若要使用 DSVM 作為開發環境，請執行下列操作：
+若要使用 DSVM 做為開發環境：
 
 1. 在下列其中一個環境中建立 DSVM：
 
@@ -151,9 +151,9 @@ Azure Machine Learning SDK 適用於 Ubuntu 或 Windows版本的 DSVM。 但如�
 
 ## <a id="local"></a>本機電腦
 
-當您使用本機電腦 (也可能是遠端虛擬機器) 時, 請執行下列動作來建立 Anaconda 環境並安裝 SDK:
+當您使用本機電腦（也可能是遠端虛擬機器）時，請建立 Anaconda 環境並安裝 SDK。 以下為範例：
 
-1. 如果您還沒有[Anaconda](https://www.anaconda.com/distribution/#download-section) (Python 3.7 版本), 請下載並安裝。
+1. 如果您還沒有[Anaconda](https://www.anaconda.com/distribution/#download-section) （Python 3.7 版本），請下載並安裝。
 
 1. 開啟 Anaconda 提示字元, 並使用下列命令建立環境:
 
@@ -185,10 +185,10 @@ Azure Machine Learning SDK 適用於 Ubuntu 或 Windows版本的 DSVM。 但如�
 
 1. 使用下列命令來安裝套件:
 
-    此命令會使用筆記本和 automl 額外專案來安裝基底 Azure Machine Learning SDK。 額外`automl`的是大型安裝, 如果您不想要執行自動化機器學習實驗, 可以從括弧中移除。 額外`automl`的也包含 Azure Machine Learning 資料準備 SDK, 預設為相依性。
+    此命令會使用筆記本和`automl`額外專案來安裝基底 Azure Machine Learning SDK。 額外`automl`的是大型安裝, 如果您不想要執行自動化機器學習實驗, 可以從括弧中移除。 額外`automl`的也包含 Azure Machine Learning 資料準備 SDK, 預設為相依性。
 
     ```shell
-    pip install azureml-sdk[notebooks,automl]
+    pip install azureml-sdk[notebooks, automl]
     ```
 
    > [!NOTE]
@@ -221,14 +221,16 @@ Azure Machine Learning SDK 適用於 Ubuntu 或 Windows版本的 DSVM。 但如�
 
 Jupyter Notebook 是 [Jupyter 專案](https://jupyter.org/)的一部分。 它們提供互動式程式碼撰寫體驗，讓您用來建立混合即時程式碼與敘述文字和圖形的文件。 Jupyter Notebook 也是與其他人共用結果的好方法，因為您可以將程式碼區段的輸出儲存在文件中。 您可以在各種不同的平台上安裝 Jupyter Notebook。
 
-[[本機電腦](#local)] 區段中的程式會安裝在 Anaconda 環境中執行 Jupyter 筆記本所需的元件。 若要在 Jupyter Notebook 環境中啟用這些元件，請執行下列操作：
+[[本機電腦](#local)] 區段中的程式會安裝在 Anaconda 環境中執行 Jupyter 筆記本所需的元件。
+
+若要在您的 Jupyter Notebook 環境中啟用這些元件：
 
 1. 開啟 Anaconda 提示字元並啟用您的環境。
 
     ```shell
     conda activate myenv
     ```
-    
+
 1. 複製一組範例筆記本[的 GitHub 存放庫](https://aka.ms/aml-notebooks)。
 
     ```CLI
@@ -254,34 +256,35 @@ Jupyter Notebook 是 [Jupyter 專案](https://jupyter.org/)的一部分。 它�
     import sys
     sys.path
     ```
-    
+
 1. 若要設定 Jupyter Notebook 使用您的 Azure Machine Learning 工作區，請移至[建立工作區設定檔](#workspace)一節。
 
 
 ### <a id="vscode"></a>Visual Studio Code
 
-Visual Studio Code 是跨平台的程式碼編輯器。 它依賴於 Python 支援的本機 Python 3 和 Conda 安裝，但它提供額外的工具來使用 AI。 它還支援從程式碼編輯器中選取 Conda 環境。
+Visual Studio Code 是一個非常熱門的跨平臺程式碼編輯器，可透過[Visual Studio marketplace](https://marketplace.visualstudio.com/vscode)中提供的延伸模組，支援一組豐富的程式設計語言和工具。 [Azure Machine Learning 延伸](https://marketplace.visualstudio.com/items?itemName=ms-toolsai.vscode-ai)模組會安裝[python 延伸](https://marketplace.visualstudio.com/items?itemName=ms-python.python)模組，以便在所有類型的 python 環境中撰寫程式碼（虛擬、Anaconda 等）。 此外，它還提供便利的功能來處理 Azure Machine Learning 資源，並在不離開 Visual Studio Code 的情況下執行 Azure Machine Learning 實驗。
 
-若要使用 Visual Studio Code 進行開發，請執行下列操作：
+若要使用 Visual Studio Code 進行開發：
 
-1. 若要了解如何使用 Visual Studio Code 進行 Python 開發，請參閱[在 VSCode 中開始使用 Python](https://code.visualstudio.com/docs/python/python-tutorial)。
-
-1. 若要選取 Conda 環境，請開啟 VS Code，然後選取 Ctrl+Shift+P (Linux 和 Windows) 或 Command+Shift+P (Mac)。
-    [命令棧板] 隨即開啟。
-
-1. 輸入 __Python:Select Interpreter__，然後選取 Conda 環境。
-
-1. 若要驗證您是否可以使用 SDK，請建立並執行包含下列程式碼的新 Python 檔案 (.py)：
-
-    ```python
-    import azureml.core
-    azureml.core.VERSION
-    ```
-
-1. 若要安裝適用於 Visual Studio Code 的 Azure Machine Learning 擴充功能，請參閱[適用於 AI 的工具](https://marketplace.visualstudio.com/items?itemName=ms-toolsai.vscode-ai)。
+1. 安裝 Visual Studio Code 的 Azure Machine Learning 延伸模組，請參閱[Azure Machine Learning](https://marketplace.visualstudio.com/items?itemName=ms-toolsai.vscode-ai)。
 
     如需詳細資訊，請參閱[使用適用於 Visual Studio Code 的 Azure Machine Learning](how-to-vscode-tools.md)。
 
+1. 瞭解如何將 Visual Studio Code 用於任何類型的 Python 開發，請參閱[在 VSCode 中開始使用 python](https://code.visualstudio.com/docs/python/python-tutorial)。
+
+    - 若要選取包含 SDK 的 SDK Python 環境，請開啟 [VS Code]，然後選取 [Ctrl + Shift + P （Linux 和 Windows）] 或 [命令 + Shift + P （Mac）]。
+        - __命令__選擇區隨即開啟。
+
+    - 輸入 __Python:選取 [__ 解譯器]，然後選取適當的環境
+
+1. 若要驗證您是否可以使用 SDK，請建立新的 Python 檔案（. .py），其中包含下列程式碼：
+
+    ```python
+    #%%
+    import azureml.core
+    azureml.core.VERSION
+    ```
+    按一下 [執行資料格] CodeLens，或直接按 shift enter 來執行此程式碼。
 <a name="aml-databricks"></a>
 
 ## <a name="azure-databricks"></a>Azure Databricks
@@ -302,7 +305,7 @@ Azure Databricks 如何與 Azure Machine Learning 搭配運作：
 | 設定 |適用於| 值 |
 |----|---|---|
 | 叢集名稱 |永遠| yourclustername |
-| Databricks 執行階段 |永遠| 任何非 ML 執行階段 (非 ML 4.x、5.x) |
+| Databricks 執行階段 |永遠| 任何非 ML 執行時間（非 ML 4.x、5.x） |
 | Python 版本 |永遠| 3 |
 | 背景工作 |永遠| 2 個以上 |
 | 背景工作節點 VM 類型 <br>(判斷並行反覆運算的最大數目) |自動化 ML<br>才| 建議使用已記憶體最佳化的 VM |
@@ -326,7 +329,7 @@ Azure Databricks 如何與 Azure Machine Learning 搭配運作：
    * 請勿選取 [**自動附加至所有**叢集]。
    * 選取 **附加**旁您的叢集名稱。
 
-1. 監視錯誤直到狀態變更為 [已**附加**], 這可能需要幾分鐘的時間。  如果此步驟失敗, 請檢查下列各項:
+1. 監視錯誤直到狀態變更為 [已**附加**], 這可能需要幾分鐘的時間。  如果此步驟失敗：
 
    嘗試重新開機您的叢集:
    1. 在左窗格中，選取 [叢集]。

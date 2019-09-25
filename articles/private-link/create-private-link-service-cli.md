@@ -7,12 +7,12 @@ ms.service: private-link
 ms.topic: article
 ms.date: 09/16/2019
 ms.author: kumud
-ms.openlocfilehash: 87d0f08d67dbbe6a0fa1725aba850c8d9b6c5619
-ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
+ms.openlocfilehash: c67d2cd4e90b2fa61a4d95e89a68c888a6e1fe3f
+ms.sourcegitcommit: a6718e2b0251b50f1228b1e13a42bb65e7bf7ee2
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71104712"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71273641"
 ---
 # <a name="create-a-private-link-service-using-azure-cli"></a>使用 Azure CLI 建立私人連結服務
 本文說明如何使用 Azure CLI 在 Azure 中建立私人連結服務。
@@ -29,13 +29,13 @@ ms.locfileid: "71104712"
 az group create --name myResourceGroup --location westcentralus
 ```
 ### <a name="create-a-virtual-network"></a>建立虛擬網路
-使用 [az network vnet create](/cli/azure/network/az-network-vnet-create) 建立虛擬網路。 這個範例會建立名為*myVirtualNetwork*的預設虛擬網路，其中具有一個名為*mySubnet*的子網：
+使用 [az network vnet create](/cli/azure/network/vnet#az-network-vnet-create) 建立虛擬網路。 這個範例會建立名為*myVirtualNetwork*的預設虛擬網路，其中具有一個名為*mySubnet*的子網：
 
 ```azurecli-interactive
 az network vnet create --resource-group myResourceGroup --name myVirtualNetwork --address-prefix 10.0.0.0/16  
 ```
 ### <a name="create-a-subnet"></a>建立子網路
-使用[az network vnet subnet create](/cli/azure/network/az-network-vnet-subnet-create)建立虛擬網路的子網。 這個範例會在*myVirtualNetwork*虛擬網路中建立名為*mySubnet*的子網：
+使用[az network vnet subnet create](/cli/azure/network/vnet/subnet#az-network-vnet-subnet-create)建立虛擬網路的子網。 這個範例會在*myVirtualNetwork*虛擬網路中建立名為*mySubnet*的子網：
 
 ```azurecli-interactive
 az network vnet subnet create --resource-group myResourceGroup --vnet-name myVirtualNetwork --name mySubnet --address-prefixes 10.0.0.0/24    
@@ -82,7 +82,7 @@ az network lb create --resource-group myResourceGroup --name myILB --sku standar
 
 
 ### <a name="disable-private-link-service-network-policies-on-subnet"></a>停用子網上的私人連結服務網路原則 
-私人連結服務需要您在虛擬網路內選擇的任何子網的 IP。 目前，我們不支援這些 Ip 上的網路原則。  因此，我們必須停用子網上的網路原則。 使用[az network vnet subnet update](/cli/azure/network/az-network-vnet-subnet-update)，將子網更新為停用私人連結服務網路原則。
+私人連結服務需要您在虛擬網路內選擇的任何子網的 IP。 目前，我們不支援這些 Ip 上的網路原則。  因此，我們必須停用子網上的網路原則。 使用[az network vnet subnet update](/cli/azure/network/vnet/subnet#az-network-vnet-subnet-update)，將子網更新為停用私人連結服務網路原則。
 
 ```azurecli-interactive
 az network vnet subnet update --resource-group myResourceGroup --vnet-name myVirtualNetwork --name mySubnet --disable-private-link-service-network-policies true 
@@ -90,7 +90,7 @@ az network vnet subnet update --resource-group myResourceGroup --vnet-name myVir
  
 ## <a name="create-a-private-link-service"></a>建立 Private Link 服務  
  
-使用 Standard Load Balancer 前端 IP 設定搭配[az network private-Link-服務 create](/cli/azure/network/az-network-private-link-service-create)來建立私人連結服務。 這個範例會使用名為*myResourceGroup*的資源群組中名為*myLoadBalancer*的 Standard Load Balancer，建立名為*myPLS*的私用連結服務。 
+使用 Standard Load Balancer 前端 IP 設定搭配[az network private-Link-服務 create](/cli/azure/network/private-link-service#az-network-private-link-service-create)來建立私人連結服務。 這個範例會使用名為*myResourceGroup*的資源群組中名為*myLoadBalancer*的 Standard Load Balancer，建立名為*myPLS*的私用連結服務。 
  
 ```azurecli-interactive
 az network private-link-service create \
@@ -111,7 +111,7 @@ az network private-link-service create \
 ## <a name="private-endpoints"></a>私人端點
 
 ### <a name="create-the-virtual-network"></a>建立虛擬網路 
-使用 [az network vnet create](/cli/azure/network/az-network-vnet-create)建立虛擬網路。 這個範例會在名為*myResourcegroup*的資源群組中建立名為 *myPEVNet*  的虛擬網路： 
+使用 [az network vnet create](/cli/azure/network/vnet#az-network-vnet-create)建立虛擬網路。 這個範例會在名為*myResourcegroup*的資源群組中建立名為 *myPEVNet*  的虛擬網路： 
 ```azurecli-interactive
 az network vnet create \
 --resource-group myResourceGroup \
@@ -119,7 +119,7 @@ az network vnet create \
 --address-prefix 10.0.0.0/16  
 ```
 ### <a name="create-the-subnet"></a>建立子網 
-使用 [az network vnet subnet create](/cli/azure/network/az-network-vnet-subnet-create)在虛擬網路中建立子網。 這個範例會在名為*myResourcegroup*的資源群組中，建立名為*myPEVnet*的虛擬網路中名為 *mySubnet*  的子網： 
+使用 [az network vnet subnet create](/cli/azure/network/vnet/subnet#az-network-vnet-subnet-create)在虛擬網路中建立子網。 這個範例會在名為*myResourcegroup*的資源群組中，建立名為*myPEVnet*的虛擬網路中名為 *mySubnet*  的子網： 
 
 ```azurecli-interactive 
 az network vnet subnet create \
@@ -129,7 +129,7 @@ az network vnet subnet create \
 --address-prefixes 10.0.0.0/24 
 ```   
 ## <a name="disable-private-endpoint-network-policies-on-subnet"></a>停用子網上的私人端點網路原則 
-您可以在虛擬網路內選擇的任何子網中建立私人端點。 目前，我們不支援私人端點上的網路原則。  因此，我們必須停用子網上的網路原則。 使用[az network vnet subnet update](/cli/azure/network/az-network-vnet-subnet-update)，將子網更新為停用私人端點網路原則。 
+您可以在虛擬網路內選擇的任何子網中建立私人端點。 目前，我們不支援私人端點上的網路原則。  因此，我們必須停用子網上的網路原則。 使用[az network vnet subnet update](/cli/azure/network/vnet/subnet#az-network-vnet-subnet-update)，將子網更新為停用私人端點網路原則。 
 
 ```azurecli-interactive
 az network vnet subnet update \
@@ -156,7 +156,7 @@ az network private-endpoint create \
  
 ## <a name="show-private-link-service-connections"></a>顯示私人連結服務連接 
  
-請參閱您的私用連結服務上的連線要求使用[az network Private-Link-服務 show](/cli/azure/network/az-network-private-link-service-show)。    
+請參閱您的私用連結服務上的連線要求使用[az network Private-Link-服務 show](/cli/azure/network/private-link-service#az-network-private-link-service-show)。    
 ```azurecli-interactive 
 az network private-link-service show --resource-group myResourceGroup --name myPLS 
 ```

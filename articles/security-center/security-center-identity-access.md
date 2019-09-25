@@ -13,18 +13,15 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/30/2018
 ms.author: memildin
-ms.openlocfilehash: d035dc4e8f77bb64a9e845a9dae0668365a6aacb
-ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
+ms.openlocfilehash: 8b069bedd3c36f27828e54a1110443ae6dfcdf3f
+ms.sourcegitcommit: 263a69b70949099457620037c988dc590d7c7854
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71202269"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71268851"
 ---
 # <a name="monitor-identity-and-access-in-azure-security-center-preview"></a>在 Azure 資訊安全中心監視身分識別和存取 (預覽)
 這篇文章可協助您使用 Azure 資訊安全中心來監視使用者的身分識別和存取活動。
-
-> [!NOTE]
-> "View*傳統*Identity & Access" 連結將于2019年7月31日淘汰。 按一下[這裡](security-center-features-retirement-july2019.md#menu_classicidentity)以瞭解替代服務。
 
 > [!NOTE]
 > 監視身分識別和存取是預覽功能，只會在資訊安全中心的標準層提供使用。 若要深入了解資訊安全中心的定價層，請參閱[價格](security-center-pricing.md)。
@@ -67,7 +64,7 @@ ms.locfileid: "71202269"
 ### <a name="overview-section"></a>概觀區段
 [概觀] 底下有建議清單。 第一個資料行會列出建議。 第二個資料行則顯示受該項建議影響的訂用帳戶總數。 第三個資料行顯示問題的嚴重性。
 
-1. 選取建議。 建議的視窗隨即開啟，並且會顯示：
+1. 選取建議。 [建議] 視窗隨即開啟並顯示：
 
    - 建議的描述
    - 狀況不良和狀況良好的訂用帳戶清單
@@ -80,7 +77,7 @@ ms.locfileid: "71202269"
 ### <a name="subscriptions-section"></a>訂用帳戶區段
 [訂用帳戶] 底下有訂用帳戶的清單。 第一個資料行會列出訂用帳戶。 第二個資料行會顯示每個訂用帳戶的建議總數。 第三個資料行會顯示問題的嚴重性。
 
-![訂用帳戶的索引標籤][4]
+![[訂閱] 索引標籤][4]
 
 1. 選取一個訂用帳戶。 摘要檢視隨即開啟，並有三個索引標籤：
 
@@ -125,13 +122,13 @@ ms.locfileid: "71202269"
 > 如果您已建立條件式存取原則來要求 MFA, 但已設定排除專案, 則資訊安全中心 MFA 建議評估會將原則視為不符合規範, 因為它可讓某些使用者登入 Azure 而不需要 MFA。
 
 ## <a name="next-steps"></a>後續步驟
-若要深入了解適用於其他 Azure 資源類型的建議，請參閱下列文章︰
+若要深入瞭解適用于其他 Azure 資源類型的建議，請參閱下列文章：
 
 - [保護 Azure 資訊安全中心內的機器和應用程式](security-center-virtual-machine-protection.md)
 - [保護 Azure 資訊安全中心內的網路](security-center-network-recommendations.md)
 - [保護 Azure 資訊安全中心內的 Azure SQL 服務和資料](security-center-sql-service-recommendations.md)
 
-如要深入了解資訊安全中心，請參閱下列主題：
+如要深入了解資訊安全中心，請參閱下列文章：
 * [在 Azure 資訊安全中心管理和回應安全性警示](https://docs.microsoft.com/azure/security-center/security-center-managing-and-responding-alerts)。 了解如何在資訊安全中心管理警示，以及回應安全性事件。
 * [了解 Azure 資訊安全中心的安全性警示](https://docs.microsoft.com/azure/security-center/security-center-alerts-type)。 了解不同類型的安全性警示。
 * [Azure 資訊安全中心常見問題集](security-center-faq.md)。 尋找有關使用資訊安全中心常見問題的答案。

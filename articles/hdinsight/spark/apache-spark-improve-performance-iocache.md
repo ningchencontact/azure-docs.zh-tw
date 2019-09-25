@@ -1,27 +1,27 @@
 ---
 title: Azure HDInsight IO 快取（預覽） Apache Spark 工作負載效能
 description: 了解 Azure HDInsight IO 快取以及如何使用它來改進 Apache Spark 效能。
-ms.service: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
+ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 10/15/2018
-ms.openlocfilehash: f3f171d4dfd3642dc71724afbe084c3fcbf8beaa
-ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
+ms.openlocfilehash: ecb393ea1f64897f17ce73170da1673886ef8916
+ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71091078"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71266192"
 ---
-# <a name="improve-performance-of-apache-spark-workloads-using-azure-hdinsight-io-cache"></a>使用 Azure HDInsight IO 快取來改善 Apache Spark 工作負載的效能 
+# <a name="improve-performance-of-apache-spark-workloads-using-azure-hdinsight-io-cache"></a>使用 Azure HDInsight IO 快取來改善 Apache Spark 工作負載的效能
 
 IO 快取是適用於 Azure HDInsight 的資料快取服務，可改進 Apache Spark 作業效能。 IO 快取也可搭配 [Apache TEZ](https://tez.apache.org/) 與 [Apache Hive](https://hive.apache.org/) 工作負載使用，這些工作負載可在 [Apache Spark](https://spark.apache.org/) 叢集上執行。 IO 快取使用稱為 RubiX 的開放原始碼快取元件。 RubiX 是可搭配巨量資料分析引擎使用的本機磁碟快取，這些引擎通常會從雲端儲存體系統存取資料。 RubiX 在快取系統中是獨一無二的，因為它針對快取用途使用固態硬碟 (SSDs) 而非保留作業記憶體。 IO 快取服務會在叢集的每個背景工作角色上啟動並管理 RubiX 中繼資料伺服器。 它也會設定叢集的所有服務，在背景使用 RubiX 快取。
 
 大部分的 SSD 都提供每秒超過 1 GB 的頻寬。 此頻寬加上作業系統記憶體內檔案快取的幫助，提供足夠的頻寬來載入巨量資料計算處理引擎，例如 Apache Spark。 作業系統會保留給 Apache Spark 來處理耗用大量記憶體的繁重工作，例如輪換。 擁有專屬的作業記憶體使用權讓 Apache Spark 可以達成最佳資源使使用狀況。  
 
->[!Note]  
->IO 快取目前使用 RubiX 做為快取元件，但在未來的服務版本中可能會變更。 請使用 IO 快取介面，而不要直接相依於任何 RubiX 實作。
+> [!Note]  
+> IO 快取目前使用 RubiX 做為快取元件，但在未來的服務版本中可能會變更。 請使用 IO 快取介面，而不要直接相依於任何 RubiX 實作。
 
 ## <a name="benefits-of-azure-hdinsight-io-cache"></a>Azure HDInsight IO 快取的優點
 
@@ -70,7 +70,7 @@ Azure HDInsight IO 快取在預覽版中預設是停用的。 您可以在 Azure
 
 1. 選取 [重新啟動] > [重新啟動所有受影響項目]。
 
-    ![重新啟動所有受影響項目](./media/apache-spark-improve-performance-iocache/ambariui-restart-all-affected.png "重新啟動所有受影響項目")
+    ![Apache Ambari 重新開機所有受影響]的(./media/apache-spark-improve-performance-iocache/ambariui-restart-all-affected.png "重新開機所有受影響")的
 
 1. 選取 [確認重新啟動所有項目]。
 
