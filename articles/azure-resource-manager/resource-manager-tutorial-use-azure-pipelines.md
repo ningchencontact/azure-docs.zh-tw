@@ -13,12 +13,12 @@ ms.devlang: na
 ms.date: 06/12/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 85dc0476da12bea64610b6910b0682fef00f4b5a
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 462d9cd6d2a911e660221621ebde5829e928cf00
+ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67064732"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71122215"
 ---
 # <a name="tutorial-continuous-integration-of-azure-resource-manager-templates-with-azure-pipelines"></a>教學課程：Azure Resource Manager 範本與 Azure Pipelines 的持續整合
 
@@ -31,7 +31,7 @@ Azure DevOps 提供開發人員服務，以支援小組規劃工作、共同作�
 > [!NOTE]
 > 選擇專案名稱。 當您進行此教學課程時，請將任何 **AzureRmPipeline** 取代為您的專案名稱。
 
-此教學課程涵蓋下列工作：
+本教學課程涵蓋下列工作：
 
 > [!div class="checklist"]
 > * 準備 GitHub 存放庫
@@ -45,7 +45,7 @@ Azure DevOps 提供開發人員服務，以支援小組規劃工作、共同作�
 
 ## <a name="prerequisites"></a>必要條件
 
-若要完成此文章，您需要：
+若要完成本文，您需要：
 
 * **GitHub 帳戶**，您會用它為您的範本建立存放庫。 如果您沒有帳戶，可以[免費](https://github.com)建立一個。 如需使用 GitHub 存放庫的詳細資訊，請參閱[建置 GitHub 存放庫](/azure/devops/pipelines/repos/github)。
 * **安裝 Git**。 此教學課程的指示使用 *Git Bash* 或 *Git Shell*。 如需指示，請參閱 [安裝 Git]( https://www.atlassian.com/git/tutorials/install-git)。
@@ -264,4 +264,4 @@ azuredeploy.json 已新增至本機存放庫。 接下來您會將範本推送�
 在此教學課程中，您會建立一個 Azure Data 管線來部署 Azure Resource Manager 範本。 若要了解如何跨多個區域部署 Azure 資源，以及如何使用安全的部署實務，請參閱
 
 > [!div class="nextstepaction"]
-> [使用 Azure 部署管理員](./resource-manager-tutorial-deploy-vm-extensions.md)
+> [使用安全部署做法](./deployment-manager-tutorial.md)

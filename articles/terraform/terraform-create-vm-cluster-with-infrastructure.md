@@ -8,13 +8,13 @@ author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
-ms.date: 11/13/2017
-ms.openlocfilehash: 284dcd99dc77d7ec0fb5cb214d49b6fcf93a6aef
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.date: 09/20/2019
+ms.openlocfilehash: bf9539512961930a97d9dcfe86722d0103c1facc
+ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68854492"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71173456"
 ---
 # <a name="create-a-vm-cluster-with-terraform-and-hcl"></a>以 Terraform 和 HCL 建立 VM 叢集
 
@@ -46,7 +46,7 @@ ms.locfileid: "68854492"
 
 5. 將下列程式碼複製到您的變數宣告檔案：
 
-   ```tf
+   ```hcl
    variable subscription_id {}
    variable tenant_id {}
    variable client_id {}
@@ -64,7 +64,7 @@ ms.locfileid: "68854492"
 
 7. 將下列程式碼複製到您的變數檔案。 請務必依照下列方式取代預留位置：針對 `subscription_id`，請使用您在執行 `az account set` 時所指定的 Azure 訂用帳戶識別碼。 針對 `tenant_id`，請使用 `az ad sp create-for-rbac` 所傳回的 `tenant` 值。 針對 `client_id`，請使用 `az ad sp create-for-rbac` 所傳回的 `appId` 值。 針對 `client_secret`，請使用 `az ad sp create-for-rbac` 所傳回的 `password` 值。
 
-   ```tf
+   ```hcl
    subscription_id = "<azure-subscription-id>"
    tenant_id = "<tenant-returned-from-creating-a-service-principal>"
    client_id = "<appId-returned-from-creating-a-service-principal>"
@@ -79,7 +79,7 @@ ms.locfileid: "68854492"
 
 2. 將下列範例資源定義複製到新建立的 `main.tf` 檔案： 
 
-   ```tf
+   ```hcl
    resource "azurerm_resource_group" "test" {
     name     = "acctestrg"
     location = "West US 2"
@@ -227,7 +227,7 @@ ms.locfileid: "68854492"
 
 若要初始化 Terraform，請執行下列命令：
 
-  ```cmd
+  ```bash
   terraform init
   ```
 
@@ -245,13 +245,13 @@ ms.locfileid: "68854492"
 
 如果您不需要儲存執行計畫，請執行下列命令：
 
-  ```cmd
+  ```bash
   terraform plan
   ```
 
 如果您需要儲存執行計畫，請執行下列命令 (將 &lt;path> 預留位置取代為所需的輸出路徑)：
 
-  ```cmd
+  ```bash
   terraform plan -out=<path>
   ```
 
@@ -263,13 +263,13 @@ ms.locfileid: "68854492"
 
 如果您想要套用最新的執行計畫，請執行下列命令：
 
-  ```cmd
+  ```bash
   terraform apply
   ```
 
 如果您想要套用先前儲存的執行計畫，請執行下列命令 (將 &lt;path> 預留位置取代為執行計畫的儲存路徑)：
 
-  ```cmd
+  ```bash
   terraform apply <path>
   ```
 

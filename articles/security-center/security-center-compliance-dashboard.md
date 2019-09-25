@@ -3,9 +3,8 @@ title: 使用 Azure 資訊安全中心改善您的法規合規性 | Microsoft Do
 description: 教學課程：了解如何使用 Azure 資訊安全中心改善您的法規合規性。
 services: security-center
 documentationcenter: na
-author: monhaber
-manager: barbkess
-editor: ''
+author: memildin
+manager: rkarlin
 ms.assetid: 5f50c4dc-ea42-418d-9ea8-158ffeb93706
 ms.service: security-center
 ms.devlang: na
@@ -13,13 +12,13 @@ ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 4/30/2019
-ms.author: v-mohabe
-ms.openlocfilehash: e1544b0c9bf280c8d097d2fa25f7fc652450b87e
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
+ms.author: memildin
+ms.openlocfilehash: 20842997c5df81835024a6f458cd863b4e4d78b0
+ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65968567"
+ms.lasthandoff: 09/23/2019
+ms.locfileid: "71202437"
 ---
 # <a name="tutorial-improve-your-regulatory-compliance"></a>教學課程：改善法規合規性
 ---
@@ -47,7 +46,7 @@ Azure 資訊安全中心會利用法規合規性儀表板，協助您簡化達�
 
 >[!NOTE]
 > 目前支援的法規標準如下：Azure CIS、PCI DSS 3.2、ISO 27001 和 SOC TSP。 其他標準會在開發時反映在儀表板中。
-1.  在資訊安全中心主功能表中的 [原則與合規性] 底下，選取 [法規合規性]。 <br>
+1.  在資訊安全中心主功能表中的 [原則與合規性]  底下，選取 [法規合規性]  。 <br>
 在畫面頂端，您會看到合規性狀態的概觀和一組支援的合規性規章顯示在儀表板上。 您可以看到整體的合規性分數，以及每個標準評量的成功和失敗數目。
 
     ![電腦描述高信賴度](./media/security-center-compliance-dashboard/compliance-dashboard.png)
@@ -57,11 +56,11 @@ Azure 資訊安全中心會利用法規合規性儀表板，協助您簡化達�
 
     ![合規性索引標籤](./media/security-center-compliance-dashboard/compliance-pci.png)
 
-3. 選取 [所有] 索引標籤，即可查看所有相關的資訊安全中心建議和其相關標準。 此檢視可用於識別特定建議所影響的所有不同標準。 <br> 您可能可以使用此檢視對必須處理的建議排列優先順序。 例如，如果您在多個資源上看到「**對訂用帳戶上具有擁有者權限的帳戶啟用 MFA**」的建議失敗，而且關係到多個標準，那麼處理此建議將會對整體合規性分數有很大的影響。
+3. 選取 [所有]  索引標籤，即可查看所有相關的資訊安全中心建議和其相關標準。 此檢視可用於識別特定建議所影響的所有不同標準。 <br> 您可能可以使用此檢視對必須處理的建議排列優先順序。 例如，如果您在多個資源上看到「**對訂用帳戶上具有擁有者權限的帳戶啟用 MFA**」的建議失敗，而且關係到多個標準，那麼處理此建議將會對整體合規性分數有很大的影響。
 
     ![合規性分數的影響](./media/security-center-compliance-dashboard/compliance-all-tabs.png)
 
-1. 若要產生並下載內有目前特殊標準合規性狀態摘要的 PDF 報告，請按一下 [下載報告]。
+1. 若要產生並下載內有目前特殊標準合規性狀態摘要的 PDF 報告，請按一下 [下載報告]  。
 
     此報告會根據資訊安全中心的評估資料來為所選定的標準提供合規性狀態高階摘要，並且會根據該特殊標準的控制來加以組織。 此報告可與利害關係人共用，且可作為證據來提供給內部和外部稽核員。
 
@@ -73,7 +72,7 @@ Azure 資訊安全中心會利用法規合規性儀表板，協助您簡化達�
 
 1.  按一下儀表板上顯示的任何失敗評量，即可檢視該項建議的詳細資料。 每項建議都包含一組應遵循著來解決問題的補救步驟。
 
-2.  您可以選取特定資源以檢視更多詳細資料，並處理該資源的建議。 <br>例如，在 [Azure CIS 標準] 索引標籤上，您可以按一下建議：**需要安全傳輸至儲存體帳戶**。
+2.  您可以選取特定資源以檢視更多詳細資料，並處理該資源的建議。 <br>例如，在 [Azure CIS 標準]  索引標籤上，您可以按一下建議：**需要安全傳輸至儲存體帳戶**。
 
     ![合規性建議](./media/security-center-compliance-dashboard/compliance-recommendation.png)
 

@@ -10,19 +10,19 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: article
-ms.date: 07/31/2019
-ms.openlocfilehash: 5848465033ca0b4df3bc7f63e7cef06059f5c3c5
-ms.sourcegitcommit: fecb6bae3f29633c222f0b2680475f8f7d7a8885
+ms.date: 09/21/2019
+ms.openlocfilehash: 9bd620ef9664e921aa88792017585b02e44387f8
+ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68667758"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71172700"
 ---
 # <a name="tutorial-migrate-rds-mysql-to-azure-database-for-mysql-online-using-dms"></a>教學課程：使用 DMS 在線上從 RDS MySQL 遷移至適用於 MySQL 的 Azure 資料庫
 
 您可以使用 Azure 資料庫移轉服務，將資料庫從 RDS MySQL 執行個體遷移至[適用於 MySQL 的 Azure 資料庫](https://docs.microsoft.com/azure/mysql/)，同時讓來源資料庫在移轉期間保持連線。 換句話說，移轉可在最短的應用程式停止運作時間內完成。 在本教學課程中，您會在 Azure 資料庫移轉服務中使用線上移轉活動，將 **Employees** 範例資料庫從 RDS MySQL 執行個體遷移至適用於 MySQL 的 Azure 資料庫。
 
-在本教學課程中，您了解如何：
+在本教學課程中，您會了解如何：
 > [!div class="checklist"]
 >
 > * 使用 mysqldump 和 mysql 公用城市遷移範例結構描述。
@@ -109,15 +109,15 @@ ms.locfileid: "68667758"
         FROM
         (SELECT
         KCU.REFERENCED_TABLE_SCHEMA as SchemaName,
-        KCU.TABLE_NAME,
-        KCU.COLUMN_NAME,
-        CONCAT('ALTER TABLE ', KCU.TABLE_NAME, ' DROP FOREIGN KEY ', KCU.CONSTRAINT_NAME) AS DropQuery,
+                    KCU.TABLE_NAME,
+                    KCU.COLUMN_NAME,
+                    CONCAT('ALTER TABLE ', KCU.TABLE_NAME, ' DROP FOREIGN KEY ', KCU.CONSTRAINT_NAME) AS DropQuery,
         CONCAT('ALTER TABLE ', KCU.TABLE_NAME, ' ADD CONSTRAINT ', KCU.CONSTRAINT_NAME, ' FOREIGN KEY (`', KCU.COLUMN_NAME, '`) REFERENCES `', KCU.REFERENCED_TABLE_NAME, '` (`', KCU.REFERENCED_COLUMN_NAME, '`) ON UPDATE ',RC.UPDATE_RULE, ' ON DELETE ',RC.DELETE_RULE) AS AddQuery
-        FROM INFORMATION_SCHEMA.KEY_COLUMN_USAGE KCU, information_schema.REFERENTIAL_CONSTRAINTS RC
-        WHERE
-          KCU.CONSTRAINT_NAME = RC.CONSTRAINT_NAME
-          AND KCU.REFERENCED_TABLE_SCHEMA = RC.UNIQUE_CONSTRAINT_SCHEMA
-      AND KCU.REFERENCED_TABLE_SCHEMA = ('SchemaName') Queries
+                    FROM INFORMATION_SCHEMA.KEY_COLUMN_USAGE KCU, information_schema.REFERENTIAL_CONSTRAINTS RC
+                    WHERE
+                      KCU.CONSTRAINT_NAME = RC.CONSTRAINT_NAME
+                      AND KCU.REFERENCED_TABLE_SCHEMA = RC.UNIQUE_CONSTRAINT_SCHEMA
+      AND KCU.REFERENCED_TABLE_SCHEMA = 'SchemaName') Queries
       GROUP BY SchemaName;
     ```
 
@@ -198,7 +198,7 @@ ms.locfileid: "68667758"
     > [!NOTE]
     > 或者，您可以選擇 [僅建立專案]  以立即建立移轉專案，並於後續再執行移轉。
 
-6. 選取 [ **儲存**]。
+6. 選取 [儲存]  。
 
 7. 選取 [建立及執行活動]  ，以建立專案並執行移轉活動。
 

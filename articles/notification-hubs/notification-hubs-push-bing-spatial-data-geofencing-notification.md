@@ -4,9 +4,9 @@ description: 在本教學課程中，您將學習如何使用 Azure 通知中樞
 services: notification-hubs
 documentationcenter: windows
 keywords: 推播通知,推播通知
-author: jwargo
-manager: patniko
-editor: spelluru
+author: sethmanheim
+manager: femila
+editor: jwargo
 ms.assetid: f41beea1-0d62-4418-9ffc-c9d70607a1b7
 ms.service: notification-hubs
 ms.workload: mobile
@@ -15,13 +15,15 @@ ms.devlang: dotnet
 ms.topic: tutorial
 ms.custom: mvc
 ms.date: 01/04/2019
-ms.author: jowargo
-ms.openlocfilehash: 9baeb1c21252f8b7f7b24debde48108532d9865c
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.author: sethm
+ms.reviewer: jowargo
+ms.lastreviewed: 01/04/2019
+ms.openlocfilehash: 84e52feb6e30e0b9b693019b671906fad8c908db
+ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58118301"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71213238"
 ---
 # <a name="tutorial-push-location-based-notifications-with-azure-notification-hubs-and-bing-spatial-data"></a>教學課程：使用 Azure 通知中樞和 Bing 空間資料來推播以位置為基礎的通知
 
@@ -45,10 +47,10 @@ ms.locfileid: "58118301"
 ## <a name="set-up-the-data-source"></a>設定資料來源
 
 1. 登入 [Bing 地圖服務開發人員中心](https://www.bingmapsportal.com/)。
-2. 在上方導覽列中，選取 [資料來源]，然後選取 [管理資料來源]。
+2. 在上方導覽列中，選取 [資料來源]  ，然後選取 [管理資料來源]  。
 
     ![](./media/notification-hubs-geofence/bing-maps-manage-data.png)
-3. 如果您沒有現有的資料來源，您會看到建立資料來源的連結。 選取 [上傳資料以作為資料來源]。 您也可以使用 [資料來源] > [上傳資料] 功能表。
+3. 如果您沒有現有的資料來源，您會看到建立資料來源的連結。 選取 [上傳資料以作為資料來源]  。 您也可以使用 [資料來源]   > [上傳資料]  功能表。
 
     ![](./media/notification-hubs-geofence/bing-maps-create-data.png)
 4. 使用下列內容，在硬碟上建立 `NotificationHubsGeofence.pipe` 檔案︰在本教學課程中，您會使用框起舊金山濱水區的範例管道式檔案︰
@@ -62,26 +64,26 @@ ms.locfileid: "58118301"
     此管道檔案代表以下實體︰
 
     ![](./media/notification-hubs-geofence/bing-maps-geofence.png)
-5. 在 [上傳資料來源] 頁面上，執行下列動作：
-   1. 選取 [管道] 作為 [資料格式]。
+5. 在 [上傳資料來源]  頁面上，執行下列動作：
+   1. 選取 [管道]  作為 [資料格式]  。
    2. 瀏覽並選取您在上一個步驟中建立的 `NotificationHubGeofence.pipe` 檔案。
-   3. 選取 [上傳] 按鈕。
+   3. 選取 [上傳]  按鈕。
 
       > [!NOTE]
-      > 您可能會收到提示，要求您為 [主要金鑰] 指定不同於 [查詢金鑰] 的新金鑰。 請直接透過儀表板建立新的金鑰，然後重新整理資料來源上傳頁面。
-6. 上傳資料檔案後，您必須確實發佈資料來源。 選取 [資料來源] -> [管理資料來源]，如同之前所做的動作。
-7. 在清單中選取您的資料來源，並在 [動作] 資料行中選擇 [發佈]。
+      > 您可能會收到提示，要求您為 [主要金鑰]  指定不同於 [查詢金鑰]  的新金鑰。 請直接透過儀表板建立新的金鑰，然後重新整理資料來源上傳頁面。
+6. 上傳資料檔案後，您必須確實發佈資料來源。 選取 [資料來源]   -> [管理資料來源]  ，如同之前所做的動作。
+7. 在清單中選取您的資料來源，並在 [動作]  資料行中選擇 [發佈]  。
 
     ![](./media/notification-hubs-geofence/publish-button.png)
 8. 切換至 [已發佈的資料來源]  索引標籤，確認在清單中有看到您的資料來源。
 
     ![](./media/notification-hubs-geofence/bing-maps-published-data.png)
-9. 選取 [編輯]。 您一眼就能看到您在資料中引入的位置。
+9. 選取 [編輯]  。 您一眼就能看到您在資料中引入的位置。
 
     ![](./media/notification-hubs-geofence/bing-maps-data-details.png)
 
     此時，入口網站並不會顯示您建立之地理柵欄的邊界，您只需要確認指定的位置位於適當區域內。
-10. 現在您已符合資料來源的所有要求。 若要取得 API 呼叫之要求 URL 的詳細資料，請在 Bing 地圖服務開發人員中心選擇 [資料來源]，然後選取 [資料來源資訊]。
+10. 現在您已符合資料來源的所有要求。 若要取得 API 呼叫之要求 URL 的詳細資料，請在 Bing 地圖服務開發人員中心選擇 [資料來源]  ，然後選取 [資料來源資訊]  。
 
     ![](./media/notification-hubs-geofence/bing-maps-data-info.png)
 
@@ -101,7 +103,7 @@ ms.locfileid: "58118301"
 
 ## <a name="set-up-the-uwp-application"></a>設定 UWP 應用程式
 
-1. 在 Visual Studio 中，開始 [空白應用程式 (通用 Windows)] 類型的新專案。
+1. 在 Visual Studio 中，開始 [空白應用程式 (通用 Windows)]  類型的新專案。
 
     ![](./media/notification-hubs-geofence/notification-hubs-create-blank-app.png)
 
@@ -117,10 +119,10 @@ ms.locfileid: "58118301"
    * **Bing 地圖服務 API 金鑰** – 您稍早建立 Bing 開發人員中心帳戶時取得的金鑰。
 
      現在您已經備妥資料來源，接下來您可以開始處理 UWP 應用程式。
-2. 啟用應用程式的位置服務。 在 [方案總管] 中開啟 `Package.appxmanifest` 檔案。
+2. 啟用應用程式的位置服務。 在 [方案總管]  中開啟 `Package.appxmanifest` 檔案。
 
     ![](./media/notification-hubs-geofence/vs-package-manifest.png)
-3. 在剛剛開啟的 [套件屬性] 索引標籤中，切換至 [功能] 索引標籤，並選取 [位置]。
+3. 在剛剛開啟的 [套件屬性] 索引標籤中，切換至 [功能]  索引標籤，並選取 [位置]  。
 
     ![](./media/notification-hubs-geofence/vs-package-location.png)
 4. 在方案中建立名為 `Core` 的新資料夾，並在其中新增名為 `LocationHelper.cs` 的新檔案：
@@ -201,7 +203,7 @@ ms.locfileid: "58118301"
     geolocator.PositionChanged += Geolocator_PositionChanged;
     ```
 
-    實作後將會在 [輸出] 視窗中顯示位置座標︰
+    實作後將會在 [輸出]  視窗中顯示位置座標︰
 
     ```csharp
     private static async void Geolocator_PositionChanged(Geolocator sender, PositionChangedEventArgs args)
@@ -217,14 +219,14 @@ ms.locfileid: "58118301"
 
 1. 從 GitHub 下載 [.NET 後端範例](https://github.com/Azure/azure-notificationhubs-samples/tree/master/dotnet/NotifyUsers)。
 2. 下載完成後，在 Visual Studio 中依序開啟 `NotifyUsers` 資料夾和 `NotifyUsers.sln` 檔案。
-3. 將 `AppBackend` 專案設定為 [啟始專案] 並加以啟動。
+3. 將 `AppBackend` 專案設定為 [啟始專案]  並加以啟動。
 
     ![](./media/notification-hubs-geofence/vs-startup-project.png)
 
     專案已設定為會將推播通知傳送至目標裝置，所以您只需要做兩件事 – 指定用於通知中樞的正確連接字串，並新增邊界識別以便只在使用者位於地理柵欄內時才傳送通知。
 
-4. 若要設定連接字串，請開啟 `Models` 資料夾內的 `Notifications.cs`。 `NotificationHubClient.CreateClientFromConnectionString` 函式應該會包含可在 [Azure 入口網站](https://portal.azure.com)內取得之通知中樞的相關資訊 (請查看 [設定] 的 [存取原則] 頁面內部)。 儲存經過更新的組態檔。
-5. 為 Bing 地圖服務 API 結果建立模型。 若要這麼做，最簡單的方式是開啟 `Models` 資料夾，然後選擇 [新增] > [類別]。 將它命名為 `GeofenceBoundary.cs` 完成時，從在第一節取得的 API 回應中複製 JSON。 在 Visual Studio 中，使用 [編輯] > [選擇性貼上] > [將 JSON 貼上為類別]。
+4. 若要設定連接字串，請開啟 `Models` 資料夾內的 `Notifications.cs`。 `NotificationHubClient.CreateClientFromConnectionString` 函式應該會包含可在 [Azure 入口網站](https://portal.azure.com)內取得之通知中樞的相關資訊 (請查看 [設定]  的 [存取原則]  頁面內部)。 儲存經過更新的組態檔。
+5. 為 Bing 地圖服務 API 結果建立模型。 若要這麼做，最簡單的方式是開啟 `Models` 資料夾，然後選擇 [新增]   > [類別]  。 將它命名為 `GeofenceBoundary.cs` 完成時，從在第一節取得的 API 回應中複製 JSON。 在 Visual Studio 中，使用 [編輯]   > [選擇性貼上]   > [將 JSON 貼上為類別]  。
 
     如此一來，您就能確保物件會確實依其設計目的還原序列化。 所產生的類別集應該會類似於下列類別︰
 
@@ -347,18 +349,18 @@ ms.locfileid: "58118301"
 
     > [!NOTE]
     > 將 `POST_URL` 設定為已部署的 Web 應用程式所在位置。 現在您可以在本機加以執行，但是由於您要著手部署公用版本，因此您必須使用外部提供者來進行裝載。
-2. 註冊 UWP 應用程式以取得推播通知。 在 Visual Studio 中，選擇 [專案] > [市集] > [將應用程式與市集建立關聯]。
+2. 註冊 UWP 應用程式以取得推播通知。 在 Visual Studio 中，選擇 [專案]   > [市集]   > [將應用程式與市集建立關聯]  。
 
     ![](./media/notification-hubs-geofence/vs-associate-with-store.png)
 3. 一旦您登入開發人員帳戶，請務必選取現有應用程式或建立新應用程式並讓封裝與其建立關聯。
-4. 移至開發人員中心，然後開啟您建立的應用程式。 選擇 [服務] > [推播通知] > [線上服務網站]。
+4. 移至開發人員中心，然後開啟您建立的應用程式。 選擇 [服務]   > [推播通知]   > [線上服務網站]  。
 
     ![](./media/notification-hubs-geofence/ms-live-services.png)
-5. 記下網站上的 [應用程式密碼] 和 [套件 SID]。 在 Azure 入口網站中需要用到這兩個項目 – 開啟通知中樞、選擇 [設定] > [Notification Services] > [Windows] \(WNS\)，然後在必要欄位中輸入資訊。
+5. 記下網站上的 [應用程式密碼]  和 [套件 SID]  。 在 Azure 入口網站中需要用到這兩個項目 – 開啟通知中樞、選擇 [設定]   > [Notification Services]   > [Windows] \(WNS\)  ，然後在必要欄位中輸入資訊。
 
     ![](./media/notification-hubs-geofence/notification-hubs-wns.png)
-6. 選擇 [儲存]。
-7. 在 [方案總管] 中開啟 [參考]，然後選取 [管理 NuGet 套件]。 新增 **Microsoft Azure 服務匯流排受控程式庫**的參考 – 只要搜尋 `WindowsAzure.Messaging.Managed` 並將它新增至專案即可。
+6. 選擇 [儲存]  。
+7. 在 [方案總管]  中開啟 [參考]  ，然後選取 [管理 NuGet 套件]  。 新增 **Microsoft Azure 服務匯流排受控程式庫**的參考 – 只要搜尋 `WindowsAzure.Messaging.Managed` 並將它新增至專案即可。
 
     ![](./media/notification-hubs-geofence/vs-nuget.png)
 8. 為了進行測試，可以再次建立 `MainPage_Loaded` 事件處理常式，並對其新增下列程式碼片段︰

@@ -8,13 +8,13 @@ author: VaijanathB
 manager: jeconnoc
 ms.author: vaangadi
 ms.topic: tutorial
-ms.date: 03/01/2019
-ms.openlocfilehash: 5f8d9119ea9caeb598946a384f321fa6f7e14def
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.date: 09/20/2019
+ms.openlocfilehash: 12538c0348efc1621d3f8f6ee0cb93d73c712898
+ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58000226"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71173437"
 ---
 # <a name="tutorial-create-a-hub-virtual-network-with-terraform-in-azure"></a>教學課程：使用 Azure 中的 Terraform 建立中樞虛擬網路
 
@@ -30,7 +30,7 @@ ms.locfileid: "58000226"
 
 ## <a name="prerequisites"></a>必要條件
 
-1. [使用 Azure 中的 Terraform 建立中樞和輪輻混合網路拓樸](./terraform-hub-spoke-introduction.md)。
+1. [使用 Azure 中的 Terraform 建立中樞和輪輻混合網路拓撲](./terraform-hub-spoke-introduction.md)。
 1. [使用 Azure 中的 Terraform 建立內部部署虛擬網路](./terraform-hub-spoke-on-prem.md)。
 
 ## <a name="create-the-directory-structure"></a>建立目錄結構
@@ -73,7 +73,7 @@ ms.locfileid: "58000226"
 
 1. 將下列程式碼貼到編輯器中：
 
-    ```JSON
+    ```hcl
     locals {
       prefix-hub         = "hub"
       hub-location       = "CentralUS"

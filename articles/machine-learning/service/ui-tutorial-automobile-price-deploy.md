@@ -9,12 +9,12 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
 ms.date: 07/11/2019
-ms.openlocfilehash: 22d5c41e8b815fd99450962cb63d11e9560c787f
-ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
+ms.openlocfilehash: 9378c6a14c3b755a6456ef68ecd73730cb77fc79
+ms.sourcegitcommit: 2ed6e731ffc614f1691f1578ed26a67de46ed9c2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/14/2019
-ms.locfileid: "70997019"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71128974"
 ---
 # <a name="tutorial-deploy-a-machine-learning-model-with-the-visual-interface"></a>教學課程：透過視覺化介面部署機器學習模型
 
@@ -130,4 +130,4 @@ ms.locfileid: "70997019"
 在本教學課程中，您已了解在視覺化介面中建立、部署和使用機器學習模型的關鍵步驟。 若要深入了解如何使用視覺化介面來解決其他類型的問題，請參閱我們的其他範例實驗。
 
 > [!div class="nextstepaction"]
-> [信用風險分類範例](ui-sample-classification-predict-credit-risk-cost-sensitive.md)
+> [信用風險分類範例](how-to-ui-sample-classification-predict-credit-risk-cost-sensitive.md)

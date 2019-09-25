@@ -3,15 +3,16 @@ title: Azure PowerShell 指令碼 - Azure Cosmos DB 更新 Gremlin API 的 RU/�
 description: Azure PowerShell 指令碼 - Azure Cosmos DB 更新 Gremlin API 的 RU/秒
 author: markjbrown
 ms.service: cosmos-db
+ms.subservice: cosmosdb-graph
 ms.topic: sample
 ms.date: 05/18/2019
 ms.author: mjbrown
-ms.openlocfilehash: 70fc0f0357a091e990a2c11f39985d7b7e60cd6c
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.openlocfilehash: 85344d4a8f37bfa34ab14d2dfb9152860973dd1a
+ms.sourcegitcommit: 83df2aed7cafb493b36d93b1699d24f36c1daa45
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67603921"
+ms.lasthandoff: 09/22/2019
+ms.locfileid: "71178912"
 ---
 # <a name="update-rus-for-a-database-or-graph-for-azure-cosmos-db---gremlin-api"></a>更新 Azure Cosmos DB 資料庫或圖表的 RU/秒 - Gremlin API
 

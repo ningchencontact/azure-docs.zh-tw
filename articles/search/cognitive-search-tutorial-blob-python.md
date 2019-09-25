@@ -5,17 +5,16 @@ manager: nitinme
 author: LisaLeib
 services: search
 ms.service: search
-ms.subservice: cognitive-search
 ms.devlang: python
 ms.topic: tutorial
 ms.date: 06/04/2019
 ms.author: v-lilei
-ms.openlocfilehash: c21b4d525e395dfb032a89631eb34156fe3e5b23
-ms.sourcegitcommit: 86d49daccdab383331fc4072b2b761876b73510e
+ms.openlocfilehash: 606194e28ca4f058a647aeb5224de19e754de078
+ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70744727"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71265729"
 ---
 # <a name="python-tutorial-call-cognitive-services-apis-in-an-azure-search-indexing-pipeline"></a>Python 教學課程：在 Azure 搜尋服務索引管線中呼叫認知服務 API
 
@@ -39,7 +38,7 @@ Azure 搜尋服務的輸出是全文檢索的可搜尋索引。 您可以使用�
 >
 > 內建技能的執行會依現有的[認知服務預付型方案價格](https://azure.microsoft.com/pricing/details/cognitive-services/)收費。 影像擷取定價如 [Azure 搜尋服務價格頁面](https://go.microsoft.com/fwlink/?linkid=2042400)上所描述。
 
-如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 。
+如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)。
 
 ## <a name="prerequisites"></a>必要條件
 

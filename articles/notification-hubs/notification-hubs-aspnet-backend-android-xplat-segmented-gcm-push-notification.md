@@ -3,9 +3,9 @@ title: 使用 Azure 通知中樞和 Google 雲端通訊將通知推送至特定 
 description: 了解如何使用 Azure 通知中樞和 Google 雲端通訊將通知推送至特定 Android 裝置。
 services: notification-hubs
 documentationcenter: android
-author: jwargo
-manager: patniko
-editor: spelluru'
+author: sethmanheim
+manager: femila
+editor: jwargo
 ms.assetid: 3c23cb80-9d35-4dde-b26d-a7bfd4cb8f81
 ms.service: notification-hubs
 ms.workload: mobile
@@ -14,13 +14,15 @@ ms.devlang: java
 ms.topic: tutorial
 ms.custom: mvc
 ms.date: 01/04/2019
-ms.author: jowargo
-ms.openlocfilehash: af08d3ca6eaa95663b0bb669f6dc82a13df5ab39
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.author: sethm
+ms.reviewer: jowargo
+ms.lastreviewed: 01/04/2019
+ms.openlocfilehash: 4a369b72d5c19a63c65f8d693d131b2c10ff2023
+ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65233104"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71212815"
 ---
 # <a name="tutorial-push-notifications-to-specific-android-devices-using-azure-notification-hubs-and-google-cloud-messaging-deprecated"></a>教學課程：使用 Azure 通知中樞和 Google 雲端通訊 (已淘汰) 將通知推送至特定 Android 裝置
 
@@ -314,7 +316,7 @@ ms.locfileid: "65233104"
 ## <a name="test-the-app"></a>測試應用程式
 
 1. 使用 Android Studio，在您的 Android 裝置或模擬器上執行應用程式。 應用程式 UI 提供一組切換，可讓您選擇要訂閱的類別。
-2. 啟用一或多個類別切換，然後按一下 [訂閱] 。 應用程式會將選取的類別轉換成標籤，並在通知中心內為選取的標籤要求新裝置註冊。 隨即會傳回已註冊的類別，且會顯示在快顯通知中。
+2. 啟用一或多個類別切換，然後按一下 [訂閱]  。 應用程式會將選取的類別轉換成標籤，並在通知中心內為選取的標籤要求新裝置註冊。 隨即會傳回已註冊的類別，且會顯示在快顯通知中。
 
     ![訂閱類別](./media/notification-hubs-aspnet-backend-android-breaking-news/subscribe-for-categories.png)
 3. 執行 .NET 主控台應用程式，這會傳送每個類別的通知。 選取的類別通知會以快顯通知方式出現。

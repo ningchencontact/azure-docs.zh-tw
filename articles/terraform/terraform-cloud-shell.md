@@ -8,13 +8,13 @@ author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
-ms.date: 10/19/2017
-ms.openlocfilehash: 19a828abfee780dd757d0575f94a0358c12088cd
-ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
+ms.date: 09/20/2019
+ms.openlocfilehash: e0a59697a3e4da97cf082c4c771fe93ad33b6035
+ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71087742"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71173549"
 ---
 # <a name="terraform-cloud-shell-development"></a>Terraform Cloud Shell 開發 
 
@@ -33,7 +33,7 @@ Terraform 已安裝且立即可在 Cloud Shell 中使用。 不使用任何額�
 
 Azure Terraform 模組需要認證才能存取和變更您的 Azure 訂用帳戶中的資源。 在 Cloud Shell 中工作時，會將下列程式碼新增至您的指令碼，以便在 Cloud Shell 中使用 Azure Terraform 模組：
 
-```tf
+```hcl
 # Configure the Microsoft Azure Provider
 provider "azurerm" {
 }

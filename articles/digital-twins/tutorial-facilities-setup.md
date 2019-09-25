@@ -6,14 +6,14 @@ author: alinamstanciu
 ms.custom: seodec18
 ms.service: digital-twins
 ms.topic: tutorial
-ms.date: 08/16/2019
+ms.date: 09/17/2019
 ms.author: alinast
-ms.openlocfilehash: a107f7dba7f28b41303727ad37b7c50f2e215c4f
-ms.sourcegitcommit: 55e0c33b84f2579b7aad48a420a21141854bc9e3
+ms.openlocfilehash: 1ab3f30f035f8099ab50f827e559e56b31d7f1f6
+ms.sourcegitcommit: 3fa4384af35c64f6674f40e0d4128e1274083487
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69622927"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71219751"
 ---
 # <a name="tutorial-deploy-azure-digital-twins-preview-and-configure-a-spatial-graph"></a>教學課程：部署 Azure Digital Twins 預覽版及設定空間圖形
 
@@ -43,15 +43,11 @@ ms.locfileid: "69622927"
 
 - [Visual Studio Code](https://code.visualstudio.com/) 以探索範例程式碼。 
 
-<a id="deploy"></a>
-
 ## <a name="deploy-digital-twins"></a>部署 Digital Twins
 
 使用這一節中的步驟，建立 Azure Digital Twins 服務的新執行個體。 每個訂用帳戶只能建立一個執行個體。 如果您已經有執行個體在執行，請跳至下一節。 
 
 [!INCLUDE [create-digital-twins-portal](../../includes/digital-twins-create-portal.md)]
-
-<a id="permissions"></a>
 
 ## <a name="grant-permissions-to-your-app"></a>將權限授與應用程式
 
@@ -76,7 +72,7 @@ Digital Twins 會使用 [Azure Active Directory](../active-directory/fundamental
 
 在擷取的範例資料夾中，開啟 Visual Studio Code 中的檔案 **digital-twins-samples-csharp\digital-twins-samples.code-workspace**。 此檔案包含兩個專案：
 
-* 您可以使用佈建範例 **occupancy-quickstart** 來設定和佈建[空間智慧圖形](concepts-objectmodel-spatialgraph.md#graph)。 此圖形是實體空間與其所含資源的數位化影像。 它會使用[物件模型](concepts-objectmodel-spatialgraph.md#model)來定義智慧型建築物的物件。 如需 Digital Twin 和 REST API 的完整清單，請瀏覽[此 REST API 文件](https://docs.westcentralus.azuresmartspaces.net/management/swagger)，或針對[您的執行個體](#deploy)所建立的管理 API URL。
+* 您可以使用佈建範例 **occupancy-quickstart** 來設定和佈建[空間智慧圖形](concepts-objectmodel-spatialgraph.md#digital-twins-object-models)。 此圖形是實體空間與其所含資源的數位化影像。 它會使用[物件模型](concepts-objectmodel-spatialgraph.md#digital-twins-object-models)來定義智慧型建築物的物件。 如需 Digital Twin 和 REST API 的完整清單，請瀏覽[此 REST API 文件](https://docs.westcentralus.azuresmartspaces.net/management/swagger)，或針對[您的執行個體](#deploy-digital-twins)所建立的管理 API URL。
 
    若要探索範例以了解如何與 Digital Twins 執行個體通訊，您可以從 **src\actions** 資料夾著手。 此資料夾中的檔案會實作您將在這些教學課程中使用的命令：
     - **provisionSample.cs** 檔案示範如何佈建空間圖形。
@@ -84,7 +80,7 @@ Digital Twins 會使用 [Azure Active Directory](../active-directory/fundamental
     - **getAvailableAndFreshSpaces.cs** 檔案可取得自訂函式 (稱為使用者定義的函式) 的結果。
     - **createEndpoints.cs** 檔案可建立端點來與其他服務互動。
 
-* 模擬範例 **device-connectivity** 可模擬感應器資料，並將資料傳送到針對您的 Digital Twins 執行個體所佈建的 IoT 中樞。 您會[在佈建空間圖形之後，在下一個教學課程中](tutorial-facilities-udf.md#simulate)使用此範例。 用來設定此範例的感應器和裝置識別碼，應該與您要用來佈建圖形的感應器和裝置識別碼相同。
+* 模擬範例 **device-connectivity** 可模擬感應器資料，並將資料傳送到針對您的 Digital Twins 執行個體所佈建的 IoT 中樞。 您會[在佈建空間圖形之後，在下一個教學課程中](tutorial-facilities-udf.md#simulate-sensor-data)使用此範例。 用來設定此範例的感應器和裝置識別碼，應該與您要用來佈建圖形的感應器和裝置識別碼相同。
 
 ### <a name="configure-the-provisioning-sample"></a>設定佈建範例
 
@@ -101,17 +97,15 @@ Digital Twins 會使用 [Azure Active Directory](../active-directory/fundamental
     ```
 
 1. 在 Visual Studio Code 中，開啟 **occupancy-quickstart** 專案中的 [appSettings.json](https://github.com/Azure-Samples/digital-twins-samples-csharp/blob/master/occupancy-quickstart/src/appSettings.json) 檔案。 更新下列值：
-   * **ClientId**：輸入 Azure AD 應用程式註冊的應用程式識別碼。 您在[設定應用程式權限](#permissions)的章節中記下了這個識別碼。
-   * **Tenant**：輸入 [Azure AD 租用戶](https://docs.microsoft.com/azure/active-directory/develop/quickstart-create-new-tenant)的目錄識別碼。 您也在[設定應用程式權限](#permissions)的章節中記下了這個識別碼。
-   * **BaseUrl**：輸入您的 Digital Twins 執行個體 URL。 若要取得此 URL，以您執行個體的值取代此 URL 中的預留位置：`https://yourDigitalTwinsName.yourLocation.azuresmartspaces.net/management/api/v1.0/`。 您也可以從[部署區段](#deploy)修改「管理 API URL」，藉此來取得此 URL。 將 **swagger/** 取代為 **api/v1.0/** 。
+   * **ClientId**：輸入 Azure AD 應用程式註冊的應用程式識別碼。 您在[設定應用程式權限](#grant-permissions-to-your-app)的章節中記下了這個識別碼。
+   * **Tenant**：輸入 [Azure AD 租用戶](https://docs.microsoft.com/azure/active-directory/develop/quickstart-create-new-tenant)的目錄識別碼。 您也在[設定應用程式權限](#grant-permissions-to-your-app)的章節中記下了這個識別碼。
+   * **BaseUrl**：輸入您的 Digital Twins 執行個體 URL。 若要取得此 URL，以您執行個體的值取代此 URL 中的預留位置：`https://yourDigitalTwinsName.yourLocation.azuresmartspaces.net/management/api/v1.0/`。 您也可以從[部署區段](#deploy-digital-twins)修改「管理 API URL」，藉此來取得此 URL。 將 **swagger/** 取代為 **api/v1.0/** 。
 
 1. 查看您可以使用此範例來探索的 Digital Twins 功能清單。 執行以下命令：
 
     ```cmd/sh
     dotnet run
     ```
-
-<a id="provision-spaces"></a>
 
 ## <a name="understand-the-provisioning-process"></a>了解佈建程序
 

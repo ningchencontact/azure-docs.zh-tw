@@ -9,18 +9,18 @@ ms.date: 04/23/2019
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: eb2a6933b711804f957056353d7d609dbdbbe5d5
-ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
+ms.openlocfilehash: c872b10d7819fb95d614664ed32831f410349760
+ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69036459"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71122897"
 ---
 # <a name="tutorial-develop-a-c-iot-edge-module-for-windows-devices"></a>教學課程：開發適用於 Windows 裝置的 C# IoT Edge 模組
 
 使用 Visual Studio 開發 C# 程式碼，並將其部署到執行 Azure IoT Edge 的 Windows 裝置。 
 
-您可以使用 Azure IoT Edge 模組來部署程式碼，直接在 IoT Edge 裝置上實作您的商務邏輯。 本教學課程會逐步引導您建立並部署能篩選感應器資料的 IoT Edge 模組。 在本教學課程中，您了解如何：    
+您可以使用 Azure IoT Edge 模組來部署程式碼，直接在 IoT Edge 裝置上實作您的商務邏輯。 本教學課程會逐步引導您建立並部署能篩選感應器資料的 IoT Edge 模組。 在本教學課程中，您會了解如何：    
 
 > [!div class="checklist"]
 > * 使用 Visual Studio 建立以 C# SDK 為基礎的 IoT Edge 模組。
@@ -231,14 +231,16 @@ Azure IoT Edge Tools 會針對 Visual Studio 中所有支援的 IoT Edge 模組�
             {
                 Console.WriteLine($"Machine temperature {messageBody.machine.temperature} " +
                     $"exceeds threshold {temperatureThreshold}");
-                var filteredMessage = new Message(messageBytes);
-                foreach (KeyValuePair<string, string> prop in message.Properties)
+                using(var filteredMessage = new Message(messageBytes))
                 {
-                    filteredMessage.Properties.Add(prop.Key, prop.Value);
-                }
+                    foreach (KeyValuePair<string, string> prop in message.Properties)
+                    {
+                        filteredMessage.Properties.Add(prop.Key, prop.Value);
+                    }
 
-                filteredMessage.Properties.Add("MessageType", "Alert");
-                await moduleClient.SendEventAsync("output1", filteredMessage);
+                    filteredMessage.Properties.Add("MessageType", "Alert");
+                    await moduleClient.SendEventAsync("output1", filteredMessage);
+                }
             }
 
             // Indicate that the message treatment is completed.
@@ -289,7 +291,7 @@ Azure IoT Edge Tools 會針對 Visual Studio 中所有支援的 IoT Edge 模組�
 
 在上一節中，您已建立 IoT Edge 解決方案，並將程式碼新增至 **CSharpModule**，以篩選掉報告的機器溫度低於可接受閾值的訊息。 現在，您需要建置容器映像形式的解決方案，並將它推送到容器登錄。 
 
-1. 在您的開發機器上使用下列命令登入 Docker。 使用您的 Azure 容器登錄中的使用者名稱、密碼和登入伺服器。 您可以在 Azure 入口網站中，從登錄的 [存取金鑰]  區段擷取這些值。
+1. 在您的開發機器上使用下列命令登入 Docker。 使用您的 Azure 容器登錄中的使用者名稱、密碼和登入伺服器。 您可以在 Azure 入口網站中，從登錄的 [存取金鑰]  區段擷取這些資料。
 
    ```cmd
    docker login -u <ACR username> -p <ACR password> <ACR login server>

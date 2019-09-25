@@ -10,19 +10,19 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: article
-ms.date: 07/09/2019
-ms.openlocfilehash: c4d2e70d0f200f3a31948cfaa43def8e1b699878
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.date: 09/22/2019
+ms.openlocfilehash: 7e5b4a3cb04215504c4fd4fd1ebfcbcbe8c3f9f8
+ms.sourcegitcommit: 83df2aed7cafb493b36d93b1699d24f36c1daa45
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67706893"
+ms.lasthandoff: 09/22/2019
+ms.locfileid: "71179114"
 ---
 # <a name="tutorial-migrate-sql-server-to-a-single-database-or-pooled-database-in-azure-sql-database-offline-using-dms"></a>教學課程：使用 DMS 在離線狀態從 SQL Server 遷移至 Azure SQL Database 中的單一資料庫或集區資料庫
 
 您可以使用 Azure 資料庫移轉服務，將資料庫從內部部署 SQL Server 執行個體移轉到 [Azure SQL Database](https://docs.microsoft.com/azure/sql-database/)。 在本教學課程中，您會使用 Azure 資料庫移轉服務，將已還原至 SQL Server 2016 (或更新版本) 內部部署執行個體的 **Adventureworks2012** 資料庫遷移到 Azure SQL Database 中的單一資料庫或集區資料庫。
 
-在本教學課程中，您了解如何：
+在本教學課程中，您會了解如何：
 > [!div class="checklist"]
 >
 > - 使用 Data Migration Assistant 評估您的內部部署資料庫。
@@ -106,6 +106,7 @@ ms.locfileid: "67706893"
 
 > [!NOTE]
 > 在 Data Migration Assistant 中建立移轉專案之前，請務必先確認您已經如必要條件中所述佈建 Azure SQL 資料庫。 基於本教學課程的目的，Azure SQL Database 的名稱會假設為 **AdventureWorksAzure**，但您可以命名為不同的名稱。
+
 > [!IMPORTANT]
 > 如果您使用 SSIS，DMA 目前不支援來源 SSISDB 的移轉，但您可以將 SSIS 專案/套件重新部署到 Azure SQL Database 所裝載的目的地 SSISDB。 如需有關遷移 SSIS 套件的詳細資訊，請參閱[將 SQL Server Integration Services 套件遷移到 Azure](https://docs.microsoft.com/azure/dms/how-to-migrate-ssis-packages) 一文。
 
@@ -197,7 +198,7 @@ ms.locfileid: "67706893"
     ![找出您的 Azure 資料庫移轉服務執行個體](media/tutorial-sql-server-to-azure-sql/dms-instance-search.png)
 
 3. 選取 [+ 新增移轉專案]  。
-4. 在 [新增移轉專案]  畫面上指定專案名稱、在 [來源伺服器類型]  文字方塊中選取 [SQL Server]  、在 [目標伺服器類型]  文字方塊中選取 [Azure SQL Database]  ，然後針對 [選擇活動類型]  ，選取 [離線資料移轉]  。 
+4. 在 [新增移轉專案]  畫面上指定專案名稱、在 [來源伺服器類型]  文字方塊中選取 [SQL Server]  、在 [目標伺服器類型]  文字方塊中選取 [Azure SQL Database]  ，然後針對 [選擇活動類型]  ，選取 [離線資料移轉]  。
 
     ![建立資料庫移轉服務專案](media/tutorial-sql-server-to-azure-sql/dms-create-project2.png)
 

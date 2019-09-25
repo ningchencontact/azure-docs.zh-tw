@@ -3,15 +3,16 @@ title: Azure PowerShell 指令碼 - Azure Cosmos DB 取得資料表 API 的輸�
 description: Azure PowerShell 指令碼 - Azure Cosmos DB 取得資料表 API 的輸送量 (RU/秒)
 author: markjbrown
 ms.service: cosmos-db
+ms.subservice: cosmosdb-table
 ms.topic: sample
 ms.date: 05/18/2019
 ms.author: mjbrown
-ms.openlocfilehash: d34a9e679ee6c1b65111817197a98555be13cf1d
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.openlocfilehash: 5d3fa2e2122c006825a8413a2ca2f292bda2de74
+ms.sourcegitcommit: 83df2aed7cafb493b36d93b1699d24f36c1daa45
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67601952"
+ms.lasthandoff: 09/22/2019
+ms.locfileid: "71178706"
 ---
 # <a name="get-throughput-rus-for-a-table-for-azure-cosmos-db---table-api"></a>取得 Azure Cosmos DB 資料表的輸送量 (RU/秒) - 資料表 API
 

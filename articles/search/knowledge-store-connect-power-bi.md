@@ -4,16 +4,15 @@ description: 連接 Azure 搜尋服務知識存放區與 Power BI 以進行分�
 author: lisaleib
 services: search
 ms.service: search
-ms.subservice: cognitive-search
 ms.topic: tutorial
 ms.date: 09/03/2019
 ms.author: v-lilei
-ms.openlocfilehash: fa6187dc270b18f513b5ee4046d0a6c085f9ae12
-ms.sourcegitcommit: dd69b3cda2d722b7aecce5b9bd3eb9b7fbf9dc0a
+ms.openlocfilehash: de282213535a2e49f73bc30e476bae02d470fdb2
+ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70963225"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71265656"
 ---
 # <a name="connect-a-knowledge-store-with-power-bi"></a>使用 Power BI 連線到知識存放區
 

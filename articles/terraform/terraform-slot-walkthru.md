@@ -8,13 +8,13 @@ author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
-ms.date: 4/05/2018
-ms.openlocfilehash: 08e90a69791b0555a6497166f6008e8619f40704
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.date: 09/20/2019
+ms.openlocfilehash: ec2ed1da46df2793a241c9c89d168a6c5d462b9d
+ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57992231"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71169818"
 ---
 # <a name="use-terraform-to-provision-infrastructure-with-azure-deployment-slots"></a>使用 Terraform 來佈建具有 Azure 部署位置的基礎結構
 
@@ -74,7 +74,7 @@ ms.locfileid: "57992231"
 
 1. 將下列程式碼貼到編輯器中：
 
-    ```JSON
+    ```hcl
     # Configure the Azure provider
     provider "azurerm" { }
 
@@ -143,11 +143,11 @@ ms.locfileid: "57992231"
 
 1. 關閉 Cloud Shell 視窗。
 
-1. 在 Azure 入口網站的主功能表上，選取 [資源群組]。
+1. 在 Azure 入口網站的主功能表上，選取 [資源群組]  。
 
     ![入口網站中的「資源群組」選取項目](./media/terraform-slot-walkthru/resource-groups-menu-option.png)
 
-1. 在 [資源群組] 索引標籤上，選取 [slotDemoResourceGroup]。
+1. 在 [資源群組]  索引標籤上，選取 [slotDemoResourceGroup]  。
 
     ![Terraform 所建立的資源群組](./media/terraform-slot-walkthru/resource-group.png)
 
@@ -171,45 +171,45 @@ ms.locfileid: "57992231"
 
 派生測試專案存放庫之後，請透過下列步驟來設定部署位置：
 
-1. 在 Azure 入口網站的主功能表上，選取 [資源群組]。
+1. 在 Azure 入口網站的主功能表上，選取 [資源群組]  。
 
-1. 選取 [slotDemoResourceGroup]。
+1. 選取 [slotDemoResourceGroup]  。
 
-1. 選取 [slotAppService]。
+1. 選取 [slotAppService]  。
 
-1. 選取 [部署選項]。
+1. 選取 [部署選項]  。
 
     ![App Service 資源的部署選項](./media/terraform-slot-walkthru/deployment-options.png)
 
-1. 在 [部署選項] 索引標籤上，選取 [選擇來源]，然後選取 [GitHub]。
+1. 在 [部署選項]  索引標籤上，選取 [選擇來源]  ，然後選取 [GitHub]  。
 
     ![選取部署來源](./media/terraform-slot-walkthru/select-source.png)
 
-1. 在 Azure 進行連線並顯示所有選項之後，請選取 [授權]。
+1. 在 Azure 進行連線並顯示所有選項之後，請選取 [授權]  。
 
-1. 在 [授權] 索引標籤上，選取 [授權]，並提供 Azure 存取您 GitHub 帳戶所需的認證。 
+1. 在 [授權]  索引標籤上，選取 [授權]  ，並提供 Azure 存取您 GitHub 帳戶所需的認證。 
 
-1. Azure 在驗證您的 GitHub 認證之後，系統會顯示一則訊息，指出已完成授權程序。 選取 [確定] 以關閉 [授權] 索引標籤。
+1. Azure 在驗證您的 GitHub 認證之後，系統會顯示一則訊息，指出已完成授權程序。 選取 [確定]  以關閉 [授權]  索引標籤。
 
-1. 選取 [選擇您的組織] 並選取您的組織。
+1. 選取 [選擇您的組織]  並選取您的組織。
 
-1. 選取 [選擇專案]。
+1. 選取 [選擇專案]  。
 
-1. 在 [選擇專案] 索引標籤上，選取 [awesome-terraform] 專案。
+1. 在 [選擇專案]  索引標籤上，選取 [awesome-terraform]  專案。
 
     ![選擇 awesome-terraform 專案](./media/terraform-slot-walkthru/choose-project.png)
 
-1. 選取 [選擇分支]。
+1. 選取 [選擇分支]  。
 
-1. 在 [選擇分支] 索引標籤上，選取 [主要]。
+1. 在 [選擇分支]  索引標籤上，選取 [主要]  。
 
     ![選擇主要分支](./media/terraform-slot-walkthru/choose-branch-master.png)
 
-1. 在 [部署選項] 索引標籤上，選取 [確定]。
+1. 在 [部署選項]  索引標籤上，選取 [確定]  。
 
 此時，您已部署生產位置。 若要部署預備位置，請在此區段執行所有先前的步驟，但只做修改下列：
 
-- 在步驟 3 中，選取 [slotAppServiceSlotOne] 資源。
+- 在步驟 3 中，選取 [slotAppServiceSlotOne]  資源。
 
 - 在步驟 13 中，選取工作分支，而不是主要分支。
 
@@ -219,15 +219,15 @@ ms.locfileid: "57992231"
 
 在前面幾節中，您設定了兩個位置--**slotAppService** 和 **slotAppServiceSlotOne**--以從 GitHub 中不同的分支進行部署。 讓我們來預覽 Web 應用程式，以驗證這些應用程式是否已部署成功。
 
-執行下列步驟 2 次。 在步驟 3 中，您第一次會選取 [slotAppService]，然後第二次會選取 [slotAppServiceSlotOne]。
+執行下列步驟 2 次。 在步驟 3 中，您第一次會選取 [slotAppService]  ，然後第二次會選取 [slotAppServiceSlotOne]  。
 
-1. 在 Azure 入口網站的主功能表上，選取 [資源群組]。
+1. 在 Azure 入口網站的主功能表上，選取 [資源群組]  。
 
-1. 選取 [slotDemoResourceGroup]。
+1. 選取 [slotDemoResourceGroup]  。
 
-1. 選取 [slotAppService] 或 [slotAppServiceSlotOne]。
+1. 選取 [slotAppService]  或 [slotAppServiceSlotOne]  。
 
-1. 在概觀頁面上，選取 [URL]。
+1. 在概觀頁面上，選取 [URL]  。
 
     ![選取概觀索引標籤上的 URL 來呈現應用程式](./media/terraform-slot-walkthru/resource-url.png)
 
@@ -236,7 +236,7 @@ ms.locfileid: "57992231"
 >
 >
 
-若為 **slotAppService** Web 應用程式，您會看到一個藍色頁面，其頁面標題為 [位置示範應用程式 1]。 若為 **slotAppServiceSlotOne** Web 應用程式，您會看到一個綠色頁面，其頁面標題為 [位置示範應用程式 2]。
+若為 **slotAppService** Web 應用程式，您會看到一個藍色頁面，其頁面標題為 [位置示範應用程式 1]  。 若為 **slotAppServiceSlotOne** Web 應用程式，您會看到一個綠色頁面，其頁面標題為 [位置示範應用程式 2]  。
 
 ![預覽應用程式以測試它們是否已正確部署](./media/terraform-slot-walkthru/app-preview.png)
 
@@ -266,7 +266,7 @@ ms.locfileid: "57992231"
 
 1. 將下列程式碼貼到編輯器中：
 
-    ```JSON
+    ```hcl
     # Configure the Azure provider
     provider "azurerm" { }
 

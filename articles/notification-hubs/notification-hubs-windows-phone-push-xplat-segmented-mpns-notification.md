@@ -3,9 +3,9 @@ title: 使用 Azure 通知中樞將通知推送至特定 Windows Phone | Microso
 description: 在本教學課程中，您將了解如何使用 Azure 通知中樞，將通知推送至已向應用程式後端註冊的特定 (並非所有) Windows Phone 8 或 Windows Phone 8.1 裝置。
 services: notification-hubs
 documentationcenter: windows
-author: jwargo
-manager: patniko
-editor: spelluru
+author: sethmanheim
+manager: femila
+editor: jwargo
 ms.assetid: 42726bf5-cc82-438d-9eaa-238da3322d80
 ms.service: notification-hubs
 ms.workload: mobile
@@ -14,13 +14,15 @@ ms.devlang: dotnet
 ms.topic: tutorial
 ms.custom: mvc
 ms.date: 01/04/2019
-ms.author: jowargo
-ms.openlocfilehash: 10f8c2e21f2dcf8c108576d54fe6776ecf04a0f0
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.author: sethm
+ms.reviewer: jowargo
+ms.lastreviewed: 01/04/2019
+ms.openlocfilehash: 88326b07a96dcc8ce7a72f8709a88c2662f48707
+ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57861315"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71213403"
 ---
 # <a name="tutorial-push-notifications-to-specific-windows-phone-devices-by-using-azure-notification-hubs"></a>教學課程：使用 Azure 通知中樞將通知推送至特定 Windows Phone 裝置
 
@@ -33,7 +35,7 @@ ms.locfileid: "57861315"
 > [!NOTE]
 > 通知中樞 Windows Phone SDK 不支援將 Windows 推播通知服務 (WNS) 與 Windows Phone 8.1 Silverlight app 搭配使用。 若要將 WNS (而非 MPNS) 與 Windows Phone 8.1 Silverlight 應用程式搭配使用，請遵循使用 REST API 的 [通知中樞 - Windows Phone Silverlight 教學課程]。
 
-在本教學課程中，您了解如何：
+在本教學課程中，您會了解如何：
 
 > [!div class="checklist"]
 > * 在行動應用程式中新增類別選項
@@ -297,7 +299,7 @@ ms.locfileid: "57861315"
     ![具有類別的行動應用程式][1]
 
     應用程式 UI 提供一組切換，可讓您選擇要訂閱的類別。
-2. 啟用一或多個類別切換，然後按一下 [訂閱] 。
+2. 啟用一或多個類別切換，然後按一下 [訂閱]  。
 
     應用程式會將選取的類別轉換成標籤，並在通知中心內為選取的標籤要求新裝置註冊。 系統會傳回已註冊類別並顯示在對話方塊中。
 

@@ -8,13 +8,13 @@ author: VaijanathB
 manager: jeconnoc
 ms.author: vaangadi
 ms.topic: tutorial
-ms.date: 03/01/2019
-ms.openlocfilehash: 157be65a19a1f790b911aa9d861c5f18fc8c0813
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.date: 09/20/2019
+ms.openlocfilehash: e35af0fcf4a8f1f8f0446be44fe5b0bb6eeec693
+ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58006166"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71169685"
 ---
 # <a name="tutorial-validate-a-hub-and-spoke-network-with-terraform-in-azure"></a>教學課程：使用 Azure 中的 Terraform 驗證中樞和輪輻網路
 
@@ -101,7 +101,7 @@ ms.locfileid: "58006166"
 
 1. 選取 [ **連接**]。
 
-1. 將 [使用 VM 本機帳戶登入] 文字旁邊的 **ssh** 命令複製到剪貼簿。
+1. 將 [使用 VM 本機帳戶登入]  文字旁邊的 **ssh** 命令複製到剪貼簿。
 
 1. 在 Linux 提示字元中執行 `ssh`，以連線至模擬的內部部署環境。 請使用 `on-prem.tf` 參數檔案中指定的密碼。
 

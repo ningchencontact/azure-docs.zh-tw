@@ -3,15 +3,16 @@ title: Azure PowerShell 指令碼 - Azure Cosmos DB 建立 MongoDB API 資料庫
 description: Azure PowerShell 指令碼 - Azure Cosmos DB 建立 MongoDB API 資料庫和集合
 author: markjbrown
 ms.service: cosmos-db
+ms.subservice: cosmosdb-mongo
 ms.topic: sample
 ms.date: 05/18/2019
 ms.author: mjbrown
-ms.openlocfilehash: c299ca8ea46d8c36f16209e9b5d6b603fa2a1894
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.openlocfilehash: 54fd220978a66081979de456568173a7e2784280
+ms.sourcegitcommit: 83df2aed7cafb493b36d93b1699d24f36c1daa45
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67602358"
+ms.lasthandoff: 09/22/2019
+ms.locfileid: "71178904"
 ---
 # <a name="create-a-database-and-collection-for-azure-cosmos-db---mongodb-api"></a>建立 Azure Cosmos DB 資料庫和集合 - MongoDB API
 

@@ -8,13 +8,13 @@ author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
-ms.date: 11/08/2018
-ms.openlocfilehash: 7e66f374a1f5f4fb050f366fdad0e787292101f8
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.date: 09/20/2019
+ms.openlocfilehash: 7a628eb02170346a826cab19498d6fdf40cebddd
+ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59526736"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71173236"
 ---
 # <a name="create-a-terraform-base-template-in-azure-using-yeoman"></a>使用 Yeoman 在 Azure 中建立 Terraform 基底範本
 
@@ -115,7 +115,7 @@ Yeoman 範本會在**目前的目錄**中產生檔案。 因此，您必須建�
 
 1. 啟動 Visual Studio Code
 
-1. 從功能表列，選取 [檔案] > [開啟資料夾]，然後選取您所建立的資料夾。
+1. 從功能表列，選取 [檔案] > [開啟資料夾]  ，然後選取您所建立的資料夾。
 
     ![Visual Studio Code](media/terraform-vscode-module-generator/ymg-open-in-vscode.png)
 
@@ -229,14 +229,14 @@ Yeoman 範本會在**目前的目錄**中產生檔案。 因此，您必須建�
 
 1. 透過 [Azure 入口網站](https://portal.azure.com/)、[shell.azure.com](https://shell.azure.com)或 [Azure 行動應用程式](https://azure.microsoft.com/features/azure-portal/mobile-app/)來啟動 Azure Cloud Shell 工作階段。
 
-1. [歡迎使用 Azure Cloud Shell] 頁面隨即開啟。 選取 **Bash (Linux)**。 (不支援 Power Shell。)
+1. [歡迎使用 Azure Cloud Shell]  頁面隨即開啟。 選取 **Bash (Linux)** 。 (不支援 Power Shell。)
 
     ![歡迎使用 Azure Cloud Shell](media/terraform-vscode-module-generator/ymg-welcome-to-azure-cloud-shell.png)
 
     >[!NOTE]
     >在此範例中，我們選取 [Bash (Linux)]。
 
-1. 若您尚未設定 Azure 儲存體帳戶，會出現下列畫面。 選取 [建立儲存體]。
+1. 若您尚未設定 Azure 儲存體帳戶，會出現下列畫面。 選取 [建立儲存體]  。
 
     ![您未掛接任何儲存體](media/terraform-vscode-module-generator/ymg-you-have-no-storage-mounted.png)
 

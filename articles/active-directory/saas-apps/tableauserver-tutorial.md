@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 09/09/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6e95143da96ce9891c3820479e536e9ea6a18617
-ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
+ms.openlocfilehash: b07c6d6317d8ca284008d271f507b965414bfbc1
+ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70861352"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71257507"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-tableau-server"></a>教學課程：Azure Active Directory 單一登入 (SSO) 與 Tableau Server 整合
 
@@ -42,7 +42,7 @@ ms.locfileid: "70861352"
 
 ## <a name="scenario-description"></a>案例描述
 
-在此教學課程中，您會在測試環境中設定和測試 Azure AD SSO。
+在本教學課程中，您會在測試環境中設定和測試 Azure AD SSO。
 
 * Tableau Server 支援由 **SP** 起始的 SSO
 
@@ -89,7 +89,7 @@ ms.locfileid: "70861352"
     c. 在 [回覆 URL]  文字方塊中，使用下列模式來輸入 URL：`https://azure.<domain name>.link/wg/saml/SSO/index.html`
 
     > [!NOTE]
-    > 上述值並非真正的值。 請使用 [Tableau Server 設定] 頁面中實際的 URL 和識別碼來更新這些值，如此教學課程稍後所說明。
+    > 上述值並非真正的值。 請使用 [Tableau Server 設定] 頁面中實際的 URL 和識別碼來更新這些值，如本教學課程稍後所說明。
 
 1. 在 [以 SAML 設定單一登入]  頁面上的 [SAML 簽署憑證]  區段中，尋找 [同盟中繼資料 XML]  ，然後選取 [下載]  ，以下載憑證並將其儲存在電腦上。
 
@@ -158,7 +158,7 @@ ms.locfileid: "70861352"
     h. 按一下 [儲存] 
 
     > [!NOTE]
-    > 客戶必須在 [Tableau Server SAML SSO 設定] 中上傳任何憑證，系統將在 SSO 流程中忽略該憑證。 如果您需要在 Tableau Server 上設定 SAML 的協助，請參閱[設定 SAML](https://help.tableau.com/current/server/en-gb/saml_config_steps_tsm_ui.htm)。
+    > 客戶必須在 [Tableau Server SAML SSO 設定] 中上傳任何憑證，系統將在 SSO 流程中忽略該憑證。 如果您需要在 Tableau Server 上設定 SAML 的協助，請參閱[設定 SAML](https://help.tableau.com/current/online/en-us/saml_config_azure_ad.htm)。
 
 ### <a name="create-tableau-server-test-user"></a>建立 Tableau Server 測試使用者
 

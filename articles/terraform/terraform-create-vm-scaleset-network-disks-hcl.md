@@ -7,13 +7,13 @@ keywords: terraform, devops, 虛擬機器, Azure, 擴展集, 網路, 儲存體, 
 author: tomarchermsft
 ms.author: tarcher
 ms.topic: tutorial
-ms.date: 10/26/2018
-ms.openlocfilehash: 21fea65ed7056afa57d9acbacb2457bb4d09cff5
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.date: 09/20/2019
+ms.openlocfilehash: a6bc0879d07cadc6c5b0b1a21b11b3075ec69719
+ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58002305"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71169870"
 ---
 # <a name="use-terraform-to-create-an-azure-virtual-machine-scale-set"></a>使用 Terraform 來建立 Azure 虛擬機器擴展集
 
@@ -80,7 +80,7 @@ ms.locfileid: "58002305"
 
 1. 將下列程式碼貼到編輯器中：
 
-   ```JSON
+   ```hcl
    variable "location" {
     description = "The location where resources will be created"
    }
@@ -124,7 +124,7 @@ ms.locfileid: "58002305"
 1. 請將下列程式碼貼到編輯器，以公開虛擬機器的完整網域名稱 (FQDN)。
    ：
 
-   ```JSON
+   ```hcl
     output "vmss_public_ip" {
         value = "${azurerm_public_ip.vmss.fqdn}"
     }
@@ -157,7 +157,7 @@ ms.locfileid: "58002305"
 
 1. 請將下列程式碼貼到檔案的結尾，以公開虛擬機器的完整網域名稱 (FQDN)。
 
-   ```JSON
+   ```hcl
    resource "azurerm_resource_group" "vmss" {
     name     = "${var.resource_group_name}"
     location = "${var.location}"
@@ -225,9 +225,9 @@ ms.locfileid: "58002305"
 
    ![公用 IP 位址的虛擬機器擴展集完整網域名稱](./media/terraform-create-vm-scaleset-network-disks-hcl/fqdn.png)
 
-1. 在 Azure 入口網站功能表的主功能表中，選取 [資源群組]。
+1. 在 Azure 入口網站功能表的主功能表中，選取 [資源群組]  。
 
-1. 在 [資源群組] 索引標籤上，選取 **myResourceGroup** 以檢視 Terraform 所建立的資源。
+1. 在 [資源群組]  索引標籤上，選取 **myResourceGroup** 以檢視 Terraform 所建立的資源。
    ![虛擬機器擴展集網路資源](./media/terraform-create-vm-scaleset-network-disks-hcl/resource-group-resources.png)
 
 ## <a name="add-a-virtual-machine-scale-set"></a>新增虛擬機器擴展集
@@ -252,7 +252,7 @@ ms.locfileid: "58002305"
 
 1. 將下列程式碼貼到檔案的結尾：
 
-   ```JSON
+   ```hcl
    resource "azurerm_lb" "vmss" {
     name                = "vmss-lb"
     location            = "${var.location}"
@@ -369,7 +369,7 @@ ms.locfileid: "58002305"
 
 1. 將下列程式碼貼到編輯器中：
 
-   ```JSON
+   ```hcl
    #cloud-config
    packages:
     - nginx
@@ -393,7 +393,7 @@ ms.locfileid: "58002305"
 
 1. 將下列程式碼貼到檔案的結尾來自訂部署：
 
-    ```JSON
+    ```hcl
     variable "application_port" {
        description = "The port that you want to expose to the external load balancer"
        default     = 80
@@ -442,7 +442,7 @@ ms.locfileid: "58002305"
     ![瀏覽至 FQDN 的結果](./media/terraform-create-vm-scaleset-network-disks-hcl/browser-fqdn.png)
 
 ## <a name="add-an-ssh-jumpbox"></a>新增 SSH Jumpbox
-SSH jumpbox 是您在存取網路上其他伺服器時所「跳躍」通過的單一伺服器。 在此步驟中，您要設定下列資源：
+SSH jumpbox  是您在存取網路上其他伺服器時所「跳躍」通過的單一伺服器。 在此步驟中，您要設定下列資源：
 
 - 連線到與虛擬機器擴展集相同子網路的網路介面 (或 jumpbox)。
 
@@ -458,7 +458,7 @@ SSH jumpbox 是您在存取網路上其他伺服器時所「跳躍」通過的�
 
 1. 將下列程式碼貼到檔案的結尾：
 
-   ```JSON
+   ```hcl
    resource "azurerm_public_ip" "jumpbox" {
     name                         = "jumpbox-public-ip"
     location                     = "${var.location}"
@@ -528,7 +528,7 @@ SSH jumpbox 是您在存取網路上其他伺服器時所「跳躍」通過的�
 
 1. 將下列程式碼貼到檔案的結尾，以在部署完成時顯示 Jumpbox 的主機名稱：
 
-   ```
+   ```hcl
    output "jumpbox_public_ip" {
       value = "${azurerm_public_ip.jumpbox.fqdn}"
    }

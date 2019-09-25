@@ -3,15 +3,16 @@ title: Azure PowerShell 指令碼 - Azure Cosmos DB 取得 SQL (Core) API 的佈
 description: Azure PowerShell 指令碼 - Azure Cosmos DB 取得 SQL (Core) API 的佈建輸送量 (RU/秒)
 author: markjbrown
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: sample
 ms.date: 07/03/2019
 ms.author: mjbrown
-ms.openlocfilehash: 75a8ebbb04fd3cbad9f0a1a3f302b40439adbbcc
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.openlocfilehash: c7d7f295589d4e3b152016c2b55cfe07355d1cb0
+ms.sourcegitcommit: 83df2aed7cafb493b36d93b1699d24f36c1daa45
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67602140"
+ms.lasthandoff: 09/22/2019
+ms.locfileid: "71178771"
 ---
 # <a name="get-the-provisioned-throughput-rus-for-a-database-or-container-for-azure-cosmos-db---sql-core-api"></a>取得 Azure Cosmos DB 資料庫或容器的佈建輸送量 (RU/秒) - SQL (Core) API
 

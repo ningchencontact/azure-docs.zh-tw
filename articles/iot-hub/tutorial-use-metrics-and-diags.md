@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 3/13/2019
 ms.author: robinsh
 ms.custom: mvc
-ms.openlocfilehash: 40e54daa60efedd84b32c72f29d1e2a8858c27da
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 7349287945a56bb7674e364f515d0b763015ed59
+ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66162389"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71262323"
 ---
 # <a name="tutorial-set-up-and-use-metrics-and-diagnostic-logs-with-an-iot-hub"></a>教學課程：搭配 IoT 中樞來設定及使用計量和診斷記錄
 
@@ -37,7 +37,7 @@ ms.locfileid: "66162389"
 
 ## <a name="prerequisites"></a>必要條件
 
-- Azure 訂用帳戶。 如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 。
+- Azure 訂用帳戶。 如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)。
 
 - 安裝 [Visual Studio](https://www.visualstudio.com/)。 
 
@@ -126,7 +126,7 @@ az iot hub device-identity show --device-id $iotDeviceName \
 
 ## <a name="enable-the-diagnostic-logs"></a>啟用診斷記錄 
 
-當您建立新的 IoT 中樞時，[診斷記錄](../azure-monitor/platform/diagnostic-logs-overview.md)預設會停用。 在本節中，請啟用中樞的診斷記錄。
+當您建立新的 IoT 中樞時，[診斷記錄](../azure-monitor/platform/resource-logs-overview.md)預設會停用。 在本節中，請啟用中樞的診斷記錄。
 
 1. 首先，如果您還未進入您在入口網站中的中樞，請按一下 [資源群組]  ，然後按一下資源群組 Contoso-Resources。 從所顯示的資源清單中選取中樞。 
 

@@ -4,9 +4,9 @@ description: 在本教學課程中，您會了解如何使用 Azure 通知中樞
 services: notification-hubs
 documentationcenter: windows
 keywords: 推播通知,推播通知,windows phone 推播
-author: jwargo
-manager: patniko
-editor: spelluru
+author: sethmanheim
+manager: femila
+editor: jwargo
 ms.assetid: d872d8dc-4658-4d65-9e71-fa8e34fae96e
 ms.service: notification-hubs
 ms.workload: mobile
@@ -15,13 +15,15 @@ ms.devlang: dotnet
 ms.topic: tutorial
 ms.custom: mvc
 ms.date: 01/04/2019
-ms.author: jowargo
-ms.openlocfilehash: df42a0e2fcc8c139c7a2b6ecfa78ce1780fe54ca
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.author: sethm
+ms.reviewer: jowargo
+ms.lastreviewed: 01/04/2019
+ms.openlocfilehash: 7f026dd5953dd233b0183d8ce7978f647fb8c6af
+ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57843556"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71213466"
 ---
 # <a name="tutorial-push-notifications-to-windows-phone-apps-by-using-azure-notification-hubs"></a>教學課程：使用 Azure 通知中樞將通知推送至 Windows Phone 應用程式
 
@@ -34,7 +36,7 @@ ms.locfileid: "57843556"
 > [!NOTE]
 > 通知中樞 Windows Phone SDK 不支援將 Windows 推播通知服務 (WNS) 與 Windows Phone 8.1 Silverlight app 搭配使用。 若要將 WNS (而非 MPNS) 與 Windows Phone 8.1 Silverlight app 搭配使用，請遵循使用 REST API 的 [通知中樞 - Windows Phone Silverlight 教學課程]。
 
-在本教學課程中，您了解如何：
+在本教學課程中，您會了解如何：
 
 > [!div class="checklist"]
 > * 建立通知中樞
@@ -54,9 +56,9 @@ ms.locfileid: "57843556"
 
 ### <a name="configure-windows-phone-mpns-settings"></a>設定 Windows Phone (MPNS) 設定
 
-1. 選取 [通知設定] 下的 [Windows Phone] \(MPNS\)。
-2. 選取 [啟用驗證推播]。
-3. 在工具列上選取 [儲存]。
+1. 選取 [通知設定]  下的 [Windows Phone] \(MPNS\)  。
+2. 選取 [啟用驗證推播]  。
+3. 在工具列上選取 [儲存]  。
 
     ![Azure 入口網站 - 啟用未經驗證的推播通知](./media/notification-hubs-windows-phone-get-started/azure-portal-unauth.png)
 
@@ -76,8 +78,8 @@ ms.locfileid: "57843556"
     在 Visual Studio 2013 Update 2 或更新版本中，您必須改為建立 Windows Phone Silverlight 應用程式。
 
     ![Visual Studio - 新增專案 - 空白應用程式 - Windows Phone Silverlight][11]
-2. 在 Visual Studio 中，以滑鼠右鍵按一下方案，然後按一下 [管理 NuGet 封裝] 。
-3. 搜尋 `WindowsAzure.Messaging.Managed`，然後按一下 [安裝] 並接受使用條款。
+2. 在 Visual Studio 中，以滑鼠右鍵按一下方案，然後按一下 [管理 NuGet 封裝]  。
+3. 搜尋 `WindowsAzure.Messaging.Managed`，然後按一下 [安裝]  並接受使用條款。
 
     ![Visual Studio - NuGet 封裝管理員][20]
 4. 開啟 App.xaml.cs 檔案，並新增下列 `using` 陳述式：
@@ -120,7 +122,7 @@ ms.locfileid: "57843556"
    > [!NOTE]
    > 本教學課程將傳送快顯通知給裝置。 傳送圖格通知時，您必須在通道上改為呼叫 `BindToShellTile` 方法。 若要同時支援快顯和圖格通知，請呼叫 `BindToShellTile` 和 `BindToShellToast`。
 
-6. 在 [方案總管] 中，展開 [屬性]、開啟 `WMAppManifest.xml` 檔案、按一下 [功能] 索引標籤，然後確定已核取 [ID_CAP_PUSH_NOTIFICATION] 功能。 您的應用程式現在已可接收推播通知。
+6. 在 [方案總管] 中，展開 [屬性]  、開啟 `WMAppManifest.xml` 檔案、按一下 [功能]  索引標籤，然後確定已核取 [ID_CAP_PUSH_NOTIFICATION]  功能。 您的應用程式現在已可接收推播通知。
 
     ![Visual Studio - Windows Phone 應用程式功能][14]
 7. 按 `F5` 鍵以執行應用程式。 註冊訊息會顯示在應用程式中。
@@ -132,15 +134,15 @@ ms.locfileid: "57843556"
 ## <a name="test-send-a-notification"></a>進行傳送通知的測試
 
 1. 在 Azure 入口網站中，切換至 [概觀] 索引標籤。
-2. 選取 [測試傳送]。
+2. 選取 [測試傳送]  。
 
     ![測試傳送按鈕](./media/notification-hubs-windows-phone-get-started/test-send-button.png)
-3. 在 [測試傳送] 視窗中，採取下列步驟：
+3. 在 [測試傳送]  視窗中，採取下列步驟：
 
-    1. 針對 [平台]，選取 [Windows Phone]。
-    2. 針對 [通知類型]，選取 [快顯通知]。
-    3. 選取 [傳送]
-    4. 在視窗底部的清單中，選取 [結果]。
+    1. 針對 [平台]  ，選取 [Windows Phone]  。
+    2. 針對 [通知類型]  ，選取 [快顯通知]  。
+    3. 選取 [傳送] 
+    4. 在視窗底部的清單中，選取 [結果]  。
 
         ![測試傳送視窗](./media/notification-hubs-windows-phone-get-started/test-send-window.png)
 4. 在 Windows Phone 模擬器或 Windows Phone 上，確認您可看到通知訊息。
