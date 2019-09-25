@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 08/08/2018
 ms.reviewer: mbullwin
 ms.author: evternov
-ms.openlocfilehash: 9bc94f653f5e70883b483fa44f6a17f6e9e9eaf1
-ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
+ms.openlocfilehash: 3abf50b3467ce9a97f2163a10ad1782f6e1c9c20
+ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67594427"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71258431"
 ---
 # <a name="correlating-application-insights-data-with-custom-data-sources"></a>使自訂資料來源與 Application Insights 資料相互關聯
 
@@ -28,7 +28,7 @@ Application Insights 會收集數個不同的資料類型：例外狀況、追�
 
 - 資料擴充或查閱資料表：例如，在伺服器名稱中增添伺服器擁有者，以及能在其中找到該伺服器名稱的實驗室位置 
 - 與非 Application Insights 資料來源相互關聯：例如，讓網路商店上的購買資料與您的購買履約服務相互關聯，以判斷寄送時間的預估準確度 
-- 完全自訂的資料：我們有許多客戶喜愛 Azure 監視器記錄平台 (用來支援 Application Insights) 的查詢語言和效能，而且想要使用它來查詢與 Application Insights 完全不相關的資料。 例如，追蹤屬於智慧型家電安裝的太陽能面板效能，如[此處]( https://blogs.catapultsystems.com/cfuller/archive/2017/10/04/using-log-analytics-and-a-special-guest-to-forecast-electricity-generation/)所述。
+- 完全自訂的資料：我們有許多客戶喜愛 Azure 監視器記錄平台 (用來支援 Application Insights) 的查詢語言和效能，而且想要使用它來查詢與 Application Insights 完全不相關的資料。 例如，追蹤屬於智慧型家電安裝的太陽能面板效能，如[此處](https://www.catapultsystems.com/blogs/using-log-analytics-and-a-special-guest-to-forecast-electricity-generation/)所述。
 
 ## <a name="how-to-correlate-custom-data-with-application-insights-data"></a>如何使自訂資料與 Application Insights 資料相互關聯 
 

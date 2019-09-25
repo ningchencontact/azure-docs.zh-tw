@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/14/2019
 ms.author: TomSh
-ms.openlocfilehash: 80f90f1788e798261f77bb7a4147763e7ca6cec0
-ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
+ms.openlocfilehash: d64cdce34127b066aedc8a5fcd6ec3a891b38c5e
+ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/10/2019
-ms.locfileid: "68946495"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71262842"
 ---
 # <a name="azure-logging-and-auditing"></a>Azure 記錄與稽核
 
@@ -36,7 +36,7 @@ Azure 提供各種可設定的安全性稽核和記錄選項，協助您識別�
 Azure 記錄可歸類為下列類型：
 * **控制/管理記錄**提供 Azure Resource Manager CREATE、UPDATE 和 DELETE 作業的相關資訊。 如需詳細資訊，請參閱[Azure 活動記錄](../../azure-monitor/platform/activity-logs-overview.md)。
 
-* **資料平面記錄**提供使用 Azure 資源時所引發事件的相關資訊。 這個記錄類型的範例是虛擬機器 (VM) 中的 Windows 事件系統、安全性和應用程式記錄，以及透過 Azure 監視器設定的[診斷記錄](../../azure-monitor/platform/diagnostic-logs-overview.md)。
+* **資料平面記錄**提供使用 Azure 資源時所引發事件的相關資訊。 這個記錄類型的範例是虛擬機器 (VM) 中的 Windows 事件系統、安全性和應用程式記錄，以及透過 Azure 監視器設定的[診斷記錄](../../azure-monitor/platform/resource-logs-overview.md)。
 
 * **已處理的事件**提供分析已代替您處理之事件/警示的相關資訊。 這個類型的範例是 [Azure 資訊安全中心警示](../../security-center/security-center-managing-and-responding-alerts.md)，[Azure 資訊安全中心](../../security-center/security-center-intro.md)已在其中處理和分析您的訂用帳戶，並提供簡要的安全性警示。
 
@@ -45,7 +45,7 @@ Azure 記錄可歸類為下列類型：
 | 記錄分類 | 記錄類型 | 使用量 | 整合 |
 | ------------ | -------- | ------ | ----------- |
 |[活動記錄](../../azure-monitor/platform/activity-logs-overview.md)|Azure Resource Manager 資源上控制層面的事件|  讓您了解訂用帳戶中的資源所執行之作業。|    REST API、[Azure 監視器](../../azure-monitor/platform/activity-logs-overview.md)|
-|[Azure 診斷記錄](../../azure-monitor/platform/diagnostic-logs-overview.md)|關於訂用帳戶中 Azure Resource Manager 作業的經常性資料|  讓您了解資源自行執行的作業。| Azure 監視器、[資料流](../../azure-monitor/platform/diagnostic-logs-overview.md)|
+|[Azure 診斷記錄](../../azure-monitor/platform/resource-logs-overview.md)|關於訂用帳戶中 Azure Resource Manager 作業的經常性資料|    讓您了解資源自行執行的作業。| Azure 監視器、[資料流](../../azure-monitor/platform/resource-logs-overview.md)|
 |[Azure AD 報告](../../active-directory/reports-monitoring/overview-reports.md)|記錄和報告 | 報告使用者登入活動，以及使用者和群組管理相關的系統活動資訊。|[Graph API](../../active-directory/develop/active-directory-graph-api-quickstart.md)|
 |[虛擬機器和雲端服務](../../azure-monitor/learn/quick-collect-azurevm.md)|Windows 事件記錄服務與 Linux Syslog|  在虛擬機器上擷取系統資料和記錄資料，並將該資料傳送到您所選擇的儲存體帳戶。|   Azure 監視器中的 Windows (使用 Windows Azure 診斷儲存體 [[WAD](../../monitoring-and-diagnostics/azure-diagnostics.md)] 儲存體) 和 Linux|
 |[Azure 儲存體分析](https://docs.microsoft.com/rest/api/storageservices/fileservices/storage-analytics)|儲存體記錄，提供儲存體帳戶的計量資料|讓您了解追蹤要求、分析使用趨勢，以及診斷儲存體帳戶的問題。|   REST API 或[用戶端程式庫](https://msdn.microsoft.com/library/azure/mt347887.aspx)|
@@ -95,7 +95,7 @@ Azure 診斷記錄提供多個組態選項，例如 Azure 入口網站、PowerSh
 
 * [將診斷記錄儲存到儲存體帳戶](../../azure-monitor/platform/archive-diagnostic-logs.md)以利稽核或手動檢查。 您可以使用診斷設定來指定保留時間 (以天為單位)。
 
-* [將診斷記錄串流至事件中樞](../../azure-monitor/platform/diagnostic-logs-stream-event-hubs.md)，以供第三方服務或自訂的分析解決方案 (如 [PowerBI](https://powerbi.microsoft.com/documentation/powerbi-azure-and-power-bi/)) 擷取。
+* [將診斷記錄串流至事件中樞](../../azure-monitor/platform/resource-logs-stream-event-hubs.md)，以供第三方服務或自訂的分析解決方案 (如 [PowerBI](https://powerbi.microsoft.com/documentation/powerbi-azure-and-power-bi/)) 擷取。
 
 * 使用[Azure 監視器記錄](../../log-analytics/log-analytics-queries.md)來分析它們。
 
@@ -131,7 +131,7 @@ Azure Active Directory (Azure AD) 包括使用者目錄的安全性、活動和�
 |從不明來源登入| 應用程式使用情況：摘要| 目錄稽核報告|
 |在多次失敗後登入|  應用程式使用情況：詳細||
 |從多個地理區域登入|    應用程式儀表板||
-|從有可疑活動的 IP 位址登入|   帳戶佈建錯誤||
+|從具有可疑活動的 IP 位址登入|   帳戶佈建錯誤||
 |異常的登入活動|    個別使用者裝置||
 |從可能受感染的裝置登入|   個別使用者活動||
 |具有異常登入活動的使用者| 群組活動報告||
@@ -315,11 +315,11 @@ Azure 監視器記錄的中心是 Log Analytics 工作區, 其裝載于 Azure �
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-log-analytics-rebrand.md)]
 
-已連線的來源是電腦和其他資源, 可產生 Azure 監視器記錄所收集的資料。 來源可以包括安裝在直接連線的 [Windows](../../log-analytics/log-analytics-agent-windows.md) 和 [Linux](../../log-analytics/log-analytics-quick-collect-linux-computer.md) 電腦上的代理程式，或[已連線的 System Center Operations Manager 管理群組](../../azure-monitor/platform/om-agents.md)中的代理程式。 Azure 監視器記錄也可以從[Azure 儲存體帳戶](../../azure-monitor/platform/diagnostic-logs-stream-log-store.md)收集資料。
+已連線的來源是電腦和其他資源, 可產生 Azure 監視器記錄所收集的資料。 來源可以包括安裝在直接連線的 [Windows](../../log-analytics/log-analytics-agent-windows.md) 和 [Linux](../../log-analytics/log-analytics-quick-collect-linux-computer.md) 電腦上的代理程式，或[已連線的 System Center Operations Manager 管理群組](../../azure-monitor/platform/om-agents.md)中的代理程式。 Azure 監視器記錄也可以從[Azure 儲存體帳戶](../../azure-monitor/platform/resource-logs-collect-storage.md)收集資料。
 
 [資料來源](../../azure-monitor/platform/agent-data-sources.md) 是從每個已連線來源收集的各種資料。 除了 [IIS 記錄](../../azure-monitor/platform/data-sources-iis-logs.md)和[自訂文字記錄](../../azure-monitor/platform/data-sources-custom-logs.md)等來源，來源還包括來自 [Windows](../../azure-monitor/platform/data-sources-windows-events.md) 和 Linux 代理程式的事件和[效能資料](../../azure-monitor/platform/data-sources-performance-counters.md)。 您設定想要收集的每個資料來源，組態會自動傳遞到每一個已連接的來源。
 
-有四種方法可[收集 Azure 服務的記錄和計量](../../azure-monitor/platform/diagnostic-logs-stream-log-store.md)：
+有四種方法可[收集 Azure 服務的記錄和計量](../../azure-monitor/platform/resource-logs-collect-storage.md)：
 
 * Azure 診斷直接 Azure 監視器記錄 (下表中的**診斷**)
 
@@ -335,7 +335,7 @@ Azure 監視器記錄的中心是 Log Analytics 工作區, 其裝載于 Azure �
 |Application Insights||     連接器|  連接器|  [Application Insights](https://blogs.technet.microsoft.com/msoms/2016/09/26/application-insights-connector-in-oms/) [ 連接器 (預覽) (英文)](https://blogs.technet.microsoft.com/msoms/2016/09/26/application-insights-connector-in-oms/)|
 |Azure 自動化帳戶| Microsoft.Automation/<br>AutomationAccounts|    診斷||       [詳細資訊](../../automation/automation-manage-send-joblogs-log-analytics.md)|
 |Azure Batch 帳戶|  Microsoft.Batch/<br>batchAccounts|  診斷|    診斷||
-|傳統雲端服務||       存放區||       [詳細資訊](../../azure-monitor/platform/azure-storage-iis-table.md)|
+|傳統雲端服務||       儲存體||       [詳細資訊](../../azure-monitor/platform/azure-storage-iis-table.md)|
 |認知服務|    Microsoft.CognitiveServices/<br>帳戶|       診斷|||
 |Azure Data Lake Analytics| Microsoft.DataLakeAnalytics/<br>accounts|   診斷|||
 |Azure Data Lake Store| Microsoft.DataLakeStore/<br>帳戶|   診斷|||
@@ -349,10 +349,10 @@ Azure 監視器記錄的中心是 Log Analytics 工作區, 其裝載于 Azure �
 |復原保存庫|   Microsoft.RecoveryServices/<br>vaults|||[Azure 復原服務分析 (預覽)](https://github.com/krnese/AzureDeploy/blob/master/OMS/MSOMS/Solutions/recoveryservices/)|
 |Search 服務|   Microsoft.Search/<br>searchServices|    診斷|    診斷||
 |服務匯流排命名空間| Microsoft.ServiceBus/<br>命名空間|    診斷|診斷|    [服務匯流排分析 (預覽)](https://github.com/Azure/azure-quickstart-templates/tree/master/oms-servicebus-solution)|
-|Service Fabric||       存放區||    [Service Fabric Analytics (Service Fabric 分析) (預覽)](../../service-fabric/service-fabric-diagnostics-oms-setup.md)|
+|Service Fabric||       儲存體||    [Service Fabric Analytics (Service Fabric 分析) (預覽)](../../service-fabric/service-fabric-diagnostics-oms-setup.md)|
 |SQL (v12)| Microsoft.Sql/<br>servers/<br>databases||       診斷||
 ||Microsoft.Sql/<br>servers/<br>elasticPools||||
-|存放區|||         指令碼| [Azure 儲存體分析 (預覽)](https://github.com/Azure/azure-quickstart-templates/tree/master/oms-azure-storage-analytics-solution)|
+|儲存體|||         指令碼| [Azure 儲存體分析 (預覽)](https://github.com/Azure/azure-quickstart-templates/tree/master/oms-azure-storage-analytics-solution)|
 |Azure 虛擬機器|    Microsoft.Compute/<br>virtualMachines|  延伸|  延伸||
 ||||診斷||
 |虛擬機器擴展集|    Microsoft.Compute/<br>virtualMachines    ||診斷||

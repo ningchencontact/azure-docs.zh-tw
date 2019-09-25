@@ -1,36 +1,36 @@
 ---
 title: 如何在適用於 PostgreSQL 的 Azure 資料庫-單一伺服器中傾印和還原
-description: 描述如何將于 postgresql 資料庫解壓縮至傾印檔案, 並從適用於 PostgreSQL 的 Azure 資料庫-單一伺服器中的 pg_dump 所建立的檔案還原。
+description: 描述如何將于 postgresql 資料庫解壓縮至傾印檔案，並從適用於 PostgreSQL 的 Azure 資料庫-單一伺服器中的 pg_dump 所建立的檔案還原。
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 5/6/2019
-ms.openlocfilehash: 43e6fe301cf28b7a342ba2e802c9fce19bfeec4d
-ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
+ms.date: 09/24/2019
+ms.openlocfilehash: 55e802aa1f7bdf0d67d1a9c3f020d255afdc8130
+ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68815865"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71261912"
 ---
 # <a name="migrate-your-postgresql-database-using-dump-and-restore"></a>使用傾印和還原來移轉 PostgreSQL 資料庫
-您可以使用 [pg_dump](https://www.postgresql.org/docs/9.3/static/app-pgdump.html) 將 PostgreSQL 資料庫擷取到傾印檔案，並使用 [pg_restore](https://www.postgresql.org/docs/9.3/static/app-pgrestore.html) 從 pg_dump 所建立的封存檔案還原 PostgreSQL 資料庫。
+您可以使用 [pg_dump](https://www.postgresql.org/docs/current/static/app-pgdump.html) 將 PostgreSQL 資料庫擷取到傾印檔案，並使用 [pg_restore](https://www.postgresql.org/docs/current/static/app-pgrestore.html) 從 pg_dump 所建立的封存檔案還原 PostgreSQL 資料庫。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 若要逐步執行本作法指南，您需要︰
 - [適用於 PostgreSQL 的 Azure 資料庫伺服器](quickstart-create-server-database-portal.md)，而且防火牆規則要允許存取其中的資料庫。
-- 安裝 [pg_dump](https://www.postgresql.org/docs/9.6/static/app-pgdump.html) 和 [pg_restore](https://www.postgresql.org/docs/9.6/static/app-pgrestore.html) 命令列公用程式
+- 安裝 [pg_dump](https://www.postgresql.org/docs/current/static/app-pgdump.html) 和 [pg_restore](https://www.postgresql.org/docs/current/static/app-pgrestore.html) 命令列公用程式
 
 請遵循下列步驟來傾印和還原 PostgreSQL 資料庫：
 
 ## <a name="create-a-dump-file-using-pg_dump-that-contains-the-data-to-be-loaded"></a>使用 pg_dump 建立傾印檔案，其中包含要載入的資料
 若要備份內部部署或 VM 中的現有 PostgreSQL 資料庫，請執行下列命令︰
 ```bash
-pg_dump -Fc -v --host=<host> --username=<name> --dbname=<database name> > <database>.dump
+pg_dump -Fc -v --host=<host> --username=<name> --dbname=<database name> -f <database>.dump
 ```
 比方說，如果您有本機伺服器和名為 **testdb** 的資料庫
 ```bash
-pg_dump -Fc -v --host=localhost --username=masterlogin --dbname=testdb > testdb.dump
+pg_dump -Fc -v --host=localhost --username=masterlogin --dbname=testdb -f testdb.dump
 ```
 
 
@@ -57,14 +57,14 @@ pg_restore -v --no-owner --host=mydemoserver.postgres.database.azure.com --port=
 將現有 PostgreSQL 資料庫移轉至 適用於 PostgreSQL 的 Azure 資料庫服務，方法之一就是備份來源上的資料庫，再於 Azure 中還原。 若要讓完成移轉所需的時間降到最低，請考慮搭配備份與還原命令命令使用下列參數。
 
 > [!NOTE]
-> 如需詳細的語法資訊，請參閱 [pg_dump](https://www.postgresql.org/docs/9.6/static/app-pgdump.html) 與 [pg_restore](https://www.postgresql.org/docs/9.6/static/app-pgrestore.html) 文章。
+> 如需詳細的語法資訊，請參閱 [pg_dump](https://www.postgresql.org/docs/current/static/app-pgdump.html) 與 [pg_restore](https://www.postgresql.org/docs/current/static/app-pgrestore.html) 文章。
 >
 
 ### <a name="for-the-backup"></a>進行備份
 - 使用 -Fc 參數建立備份，能夠平行執行還原，加快執行速度。 例如:
 
     ```
-    pg_dump -h MySourceServerName -U MySourceUserName -Fc -d MySourceDatabaseName > Z:\Data\Backups\MyDatabaseBackup.dump
+    pg_dump -h MySourceServerName -U MySourceUserName -Fc -d MySourceDatabaseName -f Z:\Data\Backups\MyDatabaseBackup.dump
     ```
 
 ### <a name="for-the-restore"></a>進行還原

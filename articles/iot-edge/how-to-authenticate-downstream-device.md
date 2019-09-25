@@ -4,17 +4,17 @@ description: 如何驗證下游裝置或分葉裝置以 IoT 中樞，並透過 A
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 06/07/2019
+ms.date: 09/23/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: 7a032056a684107de3dd00fe4861f34c013a80db
-ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
+ms.openlocfilehash: d73c0f4dbfcc2c67a222f91693ebe8ed9ea83d98
+ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/15/2019
-ms.locfileid: "71003628"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71266132"
 ---
 # <a name="authenticate-a-downstream-device-to-azure-iot-hub"></a>在 Azure IoT 中樞中驗證下游裝置
 
@@ -32,7 +32,7 @@ ms.locfileid: "71003628"
 
 ## <a name="prerequisites"></a>必要條件
 
-完成[設定 IoT Edge 裝置以作為透明閘道](how-to-create-transparent-gateway.md)中的步驟。
+完成[設定 IoT Edge 裝置以作為透明閘道](how-to-create-transparent-gateway.md)中的步驟。 如果您針對下游裝置使用 x.509 驗證，則需要使用您在透明閘道一文中設定的相同憑證產生腳本。 
 
 本文是指在數個點的*閘道主機名稱*。 閘道主機名稱會在 IoT Edge 閘道裝置上 yaml 檔案的**hostname**參數中宣告。 它是用來建立本文中的憑證，而在下游裝置的連接字串中則稱為。 閘道主機名稱必須可解析為 IP 位址，方法是使用 DNS 或主機檔案專案。
 

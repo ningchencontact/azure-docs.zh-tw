@@ -14,12 +14,12 @@ ms.workload: iaas-sql-server
 ms.date: 08/05/2019
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 5d740224adb15dc2d772689d77ab1c510532c901
-ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
+ms.openlocfilehash: 05cd68c7be005a5b148b7d3e691c46a0d067b0c0
+ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71203992"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71262862"
 ---
 # <a name="change-the-license-model-for-a-sql-server-virtual-machine-in-azure"></a>變更 Azure 中 SQL Server 虛擬機器的授權模型
 本文說明如何使用新的 SQL VM 資源提供者**microsoft.sqlvirtualmachine**，在 Azure 中變更 SQL Server 虛擬機器（VM）的授權模型。
@@ -125,7 +125,7 @@ $SqlVm | Set-AzResource -Force
 
 您僅有資格透過 Azure Hybrid Benefit 在 Azure VM 上自行安裝 SQL Server。 您應將 SQL Server 授權設定為 Azure Hybrid Benefit，以向[SQL VM 資源提供者註冊這些 vm](virtual-machines-windows-sql-register-with-resource-provider.md) ，以根據 Microsoft 產品條款指出 Azure Hybrid Benefit 的使用方式。
 
-只有在 SQL Server VM 已向 SQL VM 資源提供者註冊時，您才可以將 SQL Server VM 的授權類型變更為隨用隨付或 Azure Hybrid Benefit。 所有 SQL Server 的 Vm 都應該向資源提供者註冊，以取得授權合規性。
+只有在 SQL Server VM 已向 SQL VM 資源提供者註冊時，您才可以將 SQL Server VM 的授權類型變更為隨用隨付或 Azure Hybrid Benefit。
 
 ## <a name="remarks"></a>備註
 

@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 07/10/2019
 ms.author: kgremban
 ms.custom: seodec18
-ms.openlocfilehash: e5b99bba3c3b21ea9662845928c523c329695bf8
-ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+ms.openlocfilehash: 6118c4ddf1386ff4cc816148938e1f5ddeaecc9e
+ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69877245"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71266087"
 ---
 # <a name="install-the-azure-iot-edge-runtime-on-windows"></a>在 Windows 上安裝 Azure IoT Edge 執行階段
 
@@ -42,6 +42,14 @@ Azure IoT Edge 執行階段可將裝置變成 IoT Edge 裝置。 此執行階段
 
 在開發和測試案例中, 可以在支援 [容器] 功能的任何 Windows 10 或 Windows Server 2019 (組建 17763) 版本上安裝 Windows 容器 Azure IoT Edge。 如需實際執行案例目前支援哪些作業系統的詳細資訊, 請參閱[Azure IoT Edge 支援的系統](support.md#operating-systems)。 
 
+IoT 核心版裝置必須包含 IoT 核心-Windows 容器選用功能，以支援 IoT Edge 執行時間。 在[遠端 PowerShell 會話](https://docs.microsoft.com/windows/iot-core/connect-your-device/powershell)中使用下列命令，以檢查裝置上是否支援 Windows 容器： 
+
+```powershell
+Get-Service vmcompute
+```
+
+如果服務存在，您應該會收到成功的回應，且服務**狀態列為 [** 執行中]。 如果找不到 vmcompute 服務，則您的裝置不符合 IoT Edge 的需求。 請洽詢您的硬體提供者，詢問這項功能的支援。 
+
 ### <a name="prepare-for-a-container-engine"></a>準備容器引擎 
 
 Azure IoT Edge 會依賴 [OCI 相容](https://www.opencontainers.org/)的容器引擎。 對於生產案例，請使用安裝指令碼中包含的 Moby 引擎，在 Windows 裝置上執行 Windows 容器。 
@@ -54,7 +62,7 @@ Azure IoT Edge 會依賴 [OCI 相容](https://www.opencontainers.org/)的容器�
 PowerShell 指令碼會下載並安裝 Azure IoT Edge 安全性精靈。 接著，安全性精靈會開始第一個執行階段模組 (總共兩個)，也就是可遠端部署其他模組的 IoT Edge 代理程式。 
 
 >[!TIP]
->針對 IoT 核心版裝置, 建議使用 RemotePowerShell 會話來執行安裝命令。 如需詳細資訊, 請參閱[使用適用于 Windows IoT 的 PowerShell](https://docs.microsoft.com/windows/iot-core/connect-your-device/powershell)。
+>針對 IoT 核心版裝置，建議使用 RemotePowerShell 會話來執行安裝命令。 如需詳細資訊，請參閱[使用適用于 Windows IoT 的 PowerShell](https://docs.microsoft.com/windows/iot-core/connect-your-device/powershell)。
 
 當您第一次在裝置上安裝 IoT Edge 執行階段時，需要使用來自 IoT 中樞的身分識別以佈建裝置。 您可以使用 IoT 中樞提供的裝置連接字串, 手動布建單一 IoT Edge 裝置。 或者, 您可以使用裝置布建服務 (DPS) 自動布建裝置, 這在您有許多裝置要設定時很有説明。 請根據您選擇的佈建方式，選擇適當的安裝指令碼。 
 
@@ -140,7 +148,7 @@ PowerShell 指令碼會下載並安裝 Azure IoT Edge 安全性精靈。 接著�
 
 1. 此時, IoT 核心版裝置可能會自動重新開機。 其他 Windows 10 或 Windows Server 裝置可能會提示您重新開機。 若是如此, 請立即重新開機您的裝置。 一旦您的裝置準備就緒, 請再次以系統管理員身分執行 PowerShell。
 
-1. **Initialize-IoTEdge** 命令會設定機器的 IoT Edge 執行階段。 此命令預設為 Windows 容器的手動佈建。 `-Dps`使用旗標來使用裝置布建服務, 而不是手動布建。 以`{scope ID}`裝置布建服務中的範圍識別碼取代, `{registration ID}`並以裝置中的註冊識別碼取代, 這兩者都應該在步驟1中抓取。
+1. **Initialize-IoTEdge** 命令會設定機器的 IoT Edge 執行階段。 此命令預設為 Windows 容器的手動佈建。 `-Dps`使用旗標來使用裝置布建服務, 而不是手動布建。 以`{scope ID}`裝置布建服務中的範圍識別碼取代， `{registration ID}`並以裝置中的註冊識別碼取代，這兩者都應該在步驟1中抓取。
 
    使用**IoTEdge**命令搭配使用 DPS 與 TPM 證明:
 
@@ -200,7 +208,7 @@ Get-Service iotedge
 . {Invoke-WebRequest -useb https://aka.ms/iotedge-win} | Invoke-Expression; Get-IoTEdgeLog
 ```
 
-列出執行中的模組。 在新的安裝之後, 您應該會看到執行的唯一模組是**edgeAgent**。 當您第一次[部署 IoT Edge 模組](how-to-deploy-modules-portal.md)之後, 另一個系統模組**edgeHub**也會在裝置上啟動。 
+列出執行中的模組。 在新的安裝之後, 您應該會看到執行的唯一模組是**edgeAgent**。 當您第一次[部署 IoT Edge 模組](how-to-deploy-modules-portal.md)之後，另一個系統模組**edgeHub**也會在裝置上啟動。 
 
 ```powershell
 iotedge list

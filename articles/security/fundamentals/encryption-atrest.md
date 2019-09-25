@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/10/2019
+ms.date: 09/24/2019
 ms.author: barclayn
-ms.openlocfilehash: 3e745d5f38d5623aab17ef7a3e3fbfa2c616e6d4
-ms.sourcegitcommit: 909ca340773b7b6db87d3fb60d1978136d2a96b0
+ms.openlocfilehash: b506c6f6101e8c5ce71231a8178f70fa5a0914d8
+ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/13/2019
-ms.locfileid: "70984860"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71262813"
 ---
 # <a name="azure-data-encryption-at-rest"></a>Azure 資料靜態加密
 
@@ -262,7 +262,7 @@ Azure SQL Database 目前支援針對由 Microsoft 管理之服務端和用戶�
 |----------------------------------|--------------------|-----------------------------------------|--------------------|
 |                                  | **使用服務管理金鑰的伺服器端**     | **使用客戶管理的金鑰的伺服器端**             | **使用用戶端管理的用戶端**      |
 | **AI 和 Machine Learning**      |                    |                    |                    |
-| Azure 搜尋服務                     | 是                | -                  | -                  |
+| Azure 搜尋服務                     | 是                | 預覽            | -                  |
 | Azure Machine Learning 服務   | 是                | -                  | -                  |
 | Azure Machine Learning Studio    | 是                | 預覽，RSA 2048 位元 | -               |
 | Power BI                         | 是                | 預覽，RSA 2048 位元 | -                  |

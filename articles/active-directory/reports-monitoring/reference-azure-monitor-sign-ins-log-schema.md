@@ -17,12 +17,12 @@ ms.date: 04/18/2019
 ms.author: chadam
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4cc07ac2644ac9f97146e980a1961b9b84e7c561
-ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
+ms.openlocfilehash: c3a05a531fd03cbd77bf3460ec45300692764565
+ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70127057"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71259146"
 ---
 # <a name="interpret-the-azure-ad-sign-in-logs-schema-in-azure-monitor"></a>解讀 Azure 監視器中的 Azure AD 登入記錄架構
 
@@ -146,7 +146,7 @@ ms.locfileid: "70127057"
 | 欄位名稱 | 描述 |
 |------------|-------------|
 | Time | 日期和時間 (UTC)。 |
-| resourceId | 此值未對應，您可以放心地略過此欄位。  |
+| ResourceId | 此值未對應，您可以放心地略過此欄位。  |
 | OperationName | 針對登入，這個值一律是 *Sign-in activity*。 |
 | OperationVersion | 用戶端要求的 REST API 版本。 |
 | Category | 針對登入，這個值一律是 *SignIn*。 | 
@@ -170,4 +170,4 @@ ms.locfileid: "70127057"
 ## <a name="next-steps"></a>後續步驟
 
 * [解譯 Azure 監視器中的稽核記錄結構描述](reference-azure-monitor-audit-log-schema.md)
-* [深入了解 Azure 診斷記錄](../../azure-monitor/platform/diagnostic-logs-overview.md)
+* [深入了解 Azure 診斷記錄](../../azure-monitor/platform/resource-logs-overview.md)

@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 08/12/2019
 ms.author: v-adgera
 ms.custom: seodec18
-ms.openlocfilehash: 24dc01d47bece4191d1b142a58c4ad7b6d9fb6cf
-ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+ms.openlocfilehash: c1bd33ea5cbe45d6ff862645d614d54d20110ef4
+ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69876573"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71260849"
 ---
 # <a name="how-to-debug-user-defined-functions-in-azure-digital-twins"></a>如何為 Azure Digital Twins 中的使用者定義函式偵錯
 
@@ -35,7 +35,7 @@ Azure Digital Twins 支援強固的記錄、監視與分析功能。 解決方�
 
 * 如需 Azure 數位 Twins 特有的記錄設定, 請閱讀[如何設定監視和記錄](./how-to-configure-monitoring.md)。
 * 請參閱[Azure 監視器](../azure-monitor/overview.md)總覽, 以瞭解透過 Azure 監視器啟用的強大記錄檔設定。
-* 請參閱[從 azure 資源收集和取用記錄資料](../azure-monitor/platform/diagnostic-logs-overview.md)一文, 以透過 Azure 入口網站、Azure CLI 或 PowerShell 設定 Azure 數位 Twins 中的診斷記錄設定。
+* 請參閱[從 azure 資源收集和取用記錄資料](../azure-monitor/platform/resource-logs-overview.md)一文, 以透過 Azure 入口網站、Azure CLI 或 PowerShell 設定 Azure 數位 Twins 中的診斷記錄設定。
 
 設定好之後, 您將能夠選取所有記錄類別、計量, 並使用功能強大的 Azure 監視器 log analytics 工作區來支援您的偵錯工具。
 
@@ -45,7 +45,7 @@ Azure Digital Twins 支援強固的記錄、監視與分析功能。 解決方�
 
 若要使感應器遙測訊息與其各自的記錄相符，您可以針對所傳送的事件資料指定相互關聯識別碼。 若要這樣做，將 `x-ms-client-request-id` 屬性設為 GUID。
 
-傳送遙測之後, 請使用 [設定相互關聯識別碼] 開啟 Azure 監視器 log analytics 來查詢記錄:
+傳送遙測之後，請使用 [設定相互關聯識別碼] 開啟 Azure 監視器 log analytics 來查詢記錄：
 
 ```Kusto
 AzureDiagnostics

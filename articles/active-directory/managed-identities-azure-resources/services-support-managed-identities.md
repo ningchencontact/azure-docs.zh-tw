@@ -4,18 +4,18 @@ description: 支援 Azure 資源和 Azure AD 驗證受控識別的服務清單
 services: active-directory
 author: MarkusVi
 ms.author: markvi
-ms.date: 06/19/2019
+ms.date: 09/24/2019
 ms.topic: conceptual
 ms.service: active-directory
 ms.subservice: msi
 manager: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 37eba245933bc94e9fb631abd3b4ff495f8c6d67
-ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
+ms.openlocfilehash: 4f4a5ae01376358ca78cd804cc853489ca007217
+ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71087605"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71264236"
 ---
 # <a name="services-that-support-managed-identities-for-azure-resources"></a>支援適用於 Azure 資源的受控識別服務
 
@@ -224,14 +224,31 @@ Azure 資源受控識別會在 Azure Active Directory 中為 Azure 服務提供�
 | Azure Germany |   | 無法使用 |
 | Azure China 21Vianet |  | 無法使用 |
 
+
+
+
+
+
+
+
+
 ### <a name="azure-storage-blobs-and-queues"></a>Azure 儲存體 blob 和佇列
 
 | 雲端 | 資源 ID | 狀態 |
 |--------|------------|--------|
 | Azure 全域 | `https://storage.azure.com/` <br /><br />`https://<account>.blob.core.windows.net` <br /><br />`https://<account>.queue.core.windows.net` | 可用 |
-| Azure Government | `https://storage.azure.com/`<br /><br />`https://<account>.blob.core.windows.net` <br /><br />`https://<account>.queue.core.windows.net` | 可用 |
-| Azure Germany | `https://storage.azure.com/`<br /><br />`https://<account>.blob.core.windows.net` <br /><br />`https://<account>.queue.core.windows.net` | 可用 |
-| Azure China 21Vianet | `https://storage.azure.com/`<br /><br />`https://<account>.blob.core.windows.net` <br /><br />`https://<account>.queue.core.windows.net` | 可用 |
+| Azure Government | `https://storage.azure.com/`<br /><br />`https://<account>.blob.core.usgovcloudapi.net` <br /><br />`https://<account>.queue.core.usgovcloudapi.net` | 可用 |
+| Azure Germany | `https://storage.azure.com/`<br /><br />`https://<account>.blob.core.cloudapi.de` <br /><br />`https://<account>.queue.core.cloudapi.de` | 可用 |
+| Azure China 21Vianet | `https://storage.azure.com/`<br /><br />`https://<account>.blob.core.chinacloudapi.cn` <br /><br />`https://<account>.queue.core.chinacloudapi.cn` | 可用 |
+
+
+
+
+
+
+
+
+
 
 ### <a name="azure-analysis-services"></a>Azure Analysis Services
 

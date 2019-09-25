@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 01/23/2019
 ms.author: pepogors
-ms.openlocfilehash: d221b828624e649a0d04a89c4394fe5a7fa857dd
-ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
+ms.openlocfilehash: 317977af9d41163013545a6e5f60bee887da596c
+ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "66237330"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71262253"
 ---
 # <a name="networking"></a>網路功能
 
@@ -70,9 +70,9 @@ Service Fabric 叢集可以佈建在[使用加速網路的 Linux](https://docs.m
 
 * 若要執行 Windows 容器工作負載，請使用[開放網路模式](https://docs.microsoft.com/azure/service-fabric/service-fabric-networking-modes#set-up-open-networking-mode)，以便進行服務對服務的通訊。
 
-* 使用反向 Proxy (例如 [Traefik](https://docs.traefik.io/configuration/backends/servicefabric/) 或 [Service Fabric 反向 Proxy](https://docs.microsoft.com/azure/service-fabric/service-fabric-reverseproxy)) 公開常用的應用程式連接埠，例如 80 或 443。
+* 使用反向 Proxy (例如 [Traefik](https://docs.traefik.io/v1.6/configuration/backends/servicefabric/) 或 [Service Fabric 反向 Proxy](https://docs.microsoft.com/azure/service-fabric/service-fabric-reverseproxy)) 公開常用的應用程式連接埠，例如 80 或 443。
 
-* 針對在無法從 Azure 雲端儲存體提取基本層的空中電腦上裝載的 Windows 容器, 請使用 Docker daemon 中的[--nondistributable-構件](https://docs.microsoft.com/virtualization/windowscontainers/about/faq#how-do-i-make-my-container-images-available-on-air-gapped-machines)旗標來覆寫外部層行為。
+* 針對在無法從 Azure 雲端儲存體提取基本層的空中電腦上裝載的 Windows 容器，請使用 Docker daemon 中的[--nondistributable-構件](https://docs.microsoft.com/virtualization/windowscontainers/about/faq#how-do-i-make-my-container-images-available-on-air-gapped-machines)旗標來覆寫外部層行為。
 
 ## <a name="next-steps"></a>後續步驟
 

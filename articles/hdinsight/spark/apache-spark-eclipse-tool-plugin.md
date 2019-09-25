@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/30/2017
-ms.openlocfilehash: 1ebea83d87cd169f61c91a93f092fa277f5017a7
-ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
+ms.openlocfilehash: 5336153a776f3324e5f73564ba2804389cd96938
+ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71203815"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71257576"
 ---
 # <a name="use-azure-toolkit-for-eclipse-to-create-apache-spark-applications-for-an-hdinsight-cluster"></a>使用 Azure Toolkit for Eclipse 為 HDInsight 叢集建立 Apache Spark 應用程式
 
@@ -75,23 +75,23 @@ ms.locfileid: "71203815"
 
 1. 從 [Azure 總管] 中選取 [連結叢集]。
 
-   ![連結叢集操作功能表](./media/apache-spark-eclipse-tool-plugin/link-a-cluster-context-menu.png)
+   ![Azure Explorer 連結叢集功能表](./media/apache-spark-eclipse-tool-plugin/link-a-cluster-context-menu.png)
 
 1. 輸入 [叢集名稱]、[使用者名稱] 及 [密碼]，然後按一下 [確定] 按鈕連結叢集。 您也可以選擇輸入 [儲存體帳戶]、[儲存體金鑰]，然後選取 [儲存體容器]，讓儲存體總管在左側樹狀檢視中工作
 
-   ![連結叢集對話方塊](./media/apache-spark-eclipse-tool-plugin/link-cluster-dialog1.png)
+   ![[連結新的 HDInsight 叢集] 對話方塊](./media/apache-spark-eclipse-tool-plugin/link-cluster-dialog1.png)
 
    > [!NOTE]  
    > 如果叢集已登入 Azure 訂用帳戶並連結叢集，我們會使用連結的儲存體金鑰、使用者名稱和密碼。
-   > ![Eclipse 中的儲存體總管](./media/apache-spark-eclipse-tool-plugin/storage-explorer-in-Eclipse.png)
+   > ![Azure Explorer 儲存體帳戶](./media/apache-spark-eclipse-tool-plugin/storage-explorer-in-Eclipse.png)
 
 1. 如果輸入資訊正確無誤，則按一下 [確定] 按鈕之後，您就可以在 [HDInsight] 節點中看見連結的叢集。 您現在可以將應用程式提交至此連結的叢集。
 
-   ![連結的叢集](./media/apache-spark-eclipse-tool-plugin/hdinsight-linked-cluster.png)
+   ![Azure Explorer hdi 連結的叢集](./media/apache-spark-eclipse-tool-plugin/hdinsight-linked-cluster.png)
 
 1. 您也可以從 [Azure 總管] 取消連結叢集。
 
-   ![取消連結的叢集](./media/apache-spark-eclipse-tool-plugin/hdi-unlinked-cluster.png)
+   ![Azure Explorer 未連結的叢集](./media/apache-spark-eclipse-tool-plugin/hdi-unlinked-cluster.png)
 
 ## <a name="set-up-a-spark-scala-project-for-an-hdinsight-spark-cluster"></a>設定 HDInsight Spark 叢集的 Spark Scala 專案
 
@@ -103,7 +103,7 @@ ms.locfileid: "71203815"
 
 1. Scala 專案建立精靈會自動偵測您是否已安裝 Scala 外掛程式。 選取 [確定] 以繼續下載 Scala 外掛程式，並遵循指示重新啟動 Eclipse。
 
-   ![Scala 檢查](./media/apache-spark-eclipse-tool-plugin/auto-installation-scala2.png)
+   ![安裝遺失的外掛程式 Scala 檢查](./media/apache-spark-eclipse-tool-plugin/auto-installation-scala2.png)
 
 1. 在 [新增 HDInsight Scala 專案] 對話方塊中，提供下列值，然後選取 [下一步]：
    * 輸入專案的名稱。
@@ -120,10 +120,10 @@ ms.locfileid: "71203815"
 
 1. 在 [選取精靈] 對話方塊方塊中，展開 [Scala 精靈]、選取 [Scala 物件]，然後選取 [下一步]。
 
-   ![選取精靈對話方塊](./media/apache-spark-eclipse-tool-plugin/create-scala-project1.png)
+   ![選取建立 Scala 物件的 wizard](./media/apache-spark-eclipse-tool-plugin/create-scala-project1.png)
 1. 在 [建立新檔案] 對話方塊中輸入物件的名稱，然後選取 [完成]。
 
-   ![[建立新檔案] 對話方塊](./media/apache-spark-eclipse-tool-plugin/create-scala-project2.png)
+   ![新增檔案嚮導建立新檔案](./media/apache-spark-eclipse-tool-plugin/create-scala-project2.png)
 1. 在文字編輯器中貼上下列程式碼：
 
     ```scala
@@ -156,11 +156,11 @@ ms.locfileid: "71203815"
    * 在 [主要類別名稱] 下拉式清單中，提交精靈會顯示您的所有物件名稱。 選取或輸入您需要執行的物件名稱。 如果您從硬碟選取構件，就必須手動輸入主要的類別名稱。 
    * 因為此範例中的應用程式程式碼不需要任何命令列引數，或是參考 JAR 或檔案，所以您可以將其餘的文字方塊保留空白。
 
-     ![[提交 Spark] 對話方塊](./media/apache-spark-eclipse-tool-plugin/create-scala-project3.png)
+     ![Apache Spark 提交 對話方塊](./media/apache-spark-eclipse-tool-plugin/create-scala-project3.png)
 
 1. [Spark Submission (提交 Spark)] 索引標籤應會開始顯示進度。 您可以選取 [提交 Spark] 視窗中的紅色按鈕，就能將應用程式停止。 您也可以選取全球圖示 (以映像中的藍色方塊表示)，檢視此特定應用程式執行的記錄。
 
-   ![[提交 Spark] 視窗](./media/apache-spark-eclipse-tool-plugin/create-scala-project4.png)
+   ![Apache Spark 提交視窗](./media/apache-spark-eclipse-tool-plugin/create-scala-project4.png)
 
 ## <a name="access-and-manage-hdinsight-spark-clusters-by-using-hdinsight-tools-in-azure-toolkit-for-eclipse"></a>使用適用於 Eclipse 的 Azure 工具組中的 HDInsight 工具來存取和管理 HDInsight Spark 叢集
 
@@ -170,15 +170,15 @@ ms.locfileid: "71203815"
 
 1. 在 [Azure Explorer] 中，依序展開 [HDInsight] 和 Spark 叢集名稱，然後選取 [作業]。
 
-   ![作業檢視節點](./media/apache-spark-eclipse-tool-plugin/eclipse-job-view-node.png)
+   ![Azure Explorer Eclipse 工作檢視節點](./media/apache-spark-eclipse-tool-plugin/eclipse-job-view-node.png)
 
-1. 選取 [作業] 節點。 如果 Java 版本低於 **1.8**，HDInsight 工具會自動提醒您安裝 **E(fx)clipse** 外掛程式。 選取 [確定] 繼續作業，然後遵循精靈安裝 Eclipse Marketplace 並重新啟動 Eclipse。 
+1. 選取 [作業] 節點。 如果 Java 版本低於 **1.8**，HDInsight 工具會自動提醒您安裝 **E(fx)clipse** 外掛程式。 選取 [確定] 繼續作業，然後遵循精靈安裝 Eclipse Marketplace 並重新啟動 Eclipse。
 
-   ![安裝 E(fx)clipse](./media/apache-spark-eclipse-tool-plugin/auto-install-efxclipse.png)
+   ![安裝遺失的外掛程式 E （fx） clipse](./media/apache-spark-eclipse-tool-plugin/auto-install-efxclipse.png)
 
 1. 從 [作業] 節點開啟 [作業] 檢視。 在右窗格中，[Spark 作業檢視] 索引標籤會顯示已在叢集上執行的所有應用程式。 選取您想要查看更多詳細資料的應用程式名稱。
 
-   ![應用程式詳細資料](./media/apache-spark-eclipse-tool-plugin/eclipse-view-job-logs.png)
+   ![Apache Eclipse 視圖作業記錄詳細資料](./media/apache-spark-eclipse-tool-plugin/eclipse-view-job-logs.png)
 
    然後您可以採取下列任何動作：
 
@@ -188,7 +188,7 @@ ms.locfileid: "71203815"
 
    * 選取 [記錄] 索引標籤可檢視經常使用的記錄 (包括「驅動程式 Stderr」、「驅動程式 Stdout」和「目錄資訊」)。
 
-     ![記錄詳細資料](./media/apache-spark-eclipse-tool-plugin/eclipse-job-log-info.png)
+     ![Apache Spark Eclipse 作業記錄檔資訊](./media/apache-spark-eclipse-tool-plugin/eclipse-job-log-info.png)
 
    * 選取視窗頂端的超連結，在應用程式層級開啟 Spark 歷程記錄 UI 和 Apache Hadoop YARN UI。
 
@@ -245,7 +245,7 @@ ms.locfileid: "71203815"
 
 1. 範本會在 **src** 資料夾下方新增可在電腦本機執行的程式碼範例 (**LogQuery**)。
 
-   ![LogQuery 的位置](./media/apache-spark-eclipse-tool-plugin/local-scala-application.png)
+   ![LogQuery 本機 scala 應用程式的位置](./media/apache-spark-eclipse-tool-plugin/local-scala-application.png)
 
 1. 以滑鼠右鍵按一下 **LogQuery** 應用程式、指向 [執行身分]，然後選取 [1 Scala 應用程式]。 在 [主控台] 索引標籤上隨即顯示像這樣的輸出：
 
@@ -308,7 +308,7 @@ ms.locfileid: "71203815"
 
 連結叢集時，建議您提供儲存體認證。
 
-![互動式登入](./media/apache-spark-eclipse-tool-plugin/link-cluster-with-storage-credential-eclipse.png)
+![連結叢集與儲存體認證 eclipse](./media/apache-spark-eclipse-tool-plugin/link-cluster-with-storage-credential-eclipse.png)
 
 提交工作有兩種模式。 如果提供儲存體認證，將使用批次模式提交工作。 否則，將使用互動模式。 如果叢集忙碌，您可能會收到以下錯誤。
 

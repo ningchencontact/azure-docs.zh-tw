@@ -5,17 +5,16 @@ services: search
 manager: nitinme
 author: luiscabrer
 ms.service: search
-ms.subservice: cognitive-search
 ms.workload: search
 ms.topic: conceptual
 ms.date: 02/02/2019
 ms.author: luisca
-ms.openlocfilehash: bc83a7c06c52ee26246329d6ca3177bce71c9de8
-ms.sourcegitcommit: 7a6d8e841a12052f1ddfe483d1c9b313f21ae9e6
+ms.openlocfilehash: ee54d560ae1a294467e4520063153566d2c3b0a2
+ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70186417"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71265853"
 ---
 # <a name="troubleshooting-tips-for-cognitive-search"></a>對認知搜尋進行疑難排解的秘訣
 
@@ -83,7 +82,7 @@ https://docs.microsoft.com/azure/search/search-howto-indexing-azure-blob-storage
 
 內容遺失可能是由於文件在索引編製期間遭到捨棄所致。 免費和基本層的文件大小限制較低。 任何超過限制的檔案在索引編製期間都會被捨棄。 您可以在 Azure 入口網站中查看遭到捨棄的文件。 請在搜尋服務儀表板中按兩下索引子圖格。 檢閱成功編製索引的文件比率。 如果不是 100%，您可以按一下該比例以取得更多詳細資料。 
 
-如果問題與檔案大小有關，您可能會看到如下的錯誤：「Blob \<檔案名 >」的\<大小為檔案大小 > 個位元組, 超過您目前服務層級的檔解壓縮大小上限」。 如需關於索引子限制的詳細資訊，請參閱[服務限制](search-limits-quotas-capacity.md)。
+如果問題與檔案大小有關，您可能會看到如下的錯誤：「Blob \<檔案名 >」的\<大小為檔案大小 > 個位元組，超過您目前服務層級的檔解壓縮大小上限」。 如需關於索引子限制的詳細資訊，請參閱[服務限制](search-limits-quotas-capacity.md)。
 
 無法顯示內容的另一個原因，可能與輸入/輸出對應錯誤有關。 例如，輸出目標名稱為 "People"，但索引欄位名稱為小寫的 "people"。 系統可能會為整個管線傳回 201 成功訊息，因此您認為索引編製成功，而事實上欄位卻是空白的。 
 
@@ -96,7 +95,7 @@ https://docs.microsoft.com/azure/search/search-howto-indexing-azure-blob-storage
 對於排程的索引子，索引編製將會依排程從最後一份已知的正常文件繼續進行。 藉由使用週期性的排程，索引子將可持續處理影像待辦項目達數小時或數天，直到所有未處理的影像皆處理完成為止。 如需排程語法的詳細資訊，請參閱[步驟 3：建立-索引子](search-howto-indexing-azure-blob-storage.md#step-3-create-an-indexer)或查看[如何排程 Azure 搜尋服務的索引子](search-howto-schedule-indexers.md)。
 
 > [!NOTE]
-> 如果索引子設定為特定排程, 但每次執行時重複地在同一份檔上失敗, 則索引子將會以較不頻繁的間隔 (最多每24小時至少一次) 開始執行, 直到成功進行進度 aga在.  如果您相信您已修正導致索引子停滯在某個時間點的任何問題, 您可以依需求執行索引子, 如果該作業成功, 則索引子會再次回到其設定的排程間隔。
+> 如果索引子設定為特定排程，但每次執行時重複地在同一份檔上失敗，則索引子將會以較不頻繁的間隔（最多每24小時至少一次）開始執行，直到成功進行進度 aga在.  如果您相信您已修正導致索引子停滯在某個時間點的任何問題，您可以依需求執行索引子，如果該作業成功，則索引子會再次回到其設定的排程間隔。
 
 對於以入口網站為基礎的索引編製 (如快速入門所說明)，選擇 [執行一次] 索引子選項，會將處理時間限制為 1 小時 (`"maxRunTime": "PT1H"`)。 您可以延長處理時間範圍。
 

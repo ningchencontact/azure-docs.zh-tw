@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 07/22/2019
 ms.author: sngun
 ms.reviewer: sngun
-ms.openlocfilehash: ad690fa78f794b26b6cf496ea4485599486752b0
-ms.sourcegitcommit: b03516d245c90bca8ffac59eb1db522a098fb5e4
+ms.openlocfilehash: af99f369245d6006d0d4784e572020b820e406a3
+ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71146966"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71266048"
 ---
 # <a name="migrate-data-to-azure-cosmos-db-cassandra-api-account-using-striim"></a>使用 Striim 將資料移轉至 Azure Cosmos DB Cassandra API 帳戶
 
@@ -155,7 +155,7 @@ Azure marketplace 中的 Striim 映射提供從資料倉儲和資料庫到 Azure
 
    ![連線至目標](./media/cosmosdb-cassandra-api-migrate-data-striim/connect-to-target.png)
 
-1. 設定目標之前，請確定您已將[巴爾的摩根憑證新增至 Striim 的 JAVA 環境](/java/java-sdk-add-certificate-ca-store?view=azure-java-stable#to-add-a-root-certificate-to-the-cacerts-store)。
+1. 設定目標之前，請確定您已將[巴爾的摩根憑證新增至 Striim 的 JAVA 環境](/azure/java/java-sdk-add-certificate-ca-store#to-add-a-root-certificate-to-the-cacerts-store)。
 
 1. 輸入目標 Azure Cosmos DB 實例的設定屬性，然後選取 [**儲存**] 以繼續。 以下是要注意的主要參數：
 

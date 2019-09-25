@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/20/2019
 ms.author: sngun
-ms.openlocfilehash: 9a758ce56356da21fc94f426d575a55f7dc762a0
-ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
+ms.openlocfilehash: 27f39af480db8c0a044489a2efe6d2e4447b6db1
+ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71200330"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71261317"
 ---
 # <a name="performance-tips-for-azure-cosmos-db-and-net"></a>Azure Cosmos DB 和 .NET 的效能祕訣
 
@@ -47,7 +47,6 @@ Azure Cosmos DB 是一個既快速又彈性的分散式資料庫，可在獲得�
      |連線模式  |支援的通訊協定  |支援的 SDK  |API/服務連接埠  |
      |---------|---------|---------|---------|
      |閘道  |   HTTPS    |  所有 SDK    |   SQL (443)、Mongo (10250、10255、10256)、Table (443)、Cassandra (10350)、Graph (443)    |
-     |直接    |    HTTPS     |  .NET 和 JAVA SDK    |   10,000-20,000 範圍內的連接埠    |
      |直接    |     TCP    |  .NET SDK    | 10,000-20,000 範圍內的連接埠 |
 
      Azure Cosmos DB 提供透過 HTTPS 的簡單且開放 RESTful 程式設計模型。 此外，它可提供有效率的 TCP 通訊協定，此 TCP 通訊協定在通訊模型中也符合 REST 限制，並且可以透過 .NET 用戶端 SDK 取得。 直接 TCP 和 HTTPS 皆使用 SSL 來進行初始驗證和加密流量。 為了達到最佳效能，儘可能使用 TCP 通訊協定。
@@ -60,8 +59,7 @@ Azure Cosmos DB 是一個既快速又彈性的分散式資料庫，可在獲得�
      CosmosClient client = new CosmosClient(serviceEndpoint, authKey,
      new CosmosClientOptions
      {
-        ConnectionMode = ConnectionMode.Direct,
-        ConnectionProtocol = Protocol.Tcp
+        ConnectionMode = ConnectionMode.Direct
      });
      ```
 
@@ -130,13 +128,13 @@ Azure Cosmos DB 是一個既快速又彈性的分散式資料庫，可在獲得�
 
      SQL .NET SDK 1.9.0 版和更新版本支援平行查詢，可讓您平行查詢分割的集合。 如需詳細資訊，請參閱使用 SDK 的相關[程式碼範例](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/Queries/Program.cs)。 平行查詢的設計目的是要改善其連續對應項目的查詢延遲和輸送量。 平行查詢提供兩個可供使用者微調以符合其需求的參數：(a) MaxDegreeOfParallelism：用來控制可平行查詢的分割數目上限，以及 (b) MaxBufferedItemCount：用來控制預先擷取的結果數目。
 
-    (a) ***微調 MaxDegreeOfParallelism\:*** 平行查詢的運作方式是以平行方式查詢多個分割。 不過，對於查詢會以循序方式擷取來自個別分割集合的資料。 因此，將 MaxDegreeOfParallelism 設定為分割數目會最有機會達到最高效能的查詢，但前提是其他所有系統條件皆維持不變。 如果您不知道分割數目，您可以將 MaxDegreeOfParallelism 設定為較高的數字，然後系統會選擇最小值 (資料分割數目、使用者提供的輸入值) 做為 MaxDegreeOfParallelism。
+    （a）平行查詢的***微調\:程度***平行查詢的運作方式是以平行方式查詢多個分割區。 不過，個別分割區的資料會依查詢的順序提取。 在 sdk [V2](sql-api-sdk-dotnet.md) `MaxConcurrency`或[sdk V3](sql-api-sdk-dotnet-standard.md)中將設定為分割區數目，有可能達到最高效能的查詢，但前提是所有其他系統條件都維持不變。 `MaxDegreeOfParallelism` 如果您不知道分割數目，您可以將平行處理原則的程度設定為較高的數位，然後系統會選擇最小值（資料分割數目、使用者提供的輸入）做為平行處理原則的程度。
 
     請務必注意，若對於查詢是以平均方式將資料分佈於所有分割，平行查詢便會產生最佳效益。 如果分割之集合的分割方式是查詢所傳回的所有或大多數資料集中在少數幾個分割中 (最差的情況是集中在一個分割)，則這些分割會成為查詢效能的瓶頸。
 
     (b) ***微調 MaxBufferedItemCount\:*** 平行查詢是設計成可以在用戶端處理目前的結果批次時預先擷取結果。 預先擷取有助於改善查詢的整體延遲。 MaxBufferedItemCount 是用來限制預先擷取之結果數量的參數。 將 MaxBufferedItemCount 設定為預期傳回的結果數目 (或更高的數目)，可讓查詢透過預先擷取獲得最大效益。
 
-    預先擷取會以相同方式運作，不受 MaxDegreeOfParallelism 的影響，而且來自所有分割的資料會有單一緩衝區。  
+    不論平行處理原則的程度，預先提取的運作方式都相同，而且所有分割區的資料都有單一緩衝區。  
 6. **開啟伺服器端 GC**
 
     在某些情況下，降低廢棄項目收集頻率可能會有幫助。 在 .NET 中，請將 [gcServer](https://msdn.microsoft.com/library/ms229357.aspx) 設定為 true。

@@ -10,12 +10,12 @@ ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
 ms.assetid: 5c1b1e15-3b6c-49dc-98a6-bdbe7cb75339
 ms.date: 07/21/2017
-ms.openlocfilehash: 840124a35ed4389699757e011aaf5d05a9400836
-ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
+ms.openlocfilehash: f6ece10c43c2c4a6bea92d14a8bf6fbdb49fd318
+ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68385536"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71261359"
 ---
 # <a name="monitor-status-set-up-diagnostics-logging-and-turn-on-alerts-for-azure-logic-apps"></a>監視狀態、設定診斷記錄，以及開啟 Azure Logic Apps 的警示
 
@@ -158,7 +158,7 @@ ms.locfileid: "68385536"
 除了 Azure 監視器記錄之外, 您還可以擴充將邏輯應用程式的診斷資料與其他 Azure 服務搭配使用的方式, 例如: 
 
 * [在 Azure 儲存體中封存 Azure 診斷記錄](../azure-monitor/platform/archive-diagnostic-logs.md)
-* [將 Azure 診斷記錄串流至 Azure 事件中樞](../azure-monitor/platform/diagnostic-logs-stream-event-hubs.md) 
+* [將 Azure 診斷記錄串流至 Azure 事件中樞](../azure-monitor/platform/resource-logs-stream-event-hubs.md) 
 
 您可以接著使用其他服務的遙測和分析來取得即時監視，例如 [Azure Stream Analytics](../stream-analytics/stream-analytics-introduction.md) 和 [Power BI](../azure-monitor/platform/powerbi.md)。 例如:
 

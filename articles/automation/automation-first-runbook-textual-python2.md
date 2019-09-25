@@ -9,12 +9,12 @@ ms.author: robreed
 ms.date: 03/19/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 6808ad101a828708ff4fe77bb4b8a55cf8c5fec7
-ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.openlocfilehash: 65cd59933fa31d870a507cbe80b454934c9008d0
+ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70135437"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71265092"
 ---
 # <a name="my-first-python-runbook"></a>我的第一個 Python Runbook
 
@@ -81,7 +81,7 @@ print("Hello World!")
 1. 按一下 [發佈] 來發佈 Runbook，然後出現提示時按一下 [是]。
 1. 如果您現在向左捲動以檢視 [Runbook] 窗格中的 Runbook，則畫面會顯示 [已發佈] 的 [撰寫狀態]。
 1. 捲動回到右側，檢視 [MyFirstRunbook-Python] 的窗格。
-   頂端的選項可讓我們啟動 runbook、查看 runbook, 或排程在未來的某個時間啟動。
+   頂端的選項可讓我們啟動 runbook、查看 runbook，或排程在未來的某個時間啟動。
 2. 您想要啟動 Runbook，因此按一下 [啟動]，然後在 [啟動 Runbook] 刀鋒視窗開啟時按一下 [確定]。
 3. 作業窗格會針對您所建立的 Runbook 作業開啟。 您可以關閉此窗格，但在此情況下，您會讓它開啟，以便觀看作業的進度。
 1. [作業摘要] 中會顯示作業狀態，且符合當您測試 Runbook 時看到的狀態。
@@ -146,7 +146,7 @@ print("Hello World!")
 
 ## <a name="add-code-to-create-python-compute-client-and-start-the-vm"></a>加入程式碼以建立 Python 計算用戶端，並啟動虛擬機器
 
-若要使用 Azure 虛擬機器，請建立 [適用於 Python 的 Azure 計算用戶端](https://docs.microsoft.com/python/api/azure.mgmt.compute.computemanagementclient?view=azure-python)的執行個體。
+若要使用 Azure 虛擬機器，請建立 [適用於 Python 的 Azure 計算用戶端](https://docs.microsoft.com/python/api/azure-mgmt-compute/azure.mgmt.compute.computemanagementclient)的執行個體。
 
 您可以使用計算用戶端來啟動虛擬機器。 將下列程式碼加入 Runbook：
 

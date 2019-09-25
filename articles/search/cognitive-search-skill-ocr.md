@@ -9,20 +9,19 @@ ms.workload: search
 ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: luisca
-ms.subservice: cognitive-search
-ms.openlocfilehash: d2b3cdac72d47afb804763c521aae0b1d5936567
-ms.sourcegitcommit: 7a6d8e841a12052f1ddfe483d1c9b313f21ae9e6
+ms.openlocfilehash: da1ca218f7a3d33e6ceb08b3f8d0f632b8b752b7
+ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70186347"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71265333"
 ---
 # <a name="ocr-cognitive-skill"></a>OCR 認知技能
 
 光學字元辨識 (OCR) 技能可辨識影像檔案中的列印和手寫文字。 這項技能會使用認知服務中[電腦視覺](https://docs.microsoft.com/azure/cognitive-services/computer-vision/home)所提供的機器學習模型。 **OCR** 技能對應至下列功能：
 
 + 「 [OCR](../cognitive-services/computer-vision/concept-recognizing-text.md#ocr-optical-character-recognition-api) 」 API 用於英文以外的語言。 
-+ 若是英文, 則會使用新的「[讀取](../cognitive-services/computer-vision/concept-recognizing-text.md#read-api)」 API。
++ 若是英文，則會使用新的「[讀取](../cognitive-services/computer-vision/concept-recognizing-text.md#read-api)」 API。
 
 **OCR** 技能可從影像檔擷取文字。 支援的檔案格式包括：
 
@@ -49,7 +48,7 @@ ms.locfileid: "70186347"
 |defaultLanguageCode | <p>  輸入文字的語言代碼。 支援的語言包括： <br/> zh-Hans (簡體中文) <br/> zh-Hant (繁體中文) <br/>cs (捷克文) <br/>da (丹麥文) <br/>nl (荷蘭文) <br/>en (英文) <br/>fi (芬蘭文)  <br/>fr (法文) <br/>  de (德文) <br/>el (希臘文) <br/> hu (匈牙利文) <br/> it (義大利文) <br/>  ja (日文) <br/> ko (韓文) <br/> nb (挪威文) <br/>   pl (波蘭文) <br/> pt (葡萄牙文) <br/>  ru (俄文) <br/>  es (西班牙文) <br/>  sv (瑞典文) <br/>  tr (土耳其文) <br/> ar (阿拉伯文) <br/> ro (羅馬尼亞文) <br/> sr-Cyrl (塞爾維亞文 - 斯拉夫) <br/> sr-Latn (塞爾維亞文 - 拉丁) <br/>  sk (斯洛伐克文) <br/>  unk (未知) <br/><br/> 如果未指定語言代碼或為 Null，則語言會設為英文。 如果語言明確設為 "unk"，則會自動偵測語言。 </p> |
 |lineEnding | 要在每個偵測到的行之間使用的值。 可能的值：' Space '、' CarriageReturn '、' 換行 '。  預設值為「空間」 |
 
-先前有一個稱為 "textExtractionAlgorithm" 的參數, 用來指定技能是否應將「列印」或「手寫」文字解壓縮。  這個參數已被取代, 而且不再需要, 因為最新的讀取 API 演算法可以同時解壓縮兩種類型的文字。  如果您的技能定義已經包含這個參數, 您就不需要將它移除, 但它將不再使用, 而且這兩種類型的文字都將解壓縮, 而不論其設定為何。
+先前有一個稱為 "textExtractionAlgorithm" 的參數，用來指定技能是否應將「列印」或「手寫」文字解壓縮。  這個參數已被取代，而且不再需要，因為最新的讀取 API 演算法可以同時解壓縮兩種類型的文字。  如果您的技能定義已經包含這個參數，您就不需要將它移除，但它將不再使用，而且這兩種類型的文字都將解壓縮，而不論其設定為何。
 
 ## <a name="skill-inputs"></a>技能輸入
 

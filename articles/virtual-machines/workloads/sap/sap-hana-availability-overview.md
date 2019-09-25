@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 03/05/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: fe4a47161e86614807e69b613b49e8808a35e041
-ms.sourcegitcommit: 8ef0a2ddaece5e7b2ac678a73b605b2073b76e88
+ms.openlocfilehash: bccaf45cf617bd31a584b6c73f3dd08877bc8587
+ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71077238"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71266064"
 ---
 # <a name="sap-hana-high-availability-for-azure-virtual-machines"></a>Azure 虛擬機器的 SAP Hana 高可用性
 
@@ -60,7 +60,7 @@ Azure 對不同的元件 (例如網路、儲存體和虛擬機器) 有不同的�
 
 [虛擬機器的 sla](https://azure.microsoft.com/support/legal/sla/virtual-machines/v1_8/)描述三種不同的 sla，適用于三種不同的設定：
 
-- 針對 OS 磁碟和所有資料磁碟使用 [Azure 進階 SSD](../../wi https://azure.microsoft.com/en-us/support/legal/sla/virtual-machines/v1_8/ows/disks-types.md) 的單一 VM。 此選項提供每月 99.9% 的執行時間。
+- 針對 OS 磁碟和所有資料磁碟使用 [Azure 進階 SSD](https://docs.microsoft.com/azure/virtual-machines/windows/managed-disks-overview) 的單一 VM。 此選項提供每月 99.9% 的執行時間。
 - 在 [Azure 可用性設定組](https://docs.microsoft.com/azure/virtual-machines/windows/tutorial-availability-sets)中組織的多個 (至少兩個) 虛擬機器。 此選項提供每月 99.95% 的執行時間。
 - 在[可用性區域](https://docs.microsoft.com/azure/availability-zones/az-overview)中組織的多個（至少兩個） vm。 此選項提供 99.99% 的每月執行時間。
 

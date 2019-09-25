@@ -8,40 +8,40 @@ ms.topic: conceptual
 ms.date: 11/27/2017
 ms.author: johnkem
 ms.subservice: ''
-ms.openlocfilehash: 4949391aded58f27ba8acd5c9ec437e8933f9843
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c745375eb4f59208af79bbb03d45f8f0eea7f3ca
+ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66243429"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71260612"
 ---
 # <a name="get-started-with-roles-permissions-and-security-with-azure-monitor"></a>開始使用 Azure 監視器的角色、權限和安全性
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-許多團隊需要嚴格規範對監視資料及設定的存取。 例如，如果您的小組成員，專門從事監視 （技術支援工程師、 DevOps 工程師），或如果您使用受控的服務提供者，您可能想要授與他們存取只監視資料，同時限制他們能夠建立、 修改，或刪除資源。 本文說明如何在 Azure 中快速將內建的監視 RBAC 角色套用到使用者，或針對需要有限監視權限的使用者建置您自己的自訂角色。 接著會討論 Azure 監視器相關資源的安全性考量，以及如何限制對這些資源所包含的資料進行存取。
+許多團隊需要嚴格規範對監視資料及設定的存取。 例如，如果您的小組成員是專門處理監視（支援工程師、DevOps 工程師），或如果您使用受控服務提供者，您可能只想授與他們存取權來監視資料，同時限制他們建立、修改或刪除資源。 本文說明如何在 Azure 中快速將內建的監視 RBAC 角色套用到使用者，或針對需要有限監視權限的使用者建置您自己的自訂角色。 接著會討論 Azure 監視器相關資源的安全性考量，以及如何限制對這些資源所包含的資料進行存取。
 
 ## <a name="built-in-monitoring-roles"></a>內建的監視角色
 Azure 監視器的內建角色是專為協助限制存取訂用帳戶中的資源所設計，同時仍可讓負責監視基礎結構的人員取得及設定他們所需的資料。 Azure 監視器提供兩個的立即可用的角色：監視讀取器和監視參與者。
 
-### <a name="monitoring-reader"></a>監視讀取器
+### <a name="monitoring-reader"></a>監視讀者
 受指派監視讀取器角色的人員可以檢視訂用帳戶中所有的監視資料，但無法修改任何資源或編輯與監視資源相關的任何設定。 這個角色適用於組織中的使用者，例如支援或作業工程師，這些人員必須能夠︰
 
 * 在入口網站中檢視監視儀表板，並建立自己的私人監視儀表板。
 * 檢視 [Azure 警示](alerts-overview.md)中定義的警示規則
 * 使用 [Azure 監視器 REST API](https://msdn.microsoft.com/library/azure/dn931930.aspx)、[PowerShell cmdlets](powershell-quickstart-samples.md) 或[跨平台 CLI](cli-samples.md) 查詢度量。
 * 使用入口網站、Azure 監視器 REST API、PowerShell Cmdlets 或跨平台 CLI 查詢活動記錄檔。
-* 檢視用於資源的 [診斷設定](diagnostic-logs-overview.md#diagnostic-settings) 。
+* 檢視用於資源的 [診斷設定](diagnostic-settings.md) 。
 * 檢視用於訂用帳戶的 [記錄檔設定檔](activity-log-export.md) 。
 * 檢視自動調整設定。
 * 檢視警示活動和設定。
 * 存取 Application Insights 資料，並檢視 AI 分析中的資料。
 * 搜尋 Log Analytics 工作區資料，包括工作區的使用狀況資料。
 * 檢視 Log Analytics 管理群組。
-* 擷取 Log Analytics 工作區中的搜尋結構描述。
-* 列出 Log Analytics 工作區中的監視組件。
-* 擷取並執行已儲存的搜尋在 Log Analytics 工作區中。
-* 擷取 Log Analytics 工作區的儲存體組態。
+* 在 Log Analytics 工作區中取出搜尋架構。
+* 列出 Log Analytics 工作區中的監視套件。
+* 在 Log Analytics 工作區中取出並執行已儲存的搜尋。
+* 取出 Log Analytics 工作區存放裝置設定。
 
 > [!NOTE]
 > 此角色不會對已串流至事件中樞或儲存在儲存體帳戶中的記錄檔資料授予讀取權限。 [請參閱下方](#security-considerations-for-monitoring-data) 以取得設定存取這些資源的相關資訊。
@@ -52,16 +52,16 @@ Azure 監視器的內建角色是專為協助限制存取訂用帳戶中的資�
 受指派監視參與者角色的人員可以檢視訂用帳戶中所有的監視資料，並建立或修改監視設定，但無法修改任何其他資源。 此角色是監視讀取者角色的超集，且適用於組織的監視團隊成員或受控服務提供者，這些服務提供者除了上述的權限之外，也必須能夠︰
 
 * 將監視儀表板發佈為共用儀表板。
-* 設定[診斷設定](diagnostic-logs-overview.md#diagnostic-settings)資源。\*
-* 設定[記錄檔設定檔](activity-log-export.md)訂用帳戶。\*
+* 設定資源的[診斷設定](diagnostic-settings.md)。\*
+* 設定訂用帳戶的[記錄檔設定檔](activity-log-export.md)。\*
 * 透過 [Azure 警示](alerts-overview.md)設定警示規則活動和設定。
 * 建立 Application Insights web 測試和元件。
 * 列出 Log Analytics 工作區共用金鑰。
-* 啟用或停用 Log Analytics 工作區中的監視組件。
-* 建立和刪除，以及執行已儲存的搜尋在 Log Analytics 工作區中。
-* 建立和刪除 Log Analytics 工作區的儲存體設定。
+* 在 Log Analytics 工作區中啟用或停用監視套件。
+* 在 Log Analytics 工作區中建立及刪除並執行已儲存的搜尋。
+* 建立和刪除 Log Analytics 工作區存放裝置設定。
 
-\*使用者必須也分別授與 ListKeys 權限在目標資源 （儲存體帳戶或事件中樞命名空間） 上的設定記錄設定檔或診斷設定。
+\*使用者也必須個別授與目標資源（儲存體帳戶或事件中樞命名空間）的 ListKeys 許可權，以設定記錄檔設定檔或診斷設定。
 
 > [!NOTE]
 > 此角色不會對已串流至事件中樞或儲存在儲存體帳戶中的記錄檔資料授予讀取權限。 [請參閱下方](#security-considerations-for-monitoring-data) 以取得設定存取這些資源的相關資訊。
@@ -160,7 +160,7 @@ New-AzRoleDefinition -Role $role
 可以使用事件中樞採用類似的模式，但您必須先建立專用的接聽授權規則。 如果您要對僅需要接聽監視相關事件中樞的應用程式授與存取權，請執行下列作業︰
 
 1. 在針對只有接聽宣告的串流監視資料所建立的事件中樞上建立共用存取原則。 這可以在入口網站中完成。 例如，您可能會將它稱為 “monitoringReadOnly”。 可能的話，您會直接將該金鑰提供給取用者，並略過下一個步驟。
-2. 如果取用者需要能夠取得金鑰臨機操作，將使用者授與該事件中樞的 ListKeys 動作。 對於需要設定診斷設定或記錄檔設定檔以串流至事件中樞的使用者而言，這也是必要的。 例如，您可能會建立 RBAC 規則︰
+2. 如果取用者需要能夠取得金鑰臨機操作，請將該事件中樞的 ListKeys 動作授與使用者。 對於需要設定診斷設定或記錄檔設定檔以串流至事件中樞的使用者而言，這也是必要的。 例如，您可能會建立 RBAC 規則︰
    
    ```powershell
    $role = Get-AzRoleDefinition "Reader"

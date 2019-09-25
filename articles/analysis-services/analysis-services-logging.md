@@ -8,16 +8,16 @@ ms.topic: conceptual
 ms.date: 09/12/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 6b311135832e1ec861cf6e14e5ad7e82574294bf
-ms.sourcegitcommit: dd69b3cda2d722b7aecce5b9bd3eb9b7fbf9dc0a
+ms.openlocfilehash: b158545390dafa36e7dad285953c78243f891f28
+ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70959058"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71259420"
 ---
 # <a name="setup-diagnostic-logging"></a>設定診斷記錄
 
-在任何 Analysis Services 解決方案中，監視您伺服器的執行方式皆是一大重點功能。 透過 [Azure 資源診斷記錄](../azure-monitor/platform/diagnostic-logs-overview.md)，您可以監視並傳送記錄至 [Azure 儲存體](https://azure.microsoft.com/services/storage/)，將記錄串流至 [Azure 事件中樞](https://azure.microsoft.com/services/event-hubs/)，並將記錄匯出至 [Azure 監視器記錄](../azure-monitor/azure-monitor-log-hub.md)。
+在任何 Analysis Services 解決方案中，監視您伺服器的執行方式皆是一大重點功能。 透過 [Azure 資源診斷記錄](../azure-monitor/platform/resource-logs-overview.md)，您可以監視並傳送記錄至 [Azure 儲存體](https://azure.microsoft.com/services/storage/)，將記錄串流至 [Azure 事件中樞](https://azure.microsoft.com/services/event-hubs/)，並將記錄匯出至 [Azure 監視器記錄](../azure-monitor/azure-monitor-log-hub.md)。
 
 ![針對儲存體、事件中樞或 Azure 監視器記錄的診斷記錄](./media/analysis-services-logging/aas-logging-overview.png)
 
@@ -141,7 +141,7 @@ ms.locfileid: "70959058"
 
 ### <a name="resource-manager-template"></a>Resource Manager 範本
 
-了解如何[使用 Resource Manager 範本在建立資源時啟用診斷設定](../azure-monitor/platform/diagnostic-logs-stream-template.md)。 
+了解如何[使用 Resource Manager 範本在建立資源時啟用診斷設定](../azure-monitor/platform/diagnostic-settings-template.md)。 
 
 ## <a name="manage-your-logs"></a>管理您的記錄
 
@@ -327,6 +327,6 @@ Set-AzDiagnosticSetting -ResourceId $account.ResourceId`
 
 ## <a name="next-steps"></a>後續步驟
 
-深入了解 [Azure 資源診斷記錄](../azure-monitor/platform/diagnostic-logs-overview.md)。
+深入了解 [Azure 資源診斷記錄](../azure-monitor/platform/resource-logs-overview.md)。
 
 請參閱 PowerShell 說明中[的 set-azdiagnosticsetting](https://docs.microsoft.com/powershell/module/az.monitor/set-azdiagnosticsetting) 。

@@ -7,15 +7,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 09/10/2018
+ms.date: 09/24/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: b1262d34f93ecbcdb71586fd551d28fde477f92a
-ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
+ms.openlocfilehash: 0a776c793bab9aee76cf338bc19c560ab700e787
+ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71063950"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71258204"
 ---
 # <a name="define-an-openid-connect-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>在 Azure Active Directory B2C 自訂原則中定義 OpenID Connect 技術設定檔
 
@@ -84,7 +84,7 @@ Azure Active Directory B2C （Azure AD B2C）提供[OpenID connect](https://open
 | scope | 否 | 根據 OpenID Connect Core 1.0 規格定義的要求範圍。 例如，`openid`、`profile` 和 `email`。 |
 | HttpBinding | 否 | 繫結至存取權杖和宣告權杖端點的預期 HTTP。 可能的值：`GET` 或 `POST`。  |
 | ValidTokenIssuerPrefixes | 否 | 此金鑰可在使用多租戶識別提供者 (例如 Azure Active Directory) 時，用於登入每個租用戶。 |
-| UsePolicyInRedirectUri | 否 | 表明在建構重新導向 URI 時，是否使用原則。 在設定識別提供者中的應用程式時，需要指定重新導向 URI。 重新導向 URI 會指向 Azure AD B2C，`https://login.microsoftonline.com/te/{tenant}/oauth2/authresp` (login.microsoftonline.com 可能會隨著 your-tenant-name.b2clogin.com 而變更)。  如果指定 `false`，則需要為每個使用的原則新增重新導向 URI。 例如： `https://login.microsoftonline.com/te/{tenant}/{policy}/oauth2/authresp` 。 |
+| UsePolicyInRedirectUri | 否 | 表明在建構重新導向 URI 時，是否使用原則。 在設定識別提供者中的應用程式時，需要指定重新導向 URI。 重新導向 URI 會指向 Azure AD B2C， `https://{your-tenant-name}.b2clogin.com/{your-tenant-name}.onmicrosoft.com/oauth2/authresp`。  如果指定 `false`，則需要為每個使用的原則新增重新導向 URI。 例如： `https://{your-tenant-name}.b2clogin.com/{your-tenant-name}.onmicrosoft.com/{policy-name}/oauth2/authresp` 。 |
 | MarkAsFailureOnStatusCode5xx | 否 | 表明如果 Http 狀態碼在 5xx 範圍內，是否應該將外部服務的要求標記為失敗。 預設為 `false`。 |
 | DiscoverMetadataByTokenIssuer | 否 | 表明是否應該使用 JWT 權杖中的簽發者探索 OIDC 中繼資料。 |
 
@@ -98,28 +98,10 @@ Azure Active Directory B2C （Azure AD B2C）提供[OpenID connect](https://open
 
 ## <a name="redirect-uri"></a>重新導向 Uri
 
-在設定識別提供者的重新導向 URI 時，請輸入 `https://login.microsoftonline.com/te/tenant/oauth2/authresp`。 請務必將**tenant**取代為您的租使用者名稱（例如，contosob2c.onmicrosoft.com）或租使用者的識別碼。 重新導向 URI 必須全部小寫。
-
-如果使用的是 **b2clogin.com** 網域，而非使用 **login.microsoftonline.com**，請務必使用 b2clogin.com，而非使用 login.microsoftonline.com。
+在設定識別提供者的重新導向 URI 時，請輸入 `https://{your-tenant-name}.b2clogin.com/{your-tenant-name}.onmicrosoft.com/oauth2/authresp`。 請務必將取代`{your-tenant-name}`為您的租使用者名稱。 重新導向 URI 必須全部小寫。
 
 例如：
 
 - [使用自訂原則新增 Microsoft 帳戶 (MSA) 作為識別提供者](active-directory-b2c-custom-setup-msa-idp.md)
 - [使用 Azure AD 帳戶來登入](active-directory-b2c-setup-aad-custom.md)
 - [使用自訂原則允許使用者登入多租用戶 Azure AD 識別提供者](active-directory-b2c-setup-commonaad-custom.md)
-
- 
-
-
-
-
-
-
-
-
-
-
-
-
-
-

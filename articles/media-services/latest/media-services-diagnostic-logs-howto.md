@@ -1,6 +1,6 @@
 ---
-title: 監視媒體服務透過 Azure 監視器的診斷記錄 |Microsoft Docs
-description: 本文說明如何將路由和檢視診斷記錄檔，透過 Azure 監視器。
+title: 透過 Azure 監視器監視媒體服務診斷記錄 |Microsoft Docs
+description: 本文說明如何透過 Azure 監視器來路由和查看診斷記錄。
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -13,49 +13,49 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/08/2019
 ms.author: juliako
-ms.openlocfilehash: 233b043ffdc295fe94ed2e3ba837d4229848df22
-ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
+ms.openlocfilehash: 42724ae3619312c2cc172be0e143291cd7fa2a70
+ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67795845"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71261113"
 ---
-# <a name="monitor-media-services-diagnostic-logs"></a>監視媒體服務的診斷記錄檔
+# <a name="monitor-media-services-diagnostic-logs"></a>監視媒體服務診斷記錄
 
-[Azure 監視器](../../azure-monitor/overview.md)可讓您監視計量和診斷的記錄檔，可協助您了解如何執行您的應用程式。 詳細的說明，這個功能以及您要使用 Azure 媒體服務的計量和診斷記錄的原因，請參閱[監視媒體服務的計量和診斷記錄](media-services-metrics-diagnostic-logs.md)。
+[Azure 監視器](../../azure-monitor/overview.md)可讓您監視計量和診斷記錄，以協助您瞭解應用程式的執行狀況。 如需這項功能的詳細描述，以及查看為何要使用 Azure 媒體服務計量和診斷記錄，請參閱[監視媒體服務計量和診斷記錄](media-services-metrics-diagnostic-logs.md)。
 
-這篇文章會示範如何將資料路由傳送至儲存體帳戶，然後再檢視資料。 
+本文說明如何將資料路由至儲存體帳戶，然後再查看資料。 
 
 ## <a name="prerequisites"></a>必要條件
 
 - [建立媒體服務帳戶](create-account-cli-how-to.md)。
-- 檢閱[監視媒體服務的計量和診斷記錄](media-services-metrics-diagnostic-logs.md)。
+- 審查[監視器媒體服務計量和診斷記錄](media-services-metrics-diagnostic-logs.md)。
 
-## <a name="route-data-to-the-storage-account-using-the-portal"></a>將資料路由至使用入口網站的儲存體帳戶
+## <a name="route-data-to-the-storage-account-using-the-portal"></a>使用入口網站將資料路由至儲存體帳戶
 
 1. 在 https://portal.azure.com 上登入 Azure 入口網站。
-1. 瀏覽至您的媒體服務帳戶中，按一下**Diagnostic-settings**下方**監視器**。 在這裡，您會看到訂用帳戶中所有透過 Azure 監視器而產生監視資料的資源清單。 
+1. 在中流覽至您的媒體服務帳戶，然後按一下 [**監視**] 下的 [**診斷設定**]。 在這裡，您會看到訂用帳戶中所有透過 Azure 監視器而產生監視資料的資源清單。 
 
     ![診斷設定區段](media/media-services-diagnostic-logs/logs01.png)
 
-1. 按一下 **新增診斷設定**。
+1. 按一下 [**新增診斷設定**]。
 
-   資源診斷設定可定義應該從特定資源路由傳送「什麼」  監視資料，以及監視資料應該傳送至「何處」  。
+   資源診斷設定可定義應該從特定資源路由傳送「什麼」監視資料，以及監視資料應該傳送至「何處」。
 
-1. 在出現的區段中，為您的設定指定**名稱**，並勾選 [封存至儲存體帳戶]  方塊。
+1. 在出現的區段中，為您的設定指定**名稱**，並勾選 [封存至儲存體帳戶] 方塊。
 
-    選取您要傳送記錄檔和按下的儲存體帳戶**確定**。
-1. 勾選 [記錄]  和 [計量]  下的所有方塊。 根據資源類型而定，您可能只有其中一個選項可用。 這些核取方塊可控制要將該資源類型的哪幾種記錄和計量資料傳送至您選取的目的地，在此案例中是儲存體帳戶。
+    選取您要將記錄檔傳送至其中的儲存體帳戶，然後按 **[確定]** 。
+1. 勾選 [記錄] 和 [計量] 下的所有方塊。 根據資源類型而定，您可能只有其中一個選項可用。 這些核取方塊可控制要將該資源類型的哪幾種記錄和計量資料傳送至您選取的目的地，在此案例中是儲存體帳戶。
 
    ![診斷設定區段](media/media-services-diagnostic-logs/logs02.png)
-1. 將 [保留期 (天數)]  滑桿設為 30。 此滑桿可設定監視資料在儲存體帳戶中的保留天數。 Azure 監視器會自動刪除比指定天數更舊的資料。 保留天數為 0 會無限期地儲存資料。
-1. 按一下 [儲存]  。
+1. 將 [保留期 (天數)] 滑桿設為 30。 此滑桿可設定監視資料在儲存體帳戶中的保留天數。 Azure 監視器會自動刪除比指定天數更舊的資料。 保留天數為 0 會無限期地儲存資料。
+1. 按一下 [儲存]。
 
 來自資源的監視資料現在開始流入儲存體帳戶。
 
-## <a name="route-data-to-the-storage-account-using-the-cli"></a>將資料路由至使用 CLI 的儲存體帳戶
+## <a name="route-data-to-the-storage-account-using-the-cli"></a>使用 CLI 將資料路由至儲存體帳戶
 
-若要啟用儲存體帳戶中診斷記錄的儲存體，您可以執行下列`az monitor diagnostic-settings`CLI 命令： 
+若要在儲存體帳戶中啟用診斷記錄的儲存體，您可以執行下列`az monitor diagnostic-settings` CLI 命令： 
 
 ```cli
 az monitor diagnostic-settings create --name <diagnostic name> \
@@ -83,20 +83,20 @@ az monitor diagnostic-settings create --name amsv3diagnostic \
     --logs '[{"category": "KeyDeliveryRequests",  "enabled": true, "retentionPolicy": {"days": 3, "enabled": true }}]'
 ```
 
-## <a name="view-data-in-the-storage-account-using-the-portal"></a>使用入口網站的儲存體帳戶中的檢視資料
+## <a name="view-data-in-the-storage-account-using-the-portal"></a>使用入口網站來查看儲存體帳戶中的資料
 
 如果您遵循上述步驟操作，資料已經開始流向儲存體帳戶。
 
 您可能需要等候長達五分鐘，事件才會出現在儲存體帳戶中。
 
-1. 在入口網站中，在左側導覽列尋找並瀏覽至 [儲存體帳戶]  區段。
+1. 在入口網站中，在左側導覽列尋找並瀏覽至 [儲存體帳戶] 區段。
 1. 識別您在上一節所建立的儲存體帳戶並按一下。
-1. 按一下  **Blob**，然後在標示為容器**insights-記錄-keydeliveryrequests**。 這是具有您的記錄檔中的容器。 監視資料是屬於容器的資源識別碼，然後依日期和時間。
-1. 依資源識別碼、日期和時間按一下容器，以瀏覽至 PT1H.json 檔案。 按一下 PT1H.json 檔案，然後按一下 [下載]  。
+1. 按一下 [ **blob**]，然後在標示為 [ **insights-記錄-keydeliveryrequests**] 的容器上。 這是包含您的記錄的容器。 監視資料會依資源識別碼，然後依日期和時間細分成容器。
+1. 依資源識別碼、日期和時間按一下容器，以瀏覽至 PT1H.json 檔案。 按一下 PT1H.json 檔案，然後按一下 [下載]。
 
  您現在可以檢視已儲存在儲存體帳戶中的 JSON 事件。
 
-### <a name="examples-of-pt1hjson"></a>PT1H.json 的範例
+### <a name="examples-of-pt1hjson"></a>PT1H 的範例
 
 #### <a name="clear-key-delivery-log"></a>清除金鑰傳遞記錄
 
@@ -177,8 +177,8 @@ az monitor diagnostic-settings create --name amsv3diagnostic \
 ## <a name="see-also"></a>另請參閱
 
 * [Azure 監視器計量](../../azure-monitor/platform/data-platform.md)
-* [Azure 監視器診斷記錄](../../azure-monitor/platform/diagnostic-logs-overview.md)
-* [如何收集並取用來自 Azure 資源的記錄資料](../../azure-monitor/platform/diagnostic-logs-overview.md)
+* [Azure 監視器診斷記錄](../../azure-monitor/platform/resource-logs-overview.md)
+* [如何收集並取用來自 Azure 資源的記錄資料](../../azure-monitor/platform/resource-logs-overview.md)
 
 ## <a name="next-steps"></a>後續步驟
 

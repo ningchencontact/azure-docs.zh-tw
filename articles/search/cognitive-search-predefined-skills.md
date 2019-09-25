@@ -8,13 +8,12 @@ ms.service: search
 ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: luisca
-ms.subservice: cognitive-search
-ms.openlocfilehash: 8d367f7588feb892f667522a515ad4411bf96624
-ms.sourcegitcommit: 7a6d8e841a12052f1ddfe483d1c9b313f21ae9e6
+ms.openlocfilehash: 061d969269eb526b8f02f14de58e2da20c459a38
+ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70183449"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71265480"
 ---
 # <a name="predefined-skills-for-content-enrichment-azure-search"></a>內容擴充的預先定義技能 (Azure 搜尋服務)
 
@@ -38,15 +37,15 @@ ms.locfileid: "70183449"
 | [Microsoft.Skills.Text.EntityRecognitionSkill](cognitive-search-skill-entity-recognition.md) | 這項技能會使用預先定型的模型，為一組固定的類別 (人員、位置、組織、電子郵件、URL、日期時間欄位) 建立實體。 |
 | [Microsoft.Skills.Text.SentimentSkill](cognitive-search-skill-sentiment.md)  | 這項技能使用預先定型的模型，為每一筆記錄評定正分或負分的人氣。 分數介於 0 到 1 之間。 當無法偵測到人氣時的 Null 案例，以及對於視為中性的文字，兩者都會發生中性的分數。  |
 | [Microsoft.Skills.Text.SplitSkill](cognitive-search-skill-textsplit.md) | 將文字分成多個頁面，讓您能夠以遞增方式來擴充或增加內容。 |
-| [TranslationSkill。](cognitive-search-skill-text-translation.md) | 這項技能會使用預先定型模型, 將輸入文字轉譯成各種不同的語言, 以用於正規化或當地語系化使用案例。 |
+| [TranslationSkill。](cognitive-search-skill-text-translation.md) | 這項技能會使用預先定型模型，將輸入文字轉譯成各種不同的語言，以用於正規化或當地語系化使用案例。 |
 | [Microsoft.Skills.Vision.ImageAnalysisSkill](cognitive-search-skill-image-analysis.md) | 這項技能使用影像偵測演算法，以識別影像的內容並產生文字描述。 |
 | [Microsoft.Skills.Vision.OcrSkill](cognitive-search-skill-ocr.md) | 光學字元辨識。 |
-| [Util. ConditionalSkill](cognitive-search-skill-conditional.md) | 允許篩選、指派預設值, 以及根據條件來合併資料。|
+| [Util. ConditionalSkill](cognitive-search-skill-conditional.md) | 允許篩選、指派預設值，以及根據條件來合併資料。|
 | [Microsoft.Skills.Util.ShaperSkill](cognitive-search-skill-shaper.md) | 將輸出對應到複雜類型 (多部分的資料類型，可用於全名、多行地址，或姓氏與個人識別碼的組合)。 |
 | [Microsoft.Skills.Custom.WebApiSkill](cognitive-search-custom-skill-web-api.md) | 可藉由將 HTTP 呼叫發到自訂 Web API 來擴充認知搜尋管線 |
 
 
-如需建立[自訂技能](cognitive-search-custom-skill-web-api.md)的指引, 請參閱[如何定義自訂介面](cognitive-search-custom-skill-interface.md)和[範例:建立認知搜尋](cognitive-search-create-custom-skill-example.md)的自訂技能。
+如需建立[自訂技能](cognitive-search-custom-skill-web-api.md)的指引，請參閱[如何定義自訂介面](cognitive-search-custom-skill-interface.md)和[範例：建立認知搜尋](cognitive-search-create-custom-skill-example.md)的自訂技能。
 
 ## <a name="see-also"></a>另請參閱
 

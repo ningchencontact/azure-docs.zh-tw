@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/26/2019
 ms.author: bwren
-ms.openlocfilehash: a80f99bc37d3a92a794a78f1f47ce32fbaae75a3
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
+ms.openlocfilehash: 1bc4a7634e864f0e3feb0d33cef3b967e5b6741f
+ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68989177"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71262217"
 ---
 # <a name="azure-monitor-overview"></a>Azure 監視器概觀
 
@@ -57,7 +57,7 @@ Azure 監視器可以從各種來源收集資料。 您可以考慮為各層中�
 
 當您建立 Azure 訂用帳戶並開始新增資源 (例如虛擬機器和 Web 應用程式) 時，Azure 監視器就會開始收集資料。  建立或修改資源時的[活動](platform/activity-logs-overview.md)記錄檔。 [計量](platform/data-platform.md)會告訴您如何執行資源以及它所取用的資源。 
 
-[啟用診斷](platform/diagnostic-logs-overview.md)並[新增代理程式](platform/agent-windows.md)來計算資源，以將您所收集的資料擴展至實際資源運作。 這會收集資源內部作業的遙測資料，並可讓您設定不同的[資料來源](platform/agent-data-sources.md)，以從 Windows 和 Linux 客體作業系統收集記錄和計量。 
+[啟用診斷](platform/resource-logs-overview.md)並[新增代理程式](platform/agent-windows.md)來計算資源，以將您所收集的資料擴展至實際資源運作。 這會收集資源內部作業的遙測資料，並可讓您設定不同的[資料來源](platform/agent-data-sources.md)，以從 Windows 和 Linux 客體作業系統收集記錄和計量。 
 
 啟用[應用程式服務應用程式](app/azure-web-apps.md)或[VM 和虛擬機器擴展集應用程式](app/azure-vm-vmss-apps.md)的監視, 以讓 Application Insights 收集有關應用程式的詳細資訊, 包括頁面流覽、應用程式要求, 以及例外. 設定[可用性測試](app/monitor-web-app-availability.md)來模擬使用者流量，進一步確認您應用程式的可用性。
 

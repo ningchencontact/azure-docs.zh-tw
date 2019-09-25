@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: 4cabf2e7a1f0f1ff058f900ed823cc4df0ce80a6
-ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
+ms.openlocfilehash: c01931268642aebbf87c54080c292b105af15665
+ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/15/2019
-ms.locfileid: "70999196"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71262767"
 ---
 # <a name="introduction-to-azure-security"></a>Azure 安全性簡介
 ## <a name="overview"></a>總覽
@@ -93,7 +93,7 @@ Application Insights 會建立圖表和資料表為您顯示多種資訊，例�
 如果有當機、失敗或效能問題，您可以搜尋詳細的遙測資料，以診斷原因。 此外，如果應用程式的可用性和效能有任何變更，服務會傳送電子郵件給您。 Application Insight 因而成為一個非常實用的安全性工具，因為它有助於提供機密性、完整性和可用性安全性三部曲中的「可用性」。
 
 ### <a name="azure-monitor"></a>Azure 監視器
-[Azure 監視器](https://docs.microsoft.com/azure/monitoring-and-diagnostics/)針對來自 Azure 基礎結構 ([活動記錄](../../azure-monitor/platform/activity-logs-overview.md)) 及每個個別的 Azure 資源 ([診斷記錄](../../azure-monitor/platform/diagnostic-logs-overview.md)) 的資料，提供視覺效果、查詢、路由、警示、自動調整及自動化功能。 您可以使用 Azure 監視器，在 Azure 記錄中產生安全性相關事件時接收警示通知。
+[Azure 監視器](https://docs.microsoft.com/azure/monitoring-and-diagnostics/)針對來自 Azure 基礎結構 ([活動記錄](../../azure-monitor/platform/activity-logs-overview.md)) 及每個個別的 Azure 資源 ([診斷記錄](../../azure-monitor/platform/resource-logs-overview.md)) 的資料，提供視覺效果、查詢、路由、警示、自動調整及自動化功能。 您可以使用 Azure 監視器，在 Azure 記錄中產生安全性相關事件時接收警示通知。
 
 ### <a name="azure-monitor-logs"></a>Azure 監視器記錄
 [Azure 監視器記錄](https://azure.microsoft.com/documentation/services/log-analytics/)–除了 Azure 資源之外，還會為內部部署和協力廠商雲端式基礎結構（例如 AWS）提供 IT 管理解決方案。 來自 Azure 監視器的資料可以直接路由至 Azure 監視器記錄，讓您可以在一處查看整個環境的計量和記錄。

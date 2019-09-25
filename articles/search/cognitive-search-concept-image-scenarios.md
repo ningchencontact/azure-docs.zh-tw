@@ -5,17 +5,16 @@ services: search
 manager: nitinme
 author: luiscabrer
 ms.service: search
-ms.subservice: cognitive-search
 ms.workload: search
 ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: luisca
-ms.openlocfilehash: 84109cf04588a5de6fb3fd946a89b5dfee4baa1b
-ms.sourcegitcommit: 267a9f62af9795698e1958a038feb7ff79e77909
+ms.openlocfilehash: c1fd5c4e5a3ac054a85bdcc11d95bc3c338ee3c2
+ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70259159"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71265858"
 ---
 #  <a name="how-to-process-and-extract-information-from-images-in-cognitive-search-scenarios"></a>如何在認知搜尋案例中處理影像並從影像擷取資訊
 
@@ -29,11 +28,11 @@ ms.locfileid: "70259159"
 
 在文件破解的過程中，會有一組新的索引子設定參數，用於處理影像檔或內嵌在檔案中的影像。 這些參數會用來標準化影像，以進行更進一步的下游處理。 標準化後的影像會更為一致。 大型影像的大小會調整成最大高度和寬度，使其便於使用。 若影像有提供方向的中繼資料，則會旋轉影像以便垂直載入。 系統會以針對每個影像建立的複雜類型，來擷取中繼資料調整項目。 
 
-影像標準化無法關閉。 反覆執行影像的技術會產生標準化影像。 在索引子上啟用映射正規化時, 需要將技能集附加至該索引子。
+影像標準化無法關閉。 反覆執行影像的技術會產生標準化影像。 在索引子上啟用映射正規化時，需要將技能集附加至該索引子。
 
 | 設定參數 | 描述 |
 |--------------------|-------------|
-| imageAction   | 如果無需對內嵌影像或影像檔案採取任何動作，則設為「none」。 <br/>若設為「generateNormalizedImages」，則會在文件破解期間產生一系列的標準化影像。<br/>設為 "generateNormalizedImagePerPage" 以產生標準化映像的陣列，其中針對您資料來源中的 PDF，每個頁面都會轉譯成單一輸出映像。  其功能與適用於非 PDF 檔案類型的 "generateNormalizedImages" 相同。<br/>針對不是 "none" 的所有選項，這些影像將會公開在 *normalized_images* 欄位中。 <br/>預設值為「none」。 當「dataToExtract」設為「contentAndMetadata」時，此設定僅與 blob 資料來源有直接相關。 <br/>最多可從指定的檔解壓縮1000個影像。 如果檔中有超過1000的影像, 將會解壓縮第一個 1000, 並產生警告。 |
+| imageAction   | 如果無需對內嵌影像或影像檔案採取任何動作，則設為「none」。 <br/>若設為「generateNormalizedImages」，則會在文件破解期間產生一系列的標準化影像。<br/>設為 "generateNormalizedImagePerPage" 以產生標準化映像的陣列，其中針對您資料來源中的 PDF，每個頁面都會轉譯成單一輸出映像。  其功能與適用於非 PDF 檔案類型的 "generateNormalizedImages" 相同。<br/>針對不是 "none" 的所有選項，這些影像將會公開在 *normalized_images* 欄位中。 <br/>預設值為「none」。 當「dataToExtract」設為「contentAndMetadata」時，此設定僅與 blob 資料來源有直接相關。 <br/>最多可從指定的檔解壓縮1000個影像。 如果檔中有超過1000的影像，將會解壓縮第一個1000，並產生警告。 |
 |  normalizedImageMaxWidth | 所產生的標準化影像的最大寬度 (以像素為單位)。 預設值為 2000。 允許的最大值為10000。 | 
 |  normalizedImageMaxHeight | 所產生標準化影像的最大高度 (以像素為單位)。 預設值為 2000。 允許的最大值為10000。|
 
@@ -42,7 +41,7 @@ ms.locfileid: "70259159"
 
 將 **parsingMode** 參數設為 `json` (將每個 blob 當作單一文件加以索引) ，或設為 `jsonArray` (如果您的 blob 包含 JSON 陣列，且您需要將陣列的每個元素視為個別文件)。
 
-標準化影像的最大寬度與最大高度的預設值為 2000 像素，這是根據 [OCR 技術](cognitive-search-skill-ocr.md)和[影像分析技術](cognitive-search-skill-image-analysis.md)所支援的大小上限。 [OCR 技能](cognitive-search-skill-ocr.md)支援非英文語言的最大寬度和高度 4200, 以及適用于英文的10000。  如果您增加上限, 視您的技能集定義和檔的語言而定, 較大的影像處理可能會失敗。 
+標準化影像的最大寬度與最大高度的預設值為 2000 像素，這是根據 [OCR 技術](cognitive-search-skill-ocr.md)和[影像分析技術](cognitive-search-skill-image-analysis.md)所支援的大小上限。 [OCR 技能](cognitive-search-skill-ocr.md)支援非英文語言的最大寬度和高度4200，以及適用于英文的10000。  如果您增加上限，視您的技能集定義和檔的語言而定，較大的影像處理可能會失敗。 
 
 在[索引子定義](https://docs.microsoft.com/rest/api/searchservice/create-indexer)中指定 imageAction，如下所示：
 
@@ -71,7 +70,7 @@ ms.locfileid: "70259159"
 | originalHeight      | 影像標準化之前的原始高度。 |
 | rotationFromOriginal |  逆時針旋轉為了建立標準化影像而發生的度數。 0 度到 360 度之間的值。 此步驟會從相機或掃描器產生的影像中讀取中繼資料。 通常為 90 度的倍數。 |
 | contentOffset | 影像擷取來源的內容欄位中的字元位移。 此欄位僅適用於含內嵌影像的檔案。 |
-| pageNumber | 如果從 PDF 解壓縮或轉譯影像, 此欄位會包含從1開始解壓縮或轉譯之 PDF 中的頁碼。  如果影像不是來自 PDF, 此欄位將會是0。  |
+| pageNumber | 如果從 PDF 解壓縮或轉譯影像，此欄位會包含從1開始解壓縮或轉譯之 PDF 中的頁碼。  如果影像不是來自 PDF，此欄位將會是0。  |
 
  *normalized_images* 的範例值：
 ```json

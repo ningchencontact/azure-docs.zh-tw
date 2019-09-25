@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 08/15/2019
 ms.author: mahender
 ms.reviewer: yevbronsh
-ms.openlocfilehash: 16c65a98ca420a4b15281ee033ea7773197b5b2a
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 1774fcf0af287bba03c2c5c79e14883e3594ef0c
+ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70098480"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71260150"
 ---
 # <a name="how-to-use-managed-identities-for-app-service-and-azure-functions"></a>如何使用 App Service 和 Azure Functions 的受控身分識別
 
@@ -170,7 +170,7 @@ ms.locfileid: "70098480"
 
 4. 選取 [受控身分識別]。
 
-5. 在 [**使用者指派**] 索引標籤中, 按一下 [**新增**]。
+5. 在 [**使用者指派**] 索引標籤中，按一下 [**新增**]。
 
 6. 搜尋您之前建立的身分識別，並加以選取。 按一下 [新增]。
 
@@ -304,12 +304,15 @@ Vault myKeyVault = azure.vaults().getByResourceGroup(resourceGroup, keyvaultName
 
 **MSI_ENDPOINT** 是應用程式要求權杖的來源本機 URL。 若要取得資源的權杖，請向該端點提出包含以下參數的 HTTP GET 要求：
 
-> |參數名稱|入|描述|
+> |參數名稱|在|描述|
 > |-----|-----|-----|
 > |resource|查詢|資源的 AAD 資源 URI，也就是要取得權杖的目標資源。 這可能是其中一個[支援 Azure AD 驗證的 Azure 服務](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication)，或任何其他資源 URI。|
 > |api-version|查詢|要使用的權杖 API 版本。 目前唯一支援的版本為 "2017-09-01"。|
 > |secret|標頭|MSI_SECRET 環境變數的值。 此標頭用來協助減輕伺服器端要求偽造 (SSRF) 攻擊。|
-> |clientid|查詢|(選擇性) 要使用之使用者指派的身分識別的識別碼。 如果省略，則使用系統指派的身分識別。|
+> |clientid|查詢|（除非為使用者指派，否則為選擇性）要使用之使用者指派身分識別的識別碼。 如果省略，則使用系統指派的身分識別。|
+
+> [!IMPORTANT]
+> 如果您嘗試取得使用者指派身分識別的權杖，您必須包含`clientid`屬性。 否則，權杖服務會嘗試取得系統指派之身分識別的權杖，而這不一定會存在。
 
 成功的 200 OK 回應包括含以下屬性的 JSON 本文：
 
@@ -380,7 +383,7 @@ const getToken = function(resource, apiver, cb) {
 }
 ```
 
-<a name="token-python"></a>在 Python 中:
+<a name="token-python"></a>在 Python 中：
 
 ```python
 import os

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 03/20/2018
 ms.author: magoedte
-ms.openlocfilehash: 9fac349657340486674e4a899b21821b45cc0703
-ms.sourcegitcommit: 6d2a147a7e729f05d65ea4735b880c005f62530f
+ms.openlocfilehash: 46045664e9ddeebc45c2dae7c1f0a9f6a0d6b004
+ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69982594"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71265157"
 ---
 # <a name="gather-insights-about-your-dns-infrastructure-with-the-dns-analytics-preview-solution"></a>收集搭配 DNS 分析預覽版解決方案使用 DNS 基礎結構的深入解析
 
@@ -179,10 +179,16 @@ DNS 圖格包含收集到的資料所在的 DNS 伺服器之數目。 它也包�
 1. 在**搜尋查詢方塊**中，輸入 `DnsInventory` 以檢視此解決方案管理的 DNS 伺服器的所有 DNS 清查相關資料。 結果會列出 DNS 伺服器、DNS 區域和資源記錄的記錄資料。
 
     ![DnsInventory 記錄搜尋](./media/dns-analytics/log-search-dnsinventory.png)
+    
+### <a name="troubleshooting"></a>疑難排解
+
+Commopn 疑難排解步驟：
+
+1. 遺失 DNS 查閱資料-若要對此問題進行疑難排解，請嘗試重設設定，或只在入口網站中載入設定頁面一次。 若要重設，只要將設定變更為另一個值，然後將它變更回原始值，然後儲存 config 即可。
 
 ## <a name="feedback"></a>意見
 
-若要提供意見反應, 請造訪[Log Analytics UserVoice 頁面](https://aka.ms/dnsanalyticsuservoice)來張貼 DNS 分析功能的想法, 以進行處理。 
+若要提供意見反應，請造訪[Log Analytics UserVoice 頁面](https://aka.ms/dnsanalyticsuservoice)來張貼 DNS 分析功能的想法，以進行處理。 
 
 ## <a name="next-steps"></a>後續步驟
 

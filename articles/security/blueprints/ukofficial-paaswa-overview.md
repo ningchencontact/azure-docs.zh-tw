@@ -8,12 +8,12 @@ ms.service: security
 ms.topic: article
 ms.date: 07/13/2018
 ms.author: jomolesk
-ms.openlocfilehash: c0163b5280de942491f2174aa371fa7cc83d5984
-ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
+ms.openlocfilehash: 1f6eeea85a348bb8e88a387fa0fc6bed55e41a5e
+ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/10/2019
-ms.locfileid: "68946527"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71262776"
 ---
 # <a name="azure-security-and-compliance-blueprint-paas-web-application-hosting-for-uk-official-workloads"></a>Azure 安全性與合規性藍圖：適用於 UK OFFICIAL 工作負載的 PaaS Web 應用程式裝載
 
@@ -57,7 +57,7 @@ Azure 藍圖是由指引文件和自動化範本所組成，可部署雲端式�
 - API 應用程式
 - Azure DNS
 - Key Vault
-- Azure 監視器 (記錄)
+- Azure 監視器（記錄）
 - Application Insights
 - Azure Resource Manager
 - Azure 資訊安全中心
@@ -95,7 +95,7 @@ Azure 藍圖是由指引文件和自動化範本所組成，可部署雲端式�
 
 [Azure Advisor](https://docs.microsoft.com/azure/advisor/advisor-overview) 是個人化的雲端顧問，可協助您依最佳做法來最佳化您的 Azure 部署。 它可分析您的資源組態和使用量遙測，然後建議可協助您改善 Azure 資源的成本效益、效能、高可用性和安全性的解決方案。
 
-[Microsoft Antimalware](https://docs.microsoft.com/azure/security/fundamentals/antimalware) 是即時保護功能，有助於識別和移除病毒、間諜軟體和其他惡意軟體。 此預設會安裝在基礎 PaaS 虛擬機器基礎結構上, 並由 Azure 網狀架構以透明方式管理給客戶。
+[Microsoft Antimalware](https://docs.microsoft.com/azure/security/fundamentals/antimalware) 是即時保護功能，有助於識別和移除病毒、間諜軟體和其他惡意軟體。 此預設會安裝在基礎 PaaS 虛擬機器基礎結構上，並由 Azure 網狀架構以透明方式管理給客戶。
 
 ### <a name="paas-services-in-this-blueprint"></a>此藍圖中的 PaaS 服務
 
@@ -113,7 +113,7 @@ App Service 符合 [ISO、SOC 和 PCI 規範](https://www.microsoft.com/TrustCen
 - 多個 App Service [部署位置](https://docs.microsoft.com/azure/app-service/deploy-staging-slots)：Dev、Preview、QA、UAT 以及 Production (預設位置)。
 - 以 [Azure 資源的受控識別](https://docs.microsoft.com/azure/app-service/overview-managed-identity)連線到 [Azure Key Vault](https://azure.microsoft.com/services/key-vault/) (這也可供存取 [Azure SQL Database](https://azure.microsoft.com/services/sql-database/) 
 - 與 [Azure Application Insights](../../azure-monitor/app/azure-web-apps.md) 整合以監視效能
-- [診斷記錄](../../azure-monitor/platform/diagnostic-logs-overview.md) 
+- [診斷記錄](../../azure-monitor/platform/resource-logs-overview.md) 
 - 度量[警示](../../azure-monitor/app/alerts.md) 
 - [Azure API 應用程式](https://azure.microsoft.com/services/app-service/api/) 
 
@@ -170,7 +170,7 @@ Microsoft [Azure 儲存體](https://azure.microsoft.com/services/storage/)是 Mi
 
 #### <a name="azure-monitor-logs"></a>Azure 監視器記錄
 
-[Azure 監視器記錄](https://azure.microsoft.com/services/log-analytics/)是 Azure 中的一項服務, 可協助您收集和分析雲端和內部部署環境中的資源所產生的資料。
+[Azure 監視器記錄](https://azure.microsoft.com/services/log-analytics/)是 Azure 中的一項服務，可協助您收集和分析雲端和內部部署環境中的資源所產生的資料。
 
 #### <a name="azure-monitor-logs-in-this-blueprint"></a>Azure 監視器此藍圖中的記錄
 

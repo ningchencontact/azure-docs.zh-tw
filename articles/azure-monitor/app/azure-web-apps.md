@@ -9,16 +9,16 @@ ms.service: application-insights
 ms.topic: conceptual
 ms.date: 04/26/2019
 ms.author: mbullwin
-ms.openlocfilehash: 4f296aae6c147b0d5209276dbd008a1207837cfd
-ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
+ms.openlocfilehash: f45762d5b37a006ede9aeff76e3d756c8144f5ba
+ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "67875208"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71258578"
 ---
 # <a name="monitor-azure-app-service-performance"></a>監視 Azure App Service 效能
 
-在您的 .NET 和以 .NET Core 為基礎的 web 應用程式上啟用[Azure App 服務](https://docs.microsoft.com/azure/app-service/)的監視現在比以往更容易。 雖然先前您需要手動安裝網站延伸模組, 但根據預設, 最新的擴充功能/代理程式已內建到 app service 映射中。 這篇文章將逐步引導您啟用 Application Insights 監視, 以及提供將大規模部署程式自動化的初步指導方針。
+在您的 ASP.NET 和[Azure App 服務](https://docs.microsoft.com/azure/app-service/)上執行的 ASP.NET Core web 應用程式上啟用監視，現在比以往更容易。 雖然先前您需要手動安裝網站延伸模組, 但根據預設, 最新的擴充功能/代理程式已內建到 app service 映射中。 這篇文章將逐步引導您啟用 Application Insights 監視, 以及提供將大規模部署程式自動化的初步指導方針。
 
 > [!NOTE]
 > 透過**開發工具** > **擴充**功能來手動新增 Application Insights 網站延伸模組已被取代。 這種擴充功能安裝方法相依于每個新版本的手動更新。 擴充功能的最新穩定版本現在已[預先安裝](https://github.com/projectkudu/kudu/wiki/Azure-Site-Extensions)為 App Service 映射的一部分。 這些檔案位於, 並`d:\Program Files (x86)\SiteExtensions\ApplicationInsightsAgent`會在每個穩定版本自動更新。 如果您遵循以代理程式為基礎的指示來啟用下列監視, 它會自動為您移除已淘汰的延伸模組。
@@ -115,7 +115,7 @@ ms.locfileid: "67875208"
 
 ## <a name="enable-client-side-monitoring-for-net-core-applications"></a>啟用 .NET Core 應用程式的用戶端監視
 
-不論應用程式設定 ' APPINSIGHTS_JAVASCRIPT_ENABLED ' 是否存在, 使用建議的**集合**的 .net Core 應用程式**預設會啟用**用戶端監視。
+不論應用程式設定 ' APPINSIGHTS_JAVASCRIPT_ENABLED ' 是否存在，使用建議的**集合**的 .net Core 應用程式**預設會啟用**用戶端監視。
 
 如果基於某些原因, 您會想要停用用戶端監視:
 
@@ -130,7 +130,7 @@ ms.locfileid: "67875208"
 
 ![應用程式設定 UI 的螢幕擷取畫面](./media/azure-web-apps/appinsights-javascript-disabled.png)
 
-## <a name="automate-monitoring"></a>自動化監視
+## <a name="automate-monitoring"></a>自動監視
 
 若要使用 Application Insights 啟用遙測收集, 只需要設定應用程式設定:
 
@@ -326,6 +326,9 @@ $app = Set-AzWebApp -AppSettings $newAppSettings -ResourceGroupName $app.Resourc
 > [!NOTE]
 > JAVA 和 node.js 應用程式只能透過手動 SDK 型檢測在 Azure App 服務上受到支援, 因此下列步驟不適用於這些案例。
 
+> [!NOTE]
+> 不支援 ASP.NET Core 3.0 應用程式。 請依照適用于 ASP.NET Core 3.0 應用程式的程式碼進行[手動檢測](https://docs.microsoft.com/azure/azure-monitor/app/asp-net-core)。
+
 1. 檢查是否已透過監視`ApplicationInsightsAgent`應用程式。
     * 檢查該`ApplicationInsightsAgent_EXTENSION_VERSION`應用程式設定是否設定為 "~ 2" 的值。
 2. 請確定應用程式符合要監視的需求。
@@ -340,7 +343,7 @@ $app = Set-AzWebApp -AppSettings $newAppSettings -ResourceGroupName $app.Resourc
         * 如果沒有類似的值, 則表示應用程式目前不在執行中或不受支援。 若要確保應用程式正在執行, 請嘗試手動流覽應用程式 url/應用程式端點, 這將允許執行時間資訊變成可用。
 
     * `IKeyExists`確認為`true`
-        * 如果為 false, 請將 ' APPINSIGHTS_INSTRUMENTATIONKEY 與您的 ikey guid 新增至您的應用程式設定。
+        * 如果為 false，請將 ' APPINSIGHTS_INSTRUMENTATIONKEY 與您的 ikey guid 新增至您的應用程式設定。
 
     * 確認沒有`AppAlreadyInstrumented`、 `AppContainsDiagnosticSourceAssembly`和`AppContainsAspNetTelemetryCorrelationAssembly`的專案。
         * 如果其中有任何專案存在, 請從您的應用程式移除下列`Microsoft.ApplicationInsights`套件`System.Diagnostics.DiagnosticSource`:、 `Microsoft.AspNet.TelemetryCorrelation`和。
@@ -358,12 +361,12 @@ $app = Set-AzWebApp -AppSettings $newAppSettings -ResourceGroupName $app.Resourc
 
 ### <a name="appinsights_javascript_enabled-and-urlcompression-is-not-supported"></a>不支援 APPINSIGHTS_JAVASCRIPT_ENABLED 和 urlCompression
 
-如果您在編碼內容的情況下使用 APPINSIGHTS_JAVASCRIPT_ENABLED = true, 您可能會收到類似下列的錯誤: 
+如果您在編碼內容的情況下使用 APPINSIGHTS_JAVASCRIPT_ENABLED = true，您可能會收到類似下列的錯誤： 
 
 - 500 URL 重寫錯誤
 - 500.53 URL 重寫模組錯誤, 而且當 HTTP 回應的內容編碼時, 無法套用訊息輸出重寫規則 (' gzip ')。 
 
-這是因為 APPINSIGHTS_JAVASCRIPT_ENABLED 應用程式設定設為 true, 同時出現內容編碼。 尚不支援此案例。 解決方法是從您的應用程式設定中移除 APPINSIGHTS_JAVASCRIPT_ENABLED。 可惜的是, 如果仍然需要用戶端/瀏覽器端的 JavaScript 檢測, 您的網頁需要手動的 SDK 參考。 請遵循使用 JavaScript SDK 進行手動檢測的[指示](https://github.com/Microsoft/ApplicationInsights-JS#snippet-setup-ignore-if-using-npm-setup)。
+這是因為 APPINSIGHTS_JAVASCRIPT_ENABLED 應用程式設定設為 true，同時出現內容編碼。 尚不支援此案例。 解決方法是從您的應用程式設定中移除 APPINSIGHTS_JAVASCRIPT_ENABLED。 可惜的是, 如果仍然需要用戶端/瀏覽器端的 JavaScript 檢測, 您的網頁需要手動的 SDK 參考。 請遵循使用 JavaScript SDK 進行手動檢測的[指示](https://github.com/Microsoft/ApplicationInsights-JS#snippet-setup-ignore-if-using-npm-setup)。
 
 如需有關 Application Insights 代理程式/擴充功能的最新資訊, 請參閱[版本](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/app-insights-web-app-extensions-releasenotes.md)資訊。
 

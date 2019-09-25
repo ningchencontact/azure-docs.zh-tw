@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 4/27/2018
 ms.author: johnkem
 ms.subservice: metrics
-ms.openlocfilehash: df26547132403bfe2f3fb3be74e5d1a3d9400967
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: faeb4df915cc5c56e21d1857fe75a956d419c46e
+ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60776434"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71262097"
 ---
 # <a name="create-a-classic-metric-alert-with-a-resource-manager-template"></a>使用 Resource Manager 範本建立傳統計量警示
 本文章將說明如何使用 [Azure Resource Manager 範本](../../azure-resource-manager/resource-group-authoring-templates.md) 設定 Azure 度量警示。 這可讓您在建立警示以確保正確地監視所有資源時，自動在您的資源上設定警示。
@@ -403,6 +403,6 @@ ms.locfileid: "60776434"
 
 ## <a name="next-steps"></a>後續步驟
 * [深入了解警示](alerts-overview.md)
-* [將診斷設定新增](../../azure-monitor/platform/diagnostic-logs-stream-template.md) 至您的 Resource Manager 範本
+* [將診斷設定新增](../../azure-monitor/platform/diagnostic-settings-template.md) 至您的 Resource Manager 範本
 * 如需 JSON 語法和屬性的相關資訊，請參閱 [Microsoft.Insights/alertrules](/azure/templates/microsoft.insights/alertrules) 範本參考。
 

@@ -8,17 +8,16 @@ ms.service: search
 ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: luisca
-ms.subservice: cognitive-search
-ms.openlocfilehash: 457157b93e6fb6be8ed734ae6f58c3b8717fc83d
-ms.sourcegitcommit: 7a6d8e841a12052f1ddfe483d1c9b313f21ae9e6
+ms.openlocfilehash: f78b8c3b9619b7eea92b6a4f04ed4f6543916efe
+ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70183472"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71265521"
 ---
 # <a name="how-to-create-a-skillset-in-an-enrichment-pipeline"></a>如何在擴充管線中建立技能集
 
-認知搜尋會擷取並擴充資料，使其在 Azure 搜尋服務中可供搜尋。 我們將擷取和擴充步驟稱為*認知技能*，而這些技能會合併為在索引編製期間所參考的*技能集*。 技能集可以使用[內建技能](cognitive-search-predefined-skills.md)或自訂技能 (請參閱[範例:建立認知搜尋](cognitive-search-create-custom-skill-example.md)的自訂技能以取得詳細資訊)。
+認知搜尋會擷取並擴充資料，使其在 Azure 搜尋服務中可供搜尋。 我們將擷取和擴充步驟稱為*認知技能*，而這些技能會合併為在索引編製期間所參考的*技能集*。 技能集可以使用[內建技能](cognitive-search-predefined-skills.md)或自訂技能（請參閱[範例：建立認知搜尋](cognitive-search-create-custom-skill-example.md)的自訂技能以取得詳細資訊）。
 
 在本文中，您將了解如何為您要使用的技能建立擴充管線。 技能集會連結至 Azure 搜尋服務[索引子](search-indexer-overview.md)。 在本文的說明中，建構技能集本身屬於管線設計的一部分。 
 
@@ -137,11 +136,11 @@ Content-Type: application/json
 }
 ```
 
-技能集中的下一組件是技能的陣列。 您可以將每項技能視為擴充的基礎。 每項技能都會在此擴充管線中執行一項小型工作。 每項工作都會有一項輸入 (或一組輸入)，然後傳回某些輸出。 接下來的幾節將著重于如何指定內建和自訂技能, 並透過輸入和輸出參考將技能連結在一起。 輸入可來自於來源資料或是其他技能。 輸出可以對應至搜尋索引中的欄位，或作為下游技能的輸入。
+技能集中的下一組件是技能的陣列。 您可以將每項技能視為擴充的基礎。 每項技能都會在此擴充管線中執行一項小型工作。 每項工作都會有一項輸入 (或一組輸入)，然後傳回某些輸出。 接下來的幾節將著重于如何指定內建和自訂技能，並透過輸入和輸出參考將技能連結在一起。 輸入可來自於來源資料或是其他技能。 輸出可以對應至搜尋索引中的欄位，或作為下游技能的輸入。
 
 ## <a name="add-built-in-skills"></a>加入內建技能
 
-讓我們看看第一項技能, 這是內建[實體辨識技能](cognitive-search-skill-entity-recognition.md):
+讓我們看看第一項技能，這是內建[實體辨識技能](cognitive-search-skill-entity-recognition.md)：
 
 ```json
     {
@@ -166,9 +165,9 @@ Content-Type: application/json
 
 * 每個內建技能都`odata.type`有`input`、和`output`屬性。 技能特有的屬性可提供適用於該技能的其他資訊。 就實體辨識而言，`categories` 是預先定型的模型可從一組固定的實體類型中辨識出來的實體。
 
-* 每項技能都應有 ```"context"```。 內容表示作業執行的層級。 在上述技能中, 內容是整份檔, 這表示每份檔會呼叫一次實體辨識技能。 輸出也會在該層級上產生。 更具體來說，```"organizations"``` 會產生作為 ```"/document"``` 的成員。 在下游技能中，您可以將這項新建立的資訊稱為 ```"/document/organizations"```。  如果 ```"context"``` 欄位未明確設定，預設內容將是文件。
+* 每項技能都應有 ```"context"```。 內容表示作業執行的層級。 在上述技能中，內容是整份檔，這表示每份檔會呼叫一次實體辨識技能。 輸出也會在該層級上產生。 更具體來說，```"organizations"``` 會產生作為 ```"/document"``` 的成員。 在下游技能中，您可以將這項新建立的資訊稱為 ```"/document/organizations"```。  如果 ```"context"``` 欄位未明確設定，預設內容將是文件。
 
-* 技能有一個名為「文字」的輸入，其來源輸入設定為 ```"/document/content"```。 技能 (實體辨識) 會在每份檔的*內容*欄位上運作, 這是由 Azure blob 索引子所建立的標準欄位。 
+* 技能有一個名為「文字」的輸入，其來源輸入設定為 ```"/document/content"```。 技能（實體辨識）會在每份檔的*內容*欄位上運作，這是由 Azure blob 索引子所建立的標準欄位。 
 
 * 技能會有一個名為 ```"organizations"``` 的輸出。 只有在處理期間才會有輸出。 若要將此輸出鏈結至下游技能的輸入，請將輸出作為 ```"/document/organizations"``` 來參考。
 
@@ -228,7 +227,7 @@ Content-Type: application/json
     }
 ```
 
-此定義是一種[自訂技能](cognitive-search-custom-skill-web-api.md)，會在擴充的過程中呼叫 Web API。 針對實體辨識所識別的每個組織, 這項技能會呼叫 Web API 來尋找該組織的描述。 何時應呼叫 Web API 以及如何傳輸接收到的資訊等協調流程，由擴充引擎在內部處理。 不過，呼叫此自訂 API 所需的初始化，必須提供於 JSON 中 (例如 URI、httpHeaders 和預期的輸入)。 如需為擴充管線建立自訂 Web API 的指引，請參閱[如何定義自訂介面](cognitive-search-custom-skill-interface.md)。
+此定義是一種[自訂技能](cognitive-search-custom-skill-web-api.md)，會在擴充的過程中呼叫 Web API。 針對實體辨識所識別的每個組織，這項技能會呼叫 Web API 來尋找該組織的描述。 何時應呼叫 Web API 以及如何傳輸接收到的資訊等協調流程，由擴充引擎在內部處理。 不過，呼叫此自訂 API 所需的初始化，必須提供於 JSON 中 (例如 URI、httpHeaders 和預期的輸入)。 如需為擴充管線建立自訂 Web API 的指引，請參閱[如何定義自訂介面](cognitive-search-custom-skill-interface.md)。
 
 請注意，[內容] 欄位設定為附有星號的 ```"/document/organizations/*"```，這表示擴充步驟是對 ```"/document/organizations"``` 下的「每個」組織而呼叫的。 
 
@@ -244,13 +243,13 @@ Content-Type: application/json
 
 ![範例輸出結構](media/cognitive-search-defining-skillset/enriched-doc.png "範例輸出結構")
 
-到目前為止, 此結構已僅供內部使用、僅限記憶體, 而且僅用於 Azure 搜尋服務索引。 新增知識存放區可讓您儲存成形的擴充以供在搜尋之外使用。
+到目前為止，此結構已僅供內部使用、僅限記憶體，而且僅用於 Azure 搜尋服務索引。 新增知識存放區可讓您儲存成形的擴充以供在搜尋之外使用。
 
 ## <a name="add-a-knowledge-store"></a>新增知識存放區
 
-[知識存放區](knowledge-store-concept-intro.md)是 Azure 搜尋服務中的預覽功能, 用於儲存擴充的檔。 您建立的知識存放區是由 Azure 儲存體帳戶所支援, 這是您擴充的資料所在的存放庫。 
+[知識存放區](knowledge-store-concept-intro.md)是 Azure 搜尋服務中的預覽功能，用於儲存擴充的檔。 您建立的知識存放區是由 Azure 儲存體帳戶所支援，這是您擴充的資料所在的存放庫。 
 
-知識存放區定義會加入至技能集。 如需整個程式的逐步解說, 請參閱[如何開始使用知識存放區](knowledge-store-howto.md)。
+知識存放區定義會加入至技能集。 如需整個程式的逐步解說，請參閱[如何開始使用知識存放區](knowledge-store-howto.md)。
 
 ```json
 "knowledgeStore": {
@@ -272,7 +271,7 @@ Content-Type: application/json
 }
 ```
 
-您可以選擇將擴充的檔儲存為具有階層式關聯性的資料表, 或做為 blob 儲存體中的 JSON 檔。 技能集中任何技能的輸出都可以做為投射的輸入來源。 如果您想要將資料投影到特定的圖形, 已更新的「塑造」[技能](cognitive-search-skill-shaper.md)現在可以模型化複雜型別供您使用。 
+您可以選擇將擴充的檔儲存為具有階層式關聯性的資料表，或做為 blob 儲存體中的 JSON 檔。 技能集中任何技能的輸出都可以做為投射的輸入來源。 如果您想要將資料投影到特定的圖形，已更新的「塑造」[技能](cognitive-search-skill-shaper.md)現在可以模型化複雜型別供您使用。 
 
 <a name="next-step"></a>
 

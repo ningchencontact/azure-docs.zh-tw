@@ -8,12 +8,12 @@ ms.service: security
 ms.topic: article
 ms.date: 07/31/2018
 ms.author: jomolesk
-ms.openlocfilehash: 88bca1a799d55ba59c8f5d2263f3219cfb66700e
-ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
+ms.openlocfilehash: 83d368e419550f38c173a7a1dca42c84db7d542f
+ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/10/2019
-ms.locfileid: "68946728"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71259846"
 ---
 # <a name="azure-security-and-compliance-blueprint---iaas-web-application-for-nist-sp-800-171"></a>Azure 安全性與合規性藍圖 - 適用於 NIST SP 800-171 的 IaaS Web 應用程式
 
@@ -59,7 +59,7 @@ ms.locfileid: "68946728"
 - Azure Active Directory
 - Azure Key Vault
 - Azure Load Balancer
-- Azure 監視器 (記錄)
+- Azure 監視器（記錄）
 - Azure Resource Manager
 - Azure 資訊安全中心
 - Azure 儲存體
@@ -70,7 +70,7 @@ ms.locfileid: "68946728"
 ## <a name="deployment-architecture"></a>部署架構
 下一節會詳細說明部署和實作元素。
 
-**防禦主機**：防禦主機是單一進入點, 可讓使用者用來存取此環境中已部署的資源。 防禦主機為已部署的資源提供安全連線，其允許的遠端流量僅限來自安全清單上的公用 IP 位址。 若要允許遠端桌面流量，必須在網路安全性群組 (NSG) 中定義該流量的來源。
+**防禦主機**：防禦主機是單一進入點，可讓使用者用來存取此環境中已部署的資源。 防禦主機為已部署的資源提供安全連線，其允許的遠端流量僅限來自安全清單上的公用 IP 位址。 若要允許遠端桌面流量，必須在網路安全性群組 (NSG) 中定義該流量的來源。
 
 此解決方案會建立 VM，作為具有下列設定之加入網域的防禦主機：
 -   [反惡意程式碼軟體擴充功能](https://docs.microsoft.com/azure/security/fundamentals/antimalware)。
@@ -82,7 +82,7 @@ ms.locfileid: "68946728"
 ### <a name="virtual-network"></a>虛擬網路
 此架構會定義位址空間為 10.200.0.0/16 的私人虛擬網路。
 
-**網路安全性群組**：此解決方案會在具有個別子網的架構中部署資源, 以在虛擬網路內進行 web、資料庫、Active Directory 和管理。 套用至個別子網路的 NSG 規則以邏輯方式區隔了子網路。 這些規則會將子網路之間的流量限制為系統和管理功能所需的流量。
+**網路安全性群組**：此解決方案會在具有個別子網的架構中部署資源，以在虛擬網路內進行 web、資料庫、Active Directory 和管理。 套用至個別子網路的 NSG 規則以邏輯方式區隔了子網路。 這些規則會將子網路之間的流量限制為系統和管理功能所需的流量。
 
 請參閱使用此解決方案所部署 [NSG](https://github.com/Azure/fedramp-iaas-webapp/blob/master/nestedtemplates/virtualNetworkNSG.json) 的設定。 組織可以使用[此文件](../../virtual-network/virtual-network-vnet-plan-design-arm.md)當作指南來編輯先前的檔案，以設定 NSG。
 
@@ -129,9 +129,9 @@ Azure 預設會加密與 Azure 資料中心的所有通訊。 此外，透過 Az
 - 允許的金鑰密碼編譯作業僅限於需要的密碼編譯項目。
 - 解決方案會與 Key Vault 整合，以管理 IaaS VM 磁碟加密金鑰和祕密。
 
-**修補程式管理**：根據預設, 部署為此參考架構一部分的 Windows Vm 會設定為從 Windows Update 服務接收自動更新。 此解決方案也包括 [Azure 自動化](https://docs.microsoft.com/azure/automation/automation-intro)服務，您可以透過此服務建立更新的部署，以在有所需要時修補 VM。
+**修補程式管理**：根據預設，部署為此參考架構一部分的 Windows Vm 會設定為從 Windows Update 服務接收自動更新。 此解決方案也包括 [Azure 自動化](https://docs.microsoft.com/azure/automation/automation-intro)服務，您可以透過此服務建立更新的部署，以在有所需要時修補 VM。
 
-**惡意程式碼防護**：Vm 的[Microsoft Antimalware](https://docs.microsoft.com/azure/security/fundamentals/antimalware)提供即時保護功能, 可協助識別及移除病毒、間諜軟體和其他惡意軟體。 客戶可以設定警示，在已知的惡意或垃圾軟體嘗試安裝或在受保護的 VM 上執行時產生。
+**惡意程式碼防護**：Vm 的[Microsoft Antimalware](https://docs.microsoft.com/azure/security/fundamentals/antimalware)提供即時保護功能，可協助識別及移除病毒、間諜軟體和其他惡意軟體。 客戶可以設定警示，在已知的惡意或垃圾軟體嘗試安裝或在受保護的 VM 上執行時產生。
 
 **Azure 資訊安全中心**：客戶可以使用[資訊安全中心](https://docs.microsoft.com/azure/security-center/security-center-intro)，在工作負載之間集中套用及管理安全性原則、限制暴露於威脅的程度，以及偵測和回應攻擊。 資訊安全中心也會存取 Azure 服務的現有組態，以提供設定和服務建議，協助改善安全性狀態並保護資料。
 
@@ -141,7 +141,7 @@ Azure 預設會加密與 Azure 資料中心的所有通訊。 此外，透過 Az
 
 此參考架構會使用資訊安全中心中的[漏洞評量](https://docs.microsoft.com/azure/security-center/security-center-vulnerability-assessment-recommendations)功能。 設定之後，夥伴代理程式 (例如 Qualys) 會向夥伴的管理平台回報弱點資料。 接著，夥伴的管理平台會提供弱點和健康情況監視資料給資訊安全中心。 客戶可以使用此資訊，快速識別易受攻擊的 VM。
 
-**Azure 應用程式閘道**：此架構使用已設定 web 應用程式防火牆且已啟用 OWASP 規則集的應用程式閘道, 來降低安全性弱點的風險。 其他功能包括：
+**Azure 應用程式閘道**：此架構使用已設定 web 應用程式防火牆且已啟用 OWASP 規則集的應用程式閘道，來降低安全性弱點的風險。 其他功能包括：
 
 - [端對端 SSL](https://docs.microsoft.com/azure/application-gateway/application-gateway-end-to-end-ssl-powershell)。
 - 啟用 [SSL 卸載](../../application-gateway/create-ssl-portal.md)。
@@ -156,19 +156,19 @@ Azure 預設會加密與 Azure 資料中心的所有通訊。 此外，透過 Az
 
 **高可用性**：解決方案會將所有 Vm 部署在[可用性設定組](https://docs.microsoft.com/azure/virtual-machines/windows/tutorial-availability-sets)中。 可用性設定組可確保 VM 會分散到多個各自獨立的硬體叢集中，以提高可用性。 在進行計劃性或非計劃性的維護事件期間，至少有一部 VM 可使用，進而符合 99.95% 的 Azure SLA。
 
-復原**服務保存庫**:[復原服務保存庫](https://docs.microsoft.com/azure/backup/backup-azure-recovery-services-vault-overview)可裝載備份資料，並保護此架構中所有 Azure 虛擬機器的組態。 客戶可以使用復原服務保存庫，從 IaaS VM 還原檔案和資料夾，而非還原整個 VM。 此流程可加速還原時間。
+復原**服務保存庫**：[復原服務保存庫](https://docs.microsoft.com/azure/backup/backup-azure-recovery-services-vault-overview)可裝載備份資料，並保護此架構中所有 Azure 虛擬機器的組態。 客戶可以使用復原服務保存庫，從 IaaS VM 還原檔案和資料夾，而非還原整個 VM。 此流程可加速還原時間。
 
-**雲端見證**：[雲端見證](https://docs.microsoft.com/windows-server/failover-clustering/whats-new-in-failover-clustering#BKMK_CloudWitness)是 Windows Server 2016 中容錯移轉叢集仲裁見證的一種類型, 其使用 Azure 作為仲裁點。 如同其他任何仲裁見證，雲端見證會進行投票，而且可以參與仲裁計算。 它使用公開提供的標準 Azure Blob 儲存體。 這種做法可消除裝載在公用雲端中 VM 的額外維修負荷。
+**雲端見證**：[雲端見證](https://docs.microsoft.com/windows-server/failover-clustering/whats-new-in-failover-clustering#BKMK_CloudWitness)是 Windows Server 2016 中容錯移轉叢集仲裁見證的一種類型，其使用 Azure 作為仲裁點。 如同其他任何仲裁見證，雲端見證會進行投票，而且可以參與仲裁計算。 它使用公開提供的標準 Azure Blob 儲存體。 這種做法可消除裝載在公用雲端中 VM 的額外維修負荷。
 
 ### <a name="logging-and-auditing"></a>記錄與稽核
 
 Azure 服務會廣泛記錄系統、使用者活動及系統健康情況：
 - **活動記錄**：[活動記錄](../../azure-monitor/platform/activity-logs-overview.md)能讓您深入了解在訂用帳戶資源上執行的作業。 活動記錄可協助判斷作業的啟動者、發生時間和狀態。
-- **診斷記錄**：[診斷記錄](../../azure-monitor/platform/diagnostic-logs-overview.md)包含每個資源發出的所有記錄。 這些記錄包含 Windows 事件系統記錄、儲存體記錄、Key Vault 稽核記錄，以及應用程式閘道存取和防火牆記錄。 所有診斷記錄都會寫入到集中且加密的 Azure 儲存體帳戶進行封存。 使用者可設定最多 730 天的保留期限，以符合其特定需求。
+- **診斷記錄**：[診斷記錄](../../azure-monitor/platform/resource-logs-overview.md)包含每個資源發出的所有記錄。 這些記錄包含 Windows 事件系統記錄、儲存體記錄、Key Vault 稽核記錄，以及應用程式閘道存取和防火牆記錄。 所有診斷記錄都會寫入到集中且加密的 Azure 儲存體帳戶進行封存。 使用者可設定最多 730 天的保留期限，以符合其特定需求。
 
-**Azure 監視器記錄**：這些記錄會合並在[Azure 監視器記錄](https://azure.microsoft.com/services/log-analytics/)中, 以供處理、儲存及儀表板報告之用。 所收集的資料會針對 Log Analytics 工作區內的每種資料類型組織成個別的資料表。 如此一來，所有的資料都能一起分析 (不論其原始來源為何)。 資訊安全中心與 Azure 監視器記錄整合。 客戶可以使用 Kusto 查詢來存取其安全性事件資料, 並將其與來自其他服務的資料合併。
+**Azure 監視器記錄**：這些記錄會合並在[Azure 監視器記錄](https://azure.microsoft.com/services/log-analytics/)中，以供處理、儲存及儀表板報告之用。 所收集的資料會針對 Log Analytics 工作區內的每種資料類型組織成個別的資料表。 如此一來，所有的資料都能一起分析 (不論其原始來源為何)。 資訊安全中心與 Azure 監視器記錄整合。 客戶可以使用 Kusto 查詢來存取其安全性事件資料，並將其與來自其他服務的資料合併。
 
-下列 Azure[監視解決方案](../../monitoring/monitoring-solutions.md)包含在此架構中:
+下列 Azure[監視解決方案](../../monitoring/monitoring-solutions.md)包含在此架構中：
 -   [Active Directory 評定](../../azure-monitor/insights/ad-assessment.md)：Active Directory 健康情況檢查方案可定期評估伺服器環境的風險和健康情況。 其能針對已部署的伺服器基礎結構提供依照優先順序排列的具體建議清單。
 - [SQL 評定](../../azure-monitor/insights/sql-assessment.md)：SQL 健康情況檢查方案可定期評估伺服器環境的風險和健康情況。 其能針對已部署的伺服器基礎結構提供客戶依照優先順序排列的具體建議清單。
 - [代理程式健全狀況](../../monitoring/monitoring-solution-agenthealth.md)：代理程式健全狀況解決方案會報告部署的代理程式數目和其地理分佈。 還會報告沒有回應的代理程式數目和提交作業資料的代理程式數目。

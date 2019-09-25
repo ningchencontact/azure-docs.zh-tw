@@ -8,12 +8,12 @@ ms.service: security
 ms.topic: article
 ms.date: 05/02/2018
 ms.author: jomolesk
-ms.openlocfilehash: 79ed2b6e5d7bb600a79e12d19268035491f3fe08
-ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
+ms.openlocfilehash: 7fe5b45d7719b34fff8c09d08f510dc465f50104
+ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/10/2019
-ms.locfileid: "68946867"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71257395"
 ---
 # <a name="azure-security-and-compliance-blueprint-data-warehouse-for-fedramp-automation"></a>Azure 安全性與合規性藍圖：適用于 FedRAMP 自動化的資料倉儲
 
@@ -75,9 +75,9 @@ Azure 監視器記錄
 
 下一節會詳細說明開發和實作元素。
 
-**SQL 資料倉儲**:[SQL 資料倉儲](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-overview-what-is)是企業資料倉儲 (EDW), 利用大量平行處理 (MPP), 在數以 pb 計的資料中快速執行複雜的查詢。 使用簡單的 PolyBase T-SQL 查詢將巨量資料匯入 SQL 資料倉儲，然後使用 MPP 功能來執行高效能分析。
+**SQL 資料倉儲**：[SQL 資料倉儲](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-overview-what-is)是企業資料倉儲（EDW），利用大量平行處理（MPP），在數以 pb 計的資料中快速執行複雜的查詢。 使用簡單的 PolyBase T-SQL 查詢將巨量資料匯入 SQL 資料倉儲，然後使用 MPP 功能來執行高效能分析。
 
-**SQL Server Reporting Services**:[SQL Server Reporting Services](https://docs.microsoft.com/sql/reporting-services/report-data/sql-azure-connection-type-ssrs)可讓您快速建立含有資料表、圖表、地圖、量測計、矩陣等的報表, 以供 Azure SQL 資料倉儲。
+**SQL Server Reporting Services**：[SQL Server Reporting Services](https://docs.microsoft.com/sql/reporting-services/report-data/sql-azure-connection-type-ssrs)可讓您快速建立含有資料表、圖表、地圖、量測計、矩陣等的報表，以供 Azure SQL 資料倉儲。
 
 **防禦主機**：防禦主機是單一進入點，可讓使用者存取此環境中已部署的資源。 防禦主機為已部署的資源提供安全連線，其允許的遠端流量僅限來自安全清單上的公用 IP 位址。 若要允許遠端桌面 (RDP) 流量，必須在網路安全性群組 (NSG) 中定義該流量的來源。
 
@@ -122,16 +122,16 @@ Azure 監視器記錄
 -   [SQL Database 動態資料遮罩](https://docs.microsoft.com/azure/sql-database/sql-database-dynamic-data-masking-get-started)可以在參考架構部署好之後執行。 客戶必須調整動態資料遮罩設定，以配合其資料庫結構描述。
 
 ### <a name="business-continuity"></a>業務持續性
-**高可用性**：伺服器工作負載會群組在[可用性設定組](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-manage-availability?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)中, 以協助確保 Azure 中虛擬機器的高可用性。 在進行計劃性或非計劃性的維護事件期間，至少有一部虛擬機器可使用，進而符合 99.95% 的 Azure SLA。
+**高可用性**：伺服器工作負載會群組在[可用性設定組](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-manage-availability?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)中，以協助確保 Azure 中虛擬機器的高可用性。 在進行計劃性或非計劃性的維護事件期間，至少有一部虛擬機器可使用，進而符合 99.95% 的 Azure SLA。
 
 **復原服務保存庫**：[復原服務保存庫](https://docs.microsoft.com/azure/backup/backup-azure-recovery-services-vault-overview)可裝載備份資料，並保護此架構中所有 Azure 虛擬機器的組態。 客戶可以使用復原服務保存庫，從 IaaS VM 還原檔案和資料夾，而非還原整個 VM，這樣可加速還原時間。
 
 ### <a name="logging-and-audit"></a>記錄與稽核
 [Azure 監視器記錄](../azure-security-disk-encryption-overview.md)檔可提供系統、使用者活動及系統健康情況的廣泛記錄。 [Azure 監視器記錄](https://azure.microsoft.com/services/log-analytics/)解決方案會收集並分析 Azure 和內部部署環境中的資源所產生的資料。
 - **活動記錄**：[活動記錄](../../azure-monitor/platform/activity-logs-overview.md)能讓您深入了解在訂用帳戶資源上執行的作業。
-- **診斷記錄**：[診斷記錄](../../azure-monitor/platform/diagnostic-logs-overview.md)包含每個資源發出的所有記錄。 這些記錄包含 Windows 事件系統記錄，以及 Azure Blob 儲存體、資料表和佇列記錄。
+- **診斷記錄**：[診斷記錄](../../azure-monitor/platform/resource-logs-overview.md)包含每個資源發出的所有記錄。 這些記錄包含 Windows 事件系統記錄，以及 Azure Blob 儲存體、資料表和佇列記錄。
 - **防火牆記錄**：應用程式閘道會提供完整的診斷和存取記錄。 防火牆記錄可供已啟用 WAF 的應用程式閘道資源使用。
-- **記錄封存**：所有診斷記錄都會寫入到集中且加密的 Azure 儲存體帳戶進行封存，並包含定義的保留期 (2 天)。 這些記錄會連接到 Azure 監視器記錄, 以進行處理、儲存及儀表板報告。
+- **記錄封存**：所有診斷記錄都會寫入到集中且加密的 Azure 儲存體帳戶進行封存，並包含定義的保留期 (2 天)。 這些記錄會連接到 Azure 監視器記錄，以進行處理、儲存及儀表板報告。
 
 此外，此架構包含下列監視解決方案：
 -   [AD 評定](../../azure-monitor/insights/ad-assessment.md)：Active Directory 健康情況檢查解決方案會定期評估伺服器環境的風險和健康情況，並專門針對部署的伺服器基礎結構，提供優先的建議清單。

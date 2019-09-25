@@ -9,12 +9,12 @@ ms.service: key-vault
 ms.topic: conceptual
 ms.date: 02/12/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 71b7e4bd9406e7fb300ebccd86908820b7628c29
-ms.sourcegitcommit: 3fa4384af35c64f6674f40e0d4128e1274083487
+ms.openlocfilehash: 4ebb31a839a645bcb1312405ee0222f39dbbcd1e
+ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71000770"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71261275"
 ---
 # <a name="how-to-generate-and-transfer-hsm-protected-keys-for-azure-key-vault"></a>如何為 Azure 金鑰保存庫產生並傳輸受 HSM 保護的金鑰
 
@@ -41,7 +41,7 @@ ms.locfileid: "71000770"
 
 ## <a name="more-information-about-ncipher-hsms-and-microsoft-services"></a>NCipher Hsm 和 Microsoft 服務的詳細資訊
 
-nCipher Security 是對金融服務、高科技、製造、政府和技術部門而言，資料加密和網路安全性解決方案的領先全球提供者。 使用40年的追蹤記錄來保護公司和政府資訊，nCipher 的安全性密碼編譯解決方案會由五大能源和航空公司的四家使用。 其解決方案也會由22個 NATO 國家/地區使用，並可保護超過80的全球付款交易。
+nCipher Security 是一家 Entrust Datacard 公司，是一般用途 HSM 市場的領導者，藉由將信任、完整性和控制提供給其業務關鍵資訊和應用程式，來為全球領導的組織提供。 nCipher 的密碼編譯解決方案可保護新興技術，也就是雲端、IoT、區塊鏈、數位付款，並協助滿足新的合規性要求，並使用全球組織所依賴的相同成熟技術來防範其威脅敏感性資料、網路通訊和企業基礎結構。 nCipher 提供對商務關鍵應用程式的信任，確保資料的完整性，並讓客戶隨時都能獲得完全掌控。
 
 Microsoft 已與 nCipher 安全性共同合作，以加強 Hsm 的美工狀態。 這些增強內容可讓您取得裝載服務的典型優勢，而且不用放棄金鑰的控制權。 具體而言，這些增強內容可讓 Microsoft 管理 HSM，如此您就不必費心管理。 做為雲端服務，Azure 金鑰保存庫無需通知就會相應增加，以符合組織的使用尖峰。 同時，您的金鑰也受 Microsoft 的 HSM 所保護：因為您產生金鑰並將它傳輸到 Microsoft 的 HSM，所以您保有金鑰生命週期的控制權。
 
@@ -287,6 +287,10 @@ KeyVault-BYOK-Tools-Switzerland .zip
 
 > [!NOTE]
 > 如果您的 HSM 不支援較新的加密套件 DLf3072s256mRijndael，您可以使用 --cipher-suite=DLf1024s160mRijndael 來取代 --cipher-suite= DLf3072s256mRijndael
+> 
+> 使用 nCipher 軟體12.50 版隨附的 new-world 所建立的安全性世界與此 BYOK 程式不相容。 有兩個選項可用：
+> 1) 將 nCipher 軟體版本降級為12.40.2，以建立新的安全世界。
+> 2) 請聯絡 nCipher 支援服務，並要求他們提供12.50 軟體版本的修補程式，這可讓您使用與此 BYOK 程式相容的12.40.2 版本 new-world。
 
 然後執行以下動作：
 

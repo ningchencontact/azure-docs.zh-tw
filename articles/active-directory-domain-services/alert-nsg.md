@@ -1,60 +1,90 @@
 ---
-title: Azure Active Directory Domain Services：針對網路安全性群組進行疑難排解 |Microsoft Docs
-description: 針對 Azure AD Domain Services 的網路安全性群組設定進行疑難排解
+title: 解決 Azure AD DS 中的網路安全性群組警示 |Microsoft Docs
+description: 瞭解如何疑難排解和解決 Azure Active Directory Domain Services 的網路安全性群組設定警示
 services: active-directory-ds
-documentationcenter: ''
 author: iainfoulds
-manager: ''
-editor: ''
+manager: daveba
 ms.assetid: 95f970a7-5867-4108-a87e-471fa0910b8c
 ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 05/22/2019
+ms.topic: troubleshooting
+ms.date: 09/19/2019
 ms.author: iainfou
-ms.openlocfilehash: 450ee5635b378ed7c4d4e4bedc1c4245f6b52d70
-ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
+ms.openlocfilehash: 959f1e3f25602938d769c574ea975c4bba9300e1
+ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "70743438"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71257995"
 ---
-# <a name="troubleshoot-invalid-networking-configuration-for-your-managed-domain"></a>針對受控網域的無效網路設定進行移難排解
-本文將協助您針對導致下列警示訊息的網路相關設定錯誤進行疑難排解：
+# <a name="known-issues-network-configuration-alerts-in-azure-active-directory-domain-services"></a>已知問題：Azure Active Directory Domain Services 中的網路設定警示
+
+為了讓應用程式和服務正確地與 Azure Active Directory Domain Services （Azure AD DS）通訊，必須開啟特定的網路埠，以允許流量流動。 在 Azure 中，您可以使用網路安全性群組來控制流量的流程。 如果所需的網路安全性群組規則不存在，則 Azure AD DS 受控網域的健全狀況狀態會顯示警示。
+
+本文可協助您瞭解並解決網路安全性群組設定問題的常見警示。
 
 ## <a name="alert-aadds104-network-error"></a>警示 AADDS104：網路錯誤
-**警示訊息：** Microsoft 無法觸達此受控網域的網域控制站。*如果虛擬網路上設定的網路安全性群組 (NSG) 封鎖受控網域的存取，就可能發生這種情況。另一個可能的原因，是使用者定義的路由封鎖了來自網際網路的連入流量。*
 
-Azure AD Domain Services 網路錯誤最常見的原因是 NSG 設定無效。 為您虛擬網路設定的「網路安全性群組」(NSG) 必須允許存取[特定連接埠](network-considerations.md#network-security-groups-and-required-ports)。 如果這些連接埠遭到封鎖，Microsoft 便無法監視或更新您的受控網域。 此外，也會影響到 Azure AD 目錄與受控網域之間的同步處理。 建立 NSG 時，請將這些連接埠保持開啟，以避免服務中斷。
+### <a name="alert-message"></a>警示訊息
 
-### <a name="checking-your-nsg-for-compliance"></a>檢查 NSG 的合規性
+*Microsoft 無法觸達此受控網域的網域控制站。如果虛擬網路上設定的網路安全性群組 (NSG) 封鎖受控網域的存取，就可能發生這種情況。另一個可能的原因，是使用者定義的路由封鎖了來自網際網路的連入流量。*
 
-1. 在 Azure 入口網站中，瀏覽至 [網路安全性群組](https://portal.azure.com/#blade/HubsExtension/Resources/resourceType/Microsoft.Network%2FNetworkSecurityGroups) 頁面
-2. 從表格中，選擇與已啟用您受控網域的子網路關聯的 NSG。
-3. 在左窗格的 [設定] 下，按一下 [輸入安全性規則]
-4. 檢閱備妥的規則，並識別哪些規則會封鎖存取[這些連接埠](network-considerations.md#network-security-groups-and-required-ports)
-5. 對 NSG 進行以下編輯以確保合規性：刪除規則、新增規則，或建立全新的 NSG。 [新增規則](#add-a-rule-to-a-network-security-group-using-the-azure-portal)或建立全新符合規範的 NSG 的步驟如下
+網路安全性群組規則無效是 Azure AD DS 的網路錯誤最常見的原因。 虛擬網路的網路安全性群組必須允許存取特定的埠和通訊協定。 如果這些埠遭到封鎖，Azure 平臺就無法監視或更新受控網域。 Azure AD 目錄與 Azure AD DS 受控網域之間的同步處理也會受到影響。 請確定您保持開啟預設埠，以避免服務中斷。
 
-## <a name="sample-nsg"></a>NSG 範例
-下表描述的 NSG 範例，能讓受控網域保持安全，同時允許 Microsoft 監視、管理及更新資訊。
+## <a name="default-security-rules"></a>預設安全性規則
 
-![NSG 範例](./media/active-directory-domain-services-alerts/default-nsg.png)
+下列預設的輸入和輸出安全性規則適用于 Azure AD DS 受控網域的網路安全性群組。 這些規則會讓 Azure AD DS 保持安全，並允許 Azure 平臺監視、管理及更新受控網域。 如果您[設定安全 LDAP][configure-ldaps]，您可能也會有允許輸入流量的額外規則。
+
+### <a name="inbound-security-rules"></a>輸入安全性規則
+
+| Priority | Name | 連接埠 | Protocol | Source | Destination | Action |
+|----------|------|------|----------|--------|-------------|--------|
+| 101      | AllowSyncWithAzureAD | 443 | TCP | AzureActiveDirectoryDomainServices | Any | 允許 |
+| 201      | AllowRD | 3389 | TCP | CorpNetSaw | Any | 允許 |
+| 301      | AllowPSRemoting | 5986| TCP | AzureActiveDirectoryDomainServices | Any | 允許 |
+| 65000    | AllVnetInBound | Any | Any | VirtualNetwork | VirtualNetwork | 允許 |
+| 65001    | AllowAzureLoadBalancerInBound | Any | Any | AzureLoadBalancer | Any | 允許 |
+| 65500    | DenyAllInBound | Any | Any | Any | Any | 拒絕 |
+
+### <a name="outbound-security-rules"></a>輸出安全性規則
+
+| Priority | Name | 連接埠 | Protocol | Source | Destination | Action |
+|----------|------|------|----------|--------|-------------|--------|
+| 65000    | AllVnetOutBound | Any | Any | VirtualNetwork | VirtualNetwork | 允許 |
+| 65001    | AllowAzureLoadBalancerOutBound | Any | Any |  Any | 網際網路 | 允許 |
+| 65500    | DenyAllOutBound | Any | Any | Any | Any | 拒絕 |
 
 >[!NOTE]
-> Azure AD Domain Services 會要求來自虛擬網路的對外存取不受限制。 建議您不要建立任何額外的 NSG 規則來限制虛擬網路的對外存取。
+> Azure AD DS 需要從虛擬網路進行不受限制的輸出存取。 我們不建議您建立任何額外的規則，以限制虛擬網路的輸出存取。
 
-## <a name="add-a-rule-to-a-network-security-group-using-the-azure-portal"></a>使用 Azure 入口網站將規則新增至網路安全性群組
-如果您不想使用 PowerShell，則可使用 Azure 入口網站，手動對 NSG 新增單一規則。 若要在網路安全性群組中建立規則，請完成下列步驟：
+## <a name="verify-and-edit-existing-security-rules"></a>驗證和編輯現有的安全性規則
 
-1. 在 Azure 入口網站中，瀏覽至 [網路安全性群組](https://portal.azure.com/#blade/HubsExtension/Resources/resourceType/Microsoft.Network%2FNetworkSecurityGroups) 頁面。
-2. 從表格中，選擇與已啟用您受控網域的子網路關聯的 NSG。
-3. 在左側面板的 [設定] 底下，按一下 [輸入安全性規則] 或 [輸出安全性規則]。
-4. 按一下 [新增] 並填入資訊來建立規則。 按一下 [確定]。
-5. 在規則資料表中尋找您的規則，確認規則已建立。
+若要確認現有的安全性規則，並確定預設通訊埠已開啟，請完成下列步驟：
 
+1. 在 Azure 入口網站中，搜尋並選取 **網路安全性群組**。
+1. 選擇與受控網域相關聯的網路安全性群組，例如*AADDS-contoso.com-NSG*。
+1. 在 [**總覽**] 頁面上，會顯示現有的輸入和輸出安全性規則。
 
-## <a name="need-help"></a>需要協助嗎？
-請連絡 Azure Active Directory Domain Services 產品小組， [分享意見或尋求支援](contact-us.md)。
+    檢查輸入和輸出規則，並與上一節中的必要規則清單進行比較。 如有需要，請選取並刪除任何會封鎖所需流量的自訂規則。 如果遺漏任何必要的規則，請在下一節中新增規則。
+
+    在您新增或刪除規則以允許所需的流量之後，Azure AD DS 受控網域的健康情況會在兩小時內自動更新，並移除警示。
+
+### <a name="add-a-security-rule"></a>新增安全性規則
+
+若要新增遺失的安全性規則，請完成下列步驟：
+
+1. 在 Azure 入口網站中，搜尋並選取 **網路安全性群組**。
+1. 選擇與受控網域相關聯的網路安全性群組，例如*AADDS-contoso.com-NSG*。
+1. 在左側面板的 [**設定**] 下，按一下 [*輸入安全性規則*] 或 [*輸出安全性規則*]，視您需要新增的規則而定。
+1. 選取 [**新增**]，然後根據埠、通訊協定、方向等來建立所需的規則。準備好時，請選取 **[確定]** 。
+
+新增安全性規則需要一些時間，並顯示在清單中。
+
+## <a name="next-steps"></a>後續步驟
+
+如果您仍有問題，請[開啟 Azure 支援要求][azure-support]以取得額外的疑難排解協助。
+
+<!-- INTERNAL LINKS -->
+[azure-support]: ../active-directory/fundamentals/active-directory-troubleshooting-support-howto.md
+[configure-ldaps]: tutorial-configure-ldaps.md

@@ -8,12 +8,12 @@ ms.service: security
 ms.topic: article
 ms.date: 07/31/2018
 ms.author: jomolesk
-ms.openlocfilehash: 12119097f08fbb221f644fa2d86bade78b054269
-ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
+ms.openlocfilehash: 2bd2510b3b7aa72ac5e66ac9910f1c941f276564
+ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/10/2019
-ms.locfileid: "68946739"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71259904"
 ---
 # <a name="azure-security-and-compliance-blueprint---data-analytics-for-nist-sp-800-171"></a>Azure 安全性與合規性藍圖 - 適用於 NIST SP 800-171 的資料分析
 
@@ -51,7 +51,7 @@ SQL Database 通常會透過 SQL Server Management Studio 來管理。 執行 SS
 - Azure Functions
 - Azure Key Vault
 - Azure Machine Learning
-- Azure 監視器 (記錄)
+- Azure 監視器（記錄）
 - Azure 資訊安全中心
 - Azure SQL Database
 - Azure 儲存體
@@ -133,11 +133,11 @@ Azure 預設會加密與 Azure 資料中心的所有通訊。 透過 Azure 入�
 
 Azure 服務會廣泛記錄系統、使用者活動及系統健康情況：
 - **活動記錄**：[活動記錄](../../azure-monitor/platform/activity-logs-overview.md)能讓您深入了解在訂用帳戶資源上執行的作業。 活動記錄可協助判斷作業的啟動者、發生時間和狀態。
-- **診斷記錄**：[診斷記錄](../../azure-monitor/platform/diagnostic-logs-overview.md)包含每個資源發出的所有記錄。 這些記錄包含 Windows 事件系統記錄、儲存體記錄、Key Vault 稽核記錄，以及 Azure 應用程式閘道存取和防火牆記錄。 所有診斷記錄都會寫入到集中且加密的 Azure 儲存體帳戶進行封存。 使用者可設定最多 730 天的保留期限，以符合其特定需求。
+- **診斷記錄**：[診斷記錄](../../azure-monitor/platform/resource-logs-overview.md)包含每個資源發出的所有記錄。 這些記錄包含 Windows 事件系統記錄、儲存體記錄、Key Vault 稽核記錄，以及 Azure 應用程式閘道存取和防火牆記錄。 所有診斷記錄都會寫入到集中且加密的 Azure 儲存體帳戶進行封存。 使用者可設定最多 730 天的保留期限，以符合其特定需求。
 
-**Azure 監視器記錄**：記錄會合並在[Azure 監視器記錄](https://azure.microsoft.com/services/log-analytics/)中, 以進行處理、儲存及儀表板報表。 所收集的資料會針對 Log Analytics 工作區內的每種資料類型組織成個別的資料表。 如此一來，所有的資料都能一起分析 (不論其原始來源為何)。 資訊安全中心與 Azure 監視器記錄整合。 客戶可以使用 Kusto 查詢來存取其安全性事件資料, 並將其與來自其他服務的資料合併。
+**Azure 監視器記錄**：記錄會合並在[Azure 監視器記錄](https://azure.microsoft.com/services/log-analytics/)中，以進行處理、儲存及儀表板報表。 所收集的資料會針對 Log Analytics 工作區內的每種資料類型組織成個別的資料表。 如此一來，所有的資料都能一起分析 (不論其原始來源為何)。 資訊安全中心與 Azure 監視器記錄整合。 客戶可以使用 Kusto 查詢來存取其安全性事件資料，並將其與來自其他服務的資料合併。
 
-下列 Azure[監視解決方案](../../monitoring/monitoring-solutions.md)包含在此架構中:
+下列 Azure[監視解決方案](../../monitoring/monitoring-solutions.md)包含在此架構中：
 -   [Active Directory 評定](../../azure-monitor/insights/ad-assessment.md)：Active Directory 健康情況檢查方案可定期評估伺服器環境的風險和健康情況。 其能針對已部署的伺服器基礎結構提供依照優先順序排列的具體建議清單。
 - [SQL 評定](../../azure-monitor/insights/sql-assessment.md)：SQL 健康情況檢查方案可定期評估伺服器環境的風險和健康情況。 其能針對已部署的伺服器基礎結構提供客戶依照優先順序排列的具體建議清單。
 - [代理程式健全狀況](../../monitoring/monitoring-solution-agenthealth.md)：代理程式健全狀況解決方案會報告部署的代理程式數目和其地理分佈。 還會報告沒有回應的代理程式數目和提交作業資料的代理程式數目。

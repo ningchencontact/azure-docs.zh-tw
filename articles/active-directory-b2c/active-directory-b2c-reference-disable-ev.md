@@ -1,38 +1,40 @@
 ---
-title: 在 Azure Active Directory B2C 中的取用者註冊期間停用電子郵件驗證 | Microsoft Docs
-description: 示範如何在 Azure Active Directory B2C 中的取用者註冊期間停用電子郵件驗證的主題。
+title: 在 Azure Active Directory B2C 中的客戶註冊期間停用電子郵件驗證
+description: 瞭解如何在 Azure Active Directory B2C 的客戶註冊期間停用電子郵件驗證。
 services: active-directory-b2c
 author: mmacy
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 11/30/2018
+ms.date: 09/25/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: d827843bdbaff1ad95dce3318f39867abe8b2d0f
-ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
+ms.openlocfilehash: 9a7adc04991dd4a472bdaf1aa47aacaf6cdeb190
+ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71065629"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71256921"
 ---
-# <a name="disable-email-verification-during-consumer-sign-up-in-azure-active-directory-b2c"></a>在取用者於 Azure Active Directory B2C 中註冊期間停用電子郵件驗證
-啟用時，Azure Active Directory B2C （Azure AD B2C）會提供電子郵件地址和建立本機帳戶，讓取用者能夠註冊應用程式。 Azure AD B2C 可透過要求取用者在註冊程序期間驗證其身分以確保電子郵件地址的有效性。 它也會防止惡意自動化程序為應用程式產生假帳戶。
+# <a name="disable-email-verification-during-customer-sign-up-in-azure-active-directory-b2c"></a>在 Azure Active Directory B2C 中的客戶註冊期間停用電子郵件驗證
 
-某些應用程式開發人員偏好在註冊程序期間跳過電子郵件驗證，改為讓取用者稍後在掙電子郵件地址。 為支援此方式，您可以將 Azure AD B2C 設定為停用電子郵件驗證。 這樣做可建立較為順暢的註冊程序，並提供區分已驗證電子郵件地址與未驗證電子郵件地址之取用者的彈性。
+根據預設，Azure Active Directory B2C （Azure AD B2C）會驗證您客戶的本機帳戶電子郵件地址（使用電子郵件地址或使用者名稱註冊之使用者的帳戶）。 Azure AD B2C 藉由要求客戶在註冊程式期間進行驗證，來確保有效的電子郵件地址。 它也可防止惡意執行者在您的應用程式中使用自動化進程來產生詐騙帳戶。
 
-根據預設值，註冊使用者流程會開啟電子郵件驗證。 使用下列步驟將它關閉：
+有些應用程式開發人員偏好在註冊過程中略過電子郵件驗證，而改為讓客戶在稍後驗證其電子郵件地址。 為支援此方式，您可以將 Azure AD B2C 設定為停用電子郵件驗證。 這麼做會建立更流暢的註冊程式，讓開發人員能夠彈性地區分已驗證其電子郵件地址的客戶，而不是。
 
-1. 按一下 [使用者流程]。
-2. 按一下您的使用者流程 (例如 "B2C_1_SiUp") 以將它開啟。
-3. 按一下 [頁面配置]。
-4. 按一下 [本機帳戶註冊頁面]。
-5. 按一下 [使用者屬性] 區段下 [名稱] 欄中的 [電子郵件地址]。
-6. 在 [需要驗證] 之下，選取 [否]。
-7. 按一下刀鋒視窗頂端的 [儲存] 。 大功告成！
+請遵循下列步驟來停用電子郵件驗證：
 
-> [!NOTE]
-> 在註冊程序期間停用電子郵件驗證可能會導致收到垃圾郵件。 若停用預設的項目，建議您新增自己的驗證系統。
->
->
+1. 登入 [Azure 入口網站](https://portal.azure.com)
+1. 使用上方功能表中的 [**目錄 + 訂**用帳戶] 篩選，選取包含您 Azure AD B2C 租使用者的目錄。
+1. 在左側功能表中，選取 [ **Azure AD B2C**]。 或者，選取 [**所有服務**]，然後搜尋並選取 [ **Azure AD B2C**]。
+1. 選取 [使用者流程]。
+1. 選取您要停用電子郵件驗證的使用者流程。 例如， *B2C_1_signinsignup*。
+1. 選取 [**頁面配置**]。
+1. 選取 [**本機帳戶註冊頁面**]。
+1. 在 [**使用者屬性**] 底下，選取 [**電子郵件地址**]。
+1. 在 [**需要驗證**] 下拉式選，選取 [**否**]。
+1. 選取 [儲存]。 此使用者流程的電子郵件驗證現已停用。
+
+> [!WARNING]
+> 在註冊程序期間停用電子郵件驗證可能會導致收到垃圾郵件。 如果您停用預設 Azure AD B2C 提供的電子郵件驗證，建議您執行更換驗證系統。

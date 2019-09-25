@@ -7,15 +7,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 07/10/2019
+ms.date: 09/26/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 281bd73671352e1e525e11a7bfde1882d3ef8864
-ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
+ms.openlocfilehash: eae82fbd56782faf5b15479c13fe530e189a0e3e
+ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71065428"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71256912"
 ---
 # <a name="manage-threats-to-resources-and-data-in-azure-active-directory-b2c"></a>管理對 Azure Active Directory B2C 中的資源與資料的威脅
 
@@ -37,10 +37,10 @@ Azure AD B2C 使用複雜的策略來鎖定帳戶。 帳戶會依據要求的 IP
 
 若要管理密碼保護設定，包括鎖定閾值：
 
-1. 瀏覽至 [Azure 入口網站](https://portal.azure.com)。
-1. 在入口網站的右上方功能表中選取 [**目錄 + 訂**用帳戶] 篩選，然後選取您的 Azure AD B2C 租使用者。
-1. 選取左側功能表中的 [ **Azure Active Directory** ] （或選取入口網站左上方區段中的 [**所有服務**]，然後搜尋並選取 [ *Azure Active Directory*]）。
-1. 在 [**安全性**] 底下，選取 [**驗證方法**]，然後選取 [**密碼保護**]。
+1. 登入 [Azure 入口網站](https://portal.azure.com)
+1. 使用上方功能表中的 [**目錄 + 訂**用帳戶] 篩選，選取包含您 Azure AD B2C 租使用者的目錄。
+1. 在左側功能表中，選取 [ **Azure AD B2C**]。 或者，選取 [**所有服務**]，然後搜尋並選取 [ **Azure AD B2C**]。
+1. 在 [**安全性**] 底下，選取 **[驗證方法（預覽）** ]，然後選取 [**密碼保護**]。
 1. 輸入您想要的密碼保護設定，然後選取 [**儲存**]。
 
     ![Azure AD 設定中的 Azure 入口網站密碼保護 頁面](media/active-directory-b2c-reference-threat-management/portal-02-password-protection.png)

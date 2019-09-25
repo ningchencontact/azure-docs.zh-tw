@@ -8,12 +8,12 @@ ms.service: security
 ms.topic: article
 ms.date: 08/23/2018
 ms.author: meladie
-ms.openlocfilehash: 50e410fc439be7b3a5f4c1e8d4bab5d60c3c4f52
-ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
+ms.openlocfilehash: 5fe9cfe642585c4f5220d79813816e554fdf48ef
+ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/10/2019
-ms.locfileid: "68946932"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71259191"
 ---
 # <a name="azure-security-and-compliance-blueprint---iaas-web-application-for-australia-protected"></a>Azure 安全性與合規性藍圖 - 適用於 Australia Protected 的 IaaS Web 應用程式
 
@@ -98,7 +98,7 @@ Azure 預設會加密與 Azure 資料中心的所有通訊。
 
 針對客戶自有網路中的傳輸中受保護資料，架構會使用網際網路或 ExpressRoute 搭配已使用 IPSEC 設定的 VPN 閘道。
 
-此外, 透過 Azure 管理入口網站對 Azure 進行的所有交易都是利用 TLS 1.2 以 HTTPS 進行。
+此外，透過 Azure 管理入口網站對 Azure 進行的所有交易都是利用 TLS 1.2 以 HTTPS 進行。
 
 ### <a name="data-at-rest"></a>待用資料
 架構會透過加密、資料庫稽核及其他量值來保護待用資料。
@@ -170,11 +170,11 @@ Azure 資訊安全中心提供依優先順序排列的安全性警示和事件�
 ### <a name="logging-and-auditing"></a>記錄與稽核
 Azure 服務會廣泛記錄系統、使用者活動及系統健康情況：
 - **活動記錄**：[活動記錄](../../azure-monitor/platform/activity-logs-overview.md)能讓您深入了解在訂用帳戶資源上執行的作業。 活動記錄可協助判斷作業的啟動者、發生時間和狀態。
-- **診斷記錄**：[診斷記錄](../../azure-monitor/platform/diagnostic-logs-overview.md)包含每個資源發出的所有記錄。 這些記錄包含 Windows 事件系統記錄、Azure 儲存體記錄、Key Vault 稽核記錄，以及應用程式閘道存取和防火牆記錄。 所有診斷記錄都會寫入到集中且加密的 Azure 儲存體帳戶進行封存。 保留期是由使用者自訂，視組織特定的保留期需求，最長可達 730 天。
+- **診斷記錄**：[診斷記錄](../../azure-monitor/platform/resource-logs-overview.md)包含每個資源發出的所有記錄。 這些記錄包含 Windows 事件系統記錄、Azure 儲存體記錄、Key Vault 稽核記錄，以及應用程式閘道存取和防火牆記錄。 所有診斷記錄都會寫入到集中且加密的 Azure 儲存體帳戶進行封存。 保留期是由使用者自訂，視組織特定的保留期需求，最長可達 730 天。
 
-**Azure 監視器記錄**：這些記錄會合並在[Azure 監視器記錄](https://azure.microsoft.com/services/log-analytics/)中, 以供處理、儲存及儀表板報告之用。 所收集的資料會針對每種資料類型組織成個別的資料表，以便一起分析所有的資料 (不論其原始來源為何)。 此外, Azure 資訊安全中心與 Azure 監視器記錄整合, 可讓客戶使用 Kusto 查詢來存取其安全性事件資料, 並將其與來自其他服務的資料合併。
+**Azure 監視器記錄**：這些記錄會合並在[Azure 監視器記錄](https://azure.microsoft.com/services/log-analytics/)中，以供處理、儲存及儀表板報告之用。 所收集的資料會針對每種資料類型組織成個別的資料表，以便一起分析所有的資料 (不論其原始來源為何)。 此外，Azure 資訊安全中心與 Azure 監視器記錄整合，可讓客戶使用 Kusto 查詢來存取其安全性事件資料，並將其與來自其他服務的資料合併。
 
-下列 Azure[監視解決方案](../../monitoring/monitoring-solutions.md)包含在此架構中:
+下列 Azure[監視解決方案](../../monitoring/monitoring-solutions.md)包含在此架構中：
 -   [Active Directory 評定](../../azure-monitor/insights/ad-assessment.md)：Active Directory 健康情況檢查解決方案會定期評估伺服器環境的風險和健康情況，並專門針對部署的伺服器基礎結構，提供優先的建議清單。
 - [SQL 評定](../../azure-monitor/insights/sql-assessment.md)：SQL 健康情況檢查解決方案會定期評估伺服器環境的風險和健康情況，並專門針對部署的伺服器架構，提供優先的建議清單給客戶。
 - [代理程式健全狀況](../../monitoring/monitoring-solution-agenthealth.md)：代理程式健全狀況解決方案會報告部署的代理程式數目和其地理分佈，以及沒有回應的代理程式數目和正在提交作業資料的代理程式數目。
@@ -184,7 +184,7 @@ Azure 服務會廣泛記錄系統、使用者活動及系統健康情況：
 
 **Azure 監視器**：[Azure 監視器](https://docs.microsoft.com/azure/monitoring-and-diagnostics/)由讓組織稽核、建立警示及封存資料，包括追蹤使用者 Azure 資源中的 API 呼叫，協助使用者追蹤效能、維護安全性和識別趨勢。
 
-[Azure 網路監看員](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview):Azure 網路監看員提供了相關工具，可對 Azure 虛擬網路中的資源進行監視、診斷、檢視計量，以及啟用或停用記錄。  實體應該跟對 NSG 與虛擬機器實作網路監看員流量記錄。 這些記錄應該存放在只用來存放安全性記錄的專屬儲存體帳戶中，而且必須使用角色行存取控制來保護對該儲存體帳戶的存取。
+[Azure 網路監看員](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview)：Azure 網路監看員提供了相關工具，可對 Azure 虛擬網路中的資源進行監視、診斷、檢視計量，以及啟用或停用記錄。  實體應該跟對 NSG 與虛擬機器實作網路監看員流量記錄。 這些記錄應該存放在只用來存放安全性記錄的專屬儲存體帳戶中，而且必須使用角色行存取控制來保護對該儲存體帳戶的存取。
 
 ## <a name="threat-model"></a>威脅模型
 此參考架構的資料流程圖可供[下載](https://aka.ms/au-protected-iaaswa-tm)，或可以在以下位置找到。 此模型可協助客戶在進行修改時，了解系統基礎結構中的潛在風險要點。

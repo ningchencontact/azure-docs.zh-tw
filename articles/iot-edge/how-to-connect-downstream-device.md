@@ -4,17 +4,17 @@ description: 如何設定下游或分葉裝置，以連線到 Azure IoT Edge 閘
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 06/07/2019
+ms.date: 09/07/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: 41039d148e0aae7303dbc95c832bed842acdcc90
-ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
+ms.openlocfilehash: 822e58d1d35cfb9b62565ca78ea2277b8d194bc0
+ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/15/2019
-ms.locfileid: "70999411"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71266113"
 ---
 # <a name="connect-a-downstream-device-to-an-azure-iot-edge-gateway"></a>將下游裝置連線到 Azure IoT Edge 閘道
 
@@ -33,6 +33,10 @@ ms.locfileid: "70999411"
 * 以數種語言逐步解說 Azure IoT 範例，以協助您開始使用。 
 
 在本文中，*閘道*和 *IoT Edge 閘道*這兩個詞是指設定為透明閘道的 IoT Edge 裝置。 
+
+## <a name="prerequisites"></a>必要條件 
+
+在 [設定 IoT Edge 裝置] 中產生的 [ **azure-iot-test-only.root.ca.cert.pem** ] 憑證檔案，以作為下游裝置上可用[的透明閘道](how-to-create-transparent-gateway.md)。 您的下游裝置會使用此憑證來驗證閘道裝置的身分識別。 
 
 ## <a name="prepare-a-downstream-device"></a>準備下游裝置
 
@@ -89,6 +93,14 @@ sudo update-ca-certificates
 ### <a name="windows"></a>Windows
 
 下列步驟是如何在 Windows 主機上安裝 CA 憑證的範例。 這個範例假設您使用的是必要條件文章中的**azure-iot-test-only.root.ca.cert.pem**憑證，而且您已將憑證複製到下游裝置上的某個位置。
+
+您可以使用 PowerShell 的「匯[入憑證](https://docs.microsoft.com/powershell/module/pkiclient/import-certificate?view=win10-ps)」作為系統管理員來安裝憑證：
+
+```powershell
+import-certificate  <file path>\azure-iot-test-only.root.ca.cert.pem -certstorelocation cert:\LocalMachine\root
+```
+
+您也可以使用**certlm.msc**公用程式來安裝憑證： 
 
 1. 在 [開始] 功能表中，搜尋並選取 [管理電腦憑證]。 稱為 **certlm** 的公用程式隨即開啟。
 2. 瀏覽至 [憑證 - 本機電腦] >  [受信任的根憑證授權單位]。

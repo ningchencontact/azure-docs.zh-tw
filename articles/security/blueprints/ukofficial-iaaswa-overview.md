@@ -8,12 +8,12 @@ ms.service: security
 ms.topic: article
 ms.date: 02/08/2018
 ms.author: jomolesk
-ms.openlocfilehash: 602e4356ccd9eb45855462a7a25e0966dc176b4f
-ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
+ms.openlocfilehash: 4a30e496c96fcc90417e58b0f921717985b89693
+ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69899932"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71262790"
 ---
 # <a name="azure-security-and-compliance-blueprint---three-tier-iaas-web-application-for-uk-official"></a>Azure 安全性與合規性藍圖 - 適用於 UK OFFICIAL 的三層式 IaaS Web 應用程式
 
@@ -25,7 +25,7 @@ ms.locfileid: "69899932"
 
  NCSC 建議客戶使用他們的雲端安全性原則來評估服務的安全性屬性，並協助了解客戶與供應商之間的責任分工。 我們已針對每個原則提供相關資訊，以協助您了解責任的劃分方式。
 
- Microsoft 技術白皮書[使用 Microsoft Azure 對於英國雲端的 14 個安全性控制措施](https://gallery.technet.microsoft.com/14-Cloud-Security-Controls-670292c1) \(英文\) 支援此架構和對應的 Azure Resource Manager 範本。 本白皮書目錄配合 Azure 服務如何與英國 NCSC 14 雲端安全性準則一致, 藉此讓組織能夠以全球和英國的 Microsoft Azure, 快速追蹤其滿足其合規性義務的能力形成.
+ Microsoft 技術白皮書[使用 Microsoft Azure 對於英國雲端的 14 個安全性控制措施](https://gallery.technet.microsoft.com/14-Cloud-Security-Controls-670292c1) \(英文\) 支援此架構和對應的 Azure Resource Manager 範本。 本白皮書目錄配合 Azure 服務如何與英國 NCSC 14 雲端安全性準則一致，藉此讓組織能夠以全球和英國的 Microsoft Azure，快速追蹤其滿足其合規性義務的能力形成.
 
  此範本會針對工作負載部署基礎結構。 必須安裝並設定應用程式程式碼及支援的商務層和資料層的軟體。 詳細的部署指示可於[這裡](https://aka.ms/ukwebappblueprintrepo) \(英文\) 取得。
 
@@ -172,7 +172,7 @@ ms.locfileid: "69899932"
 
 **活動記錄**：設定 [Azure 活動記錄](../../azure-monitor/platform/activity-logs-overview.md)，以針對在訂用帳戶中資源上所執行的作業提供深入解析。
 
-**診斷記錄**：[診斷記錄](../../azure-monitor/platform/diagnostic-logs-overview.md)是資源發出的所有記錄。 這些記錄可能包含 Windows 事件系統記錄、Blob、資料表和佇列記錄。
+**診斷記錄**：[診斷記錄](../../azure-monitor/platform/resource-logs-overview.md)是資源發出的所有記錄。 這些記錄可能包含 Windows 事件系統記錄、Blob、資料表和佇列記錄。
 
 **防火牆記錄**：應用程式閘道會提供完整的診斷和存取記錄。 防火牆記錄可供已啟用 WAF 的應用程式閘道資源使用。
 
@@ -226,7 +226,7 @@ Crown Commercial Service (一所致力於改善政府相關商業和採購活動
 
 ## <a name="deploy-the-solution"></a>部署解決方案
 
-部署使用者可以用兩種方法來部署此藍圖自動化。 第一種方法會使用 PowerShell 腳本, 而第二種方法會利用 Azure 入口網站來部署參考架構。 詳細的部署指示可於[這裡](https://aka.ms/ukofficial-iaaswa-repo) \(英文\) 取得。
+部署使用者可以用兩種方法來部署此藍圖自動化。 第一種方法會使用 PowerShell 腳本，而第二種方法會利用 Azure 入口網站來部署參考架構。 詳細的部署指示可於[這裡](https://aka.ms/ukofficial-iaaswa-repo) \(英文\) 取得。
 
 ## <a name="disclaimer"></a>免責聲明
 

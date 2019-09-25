@@ -12,23 +12,23 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 07/18/2019
 ms.author: bwren
-ms.openlocfilehash: b9a4a0a18e120a2843e23d44b03c0fe53b0d84fc
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: 0fe174f309656011a1d05762927e254ff210b1e7
+ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68370686"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71262017"
 ---
 # <a name="standard-properties-in-azure-monitor-logs"></a>Azure 監視器記錄中的標準屬性
-Azure 監視器記錄檔中的資料會[儲存為 Log Analytics 工作區或 Application Insights 應用程式中的一組記錄](../log-query/logs-structure.md), 每一個都具有具有一組唯一屬性的特定資料類型。 有許多資料類型都具有多種類型之間通用的標準屬性。 本文將說明這些屬性，並提供在查詢中加以使用的範例。
+Azure 監視器記錄檔中的資料會[儲存為 Log Analytics 工作區或 Application Insights 應用程式中的一組記錄](../log-query/logs-structure.md)，每一個都具有具有一組唯一屬性的特定資料類型。 有許多資料類型都具有多種類型之間通用的標準屬性。 本文將說明這些屬性，並提供在查詢中加以使用的範例。
 
 > [!NOTE]
-> 某些標準 propertis 不會顯示在 Log Analytics 中的架構視圖或 intellisense 中, 除非您在輸出中明確指定屬性, 否則不會顯示在查詢結果中。
+> 某些標準 propertis 不會顯示在 Log Analytics 中的架構視圖或 intellisense 中，除非您在輸出中明確指定屬性，否則不會顯示在查詢結果中。
 
 ## <a name="timegenerated-and-timestamp"></a>TimeGenerated 和時間戳記
-**TimeGenerated** (Log Analytics 工作區) 和**時間戳記**(Application Insights 應用程式) 屬性包含資料來源建立記錄的日期和時間。 如需詳細資訊, 請參閱[Azure 監視器中的記錄資料內建時間](data-ingestion-time.md)。
+**TimeGenerated** （Log Analytics 工作區）和**時間戳記**（Application Insights 應用程式）屬性包含資料來源建立記錄的日期和時間。 如需詳細資訊，請參閱[Azure 監視器中的記錄資料內建時間](data-ingestion-time.md)。
 
-**TimeGenerated**和**timestamp**提供通用的屬性, 可用於依時間篩選或摘要。 當您在 Azure 入口網站中選取視圖或儀表板的時間範圍時, 它會使用 TimeGenerated 或 timestamp 來篩選結果。 
+**TimeGenerated**和**timestamp**提供通用的屬性，可用於依時間篩選或摘要。 當您在 Azure 入口網站中選取視圖或儀表板的時間範圍時，它會使用 TimeGenerated 或 timestamp 來篩選結果。 
 
 ### <a name="examples"></a>範例
 
@@ -52,9 +52,9 @@ exceptions
 ```
 
 ## <a name="_timereceived"></a>\_TimeReceived
-TimeReceived 屬性包含 Azure 雲端中的 Azure 監視器內嵌點收到記錄的日期和時間。 **\_** 這有助於識別資料來源與雲端之間的延遲問題。 其中一個例子就是網路問題, 這會造成從代理程式傳送資料的延遲。 如需詳細資訊, 請參閱[Azure 監視器中的記錄資料內建時間](data-ingestion-time.md)。
+TimeReceived 屬性包含 Azure 雲端中的 Azure 監視器內嵌點收到記錄的日期和時間。 **\_** 這有助於識別資料來源與雲端之間的延遲問題。 其中一個範例是網路問題，會造成從代理程式傳送資料的延遲。 如需詳細資訊，請參閱[Azure 監視器中的記錄資料內建時間](data-ingestion-time.md)。
 
-下列查詢提供來自代理程式之事件記錄的平均延遲 (以小時為單位)。 這包括從代理程式到雲端的時間, 以及記錄查詢可使用的總時間。
+下列查詢提供來自代理程式之事件記錄的平均延遲（以小時為單位）。 這包括從代理程式到雲端的時間，以及記錄查詢可使用的總時間。
 
 ```Kusto
 Event
@@ -66,7 +66,7 @@ Event
 ``` 
 
 ## <a name="type-and-itemtype"></a>類型和 itemType
-[**類型**(Log Analytics 工作區)] 和 [ **itemType** (Application Insights 應用程式)] 屬性會保存從中抓取記錄之資料表的名稱, 也可以將其視為記錄類型。 在結合多份資料表中記錄的查詢中 (例如使用 `search` 運算子的那些查詢)，此屬性十分適合用來區分不同類型的記錄。 **$table** 可用來取代某些位置中的**類型**。
+[**類型**（Log Analytics 工作區）] 和 [ **itemType** （Application Insights 應用程式）] 屬性會保存從中抓取記錄之資料表的名稱，也可以將其視為記錄類型。 在結合多份資料表中記錄的查詢中 (例如使用 `search` 運算子的那些查詢)，此屬性十分適合用來區分不同類型的記錄。 **$table** 可用來取代某些位置中的**類型**。
 
 ### <a name="examples"></a>範例
 下列查詢會依據類型傳回過去一小時所收集的記錄計數。
@@ -115,7 +115,7 @@ AzureActivity
 ) on _ResourceId  
 ```
 
-下列查詢會剖析 **_ResourceId** , 並匯總每個 Azure 訂用帳戶的計費資料量。
+下列查詢會剖析 **_ResourceId** ，並匯總每個 Azure 訂用帳戶的計費資料量。
 
 ```Kusto
 union withsource = tt * 
@@ -167,7 +167,7 @@ union withsource = tt *
 | summarize Bytes=sum(_BilledSize) by  Computer | sort by Bytes nulls last 
 ```
 
-若要查看每個訂用帳戶所內嵌的可計費事件大小, 請使用下列查詢:
+若要查看每個訂用帳戶所內嵌的可計費事件大小，請使用下列查詢：
 
 ```Kusto
 union withsource=table * 
@@ -176,7 +176,7 @@ union withsource=table *
 | summarize Bytes=sum(_BilledSize) by  SubscriptionId | sort by Bytes nulls last 
 ```
 
-若要查看每個資源群組內嵌的可計費事件大小, 請使用下列查詢:
+若要查看每個資源群組內嵌的可計費事件大小，請使用下列查詢：
 
 ```Kusto
 union withsource=table * 
@@ -202,7 +202,7 @@ union withsource = tt *
 | summarize count() by Computer  | sort by count_ nulls last
 ```
 
-若要從特定電腦查看可計費資料類型的計數, 請使用下列查詢:
+若要從特定電腦查看可計費資料類型的計數，請使用下列查詢：
 
 ```Kusto
 union withsource = tt *

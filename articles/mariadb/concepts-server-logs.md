@@ -6,22 +6,22 @@ ms.author: raagyema
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 06/12/2019
-ms.openlocfilehash: 7a517be49a249b0b73c901137381bd05946aa4cc
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 10dbd4d7fa838ee7f8a3f70b3caadb570877d685
+ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67065708"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71259977"
 ---
-# <a name="slow-query-logs-in-azure-database-for-mariadb"></a>適用於 MariaDB 慢速查詢記錄檔中的 Azure 資料庫
+# <a name="slow-query-logs-in-azure-database-for-mariadb"></a>適用於 MariaDB 的 Azure 資料庫中的緩慢查詢記錄
 在適用於 MariaDB 的 Azure 資料庫中，使用者可以使用慢速查詢記錄檔。 不支援存取交易記錄。 慢速查詢記錄檔可以用來找出效能瓶頸，以進行疑難排解。
 
 如需慢速查詢記錄檔的詳細資訊，請參閱 MariaDB 文件的[慢速查詢記錄檔](https://mariadb.com/kb/en/library/slow-query-log-overview/) (英文)。
 
-## <a name="access-slow-query-logs"></a>存取慢速查詢記錄
-您可以列出並下載適用於 MariaDB 慢速查詢記錄，使用 Azure 入口網站和 Azure CLI 的 Azure 資料庫。
+## <a name="access-slow-query-logs"></a>存取緩慢查詢記錄
+您可以使用 Azure 入口網站和 Azure CLI，列出並下載適用於 MariaDB 的 Azure 資料庫慢速查詢記錄。
 
-在 Azure 入口網站中，選取適用於 MariaDB 的 Azure 資料庫伺服器。 在 [監視]  標題下方，選取 [伺服器記錄]  頁面。
+在 Azure 入口網站中，選取適用於 MariaDB 的 Azure 資料庫伺服器。 在 [監視] 標題下方，選取 [伺服器記錄] 頁面。
 
 如需 Azure CLI 的詳細資訊，請參閱[使用 Azure CLI 設定和存取伺服器記錄](howto-configure-server-logs-cli.md)。
 
@@ -43,10 +43,10 @@ ms.locfileid: "67065708"
 如需慢速查詢記錄檔參數的完整描述，請參閱 MariaDB [慢速查詢記錄檔文件](https://mariadb.com/kb/en/library/slow-query-log-overview/)。
 
 ## <a name="diagnostic-logs"></a>診斷記錄
-適用於 MariaDB 的 azure 資料庫與 Azure 監視器的診斷記錄檔整合。 一旦您啟用慢速查詢記錄 MariaDB 伺服器上，您可以選擇將它們發出給 Azure 監視器記錄檔、 事件中樞或 Azure 儲存體。 若要深入了解如何啟用診斷記錄，請參閱[診斷記錄文件](../azure-monitor/platform/diagnostic-logs-overview.md)的操作說明一節。
+適用於 MariaDB 的 Azure 資料庫已與 Azure 監視器診斷記錄整合。 在適用于 mariadb 伺服器上啟用慢速查詢記錄檔之後，您可以選擇讓它們發出 Azure 監視器記錄、事件中樞或 Azure 儲存體。 若要深入了解如何啟用診斷記錄，請參閱[診斷記錄文件](../azure-monitor/platform/resource-logs-overview.md)的操作說明一節。
 
 > [!IMPORTANT]
-> 此診斷功能的伺服器記錄檔僅適用於一般用途和記憶體最佳化[定價層](concepts-pricing-tiers.md)。
+> 此診斷功能適用于伺服器記錄，僅適用于一般用途和記憶體優化[定價層](concepts-pricing-tiers.md)。
 
 下表描述每個記錄的內容。 視輸出方法而定，包含的欄位及其出現的順序可能有所不同。
 
@@ -54,7 +54,7 @@ ms.locfileid: "67065708"
 |---|---|
 | `TenantId` | 您的租用戶識別碼 |
 | `SourceSystem` | `Azure` |
-| `TimeGenerated` [UTC] | 以 UTC 記錄記錄時的時間戳記 |
+| `TimeGenerated`UTC | 以 UTC 記錄記錄時的時間戳記 |
 | `Type` | 記錄的類型。 一律為 `AzureDiagnostics` |
 | `SubscriptionId` | 伺服器所屬訂用帳戶的 GUID |
 | `ResourceGroup` | 伺服器所屬資源群組的名稱 |
@@ -65,7 +65,7 @@ ms.locfileid: "67065708"
 | `Category` | `MySqlSlowLogs` |
 | `OperationName` | `LogEvent` |
 | `Logical_server_name_s` | 伺服器的名稱 |
-| `start_time_t` [UTC] | 查詢開始時間 |
+| `start_time_t`UTC | 查詢開始時間 |
 | `query_time_s` | 執行查詢所花費的總時間 |
 | `lock_time_s` | 查詢遭到鎖定的總時間 |
 | `user_host_s` | 使用者名稱 |
@@ -75,7 +75,7 @@ ms.locfileid: "67065708"
 | `insert_id_s` | 插入識別碼 |
 | `sql_text_s` | 完整查詢 |
 | `server_id_s` | 伺服器識別碼 |
-| `thread_id_s` | 執行緒識別碼 |
+| `thread_id_s` | 執行緒 ID |
 | `\_ResourceId` | 資源 URI |
 
 ## <a name="next-steps"></a>後續步驟

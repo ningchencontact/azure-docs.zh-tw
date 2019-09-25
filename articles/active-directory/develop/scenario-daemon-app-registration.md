@@ -16,12 +16,12 @@ ms.date: 09/15/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5f590010a655fb01529a4a59b5540cc03068f2b8
-ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
+ms.openlocfilehash: fddd95564e3683aaee067f0442573c41e93376dd
+ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71056481"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71264383"
 ---
 # <a name="daemon-app-that-calls-web-apis---app-registration"></a>呼叫 web Api 的 Daemon 應用程式-應用程式註冊
 
@@ -29,7 +29,7 @@ ms.locfileid: "71056481"
 
 ## <a name="supported-account-types"></a>支援的帳戶類型
 
-假設 daemon 應用程式只在 Azure AD 租使用者中有意義，當您建立應用程式時，您將需要選擇：
+假設 daemon 應用程式只在 Azure AD 租使用者中有意義，當您建立應用程式時，您必須選擇：
 
 - **僅限此組織目錄中的帳戶**。 這是最常見的情況，因為 daemon 應用程式通常是由企業營運（LOB）開發人員所撰寫。
 - 或**任何組織目錄中的帳戶**。 如果您是為客戶提供公用程式工具的 ISV，則會進行這種選擇。 您將需要客戶的租使用者系統管理員核准它。
@@ -43,6 +43,9 @@ ms.locfileid: "71056481"
 Daemon 應用程式只能要求應用程式對 Api 的許可權（而非委派的許可權）。 在應用程式註冊的 [ **API 許可權**] 頁面中，選取 [**新增許可權**] 並選擇 API 系列之後，選擇 [**應用程式許可權**]，然後選取您的許可權
 
 ![應用程式許可權和系統管理員同意](media/scenario-daemon-app/app-permissions-and-admin-consent.png)
+
+> [!NOTE]
+> 您想要呼叫的 Web API 必須定義**應用程式許可權（應用程式角色）** ，而不是委派的許可權。 如需如何公開這類 API 的詳細資訊， [請參閱受保護的 Web API：應用程式註冊-當您的 Web API 由 daemon 應用程式呼叫時](https://docs.microsoft.com/en-us/azure/active-directory/develop/scenario-protected-web-api-app-registration#if-your-web-api-is-called-by-a-daemon-app)
 
 Daemon 應用程式需要有租使用者管理員預先同意呼叫 Web API 的應用程式。 在同一個提供此同意 **API 權限** 頁面上，選取您建立租用戶系統管理員 **授與系統管理員同意 *我們的組織***
 

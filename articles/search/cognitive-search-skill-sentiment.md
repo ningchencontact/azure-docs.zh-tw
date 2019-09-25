@@ -9,13 +9,12 @@ ms.workload: search
 ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: luisca
-ms.subservice: cognitive-search
-ms.openlocfilehash: ad6689dad3789329ad202c82dd10847c618906a2
-ms.sourcegitcommit: 7a6d8e841a12052f1ddfe483d1c9b313f21ae9e6
+ms.openlocfilehash: 8610506b7d62542e9eb801b06dd49a5e130fa7fa
+ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70183363"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71265747"
 ---
 #   <a name="sentiment-cognitive-skill"></a>情感認知技能
 
@@ -31,7 +30,7 @@ ms.locfileid: "70183363"
 Microsoft.Skills.Text.SentimentSkill
 
 ## <a name="data-limits"></a>資料限制
-記錄的大小上限應為5000個字元, 如所測量[`String.Length`](https://docs.microsoft.com/dotnet/api/system.string.length)。 如果您需要先分割資料，再將該資料傳送至情感分析器，請使用[文字分割技能](cognitive-search-skill-textsplit.md)。
+記錄的大小上限應為5000個字元，如所測量[`String.Length`](https://docs.microsoft.com/dotnet/api/system.string.length)。 如果您需要先分割資料，再將該資料傳送至情感分析器，請使用[文字分割技能](cognitive-search-skill-textsplit.md)。
 
 
 ## <a name="skill-parameters"></a>技能參數

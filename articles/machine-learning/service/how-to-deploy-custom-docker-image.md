@@ -10,12 +10,12 @@ ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
 ms.date: 08/22/2019
-ms.openlocfilehash: a9992fbaa20b0137fd503992fc9efba11c2dfd3b
-ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
+ms.openlocfilehash: b86c0d0de95581f7a47de428ffbf0b161353df83
+ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71213502"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71260754"
 ---
 # <a name="deploy-a-model-using-a-custom-docker-base-image"></a>使用自訂的 Docker 基底映射部署模型
 
@@ -58,7 +58,7 @@ Azure Machine Learning 提供預設的 Docker 基底映射，因此您不必擔�
     使用儲存在__工作區的容器__登錄中的映射時，您不需要向登錄進行驗證。 驗證是由工作區負責處理。
 
     > [!WARNING]
-    > 您的工作區的 Azure Container Rzegistry 會__在您第一次使用工作區定型或部署模型時建立__。 如果您已建立新的工作區，但未定型或建立模型，則工作區不會有任何 Azure Container Registry。
+    > 第一次使用工作區__訓練或部署模型__時，會建立工作區的 Azure Container Registry。 如果您已建立新的工作區，但未定型或建立模型，則工作區不會有任何 Azure Container Registry。
 
     如需有關抓取工作區 Azure Container Registry 名稱的詳細資訊，請參閱本文的[取得容器登錄名稱](#getname)一節。
 

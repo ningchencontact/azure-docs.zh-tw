@@ -11,12 +11,12 @@ ms.reviewer: maghan
 manager: jroth
 ms.topic: conceptual
 ms.date: 08/14/2019
-ms.openlocfilehash: e522cba88eaf9cb63ef7ef2f20e3b72691261073
-ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
+ms.openlocfilehash: 4386a7adba17eefe3c373697597abdb7d69c476a
+ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/15/2019
-ms.locfileid: "71002410"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71265974"
 ---
 # <a name="continuous-integration-and-delivery-cicd-in-azure-data-factory"></a>Azure Data Factory 中的持續整合和傳遞 (CI/CD)
 
@@ -669,7 +669,7 @@ else {
 
 ## <a name="hot-fix-production-branch"></a>熱修復生產分支
 
-如果您將工廠部署到生產環境，併發現需要立即修正的 bug，但是您無法部署目前的共同作業分支，則可能需要部署熱修復。
+如果您將工廠部署到生產環境，併發現需要立即修正的 bug，但是您無法部署目前的共同作業分支，則可能需要部署熱修復。 這種方法稱為快速修正程式設計或 QFE。 
 
 1.  在 Azure DevOps 中，移至已部署至生產環境的版本，並尋找已部署的最後一個認可。
 
@@ -705,8 +705,11 @@ else {
 
 ## <a name="unsupported-features"></a>不支援的功能
 
--   您無法發行個別的資源。 Data factory 實體彼此相依，追蹤變更的相依性可能會很棘手，因而導致非預期的行為。 例如，觸發程式取決於管線，管線相依于資料集和其他管線，依此類推。 如果可以只發佈整個變更集的子集，可能會發生某些未預期的錯誤。
+- 根據設計，ADF_不_允許揀選挑選認可或選擇性發佈資源。 發行將包含在 data factory 中進行的**所有**變更
 
--   您無法從私人分支發佈。
+    - Data factory 實體彼此相依，例如，觸發程式取決於管線、管線相依于資料集和其他管線等等。選擇性發佈資源子集_可能_會導致未預期的行為和錯誤
+    - 在需要選擇性發佈的罕見情況下，您可以考慮使用熱修復。 如需詳細資訊，請參閱[熱修復生產分支](#hot-fix-production-branch)
 
--   您無法在 Bitbucket 上裝載專案。
+-   您無法從私人分支發佈
+
+-   從現在開始，您無法在 Bitbucket 上裝載專案

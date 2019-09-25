@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/28/2018
 ms.author: spelluru
-ms.openlocfilehash: bd62624406adb006fdcd7d59f72db3fb5e1848a0
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 9933b7857580f29cbb6a54ebc82d4e7207456ad4
+ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60421791"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71261796"
 ---
 # <a name="azure-relay-metrics-in-azure-monitor-preview"></a>Azure 監視器中的 Azure 轉送計量 (預覽)
 Azure 轉送計量會提供您 Azure 訂用帳戶中的資源狀態。 您可以使用豐富的計量資料集，評估轉送資源的整體健康狀態，不只在命名空間層級，還有實體層級。 這些統計資料相當重要，因為它們可協助您監視 Azure 轉送的狀態。 計量也可協助針對問題的根本原因進行疑難排解，而不需要連絡 Azure 支援。
@@ -33,7 +33,7 @@ Azure 轉送計量會提供您 Azure 訂用帳戶中的資源狀態。 您可以
 
 Azure 監視器提供了多種方法供您存取計量。 您可以透過 [Azure 入口網站](https://portal.azure.com)來存取計量，或使用「Azure 監視器」API (REST 和 .NET) 和分析解決方案 (例如 Operation Management Suite 和「事件中樞」) 來存取計量。 如需詳細資訊，請參閱[監視 Azure 監視器所收集的資料](../azure-monitor/platform/data-platform.md)。
 
-計量是預設啟用的功能，您可以存取最近 30 天的資料。 如果您需要延長這些資料的保留時間，您可以將計量資料封存到 Azure 儲存體帳戶。 此功能可於 Azure 監視器的[診斷設定](../azure-monitor/platform/diagnostic-logs-overview.md#diagnostic-settings)中進行設定。
+計量是預設啟用的功能，您可以存取最近 30 天的資料。 如果您需要延長這些資料的保留時間，您可以將計量資料封存到 Azure 儲存體帳戶。 此功能可於 Azure 監視器的[診斷設定](../azure-monitor/platform/diagnostic-settings.md)中進行設定。
 
 ## <a name="access-metrics-in-the-portal"></a>在入口網站中存取計量
 
@@ -41,13 +41,13 @@ Azure 監視器提供了多種方法供您存取計量。 您可以透過 [Azure
 
 ![][1]
 
-您也可以直接透過命名空間來存取計量。 若要這樣做，請選取您的命名空間，然後按一下 [Metrics (Peview)] \(計量 (預覽))  。 
+您也可以直接透過命名空間來存取計量。 若要這樣做，請選取您的命名空間，然後按一下 [Metrics (Peview)] \(計量 (預覽))。 
 
 如需支援維度的計量，您必須使用所需的維度值來進行篩選。
 
-## <a name="billing"></a>計費
+## <a name="billing"></a>帳務
 
-在預覽版「Azure 監視器」中使用計量目前是免費的。 不過，如果您使用內嵌計量資料的額外解決方案，可能就需支付這些解決方案的使用費。 例如，如果您將計量資料封存到 Azure 儲存體帳戶，就要支付 Azure 儲存體的使用費。 如果您要進行進階分析的 Azure 監視器記錄檔的計量資料串流，則也會計費由 Azure 監視器的記錄。
+在預覽版「Azure 監視器」中使用計量目前是免費的。 不過，如果您使用內嵌計量資料的額外解決方案，可能就需支付這些解決方案的使用費。 例如，如果您將計量資料封存到 Azure 儲存體帳戶，就要支付 Azure 儲存體的使用費。 如果您將計量資料串流至 Azure 監視器記錄以進行先進的分析，則也會以 Azure 監視器記錄來計費。
 
 下列計量會提供您服務健康狀態的概觀。 
 
@@ -58,7 +58,7 @@ Azure 監視器提供了多種方法供您存取計量。 您可以透過 [Azure
 
 ## <a name="connection-metrics"></a>連接計量
 
-| 度量名稱 | 描述 |
+| 計量名稱 | 描述 |
 | ------------------- | ----------------- |
 | ListenerConnections-Success (預覽) | 指定時段內，接聽程式成功連接到 Azure 轉送的數目。 <br/><br/> 單位：Count <br/> 彙總類型：總計 <br/> 維度：EntityName|
 |ListenerConnections-ClientError (預覽)|指定時段內，接聽程式連線發生的用戶端錯誤數目。<br/><br/> 單位：Count <br/> 彙總類型：總計 <br/> 維度：EntityName|
@@ -75,7 +75,7 @@ Azure 監視器提供了多種方法供您存取計量。 您可以透過 [Azure
 
 ## <a name="memory-usage-metrics"></a>記憶體使用量計量
 
-| 度量名稱 | 描述 |
+| 計量名稱 | 描述 |
 | ------------------- | ----------------- |
 |BytesTransferred (預覽)|在指定時段內，傳輸的位元組數目。<br/><br/> 單位：位元組 <br/> 彙總類型：總計 <br/> 維度：EntityName|
 

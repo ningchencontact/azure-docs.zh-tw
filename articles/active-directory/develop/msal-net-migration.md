@@ -17,25 +17,33 @@ ms.author: jmprieur
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d4de1fa903120fa6adc50d34428d8c3e2a28cf23
-ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
+ms.openlocfilehash: 9a132834952d2654f400217bd6eed1a3745efbf9
+ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68835011"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71264262"
 ---
 # <a name="migrating-applications-to-msalnet"></a>將應用程式遷移至 Azure
 
-適用於 .NET 的 Microsoft 驗證程式庫 (MSAL.NET) 和適用於 .NET 的 Azure AD 驗證程式庫 (ADAL.NET) 都用來驗證 Azure AD 實體以及向 Azure AD 要求權杖。 到目前為止，大多數開發人員都已使用 Azure AD 驗證程式庫 (ADAL) 要求權杖，進而使用開發人員適用的 Azure AD 平台 (v1.0) 驗證 Azure AD 身分識別 (公司和學校帳戶)。 現在使用 MSAL.NET，您就可以透過 Microsoft 身分識別平台端點，驗證更廣泛的 Microsoft 身分識別 (Azure AD 身分識別和 Microsoft 帳戶，以及透過 Azure AD B2C 的社交和本機帳戶)。 
+適用於 .NET 的 Microsoft 驗證程式庫 (MSAL.NET) 和適用於 .NET 的 Azure AD 驗證程式庫 (ADAL.NET) 都用來驗證 Azure AD 實體以及向 Azure AD 要求權杖。 到目前為止，大多數開發人員都已使用 Azure AD 驗證程式庫 (ADAL) 要求權杖，進而使用開發人員適用的 Azure AD 平台 (v1.0) 驗證 Azure AD 身分識別 (公司和學校帳戶)。 使用 MSAL：
 
-本文說明如何在適用於 .NET 的 Microsoft 驗證程式庫 (MSAL.NET) 和適用於 .NET 的 Azure AD 驗證程式庫 (ADAL.NET) 之間做選擇，並比較這兩個程式庫。  
+- 您可以使用 Microsoft 身分識別平臺端點，驗證更廣泛的 Microsoft 身分識別集（Azure AD 身分識別和 Microsoft 帳戶，以及透過 Azure AD B2C 的社交和本機帳戶）。
+- 您的使用者將獲得最佳的單一登入體驗。
+- 您的應用程式可以啟用累加式同意，而且支援條件式存取變得更容易
+- 您可以從創新中獲益。
+
+**MSAL.NET 現在是建議用於 Microsoft 身分識別平臺的驗證程式庫**。 在 ADAL.NET 上不會執行任何新功能。 致力於改善 MSAL。
+
+本文說明適用于 .net 的 Microsoft 驗證程式庫（MSAL.NET）和適用于 .NET 的 Azure AD 驗證程式庫（ADAL.NET）之間的差異，並協助您遷移至 MSAL。  
 
 ## <a name="differences-between-adal-and-msal-apps"></a>ADAL 與 MSAL 應用程式之間的差異
+
 在大部分情況下，您想使用 MSAL.NET 和 Microsoft 身分識別平台端點，也就是最新一代的 Microsoft 驗證程式庫。 使用 MSAL.NET 取得權杖，以供使用者利用 Azure AD (公司和學校帳戶)、Microsoft (個人) 帳戶 (MSA) 或 Azure AD B2C 登入您的應用程式。 
 
 如果您已熟悉開發人員適用的 Azure AD (v1.0) 端點 (和 ADAL.NET)，您可以閱讀 [Microsoft 身分識別平台 (v2.0) 端點有何不同？](active-directory-v2-compare.md)。
 
-不過，如果您的應用程式需要使用舊版的 [Active Directory 同盟服務 (ADFS)](/windows-server/identity/active-directory-federation-services) 登入使用者，您仍然需要使用 ADAL.NET。 如需詳細資訊，請參閱 [ADFS 支援](https://aka.ms/msal-net-adfs-support)。
+不過，如果您的應用程式需要使用舊版的 [Active Directory 同盟服務 (ADFS)](/windows-server/identity/active-directory-federation-services) 登入使用者，您仍然需要使用 ADAL.NET。 如需詳細資訊，請參閱[ADFS 支援](https://aka.ms/msal-net-adfs-support)。
 
 下圖摘要說明 ADAL.NET 與 MSAL.NET 之間的一些差異：![並排顯示程式碼](./media/msal-compare-msaldotnet-and-adaldotnet/differences.png)
 
@@ -47,7 +55,7 @@ ADAL.NET 取用自 [Microsoft.IdentityModel.Clients.ActiveDirectory](https://www
 
 ### <a name="scopes-not-resources"></a>範圍，而非資源
 
-ADAL.NET 可取得「資源」  的權杖，但 MSAL.NET 可取得「範圍」  的權杖。 有些 MSAL.NET AcquireToken 覆寫需要名為 scopes 的參數 (`IEnumerable<string> scopes`)。 此參數是簡單的字串清單，其宣告所需的權限和要求的資源。 知名的範圍是 [Microsoft Graph 範圍](/graph/permissions-reference)。
+ADAL.NET 可取得「資源」的權杖，但 MSAL.NET 可取得「範圍」的權杖。 有些 MSAL.NET AcquireToken 覆寫需要名為 scopes 的參數 (`IEnumerable<string> scopes`)。 此參數是簡單的字串清單，其宣告所需的權限和要求的資源。 知名的範圍是 [Microsoft Graph 範圍](/graph/permissions-reference)。
 
 此外，也可以在 MSAL.NET 中存取 v1.0 資源。 請參閱 [v1.0 應用程式範圍](#scopes-for-a-web-api-accepting-v10-tokens)中的詳細資料。 
 
@@ -206,7 +214,7 @@ var scopes = new [] {  ResourceId+"/.default"};
 
 ### <a name="scopes-to-request-in-the-case-of-client-credential-flow--daemon-app"></a>在用戶端認證流程 / 精靈應用程式案例中要求的範圍
 
-在用戶端認證流程案例中，要傳遞的範圍也會是 `/.default`。 這會告知 Azure AD：系統管理員在應用程式註冊時同意的所有應用程式層級權限。
+在用戶端認證流程案例中，要傳遞的範圍也會是 `/.default`。 此範圍會告訴 Azure AD：「系統管理員在應用程式註冊中已同意的所有應用層級許可權。
 
 ## <a name="adal-to-msal-migration"></a>MSAL 至 ADAL 的移轉
 
@@ -214,9 +222,9 @@ var scopes = new [] {  ResourceId+"/.default"};
 * 長時間執行的服務，其執行的動作包括代表使用者重新整理儀表板，然而使用者不再連線。 
 * Web 伺服陣列案例，可讓用戶端將 RT 帶至 Web 服務 (快取是在用戶端進行 (加密的 cookie)，而不是在伺服器端進行)
 
-不過，這不適用於 MSAL.NET，因為基於安全性理由，我們不再建議以此方式使用重新整理權杖。 這會讓您難以遷移至 MSAL 3.x，因為 API 並未提供傳入先前所取得重新整理權杖的方法。 
+基於安全考慮，MSAL.NET 不會公開重新整理權杖：MSAL 會為您處理重新整理權杖的程式。 
 
-幸運的是，MSAL.NET 現在有 API 可讓您將先前的重新整理權杖遷移至 `IConfidentialClientApplication`。 
+幸運的是，MSAL.NET 現在有一個 API，可讓您將先前的重新整理權杖（使用 ADAL 取得`IConfidentialClientApplication`）遷移至：
 
 ```CSharp
 /// <summary>

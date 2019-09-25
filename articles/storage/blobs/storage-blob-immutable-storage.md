@@ -9,12 +9,12 @@ ms.date: 06/01/2019
 ms.author: tamram
 ms.reviewer: hux
 ms.subservice: blobs
-ms.openlocfilehash: 6278b16221072b9b5bca371007296806454ba197
-ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
+ms.openlocfilehash: fcc5c4008c0fdef3b77e436761d8958fe31458d8
+ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71212438"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71257360"
 ---
 # <a name="store-business-critical-data-in-azure-blob-storage-immutably"></a>在 Azure Blob 儲存體, 中儲存業務關鍵資料 
 
@@ -42,7 +42,7 @@ Azure Blob 儲存體的固定儲存體可讓使用者以 WORM （一次寫入，
 
 - **容器層級設定**：使用者可以在容器層級設定以時間為基礎的保留原則和合法保存標記。 藉由使用簡單的容器層級設定，使用者可以建立及鎖定以時間為基礎的保留原則、延長保留間隔、設定和清除合法保存等。 這些原則會套用到現有和新容器中的所有 Blob。
 
-- **稽核記錄支援**：每個容器都包含原則 audit 記錄。 它會針對鎖定的以時間為基礎的保留原則，最多顯示7個以時間為基礎的保留命令，並包含使用者識別碼、命令類型、時間戳記及保留間隔。 針對合法保存，此記錄包含使用者識別碼、命令類型、時間戳記及合法保存標記。 此記錄會保留在原則的存留期間，符合 SEC 17a-4 （f）法規指導方針。 [ [Azure 活動記錄](../../azure-monitor/platform/activity-logs-overview.md)檔] 會顯示所有控制平面活動的更完整記錄;啟用[Azure 診斷記錄](../../azure-monitor/platform/diagnostic-logs-overview.md)時，會保留並顯示資料平面作業。 基於法規需求或其他目的，使用者有責任持續不斷地儲存那些記錄。
+- **稽核記錄支援**：每個容器都包含原則 audit 記錄。 它會針對鎖定的以時間為基礎的保留原則，最多顯示7個以時間為基礎的保留命令，並包含使用者識別碼、命令類型、時間戳記及保留間隔。 針對合法保存，此記錄包含使用者識別碼、命令類型、時間戳記及合法保存標記。 此記錄會保留在原則的存留期間，符合 SEC 17a-4 （f）法規指導方針。 [ [Azure 活動記錄](../../azure-monitor/platform/activity-logs-overview.md)檔] 會顯示所有控制平面活動的更完整記錄;啟用[Azure 診斷記錄](../../azure-monitor/platform/resource-logs-overview.md)時，會保留並顯示資料平面作業。 基於法規需求或其他目的，使用者有責任持續不斷地儲存那些記錄。
 
 ## <a name="how-it-works"></a>運作方式
 

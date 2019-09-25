@@ -61,7 +61,7 @@
           href: time-series-insights-update-use-cases.md
         - name: 時間序列模型
           href: time-series-insights-update-tsm.md
-        - name: 資料查詢
+        - name: 時間序列查詢
           href: time-series-insights-update-tsq.md
         - name: 在總管中將資料視覺化 (預覽)
           href: time-series-insights-update-explorer.md

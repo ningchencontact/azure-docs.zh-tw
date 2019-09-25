@@ -1,68 +1,66 @@
 ---
-title: Azure Active Directory Domain Services：針對安全 LDAP 進行疑難排解 |Microsoft Docs
-description: 針對 Azure AD Domain Services 的安全 LDAP 進行疑難排解
+title: 解決 Azure AD Domain Services 中的安全 LDAP 警示 |Microsoft Docs
+description: 瞭解如何使用 Azure Active Directory Domain Services 的安全 LDAP 來疑難排解和解決常見的警示。
 services: active-directory-ds
-documentationcenter: ''
 author: iainfoulds
-manager: ''
-editor: ''
+manager: daveba
 ms.assetid: 81208c0b-8d41-4f65-be15-42119b1b5957
 ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: conceptual
-ms.date: 05/22/2019
+ms.topic: troubleshooting
+ms.date: 09/18/2019
 ms.author: iainfou
-ms.openlocfilehash: 8f9f4a8b52548dad011f5e825fa42c50da970ea7
-ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
+ms.openlocfilehash: 06b0fa1979f18981ec5cf78dc9a9dbad8b196394
+ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69613150"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71258040"
 ---
-# <a name="azure-ad-domain-services---troubleshooting-secure-ldap-configuration"></a>Azure AD Domain Services - 針對安全 LDAP 設定進行疑難排解
+# <a name="known-issues-secure-ldap-alerts-in-azure-active-directory-domain-services"></a>已知問題：在 Azure Active Directory Domain Services 中安全 LDAP 警示
 
-本文會針對[設定 Azure AD Domain Services 的安全 LDAP](tutorial-configure-ldaps.md) 時的常見問題提供解決方案。
+使用輕量型目錄存取協定（LDAP）與 Azure Active Directory Domain Services （Azure AD DS）通訊的應用程式和服務，可以[設定為使用安全 LDAP](tutorial-configure-ldaps.md)。 必須開啟適當的憑證和必要的網路埠，安全的 LDAP 才能正常運作。
 
-## <a name="aadds101-secure-ldap-network-security-group-configuration"></a>AADDS101：安全 LDAP 網路安全性群組組態
+本文可協助您瞭解並使用 Azure AD DS 中的安全 LDAP 存取來解決常見的警示。
 
-**警示訊息：**
+## <a name="aadds101-secure-ldap-network-configuration"></a>AADDS101：安全 LDAP 網路設定
+
+### <a name="alert-message"></a>警示訊息
 
 *受控網域已啟用透過網際網路的安全 LDAP。不過，卻未使用網路安全性群組鎖定連接埠 636 的存取。這可能會使受控網域上的使用者帳戶暴露於暴力密碼破解攻擊的威脅之下。*
 
-### <a name="secure-ldap-port"></a>安全 LDAP 連接埠
+### <a name="resolution"></a>解析度
 
-當安全 LDAP 啟用時，建議您建立其他規則，僅允許來自特定 IP 位址的輸入 LDAPS 存取。 這些規則能保護網域，不讓其遭受可能會造成安全性威脅的暴力攻擊。 連接埠 636 允許存取受控網域。 更新 NSG 使其允許存取安全 LDAP 的方法如下：
+當您啟用安全 LDAP 時，建議您建立其他規則，以限制對特定 IP 位址的輸入 LDAPS 存取。 這些規則會保護 Azure AD DS 受控網域免于遭受暴力密碼破解攻擊。 若要更新網路安全性群組，以限制安全 LDAP 的 TCP 埠636存取，請完成下列步驟：
 
-1. 在 Azure 入口網站中，瀏覽至 [網路安全性群組](https://portal.azure.com/#blade/HubsExtension/Resources/resourceType/Microsoft.Network%2FNetworkSecurityGroups) 索引標籤
-2. 從資料表選擇與網域相關聯的 NSG。
-3. 按一下 **輸入安全性規則**
-4. 建立連接埠 636 規則
-   1. 按一下頂端導覽列上的 [新增]。
-   2. 選擇來源的 [IP 位址]。
-   3. 指定此規則的來源連接埠範圍。
-   4. 輸入 "636" 作為目的地連接埠範圍。
-   5. 通訊協定為 **TCP**。
-   6. 為規則提供適當的名稱、描述和優先順序。 此規則的優先順序應高於「全部拒絕」規則的優先順序 (如果有的話)。
-   7. 按一下 [確定]。
-5. 確認規則已建立。
-6. 請在兩個小時後檢查網域的健康情況，以確保您已正確完成所有步驟。
+1. 在 Azure 入口網站中，搜尋並選取 **網路安全性群組**。
+1. 選擇與受控網域相關聯的網路安全性群組，例如*AADDS-contoso.com-NSG*，然後選取 [**輸入安全性規則**]
+1. **+ 新增**TCP 通訊埠636的規則。 如有需要，請在視窗中選取 [ **Advanced** ] 來建立規則。
+1. 針對 [**來源**]，從下拉式功能表中選擇 [ *IP 位址*]。 輸入您想要為安全 LDAP 流量授與存取權的來源 IP 位址。
+1. 選擇 [*任何*] 作為**目的地**，然後針對 [**目的地埠範圍**] 輸入*636* 。
+1. 將**通訊協定**設定*為 TCP* ，並將**動作**設為 [*允許*]。
+1. 指定規則的優先順序，然後輸入名稱，例如*RestrictLDAPS*。
+1. 準備好時，請選取 [**新增**] 來建立規則。
+
+Azure AD DS 受控網域的健康狀態會在兩小時內自動更新，並移除警示。
 
 > [!TIP]
-> 連接埠 636 不是 Azure AD Domain Services 順暢執行所需的唯一規則。 若要深入了解，請瀏覽[網路指導方針](network-considerations.md)或[針對 NSG 設定進行疑難排解](alert-nsg.md)文章。
->
+> TCP 通訊埠636不是 Azure AD DS 順利執行所需的唯一規則。 若要深入瞭解，請參閱[AZURE AD DS 網路安全性群組和所需的埠](network-considerations.md#network-security-groups-and-required-ports)。
 
 ## <a name="aadds502-secure-ldap-certificate-expiring"></a>AADDS502：安全 LDAP 憑證即將到期
 
-**警示訊息：**
+### <a name="alert-message"></a>警示訊息
 
 *受控網域的安全 LDAP 憑證將於 [date] 到期。*
 
-**解決方案：**
+### <a name="resolution"></a>解析度
 
-依照[設定安全 LDAP](tutorial-configure-ldaps.md) 一文中所述的步驟，建立新的安全 LDAP 憑證。
+遵循[建立安全 ldap 憑證的](tutorial-configure-ldaps.md#create-a-certificate-for-secure-ldap)步驟，以建立取代的安全 ldap 憑證。 將取代憑證套用至 Azure AD DS，然後將憑證發佈至使用安全 LDAP 連接的任何用戶端。
 
-## <a name="contact-us"></a>請與我們連絡
-請連絡 Azure Active Directory Domain Services 產品小組， [分享意見或尋求支援](contact-us.md)。
+## <a name="next-steps"></a>後續步驟
+
+如果您仍有問題，請[開啟 Azure 支援要求][azure-support]以取得額外的疑難排解協助。
+
+<!-- INTERNAL LINKS -->
+[azure-support]: ../active-directory/fundamentals/active-directory-troubleshooting-support-howto.md

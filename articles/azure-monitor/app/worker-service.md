@@ -12,21 +12,18 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 09/15/2019
 ms.author: cithomas
-ms.openlocfilehash: 8cd76a67715898972aac8fc24707085883da8618
-ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
+ms.openlocfilehash: 653710d2f57385fa6d608a501f72b0dde2f3bb46
+ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71174665"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71258498"
 ---
 # <a name="application-insights-for-worker-service-applications-non-http-applications"></a>背景工作服務應用程式的 Application Insights （非 HTTP 應用程式）
 
 Application Insights 發行新的 SDK，稱為`Microsoft.ApplicationInsights.WorkerService`，最適合用於訊息、背景工作、主控台應用程式等非 HTTP 工作負載。這些類型的應用程式不會有傳入 HTTP 要求的概念，例如傳統的 ASP.NET/ASP.NET 核心 Web 應用程式，因此不支援使用適用于[ASP.NET](asp-net.md)或[ASP.NET Core](asp-net-core.md)應用程式的 Application Insights 套件。
 
 新的 SDK 本身不會執行任何遙測收集。 相反地，它會引進其他知名的 Application Insights 自動收集器，例如[microsoft.applicationinsights.dependencycollector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.DependencyCollector/)、 [microsoft.applicationinsights.perfcountercollector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.PerfCounterCollector/)、 [ApplicationInsightsLoggingProvider](https://www.nuget.org/packages/Microsoft.Extensions.Logging.ApplicationInsights)等。此 SDK 會在上`IServiceCollection`公開擴充方法，以啟用和設定遙測收集。
-
-> [!NOTE]
-> 本文是關於 Application Insights SDK for Worker 服務的新套件。 此套件目前以 Beta 版套件的形式提供。 當穩定的封裝可供使用時，將會更新這份檔。
 
 ## <a name="supported-scenarios"></a>支援的案例
 
@@ -43,7 +40,7 @@ Application Insights 發行新的 SDK，稱為`Microsoft.ApplicationInsights.Wor
 
 ```xml
     <ItemGroup>
-        <PackageReference Include="Microsoft.ApplicationInsights.WorkerService" Version="2.8.0-beta3" />
+        <PackageReference Include="Microsoft.ApplicationInsights.WorkerService" Version="2.8.0" />
     </ItemGroup>
 ```
 
@@ -299,7 +296,7 @@ Application Insights 發行新的 SDK，稱為`Microsoft.ApplicationInsights.Wor
 
 ### <a name="live-metrics"></a>即時計量
 
-[即時計量](https://docs.microsoft.com/azure/application-insights/app-insights-live-stream)可以用來快速確認是否已正確設定 Application Insights。 雖然可能需要幾分鐘的時間，遙測才會開始出現在入口網站和分析中，但即時計量會以近乎即時的方式顯示執行中進程的 CPU 使用量。 它也可以顯示其他遙測，例如要求、相依性、追蹤等等。
+[即時計量](https://docs.microsoft.com/azure/application-insights/app-insights-live-stream)可以用來快速驗證是否已正確設定 Application Insights 監視。 雖然可能需要幾分鐘的時間，遙測才會開始出現在入口網站和分析中，但即時計量會以近乎即時的方式顯示執行中進程的 CPU 使用量。 它也可以顯示其他遙測，例如要求、相依性、追蹤等等。
 
 ### <a name="ilogger-logs"></a>ILogger 記錄
 
@@ -311,31 +308,7 @@ Application Insights 發行新的 SDK，稱為`Microsoft.ApplicationInsights.Wor
 
 ### <a name="eventcounter"></a>EventCounter
 
-[EventCounter](https://github.com/dotnet/corefx/blob/master/src/System.Diagnostics.Tracing/documentation/EventCounterTutorial.md)是一種跨平臺方法，可在 .NET/.net Core 中發佈和使用計數器。 雖然這項功能已存在，但沒有任何內建的提供者會發行這些計數器。 從 .NET Core 3.0 開始，會發行數個計數器，例如 CLR 計數器、CPU 等等。
-
-根據預設，SDK 會收集下列計數器（僅適用于 .NET Core 3.0 或更高版本），而且可以在計量瀏覽器或使用以 PerformanceCounter 資料表為目標的分析查詢來查詢這些計數器。 計數器的名稱的格式為 "Category |Counter "。
-
-|Category | 計數器|
-|---------------|-------|
-|`System.Runtime` | `cpu-usage` |
-|`System.Runtime` | `working-set` |
-|`System.Runtime` | `gc-heap-size` |
-|`System.Runtime` | `gen-0-gc-count` |
-|`System.Runtime` | `gen-1-gc-count` |
-|`System.Runtime` | `gen-2-gc-count` |
-|`System.Runtime` | `time-in-gc` |
-|`System.Runtime` | `gen-0-size` |
-|`System.Runtime` | `gen-1-size` |
-|`System.Runtime` | `gen-2-size` |
-|`System.Runtime` | `loh-size` |
-|`System.Runtime` | `alloc-rate` |
-|`System.Runtime` | `assembly-count` |
-|`System.Runtime` | `exception-count` |
-|`System.Runtime` | `threadpool-thread-count` |
-|`System.Runtime` | `monitor-lock-contention-count` |
-|`System.Runtime` | `threadpool-queue-length` |
-|`System.Runtime` | `threadpool-completed-items-count` |
-|`System.Runtime` | `active-timer-count` |
+`EventCounterCollectionModule`預設為啟用，而且會從 .NET Core 3.0 應用程式收集一組預設的計數器。 [EventCounter](eventcounters.md)教學課程會列出所收集的預設計數器集合。 其中也包含自訂清單的指示。
 
 ### <a name="manually-tracking-additional-telemetry"></a>手動追蹤其他遙測
 

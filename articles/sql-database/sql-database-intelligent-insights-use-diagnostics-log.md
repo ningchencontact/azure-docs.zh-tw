@@ -11,16 +11,16 @@ author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, carlrab
 ms.date: 12/19/2018
-ms.openlocfilehash: 8180fc4db10019a3183af40cf21d9d92b0102201
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: c25d37a4d1695ab94cc0667a13e36e4da640e12a
+ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68567889"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71262138"
 ---
 # <a name="use-the-intelligent-insights-azure-sql-database-performance-diagnostics-log"></a>使用 Intelligent Insights Azure SQL Database 效能診斷記錄
 
-此頁面提供有關如何使用 [Intelligent Insights](sql-database-intelligent-insights.md) 所產生 Azure SQL Database 效能診斷記錄的使用方式、其格式及其所含資料的資訊，來因應您的自訂開發需求。 您可以將此診斷記錄傳送至[Azure 監視器記錄](../azure-monitor/insights/azure-sql.md)、 [Azure 事件中樞](../azure-monitor/platform/diagnostic-logs-stream-event-hubs.md)、 [Azure 儲存體](sql-database-metrics-diag-logging.md#stream-into-storage)或協力廠商解決方案, 以取得自訂的 DevOps 警示和報告功能。
+此頁面提供有關如何使用 [Intelligent Insights](sql-database-intelligent-insights.md) 所產生 Azure SQL Database 效能診斷記錄的使用方式、其格式及其所含資料的資訊，來因應您的自訂開發需求。 您可以將此診斷記錄傳送至[Azure 監視器記錄](../azure-monitor/insights/azure-sql.md)、 [Azure 事件中樞](../azure-monitor/platform/resource-logs-stream-event-hubs.md)、 [Azure 儲存體](sql-database-metrics-diag-logging.md#stream-into-storage)或協力廠商解決方案，以取得自訂的 DevOps 警示和報告功能。
 
 ## <a name="log-header"></a>記錄標頭
 
@@ -134,7 +134,7 @@ Intelligent Insights 效能記錄的最後部分是關於所識別之效能降�
 "rootCauseAnalysis_s" : "High data IO caused performance to degrade. It seems that this database is missing some indexes that could help."
 ```
 
-您可以使用 Intelligent Insights 效能記錄檔搭配[Azure 監視器記錄]( https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-sql)或協力廠商解決方案, 以取得自訂的 DevOps 警示和報告功能。
+您可以使用 Intelligent Insights 效能記錄檔搭配[Azure 監視器記錄]( https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-sql)或協力廠商解決方案，以取得自訂的 DevOps 警示和報告功能。
 
 ## <a name="next-steps"></a>後續步驟
 - 了解 [Intelligent Insights](sql-database-intelligent-insights.md) 概念。

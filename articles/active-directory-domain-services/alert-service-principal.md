@@ -1,107 +1,102 @@
 ---
-title: Azure Active Directory Domain Services：針對服務主體進行疑難排解 |Microsoft Docs
-description: 針對 Azure AD Domain Services 的服務主體設定進行疑難排解
+title: 解決 Azure AD Domain Services 中的服務主體警示 |Microsoft Docs
+description: 瞭解如何針對 Azure Active Directory Domain Services 的服務主體設定警示進行疑難排解
 services: active-directory-ds
-documentationcenter: ''
 author: iainfoulds
-manager: ''
-editor: ''
+manager: daveba
 ms.assetid: f168870c-b43a-4dd6-a13f-5cfadc5edf2c
 ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: conceptual
-ms.date: 05/14/2019
+ms.topic: troubleshooting
+ms.date: 09/20/2019
 ms.author: iainfou
-ms.openlocfilehash: 9e5fa8c84f5e7ca58117666846b603a118826150
-ms.sourcegitcommit: b2db98f55785ff920140f117bfc01f1177c7f7e2
+ms.openlocfilehash: 175bfe63176b78c5aeafc7147c46dd5ab1110325
+ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68234130"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71257970"
 ---
-# <a name="troubleshoot-invalid-service-principal-configurations-for-azure-active-directory-domain-services"></a>針對 Azure Active Directory Domain Services 的無效服務主體設定進行疑難排解
+# <a name="known-issues-service-principal-alerts-in-azure-active-directory-domain-services"></a>已知問題：Azure Active Directory Domain Services 中的服務主體警示
 
-本文將協助您針對導致下列警示訊息的服務主體相關設定錯誤進行疑難排解：
+[服務主體](../active-directory/develop/app-objects-and-service-principals.md)是 Azure 平臺用來管理、更新和維護 Azure AD DS 受控網域的應用程式。 如果刪除服務主體，Azure AD DS 受控網域中的功能會受到影響。
+
+本文可協助您疑難排解和解決與服務主體相關的設定警示。
 
 ## <a name="alert-aadds102-service-principal-not-found"></a>警示 AADDS102：找不到服務主體
 
-**警示訊息：** *Azure AD 目錄中已刪除要讓 Azure AD Domain Services 正常運作所需的服務主體。此設定會影響 Microsoft 監視、管理、修補及同步處理受控網域的能力。*
+### <a name="alert-message"></a>警示訊息
 
-[服務主體](../active-directory/develop/app-objects-and-service-principals.md)是 Microsoft 用來管理、更新和維護受控網域的應用程式。 如果將它們刪除，就會使 Microsoft 無法為網域提供服務。
+*Azure AD 目錄中已刪除要讓 Azure AD Domain Services 正常運作所需的服務主體。此設定會影響 Microsoft 監視、管理、修補及同步處理受控網域的能力。*
 
+如果已刪除必要的服務主體，Azure 平臺就無法執行自動化管理工作。 Azure AD DS 受控網域可能無法正確套用更新或進行備份。
 
-## <a name="check-for-missing-service-principals"></a>檢查是否有遺失的服務主體
-請使用下列步驟來判斷必須重新建立的服務主體：
+### <a name="check-for-missing-service-principals"></a>檢查是否有遺失的服務主體
 
-1. 在 Azure 入口網站中，瀏覽至[企業應用程式 - 所有應用程式](https://portal.azure.com/#blade/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/AllApps)頁面。
-2. 在 [顯示]  下拉式清單中，選取 [所有應用程式]  ，然後按一下 [套用]  。
-3. 使用下表，將應用程式識別碼貼到搜尋方塊然後按 Enter，以搜尋各個應用程式識別碼。 如果搜尋結果是空的，您就必須遵循「解決方案」資料行中的步驟來重新建立服務主體。
+若要檢查遺失且需要重新建立的服務主體，請完成下列步驟：
 
-| 應用程式識別碼 | 解決方案 |
-| :--- | :--- |
-| 2565bd9d-da50-47d4-8b85-4c97f669dc36 | [使用 PowerShell 重新建立遺失的服務主體](#recreate-a-missing-service-principal-with-powershell) |
-| 443155a6-77f3-45e3-882b-22b3a8d431fb | [重新註冊 Microsoft.AAD 命名空間](#re-register-to-the-microsoft-aad-namespace-using-the-azure-portal) |
-| abba844e-bc0e-44b0-947a-dc74e5d09022  | [重新註冊 Microsoft.AAD 命名空間](#re-register-to-the-microsoft-aad-namespace-using-the-azure-portal) |
-| d87dcbc6-a371-462e-88e3-28ad15ec4e64 | [重新註冊 Microsoft.AAD 命名空間](#re-register-to-the-microsoft-aad-namespace-using-the-azure-portal) |
+1. 在 Azure 入口網站中，從左側導覽功能表中選取  **Azure Active Directory** 。
+1. 選取 [企業應用程式]。 從 [**應用程式類型**] 下拉式功能表**中選擇 [** *所有應用程式*]，然後選取 [套用]。
+1. 搜尋每個應用程式識別碼。 如果找不到任何現有的應用程式，請遵循*解決*步驟來建立服務主體，或重新註冊命名空間。
 
-## <a name="recreate-a-missing-service-principal-with-powershell"></a>使用 PowerShell 重新建立遺失的服務主體
-如果 Azure AD 目錄中遺漏識別碼為 ```2565bd9d-da50-47d4-8b85-4c97f669dc36``` 的服務主體，請執行下列步驟。
+    | 應用程式識別碼 | 解析度 |
+    | :--- | :--- |
+    | 2565bd9d-da50-47d4-8b85-4c97f669dc36 | [重新建立遺失的服務主體](#recreate-a-missing-service-principal) |
+    | 443155a6-77f3-45e3-882b-22b3a8d431fb | [重新註冊 Microsoft AAD 命名空間](#re-register-the-microsoft-aad-namespace) |
+    | abba844e-bc0e-44b0-947a-dc74e5d09022 | [重新註冊 Microsoft AAD 命名空間](#re-register-the-microsoft-aad-namespace) |
+    | d87dcbc6-a371-462e-88e3-28ad15ec4e64 | [重新註冊 Microsoft AAD 命名空間](#re-register-the-microsoft-aad-namespace) |
 
-**解決方案：** 您需要 Azure AD PowerShell 才能完成這些步驟。 如需安裝 Azure AD PowerShell 的相關資訊，請參閱[這篇文章](https://docs.microsoft.com/powershell/azure/active-directory/install-adv2?view=azureadps-2.0.)。
+### <a name="recreate-a-missing-service-principal"></a>重新建立遺失的服務主體
 
-若要解決此問題，請在 PowerShell 視窗中輸入下列命令：
-1. 安裝 Azure AD PowerShell 模組，並加以匯入。
+如果 Azure AD 目錄中缺少應用程式識別碼*2565bd9d-da50-47d4-8b85-4c97f669dc36* ，請使用 Azure AD PowerShell 來完成下列步驟。 如需詳細資訊，請參閱[install Azure AD PowerShell](/powershell/azure/active-directory/install-adv2)。
+
+1. 安裝 Azure AD PowerShell 模組並匯入它，如下所示：
 
     ```powershell
     Install-Module AzureAD
     Import-Module AzureAD
     ```
 
-2. 執行下列 PowerShell 命令，檢查目錄中是否遺失 Azure AD Domain Services 所需的服務主體：
-
-    ```powershell
-    Get-AzureAdServicePrincipal -filter "AppId eq '2565bd9d-da50-47d4-8b85-4c97f669dc36'"
-    ```
-
-3. 輸入下列 PowerShell 命令，以建立服務主體：
+1. 現在，使用[get-azureadserviceprincipal][New-AzureAdServicePrincipal] Cmdlet 重新建立服務主體：
 
     ```powershell
     New-AzureAdServicePrincipal -AppId "2565bd9d-da50-47d4-8b85-4c97f669dc36"
     ```
 
-4. 在遺失的服務主體建立後，請等待兩個小時再檢查受控網域的健康情況。
+Azure AD DS 受控網域的健康狀態會在兩小時內自動更新，並移除警示。
 
+### <a name="re-register-the-microsoft-aad-namespace"></a>重新註冊 Microsoft AAD 命名空間
 
-## <a name="re-register-to-the-microsoft-aad-namespace-using-the-azure-portal"></a>使用 Azure 入口網站重新註冊 Microsoft AAD 命名空間
-如果 Azure AD 目錄中遺漏識別碼為 ```443155a6-77f3-45e3-882b-22b3a8d431fb``` 或 ```abba844e-bc0e-44b0-947a-dc74e5d09022``` 或 ```d87dcbc6-a371-462e-88e3-28ad15ec4e64``` 的服務主體，請執行下列步驟。
+如果 Azure AD 目錄中缺少應用程式識別碼*443155a6-77f3-45e3-882b-22b3a8d431fb*、 *abba844e-bc0e-44b0-947a-dc74e5d09022*或*d87dcbc6-a371-462e-88e3-28ad15ec4e64* ，請完成下列步驟來重新註冊*MICROSOFT AAD*資源提供者：
 
-**解決方案：** 使用下列步驟，在目錄上還原 Domain Services：
+1. 在 Azure 入口網站中，搜尋並選取 **訂閱**。
+1. 選擇與您的 Azure AD DS 受控網域相關聯的訂用帳戶。
+1. 從左側導覽中，選擇 [**資源提供者**]。
+1. 搜尋 [ *MICROSOFT AAD*]，然後選取 [**重新註冊**]。
 
-1. 在 Azure 入口網站中，瀏覽至[訂用帳戶](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade)頁面。
-2. 從與受控網域相關聯的資料表中選擇訂用帳戶
-3. 使用左側導覽，選擇 [資源提供者] 
-4. 在資料表中搜尋 "Microsoft.AAD"，然後按一下 [重新註冊] 
-5. 若要確認警示狀況已解除，請在兩小時後檢查受控網域的健康情況頁面。
-
+Azure AD DS 受控網域的健康狀態會在兩小時內自動更新，並移除警示。
 
 ## <a name="alert-aadds105-password-synchronization-application-is-out-of-date"></a>警示 AADDS105：密碼同步處理應用程式已過期
 
-**警示訊息：** 應用程式識別碼為 “d87dcbc6-a371-462e-88e3-28ad15ec4e64” 的服務主體已刪除，然後重新建立。 重新建立會在為您受控網域提供服務所需的 Azure AD Domain Services 資源上留下不一致的權限。 受控網域上的密碼同步處理可能會受到影響。
+### <a name="alert-message"></a>警示訊息
 
+*應用程式識別碼為 “d87dcbc6-a371-462e-88e3-28ad15ec4e64” 的服務主體已刪除，然後重新建立。重新建立會在為您受控網域提供服務所需的 Azure AD Domain Services 資源上留下不一致的權限。受控網域上的密碼同步處理可能會受到影響。*
 
-**解決方案：** 您需要 Azure AD PowerShell 才能完成這些步驟。 如需安裝 Azure AD PowerShell 的相關資訊，請參閱[這篇文章](https://docs.microsoft.com/powershell/azure/active-directory/install-adv2?view=azureadps-2.0.)。
+Azure AD DS 會自動從 Azure AD 同步處理使用者帳戶和認證。 如果此程式所使用的 Azure AD 應用程式發生問題，Azure AD DS 與 Azure AD 之間的認證同步處理將會失敗。
 
-若要解決此問題，請在 PowerShell 視窗中輸入下列命令：
-1. 安裝 Azure AD PowerShell 模組，並加以匯入。
+### <a name="resolution"></a>解析度
+
+若要重新建立用於認證同步處理的 Azure AD 應用程式，請使用 Azure AD PowerShell 來完成下列步驟。 如需詳細資訊，請參閱[install Azure AD PowerShell](/powershell/azure/active-directory/install-adv2)。
+
+1. 安裝 Azure AD PowerShell 模組並匯入它，如下所示：
 
     ```powershell
     Install-Module AzureAD
     Import-Module AzureAD
     ```
-2. 使用下列 PowerShell 命令刪除舊的應用程式和物件
+
+2. 現在，使用下列 PowerShell Cmdlet 來刪除舊的應用程式和物件：
 
     ```powershell
     $app = Get-AzureADApplication -Filter "IdentifierUris eq 'https://sync.aaddc.activedirectory.windowsazure.com'"
@@ -109,8 +104,15 @@ ms.locfileid: "68234130"
     $spObject = Get-AzureADServicePrincipal -Filter "DisplayName eq 'Azure AD Domain Services Sync'"
     Remove-AzureADServicePrincipal -ObjectId $app.ObjectId
     ```
-3. 兩者皆刪除之後，系統將會修復本身，然後重新建立密碼同步處理所需的應用程式。 若要確認警示已修復，請在兩小時後檢查網域的健康情況。
 
+在您刪除這兩個應用程式之後，Azure 平臺會自動重新建立它們，並嘗試繼續密碼同步處理。 Azure AD DS 受控網域的健康狀態會在兩小時內自動更新，並移除警示。
 
-## <a name="contact-us"></a>與我們連絡
-請連絡 Azure Active Directory Domain Services 產品小組， [分享意見或尋求支援](contact-us.md)。
+## <a name="next-steps"></a>後續步驟
+
+如果您仍有問題，請[開啟 Azure 支援要求][azure-support]以取得額外的疑難排解協助。
+
+<!-- INTERNAL LINKS -->
+[azure-support]: ../active-directory/fundamentals/active-directory-troubleshooting-support-howto.md
+
+<!-- EXTERNAL LINKS -->
+[New-AzureAdServicePrincipal]: /powershell/module/AzureAD/New-AzureADServicePrincipal

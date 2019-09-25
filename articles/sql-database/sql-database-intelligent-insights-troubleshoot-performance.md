@@ -11,16 +11,16 @@ author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, carlrab
 ms.date: 01/25/2019
-ms.openlocfilehash: 9f6b20806f75cc28b5f4f740ffb67faae491ae84
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: f884b39db92f44f7cff938e0ac4b9c2e22dc36cb
+ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68567904"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71262199"
 ---
 # <a name="troubleshoot-azure-sql-database-performance-issues-with-intelligent-insights"></a>使用 Intelligent Insights 針對 Azure SQL Database 效能問題進行疑難排解
 
-此頁面提供透過 [Intelligent Insights](sql-database-intelligent-insights.md) 資料庫效能診斷記錄偵測到之 Azure SQL Database 和受控執行個體效能問題的相關資訊。 診斷記錄遙測可以串流處理至[Azure 監視器記錄](../azure-monitor/insights/azure-sql.md)、 [Azure 事件中樞](../azure-monitor/platform/diagnostic-logs-stream-event-hubs.md)、 [Azure 儲存體](sql-database-metrics-diag-logging.md#stream-into-storage)或協力廠商解決方案, 以取得自訂的 DevOps 警示和報告功能。
+此頁面提供透過 [Intelligent Insights](sql-database-intelligent-insights.md) 資料庫效能診斷記錄偵測到之 Azure SQL Database 和受控執行個體效能問題的相關資訊。 診斷記錄遙測可以串流處理至[Azure 監視器記錄](../azure-monitor/insights/azure-sql.md)、 [Azure 事件中樞](../azure-monitor/platform/resource-logs-stream-event-hubs.md)、 [Azure 儲存體](sql-database-metrics-diag-logging.md#stream-into-storage)或協力廠商解決方案，以取得自訂的 DevOps 警示和報告功能。
 
 > [!NOTE]
 > 如需使用 Intelligent Insights 進行快速 SQL Database 效能疑難排解的指南，請參閱此文件中的[建議的疑難排解流程](sql-database-intelligent-insights-troubleshoot-performance.md#recommended-troubleshooting-flow)流程圖。
@@ -331,4 +331,4 @@ Intelligent Insights 通常需要一小時的時間來執行效能問題的根�
 - 了解 [Intelligent Insights](sql-database-intelligent-insights.md) 概念。
 - 使用 [Intelligent Insights Azure SQL Database 效能診斷記錄](sql-database-intelligent-insights-use-diagnostics-log.md)。
 - [使用 Azure SQL 分析來監視 Azure SQL Database](https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-sql)。
-- 了解如何[收集並取用來自 Azure 資源的記錄資料](../azure-monitor/platform/diagnostic-logs-overview.md)。
+- 了解如何[收集並取用來自 Azure 資源的記錄資料](../azure-monitor/platform/resource-logs-overview.md)。

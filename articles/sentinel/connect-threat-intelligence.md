@@ -12,17 +12,17 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/24/2019
 ms.author: rkarlin
-ms.openlocfilehash: cbdf05c714971db5a618ca2a8bb35fe286d6804c
-ms.sourcegitcommit: 992e070a9f10bf43333c66a608428fcf9bddc130
+ms.openlocfilehash: c1c374977460de04d2339ba8c93019cf9152dbe3
+ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71240678"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71262707"
 ---
-# <a name="connect-data-from-threat-intelligence-providers---preview"></a>從威脅情報提供者連接資料-預覽
+# <a name="connect-data-from-threat-intelligence-providers"></a>從威脅情報提供者連接資料
 
 > [!IMPORTANT]
-> Azure Sentinel 中的威脅情報目前處於公開預覽狀態。
+> Azure Sentinel 中的威脅情報平臺資料連線器目前處於公開預覽狀態。
 > 這項功能是在沒有服務等級協定的情況下提供，不建議用於生產工作負載。 可能不支援特定功能，或可能已經限制功能。 如需詳細資訊，請參閱 [Microsoft Azure 預覽版增補使用條款](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)。
 
 Azure Sentinel 可讓您匯入您的組織所使用的威脅指標，這可以增強您的安全性分析師偵測已知威脅的能力，並排定其優先順序。 Azure Sentinel 中的幾項功能會變成可用或已增強：

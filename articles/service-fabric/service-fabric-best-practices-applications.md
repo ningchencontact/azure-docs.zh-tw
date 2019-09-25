@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/18/2019
 ms.author: mfussell
-ms.openlocfilehash: 06af1f4326e3f6a6dcb53c8710a126f43e2d2f6a
-ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
+ms.openlocfilehash: eec5daf0100d527886a508f5adbdb2b0e3010b09
+ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "67875107"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71262267"
 ---
 # <a name="azure-service-fabric-application-design-best-practices"></a>Azure Service Fabric 應用程式設計最佳做法
 
@@ -40,7 +40,7 @@ ms.locfileid: "67875107"
 
 - [與 Service Fabric 整合](https://docs.microsoft.com/azure/service-fabric/service-fabric-tutorial-deploy-api-management)的[Azure API 管理](https://docs.microsoft.com/azure/service-fabric/service-fabric-api-management-overview)。
 - [Azure IoT 中樞](https://docs.microsoft.com/azure/iot-hub/)或[Azure 事件中樞](https://docs.microsoft.com/azure/event-hubs/), 使用[ServiceFabricProcessor](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/ServiceFabricProcessor)從事件中樞分割區讀取。
-- 使用[Azure Service Fabric 提供者](https://docs.traefik.io/configuration/backends/servicefabric/) [Træfik 反向 proxy](https://blogs.msdn.microsoft.com/azureservicefabric/2018/04/05/intelligent-routing-on-service-fabric-with-traefik/)。
+- 使用[Azure Service Fabric 提供者](https://docs.traefik.io/v1.6/configuration/backends/servicefabric/) [Træfik 反向 proxy](https://blogs.msdn.microsoft.com/azureservicefabric/2018/04/05/intelligent-routing-on-service-fabric-with-traefik/)。
 - [Azure 應用程式閘道](https://docs.microsoft.com/azure/application-gateway/)。
 
    > [!NOTE] 
@@ -56,7 +56,7 @@ ms.locfileid: "67875107"
 決定資料保留時間範圍:
 
 - 快取的**資料**。 當外部存放區的延遲發生問題時, 請使用快取。 使用具狀態服務作為您自己的資料快取, 或考慮使用[開放原始碼 SoCreate Service Fabric 分散式](https://github.com/SoCreate/service-fabric-distributed-cache)快取。 在此案例中, 如果您遺失快取中的所有資料, 就不需要擔心。
-- **時間限制的資料**。 在此案例中, 您需要讓資料保持接近計算一段時間以等待延遲, 但是您可以承受遺失損毀的資料。  例如, 在許多 IoT 解決方案中, 資料必須接近計算, 例如計算過去幾天的平均溫度時, 但如果遺失這項資料, 則記錄的特定資料點並不重要。 此外, 在此案例中, 您通常不在意備份個別的資料點。 您只會備份定期寫入外部儲存體的計算平均值值。  
+- **時間限制的資料**。 在此案例中, 您需要讓資料保持接近計算一段時間以等待延遲, 但是您可以承受遺失損毀的資料。 例如, 在許多 IoT 解決方案中, 資料必須接近計算, 例如計算過去幾天的平均溫度時, 但如果遺失這項資料, 則記錄的特定資料點並不重要。 此外, 在此案例中, 您通常不在意備份個別的資料點。 您只會備份定期寫入外部儲存體的計算平均值值。  
 - **長期資料**。 可靠的集合可以永久儲存您的資料。 但是在這種情況下, 您必須為嚴重損壞[修復做準備](https://docs.microsoft.com/azure/service-fabric/service-fabric-disaster-recovery), 包括為您的叢集設定[定期備份原則](https://docs.microsoft.com/azure/service-fabric/service-fabric-backuprestoreservice-configure-periodic-backup)。 實際上, 您會設定當您的叢集損毀時, 會發生什麼情況, 您需要建立新的叢集, 以及如何部署新的應用程式實例, 並從最新的備份復原。
 
 節省成本並提升可用性:

@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 10/05/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: bac37eed33535962ac0f1e6dbb34d8c396507682
-ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
+ms.openlocfilehash: 6632bee77d400dcfd6e8e4afa05efb84e1c1794a
+ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71063639"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71258182"
 ---
 # <a name="set-up-sign-in-with-an-amazon-account-using-custom-policies-in-azure-active-directory-b2c"></a>在 Azure Active Directory B2C 中使用自訂原則來設定以 Amazon 帳戶進行登入
 
@@ -45,7 +45,7 @@ ms.locfileid: "71063639"
 您必須將先前記錄的用戶端密碼儲存在 Azure AD B2C 租用戶中。
 
 1. 登入 [Azure 入口網站](https://portal.azure.com/)。
-2. 請選取頂端功能表中的 [**目錄 + 訂**用帳戶] 篩選，然後選擇包含您租使用者的目錄，以確定您使用的是包含 Azure AD B2C 租使用者的目錄。
+2. 選取頂端功能表中的 [目錄 + 訂用帳戶] 篩選，然後選擇包含您租用戶的目錄，以確定您使用的是包含 Azure AD B2C 租用戶的目錄。
 3. 選擇 Azure 入口網站左上角的 [所有服務]，然後搜尋並選取 [Azure AD B2C]。
 4. 在 [概觀] 頁面上，選取 [識別體驗架構]。
 5. 選取 [原則金鑰]，然後選取 [新增]。
@@ -88,7 +88,7 @@ ms.locfileid: "71063639"
           <Key Id="client_secret" StorageReferenceId="B2C_1A_AmazonSecret" />
         </CryptographicKeys>
         <OutputClaims>
-          <OutputClaim ClaimTypeReferenceId="socialIdpUserId" PartnerClaimType="user_id" />
+          <OutputClaim ClaimTypeReferenceId="issuerUserId" PartnerClaimType="user_id" />
           <OutputClaim ClaimTypeReferenceId="email" PartnerClaimType="email" />
           <OutputClaim ClaimTypeReferenceId="displayName" PartnerClaimType="name" />
           <OutputClaim ClaimTypeReferenceId="identityProvider" DefaultValue="amazon.com" />
@@ -157,7 +157,7 @@ ms.locfileid: "71063639"
 與 Azure AD B2C 的通訊會透過您在租用戶中建立的應用程式進行。 此節會列出您可以視需要完成以建立測試應用程式的步驟 (如果您尚未這麼做)。
 
 1. 登入 [Azure 入口網站](https://portal.azure.com)。
-2. 請選取頂端功能表中的 [**目錄 + 訂**用帳戶] 篩選，然後選擇包含您租使用者的目錄，以確定您使用的是包含 Azure AD B2C 租使用者的目錄。
+2. 選取頂端功能表中的 [目錄 + 訂用帳戶] 篩選，然後選擇包含您租用戶的目錄，以確定您使用的是包含 Azure AD B2C 租用戶的目錄。
 3. 選擇 Azure 入口網站左上角的 [所有服務]，然後搜尋並選取 [Azure AD B2C]。
 4. 選取 [應用程式]，然後選取 [新增]。
 5. 輸入應用程式的名稱，例如 testapp1。
