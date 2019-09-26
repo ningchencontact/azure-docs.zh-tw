@@ -77,7 +77,7 @@ endpoint = os.environ[endpoint_var_name]
 language_api_url = endpoint + "/text/analytics/v2.1/languages"
 ```
 
-對 API 的酬載是由 `documents` 清單所組成，其為包含 `id` 和 `text` 屬性的 Tuple。 `text` 屬性會儲存要分析的文字，而 `id` 可以是任何值。 
+對 API 的承載是由 `documents` 清單所組成，其為包含 `id` 和 `text`  屬性的元組。 `text` 屬性會儲存要分析的文字，而 `id` 可以是任何值。 
 
 ```python
 documents = {"documents": [
@@ -278,7 +278,7 @@ pprint(key_phrases)
 
 ## <a name="identify-entities"></a>識別實體
 
-若要識別文字文件中的知名實體 (人員、地點和事物)，請將 `/text/analytics/v2.1/entities` 附加至文字分析基底端點，以形成語言偵測 URL。 例如：`https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v2.1/entities`
+若要識別文字文件中清楚的實體 (人員、地點和事物)，請將`/text/analytics/v2.1/entities` 附加至文字分析基底端點，以形成語言偵測 URL。 例如：`https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v2.1/entities`
     
 ```python
 entities_url = endpoint + "/text/analytics/v2.1/entities"

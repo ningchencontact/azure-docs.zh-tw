@@ -24,7 +24,7 @@ ms.locfileid: "70127927"
 ---
 # <a name="compare-azure-cdn-product-features"></a>比較 Azure CDN 產品功能
 
-Azure 內容傳遞網路 (CDN) 包含四項產品：**來自 Microsoft 的 Azure CDN 標準**、**來自 Akamai 的 Azure CDN 標準**、**來自 Verizon 的 Azure CDN 標準**和**來自 Verizon 的 Azure CDN 進階**。 如需將 [來自 Verizon 的標準 Azure CDN]  設定檔移轉至 [來自 Verizon 的進階 Azure CDN]  的相關資訊，請參閱[將 Azure CDN 設定檔從標準 Verizon 移轉至進階 Verizon](cdn-migrate.md)。 請注意，雖然可以從標準 Verizon 升級到進階 Verizon，但目前在其他產品之間並沒有轉換機制。
+Azure 內容傳遞網路 (CDN) 包含四項產品：**來自 Microsoft 的標準 Azure CDN**、**來自 Akamai 的標準 Azure CDN**、**來自 Verizon 的標準 Azure CDN** 和 **來自 Verizon 的進階 Azure CDN**。 如需將 [來自 Verizon 的標準 Azure CDN]  設定檔移轉至 [來自 Verizon 的進階 Azure CDN]  的相關資訊，請參閱[將 Azure CDN 設定檔從標準 Verizon 移轉至進階 Verizon](cdn-migrate.md)。 請注意，雖然可以從標準 Verizon 升級到進階 Verizon，但目前在其他產品之間並沒有轉換機制。
 
 下表將比較各項產品的可用功能。
 
@@ -61,7 +61,7 @@ Azure 內容傳遞網路 (CDN) 包含四項產品：**來自 Microsoft 的 Azure
 ||||
 | **分析和報告** | **標準 Microsoft** | **標準 Akamai** | **標準 Verizon** | **進階 Verizon** | 
 | [Azure 診斷記錄](cdn-azure-diagnostic-logs.md)  | **&#x2713;** | **&#x2713;** |**&#x2713;** |**&#x2713;** |
-| [來自 Verizon 的 Core 報告](cdn-analyze-usage-patterns.md)  |  | |**&#x2713;** |**&#x2713;** |
+| [來自 Verizon 的核心報告](cdn-analyze-usage-patterns.md)  |  | |**&#x2713;** |**&#x2713;** |
 | [來自 Verizon 的自訂報告](cdn-verizon-custom-reports.md)  |  | |**&#x2713;** |**&#x2713;** |
 | [進階 HTTP 報告](cdn-advanced-http-reports.md)  |  | | |**&#x2713;** |
 | [即時統計資料](cdn-real-time-stats.md)  |  | | |**&#x2713;** |
