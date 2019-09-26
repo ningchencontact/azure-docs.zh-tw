@@ -17,12 +17,12 @@
           href: quickstarts/get-started-unity-android.md
         - name: iOS
           href: quickstarts/get-started-unity-ios.md
-    - name: 建立 iOS 應用程式
-      href: quickstarts/get-started-ios.md
-    - name: 建立 Android 應用程式
-      href: quickstarts/get-started-android.md
     - name: 建立 HoloLens 應用程式
       href: quickstarts/get-started-hololens.md
+    - name: 建立 Android 應用程式
+      href: quickstarts/get-started-android.md
+    - name: 建立 iOS 應用程式
+      href: quickstarts/get-started-ios.md
     - name: 建立 Xamarin 應用程式
       items:
         - name: Android
@@ -84,6 +84,8 @@
       href: 'https://docs.microsoft.com/cpp/api/spatial-anchors/winrt/'
 - name: 資源
   items:
+    - name: Azure 混合實境資源管理 REST API
+      href: 'https://docs.microsoft.com/en-us/rest/api/mixedreality/'
     - name: 常見問題集
       href: spatial-anchor-faq.md
     - name: 提供產品意見反應

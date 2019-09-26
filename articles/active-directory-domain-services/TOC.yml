@@ -95,22 +95,22 @@
       items:
         - name: 常見錯誤
           href: troubleshoot.md
-        - name: 常見警示
-          items:
-            - name: 常見警示
-              href: troubleshoot-alerts.md
-            - name: 修正損毀的網路組態
-              href: alert-nsg.md
-            - name: 還原遺失的服務主體
-              href: alert-service-principal.md
-            - name: 安全 LDAP 警示
-              href: alert-ldaps.md
         - name: 不相符的租用戶錯誤
           href: mismatched-tenant-error.md
         - name: 暫時停權的網域
           href: suspension.md
         - name: 安全的 LDAP
           href: tshoot-ldaps.md
+        - name: 已知問題
+          items:
+            - name: 常見警示
+              href: troubleshoot-alerts.md
+            - name: 網路警示
+              href: alert-nsg.md
+            - name: 服務主體警示
+              href: alert-service-principal.md
+            - name: 安全 LDAP 警示
+              href: alert-ldaps.md
 - name: 資源
   items:
     - name: 常見問題集

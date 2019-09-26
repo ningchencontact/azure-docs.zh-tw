@@ -431,6 +431,8 @@
                   href: app/asp-net-trace-logs.md
                 - name: 效能計數器
                   href: app/performance-counters.md
+                - name: EventCounters
+                  href: app/eventcounters.md
                 - name: 相依性
                   href: app/asp-net-dependencies.md
                 - name: ApplicationInsights.config
@@ -519,6 +521,8 @@
                   items:
                     - name: 概觀
                       href: platform/diagnostics-extension-overview.md
+                    - name: 收集記錄
+                      href: platform/azure-storage-iis-table.md
                     - name: Windows
                       items:
                         - name: 版本歷程記錄
@@ -644,22 +648,20 @@
               href: insights/service-map.md
             - name: 電腦群組
               href: platform/computer-groups.md
-        - name: Azure 資源
+        - name: Azure 平台
           items:
-            - name: 診斷記錄
+            - name: 平台記錄概觀
+              href: platform/platform-logs-overview.md
+            - name: 資源記錄
               items:
                 - name: 概觀
-                  href: platform/diagnostic-logs-overview.md
-                - name: 在記錄中收集
-                  href: platform/diagnostic-logs-stream-log-store.md
-                - name: 從 Azure 儲存體收集
-                  href: platform/azure-storage-iis-table.md
+                  href: platform/resource-logs-overview.md
+                - name: 在 Azure 監視器記錄中收集
+                  href: platform/resource-logs-collect-workspace.md
                 - name: 封存至儲存體
-                  href: platform/archive-diagnostic-logs.md
-                - name: 搭配資源管理員範本啟用
-                  href: platform/diagnostic-logs-stream-template.md
-        - name: Azure 訂閱
-          items:
+                  href: platform/resource-logs-collect-storage.md
+                - name: 串流至事件中樞
+                  href: platform/resource-logs-stream-event-hubs.md
             - name: 活動記錄檔
               items:
                 - name: 概觀
@@ -674,6 +676,14 @@
                   href: platform/activity-log-export.md
                 - name: 結構描述
                   href: platform/activity-log-schema.md
+            - name: 診斷設定
+              items:
+                - name: 建立診斷設定
+                  href: platform/diagnostic-settings.md
+                - name: 使用 Resource Manager 建立診斷設定
+                  href: platform/diagnostic-settings-template.md
+                - name: 變更為 Blob 儲存體格式
+                  href: platform/resource-logs-blob-format.md
             - name: 將資料串流至事件中樞
               href: platform/stream-monitoring-data-event-hubs.md
             - name: 金鑰保存庫分析
@@ -685,6 +695,7 @@
         - name: 儲存體
           items:
             - name: 適用於儲存體的 Azure 監視器
+              displayname: 'storage, monitor, insights, storage accounts, azure storage'
               href: insights/storage-insights-overview.md
         - name: 資料庫
           items:
@@ -747,7 +758,7 @@
             - name: 連線組態管理員
               href: platform/collect-sccm.md
         - name: 將資料串流至事件中樞
-          href: platform/diagnostic-logs-stream-event-hubs.md
+          href: platform/resource-logs-stream-event-hubs.md
     - name: 分析資料
       items:
         - name: 度量

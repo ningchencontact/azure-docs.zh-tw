@@ -19,6 +19,8 @@
           href: ./hdinsight-administer-use-powershell.md
     - name: 範例
       items:
+        - name: Azure CLI 範例
+          href: ./azure-cli-samples.md
         - name: .NET 範例
           href: ./hdinsight-sdk-dotnet-samples.md
         - name: Java 範例
@@ -613,6 +615,8 @@
               href: ./hbase/apache-hbase-provision-vnet.md
         - name: 疑難排解
           items:
+            - name: Apache HBase 效能問題疑難排解
+              href: ./hbase/troubleshoot-hbase-performance-issues.md
             - name: hbase hbck 傳回不一致的情況
               href: ./hbase/hbase-troubleshoot-hbase-hbck-inconsistencies.md
             - name: 連接重設後發生儲存例外狀況

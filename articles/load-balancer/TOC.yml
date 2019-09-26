@@ -84,7 +84,11 @@
     - name: 在區域內為虛擬機器進行負載平衡 (CLI)
       href: load-balancer-standard-public-zonal-cli.md
     - name: 設定輸出規則
-      href: configure-load-balancer-outbound-cli.md
+      items:
+        - name: 設定輸出規則 - CLI
+          href: configure-load-balancer-outbound-cli.md
+        - name: 設定輸出規則 - PowerShell
+          href: configure-load-balancer-outbound-powershell.md
     - name: 使用 REST API 建立 Azure Load Balancer
       href: create-load-balancer-rest-api.md
     - name: 建立基本 Load Balancer (範本)

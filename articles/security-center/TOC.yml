@@ -47,7 +47,7 @@
           href: security-center-incident.md
         - name: 虛擬機器和伺服器的威脅偵測
           href: security-center-alerts-iaas.md
-        - name: 雲端原生計算的威脅偵測
+        - name: 雲端應用程式和容器的威脅偵測
           href: security-center-alerts-compute.md
         - name: 資料服務的威脅偵測
           href: security-center-alerts-data-services.md
@@ -71,7 +71,7 @@
       href: security-center-wdatp.md
     - name: 適用於 Azure VM 上 SQL 的進階資料安全性 (公開預覽)
       href: security-center-iaas-advanced-data.md
-    - name: 保護 App Service
+    - name: 使用 App Service 保護您的應用程式
       href: security-center-app-services.md
     - name: 使用安全性原則
       href: tutorial-security-policy.md
@@ -91,7 +91,7 @@
       href: security-center-policy-definitions.md
     - name: 電子郵件通知
       href: security-center-provide-security-contact-details.md
-    - name: 定價層
+    - name: 價格
       href: security-center-pricing.md
     - name: 跨租用戶可見性
       href: security-center-management-groups.md
@@ -147,8 +147,6 @@
   items:
     - name: REST API
       href: 'https://docs.microsoft.com/rest/api/securitycenter/'
-    - name: 服務更新
-      href: 'https://azure.microsoft.com/updates/?product=security-center'
     - name: 功能與 API 淘汰 (2019 年 6 月)
       href: security-center-features-retirement-july2019.md
     - name: 端點保護評量和建議
@@ -159,25 +157,25 @@
       href: /learn/browse/?term=securityS
     - name: 管理使用者資料
       href: security-center-privacy.md
-    - name: 管理 IoT
+    - name: 適用於 IoT 的 Azure 資訊安全中心文件
       href: 'https://docs.microsoft.com/en-us/azure/asc-for-iot/'
     - name: 常見問題集
       href: security-center-faq.md
-    - name: Azure 安全性
+    - name: Azure 安全性文件
       href: /azure/security/
-    - name: Azure 藍圖
-      href: 'https://azure.microsoft.com/roadmap/?category=security-identity'
+    - name: Azure 更新
+      href: 'https://azure.microsoft.com/updates/?category=security-identity'
     - name: 整備藍圖
       href: security-center-readiness-roadmap.md
     - name: Azure 安全性、隱私權和相容性部落格
       href: 'https://blogs.msdn.com/b/azuresecurity/'
-    - name: 堆疊溢位
-      href: 'https://stackoverflow.com/search?q=security-center'
+    - name: Stack Overflow 上的 Azure 資訊安全中心
+      href: 'https://stackoverflow.com/search?q=azure-security-center'
     - name: 影片
       href: 'https://azure.microsoft.com/documentation/videos/index/?services=security-center'
     - name: 價格
       href: 'https://azure.microsoft.com/pricing/details/security-center/'
     - name: 區域可用性
       href: 'https://azure.microsoft.com/regions/services/'
-    - name: 疑難排解
+    - name: 疑難排解指南
       href: security-center-troubleshooting-guide.md

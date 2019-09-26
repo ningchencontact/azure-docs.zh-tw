@@ -18,7 +18,7 @@
       items:
         - name: 新增儲存體目標
           href: hpc-cache-add-storage.md
-        - name: 將資料移動至快取儲存體
+        - name: 將資料移至儲存體目標 (若有需要)
           items:
             - name: 預先載入新的 Blob 儲存體
               href: hpc-cache-ingest.md

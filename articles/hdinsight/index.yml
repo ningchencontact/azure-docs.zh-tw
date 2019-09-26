@@ -11,12 +11,12 @@ metadata:
   author: hrasheed-msft
   ms.author: hrasheed
   ms.date: 08/30/2019
-  ms.openlocfilehash: e4504bbfc84dbafcd1efa45c9536a63569230a8a
-  ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
+  ms.openlocfilehash: 2e6a0bcc654bbf94bec5c562815aa7591cfabd60
+  ms.sourcegitcommit: a6718e2b0251b50f1228b1e13a42bb65e7bf7ee2
   ms.translationtype: HT
   ms.contentlocale: zh-TW
-  ms.lasthandoff: 09/23/2019
-  ms.locfileid: "71204106"
+  ms.lasthandoff: 09/25/2019
+  ms.locfileid: "71272223"
 landingContent:
 - title: 關於 HDInsight
   linkLists:
@@ -28,7 +28,7 @@ landingContent:
     links:
     - text: HDInsight 元件和版本
       url: ./hdinsight-component-versioning.md
-    - text: HDInsight 支援的節點設定
+    - text: HDInsight 支援的 VM 類型
       url: ./hdinsight-supported-node-configuration.md
     - text: 比較儲存體選項
       url: ./hdinsight-hadoop-compare-storage-options.md
@@ -38,6 +38,14 @@ landingContent:
       url: ./hdinsight-hadoop-provision-linux-clusters.md
     - text: 使用 Data Lake Store Gen2 建立叢集
       url: ./hdinsight-hadoop-use-data-lake-storage-gen2.md
+  - linkListType: whats-new
+    links:
+    - text: 自動調整：自動調整 Hadoop 叢集
+      url: ./hdinsight-autoscale-clusters.md
+    - text: 透過 HDInsight 監視
+      url: ./hdinsight-hadoop-oms-log-analytics-tutorial.md
+    - text: 將 Apache Hive 資料表遷移到 HDInsight 4.0
+      url: ./interactive-query/apache-hive-migrate-workloads.md
 - title: Apache Spark
   linkLists:
   - linkListType: overview
