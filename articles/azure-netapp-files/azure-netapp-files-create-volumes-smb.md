@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 9/20/2019
+ms.date: 9/25/2019
 ms.author: b-juche
-ms.openlocfilehash: a2cfd7937bff10dae4601cb9727cfe43e4d61ca0
-ms.sourcegitcommit: 83df2aed7cafb493b36d93b1699d24f36c1daa45
+ms.openlocfilehash: 3d34caba9512dc0c0b20cf10476f5c38a2fab8ce
+ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/22/2019
-ms.locfileid: "71178270"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71299658"
 ---
 # <a name="create-an-smb-volume-for-azure-netapp-files"></a>建立適用於 Azure NetApp Files 的 SMB 磁碟區
 
@@ -95,6 +95,9 @@ Azure NetApp Files 支援 NFS 和 SMBv3 磁片區。 磁碟區的容量耗用量
 
     * **組織單位路徑**  
         這是將在其中建立 SMB 伺服器電腦帳戶的組織單位 (OU) 的 LDAP 路徑。 也就是 OU = 第二層, OU = 第一層。 
+
+        如果您使用具有 Azure Active Directory Domain Services 的 Azure NetApp Files，則當您設定 NetApp `OU=AADDC Computers`帳戶的 Active Directory 時，組織單位路徑就會是。
+        
     * 認證, 包括您的使用者**名稱**和**密碼**
 
     ![加入 Active Directory](../media/azure-netapp-files/azure-netapp-files-join-active-directory.png)

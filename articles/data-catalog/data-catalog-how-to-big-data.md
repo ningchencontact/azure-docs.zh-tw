@@ -1,19 +1,19 @@
 ---
-title: 如何使用 Azure 資料目錄中的「巨量資料」資料來源
+title: 如何在 Azure 資料目錄中將海量資料分類
 description: 強調如何將 Azure 資料目錄與「巨量資料」資料來源 (包括 Azure Blob 儲存體、Azure Data Lake 及 Hadoop HDFS) 搭配使用的操作說明文章。
 author: JasonWHowell
 ms.author: jasonh
 ms.service: data-catalog
 ms.topic: conceptual
 ms.date: 08/01/2019
-ms.openlocfilehash: 00b9d6ab6ca8d9b4154e0fba491081597dc08402
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: 88dc85003fa2a3e41d8a31055ff8ba9b0fcc7492
+ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68882526"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71300576"
 ---
-# <a name="how-to-work-with-big-data-sources-in-azure-data-catalog"></a>如何使用 Azure 資料目錄中的巨量資料來源
+# <a name="how-to-catalog-big-data-in-azure-data-catalog"></a>如何在 Azure 資料目錄中將海量資料分類
 
 ## <a name="introduction"></a>簡介
 

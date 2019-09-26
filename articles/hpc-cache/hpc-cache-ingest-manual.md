@@ -6,12 +6,12 @@ ms.service: hpc-cache
 ms.topic: conceptual
 ms.date: 08/30/2019
 ms.author: v-erkell
-ms.openlocfilehash: 217f976d53a7be8931be9f8d21b000549a9ed68a
-ms.sourcegitcommit: a19bee057c57cd2c2cd23126ac862bd8f89f50f5
+ms.openlocfilehash: e1ca6fa4ea1ae4a5bf5996e88d32e1e00416f067
+ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71180983"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71299981"
 ---
 # <a name="azure-hpc-cache-preview-data-ingest---manual-copy-method"></a>Azure HPC 快取（預覽）資料內嵌-手動複製方法
 
@@ -23,7 +23,7 @@ ms.locfileid: "71180983"
 
 您可以藉由在背景中針對幾組預先定義的檔案或路徑，一次執行多個複製命令，在用戶端上手動建立多執行緒複製。
 
-Linux/UNIX ``cp`` 命令包含可保留擁有權和 mtime 中繼資料的 ``-p`` 引數。 您可以視需要將此引數新增至下方的命令。 (如果新增此引數，將會增加從用戶端傳送到目的地檔案系統以進行中繼資料修改的檔案系統呼叫次數)。
+Linux/UNIX ``cp`` 命令包含可保留擁有權和 mtime 中繼資料的 ``-p`` 引數。 您可以視需要將此引數新增至下方的命令。 （新增引數會增加從用戶端傳送至目的地檔案系統以進行中繼資料修改）的檔案系統呼叫數目。
 
 此簡單範例會平行複製兩個檔案：
 
@@ -81,7 +81,7 @@ cp -R /mnt/source/dir1/dir1d /mnt/destination/dir1/ &
 
 ## <a name="when-to-add-mount-points"></a>新增掛接點的時機
 
-在您有足夠的平行執行緒針對單一目的地檔案系統掛接點執行之後，會遇到一個新增更多執行緒也不會提升輸送量的瓶頸點。 (輸送量會以每秒檔案數或每秒位元組數來測量，視您的資料類型而定)。或是更糟，過多執行緒有時會造成輸送量降低。  
+當您有足夠的平行線程進入單一目的地檔案系統掛接點之後，將會有一個點，讓新增更多執行緒不會提供更多的輸送量。 (輸送量會以每秒檔案數或每秒位元組數來測量，視您的資料類型而定)。或是更糟，過多執行緒有時會造成輸送量降低。  
 
 發生這種情況時，您可以使用相同的遠端檔案系統掛接路徑，將用戶端掛接點新增至其他 Azure HPC 快取裝載位址：
 
@@ -136,7 +136,7 @@ Client4: cp -R /mnt/source/dir3/dir3d /mnt/destination/dir3/ &
 
 ## <a name="create-file-manifests"></a>建立檔案資訊清單
 
-了解上述方法 (每個目的地多個複製執行緒、每個用戶端多個目的地、每個可透過網路存取之來源檔案系統多個用戶端) 之後，請考慮這項建議：建置檔案資訊清單，然後跨多個用戶端將其與複製命令搭配使用。
+瞭解上述方法（每個目的地有多個複製執行緒、每個用戶端有多個目的地、每個網路可存取的來源檔案系統有多個用戶端）之後，請考慮下列建議：建置檔案資訊清單，然後跨多個用戶端將其與複製命令搭配使用。
 
 此案例會使用 UNIX ``find`` 命令來建立檔案或目錄的資訊清單：
 

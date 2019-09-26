@@ -1,5 +1,5 @@
 ---
-title: 刪除 Azure Log Analytics 工作區 | Microsoft Docs
+title: 刪除及還原 Azure Log Analytics 工作區 |Microsoft Docs
 description: 了解如何刪除您的 Log Analytics 工作區 (如果您已在個人訂用帳戶中建立工作區) 或重組您的工作區模型。
 services: log-analytics
 documentationcenter: log-analytics
@@ -13,33 +13,52 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 05/07/2018
 ms.author: magoedte
-ms.openlocfilehash: a6542838acba3143123dc90d96746179a2b4469b
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: f8dcab1a7a46d518b752e48f9886b60a37d8ec4c
+ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60236104"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71299547"
 ---
-# <a name="delete-an-azure-log-analytics-workspace-with-the-azure-portal"></a>使用 Azure 入口網站來刪除 Azure Log Analytics 工作區
-本文章說明如何使用 Azure 入口網站來刪除您可能已不再需要的 Log Analytics 工作區。 
+# <a name="delete-and-restore-azure-log-analytics-workspace"></a>刪除和還原 Azure Log Analytics 工作區
+本文說明 Azure Log Analytics 工作區虛刪除的概念，以及如何復原已刪除的工作區。 
 
-## <a name="to-delete-a-workspace"></a>刪除工作區 
-當您刪除 Log Analytics 工作區時，系統會在 30 天內從服務中刪除所有與工作區相關的資料。  刪除工作區時，請小心謹慎，因為可能有會對服務作業造成負面影響的重要資料和設定。 請考慮將其資料儲存在 Log Analytics 中的其他 Azure服務和來源，例如：
+## <a name="considerations-when-deleting-a-workspace"></a>刪除工作區時的考慮
+當您刪除 Log Analytics 工作區時，會執行虛刪除作業，以允許在14天內復原工作區（包括其資料和連線的代理程式），不論是意外或刻意刪除。 在虛刪除期間之後，工作區和其資料無法復原，而且會在30天內加入永久刪除佇列。
 
-* Application Insights
-* Azure 資訊安全中心
+當您刪除工作區時，想要特別小心，因為可能有重要的資料和設定可能會對您的服務作業造成負面影響。 審查哪些代理程式、解決方案和其他 Azure 服務，以及將其資料儲存在 Log Analytics 中的來源，例如：
+* 管理解決方案
 * Azure 自動化
 * 在 Windows 與 Linux 虛擬機器上執行的代理程式
 * 在您環境中的 Windows 與 Linux 電腦上執行的代理程式
 * System Center Operations Manager
-* 管理解決方案 
 
-設定為回報給工作區的任何代理程式和 System Center Operations Manager 管理群組，都將繼續處於孤立狀態。  在您繼續之前，清查哪些代理程式、解決方案和其他Azure 服務會與工作區整合。   
- 
-如果您是管理員，而且有多位使用者與工作區關聯，則這些使用者與工作區之間的關聯將會中斷。 如果這些使用者與其他工作區相關聯，則可以繼續搭配其他工作區使用 Log Analytics。 不過，如果他們未與其他工作區相關聯，則必須建立工作區才能使用 Log Analytics。 
+虛刪除作業會刪除工作區資源，且任何相關聯的使用者許可權都會中斷。 如果使用者與其他工作區相關聯，則他們可以繼續搭配其他工作區使用 Log Analytics。
 
-1. 登入 [Azure 入口網站](https://portal.azure.com)。 
-2. 在 Azure 入口網站中，按一下左下角的 [更多服務]  。 在資源清單中輸入 **Log Analytics**。 當您開始輸入時，清單會根據您輸入的文字進行篩選。 選取 [Log Analytics 工作區]  。
-3. 在 Log Analytics 訂用帳戶窗格中，選取工作區，然後從中間窗格的頂端按一下 [刪除]  。<br><br> ![來自工作區屬性窗格的刪除選項](media/delete-workspace/log-analytics-delete-workspace.png)<br>  
-4. 當要求您確認刪除工作區的確認訊息窗格出現時，按一下 [是]  。<br><br> ![確認刪除工作區](media/delete-workspace/log-analytics-delete-workspace-confirm.png)
+## <a name="soft-delete-behavior"></a>虛刪除行為
+工作區刪除作業會移除工作區 Resource Manager 資源，但其設定和資料會保留14天，同時提供刪除工作區的外觀。 設定為向工作區報告的任何代理程式和 System Center Operations Manager 管理群組，在虛刪除期間都會維持在孤立狀態。 服務會進一步提供一種機制來復原已刪除的工作區，包括其資料和連線的資源，基本上就是將刪除作業還原。
 
+> [!NOTE] 
+> 已安裝的解決方案和已連結的服務（例如自動化帳戶）會在刪除時從工作區中永久移除，而且無法復原。 這些應該在復原作業之後重新設定，將工作區帶到其先前的功能。 
+
+您可以使用[PowerShell](https://docs.microsoft.com/powershell/module/azurerm.operationalinsights/remove-azurermoperationalinsightsworkspace?view=azurermps-6.13.0)、 [API](https://docs.microsoft.com/rest/api/loganalytics/workspaces/delete)或[Azure 入口網站](https://portal.azure.com)中的來刪除工作區。
+
+### <a name="delete-workspace-in-azure-portal"></a>刪除 Azure 入口網站中的工作區
+1. 若要登入，請移至[Azure 入口網站](https://portal.azure.com)。 
+2. 在 Azure 入口網站中，選取 [所有服務]。 在資源清單中輸入 **Log Analytics**。 當您開始輸入時，清單會根據您輸入的文字進行篩選。 選取 [Log Analytics 工作區]。
+3. 在 Log Analytics 工作區清單中，選取工作區，然後按一下中間窗格頂端的 [**刪除**]。
+   ![來自工作區屬性窗格的刪除選項](media/delete-workspace/log-analytics-delete-workspace.png)
+4. 當要求您確認刪除工作區的確認訊息窗格出現時，按一下 [是]。
+   ![確認刪除工作區](media/delete-workspace/log-analytics-delete-workspace-confirm.png)
+
+## <a name="recover-workspace"></a>復原工作區
+如果您具有訂用帳戶和資源群組的參與者許可權，且該工作區在虛刪除作業之前建立關聯，您可以在其虛刪除期間（包括其資料、設定和連接的代理程式）進行復原。 在虛刪除期間之後，工作區無法復原，而且會被指派永久刪除。
+
+您可以使用任何支援的 create 方法重新建立工作區來復原工作區：PowerShell、Azure CLI 或從 Azure 入口網站，只要這些屬性已填入已刪除工作區的詳細資料，包括：
+1.  訂用帳戶識別碼
+2.  資源群組名稱
+3.  工作區名稱
+4.  區域
+
+> [!NOTE]
+> 已刪除工作區的名稱會保留以進行虛刪除期間，而且無法在建立新的工作區時使用。 工作區名稱會釋出，並可在虛刪除期間過期*之後，用於*建立新的工作區。

@@ -102,7 +102,7 @@ ms.locfileid: "71212290"
     ![Android SDK Manager - 已選取 Google Play Services](./media/notification-hubs-android-studio-add-google-play-services/google-play-services-selected.png)
 3. 如果您看到 [確認變更]  對話方塊，請選取 [確定]  。 元件安裝程式會安裝要求的元件。 在元件安裝完成後選取 [完成]  。
 4. 選取 [確定]  以關閉 [新專案的設定]  對話方塊。  
-1. 開啟 AndroidManifest.xml 檔案，然後在「應用程式」  標籤中新增下列標籤。
+1. 開啟 AndroidManifest.xml 檔案，然後在*application*標籤中新增下列標籤。
 
     ```xml
     <meta-data android:name="com.google.android.gms.version"

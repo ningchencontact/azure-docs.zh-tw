@@ -12,21 +12,21 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 11/10/2018
+ms.date: 09/26/2019
 ms.author: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9c61313190615c2f30a7d37202bc0f9bcf14d800
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 272315346091bacb15aef02184e1cc72d64ed49d
+ms.sourcegitcommit: 0486aba120c284157dfebbdaf6e23e038c8a5a15
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66112889"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71309805"
 ---
 # <a name="configure-managed-identities-for-azure-resources-on-an-azure-vm-using-azure-cli"></a>使用 Azure CLI 在 Azure VM 上設定 Azure 資源的受控識別
 
 [!INCLUDE [preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
 
-Azure 資源受控識別會在 Azure Active Directory 中為 Azure 服務提供自動受控識別。 您可以使用此身分識別來向任何支援 Azure AD 驗證的服務進行驗證，不需要任何您程式碼中的認證。 
+適用於 Azure 資源的受控識別會在 Azure Active Directory 中為 Azure 服務提供自動的受控識別。 您可以使用此身分識別來向任何支援 Azure AD 驗證的服務進行驗證，不需要任何您程式碼中的認證。 
 
 在本文中，藉由使用 Azure CLI，您將了解如何在 Azure VM 上執行 Azure 資源作業的下列受控識別：
 
@@ -107,8 +107,7 @@ az vm update -n myVM -g myResourceGroup --set identity.type='UserAssigned'
 ```azurecli-interactive
 az vm update -n myVM -g myResourceGroup --set identity.type="none"
 ```
-> [!NOTE]
-> 如果您已佈建 Azure 資源 （要被取代） 的 VM 延伸模組的受管理身分識別，您需要先使用  [az vm 擴充功能刪除](https://docs.microsoft.com/cli/azure/vm/)。 如需詳細資訊，請參閱 <<c0> [ 從 VM 延伸模組移轉至 Azure 進行驗證的 IMDS](howto-migrate-vm-extension.md)。
+
 
 ## <a name="user-assigned-managed-identity"></a>使用者指派的受控識別
 
@@ -118,7 +117,7 @@ az vm update -n myVM -g myResourceGroup --set identity.type="none"
 
 若要在 VM 建立期間將使用者指派的身分識別指派給 VM，您的帳戶需要[虛擬機器參與者](/azure/role-based-access-control/built-in-roles#virtual-machine-contributor)和[受控識別操作者](/azure/role-based-access-control/built-in-roles#managed-identity-operator)角色指派。 不需要其他 Azure AD 目錄角色指派。
 
-1. 如果您已經有想要使用的資源群組，可以略過此步驟。 使用 [az group create](/cli/azure/group/#az-group-create) 建立[資源群組](~/articles/azure-resource-manager/resource-group-overview.md#terminology)，以便控制及部署使用者指派的受控識別。 請務必以您自己的值取代 `<RESOURCE GROUP>` 和 `<LOCATION>` 參數的值。 ：
+1. 如果您已經有想要使用的資源群組，可以略過此步驟。 使用 [az group create](/cli/azure/group/#az-group-create) 建立[資源群組](~/articles/azure-resource-manager/resource-group-overview.md#terminology)，以便控制及部署使用者指派的受控識別。 請務必以您自己的值取代 `<RESOURCE GROUP>` 和 `<LOCATION>` 參數的值。 :
 
    ```azurecli-interactive 
    az group create --name <RESOURCE GROUP> --location <LOCATION>
@@ -131,7 +130,7 @@ az vm update -n myVM -g myResourceGroup --set identity.type="none"
    ```azurecli-interactive
    az identity create -g myResourceGroup -n myUserAssignedIdentity
    ```
-   回應會包含所建立使用者指派受控識別的詳細資料，與下列內容類似。 指派給 指派使用者給受控身分識別的資源識別碼值會在下一個步驟。
+   回應會包含所建立使用者指派受控識別的詳細資料，與下列內容類似。 在下列步驟中，會使用指派給使用者指派受控識別的資源識別碼值。
 
    ```json
    {
@@ -166,7 +165,7 @@ az vm update -n myVM -g myResourceGroup --set identity.type="none"
     ```azurecli-interactive
     az identity create -g <RESOURCE GROUP> -n <USER ASSIGNED IDENTITY NAME>
     ```
-   回應會包含所建立使用者指派受控識別的詳細資料，與下列內容類似。 
+   回應會包含所建立之使用者指派的受控識別詳細資料，與下列內容類似。 
 
    ```json
    {
@@ -215,7 +214,7 @@ az vm update -n myVM -g myResourceGroup --set identity.type='SystemAssigned' ide
 ```
 
 ## <a name="next-steps"></a>後續步驟
-- [Azure 資源受控識別概觀](overview.md)
+- [適用於 Azure 資源的受控識別概觀](overview.md)
 - 如需完整的 Azure VM 建立快速入門，請參閱： 
   - [使用 CLI 建立 Windows 虛擬機器](../../virtual-machines/windows/quick-create-cli.md)  
   - [使用 CLI 建立 Linux 虛擬機器](../../virtual-machines/linux/quick-create-cli.md) 

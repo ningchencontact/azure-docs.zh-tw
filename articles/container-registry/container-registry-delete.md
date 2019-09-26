@@ -8,12 +8,12 @@ ms.service: container-registry
 ms.topic: article
 ms.date: 07/31/2019
 ms.author: danlep
-ms.openlocfilehash: d652c511a3f54fd0b756a95fbe183b4678416a10
-ms.sourcegitcommit: 23389df08a9f4cab1f3bb0f474c0e5ba31923f12
+ms.openlocfilehash: d415bef80ed8c96ff6e5df81ae9281ae681a4879
+ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70873211"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71300194"
 ---
 # <a name="delete-container-images-in-azure-container-registry-using-the-azure-cli"></a>使用 Azure CLI 刪除 Azure Container Registry 中的容器映射
 
@@ -259,9 +259,12 @@ if ($enableDelete) {
 }
 ```
 
+
 ## <a name="automatically-purge-tags-and-manifests-preview"></a>自動清除標記和資訊清單 (預覽)
 
 做為腳本 Azure CLI 命令的替代方案，請執行隨選或排程的 ACR 工作，以刪除比特定期間還舊的所有標記，或符合指定的名稱篩選器。 如需詳細資訊，請參閱[從 Azure container Registry 自動清除映射](container-registry-auto-purge.md)。
+
+選擇性地為每個登錄設定[保留原則](container-registry-retention-policy.md)，以管理未標記的資訊清單。 當您啟用保留原則時，登錄中沒有任何相關聯的標記和基礎層資料的映射資訊清單，會在設定的期間之後自動刪除。
 
 ## <a name="next-steps"></a>後續步驟
 

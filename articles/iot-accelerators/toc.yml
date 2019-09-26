@@ -238,9 +238,7 @@
 - name: 參考架構
   items:
     - name: 概觀
-      href: iot-accelerators-architecture-overview.md
-    - name: 下載
-      href: 'https://aka.ms/iotrefarchitecture'
+      href: 'https://docs.microsoft.com/azure/architecture/reference-architectures/iot/'
     - name: 合作夥伴實作
       items:
         - name: Intel Connected Logistics Platform

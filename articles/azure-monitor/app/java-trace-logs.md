@@ -12,19 +12,37 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 05/18/2019
 ms.author: mbullwin
-ms.openlocfilehash: 2703c97dc78983ef294b3aa50f7ace879c96f66d
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: ac9bd6021b5fcec36e3aadfdf4c30020971f3be5
+ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67061223"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71299254"
 ---
 # <a name="explore-java-trace-logs-in-application-insights"></a>在 Application Insights 中探索 Java 追蹤記錄
 如果您使用 Logback 或 Log4J (v1.2 或 v2.0) 進行追蹤，您可以將追蹤記錄自動傳送到 Application Insights，您可以在其中探索及搜尋記錄。
 
+## <a name="using-the-application-insights-java-agent"></a>使用 Application Insights JAVA 代理程式
+
+您可以藉由啟用檔案中`AI-Agent.xml`的功能, 將 Application Insights JAVA 代理程式設定為自動捕捉您的記錄檔:
+
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<ApplicationInsightsAgent>
+   <Instrumentation>
+      <BuiltIn enabled="true">
+         <Logging enabled="true" />
+      </BuiltIn>
+   </Instrumentation>
+   <AgentLogger />
+</ApplicationInsightsAgent>
+```
+
+或者，您可以依照下列指示進行。
+
 ## <a name="install-the-java-sdk"></a>安裝 Java SDK
 
-依指示安裝 [Application Insights SDK for Java][java]，如果您還未完成的話。
+依照指示安裝[APPLICATION INSIGHTS SDK For JAVA][java](如果您尚未這麼做)。
 
 ## <a name="add-logging-libraries-to-your-project"></a>將記錄程式庫加入至專案
 *選擇適合您的專案的方式。*
@@ -156,7 +174,7 @@ ms.locfileid: "67061223"
 Application Insights 附加器可由任何設定的記錄器參考，而不一定是根記錄器 (如以上程式碼範例所示)。
 
 ## <a name="explore-your-traces-in-the-application-insights-portal"></a>在 Application Insights 入口網站中探索您的追蹤
-既然已將專案設定為傳送追蹤至 Application Insights，您可以在 Application Insights 入口網站的[搜尋][diagnostic]刀鋒視窗中檢視及搜尋這些追蹤。
+現在您已將專案設定為將追蹤傳送到 Application Insights, 您可以在 Application Insights 入口網站的 [[搜尋][diagnostic]] 分頁中, 查看並搜尋這些追蹤。
 
 透過記錄器提交的例外狀況會在入口網站上顯示為例外狀況遙測。
 

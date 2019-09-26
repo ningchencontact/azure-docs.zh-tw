@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/20/2019
 ms.author: memildin
-ms.openlocfilehash: ce8aa0229d9a9b873a489209065ada588adbffff
-ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.openlocfilehash: 0a3bc6bcae2f06173cbc334ffe80e2dfa001e407
+ms.sourcegitcommit: 0486aba120c284157dfebbdaf6e23e038c8a5a15
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71257734"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71309273"
 ---
 # <a name="integrate-security-solutions-in-azure-security-center"></a>在 Azure 資訊安全中心整合安全性解決方案
 這份文件可協助您管理已連線到 Azure 資訊安全中心的安全性解決方案，並且新增新的項目。
@@ -29,14 +29,14 @@ ms.locfileid: "71257734"
 ## <a name="integrated-azure-security-solutions"></a>整合式 Azure 安全性解決方案
 資訊安全中心可以使得在 Azure 中啟用整合式安全性解決方案變得簡單。 優點包括：
 
-- **簡化部署**：資訊安全中心提供整合式合作夥伴解決方案的精簡佈建。 針對像是反惡意程式碼軟體和弱點評量的解決方案，資訊安全中心可以在您的虛擬機器上佈建所需的代理程式，針對防火牆應用裝置，資訊安全中心可以處理大部分所需的網路設定。
+- **簡化部署**：資訊安全中心提供整合式合作夥伴解決方案的精簡佈建。 針對反惡意程式碼和弱點評估之類的解決方案，資訊安全中心可以在您的虛擬機器上布建代理程式。 對於防火牆設備，資訊安全中心可以處理所需的許多網路設定。
 - **整合偵測**：來自夥伴解決方案的安全性事件會自動收集、彙總以及顯示為資訊安全中心警示和事件的一部分。 這些事件也會與來自其他來源的偵測整合，以提供進階的威脅偵測功能。
 - **統一的健全狀況監視與管理**：客戶可使用整合式的健全狀況事件，一眼監視所有夥伴解決方案。 提供基本管理功能，而且可以讓您輕鬆使用夥伴解決方案存取進階設定。
 
 目前，整合式安全性解決方案包含[Qualys](https://www.qualys.com/public-cloud/#azure)和[Rapid7](https://www.rapid7.com/products/insightvm/)和 Microsoft 應用程式閘道 Web 應用程式防火牆的弱點評量。
 
 > [!NOTE]
-> 資訊安全中心不會在合作夥伴虛擬設備上安裝 Microsoft Monitoring Agent，因為大部分的安全防護廠商都禁止在其設備上執行的外部代理程式。
+> 資訊安全中心不會在合作夥伴虛擬應用裝置上安裝 Microsoft Monitoring Agent，因為大部分的安全性廠商會禁止在其應用裝置上執行的外部代理程式。
 >
 >
 
@@ -55,30 +55,30 @@ ms.locfileid: "71257734"
 
    ![資訊安全中心概觀](./media/security-center-partner-integration/overview.png)
 
-在 [安全性解決方案] 之下，您可以檢視整合式 Azure 安全性解決方案的健康情況相關資訊，並且執行基本管理工作。
+在 [**安全性解決方案**] 中，您可以看到整合式 Azure 安全性解決方案的健康情況，並執行基本管理工作。
 
 ### <a name="connected-solutions"></a>已連接的解決方案
 
-[連線的解決方案] 區段包含目前連線到資訊安全中心的安全性解決方案，和每個解決方案健康情況狀態的的資訊。  
+[**已連接的解決方案**] 區段包含目前連接到資訊安全中心的安全性解決方案。 它也會顯示每個解決方案的健全狀況狀態。  
 
 ![已連接的解決方案](./media/security-center-partner-integration/security-center-partner-integration-fig4.png)
 
 合作夥伴解決方案的狀態可以是︰
 
-* 狀況良好 (綠色) - 沒有任何健康問題。
-* 狀況不良 (紅色) - 有需要立即注意的健康狀態問題。
+* 狀況良好（綠色）-沒有健康情況問題。
+* 狀況不良（紅色）-有一個需要立即注意的健康情況問題。
 * 健康情況問題 (橘色) - 解決方案已停止報告其健康情況。
-* 未報告 (灰色) - 解決方案尚未報告任何狀態，如果解決方案最近連線且仍在部署中，或者沒有健康情況資料可用，則可能未報告解決方案的狀態。
+* 未報告（灰色）-解決方案尚未報告任何專案，且沒有可用的健康情況資料。 如果解決方案的狀態是最近連線且仍在部署中，則可能未報告。
 
 > [!NOTE]
-> 如果健康情況狀態資料無法使用，資訊安全中心就會顯示最後收到之事件的日期和時間，以指出解決方案是否進行報告。 如果沒有健康情況資料可用，且過去 14 天內未收到任何警示，則資訊安全中心會表示解決方案狀況不良或未報告。
+> 如果健康情況狀態資料無法使用，資訊安全中心就會顯示最後收到之事件的日期和時間，以指出解決方案是否進行報告。 如果沒有可用的健康情況資料，而且在過去14天內未收到任何警示，資訊安全中心會指出解決方案狀況不良或未報告。
 >
 >
 
-1. 選取 [檢視] 以取得其他資訊和選項，包括：
+1. 選取 [ **VIEW** ] 取得其他資訊和選項，例如：
 
    - **解決方案主控台**。 開啟這個解決方案的管理體驗。
-   - **連結 VM**。 開啟 [連結應用程式] 刀鋒視窗。 您可以在這裡將資源連接到合作夥伴解決方案。
+   - **連結 VM**。 開啟 [連結應用程式] 頁面。 您可以在這裡將資源連接到合作夥伴解決方案。
    - **刪除解決方案**。
    - **設定**。
 
@@ -86,14 +86,14 @@ ms.locfileid: "71257734"
 
 ### <a name="discovered-solutions"></a>搜索到的解決方案
 
-資訊安全中心會自動探索在 Azure 中執行但未連線到資訊安全中心的安全性解決方案，並且在 [搜索到的解決方案] 區段中顯示解決方案。 這包括 Azure 解決方案，例如 [Azure AD Identity Protection](https://docs.microsoft.com/azure/active-directory/active-directory-identityprotection)，以及在合作夥伴解決方案。
+資訊安全中心會自動探索在 Azure 中執行但未連線到資訊安全中心的安全性解決方案，並在 [探索到的**解決方案**] 區段中顯示解決方案。 這些解決方案包括 Azure 解決方案，例如[Azure AD Identity Protection](https://docs.microsoft.com/azure/active-directory/active-directory-identityprotection)和合作夥伴解決方案。
 
 > [!NOTE]
-> 已探索解決方案功能的訂用帳戶層級需要資訊安全中心的標準層。 若要深入了解資訊安全中心的定價層，請參閱[價格](security-center-pricing.md)。
+> 已探索解決方案功能的訂用帳戶層級需要資訊安全中心的標準層。 若要深入瞭解定價層，請參閱[定價](security-center-pricing.md)。
 >
 >
 
-選取解決方案下方的 [連線] 來與資訊安全中心整合，並可收到安全性警示通知。
+選取解決方案下的 **[連線]** 以與資訊安全中心整合，並收到安全性警示的通知。
 
 ![搜索到的解決方案](./media/security-center-partner-integration/security-center-partner-integration-fig5.png)
 
@@ -105,39 +105,39 @@ ms.locfileid: "71257734"
 
 ## <a name="exporting-data-to-a-siem"></a>將資料匯出至 SIEM
 
-系統會將由 Azure 資訊安全中心所產生的已處理事件發行到 Azure [活動記錄](../monitoring-and-diagnostics/monitoring-overview-activity-logs.md)，此為可透過 Azure 監視器取得的記錄類型之一。 Azure 監視器提供合併的管線，將您的所有監視資料路由傳送至 SIEM 工具。 完成此動作的方式是將該資料串流到事件中樞，然後將它提取至合作夥伴工具。
+您可以設定您的 Siem 或其他監視工具來接收 Azure 資訊安全中心事件。
 
-這個管道會使用 [Azure 監視單一管線](../azure-monitor/platform/stream-monitoring-data-event-hubs.md)，從您的 Azure 環境存取監視資料。 這可讓您輕鬆地設定 SIEM 和監視工具來取用資料。
+Azure 資訊安全中心中的所有事件都會發佈至 Azure 監視器的 Azure[活動記錄](../monitoring-and-diagnostics/monitoring-overview-activity-logs.md)。 Azure 監視器會使用[合併管線](../azure-monitor/platform/stream-monitoring-data-event-hubs.md)將資料串流至事件中樞，然後再將其提取到您的監視工具中。
 
 以下幾節說明如何設定資料以串流到事件中樞。 這些步驟假設您已經在 Azure 訂用帳戶中設定 Azure 資訊安全中心。
 
-高階概述
+### <a name="high-level-overview"></a>高階概述
 
 ![高階概述](media/security-center-export-data-to-siem/overview.png)
 
 ### <a name="what-is-the-azure-security-data-exposed-to-siem"></a>公開至 SIEM 的 Azure 安全性資料為何？
 
-在此版本中，我們會公開[安全性警示](../security-center/security-center-managing-and-responding-alerts.md)。 在即將發行版本中，我們將使用安全性建議來擴充此資料集。
+在此版本中，我們會公開[安全性警示。](../security-center/security-center-managing-and-responding-alerts.md) 在即將發行版本中，我們將使用安全性建議來擴充此資料集。
 
-### <a name="how-to-setup-the-pipeline"></a>如何設定管線
+### <a name="how-to-set-up-the-pipeline"></a>如何設定管線
 
 #### <a name="create-an-event-hub"></a>建立事件中心
 
-開始之前，您必須[建立事件中樞命名空間](../event-hubs/event-hubs-create.md)。 此命名空間和事件中樞是所有監視資料的目的地。
+開始之前，請先[建立事件中樞命名空間](../event-hubs/event-hubs-create.md)-所有監視資料的目的地。
 
 #### <a name="stream-the-azure-activity-log-to-event-hubs"></a>將 Azure 活動記錄檔串流至事件中樞
 
-請參閱[將活動記錄串流至事件中樞](../azure-monitor/platform/activity-logs-stream-event-hubs.md)一文
+請參閱下列文章將[活動記錄串流至事件中樞](../azure-monitor/platform/activity-logs-stream-event-hubs.md)
 
 #### <a name="install-a-partner-siem-connector"></a>安裝合作夥伴 SIEM 連接器 
 
 使用 Azure 監視器將監視資料路由傳送到事件中樞，可讓您輕鬆地與合作夥伴 SIEM 和監視工具整合。
 
-請參閱下列連結，以查看[支援的 SIEM](../azure-monitor/platform/resource-logs-stream-event-hubs.md#what-you-can-do-with-resource-logs-sent-to-an-event-hub) 清單
+請參閱下列文章，以取得[支援的 siem](../azure-monitor/platform/resource-logs-stream-event-hubs.md#what-you-can-do-with-resource-logs-sent-to-an-event-hub)清單
 
 ### <a name="example-for-querying-data"></a>查詢資料範例 
 
-以下是幾個可讓您用來提取警示資料的 Splunk 查詢：
+以下是一些您可以用來提取警示資料的 Splunk 查詢：
 
 | **查詢描述** | **查詢** |
 |----|----|

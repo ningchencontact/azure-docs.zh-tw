@@ -6,19 +6,19 @@ manager: philmea
 ms.service: iot-hub
 services: iot-hub
 ms.topic: article
-ms.date: 09/19/2019
+ms.date: 09/25/2019
 ms.author: dkshir
 ms.custom: security-recommendations
-ms.openlocfilehash: 7253ec04efe914f68e9798fca49233f11c5102ef
-ms.sourcegitcommit: 2ed6e731ffc614f1691f1578ed26a67de46ed9c2
+ms.openlocfilehash: 51abfd086391d1bed53646d22d93ac1348e566a5
+ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71129802"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71299800"
 ---
 # <a name="security-recommendations-for-azure-internet-of-things-iot-deployment"></a>Azure 物聯網（IoT）部署的安全性建議
 
-本文包含 Azure App Service 的安全性建議。 實行這些建議可協助您依照我們的共同責任模型中所述，滿足您的安全性義務，並可改善 Web 應用程式解決方案的整體安全性。 如需 Microsoft 如何履行服務提供者責任的詳細資訊，請參閱[雲端運算的共同責任](https://gallery.technet.microsoft.com/Shared-Responsibilities-81d0ff91/file/153019/1/Shared%20responsibilities%20for%20cloud%20computing.pdf)。
+本文包含 IoT 的安全性建議。 依照我們的共同責任模型所述，執行這些建議可協助您履行安全性義務。 如需 Microsoft 如何履行服務提供者責任的詳細資訊，請參閱[雲端運算的共同責任](https://gallery.technet.microsoft.com/Shared-Responsibilities-81d0ff91/file/153019/1/Shared%20responsibilities%20for%20cloud%20computing.pdf)。
 
 本文中包含的一些建議可由 Azure 資訊安全中心自動監視。 Azure 資訊安全中心是保護 Azure 中資源的第一道防線。 它會定期分析 Azure 資源的安全性狀態，以找出潛在的安全性弱點。 接著，它會為您提供如何解決這些問題的建議。
 

@@ -8,12 +8,12 @@ ms.date: 08/13/2019
 ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
-ms.openlocfilehash: 9019e6f72944823d7c256fa5f6b99b0aca84c845
-ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
+ms.openlocfilehash: 321866279e076bfa77d1892e64deaf4b16c08366
+ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/26/2019
-ms.locfileid: "70036329"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71300638"
 ---
 # <a name="build-highly-available-azure-storage-applications-with-geo-zone-redundant-storage-gzrs-preview"></a>建立具有異地區域冗余儲存體（切換）（預覽）的高可用性 Azure 儲存體應用程式
 
@@ -29,7 +29,11 @@ Microsoft 建議針對需要一致性、持久性、高可用性、絕佳效能�
 
 切換和 RA-切換目前在下欄區域提供預覽：
 
+- 北歐
+- 西歐
 - 美國東部
+- 美國東部 2
+- 美國中部
 
 Microsoft 會繼續在其他 Azure 區域中啟用切換和 RA 切換。 請定期查看 [Azure 服務更新](https://azure.microsoft.com/updates/) 頁面，以取得支援區域的相關資訊。
 
@@ -107,7 +111,7 @@ Set-AzStorageAccount -ResourceGroupName <resource-group> -AccountName <storage-a
 
 #### <a name="perform-a-live-migration"></a>執行即時移轉
 
-手動移轉可能造成應用程式停機。 如果您的應用程式要求高可用性，Microsoft 也提供即時移轉選項。 即時移轉是不需停機的就地遷移。
+手動移轉可能造成應用程式停機。 如果您的應用程式要求高可用性，Microsoft 也提供即時移轉選項。 即時移轉是一種不需停機的就地移轉。
 
 在即時移轉期間，您可以在來源和目的地儲存體帳戶之間遷移資料時，使用您的儲存體帳戶。 在即時移轉過程中，您的帳戶會繼續符合其持久性和可用性的 SLA。 即時移轉不會造成停機或資料遺失。
 
@@ -131,14 +135,14 @@ Set-AzStorageAccount -ResourceGroupName <resource-group> -AccountName <storage-a
 
 1. 選取 [ **新增支援要求**]。
 2. 根據您的帳戶資訊完成 **基本概念** 。 在 [ **服務** ] 區段中，選取 [ **儲存體帳戶管理** ]，並指定要遷移的帳戶。
-3. 選取 **[下一步]** 。
+3. 選取 [下一步] **** 。
 4. 在 [ **問題** ] 區段中指定下列值：
     - **嚴重性**：將預設值保持不變。
     - **問題類型**：選取 [ **資料移轉**]。
     - **類別**：選取 **區域內的 [遷移至（RA-）切換**]。
     - **標題**：輸入描述性標題，例如 **（RA-）切換帳戶遷移**。
     - **詳細資料**：在 [ **詳細資料** ] 方塊中輸入其他詳細資料，例如「我想要從區域中的\_ \_ [LRS，GRS] 遷移到切換。」 或者，我想要從區域中的\_ \_ [LRS，RA-GRS] 遷移到切換。
-5. 選取 **[下一步]** 。
+5. 選取 [下一步] **** 。
 6. 在 [ **連絡人資訊** ] 分頁上，確認連絡人資訊是否正確。
 7. 選取 [建立] **** 。
 

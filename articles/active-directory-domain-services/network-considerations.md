@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 08/09/2019
 ms.author: iainfou
-ms.openlocfilehash: e18f990885a25b7e130dfeb5a0a3425530ee11e6
-ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
+ms.openlocfilehash: 81d20a973454db600d8be9ce036f001dd41784e7
+ms.sourcegitcommit: 9fba13cdfce9d03d202ada4a764e574a51691dcd
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71086574"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71314997"
 ---
 # <a name="virtual-network-design-considerations-and-configuration-options-for-azure-ad-domain-services"></a>Azure AD Domain Services 的虛擬網路設計考慮和設定選項
 
@@ -46,7 +46,7 @@ Azure AD DS 受控網域會連線到 Azure 虛擬網路中的子網。 為 Azure
 * Azure AD DS 必須部署在自己的子網中。 請勿使用現有的子網或閘道子網。
 * 部署 Azure AD DS 受控網域期間，會建立網路安全性群組。 此網路安全性群組包含正確服務通訊所需的規則。
     * 請勿以您自己的自訂規則建立或使用現有的網路安全性群組。
-* Azure AD DS 需要五到七個 IP 位址。 請確定您的子網 IP 位址範圍可提供此數目的位址。
+* Azure AD DS 需要3-5 個 IP 位址。 請確定您的子網 IP 位址範圍可提供此數目的位址。
     * 限制可用的 IP 位址可能會導致 Azure AD Domain Services 無法維護兩個網域控制站。
 
 下列範例圖表概述一個有效的設計，其中 Azure AD DS 有自己的子網、一個用於外部連線的閘道子網，而應用程式工作負載位於虛擬網路內的已連接子網中：

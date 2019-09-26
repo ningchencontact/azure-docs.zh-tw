@@ -10,12 +10,12 @@ manager: carmonm
 ms.reviewer: klam, LADocs
 ms.topic: article
 ms.date: 09/20/2019
-ms.openlocfilehash: 1b0a7473f1cdfb6aa3533b261979da7c18605a16
-ms.sourcegitcommit: 83df2aed7cafb493b36d93b1699d24f36c1daa45
+ms.openlocfilehash: 9271a659e18ab969e801fd8974b05984e11e783c
+ms.sourcegitcommit: 0486aba120c284157dfebbdaf6e23e038c8a5a15
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/22/2019
-ms.locfileid: "71179482"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71309384"
 ---
 # <a name="perform-data-operations-in-azure-logic-apps"></a>在 Azure Logic Apps 中執行資料作業
 
@@ -175,55 +175,93 @@ ms.locfileid: "71179482"
 
 ### <a name="customize-table-format"></a>自訂資料表格式
 
-根據預設，[資料**行**] 屬性會設定為依據陣列專案自動建立資料表資料行。 
-
-若要指定自訂標頭和值，請遵循下列步驟：
+根據預設，[資料**行**] 屬性會設定為依據陣列專案自動建立資料表資料行。 若要指定自訂標頭和值，請遵循下列步驟：
 
 1. 開啟 [資料**行**] 清單，然後選取 [**自訂**]。
 
 1. 在 [**標頭**] 屬性中，指定要改用的自訂標頭文字。
 
-1. 在 [索引**鍵**] 屬性中，指定要改用的自訂值。
+1. 在 [**值**] 屬性中，指定要改用的自訂值。
 
-若要參考和編輯陣列中的值，您可以在`@item()` **建立 CSV 資料表**動作的 JSON 定義中使用函數。
+若要從陣列傳回值，您可以使用[ `item()`函數](../logic-apps/workflow-definition-language-functions-reference.md#item)搭配 [**建立 CSV 資料表**] 動作。 在迴圈中，您可以[ `items()`使用函數](../logic-apps/workflow-definition-language-functions-reference.md#items)。 `For_each`
 
-1. 在設計工具工具列上，選取 [程式**代碼視圖**]。 
-
-1. 在 [程式碼編輯器] 中， `inputs`編輯動作的區段，以您想要的方式自訂資料表輸出。
-
-這個範例只會傳回資料行值，而不會傳回`columns`陣列中的標`header`頭，方法是將屬性設定為`value`空值，並對每個屬性進行取值：
-
-```json
-"Create_CSV_table": {
-   "inputs": {
-      "columns": [
-         { 
-            "header": "",
-            "value": "@item()?['Description']"
-         },
-         { 
-            "header": "",
-            "value": "@item()?['Product_ID']"
-         }
-      ],
-      "format": "CSV",
-      "from": "@variables('myJSONArray')"
-   }
-}
-```
-
-以下是此範例傳回的結果：
+例如，假設您想要只具有屬性值的資料表資料行，而不是陣列中的屬性名稱。 若只要傳回這些值，請遵循下列步驟，在設計工具或程式碼視圖中工作。 以下是此範例傳回的結果：
 
 ```text
-Results from Create CSV table action:
-
 Apples,1
 Oranges,2
 ```
 
-在設計工具中，現在會以這種方式來顯示 [**建立 CSV 資料表**] 動作：
+#### <a name="work-in-designer-view"></a>在設計工具視圖中工作
 
-![無資料行標頭的「建立 CSV 資料表」](./media/logic-apps-perform-data-operations/create-csv-table-no-column-headers.png)
+在動作中，將 [**標頭] 資料**行保留空白。 在 [值] 資料行中的每個資料列上，**取值**您想要的每個陣列屬性。 [**值**] 底下的每個資料列都會傳回指定之陣列屬性的所有值，並成為您資料表中的資料行。
+
+1. 在 [**值**] 下，于您想要的每個資料列中，按一下編輯方塊內部，讓動態內容清單出現。
+
+1. 在動態內容清單中，選取 [運算式]。
+
+1. 在 [運算式編輯器] 中，輸入此運算式來指定您想要的陣列屬性值，然後選取 **[確定]** 。
+
+   `item()?['<array-property-name>']`
+
+   例如:
+
+   * `item()?['Description']`
+   * `item()?['Product_ID']`
+
+   ![要取值屬性的運算式](./media/logic-apps-perform-data-operations/csv-table-expression.png)
+
+1. 針對您想要的每個陣列屬性重複上述步驟。 當您完成時，您的動作會如下列範例所示：
+
+   ![完成的運算式](./media/logic-apps-perform-data-operations/finished-csv-expression.png)
+
+1. 若要將運算式解析成更具描述性的版本，請切換至程式碼視圖並回到設計工具視圖，然後重新開啟折迭的動作：
+
+   [**建立 CSV 資料表**] 動作現在會如下列範例所示：
+
+   ![具有已解析運算式但沒有標頭的「建立 CSV 資料表」動作](./media/logic-apps-perform-data-operations/resolved-csv-expression.png)
+
+#### <a name="work-in-code-view"></a>在程式碼視圖中工作
+
+在動作的 JSON 定義中，于`columns`陣列內`header`將屬性設定為空字串。 針對每`value`個屬性，取值您想要的每個陣列屬性。
+
+1. 在設計工具工具列上，選取 [程式**代碼視圖**]。
+
+1. 在 [程式碼編輯器] 的動作`columns`陣列中，為您想要的陣列值的每一個資料行新增空白`header`屬性和此`value`運算式：
+
+   ```json
+   {
+      "header": "",
+      "value": "@item()?['<array-property-name>']"
+   }
+   ```
+
+   例如:
+
+   ```json
+   "Create_CSV_table": {
+      "inputs": {
+         "columns": [
+            { 
+               "header": "",
+               "value": "@item()?['Description']"
+            },
+            { 
+               "header": "",
+               "value": "@item()?['Product_ID']"
+            }
+         ],
+         "format": "CSV",
+         "from": "@variables('myJSONArray')"
+      }
+   }
+   ```
+
+1. 切換回設計工具視圖，然後重新開啟折迭的動作。
+
+   [**建立 CSV 資料表**] 動作現在會如下列範例所示，而且運算式已解析成更具描述性的版本：
+
+   ![具有已解析運算式但沒有標頭的「建立 CSV 資料表」動作](./media/logic-apps-perform-data-operations/resolved-csv-expression.png)
 
 如需與基礎工作流程定義中的這個動作有關的詳細資訊，請參閱[資料表動作](../logic-apps/logic-apps-workflow-actions-triggers.md#table-action)。
 
@@ -288,55 +326,93 @@ Oranges,2
 
 ### <a name="customize-table-format"></a>自訂資料表格式
 
-根據預設，[資料**行**] 屬性會設定為依據陣列專案自動建立資料表資料行。 
-
-若要指定自訂標頭和值，請遵循下列步驟：
+根據預設，[資料**行**] 屬性會設定為依據陣列專案自動建立資料表資料行。 若要指定自訂標頭和值，請遵循下列步驟：
 
 1. 開啟 [資料**行**] 清單，然後選取 [**自訂**]。
 
 1. 在 [**標頭**] 屬性中，指定要改用的自訂標頭文字。
 
-1. 在 [索引**鍵**] 屬性中，指定要改用的自訂值。
+1. 在 [**值**] 屬性中，指定要改用的自訂值。
 
-若要參考和編輯陣列中的值，您可以在`@item()` **建立 HTML 資料表**動作的 JSON 定義中使用函數。
+若要從陣列傳回值，您可以使用[ `item()`函數](../logic-apps/workflow-definition-language-functions-reference.md#item)搭配 [**建立 HTML 資料表**] 動作。 在迴圈中，您可以[ `items()`使用函數](../logic-apps/workflow-definition-language-functions-reference.md#items)。 `For_each`
 
-1. 在設計工具工具列上，選取 [程式**代碼視圖**]。 
-
-1. 在 [程式碼編輯器] 中， `inputs`編輯動作的區段，以您想要的方式自訂資料表輸出。
-
-這個範例只會傳回資料行值，而不會傳回`columns`陣列中的標`header`頭，方法是將屬性設定為`value`空值，並對每個屬性進行取值：
-
-```json
-"Create_HTML_table": {
-   "inputs": {
-      "columns": [
-         { 
-            "header": "",
-            "value": "@item()?['Description']"
-         },
-         { 
-            "header": "",
-            "value": "@item()?['Product_ID']"
-         }
-      ],
-      "format": "HTML",
-      "from": "@variables('myJSONArray')"
-   }
-}
-```
-
-以下是此範例傳回的結果：
+例如，假設您想要只具有屬性值的資料表資料行，而不是陣列中的屬性名稱。 若只要傳回這些值，請遵循下列步驟，在設計工具或程式碼視圖中工作。 以下是此範例傳回的結果：
 
 ```text
-Results from Create HTML table action:
-
-Apples    1
-Oranges   2
+Apples,1
+Oranges,2
 ```
 
-在設計工具中，現在會以這種方式來顯示 [**建立 HTML 資料表**] 動作：
+#### <a name="work-in-designer-view"></a>在設計工具視圖中工作
 
-![沒有資料行標頭的「建立 HTML 資料表」](./media/logic-apps-perform-data-operations/create-html-table-no-column-headers.png)
+在動作中，將 [**標頭] 資料**行保留空白。 在 [值] 資料行中的每個資料列上，**取值**您想要的每個陣列屬性。 [**值**] 底下的每個資料列都會傳回指定之屬性的所有值，並成為您資料表中的資料行。
+
+1. 在 [**值**] 下，于您想要的每個資料列中，按一下編輯方塊內部，讓動態內容清單出現。
+
+1. 在動態內容清單中，選取 [運算式]。
+
+1. 在 [運算式編輯器] 中，輸入此運算式來指定您想要的陣列屬性值，然後選取 **[確定]** 。
+
+   `item()?['<array-property-name>']`
+
+   例如:
+
+   * `item()?['Description']`
+   * `item()?['Product_ID']`
+
+   ![要取值屬性的運算式](./media/logic-apps-perform-data-operations/html-table-expression.png)
+
+1. 針對您想要的每個陣列屬性重複上述步驟。 當您完成時，您的動作會如下列範例所示：
+
+   ![完成的運算式](./media/logic-apps-perform-data-operations/finished-html-expression.png)
+
+1. 若要將運算式解析成更具描述性的版本，請切換至程式碼視圖並回到設計工具視圖，然後重新開啟折迭的動作：
+
+   [**建立 HTML 資料表**] 動作現在會如下列範例所示：
+
+   ![具有已解析運算式但沒有標頭的「建立 HTML 資料表」動作](./media/logic-apps-perform-data-operations/resolved-html-expression.png)
+
+#### <a name="work-in-code-view"></a>在程式碼視圖中工作
+
+在動作的 JSON 定義中，于`columns`陣列內`header`將屬性設定為空字串。 針對每`value`個屬性，取值您想要的每個陣列屬性。
+
+1. 在設計工具工具列上，選取 [程式**代碼視圖**]。
+
+1. 在 [程式碼編輯器] 的動作`columns`陣列中，為您想要的陣列值的每一個資料行新增空白`header`屬性和此`value`運算式：
+
+   ```json
+   {
+      "header": "",
+      "value": "@item()?['<array-property-name>']"
+   }
+   ```
+
+   例如:
+
+   ```json
+   "Create_HTML_table": {
+      "inputs": {
+         "columns": [
+            { 
+               "header": "",
+               "value": "@item()?['Description']"
+            },
+            { 
+               "header": "",
+               "value": "@item()?['Product_ID']"
+            }
+         ],
+         "format": "HTML",
+         "from": "@variables('myJSONArray')"
+      }
+   }
+   ```
+
+1. 切換回設計工具視圖，然後重新開啟折迭的動作。
+
+   [**建立 HTML 資料表**] 動作現在會如下列範例所示，而且運算式已解析成更具描述性的版本：
+
+   ![具有已解析運算式但沒有標頭的「建立 HTML 資料表」動作](./media/logic-apps-perform-data-operations/resolved-html-expression.png)
 
 如需與基礎工作流程定義中的這個動作有關的詳細資訊，請參閱[資料表動作](../logic-apps/logic-apps-workflow-actions-triggers.md#table-action)。
 
@@ -588,7 +664,7 @@ Oranges   2
 
    * 若要在步驟之間新增動作，請將滑鼠移至 [連接] 箭號上 **+** ，如此就會出現加號（）。 選取加號，然後選取 [**新增動作**]。
 
-1. 在 **[選擇動作**] 底下，選取 [**內建**]。 在 [搜尋] 方塊中`select` ，輸入做為您的篩選準則。 從 [動作] 清單中，選取 [**選取**] 動作。
+1. 在 [選擇動作] 底下，選取 [內建]。 在 [搜尋] 方塊中`select` ，輸入做為您的篩選準則。 從 [動作] 清單中，選取 [**選取**] 動作。
 
    ![選取 [選取] 動作](./media/logic-apps-perform-data-operations/select-select-action.png)
 

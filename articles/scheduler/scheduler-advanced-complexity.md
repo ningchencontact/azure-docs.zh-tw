@@ -10,17 +10,17 @@ ms.suite: infrastructure-services
 ms.assetid: 5c124986-9f29-4cbc-ad5a-c667b37fbe5a
 ms.topic: article
 ms.date: 11/14/2018
-ms.openlocfilehash: a413261d251c8dfc1de9209168ee8137b85009f1
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 386284543cd8fb00cc49fea9a29d9eaee4ca4963
+ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60531817"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71300972"
 ---
 # <a name="build-advanced-schedules-and-recurrences-for-jobs-in-azure-scheduler"></a>在 Azure 排程器中建置作業的進階排程和週期
 
 > [!IMPORTANT]
-> [Azure Logic Apps](../logic-apps/logic-apps-overview.md) 會取代 Azure 排程器，Azure 排程器之後將無法使用。 若要排程作業，請[改為試用 Azure Logic Apps](../scheduler/migrate-from-scheduler-to-logic-apps.md)。 
+> [Azure Logic Apps](../logic-apps/logic-apps-overview.md)會取代即將[淘汰](../scheduler/migrate-from-scheduler-to-logic-apps.md#retire-date)的 Azure 排程器。 若要繼續使用您在排程器中設定的作業，請儘快[遷移至 Azure Logic Apps](../scheduler/migrate-from-scheduler-to-logic-apps.md) 。
 
 在 [Azure 排程器](../scheduler/scheduler-intro.md)作業內，排程為決定排程器服務何時及如何執行作業的核心。 您可以使用排程器，為作業設定多個單次和週期性排程。 單次排程只會在指定的時間執行一次，而且基本上是僅執行一次的週期性排程。 週期性排程會以指定的頻率來執行。 由於這種彈性，您可以將排程器用於各種商務案例，例如：
 
@@ -92,7 +92,7 @@ ms.locfileid: "60531817"
 },
 ``` 
 
-日期和日期時間值 
+日期和日期時間值
 
 * 排程器作業中的日期只包含日期並遵循 [ISO 8601 規格](https://en.wikipedia.org/wiki/ISO_8601) \(英文\)。
 
@@ -109,8 +109,8 @@ ms.locfileid: "60531817"
 | startTime | 無週期 | 週期、無排程 | 週期性有排程 |
 |-----------|---------------|-------------------------|--------------------------|
 | **没有開始時間** | 立即執行一次。 | 立即執行一次。 執行根據上次執行時間算出的後續執行作業。 | 立即執行一次。 根據週期排程執行後續的執行作業。 | 
-| **過去的開始時間** | 立即執行一次。 | 計算開始時間之後的第一個未來執行時間，並在該時間執行。 <p>執行根據上次執行時間算出的後續執行作業。 <p>請參閱這個表格後面的範例。 | 「一到」  指定的開始時間就啟動作業。 第一次執行是根據從開始時間計算的排程。 <p>根據週期排程執行後續的執行作業。 | 
-| **在未來或目前時間的開始時間** | 在指定的開始時間執行一次。 | 在指定的開始時間執行一次。 <p>執行根據上次執行時間算出的後續執行作業。 | 「一到」  指定的開始時間就啟動作業。 第一次發生是根據排程，從開始時間計算。 <p>根據週期排程執行後續的執行作業。 |
+| **過去的開始時間** | 立即執行一次。 | 計算開始時間之後的第一個未來執行時間，並在該時間執行。 <p>執行根據上次執行時間算出的後續執行作業。 <p>請參閱這個表格後面的範例。 | 「一到」指定的開始時間就啟動作業。 第一次執行是根據從開始時間計算的排程。 <p>根據週期排程執行後續的執行作業。 | 
+| **在未來或目前時間的開始時間** | 在指定的開始時間執行一次。 | 在指定的開始時間執行一次。 <p>執行根據上次執行時間算出的後續執行作業。 | 「一到」指定的開始時間就啟動作業。 第一次發生是根據排程，從開始時間計算。 <p>根據週期排程執行後續的執行作業。 |
 ||||| 
 
 假設這個範例具備下列條件：過去的開始時間，有週期但無排程。
@@ -167,7 +167,7 @@ ms.locfileid: "60531817"
 | **monthlyOccurrences** |決定將在當月哪幾天執行工作。 只能搭配 monthly 頻率指定。 |**monthlyOccurrences** 物件的陣列：<br /> `{ "day": day, "occurrence": occurrence}`<br /><br /> **day** 是作業在當週的第幾天執行。 例如， *{Sunday}* 是當月的每個星期日。 必要。<br /><br />**occurrence** 是當月期間的第幾天發生。 例如， *{Sunday, -1}* 是當月的最後一個星期日。 選擇性。 |
 | **monthDays** |作業將在當月的哪一日執行。 只能搭配 monthly 頻率指定。 |包含下列值的陣列：<br />- <= -1 且 >= -31 的任何值<br />- >= 1 且 <= 31 的任何值|
 
-## <a name="examples-recurrence-schedules"></a>範例：週期排程
+## <a name="examples-recurrence-schedules"></a>例如：週期排程
 
 下列範例顯示各種循環排程。 該範例著重於 schedule 物件和其子元素。
 

@@ -15,12 +15,12 @@ ms.date: 08/27/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: it-pro
-ms.openlocfilehash: 5f273f2eb36b0bd1d6757eb1ffb2403641cd461f
-ms.sourcegitcommit: b7b0d9f25418b78e1ae562c525e7d7412fcc7ba0
+ms.openlocfilehash: c9a156c4cc6e334e04f5a604b91b7b05d9aed390
+ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/08/2019
-ms.locfileid: "70801368"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71289600"
 ---
 # <a name="built-in-roles-for-azure-resources"></a>適用於 Azure 資源的內建角色
 
@@ -59,19 +59,19 @@ ms.locfileid: "70801368"
 | [Azure 事件中樞資料寄件者](#azure-event-hubs-data-sender) | 允許傳送 Azure 事件中樞資源的存取權。 |
 | [Azure Kubernetes Service 叢集管理員角色](#azure-kubernetes-service-cluster-admin-role) | 列出叢集管理員認證動作。 |
 | [Azure Kubernetes Service 叢集使用者角色](#azure-kubernetes-service-cluster-user-role) | 列出叢集使用者認證動作。 |
-| [Azure 地圖服務資料讀取器（預覽）](#azure-maps-data-reader-preview) | 授與從 Azure 地圖服務帳戶讀取對應相關資料的存取權。 |
+| [Azure 地圖服務資料讀取器 (預覽)](#azure-maps-data-reader-preview) | 授與從 Azure 地圖服務帳戶讀取對應相關資料的存取權。 |
 | [Azure 服務匯流排資料擁有者](#azure-service-bus-data-owner) | 允許 Azure 服務匯流排資源的完整存取權。 |
 | [Azure 服務匯流排資料接收器](#azure-service-bus-data-receiver) | 允許接收 Azure 服務匯流排資源的存取權。 |
 | [Azure 服務匯流排資料寄件者](#azure-service-bus-data-sender) | 允許 Azure 服務匯流排資源的「傳送」存取權。 |
 | [Azure Stack 註冊擁有者](#azure-stack-registration-owner) | 可讓您管理 Azure Stack 註冊。 |
-| [備份參與者](#backup-contributor) | 可讓您管理備份服務，但無法建立保存庫並將存取權授與其他人 |
+| [備份參與者](#backup-contributor) | 可讓您管理備份服務, 但無法建立保存庫並將存取權授與其他人 |
 | [備份操作員](#backup-operator) | 可讓您管理備份服務，但無法移除備份、建立保存庫及為其他人提供存取權 |
 | [備份讀取者](#backup-reader) | 可以檢視備份服務，但無法進行變更 |
 | [帳單讀取器](#billing-reader) | 允許對計費資料進行讀取存取 |
 | [BizTalk 參與者](#biztalk-contributor) | 可讓您管理 BizTalk 服務，但無法存取它們。 |
-| [區塊鏈成員節點存取（預覽）](#blockchain-member-node-access-preview) | 允許存取區塊鏈成員節點 |
+| [區塊鏈成員節點存取 (預覽)](#blockchain-member-node-access-preview) | 允許存取區塊鏈成員節點 |
 | [藍圖參與者](#blueprint-contributor) | 可以管理藍圖定義，但不能加以指派。 |
-| [藍圖運算子](#blueprint-operator) | 可以指派現有的已發行藍圖，但無法建立新的藍圖。 注意：這僅適用于使用使用者指派的受控識別來完成指派。 |
+| [藍圖操作者](#blueprint-operator) | 可以指派現有的已發行藍圖，但無法建立新的藍圖。 注意：這僅適用于使用使用者指派的受控識別來完成指派。 |
 | [CDN 端點參與者](#cdn-endpoint-contributor) | 可管理 CDN 端點，但無法對其他使用者授與存取權。 |
 | [CDN 端點讀者](#cdn-endpoint-reader) | 可檢視 CDN 端點，但無法進行變更。 |
 | [CDN 設定檔參與者](#cdn-profile-contributor) | 可管理 CDN 設定檔及其端點，但無法對其他使用者授與存取權。 |
@@ -81,10 +81,10 @@ ms.locfileid: "70801368"
 | [傳統儲存體帳戶金鑰操作員服務角色](#classic-storage-account-key-operator-service-role) | 「傳統儲存體帳戶金鑰操作員」可以列出及重新產生「傳統儲存體帳戶」的金鑰 |
 | [傳統虛擬機器參與者](#classic-virtual-machine-contributor) | 可讓您管理傳統虛擬機器 (不含虛擬機器所連線的虛擬網路或儲存體帳戶)，但無法存取它們。 |
 | [認知服務參與者](#cognitive-services-contributor) | 可讓您建立、讀取、更新、刪除及管理認知服務的金鑰。 |
-| [認知服務資料讀取器（預覽）](#cognitive-services-data-reader-preview) | 可讓您讀取認知服務資料。 |
+| [認知服務資料讀取器 (預覽)](#cognitive-services-data-reader-preview) | 可讓您讀取認知服務資料。 |
 | [認知服務使用者](#cognitive-services-user) | 可讓您讀取和列出認知服務的金鑰。 |
 | [Cosmos DB 帳戶讀者角色](#cosmos-db-account-reader-role) | 可以讀取 Azure Cosmos DB 帳戶資料。 請參閱 [DocumentDB 帳戶參與者](#documentdb-account-contributor)以管理 Azure Cosmos DB 帳戶。 |
-| [Cosmos DB 運算子](#cosmos-db-operator) | 可讓您管理 Azure Cosmos DB 帳戶，但不能存取其中的資料。 防止存取帳戶金鑰和連接字串。 |
+| [Cosmos DB 運算子](#cosmos-db-operator) | 可讓您管理 Azure Cosmos DB 帳戶, 但不能存取其中的資料。 防止存取帳戶金鑰和連接字串。 |
 | [CosmosBackupOperator](#cosmosbackupoperator) | 可為帳戶的 Cosmos DB 資料庫或容器提交還原要求 |
 | [成本管理參與者](#cost-management-contributor) | 可檢視成本和管理成本組態 (例如預算、匯出) |
 | [成本管理讀者](#cost-management-reader) | 可檢視成本資料和組態 (例如預算、匯出) |
@@ -105,8 +105,8 @@ ms.locfileid: "70801368"
 | [實驗室建立者](#lab-creator) | 可讓您在「Azure 實驗室帳戶」下建立、管理、刪除您的受控實驗室。 |
 | [Log Analytics 參與者](#log-analytics-contributor) | 「Log Analytics 參與者」角色可以讀取所有監視資料和編輯監視設定。 編輯監視設定包括將 VM 延伸模組新增至 VM、讀取儲存體帳戶金鑰以便能夠設定從「Azure 儲存體」收集記錄、建立及設定「自動化」帳戶、新增解決方案，以及設定所有 Azure 資源上的 Azure 診斷。 |
 | [Log Analytics 讀者](#log-analytics-reader) | 「Log Analytics 讀者」可以檢視和搜尋所有監視資料，以及檢視監視設定，包括檢視所有 Azure 資源上的 Azure 診斷設定。 |
-| [邏輯應用程式參與者](#logic-app-contributor) | 可讓您管理邏輯應用程式，但不能變更其存取。 |
-| [邏輯應用程式運算子](#logic-app-operator) | 可讓您讀取、啟用及停用邏輯應用程式，但無法編輯或更新它們。 |
+| [邏輯應用程式參與者](#logic-app-contributor) | 可讓您管理邏輯應用程式, 但不能變更其存取。 |
+| [邏輯應用程式運算子](#logic-app-operator) | 可讓您讀取、啟用及停用邏輯應用程式, 但無法編輯或更新它們。 |
 | [受控應用程式操作員角色](#managed-application-operator-role) | 可讓您讀取受控應用程式資源及對其執行動作 |
 | [受控應用程式讀者](#managed-applications-reader) | 可讓您讀取受控應用程式中的資源及要求 JIT 存取權。 |
 | [受控身分識別參與者](#managed-identity-contributor) | 建立、讀取、更新及刪除使用者指派的身分識別 |
@@ -129,26 +129,26 @@ ms.locfileid: "70801368"
 | [Site Recovery 參與者](#site-recovery-contributor) | 可讓您管理 Site Recovery 服務，但無法建立保存庫和指派角色 |
 | [Site Recovery 操作員](#site-recovery-operator) | 可讓您容錯移轉及容錯回復，但無法執行其他 Site Recovery 管理作業 |
 | [Site Recovery 讀取者](#site-recovery-reader) | 可讓您檢視 Site Recovery 狀態，但無法執行其他管理作業 |
-| [空間錨點帳戶參與者](#spatial-anchors-account-contributor) | 可讓您管理帳戶中的空間錨點，但不能將其刪除 |
-| [空間錨點帳戶擁有者](#spatial-anchors-account-owner) | 可讓您管理帳戶中的空間錨點，包括刪除它們 |
+| [空間錨點帳戶參與者](#spatial-anchors-account-contributor) | 可讓您管理帳戶中的空間錨點, 但不能將其刪除 |
+| [空間錨點帳戶擁有者](#spatial-anchors-account-owner) | 可讓您管理帳戶中的空間錨點, 包括刪除它們 |
 | [空間錨點帳戶讀者](#spatial-anchors-account-reader) | 可讓您找出並讀取您帳戶中的空間錨點屬性 |
 | [SQL DB 參與者](#sql-db-contributor) | 可讓您管理 SQL 資料庫，但無法存取它們。 此外，您也無法管理其安全性相關原則或其父 SQL 伺服器。 |
-| [SQL 受控執行個體參與者](#sql-managed-instance-contributor) | 可讓您管理 SQL 受控實例和必要的網路設定，但無法將存取權授與其他人。 |
+| [SQL 受控執行個體參與者](#sql-managed-instance-contributor) | 可讓您管理 SQL 受控實例和必要的網路設定, 但無法將存取權授與其他人。 |
 | [SQL 安全性管理員](#sql-security-manager) | 可讓您管理 SQL 伺服器及資料庫的安全性相關原則，但無法存取它們。 |
 | [SQL Server 參與者](#sql-server-contributor) | 可讓您管理 SQL 伺服器及資料庫，但無法存取它們，也無法存取其安全性相關原則。 |
-| [儲存體帳戶參與者](#storage-account-contributor) | 允許管理儲存體帳戶。 提供帳戶金鑰的存取權，其可用來透過共用金鑰授權存取資料。 |
+| [儲存體帳戶參與者](#storage-account-contributor) | 允許管理儲存體帳戶。 提供帳戶金鑰的存取權, 其可用來透過共用金鑰授權存取資料。 |
 | [儲存體帳戶金鑰操作員服務角色](#storage-account-key-operator-service-role) | 允許列出及重新產生儲存體帳戶存取金鑰。 |
-| [儲存體 Blob 資料參與者](#storage-blob-data-contributor) | 讀取、寫入和刪除 Azure 儲存體的容器和 blob。 若要瞭解特定資料作業所需的動作，請參閱[呼叫 blob 和佇列資料作業的許可權](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-blob-and-queue-data-operations)。 |
-| [儲存體 Blob 資料擁有者](#storage-blob-data-owner) | 提供 Azure 儲存體 blob 容器和資料的完整存取權，包括指派 POSIX 存取控制。 若要瞭解特定資料作業所需的動作，請參閱[呼叫 blob 和佇列資料作業的許可權](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-blob-and-queue-data-operations)。 |
-| [儲存體 Blob 資料讀者](#storage-blob-data-reader) | 讀取並列出 Azure 儲存體的容器和 blob。 若要瞭解特定資料作業所需的動作，請參閱[呼叫 blob 和佇列資料作業的許可權](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-blob-and-queue-data-operations)。 |
+| [儲存體 Blob 資料參與者](#storage-blob-data-contributor) | 讀取、寫入和刪除 Azure 儲存體的容器和 blob。 若要瞭解特定資料作業所需的動作, 請參閱[呼叫 blob 和佇列資料作業的許可權](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-blob-and-queue-data-operations)。 |
+| [儲存體 Blob 資料擁有者](#storage-blob-data-owner) | 提供 Azure 儲存體 blob 容器和資料的完整存取權, 包括指派 POSIX 存取控制。 若要瞭解特定資料作業所需的動作, 請參閱[呼叫 blob 和佇列資料作業的許可權](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-blob-and-queue-data-operations)。 |
+| [儲存體 Blob 資料讀者](#storage-blob-data-reader) | 讀取並列出 Azure 儲存體的容器和 blob。 若要瞭解特定資料作業所需的動作, 請參閱[呼叫 blob 和佇列資料作業的許可權](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-blob-and-queue-data-operations)。 |
 | [儲存體 Blob Delegator](#storage-blob-delegator) | 取得使用者委派金鑰，然後可以用來為使用 Azure AD 認證簽署的容器或 blob 建立共用存取簽章。 如需詳細資訊，請參閱[建立使用者委派 SAS](https://docs.microsoft.com/rest/api/storageservices/create-user-delegation-sas)。 |
 | [儲存體檔案資料 SMB 共用參與者](#storage-file-data-smb-share-contributor) | 允許透過 SMB 在 Azure 儲存體檔案共用中進行讀取、寫入和刪除存取 |
 | [儲存體檔案資料 SMB 共用提高許可權參與者](#storage-file-data-smb-share-elevated-contributor) | 允許透過 SMB 在 Azure 儲存體檔案共用中進行讀取、寫入、刪除及修改 NTFS 許可權存取 |
 | [儲存體檔案資料 SMB 共用讀取器](#storage-file-data-smb-share-reader) | 允許透過 SMB 讀取對 Azure 檔案共用的存取 |
-| [儲存體佇列資料參與者](#storage-queue-data-contributor) | 讀取、寫入和刪除 Azure 儲存體的佇列和佇列訊息。 若要瞭解特定資料作業所需的動作，請參閱[呼叫 blob 和佇列資料作業的許可權](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-blob-and-queue-data-operations)。 |
-| [儲存體佇列資料訊息處理器](#storage-queue-data-message-processor) | 查看、取出和刪除 Azure 儲存體佇列中的訊息。 若要瞭解特定資料作業所需的動作，請參閱[呼叫 blob 和佇列資料作業的許可權](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-blob-and-queue-data-operations)。 |
-| [儲存體佇列資料訊息寄件者](#storage-queue-data-message-sender) | 將訊息新增至 Azure 儲存體的佇列。 若要瞭解特定資料作業所需的動作，請參閱[呼叫 blob 和佇列資料作業的許可權](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-blob-and-queue-data-operations)。 |
-| [儲存體佇列資料讀取器](#storage-queue-data-reader) | 讀取和列出 Azure 儲存體的佇列和佇列訊息。 若要瞭解特定資料作業所需的動作，請參閱[呼叫 blob 和佇列資料作業的許可權](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-blob-and-queue-data-operations)。 |
+| [儲存體佇列資料參與者](#storage-queue-data-contributor) | 讀取、寫入和刪除 Azure 儲存體的佇列和佇列訊息。 若要瞭解特定資料作業所需的動作, 請參閱[呼叫 blob 和佇列資料作業的許可權](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-blob-and-queue-data-operations)。 |
+| [儲存體佇列資料訊息處理器](#storage-queue-data-message-processor) | 查看、取出和刪除 Azure 儲存體佇列中的訊息。 若要瞭解特定資料作業所需的動作, 請參閱[呼叫 blob 和佇列資料作業的許可權](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-blob-and-queue-data-operations)。 |
+| [儲存體佇列資料訊息寄件者](#storage-queue-data-message-sender) | 將訊息新增至 Azure 儲存體的佇列。 若要瞭解特定資料作業所需的動作, 請參閱[呼叫 blob 和佇列資料作業的許可權](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-blob-and-queue-data-operations)。 |
+| [儲存體佇列資料讀取器](#storage-queue-data-reader) | 讀取和列出 Azure 儲存體的佇列和佇列訊息。 若要瞭解特定資料作業所需的動作, 請參閱[呼叫 blob 和佇列資料作業的許可權](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-blob-and-queue-data-operations)。 |
 | [支援要求參與者](#support-request-contributor) | 可讓您建立及管理支援要求 |
 | [流量管理員參與者](#traffic-manager-contributor) | 可讓您管理「流量管理員」設定檔，但無法控制誰可以存取它們。 |
 | [使用者存取系統管理員](#user-access-administrator) | 可讓您管理 Azure 資源的使用者存取。 |
@@ -183,8 +183,8 @@ ms.locfileid: "70801368"
 > | **動作** |  |
 > | * | 建立和管理所有類型的資源 |
 > | **NotActions** |  |
-> | Microsoft.Authorization/*/Delete | 刪除角色和角色指派 |
-> | Microsoft.Authorization/*/Write | 建立角色和角色指派 |
+> | Microsoft.Authorization/*/Delete | 刪除角色、原則指派、原則定義和原則集合定義 |
+> | Microsoft.Authorization/*/Write | 建立角色、角色指派、原則指派、原則定義和原則集合定義 |
 > | Microsoft.Authorization/elevateAccess/Action | 對呼叫者授與租用戶範圍的使用者存取系統管理員存取權 |
 > | Microsoft.Blueprint/blueprintAssignments/write | 建立或更新任何藍圖成品 |
 > | Microsoft.Blueprint/blueprintAssignments/delete | 刪除任何藍圖成品 |
@@ -718,7 +718,7 @@ ms.locfileid: "70801368"
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **描述** | 可讓您管理備份服務，但無法建立保存庫並將存取權授與其他人 |
+> | **描述** | 可讓您管理備份服務, 但無法建立保存庫並將存取權授與其他人 |
 > | **Id** | 5e467623-bb1f-42f4-a55d-6e525e11384b |
 > | **動作** |  |
 > | Microsoft.Authorization/*/read | 讀取角色和角色指派 |
@@ -935,7 +935,7 @@ ms.locfileid: "70801368"
 > | **NotDataActions** |  |
 > | 無 |  |
 
-## <a name="blockchain-member-node-access-preview"></a>區塊鏈成員節點存取（預覽）
+## <a name="blockchain-member-node-access-preview"></a>區塊鏈成員節點存取 (預覽)
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
@@ -1196,7 +1196,7 @@ ms.locfileid: "70801368"
 > | **NotDataActions** |  |
 > | 無 |  |
 
-## <a name="cognitive-services-data-reader-preview"></a>認知服務資料讀取器（預覽）
+## <a name="cognitive-services-data-reader-preview"></a>認知服務資料讀取器 (預覽)
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
@@ -1263,7 +1263,7 @@ ms.locfileid: "70801368"
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **描述** | 可讓您管理 Azure Cosmos DB 帳戶，但不能存取其中的資料。 防止存取帳戶金鑰和連接字串。 |
+> | **描述** | 可讓您管理 Azure Cosmos DB 帳戶, 但不能存取其中的資料。 防止存取帳戶金鑰和連接字串。 |
 > | **Id** | 230815da-be43-4aae-9cb4-875f7bd000aa |
 > | **動作** |  |
 > | Microsoft.DocumentDb/databaseAccounts/* |  |
@@ -1745,7 +1745,7 @@ ms.locfileid: "70801368"
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **描述** | 可讓您管理邏輯應用程式，但不能變更其存取。 |
+> | **描述** | 可讓您管理邏輯應用程式, 但不能變更其存取。 |
 > | **Id** | 87a39d53-fc1b-424a-814c-f7e04687dc9e |
 > | **動作** |  |
 > | Microsoft.Authorization/*/read | 讀取角色和角色指派 |
@@ -1779,7 +1779,7 @@ ms.locfileid: "70801368"
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **描述** | 可讓您讀取、啟用及停用邏輯應用程式，但無法編輯或更新它們。 |
+> | **描述** | 可讓您讀取、啟用及停用邏輯應用程式, 但無法編輯或更新它們。 |
 > | **Id** | 515c2055-d9d4-4321-b1b9-bd0c9a0f79fe |
 > | **動作** |  |
 > | Microsoft.Authorization/*/read | 讀取角色和角色指派 |
@@ -2364,7 +2364,7 @@ ms.locfileid: "70801368"
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **描述** | 可讓您管理帳戶中的空間錨點，但不能將其刪除 |
+> | **描述** | 可讓您管理帳戶中的空間錨點, 但不能將其刪除 |
 > | **Id** | 8bbe83f1-e2a6-4df7-8cb4-4e04d4e5c827 |
 > | **動作** |  |
 > | 無 |  |
@@ -2375,7 +2375,7 @@ ms.locfileid: "70801368"
 > | MixedReality/SpatialAnchorsAccounts/探索/讀取 | 探索附近的空間錨點 |
 > | MixedReality/SpatialAnchorsAccounts/properties/read | 取得空間錨點的屬性 |
 > | MixedReality/SpatialAnchorsAccounts/查詢/讀取 | 找出空間錨點 |
-> | MixedReality/SpatialAnchorsAccounts/submitdiag/read | 提交診斷資料，以協助改善 Azure 空間錨點服務的品質 |
+> | MixedReality/SpatialAnchorsAccounts/submitdiag/read | 提交診斷資料, 以協助改善 Azure 空間錨點服務的品質 |
 > | MixedReality/SpatialAnchorsAccounts/write | 更新空間錨點屬性 |
 > | **NotDataActions** |  |
 > | 無 |  |
@@ -2384,7 +2384,7 @@ ms.locfileid: "70801368"
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **描述** | 可讓您管理帳戶中的空間錨點，包括刪除它們 |
+> | **描述** | 可讓您管理帳戶中的空間錨點, 包括刪除它們 |
 > | **Id** | 70bbe301-9835-447d-afdd-19eb3167307c |
 > | **動作** |  |
 > | 無 |  |
@@ -2396,7 +2396,7 @@ ms.locfileid: "70801368"
 > | MixedReality/SpatialAnchorsAccounts/探索/讀取 | 探索附近的空間錨點 |
 > | MixedReality/SpatialAnchorsAccounts/properties/read | 取得空間錨點的屬性 |
 > | MixedReality/SpatialAnchorsAccounts/查詢/讀取 | 找出空間錨點 |
-> | MixedReality/SpatialAnchorsAccounts/submitdiag/read | 提交診斷資料，以協助改善 Azure 空間錨點服務的品質 |
+> | MixedReality/SpatialAnchorsAccounts/submitdiag/read | 提交診斷資料, 以協助改善 Azure 空間錨點服務的品質 |
 > | MixedReality/SpatialAnchorsAccounts/write | 更新空間錨點屬性 |
 > | **NotDataActions** |  |
 > | 無 |  |
@@ -2415,7 +2415,7 @@ ms.locfileid: "70801368"
 > | MixedReality/SpatialAnchorsAccounts/探索/讀取 | 探索附近的空間錨點 |
 > | MixedReality/SpatialAnchorsAccounts/properties/read | 取得空間錨點的屬性 |
 > | MixedReality/SpatialAnchorsAccounts/查詢/讀取 | 找出空間錨點 |
-> | MixedReality/SpatialAnchorsAccounts/submitdiag/read | 提交診斷資料，以協助改善 Azure 空間錨點服務的品質 |
+> | MixedReality/SpatialAnchorsAccounts/submitdiag/read | 提交診斷資料, 以協助改善 Azure 空間錨點服務的品質 |
 > | **NotDataActions** |  |
 > | 無 |  |
 
@@ -2471,7 +2471,7 @@ ms.locfileid: "70801368"
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **描述** | 可讓您管理 SQL 受控實例和必要的網路設定，但無法將存取權授與其他人。 |
+> | **描述** | 可讓您管理 SQL 受控實例和必要的網路設定, 但無法將存取權授與其他人。 |
 > | **Id** | 4939a1f6-9ae0-4e48-a1e0-f2cbe897382d |
 > | **動作** |  |
 > | Microsoft.ResourceHealth/availabilityStatuses/read | 取得指定範圍中所有資源的可用性狀態 |
@@ -2607,7 +2607,7 @@ ms.locfileid: "70801368"
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **描述** | 允許管理儲存體帳戶。 提供帳戶金鑰的存取權，其可用來透過共用金鑰授權存取資料。 |
+> | **描述** | 允許管理儲存體帳戶。 提供帳戶金鑰的存取權, 其可用來透過共用金鑰授權存取資料。 |
 > | **Id** | 17d1049b-9a84-46fb-8f53-869881c3d3ab |
 > | **動作** |  |
 > | Microsoft.Authorization/*/read | 讀取所有授權 |
@@ -2646,7 +2646,7 @@ ms.locfileid: "70801368"
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **描述** | 讀取、寫入和刪除 Azure 儲存體的容器和 blob。 若要瞭解特定資料作業所需的動作，請參閱[呼叫 blob 和佇列資料作業的許可權](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-blob-and-queue-data-operations)。 |
+> | **描述** | 讀取、寫入和刪除 Azure 儲存體的容器和 blob。 若要瞭解特定資料作業所需的動作, 請參閱[呼叫 blob 和佇列資料作業的許可權](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-blob-and-queue-data-operations)。 |
 > | **Id** | ba92f5b4-2d11-453d-a403-e96b0029c9fe |
 > | **動作** |  |
 > | Microsoft.Storage/storageAccounts/blobServices/containers/delete | 刪除容器。 |
@@ -2666,7 +2666,7 @@ ms.locfileid: "70801368"
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **描述** | 提供 Azure 儲存體 blob 容器和資料的完整存取權，包括指派 POSIX 存取控制。 若要瞭解特定資料作業所需的動作，請參閱[呼叫 blob 和佇列資料作業的許可權](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-blob-and-queue-data-operations)。 |
+> | **描述** | 提供 Azure 儲存體 blob 容器和資料的完整存取權, 包括指派 POSIX 存取控制。 若要瞭解特定資料作業所需的動作, 請參閱[呼叫 blob 和佇列資料作業的許可權](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-blob-and-queue-data-operations)。 |
 > | **Id** | b7e6dc6d-f1e8-4753-8033-0f276bb0955b |
 > | **動作** |  |
 > | Microsoft.Storage/storageAccounts/blobServices/containers/* | 容器的完整許可權。 |
@@ -2682,7 +2682,7 @@ ms.locfileid: "70801368"
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **描述** | 讀取並列出 Azure 儲存體的容器和 blob。 若要瞭解特定資料作業所需的動作，請參閱[呼叫 blob 和佇列資料作業的許可權](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-blob-and-queue-data-operations)。 |
+> | **描述** | 讀取並列出 Azure 儲存體的容器和 blob。 若要瞭解特定資料作業所需的動作, 請參閱[呼叫 blob 和佇列資料作業的許可權](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-blob-and-queue-data-operations)。 |
 > | **Id** | 2a2b9908-6ea1-4ae2-8e65-a410df84e7d1 |
 > | **動作** |  |
 > | Microsoft.Storage/storageAccounts/blobServices/containers/read | 傳回容器或容器清單。 |
@@ -2763,7 +2763,7 @@ ms.locfileid: "70801368"
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **描述** | 讀取、寫入和刪除 Azure 儲存體的佇列和佇列訊息。 若要瞭解特定資料作業所需的動作，請參閱[呼叫 blob 和佇列資料作業的許可權](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-blob-and-queue-data-operations)。 |
+> | **描述** | 讀取、寫入和刪除 Azure 儲存體的佇列和佇列訊息。 若要瞭解特定資料作業所需的動作, 請參閱[呼叫 blob 和佇列資料作業的許可權](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-blob-and-queue-data-operations)。 |
 > | **Id** | 974c5e8b-45b9-4653-ba55-5f855dd0fb88 |
 > | **動作** |  |
 > | Microsoft.Storage/storageAccounts/queueServices/queues/delete | 刪除佇列。 |
@@ -2782,7 +2782,7 @@ ms.locfileid: "70801368"
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **描述** | 查看、取出和刪除 Azure 儲存體佇列中的訊息。 若要瞭解特定資料作業所需的動作，請參閱[呼叫 blob 和佇列資料作業的許可權](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-blob-and-queue-data-operations)。 |
+> | **描述** | 查看、取出和刪除 Azure 儲存體佇列中的訊息。 若要瞭解特定資料作業所需的動作, 請參閱[呼叫 blob 和佇列資料作業的許可權](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-blob-and-queue-data-operations)。 |
 > | **Id** | 8a0f0c08-91a1-4084-bc3d-661d67233fed |
 > | **動作** |  |
 > | 無 |  |
@@ -2798,7 +2798,7 @@ ms.locfileid: "70801368"
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **描述** | 將訊息新增至 Azure 儲存體的佇列。 若要瞭解特定資料作業所需的動作，請參閱[呼叫 blob 和佇列資料作業的許可權](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-blob-and-queue-data-operations)。 |
+> | **描述** | 將訊息新增至 Azure 儲存體的佇列。 若要瞭解特定資料作業所需的動作, 請參閱[呼叫 blob 和佇列資料作業的許可權](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-blob-and-queue-data-operations)。 |
 > | **Id** | c6a89b2d-59bc-44d0-9896-0f6e12d7b80a |
 > | **動作** |  |
 > | 無 |  |
@@ -2813,7 +2813,7 @@ ms.locfileid: "70801368"
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **描述** | 讀取和列出 Azure 儲存體的佇列和佇列訊息。 若要瞭解特定資料作業所需的動作，請參閱[呼叫 blob 和佇列資料作業的許可權](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-blob-and-queue-data-operations)。 |
+> | **描述** | 讀取和列出 Azure 儲存體的佇列和佇列訊息。 若要瞭解特定資料作業所需的動作, 請參閱[呼叫 blob 和佇列資料作業的許可權](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-blob-and-queue-data-operations)。 |
 > | **Id** | 19e7f393-937e-4f77-808e-94535e297925 |
 > | **動作** |  |
 > | Microsoft.Storage/storageAccounts/queueServices/queues/read | 傳回佇列或佇列清單。 |

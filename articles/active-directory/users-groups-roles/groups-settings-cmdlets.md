@@ -15,12 +15,12 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1bd79b9a6fa8aedd45f41b64f8f81a908feab71f
-ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
+ms.openlocfilehash: f0f2d3f8d8d2298ec00532205e359ed6f8dbc87a
+ms.sourcegitcommit: 9fba13cdfce9d03d202ada4a764e574a51691dcd
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70882995"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71315686"
 ---
 # <a name="azure-active-directory-cmdlets-for-configuring-group-settings"></a>設定群組設定的 Azure Active Directory Cmdlet
 本文包含使用 Azure Active Directory (Azure AD) PowerShell Cmdlet 以建立和更新群組的指示。 本內容僅適用於 Office 365 群組 (又稱為整合群組)。 
@@ -123,7 +123,7 @@ These steps create settings at directory level, which apply to all Office 365 gr
 |  <ul><li>AllowGuestsToBeGroupOwner<li>輸入：Boolean<li>預設值：偽 | 布林值，表示來賓使用者是否可以是群組的擁有者。 |
 |  <ul><li>AllowGuestsToAccessGroups<li>輸入：Boolean<li>預設值：真 | 用以指出來賓使用者是否可存取 Office 365 內容的布林值。  此設定不需要 Azure Active Directory Premium P1 授權。|
 |  <ul><li>GuestUsageGuidelinesUrl<li>輸入：String<li>預設值：“” | 來賓使用指導方針的連結 url。 |
-|  <ul><li>AllowToAddGuests<li>輸入：Boolean<li>預設值：真 | 布林值表示是否允許將來賓新增至此目錄。|
+|  <ul><li>AllowAddGuests<li>輸入：Boolean<li>預設值：真 | 布林值表示是否允許將來賓新增至此目錄。|
 |  <ul><li>ClassificationList<li>輸入：String<li>預設值：“” |可套用至 Office 365 群組、以逗號分隔的有效分類值清單。 |
 
 ## <a name="example-configure-guest-policy-for-groups-at-the-directory-level"></a>範例：在目錄層級設定群組的來賓原則
@@ -140,9 +140,9 @@ These steps create settings at directory level, which apply to all Office 365 gr
    ```powershell
    $Setting = $template.CreateDirectorySetting()
    ```  
-4. 然後更新 AllowToAddGuests 設定
+4. 然後更新 AllowAddGuests 設定
    ```powershell
-   $Setting["AllowToAddGuests"] = $False
+   $Setting["AllowAddGuests"] = $False
    ```  
 5. 然後套用設定：
   
@@ -196,7 +196,7 @@ These steps create settings at directory level, which apply to all Office 365 gr
    AllowGuestsToAccessGroups     True
    GuestUsageGuidelinesUrl
    GroupCreationAllowedGroupId
-   AllowToAddGuests              True
+   AllowAddGuests              True
    UsageGuidelinesUrl            https://guideline.example.com
    ClassificationList
    EnableGroupCreation           True
@@ -233,7 +233,7 @@ These steps create settings at directory level, which apply to all Office 365 gr
 
 4. 將設定設為必要值︰
    ```powershell
-   $SettingCopy["AllowToAddGuests"]=$False
+   $SettingCopy["AllowAddGuests"]=$False
    ```
 5. 取得您想要套用此設定之群組的識別碼：
    ```powershell
@@ -259,7 +259,7 @@ These steps create settings at directory level, which apply to all Office 365 gr
    ```
 3. 視需要更新群組的設定，例如
    ```powershell
-   $Setting["AllowToAddGuests"] = $True
+   $Setting["AllowAddGuests"] = $True
    ```
 4. 然後取得此特定群組之設定的識別碼：
    ```powershell

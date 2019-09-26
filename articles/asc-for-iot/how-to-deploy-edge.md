@@ -1,5 +1,5 @@
 ---
-title: 部署 IoT Edge 模組的 Azure 資訊安全中心（預覽） |Microsoft Docs
+title: 部署 IoT Edge 模組的 Azure 資訊安全中心 |Microsoft Docs
 description: 瞭解如何在 IoT Edge 上部署 IoT 安全性代理程式的 Azure 資訊安全中心。
 services: asc-for-iot
 ms.service: asc-for-iot
@@ -15,18 +15,15 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/23/2019
 ms.author: mlottner
-ms.openlocfilehash: 4e568d2322088d9f6f6b4f9ad6e4b3cd98f25a47
-ms.sourcegitcommit: aebe5a10fa828733bbfb95296d400f4bc579533c
+ms.openlocfilehash: bb6a975d2a2fc2cc3e65fa8969f8b005be8b1417
+ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/05/2019
-ms.locfileid: "70376051"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71299710"
 ---
 # <a name="deploy-a-security-module-on-your-iot-edge-device"></a>在您的 IoT Edge 裝置上部署安全性模組
 
-> [!IMPORTANT]
-> IoT IoT Edge 裝置支援的 Azure 資訊安全中心目前處於公開預覽狀態。
-> 此預覽版本是在沒有服務等級協定的情況下提供，不建議用於生產工作負載。 可能不支援特定功能，或可能已經限制功能。 如需詳細資訊，請參閱 [Microsoft Azure 預覽版增補使用條款](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)。
 
 適用于 IoT 模組的**Azure 資訊安全中心**可為您的 IoT Edge 裝置提供完整的安全性解決方案。
 安全性模組會收集、匯總和分析原始的安全性資料，從您的作業系統和容器系統，到可操作的安全性建議和警示。
@@ -40,19 +37,19 @@ ms.locfileid: "70376051"
 
 ### <a name="prerequisites"></a>必要條件
 
-- 在您的 IoT 中樞中，請確定您的裝置已[註冊為 IoT Edge 裝置](https://docs.microsoft.com/azure/iot-edge/how-to-register-device-portal)。
+1. 在您的 IoT 中樞中，請確定您的裝置已[註冊為 IoT Edge 裝置](https://docs.microsoft.com/azure/iot-edge/how-to-register-device-portal)。
 
-- IoT Edge 模組的 Azure 資訊安全中心需要在 IoT Edge 裝置上安裝[AuditD 架構](https://linux.die.net/man/8/auditd)。
+1. IoT Edge 模組的 Azure 資訊安全中心需要在 IoT Edge 裝置上安裝[AuditD framework](https://linux.die.net/man/8/auditd) 。
 
     - 在您的 IoT Edge 裝置上執行下列命令來安裝架構：
    
-      `sudo apt-get install auditd audispd-plugins`
+    `sudo apt-get install auditd audispd-plugins`
+
+    - 執行下列命令，確認 AuditD 為作用中： 
    
-    - 執行下列命令，確認 AuditD 為作用中：
-   
-      `sudo systemctl status auditd`
-      
-        預期的回應為`active (running)`。 
+    `sudo systemctl status auditd`<br>
+    - 預期的回應為：`active (running)` 
+        
 
 ### <a name="deployment-using-azure-portal"></a>使用 Azure 入口網站進行部署
 
@@ -71,12 +68,12 @@ ms.locfileid: "70376051"
 
 有三個步驟可為適用于 IoT 的 Azure 資訊安全中心建立 IoT Edge 部署。 下列各節將逐步解說每一個步驟。 
 
-#### <a name="step-1-add-modules"></a>步驟 1:加入模組
+#### <a name="step-1-add-modules"></a>步驟 1:新增模組
 
 1. 從 [**新增模組**] 索引標籤的 [**部署模組**] 區域中，按一下 [ **AzureSecurityCenterforIoT**]。 
    
 1. 將**名稱**變更為**azureiotsecurity**。
-1. 將**映射 URI**變更為**mcr.microsoft.com/ascforiot/azureiotsecurity:0.0.3**。
+1. 將**映射 URI**變更為**mcr.microsoft.com/ascforiot/azureiotsecurity:1.0.0**。
 1. 確認 [**容器建立選項**] 值設定為：      
     ``` json
     {
@@ -98,36 +95,30 @@ ms.locfileid: "70376051"
 1. 確認已選取 [**設定模組對應項的所需屬性**]，並將 configuration 物件變更為：
       
     ``` json
-      "properties.desired": {
-        "azureiot*com^securityAgentConfiguration^1*0*0": {
+    "desired": {
+        "ms_iotn:urn_azureiot_Security_SecurityAgentConfiguration": {
+          } 
         }
-      }
-      ```
+    ```
 
 1. 按一下 [儲存]。
-1. 前往索引標籤的底部，然後選取 [**設定 Advanced Edge Runtime 設定**]。
+1. 前往索引標籤的底部，然後選取 [**設定 Advanced Edge Runtime 設定**]。 
    
-   
-1. 將 [ **Edge 中樞**] 底下的**影像**變更為 [ **mcr.microsoft.com/ascforiot/edgehub:1.0.9-preview**]。
-
-   >[!Note]
-   > Azure 資訊安全中心 IoT 模組需要以 SDK 1.20 版為基礎的 IoT Edge 中樞分支版。
-   > 藉由變更 IoT Edge Hub 映射，您會指示 IoT Edge 裝置以 IoT Edge Hub 的分支版取代最新的穩定版本，但 IoT Edge 服務並未正式支援。
+1. 將 [ **Edge 中樞**] 底下的**影像**變更為 [ **mcr.microsoft.com/azureiotedge-hub:1.0.9-rc2**]。
 
 1. 確認 [**建立選項**] 設定為： 
          
     ``` json
-    {
-      "HostConfig": {
-        "PortBindings": {
-          "8883/tcp": [{"HostPort": "8883"}],
-          "443/tcp": [{"HostPort": "443"}],
-          "5671/tcp": [{"HostPort": "5671"}]
+    { 
+    "HostConfig":{
+                    "PortBindings":{
+                    "8883/tcp": [{"HostPort": "8883"}],
+                    "443/tcp": [{"HostPort": "443"}],
+                    "5671/tcp": [{"HostPort": "5671"}]
+                    }
         }
-      }
     }
     ```
-      
 1. 按一下 [儲存]。
    
 1. 按一下 [下一步]。
@@ -157,14 +148,14 @@ ms.locfileid: "70376051"
 
 1. 在您的 IoT Edge 裝置上執行下列命令：
     
-     `sudo docker ps`
+    `sudo docker ps`
    
 1. 確認下列容器正在執行：
    
    | Name | 包 |
    | --- | --- |
-   | azureiotsecurity | mcr.microsoft.com/ascforiot/azureiotsecurity:0.0.3 |
-   | edgeHub | mcr.microsoft.com/ascforiot/edgehub:1.0.9-preview |
+   | azureiotsecurity | mcr.microsoft.com/ascforiot/azureiotsecurity:1.0.0 |
+   | edgeHub | mcr.microsoft.com/azureiotedge-hub:1.0.9-rc2 |
    | edgeAgent | mcr.microsoft.com/azureiotedge-agent:1.0 |
    
    如果沒有所需的最小容器，請檢查您的 IoT Edge 部署資訊清單是否與建議的設定一致。 如需詳細資訊，請參閱[部署 IoT Edge 模組](#deployment-using-azure-portal)。

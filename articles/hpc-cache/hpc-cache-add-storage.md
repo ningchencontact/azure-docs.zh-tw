@@ -4,14 +4,14 @@ description: 如何定義儲存體目標，讓您的 Azure HPC 快取可以使�
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: conceptual
-ms.date: 09/06/2019
+ms.date: 09/24/2019
 ms.author: v-erkell
-ms.openlocfilehash: a17952e193f3e03becaab044f55637372bac7b0d
-ms.sourcegitcommit: a19bee057c57cd2c2cd23126ac862bd8f89f50f5
+ms.openlocfilehash: 7df0727a58f3d70289c5060175572dac1bbb4abb
+ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71181000"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71300034"
 ---
 # <a name="add-storage-targets"></a>新增儲存體目標
 
@@ -21,11 +21,11 @@ ms.locfileid: "71181000"
 
 請記住，您必須能夠從快取的虛擬網路存取儲存體匯出。 針對內部部署硬體存放裝置，您可能需要設定可解析主機名稱以進行 NFS 儲存體存取的 DNS 伺服器。 如需詳細資訊，請參閱[DNS 存取](hpc-cache-prereqs.md#dns-access)。
 
-您可以在建立 Azure HPC 快取時或之後新增儲存體目標。 視您要新增 Azure Blob 儲存體或 NFS 匯出而定，此程式稍有不同。 每個的詳細資料如下。
+您可以在建立快取時或之後新增儲存體目標。 視您要新增 Azure Blob 儲存體或 NFS 匯出而定，此程式稍有不同。 每個的詳細資料如下。
 
 ## <a name="add-storage-targets-while-creating-the-cache"></a>在建立快取時新增儲存體目標
 
-使用 [快取建立嚮導] 的 [**儲存體目標**] 索引標籤，即可在建立快取實例時，同時定義儲存空間。
+使用 Azure HPC 快取建立嚮導的 [**儲存體目標**] 索引標籤，即可在建立快取實例時，同時定義儲存體。
 
 ![儲存體目標頁面的螢幕擷取畫面](media/hpc-cache-storage-targets-pop.png)
 
@@ -39,11 +39,13 @@ ms.locfileid: "71181000"
 
 ## <a name="add-a-new-azure-blob-storage-target"></a>新增 Azure Blob 儲存體目標
 
-新的 Blob 儲存體目標需要空的 Blob 容器或以 Azure HPC Cache 雲端檔案系統格式填入資料的容器。 深入瞭解在[將資料移至 Azure blob 儲存體](hpc-cache-ingest.md)中預先載入 Blob 容器。
+新的 Blob 儲存體目標需要空的 Blob 容器或以 Azure HPC 快取雲端檔案系統格式填入資料的容器。 深入瞭解在[將資料移至 Azure blob 儲存體](hpc-cache-ingest.md)中預先載入 Blob 容器。
 
 若要定義 Azure Blob 容器，請輸入此資訊。
 
 ![[新增儲存體目標] 頁面的螢幕擷取畫面，其中填入了新的 Azure Blob 儲存體目標的資訊](media/hpc-cache-add-blob.png)
+
+<!-- need to replace screenshot after note text is updated with both required RBAC roles -->
 
 * **儲存體目標名稱**-在 Azure HPC 快取中設定用來識別此儲存體目標的名稱。
 * **目標型別**-選擇 [ **Blob**]。
@@ -52,7 +54,7 @@ ms.locfileid: "71181000"
   您將需要授權快取實例來存取儲存體帳戶，如[新增存取角色](#add-the-access-control-roles-to-your-account)中所述。
 * **儲存體容器**-選取此目標的 Blob 容器。
 
-* **虛擬命名空間路徑**-設定此儲存體目標的用戶端面向 filepath。 請參閱[設定匯總命名空間](hpc-cache-namespace.md)，以深入瞭解虛擬命名空間功能。
+* **虛擬命名空間路徑**-設定此儲存體目標的面向用戶端檔案路徑。 請參閱[設定匯總命名空間](hpc-cache-namespace.md)，以深入瞭解虛擬命名空間功能。
 
 完成後，按一下 **[確定]** 以新增儲存體目標。
 
@@ -98,11 +100,16 @@ NFS 儲存體目標有一些額外的欄位，可指定如何連線到儲存體�
 
 * **使用量模型**-根據您的工作流程選擇其中一個資料快取設定檔，如下所述：[選擇使用方式模型](#choose-a-usage-model)。
 
-您可以建立多個命名空間路徑來代表相同 NFS 儲存體系統上的不同匯出，但您必須從一個儲存體目標來建立它們。
+### <a name="nfs-namespace-paths"></a>NFS 命名空間路徑
 
-針對每個匯出，填入下列值：
+NFS 儲存體目標可以有多個虛擬路徑，前提是每個路徑都代表相同儲存系統上的不同匯出或子目錄。
 
-* **虛擬命名空間路徑**-設定此儲存體目標的用戶端面向 filepath。 請參閱[設定匯總命名空間](hpc-cache-namespace.md)，以深入瞭解虛擬命名空間功能。
+建立一個儲存體目標的所有路徑。
+<!-- You can create multiple namespace paths to represent different exports on the same NFS storage system, but you must create them all from one storage target. -->
+
+針對每個命名空間路徑填入這些值： 
+
+* **虛擬命名空間路徑**-設定此儲存體目標的面向用戶端檔案路徑。 請參閱[設定匯總命名空間](hpc-cache-namespace.md)，以深入瞭解虛擬命名空間功能。
 
 <!--  The virtual path should start with a slash ``/``. -->
 

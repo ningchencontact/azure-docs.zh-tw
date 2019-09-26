@@ -9,12 +9,12 @@ ms.author: estfan
 ms.reviewer: arthii, LADocs
 ms.topic: article
 ms.date: 09/01/2019
-ms.openlocfilehash: a070b224b0cb1378f0ba6729af33840715dc0a29
-ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
+ms.openlocfilehash: 7384f058c82699095e1209e677dc5c6f61b57178
+ms.sourcegitcommit: 0486aba120c284157dfebbdaf6e23e038c8a5a15
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71087717"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71309862"
 ---
 # <a name="install-on-premises-data-gateway-for-azure-logic-apps"></a>安裝 Azure Logic Apps 的內部部署資料閘道
 
@@ -58,7 +58,7 @@ ms.locfileid: "71087717"
   * 用於緩衝處理的固態硬碟（SSD）儲存體
 
   > [!NOTE]
-  > 閘道不支援 Windows Server 2016 Core。
+  > 閘道不支援 Windows Server Core。
 
 * **相關考慮**
 
@@ -74,6 +74,8 @@ ms.locfileid: "71087717"
   * 您為閘道安裝所選取的區域，是您稍後為邏輯應用程式建立 Azure 閘道資源時必須選取的相同位置。 根據預設，此區域與管理 Azure 帳戶的 Azure AD 租使用者位置相同。 不過，您可以在閘道安裝期間變更位置。
 
   * 閘道有兩種模式： [標準模式] 和 [個人模式]，僅適用于 Power BI。 同一部電腦上不能有一個以上的閘道在相同的模式下執行。
+
+  * Azure Logic Apps 透過閘道支援寫入作業，包括插入和更新。 不過，這些作業對[其裝載大小有限制](https://docs.microsoft.com/data-integration/gateway/service-gateway-onprem#considerations)。
 
 <a name="install-gateway"></a>
 

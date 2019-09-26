@@ -1,6 +1,6 @@
 ---
-title: 如何設定系統和使用者指派給受控身分識別，在 Azure 虛擬機器擴展集使用 Azure CLI
-description: 逐步解說指示，來設定系統和使用者指派給受控身分識別，在 Azure 虛擬機器擴展集，使用 Azure CLI。
+title: 如何使用 Azure CLI 在 Azure 虛擬機器擴展集上設定系統和使用者指派的受控識別
+description: 使用 Azure CLI 在 Azure 虛擬機器擴展集上設定系統和使用者指派的受控識別的逐步指示。
 services: active-directory
 documentationcenter: ''
 author: priyamohanram
@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/15/2018
+ms.date: 09/26/2019
 ms.author: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 04a3c9eba1f6498796a7e617b400649963c996d1
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 895d914226014a0f43bc7f8ff24d3e7dff24ef37
+ms.sourcegitcommit: 0486aba120c284157dfebbdaf6e23e038c8a5a15
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60290837"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71310056"
 ---
 # <a name="configure-managed-identities-for-azure-resources-on-a-virtual-machine-scale-set-using-azure-cli"></a>使用 Azure CLI 在虛擬機器擴展集上設定 Azure 資源受控識別
 
@@ -28,12 +28,12 @@ ms.locfileid: "60290837"
 
 Azure 資源受控識別會在 Azure Active Directory 中為 Azure 服務提供自動受控識別。 您可以使用此身分識別來向任何支援 Azure AD 驗證的服務進行驗證，不需要任何您程式碼中的認證。 
 
-在本文中，您了解如何在 Azure 虛擬機器擴展集上的 Azure 資源作業中執行下列管理的身分識別使用 Azure CLI:
+在本文中，您將瞭解如何使用 Azure CLI，在 Azure 虛擬機器擴展集上執行下列 Azure 資源受控識別作業：
 - 在 Azure 虛擬機器擴展集上啟用和停用系統指派的受控識別
 - 在 Azure 虛擬機器擴展集上新增和移除使用者指派的受控識別
 
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 - 如果您不熟悉 Azure 資源的受控識別，請參閱[概觀一節](overview.md)。 **請務必檢閱[系統指派和使用者指派受控識別之間的差異](overview.md#how-does-it-work)** 。
 - 如果您還沒有 Azure 帳戶，請先[註冊免費帳戶](https://azure.microsoft.com/free/)，再繼續進行。
@@ -57,7 +57,7 @@ Azure 資源受控識別會在 Azure Active Directory 中為 Azure 服務提供�
 
 ## <a name="system-assigned-managed-identity"></a>系統指派的受控識別
 
-在本節中，您將了解如何啟用和停用系統指派給受控身分識別 Azure 虛擬機器擴展集使用 Azure CLI。
+在本節中，您會瞭解如何使用 Azure CLI，為 Azure 虛擬機器擴展集啟用和停用系統指派的受控識別。
 
 ### <a name="enable-system-assigned-managed-identity-during-creation-of-an-azure-virtual-machine-scale-set"></a>在 Azure 虛擬機器擴展集建立期間啟用系統指派的受控識別
 
@@ -114,8 +114,7 @@ az vmss update -n myVM -g myResourceGroup --set identity.type='UserAssigned'
 az vmss update -n myVM -g myResourceGroup --set identity.type="none"
 ```
 
-> [!NOTE]
-> 如果您已佈建 Azure 資源 （要被取代） 的 VM 延伸模組的受管理身分識別，您需要先使用  [az vmss 擴充功能刪除](https://docs.microsoft.com/cli/azure/vm/)。 如需詳細資訊，請參閱 <<c0> [ 從 VM 延伸模組移轉至 Azure 進行驗證的 IMDS](howto-migrate-vm-extension.md)。
+
 
 ## <a name="user-assigned-managed-identity"></a>使用者指派的受控識別
 
@@ -123,9 +122,9 @@ az vmss update -n myVM -g myResourceGroup --set identity.type="none"
 
 ### <a name="assign-a-user-assigned-managed-identity-during-the-creation-of-a-virtual-machine-scale-set"></a>在虛擬機器擴展集建立期間指派使用者指派的受控識別
 
-本節將引導您逐步完成虛擬機器擴展集的建立和指派的使用者指派的受控身分識別，以虛擬機器擴展集。 如果您已經有您想要使用的虛擬機器擴展集，請略過本節並繼續進行下一步。
+本節會逐步引導您建立虛擬機器擴展集，並將使用者指派的受控識別指派給虛擬機器擴展集。 如果您已經有想要使用的虛擬機器擴展集，請略過本節並繼續進行下一步。
 
-1. 如果您已經有想要使用的資源群組，可以略過此步驟。 使用 [az group create](/cli/azure/group/#az-group-create) 建立[資源群組](~/articles/azure-resource-manager/resource-group-overview.md#terminology)，以便控制及部署使用者指派的受控識別。 請務必以您自己的值取代 `<RESOURCE GROUP>` 和 `<LOCATION>` 參數的值。 ：
+1. 如果您已經有想要使用的資源群組，可以略過此步驟。 使用 [az group create](/cli/azure/group/#az-group-create) 建立[資源群組](~/articles/azure-resource-manager/resource-group-overview.md#terminology)，以便控制及部署使用者指派的受控識別。 請務必以您自己的值取代 `<RESOURCE GROUP>` 和 `<LOCATION>` 參數的值。 :
 
    ```azurecli-interactive 
    az group create --name <RESOURCE GROUP> --location <LOCATION>
@@ -155,7 +154,7 @@ az vmss update -n myVM -g myResourceGroup --set identity.type="none"
    }
    ```
 
-3. 使用建立虛擬機器擴展集[az vmss 建立](/cli/azure/vmss/#az-vmss-create)。 下列範例會建立新使用者指派給受控身分識別相關聯，所指定的虛擬機器擴展集`--assign-identity`參數。 別忘了以您自己的值取代 `<RESOURCE GROUP>`、`<VMSS NAME>`、`<USER NAME>`、`<PASSWORD>`、`<USER ASSIGNED IDENTITY>` 參數的值。 
+3. 使用[az vmss create](/cli/azure/vmss/#az-vmss-create)建立虛擬機器擴展集。 下列範例會建立與新使用者指派的受控識別相關聯的虛擬機器擴展集，如參數所`--assign-identity`指定。 別忘了以您自己的值取代 `<RESOURCE GROUP>`、`<VMSS NAME>`、`<USER NAME>`、`<PASSWORD>`、`<USER ASSIGNED IDENTITY>` 參數的值。 
 
    ```azurecli-interactive 
    az vmss create --resource-group <RESOURCE GROUP> --name <VMSS NAME> --image UbuntuLTS --admin-username <USER NAME> --admin-password <PASSWORD> --assign-identity <USER ASSIGNED IDENTITY>
@@ -185,7 +184,7 @@ az vmss update -n myVM -g myResourceGroup --set identity.type="none"
    }
    ```
 
-2. 指派使用者給受控身分識別與您的虛擬機器擴展集使用的指派[az vmss 的身分識別指派](/cli/azure/vmss/identity)。 請務必以您自己的值取代 `<RESOURCE GROUP>` 和 `<VIRTUAL MACHINE SCALE SET NAME>` 參數的值。 `<USER ASSIGNED IDENTITY>` 是使用者所指派身分識別的資源 `name` 屬性 (在上一個步驟中建立)：
+2. 使用[az vmss identity assign](/cli/azure/vmss/identity)，將使用者指派的受控識別指派給您的虛擬機器擴展集。 請務必以您自己的值取代 `<RESOURCE GROUP>` 和 `<VIRTUAL MACHINE SCALE SET NAME>` 參數的值。 `<USER ASSIGNED IDENTITY>` 是使用者所指派身分識別的資源 `name` 屬性 (在上一個步驟中建立)：
 
     ```azurecli-interactive
     az vmss identity assign -g <RESOURCE GROUP> -n <VIRTUAL MACHINE SCALE SET NAME> --identities <USER ASSIGNED IDENTITY>

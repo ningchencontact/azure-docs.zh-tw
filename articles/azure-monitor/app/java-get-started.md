@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 05/24/2019
 ms.author: lagayhar
-ms.openlocfilehash: 27610280bafa6d8e9e33f84af2d3e9f6c2c9ea5c
-ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
+ms.openlocfilehash: 351247041d4e2f857bcb38b38a490c1a160a6a70
+ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68967825"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71299600"
 ---
 # <a name="get-started-with-application-insights-in-a-java-web-project"></a>在 Java Web 專案中開始使用 Application Insights
 
@@ -29,10 +29,8 @@ Application Insights 支援 Linux、Unix 或 Windows 上執行的 Java 應用程
 
 您需要：
 
-* JRE 1.7 或 1.8 版
+* JAVA 7 或更新版本
 * [Microsoft Azure](https://azure.microsoft.com/)訂用帳戶。
-
-如果您偏好 Spring 架構，可嘗試[設定 Spring Boot 初始設定式應用程式來使用 Application Insights 指南](https://docs.microsoft.com/java/azure/spring-framework/configure-spring-boot-java-applicationinsights) \(英文\)。
 
 ## <a name="1-get-an-application-insights-instrumentation-key"></a>1.取得 Application Insights 檢測金鑰
 1. 登入 [Microsoft Azure 入口網站](https://portal.azure.com)。
@@ -51,27 +49,16 @@ Application Insights 支援 Linux、Unix 或 Windows 上執行的 Java 應用程
 然後重新整理專案相依性，以下載程式庫。
 
 ```XML
-
-    <repositories>
-       <repository>
-          <id>central</id>
-          <name>Central</name>
-          <url>http://repo1.maven.org/maven2</url>
-       </repository>
-    </repositories>
-
     <dependencies>
       <dependency>
         <groupId>com.microsoft.azure</groupId>
-        <artifactId>applicationinsights-web</artifactId>
+        <artifactId>applicationinsights-web-auto</artifactId>
+        <!-- or applicationinsights-web for manual web filter registration -->
         <!-- or applicationinsights-core for bare API -->
-        <version>[2.0,)</version>
+        <version>2.5.0</version>
       </dependency>
     </dependencies>
 ```
-
-* *建置或總和檢查碼驗證錯誤？* 嘗試使用特定版本，例如：`<version>2.0.n</version>`。 您可以在 [SDK 版本資訊](https://github.com/Microsoft/ApplicationInsights-Java#release-notes)或 [Maven 成品](https://search.maven.org/#search%7Cga%7C1%7Capplicationinsights)中找到最新版本。
-* *需要更新為新的 SDK？* 請重新整理專案的相依項目。
 
 #### <a name="if-youre-using-gradle-a-namegradle-setup-"></a>如果您使用 Gradle... <a name="gradle-setup" />
 如果您的專案已設定為要使用 Gradle 建置，請將下列程式碼合併至 build.gradle 檔案。
@@ -79,34 +66,25 @@ Application Insights 支援 Linux、Unix 或 Windows 上執行的 Java 應用程
 然後重新整理專案相依性，以下載程式庫。
 
 ```gradle
-
-    repositories {
-      mavenCentral()
-    }
-
     dependencies {
-      compile group: 'com.microsoft.azure', name: 'applicationinsights-web', version: '2.+'
+      compile group: 'com.microsoft.azure', name: 'applicationinsights-web-auto', version: '2.5.0'
+      // or applicationinsights-web for manual web filter registration
       // or applicationinsights-core for bare API
     }
 ```
-
-#### <a name="if-youre-using-eclipse-to-create-a-dynamic-web-project-"></a>如果您使用 Eclipse 建立動態 Web 專案...
-使用適用于 JAVA 的 Application Insights SDK 外掛程式。 注意：雖然使用此外掛程式可讓您較快啟動並執行 Application Insights (假設您未使用 Maven/Gradle)，但它並不是相依性管理系統。 因此，更新此外掛程式並不會自動更新專案中的 Application Insights 程式庫。
-
-* *建置或總和檢查碼驗證錯誤？* 嘗試使用特定版本，例如：`version:'2.0.n'`。 您可以在 [SDK 版本資訊](https://github.com/Microsoft/ApplicationInsights-Java#release-notes)或 [Maven 成品](https://search.maven.org/#search%7Cga%7C1%7Capplicationinsights)中找到最新版本。
-* *若要更新為新的 SDK* 請重新整理專案的相依項目。
 
 #### <a name="otherwise-if-you-are-manually-managing-dependencies-"></a>否則，如果您手動管理相依項目...
 下載[最新版本](https://github.com/Microsoft/ApplicationInsights-Java/releases/latest)並將所需的檔案複製到您的專案中，並取代任何先前的版本。
 
 ### <a name="questions"></a>問題...
-* `-core` 與 `-web` 元件之間有何關係？
-  * `applicationinsights-core` 會提供裸機 API。 您一定需要此元件。
-  * `applicationinsights-web` 提供追蹤 HTTP 要求計數和回應時間的度量。 如果您不想自動收集此原則，您可以忽略這個。 例如，如果您想要自己撰寫。
+* *`-web` `-web-auto`和`-core`元件之間的關係為何？*
+  * `applicationinsights-web-auto`提供計量來追蹤 HTTP servlet 要求計數和回應時間, 方法是在執行時間自動註冊 Application Insights servlet 篩選器。
+  * `applicationinsights-web`也會提供計量來追蹤 HTTP servlet 要求計數和回應時間, 但需要在您的應用程式中手動註冊 Application Insights servlet 篩選器。
+  * `applicationinsights-core`提供您單純的 API, 例如, 如果您的應用程式不是以 servlet 為基礎。
   
 * 如果將 SDK 升級為最新版本？
   * 如果您使用 Gradle 或 Maven...
-    * 更新您的組建檔案，以指定最新版本或使用 Gradle/Maven 的萬用字元語法自動包含最新版本。 然後，重新整理專案的相依項目。 在上述範例中可以看到 [Gradle](#gradle-setup) 或 [Maven](#maven-setup) 的萬用字元語法。
+    * 更新您的組建檔案, 以指定最新版本。
   * 如果您手動管理相依項目...
     * 下載最新的 [Application Insights SDK for Java](https://github.com/Microsoft/ApplicationInsights-Java/releases/latest) 並取代舊的。 [SDK 版本資訊](https://github.com/Microsoft/ApplicationInsights-Java#release-notes)中會說明變更內容。
 
@@ -116,34 +94,30 @@ Application Insights 支援 Linux、Unix 或 Windows 上執行的 Java 應用程
 替換為您從 Azure 入口網站取得的檢測金鑰。
 
 ```XML
+<?xml version="1.0" encoding="utf-8"?>
+<ApplicationInsights xmlns="http://schemas.microsoft.com/ApplicationInsights/2013/Settings" schemaVersion="2014-05-30">
 
-    <?xml version="1.0" encoding="utf-8"?>
-    <ApplicationInsights xmlns="http://schemas.microsoft.com/ApplicationInsights/2013/Settings" schemaVersion="2014-05-30">
+   <!-- The key from the portal: -->
+   <InstrumentationKey>** Your instrumentation key **</InstrumentationKey>
 
+   <!-- HTTP request component (not required for bare API) -->
+   <TelemetryModules>
+      <Add type="com.microsoft.applicationinsights.web.extensibility.modules.WebRequestTrackingTelemetryModule"/>
+      <Add type="com.microsoft.applicationinsights.web.extensibility.modules.WebSessionTrackingTelemetryModule"/>
+      <Add type="com.microsoft.applicationinsights.web.extensibility.modules.WebUserTrackingTelemetryModule"/>
+   </TelemetryModules>
 
-      <!-- The key from the portal: -->
-      <InstrumentationKey>** Your instrumentation key **</InstrumentationKey>
+   <!-- Events correlation (not required for bare API) -->
+   <!-- These initializers add context data to each event -->
+   <TelemetryInitializers>
+      <Add type="com.microsoft.applicationinsights.web.extensibility.initializers.WebOperationIdTelemetryInitializer"/>
+      <Add type="com.microsoft.applicationinsights.web.extensibility.initializers.WebOperationNameTelemetryInitializer"/>
+      <Add type="com.microsoft.applicationinsights.web.extensibility.initializers.WebSessionTelemetryInitializer"/>
+      <Add type="com.microsoft.applicationinsights.web.extensibility.initializers.WebUserTelemetryInitializer"/>
+      <Add type="com.microsoft.applicationinsights.web.extensibility.initializers.WebUserAgentTelemetryInitializer"/>
+   </TelemetryInitializers>
 
-
-      <!-- HTTP request component (not required for bare API) -->
-      <TelemetryModules>
-        <Add type="com.microsoft.applicationinsights.web.extensibility.modules.WebRequestTrackingTelemetryModule"/>
-        <Add type="com.microsoft.applicationinsights.web.extensibility.modules.WebSessionTrackingTelemetryModule"/>
-        <Add type="com.microsoft.applicationinsights.web.extensibility.modules.WebUserTrackingTelemetryModule"/>
-      </TelemetryModules>
-
-      <!-- Events correlation (not required for bare API) -->
-      <!-- These initializers add context data to each event -->
-
-      <TelemetryInitializers>
-        <Add type="com.microsoft.applicationinsights.web.extensibility.initializers.WebOperationIdTelemetryInitializer"/>
-        <Add type="com.microsoft.applicationinsights.web.extensibility.initializers.WebOperationNameTelemetryInitializer"/>
-        <Add type="com.microsoft.applicationinsights.web.extensibility.initializers.WebSessionTelemetryInitializer"/>
-        <Add type="com.microsoft.applicationinsights.web.extensibility.initializers.WebUserTelemetryInitializer"/>
-        <Add type="com.microsoft.applicationinsights.web.extensibility.initializers.WebUserAgentTelemetryInitializer"/>
-
-      </TelemetryInitializers>
-    </ApplicationInsights>
+</ApplicationInsights>
 ```
 
 (選擇性) 組態檔可以位於您的應用程式可存取的任何位置。  系統屬性 `-Dapplicationinsights.configurationDirectory` 會指定包含 ApplicationInsights.xml 的目錄。 例如，位於 `E:\myconfigs\appinsights\ApplicationInsights.xml` 的組態檔是使用屬性 `-Dapplicationinsights.configurationDirectory="E:\myconfigs\appinsights"` 來設定。
@@ -155,8 +129,8 @@ Application Insights 支援 Linux、Unix 或 Windows 上執行的 Java 應用程
 ### <a name="alternative-ways-to-set-the-instrumentation-key"></a>設定檢測金鑰的替代方法
 Application Insights SDK 會依此順序尋找此金鑰︰
 
-1. 系統屬性：-DAPPLICATION_INSIGHTS_IKEY=your_ikey
-2. 環境變數：APPLICATION_INSIGHTS_IKEY
+1. 系統屬性：-DAPPINSIGHTS_INSTRUMENTATIONKEY = your_ikey
+2. 環境變數：APPINSIGHTS_INSTRUMENTATIONKEY
 3. 組態檔：ApplicationInsights.xml
 
 您也可以 [在程式碼中設定](../../azure-monitor/app/api-custom-events-metrics.md#ikey)：
@@ -170,133 +144,9 @@ Application Insights SDK 會依此順序尋找此金鑰︰
     }
 ```
 
-請注意,[即時計量](https://docs.microsoft.com/azure/azure-monitor/app/live-stream)不支援從程式碼讀取檢測金鑰。
+## <a name="4-add-agent"></a>4.新增代理程式
 
-## <a name="4-add-an-http-filter"></a>4.加入 HTTP 篩選器
-上一個組態步驟可讓 HTTP 要求元件記錄每個 Web 要求。 (如果您只需要單純的 API，則非必要。)
-
-### <a name="spring-boot-applications"></a>Spring Boot 應用程式
-在您的組態類別中註冊 Application Insights `WebRequestTrackingFilter`：
-
-```Java
-package <yourpackagename>.configurations;
-
-import javax.servlet.Filter;
-
-import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
-import org.springframework.boot.web.servlet.FilterRegistrationBean;
-import org.springframework.context.annotation.Bean;
-import org.springframework.core.Ordered;
-import org.springframework.beans.factory.annotation.Value;
-import org.springframework.context.annotation.Configuration;
-import com.microsoft.applicationinsights.TelemetryConfiguration;
-import com.microsoft.applicationinsights.web.internal.WebRequestTrackingFilter;
-
-@Configuration
-public class AppInsightsConfig {
-
-    @Bean
-    public String telemetryConfig() {
-        String telemetryKey = System.getenv("<instrumentation key>");
-        if (telemetryKey != null) {
-            TelemetryConfiguration.getActive().setInstrumentationKey(telemetryKey);
-        }
-        return telemetryKey;
-    }
-
-    /**
-     * Programmatically registers a FilterRegistrationBean to register WebRequestTrackingFilter
-     * @param webRequestTrackingFilter
-     * @return Bean of type {@link FilterRegistrationBean}
-     */
-    @Bean
-    public FilterRegistrationBean webRequestTrackingFilterRegistrationBean(WebRequestTrackingFilter webRequestTrackingFilter) {
-        FilterRegistrationBean registration = new FilterRegistrationBean();
-        registration.setFilter(webRequestTrackingFilter);
-        registration.addUrlPatterns("/*");
-        registration.setOrder(Ordered.HIGHEST_PRECEDENCE + 10);
-        return registration;
-    }
-
-
-    /**
-     * Creates bean of type WebRequestTrackingFilter for request tracking
-     * @param applicationName Name of the application to bind filter to
-     * @return {@link Bean} of type {@link WebRequestTrackingFilter}
-     */
-    @Bean
-    @ConditionalOnMissingBean
-
-    public WebRequestTrackingFilter webRequestTrackingFilter(@Value("${spring.application.name:application}") String applicationName) {
-        return new WebRequestTrackingFilter(applicationName);
-    }
-
-
-}
-```
-
-> [!NOTE]
-> 如果您使用 Spring Boot 1.3.8 或較舊的版本，請以下列的行取代 FilterRegistrationBean
-
-```Java
-    import org.springframework.boot.context.embedded.FilterRegistrationBean;
-```
-
-此類別會將 `WebRequestTrackingFilter` 設定為 http 篩選鏈結上的第一個篩選條件。 它也會從作業系統環境變數中提取可用的檢測金鑰。
-
-> 由於這是 Spring Boot 應用程式，而且它有其本身的 Spring MVC 組態，因此我們會使用 web http 篩選組態，而不是 Spring MVC 組態。 請參閱以下幾節，以了解 Spring MVC 特定組態。
-
-### <a name="applications-using-webxml"></a>使用 Web.xml 的應用程式
-在您的專案中找到並開啟 web.xml 檔案，然後將下列程式碼合併至 Web 應用程式節點下，也就是應用程式篩選器設定的位置。
-
-為獲得最準確的結果，應該在其他所有篩選器之前先對應此篩選器。
-
-```XML
-
-    <filter>
-      <filter-name>ApplicationInsightsWebFilter</filter-name>
-      <filter-class>
-        com.microsoft.applicationinsights.web.internal.WebRequestTrackingFilter
-      </filter-class>
-    </filter>
-    <filter-mapping>
-       <filter-name>ApplicationInsightsWebFilter</filter-name>
-       <url-pattern>/*</url-pattern>
-    </filter-mapping>
-
-   <!-- This listener handles shutting down the TelemetryClient when an application/servlet is undeployed. -->
-    <listener>
-      <listener-class>com.microsoft.applicationinsights.web.internal.ApplicationInsightsServletContextListener</listener-class>
-    </listener>
-```
-
-#### <a name="if-youre-using-spring-web-mvc-31-or-later"></a>如果您使用 Spring Web MVC 3.1 或更新版本
-在 *-servlet.xml 中編輯這些元素來併入 Application Insights 封裝：
-
-```XML
-
-    <context:component-scan base-package=" com.springapp.mvc, com.microsoft.applicationinsights.web.spring"/>
-
-    <mvc:interceptors>
-        <mvc:interceptor>
-            <mvc:mapping path="/**"/>
-            <bean class="com.microsoft.applicationinsights.web.spring.RequestNameHandlerInterceptorAdapter" />
-        </mvc:interceptor>
-    </mvc:interceptors>
-```
-
-#### <a name="if-youre-using-struts-2"></a>如果您使用 Struts 2
-將此項目加入到 Struts 組態檔案 (通常名稱為 struts.xml 或 struts-default.xml)：
-
-```XML
-
-     <interceptors>
-       <interceptor name="ApplicationInsightsRequestNameInterceptor" class="com.microsoft.applicationinsights.web.struts.RequestNameInterceptor" />
-     </interceptors>
-     <default-interceptor-ref name="ApplicationInsightsRequestNameInterceptor" />
-```
-
-如果預設堆疊中定義了攔截器，可以將攔截器新增至該堆疊。
+[安裝 JAVA 代理程式](java-agent.md)來捕捉傳出的 HTTP 呼叫、JDBC 查詢、應用程式記錄, 以及更好的作業命名。
 
 ## <a name="5-run-your-application"></a>5.執行您的應用程式
 在您的開發電腦上以偵錯模式執行應用程式，或發佈至您的伺服器。
@@ -314,9 +164,9 @@ public class AppInsightsConfig {
 
 ![包含圖表的 Application Insights 失敗窗格](./media/java-get-started/006-barcharts.png)
 
-> Application Insights 假設 MVC 應用程式的 HTTP 要求的格式為： `VERB controller/action`。 例如，`GET Home/Product/f9anuh81`、`GET Home/Product/2dffwrf5` 和 `GET Home/Product/sdf96vws` 會分組至 `GET Home/Product`。 此分組方式可提供要求有意義的彙總，例如要求數量和要求的平均執行時間。
->
->
+<!--
+[TODO update image with 2.5.0 operation naming provided by agent]
+-->
 
 ### <a name="instance-data"></a>執行個體資料
 點選特定要求類型以查看個別執行個體。
@@ -362,15 +212,14 @@ public class AppInsightsConfig {
 ```
 
 ## <a name="exceptions-and-request-failures"></a>例外狀況與要求失敗
-系統會自動收集未處理的例外狀況。
+Application Insights web 篩選器會自動收集未處理的例外狀況和要求失敗。
 
-若要收集其他例外狀況的資料，您有兩個選項：
-
-* [在您的程式碼中插入 trackException () 的呼叫][apiexceptions]。
-* [在伺服器上安裝 Java 代理程式](java-agent.md)。 指定您想要觀看的方法。
+若要收集其他例外狀況的資料, 您可以[在程式碼中插入 trackException () 的呼叫][apiexceptions]。
 
 ## <a name="monitor-method-calls-and-external-dependencies"></a>監視方法呼叫和外部相依性
 [安裝 Java 代理程式](java-agent.md) 以記錄指定的內部方法和透過 JDBC 發出的呼叫與計時資料。
+
+和用於自動操作命名。
 
 ## <a name="w3c-distributed-tracing"></a>W3C 分散式追蹤
 
@@ -442,9 +291,6 @@ Application Insights Java SDK 現在支援 [W3C 分散式追蹤](https://w3c.git
 * [將遙測加入至您的網頁][usage] ，即可監視頁面檢視和使用者度量。
 * [設定 Web 測試][availability] ，以確認應用程式處於線上狀態且能夠回應。
 
-## <a name="capture-log-traces"></a>擷取記錄追蹤
-您可以使用 Application Insights 將來自 Log4J、Logback 或其他記錄架構的記錄分解。 您可以將記錄與 HTTP 要求和其他遙測相互關聯。 [了解作法][javalogs]。
-
 ## <a name="send-your-own-telemetry"></a>傳送您自己的遙測
 既然您已安裝 SDK，您可以使用 API 來傳送自己的遙測。
 
@@ -456,7 +302,7 @@ Application Insights 可讓您定期測試網站，以檢查網站運作中且�
 
 [深入瞭解如何設定可用性 web 測試。][availability]
 
-## <a name="questions-problems"></a>有任何疑問嗎? 有問題嗎？
+## <a name="questions-problems"></a>有疑問嗎？ 有問題嗎？
 [疑難排解 Java](java-troubleshoot.md)
 
 ## <a name="next-steps"></a>後續步驟

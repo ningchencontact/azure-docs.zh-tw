@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 09/23/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: e39f294f7902eabef401d4c8145f4f19a07f267f
-ms.sourcegitcommit: 3fa4384af35c64f6674f40e0d4128e1274083487
+ms.openlocfilehash: ee8a711a867f8abdc831b0d1d9d0b504b1104955
+ms.sourcegitcommit: 0486aba120c284157dfebbdaf6e23e038c8a5a15
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71224569"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71310116"
 ---
 # <a name="creating-an-incremental-snapshot-preview-for-managed-disks"></a>建立受控磁片的增量快照集（預覽）
 
@@ -23,10 +23,11 @@ ms.locfileid: "71224569"
 
 增量快照集也提供差異功能，這是受控磁片的唯一可用性。 它們可讓您將相同受控磁片的兩個增量快照集之間的變更，減少到區塊層級。 您可以使用這項功能來減少跨區域複製快照集時的資料使用量。
 
-如果您尚未註冊預覽版，而您想要開始使用增量快照集，請傳送電子郵件給我們AzureDisks@microsoft.com ，以取得公開預覽的存取權。
+如果您尚未註冊預覽版，而且想要開始使用增量快照集，請傳送電子郵件給我們AzureDisks@microsoft.com ，以取得公開預覽的存取權。
 
 ## <a name="restrictions"></a>限制
 
+- 增量快照集目前僅適用于美國中西部。
 - 當您變更磁片的大小時，目前無法建立增量快照集。
 - 目前無法在訂用帳戶之間移動增量快照集。
 - 您目前最多隻能在任何指定的時間產生特定快照集系列的五個快照集的 SAS Uri。
@@ -36,7 +37,7 @@ ms.locfileid: "71224569"
 
 ## <a name="powershell"></a>PowerShell
 
-您可以使用 Azure PowerShell 來建立增量快照集。 您可以在本機上安裝最新版的 PowerShell。 您將需要最新版的 Azure PowerShell，下列命令會安裝它，或將現有的安裝更新為最新版本：
+您可以使用 Azure PowerShell 來建立增量快照集。 您將需要最新版的 Azure PowerShell，下列命令會安裝它，或將現有的安裝更新為最新版本：
 
 ```PowerShell
 Install-Module -Name Az -AllowClobber -Scope CurrentUser
@@ -44,22 +45,24 @@ Install-Module -Name Az -AllowClobber -Scope CurrentUser
 
 一旦安裝之後，請使用`az login`登入您的 PowerShell 會話。
 
+若要使用 Azure PowerShell 建立增量快照集，請使用[AzSnapShotConfig](https://docs.microsoft.com/en-us/powershell/module/az.compute/new-azsnapshotconfig?view=azps-2.7.0) `-Incremental`搭配參數來設定設定，然後透過`-Snapshot`參數將其做為變數傳遞至[new-azsnapshot](https://docs.microsoft.com/en-us/powershell/module/az.compute/new-azsnapshot?view=azps-2.7.0) 。
+
 將`<yourDiskNameHere>`、 `<yourResourceGroupNameHere>`和`<yourDesiredSnapShotNameHere>`取代為您的值，然後您可以使用下列腳本來建立增量快照集：
 
 ```PowerShell
 # Get the disk that you need to backup by creating an incremental snapshot
 $yourDisk = Get-AzDisk -DiskName <yourDiskNameHere> -ResourceGroupName <yourResourceGroupNameHere>
 
-# Create an incremental snapshot by setting:
-# 1. Incremental property
-# 2. SourceUri property with the value of the Id property of the disk
+# Create an incremental snapshot by setting the SourceUri property with the value of the Id property of the disk
 $snapshotConfig=New-AzSnapshotConfig -SourceUri $yourDisk.Id -Location $yourDisk.Location -CreateOption Copy -Incremental 
 New-AzSnapshot -ResourceGroupName <yourResourceGroupNameHere> -SnapshotName <yourDesiredSnapshotNameHere> -Snapshot $snapshotConfig 
+```
 
-# You can identify incremental snapshots of the same disk by using the SourceResourceId and SourceUniqueId properties of snapshots. 
-# SourceResourceId is the Azure Resource Manager resource ID of the parent disk. 
-# SourceUniqueId is the value inherited from the UniqueId property of the disk. If you delete a disk and then create a disk with the same name, the value of the UniqueId property will change. 
-# Following script shows how to get all the incremental snapshots in a resource group of same disk
+您可以使用`SourceResourceId` `SourceUniqueId`和快照集的屬性，從相同的磁片識別增量快照集。 `SourceResourceId`這是父磁片的 Azure Resource Manager 資源識別碼。 `SourceUniqueId`這是從磁片的`UniqueId`屬性繼承而來的值。 如果您要刪除磁片，然後使用相同的名稱建立新的磁片， `UniqueId`屬性的值就會變更。
+
+您可以使用`SourceResourceId`和`SourceUniqueId`來建立與特定磁片相關聯的所有快照集清單。 將`<yourResourceGroupNameHere>`取代為您的值，然後您可以使用下列範例來列出現有的增量快照集：
+
+```PowerShell
 $snapshots = Get-AzSnapshot -ResourceGroupName <yourResourceGroupNameHere>
 
 $incrementalSnapshots = New-Object System.Collections.ArrayList
@@ -73,6 +76,46 @@ foreach ($snapshot in $snapshots)
 }
 
 $incrementalSnapshots
+```
+
+## <a name="cli"></a>CLI
+
+您可以使用 Azure CLI 建立增量快照集，您將需要最新版的 Azure CLI。 下列命令會將您現有的安裝安裝或更新為最新版本：
+
+```PowerShell
+Invoke-WebRequest -Uri https://aka.ms/installazurecliwindows -OutFile .\AzureCLI.msi; Start-Process msiexec.exe -Wait -ArgumentList '/I AzureCLI.msi /quiet'
+```
+
+若要建立增量快照集，請使用[az snapshot create](https://docs.microsoft.com/cli/azure/snapshot?view=azure-cli-latest#az-snapshot-create) `--incremental`搭配參數。
+
+下列範例會建立增量快照集、將`<yourDesiredSnapShotNameHere>` `<exampleDiskName>`、 `<yourResourceGroupNameHere>`、和`<exampleLocation>`取代為您自己的值，然後執行範例：
+
+```bash
+sourceResourceId=$(az disk show -g <yourResourceGroupNameHere> -n <exampleDiskName> --query '[id]' -o tsv)
+
+az snapshot create -g <yourResourceGroupNameHere> \
+-n <yourDesiredSnapShotNameHere> \
+-l <exampleLocation> \
+--source "$sourceResourceId" \
+--incremental
+```
+
+您可以使用`SourceResourceId` `SourceUniqueId`和快照集的屬性，從相同的磁片識別增量快照集。 `SourceResourceId`這是父磁片的 Azure Resource Manager 資源識別碼。 `SourceUniqueId`這是從磁片的`UniqueId`屬性繼承而來的值。 如果您要刪除磁片，然後使用相同的名稱建立新的磁片， `UniqueId`屬性的值就會變更。
+
+您可以使用`SourceResourceId`和`SourceUniqueId`來建立與特定磁片相關聯的所有快照集清單。 下列範例會列出與特定磁片相關聯的所有增量快照集，但它需要進行一些設定。
+
+這個範例會使用 jq 來查詢資料。 若要執行範例，您必須[安裝 jq](https://stedolan.github.io/jq/download/)。
+
+將`<yourResourceGroupNameHere>` 和`<exampleDiskName>`取代為您的值，然後您就可以使用下列範例來列出現有的增量快照集，只要您已安裝 jq：
+
+```bash
+sourceUniqueId=$(az disk show -g <yourResourceGroupNameHere> -n <exampleDiskName> --query '[uniqueId]' -o tsv)
+
+ 
+sourceResourceId=$(az disk show -g <yourResourceGroupNameHere> -n <exampleDiskName> --query '[id]' -o tsv)
+
+az snapshot list -g <yourResourceGroupNameHere> -o json \
+| jq -cr --arg SUID "$sourceUniqueId" --arg SRID "$sourceResourceId" '.[] | select(.incremental==true and .creationData.sourceUniqueId==$SUID and .creationData.sourceResourceId==$SRID)'
 ```
 
 ## <a name="resource-manager-template"></a>Resource Manager 範本
@@ -111,32 +154,6 @@ $incrementalSnapshots
 }
 ```
 
-## <a name="cli"></a>CLI
-
-您可以使用[az snapshot create](https://docs.microsoft.com/cli/azure/snapshot?view=azure-cli-latest#az-snapshot-create)，以 Azure CLI 建立增量快照集。 範例命令看起來會像下面這樣：
-
-```bash
-az snapshot create -g <exampleResourceGroup> \
--n <exampleSnapshotName> \
--l <exampleLocation> \
---source <exampleVMId> \
---incremental
-```
-
-您也可以使用`--query` [az snapshot show](https://docs.microsoft.com/cli/azure/snapshot?view=azure-cli-latest#az-snapshot-show)上的參數，在 CLI 中識別快照集的增量快照集。 您可以使用該參數直接查詢快照集的**SourceResourceId**和**SourceUniqueId**屬性。 SourceResourceId 是父磁片的 Azure Resource Manager 資源識別碼。 **SourceUniqueId**是從磁片的**UniqueId**屬性繼承而來的值。 如果您刪除磁片，然後使用相同的名稱建立磁片，則**UniqueId**屬性的值將會變更。
-
-其中一個查詢的範例如下所示：
-
-```bash
-az snapshot show -g <exampleResourceGroup> \
--n <yourSnapShotName> \
---query [creationData.sourceResourceId] -o tsv
-
-az snapshot show -g <exampleResourceGroup> \
--n <yourSnapShotName> \
---query [creationData.sourceUniqueId] -o tsv
-```
-
 ## <a name="next-steps"></a>後續步驟
 
-如果您尚未註冊預覽版，而您想要開始使用增量快照集，請傳送電子郵件給我們AzureDisks@microsoft.com ，以取得公開預覽的存取權。
+如果您尚未註冊預覽版，而且想要開始使用增量快照集，請傳送電子郵件給我們AzureDisks@microsoft.com ，以取得公開預覽的存取權。

@@ -9,16 +9,18 @@ ms.author: estfan
 ms.reviewer: arthii, LADocs
 ms.topic: article
 ms.date: 09/01/2019
-ms.openlocfilehash: dcb0fe4da968408a261e387c636cc548fa757a09
-ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
+ms.openlocfilehash: d397adfb6ed2d3aef93bd40d14eb0ad199cdb90c
+ms.sourcegitcommit: 0486aba120c284157dfebbdaf6e23e038c8a5a15
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71036664"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71309360"
 ---
 # <a name="connect-to-on-premises-data-sources-from-azure-logic-apps"></a>從 Azure Logic Apps 連線到內部部署資料來源
 
-若要從您的邏輯應用程式存取內部部署資料來源，請在 Azure 入口網站中建立內部部署資料閘道資源。 然後，您的邏輯應用程式可以使用[內部部署連接器](../connectors/apis-list.md#on-premises-connectors)。 本文說明如何在您于[本機電腦上下載並安裝閘道](../logic-apps/logic-apps-gateway-install.md)*之後*，建立 Azure 閘道資源。 如需閘道的詳細資訊，請參閱[閘道的運作方式](../logic-apps/logic-apps-gateway-install.md#gateway-cloud-service)。
+若要從您的邏輯應用程式存取內部部署資料來源，請在 Azure 入口網站中建立內部部署資料閘道資源。 然後，您的邏輯應用程式可以使用[內部部署連接器](../connectors/apis-list.md#on-premises-connectors)。 Azure Logic Apps 透過閘道支援寫入作業，包括插入和更新。 不過，這些作業對[其裝載大小有限制](https://docs.microsoft.com/data-integration/gateway/service-gateway-onprem#considerations)。
+
+本文說明如何在您于[本機電腦上下載並安裝閘道](../logic-apps/logic-apps-gateway-install.md)*之後*，建立 Azure 閘道資源。 如需閘道的詳細資訊，請參閱[閘道的運作方式](../logic-apps/logic-apps-gateway-install.md#gateway-cloud-service)。 
 
 > [!TIP]
 > 若要連線至 Azure 虛擬網路，請考慮建立[*整合服務環境*](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md)。 

@@ -10,17 +10,17 @@ ms.reviewer: klam
 ms.assetid: 3ef16fab-d18a-48ba-8e56-3f3e0a1bcb92
 ms.topic: conceptual
 ms.date: 08/18/2016
-ms.openlocfilehash: d701fba39685d781d1a4c2d8a6cf194ca7eb2908
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 7e31f891cfd758b888e4045566ad2cd2d9ab6fb8
+ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60530930"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71300960"
 ---
 # <a name="concepts-terminology-and-entities-in-azure-scheduler"></a>Azure 排程器中的概念、術語及實體
 
 > [!IMPORTANT]
-> [Azure Logic Apps](../logic-apps/logic-apps-overview.md) 會取代 Azure 排程器，Azure 排程器之後將無法使用。 若要排定作業，請[改為試用 Azure Logic Apps](../scheduler/migrate-from-scheduler-to-logic-apps.md)。 
+> [Azure Logic Apps](../logic-apps/logic-apps-overview.md)會取代即將[淘汰](../scheduler/migrate-from-scheduler-to-logic-apps.md#retire-date)的 Azure 排程器。 若要繼續使用您在排程器中設定的作業，請儘快[遷移至 Azure Logic Apps](../scheduler/migrate-from-scheduler-to-logic-apps.md) 。
 
 ## <a name="entity-hierarchy"></a>實體階層
 
@@ -55,7 +55,7 @@ https://management.azure.com/subscriptions/{subscriptionID}/resourceGroups/{reso
 
 ### <a name="job-history-management"></a>作業記錄管理
 
-支援使用 GET 作業擷取 60 天的作業執行記錄，例如作業經歷時間和作業執行結果。 包含根據狀況和狀態篩選的查詢字串參數支援。 如需詳細資訊，請參閱[排程器 REST API - 作業 - 列出作業記錄](https://docs.microsoft.com/rest/api/scheduler/jobs/listjobhistory)。 以下是這項作業的 URI 位址：
+支援使用 GET 作業擷取 60 天的作業執行記錄，例如作業經歷時間和作業執行結果。 包含根據狀況和狀態篩選的查詢字串參數支援。 如需詳細資訊，請參閱[排程器 REST API - 作業 - 列出作業記錄](https://docs.microsoft.com/rest/api/scheduler/jobs/listjobhistory)。 以下是此作業的 URI 位址：
 
 ```
 https://management.azure.com/subscriptions/{subscriptionID}/resourceGroups/{resourceGroupName}/providers/Microsoft.Scheduler/jobCollections/{jobCollectionName}/jobs/{jobName}/history
@@ -70,18 +70,18 @@ Azure 排程器支援多個作業類型：
 * 服務匯流排佇列作業，適用於使用服務匯流排佇列的工作負載
 * 服務匯流排主題佇列作業，適用於使用服務匯流排主題的工作負載
 
-## <a name="job-definition"></a>工作定義
+## <a name="job-definition"></a>作業定義
 
 概括來說，排程器作業包含下列基本部分：
 
 * 要在工作計時器啟動時執行的動作
-* 選用：執行作業的時間
-* 選用：重複執行工作的時機和頻率
-* 選用：執行主要動作失敗時的錯誤動作
+* 選擇性：執行作業的時間
+* 選擇性：重複作業的時機和頻率
+* 選擇性：主要動作失敗時所執行的錯誤動作
 
 作業也包含系統提供的資料，例如已排定的下一次作業執行時間。 作業的程式碼定義是採用 JavaScript 物件標記法 (JSON) 格式的物件，其中包含以下元素：
 
-| 項目 | 必要項 | 描述 | 
+| 元素 | 必要項 | 描述 | 
 |---------|----------|-------------| 
 | [**startTime**](#start-time) | 否 | 包含時區位移的作業開始時間，格式為 [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) | 
 | [**action**](#action) | 是 | 主要動作的詳細資料，其中可包括 **errorAction** 物件 | 
@@ -147,7 +147,7 @@ Azure 排程器支援多個作業類型：
 
 <a name="action"></a>
 
-## <a name="action"></a>動作
+## <a name="action"></a>action
 
 排程器作業會根據指定的排程來執行主要**動作**。 排程器支援 HTTP、儲存體佇列、服務匯流排佇列和服務匯流排主題動作。 如果主要**動作**失敗，排程器可以執行次要的 [**errorAction**](#erroraction) 來處理錯誤。 **action** 物件會描述以下元素：
 
@@ -251,12 +251,12 @@ Azure 排程器支援多個作業類型：
 | **interval** | 否 | 1 到 1000 (含) | 正整數，根據 **frequency** 來決定每次發生作業的間隔時間單位數 | 
 | **schedule** | 否 | 視情況而異 | 更複雜且進階的排程詳細資料。 請參考 **hours**、**minutes**、**weekDays**、**months** 和 **monthDays** | 
 | **hours** | 否 | 1 到 24 | 包含小時標記的陣列，表示要執行作業的時間 | 
-| **minutes** | 否 | 0 到 59 | 包含分鐘標記的陣列，表示要執行作業的時間 | 
+| **minutes** | 否 | 0到59 | 包含分鐘標記的陣列，表示要執行作業的時間 | 
 | **months** | 否 | 1 到 12 | 包含月份的陣列，表示要執行作業的時間 | 
 | **monthDays** | 否 | 視情況而異 | 包含月份中某幾天的陣列，表示要執行作業的時間 | 
 | **weekDays** | 否 | "Monday"、"Tuesday"、"Wednesday"、"Thursday"、"Friday"、"Saturday"、"Sunday" | 包含一週中某幾天的陣列，表示要執行作業的時間 | 
-| **計數** | 否 | <無  > | 循環次數。 預設為無限制地重複。 您無法同時使用 **count** 和 **endTime**，但會接受先完成的規則。 | 
-| **endTime** | 否 | <無  > | 停止循環的日期和時間。 預設為無限制地重複。 您無法同時使用 **count** 和 **endTime**，但會接受先完成的規則。 | 
+| **計數** | 否 | <無> | 循環次數。 預設為無限制地重複。 您無法同時使用 **count** 和 **endTime**，但會接受先完成的規則。 | 
+| **endTime** | 否 | <無> | 停止循環的日期和時間。 預設為無限制地重複。 您無法同時使用 **count** 和 **endTime**，但會接受先完成的規則。 | 
 ||||
 
 如需有關這些元素的詳細資訊，請參閱[建置複雜的排程和進階週期](../scheduler/scheduler-advanced-complexity.md)。
@@ -297,7 +297,7 @@ Azure 排程器支援多個作業類型：
 
 <a name="status"></a>
 
-## <a name="status"></a>status
+## <a name="status"></a>狀態
 
 作業啟動之後，排程器透過 **status** 物件傳回作業狀態的相關資訊，該物件只能由排程器控制。 不過，您可以在 **job** 物件中找到 **status** 物件。 以下是作業狀態包含的資訊：
 

@@ -8,12 +8,12 @@ ms.topic: reference
 ms.date: 10/11/2018
 ms.author: robb
 ms.subservice: logs
-ms.openlocfilehash: 362b696351e4faca02fa6ea8aed7e7447454cd34
-ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.openlocfilehash: fdcfcbaf99d48a345d2be4da297be1c9139da15c
+ms.sourcegitcommit: 0486aba120c284157dfebbdaf6e23e038c8a5a15
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71262029"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71308119"
 ---
 # <a name="supported-services-schemas-and-categories-for-azure-diagnostic-logs"></a>Azure 診斷記錄支援的服務、結構描述和類別
 
@@ -66,6 +66,7 @@ ms.locfileid: "71262029"
 | Azure 防火牆 | 無法使用結構描述。 |
 | IoT 中樞 | [IoT 中樞作業](../../iot-hub/iot-hub-monitor-resource-health.md#use-azure-monitor) |
 | Key Vault |[Azure 金鑰保存庫記錄](../../key-vault/key-vault-logging.md) |
+| Kubernetes 服務 |[Azure Kubernetes 記錄](../../aks/view-master-logs.md#log-event-schema) |
 | 負載平衡器 |[Azure 負載平衡器的 Log Analytics](../../load-balancer/load-balancer-monitor-log.md) |
 | Logic Apps |[Logic Apps B2B 自訂追蹤結構描述](../../logic-apps/logic-apps-track-integration-account-custom-tracking-schema.md) |
 | 網路安全性群組 |[網路安全性群組 (NSG) 的記錄檔分析](../../virtual-network/virtual-network-nsg-manage-log.md) |

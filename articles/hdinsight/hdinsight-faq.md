@@ -1,0 +1,378 @@
+---
+title: Azure HDInsight 常見問題
+description: HDInsight 的相關常見問題
+keywords: 常見問題，常見問題
+author: Ramakoni1
+ms.author: ramakoni
+ms.reviewer: jasonh
+ms.service: hdinsight
+ms.custom: hdinsightactive
+ms.topic: conceptual
+ms.date: 09/20/2019
+ms.openlocfilehash: 0a718786cc7c72ef4ee9573c3c3e40401c53a315
+ms.sourcegitcommit: 0486aba120c284157dfebbdaf6e23e038c8a5a15
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71308073"
+---
+# <a name="azure-hdinsight-frequently-asked-questions"></a>Azure HDInsight：常見問題集
+
+本文提供有關如何執行[Azure HDInsight](https://azure.microsoft.com/services/hdinsight/)的一些常見問題的解答。
+
+## <a name="creating-or-deleting-hdinsight-clusters"></a>建立或刪除 HDInsight 叢集
+
+### <a name="how-do-i-provision-an-hdinsight-cluster"></a>如何? 布建 HDInsight 叢集？
+
+若要查看可用的 HDInsight 叢集類型和布建方法，請參閱[使用 Apache Hadoop、Apache Spark、Apache Kafka 等在 hdinsight 中設定](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-provision-linux-clusters)叢集。
+
+### <a name="how-do-i-delete-an-existing-hdinsight-cluster"></a>如何? 刪除現有的 HDInsight 叢集？
+
+若要深入瞭解如何刪除不再使用的叢集，請參閱[刪除 HDInsight](hdinsight-delete-cluster.md)叢集。
+
+在建立和刪除作業之間保留至少30到60分鐘。 否則，作業可能會失敗，並出現下列錯誤訊息：
+
+``Conflict (HTTP Status Code: 409) error when attempting to delete a cluster immediately after creation of a cluster. If you encounter this error, wait until the newly created cluster is in operational state before attempting to delete it.``
+
+### <a name="how-do-i-select-the-correct-number-of-cores-or-nodes-for-my-workload"></a>如何? 針對我的工作負載選取正確的核心或節點數目嗎？
+
+適當的核心數目和其他設定選項取決於各種因素。
+
+如需詳細資訊，請參閱[HDInsight 叢集的容量規劃](https://docs.microsoft.com/azure/hdinsight/hdinsight-capacity-planning)。
+
+### <a name="what-can-i-do-when-cluster-provisioning-fails-because-of-a-capacity-issue"></a>當叢集布建因為容量問題而失敗時，我可以做什麼？
+
+本節提供常見的容量問題錯誤和緩和技術。
+
+#### <a name="error-the-deployment-would-exceed-the-quota-of-800"></a>Error:部署會超過配額 ' 800 '
+
+針對每個資源群組，Azure 的部署配額限制為 800 個。 每個資源群組、訂用帳戶、帳戶或其他範圍都會套用不同的配額。 例如，您的訂用帳戶可能設定為要限制區域的核心數目。 如果您嘗試部署的虛擬機器所擁有的核心數超過允許的數量，您會收到一則錯誤訊息，指出已超過配額。
+
+若要解決此問題，請使用 [Azure 入口網站]、[CLI] 或 [PowerShell] 來刪除不再需要的部署。
+
+如需詳細資訊，請參閱[解決資源配額的錯誤](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-quota-errors)。
+
+#### <a name="error-the-maximum-node-exceeded-the-available-cores-in-this-region"></a>Error:節點數上限已超過此區域中的可用核心
+
+您的訂用帳戶可能設定為要限制區域的核心數目。 如果您嘗試部署的資源超過允許的數量，則會收到錯誤訊息，指出已超過配額。
+
+若要要求增加配額，請遵循下列步驟：
+
+1. 移至 [ [Azure 入口網站](https://portal.azure.com)]，然後選取 [說明 **+ 支援**]。
+   
+1. 選取 [新增支援要求]。
+   
+1. 在 [**新增支援要求**] 頁面的 [**基本**] 索引標籤上，提供下列資訊：
+   
+   - **問題類型：** 選取 **[服務與訂用帳戶限制（配額）** ]。
+   - **訂用帳戶︰** 選取您想要修改的訂用帳戶。
+   - **配額類型：** 選取 [HDInsight]。
+
+如需詳細資訊，請參閱[建立支援票證來增加核心](hdinsight-capacity-planning.md#quotas)。
+
+### <a name="what-are-the-various-types-of-nodes-in-an-hdinsight-cluster"></a>HDInsight 叢集中的各種節點類型為何？
+
+Azure HDInsight 叢集具有不同類型的虛擬機器或節點。 每種節點類型在系統的作業中扮演著角色。
+
+如需詳細資訊，請參閱[Azure HDInsight 叢集中的資源類型](hdinsight-virtual-network-architecture.md#resource-types-in-azure-hdinsight-clusters)。
+
+## <a name="individual-components"></a>個別元件
+
+### <a name="can-i-install-additional-components-on-my-cluster"></a>我可以在叢集上安裝其他元件嗎？
+
+是的。 若要安裝其他元件或自訂叢集設定，請使用：
+
+- 在建立期間或之後的腳本。 腳本是透過[腳本動作](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-customize-cluster-linux)叫用，這是您可以從 Azure 入口網站、Hdinsight Windows PowerShell Cmdlet 或 HDINSIGHT .net SDK 使用的設定選項。 此設定選項可以從 Azure 入口網站、HDInsight Windows PowerShell Cmdlet 或 HDInsight .NET SDK 使用。
+
+- `sudo`或在您布建叢集之後的其他方法。
+  
+- [HDInsight 應用程式平臺](https://azure.microsoft.com/services/hdinsight/partner-ecosystem/)，用於安裝生態系統應用程式。
+
+不過，Microsoft 支援服務小組只能在下列情況下提供支援：
+
+- 載入腳本時所發生的問題或錯誤。 執行自訂腳本期間發生的任何錯誤都不在支援票證的範圍內。
+
+- 屬於叢集建立程式的其他應用程式。 
+
+如需支援的元件清單，請參閱[HDInsight 有哪些 Apache Hadoop 元件和版本？](https://docs.microsoft.com/azure/hdinsight/hdinsight-component-versioning#apache-hadoop-components-available-with-different-hdinsight-versions)
+
+個別元件的支援也可能因叢集類型而異。 例如，Kafka 叢集上不支援 Spark，反之亦然。
+
+針對叢集建立程式以外的應用程式和服務，請洽詢廠商或服務提供者以取得支援。 您也可以使用許多「社區支援」網站。 範例是 HDInsight 和[Stack Overflow](https://stackoverflow.com/)的[MSDN 論壇](https://social.msdn.microsoft.com/Forums/azure/home?forum=hdinsight)。 此外，Apache 專案在 [Apache 網站](https://apache.org/)上也有專案網站。 例如 [Hadoop](https://hadoop.apache.org/)。 
+
+如需 Azure 支援的詳細資訊，請參閱[Azure 支援常見問題](https://azure.microsoft.com/support/faq/)。
+
+### <a name="can-i-upgrade-the-individual-components-that-are-pre-installed-on-the-cluster"></a>我可以升級叢集上預先安裝的個別元件嗎？
+
+如果您升級已預先安裝在叢集上的內建元件或應用程式，Microsoft 將不會支援產生的設定。 這些系統組態尚未經過 Microsoft 測試。 嘗試使用可能已預先安裝元件之升級版本的不同 HDInsight 叢集版本。
+
+例如，不支援將 Hive 升級為個別元件。 HDInsight 是受控服務，而且許多服務都與 Ambari 伺服器整合並經過測試。 自行升級 Hive 會導致其他元件的索引二進位檔變更，而且會導致您叢集上的元件整合問題。
+
+### <a name="can-spark-and-kafka-run-on-the-same-hdinsight-cluster"></a>Spark 和 Kafka 可以在相同的 HDInsight 叢集上執行嗎？
+
+不可以，您無法在相同的 HDInsight 叢集上執行 Apache Kafka 和 Apache Spark。 為 Kafka 和 Spark 建立個別的叢集，以避免發生資源爭用問題。
+
+### <a name="how-do-i-change-timezone-in-ambari"></a>如何? 變更 Ambari 中的時區嗎？
+
+1. 開啟位於 https://CLUSTERNAME.azurehdinsight.net 的 Ambari Web UI，其中 CLUSTERNAME 是您的叢集名稱。
+2. 在右上角，選取 [管理] |設置。 
+
+   ![Ambari 設定](media/hdinsight-faq/ambari-settings.png)
+
+3. 在 [使用者設定] 視窗中，從 [時區] 下拉式下選取新的時區，然後按一下 [儲存]。
+
+   ![Ambari 使用者設定](media/hdinsight-faq/ambari-user-settings.png)
+
+## <a name="metastore"></a>Metastore
+
+### <a name="how-can-i-migrate-from-the-existing-metastore-to-azure-sql-server"></a>如何從現有的中繼存放區遷移至 Azure SQL Server？ 
+
+若要從 SQL Server 遷移至 Azure SQL Server， [請參閱教學課程：使用 DMS](../dms/tutorial-sql-server-to-azure-sql.md)，將 SQL Server 遷移至 Azure SQL Database 離線的單一資料庫或集區資料庫。
+
+### <a name="is-the-hive-metastore-deleted-when-the-cluster-is-deleted"></a>刪除叢集時，Hive 中繼存放區是否刪除？
+
+這取決於您的叢集設定要使用的中繼存放區類型。
+
+若為預設中繼存放區：預設中繼存放區是叢集生命週期的一部分。 當您刪除叢集時，相應的中繼存放區和中繼資料會一併刪除。
+
+若為自訂中繼存放區：中繼存放區的生命週期不會系結至叢集的生命週期。 因此，您可以建立和刪除叢集，而不會遺失中繼資料。 即使在您刪除並重新建立 HDInsight 叢集之後，您的 Hive 架構之類的中繼資料仍會保存。
+
+如需詳細資訊，請參閱[在 Azure HDInsight 中使用外部中繼資料存放區](hdinsight-use-external-metadata-stores.md)。
+
+### <a name="does-migrating-a-hive-metastore-also-migrate-the-default-policies-of-the-ranger-database"></a>遷移 Hive 中繼存放區也會遷移 Ranger 資料庫的預設原則嗎？
+
+否，原則定義位於 Ranger 資料庫中，因此，遷移 Ranger 資料庫將會遷移其原則。
+
+### <a name="can-you-migrate-a-hive-metastore-from-an-enterprise-security-package-esp-cluster-to-a-non-esp-cluster-and-vice-versa"></a>您是否可以將 Hive 中繼存放區從企業安全性套件（ESP）叢集遷移至非 ESP 叢集，反之亦然？
+
+是，您可以將 Hive 中繼存放區從 ESP 遷移至非 ESP 叢集。
+
+### <a name="how-can-i-estimate-the-size-of-a-hive-metastore-database"></a>如何預估 Hive 中繼存放區資料庫的大小？
+
+Hive 中繼存放區用來儲存 Hive 伺服器所使用之資料來源的中繼資料。大小需求的部分取決於 Hive 資料來源的數量和複雜度，而且無法預先預估。 如[Hive 中繼存放區最佳做法](hdinsight-use-external-metadata-stores.md#hive-metastore-best-practices)中所述，您可以從 S2 層開始，它會提供 50 DTU 和 250 GB 的儲存空間，如果您看到瓶頸，您可以相應增加資料庫。
+
+### <a name="do-you-support-any-other-database-other-than-azure-sql-database-as-an-external-metastore"></a>您是否支援以外部中繼存放區以外的其他任何資料庫 Azure SQL Database？
+
+否，Microsoft 僅支援以外部自訂中繼存放區 Azure SQL Database。
+
+### <a name="can-i-share-a-metastore-across-multiple-clusters"></a>我可以在多個叢集之間共用中繼存放區嗎？
+
+是，您可以在多個叢集之間共用自訂中繼存放區，只要這些叢集使用相同的 HDInsight 版本即可。
+
+## <a name="connectivity-and-virtual-networks"></a>連線能力與虛擬網路  
+
+### <a name="what-are-the-implications-of-blocking-ports-22-and-23-on-my-network"></a>在我的網路上封鎖埠22和23有哪些含意？
+
+如果您封鎖埠22和埠23，就不會有叢集的 SSH 存取權。 HDInsight 服務不會使用這些埠。
+
+如需詳細資訊，請參閱下列文件：
+
+- [控制網路流量](https://docs.microsoft.com/azure/hdinsight/hdinsight-plan-virtual-network-deployment#networktraffic)
+
+- [以私人端點保護虛擬網路中 HDInsight 叢集的連入流量](https://azure.microsoft.com/blog/secure-incoming-traffic-to-hdinsight-clusters-in-a-vnet-with-private-endpoint/)
+
+- [HDInsight 管理 IP 位址](https://docs.microsoft.com/azure/hdinsight/hdinsight-management-ip-addresses)
+
+### <a name="can-i-deploy-an-additional-virtual-machine-within-the-same-subnet-as-an-hdinsight-cluster"></a>我可以在與 HDInsight 叢集相同的子網內部署額外的虛擬機器嗎？
+
+是，您可以在與 HDInsight 叢集相同的子網內部署其他虛擬機器。 可能的設定如下：
+
+- 邊緣節點：您可以將另一個邊緣節點新增至叢集，如在[HDInsight 中的 Apache Hadoop 叢集上使用空白邊緣節點](hdinsight-apps-use-edge-node.md)中所述。
+
+- 獨立節點：您可以將獨立虛擬機器新增到相同的子網，並使用私用端點`https://<CLUSTERNAME>-int.azurehdinsight.net`從該虛擬機器存取叢集。 如需詳細資訊，請參閱[控制網路流量](hdinsight-plan-virtual-network-deployment.md#networktraffic)。
+
+### <a name="can-i-add-an-existing-hdinsight-cluster-to-another-virtual-network"></a>我可以將現有的 HDInsight 叢集新增到另一個虛擬網路嗎？
+
+不行，您不能。 在布建時，應該指定虛擬網路。 如果在布建期間未指定任何虛擬網路，部署會建立無法從外部存取的內部網路。 如需詳細資訊，請參閱[將 HDInsight 新增至現有的虛擬網路](hdinsight-plan-virtual-network-deployment.md#existingvnet)。
+
+## <a name="security-and-certificates"></a>安全性和憑證
+
+### <a name="what-are-the-recommendations-for-malware-protection-on-azure-hdinsight-clusters"></a>Azure HDInsight 叢集上的惡意程式碼防護有哪些建議？
+
+如需惡意程式碼防護的相關資訊，請參閱[Azure 雲端服務和虛擬機器的 Microsoft Antimalware](../security/fundamentals/antimalware.md)。
+
+### <a name="how-do-i-create-a-keytab-for-an-hdinsight-esp-cluster"></a>如何? 建立 HDInsight ESP 叢集的 keytab？
+
+為您的網域使用者名稱建立 Kerberos keytab。 您稍後可以使用此 keytab 來驗證已加入網域的遠端叢集，而不需要輸入密碼。 請注意，功能變數名稱為大寫：
+
+```shell
+ktutil
+ktutil: addent -password -p <username>@<DOMAIN.COM> -k 1 -e RC4-HMAC
+Password for <username>@<DOMAIN.COM>: <password>
+ktutil: wkt <username>.keytab
+ktutil: q
+```
+
+### <a name="can-i-use-an-existing-azure-active-directory-tenant-to-create-an-hdinsight-cluster-that-has-the-esp"></a>我可以使用現有的 Azure Active Directory 租使用者來建立具有 ESP 的 HDInsight 叢集嗎？
+
+您必須先啟用 Azure Active Directory Domain Services （Azure AD DS），才能建立具有 ESP 的 HDInsight 叢集。 開放原始碼 Hadoop 依賴 Kerberos 來進行驗證（而不是 OAuth）。
+
+若要將 Vm 加入網域，您必須具有網域控制站。 Azure AD DS 是受管理的網域控制站，而且會被視為 Azure Active Directory 的延伸模組，可提供以管理方式建立安全 Hadoop 叢集的所有 Kerberos 需求。 HDInsight 作為受控服務可與 Azure AD DS 整合，以提供端對端安全性。
+
+### <a name="can-i-use-a-self-signed-certificate-in-an-aad-ds-secure-ldap-setup-and-provision-an-esp-cluster"></a>我可以在 AAD DS 安全 LDAP 安裝程式中使用自我簽署憑證，並布建 ESP 叢集嗎？
+
+建議使用憑證授權單位單位所發行的憑證，但 ESP 也支援使用自我簽署憑證。 如需詳細資訊，請參閱：
+
+- [啟用 Azure Active Directory Domain Services](domain-joined/apache-domain-joined-configure-using-azure-adds.md#enable-azure-ad-ds)
+
+- [教學課程：為 Azure Active Directory Domain Services 受控網域設定安全 LDAP](../active-directory-domain-services/tutorial-configure-ldaps.md)
+
+### <a name="how-can-i-pull-login-activity-shown-in-ranger"></a>如何提取 Ranger 中顯示的登入活動？
+
+針對審核需求，Microsoft 建議啟用 Azure 監視器記錄，如[使用 Azure 監視器記錄來監視 HDInsight](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-oms-log-analytics-tutorial)叢集中所述。
+
+### <a name="can-i-disable-clamscan-on-my-cluster"></a>我可以停用叢集上的 Clamscan 嗎？
+
+Clamscan 是在 HDInsight 叢集上執行的防毒軟體，可供 Azure 安全性（azsecd）用來保護您的叢集免于遭受病毒攻擊。 Microsoft 強烈建議使用者避免對預設的 Clamscan 設定進行任何變更。
+
+此程式不會干擾或採取其他進程的任何迴圈。 它一律會產生其他進程。 只有在系統閒置時，才看得到 Clamscan 的 CPU 尖峰。  
+
+在您必須控制排程的案例中，您可以使用下列步驟：
+
+1. 使用下列命令停用自動執行：
+   
+   `/usr/local/vbin/azsecd config -s clamav -d Disabled`
+   
+1. 新增以 root 身分執行下列命令的 Cron 作業：
+   
+   `/usr/local/bin/azsecd manual -s clamav`
+
+如需有關如何設定及執行 cron 作業的詳細資訊，請參閱[如何? 設定 cron 作業](https://askubuntu.com/questions/2368/how-do-i-set-up-a-cron-job)？
+
+## <a name="storage"></a>儲存體
+
+### <a name="can-i-add-an-azure-data-lake-storage-gen2-to-an-existing-hdinsight-cluster-as-an-additional-storage-account"></a>我可以將 Azure Data Lake Storage Gen2 新增至現有的 HDInsight 叢集做為額外的儲存體帳戶嗎？
+
+不可以，目前無法將 Azure Data Lake Storage Gen2 儲存體帳戶新增至具有 blob 儲存體作為其主要儲存體的叢集。 如需詳細資訊，請參閱[比較儲存體選項](hdinsight-hadoop-compare-storage-options.md)。
+
+### <a name="how-can-i-find-the-currently-linked-service-principal-for-a-data-lake-storage-account"></a>如何尋找 Data Lake 儲存體帳戶目前已連結的服務主體？
+
+您可以在 Azure 入口網站的叢集屬性底下的**Data Lake Storage Gen1 存取**中找到您的設定。 如需詳細資訊，請參閱[驗證叢集設定](../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md#verify-cluster-set-up)。
+ 
+### <a name="how-can-i-calculate-the-usage-of-storage-accounts-and-blob-containers-for-my-hdinsight-clusters"></a>如何計算 HDInsight 叢集的儲存體帳戶和 blob 容器的使用量？
+
+執行下列其中一項：
+
+- [使用 PowerShell](../storage/scripts/storage-blobs-container-calculate-size-powershell.md)
+
+- 尋找/user/hive/. 的大小HDInsight 叢集上的垃圾桶/資料夾，使用下列命令列：
+  
+  `hdfs dfs -du -h /user/hive/.Trash/`
+
+### <a name="how-can-i-set-up-auditing-for-my-blob-storage-account"></a>如何設定 blob 儲存體帳戶的審核功能？
+
+若要審核 blob 儲存體帳戶，請使用在[Azure 入口網站中監視儲存體帳戶中](../storage/common/storage-monitor-storage-account.md)的程式來設定監視。 HDFS-audit 記錄僅提供本機 HDFS 檔案系統的審核資訊（hdfs://mycluster）。  它不包含在遠端存放裝置上執行的作業。
+
+### <a name="how-can-i-transfer-files-between-a-blob-container-and-an-hdinsight-head-node"></a>如何在 blob 容器和 HDInsight 前端節點之間傳輸檔案？
+
+在前端節點上執行類似下列 shell 腳本的腳本：
+
+```shell
+for i in cat filenames.txt
+do
+   hadoop fs -get $i <local destination>
+done
+```
+ 
+> [!NOTE]
+> 檔案*檔案名 .txt*會擁有 blob 容器中檔案的絕對路徑。
+ 
+### <a name="are-there-any-ranger-plugins-for-storage"></a>是否有任何適用于儲存體的 Ranger 外掛程式？
+
+目前，blob 儲存體和 Azure Data Lake Storage Gen1 或 Gen2 不存在任何 Ranger 外掛程式。 針對 ESP 叢集，您應該使用 Azure Data Lake Storage，因為您至少可以使用 HDFS 工具，在檔案系統層級手動設定細微許可權。 此外，使用 Azure Data Lake Storage 時，ESP 叢集會使用叢集層級的 Azure Active Directory 來執行一些檔案系統存取控制。 
+
+您可以使用 Azure 儲存體總管，將資料存取原則指派給使用者的安全性群組。 如需詳細資訊，請參閱：
+
+- [如何? 將 Azure AD 使用者的許可權設定為使用 Hive 或其他服務來查詢 Data Lake Storage Gen2 中的資料嗎？](hdinsight-hadoop-use-data-lake-storage-gen2.md#how-do-i-set-permissions-for-azure-ad-users-to-query-data-in-data-lake-storage-gen2-by-using-hive-or-other-services)
+- [搭配 Azure Data Lake Storage Gen2 使用 Azure 儲存體總管設定檔案和目錄等級使用權限](/azure/storage/blobs/data-lake-storage-how-to-set-permissions-storage-explorer)
+
+### <a name="can-i-increase-hdfs-storage-on-a-cluster-without-increasing-the-disk-size-of-worker-nodes"></a>我可以在叢集上增加 HDFS 儲存體，而不需要增加背景工作節點的磁片大小嗎？
+
+否，您無法增加任何背景工作角色節點的磁片大小，因此增加磁片大小的唯一方式就是卸載叢集，然後再以較大的背景工作角色 Vm 重新建立該叢集。 請不要使用 HDFS 來儲存任何 HDInsight 資料，因為如果刪除叢集，就會刪除資料。 相反地，請將您的資料儲存在 Azure 中。 相應增加叢集也可以將額外的容量新增至您的 HDInsight 叢集。
+
+## <a name="edge-nodes"></a>邊緣節點
+
+### <a name="can-i-add-an-edge-node-after-the-cluster-has-been-created"></a>我可以在建立叢集之後新增邊緣節點嗎？
+
+HDInsight 叢集，或在建立叢集時新增至新叢集。 如需詳細資訊，請參閱[在 HDInsight 中的 Apache Hadoop 叢集上使用空白邊緣節點](hdinsight-apps-use-edge-node.md)。
+
+### <a name="how-can-i-connect-to-an-edge-node"></a>如何連接到邊緣節點？
+
+建立邊緣節點之後，您可以在埠22上使用 SSH 來連線到它。 您可以從叢集入口網站尋找邊緣節點的名稱。 名稱通常以 *-ed*結尾。
+
+### <a name="why-are-persisted-scripts-not-running-automatically-on-newly-created-edge-nodes"></a>為什麼持續性腳本不會在新建立的邊緣節點上自動執行？
+
+您可以使用持續性腳本來自訂透過調整規模作業新增至叢集的新背景工作節點。 持續性腳本不適用於邊緣節點。
+
+## <a name="rest-api"></a>REST API
+
+### <a name="what-are-the-rest-api-calls-to-pull-a-tez-query-view-from-the-cluster"></a>從叢集提取 Tez 查詢檢視的 REST API 呼叫有哪些？
+
+您可以使用下列 REST 端點，以 JSON 格式提取必要的資訊。 使用基本驗證標頭來提出要求。
+
+- Tez 查詢檢視： *HTTPs：\/ / \<cluster name >. hdinsightclustername>.azurehdinsight.net. net/ws/v1/timeline/HIVE_QUERY_ID/*
+- Tez Dag View： *HTTPs：\/ / \<cluster name >. hdinsightclustername>.azurehdinsight.net. net/ws/v1/timeline/TEZ_DAG_ID/*
+
+### <a name="how-do-i-retrieve-the-configuration-details-from-hdi-cluster-by-using-an-azure-active-directory-user"></a>如何? 使用 Azure Active Directory 使用者從 HDI 叢集取出設定詳細資料嗎？
+
+若要與您的 AAD 使用者協商適當的驗證權杖，請使用下列格式來完成閘道：
+
+* HTTPs://`<cluster dnsname>`. azurehdinsight.net/api/v1/clusters/testclusterdem/stack_versions/1/repository_versions/1 
+
+### <a name="how-do-i-use-ambari-restful-api-to-monitor-yarn-performance"></a>如何? 使用 Ambari Restful API 來監視 YARN 效能嗎？
+
+如果您在相同的虛擬網路或對等互連虛擬網路中呼叫捲曲命令，命令為：
+
+```curl
+curl -u <cluster login username> -sS -G
+http://<headnodehost>:8080/api/v1/clusters/<ClusterName>/services/YARN/components/NODEMANAGER?fields=metrics/cpu
+```
+ 
+如果您從虛擬網路外部或非對等互連的虛擬網路呼叫命令，命令格式為：
+
+- 若為非 ESP 叢集：
+  
+  ```curl
+  curl -u <cluster login username> -sS -G 
+  https://<ClusterName>.azurehdinsight.net/api/v1/clusters/<ClusterName>/services/YARN/components/NODEMANAGER?fields=metrics/cpu
+  ```
+
+- 針對 ESP 叢集：
+  
+  ```curl
+  curl -u <cluster login username>-sS -G 
+  https://<ClusterName>.azurehdinsight.net/api/v1/clusters/<ClusterName>/services/YARN/components/NODEMANAGER?fields=metrics/cpu
+  ```
+
+> [!NOTE]
+> 捲曲會提示您輸入密碼。 您必須為叢集登入使用者名稱輸入有效的密碼。
+
+## <a name="billing"></a>帳務
+
+### <a name="how-much-does-it-cost-to-deploy-an-hdinsight-cluster"></a>部署 HDInsight 叢集需要多少成本？
+
+如需計費相關價格和常見問題的詳細資訊，請參閱[Azure HDInsight 定價](https://azure.microsoft.com/pricing/details/hdinsight/)頁面。
+
+### <a name="how-do-i-cancel-my-subscription"></a>如何? 取消我的訂用帳戶嗎？
+
+如需如何取消訂用帳戶的相關資訊，請參閱[取消您的 Azure 訂](https://docs.microsoft.com/azure/billing/billing-how-to-cancel-azure-subscription)用帳戶。
+
+### <a name="for-pay-as-you-go-subscriptions-what-happens-after-i-cancel-my-subscription"></a>對於隨用隨付訂用帳戶，當我取消訂閱之後，會發生什麼事？
+
+如需取消後的訂用帳戶相關資訊，請參閱[取消訂閱後會發生什麼情況？](/azure/billing/billing-how-to-cancel-azure-subscription)
+
+## <a name="hive"></a>Hive
+
+### <a name="why-does-the-hive-version-appear-as-121000-instead-of-21-in-the-ambari-ui-even-though-i-am-running-an-hdinsight-36-cluster"></a>為什麼當我執行 HDInsight 3.6 叢集時，Hive 版本會在 Ambari UI 中顯示為1.2.1000，而不是2.1？
+
+雖然 Ambari UI 中只會出現1.2，但 HDInsight 3.6 同時包含 Hive 1.2 和 Hive 2.1。
+
+## <a name="other-faq"></a>其他常見問題
+
+### <a name="what-does-hdinsight-offer-in-terms-of-real-time-stream-processing-capabilities"></a>HDInsight 提供的即時串流處理功能是什麼？
+
+如需 Azure HDInsight 中串流處理整合功能的相關資訊，請參閱[在 Azure 中選擇串流處理技術](/azure/architecture/data-guide/technology-choices/stream-processing)。
+
+### <a name="is-there-a-way-to-dynamically-terminate-the-head-node-of-the-cluster-when-the-cluster-is-idle-for-a-specific-period"></a>當叢集閒置一段特定期間時，是否有方法可以動態終止叢集的前端節點？
+
+您無法使用 HDInsight 叢集來執行此動作。 在這些情況下，您可以使用 Azure Data Factory。

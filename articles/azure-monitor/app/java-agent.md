@@ -12,32 +12,39 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 01/10/2019
 ms.author: mbullwin
-ms.openlocfilehash: ce5f7ab1e6751a9ce68aa2d9c466a112c9cac182
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: af157204ad1e1b28639ae2d8f192b3122afa8147
+ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60900603"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71299234"
 ---
-# <a name="monitor-dependencies-caught-exceptions-and-method-execution-times-in-java-web-apps"></a>監視 Java Web 應用程式中的相依性、擷取到的例外狀況和方法執行時間
+# <a name="monitor-dependencies-caught-exceptions-and-method-execution-times-in-java-web-apps"></a>監視 JAVA web 應用程式中的相依性、攔截到的例外狀況和方法執行時間
 
 
-如果您已[使用 Application Insights 檢測您的 Java Web 應用程式][java]，您可以使用 Java 代理程式獲得更深入的見解，而不需變更任何程式碼：
+如果您已[使用 Application Insights 來檢測您的 JAVA web 應用程式][java], 您可以使用 JAVA 代理程式來取得更深入的見解, 而不需要變更任何程式碼:
 
 * **相依性：** 您的應用程式對其他元件呼叫的相關資料，包括：
-  * 擷取透過 HttpClient、OkHttp 和 RestTemplate (Spring) 進行的 **REST 呼叫**。
-  * 擷取透過 Jedis 用戶端進行的 **Redis 呼叫**。
-  * **[JDBC 呼叫](https://docs.oracle.com/javase/7/docs/technotes/guides/jdbc/)** - 自動擷取 MySQL、SQL Server 及 Oracle DB 命令。 MySQL 的呼叫時間如果比 10 秒長，代理程式會回報查詢計劃。
-* **攔截到例外狀況：** 由程式碼處理的例外狀況相關資訊。
-* **方法執行時間：** 執行特定的方法所花費的時間相關資訊。
+  * 系統會攔截透過 Apache HttpClient、OkHttp 和`java.net.HttpURLConnection`所發出的**傳出 HTTP 呼叫**。
+  * 系統會攔截透過 Jedis 用戶端所提出的**Redis 呼叫**。
+  * **JDBC 查詢**-針對 MySQL 和于 postgresql, 如果呼叫所花費的時間超過10秒, 代理程式就會報告查詢計劃。
 
-若要使用 Java 代理程式，您要在伺服器上安裝它。 您必須使用 [Application Insights Java SDK][java] 檢測您的 Web 應用程式。 
+* **應用程式記錄:** 使用 HTTP 要求和其他遙測來捕獲應用程式記錄並使其相互關聯
+  * **Log4j 1。2**
+  * **Log4j2**
+  * **Logback**
+
+* **更好的作業命名:** (用於入口網站中的要求匯總)
+  * 以**春季**為基礎`@RequestMapping`。
+  * **JAX-RS** -以為`@Path`基礎。 
+
+若要使用 Java 代理程式，您要在伺服器上安裝它。 您的 web 應用程式必須使用[Application Insights JAVA SDK][java]進行檢測。 
 
 ## <a name="install-the-application-insights-agent-for-java"></a>安裝 Java 的 Application Insights 代理程式
 1. 在執行 Java 伺服器的電腦上[下載代理程式](https://github.com/Microsoft/ApplicationInsights-Java/releases/latest)。 請確定下載的 Java 代理程式版本與 Application Insights Java SDK 核心和網頁套件相同。
-2. 編輯應用程式伺服器啟動指令碼，並加入下列 JVM：
+2. 編輯應用程式伺服器啟動腳本，並新增下列 JVM 引數：
    
-    `javaagent:`*代理程式 JAR 檔案的完整路徑*
+    `-javaagent:<full path to the agent JAR file>`
    
     例如，在 Linux 機器上的 Tomcat 中：
    
@@ -50,82 +57,53 @@ ms.locfileid: "60900603"
 設定 XML 檔案的內容。 編輯下列範例以包含或省略您要的功能。
 
 ```XML
+<?xml version="1.0" encoding="utf-8"?>
+<ApplicationInsightsAgent>
+   <Instrumentation>
+      <BuiltIn enabled="true">
 
-    <?xml version="1.0" encoding="utf-8"?>
-    <ApplicationInsightsAgent>
-      <Instrumentation>
+         <!-- capture logging via Log4j 1.2, Log4j2, and Logback, default is true -->
+         <Logging enabled="true" />
 
-        <!-- Collect remote dependency data -->
-        <BuiltIn enabled="true">
-           <!-- Disable Redis or alter threshold call duration above which arguments are sent.
-               Defaults: enabled, 10000 ms -->
-           <Jedis enabled="true" thresholdInMS="1000"/>
+         <!-- capture outgoing HTTP calls performed through Apache HttpClient, OkHttp,
+              and java.net.HttpURLConnection, default is true -->
+         <HTTP enabled="true" />
 
-           <!-- Set SQL query duration above which query plan is reported (MySQL, PostgreSQL). Default is 10000 ms. -->
-           <MaxStatementQueryLimitInMS>1000</MaxStatementQueryLimitInMS>
-        </BuiltIn>
+         <!-- capture JDBC queries, default is true -->
+         <JDBC enabled="true" />
 
-        <!-- Collect data about caught exceptions
-             and method execution times -->
+         <!-- capture Redis calls, default is true -->
+         <Jedis enabled="true" />
 
-        <Class name="com.myCompany.MyClass">
-           <Method name="methodOne"
-               reportCaughtExceptions="true"
-               reportExecutionTime="true"
-               />
-           <!-- Report on the particular signature
-                void methodTwo(String, int) -->
-           <Method name="methodTwo"
-              reportExecutionTime="true"
-              signature="(Ljava/lang/String;I)V" />
-        </Class>
+         <!-- capture query plans for JDBC queries that exceed this value (MySQL, PostgreSQL),
+              default is 10000 milliseconds -->
+         <MaxStatementQueryLimitInMS>1000</MaxStatementQueryLimitInMS>
 
-      </Instrumentation>
-    </ApplicationInsightsAgent>
-
+      </BuiltIn>
+   </Instrumentation>
+</ApplicationInsightsAgent>
 ```
 
-您必須啟用報告例外狀況和個別方法的方法執行時間。
-
-根據預設，`reportExecutionTime` 為 true，而 `reportCaughtExceptions` 為 false。
-
-## <a name="additional-config-spring-boot"></a>其他的組態 (Spring Boot)
+## <a name="additional-config-spring-boot"></a>其他設定 (彈簧開機)
 
 `java -javaagent:/path/to/agent.jar -jar path/to/TestApp.jar`
 
-針對 Azure App Service 中下列工作：
+針對 Azure App 服務, 請執行下列動作:
 
 * 選取 [設定] > [應用程式設定]
 * 在 [應用程式設定] 之下，新增索引鍵值組︰
 
-機碼：`JAVA_OPTS` 值： `-javaagent:D:/home/site/wwwroot/applicationinsights-agent-2.3.1-SNAPSHOT.jar`
+機碼：`JAVA_OPTS`Value`-javaagent:D:/home/site/wwwroot/applicationinsights-agent-2.5.0.jar`
 
-最新版本的 Java 代理程式檢查 版本[此處](https://github.com/Microsoft/ApplicationInsights-Java/releases
-)。 
+如需最新版本的 JAVA 代理程式, 請在[這裡](https://github.com/Microsoft/ApplicationInsights-Java/releases
+)查看版本。 
 
-代理程式必須封裝為您的專案中的資源，使得它最終會在 d: / home/site/wwwroot/目錄。 您可以確認您的代理程式是否在正確的應用程式服務目錄移至**開發工具** > **進階工具** > **偵錯主控台**並檢查網站目錄的內容。    
+代理程式必須封裝為專案中的資源, 因此它最後會在 D:/home/site/wwwroot/目錄中。 您可以前往 [**開發工具** > ] [**高級工具** > ] [**偵錯主控台**], 然後檢查網站目錄的內容, 以確認您的代理程式是否在正確的 App Service 目錄中。    
 
-* 儲存設定，然後重新啟動您的應用程式。 （這些步驟只適用於在 Windows 上執行的應用程式服務。）
+* 儲存設定並重新啟動您的應用程式。 (這些步驟僅適用于在 Windows 上執行的應用程式服務)。
 
 > [!NOTE]
 > AI-Agent.xml 與代理程式 jar 檔案應在同一個資料夾中。 它們通常一起放在專案的 `/resources` 資料夾中。  
-
-### <a name="spring-rest-template"></a>Spring Rest 範本
-
-為了讓 Application Insights 成功檢測使用 Spring 的 Rest 範本所做的 HTTP 呼叫，則需使用 Apache HTTP 用戶端。 根據預設，Spring 的 Rest 範本不會設定為使用 Apache HTTP 用戶端。 在 Spring Rest 範本的建構函式中指定 [HttpComponentsClientHttpRequestfactory](https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/http/client/HttpComponentsClientHttpRequestFactory.html)，該範本會使用 Apache HTTP。
-
-以下是如何使用 Spring Beans 來執行此作業的範例。 這是一個非常簡單的範例，其使用處理站類別的預設設定。
-
-```java
-@bean
-public ClientHttpRequestFactory httpRequestFactory() {
-return new HttpComponentsClientHttpRequestFactory()
-}
-@Bean(name = 'myRestTemplate')
-public RestTemplate dcrAccessRestTemplate() {
-    return new RestTemplate(httpRequestFactory())
-}
-```
 
 #### <a name="enable-w3c-distributed-tracing"></a>啟用 W3C 分散式追蹤
 
@@ -133,10 +111,10 @@ public RestTemplate dcrAccessRestTemplate() {
 
 ```xml
 <Instrumentation>
-        <BuiltIn enabled="true">
-            <HTTP enabled="true" W3C="true" enableW3CBackCompat="true"/>
-        </BuiltIn>
-    </Instrumentation>
+   <BuiltIn enabled="true">
+      <HTTP enabled="true" W3C="true" enableW3CBackCompat="true"/>
+   </BuiltIn>
+</Instrumentation>
 ```
 
 > [!NOTE]
@@ -147,9 +125,9 @@ public RestTemplate dcrAccessRestTemplate() {
 確定 **[傳入](correlation.md#w3c-distributed-tracing)與傳出 (代理程式) 設定兩者**完全相同。
 
 ## <a name="view-the-data"></a>檢視資料
-在 Application Insights 資源中，彙總的遠端相依性和方法執行時間會出現[在效能圖格下][metrics]。
+在 Application Insights 資源中, 匯總的遠端相依性和方法執行時間會出現[在 [效能] 磚之下][metrics]。
 
-若要搜尋相依性、例外狀況及方法報告的個別執行個體，請開啟[搜尋][diagnostic]。
+若要搜尋相依性、例外狀況和方法報表的個別實例, 請開啟 [[搜尋][diagnostic]]。
 
 [診斷相依性問題 - 深入了解](../../azure-monitor/app/asp-net-dependencies.md#diagnosis)。
 

@@ -6,19 +6,21 @@ author: dlepow
 manager: gwallace
 ms.service: container-instances
 ms.topic: article
-ms.date: 04/25/2019
+ms.date: 09/25/2019
 ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: 4b41a3862341ef39c1288985d86d86667fbc5866
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: 7c4812a63137dc2efc5eab2cb3b9e136a5465e78
+ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68325592"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71300467"
 ---
 # <a name="troubleshoot-common-issues-in-azure-container-instances"></a>在 Azure 容器執行個體中針對常見問題進行疑難排解
 
-本文說明如何針對管理或將容器部署到 Azure 容器執行個體的常見問題，進行疑難排解。 另請參閱[常見問題](container-instances-faq.md)。
+本文說明如何針對管理或將容器部署到 Azure 容器執行個體的常見問題，進行疑難排解。 另請參閱[常見問題](container-instances-faq.md)。 
+
+如果您需要其他支援，請參閱[Azure 入口網站](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)中的可用說明 **+ 支援**選項。
 
 ## <a name="naming-conventions"></a>命名慣例
 
@@ -26,12 +28,12 @@ ms.locfileid: "68325592"
 
 | `Scope` | 長度 | 大小寫 | 有效字元 | 建議模式 | 範例 |
 | --- | --- | --- | --- | --- | --- |
-| 容器群組名稱 | 1-64 |不區分大小寫 |除了第一個或最後一個字元以外，都可以使用英數字元和連字號 |`<name>-<role>-CG<number>` |`web-batch-CG1` |
-| 容器名稱 | 1-64 |不區分大小寫 |除了第一個或最後一個字元以外，都可以使用英數字元和連字號 |`<name>-<role>-CG<number>` |`web-batch-CG1` |
-| 容器連接埠 | 介於 1 到 65535 之間 |整數 |介於 1 到 65535 之間的整數 |`<port-number>` |`443` |
-| DNS 名稱標籤 | 5-63 |不區分大小寫 |除了第一個或最後一個字元以外，都可以使用英數字元和連字號 |`<name>` |`frontend-site1` |
-| 環境變數 | 1-63 |不區分大小寫 |除了第一個或最後一個字元以外，都可以使用英數字元和底線 (_) |`<name>` |`MY_VARIABLE` |
-| 磁碟區名稱 | 5-63 |不區分大小寫 |除了第一個或最後一個字元以外，都可以使用小寫字母、數字和連字號。 不能包含兩個連續連字號。 |`<name>` |`batch-output-volume` |
+| 容器群組名稱 | 1-64 |區分大小寫 |除了第一個或最後一個字元以外，都可以使用英數字元和連字號 |`<name>-<role>-CG<number>` |`web-batch-CG1` |
+| 容器名稱 | 1-64 |區分大小寫 |除了第一個或最後一個字元以外，都可以使用英數字元和連字號 |`<name>-<role>-CG<number>` |`web-batch-CG1` |
+| 容器連接埠 | 介於 1 到 65535 之間 |Integer |介於 1 到 65535 之間的整數 |`<port-number>` |`443` |
+| DNS 名稱標籤 | 5-63 |區分大小寫 |除了第一個或最後一個字元以外，都可以使用英數字元和連字號 |`<name>` |`frontend-site1` |
+| 環境變數 | 1-63 |區分大小寫 |除了第一個或最後一個字元以外，都可以使用英數字元和底線 (_) |`<name>` |`MY_VARIABLE` |
+| 磁碟區名稱 | 5-63 |區分大小寫 |除了第一個或最後一個字元以外，都可以使用小寫字母、數字和連字號。 不能包含兩個連續連字號。 |`<name>` |`batch-output-volume` |
 
 ## <a name="os-version-of-image-not-supported"></a>不支援映像的 OS 版本
 
@@ -87,7 +89,7 @@ ms.locfileid: "68325592"
 
 ## <a name="container-continually-exits-and-restarts-no-long-running-process"></a>容器不斷結束又重新啟動 (沒有長時間執行的程序)
 
-容器群組的[重新啟動原則](container-instances-restart-policy.md)預設為 [一律]  ，因此容器群組中的群組在執行完成後一律會重新啟動。 如果您要執行以工作為基礎的容器，則可能需要將此設定變更為 [OnFailure]  或 [永不]  。 如果指定 **OnFailure** 後仍持續重新啟動，可能是容器中執行的應用程式或指令碼的問題。
+容器群組的[重新啟動原則](container-instances-restart-policy.md)預設為 [一律]，因此容器群組中的群組在執行完成後一律會重新啟動。 如果您要執行以工作為基礎的容器，則可能需要將此設定變更為 [OnFailure] 或 [永不]。 如果指定 **OnFailure** 後仍持續重新啟動，可能是容器中執行的應用程式或指令碼的問題。
 
 如果執行的容器群組不含長時間執行的程序，您可能會看到 Ubuntu 或 Alpine 之類的映像重複地結束並重新啟動。 透過 [EXEC](container-instances-exec.md) 連線是不可行的，因為容器沒有任何程序可維持其存留狀態。 若要解決此問題, 請在您的容器群組部署中包含如下的啟動命令, 讓容器保持執行狀態。
 
@@ -200,9 +202,28 @@ Azure 中有各種不同的地區資源負載，因此您在嘗試部署容器�
 
 Azure 容器執行個體不會公開基礎結構 (其中裝載容器群組) 的直接存取。 這包括 Docker API 的存取權，Docker API 可在容器主機上執行，並且可執行具有特殊權限的容器。 如果您需要 Docker 互動，請查閱 [REST 參考文件](https://aka.ms/aci/rest)，以了解 ACI API 支援的內容。 如果有遺漏的項目，請在 [ACI 意見反應論壇](https://aka.ms/aci/feedback)上提交要求。
 
-## <a name="ips-may-not-be-accessible-due-to-mismatched-ports"></a>IP 可能因為連接埠不相符而無法存取
+## <a name="container-group-ip-address-may-not-be-accessible-due-to-mismatched-ports"></a>因為埠不相符，所以可能無法存取容器群組 IP 位址
 
-Azure 容器執行個體目前不支援連接埠對應 (像是一般 Docker 組態)，不過這項修正正在規劃中。 如果您發現 IP 無法存取 (但您認為應可存取)，請確定已將容器映像設定為接聽您在容器群組中使用 `ports` 屬性公開的相同連接埠。
+Azure 容器實例尚未支援像是一般 docker 設定的埠對應。 如果您認為容器群組的 IP 位址應該是時無法存取，請確定您已將容器映射設定為接聽您在容器群組中使用`ports`屬性所公開的相同埠。
+
+如果您想要確認 Azure 容器實例可以在您于容器映射中設定的埠上接聽，請測試公開該埠`aci-helloworld`之映射的部署。 同時執行`aci-helloworld`應用程式，使其在埠上接聽。 `aci-helloworld`接受選擇性的環境變數`PORT` ，以覆寫接聽的預設通訊埠80。 例如，若要測試埠9000：
+
+1. 設定容器群組以公開端口9000，並將埠號碼傳遞為環境變數的值：
+    ```azurecli
+    az container create --resource-group myResourceGroup \
+    --name mycontainer --image mcr.microsoft.com/azuredocs/aci-helloworld \
+    --ip-address Public --ports 9000 \
+    --environment-variables 'PORT'='9000'
+    ```
+1. 在的命令輸出`az container create`中，尋找容器群組的 IP 位址。 尋找 [ **ip**] 的值。 
+1. 成功布建容器之後，請在瀏覽器中流覽至容器應用程式的 IP 位址和埠，例如： `192.0.2.0:9000`。 
+
+    您應該會看到「歡迎使用 Azure 容器實例！」 web 應用程式所顯示的訊息。
+1. 當您完成容器的作業時，請使用命令將`az container delete`它移除：
+
+    ```azurecli
+    az container delete --resource-group myResourceGroup --name mycontainer
+    ```
 
 ## <a name="next-steps"></a>後續步驟
 

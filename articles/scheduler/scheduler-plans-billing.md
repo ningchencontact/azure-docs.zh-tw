@@ -9,17 +9,17 @@ ms.reviewer: klam
 ms.assetid: 13a2be8c-dc14-46cc-ab7d-5075bfd4d724
 ms.topic: article
 ms.date: 08/18/2016
-ms.openlocfilehash: 3a8664497d3d082ec1c7f584188854991e872d50
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 4b63367ab9686eee66bf3f00dddc2e2efe4cb941
+ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64720440"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71300859"
 ---
 # <a name="plans-and-billing-for-azure-scheduler"></a>Azure 排程器的方案與計費
 
 > [!IMPORTANT]
-> [Azure Logic Apps](../logic-apps/logic-apps-overview.md) 將會取代即將淘汰的 Azure 排程器。 若要排定工作，請[改為試用 Azure Logic Apps](../scheduler/migrate-from-scheduler-to-logic-apps.md)。 
+> [Azure Logic Apps](../logic-apps/logic-apps-overview.md)會取代即將[淘汰](../scheduler/migrate-from-scheduler-to-logic-apps.md#retire-date)的 Azure 排程器。 若要繼續使用您在排程器中設定的作業，請儘快[遷移至 Azure Logic Apps](../scheduler/migrate-from-scheduler-to-logic-apps.md) 。
 
 ## <a name="job-collection-plans"></a>作業集合方案
 
@@ -32,7 +32,7 @@ ms.locfileid: "64720440"
 | **P20 Premium** | 每個集合 1000 個作業數 | 每分鐘一次。 每分鐘無法執行一次以上的作業。 | 每個 Azure 訂用帳戶最多都可以有 5,000 個 P20 的進階作業集合。 如需更多集合數，請<a href="mailto:wapteams@microsoft.com">與我們連絡</a>。 | 存取排程器的完整功能集 |
 |||||| 
 
-## <a name="pricing"></a>價格
+## <a name="pricing"></a>定價
 
 如需定價詳細資料，請參閱[排程器定價](https://azure.microsoft.com/pricing/details/scheduler/)。
 

@@ -13,16 +13,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: reference
-ms.date: 04/29/2019
+ms.date: 09/25/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c5460033902b71174dc3a10615811f657081f0e4
-ms.sourcegitcommit: 7a6d8e841a12052f1ddfe483d1c9b313f21ae9e6
+ms.openlocfilehash: 6760677a94855c259501103a54a96d687c87910b
+ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70186310"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71290959"
 ---
 # <a name="azure-ad-connect-accounts-and-permissions"></a>Azure AD Connect：帳戶和權限
 
@@ -48,10 +48,15 @@ Azure AD Connect 會使用 3 個帳戶，以便將資訊從內部部署或 Windo
 
 - **SQL SA 帳戶 (選擇性)** ：用來在使用完整版 SQL Server 時建立 ADSync 資料庫。  這個 SQL Server 可位於 Azure AD Connect 安裝的本機或遠端。  此帳戶可以是和企業系統管理員相同的帳戶。  SQL 管理員可執行頻外資料庫佈建，然後由具有資料庫擁有者權限的 Azure AD Connect 管理員進行安裝。  如需這方面的資訊，請參閱[使用 SQL 委派的管理員權限安裝 Azure AD Connect](how-to-connect-install-sql-delegation.md)
 
+<<<<<<< HEAD
+>[!IMPORTANT]
+> 從 build 1.4. # # #. #，不再支援使用企業系統管理員或網域管理員帳戶作為 AD DS 連接器帳戶。  如果您在指定 [**使用現有的帳戶**] 時，嘗試輸入屬於企業系統管理員或網域管理員的帳戶，您將會收到錯誤。
+=======
 > [!NOTE]
-> 支援從 ESAE 系統管理樹系 (也稱為「紅色樹系」) 管理 Azure AD Connect 中使用的管理帳戶。
+> 支援從 ESAE 系統管理樹系（也稱為「紅色樹系」）管理 Azure AD Connect 中使用的管理帳戶。
 > 專用的系統管理樹系可讓組織在比生產環境具有更強安全性控制的環境中裝載系統管理帳戶、工作站和群組。
-> 若要深入瞭解專用的系統管理樹系, 請參閱[ESAE 系統管理樹系設計方法](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/securing-privileged-access-reference-material#esae-administrative-forest-design-approach)
+> 若要深入瞭解專用的系統管理樹系，請參閱[ESAE 系統管理樹系設計方法](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/securing-privileged-access-reference-material#esae-administrative-forest-design-approach)
+>>>>>>> e683a61b0ed62ae739941410f658a127534e2481
 
 ## <a name="installing-azure-ad-connect"></a>正在安裝 Azure AD Connect
 Azure AD Connect 安裝精靈提供兩個不同的路徑：
@@ -116,8 +121,8 @@ AD DS 連接器帳戶是為了在 Windows Server AD 中讀取和寫入而建立�
 | 安裝同步處理服務，服務帳戶選項 |AD 或本機使用者帳戶認證 |使用者權限會由安裝精靈授與 |如果系統管理員指定帳戶，則此帳戶會做為同步處理服務帳戶。 |
 | 連線到 Azure AD |Azure AD 目錄認證 |Azure AD 中的全域管理員角色 |<li>啟用 Azure AD 目錄中的同步處理。</li>  <li>建立在 Azure AD 中用於持續同步處理作業的 Azure AD 連接器帳戶。</li> |
 | 連線您的目錄 |各個連線至 Azure AD 之樹系的內部部署 Active Directory 認證 |權限取決於所啟用的功能，並且可在建立 AD DS 連接器帳戶中找到 |這個帳戶是在同步處理期間用來讀取和寫入目錄資訊。 |
-| AD FS 伺服器 |針對清單中的每部伺服器, 當執行 wizard 的使用者登入認證不足而無法連線時, 嚮導會收集認證 |網域系統管理員 |安裝和設定 AD FS 伺服器角色。 |
-| Web 應用程式 Proxy 伺服器 |針對清單中的每部伺服器, 當執行 wizard 的使用者登入認證不足而無法連線時, 嚮導會收集認證 |目標電腦上的本機系統管理員 |安裝和設定 WAP 伺服器角色。 |
+| AD FS 伺服器 |針對清單中的每部伺服器，當執行 wizard 的使用者登入認證不足而無法連線時，嚮導會收集認證 |網域系統管理員 |安裝和設定 AD FS 伺服器角色。 |
+| Web 應用程式 Proxy 伺服器 |針對清單中的每部伺服器，當執行 wizard 的使用者登入認證不足而無法連線時，嚮導會收集認證 |目標電腦上的本機系統管理員 |安裝和設定 WAP 伺服器角色。 |
 | Proxy 信任認證 |Federation Service 信任認證 (Proxy 用來註冊 FS 信任憑證的認證) |網域帳戶是 AD FS 伺服器的本機系統管理員 |FS-WAP 信任憑證的首次註冊。 |
 | AD FS 服務帳戶頁面，「使用網域使用者帳戶選項」 |AD 使用者帳戶認證 |網域使用者 |系統會使用提供其認證的 Azure AD 使用者帳戶做為 AD FS 服務的登入帳戶。 |
 
@@ -246,9 +251,9 @@ Azure AD 中有 20 個同步服務帳戶的限制。 若要取得 Azure AD 中�
 若要移除未使用的 Azure AD 服務帳戶，請執行下列 Azure AD PowerShell Cmdlet：`Remove-AzureADUser -ObjectId <ObjectId-of-the-account-you-wish-to-remove>`
 
 >[!NOTE]
->在您可以使用上述 PowerShell 命令之前, 您必須安裝[Azure Active Directory PowerShell For Graph 模組](https://docs.microsoft.com/powershell/azure/active-directory/install-adv2?view=azureadps-2.0#installing-the-azure-ad-module), 並使用[AzureAD](https://docs.microsoft.com/powershell/module/azuread/connect-azuread?view=azureadps-2.0)連接到您的 Azure AD 實例
+>在您可以使用上述 PowerShell 命令之前，您必須安裝[Azure Active Directory PowerShell For Graph 模組](https://docs.microsoft.com/powershell/azure/active-directory/install-adv2?view=azureadps-2.0#installing-the-azure-ad-module)，並使用[AzureAD](https://docs.microsoft.com/powershell/module/azuread/connect-azuread?view=azureadps-2.0)連接到您的 Azure AD 實例
 
-如需如何管理或重設 Azure AD 連接器帳戶密碼的詳細資訊, 請參閱[管理 Azure AD Connect 帳戶](how-to-connect-azureadaccount.md)
+如需如何管理或重設 Azure AD 連接器帳戶密碼的詳細資訊，請參閱[管理 Azure AD Connect 帳戶](how-to-connect-azureadaccount.md)
 
 ## <a name="related-documentation"></a>相關文件
 如果您尚未閱讀有關[整合內部部署身分識別與 Azure Active Directory](whatis-hybrid-identity.md) 的文件，下表提供相關主題的連結。

@@ -10,12 +10,12 @@ author: anumjs
 ms.author: anjangsh
 ms.reviewer: jrasnick
 manager: craigg
-ms.openlocfilehash: b9058313886484e84000b2b27986280eb1ff30eb
-ms.sourcegitcommit: b03516d245c90bca8ffac59eb1db522a098fb5e4
+ms.openlocfilehash: f4ee3f78159cb5d9b677f0d43492325754065841
+ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71145634"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71300828"
 ---
 # <a name="azure-sql-data-warehouse-release-notes"></a>Azure SQL 資料倉儲版本資訊
 
@@ -38,6 +38,7 @@ ms.locfileid: "71145634"
 |**Azure 私人連結（預覽）**|使用[Azure 私人連結](https://azure.microsoft.com/blog/announcing-azure-private-link/)，您可以在虛擬網路（VNet）中建立私人端點，並將其對應至您的 AZURE SQL DW。 接著，您可以透過 VNet 中的私人 IP 位址來存取這些資源，以啟用從內部部署到 Azure ExpressRoute 私用對等互連和（或） VPN 閘道的連線。 整體來說，這可簡化網路設定，而不需要您將它開啟到公用 IP 位址。 這也可以保護資料外泄風險。 如需詳細資訊，請參閱[總覽](/azure/private-link/private-link-overview)和[SQL DW 檔](/azure/sql-database/sql-database-private-endpoint-overview)。|
 |**資料探索 & 分類（GA）**|[資料探索和分類](/azure/sql-database/sql-database-data-discovery-and-classification?toc=/azure/sql-data-warehouse/toc.json)功能現已正式推出。 這項功能提供了先進的功能，可用於**探索、分類、標記 & 保護**資料庫中的敏感性資料。|
 |**Azure Advisor 單鍵整合**|SQL 資料倉儲現在直接與 [總覽] 分頁中的 Azure Advisor 建議整合，並提供單鍵體驗。 您現在可以在 [總覽] 分頁中探索建議，而不是流覽至 [Azure advisor] 分頁。 [在這裡](sql-data-warehouse-concept-recommendations.md)瞭解更多建議。|
+|**讀取認可的快照集隔離（預覽）**|您可以使用 ALTER database 來啟用或停用使用者資料庫的快照集隔離。  若要避免影響目前的工作負載，您可能會想要在資料庫維護期間設定此選項，或等到沒有其他作用中的資料庫連接。 如需詳細資訊，請參閱[Alter database set 選項](/sql/t-sql/statements/alter-database-transact-sql-set-options?view=azure-sqldw-latest)。|
 |**EXECUTE AS （Transact-sql）**| [執行](/sql/t-sql/statements/execute-as-transact-sql?view=azure-sqldw-latest)身分T-sql 支援現已提供 SQL 資料倉儲，讓客戶能夠將會話的執行內容設定為指定的使用者。|
 |**其他 T-sql 支援**|SQL 資料倉儲的 T-sql 語言介面區已擴充為包含的支援： </br> - [FORMAT （Transact-sql）](/sql/t-sql/functions/format-transact-sql?view=azure-sqldw-latest)</br> - [TRY_PARSE （Transact-sql）](/sql/t-sql/functions/try-parse-transact-sql?view=azure-sqldw-latest)</br> - [TRY_CAST （Transact-sql）](/sql/t-sql/functions/try-cast-transact-sql?view=azure-sqldw-latest)</br> - [TRY_CONVERT （Transact-sql）](/sql/t-sql/functions/try-convert-transact-sql?view=azure-sqldw-latest)</br> - [user_token （Transact-sql）](/sql//relational-databases/system-catalog-views/sys-user-token-transact-sql?view=azure-sqldw-latest)|
 

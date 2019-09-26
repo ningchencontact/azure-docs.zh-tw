@@ -11,35 +11,34 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 03/19/2019
+ms.date: 09/22/2019
 ms.author: juliako
 ms.reviewer: adsolank
-ms.openlocfilehash: 8aa3082b15886234905edaebbbc9e1458bd7e3f8
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.openlocfilehash: d03c3a15d9bccf93b73d36302f986dffd95c6428
+ms.sourcegitcommit: 0486aba120c284157dfebbdaf6e23e038c8a5a15
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "69015024"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71309254"
 ---
 # <a name="indexing-media-files-with-azure-media-indexer-2-preview"></a>使用 Azure Media Indexer 2 Preview 編製媒體檔案索引
-## <a name="overview"></a>總覽
+
+> [!NOTE]
+> [Azure 媒體索引子 2](media-services-process-content-with-indexer2.md)媒體處理器將于2020年1月1日淘汰。 [Azure 媒體服務影片索引子](https://docs.microsoft.com/azure/media-services/video-indexer/)會取代此舊版媒體處理器。 如需詳細資訊，請參閱[從 Azure 媒體索引子遷移和 Azure 媒體索引子2，到 Azure 媒體服務影片索引子](migrate-indexer-v1-v2.md)。
+
 **Azure Media Indexer 2 Preview** 媒體處理器 (MP) 可讓您將媒體檔案和內容設為可供搜尋，並產生隱藏式輔助字幕追蹤。 相較於舊版的 [Azure Media Indexer](media-services-index-content.md)， **Azure Media Indexer 2 Preview** 編製索引速度更快，並提供更廣泛的語言支援。 支援的語言包括英文、西班牙文、法文、德文、義大利文、中文 (國語、簡體)、葡萄牙文、阿拉伯文、俄文和日文。
 
 **Azure Media Indexer 2 Preview** MP 目前為預覽功能。
 
 本文章說明如何使用 **Azure Media Indexer 2 Preview** 建立索引工作。
 
-> [!NOTE]
-> 您必須考量下列事項：
-> 
-> Azure China 和 Azure Government 不支援 Indexer 2。
-> 
-> 在編製內容索引時，請務必使用語音非常清楚的媒體檔案 (不含背景音樂、噪音、效果或麥克風雜音)。 適當內容的一些範例有：錄製的會議、演講或簡報。 下列內容可能不適合用來編製索引：電影、電視節目、任何具有混合音訊與音效的內容、錄製效果不良有背景噪音 (雜音) 的內容。
-> 
-> 
+## <a name="considerations"></a>考量
 
-本文章提供有關 **Azure Media Indexer 2 Preview** 的詳細資訊，並示範如何搭配適用於 .NET 的媒體服務 SDK 來使用它
-
+您必須考量下列事項：
+ 
+* Azure 中國的世紀和 Azure Government 不支援索引子2。
+* 在編製內容索引時，請務必使用語音非常清楚的媒體檔案 (不含背景音樂、噪音、效果或麥克風雜音)。 適當內容的一些範例有：錄製的會議、演講或簡報。 下列內容可能不適合用來編製索引：電影、電視節目、任何具有混合音訊與音效的內容、錄製效果不良有背景噪音 (雜音) 的內容。
+ 
 ## <a name="input-and-output-files"></a>輸入和輸出檔案
 ### <a name="input-files"></a>輸入檔案
 音訊或視訊檔案
@@ -88,7 +87,7 @@ Azure Media Indexer 2 Preview 支援下列語言的語音轉文字 (在工作設
 * 日文 [JaJp]
 * 俄文 [RuRu]
 * 英式英文 [EnGb]
-* 西班牙文 (墨西哥) [EsMx] 
+* 西班牙文（墨西哥） [EsMx] 
 
 ## <a name="supported-file-types"></a>支援的檔案類型
 

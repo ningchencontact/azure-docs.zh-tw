@@ -16,12 +16,12 @@ ms.date: 09/23/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2a875e028a38c085d45d062984764cd840983fc3
-ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
+ms.openlocfilehash: 66e53298625e2388e102b5a4e835fe22a9c81a21
+ms.sourcegitcommit: 9fba13cdfce9d03d202ada4a764e574a51691dcd
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71212320"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71314969"
 ---
 # <a name="azure-ad-connect-version-release-history"></a>Azure AD Connect：版本發行歷程記錄
 Azure Active Directory (Azure AD) 團隊會定期以新的特性和功能更新 Azure AD Connect。 並非所有新增項目都適用於所有的對象。
@@ -46,13 +46,8 @@ Azure Active Directory (Azure AD) 團隊會定期以新的特性和功能更新 
 ## <a name="14x0"></a>1.4. X 0
 
 >[!IMPORTANT]
->註冊為混合式 Azure AD 聯結的 Windows 電腦會在 Azure AD 中表示為裝置物件。 這些裝置物件可以用來進行條件式存取。 Windows 10 電腦會透過 Azure AD Connect 同步處理至雲端，而下層的 Windows 電腦則直接使用 AD FS 或無縫單一登入來註冊。
->
->只有具有混合式 Azure AD Join 所設定之特定 userCertificate 屬性值的 Windows 10 電腦，才應該透過 Azure AD Connect 同步處理到雲端。  在舊版的 Azure AD Connect 不會嚴格強制執行這項需求，而是在 Azure AD 中產生不必要的裝置物件。 Azure AD 中的這類裝置一律會保持「擱置」狀態，因為這些電腦不打算向 Azure AD 註冊。
->
->此版本的 Azure AD Connect 只會同步已正確設定為混合式 Azure AD 聯結的 Windows 10 電腦。 Azure AD Connect 應該永遠不會同步[下層的 Windows 裝置](../../active-directory/devices/hybrid-azuread-join-plan.md#windows-down-level-devices)。  Azure AD 中的任何裝置先前未正確同步處理，現在會從 Azure AD 中刪除。  不過，這種變更不會刪除所有已正確向 Azure AD 註冊混合式 Azure AD Join 的 Windows 裝置。 
->
->某些客戶可能會看到部分或所有的 Windows 裝置從 Azure AD 消失。 這不是問題的原因，因為在條件式存取授權期間，Azure AD 不會使用這些裝置身分識別。 有些客戶可能需要[重新流覽如何：規劃您的混合式 Azure Active Directory](../../active-directory/devices/hybrid-azuread-join-plan.md)聯結執行，以正確註冊其 Windows 電腦，並確保這類裝置可以完全參與以裝置為基礎的條件式存取。 如果 Azure AD Connect 嘗試刪除舊版[windows 裝置](../../active-directory/devices/hybrid-azuread-join-plan.md#windows-down-level-devices)，則裝置不是由[Microsoft Workplace Join 為非 Windows 10 電腦的 MSI](https://www.microsoft.com/download/details.aspx?id=53554)所建立，且無法由任何其他 Azure AD 功能使用。  如果您在 Azure AD 中看到電腦/裝置物件的刪除超過匯出的刪除閾值，建議客戶允許這些刪除作業進行。
+>使用此版本的 Azure AD Connect 某些客戶可能會看到部分或所有的 Windows 裝置從 Azure AD 消失。 這不是問題的原因，因為在條件式存取授權期間，Azure AD 不會使用這些裝置身分識別。 如需詳細資訊，請參閱[瞭解 Azure AD Connect 1.4. x 裝置 disappearnce](reference-connect-device-disappearance.md)
+
 
 ### <a name="release-status"></a>發行狀態
 9/10/2019：僅針對自動升級發行
@@ -63,7 +58,7 @@ Azure Active Directory (Azure AD) 團隊會定期以新的特性和功能更新 
 - 客戶應該會收到通知，指出已淘汰的 MIIS_Service WMI 端點已被移除。 所有 WMI 作業現在都應該透過 PS Cmdlet 來完成。
 - 在 AZUREADSSOACC 物件上重設限制委派以改善安全性
 - 新增/編輯同步處理規則時，如果規則中有任何屬性用於連接器架構中，但未新增至連接器，則會自動將屬性新增至連接器。 這也適用于規則所影響的物件類型。 如果有任何專案新增至連接器，連接器將會標示為在下一個同步處理週期進行完整匯入。
-- 不再支援使用企業或網域系統管理員做為連接器帳戶。
+- 在新的 AAD Connect 部署中，已不再支援使用企業或網域系統管理員做為連接器帳戶。 使用企業或網域系統管理員做為連接器帳戶的目前 AAD Connect 部署，將不會受到此版本的影響。
 - 在同步處理管理員中，會在建立/編輯/刪除規則時執行完整同步處理。 任何規則變更都會出現一個快顯視窗，通知使用者是否即將執行完整匯入或完整同步處理。
 - 已將密碼錯誤的緩和步驟新增至 [連接器 > 屬性 > 連線] 頁面
 - 已在 [連接器屬性] 頁面上新增 [同步處理服務管理員] 的取代警告。 此警告會通知使用者應該透過 AADC wizard 進行變更。

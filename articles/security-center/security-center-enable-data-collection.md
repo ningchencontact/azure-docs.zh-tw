@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 09/10/2019
 ms.author: memildin
-ms.openlocfilehash: 0cbb6f022dbeded2bbfb19769595be69ec62c311
-ms.sourcegitcommit: d70c74e11fa95f70077620b4613bb35d9bf78484
+ms.openlocfilehash: 6dcb7fd1ae2dc5ca3a950f5055e79d95f779b029
+ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70910619"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71300798"
 ---
 # <a name="data-collection-in-azure-security-center"></a>Azure 資訊安全中心的資料收集
 資訊安全中心會從您的 Azure 虛擬機器（Vm）、虛擬機器擴展集、IaaS 容器和非 Azure （包括內部部署）電腦收集資料，以監視是否有安全性弱點和威脅。 系統會使用 Log Analytics 代理程式來收集資料，這會從電腦讀取各種安全性相關設定和事件記錄，並將資料複製到您的工作區進行分析。 這類資料的範例包括︰作業系統類型和版本、作業系統記錄 (Windows 事件記錄)、執行中程序、電腦名稱、IP 位址和已登入的使用者。 Log Analytics 代理程式也會將損毀傾印檔案複製到您的工作區。
@@ -47,7 +47,7 @@ ms.locfileid: "70910619"
 
 3. 選取 [**資料收集**]。
 4. 在 [自動佈建] 下，選取 [開啟] 啟用自動佈建。
-5. 選取 [ **儲存**]。
+5. 選取 [儲存]。
 
    ![啟用自動佈建][1]
 
@@ -108,7 +108,7 @@ ms.locfileid: "70910619"
    >
    >
 
-3. 選取 [ **儲存**]。
+3. 選取 [儲存]。
 4. 選取 [儲存] 之後，系統會詢問您是否要重新設定先前連線到預設工作區的受監控虛擬機器。
 
    - 如果您希望新的工作區設定僅套用在新的虛擬機器上，請選取 [否]。 新的工作區設定僅適用于新的代理程式安裝;未安裝 Log Analytics 代理程式的新探索到的 Vm。
@@ -186,7 +186,7 @@ ms.locfileid: "70910619"
 
 若要選擇篩選原則：
 1. 在 [**資料收集**] 頁面上，選取 [**安全性事件**] 底下的篩選原則。
-2. 選取 [ **儲存**]。
+2. 選取 [儲存]。
 
    ![選擇篩選原則][5]
 
@@ -220,7 +220,7 @@ ms.locfileid: "70910619"
 1. 返回 [資訊安全中心] 主功能表，並選取 [安全性原則]。
 2. 在您想要停用自動布建的訂用帳戶資料列中，按一下 [**編輯設定**]。
 3. 在 [安全性原則 - 資料收集] 刀鋒視窗的 [自動佈建] 下，選取 [關閉]。
-4. 選取 [ **儲存**]。
+4. 選取 [儲存]。
 
    ![停用自動佈建][6]
 
@@ -278,13 +278,13 @@ ms.locfileid: "70910619"
 
    3. 在公用組態和私用組態中填入下列值：
      
-           $PublicConf = '{
-               "workspaceId": "WorkspaceID value"
-           }' 
+           $PublicConf = @{
+               "workspaceId"= "<WorkspaceID value>"
+           }
  
-           $PrivateConf = '{
-               "workspaceKey": "<Primary key value>”
-           }' 
+           $PrivateConf = @{
+               "workspaceKey"= "<Primary key value>”
+           }
 
       - 在 Windows VM 上安裝時：
         

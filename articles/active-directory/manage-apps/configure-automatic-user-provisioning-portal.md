@@ -15,12 +15,12 @@ ms.date: 04/01/2019
 ms.author: mimart
 ms.reviewer: arvinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ba51e10503a3aab7afa2e9639453448d03b91852
-ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
+ms.openlocfilehash: 26b00670ad93cceab8f570d3a5f56bd095fa80b5
+ms.sourcegitcommit: 9fba13cdfce9d03d202ada4a764e574a51691dcd
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71170467"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71315262"
 ---
 # <a name="managing-user-account-provisioning-for-enterprise-apps-in-the-azure-portal"></a>在 Azure 入口網站中管理企業應用程式的使用者帳戶佈建
 
@@ -88,7 +88,6 @@ Azure AD 使用者物件和每個 SaaS 應用程式的使用者物件之間，�
 選取 [**清除目前的狀態並重新啟動同步**處理] 核取方塊，然後選取 [**儲存**至]：
 
 * 停止布建服務
-* 傾印 Azure AD 正在管理之帳戶的相關快取資料
 * 重新開機服務，然後再次執行初始迴圈
 
 此選項可讓系統管理員再次啟動布建部署程式。

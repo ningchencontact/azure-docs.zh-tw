@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 12/11/2018
-ms.openlocfilehash: 9aa8cda7d65d97d831a218be393581d0e5bf3a4a
-ms.sourcegitcommit: d70c74e11fa95f70077620b4613bb35d9bf78484
+ms.openlocfilehash: c8d78473a1128dd4f96f2cfa0c14d2d3b1b2c1e9
+ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70910191"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71300568"
 ---
 # <a name="alert-and-monitor-data-factories-by-using-azure-monitor"></a>使用 Azure 監視器來警示及監視 data factory
 
@@ -407,7 +407,7 @@ Log Analytics 會從 [監視] 繼承架構，但有下列例外狀況：
     | $. 屬性。備註 | 註解 | 動態 |
     | $. 屬性。源 | Input | 動態 |
     | $. 屬性。輸出 | Output | 動態 |
-    | $. 屬性。錯誤。 errorCode | 錯誤碼 | ssNoversion |
+    | $. 屬性。錯誤。 errorCode | 錯誤碼 | int |
     | $. 屬性。錯誤。訊息 | 錯誤訊息 | string |
     | $. 屬性。糾錯 | Error | 動態 |
     | $. 屬性。父 | 父 | 動態 |
@@ -464,7 +464,7 @@ Azure Data Factory 版本2會發出下列計量。
 
     ![命名您的設定，並選取 log analytics 工作區](media/data-factory-monitor-oms/monitor-oms-image2.png)
 
-1. 選取 [ **儲存**]。
+1. 選取 [儲存]。
 
 幾分鐘後，新的設定就會出現在此 data factory 的設定清單中。 一旦產生新的事件資料，診斷記錄就會串流處理到該工作區。 當事件發出時和記錄分析中出現時，可能會有最多15分鐘的時間。
 
@@ -504,8 +504,6 @@ Azure Data Factory 版本2會發出下列計量。
 - ADF 統計資料-3）管線執行持續時間上限
 
 ![已反白顯示 [活頁簿（預覽）] 和 [AzureDataFactoryAnalytics] 的視窗](media/data-factory-monitor-oms/monitor-oms-image6.png)
-
-![執行和錯誤的圖形化標記法](media/data-factory-monitor-oms/monitor-oms-image7.png)
 
 您可以將上述計量視覺化、查看這些計量背後的查詢、編輯查詢、建立警示，以及採取其他動作。
 

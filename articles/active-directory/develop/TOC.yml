@@ -344,6 +344,8 @@
               href: v2-permissions-and-consent.md
             - name: 同意架構
               href: consent-framework.md
+            - name: 系統管理員同意
+              href: v2-admin-consent.md
             - name: 應用程式同意體驗
               href: application-consent-experience.md
         - name: 國家雲端

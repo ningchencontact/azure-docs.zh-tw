@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/20/2019
 ms.author: spelluru
-ms.openlocfilehash: 562ad0e5e6088c2fbadc853779b7533c5398e079
-ms.sourcegitcommit: 83df2aed7cafb493b36d93b1699d24f36c1daa45
+ms.openlocfilehash: 86ad892f514513840ff33e46921607221896db84
+ms.sourcegitcommit: 9fba13cdfce9d03d202ada4a764e574a51691dcd
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/22/2019
-ms.locfileid: "71176637"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71315741"
 ---
 # <a name="enable-remote-desktop-for-linux-virtual-machines-in-a-lab-in-azure-lab-services"></a>在 Azure 實驗室服務的實驗室中啟用 Linux 虛擬機器的遠端桌面
 本文說明如何執行下列工作：
@@ -37,6 +37,7 @@ ms.locfileid: "71176637"
 
 > [!IMPORTANT] 
 > 啟用「**遠端桌面**連線」只會開啟 Linux 電腦上的**RDP**埠。 如果已在虛擬機器映射上安裝並設定 RDP （例如：Ubuntu 資料科學虛擬機器映射），您/學生可以透過 RDP 連線到 Vm，而不需遵循任何額外步驟。
+> 
 > 如果 VM 映射未安裝和設定 RDP，您必須在第一次使用 SSH 連線到 Linux 機器，並安裝 RDP 和 GUI 套件，讓您/學生可以稍後再使用 RDP 連線到 Linux 電腦。 然後，您可以發行映射，讓學生可以透過 RDP 連線到學生的 Linux Vm。
 
 ## <a name="supported-operating-systems"></a>受支援的作業系統

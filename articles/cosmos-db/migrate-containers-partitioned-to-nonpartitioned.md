@@ -4,27 +4,27 @@ description: 瞭解如何將所有現有的非資料分割容器遷移至已分�
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 05/23/2019
+ms.date: 09/25/2019
 ms.author: mjbrown
-ms.openlocfilehash: d51c200ebff0d92b1bcdf2c8e3e0325103e214b7
-ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
+ms.openlocfilehash: 77d70aaa9c1ae5a111a47e08f259c0ce95fd7c92
+ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69615021"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71300123"
 ---
 # <a name="migrate-non-partitioned-containers-to-partitioned-containers"></a>將非資料分割的容器遷移至分割的容器
 
-Azure Cosmos DB 支援建立不含分割區索引鍵的容器。 目前, 您可以使用版本小於或等於2.x 的 Azure CLI 和 Azure Cosmos DB Sdk (.Net、JAVA、NodeJs) 來建立非資料分割的容器。 您無法使用 Azure 入口網站建立非資料分割的容器。 不過, 這類非資料分割的容器不具彈性, 而且具有 10 GB 的固定儲存體容量和每秒 10K RU 的輸送量限制。
+Azure Cosmos DB 支援建立不含分割區索引鍵的容器。 目前，您可以使用版本小於或等於2.x 的 Azure CLI 和 Azure Cosmos DB Sdk （.Net、JAVA、NodeJs）來建立非資料分割的容器。 您無法使用 Azure 入口網站建立非資料分割的容器。 不過，這類非資料分割的容器不具彈性，而且具有 10 GB 的固定儲存體容量和每秒 10K RU 的輸送量限制。
 
-非資料分割的容器是舊版的, 您應該將現有的非資料分割容器遷移至分割的容器, 以調整儲存體和輸送量。 Azure Cosmos DB 提供系統定義的機制, 將非資料分割的容器遷移至已分割的容器。 本檔說明如何將所有現有的非資料分割容器自動遷移至已分割的容器。 只有當您在所有語言中使用 V3 版本的 Sdk 時, 才可以利用自動遷移功能。
+非資料分割的容器是舊版的，您應該將現有的非資料分割容器遷移至分割的容器，以調整儲存體和輸送量。 Azure Cosmos DB 提供系統定義的機制，將非資料分割的容器遷移至已分割的容器。 本檔說明如何將所有現有的非資料分割容器自動遷移至已分割的容器。 只有當您在所有語言中使用 V3 版本的 Sdk 時，才可以利用自動遷移功能。
 
-> [!NOTE] 
-> 目前, 您無法使用本檔中所述的步驟來遷移 Azure Cosmos DB MongoDB 和 Gremlin API 帳戶。 
+> [!NOTE]
+> 目前，您無法使用本檔中所述的步驟來遷移 Azure Cosmos DB MongoDB 和 Gremlin API 帳戶。
 
 ## <a name="migrate-container-using-the-system-defined-partition-key"></a>使用系統定義的分割區索引鍵來遷移容器
 
-為了支援遷移, Azure Cosmos DB 在所有沒有分割索引鍵的容器`/_partitionkey`上定義名為的系統定義資料分割索引鍵。 遷移容器之後, 您就無法變更分割區索引鍵定義。 例如, 遷移至資料分割容器的容器定義如下所示: 
+為了支援遷移，Azure Cosmos DB 在所有沒有分割區索引鍵的`/_partitionkey`容器上，提供名為的系統定義資料分割索引鍵。 遷移容器之後，您就無法變更分割區索引鍵定義。 例如，遷移至資料分割容器的容器定義如下所示：
 
 ```json
 {
@@ -37,15 +37,15 @@ Azure Cosmos DB 支援建立不含分割區索引鍵的容器。 目前, 您可�
   },
 }
 ```
- 
-遷移容器之後, 您可以藉由`_partitionKey`擴充屬性和檔的其他屬性來建立檔。 `_partitionKey`屬性代表檔的資料分割索引鍵。 
 
-選擇正確的分割區索引鍵, 對於使用已布建的輸送量而言非常重要。 如需詳細資訊, 請參閱[如何選擇分割區索引鍵一](partitioning-overview.md)文。 
+遷移容器之後，您可以藉由`_partitionKey`擴充屬性和檔的其他屬性來建立檔。 `_partitionKey`屬性代表檔的資料分割索引鍵。
+
+選擇正確的分割區索引鍵，對於使用已布建的輸送量而言非常重要。 如需詳細資訊，請參閱[如何選擇分割區索引鍵一](partitioning-overview.md)文。
 
 > [!NOTE]
-> 只有當您在所有語言中使用最新/V3 版本的 Sdk 時, 才可以利用系統定義的分割區索引鍵。
+> 只有當您在所有語言中使用最新/V3 版本的 Sdk 時，才可以利用系統定義的分割區索引鍵。
 
-下列範例顯示使用系統定義的分割區索引鍵來建立檔的範例程式碼, 並讀取該檔:
+下列範例顯示使用系統定義的分割區索引鍵來建立檔的範例程式碼，並讀取該檔：
 
 **檔的 JSON 標記法**
 
@@ -65,58 +65,58 @@ public class DeviceInformationItem
     [JsonProperty(PropertyName = "deviceId")]
     public string DeviceId { get; set; }
 
-    [JsonProperty(PropertyName = "_partitionKey")]
+    [JsonProperty(PropertyName = "_partitionKey", NullValueHandling = NullValueHandling.Ignore)]
     public string PartitionKey {get {return this.DeviceId; set; }
 }
 
 CosmosContainer migratedContainer = database.Containers["testContainer"];
 
 DeviceInformationItem deviceItem = new DeviceInformationItem() {
-  Id = "1234", 
+  Id = "1234",
   DeviceId = "3cf4c52d-cc67-4bb8-b02f-f6185007a808"
-} 
+}
 
-CosmosItemResponse<DeviceInformationItem > response = 
-  await migratedContainer.Items.CreateItemAsync(
+ItemResponse<DeviceInformationItem > response = 
+  await migratedContainer.CreateItemAsync<DeviceInformationItem>(
     deviceItem.PartitionKey, 
     deviceItem
   );
 
 // Read back the document providing the same partition key
-CosmosItemResponse<DeviceInformationItem> readResponse = 
-  await migratedContainer.Items.ReadItemAsync<DeviceInformationItem>( 
+ItemResponse<DeviceInformationItem> readResponse = 
+  await migratedContainer.ReadItemAsync<DeviceInformationItem>( 
     partitionKey:deviceItem.PartitionKey, 
     id: device.Id
-  ); 
+  );
 
 ```
 
-如需完整範例, 請參閱[.net 範例](https://github.com/Azure/azure-cosmos-dotnet-v3/tree/master/Microsoft.Azure.Cosmos.Samples/CodeSamples)GitHub 存放庫。 
+如需完整範例，請參閱[.net 範例](https://github.com/Azure/azure-cosmos-dotnet-v3/tree/master/Microsoft.Azure.Cosmos.Samples/CodeSamples)GitHub 存放庫。
                       
 ## <a name="migrate-the-documents"></a>遷移檔
 
-使用資料分割索引鍵屬性增強容器定義時, 不會自動遷移容器內的檔。 這表示系統分割區索引鍵`/_partitionKey`屬性路徑不會自動新增至現有的檔。 若要重新`_partitionKey`分割現有的檔, 您必須閱讀不含分割區索引鍵的檔, 並以檔中的屬性重寫它們。 
+使用資料分割索引鍵屬性增強容器定義時，不會自動遷移容器內的檔。 這表示系統分割區索引鍵`/_partitionKey`屬性路徑不會自動新增至現有的檔。 若要重新`_partitionKey`分割現有的檔，您必須閱讀不含分割區索引鍵的檔，並以檔中的屬性重寫它們。
 
 ## <a name="access-documents-that-dont-have-a-partition-key"></a>存取沒有分割區索引鍵的檔
 
-應用程式可以使用名為 "CosmosContainerSettings. NonePartitionKeyValue" 的特殊系統屬性, 存取沒有分割區索引鍵的現有檔, 這是未遷移檔的值。 您可以在所有 CRUD 和查詢作業中使用這個屬性。 下列範例顯示從 NonePartitionKey 讀取單一檔的範例。 
+應用程式可以使用名為 "CosmosContainerSettings. NonePartitionKeyValue" 的特殊系統屬性，存取沒有分割區索引鍵的現有檔，這是未遷移檔的值。 您可以在所有 CRUD 和查詢作業中使用這個屬性。 下列範例顯示從 NonePartitionKey 讀取單一檔的範例。 
 
 ```csharp
 CosmosItemResponse<DeviceInformationItem> readResponse = 
 await migratedContainer.Items.ReadItemAsync<DeviceInformationItem>( 
-  partitionKey: CosmosContainerSettings.NonePartitionKeyValue, 
+  partitionKey: PartitionKey.None, 
   id: device.Id
 ); 
 
 ```
 
-如需如何重新分割檔的完整範例, 請參閱[.net 範例](https://github.com/Azure/azure-cosmos-dotnet-v3/tree/master/Microsoft.Azure.Cosmos.Samples/CodeSamples)GitHub 存放庫。 
+如需如何重新分割檔的完整範例，請參閱[.net 範例](https://github.com/Azure/azure-cosmos-dotnet-v3/tree/master/Microsoft.Azure.Cosmos.Samples/CodeSamples)GitHub 存放庫。 
 
 ## <a name="compatibility-with-sdks"></a>與 Sdk 的相容性
 
-舊版的 Azure Cosmos DB Sdk (例如 V2. x. x. x. x) 不支援系統定義的分割區索引鍵屬性。 因此, 當您從較舊的 SDK 讀取容器定義時, 它不會包含任何資料分割索引鍵定義, 而這些容器的行為會與之前完全相同。 以舊版 Sdk 建立的應用程式會繼續使用非資料分割, 但不會有任何變更。 
+舊版的 Azure Cosmos DB Sdk （例如 V2. x. x. x. x）不支援系統定義的分割區索引鍵屬性。 因此，當您從較舊的 SDK 讀取容器定義時，它不會包含任何資料分割索引鍵定義，而這些容器的行為會與之前完全相同。 以舊版 Sdk 建立的應用程式會繼續使用非資料分割，但不會有任何變更。 
 
-如果遷移的容器是由 SDK 的最新/V3 版本所取用, 而且您開始在新檔中填入系統定義的分割區索引鍵, 您就無法再從較舊的 Sdk 存取 (讀取、更新、刪除、查詢) 這類檔。
+如果遷移的容器是由 SDK 的最新/V3 版本所取用，而且您開始在新檔中填入系統定義的分割區索引鍵，您就無法再從較舊的 Sdk 存取（讀取、更新、刪除、查詢）這類檔。
 
 ## <a name="next-steps"></a>後續步驟
 

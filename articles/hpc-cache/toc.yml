@@ -23,12 +23,15 @@
             - name: 預先載入新的 Blob 儲存體
               href: hpc-cache-ingest.md
             - name: 替代的資料擷取方法
-            - name: 使用平行複製植入快取
-              href: hpc-cache-ingest-parallelcp.md
-            - name: 使用 msrsync 植入快取
-              href: hpc-cache-ingest-msrsync.md
-            - name: 使用檔案複製植入快取
-              href: hpc-cache-ingest-manual.md
+              items:
+                - name: 使用平行複製植入快取
+                  href: hpc-cache-ingest-parallelcp.md
+                - name: 使用 msrsync 植入快取
+                  href: hpc-cache-ingest-msrsync.md
+                - name: 使用檔案複製植入快取
+                  href: hpc-cache-ingest-manual.md
+    - name: 連接到快取
+      href: hpc-cache-mount.md
 - name: 資源
   items:
     - name: 開啟支援票證

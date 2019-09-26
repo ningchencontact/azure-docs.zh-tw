@@ -12,19 +12,19 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 11/01/2018
 ms.author: lagayhar
-ms.openlocfilehash: 1074495f5ac9112b6ce4f67ad2d81ee57b28e720
-ms.sourcegitcommit: dcf3e03ef228fcbdaf0c83ae1ec2ba996a4b1892
+ms.openlocfilehash: 5bef5a6037c6eb29d0dc48e313958e2d243904eb
+ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "70012700"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71299578"
 ---
 # <a name="how-to-use-micrometer-with-azure-application-insights-java-sdk"></a>如何搭配 Azure Application Insights Java SDK 使用 Micrometer
 Micrometer 應用程式監視會測量以 JVM 為基礎之應用程式程式碼的計量，並可讓您將資料匯出到您慣用的監視系統。 這篇文章會教導您如何搭配 Application Insights Spring Boot 和非 Spring Boot 應用程式使用 Micrometer。
 
 ## <a name="using-spring-boot-15x"></a>使用 Spring Boot 1.5x
 將以下相依性新增至您的 pom.xml 或 build.gradle 檔案： 
-* [Application Insights spring-boot-starter](https://github.com/Microsoft/ApplicationInsights-Java/tree/master/azure-application-insights-spring-boot-starter)1.1.0-BETA 或更新版本
+* [Application Insights 春季開機-入門](https://github.com/Microsoft/ApplicationInsights-Java/tree/master/azure-application-insights-spring-boot-starter)2.5.0 或更新版本
 * Micrometer Azure Registry 1.1.0 或更新版本
 * [Micrometer Spring Legacy](https://micrometer.io/docs/ref/spring/1.5) 1.1.0 或更新版本 (這會反向移植 Spring Framework 中的自動設定程式碼)。
 * [ApplicationInsights 資源](../../azure-monitor/app/create-new-resource.md )
@@ -37,7 +37,7 @@ Micrometer 應用程式監視會測量以 JVM 為基礎之應用程式程式碼�
     <dependency>
         <groupId>com.microsoft.azure</groupId>
         <artifactId>applicationinsights-spring-boot-starter</artifactId>
-        <version>1.1.0-BETA</version>
+        <version>2.5.0</version>
     </dependency>
 
     <dependency>
@@ -64,7 +64,7 @@ Micrometer 應用程式監視會測量以 JVM 為基礎之應用程式程式碼�
 將以下相依性新增至您的 pom.xml 或 build.gradle 檔案：
 
 * Application Insights Spring-boot-starter 2.1.2 或更新版本
-* Azure-短期開機-計量-初學者2.1.5 或更高版本  
+* Azure-短期開機-計量-初學者2.0.7 或更新版本
 * [Application Insights 資源](../../azure-monitor/app/create-new-resource.md )
 
 步驟：
@@ -75,21 +75,21 @@ Micrometer 應用程式監視會測量以 JVM 為基礎之應用程式程式碼�
     <dependency> 
           <groupId>com.microsoft.azure</groupId>
           <artifactId>azure-spring-boot-metrics-starter</artifactId>
-          <version>2.1.6</version>
+          <version>2.0.7</version>
     </dependency>
     ```
 1. 使用以下屬性搭配 Application Insights 檢測金鑰更新 application.properties 或 yml 檔案：
 
-     `management.metrics.export.azuremonitor.instrumentation-key=<your-instrumentation-key-here>`
+     `azure.application-insights.instrumentation-key=<your-instrumentation-key-here>`
 3. 建置應用程式並執行
 4. 上述動作應該能讓您的應用程式使用自動收集至 Azure 監視器的預先彙總計量。 如需如何微調 Application Insights Spring Boot 簡易版的詳細資訊，請參閱 [GitHub 上的讀我檔案](https://github.com/Microsoft/azure-spring-boot/releases/latest)。
 
 預設度量：
 
 *    針對 Tomcat、JVM、Logback 度量、Log4J 度量、執行時間度量、處理器度量，以及 FileDescriptorMetrics 自動設定的度量。
-*    例如，如果類別路徑中有 netflix hystrix，我們就能獲得那些度量。 
+*    例如, 如果類別路徑上有 Netflix Hystrix, 我們也會取得這些計量。 
 *    下列計量可以藉由新增個別的 bean 來提供使用。 
-        - CacheMetrics (CaffeineCache、EhCache2、GuavaCache、HazelcaseCache、Jcache)     
+        - CacheMetrics (CaffeineCache, EhCache2, GuavaCache, HazelcastCache, JCache)     
         - DataBaseTableMetrics 
         - HibernateMetrics 
         - JettyMetrics 
@@ -121,10 +121,8 @@ Micrometer 應用程式監視會測量以 JVM 為基礎之應用程式程式碼�
 ## <a name="use-micrometer-with-non-spring-boot-web-applications"></a>搭配非 Spring Boot web 應用程式使用 Micrometer
 
 將以下相依性新增至您的 pom.xml 或 build.gradle 檔案：
- 
-* [Application Insight Core 2.2.0](https://www.nuget.org/packages/Microsoft.ApplicationInsights/2.2.0) 或更新版本
-* [Application Insights Web 2.2.0](https://www.nuget.org/packages/Microsoft.ApplicationInsights.Web/2.2.0) 或更新版本
-* [註冊網站篩選](https://docs.microsoft.com/azure/application-insights/app-insights-java-get-started)
+
+* Application Insights Web 自動2.5.0 或更新版本
 * Micrometer Azure Registry 1.1.0 或更新版本
 * [Application Insights 資源](../../azure-monitor/app/create-new-resource.md )
 
@@ -141,14 +139,41 @@ Micrometer 應用程式監視會測量以 JVM 為基礎之應用程式程式碼�
         
         <dependency>
             <groupId>com.microsoft.azure</groupId>
-            <artifactId>applicationinsights-web</artifactId>
-            <version>2.2.0</version>
-        </dependency
+            <artifactId>applicationinsights-web-auto</artifactId>
+            <version>2.5.0</version>
+        </dependency>
      ```
 
-2. 將 Application Insights.xml 放在 [資源] 資料夾中
+2. 將`ApplicationInsights.xml`檔案放在 resources 資料夾中：
 
-    範例 Servlet 類別 (會發出計時器度量)：
+    ```XML
+    <?xml version="1.0" encoding="utf-8"?>
+    <ApplicationInsights xmlns="http://schemas.microsoft.com/ApplicationInsights/2013/Settings" schemaVersion="2014-05-30">
+    
+       <!-- The key from the portal: -->
+       <InstrumentationKey>** Your instrumentation key **</InstrumentationKey>
+    
+       <!-- HTTP request component (not required for bare API) -->
+       <TelemetryModules>
+          <Add type="com.microsoft.applicationinsights.web.extensibility.modules.WebRequestTrackingTelemetryModule"/>
+          <Add type="com.microsoft.applicationinsights.web.extensibility.modules.WebSessionTrackingTelemetryModule"/>
+          <Add type="com.microsoft.applicationinsights.web.extensibility.modules.WebUserTrackingTelemetryModule"/>
+       </TelemetryModules>
+    
+       <!-- Events correlation (not required for bare API) -->
+       <!-- These initializers add context data to each event -->
+       <TelemetryInitializers>
+          <Add type="com.microsoft.applicationinsights.web.extensibility.initializers.WebOperationIdTelemetryInitializer"/>
+          <Add type="com.microsoft.applicationinsights.web.extensibility.initializers.WebOperationNameTelemetryInitializer"/>
+          <Add type="com.microsoft.applicationinsights.web.extensibility.initializers.WebSessionTelemetryInitializer"/>
+          <Add type="com.microsoft.applicationinsights.web.extensibility.initializers.WebUserTelemetryInitializer"/>
+          <Add type="com.microsoft.applicationinsights.web.extensibility.initializers.WebUserAgentTelemetryInitializer"/>
+       </TelemetryInitializers>
+    
+    </ApplicationInsights>
+    ```
+
+3. 範例 Servlet 類別 (會發出計時器度量)：
 
     ```Java
         @WebServlet("/hello")
@@ -187,7 +212,7 @@ Micrometer 應用程式監視會測量以 JVM 為基礎之應用程式程式碼�
     
     ```
 
-      範例組態類別：
+4. 範例組態類別：
 
     ```Java
          @WebListener
@@ -252,5 +277,5 @@ Micrometer 應用程式監視會測量以 JVM 為基礎之應用程式程式碼�
 
 ## <a name="next-steps"></a>後續步驟
 
-* 若要深入了解 Micrometer，請參閱官方 [Micrometer 文件](https://micrometer.io/docs)。
-* 若要了解 Azrue 上的 Spring，請參閱官方 [Spring on Azure 文件](https://docs.microsoft.com/java/azure/spring-framework/?view=azure-java-stable)。
+* 若要深入瞭解 Micrometer，請參閱官方[Micrometer 檔](https://micrometer.io/docs)。
+* 若要深入瞭解 Azure 上的春天，請參閱[azure 上的官方春季檔](https://docs.microsoft.com/java/azure/spring-framework/?view=azure-java-stable)。

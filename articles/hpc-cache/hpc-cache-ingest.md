@@ -4,26 +4,26 @@ description: 如何填入 Azure Blob 儲存體以搭配 Azure HPC 快取使用
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: conceptual
-ms.date: 09/18/2019
+ms.date: 09/24/2019
 ms.author: v-erkell
-ms.openlocfilehash: 103470861383ff411cfaa670d70412086045a418
-ms.sourcegitcommit: a19bee057c57cd2c2cd23126ac862bd8f89f50f5
+ms.openlocfilehash: c18e1c9afab211a8ac076307eefc9074ae7c99d6
+ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71180715"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71300003"
 ---
-# <a name="move-data-to-azure-blob-storage-for-azure-hpc-cache-preview"></a>將資料移至 azure HPC Cache 的 Azure Blob 儲存體（預覽）
+# <a name="move-data-to-azure-blob-storage"></a>將資料移至 Azure Blob 儲存體
 
-如果您的工作流程包含將資料移至 Azure Blob 儲存體，請確定您是使用有效率的策略，透過 Azure HPC 快取複製您的資料。
+如果您的工作流程包含將資料移至 Azure Blob 儲存體，請確定您使用的是有效率的策略。 您可以預先載入新 Blob 容器中的資料，然後將其定義為儲存體目標，或新增容器，然後使用 Azure HPC 快取複製您的資料。
 
 本文說明將資料移至 Blob 儲存體以與 Azure HPC 快取搭配使用的最佳方式。
 
 請記住下列事實：
 
-* Azure HPC 快取會使用特製化的儲存體格式來組織 Blob 儲存體中的資料。 這就是為什麼 Blob 儲存體目標必須是新的空白容器，或是先前用於 Azure HPC 快取資料的 Blob 容器。 （[Avere vFXT for Azure](https://azure.microsoft.com/services/storage/avere-vfxt/)也會使用這個雲端檔案系統）。
+* Azure HPC 快取會使用特製化的儲存體格式來組織 Blob 儲存體中的資料。 這就是為什麼 Blob 儲存體目標必須是新的空白容器，或是先前用於 Azure HPC 快取資料的 Blob 容器。 （[Avere vFXT for Azure](https://azure.microsoft.com/services/storage/avere-vfxt/)也會使用此雲端檔案系統）。
 
-* 當您使用多個用戶端和平行作業時，透過 Azure HPC 快取複製資料是最佳選擇。 一個用戶端的簡單複製命令會慢慢移動資料。
+* 當您使用多個用戶端和平行作業時，透過 Azure HPC 快取將資料複製到後端儲存體目標會更有效率。 一個用戶端的簡單複製命令會慢慢移動資料。
 
 以 Python 為基礎的公用程式可用於將內容載入至 Blob 儲存體容器。 若要深入瞭解，請參閱[在 Blob 儲存體中預先載入的資料](#pre-load-data-in-blob-storage-with-clfsload)。
 
@@ -41,7 +41,7 @@ Avere CLFSLoad 公用程式可透過 Azure HPC 快取小組的要求取得。 �
 
 進程的一般總覽：
 
-1. 使用 Python 3.6 版或更新版本來準備 Linux 系統（VM 或實體）。 （建議使用 Python 3.7 以獲得更好的效能）。
+1. 使用 Python 3.6 版或更新版本來準備 Linux 系統（VM 或實體）。 建議使用 Python 3.7 以獲得更好的效能。
 1. 在 Linux 系統上安裝 Avere-CLFSLoad 軟體。
 1. 從 Linux 命令列執行傳輸。
 
@@ -50,7 +50,7 @@ Avere CLFSLoad 公用程式需要下列資訊：
 * 包含 Blob 儲存體容器的儲存體帳戶識別碼
 * 空白 Blob 儲存體容器的名稱
 * 允許公用程式寫入容器的共用存取簽章（SAS）權杖
-* 資料來源的本機路徑-包含要複製之資料的本機目錄，或具有該資料之已掛接遠端系統的本機路徑。
+* 資料來源的本機路徑-包含要複製之資料的本機目錄，或具有資料之已掛接遠端系統的本機路徑
 
 <!-- The requirements are explained in detail in the [Avere CLFSLoad readme](https://aka.ms/avere-clfsload). -->
 

@@ -1,5 +1,5 @@
 ---
-title: 使用 Azure Data Lake U-SQL SDK 在本機執行及測試 U-SQL 作業
+title: 在本機執行 U-SQL 作業-Azure Data Lake U-SQL SDK
 description: 了解如何使用本機工作站上的命令列及程式設計介面，在本機執行及測試 U-SQL 作業。
 services: data-lake-analytics
 ms.service: data-lake-analytics
@@ -8,12 +8,12 @@ ms.author: yanacai
 ms.reviewer: jasonwhowell
 ms.topic: conceptual
 ms.date: 03/01/2017
-ms.openlocfilehash: 14908225e78b79cb748e712ae23643ddde4a4242
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 51d9060eaf4b30c696ef2a3b5f798a31e2f2a98a
+ms.sourcegitcommit: 0486aba120c284157dfebbdaf6e23e038c8a5a15
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60813528"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71309688"
 ---
 # <a name="run-and-test-u-sql-with-azure-data-lake-u-sql-sdk"></a>使用 Azure Data Lake U-SQL SDK 來執行及測試 U-SQL
 
@@ -139,15 +139,15 @@ U-SQL 本機執行需要指定的資料根做為本機儲存體帳戶，以及�
 
 |引數|預設值|描述|
 |--------|-------------|-----------|
-|-CodeBehind|False|指令碼具有.cs 程式碼後置|
+|-CodeBehind|偽|指令碼具有.cs 程式碼後置|
 |-CppSDK| |CppSDK 目錄|
 |-DataRoot| DataRoot 環境變數|本機執行的 DataRoot，預設為 'LOCALRUN_DATAROOT' 環境變數|
 |-MessageOut| |將主控台上的訊息傾印成檔案|
 |-Parallel|1|使用指定的平行處理原則執行計畫|
 |-References| |列出程式碼後置額外的參考組件或資料檔案的路徑，以 ';' 分隔|
-|-UdoRedirect|False|產生 Udo 組件重新導向設定|
-|-UseDatabase|master|供程式碼後置暫時註冊組件使用的資料庫|
-|-Verbose|False|顯示詳細的執行階段輸出|
+|-UdoRedirect|偽|產生 Udo 組件重新導向設定|
+|-UseDatabase|主要|供程式碼後置暫時註冊組件使用的資料庫|
+|-Verbose|偽|顯示詳細的執行階段輸出|
 |-WorkDir|目前的目錄|編譯器使用方式和輸出的目錄|
 |-RunScopeCEP|0|要使用的 ScopeCEP 模式|
 |-ScopeCEPTempPath|temp|用於串流資料的暫存路徑|
@@ -223,14 +223,14 @@ U-SQL 本機執行需要指定的資料根做為本機儲存體帳戶，以及�
 
 程式設計介面都位於 LocalRunHelper.exe 中。 您可以使用它們來整合 U-SQL SDK 的功能性及 C# 測試架構，以調整您的 U-SQL 指令碼本機測試。 在此文章中，我將會使用標準 C# 單元測試專案來示範如何使用這些介面來測試您的 U-SQL 指令碼。
 
-### <a name="step-1-create-c-unit-test-project-and-configuration"></a>步驟 1：建立C#單元測試專案和組態
+### <a name="step-1-create-c-unit-test-project-and-configuration"></a>步驟 1:建立C#單元測試專案和設定
 
 - 透過 [檔案] > [新增] > [專案] > [Visual C#] > [測試] > [單元測試專案] 來建立 C# 單元測試專案。
 - 加入 LocalRunHelper.exe 做為專案的參考。 LocalRunHelper.exe 位於 Nuget 套件中的 \build\runtime\LocalRunHelper.exe。
 
     ![Azure Data Lake U-SQL SDK 加入參考](./media/data-lake-analytics-u-sql-sdk/data-lake-analytics-u-sql-sdk-add-reference.png)
 
-- U-SQL SDK「僅」  支援 x64 環境，請務必將建置平台目標設定為 [x64]。 您可以透過 [專案屬性] > [建置] > [平台目標] 來設定。
+- U-SQL SDK「僅」支援 x64 環境，請務必將建置平台目標設定為 [x64]。 您可以透過 [專案屬性] > [建置] > [平台目標] 來設定。
 
     ![Azure Data Lake U-SQL SDK 設定 x64 專案](./media/data-lake-analytics-u-sql-sdk/data-lake-analytics-u-sql-sdk-configure-x64.png)
 
@@ -240,7 +240,7 @@ U-SQL 本機執行需要指定的資料根做為本機儲存體帳戶，以及�
 
 - 請務必將 NugetPackage\build\runtime\ 下的所有相依性檔案複製到專案工作目錄 (通常位於 ProjectFolder\bin\x64\Debug 之下)。
 
-### <a name="step-2-create-u-sql-script-test-case"></a>步驟 2：建立 U-SQL 指令碼的測試案例
+### <a name="step-2-create-u-sql-script-test-case"></a>步驟 2:建立 U-SQL 腳本測試案例
 
 以下是 U-SQL 指令碼測試的範例程式碼。 若要進行測試，您需要準備指令碼、輸入檔和預期的輸出檔。
 
@@ -332,13 +332,13 @@ LocalRunHelper.exe 提供 U-SQL 本機編譯、執行等等的程式設計介面
 
 public LocalRunHelper([System.IO.TextWriter messageOutput = null])
 
-|參數|type|描述|
+|參數|Type|描述|
 |---------|----|-----------|
 |messageOutput|System.IO.TextWriter|針對輸出訊息，請設為 null 以使用主控台|
 
 **屬性**
 
-|屬性|type|描述|
+|屬性|類型|描述|
 |--------|----|-----------|
 |AlgebraPath|string|代數檔案的路徑 (代數檔案是其中一個編譯結果)|
 |CodeBehindReferences|string|如果指令碼具有其他程式碼後置參考，請指定路徑並以 ';' 分隔|
@@ -351,8 +351,8 @@ public LocalRunHelper([System.IO.TextWriter messageOutput = null])
 |InputDir|string|輸入資料的目錄|
 |MessagePath|string|訊息傾印檔案路徑|
 |OutputDir|string|輸出資料的目錄|
-|平行處理原則|ssNoversion|執行代數的平行處理原則|
-|ParentPid|ssNoversion|服務監視器結束的父項 PID，設定為 0 或負數以略過|
+|平行處理原則|int|執行代數的平行處理原則|
+|ParentPid|int|服務監視器結束的父項 PID，設定為 0 或負數以略過|
 |ResultPath|string|結果傾印檔案路徑|
 |RuntimeDir|string|執行階段目錄|
 |ScriptPath|string|尋找指令碼的位置|
@@ -375,11 +375,11 @@ public LocalRunHelper([System.IO.TextWriter messageOutput = null])
 ## <a name="faq-about-common-issue"></a>有關常見問題的常見問題集
 
 ### <a name="error-1"></a>錯誤 1：
-E_CSC_SYSTEM_INTERNAL:內部錯誤 ！ 無法載入檔案或組件 'ScopeEngineManaged.dll' 或其相依性的其中之一。 找不到指定的模組。
+E_CSC_SYSTEM_INTERNAL:內部錯誤！ 無法載入檔案或組件 'ScopeEngineManaged.dll' 或其相依性的其中之一。 找不到指定的模組。
 
 請檢查下列項目：
 
-- 確定您使用 x64 環境。 建置目標平台和測試環境應該要是 x64，請參閱**步驟 1:建立C#單元測試專案和組態**上方。
+- 確定您使用 x64 環境。 組建目標平臺和測試環境應該是 x64，請參閱**步驟1：建立C#** 上述的單元測試專案和設定。
 - 確定您已經將 NugetPackage\build\runtime\ 下的所有相依性檔案複製到專案工作目錄。
 
 

@@ -1,20 +1,18 @@
 ---
-title: 使用適用於 Azure Data Lake Analytics 作業的作業瀏覽器和作業檢視
+title: 使用作業瀏覽器 & 工作檢視-Azure Data Lake Analytics
 description: 本文說明如何使用適用於 Azure Data Lake Analytics 作業的作業瀏覽器和作業檢視。
-services: data-lake-analytics
 ms.service: data-lake-analytics
 author: jasonwhowell
 ms.author: jasonh
-ms.reviewer: jasonwhowell
 ms.assetid: bdf27b4d-6f58-4093-ab83-4fa3a99b5650
 ms.topic: conceptual
 ms.date: 08/02/2017
-ms.openlocfilehash: 905100f8a1444f6f6ee18d3bf9e9eab2ede8c805
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 2d33a6ec5ff6b687913914e9433b85765aaa7aec
+ms.sourcegitcommit: 0486aba120c284157dfebbdaf6e23e038c8a5a15
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60616072"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71309942"
 ---
 # <a name="use-job-browser-and-job-view-for-azure-data-lake-analytics"></a>使用適用於 Azure Data Lake Analytics 的作業瀏覽器和作業檢視
 Azure Data Lake Analytics 服務會將提交的作業封存在查詢存放區中。 在本文中，您會了解如何在適用於 Visual Studio 的 Azure Data Lake 工具中使用作業瀏覽器和作業檢視，來尋找作業歷程記錄資訊。 
@@ -34,7 +32,7 @@ Azure Data Lake Analytics 服務會將提交的作業封存在查詢存放區中
 
 作業檢視包含︰
 
-* 工作摘要
+* 作業摘要
   
     重新整理作業檢視，以查看執行中作業的最新資訊。
   
@@ -111,7 +109,7 @@ Azure Data Lake Analytics 服務會將提交的作業封存在查詢存放區中
   * 頂點排程執行︰已排程頂點的總時間。
   * 讀取的最小/平均/最大頂點資料︰最小/平均/最大的每一個頂點讀取資料。
   * 持續時間︰階段花費的時鐘時間，您需要載入設定檔以查看此值。
-  * 工作播放
+  * 作業播放
     
       Data Lake Analytics 執行作業，並封存執行作業資訊的頂點，例如頂點啟動、停止和失敗的時間，以及重試的方式等。所有的資訊會自動記錄於查詢存放區中，並儲存在其作業設定檔。 您可以透過作業檢視中的「載入設定檔」來下載作業設定檔，並在下載作業設定檔之後檢視作業播放。
     

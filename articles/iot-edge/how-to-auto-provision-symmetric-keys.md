@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: 3c21c0bdce6f6a5cd3c8f634bf400600b30a8ead
-ms.sourcegitcommit: c556477e031f8f82022a8638ca2aec32e79f6fd9
+ms.openlocfilehash: 5a7e7fa011c0287d5e97ad7a8cd2e3ba77f298dd
+ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68414585"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71299855"
 ---
 # <a name="create-and-provision-an-iot-edge-device-using-symmetric-key-attestation"></a>使用對稱金鑰證明建立和布建 IoT Edge 裝置
 
@@ -98,13 +98,16 @@ sn-007-888-abc-mac-a1-b2-c3-d4-e5-f6
 
    1. 確定 [**啟用專案**] 已設定為 [**啟用**]。
 
-   1. 選取 [ **儲存**]。
+   1. 選取 [儲存]。
 
-現在此裝置已有註冊, IoT Edge 執行時間可以在安裝期間自動布建裝置。 請務必複製註冊的**主要金鑰**值, 以在建立裝置金鑰時使用。
+現在此裝置已有註冊, IoT Edge 執行時間可以在安裝期間自動布建裝置。 請務必複製註冊的**主要金鑰**值，以在安裝 IoT Edge 執行時間時使用，或者，如果您要建立裝置金鑰以與群組註冊搭配使用。
 
 ## <a name="derive-a-device-key"></a>衍生裝置金鑰
 
-您的裝置會使用衍生的裝置金鑰搭配您唯一的註冊識別碼, 在布建期間使用註冊來執行對稱金鑰證明。 若要產生裝置金鑰, 請使用您從 DPS 註冊複製的金鑰, 來計算裝置唯一註冊識別碼的[HMAC-SHA256](https://wikipedia.org/wiki/HMAC) , 並將結果轉換為 Base64 格式。
+> [!NOTE]
+> 只有在使用群組註冊時，才需要此區段。
+
+每個裝置都會使用其衍生的裝置金鑰搭配您唯一的註冊識別碼，在布建期間使用註冊來執行對稱金鑰證明。 若要產生裝置金鑰, 請使用您從 DPS 註冊複製的金鑰, 來計算裝置唯一註冊識別碼的[HMAC-SHA256](https://wikipedia.org/wiki/HMAC) , 並將結果轉換為 Base64 格式。
 
 請勿在您的裝置程式碼中包含註冊的主要或次要金鑰。
 
@@ -159,7 +162,10 @@ IoT Edge 執行階段會在所有 IoT Edge 裝置上部署。 其元件會在容
 
 * DPS**識別碼範圍**值
 * 您所建立的裝置**註冊識別碼**
-* 對稱金鑰證明的裝置衍生裝置金鑰
+* 您從 DPS 註冊複製的**主要金鑰**
+
+> [!TIP]
+> 針對群組註冊，您需要每個裝置的[衍生金鑰](#derive-a-device-key)，而不是 DPS 註冊金鑰。
 
 ### <a name="linux-device"></a>Linux 裝置
 

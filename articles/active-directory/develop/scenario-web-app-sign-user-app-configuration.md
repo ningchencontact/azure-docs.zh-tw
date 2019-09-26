@@ -15,12 +15,12 @@ ms.date: 09/17/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1a746b0f6d85e3f012cdd2e78fff8cd10a586950
-ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
+ms.openlocfilehash: 1453821561ab7bb361fbb3e5d57634cf23a7be2c
+ms.sourcegitcommit: 0486aba120c284157dfebbdaf6e23e038c8a5a15
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71086744"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71310068"
 ---
 # <a name="web-app-that-signs-in-users---code-configuration"></a>登入使用者的 Web 應用程式-程式碼設定
 
@@ -34,17 +34,36 @@ ms.locfileid: "71086744"
 | 平台 | 程式庫 | 描述 |
 |----------|---------|-------------|
 | ![.NET](media/sample-v2-code/logo_net.png) | [適用于 .NET 的識別模型延伸模組](https://github.com/AzureAD/azure-activedirectory-identitymodel-extensions-for-dotnet/wiki) | 適用于 .NET 的 Microsoft 身分識別延伸模組是由 ASP.NET 和 ASP.NET Core 直接使用, 它會建議一組在 .NET Framework 和 .NET Core 上執行的 Dll。 從 ASP.NET/ASP.NET 核心 Web 應用程式, 您可以使用**TokenValidationParameters**類別來控制權杖驗證 (尤其是在某些 ISV 案例中) |
-| ![Java](media/sample-v2-code/logo_java.png) | [msal4j](https://github.com/AzureAD/microsoft-authentication-library-for-java/wiki) | 適用于 JAVA 的 MSAL-目前為公開預覽狀態 |
-| ![Python](media/sample-v2-code/logo_python.png) | [MSAL Python](https://github.com/AzureAD/microsoft-authentication-library-for-python/wiki) | 適用于 Python 的 MSAL-目前為公開預覽狀態 |
+| ![Java](media/sample-v2-code/small_logo_java.png) | [msal4j](https://github.com/AzureAD/microsoft-authentication-library-for-java/wiki) | 適用于 JAVA 的 MSAL-目前為公開預覽狀態 |
+| ![Python](media/sample-v2-code/small_logo_python.png) | [MSAL Python](https://github.com/AzureAD/microsoft-authentication-library-for-python/wiki) | 適用于 Python 的 MSAL-目前為公開預覽狀態 |
 
-本文中的程式碼片段和下列專案會從中解壓縮：
+選取對應至您感興趣之平臺的索引標籤：
 
-- [ASP.NET Core Web 應用程式累加式教學課程，第1章](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/tree/master/1-WebApp-OIDC/1-1-MyOrg)。
-- [ASP.NET Web 應用程式範例](https://github.com/Azure-Samples/ms-identity-aspnet-webapp-openidconnect)
-- 呼叫 Microsoft graph msal4j web 應用程式的[JAVA web 應用程式](https://github.com/Azure-Samples/ms-identity-java-webapp)範例
-- [呼叫 Microsoft graph MSAL 的 Python web 應用程式](https://github.com/Azure-Samples/ms-identity-python-webapp)。Python web 應用程式範例
+# <a name="aspnet-coretabaspnetcore"></a>[ASP.NET Core](#tab/aspnetcore)
 
-您可能想要參考這些教學課程和範例，以取得完整的執行詳細資料。
+本文中的程式碼片段和下列專案會從[ASP.NET Core Web 應用程式累加式教學課程 (第1章)](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/tree/master/1-WebApp-OIDC/1-1-MyOrg)中解壓縮。
+
+您可能想要參考此教學課程，以取得完整的執行詳細資料。
+
+# <a name="aspnettabaspnet"></a>[ASP.NET](#tab/aspnet)
+
+本文中的程式碼片段和下列專案會從[ASP.NET Web 應用程式範例](https://github.com/Azure-Samples/ms-identity-aspnet-webapp-openidconnect)中解壓縮
+
+如需完整的執行詳細資料，您可以參考此範例。
+
+# <a name="javatabjava"></a>[Java](#tab/java)
+
+本文和下列的程式碼片段會從呼叫 Microsoft graph msal4j web 應用程式範例的[JAVA web 應用程式](https://github.com/Azure-Samples/ms-identity-java-webapp)中解壓縮
+
+如需完整的執行詳細資料，您可以參考此範例。
+
+# <a name="pythontabpython"></a>[Python](#tab/python)
+
+本文中的程式碼片段和下列專案會從[呼叫 Microsoft graph MSAL 的 Python web 應用程式](https://github.com/Azure-Samples/ms-identity-python-webapp)中解壓縮。Python web 應用程式範例
+
+如需完整的執行詳細資料，您可以參考此範例。
+
+---
 
 ## <a name="configuration-files"></a>設定檔
 
@@ -58,7 +77,7 @@ ms.locfileid: "71086744"
 
 # <a name="aspnet-coretabaspnetcore"></a>[ASP.NET Core](#tab/aspnetcore)
 
-在 ASP.NET Core 中，這些設定位於`appsettings.json`檔案的 "AzureAD" 區段中。
+在 ASP.NET Core 中，這些設定位於 "AzureAD" 區段中的[appsettings。](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/blob/bc564d68179c36546770bf4d6264ce72009bc65a/1-WebApp-OIDC/1-1-MyOrg/appsettings.json#L2-L8)
 
 ```Json
 {
@@ -85,7 +104,7 @@ ms.locfileid: "71086744"
 }
 ```
 
-在 ASP.NET Core 中，還有另一個檔案`properties\launchSettings.json`（），其中包含您`applicationUrl`的應用程式和各種配置`sslPort`檔的 URL （）和 SSL 埠（）。
+在 ASP.NET Core 中，還有另一個檔案[properties\launchSettings.json](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/blob/bc564d68179c36546770bf4d6264ce72009bc65a/1-WebApp-OIDC/1-1-MyOrg/Properties/launchSettings.json#L6-L7) ，其中包含您`applicationUrl`應用程式的 URL （）`sslPort`和 SSL 埠（），以及各種設定檔。
 
 ```Json
 {
@@ -123,7 +142,7 @@ ms.locfileid: "71086744"
 
 # <a name="aspnettabaspnet"></a>[ASP.NET](#tab/aspnet)
 
-在 ASP.NET 中, 應用程式是透過`Web.Config`檔案進行設定
+在 ASP.NET 中，應用程式是透過 web.config 檔案12-15 行來設定[。](https://github.com/Azure-Samples/ms-identity-aspnet-webapp-openidconnect/blob/a2da310539aa613b77da1f9e1c17585311ab22b7/WebApp/Web.config#L12-L15)
 
 ```XML
 <?xml version="1.0" encoding="utf-8"?>
@@ -149,7 +168,7 @@ ms.locfileid: "71086744"
 
 # <a name="javatabjava"></a>[Java](#tab/java)
 
-在 JAVA 中， `application.properties`設定位於`src/main/resources`
+在 JAVA 中，設定位於位於的[應用程式. properties](https://github.com/Azure-Samples/ms-identity-java-webapp/blob/d55ee4ac0ce2c43378f2c99fd6e6856d41bdf144/src/main/resources/application.properties)檔案中`src/main/resources`
 
 ```Java
 aad.clientId=Enter_the_Application_Id_here
@@ -163,15 +182,25 @@ aad.redirectUriGraphUsers=http://localhost:8080/msal4jsample/graph/users
 
 # <a name="pythontabpython"></a>[Python](#tab/python)
 
-以下是[app_config. .py](https://github.com/Azure-Samples/ms-identity-python-webapp/blob/web_app_sample/app_config.py)中的 Python 設定檔
+以下是[app_config. .py](https://github.com/Azure-Samples/ms-identity-python-webapp/blob/0.1.0/app_config.py)中的 Python 設定檔
 
 ```Python
-AUTHORITY = "https://login.microsoftonline.com/Enter_the_Tenant_Name_Here"
-CLIENT_ID = "Enter_the_Application_Id_here"
 CLIENT_SECRET = "Enter_the_Client_Secret_Here"
-SCOPE = ["https://graph.microsoft.com/User.Read"]
-REDIRECT_URI = "http://localhost:5000/getAToken"
+AUTHORITY = "https://login.microsoftonline.com/common""
+CLIENT_ID = "Enter_the_Application_Id_here"
+ENDPOINT = 'https://graph.microsoft.com/v1.0/users'
+SCOPE = ["User.ReadBasic.All"]
+SESSION_TYPE = "filesystem"  # So token cache will be stored in server-side session
 ```
+
+> [!NOTE]
+> 本快速入門建議您將用戶端密碼儲存在設定檔中，以方便您進行。 在您的生產應用程式中，您會想要使用其他方式來儲存您的密碼，例如 KeyVault 或環境變數，如 Flask 的檔所述： https://flask.palletsprojects.com/en/1.1.x/config/#configuring-from-environment-variables
+>
+> ```python
+> CLIENT_SECRET = os.getenv("CLIENT_SECRET")
+> if not CLIENT_SECRET:
+>     raise ValueError("Need to define CLIENT_SECRET environment variable")
+> ```
 
 ---
 
@@ -284,11 +313,11 @@ public static IServiceCollection AddMicrosoftIdentityPlatformAuthentication(
   ...
 ```
 
-`AadIssuerValidator`類別可讓權杖的簽發者在許多情況下進行驗證（v1.0 或 v2.0 權杖、單一租使用者，或在 Azure 公用雲端或國家/地區以其個人 Microsoft 帳戶登入使用者的多租使用者應用程式或應用程式）雲端）。 可從[Microsoft. Identity. Web/Resource/AadIssuerValidator 取得。](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/blob/master/Microsoft.Identity.Web/Resource/AadIssuerValidator.cs)
+`AadIssuerValidator`類別可讓權杖的簽發者在許多情況下進行驗證（v1.0 或 v2.0 權杖、單一租使用者，或在 Azure 公用雲端中以其個人 Microsoft 帳戶登入使用者的多租使用者應用程式或應用程式，或國家/地區雲端）。 可從[Microsoft. Identity. Web/Resource/AadIssuerValidator 取得。](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/blob/master/Microsoft.Identity.Web/Resource/AadIssuerValidator.cs)
 
 # <a name="aspnettabaspnet"></a>[ASP.NET](#tab/aspnet)
 
-與 ASP.NET Web 應用程式/Web api 中的驗證相關的程式碼位於`App_Start/Startup.Auth.cs`檔案中。
+與 ASP.NET Web 應用程式/Web Api 中的驗證相關的程式碼位於[App_Start/Startup. Auth .cs](https://github.com/Azure-Samples/ms-identity-aspnet-webapp-openidconnect/blob/a2da310539aa613b77da1f9e1c17585311ab22b7/WebApp/App_Start/Startup.Auth.cs#L17-L61)檔案中。
 
 ```CSharp
  public void ConfigureAuth(IAppBuilder app)
@@ -314,7 +343,7 @@ public static IServiceCollection AddMicrosoftIdentityPlatformAuthentication(
 
 # <a name="javatabjava"></a>[Java](#tab/java)
 
-JAVA 範例會使用春季架構。 應用程式會受到保護`Filter`，因為您會執行，以取得每個 HTTP 回應。 在 JAVA Web 應用程式快速入門中， `AuthFilter`這`src/main/java/com/microsoft/azure/msalwebsample/AuthFilter.java`是在中。 篩選器會處理 OAuth 2.0 授權碼流程，因此：
+JAVA 範例會使用春季架構。 應用程式會受到保護`Filter`，因為您會執行，它會攔截每個 HTTP 回應。 在 JAVA Web 應用程式快速入門中，此`AuthFilter`篩選`src/main/java/com/microsoft/azure/msalwebsample/AuthFilter.java`器是在中。 篩選器會處理 OAuth 2.0 授權碼流程，因此：
 
 - 驗證使用者是否已驗證（`isAuthenticated()`方法）
 - 如果使用者未經過驗證，則會計算 Azure AD 授權端點的 url，並將瀏覽器重新導向至此 URI
@@ -330,41 +359,20 @@ JAVA 範例會使用春季架構。 應用程式會受到保護`Filter`，因為
 
 # <a name="pythontabpython"></a>[Python](#tab/python)
 
-Python 範例會使用 Flask。 初始化 flask 和 MSAL。Python 是在[應用程式中完成。 .py # L1-L17](https://github.com/Azure-Samples/ms-identity-python-webapp/blob/e1199b4c3cdcb637cf0d8306832efbd85492e123/app.py#L1-L17)
+Python 範例會使用 Flask。 初始化 flask 和 MSAL。Python 是在[應用程式中完成。 .py # L1-L28](https://github.com/Azure-Samples/ms-identity-python-webapp/blob/e03be352914bfbd58be0d4170eba1fb7a4951d84/app.py#L1-L28)
 
 ```Python
 import uuid
-import flask
 import requests
-from flask import Flask, render_template, session, request
-from flask_session import Session
+from flask import Flask, render_template, session, request, redirect, url_for
+from flask_session import Session  # https://pythonhosted.org/Flask-Session
 import msal
 import app_config
 
-sess = Session()
+
 app = Flask(__name__)
-app.config.from_object('config.Config')
-sess.init_app(app)
-cache = msal.SerializableTokenCache()
-application = msal.ConfidentialClientApplication(
-    app_config.CLIENT_ID, authority=app_config.AUTHORITY,
-    client_credential=app_config.CLIENT_SECRET,
-    token_cache=cache)
-```
-
-這是 MSAL。會負責讓使用者登入的 Python。 請參閱[.py # L74-84](https://github.com/Azure-Samples/ms-identity-python-webapp/blob/e1199b4c3cdcb637cf0d8306832efbd85492e123/app.py#L74-84)
-
-```Python
-@app.route('/authenticate')
-def authenticate():
-    # Call to the authorize endpoint
-    auth_state = str(uuid.uuid4())
-    session[(request.cookies.get("session")+'state')] = auth_state
-    authorization_url = application.get_authorization_request_url(app_config.SCOPE, state=auth_state,
-                                                                  redirect_uri=app_config.REDIRECT_URI)
-    resp = flask.Response(status=307)
-    resp.headers['location'] = authorization_url
-    return resp
+app.config.from_object(app_config)
+Session(app)
 ```
 
 ---

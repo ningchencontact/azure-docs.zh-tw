@@ -15,12 +15,12 @@ ms.author: curtand
 ms.reviewer: elkuzmen
 ms.custom: it-pro;seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 00753ee8d7d128222e9fb773f00a23720813a237
-ms.sourcegitcommit: b03516d245c90bca8ffac59eb1db522a098fb5e4
+ms.openlocfilehash: 44276c911768f588064245c37a1284adeda8138f
+ms.sourcegitcommit: 9fba13cdfce9d03d202ada4a764e574a51691dcd
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71146452"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71315731"
 ---
 # <a name="take-over-an-unmanaged-directory-as-administrator-in-azure-active-directory"></a>如何以系統管理員身分接管 Azure Active Directory 中非受控目錄
 
@@ -101,7 +101,7 @@ ms.locfileid: "71146452"
 
 具有包含 SharePoint、OneDrive 或商務用 Skype 之服務方案的任何服務，都不支援外部管理員接管;例如，透過 Office 免費訂用帳戶。 
 
-您可以選擇性地使用 [**ForceTakeover** 選項](#azure-ad-powershell-cmdlets-for-the-forcetakeover-option)，將網域名稱從非受控租用戶移除，並在所需的租用戶上加以驗證。 **ForceTakeover 選項不會在使用者之間移動，也不會保留對訂用帳戶的存取權。此選項只會移動功能變數名稱。**
+您可以選擇性地使用 [**ForceTakeover** 選項](#azure-ad-powershell-cmdlets-for-the-forcetakeover-option)，將網域名稱從非受控租用戶移除，並在所需的租用戶上加以驗證。 
 
 #### <a name="more-information-about-rms-for-individuals"></a>個人版 RMS 的詳細資訊
 

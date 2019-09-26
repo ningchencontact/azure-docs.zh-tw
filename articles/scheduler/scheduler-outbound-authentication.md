@@ -9,17 +9,17 @@ ms.reviewer: klam
 ms.assetid: 6707f82b-7e32-401b-a960-02aae7bb59cc
 ms.topic: article
 ms.date: 08/15/2016
-ms.openlocfilehash: 42d6ec93a3382f494b49fb574c4aee5e8eec142a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 2ea09330fb8d3d97da5fbc197dba9668f1a4f685
+ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64708939"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71300853"
 ---
 # <a name="outbound-authentication-for-azure-scheduler"></a>Azure 排程器的連出驗證
 
 > [!IMPORTANT]
-> [Azure Logic Apps](../logic-apps/logic-apps-overview.md) 將會取代 Azure 排程器，Azure 排程器將會被淘汰。 若要排定作業，請[改為嘗試 Azure Logic Apps](../scheduler/migrate-from-scheduler-to-logic-apps.md)。 
+> [Azure Logic Apps](../logic-apps/logic-apps-overview.md)會取代即將[淘汰](../scheduler/migrate-from-scheduler-to-logic-apps.md#retire-date)的 Azure 排程器。 若要繼續使用您在排程器中設定的作業，請儘快[遷移至 Azure Logic Apps](../scheduler/migrate-from-scheduler-to-logic-apps.md) 。
 
 Azure 排程器作業可能必須呼叫要求驗證的服務，例如其他 Azure 服務、Salesforce.com、Facebook 與安全自訂網站。 被呼叫的服務可以決定排程器作業是否能存取要求的資源。 
 
@@ -164,7 +164,7 @@ Date: Wed, 16 Mar 2016 19:04:23 GMT
 
 使用 `Basic` 模型新增驗證時，請在要求主體中指定這些額外元素。
 
-| 項目 | 必要項 | 描述 |
+| 元素 | 必要項 | 描述 |
 |---------|----------|-------------|
 | **authentication** (父元素) | 用於使用基本驗證的驗證物件 | 
 | **type** | 是 | 驗證類型。 若為基本驗證，值為 `Basic`。 | 
@@ -296,7 +296,7 @@ Date: Wed, 16 Mar 2016 19:05:06 GMT
 
 當傳送具有驗證資訊的要求時，回應包含下列驗證元素。
 
-| 項目 | 描述 |
+| 元素 | 描述 |
 |---------|-------------|
 | **authentication** (父元素) | 用於使用 ActiveDirectoryOAuth 驗證的驗證物件 |
 | **type** | 驗證類型。 若為 ActiveDirectoryOAuth 驗證，值為 `ActiveDirectoryOAuth`。 | 

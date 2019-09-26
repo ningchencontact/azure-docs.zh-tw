@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 02/01/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 69279da93197bcaaf1bf600bc9406287253d74bb
-ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
+ms.openlocfilehash: 08edf6e841dc7d389573d5e5b5ea7e043f750e76
+ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71063286"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71291099"
 ---
 # <a name="tutorial-customize-the-interface-of-user-experiences-in-azure-active-directory-b2c"></a>教學課程：在 Azure Active Directory B2C 中自訂使用者介面體驗
 
@@ -63,7 +63,7 @@ ms.locfileid: "71063286"
 
 1. 在功能表中，選取 [CORS]。
 2. 針對 [允許的來源]，輸入 `https://your-tenant-name.b2clogin.com`。 將 `your-tenant-name` 取代為您的 Azure AD B2C 租用戶名稱。 例如： `https://fabrikam.b2clogin.com` 。 輸入您的租用戶名稱時，必須全部使用小寫字母。
-3. 針對 [允許的方法]，選取 `GET` 和 `OPTIONS`。
+3. 針對**允許的方法**， `GET`選取`PUT`、和`OPTIONS`。
 4. 針對 [允許的標頭]，輸入星號 (*)。
 5. 針對 [公開的標頭]，輸入星號 (*)。
 6. 針對 [最大壽命]，輸入 200。

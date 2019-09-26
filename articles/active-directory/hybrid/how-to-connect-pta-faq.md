@@ -16,14 +16,14 @@ ms.date: 04/15/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6c7199cd8e5dbde1f6ff2f5cea56a4191211c853
-ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
+ms.openlocfilehash: 0d21bf0f2ba7c93a35952d2eb2dd4df49bb3260b
+ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/05/2019
-ms.locfileid: "68779074"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71290767"
 ---
-# <a name="azure-active-directory-pass-through-authentication-frequently-asked-questions"></a>Azure Active Directory 傳遞驗證：常見問答集
+# <a name="azure-active-directory-pass-through-authentication-frequently-asked-questions"></a>Azure Active Directory 傳遞驗證：常見問題集
 
 本文將會解決 Azure Active Directory (Azure AD) 傳遞驗證的常見問題。 請隨時回來查看更新的內容。
 
@@ -41,19 +41,18 @@ ms.locfileid: "68779074"
 
 ## <a name="does-conditional-accessactive-directory-conditional-access-azure-portalmd-work-with-pass-through-authentication"></a>[條件式存取](../active-directory-conditional-access-azure-portal.md)是否能與傳遞驗證搭配運作？
 
-是的。 所有條件式存取功能 (包括 Azure 多重要素驗證) 都會使用傳遞驗證。
+是的。 所有條件式存取功能（包括 Azure 多重要素驗證）都會使用傳遞驗證。
 
 ## <a name="does-pass-through-authentication-support-alternate-id-as-the-username-instead-of-userprincipalname"></a>傳遞驗證支援以「替代識別碼」而非「userPrincipalName」來作為使用者名稱嗎？
-
-是，在 Azure AD Connect 中設定時，傳遞驗證支援使用 `Alternate ID` 作為使用者名稱。 作為必要條件，Azure AD Connect 需要將內部部署 Active Directory `UserPrincipalName` 屬性同步到 Azure AD。 如需詳細資訊，請參閱[自訂 Azure AD Connect 安裝](how-to-connect-install-custom.md)。 並非所有 Office 365 應用程式都支援 `Alternate ID`。 請參閱支援陳述式的特定應用程式文件。
+在有限範圍內，傳遞驗證支援在 Azure AD Connect 中設定時，以替代識別碼作為使用者名稱。 作為必要條件，Azure AD Connect 需要將內部部署 Active Directory `UserPrincipalName` 屬性同步到 Azure AD。 這會讓`UserPrincipalName`內部部署 AD 和 Azure AD 的完全相同。 如果您想要使用另一個屬性從內部部署 AD 同步處理至 Azure AD 的 UPN，您就必須使用密碼雜湊同步或 AD FS。 如需詳細資訊，請參閱[自訂 Azure AD Connect 安裝](how-to-connect-install-custom.md)。 並非所有 Office 365 應用程式都支援 `Alternate ID`。 請參閱支援陳述式的特定應用程式文件。
 
 ## <a name="does-password-hash-synchronization-act-as-a-fallback-to-pass-through-authentication"></a>密碼雜湊同步處理是否會作為傳遞驗證的遞補？
 
 資料分割 傳遞驗證_不會_自動容錯移轉至密碼雜湊同步處理。 若要避免使用者登入失敗，您應該為傳遞驗證設定[高可用性](how-to-connect-pta-quick-start.md#step-4-ensure-high-availability)。
 
-## <a name="what-happens-when-i-switch-from-password-hash-synchronization-to-pass-through-authentication"></a>當我從密碼雜湊同步處理切換至傳遞驗證時, 會發生什麼事？
+## <a name="what-happens-when-i-switch-from-password-hash-synchronization-to-pass-through-authentication"></a>當我從密碼雜湊同步處理切換至傳遞驗證時，會發生什麼事？
 
-當您使用 Azure AD Connect 將登入方法從密碼雜湊同步處理切換至傳遞驗證時, 傳遞驗證會成為您的使用者在受控網域中的主要登入方法。 請注意, 先前由密碼雜湊同步處理同步處理的所有使用者密碼雜湊, 仍會儲存在 Azure AD 上。
+當您使用 Azure AD Connect 將登入方法從密碼雜湊同步處理切換至傳遞驗證時，傳遞驗證會成為您的使用者在受控網域中的主要登入方法。 請注意，先前由密碼雜湊同步處理同步處理的所有使用者密碼雜湊，仍會儲存在 Azure AD 上。
 
 ## <a name="can-i-install-an-azure-ad-application-proxymanage-appsapplication-proxymd-connector-on-the-same-server-as-a-pass-through-authentication-agent"></a>能否在傳遞驗證代理程式所在的同一部伺服器上安裝 [Azure AD 應用程式 Proxy](../manage-apps/application-proxy.md) 連接器？
 

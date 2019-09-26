@@ -1,5 +1,5 @@
 ---
-title: 限制和設定 - Azure Logic Apps | Microsoft Docs
+title: 限制和設定-Azure Logic Apps
 description: 適用於 Azure Logic Apps 的服務限制和設定值
 services: logic-apps
 ms.service: logic-apps
@@ -9,12 +9,12 @@ ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: article
 ms.date: 07/19/2019
-ms.openlocfilehash: 401b33c28e4ba91a0da5e4ab38f920e173302ea1
-ms.sourcegitcommit: 6794fb51b58d2a7eb6475c9456d55eb1267f8d40
+ms.openlocfilehash: 1479c6665b5d68e0fa16ece7e37f4e2a2457c69a
+ms.sourcegitcommit: 0486aba120c284157dfebbdaf6e23e038c8a5a15
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70242359"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71309782"
 ---
 # <a name="limits-and-configuration-information-for-azure-logic-apps"></a>Azure Logic Apps 的限制和設定資訊
 
@@ -105,19 +105,25 @@ ms.locfileid: "70242359"
 
 ### <a name="integration-service-environment-ise"></a>整合服務環境 (ISE)
 
-以下是 Premium SKU 的輸送量限制:
+以下是 Premium SKU 的輸送量限制：
 
 | Name | 限制 | 注意 |
 |------|-------|-------|
-| 基礎單位執行限制 | 當基礎結構容量達到 80% 時, 系統節流 | 提供每分鐘 ~ 4000 個動作執行, 也就是每個月 ~ 160000000 個動作執行次數 | |
-| 縮放單位執行限制 | 當基礎結構容量達到 80% 時, 系統節流 | 每個縮放單位可提供 ~ 2000 每分鐘額外的動作執行, 也就是每個月 ~ 80000000 個更多動作執行次數 | |
+| 基礎單位執行限制 | 當基礎結構容量達到 80% 時，系統節流 | 提供每分鐘 ~ 4000 個動作執行, 也就是每個月 ~ 160000000 個動作執行次數 | |
+| 縮放單位執行限制 | 當基礎結構容量達到 80% 時，系統節流 | 每個縮放單位可提供 ~ 2000 每分鐘額外的動作執行, 也就是每個月 ~ 80000000 個更多動作執行次數 | |
 | 可新增的縮放單位上限 | 10 | |
 ||||
 
 若要在正常處理中超出這些限制，或執行可能超出這些限制的負載測試，請[與 Logic Apps 小組連絡](mailto://logicappsemail@microsoft.com)來協助處理您的需求。
 
 > [!NOTE]
-> [開發人員 SKU](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#ise-level)沒有已發佈的限制, 因為此 sku 沒有任何服務等級協定 (SLA) 或相應增加的功能。 此 SKU 僅供實驗、開發和測試之用, 而不是實際執行或效能測試。
+> [開發人員 SKU](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#ise-level)沒有已發佈的限制，因為此 sku 沒有任何服務等級協定（SLA）或相應增加的功能。 此 SKU 僅供實驗、開發和測試之用，而不是實際執行或效能測試。
+
+<a name="gateway-limits"></a>
+
+## <a name="gateway-limits"></a>閘道限制
+
+Azure Logic Apps 透過閘道支援寫入作業，包括插入和更新。 不過，這些作業對[其裝載大小有限制](https://docs.microsoft.com/data-integration/gateway/service-gateway-onprem#considerations)。
 
 <a name="request-limits"></a>
 
@@ -188,8 +194,8 @@ ms.locfileid: "70242359"
 
   | ISE SKU | 整合帳戶限制 |
   |---------|----------------------------|
-  | **高級** | 總共5個[標準](../logic-apps/logic-apps-pricing.md#integration-accounts)帳戶, 包括一個免費的標準帳戶。 不允許免費或基本帳戶。 |
-  | **開發人員** | 5總計-[免費](../logic-apps/logic-apps-pricing.md#integration-accounts)(限制為1個帳戶) 和[標準](../logic-apps/logic-apps-pricing.md#integration-accounts)結合, 或所有標準帳戶。 不允許任何基本帳戶。 使用[開發人員 SKU](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#ise-level)進行實驗、開發和測試, 但不適用於生產或效能測試。 |
+  | **高級** | 總共5個[標準](../logic-apps/logic-apps-pricing.md#integration-accounts)帳戶，包括一個免費的標準帳戶。 不允許免費或基本帳戶。 |
+  | **開發人員** | 5總計-[免費](../logic-apps/logic-apps-pricing.md#integration-accounts)（限制為1個帳戶）和[標準](../logic-apps/logic-apps-pricing.md#integration-accounts)結合，或所有標準帳戶。 不允許任何基本帳戶。 使用[開發人員 SKU](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#ise-level)進行實驗、開發和測試，但不適用於生產或效能測試。 |
   |||
 
 當您新增的整合帳戶超出 ISE 隨附的整合帳戶時, 額外成本也適用。 若要瞭解 Ise 的定價和計費方式, 請參閱[Logic Apps 定價模式](../logic-apps/logic-apps-pricing.md#fixed-pricing)。 如需定價費率, 請參閱[Logic Apps 定價](https://azure.microsoft.com/pricing/details/logic-apps/)。
@@ -260,9 +266,9 @@ ms.locfileid: "70242359"
 
 相同區域中的所有邏輯應用程式都會使用相同的 IP 位址範圍。 若要支援您的邏輯應用程式直接以 [HTTP](../connectors/connectors-native-http.md)、[HTTP + Swagger](../connectors/connectors-native-http-swagger.md) 及其他 HTTP 要求進行的呼叫，請根據您邏輯應用程式的所在區域，使用 Logic Apps 服務使用的「所有」[輸入](#inbound)和[輸出](#outbound) IP 位址設定您的防火牆。 這些位址會出現在本節中的**輸入**和**輸出**標題底下，並且依照區域排序。 
 
-若要支援 [Microsoft 管理的連接器](../connectors/apis-list.md)所進行的呼叫，請根據您邏輯應用程式的所在區域，使用這些連接器使用的「所有」[輸出](#outbound) IP 位址設定您的防火牆。 這些位址會出現在本節中的**輸出**標題底下，並且依照區域排序。 針對在整合服務環境 (ISE) 中執行的邏輯應用程式, 請確定您已[開啟這些埠](../logic-apps/connect-virtual-network-vnet-isolated-environment.md#ports)。
+若要支援 [Microsoft 管理的連接器](../connectors/apis-list.md)所進行的呼叫，請根據您邏輯應用程式的所在區域，使用這些連接器使用的「所有」[輸出](#outbound) IP 位址設定您的防火牆。 這些位址會出現在本節中的**輸出**標題底下，並且依照區域排序。 針對在整合服務環境（ISE）中執行的邏輯應用程式，請確定您已[開啟這些埠](../logic-apps/connect-virtual-network-vnet-isolated-environment.md#ports)。
 
-若為自訂連接器、 [Azure Government](../azure-government/documentation-government-overview.md)和[Azure 中國世紀](https://docs.microsoft.com/azure/china/), 則無法使用固定或保留的 IP 位址。
+若為自訂連接器、 [Azure Government](../azure-government/documentation-government-overview.md)和[Azure 中國世紀](https://docs.microsoft.com/azure/china/)，則無法使用固定或保留的 IP 位址。
 
 > [!IMPORTANT]
 >
