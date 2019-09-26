@@ -4,12 +4,12 @@ ms.service: virtual-machines
 ms.topic: include
 ms.date: 01/27/2019
 ms.author: cynthn
-ms.openlocfilehash: ac400c86af8236ff5d67b8b6fbf99f6f4b1d36c9
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: 11c9b2ea3ea054415f25f864651df28288aa0025
+ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67173952"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71266835"
 ---
 您可以利用許多機會，藉由收集、檢視及分析診斷和記錄資料來監視 VM。 若要執行簡單的 VM [監視](../articles/azure-monitor/overview.md)，您可以在 Azure 入口網站中使用 VM 的 [概觀] 畫面。 您可以使用[擴充功能](../articles/virtual-machines/windows/extensions-features.md)來設定 VM 診斷，以收集其他計量資料。 您也可以使用更進階的監視選項，例如 [Application Insights](../articles/azure-monitor/app/app-insights-overview.md) 和 [Log Analytics](../articles/azure-monitor/log-query/log-query-overview.md)。
 
@@ -19,7 +19,7 @@ ms.locfileid: "67173952"
 
 - **觀察 VM 的基本計量。** 在 Azure 入口網站的 [概觀] 畫面上，顯示的基本計量包括 CPU 使用量、網路使用量、磁碟位元組總計，以及每秒的磁碟作業。
 
-- **啟用開機診斷的收集，並使用 Azure 入口網站進行檢視。** 將自己的映像送至 Azure 或甚至啟動其中一個平台映像時，VM 進入不可開機狀態的原因有很多。 在 [設定] 畫面的 [監視] 區段之下按一下 [啟用]  開機診斷，即可在建立 VM 時輕鬆地啟用開機診斷。
+- **啟用開機診斷的收集，並使用 Azure 入口網站進行檢視。** 將自己的映像送至 Azure 或甚至啟動其中一個平台映像時，VM 進入不可開機狀態的原因有很多。 在 [設定] 畫面的 [監視] 區段之下按一下 [啟用] 開機診斷，即可在建立 VM 時輕鬆地啟用開機診斷。
 
     當 VM 開機，開機診斷代理程式會擷取開機輸出，並儲存在 Azure 儲存體。 這項資料可以用於 VM 開機問題的疑難排解。 當您從命令列工具建立 VM 時，不會自動啟用開機診斷。 啟用開機診斷之前，需要建立儲存體帳戶用來儲存開機記錄。 如果您在 Azure 入口網站中啟用開機診斷，系統會自動為您建立儲存體帳戶。
 
@@ -54,12 +54,12 @@ ms.locfileid: "67173952"
 
 您也可以使用 [Azure PowerShell](https://docs.microsoft.com/powershell/module/azurerm.insights/)、[Azure CLI](https://docs.microsoft.com/cli/azure/monitor) 或[監視器 REST API](https://docs.microsoft.com/rest/api/monitor/)，存取活動記錄資料。
 
-[Azure 診斷記錄](../articles/azure-monitor/platform/diagnostic-logs-overview.md)是由 VM 發出的記錄，可提供有關其作業的豐富、經常性資料。 診斷記錄與活動記錄不同，前者可提供在 VM 內執行之作業的深入解析。
+[Azure 資源記錄](../articles/azure-monitor/platform/resource-logs-overview.md)是您的 VM 所發出的記錄，可提供有關其作業的豐富、經常性資料。 資源記錄與活動記錄的差異，在於提供在 VM 內執行之作業的深入解析。
 
 您可以利用診斷記錄進行的事項包括：
 
 - [將診斷記錄儲存到儲存體帳戶](../articles/azure-monitor/platform/archive-diagnostic-logs.md)以利稽核或手動檢查。 您可以使用 [資源診斷設定] 來指定保留時間 (以天為單位)。
-- [將診斷記錄串流至事件中樞](../articles/azure-monitor/platform/diagnostic-logs-stream-event-hubs.md)，以供第三方服務或自訂的分析解決方案 (如 PowerBI) 擷取。
+- [將診斷記錄串流至事件中樞](../articles/azure-monitor/platform/resource-logs-stream-event-hubs.md)，以供第三方服務或自訂的分析解決方案 (如 PowerBI) 擷取。
 - 使用 [Log Analytics](../articles/log-analytics/log-analytics-azure-storage.md) 分析診斷記錄。
 
 ## <a name="advanced-monitoring"></a>進階監視

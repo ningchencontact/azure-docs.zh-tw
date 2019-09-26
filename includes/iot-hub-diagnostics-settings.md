@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 02/20/2019
 ms.author: dobett
 ms.custom: include file
-ms.openlocfilehash: 3893b79cee96c3928897f64f3601ebe4c490ebdd
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: 2498711a5b7e5bce29cd0054ba40257f8f996d43
+ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67174087"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71266818"
 ---
 ### <a name="enable-logging-with-diagnostics-settings"></a>利用診斷設定啟用記錄
 
@@ -21,9 +21,9 @@ ms.locfileid: "67174087"
 
 1. 登入 [Azure 入口網站](https://portal.azure.com)，然後瀏覽至 IoT 中樞。
 
-2. 選取 [診斷設定]  。
+2. 選取 [診斷設定]。
 
-3. 選取 [開啟診斷]  。
+3. 選取 [開啟診斷]。
 
    ![開啟診斷](./media/iot-hub-diagnostics-settings/turnondiagnostics.png)
 
@@ -37,7 +37,7 @@ ms.locfileid: "67174087"
 
 6. 選擇您想要監視哪些作業，並啟用這些作業的記錄。 診斷設定可以報告的作業為：
 
-   * 連線
+   * 連接
    * 裝置遙測
    * 雲端到裝置的訊息
    * 裝置身分識別作業
@@ -50,7 +50,7 @@ ms.locfileid: "67174087"
    * 直接方法  
    * 分散式追蹤 (預覽)
    * 組態
-   * 裝置資料流
+   * 裝置串流
    * 裝置計量
 
 6. 儲存新設定。 
@@ -63,4 +63,4 @@ Select-AzSubscription -SubscriptionName <subscription that includes your IoT Hub
 Set-AzDiagnosticSetting -ResourceId <your resource Id> -ServiceBusRuleId <your service bus rule Id> -Enabled $true
 ```
 
-新的設定大約會在 10 分鐘內生效。 之後，記錄就會顯示在 [診斷設定]  刀鋒視窗上已設定的封存目標中。 如需有關設定診斷功能的詳細資訊，請參閱[收集並取用來自 Azure 資源的記錄資料](../articles/azure-monitor/platform/diagnostic-logs-overview.md)。
+新的設定大約會在 10 分鐘內生效。 之後，記錄就會顯示在 [診斷設定] 刀鋒視窗上已設定的封存目標中。 如需有關設定診斷功能的詳細資訊，請參閱[收集並取用來自 Azure 資源的記錄資料](../articles/azure-monitor/platform/resource-logs-overview.md)。
