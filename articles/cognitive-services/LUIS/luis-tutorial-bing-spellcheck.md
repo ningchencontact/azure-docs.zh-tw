@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 09/05/2019
+ms.date: 09/25/2019
 ms.author: diberry
-ms.openlocfilehash: 43cb2f0c3ef0f845afcd309dccb35bc632ffd324
-ms.sourcegitcommit: 88ae4396fec7ea56011f896a7c7c79af867c90a1
+ms.openlocfilehash: 3bde609c83425d660c867939e034247d7e6898c5
+ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70390958"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71300264"
 ---
 # <a name="correct-misspelled-words-with-bing-spell-check"></a>使用 Bing 拼字檢查更正拼錯的字組
 
@@ -89,7 +89,13 @@ LUIS 中有兩個地點可使用金鑰。 第一個是在[測試面板](luis-int
 ```
 
 ## <a name="ignore-spelling-mistakes"></a>忽略拼字錯誤
-如果您不想使用 Bing 拼字檢查 API v7 服務，您也可以標示有拼字錯誤的語句，以便 LUIS 學習正確的拼法及錯字。 相較於使用拼字檢查工具，此選項需要更多標記工作。
+
+如果您不想要使用 Bing 拼寫檢查 API v7 服務，則必須新增正確和不正確的拼寫。 
+
+有兩種解決方案：
+
+* 標籤範例語句，其中包含所有不同的拼寫，讓 LUIS 可以學習正確的拼寫及打字錯誤。 相較於使用拼字檢查工具，此選項需要更多標記工作。
+* 建立包含單字所有變化的片語清單。 透過此解決方案，您不需要在範例語句中標記單字變化。 
 
 ## <a name="publishing-page"></a>發佈頁面
 [發佈](luis-how-to-publish-app.md) 頁面具有 **啟用 Bing 拼字檢查工具** 核取方塊。 這方便於建立金鑰並理解如何變更端點 URL。 您仍然必須使用正確的端點參數，以便更正每個語句的拼字。 

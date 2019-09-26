@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/16/2019
+ms.date: 07/23/2019
 ms.author: mlottner
-ms.openlocfilehash: a794ccea13323f38b20906458e216f85652bfc3e
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: 3d9c5352a90d5bcacbaf27b7b62be61fc404e87a
+ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68596956"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71299498"
 ---
 # <a name="quickstart-onboard-azure-security-center-for-iot-service-in-iot-hub"></a>快速入門：在 IoT 中樞內讓適用於 IoT 的 Azure 資訊安全中心上線
 
@@ -37,19 +37,6 @@ ms.locfileid: "68596956"
   - 您可以選擇新增其他資訊類型 (**未經處理的事件**) 的儲存體。 請注意，在 Log Analytics 中儲存**未經處理的事件**會帶來額外的儲存體成本。 
 - IoT 中樞 (標準層)
 - 符合所有[服務必要條件](service-prerequisites.md) 
-
-|支援的 Azure 服務區域 | ||
-|---|---|---|
-| 美國中部 |美國東部 |美國東部 2 |
-| 美國中西部 |美國西部 |美國西部 2 |
-| 美國中南部|美國中北部 | 加拿大中部|
-| 加拿大東部| 北歐|巴西南部|
-| 法國中部| 英國西部|英國南部|
-|西歐|北歐| 日本西部|
-|日本東部 | 澳大利亞東南部|澳洲東部|
-|東亞| 東南亞| 南韓中部|
-|南韓南部| 印度中部| 印度南部|
-|
 
 ## <a name="enable-azure-security-center-for-iot-on-your-iot-hub"></a>在您的 IoT 中樞上啟用適用於 IoT 的 Azure 資訊安全中心 
 
