@@ -49,7 +49,7 @@ Azure IoT Edge 執行階段可在 IoT Edge 裝置上啟用自訂和雲端邏輯�
 
 * 在裝置上安裝和更新工作負載。
 * 在裝置上維護 Azure IoT Edge 安全性標準。
-* 確定 IoT Edge 模組一律執行中。
+* 確定 IoT Edge 模組始終在執行。
 * 將模組健康情況報告至雲端，以便進行遠端監控。
 * 管理下游分葉裝置與 IoT Edge 裝置之間、IoT Edge 裝置上的模組之間，以及 IoT Edge 裝置與雲端之間的通訊。
 

@@ -47,7 +47,7 @@ Application Insights 是以開發小組為目標，以協助您了解您的應�
 * **頁面檢視和載入效能** - 由使用者的瀏覽器報告。
 * 來自網頁的 **AJAX 呼叫** - 比率、回應時間和失敗率。
 * **使用者和工作階段計數**。
-* Windows 或 Linux 伺服器電腦中的**效能計數器**，例如 CPU、記憶體和網路使用量。 
+* 你的Windows 或 Linux 伺服器中的**效能計數器**，例如 CPU、記憶體和網路使用量。 
 * 來自 Docker 或 Azure 的**主機診斷**。 
 * 來自您應用程式的**診斷追蹤記錄** - 讓您使追蹤事件與要求相互關聯。
 * 您在用戶端或伺服器程式碼中自行撰寫的**自訂事件和計量**，可追蹤商業事件，例如售出的項目或獲勝的遊戲。
@@ -58,7 +58,7 @@ Application Insights 是以開發小組為目標，以協助您了解您的應�
 
 |  |  |
 | --- | --- |
-| [**智慧型偵測和手動警示**](../../azure-monitor/app/proactive-diagnostics.md)<br/>如果在常見模式之外發生一些狀況，則自動警示會適應您應用程式的一般遙測和觸發程式模式。 您也可以在自訂或標準計量的特定層級上[設定警示](../../azure-monitor/app/alerts.md)。 |![警示範例](./media/app-insights-overview/alerts-tn.png) |
+| [**智慧型偵測和手動警示**](../../azure-monitor/app/proactive-diagnostics.md)<br/>如果發生常見模式之外的一些狀況，則自動警示會適應您的應用程式在遙測和觸發下的正常模式。 您也可以在自訂或標準計量的特定層級上[設定警示](../../azure-monitor/app/alerts.md)。 |![警示範例](./media/app-insights-overview/alerts-tn.png) |
 | [**應用程式對應**](../../azure-monitor/app/app-map.md)<br/>應用程式的元件，包含重要計量和警示。 |![應用程式對應](./media/app-insights-overview/appmap-tn.png)  |
 | [**分析工具**](../../azure-monitor/app/profiler.md)<br/>檢查取樣要求的執行設定檔。 |![分析工具](./media/app-insights-overview/profiler.png) |
 | [**使用量分析**](../../azure-monitor/app/usage-overview.md)<br/>分析使用者區隔和保留期。|![保留期工具](./media/app-insights-overview/retention.png) |

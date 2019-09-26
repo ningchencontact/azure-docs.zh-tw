@@ -100,7 +100,7 @@ ms.locfileid: "71212290"
 4. 切換到 [SDK 工具]  索引標籤。如果您尚未安裝 Google Play Services，請選取 [Google Play Services]  ，如下圖所示。 然後選取 [套用]  來安裝。 請注意在稍後步驟中使用的 SDK 路徑。
 
     ![Android SDK Manager - 已選取 Google Play Services](./media/notification-hubs-android-studio-add-google-play-services/google-play-services-selected.png)
-3. 如果您看到 [確認變更]  對話方塊，請選取 [確定]  。 元件安裝程式會安裝要求的元件。 在安裝元件後選取 [完成]  。
+3. 如果您看到 [確認變更]  對話方塊，請選取 [確定]  。 元件安裝程式會安裝要求的元件。 在元件安裝完成後選取 [完成]  。
 4. 選取 [確定]  以關閉 [新專案的設定]  對話方塊。  
 1. 開啟 AndroidManifest.xml 檔案，然後在「應用程式」  標籤中新增下列標籤。
 

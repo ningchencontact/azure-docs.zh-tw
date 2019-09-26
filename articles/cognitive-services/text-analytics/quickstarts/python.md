@@ -138,7 +138,7 @@ pprint(languages)
 
 <a name="SentimentAnalysis"></a>
 
-## <a name="analyze-sentiment"></a>分析人氣
+## <a name="analyze-sentiment"></a>分析情感
 
 若要偵測一組文件的情感 (範圍介於正或負之間)，請將 `/text/analytics/v2.1/sentiment` 附加至文字分析基底端點，以形成語言偵測 URL。 例如：`https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v2.1/sentiment`
     
@@ -146,7 +146,7 @@ pprint(languages)
 sentiment_url = endpoint + "/text/analytics/v2.1/sentiment"
 ```
 
-如同語言偵測範例，建立具有 `documents` 索引鍵的字典，而該索引鍵是由文件清單所組成。 每份文件都是一個由 `id`、要分析的 `text`，以及文字的 `language` 所組成的 Tuple。 
+如同語言偵測範例，建立具有 `documents` 索引鍵的字典，而該索引鍵是由文件清單所組成。 每份文件都是一個由 `id`、要分析的 `text`，以及文字的 `language` 所組成的元組。 
 
 ```python
 documents = {"documents": [

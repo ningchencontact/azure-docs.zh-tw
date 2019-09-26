@@ -20,7 +20,7 @@ ms.locfileid: "71264460"
 在本教學課程 (七個章節的第一部分) 中，多容器應用程式已準備好用於 Kubernetes。 使用現有的開發工具 (例如 Docker Compose) 在本機建置和測試應用程式。 您會了解如何：
 
 > [!div class="checklist"]
-> * 從 GitHub 複製範例應用程式來源
+> * 從 GitHub 複製應用程式來源的範例
 > * 從範例應用程式來源建立容器映像
 > * 在本機 Docker 環境中測試多容器應用程式
 
@@ -40,9 +40,9 @@ Azure Cloud Shell 不含完成這些教學課程中各個步驟所需的 Docker 
 
 ## <a name="get-application-code"></a>取得應用程式程式碼
 
-本教學課程中使用的範例應用程式是基本投票應用程式。 應用程式是由前端 Web 元件和後端 Redis 執行個體所組成。 Web 元件會封裝至自訂容器映像。 Redis 執行個體會從 Docker Hub 使用未修改的映像。
+本教學課程中使用的應用程式的範例是基本投票應用程式。 應用程式是由前端 Web 元件和後端 Redis 執行個體所組成。 Web 元件會封裝至自訂容器映像。 Redis 執行個體會從 Docker Hub 使用未修改的映像。
 
-使用 [git][] 將範例應用程式複製到您的開發環境：
+使用 [git][] 將應用程式的範例複製到您的開發環境：
 
 ```console
 git clone https://github.com/Azure-Samples/azure-voting-app-redis.git
@@ -110,7 +110,7 @@ docker-compose down
 在本教學課程中，應用程式已經過測試並已建立應用程式的容器映像。 您已了解如何︰
 
 > [!div class="checklist"]
-> * 從 GitHub 複製範例應用程式來源
+> * 從 GitHub 複製應用程式來源的範例
 > * 從範例應用程式來源建立容器映像
 > * 在本機 Docker 環境中測試多容器應用程式
 

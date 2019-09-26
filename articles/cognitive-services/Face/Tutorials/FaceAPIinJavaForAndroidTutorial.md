@@ -71,7 +71,7 @@ GitHub 上的[認知服務臉部 Android](https://github.com/Azure-Samples/cogni
 
 ### <a name="try-the-app"></a>試用應用程式
 
-將 **onActivityResult** 方法中 **detectAndFrame** 的呼叫註解化。 然後，按下功能表上的 [執行]  來測試應用程式。 當應用程式開啟時，在模擬器或連線的裝置中，按一下底部的 [瀏覽]  。 裝置的檔案選取對話方塊應該會隨即出現。 選擇影像，並確認影像有顯示在視窗中。 然後，關閉應用程式，並進入下一個步驟。
+將 **onActivityResult** 方法中 **detectAndFrame** 的呼叫註解。 然後，按下功能表上的 [執行]  來測試應用程式。 當應用程式開啟時，在模擬器或連線的裝置中，按一下底部的 [瀏覽]  。 裝置的檔案選取對話方塊應該會隨即出現。 選擇影像，並確認影像有顯示在視窗中。 然後，關閉應用程式，並進入下一個步驟。
 
 ![相片中具有臉部的 Android 螢幕擷取畫面](../Images/android_getstarted1.1.PNG)
 
