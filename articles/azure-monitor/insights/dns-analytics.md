@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 03/20/2018
 ms.author: magoedte
-ms.openlocfilehash: 46045664e9ddeebc45c2dae7c1f0a9f6a0d6b004
-ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
+ms.openlocfilehash: ad61743751ace9ca0c7eba12ffcea5f15e1157d5
+ms.sourcegitcommit: 9fba13cdfce9d03d202ada4a764e574a51691dcd
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71265157"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71316189"
 ---
 # <a name="gather-insights-about-your-dns-infrastructure-with-the-dns-analytics-preview-solution"></a>收集搭配 DNS 分析預覽版解決方案使用 DNS 基礎結構的深入解析
 
@@ -180,9 +180,9 @@ DNS 圖格包含收集到的資料所在的 DNS 伺服器之數目。 它也包�
 
     ![DnsInventory 記錄搜尋](./media/dns-analytics/log-search-dnsinventory.png)
     
-### <a name="troubleshooting"></a>疑難排解
+## <a name="troubleshooting"></a>疑難排解
 
-Commopn 疑難排解步驟：
+常見的疑難排解步驟：
 
 1. 遺失 DNS 查閱資料-若要對此問題進行疑難排解，請嘗試重設設定，或只在入口網站中載入設定頁面一次。 若要重設，只要將設定變更為另一個值，然後將它變更回原始值，然後儲存 config 即可。
 

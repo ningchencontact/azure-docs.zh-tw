@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/23/2019
 ms.author: rkarlin
-ms.openlocfilehash: 7f209ef8bb8c492245b59374c33187dbbe763aa5
-ms.sourcegitcommit: 992e070a9f10bf43333c66a608428fcf9bddc130
+ms.openlocfilehash: 7f042cfe10bd8ca57d9a2dae511a13a82f053a67
+ms.sourcegitcommit: 9fba13cdfce9d03d202ada4a764e574a51691dcd
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71240484"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71316820"
 ---
 # <a name="on-board-azure-sentinel"></a>Azure Sentinel 的面板
 
@@ -37,7 +37,7 @@ ms.locfileid: "71240484"
 
 - 使用中的 Azure 訂用帳戶（如果您沒有的話），請在開始前建立[免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)。
 
-- Log Analytics 工作區。 瞭解如何[建立 Log Analytics 工作區](../log-analytics/log-analytics-quick-create-workspace.md)
+- Log Analytics 工作區。 了解如何[建立 Log Analytics 工作區](../log-analytics/log-analytics-quick-create-workspace.md)。 如需 Log Analytics 工作區的詳細資訊，請參閱[設計您的 Azure 監視器記錄部署](../azure-monitor/platform/design-logs-deployment.md)。
 
 -  若要啟用 Azure Sentinel，您需要 Azure Sentinel 工作區所在之訂用帳戶的參與者許可權。 
 - 若要使用 Azure Sentinel，您需要工作區所屬資源群組的「參與者」或「讀者」許可權。

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/13/2018
 ms.author: yegu
-ms.openlocfilehash: 602d77f3d4e8ed10c2c964462bc2dc21240cef5c
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: a919ccd2a23acf6e1bd04cda8a5dd18782ff31b0
+ms.sourcegitcommit: 9fba13cdfce9d03d202ada4a764e574a51691dcd
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60541326"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71315985"
 ---
 # <a name="how-to-configure-redis-clustering-for-a-premium-azure-cache-for-redis"></a>如何設定進階 Azure Redis 快取的 Redis 叢集功能
 「Azure Redis 快取」有不同的快取供應項目，可讓您彈性選擇快取大小和功能，包括叢集功能、持續性及虛擬網路支援等「進階」層功能。 本文說明如何在進階「Azure Redis 快取」執行個體中設定叢集功能。
@@ -39,7 +39,7 @@ ms.locfileid: "60541326"
 在 Azure 中，會以主要/複本模型形式提供 Redis 叢集，其中每個分區都有一個具複寫功能的主要/複本組，而複寫會由「Azure Redis 快取」服務管理。 
 
 ## <a name="clustering"></a>叢集
-啟用叢集功能時，是在快取建立期間於 [新的 Azure Redis 快取]  刀鋒視窗上啟用。 
+啟用叢集功能時，是在快取建立期間於 [新的 Azure Redis 快取] 刀鋒視窗上啟用。 
 
 [!INCLUDE [redis-cache-create](../../includes/redis-cache-premium-create.md)]
 
@@ -47,7 +47,7 @@ ms.locfileid: "60541326"
 
 ![叢集][redis-cache-clustering]
 
-叢集中最多可包含 10 個分區。 按一下 [啟用]  ，針對 [分區計數]  ，滑動滑桿或鍵入一個 1 到 10 之間的數字，然後按一下 [確定]  。
+叢集中最多可包含 10 個分區。 按一下 [啟用]，針對 [分區計數]，滑動滑桿或鍵入一個 1 到 10 之間的數字，然後按一下 [確定]。
 
 每個分區都是一個由 Azure 管理的主要/複本快取組，快取總大小的計算方式，是將分區數目乘以在定價層中選取的快取大小。 
 
@@ -66,7 +66,7 @@ ms.locfileid: "60541326"
 <a name="cluster-size"></a>
 
 ## <a name="change-the-cluster-size-on-a-running-premium-cache"></a>在執行中的進階快取上變更叢集大小
-若要變更已啟用叢集的執行中進階快取上的叢集大小，請從 [資源]  功能表中按一下 [Redis 叢集大小]  。
+若要變更已啟用叢集的執行中進階快取上的叢集大小，請從 [資源] 功能表中按一下 [Redis 叢集大小]。
 
 > [!NOTE]
 > 雖然「Azure Redis 快取」進階層已發行正式運作版，但「Redis 叢集大小」功能目前為預覽狀態。
@@ -75,7 +75,7 @@ ms.locfileid: "60541326"
 
 ![Redis 叢集大小][redis-cache-redis-cluster-size]
 
-若要變更叢集大小，請使用滑桿，或在 [分區計數]  文字方塊中輸入 1 到 10 之間的數字，然後按一下 [確定]  加以儲存。
+若要變更叢集大小，請使用滑桿，或在 [分區計數] 文字方塊中輸入 1 到 10 之間的數字，然後按一下 [確定] 加以儲存。
 
 增加叢集大小會增加最大輸送量和快取大小。 增加叢集大小不會增加用戶端可用的最大連線數目。
 
@@ -121,7 +121,7 @@ ms.locfileid: "60541326"
 如需搭配 StackExchange.Redis 用戶端使用叢集，並尋找相同分區中之金鑰的範例程式碼，請參閱 [Hello World](https://github.com/rustd/RedisSamples/tree/master/HelloWorld) 範例的 [clustering.cs](https://github.com/rustd/RedisSamples/blob/master/HelloWorld/Clustering.cs) 部分。
 
 ### <a name="what-is-the-largest-cache-size-i-can-create"></a>我可以建立的最大快取大小為何？
-最大的進階快取大小為 53 GB。 您最多可以建立 10 個分區，等於最大大小為 530 GB。 如果您需要較大的大小，可以 [要求更多](mailto:wapteams@microsoft.com?subject=Redis%20Cache%20quota%20increase)。 如需詳細資訊，請參閱 [Azure Redis 快取價格](https://azure.microsoft.com/pricing/details/cache/)。
+最大的 premium 快取大小為 120 GB。 您最多可以建立10個分區，讓您的大小上限為 1.2 TB GB。 如果您需要較大的大小，可以 [要求更多](mailto:wapteams@microsoft.com?subject=Redis%20Cache%20quota%20increase)。 如需詳細資訊，請參閱 [Azure Redis 快取價格](https://azure.microsoft.com/pricing/details/cache/)。
 
 ### <a name="do-all-redis-clients-support-clustering"></a>所有 Redis 用戶端都支援叢集嗎？
 現階段，並非所有用戶端都支援 Redis 叢集。 StackExchange.Redis 就是不支援的其中一例。 如需其他用戶端的詳細資訊，請參閱 [Redis 叢集教學課程](https://redis.io/topics/cluster-tutorial)的 [試用叢集](https://redis.io/topics/cluster-tutorial#playing-with-the-cluster)一節。 

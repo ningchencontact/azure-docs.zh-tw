@@ -13,34 +13,36 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/23/2019
+ms.date: 09/26/2019
 ms.author: mlottner
-ms.openlocfilehash: fdccf486cacabda4f363f4629a4d6daa4a00c8e4
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: 29add1cff184e234cd5dcc5050b94cdd50593731
+ms.sourcegitcommit: 9fba13cdfce9d03d202ada4a764e574a51691dcd
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68597165"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71315904"
 ---
-# <a name="introducing-azure-security-center-for-iot"></a>IoT Azure 資訊安全中心簡介
+# <a name="introducing-azure-security-center-for-iot"></a>適用於 IoT 的 Azure 資訊安全中心的簡介
 
-整合安全性管理, 並在混合式雲端工作負載和您的 Azure IoT 解決方案之間啟用端對端威脅偵測和分析。 
+整合安全性管理，並在混合式雲端工作負載和您的 Azure IoT 解決方案之間啟用端對端威脅偵測和分析。 
 
-## <a name="protect-iot-and-hybrid-cloud-workloads-against-evolving-cyber-attacks"></a>保護 IoT 和混合式雲端工作負載免于不斷進化的網路攻擊
+## <a name="secure-your-entire-iot-solution-from-iot-devices-to-azure-cloud"></a>保護從 IoT 裝置到 Azure 雲端的整個 IoT 解決方案。
 
-物聯網會快速地轉換我們的世界。 藉由從您的連線裝置和後端系統發掘見解, 您現在可以將這些深入解析轉換成功能強大的應用程式和服務, 以協助您的組織達到前所未有的營運和業務效能層級。 不過, 因為數十億個新裝置連線到網際網路, 並整合到我們的每日生活和我們的企業,您的安全性作業小組必須確保其安全性策略的發展速度, 足以涵蓋這些新的攻擊面。 就像任何其他系統一樣, 保護您的 IoT 解決方案在每個執行階段都需要保護。 
+從我們的無縫無代理程式解決方案中選擇，或利用以代理程式為基礎的全面安全性，IoT 的 Azure 資訊安全中心可針對您的 IoT 資產，為每個裝置、IoT Edge 和 IoT 中樞提供威脅防護和分析。
 
-適用于 IoT 的 Azure 資訊安全中心藉由在邊緣、內部部署、Azure 和其他環境中執行的工作負載, 提供統一的可見度和控制、彈性的威脅防護, 以及智慧型威脅偵測和回應, 來簡化混合式工作負載保護雲和. 
+隨著數十億個新裝置連線到網際網路，並整合到我們的日常生活和我們的企業，您的安全性作業小組必須確保其安全性策略的發展速度，足以涵蓋這些新的攻擊面。 就像任何其他系統一樣，保護您的 IoT 解決方案在每個執行階段都需要保護。 
 
-![IoT 架構的 Azure 資訊安全中心](./media/architecture/azure-iot-security-architecture.png)
+適用于 IoT 的 Azure 資訊安全中心藉由在邊緣、內部部署、Azure 和其他環境中執行的工作負載，提供統一的可見度和控制、彈性的威脅防護，以及智慧型威脅偵測和回應，來簡化混合式工作負載保護雲和. 
+
+![適用於 IoT 的 Azure 資訊安全中心架構](./media/architecture/azure-iot-security-architecture.png)
 
 ### <a name="unified-visibility-and-control"></a>統一的可見度和控制
 
-可讓您統一檢視跨內部部署和雲端所有工作負載的安全性，包括 Azure IoT 解決方案。 將新裝置上線, 並在您的工作負載 (分葉裝置、Microsoft Edge 裝置、IoT 中樞) 中套用安全性原則, 以確保符合安全性標準和改良的安全性狀態。
+可讓您統一檢視跨內部部署和雲端所有工作負載的安全性，包括 Azure IoT 解決方案。 將新裝置上線，並在您的工作負載（分葉裝置、Microsoft Edge 裝置、IoT 中樞）中套用安全性原則，以確保符合安全性標準和改良的安全性狀態。 
 
 ### <a name="adaptive-threat-prevention"></a>適應性威脅防護
 
-使用適用于 IoT 的 Azure 資訊安全中心, 持續監視機器、網路和 Azure 服務的安全性。 從數百個內建安全性評量中進行選擇, 或在 IoT 中樞儀表板的中央 Azure 資訊安全中心中建立您自己的安全性評定。 使用跨虛擬機器、網路、應用程式和資料的可操作建議, 將您的安全性設定優化並改善您的安全性分數。 透過新增的 IoT 功能, 您現在可以減少 Azure IoT 解決方案的受攻擊面, 並補救問題, 然後再加以利用。
+使用適用于 IoT 的 Azure 資訊安全中心，持續監視機器、網路和 Azure 服務的安全性。 從數百個內建安全性評量中進行選擇，或在 IoT 中樞儀表板的中央 Azure 資訊安全中心中建立您自己的安全性評定。 使用跨虛擬機器、網路、應用程式和資料的可操作建議，將您的安全性設定優化並改善您的安全性分數。 透過新增的 IoT 功能，您現在可以減少 Azure IoT 解決方案的受攻擊面，並補救問題，然後再加以利用。
 
 ### <a name="intelligent-threat-detection-and-response"></a>智慧型威脅偵測和回應
 
@@ -48,7 +50,7 @@ ms.locfileid: "68597165"
 
 ## <a name="next-steps"></a>後續步驟
 
-在此總覽中, 您已瞭解適用于 IoT 的 Azure 資訊安全中心功能和服務。 若要深入瞭解 IoT 架構的 Azure 資訊安全中心、必要條件, 並瞭解如何開始使用, 請參閱下列文章:
+在此總覽中，您已瞭解適用于 IoT 的 Azure 資訊安全中心功能和服務。 若要深入瞭解 IoT 架構的 Azure 資訊安全中心、必要條件，並瞭解如何開始使用，請參閱下列文章：
 
 - [架構](architecture.md)
 - [服務必要條件](service-prerequisites.md)

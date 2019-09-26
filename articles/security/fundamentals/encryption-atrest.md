@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/24/2019
+ms.date: 09/26/2019
 ms.author: barclayn
-ms.openlocfilehash: b506c6f6101e8c5ce71231a8178f70fa5a0914d8
-ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.openlocfilehash: 3b60a6da1e7961c7709bb0b19e91dc6f15a51a1c
+ms.sourcegitcommit: 9fba13cdfce9d03d202ada4a764e574a51691dcd
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71262813"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71316785"
 ---
 # <a name="azure-data-encryption-at-rest"></a>Azure 資料靜態加密
 
@@ -178,7 +178,7 @@ Azure Key Vault 中使用客戶管理之金鑰的伺服器端加密模型，需�
 - 客戶對於金鑰生命週期管理擁有完全責任
 - 安裝與設定的其他額外負荷
 
-#### <a name="server-side-encryption-using-service-managed-keys-in-customer-controlled-hardware"></a>在客戶控制的硬碟上，使用服務管理金鑰的伺服器端加密
+#### <a name="server-side-encryption-using-customer-managed-keys-in-customer-controlled-hardware"></a>在客戶控制的硬體中使用客戶管理的金鑰進行伺服器端加密
 
 某些 Azure 服務可允許「裝載您自己的金鑰」(HYOK) 金鑰管理模型。 當需要加密待用資料並在不受 Microsoft 控制的專屬存放庫中管理金鑰時，便適用此管理模式。 在此模型中，服務必須從外部網站擷取金鑰。 效能和可用性保證會受到影響，且設定會更為複雜。 此外，因為服務在加密和解密作業期間可存取 DEK，此模型的整體安全性保證會與在 Azure Key Vault 中由客戶管理金鑰時類似。  因此，此模型不適用於大部分的組織，除非組織有特定金鑰管理需求。 由於這些限制，大部分的 Azure 服務不支援在客戶所控制的硬體中使用伺服器管理金鑰的伺服器端加密。
 
@@ -273,7 +273,7 @@ Azure SQL Database 目前支援針對由 Microsoft 管理之服務端和用戶�
 | Azure 資料目錄               | 是                | -                  | -                  |
 | Azure HDInsight 上的 Apache Kafka  | 是                | 所有 RSA 長度。   | -                  |
 | Azure 資料總管              | 是                | -                  | -                  |
-| Azure Data Factory               | 是                | -                  | -                  |
+| Azure Data Factory               | 是                | 是                | -                  |
 | Azure Data Lake Store            | 是                | 是，RSA 2048 位元  | -                  |
 | **容器**                   |                    |                    |                    |
 | Azure Kubernetes Service         | 是                | -                  | -                  |

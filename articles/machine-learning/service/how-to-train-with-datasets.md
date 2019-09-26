@@ -10,21 +10,23 @@ ms.author: sihhu
 author: MayMSFT
 manager: cgronlun
 ms.reviewer: nibaccam
-ms.date: 09/16/2019
-ms.openlocfilehash: ceccc515b73bd41c7933889c61617c360c678eb7
-ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
+ms.date: 09/25/2019
+ms.openlocfilehash: 9ccc5f5721d1ddc8459918913a4f3ce707766dea
+ms.sourcegitcommit: 9fba13cdfce9d03d202ada4a764e574a51691dcd
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71059290"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71316701"
 ---
 # <a name="train-with-datasets-preview-in-azure-machine-learning"></a>在 Azure Machine Learning 中使用資料集（預覽）進行定型
 
 在本文中，您將瞭解在遠端實驗訓練執行中取用[Azure Machine Learning 資料集](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset%28class%29?view=azure-ml-py)的兩種方式，而不需擔心連接字串或資料路徑。
 
-- 選項 1：直接在定型腳本中傳遞資料集。
+- 選項 1：如果您有結構化資料，請建立 TabularDataset，並直接在定型腳本中使用它。
 
-- 選項 2：使用資料集將檔掛接或下載至遠端計算以進行定型。
+- 選項 2：如果您有非結構化資料，請建立 FileDataset，並將檔掛接或下載至遠端計算以進行訓練。
+
+Azure Machine Learning 資料集提供與 Azure Machine Learning 訓練產品（例如[ScriptRun](https://docs.microsoft.com/python/api/azureml-core/azureml.core.scriptrun?view=azure-ml-py)、[估計工具](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.estimator?view=azure-ml-py)和[HyperDrive](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.hyperdrive?view=azure-ml-py)）的完美整合。
 
 ## <a name="prerequisites"></a>必要條件
 
@@ -39,9 +41,9 @@ ms.locfileid: "71059290"
 > [!Note]
 > 某些資料集類別（預覽）在[dataprep](https://docs.microsoft.com/python/api/azureml-dataprep/?view=azure-ml-py)套件上具有相依性。 針對 Linux 使用者，只有下列散發版本才支援這些類別：Red Hat Enterprise Linux、Ubuntu、Fedora 和 CentOS。
 
-## <a name="option-1-pass-datasets-as-inputs-to-training-scripts"></a>選項 1：將資料集做為輸入傳遞至定型腳本
+## <a name="option-1-use-datasets-directly-in-training-scripts"></a>選項 1：直接在定型腳本中使用資料集
 
-Azure Machine Learning 資料集提供與 Azure Machine Learning 訓練產品（例如[ScriptRun](https://docs.microsoft.com/python/api/azureml-core/azureml.core.scriptrun?view=azure-ml-py)、[估計工具](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.estimator?view=azure-ml-py)和[HyperDrive](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.hyperdrive?view=azure-ml-py)）的完美整合。 在此範例中，您會建立[TabularDataset](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py) ，並使用它做為`estimator`物件的輸入以進行定型。 
+在此範例中，您會建立[TabularDataset](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py) ，並使用它做為`estimator`物件的直接輸入來進行定型。 
 
 ### <a name="create-a-tabulardataset"></a>建立 TabularDataset
 
@@ -52,6 +54,24 @@ from azureml.core.dataset import Dataset
 
 web_path ='https://dprepdata.blob.core.windows.net/demo/Titanic.csv'
 titanic_ds = Dataset.Tabular.from_delimited_files(path=web_path)
+```
+
+### <a name="access-the-input-dataset-in-your-training-script"></a>存取定型腳本中的輸入資料集
+
+TabularDataset 物件提供將資料載入 pandas 或 spark 資料框架的功能，讓您可以使用熟悉的資料準備和定型程式庫。 若要利用這項功能，您可以在定型設定中傳遞 TabularDataset 做為輸入，然後在您的腳本中加以取出。
+
+若要這麼做，請透過定型腳本中[`Run`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run.run?view=azure-ml-py)的物件存取輸入資料集，然後[`to_pandas_dataframe()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py#to-pandas-dataframe--)使用方法。 
+
+```Python
+%%writefile $script_folder/train_titanic.py
+
+from azureml.core import Dataset, Run
+
+run = Run.get_context()
+# get the input dataset by name
+dataset = run.input_datasets['titanic_ds']
+# load the TabularDataset to pandas DataFrame
+df = dataset.to_pandas_dataframe()
 ```
 
 ### <a name="configure-the-estimator"></a>設定估計工具
@@ -77,25 +97,6 @@ est = Estimator(source_directory=script_folder,
 # Submit the estimator as part of your experiment run
 experiment_run = experiment.submit(est)
 experiment_run.wait_for_completion(show_output=True)
-
-```
-
-### <a name="access-the-input-dataset-in-your-training-script"></a>存取定型腳本中的輸入資料集
-
-TabularDataset 物件提供將資料載入 pandas 或 spark 資料框架的功能，讓您可以使用熟悉的資料準備和定型程式庫。 若要利用這項功能，您可以在定型設定中傳遞 TabularDataset 做為輸入，然後在您的腳本中加以取出。
-
-若要這麼做，請透過定型腳本中[`Run`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run.run?view=azure-ml-py)的物件存取輸入資料集，然後[`to_pandas_dataframe()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py#to-pandas-dataframe--)使用方法。 
-
-```Python
-%%writefile $script_folder/train_titanic.py
-
-from azureml.core import Dataset, Run
-
-run = Run.get_context()
-# get the input dataset by name
-dataset = run.input_datasets['titanic']
-# load the TabularDataset to pandas DataFrame
-df = dataset.to_pandas_dataframe()
 ```
 
 ## <a name="option-2--mount-files-to-a-remote-compute-target"></a>選項 2：將檔案掛接到遠端計算目標
@@ -125,9 +126,9 @@ mnist_ds = Dataset.File.from_files(path = web_paths)
 
 ### <a name="configure-the-estimator"></a>設定估計工具
 
-除了透過估計工具中的`inputs`參數傳遞資料集，您也可以透過`script_params`引數傳遞資料集，並取得定型腳本中的資料路徑（掛接點）。 如此一來，您就可以避免從定型腳本 Azure Machine Learning SDK 的相依性。
+除了透過估計工具中的`inputs`參數傳遞資料集，您也可以透過`script_params`引數傳遞資料集，並取得定型腳本中的資料路徑（掛接點）。 如此一來，您就可以存取您的資料，並使用現有的定型腳本。
 
-[SKLearn](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.sklearn.sklearn?view=azure-ml-py)估計工具物件是用來提交 scikit-learn-學習實驗的執行。
+[SKLearn](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.sklearn.sklearn?view=azure-ml-py)估計工具物件是用來提交 scikit-learn-學習實驗的執行。 深入瞭解如何使用[SKlearn 估計工具](how-to-train-scikit-learn.md)進行訓練。
 
 ```Python
 from azureml.train.sklearn import SKLearn
@@ -187,10 +188,11 @@ y_test = load_data(y_test, True).reshape(-1)
 
 ## <a name="notebook-examples"></a>筆記本範例
 
-[範例筆記本](https://aka.ms/dataset-tutorial)會示範並擴充本文中的概念，例如，使用具有 ScriptRun 和[HyperdDrive](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training-with-deep-learning/train-hyperparameter-tune-deploy-with-keras/train-hyperparameter-tune-deploy-with-keras.ipynb)物件的資料集。
+[資料集筆記本](https://aka.ms/dataset-tutorial)會在本文中的概念上進行示範和擴充。 
 
 ## <a name="next-steps"></a>後續步驟
 
 * 使用 TabularDatasets[自動訓練機器學習模型](how-to-auto-train-remote.md)。
 
 * 使用 FileDatasets 將[影像分類模型定型](https://aka.ms/filedataset-samplenotebook)。
+

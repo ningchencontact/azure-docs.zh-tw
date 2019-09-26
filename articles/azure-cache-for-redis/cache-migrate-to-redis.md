@@ -14,12 +14,12 @@ ms.tgt_pltfrm: cache
 ms.workload: tbd
 ms.date: 05/30/2017
 ms.author: yegu
-ms.openlocfilehash: 116e54fd39af801cf8941a974da2b72c483097dc
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 05638e17c2f41806a5c8aa3e0c3020eae82bdb60
+ms.sourcegitcommit: 9fba13cdfce9d03d202ada4a764e574a51691dcd
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60830235"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71315960"
 ---
 # <a name="migrate-from-managed-cache-service-to-azure-cache-for-redis"></a>從受控快取服務移轉至 Azure Cache for Redis
 若想將使用 Azure 受控快取服務的應用程式移轉至 Azure Cache for Redis，您幾乎不需要變更應用程式就可達成，詳細情形取決於快取應用程式所使用的受控快取服務功能。 API 雖非完全相同，但卻極為類似，而且您現有使用受控快取服務來存取快取的程式碼，大多只需要略做變更即可重複使用。 本文說明如何對設定和應用程式進行必要的變更，以將受控快取服務應用程式移轉為使用 Azure Cache for Redis，並說明如何使用 Azure Cache for Redis 的某些功能，來實作受控快取服務快取的功能。
@@ -62,7 +62,7 @@ Microsoft Azure Cache for Redis 可在以下層級使用：
 
 * **基本** - 單一節點。 多種大小，最高為 53 GB。
 * **標準** – 兩個節點 (主要/從屬)。 多種大小，最高為 53 GB。 99.9% SLA。
-* **進階** – 兩個節點的主要/從屬，最多具有 10 個分區。 提供多種大小，範圍從 6 GB 到 530 GB。 所有「標準」層級的功能以及更多功能，可支援 [Redis 叢集](cache-how-to-premium-clustering.md)、[Redis 持續性](cache-how-to-premium-persistence.md)和 [Azure 虛擬網路](cache-how-to-premium-vnet.md)。 99.9% SLA。
+* **進階** – 兩個節點的主要/從屬，最多具有 10 個分區。 6 GB 到 1.2 TB 之間的多個大小。 所有「標準」層級的功能以及更多功能，可支援 [Redis 叢集](cache-how-to-premium-clustering.md)、[Redis 持續性](cache-how-to-premium-persistence.md)和 [Azure 虛擬網路](cache-how-to-premium-vnet.md)。 99.9% SLA。
 
 每一個階層都有不同的功能和價格。 本指南稍後將探討這些功能，如需定價的詳細資訊，請參閱 [快取定價詳細資料](https://azure.microsoft.com/pricing/details/cache/)。
 
@@ -80,7 +80,7 @@ Microsoft Azure Cache for Redis 可在以下層級使用：
 ### <a name="remove-the-managed-cache-service-configuration"></a>移除受控快取服務設定
 要將用戶端應用程式設定為使用 Azure Cache for Redis，必須先解除安裝受控快取服務 NuGet 套件，以移除現有受控快取服務組態和組件參考。
 
-若要解除安裝受控快取服務 NuGet 封裝，請在 [方案總管]  中的用戶端專案上按一下滑鼠右鍵，然後選擇 [管理 NuGet 封裝]  。 選取 [已安裝的封裝]  節點，然後在 [搜尋已安裝的封裝] 方塊中輸入 **WindowsAzure.Caching**。 選取 [Windows Azure 快取 (Windows Azure Cache)]   \(或 [Windows Azure 快取 (Windows Azure Caching)]   ，視 NuGet 封裝的版本而定)，按一下 [解除安裝]  ，然後按一下 [關閉]  。
+若要解除安裝受控快取服務 NuGet 封裝，請在 [方案總管] 中的用戶端專案上按一下滑鼠右鍵，然後選擇 [管理 NuGet 封裝]。 選取 [已安裝的封裝] 節點，然後在 [搜尋已安裝的封裝] 方塊中輸入 **WindowsAzure.Caching**。 選取 [Windows Azure 快取 (Windows Azure Cache)] \(或 [Windows Azure 快取 (Windows Azure Caching)]，視 NuGet 封裝的版本而定)，按一下 [解除安裝]，然後按一下 [關閉]。
 
 ![解除安裝 Azure 受控快取服務 NuGet 套件](./media/cache-migrate-to-redis/IC757666.jpg)
 
@@ -154,7 +154,7 @@ public static ConnectionMultiplexer Connection
 }
 ```
 
-快取端點、金鑰和連接埠可從快取執行個體的 [Azure Cache for Redis]  刀鋒視窗中取得。 如需詳細資訊，請參閱 [Azure Cache for Redis 屬性](cache-configure.md#properties)。
+快取端點、金鑰和連接埠可從快取執行個體的 [Azure Cache for Redis] 刀鋒視窗中取得。 如需詳細資訊，請參閱 [Azure Cache for Redis 屬性](cache-configure.md#properties)。
 
 在連線建立後，請呼叫 `ConnectionMultiplexer.GetDatabase` 方法以傳回對 Azure Cache for Redis 資料庫的參考。 透過 `GetDatabase` 方法傳回的物件是輕量型傳遞物件，而且不需要儲存。
 

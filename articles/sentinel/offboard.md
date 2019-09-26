@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/23/2019
+ms.date: 09/26/2019
 ms.author: rkarlin
-ms.openlocfilehash: f636fc9bab5ea77d11ac7944e7aa18cb0e402b8c
-ms.sourcegitcommit: 992e070a9f10bf43333c66a608428fcf9bddc130
+ms.openlocfilehash: d3b9284282a7ee14cde2461598c81e6dfdfd9f72
+ms.sourcegitcommit: 9fba13cdfce9d03d202ada4a764e574a51691dcd
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71240062"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71316752"
 ---
 # <a name="remove-azure-sentinel-from-your-tenant"></a>從您的租使用者移除 Azure Sentinel
 
@@ -38,7 +38,7 @@ ms.locfileid: "71240062"
 3.  在頁面頂端，選取 [**刪除**]。
 
     > [!IMPORTANT]
-    > 如果您刪除工作區，則會從 Azure 監視器的租使用者中移除工作區和 Azure Sentinel。
+    > 如果您刪除工作區，工作區和 Azure Sentinel 會從 Azure 監視器中的租使用者中移除。
 
     ![刪除 SecurityInsights 解決方案](media/offboard/delete-solution.png)
 
