@@ -9,12 +9,12 @@ ms.custom: mvc
 ms.service: iot-accelerators
 services: iot-accelerators
 manager: timlt
-ms.openlocfilehash: d9dd3ff2f24660404a1ab0440668c4d4da1e7319
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 1a27d748e16f892a748cf18569c13ca3f9ead1dd
+ms.sourcegitcommit: 0486aba120c284157dfebbdaf6e23e038c8a5a15
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67080522"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71309506"
 ---
 # <a name="what-are-azure-iot-solution-accelerators"></a>Azure IoT 解決方案加速器是什麼？
 
@@ -85,7 +85,7 @@ IoT 解決方案加速器是完整且可立即部署的 IoT 解決方案，可�
 | 連線的處理站      | MVC           | [.NET](https://github.com/Azure/azure-iot-connected-factory)          |
 | 裝置模擬      | 微服務 | [.NET](https://github.com/Azure/device-simulation-dotnet)          |
 
-若要深入了解微服務架構，請參閱 [Azure IoT 參考架構簡介](iot-accelerators-architecture-overview.md)。
+若要深入了解微服務架構，請參閱 [Azure IoT 參考架構簡介](https://docs.microsoft.com/azure/architecture/reference-architectures/iot/)。
 
 ## <a name="deployment-options"></a>部署選項
 
