@@ -5,14 +5,14 @@ services: terraform
 author: neilpeterson
 ms.service: azure
 ms.topic: quickstart
-ms.date: 02/04/2019
+ms.date: 09/20/2019
 ms.author: nepeters
-ms.openlocfilehash: 57ab3fbc584932cb7d08bda76530bbe95ce61a6f
-ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
+ms.openlocfilehash: c53f3a31b46f00d3207cd8f47dcfbfa131c03666
+ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68699076"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71173512"
 ---
 # <a name="create-a-terraform-configuration-for-azure"></a>建立 Azure 的 Terraform 組態
 
@@ -24,7 +24,7 @@ ms.locfileid: "68699076"
 
 選取 [立即試用]  以開啟 Azure Cloud Shell。 開啟之後，請輸入 `code .` 以開啟 Cloud Shell 程式碼編輯器。
 
-```azurecli-interactive
+```bash
 code .
 ```
 
@@ -34,7 +34,7 @@ code .
 
 完成之後，請將檔案儲存為 `main.tf`。 此作業可使用程式碼編輯器右上方的省略符號來完成。
 
-```azurecli-interactive
+```hcl
 resource "azurerm_resource_group" "vote-resource-group" {
   name     = "vote-resource-group"
   location = "westus"
@@ -67,7 +67,7 @@ resource "azurerm_cosmosdb_account" "vote-cosmos-db" {
 
 [terraform init](https://www.terraform.io/docs/commands/init.html) 命令會初始化工作目錄。 在 Cloud Shell 終端機中執行 `terraform init`，以準備部署新組態。
 
-```azurecli-interactive
+```bash
 terraform init
 ```
 
@@ -75,13 +75,13 @@ terraform init
 
 執行 `terraform plan` 以測試新的 Terraform 組態。
 
-```azurecli-interactive
+```bash
 terraform plan --out plan.out
 ```
 
 使用 [terraform apply](https://www.terraform.io/docs/commands/apply.html) 並指定計劃檔案的名稱，以套用組態。 此命令會在您的 Azure 訂用帳戶中部署資源。
 
-```azurecli-interactive
+```bash
 terraform apply plan.out
 ```
 
@@ -98,7 +98,7 @@ terraform apply plan.out
 
 該組態也包含一個輸出區塊，此區塊會傳回容器執行個體的完整網域名稱 (FQDN)。
 
-```azurecli-interactive
+```hcl
 resource "azurerm_container_group" "vote-aci" {
   name                = "vote-aci"
   location            = "${azurerm_resource_group.vote-resource-group.location}"
@@ -134,13 +134,13 @@ output "dns" {
 
 執行 `terraform plan` 以建立更新的計劃，並將要進行的變更視覺化。 您應會看到一項 Azure 容器執行個體資源已新增至組態。
 
-```azurecli-interactive
+```bash
 terraform plan --out plan.out
 ```
 
 最後，執行 `terraform apply` 以套用組態。
 
-```azurecli-interactive
+```bash
 terraform apply plan.out
 ```
 
@@ -156,7 +156,7 @@ terraform apply plan.out
 
 完成之後，可以使用 [terraform destroy](https://www.terraform.io/docs/commands/destroy.html) 命令將 Azure 資源和資源群組移除。
 
-```azurecli-interactive
+```bash
 terraform destroy -auto-approve
 ```
 

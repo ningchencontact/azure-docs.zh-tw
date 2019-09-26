@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 09/11/2019
 ms.author: raynew
-ms.openlocfilehash: 47914a635afe754cb4205a1e089622a69b706b51
-ms.sourcegitcommit: d70c74e11fa95f70077620b4613bb35d9bf78484
+ms.openlocfilehash: cb46acf3f54b5955ba8542adf73b7ca896f20c28
+ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70910447"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71266398"
 ---
 # <a name="support-matrix-for-disaster-recovery--of-vmware-vms-and-physical-servers-to-azure"></a>從 VMware VM 和實體伺服器至 Azure 之災害復原的支援矩陣
 
@@ -193,6 +193,7 @@ Docker 磁碟設定 | 否
 客體/伺服器 - 排除磁碟 | 是
 客體/伺服器多重路徑 (MPIO) | 否
 來賓/伺服器 GPT 磁碟分割 | [更新彙總套件 37](https://support.microsoft.com/help/4508614/) （行動服務版本9.25）支援五個磁碟分割。 先前只支援四個。
+ReFS | 行動服務9.23 版或更高版本支援復原檔案系統
 來賓/伺服器 EFI/UEFI 開機 | -當您執行行動服務9.13 版或更新版本時支援。<br/> -在將執行 Windows Server 2012 或更新版本的 VMware Vm 或實體伺服器遷移至 Azure 時支援。<br/> -您只能複寫 Vm 以進行遷移。 不支援容錯回復至內部部署。<br/> -僅支援 NTFS <br/> -不支援安全 UEFI 開機類型。 <br/> -磁片磁區大小應為每個實體磁區512個位元組。
 
 ## <a name="replication-channels"></a>複寫通道

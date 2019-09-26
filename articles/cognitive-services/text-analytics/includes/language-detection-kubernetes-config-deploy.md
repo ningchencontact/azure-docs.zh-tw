@@ -7,18 +7,18 @@ author: IEvangelist
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 08/21/2019
+ms.date: 09/19/2019
 ms.author: dapine
-ms.openlocfilehash: 2593f07ac30df77936c56785956b9e906ef683be
-ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
+ms.openlocfilehash: e3051a72a115e711a99ecd68756967e2cef0cc04
+ms.sourcegitcommit: 2ed6e731ffc614f1691f1578ed26a67de46ed9c2
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/27/2019
-ms.locfileid: "70052122"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71130047"
 ---
-## <a name="deploy-the-language-detection-container-to-an-aks-cluster"></a>將語言偵測容器部署至 AKS 叢集
+### <a name="deploy-the-language-detection-container-to-an-aks-cluster"></a>將語言偵測容器部署至 AKS 叢集
 
-1. 開啟 Azure CLI, 然後登入 Azure。
+1. 開啟 Azure CLI，然後登入 Azure。
 
     ```azurecli
     az login
@@ -30,14 +30,14 @@ ms.locfileid: "70052122"
     az aks get-credentials -n your-cluster-name -g -your-resource-group
     ```
 
-    執行此命令之後, 它會報告類似下列的訊息:
+    執行此命令之後，它會報告類似下列的訊息：
 
     ```console
     Merged "your-cluster-name" as current context in /home/username/.kube/config
     ```
 
     > [!WARNING]
-    > 如果您的 Azure 帳戶有多個可用的訂用帳戶, `az aks get-credentials`且該命令傳回錯誤, 則常見的問題是您使用了錯誤的訂閱。 將 Azure CLI 會話的內容設定為使用您用來建立資源的相同訂用帳戶, 然後再試一次。
+    > 如果您的 Azure 帳戶有多個可用的訂用帳戶， `az aks get-credentials`且該命令傳回錯誤，則常見的問題是您使用了錯誤的訂閱。 將 Azure CLI 會話的內容設定為使用您用來建立資源的相同訂用帳戶，然後再試一次。
     > ```azurecli
     >  az account set -s subscription-id
     > ```
@@ -48,7 +48,7 @@ ms.locfileid: "70052122"
     code .
     ```
 
-1. 在文字編輯器中, 建立名為*language. yaml*的新檔案, 並將下列 yaml 貼入其中。 請務必將和`billing/value` `apikey/value`取代為您自己的資訊。
+1. 在文字編輯器中，建立名為*language. yaml*的新檔案，並將下列 yaml 貼入其中。 請務必將和`billing/value` `apikey/value`取代為您自己的資訊。
 
     ```yaml
     apiVersion: apps/v1beta1
@@ -87,39 +87,39 @@ ms.locfileid: "70052122"
         app: language-app
     ```
 
-1. 儲存檔案, 然後關閉文字編輯器。
-1. 以 yaml 檔案`apply`作為目標來執行 Kubernetes 命令:
+1. 儲存檔案，然後關閉文字編輯器。
+1. 以 yaml 檔案`apply`作為目標來執行 Kubernetes 命令：
 
     ```console
     kuberctl apply -f language.yaml
     ```
 
-    命令成功套用部署設定後, 會出現類似下列輸出的訊息:
+    命令成功套用部署設定後，會出現類似下列輸出的訊息：
 
     ```console
     deployment.apps "language" created
     service "language" created
     ```
-1. 確認已部署 pod:
+1. 確認已部署 pod：
 
     ```console
     kubectl get pods
     ```
 
-    Pod 執行狀態的輸出:
+    Pod 執行狀態的輸出：
 
     ```console
     NAME                         READY     STATUS    RESTARTS   AGE
     language-5c9ccdf575-mf6k5   1/1       Running   0          1m
     ```
 
-1. 確認服務可供使用, 並取得 IP 位址。
+1. 確認服務可供使用，並取得 IP 位址。
 
     ```console
     kubectl get services
     ```
 
-    Pod 中*語言*服務執行狀態的輸出:
+    Pod 中*語言*服務執行狀態的輸出：
 
     ```console
     NAME         TYPE           CLUSTER-IP    EXTERNAL-IP      PORT(S)          AGE

@@ -11,25 +11,27 @@ ms.topic: conceptual
 ms.date: 09/18/2019
 ms.author: dapine
 ms.custom: seodec18
-ms.openlocfilehash: d3a36615109383074833e9af634eb611fb863339
-ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
+ms.openlocfilehash: 97a9b6c60539191850e8205eed4387565b79f6db
+ms.sourcegitcommit: 2ed6e731ffc614f1691f1578ed26a67de46ed9c2
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71103658"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71129887"
 ---
-# <a name="install-and-run-recognize-text-containers"></a>安裝及執行辨識文字容器
+# <a name="install-and-run-computer-vision-containers"></a>安裝並執行電腦視覺容器
 
-電腦視覺的辨識文字部分也能以 Docker 容器的形式取得。 您可以使用它來從不同表面和背景的各種物件影像 (如收據、海報和名片)，偵測及擷取印刷文字。
+容器可讓您在自己的環境中執行電腦視覺 Api。 容器非常適合用於特定的安全性和資料控管需求。 在本文中，您將瞭解如何下載、安裝及執行電腦視覺容器。
+
+電腦視覺可以使用兩個 Docker 容器：*辨識文字*並*讀取*。 *辨識文字*容器可讓您從具有不同表面和背景的各種物件影像中偵測及解壓縮*印刷文字*，例如收據、海報和名片。 不過，*讀取*容器。也會偵測影像中的*手寫文字*，並提供 PDF/TIFF/多頁支援。 如需詳細資訊，請參閱[讀取 API](concept-recognizing-text.md#read-api)檔。
 
 > [!IMPORTANT]
-> 辨識文字容器目前只適用於英文。
+> 辨識文字容器會被取代為讀取容器。 讀取容器是其前身「辨識文字」容器的超集合，取用者應該使用「讀取」容器進行遷移。 這兩個容器僅適用于英文。
 
 如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 。
 
 ## <a name="prerequisites"></a>必要條件
 
-使用辨識文字容器之前，您必須符合下列必要條件：
+使用容器之前，您必須符合下列必要條件：
 
 |必要項|用途|
 |--|--|
@@ -43,6 +45,8 @@ ms.locfileid: "71103658"
 
 [!INCLUDE [Request access to public preview](../../../includes/cognitive-services-containers-request-access.md)]
 
+[!INCLUDE [Gathering required parameters](../containers/includes/container-gathering-required-parameters.md)]
+
 ### <a name="the-host-computer"></a>主機電腦
 
 [!INCLUDE [Host Computer requirements](../../../includes/cognitive-services-containers-host-computer.md)]
@@ -53,20 +57,43 @@ ms.locfileid: "71103658"
 
 ## <a name="get-the-container-image-with-docker-pull"></a>使用 `docker pull` 取得容器映像
 
-「辨識文字」適用的容器映像可供使用。 
+# <a name="readtabread"></a>[讀取](#tab/read)
 
-| 容器 | 存放庫 |
+有可供讀取的容器映射。
+
+| 容器 | Container Registry/存放庫/映射名稱 |
 |-----------|------------|
-|辨識文字 | `containerpreview.azurecr.io/microsoft/cognitive-services-recognize-text:latest` |
+| 閱讀 | `containerpreview.azurecr.io/microsoft/cognitive-services-read:latest` |
+
+# <a name="recognize-texttabrecognize-text"></a>[辨識文字](#tab/recognize-text)
+
+「辨識文字」適用的容器映像可供使用。
+
+| 容器 | Container Registry/存放庫/映射名稱 |
+|-----------|------------|
+| 辨識文字 | `containerpreview.azurecr.io/microsoft/cognitive-services-recognize-text:latest` |
+
+***
 
 使用 [`docker pull`](https://docs.docker.com/engine/reference/commandline/pull/) 命令下載容器映像。
 
+# <a name="readtabread"></a>[讀取](#tab/read)
+
+### <a name="docker-pull-for-the-read-container"></a>讀取容器的 Docker pull
+
+```bash
+docker pull containerpreview.azurecr.io/microsoft/cognitive-services-read:latest
+```
+
+# <a name="recognize-texttabrecognize-text"></a>[辨識文字](#tab/recognize-text)
 
 ### <a name="docker-pull-for-the-recognize-text-container"></a>辨識文字容器的 Docker Pull
 
-```
+```bash
 docker pull containerpreview.azurecr.io/microsoft/cognitive-services-recognize-text:latest
 ```
+
+***
 
 [!INCLUDE [Tip for using docker list](../../../includes/cognitive-services-containers-docker-list-tip.md)]
 
@@ -83,8 +110,27 @@ docker pull containerpreview.azurecr.io/microsoft/cognitive-services-recognize-t
 
 命令的[範例](computer-vision-resource-container-config.md#example-docker-run-commands)可供使用。`docker run`
 
+# <a name="readtabread"></a>[讀取](#tab/read)
+
 ```bash
-docker run --rm -it -p 5000:5000 --memory 4g --cpus 1 \
+docker run --rm -it -p 5000:5000 --memory 16g --cpus 8 \
+containerpreview.azurecr.io/microsoft/cognitive-services-read \
+Eula=accept \
+Billing={ENDPOINT_URI} \
+ApiKey={API_KEY}
+```
+
+此命令：
+
+* 從容器映射執行讀取容器。
+* 配置8個 CPU 核心和 16 gb 的記憶體。
+* 公開 TCP 埠5000，並為容器配置虛擬 TTY。
+* 在容器結束之後自動將其移除。 容器映像仍可在主機電腦上使用。
+
+# <a name="recognize-texttabrecognize-text"></a>[辨識文字](#tab/recognize-text)
+
+```bash
+docker run --rm -it -p 5000:5000 --memory 16g --cpus 8 \
 containerpreview.azurecr.io/microsoft/cognitive-services-recognize-text \
 Eula=accept \
 Billing={ENDPOINT_URI} \
@@ -93,10 +139,12 @@ ApiKey={API_KEY}
 
 此命令：
 
-* 從容器映像執行辨識容器
-* 配置一個 CPU 核心和 4 GB 的記憶體
-* 公開 TCP 連接埠 5000，並為容器配置虛擬 TTY
-* 在容器結束之後自動將其移除。 容器映像仍可在主機電腦上使用。 
+* 從容器映射執行辨識文字容器。
+* 配置8個 CPU 核心和 16 gb 的記憶體。
+* 公開 TCP 埠5000，並為容器配置虛擬 TTY。
+* 在容器結束之後自動將其移除。 容器映像仍可在主機電腦上使用。
+
+***
 
 `docker run` 命令有相關[範例](./computer-vision-resource-container-config.md#example-docker-run-commands)可供參考。 
 
@@ -105,12 +153,179 @@ ApiKey={API_KEY}
 
 [!INCLUDE [Running multiple containers on the same host](../../../includes/cognitive-services-containers-run-multiple-same-host.md)]
 
+<!--  ## Validate container is running -->
+
+[!INCLUDE [Container's API documentation](../../../includes/cognitive-services-containers-api-documentation.md)]
 
 ## <a name="query-the-containers-prediction-endpoint"></a>查詢容器的預測端點
 
 容器會提供以 REST 為基礎的查詢預測端點 API。 
 
 針對容器 API 請使用主機 `http://localhost:5000`。
+
+# <a name="readtabread"></a>[讀取](#tab/read)
+
+### <a name="asynchronous-read"></a>非同步讀取
+
+您可以使用`POST /vision/v2.0/read/core/asyncBatchAnalyze`和`GET /vision/v2.0/read/operations/{operationId}`作業，以非同步方式讀取影像，類似于電腦視覺服務使用這些對應 REST 作業的方式。 非同步 POST 方法會`operationId`傳回，做為 HTTP GET 要求的識別碼使用。
+
+從 swagger UI 中，選取`asyncBatchAnalyze`以在瀏覽器中展開。 然後選取 [**試試** > 看] **[選擇**檔案]。 在此範例中，我們將使用下列影像：
+
+![索引標籤與空格](media/tabs-vs-spaces.png)
+
+當非同步 POST 順利執行時，它會傳回**HTTP 202**狀態碼。 作為回應的一部分，有一個`operation-location`標頭會保存要求的結果端點。
+
+```http
+ content-length: 0
+ date: Fri, 13 Sep 2019 16:23:01 GMT
+ operation-location: http://localhost:5000/vision/v2.0/read/operations/a527d445-8a74-4482-8cb3-c98a65ec7ef9
+ server: Kestrel
+```
+
+`operation-location`是完整的 URL，並可透過 HTTP GET 來存取。 以下是從上一個影像執行`operation-location` URL 的 JSON 回應：
+
+```json
+{
+  "status": "Succeeded",
+  "recognitionResults": [
+    {
+      "page": 1,
+      "clockwiseOrientation": 2.42,
+      "width": 502,
+      "height": 252,
+      "unit": "pixel",
+      "lines": [
+        {
+          "boundingBox": [
+            56,
+            39,
+            317,
+            50,
+            313,
+            134,
+            53,
+            123
+          ],
+          "text": "Tabs VS",
+          "words": [
+            {
+              "boundingBox": [
+                90,
+                43,
+                243,
+                53,
+                243,
+                123,
+                94,
+                125
+              ],
+              "text": "Tabs",
+              "confidence": "Low"
+            },
+            {
+              "boundingBox": [
+                259,
+                55,
+                313,
+                62,
+                313,
+                122,
+                259,
+                123
+              ],
+              "text": "VS"
+            }
+          ]
+        },
+        {
+          "boundingBox": [
+            221,
+            148,
+            417,
+            146,
+            417,
+            206,
+            227,
+            218
+          ],
+          "text": "Spaces",
+          "words": [
+            {
+              "boundingBox": [
+                230,
+                148,
+                416,
+                141,
+                419,
+                211,
+                232,
+                218
+              ],
+              "text": "Spaces"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
+```
+
+### <a name="synchronous-read"></a>同步讀取
+
+您可以使用`POST /vision/v2.0/read/core/Analyze`作業來同步讀取影像。 當影像完整讀取時，只有，API 才會傳回 JSON 回應。 唯一的例外狀況是如果發生錯誤。 當發生錯誤時，會傳回下列 JSON：
+
+```json
+{
+    status: "Failed"
+}
+```
+
+JSON 回應物件與非同步版本具有相同的物件圖形。 如果您是 JavaScript 使用者，而且想要型別安全，可以使用下列類型，將 JSON 回應轉換為`AnalyzeResult`物件。
+
+```typescript
+export interface AnalyzeResult {
+    status: Status;
+    recognitionResults?: RecognitionResult[] | null;
+}
+
+export enum Status {
+    NotStarted = 0,
+    Running = 1,
+    Failed = 2,
+    Succeeded = 3
+}
+
+export enum Unit {
+    Pixel = 0,
+    Inch = 1
+}
+
+export interface RecognitionResult {
+    page?: number | null;
+    clockwiseOrientation?: number | null;
+    width?: number | null;
+    height?: number | null;
+    unit?: Unit | null;
+    lines?: Line[] | null;
+}
+
+export interface Line {
+    boundingBox?: number[] | null;
+    text: string;
+    words?: Word[] | null;
+}
+
+export interface Word {
+  boundingBox?: number[] | null;
+  text: string;
+  confidence?: string | null;
+}
+```
+
+如需使用案例範例，請參閱[這裡的 TypeScript 沙箱](https://aka.ms/ts-read-api-types)，然後選取 [執行] 以視覺化其便於使用。
+
+# <a name="recognize-texttabrecognize-text"></a>[辨識文字](#tab/recognize-text)
 
 ### <a name="asynchronous-text-recognition"></a>非同步文字辨識
 
@@ -120,10 +335,7 @@ ApiKey={API_KEY}
 
 您可以使用 `POST /vision/v2.0/recognizeTextDirect` 作業同步地辨識影像中的印刷文字。 因為這項作業是同步的，所以此作業的要求主體與作業相同`POST /vision/v2.0/recognizeText` ，但此作業的回應主體與作業所傳回`GET /vision/v2.0/textOperations/*{id}*`的相同。
 
-<!--  ## Validate container is running -->
-
-[!INCLUDE [Container's API documentation](../../../includes/cognitive-services-containers-api-documentation.md)]
-
+***
 
 ## <a name="stop-the-container"></a>停止容器
 
@@ -133,10 +345,9 @@ ApiKey={API_KEY}
 
 如果您在啟用輸出[掛接](./computer-vision-resource-container-config.md#mount-settings)和記錄的情況下執行容器，容器將會產生記錄檔，有助於排解在啟動或執行容器時所發生的問題。 
 
-
 ## <a name="billing"></a>帳務
 
-辨識文字容器會使用您 Azure 帳戶上的_辨識文字_資源傳送計費資訊至 Azure。 
+認知服務容器會使用您 Azure 帳戶上的對應資源，將帳單資訊傳送至 Azure。
 
 [!INCLUDE [Container's Billing Settings](../../../includes/cognitive-services-containers-how-to-billing-info.md)]
 
@@ -148,12 +359,12 @@ ApiKey={API_KEY}
 
 ## <a name="summary"></a>總結
 
-在本文中，您已了解下載、安裝及執行辨識文字容器的概念和工作流程。 摘要說明：
+在本文中，您已了解下載、安裝及執行電腦視覺容器的概念和工作流程。 摘要說明：
 
-* 辨識文字提供 Docker 適用的 Linux 容器，以封裝辨識文字。
-* 容器映像可從 Azure 中的 Microsoft Container Registry (MCR) 下載取得。
+* 電腦視覺提供適用于 Docker 的 Linux 容器，並封裝辨識文字和讀取。
+* 容器映射是從 Azure 中的「容器預覽」容器登錄下載。
 * 容器映像是在 Docker 中執行。
-* 您可以指定容器的主機 URI，來使用 REST API 或 SDK 呼叫辨識文字容器中的作業。
+* 您可以藉由指定容器的主機 URI，使用 REST API 或 SDK 來呼叫辨識文字或讀取容器中的作業。
 * 將容器具現化時，您必須指定帳單資訊。
 
 > [!IMPORTANT]
@@ -162,7 +373,7 @@ ApiKey={API_KEY}
 ## <a name="next-steps"></a>後續步驟
 
 * 檢閱[設定容器](computer-vision-resource-container-config.md)以了解組態設定
-* 檢閱[電腦視覺概觀](Home.md)，以深入了解辨識印刷和手寫的文字  
+* 檢閱[電腦視覺概觀](Home.md)，以深入了解辨識印刷和手寫的文字
 * 參閱[電腦視覺 API](//westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa)，以取得容器支援的方法之詳細資訊。
 * 參閱[常見問題集 (FAQ)](FAQ.md) 來解決與電腦視覺功能相關的問題。
 * 使用更多[認知服務容器](../cognitive-services-container-support.md)

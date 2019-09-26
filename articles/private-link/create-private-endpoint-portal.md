@@ -7,12 +7,12 @@ ms.service: private-link
 ms.topic: quickstart
 ms.date: 09/16/2019
 ms.author: kumud
-ms.openlocfilehash: 2b7ad95dc652f2099af75308f05ddd0684e088aa
-ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
+ms.openlocfilehash: 15b4d3208be693a5b8d858d30b663347515f5a68
+ms.sourcegitcommit: 2ed6e731ffc614f1691f1578ed26a67de46ed9c2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71104739"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71130295"
 ---
 # <a name="create-a-private-endpoint-using-azure-portal"></a>使用 Azure 入口網站建立私人端點
 
@@ -199,6 +199,7 @@ ms.locfileid: "71104739"
 ## <a name="access-the-sql-database-server-privately-from-the-vm"></a>從 VM 私下存取 SQL 資料庫伺服器
 
 1. 在 myVM ** 的遠端桌面中，開啟 PowerShell。
+
 2. 輸入  `nslookup myserver.database.windows.net`。 
 
     您將收到如下訊息：

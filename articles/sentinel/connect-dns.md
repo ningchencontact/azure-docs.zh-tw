@@ -13,18 +13,20 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/23/2019
+ms.date: 09/24/2019
 ms.author: rkarlin
-ms.openlocfilehash: dd5442ff8c8d296dfa221a9ea7ed8d5833fd89c1
-ms.sourcegitcommit: 992e070a9f10bf43333c66a608428fcf9bddc130
+ms.openlocfilehash: c5e58f496176ec0f1b8317c8b862a8ef2ffa434d
+ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71240718"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71262721"
 ---
-# <a name="connect-your-domain-name-server---preview"></a>連接您的功能變數名稱伺服器-預覽
+# <a name="connect-your-domain-name-server"></a>連接您的功能變數名稱伺服器
 
-
+> [!IMPORTANT]
+> Azure Sentinel 中的 DNS 資料連線器目前處於公開預覽狀態。
+> 這項功能是在沒有服務等級協定的情況下提供，不建議用於生產工作負載。 可能不支援特定功能，或可能已經限制功能。 如需詳細資訊，請參閱 [Microsoft Azure 預覽版增補使用條款](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)。
 
 您可以將在 Windows 上執行的任何功能變數名稱伺服器（DNS）連接到 Azure Sentinel。 這是藉由在 DNS 機器上安裝代理程式來完成。 使用 DNS 記錄，您可以從 DNS 伺服器收集、分析及相互關聯分析和審核記錄以及其他相關資料，以取得組織 DNS 基礎結構的安全性、效能和操作相關的深入解析。
 
@@ -53,7 +55,7 @@ ms.locfileid: "71240718"
 
 ## <a name="connect-your-dns-appliance"></a>連接您的 DNS 應用裝置
 
-1. 在 Azure Sentinel 入口網站中，選取 [**資料連線器**]，然後選擇 [ **DNS** ] 磚。
+1. 在 Azure Sentinel 入口網站中，選取 [**資料連線器**]，然後選擇 [ **DNS （預覽）** ] 磚。
 1. 如果您的 DNS 機器位於 Azure：
     1. 按一下 [**在 Azure Windows 虛擬機器上安裝代理程式**]。
     1. 在 [**虛擬機器**] 清單中，選取您想要串流至 AZURE SENTINEL 的 DNS 機器。 請確定這是 Windows VM。

@@ -10,12 +10,12 @@ ms.service: cognitive-services
 ms.topic: article
 ms.date: 8/21/2019
 ms.author: dapine
-ms.openlocfilehash: 88d140c4890492b6a53c2e73328ab814293550e6
-ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
+ms.openlocfilehash: eac9264a98c6224af56618e439a1cd3f00f7157c
+ms.sourcegitcommit: b03516d245c90bca8ffac59eb1db522a098fb5e4
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/14/2019
-ms.locfileid: "70994944"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71146825"
 ---
 # <a name="container-support-in-azure-cognitive-services"></a>Azure 認知服務中的容器支援
 
@@ -49,6 +49,7 @@ Azure 認知服務容器能提供下列 Docker 容器集合，每個容器都包
 | 服務 | 支援的定價層 | 容器 | 描述 |
 |---------|----------|----------|-------------|
 |[異常偵測器][ad-containers] |F0，S0|**異常-偵測器** |Anomaly Detector API 可讓您透過機器學習，監視和偵測時間序列資料中的異常狀況。<br>[要求存取](https://aka.ms/adcontainer)|
+|[電腦視覺][cv-containers] |F0，S1|**讀取** |從具不同表面和背景之各種物件 (例如收據、海報和名片) 的影像擷取印刷文字。 讀取容器也會偵測影像中的*手寫文字*，並提供 PDF/TIFF/多頁支援。<br/><br/>**重要事項：** 讀取容器目前僅適用于英文。<br>[要求存取](Computer-vision/computer-vision-how-to-install-containers.md#request-access-to-the-private-container-registry)|
 |[電腦視覺][cv-containers] |F0，S1|**辨識文字** |從具不同表面和背景之各種物件 (例如收據、海報和名片) 的影像擷取印刷文字。<br/><br/>**重要事項：** 辨識文字容器目前只適用於英文。<br>[要求存取](Computer-vision/computer-vision-how-to-install-containers.md#request-access-to-the-private-container-registry)|
 |[臉部][fa-containers] |F0，S0|**臉部** |能偵測影像中的人臉並識別其特性，包括臉部特徵點 (例如鼻子和眼睛)、性別、年齡及其他機器預測的臉部容貌。 除了偵測以外，臉部也可以使用信賴分數檢查相同或不同影像中的兩張臉是否相同，或將臉部向資料庫進行比對，看看是否有樣貌相似或相同的臉部。 它也能夠使用共同視覺特徵，將相似臉部分組。<br>[要求存取](Face/face-how-to-install-containers.md#request-access-to-the-private-container-registry) |
 |[表單辨識器][fr-containers] |F0，S0|**表單辨識器** |表單理解會套用機器學習技術，以識別並從表單中解壓縮索引鍵/值組和資料表。<br>[要求存取](https://aka.ms/FormRecognizerContainerRequestAccess)|

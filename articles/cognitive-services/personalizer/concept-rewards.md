@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: personalizer
 ms.topic: conceptual
-ms.date: 06/07/2019
+ms.date: 09/19/2019
 ms.author: diberry
-ms.openlocfilehash: 72c425a1ec9fb83cc2e9dd1bae2c4f521109f162
-ms.sourcegitcommit: e3b0fb00b27e6d2696acf0b73c6ba05b74efcd85
+ms.openlocfilehash: bb9a9c1d67e52c21d2cb039832d27547a023da9f
+ms.sourcegitcommit: 116bc6a75e501b7bba85e750b336f2af4ad29f5a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68663382"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71154672"
 ---
 # <a name="reward-scores-indicate-success-of-personalization"></a>獎勵分數表示個人化的成就
 
@@ -25,7 +25,7 @@ ms.locfileid: "68663382"
 
 ## <a name="use-reward-api-to-send-reward-score-to-personalizer"></a>使用獎勵 API 將獎勵分數傳送給個人化工具
 
-獎勵會藉由[獎勵 API](https://docs.microsoft.com/rest/api/cognitiveservices/personalizer/events/reward) 來傳送給個人化工具。 獎勵是介於 -1 和 1 之間的數字。 個人化工具會訓練模型，以盡可能在一段時間後達到最高的獎勵總和。
+獎勵會藉由[獎勵 API](https://docs.microsoft.com/rest/api/cognitiveservices/personalizer/events/reward) 來傳送給個人化工具。 「報酬」（報酬）通常是0和1之間的數位。 在某些情況下，可能會有值為-1 的負值報酬，而且只有在您有經驗的增強式 learning （RL）時才應該使用。 個人化工具會訓練模型，以盡可能在一段時間後達到最高的獎勵總和。
 
 獎勵會在使用者行為發生後傳送，而這有可能是幾天後。 個人化工具最多會等到事件已被認定沒有獎勵為止，或是 Azure 入口網站中的[獎勵等候時間](#reward-wait-time)已設定預設獎勵。
 
@@ -56,7 +56,7 @@ ms.locfileid: "68663382"
 
 ## <a name="building-up-rewards-with-multiple-factors"></a>建置具有多個因素的獎勵  
 
-為了達到有效的個人化，您可以根據多個因素來建置獎勵分數 (-1 和 1 之間的任何數字)。 
+如需有效的個人化，您可以根據多個因素來建立報酬分數。 
 
 例如，您可以套用這些規則來個人化影片內容清單：
 
@@ -80,7 +80,7 @@ ms.locfileid: "68663382"
 
 所有在**獎勵等候時間**後收到的事件獎勵都會遭到捨棄，但不會影響模型訓練。
 
-藉由加總獎勵分數，您最終的獎勵可能會高於 1 或小於 -1。 這並不會造成服務失敗。
+藉由增加報酬分數，您的最終報酬可能會超出預期的分數範圍。 這並不會造成服務失敗。
 
 <!--
 @edjez - is the number ignored if it is outside the acceptable range?
@@ -88,9 +88,9 @@ ms.locfileid: "68663382"
 
 ## <a name="best-practices-for-calculating-reward-score"></a>計算獎勵分數的最佳做法
 
-* **考量成功個人化的真實指標**：從點擊數來思考很容易，但良好的獎勵應建立在您希望使用者「達成」  什麼，而不是您希望人們「做」  什麼。  例如，點擊數的奬勵可能會導致人們選取偏向點擊誘餌的內容。
+* **考量成功個人化的真實指標**：從點擊數來思考很容易，但良好的獎勵應建立在您希望使用者「達成」什麼，而不是您希望人們「做」什麼。  例如，點擊數的奬勵可能會導致人們選取偏向點擊誘餌的內容。
 
-* **針對個人化的成效使用獎勵分數**：個人化電影建議很可能會讓使用者觀看電影，並給予高評等。 由於電影評等可能取決於許多因素 (演出品質和使用者的心情等)，所以對於「個人化」  成效來說，這不是很好的獎勵指標。 使用者觀賞電影的前幾分鐘片段反而是更好的個人化成效指標，而且在 5 分鐘後傳送獎勵分數 1 會是更好的指標。
+* **針對個人化的成效使用獎勵分數**：個人化電影建議很可能會讓使用者觀看電影，並給予高評等。 由於電影評等可能取決於許多因素 (演出品質和使用者的心情等)，所以對於「個人化」成效來說，這不是很好的獎勵指標。 使用者觀賞電影的前幾分鐘片段反而是更好的個人化成效指標，而且在 5 分鐘後傳送獎勵分數 1 會是更好的指標。
 
 * **只將獎勵套用到 RewardActionID**：個人化工具會套用獎勵來了解 RewardActionID 中指定動作的效用。 如果您選擇顯示其他動作，而且使用者按了這些動作，則獎勵應為零。
 

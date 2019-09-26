@@ -7,18 +7,18 @@ author: IEvangelist
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 08/21/2019
+ms.date: 09/19/2019
 ms.author: dapine
-ms.openlocfilehash: 5d16500b45cbc6190186835d0c793a48fd121bd0
-ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
+ms.openlocfilehash: f1c571e421dccad366abf403de350b07113e04ba
+ms.sourcegitcommit: 2ed6e731ffc614f1691f1578ed26a67de46ed9c2
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/27/2019
-ms.locfileid: "70052114"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71130036"
 ---
-## <a name="deploy-the-sentiment-analysis-container-to-an-aks-cluster"></a>將情感分析容器部署至 AKS 叢集
+### <a name="deploy-the-sentiment-analysis-container-to-an-aks-cluster"></a>將情感分析容器部署至 AKS 叢集
 
-1. 開啟 Azure CLI, 然後登入 Azure。
+1. 開啟 Azure CLI，然後登入 Azure。
 
     ```azurecli
     az login
@@ -30,14 +30,14 @@ ms.locfileid: "70052114"
     az aks get-credentials -n your-cluster-name -g -your-resource-group
     ```
 
-    執行此命令之後, 它會報告類似下列的訊息:
+    執行此命令之後，它會報告類似下列的訊息：
 
     ```console
     Merged "your-cluster-name" as current context in /home/username/.kube/config
     ```
 
     > [!WARNING]
-    > 如果您的 Azure 帳戶有多個可用的訂用帳戶, `az aks get-credentials`且該命令傳回錯誤, 則常見的問題是您使用了錯誤的訂閱。 將 Azure CLI 會話的內容設定為使用您用來建立資源的相同訂用帳戶, 然後再試一次。
+    > 如果您的 Azure 帳戶有多個可用的訂用帳戶， `az aks get-credentials`且該命令傳回錯誤，則常見的問題是您使用了錯誤的訂閱。 將 Azure CLI 會話的內容設定為使用您用來建立資源的相同訂用帳戶，然後再試一次。
     > ```azurecli
     >  az account set -s subscription-id
     > ```
@@ -48,7 +48,7 @@ ms.locfileid: "70052114"
     code .
     ```
 
-1. 在文字編輯器中, 建立名為*情感*的新檔案, 並在其中貼上下列 yaml。 請務必將和`billing/value` `apikey/value`取代為您自己的資訊。
+1. 在文字編輯器中，建立名為*情感*的新檔案，並在其中貼上下列 yaml。 請務必將和`billing/value` `apikey/value`取代為您自己的資訊。
 
     ```yaml
     apiVersion: apps/v1beta1
@@ -87,39 +87,39 @@ ms.locfileid: "70052114"
         app: sentiment-app
     ```
 
-1. 儲存檔案, 然後關閉文字編輯器。
-1. 以`apply` *情感. yaml*檔案作為目標來執行 Kubernetes 命令:
+1. 儲存檔案，然後關閉文字編輯器。
+1. 以`apply` *情感. yaml*檔案作為目標來執行 Kubernetes 命令：
 
     ```console
     kuberctl apply -f sentiment.yaml
     ```
 
-    命令成功套用部署設定後, 會出現類似下列輸出的訊息:
+    命令成功套用部署設定後，會出現類似下列輸出的訊息：
 
     ```console
     deployment.apps "sentiment" created
     service "sentiment" created
     ```
-1. 確認已部署 pod:
+1. 確認已部署 pod：
 
     ```console
     kubectl get pods
     ```
 
-    Pod 執行狀態的輸出:
+    Pod 執行狀態的輸出：
 
     ```console
     NAME                         READY     STATUS    RESTARTS   AGE
     sentiment-5c9ccdf575-mf6k5   1/1       Running   0          1m
     ```
 
-1. 確認服務可供使用, 並取得 IP 位址。
+1. 確認服務可供使用，並取得 IP 位址。
 
     ```console
     kubectl get services
     ```
 
-    Pod 中*情感*服務執行狀態的輸出:
+    Pod 中*情感*服務執行狀態的輸出：
 
     ```console
     NAME         TYPE           CLUSTER-IP    EXTERNAL-IP      PORT(S)          AGE

@@ -5,16 +5,15 @@ manager: nitinme
 author: HeidiSteen
 services: search
 ms.service: search
-ms.subservice: cognitive-search
 ms.topic: quickstart
 ms.date: 09/10/2019
 ms.author: heidist
-ms.openlocfilehash: ff32be5410876d1ba61b3bce2fd5f57868745e50
-ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
+ms.openlocfilehash: 11c58a891a730c57aae3500911741623dde5d51b
+ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70881099"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71265892"
 ---
 # <a name="quickstart-create-an-ai-enrichment-pipeline-using-cognitive-skills-in-azure-search"></a>快速入門：使用 Azure 搜尋服務中的認知技能，建立 AI 擴充管道
 
@@ -37,7 +36,7 @@ Azure 搜尋服務會與[認知服務](https://azure.microsoft.com/services/cogn
 >
 > 內建技能的執行會依現有的[認知服務預付型方案價格](https://azure.microsoft.com/pricing/details/cognitive-services/)收費。 影像擷取定價如 [Azure 搜尋服務價格頁面](https://go.microsoft.com/fwlink/?linkid=2042400)上所描述。
 
-如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 。
+如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)。
 
 ## <a name="prerequisites"></a>必要條件
 
@@ -77,7 +76,7 @@ Azure 搜尋服務會與[認知服務](https://azure.microsoft.com/services/cogn
 
 接著，將擴充步驟新增至管線。 如果您沒有認知服務資源，可以註冊免費版，其可提供您每天 20 筆交易。 範例資料包含 14 個檔案，因此您一旦執行此精靈，就幾乎用盡每日配置。
 
-1. 展開 [附加認知服務]  以檢視認知服務 API 的資源處理選項。 針對此教學課程的目的，您可以使用**免費**資源。
+1. 展開 [附加認知服務]  以檢視認知服務 API 的資源處理選項。 針對本教學課程的目的，您可以使用**免費**資源。
 
    ![附加認知服務](media/cognitive-search-quickstart-blob/cog-search-attach.png)
 

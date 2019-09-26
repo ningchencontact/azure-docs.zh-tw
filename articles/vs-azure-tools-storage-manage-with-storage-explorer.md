@@ -8,12 +8,12 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 04/22/2019
 ms.author: cawa
-ms.openlocfilehash: 2b923a381be9d6cdb1a83f582a541c9e17e117a4
-ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
+ms.openlocfilehash: 43e76b9331eb8dbe95265810b9191a10d4caee08
+ms.sourcegitcommit: a6718e2b0251b50f1228b1e13a42bb65e7bf7ee2
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71086638"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71272015"
 ---
 # <a name="get-started-with-storage-explorer"></a>開始使用儲存體總管
 
@@ -79,7 +79,7 @@ Gz 安裝可能適用于其他散發套件，但僅正式支援這些發行版�
 ### <a name="sign-in-to-azure"></a>登入 Azure
 
 > [!NOTE]
-> 若要在登入之後完整存取資源，儲存體總管需要管理（Azure Resource Manager）和資料層許可權。 這表示您需要 Azure Active Directory （Azure AD）許可權，這可讓您存取儲存體帳戶、帳戶中的容器，以及容器中的資料。 如果您只有資料層的許可權，請考慮[透過 Azure AD 新增資源](#add-a-resource-via-azure-ad)。 如需儲存體總管需要之特定許可權的詳細資訊，請參閱[疑難排解指南](https://docs.microsoft.com/azure/storage/common/storage-explorer-troubleshooting?tabs=1804#role-based-access-control-permission-issues)。
+> 若要在登入之後完整存取資源，儲存體總管需要管理（Azure Resource Manager）和資料層許可權。 這表示您需要 Azure Active Directory （Azure AD）許可權，這可讓您存取儲存體帳戶、帳戶中的容器，以及容器中的資料。 如果您只有資料層的許可權，請考慮[透過 Azure AD 新增資源](#add-a-resource-via-azure-ad)。 如需儲存體總管需要之特定許可權的詳細資訊，請參閱[疑難排解指南](https://docs.microsoft.com/azure/storage/common/storage-explorer-troubleshooting#rbac-permissions-issues)。
 
 1. 在儲存體總管中，選取 [**管理帳戶**] 以移至 [帳戶管理] 面板。
 

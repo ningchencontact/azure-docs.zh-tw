@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: conceptual
 ms.date: 06/04/2019
 ms.author: swmachan
-ms.openlocfilehash: e6771a0d72592f1952853642ceea196b02774ada
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: be9c06d45da4d83c26f82343c9cb7b19ba19b4ae
+ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68595302"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71257630"
 ---
 # <a name="customize-your-text-translations"></a>自訂文字翻譯
 
@@ -27,9 +27,9 @@ Microsoft 自訂翻譯工具是 Microsoft 翻譯工具服務的功能，可讓�
 
 利用自訂翻譯工具，您可以建置類神經翻譯系統，以了解您自己的企業和產業中使用的術語。 然後，自訂的翻譯系統會整合到現有的應用程式、工作流程和網站。
 
-### <a name="how-does-it-work"></a>其運作方式為何?
+### <a name="how-does-it-work"></a>運作方式
 
-使用您之前翻譯的文件 (傳單、網頁、文件等) 來建置反映特定領域術語和樣式的翻譯系統，比一般翻譯系統更好。 使用者可以上傳 TMX、XLIFF、TXT、DOCX 和 XLSX 文件。  
+使用您先前翻譯的檔（傳單、網頁、檔等）來建立轉譯系統，以反映您領域專屬的術語和樣式，優於標準翻譯系統。 使用者可以上傳 TMX、XLIFF、TXT、DOCX 和 XLSX 文件。  
 
 系統也接受在文件層級上為平行處理、但在句子層級上尚未對齊的資料。 若使用者可以存取使用多種語言、但位於在不同文件中的相同內容版本，自訂翻譯工具就能夠自動比對文件之間的句子。  系統還可以使用其中一或二種語言的單語資料，補充平行訓練資料來改善翻譯。
 

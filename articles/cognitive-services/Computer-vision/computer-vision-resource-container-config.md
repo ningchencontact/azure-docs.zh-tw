@@ -11,16 +11,16 @@ ms.topic: conceptual
 ms.date: 09/18/2019
 ms.author: dapine
 ms.custom: seodec18
-ms.openlocfilehash: 186f2f60aad15b336265114d7c85c757e0dd333f
-ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
+ms.openlocfilehash: aba846ade9e2b5e19304df87ea3e29713aacf4ba
+ms.sourcegitcommit: 2ed6e731ffc614f1691f1578ed26a67de46ed9c2
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71102294"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71129973"
 ---
-# <a name="configure-recognize-text-docker-containers"></a>設定辨識文字 Docker 容器
+# <a name="configure-computer-vision-docker-containers"></a>設定電腦視覺 Docker 容器
 
-**辨識文字**容器執行階段環境可使用 `docker run` 命令引數來設定。 此容器有數個必要的設定，和一些選擇性的設定。 命令有相關[範例](#example-docker-run-commands)可供參考。 容器專屬設定包括計費設定。 
+您可以使用`docker run`命令引數來設定電腦視覺容器的執行時間環境。 此容器有數個必要的設定，和一些選擇性的設定。 命令有相關[範例](#example-docker-run-commands)可供參考。 容器專屬設定包括計費設定。 
 
 ## <a name="configuration-settings"></a>組態設定
 
@@ -63,9 +63,9 @@ ms.locfileid: "71102294"
 
 [!INCLUDE [Container shared configuration fluentd settings](../../../includes/cognitive-services-containers-configuration-shared-settings-fluentd.md)]
 
-## <a name="http-proxy-credentials-settings"></a>HTTP Proxy 認證設定
+## <a name="http-proxy-credentials-settings"></a>HTTP proxy 認證設定
 
-[!INCLUDE [Container shared configuration fluentd settings](../../../includes/cognitive-services-containers-configuration-shared-settings-http-proxy.md)]
+[!INCLUDE [Container shared configuration HTTP proxy settings](../../../includes/cognitive-services-containers-configuration-shared-settings-http-proxy.md)]
 
 ## <a name="logging-settings"></a>記錄設定
  
@@ -84,14 +84,12 @@ ms.locfileid: "71102294"
 |不允許| `Input` | String | 電腦視覺容器不會使用此項目。|
 |選擇性| `Output` | String | 輸出裝載的目標。 預設值為 `/output`。 這是記錄的位置。 這包括容器記錄。 <br><br>範例：<br>`--mount type=bind,src=c:\output,target=/output`|
 
-## <a name="example-docker-run-commands"></a>範例 docker run 命令 
+## <a name="example-docker-run-commands"></a>範例 docker run 命令
 
 下列範例會使用組態設定來說明如何撰寫和使用 `docker run` 命令。  開始執行後，容器就會持續執行，直到您加以[停止](computer-vision-how-to-install-containers.md#stop-the-container)。
 
 * **行接續字元**：以下幾節的 Docker 命令會使用反斜線 `\` 作為行接續字元。 請根據您主機作業系統的需求加以替換或移除。 
 * **引數順序**：若非十分熟悉 Docker 容器，請勿變更引數的順序。
-
-請記得將`vision/v1.0`路由新增至端點 URI，如下表所示。 
 
 請將 {_argument_name_} 取代為您自己的值：
 
@@ -104,17 +102,19 @@ ms.locfileid: "71102294"
 
 > [!IMPORTANT]
 > 必須指定 `Eula`、`Billing` 及 `ApiKey` 選項以執行容器，否則容器將不會啟動。  如需詳細資訊，請參閱[帳單](computer-vision-how-to-install-containers.md#billing)。
-> ApiKey 值是 [Azure `Cognitive Services`資源金鑰] 頁面中的金鑰。 
+> ApiKey 值是 [Azure `Cognitive Services`資源金鑰] 頁面中的金鑰。
 
-## <a name="recognize-text-container-docker-examples"></a>辨識文字容器 Docker 範例
+## <a name="container-docker-examples"></a>容器 Docker 範例
 
-以下是辨識文字容器的 Docker 範例。 
+#### <a name="readtabread"></a>[讀取](#tab/read)
 
-### <a name="basic-example"></a>基本範例 
+下列是讀取容器的 Docker 範例。
+
+### <a name="basic-example"></a>基本範例
 
   ```
-  docker run --rm -it -p 5000:5000 --memory 4g --cpus 1 \
-  containerpreview.azurecr.io/microsoft/cognitive-services-recognize-text \
+  docker run --rm -it -p 5000:5000 --memory 16g --cpus 8 \
+  containerpreview.azurecr.io/microsoft/cognitive-services-read \
   Eula=accept \
   Billing={ENDPOINT_URI} \
   ApiKey={API_KEY} 
@@ -123,7 +123,32 @@ ms.locfileid: "71102294"
 ### <a name="logging-example"></a>記錄範例 
 
   ```
-  docker run --rm -it -p 5000:5000 --memory 4g --cpus 1 \
+  docker run --rm -it -p 5000:5000 --memory 16g --cpus 8 \
+  containerpreview.azurecr.io/microsoft/cognitive-services-read \
+  Eula=accept \
+  Billing={ENDPOINT_URI} \
+  ApiKey={API_KEY} \
+  Logging:Console:LogLevel:Default=Information
+  ```
+
+#### <a name="recognize-texttabrecognize-text"></a>[辨識文字](#tab/recognize-text)
+
+下列是辨識文字容器的 Docker 範例。
+
+### <a name="basic-example"></a>基本範例
+
+  ```
+  docker run --rm -it -p 5000:5000 --memory 16g --cpus 8 \
+  containerpreview.azurecr.io/microsoft/cognitive-services-recognize-text \
+  Eula=accept \
+  Billing={ENDPOINT_URI} \
+  ApiKey={API_KEY} 
+  ```
+
+### <a name="logging-example"></a>記錄範例
+
+  ```
+  docker run --rm -it -p 5000:5000 --memory 16g --cpus 8 \
   containerpreview.azurecr.io/microsoft/cognitive-services-recognize-text \
   Eula=accept \
   Billing={ENDPOINT_URI} \
@@ -131,6 +156,8 @@ ms.locfileid: "71102294"
   Logging:Console:LogLevel:Default=Information
   ```
 
+***
+
 ## <a name="next-steps"></a>後續步驟
 
-* 檢閱[如何安裝及執行容器](computer-vision-how-to-install-containers.md)
+* 請參閱[如何安裝及執行容器](computer-vision-how-to-install-containers.md)。
