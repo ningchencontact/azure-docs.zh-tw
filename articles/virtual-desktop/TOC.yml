@@ -28,6 +28,10 @@
           href: connect-windows-7-and-10.md
         - name: 從網頁瀏覽器連線
           href: connect-web.md
+        - name: 與 macOS 用戶端連線
+          href: connect-macos.md
+        - name: 與 iOS 用戶端連線
+          href: connect-ios.md
     - name: 使用 Azure Resource Manager 範本建立主機集區
       href: create-host-pools-arm-template.md
     - name: 使用 PowerShell 建立主機集區

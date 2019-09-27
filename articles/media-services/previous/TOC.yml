@@ -58,6 +58,8 @@
         - name: 從 Windows Azure 媒體編碼器遷移
           href: migrate-windows-azure-media-encoder.md
           displayName: WAME
+        - name: 從索引器 v1 和 v2 遷移
+          href: migrate-indexer-v1-v2.md
     - name: 管理
       items:
         - name: 帳戶

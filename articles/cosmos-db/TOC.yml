@@ -691,6 +691,8 @@
       items:
         - name: 啟用筆記本
           href: enable-notebooks.md
+        - name: 使用內建的筆記本命令
+          href: use-notebook-features-and-commands.md
     - name: 伺服器端程式設計
       items:
         - name: 寫入預存程序、觸發程序和 UDF

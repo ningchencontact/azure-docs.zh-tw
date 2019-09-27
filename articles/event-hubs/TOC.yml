@@ -114,7 +114,7 @@
           href: event-hubs-get-connection-string.md
         - name: 使用不同的通訊協定在應用程式間交換事件
           href: event-hubs-exchange-events-different-protocols.md
-        - name: 程式設計指南
+        - name: .NET 程式設計指南
           href: event-hubs-programming-guide.md
         - name: 使用 Python 傳送、接收和擷取事件
           href: event-hubs-python.md

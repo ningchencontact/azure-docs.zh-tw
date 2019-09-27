@@ -71,6 +71,8 @@
           items:
             - name: 刪除映像資料 - CLI
               href: container-registry-delete.md
+            - name: 未標記的資訊清單保留原則 (預覽)
+              href: container-registry-retention-policy.md
             - name: 自動清除標記和資訊清單 (預覽)
               href: container-registry-auto-purge.md
         - name: 升級傳統登錄
