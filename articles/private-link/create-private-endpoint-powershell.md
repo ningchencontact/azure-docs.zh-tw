@@ -7,17 +7,17 @@ ms.service: private-link
 ms.topic: article
 ms.date: 09/16/2019
 ms.author: kumud
-ms.openlocfilehash: 569bc021d978714472bf40bcf39f7134fec95970
-ms.sourcegitcommit: 2ed6e731ffc614f1691f1578ed26a67de46ed9c2
+ms.openlocfilehash: b3f809a21dab86ac50fcf7c194c886b05977e15e
+ms.sourcegitcommit: e9936171586b8d04b67457789ae7d530ec8deebe
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71130337"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71327113"
 ---
 # <a name="create-a-private-endpoint-using-azure-powershell"></a>使用 Azure PowerShell 建立私人端點
-私人端點是 Azure 中私用連結的基本建立區塊。 它可讓 Azure 資源（例如虛擬機器（Vm））與私人連結資源私下進行通訊。 
+私人端點是 Azure 中私人連結的基本要素。 其可讓 Azure 資源 (例如虛擬機器 (VM)) 與私人連結資源進行私密通訊。 
 
-在本快速入門中，您將瞭解如何在 Azure 虛擬網路上建立 VM，這是使用 Azure PowerShell 的 Azure 私人端點 SQL Database 伺服器。 然後，您可以從 VM 安全地存取 SQL Database 伺服器。
+在本快速入門中，您將了解如何使用 Azure PowerShell 在 Azure 虛擬網路上建立 VM，以及建立具有 Azure 私人端點的 SQL Database 伺服器。 然後，您就可以從 VM 安全地存取 SQL Database 伺服器。
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
@@ -33,7 +33,7 @@ New-AzResourceGroup `
 ```
 
 ## <a name="create-a-virtual-network"></a>建立虛擬網路
-在本節中，您會建立虛擬網路和子網。 接下來，將子網與您的虛擬網路建立關聯。
+在本節中，您會建立虛擬網路和子網。 接下來，將子閘道聯至您的虛擬網路。
 
 ### <a name="create-a-virtual-network"></a>建立虛擬網路
 
@@ -189,13 +189,13 @@ mstsc /v:<publicIpAddress>
   > [!NOTE]
   > 您可能需要選取 [更多選擇] > [使用不同的帳戶]，以指定您在建立 VM 時輸入的認證。 
   
-3. 選取 **[確定]** 。 
+3. 選取 [確定] **** 。 
 4. 您可能會收到憑證警告。 如果您這樣做，請選取 **[是] 或 [**   **繼續**]。 
 
 ## <a name="access-sql-database-server-privately-from-the-vm"></a>從 VM 私下存取 SQL Database Server
 
 1. 在 myVM 的遠端桌面中，開啟 PowerShell。
-2. 輸入 `nslookup myserver.database.windows.net`。 
+2. 輸入  `nslookup myserver.database.windows.net`。 
 
     您將收到如下訊息：
     ```azurepowershell

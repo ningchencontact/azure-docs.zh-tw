@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 11/30/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 1f7c864102a4985aa1b2c66e12b42cbe3bc19bca
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 96221ffc8249f722268ea5778bee4b4389ded26e
+ms.sourcegitcommit: e9936171586b8d04b67457789ae7d530ec8deebe
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66510090"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71326592"
 ---
 # <a name="azure-ad-b2c-sign-in-using-an-ios-application"></a>Azure AD B2C：使用 iOS 應用程式登入
 
@@ -32,18 +32,19 @@ Microsoft 身分識別平台會使用開放式標準，例如 OAuth2 和 OpenID 
 您必須先建立目錄或租用戶，才可使用 Azure AD B2C。 目錄就是您所有使用者、應用程式、群組等項目的容器。 如果您還沒有此資源，請先 [建立 B2C 目錄](tutorial-create-tenant.md) 再繼續進行。
 
 ## <a name="create-an-application"></a>建立應用程式
-接著，您必須在 B2C 目錄中建立應用程式。 應用程式註冊會提供必要資訊給 Azure AD，讓它與應用程式安全地通訊。 如果要建立行動應用程式，請遵循[這些指示](active-directory-b2c-app-registration.md)。 請務必：
 
-* 在應用程式中加入**原生用戶端**。
-* 複製指派給您的應用程式的 **應用程式識別碼** 。 您稍後需要此 GUID。
-* 使用自訂配置設定**重新導向 URI** (例如，com.onmicrosoft.fabrikamb2c.exampleapp://oauth/redirect)。 您稍後需要此 URI。
+接下來，在您的 Azure AD B2C 租使用者中註冊應用程式。 這會提供 Azure AD 與您的應用程式安全地通訊所需的資訊。
+
+[!INCLUDE [active-directory-b2c-appreg-native](../../includes/active-directory-b2c-appreg-native.md)]
+
+記錄**應用程式識別碼**，以便在稍後的步驟中使用。 接下來，選取清單中的應用程式，並記錄**自訂重新導向 URI**，以便在稍後的步驟中使用。 例如： `com.onmicrosoft.contosob2c.exampleapp://oauth/redirect` 。
 
 ## <a name="create-your-user-flows"></a>建立使用者流程
 在 Azure AD B2C 中，每個使用者體驗皆是由某個[使用者流程](active-directory-b2c-reference-policies.md)所定義。 此應用程式包含一個身分識別體驗：合併登入和註冊。 建立使用者流程時，請務必：
 
-* 在 [註冊屬性]  下方，選取 [顯示名稱]  屬性。  您也可以選取其他屬性。
-* 在 [應用程式宣告]  下方，選取 [顯示名稱]  和 [使用者的物件識別碼]  宣告。 您也可以選取其他宣告。
-* 建立每個使用者流程之後，請複製其 [名稱]  。 當您儲存使用者流程時，使用者流程名稱前面會加上 `b2c_1_`。  您稍後需要用到此使用者流程名稱。
+* 在 [註冊屬性] 下方，選取 [顯示名稱] 屬性。  您也可以選取其他屬性。
+* 在 [應用程式宣告] 下方，選取 [顯示名稱] 和 [使用者的物件識別碼] 宣告。 您也可以選取其他宣告。
+* 建立每個使用者流程之後，請複製其 [名稱]。 當您儲存使用者流程時，使用者流程名稱前面會加上 `b2c_1_`。  您稍後需要用到此使用者流程名稱。
 
 建立您的使用者流程後，就可以開始建置您的應用程式。
 
@@ -79,21 +80,22 @@ static NSString *const authorizationEndpoint = @"https://<Tenant_name>.b2clogin.
 執行下列程式碼來建立 AuthorizationServiceConfiguration 物件︰
 
 ```objc
-OIDServiceConfiguration *configuration = 
+OIDServiceConfiguration *configuration =
     [[OIDServiceConfiguration alloc] initWithAuthorizationEndpoint:authorizationEndpoint tokenEndpoint:tokenEndpoint];
 // now we are ready to perform the auth request...
 ```
 
 ### <a name="authorizing"></a>授權
 
-設定或擷取授權服務組態之後，就可以建構授權要求。 若要建立要求，您需要下列資訊︰  
-* 用戶端識別碼 (例如，00000000-0000-0000-0000-000000000000)
-* 使用自訂配置的重新導向 URI (例如，com.onmicrosoft.fabrikamb2c.exampleapp://oauth/redirect)
+設定或擷取授權服務組態之後，就可以建構授權要求。 若要建立要求，您需要下列資訊︰
+
+* 您先前記錄的用戶端識別碼（應用程式識別碼）。 例如： `00000000-0000-0000-0000-000000000000` 。
+* 您稍早記錄的自訂重新導向 URI。 例如： `com.onmicrosoft.contosob2c.exampleapp://oauth/redirect` 。
 
 這兩個項目應該已在您[註冊應用程式](#create-an-application)時儲存。
 
 ```objc
-OIDAuthorizationRequest *request = 
+OIDAuthorizationRequest *request =
     [[OIDAuthorizationRequest alloc] initWithConfiguration:configuration
                                                   clientId:kClientId
                                                     scopes:@[OIDScopeOpenID, OIDScopeProfile]
@@ -102,7 +104,7 @@ OIDAuthorizationRequest *request =
                                       additionalParameters:nil];
 
 AppDelegate *appDelegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
-appDelegate.currentAuthorizationFlow = 
+appDelegate.currentAuthorizationFlow =
     [OIDAuthState authStateByPresentingAuthorizationRequest:request
                                    presentingViewController:self
                                                    callback:^(OIDAuthState *_Nullable authState, NSError *_Nullable error) {

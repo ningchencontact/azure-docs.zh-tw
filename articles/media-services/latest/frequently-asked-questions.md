@@ -11,12 +11,12 @@ ms.workload: ''
 ms.topic: article
 ms.date: 06/21/2019
 ms.author: juliako
-ms.openlocfilehash: 28b9c8f343437c20e277d2f3ba53767afa45a5c2
-ms.sourcegitcommit: a0b37e18b8823025e64427c26fae9fb7a3fe355a
+ms.openlocfilehash: 6e52a51c82529a98ef679dd747b9c8b7d177b660
+ms.sourcegitcommit: e1b6a40a9c9341b33df384aa607ae359e4ab0f53
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68501262"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71338824"
 ---
 # <a name="media-services-v3-frequently-asked-questions"></a>媒體服務 v3 常見問題
 
@@ -65,6 +65,14 @@ ms.locfileid: "68501262"
 客戶通常不知道他們應該使用 AES 加密，還是 DRM 系統。 這兩個系統之間的主要差異是, 使用 AES 加密時, 會透過 TLS 將內容金鑰傳輸至用戶端, 這樣金鑰就會在傳輸中加密, 但不需要任何額外的加密 (「明文」)。 因此, 用來解密內容的金鑰可供用戶端播放人員存取, 而且可以在用戶端的網路追蹤中以純文字方式來查看。 AES-128 清除金鑰加密適用于檢視器是受信任的合作物件的使用案例 (例如, 將公司內散佈的公司影片加密, 以供員工查看)。
 
 PlayReady、Widevine 和 FairPlay 等 DRM 系統全都在用來解密內容的金鑰上提供額外的加密層級, 相較于 AES-128 清除金鑰。 內容金鑰會加密為受 DRM 執行時間保護的金鑰, 以供 TLS 所提供的任何傳輸層級加密使用。 此外，解密會在安全環境中，惡意使用者更難攻擊的作業系統層級上進行處理。 針對檢視者可能不是受信任的合作對象，而且您需要最高層級安全性的使用案例，建議使用 DRM。
+
+### <a name="how-to-show-a-video-only-to-users-who-have-a-specific-permission-without-using-azure-ad"></a>如何只向擁有特定許可權的使用者顯示影片，而不使用 Azure AD？
+
+您不需要使用任何特定的權杖提供者（例如 Azure AD）。 您可以使用非對稱金鑰加密來建立自己的[JWT](https://jwt.io/)提供者（所謂的 STS、安全權杖服務）。 在您的自訂 STS 中，您可以根據您的商務邏輯新增宣告。
+
+請確定簽發者、物件和宣告全都完全符合 JWT 中的內容和 ContentKeyPolicy 中所使用的 ContentKeyPolicyRestriction。
+
+如需詳細資訊，請參閱[使用媒體服務動態加密來保護您的內容](content-protection-overview.md)。
 
 ### <a name="how-and-where-to-get-jwt-token-before-using-it-to-request-license-or-key"></a>如何以及在何處取得 JWT 權杖，再用來要求授權或金鑰？
 

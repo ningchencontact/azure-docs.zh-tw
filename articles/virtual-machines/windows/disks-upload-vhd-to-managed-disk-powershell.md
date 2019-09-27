@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: virtual-machines-linux
 ms.tgt_pltfrm: linux
 ms.subservice: disks
-ms.openlocfilehash: 98c0316a3fa513f98031b79eefcedea5a1111539
-ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
+ms.openlocfilehash: cd8c5b174d92edcf69801edaeabd0c0730985654
+ms.sourcegitcommit: e9936171586b8d04b67457789ae7d530ec8deebe
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71266623"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71326929"
 ---
 # <a name="upload-a-vhd-to-azure-using-azure-powershell"></a>使用 Azure PowerShell 將 vhd 上傳至 Azure
 
@@ -39,6 +39,8 @@ ms.locfileid: "71266623"
 - ActiveUpload，這表示磁片已準備好接收上傳，並已產生 SAS。
 
 在上述任一種狀態中，不論實際的磁片類型為何，受控磁片都會以[標準 HDD 定價](https://azure.microsoft.com/pricing/details/managed-disks/)計費。 例如，P10 會以 S10 計費。 在對受控磁片呼叫`revoke-access`之前，這會是 true，這是將磁片連結至 VM 所需的值。
+
+建立空的標準 HDD 以進行上傳之前，您需要您想要上傳之 vhd 的檔案大小（以位元組為單位）。 範例程式碼會為您取得，但是您也可以使用： `$vhdSizeBytes = (Get-Item "<fullFilePathHere>").length`。 指定 **-UploadSizeInBytes**參數時，會使用這個值。
 
 現在，在您的本機 shell 上，藉由在 **-CreateOption**參數中指定**上傳**設定，並在[new-azdiskconfig](https://docs.microsoft.com/powershell/module/az.compute/new-azdiskconfig?view=azps-1.8.0)指令程式中指定 **-UploadSizeInBytes**參數，來建立要上傳的空標準 HDD。 然後呼叫[new-azdisk](https://docs.microsoft.com/powershell/module/az.compute/new-azdisk?view=azps-1.8.0)以建立磁片：
 

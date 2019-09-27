@@ -3,7 +3,7 @@ title: 使用 Azure Active Directory 認證登入 Linux VM | Microsoft Docs
 description: 瞭解如何建立和設定 Linux VM，以使用 Azure Active Directory authentication 進行登入。
 services: virtual-machines-linux
 documentationcenter: ''
-author: cynthn
+author: iainfoulds
 manager: gwallace
 editor: ''
 ms.assetid: ''
@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 08/29/2019
-ms.author: cynthn
-ms.openlocfilehash: e30adf8b694d744e64fb7528b75b85d4a772a723
-ms.sourcegitcommit: 9fba13cdfce9d03d202ada4a764e574a51691dcd
+ms.author: iainfou
+ms.openlocfilehash: b473844f1507285e0052ca1f8de00f6ca3207e6f
+ms.sourcegitcommit: e9936171586b8d04b67457789ae7d530ec8deebe
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71316765"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71327086"
 ---
 # <a name="preview-log-in-to-a-linux-virtual-machine-in-azure-using-azure-active-directory-authentication"></a>預覽：使用 Azure Active Directory authentication 登入 Azure 中的 Linux 虛擬機器
 
@@ -88,7 +88,7 @@ az vm create \
 ## <a name="install-the-azure-ad-login-vm-extension"></a>安裝 Azure AD 登入 VM 擴充功能。
 
 > [!NOTE]
-> 如果將此 exention 部署到先前建立的 VM，請確定電腦已配置至少1GB 的記憶體，否則將無法安裝延伸模組
+> 如果將此延伸模組部署到先前建立的 VM，請確定電腦已配置至少1GB 的記憶體，否則將無法安裝延伸模組
 
 若要使用 Azure AD 認證登入 Linux VM，請安裝 Azure Active Directory 登入 VM 擴充功能。 VM 擴充功能是小型的應用程式，可在「Azure 虛擬機器」上提供部署後設定及自動化工作。 使用 [az vm extension set](/cli/azure/vm/extension#az-vm-extension-set)，將 *AADLoginForLinux* 擴充功能安裝在 *myResourceGroup* 資源群組中名為 *myVM* 的 VM 上：
 

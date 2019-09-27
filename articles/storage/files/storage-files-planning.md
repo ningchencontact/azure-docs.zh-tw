@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/25/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: beb9e1344f5dd3bf4b3c3d293e38a7a28170771c
-ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
+ms.openlocfilehash: 76637c566d85816b3af6d0ed457031e7d4cd4068
+ms.sourcegitcommit: e9936171586b8d04b67457789ae7d530ec8deebe
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71212016"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71327677"
 ---
 # <a name="planning-for-an-azure-files-deployment"></a>規劃 Azure 檔案服務部署
 
@@ -96,6 +96,8 @@ Azure 備份適用于 premium 檔案共用, Azure Kubernetes Service 支援1.13 
 
 > [!IMPORTANT]
 > 在大部分區域中，提供儲存體帳戶和 ZRS 的高階檔案共用在較小的區域子集中，可供 LRS 使用。 若要找出您的區域目前是否有 premium 檔案共用, 請參閱 Azure 的[依區域提供的產品](https://azure.microsoft.com/global-infrastructure/services/?products=storage)頁面。 若要瞭解哪些區域支援 ZRS，請參閱[支援涵蓋範圍和區域可用性](../common/storage-redundancy-zrs.md#support-coverage-and-regional-availability)。
+>
+> 為協助我們設定新區域和進階層功能的優先順序，請填寫這[份問卷](https://aka.ms/pfsfeedback)。
 
 #### <a name="provisioned-shares"></a>佈建共用
 

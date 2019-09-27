@@ -7,12 +7,12 @@ ms.reviewer: orspodek
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 06/03/2019
-ms.openlocfilehash: 64f16c2ad6fdeeb47b747eab24587b43f3df5130
-ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
+ms.openlocfilehash: 4a3f37c232fcd7a0fcbdac051ed36916ef5c2868
+ms.sourcegitcommit: e9936171586b8d04b67457789ae7d530ec8deebe
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68355949"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71326671"
 ---
 # <a name="create-an-azure-data-explorer-cluster-and-database-by-using-c"></a>使用 C# 建立 Azure 資料總管叢集與資料庫
 
@@ -22,10 +22,11 @@ ms.locfileid: "68355949"
 > * [PowerShell](create-cluster-database-powershell.md)
 > * [C#](create-cluster-database-csharp.md)
 > * [Python](create-cluster-database-python.md)
+> * [ARM 範本](create-cluster-database-resource-manager.md)
 
-Azure 資料總管是快速、完全受控的資料分析服務，可即時分析來自應用程式、網站、IoT 裝置等的大量資料流。 若要使用 Azure 資料總管，請先建立叢集，然後在該叢集中建立一或多個資料庫。 然後將資料內嵌 (載入) 至資料庫，讓您可以對資料執行查詢。 在本文中, 您會使用C#來建立叢集和資料庫。
+Azure 資料總管是快速、完全受控的資料分析服務，可即時分析來自應用程式、網站、IoT 裝置等的大量資料流。 若要使用 Azure 資料總管，請先建立叢集，然後在該叢集中建立一或多個資料庫。 然後將資料內嵌 (載入) 至資料庫，讓您可以對資料執行查詢。 在本文中，您會使用C#來建立叢集和資料庫。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 * 如果尚未安裝 Visual Studio 2019，您可以下載並使用**免費的** [Visual Studio 2019 Community 版本](https://www.visualstudio.com/downloads/)。 務必在 Visual Studio 設定期間啟用 **Azure 開發**。
 
@@ -111,7 +112,7 @@ Azure 資料總管是快速、完全受控的資料分析服務，可即時分�
 
 ## <a name="clean-up-resources"></a>清除資源
 
-* 如果您打算遵循其他文章, 請保留您建立的資源。
+* 如果您打算遵循其他文章，請保留您建立的資源。
 * 若要清除資源，請刪除叢集。 您刪除叢集時，也會刪除其中的所有資料庫。 使用下列命令刪除您的叢集：
 
     ```csharp

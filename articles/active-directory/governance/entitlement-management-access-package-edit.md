@@ -12,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.subservice: compliance
-ms.date: 07/23/2019
+ms.date: 09/26/2019
 ms.author: ajburnle
 ms.reviewer: ''
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6a575d9f90d166ba69b14e4507d9ed7a54fac574
-ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
+ms.openlocfilehash: 4a79cf166025ced6cb08d2f9e24801ea498fdc1c
+ms.sourcegitcommit: e9936171586b8d04b67457789ae7d530ec8deebe
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71291021"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71326385"
 ---
 # <a name="edit-and-manage-an-existing-access-package-in-azure-ad-entitlement-management-preview"></a>在 Azure AD 權利管理（預覽）中編輯和管理現有的存取套件
 
@@ -36,7 +36,7 @@ ms.locfileid: "71291021"
 
 ## <a name="add-resource-roles"></a>新增資源角色
 
-資源角色是與資源相關聯的許可權集合。 將資源角色新增至您的存取套件，讓使用者可以要求資源的方式。 您可以加入群組、應用程式和 SharePoint 網站的資源角色。
+資源角色是與資源相關聯的許可權集合。 將資源角色新增至您的存取套件，讓使用者可以要求資源的方式。 您可以加入群組、小組、應用程式和 SharePoint 網站的資源角色。
 
 **必要角色：** 全域管理員、使用者系統管理員、目錄擁有者或存取套件管理員
 
@@ -50,38 +50,49 @@ ms.locfileid: "71291021"
 
     ![存取套件-新增資源角色](./media/entitlement-management-access-package-edit/resource-roles-add.png)
 
-1. 根據您要新增群組、應用程式或 SharePoint 網站而定，請執行下列其中一個資源角色章節中的步驟。
+1. 根據您要加入群組、小組、應用程式或 SharePoint 網站而定，請執行下列其中一個資源角色章節中的步驟。
 
-### <a name="add-a-group-resource-role"></a>新增群組資源角色
+### <a name="add-a-group-or-team-resource-role"></a>加入群組或小組資源角色
 
-當使用者獲指派存取套件時，您可以讓 [權利管理] 自動將使用者新增至群組。 
+當使用者獲指派存取套件時，您可以讓 [權利管理] 自動將使用者新增至群組或 Microsoft 小組。 
 
-- 當群組屬於存取套件的一部分，且使用者被指派至該存取套件時，使用者就會新增至該群組（如果尚未存在的話）。
-- 當使用者的存取套件指派過期時，除非他們目前有指派給另一個包含該相同群組的存取套件，否則會從群組中移除。
+- 當群組或小組屬於存取套件的一部分，且使用者被指派至該存取套件時，使用者就會新增至該群組或小組（如果尚未存在的話）。
+- 當使用者的存取套件指派到期時，就會從群組或小組中移除，除非他們目前有指派給另一個包含相同群組或小組的存取封裝。
 
-您可以選取任何 Office 365 群組或 Azure AD 安全性群組。  系統管理員可以將任何群組新增至目錄;如果目錄擁有者是群組的擁有者，則可以將任何群組新增至目錄。 選取群組時，請記住下列 Azure AD 條件約束：
+您可以選取任何[Azure AD 的安全性群組或 Office 365 群組](../fundamentals/active-directory-groups-create-azure-portal.md)。  系統管理員可以將任何群組新增至目錄;如果目錄擁有者是群組的擁有者，則可以將任何群組新增至目錄。 選取群組時，請記住下列 Azure AD 條件約束：
 
-- 當使用者（包括來賓）新增為群組的成員時，他們可以看到該群組的所有其他成員。
+- 當使用者（包括來賓）新增為群組或小組的成員時，他們可以看到該群組或小組的所有其他成員。
 - Azure AD 無法變更從 Windows Server Active Directory 同步處理的群組成員資格，其方式是使用 Azure AD Connect，或在 Exchange Online 中建立為通訊群組。  
 - 藉由新增或移除成員，無法更新動態群組的成員資格，因此動態群組成員資格不適合與權利管理搭配使用。
 
-1. 在 [**新增資源角色以存取封裝**] 頁面上，按一下 [**群組**] 以開啟 [選取群組] 窗格。
+如需詳細資訊，請參閱[比較群組](/office365/admin/create-groups/compare-groups)和[Office 365 群組和 Microsoft 小組](/microsoftteams/office-365-groups)。
 
-1. 選取您想要包含在存取套件中的群組。
+1. 在 [**新增資源角色以存取封裝**] 頁面上，按一下 [**群組和小組**] 以開啟 [選取群組] 窗格。
+
+1. 選取您想要包含在存取套件中的群組和小組。
 
     ![存取套件-新增資源角色-選取群組](./media/entitlement-management-access-package-edit/group-select.png)
 
 1. 按一下 [選取]。
 
+    一旦您選取群組或小組之後，[**子類型**] 欄將會列出下列其中一個子類型：
+
+    |  |  |
+    | --- | --- |
+    | 安全性 | 用來授與資源的存取權。 |
+    | 發佈 | 用來傳送通知給一群人。 |
+    | O365 | 未啟用小組的 Office 365 群組。 用於在公司內部和外部的使用者之間共同作業。 |
+    | 小組 | 已啟用小組的 Office 365 群組。 用於在公司內部和外部的使用者之間共同作業。 |
+
 1. 在 [**角色**] 清單中，選取 [**擁有**者] 或 [**成員**]。
 
     您通常會選取成員角色。 如果您選取 [擁有者] 角色，則可讓使用者新增或移除其他成員或擁有者。
 
-    ![存取套件-新增群組的資源角色](./media/entitlement-management-access-package-edit/group-role.png)
+    ![存取套件-新增群組或小組的資源角色](./media/entitlement-management-access-package-edit/group-role.png)
 
 1. 按一下 [新增]。
 
-    新增至存取套件的任何使用者都會自動成為此群組的成員。
+    具有存取封裝之現有指派的任何使用者，在新增時，都會自動成為此群組或小組的成員。
 
 ### <a name="add-an-application-resource-role"></a>新增應用程式資源角色
 

@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 08/09/2019
 ms.custom: seodec18
-ms.openlocfilehash: 275cf20329be04e86c2e7c2a613f657733e652df
-ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
+ms.openlocfilehash: 8fbb09ecf09008c25c84a11c7b43dfb26450e30a
+ms.sourcegitcommit: e1b6a40a9c9341b33df384aa607ae359e4ab0f53
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71213444"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71338761"
 ---
 # <a name="known-issues-and-troubleshooting-azure-machine-learning"></a>已知問題和疑難排解 Azure Machine Learning
 
@@ -214,3 +214,24 @@ kubectl get secret/azuremlfessl -o yaml
 
 >[!Note]
 >Kubernetes 會以64編碼的格式儲存秘密。 在將密碼提供給`cert.pem` `attach_config.enable_ssl`之前，您必須先`key.pem`將它的和元件解碼為64。 
+
+## <a name="recommendations-for-error-fix"></a>修正錯誤的建議
+根據一般觀察，以下是 Azure ML 建議，用以修正 Azure ML 中的一些常見錯誤。
+
+### <a name="moduleerrors-no-module-named"></a>ModuleErrors （沒有名為的模組）
+如果您在 Azure ML 中提交實驗時遇到 ModuleErrors，這表示訓練腳本預期會安裝套件，但不會新增。 一旦您提供套件名稱，Azure ML 會在用於定型的環境中安裝套件。 
+
+如果您使用[估算器](https://docs.microsoft.com/en-us/azure/machine-learning/service/concept-azure-machine-learning-architecture#estimators)來提交實驗，您可以根據要安裝封裝的來源，在估計工具中透過 `pip_packages` 或 `conda_packages` 參數指定封裝名稱。 您也可以使用 `conda_dependencies_file`or 在 txt 檔案中使用 `pip_requirements_file` 參數，指定具有所有相依性的 yml 檔案。
+
+Azure ML 也提供適用于 Tensorflow、PyTorch、Chainer 和 SKLearn 的架構專屬估算器。 使用這些估算器可確保在用於定型的環境中，代表您安裝架構相依性。 如先前所述，您可以選擇指定額外的相依性。 
+ 
+ Azure ML 維護的 docker 映射及其內容可以在[AzureML 容器](https://github.com/Azure/AzureML-Containers)中看到。
+架構特定的相依性會列在個別的架構檔中- [Chainer](https://docs.microsoft.com/en-us/python/api/azureml-train-core/azureml.train.dnn.chainer?view=azure-ml-py#remarks)、 [PyTorch](https://docs.microsoft.com/en-us/python/api/azureml-train-core/azureml.train.dnn.pytorch?view=azure-ml-py#remarks)、 [TensorFlow](https://docs.microsoft.com/en-us/python/api/azureml-train-core/azureml.train.dnn.tensorflow?view=azure-ml-py#remarks)、 [SKLearn](https://docs.microsoft.com/en-us/python/api/azureml-train-core/azureml.train.sklearn.sklearn?view=azure-ml-py#remarks)。
+
+>[注意！]如果您認為特定套件很常見，可以在 Azure ML 維護的映射和環境中新增，請在[AzureML 容器](https://github.com/Azure/AzureML-Containers)中提出 GitHub 問題。 
+ 
+ ### <a name="nameerror-name-not-defined-attributeerror-object-has-no-attribute"></a>NameError （名稱未定義）、AttributeError （物件沒有屬性）
+這個例外狀況應該來自您的訓練腳本。 您可以從 Azure 入口網站查看記錄檔，以取得有關未定義的特定名稱或屬性錯誤的詳細資訊。 從 SDK 中，您可以使用 `run.get_details()` 來查看錯誤訊息。 這也會列出針對您的執行所產生的所有記錄檔。 請務必查看您的訓練腳本，並修正錯誤後再重試。 
+
+### <a name="horovod-is-shutdown"></a>Horovod 已關閉
+在大部分情況下，此例外狀況表示導致 horovod 關閉的其中一個處理常式發生基礎例外狀況。 MPI 作業中的每個排名都會在 Azure ML 中取得專屬的專用記錄檔。 這些記錄檔的名稱為 `70_driver_logs`。 如果是分散式訓練，記錄檔名稱的後面會加上 `_rank`，讓您輕鬆區分記錄檔。 若要找出造成 horovod 關閉的確切錯誤，請流覽所有的記錄檔，並在 driver_log 檔案的結尾尋找 `Traceback`。 其中一個檔案會提供您實際的基礎例外狀況。 

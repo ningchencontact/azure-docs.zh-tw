@@ -11,14 +11,14 @@ ms.service: log-analytics
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/28/2019
+ms.date: 09/26/2019
 ms.author: bwren
-ms.openlocfilehash: 9ecae51d996e2e065b15d1fa70bdaf796f8f197b
-ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
+ms.openlocfilehash: 39691c0efbac7b7a48dd844641d63e0ca178e95f
+ms.sourcegitcommit: e9936171586b8d04b67457789ae7d530ec8deebe
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70124167"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71327468"
 ---
 # <a name="custom-logs-in-azure-monitor"></a>Azure 監視器中的自訂記錄
 
@@ -58,7 +58,7 @@ Azure 監視器中的「自訂記錄」資料來源可讓您從 Windows 和 Linu
 
 1. 在 Azure 入口網站中，選取 [Log Analytics 工作區] > 您的工作區 > [進階設定]。
 2. 按一下 [資料] > [自訂記錄]。
-3. 根據預設，所有組態變更都會自動發送給所有代理程式。  若是 Linux 代理程式，組態檔會傳送給 Fluentd 資料收集器。  如果您想以手動方式在每個 Linux 代理程式上修改這個檔案，只要取消核取 *[Apply below configuration to my Linux machines]* \(將下列設定套用至我的 Linux 機器) 方塊即可。
+3. 根據預設，所有組態變更都會自動發送給所有代理程式。 若是 Linux 代理程式，組態檔會傳送給 Fluentd 資料收集器。
 4. 按一下 [新增+] 開啟自訂記錄檔精靈。
 
 ### <a name="step-2-upload-and-parse-a-sample-log"></a>步驟 2. 上傳和剖析範例記錄檔
@@ -157,7 +157,7 @@ Azure 監視器會從每個自訂記錄檔收集新的項目，間隔大約為�
 ![記錄檔名稱](media/data-sources-custom-logs/log-name.png)
 
 ### <a name="validate-that-the-custom-logs-are-being-collected"></a>驗證會收集自訂記錄
-我們會使用*MyApp_CL*的簡單查詢, 從收集的記錄檔傳回所有記錄。
+我們會使用*MyApp_CL*的簡單查詢，從收集的記錄檔傳回所有記錄。
 
 ![無自訂欄位的記錄檔查詢](media/data-sources-custom-logs/query-01.png)
 

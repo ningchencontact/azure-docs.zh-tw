@@ -6,12 +6,12 @@ ms.service: governance
 ms.date: 05/22/2019
 ms.author: rithorn
 ms.topic: conceptual
-ms.openlocfilehash: 7fd9a8e00072bfb8d3a0e57fb552822588111019
-ms.sourcegitcommit: 6794fb51b58d2a7eb6475c9456d55eb1267f8d40
+ms.openlocfilehash: 28bfabd5c28fe833050551e7be690c0ea3d1e6a0
+ms.sourcegitcommit: e1b6a40a9c9341b33df384aa607ae359e4ab0f53
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70241184"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71338949"
 ---
 # <a name="manage-your-resources-with-management-groups"></a>利用管理群組來管理您的資源
 
@@ -43,11 +43,11 @@ ms.locfileid: "70241184"
 
    ![重新命名群組窗格以重新命名管理群組](./media/rename_context.png)
 
-1. 選取 [ **儲存**]。
+1. 選取 [儲存]。
 
 ### <a name="change-the-name-in-powershell"></a>在 PowerShell 中變更名稱
 
-若要更新顯示名稱, 請使用**AzManagementGroup**。 例如, 若要將管理群組顯示名稱從 "Contoso IT" 變更為 "Contoso Group", 您可以執行下列命令:
+若要更新顯示名稱，請使用**AzManagementGroup**。 例如，若要將管理群組顯示名稱從 "Contoso IT" 變更為 "Contoso Group"，您可以執行下列命令：
 
 ```azurepowershell-interactive
 Update-AzManagementGroup -GroupName 'ContosoIt' -DisplayName 'Contoso Group'
@@ -71,7 +71,7 @@ az account management-group update --name 'Contoso' --display-name 'Contoso Grou
 
    - 若要將管理群組移至另一個管理群組，請參閱[在階層中移動管理群組](#move-management-groups-in-the-hierarchy)。
 
-1. 您具有管理群組 (「擁有者」、「參與者」或「管理群組參與者」) 的寫入權限。 若要查看您有哪些權限，請選取管理群組，然後選取 **IAM**。 若要深入了解 RBAC 角色，請參閱[使用 RBAC 管理存取權與權限](../../role-based-access-control/overview.md)。  
+1. 您具有管理群組（「擁有者」、「參與者」或「管理群組參與者」）的寫入權限。 若要查看您有哪些權限，請選取管理群組，然後選取 **IAM**。 若要深入了解 RBAC 角色，請參閱[使用 RBAC 管理存取權與權限](../../role-based-access-control/overview.md)。  
 
 ### <a name="delete-in-the-portal"></a>在入口網站中刪除
 
@@ -130,7 +130,7 @@ az account management-group delete --name 'Contoso'
 
 ### <a name="view-in-powershell"></a>在 PowerShell 中檢視
 
-您可以使用 AzManagementGroup 命令來取出所有群組。  如需管理群組取得 Powershell 命令的完整清單, 請參閱[Az .resources](/powershell/module/az.resources/Get-AzManagementGroup)模組。  
+您可以使用 AzManagementGroup 命令來取出所有群組。  如需管理群組取得 Powershell 命令的完整清單，請參閱[Az .resources](/powershell/module/az.resources/Get-AzManagementGroup)模組。  
 
 ```azurepowershell-interactive
 Get-AzManagementGroup
@@ -142,7 +142,7 @@ Get-AzManagementGroup
 Get-AzManagementGroup -GroupName 'Contoso'
 ```
 
-若要傳回特定管理群組和其底下階層的所有層級, 請使用 **-Expand**和 **-遞迴**參數。  
+若要傳回特定管理群組和其底下階層的所有層級，請使用 **-Expand**和 **-遞迴**參數。  
 
 ```azurepowershell-interactive
 PS C:\> $response = Get-AzManagementGroup -GroupName TestGroupParent -Expand -Recurse
@@ -191,7 +191,7 @@ az account management-group list
 az account management-group show --name 'Contoso'
 ```
 
-若要傳回特定管理群組和其底下階層的所有層級, 請使用 **-Expand**和 **-遞迴**參數。
+若要傳回特定管理群組和其底下階層的所有層級，請使用 **-Expand**和 **-遞迴**參數。
 
 ```azurecli-interactive
 az account management-group show --name 'Contoso' -e -r
@@ -201,17 +201,17 @@ az account management-group show --name 'Contoso' -e -r
 
 建立管理群組的其中一個原因是要將訂用帳戶組合在一起。 只有管理群組和訂用帳戶才能設為另一個管理群組的子群組。 移至管理群組的訂用帳戶會繼承父管理群組中的所有使用者存取權和原則。
 
-若要移動訂用帳戶, 下列所有 RBAC 許可權都必須為 true:
+若要移動訂用帳戶，下列所有 RBAC 許可權都必須為 true：
 
 - 子訂用帳戶上的「擁有者」角色。
 - 目標父管理群組上的「擁有者」、「參與者」或「管理群組參與者」角色。
 - 現有父管理群組上的「擁有者」、「參與者」或「管理群組參與者」角色。
 
-如果目標或現有的父管理群組是根管理群組, 則不適用許可權需求。 因為根管理群組是所有新管理群組和訂用帳戶的預設登陸點, 所以您不需要它的許可權來移動專案。
+如果目標或現有的父管理群組是根管理群組，則不適用許可權需求。 因為根管理群組是所有新管理群組和訂用帳戶的預設登陸點，所以您不需要它的許可權來移動專案。
 
-如果訂用帳戶上的「擁有者」角色繼承自目前的管理群組, 則您的移動目標會受到限制。 您只能將訂用帳戶移至具有擁有者角色的另一個管理群組。 因為您會失去訂用帳戶的擁有權, 所以無法將它移至您是參與者的管理群組。 如果您直接指派給訂用帳戶的「擁有者」角色 (不是繼承自管理群組), 您可以將它移至您是參與者的任何管理群組。
+如果訂用帳戶上的「擁有者」角色繼承自目前的管理群組，則您的移動目標會受到限制。 您只能將訂用帳戶移至具有擁有者角色的另一個管理群組。 因為您會失去訂用帳戶的擁有權，所以無法將它移至您是參與者的管理群組。 如果您直接指派給訂用帳戶的「擁有者」角色（不是繼承自管理群組），您可以將它移至您是參與者的任何管理群組。
 
-若要查看 Azure 入口網站中的許可權, 請選取管理群組, 然後選取 [ **IAM**]。 若要深入了解 RBAC 角色，請參閱[使用 RBAC 管理存取權與權限](../../role-based-access-control/overview.md)。
+若要查看 Azure 入口網站中的許可權，請選取管理群組，然後選取 [ **IAM**]。 若要深入了解 RBAC 角色，請參閱[使用 RBAC 管理存取權與權限](../../role-based-access-control/overview.md)。
 
 ### <a name="move-subscriptions-in-the-portal"></a>在入口網站中移動訂用帳戶
 
@@ -249,17 +249,17 @@ az account management-group show --name 'Contoso' -e -r
 
    ![移動窗格以變更父群組](./media/move_small_context.png)
 
-1. 選取 [ **儲存**]。
+1. 選取 [儲存]。
 
 ### <a name="move-subscriptions-in-powershell"></a>在 PowerShell 中移動訂用帳戶
 
-若要在 PowerShell 中移動訂用帳戶, 請使用 AzManagementGroupSubscription 命令。  
+若要在 PowerShell 中移動訂用帳戶，請使用 AzManagementGroupSubscription 命令。  
 
 ```azurepowershell-interactive
 New-AzManagementGroupSubscription -GroupName 'Contoso' -SubscriptionId '12345678-1234-1234-1234-123456789012'
 ```
 
-若要移除與訂用帳戶與管理群組之間的連結, 請使用 AzManagementGroupSubscription 命令。
+若要移除與訂用帳戶與管理群組之間的連結，請使用 AzManagementGroupSubscription 命令。
 
 ```azurepowershell-interactive
 Remove-AzManagementGroupSubscription -GroupName 'Contoso' -SubscriptionId '12345678-1234-1234-1234-123456789012'
@@ -281,7 +281,7 @@ az account management-group subscription remove --name 'Contoso' --subscription 
 
 ## <a name="move-management-groups-in-the-hierarchy"></a>移動階層中的管理群組  
 
-當您移動父管理群組時, 該群組下的階層會隨之移動。 如需移動管理群組的存取權, 請參閱[管理群組存取權](index.md#management-group-access)。
+當您移動父管理群組時，該群組下的階層會隨之移動。 如需移動管理群組的存取權，請參閱[管理群組存取權](overview.md#management-group-access)。
 
 ### <a name="move-management-groups-in-the-portal"></a>在入口網站中移動管理群組
 
@@ -300,11 +300,11 @@ az account management-group subscription remove --name 'Contoso' --subscription 
 
    ![將管理群組移至新的或現有的群組](./media/add_context_MG.png)
 
-1. 選取 [ **儲存**]。
+1. 選取 [儲存]。
 
 ### <a name="move-management-groups-in-powershell"></a>在 PowerShell 中移動管理群組
 
-在 PowerShell 中使用 AzManagementGroup 命令, 將管理群組移至不同的群組下。
+在 PowerShell 中使用 AzManagementGroup 命令，將管理群組移至不同的群組下。
 
 ```azurepowershell-interactive
 $parentGroup = Get-AzManagementGroup -GroupName ContosoIT
@@ -329,7 +329,7 @@ az account management-group update --name 'Contoso' --parent ContosoIT
 
 ## <a name="referencing-management-groups-from-other-resource-providers"></a>參考來自其他資源提供者的管理群組
 
-從其他資源提供者的動作參考管理群組時, 請使用下列路徑作為範圍。 使用 PowerShell、Azure CLI 和 REST Api 時, 會使用此路徑。  
+從其他資源提供者的動作參考管理群組時，請使用下列路徑作為範圍。 使用 PowerShell、Azure CLI 和 REST Api 時，會使用此路徑。  
 
 >"/providers/Microsoft.Management/managementGroups/{yourMgID}"
 
@@ -339,7 +339,7 @@ az account management-group update --name 'Contoso' --parent ContosoIT
 New-AzRoleAssignment -Scope "/providers/Microsoft.Management/managementGroups/Contoso"
 ```
 
-在管理群組中抓取原則定義時, 會使用相同的範圍路徑。
+在管理群組中抓取原則定義時，會使用相同的範圍路徑。
 
 ```http
 GET https://management.azure.com/providers/Microsoft.Management/managementgroups/MyManagementGroup/providers/Microsoft.Authorization/policyDefinitions/ResourceNaming?api-version=2018-05-01

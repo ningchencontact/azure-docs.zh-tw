@@ -1,19 +1,19 @@
 ---
 title: 在本機安裝 Jupyter 並連線到 Azure HDInsight 中的 Spark
 description: 了解如何在電腦本機安裝 Jupyter Notebook，並連線到 Apache Spark 叢集。
-ms.service: hdinsight
 author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
+ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/06/2019
-ms.author: hrasheed
-ms.openlocfilehash: 6ce3ff8e00bc92911a7405de1bb0bb7286fb5c15
-ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
+ms.openlocfilehash: 46164cfc0c2baff919808a831a67180b65a23ff7
+ms.sourcegitcommit: e1b6a40a9c9341b33df384aa607ae359e4ab0f53
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/14/2019
-ms.locfileid: "70993772"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71337644"
 ---
 # <a name="install-jupyter-notebook-on-your-computer-and-connect-to-apache-spark-on-hdinsight"></a>在電腦上安裝 Jupyter Notebook，並連線到 HDInsight 上的 Apache Spark
 
@@ -146,7 +146,7 @@ ms.locfileid: "70993772"
 
     a. 建立新的 Notebook。 從右上角選取 [**新增**]。 您應該會看到預設的核心**Python 2**或**Python 3** ，以及您安裝的核心。 實際的值可能會根據您的安裝選項而有所不同。  選取 [ **PySpark**]。
 
-    ![Jupyter Notebook 中的核心](./media/apache-spark-jupyter-notebook-install-locally/jupyter-kernels-notebook.png "Jupyter Notebook 中的核心")
+    (./media/apache-spark-jupyter-notebook-install-locally/jupyter-kernels-notebook.png "Jupyter 筆記本中") ![Jupyter 筆記本]核心的可用核心
 
     > [!IMPORTANT]  
     > 選取 [**新增**] 之後，請檢查您的 shell 是否有任何錯誤。  如果您看到錯誤`TypeError: __init__() got an unexpected keyword argument 'io_loop'` ，您可能會遇到某些龍捲風版本的已知問題。  若是如此，請停止核心，然後使用下列命令將您的龍捲風安裝降級`pip install tornado==4.5.3`：。

@@ -13,12 +13,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/21/2019
 ms.author: juliako
-ms.openlocfilehash: 8db677ff94b477992d06a22c367f51c0c6063d69
-ms.sourcegitcommit: 0486aba120c284157dfebbdaf6e23e038c8a5a15
+ms.openlocfilehash: 91dead0953d6c124f9179e70b4ed38fe0c13bdc2
+ms.sourcegitcommit: e1b6a40a9c9341b33df384aa607ae359e4ab0f53
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71309238"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71338557"
 ---
 # <a name="azure-media-services-release-notes"></a>Azure 媒體服務版本資訊
 
@@ -50,9 +50,9 @@ Azure 媒體服務的這些版本資訊彙總了舊版發行後的變更和已�
 
 ### <a name="deprecation-of-media-processors"></a>淘汰媒體處理器
 
-我們宣佈*Azure 媒體索引子*和*Azure 媒體索引子 2*已淘汰。 [Azure 媒體索引子](media-services-index-content.md)媒體處理器將于2020年10月1日淘汰。 [Azure 媒體索引子2（預覽）](media-services-process-content-with-indexer2.md)媒體處理器將于2020年1月1日淘汰。 [Azure 媒體服務影片索引子](https://docs.microsoft.com/azure/media-services/video-indexer/)會取代這些舊版媒體處理器。
+我們宣佈*Azure 媒體索引子 v1*和*Azure 媒體索引子 v2 Preview*已淘汰。 [Azure 媒體索引子 v1](media-services-index-content.md)媒體處理器將于2020年10月1日淘汰。 [Azure 媒體索引子 V2 預覽](media-services-process-content-with-indexer2.md)媒體處理器將于2020年1月1日淘汰。 [Azure 媒體服務影片索引子](https://docs.microsoft.com/azure/media-services/video-indexer/)會取代這些舊版媒體處理器。
 
-如需詳細資訊，請參閱[從 Azure 媒體索引子遷移和 Azure 媒體索引子2，到 Azure 媒體服務影片索引子](migrate-indexer-v1-v2.md)。
+如需詳細資訊，請參閱[從 Azure 媒體索引子 v1 和 Azure 媒體索引子 V2 遷移至 Azure 媒體服務影片索引子](migrate-indexer-v1-v2.md)。
 
 ## <a name="august-2019"></a>2019 年 8 月
 

@@ -39,6 +39,8 @@
       href: concept-security-alerts.md
     - name: 安全性建議
       href: concept-recommendations.md
+    - name: 基準
+      href: concept-baseline.md
     - name: 事件彙總
       href: event-aggregation.md
     - name: 定價和相關成本

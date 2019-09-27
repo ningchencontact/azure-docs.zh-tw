@@ -10,19 +10,19 @@ ms.topic: conceptual
 ms.date: 11/30/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 4db4806b6be018bfc53a155627de825bf62d8395
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 29f1fc2a6fd23ef3a770f58fd78d5067672136dd
+ms.sourcegitcommit: e9936171586b8d04b67457789ae7d530ec8deebe
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66510102"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71326289"
 ---
 # <a name="sign-in-using-an-android-application-in-azure-active-directory-b2c"></a>在 Azure Active Directory B2C 中使用 Android 應用程式登入
 
 Microsoft 身分識別平台會使用開放式標準，例如 OAuth2 和 OpenID Connect。 這些標準可讓您利用想要使用的任何程式庫，與 Azure Active Directory B2C 整合。 為了協助您使用其他程式庫，您可以使用這個逐步解說，它示範如何設定第三方程式庫以連線至 Microsoft 身分識別平台。 大部分實作 [RFC6749 OAuth2 規格](https://tools.ietf.org/html/rfc6749)的程式庫都能連線到 Microsoft 身分識別平台。
 
 > [!WARNING]
-> Microsoft 並不提供第三方程式庫的修正程式，也尚未審查這些程式庫。 此範例使用已藉由 Azure AD B2C 在基本案例中進行過相容性測試的第三方程式庫，稱為 AppAuth。 問題和功能要求應導向到程式庫的開放原始碼專案。 如需詳細資訊，請參閱[這篇文章](https://docs.microsoft.com/azure/active-directory/develop/active-directory-v2-libraries)。  
+> Microsoft 並不提供第三方程式庫的修正程式，也尚未審查這些程式庫。 此範例使用已藉由 Azure AD B2C 在基本案例中進行過相容性測試的第三方程式庫，稱為 AppAuth。 問題和功能要求應導向到程式庫的開放原始碼專案。 如需詳細資訊，請參閱[這篇文章](https://docs.microsoft.com/azure/active-directory/develop/active-directory-v2-libraries)。
 >
 >
 
@@ -34,19 +34,19 @@ Microsoft 身分識別平台會使用開放式標準，例如 OAuth2 和 OpenID 
 
 ## <a name="create-an-application"></a>建立應用程式
 
-接著，您必須在 B2C 目錄中建立應用程式。 這會提供必要資訊給 Azure AD，讓它與應用程式安全地通訊。 如果要建立行動應用程式，請遵循[這些指示](active-directory-b2c-app-registration.md)。 請務必：
+接下來，在您的 Azure AD B2C 租使用者中註冊應用程式。 這會提供 Azure AD 與您的應用程式安全地通訊所需的資訊。
 
-* 在應用程式中加入**原生用戶端**。
-* 複製指派給您的應用程式的 **應用程式識別碼** 。 稍後您將會需要此資訊。
-* 設定原生用戶端**重新導向 URI** (例如，com.onmicrosoft.fabrikamb2c.exampleapp://oauth/redirect)。 稍後您也會需要此資訊。
+[!INCLUDE [active-directory-b2c-appreg-native](../../includes/active-directory-b2c-appreg-native.md)]
+
+記錄**應用程式識別碼**，以便在稍後的步驟中使用。 接下來，選取清單中的應用程式，並記錄**自訂重新導向 URI**，以便在稍後的步驟中使用。 例如： `com.onmicrosoft.contosob2c.exampleapp://oauth/redirect` 。
 
 ## <a name="create-your-user-flows"></a>建立使用者流程
 
 在 Azure AD B2C 中，使用者體驗是由[使用者流程](active-directory-b2c-reference-policies.md)所定義，這是一組用來控制 Azure AD 行為的原則。 此應用程式需要登入和註冊使用者流程。 建立使用者流程時，請務必：
 
-* 在使用者流程中選擇 [顯示名稱]  作為註冊屬性。
-* 在每個使用者流程中，選擇 [顯示名稱]  和 [物件識別碼]  應用程式宣告。 您也可以選擇其他宣告。
-* 建立每個使用者流程之後，請複製其 [名稱]  。 其前置詞應該為 `b2c_1_`。  您稍後需要用到此使用者流程名稱。
+* 在使用者流程中選擇 [顯示名稱] 作為註冊屬性。
+* 在每個使用者流程中，選擇 [顯示名稱] 和 [物件識別碼] 應用程式宣告。 您也可以選擇其他宣告。
+* 建立每個使用者流程之後，請複製其 [名稱]。 其前置詞應該為 `b2c_1_`。  您稍後需要用到此使用者流程名稱。
 
 建立您的使用者流程後，就可以開始建置您的應用程式。
 
@@ -117,8 +117,8 @@ AuthorizationServiceConfiguration config =
 
 設定或擷取授權服務組態之後，就可以建構授權要求。 若要建立要求，您需要下列資訊︰
 
-* 用戶端識別碼 (例如，00000000-0000-0000-0000-000000000000)
-* 使用自訂配置的重新導向 URI (例如，com.onmicrosoft.fabrikamb2c.exampleapp://oauthredirect)
+* 您先前記錄的用戶端識別碼（應用程式識別碼）。 例如： `00000000-0000-0000-0000-000000000000` 。
+* 您稍早記錄的自訂重新導向 URI。 例如： `com.onmicrosoft.contosob2c.exampleapp://oauth/redirect` 。
 
 這兩個項目應該已在您[註冊應用程式](#create-an-application)時儲存。
 
@@ -132,4 +132,3 @@ AuthorizationRequest req = new AuthorizationRequest.Builder(
 ```
 
 有關如何完成此程序的其餘部分，請參閱 [AppAuth 指南](https://openid.github.io/AppAuth-Android/)。 如果您需要快速開始使用一個可操作的應用程式，請參閱[我們的範例](https://github.com/Azure-Samples/active-directory-android-native-appauth-b2c)。 請依照 [README.md](https://github.com/Azure-Samples/active-directory-android-native-appauth-b2c/blob/master/README.md) 中的步驟，輸入自己的 Azure AD B2C 組態。
-

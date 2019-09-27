@@ -1,17 +1,17 @@
 ---
-title: 將資料集新增至 Azure 資料共用預覽中的現有資料共用
+title: 將資料集新增至現有的 Azure 資料共用預覽
 description: 將資料集新增至現有的資料共用
-author: madams0013
+author: joannapea
+ms.author: joanpo
 ms.service: data-share
 ms.topic: conceptual
 ms.date: 07/10/2019
-ms.author: jasonh
-ms.openlocfilehash: 75ac837491927881fd8b7547b0f49a069c3f2d47
-ms.sourcegitcommit: 267a9f62af9795698e1958a038feb7ff79e77909
+ms.openlocfilehash: bd8cd7af72c349060eb035dc32e9ddd1a7f9920e
+ms.sourcegitcommit: e9936171586b8d04b67457789ae7d530ec8deebe
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70257195"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71327515"
 ---
 # <a name="how-to-add-datasets-to-an-existing-share-in-azure-data-share-preview"></a>如何在 Azure 資料共用預覽中將資料集新增至現有的共用
 

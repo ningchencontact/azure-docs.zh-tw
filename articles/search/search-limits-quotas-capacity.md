@@ -8,19 +8,19 @@ ms.service: search
 ms.topic: conceptual
 ms.date: 07/01/2019
 ms.author: heidist
-ms.openlocfilehash: c2d4cae1689701704c866833c99ca616bbd01ec5
-ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
+ms.openlocfilehash: fd65bb134d9057246a1b8c5cc2986e979713d20b
+ms.sourcegitcommit: e9936171586b8d04b67457789ae7d530ec8deebe
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71300666"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71327152"
 ---
 # <a name="service-limits-in-azure-search"></a>Azure 搜尋中的服務限制
 儲存體、工作負載的最大限制，以及索引、檔和其他物件的數量上限，取決於您是否**在免費**、**基本**、**標準**或**儲存體優化**定價層布建[Azure 搜尋服務](search-create-service-portal.md)。
 
-+ **免費** 的是 Azure 訂用帳戶隨附的多租用戶共用服務。
++ **免費** 的是 Azure 訂用帳戶隨附的多租用戶共用服務。 編制索引和查詢要求會在其他租使用者所使用的複本和分割區上執行。
 
-+ **基本**會針對生產環境工作負載提供較小規模的專用計算資源。
++ **基本**為生產工作負載提供更大規模的專用運算資源，但與其他租使用者共用一些網路基礎結構。
 
 + **標準**是在專用的機器上執行，在各層級具有更多的儲存和處理容量。 標準共有四個等級︰S1、S2、S3 及 S3 HD。
 

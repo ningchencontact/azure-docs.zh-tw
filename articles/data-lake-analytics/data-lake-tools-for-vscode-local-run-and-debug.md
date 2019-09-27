@@ -9,12 +9,12 @@ ms.reviewer: jasonwhowell
 ms.assetid: dc9b21d8-c5f4-4f77-bcbc-eff458f48de2
 ms.topic: conceptual
 ms.date: 07/14/2017
-ms.openlocfilehash: 2d78523f776c909845057aaf8660a7c6fba3ef6a
-ms.sourcegitcommit: 0486aba120c284157dfebbdaf6e23e038c8a5a15
+ms.openlocfilehash: 7c425ee8c9fd99420bbcbba31c7a74c360938aef
+ms.sourcegitcommit: e1b6a40a9c9341b33df384aa607ae359e4ab0f53
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71309891"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71338239"
 ---
 # <a name="run-u-sql-and-debug-locally-in-visual-studio-code"></a>以 Visual Studio Code 在本機執行 U-SQL 及偵錯
 本文說明如何在本機開發電腦上執行 U-SQL 作業，以便加速早期的編碼階段，或以 Visual Studio Code 在本機對程式碼進行偵錯。 如需如何使用 Azure Data Lake Tools for Visual Studio Code 的指示，請參閱[使用 Azure Data Lake Tools for Visual Studio Code](data-lake-analytics-data-lake-tools-for-vscode.md)。
@@ -51,7 +51,7 @@ ms.locfileid: "71309891"
 2. 選取 [接受] 來首次接受 Microsoft 軟體授權條款。 
 
    ![接受 Microsoft 軟體授權條款](./media/data-lake-analytics-data-lake-tools-for-vscode-local-run-and-debug/AcceptEULA.png)   
-3. 隨即會開啟 CMD 主控台。 如果您是初次使用者，就必須輸入 **3**，然後找出用於資料輸入和輸出的本機資料夾路徑。 其他選項則可以使用預設值。 
+3. 隨即會開啟 CMD 主控台。 如果您是初次使用者，就必須輸入 **3**，然後找出用於資料輸入和輸出的本機資料夾路徑。 如果您不成功定義具有反斜線的路徑，請嘗試使用正斜線。 其他選項則可以使用預設值。
 
    ![Data Lake Tools for Visual Studio Code 本機執行 CMD](./media/data-lake-analytics-data-lake-tools-for-vscode-local-run-and-debug/data-lake-tools-for-vscode-local-run-cmd.png)
 4. 選取 Ctrl + Shift + P 以開啟命令選擇區，並**輸入 ADL：提交作業**，然後選取 [**本機**] 將作業提交至您的本機帳戶。

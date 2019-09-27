@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/18/2019
 ms.author: memildin
-ms.openlocfilehash: 11e1c837e416a5d2105f494c43823298edfd4355
-ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
+ms.openlocfilehash: 488210e4f2c5d3a8a978079d0c7293ce091d998b
+ms.sourcegitcommit: e1b6a40a9c9341b33df384aa607ae359e4ab0f53
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71200488"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71338781"
 ---
 # <a name="working-with-security-policies"></a>使用安全性原則
 
@@ -42,7 +42,7 @@ ms.locfileid: "71200488"
 如果貴組織有多個訂用帳戶，您可能需要一個方法來有效率地管理這些訂用帳戶的存取、原則和相容性。 Azure 管理群組會提供上述訂用帳戶的範圍層級。 您要將訂用帳戶整理到稱為「管理群組」的容器中，並將治理原則套用至管理群組。 管理群組內的所有訂用帳戶都會自動繼承套用到管理群組的原則。 每個目錄會都會有一個最上層管理群組，名為「根」管理群組。 這個根管理群組會建置於階層內，讓所有的管理群組和訂用帳戶摺疊於其中。 這個根管理群組可讓全域原則和 RBAC 指派在目錄層級套用。 若要設定可搭配 Azure 資訊安全中心使用的管理群組，請遵循[取得 Azure 資訊安全中心的全租用戶可見度](security-center-management-groups.md)中的指示。
 
 > [!NOTE]
-> 請務必了解管理群組和訂用帳戶的階層。 若要深入了解管理群組、根管理和管理群組存取，請參閱[使用 Azure 管理群組來組織資源](../governance/management-groups/index.md#root-management-group-for-each-directory)。
+> 請務必了解管理群組和訂用帳戶的階層。 若要深入了解管理群組、根管理和管理群組存取，請參閱[使用 Azure 管理群組來組織資源](../governance/management-groups/overview.md#root-management-group-for-each-directory)。
 >
 
 ## <a name="how-security-policies-work"></a>安全性原則的運作方式

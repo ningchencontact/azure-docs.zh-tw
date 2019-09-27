@@ -6,18 +6,37 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 09/11/2019
+ms.date: 09/26/2019
 ms.author: alkohli
-ms.openlocfilehash: f1199748782c40b2527a8778417588891b84f9fc
-ms.sourcegitcommit: d70c74e11fa95f70077620b4613bb35d9bf78484
+ms.openlocfilehash: 365507f482217bd804bbd5017d4dbbaf8c187ad2
+ms.sourcegitcommit: e9936171586b8d04b67457789ae7d530ec8deebe
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70910131"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71326888"
 ---
 # <a name="azure-data-box-edge-technical-specifications"></a>Azure Data Box Edge 技術規格
 
 Microsoft Azure Data Box Edge 裝置的硬體元件會遵循本文所述的技術規格與法規標準。 技術規格描述電源供應器（Psu）、存放裝置容量、主機殼和環境標準。 
+
+## <a name="compute-memory-specifications"></a>計算，記憶體規格
+
+Data Box Edge 裝置的計算和記憶體規格如下：
+
+| 規格           | 值                  |
+|-------------------------|----------------------------|
+| CPU    | 2 X 10 核心 CPU                     |
+| 記憶體              | 128 GB RAM                  |
+
+
+## <a name="fpga-specifications"></a>FPGA 規格
+
+可程式化閘道陣列（FPGA）會包含在每個 Data Box Edge 裝置上，以啟用 Machine Learning （ML）案例。 
+
+| 規格           | 值                  |
+|-------------------------|----------------------------|
+| FPGA   | Intel Arria 10 <br> 可用的深度類神經網路（DNN）模型與[雲端 FPGA 實例所支援](https://docs.microsoft.com/azure/machine-learning/service/how-to-deploy-fpga-web-service#whats-supported-on-azure)的模型相同。| 
+
 
 ## <a name="power-supply-unit-specifications"></a>電源供應器單位規格
 

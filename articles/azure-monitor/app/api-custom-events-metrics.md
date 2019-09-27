@@ -12,19 +12,16 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 03/27/2019
 ms.author: mbullwin
-ms.openlocfilehash: 776f20d04bb79fa42c78dba8482e8ba866c93b31
-ms.sourcegitcommit: a7a9d7f366adab2cfca13c8d9cbcf5b40d57e63a
+ms.openlocfilehash: a56040f5938cc5d1edd452a81935591372cff0d6
+ms.sourcegitcommit: e9936171586b8d04b67457789ae7d530ec8deebe
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71162502"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71326652"
 ---
 # <a name="application-insights-api-for-custom-events-and-metrics"></a>自訂事件和度量的 Application Insights API
 
 在您的應用程式中插入幾行程式碼，以了解使用者對它進行的動作或協助診斷問題。 您可以從裝置和桌面應用程式、Web 用戶端以及 Web 伺服器傳送遙測。 使用 [Azure Application Insights](../../azure-monitor/app/app-insights-overview.md) 核心遙測 API 來傳送自訂的事件和度量，以及您自己的標準遙測版本。 這個 API 與標準 Application Insights 資料收集器所使用的 API 相同。
-
-> [!NOTE]
-> `TrackMetric()` 不再是針對 .NET 型應用程式傳送自訂計量的慣用方法。 [2.60-beta 3 版](https://github.com/Microsoft/ApplicationInsights-dotnet/blob/develop/CHANGELOG.md#version-260-beta3)的 Application Insights .NET SDK 中引進了新方法 [`TelemetryClient.GetMetric()`](https://docs.microsoft.com/dotnet/api/microsoft.applicationinsights.telemetryclient.getmetric?view=azure-dotnet)。 從 Application Insights .NET SDK [2.72 版](https://docs.microsoft.com/dotnet/api/microsoft.applicationinsights.telemetryclient.getmetric?view=azure-dotnet)起，這項功能現在屬於穩定的版本。
 
 ## <a name="api-summary"></a>API summary
 
@@ -68,6 +65,8 @@ ms.locfileid: "71162502"
 
 取得 `TelemetryClient` 的執行個體 (除非是在網頁的 JavaScript 中)：
 
+針對適用于 .NET/.NET Core 應用程式的[ASP.NET Core](asp-net-core.md#how-can-i-track-telemetry-thats-not-automatically-collected)應用程式和[非 HTTP/背景工作角色](worker-service.md#how-can-i-track-telemetry-thats-not-automatically-collected)，建議您從相依性插入容器中取得 `TelemetryClient` 的實例，如其各自的檔所述。
+
 *C#*
 
 ```csharp
@@ -94,7 +93,7 @@ var telemetry = applicationInsights.defaultClient;
 
 TelemetryClient 具備執行緒安全。
 
-針對 ASP.NET 和 Java 專案，系統會自動擷取傳入 HTTP 要求。 您可以為應用程式的其他模組建立額外的 TelemetryClient 執行個體。 比方說，您可以在中介軟體類別中配置一個 TelemetryClient 執行個體，用來報告商業邏輯事件。 您可以設定 UserId 和 DeviceId 等屬性，藉此辨識機器。 這項資訊會附加至執行個體所傳送的所有事件。 
+針對 ASP.NET 和 Java 專案，系統會自動擷取傳入 HTTP 要求。 您可以為應用程式的其他模組建立額外的 TelemetryClient 執行個體。 比方說，您可以在中介軟體類別中配置一個 TelemetryClient 執行個體，用來報告商業邏輯事件。 您可以設定 UserId 和 DeviceId 等屬性，藉此辨識機器。 這項資訊會附加至執行個體所傳送的所有事件。
 
 *C#*
 
@@ -969,7 +968,7 @@ telemetry.trackEvent("SignalProcessed", properties, metrics);
 using Microsoft.ApplicationInsights.DataContracts;
 
 var gameTelemetry = new TelemetryClient();
-gameTelemetry.Context.Properties["Game"] = currentGame.Name;
+gameTelemetry.Context.GlobalProperties["Game"] = currentGame.Name;
 // Now all telemetry will automatically be sent with the context property:
 gameTelemetry.TrackEvent("WinGame");
 ```
@@ -978,7 +977,7 @@ gameTelemetry.TrackEvent("WinGame");
 
 ```vb
 Dim gameTelemetry = New TelemetryClient()
-gameTelemetry.Context.Properties("Game") = currentGame.Name
+gameTelemetry.Context.GlobalProperties("Game") = currentGame.Name
 ' Now all telemetry will automatically be sent with the context property:
 gameTelemetry.TrackEvent("WinGame")
 ```

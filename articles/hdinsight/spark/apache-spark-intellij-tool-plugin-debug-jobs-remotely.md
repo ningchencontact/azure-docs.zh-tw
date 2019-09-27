@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/28/2017
-ms.openlocfilehash: 404f96e91db8df0dd4246b7d744e463ce0e457a1
-ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
+ms.openlocfilehash: a558c0e767610f1fefdf29ca461a476c7bfcee59
+ms.sourcegitcommit: e9936171586b8d04b67457789ae7d530ec8deebe
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/14/2019
-ms.locfileid: "70994133"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71327330"
 ---
 # <a name="use-azure-toolkit-for-intellij-to-debug-apache-spark-applications-remotely-in-hdinsight-through-vpn"></a>使用 Azure Toolkit for IntelliJ 來在 HDInsight 中透過 VPN 遠端偵錯 Apache Spark 應用程式
 
@@ -53,19 +53,19 @@ ms.locfileid: "70994133"
 
 1. 取得前端節點的 IP 位址。 開啟叢集的 Ambari UI。 從叢集刀鋒視窗中，選取 [儀表板]。
 
-    ![在 Ambari 中選取儀表板](./media/apache-spark-intellij-tool-plugin-debug-jobs-remotely/launch-apache-ambari.png)
+    ![選取 Apache Ambari 中的儀表板](./media/apache-spark-intellij-tool-plugin-debug-jobs-remotely/launch-apache-ambari.png)
 
 1. 從 Ambari UI 中，選取 [主機]。
 
-    ![在 Ambari 中選取主機](./media/apache-spark-intellij-tool-plugin-debug-jobs-remotely/apache-ambari-hosts1.png)
+    ![選取 Apache Ambari 中的主機](./media/apache-spark-intellij-tool-plugin-debug-jobs-remotely/apache-ambari-hosts1.png)
 
 1. 您會看到前端節點、背景工作角色節點和 zookeeper 節點的清單。 前端節點有 **hn*** 前置詞。 選取第一個前端節點。
 
-    ![在 Ambari 中尋找前端節點](./media/apache-spark-intellij-tool-plugin-debug-jobs-remotely/ambari-cluster-headnodes.png)
+    ![在 Apache Ambari 中尋找前端節點](./media/apache-spark-intellij-tool-plugin-debug-jobs-remotely/ambari-cluster-headnodes.png)
 
 1. 從開啟的頁面底部 [摘要] 窗格，複製前端節點的 **IP 位址**和**主機名稱**。
 
-    ![在 Ambari 中尋找 IP 位址](./media/apache-spark-intellij-tool-plugin-debug-jobs-remotely/headnode-ip-address1.png)
+    ![在 Apache Ambari 中尋找 IP 位址](./media/apache-spark-intellij-tool-plugin-debug-jobs-remotely/headnode-ip-address1.png)
 
 1. 將前端節點的 IP 位址和主機名稱新增到電腦 (您需要從中執行和遠端偵錯 Spark 作業) 上的**主機**檔案。 這可讓您使用 IP 位址和主機名稱，與前端節點進行通訊。
 
@@ -117,16 +117,15 @@ ms.locfileid: "70994133"
 
     b. 在 [專案結構] 對話方塊中，選取 [構件]，以檢視建立的預設構件。 您也可以建立自己的構件，方法是選取加號 ( **+** )。
 
-   ![建立 JAR](./media/apache-spark-intellij-tool-plugin-debug-jobs-remotely/create-default-artifact.png)
-
+   ![IntelliJ 概念構件建立 jar](./media/apache-spark-intellij-tool-plugin-debug-jobs-remotely/create-default-artifact.png)
 
 1. 將程式庫新增至專案。 若要新增文件庫，請執行下列操作：
 
-    a. 以滑鼠右鍵按一下專案樹狀結構中的專案名稱，然後選取 [開啟模組設定]。 
+    a. 以滑鼠右鍵按一下專案樹狀結構中的專案名稱，然後選取 [開啟模組設定]。
 
     b. 在 [專案結構] 對話方塊中，依序選取 [文件庫] **、** ([+]) 符號，然後選取 [從 Maven]。
 
-    ![新增文件庫](./media/apache-spark-intellij-tool-plugin-debug-jobs-remotely/intellij-add-library.png)
+    ![IntelliJ 構想下載程式庫](./media/apache-spark-intellij-tool-plugin-debug-jobs-remotely/intellij-add-library.png)
 
     c. 在 [從 Maven 存放庫下載文件庫] 對話方塊中，搜尋並新增下列文件庫：
 
@@ -182,11 +181,11 @@ ms.locfileid: "70994133"
 
 1. 新增您應用程式的主要類別。 從**專案總管**，以滑鼠右鍵按一下 [src]、指向 [新增]，然後選取 [Scala 類別]。
 
-    ![選取主要類別](./media/apache-spark-intellij-tool-plugin-debug-jobs-remotely/hdi-spark-scala-code.png)
+    ![IntelliJ 構想選取主要類別](./media/apache-spark-intellij-tool-plugin-debug-jobs-remotely/hdi-spark-scala-code.png)
 
 1. 在 [建立新的 Scala 類別] 對話方塊中，提供一個名稱，並在 [種類] 方塊中選取 [物件]，然後選取 [確定]。
 
-    ![建立新的 Scala 類別](./media/apache-spark-intellij-tool-plugin-debug-jobs-remotely/hdi-spark-scala-code-object.png)
+    ![IntelliJ 構思建立新的 Scala 類別](./media/apache-spark-intellij-tool-plugin-debug-jobs-remotely/hdi-spark-scala-code-object.png)
 
 1. 在 `MyClusterAppMain.scala` 檔案中，貼上下列程式碼。 此程式碼會建立 Spark 內容，並且從 `SparkSample` 物件開啟 `executeJob` 方法。
 
@@ -258,47 +257,47 @@ ms.locfileid: "70994133"
 
 1. 在 `*RemoteClusterDebugging` 類別中，以滑鼠右鍵按一下 `test` 關鍵字，然後選取 [建立 RemoteClusterDebugging 組態]。
 
-    ![建立遠端組態](./media/apache-spark-intellij-tool-plugin-debug-jobs-remotely/create-remote-config.png)
+    ![IntelliJ 構思建立遠端設定](./media/apache-spark-intellij-tool-plugin-debug-jobs-remotely/create-remote-config.png)
 
 1. 在 [建立 RemoteClusterDebugging 組態] 對話方塊中，提供組態的名稱，然後選取 [測試種類] 作為 [測試名稱]。 保留所有其他值作為預設設定。 選取 [套用]，然後選取 [確定]。
 
-    ![新增組態詳細資料](./media/apache-spark-intellij-tool-plugin-debug-jobs-remotely/provide-config-value.png)
+    ![建立 RemoteClusterDebugging 設定](./media/apache-spark-intellij-tool-plugin-debug-jobs-remotely/provide-config-value.png)
 
 1. 您現在應該會在功能表列中看到 [遠端執行] 組態下拉式清單。
 
-    ![[遠端執行] 下拉式清單](./media/apache-spark-intellij-tool-plugin-debug-jobs-remotely/intellij-config-remote-run.png)
+    ![IntelliJ [遠端執行] 下拉式清單](./media/apache-spark-intellij-tool-plugin-debug-jobs-remotely/intellij-config-remote-run.png)
 
 ## <a name="step-5-run-the-application-in-debug-mode"></a>步驟 5：在偵錯模式中執行應用程式
 
 1. 在您的 IntelliJ IDEA 專案中，開啟 `SparkSample.scala`，並在 `val rdd1` 旁邊建立中斷點。 在快顯功能表的 [建立中斷點] 中，選取 **executeJob 函式中的一行**。
 
-    ![新增中斷點](./media/apache-spark-intellij-tool-plugin-debug-jobs-remotely/intellij-create-breakpoint.png)
+    ![IntelliJ 概念新增中斷點](./media/apache-spark-intellij-tool-plugin-debug-jobs-remotely/intellij-create-breakpoint.png)
 
 1. 若要執行應用程式，請選取 [遠端執行] 組態下拉式清單旁的 [偵錯執行] 按鈕。
 
-    ![選取 [偵錯執行] 按鈕](./media/apache-spark-intellij-tool-plugin-debug-jobs-remotely/debug-run-mode-button.png)
+    ![IntelliJ 構想選取 [Debug Run] 按鈕](./media/apache-spark-intellij-tool-plugin-debug-jobs-remotely/debug-run-mode-button.png)
 
 1. 當程式執行觸達中斷點時，您會在下方窗格中看到 [偵錯工具] 索引標籤。
 
-    ![檢視 [偵錯工具] 索引標籤](./media/apache-spark-intellij-tool-plugin-debug-jobs-remotely/intellij-debugger-tab.png)
+    ![IntelliJ 概念觀看偵錯工具索引標籤](./media/apache-spark-intellij-tool-plugin-debug-jobs-remotely/intellij-debugger-tab.png)
 
 1. 若要新增監看式，請選取 ([+]) 圖示。
 
-    ![選取 [+] 圖示](./media/apache-spark-intellij-tool-plugin-debug-jobs-remotely/debug-add-watch-variable.png)
+    ![IntelliJ debug-新增-監看式-變數](./media/apache-spark-intellij-tool-plugin-debug-jobs-remotely/debug-add-watch-variable.png)
 
     在此範例中，會在 `rdd1` 變數建立之前中斷應用程式。 使用此監看式，我們可以看到變數 `rdd` 中的前五個資料列。 選取 [輸入]。
 
-    ![在偵錯模式中執行程式](./media/apache-spark-intellij-tool-plugin-debug-jobs-remotely/debug-add-watch-variable-value.png)
+    ![IntelliJ 在 debug 模式中執行程式](./media/apache-spark-intellij-tool-plugin-debug-jobs-remotely/debug-add-watch-variable-value.png)
 
     先前映像中看到的內容是在執行階段，您可以查詢數 TB 的資料，並且針對應用程式的進度進行偵錯。 例如，您可以在先前映像中顯示的輸出，看到輸出的第一個資料列是標頭。 您可以此輸出作為基礎來修改應用程式程式碼，視需要跳過標頭資料列。
 
 1. 您現在可以選取 [繼續程式] 圖示，以繼續執行應用程式。
 
-    ![選取繼續程式](./media/apache-spark-intellij-tool-plugin-debug-jobs-remotely/debug-continue-remote-run.png)
+    ![IntelliJ 構想選取繼續程式](./media/apache-spark-intellij-tool-plugin-debug-jobs-remotely/debug-continue-remote-run.png)
 
 1. 如果應用程式順利完成，就會看到類似下列的輸出：
 
-    ![主控台輸出](./media/apache-spark-intellij-tool-plugin-debug-jobs-remotely/debug-complete-window.png)
+    ![IntelliJ 構思偵錯工具主控台輸出](./media/apache-spark-intellij-tool-plugin-debug-jobs-remotely/debug-complete-window.png)
 
 ## <a name="seealso"></a>接續步驟
 

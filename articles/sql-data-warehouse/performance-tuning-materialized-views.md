@@ -10,12 +10,12 @@ ms.subservice: development
 ms.date: 09/05/2019
 ms.author: xiaoyul
 ms.reviewer: nibruno; jrasnick
-ms.openlocfilehash: 6ed6e21f16287148c8764dd98bda378451440e58
-ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
+ms.openlocfilehash: 593841ac95c4c6f17f33a8d35d6b3f83a6db1124
+ms.sourcegitcommit: e1b6a40a9c9341b33df384aa607ae359e4ab0f53
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71172780"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71338907"
 ---
 # <a name="performance-tuning-with-materialized-views"></a>使用具體化視圖進行效能微調 
 Azure SQL 資料倉儲中的具體化視圖可針對複雜的分析查詢提供較低的維護方法，以在沒有任何查詢變更的情況下取得快速效能。 本文討論使用具體化視圖的一般指引。
@@ -49,7 +49,7 @@ Azure SQL 資料倉儲支援標準和具體化的視圖。  兩者都是使用 S
 
 - Azure SQL 資料倉儲中的優化工具可以自動使用已部署的具體化視圖來改善查詢執行計畫。  這個程式對於提供較快速查詢效能的使用者而言是透明的，不需要查詢就能直接參考具體化的視圖。 
 
-- 需要在 views 上進行低維護。  具體化視圖會將資料儲存在兩個位置中，這是在建立視圖時初始資料的叢集資料行存放區索引，以及累加式資料變更的差異存放區。  基表中的所有資料變更都會以同步方式自動新增到差異存放區。  背景進程（元組移動器）會定期將資料從差異存放區移到視圖的資料行存放區索引。  這種設計可讓查詢具體化視圖傳回與直接查詢基表相同的資料。 
+- 需要在 views 上進行低維護。  基表的所有累加資料變更都會以同步方式自動新增至具體化 views。  這種設計可讓查詢具體化視圖傳回與直接查詢基表相同的資料。 
 - 具體化視圖中的資料可以用不同于基表的方式散發。  
 - 具體化視圖中的資料會與一般資料表中的資料取得相同的高可用性和復原優勢。  
  
@@ -90,7 +90,7 @@ Azure 資料倉儲是分散式大量平行處理（MPP）系統。   資料倉�
 
 **請留意速度較快的查詢與成本之間的取捨** 
 
-針對每個具體化視圖，會有資料儲存成本，以及維護此視圖的成本。  當基表中的資料變更時，具體化視圖的大小會增加，而且其實體結構也會變更。  為了避免查詢效能降低，每個具體化視圖都會由資料倉儲引擎分別維護，包括將資料列從差異存放區移到資料行存放區索引區段，以及合併資料變更。  當具體化視圖和基表變更的數目增加時，維護工作負載會變高。   使用者應該檢查所有具體化視圖所產生的成本是否可以由查詢效能提升來位移。  
+針對每個具體化視圖，會有資料儲存成本，以及維護此視圖的成本。  當基表中的資料變更時，具體化視圖的大小會增加，而且其實體結構也會變更。  為了避免查詢效能降低，每個具體化的視圖都會由資料倉儲引擎分別維護。  當具體化視圖和基表變更的數目增加時，維護工作負載會變高。   使用者應該檢查所有具體化視圖所產生的成本是否可以由查詢效能提升來位移。  
 
 您可以針對資料庫中的具體化視圖清單執行此查詢： 
 
@@ -136,7 +136,7 @@ GROUP BY A, C
 
 **監視具體化視圖** 
 
-具體化視圖會儲存在資料倉儲中，就像是具有叢集資料行存放區索引（CCI）的資料表一樣。  從具體化視圖讀取資料包括掃描索引，以及從差異存放區套用變更。  當差異存放區中的資料列數目太高時，從具體化視圖解析查詢所花的時間可能會比直接查詢基表更長。  為避免查詢效能降低，請執行[DBCC PDW_SHOWMATERIALIZEDVIEWOVERHEAD](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-pdw-showmaterializedviewoverhead-transact-sql?view=azure-sqldw-latest)來監視視圖的 overhead_ratio （total_rows/base_view_row），是很好的作法。  如果 overhead_ratio 太高，請考慮重建具體化視圖，讓差異存放區中的所有資料列移至資料行存放區索引。  
+具體化視圖會儲存在資料倉儲中，就像是具有叢集資料行存放區索引（CCI）的資料表一樣。  從具體化視圖讀取資料包括掃描 CCI 索引區段，以及套用基表的任何累加式變更。 當累加變更的數目過高時，從具體化視圖解析查詢可能需要比直接查詢基表更長的時間。  為避免查詢效能降低，請執行[DBCC PDW_SHOWMATERIALIZEDVIEWOVERHEAD](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-pdw-showmaterializedviewoverhead-transact-sql?view=azure-sqldw-latest)來監視視圖的 overhead_ratio （total_rows/max （1，base_view_row）），是很好的作法。  如果使用者的 overhead_ratio 太高，則應該重建具體化視圖。 
 
 **具體化視圖和結果集快取**
 

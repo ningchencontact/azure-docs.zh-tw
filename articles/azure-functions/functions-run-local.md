@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 03/13/2019
 ms.author: glenga
 ms.custom: 80e4ff38-5174-43
-ms.openlocfilehash: fc77ef6786fbd16ecfeb34397ead11be8b107176
-ms.sourcegitcommit: 5f67772dac6a402bbaa8eb261f653a34b8672c3a
+ms.openlocfilehash: 45bc55141c9f338ae2f69cf4ccefae3d2492b239
+ms.sourcegitcommit: e1b6a40a9c9341b33df384aa607ae359e4ab0f53
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/01/2019
-ms.locfileid: "70207274"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71336941"
 ---
 # <a name="work-with-azure-functions-core-tools"></a>使用 Azure Functions Core Tools
 
@@ -22,7 +22,7 @@ Azure Functions Core Tools 可讓您從命令提示字元或終端機，在本�
 
 [!INCLUDE [Don't mix development environments](../../includes/functions-mixed-dev-environments.md)]
 
-在您的本機電腦上開發函式, 並使用核心工具將其發佈至 Azure 時, 會遵循下列基本步驟:
+在您的本機電腦上開發函式，並使用核心工具將其發佈至 Azure 時，會遵循下列基本步驟：
 
 > [!div class="checklist"]
 > * [安裝核心工具和相依性。](#v2)
@@ -52,7 +52,7 @@ Azure Functions Core Tools 有兩個版本。 您使用的版本取決於您的�
 工具的 2.x 版會使用以 .NET Core 為建置基礎的 Azure Functions 執行階段 2.x。 .NET Core 2.x 支援的所有平台都支援這個版本，包括 [Windows](#windows-npm)、[macOS](#brew) 和 [Linux](#linux)。 
 
 > [!IMPORTANT]
-> 您可以使用[延伸]模組套件, 略過安裝 .net CORE 2.x SDK 的需求。
+> 您可以使用[延伸]模組套件，略過安裝 .net CORE 2.x SDK 的需求。
 
 #### <a name="windows-npm"></a>Windows
 
@@ -66,9 +66,9 @@ Azure Functions Core Tools 有兩個版本。 您使用的版本取決於您的�
     npm install -g azure-functions-core-tools
     ```
 
-   可能需要幾分鐘的時間, npm 才能下載並安裝 Core Tools 套件。
+   可能需要幾分鐘的時間，npm 才能下載並安裝 Core Tools 套件。
 
-1. 如果您不打算使用[延伸]模組配套, 請安裝[適用于 Windows 的 .NET Core 2.x SDK](https://www.microsoft.com/net/download/windows)。
+1. 如果您不打算使用[延伸]模組配套，請安裝[適用于 Windows 的 .NET Core 2.x SDK](https://www.microsoft.com/net/download/windows)。
 
 #### <a name="brew"></a>採用 Homebrew 的 MacOS
 
@@ -83,33 +83,51 @@ Azure Functions Core Tools 有兩個版本。 您使用的版本取決於您的�
     brew install azure-functions-core-tools
     ```
 
-1. 如果您不打算使用[延伸]模組配套, 請安裝[適用于 MacOS 的 .NET Core 2.x SDK](https://www.microsoft.com/net/download/macos)。
+1. 如果您不打算使用[延伸]模組配套，請安裝[適用于 MacOS 的 .NET Core 2.x SDK](https://www.microsoft.com/net/download/macos)。
 
 
 #### <a name="linux"></a> 採用 APT 的 Linux (Ubuntu/Debian)
 
 下列步驟使用 [APT](https://wiki.debian.org/Apt) 在 Ubuntu/Debian Linux 散發套件上安裝 Core Tools。 若為其他 Linux 散發套件，請參閱 [Core Tools 讀我檔案](https://github.com/Azure/azure-functions-core-tools/blob/master/README.md#linux)。
 
-1. 安裝 Microsoft 封裝存放庫 GPG 金鑰, 以驗證封裝完整性:
+1. 安裝 Microsoft 封裝存放庫 GPG 金鑰，以驗證封裝完整性：
 
     ```bash
     curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > microsoft.gpg
     sudo mv microsoft.gpg /etc/apt/trusted.gpg.d/microsoft.gpg
     ```
 
-1. 請確認您的 Ubuntu 伺服器正在執行下表其中一個適當的版本。 若要新增 apt 來源，請執行：
+1. 進行 APT 更新之前，請先設定 .NET 開發來源清單。
+
+   若要設定 Ubuntu 的 APT 來源清單，請執行此命令：
 
     ```bash
     sudo sh -c 'echo "deb [arch=amd64] https://packages.microsoft.com/repos/microsoft-ubuntu-$(lsb_release -cs)-prod $(lsb_release -cs) main" > /etc/apt/sources.list.d/dotnetdev.list'
-    sudo apt-get update
     ```
+
+   若要設定 Debian 的 APT 來源清單，請執行此命令：
+
+    ```bash
+    sudo sh -c 'echo "deb [arch=amd64] https://packages.microsoft.com/debian/$(lsb_release -rs)/prod $(lsb_release -cs) main" > /etc/apt/sources.list.d/dotnetdev.list'
+    ```
+
+1. 針對下列其中一個適當的 Linux 版本字串，檢查 `/etc/apt/sources.list.d/dotnetdev.list` 檔案：
 
     | Linux 散發套件 | Version |
     | --------------- | ----------- |
+    | Debian 10 | `buster` |
+    | Debian 9 | `stretch` |
+    | Debian 8 | `jessie` |
     | Ubuntu 18.10    | `cosmic`    |
     | Ubuntu 18.04    | `bionic`    |
     | Ubuntu 17.04    | `zesty`     |
     | Ubuntu 16.04/Linux Mint 18    | `xenial`  |
+
+1. 啟動 APT 來源更新：
+
+    ```bash
+    sudo apt-get update
+    ```
 
 1. 安裝 Core Tools 套件：
 
@@ -117,7 +135,7 @@ Azure Functions Core Tools 有兩個版本。 您使用的版本取決於您的�
     sudo apt-get install azure-functions-core-tools
     ```
 
-1. 如果您不打算使用[延伸]模組配套, 請安裝[適用于 Linux 的 .NET Core 2.x SDK](https://www.microsoft.com/net/download/linux)。
+1. 如果您不打算使用[延伸]模組配套，請安裝[適用于 Linux 的 .NET Core 2.x SDK](https://www.microsoft.com/net/download/linux)。
 
 ## <a name="create-a-local-functions-project"></a>建立本機的 Functions 專案
 
@@ -142,7 +160,7 @@ python (preview)
 powershell (preview)
 ```
 
-使用向上/向下鍵來選擇語言，然後按 Enter。 如果您打算開發 JavaScript 或 TypeScript 函式, 請選擇 [ **node**], 然後選取語言。 TypeScript 有[一些額外的需求](functions-reference-node.md#typescript)。 
+使用向上/向下鍵來選擇語言，然後按 Enter。 如果您打算開發 JavaScript 或 TypeScript 函式，請選擇 [ **node**]，然後選取語言。 TypeScript 有[一些額外的需求](functions-reference-node.md#typescript)。 
 
 JavaScript 專案的輸出看起來會像下列範例：
 
@@ -182,7 +200,7 @@ Initialized empty Git repository in C:/myfunctions/myMyFunctionProj/.git/
 * [Java](functions-reference-java.md#environment-variables)
 * [JavaScript](functions-reference-node.md#environment-variables)
 
-若未針對[`AzureWebJobsStorage`]設定有效的儲存體連接字串, 且未使用模擬器, 則會顯示下列錯誤訊息:
+如果沒有為[`AzureWebJobsStorage`]設定有效的儲存體連接字串，且未使用模擬器，則會顯示下列錯誤訊息：
 
 > 在 local.settings.json 中遺失 AzureWebJobsStorage 的值。 這對 HTTP 以外的所有觸發程序是必要的。 您可以執行 'func azure functionapp fetch-app-settings \<functionAppName\>'，或指定 local.settings.json 中的連接字串。
 
@@ -274,7 +292,7 @@ func new --template "Queue Trigger" --name QueueTriggerJS
 
 ### <a name="version-2x"></a>2\.x 版
 
-在2.x 版的執行時間中, 視您的專案語言而定, start 命令會有所不同。
+在2.x 版的執行時間中，視您的專案語言而定，start 命令會有所不同。
 
 #### <a name="c"></a>C\#
 
@@ -297,7 +315,7 @@ npm start
 
 ### <a name="version-1x"></a>1\.x 版
 
-1\.x 版的函式執行時間需要`host`命令, 如下列範例所示:
+1\.x 版的函式執行時間需要 `host` 命令，如下列範例所示：
 
 ```command
 func host start
@@ -338,7 +356,7 @@ Http Function MyHttpTrigger: http://localhost:7071/api/MyHttpTrigger
 若要在本機測試您的函式，您要使用 HTTP 要求在本機伺服器上[啟動 Functions 主機](#start)並呼叫端點。 您呼叫的端點取決於函式的類型。
 
 >[!NOTE]
-> 本主題中的範例使用 cURL 工具，從終端機或命令提示字元傳送 HTTP 要求。 您可以使用您選擇的工具，將 HTTP 要求傳送至本機伺服器。 在以 Linux 為基礎的系統和 Windows 10 組建17063及更新版本上, 預設會提供捲曲的工具。 在較舊的 Windows 上, 您必須先下載並安裝[捲曲的工具](https://curl.haxx.se/)。
+> 本主題中的範例使用 cURL 工具，從終端機或命令提示字元傳送 HTTP 要求。 您可以使用您選擇的工具，將 HTTP 要求傳送至本機伺服器。 在以 Linux 為基礎的系統和 Windows 10 組建17063及更新版本上，預設會提供捲曲的工具。 在較舊的 Windows 上，您必須先下載並安裝[捲曲的工具](https://curl.haxx.se/)。
 
 如需測試函式的更多一般資訊，請參閱[在 Azure Functions 中測試程式碼的策略](functions-test-a-function.md)。
 
@@ -411,29 +429,29 @@ func run MyHttpTrigger -c '{\"name\": \"Azure\"}'
 
 ## <a name="publish"></a>發佈至 Azure
 
-此 Azure Functions Core Tools 支援兩種部署類型: 透過[Zip 部署](functions-deployment-technologies.md#zip-deploy)和[部署自訂 Docker 容器](functions-deployment-technologies.md#docker-container), 將函式專案檔直接部署至函式應用程式。 您必須已[在 Azure 訂用帳戶中建立函式應用程式](functions-cli-samples.md#create), 您將在其中部署您的程式碼。 應建置需要編譯的專案，以便部署二進位檔。
+此 Azure Functions Core Tools 支援兩種部署類型：透過[Zip 部署](functions-deployment-technologies.md#zip-deploy)和[部署自訂 Docker 容器](functions-deployment-technologies.md#docker-container)，將函式專案檔直接部署至函式應用程式。 您必須已[在 Azure 訂用帳戶中建立函式應用程式](functions-cli-samples.md#create)，您將在其中部署您的程式碼。 應建置需要編譯的專案，以便部署二進位檔。
 
 專案資料夾可能包含不應發行的特定語言檔案和目錄。 排除的專案會列在根專案資料夾中的 funcignore 檔案中。     
 
-### <a name="project-file-deployment"></a>部署 (專案檔)
+### <a name="project-file-deployment"></a>部署（專案檔）
 
-若要將您的本機程式碼發佈至 Azure 中的函數`publish`應用程式, 請使用命令:
+若要將您的本機程式碼發佈至 Azure 中的函數應用程式，請使用 `publish` 命令：
 
 ```bash
 func azure functionapp publish <FunctionAppName>
 ```
 
-此命令會發行至 Azure 中的現有函式應用程式。 如果您嘗試發行至`<FunctionAppName>`不存在於訂用帳戶中的, 將會收到錯誤。 若要了解如何使用 Azure CLI 從命令提示字元或終端機視窗建立函式應用程式，請參閱[建立無伺服器也可執行的函式應用程式](./scripts/functions-cli-create-serverless.md)。 根據預設, 此命令會將您的應用程式部署為[從部署套件執行](run-functions-from-deployment-package.md)。 若要停用這個建議的部署模式`--nozip` , 請使用選項。
+此命令會發行至 Azure 中的現有函式應用程式。 如果您嘗試發佈至不存在於訂用帳戶中的 `<FunctionAppName>`，將會收到錯誤。 若要了解如何使用 Azure CLI 從命令提示字元或終端機視窗建立函式應用程式，請參閱[建立無伺服器也可執行的函式應用程式](./scripts/functions-cli-create-serverless.md)。 根據預設，此命令會將您的應用程式部署為[從部署套件執行](run-functions-from-deployment-package.md)。 若要停用這個建議的部署模式，請使用 `--nozip` 選項。
 
 >[!IMPORTANT]
 > 當您在 Azure 入口網站中建立函式應用程式時，依預設會使用 2.x 版的函式執行階段。 若要讓函式應用程式使用 1.x 版的執行階段，請依照[在 1.x 版上執行](functions-versions.md#creating-1x-apps)中的指示操作。
 > 若函式應用程式具有現有的函式，您就無法變更其執行階段版本。
 
-下列發行選項適用于1.x 和2.x 版:
+下列發行選項適用于1.x 和2.x 版：
 
 | 選項     | 描述                            |
 | ------------ | -------------------------------------- |
-| **`--publish-local-settings -i`** |  將 local.settings.json 中的設定發佈至 Azure，若設定已經存在，則提示進行覆寫。 如果您使用儲存體模擬器, 請先將應用程式設定變更為[實際的儲存體連接](#get-your-storage-connection-strings)。 |
+| **`--publish-local-settings -i`** |  將 local.settings.json 中的設定發佈至 Azure，若設定已經存在，則提示進行覆寫。 如果您使用儲存體模擬器，請先將應用程式設定變更為[實際的儲存體連接](#get-your-storage-connection-strings)。 |
 | **`--overwrite-settings -y`** | 在使用 `--publish-local-settings -i` 時隱藏覆寫應用程式設定的提示。|
 
 下列發佈選項僅在 2.x 版中受到支援：
@@ -451,9 +469,9 @@ func azure functionapp publish <FunctionAppName>
 | **`--no-build`** | 略過建置 dotnet 函式的作業。 |
 | **`--dotnet-cli-params`** | 發佈已編譯的 C# (.csproj) 函式時，Core Tools 會呼叫 'dotnet build --output bin/publish'。 傳至此處的任何參數都會附加至命令列。 |
 
-### <a name="deployment-custom-container"></a>部署 (自訂容器)
+### <a name="deployment-custom-container"></a>部署（自訂容器）
 
-Azure Functions 可讓您在[自訂的 Docker 容器](functions-deployment-technologies.md#docker-container)中部署函數專案。 如需詳細資訊，請參閱[使用自訂映像在 Linux 上建立函式](functions-create-function-linux-custom-image.md)。 自訂容器必須具有 Dockerfile。 若要建立具有 Dockerfile 的應用程式, 請使用上`func init`的--Dockerfile 選項。
+Azure Functions 可讓您在[自訂的 Docker 容器](functions-deployment-technologies.md#docker-container)中部署函數專案。 如需詳細資訊，請參閱[使用自訂映像在 Linux 上建立函式](functions-create-function-linux-custom-image.md)。 自訂容器必須具有 Dockerfile。 若要建立具有 Dockerfile 的應用程式，請使用 `func init` 上的--Dockerfile 選項。
 
 ```bash
 func deploy
@@ -472,17 +490,17 @@ func deploy
 
 ## <a name="monitoring-functions"></a>監視函式
 
-若要監視函式的執行, 建議的方法是與 Azure 應用程式 Insights 整合。 您也可以將執行記錄串流至本機電腦。 若要深入了解，請參閱[監視 Azure Functions](functions-monitoring.md)。
+若要監視函式的執行，建議的方法是與 Azure 應用程式 Insights 整合。 您也可以將執行記錄串流至本機電腦。 若要深入了解，請參閱[監視 Azure Functions](functions-monitoring.md)。
 
 ### <a name="enable-application-insights-integration"></a>啟用 Application Insights 整合
 
-當您在 Azure 入口網站中建立函數應用程式時, 預設會為您完成 Application Insights 整合。 不過，當您使用 Azure CLI 建立函式應用程式時，則不會在 Azure 中完成您的函式應用程式整合。
+當您在 Azure 入口網站中建立函數應用程式時，預設會為您完成 Application Insights 整合。 不過，當您使用 Azure CLI 建立函式應用程式時，則不會在 Azure 中完成您的函式應用程式整合。
 
 [!INCLUDE [functions-connect-new-app-insights.md](../../includes/functions-connect-new-app-insights.md)]
 
 ### <a name="enable-streaming-logs"></a>啟用串流記錄
 
-您可以在本機電腦上的命令列會話中, 查看您的函式所產生的記錄檔串流。 
+您可以在本機電腦上的命令列會話中，查看您的函式所產生的記錄檔串流。 
 
 #### <a name="native-streaming-logs"></a>原生串流記錄
 

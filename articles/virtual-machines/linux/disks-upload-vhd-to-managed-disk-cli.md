@@ -9,12 +9,12 @@ ms.topic: article
 ms.service: virtual-machines-linux
 ms.tgt_pltfrm: linux
 ms.subservice: disks
-ms.openlocfilehash: bd4d3b9b34f951896e838d5f6f50ca204d329568
-ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
+ms.openlocfilehash: bc8932a9904a3e4e671edc3e624ff15e7253e1ed
+ms.sourcegitcommit: e9936171586b8d04b67457789ae7d530ec8deebe
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71266597"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71326827"
 ---
 # <a name="upload-a-vhd-to-azure-using-azure-cli"></a>使用 Azure CLI 將 vhd 上傳至 Azure
 
@@ -40,6 +40,8 @@ ms.locfileid: "71266597"
 - ActiveUpload，這表示磁片已準備好接收上傳，並已產生 SAS。
 
 在上述任一種狀態中，不論實際的磁片類型為何，受控磁片都會以[標準 HDD 定價](https://azure.microsoft.com/pricing/details/managed-disks/)計費。 例如，P10 會以 S10 計費。 在對受控磁片呼叫`revoke-access`之前，這會是 true，這是將磁片連結至 VM 所需的值。
+
+您必須要有您想要上傳之 vhd 的檔案大小（以位元組為單位），才可以建立空的標準 HDD 來進行上傳。 若要取得此項，您可以使用 `wc -c <yourFileName>.vhd` 或 `ls -al <yourFileName>.vhd`。 指定 **--upload-size-bytes**參數時，會使用這個值。
 
 藉由在[disk create](/cli/azure/disk#az-disk-create) Cmdlet 中指定 **--for-upload**參數和 **--upload-size-bytes**參數，建立空的標準 HDD 以進行上傳：
 

@@ -9,12 +9,12 @@ ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: conceptual
 ms.date: 07/26/2019
-ms.openlocfilehash: d6cc87947ab861e8de4dbdf754164e195f0f458c
-ms.sourcegitcommit: 0486aba120c284157dfebbdaf6e23e038c8a5a15
+ms.openlocfilehash: 0b04ca5c4bea00221d5a823432b6fc1934badb1a
+ms.sourcegitcommit: e9936171586b8d04b67457789ae7d530ec8deebe
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71309327"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71320508"
 ---
 # <a name="connect-to-azure-virtual-networks-from-azure-logic-apps-by-using-an-integration-service-environment-ise"></a>透過使用整合服務環境 (ISE) 從 Azure Logic Apps 連線至 Azure 虛擬網路
 
@@ -58,7 +58,10 @@ ISE 已增加執行持續時間、儲存體保留期、輸送量、HTTP 要求�
     **位址首碼**:0.0.0.0/0<br>
     **下一個躍點**：網際網路
 
-* 如果您想要針對您的 Azure 虛擬網路使用自訂 DNS 伺服器, 請在將 ISE 部署至虛擬網路之前,[遵循下列步驟來設定這些伺服器](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md)。 否則每次變更您的 DNS 伺服器時，您也必須重新啟動您的 ISE，這是 ISE 公開預覽版本可取得的功能。
+* 如果您想要針對您的 Azure 虛擬網路使用自訂 DNS 伺服器, 請在將 ISE 部署至虛擬網路之前,[遵循下列步驟來設定這些伺服器](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md)。 否則，每次變更 DNS 伺服器時，您也必須重新開機 ISE。
+
+  > [!IMPORTANT]
+  > 如果您在建立 ISE 之後變更 DNS 伺服器設定，請務必重新開機您的 ISE。 如需管理 DNS 伺服器設定的詳細資訊，請參閱[建立、變更或刪除虛擬網路](../virtual-network/manage-virtual-network.md#change-dns-servers)。
 
 <a name="ports"></a>
 

@@ -1,77 +1,60 @@
 ---
-title: 從 Windows 10 或 Windows 7-Azure 連線到 Windows 虛擬桌面的預覽
-description: 如何從 Windows 10 或 Windows 7 連線至 Windows 虛擬桌面預覽。
+title: 從 Windows 10 或 Windows 7 連接到 Windows 虛擬桌面 Preview-Azure
+description: 如何使用 Windows 桌面用戶端連接到 Windows 虛擬桌面。
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: conceptual
-ms.date: 04/24/2019
+ms.date: 09/24/2019
 ms.author: helohr
-ms.openlocfilehash: 66b423ea27cc0f9112349964fcfd0d75f08c12bd
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.openlocfilehash: 49431f75fb801c683a167e1809724eeeef208561
+ms.sourcegitcommit: e1b6a40a9c9341b33df384aa607ae359e4ab0f53
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67620109"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71338458"
 ---
-# <a name="connect-from-windows-10-or-windows-7"></a>從 Windows 10 或 Windows 7 連線
+# <a name="connect-with-the-windows-desktop-client"></a>與 Windows 桌面用戶端連接
 
-> 適用於：Windows 7 和 Windows 10。
+> 適用於：Windows 7 和 Windows 10
 
-可下載的用戶端可存取 Windows 虛擬桌面預覽資源從執行 Windows 7 和 Windows 10 的裝置。
+您可以使用 Windows 桌面用戶端，透過 Windows 7 或 Windows 10 存取裝置上的 Windows 虛擬桌面資源。
 
 > [!IMPORTANT]
-> 不用**RemoteApp 和桌面連線 (RADC)** 或是**遠端桌面連線 (MSTSC)** 存取 Windows 的虛擬桌面的資源，因為 Windows 虛擬桌面不支援任一用戶端。
+> Windows 虛擬桌面不支援 RemoteApp 和桌面連線（RADC）用戶端或遠端桌面連線（MSTSC）用戶端。
 
-## <a name="install-the-client"></a>安裝用戶端
+## <a name="install-the-windows-desktop-client"></a>安裝 Windows 桌面用戶端
 
-[下載](https://go.microsoft.com/fwlink/?linkid=2068602) 並安裝到本機電腦的用戶端。 安裝需要系統管理員權限。
+這些是您目前可以下載的用戶端：
+
+- [Windows 64 位](https://go.microsoft.com/fwlink/?linkid=2068602)
+
+當用戶端可供更多版本的 Windows 使用時，我們會更新此清單。
+
+您可以為目前的使用者安裝用戶端，這不需要系統管理員許可權，或者您的系統管理員可以安裝和設定用戶端，讓裝置上的所有使用者都可以存取它。
+
+安裝之後，您可以藉由搜尋**遠端桌面**，從 [開始] 功能表啟動用戶端。
 
 ## <a name="subscribe-to-a-feed"></a>訂閱摘要
 
-要取得可用的受管理資源的清單，藉由訂閱摘要提供您的管理員。訂閱提供的資源在本機電腦上。
+藉由訂閱系統管理員所提供的摘要，取得可供您使用的受控資源清單。訂閱會將資源提供給您的本機電腦。
 
 若要訂閱摘要：
 
-1. 啟動用戶端從所有的應用程式清單中，尋找**遠端桌面**。
-1. 選取  **Subscribe**連接至服務並擷取您的資源的主頁面上。
-1. **登入**與您的使用者帳戶出現提示時。
+1. 開啟 Windows 桌面用戶端。
+2. 選取主頁面上的 [**訂閱**]，以連線至服務並抓取您的資源。
+3. 出現提示時，使用您的使用者帳戶登入。
 
-成功驗證之後，您現在應該會看到一份可供您的資源。
+成功登入之後，您應該會看到您可以存取的資源清單。
 
-您可以透過兩種方法之一啟動資源。
+您可以透過兩種方法的其中一種來啟動資源。
 
-- 從用戶端的主要頁面上，按兩下 要啟動它的資源。
-- 像平常一樣從 [開始] 功能表中的其他應用程式，請啟動資源。
-  - 您也可以搜尋的搜尋列中的應用程式。
+- 在用戶端的主頁面上，按兩下資源加以啟動。
+- 像平常從 [開始] 功能表中的其他應用程式一樣啟動資源。
+  - 您也可以在搜尋列中搜尋應用程式。
 
-一旦訂閱摘要，摘要內容會定期自動更新。 資源可能會新增、 變更或移除 根據您的系統管理員所做的變更。
+訂閱摘要之後，摘要的內容會定期自動更新。 根據系統管理員所做的變更，可能會新增、變更或移除資源。
 
-## <a name="view-the-details-of-a-feed"></a>檢視摘要的詳細資料
+## <a name="next-steps"></a>後續步驟
 
-訂閱後您可以藉由存取詳細資料窗格來檢視摘要的其他資訊。
-
-1. 從用戶端的主要頁面上，選取省略符號 ( **...** ) 右邊的 摘要的名稱。
-1. 從下拉式功能表中，選取**詳細資料**。
-1. [詳細資料] 面板會顯示在右側的用戶端。
-
-詳細資料面板包含摘要的有用資訊：
-
-- 用來訂閱的使用者名稱與 URL
-- 應用程式和桌上型電腦的數目
-- 上次更新日期/時間
-- 上次更新的狀態
-
-如有需要您可以選取上啟動手動更新**立即更新**。
-
-## <a name="unsubscribe-from-a-feed"></a>取消訂閱摘要
-
-本節將教導您如何取消訂閱摘要。 您可以取消訂閱來訂閱一次使用不同的帳戶，或從系統移除您的資源。
-
-1. 從用戶端的主要頁面上，選取省略符號 ( **...** ) 右邊的 摘要的名稱。
-1. 從下拉式功能表中，選取**Unsubscribe**。
-1. 檢閱並選取**繼續**從對話方塊。
-
-## <a name="update-the-client"></a>更新用戶端
-
-當用戶端新版本可用時，您會收到通知用戶端和 Windows 行動作業中心 」 中。 選取通知以開始更新程序。
+若要深入瞭解如何使用 Windows 桌面用戶端，請參閱[開始使用 Windows 桌面用戶端](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/clients/windowsdesktop)。

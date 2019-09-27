@@ -9,12 +9,12 @@ ms.service: search
 ms.topic: conceptual
 ms.date: 05/16/2019
 ms.author: heidist
-ms.openlocfilehash: e83e84cc8627be468ce0074b35549d5ea7def4f5
-ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
+ms.openlocfilehash: d0c93d941047413c5056b3718f57b360357affbd
+ms.sourcegitcommit: e9936171586b8d04b67457789ae7d530ec8deebe
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69640540"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71327147"
 ---
 # <a name="monitor-resource-consumption-and-query-activity-in-azure-search"></a>監視 Azure 搜尋服務中的資源耗用量和查詢活動
 
@@ -58,12 +58,12 @@ ms.locfileid: "69640540"
 
 | Resource | 用於 |
 |----------|----------|
-| [Application Insights](https://docs.microsoft.com/azure/azure-monitor/app/app-insights-overview) | 根據下列架構記錄的事件和查詢計量, 與應用程式中的使用者事件相互關聯。 這是唯一會將使用者動作或信號列入考量的解決方案，其中會將來自使用者所起始搜尋的事件與應用程式碼所提交的篩選要求對應。 若要使用此方法，請複製檢測程式碼並貼到您的原始程式檔中，以將要求資訊路由傳送至 Application Insights。 如需詳細資訊，請參閱[搜尋流量分析](search-traffic-analytics.md)。 |
-| [Azure 監視器記錄](https://docs.microsoft.com/azure/azure-monitor/log-query/log-query-overview) | 記錄的事件和查詢計量 (根據下列架構)。 事件會記錄到 Log Analytics 工作區。 您可以對工作區執行查詢，以從記錄傳回詳細的資訊。 如需詳細資訊, 請參閱[開始使用 Azure 監視器記錄](https://docs.microsoft.com/azure/azure-monitor/learn/tutorial-viewdata) |
-| [Blob 儲存體](https://docs.microsoft.com/azure/storage/blobs/storage-blobs-overview) | 記錄的事件和查詢計量 (根據下列架構)。 事件會記錄至 Blob 容器並儲存在 JSON 檔案中。 請使用 JSON 編輯器來檢視檔案內容。|
+| [Application Insights](https://docs.microsoft.com/azure/azure-monitor/app/app-insights-overview) | 根據下列架構記錄的事件和查詢計量，與應用程式中的使用者事件相互關聯。 這是唯一會將使用者動作或信號列入考量的解決方案，其中會將來自使用者所起始搜尋的事件與應用程式碼所提交的篩選要求對應。 若要使用此方法，請複製檢測程式碼並貼到您的原始程式檔中，以將要求資訊路由傳送至 Application Insights。 如需詳細資訊，請參閱[搜尋流量分析](search-traffic-analytics.md)。 |
+| [Azure 監視器記錄](https://docs.microsoft.com/azure/azure-monitor/log-query/log-query-overview) | 記錄的事件和查詢計量（根據下列架構）。 事件會記錄到 Log Analytics 工作區。 您可以對工作區執行查詢，以從記錄傳回詳細的資訊。 如需詳細資訊，請參閱[開始使用 Azure 監視器記錄](https://docs.microsoft.com/azure/azure-monitor/learn/tutorial-viewdata) |
+| [Blob 儲存體](https://docs.microsoft.com/azure/storage/blobs/storage-blobs-overview) | 記錄的事件和查詢計量（根據下列架構）。 事件會記錄至 Blob 容器並儲存在 JSON 檔案中。 請使用 JSON 編輯器來檢視檔案內容。|
 | [事件中樞](https://docs.microsoft.com/azure/event-hubs/) | 根據本文中記載的結構描述，記錄事件和查詢計量。 請選擇此選項作為非常大型記錄的替代資料收集服務。 |
 
-Azure 監視器記錄和 Blob 儲存體皆以免費共用服務的形式提供, 因此您可以在 Azure 訂用帳戶的存留期免費試用。 Application Insights 可供免費註冊和使用，只要應用程式資料大小在特定限制範圍內即可 (如需詳細資訊，請參閱[價格頁面](https://azure.microsoft.com/pricing/details/monitor/))。
+Azure 監視器記錄和 Blob 儲存體皆以免費服務的形式提供，因此您可以在 Azure 訂用帳戶的存留期免費試用。 Application Insights 可供免費註冊和使用，只要應用程式資料大小在特定限制範圍內即可 (如需詳細資訊，請參閱[價格頁面](https://azure.microsoft.com/pricing/details/monitor/))。
 
 下一節將逐步解說啟用及使用 Azure Blob 儲存體來收集和存取「Azure 搜尋服務」作業所建立記錄資料的步驟。
 
@@ -81,9 +81,9 @@ Azure 監視器記錄和 Blob 儲存體皆以免費共用服務的形式提供, 
 
    ![啟用監視](./media/search-monitor-usage/enable-monitoring.png "啟用監視")
 
-3. 選擇您想要匯出的資料：記錄、計量或兩者。 您可以將它複製到儲存體帳戶、將其傳送至事件中樞, 或將它匯出至 Azure 監視器記錄。
+3. 選擇您想要匯出的資料：記錄、計量或兩者。 您可以將它複製到儲存體帳戶、將其傳送至事件中樞，或將它匯出至 Azure 監視器記錄。
 
-   若要封存至 Blob 儲存體，只有儲存體帳戶必須存在。 匯出記錄資料時, 會視需要建立容器和 blob。
+   若要封存至 Blob 儲存體，只有儲存體帳戶必須存在。 匯出記錄資料時，會視需要建立容器和 blob。
 
    ![設定 Blob 儲存體封存](./media/search-monitor-usage/configure-blob-storage-archive.png "設定 Blob 儲存體封存")
 
@@ -96,7 +96,7 @@ Azure 監視器記錄和 Blob 儲存體皆以免費共用服務的形式提供, 
 * insights-logs-operationlogs：適用於搜尋流量記錄
 * insights-metrics-pt1m：適用於計量
 
-**這需要一小時的時間, 容器才會出現在 Blob 儲存體中。每個容器都有一個 blob (每小時)。**
+@no__t 0It 需要一小時的時間，容器才會出現在 Blob 儲存體中。每個容器都有一個 blob，每小時個。 **
 
 您可以使用 [Visual Studio Code](#download-and-open-in-visual-studio-code) 或另一個 JSON 編輯器還檢視檔案。 
 
@@ -117,8 +117,8 @@ resourceId=/subscriptions/<subscriptionID>/resourcegroups/<resourceGroupName>/pr
 | operationVersion |string |"2019-05-06" |使用的 api-version |
 | category |string |"OperationLogs" |常數 |
 | resultType |string |"Success" |可能的值：成功或失敗 |
-| resultSignature |ssNoversion |200 |HTTP 結果碼 |
-| durationMS |ssNoversion |50 |作業的持續時間 (以毫秒為單位) |
+| resultSignature |int |200 |HTTP 結果碼 |
+| durationMS |int |50 |作業的持續時間 (以毫秒為單位) |
 | properties |object |請參閱下表 |包含作業特定資料的物件 |
 
 **屬性結構描述**
@@ -127,7 +127,7 @@ resourceId=/subscriptions/<subscriptionID>/resourcegroups/<resourceGroupName>/pr
 | --- | --- | --- | --- |
 | 描述 |string |"GET /indexes('content')/docs" |作業的端點 |
 | 查詢 |string |"?search=AzureSearch&$count=true&api-version=2019-05-06" |查詢參數 |
-| 文件 |ssNoversion |42 |處理的文件數目 |
+| 文件 |int |42 |處理的文件數目 |
 | IndexName |string |"testindex" |與作業相關聯的索引名稱 |
 
 ## <a name="metrics-schema"></a>度量結構描述
@@ -139,11 +139,11 @@ resourceId=/subscriptions/<subscriptionID>/resourcegroups/<resourceGroupName>/pr
 | resourceId |string |"/SUBSCRIPTIONS/11111111-1111-1111-1111-111111111111/<br/>RESOURCEGROUPS/DEFAULT/PROVIDERS/<br/>MICROSOFT.SEARCH/SEARCHSERVICES/SEARCHSERVICE" |您的資源識別碼 |
 | metricName |string |"Latency" |度量的名稱 |
 | 分析 |datetime |"2018-12-07T00:00:43.6872559Z" |作業的時間戳記 |
-| 平均 |ssNoversion |64 |度量時間間隔中原始範例的平均值 |
-| 最小值 |ssNoversion |37 |度量時間間隔中原始範例的最小值 |
-| 最大值 |ssNoversion |78 |度量時間間隔中原始範例的最大值 |
-| 總計 |ssNoversion |258 |度量時間間隔中原始範例的總和值 |
-| 計數 |ssNoversion |4 |用來產生度量的原始樣本數 |
+| 平均 |int |64 |度量時間間隔中原始範例的平均值 |
+| 最小值 |int |37 |度量時間間隔中原始範例的最小值 |
+| 最大值 |int |78 |度量時間間隔中原始範例的最大值 |
+| 總計 |int |258 |度量時間間隔中原始範例的總和值 |
+| 計數 |int |4 |用來產生度量的原始樣本數 |
 | timegrain |string |"PT1M" |採用 ISO 8601 的度量時間粒紋 |
 
 每隔一分鐘就會回報所有計量。 每個度量會顯示每分鐘的最小值、最大值和平均值。

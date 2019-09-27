@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 01/10/2019
 ms.author: mbullwin
-ms.openlocfilehash: af157204ad1e1b28639ae2d8f192b3122afa8147
-ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
+ms.openlocfilehash: ff9d4bb98a79c379fda2c1a0a0ab9d5e0ec212ce
+ms.sourcegitcommit: e1b6a40a9c9341b33df384aa607ae359e4ab0f53
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71299234"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71338097"
 ---
 # <a name="monitor-dependencies-caught-exceptions-and-method-execution-times-in-java-web-apps"></a>監視 JAVA web 應用程式中的相依性、攔截到的例外狀況和方法執行時間
 
@@ -122,7 +122,7 @@ ms.locfileid: "71299234"
 
 理想的狀況是，所有的服務已更新至支援 W3C 通訊協定的新版 SDK。 強烈建議儘快移至具備 W3C 支援的新版 SDK。
 
-確定 **[傳入](correlation.md#w3c-distributed-tracing)與傳出 (代理程式) 設定兩者**完全相同。
+確定 **[傳入](correlation.md#enable-w3c-distributed-tracing-support-for-java-apps)與傳出 (代理程式) 設定兩者**完全相同。
 
 ## <a name="view-the-data"></a>檢視資料
 在 Application Insights 資源中, 匯總的遠端相依性和方法執行時間會出現[在 [效能] 磚之下][metrics]。

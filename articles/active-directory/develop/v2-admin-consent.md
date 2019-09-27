@@ -13,17 +13,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 09/24/2019
+ms.date: 09/26/2019
 ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9e44207429abb5aa03f4850861d49de8c5dcfdf7
-ms.sourcegitcommit: 0486aba120c284157dfebbdaf6e23e038c8a5a15
+ms.openlocfilehash: aa63b1343fcc981629dd96e2209bf26ec2cc2bd5
+ms.sourcegitcommit: e9936171586b8d04b67457789ae7d530ec8deebe
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71310369"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71326228"
 ---
 # <a name="admin-consent-on-the-microsoft-identity-platform"></a>Microsoft 身分識別平臺上的系統管理員同意
 
@@ -95,3 +95,4 @@ http://localhost/myapp/permissions?admin_consent=True&tenant=fa00d692-e9c7-4460-
 - 請參閱[如何將應用程式轉換成多租用戶](howto-convert-app-to-be-multi-tenant.md)
 - 瞭解在[授權碼授與流程期間，OAuth 2.0 通訊協定層支援的同意](v2-oauth2-auth-code-flow.md#request-an-authorization-code)方式。
 - 瞭解[多租使用者應用程式如何使用同意架構](active-directory-devhowto-multi-tenant-overview.md)來實行「使用者」和「系統管理員」同意，以支援更先進的多層式應用程式模式。
+- 瞭解[Azure AD 應用程式同意體驗](application-consent-experience.md)

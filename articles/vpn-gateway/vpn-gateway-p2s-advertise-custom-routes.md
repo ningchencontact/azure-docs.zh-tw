@@ -5,22 +5,24 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: article
-ms.date: 09/25/2019
+ms.date: 09/26/2019
 ms.author: cherylmc
-ms.openlocfilehash: 18a0effcf5157ec2797707db78f9614ef12a4669
-ms.sourcegitcommit: 0486aba120c284157dfebbdaf6e23e038c8a5a15
+ms.openlocfilehash: 38250d1cd9853013ba9721ece0201a8df6dd1b4a
+ms.sourcegitcommit: e1b6a40a9c9341b33df384aa607ae359e4ab0f53
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71310239"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71336298"
 ---
 # <a name="advertise-custom-routes-for-p2s-vpn-clients"></a>公告 P2S VPN 用戶端的自訂路由
 
 您可能想要將自訂路由公告至您所有的點對站 VPN 用戶端。 例如，當您在 VNet 中啟用儲存體端點，並希望遠端使用者能夠透過 VPN 連線來存取這些儲存體帳戶時。 您可以將儲存體端點的 IP 位址公告給所有遠端使用者，讓儲存體帳戶的流量通過 VPN 通道，而不是公用網際網路。
 
+![Azure VPN 閘道多網站連接範例](./media/vpn-gateway-p2s-advertise-custom-routes/custom-routes.png)
+
 ## <a name="to-advertise-custom-routes"></a>公告自訂路由
 
-若要通告自訂路由， `Set-AzVirtualNetworkGateway cmdlet`請使用。 下列範例說明如何公告[Conotoso 儲存體帳戶資料表](https://contoso.table.core.windows.net)的 IP。
+若要通告自訂路由， `Set-AzVirtualNetworkGateway cmdlet`請使用。 下列範例說明如何公告[Contoso 儲存體帳戶資料表](https://contoso.table.core.windows.net)的 IP。
 
 1. Ping *contoso.table.core.windows.net*並記下 IP 位址。 例如:
 
@@ -45,10 +47,10 @@ ms.locfileid: "71310239"
 
 使用下列範例來查看自訂路由：
 
-    ```azurepowershell-interactive
-    $gw = Get-AzVirtualNetworkGateway -Name <name of gateway> -ResourceGroupName <name of resource group>
-    $gw.CustomRoutes | Format-List
-    ```
+  ```azurepowershell-interactive
+  $gw = Get-AzVirtualNetworkGateway -Name <name of gateway> -ResourceGroupName <name of resource group>
+  $gw.CustomRoutes | Format-List
+  ```
 
 ## <a name="next-steps"></a>後續步驟
 

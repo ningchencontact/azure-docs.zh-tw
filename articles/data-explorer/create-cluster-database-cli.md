@@ -7,12 +7,12 @@ ms.reviewer: orspodek
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 06/03/2019
-ms.openlocfilehash: e771def95db00b5de8c27011641a628560952970
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: bd53a8e29254af617b6cfa68935a191a50fc526c
+ms.sourcegitcommit: e9936171586b8d04b67457789ae7d530ec8deebe
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66494794"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71326776"
 ---
 # <a name="create-an-azure-data-explorer-cluster-and-database-by-using-azure-cli"></a>使用 Azure CLI 建立 Azure 資料總管叢集與資料庫
 
@@ -22,17 +22,17 @@ ms.locfileid: "66494794"
 > * [PowerShell](create-cluster-database-powershell.md)
 > * [C#](create-cluster-database-csharp.md)
 > * [Python](create-cluster-database-python.md)
->
+> * [ARM 範本](create-cluster-database-resource-manager.md)
 
-Azure 資料總管是快速、完全受控的資料分析服務，可即時分析來自應用程式、網站、IoT 裝置等的大量資料流。 若要使用 Azure 資料總管，請先建立叢集，然後在該叢集中建立一或多個資料庫。 然後將資料內嵌 (載入) 至資料庫，讓您可以對資料執行查詢。 在本文中，您使用 Azure CLI 建立叢集和資料庫。
+Azure 資料總管是快速、完全受控的資料分析服務，可即時分析來自應用程式、網站、IoT 裝置等的大量資料流。 若要使用 Azure 資料總管，請先建立叢集，然後在該叢集中建立一或多個資料庫。 然後將資料內嵌 (載入) 至資料庫，讓您可以對資料執行查詢。 在本文中，您會使用 Azure CLI 來建立叢集和資料庫。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
-若要完成這篇文章，您需要 Azure 訂用帳戶。 如果您沒有 Azure 訂用帳戶，請在開始前[建立免費帳戶](https://azure.microsoft.com/free/)。
+若要完成本文，您需要 Azure 訂用帳戶。 如果您沒有 Azure 訂用帳戶，請在開始前[建立免費帳戶](https://azure.microsoft.com/free/)。
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-如果您選擇要安裝在本機使用 Azure CLI，本文需要 Azure CLI 2.0.4 版或更新版本。 執行 `az --version` 來檢查您的版本。 如果您需要安裝或升級，請參閱[安裝 Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest)。
+如果您選擇在本機安裝和使用 Azure CLI，本文會要求 Azure CLI 版本2.0.4 版或更新版本。 執行 `az --version` 來檢查您的版本。 如果您需要安裝或升級，請參閱[安裝 Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest)。
 
 ## <a name="configure-the-cli-parameters"></a>設定 CLI 參數
 
@@ -61,7 +61,7 @@ Azure 資料總管是快速、完全受控的資料分析服務，可即時分�
    |**設定** | **建議的值** | **欄位描述**|
    |---|---|---|
    | name | *azureclitest* | 所需的叢集名稱。|
-   | sku | *D13_v2* | 將用於叢集的 SKU。 |
+   | SKU | *D13_v2* | 將用於叢集的 SKU。 |
    | resource-group | *testrg* | 將在其中建立叢集的資源群組名稱。 |
 
     有其他選擇性參數可供您使用，例如叢集的容量。
@@ -100,7 +100,7 @@ Azure 資料總管是快速、完全受控的資料分析服務，可即時分�
 
 ## <a name="clean-up-resources"></a>清除資源
 
-* 如果您打算遵循我們的其他文章，讓您建立的資源。
+* 如果您打算遵循其他文章，請保留您建立的資源。
 * 若要清除資源，請刪除叢集。 您刪除叢集時，也會刪除其中的所有資料庫。 使用下列命令刪除您的叢集：
 
     ```azurecli-interactive

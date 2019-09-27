@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.reviewer: mbullwin
 ms.date: 08/06/2018
 ms.author: cweining
-ms.openlocfilehash: c07b325f3de6cd2cf3aaa436736786d2cdc42881
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: debc30a368a0f9ef7be9b0cda0b1238f8e2bc2e3
+ms.sourcegitcommit: e1b6a40a9c9341b33df384aa607ae359e4ab0f53
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60306301"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71338069"
 ---
 # <a name="profile-production-applications-in-azure-with-application-insights"></a>使用 Application Insights 來分析 Azure 中的生產應用程式
 ## <a name="enable-application-insights-profiler-for-your-application"></a>為您的應用程式啟用 Application Insights Profiler
@@ -30,15 +30,15 @@ Profiler 可與部署於下列 Azure 服務的 .NET 應用程式搭配運作。 
 * [Azure 雲端服務](profiler-cloudservice.md?toc=/azure/azure-monitor/toc.json)
 * [Azure Service Fabric](profiler-servicefabric.md?toc=/azure/azure-monitor/toc.json)
 * [Azure 虛擬機器和虛擬機器擴展集](profiler-vm.md?toc=/azure/azure-monitor/toc.json)
-* [**預覽**ASP.NET Core Azure Linux Web 應用程式](profiler-aspnetcore-linux.md?toc=/azure/azure-monitor/toc.json) 
+* [**預覽**ASP.NET Core Azure Linux Web Apps](profiler-aspnetcore-linux.md?toc=/azure/azure-monitor/toc.json) 
 
 如果您已啟用 Profiler 卻未看到追蹤，請參閱[疑難排解指南](profiler-troubleshooting.md?toc=/azure/azure-monitor/toc.json)。
 
 ## <a name="view-profiler-data"></a>檢視 Profiler 資料
 
-若要讓 Profiler 上傳追蹤，應用程式必須主動處理要求。 如果您要進行實驗，可以使用 [Application Insights 效能測試](https://docs.microsoft.com/vsts/load-test/app-service-web-app-performance-test)產生對 Web 應用程式的要求。 如果您剛剛啟用 Profiler，則可以執行簡短的負載測試。 在負載測試執行時，選取 [[Profiler 設定] 窗格  ](profiler-settings.md#profiler-settings-pane)上的 [立即分析]  按鈕。 Profiler 開始執行後，大約每隔一小時就會隨機分析一次，時間會持續兩分鐘。 如果應用程式所處理的是穩定不斷的要求，則 Profiler 會每小時上傳追蹤。
+若要讓 Profiler 上傳追蹤，應用程式必須主動處理要求。 如果您要進行實驗，可以使用 [Application Insights 效能測試](https://docs.microsoft.com/vsts/load-test/app-service-web-app-performance-test)產生對 Web 應用程式的要求。 如果您剛剛啟用 Profiler，則可以執行簡短的負載測試。 在負載測試執行時，選取 [[Profiler 設定] 窗格](profiler-settings.md)上的 [立即分析] 按鈕。 Profiler 開始執行後，大約每隔一小時就會隨機分析一次，時間會持續兩分鐘。 如果應用程式所處理的是穩定不斷的要求，則 Profiler 會每小時上傳追蹤。
 
-在應用程式收到某些流量，且 Profiler 有時間上傳追蹤後，您應該就會有可供檢視的追蹤。 此程序可能需要 5 到 10 分鐘的時間。 若要檢視追蹤，請在 [效能]  窗格中選取 [採取動作]  ，然後選取 [Profiler 追蹤]  按鈕。
+在應用程式收到某些流量，且 Profiler 有時間上傳追蹤後，您應該就會有可供檢視的追蹤。 此程序可能需要 5 到 10 分鐘的時間。 若要檢視追蹤，請在 [效能] 窗格中選取 [採取動作]，然後選取 [Profiler 追蹤] 按鈕。
 
 ![Application Insights [效能] 窗格預覽分析工具追蹤][performance-blade]
 
@@ -95,9 +95,9 @@ Microsoft 服務分析工具會合併使用取樣方法和檢測功能，來分�
 
 **BLOCKED_TIME** 表示程式碼正在等候另一個資源可供使用。 例如，它可能正在等候同步處理物件、等候執行緒可供使用，或等候要求完成。
 
-### <a name="unmanaged-async"></a>未受管理的非同步處理
+### <a name="unmanaged-async"></a>非受控的非同步
 
-.NET framework 會發出 ETW 事件，並將活動識別碼傳遞執行緒之間，以便可以跨執行緒追蹤非同步呼叫。 Unmanaged 程式碼 （機器碼） 和非同步程式碼的一些較舊樣式缺少這些事件和活動識別碼，讓分析工具無法分辨哪些執行緒，而且函式正在執行的執行緒上。 這會標示 ' Unmanaged Async' 呼叫堆疊中。 如果您下載的 ETW 檔案時，您可以使用[PerfView](https://github.com/Microsoft/perfview/blob/master/documentation/Downloading.md)若要深入了更多的事情。
+.NET framework 會發出 ETW 事件並線上程之間傳遞活動識別碼，以便線上程間追蹤非同步呼叫。 非受控碼（機器碼）和一些較舊的非同步程式碼樣式遺漏了這些事件和活動識別碼，因此分析工具無法判斷線程上正在執行的是哪個執行緒和哪些函式。 這在呼叫堆疊中標示為「非受控非同步」。 如果您下載 ETW 檔案，您可以使用[PerfView](https://github.com/Microsoft/perfview/blob/master/documentation/Downloading.md)來深入瞭解發生的狀況。
 
 ### <a id="cpu"></a>CPU 時間
 
@@ -113,7 +113,7 @@ CPU 正忙於執行指令。
 
 ### <a id="when"></a>何時資料行
 
-[何時]  資料行會以視覺方式呈現針對節點收集的 INCLUSIVE 樣本如何隨著時間變化。 要求的總範圍會分成 32 個時間貯體。 該節點的內含範例會在這 32 個貯體中累積。 每個貯體都以一個長條表示。 長條的高度代表換算值。 節點如果標示為 **CPU_TIME** 或 **BLOCKED_TIME**，或是與耗用資源 (例如，CPU、磁碟或執行緒) 有明顯的關聯性，則長條代表其中一項資源在貯體期間內的耗用量。 如果耗用多個資源，這些計量的值便有可能大於 100%。 例如，如果您在一段間隔內平均使用兩個 CPU，值就會是 200%。
+[何時] 資料行會以視覺方式呈現針對節點收集的 INCLUSIVE 樣本如何隨著時間變化。 要求的總範圍會分成 32 個時間貯體。 該節點的內含範例會在這 32 個貯體中累積。 每個貯體都以一個長條表示。 長條的高度代表換算值。 節點如果標示為 **CPU_TIME** 或 **BLOCKED_TIME**，或是與耗用資源 (例如，CPU、磁碟或執行緒) 有明顯的關聯性，則長條代表其中一項資源在貯體期間內的耗用量。 如果耗用多個資源，這些計量的值便有可能大於 100%。 例如，如果您在一段間隔內平均使用兩個 CPU，值就會是 200%。
 
 ## <a name="limitations"></a>限制
 

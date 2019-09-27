@@ -1,6 +1,6 @@
 ---
-title: 瞭解 IoT 解決方案事件匯總的 Azure 資訊安全中心 |Microsoft Docs
-description: 深入瞭解如何在 IoT 服務的 Azure 資訊安全中心中匯總事件。
+title: 瞭解 IoT 事件匯總的 Azure 資訊安全中心 |Microsoft Docs
+description: 深入瞭解 IoT 事件匯總 Azure 資訊安全中心。
 services: asc-for-iot
 ms.service: asc-for-iot
 documentationcenter: na
@@ -13,18 +13,18 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/21/2019
+ms.date: 09/26/2019
 ms.author: mlottner
-ms.openlocfilehash: b8100fc78eced9aa26fe185a8d68244d8f665ff2
-ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
+ms.openlocfilehash: b1a14cf4c8aec2f3dbfa7bc4fd0800d9fd1fb0aa
+ms.sourcegitcommit: e9936171586b8d04b67457789ae7d530ec8deebe
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70933892"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71327306"
 ---
-# <a name="security-agent-event-aggregation"></a>安全性代理程式事件匯總
+# <a name="azure-security-center-for-iot-event-aggregation"></a>IoT 事件匯總的 Azure 資訊安全中心
 
-Azure 資訊安全中心 IoT 安全性代理程式會從您的本機裝置收集資料和系統事件，並將此資料傳送至 Azure 雲端進行處理和分析。 安全性代理程式會收集許多類型的裝置事件，包括新的進程和新的連接事件。 新的處理常式和新的線上活動可能會在一秒內于裝置上合法地發生，而且對於健全且全面的安全性來說，這種情況很重要，因為這會強制安全性代理程式傳送的訊息數量，可能會快速達到或超過您的 IoT 中樞配額和成本限制。 不過，這些事件包含非常重要的安全性資訊，對保護您的裝置很重要。
+Azure 資訊安全中心 IoT 安全性代理程式會從您的本機裝置收集資料和系統事件，並將此資料傳送至 Azure 雲端進行處理和分析。 安全性代理程式會收集許多類型的裝置事件，包括新的進程和新的連接事件。 新的進程和新的線上活動可能會在一秒內于裝置上合法地發生，而且對於健全且全面的安全性來說，安全性代理程式強制傳送的訊息數目可能會快速達到或超過您的 IoT 中樞配額和成本限制。 不過，這些事件包含非常重要的安全性資訊，對保護您的裝置很重要。
 
 為了減少額外的配額和成本，同時保護您的裝置，Azure 資訊安全中心 IoT 代理程式會匯總這些類型的事件。
 
@@ -44,8 +44,8 @@ Azure 資訊安全中心 IoT 安全性代理程式會從您的本機裝置收集
 
 只有在符合下列條件時，才會將事件視為相同： 
 
-* ProcessCreate 事件-**命令列**、**可執行檔**、**使用者** **名稱**和 userid 都相同
-* ConnectionCreate 事件-當**命令列**、 **userId**、**方向**、**本機位址**、**遠端位址**、通訊**協定**和**目的地埠**都相同時
+* ProcessCreate 事件-**命令列**、**可執行檔**、* * 使用者名稱和**userid**都相同
+* ConnectionCreate 事件-**命令列**、 **userId**、 **direction**、**本機位址**、**遠端位址**、* * 通訊協定和**目的地埠**都相同
 * ProcessTerminate 事件-當**可執行檔**和結束**狀態**完全相同時
 
 ### <a name="working-with-aggregated-events"></a>使用匯總事件
@@ -57,7 +57,7 @@ Azure 資訊安全中心 IoT 安全性代理程式會從您的本機裝置收集
 ## <a name="event-aggregation-based-alerts"></a>以事件匯總為基礎的警示 
 分析之後，適用于 IoT 的 Azure 資訊安全中心會針對可疑的匯總事件建立安全性警示。 從匯總事件建立的警示只會針對每個匯總事件出現一次。
 
-匯總開始時間、每個事件的結束時間和計數會記錄在 Log Analytics 中的 [事件**ExtraDetails** ] 欄位內，以便在調查期間使用。 
+每個事件的匯總開始時間、結束時間和計數都會記錄在 Log Analytics 中的 [事件**ExtraDetails** ] 欄位內，以供調查期間使用。 
 
 每個匯總事件都代表一段24小時的收集警示。 使用每個事件左上方的 [事件選項] 功能表，您可以**關閉**每個個別的匯總事件。    
 

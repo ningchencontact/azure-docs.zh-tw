@@ -10,12 +10,12 @@ ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
 ms.date: 08/22/2019
-ms.openlocfilehash: b86c0d0de95581f7a47de428ffbf0b161353df83
-ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.openlocfilehash: 84567b68c85a48d0fc02f6f6a4986d8092215a92
+ms.sourcegitcommit: e9936171586b8d04b67457789ae7d530ec8deebe
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71260754"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71326504"
 ---
 # <a name="deploy-a-model-using-a-custom-docker-base-image"></a>使用自訂的 Docker 基底映射部署模型
 
@@ -183,15 +183,16 @@ Microsoft 會在可公開存取的儲存機制上提供數個 docker 映射，�
 | Image | 描述 |
 | ----- | ----- |
 | `mcr.microsoft.com/azureml/o16n-sample-user-base/ubuntu-miniconda` | Azure Machine Learning 的基本映射 |
-| `mcr.microsoft.com/azureml/onnxruntime:v0.4.0` | 包含 ONNX 執行時間。 |
-| `mcr.microsoft.com/azureml/onnxruntime:v0.4.0-cuda10.0-cudnn7` | 包含 ONNX 執行時間和 CUDA 元件。 |
-| `mcr.microsoft.com/azureml/onnxruntime:v0.4.0-tensorrt19.03` | 包含 ONNX 執行時間和 TensorRT。 |
+| `mcr.microsoft.com/azureml/onnxruntime:latest` | 包含 CPU inferecning 的 ONNX 執行時間 |
+| `mcr.microsoft.com/azureml/onnxruntime:latest-cuda` | 包含適用于 GPU 的 ONNX 執行時間和 CUDA |
+| `mcr.microsoft.com/azureml/onnxruntime:latest-tensorrt` | 包含適用于 GPU 的 ONNX 執行時間和 TensorRT |
+| `mcr.microsoft.com/azureml/onnxruntime:latest-openvino-vadm ` | 包含 ONNX 執行時間和 OpenVINO，<sup> </sup>適用于以 Movidius<sup>TM</sup> MyriadX VPUs 為基礎的 Intel 視覺加速器設計 |
+| `mcr.microsoft.com/azureml/onnxruntime:latest-openvino-myriad` | 包含適用于 Intel<sup> </sup> Movidius<sup>TM</sup> USB 記憶杆的 ONNX Runtime 和 OpenVINO |
+
+如需 ONNX 執行時間基底映射的詳細資訊，請參閱 GitHub 存放庫中的[ONNX Runtime dockerfile 一節](https://github.com/microsoft/onnxruntime/blob/master/dockerfiles/README.md)。
 
 > [!TIP]
 > 由於這些映射可公開使用，因此當您使用時，不需要提供位址、使用者名稱或密碼。
-
-> [!IMPORTANT]
-> 使用 CUDA 或 TensorRT 的 Microsoft 映射必須僅用於 Microsoft Azure 服務。
 
 如需詳細資訊，請參閱[Azure Machine Learning 容器](https://github.com/Azure/AzureML-Containers)。
 

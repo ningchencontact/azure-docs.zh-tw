@@ -8,17 +8,17 @@ ms.topic: article
 ms.date: 04/23/2019
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: b0a03eee06ba114ab929c8c584f382861a006bbc
-ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
+ms.openlocfilehash: 95d133e07725f797ea3c1a903e315d5c7232e1de
+ms.sourcegitcommit: e9936171586b8d04b67457789ae7d530ec8deebe
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68360752"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71327612"
 ---
 # <a name="soft-delete-for-azure-storage-blobs"></a>Azure 儲存體 Blob 的虛刪除
 Azure 儲存體現在提供 Blob 物件的虛刪除功能，因此，當應用程式或其他儲存體帳戶使用者錯誤地修改或刪除您的資料時，您將可更輕鬆地復原資料。
 
-## <a name="how-does-it-work"></a>其運作方式為何?
+## <a name="how-does-it-work"></a>運作方式
 虛刪除開啟時，可讓您在 Blob 或 Blob 快照集遭到刪除時儲存並復原您的資料。 這項保護也延伸至因覆寫而遭到清除的 Blob 資料。
 
 資料刪除後會轉換為虛刪除狀態，而不是永久清除狀態。 當您在虛刪除開啟的情況下覆寫資料時，將會產生虛刪除的快照集，以儲存覆寫資料的狀態。 虛刪除的物件是不可見的，除非明確列出。 您可以設定虛刪除的資料在永久失效之前可進行復原的時間長度。
@@ -277,7 +277,7 @@ blockBlob.StartCopy(copySource);
 ```
 
 ## <a name="are-there-any-special-considerations-for-using-soft-delete"></a>使用虛刪除是否有任何特殊考慮？
-如果您的資料有可能意外遭到應用程式或其他儲存體帳戶使用者修改或刪除，建議您開啟虛刪除。 為經常覆寫的資料啟用虛刪除, 可能會導致儲存體容量費用增加, 並在列出 blob 時增加延遲。 您可以藉由將經常覆寫的資料儲存在不同的儲存體帳戶, 並停用虛刪除, 來減輕此問題。 
+如果您的資料有可能意外遭到應用程式或其他儲存體帳戶使用者修改或刪除，建議您開啟虛刪除。 為經常覆寫的資料啟用虛刪除，可能會導致儲存體容量費用增加，並在列出 blob 時增加延遲。 您可以藉由將經常覆寫的資料儲存在不同的儲存體帳戶，並停用虛刪除，來減輕此問題。 
 
 ## <a name="faq"></a>常見問題集
 **哪些儲存體類型可以使用虛刪除？**  

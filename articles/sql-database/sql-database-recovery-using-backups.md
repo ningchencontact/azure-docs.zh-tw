@@ -9,14 +9,14 @@ ms.devlang: ''
 ms.topic: conceptual
 author: anosov1960
 ms.author: sashan
-ms.reviewer: mathoma, carlrab
-ms.date: 08/27/2019
-ms.openlocfilehash: ab0a622dcb72072621e6696d423a1d4d2917bedc
-ms.sourcegitcommit: 83df2aed7cafb493b36d93b1699d24f36c1daa45
+ms.reviewer: mathoma, carlrab, danil
+ms.date: 09/26/2019
+ms.openlocfilehash: 11a7556954ff40183811d8e824011b818e4645df
+ms.sourcegitcommit: e9936171586b8d04b67457789ae7d530ec8deebe
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/22/2019
-ms.locfileid: "71178415"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71327574"
 ---
 # <a name="recover-an-azure-sql-database-using-automated-database-backups"></a>使用自動資料庫備份復原 Azure SQL 資料庫
 
@@ -82,9 +82,9 @@ ms.locfileid: "71178415"
 
   如果您打算從還原的資料庫抓取資料，以從使用者或應用程式錯誤中復原，您必須撰寫並執行資料復原腳本，以從還原的資料庫中解壓縮資料，並將其套用至原始資料庫。 雖然還原作業可能要花很長的時間才能完成，但還原中的資料庫在整個還原過程中都會顯示在資料庫清單上。 如果您在還原期間刪除資料庫，還原作業將會取消，且不會向您收取未完成還原的資料庫費用。
 
-若要使用 Azure 入口網站將單一、集區或實例資料庫復原到某個時間點，請開啟資料庫頁面，然後按一下工具列上的 [**還原**]。
+若要使用 Azure 入口網站將單一、集區或實例資料庫復原到某個時間點，請開啟資料庫頁面，然後按一下工具列上的 [**還原**]。 選擇 [備份來源]，然後選取將建立新資料庫的時間點備份點。
 
-![point-in-time-restore](./media/sql-database-recovery-using-backups/point-in-time-recovery.png)
+![point-in-time-restore](./media/sql-database-recovery-using-backups/pitr-backup-sql-database-annotated.png)
 
 > [!IMPORTANT]
 > 若要以程式設計方式從備份還原資料庫，請參閱[使用自動備份以程式設計方式執行復原](sql-database-recovery-using-backups.md#programmatically-performing-recovery-using-automated-backups)
@@ -100,11 +100,9 @@ ms.locfileid: "71178415"
 
 ### <a name="deleted-database-restore-using-the-azure-portal"></a>使用 Azure 入口網站還原已刪除的資料庫
 
-若要使用 Azure 入口網站復原已刪除的資料庫，請開啟伺服器頁面，然後在 [作業] 區域中按一下 [**已刪除的資料庫**]。
+若要使用 Azure 入口網站復原已刪除的資料庫，請開啟 [伺服器總覽] 頁面，然後按一下導覽功能表上的 [**已刪除的資料庫**]。
 
-![deleted-database-restore-1](./media/sql-database-recovery-using-backups/deleted-database-restore-1.png)
-
-![deleted-database-restore-2](./media/sql-database-recovery-using-backups/deleted-database-restore-2.png)
+![已刪除-資料庫-還原](./media/sql-database-recovery-using-backups/restore-deleted-sql-database-annotated.png)
 
 > [!IMPORTANT]
 > 若要以程式設計方式從備份還原已刪除的資料庫，請參閱[使用自動備份以程式設計方式執行復原](sql-database-recovery-using-backups.md#programmatically-performing-recovery-using-automated-backups)
@@ -162,7 +160,7 @@ ms.locfileid: "71178415"
 目前不支援異地次要資料庫上的時間點復原。 只有在主要資料庫上才可進行時間點復原。 如需使用異地還原來從中斷復原的詳細資訊，請參閱[從中斷復原](sql-database-disaster-recovery.md)。
 
 > [!IMPORTANT]
-> 異地還原是 SQL Database 中最基本的嚴重損壞修復解決方案。 它依賴自動建立的異地複寫備份，RPO = 1 小時，以及最多12小時的預估復原時間。 它不保證在區域 ourage 之後，目的地區域將會擁有還原資料庫的容量，因為需求可能會明顯增加。 對於使用相對較小資料庫的非商務關鍵性應用程式，異地還原是適當的嚴重損壞修復解決方案。 對於使用大型資料庫且必須確保業務持續性的商務關鍵應用程式，您應該使用[自動容錯移轉群組](sql-database-auto-failover-group.md)。 它提供較低的 RPO 和 RTO，而且一律保證容量。 如需商務持續性選項的詳細資訊，請參閱[商務持續性概觀](sql-database-business-continuity.md)。
+> 異地還原是 SQL Database 中最基本的嚴重損壞修復解決方案。 它依賴自動建立的異地複寫備份，RPO = 1 小時，以及最多12小時的預估復原時間。 這不保證在區域中斷之後，目的地區域將會擁有還原資料庫的容量，因為需求可能會明顯增加。 對於使用相對較小資料庫的非商務關鍵性應用程式，異地還原是適當的嚴重損壞修復解決方案。 對於使用大型資料庫且必須確保業務持續性的商務關鍵應用程式，您應該使用[自動容錯移轉群組](sql-database-auto-failover-group.md)。 它提供較低的 RPO 和 RTO，而且一律保證容量。 如需商務持續性選項的詳細資訊，請參閱[商務持續性概觀](sql-database-business-continuity.md)。
 
 ## <a name="programmatically-performing-recovery-using-automated-backups"></a>使用自動備份以程式設計方式執行復原
 
@@ -172,7 +170,7 @@ ms.locfileid: "71178415"
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 > [!IMPORTANT]
-> Azure SQL Database 仍然支援 PowerShell Azure Resource Manager 模組, 但所有未來的開發都是針對 Az .Sql 模組。 如需這些 Cmdlet, 請參閱[AzureRM](https://docs.microsoft.com/powershell/module/AzureRM.Sql/)。 Az 模組和 AzureRm 模組中命令的引數本質上完全相同。
+> Azure SQL Database 仍然支援 PowerShell Azure Resource Manager 模組, 但所有未來的開發都是針對 Az .Sql 模組。 如需這些 Cmdlet, 請參閱[AzureRM](https://docs.microsoft.com/powershell/module/AzureRM.Sql/)。 Az 模組和 AzureRm 模組中命令的引數相當於相同的範圍。
 
 - 若要還原獨立或集區資料庫，請參閱[restore-set-azsqldatabase 搭配](/powershell/module/az.sql/restore-azsqldatabase)。
 

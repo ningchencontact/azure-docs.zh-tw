@@ -5,13 +5,13 @@ author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 09/10/2019
-ms.openlocfilehash: 383f5acb9f106bb4697433be99c53bb78d00b396
-ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
+ms.date: 09/26/2019
+ms.openlocfilehash: 467a8b1de3f6c234d9dfdfaf6132025688757997
+ms.sourcegitcommit: e9936171586b8d04b67457789ae7d530ec8deebe
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71091135"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71327121"
 ---
 # <a name="postgresql-extensions-in-azure-database-for-postgresql---single-server"></a>適用於 PostgreSQL 的 Azure 資料庫中的于 postgresql 擴充功能-單一伺服器
 PostgreSQL 提供下列功能：使用擴充功能來擴充您的資料庫功能。 延伸模組會將多個相關的 SQL 物件組合在單一封裝中，您可以使用單一命令從您的資料庫中載入或移除它們。 載入資料庫之後，擴充功能就像內建功能一樣。
@@ -62,6 +62,7 @@ PostgreSQL 提供下列功能：使用擴充功能來擴充您的資料庫功能
 > |[postgis_topology](https://postgis.net/docs/Topology.html)             | 2.5.1           | PostGIS 拓撲空間類型和函數|
 > |[postgres_fdw](https://www.postgresql.org/docs/11/postgres-fdw.html)                 | 1.0             | 遠端于 postgresql 伺服器的外部資料包裝函式|
 > |[tablefunc](https://www.postgresql.org/docs/11/tablefunc.html)                    | 1.0             | 操作整個資料表的函數，包括交叉資料表|
+> |[timescaledb](https://docs.timescale.com/latest)                    | 1.3.2             | 啟用可調整的插入和複雜的時間序列資料查詢|
 > |[unaccent](https://www.postgresql.org/docs/11/unaccent.html)                     | 1.1             | 移除重音的文字搜尋字典|
 > |[uuid-ossp](https://www.postgresql.org/docs/11/uuid-ossp.html)                    | 1.1             | 產生通用唯一識別碼（Uuid）|
 
@@ -227,9 +228,6 @@ TimescaleDB 是一種時間序列資料庫，封裝為于 postgresql 的延伸�
 
 ### <a name="installing-timescaledb"></a>安裝 TimescaleDB
 若要安裝 TimescaleDB，您必須將它包含在伺服器的共用預先載入程式庫中。 變更 Postgres 的`shared_preload_libraries`參數需要**伺服器重新開機**才會生效。 您可以使用[Azure 入口網站](howto-configure-server-parameters-using-portal.md)或[Azure CLI](howto-configure-server-parameters-using-cli.md)來變更參數。
-
-> [!NOTE]
-> 適用於 PostgreSQL 的 Azure 資料庫版本9.6 和10上可以啟用 TimescaleDB
 
 使用[Azure 入口網站](https://portal.azure.com/)：
 

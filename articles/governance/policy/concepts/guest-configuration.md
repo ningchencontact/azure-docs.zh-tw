@@ -7,12 +7,12 @@ ms.date: 09/20/2019
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
-ms.openlocfilehash: 733b7fd8ef5b302df754fc7299b420739baff153
-ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
+ms.openlocfilehash: 51129f89f45d65007f8a7f37df0353121ebdbdd8
+ms.sourcegitcommit: e1b6a40a9c9341b33df384aa607ae359e4ab0f53
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71172472"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71338389"
 ---
 # <a name="understand-azure-policys-guest-configuration"></a>了解 Azure 原則的來賓設定
 
@@ -185,4 +185,4 @@ egrep -B $linesToIncludeBeforeMatch -A $linesToIncludeAfterMatch 'DSCEngine|DSCM
 - 瞭解如何以程式設計[方式建立原則](../how-to/programmatically-create.md)。
 - 瞭解如何[取得合規性資料](../how-to/getting-compliance-data.md)。
 - 瞭解如何[補救不符合規範的資源](../how-to/remediate-resources.md)。
-- 透過[使用 Azure 管理群組來組織資源](../../management-groups/index.md)來檢閱何謂管理群組。
+- 透過[使用 Azure 管理群組來組織資源](../../management-groups/overview.md)來檢閱何謂管理群組。

@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: fbad9624d6b76593ac4e77283f63904e9c006bcd
-ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
+ms.openlocfilehash: 3a6ac7ff22c04bff5948193c163a7071cf2c2ff5
+ms.sourcegitcommit: e9936171586b8d04b67457789ae7d530ec8deebe
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69647784"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71320401"
 ---
 # <a name="security-and-data-privacy-in-azure-search"></a>Azure 搜尋服務中的安全性和資料隱私權
 
@@ -43,8 +43,8 @@ Azure 搜尋服務具備跨實體安全性、加密傳輸、加密儲存體及�
 | 安全性階層 | 描述 |
 |----------------|-------------|
 | 傳輸中加密 <br>(HTTPS/SSL/TLS) | 「Azure 搜尋服務」會在 HTTPS 連接埠 443 上進行接聽。 在整個平台上，連至 Azure 服務的連線都會受到加密。 <br/><br/>用戶端對服務的所有 Azure 搜尋服務互動都支援 SSL/TLS 1.2。  請務必對服務的 SSL 連線使用 TLSv1.2。|
-| 待用加密 <br>Microsoft 管理的金鑰 | 加密會完全在索引編製程序內進行，對索引編製完成時間或索引大小沒有任何重大的影響。 它會自動針對所有索引編製程序進行，包括針對未完全加密 (建立時間在 2018 年 1 月以前) 之索引的增量更新進行。<br><br>就內部而言，加密會根據 [Azure 儲存體服務加密](https://docs.microsoft.com/azure/storage/common/storage-service-encryption) \(機器翻譯\)，使用的是 256 位元的 [AES 加密](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard) \(英文\)。<br><br> 加密是在「Azure 搜尋服務」內部進行的，由 Microsoft 在內部管理憑證和加密金鑰，並且全面套用。 您無法在入口網站中或透過程式設計方式，開啟或關閉加密、管理或替代自己的金鑰，或是檢視加密設定。<br><br>在 2018 年 1 月 24 日已宣布推出待用加密功能，並且適用於所有區域中的所有服務層級，包括共用 (免費) 服務。 若要達到完整加密的目的，針對在該日期之前建立的索引，您必須先捨棄再重新建置，才能進行加密。 否則，系統只會加密 1 月 24 日之後新增的新資料。|
-| 待用加密 <br>客戶管理的金鑰 | 使用客戶管理的金鑰進行加密是免費服務無法使用的**預覽**功能。 針對付費服務, 它僅適用于在2019年1月或之後使用最新預覽 api 版本 (api 版本 = 2019-05 06-01.5.1-Preview) 建立的搜尋服務。<br><br>Azure 搜尋服務索引和同義字對應現在可以使用 Azure Key Vault 中的客戶金鑰管理金鑰來進行待用加密。 若要深入瞭解, 請參閱[管理 Azure 搜尋服務中的加密金鑰](search-security-manage-encryption-keys.md)。<br>這項功能並不會取代預設的待用加密, 而是改為套用。<br>啟用這項功能將會增加索引大小, 並降低查詢效能。 根據 date 的觀察值, 您可以預期在查詢時間中會看到 30%-60% 的增加, 雖然實際的效能會隨著索引定義和查詢類型而有所不同。 基於此效能的影響, 建議您只在真正需要的索引上啟用這項功能。
+| 待用加密 <br>Microsoft 管理的金鑰 | 加密會完全在索引編製程序內進行，對索引編製完成時間或索引大小沒有任何重大的影響。 它會自動針對所有索引編製程序進行，包括針對未完全加密 (建立時間在 2018 年 1 月以前) 之索引的增量更新進行。<br><br>就內部而言，加密會根據 [Azure 儲存體服務加密](https://docs.microsoft.com/azure/storage/common/storage-service-encryption) \(機器翻譯\)，使用的是 256 位元的 [AES 加密](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard) \(英文\)。<br><br> 加密是在「Azure 搜尋服務」內部進行的，由 Microsoft 在內部管理憑證和加密金鑰，並且全面套用。 您無法在入口網站中或透過程式設計方式，開啟或關閉加密、管理或替代自己的金鑰，或是檢視加密設定。<br><br>待用加密是在2018年1月24日宣佈，適用于所有區域中的所有服務層級，包括免費層。 若要達到完整加密的目的，針對在該日期之前建立的索引，您必須先捨棄再重新建置，才能進行加密。 否則，系統只會加密 1 月 24 日之後新增的新資料。|
+| 待用加密 <br>客戶管理的金鑰 | 使用客戶管理的金鑰進行加密是免費服務無法使用的**預覽**功能。 針對付費服務，它僅適用于在2019年1月或之後使用最新預覽 api 版本（api 版本 = 2019-05 06-01.5.1-Preview）建立的搜尋服務。<br><br>Azure 搜尋服務索引和同義字對應現在可以使用 Azure Key Vault 中的客戶金鑰管理金鑰來進行待用加密。 若要深入瞭解，請參閱[管理 Azure 搜尋服務中的加密金鑰](search-security-manage-encryption-keys.md)。<br>這項功能並不會取代預設的待用加密，而是改為套用。<br>啟用這項功能將會增加索引大小，並降低查詢效能。 根據 date 的觀察值，您可以預期在查詢時間中會看到 30%-60% 的增加，雖然實際的效能會隨著索引定義和查詢類型而有所不同。 基於此效能的影響，建議您只在真正需要的索引上啟用這項功能。
 
 ## <a name="azure-wide-user-access-controls"></a>整個 Azure 的使用者存取控制
 
@@ -64,11 +64,11 @@ Azure 搜尋服務具備跨實體安全性、加密傳輸、加密儲存體及�
 搜尋服務的存取權有兩個層級，透過兩個類型的金鑰來存取：
 
 * 系統管理員存取權 (適用於服務的任何讀寫作業)
-* 查詢存取 (適用于唯讀作業, 例如查詢, 針對索引的檔集合)
+* 查詢存取（適用于唯讀作業，例如查詢，針對索引的檔集合）
 
-佈建服務時會建立「系統管理金鑰」。 有兩個管理員金鑰，指定為主要和次要以將它們保持在各自的位置，但事實上，它們是可互換。 每個服務有兩個管理員金鑰，以便您在轉換其中一個時不會無法存取您的服務。 您可以根據 Azure 安全性最佳作法定期重新產生系統[管理金鑰](search-security-api-keys.md#regenerate-admin-keys), 但無法新增到總管理金鑰計數。 每個搜尋服務最多可有兩個系統管理金鑰。
+佈建服務時會建立「系統管理金鑰」。 有兩個管理員金鑰，指定為主要和次要以將它們保持在各自的位置，但事實上，它們是可互換。 每個服務有兩個管理員金鑰，以便您在轉換其中一個時不會無法存取您的服務。 您可以根據 Azure 安全性最佳作法定期重新產生系統[管理金鑰](search-security-api-keys.md#regenerate-admin-keys)，但無法新增到總管理金鑰計數。 每個搜尋服務最多可有兩個系統管理金鑰。
 
-*查詢金鑰*是視需要建立, 而且是針對發出查詢的用戶端應用程式所設計。 您最多可以建立 50 個查詢金鑰。 在應用程式程式碼中, 您可以指定搜尋 URL 和查詢 api 金鑰, 以允許唯讀存取特定索引的檔集合。 端點、可供唯讀存取的 API 金鑰以及目標索引共同定義來自用戶端應用程式連接的範圍和存取層級。
+*查詢金鑰*是視需要建立，而且是針對發出查詢的用戶端應用程式所設計。 您最多可以建立 50 個查詢金鑰。 在應用程式程式碼中，您可以指定搜尋 URL 和查詢 api 金鑰，以允許唯讀存取特定索引的檔集合。 端點、可供唯讀存取的 API 金鑰以及目標索引共同定義來自用戶端應用程式連接的範圍和存取層級。
 
 針對每個要求都必須進行驗證，其中每個要求會由強制性金鑰、作業及物件所組成。 當兩個權限層級 (完整和唯讀) 加上內容 (例如，索引上的查詢作業) 鏈結在一起時，即足以在服務作業上提供全面的安全性。 如需關於金鑰的詳細資訊，請參閱[建立及管理 API 金鑰](search-security-api-keys.md)。
 
@@ -84,7 +84,7 @@ Azure 搜尋服務具備跨實體安全性、加密傳輸、加密儲存體及�
 
 ## <a name="admin-access"></a>系統管理員存取權
 
-[角色型存取 (RBAC)](https://docs.microsoft.com/azure/role-based-access-control/overview)會決定您是否可以存取服務及其內容的控制項。 如果您是 Azure 搜尋服務服務的擁有者或參與者, 則可以使用入口網站或 PowerShell **Az. Search**模組來建立、更新或刪除服務上的物件。 您也可以使用[Azure 搜尋服務管理 REST API](https://docs.microsoft.com/rest/api/searchmanagement/search-howto-management-rest-api)。
+[角色型存取（RBAC）](https://docs.microsoft.com/azure/role-based-access-control/overview)會決定您是否可以存取服務及其內容的控制項。 如果您是 Azure 搜尋服務服務的擁有者或參與者，則可以使用入口網站或 PowerShell **Az. Search**模組來建立、更新或刪除服務上的物件。 您也可以使用[Azure 搜尋服務管理 REST API](https://docs.microsoft.com/rest/api/searchmanagement/search-howto-management-rest-api)。
 
 ## <a name="user-access"></a>使用者存取
 

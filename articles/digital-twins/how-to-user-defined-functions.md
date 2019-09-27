@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 08/12/2019
 ms.author: alinast
 ms.custom: seodec18
-ms.openlocfilehash: 6853ebf16c1a9d6b0d363277b22c7dd2583d37e5
-ms.sourcegitcommit: fe50db9c686d14eec75819f52a8e8d30d8ea725b
+ms.openlocfilehash: 8a39a79f4b3aeacd267a0c4b9351d2400f11d1ff
+ms.sourcegitcommit: e1b6a40a9c9341b33df384aa607ae359e4ab0f53
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/14/2019
-ms.locfileid: "69013978"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71336899"
 ---
 # <a name="how-to-create-user-defined-functions-in-azure-digital-twins"></a>如何在 Azure Digital Twins 中建立使用者定義函式
 
@@ -197,7 +197,7 @@ function process(telemetry, executionContext) {
 
 建立角色指派，讓使用者定義函式可在其下執行。 如果為使用者定義的函式沒有角色指派存在，則不會擁有適當的權限可與管理 API 互動，或者不會擁有可對圖表物件執行動作的存取權。 使用者定義函式可執行的動作是透過 Azure Digital Twins 管理 API 內的角色型存取控制所指定與定義的。 例如，您可以藉由指定特定角色或特定存取控制路徑來限制使用者定義函式的範圍。 如需詳細資訊，請參閱[角色型存取控制](./security-role-based-access-control.md)文件。
 
-1. 針對所有角色[查詢系統 API](./security-create-manage-role-assignments.md#all)，以取得您想要指派給使用者定義函式的角色識別碼。 提出已驗證的 HTTP GET 要求來達成此目的：
+1. 針對所有角色[查詢系統 API](./security-create-manage-role-assignments.md#retrieve-all-roles)，以取得您想要指派給使用者定義函式的角色識別碼。 提出已驗證的 HTTP GET 要求來達成此目的：
 
     ```plaintext
     YOUR_MANAGEMENT_API_URL/system/roles
