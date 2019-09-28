@@ -10,12 +10,12 @@ ms.service: billing
 ms.topic: article
 ms.date: 05/30/2019
 ms.author: byvinyal
-ms.openlocfilehash: 0f036462eb9b37b4ec783bcf8957d307cc55f7ac
-ms.sourcegitcommit: cd70273f0845cd39b435bd5978ca0df4ac4d7b2c
+ms.openlocfilehash: ccddd13ddd8c10daba84f959b1cc1f8a4a80deb1
+ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71018526"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71345546"
 ---
 # <a name="azure-subscription-and-service-limits-quotas-and-constraints"></a>Azure 訂用帳戶和服務限制、配額與限制
 本文件列出一些最常見的 Microsoft Azure 限制，有時也稱為配額。 本文件目前未涵蓋所有 Azure 服務。 經過一段時間，清單就會展開並更新，以涵蓋更多服務。
@@ -94,6 +94,7 @@ ms.locfileid: "71018526"
   * [私人連結](#private-link-limits)
   * [流量管理員](#traffic-manager-limits)
   * [虛擬網路](#networking-limits)
+  * [虛擬 WAN](#virtual-wan-limits)
 * [通知中樞](#notification-hubs-limits)
 * [資源群組](#resource-group-limits)
 * [角色型存取控制](#role-based-access-control-limits)
@@ -161,6 +162,9 @@ ms.locfileid: "71018526"
 
 #### <a name="expressroute-limits"></a>ExpressRoute 限制
 [!INCLUDE [expressroute-limits](../includes/expressroute-limits.md)]
+
+#### <a name="virtual-wan-limits"></a>虛擬 WAN 限制
+[!INCLUDE [virtual-wan-limits](../includes/virtual-wan-limits.md)]
 
 #### <a name="application-gateway-limits"></a>應用程式閘道限制
 

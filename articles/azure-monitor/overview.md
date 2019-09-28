@@ -12,23 +12,28 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/26/2019
 ms.author: bwren
-ms.openlocfilehash: 1bc4a7634e864f0e3feb0d33cef3b967e5b6741f
-ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.openlocfilehash: 140a5cba6926e8711f0b70896ade55c11d332e0d
+ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71262217"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71345306"
 ---
 # <a name="azure-monitor-overview"></a>Azure 監視器概觀
 
-Azure 監視器可藉由提供全方位的解決方案，以便收集、分析及處理來自雲端和內部部署環境的遙測資料，進而將應用程式的可用性和效能最大化。 它可協助您了解您的應用程式表現如何，並主動識別影響它們的問題以及它們所依賴的資源。
+Azure 監視器提供完整的解決方案來收集、分析和操作來自雲端和內部部署環境的遙測，藉此將應用程式和服務的可用性和效能最大化。 它可協助您了解您的應用程式表現如何，並主動識別影響它們的問題以及它們所依賴的資源。
 
-> [!VIDEO https://www.youtube.com/embed/_hGff5bVtkM]
+您可以使用 Azure 監視器的幾個範例包括：
+
+- 使用[Application Insights](app/app-insights-overview.md)偵測和診斷應用程式和相依性的問題。
+- 將基礎結構問題與容器的[適用於 VM 的 Azure 監視器](insights/vminsights-overview.md)和[Azure 監視器](insights/container-insights-overview.md)相互關聯。
+- 使用[Log Analytics](log-query/log-query-overview.md)深入探索您的監視資料，以進行疑難排解和深度診斷。
+- 以[智慧型警示](platform/alerts-smartgroups-overview.md)和[自動化動作](platform/alerts-action-rules.md)大規模支援作業。
+- 使用 Azure[儀表板](learn/tutorial-logs-dashboards.md)和活頁[簿](app/usage-workbooks.md)建立視覺效果。
 
 ## <a name="overview"></a>總覽
 下圖提供 Azure 監視器的高階檢視。 圖表的中間是計量和記錄的資料存放區，而這兩者是 Azure 監視器所用資料的兩個基本類型。 左邊的[監視資料來源](platform/data-sources.md)會填入這些[資料存放區](platform/data-platform.md)。 右邊是 Azure 監視器對此收集資料執行的不同功能，例如分析、警示及串流處理至外部系統。
 
-[!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
 ![Azure 監視器概觀](media/overview/overview.png)
 

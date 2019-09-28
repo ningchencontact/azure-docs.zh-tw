@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 09/25/2019
 ms.subservice: hybrid
 ms.author: billmath
-ms.openlocfilehash: 1ba17feea880bb55c3b4a14a06b3d803dba2350a
-ms.sourcegitcommit: 9fba13cdfce9d03d202ada4a764e574a51691dcd
+ms.openlocfilehash: b0ef3dd2f39802d07c4ae04ad1eca23e40db502a
+ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71316950"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71345497"
 ---
 # <a name="understanding-azure-ad-connect-14xxx-and-device-disappearance"></a>瞭解 Azure AD Connect 1.4. x 和裝置消失
 在 1.4. x 版的 Azure AD Connect 中，有些客戶可能會看到部分或所有的 Windows 裝置從 Azure AD 消失。 這不是問題的原因，因為在條件式存取授權期間，Azure AD 不會使用這些裝置身分識別。 這種變更不會刪除所有已正確向 Azure AD 註冊混合式 Azure AD Join 的 Windows 裝置。
@@ -34,6 +34,15 @@ ms.locfileid: "71316950"
 Azure AD Connect 應該永遠不會同步[下層的 Windows 裝置](../devices/hybrid-azuread-join-plan.md#windows-down-level-devices)。 Azure AD 中的任何裝置先前未正確同步處理，現在會從 Azure AD 中刪除。 如果 Azure AD Connect 嘗試刪除舊版[windows 裝置](../devices/hybrid-azuread-join-plan.md#windows-down-level-devices)，則裝置不是由[Microsoft Workplace Join 為非 Windows 10 電腦的 MSI](https://www.microsoft.com/download/details.aspx?id=53554)所建立，且無法由任何其他 Azure AD 功能使用。
 
 有些客戶可能需要[重新流覽如何：規劃您的混合式 Azure Active Directory](../devices/hybrid-azuread-join-plan.md)聯結執行，讓其 Windows 裝置正確註冊，並確保這類裝置可以完全參與以裝置為基礎的條件式存取。 
+
+## <a name="how-can-i-verify-which-devices-are-deleted-with-this-update"></a>如何使用此更新來驗證刪除的裝置？
+
+若要確認哪些裝置已被刪除，您可以使用此 PowerShell 腳本： https://gallery.technet.microsoft.com/scriptcenter/Export-Hybrid-Azure-AD-f8e51436
+
+此腳本會產生有關儲存在 Active Directory 電腦物件中之憑證的報告，特別是混合式 Azure AD join 功能所發行的憑證。
+它會檢查 AD 中電腦物件的 UserCertificate 屬性中存在的憑證，並針對每個未過期的憑證，驗證是否已針對混合式 Azure AD 聯結功能發行憑證（也就是主體名稱符合 CN = {ObjectGUID}）。
+在之前，Azure AD Connect 會同步處理到 Azure AD 至少包含一個有效憑證但從1.4 版 Azure AD Connect 開始的任何電腦，同步處理引擎可以識別混合式 Azure AD 加入憑證，並將 ' cloudfilter '除非有有效的混合式 Azure AD 加入憑證，否則電腦物件不會同步處理到 Azure AD。
+Azure AD 已同步處理至 AD 但沒有有效混合式 Azure AD 聯結憑證的裝置，將會被同步處理引擎刪除（CloudFiltered = TRUE）。
 
 ## <a name="next-steps"></a>後續步驟
 - [Azure AD Connect 版本歷程記錄](reference-connect-version-history.md)

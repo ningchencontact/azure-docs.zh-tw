@@ -5,20 +5,20 @@ services: azure-resource-manager
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: conceptual
-ms.date: 09/03/2019
+ms.date: 09/27/2019
 ms.author: tomfitz
-ms.openlocfilehash: b349576f5e9f5410afc29f48e40c38e12168252d
-ms.sourcegitcommit: 267a9f62af9795698e1958a038feb7ff79e77909
+ms.openlocfilehash: 3a0761fad32b2cfb0387cca79b6c1c0dc83c8e98
+ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70258904"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71345415"
 ---
 # <a name="resource-property-or-variable-iteration-in-azure-resource-manager-templates"></a>Azure Resource Manager 範本中的資源、屬性或變數反復專案
 
-本文說明如何在您的 Azure Resource Manager 範本中, 建立一個以上的資源、變數或屬性實例。 若要建立多個實例, `copy`請將物件新增至您的範本。
+本文說明如何在您的 Azure Resource Manager 範本中，建立一個以上的資源、變數或屬性實例。 若要建立多個實例，請將 `copy` 物件新增至您的範本。
 
-與資源搭配使用時, 複製物件的格式如下:
+與資源搭配使用時，複製物件的格式如下：
 
 ```json
 "copy": {
@@ -29,7 +29,7 @@ ms.locfileid: "70258904"
 }
 ```
 
-與變數或屬性搭配使用時, 複製物件的格式如下:
+與變數或屬性搭配使用時，複製物件的格式如下：
 
 ```json
 "copy": [
@@ -47,17 +47,17 @@ ms.locfileid: "70258904"
 
 ## <a name="copy-limits"></a>複製限制
 
-若要指定反覆運算次數, 請提供 count 屬性的值。 計數不能超過800。
+若要指定反覆運算次數，請提供 count 屬性的值。 計數不能超過800。
 
-計數不可為負數。 如果您部署的範本具有 Azure PowerShell 2.6 或更新版本, 或 REST API **2019-05-10**版或更新版本, 您可以將 count 設定為零。 舊版的 PowerShell 和 REST API 不支援 count 的零。 目前, Azure CLI 不支援計數零, 但在未來的版本中將會加入該支援。
+計數不可為負數。 如果您部署具有 Azure PowerShell 2.6 或更新版本的範本、Azure CLI 2.0.74 或更新版本，或 REST API **2019-05-10**版或更新版本，您可以將 count 設定為零。 舊版的 PowerShell、CLI 和 REST API 不支援 count 的零。
 
-請小心使用[完整模式部署](deployment-modes.md)搭配 copy。 如果您使用完整模式重新部署至資源群組, 則會刪除在解析複製迴圈後未在範本中指定的任何資源。
+請小心使用[完整模式部署](deployment-modes.md)搭配 copy。 如果您使用完整模式重新部署至資源群組，則會刪除在解析複製迴圈後未在範本中指定的任何資源。
 
-無論使用的是資源、變數或屬性, 計數的限制都相同。
+無論使用的是資源、變數或屬性，計數的限制都相同。
 
 ## <a name="resource-iteration"></a>資源反覆項目
 
-當您在部署期間必須決定要建立資源的一個或多個執行個體時，請將 `copy` 元素新增至資源類型。 在 copy 元素中, 指定反覆運算次數和這個迴圈的名稱。
+當您在部署期間必須決定要建立資源的一個或多個執行個體時，請將 `copy` 元素新增至資源類型。 在 copy 元素中，指定反覆運算次數和這個迴圈的名稱。
 
 要多次建立的資源會採用下列格式：
 
@@ -98,7 +98,7 @@ ms.locfileid: "70258904"
 * storage1
 * storage2.
 
-若要位移索引值，您可以傳遞 copyIndex() 函式中的值。 反復專案的數目仍指定于 copy 元素中, 但 copyIndex 的值是以指定的值位移。 因此，下列範例：
+若要位移索引值，您可以傳遞 copyIndex() 函式中的值。 反復專案的數目仍指定于 copy 元素中，但 copyIndex 的值是以指定的值位移。 因此，下列範例：
 
 ```json
 "name": "[concat('storage', copyIndex(1))]",
@@ -113,25 +113,25 @@ ms.locfileid: "70258904"
 使用陣列時，複製作業會有幫助，因為您可以逐一查看陣列中的每個項目。 使用陣列上的 `length` 函式指定反覆運算的計數，並使用 `copyIndex` 來擷取陣列中目前的索引。 因此，下列範例：
 
 ```json
-"parameters": { 
-  "org": { 
-    "type": "array", 
-    "defaultValue": [ 
-      "contoso", 
-      "fabrikam", 
-      "coho" 
-    ] 
+"parameters": {
+  "org": {
+    "type": "array",
+    "defaultValue": [
+      "contoso",
+      "fabrikam",
+      "coho"
+    ]
   }
-}, 
-"resources": [ 
-  { 
-    "name": "[concat('storage', parameters('org')[copyIndex()])]", 
-    "copy": { 
-      "name": "storagecopy", 
-      "count": "[length(parameters('org'))]" 
-    }, 
+},
+"resources": [
+  {
+    "name": "[concat('storage', parameters('org')[copyIndex()])]",
+    "copy": {
+      "name": "storagecopy",
+      "count": "[length(parameters('org'))]"
+    },
     ...
-  } 
+  }
 ]
 ```
 
@@ -141,7 +141,7 @@ ms.locfileid: "70258904"
 * storagefabrikam
 * storagecoho
 
-根據預設，Resource Manager 會以平行方式建立資源。 除了範本中800資源的總限制以外, 不會對平行部署的資源數目套用任何限制。 不保證資源會循序建立。
+根據預設，Resource Manager 會以平行方式建立資源。 除了範本中800資源的總限制以外，不會對平行部署的資源數目套用任何限制。 不保證資源會循序建立。
 
 不過，建議您指定將資源部署在序列中。 例如，在更新生產環境時，您可以錯開更新，因此任何一次就只會更新特定數目。 若要以序列方式部署資源的多個執行個體，請將 `mode` 設定為 **serial** 並將 `batchSize` 設為一次要部署的執行個體數目。 透過序列模式，Resource Manager 會在迴圈中較早的執行個體上建立相依性，因此在前一批次完成之前，它不會啟動一個批次。
 
@@ -176,7 +176,7 @@ ms.locfileid: "70258904"
 
 mode 屬性也接受**平行**，這是預設值。
 
-如需搭配使用複製與嵌套範本的詳細資訊, 請參閱[使用複製](resource-group-linked-templates.md#using-copy)。
+如需搭配使用複製與嵌套範本的詳細資訊，請參閱[使用複製](resource-group-linked-templates.md#using-copy)。
 
 ## <a name="property-iteration"></a>屬性反覆運算
 
@@ -184,7 +184,7 @@ mode 屬性也接受**平行**，這是預設值。
 
 * name - 要建立數個值的屬性名稱
 * count - 要建立的值數目。
-* input - 包含要指派給屬性之值的物件  
+* input - 包含要指派給屬性之值的物件
 
 下列範例示範如何將 `copy` 套用至虛擬機器的 dataDisks 屬性：
 
@@ -304,7 +304,7 @@ copy 元素為一個陣列，因此，您可以針對資源指定一個以上的
 
 若要建立變數的多個執行個體，請在變數區段中使用 `copy` 屬性。 您可以建立一個由 `input` 屬性中的值建構的元素陣列。 您可以在變數中使用 `copy` 屬性，也可以在變數部分的最上層使用。 在變數反覆項目內使用 `copyIndex` 時，您必須提供反覆項目的名稱。
 
-如需建立字串值陣列的簡單範例, 請參閱[複製陣列範本](https://github.com/bmoore-msft/AzureRM-Samples/blob/master/copy-array/azuredeploy.json)。
+如需建立字串值陣列的簡單範例，請參閱[複製陣列範本](https://github.com/bmoore-msft/AzureRM-Samples/blob/master/copy-array/azuredeploy.json)。
 
 下列範例示範使用動態建構的元素建立陣列變數的幾種不同方式。 它示範如何在變數內使用複製來建立物件和字串的陣列。 它也會示範如何在最上層使用複製來建立物件、字串和整數的陣列。
 
@@ -380,7 +380,7 @@ copy 元素為一個陣列，因此，您可以針對資源指定一個以上的
 }
 ```
 
-所建立之變數的類型取決於輸入物件。 例如, 上述範例中名為**最上層物件陣列**的變數會傳回:
+所建立之變數的類型取決於輸入物件。 例如，上述範例中名為**最上層物件陣列**的變數會傳回：
 
 ```json
 [
@@ -412,7 +412,7 @@ copy 元素為一個陣列，因此，您可以針對資源指定一個以上的
 ]
 ```
 
-而且, 名為**最上層字串陣列**的變數會傳回:
+而且，名為**最上層字串陣列**的變數會傳回：
 
 ```json
 [
@@ -450,9 +450,9 @@ copy 元素為一個陣列，因此，您可以針對資源指定一個以上的
       }
     },
     {
-      "apiVersion": "2015-06-15", 
-      "type": "Microsoft.Compute/virtualMachines", 
-      "name": "[concat('VM', uniqueString(resourceGroup().id))]",  
+      "apiVersion": "2015-06-15",
+      "type": "Microsoft.Compute/virtualMachines",
+      "name": "[concat('VM', uniqueString(resourceGroup().id))]",
       "dependsOn": ["storagecopy"],
       ...
     }
@@ -488,7 +488,7 @@ copy 元素為一個陣列，因此，您可以針對資源指定一個以上的
 
 若要建立多個資料集，請將它移出資料處理站。 資料集必須位於與資料處理站相同的等級，但它仍是資料處理站的子資源。 您可以透過類型和名稱屬性保留資料集與資料處理站之間的關聯性。 由於無法再從類型位於範本中的位置來推斷類型，您必須以此格式提供完整的類型︰`{resource-provider-namespace}/{parent-resource-type}/{child-resource-type}`。
 
-若要建立與 Data Factory 執行個體的父/子關聯性，請提供包含父資源名稱之資料集的名稱。 使用格式︰`{parent-resource-name}/{child-resource-name}`。  
+若要建立與 Data Factory 執行個體的父/子關聯性，請提供包含父資源名稱之資料集的名稱。 使用格式︰`{parent-resource-name}/{child-resource-name}`。
 
 下列範例顯示實作：
 
