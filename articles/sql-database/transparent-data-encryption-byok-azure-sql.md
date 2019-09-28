@@ -11,12 +11,12 @@ author: aliceku
 ms.author: aliceku
 ms.reviewer: vanto
 ms.date: 07/18/2019
-ms.openlocfilehash: 6b1b706e68b090090ed4268b70b7c9d254f8b629
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: 095ecc360e5639a5d47dff4bc4675fc237cf81da
+ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68596705"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71348930"
 ---
 # <a name="azure-sql-transparent-data-encryption-with-customer-managed-keys-in-azure-key-vault-bring-your-own-key-support"></a>Azure SQL 透明資料加密使用 Azure Key Vault 中的客戶管理金鑰：「攜帶您自己的金鑰」支援
 
@@ -73,7 +73,7 @@ ms.locfileid: "68596705"
 - 使用 SQL Database 伺服器的 Azure Active Directory (Azure AD) 身分識別為其授與金鑰保存庫的存取權。  使用入口網站 UI 時會自動建立 Azure AD 身分識別，並將金鑰保存庫的存取權授與伺服器。  使用 PowerShell 設定具有 BYOK 的 TDE 時，則必須建立 Azure AD 身分識別，並確認作業是否完成。 請參閱[設定具有 BYOK 的 TDE](transparent-data-encryption-byok-azure-sql-configure.md)和[針對受控執行個體設定具有 BYOK 的 TDE](https://aka.ms/sqlmibyoktdepowershell)，以取得使用 PowerShell 時的詳細逐步指示。
 
    > [!NOTE]
-   > 如果不小心刪除 Azure AD 身分識別, 或使用金鑰保存庫的存取原則**撤銷伺服器的許可權**, 或將伺服器移到不同的租使用者, 則伺服器會失去金鑰保存庫的存取權, 且 TDE 加密的資料庫。將無法存取, 而且登入會遭到拒絕, 直到邏輯伺服器的 Azure AD 身分識別和許可權還原為止。  
+   > 如果不小心刪除 Azure AD 身分識別，或使用金鑰保存庫的存取原則**撤銷伺服器的許可權**，或將伺服器移到不同的租使用者，則伺服器會失去金鑰保存庫的存取權，且 TDE 加密的資料庫。將無法存取，而且登入會遭到拒絕，直到邏輯伺服器的 Azure AD 身分識別和許可權還原為止。  
 
 - 搭配 Azure Key Vault 使用防火牆和虛擬網路時, 您必須允許受信任的 Microsoft 服務略過此防火牆。 選擇 [是]。
 
@@ -86,14 +86,14 @@ ms.locfileid: "68596705"
 
 ### <a name="guidelines-for-configuring-the-tde-protector-asymmetric-key"></a>設定 TDE 保護裝置 (非對稱金鑰) 的方針
 
-- 在本機 HSM 裝置上建立加密金鑰。 請確定這是非對稱、RSA 2048 或 RSA HSM 2048 金鑰, 因此可存放在 Azure Key Vault 中。
+- 在本機 HSM 裝置上建立加密金鑰。 請確定這是非對稱、RSA 2048 或 RSA HSM 2048 金鑰，因此可存放在 Azure Key Vault 中。
 - 將金鑰委付到金鑰委付系統中。  
 - 將加密金鑰檔案 (.pfx、.byok 或 .backup) 匯入至 Azure Key Vault。
 
    > [!NOTE]
    > 基於測試目的，您可以使用 Azure Key Vault 建立金鑰，但此金鑰無法委付，因為私密金鑰絕不可移至金鑰保存庫以外。  請務必備份並委付用來加密生產資料的金鑰，因為萬一遺失金鑰 (在金鑰保存庫中意外刪除、已到期等)，將導致資料永久遺失。
 
-- 如果您使用具有到期日的金鑰, 請執行到期警告系統以在金鑰到期之前將它輪替:**一旦金鑰過期, 加密的資料庫就會失去其 TDE 保護裝置的存取權**, 而且將會拒絕所有登入, 直到金鑰已經旋轉為新的金鑰, 並選取做為邏輯 SQL server 的新金鑰和預設 TDE 保護裝置。
+- 如果您使用具有到期日的金鑰，請執行到期警告系統以在金鑰到期之前將它輪替：**一旦金鑰過期，加密的資料庫就會失去其 TDE 保護裝置的存取權**，而且將會拒絕所有登入，直到金鑰已經旋轉為新的金鑰，並選取做為邏輯 SQL server 的新金鑰和預設 TDE 保護裝置。
 - 確認金鑰已啟用，且具有執行*取得*、*包裝金鑰*和*解除包裝金鑰*作業的權限。
 - 在第一次使用 Azure Key Vault 中的金鑰之前，先建立 Azure Key Vault 金鑰備份。 深入瞭解[AzKeyVaultKey](https://docs.microsoft.com/powershell/module/az.keyvault/backup-azkeyvaultkey)命令。
 - 只要對金鑰進行任何變更 (例如，新增 ACL、新增標記、新增金鑰屬性)，即建立新的備份。
@@ -149,7 +149,7 @@ ms.locfileid: "68596705"
 - 對金鑰保存庫使用 [PowerShell 啟用「虛刪除」屬性](https://docs.microsoft.com/azure/key-vault/key-vault-soft-delete-powershell)，在兩個不同的區域中建立兩個 Azure Key Vault (使用 AKV 入口網站時尚不適用此選項 – 但 SQL 則需要此選項)。
 - 這兩個 Azure Key Vault 必須位於屬於相同 Azure 區域的兩個區域中，如此才能執行金鑰的備份與還原。  如果您的兩個金鑰保存庫必須位於不同的地理區域，以符合 SQL 異地災害復原需求，請遵循 [BYOK 程序](https://docs.microsoft.com/azure/key-vault/key-vault-hsm-protected-keys)，以便從內部部署 HSM 匯入金鑰。
 - 在第一個金鑰保存庫中建立新的金鑰：  
-  - RSA/RSA-HSA 2048 金鑰
+  - RSA/RSA-HSM 2048 金鑰
   - 沒有到期日
   - 金鑰已啟用，且具有執行取得、包裝金鑰和解除包裝金鑰作業的權限
 - 備份主要金鑰，並將金鑰還原至第二個金鑰保存庫。  請參閱[BackupAzureKeyVaultKey](https://docs.microsoft.com/powershell/module/az.keyvault/backup-azkeyvaultkey)和[Restore-AzKeyVaultKey](https://docs.microsoft.com/powershell/module/az.keyvault/restore-azkeyvaultkey)。

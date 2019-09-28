@@ -7,12 +7,12 @@ author: mscurrell
 ms.author: markscu
 ms.date: 08/02/2018
 ms.topic: conceptual
-ms.openlocfilehash: be6c0f9a8874507433606903bcbd58c7723d6a8a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b5eaaa6d41b9dae97a2d6219ffa44fb75ed67e61
+ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62118682"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71350037"
 ---
 # <a name="azure-batch-rendering-capabilities"></a>Azure Batch 轉譯功能
 
@@ -37,8 +37,8 @@ ms.locfileid: "62118682"
 
 如果集區 VM 上需要額外的應用程式，則適用其他選項：
 
-* 以標準 Marketplace 映像為基礎的自訂映像：
-  * 使用此選項，可以為您的虛擬機器設定所需要的確切應用程式與特定版本。 如需詳細資訊，請參閱[使用自訂映像來建立虛擬機器的集區](https://docs.microsoft.com/azure/batch/batch-custom-images)。 Autodesk 和 Chaos Group 已分別修改 Arnold 和 V-Ray，以驗證 Azure Batch 授權服務。 請確定您的應用程式版本具有此支援，否則按使用次數付費授權將無法運作。 目前版本的 Maya 或 3ds Max 在執行無周邊 (以批次/命令列模式) 時不需要授權伺服器。 如果您不確定如何繼續使用此選項，請連絡 Azure 支援。
+* 來自共用映射資源庫的自訂映射：
+  * 使用此選項，可以為您的虛擬機器設定所需要的確切應用程式與特定版本。 如需詳細資訊，請參閱[使用共用映射資源庫建立集](batch-sig-images.md)區。 Autodesk 和 Chaos Group 已分別修改 Arnold 和 V-Ray，以驗證 Azure Batch 授權服務。 請確定您的應用程式版本具有此支援，否則按使用次數付費授權將無法運作。 目前版本的 Maya 或 3ds Max 在執行無周邊 (以批次/命令列模式) 時不需要授權伺服器。 如果您不確定如何繼續使用此選項，請連絡 Azure 支援。
 * [應用程式套件](https://docs.microsoft.com/azure/batch/batch-application-packages)：
   * 將使用一或多個 ZIP 檔案的應用程式檔案封裝、透過 Azure 入口網站上傳，然後在集區設定中指定套件。 建立集區 VM 時，會下載 ZIP 檔案並將檔案解壓縮。
 * 資源檔：

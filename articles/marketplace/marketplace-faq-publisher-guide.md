@@ -1,26 +1,26 @@
 ---
-title: Azure Marketplace 常見問題
-description: Microsoft Azure Marketplace 常見問題的解答
+title: Microsoft 商業 Marketplace 常見問題
+description: Azure Marketplace 和 Microsoft AppSource 的常見問題解答
 services: Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security
 author: qianw211
 ms.service: marketplace
 ms.topic: article
-ms.date: 9/24/2019
+ms.date: 9/26/2019
 ms.author: ellacroi
-ms.openlocfilehash: 6b9cc80dfb397d5bf330d0be947f468e9b802139
-ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.openlocfilehash: abc3b3a6be5f8c61c07fb29a6f168c8738733099
+ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71259948"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71350378"
 ---
-# <a name="marketplace-faqs"></a>Marketplace 常見問題集
+# <a name="microsoft-commercial-marketplace-faqs"></a>Microsoft 商業 Marketplace 常見問題
 
-Microsoft Azure Marketplace 常見問題的解答。
+Azure Marketplace 和 Microsoft AppSource 的常見問題解答。
 
 ## <a name="faq-for-customers"></a>客戶的常見問題集
 
-### <a name="what-you-need-to-know-about-azure-marketplace"></a>Azure Marketplace 相關須知
+### <a name="what-you-need-to-know-about-azure-marketplace-and-microsoft-appsource"></a>Azure Marketplace 和 Microsoft AppSource 須知
 
 **什麼是 Azure Marketplace？**
 
@@ -253,9 +253,26 @@ MOSP- [Microsoft 線上訂閱者案](https://azure.microsoft.com/support/legal/s
 
 已取消的授權會受到此常見問題中找到的退款原則的要求。  所有已取消的授權都會立即從您的帳戶移除，且將無法再供使用。
 
+**以耗用量為基礎的供應專案是否支援退款？**
+
+任何根據耗用量的費用（不論是每小時的 Vm 或自訂計量），都不會透過取消來退款。 一旦發生耗用量，Microsoft 的商業平臺會處理費用，而要求退款的任何服務爭議品質都會直接在「發行者」和「客戶」之間的 Microsoft 系統以外的地方處理。 支援一般費率加計量計費的供應專案，會遵循標準退款原則來支付固定費率費用。
+
+**是否可以變更計畫的期限？**
+
+不可以，您無法在每月和每年之間轉換。
+
+**客戶可以從相同的供應專案購買兩個方案嗎？**
+
+是，客戶可以同時從相同的供應專案擁有兩個方案。
+
+**退款和計畫變更原則是否因店面而有所不同？**
+
+否，商務原則在 Azure Marketplace 和 Microsoft AppSource 之間是一致的。 如果雲端解決方案中的合作夥伴轉售提供程式，合作夥伴可能會為客戶強制執行不同的原則。
+
+
 ## <a name="faq-for-publishers"></a>發行者的常見問題集
 
-### <a name="what-you-need-to-know-about-azure-marketplace"></a>Azure Marketplace 相關須知
+### <a name="what-you-need-to-know-about-azure-marketplace-and-microsoft-appsource"></a>Azure Marketplace 和 Microsoft AppSource 須知
 
 **什麼是 Azure Marketplace？**
 

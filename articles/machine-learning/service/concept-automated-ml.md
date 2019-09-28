@@ -11,16 +11,16 @@ author: nacharya1
 ms.author: nilesha
 ms.date: 06/20/2019
 ms.custom: seodec18
-ms.openlocfilehash: 32ff1ba599f4f95cc413bc2bb2c3bbc442405022
-ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
+ms.openlocfilehash: 8b38b359821d3d4926085fee8e412fbe06155739
+ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71035713"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71350625"
 ---
 # <a name="what-is-automated-machine-learning"></a>什麼是自動化機器學習服務？
 
-自動化機器學習（也稱為「autoML」）是將機器學習模型開發的耗時、反復作業自動化的程式。 它可讓資料科學家、分析師和開發人員以高擴充性、效率和生產力來建立 ML 模型，同時維持模型品質。 自動化 ML 是以[Microsoft Research 部門](https://arxiv.org/abs/1705.05355)的突破性為基礎。
+自動化機器學習服務（也稱為自動化 ML）是將機器學習模型開發的耗時、反復作業自動化的程式。 它可讓資料科學家、分析師和開發人員以高擴充性、效率和生產力來建立 ML 模型，同時維持模型品質。 自動化 ML 是以[Microsoft Research 部門](https://arxiv.org/abs/1705.05355)的突破性為基礎。
 
 傳統機器學習模型的開發會耗用大量資源，因此需要大量的領域知識和時間來產生和比較數十種模型。 當您想要 Azure Machine Learning 使用您指定的目標度量來為您定型和調整模型時，請套用自動化 ML。 然後，服務會逐一查看與特徵選取配對的 ML 演算法，其中每個反復專案都會產生具有定型分數的模型。 分數越高，模型就越能「配合」您的資料。
 
@@ -115,6 +115,36 @@ ms.locfileid: "71035713"
 具有已排序集團初始化的[Caruana 集團選取演算法](http://www.niculescu-mizil.org/papers/shotgun.icml04.revised.rev2.pdf)會用來決定要在集團中使用的模型。 就高層級而言，此演算法會使用最多5個具有最佳個別分數的模型來初始化集團，並確認這些模型是在最佳分數的 5% 臨界值內，以避免初始集團不佳。 然後針對每個集團反復專案，將新的模型加入至現有的集團，並計算產生的分數。 如果新模型已改善現有的集團分數，集團會更新以包含新的模型。
 
 請參閱[如何](how-to-configure-auto-train.md#ensemble)變更自動化機器學習服務中的預設集團設定。
+
+## <a name="imbalance"></a>不平衡資料
+
+不平衡資料通常會在機器學習分類案例的資料中找到，而則是指在每個類別中包含不相稱比例的觀察資料。 此不平衡可能會導致不正確地發現模型精確度的正面副作用，因為輸入資料有偏差到一個類別，這會導致定型的模型模擬該偏差。 
+
+自動化 ML 是在簡化機器學習工作流程的目標過程中，具備內建的功能，可協助處理不平衡資料，例如， 
+
+- 加權資料**行**：自動化 ML 支援加權資料行做為輸入，導致資料中的資料列加權為相應增加或減少，這可能會讓類別變得更多或更少「重要」。 請參閱此[筆記本範例](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/sample-weight/auto-ml-sample-weight.ipynb) 
+
+- 自動化 ML 所使用的演算法可以適當地處理最多20:1 的不平衡，這表示在資料中，最常見的類別可能會比最不常見的類別擁有20倍以上的資料列。
+
+### <a name="identify-models-with-imbalanced-data"></a>識別具有不平衡資料的模型
+
+因為分類演算法通常會以精確度進行評估，所以檢查模型的精確度分數是識別它是否受到不平衡資料影響的好方法。 對於某些類別而言，它的精確度很高，還是精確度很低？
+
+此外，自動化 ML 執行會自動產生下列圖表，這可協助您瞭解模型分類的正確性，並識別可能受到不平衡資料影響的模型。
+
+圖表| 描述
+---|---
+[混淆矩陣](how-to-understand-automated-ml.md#confusion-matrix)| 針對資料的實際標籤，評估正確分類的標籤。 
+[精確度-召回](how-to-understand-automated-ml.md#precision-recall-chart)| 根據找到的標籤實例的比率，評估正確標籤的比率 
+[ROC 曲線](how-to-understand-automated-ml.md#roc)| 根據誤報標籤的比例，評估正確標籤的比率。
+
+### <a name="handle-imbalanced-data"></a>處理不平衡資料 
+
+下列技術是在自動化 ML 外處理不平衡資料的其他選項。 
+
+- 將較小的類別向上取樣或向下取樣較大的類別，即使類別不平衡，也會重新取樣。 這些方法需要專業知識來處理和分析。
+
+- 使用效能標準，以更佳的方式處理不平衡資料。 例如，F1 分數是精確度和召回率的加權平均值。 精確度測量分類器的 exactness--低精確度表示大量的誤報--,，而召回量值則是測量分類器的完整性--低召回表示有大量的錯誤否定。 
 
 ## <a name="use-with-onnx-in-c-apps"></a>在應用程式中C#使用 ONNX
 

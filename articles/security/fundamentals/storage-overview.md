@@ -15,16 +15,16 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/28/2019
 ms.author: terrylan
-ms.openlocfilehash: 249380b5bd9d95e969a9c7a812102b694b9d1e3b
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.openlocfilehash: e273d913d07d8d7b77289695a4a28a478a64123a
+ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68726536"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71350296"
 ---
 # <a name="azure-storage-security-overview"></a>Azure 儲存體安全性概觀
 
-本文提供可與 Azure 儲存體搭配使用的 Azure 安全性功能概觀。 Azure 儲存體是現代應用程式的雲端儲存體解決方案，這些應用程式仰賴持續性、可用性和可調整性來滿足其客戶的需求。 Azure 儲存體提供一組完整的安全性功能。 您可以:
+本文提供可與 Azure 儲存體搭配使用的 Azure 安全性功能概觀。 Azure 儲存體是現代應用程式的雲端儲存體解決方案，這些應用程式仰賴持續性、可用性和可調整性來滿足其客戶的需求。 Azure 儲存體提供一組完整的安全性功能。 您可以：
 
 * 使用角色型存取控制 (RBAC) 與 Azure Active Directory 來保護儲存體帳戶的安全。
 * 使用用戶端加密、HTTPS 或 SMB 3.0，保護應用程式和 Azure 之間傳輸中資料的安全。
@@ -39,7 +39,7 @@ ms.locfileid: "68726536"
 
 您可以使用角色型存取控制，協助保護儲存體帳戶。 對於想要強制執行資料存取安全性原則的組織，根據[需要知道](https://en.wikipedia.org/wiki/Need_to_know)和[最低權限](https://en.wikipedia.org/wiki/Principle_of_least_privilege)安全性原則限制存取權限是必須做的事。 在特定範圍將適當的 RBAC 角色指派給群組和應用程式，即可授與這些存取權限。 您可以使用 [內建的 RBAC 角色](/azure/role-based-access-control/built-in-roles)(例如儲存體帳戶參與者) 將權限指派給使用者。
 
-深入了解:
+深入了解：
 
 * [Azure Active Directory 角色型存取控制](/azure/role-based-access-control/role-assignments-portal)
 
@@ -49,7 +49,7 @@ ms.locfileid: "68726536"
 
 SAS 是一種 URI，此 URI 會在其查詢參數中包含對儲存體資源進行驗證式存取所需的一切資訊。 若要使用 SAS 存取儲存體資源，用戶端只需將 SAS 提供給適當的建構函式或方法即可。
 
-深入了解:
+深入了解：
 
 * [了解 SAS 模型](/azure/storage/common/storage-dotnet-shared-access-signature-part-1)
 * [透過 Blob 儲存體來建立及使用 SAS](/azure/storage/common/storage-dotnet-shared-access-signature-part-1)
@@ -88,7 +88,7 @@ SAS 是一種 URI，此 URI 會在其查詢參數中包含對儲存體資源進�
 
 更多資訊
 
-* [適用於 Windows 和 Linux IaaS 虛擬機器的 Azure 磁碟加密](https://gallery.technet.microsoft.com/Azure-Disk-Encryption-for-a0018eb0)
+* [Azure 磁碟加密總覽](https://docs.microsoft.com/azure/security/azure-security-disk-encryption-overview)
 
 ## <a name="firewalls-and-virtual-networks"></a>防火牆與虛擬網路
 
@@ -104,7 +104,7 @@ Azure 儲存體可讓您啟用儲存體帳戶的防火牆規則。 啟用之後�
 
 Data Box Edge 與 Data Box Gateway 是連線資料轉送產品，等同於在您的位置與 Azure 之間管理資料的網路儲存體閘道。 Data Box Edge 是內部部署網路裝置，與 Azure 來回轉送資料，並使用具備人工智慧 (AI) 的邊緣計算來處理資料。 Data Box Gateway 是具備儲存體閘道功能的虛擬設備。
 
-深入了解:
+深入了解：
 
 * [Azure 資料箱](https://azure.microsoft.com/services/storage/databox/)
 * [Azure Data Box Edge](/azure/databox-online/data-box-edge-overview)
@@ -116,7 +116,7 @@ Azure 儲存體提供「進階威脅防護」來增加額外的安全智慧層�
 
 您可以從 [Azure 資訊安全中心](https://azure.microsoft.com/services/security-center/)檢視進階威脅保護警示。 Azure 資訊安全中心會在偵測到任何可疑活動時提供相關的詳細資料，並提供調查和修復潛在威脅的建議動作。
 
-深入了解:
+深入了解：
 
 * [Azure 儲存體進階威脅防護概觀](/azure/storage/common/storage-advanced-threat-protection)
 

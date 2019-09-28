@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 12/17/2018
 ms.author: lahugh
-ms.openlocfilehash: c3c54b003017f7512cd40c7798fc351e4e4a3f69
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: c8fa96e41b98cfa227fd25dc4b3bd66a171ff3c8
+ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70094924"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71350126"
 ---
 # <a name="use-rdma-or-gpu-instances-in-batch-pools"></a>在 Batch 集區中使用 RDMA 或 GPU 執行個體
 
@@ -86,7 +86,7 @@ ms.locfileid: "70094924"
 
     * [適用於 Azure Batch 容器集區的 Ubuntu Server (包含 GPU 和 RDMA 驅動程式)](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-azure-batch.ubuntu-server-container-rdma?tab=Overview)
 
-* 建立[自訂 Windows 或 Linux VM 映像](batch-custom-images.md)，並在其中安裝 VM 大小所需的驅動程式、軟體或其他設定。 
+* 建立[自訂 Windows 或 Linux VM 映像](batch-sig-images.md)，並在其中安裝 VM 大小所需的驅動程式、軟體或其他設定。 
 
 * 從壓縮的驅動程式或應用程式安裝程式建立 Batch [應用程式套件](batch-application-packages.md)，然後設定 Batch 將套件部署至集區節點，並在建立每個節點之後安裝一次。 例如，如果該應用程式套件是安裝程式，請建立[啟動工作](batch-api-basics.md#start-task)命令列，以在所有集區節點上以無訊息方式安裝應用程式。 如果您的工作負載相依於特定驅動程式版本，請考慮使用應用程式套件和集區啟動工作。
 
@@ -123,9 +123,9 @@ ms.locfileid: "70094924"
 1. 部署執行 Ubuntu 16.04 LTS 的 Azure NC 系列 VM。 例如，在美國中南部區域建立 VM。 
 2. 使用 Azure 入口網站、連線到 Azure 訂用帳戶的用戶端電腦或 Azure Cloud Shell，將 [NVIDIA GPU 驅動程式延伸模組](../virtual-machines/extensions/hpccompute-gpu-linux.md
 )新增至 VM。 或者，遵循步驟來手動連線到 VM 並[安裝 CUDA 驅動程式](../virtual-machines/linux/n-series-driver-setup.md)。
-3. 遵循步驟為 Batch 建立[快照集和自訂 Linux VM 映像](batch-custom-images.md)。
+3. 請遵循步驟來建立 Batch 的[共用映射資源庫映射](batch-sig-images.md)。
 4. 在支援 NC VM 的區域建立 Batch 帳戶。
-5. 使用 Batch API 或 Azure 入口網站，[使用自訂映像](batch-custom-images.md)建立具有所需節點數目和規模大小的集區。 下表顯示該映像的集區設定範例：
+5. 使用 Batch API 或 Azure 入口網站，[使用自訂映像](batch-sig-images.md)建立具有所需節點數目和規模大小的集區。 下表顯示該映像的集區設定範例：
 
 | 設定 | 值 |
 | ---- | ---- |
@@ -143,8 +143,8 @@ ms.locfileid: "70094924"
 )，或使用 Azure Cloud Shell，將 HpcVmDrivers 延伸模組新增至 VM。 
 1. 建立對 VM 的遠端桌面連線。
 1. 下載適用於最新版 Microsoft MPI 的[安裝套件](https://www.microsoft.com/download/details.aspx?id=57467) (MSMpiSetup.exe)，然後安裝 Microsoft MPI。
-1. 遵循步驟為 Batch 建立[快照集和自訂 Windows VM 映像](batch-custom-images.md)。
-1. 使用 Batch API 或 Azure 入口網站，[使用自訂映像](batch-custom-images.md)建立具有所需節點數目和規模大小的集區。 下表顯示該映像的集區設定範例：
+1. 請遵循步驟來建立 Batch 的[共用映射資源庫映射](batch-sig-images.md)。
+1. 使用 Batch Api 或 Azure 入口網站，[使用共用映射資源庫](batch-sig-images.md)和所需的節點數目和規模來建立集區。 下表顯示該映像的集區設定範例：
 
 | 設定 | 值 |
 | ---- | ---- |

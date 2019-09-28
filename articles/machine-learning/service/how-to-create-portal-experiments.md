@@ -11,12 +11,12 @@ author: tsikiksr
 manager: cgronlun
 ms.reviewer: nibaccam
 ms.date: 09/09/2019
-ms.openlocfilehash: 3a47977f2589227347582dc6fcaff25120e380d7
-ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
+ms.openlocfilehash: 45207eb1cdc62f2468d8b0c052723337c18d5021
+ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71034820"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71350562"
 ---
 # <a name="create-explore-and-deploy-automated-machine-learning-experiments-with-azure-machine-learnings-workspace-landing-page-preview"></a>使用 Azure Machine Learning 的工作區登陸頁面（預覽），建立、探索及部署自動化機器學習實驗
 
@@ -26,18 +26,17 @@ ms.locfileid: "71034820"
 
 ## <a name="prerequisites"></a>必要條件
 
-* Azure 訂用帳戶。 如果您沒有 Azure 訂用帳戶，請在開始前先建立一個免費帳戶。 立即試用[免費或付費版本的 Azure Machine Learning](https://aka.ms/AMLFree) 。
+* Azure 訂用帳戶。 如果您沒有 Azure 訂用帳戶，請在開始前先建立一個免費帳戶。 立即試用[免費或付費版本的 Azure Machine Learning](https://aka.ms/AMLFree)。
 
 * Azure Machine Learning 工作區。 請參閱[建立 Azure Machine Learning 工作區](how-to-manage-workspace.md)。
 
 ## <a name="get-started"></a>開始使用
 
-
 1. 登入[工作區登陸頁面](https://ml.azure.com/workspaceportal/)。 
 
 1. 選取您的訂用帳戶和工作區。 
 
-1. 導覽至左窗格。 在 [**撰寫**] 區段下選取 [**自動化 ML** ]。
+1. 導覽至左窗格。 在 [**作者**] 區段下選取 [**自動化 ML** ]。
 
 [![Azure 入口網站流覽窗格](media/how-to-create-portal-experiments/nav-pane.png)](media/how-to-create-portal-experiments/nav-pane-expanded.png)
 
@@ -59,7 +58,7 @@ ms.locfileid: "71034820"
     ---|---
     Compute 名稱| 輸入可識別您計算內容的唯一名稱。
     虛擬機器大小| 為您的計算選取虛擬機器大小。
-    其他設定| 最小節點：輸入您的計算節點數目下限。 AML 計算的節點數目下限為0。 若要啟用資料分析, 您必須有一或多個節點。 <br> 最大節點：輸入您計算的節點數目上限。 AML 計算的預設值是6個節點。
+    最小/最大節點（在 [高級設定] 中）| 若要分析資料，您必須指定一個或多個節點。 輸入您計算的節點數目上限。 AML 計算的預設值是6個節點。
     
     選取 [建立]。 建立新的計算可能需要幾分鐘的時間。
 
@@ -87,7 +86,7 @@ ms.locfileid: "71034820"
         分隔符號| 一或多個字元，用於指定純文字或其他資料流程中個別獨立區域之間的界限。
         編碼| 識別要用來讀取資料集之字元架構資料表的位。
         資料行標題| 表示將會處理資料集的標頭（如果有的話）。
-        略過資料列 | 指出資料集內略過多少（如果有的話）資料列。
+        Skip rows (略過資料列) | 指出資料集內略過多少（如果有的話）資料列。
     
         選取 [下一步]。
 
@@ -109,7 +108,7 @@ ms.locfileid: "71034820"
     進階設定|描述
     ------|------
     主要計量| 用來評分模型的主要度量。 [深入瞭解模型計量](how-to-configure-auto-train.md#explore-model-metrics)。
-    允出準則| 符合上述任一條件時, 訓練作業會在完整完成前結束。 <br> 訓練作業時間 (分鐘)：允許執行定型作業的時間長度。  <br> 反覆運算的次數上限：要在定型作業中測試的管線數目上限 (反覆運算)。 作業不會執行超過指定的反覆運算次數。 <br> *度量分數閾值*:所有管線的最小度量分數。 這可確保如果您有想要觸達的已定義目標計量, 則不需要花費更多時間來進行定型作業。
+    允出準則| 符合上述任一條件時，就會停止定型作業。 <br> 訓練作業時間 (分鐘)：允許執行定型作業的時間長度。  <br> 反覆運算的次數上限：要在定型作業中測試的管線數目上限 (反覆運算)。 作業不會執行超過指定的反覆運算次數。 <br> *度量分數閾值*:所有管線的最小度量分數。 這可確保如果您有想要觸達的已定義目標計量, 則不需要花費更多時間來進行定型作業。
     前置處理| 選取以啟用或停用自動化機器學習完成的前置處理。 前置處理包含自動資料清理、準備和轉換來產生綜合功能。 [深入瞭解](#preprocess)前置處理。
     驗證| 選取要在定型作業中使用的其中一個交叉驗證選項。 [深入瞭解交叉驗證](how-to-configure-auto-train.md)。
     並行| 選取您想要在使用多核心計算時使用的多核心限制。

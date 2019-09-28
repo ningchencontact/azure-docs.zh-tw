@@ -1,6 +1,6 @@
 ---
 title: Azure Service Fabric 中的 ReliableConcurrentQueue
-description: ReliableConcurrentQueue 是高輸送量佇列，可進行平行加入佇列以及清除佇列。
+description: ReliableConcurrentQueue 是高輸送量的佇列，可允許平行將和清除。
 services: service-fabric
 documentationcenter: .net
 author: athinanthny
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 5/1/2017
 ms.author: atsenthi
-ms.openlocfilehash: 8cb35d6265bafe2b259774a55119d33f8ae94fe9
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: 776d330e36e6bcafe610bbab54e13ff6c41e2edf
+ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68599250"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71350287"
 ---
 # <a name="introduction-to-reliableconcurrentqueue-in-azure-service-fabric"></a>Azure Service Fabric 中的 ReliableConcurrentQueue 簡介
 可靠的並行佇列是非同步、交易式和複寫的佇列，特徵是加入佇列與清除佇列作業的高並行存取。 它旨在提供高輸送量和低延遲，方法是將[可靠的佇列](https://msdn.microsoft.com/library/azure/dn971527.aspx)所提供的嚴格 FIFO 順序放寬，並改為提供最佳的順序。
@@ -45,12 +45,19 @@ ReliableConcurrentQueue 的範例使用情況為[訊息佇列](https://en.wikipe
 * 佇列並不保證嚴格的 FIFO 順序。
 * 佇列不會閱讀它自己的寫入。 如果項目在交易內加入佇列，則同一個交易內的清除佇列者將看不到它。
 * 清除佇列不會彼此互相隔離。 如果已在交易 txnA 中將項目 A 清除佇列，則即使 txnA 不認可，並行交易 txnB 也看不到項目 A。  如果 txnA 中止，txnB 就可立即看到 A。
-* 可將 TryPeekAsync 行為加以實作，方法是使用 TryDequeueAsync，然後中止交易。 程式設計模式一節中可以找到這個範例。
+* 可將 TryPeekAsync 行為加以實作，方法是使用 TryDequeueAsync，然後中止交易。 這種行為的範例可在程式設計模式一節中找到。
 * 計數為非交易式。 它可用來了解佇列中元素的數目，但會以時間點表示且無法依賴。
-* 交易使用中時，不應在清除佇列的項目上執行昂貴的處理，以避免長時間執行交易可能會對系統造成的效能影響。
+* 當交易在使用中時，不應執行已清除佇列專案的昂貴處理，以避免長時間執行的交易可能會對系統造成效能影響。
 
 ## <a name="code-snippets"></a>程式碼片段
 讓我們看看幾個程式碼片段，和其預期的輸出。 本節中會忽略例外狀況處理。
+
+### <a name="instantiation"></a>實例
+建立可靠並行佇列的實例類似于任何其他可靠的集合。
+
+```csharp
+IReliableConcurrentQueue<int> queue = await this.StateManager.GetOrAddAsync<IReliableConcurrentQueue<int>>("myQueue");
+```
 
 ### <a name="enqueueasync"></a>EnqueueAsync
 以下是使用 EnqueueAsync 的幾個程式碼片段，隨後是其預期的輸出。
@@ -174,7 +181,7 @@ using (var txn = this.StateManager.CreateTransaction())
 在本節中，我們來看看幾個可能有助於使用 ReliableConcurrentQueue 的程式設計模式。
 
 ### <a name="batch-dequeues"></a>批次清除佇列
-建議的程式設計模式是使取用者工作以批次方式清除佇列，而不是一次執行一個清除佇列。 使用者可以選擇節流處理每個批次或批次大小之間的延遲。 下列程式碼片段會示範此程式設計模型。  請注意，在此範例中，交易認可後即完成處理，因此如果在處理時發生錯誤，未處理的項目就會遺失而未經處理。  或者，可以在交易的範圍內完成處理，不過，這可能會對效能造成負面影響，而且需要處理已經處理的項目。
+建議的程式設計模式是使取用者工作以批次方式清除佇列，而不是一次執行一個清除佇列。 使用者可以選擇節流處理每個批次或批次大小之間的延遲。 下列程式碼片段會示範此程式設計模型。 請注意，在此範例中，在認可交易之後就會完成處理，因此，如果在處理時發生錯誤，未處理的專案將會遺失。  或者，您可以在交易的範圍內進行處理，不過，它可能會對效能造成負面影響，而且需要處理已經處理的專案。
 
 ```
 int batchSize = 5;
@@ -268,9 +275,9 @@ while(!cancellationToken.IsCancellationRequested)
 ```
 
 ### <a name="best-effort-drain"></a>盡可能清空
-由於資料結構的並行本質，無法保證可將佇列清空。  即使在佇列上沒有進行中的使用者作業，特定的 TryDequeueAsync 呼叫可能不會傳回先前已加入佇列並且受到認可的項目。  清除佇列最終保證可看到加入佇列的項目，不過，沒有超出訊號範圍通訊機制的獨立取用者，無法得知佇列已觸達穩定狀態，即使已將所有的產生者停止，且不允許任何新的加入佇列作業亦然。 因此，已盡可能清空作業，實作如下。
+由於資料結構的並行本質，無法保證可將佇列清空。  即使佇列上沒有任何使用者作業正在進行中，對 TryDequeueAsync 的特定呼叫可能不會傳回先前已排入佇列並已認可的專案。  清除佇列最終保證可看到加入佇列的項目，不過，沒有超出訊號範圍通訊機制的獨立取用者，無法得知佇列已觸達穩定狀態，即使已將所有的產生者停止，且不允許任何新的加入佇列作業亦然。 因此，已盡可能清空作業，實作如下。
 
-使用者應該將所有進一步的生產者和取用者工作停止，並在嘗試清空佇列之前，等待任何進行中的交易加以認可或中止。  如果使用者知道佇列中預期的項目數目，就可以設定通知，發出所有項目皆已清除佇列的訊號。
+使用者應該將所有進一步的生產者和取用者工作停止，並在嘗試清空佇列之前，等待任何進行中的交易加以認可或中止。  如果使用者知道佇列中預期的專案數，他們可以設定通知，表示所有專案都已清除佇列。
 
 ```
 int numItemsDequeued;

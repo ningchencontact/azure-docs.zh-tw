@@ -9,12 +9,12 @@ ms.reviewer: klam, LADocs
 ms.suite: integration
 ms.topic: reference
 ms.date: 06/19/2019
-ms.openlocfilehash: df1b03d5fbb5b8ef8cda9407e4a595bc2de8ce54
-ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
+ms.openlocfilehash: 3311ca3665083ec8c71f48b28e7195aa8c14f13d
+ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70918963"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71350682"
 ---
 # <a name="reference-for-trigger-and-action-types-in-workflow-definition-language-for-azure-logic-apps"></a>Azure Logic Apps 的工作流程定義語言中觸發程式和動作類型的參考
 
@@ -2402,12 +2402,38 @@ Logic Apps 引擎會檢查是否可存取您想要呼叫的觸發程序，因此
 
 ### <a name="change-trigger-concurrency"></a>變更觸發程序並行
 
-根據預設，邏輯應用程式執行個體會以並行的方式同時執行，或依據[預設限制](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits)以平行方式執行。 因此, 每個觸發程式實例會在前一個工作流程實例執行完成之前引發。 此限制有助於控制後端系統接收的要求數目。 
+根據預設，邏輯應用程式實例會以相同的時間（並行或平行）執行，直到[預設限制](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits)為止。 因此, 每個觸發程式實例會在前一個工作流程實例執行完成之前引發。 此限制有助於控制後端系統接收的要求數目。 
 
-若要變更預設限制，您可以使用程式碼檢視編輯器或 Logic Apps 設計工具，因為透過此設計工具變更並行設定，會新增或更新基礎觸發程序定義中的 `runtimeConfiguration.concurrency.runs` 屬性，反之亦然。 這個屬性會控制可平行執行的工作流程實例數目上限。 
+若要變更預設限制，您可以使用程式碼檢視編輯器或 Logic Apps 設計工具，因為透過此設計工具變更並行設定，會新增或更新基礎觸發程序定義中的 `runtimeConfiguration.concurrency.runs` 屬性，反之亦然。 這個屬性會控制可平行執行的工作流程實例數目上限。 以下是當您使用並行控制時的一些考慮：
 
-> [!NOTE] 
-> 如果您使用設計工具或程式碼檢視編輯器將觸發程序設定為循序執行，請勿在程式碼檢視編輯器中將觸發程序的 `operationOptions` 屬性設定為 `SingleInstance`。 否則，將會發生驗證錯誤。 如需詳細資訊，請參閱[循序觸發執行個體](#sequential-trigger)。
+* 啟用並行時，長時間執行的邏輯應用程式實例可能會導致新的邏輯應用程式實例進入等候狀態。 這個狀態會防止 Azure Logic Apps 建立新的實例，而且即使並存執行數目小於指定的並存執行數目上限，也會發生這種情況。
+
+  * 若要中斷這個狀態，請取消*仍*在執行的最早實例。
+
+    1. 在邏輯應用程式的功能表上, 選取 **[總覽**]。
+
+    1. 在 [**執行歷程記錄**] 區段中，選取仍在執行的最早實例，例如：
+
+       ![選取最早的執行中實例](./media/logic-apps-workflow-actions-triggers/waiting-runs.png)
+
+       > [!TIP]
+       > 若只要查看仍在執行中的實例，請開啟 [**全部**] 清單，**然後選取 [執行中]** 。    
+
+    1. 在 [**邏輯應用程式執行**] 底下，選取 [**取消執行**]。
+
+       ![尋找最早的執行中實例](./media/logic-apps-workflow-actions-triggers/cancel-run.png)
+
+  * 若要解決這種可能性，請在可能包含這些執行的任何動作加上超時。 如果您是在程式碼編輯器中工作，請參閱[變更非同步持續時間](#asynchronous-limits)。 否則，如果您正在使用設計工具，請遵循下列步驟：
+
+    1. 在您的邏輯應用程式中，于想要新增超時的動作上，選取右上角的省略號（ **...** ）按鈕，然後選取 [**設定**]。
+
+       ![開啟動作設定](./media/logic-apps-workflow-actions-triggers/action-settings.png)
+
+    1. 在 [ **timeout**] 底下，以[ISO 8601 格式](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations)指定超時時間。
+
+       ![指定超時時間](./media/logic-apps-workflow-actions-triggers/timeout.png)
+
+* 如果您想要依序執行邏輯應用程式，您可以使用 [程式碼查看編輯器] 或設計工具，將觸發程式的並行設定設為 `1`。 不過，也不要在程式碼視圖編輯器中將觸發程式的 `operationOptions` 屬性設定為 `SingleInstance`。 否則，將會發生驗證錯誤。 如需詳細資訊，請參閱[循序觸發執行個體](#sequential-trigger)。
 
 #### <a name="edit-in-code-view"></a>在程式碼檢視中編輯 
 

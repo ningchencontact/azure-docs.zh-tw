@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/26/2019
+ms.date: 09/27/2019
 ms.author: mlottner
-ms.openlocfilehash: e742848df56e4e2be1b9edf42586e642f0c938cb
-ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
+ms.openlocfilehash: dc9dcbfd00b5205fa5c66e334b30c76d549d8a42
+ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70933794"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71348513"
 ---
 # <a name="pricing-and-associated-costs"></a>定價和相關成本
 
@@ -34,20 +34,17 @@ IoT 計價模式的 Azure 資訊安全中心由兩個部分組成，一旦在 Io
 
 - 根據來自 IoT Edge 或分葉裝置的安全性訊息，以訊息增強的安全性功能來計算成本。
 
-  >[!Note]
-  > 安全性訊息也會產生 IoT 中樞的配額耗用量。
 
 如需詳細資訊，請參閱[資訊安全中心定價](https://azure.microsoft.com/pricing/details/security-center/)。
 
 ## <a name="associated-costs"></a>相關成本
 
-IoT 的 Azure 資訊安全中心有兩種相關聯的成本，而不是直接定價的一部分：
+IoT 的 Azure 資訊安全中心有相關聯的成本，而這不是直接定價的一部分：
 
-- IoT 中樞配額耗用量
 
 - Log Analytics 儲存體成本
 
-藉由變更您的設定，您可以藉由退出宣告特定功能來降低相關成本。
+您可以退出宣告某些解決方案功能，以降低相關成本。 藉由變更您的設定來退出宣告。
 
 若要變更您的設定：
 
@@ -61,8 +58,6 @@ IoT 的 Azure 資訊安全中心有兩種相關聯的成本，而不是直接定
 
 |     | 使用量 | 註解 |
 | --- | --- | --- |
-| **IoT 中樞配額耗用量** |  |
-| [匯出裝置](https://docs.microsoft.com/azure/iot-hub/iot-hub-bulk-identity-mgmt#export-devices)作業（對應項匯出） | 一天 1 次 | 停用對應項_元資料集合_ |
 | **Log Analytics 儲存體** |  |
 | 裝置建議和警示| 服務產生的安全性建議和警示 | 非選擇性 |
 | 原始的安全性資料| 來自 IoT 裝置的原始安全性資料，由安全性代理程式收集 | 停用_儲存原始裝置安全性事件_ |

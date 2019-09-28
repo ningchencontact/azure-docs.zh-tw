@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 02/07/2019
 ms.author: robb
 ms.custom: include file
-ms.openlocfilehash: 58a741b369231a353a6b8e282a6e604a63a5727d
-ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
+ms.openlocfilehash: 017c02a10137579e6e3497775e9e4a3ac0a5d72d
+ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71210173"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71350868"
 ---
 **資料收集磁片區與保留期** 
 
@@ -65,9 +65,12 @@ ms.locfileid: "71210173"
 | 容量中的區域 | 美國中西部 | 您目前無法在此區域中建立新的工作區，因為它是暫存容量限制。 這項限制預計會在2019年10月底前解決。 |
 | 資料匯出 | 目前無法使用 | 使用 Azure 函式或邏輯應用程式來匯總和匯出資料。 | 
 
-**資料內嵌速率**
+**資料內嵌磁片區速率**
 
-Azure 監視器是一種大規模的資料服務，服務對象為每月需傳送數 TB 資料 (且不斷成長) 的上千名客戶。 預設的 [攝取速率] 閾值會設定為每個工作區**500 MB/分鐘**。 如果您以較高的速率將資料傳送至單一工作區，則會卸載某些資料，並每隔6小時將事件傳送至工作區中的*作業資料表，* 而臨界值會繼續超過閾值。 如果您的內嵌磁片區持續超過速率限制，或您希望很快就會到達，您可以開啟支援要求來要求增加您的工作區。
+
+Azure 監視器是一種大規模的資料服務，服務對象為每月需傳送數 TB 資料 (且不斷成長) 的上千名客戶。 使用[診斷設定](../articles/azure-monitor/platform/diagnostic-settings.md)從 Azure 資源傳送之資料的預設內嵌磁片區速率限制約為每個工作區**6 GB/分鐘**。 這是估計值，因為根據記錄長度和其壓縮比率，實際大小可能會在資料類型之間有所不同。 此限制不適用於從代理程式或[資料收集器 API](../articles/azure-monitor/platform/data-collector-api.md)傳送的資料。
+
+如果您以較高的速率將資料傳送至單一工作區，則會卸載某些資料，並每隔6小時將事件傳送至工作區中的*作業資料表，* 而臨界值會繼續超過閾值。 如果您的內嵌磁片區持續超過速率限制，或您希望很快就會到達，您可以開啟支援要求來要求增加您的工作區。
  
 若要在您的工作區中收到這類事件的通知，請使用下列查詢建立[記錄警示規則](../articles/azure-monitor/platform/alerts-log.md)，並以大於的結果數目為零的警示邏輯基底。
 

@@ -11,12 +11,12 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab, danil
 ms.date: 09/26/2019
-ms.openlocfilehash: 11a7556954ff40183811d8e824011b818e4645df
-ms.sourcegitcommit: e9936171586b8d04b67457789ae7d530ec8deebe
+ms.openlocfilehash: 890a9701615a05186b34883f4e953bbc045e906f
+ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
 ms.translationtype: MT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 09/27/2019
-ms.locfileid: "71327574"
+ms.locfileid: "71350080"
 ---
 # <a name="recover-an-azure-sql-database-using-automated-database-backups"></a>使用自動資料庫備份復原 Azure SQL 資料庫
 
@@ -81,30 +81,60 @@ ms.locfileid: "71327574"
 - **資料復原**
 
   如果您打算從還原的資料庫抓取資料，以從使用者或應用程式錯誤中復原，您必須撰寫並執行資料復原腳本，以從還原的資料庫中解壓縮資料，並將其套用至原始資料庫。 雖然還原作業可能要花很長的時間才能完成，但還原中的資料庫在整個還原過程中都會顯示在資料庫清單上。 如果您在還原期間刪除資料庫，還原作業將會取消，且不會向您收取未完成還原的資料庫費用。
+  
+### <a name="point-in-time-restore-using-azure-portal"></a>使用 Azure 入口網站的時間點還原
 
-若要使用 Azure 入口網站將單一、集區或實例資料庫復原到某個時間點，請開啟資料庫頁面，然後按一下工具列上的 [**還原**]。 選擇 [備份來源]，然後選取將建立新資料庫的時間點備份點。
+將單一 SQL 資料庫或實例資料庫復原至某個時間點，會從您要在 Azure 入口網站中還原之資料庫的 [總覽] 分頁中執行。
 
-![point-in-time-restore](./media/sql-database-recovery-using-backups/pitr-backup-sql-database-annotated.png)
+#### <a name="single-azure-sql-database"></a>單一 Azure SQL Database
 
-> [!IMPORTANT]
+若要使用 Azure 入口網站將單一或集區資料庫復原到某個時間點，請開啟 [資料庫總覽] 頁面，然後按一下工具列上的 [**還原**]。 選擇 [備份來源]，然後選取將建立新資料庫的時間點備份點。 
+
+  ![還原時間點-單一 sql-資料庫](./media/sql-database-recovery-using-backups/pitr-backup-sql-database-annotated.png)
+
+#### <a name="managed-instance-database"></a>受控實例資料庫
+
+若要使用 Azure 入口網站將受控實例資料庫復原到某個時間點，請開啟 [資料庫總覽] 頁面，然後按一下工具列上的 [**還原**]。 選擇將建立新資料庫的時間點備份點。 
+
+  ![時間點還原-受管理的實例-資料庫](./media/sql-database-recovery-using-backups/pitr-backup-managed-instance-annotated.png)
+
+> [!TIP]
 > 若要以程式設計方式從備份還原資料庫，請參閱[使用自動備份以程式設計方式執行復原](sql-database-recovery-using-backups.md#programmatically-performing-recovery-using-automated-backups)
 
 ## <a name="deleted-database-restore"></a>還原已刪除的資料庫
 
-您可以使用 Azure 入口網站、 [PowerShell](https://docs.microsoft.com/powershell/module/az.sql/restore-azsqldatabase)或[REST （createMode = restore）](https://docs.microsoft.com/rest/api/sql/databases/createorupdate)，將已刪除的資料庫還原到相同 SQL Database 伺服器上的刪除時間或較早的時間點。 您可以[使用 PowerShell 在受控執行個體上還原已刪除的資料庫](https://blogs.msdn.microsoft.com/sqlserverstorageengine/20../../recreate-dropped-database-on-azure-sql-managed-instance)。 
+您可以透過 Azure 入口網站、 [PowerShell](https://docs.microsoft.com/powershell/module/az.sql/restore-azsqldatabase)或[REST （createMode = restore）](https://docs.microsoft.com/rest/api/sql/databases/createorupdate)，將已刪除的資料庫還原到相同 SQL Database 伺服器或相同受控實例上的刪除時間或較早的時間點。 還原已刪除的資料庫是透過從備份建立新的資料庫來執行。
+
+> [!IMPORTANT]
+> 如果您刪除 Azure SQL Database 的伺服器或受控實例，其所有資料庫也會一併刪除且無法復原。 目前不支援還原已刪除的伺服器，或還原已刪除的受控實例。
+
+### <a name="deleted-database-restore-using-azure-portal"></a>使用 Azure 入口網站刪除的資料庫還原
+
+從 Azure 入口網站還原已刪除的資料庫是從伺服器和實例資源來執行。
+
+#### <a name="single-azure-sql-database"></a>單一 Azure SQL Database
+
+若要使用 Azure 入口網站復原單一或集區刪除的資料庫，請開啟 [伺服器總覽] 頁面，然後按一下導覽功能表上的 [**已刪除的資料庫**]。 選取您想要還原的已刪除資料庫，並輸入新資料庫的名稱，以使用從備份還原的資料來建立。
+
+  ![已刪除-資料庫-還原](./media/sql-database-recovery-using-backups/restore-deleted-sql-database-annotated.png)
+
+#### <a name="managed-instance-database"></a>受控實例資料庫
+
+在 Azure 入口網站無法使用 [還原受控實例的已刪除資料庫] 選項。 您可以使用 PowerShell 在受控實例上還原已刪除的資料庫，請參閱[使用 powershell 在受控執行個體上還原已刪除的資料庫](https://blogs.msdn.microsoft.com/sqlserverstorageengine/20../../recreate-dropped-database-on-azure-sql-managed-instance)。
+
+### <a name="deleted-database-restore-using-powershell"></a>使用 PowerShell 刪除資料庫還原
+
+使用下面提供的範例腳本，以使用 PowerShell 來還原 Azure SQL Database 和受控實例的已刪除資料庫。
+
+#### <a name="single-azure-sql-database"></a>單一 Azure SQL Database
+
+如需示範如何還原已刪除的 Azure SQL 資料庫的 PowerShell 腳本範例，請參閱[使用 PowerShell 還原 SQL 資料庫](scripts/sql-database-restore-database-powershell.md)。
+
+#### <a name="managed-instance-database"></a>受控實例資料庫
+
+如需示範如何還原已刪除之實例資料庫的 PowerShell 腳本範例，請參閱[使用 PowerShell 還原受控執行個體上已刪除的資料庫](https://blogs.msdn.microsoft.com/sqlserverstorageengine/20../../recreate-dropped-database-on-azure-sql-managed-instance)。 
 
 > [!TIP]
-> 如需示範如何還原已刪除資料庫的 PowerShell 指令碼範例，請參閱[使用 PowerShell 還原 SQL 資料庫](scripts/sql-database-restore-database-powershell.md)。
-> [!IMPORTANT]
-> 如果您刪除 Azure SQL Database 伺服器執行個體，其所有資料庫也會一併刪除且無法加以復原。 目前不支援還原已刪除的伺服器。
-
-### <a name="deleted-database-restore-using-the-azure-portal"></a>使用 Azure 入口網站還原已刪除的資料庫
-
-若要使用 Azure 入口網站復原已刪除的資料庫，請開啟 [伺服器總覽] 頁面，然後按一下導覽功能表上的 [**已刪除的資料庫**]。
-
-![已刪除-資料庫-還原](./media/sql-database-recovery-using-backups/restore-deleted-sql-database-annotated.png)
-
-> [!IMPORTANT]
 > 若要以程式設計方式從備份還原已刪除的資料庫，請參閱[使用自動備份以程式設計方式執行復原](sql-database-recovery-using-backups.md#programmatically-performing-recovery-using-automated-backups)
 
 ## <a name="geo-restore"></a>異地還原
@@ -128,7 +158,7 @@ ms.locfileid: "71327574"
 3. 在 [使用現有資料] 下，按一下 [**備份**]
 4. 從可用異地還原備份的下拉式清單中選取備份
 
-![異地還原單一 Azure SQL Database](./media/sql-database-recovery-using-backups/geo-restore-azure-sql-database-list-annotated.png)
+    ![異地還原單一 Azure SQL Database](./media/sql-database-recovery-using-backups/geo-restore-azure-sql-database-list-annotated.png)
 
 完成建立新資料庫的程式。 建立單一 Azure SQL Database 之後，它就會包含還原的異地還原備份。
 
@@ -141,7 +171,7 @@ ms.locfileid: "71327574"
 3. 在 [使用現有資料] 下，選取 [**備份**]
 4. 從可用異地還原備份的下拉式清單中選取備份
 
-![異地還原受控實例資料庫](./media/sql-database-recovery-using-backups/geo-restore-sql-managed-instance-list-annotated.png)
+    ![異地還原受控實例資料庫](./media/sql-database-recovery-using-backups/geo-restore-sql-managed-instance-list-annotated.png)
 
 完成建立新資料庫的程式。 建立實例資料庫之後，它會包含已還原的異地還原備份。
 
@@ -172,6 +202,8 @@ ms.locfileid: "71327574"
 > [!IMPORTANT]
 > Azure SQL Database 仍然支援 PowerShell Azure Resource Manager 模組, 但所有未來的開發都是針對 Az .Sql 模組。 如需這些 Cmdlet, 請參閱[AzureRM](https://docs.microsoft.com/powershell/module/AzureRM.Sql/)。 Az 模組和 AzureRm 模組中命令的引數相當於相同的範圍。
 
+#### <a name="single-azure-sql-database"></a>單一 Azure SQL Database
+
 - 若要還原獨立或集區資料庫，請參閱[restore-set-azsqldatabase 搭配](/powershell/module/az.sql/restore-azsqldatabase)。
 
   | Cmdlet | 描述 |
@@ -183,6 +215,8 @@ ms.locfileid: "71327574"
 
   > [!TIP]
   > 如需示範如何執行資料庫還原時間點的 PowerShell 指令碼範例，請參閱[使用 PowerShell 還原 SQL 資料庫](scripts/sql-database-restore-database-powershell.md)。
+
+#### <a name="managed-instance-database"></a>受控實例資料庫
 
 - 若要還原受控執行個體資料庫，請參閱[AzSqlInstanceDatabase](/powershell/module/az.sql/restore-azsqlinstancedatabase)。
 
@@ -203,8 +237,13 @@ ms.locfileid: "71327574"
 
 ### <a name="azure-cli"></a>Azure CLI
 
-- 若要使用 Azure CLI 來還原單一或集區資料庫，請參閱 [az sql db restore](/cli/azure/sql/db#az-sql-db-restore) \(英文\)。
-- 若要使用 Azure CLI 還原受控實例，請參閱[az sql midb restore](/cli/azure/sql/midb#az-sql-midb-restore)
+#### <a name="single-azure-sql-database"></a>單一 Azure SQL Database
+
+若要使用 Azure CLI 來還原單一或集區資料庫，請參閱 [az sql db restore](/cli/azure/sql/db#az-sql-db-restore) \(英文\)。
+
+#### <a name="managed-instance-database"></a>受控實例資料庫
+
+若要使用 Azure CLI 還原受控實例資料庫，請參閱[az sql midb restore](/cli/azure/sql/midb#az-sql-midb-restore)
 
 ## <a name="summary"></a>總結
 

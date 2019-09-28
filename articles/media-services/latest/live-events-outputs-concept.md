@@ -13,12 +13,12 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 09/25/2019
 ms.author: juliako
-ms.openlocfilehash: 7cb158490bd8a8520e101dbe321b8594cad059f9
-ms.sourcegitcommit: 0486aba120c284157dfebbdaf6e23e038c8a5a15
+ms.openlocfilehash: efe0aaf7c7d5516401f8c72721121a5dff247b95
+ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71309675"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71350364"
 ---
 # <a name="live-events-and-live-outputs"></a>即時事件與即時輸出
 
@@ -35,7 +35,7 @@ Azure 媒體服務可讓您在 Azure 雲端上將實況活動傳遞給客戶。 
 
 [實況活動](https://docs.microsoft.com/rest/api/media/liveevents)可以是下列兩種類型之一：傳遞和即時編碼。 在建立期間，會使用[LiveEventEncodingType](https://docs.microsoft.com/rest/api/media/liveevents/create#liveeventencodingtype)來設定類型：
 
-* **LiveEventEncodingType。 None** -內部部署即時編碼器會傳送多位元率串流。 內嵌串流會通過即時事件，而不需要進行任何進一步的處理。 
+* **LiveEventEncodingType。 None** -內部部署即時編碼器會傳送多位元率串流。 內嵌資料流程會通過即時事件，而不需要進行任何進一步的處理。 
 * **LiveEventEncodingType** -內部部署即時編碼器會將單一位元速率串流傳送至即時事件，媒體服務會建立多位元率串流。 如果「貢獻摘要」是720p 或更高的解析度， **Default720p**預設值將會編碼一組6個解析/位元速率配對。
 * **LiveEventEncodingType. Premium1080p** -內部部署即時編碼器會將單一位元速率串流傳送至即時事件，媒體服務會建立多位元率串流。 Default1080p 預設值指定解析/位元速率配對的輸出集。 
 
@@ -66,7 +66,9 @@ Azure 媒體服務可讓您在 Azure 雲端上將實況活動傳遞給客戶。 
 > [!NOTE]
 > 如果您需要自訂即時編碼預設值，請透過 Azure 入口網站開啟支援票證。 您應指定解析度和位元速率的所需資料表。 請確認只有一個圖層位於720p （如果要求標準即時編碼器的預設值）或1080p （如果要求 Premium1080p 即時編碼器的預設值），以及最多6個層級。
 
-## <a name="live-event-creation-options"></a>實況活動建立選項
+## <a name="creating-live-events"></a>建立實況活動 
+
+### <a name="options"></a>選項。
 
 建立「實況活動」時，您可以指定下列選項：
 
@@ -77,7 +79,14 @@ Azure 媒體服務可讓您在 Azure 雲端上將實況活動傳遞給客戶。 
 * 內嵌和預覽的 IP 限制。 您可以定義獲允許將視訊內嵌到這個「實況活動」的 IP 位址。 允許的 IP 位址可以指定為單一 IP 位址 (例如 ‘10.0.0.1’)、使用 IP 位址和 CIDR 子網路遮罩的 IP 範圍 (例如 ‘10.0.0.1/22’)，或是使用 IP 位址和小數點十進位子網路遮罩的 IP 範圍 (例如 '10.0.0.1(255.255.252.0)')。<br/>如果未指定 IP 位址而且也未定義規則，則任何 IP 位址都不允許。 若要允許任何 IP 位址，請建立規則，並設定 0.0.0.0/0。<br/>IP 位址必須採用下列其中一個格式：具有 4 個數字的 IpV4 位址、CIDR 位址範圍。
 
     如果您想要在自己的防火牆上啟用特定 Ip，或想要將即時事件的輸入限制為 Azure IP 位址，請從[Azure 資料中心 IP 位址範圍](https://www.microsoft.com/download/details.aspx?id=41653)下載 JSON 檔案。 如需此檔案的詳細資訊，請按一下頁面上的 [**詳細資料**] 區段。
-    
+        
+### <a name="naming-rules"></a>命名規則
+
+* Live event name 的最大值為32個字元。
+* 此名稱應遵循此[RegEx](https://docs.microsoft.com/dotnet/standard/base-types/regular-expression-language-quick-reference)模式： `^[a-zA-Z0-9]+(-*[a-zA-Z0-9])*$`。
+
+另請參閱[串流端點命名慣例](streaming-endpoint-concept.md#naming-convention)。
+
 ## <a name="live-event-ingest-urls"></a>實況活動內嵌 URL
 
 建立「實況活動」之後，您即可取得將提供給即時內部部署編碼器的內嵌 URL。 即時編碼器會使用這些 URL 來輸入即時資料流。 如需詳細資訊，請參閱[建議的內部部署即時編碼器](recommended-on-premises-live-encoders.md)。 

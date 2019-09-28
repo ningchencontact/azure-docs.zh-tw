@@ -11,14 +11,14 @@ ms.workload: ''
 ms.topic: article
 ms.date: 07/11/2019
 ms.author: juliako
-ms.openlocfilehash: 831ba217e99d1610383320ddf5706c6acfcdf48a
-ms.sourcegitcommit: fa45c2bcd1b32bc8dd54a5dc8bc206d2fe23d5fb
+ms.openlocfilehash: cd1dc7b55060e8262b300022f5ffd1b4da5f7922
+ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67848895"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71350357"
 ---
-# <a name="streaming-endpoints"></a>串流端點 
+# <a name="streaming-endpoints"></a>資料流端點 
 
 在 Microsoft Azure 媒體服務中,[串流端點](https://docs.microsoft.com/rest/api/media/streamingendpoints)代表動態 (即時) 封裝和原始服務, 可以使用其中一個通用串流媒體, 將您的即時和隨選內容直接傳遞至用戶端播放機應用程式通訊協定 (HLS 或破折號)。 此外,**串流端點**也提供動態 (即時) 的加密給領先業界的 drm。
 
@@ -31,11 +31,16 @@ ms.locfileid: "67848895"
 
 ## <a name="naming-convention"></a>命名慣例
 
-針對預設端點：`{AccountName}-{DatacenterAbbreviation}.streaming.media.azure.net`
+串流 URL 的主機名稱格式為： `{servicename}-{accountname}-{regionname}.streaming.media.azure.net`，其中 `servicename` = 串流端點名稱或即時事件名稱。 
 
-針對任何額外端點：`{EndpointName}-{AccountName}-{DatacenterAbbreviation}.streaming.media.azure.net`
+使用預設串流端點時，會省略 `servicename`，因此 URL 為： `{accountname}-{regionname}.streaming.azure.net`。 
 
-## <a name="types"></a>類型  
+### <a name="limitations"></a>限制
+
+* 串流端點名稱的最大值為24個字元。
+* 此名稱應遵循此[RegEx](https://docs.microsoft.com/dotnet/standard/base-types/regular-expression-language-quick-reference)模式： `^[a-zA-Z0-9]+(-*[a-zA-Z0-9])*$`。
+
+## <a name="types"></a>型別  
 
 **串流端點**有兩種類型：**標準**(預覽) 和**Premium**。 類型會根據您為串流端點配置的縮放單位數 (`scaleUnits`) 來定義。 
 
@@ -44,7 +49,7 @@ ms.locfileid: "67848895"
 |Type|縮放單位|描述|
 |--------|--------|--------|  
 |**標準**|0|預設的串流端點是**標準**類型, 可以藉由調整`scaleUnits`來變更為 Premium 類型。|
-|**高級**|>0|**Premium**串流端點適用于先進的工作負載, 提供專用且可調整的頻寬容量。 您可以藉由  調整`scaleUnits` (串流單位) 移至 Premium 類型。 `scaleUnits` 提供您專用的輸出容量，您可以透過每次增量 200 Mbps 的方式來購買。 使用**進階**類型時，每個啟用的單位會提供額外頻寬容量給應用程式。 |
+|**高級**|>0|**Premium**串流端點適用于先進的工作負載, 提供專用且可調整的頻寬容量。 您可以藉由調整`scaleUnits` (串流單位) 移至 Premium 類型。 `scaleUnits` 提供您專用的輸出容量，您可以透過每次增量 200 Mbps 的方式來購買。 使用**進階**類型時，每個啟用的單位會提供額外頻寬容量給應用程式。 |
 
 > [!NOTE]
 > 對於想要將內容傳遞給大型網際網路物件的客戶, 我們建議您在串流端點上啟用 CDN。
@@ -55,12 +60,12 @@ ms.locfileid: "67848895"
 
 功能|標準|進階
 ---|---|---
-Throughput |在使用 CDN 時, 最高可達 600 Mbps, 並可提供更高的有效輸送量。|每個串流單位 (SU) 200 Mbps。 使用 CDN 時, 可以提供更高的有效輸送量。
+輸送量 |在使用 CDN 時, 最高可達 600 Mbps, 並可提供更高的有效輸送量。|每個串流單位 (SU) 200 Mbps。 使用 CDN 時, 可以提供更高的有效輸送量。
 CDN|Azure CDN、協力廠商 CDN 或沒有 CDN。|Azure CDN、協力廠商 CDN 或沒有 CDN。
 按比例計費| 每日|每日
 動態加密|是|是
 動態封裝|是|是
-調整|自動相應增加至目標輸送量。|其他 su
+調整規模|自動相應增加至目標輸送量。|其他 su
 IP 篩選/G20/自訂主機<sup>1</sup>|是|是
 漸進式下載|是|是
 建議用法 |建議用於絕大多數的串流案例。|專業用法。

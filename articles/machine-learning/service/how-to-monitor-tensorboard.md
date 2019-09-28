@@ -9,12 +9,12 @@ ms.topic: conceptual
 author: maxluk
 ms.author: maxluk
 ms.date: 06/28/2019
-ms.openlocfilehash: b96b80a735c0caee8a3aabaf19b04fd0e153ba6b
-ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
+ms.openlocfilehash: 0908ca232ee38e2b0d461aa9f597558adc4461ef
+ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71034339"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71350528"
 ---
 # <a name="visualize-experiment-runs-and-metrics-with-tensorboard-and-azure-machine-learning"></a>使用 TensorBoard 和 Azure Machine Learning 將實驗執行和計量視覺化
 
@@ -81,7 +81,7 @@ tf_code = requests.get("https://raw.githubusercontent.com/tensorflow/tensorflow/
 with open(os.path.join(exp_dir, "mnist_with_summaries.py"), "w") as file:
     file.write(tf_code.text)
 ```
-在 MNIST 程式碼檔案中，mnist_with_summaries. .py，請注意，有幾行`tf.summary.scalar()`會`tf.summary.histogram()`呼叫`tf.summary.FileWriter()` 、等等。這些方法會將您實驗的重要計量分組、記錄及標記為執行歷程記錄。 在`tf.summary.FileWriter()`從記錄的實驗計量中序列化資料時，特別重要，這可讓 TensorBoard 從他們產生視覺效果。
+在整個 MNIST 程式碼檔案中，mnist_with_summaries. .py，請注意，有幾行會呼叫 `tf.summary.scalar()`，`tf.summary.histogram()`，`tf.summary.FileWriter()` 等等。這些方法會將您實驗的重要計量分組、記錄及標記為執行歷程記錄。 在`tf.summary.FileWriter()`從記錄的實驗計量中序列化資料時，特別重要，這可讓 TensorBoard 從他們產生視覺效果。
 
  ### <a name="configure-experiment"></a>設定實驗
 
@@ -264,7 +264,8 @@ root_run.complete()
 >[!Note]
  您也可以藉由指定執行的名稱，將特定執行匯出至 TensorBoard`export_to_tensorboard(run_name, logdir)`
 
-啟動和停止 TensorBoard 一旦我們已匯出此實驗的執行歷程記錄，我們就可以使用[start （）](https://docs.microsoft.com/python/api/azureml-tensorboard/azureml.tensorboard.tensorboard?view=azure-ml-py#start-start-browser-false-)方法來啟動 TensorBoard。 
+### <a name="start-and-stop-tensorboard"></a>啟動和停止 TensorBoard
+一旦匯出此實驗的執行歷程記錄，我們就可以使用[start （）](https://docs.microsoft.com/python/api/azureml-tensorboard/azureml.tensorboard.tensorboard?view=azure-ml-py#start-start-browser-false-)方法來啟動 TensorBoard。 
 
 ```Python
 from azureml.tensorboard import Tensorboard

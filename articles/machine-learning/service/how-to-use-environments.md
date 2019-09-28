@@ -9,13 +9,13 @@ ms.reviewer: nibaccam
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
-ms.date: 09/16/2019
-ms.openlocfilehash: b46ca59bc93477c338001009ff7eeeddc7248684
-ms.sourcegitcommit: b03516d245c90bca8ffac59eb1db522a098fb5e4
+ms.date: 09/27/2019
+ms.openlocfilehash: 2056970a91a90fc14528b13650472722a235c354
+ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71147320"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71350494"
 ---
 # <a name="create-and-manage-reusable-environments-for-training-and-deployment-with-azure-machine-learning"></a>建立和管理可重複使用的環境，以 Azure Machine Learning 進行定型和部署。
 
@@ -42,7 +42,9 @@ ms.locfileid: "71147320"
 
 ### <a name="types-of-environments"></a>環境的類型
 
-環境大致上可以分成兩個類別：**使用者管理**和**系統管理**。
+環境大致上可以分成三個類別：**策劃**、**使用者管理**和**系統管理**。
+
+策劃環境是由 Azure Machine Learning 提供，而且預設會在您的工作區中提供。 其中包含 Python 套件和設定的集合，可協助您開始使用不同的機器學習架構。 
 
 針對使用者管理的環境，您需負責設定環境，並在計算目標上安裝定型指令碼所需的每個套件。 Conda 不會檢查您的環境，或為您安裝任何項目。 
 
@@ -53,9 +55,42 @@ ms.locfileid: "71147320"
 * [已安裝](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py)適用于 Python 的 Azure Machine Learning SDK。
 * [Azure Machine Learning 工作區](how-to-manage-workspace.md)。
 
+
 ## <a name="create-an-environment"></a>建立環境
 
 有多種方式可為您的實驗建立環境。
+
+### <a name="use-curated-environment"></a>使用策劃環境
+
+您可以選取其中一個要開始的策劃環境。 
+
+* __AzureML-最小__環境包含一組最少的封裝，可啟用執行追蹤和資產上傳。 您可以使用它作為您自己環境的起點。
+
+* __AzureML 教學__課程環境包含常見的資料科學套件，例如 Scikit-learn-學習、Pandas 和 Matplotlib，以及更多的 AzureML sdk 套件集合。
+
+策劃環境是由快取的 Docker 映射所支援，可降低執行準備成本。
+
+使用__環境。 get__方法可選取其中一個策劃環境：
+
+```python
+from azureml.core import Workspace, Environment
+
+ws = Workspace.from_config()
+env = Environment.get(workspace=ws, name="AzureML-Minimal")
+```
+
+您可以使用下列程式碼來列出策劃環境及其封裝：
+```python
+envs = Environment.list(workspace=ws)
+
+for env in envs:
+    if env.startswith("AzureML"):
+        print("Name",env)
+        print("packages", envs[env].python.conda_dependencies.serialize_to_string())
+```
+
+> [!WARNING]
+>  請勿以_AzureML_首碼啟動您自己的環境名稱。 它是保留給策劃環境。
 
 ### <a name="instantiate-an-environment-object"></a>具現化環境物件
 
@@ -85,7 +120,7 @@ myenv = Environment.from_pip_requirements(name = "myenv"
 
 如果您的本機電腦上有現有的 Conda 環境，服務會提供一個解決方案，讓您從中建立環境物件。 如此一來，您就可以在遠端執行上重複使用您的本機互動式環境。
 
-下列程式會使用[from_existing_conda_environment （）](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment.environment?view=azure-ml-py#from-existing-conda-environment-name--conda-environment-name-)方法，從現有的`mycondaenv` Conda 環境中建立環境物件。
+下列程式碼會使用[from_existing_conda_environment （）](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment.environment?view=azure-ml-py#from-existing-conda-environment-name--conda-environment-name-)方法，從現有的 Conda 環境建立環境物件 `mycondaenv`。
 
 ``` python
 myenv = Environment.from_existing_conda_environment(name = "myenv",
@@ -114,7 +149,7 @@ run = myexp.submit(config=runconfig)
 run.wait_for_completion(show_output=True)
 ```
 
-同樣地，如果您使用[`Estimator`](https://docs.microsoft.com//python/api/azureml-train-core/azureml.train.estimator.estimator?view=azure-ml-py)物件進行定型，您可以直接提交估計工具實例做為執行，而不需要指定環境，這是`Estimator`因為物件已封裝環境和計算目標。
+同樣地，如果您使用[`Estimator`](https://docs.microsoft.com//python/api/azureml-train-core/azureml.train.estimator.estimator?view=azure-ml-py)物件進行定型，您可以直接提交估計工具實例作為執行，而不需要指定環境。 @No__t 0 物件已封裝環境和計算目標。
 
 
 ## <a name="add-packages-to-an-environment"></a>將套件新增至環境
@@ -162,7 +197,7 @@ myenv.python.conda_dependencies=conda_dep
 
 當您提交執行或部署 web 服務時，環境會自動向您的工作區註冊。 您也可以使用[register （）](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment(class)?view=azure-ml-py#register-workspace-)方法，手動註冊環境。 這項作業會讓環境進入在雲端中追蹤和設定版本的實體，並可在工作區使用者之間共用。
 
-下列會將環境`myenv`註冊到`ws`工作區。
+下列程式碼會在工作區中註冊環境 `myenv`，`ws`。
 
 ```python
 myenv.register(workspace=ws)
@@ -176,12 +211,7 @@ myenv.register(workspace=ws)
 
 #### <a name="view-list-of-environments"></a>查看環境清單
 
-在您的工作區中，使用[list （）](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment(class)?view=azure-ml-py#list-workspace-)來查看環境，然後選取其中一個來重複使用。
-
-```python
-from azureml.core import Environment
-list("workspace_name")
-```
+使用[`Environment.list(workspace="workspace_name")`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment(class)?view=azure-ml-py#list-workspace-)來查看工作區中的環境，然後選取其中一個來重複使用。
 
 #### <a name="get-environment-by-name"></a>依名稱取得環境
 
@@ -228,17 +258,14 @@ build.wait_for_completion(show_output=True)
 myenv.docker.enabled = True
 ```
 
-建立之後，Docker 映射預設會出現在與工作區相關聯的 Azure Container Registry 中。  存放庫名稱的形式為*azureml/azureml_\<uuid\>* 。 唯一識別碼（*uuuid*）元件會對應到從環境設定計算出來的雜湊。 這可讓服務判斷對應至指定環境的映射是否已存在，以供重複使用。
+建立之後，Docker 映射預設會出現在與工作區相關聯的 Azure Container Registry 中。  存放庫名稱的形式為*azureml/azureml_ @ no__t-1uuid @ no__t-2*。 唯一識別碼（*uuuid*）元件會對應到從環境設定計算出來的雜湊。 這可讓服務判斷對應至指定環境的映射是否已存在，以供重複使用。
 
-此外，服務會自動使用其中一個以 Ubuntu Linux 為基礎的[基底映射](https://github.com/Azure/AzureML-Containers)，並安裝指定的 Python 套件。 基底映射具有 CPU 和 GPU 版本，您可以藉由設定`gpu_support=True`來指定 GPU 映射。
+此外，服務會自動使用其中一個以 Ubuntu Linux 為基礎的[基底映射](https://github.com/Azure/AzureML-Containers)，並安裝指定的 Python 套件。 基底映射具有 CPU 和 GPU 版本。 Azure Machine Learning 服務會自動偵測要使用哪個版本。
 
 ```python
 # Specify custom Docker base image and registry, if you don't want to use the defaults
 myenv.docker.base_image="your_base-image"
 myenv.docker.base_image_registry="your_registry_location"
-
-# Specify GPU image
-myenv.docker.gpu_support=True
 ```
 
 > [!NOTE]
@@ -250,7 +277,7 @@ myenv.docker.gpu_support=True
 
 當您提交定型回合時，新環境的建立可能需要幾分鐘的時間，視所需相依性的大小而定。 服務會快取環境，因此只要環境定義維持不變，就只會產生一次完整的安裝時間。
 
-以下是本機腳本執行範例，您可以在其中使用[ScriptRunConfig](https://docs.microsoft.com/python/api/azureml-core/azureml.core.script_run_config.scriptrunconfig?view=azure-ml-py)做為包裝函式物件。
+下列本機腳本執行範例顯示您要使用[ScriptRunConfig](https://docs.microsoft.com/python/api/azureml-core/azureml.core.script_run_config.scriptrunconfig?view=azure-ml-py)作為包裝函式物件的位置。
 
 ```python
 from azureml.core import Environment, ScriptRunConfig, Experiment
@@ -263,10 +290,10 @@ myenv = Environment(name="myenv")
 runconfig = ScriptRunConfig(source_directory=".", script="train.py")
 
 # Attach compute target to run config
-runconfig.compute_target = "local"
+runconfig.run_config.target = "local"
 
 # Attach environment to run config
-runconfig.environment = myenv
+runconfig.run_config.environment = myenv
 
 # Submit run 
 run = exp.submit(runconfig)
@@ -281,7 +308,7 @@ run = exp.submit(runconfig)
 
 如果您使用[估計工具](how-to-train-ml-models.md)進行定型，您可以直接提交估計工具實例，因為它已經封裝了環境和計算目標。
 
-下列使用估計工具在遠端計算上針對 scikit-learn 學習模型執行單一節點定型，並假設先前建立的計算目標物件`compute_target`和資料存放區`ds`物件。
+下列程式碼會在 scikit-learn 學習模型的遠端計算上使用單一節點定型執行的估計工具，並假設先前建立的計算目標物件 @no__t 0 和資料存放區物件，`ds`。
 
 ```python
 from azureml.train.estimator import Estimator

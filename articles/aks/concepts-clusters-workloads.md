@@ -7,16 +7,16 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 06/03/2019
 ms.author: mlearned
-ms.openlocfilehash: e606b4fee2c46f66f13c45586bcc25577bd90a1f
-ms.sourcegitcommit: aaa82f3797d548c324f375b5aad5d54cb03c7288
+ms.openlocfilehash: 6120eee5bbd2f385fa8e76da093f7fadccb4904e
+ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70147190"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71348982"
 ---
 # <a name="kubernetes-core-concepts-for-azure-kubernetes-service-aks"></a>Azure Kubernetes Services (AKS) 的 Kubernetes 核心概念
 
-隨著應用程式開發進入以容器為基礎的方法, 協調和管理資源的需求很重要。 Kubernetes 是領先的平台，可用來提供容錯應用程式工作負載的可靠排程。 Azure Kubernetes Service (AKS) 是受管理的 Kubernetes 供應項目，可進一步簡化容器型應用程式的部署和管理。
+隨著應用程式開發進入以容器為基礎的方法，協調和管理資源的需求很重要。 Kubernetes 是領先的平台，可用來提供容錯應用程式工作負載的可靠排程。 Azure Kubernetes Service (AKS) 是受管理的 Kubernetes 供應項目，可進一步簡化容器型應用程式的部署和管理。
 
 本文介紹核心 Kubernetes 基礎結構元件，例如*叢集主機*、*節點*和*節點集區*。 此外也介紹 *Pod*、*部署*和*集合*等工作負載資源，並說明如何將資源分組到*命名空間*中。
 
@@ -28,7 +28,7 @@ Kubernetes 是一個快速發展中的平台，可管理容器型應用程式及
 
 Kubernetes 屬於開放式平台，可讓您使用慣用的程式設計語言、作業系統、程式庫或訊息匯流排來建置您的應用程式。 現有的持續整合與持續傳遞 (CI/CD) 工具可與 Kubernetes 整合，以排程及部署發行。
 
-Azure Kubernetes Service (AKS) 提供受控 Kubernetes 服務，可降低部署和核心管理工作的複雜度，包括協調升級。 AKS 叢集主機由 Azure 平台所管理，且您只需針對執行應用程式的 AKS 節點付費。 AKS 建置於開放原始碼 Azure Kubernetes Service 引擎 ([AKS 引擎][aks-engine]) 之上。
+Azure Kubernetes Service (AKS) 提供受控 Kubernetes 服務，可降低部署和核心管理工作的複雜度，包括協調升級。 AKS 叢集主機由 Azure 平台所管理，且您只需針對執行應用程式的 AKS 節點付費。 AKS 建置於開放原始碼 Azure Kubernetes Service 引擎（[AKS 引擎][aks-engine]）之上。
 
 ## <a name="kubernetes-cluster-architecture"></a>Kubernetes 叢集架構
 
@@ -41,7 +41,7 @@ Kubernetes 叢集分成兩個元件：
 
 ## <a name="cluster-master"></a>叢集主機
 
-當您建立 AKS 叢集時，就會自動建立並設定叢集主機。 此叢集主機會以受控 Azure 資源的形式提供，使用者無需加以管理。 叢集主機不會產生任何費用, 只有屬於 AKS 叢集的節點。
+當您建立 AKS 叢集時，就會自動建立並設定叢集主機。 此叢集主機會以受控 Azure 資源的形式提供，使用者無需加以管理。 叢集主機不會產生任何費用，只有屬於 AKS 叢集的節點。
 
 叢集主機包含下列核心 Kubernetes 元件：
 
@@ -52,11 +52,11 @@ Kubernetes 叢集分成兩個元件：
 
 AKS 提供具有專用 API 伺服器、排程器等項目的單一租用戶叢集主機。您可以定義節點的數目和大小，而 Azure 平台會設定叢集主機與節點之間的安全通訊。 與叢集主機之間的互動可透過 Kubernetes API 進行，例如 `kubectl` 或 Kubernetes 儀表板。
 
-此受控叢集主機表示您不需要設定高可用性*etcd*存放區之類的元件, 但這也表示您無法直接存取叢集主機。 Kubernetes 的升級可透過 Azure CLI 或 Azure 入口網站來協調，其程序會先升級叢集主機，再升級節點。 若要對可能的問題進行疑難排解，您可以透過 Azure 監視器記錄檢閱叢集主機記錄。
+此受控叢集主機表示您不需要設定高可用性*etcd*存放區之類的元件，但這也表示您無法直接存取叢集主機。 Kubernetes 的升級可透過 Azure CLI 或 Azure 入口網站來協調，其程序會先升級叢集主機，再升級節點。 若要對可能的問題進行疑難排解，您可以透過 Azure 監視器記錄檢閱叢集主機記錄。
 
-如果您需要以特定方式設定叢集主機, 或需要直接存取它們, 您可以使用[aks-engine][aks-engine]來部署您自己的 Kubernetes 叢集。
+如果您需要以特定方式設定叢集主機，或需要直接存取它們，您可以使用[aks-engine][aks-engine]來部署您自己的 Kubernetes 叢集。
 
-如需相關的最佳作法, 請參閱[AKS 中叢集安全性和升級的最佳做法][operator-best-practices-cluster-security]。
+如需相關的最佳作法，請參閱[AKS 中叢集安全性和升級的最佳做法][operator-best-practices-cluster-security]。
 
 ## <a name="nodes-and-node-pools"></a>節點和節點集區
 
@@ -64,22 +64,38 @@ AKS 提供具有專用 API 伺服器、排程器等項目的單一租用戶叢�
 
 - `kubelet` 是 Kubernetes 代理程式，負責處理來自叢集主機的協調流程要求，和處理相關排程以執行要求的容器。
 - 虛擬網路由每個節點上的 *kube-proxy* 負責處理。 Proxy 會路由網路流量，以及管理服務和 Pod 的 IP 定址。
-- *容器執行階段*這項元件可讓容器化應用程式執行其他資源並與其互動，例如虛擬網路和儲存體。 在 AKS 中, Moby 會當做容器執行時間使用。
+- *容器執行階段*這項元件可讓容器化應用程式執行其他資源並與其互動，例如虛擬網路和儲存體。 在 AKS 中，Moby 會當做容器執行時間使用。
 
 ![Kubernetes 節點的 Azure 虛擬機器和支援的資源](media/concepts-clusters-workloads/aks-node-resource-interactions.png)
 
 節點的 Azure VM 大小將定義可用的 CPU 數量、記憶體數量，以及儲存體的大小和類型 (例如高效能 SSD 或一般 HDD)。 如果您預期有應用程式需要大量的 CPU 和記憶體或高效能儲存體，請據以規劃節點大小。 您也可以在 AKS 叢集中相應增加節點數目，以符合需求。
 
-在 AKS 中, 叢集中節點的 VM 映射目前是以 Ubuntu Linux 或 Windows Server 2019 為基礎。 當您建立 AKS 叢集或相應增加節點數目時，Azure 平台即會依據您要求的數目建立 VM，並加以設定。 您不需要執行任何手動設定。 代理程式節點會以標準虛擬機器計費, 因此會自動套用您在使用的 VM 大小 (包括[Azure 保留][reservation-discounts]專案) 上的任何折扣。
+在 AKS 中，叢集中節點的 VM 映射目前是以 Ubuntu Linux 或 Windows Server 2019 為基礎。 當您建立 AKS 叢集或相應增加節點數目時，Azure 平台即會依據您要求的數目建立 VM，並加以設定。 您不需要執行任何手動設定。 代理程式節點會以標準虛擬機器計費，因此會自動套用您在使用的 VM 大小（包括[Azure 保留][reservation-discounts]專案）上的任何折扣。
 
-如果您需要使用不同的主機 OS、容器執行時間或包含自訂套件, 您可以使用[aks-engine][aks-engine]來部署您自己的 Kubernetes 叢集。 上游 `aks-engine` 會在功能於 AKS 叢集中正式受到支援之前發行這些功能，並提供設定選項。 例如, 如果您想要使用 Moby 以外的容器執行時間, 您可以使用`aks-engine`來設定和部署符合您目前需求的 Kubernetes 叢集。
+如果您需要使用不同的主機 OS、容器執行時間或包含自訂套件，您可以使用[aks-engine][aks-engine]來部署您自己的 Kubernetes 叢集。 上游 `aks-engine` 會在功能於 AKS 叢集中正式受到支援之前發行這些功能，並提供設定選項。 例如，如果您想要使用 Moby 以外的容器執行時間，您可以使用 `aks-engine` 來設定和部署符合您目前需求的 Kubernetes 叢集。
 
 ### <a name="resource-reservations"></a>資源保留
 
-您不需要管理每個節點上的核心 Kubernetes 元件，例如 kubelet、kube-proxy 和 kube-dns，但它們的確會耗用一些可用的計算資源。 為了維持節點的效能與功能，每個節點上都會保留下列計算資源：
+AKS 會使用節點資源，讓 node 函式成為叢集的一部分。 在 AKS 中使用時，這會在節點的總資源和資源 allocatable 之間建立 discrepency。 當您為已部署的 pod 設定要求和限制時，請務必注意這一點。
 
-- **CPU** - 60 毫秒
-- **記憶體** - 20%，最多 4 GiB
+若要尋找節點的 allocatable 資源，請執行：
+```kubectl
+kubectl describe node [NODE_NAME] | grep Allocatable -B 4 -A 3
+
+```
+
+為了維護節點的效能和功能，會在每個節點上保留下列計算資源。 當節點在資源中變大時，資源保留會因為需要管理的使用者部署的 pod 數量增加而增加。
+
+>[!NOTE]
+> 使用 OMS 之類的附加元件將會耗用其他節點資源。
+
+- **CPU**相依于節點類型
+
+| 主機上的 CPU 核心 | 1 | 2 | 4 | 8 | 16 | 32|64|
+|---|---|---|---|---|---|---|---|
+|Kubelet （millicore）|60|100|140|180|260|420|740|
+
+- **記憶體**-可用記憶體的 20%，最多 4 GiB 最大值
 
 保留這些資源代表應用程式可用的 CPU 和記憶體數量，看起來可能會小於節點本身所含的資源數量。 如果由於所執行的應用程式數量導致資源受限，則所保留的這些資源可確保仍有 CPU 和記憶體可供核心 Kubernetes 元件使用。 無法變更資源保留。
 
@@ -95,24 +111,24 @@ AKS 提供具有專用 API 伺服器、排程器等項目的單一租用戶叢�
     
 基礎節點 OS 也需要一定數量的 CPU 和記憶體資源，才能完成它自己的核心功能。
 
-如需相關的最佳作法, 請參閱[AKS 中基本排程器功能的最佳做法][operator-best-practices-scheduler]。
+如需相關的最佳作法，請參閱[AKS 中基本排程器功能的最佳做法][operator-best-practices-scheduler]。
 
 ### <a name="node-pools"></a>節點集區
 
-相同設定的節點會一起分組到*節點集區*中。 Kubernetes 叢集包含一或多個節點集區。 您在建立 AKS 叢集時會定義初始的節點數目和大小，而建立*預設節點集區*。 AKS 中的這個預設節點集區包含用來執行代理程式節點的基礎 VM。 在 AKS 中, 多個節點集區支援目前為預覽狀態。
+相同設定的節點會一起分組到*節點集區*中。 Kubernetes 叢集包含一或多個節點集區。 您在建立 AKS 叢集時會定義初始的節點數目和大小，而建立*預設節點集區*。 AKS 中的這個預設節點集區包含用來執行代理程式節點的基礎 VM。 在 AKS 中，多個節點集區支援目前為預覽狀態。
 
 > [!NOTE]
-> 若要確保您的叢集能夠可靠地運作, 您應該在預設節點集區中至少執行 2 (兩個) 節點。
+> 若要確保您的叢集能夠可靠地運作，您應該在預設節點集區中至少執行2（兩個）節點。
 
 當您調整或升級 AKS 叢集時，相關動作會對預設節點集區執行。 您也可以選擇調整或升級特定的節點集區。 進行升級作業時，執行中的容器會排程於節點集區中的其他節點上，直到所有節點皆成功升級。
 
-如需有關如何在 AKS 中使用多個節點集區的詳細資訊, 請參閱[在 AKS 中建立和管理叢集的多個節點][use-multiple-node-pools]集區。
+如需有關如何在 AKS 中使用多個節點集區的詳細資訊，請參閱[在 AKS 中建立和管理叢集的多個節點][use-multiple-node-pools]集區。
 
 ### <a name="node-selectors"></a>節點選取器
 
-在包含多個節點集區的 AKS 叢集中, 您可能需要告訴 Kubernetes 排程器要用於給定資源的節點集區。 例如, 輸入控制器不應在 Windows Server 節點上執行 (目前在 AKS 中為預覽狀態)。 節點選取器可讓您定義各種參數, 例如節點 OS, 以控制 pod 的排程位置。
+在包含多個節點集區的 AKS 叢集中，您可能需要告訴 Kubernetes 排程器要用於給定資源的節點集區。 例如，輸入控制器不應在 Windows Server 節點上執行（目前在 AKS 中為預覽狀態）。 節點選取器可讓您定義各種參數，例如節點 OS，以控制 pod 的排程位置。
 
-下列基本範例會使用節點選取器 *"Beta.kubernetes.io/os"* 來排程 linux 節點上的 NGINX 實例: linux:
+下列基本範例會使用節點選取器 *"Beta.kubernetes.io/os"* 來排程 linux 節點上的 NGINX 實例： linux：
 
 ```yaml
 kind: Pod
@@ -127,7 +143,7 @@ spec:
     "beta.kubernetes.io/os": linux
 ```
 
-如需如何控制 pod 設定位置的詳細資訊, 請參閱[AKS 中先進排程器功能的最佳做法][operator-best-practices-advanced-scheduler]。
+如需如何控制 pod 設定位置的詳細資訊，請參閱[AKS 中先進排程器功能的最佳做法][operator-best-practices-advanced-scheduler]。
 
 ## <a name="pods"></a>Pod
 
@@ -145,7 +161,7 @@ Pod 是邏輯資源，但應用程式工作負載執行的所在之處是容器�
 
 您可以更新部署以變更 Pod 的設定、使用的容器映像，或連結的儲存體。 部署控制器會清空並終止指定數目的複本、從新的部署定義建立複本，然後繼續進行處理，直到部署中的所有複本皆完成更新。
 
-AKS 中的多數無狀態應用程式均應使用部署模型，而不是排程個別的 Pod。 Kubernetes 可監視部署的健康情況和狀態，以確定有所需數量的複本執行於叢集內。 當您只排程個別 pod 時, 如果 pod 遇到問題, pod 不會重新開機, 而且如果其目前節點發生問題, 則不會在狀況良好的節點上重新排定。
+AKS 中的多數無狀態應用程式均應使用部署模型，而不是排程個別的 Pod。 Kubernetes 可監視部署的健康情況和狀態，以確定有所需數量的複本執行於叢集內。 當您只排程個別 pod 時，如果 pod 遇到問題，pod 不會重新開機，而且如果其目前節點發生問題，則不會在狀況良好的節點上重新排定。
 
 如果應用程式需要執行個體仲裁以便隨時可供管理決策擬定之用，您就不應讓更新程序中斷該項功能。 您可以使用 *Pod 中斷預算*，定義在更新或節點升級期間可在部署中停止多少個複本。 例如，如果您的部署中有 *5* 個複本，您可以將 Pod 中斷定義為 *4*，而每次僅允許一個複本不受刪除/重新排程。 與 Pod 資源限制相同，最佳做法是為需要有最少量複本持續存在的應用程式定義 Pod 中斷預算。
 
@@ -182,17 +198,17 @@ spec:
 
 您也可以在 YAML 資訊清單中納入負載平衡器之類的服務，以建立更複雜的應用程式。
 
-如需詳細資訊, 請參閱[Kubernetes 部署][kubernetes-deployments]。
+如需詳細資訊，請參閱[Kubernetes 部署][kubernetes-deployments]。
 
 ### <a name="package-management-with-helm"></a>使用 Helm 管理套件
 
-在 Kubernetes 中管理應用程式的常見方法是使用[Helm][helm]。 您可以建置和使用現有的公用 Helm *圖表*，其中包含封裝版的應用程式程式碼，和用來部署資源的 Kubernetes YAML 資訊清單。 這些 Helm 圖可以儲存在本機, 或通常存放在遠端存放庫中, 例如[Azure Container Registry Helm 圖表][acr-helm]儲存機制。
+在 Kubernetes 中管理應用程式的常見方法是使用[Helm][helm]。 您可以建置和使用現有的公用 Helm *圖表*，其中包含封裝版的應用程式程式碼，和用來部署資源的 Kubernetes YAML 資訊清單。 這些 Helm 圖可以儲存在本機，或通常存放在遠端存放庫中，例如[Azure Container Registry Helm 圖表][acr-helm]儲存機制。
 
-若要使用 Helm，請在您的 Kubernetes 叢集中安裝名為 *Tiller* 的伺服器元件。 Tiller 會管理安裝在叢集內的圖表。 Helm 用戶端本身會安裝在您的電腦本機上, 也可以在[Azure Cloud Shell][azure-cloud-shell]中使用。 您可以使用用戶端搜尋或建立 Helm 圖表，然後將其安裝至 Kubernetes 叢集。
+若要使用 Helm，請在您的 Kubernetes 叢集中安裝名為 *Tiller* 的伺服器元件。 Tiller 會管理安裝在叢集內的圖表。 Helm 用戶端本身會安裝在您的電腦本機上，也可以在[Azure Cloud Shell][azure-cloud-shell]中使用。 您可以使用用戶端搜尋或建立 Helm 圖表，然後將其安裝至 Kubernetes 叢集。
 
 ![Helm 包含可在 Kubernetes 叢集內建立資源的用戶端元件和伺服器端 Tiller 元件](media/concepts-clusters-workloads/use-helm.png)
 
-如需詳細資訊, 請參閱[在 Azure Kubernetes Service (AKS) 中使用 Helm 安裝應用程式][aks-helm]。
+如需詳細資訊，請參閱[在 Azure Kubernetes Service （AKS）中使用 Helm 安裝應用程式][aks-helm]。
 
 ## <a name="statefulsets-and-daemonsets"></a>StatefulSet 和 Daemonset
 
@@ -209,7 +225,7 @@ spec:
 
 您可以使用 `kind: StatefulSet` 定義 YAML 格式的應用程式，隨後再由 StatefulSet 控制器處理必要複本的部署和管理。 資料會寫入至 Azure 受控磁碟或 Azure 檔案所提供的永續性儲存體。 透過 StatefulSet，即使在 StatefulSet 刪除後，基礎的永續性儲存體仍將保存。
 
-如需詳細資訊, 請參閱[Kubernetes statefulset][kubernetes-statefulsets]。
+如需詳細資訊，請參閱[Kubernetes statefulset][kubernetes-statefulsets]。
 
 StatefulSet 中的複本可在 AKS 叢集中任何可用的節點上排程及執行。 如果您必須確定每個節點都至少要執行您集合中的一個 Pod，您可以改用 DaemonSet。
 
@@ -221,10 +237,10 @@ DaemonSet 控制器可及早在叢集啟動程序執行時，在預設 Kubernete
 
 和 StatefulSet 相同，DaemonSet 也可使用 `kind: DaemonSet` 定義為 YAML 定義的一部分。
 
-如需詳細資訊, 請參閱[Kubernetes daemonset][kubernetes-daemonset]。
+如需詳細資訊，請參閱[Kubernetes daemonset][kubernetes-daemonset]。
 
 > [!NOTE]
-> 如果使用[虛擬節點附加](virtual-nodes-cli.md#enable-virtual-nodes-addon)元件, daemonset 將不會在虛擬節點上建立 pod。
+> 如果使用[虛擬節點附加](virtual-nodes-cli.md#enable-virtual-nodes-addon)元件，daemonset 將不會在虛擬節點上建立 pod。
 
 ## <a name="namespaces"></a>命名空間
 
@@ -238,7 +254,7 @@ Kubernetes 資源 (例如 Pod 和部署) 會依邏輯分組到*命名空間*中�
 - *kube-system* - 此命名空間是核心資源的所在之處，例如 DNS 和 Proxy 之類的網路功能，或是 Kubernetes 儀表板。 您通常不會將自己的應用程式部署到此命名空間中。
 - *kube-public* - 此命名空間通常不會使用，但可用於要在整個叢集中顯示，並且可供任何使用者檢視的資源。
 
-如需詳細資訊, 請參閱[Kubernetes 命名空間][kubernetes-namespaces]。
+如需詳細資訊，請參閱[Kubernetes 命名空間][kubernetes-namespaces]。
 
 ## <a name="next-steps"></a>後續步驟
 
