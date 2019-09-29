@@ -1,32 +1,32 @@
 ---
 title: 使用 .NET 建立容器或 blob 的服務 SAS-Azure 儲存體
-description: 瞭解如何使用 .NET 用戶端程式庫來建立容器或 blob 的服務共用存取簽章 (SAS)。
+description: 瞭解如何使用 .NET 用戶端程式庫來建立容器或 blob 的服務共用存取簽章（SAS）。
 services: storage
 author: tamram
 ms.service: storage
-ms.topic: article
+ms.topic: conceptual
 ms.date: 08/09/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: blobs
-ms.openlocfilehash: ca419165d4dea2a04f51e7ab6f60d6e23f418933
-ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
+ms.openlocfilehash: 6840b65dd63422db38759ee01703155088215fd2
+ms.sourcegitcommit: 2d9a9079dd0a701b4bbe7289e8126a167cfcb450
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69035622"
+ms.lasthandoff: 09/29/2019
+ms.locfileid: "71673348"
 ---
 # <a name="create-a-service-sas-for-a-container-or-blob-with-net"></a>使用 .NET 建立容器或 blob 的服務 SAS
 
 [!INCLUDE [storage-auth-sas-intro-include](../../../includes/storage-auth-sas-intro-include.md)]
 
-本文說明如何使用儲存體帳戶金鑰, 以[適用于 .net 的 Azure 儲存體用戶端程式庫](/dotnet/api/overview/azure/storage/client)來建立容器或 blob 的服務 SAS。
+本文說明如何使用儲存體帳戶金鑰，以[適用于 .net 的 Azure 儲存體用戶端程式庫](/dotnet/api/overview/azure/storage/client)來建立容器或 blob 的服務 SAS。
 
 ## <a name="create-a-service-sas-for-a-blob-container"></a>建立 blob 容器的服務 SAS
 
-若要建立容器的服務 SAS, 請呼叫[CloudBlobContainer. cloudblobcontainer.getsharedaccesssignature](/dotnet/api/microsoft.azure.storage.blob.cloudblobcontainer.getsharedaccesssignature)方法。
+若要建立容器的服務 SAS，請呼叫[CloudBlobContainer. cloudblobcontainer.getsharedaccesssignature](/dotnet/api/microsoft.azure.storage.blob.cloudblobcontainer.getsharedaccesssignature)方法。
 
-下列程式碼範例會在容器上建立 SAS。 如果提供現有預存存取原則的名稱，該原則將與 SAS 相關聯。 如果未提供任何預存存取原則, 則程式碼會在容器上建立臨機操作 SAS。
+下列程式碼範例會在容器上建立 SAS。 如果提供現有預存存取原則的名稱，該原則將與 SAS 相關聯。 如果未提供任何預存存取原則，則程式碼會在容器上建立臨機操作 SAS。
 
 ```csharp
 private static string GetContainerSasUri(CloudBlobContainer container, string storedPolicyName = null)
@@ -70,9 +70,9 @@ private static string GetContainerSasUri(CloudBlobContainer container, string st
 
 ## <a name="create-a-service-sas-for-a-blob"></a>建立 blob 的服務 SAS
 
-若要建立 blob 的服務 SAS, 請呼叫[CloudBlob. cloudblobcontainer.getsharedaccesssignature](/dotnet/api/microsoft.azure.storage.blob.cloudblob.getsharedaccesssignature)方法。
+若要建立 blob 的服務 SAS，請呼叫[CloudBlob. cloudblobcontainer.getsharedaccesssignature](/dotnet/api/microsoft.azure.storage.blob.cloudblob.getsharedaccesssignature)方法。
 
-下列程式碼範例會在 blob 上建立 SAS。 如果提供現有預存存取原則的名稱，該原則將與 SAS 相關聯。 如果未提供任何預存存取原則, 則程式碼會在 blob 上建立臨機操作 SAS。
+下列程式碼範例會在 blob 上建立 SAS。 如果提供現有預存存取原則的名稱，該原則將與 SAS 相關聯。 如果未提供任何預存存取原則，則程式碼會在 blob 上建立臨機操作 SAS。
 
 ```csharp
 private static string GetBlobSasUri(CloudBlobContainer container, string blobName, string policyName = null)
@@ -121,5 +121,5 @@ private static string GetBlobSasUri(CloudBlobContainer container, string blobNam
 
 ## <a name="next-steps"></a>後續步驟
 
-- [使用共用存取簽章 (SAS) 授與 Azure 儲存體資源的有限存取權](../common/storage-sas-overview.md)
+- [使用共用存取簽章（SAS）授與 Azure 儲存體資源的有限存取權](../common/storage-sas-overview.md)
 - [建立服務 SAS](/rest/api/storageservices/create-service-sas)

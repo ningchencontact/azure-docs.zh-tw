@@ -1,6 +1,6 @@
 ---
 title: 在 Azure Data Lake Analytics 中使用 U-SQL 目錄
-description: 了解如何使用 U-SQL 目錄來共用程式碼和資料。
+description: 了解如何使用 U-SQL 目錄來共用程式碼和資料。 建立資料表值函式、建立視圖、建立資料表，以及查詢這些函數。
 services: data-lake-analytics
 ms.service: data-lake-analytics
 author: saveenr
@@ -9,12 +9,12 @@ ms.reviewer: jasonwhowell
 ms.assetid: 57143396-ab86-47dd-b6f8-613ba28c28d2
 ms.topic: conceptual
 ms.date: 05/09/2017
-ms.openlocfilehash: afd3ca24f2f8232084523e1356d63abce1684b8d
-ms.sourcegitcommit: 0486aba120c284157dfebbdaf6e23e038c8a5a15
+ms.openlocfilehash: f3b9f14be4422373fb30f8c3d4909fd9c9546fdf
+ms.sourcegitcommit: 2d9a9079dd0a701b4bbe7289e8126a167cfcb450
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71309867"
+ms.lasthandoff: 09/29/2019
+ms.locfileid: "71672852"
 ---
 # <a name="get-started-with-the-u-sql-catalog-in-azure-data-lake-analytics"></a>開始在 Azure Data Lake Analytics 中使用 U-SQL 目錄
 

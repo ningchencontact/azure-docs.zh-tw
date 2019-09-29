@@ -4,16 +4,16 @@ description: 深入了解在 Azure 中儲存和存取資料的不同方法，協
 services: storage
 author: tamram
 ms.service: storage
-ms.topic: article
+ms.topic: conceptual
 ms.date: 11/28/2018
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 702627a6307e1a6644dc41aeee947d33eb76522d
-ms.sourcegitcommit: a0b37e18b8823025e64427c26fae9fb7a3fe355a
+ms.openlocfilehash: 4b1a42e25a6d8c7b4a3c24dffcb858ffe63dd10b
+ms.sourcegitcommit: 2d9a9079dd0a701b4bbe7289e8126a167cfcb450
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68501347"
+ms.lasthandoff: 09/29/2019
+ms.locfileid: "71671038"
 ---
 # <a name="deciding-when-to-use-azure-blobs-azure-files-or-azure-disks"></a>決定何時使用 Azure Blob、Azure 檔案服務或 Azure 磁碟
 
@@ -36,8 +36,8 @@ Microsoft Azure 在 Azure 儲存體中提供數種功能，用以在雲端儲存
   
 某些 SMB 功能並不適用於雲端。 如需詳細資訊，請參閱 [Azure 檔案服務不支援的功能](/rest/api/storageservices/features-not-supported-by-the-azure-file-service)。
  
-如需 Azure Blob 的詳細資訊, 請參閱我們的文章:[什麼是 Azure blob 儲存體？](../blobs/storage-blobs-overview.md)。
+如需 Azure Blob 的詳細資訊，請參閱我們的文章：[什麼是 Azure blob 儲存體？](../blobs/storage-blobs-overview.md)。
 
-如需磁碟儲存體的詳細資訊, 請參閱我們的[受控磁片簡介](../../virtual-machines/windows/managed-disks-overview.md)。
+如需磁碟儲存體的詳細資訊，請參閱我們的[受控磁片簡介](../../virtual-machines/windows/managed-disks-overview.md)。
 
-如需 Azure 檔案儲存體的詳細資訊, 請參閱[規劃 Azure 檔案儲存體部署一](../files/storage-files-planning.md)文。
+如需 Azure 檔案儲存體的詳細資訊，請參閱[規劃 Azure 檔案儲存體部署一](../files/storage-files-planning.md)文。

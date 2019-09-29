@@ -4,17 +4,17 @@ description: Azure CLI 和 PowerShell 支援使用 Azure AD 認證進行登入, 
 services: storage
 author: tamram
 ms.service: storage
-ms.topic: article
+ms.topic: conceptual
 ms.date: 07/03/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: 32b3f113658a20790e0f149739a882004f12fe21
-ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
+ms.openlocfilehash: e1c7f4531dee8673cc5b6dfe675e4c793144931e
+ms.sourcegitcommit: 2d9a9079dd0a701b4bbe7289e8126a167cfcb450
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69640818"
+ms.lasthandoff: 09/29/2019
+ms.locfileid: "71671093"
 ---
 # <a name="run-azure-cli-or-powershell-commands-with-azure-ad-credentials-to-access-blob-or-queue-data"></a>執行 Azure CLI 或具有 Azure AD 認證的 PowerShell 命令, 以存取 blob 或佇列資料
 
@@ -82,17 +82,17 @@ Azure CLI 支援 blob `--auth-mode`和佇列資料作業的參數:
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-若要使用 Azure PowerShell 來登入, 並對使用 Azure AD 認證的 Azure 儲存體執行後續作業, 請建立儲存體內容來參考儲存體帳戶, 並`-UseConnectedAccount`包含參數。
+若要使用 Azure PowerShell 來登入，並對使用 Azure AD 認證的 Azure 儲存體執行後續作業，請建立儲存體內容來參考儲存體帳戶，並包含 `-UseConnectedAccount` 參數。
 
 下列範例示範如何使用您的 Azure AD 認證, 從 Azure PowerShell 在新的儲存體帳戶中建立容器。 請記得使用您自己的值來取代角括弧中的預留位置值:
 
-1. 使用[disconnect-azaccount](/powershell/module/az.accounts/connect-azaccount)命令登入您的 Azure 帳戶:
+1. 使用[disconnect-azaccount](/powershell/module/az.accounts/connect-azaccount)命令登入您的 Azure 帳戶：
 
     ```powershell
     Connect-AzAccount
     ```
 
-    如需使用 PowerShell 登入 Azure 的詳細資訊, 請參閱[使用 Azure PowerShell 登入](/powershell/azure/authenticate-azureps)。
+    如需使用 PowerShell 登入 Azure 的詳細資訊，請參閱[使用 Azure PowerShell 登入](/powershell/azure/authenticate-azureps)。
 
 1. 藉由呼叫[remove-azresourcegroup](/powershell/module/az.resources/new-azresourcegroup)來建立 Azure 資源群組。 
 

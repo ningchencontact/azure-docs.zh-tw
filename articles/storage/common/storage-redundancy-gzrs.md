@@ -3,17 +3,17 @@ title: 建立具有異地區域冗余儲存體（切換）（預覽）的高可�
 description: 異地區域冗余儲存體（切換）結婚區域冗余儲存體（ZRS）的高可用性，並防止異地多餘儲存體（GRS）所提供的區域性中斷。 切換儲存體帳戶中的資料會在主要區域中的 Azure 可用性區域之間複寫，同時也會複寫到次要地理區域，以防範區域性災難。
 author: tamram
 ms.service: storage
-ms.topic: article
+ms.topic: conceptual
 ms.date: 08/13/2019
 ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
-ms.openlocfilehash: 321866279e076bfa77d1892e64deaf4b16c08366
-ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
+ms.openlocfilehash: 737bad504519a2ec7eee9764593245e0fee28cc3
+ms.sourcegitcommit: 2d9a9079dd0a701b4bbe7289e8126a167cfcb450
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71300638"
+ms.lasthandoff: 09/29/2019
+ms.locfileid: "71673060"
 ---
 # <a name="build-highly-available-azure-storage-applications-with-geo-zone-redundant-storage-gzrs-preview"></a>建立具有異地區域冗余儲存體（切換）（預覽）的高可用性 Azure 儲存體應用程式
 
@@ -55,7 +55,7 @@ Microsoft 會繼續在其他 Azure 區域中啟用切換和 RA 切換。 請定�
 
 當您啟用儲存體帳戶的切換時，您的資料可以從次要端點和儲存體帳戶的主要端點讀取。 次要端點會將尾碼 *（次要* ）附加至帳戶名稱。 例如，如果 Blob 服務的主要端點是 `myaccount.blob.core.windows.net`，則次要端點會是。 `myaccount-secondary.blob.core.windows.net` 主要和次要端點會有相同的儲存體帳戶存取金鑰。
 
-若要在發生區域性中斷的情況下利用切換的功能，您必須事先設計應用程式來處理此案例。 您的應用程式應該讀取及寫入主要端點，但在主要區域無法使用的情況下，請切換為使用次要端點。 如需使用 RA 切換設計高可用性的指引，請參閱 [使用 ra-切換或 RA-GRS 設計高度可用的應用程式](https://docs.microsoft.com/en-us/azure/storage/common/storage-designing-ha-apps-with-ragrs)。
+若要在發生區域性中斷的情況下利用切換的功能，您必須事先設計應用程式來處理此案例。 您的應用程式應該讀取及寫入主要端點，但在主要區域無法使用的情況下，請切換為使用次要端點。 如需使用 RA 切換設計高可用性的指引，請參閱 [使用 ra-切換或 RA-GRS 設計高度可用的應用程式](https://docs.microsoft.com/azure/storage/common/storage-designing-ha-apps-with-ragrs)。
 
 由於資料會以非同步方式複寫到次要區域，因此次要區域通常會在主要區域後面。 若要判斷哪些寫入作業已複寫到次要區域，您的應用程式會檢查儲存體帳戶的上次同步處理時間。 在上次同步處理時間之前寫入主要區域的所有寫入作業，都已成功複寫到次要區域，這表示它們可以從次要資料庫讀取。 在上次同步處理時間之後寫入主要區域的任何寫入作業，可能會或可能尚未複寫到次要區域，這表示它們可能無法供讀取作業使用。
 
@@ -141,7 +141,7 @@ Set-AzStorageAccount -ResourceGroupName <resource-group> -AccountName <storage-a
     - **問題類型**：選取 [ **資料移轉**]。
     - **類別**：選取 **區域內的 [遷移至（RA-）切換**]。
     - **標題**：輸入描述性標題，例如 **（RA-）切換帳戶遷移**。
-    - **詳細資料**：在 [ **詳細資料** ] 方塊中輸入其他詳細資料，例如「我想要從區域中的\_ \_ [LRS，GRS] 遷移到切換。」 或者，我想要從區域中的\_ \_ [LRS，RA-GRS] 遷移到切換。
+    - **詳細資料**：在 **詳細資料**@no__t 1box 中輸入其他詳細資料，例如，在 \_ @ no__t-3 區域中，我想要從 [LRS，GRS] 遷移至切換。 或者，我想要從 \_ @ no__t-1 區域中的 [LRS，RA-GRS] 遷移至 [RA-切換]。
 5. 選取 [下一步] **** 。
 6. 在 [ **連絡人資訊** ] 分頁上，確認連絡人資訊是否正確。
 7. 選取 [建立] **** 。

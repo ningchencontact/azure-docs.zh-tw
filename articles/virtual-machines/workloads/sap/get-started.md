@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 09/17/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: dc1c6e4bf2e67d8945cf754aa47461b4ce8364a9
-ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
+ms.openlocfilehash: 81deaaffa301c4453842875f9cfd6b63bb6bbfd7
+ms.sourcegitcommit: 2d9a9079dd0a701b4bbe7289e8126a167cfcb450
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71066832"
+ms.lasthandoff: 09/29/2019
+ms.locfileid: "71672977"
 ---
 # <a name="use-azure-to-host-and-run-sap-workload-scenarios"></a>使用 Azure 來裝載和執行 SAP 工作負載案例
 
@@ -120,7 +120,8 @@ Azure 上的 SAP 工作負載區段中的檔變更會列在本文結尾。
 
 
 ## <a name="change-log"></a>變更記錄檔
-- 09/17/2019：NetWeaver 規劃與部署指南中的變更，以整合適用于 SAP 的 VM 延伸模組術語
+- 09/28/2019：在[Azure 中的 Red Hat Enterprise Linux 上設定 Pacemaker](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-rhel-pacemaker) ，以將 SBD 視為隔離機制，而不支援 RHEL 叢集  
+- 09/17/2019：NetWeaver 規劃與部署指南中的變更，以整合適用于 SAP 的 VM 延伸模組術語  
 - 08/22/2019：在[Azure 中的 SUSE Linux Enterprise Server 上設定 Pacemaker](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse-pacemaker)以更新自訂角色建立的 url 中的變更  
 - 08/16/2019：在[azure Red Hat Enterprise Linux 上設定 Pacemaker 的](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-rhel-pacemaker)變更，以在更新至新版本的 azure 隔離代理程式時，提醒客戶更新自訂角色中的動作  
 - 08/15/2019：[SAP Hana Azure 虛擬機器儲存體](https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/hana-vm-operations-storage)設定的變更，以反映 ultra （舊稱 ultra SSD）的正式運作

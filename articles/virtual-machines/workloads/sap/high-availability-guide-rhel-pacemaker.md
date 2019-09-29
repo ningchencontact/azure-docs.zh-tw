@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 08/17/2018
 ms.author: sedusch
-ms.openlocfilehash: 4e12ad64ef277396a101aab6d1bb8f3cc6079cf9
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 954ff23997e56249859dd8d35f124324432f2b22
+ms.sourcegitcommit: 2d9a9079dd0a701b4bbe7289e8126a167cfcb450
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70099602"
+ms.lasthandoff: 09/29/2019
+ms.locfileid: "71672990"
 ---
 # <a name="setting-up-pacemaker-on-red-hat-enterprise-linux-in-azure"></a>在 Azure 中的 Red Hat Enterprise Linux 上設定 Pacemaker
 
@@ -62,6 +62,7 @@ ms.locfileid: "70099602"
   * [高可用性附加元件概觀](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/high_availability_add-on_overview/index)
   * [高可用性附加元件管理](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/high_availability_add-on_administration/index)
   * [高可用性附加元件參考](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/high_availability_add-on_reference/index)
+  * [RHEL 高可用性叢集的支援原則-sbd 和 fence_sbd](https://access.redhat.com/articles/2800691)
 * Azure 特定的 RHEL 檔:
   * [RHEL 高可用性叢集的支援原則：以 Microsoft Azure 虛擬機器作為叢集成員](https://access.redhat.com/articles/3131341)
   * [在 Microsoft Azure 上安裝和設定 Red Hat Enterprise Linux 7.4 (和更新版本) 高可用性叢集](https://access.redhat.com/articles/3252491)
@@ -70,6 +71,10 @@ ms.locfileid: "70099602"
 ## <a name="cluster-installation"></a>叢集安裝
 
 ![RHEL 的 Pacemaker 概觀](./media/high-availability-guide-rhel-pacemaker/pacemaker-rhel.png)
+
+> [!NOTE]
+> Red Hat 不支援軟體模擬的監視程式。 Red Hat 不支援在雲端平臺上 SBD。 如需詳細資訊，請參閱[RHEL 高可用性叢集的支援原則-sbd 和 fence_sbd](https://access.redhat.com/articles/2800691)。
+> 在 Azure 上 Pacemaker Red Hat Enterprise Linux 叢集唯一支援的隔離機制是 Azure 範圍代理程式。  
 
 下列項目會加上下列其中一個前置詞： **[A]** - 適用於所有節點、 **[1]** - 僅適用於節點 1 或 **[2]** - 僅適用於節點 2。
 
@@ -103,10 +108,10 @@ ms.locfileid: "70099602"
 
    > [!IMPORTANT]
    > 我們建議使用下列 Azure 隔離代理程式版本 (或更新版本), 讓客戶從更快速的容錯移轉時間受益, 如果資源停止失敗或叢集節點無法再彼此通訊:  
-   > RHEL 7.6: fence-agents-4.2.1-11-preview. el7 _ 6。8  
-   > RHEL 7.5: fence-agents-4.0.11-86. el7 _ 5。8  
-   > RHEL 7.4: fence-agents-4.0.11-66. el7 _ 4.12  
-   > 如需詳細資訊, 請參閱以[RHEL 高可用性叢集成員身分執行的 AZURE VM 需要很長的時間才能圍住, 或隔離會在 VM 關機之前失敗/超時](https://access.redhat.com/solutions/3408711)。
+   > RHEL 7.6： fence-agents-4.2.1-11-preview. el7 _ 6。8  
+   > RHEL 7.5： fence-agents-4.0.11-86. el7 _ 5。8  
+   > RHEL 7.4： fence-agents-4.0.11-66. el7 _ 4.12  
+   > 如需詳細資訊，請參閱以[RHEL 高可用性叢集成員身分執行的 AZURE VM 需要很長的時間才能圍住，或隔離會在 VM 關機之前失敗/超時](https://access.redhat.com/solutions/3408711)。
 
    檢查 Azure 隔離代理程式的版本。 如有必要, 請將其更新為等於或晚于上述的版本。
 
@@ -115,7 +120,7 @@ ms.locfileid: "70099602"
    </code></pre>
 
    > [!IMPORTANT]
-   > 如果您需要更新 Azure 隔離代理程式, 而且如果使用自訂角色, 請務必更新自訂角色, 以包含關閉動作。 如需詳細資訊, 請參閱[建立適用于隔離代理程式的自訂角色](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-rhel-pacemaker#1-create-a-custom-role-for-the-fence-agent)。  
+   > 如果您需要更新 Azure 隔離代理程式，而且如果使用自訂角色，請務必更新自訂角色，以包含關閉**動作。** 如需詳細資訊，請參閱[建立適用于隔離代理程式的自訂角色](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-rhel-pacemaker#1-create-a-custom-role-for-the-fence-agent)。  
 
 1. **[A]** 設定主機名稱解析
 
@@ -210,7 +215,7 @@ STONITH 裝置會使用服務主體來對 Microsoft Azure 授權。 請遵循下
 
 ### <a name="1-create-a-custom-role-for-the-fence-agent"></a>**[1]** 為柵欄代理程式建立自訂角色
 
-服務主體預設沒有存取您 Azure 資源的權限。 您必須授與服務主體許可權, 以啟動和停止 (關閉) 叢集的所有虛擬機器。 如果您尚未建立自訂角色，您可以使用 [PowerShell](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-powershell) 或 [Azure CLI](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-cli) 來建立
+服務主體預設沒有存取您 Azure 資源的權限。 您必須授與服務主體許可權，以啟動和停止（關閉）叢集的所有虛擬機器。 如果您尚未建立自訂角色，您可以使用 [PowerShell](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-powershell) 或 [Azure CLI](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-cli) 來建立
 
 針對輸入檔使用下列內容。 您必須調整訂用帳戶的內容，也就是使用您訂用帳戶的識別碼取代 c276fc76-9cd4-44c9-99a7-4fd71546436e 和 e91d47c4-76f3-4271-a796-21b4ecfe3624。 如果您只有一個訂用帳戶，請在 AssignableScopes 中移除第二個項目。
 

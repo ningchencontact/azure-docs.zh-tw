@@ -4,16 +4,16 @@ description: 瞭解如何使用 .NET 用戶端程式庫, 列出 Azure 儲存體�
 services: storage
 author: tamram
 ms.service: storage
-ms.topic: article
+ms.topic: conceptual
 ms.date: 07/10/2019
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: e0197d59cdadd5e9462daf879d915ac2520bc149
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
+ms.openlocfilehash: 06454798deb4a5bc5064e28535a837f73c083e1c
+ms.sourcegitcommit: 2d9a9079dd0a701b4bbe7289e8126a167cfcb450
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68985651"
+ms.lasthandoff: 09/29/2019
+ms.locfileid: "71671293"
 ---
 # <a name="list-blob-containers-with-net"></a>使用 .NET 列出 blob 容器
 
@@ -44,7 +44,7 @@ ms.locfileid: "68985651"
 
 若要傳回具有結果的容器中繼資料, 請指定[ContainerListDetails](/dotnet/api/microsoft.azure.storage.blob.containerlistingdetails)列舉的**中繼資料**值。 Azure 儲存體包含每個傳回的容器的中繼資料, 因此您也不需要呼叫其中一個**FetchAttributes**方法來取得容器中繼資料。
 
-## <a name="example-list-containers"></a>範例:列出容器
+## <a name="example-list-containers"></a>範例：列出容器
 
 下列範例會以非同步方式列出儲存體帳戶中以指定前置詞開頭的容器。 此範例會一次以5個結果的增量來列出容器, 並使用接續 token 來取得結果的下一個區段。 此範例也會傳回具有結果的容器中繼資料。
 

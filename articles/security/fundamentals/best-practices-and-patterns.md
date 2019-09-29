@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 5/03/2019
 ms.author: terrylan
-ms.openlocfilehash: 64cac3d200a2cfc3b826dc75bfacc6457a01f294
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.openlocfilehash: e2e829fba9846c2429e362903f5ce49b9344e1bd
+ms.sourcegitcommit: 2d9a9079dd0a701b4bbe7289e8126a167cfcb450
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68727562"
+ms.lasthandoff: 09/29/2019
+ms.locfileid: "71672620"
 ---
 # <a name="azure-security-best-practices-and-patterns"></a>Azure 安全性最佳作法與模式
 
@@ -28,7 +28,7 @@ ms.locfileid: "68727562"
 
 這些最佳做法將作為 IT 專業人員的資源。 其中可包括建置和部署安全 Azure 解決方案的設計人員、架構設計師、開發人員和測試人員。
 
-* [Azure 界限安全性最佳作法](network-best-practices.md)
+* [Azure 界限安全性最佳作法](https://docs.microsoft.com/en-us/azure/security/fundamentals/network-best-practices#adopt-a-zero-trust-approach)
 * [Azure 資料庫安全性最佳做法](database-best-practices.md)
 * [Azure 資料安全性和加密最佳作法](data-encryption-best-practices.md)
 * [Azure 身分識別管理和存取控制安全性最佳做法](identity-management-best-practices.md)

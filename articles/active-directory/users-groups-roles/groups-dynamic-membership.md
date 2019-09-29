@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 59450fc93052a1e169d13fab5b80cbc57c169e0f
-ms.sourcegitcommit: d70c74e11fa95f70077620b4613bb35d9bf78484
+ms.openlocfilehash: dafc78e49cb0118181bae4522d4cb456509ea2cb
+ms.sourcegitcommit: 2d9a9079dd0a701b4bbe7289e8126a167cfcb450
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70909774"
+ms.lasthandoff: 09/29/2019
+ms.locfileid: "71673431"
 ---
 # <a name="dynamic-membership-rules-for-groups-in-azure-active-directory"></a>Azure Active Directory 中群組的動態成員資格規則
 
@@ -64,7 +64,7 @@ user.department -eq "Sales"
 
 單一運算式的括號是選擇性的。 成員資格規則本文的總長度不得超過 2048 個字元。
 
-# <a name="constructing-the-body-of-a-membership-rule"></a>建構成員資格規則的本文
+## <a name="constructing-the-body-of-a-membership-rule"></a>建構成員資格規則的本文
 
 自動填入使用者或裝置群組的成員資格規則是可導致 true 或 false 結果的二進位運算式。 簡單規則的三個部分如下：
 
@@ -114,7 +114,7 @@ user.department -eq "Sales"
 | postalCode |任何字串值或 *null* |(user.postalCode -eq "value") |
 | preferredLanguage |ISO 639-1 code |(user.preferredLanguage -eq "en-US") |
 | sipProxyAddress |任何字串值或 *null* |(user.sipProxyAddress -eq "value") |
-| 狀態 |任何字串值或 *null* |(user.state -eq "value") |
+| state |任何字串值或 *null* |(user.state -eq "value") |
 | streetAddress |任何字串值或 *null* |(user.streetAddress -eq "value") |
 | surname |任何字串值或 *null* |(user.surname -eq "value") |
 | telephoneNumber |任何字串值或 *null* |(user.telephoneNumber -eq "value") |
@@ -145,7 +145,7 @@ user.department -eq "Sales"
 | 包含 |-contains |
 | Not Match |-notMatch |
 | Match |-match |
-| 入 | -in |
+| 在 | -in |
 | 不在 | -notIn |
 
 ### <a name="using-the--in-and--notin-operators"></a>使用 -in 和 -notIn 運算子

@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/22/2019
 ms.author: dech
-ms.openlocfilehash: 34e1d9fe937118a2eafcdd85c153653eb28752d4
-ms.sourcegitcommit: 3fa4384af35c64f6674f40e0d4128e1274083487
+ms.openlocfilehash: 824a562cb5f0562a235d903fbd4e575bc9c22572
+ms.sourcegitcommit: 2d9a9079dd0a701b4bbe7289e8126a167cfcb450
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71219252"
+ms.lasthandoff: 09/29/2019
+ms.locfileid: "71672741"
 ---
 # <a name="enable-notebooks-for-azure-cosmos-db-accounts"></a>啟用 Azure Cosmos DB 帳戶的筆記本
 
@@ -67,3 +67,4 @@ Azure Cosmos DB 中的內建 Jupyter 筆記本可讓您從 Azure 入口網站分
 ## <a name="next-steps"></a>後續步驟
 
 - 瞭解[Azure Cosmos DB Jupyter 筆記本](cosmosdb-jupyter-notebooks.md)的優點
+- 深入瞭解[如何使用筆記本功能和命令](use-notebook-features-and-commands.md)

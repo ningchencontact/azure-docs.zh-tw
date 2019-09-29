@@ -15,12 +15,12 @@ ms.date: 08/27/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: it-pro
-ms.openlocfilehash: c9a156c4cc6e334e04f5a604b91b7b05d9aed390
-ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
+ms.openlocfilehash: c2066502a6a9d742c347e08d528a2490a390bb7e
+ms.sourcegitcommit: 2d9a9079dd0a701b4bbe7289e8126a167cfcb450
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71289600"
+ms.lasthandoff: 09/29/2019
+ms.locfileid: "71672636"
 ---
 # <a name="built-in-roles-for-azure-resources"></a>適用於 Azure 資源的內建角色
 
@@ -186,8 +186,8 @@ ms.locfileid: "71289600"
 > | Microsoft.Authorization/*/Delete | 刪除角色、原則指派、原則定義和原則集合定義 |
 > | Microsoft.Authorization/*/Write | 建立角色、角色指派、原則指派、原則定義和原則集合定義 |
 > | Microsoft.Authorization/elevateAccess/Action | 對呼叫者授與租用戶範圍的使用者存取系統管理員存取權 |
-> | Microsoft.Blueprint/blueprintAssignments/write | 建立或更新任何藍圖成品 |
-> | Microsoft.Blueprint/blueprintAssignments/delete | 刪除任何藍圖成品 |
+> | Microsoft.Blueprint/blueprintAssignments/write | 建立或更新任何藍圖指派 |
+> | Microsoft.Blueprint/blueprintAssignments/delete | 刪除任何藍圖指派 |
 > | **DataActions** |  |
 > | 無 |  |
 > | **NotDataActions** |  |

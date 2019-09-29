@@ -2,18 +2,18 @@
 title: 監視、計量和警示 - Azure ExpressRoute | Microsoft Docs
 description: 此頁面提供有關 ExpressRoute 監視的資訊
 services: expressroute
-author: cherylmc
+author: mialdrid
 ms.service: expressroute
 ms.topic: conceptual
 ms.date: 08/22/2019
 ms.author: cherylmc
 ms.custom: seodec18
-ms.openlocfilehash: dbe03ef29bd28d465fa671abc915d63d4b038cb2
-ms.sourcegitcommit: 116bc6a75e501b7bba85e750b336f2af4ad29f5a
+ms.openlocfilehash: 40e5561c9a55595340568ec660cbc6dd6e1eab51
+ms.sourcegitcommit: 2d9a9079dd0a701b4bbe7289e8126a167cfcb450
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71154773"
+ms.lasthandoff: 09/29/2019
+ms.locfileid: "71672072"
 ---
 # <a name="expressroute-monitoring-metrics-and-alerts"></a>ExpressRoute 監視、計量和警示
 
@@ -72,9 +72,41 @@ ms.locfileid: "71154773"
 
 ![每個對等的 ARP 可用性](./media/expressroute-monitoring-metrics-alerts/erArpAvailabilityMetrics.jpg) 
 
+## <a name="expressroute-direct-metrics"></a>ExpressRoute Direct 計量
+
+### <a name="admin-state---split-by-link"></a>系統管理狀態-依連結分割
+您可以查看每個 ExpressRoute Direct 埠配對連結的系統管理狀態。
+
+![er 直接管理狀態](./media/expressroute-monitoring-metrics-alerts/adminstate-per-link.jpg)
+
+### <a name="bits-in-per-second---split-by-link"></a>每秒的位-依連結分割
+您可以跨兩個 ExpressRoute Direct 埠配對的連結來查看每秒的位。 
+
+![每秒的 er 直接位數](./media/expressroute-monitoring-metrics-alerts/bits-in-per-second-per-link.jpg)
+
+### <a name="bits-out-per-second---split-by-link"></a>每秒的位數-依連結分割
+您也可以在 ExpressRoute Direct 埠配對的兩個連結中，查看每秒的位。 
+
+![每秒的 er direct 位](./media/expressroute-monitoring-metrics-alerts/bits-out-per-second-per-link.jpg)
+
+### <a name="line-protocol---split-by-link"></a>線路通訊協定-依連結分割
+您可以跨 ExpressRoute Direct 埠配對的每個連結來查看線路通訊協定。
+
+![er direct line 通訊協定](./media/expressroute-monitoring-metrics-alerts/line-protocol-per-link.jpg)
+
+### <a name="rx-light-level---split-by-link"></a>Rx Light 層級-依連結分割
+您可以針對每個埠，查看 Rx 光線層級（ExpressRoute Direct 埠**接收**的光線層級）。 狀況良好的 Rx 光線層級通常落在-10 到 0 dBm 的範圍內
+
+![er direct line Rx Light 層級](./media/expressroute-monitoring-metrics-alerts/rxlight-level-per-link.jpg)
+
+### <a name="tx-light-level---split-by-link"></a>Tx 光線層級-依連結分割
+您可以針對每個埠，查看 Tx 光源層級（ExpressRoute Direct 埠正在**傳輸**的光線層級）。 狀況良好的 Tx 光線層級通常落在-10 到 0 dBm 的範圍內
+
+![er direct line Rx Light 層級](./media/expressroute-monitoring-metrics-alerts/txlight-level-per-link.jpg)
+
 ## <a name="expressroute-gateway-connections-in-bitsseconds"></a>ExpressRoute 閘道連線 (以位元/秒為單位)
 
-![閘道連線](./media/expressroute-monitoring-metrics-alerts/erconnections.jpg ) 
+![閘道連線](./media/expressroute-monitoring-metrics-alerts/erconnections.jpg )
 
 ## <a name="alerts-for-expressroute-gateway-connections"></a>ExpressRoute 閘道連線的警示
 

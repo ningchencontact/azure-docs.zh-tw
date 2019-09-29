@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 06/03/2019
 ms.author: mlearned
-ms.openlocfilehash: 6120eee5bbd2f385fa8e76da093f7fadccb4904e
-ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
+ms.openlocfilehash: 3792eed170d3e3e1cdd267c0c88d2d2d6c520733
+ms.sourcegitcommit: 2d9a9079dd0a701b4bbe7289e8126a167cfcb450
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71348982"
+ms.lasthandoff: 09/29/2019
+ms.locfileid: "71672818"
 ---
 # <a name="kubernetes-core-concepts-for-azure-kubernetes-service-aks"></a>Azure Kubernetes Services (AKS) 的 Kubernetes 核心概念
 
@@ -76,39 +76,34 @@ AKS 提供具有專用 API 伺服器、排程器等項目的單一租用戶叢�
 
 ### <a name="resource-reservations"></a>資源保留
 
-AKS 會使用節點資源，讓 node 函式成為叢集的一部分。 在 AKS 中使用時，這會在節點的總資源和資源 allocatable 之間建立 discrepency。 當您為已部署的 pod 設定要求和限制時，請務必注意這一點。
+AKS 會使用節點資源，讓 node 函式成為叢集的一部分。 在 AKS 中使用時，這會在節點的總資源和資源 allocatable 之間建立 discrepency。 在設定使用者部署的 pod 的要求和限制時，請務必注意這一點。
 
 若要尋找節點的 allocatable 資源，請執行：
 ```kubectl
-kubectl describe node [NODE_NAME] | grep Allocatable -B 4 -A 3
+kubectl describe node [NODE_NAME]
 
 ```
 
-為了維護節點的效能和功能，會在每個節點上保留下列計算資源。 當節點在資源中變大時，資源保留會因為需要管理的使用者部署的 pod 數量增加而增加。
+為了維護節點的效能和功能，AKS 會在每個節點上保留資源。 當節點在資源中變大時，資源保留會因為需要管理的使用者部署的 pod 數量增加而增加。
 
 >[!NOTE]
 > 使用 OMS 之類的附加元件將會耗用其他節點資源。
 
-- **CPU**相依于節點類型
+- **Cpu**保留的 cpu 取決於節點類型和叢集設定，這可能會因為執行其他功能而造成較少的 allocatable CPU
 
 | 主機上的 CPU 核心 | 1 | 2 | 4 | 8 | 16 | 32|64|
 |---|---|---|---|---|---|---|---|
-|Kubelet （millicore）|60|100|140|180|260|420|740|
+|Kube-reserved （millicore）|60|100|140|180|260|420|740|
 
-- **記憶體**-可用記憶體的 20%，最多 4 GiB 最大值
+- **記憶體保留**的記憶體會遵循漸進速率
+  - 前 4 GB 記憶體的 25%
+  - 接下來 4 GB 記憶體的 20% （最多 8 GB）
+  - 下一個 8 GB 記憶體的 10% （最多 16 GB）
+  - 下一個 112 GB 記憶體的 6% （最多 128 GB）
+  - 128 GB 以上任何記憶體的 2%
 
 保留這些資源代表應用程式可用的 CPU 和記憶體數量，看起來可能會小於節點本身所含的資源數量。 如果由於所執行的應用程式數量導致資源受限，則所保留的這些資源可確保仍有 CPU 和記憶體可供核心 Kubernetes 元件使用。 無法變更資源保留。
 
-例如:
-
-- **標準 DS2 v2** 節點大小包含 2 個 vCPU 和 7 GiB 記憶體
-    - 7 GiB 記憶體的 20% = 1.4 GiB
-    - 共有 (7 - 1.4) = 5.6 GiB 記憶體可供節點使用
-    
-- **標準 E4s v3** 節點大小包含 4 個 vCPU 和 32 GiB 記憶體
-    - 32 GiB 記憶體的 20% = 6.4 GiB，但 AKS 最多只會保留 4 GiB
-    - 共有 (32 - 4) = 28 GiB 可供節點使用
-    
 基礎節點 OS 也需要一定數量的 CPU 和記憶體資源，才能完成它自己的核心功能。
 
 如需相關的最佳作法，請參閱[AKS 中基本排程器功能的最佳做法][operator-best-practices-scheduler]。

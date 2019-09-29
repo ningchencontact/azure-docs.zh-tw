@@ -1,17 +1,17 @@
 ---
 title: Azure Data Factory 對應的資料流程 JSON 概念
-description: Data Factory 對應資料流程具有內建功能, 可處理具有階層的 JSON 檔
+description: Data Factory 對應資料流程具有內建功能，可處理具有階層的 JSON 檔
 author: kromerm
 ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 08/30/2019
-ms.openlocfilehash: cde42dda47d54c03c50895bc625f99c9350b53e3
-ms.sourcegitcommit: d470d4e295bf29a4acf7836ece2f10dabe8e6db2
+ms.openlocfilehash: ad21ddffdb22f7abf999bfa12f4a8ed86f42cfa2
+ms.sourcegitcommit: 2d9a9079dd0a701b4bbe7289e8126a167cfcb450
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/02/2019
-ms.locfileid: "70210685"
+ms.lasthandoff: 09/29/2019
+ms.locfileid: "71673432"
 ---
 # <a name="mapping-data-flow-json-handling"></a>對應資料流程 JSON 處理
 
@@ -19,17 +19,17 @@ ms.locfileid: "70210685"
 
 ## <a name="creating-json-structures-in-expression-editor"></a>在運算式編輯器中建立 JSON 結構
 ### <a name="derived-column-transformation"></a>衍生的資料行轉換
-透過衍生的「資料行運算式編輯器」, 可以更輕鬆地將複雜的資料行加入至您的資料流程。 加入新的資料行並開啟編輯器之後, 有兩個選項: 手動輸入 JSON 結構, 或使用 UI 以互動方式加入個子。
+透過衍生的「資料行運算式編輯器」，可以更輕鬆地將複雜的資料行加入至您的資料流程。 加入新的資料行並開啟編輯器之後，有兩個選項：手動輸入 JSON 結構，或使用 UI 以互動方式加入個子。
 
 #### <a name="interactive-ui-json-design"></a>互動式 UI JSON 設計
-從輸出架構的側邊窗格, 可以使用`+`功能表來新增個子:![新增 subcolumn](media/data-flow/addsubcolumn.png "新增 Subcolumn")
+從 [輸出架構] 窗格中，您可以使用 [`+`] 功能表來加入新的個子：![新增 subcolumn](media/data-flow/addsubcolumn.png "新增 subcolumn")
 
-您可以從該處以相同的方式加入新的資料行和個子。 針對每個非複雜欄位, 可以在右邊的運算式編輯器中加入運算式。
+您可以從該處以相同的方式加入新的資料行和個子。 針對每個非複雜欄位，可以在右邊的運算式編輯器中加入運算式。
 
 ![複雜資料行](media/data-flow/complexcolumn.png "複雜資料行")
 
 #### <a name="manual-json-design"></a>手動 JSON 設計
-若要手動加入 JSON 結構, 請加入新的資料行, 並在編輯器中輸入運算式。 運算式會遵循下列一般格式:
+若要手動加入 JSON 結構，請加入新的資料行，並在編輯器中輸入運算式。 運算式會遵循下列一般格式：
 ```
 @(
     field1=0,
@@ -38,7 +38,7 @@ ms.locfileid: "70210685"
     )
 )
 ```
-如果已針對名為 "complexColumn" 的資料行輸入此運算式, 則會將它寫入至接收, 做為下列 JSON:
+如果已針對名為 "complexColumn" 的資料行輸入此運算式，則會將它寫入至接收，做為下列 JSON：
 ```
 {
     "complexColumn": {
@@ -144,7 +144,7 @@ File3.json
 { "json": "record 3" }
 ```
 
-# <a name="higher-order-functions"></a>高階函數
+## <a name="higher-order-functions"></a>高階函數
 ## <a name="filter"></a>filter
 篩選出不符合所提供述詞之陣列中的元素。 篩選準則預期述詞函式中某個元素的參考 #item。
 
@@ -155,7 +155,7 @@ filter(['a', 'b', 'c', 'd'], #item == 'a' || #item == 'b') => ['a', 'b']
 ```
 
 ## <a name="map"></a>map
-使用提供的運算式, 將陣列的每個元素對應至新的專案。 對應預期運算式函數中的一個元素參考為 #item。
+使用提供的運算式，將陣列的每個元素對應至新的專案。 對應預期運算式函數中的一個元素參考為 #item。
 
 ### <a name="examples"></a>範例
 ```
@@ -164,7 +164,7 @@ map(['a', 'b', 'c', 'd'], #item + '_processed') => ['a_processed', 'b_processed'
 ```
 
 ## <a name="reduce"></a>減少
-累加陣列中的元素。 減少預期第一個運算式函式中的累計和一個元素的參考是 #acc 和 #item, 而且它預期產生的值會當做第二個運算式函式中使用的 #result。
+累加陣列中的元素。 減少預期第一個運算式函式中的累計和一個元素的參考是 #acc 和 #item，而且它預期產生的值會當做第二個運算式函式中使用的 #result。
 
 ### <a name="examples"></a>範例
 ```
@@ -186,7 +186,7 @@ sort(['a3', 'b2', 'c1'],
 ```
 
 ## <a name="contains"></a>包含
-如果提供之陣列中的任何元素在所提供的述詞中評估為 true, 則傳回 true。 Contains 需要述詞函式中某個元素的參考做為 #item。
+如果提供之陣列中的任何元素在所提供的述詞中評估為 true，則傳回 true。 Contains 需要述詞函式中某個元素的參考做為 #item。
 
 ### <a name="examples"></a>範例
 ```

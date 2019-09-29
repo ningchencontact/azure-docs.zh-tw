@@ -1,31 +1,31 @@
 ---
-title: 使用讀取權限異地多餘儲存體 (RA-切換或 RA-GRS) 設計高可用性應用程式 |Microsoft Docs
+title: 使用讀取權限異地多餘儲存體（RA-切換或 RA-GRS）設計高可用性應用程式 |Microsoft Docs
 description: 如何使用 Azure 切換或 RA GRS 儲存體來架構具有足夠彈性的高可用性應用程式來處理中斷。
 services: storage
 author: tamram
 ms.service: storage
-ms.topic: article
+ms.topic: conceptual
 ms.date: 08/14/2019
 ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
-ms.openlocfilehash: 1a5d80d6cd31621f8c3931b1845050f0a212ef08
-ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
+ms.openlocfilehash: a6d724f834fb8a4c54cd613c61ca90a77a36bdea
+ms.sourcegitcommit: 2d9a9079dd0a701b4bbe7289e8126a167cfcb450
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69036615"
+ms.lasthandoff: 09/29/2019
+ms.locfileid: "71673120"
 ---
 # <a name="designing-highly-available-applications-using-read-access-geo-redundant-storage"></a>使用讀取權限異地多餘儲存體設計高可用性應用程式
 
-雲端式基礎結構 (例如 Azure 儲存體) 的常見功能是提供高可用性平台來裝載應用程式。 雲端式應用程式的開發人員必須仔細考慮如何運用此平台，來為使用者提供高可用性應用程式。 本文著重于開發人員如何使用 Azure 異地冗余複寫選項的其中一個, 以確保其 Azure 儲存體應用程式具有高可用性。
+雲端式基礎結構 (例如 Azure 儲存體) 的常見功能是提供高可用性平台來裝載應用程式。 雲端式應用程式的開發人員必須仔細考慮如何運用此平台，來為使用者提供高可用性應用程式。 本文著重于開發人員如何使用 Azure 異地冗余複寫選項的其中一個，以確保其 Azure 儲存體應用程式具有高可用性。
 
-針對異地複寫複寫所設定的儲存體帳戶會在主要區域中同步複寫, 然後以非同步方式複寫到數百英里外的次要區域。 Azure 儲存體提供兩種類型的異地冗余複寫:
+針對異地複寫複寫所設定的儲存體帳戶會在主要區域中同步複寫，然後以非同步方式複寫到數百英里外的次要區域。 Azure 儲存體提供兩種類型的異地冗余複寫：
 
-* [異地區域冗余儲存體 (切換) (預覽)](storage-redundancy-gzrs.md)會針對同時需要高可用性和最大持久性的案例提供複寫。 資料會在主要區域中的三個 Azure 可用性區域之間, 使用區域冗余儲存體 (ZRS) 同步複寫, 然後以非同步方式複寫到次要區域。 如需次要區域中資料的讀取權限, 請啟用讀取權限異地區域-多餘儲存體 (RA-切換)。
-* [異地冗余儲存體 (GRS)](storage-redundancy-grs.md)提供跨區域複寫, 以防止區域性中斷。 資料會在主要區域中使用本機多餘的儲存體 (LRS) 同步複寫三次, 然後以非同步方式複寫到次要區域。 如需次要區域中資料的讀取權限, 請啟用讀取權限異地多餘儲存體 (RA-GRS)。
+* [異地區域冗余儲存體（切換）（預覽）](storage-redundancy-gzrs.md)會針對同時需要高可用性和最大持久性的案例提供複寫。 資料會在主要區域中的三個 Azure 可用性區域之間，使用區域冗余儲存體（ZRS）同步複寫，然後以非同步方式複寫到次要區域。 如需次要區域中資料的讀取權限，請啟用讀取權限異地區域-多餘儲存體（RA-切換）。
+* [異地冗余儲存體（GRS）](storage-redundancy-grs.md)提供跨區域複寫，以防止區域性中斷。 資料會在主要區域中使用本機多餘的儲存體（LRS）同步複寫三次，然後以非同步方式複寫到次要區域。 如需次要區域中資料的讀取權限，請啟用讀取權限異地多餘儲存體（RA-GRS）。
 
-本文說明如何設計您的應用程式來處理主要區域中的中斷。 如果主要區域變得無法使用, 您的應用程式可以調整, 改為對次要地區執行讀取作業。 在開始之前, 請確定您的儲存體帳戶已設定為使用 GRS 或 RA-切換。
+本文說明如何設計您的應用程式來處理主要區域中的中斷。 如果主要區域變得無法使用，您的應用程式可以調整，改為對次要地區執行讀取作業。 在開始之前，請確定您的儲存體帳戶已設定為使用 GRS 或 RA-切換。
 
 如需主要區域與次要區域配對的相關資訊，請參閱[商務持續性和災害復原 (BCDR)：Azure 配對的區域](https://docs.microsoft.com/azure/best-practices-availability-paired-regions)。
 
@@ -35,7 +35,7 @@ ms.locfileid: "69036615"
 
 本文的目的是示範如何設計即使主要資料中心發生重大災害，仍能繼續運作 (儘管容量有限) 的應用程式。 您可以設計您的應用程式，藉由當從主要區域讀取發生干擾問題時從次要區域讀取，來處理暫時性或長時間執行的問題。 當主要區域再次可用時，您的應用程式可以回到從主要區域讀取。
 
-針對 GRS 或 RA 切換設計應用程式時, 請記住下列重點:
+針對 GRS 或 RA 切換設計應用程式時，請記住下列重點：
 
 * Azure 儲存體會維護您在主要區域、次要區域中儲存之資料的唯讀副本。 如先前所述，儲存體服務會決定次要區域的位置。
 
@@ -43,18 +43,18 @@ ms.locfileid: "69036615"
 
 * 針對 Blob、資料表和佇列，您可以查詢次要區域來取得 [上次同步處理時間] 值，讓您知道上次從主要區域複寫到次要區域是在何時發生 (Azure 檔案服務不支援此動作，它目前沒有 RA-GRS 備援)。
 
-* 您可以使用儲存體用戶端程式庫, 在主要或次要區域中讀取和寫入資料。 如果對主要區域的讀取要求逾時，您也可以將讀取要求自動重新導向到次要區域。
+* 您可以使用儲存體用戶端程式庫，在主要或次要區域中讀取和寫入資料。 如果對主要區域的讀取要求逾時，您也可以將讀取要求自動重新導向到次要區域。
 
 * 如果主要區域無法使用，您可以進行帳戶容錯移轉。 您容錯移轉到次要區域時，指向主要區域的 DNS 項目會變更為指向次要區域。 完成容錯移轉之後，會還原 GRS 和 RA-GRS 帳戶的寫入權限。 如需詳細資訊，請參閱 [Azure 儲存體中的災害復原和儲存體帳戶容錯移轉 (預覽)](storage-disaster-recovery-guidance.md)。
 
 > [!NOTE]
-> 客戶管理的帳戶容錯移轉 (預覽) 尚無法在支援切換/RA-切換的區域中使用, 因此客戶目前無法使用切換和 RA 切換帳戶來管理帳戶容錯移轉事件。 在預覽期間, Microsoft 將會管理影響切換/RA-切換帳戶的任何容錯移轉事件。
+> 客戶管理的帳戶容錯移轉（預覽）尚無法在支援切換/RA-切換的區域中使用，因此客戶目前無法使用切換和 RA 切換帳戶來管理帳戶容錯移轉事件。 在預覽期間，Microsoft 將會管理影響切換/RA-切換帳戶的任何容錯移轉事件。
 
 ### <a name="using-eventually-consistent-data"></a>使用最終一致的資料
 
 這個建議的解決方案假設可以接受將可能過時的資料傳回呼叫的應用程式。 由於次要區域中的資料最終會一致，因此在次要區域的更新完成複寫之前，主要區域可能會無法存取。
 
-例如，假設您的客戶成功提交更新，但是在更新傳播到次要區域之前主要區域會失敗。 當客戶要求讀取資料時, 會從次要地區接收過時資料, 而不是從更新的資料。 設計您的應用程式時，您必須決定是否可接受此情況，如果可以，您該如何傳達給客戶。 
+例如，假設您的客戶成功提交更新，但是在更新傳播到次要區域之前主要區域會失敗。 當客戶要求讀取資料時，會從次要地區接收過時資料，而不是從更新的資料。 設計您的應用程式時，您必須決定是否可接受此情況，如果可以，您該如何傳達給客戶。 
 
 在本文後續內容中，我們會看到如何檢查次要資料的上次同步處理時間，以查看該次要資料是否為最新狀態。
 
@@ -78,7 +78,7 @@ ms.locfileid: "69036615"
 
 ## <a name="running-your-application-in-read-only-mode"></a>在唯讀模式中執行您的應用程式
 
-若要有效地準備主要區域中的中斷, 您必須能夠同時處理失敗的讀取要求和失敗的更新要求 (在此案例中, 這表示插入、更新和刪除)。 如果主要區域失敗, 可將讀取要求重新導向至次要區域。 不過，因為次要資料中心是唯讀的，所以無法將更新要求重新導向到次要資料中心。 基於這個理由，您必須設計您的應用程式在唯讀模式中執行。
+若要有效地準備主要區域中的中斷，您必須能夠同時處理失敗的讀取要求和失敗的更新要求（在此案例中，這表示插入、更新和刪除）。 如果主要區域失敗，可將讀取要求重新導向至次要區域。 不過，因為次要資料中心是唯讀的，所以無法將更新要求重新導向到次要資料中心。 基於這個理由，您必須設計您的應用程式在唯讀模式中執行。
 
 例如，您可以設定旗標，在將任何更新要求提交到 Azure 儲存體之前先加以檢查。 當其中一個更新要求傳入時，您可以略過它，並將適當的回應傳回給客戶。 您甚至可以在問題解決之前完全停用某些功能，並通知使用者，這些功能暫時無法使用。
 
@@ -98,11 +98,11 @@ ms.locfileid: "69036615"
 
 ## <a name="handling-retries"></a>處理重試
 
-Azure 儲存體用戶端程式庫可協助您判斷哪些錯誤可以重試。 例如, 可能會重試404錯誤 (找不到資源), 因為重試不可能會導致成功。 另一方面, 因為發生伺服器錯誤, 所以無法重試500錯誤, 而且可能只是暫時性的問題。 如需詳細資訊，請參閱 .NET 儲存體用戶端程式庫中的 [ExponentialRetry 類別的開放原始程式碼 (英文)](https://github.com/Azure/azure-storage-net/blob/87b84b3d5ee884c7adc10e494e2c7060956515d0/Lib/Common/RetryPolicies/ExponentialRetry.cs) (尋找 ShouldRetry 方法)。
+Azure 儲存體用戶端程式庫可協助您判斷哪些錯誤可以重試。 例如，可能會重試404錯誤（找不到資源），因為重試不可能會導致成功。 另一方面，因為發生伺服器錯誤，所以無法重試500錯誤，而且可能只是暫時性的問題。 如需詳細資訊，請參閱 .NET 儲存體用戶端程式庫中的 [ExponentialRetry 類別的開放原始程式碼 (英文)](https://github.com/Azure/azure-storage-net/blob/87b84b3d5ee884c7adc10e494e2c7060956515d0/Lib/Common/RetryPolicies/ExponentialRetry.cs) (尋找 ShouldRetry 方法)。
 
 ### <a name="read-requests"></a>讀取要求
 
-如果主要儲存體發生問題，就可以將讀取要求重新導向到次要儲存體。 如前面[最終使用一致的資料](#using-eventually-consistent-data)中所述，您的應用程式必須可以接受可能讀取到過時的資料。 如果您使用儲存體用戶端程式庫來存取次要資料庫的資料, 您可以將**LocationMode**屬性的值設為下列其中一項, 以指定讀取要求的重試行為:
+如果主要儲存體發生問題，就可以將讀取要求重新導向到次要儲存體。 如前面[最終使用一致的資料](#using-eventually-consistent-data)中所述，您的應用程式必須可以接受可能讀取到過時的資料。 如果您使用儲存體用戶端程式庫來存取次要資料庫的資料，您可以將**LocationMode**屬性的值設為下列其中一項，以指定讀取要求的重試行為：
 
 * **PrimaryOnly** (預設值)
 
@@ -112,7 +112,7 @@ Azure 儲存體用戶端程式庫可協助您判斷哪些錯誤可以重試。 �
 
 * **SecondaryThenPrimary**
 
-當您將**LocationMode**設定為**PrimaryThenSecondary**時, 如果主要端點的初始讀取要求失敗, 併發生可重試的錯誤, 則用戶端會自動對次要端點進行另一個讀取要求。 如果錯誤是伺服器逾時，則用戶端在接收到服務所提供的可重試錯誤之前，必須等候逾時到期。
+當您將**LocationMode**設定為**PrimaryThenSecondary**時，如果主要端點的初始讀取要求失敗，併發生可重試的錯誤，則用戶端會自動對次要端點進行另一個讀取要求。 如果錯誤是伺服器逾時，則用戶端在接收到服務所提供的可重試錯誤之前，必須等候逾時到期。
 
 當您決定如何回應可重試的錯誤時，基本上有兩種情況需要考量：
 
@@ -197,7 +197,7 @@ Azure 儲存體用戶端程式庫可協助您判斷哪些錯誤可以重試。 �
 
 異地冗余儲存體的運作方式是將交易從主要區域複寫到次要地區。 此複寫程序可保證次要區域中的資料是*最終一致*的。 這表示，主要區域中的所有交易最終都會出現在次要區域中，但有可能會延遲出現，而且不保證交易會以原本在主要區域中套用它們的相同順序到達次要區域。 如果您的交易不按順序到達次要區域，則您可能要考慮讓次要區域中的資料處於不一致狀態，直到服務更新為止。
 
-下表顯示當您更新員工的詳細資料, 使其成為系統*管理員*角色的成員時, 可能會發生的情況。 基於此範例，這會要求您更新**員工**實體，並利用系統管理員總數的計數來更新**系統管理員角色**實體。 請注意，如何在次要區域中不按順序套用更新。
+下表顯示當您更新員工的詳細資料，使其成為系統*管理員*角色的成員時，可能會發生的情況。 基於此範例，這會要求您更新**員工**實體，並利用系統管理員總數的計數來更新**系統管理員角色**實體。 請注意，如何在次要區域中不按順序套用更新。
 
 | **時間** | **交易**                                            | **複寫**                       | **上次同步處理時間** | **結果** |
 |----------|------------------------------------------------------------|---------------------------------------|--------------------|------------| 
@@ -215,17 +215,17 @@ Azure 儲存體用戶端程式庫可協助您判斷哪些錯誤可以重試。 �
 
 ## <a name="getting-the-last-sync-time"></a>取得上次同步處理時間
 
-您可以使用 PowerShell 或 Azure CLI 來抓取上次同步處理時間, 以判斷資料上次何時寫入次要複本。
+您可以使用 PowerShell 或 Azure CLI 來抓取上次同步處理時間，以判斷資料上次何時寫入次要複本。
 
 ### <a name="powershell"></a>PowerShell
 
-若要使用 PowerShell 取得儲存體帳戶的上次同步處理時間, 請安裝支援取得異地複寫統計資料的 Azure 儲存體預覽模組。例如:
+若要使用 PowerShell 取得儲存體帳戶的上次同步處理時間，請安裝支援取得異地複寫統計資料的 Azure 儲存體預覽模組。例如:
 
 ```powershell
 Install-Module Az.Storage –Repository PSGallery -RequiredVersion 1.1.1-preview –AllowPrerelease –AllowClobber –Force
 ```
 
-然後檢查儲存體帳戶的**GeoReplicationStats. LastSyncTime**屬性。 請記得使用您自己的值來取代預留位置值:
+然後檢查儲存體帳戶的**GeoReplicationStats. LastSyncTime**屬性。 請記得使用您自己的值來取代預留位置值：
 
 ```powershell
 $lastSyncTime = $(Get-AzStorageAccount -ResourceGroupName <resource-group> `
@@ -235,7 +235,7 @@ $lastSyncTime = $(Get-AzStorageAccount -ResourceGroupName <resource-group> `
 
 ### <a name="azure-cli"></a>Azure CLI
 
-若要使用 Azure CLI 來取得儲存體帳戶的上次同步處理時間, 請檢查儲存體帳戶的**geoReplicationStats. lastSyncTime**屬性。 使用參數來傳回在 geoReplicationStats 底下所嵌套屬性的值。 `--expand` 請記得使用您自己的值來取代預留位置值:
+若要使用 Azure CLI 來取得儲存體帳戶的上次同步處理時間，請檢查儲存體帳戶的**geoReplicationStats. lastSyncTime**屬性。 您可以使用 `--expand` 參數來傳回**geoReplicationStats**下所嵌套屬性的值。 請記得使用您自己的值來取代預留位置值：
 
 ```azurecli
 $lastSyncTime=$(az storage account show \
@@ -268,6 +268,6 @@ static function OnBeforeResponse(oSession: Session) {
 
 ## <a name="next-steps"></a>後續步驟
 
-* 如需如何從次要區域讀取的詳細資訊, 包括如何設定 [上次同步時間] 屬性的另一個範例, 請參閱[Azure 儲存體冗余選項和讀取權限異地多餘儲存體](https://blogs.msdn.microsoft.com/windowsazurestorage/2013/12/11/windows-azure-storage-redundancy-options-and-read-access-geo-redundant-storage/)。
+* 如需如何從次要區域讀取的詳細資訊，包括如何設定 [上次同步時間] 屬性的另一個範例，請參閱[Azure 儲存體冗余選項和讀取權限異地多餘儲存體](https://blogs.msdn.microsoft.com/windowsazurestorage/2013/12/11/windows-azure-storage-redundancy-options-and-read-access-geo-redundant-storage/)。
 
-* 如需示範如何在主要和次要端點之間來回切換的完整範例, 請參閱[Azure 範例–搭配使用斷路器模式與 GRS 儲存體](https://github.com/Azure-Samples/storage-dotnet-circuit-breaker-pattern-ha-apps-using-ra-grs)。
+* 如需示範如何在主要和次要端點之間來回切換的完整範例，請參閱[Azure 範例–搭配使用斷路器模式與 GRS 儲存體](https://github.com/Azure-Samples/storage-dotnet-circuit-breaker-pattern-ha-apps-using-ra-grs)。

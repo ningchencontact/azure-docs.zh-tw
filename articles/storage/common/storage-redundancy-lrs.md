@@ -4,17 +4,17 @@ description: 新的 Azure 儲存體帳戶預設會使用本地備援儲存體 (L
 services: storage
 author: tamram
 ms.service: storage
-ms.topic: article
+ms.topic: conceptual
 ms.date: 09/23/2019
 ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
-ms.openlocfilehash: b859751b84d75e347fc245ea1e96b94774cdfd6e
-ms.sourcegitcommit: 3fa4384af35c64f6674f40e0d4128e1274083487
+ms.openlocfilehash: cbfe6e1c5bf3534444ae369a71c0337fd4894488
+ms.sourcegitcommit: 2d9a9079dd0a701b4bbe7289e8126a167cfcb450
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71219712"
+ms.lasthandoff: 09/29/2019
+ms.locfileid: "71670820"
 ---
 # <a name="locally-redundant-storage-lrs-low-cost-data-redundancy-for-azure-storage"></a>本地備援儲存體 (LRS)：適用於 Azure 儲存體的低成本資料備援
 

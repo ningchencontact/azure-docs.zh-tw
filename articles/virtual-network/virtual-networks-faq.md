@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/12/2019
 ms.author: kumud
-ms.openlocfilehash: 836a9fd0b441ff9669c224dc41537e3c177d7dde
-ms.sourcegitcommit: 88ae4396fec7ea56011f896a7c7c79af867c90a1
+ms.openlocfilehash: a6ba401d9d10e900fef5e2d296e74a07f84162cd
+ms.sourcegitcommit: 2d9a9079dd0a701b4bbe7289e8126a167cfcb450
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70389695"
+ms.lasthandoff: 09/29/2019
+ms.locfileid: "71670759"
 ---
 # <a name="azure-virtual-network-frequently-asked-questions-faq"></a>Azure 虛擬網路的常見問題 (FAQ)
 
@@ -200,9 +200,9 @@ VNet 中的前 100 個雲端服務具有使用 Azure 所提供 DNS 進行跨租�
 ### <a name="is-there-a-complete-list-of-azure-services-that-can-i-deploy-resources-from-into-a-vnet"></a>是否有可以從中將資源部署至 VNet 的完整 Azure 服務清單？
 是，如需詳細資訊，請參閱 [Azure 服務的虛擬網路整合](virtual-network-for-azure-services.md)。
 
-### <a name="which-azure-paas-resources-can-i-restrict-access-to-from-a-vnet"></a>我可以從 VNet 限制哪些 Azure PaaS 資源的存取？
+### <a name="how-can-i-restrict-access-to-azure-paas-resources-from-a-vnet"></a>如何限制從 VNet 存取 Azure PaaS 資源？
 
-透過部分 Azure PaaS 服務 (例如 Azure 儲存體和 Azure SQL Database) 所部署的資源，可以將網路存取權限制為只能透過使用虛擬網路服務端點存取 VNet 中的資源。 如需詳細資訊，請參閱[虛擬網路服務端點概觀](virtual-network-service-endpoints-overview.md)。
+透過某些 Azure PaaS 服務（例如 Azure 儲存體和 Azure SQL Database）部署的資源，可以透過使用虛擬網路服務端點或 Azure 私人連結來限制對 VNet 的網路存取。 如需詳細資訊，請參閱[虛擬網路服務端點總覽](virtual-network-service-endpoints-overview.md)、 [Azure 私用連結總覽](../private-link/private-link-overview.md)
 
 ### <a name="can-i-move-my-services-in-and-out-of-vnets"></a>我可以將服務移入和移出 VNet 嗎？
 資料分割 您無法將服務移入和移出 VNet。 若要將資源移至另一個 VNet，您必須刪除並重新部署資源。

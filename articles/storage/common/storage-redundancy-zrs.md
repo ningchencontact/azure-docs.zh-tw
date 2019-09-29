@@ -4,17 +4,17 @@ description: 區域備援儲存體 (ZRS) 提供一個建置高可用性應用程
 services: storage
 author: tamram
 ms.service: storage
-ms.topic: article
+ms.topic: conceptual
 ms.date: 06/28/2019
 ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
-ms.openlocfilehash: f7639eb2807654aab38a4e849c2e58d77f15bc31
-ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
+ms.openlocfilehash: a343601ec126549926cfd4035d901862c0a585a8
+ms.sourcegitcommit: 2d9a9079dd0a701b4bbe7289e8126a167cfcb450
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71036258"
+ms.lasthandoff: 09/29/2019
+ms.locfileid: "71673100"
 ---
 # <a name="zone-redundant-storage-zrs-for-building-highly-available-azure-storage-applications"></a>用來建立高可用性 Azure 儲存體應用程式的區域冗余儲存體（ZRS）
 
@@ -72,16 +72,16 @@ Microsoft 會持續在其他 Azure 區域啟用 ZRS。 如需新區域的詳細�
 > [!IMPORTANT]
 > Premium 檔案共用目前不支援即時移轉。 目前僅支援手動複製或移動資料。
 
-如果您需要依特定日期完成遷移，請考慮執行手動遷移。 手動移轉比即時移轉更具彈性。 使用手動移轉時，您可以控制時間。
+如果您需要在特定日期前完成移轉，請考慮執行手動移轉。 手動移轉比即時移轉更具彈性。 使用手動移轉時，您可以控制時間。
 
 若要執行手動移轉，您有下列選項：
 - 使用現有的工具，例如 AzCopy、其中一個「Azure 儲存體」用戶端程式庫或可靠的第三方工具。
 - 如果您熟悉 Hadoop 或 HDInsight，請將來源和目的地 (ZRS) 帳戶都連結至叢集。 然後，使用 DistCp 之類的工具來平行處理資料複製程序。
 - 使用其中一個「Azure 儲存體」用戶端程式庫來建置您自己的工具。
 
-手動移轉可能造成應用程式停機。 如果您的應用程式要求高可用性，Microsoft 也提供即時移轉選項。 即時移轉是不需停機的就地遷移。 
+手動移轉可能造成應用程式停機。 如果您的應用程式要求高可用性，Microsoft 也提供即時移轉選項。 即時移轉是一種不需停機的就地移轉。 
 
-在即時移轉期間，您可以在資料於來源與目的地儲存體戳記之間移轉的同時，使用您的儲存體帳戶。 在遷移過程中，您所擁有的持久性和可用性 SLA 層級與平常一樣。
+在即時移轉期間，您可以在資料於來源與目的地儲存體戳記之間移轉的同時，使用您的儲存體帳戶。 在移轉過程中，持久性與可用性 SLA 等級會與往常相同。
 
 請記住下列即時移轉限制：
 
@@ -114,11 +114,11 @@ Microsoft 會持續在其他 Azure 區域啟用 ZRS。 如需新區域的詳細�
 
 **是否應該在遷移期間規劃任何停機時間？**
 
-遷移不會造成任何停機時間。 在即時移轉期間，您可以在資料于來源與目的地儲存體戳記之間遷移時，繼續使用您的儲存體帳戶。 在遷移過程中，您所擁有的持久性和可用性 SLA 層級與平常一樣。
+遷移不會造成任何停機時間。 在即時移轉期間，您可以在資料于來源與目的地儲存體戳記之間遷移時，繼續使用您的儲存體帳戶。 在移轉過程中，持久性與可用性 SLA 等級會與往常相同。
 
 **是否有任何與遷移相關聯的資料遺失？**
 
-不會遺失與遷移相關聯的資料。 在遷移過程中，您所擁有的持久性和可用性 SLA 層級與平常一樣。
+不會遺失與遷移相關聯的資料。 在移轉過程中，持久性與可用性 SLA 等級會與往常相同。
 
 **一旦遷移完成，應用程式需要任何更新嗎？**
 
