@@ -11,14 +11,17 @@ ms.author: marthalc
 author: marthalc
 ms.date: 07/15/2019
 ms.custom: seodec18
-ms.openlocfilehash: d836b600a39b73f60c0847c5a9642f396fb70d17
-ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
+ms.openlocfilehash: 3c747f25b92d9f165bfeb4468a0e263f102976f9
+ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/15/2019
-ms.locfileid: "71002849"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71350565"
 ---
 # <a name="collect-data-for-models-in-production"></a>在生產環境中收集模型資料
+
+>[!IMPORTANT]
+> 此 SDK 即將淘汰，並以 Application Insights 簡化的[資料監視](https://docs.microsoft.com/azure/machine-learning/service/how-to-enable-app-insights)來取代。 
 
 在本文中，您可以瞭解如何從已部署至 Azure Kubernetes Cluster （AKS）的 Azure Machine Learning，將輸入模型資料收集到 Azure Blob 儲存體中。 
 
@@ -50,7 +53,7 @@ Blob 中輸出資料的路徑遵循此語法：
 
 ## <a name="prerequisites"></a>必要條件
 
-- 如果您沒有 Azure 訂用帳戶，請在開始前先建立一個免費帳戶。 立即試用[免費或付費版本的 Azure Machine Learning](https://aka.ms/AMLFree) 。
+- 如果您沒有 Azure 訂用帳戶，請在開始前先建立一個免費帳戶。 立即試用[免費或付費版本的 Azure Machine Learning](https://aka.ms/AMLFree)。
 
 - 已安裝 Azure Machine Learning 工作區、包含您指令碼的本機目錄，以及適用於 Python 的 Azure Machine Learning SDK。 了解如何使用[如何設定開發環境](how-to-configure-environment.md)文件來取得這些必要條件。
 
