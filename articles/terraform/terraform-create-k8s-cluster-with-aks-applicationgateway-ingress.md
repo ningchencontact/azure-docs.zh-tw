@@ -8,13 +8,13 @@ author: tomarcher
 manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
-ms.date: 1/10/2019
-ms.openlocfilehash: 477b2ec1af4c52f51c3ab20ac2ddf7ef043dfcc7
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.date: 09/20/2019
+ms.openlocfilehash: 0373b254a900fd34232bb6863c93802fa7b51aab
+ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57994357"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71169960"
 ---
 # <a name="create-a-kubernetes-cluster-with-application-gateway-ingress-controller-using-azure-kubernetes-service-and-terraform"></a>使用 Azure Kubernetes Service 和 Terraform 建立 Kubernetes 叢集並以應用程式閘道作為輸入控制器
 [Azure Kubernetes Service (AKS)](/azure/aks/) 會管理裝載的 Kubernetes 環境。 AKS 可快速且輕鬆地部署和管理容器化的應用程式，而不需要容器協調流程專業知識。 也可透過佈建、升級與依需求調整資源，以無需讓應用程式離線的方式來消除進行中作業及維護之間的界線。
@@ -38,7 +38,7 @@ ms.locfileid: "57994357"
 - **Azure 服務主體**：請遵循[使用 Azure CLI 建立 Azure 服務主體](/cli/azure/create-an-azure-service-principal-azure-cli?view=azure-cli-latest)一文中**建立服務主體**一節的指示。 記下 appId、displayName 和密碼的值。
   - 請執行下列命令，以記下服務主體的物件識別碼
 
-    ```bash
+    ```azurecli
     az ad sp list --display-name <displayName>
     ```
 
@@ -82,7 +82,7 @@ ms.locfileid: "57994357"
 
 1. 將下列程式碼貼到編輯器中：
 
-    ```JSON
+    ```hcl
     provider "azurerm" {
         version = "~>1.18"
     }
@@ -99,17 +99,21 @@ ms.locfileid: "57994357"
     ```bash
     :wq
     ```
-   ## <a name="define-input-variables"></a>定義輸入變數
-   建立可列出此部署所需所有變數的 Terraform 組態檔
-1. 在 Cloud Shell 中建立名稱為 `variables.tf` 的檔案
+
+## <a name="define-input-variables"></a>定義輸入變數
+建立可列出此部署所需所有變數的 Terraform 組態檔。
+
+1. 在 Cloud Shell 中建立名稱為 `variables.tf` 的檔案。
+
     ```bash
     vi variables.tf
     ```
+
 1. 選取 I 鍵輸入插入模式。
 
-2. 將下列程式碼貼到編輯器中：
+1. 將下列程式碼貼到編輯器中：
     
-    ```JSON
+    ```hcl
     variable "resource_group_name" {
       description = "Name of the resource group already created."
     }
@@ -254,9 +258,9 @@ ms.locfileid: "57994357"
 
 1. 將下列程式碼區塊貼到編輯器中：
 
-    a. 建立要重複使用之計算變數的區域變數區塊
+    a. 建立要重複使用之計算變數的區域變數區塊。
 
-    ```JSON
+    ```hcl
     # # Locals block for hardcoded names. 
     locals {
         backend_address_pool_name      = "${azurerm_virtual_network.test.name}-beap"
@@ -268,8 +272,10 @@ ms.locfileid: "57994357"
         app_gateway_subnet_name = "appgwsubnet"
     }
     ```
-    b. 建立資源群組、新使用者身分識別的資料來源
-    ```JSON
+
+    b. 建立資源群組、新使用者身分識別的資料來源。
+
+    ```hcl
     data "azurerm_resource_group" "rg" {
       name = "${var.resource_group_name}"
     }
@@ -284,8 +290,10 @@ ms.locfileid: "57994357"
       tags = "${var.tags}"
     }
     ```
-    c. 建立基礎網路資源
-   ```JSON
+
+    c. 建立基礎網路資源。
+
+    ```hcl
     resource "azurerm_virtual_network" "test" {
       name                = "${var.virtual_network_name}"
       location            = "${data.azurerm_resource_group.rg.location}"
@@ -328,8 +336,10 @@ ms.locfileid: "57994357"
       tags = "${var.tags}"
     }
     ```
-    d. 建立應用程式閘道資源
-    ```JSON
+
+    d. 建立應用程式閘道資源。
+
+    ```hcl
     resource "azurerm_application_gateway" "network" {
       name                = "${var.app_gateway_name}"
       resource_group_name = "${data.azurerm_resource_group.rg.name}"
@@ -393,8 +403,10 @@ ms.locfileid: "57994357"
       depends_on = ["azurerm_virtual_network.test", "azurerm_public_ip.test"]
     }
     ```
-    e. 建立角色指派
-    ```JSON
+
+    e. 建立角色指派。
+
+    ```hcl
     resource "azurerm_role_assignment" "ra1" {
       scope                = "${data.azurerm_subnet.kubesubnet.id}"
       role_definition_name = "Network Contributor"
@@ -424,8 +436,10 @@ ms.locfileid: "57994357"
       depends_on           = ["azurerm_user_assigned_identity.testIdentity", "azurerm_application_gateway.network"]
     }
     ```
-    f. 建立 Kubernetes 叢集
-    ```JSON
+
+    f. 建立 Kubernetes 叢集。
+
+    ```hcl
     resource "azurerm_kubernetes_cluster" "k8s" {
       name       = "${var.aks_name}"
       location   = "${data.azurerm_resource_group.rg.location}"
@@ -502,7 +516,7 @@ ms.locfileid: "57994357"
 
 1. 將下列程式碼貼到編輯器中：
 
-    ```JSON
+    ```hcl
     output "client_key" {
         value = "${azurerm_kubernetes_cluster.k8s.kube_config.0.client_key}"
     }
@@ -543,13 +557,13 @@ ms.locfileid: "57994357"
 ## <a name="set-up-azure-storage-to-store-terraform-state"></a>設定 Azure 儲存體以儲存 Terraform 狀態
 Terraform 可透過 `terraform.tfstate` 檔案在本機追蹤狀態。 此模式在單一人員環境中運作良好。 不過，在更常見的多人環境中，您必須追蹤使用 [Azure 儲存體](/azure/storage/)的伺服器的狀態。 在本節中，您可擷取必要的儲存體帳戶資訊 (帳戶名稱和帳戶金鑰)，以及建立儲存體容器，而系統會將 Terraform 狀態資訊儲存在該容器中。
 
-1. 在 Azure 入口網站中，選取左側功能表中的 [所有服務]。
+1. 在 Azure 入口網站中，選取左側功能表中的 [所有服務]  。
 
-1. 選取 [儲存體帳戶]。
+1. 選取 [儲存體帳戶]  。
 
-1. 在 [儲存體帳戶] 索引標籤中，選取要讓 Terraform 儲存狀態的帳戶名稱。 例如，您可以使用第一次開啟 Cloud Shell 時建立的儲存體帳戶。  Cloud Shell 建立的儲存體帳戶名稱通常會以 `cs` 開頭，其後加上由數字和字母組成的隨機字串。 **請記下您所選儲存體帳戶的名稱，我們稍後需要用到。**
+1. 在 [儲存體帳戶]  索引標籤中，選取要讓 Terraform 儲存狀態的帳戶名稱。 例如，您可以使用第一次開啟 Cloud Shell 時建立的儲存體帳戶。  Cloud Shell 建立的儲存體帳戶名稱通常會以 `cs` 開頭，其後加上由數字和字母組成的隨機字串。 **請記下您所選儲存體帳戶的名稱，我們稍後需要用到。**
 
-1. 在 [儲存體帳戶] 索引標籤中，選取 [存取金鑰]。
+1. 在 [儲存體帳戶] 索引標籤中，選取 [存取金鑰]  。
 
     ![[儲存體帳戶] 功能表](./media/terraform-k8s-cluster-appgw-with-tf-aks/storage-account.png)
 
@@ -559,7 +573,7 @@ Terraform 可透過 `terraform.tfstate` 檔案在本機追蹤狀態。 此模式
 
 1. 在 Cloud Shell 中，為您的 Azure 儲存體帳戶建立容器 (使用適用於 Azure 儲存體帳戶的適當值，取代 &lt;YourAzureStorageAccountName> 和 &lt;YourAzureStorageAccountAccessKey> 預留位置中的值)。
 
-    ```bash
+    ```azurecli
     az storage container create -n tfstate --account-name <YourAzureStorageAccountName> --account-key <YourAzureStorageAccountKey>
     ```
 
@@ -586,7 +600,7 @@ Terraform 可透過 `terraform.tfstate` 檔案在本機追蹤狀態。 此模式
 
 1. 將稍早建立的下列變數貼到編輯器中：
 
-    ```JSON
+    ```hcl
       resource_group_name = <Name of the Resource Group already created>
 
       location = <Location of the Resource Group>
@@ -627,7 +641,7 @@ Terraform 可透過 `terraform.tfstate` 檔案在本機追蹤狀態。 此模式
 
     ![「terraform 套用」結果範例](./media/terraform-k8s-cluster-appgw-with-tf-aks/terraform-apply-complete.png)
 
-1. 在 Azure 入口網站中，選取左側功能表中的 [資源群組] 以查看在選取的資源群組中，針對新 Kubernetese 叢集建立的資源。
+1. 在 Azure 入口網站中，選取左側功能表中的 [資源群組]  以查看在選取的資源群組中，針對新 Kubernetese 叢集建立的資源。
 
     ![Cloud Shell 提示](./media/terraform-k8s-cluster-appgw-with-tf-aks/k8s-resources-created.png)
 
@@ -669,7 +683,7 @@ Kubernetes 工具可用來驗證新建立的叢集。
     kubectl get nodes
     ```
 
-    您可查看背景工作角色節點的詳細資料，這些節點應該都處於 [就緒] 狀態，如下圖所示：
+    您可查看背景工作角色節點的詳細資料，這些節點應該都處於 [就緒]  狀態，如下圖所示：
 
     ![kubectl 工具可讓您驗證 Kubernetes 叢集的健康情況](./media/terraform-k8s-cluster-appgw-with-tf-aks/kubectl-get-nodes.png)
 

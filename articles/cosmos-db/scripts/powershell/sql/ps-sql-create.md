@@ -3,15 +3,16 @@ title: Azure PowerShell 指令碼 - Azure Cosmos DB 建立 SQL (Core) API 資料
 description: Azure PowerShell 指令碼 - Azure Cosmos DB 建立 SQL (Core) API 資料庫和容器
 author: markjbrown
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: sample
-ms.date: 05/18/2019
+ms.date: 09/20/2019
 ms.author: mjbrown
-ms.openlocfilehash: b8b8b30f178ba068bc800103f16adde43cf5dcb1
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.openlocfilehash: eee1e31808412dc5e4308dee92f3685507e771f3
+ms.sourcegitcommit: 83df2aed7cafb493b36d93b1699d24f36c1daa45
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67602207"
+ms.lasthandoff: 09/22/2019
+ms.locfileid: "71178802"
 ---
 # <a name="create-a-database-and-container-for-azure-cosmos-db---sql-core-api"></a>建立 Azure Cosmos DB 資料庫和容器 - SQL (Core) API
 
@@ -21,7 +22,9 @@ ms.locfileid: "67602207"
 
 ## <a name="sample-script"></a>範例指令碼
 
-[!code-powershell[main](../../../../../powershell_scripts/cosmosdb/sql/ps-sql-create.ps1 "Create a database and container for SQL (Core) API")]
+此指令碼會在工作階段層級一致的兩個區域中建立適用於 SQL (核心) API 的 Cosmos 帳戶、建立輸送量共用的資料庫，以及建立容器，該容器具有分割區索引鍵、自訂索引編製原則、唯一金鑰原則、TTL、專用輸送量，以及具有自訂衝突解決路徑的「最後寫入者為準」衝突解決原則，以便在 `multipleWriteLocations=true` 時使用。
+
+[!code-powershell[main](../../../../../powershell_scripts/cosmosdb/sql/ps-sql-create.ps1 "Create an account, database, and container for SQL (Core) API")]
 
 ## <a name="clean-up-deployment"></a>清除部署
 

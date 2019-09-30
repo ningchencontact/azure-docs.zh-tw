@@ -3,9 +3,9 @@ title: 將通知傳送至特定裝置 (通用 Windows 平台) | Microsoft Docs
 description: 使用 Azure 通知中樞搭配註冊中的標籤，將即時新聞傳送至通用 Windows 平台應用程式。
 services: notification-hubs
 documentationcenter: windows
-author: jwargo
-manager: patniko
-editor: spelluru
+author: sethmanheim
+manager: femila
+editor: jwargo
 ms.assetid: 994d2eed-f62e-433c-bf65-4afebf1c0561
 ms.service: notification-hubs
 ms.workload: mobile
@@ -14,13 +14,15 @@ ms.devlang: dotnet
 ms.topic: tutorial
 ms.custom: mvc
 ms.date: 03/22/2019
-ms.author: jowargo
-ms.openlocfilehash: 9cfe5f490ef4063e02d9407f23130c1a216961ed
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.author: sethm
+ms.reviewer: jowargo
+ms.lastreviewed: 03/22/2019
+ms.openlocfilehash: efe668e42e04942cc0d9fc99670057ab5bdd302a
+ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58402451"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71212135"
 ---
 # <a name="tutorial-push-notifications-to-specific-windows-devices-running-universal-windows-platform-applications"></a>教學課程：將通知推送至執行通用 Windows 平台應用程式的特定 Windows 裝置
 
@@ -47,7 +49,7 @@ ms.locfileid: "58402451"
 
 ## <a name="prerequisites"></a>必要條件
 
-在開始進行本教學課程之前，請先完成[教學課程：使用 Azure 通知中樞將通知傳送至通用 Windows 平台應用程式][get-started]。  
+完成[教學課程：使用 Azure 通知中樞將通知傳送至通用 Windows 平台應用程式][get-started]，再開始此教學課程。  
 
 ## <a name="add-category-selection-to-the-app"></a>在應用程式中新增類別選項
 
@@ -79,7 +81,7 @@ ms.locfileid: "58402451"
     </Grid>
     ```
 
-2. 在 [方案總管] 中，以滑鼠右鍵按一下專案，以新增類別：[通知]。 將 **public** 修飾詞新增至類別定義，然後在新的程式碼檔案中新增下列 `using` 陳述式：
+2. 在 [方案總管]  中，以滑鼠右鍵按一下專案，以新增類別：[通知]  。 將 **public** 修飾詞新增至類別定義，然後在新的程式碼檔案中新增下列 `using` 陳述式：
 
     ```csharp
     using Windows.Networking.PushNotifications;
@@ -227,7 +229,7 @@ ms.locfileid: "58402451"
 
     ![即時新聞應用程式](./media/notification-hubs-windows-store-dotnet-send-breaking-news/notification-hub-breakingnews-win1.png)
 
-2. 啟用一或多個類別切換，然後按一下 [訂閱]。
+2. 啟用一或多個類別切換，然後按一下 [訂閱]  。
 
     應用程式會將選取的類別轉換成標籤，並在通知中心內為選取的標籤要求新裝置註冊。 系統會傳回已註冊類別並顯示在對話方塊中。
 

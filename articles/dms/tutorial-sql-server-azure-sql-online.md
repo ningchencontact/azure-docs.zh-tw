@@ -10,19 +10,19 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: article
-ms.date: 07/09/2019
-ms.openlocfilehash: e5666a64e4160964e2c1b35707a0f064edb72460
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.date: 09/22/2019
+ms.openlocfilehash: 619c36257f9166492e98d88335d767f358e3feca
+ms.sourcegitcommit: 83df2aed7cafb493b36d93b1699d24f36c1daa45
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67706894"
+ms.lasthandoff: 09/22/2019
+ms.locfileid: "71179117"
 ---
 # <a name="tutorial-migrate-sql-server-to-a-single-database-or-pooled-database-in-azure-sql-database-online-using-dms"></a>教學課程：使用 DMS 在線上從 SQL Server 遷移至 Azure SQL Database 中的單一資料庫或集區資料庫
 
 您可以使用 Azure 資料庫移轉服務，在最短的停止運作時間內將資料庫從內部部署 SQL Server 執行個體移轉至 [Azure SQL Database](https://docs.microsoft.com/azure/sql-database/)。 在本教學課程中，您會使用 Azure 資料庫移轉服務，將已還原至 SQL Server 2016 (或更新版本) 內部部署執行個體的 **Adventureworks2012** 資料庫遷移到 Azure SQL Database 中的單一資料庫或集區資料庫。
 
-在本教學課程中，您了解如何：
+在本教學課程中，您會了解如何：
 > [!div class="checklist"]
 > - 使用 Data Migration Assistant 評估您的內部部署資料庫。
 > - 使用 Data Migration Assistant 移轉範例結構描述。
@@ -78,16 +78,16 @@ ms.locfileid: "67706894"
 - 若有任何資料表沒有主索引鍵，請在資料庫和特定資料表上啟用異動資料擷取 (CDC)。
     > [!NOTE]
     > 您可以使用下列指令碼來尋找任何沒有主索引鍵的資料表。
-
+    
     ```sql
     USE <DBName>;
     go
     SELECT is_tracked_by_cdc, name AS TableName
     FROM sys.tables WHERE type = 'U' and is_ms_shipped = 0 AND
     OBJECTPROPERTY(OBJECT_ID, 'TableHasPrimaryKey') = 0;
-     ```
+    ```
 
-    >若結果顯示有一或多個資料表的 'is_tracked_by_cdc' 為 '0'，請使用[啟用和停用異動資料擷取 (SQL Server)](https://docs.microsoft.com/sql/relational-databases/track-changes/enable-and-disable-change-data-capture-sql-server?view=sql-server-2017) 一文說明的程序，為資料庫和特定資料表啟用異動擷取。
+    若結果顯示有一或多個資料表的 'is_tracked_by_cdc' 為 '0'，請使用[啟用和停用異動資料擷取 (SQL Server)](https://docs.microsoft.com/sql/relational-databases/track-changes/enable-and-disable-change-data-capture-sql-server?view=sql-server-2017) 一文說明的程序，為資料庫和特定資料表啟用異動擷取。
 
 - 設定來源 SQL Server 的散發者角色。
 
@@ -132,12 +132,12 @@ ms.locfileid: "67706894"
 1. 在 DMA 中選取 [新增] (+) 圖示，然後選取 [評估]  專案類型。
 2. 在 [Source server type] \(來源伺服器類型\)  文字方塊中指定專案名稱，選取 [SQL Server]  ，並在 [Target server type] \(目標伺服器類型\)  文字方塊中，選取 [Azure SQL Database]  ，然後選取 [建立]  以建立專案。
 
-    當您評估來源 SQL Server 資料庫遷移到 Azure SQL Database 中的單一資料庫或集區資料庫時，可以選擇下列其中一種或兩種評估報告類型：
+   當您評估來源 SQL Server 資料庫遷移到 Azure SQL Database 中的單一資料庫或集區資料庫時，可以選擇下列其中一種或兩種評估報告類型：
 
    - 檢查資料庫相容性
    - 檢查功能同位
 
-     預設會選取這兩種報告類型。
+   預設會選取這兩種報告類型。
 
 3. 在 DMA 中的 [選項]  畫面上，選取 [下一步]  。
 4. 在 [Select sources] \(選取來源\)  畫面的 [Connect to a server] \(連線到伺服器\)  對話方塊中，提供您 SQL Server 的連線詳細資料，然後選取 [Connect] \(連線\)  。
@@ -263,7 +263,7 @@ ms.locfileid: "67706894"
     > [!NOTE]
     > 或者，您可以選擇 [僅建立專案]  以立即建立移轉專案，並於後續再執行移轉。
 
-6. 選取 [ **儲存**]。
+6. 選取 [儲存]  。
 
 7. 選取 [建立及執行活動]  ，以建立專案並執行移轉活動。
 

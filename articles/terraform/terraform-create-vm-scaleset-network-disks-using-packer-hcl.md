@@ -8,19 +8,19 @@ author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
-ms.date: 08/28/2019
-ms.openlocfilehash: 9a80cb7ba44c86d449e4ff4178a2982db302a717
-ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.date: 09/20/2019
+ms.openlocfilehash: 6feeab9b48715a8fe1f6c6fe11ae90b6be71a57a
+ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70138353"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71173474"
 ---
 # <a name="use-terraform-to-create-an-azure-virtual-machine-scale-set-from-a-packer-custom-image"></a>使用 Terraform 從 Packer 自訂映像建立 Azure 虛擬機器擴展集
 
 在本教學課程中，您要使用 [Terraform](https://www.terraform.io/) \(英文\) 建立和部署一個 [Azure 虛擬機器擴展集](/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-overview)，此擴展集是使用 [Packer](https://www.packer.io/intro/index.html) 產生的自訂映像，以及使用 [HashiCorp 設定語言](https://www.terraform.io/docs/configuration/syntax.html) (HCL) \(英文\) 的受控磁碟所建立。  
 
-在本教學課程中，您了解如何：
+在本教學課程中，您會了解如何：
 
 > [!div class="checklist"]
 > * 設定 Terraform 部署
@@ -30,7 +30,7 @@ ms.locfileid: "70138353"
 > * 使用自訂映像建立和部署虛擬機器擴展集
 > * 建立和部署 Jumpbox 
 
-如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 。
+如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)。
 
 ## <a name="before-you-begin"></a>開始之前
 > * [安裝 Terraform 並設定對 Azure 的存取權限](https://docs.microsoft.com/azure/virtual-machines/linux/terraform-install-configure)
@@ -42,9 +42,9 @@ ms.locfileid: "70138353"
 
 在空白目錄中建立使用下列三個名稱的新檔案：
 
-- ```variables.tf```：此檔案會保留範本中所使用的變數值。
-- ```output.tf```：此檔案描述在部署後顯示的設定。
-- ```vmss.tf```：此檔案包含您要部署的基礎結構程式碼。
+- `variables.tf`：此檔案會保留範本中所使用的變數值。
+- `output.tf`：此檔案描述在部署後顯示的設定。
+- `vmss.tf`：此檔案包含您要部署的基礎結構程式碼。
 
 ##  <a name="create-the-variables"></a>建立變數 
 
@@ -52,7 +52,7 @@ ms.locfileid: "70138353"
 
 編輯 `variables.tf` 檔案，複製下列程式碼，然後儲存變更。
 
-```tf 
+```hcl
 variable "location" {
   description = "The location where resources are created"
   default     = "East US"
@@ -70,7 +70,7 @@ variable "resource_group_name" {
 
 儲存檔案。
 
-當您部署 Terraform 範本時，需要取得用來存取應用程式的完整網域名稱。 使用 Terraform 的 ```output``` 資源類型，並取得資源的 ```fqdn``` 屬性。 
+當您部署 Terraform 範本時，需要取得用來存取應用程式的完整網域名稱。 使用 Terraform 的 `output` 資源類型，並取得資源的 `fqdn` 屬性。 
 
 編輯 `output.tf` 檔案並複製下列程式碼，以公開虛擬機器的完整網域名稱。 
 
@@ -89,9 +89,9 @@ output "vmss_public_ip" {
 
 您也需要建立所有資源的資源群組。 
 
-編輯並複製 ```vmss.tf``` 中的下列程式碼： 
+編輯並複製 `vmss.tf` 中的下列程式碼： 
 
-```tf 
+```hcl
 
 resource "azurerm_resource_group" "vmss" {
   name     = "${var.resource_group_name}"
@@ -145,7 +145,7 @@ resource "azurerm_public_ip" "vmss" {
 terraform init 
 ```
  
-提供者外掛程式會從 Terraform 登錄，下載到您執行命令所在之目錄中的 ```.terraform``` 資料夾。
+提供者外掛程式會從 Terraform 登錄，下載到您執行命令所在之目錄中的 `.terraform` 資料夾。
 
 執行下列命令，以在 Azure 中部署基礎結構。
 
@@ -185,8 +185,7 @@ terraform apply
 
 在 `vmss.tf` 檔案的結尾加入下列程式碼。
 
-```tf
-
+```hcl
 
 resource "azurerm_lb" "vmss" {
   name                = "vmss-lb"
@@ -303,7 +302,7 @@ resource "azurerm_virtual_machine_scale_set" "vmss" {
 
 將下列程式碼加入 `variables.tf` 來自訂部署：
 
-```tf 
+```hcl
 variable "application_port" {
     description = "The port that you want to expose to the external load balancer"
     default     = 80

@@ -1,28 +1,29 @@
 ---
-title: 教學課程：Azure Active Directory 與 Azure AD SAML Toolkit 整合 | Microsoft Docs
+title: 教學課程：Azure Active Directory 單一登入 (SSO) 與 Azure AD SAML Toolkit 整合 | Microsoft Docs
 description: 了解如何設定 Azure Active Directory 與 Azure AD SAML Toolkit 之間的單一登入。
 services: active-directory
 documentationCenter: na
 author: jeevansd
 manager: mtillman
-ms.reviewer: celested
+ms.reviewer: barbkess
 ms.assetid: 3f4348e7-c34e-43c7-926e-f1b26ffacf6d
 ms.service: active-directory
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 06/06/2019
+ms.date: 09/12/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4baeda4fca69969fae3f866e642ad3dc8ad46509
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 83e5790a036a93c947a79bc2848e7be6febf30b6
+ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67091926"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71122029"
 ---
-# <a name="tutorial-integrate-azure-ad-saml-toolkit-with-azure-active-directory"></a>教學課程：整合 Azure AD SAML Toolkit 與 Azure Active Directory
+# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-azure-ad-saml-toolkit"></a>教學課程：Azure Active Directory 單一登入 (SSO) 與 Azure AD SAML Toolkit 整合
 
 在本教學課程中，您會了解如何整合 Azure AD SAML Toolkit 與 Azure Active Directory (Azure AD)。 當您整合 Azure AD SAML Toolkit 與 Azure AD 時，您可以：
 
@@ -36,12 +37,14 @@ ms.locfileid: "67091926"
 
 若要開始，您需要下列項目：
 
-* Azure AD 訂用帳戶。 如果沒有訂用帳戶，您可以在[這裡](https://azure.microsoft.com/pricing/free-trial/)取得一個月的免費試用。
+* Azure AD 訂用帳戶。 如果沒有訂用帳戶，您可以取得[免費帳戶](https://azure.microsoft.com/free/)。
 * 已啟用 Azure AD SAML Toolkit 單一登入 (SSO) 的訂用帳戶。
 
 ## <a name="scenario-description"></a>案例描述
 
-在本教學課程中，您會在測試環境中設定和測試 Azure AD SSO。 Azure AD SAML Toolkit 支援 **SP** 起始的 SSO。
+在本教學課程中，您會在測試環境中設定和測試 Azure AD SSO。
+
+* Azure AD SAML Toolkit 支援 **SP** 起始的 SSO
 
 ## <a name="adding-azure-ad-saml-toolkit-from-the-gallery"></a>從資源庫新增 Azure AD SAML Toolkit
 
@@ -54,20 +57,20 @@ ms.locfileid: "67091926"
 1. 在 [從資源庫新增]  區段的搜尋方塊中輸入 **Azure AD SAML Toolkit**。
 1. 從結果面板選取 [Azure AD SAML Toolkit]  ，然後新增應用程式。 當應用程式新增至您的租用戶時，請等候幾秒鐘。
 
-## <a name="configure-and-test-azure-ad-single-sign-on"></a>設定和測試 Azure AD 單一登入
+## <a name="configure-and-test-azure-ad-single-sign-on-for-azure-ad-saml-toolkit"></a>設定並測試 Azure AD SAML Toolkit 的 Azure AD 單一登入
 
 以名為 **B.Simon** 的測試使用者，設定及測試與 Azure AD SAML Toolkit 搭配運作的 Azure AD SSO。 若要讓 SSO 能夠運作，您必須建立 Azure AD 使用者與 Azure AD SAML Toolkit 中相關使用者之間的連結關聯性。
 
 若要設定及測試與 Azure AD SAML Toolkit 搭配運作的 Azure AD SSO，請完成下列建置組塊：
 
-1. **[設定 Azure AD SSO](#configure-azure-ad-sso)** ，讓您的使用者能夠使用此功能。
-2. **[設定 Azure AD SAML Toolkit](#configure-azure-ad-saml-toolkit-sso)** 以在應用程式端設定 SSO 設定。
-3. **[建立 Azure AD 測試使用者](#create-an-azure-ad-test-user)** - 使用 B.Simon 測試 Azure AD 單一登入。
-4. **[指派 Azure AD 測試使用者](#assign-the-azure-ad-test-user)** - 讓 B.Simon 能夠使用 Azure AD 單一登入。
-5. **[建立 Azure AD SAML Toolkit 測試使用者](#create-azure-ad-saml-toolkit-test-user)** ，讓 Azure AD SAML Toolkit 中對應的 B.Simon 連結到使用者在 Azure AD 中的代表項目。
-6. **[測試 SSO](#test-sso)** ，以驗證組態是否能運作。
+1. **[設定 Azure AD SSO](#configure-azure-ad-sso)** - 讓您的使用者能夠使用此功能。
+    1. **[建立 Azure AD 測試使用者](#create-an-azure-ad-test-user)** - 使用 B.Simon 測試 Azure AD 單一登入。
+    1. **[指派 Azure AD 測試使用者](#assign-the-azure-ad-test-user)** - 讓 B.Simon 能夠使用 Azure AD 單一登入。
+1. **[設定 Azure AD SAML Toolkit SSO](#configure-azure-ad-saml-toolkit-sso)** 在應用程式端設定單一登入設定。
+    1. **[建立 Azure AD SAML Toolkit 測試使用者](#create-azure-ad-saml-toolkit-test-user)** 讓 Azure AD SAML Toolkit 中對應的 B.Simon 連結到使用者在 Azure AD 中的代表項目。
+1. **[測試 SSO](#test-sso)** - 驗證組態是否能運作。
 
-### <a name="configure-azure-ad-sso"></a>設定 Azure AD SSO
+## <a name="configure-azure-ad-sso"></a>設定 Azure AD SSO
 
 依照下列步驟在 Azure 入口網站中啟用 Azure AD SSO。
 
@@ -79,47 +82,19 @@ ms.locfileid: "67091926"
 
 1. 在 [基本 SAML 設定]  頁面上，輸入下列欄位的值：
 
-    1. 在 [登入 URL]  文字方塊中，輸入 URL：`https://samltoolkit.azurewebsites.net/`
+    a. 在 [登入 URL]  文字方塊中，輸入 URL：`https://samltoolkit.azurewebsites.net/`
 
-    1. 在 [識別碼 (實體識別碼)]  文字方塊中，輸入 URL：`https://samltoolkit.azurewebsites.net`
+    b. 在 [識別碼 (實體識別碼)]  文字方塊中，輸入 URL：`https://samltoolkit.azurewebsites.net`
 
-    1. 在 [回覆 URL]  文字方塊中，鍵入 URL：`https://samltoolkit.azurewebsites.net/SAML/Consume`
+    c. 在 [回覆 URL]  文字方塊中，鍵入 URL：`https://samltoolkit.azurewebsites.net/SAML/Consume`
 
-1. 在 [以 SAML 設定單一登入]  頁面的 [SAML 簽署憑證]  區段中按一下 [下載]  ，以依據您的需求從指定選項下載 [同盟中繼資料 XML]  ，並儲存在您的電腦上。
+1. 在 [以 SAML 設定單一登入]  頁面的 [SAML 簽署憑證]  區段中，尋找 [憑證 (原始)]  並選取 [下載]  ，以下載憑證並將其儲存在電腦上。
 
-   ![憑證下載連結](common/metadataxml.png)
+    ![憑證下載連結](common/certificateraw.png)
 
 1. 在 [設定 Azure AD SAML Toolkit]  區段上，依據您的需求複製適當的 URL。
 
-   ![複製組態 URL](common/copy-configuration-urls.png)
-
-### <a name="configure-azure-ad-saml-toolkit-sso"></a>設定 Azure AD SAML Toolkit SSO
-
-1. 開啟新的網頁瀏覽器視窗，如果您尚未在 Azure AD SAML Toolkit 網站中註冊，請先按一下 [註冊]  進行註冊。 如果您已經註冊，請使用已註冊的登入認證來登入 Azure AD SAML Toolkit 公司網站。
-
-    ![Azure AD SAML Toolkit 註冊](./media/saml-toolkit-tutorial/register.png)
-
-1. 按一下 [SAML 組態]  。
-
-    ![Azure AD SAML 工具組 SAML 組態](./media/saml-toolkit-tutorial/saml-configure.png)
-
-1. 按一下頁面底部的 [新增]  。
-
-    ![Azure AD SAML Toolkit 的建立 SSO](./media/saml-toolkit-tutorial/createsso.png)
-
-1. 在 [SAML SSO 組態]  頁面上，執行下列步驟：
-
-    ![Azure AD SAML Toolkit 的建立 SSO](./media/saml-toolkit-tutorial/fill-details.png)
-
-    1. 在 [登入 URL]  文字方塊中，貼上您從 Azure 入口網站複製的 [登入 URL]  值。
-
-    1. 在 [Azure AD 識別碼]  文字方塊中，貼上您從 Azure 入口網站複製的 [Azure AD 識別碼]  值。
-
-    1. 在 [登出 URL]  文字方塊中，貼上您從 Azure 入口網站複製的 [登出 URL]  值。
-
-    1. 按一下 [選擇檔案]  及上傳您從 Azure 入口網站下載的**同盟中繼資料 XML** 檔案。
-
-    1. 按一下頁面底部的 [新增]  。
+    ![複製組態 URL](common/copy-configuration-urls.png)
 
 ### <a name="create-an-azure-ad-test-user"></a>建立 Azure AD 測試使用者
 
@@ -151,13 +126,43 @@ ms.locfileid: "67091926"
 1. 如果您在 SAML 判斷提示中需要任何角色值，請在 [選取角色]  對話方塊的清單中為使用者選取適當的角色，然後按一下畫面底部的 [選取]  按鈕。
 1. 在 [新增指派]  對話方塊中，按一下 [指派]  按鈕。
 
+## <a name="configure-azure-ad-saml-toolkit-sso"></a>設定 Azure AD SAML Toolkit SSO
+
+1. 開啟新的網頁瀏覽器視窗，如果您尚未在 Azure AD SAML Toolkit 網站中註冊，請先按一下 [註冊]  進行註冊。 如果您已經註冊，請使用已註冊的登入認證來登入 Azure AD SAML Toolkit 公司網站。
+
+    ![Azure AD SAML Toolkit 註冊](./media/saml-toolkit-tutorial/register.png)
+
+1. 按一下 [SAML 組態]  。
+
+    ![Azure AD SAML 工具組 SAML 組態](./media/saml-toolkit-tutorial/saml-configure.png)
+
+1. 按一下頁面底部的 [新增]  。
+
+    ![Azure AD SAML Toolkit 的建立 SSO](./media/saml-toolkit-tutorial/createsso.png)
+
+1. 在 [SAML SSO 組態]  頁面上，執行下列步驟：
+
+    ![Azure AD SAML Toolkit 的建立 SSO](./media/saml-toolkit-tutorial/fill-details.png)
+
+    1. 在 [登入 URL]  文字方塊中，貼上您從 Azure 入口網站複製的 [登入 URL]  值。
+
+    1. 在 [Azure AD 識別碼]  文字方塊中，貼上您從 Azure 入口網站複製的 [Azure AD 識別碼]  值。
+
+    1. 在 [登出 URL]  文字方塊中，貼上您從 Azure 入口網站複製的 [登出 URL]  值。
+
+    1. 按一下 [選擇檔案]  及上傳您從 Azure 入口網站下載的**憑證 (原始)** 檔案。
+
+    1. 按一下頁面底部的 [新增]  。
+
 ### <a name="create-azure-ad-saml-toolkit-test-user"></a>建立 Azure AD SAML Toolkit 測試使用者
 
 本節會在 Azure AD SAML Toolkit 中建立名為 B.Simon 的使用者。 Azure AD SAML Toolkit 支援依預設啟用的 Just-In-Time 使用者佈建。 在這一節沒有您需要進行的動作項目。 如果 Azure AD SAML Toolkit 中還沒有任何使用者存在，在驗證之後就會建立新的使用者。
 
-### <a name="test-sso"></a>測試 SSO
+## <a name="test-sso"></a>測試 SSO 
 
-當您在存取面板中選取 Azure AD SAML Toolkit 圖格時，應該會自動登入您已設定 SSO 的 Azure AD SAML Toolkit。 如需「存取面板」的詳細資訊，請參閱[存取面板簡介](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)。
+在本節中，您會使用存取面板來測試您的 Azure AD 單一登入設定。
+
+當您在存取面板中按一下 Azure AD SAML Toolkit 圖格時，應該會自動登入您已設定 SSO 的 Azure AD SAML Toolkit。 如需「存取面板」的詳細資訊，請參閱[存取面板簡介](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)。
 
 ## <a name="additional-resources"></a>其他資源
 
@@ -166,3 +171,5 @@ ms.locfileid: "67091926"
 - [什麼是搭配 Azure Active Directory 的應用程式存取和單一登入？](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [什麼是 Azure Active Directory 中的條件式存取？](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+
+- [嘗試搭配 Azure AD 使用 Azure AD SAML Toolkit](https://aad.portal.azure.com/)

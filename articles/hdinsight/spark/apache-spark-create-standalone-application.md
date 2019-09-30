@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,mvc
 ms.topic: tutorial
 ms.date: 06/26/2019
-ms.openlocfilehash: c4c6348c0af478ae3df160c4c50cb344456177b0
-ms.sourcegitcommit: 909ca340773b7b6db87d3fb60d1978136d2a96b0
+ms.openlocfilehash: 667590120bba4676cbedf3d3bb2ff08e31656e1d
+ms.sourcegitcommit: b03516d245c90bca8ffac59eb1db522a098fb5e4
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/13/2019
-ms.locfileid: "70984594"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71147028"
 ---
 # <a name="tutorial-create-a-scala-maven-application-for-apache-spark-in-hdinsight-using-intellij"></a>教學課程：使用 IntelliJ 為 HDInsight 中的 Apache Spark 建立 Scala Maven 應用程式
 
@@ -49,11 +49,11 @@ ms.locfileid: "70984594"
 
 2. 在歡迎使用畫面上，瀏覽至 [設定]   > [外掛程式]  以開啟 [外掛程式]  視窗。
 
-    ![啟用 Scala 外掛程式](./media/apache-spark-create-standalone-application/enable-scala-plugin1.png)
+    ![IntelliJ IDEA 啟用 Scala 外掛程式](./media/apache-spark-create-standalone-application/enable-scala-plugin1.png)
 
 3. 針對新視窗中精選的 Scala 外掛程式，選取 [安裝]  。  
 
-    ![安裝 Scala 外掛程式](./media/apache-spark-create-standalone-application/install-scala-plugin.png)
+    ![IntelliJ IDEA 安裝 Scala 外掛程式](./media/apache-spark-create-standalone-application/install-scala-plugin.png)
 
 4. 在外掛程式安裝成功後，您必須重新啟動 IDE。
 
@@ -69,7 +69,7 @@ ms.locfileid: "70984594"
       * **Maven**：建立 Scala 專案精靈支援。
       * **SBT**：可供管理相依性並建置 Scala 專案。
 
-   ![[新增專案] 對話方塊](./media/apache-spark-create-standalone-application/create-hdi-scala-app.png)
+   ![IntelliJ 的新增專案對話方塊](./media/apache-spark-create-standalone-application/create-hdi-scala-app.png)
 
 5. 選取 [下一步]  。
 
@@ -82,7 +82,7 @@ ms.locfileid: "70984594"
   	|專案 SDK| 您第一次使用 IDEA 時，這會是空白的。  選取 [新增...]  並瀏覽至您的 JDK。|
   	|Spark 版本|建立精靈會為 Spark SDK 和 Scala SDK 整合正確的版本。 如果 Spark 叢集是 2.0 以前的版本，請選取 [Spark 1.x]  。 否則，請選取 [Spark2.x]  。 此範例使用 **Spark 2.3.0 (Scala 2.11.8)** 。|
 
-    ![選取 Spark SDK](./media/apache-spark-create-standalone-application/hdi-scala-new-project.png)
+    ![IntelliJ IDEA 選取 Spark SDK](./media/apache-spark-create-standalone-application/hdi-scala-new-project.png)
 
 7. 選取 [完成]  。
 
@@ -98,7 +98,7 @@ ms.locfileid: "70984594"
 
 5. 從原型清單中，選取 **org.scala-tools.archetypes:scala-archetype-simple**。 此 archetype 會建立正確的目錄結構，並下載撰寫 Scala 程式所需的預設相依性。
 
-    ![建立 Maven 專案](./media/apache-spark-create-standalone-application/create-maven-project.png)
+    ![IntelliJ IDEA 建立 Maven 專案](./media/apache-spark-create-standalone-application/create-maven-project.png)
 
 6. 選取 [下一步]  。
 
@@ -126,7 +126,6 @@ ms.locfileid: "70984594"
 16. 選取 [套用]  ，然後選取 [確定]  。  您會接著返回專案視窗。
 
     ![設定 Maven 以進行自動下載](./media/apache-spark-create-standalone-application/configure-maven-download.png)
-
 
 17. 從左窗格瀏覽至 **src** > **main** > **scala** > **com.microsoft.spark.example**，然後按兩下 [應用程式]  以開啟 App.scala。
 
@@ -177,27 +176,27 @@ ms.locfileid: "70984594"
 
     2. 從 [專案結構]  視窗，瀏覽至 [成品]   > **加號 +**  > [JAR]   > [從具有相依性的模組...]  。
 
-        ![建立 JAR1](./media/apache-spark-create-standalone-application/hdinsight-create-jar1.png)
+        ![IntelliJ IDEA 專案結構新增 jar](./media/apache-spark-create-standalone-application/hdinsight-create-jar1.png)
 
     3. 在 [從模組建立 JAR]  視窗中，選取 [主要類別]  文字方塊中的資料夾圖示。
 
     4. 在 [選取主要類別]  視窗中，選取依預設出現的類別，然後選取 [確定]  。
 
-        ![建立 JAR2](./media/apache-spark-create-standalone-application/hdinsight-create-jar2.png)
+        ![IntelliJ IDEA 專案結構選取類別](./media/apache-spark-create-standalone-application/hdinsight-create-jar2.png)
 
     5. 在 [從模組建立 JAR]  視窗中，確定已選取 [擷取至目標 JAR]  選項，然後選取 [確定]  。  此設定會建立具有所有相依性的單一 JAR。
 
-        ![建立 JAR3](./media/apache-spark-create-standalone-application/hdinsight-create-jar3.png)
+        ![IntelliJ IDEA 專案結構 jar 來自模組](./media/apache-spark-create-standalone-application/hdinsight-create-jar3.png)
 
     6. [輸出配置]  索引標籤會列出所有納入 Maven 專案中的 jar。 您可以選取並刪除 Scala 應用程式未直接依存的 jar。 對於您在此處建立的應用程式，您可以移除最後一個 (**SparkSimpleApp 編譯輸出**) 以外的所有 jar。 選取要刪除的 jar，然後選取負號 **-** 。
 
-        ![建立 JAR4](./media/apache-spark-create-standalone-application/hdi-delete-output-jars.png)
+        ![IntelliJ IDEA 專案結構刪除輸出](./media/apache-spark-create-standalone-application/hdi-delete-output-jars.png)
 
         務必選取 [包含在專案建置中]  核取方塊，以確保在每次建置或更新專案時都會建立 jar。 依序選取 [套用]  和 [確定]  。
 
     7. 若要建立 jar，請瀏覽至 [建置]   > [建置成品]   > [建置]  。 專案會在大約 30 秒內編譯。  輸出 jar 會建立在 **\out\artifacts** 下。
 
-        ![output](./media/apache-spark-create-standalone-application/hdi-artifact-output-jar.png)
+        ![IntelliJ IDEA 專案成品輸出](./media/apache-spark-create-standalone-application/hdi-artifact-output-jar.png)
 
 ## <a name="run-the-application-on-the-apache-spark-cluster"></a>在 Apache Spark 叢集上執行應用程式
 
@@ -221,7 +220,7 @@ ms.locfileid: "70984594"
 
 1. 選取 [刪除]  。 選取 [是]  。
 
-![刪除 HDInsight 叢集](./media/apache-spark-create-standalone-application/hdinsight-azure-portal-delete-cluster.png "刪除 HDInsight 叢集")
+![HDInsight Azure 入口網站刪除叢集](./media/apache-spark-create-standalone-application/hdinsight-azure-portal-delete-cluster.png "刪除 HDInsight 叢集")
 
 ## <a name="next-step"></a>後續步驟
 

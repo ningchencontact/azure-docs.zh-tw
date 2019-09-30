@@ -1,5 +1,5 @@
 ---
-title: 教學課程：Azure Active Directory 與 Apptio 整合 | Microsoft Docs
+title: 教學課程：Azure Active Directory 單一登入 (SSO) 與 Apptio 整合 | Microsoft Docs
 description: 了解如何設定 Azure Active Directory 與 Apptio 之間的單一登入。
 services: active-directory
 documentationCenter: na
@@ -13,17 +13,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 07/08/2019
+ms.date: 08/29/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d0ac86dcdb698c554c40325d6a20d6d27de908f8
-ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
+ms.openlocfilehash: a421afc736399472a513dfc145321ba33ef6fdca
+ms.sourcegitcommit: 2ed6e731ffc614f1691f1578ed26a67de46ed9c2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71104374"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71129735"
 ---
-# <a name="tutorial-integrate-apptio-with-azure-active-directory"></a>教學課程：整合 Apptio 與 Azure Active Directory
+# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-apptio"></a>教學課程：Azure Active Directory 單一登入 (SSO) 與 Apptio 整合
 
 在本教學課程中，您將了解如何整合 Apptio 與 Azure Active Directory (Azure AD)。 在整合 Apptio 與 Azure AD 時，您可以︰
 
@@ -46,6 +46,9 @@ ms.locfileid: "71104374"
 
 * Apptio 支援由 **IDP** 起始的 SSO
 
+> [!NOTE]
+> 此應用程式的識別碼是固定的字串值，因此一個租用戶中只能設定一個執行個體。
+
 ## <a name="adding-apptio-from-the-gallery"></a>從資源庫新增 Apptio
 
 若要進行 Apptio 與 Azure AD 的整合設定，您需要從資源庫將 Apptio 新增到受控 SaaS 應用程式清單中。
@@ -57,7 +60,6 @@ ms.locfileid: "71104374"
 1. 在 [從資源庫新增]  區段的搜尋方塊中輸入 **Apptio**。
 1. 從結果面板選取 [Apptio]  ，然後新增應用程式。 當應用程式新增至您的租用戶時，請等候幾秒鐘。
 
-
 ## <a name="configure-and-test-azure-ad-single-sign-on-for-apptio"></a>設定及測試 Apptio 的 Azure AD 單一登入
 
 以名為 **B.Simon** 的測試使用者，設定及測試與 Apptio 搭配運作的 Azure AD SSO。 若要讓 SSO 能夠運作，您必須建立 Azure AD 使用者與 Apptio 中相關使用者之間的連結關聯性。
@@ -67,9 +69,9 @@ ms.locfileid: "71104374"
 1. **[設定 Azure AD SSO](#configure-azure-ad-sso)** - 讓您的使用者能夠使用此功能。
     1. **[建立 Azure AD 測試使用者](#create-an-azure-ad-test-user)** - 使用 B.Simon 測試 Azure AD 單一登入。
     1. **[指派 Azure AD 測試使用者](#assign-the-azure-ad-test-user)** - 讓 B.Simon 能夠使用 Azure AD 單一登入。
-2. **[設定 Apptio SSO](#configure-apptio-sso)** - 在應用程式端設定單一登入設定。
+1. **[設定 Apptio SSO](#configure-apptio-sso)** - 在應用程式端設定單一登入設定。
     1. **[建立 Apptio 測試使用者](#create-apptio-test-user)** - 在 Apptio 中建立一個與 Azure AD 中代表 B.Simon 使用者連結的 Britta Simon 對應項目。
-3. **[測試 SSO](#test-sso)** - 驗證組態是否能運作。
+1. **[測試 SSO](#test-sso)** - 驗證組態是否能運作。
 
 ## <a name="configure-azure-ad-sso"></a>設定 Azure AD SSO
 
@@ -81,42 +83,17 @@ ms.locfileid: "71104374"
 
    ![編輯基本 SAML 組態](common/edit-urls.png)
 
-1. 在 [基本 SAML 組態]  區段上，執行下列步驟：
+1. 在 [基本 SAML 組態]  區段上，輸入下列欄位的值：
 
-    在 [識別碼]  文字方塊中，輸入值：`urn:federation:apptio`
+    在 [識別碼]  文字方塊中，鍵入 URL：`urn:federation:apptio`
 
-5. Apptio 應用程式需要特定格式的 SAML 判斷提示，需要您加入自訂屬性對應到您的 SAML 權杖屬性設定。 以下螢幕擷取畫面顯示預設屬性清單。 按一下 [編輯]  圖示以開啟 [使用者屬性] 對話方塊。
+1. 角色宣告已預先設定，因此您不需要進行設定，但您仍然需要使用[本文](https://docs.microsoft.com/azure/active-directory/develop/active-directory-enterprise-app-role-management)在 Azure AD 中建立角色。
 
-    ![image](common/edit-attribute.png)
-
-    > [!NOTE]
-    > 請按一下[這裡](https://docs.microsoft.com/azure/active-directory/develop/active-directory-enterprise-app-role-management)，以了解如何在 Azure AD 中設定**角色**
-
-6. 除了以上屬性外，Apptio 應用程式還需要在 SAML 回應中傳回更多屬性。 在 [使用者屬性] 對話方塊的 [使用者宣告] 區段中，執行下列步驟以設定 SAML 權杖屬性，如下表所示： 
-
-    | 名稱 |  來源屬性|
-    | -------------- | -------------------- |
-    | fullname       | user.displayname |
-    | mail           | user.mail |
-    | 角色           | user.assignedrole |
-
-    a. 按一下 [新增宣告]  以開啟 [管理使用者宣告]  對話方塊。
-
-    b. 在 [名稱]  文字方塊中，輸入該資料列所顯示的屬性名稱。
-
-    c. 讓 [命名空間]  保持空白。
-
-    d. 選取 [來源] 作為 [屬性]  。
-
-    e. 在 [來源屬性]  清單中，輸入該資料列所顯示的屬性值。
-
-    f. 按一下 [檔案]  。
-
-4. 在 [以 SAML 設定單一登入]  頁面上的 [SAML 簽署憑證]  區段中，尋找 [同盟中繼資料 XML]  ，然後選取 [下載]  來下載憑證，並將其儲存在電腦上。
+1. 在 [以 SAML 設定單一登入]  頁面上的 [SAML 簽署憑證]  區段中，尋找 [同盟中繼資料 XML]  ，然後選取 [下載]  ，以下載憑證並將其儲存在電腦上。
 
     ![憑證下載連結](common/metadataxml.png)
 
-6. 在 [設定 Apptio]  區段上，根據您的需求複製適當的 URL。
+1. 在 [設定 Apptio]  區段上，根據您的需求複製適當的 URL。
 
     ![複製組態 URL](common/copy-configuration-urls.png)
 
@@ -127,10 +104,10 @@ ms.locfileid: "71104374"
 1. 在 Azure 入口網站的左窗格中，依序選取 [Azure Active Directory]  、[使用者]  和 [所有使用者]  。
 1. 在畫面頂端選取 [新增使用者]  。
 1. 在 [使用者]  屬性中，執行下列步驟：
-    1. 在 [名稱]  欄位中，輸入 `B.Simon`。  
-    1. 在 [使用者名稱]  欄位中，輸入 username@companydomain.extension。 例如： `B.Simon@contoso.com` 。
-    1. 選取 [顯示密碼]  核取方塊，然後記下 [密碼]  方塊中顯示的值。
-    1. 按一下頁面底部的 [新增]  。
+   1. 在 [名稱]  欄位中，輸入 `B.Simon`。  
+   1. 在 [使用者名稱]  欄位中，輸入 username@companydomain.extension。 例如： `B.Simon@contoso.com` 。
+   1. 選取 [顯示密碼]  核取方塊，然後記下 [密碼]  方塊中顯示的值。
+   1. 按一下頁面底部的 [新增]  。
 
 ### <a name="assign-the-azure-ad-test-user"></a>指派 Azure AD 測試使用者
 
@@ -140,7 +117,7 @@ ms.locfileid: "71104374"
 1. 在應用程式清單中，選取 [Apptio]  。
 1. 在應用程式的概觀頁面中尋找 [管理]  區段，然後選取 [使用者和群組]  。
 
-    ![[使用者和群組] 連結](common/users-groups-blade.png)
+   ![[使用者和群組] 連結](common/users-groups-blade.png)
 
 1. 選取 [新增使用者]  ，然後在 [新增指派]  對話方塊中選取 [使用者和群組]  。
 
@@ -156,7 +133,7 @@ ms.locfileid: "71104374"
 
 ### <a name="create-apptio-test-user"></a>建立 Apptio 測試使用者
 
-在本節中，您要在 Apptio 中建立名為 B.Simon 的使用者。 請與 [Apptio 支援小組](https://www.apptio.com/about/contact)合作，在 Apptio 平台中新增使用者。 您必須先建立和啟動使用者，然後才能使用單一登入。
+在本節中，您要在 Apptio 中建立名為 B.Simon 的使用者。 請與 [Apptio 支援小組](https://www.apptio.com/about/contact)合作，在 Apptio 平台中新增使用者。 您必須先建立和啟動使用者，然後才能使用單一登入。
 
 ## <a name="test-sso"></a>測試 SSO 
 
@@ -172,3 +149,4 @@ ms.locfileid: "71104374"
 
 - [什麼是 Azure Active Directory 中的條件式存取？](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
+- [嘗試搭配 Azure AD 使用 Apptio](https://aad.portal.azure.com/)

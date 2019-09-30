@@ -24,10 +24,12 @@
   items:
     - name: 連線至 Windows 虛擬桌面資源
       items:
-        - name: 從 Windows 10 或 Windows 7 連線
+        - name: 與 Windows 桌面用戶端連線
           href: connect-windows-7-and-10.md
-        - name: 從網頁瀏覽器連線
+        - name: 與 Web 用戶端連線
           href: connect-web.md
+        - name: 與 Android 用戶端連線
+          href: connect-android.md
         - name: 與 macOS 用戶端連線
           href: connect-macos.md
         - name: 與 iOS 用戶端連線
@@ -72,6 +74,8 @@
       href: partners.md
     - name: Windows 10 企業版的多重工作階段常見問題集
       href: windows-10-multisession-faq.md
+    - name: 資料地點
+      href: data-locations.md
 - name: 疑難排解
   items:
     - name: 疑難排解概觀、意見反應和支援

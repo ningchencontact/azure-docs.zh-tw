@@ -8,12 +8,12 @@ ms.custom: hdinsightactive,seodec18
 ms.topic: tutorial
 ms.date: 05/22/2019
 ms.author: hrasheed
-ms.openlocfilehash: 32e47f688150333ac78091589d8a252641d4c7d6
-ms.sourcegitcommit: 8ef0a2ddaece5e7b2ac678a73b605b2073b76e88
+ms.openlocfilehash: bcf1b967cf8eeab7aae4b720683785309689858e
+ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71076986"
+ms.lasthandoff: 09/23/2019
+ms.locfileid: "71204240"
 ---
 # <a name="tutorial-use-apache-spark-structured-streaming-with-apache-kafka-on-hdinsight"></a>教學課程：將 Apache Spark 結構化串流用於 HDInsight 上的 Apache Kafka
 
@@ -186,12 +186,15 @@ Apache Kafka on HDInsight 不提供透過公用網際網路存取 Kafka 訊息�
 
 4. 在 Notebook 資料格中輸入下列資訊，即可載入 Notebook 使用的套件。 使用 **CTRL + ENTER** 執行命令。
 
+Spark 串流具有微批次處理，這表示資料會以批次方式提供，而執行程式會在資料批次上執行。 如果執行程式的閒置逾時小於處理批次所需的時間，則會不斷加入及移除執行程式。 如果執行程式的閒置逾時大於批次持續時間，則永遠不會移除執行程式。 因此，**我們建議您在執行串流應用程式時，將 spark.dynamicAllocation.enabled 設定為 false，以停用動態配置。**
+
     ```
     %%configure -f
     {
         "conf": {
             "spark.jars.packages": "org.apache.spark:spark-sql-kafka-0-10_2.11:2.2.0",
-            "spark.jars.excludes": "org.scala-lang:scala-reflect,org.apache.spark:spark-tags_2.11"
+            "spark.jars.excludes": "org.scala-lang:scala-reflect,org.apache.spark:spark-tags_2.11",
+            "spark.dynamicAllocation.enabled": false
         }
     }
     ```

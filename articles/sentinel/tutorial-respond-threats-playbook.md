@@ -1,5 +1,5 @@
 ---
-title: 在 Azure Sentinel 預覽版中執行劇本 | Microsoft Docs
+title: 在 Azure Sentinel 中執行劇本 | Microsoft Docs
 description: 本文說明如何在 Azure Sentinel 中執行劇本。
 services: sentinel
 documentationcenter: na
@@ -14,20 +14,18 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 8/21/2019
+ms.date: 09/23/2019
 ms.author: rkarlin
-ms.openlocfilehash: 08c88df2f8ccc69f213687209d1d003f3bb1c7b8
-ms.sourcegitcommit: 3f78a6ffee0b83788d554959db7efc5d00130376
+ms.openlocfilehash: 7ab4c4ba4553e7e5f15e563c67c845758a53766f
+ms.sourcegitcommit: 992e070a9f10bf43333c66a608428fcf9bddc130
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/26/2019
-ms.locfileid: "70018794"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71229504"
 ---
-# <a name="tutorial-set-up-automated-threat-responses-in-azure-sentinel-preview"></a>教學課程：在 Azure Sentinel 預覽版中設定自動化威脅回應
+# <a name="tutorial-set-up-automated-threat-responses-in-azure-sentinel"></a>教學課程：在 Azure Sentinel 中設定自動化威脅回應
 
-> [!IMPORTANT]
-> Azure Sentinel 目前為公開預覽狀態。
-> 此預覽版本是在沒有服務等級協定的情況下提供，不建議用於生產工作負載。 可能不支援特定功能，或可能已經限制功能。 如需詳細資訊，請參閱 [Microsoft Azure 預覽版增補使用條款](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)。
+
 
 本教學課程可協助您使用 Azure Sentinel 中的安全性劇本，來設定對 Azure Sentinel 所偵測到之安全性相關問題的自動化威脅回應。
 
@@ -78,7 +76,9 @@ ms.locfileid: "70018794"
 
 6. 您會前往邏輯應用程式設計工具，您可以在其中建立新的或編輯範本。 請深入了解如何使用 [Logic Apps](../logic-apps/logic-apps-create-logic-apps-from-templates.md) 建立劇本。
 
-7. 如果您要建立空白劇本，在 [搜尋所有連接器及觸發程序]  欄位中，輸入 *Azure Sentinel*，然後選取 [當對 Azure Sentinel 警示的回應已觸發時]  。 <br>建立之後，新的劇本會出現在 [劇本]  清單中。 如果它沒有出現，按一下 [重新整理]  。 
+7. 如果您要建立空白劇本，在 [搜尋所有連接器及觸發程序]  欄位中，輸入 *Azure Sentinel*，然後選取 [當對 Azure Sentinel 警示的回應已觸發時]  。 <br>建立之後，新的劇本會出現在 [劇本]  清單中。 如果它沒有出現，按一下 [重新整理]  。
+
+1. 使用**取得實體**函式可讓您從 [實體]  清單內部取得相關實體，例如帳戶、IP 位址和主機。 這可讓您在特定實體上執行動作。
 
 7. 現在您可以定義當觸發劇本時會發生什麼事。 您可以新增動作、邏輯條件、切換案例條件或迴圈。
 
@@ -106,7 +106,7 @@ ms.locfileid: "70018794"
 
 1. 選取想要讓回應自動化的警示。
 1. 在 [編輯警示規則]  頁面的 [即時自動化]  底下，選擇要在符合此警示規則時執行的 [觸發劇本]  。
-1. 選取 [ **儲存**]。
+1. 選取 [儲存]  。
 
    ![即時自動化](./media/tutorial-detect-threats/rt-configuration.png)
 

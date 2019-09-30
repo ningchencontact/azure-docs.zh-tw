@@ -78,7 +78,7 @@
         - name: Authentication
           items:
             - name: 概觀
-              href: sql-data-warehouse-authentication.md?toc=/azure/sql-data-warehouse/toc.json&bc=/azure/sql-data-warehouse/breadcrumb/toc.json
+              href: sql-data-warehouse-authentication.md
             - name: Azure Active Directory
               href: ../sql-database/sql-database-aad-authentication.md?toc=/azure/sql-data-warehouse/toc.json&bc=/azure/sql-data-warehouse/breadcrumb/toc.json
             - name: 登入和使用者
@@ -92,7 +92,7 @@
             - name: 資料行層級安全性
               href: column-level-security.md
             - name: 資料列層級安全性
-              href: /sql/relational-databases/security/row-level-security?toc=/azure/sql-data-warehouse/toc
+              href: /sql/relational-databases/security/row-level-security?toc=/azure/sql-data-warehouse/toc.json&bc=/azure/sql-data-warehouse/breadcrumb/toc.json
         - name: 資料保護
           items:
             - name: 透明資料加密 (TDE) 概觀
@@ -234,9 +234,9 @@
     - name: 安全
       items:
         - name: 設定 Azure AD 驗證
-          href: ../sql-database/sql-database-aad-authentication-configure.md??toc=/azure/sql-data-warehouse/toc.json&bc=/azure/sql-data-warehouse/breadcrumb/toc.json
+          href: ../sql-database/sql-database-aad-authentication-configure.md?toc=/azure/sql-data-warehouse/toc.json&bc=/azure/sql-data-warehouse/breadcrumb/toc.json
         - name: 條件式存取
-          href: ../sql-database/sql-database-conditional-access.md??toc=/azure/sql-data-warehouse/toc.json&bc=/azure/sql-data-warehouse/breadcrumb/toc.json
+          href: ../sql-database/sql-database-conditional-access.md?toc=/azure/sql-data-warehouse/toc.json&bc=/azure/sql-data-warehouse/breadcrumb/toc.json
         - name: PowerShell 的虛擬網路規則
           href: ../sql-database/sql-database-vnet-service-endpoint-rule-powershell.md?toc=/azure/sql-data-warehouse/toc.json&bc=/azure/sql-data-warehouse/breadcrumb/toc.json
         - name: 啟用加密 - 入口網站
@@ -338,7 +338,7 @@
     - name: T-SQL
       items:
         - name: 完整參考
-          href: /sql/t-sql/language-reference
+          href: /sql/t-sql/language-reference?toc=/azure/sql-data-warehouse/toc.json&bc=/azure/sql-data-warehouse/breadcrumb/toc.json
         - name: SQL DW 語言元素
           href: sql-data-warehouse-reference-tsql-language-elements.md
         - name: SQL DW 陳述式

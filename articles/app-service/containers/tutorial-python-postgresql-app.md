@@ -12,12 +12,12 @@ ms.topic: tutorial
 ms.date: 03/27/2019
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: b5a21bd144558459ac60ae2da405f9ea57ca2fd1
-ms.sourcegitcommit: 80dff35a6ded18fa15bba633bf5b768aa2284fa8
+ms.openlocfilehash: 1fc322cf7e425e35751369ab8daf1ef1809d5f07
+ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/26/2019
-ms.locfileid: "70020195"
+ms.lasthandoff: 09/23/2019
+ms.locfileid: "71203256"
 ---
 # <a name="build-a-python-django-web-app-with-postgresql-in-azure-app-service"></a>在 Azure App Service 中建置 Python (Django) Web 應用程式 和 PostgreSQL
 
@@ -25,7 +25,7 @@ ms.locfileid: "70020195"
 
 ![Linux 上 App Service 中的 Python Django Web 應用程式](./media/tutorial-python-postgresql-app/django-admin-azure.png)
 
-在本教學課程中，您了解如何：
+在本教學課程中，您會了解如何：
 
 > [!div class="checklist"]
 > * 在 Azure 中建立 PostgreSQL 資料庫
@@ -37,7 +37,7 @@ ms.locfileid: "70020195"
 > [!NOTE]
 > 在建立適用於 PostgreSQL 的 Azure 資料庫之前，請先確認[可在您的區域中產生的計算](https://docs.microsoft.com/azure/postgresql/concepts-pricing-tiers#compute-generations-and-vcores)。
 
-您可以在 macOS 上依照本文中的步驟進行。 Linux 和 Windows 指示在大部分情況下都相同，本教學課程對差異不加詳述。
+您可以在 macOS、Linux 和 Windows 上遵循本文中的步驟，這些指示在大部分情況下都相同，本教學課程對差異不加詳述。
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 

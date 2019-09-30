@@ -11,12 +11,12 @@ ms.reviewer: klam, LADocs
 ms.topic: tutorial
 ms.custom: mvc
 ms.date: 09/12/2019
-ms.openlocfilehash: 9392cfc9c789a757c3ad533a3dbd4719f5292be5
-ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
+ms.openlocfilehash: 809d76791522fa135932baaf6e237570ab0af35a
+ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70931564"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71172172"
 ---
 # <a name="tutorial-create-automated-schedule-based-recurring-workflows-by-using-azure-logic-apps"></a>教學課程：使用 Azure Logic Apps 建立以排程為基礎的週期性自動化工作流程
 
@@ -235,7 +235,7 @@ ms.locfileid: "70931564"
 
 1. 在上一個動作底下，選取 [新增步驟]  。
 
-1. 在 [選擇動作]  底下，選取 [內建]  ，並搜尋 [條件]，然後選取 [條件]  動作。
+1. 在 [選擇動作]  底下，選取 [內建]  。 在搜尋方塊中，輸入「條件」作為篩選條件。 從動作清單中，選取 [條件]  動作。
 
    ![選取 [條件] 動作](./media/tutorial-build-scheduled-recurring-logic-app-workflow/select-condition-action.png)
 
@@ -245,17 +245,17 @@ ms.locfileid: "70931564"
 
    1. 在條件內，按一下條件左側的 [選擇值]  方塊內部。
 
-   1. 動態內容清單出現時，請在 [變數]  底下，選取 [travelTime]  屬性。
+   1. 從顯示的動態內容清單中，選取 [變數]  底下的 [travelTime]  屬性。
 
       ![建置條件左側](./media/tutorial-build-scheduled-recurring-logic-app-workflow/build-condition-left-side.png)
 
-   1. 在比較方塊中，選取此運算子：**大於**
+   1. 在中間的比較方塊中，選取 [大於]  運算子。
 
    1. 在條件右側的 [選擇值]  方塊中，輸入此限制：`15`
 
       當您完成時，條件看起來就像下面這個範例︰
 
-      ![建置條件](./media/tutorial-build-scheduled-recurring-logic-app-workflow/build-condition-check-travel-time.png)
+      ![已完成的條件](./media/tutorial-build-scheduled-recurring-logic-app-workflow/build-condition-check-travel-time.png)
 
 1. 儲存您的邏輯應用程式。
 

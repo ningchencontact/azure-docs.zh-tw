@@ -1,56 +1,93 @@
-### YamlMime:YamlDocument
-documentType: LandingData
-title: Azure 實驗室服務與 Azure DevTest Labs 文件
+### YamlMime:Landing
+title: Azure 實驗室服務文件
+summary: 了解如何使用 Azure 實驗室服務為雲端中的小組或學生，快速地設定開發、測試、Hackathon 或教室實驗室。
 metadata:
-  title: Azure 實驗室服務文件 - 教學課程和 API 參考 | Microsoft Docs
-  description: 了解如何使用 Azure 實驗室服務為雲端中的小組或學生，快速地設定開發、測試、Hackathon 或教室實驗室。 Azure 教學課程、範例等會示範如何建立、管理及保護實驗室。
+  title: Azure 實驗室服務文件
+  description: 了解如何使用 Azure 實驗室服務為雲端中的小組或學生，快速地設定開發、測試、Hackathon 或教室實驗室。
   services: lab-services
-  author: spelluru
-  manager: null
   ms.service: lab-services
-  ms.tgt_pltfrm: na
-  ms.devlang: na
+  ms.subservice: 
   ms.topic: landing-page
-  ms.date: 04/06/2018
+  ms.collection: collection
+  author: spelluru
   ms.author: spelluru
-abstract:
-  description: 了解如何使用 Azure 實驗室服務為雲端中的小組或學生，快速地設定開發、測試、Hackathon 或教室實驗室。 Azure 教學課程、範例等會示範如何建立、管理及保護實驗室。
-sections:
-  - title: 逐步教學課程
-    items:
-      - type: paragraph
-        text: 了解如何透過使用 Azure 實驗室服務來建立和使用<b>教室實驗室</b>。
-      - type: list
-        style: ordered
-        items:
-          - html: <a href="/azure/lab-services/classroom-labs/tutorial-setup-lab-account">設定實驗室帳戶</a>
-          - html: <a href="/azure/lab-services/classroom-labs/tutorial-setup-classroom-lab">設定教室實驗室</a>
-          - html: <a href="/azure/lab-services/classroom-labs/tutorial-connect-virtual-machine-classroom-lab">存取教室實驗室</a>
-      - type: paragraph
-        text: 了解如何透過使用Azure DevTest Labs 來使用<b>實驗室</b>。
-      - type: list
-        style: ordered
-        items:
-          - html: <a href="/azure/lab-services/tutorial-create-custom-lab">設定實驗室</a>
-          - html: <a href="/azure/lab-services/tutorial-use-custom-lab">存取實驗室</a>
-  - title: 範例
-    items:
-      - type: paragraph
-        text: 使用下列範例來使用實驗室服務。
-      - type: list
-        style: unordered
-        className: spaced noBullet
-        items:
-          - html: '<a href="https://github.com/Azure/azure-devtestlab/tree/master/samples/DevTestLabs/QuickStartTemplates">Resource Manager 範本</a>'
-          - html: <a href="/azure/lab-services/samples-cli">Azure CLI</a>
-          - html: <a href="/azure/lab-services/samples-powershell">Azure PowerShell</a>
-  - title: 參考
-    items:
-      - type: list
-        style: cards
-        className: cardsD
-        items:
-          - title: 命令列
-            html: '<p><a href="/cli/azure/lab">Azure CLI</a></p><p><a href="/powershell/module/az.devtestlabs/#devtest_labs">Azure PowerShell</a></p>'
-          - title: REST
-            html: <p><a href="/rest/api/dtl">REST API</a></p>
+  ms.date: 09/26/2019
+  ms.openlocfilehash: 63a5b41fba026cc52cdcc599bfdd38e1e27ad42d
+  ms.sourcegitcommit: e9936171586b8d04b67457789ae7d530ec8deebe
+  ms.translationtype: HT
+  ms.contentlocale: zh-TW
+  ms.lasthandoff: 09/27/2019
+  ms.locfileid: "71326965"
+landingContent:
+- title: 高階概述
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: 關於實驗室服務
+      url: lab-services-overview.md
+    - text: 關於 DevTest Labs
+      url: devtest-lab-overview.md
+    - text: 關於教室實驗室
+      url: ./classroom-labs/classroom-labs-overview.md
+- title: DevTest Labs
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: 關於 DevTest Labs
+      url: devtest-lab-overview.md
+  - linkListType: tutorial
+    links:
+    - text: 設定實驗室
+      url: tutorial-create-custom-lab.md
+    - text: 存取實驗室
+      url: tutorial-use-custom-lab.md
+  - linkListType: concept
+    links:
+    - text: 研發/測試實驗室概念
+      url: devtest-lab-concepts.md
+    - text: 常見案例
+      url: devtest-lab-guidance-get-started.md
+  - linkListType: how-to-guide
+    links:
+    - text: 設定並使用公用環境
+      url: devtest-lab-configure-use-public-environments.md
+    - text: 建立和使用您自己的環境
+      url: devtest-lab-create-environment-from-arm.md
+    - text: 建立自訂映像
+      url: devtest-lab-create-custom-image-from-vm-using-portal.md
+    - text: 管理公式
+      url: devtest-lab-manage-formulas.md
+    - text: 將成品套用至 VM
+      url: add-artifact-vm.md
+- title: 教室實驗室
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: 關於教室實驗室
+      url: ./classroom-labs/classroom-labs-overview.md
+  - linkListType: tutorial
+    links:
+    - text: 設定實驗室帳戶
+      url: ./classroom-labs/tutorial-setup-lab-account.md
+    - text: 設定教室實驗室
+      url: ./classroom-labs/tutorial-setup-classroom-lab.md
+    - text: 存取教室實驗室
+      url: ./classroom-labs/tutorial-connect-virtual-machine-classroom-lab.md
+    - text: 追蹤教室實驗的使用情況
+      url: ./classroom-labs/tutorial-track-usage.md
+  - linkListType: concept
+    links:
+    - text: 教室實驗室概念
+      url: ./classroom-labs/classroom-labs-concepts.md
+    - text: 使用實驗室教授課程
+      url: ./classroom-labs/classroom-labs-scenarios.md
+- title: 探索參考內容
+  linkLists:
+  - linkListType: reference
+    links:
+    - text: Azure CLI
+      url: /cli/azure/lab
+    - text: PowerShell
+      url: /powershell/module/az.devtestlabs/#devtest_labs
+    - text: REST
+      url: /rest/api/dtl

@@ -7,12 +7,12 @@ ms.service: jenkins
 ms.topic: tutorial
 ms.custom: mvc
 ms.date: 07/31/2019
-ms.openlocfilehash: 10ff8f4645ee1e7023c96174236243a3b85de938
-ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
+ms.openlocfilehash: 3d5e8ba8a29481a6f37ffd10f577d354fc5fbf0a
+ms.sourcegitcommit: a7a9d7f366adab2cfca13c8d9cbcf5b40d57e63a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68679131"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71161484"
 ---
 <!-- GMinchAQ, 06/18/19 -->
 
@@ -53,7 +53,7 @@ Azure Dev Spaces 可讓您測試並反覆開發在 Azure Kubernetes Service (AKS
 
 在此節中，您會建立 Azure 資源：
 
-* 建立資源群組，以包含此教學課程的所有資源。
+* 建立資源群組，以包含此教學課程的所有 Azure 資源。
 * [Azure Kubernetes Service](https://docs.microsoft.com/azure/aks/) \(部分機器翻譯\) (AKS) 叢集。
 * 用於建置 (使用 ACR 工作) 和儲存 Docker 映像的 [Azure 容器登錄庫](https://docs.microsoft.com/azure/container-registry/) \(部分機器翻譯\) (ACR)。
 

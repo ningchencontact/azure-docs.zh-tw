@@ -1,25 +1,25 @@
 ---
 title: 教學課程：在 Azure HDInsight 的 Spark 計算內容中使用 R
 description: 教學課程 - 開始在 Azure HDInsight Machine Learning 服務叢集上使用 R 和 Spark。
-ms.service: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
+ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: tutorial
 ms.date: 06/21/2019
-ms.openlocfilehash: a58d7befdb1066ce08ad1e46e6550141e2b0824f
-ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
+ms.openlocfilehash: 73ca0d089ab758fb13e69d341337139d79194cc5
+ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70899970"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71121927"
 ---
 # <a name="tutorial-use-r-in-a-spark-compute-context-in-azure-hdinsight"></a>教學課程：在 Azure HDInsight 的 Spark 計算內容中使用 R
 
 此教學課程會逐步簡介如何在 Azure HDInsight Machine Learning 服務叢集上執行的 Apache Spark 中使用 R 函式。
 
-在本教學課程中，您了解如何：
+在本教學課程中，您會了解如何：
 
 > [!div class="checklist"]
 > * 將範例資料下載至本機儲存體
@@ -59,9 +59,9 @@ https://CLUSTERNAME.azurehdinsight.net/rstudio/
 
 1. 在右側窗格中，選取 [環境]  索引標籤。變數會顯示在 [值]  的底下。
 
-    ![RStudio](./media/ml-services-tutorial-spark-compute/hdinsight-rstudio-image.png)
+    ![HDInsight R studio Web 主控台](./media/ml-services-tutorial-spark-compute/hdinsight-rstudio-image.png)
 
-1.  建立本機目錄，並下載範例資料。 在 RStudio 中輸入下列程式碼：
+1. 建立本機目錄，並下載範例資料。 在 RStudio 中輸入下列程式碼：
 
     ```R
     # Create local directory

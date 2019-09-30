@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 08/20/2018
 ms.author: danlep
 ms.custom: seodec18, mvc
-ms.openlocfilehash: 5a3ffcc75ac37dac1284d0ffb5af234fd2f376cd
-ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
+ms.openlocfilehash: ac4d78147820c2cf56549abbec7e1fbc873ea260
+ms.sourcegitcommit: b03516d245c90bca8ffac59eb1db522a098fb5e4
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68310471"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71146907"
 ---
 # <a name="tutorial-deploy-a-web-app-from-a-geo-replicated-azure-container-registry"></a>教學課程：從異地複寫的 Azure Container Registry 部署 Web 應用程式
 
@@ -55,7 +55,11 @@ Azure Container Registry 支援將容器化的應用程式直接部署至[用於
 | **網站名稱** | Web 應用程式的全域唯一名稱。 在此範例中，我們使用格式 `<acrName>-westus` 以便更容易找出登錄，以及部署 Web 應用程式的區域。 |
 | **資源群組** | **使用現有的** > `myResourceGroup` |
 | **App Service 方案/位置** | 在**美國西部**區域中，建立名為 `plan-westus` 的新方案。 |
-| **映像** | `acr-helloworld:v1`
+| **映像** | `acr-helloworld:v1` |
+| **作業系統** | Linux |
+
+> [!NOTE]
+> 當您建立新的 App Service 方案來部署您的容器化應用程式時，系統會自動選取預設方案來託管您的應用程式。 預設的方案取決於作業系統設定。
 
 選取 [建立]  以將 Web 應用程式佈建至「美國西部」  區域。
 
@@ -84,7 +88,8 @@ Azure Container Registry 支援將容器化的應用程式直接部署至[用於
 | **網站名稱** | Web 應用程式的全域唯一名稱。 在此範例中，我們使用格式 `<acrName>-eastus` 以便更容易找出登錄，以及部署 Web 應用程式的區域。 |
 | **資源群組** | **使用現有的** > `myResourceGroup` |
 | **App Service 方案/位置** | 在**美國東部**區域中，建立名為 `plan-eastus` 的新方案。 |
-| **映像** | `acr-helloworld:v1`
+| **映像** | `acr-helloworld:v1` |
+| **作業系統** | Linux |
 
 選取 [建立]  以將 Web 應用程式佈建至「美國東部」  區域。
 

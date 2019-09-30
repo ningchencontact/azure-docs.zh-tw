@@ -1,9 +1,9 @@
 ---
 title: 使用 Azure 通知中樞將通知推送至 Xamarin.Android 應用程式 | Microsoft Docs
 description: 在本教學課程中，您會了解如何使用 Azure 通知中樞將推播通知傳送至 Xamarin Android 應用程式。
-author: jwargo
-manager: patniko
-editor: spelluru
+author: sethmanheim
+manager: femila
+editor: jwargo
 services: notification-hubs
 documentationcenter: xamarin
 ms.assetid: 0be600fe-d5f3-43a5-9e5e-3135c9743e54
@@ -14,13 +14,15 @@ ms.devlang: dotnet
 ms.topic: tutorial
 ms.custom: mvc
 ms.date: 08/01/2019
-ms.author: jowargo
-ms.openlocfilehash: 39fa004b62bf7e2e2a50500f32fa7edcb0c4b6ba
-ms.sourcegitcommit: d060947aae93728169b035fd54beef044dbe9480
+ms.author: sethm
+ms.reviewer: jowargo
+ms.lastreviewed: 08/01/2019
+ms.openlocfilehash: cba84b0f07db3a69cc964e47657a3f6b64659e6a
+ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/02/2019
-ms.locfileid: "68742413"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71213558"
 ---
 # <a name="tutorial-push-notifications-to-xamarinandroid-apps-using-azure-notification-hubs"></a>教學課程：使用 Azure 通知中樞將通知推送至 Xamarin.Android 應用程式
 
@@ -85,7 +87,7 @@ ms.locfileid: "68742413"
     ![GCM 中的套件名稱](./media/partner-xamarin-notification-hubs-android-get-started/package-name-gcm.png)
 4. 將專案的目標 Android 版本設定為 **Android 9.0 (pie)** ，方法是遵循下列步驟： 
     1. 以滑鼠右鍵按一下專案，然後選取 [屬性]  。 
-    1. 針對 [使用下列 Android 版本來編譯: (目標 Framework)]  欄位，選取 [Android 9.0 (Pie)]  。 
+    1. 針對 [使用下列 Android 版本進行編譯：  目標架構)] 欄位，選取 [Android 9.0 (Pie)]  。 
     1. 在訊息方塊上選取 [是]  ，繼續變更目標 Framework。
 1. 遵循下列步驟將必要的 NuGet 套件新增至專案：
     1. 以滑鼠右鍵按一下專案，然後選取 [管理 NuGet 套件...]  。

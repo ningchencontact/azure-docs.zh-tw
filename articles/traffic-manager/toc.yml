@@ -89,6 +89,12 @@
       href: traffic-manager-powershell-arm.md
     - name: 將您的網際網路網域指向流量管理員
       href: traffic-manager-point-internet-domain.md
+    - name: 子網路覆寫
+      items:
+        - name: 設定子網路覆寫 - Azure CLI
+          href: traffic-manager-subnet-override-cli.md
+        - name: 設定子網路覆寫 - PowerShell
+          href: traffic-manager-subnet-override-powershell.md
     - name: 疑難排解
       items:
         - name: 疑難排解 Azure 流量管理員上的已降級狀態

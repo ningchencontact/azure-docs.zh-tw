@@ -9,12 +9,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 08/14/2019
 ms.author: iainfou
-ms.openlocfilehash: 7f913eebb2dd3926165a36c37dcb356aa05f2de4
-ms.sourcegitcommit: ee61ec9b09c8c87e7dfc72ef47175d934e6019cc
+ms.openlocfilehash: 8c346b75b30737645721d8b39a655a85ed446fae
+ms.sourcegitcommit: 992e070a9f10bf43333c66a608428fcf9bddc130
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70172058"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71229533"
 ---
 # <a name="tutorial-create-and-configure-an-azure-active-directory-domain-services-instance"></a>教學課程：建立並設定 Azure Active Directory Domain Services 執行個體
 
@@ -22,7 +22,7 @@ Azure Active Directory Domain Services (Azure AD DS) 提供受控網域服務，
 
 本教學課程將示範如何使用 Azure 入口網站來建立和設定 Azure AD DS 執行個體。
 
-在本教學課程中，您了解如何：
+在本教學課程中，您會了解如何：
 
 > [!div class="checklist"]
 > * 設定受控網域的 DNS 和虛擬網路設定
@@ -64,6 +64,15 @@ Azure Active Directory Domain Services (Azure AD DS) 提供受控網域服務，
 * **內建網域名稱：** 預設會使用目錄的內建網域名稱 (具有 .onmicrosoft.com  尾碼)。 如果您想要啟用透過網際網路對受控網域進行安全 LDAP 存取，則無法建立數位憑證來保護對此預設網域建立的連線。 .onmicrosoft.com  網域屬於 Microsoft，因此憑證授權單位不會發行憑證。
 * **自訂網域名稱：** 最常見的方法是指定自訂網域名稱，通常是您已擁有且可路由的名稱。 當您使用可路由的自訂網域時，流量就可以在應用程式需要支援時，流向正確的位置。
 * **非路由式網域尾碼：** 我們通常會建議您避免使用無法路由的網域名稱尾碼，例如 contoso. local  。 .local  尾碼是不可路由的，因此會導致 DNS 解析發生問題。
+
+> [!TIP]
+> 如果您建立自訂網域名稱，請注意現有的 DNS 命名空間。 建議您包含網域名稱的唯一首碼。 例如，如果您的 DNS 根名稱是 contoso.com  ，請使用 corp.contoso.com  或 ds.contoso.com  自訂網域名稱建立 Azure AD DS 受控網域。 在搭配內部部署 AD DS 環境的混合式環境中，這些首碼可能已在使用中。 請針對 Azure AD DS 使用唯一首碼。
+>
+> 您可以使用 Azure AD DS 受控網域的根 DNS 名稱，但您可能需要為環境中的其他服務建立一些額外的 DNS 記錄。 例如，如果您使用根 DNS 名稱執行裝載網站的 Web 伺服器，可能會發生需要其他 DNS 項目的命名衝突。
+>
+> 在這些教學課程和操作說明文章中，contoso.com  的自訂網域會作為簡短的範例。 在所有命令中，指定其中可能包含唯一首碼的自有網域名稱。
+>
+> 如需詳細資訊，請參閱[選取網域的命名首碼][naming-prefix]。
 
 下列 DNS 名稱限制也適用於此：
 
@@ -228,3 +237,6 @@ Azure AD 租用戶必須先[設定為可進行自助式密碼重設][configure-s
 [on-prem-sync]: tutorial-configure-password-hash-sync.md
 [configure-sspr]: ../active-directory/authentication/quickstart-sspr.md
 [password-hash-sync-process]: ../active-directory/hybrid/how-to-connect-password-hash-synchronization.md#password-hash-sync-process-for-azure-ad-domain-services
+
+<!-- EXTERNAL LINKS -->
+[naming-prefix]: /windows-server/identity/ad-ds/plan/selecting-the-forest-root-domain#selecting-a-prefix

@@ -7,12 +7,12 @@ ms.date: 07/29/2019
 ms.topic: tutorial
 ms.service: backup
 manager: carmonm
-ms.openlocfilehash: d5702576b3353bbc779601c7a5fe91417d73c7a1
-ms.sourcegitcommit: 55e0c33b84f2579b7aad48a420a21141854bc9e3
+ms.openlocfilehash: 44a2b0feab19d042de58359a7ea13814415e6c9e
+ms.sourcegitcommit: 2ed6e731ffc614f1691f1578ed26a67de46ed9c2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69624344"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71129563"
 ---
 # <a name="back-up-and-restore-azure-file-shares"></a>備份和還原 Azure 檔案共用
 本文說明如何使用 Azure 入口網站來備份和還原 [Azure 檔案共用](../storage/files/storage-files-introduction.md)。
@@ -86,13 +86,15 @@ Azure 檔案共用的備份處於預覽階段。 支援一般用途 v1 和一般
 
    ![按一下 [備份] 讓 Azure 檔案共用與保存庫建立關聯](./media/backup-file-shares/list-of-azure-files-backup-items.png)
 
-3. 從 Azure 檔案共用的清單中，選取所需的檔案共用。 所選檔案共用的 [備份項目] 功能表隨即開啟。
+3. 從 Azure 檔案共用的清單中，選取所需的檔案共用。 **備份項目**的詳細資料會隨即出現。 從 [備份項目]  功能表，按一下 [立即備份]  。 因為這是隨選備份作業，所以沒有與復原點相關聯的保留原則。
 
    ![按一下 [備份] 讓 Azure 檔案共用與保存庫建立關聯](./media/backup-file-shares/backup-item-menu.png)
 
-4. 從 [備份項目] 功能表，按一下 [立即備份]  。 因為這是隨選備份作業，所以沒有與復原點相關聯的保留原則。 [立即備份]  對話方塊隨即開啟。 指定您想要保留復原點的最後一天。
+4. [立即備份]  對話方塊隨即開啟。 指定您想要保留復原點的最後一天。
 
    ![按一下 [備份] 讓 Azure 檔案共用與保存庫建立關聯](./media/backup-file-shares/backup-now-menu.png)
+
+5. 按一下 [確定]  以確認隨選備份作業。
 
 ## <a name="restore-from-backup-of-azure-file-share"></a>從 Azure 檔案共用的備份進行還原
 如果您需要從還原點還原整個檔案共用或個別的檔案或資料夾，請前往上一節中詳述的 [備份項目]。 選擇 [還原共用]  ，以從所需的時間點還原整個檔案共用。 從顯示的 [還原點] 清單中，選取一個還原點，其可覆寫您目前的檔案共用或將它還原至相同區域中的替代檔案共用。

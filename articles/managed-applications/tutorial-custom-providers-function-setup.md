@@ -1,68 +1,58 @@
 ---
 title: 設定 Azure 自訂提供者的 Azure Functions
-description: 本教學課程將介紹如何建立 Azure 函式，並將其設定為使用 Azure 自訂提供者
+description: 本教學課程將介紹如何建立 Azure 函式應用程式，並將其設定為使用 Azure 自訂提供者
 author: jjbfour
 ms.service: managed-applications
 ms.topic: tutorial
 ms.date: 06/19/2019
 ms.author: jobreen
-ms.openlocfilehash: d7e4de43659db88bfd9aad40cc3b9f1753189bba
-ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
+ms.openlocfilehash: 6b5ab6948d382a9925c9ced91e04f360ecf51a0e
+ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67799117"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71173023"
 ---
-# <a name="setup-azure-functions-for-azure-custom-providers"></a>設定 Azure 自訂提供者的 Azure Functions
+# <a name="set-up-azure-functions-for-azure-custom-providers"></a>設定 Azure 自訂提供者的 Azure Functions
 
-自訂提供者可讓您在 Azure 上自訂工作流程。 自訂提供者是 Azure 和 `endpoint` 之間的合約。 本教學課程會詳細解說要讓 Azure 函式作為自訂提供者 `endpoint` 所需進行的設定程序。
+自訂提供者是 Azure 和端點之間的合約。 透過自訂提供者，您可以在 Azure 中變更工作流程。 本教學課程將說明如何設定 Azure 函式應用程式以作為自訂提供者端點使用。
 
-本教學課程分成下列步驟：
-
-- 建立 Azure 函式
-- 安裝 Azure 資料表繫結
-- 更新 RESTful HTTP 方法
-- 新增 Azure Resource Manager NuGet 套件
-
-本教學課程會以下列教學課程為基礎來建置：
-
-- [透過 Azure 入口網站建立您的第一個 Azure 函式](../azure-functions/functions-create-first-azure-function.md)
-
-## <a name="creating-the-azure-function"></a>建立 Azure 函式
+## <a name="create-the-azure-function-app"></a>建立 Azure 函式應用程式
 
 > [!NOTE]
-> 在本教學課程中，我們會使用 Azure 函式建立簡單的服務端點，但自訂提供者可以使用任何可公開存取的 `endpoint`。 Azure Logic Apps、Azure API 管理和 Azure Web Apps 是一些不錯的替代項目。
+> 在本教學課程中，您會建立使用 Azure 函式應用程式的簡單服務端點。 不過，自訂提供者可以使用任何可公開存取的端點。 替代方案包括 Azure Logic Apps、Azure APIM，以及 Azure App Service 的 Web Apps 功能。
 
-若要開始本教學課程，請遵循[在 Azure 入口網站中建立您的第一個 Azure 函式](../azure-functions/functions-create-first-azure-function.md)教學課程。 本教學課程會建立可在 Azure 入口網站中修改的 .NET Core Webhook 函式。
+若要開始本教學課程，請先遵循[在 Azure 入口網站中建立您的第一個 Azure 函式](../azure-functions/functions-create-first-azure-function.md)教學課程。 該教學課程會建立可在 Azure 入口網站中修改的 .NET Core Webhook 函式。 這也是目前教學課程的基礎。
 
-## <a name="install-azure-table-bindings"></a>安裝 Azure 資料表繫結
+## <a name="install-azure-table-storage-bindings"></a>安裝 Azure 資料表儲存體繫結
 
-本節會詳細解說用於安裝 Azure 資料表儲存體繫結的快速步驟。
+若要安裝 Azure 資料表儲存體繫結：
 
-1. 瀏覽至 HttpTrigger 的 `Integrate` 索引標籤。
-2. 按一下 `+ New Input`。
-3. 選取 `Azure Table Storage`。
-4. 安裝 `Microsoft.Azure.WebJobs.Extensions.Storage` (如果尚未安裝)。
-5. 將 `Table parameter name` 更新為 "tableStorage"，並將 `Table name` 更新為 "myCustomResources"。
-6. 儲存更新後的輸入參數。
+1. 前往至 HttpTrigger 的 [整合]  索引標籤。
+1. 選取 [+ 新增輸入]  。
+1. 選取 [Azure 資料表儲存體]  。
+1. 安裝 Microsoft.Azure.WebJobs.Extensions.Storage 擴充功能 (如果尚未安裝)。
+1. 在 [資料表參數名稱]  方塊中，輸入 **tableStorage**。
+1. 在 [資料表名稱]  方塊中，輸入 **myCustomResources**。
+1. 選取 [儲存]  以儲存更新後的輸入參數。
 
-![自訂提供者概觀](./media/create-custom-providers/azure-functions-table-bindings.png)
+![顯示資料表繫結的自訂提供者概觀](./media/create-custom-providers/azure-functions-table-bindings.png)
 
 ## <a name="update-restful-http-methods"></a>更新 RESTful HTTP 方法
 
-本節會詳細解說用於設定 Azure 函式以納入自訂提供者 RESTful 要求方法的快速步驟。
+若要設定 Azure 函式以包含自訂提供者的 RESTful 要求方法：
 
-1. 瀏覽至 HttpTrigger 的 `Integrate` 索引標籤。
-2. 將 `Selected HTTP methods` 更新為：GET、POST、DELETE 和 PUT。
+1. 前往至 HttpTrigger 的 [整合]  索引標籤。
+1. 在 [選取的 HTTP 方法]  底下，選取 [GET]  、[POST]  、[DELETE]  和 [PUT]  。
 
-![自訂提供者概觀](./media/create-custom-providers/azure-functions-http-methods.png)
+![顯示 HTTP 方法的自訂提供者概觀](./media/create-custom-providers/azure-functions-http-methods.png)
 
-## <a name="modifying-the-csproj"></a>修改 csproj
+## <a name="add-azure-resource-manager-nuget-packages"></a>新增 Azure Resource Manager NuGet 套件
 
 > [!NOTE]
-> 如果目錄中遺漏 csproj，您可以手動新增，或者，當函式上安裝了 `Microsoft.Azure.WebJobs.Extensions.Storage` 擴充功能後也會出現。
+> 如果專案目錄中遺漏 C# 專案檔，您可以手動將其加入。 或者，當函式應用程式上安裝 Microsoft.Azure.WebJobs.Extensions.Storage 擴充功能之後，該檔案就會出現。
 
-接下來，我們會更新 csproj 檔案來納入實用的 NuGet 程式庫，以讓您更輕鬆地剖析從自訂提供者傳入的要求。 請遵循[從入口網站新增擴充功能](../azure-functions/install-update-binding-extensions-manual.md)中的步驟，並更新 csproj 以納入下列套件參考：
+接下來，更新 C# 專案檔以包含實用的 NuGet 程式庫。 這些程式庫可讓您更輕鬆地剖析來自自訂提供者的傳入要求。 請遵循[從入口網站新增擴充功能](../azure-functions/install-update-binding-extensions-manual.md)中的步驟，並更新 C# 專案檔以納入下列套件參考：
 
 ```xml
 <PackageReference Include="Microsoft.Azure.WebJobs.Extensions.Storage" Version="3.0.4" />
@@ -70,7 +60,7 @@ ms.locfileid: "67799117"
 <PackageReference Include="Microsoft.Azure.WebJobs.Script.ExtensionsMetadataGenerator" Version="1.1.*" />
 ```
 
-csproj 檔案範例：
+下列 XML 元素是 C# 專案檔範例：
 
 ```xml
 <Project Sdk="Microsoft.NET.Sdk">
@@ -88,6 +78,7 @@ csproj 檔案範例：
 
 ## <a name="next-steps"></a>後續步驟
 
-在本文中，我們已將 Azure 函式設定為 Azure 自訂提供者 `endpoint`。 請移至下一篇文章，以了解如何撰寫 RESTful 自訂提供者 `endpoint`。
+在本教學課程中，您已設定 Azure 函式應用程式以作為 Azure 自訂提供者端點使用。
 
-- [教學課程：撰寫 RESTful 自訂提供者端點](./tutorial-custom-providers-function-authoring.md)
+若要了解如何撰寫 RESTful 自訂提供者端點，請參閱[教學課程：撰寫 RESTful 自訂提供者端點](./tutorial-custom-providers-function-authoring.md)。
+

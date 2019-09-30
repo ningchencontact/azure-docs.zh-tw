@@ -8,20 +8,20 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: tutorial
 ms.date: 06/24/2019
-ms.openlocfilehash: 752bf1919634d29221a00d983b4e88fefaf628d5
-ms.sourcegitcommit: 97605f3e7ff9b6f74e81f327edd19aefe79135d2
+ms.openlocfilehash: b6114a764d0834b7bcfe4b95d34fae6a03a8a40e
+ms.sourcegitcommit: a19bee057c57cd2c2cd23126ac862bd8f89f50f5
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70736344"
+ms.lasthandoff: 09/23/2019
+ms.locfileid: "71181032"
 ---
 # <a name="tutorial-write-to-apache-hadoop-hdfs-from-apache-storm-on-azure-hdinsight"></a>教學課程：從 Azure HDInsight 上的 Apache Storm 寫入 Apache Hadoop HDFS
 
-此教學課程會示範如何使用 Apache Storm 將資料寫入 HDInsight 上 Apache Storm 所使用的 HDFS 相容儲存體。 HDInsight 可以同時使用 Azure 儲存體以及 Azure Data Lake Storage 作為 HDFS 相容儲存體。 Storm 提供了將資料寫入 HDFS 的 [HdfsBolt](https://storm.apache.org/releases/current/javadocs/org/apache/storm/hdfs/bolt/HdfsBolt.html) 元件。 此文件提供從 HdfsBolt 寫入任一類型儲存體的資訊。
+本教學課程會示範如何使用 Apache Storm 將資料寫入 HDInsight 上 Apache Storm 所使用的 HDFS 相容儲存體。 HDInsight 可以同時使用 Azure 儲存體以及 Azure Data Lake Storage 作為 HDFS 相容儲存體。 Storm 提供了將資料寫入 HDFS 的 [HdfsBolt](https://storm.apache.org/releases/current/javadocs/org/apache/storm/hdfs/bolt/HdfsBolt.html) 元件。 本文件提供從 HdfsBolt 寫入任一類型儲存體的資訊。
 
-此文件使用的範例拓撲依賴 Storm on HDInsight 隨附的元件。 它可能需要進行修改，才能在與其他 Apache Storm 叢集搭配使用時使用 Azure Data Lake Storage。
+本文件使用的範例拓撲依賴 Storm on HDInsight 隨附的元件。 它可能需要進行修改，才能在與其他 Apache Storm 叢集搭配使用時使用 Azure Data Lake Storage。
 
-在此教學課程中，您了解如何：
+在本教學課程中，您會了解如何：
 
 > [!div class="checklist"]
 > * 使用指令碼動作來設定叢集
@@ -38,7 +38,7 @@ ms.locfileid: "70736344"
 
 * SSH 用戶端。 如需詳細資訊，請參閱[使用 SSH 連線至 HDInsight (Apache Hadoop)](../hdinsight-hadoop-linux-use-ssh-unix.md)。
 
-* 您叢集主要儲存體的 [URI 配置](../hdinsight-hadoop-linux-information.md#URI-and-scheme)。 `wasb://` 適用於 Azure 儲存體，`abfs://` 適用於 Azure Data Lake Storage Gen2 或 `adl://` 適用於 Azure Data Lake Storage Gen1。 如果針對 Azure 儲存體或 Data Lake Storage Gen2 已啟用安全傳輸，則 URI 分別會是 `wasbs://` 或 `abfss://`。另請參閱[安全傳輸](../../storage/common/storage-require-secure-transfer.md)。
+* 您叢集主要儲存體的 [URI 配置](../hdinsight-hadoop-linux-information.md#URI-and-scheme)。 `wasb://` 適用於 Azure 儲存體，`abfs://` 適用於 Azure Data Lake Storage Gen2 或 `adl://` 適用於 Azure Data Lake Storage Gen1。 如果已對 Azure 儲存體啟用安全傳輸，URI 會是 `wasbs://`。  另請參閱[安全傳輸](../../storage/common/storage-require-secure-transfer.md)。
 
 ### <a name="example-configuration"></a>設定範例
 
@@ -201,7 +201,7 @@ storm kill hdfswriter
 
 ## <a name="clean-up-resources"></a>清除資源
 
-若要清除此教學課程所建立的資源，您可以刪除資源群組。 刪除資源群組也會刪除相關聯的 HDInsight 叢集，以及與資源群組相關聯的任何其他資源。
+若要清除本教學課程所建立的資源，您可以刪除資源群組。 刪除資源群組也會刪除相關聯的 HDInsight 叢集，以及與資源群組相關聯的任何其他資源。
 
 若要使用 Azure 入口網站移除資源群組：
 
@@ -211,7 +211,7 @@ storm kill hdfswriter
 
 ## <a name="next-steps"></a>後續步驟
 
-在此教學課程中，您會了解如何使用 Apache Storm 將資料寫入 HDInsight 上 Apache Storm 所使用的 HDFS 相容儲存體。
+在本教學課程中，您會了解如何使用 Apache Storm 將資料寫入 HDInsight 上 Apache Storm 所使用的 HDFS 相容儲存體。
 
 > [!div class="nextstepaction"]
 > 探索其他[適用於 HDInsight 的 Apache Storm 範例](apache-storm-example-topology.md)

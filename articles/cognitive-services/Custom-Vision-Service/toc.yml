@@ -44,9 +44,9 @@
           href: go-tutorial-object-detection.md
 - name: 教學課程
   items:
-    - name: IoT Visual Alerts 應用程式
+    - name: 在 IoT 裝置上報告視覺狀態
       href: iot-visual-alerts-tutorial.md
-    - name: 適用於行動裝置的標誌偵測器
+    - name: 辨識行動裝置上的標誌
       href: logo-detector-mobile.md
 - name: 使用說明指南
   items:

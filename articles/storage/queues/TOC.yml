@@ -192,106 +192,116 @@
           href: ../common/storage-powershell-independent-clouds.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
 - name: 參考
   items:
-    - name: PowerShell
-      href: /powershell/module/azure.storage
+    - name: Azure PowerShell
+      href: /powershell/module/az.storage
     - name: Azure CLI
       href: /cli/azure/storage
     - name: .NET
       items:
-        - name: Blob、佇列、資料表和檔案
-          href: 'https://docs.microsoft.com/dotnet/api/overview/azure/storage/client'
-        - name: 資料移動
-          href: /dotnet/api/microsoft.azure.storage.datamovement
-        - name: Resource Manager
-          href: 'https://docs.microsoft.com/dotnet/api/overview/azure/storage/management'
+        - name: Blob、佇列和檔案儲存體
+          href: /dotnet/api/overview/azure/storage/client
+        - name: 儲存體資源提供者
+          href: /dotnet/api/overview/azure/storage/management
     - name: Java
       items:
-        - name: Blob、佇列、資料表和檔案
-          href: 'https://docs.microsoft.com/java/api/overview/azure/storage/client'
-        - name: Resource Manager
-          href: 'https://docs.microsoft.com/java/api/overview/azure/storage/management'
+        - name: Blob、佇列和檔案 (版本 12.x - 預覽)
+          href: 'https://azure.github.io/azure-sdk-for-java/track2reports/index.html'
+        - name: 儲存體資源提供者
+          href: /java/api/overview/azure/storage/management
     - name: Node.js
-      href: 'https://docs.microsoft.com/javascript/api/overview/azure/storage'
-    - name: Ruby
-      href: 'https://azure.github.io/azure-storage-ruby'
-    - name: PHP
-      href: 'https://azure.github.io/azure-storage-php/'
+      href: /javascript/api/overview/azure/storage
     - name: Python
-      href: 'https://docs.microsoft.com/python/api/overview/azure/storage'
-    - name: C++
-      href: 'https://azure.github.io/azure-storage-cpp'
-    - name: iOS
-      href: 'https://azure.github.io/azure-storage-ios/'
-    - name: Android
-      href: 'https://azure.github.io/azure-storage-android'
+      href: /python/api/overview/azure/storage
     - name: REST
       items:
         - name: Blob、佇列、資料表和檔案
           href: /rest/api/storageservices
-        - name: 資源提供者
+        - name: 儲存體資源提供者
           href: /rest/api/storagerp
-        - name: 匯入/匯出
-          href: /rest/api/storageimportexport
+    - name: C++
+      href: 'https://azure.github.io/azure-storage-cpp'
+    - name: Ruby
+      href: 'https://azure.github.io/azure-storage-ruby'
+    - name: PHP
+      href: 'https://azure.github.io/azure-storage-php/'
+    - name: iOS
+      href: 'https://azure.github.io/azure-storage-ios/'
+    - name: Android
+      href: 'https://azure.github.io/azure-storage-android'
     - name: Resource Manager 範本
       displayName: ARM
       href: /azure/templates/microsoft.storage/allversions
 - name: 資源
   items:
-    - name: Azure 藍圖
-      href: 'https://azure.microsoft.com/roadmap/?product=storage'
-    - name: Azure 儲存體用戶端工具
-      href: ../common/storage-explorers.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
-    - name: 論壇
-      href: 'https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazuredata'
-    - name: 價格
-      href: 'https://azure.microsoft.com/pricing/details/storage/queues/'
-    - name: 定價計算機
-      href: 'https://azure.microsoft.com/pricing/calculator/'
-    - name: 堆疊溢位
-      href: 'https://stackoverflow.com/questions/tagged/windows-azure-storage'
-    - name: 影片
-      href: 'https://azure.microsoft.com/documentation/videos/index/?services=storage'
+    - name: Azure 更新
+      href: 'https://azure.microsoft.com/updates/?product=storage'
     - name: Azure 儲存體總管
       items:
-        - name: 儲存體總管
-          href: ../../vs-azure-tools-storage-manage-with-storage-explorer.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
+        - name: 下載儲存體總管
+          href: 'https://azure.microsoft.com/features/storage-explorer/'
+        - name: 開始使用儲存體總管
+          href: ../../vs-azure-tools-storage-manage-with-storage-explorer.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
         - name: 儲存體總管版本資訊
-          href: ../../vs-azure-tools-storage-explorer-relnotes.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
+          href: ../../vs-azure-tools-storage-explorer-relnotes.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
         - name: 針對儲存體總管進行疑難排解
-          href: ../common/storage-explorer-troubleshooting.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
+          href: ../common/storage-explorer-troubleshooting.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
         - name: 儲存體總管協助工具
-          href: ../../vs-azure-tools-storage-explorer-accessibility.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
-    - name: NuGet 套件
+          href: ../../vs-azure-tools-storage-explorer-accessibility.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+    - name: Azure 儲存體論壇
+      href: 'https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazuredata'
+    - name: Stack Overflow 上的 Azure 儲存體
+      href: 'https://stackoverflow.com/questions/tagged/windows-azure-storage'
+    - name: Azure 儲存體定價
+      href: 'https://azure.microsoft.com/pricing/details/storage/'
+    - name: Azure 定價計算機
+      href: 'https://azure.microsoft.com/pricing/calculator/'
+    - name: 影片
+      href: 'https://azure.microsoft.com/documentation/videos/index/?services=storage'
+    - name: NuGet 套件 (.NET)
       items:
-        - name: Azure 儲存體常見用戶端程式庫
+        - name: Microsoft.Azure.Storage.Common (版本 11.x)
           href: 'https://www.nuget.org/packages/Microsoft.Azure.Storage.Common/'
-        - name: Azure 佇列儲存體用戶端程式庫
+        - name: Azure.Storage.Common (版本 12.x - 預覽)
+          href: 'https://www.nuget.org/packages/Azure.Storage.Common/'
+        - name: Microsoft.Azure.Storage.Queue (版本 11.x)
           href: 'https://www.nuget.org/packages/Microsoft.Azure.Storage.Queue/'
-        - name: Azure 儲存體資料移動用戶端程式庫
-          href: 'https://www.nuget.org/packages/Microsoft.Azure.Storage.DataMovement/'
+        - name: Azure.Storage.Queue (版本 12.x - 預覽)
+          href: 'https://www.nuget.org/packages/Azure.Storage.Queues/'
         - name: Azure 組態管理員
           href: 'https://www.nuget.org/packages/Microsoft.Azure.ConfigurationManager/'
+        - name: Azure 儲存體資料移動程式庫
+          href: 'https://www.nuget.org/packages/Microsoft.Azure.Storage.DataMovement/'
     - name: 原始程式碼
       items:
         - name: .NET
           items:
-            - name: Blob、佇列和檔案儲存體
-              href: 'https://github.com/Azure/azure-storage-net'
-            - name: 儲存體資源提供者
-              href: 'https://github.com/Azure/azure-sdk-for-net'
-        - name: Node.js
-          href: 'https://azure.github.io/azure-storage-node/'
+            - name: Azure 儲存體用戶端程式庫
+              items:
+                - name: 版本 12.x (預覽)
+                  href: 'https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage'
+                - name: 版本 11.x 和舊版
+                  href: 'https://github.com/Azure/azure-storage-net'
+            - name: 資料移動程式庫
+              href: /dotnet/api/microsoft.azure.storage.datamovement
+            - name: 儲存體資源提供者程式庫
+              href: /dotnet/api/overview/azure/storage/management
         - name: Java
-          href: 'https://github.com/Azure/azure-storage-java'
-        - name: C++
-          href: 'https://github.com/Azure/azure-storage-cpp'
-        - name: PHP
-          href: 'https://github.com/Azure/azure-storage-php'
+          items:
+            - name: Azure 儲存體用戶端程式庫版本 12.x (預覽)
+              href: 'https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/storage'
+            - name: Azure 儲存體用戶端程式庫版本 8.x 和舊版
+              href: 'https://github.com/Azure/azure-storage-java'
+        - name: Node.js
+          items:
+            - name: Azure 儲存體用戶端程式庫版本 12.x (預覽)
+              href: 'https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/storage'
+            - name: Azure 儲存體用戶端程式庫版本 10.x
+              href: 'https://github.com/Azure/azure-storage-node'
         - name: Python
-          href: 'https://github.com/Azure/azure-storage-python'
-        - name: Ruby
-          href: 'https://github.com/Azure/azure-storage-ruby'
-        - name: iOS
-          href: 'https://github.com/Azure/azure-storage-ios'
+          items:
+            - name: Azure 儲存體用戶端程式庫版本 12.x (預覽)
+              href: 'https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/storage'
+            - name: Azure 儲存體用戶端程式庫版本 2.1
+              href: 'https://github.com/Azure/azure-storage-python'
     - name: 合規性供應項目
       href: ../common/storage-compliance-offerings.md

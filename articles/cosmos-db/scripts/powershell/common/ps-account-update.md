@@ -1,19 +1,19 @@
 ---
 title: Azure PowerShell 指令碼 - 更新 Azure Cosmos 帳戶
-description: Azure PowerShell 指令碼範例 - 以新增的區域更新 Azure Cosmos 帳戶
+description: Azure PowerShell 指令碼範例 - 更新 Azure Cosmos 帳戶或修改區域
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: sample
-ms.date: 05/06/2019
+ms.date: 09/20/2019
 ms.author: mjbrown
-ms.openlocfilehash: 8fad9b47b4f451f4b77f32038b26d6dc43809a60
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.openlocfilehash: 7d57264daf4036d1823d3da27c248bdca1d7466d
+ms.sourcegitcommit: 116bc6a75e501b7bba85e750b336f2af4ad29f5a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67603960"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71154730"
 ---
-# <a name="update-an-azure-cosmos-account-and-add-a-region-using-powershell"></a>使用 PowerShell 更新 Azure Cosmos 帳戶及新增區域
+# <a name="update-an-azure-cosmos-account-or-add-modify-regions-using-powershell"></a>使用 PowerShell 更新 Azure Cosmos 帳戶或修改區域
 
 [!INCLUDE [updated-for-az](../../../../../includes/updated-for-az.md)]
 
@@ -21,7 +21,12 @@ ms.locfileid: "67603960"
 
 ## <a name="sample-script"></a>範例指令碼
 
-[!code-powershell[main](../../../../../powershell_scripts/cosmosdb/sql/ps-account-update.ps1 "Update and add regions to an Azure Cosmos account")]
+> [!NOTE]
+> 您不能在相同的作業中修改區域和變更其他 Cosmos 帳戶屬性。 這些必須以兩個不同的作業來完成。
+> [!NOTE]
+> 此範例會示範如何使用 SQL (核心) API 帳戶。 若要針對其他 API 使用此範例，請複製相關的屬性，並套用至您的 API 專屬指令碼。
+
+[!code-powershell[main](../../../../../powershell_scripts/cosmosdb/common/ps-account-update.ps1 "Add a region to an Azure Cosmos account")]
 
 ## <a name="clean-up-deployment"></a>清除部署
 
@@ -38,7 +43,7 @@ Remove-AzResourceGroup -ResourceGroupName "myResourceGroup"
 | 命令 | 注意 |
 |---|---|
 |**Azure 資源**| |
-| [Get-AzResource](https://docs.microsoft.com/powershell/module/az.resources/get-azresource) | 取得資源。 |
+| [New-AzResource](https://docs.microsoft.com/powershell/module/az.resources/new-azresource) | 建立資源。 |
 | [Set-AzResource](https://docs.microsoft.com/powershell/module/az.resources/set-azresource) | 更新資源。 |
 |**Azure 資源群組**| |
 | [New-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroup) | 建立用來存放所有資源的資源群組。 |

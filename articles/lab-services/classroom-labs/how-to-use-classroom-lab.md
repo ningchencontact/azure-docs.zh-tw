@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 08/19/2019
+ms.date: 09/19/2019
 ms.author: spelluru
-ms.openlocfilehash: a7d1249d68ddd4a161d1c0476e5f56e80c4d32f9
-ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
+ms.openlocfilehash: 10813600621293e9f559129230193f81ea0c505a
+ms.sourcegitcommit: a7a9d7f366adab2cfca13c8d9cbcf5b40d57e63a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/26/2019
-ms.locfileid: "70032005"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71161525"
 ---
 # <a name="how-to-access-a-classroom-lab-in-azure-lab-services"></a>如何存取 Azure 實驗室服務中的教室實驗室
 本文說明如何向教室實驗室註冊、檢視您可以存取的所有實驗室、啟動/停止實驗室中的 VM，以及連線至 VM。 
@@ -28,8 +28,11 @@ ms.locfileid: "70032005"
 
 1. 瀏覽至教師/授課者提供給您的**註冊 URL**。 完成註冊之後，您不需要使用註冊 URL。 請改用 URL：[https://labs.azure.com](https://labs.azure.com)。 目前尚未支援 Internet Explorer 11。 
 1. 使用學校帳戶登入服務，以完成註冊。 
-2. 註冊之後，請確認您有看到可存取的實驗室虛擬機器。 
-3. 請等候虛擬機器準備就緒。 在 [VM] 圖格上，請注意下欄欄位：
+
+    > [!NOTE]
+    > 使用 Azure 實驗室服務時需要 Microsoft 帳戶。 如果您嘗試使用非 Microsoft 帳戶 (例如 Yahoo 或 Google 帳戶) 來登入入口網站，請依照指示來建立將連結至非 Microsoft 帳戶的 Microsoft 帳戶。 然後遵循步驟來完成註冊程序。 
+1. 註冊之後，請確認您有看到可存取的實驗室虛擬機器。 
+1. 請等候虛擬機器準備就緒。 在 [VM] 圖格上，請注意下欄欄位：
     1. 在圖格頂端，您會看到**實驗室的名稱**。
     1. 在圖格右邊，您會看到代表 VM **作業系統 (OS)** 的圖示。 在此範例中為 Windows OS。 
     1. 您會在圖格底部看到用來啟動/停止 VM 和連線至 VM 的圖示/按鈕。 

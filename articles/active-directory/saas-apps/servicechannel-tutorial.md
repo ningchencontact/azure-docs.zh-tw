@@ -1,5 +1,5 @@
 ---
-title: 教學課程：Azure Active Directory 與 ServiceChannel 整合 | Microsoft Docs
+title: 教學課程：Azure Active Directory 單一登入 (SSO) 與 ServiceChannel 整合 | Microsoft Docs
 description: 了解如何設定 Azure Active Directory 與 ServiceChannel 之間的單一登入。
 services: active-directory
 documentationCenter: na
@@ -13,17 +13,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 08/12/2019
+ms.date: 08/29/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 120dbefb6885489155a4b86fae429223766a06bc
-ms.sourcegitcommit: 62bd5acd62418518d5991b73a16dca61d7430634
+ms.openlocfilehash: 4adc22982c8c7fa7b7a856ded01f88ee548bde93
+ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68976093"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71121973"
 ---
-# <a name="tutorial-integrate-servicechannel-with-azure-active-directory"></a>教學課程：整合 ServiceChannel 與 Azure Active Directory
+# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-servicechannel"></a>教學課程：Azure Active Directory 單一登入 (SSO) 與 ServiceChannel 整合
 
 在本教學課程中，您會了解如何整合 ServiceChannel 與 Azure Active Directory (Azure AD)。 在整合 ServiceChannel 與 Azure AD 時，您可以︰
 
@@ -58,7 +58,6 @@ ms.locfileid: "68976093"
 1. 在 [從資源庫新增]  區段的搜尋方塊中輸入 **ServiceChannel**。
 1. 從結果面板選取 [ServiceChannel]  ，然後新增應用程式。 當應用程式新增至您的租用戶時，請等候幾秒鐘。
 
-
 ## <a name="configure-and-test-azure-ad-single-sign-on-for-servicechannel"></a>設定及測試 ServiceChannel 的 Azure AD 單一登入
 
 以名為 **B.Simon** 的測試使用者，設定及測試與 ServiceChannel 搭配運作的 Azure AD SSO。 若要讓 SSO 能夠運作，您必須建立 Azure AD 使用者與 ServiceChannel 中相關使用者之間的連結關聯性。
@@ -68,9 +67,9 @@ ms.locfileid: "68976093"
 1. **[設定 Azure AD SSO](#configure-azure-ad-sso)** - 讓您的使用者能夠使用此功能。
     1. **[建立 Azure AD 測試使用者](#create-an-azure-ad-test-user)** - 使用 B.Simon 測試 Azure AD 單一登入。
     1. **[指派 Azure AD 測試使用者](#assign-the-azure-ad-test-user)** - 讓 B.Simon 能夠使用 Azure AD 單一登入。
-2. **[設定 ServiceChannel SSO](#configure-servicechannel-sso)** - 在應用程式端設定單一登入設定。
+1. **[設定 ServiceChannel SSO](#configure-servicechannel-sso)** - 在應用程式端設定單一登入設定。
     1. **[建立 ServiceChannel 測試使用者](#create-servicechannel-test-user)** - 使 ServiceChannel 中對應的 B.Simon 連結到該使用者在 Azure AD 中的代表項目。
-3. **[測試 SSO](#test-sso)** - 驗證組態是否能運作。
+1. **[測試 SSO](#test-sso)** - 驗證組態是否能運作。
 
 ## <a name="configure-azure-ad-sso"></a>設定 Azure AD SSO
 
@@ -82,53 +81,22 @@ ms.locfileid: "68976093"
 
    ![編輯基本 SAML 組態](common/edit-urls.png)
 
-1. 在 [基本 SAML 組態]  區段上，執行下列步驟：
+1. 在 [以 SAML 設定單一登入]  頁面上，輸入下列欄位的值：
 
-      a. 在 [識別碼]  文字方塊中，輸入值：`http://adfs.<domain>.com/adfs/service/trust`
+    a. 在 [識別碼]  文字方塊中，輸入值：`http://adfs.<domain>.com/adfs/service/trust`
 
     b. 在 [回覆 URL]  文字方塊中，使用下列模式來輸入 URL：`https://<customer domain>.servicechannel.com/saml/acs`
 
     > [!NOTE]
     > 這些都不是真正的值。 請使用實際的識別碼和回覆 URL 更新這些值。 在此建議您在 [識別碼] 中使用唯一的字串值。 請連絡 [ServiceChannel 用戶端支援小組](https://servicechannel.zendesk.com/hc/en-us) \(英文\) 以取得這些值。 您也可以參考 Azure 入口網站中**基本 SAML 組態**區段所示的模式。
 
-5. ServiceChannel 應用程式需要特定格式的 SAML 判斷提示，所以您必須將自訂屬性對應新增至 SAML 權杖屬性設定。 下列螢幕擷取畫面顯示預設屬性清單，其中的 **nameidentifier** 與 **user.userprincipalname** 相對應。 ServiceChannel 應用程式要求 **nameidentifier** 需與 **user.mail** 相對應，因此您必須按一下 [編輯]  圖示並變更屬性對應來編輯屬性對應。
+1. 角色宣告已預先設定，因此您不需要進行設定，但您仍然需要使用[本文](https://docs.microsoft.com/azure/active-directory/develop/active-directory-enterprise-app-role-management)在 Azure AD 中建立角色。 您可以參考[這裡](https://servicechannel.zendesk.com/hc/articles/217514326-Azure-AD-Configuration-Example)的 ServiceChannel 指南，以取得宣告的詳細指引。
 
-    您可以參考[這裡](https://servicechannel.zendesk.com/hc/articles/217514326-Azure-AD-Configuration-Example)的 ServiceChannel 指南，以取得宣告的詳細指引。
-
-    ![image](common/edit-attribute.png)
-
-    > [!NOTE]
-    > 請參閱此[連結](https://docs.microsoft.com/azure/active-directory/develop/active-directory-enterprise-app-role-management)，以了解如何在 Azure AD 中設定**角色**。
-
-6. 除了上述項目之外，如果您打算啟用 Just In Time 使用者佈建，則應該新增下列所示的宣告。 **角色**宣告需要對應到 **user.assignedroles**，其中包含使用者的角色。 在 [使用者屬性]  對話方塊的 [使用者宣告]  區段中，執行下列步驟以設定 SAML 權杖屬性，如下表所示：
-
-    | Name   |  來源屬性 |
-    | ------ | --- |
-    | 角色   | user.assignedroles |
-
-    a. 按一下 [新增宣告]  以開啟 [管理使用者宣告]  對話方塊。
-
-    ![映像](common/new-save-attribute.png)
-
-    ![映像](common/new-attribute-details.png)
-
-    b. 在 [名稱]  文字方塊中，輸入該資料列所顯示的屬性名稱。
-
-    c. 讓 [命名空間]  保持空白。
-
-    d. 選取 [來源] 作為 [屬性]  。
-
-    e. 在 [來源屬性]  清單中，輸入該資料列所顯示的屬性值。
-
-    f. 按一下 [確定]  。
-
-    g. 按一下 [檔案]  。
-
-4. 在 [以 SAML 設定單一登入]  頁面的 [SAML 簽署憑證]  區段中，尋找 [憑證 (Base64)]  並選取 [下載]  ，以下載憑證並將其儲存在電腦上。
+1. 在 [以 SAML 設定單一登入]  頁面的 [SAML 簽署憑證]  區段中，尋找 [憑證 (Base64)]  並選取 [下載]  ，以下載憑證並將其儲存在電腦上。
 
     ![憑證下載連結](common/certificatebase64.png)
 
-6. 在 [設定 ServiceChannel]  區段上，依據您的需求複製適當的 URL。
+1. 在 [設定 ServiceChannel]  區段上，依據您的需求複製適當的 URL。
 
     ![複製組態 URL](common/copy-configuration-urls.png)
 
@@ -139,10 +107,10 @@ ms.locfileid: "68976093"
 1. 在 Azure 入口網站的左窗格中，依序選取 [Azure Active Directory]  、[使用者]  和 [所有使用者]  。
 1. 在畫面頂端選取 [新增使用者]  。
 1. 在 [使用者]  屬性中，執行下列步驟：
-    1. 在 [名稱]  欄位中，輸入 `B.Simon`。  
-    1. 在 [使用者名稱]  欄位中，輸入 username@companydomain.extension。 例如： `B.Simon@contoso.com` 。
-    1. 選取 [顯示密碼]  核取方塊，然後記下 [密碼]  方塊中顯示的值。
-    1. 按一下頁面底部的 [新增]  。
+   1. 在 [名稱]  欄位中，輸入 `B.Simon`。  
+   1. 在 [使用者名稱]  欄位中，輸入 username@companydomain.extension。 例如： `B.Simon@contoso.com` 。
+   1. 選取 [顯示密碼]  核取方塊，然後記下 [密碼]  方塊中顯示的值。
+   1. 按一下頁面底部的 [新增]  。
 
 ### <a name="assign-the-azure-ad-test-user"></a>指派 Azure AD 測試使用者
 
@@ -152,7 +120,7 @@ ms.locfileid: "68976093"
 1. 在應用程式清單中，選取 [ServiceChannel]  。
 1. 在應用程式的概觀頁面中尋找 [管理]  區段，然後選取 [使用者和群組]  。
 
-    ![[使用者和群組] 連結](common/users-groups-blade.png)
+   ![[使用者和群組] 連結](common/users-groups-blade.png)
 
 1. 選取 [新增使用者]  ，然後在 [新增指派]  對話方塊中選取 [使用者和群組]  。
 
@@ -164,13 +132,13 @@ ms.locfileid: "68976093"
 
 ## <a name="configure-servicechannel-sso"></a>設定 ServiceChannel SSO
 
-若要設定 **ServiceChannel** 端的單一登入，您必須將從 Azure 入口網站下載的 [憑證 (Base64)]  和複製的適當 URL 傳送給 [ServiceChannel 支援小組](https://servicechannel.zendesk.com/hc/) \(英文\)。 他們會進行此設定，讓兩端的 SAML SSO 連線都設定正確。
+若要設定 **ServiceChannel** 端的單一登入，您必須將從 Azure 入口網站下載的 [憑證 (Base64)]  和複製的適當 URL 傳送給 [ServiceChannel 支援小組](https://servicechannel.zendesk.com/hc/en-us) \(英文\)。 他們會進行此設定，讓兩端的 SAML SSO 連線都設定正確。
 
 ### <a name="create-servicechannel-test-user"></a>建立 ServiceChannel 測試使用者
 
-應用程式支援 Just in time 使用者佈建，而在驗證之後，會在應用程式中自動建立使用者。 如需完整的使用者佈建，請連絡 [ServiceChannel 支援小組](https://servicechannel.zendesk.com/hc/)。
+應用程式僅在使用者佈建時支援，驗證之後，會在應用程式中自動建立使用者。 如需完整的使用者佈建，請連絡 [ServiceChannel 支援小組](https://servicechannel.zendesk.com/hc/)。
 
-## <a name="test-sso"></a>測試 SSO 
+## <a name="test-sso"></a>測試 SSO
 
 在本節中，您會使用存取面板來測試您的 Azure AD 單一登入設定。
 
@@ -184,3 +152,4 @@ ms.locfileid: "68976093"
 
 - [什麼是 Azure Active Directory 中的條件式存取？](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
+- [嘗試搭配 Azure AD 使用 ServiceChannel](https://aad.portal.azure.com/)

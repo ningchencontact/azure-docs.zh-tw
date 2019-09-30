@@ -1,6 +1,6 @@
 ---
 title: 教學課程：在 Azure Service Fabric 上建立 Java 應用程式
-description: 在此教學課程中，了解如何建立含有前端的可靠服務 Java 應用程式、建立具狀態可靠服務後端，以及將應用程式部署到叢集。
+description: 在本教學課程中，了解如何建立含有前端的可靠服務 Java 應用程式、建立具狀態可靠服務後端，以及將應用程式部署到叢集。
 services: service-fabric
 documentationcenter: java
 author: suhuruli
@@ -15,20 +15,20 @@ ms.workload: NA
 ms.date: 09/01/2018
 ms.author: suhuruli
 ms.custom: mvc, seo-java-july2019, seo-java-august2019, seo-java-september2019
-ms.openlocfilehash: 57c9bd8caf6e8762ed07ac5e6f4ff16171569723
-ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
+ms.openlocfilehash: b3210b97fe6fb0cd16499d5c33538c8e2babe612
+ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70900677"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71173719"
 ---
 # <a name="tutorial-create-an-application-with-a-java-api-front-end-service-and-a-stateful-back-end-service-on-azure-service-fabric"></a>教學課程：在 Azure Service Fabric 上使用 Java API 前端服務和具狀態後端服務建立應用程式
 
-此教學課程是一個系列的第一部分。 當您完成時，您會有一個 Voting 應用程式，其 Java Web 前端會將投票結果儲存在 Azure Service Fabric 上的具狀態後端服務中。 此教學課程系列要求您具備一部運作中的 Mac OSX 或 Linux 開發人員電腦。 如果您不需要以手動建立 Voting 應用程式，可以[下載已完成應用程式的原始程式碼](https://github.com/Azure-Samples/service-fabric-java-quickstart)並直接前往[逐步解說投票範例應用程式](service-fabric-tutorial-create-java-app.md#walk-through-the-voting-sample-application)。 此外，請考慮遵循 [Java 可靠服務快速入門](service-fabric-quickstart-java-reliable-services.md)。
+本教學課程是一個系列的第一部分。 當您完成時，您會有一個 Voting 應用程式，其 Java Web 前端會將投票結果儲存在 Azure Service Fabric 上的具狀態後端服務中。 此教學課程系列要求您具備一部運作中的 Mac OSX 或 Linux 開發人員電腦。 如果您不需要以手動建立 Voting 應用程式，可以[下載已完成應用程式的原始程式碼](https://github.com/Azure-Samples/service-fabric-java-quickstart)並直接前往[逐步解說投票範例應用程式](service-fabric-tutorial-create-java-app.md#walk-through-the-voting-sample-application)。 此外，請考慮遵循 [Java 可靠服務快速入門](service-fabric-quickstart-java-reliable-services.md)。
 
-![本機 Voting 應用程式](./media/service-fabric-tutorial-create-java-app/votingjavalocal.png)
+![Service Fabric 投票範例](./media/service-fabric-tutorial-create-java-app/service-fabric-java-voting-app-sample.png)
 
-在此教學課程系列中，您將了解如何：
+在本教學課程系列中，您將了解如何：
 > [!div class="checklist"]
 > * 建置 Java Service Fabric Reliable Services 應用程式
 > * [在本機叢集上部署及偵錯應用程式](service-fabric-tutorial-debug-log-local-cluster.md)
@@ -47,7 +47,7 @@ ms.locfileid: "70900677"
 
 ## <a name="prerequisites"></a>必要條件
 
-開始進行此教學課程之前：
+開始進行本教學課程之前：
 
 * 如果您沒有 Azure 訂用帳戶，請建立[免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)。
 * 在 [Mac](service-fabric-get-started-mac.md) 或 [Linux](service-fabric-get-started-linux.md) 上設定開發環境。 請遵循指示來安裝 Eclipse 外掛程式、 Gradle、Service Fabric SDK 和 Service Fabric CLI (sfctl)。
@@ -60,15 +60,15 @@ ms.locfileid: "70900677"
 
 2. 透過 [檔案]   > [新增]   > [其他]   > [Service Fabric]   > [Service Fabric 專案]  來建立專案。
 
-    ![Eclipse 中的 [新增專案] 對話方塊](./media/service-fabric-tutorial-create-java-app/create-sf-proj-wizard.png)
+    ![Eclipse 中的新 Service Fabric 專案](./media/service-fabric-tutorial-create-java-app/service-fabric-project-wizard.png)
 
 3. 在 [ServiceFabric 專案精靈]  對話方塊中，將專案命名為 **Voting**，然後選取 [下一步]  。
 
-    ![在新增服務對話方塊中選擇 Java 具狀態服務](./media/service-fabric-tutorial-create-java-app/name-sf-proj-wizard.png) 
+    ![在新增服務對話方塊中選擇 Java 具狀態服務](./media/service-fabric-tutorial-create-java-app/name-service-fabric-project-wizard.png) 
 
 4. 在 [新增服務]  頁面上，選取 [具狀態服務]  ，並將服務命名為 **VotingWeb**。 選取 [完成]  以建立專案。
 
-    ![建立無狀態服務]( ./media/service-fabric-tutorial-create-java-app/createvotingweb.png)
+    ![為您的 Service Fabric 專案建立無狀態服務]( ./media/service-fabric-tutorial-create-java-app/add-service-fabric-votingweb-service.png)
 
     Eclipse 會建立應用程式和服務專案並顯示在 [套件總管] 中。
 
@@ -416,7 +416,7 @@ Service Fabric 可讓您使用可靠集合，直接在服務內以一致且可�
 
 3. Eclipse 會建立服務專案並顯示在 [套件總管] 中。
 
-    ![Controllers\HomeController.cs](./media/service-fabric-tutorial-create-java-app/packageexplorercompletejava.png)
+    ![Eclipse 專案總管](./media/service-fabric-tutorial-create-java-app/service-fabric-package-explorer-java.png)
 
 ### <a name="add-the-votingdataservicejava-file"></a>新增 VotingDataService.java 檔案
 
@@ -557,7 +557,7 @@ class VotingDataService extends StatefulService implements VotingRPC {
 
 1. 在 [套件總管] 中，以滑鼠右鍵按一下 **Voting** 專案，然後選取 [新增]   > [資料夾]  。 將資料夾命名為 **VotingRPC/src/rpcmethods**。
 
-    ![建立 VotingRPC 套件](./media/service-fabric-tutorial-create-java-app/createvotingrpcpackage.png)
+    ![在 Eclipse 套件總管中建立 VotingRPC 套件](./media/service-fabric-tutorial-create-java-app/create-voting-rpc-package-java.png)
 
 3. 在 *Voting/VotingRPC/src/rpcmethods* 之下建立一個名為 VotingRPC.java  的檔案，並將下列內容貼在 **VotingRPC.java** 檔案中。 
 
@@ -720,7 +720,7 @@ class VotingDataService extends StatefulService implements VotingRPC {
 - Web 前端服務 (VotingWeb) - Java Web 前端服務，可提供網頁並公開 API 來與後端服務通訊。
 - 後端服務 (VotingDataService) - Java Web 服務，可定義透過遠端程序呼叫 (RPC) 叫用來保存選票的方法。
 
-![應用程式圖表](./media/service-fabric-tutorial-create-java-app/walkthroughjavavoting.png)
+![投票範例圖表](./media/service-fabric-tutorial-create-java-app/walkthrough-java-voting.png)
 
 在應用程式中執行動作 (新增項目、投票、移除項目) 時，會發生下列事件：
 1. JavaScript 會將適當的要求當作 HTTP 要求，傳送至 Web 前端服務中的 Web API。

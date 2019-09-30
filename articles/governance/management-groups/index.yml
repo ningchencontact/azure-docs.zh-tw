@@ -1,0 +1,39 @@
+### YamlMime:Landing
+title: Azure 管理群組文件
+summary: Azure 管理群組可協助您組織資源和訂用帳戶。
+metadata:
+  title: Azure 管理群組文件
+  description: Azure 管理群組可協助您組織資源和訂用帳戶。
+  ms.service: governance
+  ms.topic: landing-page
+  ms.collection: collection
+  author: DCtheGeek
+  ms.author: dacoulte
+  ms.date: 09/26/2019
+  ms.openlocfilehash: 9d91baaec7f1bd0e365f86ea07174d6f9e32725c
+  ms.sourcegitcommit: e1b6a40a9c9341b33df384aa607ae359e4ab0f53
+  ms.translationtype: HT
+  ms.contentlocale: zh-TW
+  ms.lasthandoff: 09/27/2019
+  ms.locfileid: "71341040"
+landingContent:
+- title: 關於 Azure 治理
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Azure 管理服務概觀
+      url: ../azure-management.md
+- title: 關於 Azure 管理群組
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Azure 管理群組
+      url: ./overview.md
+- title: 組織資源
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: 建立管理群組
+      url: ./create.md
+    - text: 組織您的資源
+      url: ./manage.md

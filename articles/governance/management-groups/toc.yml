@@ -1,0 +1,16 @@
+- name: Azure 管理群組文件
+  href: ./index.yml
+- name: 概觀
+  expanded: true
+  items:
+    - name: Azure 管理
+      href: ../azure-management.md
+    - name: 管理群組
+      href: ./overview.md
+- name: 使用說明指南
+  expanded: true
+  items:
+    - name: 建立管理群組
+      href: ./create.md
+    - name: 組織您的資源
+      href: ./manage.md

@@ -8,16 +8,16 @@ ms.topic: include
 ms.date: 03/28/2018
 ms.author: wesmc
 ms.custom: include file
-ms.openlocfilehash: 0f1decae5fb3ec4a07f01c5bff7475f3d73a3cbb
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: f059f23031c2cdd74daaa856213d7e06f87dc27c
+ms.sourcegitcommit: a6718e2b0251b50f1228b1e13a42bb65e7bf7ee2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67173785"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71273895"
 ---
 1. 若要建立快取，請先登入 [Azure 入口網站](https://portal.azure.com)。 然後選取 [建立資源]   > [資料庫]   > [Azure Cache for Redis]  。
 
-    ![New cache](media/redis-cache-create/redis-cache-new-cache-menu.png)
+    ![新的 Azure Cache for Redis 功能表](media/redis-cache-create/redis-cache-new-cache-menu.png)
 
 2. 在 [新的 Azure Cache for Redis]  中，配置新快取的設定。
 
@@ -30,11 +30,11 @@ ms.locfileid: "67173785"
     | **[定價層](https://azure.microsoft.com/pricing/details/cache/)** |  基本 C0 (250 MB 快取) |  快取的可用大小、效能和功能取決於定價層。 如需詳細資訊，請參閱 [Azure Cache for Redis 概觀](../articles/azure-cache-for-redis/cache-overview.md)。 |
     | **釘選到儀表板** |  已選取 | 將新快取釘選到儀表板，以便尋找。 |
 
-    ![Create cache](media/redis-cache-create/redis-cache-cache-create.png) 
+    ![建立 Azure Cache for Redis](media/redis-cache-create/redis-cache-cache-create.png) 
 
 3. 配置新快取設定之後，請選取 [建立]  。 
 
     建立快取可能需要數分鐘的時間。 若要檢查狀態，您可以監視儀表板上的進度。 建立快取之後，其顯示的狀態為 [執行中]  ，而且已經可供使用。
 
-    ![Cache created](media/redis-cache-create/redis-cache-cache-created.png)
+    ![Azure Cache for Redis 已建立](media/redis-cache-create/redis-cache-cache-created.png)
 

@@ -4,14 +4,14 @@ description: Azure PowerShell 指令碼範例 - Azure Cosmos 帳戶的帳戶金�
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: sample
-ms.date: 05/20/2019
+ms.date: 09/20/2019
 ms.author: mjbrown
-ms.openlocfilehash: 55f28ef6c6ff82f0b82b10ac1dd7931ac46aa2fc
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.openlocfilehash: 1eb9cc4c35584b94d3d16654b1bec253e21a91ff
+ms.sourcegitcommit: 116bc6a75e501b7bba85e750b336f2af4ad29f5a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67602500"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71154752"
 ---
 # <a name="connection-string-and-account-key-operations-for-an-azure-cosmos-account-using-powershell"></a>使用 PowerShell 的 Azure Cosmos 帳戶的連接字串和帳戶金鑰作業
 
@@ -21,7 +21,8 @@ ms.locfileid: "67602500"
 
 ## <a name="sample-script"></a>範例指令碼
 
-此範例需要資源群組和帳戶存在。 使用現有的 PowerShell 建立範例，以便先佈建帳戶。
+> [!NOTE]
+> 此範例會示範如何使用 SQL (核心) API 帳戶。 若要針對其他 API 使用此範例，請複製相關的屬性，並套用至您的 API 專屬指令碼
 
 [!code-powershell[main](../../../../../powershell_scripts/cosmosdb/common/ps-account-keys-connection-strings.ps1 "Connection strings and account keys for Azure Cosmos account")]
 

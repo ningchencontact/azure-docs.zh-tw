@@ -3,17 +3,17 @@ title: 使用 Apache Hive ODBC 驅動程式與 PowerShell 執行查詢 - Azure H
 description: 使用 Microsoft Hive ODBC 驅動程式和 PowerShell 查詢 Azure HDInsight 上的 Apache Hive 叢集。
 keywords: hive, hive odbc,powershell
 author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: tutorial
 ms.date: 06/27/2019
-ms.author: hrasheed
-ms.openlocfilehash: b02c865e953861b5ac396538fdd0f0623b0e5428
-ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.openlocfilehash: 04771ddc633c210ce8c7b3c42a9e46cb2f1ed349
+ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67486061"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71122165"
 ---
 # <a name="tutorial-query-apache-hive-with-odbc-and-powershell"></a>教學課程：使用 ODBC 和 PowerShell 查詢 Apache Hive
 
@@ -70,7 +70,7 @@ Microsoft ODBC 驅動程式提供彈性的方式來與不同資料來源類型 (
    |  每個區塊擷取的資料列 |在擷取大量記錄時，可能必須調整此參數，以確保最佳效能。 |
    |  預設字串資料行長度、二進位資料行長度、十進位資料行小數位數 |資料類型的長度和精確度可能會影響傳回資料的方式。 如果失去精確度且發生截斷狀況，會傳回不正確的資訊。 |
 
-    ![進階選項](./media/apache-hive-query-odbc-driver-powershell/odbc-data-source-advanced-options.png "進階 DSN 設定選項")
+    ![進階 DSN 設定選項](./media/apache-hive-query-odbc-driver-powershell/odbc-data-source-advanced-options.png "進階 DSN 設定選項")
 
 1. 選取 [測試]  以測試資料來源。 正確設定資料來源時，測試結果就會顯示**成功**。  
 

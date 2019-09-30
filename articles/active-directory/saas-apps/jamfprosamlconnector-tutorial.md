@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 08/28/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 91c8a2fb278515306848f46206db67b7f37ea2ac
-ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
+ms.openlocfilehash: bfe426a6b3d087683e615d3212e0693b185c40f0
+ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71034249"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71212372"
 ---
 # <a name="tutorial-azure-active-directory-sso-integration-with-jamf-pro"></a>教學課程：Azure Active Directory SSO 與 Jamf Pro 整合
 
@@ -87,7 +87,7 @@ ms.locfileid: "71034249"
 1. 選取 [設定其他 URL]  。 如果您想要以 **SP 起始**模式設定應用程式，請在 [登入 URL]  文字方塊中使用下列公式輸入 URL：`https://<subdomain>.jamfcloud.com`
 
     > [!NOTE]
-    > 這些都不是真正的值。 請使用實際的識別碼、回覆 URL 及登入 URL 來更新這些值。 您將會從 Jamf Pro 入口網站的 *[單一登入]  區段取得實際的識別碼值，本教學課程稍後將說明此值。 您可以從識別碼值擷取實際的子網域值，並使用該子網域資訊作為登入 URL 和回覆 URL。 您也可以參考 Azure 入口網站中 [基本 SAML 組態]  區段所示的公式。
+    > 這些都不是真正的值。 請使用實際的識別碼、回覆 URL 及登入 URL 來更新這些值。 您將會從 Jamf Pro 入口網站的 [單一登入]  區段取得實際的識別碼值，本教學課程稍後將說明此值。 您可以從識別碼值擷取實際的子網域值，並使用該子網域資訊作為登入 URL 和回覆 URL。 您也可以參考 Azure 入口網站中 [基本 SAML 組態]  區段所示的公式。
 
 1. 在 [以 SAML 設定單一登入]  頁面的 [SAML 簽署憑證]  區段中，選取 [複製]  按鈕以複製 [應用程式同盟中繼資料 URL]  ，並將資料儲存在您的電腦上。
 

@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 30b1af29d1a7e3a01659353b27d8c997e739e702
-ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
+ms.openlocfilehash: a523028fb312f030bc453692daceb0f254f844b6
+ms.sourcegitcommit: 992e070a9f10bf43333c66a608428fcf9bddc130
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69030990"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71240954"
 ---
 # <a name="tutorial-develop-iot-edge-modules-for-linux-devices"></a>教學課程：開發適用於 Linux 裝置的 IoT Edge 模組
 
@@ -24,7 +24,7 @@ ms.locfileid: "69030990"
 
 本教學課程使用將 **C# 模組部署至 Linux 裝置**的範例。 選擇此範例是因為這是 IoT Edge 解決方案最常見的開發人員案例。 即使您打算使用不同的語言或部署 Azure 服務，本教學課程對於了解開發工具和概念還是很有用。 完成此開發程序的簡介後，您就可以選擇您偏好的語言或 Azure 服務來深入了解細節。 
 
-在本教學課程中，您了解如何：
+在本教學課程中，您會了解如何：
 
 > [!div class="checklist"]
 > * 設定開發機器。
@@ -63,6 +63,7 @@ ms.locfileid: "69030990"
 開發機器：
 
 * 您可以使用自己的電腦或虛擬機器 (視您偏好的開發方式而定)。
+  * 請確定您的開發機器支援「巢狀虛擬化」。 下一節中安裝的容器引擎會需要此功能來執行。
 * 大部分可以執行容器引擎的作業系統，均可用來開發適用於 Linux 裝置的 IoT Edge 模組。 本教學課程會使用 Windows 電腦，但會指出 MacOS 或 Linux 上的已知差異。 
 * 安裝 [Git](https://git-scm.com/)，以在本教學課程稍後提取模組的範本套件。  
 * [C# for Visual Studio Code (採用 OmniSharp 技術) 擴充功能](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp)。
@@ -75,7 +76,7 @@ ms.locfileid: "69030990"
 
 雲端資源：
 
-* Azure 中的免費或標準層 [IoT 中樞](../iot-hub/iot-hub-create-through-portal.md)。 
+* 在 Azure 中擁有免費或標準層的 [IoT 中樞](../iot-hub/iot-hub-create-through-portal.md)。 
 
 ## <a name="install-container-engine"></a>安裝容器引擎
 

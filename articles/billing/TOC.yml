@@ -165,6 +165,8 @@
       href: billing-use-existing-azure-account-for-office-365-subscription.md
 - name: 管理訂用帳戶
   items:
+    - name: 訂用帳戶狀態
+      href: billing-azure-subscription-states.md
     - name: 重新啟動訂用帳戶
       href: billing-subscription-become-disable.md
     - name: 轉送擁有權
