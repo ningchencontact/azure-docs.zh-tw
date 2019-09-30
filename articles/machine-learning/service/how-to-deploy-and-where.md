@@ -11,12 +11,12 @@ author: jpe316
 ms.reviewer: larryfr
 ms.date: 09/13/2019
 ms.custom: seoapril2019
-ms.openlocfilehash: 1349a81bc4f0f3eed4093bbe91abea68264b4021
-ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
+ms.openlocfilehash: fa0fa6220fd090bf7fcbe14e85556b6010651e0e
+ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71350653"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71675008"
 ---
 # <a name="deploy-models-with-azure-machine-learning"></a>使用 Azure Machine Learning 部署模型
 
@@ -127,7 +127,7 @@ ms.locfileid: "71350653"
     ```python
     import os
     import urllib.request
-    from azureml.core import Model
+    from azureml.core.model import Model
     # Download model
     onnx_model_url = "https://www.cntk.ai/OnnxModels/mnist/opset_7/mnist.tar.gz"
     urllib.request.urlretrieve(onnx_model_url, filename="mnist.tar.gz")
@@ -467,9 +467,7 @@ def run(request):
 
 推斷設定會描述如何設定模型來進行預測。 此設定不屬於您的輸入腳本。 它會參考您的輸入腳本，並用來尋找部署所需的所有資源。 稍後當您部署模型時，就會用到它。
 
-推斷設定可以使用 Azure Machine Learning 環境來定義您的部署所需的軟體相依性。 環境可讓您建立、管理及重複使用定型和部署所需的軟體相依性。 使用環境時，會將模型檔案和您提供的來原始目錄直接掛接到執行中的容器上，而不會將它們複製到容器映射或容器登錄中。
-
-下列範例示範如何從您的工作區載入環境，然後將它與推斷設定搭配使用：
+推斷設定可以使用 Azure Machine Learning 環境來定義您的部署所需的軟體相依性。 環境可讓您建立、管理及重複使用定型和部署所需的軟體相依性。 下列範例示範如何從您的工作區載入環境，然後將它與推斷設定搭配使用：
 
 ```python
 from azureml.core import Environment

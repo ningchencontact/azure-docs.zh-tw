@@ -1,22 +1,22 @@
 ---
-title: 識別 Windows 虛擬桌面 Preview 診斷功能的問題-Azure
-description: 說明 Windows 虛擬桌面 Preview 診斷功能以及如何使用它。
+title: 識別 Windows 虛擬桌面診斷功能的問題-Azure
+description: 描述 Windows 虛擬桌面診斷功能以及如何使用它。
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 08/29/2019
 ms.author: helohr
-ms.openlocfilehash: c07086feef1851f1a6e2a5cda2f541d52a50d91d
-ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
+ms.openlocfilehash: f041889f1594ef3852c8f2393be93bb7a6513b4c
+ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70163483"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71676640"
 ---
 # <a name="identify-issues-with-the-diagnostics-feature"></a>找出診斷功能的問題
 
-Windows 虛擬桌面 Preview 提供診斷功能, 可讓系統管理員透過單一介面來識別問題。 每當使用者與系統互動時, Windows 虛擬桌面角色就會記錄一個診斷活動。 每個記錄檔都包含相關資訊, 例如交易中涉及的 Windows 虛擬桌面角色、錯誤訊息、租使用者資訊和使用者資訊。 診斷活動是由使用者和系統管理動作所建立, 而且可以分類為三個主要的值區:
+Windows 虛擬桌面提供診斷功能，可讓系統管理員透過單一介面來識別問題。 每當使用者與系統互動時, Windows 虛擬桌面角色就會記錄一個診斷活動。 每個記錄檔都包含相關資訊, 例如交易中涉及的 Windows 虛擬桌面角色、錯誤訊息、租使用者資訊和使用者資訊。 診斷活動是由使用者和系統管理動作所建立, 而且可以分類為三個主要的值區:
 
 * 摘要訂用帳戶活動: 每當使用者嘗試透過 Microsoft 遠端桌面應用程式連線到其摘要時, 就會觸發這些活動。
 * 連線活動: 終端使用者會在嘗試透過 Microsoft 遠端桌面應用程式連線到桌面或 RemoteApp 時觸發這些活動。
@@ -24,7 +24,7 @@ Windows 虛擬桌面 Preview 提供診斷功能, 可讓系統管理員透過單�
   
 因為診斷角色服務本身是 Windows 虛擬桌面的一部分, 所以不會在診斷結果中顯示 Windows 虛擬桌面的連接。 當使用者遇到網路連線問題時, 可能會發生 Windows 虛擬桌面連接問題。
 
-若要開始, 請[下載並匯入 Windows 虛擬桌面 powershell 模組](https://docs.microsoft.com/powershell/windows-virtual-desktop/overview), 以在您的 powershell 會話中使用 (如果您還沒有這麼做)。 之後, 請執行下列 Cmdlet 來登入您的帳戶:
+若要開始, 請[下載並匯入 Windows 虛擬桌面 powershell 模組](https://docs.microsoft.com/powershell/windows-virtual-desktop/overview), 以在您的 powershell 會話中使用 (如果您還沒有這麼做)。 之後，請執行下列 Cmdlet 來登入您的帳戶：
 
 ```powershell
 Add-RdsAccount -DeploymentUrl "https://rdbroker.wvd.microsoft.com"
@@ -136,7 +136,7 @@ Get-RdsDiagnosticActivities -TenantName <tenantName> -Outcome Failure
 下表列出系統管理員可能會遇到的常見錯誤。
 
 >[!NOTE]
->此預覽不包含完整的錯誤分類, 而且會定期更新。 為確保您擁有最新的資訊, 請務必每個月至少檢查一次此文章。
+>這份清單包含最常見的錯誤，並且會定期更新。 為確保您擁有最新的資訊, 請務必每個月至少檢查一次此文章。
 
 ### <a name="external-management-error-codes"></a>外部管理錯誤代碼
 
@@ -176,6 +176,6 @@ Get-RdsDiagnosticActivities -TenantName <tenantName> -Outcome Failure
 
 ## <a name="next-steps"></a>後續步驟
 
-若要深入瞭解 Windows 虛擬桌面中的角色, 請參閱[Windows 虛擬桌面預覽環境](environment-setup.md)。
+若要深入瞭解 Windows 虛擬桌面內的角色，請參閱[Windows 虛擬桌面環境](environment-setup.md)。
 
 若要查看 Windows 虛擬桌面可用的 PowerShell Cmdlet 清單, 請參閱[PowerShell 參考](/powershell/windows-virtual-desktop/overview)。

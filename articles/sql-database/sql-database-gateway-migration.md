@@ -10,12 +10,12 @@ author: rohitnayakmsft
 ms.author: rohitna
 ms.reviewer: vanto
 ms.date: 07/01/2019
-ms.openlocfilehash: 2e578c6bfdfb25eaba3d0c692ff33aa5b0572669
-ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
+ms.openlocfilehash: a2064e0012abea237c1b4c0c6f7e35119c1aeff5
+ms.sourcegitcommit: 6013bacd83a4ac8a464de34ab3d1c976077425c7
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70306010"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71686813"
 ---
 # <a name="azure-sql-database-traffic-migration-to-newer-gateways"></a>Azure SQL Database 流量遷移至較新的閘道
 
@@ -52,11 +52,11 @@ ms.locfileid: "70306010"
 
 ## <a name="what-to-do-you-do-if-youre-affected"></a>如果受到影響，該怎麼辦？
 
-針對 TCP 通訊埠1433上的區域中的所有[Azure SQL Database 閘道 ip 位址](sql-database-connectivity-architecture.md#azure-sql-database-gateway-ip-addresses)，以及防火牆裝置中的埠範圍11000-11999，建議您允許連入 ip 位址的連出流量。 如需埠範圍的詳細資訊，請參閱連線[原則](sql-database-connectivity-architecture.md#connection-policy)。
+我們建議您針對 TCP 通訊埠1433上的區域中的所有[Azure SQL Database 閘道 ip 位址](sql-database-connectivity-architecture.md#azure-sql-database-gateway-ip-addresses)，以及埠範圍11000-11999，允許連到 ip 位址的連出流量。 這項建議適用于從內部部署連線，以及透過服務端點連線的用戶端。 如需埠範圍的詳細資訊，請參閱連線[原則](sql-database-connectivity-architecture.md#connection-policy)。
 
 使用 Microsoft JDBC Driver 4.0 版的應用程式所進行的連接可能會使憑證驗證失敗。 較低版本的 Microsoft JDBC 會依賴憑證的 [主旨] 欄位中的一般名稱（CN）。 緩和措施是確保 hostNameInCertificate 屬性設定為 *. database.windows.net。 如需有關如何設定 hostNameInCertificate 屬性的詳細資訊，請參閱[使用 SSL 加密進行連接](/sql/connect/jdbc/connecting-with-ssl-encryption)。
 
-如果上述緩和措施無法解決問題，請使用下列 URL 提出 SQL Database 的支援要求： https://aka.ms/getazuresupport
+如果上述緩和措施無法解決問題，請使用下列 URL 為 SQL Database 提出支援要求： https://aka.ms/getazuresupport
 
 ## <a name="next-steps"></a>後續步驟
 

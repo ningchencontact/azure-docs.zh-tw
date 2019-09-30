@@ -1,69 +1,69 @@
 ---
-title: 委派的存取權，預覽版 Windows 虛擬桌面-Azure
-description: 如何委派系統管理功能，針對 Windows 虛擬桌面預覽的部署，包括範例。
+title: Windows 虛擬桌面中的委派存取-Azure
+description: 如何在 Windows 虛擬桌面部署上委派系統管理功能，包括範例。
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 03/21/2019
 ms.author: helohr
-ms.openlocfilehash: 41cf5f8bcc69e181350a63d215fb0d78d43dcfdf
-ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
+ms.openlocfilehash: e8d1ba00043f43f626043d78ce0ab8953a0b3fbe
+ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67272825"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71679551"
 ---
-# <a name="delegated-access-in-windows-virtual-desktop-preview"></a>在 Windows 虛擬桌面預覽中的委派的存取
+# <a name="delegated-access-in-windows-virtual-desktop"></a>Windows 虛擬桌面中委派的存取權
 
-Windows 虛擬桌面預覽具有委派的存取模型，可讓您定義特定的使用者允許將角色指派的存取權數量。 角色指派有三個元件： 安全性主體、 角色定義和範圍。 Windows 虛擬桌面的委派的存取模型根據 Azure RBAC 模型。 若要深入了解特定的角色指派和其元件，請參閱[Azure 角色型存取控制概觀](https://docs.microsoft.com/azure/active-directory/role-based-access-built-in-roles)。
+Windows 虛擬桌面具有委派的存取模型，可讓您藉由指派角色給使用者，來定義允許特定使用者擁有的存取權數量。 角色指派有三個元件：安全性主體、角色定義和範圍。 Windows 虛擬桌面委派的存取模型是以 Azure RBAC 模型為基礎。 若要深入瞭解特定角色指派及其元件，請參閱[Azure 角色型存取控制總覽](https://docs.microsoft.com/azure/active-directory/role-based-access-built-in-roles)。
 
-Windows 虛擬桌面委派存取支援每個項目的角色指派下列值：
+Windows 虛擬桌面委派存取針對角色指派的每個元素支援下列值：
 
 * 安全性主體
-    * 使用者
+    * 使用者人數
     * 服務主體
 * 角色定義
     * 內建角色
 * `Scope`
-    * 租用戶群組
+    * 租使用者群組
     * 租用戶
-    * 主應用程式集區
+    * 主機集區
     * 應用程式群組
 
 ## <a name="built-in-roles"></a>內建角色
 
-在 Windows 虛擬桌面的委派的存取具有數個內建角色定義，您可以指派給使用者和服務主體。
+Windows 虛擬桌面中的委派存取有數個內建角色定義，您可以將其指派給使用者和服務主體。
 
-* RDS 擁有者可以管理所有項目，包括資源的存取權。
-* RDS 參與者可以管理資源的存取權以外的所有內容。
-* RDS 讀取器可以檢視所有項目，但無法進行任何變更。
-* RDS 操作員可以檢視診斷的活動。
+* RDS 擁有者可以管理所有專案，包括對資源的存取。
+* RDS 參與者可以管理所有專案，但無法存取資源。
+* RDS 讀取器可以查看所有專案，但無法進行任何變更。
+* RDS 運算子可以查看診斷活動。
 
-## <a name="powershell-cmdlets-for-role-assignments"></a>角色指派的 PowerShell cmdlet
+## <a name="powershell-cmdlets-for-role-assignments"></a>用於角色指派的 PowerShell Cmdlet
 
-您可以執行下列 cmdlet 來建立、 檢視和移除角色指派：
+您可以執行下列 Cmdlet 來建立、查看和移除角色指派：
 
-* **取得 RdsRoleAssignment**會顯示一份角色指派。
-* **新 RdsRoleAssignment**會建立新的角色指派。
-* **移除 RdsRoleAssignment**刪除角色指派。
+* **RdsRoleAssignment**顯示角色指派清單。
+* **RdsRoleAssignment**會建立新的角色指派。
+* **RdsRoleAssignment**會刪除角色指派。
 
 ### <a name="accepted-parameters"></a>接受的參數
 
-您可以修改基本的三個 cmdlet，使用下列參數：
+您可以使用下列參數來修改基本三個 Cmdlet：
 
-* **AadTenantId**： 指定的服務主體所屬的 Azure Active Directory 租用戶識別碼。
-* **AppGroupName**： 遠端桌面應用程式群組的名稱。
-* **診斷**： 指出診斷範圍。 (必須與其中一個配對**基礎結構**或是**租用戶**參數。)
-* **HostPoolName**： 遠端桌面的主應用程式集區的名稱。
-* **基礎結構**： 表示的基礎結構範圍。
-* **RoleDefinitionName**： 指派給使用者、 群組或應用程式的遠端桌面服務角色型存取控制角色的名稱。 （例如，遠端桌面服務擁有者、 遠端桌面服務的讀取器等等。）
-* **ServerPrincipleName**: Azure Active Directory 應用程式的名稱。
-* **SignInName**： 使用者的電子郵件地址或使用者主體名稱。
-* **TenantName**： 遠端桌面的租用戶的名稱。
+* **AadTenantId**：指定服務主體為其成員的 Azure Active Directory 租使用者識別碼。
+* **AppGroupName**：遠端桌面應用程式群組的名稱。
+* **診斷**：表示診斷範圍。 （必須與**基礎結構**或**租**使用者參數配對）。
+* **HostPoolName**：遠端桌面主機集區的名稱。
+* **基礎結構**：指出基礎結構範圍。
+* **RoleDefinitionName**：指派給使用者、群組或應用程式遠端桌面服務角色型存取控制角色的名稱。 （例如，遠端桌面服務擁有者、遠端桌面服務讀者等等）。
+* **ServerPrincipleName**： Azure Active Directory 應用程式的名稱。
+* **SignInName**：使用者的電子郵件地址或使用者主體名稱。
+* **TenantName**：遠端桌面租使用者的名稱。
 
 ## <a name="next-steps"></a>後續步驟
 
-每個角色可以使用 PowerShell cmdlet 的更完整清單，請參閱 < [PowerShell 參考](/powershell/windows-virtual-desktop/overview)。
+如需每個角色可使用之 PowerShell Cmdlet 的更完整清單，請參閱[powershell 參考](/powershell/windows-virtual-desktop/overview)。
 
-如需如何設定 Windows 虛擬桌面環境的指導方針，請參閱[Windows 虛擬桌面預覽環境](environment-setup.md)。
+如需如何設定 Windows 虛擬桌面環境的指導方針，請參閱[Windows 虛擬桌面環境](environment-setup.md)。

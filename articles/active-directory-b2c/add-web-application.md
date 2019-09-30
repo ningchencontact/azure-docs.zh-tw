@@ -10,16 +10,16 @@ ms.custom: mvc
 ms.topic: conceptual
 ms.service: active-directory
 ms.subservice: B2C
-ms.openlocfilehash: 50a4ead58cc70524ec464e52ce546b36f9685df5
-ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
+ms.openlocfilehash: 3114f082a402fd005797b270cfdcd7527784dbe1
+ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71064541"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71679230"
 ---
 # <a name="add-a-web-api-application-to-your-azure-active-directory-b2c-tenant"></a>將 Web API 應用程式新增至您的 Azure Active Directory B2C 租用戶
 
- 在您的租使用者中註冊 Web API 資源，以便他們可以接受並回應呈現存取權杖的用戶端應用程式所提出的要求。 本文說明如何在 Azure Active Directory B2C （Azure AD B2C）中註冊應用程式。
+ 在您的租使用者中註冊 Web API 資源，以便他們可以接受並回應出示存取權杖的用戶端應用程式所提出的要求。 本文說明如何在 Azure Active Directory B2C （Azure AD B2C）中註冊應用程式。
 
 1. 登入 [Azure 入口網站](https://portal.azure.com)。
 2. 請確定您使用的是包含您 Azure AD B2C 租使用者的目錄。 在頂端功能表中選取 [**目錄 + 訂**用帳戶] 篩選，然後選擇包含您租使用者的目錄。
@@ -36,22 +36,16 @@ ms.locfileid: "71064541"
 
 範圍可用來控管對受保護資源的存取。 Web API 可使用範圍來實作以範圍為基礎的存取控制。 例如，Web API 的使用者可以同時具有讀取和寫入權限，Web API 的使用者也可能只具有讀取權限。 在本教學課程中，您會使用範圍來定義 Web API 的讀取和寫入權限。
 
-1. 選取 [應用程式]，然後選取 [webapi1]。
-2. 選取 [發佈的範圍]。
-3. 針對 [範圍]，輸入 `Read`，以及輸入 `Read access to the application` 作為描述。
-4. 針對 [範圍]，輸入 `Write`，以及輸入 `Write access to the application` 作為描述。
-5. 按一下 [儲存]。
-
-發佈的範圍可以用來為用戶端應用程式授與對 Web API 的權限。
+[!INCLUDE [active-directory-b2c-scopes](../../includes/active-directory-b2c-scopes.md)]
 
 ## <a name="grant-permissions"></a>授與權限
 
 若要從應用程式呼叫受保護的 Web API，您必須為應用程式授與對 API 的權限。 例如，在[教學課程：在 Azure Active Directory B2C 中註冊應用程式](tutorial-register-applications.md)中，會在 Azure AD B2C 中建立名為 *webapp1* 的 Web 應用程式。 您可以使用此應用程式來呼叫 Web API。
 
 1. 選取 [應用程式]，然後選取您的 Web 應用程式。
-2. 選取 [API 存取]，然後選取 [新增]。
-3. 在 [選取 API] 下拉式清單中，選取 [webapi1]。
-4. 在 [選取範圍] 下拉式清單中，選取您先前定義的 [讀取] 和 [寫入] 範圍。
-5. 按一下 [確定]。
+1. 選取 [API 存取]，然後選取 [新增]。
+1. 在 [選取 API] 下拉式清單中，選取 [webapi1]。
+1. 在 [**選取範圍**] 下拉式清單中，選取您稍早定義的範圍。 例如，*示範。閱讀*和*示範*。
+1. 選取 [確定]。
 
 您的應用程式會進行註冊，以呼叫受保護的 Web API。 使用者會透過 Azure AD B2C 進行驗證以使用應用程式。 該應用程式會從 Azure AD B2C 取得授權授與，以存取受保護的 Web API。

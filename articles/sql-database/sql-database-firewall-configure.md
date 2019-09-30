@@ -11,12 +11,12 @@ author: VanMSFT
 ms.author: vanto
 ms.reviewer: carlrab
 ms.date: 03/12/2019
-ms.openlocfilehash: cebf5e80ea59a29efed984097a4157f5238fad5c
-ms.sourcegitcommit: 86d49daccdab383331fc4072b2b761876b73510e
+ms.openlocfilehash: e3e65a6deadfbcad563a6b64c0a9f48182cdd571
+ms.sourcegitcommit: 6013bacd83a4ac8a464de34ab3d1c976077425c7
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70744968"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71686460"
 ---
 # <a name="azure-sql-database-and-azure-sql-data-warehouse-ip-firewall-rules"></a>Azure SQL Database 和 Azure SQL 資料倉儲 IP 防火牆規則
 
@@ -38,7 +38,7 @@ ms.locfileid: "70744968"
 
 ### <a name="server-level-ip-firewall-rules"></a>伺服器層級 IP 防火牆規則
 
-  這些規則可讓用戶端存取整個 Azure SQL Server，也就是相同 SQL Database 伺服器內的所有資料庫。 這些規則會儲存在*master*資料庫中。
+  這些規則可讓用戶端存取整個 Azure SQL Server，也就是相同 SQL Database 伺服器內的所有資料庫。 這些規則會儲存在*master*資料庫中。 Azure SQL Server 最多可以有128個伺服器層級 IP 防火牆規則。
   
   您可以使用 Azure 入口網站、PowerShell 或 Transact-sql 語句來設定伺服器層級 IP 防火牆規則。
   - 若要使用入口網站或 PowerShell，您必須是訂用帳戶擁有者或訂用帳戶參與者。
@@ -176,7 +176,7 @@ EXECUTE sp_delete_firewall_rule @name = N'ContosoFirewallRule'
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 > [!IMPORTANT]
-> Azure SQL Database 仍然支援 PowerShell Azure Resource Manager 模組，但所有開發現在都是針對 Az .Sql 模組。 如需這些 Cmdlet，請參閱[AzureRM](https://docs.microsoft.com/powershell/module/AzureRM.Sql/)。 Az 和 AzureRm 模組中命令的引數本質上完全相同。
+> Azure SQL Database 仍然支援 PowerShell Azure Resource Manager 模組，但所有開發現在都是針對 Az .Sql 模組。 如需這些 Cmdlet, 請參閱[AzureRM](https://docs.microsoft.com/powershell/module/AzureRM.Sql/)。 Az 和 AzureRm 模組中命令的引數本質上完全相同。
 
 | Cmdlet | 層級 | 描述 |
 | --- | --- | --- |

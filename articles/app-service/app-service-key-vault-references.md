@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 09/03/2019
 ms.author: mahender
 ms.custom: seodec18
-ms.openlocfilehash: 9c7f920c6b66995d53ef742a9faf574286a51d69
-ms.sourcegitcommit: 88ae4396fec7ea56011f896a7c7c79af867c90a1
+ms.openlocfilehash: cf4eade598de24e323a8c8647a64921f8797e3a2
+ms.sourcegitcommit: 6013bacd83a4ac8a464de34ab3d1c976077425c7
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70390437"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71686744"
 ---
 # <a name="use-key-vault-references-for-app-service-and-azure-functions-preview"></a>使用 App Service 和 Azure Functions 的 Key Vault 參考 (預覽)
 
@@ -188,7 +188,7 @@ Key Vault 參考可用來作為[應用程式設定](configure-common.md#configur
 
 ## <a name="troubleshooting-key-vault-references"></a>Key Vault 參考的疑難排解
 
-如果未正確解析參考，則會改用參考值。 這表示針對應用程式設定，會建立其值具有`@Microsoft.KeyVault(...)`語法的環境變數。 這可能會導致應用程式擲回錯誤，因為它預期會有特定結構的秘密。
+如果未正確解析參考，則會改用參考值。 這表示針對應用程式設定，會建立其值具有 `@Microsoft.KeyVault(...)` 語法的環境變數。 這可能會導致應用程式擲回錯誤，因為它預期會有特定結構的秘密。
 
 最常見的原因是[Key Vault 存取原則](#granting-your-app-access-to-key-vault)的設定不正確。 不過，它也可能是因為秘密已不存在或參考本身的語法錯誤所導致。
 
@@ -197,7 +197,7 @@ Key Vault 參考可用來作為[應用程式設定](configure-common.md#configur
 ### <a name="using-the-detector-for-app-service"></a>使用 App Service 的偵測器
 
 1. 在入口網站中，流覽至您的應用程式。
-2. 選取 [**診斷並解決 prolems**]。
+2. 選取 [**診斷並解決問題**]。
 3. 選擇 [**可用性和效能**]，然後選取 [ **Web 應用程式關閉]。**
 4. 尋找**Key Vault 應用程式設定 診斷**，然後按一下 **詳細資訊**。
 
@@ -206,6 +206,6 @@ Key Vault 參考可用來作為[應用程式設定](configure-common.md#configur
 
 1. 在入口網站中，流覽至您的應用程式。
 2. 流覽至 [**平臺功能]。**
-3. 選取 [**診斷並解決 prolems**]。
+3. 選取 [**診斷並解決問題**]。
 4. 選擇 [**可用性和效能**]，然後選取 [**函數應用程式關閉] 或**[回報錯誤]。
 5. 按一下 [ **Key Vault 應用程式設定**] [診斷]。

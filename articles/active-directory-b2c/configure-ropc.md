@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 11/30/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 69924674fba44595e4f5a9702607579d8c7a8bc8
-ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
+ms.openlocfilehash: 8cb5c82e551ed6299f754f518ebeebca0be4964d
+ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71064476"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71679309"
 ---
 # <a name="configure-the-resource-owner-password-credentials-flow-in-azure-ad-b2c"></a>在 Azure AD B2C 中設定資源擁有者密碼認證流程
 
@@ -53,11 +53,7 @@ ms.locfileid: "71064476"
 
 ## <a name="register-an-application"></a>註冊應用程式
 
-1. 在 B2C 設定中選取 [應用程式]，然後選取 [新增]。
-2. 輸入應用程式的名稱，例如 ROPC_Auth_app。
-3. 針對 [Web 應用程式/Web API] 選取 [否]，然後針對 [原生用戶端] 選取 [是]。
-4. 保留所有其他值，然後選取 [建立]。
-5. 選取新的應用程式，並記下應用程式識別碼供稍後使用。
+[!INCLUDE [active-directory-b2c-appreg-ropc](../../includes/active-directory-b2c-appreg-ropc.md)]
 
 ## <a name="test-the-user-flow"></a>測試使用者流程
 

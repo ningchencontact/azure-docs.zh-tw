@@ -11,18 +11,18 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/18/2018
 ms.author: sharadag
-ms.openlocfilehash: 5f76df0045fc3939392759ed0edd266380295a85
-ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.openlocfilehash: 229706ff91b776363d3e9de080e02cee5edf9c77
+ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71260180"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71677903"
 ---
 # <a name="monitoring-metrics-and-logs-in-azure-front-door-service"></a>監視 Azure Front 開門服務中的計量和記錄
 
 藉由使用 Azure Front 門板服務，您可以透過下列方式來監視資源：
 
-- **計量**。 應用程式閘道目前有七個計量，可用來檢視效能計數器。
+- **計量**。 Azure Front 大門目前有七個計量可供您查看效能計數器。
 - **記錄**。 活動和診斷記錄可讓您儲存或取用資源的效能、存取和其他資料，以供監視之用。
 
 ### <a name="metrics"></a>計量

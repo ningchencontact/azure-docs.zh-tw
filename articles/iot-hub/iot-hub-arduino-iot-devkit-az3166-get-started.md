@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 ms.date: 06/25/2019
 ms.author: wesmc
-ms.openlocfilehash: e4379c38d90f444102a9bbddbae64a8018defcf8
-ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
+ms.openlocfilehash: e8a186fbcb04dc29fcf57a2353adcf89ce46b119
+ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70844557"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71677941"
 ---
 # <a name="connect-iot-devkit-az3166-to-azure-iot-hub"></a>將 IoT DevKit AZ3166 連線至 Azure IoT 中樞
 
@@ -31,7 +31,7 @@ ms.locfileid: "70844557"
 
 還沒有 DevKit 嗎？ 請試用 [DevKit 模擬器](https://azure-samples.github.io/iot-devkit-web-simulator/)或[購買 DevKit](https://aka.ms/iot-devkit-purchase)。
 
-您可以在[IoTDevEnvExamples](https://github.com/IoTDevEnvExamples)存放庫中找到所有 DevKit 教學課程的原始程式碼。
+您可以從程式[代碼範例庫](https://docs.microsoft.com/samples/browse/?term=mxchip)中找到所有 DevKit 教學課程的原始程式碼。
 
 ## <a name="what-you-need"></a>您需要什麼
 
@@ -355,7 +355,7 @@ DevKit 會重新開機，然後開始執行程式碼。
 
 若要查看如何將裝置遙測傳送至 Azure IoT 中樞，請在`utility.cpp`相同的資料夾中開啟該檔案。 View [API 參考](https://microsoft.github.io/azure-iot-developer-kit/docs/apis/arduino-language-reference/)以瞭解如何在 IoT DevKit 上使用感應器和週邊設備。
 
-使用`DevKitMQTTClient`的是**iothub_client**的包裝函式，可從[Microsoft Azure IoT sdk 和程式庫（適用于 C](https://github.com/Azure/azure-iot-sdk-c/tree/master/iothub_client) ）與 Azure IoT 中樞進行互動。
+使用的 `DevKitMQTTClient` 是來自 Microsoft Azure IoT Sdk 的**iothub_client**包裝函式[，以及適用于 C](https://github.com/Azure/azure-iot-sdk-c/tree/master/iothub_client)的程式庫，可與 Azure IoT 中樞互動。
 
 ## <a name="problems-and-feedback"></a>問題與意見反應
 

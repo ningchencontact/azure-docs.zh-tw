@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: troubleshooting
 ms.date: 05/23/2019
 ms.author: helohr
-ms.openlocfilehash: de849701365438b21244d1e46ae657495d16c307
-ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
+ms.openlocfilehash: b6a78fbf2fcb12962b42537965deea6c7912315d
+ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68816397"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71676536"
 ---
 # <a name="diagnose-graphics-performance-issues-in-remote-desktop"></a>診斷遠端桌面的圖形效能問題
 
@@ -101,6 +101,6 @@ ms.locfileid: "68816397"
 
 ## <a name="next-steps"></a>後續步驟
 
-- 若要建立 GPU 優化的 Azure 虛擬機器, 請參閱[設定 Windows 虛擬桌面預覽環境的圖形處理單元 (GPU) 加速](https://docs.microsoft.com/azure/virtual-desktop/configure-vm-gpu)。
+- 若要建立 GPU 優化的 Azure 虛擬機器，請參閱[設定 Windows 虛擬桌面環境的圖形處理單元（GPU）加速](https://docs.microsoft.com/azure/virtual-desktop/configure-vm-gpu)。
 - 如需疑難排解和擴大追蹤的總覽, 請參閱[疑難排解總覽、意見反應和支援](https://docs.microsoft.com/azure/virtual-desktop/troubleshoot-set-up-overview)。
-- 若要深入瞭解預覽服務, 請參閱[Windows 桌面預覽環境](https://docs.microsoft.com/azure/virtual-desktop/environment-setup)。
+- 若要深入瞭解此服務，請參閱[Windows 桌面環境](https://docs.microsoft.com/azure/virtual-desktop/environment-setup)。

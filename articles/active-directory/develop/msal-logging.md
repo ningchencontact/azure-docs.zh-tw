@@ -1,5 +1,5 @@
 ---
-title: 在 MSAL 應用程式中記錄 |Microsoft 身分識別平臺
+title: 在 Microsoft 驗證程式庫（MSAL）應用程式中記錄 |Azure
 description: 了解 Microsoft 驗證程式庫 (MSAL) 應用程式中的記錄。
 services: active-directory
 documentationcenter: dev-center-name
@@ -12,17 +12,17 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 08/28/2019
+ms.date: 09/05/2019
 ms.author: twhitney
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4dad8a276cd40b1ff04bbced833b5d70cec4fc87
-ms.sourcegitcommit: 263a69b70949099457620037c988dc590d7c7854
+ms.openlocfilehash: d3235037d2b60322ab3e5c393c0a19b1a42bdc6c
+ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71268592"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71678042"
 ---
 # <a name="logging-in-msal-applications"></a>MSAL 應用程式中的記錄
 
@@ -44,14 +44,14 @@ MSAL 提供數種層級的記錄詳細資料：
 ## <a name="logging-in-msalnet"></a>MSAL.NET 中的記錄
 
  > [!NOTE]
- > 如需有關 MSAL.NET 的詳細資訊，請參閱[MSAL.NET wiki](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki)。 取得 MSAL.NET 記錄的範例和其他資訊。
- 
+ > 如需 MSAL.NET 記錄的範例，請參閱[MSAL.NET wiki](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki) 。
+
 在 MSAL 3.x 中，記錄必須在每個應用程式的建立期間，使用 `.WithLogging` 建立器修飾詞針對該應用程式進行個別設定。 此方法可接受選擇性參數：
 
-- *Level* 可讓您決定所需的記錄層級。 將它設定為 Errors 將只會取得錯誤
-- *PiiLoggingEnabled* 若設定為 true，可讓您記錄個人和組織資料。 根據預設，這會設定為 false，讓您的應用程式不會記錄個人資料。
-- *LogCallback* 會設定為執行記錄的委派。 如果 *PiiLoggingEnabled* 為 true，此方法將會接收訊息兩次：一次是在 *containsPii* 參數等於 false 且訊息不包含個人資料的情況下，另一次是在 *containsPii* 參數等於 true 且訊息可能包含個人資料的情況下。 在某些情況下（當訊息不包含個人資料時），訊息將會相同。
-- *DefaultLoggingEnabled* 會針對平台啟用預設記錄。 根據預設，它是 false。 如果您將它設定為 true，它會使用桌面/UWP 應用程式中的事件追蹤、iOS 上的 NSLog，以及 Android 上的 logcat。
+- `Level` 可讓您決定您想要的記錄層級。 將它設定為 Errors 將只會取得錯誤
+- 如果設定為 true，`PiiLoggingEnabled` 可讓您記錄個人和組織的資料。 此參數預設為 false，這會使您的應用程式不會記錄個人資料。
+- `LogCallback` 設定為執行記錄的委派。 如果 `PiiLoggingEnabled` 為 true，則這個方法會收到兩次訊息：一次是使用 `containsPii` 參數等於 false，而不含個人資料的訊息，第二次的 `containsPii` 參數等於 true，而訊息可能包含個人資料。 在某些情況下 (當訊息不包含個人資料時)，這兩個訊息將會相同。
+- `DefaultLoggingEnabled` 會啟用平臺的預設記錄。 根據預設，它是 false。 如果您將它設定為 true，它會使用桌面/UWP 應用程式中的事件追蹤、iOS 上的 NSLog，以及 Android 上的 logcat。
 
 ```csharp
 class Program
@@ -80,16 +80,54 @@ class Program
  }
  ```
 
- ## <a name="logging-in-msaljs"></a>MSAL.js 中的記錄
+## <a name="logging-in-msal-for-android-using-java"></a>使用 JAVA 登入適用于 Android 的 MSAL
 
- 您可以在建立 `UserAgentApplication` 執行個體的設定期間傳遞記錄器物件來啟用 MSAL.js 中的記錄。 此記錄器物件具有下列屬性：
+藉由建立記錄回呼，在應用程式建立時開啟登入。 回呼會採用下列參數：
+
+- `tag` 是程式庫傳遞至回呼的字串。 它會與記錄專案相關聯，並可用於排序記錄訊息。
+- `logLevel` 可讓您決定您想要的記錄層級。 支援的記錄層級為： `Error`、`Warning`、`Info` 和 `Verbose`。
+- `message` 是記錄專案的內容。
+- `containsPII` 指定是否記錄包含個人資料或組織資料的訊息。 根據預設，這會設定為 false，讓您的應用程式不會記錄個人資料。 如果 `containsPII` 是 `true`，這個方法將會收到兩次訊息：一次，將 `containsPII` 參數設為 `false`，而第二次將 `containsPii` 參數設定為 `true`，而訊息可能包含個人資料。 在某些情況下 (當訊息不包含個人資料時)，這兩個訊息將會相同。
+
+```java
+private StringBuilder mLogs;
+
+mLogs = new StringBuilder();
+Logger.getInstance().setExternalLogger(new ILoggerCallback()
+{
+   @Override
+   public void log(String tag, Logger.LogLevel logLevel, String message, boolean containsPII)
+   {
+      mLogs.append(message).append('\n');
+   }
+});
+```
+
+根據預設，MSAL 記錄器不會捕捉任何個人識別資訊或組織識別資訊。
+若要啟用個人識別資訊或組織識別資訊的記錄功能：
+
+```java
+Logger.getInstance().setEnablePII(true);
+```
+
+若要停用記錄個人資料和組織資料：
+
+```java
+Logger.getInstance().setEnablePII(false);
+```
+
+預設會停用記錄至 logcat。 若要啟用： 
+```java
+Logger.getInstance().setEnableLogcatLog(true);
+```
+
+## <a name="logging-in-msaljs"></a>MSAL.js 中的記錄
+
+ 藉由在建立 `UserAgentApplication` 實例的設定期間傳遞記錄器物件，在 MSAL 中啟用記錄。 此記錄器物件具有下列屬性：
 
 - `localCallback`：可由開發人員提供的回呼實例，以自訂的方式取用和發行記錄。 請依您想要將記錄重新導向的方式實作 localCallback 方法。
-
-- `level`（選擇性）：可設定的記錄層級。 支援的記錄層級為：Error、Warning、Info、Verbose。 預設值為 Info。
-
-- `piiLoggingEnabled`（選擇性）：如果設定為 true，則可讓您記錄個人和組織的資料。 根據預設，這會設定為 false，讓您的應用程式不會記錄個人資料。 個人資料記錄永遠不會被寫入如 Console、Logcat 或 NSLog 等的預設輸出。 預設會設定為 false。
-
+- `level`（選擇性）：可設定的記錄層級。 支援的記錄層級為： `Error`、`Warning`、`Info` 和 `Verbose`。 預設為 `Info`。
+- `piiLoggingEnabled` （選擇性）：如果設定為 true，則記錄個人和組織資料。 根據預設，此值為 false，因此您的應用程式不會記錄個人資料。 個人資料記錄永遠不會被寫入如 Console、Logcat 或 NSLog 等的預設輸出。
 - `correlationId`（選擇性）：唯一識別碼，用來將要求對應至用於進行偵錯工具的回應。 預設為 RFC4122 4 版 guid (128 位元)。
 
 ```javascript
@@ -99,7 +137,7 @@ function loggerCallback(logLevel, message, containsPii) {
 
 var msalConfig = {
     auth: {
-        clientId: “abcd-ef12-gh34-ikkl-ashdjhlhsdg”,
+        clientId: “<Enter your client id>”,
     },
      system: {
              logger: new Msal.Logger(

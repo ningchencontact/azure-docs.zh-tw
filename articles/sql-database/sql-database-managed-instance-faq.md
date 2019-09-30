@@ -11,12 +11,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: sstein, carlrab
 ms.date: 07/16/2019
-ms.openlocfilehash: 9bc6cfdcbc67761e99150c730adeb23602232632
-ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
+ms.openlocfilehash: 8b2147ead7c1a6226b68588b9d0dab53da954bf2
+ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/26/2019
-ms.locfileid: "70032947"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71676950"
 ---
 # <a name="sql-database-managed-instance-frequently-asked-questions-faq"></a>SQL Database 受控實例的常見問題 (FAQ)
 
@@ -36,14 +36,21 @@ ms.locfileid: "70032947"
 
 ## <a name="where-can-i-find-known-issues-and-bugs"></a>哪裡可以找到已知的問題和 bug？
 
-對於錯誤和已知問題, 請參閱[已知問題](sql-database-managed-instance-transact-sql-information.md#Issues)。
+對於錯誤和已知問題，請參閱[已知問題](sql-database-managed-instance-transact-sql-information.md#Issues)。
+
+## <a name="where-can-i-find-latest-features-and-the-features-in-public-preview"></a>我可以在哪裡找到最新的功能和公開預覽中的功能？
+
+如需新的和預覽功能，請參閱[版本](/azure/sql-database/sql-database-release-notes?tabs=managed-instance)資訊。
+
+## <a name="how-much-time-takes-to-create-or-update-instance-or-to-restore-a-database"></a>建立或更新實例或還原資料庫需要多少時間？
+
+建立新的受控實例或變更服務層（虛擬核心、儲存體）的預期時間取決於數個因素。 請參閱[管理作業](/azure/sql-database/sql-database-managed-instance#managed-instance-management-operations) 
 
 ## <a name="can-a-managed-instance-have-the-same-name-as-on-premises-sql-server"></a>受控實例是否可以與內部部署 SQL Server 具有相同的名稱？
 
 受控實例的名稱必須以*database.windows.net*結尾。 若要使用另一個 DNS 區域, 而不是預設值 (例如, **mi-另一個名稱**. contoso.com: 
 - 使用 CliConfig 來定義別名。 此工具只是一個登錄設定包裝函式, 因此也可以使用群組原則或腳本來完成。
 - 搭配*TrustServerCertificate = true*選項使用*CNAME* 。
-
 
 ## <a name="how-can-i-move-database-from-managed-instance-back-to-sql-server-or-azure-sql-database"></a>如何將資料庫從受控實例移回 SQL Server 或 Azure SQL Database？
 
@@ -55,7 +62,7 @@ ms.locfileid: "70032947"
 
 ## <a name="how-can-i-migrate-my-instance-database-to-a-single-azure-sql-database"></a>如何將實例資料庫移轉至單一 Azure SQL Database？
 
-其中一個選項是將[資料庫匯出至 bacpac](sql-database-export.md) , 然後匯[入 bacpac]( sql-database-import.md)檔案。 
+其中一個選項是將[資料庫匯出至 bacpac](sql-database-export.md) , 然後匯[入 bacpac](sql-database-import.md)檔案。 
 
 如果您的資料庫小於 100 GB, 則這是建議的方法。 如果資料庫中的所有資料表都有主鍵, 則可以使用異動複寫。
 
@@ -78,9 +85,9 @@ ms.locfileid: "70032947"
 
 ## <a name="how-do-i-tune-performance-of-my-managed-instance"></a>如何? 調整受控實例的效能？ 
 
-一般用途受控實例會使用遠端存放, 因為資料和記錄檔的大小對效能很重要。 如需詳細資訊, 請參閱[一般用途的記錄檔大小影響受控執行個體效能](https://medium.com/azure-sqldb-managed-instance/impact-of-log-file-size-on-general-purpose-managed-instance-performance-21ad170c823e)。
+一般用途受控實例會使用遠端存放, 因為資料和記錄檔的大小對效能很重要。 如需詳細資訊，請參閱[一般用途的記錄檔大小影響受控執行個體效能](https://medium.com/azure-sqldb-managed-instance/impact-of-log-file-size-on-general-purpose-managed-instance-performance-21ad170c823e)。
 
-對於 IO 密集型工作負載, 請考慮使用 Gen 5 硬體, 而不是針對計算密集型工作負載使用 Gen 4。 如需詳細資訊, 請參閱[如何? 在 gen 4 和 gen 5 之間選擇](#how-do-i-choose-between-gen-4-and-gen-5-hardware-generation-for-managed-instance)。
+對於 IO 密集型工作負載, 請考慮使用 Gen 5 硬體, 而不是針對計算密集型工作負載使用 Gen 4。 如需詳細資訊，請參閱[如何? 在 gen 4 和 gen 5 之間選擇](#how-do-i-choose-between-gen-4-and-gen-5-hardware-generation-for-managed-instance)。
 
 如果您的工作負載包含許多小型交易, 請考慮將連線類型從 proxy 切換到重新導向模式。
 
@@ -125,7 +132,8 @@ Service Fabric 基礎結構會使用埠9000和9003。 Service Fabric 主要角�
 受控實例案例研究:
 
 - [Komatsu](https://customers.microsoft.com/story/komatsu-australia-manufacturing-azure)
-- [powerdetails](https://customers.microsoft.com/story/powerdetails-partner-professional-services-azure-sql-database-managed-instance)
+- [KMD](https://customers.microsoft.com/en-ca/story/kmd-professional-services-azure-sql-database)
+- [PowerDETAILS](https://customers.microsoft.com/story/powerdetails-partner-professional-services-azure-sql-database-managed-instance)
 - [Allscripts](https://customers.microsoft.com/story/allscripts-partner-professional-services-azure)  
 若要進一步瞭解與部署 Azure SQL Database 受控實例相關的優點、成本和風險, 還有 Forrester 的研究:[MI 的總經濟影響](https://azure.microsoft.com/resources/forrester-tei-sql-database-managed-instance)。
 

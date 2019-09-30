@@ -9,18 +9,18 @@ ms.author: robreed
 ms.date: 05/22/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 253e01b6bfa6609b4ec41d69a3c4b1bbe405ba5a
-ms.sourcegitcommit: 992e070a9f10bf43333c66a608428fcf9bddc130
+ms.openlocfilehash: 253fc940cfb42aa9bf7e93dd631d2ca596f7db6f
+ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71240296"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71677857"
 ---
 # <a name="update-management-solution-in-azure"></a>Azure 中的更新管理解決方案
 
 您可以使用 Azure 自動化中的更新管理解決方案, 在 Azure、內部部署環境或其他雲端提供者中管理 Windows 和 Linux 電腦的作業系統更新。 您可以快速評估所有代理程式電腦上可用更新的狀態，並管理為伺服器安裝必要更新的程序。
 
-您可以直接從您的「Azure 自動化」帳戶啟用虛擬機器的「更新管理」。 若要了解如何從您的自動化帳戶啟用虛擬機器的「更新管理」，請參閱[管理多部虛擬機器的更新](manage-update-multi.md)。 您也可以至 Azure 入口網站的虛擬機器頁面，啟用虛擬機器的「更新管理」。 此案例適用於 [Linux](../virtual-machines/linux/tutorial-monitoring.md#enable-update-management) 與 [Windows](../virtual-machines/windows/tutorial-monitoring.md#enable-update-management) 虛擬機器。
+您可以直接從您的「Azure 自動化」帳戶啟用虛擬機器的「更新管理」。 若要了解如何從您的自動化帳戶啟用虛擬機器的「更新管理」，請參閱[管理多部虛擬機器的更新](manage-update-multi.md)。 您也可以至 Azure 入口網站的虛擬機器頁面，啟用虛擬機器的「更新管理」。 此案例適用於 [Linux](../virtual-machines/linux/tutorial-config-management.md#enable-update-management) 與 [Windows](../virtual-machines/windows/tutorial-config-management.md#enable-update-management) 虛擬機器。
 
 > [!NOTE]
 > 更新管理解決方案需要將 Log Analytics 工作區連結至您的自動化帳戶。 如需所支援區域的確切清單，請參閱[Azure 工作區](./how-to/region-mappings.md)對應。 區域對應並不會影響在不同于您的自動化帳戶的區域中管理虛擬機器的能力。
@@ -222,7 +222,7 @@ Heartbeat
 
 ## <a name="install-updates"></a>安裝更新
 
-工作區中的所有 Linux 和 Windows 電腦皆進行過更新評估之後，您可以建立「更新部署」來安裝必要的更新。 若要建立更新部署, 您必須擁有自動化帳戶的寫入存取權, 以及針對部署中目標的任何 Azure Vm 的寫入權限。 更新部署是為一或多部電腦排定的必要更新安裝作業。 您應該指定部署的日期和時間，以及應該包含在部署範圍中的電腦或電腦群組。 若要深入瞭解電腦群組, 請參閱[Azure 監視器記錄中的電腦群組](../azure-monitor/platform/computer-groups.md)。
+工作區中的所有 Linux 和 Windows 電腦皆進行過更新評估之後，您可以建立「更新部署」來安裝必要的更新。 若要建立更新部署，您必須擁有自動化帳戶的寫入權限，以及任何以部署為目標之 Azure Vm 的寫入權限。 更新部署是為一或多部電腦排定的必要更新安裝作業。 您應該指定部署的日期和時間，以及應該包含在部署範圍中的電腦或電腦群組。 若要深入瞭解電腦群組, 請參閱[Azure 監視器記錄中的電腦群組](../azure-monitor/platform/computer-groups.md)。
 
 當您將電腦群組納入更新部署時，只會在建立排程時評估一次群組成員資格。 系統不會反映群組的後續變更。 若要解決此問題, 請使用[動態群組](#using-dynamic-groups), 這些群組會在部署階段解析, 並由 Azure vm 的查詢或非 azure vm 的已儲存搜尋所定義。
 

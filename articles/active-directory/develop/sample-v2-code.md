@@ -18,12 +18,12 @@ ms.author: ryanwi
 ms.reviewer: jmprieur
 ms.custom: aaddev, identityplatformtop40
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f0afefe81e81f8ba83a5c8ac2b0fad61926bbf09
-ms.sourcegitcommit: 263a69b70949099457620037c988dc590d7c7854
+ms.openlocfilehash: 86f9b6a6139f329a27914eff7a61d0f59c7f48ad
+ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71268540"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71678076"
 ---
 # <a name="microsoft-identity-platform-code-samples-v20-endpoint"></a>Microsoft 身分識別平臺程式碼範例 (v2.0 端點)
 
@@ -77,7 +77,8 @@ ms.locfileid: "71268540"
 | 行動裝置 (Android、iOS、UWP)   | ![此圖顯示 .NET/C# (Xamarin) 標誌](media/sample-v2-code/logo_xamarin.png) | [互動](msal-authentication-flows.md#interactive) |[xamarin-native-v2](https://github.com/azure-samples/active-directory-xamarin-native-v2) (英文) |  |
 | 行動裝置 (iOS)       | ![此圖顯示 iOS/目標-C 或 Swift](media/sample-v2-code/logo_iOS.png) | [互動](msal-authentication-flows.md#interactive) |[ios-swift-objc-native-v2](https://github.com/azure-samples/active-directory-ios-swift-native-v2) </p> [ios-native-nxoauth2-v2](https://github.com/azure-samples/active-directory-ios-native-nxoauth2-v2) (英文) |  |
 | Desktop （macOS）       | macOS | [互動](msal-authentication-flows.md#interactive) |[macOS-swift-objc-native-v2](https://github.com/Azure-Samples/ms-identity-macOS-swift-objc) |  |
-| 行動裝置 (Android)   | ![此圖顯示 Android 標誌](media/sample-v2-code/logo_Android.png) | [互動](msal-authentication-flows.md#interactive) |  [android-native-v2](https://github.com/azure-samples/active-directory-android-native-v2 ) (英文) |  |
+| Mobile （Android-JAVA）   | ![此圖顯示 Android 標誌](media/sample-v2-code/logo_Android.png) | [互動](msal-authentication-flows.md#interactive) |  [android-JAVA](https://github.com/Azure-Samples/ms-identity-android-java) |  |
+| 行動裝置（Android-Kotlin）   | ![此圖顯示 Android 標誌](media/sample-v2-code/logo_Android.png) | [互動](msal-authentication-flows.md#interactive) |  [android-Kotlin](https://github.com/Azure-Samples/ms-identity-android-kotlin) |  |
 
 ## <a name="daemon-applications"></a>精靈應用程式
 

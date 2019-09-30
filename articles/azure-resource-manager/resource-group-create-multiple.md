@@ -7,12 +7,12 @@ ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 09/27/2019
 ms.author: tomfitz
-ms.openlocfilehash: 3a0761fad32b2cfb0387cca79b6c1c0dc83c8e98
-ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
+ms.openlocfilehash: f97f9dac76ac29cf295b5cedc08f916e85c4e317
+ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71345415"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71675094"
 ---
 # <a name="resource-property-or-variable-iteration-in-azure-resource-manager-templates"></a>Azure Resource Manager 範本中的資源、屬性或變數反復專案
 
@@ -57,7 +57,7 @@ ms.locfileid: "71345415"
 
 ## <a name="resource-iteration"></a>資源反覆項目
 
-當您在部署期間必須決定要建立資源的一個或多個執行個體時，請將 `copy` 元素新增至資源類型。 在 copy 元素中，指定反覆運算次數和這個迴圈的名稱。
+如果您想要在部署中建立一個以上的資源實例，請將 `copy` 元素新增至資源類型。 在 copy 元素中，指定反覆運算次數和這個迴圈的名稱。
 
 要多次建立的資源會採用下列格式：
 

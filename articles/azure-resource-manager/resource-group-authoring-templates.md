@@ -4,14 +4,14 @@ description: 使用宣告式 JSON 語法描述 Azure Resource Manager 範本的�
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: conceptual
-ms.date: 09/13/2019
+ms.date: 09/30/2019
 ms.author: tomfitz
-ms.openlocfilehash: 4a5c1a99911c31f539d4f55adefb2c5f06243dd0
-ms.sourcegitcommit: 909ca340773b7b6db87d3fb60d1978136d2a96b0
+ms.openlocfilehash: 6b027acc5a8a8b7660d5640ff4af335e51fd2dbf
+ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/13/2019
-ms.locfileid: "70984101"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71676887"
 ---
 # <a name="understand-the-structure-and-syntax-of-azure-resource-manager-templates"></a>了解 Azure Resource Manager 範本的結構和語法
 
@@ -75,7 +75,7 @@ ms.locfileid: "70984101"
 | 元素名稱 | 必要項 | 描述 |
 |:--- |:--- |:--- |
 | 參數-名稱 |是 |參數名稱。 必須是有效的 JavaScript 識別碼。 |
-| Type |是 |參數值類型。 允許的類型和值為 **string**、**securestring**、**int**、**bool**、**object**、**secureObject**，以及 **array**。 |
+| 型別 |是 |參數值類型。 允許的類型和值為 **string**、**securestring**、**int**、**bool**、**object**、**secureObject**，以及 **array**。 請參閱[資料類型](#data-types)。 |
 | defaultValue |否 |如果未提供參數值，則會使用參數的預設值。 |
 | allowedValues |否 |參數的允許值陣列，確保提供正確的值。 |
 | minValue |否 |int 類型參數的最小值，含此值。 |
@@ -85,6 +85,18 @@ ms.locfileid: "70984101"
 | description |否 |透過入口網站向使用者顯示的參數說明。 如需詳細資訊，請參閱[範本中的註解](#comments)。 |
 
 如需如何使用參數的範例，請參閱[Azure Resource Manager 範本中的參數](template-parameters.md)。
+
+### <a name="data-types"></a>資料類型
+
+整數類型的範圍可以從-2147483648 到2147483647。 不過，資源類型可能會對整數屬性套用較低的限制。
+
+在您的範本中指定布林值和整數值時，請不要將值括在引號內。 開頭和結尾的字串值加上雙引號。
+
+物件的開頭是左大括弧，結尾則是右大括弧。 陣列的開頭為左括弧，結尾則是右方括弧。
+
+在資源部署之後，無法讀取安全字串和安全物件。
+
+如需格式化資料類型的範例，請參閱[參數類型格式](resource-manager-parameter-files.md#parameter-type-formats)。
 
 ## <a name="variables"></a>變數
 
@@ -123,7 +135,7 @@ ms.locfileid: "70984101"
 
 ## <a name="functions"></a>Functions
 
-在您的範本內，您可以建立自己的函式。 這些函式可供您在範本中使用。 您通常會定義不想在整個範本中重複使用的複雜運算式。 您會從範本中支援的運算式和[函式](resource-group-template-functions.md)建立使用者定義的函式。
+在您的範本內，您可以建立自己的函式。 這些函式可供您在範本中使用。 通常，您會定義不想要在整個範本中重複的複雜運算式。 您會從範本中支援的運算式和[函式](resource-group-template-functions.md)建立使用者定義的函式。
 
 在定義使用者函式時，有一些限制：
 
@@ -230,7 +242,7 @@ ms.locfileid: "70984101"
 |:--- |:--- |:--- |
 | condition (條件) | 否 | 布林值，指出是否會在此部署期間佈建資源。 若為 `true`，就會在部署期間建立資源。 若為 `false`，則會略過此部署的資源。 請參閱[條件](conditional-resource-deployment.md)。 |
 | apiVersion |是 |要用來建立資源的 REST API 版本。 若要判斷可用的值，請參閱[範本參考](/azure/templates/)。 |
-| Type |是 |資源類型。 這個值是資源提供者的命名空間與資源類型的組合 (例如 **Microsoft.Storage/storageAccounts**)。 若要判斷可用的值，請參閱[範本參考](/azure/templates/)。 對於子資源，類型的格式取決於它是內嵌在父資源內，還是在父資源外部定義。 請參閱[設定子資源的名稱和類型](child-resource-name-type.md)。 |
+| 型別 |是 |資源類型。 這個值是資源提供者的命名空間與資源類型的組合 (例如 **Microsoft.Storage/storageAccounts**)。 若要判斷可用的值，請參閱[範本參考](/azure/templates/)。 對於子資源，類型的格式取決於它是內嵌在父資源內，還是在父資源外部定義。 請參閱[設定子資源的名稱和類型](child-resource-name-type.md)。 |
 | name |是 |資源名稱。 此名稱必須遵循在 RFC3986 中定義的 URI 元件限制。 將資源名稱公開給外部合作物件的 Azure 服務會驗證該名稱，以確保不會嘗試偽造另一個身分識別。 對於子資源，名稱的格式取決於它是內嵌在父資源內，還是在父資源外部定義。 請參閱[設定子資源的名稱和類型](child-resource-name-type.md)。 |
 | 位置 |視情況而異 |所提供資源的支援地理位置。 您可以選取任何可用的位置，但通常選擇接近您的使用者的位置很合理。 通常，將彼此互動的資源放在相同區域也合乎常理。 大部分的資源類型都需要有位置，但某些類型 (例如角色指派) 不需要位置。 請參閱[設定資源位置](resource-location.md)。 |
 | tags |否 |與資源相關聯的標記。 套用標籤，既可以邏輯方式組織訂用帳戶中的資源。 |
@@ -263,7 +275,7 @@ ms.locfileid: "70984101"
 |:--- |:--- |:--- |
 | 輸出-名稱 |是 |輸出值的名稱。 必須是有效的 JavaScript 識別碼。 |
 | condition (條件) |否 | 布林值，指出是否傳回此輸出值。 當為 `true` 時，該值會包含在部署的輸出中。 若為 `false`，則會略過此部署的輸出值。 未指定時，預設值為 `true`。 |
-| Type |是 |輸出值的類型。 輸出值支援與範本輸入參數相同的類型。 如果您針對輸出類型指定**securestring** ，此值不會顯示在部署歷程記錄中，而且無法從另一個範本抓取。 若要在多個範本中使用秘密值，請將密碼儲存在 Key Vault 中，並在參數檔案中參考密碼。 如需詳細資訊，請參閱[在部署期間使用 Azure Key Vault 以傳遞安全的參數值](resource-manager-keyvault-parameter.md)。 |
+| 型別 |是 |輸出值的類型。 輸出值支援與範本輸入參數相同的類型。 如果您針對輸出類型指定**securestring** ，此值不會顯示在部署歷程記錄中，而且無法從另一個範本抓取。 若要在多個範本中使用秘密值，請將密碼儲存在 Key Vault 中，並在參數檔案中參考密碼。 如需詳細資訊，請參閱[在部署期間使用 Azure Key Vault 以傳遞安全的參數值](resource-manager-keyvault-parameter.md)。 |
 | value |是 |評估並傳回做為輸出值的範本語言運算式。 |
 
 如需如何使用輸出的範例，請參閱[Azure Resource Manager 範本中的輸出](template-outputs.md)。

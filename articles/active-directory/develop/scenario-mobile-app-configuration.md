@@ -15,12 +15,12 @@ ms.date: 07/23/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e7b731c9936ab85b19428687330044a46c563c49
-ms.sourcegitcommit: 263a69b70949099457620037c988dc590d7c7854
+ms.openlocfilehash: 168fbb275f70acd229dfd8f2e3f0d4c325db0f94
+ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71268358"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71678024"
 ---
 # <a name="mobile-app-that-calls-web-apis---code-configuration"></a>呼叫 web Api 的行動應用程式-程式碼設定
 
@@ -155,9 +155,13 @@ var pca = PublicClientApplicationBuilder
 - 裝置識別。 藉由存取已加入工作場所的裝置上建立的裝置憑證，啟用 Azure AD 裝置相關的條件式存取原則。
 - 應用程式識別驗證。 當應用程式呼叫訊息代理程式時，它會傳遞其重新導向 url，而 broker 會進行驗證。
 
-### <a name="enable-the-brokers-on-xamarin"></a>在 Xamarin 上啟用代理程式
+### <a name="enable-the-broker-on-xamarin"></a>在 Xamarin 上啟用訊息代理程式
 
 若要啟用其中一項功能，請`WithBroker()`在`PublicClientApplicationBuilder.CreateApplication`呼叫方法時使用參數。 `.WithBroker()`預設會設定為 true。 依照下列步驟進行[Xamarin. iOS](#brokered-authentication-for-xamarinios)。
+
+### <a name="enable-the-broker-for-msal-for-android"></a>啟用 MSAL for Android 的 broker
+
+如需有關在 Android 上啟用訊息代理程式的詳細資訊，請參閱[android 中](brokered-auth.md)的代理驗證。 
 
 ### <a name="enable-the-broker-for-msal-for-ios-and-macos"></a>啟用適用于 iOS 和 macOS 的 MSAL 訊息代理程式
 

@@ -11,14 +11,14 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.reviewer: mbullwin
-ms.date: 09/17/2019
+ms.date: 09/30/2019
 ms.author: dalek
-ms.openlocfilehash: 62f2ea36468e30b20ef08bde21bfde961faae8f9
-ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
+ms.openlocfilehash: 448469d4c1ff15ed2ba814dfaa653c4d3c7e3452
+ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71067021"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71677806"
 ---
 # <a name="manage-usage-and-costs-for-application-insights"></a>管理 Application Insights 的使用量和成本
 
@@ -30,7 +30,7 @@ ms.locfileid: "71067021"
 
 ## <a name="pricing-model"></a>定價模式
 
-[Azure 應用程式深入][start]解析的定價是以資料量內嵌為基礎。 每項 Application Insights 資源都是個別計費的服務，並且會計入到您的 Azure 訂用帳戶帳單。
+[Azure 應用程式深入][start]解析的定價是以資料量內嵌為基礎，並可選擇性地保留較長的資料。 每項 Application Insights 資源都是個別計費的服務，並且會計入到您的 Azure 訂用帳戶帳單。
 
 ### <a name="data-volume-details"></a>資料量詳細資料
 
@@ -47,7 +47,7 @@ ms.locfileid: "71067021"
 
 單一頁面的「Ping 測試」不另外收費。 針對來自 Ping 測試和多重步驟測試的遙測，收費方式與來自您應用程式的其他遙測一樣。
 
-## <a name="review-usage-and-estimate-costs"></a>檢閱使用量和估計成本
+## <a name="understand-your-usage-and-estimate-costs"></a>瞭解您的使用量和估計成本
 
 Application Insights 可讓您根據最近的使用模式，輕鬆了解可能產生的成本。 若要開始，請在 Azure 入口網站中，針對 Application Insights 資源，移至 [使用量和估計成本] 頁面：
 
@@ -110,11 +110,17 @@ systemEvents
 * 將遙測資料分攤到各個檢測金鑰。 
 * 預先彙總度量。 如果您在應用程式中呼叫 TrackMetric，便可以使用接受一批測量之平均及標準差計算的多載來減少流量。 或者，您也可以使用[預先彙總套件](https://www.myget.org/gallery/applicationinsights-sdk-labs)。
 
-## <a name="manage-the-maximum-daily-data-volume"></a>管理每日資料量上限
+## <a name="manage-your-maximum-daily-data-volume"></a>管理您的每日最大資料量
 
 您可以使用每日用量上限來限制所收集的資料。 不過，如果達到上限，就會失去當天其餘時間從您應用程式傳送的所有遙測資料。 建議您「不要」讓應用程式達到每日上限。 一旦應用程式達到每日上限，您便無法追蹤應用程式的健康情況和效能。
 
 請不要使用每日用量上限，而是改用[取樣](../../azure-monitor/app/sampling.md)將資料量調整到您想要的程度。 然後，只使用每日上限作為應付萬一應用程式開始未預期地傳送大量遙測時的「最後手段」。
+
+### <a name="identify-what-daily-data-limit-to-define"></a>識別要定義的每日資料限制
+
+請參閱 Application Insights 使用方式和估計成本，以瞭解資料內嵌趨勢，以及要定義的每日量上限。 此謹慎考量，因為達到限制之後，您將無法監視您的資源。 
+
+### <a name="set-the-daily-cap"></a>設定每日上限
 
 若要變更每日上限，請在 Application Insights 資源的 [**設定**] 區段的 [**使用量和估計成本**] 頁面中，選取 [**每日上限**]。
 
@@ -160,6 +166,10 @@ Application Insights 資源的預設保留期為90天。 可以為每個 Applica
 ![調整每日遙測資料量上限](./media/pricing/pricing-005.png)
 
 針對較長的保留期啟用計費時，將會以目前為 Azure Log Analytics 資料保留費用的相同費率來計費保留時間超過90天的資料。 若要深入瞭解，請[Azure 監視器定價頁面](https://azure.microsoft.com/pricing/details/monitor/)。 藉由[投票此建議](https://feedback.azure.com/forums/357324-azure-monitor-application-insights/suggestions/17454031)，隨時掌握最新的可變保留進度。 
+
+## <a name="data-transfer-charges-using-application-insights"></a>使用 Application Insights 的資料傳輸費用
+
+將資料傳送至 Application Insights 可能會產生資料頻寬費用。 如[Azure 頻寬定價頁面](https://azure.microsoft.com/pricing/details/bandwidth/)中所述，位於兩個區域的 Azure 服務之間的資料傳輸會依正常費率向輸出資料傳輸收費。 輸入資料傳輸是免費的。 不過，這種費用非常小（幾%）相較于 Application Insights 記錄資料內嵌的成本。 因此，控制 Log Analytics 的成本需要專注于[您的內嵌](https://docs.microsoft.com/azure/azure-monitor/app/pricing#managing-your-data-volume)資料磁片區，而我們也有指導方針可協助您瞭解這點。   
 
 ## <a name="limits-summary"></a>限制摘要
 

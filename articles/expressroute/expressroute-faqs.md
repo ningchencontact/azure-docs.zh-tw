@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 09/18/2019
 ms.author: jaredro
 ms.custom: seodec18
-ms.openlocfilehash: 886dd9b0f3c72fc7649b1e2fc3927cfa87f65312
-ms.sourcegitcommit: 9fba13cdfce9d03d202ada4a764e574a51691dcd
+ms.openlocfilehash: 4fd27acc58f5aaeb9b7680062ad97aaba22dec51
+ms.sourcegitcommit: 6013bacd83a4ac8a464de34ab3d1c976077425c7
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71316513"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71686981"
 ---
 # <a name="expressroute-faq"></a>ExpressRoute 常見問題集
 
@@ -70,7 +70,7 @@ ExpressRoute 支援[三種路由網域](expressroute-circuit-peerings.md)，適�
 * 支援大部分 Azure 服務。 請直接檢查您要用來驗證支援的服務。<br><br>**不支援下列服務**：
     * CDN
     * Azure Front Door
-    * 多因素驗證
+    * 多重要素驗證服務器（舊版）
     * 流量管理員
 
 ### <a name="public-peering"></a>公用對等
@@ -84,7 +84,7 @@ ExpressRoute 支援[三種路由網域](expressroute-circuit-peerings.md)，適�
   **不支援下列服務**：
     * CDN
     * Azure Front Door
-    * 多因素驗證
+    * 多重要素驗證服務器（舊版）
     * 流量管理員
 
 ### <a name="is-dynamics-365-supported-on-expressroute"></a>ExpressRoute 支援 Dynamics 365 嗎？

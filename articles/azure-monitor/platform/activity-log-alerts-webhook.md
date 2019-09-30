@@ -1,19 +1,19 @@
 ---
 title: 了解活動記錄警示中使用的 Webhook 結構描述
 description: 深入了解活動記錄警示啟動時，張貼至 Webhook URL 的 JSON 結構描述。
-author: johnkemnetz
+author: rboucher
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 03/31/2017
-ms.author: johnkem
+ms.author: robb
 ms.subservice: alerts
-ms.openlocfilehash: c91c1badaa4b1bc055859d700857cfd4d062babd
-ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
+ms.openlocfilehash: b9ba809baa8fc4adddfad1344d6f36375cb361c4
+ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67491506"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71675227"
 ---
 # <a name="webhooks-for-azure-activity-log-alerts"></a>Azure 活動記錄警示的 Webhook
 在定義動作群組的過程中，您可以設定 Webhook 端點以接收活動記錄警示通知。 您可以使用 Webhook 將這些通知路由到其他系統，以進行後置處理或自訂動作。 本文會說明 HTTP POST 至 Webhook 的承載資料樣貌。
@@ -23,7 +23,7 @@ ms.locfileid: "67491506"
 如需有關動作群組的資訊，請參閱如何[建立動作群組](../../azure-monitor/platform/action-groups.md)。
 
 > [!NOTE]
-> 您也可以使用[常見的警示結構描述](https://aka.ms/commonAlertSchemaDocs)、 提供一個可延伸的優點，並統一跨所有警示的警示承載的 webhook 整合服務在 Azure 監視器中。 [深入了解常見的警示的結構描述定義。](https://aka.ms/commonAlertSchemaDefinitions)
+> 您也可以使用[一般警示架構](https://aka.ms/commonAlertSchemaDocs)，讓您的 webhook 整合能夠在 Azure 監視器的所有警示服務中擁有單一可延伸和整合的警示承載。 [瞭解常見的警示架構定義。](https://aka.ms/commonAlertSchemaDefinitions)
 
 
 ## <a name="authenticate-the-webhook"></a>驗證 Webhook
@@ -61,7 +61,7 @@ POST 作業中所包含的 JSON 承載，會根據承載的 data.context.activit
 }
 ```
 
-### <a name="administrative"></a>管理
+### <a name="administrative"></a>系統管理
 
 ```json
 {
@@ -260,7 +260,7 @@ POST 作業中所包含的 JSON 承載，會根據承載的 data.context.activit
 
 | 元素名稱 | 描述 |
 | --- | --- |
-| status |用於度量警示。 針對活動記錄警示，一律設為「啟動」。 |
+| 狀態 |用於度量警示。 針對活動記錄警示，一律設為「啟動」。 |
 | context |事件的內容。 |
 | resourceProviderName |受影響資源的資源提供者。 |
 | conditionType |一律為「事件」。 |
@@ -269,13 +269,13 @@ POST 作業中所包含的 JSON 承載，會根據承載的 data.context.activit
 | description |建立警示時，會設定警示描述。 |
 | subscriptionId |Azure 訂用帳戶識別碼。 |
 | timestamp |處理要求的 Azure 服務產生事件的時間。 |
-| ResourceId |受影響資源的資源識別碼。 |
+| resourceId |受影響資源的資源識別碼。 |
 | resourceGroupName |受影響資源的資源群組的名稱。 |
 | properties |一組包含事件相關詳細資料的`<Key, Value>`配對 (也就是 `Dictionary<String, String>`)。 |
-| 事件 |包含事件相關中繼資料的元素。 |
+| event |包含事件相關中繼資料的元素。 |
 | authorization |事件的角色型存取控制屬性。 這些屬性通常包括動作、角色和範圍。 |
 | category |事件的類別。 支援值包括「管理」、「警示」、「安全性」、「ServiceHealth」和「建議」。 |
-| 呼叫者 |已執行作業的使用者的電子郵件地址，根據可用性的 UPN 宣告或 SPN 宣告。 特定系統呼叫可為 Null。 |
+| 呼叫端 |已執行作業的使用者的電子郵件地址，根據可用性的 UPN 宣告或 SPN 宣告。 特定系統呼叫可為 Null。 |
 | correlationId |通常是字串格式的 GUID。 具有屬於同一個較大動作的 correlationId 的事件，且通常會共用 correlationId。 |
 | eventDescription |事件的靜態文字描述。 |
 | eventDataId |事件的唯一識別碼。 |
@@ -283,9 +283,9 @@ POST 作業中所包含的 JSON 承載，會根據承載的 data.context.activit
 | httpRequest |要求通常包括 “clientRequestId”、“clientIpAddress” 和 HTTP “method” (例如 PUT)。 |
 | level |下列其中一個值：重大、錯誤、警告和告知性。 |
 | operationId |通常是對應至單一作業的事件之間共用的 GUID。 |
-| operationName |操作的名称。 |
+| operationName |作業名稱。 |
 | properties |事件的屬性。 |
-| status |字串。 作業的狀態。 常見的值包括︰「已啟動」、「進行中」、「成功」、「失敗」、「使用中」和「已解決」。 |
+| 狀態 |字串。 作業的狀態。 常見的值包括︰「已啟動」、「進行中」、「成功」、「失敗」、「使用中」和「已解決」。 |
 | 子狀態 |通常包含對應 REST 呼叫的 HTTP 狀態碼。 它也可以包含其他描述子狀態的字串。 常見的子狀態值包括正常 (HTTP 狀態碼:200)、已建立 (HTTP 狀態碼:201)、已接受 (HTTP 狀態碼:202)、無內容 (HTTP 狀態碼:204)、錯誤的要求 (HTTP 狀態碼:400)、找不到 (HTTP 狀態碼:404)、衝突 (HTTP 狀態碼:409)、內部伺服器錯誤 (HTTP 狀態碼:500)、無法使用服務 (HTTP 狀態碼:503)，以及閘道逾時 (HTTP 狀態碼:504)。 |
 
 如需了解所有其他活動記錄警示的特定結構詳細資料，請參閱 [Azure 活動記錄的概觀](../../azure-monitor/platform/activity-logs-overview.md)。
