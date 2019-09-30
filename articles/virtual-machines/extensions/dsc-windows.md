@@ -101,8 +101,8 @@ Windows Server 2019、Windows Server 2016、Windows Server 2012R2、Windows Serv
 | ---- | ---- | ---- |
 | apiVersion | 2018-10-01 | date |
 | publisher | Microsoft.Powershell.DSC | string |
-| Type | DSC | string |
-| typeHandlerVersion | 2.77 | ssNoversion |
+| type | DSC | string |
+| typeHandlerVersion | 2.77 | int |
 
 ### <a name="settings-property-values"></a>設定屬性值
 
