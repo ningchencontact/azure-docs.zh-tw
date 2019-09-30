@@ -128,7 +128,7 @@ BYOK 加密是單一步驟的程序，您可在叢集建立期間免費處理此
 
 **如果金鑰已刪除，要如何復原叢集？**
 
-   因為只支援「虛刪除」啟用的金鑰，所以如果金鑰保存庫中的金鑰已復原，叢集應該會重新取得金鑰的存取權。 若要復原 Azure Key Vault 金鑰，請參閱 <<c0>復原-AzKeyVaultKeyRemoval或[az-keyvault-Key-recover](/cli/azure/keyvault/key?view=azure-cli-latest#az-keyvault-key-recover)。
+   因為只支援「虛刪除」啟用的金鑰，所以如果金鑰保存庫中的金鑰已復原，叢集應該會重新取得金鑰的存取權。 若要復原 Azure Key Vault 金鑰，請參閱 [復原-AzKeyVaultKeyRemova](/powershell/module/az.keyvault/Undo-AzKeyVaultKeyRemoval)l或[az-keyvault-Key-recover](/cli/azure/keyvault/key?view=azure-cli-latest#az-keyvault-key-recover)。
 
 **是否可以讓生產者/消費者應用程式同時與 BYOK 叢集和非 BYOK 叢集搭配運作？**
 

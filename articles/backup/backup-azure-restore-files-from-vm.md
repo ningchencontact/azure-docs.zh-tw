@@ -75,7 +75,7 @@ Azure 備份可從 Azure 虛擬機器 (VM) 備份 (又稱復原點) 還原 [Azur
 
 > [!Note]
 > 
-> * 下載的指令檔名將會在 URL 中填入**地區名稱**。 如需:下載的\'腳本名稱以 VMname\_ \' \'geoname_\' GUID開頭\', 例如 ContosoVM_wcus_12345678 ....。\'<br><br>
+> * 下載的指令檔名將會在 URL 中填入**地區名稱**。 如需:下載的\'腳本名稱以 VMname\_ \' \'geoname_\' GUID開頭\', 例如 ContosoVM_wcus_12345678 .....\'<br><br>
 > * URL 會是 "HTTPs:\//pod01-rec2.wcus.backup.windowsazure.com"
 
 

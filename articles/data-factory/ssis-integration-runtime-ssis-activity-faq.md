@@ -98,7 +98,7 @@ ms.locfileid: "71104912"
 * 請考慮增加資料庫的 DTU。 您可以在 [Azure SQL Database 伺服器的 SQL Database 資源限制](https://docs.microsoft.com/azure/sql-database/sql-database-resource-limits-logical-server)中找到詳細資料。
 * 檢查您的套件是否會產生許多記錄。 若是如此，您可以設定彈性作業來清除這些記錄。 如需詳細資料，請參閱[使用 Azure 彈性資料庫工作清除 SSISDB 記錄](how-to-clean-up-ssisdb-logs-with-elastic-jobs.md)。
 
-### <a name="error-message-the-request-limit-for-the-database-is--and-has-been-reached"></a>錯誤訊息：「資料庫的要求限制為 .。。已達到和。」
+### <a name="error-message-the-request-limit-for-the-database-is--and-has-been-reached"></a>錯誤訊息：「資料庫的要求限制為 ....已達到和。」
 
 如果 SSIS 整合執行時間中有許多封裝以平行方式執行，可能會發生此錯誤，因為 SSISDB 已達到其要求限制。 請考慮增加 SSISDB 的 DTC 來解決此問題。 您可以在 [Azure SQL Database 伺服器的 SQL Database 資源限制](https://docs.microsoft.com/azure/sql-database/sql-database-resource-limits-logical-server)中找到詳細資料。
 
@@ -128,15 +128,15 @@ ms.locfileid: "71104912"
 
 當參數*ConnectUsingManagedIdentity*為**True**時，請確定您未將連接管理員的驗證方法設定為**Active Directory 密碼驗證**。 您可以改為將它設定為 **[SQL 驗證**]，如果已設定*ConnectUsingManagedIdentity* ，則會忽略它。
 
-### <a name="error-message-request-staging-task-with-operation-guid--fail-since-error-failed-to-dispatch-staging-operation-with-error-message-microsoftsqlserverintegrationservicesaisagentcoreaisagentexception-failed-to-load-data-proxy"></a>錯誤訊息：「使用作業 guid 要求預備工作 .。。因為錯誤而失敗：無法分派預備作業，錯誤訊息：IntegrationServices. AisAgentCore. AisAgentException：無法載入資料 proxy」。
+### <a name="error-message-request-staging-task-with-operation-guid--fail-since-error-failed-to-dispatch-staging-operation-with-error-message-microsoftsqlserverintegrationservicesaisagentcoreaisagentexception-failed-to-load-data-proxy"></a>錯誤訊息：「使用作業 guid 要求預備工作 ...因為錯誤而失敗：無法分派預備作業，錯誤訊息：IntegrationServices. AisAgentCore. AisAgentException：無法載入資料 proxy」。
 
 請確定您的 Azure SSIS 整合執行時間已設定自我裝載整合執行時間。 如需更多詳細資料，請參閱在[ADF 中設定自我裝載 ir 作為 AZURE SSIS IR 的 proxy](self-hosted-integration-runtime-proxy-ssis.md)。
 
-### <a name="error-message-staging-task-status-failed-staging-task-error-errorcode-2010-errormessage-the-self-hosted-integration-runtime--is-offline"></a>錯誤訊息：「預備工作狀態：失敗。 暫存工作錯誤：ErrorCode：2010，ErrorMessage：自我裝載的 Integration Runtime .。。已離線」
+### <a name="error-message-staging-task-status-failed-staging-task-error-errorcode-2010-errormessage-the-self-hosted-integration-runtime--is-offline"></a>錯誤訊息：「預備工作狀態：失敗。 暫存工作錯誤：ErrorCode：2010，ErrorMessage：自我裝載的 Integration Runtime ...已離線」
 
 請確定您的自我裝載整合執行時間已安裝並啟動。 如需更多詳細資料，請參閱[建立及設定自我裝載整合運行](create-self-hosted-integration-runtime.md)時間
 
-### <a name="error-message-staging-task-error-errorcode-2906-errormessage-package-execution-failed-output-operationerrormessages-error-the-requested-ole-db-provider--is-not-registered-if-the-64-bit-driver-is-not-installed-run-the-package-in-32-bit-mode"></a>錯誤訊息：「預備工作錯誤：ErrorCode：2906，ErrorMessage：封裝執行失敗。，輸出： {"OperationErrorMessages"："Error:要求的 OLE DB 提供者 .。。未註冊。 如果未安裝64位驅動程式，請以32位模式執行套件 ...」
+### <a name="error-message-staging-task-error-errorcode-2906-errormessage-package-execution-failed-output-operationerrormessages-error-the-requested-ole-db-provider--is-not-registered-if-the-64-bit-driver-is-not-installed-run-the-package-in-32-bit-mode"></a>錯誤訊息：「預備工作錯誤：ErrorCode：2906，ErrorMessage：封裝執行失敗。，輸出： {"OperationErrorMessages"："Error:要求的 OLE DB 提供者 ...未註冊。 如果未安裝64位驅動程式，請以32位模式執行套件 ...」
 
 請確定您的套件中 OLE DB 連接器所使用的對應提供者已正確安裝在自我裝載整合執行時間電腦上。 如需更多詳細資料，請參閱[設定自我裝載 IR 作為 AZURE SSIS IR 在 ADF 中的 proxy](self-hosted-integration-runtime-proxy-ssis.md#prepare-self-hosted-ir)
 
