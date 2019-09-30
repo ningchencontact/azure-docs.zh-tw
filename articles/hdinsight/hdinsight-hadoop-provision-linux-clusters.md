@@ -8,13 +8,13 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017,seodec18
 ms.topic: conceptual
-ms.date: 07/15/2019
-ms.openlocfilehash: cf276f3a0b14658d6c0bc10a138e814f30561cc9
-ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
+ms.date: 09/27/2019
+ms.openlocfilehash: 28038743f859b1a41bb332bf70b481e07b2ff29c
+ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71104494"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71677024"
 ---
 # <a name="set-up-clusters-in-hdinsight-with-apache-hadoop-apache-spark-apache-kafka-and-more"></a>使用 Apache Hadoop、Apache Spark、Apache Kafka 及其他工具在 HDInsight 中設定叢集
 
@@ -28,9 +28,10 @@ Hadoop 叢集由數個虛擬機器 (節點) 組成，可用於分散處理作業
 > HDInsight 叢集的計費起自叢集建立時，終至叢集刪除時。 計費是以每分鐘按比例計算，因此不再使用時，請一律刪除您的叢集。 了解如何[刪除叢集。](hdinsight-delete-cluster.md)
 
 ## <a name="cluster-setup-methods"></a>叢集設定方法
+
 下表顯示可用來設定 HDInsight 叢集的不同方法。
 
-| 叢集建立方法 | Web 瀏覽器 | 命令列 | REST API | SDK | 
+| 叢集建立方法 | Web 瀏覽器 | 命令列 | REST API | SDK |
 | --- |:---:|:---:|:---:|:---:|
 | [Azure 入口網站](hdinsight-hadoop-create-linux-clusters-portal.md) |✔ |&nbsp; |&nbsp; |&nbsp; |
 | [Azure Data Factory](hdinsight-hadoop-create-linux-clusters-adf.md) |✔ |✔ |✔ |✔ |
@@ -40,12 +41,13 @@ Hadoop 叢集由數個虛擬機器 (節點) 組成，可用於分散處理作業
 | [.NET SDK](hdinsight-hadoop-create-linux-clusters-dotnet-sdk.md) |&nbsp; |&nbsp; |&nbsp; |✔ |
 | [Azure 資源管理員範本](hdinsight-hadoop-create-linux-clusters-arm-templates.md) |&nbsp; |✔ |&nbsp; |&nbsp; |
 
-## <a name="quick-create-basic-cluster-setup"></a>快速建立：基本叢集設定
-本文會逐步引導您完成 [Azure 入口網站](https://portal.azure.com)中的設定，您可以在此入口網站中使用 [Quick create] \(快速建立\) 或 [Custom] \(自訂\) 建立 HDInsight 叢集。
+## <a name="basic-cluster-setup"></a>基本叢集設定
 
-![hdinsight 建立選項自訂快速建立](./media/hdinsight-hadoop-provision-linux-clusters/hdinsight-creation-options.png)
+這篇文章會逐步引導您完成[Azure 入口網站](https://portal.azure.com)中的設定，您可以在其中使用預設的 View 或*傳統*建立 HDInsight 叢集。
 
-依照畫面上指示執行基本的叢集設定。 以下是下列各項的詳細資訊：
+![hdinsight 建立選項自訂快速建立](./media/hdinsight-hadoop-provision-linux-clusters/azure-portal-cluster-basics-blank-fs.png)
+
+依照畫面上的指示進行。 以下是下列各項的詳細資訊：
 
 * [資源群組名稱](#resource-group-name)
 * [叢集類型和設定](#cluster-types)
@@ -58,6 +60,7 @@ Hadoop 叢集由數個虛擬機器 (節點) 組成，可用於分散處理作業
 [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md) 可協助您將應用程式中的資源做為群組使用，稱為 Azure 資源群組。 您可以在單一、協調的作業中，將應用程式的所有資源進行部署、更新、監視或刪除。
 
 ## <a name="cluster-types"></a>叢集類型和設定
+
 Azure HDInsight 目前提供下列的叢集類型，每種都有一組提供特定功能的元件。
 
 > [!IMPORTANT]  
@@ -74,33 +77,38 @@ Azure HDInsight 目前提供下列的叢集類型，每種都有一組提供特�
 | [Storm](storm/apache-storm-overview.md) |即時事件處理 |
 
 ### <a name="hdinsight-version"></a>HDInsight 版本
+
 選擇此叢集的 HDInsight 版本。 如需詳細資訊，請參閱[支援的 HDInsight 版本](hdinsight-component-versioning.md#supported-hdinsight-versions)。
 
 ## <a name="cluster-name"></a>叢集名稱
 
 HDInsight 叢集名稱具有下列限制:
-- 允許的字元: a-z、0-9、a-z 
-- 最大長度：59
-- 保留名稱: 應用程式
-- 叢集命名範圍適用于所有訂用帳戶中的所有 Azure。 因此，叢集名稱在全球必須是唯一的。
-- 前6個字元在 VNET 中必須是唯一的
+
+* 允許的字元: a-z、0-9、a-z
+* 最大長度：59
+* 保留名稱: 應用程式
+* 叢集命名範圍適用于所有訂用帳戶中的所有 Azure。 因此，叢集名稱在全球必須是唯一的。
+* 前六個字元在 VNET 內必須是唯一的
 
 ## <a name="cluster-login-and-ssh-username"></a>叢集登入和 SSH 使用者名稱
+
 使用 HDInsight 叢集，您可以在建立叢集期間設定兩個使用者帳戶：
 
 * HTTP 使用者：預設的使用者名稱為 *admin*。使用 Azure 入口網站上的基本組態。 有時稱之為「叢集使用者」。
 * SSH 使用者：用來透過 SSH 連線到叢集。 如需詳細資訊，請參閱[搭配 HDInsight 使用 SSH](hdinsight-hadoop-linux-use-ssh-unix.md)。
 
 HTTP 使用者名稱具有下列限制:
-- 允許的特殊字元： _ 和@ 
-- 不允許的字元： #;。 "'\/，： '！ *？ $ （{}） [] < > | &--= +% ~ ^ space
-- 最大長度：20
+
+* 允許的特殊字元： _ 和@
+* 不允許的字元： #;. "'，\/： '！ *？ $ （） {} [] < > | &--= +% ~ ^ space
+* 最大長度：20
 
 SSH 使用者名稱具有下列限制:
-- 允許的特殊字元： _ 和@ 
-- 不允許的字元： #;。 "'\/，： '！ *？ $ （{}） [] < > | &--= +% ~ ^ space
-- 最大長度：64
-- 保留名稱： hadoop、使用者、oozie、hive、mapred.max.split.size、ambari-qa、zookeeper、tez、hdfs、sqoop、yarn、hcat、ams、hbase、風暴、administrator、admin、user、user1、test、使用者名稱、test1、user3、admin1、1、123、a、actuser、adm、admin2、aspnet、backup、console、david、guest，john，擁有者，根，伺服器，sql，支援，support_388945a0，sys，test2，test3，user4，user5，spark
+
+* 允許的特殊字元： _ 和@
+* 不允許的字元： #;. "'，\/： '！ *？ $ （） {} [] < > | &--= +% ~ ^ space
+* 最大長度：64
+* 保留名稱： hadoop、使用者、oozie、hive、mapred.max.split.size、ambari-qa、zookeeper、tez、hdfs、sqoop、yarn、hcat、ams、hbase、風暴、administrator、admin、user、user1、test、使用者名稱、test1、user3、admin1、1、123、a、actuser、adm、admin2、aspnet、backup、console、david、guest，john，擁有者，根，伺服器，sql，支援，support_388945a0，sys，test2，test3，user4，user5，spark
 
 企業安全性套件可讓您整合 HDInsight 與 Active Directory 及 Apache Ranger。 使用企業安全性套件可以建立多個使用者。
 
@@ -110,7 +118,7 @@ SSH 使用者名稱具有下列限制:
 
 ## <a name="storage-endpoints-for-clusters"></a>叢集的儲存體端點
 
-內部部署安裝的 Hadoop 叢集使用 Hadoop 分散式檔案系統 (HDFS) 作為叢集上的儲存體，但在雲端中，您可以使用已連接到叢集的儲存體端點。 使用雲端儲存體表示您可以安全地刪除用於計算的 HDInsight 叢集，同時仍保留您的資料。 
+內部部署安裝的 Hadoop 叢集使用 Hadoop 分散式檔案系統 (HDFS) 作為叢集上的儲存體，但在雲端中，您可以使用已連接到叢集的儲存體端點。 使用雲端儲存體表示您可以安全地刪除用於計算的 HDInsight 叢集，同時仍保留您的資料。
 
 HDInsight 叢集可以使用下列儲存體選項：
 
@@ -127,7 +135,7 @@ HDInsight 叢集可以使用下列儲存體選項：
 
 在設定期間，您要為預設儲存體端點指定 Azure 儲存體帳戶的 Blob 容器或 Data Lake Storage。 預設儲存體包含應用程式與系統記錄。 您也可以選擇指定叢集可存取的其他已連結 Azure 儲存體帳戶和 Data Lake Storage 帳戶。 HDInsight 叢集與相依的儲存體帳戶必須位於相同的 Azure 位置。
 
-![叢集儲存體設定：HDFS 相容儲存體端點](./media/hdinsight-hadoop-provision-linux-clusters/hdinsight-cluster-creation-storage.png)
+![叢集儲存體設定：HDFS 相容儲存體端點](./media/hdinsight-hadoop-provision-linux-clusters/azure-portal-cluster-storage-blank.png)
 
 [!INCLUDE [secure-transfer-enabled-storage-account](../../includes/hdinsight-secure-transfer.md)]
 
@@ -153,27 +161,21 @@ HDInsight 叢集可以使用下列儲存體選項：
 > [!IMPORTANT]  
 > 您無法重複使用自訂的 Oozie 中繼存放區。 若要使用自訂的 Oozie 中繼存放區，您必須在建立 HDInsight 叢集時提供空的 Azure SQL Database。
 
-## <a name="custom-cluster-setup"></a>自訂叢集設定
-自訂叢集設定是以 [Quick create] \(快速建立\) 的設定為基礎，並加入下列選項：
-- [企業安全性套件](#enterprise-security-package)
-- [HDInsight 應用程式](#install-hdinsight-applications-on-clusters)
-- [叢集大小](#configure-cluster-size)
-- [指令碼動作](#advanced-settings-script-actions)
-- [虛擬網路](#advanced-settings-extend-clusters-with-a-virtual-network)
-
 ## <a name="enterprise-security-package"></a>企業安全性套件
 
 對於 Hadoop、Spark、HBase、Kafka 互動式查詢叢集類型，您可以選擇啟用 [企業安全性套件]。 此套件使用 Apache Ranger 並與 Azure Active Directory 整合，讓您可選擇更安全的叢集設定。 如需詳細資訊，請參閱[Azure HDInsight 中的企業安全性總覽](./domain-joined/hdinsight-security-overview.md)。
 
-![hdinsight 建立選擇企業安全性套件的選項](./media/hdinsight-hadoop-provision-linux-clusters/hdinsight-creation-enterprise-security-package.png)
+![hdinsight 建立選擇企業安全性套件的選項](./media/hdinsight-hadoop-provision-linux-clusters/azure-portal-cluster-security-networking-esp.png)
 
 如需建立已加入網域之 HDInsight 叢集的詳細資訊，請參閱[建立已加入網域的 HDInsight 沙箱環境](./domain-joined/apache-domain-joined-configure.md)。
 
-## <a name="install-hdinsight-applications-on-clusters"></a>在叢集上安裝 HDInsight 應用程式
+## <a name="extend-clusters-with-a-virtual-network"></a>使用虛擬網路擴充叢集
 
-HDInsight 應用程式是使用者可以在以 Linux 為基礎的 HDInsight 叢集上安裝的應用程式。 您可以使用由 Microsoft、協力廠商所提供或您自己開發的應用程式。 如需詳細資訊，請參閱[在 Azure HDInsight 上安裝第三方 Apache Hadoop 應用程式](hdinsight-apps-install-applications.md)。
+如果您的解決方案需要會分散到多個 HDInsight 叢集類型的技術，[Azure 虛擬網路](https://docs.microsoft.com/azure/virtual-network)可以連接必要的叢集類型。 此組態可讓叢集以及其中部署的任何程式碼直接彼此通訊。
 
-大部分的 HDInsight 應用程式會安裝在空白的邊緣節點。  空白的邊緣節點是一部 Linux 虛擬機器，其中已安裝及設定和前端節點相同的用戶端工具。 您可以使用邊緣節點來存取叢集、測試用戶端應用程式，以及裝載用戶端應用程式。 如需詳細資訊，請參閱 [Use empty edge nodes in HDInsight (在 HDInsight 中使用空白的邊緣節點)](hdinsight-apps-use-edge-node.md)。
+如需搭配 HDInsight 使用 Azure 虛擬網路的詳細資訊，請參閱[規劃 hdinsight 的虛擬網路](hdinsight-plan-virtual-network-deployment.md)。
+
+如需在 Azure 虛擬網路內使用兩個叢集類型的範例，請參閱[使用 Apache Spark 結構化串流搭配 Apache Kafka](hdinsight-apache-kafka-spark-structured-streaming.md)。 如需搭配虛擬網路使用 HDInsight 的詳細資訊，包括虛擬網路的特定設定需求，請參閱[規劃 HDInsight 的虛擬網路](hdinsight-plan-virtual-network-deployment.md)。
 
 ## <a name="configure-cluster-size"></a>設定叢集大小
 
@@ -208,13 +210,14 @@ HDInsight 叢集的成本是由節點數和節點的虛擬機器大小來決定�
 > [!NOTE]  
 > 叢集大小限制會隨著 Azure 訂用帳戶而有所不同。 若要提高限制，請與 [Azure 帳務支援人員](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request)連絡。
 
-使用 Azure 入口網站設定叢集時，節點大小會透過 [節點定價層] 刀鋒視窗公開。 在入口網站中，您也可以查看與不同節點大小相關聯的成本。
+當您使用 Azure 入口網站設定叢集時，可以透過 [設定 **+ 定價**] 索引標籤取得節點大小。在入口網站中，您也可以查看與不同節點大小相關聯的成本。
 
-![HDInsight 選擇您的節點大小](./media/hdinsight-hadoop-provision-linux-clusters/hdinsight-node-sizes.png)
+![HDInsight 選擇您的節點大小](./media/hdinsight-hadoop-provision-linux-clusters/azure-portal-cluster-configuration-pricing-hadoop.png)
 
-### <a name="virtual-machine-sizes"></a>虛擬機器大小 
+### <a name="virtual-machine-sizes"></a>虛擬機器大小
 
 當您部署叢集時，請依據計劃部署的解決方案選擇計算資源。 下列 VM 可用於 HDInsight 叢集：
+
 * A 和 D1 4 系列 VM：[一般用途 Linux VM 大小](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-general)
 * D11-14 系列 VM：[記憶體最佳化 Linux VM 大小](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-memory)
 
@@ -224,6 +227,19 @@ HDInsight 叢集的成本是由節點數和節點的虛擬機器大小來決定�
 > 如果您在叢集中需要超過32個背景工作節點, 則必須選取具有至少8個核心和 14 GB RAM 的前端節點大小。
 
 如需相關資訊，請參閱[虛擬機器的大小](../virtual-machines/windows/sizes.md)。 如需各式大小的價格資訊，請參閱 [HDInsight 價格](https://azure.microsoft.com/pricing/details/hdinsight)。
+
+## <a name="classic-cluster-setup"></a>傳統叢集設定
+
+傳統叢集設定會以預設的 [建立] 設定為基礎，並新增下列選項：
+
+* [HDInsight 應用程式](#install-hdinsight-applications-on-clusters)
+* [指令碼動作](#advanced-settings-script-actions)
+
+## <a name="install-hdinsight-applications-on-clusters"></a>在叢集上安裝 HDInsight 應用程式
+
+HDInsight 應用程式是使用者可以在以 Linux 為基礎的 HDInsight 叢集上安裝的應用程式。 您可以使用由 Microsoft、協力廠商所提供或您自己開發的應用程式。 如需詳細資訊，請參閱[在 Azure HDInsight 上安裝第三方 Apache Hadoop 應用程式](hdinsight-apps-install-applications.md)。
+
+大部分的 HDInsight 應用程式會安裝在空白的邊緣節點。  空白的邊緣節點是一部 Linux 虛擬機器，其中已安裝及設定和前端節點相同的用戶端工具。 您可以使用邊緣節點來存取叢集、測試用戶端應用程式，以及裝載用戶端應用程式。 如需詳細資訊，請參閱 [Use empty edge nodes in HDInsight (在 HDInsight 中使用空白的邊緣節點)](hdinsight-apps-use-edge-node.md)。
 
 ## <a name="advanced-settings-script-actions"></a>進階設定：指令碼動作
 
@@ -256,17 +272,9 @@ HDInsight 叢集的成本是由節點數和節點的虛擬機器大小來決定�
 
 如需詳細資訊，請參閱 [使用 Bootstrap 自訂 HDInsight 叢集](hdinsight-hadoop-customize-cluster-bootstrap.md)。
 
-## <a name="advanced-settings-extend-clusters-with-a-virtual-network"></a>進階設定：使用虛擬網路擴充叢集
-
-如果您的解決方案需要會分散到多個 HDInsight 叢集類型的技術，[Azure 虛擬網路](https://docs.microsoft.com/azure/virtual-network)可以連接必要的叢集類型。 此組態可讓叢集以及其中部署的任何程式碼直接彼此通訊。
-
-如需搭配 HDInsight 使用 Azure 虛擬網路的詳細資訊，請參閱[規劃 hdinsight 的虛擬網路](hdinsight-plan-virtual-network-deployment.md)。
-
-如需在 Azure 虛擬網路內使用兩個叢集類型的範例，請參閱[使用 Apache Spark 結構化串流搭配 Apache Kafka](hdinsight-apache-kafka-spark-structured-streaming.md)。 如需搭配虛擬網路使用 HDInsight 的詳細資訊，包括虛擬網路的特定設定需求，請參閱[規劃 HDInsight 的虛擬網路](hdinsight-plan-virtual-network-deployment.md)。
-
 ## <a name="next-steps"></a>後續步驟
 
-- [使用 Azure HDInsight 疑難排解叢集建立失敗](./hadoop/hdinsight-troubleshoot-cluster-creation-fails.md)
-- [什麼是 HDInsight、Apache Hadoop 生態系統以及 Hadoop 叢集？](hadoop/apache-hadoop-introduction.md)
-- [開始使用 HDInsight 中的 Apache Hadoop](hadoop/apache-hadoop-linux-tutorial-get-started.md)
-- [從 Windows PC 在 HDInsight 上的 Hadoop 生態系統中作業](hdinsight-hadoop-windows-tools.md)
+* [使用 Azure HDInsight 疑難排解叢集建立失敗](./hadoop/hdinsight-troubleshoot-cluster-creation-fails.md)
+* [什麼是 HDInsight、Apache Hadoop 生態系統以及 Hadoop 叢集？](hadoop/apache-hadoop-introduction.md)
+* [開始使用 HDInsight 中的 Apache Hadoop](hadoop/apache-hadoop-linux-tutorial-get-started.md)
+* [從 Windows PC 在 HDInsight 上的 Hadoop 生態系統中作業](hdinsight-hadoop-windows-tools.md)

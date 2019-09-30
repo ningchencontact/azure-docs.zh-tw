@@ -8,16 +8,16 @@ ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 manager: jeffya
-ms.openlocfilehash: b1aac19885e2b640063e4840f047916ad51e9656
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: 2731bbcd6a6b0c8f7d82334c022c017d5eae35f0
+ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68855762"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71677012"
 ---
 # <a name="use-azure-iot-hub-device-provisioning-service-auto-provisioning-to-register-the-mxchip-iot-devkit-with-iot-hub"></a>使用 Azure IoT 中樞裝置佈建服務的自動佈建向 IoT 中樞註冊 MXChip IoT DevKit
 
-本文說明如何使用 Azure IoT 中樞裝置佈建服務的[自動佈建](concepts-auto-provisioning.md)，向 Azure IoT 中樞註冊 MXChip IoT DevKit。 在本教學課程中，您了解如何：
+本文說明如何使用 Azure IoT 中樞裝置佈建服務的[自動佈建](concepts-auto-provisioning.md)，向 Azure IoT 中樞註冊 MXChip IoT DevKit。 在本教學課程中，您會了解如何：
 
 * 在裝置上設定裝置佈建服務的全域端點。
 * 使用唯一裝置祕密 (UDS) 來產生 X.509 憑證。
@@ -30,7 +30,7 @@ ms.locfileid: "68855762"
 
 若要完成本教學課程中的步驟，請先執行下列工作：
 
-* 依照[將 IoT DEVKIT AZ3166 連接到雲端中的 Azure IoT 中樞](/azure/iot-hub/iot-hub-arduino-iot-devkit-az3166-get-started#prepare-the-development-environment)一節, 設定 DevKit 的 wi-fi 並準備您的開發環境。
+* 依照[將 IoT DEVKIT AZ3166 連接到雲端中的 Azure IoT 中樞](/azure/iot-hub/iot-hub-arduino-iot-devkit-az3166-get-started#prepare-the-development-environment)一節，設定 DevKit 的 wi-fi 並準備您的開發環境。
 * 利用[更新 DevKit 韌體](https://microsoft.github.io/azure-iot-developer-kit/docs/firmware-upgrading/)教學課程，升級至最新的韌體 (1.3.0 或更新版本)。
 * 遵循[使用 Azure 入口網站設定 IoT 中樞裝置佈建服務](/azure/iot-dps/quick-setup-auto-provision)中的步驟，建立 IoT 中樞並將其與裝置佈建服務執行個體連結。
 
@@ -91,9 +91,6 @@ ms.locfileid: "68855762"
 ## <a name="generate-x509-certificate"></a>產生 X.509 憑證
 
 此範例所使用的[證明機制](/azure/iot-dps/concepts-device#attestation-mechanism)是 X.509 憑證。 您需要使用公用程式來產生它。
-
-> [!NOTE]
-> X.509 憑證產生器目前僅支援 Windows。
 
 1. 在 VS Code 中，按一下 `F1`，輸入並選取 [開啟新的終端機] 以開啟終端機視窗。
 

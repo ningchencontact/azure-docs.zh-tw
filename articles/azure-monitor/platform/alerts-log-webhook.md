@@ -1,19 +1,19 @@
 ---
 title: Azure 警示中記錄警示的 Webhook 動作
 description: 本文說明如何使用 Log Analytics 工作區或 Application Insights 來建立記錄警示規則、警示如何將資料推送為 HTTP webhook, 以及各種可能的自訂詳細資料。
-author: msvijayn
+author: yanivlavi
 services: monitoring
 ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 06/25/2019
-ms.author: vinagara
+ms.author: yalavi
 ms.subservice: alerts
-ms.openlocfilehash: 8bdd0d5230feeeb4c80775ce63aa7e4eaccb601c
-ms.sourcegitcommit: 920ad23613a9504212aac2bfbd24a7c3de15d549
+ms.openlocfilehash: 3e29bdf41b0421aa4461b11fbf9bc0535179486d
+ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "68226801"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71677759"
 ---
 # <a name="webhook-actions-for-log-alert-rules"></a>Webhook 動作記錄警示規則
 [在 Azure 中建立記錄警示](alerts-log.md)時, 您可以選擇[使用動作群組](action-groups.md)來設定它, 以執行一或多個動作。 本文說明可用的不同 webhook 動作, 並說明如何設定以 JSON 為基礎的自訂 webhook。
@@ -59,7 +59,7 @@ Webhook 包含 URL 和以 JSON 格式格式化的內容, 這些資料會傳送�
 > [!NOTE]
 > *LinkToSearchResults*會將 URL 中的參數 (例如*SearchQuery*、*搜尋間隔 StartTime*和*搜尋間隔結束時間*) 傳遞至 Azure 入口網站在 [分析] 區段中進行查看。 Azure 入口網站的 URI 大小限制大約為2000個字元。 如果參數值超過限制, 入口網站將*不*會開啟警示中提供的連結。 您可以手動輸入詳細資料, 以在 Analytics 入口網站中查看結果。 或者, 您可以使用[Application Insights 分析 REST API](https://dev.applicationinsights.io/documentation/Using-the-API)或[Log Analytics REST API](/rest/api/loganalytics/)以程式設計方式取得結果。 
 
-例如，您可以指定下列自訂承載，其中包含稱為 text  的單一參數。 此 webhook 呼叫的服務需要此參數。
+例如，您可以指定下列自訂承載，其中包含稱為 text的單一參數。 此 webhook 呼叫的服務需要此參數。
 
 ```json
 
