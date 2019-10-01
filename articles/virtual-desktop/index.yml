@@ -1,9 +1,9 @@
 ### YamlMime:YamlDocument
 documentType: LandingData
-title: Windows 虛擬桌面預覽文件
+title: Windows 虛擬桌面文件
 metadata:
-  title: Windows 虛擬桌面預覽文件 - 教學課程、快速入門和 API 參考 | Microsoft Docs
-  description: 適用於 Azure 的 Windows 虛擬桌面預覽是位於雲端虛擬化的多使用者 Windows 10 企業版體驗。
+  title: Windows 虛擬桌面文件 - 教學課程、快速入門和 API 參考 | Microsoft Docs
+  description: 適用於 Azure 的 Windows 虛擬桌面是在雲端虛擬化的多使用者 Windows 10 企業版體驗。
   author: Heidilohr
   manager: daveba
   ms.service: virtual-desktop
@@ -17,11 +17,11 @@ sections:
   - title: 概觀
     items:
       - type: paragraph
-        text: 深入了解 Windows 虛擬桌面預覽及其使用方式。 教學課程、操作說明、參考內容以及其他資訊，示範如何設定主機集區和租用戶，並將角色指派給 Windows 虛擬桌面環境的使用者。
+        text: 深入了解 Windows 虛擬桌面及其使用方式。 教學課程、操作說明、參考內容以及其他資訊，示範如何設定主機集區和租用戶，並將角色指派給 Windows 虛擬桌面環境的使用者。
       - type: list
         style: unordered
         items:
-          - html: <a href="/azure/virtual-desktop/overview">什麼是 Windows 虛擬桌面預覽？</a>
+          - html: <a href="/azure/virtual-desktop/overview">什麼是 Windows 虛擬桌面？</a>
   - title: 逐步教學課程
     items:
       - type: paragraph

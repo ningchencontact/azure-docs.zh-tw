@@ -35,21 +35,23 @@
       href: tutorial-backup-vms.md
     - name: 10 - 管理 VM
       href: tutorial-govern-resources.md
-    - name: 11 - 監視及更新 VM
-      href: tutorial-monitoring.md
-    - name: 12 - 管理 VM 安全性
+    - name: 11 - 追蹤和更新 VM
+      href: tutorial-config-management.md
+    - name: 12 - 監視 VM
+      href: tutorial-monitor.md
+    - name: 13 - 管理 VM 安全性
       href: tutorial-azure-security.md
-    - name: 13 - 部署 Jenkins
+    - name: 14 - 部署 Jenkins
       href: tutorial-jenkins-github-docker-cicd.md
-    - name: 14 - CI/CD 搭配 Azure Pipelines
+    - name: 15 - 具有 Azure Pipelines 的 CI/CD
       href: tutorial-build-deploy-jenkins.md
-    - name: 15a - 建立 LAMP 堆疊
+    - name: 16a - 建立 LAMP 堆疊
       href: tutorial-lamp-stack.md
-    - name: 15b - 建立 LEMP 堆疊
+    - name: 16b - 建立 LEMP 堆疊
       href: tutorial-lemp-stack.md
-    - name: 15c - 建立 MEAN 堆疊
+    - name: 16c - 建立 MEAN 堆疊
       href: tutorial-mean-stack.md
-    - name: 16 - 使用 SSL 保護網路伺服器
+    - name: 17 - 使用 SSL 保護網頁伺服器
       href: tutorial-secure-web-server.md
 - name: 範例
   items:

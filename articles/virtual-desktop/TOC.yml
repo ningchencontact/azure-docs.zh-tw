@@ -38,6 +38,8 @@
       href: create-host-pools-arm-template.md
     - name: 使用 PowerShell 建立主機集區
       href: create-host-pools-powershell.md
+    - name: 在 Windows 虛擬桌面上部署 Windows 7 虛擬機器
+      href: deploy-windows-7-virtual-machine.md
     - name: 將 Windows 授權套用至 Windows 虛擬桌面工作階段主機
       href: apply-windows-license.md
     - name: 使用檔案共用建立主機集區的設定檔容器
@@ -86,6 +88,8 @@
       href: troubleshoot-set-up-issues.md
     - name: 設定工作階段主機虛擬機器
       href: troubleshoot-vm-configuration.md
+    - name: Windows 虛擬桌面的 Windows 7 虛擬機器問題疑難排解
+      href: troubleshoot-windows-7-vm.md
     - name: 遠端桌面用戶端連線
       href: troubleshoot-client-connection.md
     - name: Windows 虛擬桌面 PowerShell
