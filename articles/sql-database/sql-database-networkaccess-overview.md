@@ -13,7 +13,7 @@ ms.reviewer: vanto
 ms.date: 08/05/2019
 ms.openlocfilehash: 2d7cc217ff8ae45491c0f9d6b54ea8afea19cd2e
 ms.sourcegitcommit: 6d2a147a7e729f05d65ea4735b880c005f62530f
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 08/22/2019
 ms.locfileid: "69981247"

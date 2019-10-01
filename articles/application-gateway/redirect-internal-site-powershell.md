@@ -21,7 +21,7 @@ ms.locfileid: "70232130"
 ---
 # <a name="create-an-application-gateway-with-internal-redirection-using-azure-powershell"></a>使用 Azure PowerShell 來建立具有內部重新導向的應用程式閘道
 
-您可以使用 Azure PowerShell，在建立[應用程式閘道](overview.md)時設定 [Web 流量重新導向](multiple-site-overview.md)。 在本教學課程中，您將使用虛擬機器擴展集來定義後端集區。 接著，您可以根據擁有的網域來設定接聽程式和規則，以確保網路流量會抵達適當的集區。 本教學課程假設您擁有多個網域, 並使用*www.contoso.com*和*www\.contoso.org*的範例。
+您可以使用 Azure PowerShell，在建立[應用程式閘道](overview.md)時設定 [Web 流量重新導向](multiple-site-overview.md)。 在本教學課程中，您將使用虛擬機器擴展集來定義後端集區。 接著，您可以根據擁有的網域來設定接聽程式和規則，以確保網路流量會抵達適當的集區。 本教學課程假設您擁有多個網域, 並使用 *[www.contoso.com](www.contoso.com)* 和*www\.contoso.org*的範例。
 
 在本文中，您將了解：
 
@@ -111,7 +111,7 @@ $poolSettings = New-AzApplicationGatewayBackendHttpSettings `
 
 ### <a name="create-the-first-listener-and-rule"></a>建立第一個接聽程式和規則
 
-需要接聽程式才能讓應用程式閘道將流量適當地路由到後端集區。 在本教學課程中，您會為兩個網域建立兩個接聽程式。 在此範例中, 會針對*www.contoso.com*和*www\.contoso.org*的網域建立接聽程式。
+需要接聽程式才能讓應用程式閘道將流量適當地路由到後端集區。 在本教學課程中，您會為兩個網域建立兩個接聽程式。 在此範例中, 會針對 *[www.contoso.com](www.contoso.com)* 和*www\.contoso.org*的網域建立接聽程式。
 
 使用 New-azapplicationgatewayHTTPlistener 搭配您先前建立的前端設定和前端埠, 來建立名為*contosoComListener*的第一個接聽[程式](/powershell/module/az.network/new-azapplicationgatewayhttplistener)。 接聽程式需要規則以便知道要針對連入流量使用哪個後端集區。 使用[new-azapplicationgatewayrequestroutingrule](/powershell/module/az.network/new-azapplicationgatewayrequestroutingrule)建立名為*contosoComRule*的基本規則。
 
@@ -300,7 +300,7 @@ Get-AzPublicIPAddress -ResourceGroupName myResourceGroupAG -Name myAGPublicIPAdd
 
 ![在應用程式閘道中測試 contoso 網站](./media/redirect-internal-site-powershell/application-gateway-iistest.png)
 
-將位址變更為您其他的網域 (例如 http://www.contoso.org )，就應該會看到流量已重新導向回 www.contoso.com 的接聽程式。
+將位址變更為您其他的網域 (例如 http://www.contoso.org )，就應該會看到流量已重新導向回 [www.contoso.com](www.contoso.com) 的接聽程式。
 
 ## <a name="next-steps"></a>後續步驟
 
