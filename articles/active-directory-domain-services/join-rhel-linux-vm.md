@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 09/15/2019
 ms.author: iainfou
-ms.openlocfilehash: 9c9b4cdfb77f1605a6730d0735541eeb78dcd323
-ms.sourcegitcommit: 8ef0a2ddaece5e7b2ac678a73b605b2073b76e88
+ms.openlocfilehash: b90650fa2cd343c81b7bbb2fcea24c3a95f537b6
+ms.sourcegitcommit: 6fe40d080bd1561286093b488609590ba355c261
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71075535"
+ms.lasthandoff: 10/01/2019
+ms.locfileid: "71702043"
 ---
 # <a name="join-a-red-hat-enterprise-linux-virtual-machine-to-an-azure-ad-domain-services-managed-domain"></a>將 Red Hat Enterprise Linux 的虛擬機器加入 Azure AD Domain Services 受控網域
 
@@ -78,14 +78,24 @@ sudo vi /etc/hosts
 
 VM 需要一些額外的套件，才能將 VM 加入 Azure AD DS 受控網域。 若要安裝及設定這些封裝，請使用`yum`來更新和安裝網域聯結工具：
 
+ **RHEL 7** 
+
 ```console
 sudo yum install realmd sssd krb5-workstation krb5-libs oddjob oddjob-mkhomedir samba-common-tools
+```
+
+ **RHEL 6** 
+
+```console
+sudo yum install adcli sssd authconfig krb5-workstation
 ```
 
 ## <a name="join-vm-to-the-managed-domain"></a>將 VM 加入受控網域
 
 既然 VM 上已安裝必要的套件，請將 VM 加入 Azure AD DS 受控網域。
-
+ 
+  **RHEL 7**
+     
 1. `realm discover`使用命令來探索 Azure AD DS 受控網域。 下列範例會探索領域*CONTOSO.COM*。 以全部大寫指定您自己的 Azure AD DS 受控功能變數名稱：
 
     ```console
@@ -93,7 +103,7 @@ sudo yum install realmd sssd krb5-workstation krb5-libs oddjob oddjob-mkhomedir 
     ```
 
    `realm discover`如果命令找不到您的 Azure AD DS 受控網域，請參閱下列疑難排解步驟：
-
+   
     * 請確定可從 VM 連線到該網域。 請`ping contoso.com`嘗試查看是否傳回正面回復。
     * 檢查 VM 是否已部署至相同或對等互連的虛擬網路，其中可使用 Azure AD DS 受控網域。
     * 確認虛擬網路的 DNS 伺服器設定已更新，以指向 Azure AD DS 受控網域的網域控制站。
@@ -101,10 +111,10 @@ sudo yum install realmd sssd krb5-workstation krb5-libs oddjob oddjob-mkhomedir 
 1. 現在使用`kinit`命令初始化 Kerberos。 指定屬於*AAD DC 系統管理員*群組的使用者。 如有需要，請[將使用者帳戶新增至 Azure AD 中的群組](../active-directory/fundamentals/active-directory-groups-members-azure-portal.md)。
 
     同樣地，必須以全部大寫輸入 Azure AD DS 受管理的功能變數名稱。 在下列範例中，會使用名`contosoadmin@contoso.com`為的帳戶來初始化 Kerberos。 輸入屬於*AAD DC 系統管理員*群組成員的您自己的使用者帳戶：
-
+    
     ```console
     kinit contosoadmin@CONTOSO.COM
-    ```
+    ``` 
 
 1. 最後，使用`realm join`命令將電腦加入 Azure AD DS 受控網域。 使用與您在上一個`kinit` `contosoadmin@CONTOSO.COM`命令中指定的*AAD DC 系統管理員*群組成員相同的使用者帳戶，例如：
 
@@ -118,7 +128,108 @@ sudo yum install realmd sssd krb5-workstation krb5-libs oddjob oddjob-mkhomedir 
 Successfully enrolled machine in realm
 ```
 
+  **RHEL 6** 
+
+1. `adcli info`使用命令來探索 Azure AD DS 受控網域。 下列範例會探索領域*CONTOSO.COM*。 以全部大寫指定您自己的 Azure AD DS 受控功能變數名稱：
+
+    ```console
+    sudo adcli info contoso.com
+    ```
+    
+   `adcli info`如果命令找不到您的 Azure AD DS 受控網域，請參閱下列疑難排解步驟：
+   
+    * 請確定可從 VM 連線到該網域。 請`ping contoso.com`嘗試查看是否傳回正面回復。
+    * 檢查 VM 是否已部署至相同或對等互連的虛擬網路，其中可使用 Azure AD DS 受控網域。
+    * 確認虛擬網路的 DNS 伺服器設定已更新，以指向 Azure AD DS 受控網域的網域控制站。
+
+1. 首先，使用 `adcli join` 命令加入網域，此命令也會建立驗證電腦的 keytab。 使用屬於*AAD DC 系統管理員*群組成員的使用者帳戶。 
+
+    ```console
+    sudo adcli join contoso.com -U contosoadmin
+    ```
+
+1. 現在設定 `/ect/krb5.conf`，並建立 @no__t 1 檔案以使用 `contoso.com` Active Directory 網域。 
+   請確定 `CONTOSO.COM` 已由您自己的功能變數名稱取代：
+
+    使用編輯器開啟 `/ect/krb5.conf` 檔案：
+
+    ```console
+    sudo vi /etc/krb5.conf
+    ```
+
+    更新 `krb5.conf` 檔案以符合下列範例：
+
+    ```console
+    [logging]
+     default = FILE:/var/log/krb5libs.log
+     kdc = FILE:/var/log/krb5kdc.log
+     admin_server = FILE:/var/log/kadmind.log
+    
+    [libdefaults]
+     default_realm = CONTOSO.COM
+     dns_lookup_realm = true
+     dns_lookup_kdc = true
+     ticket_lifetime = 24h
+     renew_lifetime = 7d
+     forwardable = true
+    
+    [realms]
+     CONTOSO.COM = {
+     kdc = CONTOSO.COM
+     admin_server = CONTOSO.COM
+     }
+    
+    [domain_realm]
+     .CONTOSO.COM = CONTOSO.COM
+     CONTOSO.COM = CONTOSO.COM
+    ```
+    
+   建立 `/etc/sssd/sssd.conf` 檔案：
+    
+    ```console
+    sudo vi /etc/sssd/sssd.conf
+    ```
+
+    更新 `sssd.conf` 檔案以符合下列範例：
+
+    ```console
+    [sssd]
+     services = nss, pam, ssh, autofs
+     config_file_version = 2
+     domains = CONTOSO.COM
+    
+    [domain/CONTOSO.COM]
+    
+     id_provider = ad
+    ```
+
+1. 請確定 `/etc/sssd/sssd.conf` 許可權為600，且由根使用者所擁有：
+
+    ```console
+    sudo chmod 600 /etc/sssd/sssd.conf
+    sudo chown root:root /etc/sssd/sssd.conf
+    ```
+
+1. 使用 `authconfig` 來指示 VM 關於 AD Linux 整合：
+
+    ```console
+    sudo authconfig --enablesssd --enablesssdauth --update
+    ```
+    
+1. 啟動並啟用 sssd 服務：
+
+    ```console
+    sudo service sssd start
+    sudo chkconfig sssd on
+    ```
+
 如果您的 VM 無法順利完成網域加入程式，請確定 VM 的網路安全性群組允許 TCP + UDP 埠464上的輸出 Kerberos 流量連到您 Azure AD DS 受控網域的虛擬網路子網。
+
+現在，請檢查您是否可以使用 `getent` 來查詢使用者 AD 資訊
+
+```console
+sudo getent passwd contosoadmin
+```
 
 ## <a name="allow-password-authentication-for-ssh"></a>允許 SSH 的密碼驗證
 
@@ -136,12 +247,20 @@ Successfully enrolled machine in realm
     PasswordAuthentication yes
     ```
 
-    完成時，請使用編輯器的 `:wq`命令來儲存並結束 sshd_conf 檔案。
+    完成時，請使用編輯器的 `:wq` 命令來儲存並結束*sshd_conf*檔案。
 
 1. 若要套用變更並讓使用者使用密碼登入，請重新開機 SSH 服務：
 
+   **RHEL 7** 
+    
     ```console
     sudo systemctl restart sshd
+    ```
+
+   **RHEL 6** 
+    
+    ```console
+    sudo service sshd restart
     ```
 
 ## <a name="grant-the-aad-dc-administrators-group-sudo-privileges"></a>授與 'AAD DC Administrators' 群組 sudo 權限

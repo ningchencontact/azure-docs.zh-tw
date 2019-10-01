@@ -11,12 +11,12 @@ author: maxluk
 ms.reviewer: peterlu
 ms.date: 08/01/2019
 ms.custom: seodec18
-ms.openlocfilehash: 9015fa445c64bffa74509e84d90eb77508da6d9e
-ms.sourcegitcommit: 8ef0a2ddaece5e7b2ac678a73b605b2073b76e88
+ms.openlocfilehash: e0143a6075ef7b88cc0b365a544a5e69c92362ff
+ms.sourcegitcommit: d4c9821b31f5a12ab4cc60036fde00e7d8dc4421
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71076456"
+ms.lasthandoff: 10/01/2019
+ms.locfileid: "71710111"
 ---
 # <a name="train-and-register-a-keras-classification-model-with-azure-machine-learning"></a>使用 Azure Machine Learning 定型和註冊 Keras 分類模型
 
@@ -80,9 +80,10 @@ ws = Workspace.from_config()
 exp = Experiment(workspace=ws, name='keras-mnist')
 ```
 
+<a name="data-upload"></a>
 ### <a name="create-a-file-dataset"></a>建立檔案資料集
 
-`FileDataset`物件會參考您的工作區資料存放區或公用 url 中的一或多個檔案。 檔案可以是任何格式，而類別可讓您將檔案下載或掛接至您的計算。 藉由建立`FileDataset`，您可以建立資料來源位置的參考。 如果您對資料集套用任何轉換，它們也會儲存在資料集中。 資料會保留在現有的位置，因此不會產生額外的儲存成本。 如需詳細[資訊，請](https://docs.microsoft.com/azure/machine-learning/service/how-to-create-register-datasets)參閱`Dataset`套件的操作指南。
+`FileDataset` 物件會參考您工作區資料存放區中的一個或多個檔案或公用 URL。 檔案可以是任何格式，而類別可讓您將檔案下載或掛接至您的計算。 您可以藉由建立 `FileDataset` 來建立來源位置的參考。 如果您對資料集套用任何轉換，這些轉換也會儲存在資料集中。 資料會保留在現有的位置，因此不會產生額外的儲存成本。 如需詳細資訊，請參閱 `Dataset` 套件上的[操作](https://docs.microsoft.com/azure/machine-learning/service/how-to-create-register-datasets)指南。
 
 ```python
 from azureml.core.dataset import Dataset

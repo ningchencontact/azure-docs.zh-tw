@@ -1,67 +1,63 @@
 ---
-title: 解決 Azure AD Domain Services 中的不相符目錄錯誤 |Microsoft Docs
-description: 了解並解決現有 Azure AD Domain Services 受控網域的不相符目錄錯誤
+title: 修正 Azure AD Domain Services 中不相符的目錄錯誤 |Microsoft Docs
+description: 瞭解不相符的目錄錯誤的意義，以及如何在 Azure AD Domain Services 中解決此問題
 services: active-directory-ds
-documentationcenter: ''
 author: iainfoulds
 manager: daveba
-editor: curtand
 ms.assetid: 40eb75b7-827e-4d30-af6c-ca3c2af915c7
 ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/22/2019
+ms.date: 09/27/2019
 ms.author: iainfou
-ms.openlocfilehash: 4978f7b782271daff996807172a24103bd8d9860
-ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
+ms.openlocfilehash: 8b1c3184ada743fddb78e1a3d0ce8d67f1f1a94f
+ms.sourcegitcommit: 8bae7afb0011a98e82cbd76c50bc9f08be9ebe06
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69617287"
+ms.lasthandoff: 10/01/2019
+ms.locfileid: "71693335"
 ---
 # <a name="resolve-mismatched-directory-errors-for-existing-azure-ad-domain-services-managed-domains"></a>解決現有 Azure AD Domain Services 受控網域的不相符目錄錯誤
-您有現有的 Azure AD 網域服務受控網域。 當您瀏覽至 Azure 入口網站並檢視受控網域時，您會看到下列錯誤訊息：
 
-![不相符目錄錯誤](./media/getting-started/mismatched-tenant-error.png)
+如果 Azure Active Directory Domain Services （Azure AD DS）受控網域顯示不相符的租使用者錯誤，在解決之前，您將無法管理受控網域。 如果基礎 Azure 虛擬網路移至不同的 Azure AD 目錄，就會發生此錯誤。
 
-在解決錯誤之前，您無法管理此受控網域。
+本文說明發生錯誤的原因，以及解決方法。
 
+## <a name="what-causes-this-error"></a>造成此錯誤的原因為何？
 
-## <a name="whats-causing-this-error"></a>造成這個錯誤的原因是什麼？
-這個錯誤是在受控網域和在其中啟用的虛擬網路分別屬於兩個不同 Azure AD 租用戶時造成的。 例如，您有名為 'contoso.com' 的受控網域，它針對 Contoso 的 Azure AD 租用戶啟用。 不過，在其中啟用受控網域的 Azure 虛擬網路屬於 Fabrikam - 不同的 Azure AD 租用戶。
+當 Azure AD DS 受控網域和虛擬網路屬於兩個不同的 Azure AD 租使用者時，就會發生不相符的目錄錯誤。 例如，您可能會有一個名為*contoso.com*的 Azure AD DS 受控網域，它會在 contoso 的 Azure AD 租使用者中執行。 不過，適用于受控網域的 Azure 虛擬網路是 Fabrikam Azure AD 租使用者的一部分。
 
-新的 Azure 入口網站 (特別是 Azure AD Domain Services 延擴充) 是建置在 Azure Resource Manager。 在現代的 Azure Resource Manager 環境中，會強制執行特定限制，為資源提供更高的安全性和角色型存取控制 (RBAC)。 為 Azure AD 租用戶啟用 Azure AD Domain Services 是敏感的作業，因為它會導致認證雜湊同步處理至受控網域。 這項作業需要您是目錄的租用戶管理員。 此外，您必須具有要在其中啟用受控網域之虛擬網路的系統管理權限。 為了讓 RBAC 檢查能夠順利運作，受控網域和虛擬網路應該屬於相同 Azure AD 租用戶。
+Azure 會使用角色型存取控制（RBAC）來限制對資源的存取。 當您在 Azure AD 租使用者中啟用 Azure AD DS 時，認證雜湊會同步處理至受控網域。 此作業需要您是 Azure AD 目錄的租使用者系統管理員，而且必須控制認證的存取權。 若要將資源部署到 Azure 虛擬網路並控制流量，您必須在部署 Azure AD DS 的虛擬網路上具有系統管理許可權。
 
-簡單來說，您無法在屬於另一個 Azure AD 租用戶 'fabrikam.com' 擁有之 Azure 訂用帳戶的虛擬網路中，針對 Azure AD 租用戶 'contoso.com' 啟用受控網域。 
-
-**有效組態**：在此部署案例中，Contoso 受控網域是針對 Contoso Azure AD 租用戶啟用。 受控網域會在屬於 Contoso Azure AD 租用戶擁有之 Azure 訂用帳戶的虛擬網路中公開。 因此，受控網域以及虛擬網路屬於相同的 Azure AD 租用戶。 此設定有效且完全受到支援。
-
-![有效租用戶設定](./media/getting-started/valid-tenant-config.png)
-
-**不相符租用戶設定**：在此部署案例中，Contoso 受控網域是針對 Contoso Azure AD 租用戶啟用。 但是，受控網域會在屬於 Fabrikam Azure AD 租用戶擁有之 Azure 訂用帳戶的虛擬網路中公開。 因此，受控網域和虛擬網路分別屬於兩個不同的 Azure AD 租用戶。 此設定是不相符租用戶設定，不受到支援。 虛擬網路必須移至與受控網域相同的 Azure AD 租用戶 (也就是 Contoso)。 如需詳細資訊，請參閱[解決方案](#resolution)一節。
-
-![不相符租用戶設定](./media/getting-started/mismatched-tenant-config.png)
-
-因此，當受控網域和在其中啟用的虛擬網路分別屬於兩個不同 Azure AD 租用戶時，您會看到這個錯誤。
+為了讓 RBAC 能夠一致且安全地存取 Azure AD DS 使用的所有資源，受控網域和虛擬網路必須屬於相同的 Azure AD 租使用者。
 
 下列規則適用於資源管理員環境：
+
 - Azure AD 目錄有多個 Azure 訂用帳戶。
 - Azure 訂用帳戶有多個資源，例如虛擬網路。
 - Azure AD 目錄已啟用單一 Azure AD Domain Services 受控網域。
 - Azure AD Domain Services 受控網域可以在屬於相同 Azure AD 租用戶內之任何 Azure 訂用帳戶的虛擬網路上啟用。
 
+### <a name="valid-configuration"></a>有效的設定
 
-## <a name="resolution"></a>解析度
-您有兩個選項可以用來解決不相符目錄錯誤。 您可以：
+在下列範例部署案例中，contoso Azure AD 租使用者中會啟用 Contoso Azure AD DS 受控網域。 受控網域會部署在屬於 Contoso Azure AD 租使用者所擁有之 Azure 訂用帳戶的虛擬網路中。 受控網域和虛擬網路都屬於相同的 Azure AD 租使用者。 此範例設定有效且完全受支援。
 
-- 按一下 [刪除] 按鈕，刪除現有的受控網域。 使用 [Azure 入口網站](https://portal.azure.com)重新建立，讓受控網域和可用的虛擬網路屬於 Azure AD 目錄。 將先前加入已刪除網域的所有機器加入新建立的受控網域。
+![具有相同 Azure AD 租使用者之受控網域和虛擬網路部分的有效 Azure AD DS 租使用者設定](./media/getting-started/valid-tenant-config.png)
 
-- 將包含虛擬網路的 Azure 訂用帳戶移至受控網域所屬的 Azure AD 目錄。 請遵循[將 Azure 訂用帳戶的擁有權轉移給另一個帳戶](../billing/billing-subscription-transfer.md)一文中的步驟。
+### <a name="mismatched-tenant-configuration"></a>不相符租用戶設定
 
+在此範例部署案例中，contoso Azure AD 租使用者中會啟用 Contoso Azure AD DS 受控網域。 不過，受控網域會部署在屬於 Fabrikam Azure AD 租使用者所擁有之 Azure 訂用帳戶的虛擬網路中。 受控網域和虛擬網路屬於兩個不同的 Azure AD 租使用者。 此範例設定是不相符的租使用者，且不受支援。 虛擬網路必須移至與受控網域相同的 Azure AD 租使用者。
 
-## <a name="related-content"></a>相關內容
-* [Azure AD Domain Services - 入門指南](tutorial-create-instance.md)
-* [疑難排解指南 - Azure AD Domain Services](troubleshoot.md)
+![不相符租用戶設定](./media/getting-started/mismatched-tenant-config.png)
+
+## <a name="resolve-mismatched-tenant-error"></a>解決不相符的租使用者錯誤
+
+下列兩個選項會解決不相符的目錄錯誤：
+
+* 從現有的 Azure AD 目錄中[刪除 AZURE AD DS 受控網域](delete-aadds.md)。 在與您想要使用的虛擬網路相同的 Azure AD 目錄中，[建立替代 AZURE AD DS 受控網域](tutorial-create-instance.md)。 準備好時，請將先前加入已刪除網域的所有機器加入重新建立的受控網域。
+* 將包含虛擬網路的[Azure 訂](../billing/billing-subscription-transfer.md)用帳戶移至與 Azure AD DS 受控網域相同的 Azure AD 目錄。
+
+## <a name="next-steps"></a>後續步驟
+
+如需有關 Azure AD DS 的問題疑難排解的詳細資訊，請參閱[疑難排解指南](troubleshoot.md)。

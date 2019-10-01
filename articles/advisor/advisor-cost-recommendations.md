@@ -8,12 +8,12 @@ ms.service: advisor
 ms.topic: article
 ms.date: 01/29/2019
 ms.author: kasparks
-ms.openlocfilehash: 144b63131be68c9209835a1b8b3a01062245cfdd
-ms.sourcegitcommit: e9936171586b8d04b67457789ae7d530ec8deebe
+ms.openlocfilehash: 78429001b855e3347e72fbb0f0d4d3171731a8e2
+ms.sourcegitcommit: 6fe40d080bd1561286093b488609590ba355c261
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71326586"
+ms.lasthandoff: 10/01/2019
+ms.locfileid: "71703039"
 ---
 # <a name="reduce-service-costs-using-azure-advisor"></a>使用 Azure Advisor 降低服務成本
 
@@ -21,7 +21,7 @@ Advisor 可找出閒置和未充分利用的資源，協助您減少 Azure 的�
 
 ## <a name="optimize-virtual-machine-spend-by-resizing-or-shutting-down-underutilized-instances"></a>關閉使用量過低的執行個體，或者重新調整其大小或，從而將虛擬機器的費用最佳化 
 
-雖然特定應用程式的設計情境可能導致低使用率，但您通常可以藉由調整虛擬機器的大小和數量來節省費用。 Advisor 會監視您的虛擬機器使用量7天, 然後找出低使用率的虛擬機器。  如果虛擬機器的 CPU 使用率為 5% 或更低，且其網路使用率低於 2% 且具有閾值記憶體壓力數位，或者目前的工作負載可由較小的虛擬機器大小容納，則會將它們視為低使用率。
+雖然特定應用程式的設計情境可能導致低使用率，但您通常可以藉由調整虛擬機器的大小和數量來節省費用。 當 CPU 使用率的最大值上限低於 3% 且網路使用率在7天期間內低於 2% 時，Advisor advanced 評估模型會將虛擬機器視為關機。 當可能符合較小 SKU （在相同 SKU 系列內）的目前負載，或較小的實例數目時，會將虛擬機器視為正確大小，如此一來，當非使用者面向的工作負載時，目前的負載不會超過 80% 的使用率當使用者面向的工作負載時，高於 40%。 在這裡，工作負載的類型是藉由分析工作負載的 CPU 使用率特性來決定。
 
 建議的動作是 [關閉] 或 [調整大小]，特別是建議的資源。 Advisor 會顯示建議動作的預估成本節約-調整大小或關機。 此外，若要調整建議的動作大小，Advisor 會提供目前和目標的 SKU 資訊。 
 

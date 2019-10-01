@@ -10,12 +10,12 @@ ms.author: maxluk
 author: maxluk
 ms.date: 08/02/2019
 ms.custom: seodec18
-ms.openlocfilehash: 2b05ba7e4d38b596bdf76655fad0736425f8ce89
-ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
+ms.openlocfilehash: 707c6d99d4c5f4335ff771bdd916b2ee37092604
+ms.sourcegitcommit: d4c9821b31f5a12ab4cc60036fde00e7d8dc4421
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/15/2019
-ms.locfileid: "71002542"
+ms.lasthandoff: 10/01/2019
+ms.locfileid: "71710070"
 ---
 # <a name="build-scikit-learn-models-at-scale-with-azure-machine-learning"></a>組建 scikit-learn-以 Azure Machine Learning 大規模學習模型
 
@@ -31,7 +31,7 @@ ms.locfileid: "71002542"
  - Azure Machine Learning 筆記本 VM-不需要下載或安裝
 
     - 完成[教學課程：設定環境和工作](tutorial-1st-experiment-sdk-setup.md)區，以建立預先載入 SDK 和範例存放庫的專用筆記本伺服器。
-    - 在筆記本伺服器的 [範例訓練] 資料夾中，流覽至此目錄以尋找已完成和已展開的筆記本：**使用方法 > 訓練 > 訓練-超參數-微調-部署-sklearn**資料夾。
+    - 在筆記本伺服器的 [範例訓練] 資料夾中，流覽至此目錄以尋找已完成和已展開的筆記本：**使用方法 > ml-架構 > scikit-learn-瞭解 > 訓練 > 訓練-超參數-微調-部署-使用-sklearn**資料夾。
 
  - 您自己的 Jupyter Notebook 伺服器
 
@@ -40,7 +40,7 @@ ms.locfileid: "71002542"
     - 下載資料集和範例腳本檔案 
         - [鳶尾花資料集](https://archive.ics.uci.edu/ml/datasets/iris)
         - [`train_iris.py`](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/training/train-hyperparameter-tune-deploy-with-sklearn)
-    - 您也可以在 GitHub 範例頁面上找到本指南的完整[Jupyter Notebook 版本](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training/train-hyperparameter-tune-deploy-with-sklearn/train-hyperparameter-tune-deploy-with-sklearn.ipynb)。 此筆記本包含擴充的章節，涵蓋智慧型超參數調整，並透過主要度量來抓取最佳模型。
+    - 您也可以在 GitHub 範例頁面上找到本指南的完整[Jupyter Notebook 版本](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/ml-frameworks/scikit-learn/training/train-hyperparameter-tune-deploy-with-sklearn/train-hyperparameter-tune-deploy-with-sklearn.ipynb)。 此筆記本包含擴充的章節，涵蓋智慧型超參數調整，並透過主要度量來抓取最佳模型。
 
 ## <a name="set-up-the-experiment"></a>設定實驗
 
@@ -84,28 +84,20 @@ os.makedirs(project_folder, exist_ok=True)
 exp = Experiment(workspace=ws, name='sklearn-iris')
 ```
 
-### <a name="upload-dataset-and-scripts"></a>上傳資料集和腳本
+### <a name="prepare-training-script"></a>準備訓練腳本
 
-[資料存放區](how-to-access-data.md)是一種位置, 可以藉由將資料掛接或複製到計算目標, 來儲存和存取資料。 每個工作區都會提供預設資料存放區。 將資料和定型腳本上傳到資料存放區，以便在定型期間輕鬆地存取它們。
+在本教學課程中，已為您提供訓練腳本**train_iris. .py** 。 在實務上，您應該能夠採用任何自訂訓練腳本，並使用 Azure ML 加以執行，而不需要修改您的程式碼。
 
-1. 建立資料的目錄。
+若要使用 Azure ML 的追蹤和計量功能，請在您的定型腳本內新增少量的 Azure ML 程式碼。  訓練腳本**train_iris**會示範如何使用腳本中的 `Run` 物件，將一些計量記錄到您的 Azure ML 執行。
 
-    ```Python
-    os.makedirs('./data/iris', exist_ok=True)
-    ```
+提供的定型腳本會使用來自 `iris = datasets.load_iris()` 函數的範例資料。  針對您自己的資料，您可能需要使用[上傳資料集和腳本](how-to-train-keras.md#data-upload)等步驟，讓資料可在定型期間使用。
 
-1. 將鳶尾花資料集上傳至預設資料存放區。
+將訓練腳本**train_iris**複製到您的專案目錄。
 
-    ```Python
-    ds = ws.get_default_datastore()
-    ds.upload(src_dir='./data/iris', target_path='iris', overwrite=True, show_progress=True)
-    ```
-
-1. 上傳 scikit-learn-學習訓練腳本`train_iris.py`。
-
-    ```Python
-    shutil.copy('./train_iris.py', project_folder)
-    ```
+```
+import shutil
+shutil.copy('./train_iris.py', project_folder)
+```
 
 ## <a name="create-or-get-a-compute-target"></a>建立或取得計算目標
 

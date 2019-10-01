@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 09/24/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 903492d790cdde93dfe84763de139fe85e26b234
-ms.sourcegitcommit: 3fa4384af35c64f6674f40e0d4128e1274083487
+ms.openlocfilehash: 02765538ce8a351db539438837b6426c0896d2d4
+ms.sourcegitcommit: 6fe40d080bd1561286093b488609590ba355c261
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71218279"
+ms.lasthandoff: 10/01/2019
+ms.locfileid: "71701885"
 ---
 # <a name="azure-ad-b2c-use-the-azure-ad-graph-api"></a>Azure AD B2C：使用 Azure AD Graph API
 
@@ -43,16 +43,9 @@ Azure Active Directory B2C （Azure AD B2C）租使用者可以有數千或數�
 
 ### <a name="register-application-in-azure-active-directory"></a>在 Azure Active Directory 中註冊應用程式
 
-若要使用 Azure AD 圖形 API 與 B2C 租使用者，您必須使用 Azure Active Directory**應用程式註冊**工作流程來註冊應用程式。
+若要將 Azure AD 圖形 API 與 B2C 租使用者搭配使用，您需要使用 Azure Active Directory 應用程式註冊工作流程來註冊應用程式。
 
-1. 登入[Azure 入口網站](https://portal.azure.com)並切換至包含您 Azure AD B2C 租使用者的目錄。
-1. 在左側功能表中，選取 [ **Azure Active Directory** （*不*Azure AD B2C）]。 或者，選取 [**所有服務**]，然後搜尋並選取 [ **Azure Active Directory**]。
-1. 在左側功能表中的 [**管理**] 底下，選取 **[應用程式註冊（舊版）** ]。
-1. 選取 [**新增應用程式註冊**]
-1. 輸入應用程式的名稱。 例如，*管理應用程式*。
-1. 在 [登入**url**] 中輸入任何有效的 url。 例如： *https://localhost* 。 此端點不需要可連線，但必須是有效的 URL。
-1. 選取 [建立]。
-1. 記錄 [**已註冊的應用**程式總覽] 頁面上所顯示的**應用程式識別碼**。 您在稍後的步驟中會使用此值進行設定。
+[!INCLUDE [active-directory-b2c-appreg-mgmt](../../includes/active-directory-b2c-appreg-mgmt.md)]
 
 ### <a name="assign-api-access-permissions"></a>指派 API 存取權限
 
@@ -83,7 +76,7 @@ Azure Active Directory B2C （Azure AD B2C）租使用者可以有數千或數�
 1. 在 [**管理**] 底下，選取 [**角色和系統管理員**]。
 1. 選取 [**使用者系統管理員**] 角色。
 1. 選取 [**新增指派**]。
-1. 在 [**選取**] 文字方塊中，輸入您稍早註冊的應用程式名稱，例如 [*管理應用*程式]。 當您的應用程式出現在搜尋結果中時，請加以選取。
+1. 在 [**選取**] 文字方塊中，輸入您先前註冊之應用程式的名稱，例如*managementapp1*。 當您的應用程式出現在搜尋結果中時，請加以選取。
 1. 選取 [新增]。 可能需要幾分鐘的時間才能完全傳播許可權。
 
 您的 Azure AD B2C 應用程式現在具有在 B2C 租使用者中刪除使用者或更新其密碼所需的其他許可權。

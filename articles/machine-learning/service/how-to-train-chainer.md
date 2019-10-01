@@ -10,12 +10,12 @@ ms.author: maxluk
 author: maxluk
 ms.reviewer: sdgilley
 ms.date: 08/02/2019
-ms.openlocfilehash: 79c0cadc1b266a6d160cd36fc21dcaf36637a2b1
-ms.sourcegitcommit: 8ef0a2ddaece5e7b2ac678a73b605b2073b76e88
+ms.openlocfilehash: 70d6bd9507670a8846b2a79509b6b6e571f17e37
+ms.sourcegitcommit: d4c9821b31f5a12ab4cc60036fde00e7d8dc4421
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71076413"
+ms.lasthandoff: 10/01/2019
+ms.locfileid: "71710078"
 ---
 # <a name="train-and-register-chainer-models-at-scale-with-azure-machine-learning"></a>使用 Azure Machine Learning 大規模定型和註冊 Chainer 模型
 
@@ -25,7 +25,7 @@ ms.locfileid: "71076413"
 
 [深入瞭解深度學習與機器學習](concept-deep-learning-vs-machine-learning.md)服務。
 
-如果您沒有 Azure 訂用帳戶，請在開始前先建立一個免費帳戶。 立即試用[免費或付費版本的 Azure Machine Learning](https://aka.ms/AMLFree) 。
+如果您沒有 Azure 訂用帳戶，請在開始前先建立一個免費帳戶。 立即試用[免費或付費版本的 Azure Machine Learning](https://aka.ms/AMLFree)。
 
 ## <a name="prerequisites"></a>必要條件
 
@@ -34,14 +34,14 @@ ms.locfileid: "71076413"
 - Azure Machine Learning 筆記本 VM-不需要下載或安裝
 
     - 完成[教學課程：設定環境和工作](tutorial-1st-experiment-sdk-setup.md)區，以建立預先載入 SDK 和範例存放庫的專用筆記本伺服器。
-    - 在筆記本伺服器上的範例深入學習資料夾中，尋找已完成的筆記本和 chainer 的**使用方式/訓練-具有深度學習/訓練-超參數-** -------------------------------  此筆記本包含擴充的章節，涵蓋智慧型超參數微調、模型部署和筆記本 widget。
+    - 在筆記本伺服器上的範例深入學習資料夾中，尋找已完成的筆記本和**使用方式 > ml 架構中的檔案 > chainer > 部署 > 訓練-超參數-chainer**  資料夾。  此筆記本包含擴充的章節，涵蓋智慧型超參數微調、模型部署和筆記本 widget。
 
 - 您自己的 Jupyter Notebook 伺服器
 
     - [安裝 AZURE MACHINE LEARNING SDK](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py)。
     - [建立工作區設定檔](how-to-configure-environment.md#workspace)。
     - 下載範例腳本檔案[chainer_mnist. .py](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training-with-deep-learning/train-hyperparameter-tune-deploy-with-chainer/chainer_mnist.py)。
-     - 您也可以在 GitHub 範例頁面上找到本指南的完整[Jupyter Notebook 版本](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training-with-deep-learning/train-hyperparameter-tune-deploy-with-chainer/train-hyperparameter-tune-deploy-with-chainer.ipynb)。 此筆記本包含擴充的章節，涵蓋智慧型超參數微調、模型部署和筆記本 widget。
+     - 您也可以在 GitHub 範例頁面上找到本指南的完整[Jupyter Notebook 版本](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/ml-frameworks/chainer/deployment/train-hyperparameter-tune-deploy-with-chainer/train-hyperparameter-tune-deploy-with-chainer.ipynb)。 此筆記本包含擴充的章節，涵蓋智慧型超參數微調、模型部署和筆記本 widget。
 
 ## <a name="set-up-the-experiment"></a>設定實驗
 
@@ -82,9 +82,9 @@ os.makedirs(project_folder, exist_ok=True)
 
 在本教學課程中，已為您提供訓練腳本**chainer_mnist. .py** 。 在實務上，您應該能夠採用任何自訂訓練腳本，並使用 Azure ML 加以執行，而不需要修改您的程式碼。
 
-若要使用 Azure ML 的追蹤和計量功能，請在您的定型腳本內新增少量的 Azure ML 程式碼。  訓練腳本**chainer_mnist**會示範如何使用腳本中的`Run`物件，將一些計量記錄到您的 Azure ML 執行。
+若要使用 Azure ML 的追蹤和計量功能，請在您的定型腳本內新增少量的 Azure ML 程式碼。  訓練腳本**chainer_mnist**會示範如何使用腳本中的 `Run` 物件，將一些計量記錄到您的 Azure ML 執行。
 
-提供的定型腳本會使用 chainer `datasets.mnist.get_mnist`函數中的範例資料。  針對您自己的資料，您可能需要使用[上傳資料集和腳本](how-to-train-keras.md)等步驟，讓資料可在定型期間使用。
+提供的定型腳本會使用 chainer `datasets.mnist.get_mnist`函數中的範例資料。  針對您自己的資料，您可能需要使用[上傳資料集和腳本](how-to-train-keras.md#data-upload)等步驟，讓資料可在定型期間使用。
 
 將訓練腳本**chainer_mnist**複製到您的專案目錄。
 

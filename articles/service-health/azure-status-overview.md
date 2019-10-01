@@ -1,22 +1,22 @@
 ---
 title: Azure 狀態概觀 | Microsoft Docs
-description: 以全域方式檢視 Azure 服務的健全狀況
+description: Azure 服務健康情況的全域觀點
 services: Azure status
 ms.topic: article
 author: stephbaron
 ms.author: stbaron
 ms.service: service-health
 ms.date: 06/11/2019
-ms.openlocfilehash: 91f8ae72d1926c8b7ce9097947afe5ca99a153c3
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 8a902fab7cfea574c9eb2a3e9411d3cca0920f56
+ms.sourcegitcommit: d4c9821b31f5a12ab4cc60036fde00e7d8dc4421
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67073531"
+ms.lasthandoff: 10/01/2019
+ms.locfileid: "71709913"
 ---
-# <a name="azure-status-overview"></a>Azure 狀態概觀
+# <a name="azure-status-overview"></a>Azure 狀態總覽
 
-[Azure 狀態](https://status.azure.com/status/)提供您 Azure 服務健康情況和區域的全域檢視。 您可以使用 Azure 狀態取得服務可用性的最新資訊。 每個人都可以使用 Azure 狀態來查看回報服務健康情況的所有服務，以及具有廣泛影響的事件。 但是，如果您目前是 Azure 使用者，強力推薦您使用 [Azure 服務健康狀態](https://aka.ms/azureservicehealth)中的個人化體驗。 Azure 服務健康狀態包含了所有的中斷情況、近期計劃性維護活動和服務建議。
+[Azure 狀態](https://status.azure.com/status/)提供您 Azure 服務健康情況和區域的全域檢視。 使用 Azure 狀態時，您可以取得服務可用性的相關資訊。 每個人都可以使用 Azure 狀態來查看回報服務健康情況的所有服務，以及具有廣泛影響的事件。 但是，如果您目前是 Azure 使用者，強力推薦您使用 [Azure 服務健康狀態](https://aka.ms/azureservicehealth)中的個人化體驗。 Azure 服務健康狀態包含了所有的中斷情況、近期計劃性維護活動和服務建議。
 
 ![Azure 狀態頁面](./media/azure-status-overview/azure-status.PNG)
 

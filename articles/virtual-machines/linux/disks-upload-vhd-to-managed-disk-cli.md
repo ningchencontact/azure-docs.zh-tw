@@ -9,12 +9,12 @@ ms.topic: article
 ms.service: virtual-machines-linux
 ms.tgt_pltfrm: linux
 ms.subservice: disks
-ms.openlocfilehash: bc8932a9904a3e4e671edc3e624ff15e7253e1ed
-ms.sourcegitcommit: e9936171586b8d04b67457789ae7d530ec8deebe
+ms.openlocfilehash: 938f1696c95f8feb9aeebd28139870e3ce020613
+ms.sourcegitcommit: 8bae7afb0011a98e82cbd76c50bc9f08be9ebe06
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71326827"
+ms.lasthandoff: 10/01/2019
+ms.locfileid: "71695454"
 ---
 # <a name="upload-a-vhd-to-azure-using-azure-cli"></a>使用 Azure CLI 將 vhd 上傳至 Azure
 
@@ -32,7 +32,7 @@ ms.locfileid: "71326827"
 
 ## <a name="create-an-empty-managed-disk"></a>建立空的受控磁片
 
-若要將您的 vhd 上傳至 Azure，您必須建立專為此上傳程式所設定的空受控磁片。 建立之前，您應該先瞭解這些磁片的一些額外資訊。
+若要將您的 vhd 上傳至 Azure，您必須建立為此上傳程式設定的空受控磁片。 建立之前，您應該先瞭解這些磁片的一些額外資訊。
 
 這種受控磁片有兩種獨特的狀態：
 
@@ -43,7 +43,7 @@ ms.locfileid: "71326827"
 
 您必須要有您想要上傳之 vhd 的檔案大小（以位元組為單位），才可以建立空的標準 HDD 來進行上傳。 若要取得此項，您可以使用 `wc -c <yourFileName>.vhd` 或 `ls -al <yourFileName>.vhd`。 指定 **--upload-size-bytes**參數時，會使用這個值。
 
-藉由在[disk create](/cli/azure/disk#az-disk-create) Cmdlet 中指定 **--for-upload**參數和 **--upload-size-bytes**參數，建立空的標準 HDD 以進行上傳：
+藉由在[disk create](/cli/azure/disk#az-disk-create) Cmdlet 中指定 **--for-upload**參數和 **--upload-size-bytes**參數，建立空的標準 HDD 來進行上傳：
 
 ```azurecli-interactive
 az disk create -n mydiskname -g resourcegroupname -l westus2 --for-upload --upload-size-bytes 34359738880 --sku standard_lrs
@@ -51,7 +51,7 @@ az disk create -n mydiskname -g resourcegroupname -l westus2 --for-upload --uplo
 
 如果您想要上傳 premium SSD 或標準 SSD，請將**standard_lrs**取代為**premium_LRS**或**standardssd_lrs**。 尚未支援 Ultra SSD。
 
-您現在已建立空的受控磁片，其已針對上傳程式進行設定。 若要將 vhd 上傳至磁片，您將需要可寫入的 SAS，以便將它當做您上傳的目的地。
+您現在已建立一個為上傳程式設定的空白受控磁片。 若要將 vhd 上傳至磁片，您將需要可寫入的 SAS，以便將它當做您上傳的目的地。
 
 若要產生空受控磁片的可寫入 SAS，請使用下列命令：
 

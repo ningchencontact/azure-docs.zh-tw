@@ -3,22 +3,22 @@ title: 在合作夥伴中心建立商業 Marketplace 帳戶
 description: 瞭解如何在合作夥伴中心建立商業 Marketplace 帳戶。
 author: ChJenk
 manager: evansma
-ms.author: parthp
+ms.author: v-chjen
 ms.service: marketplace
 ms.topic: guide
-ms.date: 09/10/2019
-ms.openlocfilehash: 9d19b31ccce8feeb2d5ce12353d9b79841b40724
-ms.sourcegitcommit: 3fa4384af35c64f6674f40e0d4128e1274083487
+ms.date: 09/26/2019
+ms.openlocfilehash: beaca02807f3ee33022854f17150d8eeff1568ac
+ms.sourcegitcommit: 8bae7afb0011a98e82cbd76c50bc9f08be9ebe06
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71219439"
+ms.lasthandoff: 10/01/2019
+ms.locfileid: "71695600"
 ---
 # <a name="create-a-commercial-marketplace-account-in-partner-center"></a>在合作夥伴中心建立商業 Marketplace 帳戶
 
 若要將您的供應專案發佈至[Azure Marketplace](https://azuremarketplace.microsoft.com/)或[AppSource](https://appsource.microsoft.com/), 您必須在合作夥伴中心的商業 Marketplace 方案中建立帳戶。 在本文中，我們將討論如何建立合作夥伴中心帳戶，以及如何將新的發行者加入至商業 Marketplace 方案。
 
->[!Important]
+>[!IMPORTANT]
 >如果您的[Cloud Partner 入口網站 (CPP)](https://cloudpartner.azure.com)帳戶已移至合作夥伴中心, 則不需要建立新的帳戶。 如需詳細資訊, 請參閱[從 CPP 移動的發行者](#publishers-moving-from-cpp)。
 
 ## <a name="before-you-begin"></a>開始之前
@@ -33,7 +33,7 @@ ms.locfileid: "71219439"
 建立帳戶的方法有兩種：
 
 - 如果您不熟悉合作夥伴中心，而且沒有 Microsoft 網路帳戶，請使用[[合作夥伴中心註冊] 頁面上的 [建立帳戶](#create-an-account-using-the-partner-center-enrollment-page)] 來建立您的帳戶。
-- 如果您已在 Microsoft 合作夥伴網路中註冊，請使用使用[您的 Microsoft 合作夥伴網路註冊來建立帳戶](#create-an-account-using-your-microsoft-partner-network-enrollment)，直接從合作夥伴中心建立帳戶。
+- 如果您已在 Microsoft 合作夥伴網路中註冊，請使用 [[使用現有的 Microsoft 合作夥伴中心註冊](#create-an-account-using-existing-microsoft-partner-center-enrollments)來建立帳戶] 直接從合作夥伴中心建立帳戶。
 
 ## <a name="create-an-account-using-the-partner-center-enrollment-page"></a>使用合作夥伴中心註冊頁面建立帳戶
 
@@ -44,7 +44,7 @@ ms.locfileid: "71219439"
 - [同意條款及條件](#agree-to-terms-and-conditions)
 - [提供您的發行者設定檔](#provide-your-publisher-profile)
 
->[!Important]
+>[!IMPORTANT]
 >如果您的[Cloud Partner 入口網站 (CPP)](https://cloudpartner.azure.com)帳戶已移至合作夥伴中心, 則不需要建立新的帳戶。 如需詳細資訊, 請參閱[從 CPP 移動的發行者](#publishers-moving-from-cpp)。
 
 ### <a name="register-on-the-partner-center-enrollment-page"></a>在合作夥伴中心註冊頁面上註冊
@@ -55,7 +55,7 @@ ms.locfileid: "71219439"
 
 使用工作帳戶登入，讓您可以將公司的工作電子郵件帳戶網域連結到新的合作夥伴中心帳戶。 藉由建立這些帳戶的關聯, 您的公司員工可以使用其工作帳戶的使用者名稱和密碼登入合作夥伴中心。
 
->[!Note]
+>[!NOTE]
 >若要檢查您的公司是否已有工作帳戶、如何建立新的工作帳戶, 或如何設定多個工作帳戶以搭配合作夥伴中心使用, 請造訪[您的公司工作帳戶和合作夥伴中心](./company-work-accounts.md)。
 
 ### <a name="agree-to-terms-and-conditions"></a>同意條款及條件
@@ -70,42 +70,78 @@ ms.locfileid: "71219439"
 
 在確認您的發行者設定檔資訊之後, 請同意條款及條件, 然後選取 [**接受並繼續**] 來建立合作夥伴中心帳戶。
 
->[!Important]
+>[!IMPORTANT]
 >*貴使用者必須獲得授權, 才能代表貴公司採取行動以接受這些條款。*
 
-感謝您在合作夥伴中心建立帳戶! 您現在會進入 [[商業 Marketplace] [總覽](./commercial-marketplace-overview.md)] 頁面。
+註冊之後，您會進入 [商業 Marketplace] [總覽] 頁面。 **商業 Marketplace**會顯示在左側導覽列中。 如果您選取 [**設定** > ] [**合作夥伴設定** > ] [**程式**]，您會看到 [商業 Marketplace] 列為 [已註冊]。
 
-## <a name="create-an-account-using-your-microsoft-partner-network-enrollment"></a>使用您的 Microsoft 合作夥伴網路註冊來建立帳戶
+感謝您在合作夥伴中心建立商業 Marketplace 帳戶！ 如需說明，請參閱[商業 Marketplace 總覽](./commercial-marketplace-overview.md)。 如需新增發行者的說明，請參閱[將新的發行者加入至商業 Marketplace 方案](#add-new-publishers-to-the-commercial-marketplace-program)。
 
-如果您已在 Microsoft 合作夥伴網路中註冊，請使用下列步驟，直接從合作夥伴中心建立您的帳戶：
+## <a name="create-an-account-using-existing-microsoft-partner-center-enrollments"></a>使用現有的 Microsoft 合作夥伴中心註冊來建立帳戶
 
-- [使用您的工作帳戶登入合作夥伴中心](#sign-into-partner-center-with-your-work-account)
-- [輸入您的發行者設定檔](#enter-your-publisher-profile)
+如果您已經在 Microsoft 合作夥伴中心註冊，請使用本節來建立商業 Marketplace 帳戶。
 
-請務必讓您的 Microsoft 合作夥伴網路帳戶資訊更方便。
+您可以使用兩種類型的現有註冊來設定您的商業 Marketplace 帳戶。 選擇適用于您的應用程式：
 
->[!Important]
->如果您的[Cloud Partner 入口網站 (CPP)](https://cloudpartner.azure.com)帳戶已移至合作夥伴中心, 則不需要建立新的帳戶。 如需詳細資訊, 請參閱[從 CPP 移動的發行者](#publishers-moving-from-cpp)。
+- 如果您有現有的 Microsoft 合作夥伴網路註冊，請使用[在 Microsoft 合作夥伴網路中註冊](#enrolled-in-the-microsoft-partner-network)的來建立帳戶。
+- 如果您已註冊現有的開發人員計畫，請使用[在開發人員計畫中註冊](#enrolled-in-a-developer-program)的來建立您的帳戶。
 
-### <a name="sign-into-partner-center-with-your-work-account"></a>使用您的工作帳戶登入合作夥伴中心
+對於這兩種方法，您將使用下列步驟：
+
+- 使用您現有的認證登入合作夥伴中心
+- 輸入您的發行設定檔資訊
+
+請務必備妥您的帳戶資訊。
+
+>[!IMPORTANT]
+>如果您的[Cloud Partner 入口網站 (CPP)](https://cloudpartner.azure.com/)帳戶已移至合作夥伴中心, 則不需要建立新的帳戶。 如需詳細資訊, 請參閱[從 CPP 移動的發行者](#publishers-moving-from-cpp)。
+
+### <a name="enrolled-in-the-microsoft-partner-network"></a>已在 Microsoft 合作夥伴網路中註冊
+
+如果您已在 Microsoft 合作夥伴網路中註冊，請使用此區段直接從合作夥伴中心建立您的帳戶。
 
 使用您的 Microsoft 合作夥伴網路帳戶登入[合作夥伴中心](https://partner.microsoft.com/)，以便將公司的工作電子郵件帳戶網域連結到新的合作夥伴中心帳戶。 藉由建立這些帳戶的關聯，您的公司員工可以使用其工作帳戶使用者名稱和密碼登入合作夥伴中心。
 
->[!Note]
+>[!NOTE]
 >若要檢查您的公司是否已有合作夥伴中心工作帳戶、如何建立新的工作帳戶，或如何設定多個工作帳戶以搭配合作夥伴中心使用，請造訪[您的公司工作帳戶和合作夥伴中心](./company-work-accounts.md)。
 
-### <a name="enter-your-publisher-profile"></a>輸入您的發行者設定檔
-
-登入之後，請使用本節中的步驟完成帳戶的設定。
+登入之後，請使用下列步驟來完成帳戶的設定。
 
 >[!NOTE]
-> 您必須擁有帳戶管理員或全域管理員角色，才能登入 Microsoft 合作夥伴網路。
+> 您必須擁有**帳戶管理員**或**全域管理員**角色，才能登入 Microsoft 合作夥伴網路。
 
-1. 從 [合作夥伴中心] 選取 [**設定** > ] [**合作夥伴設定** > ] [**程式** > **開始**使用]。
+1. 在 [[合作夥伴中心](https://partner.microsoft.com/)] 中，選取 [**設定**] [ >  個**合作夥伴設定**]  >  個**程式** > **開始**使用。
 2. Microsoft 合作夥伴網路會偵測您的訂用帳戶，並顯示 [發行者設定檔] 頁面，讓您輸入公司名稱和 MPN 識別碼。
 3. 閱讀[Microsoft Marketplace 發行者合約](https://go.microsoft.com/fwlink/?LinkID=699560)中的條款及條件，然後選取 [**接受並繼續**] 完成您的註冊。
 
+    >[!IMPORTANT]
+    >*貴使用者必須獲得授權, 才能代表貴公司採取行動以接受這些條款。*
+
 註冊之後，您會進入 [商業 Marketplace] [總覽] 頁面。 **商業 Marketplace**會顯示在左側導覽列中。 如果您選取 [**設定** > ] [**合作夥伴設定** > ] [**程式**]，您會看到 [商業 Marketplace] 列為 [已註冊]。
+
+感謝您在合作夥伴中心建立帳戶! 如需說明，請參閱[商業 Marketplace 總覽](./commercial-marketplace-overview.md)。 如需新增發行者的說明，請參閱[將新的發行者加入至商業 Marketplace 方案](#add-new-publishers-to-the-commercial-marketplace-program)。
+
+### <a name="enrolled-in-a-developer-program"></a>已在開發人員計畫中註冊
+
+如果您已在合作夥伴中心開發人員計畫中註冊，請使用本節，直接從合作夥伴中心建立您的帳戶。
+
+>[!NOTE]
+>若要在您用來登入的相同帳戶下註冊商用 Marketplace，您必須使用公司帳戶在合作夥伴中心註冊。 如果您使用個人帳戶註冊，則您的商業 Marketplace 註冊將會出現在新的帳戶下。
+>
+>個別的帳戶是供單一開發人員自行處理。 公司帳戶適用于組織和企業。 公司帳戶可讓您以額外的功能提交應用程式。 在您註冊之後，我們需要對公司帳戶進行更好的驗證，以確認您已獲授權可以為公司設定帳戶。 這項驗證可能需要幾天到幾周的時間，而且通常會包含對您公司的通話。 這兩種類型的帳戶都可讓您提交應用程式、增益集和服務。 如需詳細資訊，請參閱 [帳戶類型、位置和費用](https://docs.microsoft.com/windows/uwp/publish/account-types-locations-and-fees)。
+
+使用您的 Microsoft 合作夥伴中心帳戶登入[合作夥伴中心](https://partner.microsoft.com/)，以在相同的帳戶下註冊商用 Marketplace 方案。 藉由使用相同的帳戶註冊商用 Marketplace，您可以在合作夥伴中心的左側導覽功能表中看到現有的程式註冊和商用 Marketplace。
+
+登入之後，請使用下列步驟來完成帳戶的設定：
+
+1. 在 合作夥伴中心 中，選取 **設定**  >  個 **開發人員設定**  >  個**程式** > **開始**，然後輸入您的公司電子郵件地址。
+2. 完成 [發行者設定檔] 頁面上的詳細資料。
+3. 閱讀[Microsoft Marketplace 發行者合約](http://go.microsoft.com/fwlink/?LinkID=699560)中的條款及條件，然後選取 [**接受並繼續**] 完成您的註冊。
+
+    >[!Important]
+    >*貴使用者必須獲得授權, 才能代表貴公司採取行動以接受這些條款。*
+
+註冊之後，您會進入 [商業 Marketplace] [總覽] 頁面。 **商業 Marketplace**會顯示在左側導覽列中。 如果您選取 [**設定**]  >  [**開發人員設定**]  >  個**程式**，您會看到 [商業 Marketplace] 列為 [已註冊]。
 
 感謝您在合作夥伴中心建立帳戶! 如需說明，請參閱[商業 Marketplace 總覽](./commercial-marketplace-overview.md)。 如需新增發行者的說明，請參閱[將新的發行者加入至商業 Marketplace 方案](#add-new-publishers-to-the-commercial-marketplace-program)。
 
@@ -123,7 +159,7 @@ ms.locfileid: "71219439"
 
 組織可以有多個與商業 Marketplace 帳戶相關聯的發行者。 現有使用者可以藉由選取 [**帳戶設定** >   >  **] [發行者] [新增發行者]** ，在登入合作夥伴中心後新增更多發行者。
 
->[!Note]
+>[!NOTE]
 >新增發行者之前，請先登入合作夥伴中心，然後選取 [**帳戶設定** > ] [**發行者**]，以查看現有發行者清單，以檢查現有的發行者。
 
 相同 Azure Active Directory 租使用者中的另一位使用者可以遵循下列步驟來新增發行者:

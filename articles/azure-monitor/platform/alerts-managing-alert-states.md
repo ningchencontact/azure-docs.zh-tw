@@ -6,14 +6,14 @@ services: monitoring
 ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.author: anantr
+ms.author: robb
 ms.subservice: alerts
-ms.openlocfilehash: 2aa521b0552b60e5a875a5f46ab9887c6e5b6e3e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f72abd1168d14cae703f7fcfc7b58eaa56bdc592
+ms.sourcegitcommit: 6fe40d080bd1561286093b488609590ba355c261
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60919601"
+ms.lasthandoff: 10/01/2019
+ms.locfileid: "71702926"
 ---
 # <a name="manage-alert-and-smart-group-states"></a>管理警示與智慧群組狀態
 Azure 監視器中的警示現在有[警示的狀態和監視條件](https://aka.ms/azure-alerts-overview)，同樣地，智慧群組也有[智慧型群組狀態](https://aka.ms/smart-groups)。 對狀態所作的變更，現在會擷取到與個別警示或智慧群組相關聯的歷程記錄。 這篇文章會引導您完成變更警示和智慧群組兩者狀態的程序。

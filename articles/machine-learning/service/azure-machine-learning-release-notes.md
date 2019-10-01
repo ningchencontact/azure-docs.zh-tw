@@ -10,12 +10,12 @@ ms.author: jmartens
 author: j-martens
 ms.date: 08/19/2019
 ms.custom: seodec18
-ms.openlocfilehash: 5191f8b565762e9377f3718cc147c96e491f5a0d
-ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
+ms.openlocfilehash: 61a42a8c1176cdd347fd2956a07c295ecf49321e
+ms.sourcegitcommit: 8bae7afb0011a98e82cbd76c50bc9f08be9ebe06
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71067720"
+ms.lasthandoff: 10/01/2019
+ms.locfileid: "71695548"
 ---
 # <a name="azure-machine-learning-release-notes"></a>Azure Machine Learning 版本資訊
 
@@ -23,6 +23,58 @@ ms.locfileid: "71067720"
 
 若要了解已知的 Bug 和因應措施，請參閱[已知問題的清單](resource-known-issues.md)。
 
+## <a name="2019-09-30"></a>2019-09-30
+
+### <a name="azure-machine-learning-sdk-for-python-v1065"></a>適用于 Python 的 Azure Machine Learning SDK 1.0.65
+
+  + **新功能**
+    + 已新增策劃環境。 這些環境已預先設定用於一般機器學習工作的程式庫，並已預先建立並快取為 Docker 映射，以加快執行速度。 根據預設，它們會出現在工作區的環境清單中，前置詞為 "AzureML"。
+  
+  + **azureml-train-automl**
+    + 已新增 ADB 和 HDI 的 ONNX 轉換支援
+
++ **預覽功能**  
+  + **azureml-train-automl**
+    + 支援的經理 BERT 和 BiLSTM 做為文字 featurizer （僅限預覽）
+    + 針對資料行用途和轉換器參數支援的特徵化自訂（僅限預覽）
+    + 當使用者在定型期間啟用模型說明時支援的原始說明（僅限預覽）
+    + 已將時間序列預測的 Prophet 新增為可訓練管線（僅限預覽）
+  
+  + **azureml-contrib-datadrift**
+    + 從 azureml-contrib-datadrift 重新置放至 azureml-datadrift 的套件;未來版本將移除 contrib 套件 
+
++ **Bug 修正和改善**
+  + **azureml-automl-核心**
+    + 引進了 FeaturizationConfig 至 AutoMLConfig 和 AutoMLBaseSettings
+      + 使用指定的資料行和功能類型覆寫特徵化的資料行用途
+      + 覆寫轉換器參數
+    + 已新增 explain_model （）和 retrieve_model_explanations （）的取代訊息
+    + 已將 Prophet 新增為可訓練管線（僅限預覽）
+    + 已新增自動偵測目標延遲、滾動視窗大小和最大水準的支援。 如果其中一個 target_lags、target_rolling_window_size 或 max_horizon 設定為 ' auto '，將會套用啟發學習法，以根據定型資料來估計對應參數的值。
+    + 已修正當資料集包含一個細微性資料行時的預測，這是數數值型別，而且定型和測試集之間有間距
+    + 已修正在「預測工作」的遠端執行中重複索引的相關錯誤訊息
+    + 已新增 guardrail，以檢查資料集是否已不平衡。 如果是，則會將 guardrail 訊息寫入主控台。
+  + **azureml-core**
+    + 已新增透過模型物件將 SAS URL 取出至儲存體中模型的功能。 例如： model. get _sas_url （）
+    + 引進 `run.get_details()['datasets']`，以取得與已提交執行相關聯的資料集
+    + 新增 API `Dataset.Tabular.from_json_lines_files`，以從 JSON 行檔案建立 TabularDataset。 若要瞭解 TabularDataset 上 JSON 行檔案中的此表格式資料，請造訪 https://aka.ms/azureml-data 以取得檔。
+    + 已將額外的 VM 大小欄位（OS 磁片、Gpu 數目）新增至 supported_vmsizes （）函式
+    + 已將其他欄位新增至 list_nodes （）函式，以顯示執行、私用和公用 IP、埠等。
+    + 在叢集布建期間指定新欄位的能力--remotelogin_port_public_access 可設為啟用或停用，視您是否想要在建立叢集時讓 SSH 埠保持開啟或關閉。 如果您未指定，服務會聰明地開啟或關閉埠，視您是否在 VNet 內部署叢集而定。
+  + **azureml-explain-model**
+    + 已改善分類案例中說明輸出的檔。
+    + 已在評估範例的說明上，新增上傳預測 y 值的功能。 解除鎖定更有用的視覺效果。
+    + 已將說明屬性新增至 MimicWrapper，以允許取得基礎 MimicExplainer。
+  + **azureml-pipeline-core**
+    + 已新增筆記本以描述模組、ModuleVersion 和 ModuleStep
+  + **azureml-pipeline-steps**
+    + 已新增 RScriptStep 以支援透過 AML 管線執行的 R 腳本
+    + 已修正」已 azurebatchstep 中的中繼資料參數剖析，這會導致「未指定參數 SubscriptionId 的指派」錯誤訊息
+  + **azureml-train-automl**
+    + 支援的 training_data、validation_data、label_column_name、weight_column_name 做為資料輸入格式
+    + 已新增 explain_model （）和 retrieve_model_explanations （）的取代訊息
+
+  
 ## <a name="2019-09-16"></a>2019-09-16
 
 ### <a name="azure-machine-learning-sdk-for-python-v1062"></a>適用于 Python 的 Azure Machine Learning SDK 1.0.62
@@ -118,7 +170,7 @@ ms.locfileid: "71067720"
     + AutoML 模型現在會傳回 AutoMLExceptions
     + 此版本可改善自動化機器學習本機執行的執行效能。
   + **azureml-core**
-    + 引進資料集。取得「上傳」（工作區）， `TabularDataset`其`FileDataset`會傳回以其註冊名稱為索引鍵之和物件的字典。 
+    + 引進資料集。取得所有的物件（工作區），這會傳回 `TabularDataset` 的字典，以及以其註冊名稱做為索引鍵的 @no__t 1。 
     
     ```py 
     workspace = Workspace.from_config() 
@@ -266,7 +318,7 @@ ms.locfileid: "71067720"
     + 已新增在將模型部署至 Webservice 時，使用環境物件的支援。 現在可以提供環境物件做為 InferenceConfig 物件的一部分。
     + 為新區域新增 appinsifht 對應-centralus-westus-northcentralus
     + 已新增所有資料存放區類別中所有屬性的檔。
-    + 已將 blob_cache_timeout 參數`Datastore.register_azure_blob_container`新增至。
+    + 已將 blob_cache_timeout 參數新增至 `Datastore.register_azure_blob_container`。
     + 已將 save_to_directory 和 load_from_directory 方法新增至 azureml. 環境。
     + 已將「az ml 環境下載」和「az ml 環境 register」命令新增至 CLI。
     + 已新增環境。新增 _private_pip_wheel 方法。
@@ -320,7 +372,7 @@ ms.locfileid: "71067720"
     + 移除舊的例外狀況類別。
     + 在預測工作`target_lags`中，參數現在會接受單一整數值或整數清單。 如果已提供整數，則只會建立一個 lag。 如果提供了清單，將會採用延遲的唯一值。 target_lags = [1，2，2，4] 將建立延遲1、2和4個期間。
     + 修正轉換（bug 連結）之後遺失資料行類型的 bug;
-    + 在`model.forecast(X, y_query)`中，允許 y_query 是一種物件類型，在開頭（#459519）包含無（s）。
+    + 在 `model.forecast(X, y_query)` 中，允許 y_query 是一種物件類型，在開頭（#459519）包含無（s）。
     + 將預期的值新增至 automl 輸出
   + **azureml-contrib-datadrift**
     +  範例筆記本的改良功能，包括切換至 azureml-opendatasets，而不是 azureml-contrib opendatasets 和效能改善（在充實資料時）

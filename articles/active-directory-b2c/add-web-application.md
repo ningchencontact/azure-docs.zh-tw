@@ -10,12 +10,12 @@ ms.custom: mvc
 ms.topic: conceptual
 ms.service: active-directory
 ms.subservice: B2C
-ms.openlocfilehash: 3114f082a402fd005797b270cfdcd7527784dbe1
-ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
+ms.openlocfilehash: 88ce3931d9f47b8c16251a45e54fa96b97f038e2
+ms.sourcegitcommit: 8bae7afb0011a98e82cbd76c50bc9f08be9ebe06
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/30/2019
-ms.locfileid: "71679230"
+ms.lasthandoff: 10/01/2019
+ms.locfileid: "71693280"
 ---
 # <a name="add-a-web-api-application-to-your-azure-active-directory-b2c-tenant"></a>將 Web API 應用程式新增至您的 Azure Active Directory B2C 租用戶
 
@@ -42,10 +42,6 @@ ms.locfileid: "71679230"
 
 若要從應用程式呼叫受保護的 Web API，您必須為應用程式授與對 API 的權限。 例如，在[教學課程：在 Azure Active Directory B2C 中註冊應用程式](tutorial-register-applications.md)中，會在 Azure AD B2C 中建立名為 *webapp1* 的 Web 應用程式。 您可以使用此應用程式來呼叫 Web API。
 
-1. 選取 [應用程式]，然後選取您的 Web 應用程式。
-1. 選取 [API 存取]，然後選取 [新增]。
-1. 在 [選取 API] 下拉式清單中，選取 [webapi1]。
-1. 在 [**選取範圍**] 下拉式清單中，選取您稍早定義的範圍。 例如，*示範。閱讀*和*示範*。
-1. 選取 [確定]。
+[!INCLUDE [active-directory-b2c-permissions-api](../../includes/active-directory-b2c-permissions-api.md)]
 
 您的應用程式會進行註冊，以呼叫受保護的 Web API。 使用者會透過 Azure AD B2C 進行驗證以使用應用程式。 該應用程式會從 Azure AD B2C 取得授權授與，以存取受保護的 Web API。

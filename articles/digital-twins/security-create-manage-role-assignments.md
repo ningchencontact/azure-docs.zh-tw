@@ -9,19 +9,16 @@ ms.topic: conceptual
 ms.date: 07/29/2019
 ms.author: lyhughes
 ms.custom: seodec18
-ms.openlocfilehash: 968ae62344f99edf8eb46eb62a4cf13f300c868f
-ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
+ms.openlocfilehash: 2c43dd7c0700efdd2fbf2f16c57c9c9dc69d3c6b
+ms.sourcegitcommit: 6fe40d080bd1561286093b488609590ba355c261
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68815639"
+ms.lasthandoff: 10/01/2019
+ms.locfileid: "71703361"
 ---
 # <a name="create-and-manage-role-assignments-in-azure-digital-twins"></a>在 Azure Digital Twins 中建立及管理角色指派
 
 Azure Digital Twins 會使用角色型存取控制 ([RBAC](./security-role-based-access-control.md)) 來管理對資源的存取。
-
-
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="role-assignments-overview"></a>角色指派概觀
 
@@ -39,12 +36,12 @@ Azure Digital Twins 會使用角色型存取控制 ([RBAC](./security-role-based
 
 下表描述每個屬性：
 
-| 屬性 | 名稱 | 必要項 | Type | 描述 |
+| 屬性 | Name | 必要項 | Type | 描述 |
 | --- | --- | --- | --- | --- |
 | roleId | 角色定義識別碼 | 是 | String | 所需角色指派的唯一識別碼。 藉由查詢系統 API 或檢閱下表，來尋找角色定義及其識別碼。 |
 | objectId | 物件識別碼 | 是 | String | Azure Active Directory 識別碼、服務主體物件識別碼或網域名稱。 角色指派的指派內容以及指派給誰。 角色指派必須根據其相關聯的類型進行格式化。 對於 `DomainName` objectIdType，objectId 必須以 `“@”` 字元開頭。 |
 | objectIdType | 物件識別碼類型 | 是 | String | 使用的物件識別項類型。 請參閱以下**支援的 ObjectIdTypes**。 |
-| 路徑 | 空間路徑 | 是 | String | `Space` 物件的完整存取路徑。 例如 `/{Guid}/{Guid}`。 如果某個識別碼需要整個圖形的角色指派，請指定 `"/"`。 這個字元會指定根目錄，但不鼓勵使用。 一律遵循最低權限原則。 |
+| path | 空間路徑 | 是 | String | `Space` 物件的完整存取路徑。 例如 `/{Guid}/{Guid}`。 如果某個識別碼需要整個圖形的角色指派，請指定 `"/"`。 這個字元會指定根目錄，但不鼓勵使用。 一律遵循最低權限原則。 |
 | tenantId | 租用戶識別碼 | 視情況而異 | String | 在大部分的情況下為Azure Active Directory 租用戶識別碼。 不允許用於 `DeviceId` 和 `TenantId` ObjectIdTypes。 必須用於 `UserId` 和 `ServicePrincipalId` ObjectIdTypes。 DomainName ObjectIdType 可選用。 |
 
 ### <a name="supported-role-definition-identifiers"></a>支援的角色定義識別碼
@@ -63,7 +60,7 @@ Azure Digital Twins 會使用角色型存取控制 ([RBAC](./security-role-based
 
 Azure Digital Twins 對於角色指派支援完整的*建立*、*讀取*和*刪除*作業。 *更新*作業的處理方法是透過新增角色指派、移除角色指派，或修改角色指派允許存取的[空間智慧圖形](./concepts-objectmodel-spatialgraph.md)節點。
 
-![角色指派端點][1]
+[@no__t 1Role 指派端點](media/security-roles/roleassignments.png)](media/security-roles/roleassignments.png#lightbox)
 
 提供的 Swagger 參考文件包含所有可用 API 端點、要求作業和定義的更多相關資訊。
 
@@ -71,23 +68,28 @@ Azure Digital Twins 對於角色指派支援完整的*建立*、*讀取*和*刪�
 
 [!INCLUDE [Digital Twins Management API](../../includes/digital-twins-management-api.md)]
 
-<div id="grant"></div>
-
 ### <a name="grant-permissions-to-your-service-principal"></a>將權限授與服務主體
 
 將權限授與服務主體通常是使用 Azure Digital Twins 時要採取的第一步。 它需要：
 
-1. 透過 PowerShell 登入您的 Azure 執行個體。
+1. 透過[Azure CLI](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest)或[PowerShell](https://docs.microsoft.com/powershell/azure/)登入您的 Azure 實例。
 1. 取得您的服務主體資訊。
 1. 將所需的角色指派給服務主體。
 
 您的應用程式識別碼是在 Azure Active Directory 中提供的。 若要深入了解在 Active Directory 中設定及佈建 Azure Digital Twins，請仔細閱讀[快速入門](./quickstart-view-occupancy-dotnet.md)。
 
-獲得應用程式識別碼之後，請執行以下 PowerShell 命令：
+一旦擁有應用程式識別碼，請執行下列其中一個命令。 在 Azure CLI：
 
-```shell
+```azurecli
+az login
+az ad sp show --id <ApplicationId>
+```
+
+在 Powershell 中：
+
+```powershell
 Login-AzAccount
-Get-AzADServicePrincipal -ApplicationId  <ApplicationId>
+Get-AzADServicePrincipal -ApplicationId <ApplicationId>
 ```
 
 然後，具有**管理員**角色的使用者可以透過對 URL 提出驗證的 HTTP POST 要求，將「空間管理員」角色指派給使用者：
@@ -108,11 +110,9 @@ YOUR_MANAGEMENT_API_URL/roleassignments
 }
 ```
 
-<div id="all"></div>
-
 ### <a name="retrieve-all-roles"></a>擷取所有角色
 
-![系統角色][2]
+[@no__t 1System 角色](media/security-roles/system.png)](media/security-roles/system.png#lightbox)
 
 若要列出所有可用的角色 (角色定義)，請對下列事項提出驗證的 HTTP GET 要求：
 
@@ -153,8 +153,6 @@ YOUR_MANAGEMENT_API_URL/system/roles
 ]
 ```
 
-<div id="check"></div>
-
 ### <a name="check-a-specific-role-assignment"></a>檢查特定角色指派
 
 若要檢查特定的角色指派，請對下列項目提出驗證的 HTTP GET 要求：
@@ -163,7 +161,7 @@ YOUR_MANAGEMENT_API_URL/system/roles
 YOUR_MANAGEMENT_API_URL/roleassignments/check?userId=YOUR_USER_ID&path=YOUR_PATH&accessType=YOUR_ACCESS_TYPE&resourceType=YOUR_RESOURCE_TYPE
 ```
 
-| **參數值** | **必要** |  **型別** |  **說明** |
+| **參數值** | **必要** |  **型別** |  **描述** |
 | --- | --- | --- | --- |
 | YOUR_USER_ID |  真 | String |   UserId objectIdType 的 objectId。 |
 | YOUR_PATH | 真 | String |   用來檢查存取權的選擇路徑。 |
@@ -210,7 +208,7 @@ YOUR_MANAGEMENT_API_URL/roleassignments/YOUR_ROLE_ASSIGNMENT_ID
 | --- | --- |
 | *YOUR_ROLE_ASSIGNMENT_ID* | 要移除之角色指派的**識別碼** |
 
-成功的 DELETE 要求會傳回 204 回應狀態。 藉由[檢查](#check)角色指派是否仍然保留，驗證是否已移除角色指派。
+成功的 DELETE 要求會傳回 204 回應狀態。 藉由[檢查](#check-a-specific-role-assignment)角色指派是否仍然保留，驗證是否已移除角色指派。
 
 ### <a name="create-a-role-assignment"></a>建立角色指派
 
@@ -282,7 +280,3 @@ YOUR_MANAGEMENT_API_URL/roleassignments
 - 若要檢閱 Azure Digital Twins 角色型存取控制，請參閱[角色型存取控制](./security-authenticating-apis.md)。
 
 - 若要深入了解 Azure Digital Twins API 驗證，請參閱 [API 驗證](./security-authenticating-apis.md)。
-
-<!-- Images -->
-[1]: media/security-roles/roleassignments.png
-[2]: media/security-roles/system.png

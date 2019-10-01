@@ -13,16 +13,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/14/2019
 ms.author: magoedte
-ms.openlocfilehash: 2b601825a58fe5739a43df607067acc8d629c5f4
-ms.sourcegitcommit: a6888fba33fc20cc6a850e436f8f1d300d03771f
+ms.openlocfilehash: 7cd915c47fa0661a9da66d7ca3315480ce7d6b98
+ms.sourcegitcommit: d4c9821b31f5a12ab4cc60036fde00e7d8dc4421
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69558883"
+ms.lasthandoff: 10/01/2019
+ms.locfileid: "71709432"
 ---
 # <a name="configure-agent-data-collection-for-azure-monitor-for-containers"></a>為容器的 Azure 監視器設定代理程式資料收集
 
-Azure 監視器容器會從容器化的代理程式, 收集從部署至裝載于 Azure Kubernetes Service (AKS) 之受控 Kubernetes 叢集的 stdout、stderr 和環境變數。 此代理程式也可以使用容器化代理程式, 從 Prometheus 收集時間序列資料 (也稱為計量), 而不需要設定及管理 Prometheus 伺服器和資料庫。 您可以藉由建立自訂的 Kubernetes ConfigMaps 來控制此體驗, 以設定代理程式資料收集設定。 
+Azure 監視器容器會從容器化的代理程式, 收集從部署至裝載于 Azure Kubernetes Service (AKS) 之受控 Kubernetes 叢集的 stdout、stderr 和環境變數。 此代理程式也可以使用容器化代理程式，從 Prometheus 收集時間序列資料（也稱為計量），而不需要設定及管理 Prometheus 伺服器和資料庫。 您可以藉由建立自訂的 Kubernetes ConfigMaps 來控制此體驗, 以設定代理程式資料收集設定。 
 
 本文示範如何根據您的需求建立 ConfigMap 和設定資料收集。
 
@@ -55,9 +55,9 @@ Azure 監視器容器會從容器化的代理程式, 收集從部署至裝載于
 
 ![適用于 Prometheus 的容器監視架構](./media/container-insights-agent-config/monitoring-kubernetes-architecture.png)
 
-適用于容器的 Azure 監視器提供順暢的體驗, 讓多個抓取透過下列各項機制來收集 Prometheus 計量, 如下表所示。 系統會透過單一 ConfigMap 檔案中指定的一組設定來收集計量, 這是用來設定從容器工作負載收集 stdout、stderr 和環境變數的相同檔案。 
+適用于容器的 Azure 監視器提供順暢的體驗，讓多個抓取透過下列各項機制來收集 Prometheus 計量，如下表所示。 系統會透過單一 ConfigMap 檔案中指定的一組設定來收集計量，這是用來設定從容器工作負載收集 stdout、stderr 和環境變數的相同檔案。 
 
-來自 Prometheus 之計量的作用中抓取是從兩個觀點的其中一個來執行:
+來自 Prometheus 之計量的作用中抓取是從兩個觀點的其中一個來執行：
 
 * 整個叢集的 HTTP URL, 並從服務的已列出端點探索目標、k8s 服務 (例如 kube)、kube 狀態度量, 以及應用程式特定的 pod 附注。 在此內容中收集的計量會定義于 ConfigMap 區段 *[Prometheus data_collection_settings]* 中。
 * 整個節點-HTTP URL, 並從服務的列出端點探索目標。 在此內容中收集的計量會定義于 ConfigMap 區段 *[Prometheus_data_collection_settings]* 中。
@@ -68,20 +68,20 @@ Azure 監視器容器會從容器化的代理程式, 收集從部署至裝載于
 | Kubernetes 服務 | 全叢集 | `http://my-service-dns.my-namespace:9100/metrics` <br>`https://metrics-server.kube-system.svc.cluster.local/metrics` |
 | url/端點 | 每個節點和/或全叢集的叢集 | `http://myurl:9101/metrics` |
 
-指定 URL 時, 容器的 Azure 監視器只會抓取端點。 當指定 Kubernetes 服務時, 會使用叢集 DNS 伺服器解析服務名稱以取得 IP 位址, 然後剪輯解析的服務。
+指定 URL 時，容器的 Azure 監視器只會抓取端點。 當指定 Kubernetes 服務時，會使用叢集 DNS 伺服器解析服務名稱以取得 IP 位址，然後剪輯解析的服務。
 
 |`Scope` | Key | 資料類型 | 值 | 描述 |
 |------|-----|-----------|-------|-------------|
 | 全叢集 | | | | 指定下列三種方法中的任何一種, 以抓取度量的端點。 |
-| | `urls` | String | 以逗號分隔的陣列 | HTTP 端點 (IP 位址或指定的有效 URL 路徑)。 例如： `urls=[$NODE_IP/metrics]` 。 ($NODE _IP 是容器參數的特定 Azure 監視器, 可以用來取代節點 IP 位址。 必須全部大寫)。 |
+| | `urls` | String | 以逗號分隔的陣列 | HTTP 端點 (IP 位址或指定的有效 URL 路徑)。 例如： `urls=[$NODE_IP/metrics]` 。 （$NODE _IP 是容器參數的特定 Azure 監視器，可以用來取代節點 IP 位址。 必須全部大寫)。 |
 | | `kubernetes_services` | String | 以逗號分隔的陣列 | Kubernetes 服務的陣列, 可從 kube 狀態計量抓取計量。 例如,`kubernetes_services = ["https://metrics-server.kube-system.svc.cluster.local/metrics", http://my-service-dns.my-namespace:9100/metrics]`。|
 | | `monitor_kubernetes_pods` | Boolean | True 或 False | 當設定為`true`時, 在整個叢集的設定中, 容器代理程式的 Azure 監視器將會針對下列 Prometheus 注釋, 在整個叢集中抓取 Kubernetes pod:<br> `prometheus.io/scrape:`<br> `prometheus.io/scheme:`<br> `prometheus.io/path:`<br> `prometheus.io/port:` |
 | | `prometheus.io/scrape` | Boolean | True 或 False | 啟用 pod 的抓取。 `monitor_kubernetes_pods` 必須設為 `true`。 |
-| | `prometheus.io/scheme` | String | http 或 https | 預設為透過 HTTP 的 scrapping。 如有必要, 請`https`將設定為。 | 
+| | `prometheus.io/scheme` | String | http 或 https | 預設為透過 HTTP 的 scrapping。 如有必要，請將設定為 `https`。 | 
 | | `prometheus.io/path` | String | 以逗號分隔的陣列 | 從中提取計量的來源 HTTP 資源路徑。 如果計量路徑不`/metrics`是, 請使用此注釋加以定義。 |
 | | `prometheus.io/port` | String | 9102 | 指定要接聽的埠。 如果未設定埠, 則會預設為9102。 |
-| 全節點 | `urls` | String | 以逗號分隔的陣列 | HTTP 端點 (IP 位址或指定的有效 URL 路徑)。 例如： `urls=[$NODE_IP/metrics]` 。 ($NODE _IP 是容器參數的特定 Azure 監視器, 可以用來取代節點 IP 位址。 必須全部大寫)。 |
-| 全節點或全叢集 | `interval` | String | 60s | 收集間隔的預設值為一分鐘 (60 秒)。 您可以將 *[prometheus_data_collection_settings]* 和/或 *[prometheus_data_collection_settings]* 的集合修改為時間單位, 例如 ns、us (或Âμs)、ms、s、m、h。 |
+| 全節點 | `urls` | String | 以逗號分隔的陣列 | HTTP 端點 (IP 位址或指定的有效 URL 路徑)。 例如： `urls=[$NODE_IP/metrics]` 。 （$NODE _IP 是容器參數的特定 Azure 監視器，可以用來取代節點 IP 位址。 必須全部大寫)。 |
+| 全節點或全叢集 | `interval` | String | 60s | 收集間隔的預設值為一分鐘 (60 秒)。 您可以將 *[prometheus_data_collection_settings]* 和/或 *[prometheus_data_collection_settings]* 的集合修改為時間單位，例如 ns、us （或Âμs）、ms、s、m、h。 |
 | 全節點或全叢集 | `fieldpass`<br> `fielddrop`| String | 以逗號分隔的陣列 | 您可以藉由設定 allow (`fieldpass`) 和不允許 (`fielddrop`) 清單, 指定要收集的特定計量, 或不在端點上。 您必須先設定允許清單。 |
 
 ConfigMap 是全域清單, 而且只能有一個 ConfigMap 套用至代理程式。 您不能有另一個 ConfigMap overruling 集合。
@@ -99,7 +99,7 @@ ConfigMap 是全域清單, 而且只能有一個 ConfigMap 套用至代理程式
     
     - 若要停用 stderr 記錄收集整個叢集, 請使用下列範例來設定索引鍵/值`[log_collection_settings.stderr] enabled = false`:。
     
-    - 下列範例示範如何從整個叢集、從代理程式的 DameonSet 全節點, 以及藉由指定 pod 注釋, 來設定 ConfigMap 檔案的計量。
+    - 下列範例示範如何從整個叢集、從代理程式的 DameonSet 全節點，以及藉由指定 pod 注釋，來設定 ConfigMap 檔案的計量。
 
         - 從整個叢集的特定 URL 抓取 Prometheus 計量。
 
@@ -113,7 +113,7 @@ ConfigMap 是全域清單, 而且只能有一個 ConfigMap 套用至代理程式
          urls = ["http://myurl:9101/metrics"] ## An array of urls to scrape metrics from
         ```
 
-        - 從在叢集的每個節點中執行的代理程式 DaemonSet 中, 抓取 Prometheus 計量。
+        - 從在叢集的每個節點中執行的代理程式 DaemonSet 中，抓取 Prometheus 計量。
 
         ```
          prometheus-data-collection-settings: |- 
@@ -153,7 +153,7 @@ ConfigMap 是全域清單, 而且只能有一個 ConfigMap 套用至代理程式
 config::unsupported/missing config schema version - 'v21' , using defaults
 ```
 
-與套用 Prometheus 設定變更相關的錯誤也可供審查。  從代理程式 pod 的記錄, 使用相同`kubectl logs`的命令或從即時記錄。 即時記錄會顯示類似下列的錯誤:
+與套用 Prometheus 設定變更相關的錯誤也可供審查。  從代理程式 pod 的記錄, 使用相同`kubectl logs`的命令或從即時記錄。 即時記錄會顯示類似下列的錯誤：
 
 ```
 2019-07-08T18:55:00Z E! [inputs.prometheus]: Error in plugin: error making HTTP request to http://invalidurl:1010/metrics: Get http://invalidurl:1010/metrics: dial tcp: lookup invalidurl on 10.0.0.10:53: no such host
@@ -163,7 +163,7 @@ config::unsupported/missing config schema version - 'v21' , using defaults
 
 ## <a name="applying-updated-configmap"></a>套用更新的 ConfigMap
 
-如果您已將 ConfigMap 部署至叢集, 而且想要以較新的設定更新它, 您可以編輯先前使用的 ConfigMap 檔案, 然後使用與之前`kubectl apply -f <configmap_yaml_file.yaml`相同的命令來套用。
+如果您已將 ConfigMap 部署至叢集，而且想要以較新的設定更新它，您可以編輯先前使用的 ConfigMap 檔案，然後使用與之前相同的命令來套用，`kubectl apply -f <configmap_yaml_file.yaml`。
 
 設定變更可能需要幾分鐘的時間才會生效, 且叢集中的所有 omsagent pod 都會重新開機。 重新開機是所有 omsagent pod 的輪流重新開機, 不會同時全部重新開機。 當重新開機完成時, 會顯示與下列類似的訊息, 並包含結果: `configmap "container-azm-ms-agentconfig" updated`。
 
@@ -187,6 +187,22 @@ config::unsupported/missing config schema version - 'v21' , using defaults
 ```
 
 ## <a name="review-prometheus-data-usage"></a>審查 Prometheus 資料使用量
+
+若要依 Azure 監視器來查看剪輯的 prometheus 計量，請指定 "prometheus" 作為命名空間。 以下是從 `default` kubernetes 命名空間中查看 prometheus 計量的範例查詢。
+
+```
+InsightsMetrics 
+| where Namespace contains "prometheus"
+| extend tags=parse_json(Tags)
+| where tostring(tags.namespace) == "default" 
+```
+
+Prometheus 資料也可以依名稱直接查詢。
+
+```
+InsightsMetrics 
+| where Name contains "some_prometheus_metric"
+```
 
 若要識別每日計量大小的內嵌磁片區 (GB) 以瞭解其是否為高, 請提供下列查詢。
 

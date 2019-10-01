@@ -6,12 +6,12 @@ ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 09/30/2019
 ms.author: tomfitz
-ms.openlocfilehash: 6b027acc5a8a8b7660d5640ff4af335e51fd2dbf
-ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
+ms.openlocfilehash: b6d479935bc9e4bd731b93d3e027644b9ca4dbe0
+ms.sourcegitcommit: 8bae7afb0011a98e82cbd76c50bc9f08be9ebe06
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/30/2019
-ms.locfileid: "71676887"
+ms.lasthandoff: 10/01/2019
+ms.locfileid: "71694983"
 ---
 # <a name="understand-the-structure-and-syntax-of-azure-resource-manager-templates"></a>了解 Azure Resource Manager 範本的結構和語法
 
@@ -88,7 +88,7 @@ ms.locfileid: "71676887"
 
 ### <a name="data-types"></a>資料類型
 
-整數類型的範圍可以從-2147483648 到2147483647。 不過，資源類型可能會對整數屬性套用較低的限制。
+針對當做內嵌參數傳遞的整數，值的範圍可能會受到您用於部署的 SDK 或命令列工具所限制。 例如，當使用 PowerShell 來部署範本時，整數類型的範圍可以從-2147483648 到2147483647。 若要避免這項限制，請在[參數](resource-manager-parameter-files.md)檔案中指定較大的整數值。 資源類型會對整數屬性套用自己的限制。
 
 在您的範本中指定布林值和整數值時，請不要將值括在引號內。 開頭和結尾的字串值加上雙引號。
 

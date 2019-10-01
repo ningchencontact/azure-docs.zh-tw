@@ -11,14 +11,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 09/25/2019
+ms.date: 09/30/2019
 ms.author: juliako
-ms.openlocfilehash: efe0aaf7c7d5516401f8c72721121a5dff247b95
-ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
+ms.openlocfilehash: 196565e84ec493352ca9765d5502c9ad8ac7edd3
+ms.sourcegitcommit: 6fe40d080bd1561286093b488609590ba355c261
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71350364"
+ms.lasthandoff: 10/01/2019
+ms.locfileid: "71703481"
 ---
 # <a name="live-events-and-live-outputs"></a>即時事件與即時輸出
 
@@ -86,6 +86,9 @@ Azure 媒體服務可讓您在 Azure 雲端上將實況活動傳遞給客戶。 
 * 此名稱應遵循此[RegEx](https://docs.microsoft.com/dotnet/standard/base-types/regular-expression-language-quick-reference)模式： `^[a-zA-Z0-9]+(-*[a-zA-Z0-9])*$`。
 
 另請參閱[串流端點命名慣例](streaming-endpoint-concept.md#naming-convention)。
+
+> [!TIP]
+> 為確保您的即時事件名稱是唯一的，您可以產生 GUID，然後移除所有的連字號和大括弧（如果有的話）。 此字串在所有即時事件中都是唯一的，而且其長度保證為32。
 
 ## <a name="live-event-ingest-urls"></a>實況活動內嵌 URL
 

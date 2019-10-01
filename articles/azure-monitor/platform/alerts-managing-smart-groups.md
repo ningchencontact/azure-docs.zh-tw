@@ -6,19 +6,19 @@ services: monitoring
 ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.author: anantr
+ms.author: robb
 ms.subservice: alerts
-ms.openlocfilehash: a9434bebe82687b14f45b3c375572717d71d0e55
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 42b4bd7427191bcec531ff883efa0d3297a9fd1f
+ms.sourcegitcommit: 6fe40d080bd1561286093b488609590ba355c261
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60713338"
+ms.lasthandoff: 10/01/2019
+ms.locfileid: "71702852"
 ---
 # <a name="manage-smart-groups"></a>管理智慧群組
 [智慧型群組](https://aka.ms/smart-groups)使用機器學習演算法，根據共生或相似度將警示分組，因此使用者現在能管理智慧群組，而不必個別管理每個警示。 此文章會逐步引導您了解如何存取及使用 Azure 監視器中的智慧型群組。
 1.  若要查看為警示執行個體建立的智慧型群組，您可以
-     1. 在 [警示摘要]  頁面上按一下 [智慧群組]     
+     1. 在 [警示摘要] 頁面上按一下 [智慧群組]    
     ![監視](./media/alerts-managing-smart-groups/sg-alerts-summary.jpg)
      2. 在 [所有警示] 頁面中按一下 [依智慧群組分類的警示]   
      ![監視](./media/alerts-managing-smart-groups/sg-all-alerts.jpg)

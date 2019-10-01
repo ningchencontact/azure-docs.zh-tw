@@ -8,14 +8,14 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.date: 11/19/2018
 ms.author: ramkris
-ms.openlocfilehash: d24481c1364b41f38e4ca7b8f7d726ebc22a1117
-ms.sourcegitcommit: 55e0c33b84f2579b7aad48a420a21141854bc9e3
+ms.openlocfilehash: 447f52a08c9e833808508852c4619f6ce1d947e1
+ms.sourcegitcommit: 6fe40d080bd1561286093b488609590ba355c261
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69624634"
+ms.lasthandoff: 10/01/2019
+ms.locfileid: "71703377"
 ---
-# <a name="net-bulk-executor-library-download-information"></a>.NET 大量執行程式程式庫:下載資訊 
+# <a name="net-bulk-executor-library-download-information"></a>.NET 大量執行程式程式庫：下載資訊 
 
 > [!div class="op_single_selector"]
 > * [.NET](sql-api-sdk-dotnet.md)
@@ -44,15 +44,15 @@ ms.locfileid: "69624634"
 
 ### <a name="a-name230-preview2230-preview2"></a><a name="2.3.0-preview2"/>2.3.0-preview2
 
-* 已新增圖形大量執行程式的支援, 以接受頂點和邊緣的 ttl
+* 已新增圖形大量執行程式的支援，以接受頂點和邊緣的 ttl
 
 ### <a name="a-name220-preview2220-preview2"></a><a name="2.2.0-preview2"/>2.2.0-preview2
 
-* 已修正問題, 這會在以閘道模式執行時, 于彈性調整 Azure Cosmos DB 時造成例外狀況。 此修正讓它在功能上相當於1.4.1 版本。
+* 已修正問題，這會在以閘道模式執行時，于彈性調整 Azure Cosmos DB 時造成例外狀況。 此修正讓它在功能上相當於1.4.1 版本。
 
 ### <a name="a-name210-preview2210-preview2"></a><a name="2.1.0-preview2"/>2.1.0-preview2
 
-* 已新增 SQL API 帳戶的 BulkDelete 支援, 以接受要刪除的資料分割索引鍵、檔識別碼元組。 這項變更使其在功能上相當於1.4.0 版本。
+* 已新增 SQL API 帳戶的 BulkDelete 支援，以接受要刪除的資料分割索引鍵、檔識別碼元組。 這項變更使其在功能上相當於1.4.0 版本。
 
 ### <a name="a-name200-preview2200-preview2"></a><a name="2.0.0-preview2"/>2.0.0-preview2
 
@@ -60,23 +60,29 @@ ms.locfileid: "69624634"
 
 ### <a name="a-name200-preview200-preview"></a><a name="2.0.0-preview"/>2.0.0-preview
 
-* 已將 .NET Standard 2.0 新增為其中一個支援的目標架構, 讓大量執行程式程式庫可與 .NET Core 應用程式搭配使用。
+* 已將 .NET Standard 2.0 新增為其中一個支援的目標架構，讓大量執行程式程式庫可與 .NET Core 應用程式搭配使用。
+
+### <a name="a-name182182"></a><a name="1.8.2"/>1.8.2
+
+* 已修正在某些情況下的高 CPU 耗用量。
+* 追蹤現在會使用 TraceSource。 使用者可以定義 `BulkExecutorTrace` 來源的接聽程式。
+* 已修正在傳送接近2Mb 大小的檔時，可能會造成鎖定的罕見案例。
 
 ### <a name="a-name160160"></a><a name="1.6.0"/>1.6.0
 
-* 已更新大量執行程式, 現在使用最新版的 Azure Cosmos DB .NET SDK (2.4.0)
+* 已更新大量執行程式，現在使用最新版的 Azure Cosmos DB .NET SDK （2.4.0）
 
 ### <a name="a-name150150"></a><a name="1.5.0"/>1.5.0
 
-* 已新增圖形大量執行程式的支援, 以接受頂點和邊緣的 ttl
+* 已新增圖形大量執行程式的支援，以接受頂點和邊緣的 ttl
 
 ### <a name="a-name141141"></a><a name="1.4.1"/>1.4.1
 
-* 已修正問題, 這會在以閘道模式執行時, 于彈性調整 Azure Cosmos DB 時造成例外狀況。
+* 已修正問題，這會在以閘道模式執行時，于彈性調整 Azure Cosmos DB 時造成例外狀況。
 
 ### <a name="a-name140140"></a><a name="1.4.0"/>1.4.0
 
-* 已新增 SQL API 帳戶的 BulkDelete 支援, 以接受要刪除的資料分割索引鍵、檔識別碼元組。
+* 已新增 SQL API 帳戶的 BulkDelete 支援，以接受要刪除的資料分割索引鍵、檔識別碼元組。
 
 ### <a name="a-name130130"></a><a name="1.3.0"/>1.3.0
 
@@ -84,7 +90,7 @@ ms.locfileid: "69624634"
 
 ### <a name="a-name120120"></a><a name="1.2.0"/>1.2.0
 
-* 改善大量執行程式的匯入和更新 Api, 以在儲存體超過目前的容量而不擲回例外狀況時, 以透明的方式調整 Cosmos 容器的彈性調整。
+* 改善大量執行程式的匯入和更新 Api，以在儲存體超過目前的容量而不擲回例外狀況時，以透明的方式調整 Cosmos 容器的彈性調整。
 
 ### <a name="a-name112112"></a><a name="1.1.2"/>1.1.2
 
@@ -92,7 +98,7 @@ ms.locfileid: "69624634"
 
 ### <a name="a-name111111"></a><a name="1.1.1"/>1.1.1
 
-* 已修正問題, 這會導致大量執行程式在匯入至固定集合時擲回 JSRT 錯誤。
+* 已修正問題，這會導致大量執行程式在匯入至固定集合時擲回 JSRT 錯誤。
 
 ### <a name="a-name110110"></a><a name="1.1.0"/>1.1.0
 
@@ -114,6 +120,6 @@ ms.locfileid: "69624634"
 
 ## <a name="next-steps"></a>後續步驟
 
-若要深入瞭解大量執行程式 JAVA 程式庫, 請參閱下列文章:
+若要深入瞭解大量執行程式 JAVA 程式庫，請參閱下列文章：
 
 [JAVA 大量執行程式程式庫 SDK 和發行資訊](sql-api-sdk-bulk-executor-java.md)

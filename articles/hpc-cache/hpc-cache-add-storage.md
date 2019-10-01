@@ -4,14 +4,14 @@ description: 如何定義儲存體目標，讓您的 Azure HPC 快取可以使�
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: conceptual
-ms.date: 09/24/2019
-ms.author: v-erkell
-ms.openlocfilehash: 7df0727a58f3d70289c5060175572dac1bbb4abb
-ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
+ms.date: 10/01/2019
+ms.author: rohogue
+ms.openlocfilehash: 302d727ede9604d11972eaa8f46a3e27f204858f
+ms.sourcegitcommit: d4c9821b31f5a12ab4cc60036fde00e7d8dc4421
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71300034"
+ms.lasthandoff: 10/01/2019
+ms.locfileid: "71710030"
 ---
 # <a name="add-storage-targets"></a>新增儲存體目標
 
@@ -21,17 +21,9 @@ ms.locfileid: "71300034"
 
 請記住，您必須能夠從快取的虛擬網路存取儲存體匯出。 針對內部部署硬體存放裝置，您可能需要設定可解析主機名稱以進行 NFS 儲存體存取的 DNS 伺服器。 如需詳細資訊，請參閱[DNS 存取](hpc-cache-prereqs.md#dns-access)。
 
-您可以在建立快取時或之後新增儲存體目標。 視您要新增 Azure Blob 儲存體或 NFS 匯出而定，此程式稍有不同。 每個的詳細資料如下。
+建立快取之後，新增儲存體目標。 視您要新增 Azure Blob 儲存體或 NFS 匯出而定，此程式稍有不同。 每個的詳細資料如下。
 
-## <a name="add-storage-targets-while-creating-the-cache"></a>在建立快取時新增儲存體目標
-
-使用 Azure HPC 快取建立嚮導的 [**儲存體目標**] 索引標籤，即可在建立快取實例時，同時定義儲存體。
-
-![儲存體目標頁面的螢幕擷取畫面](media/hpc-cache-storage-targets-pop.png)
-
-按一下 [**新增儲存體目標**] 連結以新增儲存體。
-
-## <a name="add-storage-targets-from-the-cache"></a>從快取新增儲存體目標
+## <a name="open-the-storage-targets-page"></a>開啟 [儲存體目標] 頁面
 
 在 Azure 入口網站中，開啟您的快取實例，然後按一下左側邊欄上的 [**儲存體目標**]。 [儲存體目標] 頁面會列出所有現有的目標，並提供連結以加入新的目標。
 
@@ -107,7 +99,7 @@ NFS 儲存體目標可以有多個虛擬路徑，前提是每個路徑都代表�
 建立一個儲存體目標的所有路徑。
 <!-- You can create multiple namespace paths to represent different exports on the same NFS storage system, but you must create them all from one storage target. -->
 
-針對每個命名空間路徑填入這些值： 
+針對每個命名空間路徑填入這些值：
 
 * **虛擬命名空間路徑**-設定此儲存體目標的面向用戶端檔案路徑。 請參閱[設定匯總命名空間](hpc-cache-namespace.md)，以深入瞭解虛擬命名空間功能。
 
@@ -115,7 +107,7 @@ NFS 儲存體目標可以有多個虛擬路徑，前提是每個路徑都代表�
 
 * **Nfs 匯出路徑**-輸入 nfs 匯出的路徑。
 
-* **子目錄路徑**-如果您想要掛接匯出的特定子目錄，請在這裡輸入。 如果不是，請將此欄位保留空白。 
+* **子目錄路徑**-如果您想要掛接匯出的特定子目錄，請在這裡輸入。 如果不是，請將此欄位保留空白。
 
 完成後，按一下 **[確定]** 以新增儲存體目標。
 
@@ -124,7 +116,7 @@ NFS 儲存體目標可以有多個虛擬路徑，前提是每個路徑都代表�
 
 當您建立指向 NFS 儲存體系統的儲存體目標時，您需要選擇該目標的*使用方式模型*。 此模型會決定資料的快取方式。
 
-* 大量讀取-如果您大多使用快取來加速資料讀取存取，請選擇此選項。 
+* 大量讀取-如果您大多使用快取來加速資料讀取存取，請選擇此選項。
 
 * 讀取/寫入-如果用戶端使用快取進行讀取和寫入，請選擇此選項。
 

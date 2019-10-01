@@ -6,15 +6,15 @@ author: barclayn
 manager: rkarlin
 ms.service: key-vault
 ms.topic: article
-ms.date: 09/23/2019
+ms.date: 09/30/2019
 ms.author: barclayn
 ms.custom: security-recommendations
-ms.openlocfilehash: 90965618b1d2cb126d56453d46a5bebc85319c0f
-ms.sourcegitcommit: 3fa4384af35c64f6674f40e0d4128e1274083487
+ms.openlocfilehash: deefbf049d5f8daa004db942f60ff5e31bda0fe8
+ms.sourcegitcommit: 8bae7afb0011a98e82cbd76c50bc9f08be9ebe06
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71219637"
+ms.lasthandoff: 10/01/2019
+ms.locfileid: "71695420"
 ---
 # <a name="security-recommendations-for-azure-key-vault"></a>Azure Key Vault 的安全性建議
 
@@ -25,16 +25,31 @@ ms.locfileid: "71219637"
 - 如需 Azure 資訊安全中心建議的詳細資訊，請參閱[Azure 資訊安全中心中的安全性建議](../security-center/security-center-recommendations.md)。
 - 如需 Azure 資訊安全中心的詳細資訊，請參閱[什麼是 Azure 資訊安全中心？](../security-center/security-center-intro.md)
 
-## <a name="recommendations"></a>建議
+## <a name="data-protection"></a>資料保護
 
-| Category | 建議 | 註解 | 資訊安全中心 |
-|-|-|----|--|
-| 資料保護 |啟用虛刪除 | 虛[刪除](key-vault-ovw-soft-delete.md)可讓您復原已刪除的保存庫和保存庫物件 |  - |
-| 資料保護 | 限制對保存庫資料的存取  | 遵循最低許可權的原則，並限制組織中有哪些成員可以存取保存庫資料 |  - |
-| 身分識別和存取管理 | 限制具有參與者存取權的使用者數目 | 如果使用者具有金鑰保存庫管理平面的參與者許可權，則使用者可以藉由設定 Key Vault 存取原則，授與自己對資料平面的存取權。 您應該嚴格控制誰擁有金鑰保存庫的「參與者」角色存取權。 請確定只有有權存取授權的人員才能存取和管理您的保存庫。 您可以讀取[金鑰保存庫的安全存取權](key-vault-secure-your-key-vault.md) | - |
-| 監視 | 應該啟用 Key Vault 中的診斷記錄 | 啟用記錄並保留最多一年。 這可讓您在發生安全性事件或網路遭到損害時，重新建立活動線索供調查之用。 | [是](../security-center/security-center-identity-access.md) |
-| 監視 | 限制誰可以存取您的 Azure 金鑰保存庫記錄 | [Key Vault 記錄](key-vault-logging.md)會儲存在您的保存庫上執行之活動的相關資訊，例如建立或刪除保存庫、金鑰、秘密，並可在調查期間使用。 |  - |
-| 網路功能 |限制網路暴露 | 網路存取應限制為需要保存庫存取之解決方案所使用的虛擬網路。 查看[Azure Key Vault 虛擬網路服務端點的](key-vault-overview-vnet-service-endpoints.md)相關資訊 | - |
+| 建議 | 註解 | 資訊安全中心 |
+|-|----|--|
+|啟用虛刪除 | 虛[刪除](key-vault-ovw-soft-delete.md)可讓您復原已刪除的保存庫和保存庫物件 |  - |
+| 限制對保存庫資料的存取  | 遵循最低許可權的原則，並限制組織中有哪些成員可以存取保存庫資料 |  - |
+
+## <a name="identity-and-access-management"></a>身分識別和存取管理
+
+| 建議 | 註解 | 資訊安全中心 |
+|-|----|--|
+| 限制具有參與者存取權的使用者數目 | 如果使用者具有金鑰保存庫管理平面的參與者許可權，則使用者可以藉由設定 Key Vault 存取原則，授與自己對資料平面的存取權。 您應該嚴格控制誰擁有金鑰保存庫的「參與者」角色存取權。 請確定只有有權存取授權的人員才能存取和管理您的保存庫。 您可以讀取[金鑰保存庫的安全存取權](key-vault-secure-your-key-vault.md) | - |
+
+## <a name="monitoring"></a>監視
+
+| 建議 | 註解 | 資訊安全中心 |
+|-|----|--|
+ 應該啟用 Key Vault 中的診斷記錄 | 啟用記錄並保留最多一年。 這可讓您在發生安全性事件或網路遭到損害時，重新建立活動線索供調查之用。 | [是](../security-center/security-center-identity-access.md) |
+| 限制誰可以存取您的 Azure 金鑰保存庫記錄 | [Key Vault 記錄](key-vault-logging.md)會儲存在您的保存庫上執行之活動的相關資訊，例如建立或刪除保存庫、金鑰、秘密，並可在調查期間使用。 |  - |
+
+## <a name="networking"></a>網路功能
+
+| 建議 | 註解 | 資訊安全中心 |
+|-|----|--|
+|限制網路暴露 | 網路存取應限制為需要保存庫存取之解決方案所使用的虛擬網路。 查看[Azure Key Vault 虛擬網路服務端點的](key-vault-overview-vnet-service-endpoints.md)相關資訊 | - |
 
 ## <a name="next-steps"></a>後續步驟
 

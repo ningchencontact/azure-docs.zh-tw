@@ -13,25 +13,25 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/19/2018
 ms.author: bwren
-ms.openlocfilehash: dacc4179483de5d5ef8a05fd836e4241c161deac
-ms.sourcegitcommit: d060947aae93728169b035fd54beef044dbe9480
+ms.openlocfilehash: e2f195f648f08c31fbfe44543ee763aeed7459f0
+ms.sourcegitcommit: 6fe40d080bd1561286093b488609590ba355c261
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/02/2019
-ms.locfileid: "68741271"
+ms.lasthandoff: 10/01/2019
+ms.locfileid: "71702975"
 ---
 # <a name="alert-management-solution-in-azure-log-analytics"></a>Azure Log Analytics 中的警示管理方案
 
 ![Alert Management icon](media/alert-management-solution/icon.png)
 
 > [!NOTE]
->  Azure 監視器現在支援[大規模管理警示](https://aka.ms/azure-alerts-overview)的增強功能，包括由[監視工具 (例如 SCOM、Zabbix 或 Nagios)](https://aka.ms/managing-alerts-other-monitoring-services) 所產生的警示。
+>  Azure 監視器現在支援[大規模管理警示](https://aka.ms/azure-alerts-overview)的增強功能，包括[System Center Operations Manager、Zabbix 或 Nagios 等監視工具](https://aka.ms/managing-alerts-other-monitoring-services)所產生的功能。
 >  
 
 
 警示管理解決方案可協助您分析 Log Analytics 儲存機制中的所有警示。  這些警示可能來自各種來源，包括[由 Log Analytics 所建立](../../azure-monitor/platform/alerts-overview.md)或[從 Nagios 或 Zabbix 匯入](../../azure-monitor/learn/quick-collect-linux-computer.md)的來源。 此解決方案也會從所有[連線的 System Center Operations Manager 管理群組](../../azure-monitor/platform/om-agents.md)匯入警示。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 此解決方案將會使用 Log Analytics 中類型為**警示**的所有記錄，因此您必須執行收集這些記錄所需的所有設定。
 
 - 針對 Log Analytics 警示，[建立警示規則](../../azure-monitor/platform/alerts-overview.md)，以直接在儲存機制中建立警示記錄。
@@ -74,7 +74,7 @@ ms.locfileid: "68741271"
 |:--- |:--- |
 | 重大警示 |嚴重性為「重大」的所有警示 (依警示名稱分組)。  按一下警示名稱來執行記錄搜尋，以傳回該警示的所有記錄。 |
 | 警告警示 |嚴重性為「警告」的所有警示 (依警示名稱分組)。  按一下警示名稱來執行記錄搜尋，以傳回該警示的所有記錄。 |
-| 尚未解決的 SCOM 警示 |來自 Operations Manager 且狀態不為 [已關閉] 的所有警示，並依產生此警示的來源分組。 |
+| 作用中 System Center Operations Manager 警示 |來自 Operations Manager 且狀態不為 [已關閉] 的所有警示，並依產生此警示的來源分組。 |
 | 所有作用中警示 |具有任何嚴重性的所有警示 (依警示名稱分組)。 只包含 [已關閉] 以外任何狀態的 Operations Manager 警示。 |
 
 如果您向右捲動，儀表板會列出數個常見的查詢，按一下即可執行警示資料的[記錄搜尋](../../azure-monitor/log-query/log-query-overview.md)。
@@ -87,7 +87,7 @@ ms.locfileid: "68741271"
 
 解決方案會從 System Center Operations Manager 匯入警示，並針對類型為**警示**且 SourceSystem 為 **OpsManager** 的每個警示建立對應的記錄。  這些記錄具有下表中的屬性：  
 
-| 內容 | 描述 |
+| 屬性 | 描述 |
 |:--- |:--- |
 | `Type` |*警示* |
 | `SourceSystem` |*OpsManager* |
@@ -117,11 +117,11 @@ ms.locfileid: "68741271"
 |:---|:---|
 | Alert &#124; where SourceSystem == "OpsManager" and AlertSeverity == "error" and TimeRaised > ago(24h) |過去 24 小時期間引發的重大警示 |
 | Alert &#124; where AlertSeverity == "warning" and TimeRaised > ago(24h) |過去 24 小時期間引發的警告警示 |
-| Alert &#124; where SourceSystem == "OpsManager" and AlertState != "Closed" and TimeRaised > ago(24h) &#124; summarize Count = count() by SourceDisplayName |過去 24 小時內所引發作用中警示的來源 |
+| Alert &#124; where SourceSystem == "OpsManager" and AlertState != "Closed" and TimeRaised > ago(24h) &#124; summarize Count = count() by SourceDisplayName |來源和過去 24 小時期間引發的作用中警示 |
 | Alert &#124; where SourceSystem == "OpsManager" and AlertSeverity == "error" and TimeRaised > ago(24h) and AlertState != "Closed" |過去 24 小時期間引發的重大且仍在作用中的警示 |
 | Alert &#124; where SourceSystem == "OpsManager" and TimeRaised > ago(24h) and AlertState == "Closed" |過去 24 小時期間引發但現在已關閉的警示 |
-| Alert &#124; where SourceSystem == "OpsManager" and TimeRaised > ago(1d) &#124; summarize Count = count() by AlertSeverity |過去 1 天內引發的警示，並依其嚴重性分組 |
-| Alert &#124; where SourceSystem == "OpsManager" and TimeRaised > ago(1d) &#124; sort by RepeatCount desc |過去 1 天內引發的警示，並依其重複次數值排序 |
+| Alert &#124; where SourceSystem == "OpsManager" and TimeRaised > ago(1d) &#124; summarize Count = count() by AlertSeverity |過去 1 天期間引發的警示 (依嚴重性分組) |
+| Alert &#124; where SourceSystem == "OpsManager" and TimeRaised > ago(1d) &#124; sort by RepeatCount desc |過去 1 天期間引發的警示 (依重複計數值排序) |
 
 
 

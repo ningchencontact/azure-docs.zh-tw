@@ -244,7 +244,7 @@
             - name: 在 Azure 入口網站中建立知識存放區
               href: knowledge-store-create-portal.md
             - name: 使用 REST 和 Postman 建立
-              href: knowledge-store-howto.md
+              href: knowledge-store-create-rest.md
             - name: 以儲存體總管檢視
               href: knowledge-store-view-storage-explorer.md
             - name: 使用 Power BI 進行連接

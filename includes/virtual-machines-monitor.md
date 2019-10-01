@@ -2,16 +2,18 @@
 author: cynthn
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 01/27/2019
+ms.date: 09/30/2019
 ms.author: cynthn
-ms.openlocfilehash: 11c9b2ea3ea054415f25f864651df28288aa0025
-ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.openlocfilehash: 93a2554b5d3cc24e1b5fc1e3d0f18ed1bfe0579c
+ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71266835"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71692025"
 ---
-您可以利用許多機會，藉由收集、檢視及分析診斷和記錄資料來監視 VM。 若要執行簡單的 VM [監視](../articles/azure-monitor/overview.md)，您可以在 Azure 入口網站中使用 VM 的 [概觀] 畫面。 您可以使用[擴充功能](../articles/virtual-machines/windows/extensions-features.md)來設定 VM 診斷，以收集其他計量資料。 您也可以使用更進階的監視選項，例如 [Application Insights](../articles/azure-monitor/app/app-insights-overview.md) 和 [Log Analytics](../articles/azure-monitor/log-query/log-query-overview.md)。
+隨著裝載于 Azure 中的 Vm 大幅成長，請務必找出影響應用程式和支援的基礎結構服務的效能和健康情況問題。 根據預設，基本監視會根據計量類型 [CPU 使用量]、[磁片使用量]、[記憶體使用率] 和主機程式管理器所收集的網路流量，以提供 Azure。 您可以使用[擴充](../articles/virtual-machines/windows/extensions-features.md)功能來收集其他計量和記錄檔資料，以在您的 vm 上設定來自客體作業系統的診斷。
+
+若要偵測並協助診斷在 VM 內執行的客體作業系統、.NET 型或 JAVA web 應用程式元件的效能和健全狀況問題，Azure 監視器以完整的功能（例如適用於 VM 的 Azure 監視器）提供集中式監視和 Application Insights。
 
 ## <a name="diagnostics-and-metrics"></a>診斷和計量 
 
@@ -27,11 +29,11 @@ ms.locfileid: "71266835"
 
 - **啟用客體 OS 診斷資料的收集。** 當您建立 VM 時，您有機會在 [設定] 畫面上啟用客體 OS 診斷。 當您啟用診斷資料的收集時，[適用於 Linux 的 IaaSDiagnostics 擴充功能](../articles/virtual-machines/linux/diagnostic-extension.md)或[適用於 Windows 的 IaaSDiagnostics 擴充功能](../articles/virtual-machines/windows/ps-extensions-diagnostics.md)會新增至 VM，以便您收集其他磁碟、CPU 和記憶體資料。
 
-    使用所收集的診斷資料，即可設定 VM 的自動調整。 您也可以設定記錄來儲存資料及設定警示，讓您知道效能何時不太理想。
+    使用所收集的診斷資料，即可設定 VM 的自動調整。 您也可以設定[Azure 監視器記錄](../articles/azure-monitor/platform/data-platform-logs.md)來儲存資料，並設定警示，讓您知道效能不是正確的時機。
 
 ## <a name="alerts"></a>警示
 
-您可以根據特定效能計量來建立[警示](../articles/azure-monitor/platform/alerts-overview.md)。 舉例來說，當平均 CPU 使用量超過特定臨界值，或可用的磁碟空間低於特定數量時，您即可接獲問題的警示。 您可以使用 [Azure PowerShell](../articles/azure-monitor/platform/alerts-classic-portal.md#with-powershell) 或 [Azure CLI](../articles/azure-monitor/platform/alerts-classic-portal.md#with-azure-cli)，在 [Azure 入口網站](../articles/azure-monitor/platform/alerts-classic-portal.md)中設定警示。
+您可以根據特定效能計量來建立[警示](../articles/azure-monitor/platform/alerts-overview.md)。 舉例來說，當平均 CPU 使用量超過特定臨界值，或可用的磁碟空間低於特定數量時，您即可接獲問題的警示。 您可以使用[Azure Resource Manager 範本](../articles/azure-monitor/platform/alerts-metric-create-templates.md)或[Azure CLI](../articles/azure-monitor/platform/alerts-metric.md#with-azure-cli)，在[Azure 入口網站](../articles/azure-monitor/platform/alerts-metric.md#create-with-azure-portal)中設定警示。
 
 ## <a name="azure-service-health"></a>Azure 服務健康狀態
 
@@ -48,8 +50,8 @@ ms.locfileid: "71266835"
 您可以利用活動記錄進行的事項包括：
 
 - [根據活動記錄事件建立警示](../articles/azure-monitor/platform/activity-logs-overview.md)。
-- [將活動記錄串流至事件中樞](../articles/azure-monitor/platform/activity-logs-stream-event-hubs.md)，以供第三方服務或自訂的分析解決方案 (如 PowerBI) 擷取。
-- 使用 [PowerBI 內容套件](https://powerbi.microsoft.com/documentation/powerbi-content-pack-azure-audit-logs/)在 PowerBI 中進行分析。
+- 將[它串流至事件中樞](../articles/azure-monitor/platform/activity-logs-stream-event-hubs.md)，以供協力廠商服務或自訂分析解決方案（例如 Power BI）進行內嵌。
+- 使用[Power BI 內容套件](https://powerbi.microsoft.com/documentation/powerbi-content-pack-azure-audit-logs/)，在 Power BI 中分析它。
 - [將活動記錄儲存到儲存體帳戶](../articles/azure-monitor/platform/archive-activity-log.md)，以供封存或手動檢查。 您可以使用記錄設定檔來指定保留時間 (以天為單位)。
 
 您也可以使用 [Azure PowerShell](https://docs.microsoft.com/powershell/module/azurerm.insights/)、[Azure CLI](https://docs.microsoft.com/cli/azure/monitor) 或[監視器 REST API](https://docs.microsoft.com/rest/api/monitor/)，存取活動記錄資料。
@@ -59,19 +61,17 @@ ms.locfileid: "71266835"
 您可以利用診斷記錄進行的事項包括：
 
 - [將診斷記錄儲存到儲存體帳戶](../articles/azure-monitor/platform/archive-diagnostic-logs.md)以利稽核或手動檢查。 您可以使用 [資源診斷設定] 來指定保留時間 (以天為單位)。
-- [將診斷記錄串流至事件中樞](../articles/azure-monitor/platform/resource-logs-stream-event-hubs.md)，以供第三方服務或自訂的分析解決方案 (如 PowerBI) 擷取。
+- [將它們串流至事件中樞](../articles/azure-monitor/platform/resource-logs-stream-event-hubs.md)，以供協力廠商服務或自訂分析解決方案（例如 Power BI）進行內嵌。
 - 使用 [Log Analytics](../articles/log-analytics/log-analytics-azure-storage.md) 分析診斷記錄。
 
 ## <a name="advanced-monitoring"></a>進階監視
 
-- [Azure 監視器](../articles/azure-monitor/overview.md)是一項服務，可監視您的雲端和內部部署環境，以維護其可用性和效能。 它可提供全方位解決方案，以便收集、分析及處理來自雲端和內部部署環境的遙測資料。 它可協助您了解您的應用程式表現如何，並主動識別影響它們的問題以及它們所依賴的資源。 您可以在安裝 Log Analytics 代理程式的 [Linux VM](../articles/virtual-machines/linux/extensions-oms.md) 或 [Windows VM](../articles/virtual-machines/windows/extensions-oms.md) 上安裝擴充功能，以收集記錄資料並儲存在 Log Analytics 工作區中。
+如需 Azure VM 和虛擬機器擴展集所支援的應用程式或服務的可見度，請識別在 VM 中執行之虛擬作業系統或工作負載的問題，以瞭解其是否會影響應用程式的可用性或效能，或是應用程式發生問題時，請同時啟用[適用於 VM 的 Azure 監視器](../articles/azure-monitor/insights/vminsights-overview.md)和[Application Insights](../articles/azure-monitor/app/app-insights-overview.md)。
 
-    針對 Windows 和 Linux VM，收集記錄的建議方式是安裝 Log Analytics 代理程式。 在 VM 上安裝 Log Analytics 代理程式的最簡單方式是透過 [Log Analytics VM 擴充功能](../articles/log-analytics/log-analytics-azure-vm-extension.md)。 使用擴充可以簡化安裝程序，並自動設定代理程式將資料傳送到您指定的 Log Analytics 工作區。 代理程式也會自動升級，以確保您擁有最新的功能和修正程式。
-
-- [網路監看員](../articles/network-watcher/network-watcher-monitoring-overview.md)可讓您監視 VM 及其相關聯的資源，因為這些資源與其所在的網路相關。 您可以將網路監看員代理程式擴充功能安裝於 [Linux VM](../articles/virtual-machines/linux/extensions-nwa.md) 或 [Windows VM](../articles/virtual-machines/windows/extensions-nwa.md) 上。
-
-- [適用於 VM 的 Azure 監視器](../articles/azure-monitor/insights/vminsights-overview.md)可藉由分析 Windows 和 Linux VM 的效能和健康情況 (包括其不同的程序以及其他資源和外部程序的互連相依性)，大規模監視 Azure 虛擬機器 (VM)。 
+適用於 VM 的 Azure 監視器藉由分析 Windows 和 Linux Vm 的效能和健康情況，以大規模監視您的 Azure 虛擬機器（VM），包括其他資源和外部進程的不同進程和相互關聯的相依性會探索. 其中包含數個趨勢效能圖表，可協助調查問題及評估 Vm 的容量。 相依性對應會顯示監視和未受監控的電腦、進程與這些電腦之間的失敗和作用中網路連線，並顯示具有標準網路連線計量的趨勢圖表。 與 Application Insights 結合，您可以監視應用程式並捕捉遙測資料，例如 HTTP 要求、例外狀況等等，讓您可以將 Vm 與應用程式之間的問題相互關聯。 設定[Azure 監視器警示](../articles/azure-monitor/platform/alerts-overview.md)，以在從適用於 VM 的 Azure 監視器所收集的監視資料中偵測到的重要條件發出警示。
 
 ## <a name="next-steps"></a>後續步驟
+
 - 逐步執行[使用 Azure PowerShell 監視 Windows 虛擬機器](../articles/virtual-machines/windows/tutorial-monitoring.md)或[使用 Azure CLI 監視 Linux 虛擬機器](../articles/virtual-machines/linux/tutorial-monitoring.md)中的步驟。
+
 - 深入了解[監視和診斷](https://docs.microsoft.com/azure/architecture/best-practices/monitoring)的最佳做法。

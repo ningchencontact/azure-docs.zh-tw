@@ -5,14 +5,14 @@ services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: conceptual
-ms.date: 05/22/2019
+ms.date: 09/30/2019
 ms.author: cherylmc
-ms.openlocfilehash: f286c02e0eb6e801f62d4f2e16f1197a1e9d44ce
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 72493f084b89d41c1e0d6ff60c35afa3491b0eda
+ms.sourcegitcommit: 6fe40d080bd1561286093b488609590ba355c261
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66304560"
+ms.lasthandoff: 10/01/2019
+ms.locfileid: "71703449"
 ---
 # <a name="virtual-wan-partners"></a>虛擬 WAN 夥伴
 
@@ -36,9 +36,10 @@ ms.locfileid: "66304560"
   1. 一般來說，虛擬 WAN 使用者將從建立虛擬 WAN 資源開始這個程序。
   2. 使用者會為內部部署系統 (您的分支控制器或 VPN 裝置佈建軟體) 設定以服務主體為基礎的資源群組，以將分支資訊寫入 Azure 虛擬 WAN。
   3. 使用者可在此時決定登入您的 UI 和設定服務主體認證。 完成後，控制器應該就能透過您將提供的自動化來上傳分支資訊。 在 Azure 端與此對等的手動操作是「建立網站」。
-  4. 一旦 Azure 可以提供網站 (分支裝置) 資訊之後，使用者即可將網站關聯到中樞。 虛擬中樞是受 Microsoft 管理的虛擬網路。 中樞包含不同的服務端點，可啟用您內部部署網路 (vpnsite) 中的連線。 中樞是您在區域中的網路核心。 每個 Azure 區域只能有一個中樞，它內部的 VPN 端點 (vpngateway) 會在這個程序期間建立。 VPN 閘道是可調整規模的閘道，其大小是根據頻寬和連線需求來調整。 您可以選擇從分支裝置控制器儀表板自動化虛擬中樞和 vpngateway 的建立程序。
+  4. 一旦 Azure 中有網站（分支裝置）資訊，使用者就會將該網站連線到中樞。 虛擬中樞是受 Microsoft 管理的虛擬網路。 中樞包含不同的服務端點，可啟用您內部部署網路 (vpnsite) 中的連線。 中樞是您在區域中的網路核心。 每個 Azure 區域只能有一個中樞，它內部的 VPN 端點 (vpngateway) 會在這個程序期間建立。 VPN 閘道是可調整規模的閘道，其大小是根據頻寬和連線需求來調整。 您可以選擇從分支裝置控制器儀表板自動化虛擬中樞和 vpngateway 的建立程序。
   5. 虛擬中樞與網站相關聯之後，會為使用者產生一個設定檔，供他們手動下載。 此時自動化程序即可發揮作用，讓使用者的體驗變得順暢。 使用者不用手動下載和設定分支裝置，而是由您設定自動化程序，在 UI 上為他們提供最少步驟的點選體驗，因此減少了像是共用金鑰不相符、IPSec 參數不相符、設定檔可讀性等等這些常見的連線問題。
   6. 解決方案中這個步驟接近完成時，使用者將會擁有在分支裝置與虛擬中樞順暢建立站對站連線的體驗。 您也可以對其他中樞設定額外的連線。 每個連線是主動-主動通道。 您的客戶可以選擇針對每個通道的連結使用不同的 ISP。
+  7. 請考慮在 CPE 管理介面中提供疑難排解和監視功能。 一般案例包括「客戶無法存取 Azure 資源，因為 CPE 問題」、「在 CPE 端顯示 IPsec 參數」等等。
 
 ## <a name ="understand"></a>了解自動化詳細資料
 
@@ -64,7 +65,7 @@ ms.locfileid: "66304560"
 **設定注意事項**
 
   * 如果 Azure VNet 是附加到虛擬中樞，便會顯示為 ConnectedSubnets。
-  * VPN 連線使用路由型設定和 IKEv2/IKEv1。
+  * VPN 連線會使用路由式設定，並同時支援 IKEv1 和 IKEv2 通訊協定。
 
 #### <a name="understanding-the-device-configuration-file"></a>了解裝置設定檔
 

@@ -9,17 +9,17 @@ ms.author: deli
 ms.reviewer: klam, LADocs
 ms.topic: article
 ms.date: 09/23/2019
-ms.openlocfilehash: 6b80cbd16ac78f7f347bef9ab8e22c4d67d31058
-ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
+ms.openlocfilehash: 73aa641fc4bb01ef3d06820ecd18b61197ab81e7
+ms.sourcegitcommit: 8bae7afb0011a98e82cbd76c50bc9f08be9ebe06
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71301036"
+ms.lasthandoff: 10/01/2019
+ms.locfileid: "71695490"
 ---
 # <a name="migrate-azure-scheduler-jobs-to-azure-logic-apps"></a>將 Azure 排程器作業移轉至 Azure Logic Apps
 
 > [!IMPORTANT]
-> [Azure Logic Apps](../logic-apps/logic-apps-overview.md)會取代即將[淘汰](#retire-date)的 Azure 排程器。 若要繼續使用您在排程器中設定的作業，請遵循這篇文章，儘快移至 Azure Logic Apps。
+> [Azure Logic Apps](../logic-apps/logic-apps-overview.md)會取代即將[淘汰](#retire-date)的 Azure 排程器。 若要繼續使用您在排程器中設定的作業，請遵循這篇文章，儘快移至 Azure Logic Apps。 
 
 本文說明如何使用 Azure Logic Apps 而非 Azure 排程器來建立自動化工作流程，藉以排程單次和週期性作業。 當您使用 Logic Apps 建立排程作業時，您會獲得下列權益：
 
@@ -38,6 +38,10 @@ ms.locfileid: "71301036"
 * Azure 訂用帳戶。 如果您沒有 Azure 訂用帳戶，請先[註冊免費的 Azure 帳戶](https://azure.microsoft.com/free/)。
 
 * 若要藉由傳送 HTTP 要求來觸發邏輯應用程式，請使用 [Postman 桌面應用程式](https://www.getpostman.com/apps) \(英文\) 之類的工具。
+
+## <a name="migrate-by-using-a-script"></a>使用腳本進行遷移
+
+每個排程器工作都是唯一的，因此沒有任何適用于將排程器作業遷移至 Azure Logic Apps 的一體適合工具。 不過，您可以[編輯此腳本](https://github.com/Azure/logicapps/tree/master/scripts/scheduler-migration)以符合您的需求。
 
 ## <a name="schedule-one-time-jobs"></a>排程單次作業
 
@@ -203,7 +207,7 @@ ms.locfileid: "71301036"
 **答**：最佳做法是一律備份您的工作。 請先檢查您所建立的邏輯應用程式均如預期般執行，然後再刪除或停用排程器作業。 
 
 **問**：是否有可協助我將作業從排程器遷移至 Logic Apps 的工具？ <br>
-**答**：每個排程器工作都是唯一的, 因此不會有一種大小合適的工具。 不過，有各種指令碼可讓您針對需求進行修改。 如需指令碼可用性，請稍後再回來查看。
+**答**：每個排程器工作都是唯一的, 因此不會有一種大小合適的工具。 不過，根據您的需求，您可以[編輯此腳本，將 Azure 排程器作業遷移至 Azure Logic Apps](https://github.com/Azure/logicapps/tree/master/scripts/scheduler-migration)。
 
 **問**：我可以在何處取得遷移排程器工作的支援？ <br>
 **答**：以下是取得支援的一些方法: 

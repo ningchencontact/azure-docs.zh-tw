@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 05/31/2019
+ms.date: 09/30/2019
 ms.author: genli
-ms.openlocfilehash: 0a32f9a9fde0983a5b97f7342a111d40ef01c686
-ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
+ms.openlocfilehash: cfa95f2aab5ba270aea0a36b037ae293b36c7b28
+ms.sourcegitcommit: 8bae7afb0011a98e82cbd76c50bc9f08be9ebe06
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71104810"
+ms.lasthandoff: 10/01/2019
+ms.locfileid: "71695532"
 ---
 # <a name="troubleshooting-azure-point-to-site-connection-problems"></a>疑難排解：點對站連線問題
 
@@ -84,7 +84,7 @@ Windows 10 和 Server 2016 都支援 IKEv2。 不過，若要使用 IKEv2，您�
    | Windows 10 版本 1709 | 2018 年 3 月 22 日 | [KB4089848](https://www.catalog.update.microsoft.com/search.aspx?q=kb4089848) |
    |  |  |  |  |
 
-2. 設定登錄機碼值。 在登錄中`HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\RasMan\ IKEv2\DisableCertReqPayload`建立或設定 REG_DWORD 金鑰1。
+2. 設定登錄機碼值。 在登錄中建立或設定 `HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\RasMan\ IKEv2\DisableCertReqPayload` REG_DWORD 金鑰為1。
 
 ## <a name="vpn-client-error-the-message-received-was-unexpected-or-badly-formatted"></a>VPN 用戶端錯誤：接收到的訊息超出預期或格式不正確
 
@@ -250,32 +250,6 @@ VPN 閘道類型必須是 **VPN**，且 VPN 類型必須是 **RouteBased**。
 ## <a name="too-many-vpn-clients-connected-at-once"></a>一次有太多 VPN 用戶端連線
 
 已達允許的連線數目上限。 您可以在 Azure 入口網站中查看已連線的用戶端總數。
-
-## <a name="point-to-site-vpn-incorrectly-adds-a-route-for-100008-to-the-route-table"></a>點對站 VPN 錯誤地將 10.0.0.0/8 的路由新增到路由表
-
-### <a name="symptom"></a>徵兆
-
-當您撥接點對站用戶端上的 VPN 連線時，VPN 用戶端應該新增朝向 Azure 虛擬網路的路由。 IP 協助程式服務應該針對 VPN 用戶端的子網路新增路由。 
-
-VPN 用戶端範圍屬於 10.0.0.0/8 的較小子網路，例如 10.0.12.0/24。 系統會新增較高優先順序的 10.0.0.0/8 路由，而不是 10.0.12.0/24 的路由。 
-
-這個錯誤的路由會破壞與其他可能屬於 10.0.0.0/8 範圍內另一個子網路 (例如，未定義特定路由的 10.50.0.0/24) 之內部部署網路的連線。 
-
-### <a name="cause"></a>原因
-
-這是針對 Windows 用戶端設計的行為。 當用戶端使用 PPP IPCP 通訊協定時，其會從伺服器 (在此例中為 VPN 閘道) 取得通道介面的 IP 位址。 不過，由於通訊協定中的限制緣故，因此用戶端並沒有子網路遮罩。 因為沒有任何其他方式可取得此遮罩，所以用戶端會嘗試根據通道介面 IP 位址的類別來猜測子網路遮罩。 
-
-因此，會根據下列靜態對應新增路由： 
-
-如果位址屬於類別 A --> 套用 /8
-
-如果位址屬於類別 B --> 套用 /16
-
-如果位址屬於類別 C --> 套用 /24
-
-### <a name="solution"></a>方案
-
-將其他網路路由插入到路由表 (具有最長相符前置詞，或計量比點對站低 (因此優先順序較高))。 
 
 ## <a name="vpn-client-cannot-access-network-file-shares"></a>VPN 用戶端無法存取網路檔案共用
 

@@ -11,12 +11,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: sstein, carlrab
 ms.date: 07/16/2019
-ms.openlocfilehash: 8b2147ead7c1a6226b68588b9d0dab53da954bf2
-ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
+ms.openlocfilehash: 7ae3eb74b0d0c3f0bd6124362608e14555179697
+ms.sourcegitcommit: d4c9821b31f5a12ab4cc60036fde00e7d8dc4421
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/30/2019
-ms.locfileid: "71676950"
+ms.lasthandoff: 10/01/2019
+ms.locfileid: "71710156"
 ---
 # <a name="sql-database-managed-instance-frequently-asked-questions-faq"></a>SQL Database 受控實例的常見問題 (FAQ)
 
@@ -76,7 +76,7 @@ ms.locfileid: "71676950"
 
 ## <a name="can-i-switch-my-managed-instance-hardware-generation-between-gen-4-and-gen-5-online"></a>我可以在第4代和第5代連線之間切換受控實例的硬體世代嗎？ 
 
-如果您的受控實例布建所在的區域中有兩個硬體世代可供使用, 則可以在硬體世代之間進行自動線上切換。 在此情況下, 您可以在 Azure 入口網站的 定價層 區段中選擇, 以在硬體世代之間切換。
+如果您的受控實例布建所在的區域中有兩個硬體世代可供使用, 則可以在硬體世代之間進行自動線上切換。 在此情況下，您可以使用[來自 blog 文章的腳本](https://techcommunity.microsoft.com/t5/Azure-SQL-Database/Change-hardware-generation-on-Managed-Instance/ba-p/699824)，說明如何在硬體層代之間切換。
 
 這是長時間執行的作業, 因為新的受控實例將會在背景中布建, 且資料庫會在程式結束時, 自動在舊實例和新實例之間傳輸, 並進行快速容錯移轉。 
 

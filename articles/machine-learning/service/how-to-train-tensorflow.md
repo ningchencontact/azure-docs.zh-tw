@@ -10,12 +10,12 @@ ms.author: maxluk
 author: maxluk
 ms.date: 08/20/2019
 ms.custom: seodec18
-ms.openlocfilehash: 52c675369fa70d1b1113f34b9b0dda2126547e0a
-ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
+ms.openlocfilehash: 3b8f213bd614e4adce74b83c87649a0f248cba7b
+ms.sourcegitcommit: d4c9821b31f5a12ab4cc60036fde00e7d8dc4421
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/15/2019
-ms.locfileid: "71002510"
+ms.lasthandoff: 10/01/2019
+ms.locfileid: "71710097"
 ---
 # <a name="build-a-tensorflow-deep-learning-model-at-scale-with-azure-machine-learning"></a>使用 Azure Machine Learning，大規模建立 TensorFlow 深度學習模型
 
@@ -32,7 +32,7 @@ ms.locfileid: "71002510"
  - Azure Machine Learning 筆記本 VM-不需要下載或安裝
 
      - 完成[教學課程：設定環境和工作](tutorial-1st-experiment-sdk-setup.md)區，以建立預先載入 SDK 和範例存放庫的專用筆記本伺服器。
-    - 在筆記本伺服器上的範例深入學習資料夾中，流覽至此目錄以尋找已完成和已展開的筆記本：**使用方法 > 訓練-具有深度學習 > 訓練-超參數-微調-部署-搭配-tensorflow**folder. 
+    - 在筆記本伺服器上的範例深入學習資料夾中，流覽至此目錄以尋找已完成和已展開的筆記本：**使用方法-azureml > ml 架構 > tensorflow > 部署 >定型-超參數-tensorflow**資料夾。 
  
  - 您自己的 Jupyter Notebook 伺服器
 
@@ -40,7 +40,7 @@ ms.locfileid: "71002510"
     - [建立工作區設定檔](how-to-configure-environment.md#workspace)。
     - [下載範例腳本](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/training-with-deep-learning/train-hyperparameter-tune-deploy-with-tensorflow)檔案`mnist-tf.py`和`utils.py`
      
-    您也可以在 GitHub 範例頁面上找到本指南的完整[Jupyter Notebook 版本](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training-with-deep-learning/train-hyperparameter-tune-deploy-with-tensorflow/train-hyperparameter-tune-deploy-with-tensorflow.ipynb)。 此筆記本包含擴充的章節，涵蓋智慧型超參數微調、模型部署和筆記本 widget。
+    您也可以在 GitHub 範例頁面上找到本指南的完整[Jupyter Notebook 版本](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/ml-frameworks/tensorflow/deployment/train-hyperparameter-tune-deploy-with-tensorflow/train-hyperparameter-tune-deploy-with-tensorflow.ipynb)。 此筆記本包含擴充的章節，涵蓋智慧型超參數微調、模型部署和筆記本 widget。
 
 ## <a name="set-up-the-experiment"></a>設定實驗
 
@@ -84,34 +84,33 @@ os.makedirs(script_folder, exist_ok=True)
 exp = Experiment(workspace=ws, name='tf-mnist')
 ```
 
-### <a name="upload-dataset-and-scripts"></a>上傳資料集和腳本
+### <a name="create-a-file-dataset"></a>建立檔案資料集
 
-[資料存放區](how-to-access-data.md)是一種位置, 可以藉由將資料掛接或複製到計算目標, 來儲存和存取資料。 每個工作區都會提供預設資料存放區。 將資料和定型腳本上傳到資料存放區，以便在定型期間輕鬆地存取它們。
+`FileDataset` 物件會參考您工作區資料存放區中的一個或多個檔案或公用 URL。 檔案可以是任何格式，而類別可讓您將檔案下載或掛接至您的計算。 您可以藉由建立 `FileDataset` 來建立來源位置的參考。 如果您對資料集套用任何轉換，這些轉換也會儲存在資料集中。 資料會保留在現有的位置，因此不會產生額外的儲存成本。 如需詳細資訊，請參閱 `Dataset` 套件上的[操作](https://docs.microsoft.com/azure/machine-learning/service/how-to-create-register-datasets)指南。
 
-1. 在本機下載 MNIST 資料集。
+```python
+from azureml.core.dataset import Dataset
 
-    ```Python
-    os.makedirs('./data/mnist', exist_ok=True)
+web_paths = [
+            'http://yann.lecun.com/exdb/mnist/train-images-idx3-ubyte.gz',
+            'http://yann.lecun.com/exdb/mnist/train-labels-idx1-ubyte.gz',
+            'http://yann.lecun.com/exdb/mnist/t10k-images-idx3-ubyte.gz',
+            'http://yann.lecun.com/exdb/mnist/t10k-labels-idx1-ubyte.gz'
+            ]
+dataset = Dataset.File.from_files(path=web_paths)
+```
 
-    urllib.request.urlretrieve('http://yann.lecun.com/exdb/mnist/train-images-idx3-ubyte.gz', filename = './data/mnist/train-images.gz')
-    urllib.request.urlretrieve('http://yann.lecun.com/exdb/mnist/train-labels-idx1-ubyte.gz', filename = './data/mnist/train-labels.gz')
-    urllib.request.urlretrieve('http://yann.lecun.com/exdb/mnist/t10k-images-idx3-ubyte.gz', filename = './data/mnist/test-images.gz')
-    urllib.request.urlretrieve('http://yann.lecun.com/exdb/mnist/t10k-labels-idx1-ubyte.gz', filename = './data/mnist/test-labels.gz')
-    ```
+`register()`使用方法將資料集註冊到您的工作區，讓它們可以與其他人共用、在各種不同的實驗中重複使用，並在定型腳本中參考名稱。
 
-1. 將 MNIST 資料集上傳到預設資料存放區。
+```python
+dataset = dataset.register(workspace=ws,
+                           name='mnist dataset',
+                           description='training and test dataset',
+                           create_new_version=True)
 
-    ```Python
-    ds = ws.get_default_datastore()
-    ds.upload(src_dir='./data/mnist', target_path='mnist', overwrite=True, show_progress=True)
-    ```
-
-1. 上傳 TensorFlow 訓練腳本、 `tf_mnist.py`和 helper `utils.py`檔案。
-
-    ```Python
-    shutil.copy('./tf_mnist.py', script_folder)
-    shutil.copy('./utils.py', script_folder)
-    ```
+# list the files referenced by dataset
+dataset.to_path()
+```
 
 ## <a name="create-a-compute-target"></a>建立計算目標
 

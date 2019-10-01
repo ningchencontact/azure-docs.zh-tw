@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 05/11/2019
 ms.author: genli
-ms.openlocfilehash: d2922f79c0b2ef7098e0f51e0c3bf6ab18a1b0e3
-ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
+ms.openlocfilehash: cbae4455ae4cfcc0397b8b50b7f86843f7f82a59
+ms.sourcegitcommit: 8bae7afb0011a98e82cbd76c50bc9f08be9ebe06
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71200286"
+ms.lasthandoff: 10/01/2019
+ms.locfileid: "71695372"
 ---
 # <a name="prepare-a-windows-vhd-or-vhdx-to-upload-to-azure"></a>準備 Windows VHD 或 VHDX 以上傳至 Azure
 
@@ -440,7 +440,8 @@ Set-Service -Name RemoteRegistry -StartupType Automatic
    Set-ItemProperty -Path 'HKLM:\SYSTEM\CurrentControlSet\Control\Session Manager\Memory Management' -name "PagingFiles" -Value "D:\pagefile.sys" -Type MultiString -force
    ```
   如果資料磁片已連結至 VM, 則時態磁片磁碟機的字母通常是*D*。視您的設定和可用的磁片磁碟機數目而定, 這項指定可能會有所不同。
-
+  * 建議您停用防毒軟體可能提供的腳本封鎖程式。 當您從映射部署新的 VM 時，他們可能會 interfer 並封鎖執行的 Windows 布建代理程式腳本。
+  
 ## <a name="next-steps"></a>後續步驟
 * [將 Windows VM 映像上傳至 Azure 供 Resource Manager 部署使用](upload-generalized-managed.md)
 * [針對 Azure Windows VM 啟用問題進行疑難排解](troubleshoot-activation-problems.md)

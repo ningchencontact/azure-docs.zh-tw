@@ -11,12 +11,12 @@ ms.reviewer: klam, LADocs
 ms.topic: conceptual
 ms.date: 06/20/2019
 tags: connectors
-ms.openlocfilehash: 8160cd2cb77a56f3d9b13f3c43929cc4ab7565b0
-ms.sourcegitcommit: 0486aba120c284157dfebbdaf6e23e038c8a5a15
+ms.openlocfilehash: ce59c238e50a1be6879b07e959b236f6181a8ce4
+ms.sourcegitcommit: 6fe40d080bd1561286093b488609590ba355c261
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71309588"
+ms.lasthandoff: 10/01/2019
+ms.locfileid: "71703247"
 ---
 # <a name="create-and-manage-blobs-in-azure-blob-storage-with-azure-logic-apps"></a>使用 Azure Logic Apps 在 Azure Blob 儲存體中建立和管理 Blob
 
@@ -25,11 +25,12 @@ ms.locfileid: "71309588"
 假設您有一個會在 Azure 網站上進行更新的工具。 並將它作為邏輯應用程式的觸發程序。 當此事件發生時，您可以讓邏輯應用程式更新 Blob 儲存體容器中的某些檔案，而這是邏輯應用程式中的其中一個動作。
 
 > [!NOTE]
-> 邏輯應用程式無法直接存取具有[防火牆規則](../storage/common/storage-network-security.md)且存在於相同區域中的 Azure 儲存體帳戶。 不過，邏輯應用程式可以存取存在於不同區域中的 Azure 儲存體帳戶，因為公用 IP 位址是用來跨區域進行通訊。 或者，您可以在這裡使用其中一個選項：
+>
+> 邏輯應用程式無法直接存取具有[防火牆規則](../storage/common/storage-network-security.md)且存在於相同區域中的 Azure 儲存體帳戶。 不過，邏輯應用程式可以存取存在於不同區域中的 Azure 儲存體帳戶，因為公用 IP 位址是用來跨區域進行通訊。 請確定您允許[在您的區域中，針對受控連接器的輸出 IP 位址](../logic-apps/logic-apps-limits-and-config.md#outbound)。 或者，您可以在此使用更多的先進選項：
 >
 > * 建立[整合服務環境](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md)，此環境可連線至 Azure 虛擬網路中的資源。
 >
-> * 如果您已經使用「API 管理」，則可以針對這個案例使用這個服務。 如需詳細資訊，請參閱[簡單的企業整合架構](https://aka.ms/aisarch)。
+> * 如果您使用專用層進行 API 管理，您可以使用 API 管理來處理儲存體 API，並允許後者的 IP 位址通過防火牆。 基本上，將 API 管理所使用的 Azure 虛擬網路新增至儲存體帳戶的防火牆設定。 接著，您可以使用 API 管理動作或 HTTP 動作來呼叫 Azure 儲存體 Api。 不過，如果您選擇此選項，就必須自行處理驗證程式。 如需詳細資訊，請參閱[簡單的企業整合架構](https://aka.ms/aisarch)。
 
 如果您不熟悉邏輯應用程式，請檢閱[什麼是 Azure Logic Apps](../logic-apps/logic-apps-overview.md) 和[快速入門：建立第一個邏輯應用程式](../logic-apps/quickstart-create-first-logic-app-workflow.md)。 如需連接器專屬的技術資訊，請參閱 [Azure Blob 儲存體連接器參考](/connectors/azureblobconnector/)。
 

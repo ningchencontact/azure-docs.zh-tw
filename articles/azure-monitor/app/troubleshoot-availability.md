@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 09/19/2019
 ms.reviewer: sdash
 ms.author: lagayhar
-ms.openlocfilehash: ee64a8af35f938def94e369bdb400fed6e2798c0
-ms.sourcegitcommit: b03516d245c90bca8ffac59eb1db522a098fb5e4
+ms.openlocfilehash: fd56fffe6b11d1c32d7abfe28140127d01933def
+ms.sourcegitcommit: 8bae7afb0011a98e82cbd76c50bc9f08be9ebe06
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71146588"
+ms.lasthandoff: 10/01/2019
+ms.locfileid: "71695047"
 ---
 # <a name="troubleshooting"></a>疑難排解
 
@@ -44,7 +44,7 @@ ms.locfileid: "71146588"
 |    |透過（負載平衡器、地理流量管理員、Azure Express Route）進行特定 IP 位址的重新路由。 
 |    |如果使用 Azure ExpressRoute，在[發生非對稱式路由](https://docs.microsoft.com/azure/expressroute/expressroute-asymmetric-routing)的情況下，可以捨棄封包。|
 
-## <a name="intermittent-test-failure-with-a-protocol-violation-error"></a>具有通訊協定違規錯誤的間歇性測試失敗
+## <a name="test-failure-with-a-protocol-violation-error"></a>測試失敗，發生通訊協定違規錯誤
 
 |徵兆/錯誤訊息| 可能的原因| 可能的解決方式 |
 |----|---------|-----|

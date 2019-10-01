@@ -16,12 +16,12 @@ ms.date: 09/23/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 467fbc421cdd681d0aab52faf75a4987ee849b15
-ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
+ms.openlocfilehash: e7555dc44e533945d360a3d2e4120f71f953a6d2
+ms.sourcegitcommit: d4c9821b31f5a12ab4cc60036fde00e7d8dc4421
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71345516"
+ms.lasthandoff: 10/01/2019
+ms.locfileid: "71709364"
 ---
 # <a name="azure-ad-connect-version-release-history"></a>Azure AD Connect：版本發行歷程記錄
 Azure Active Directory (Azure AD) 團隊會定期以新的特性和功能更新 Azure AD Connect。 並非所有新增項目都適用於所有的對象。
@@ -84,9 +84,7 @@ Azure Active Directory (Azure AD) 團隊會定期以新的特性和功能更新 
 - 針對不允許 ADSync 服務在一開始安裝時啟動的群組原則，改善診斷和疑難排解。
 - 已修正未正確寫入 Windows 電腦顯示名稱的錯誤（bug）。
 - 修正 Windows 電腦的 OS 類型寫入錯誤的錯誤（bug）。
-- 修正非 Windows 10 電腦意外同步的錯誤。 請注意，這項變更的影響是先前已同步處理的非 Windows 10 電腦現在將會刪除。 這不會影響任何功能，因為 Windows 電腦的同步處理僅用於混合式 Azure AD 網域加入，這僅適用于 Windows 10 裝置。 
-- 修正未正確寫入 Windows 電腦顯示名稱的錯誤（bug）。
-- 修正 Windows 電腦的 OS 類型寫入錯誤的錯誤（bug）。
+- 修正非 Windows 10 電腦意外同步的錯誤。 請注意，這項變更的影響是先前已同步處理的非 Windows 10 電腦現在將會刪除。 這不會影響任何功能，因為 Windows 電腦的同步處理僅用於混合式 Azure AD 網域加入，這僅適用于 Windows 10 裝置。
 - 已將數個新的（內部） Cmdlet 新增至 ADSync PowerShell 模組。
 
 

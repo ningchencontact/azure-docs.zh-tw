@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: virtual-machines-linux
 ms.tgt_pltfrm: linux
 ms.subservice: disks
-ms.openlocfilehash: cd8c5b174d92edcf69801edaeabd0c0730985654
-ms.sourcegitcommit: e9936171586b8d04b67457789ae7d530ec8deebe
+ms.openlocfilehash: 5b7c612d349c3f596487db4af025e5e599b6589c
+ms.sourcegitcommit: 8bae7afb0011a98e82cbd76c50bc9f08be9ebe06
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71326929"
+ms.lasthandoff: 10/01/2019
+ms.locfileid: "71694787"
 ---
 # <a name="upload-a-vhd-to-azure-using-azure-powershell"></a>使用 Azure PowerShell 將 vhd 上傳至 Azure
 
@@ -31,7 +31,7 @@ ms.locfileid: "71326929"
 
 ## <a name="create-an-empty-managed-disk"></a>建立空的受控磁片
 
-若要將您的 vhd 上傳至 Azure，您必須建立專為此上傳程式所設定的空受控磁片。 建立之前，您應該先瞭解這些磁片的一些額外資訊。
+若要將您的 vhd 上傳至 Azure，您必須建立為此上傳程式設定的空受控磁片。 建立之前，您應該先瞭解這些磁片的一些額外資訊。
 
 這種受控磁片有兩種獨特的狀態：
 
@@ -54,7 +54,7 @@ New-AzDisk -ResourceGroupName 'myResourceGroup' -DiskName 'myDiskName' -Disk $di
 
 如果您想要上傳 premium SSD 或標準 SSD，請將**Standard_LRS**取代為**Premium_LRS**或**StandardSSD_LRS**。 尚未支援 Ultra SSD。
 
-您現在已建立空的受控磁片，其已針對上傳程式進行設定。 若要將 vhd 上傳至磁片，您將需要可寫入的 SAS，以便將它當做您上傳的目的地。
+您現在已建立一個為上傳程式設定的空白受控磁片。 若要將 vhd 上傳至磁片，您將需要可寫入的 SAS，以便將它當做您上傳的目的地。
 
 若要產生空受控磁片的可寫入 SAS，請使用下列命令：
 

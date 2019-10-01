@@ -10,12 +10,12 @@ ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 03/25/2019
 ms.author: cshoe
-ms.openlocfilehash: 0bd6222a6f2a2582fb715dbaf364fe23e41630d5
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: ff3d7d1272f9067f6bf9791c7964f8bf5f71945b
+ms.sourcegitcommit: d4c9821b31f5a12ab4cc60036fde00e7d8dc4421
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70085149"
+ms.lasthandoff: 10/01/2019
+ms.locfileid: "71709346"
 ---
 # <a name="strategies-for-testing-your-code-in-azure-functions"></a>在 Azure Functions 中測試程式碼的策略
 
@@ -54,7 +54,7 @@ ms.locfileid: "70085149"
 
 `ListLogger` 是用來實作 `ILogger` 介面且會保留內部訊息清單，以供測試期間評估使用。
 
-**以滑鼠右鍵按一下**[*函數*] 和 [測試] 應用程式, 然後選取 [**新增 > 類別**], 將其命名為**NullScope.cs** , 並輸入下列程式碼:
+**以滑鼠右鍵按一下**[*函數*] 和 [測試] 應用程式，然後選取 [**新增 > 類別**]，將其命名為**NullScope.cs** ，並輸入下列程式碼：
 
 ```csharp
 using System;
@@ -72,7 +72,7 @@ namespace Functions.Tests
 }
 ```
 
-接下來, 以**滑鼠右鍵按一下**[函式] 和 [*測試*應用程式], 然後選取 [**新增 > 類別**], 將其命名為**ListLogger.cs** , 並輸入下列程式碼
+接下來，以**滑鼠右鍵按一下**[函式] 和 [*測試*應用程式]，然後選取 [**新增 > 類別**]，將其命名為**ListLogger.cs** ，並輸入下列程式碼
 
 ```csharp
 using Microsoft.Extensions.Logging;
@@ -110,7 +110,7 @@ namespace Functions.Tests
 
 `ListLogger` 類別實作下列成員，如 `ILogger` 介面所縮減：
 
-- **BeginScope**：設定新增內容至記錄的範圍。 在此情況下, 測試只會指向`NullScope`類別上的靜態實例, 讓測試能夠運作。
+- **BeginScope**：設定新增內容至記錄的範圍。 在此情況下，測試只會指向 @no__t 0 類別上的靜態實例，讓測試能夠運作。
 
 - **IsEnabled**：提供的預設值為 `false`。
 
@@ -252,7 +252,7 @@ namespace Functions.Tests
 
 - **Timer_should_log_message**：此測試會建立 `ListLogger` 的執行個體，並將它傳遞給計時器函式。 一旦函式執行之後，便會檢查記錄以確保是否存在預期的訊息。
 
-如果您想要存取測試中的應用程式設定, 您可以使用[GetEnvironmentVariable](./functions-dotnet-class-library.md#environment-variables)。
+如果您想要存取測試中的應用程式設定，您可以使用[GetEnvironmentVariable](./functions-dotnet-class-library.md#environment-variables)。
 
 ### <a name="run-tests"></a>執行測試
 
@@ -311,7 +311,7 @@ module.exports = {
 ```
 此模組實作 `IsPastDue` 屬性，以作為假計時器執行個體。
 
-接下來，使用 VS Code Functions 延伸模組[建立新的 JavaScript HTTP 函式](https://code.visualstudio.com/tutorials/functions-extension/getting-started)，並將它命名為 *HttpTrigger*。 一旦函式建立之後，在相同資料夾中新增名為 **index.test.js** 的檔案，並加入下列程式碼：
+接下來，使用 VS Code Functions 延伸模組[建立新的 JavaScript HTTP 函式](/azure/javascript/tutorial-vscode-serverless-node-01)，並將它命名為 *HttpTrigger*。 一旦函式建立之後，在相同資料夾中新增名為 **index.test.js** 的檔案，並加入下列程式碼：
 
 ```javascript
 const httpFunction = require('./index');
