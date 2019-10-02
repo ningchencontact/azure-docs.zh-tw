@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 08/31/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 4c42959d46aa522042275456a87e590f9e009348
-ms.sourcegitcommit: 7a6d8e841a12052f1ddfe483d1c9b313f21ae9e6
+ms.openlocfilehash: c5fb79fc3aa3297068f93b631d11e967c9345f4c
+ms.sourcegitcommit: a19f4b35a0123256e76f2789cd5083921ac73daf
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70183074"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71717156"
 ---
 # <a name="secure-an-azure-api-management-api-with-azure-ad-b2c"></a>使用 Azure AD B2C 保護 Azure API 管理 API
 
@@ -74,11 +74,11 @@ https://yourb2ctenant.b2clogin.com/99999999-0000-0000-0000-999999999999/v2.0/
 1. 選取 [API]。
 1. 選取您想要使用 Azure AD B2C 保護的 API。
 1. 選取 [設計] 索引標籤。
-1. 在 [**輸入處理**] 底下，選取 **\< / \>** 以開啟 [原則程式碼編輯器]。
+1. 在 [**輸入處理**] 底下，選取 [ **\< @ no__t-3 @ no__t-4** ] 以開啟 [原則程式碼編輯器]。
 1. 將下列`<validate-jwt>`標記放在`<inbound>`原則內。
 
     1. `url` 將`<openid-config>`元素中的值更新為您的原則知名設定 URL。
-    1. 使用您先前在 B2C 租使用者中建立之應用程式的應用程式識別碼（例如， *webapp1*）來更新元素。`<audience>`
+    1. 使用您先前在 B2C 租使用者中建立之應用程式的應用程式識別碼（例如*webapp1*），更新 `<audience>` 元素。
     1. 使用您稍早記錄的權杖簽發者端點來更新元素。`<issuer>`
 
     ```xml
@@ -115,7 +115,7 @@ https://yourb2ctenant.b2clogin.com/99999999-0000-0000-0000-999999999999/v2.0/
 1. 在 [**原則**] 底下，選取 **[使用者流程（原則）** ]。
 1. 選取現有的註冊/登入使用者流程，例如*B2C_1_signupsignin1*。
 1. 針對 [**應用程式**]，選取 [ *webapp1*]。
-1. 針對 [**回復 URL**] `https://jwt.ms`，選擇。
+1. 針對 [**回復 URL**]，選擇 [`https://jwt.ms`]。
 1. 選取 [執行使用者流程]。
 
     ![[執行使用者流程] 頁面，以在 Azure 入口網站中註冊登入使用者流程](media/secure-apim-with-b2c-token/portal-03-user-flow.png)
@@ -131,7 +131,7 @@ https://yourb2ctenant.b2clogin.com/99999999-0000-0000-0000-999999999999/v2.0/
 
 1. 在[Azure 入口網站](https://portal.azure.com)中，流覽至您的 Azure API 管理服務實例。
 1. 選取 **訂用帳戶** 。
-1. 選取 [ **產品] 的省略號：[** 無限制]，然後選取 [**顯示/隱藏金鑰**]。
+1. 選取 @no__t 0Product 的省略號：無限制的 @ no__t-0，然後選取 [**顯示/隱藏金鑰**]。
 1. 記錄產品的**主要金鑰**。 您會在 Postman 的`Ocp-Apim-Subscription-Key` HTTP 要求中使用此金鑰做為標頭。
 
 ![已在 Azure 入口網站中選取 [顯示/隱藏金鑰] 的 [訂用帳戶金鑰] 頁面](media/secure-apim-with-b2c-token/portal-04-api-subscription-key.png)
@@ -148,7 +148,7 @@ https://yourb2ctenant.b2clogin.com/99999999-0000-0000-0000-999999999999/v2.0/
 
     | Key | 值 |
     | --- | ----- |
-    | `Authorization` | 您先前記錄的編碼權杖值，前面`Bearer `加上（在「持有人」後面加上空格） |
+    | `Authorization` | 您先前記錄的編碼權杖值，前面加上 `Bearer ` （包含「持有人」之後的空格） |
     | `Ocp-Apim-Subscription-Key` | 您稍早記錄的 APIM 訂用帳戶金鑰 |
 
     您的**GET**要求 URL 和**標頭**應如下所示：
@@ -203,17 +203,17 @@ https://yourb2ctenant.b2clogin.com/99999999-0000-0000-0000-999999999999/v2.0/
 
 ## <a name="support-multiple-applications-and-issuers"></a>支援多個應用程式和簽發者
 
-數個應用程式通常會與單一 REST API 互動。 若要允許多個應用程式呼叫您的 API，請將其`<audiences>`應用程式識別碼新增至 APIM 輸入原則中的元素。
+數個應用程式通常會與單一 REST API 互動。 若要讓您的 API 接受適用于多個應用程式的權杖，請將其應用程式識別碼新增至 APIM 輸入原則中的 @no__t 0 元素。
 
 ```XML
-<!-- Accept requests from multiple applications -->
+<!-- Accept tokens intended for these recipient applications -->
 <audiences>
     <audience>44444444-0000-0000-0000-444444444444</audience>
     <audience>66666666-0000-0000-0000-666666666666</audience>
 </audiences>
 ```
 
-同樣地，若要支援多個權杖簽發者，請將`<audiences>`其端點 uri 新增至 APIM 輸入原則中的元素。
+同樣地，若要支援多個權杖簽發者，請將`<issuers>`其端點 uri 新增至 APIM 輸入原則中的元素。
 
 ```XML
 <!-- Accept tokens from multiple issuers -->
@@ -225,7 +225,7 @@ https://yourb2ctenant.b2clogin.com/99999999-0000-0000-0000-999999999999/v2.0/
 
 ## <a name="migrate-to-b2clogincom"></a>遷移至 b2clogin.com
 
-如果您的 APIM API 會驗證舊版`login.microsoftonline.com`端點所發行的權杖，您應該遷移 API 和呼叫它的應用程式，以使用[b2clogin.com](b2clogin.md)所簽發的權杖。
+如果您的 APIM API 會驗證舊版 `login.microsoftonline.com` 端點所簽發的權杖，您應該遷移 API 和呼叫它的應用程式，以使用[b2clogin.com](b2clogin.md)所發行的權杖。
 
 您可以遵循此一般程式來執行分段遷移：
 

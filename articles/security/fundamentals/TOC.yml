@@ -235,8 +235,6 @@
     - name: FedRAMP
       displayName: 'blueprint, privacy, certifications'
       items:
-        - name: 依稽核範圍的 Azure 服務
-          href: ../compliance/azure-services-in-fedramp-auditscope.md
         - name: 資料分析
           href: ../blueprints/fedramp-analytics-overview.md
         - name: 資料倉儲
@@ -283,16 +281,6 @@
           href: ../blueprints/pcidss-iaaswa-overview.md
         - name: PaaS Web 應用程式
           href: ../blueprints/pcidss-paaswa-overview.md
-    - name: SCCA
-      displayName: 'blueprint, privacy, certifications'
-      items:
-        - name: 保護 Azure 運算架構
-          href: ../compliance/secure-azure-computing-architecture.md
-    - name: TIC
-      displayName: 'blueprint, privacy, certifications'
-      items:
-        - name: 受信任的 Azure 網際網路連線
-          href: ../compliance/compliance-tic.md
     - name: UK NHS
       displayName: 'blueprint, privacy, certifications'
       items:

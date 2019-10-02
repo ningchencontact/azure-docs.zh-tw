@@ -11,12 +11,12 @@ ms.author: jovanpop
 ms.reviewer: sstein, carlrab, bonova
 ms.date: 08/12/2019
 ms.custom: seoapril2019
-ms.openlocfilehash: dc01f8556fb1c88899cae1a8767cb23d6b6041eb
-ms.sourcegitcommit: 2ed6e731ffc614f1691f1578ed26a67de46ed9c2
-ms.translationtype: MT
+ms.openlocfilehash: 7f47798ec3d0be8885853454ced8c1ea4c2a268c
+ms.sourcegitcommit: a19f4b35a0123256e76f2789cd5083921ac73daf
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71128875"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71720395"
 ---
 # <a name="managed-instance-t-sql-differences-limitations-and-known-issues"></a>受控實例的 T-sql 差異、限制和已知問題
 
@@ -149,7 +149,7 @@ WITH PRIVATE KEY (<private_key_options>)
 - 不支援將對應至 Azure AD 群組的 Azure AD 登入設定為資料庫擁有者。
 - 支援使用其他 Azure AD 主體來模擬 Azure AD 伺服器層級主體, 例如[EXECUTE as](/sql/t-sql/statements/execute-as-transact-sql)子句。 執行身分限制包括:
 
-  - 當名稱不同于登入名稱時, 不支援 Azure AD 使用者執行 AS 使用者。 例如，透過從登入 [john@contoso.com] 的 CREATE user [myAadUser] 語法建立使用者，並透過 EXEC 以 user = _myAadUser_嘗試模擬。 當您從 Azure AD 伺服器主體（登入）建立**使用者**時，請將登入指定為來自**login**的相同 login_name。
+  - 當名稱不同于登入名稱時, 不支援 Azure AD 使用者執行 AS 使用者。 例如，透過從登入 [john@contoso.com] 的 CREATE USER [myAadUser] 語法建立使用者，並透過 EXEC 以 USER = _myAadUser_嘗試模擬。 當您從 Azure AD 伺服器主體（登入）建立**使用者**時，請將登入指定為來自**login**的相同 login_name。
   - 只有屬於`sysadmin`角色一部分的 SQL Server 層級主體 (登入) 可以執行下列以 Azure AD 主體為目標的作業:
 
     - EXECUTE AS USER
@@ -317,7 +317,7 @@ WITH PRIVATE KEY (<private_key_options>)
 - [FILESTREAM](https://docs.microsoft.com/sql/relational-databases/blob/filestream-sql-server)
 - [FILETABLE](https://docs.microsoft.com/sql/relational-databases/blob/filetables-sql-server)
 - [外部資料表](https://docs.microsoft.com/sql/t-sql/statements/create-external-table-transact-sql)Polybase
-- [MEMORY_OPTIMIZED](https://docs.microsoft.com/sql/relational-databases/in-memory-oltp/introduction-to-memory-optimized-tables)（只在一般用途層中不支援）
+- [MEMORY_OPTIMIZED](https://docs.microsoft.com/sql/relational-databases/in-memory-oltp/introduction-to-memory-optimized-tables) （只在一般用途層中不支援）
 
 如需有關如何建立和改變數據表的詳細資訊, 請參閱[CREATE TABLE](https://docs.microsoft.com/sql/t-sql/statements/create-table-transact-sql)和[alter TABLE](https://docs.microsoft.com/sql/t-sql/statements/alter-table-transact-sql)。
 
@@ -348,7 +348,7 @@ WITH PRIVATE KEY (<private_key_options>)
 
 - 僅支援有限數目的全域追蹤旗標。 不支援會話`Trace flags`層級。 請參閱[追蹤旗標](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-traceon-trace-flags-transact-sql)。
 - [DBCC TRACEOFF](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-traceoff-transact-sql)和[dbcc TRACEON](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-traceon-transact-sql)會使用有限數目的全域追蹤旗標。
-- 無法使用選項 REPAIR_ALLOW_DATA_LOSS、REPAIR_FAST 和 REPAIR_REBUILD 的[DBCC CHECKDB](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-checkdb-transact-sql) ，因為無法在模式中`SINGLE_USER`設定資料庫，請參閱[ALTER database 差異](#alter-database-statement)。 Azure 支援小組會處理潛在的資料庫損毀。 如果您注意到應該修正的資料庫損毀，請洽詢 Azure 支援。
+- 無法使用選項 REPAIR_ALLOW_DATA_LOSS、REPAIR_FAST 和 REPAIR_REBUILD 的[DBCC CHECKDB](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-checkdb-transact-sql) ，因為無法在 `SINGLE_USER` 模式中設定資料庫，請參閱[ALTER database 差異](#alter-database-statement)。 Azure 支援小組會處理潛在的資料庫損毀。 如果您注意到應該修正的資料庫損毀，請洽詢 Azure 支援。
 
 ### <a name="distributed-transactions"></a>分散式交易
 
@@ -408,7 +408,7 @@ WITH PRIVATE KEY (<private_key_options>)
 
 - 支援快照和雙向複寫類型。 不支援合併式複寫、點對點複寫和可更新的訂閱。
 - [異動複寫](sql-database-managed-instance-transactional-replication.md)在受控實例上可供公開預覽，但有一些條件約束：
-    - 所有的複寫參與者類型（發行者、散發者、提取訂閱者和發送訂閱者）都可以放在受控實例上，但發行者和散發者不能放在不同的實例上。
+    - 所有類型的複寫參與者（發行者、散發者、提取訂閱者和發送訂閱者）都可以放在受控實例上，但發行者和散發者必須同時位於雲端或內部部署兩者。
     - 受控實例可以與最新版本的 SQL Server 進行通訊。 請參閱[這裡](sql-database-managed-instance-transactional-replication.md#supportability-matrix-for-instance-databases-and-on-premises-systems)的支援版本。
     - 異動複寫有一些[額外的網路需求](sql-database-managed-instance-transactional-replication.md#requirements)。
 
@@ -515,7 +515,7 @@ WITH PRIVATE KEY (<private_key_options>)
 - `SERVERPROPERTY('EngineEdition')`傳回值8。 此屬性只會識別出受控執行個體。 請參閱 [SERVERPROPERTY](https://docs.microsoft.com/sql/t-sql/functions/serverproperty-transact-sql)。
 - `SERVERPROPERTY('InstanceName')`會傳回 Null, 因為實例存在於 SQL Server 的概念不適用於受控實例。 請參閱 [SERVERPROPERTY('InstanceName')](https://docs.microsoft.com/sql/t-sql/functions/serverproperty-transact-sql)。
 - `@@SERVERNAME`傳回完整的 DNS 「可連線」名稱, 例如 my-managed-instance.wcus17662feb9ce98.database.windows.net。 請參閱 [@@SERVERNAME](https://docs.microsoft.com/sql/t-sql/functions/servername-transact-sql)。 
-- `SYS.SERVERS`傳回完整的 DNS 「可連線」名稱， `myinstance.domain.database.windows.net`例如屬性「名稱」和「data_source」。 請參閱 [SYS.SERVERS](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-servers-transact-sql)。
+- `SYS.SERVERS` 會傳回完整的 DNS 「可連線」名稱，例如 "name" 和 "data_source" 屬性的 `myinstance.domain.database.windows.net`。 請參閱 [SYS.SERVERS](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-servers-transact-sql)。
 - `@@SERVICENAME`會傳回 Null, 因為存在於 SQL Server 的服務概念不適用於受控實例。 請參閱 [@@SERVICENAME](https://docs.microsoft.com/sql/t-sql/functions/servicename-transact-sql)。
 - 支援 `SUSER_ID`。 如果 Azure AD 登入不在 syslogins 中, 它會傳回 Null。 請參閱 [SUSER_ID](https://docs.microsoft.com/sql/t-sql/functions/suser-id-transact-sql)。 
 - 不支援 `SUSER_SID`。 傳回錯誤的資料, 這是暫時性的已知問題。 請參閱 [SUSER_SID](https://docs.microsoft.com/sql/t-sql/functions/suser-sid-transact-sql)。 
@@ -594,7 +594,7 @@ WITH PRIVATE KEY (<private_key_options>)
 -   AAD 使用者別名。 在此情況下`15517`，會傳回下列錯誤。
 - AAD 登入和以 AAD 應用程式或服務主體為基礎的使用者。 在此情況下`15517` ，和`15406`會傳回下列錯誤。
 
-### <a name="query-parameter-not-supported-in-sp_send_db_mail"></a>@querysp_send_db_mail 中不支援的參數
+### <a name="query-parameter-not-supported-in-sp_send_db_mail"></a>sp_send_db_mail 中不支援 @query 參數
 
 **日期**2019 年 4 月
 

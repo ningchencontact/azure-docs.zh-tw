@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 10/25/2018
 ms.author: hrasheed
-ms.openlocfilehash: 3c122a68e9f28772be4e3a17a21e5457aa187ce6
-ms.sourcegitcommit: 97605f3e7ff9b6f74e81f327edd19aefe79135d2
+ms.openlocfilehash: a65b775a516bfccac2dee5ce00bc7d6495df256d
+ms.sourcegitcommit: a19f4b35a0123256e76f2789cd5083921ac73daf
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70736104"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71718368"
 ---
 # <a name="migrate-on-premises-apache-hadoop-clusters-to-azure-hdinsight---motivation-and-benefits"></a>將內部部署 Apache Hadoop 叢集遷移到 Azure HDInsight - 動機和優點
 
@@ -53,7 +53,7 @@ Azure HDInsight 是 Hadoop 元件的雲端發行版。 Azure HDInsight 可輕鬆
 
 - **使用自訂工具或協力廠商應用程式的擴充性** - HDInsight 叢集可以使用安裝的元件來擴充，並從 Azure Marketplace 使用[單鍵](https://azure.microsoft.com/services/hdinsight/partner-ecosystem/) 部署來與其他巨量資料解決方案整合。
 
-- **輕鬆管理、管理和監視**-Azure HDInsight 與 [Azure 監視器記錄](../hdinsight-hadoop-oms-log-analytics-tutorial.md) 整合，以提供單一介面讓您監視所有的叢集。
+- **輕鬆管理、管理和監視**-Azure HDInsight 與 [Azure 監視器記錄](../hdinsight-hadoop-oms-log-analytics-tutorial.md)整合  to 提供單一介面，讓您可以監視所有的叢集。
 
 - **與其他 Azure 服務整合** - HDInsight 可輕鬆地與其他熱門 Azure 服務整合，如下列服務：
 
@@ -137,10 +137,10 @@ Azure HDInsight 是 Hadoop 元件的雲端發行版。 Azure HDInsight 可輕鬆
 |資料目的地|HDFS、RDBMS、Kafka、MPP ||
 |**主題**：**中繼資料**|||
 |Hive DB 類型|Mysql、Postgres||
-|資料分割 Hive 中繼存放區數目|2||
-|資料分割 Hive 資料表數目|100||
-|資料分割 Ranger 原則數目|20||
-|資料分割 Oozie 工作流程數目|100||
+|Hive 中繼存放區的數目|2||
+|Hive 資料表的數目|100||
+|Ranger 原則的數目|20||
+|Oozie 工作流程的數目|100||
 |**主題**：**縮放**|||
 |包含複寫的資料磁碟區|100 TB||
 |每日擷取量|50 GB||
@@ -152,11 +152,11 @@ Azure HDInsight 是 Hadoop 元件的雲端發行版。 Azure HDInsight 可輕鬆
 |磁碟空間使用量|75%||
 |平均網路使用量 %|25%
 |**主題**：**人員**|||
-|資料分割 系統管理員數目|2||
-|資料分割 開發人員數目|10||
-|資料分割 使用者數目|100||
+|系統管理員數目|2||
+|開發人員人數|10||
+|終端使用者數目|100||
 |技能|Hadoop、Spark||
-|資料分割 移轉工作的可用資源數目|2||
+|適用于遷移工作的可用資源數目|2||
 |**主題**：**限制**|||
 |目前的限制|高延遲||
 |目前的挑戰|並行處理的問題||
@@ -180,7 +180,7 @@ Azure HDInsight 是 Hadoop 元件的雲端發行版。 Azure HDInsight 可輕鬆
 |私人且受保護的資料管線？|是||
 |是否使用網域加入叢集 (ESP)？|     是||
 |是否將內部部署 AD 同步處理至雲端？|     是||
-|資料分割 要同步處理的 AD 使用者數目？|          100||
+|要同步處理的 AD 使用者數目？|          100||
 |是否將密碼同步套雲端？|    是||
 |僅雲端使用者？|                 是||
 |是否需要 MFA？|                       否|| 

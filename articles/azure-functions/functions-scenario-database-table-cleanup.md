@@ -8,18 +8,18 @@ manager: jeconnoc
 ms.assetid: 076f5f95-f8d2-42c7-b7fd-6798856ba0bb
 ms.service: azure-functions
 ms.topic: conceptual
-ms.date: 10/28/2018
+ms.date: 10/02/2019
 ms.author: glenga
-ms.openlocfilehash: 0388c712d6f44755e768e491944df1a9451653b7
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 469e0149a3b9dce22f0590240a053ee3b183c7b9
+ms.sourcegitcommit: 80da36d4df7991628fd5a3df4b3aa92d55cc5ade
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70085242"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71815987"
 ---
 # <a name="use-azure-functions-to-connect-to-an-azure-sql-database"></a>使用 Azure Functions 連接到 Azure SQL Database
 
-本文章示範如何使用 Azure Functions 建立可連線至 Azure SQL Database 執行個體的排程作業。 函式程式碼會清除資料庫中資料表中的資料列。 新C#函數是根據 Visual Studio 2019 中預先定義的計時器觸發程式範本所建立。 若要支援此案例，您也必須在函式應用程式中設定資料庫連接字串以作為設定。 此案例會對資料庫使用大量作業。 
+本文說明如何使用 Azure Functions 建立連接至 Azure SQL Database 或 Azure SQL 受控執行個體的排程工作。 函式程式碼會清除資料庫中資料表中的資料列。 新C#函數是根據 Visual Studio 2019 中預先定義的計時器觸發程式範本所建立。 若要支援此案例，您也必須在函式應用程式中設定資料庫連接字串以作為設定。 針對 Azure SQL 受控執行個體您必須[啟用公用端點](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-public-endpoint-configure)，才能從 Azure Functions 連接。 此案例會對資料庫使用大量作業。 
 
 如果這是您第一次使用 C# Functions，則您應該先閱讀 [Azure Functions C# 開發人員參考資料](functions-dotnet-class-library.md)。
 
@@ -39,7 +39,7 @@ ms.locfileid: "70085242"
 
 1. 從左側功能表中選取 [SQL Database]，然後選取 [SQL 資料庫] 頁面上的資料庫。
 
-1. 選取 [設定] 下的 [連接字串]，然後複製完整的 **ADO.NET** 連接字串。
+1. 選取 [設定] 下的 [連接字串]，然後複製完整的 **ADO.NET** 連接字串。 針對 Azure SQL 受控執行個體複製公用端點的連接字串。
 
     ![複製 ADO.NET 連接字串。](./media/functions-scenario-database-table-cleanup/adonet-connection-string.png)
 

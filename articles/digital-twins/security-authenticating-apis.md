@@ -6,14 +6,14 @@ manager: alinast
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 09/17/2019
+ms.date: 09/30/2019
 ms.author: lyhughes
-ms.openlocfilehash: ad51fbe7d2f8e8f115adf03d6333c0747765ee43
-ms.sourcegitcommit: e1b6a40a9c9341b33df384aa607ae359e4ab0f53
+ms.openlocfilehash: 6d8d6f03847fcd22a6d78c445ae039c73e9badfa
+ms.sourcegitcommit: a19f4b35a0123256e76f2789cd5083921ac73daf
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71338596"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71719156"
 ---
 # <a name="connect-to-and-authenticate-with-apis"></a>連接至 Api 並進行驗證
 
@@ -34,7 +34,10 @@ Azure AD 支援[五個主要應用程式案例](../active-directory/develop/v2-a
 * 要 Web API 的 Web 應用程式:Web 應用程式必須從 Azure AD 所保護的 Web API 取得資源。
 * 要 Web API 的 Daemon 或伺服器應用程式:沒有 web UI 的背景程式應用程式或伺服器應用程式, 必須從 Azure AD 保護的 Web API 取得資源。
 
-Windows Azure 驗證程式庫提供許多方式來取得 Active Directory 權杖。 如需程式庫和程式碼範例的詳細資訊，請參閱[ADAL.NET Wiki](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet/wiki)。
+> [!IMPORTANT]
+> Azure 數位 Twins 支援下列兩種驗證程式庫：
+> * 最新的[Microsoft 驗證程式庫（MSAL）](https://docs.microsoft.com/azure/active-directory/develop/msal-overview)
+> * [Azure Active Directory Authentication Library （ADAL）](https://docs.microsoft.com/azure/active-directory/develop/active-directory-authentication-libraries)
 
 ## <a name="call-digital-twins-from-a-middle-tier-web-api"></a>從中介層 Web API 呼叫 Digital Twins
 

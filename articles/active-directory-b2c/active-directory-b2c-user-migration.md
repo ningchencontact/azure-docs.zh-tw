@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 08/31/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 20c8fbd1626adaf67b790d500d8bfdeff6f27841
-ms.sourcegitcommit: 6fe40d080bd1561286093b488609590ba355c261
-ms.translationtype: HT
+ms.openlocfilehash: 8ec61a04d6bb7289f12becf8baebae5e47150897
+ms.sourcegitcommit: 4f3f502447ca8ea9b932b8b7402ce557f21ebe5a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/01/2019
-ms.locfileid: "71702184"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71802085"
 ---
 # <a name="azure-active-directory-b2c-user-migration"></a>Azure Active Directory B2C：使用者移轉
 
@@ -59,22 +59,13 @@ Azure AD B2C 的本機帳戶密碼原則是以 Azure AD 原則為基礎的。 Az
 
 接下來，將寫入目錄所需的 Azure AD 圖形 API 許可權授與應用程式。
 
-1. 在 [**設定**] 功能表中，選取 [**必要許可權**]。
-1. 選取 [Windows Azure Active Directory]。
-1. 在 [啟用存取] 窗格的 [應用程式權限] 底下，選取 [讀取及寫入目錄資料]，然後選取 [儲存]。
-1. 在 [**必要許可權**] 窗格中，選取 [**授與許可權**]，然後選取 **[是]** 。
-
-   ![醒目提示 [讀取/寫入目錄] 核取方塊、[儲存] 和 [授與許可權]](media/active-directory-b2c-user-migration/pre-migration-app-registration-permissions.png)
+[!INCLUDE [active-directory-b2c-permissions-directory](../../includes/active-directory-b2c-permissions-directory.md)]
 
 ### <a name="step-13-create-the-application-secret"></a>步驟 1.3：建立應用程式祕密
 
 建立用戶端秘密（金鑰），供您在稍後步驟中設定的使用者遷移應用程式使用。
 
-1. 在 [**已註冊的應用程式**] 頁面中，選取 [**設定**]。
-1. 選取 [金鑰]。
-1. 在 [**密碼**] 下，新增名為*MyClientSecret*的新金鑰（也稱為用戶端密碼）或您選擇的其他名稱，選取到期時間範圍，選取 [**儲存**]，然後複製金鑰值以供稍後使用。
-
-    ![[應用程式識別碼] 值和 [金鑰] 功能表項目 Azure 入口網站中反白顯示](media/active-directory-b2c-user-migration/pre-migration-app-id-and-key.png)
+[!INCLUDE [active-directory-b2c-client-secret](../../includes/active-directory-b2c-client-secret.md)]
 
 現在您有一個應用程式，具有在 Azure AD B2C 租使用者中建立、讀取和更新使用者的許可權。
 

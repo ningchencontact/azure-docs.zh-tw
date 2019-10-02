@@ -11,39 +11,48 @@ ms.service: app-service
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 02/22/2019
+ms.date: 10/01/2019
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: c4e97a96687e5fa1d934ab8c0317b52cb753f72c
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: d2823158192ae9fc9182f3f60f82d5bd9c050b09
+ms.sourcegitcommit: 80da36d4df7991628fd5a3df4b3aa92d55cc5ade
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70088164"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71811635"
 ---
 # <a name="configure-tls-mutual-authentication-for-azure-app-service"></a>設定 Azure App Service 的 TLS 相互驗證
 
-為 Azure App Service 應用程式啟用不同類型的驗證，即可限制其存取。 其中一種方法是在用戶端要求透過 TLS/SSL 時要求用戶端憑證, 並驗證憑證。 此機制稱為 TLS 相互驗證或用戶端憑證驗證。 本文說明如何將您的應用程式設定為使用用戶端憑證驗證。
+為 Azure App Service 應用程式啟用不同類型的驗證，即可限制其存取。 其中一種方法是在用戶端要求透過 TLS/SSL 時要求用戶端憑證，並驗證憑證。 此機制稱為 TLS 相互驗證或用戶端憑證驗證。 本文說明如何將您的應用程式設定為使用用戶端憑證驗證。
 
 > [!NOTE]
-> 如果您透過 HTTP 存取您的網站，而非 HTTPS，將不會收到任何用戶端憑證。 因此, 如果您的應用程式需要用戶端憑證, 您就不應該允許透過 HTTP 對應用程式提出要求。
+> 如果您透過 HTTP 存取您的網站，而非 HTTPS，將不會收到任何用戶端憑證。 因此，如果您的應用程式需要用戶端憑證，您就不應該允許透過 HTTP 對應用程式提出要求。
 >
 
 ## <a name="enable-client-certificates"></a>啟用用戶端憑證
 
-若要將您的應用程式設定為需要用戶端憑證, 您`clientCertEnabled`必須將應用程式的`true`設定設定為。 若要設定設定, 請在[Cloud Shell](https://shell.azure.com)中執行下列命令。
+若要將您的應用程式設定為需要用戶端憑證，您必須將應用程式的 [`clientCertEnabled`] 設定設定為 [`true`]。 若要設定設定，請在[Cloud Shell](https://shell.azure.com)中執行下列命令。
 
 ```azurecli-interactive
 az webapp update --set clientCertEnabled=true --name <app_name> --resource-group <group_name>
 ```
 
+## <a name="exclude-paths-from-requiring-authentication"></a>排除需要驗證的路徑
+
+當您啟用應用程式的相互驗證時，應用程式根目錄下的所有路徑都需要用戶端憑證才能進行存取。 若要讓特定路徑保持開啟以供匿名存取，您可以在應用程式設定中定義排除路徑。
+
+您可以藉**由選取**[設定] [ > **一般設定**]，並定義排除路徑來設定排除路徑。 在此範例中，應用程式 `/public` 路徑底下的任何專案都不會要求用戶端憑證。
+
+![憑證排除路徑][exclusion-paths]
+
+
 ## <a name="access-client-certificate"></a>存取用戶端憑證
 
-在 App Service 中, 要求的 SSL 終止會發生在前端負載平衡器上。 在[啟用用戶端憑證](#enable-client-certificates)的情況下, 將要求轉送至您的應用`X-ARR-ClientCert`程式程式碼時, App Service 會以用戶端憑證插入要求標頭。 App Service 不會使用此用戶端憑證來執行任何動作, 而是將它轉送至您的應用程式。 您的應用程式程式碼會負責驗證用戶端憑證。
+在 App Service 中，要求的 SSL 終止會發生在前端負載平衡器上。 在[啟用用戶端憑證](#enable-client-certificates)的情況下，將要求轉送至您的應用程式程式碼時，App Service 會以用戶端憑證插入一個 @no__t 1 的要求標頭。 App Service 不會使用此用戶端憑證來執行任何動作，而是將它轉送至您的應用程式。 您的應用程式程式碼會負責驗證用戶端憑證。
 
-針對 ASP.NET, 用戶端憑證可透過**HttpRequest. ClientCertificate**屬性取得。
+針對 ASP.NET，用戶端憑證可透過**HttpRequest. ClientCertificate**屬性取得。
 
-針對其他應用程式堆疊 (node.js、PHP 等等), 您的應用程式中會透過`X-ARR-ClientCert`要求標頭中的 base64 編碼值來使用用戶端憑證。
+針對其他應用程式堆疊（node.js、PHP 等等），您的應用程式中會提供用戶端憑證，透過 `X-ARR-ClientCert` 要求標頭中的 base64 編碼值。
 
 ## <a name="aspnet-sample"></a>ASP.NET 範例
 
@@ -171,7 +180,7 @@ az webapp update --set clientCertEnabled=true --name <app_name> --resource-group
 
 ## <a name="nodejs-sample"></a>Node.js 範例
 
-下列 node.js 範例程式碼會取得`X-ARR-ClientCert`標頭, 並使用[Node-偽造](https://github.com/digitalbazaar/forge)將 base64 編碼的 PEM 字串轉換成憑證物件並進行驗證:
+下列 node.js 範例程式碼會取得 @no__t 0 標頭，並使用[Node-偽造](https://github.com/digitalbazaar/forge)將 base64 編碼的 PEM 字串轉換成憑證物件並進行驗證：
 
 ```javascript
 import { NextFunction, Request, Response } from 'express';
@@ -213,3 +222,5 @@ export class AuthorizationHandler {
     }
 }
 ```
+
+[exclusion-paths]: ./media/app-service-web-configure-tls-mutual-auth/exclusion-paths.png

@@ -4,14 +4,14 @@ description: 了解如何在 Azure Cosmos DB 中設定和管理存留時間
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 09/17/2019
+ms.date: 09/28/2019
 ms.author: mjbrown
-ms.openlocfilehash: ddda7b96147892efb38cb0405120db3613e98cf8
-ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
+ms.openlocfilehash: e36b894ec9c7433bc114145e0de5f519f73486f1
+ms.sourcegitcommit: 80da36d4df7991628fd5a3df4b3aa92d55cc5ade
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71104860"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71815904"
 ---
 # <a name="configure-time-to-live-in-azure-cosmos-db"></a>在 Azure Cosmos DB 中設定存留時間
 
@@ -36,10 +36,16 @@ ms.locfileid: "71104860"
 
    ![在 Azure 入口網站中設定存留時間](./media/how-to-time-to-live/how-to-time-to-live-portal.png)
 
+* 當 DefaultTimeToLive 為 null 時，存留時間會關閉
+* 當 DefaultTimeToLive 為 -1 時，存留時間會開啟 (無預設值)
+* 當 DefaultTimeToLive 具有任何其他整數值 (0 除外)，存留時間設定會開啟
 
-- 當 DefaultTimeToLive 為 null 時，存留時間會關閉
-- 當 DefaultTimeToLive 為 -1 時，存留時間會開啟 (無預設值)
-- 當 DefaultTimeToLive 具有任何其他整數值 (0 除外)，存留時間設定會開啟
+## <a name="enable-time-to-live-on-a-container-using-azure-cli-or-powershell"></a>使用 Azure CLI 或 PowerShell 在容器上啟用存留時間
+
+若要在容器上建立或啟用 TTL，請參閱
+
+* [使用 Azure CLI 建立具有 TTL 的容器](manage-with-cli.md#create-a-container-with-ttl)
+* [使用 Powershell 建立具有 TTL 的容器](manage-with-powershell.md#create-container-unique-key-ttl)
 
 ## <a name="enable-time-to-live-on-a-container-using-sdk"></a>使用 SDK 在容器上啟用存留時間
 
@@ -185,11 +191,10 @@ SalesOrder salesOrder = new SalesOrder
 const itemDefinition = {
           id: "doc",
           name: "sample Item",
-          key: "value", 
+          key: "value",
           ttl: 2
         };
 ```
-
 
 ## <a name="reset-time-to-live"></a>重設存留時間
 

@@ -8,16 +8,20 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: bbb5b90ffac4a89c14a4a6df51022bb61b10fbb0
-ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
+ms.openlocfilehash: e5cea36760746eaa63451c9e9955368c71ba4472
+ms.sourcegitcommit: 80da36d4df7991628fd5a3df4b3aa92d55cc5ade
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70845505"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71816137"
 ---
 # <a name="quickstart---configure-a-private-cloud-environment"></a>快速入門-設定私人雲端環境
 
 在本文中，您將瞭解如何建立 CloudSimple 私人雲端，並設定您的私用雲端環境。
+
+## <a name="before-you-begin"></a>開始之前
+
+審查[網路必要條件](cloudsimple-network-checklist.md)。
 
 ## <a name="sign-in-to-azure"></a>登入 Azure
 

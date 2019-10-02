@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: na
 ms.date: 10/05/2018
 ms.author: robreed
-ms.openlocfilehash: 458ba61adba294af99f2265e4907e874ed3a6956
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 59f8035aa69f21196a2134bf6bc1b12f3e5b34c4
+ms.sourcegitcommit: 80da36d4df7991628fd5a3df4b3aa92d55cc5ade
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70084585"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71815701"
 ---
 # <a name="desired-state-configuration-extension-with-azure-resource-manager-templates"></a>採用 Azure Resource Manager 範本的預期狀態設定延伸模組
 
@@ -236,8 +236,10 @@ DSC 延伸模組會繼承預設的延伸模組屬性。
 
 ```json
 "settings": {
-    "RegistrationUrl" : "[parameters('registrationUrl1')]",
-    "NodeConfigurationName" : "nodeConfigurationNameValue1"
+    "configurationArguments": {
+        "RegistrationUrl" : "[parameters('registrationUrl1')]",
+        "NodeConfigurationName" : "nodeConfigurationNameValue1"
+    }
 },
 "protectedSettings": {
     "configurationArguments": {
@@ -253,7 +255,7 @@ DSC 延伸模組會繼承預設的延伸模組屬性。
 
 下列範例來自 [DSC 延伸模組處理常式概觀](dsc-overview.md)。
 此範例使用 Resource Manager 範本 (而不是Cmdlet) 來部署擴充功能。
-儲存 IisInstall 設定, 將它放在 .zip 檔案中 (例如: `iisinstall.zip`), 然後將檔案上傳至可存取的 URL。
+儲存 IisInstall 設定，將它放在 .zip 檔案中（例如： `iisinstall.zip`），然後將檔案上傳至可存取的 URL。
 此範例會使用 Azure Blob 儲存體，但您可以從任意位置下載 .zip 檔案。
 
 在 Resource Manager 範本中，下列程式碼會指示 VM 下載正確的檔案，然後執行適當的 PowerShell 函式：
@@ -354,7 +356,7 @@ DSC 延伸模組會繼承預設的延伸模組屬性。
 「WmfVersion 為 '{0}'。
 可能的值為 … 和 'latest'"。
 
-**問題**:不允許提供的值。
+**問題**：不允許提供的值。
 
 **解決方案**：將不正確值變更為有效的值。
 如需詳細資訊，請參閱[詳細資料](#details)中的表格。
@@ -363,7 +365,7 @@ DSC 延伸模組會繼承預設的延伸模組屬性。
 
 「ConfigurationData.url 為 '{0}'。 這不是有效的 URL」「DataBlobUri 為 '{0}'。 這不是有效的 URL」「Configuration.url 為 '{0}'。 這不是有效的 URL」
 
-**問題**:提供的 URL 無效。
+**問題**：提供的 URL 無效。
 
 **解決方案**：檢查您提供的所有 Url。
 請確定所有 URL 都會解析成延伸模組可在遠端電腦上存取的有效位置。
@@ -372,9 +374,9 @@ DSC 延伸模組會繼承預設的延伸模組屬性。
 
 "參數 RegistrationKey (類型為 PSCredential) 的類型無效。"
 
-**問題**:ProtectedSettings. configurationArguments 中的*RegistrationKey*值不能當做 PSCredential 以外的任何類型提供。
+**問題**：ProtectedSettings. configurationArguments 中的*RegistrationKey*值不能當做 PSCredential 以外的任何類型提供。
 
-**解決方案**：使用下列格式, 將 RegistrationKey 的 protectedSettings configurationArguments 專案變更為 PSCredential 類型:
+**解決方案**：使用下列格式，將 RegistrationKey 的 protectedSettings configurationArguments 專案變更為 PSCredential 類型：
 
 ```json
 "configurationArguments": {
@@ -389,7 +391,7 @@ DSC 延伸模組會繼承預設的延伸模組屬性。
 
 「無效的 configurationArguments 類型 {0}」
 
-**問題**:*ConfigurationArguments*屬性無法解析成**雜湊表**物件。
+**問題**：*ConfigurationArguments*屬性無法解析成**雜湊表**物件。
 
 **解決方案**：將您的*ConfigurationArguments*屬性設為**雜湊表**。
 請依照上述範例中提供的格式。 請留意引號、逗號及大括號。
@@ -398,7 +400,7 @@ DSC 延伸模組會繼承預設的延伸模組屬性。
 
 「在公用和受保護的 configurationArguments 中找到重複的引數 '{0}'」
 
-**問題**:[公用設定] 中的*ConfigurationArguments*和 [受保護設定] 中的*ConfigurationArguments*具有相同名稱的屬性。
+**問題**：[公用設定] 中的*ConfigurationArguments*和 [受保護設定] 中的*ConfigurationArguments*具有相同名稱的屬性。
 
 **解決方案**：請移除其中一個重複的屬性。
 
@@ -416,7 +418,7 @@ DSC 延伸模組會繼承預設的延伸模組屬性。
 
 「protectedSettings.ConfigurationDataUrlSasToken 要求指定 settings.configurationData.url」
 
-**問題**:已定義的屬性需要另一個遺漏的屬性。
+**問題**：已定義的屬性需要另一個遺漏的屬性。
 
 **解決方式**：
 

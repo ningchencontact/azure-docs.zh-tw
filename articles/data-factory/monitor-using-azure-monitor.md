@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 12/11/2018
-ms.openlocfilehash: c8d78473a1128dd4f96f2cfa0c14d2d3b1b2c1e9
-ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
+ms.openlocfilehash: 2a707eda6a7e32a95666dd70e196c8da3c3b7834
+ms.sourcegitcommit: 80da36d4df7991628fd5a3df4b3aa92d55cc5ade
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71300568"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71815952"
 ---
 # <a name="alert-and-monitor-data-factories-by-using-azure-monitor"></a>使用 Azure 監視器來警示及監視 data factory
 
@@ -468,6 +468,9 @@ Azure Data Factory 版本2會發出下列計量。
 
 幾分鐘後，新的設定就會出現在此 data factory 的設定清單中。 一旦產生新的事件資料，診斷記錄就會串流處理到該工作區。 當事件發出時和記錄分析中出現時，可能會有最多15分鐘的時間。
 
+* 在_資源特定_模式中，從 Azure Data Factory 流程到_ADFPipelineRun_、 _ADFTriggerRun_和_ADFActivityRun_資料表的診斷記錄
+* 在_Azure 診斷_模式中，診斷記錄會流入_AzureDiagnostics_資料表
+
 > [!NOTE]
 > 因為 Azure 記錄資料表不能有超過500個數據行，所以強烈建議您選取 [資源特定模式]。 如需詳細資訊, 請參閱[Log Analytics 已知限制](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-logs-stream-log-store#known-limitation-column-limit-in-azurediagnostics)。
 
@@ -508,6 +511,9 @@ Azure Data Factory 版本2會發出下列計量。
 您可以將上述計量視覺化、查看這些計量背後的查詢、編輯查詢、建立警示，以及採取其他動作。
 
 ![依 data factory 的管線執行圖形標記法](media/data-factory-monitor-oms/monitor-oms-image8.png)
+
+> [!NOTE]
+> Azure Data Factory 分析（預覽）會將診斷記錄傳送至_資源特定的_目的地資料表。 您可以針對下列資料表撰寫查詢：_ADFPipelineRun_、 _ADFTriggerRun_和_ADFActivityRun_。
 
 ## <a name="alerts"></a>警示
 

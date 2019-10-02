@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 09/19/2019
 ms.author: cephalin
-ms.openlocfilehash: 35618b80dc4731f4d679bab9f035987af50730e8
-ms.sourcegitcommit: 2ed6e731ffc614f1691f1578ed26a67de46ed9c2
+ms.openlocfilehash: 436ab0a561349185de58c3783f334ea1dce9001d
+ms.sourcegitcommit: a19f4b35a0123256e76f2789cd5083921ac73daf
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71129707"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71720120"
 ---
 # <a name="set-up-staging-environments-in-azure-app-service"></a>在 Azure App Service 中設定預備環境
 <a name="Overview"></a>
@@ -140,9 +140,6 @@ ms.locfileid: "71129707"
 
 ### <a name="swap-with-preview-multi-phase-swap"></a>使用預覽交換 (多階段交換)
 
-> [!NOTE]
-> Linux 上的 Web 應用程式不支援「使用預覽交換」。
-
 在您交換至生產環境作為目標位置之前，請先驗證應用程式是否以交換的設定執行。 來源位置也會在交換完成之前準備就緒，這是任務關鍵性應用程式的理想做法。
 
 當您執行使用預覽交換時，App Service 會執行相同的[交換](#AboutConfiguration)作業，但在第一個步驟之後暫停。 接著，您可以在完成交換之前，先在預備位置上驗證結果。 
@@ -204,7 +201,8 @@ ms.locfileid: "71129707"
 <a name="Warm-up"></a>
 
 ## <a name="specify-custom-warm-up"></a>指定自訂的暖開機
-當您使用[自動交換](#Auto-Swap)時，某些應用程式可能需要在交換之前進行自訂的暖開機動作。 Web.config `applicationInitialization`中的 configuration 元素可讓您指定自訂的初始化動作。 [交換](#AboutConfiguration)作業會等候此自訂準備完成，然後再與目標位置交換。 以下是範例 web.config 片段。
+
+某些應用程式在交換之前可能需要自訂的準備動作。 Web.config `applicationInitialization`中的 configuration 元素可讓您指定自訂的初始化動作。 [交換](#AboutConfiguration)作業會等候此自訂準備完成，然後再與目標位置交換。 以下是範例 web.config 片段。
 
     <system.webServer>
         <applicationInitialization>
@@ -334,7 +332,61 @@ Get-AzLog -ResourceGroup [resource group name] -StartTime 2018-03-07 -Caller Slo
 Remove-AzResource -ResourceGroupName [resource group name] -ResourceType Microsoft.Web/sites/slots –Name [app name]/[slot name] -ApiVersion 2015-07-01
 ```
 
----
+## <a name="automate-with-arm-templates"></a>使用 ARM 範本進行自動化
+
+[ARM 範本](https://docs.microsoft.com/en-us/azure/azure-resource-manager/template-deployment-overview)是用來自動化 Azure 資源部署和設定的宣告式 JSON 檔案。 若要使用 ARM 範本交換位置，您會在*Microsoft web/sites/* 位置和*microsoft web/sites*資源上設定兩個屬性：
+
+- `buildVersion`：這是字串屬性，代表在位置中部署之應用程式的目前版本。 例如： "v1"、"1.0.0.1" 或 "2019-09-20T11：53： 25.2887393-07： 00"。
+- `targetBuildVersion`：這是一個字串屬性，它會指定插槽應具有的 `buildVersion`。 如果 targetBuildVersion 不等於目前的 `buildVersion`，則這會藉由尋找具有指定 `buildVersion` 的位置來觸發交換操作。
+
+### <a name="example-arm-template"></a>範例 ARM 範本
+
+下列 ARM 範本會更新預備位置的 `buildVersion`，並將 `targetBuildVersion` 設定在生產位置上。 這會交換兩個位置。 此範本假設您已經使用名為「預備」的位置建立 webapp。
+
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "my_site_name": {
+            "defaultValue": "SwapAPIDemo",
+            "type": "String"
+        },
+        "sites_buildVersion": {
+            "defaultValue": "v1",
+            "type": "String"
+        }
+    },
+    "resources": [
+        {
+            "type": "Microsoft.Web/sites/slots",
+            "apiVersion": "2018-02-01",
+            "name": "[concat(parameters('my_site_name'), '/staging')]",
+            "location": "East US",
+            "kind": "app",
+            "properties": {
+                "buildVersion": "[parameters('sites_buildVersion')]"
+            }
+        },
+        {
+            "type": "Microsoft.Web/sites",
+            "apiVersion": "2018-02-01",
+            "name": "[parameters('my_site_name')]",
+            "location": "East US",
+            "kind": "app",
+            "dependsOn": [
+                "[resourceId('Microsoft.Web/sites/slots', parameters('my_site_name'), 'staging')]"
+            ],
+            "properties": {
+                "targetBuildVersion": "[parameters('sites_buildVersion')]"
+            }
+        }        
+    ]
+}
+```
+
+此 ARM 範本具有等冪性，這表示它可以重複執行，並產生相同的插槽狀態。 第一次執行之後，`targetBuildVersion` 會符合目前的 `buildVersion`，因此不會觸發交換。
+
 <!-- ======== Azure CLI =========== -->
 
 <a name="CLI"></a>

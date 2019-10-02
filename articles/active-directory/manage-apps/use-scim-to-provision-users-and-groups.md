@@ -11,17 +11,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 07/31/2019
+ms.date: 10/01/2019
 ms.author: mimart
 ms.reviewer: arvinh
 ms.custom: aaddev;it-pro;seohack1
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b135838558a493cff0e28a8429d31f5a03a69857
-ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
+ms.openlocfilehash: 922e5a2d5c639d7df380f686ddf7843ab59fca59
+ms.sourcegitcommit: 4f3f502447ca8ea9b932b8b7402ce557f21ebe5a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71033461"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71802366"
 ---
 # <a name="using-system-for-cross-domain-identity-management-scim-to-automatically-provision-users-and-groups-from-azure-active-directory-to-applications"></a>使用 System for Cross-Domain Identity Management (SCIM) 自動將使用者和群組從 Azure Active Directory 佈建到應用程式
 
@@ -59,7 +59,7 @@ Azure AD 可以設定為將已指派的使用者和群組自動布建至應用�
 
 **若要連接支援 SCIM 的應用程式：**
 
-1. 登入[Azure Active Directory 入口網站](https://aad.portal.azure.com)。 
+1. 登入[Azure Active Directory 入口網站](https://aad.portal.azure.com)。 請注意，藉由註冊[開發人員計畫](https://developer.microsoft.com/office/dev-program)，您可以透過 P2 授權取得 Azure Active Directory 的免費試用版
 1. 從左窗格中選取 [**企業應用程式**]。 隨即會顯示所有已設定的應用程式清單，包括從資源庫新增的應用程式。
 1. 選取 [ **+ 新增應用程式** > ] [**所有** > **非資源庫應用程式**]。
 1. 輸入應用程式的 [名稱]，然後選取 [**新增**] 以建立應用程式物件。 新應用程式會新增至企業應用程式清單，並開啟至其 [應用程式管理] 畫面。
@@ -96,6 +96,9 @@ Azure AD 可以設定為將已指派的使用者和群組自動布建至應用�
 > [!NOTE]
 > 初始週期比之後的同步處理花費更多時間執行，只要服務正在執行，這大約每40分鐘就會發生一次。
 
+**若要將應用程式發行至 Azure AD 應用程式庫：**
+
+如果您要建立將使用多個租使用者的應用程式，您可以在 Azure AD 應用程式庫中使用它。 這可讓組織輕鬆地探索應用程式並設定布建。 在 Azure AD 資源庫中發佈您的應用程式，並將布建提供給其他人很容易。 請在 [這裡](https://docs.microsoft.com/azure/active-directory/develop/howto-app-gallery-listing)查明步驟。 
 ## <a name="understanding-the-azure-ad-scim-implementation"></a>瞭解 Azure AD SCIM 的執行
 
 如果您要建立支援 SCIM 2.0 使用者管理 API 的應用程式，本節將詳細說明如何實行 Azure AD SCIM 用戶端，以及您應如何建立 SCIM 通訊協定要求處理和回應的模型。 在您完成 SCIM 端點之後，您可以遵循上一節所述的程式來測試它。

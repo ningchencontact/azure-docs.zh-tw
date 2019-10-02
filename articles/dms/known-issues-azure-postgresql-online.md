@@ -1,6 +1,6 @@
 ---
-title: 線上移轉到適用於 MySQL 的 Azure 資料庫已知問題/移轉限制相關文章 | Microsoft Docs
-description: 深入了解線上移轉到適用於 MySQL 的 Azure 資料庫已知問題/移轉限制。
+title: 從于 postgresql 到適用於 PostgreSQL 的 Azure 資料庫-單一伺服器的線上遷移的已知問題/遷移限制文章Microsoft Docs
+description: 瞭解從于 postgresql 到適用於 PostgreSQL 的 Azure 資料庫的線上遷移的已知問題/遷移限制。
 services: database-migration
 author: HJToland3
 ms.author: jtoland
@@ -10,21 +10,21 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
-ms.date: 08/06/2019
-ms.openlocfilehash: 56758e2962adb41c9876171c89b37263a70ed0e4
-ms.sourcegitcommit: 86d49daccdab383331fc4072b2b761876b73510e
+ms.date: 10/03/2019
+ms.openlocfilehash: 891e8a261e092de0ffcef3941dd48f01942a8030
+ms.sourcegitcommit: 4f3f502447ca8ea9b932b8b7402ce557f21ebe5a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70743547"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71802577"
 ---
-# <a name="known-issuesmigration-limitations-with-online-migrations-to-azure-db-for-postgresql"></a>線上移轉到適用於 PostgreSQL 的 Azure DB 的已知問題/移轉限制
+# <a name="known-issuesmigration-limitations-with-online-migrations-from-postgresql-to-azure-db-for-postgresql-single-server"></a>從于 postgresql 至適用于于 postgresql 的 Azure DB 進行線上遷移的已知問題/遷移限制-單一伺服器
 
-下列小節描述從 PostgreSQL 線上移轉到適用於 PostgreSQL 的 Azure 資料庫的相關已知問題和限制。
+從于 postgresql 到適用於 PostgreSQL 的 Azure 資料庫單一伺服器的線上遷移相關的已知問題和限制，將在下列各節中說明。
 
 ## <a name="online-migration-configuration"></a>線上移轉組態
 
-- 來源 PostgreSQL 伺服器必須執行 9.5.11、9.6.7 或 10.3 版或更新版本。 如需詳細資訊，請參閱[支援的 PostgreSQL 資料庫版本](../postgresql/concepts-supported-versions.md)一文。
+- 來源於 postgresql 伺服器必須執行9.5.11、9.6.7 或10.3 版或更新版本。 如需詳細資訊，請參閱[支援的 PostgreSQL 資料庫版本](../postgresql/concepts-supported-versions.md)一文。
 - 僅支援相同版本之間的移轉。 例如，不支援將 PostgreSQL 9.5.11 移轉至適用於 PostgreSQL 9.6.7 的 Azure 資料庫。
 
     > [!NOTE]
@@ -32,7 +32,7 @@ ms.locfileid: "70743547"
 
 - 若要在**來源 PostgreSQL postgresql.conf** 檔案中啟用邏輯複寫，請設定下列參數：
   - **wal_level** = logical
-  - **max_replication_slots** = [要移轉之資料庫的最大數目]；如果您要移轉 4 個資料庫，請將值設定為 4
+  - **max_replication_slots** = [遷移的資料庫數目上限];如果您想要遷移四個資料庫，請將值設定為4
   - **max_wal_senders** = [要並行執行之資料庫的最大數目]；建議的值為 10
 - 將 DMS 代理程式 IP 新增至來源於 postgresql pg_hba
   1. 完成 DMS 執行個體的佈建之後，請記下 DMS IP 位址。
@@ -42,7 +42,7 @@ ms.locfileid: "70743547"
 
 - 使用者在裝載來源資料庫的伺服器上必須具有進階使用者權限
 - 除了在來源資料庫結構描述中必須具有 ENUM 之外，來源和目標資料庫結構描述也必須相符。
-- 目標適用於 PostgreSQL 的 Azure 資料庫中的結構描述不可有外部索引鍵。 請使用以下查詢來卸除外部索引鍵：
+- 目標適用於 PostgreSQL 的 Azure 資料庫-單一伺服器中的架構不能有外鍵。 請使用以下查詢來卸除外部索引鍵：
 
     ```
                                 SELECT Queries.tablename
@@ -73,7 +73,7 @@ ms.locfileid: "70743547"
 
     在查詢結果中執行卸除外部索引鍵 (這是第二個資料行)。
 
-- 目標適用於 PostgreSQL 的 Azure 資料庫中的結構描述不可有任何觸發程序。 請使用下列命令來停用目標資料庫中的觸發程序：
+- 目標適用於 PostgreSQL 的 Azure 資料庫-單一伺服器中的架構不能有任何觸發程式。 請使用下列命令來停用目標資料庫中的觸發程序：
 
      ```
     SELECT Concat('DROP TRIGGER ', Trigger_Name, ';') FROM  information_schema.TRIGGERS WHERE TRIGGER_SCHEMA = 'your_schema';

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/26/2019
 ms.author: aschhab
-ms.openlocfilehash: 67e95133b9d78823f37ba48f291175ae8e9058d6
-ms.sourcegitcommit: 6fe40d080bd1561286093b488609590ba355c261
-ms.translationtype: HT
+ms.openlocfilehash: 7b9d4099734af3a04f43d35d89f07f8b005c90f9
+ms.sourcegitcommit: 4f3f502447ca8ea9b932b8b7402ce557f21ebe5a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/01/2019
-ms.locfileid: "71703563"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71802522"
 ---
 # <a name="service-bus-resource-manager-exceptions"></a>服務匯流排 Resource Manager 例外狀況
 
@@ -36,8 +36,8 @@ ms.locfileid: "71703563"
 
 | 錯誤碼 | 錯誤子代碼 | 錯誤訊息 | 描述 | 建議 |
 | ---------- | ------------- | ------------- | ----------- | -------------- |
-| 錯誤的要求 | 40000 | 子代碼 = 40000。 建立佇列時，無法設定屬性 *' property name '* ，因為命名空間 *' namespace name '* 使用「基本」層。 只有「標準」或「Premium」層才支援這項作業。 | 在 Azure 服務匯流排基本層上，無法設定或更新下列屬性- <ul> <li> RequiresDuplicateDetection </li> <li> AutoDeleteOnIdle </li> <li>requiresSession</li> <li>DefaultMessageTimeToLive </li> <li> DuplicateDetectionHistoryTimeWindow </li> <li> EnableExpress </li> <li> ForwardTo </li> <li> 主題 </li> </ul> | 請考慮從基本升級為標準層或進階層，以利用此功能。 |
-| 錯誤的要求 | 40000 | 子代碼 = 40000。 無法變更現有佇列（或主題）之 ' requiresDuplicateDetection ' 屬性的值。 | 在建立實體時，必須啟用/停用重複偵測。 建立之後，就無法變更重複偵測設定參數。 | 若要在先前建立的佇列/主題上啟用重複偵測，您可以使用重複的偵測來建立新的佇列/主題，然後從原始佇列轉送到新的佇列/主題。 |
+| 錯誤的要求 | 40000 | 子代碼 = 40000。 建立佇列時，無法設定屬性 *' property name '* ，因為命名空間 *' namespace name '* 使用「基本」層。 只有「標準」或「Premium」層才支援這項作業。 | 在 Azure 服務匯流排基本層上，無法設定或更新下列屬性- <ul> <li> RequiresDuplicateDetection </li> <li> AutoDeleteOnIdle </li> <li>requiresSession</li> <li>DefaultMessageTimeToLive </li> <li> DuplicateDetectionHistoryTimeWindow </li> <li> EnableExpress </li> <li> ForwardTo </li> <li> 主題 </li> </ul> | 請考慮從基本升級為標準層或進階層，以使用此功能。 |
+| 錯誤的要求 | 40000 | 子代碼 = 40000。 無法變更現有佇列（或主題）之 ' requiresDuplicateDetection ' 屬性的值。 | 在建立實體時，必須啟用/停用重複偵測。 無法在建立後變更重複偵測設定參數。 | 若要在先前建立的佇列/主題上啟用重複偵測，您可以使用重複的偵測來建立新的佇列/主題，然後從原始佇列轉送到新的佇列/主題。 |
 | 錯誤的要求 | 40000 | 子代碼 = 40000。 指定的值16384無效。 屬性 ' MaxSizeInMegabytes ' 必須是下列其中一個值：1024; 2048; 3072; 4096; 5120。 | MaxSizeInMegabytes 值無效。 | 請確定 MaxSizeInMegabytes 是下列其中一項-1024、2048、3072、4096、5120。 |
 | 錯誤的要求 | 40000 | 子代碼 = 40000。 無法變更佇列/主題的資料分割。 | 無法變更實體的資料分割。 | 建立新的實體（佇列或主題）並啟用分割區。 | 
 | 錯誤的要求 | 無 | 命名空間 *' namespace name '* 不存在。 | 命名空間不存在於您的 Azure 訂用帳戶中。 | 若要解決此錯誤，請嘗試下列 <ul> <li> 請確定 Azure 訂用帳戶正確。 </li> <li> 確定命名空間存在。 </li> <li> 請確認命名空間名稱是否正確（沒有任何拼寫錯誤或 null 字串）。 </li> </ul> | 
@@ -58,4 +58,17 @@ ms.locfileid: "71703563"
 | 429 | 40901 | 子代碼 = 40901。 另一個衝突的操作正在進行中。 | 相同的資源/實體正在進行另一個衝突的操作 | 等候目前進行中的作業完成，然後再試一次。 |
 | 429 | 40900 | 子代碼 = 40900。 合併. 您要求的作業在資源的目前狀態下不允許。 | 當有多個要求同時對相同的實體（佇列、主題、訂用帳戶或規則）執行作業時，可能會遇到此狀況。 | 請稍候幾秒鐘，然後再試一次 |
 | 429 | 無 | 發生資源衝突。 另一個衝突的作業可能正在進行中。 如果這是失敗作業的重試，背景清除仍處於暫止狀態。 請稍後再試。 | 當對相同實體有暫止的作業時，可能會遇到此狀況。 | 等待前一個作業完成，然後再試一次。 |
+| 429 | 無 | 實體「*機構名稱*」上的要求與另一個要求衝突 | 相同的資源/實體正在進行另一個衝突的操作 | 等待前一個作業完成，然後再試一次 |
+| 429 | 無 | 實體「*機構名稱*」有另一個更新要求正在進行中。 | 相同的資源/實體正在進行另一個衝突的操作 | 等待前一個作業完成，然後再試一次 |
 
+
+## <a name="error-code-not-found"></a>錯誤碼:找不到
+
+此錯誤類別表示找不到資源。
+
+| 錯誤碼 | 錯誤子代碼 | 錯誤訊息 | 描述 | 建議 |
+| ---------- | ------------- | ------------- | ----------- | -------------- |
+| 找不到 | 無 | 找不到實體「*機構名稱*」。 | 找不到作業的實體。 | 請檢查實體是否存在，然後再次嘗試操作。 |
+| 找不到 | 無 | 找不到。 作業不存在。 | 您嘗試執行的作業不存在。 | 請檢查操作，然後再試一次。 |
+| 找不到 | 無 | 連入要求不會被辨識為命名空間原則 put 要求。 | 傳入要求本文是 null，因此無法以 put 要求的形式執行。 | 請檢查要求本文，以確保它不是 null。 | 
+| 找不到 | 無 | 找不到訊息實體「*機構名稱*」。 | 找不到您嘗試用來執行操作的實體。 | 請檢查實體是否存在，然後再次嘗試操作。 |

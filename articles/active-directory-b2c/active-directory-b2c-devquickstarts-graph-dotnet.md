@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 09/24/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 02765538ce8a351db539438837b6426c0896d2d4
-ms.sourcegitcommit: 6fe40d080bd1561286093b488609590ba355c261
-ms.translationtype: HT
+ms.openlocfilehash: 2585b47d049047cc191bfc284c4486361917f1ed
+ms.sourcegitcommit: 4f3f502447ca8ea9b932b8b7402ce557f21ebe5a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/01/2019
-ms.locfileid: "71701885"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71802074"
 ---
 # <a name="azure-ad-b2c-use-the-azure-ad-graph-api"></a>Azure AD B2C：使用 Azure AD Graph API
 
@@ -49,19 +49,11 @@ Azure Active Directory B2C （Azure AD B2C）租使用者可以有數千或數�
 
 ### <a name="assign-api-access-permissions"></a>指派 API 存取權限
 
-1. 在 [**已註冊的應用程式**總覽] 頁面上，選取 [**設定**]。
-1. 在 [ **API 存取**] 底下，選取 [**必要許可權**]。
-1. 選取 [Windows Azure Active Directory]。
-1. 在 [**應用程式許可權**] 底下，選取 [**讀取和寫入目錄資料**]。
-1. 選取 [儲存]。
-1. 選取 [授與權限]，然後選取 [是]。 可能需要幾分鐘的時間才能完全傳播許可權。
+[!INCLUDE [active-directory-b2c-permissions-directory](../../includes/active-directory-b2c-permissions-directory.md)]
 
 ### <a name="create-client-secret"></a>建立用戶端密碼
 
-1. 在 [ **API 存取**] 底下，選取 [**金鑰**]。
-1. 在 [**金鑰描述**] 方塊中輸入金鑰的描述。 例如，*管理金鑰*。
-1. 選取有效**期間**，然後選取 [**儲存**]。
-1. 記錄索引鍵的**值**。 您在稍後的步驟中會使用此值進行設定。
+[!INCLUDE [active-directory-b2c-client-secret](../../includes/active-directory-b2c-client-secret.md)]
 
 您現在有一個應用程式，具有在 Azure AD B2C 租使用者中*建立*、*讀取*和*更新*使用者的許可權。 繼續進行下一節，以新增使用者*刪除*和*密碼更新*許可權。
 

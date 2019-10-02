@@ -11,12 +11,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: bonova, sstein
 ms.date: 05/10/2019
-ms.openlocfilehash: 36bcb8f7a3ee75794741b44f91956950179e5544
-ms.sourcegitcommit: a7a9d7f366adab2cfca13c8d9cbcf5b40d57e63a
+ms.openlocfilehash: 1d8379d0ee54332ae4971cd9abaa8b153d52084a
+ms.sourcegitcommit: 80da36d4df7991628fd5a3df4b3aa92d55cc5ade
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71162292"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71816071"
 ---
 # <a name="azure-sql-database-features"></a>Azure SQL Database 功能
 
@@ -35,7 +35,7 @@ Azure SQL Database 會管理您的資料庫，並保證其高可用性。 某些
 | **SQL 功能** | **單一資料庫和彈性集區** | **受控實例和實例集區** |
 | --- | --- | --- |
 | [一律加密](https://docs.microsoft.com/sql/relational-databases/security/encryption/always-encrypted-database-engine) | 是 - 請參閱[憑證存放區](sql-database-always-encrypted.md)和[金鑰保存庫](sql-database-always-encrypted-azure-key-vault.md) | 是 - 請參閱[憑證存放區](sql-database-always-encrypted.md)和[金鑰保存庫](sql-database-always-encrypted-azure-key-vault.md) |
-| [Always On 可用性群組](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/always-on-availability-groups-sql-server) | 每個資料庫皆隨附[高可用性](sql-database-high-availability.md)。 [Azure SQL Database 的業務連續性概觀](sql-database-business-continuity.md)會討論災害復原 | 每個資料庫都包含[高可用性](sql-database-high-availability.md), 而且[不能由使用者管理](sql-database-managed-instance-transact-sql-information.md#always-on-availability)。 [Azure SQL Database 的業務連續性概觀](sql-database-business-continuity.md)會討論災害復原 |
+| [Always On 可用性群組](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/always-on-availability-groups-sql-server) | [99.99-](sql-database-high-availability.md)每個資料庫保證 99.995% 的可用性。 [Azure SQL Database 的業務連續性概觀](sql-database-business-continuity.md)會討論災害復原 | [99.99。](sql-database-high-availability.md)保證每個資料庫都有% 的可用性，而且[不能由使用者管理](sql-database-managed-instance-transact-sql-information.md#always-on-availability)。 嚴重損壞修復會在[Azure SQL Database 的商務持續性總覽](sql-database-business-continuity.md)中討論。 使用[自動容錯移轉群組](sql-database-auto-failover-group.md)，在另一個區域中設定次要 Always On 受控執行個體。 無法使用其他 SQL Server 實例和單一資料庫做為受控執行個體的次要複本。 |
 | [連結資料庫](https://docs.microsoft.com/sql/relational-databases/databases/attach-a-database) | 否 | 否 |
 | [稽核](https://docs.microsoft.com/sql/relational-databases/security/auditing/sql-server-audit-database-engine) | [是](sql-database-auditing.md)| [是](sql-database-managed-instance-auditing.md), 但有一些[差異](sql-database-managed-instance-transact-sql-information.md#auditing) |
 | [Azure Active Directory （AAD）驗證](sql-database-aad-authentication.md) | 是的。 僅限 AAD 使用者。 | 是的。 包括伺服器層級的 AAD 登入。 |
@@ -57,7 +57,7 @@ Azure SQL Database 會管理您的資料庫，並保證其高可用性。 某些
 | [DDL 陳述式](https://docs.microsoft.com/sql/t-sql/statements/statements) | 大部分 - 請參閱個別陳述式 | 是 - 請參閱 [T-SQL 差異](sql-database-managed-instance-transact-sql-information.md) |
 | [DDL 觸發程序](https://docs.microsoft.com/sql/relational-databases/triggers/ddl-triggers) | 僅限資料庫 |  是 |
 | [分散式分割區檢視](https://docs.microsoft.com/sql/t-sql/statements/create-view-transact-sql#partitioned-views) | 否 | 是 |
-| [分散式交易 - MS DTC](https://docs.microsoft.com/sql/relational-databases/native-client-ole-db-transactions/supporting-distributed-transactions) | 否 - 請參閱[彈性交易](sql-database-elastic-transactions-overview.md) |  否-請參閱[連結的伺服器差異](sql-database-managed-instance-transact-sql-information.md#linked-servers) |
+| [分散式交易 - MS DTC](https://docs.microsoft.com/sql/relational-databases/native-client-ole-db-transactions/supporting-distributed-transactions) | 否 - 請參閱[彈性交易](sql-database-elastic-transactions-overview.md) |  否-請參閱[連結的伺服器差異](sql-database-managed-instance-transact-sql-information.md#linked-servers)。 嘗試在遷移期間，將多個分散式 SQL Server 實例中的資料庫合併成一個受控實例。 |
 | [DML 觸發程序](https://docs.microsoft.com/sql/relational-databases/triggers/create-dml-triggers) | 大部分 - 請參閱個別陳述式 |  是 |
 | [DMV](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/system-dynamic-management-views) | 大部分 - 請參閱個別 DMV |  是 - 請參閱 [T-SQL 差異](sql-database-managed-instance-transact-sql-information.md) |
 | [事件通知](https://docs.microsoft.com/sql/relational-databases/service-broker/event-notifications) | 否 - 請參閱[警示](sql-database-insights-alerts-portal.md) | 否 |
@@ -90,7 +90,7 @@ Azure SQL Database 會管理您的資料庫，並保證其高可用性。 某些
 | [從備份還原資料庫](https://docs.microsoft.com/sql/relational-databases/backup-restore/back-up-and-restore-of-sql-server-databases#restore-data-backups) | 僅限從自動備份 - 請參閱[SQL Database 復原](sql-database-recovery-using-backups.md) | 從自動備份-請參閱[SQL Database](sql-database-recovery-using-backups.md)復原以及放在 Azure Blob 儲存體上的完整備份-請參閱[備份差異](sql-database-managed-instance-transact-sql-information.md#backup) |
 | [將資料庫還原至 SQL Server](https://docs.microsoft.com/sql/relational-databases/backup-restore/back-up-and-restore-of-sql-server-databases#restore-data-backups) | 資料分割 請使用 BACPAC 或 BCP，而不是原生還原。 | 否, 因為在受控執行個體中使用的 SQL Server 資料庫引擎版本高於內部部署所使用之任何 RTM 版本的 SQL Server。 請改用 BACPAC、BCP 或異動複寫。 |
 | [語意搜尋](https://docs.microsoft.com/sql/relational-databases/search/semantic-search-sql-server) | 否 | 否 |
-| [Service Broker](https://docs.microsoft.com/sql/database-engine/configure-windows/sql-server-service-broker) | 否 | 是, 但只能在實例內。 請參閱[Service Broker 差異](sql-database-managed-instance-transact-sql-information.md#service-broker) |
+| [Service Broker](https://docs.microsoft.com/sql/database-engine/configure-windows/sql-server-service-broker) | 否 | 是, 但只能在實例內。 如果您使用遠端 Service Broker 路由，請嘗試在遷移期間將數個分散式 SQL Server 實例中的資料庫合併成一個受控實例，並僅使用本機路由。 請參閱[Service Broker 差異](sql-database-managed-instance-transact-sql-information.md#service-broker) |
 | [伺服器組態設定](https://docs.microsoft.com/sql/database-engine/configure-windows/server-configuration-options-sql-server) | 否 | 是 - 請參閱 [T-SQL 差異](sql-database-managed-instance-transact-sql-information.md) |
 | [SET 陳述式](https://docs.microsoft.com/sql/t-sql/statements/set-statements-transact-sql) | 大部分 - 請參閱個別陳述式 | 是 - 請參閱 [T-SQL 差異](sql-database-managed-instance-transact-sql-information.md)|
 | [SQL Server 代理程式](https://docs.microsoft.com/sql/ssms/agent/sql-server-agent) | 否 - 請參閱[彈性工作](elastic-jobs-overview.md) | 是 - 請參閱 [SQL Server Agent 差異](sql-database-managed-instance-transact-sql-information.md#sql-server-agent) |
@@ -133,7 +133,7 @@ Azure 平臺提供一些 PaaS 功能, 可新增為標準資料庫功能的額外
 | [資料庫還原時間點](https://docs.microsoft.com/sql/relational-databases/backup-restore/restore-a-sql-server-database-to-a-point-in-time-full-recovery-model) | 是-超大規模資料庫以外的所有服務層級-請參閱[SQL Database](sql-database-recovery-using-backups.md#point-in-time-restore)復原 | 是 - 請參閱 [SQL Database 復原](sql-database-recovery-using-backups.md#point-in-time-restore) |
 | 資源集區 | 是, 身為[彈性](sql-database-elastic-pool.md)集區 | 是的。 單一受控實例可以有多個共用相同資源集區的資料庫。 此外，您可以在實例集區[（預覽）](sql-database-instance-pools.md)中部署可共用資源的多個受控實例。 |
 | 相應增加或相應減少 (線上) | 是, 您可以在最短的停機時間內變更 DTU 或保留的虛擬核心或最大儲存體。 | 是, 您可以在最短的停機時間內變更保留的虛擬核心或最大儲存體。 |
-| SQL 別名 | 是，請參閱[DNS 別名](dns-alias-overview.md) | 否 |
+| [SQL 別名](https://docs.microsoft.com/sql/database-engine/configure-windows/create-or-delete-a-server-alias-for-use-by-a-client) | 否，使用[DNS 別名](dns-alias-overview.md) | 否，使用[Clicongf](https://techcommunity.microsoft.com/t5/Azure-Database-Support-Blog/Lesson-Learned-33-How-to-make-quot-cliconfg-quot-to-work-with/ba-p/369022)來設定用戶端電腦上的別名。 |
 | [SQL 分析](https://docs.microsoft.com/azure/azure-monitor/insights/azure-sql) | 是 | 是 |
 | [SQL 資料同步](sql-database-get-started-sql-data-sync.md) | 是 | 否 |
 | [SQL Server Analysis Services (SSAS)](https://docs.microsoft.com/sql/analysis-services/analysis-services) | 否, [azure Analysis Services](https://azure.microsoft.com/services/analysis-services/)是個別的 azure 雲端服務。 | 否, [azure Analysis Services](https://azure.microsoft.com/services/analysis-services/)是個別的 azure 雲端服務。 |
@@ -142,6 +142,7 @@ Azure 平臺提供一些 PaaS 功能, 可新增為標準資料庫功能的額外
 | [查詢效能深入解析（QPI）](sql-database-query-performance.md) | 是 | 資料分割 使用 SQL Server Management Studio 和 Azure Data Studio 中的內建報表。 |
 | [VNet](../virtual-network/virtual-networks-overview.md) | 部分, 它會使用[VNet 端點](sql-database-vnet-service-endpoint-rule-overview.md)來啟用限制存取 | 是, 受控執行個體會插入客戶的 VNet 中。 請參閱[子網](sql-database-managed-instance-transact-sql-information.md#subnet)和[VNet](sql-database-managed-instance-transact-sql-information.md#vnet) |
 | VNet 服務端點 | [是](sql-database-vnet-service-endpoint-rule-overview.md) | 否 |
+| VNet 全域對等互連 | 是，使用[私人 IP 和服務端點](sql-database-vnet-service-endpoint-rule-overview.md) | 不可以，因為[VNet 全域對等互連中的負載平衡器條件約束](../virtual-network/virtual-network-manage-peering.md#requirements-and-constraints)，[所以不支援受控執行個體](../virtual-network/virtual-networks-faq.md#what-are-the-constraints-related-to-global-vnet-peering-and-load-balancers)。
 
 ## <a name="tools"></a>工具
 Azure SQL database 支援各種資料工具，可協助您管理資料。
@@ -161,7 +162,7 @@ Azure SQL database 支援各種資料工具，可協助您管理資料。
 | [SQL Server Management Studio (SSMS)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) | 是 | 是[18.0 版和更高版本](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) |
 | [SQL Server PowerShell](https://docs.microsoft.com/sql/relational-databases/scripting/sql-server-powershell) | 是 | 是 |
 | [SQL Server Profiler](https://docs.microsoft.com/sql/tools/sql-server-profiler/sql-server-profiler) | 否 - 請參閱[擴充事件](sql-database-xevent-db-diff-from-svr.md) | 是 |
-| [System Center Operations Manager-SCOM](https://docs.microsoft.com/system-center/scom/welcome) | [是](https://www.microsoft.com/download/details.aspx?id=38829) | 是，[處於預覽](https://www.microsoft.com/download/details.aspx?id=100306)狀態 |
+| [System Center Operations Manager （SCOM）](https://docs.microsoft.com/system-center/scom/welcome) | [是](https://www.microsoft.com/download/details.aspx?id=38829) | 是，[處於預覽](https://www.microsoft.com/download/details.aspx?id=100306)狀態 |
 
 ## <a name="migration-methods"></a>移轉方法
 

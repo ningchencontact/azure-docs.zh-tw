@@ -8,12 +8,12 @@ ms.date: 08/13/2019
 ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
-ms.openlocfilehash: 737bad504519a2ec7eee9764593245e0fee28cc3
-ms.sourcegitcommit: 2d9a9079dd0a701b4bbe7289e8126a167cfcb450
+ms.openlocfilehash: 4523d7bf8f6c0ffc0ebfbc57d20a19baec08c91b
+ms.sourcegitcommit: a19f4b35a0123256e76f2789cd5083921ac73daf
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/29/2019
-ms.locfileid: "71673060"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71720348"
 ---
 # <a name="build-highly-available-azure-storage-applications-with-geo-zone-redundant-storage-gzrs-preview"></a>建立具有異地區域冗余儲存體（切換）（預覽）的高可用性 Azure 儲存體應用程式
 
@@ -21,7 +21,7 @@ ms.locfileid: "71673060"
 
 透過切換儲存體帳戶，您可以在可用性區域無法使用或無法復原時，繼續讀取和寫入資料。 此外，如果發生全區域中斷或嚴重損壞而無法復原主要區域的情況，您的資料也會是持久的。 切換的設計目的是要在指定的一年內提供至少 99.99999999999999% （16個9）的物件持久性。 切換也提供與 LRS、ZRS、GRS 或 RA-GRS 相同的擴充 [性目標](storage-scalability-targets.md)。 如果您的應用程式需要能夠在主要區域發生嚴重損壞時讀取資料，您可以選擇性地使用讀取權限異地區域冗余儲存體（RA-切換）來啟用次要區域中資料的讀取權限。
 
-Microsoft 建議針對需要一致性、持久性、高可用性、絕佳效能和恢復功能的應用程式，使用切換來進行 diaster 復原。 如需在發生區域性嚴重損壞時，對次要區域進行讀取存取的額外安全性，請為您的儲存體帳戶啟用 [RA-切換]。
+Microsoft 建議針對需要一致性、持久性、高可用性、絕佳效能和復原的應用程式，使用切換來進行嚴重損壞修復。 如需在發生區域性嚴重損壞時，對次要區域進行讀取存取的額外安全性，請為您的儲存體帳戶啟用 [RA-切換]。
 
 ## <a name="about-the-preview"></a>關於預覽
 

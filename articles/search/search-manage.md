@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 03/08/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 2c4b2a03e7e5c818453eaf4ad6881b2caba3b93c
-ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
+ms.openlocfilehash: 9a73b4664e363e80c514ba4c01f754de3a2eed24
+ms.sourcegitcommit: a19f4b35a0123256e76f2789cd5083921ac73daf
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69647665"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71719872"
 ---
 # <a name="service-administration-for-azure-search-in-the-azure-portal"></a>Azure 入口網站中 Azure 搜尋服務的服務管理
 > [!div class="op_single_selector"]
@@ -60,7 +60,7 @@ Azure 搜尋服務不會透過入口網站或程式設計介面公開個別服�
 <a id="sub-5"></a>
 
 ## <a name="monitor-resource-usage"></a>監視資源使用量
-在儀表板中，僅能針對服務儀表板中顯示的資訊，以及一些透過查詢服務取得的度量進行資源監視。 在服務儀表板上的使用量區段中，您可以快速判斷資料分割資源層級是否適合您的應用程式。 如果您想要捕獲並保存已記錄的事件, 您可以布建外部資源, 例如 Azure 監視。 如需詳細資訊, 請參閱[監視 Azure 搜尋服務](search-monitor-usage.md)。
+在儀表板中，僅能針對服務儀表板中顯示的資訊，以及一些透過查詢服務取得的度量進行資源監視。 在服務儀表板上的使用量區段中，您可以快速判斷資料分割資源層級是否適合您的應用程式。 如果您想要捕獲並保存已記錄的事件，您可以布建外部資源，例如 Azure 監視。 如需詳細資訊，請參閱[監視 Azure 搜尋服務](search-monitor-usage.md)。
 
 使用搜尋服務 REST API，可以程式設計的方式取得文件和索引的計數： 
 
@@ -79,10 +79,9 @@ Azure 搜尋服務不會透過入口網站或程式設計介面公開個別服�
 
 ## <a name="backup-and-restore"></a>備份與還原
 
-因為 Azure 搜尋服務不是主要的資料儲存體解決方案，所以我們不提供自助備份及還原的正式機制。 如果不小心刪除索引，您用於建立及填入索引的應用程式程式碼是現行的還原選項。 
+因為 Azure 搜尋服務不是主要的資料儲存體解決方案，所以我們不提供自助備份及還原的正式機制。 不過，您可以使用此[Azure 搜尋服務 .net 範例](https://github.com/Azure-Samples/azure-search-dotnet-samples)存放庫中的**索引備份-還原範例程式**代碼，將您的索引定義和快照集備份至一系列 JSON 檔案，然後視需要使用這些檔案來還原索引。 此工具也可以在服務層之間移動索引。
 
-若要重建索引，請先將索引刪除 (假設它存在)，在服務中重新建立索引，然後從您的主要資料存放區擷取資料以重新載入。
-
+否則，如果您不小心刪除索引，則用來建立和填入索引的應用程式程式碼就是 [原本就還原] 選項。 若要重建索引，請先將索引刪除 (假設它存在)，在服務中重新建立索引，然後從您的主要資料存放區擷取資料以重新載入。
 
 <a id="scale"></a>
 

@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 02/13/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 8a03472b72ea7c2dc69d79400e33d5ec65cc6126
-ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
+ms.openlocfilehash: 863050b2646f6f7b3a3d9ba3487f11729bef22c8
+ms.sourcegitcommit: a19f4b35a0123256e76f2789cd5083921ac73daf
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69647696"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71719839"
 ---
 # <a name="how-to-rebuild-an-azure-search-index"></a>如何重建 Azure 搜尋服務索引
 
@@ -33,7 +33,7 @@ ms.locfileid: "69647696"
 | 更新或刪除索引中的分析器定義 | 您無法刪除或變更索引中的現有分析器組態 (分析器、權杖化工具、權杖篩選器或 char 篩選器)，除非您重建整個索引。 |
 | 將欄位新增至建議工具 | 如果已有欄位存在，且您想要將它新增至[建議工具](index-add-suggesters.md)建構中，您必須重建索引。 |
 | 刪除欄位 | 若要實體上移除欄位的所有追蹤，您必須重建索引。 如果沒有立即進行重建，您可以修改應用程式碼，以停用對「已刪除」欄位的存取。 實體上，在您下次套用省略問題欄位的結構描述重建之前，欄位定義和內容都會保留在索引中。 |
-| 切換階層 | 如果您需要更多容量，則沒有就地升級的做法。 您必須在新的容量點建立新的服務，且必須為新服務從頭建置索引。 |
+| 切換階層 | 如果您需要更多容量，Azure 入口網站中沒有就地升級。 必須建立新的服務，而且必須在新的服務上從頭開始建立索引。 若要協助自動化此程式，您可以使用此[Azure 搜尋服務 .net 範例](https://github.com/Azure-Samples/azure-search-dotnet-samples)存放庫中的**索引備份-還原範例程式**代碼。 此應用程式會將您的索引備份至一系列 JSON 檔案，然後在您指定的搜尋服務中重新建立索引。|
 
 可以進行任何其他修改，而不會影響現有的實體結構。 具體來說，下列變更*不*需要重建索引：
 

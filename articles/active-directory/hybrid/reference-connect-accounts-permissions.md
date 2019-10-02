@@ -17,12 +17,12 @@ ms.date: 09/25/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6760677a94855c259501103a54a96d687c87910b
-ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
+ms.openlocfilehash: 8e7bd33d74d9ecf6ebc35981df7255ecc19253c7
+ms.sourcegitcommit: 80da36d4df7991628fd5a3df4b3aa92d55cc5ade
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71290959"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71812589"
 ---
 # <a name="azure-ad-connect-accounts-and-permissions"></a>Azure AD Connect：帳戶和權限
 
@@ -57,6 +57,9 @@ Azure AD Connect 會使用 3 個帳戶，以便將資訊從內部部署或 Windo
 > 專用的系統管理樹系可讓組織在比生產環境具有更強安全性控制的環境中裝載系統管理帳戶、工作站和群組。
 > 若要深入瞭解專用的系統管理樹系，請參閱[ESAE 系統管理樹系設計方法](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/securing-privileged-access-reference-material#esae-administrative-forest-design-approach)
 >>>>>>> e683a61b0ed62ae739941410f658a127534e2481
+
+> [!NOTE]
+> 初始設定之後，不需要全域管理員角色，而且唯一需要的帳戶會是**目錄同步作業帳戶**角色帳戶。 這不會 necssarily 表示您只想要移除具有全域管理員角色的帳戶。 最好將角色變更為較不強大的角色，因為如果您需要重新執行嚮導，完全移除帳戶可能會導致問題。 藉由降低角色的許可權，如果您必須再次使用 Azure AD Connect wizard，您隨時可以重新提升許可權。 
 
 ## <a name="installing-azure-ad-connect"></a>正在安裝 Azure AD Connect
 Azure AD Connect 安裝精靈提供兩個不同的路徑：

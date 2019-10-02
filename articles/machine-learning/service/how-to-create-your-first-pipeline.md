@@ -11,12 +11,12 @@ ms.author: sanpil
 author: sanpil
 ms.date: 08/09/2019
 ms.custom: seodec18
-ms.openlocfilehash: f1a0db395b86f473d2372a5ca779020e54186e45
-ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
+ms.openlocfilehash: af20c9e3a50c0c60135b1e447e7e1cba1fc36526
+ms.sourcegitcommit: 80da36d4df7991628fd5a3df4b3aa92d55cc5ade
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71034848"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71815716"
 ---
 # <a name="create-and-run-machine-learning-pipelines-with-azure-machine-learning-sdk"></a>使用 Azure Machine Learning SDK 建立及執行機器學習管線
 
@@ -436,7 +436,7 @@ p.disable()
 
 為了優化和自訂管線的行為，您可以在快取和重複使用方面執行一些動作。 例如, 您可以選擇:
 + 在[步驟定義](https://docs.microsoft.com/python/api/azureml-pipeline-steps/?view=azure-ml-py)期間設定`allow_reuse=False` , 以關閉**步驟執行輸出的預設重複使用**。 在共同作業環境中使用管線時, 重複使用是關鍵, 因為排除不必要的執行可提供靈活性。 不過，您可以選擇不重複使用。
-+ 將**雜湊延伸到腳本外**，以同時包含 source_directory 到其他檔案和目錄的絕對路徑或相對路徑，並使用`hash_paths=['<file or directory']` 
++ 將**雜湊延伸到腳本之外**，以同時包含 source_directory 到其他檔案和目錄的絕對路徑或相對路徑（使用 `hash_paths=['<file or directory']`） 
 + **針對執行中的所有步驟強制輸出**重新產生`pipeline_run = exp.submit(pipeline, regenerate_outputs=False)`
 
 根據預設, `allow_reuse`會啟用步驟, 而且只會雜湊主要腳本檔案。 因此, 如果指定步驟的腳本維持不變 (`script_name`、輸入和參數), 則會重複使用上一個步驟執行的輸出, 不會將作業提交至計算, 而從上一次執行的結果會立即可供下一個步驟使用.  
@@ -449,11 +449,11 @@ step = PythonScriptStep(name="Hello World",
                         allow_reuse=False,
                         hash_paths=['hello_world.ipynb'])
 ```
- 
 
 ## <a name="next-steps"></a>後續步驟
 
 - 使用 [GitHub 上的這些 Jupyter Notebook](https://aka.ms/aml-pipeline-readme) 來進一步探索機器學習管線。
 - 請參閱[azureml-管線核心](https://docs.microsoft.com/python/api/azureml-pipeline-core/?view=azure-ml-py)套件和[azureml-管線-步驟](https://docs.microsoft.com/python/api/azureml-pipeline-steps/?view=azure-ml-py)套件的 SDK 參考說明。
+- 如需有關偵錯工具和疑難排解管線的秘訣，請參閱操作[說明](how-to-debug-pipelines.md)。
 
 [!INCLUDE [aml-clone-in-azure-notebook](../../../includes/aml-clone-for-examples.md)]

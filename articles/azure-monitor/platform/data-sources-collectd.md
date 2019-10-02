@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/27/2018
 ms.author: magoedte
-ms.openlocfilehash: 2118f137f2c0d32f891a170c3509bceee7ba13ed
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b1f02e01fef95bdd06930aa30479dd16d40675ce
+ms.sourcegitcommit: 80da36d4df7991628fd5a3df4b3aa92d55cc5ade
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60764936"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71812561"
 ---
 # <a name="collect-data-from-collectd-on-linux-agents-in-azure-monitor"></a>在 Azure 監視器中，從 Linux 代理程式上的 CollectD 收集資料
 [CollectD](https://collectd.org/) 是開放原始碼 Linux 精靈，可定期收集來自應用程式的效能計量和系統等級資訊。 範例應用程式包括 Java 虛擬機器 (JVM)、MySQL 伺服器和 Nginx。 本文提供如何在 Azure 監視器中從 CollectD 收集效能資料的相關資訊。
@@ -69,6 +69,8 @@ Log Analytics Linux 代理程式也會在連接埠 26000 接聽 CollectD 計量�
       type filter_collectd
     </filter>
 
+> [!NOTE]
+> CollectD 預設會設定為以10秒的[間隔](https://collectd.org/wiki/index.php/Interval)讀取值。 因為這會直接影響傳送至 Azure 監視器記錄的資料量，所以您可能需要在 CollectD 設定中微調此間隔，以在監視需求和相關成本與 Azure 監視器記錄的使用量之間取得良好平衡。
 
 ## <a name="versions-supported"></a>支援的版本
 - Azure 監視器目前支援 CollectD 4.8 版和更新版本。

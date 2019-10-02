@@ -12,15 +12,15 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 07/15/2019
+ms.date: 10/01/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: c56bfda2b4f74bf31ce847f1fdb42f77f43eb372
-ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
+ms.openlocfilehash: deffcb81a4f66783fedc89c3e21ea46b15ad1c64
+ms.sourcegitcommit: a19f4b35a0123256e76f2789cd5083921ac73daf
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/30/2019
-ms.locfileid: "71677988"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71720005"
 ---
 # <a name="azure-proximity-placement-groups-for-optimal-network-latency-with-sap-applications"></a>適用于 SAP 應用程式之最佳網路延遲的 Azure 鄰近性放置群組
 以 SAP NetWeaver 或 SAP S/4HANA 架構為基礎的 SAP 應用程式, 對於 SAP 應用層與 SAP 資料庫層之間的網路延遲是敏感的。 此敏感度是在應用層中執行的大部分商務邏輯所產生的結果。 因為 SAP 應用層會執行商務邏輯，所以會以較高的頻率向資料庫層發出查詢，以每秒數千或數十個的速率。 在大部分情況下，這些查詢的本質很簡單。 它們通常可以在500毫秒或更少的資料庫層上執行。
@@ -34,7 +34,7 @@ ms.locfileid: "71677988"
 ## <a name="what-are-proximity-placement-groups"></a>什麼是鄰近放置群組？ 
 Azure 鄰近性放置群組是邏輯結構。 當定義時，它會系結至 Azure 區域和 Azure 資源群組。 部署 Vm 時，會參考鄰近放置群組：
 
-- 在資料中心內部署的第一個 Azure VM。 您可以將第一部虛擬機器視為「錨點 VM」，其部署在以 Azure 配置演算法為基礎的資料中心內，最後會與特定可用性區域的使用者定義結合。
+- 在資料中心內部署的第一個 Azure VM。 您可以將第一部虛擬機器視為「範圍 VM」，這是根據最終與特定可用性區域的使用者定義結合的 Azure 配置演算法，部署在資料中心內。
 - 所有後續部署的 Vm 都會參考鄰近性放置群組，以便將所有後續部署的 Azure Vm 放在與第一部虛擬機器相同的資料中心。
 
 > [!NOTE]
@@ -44,7 +44,7 @@ Azure 鄰近性放置群組是邏輯結構。 當定義時，它會系結至 Azu
 
 當您使用鄰近放置群組時，請記住下列考慮：
 
-- 當您針對 SAP 系統以最佳效能為目標，並使用鄰近放置群組將自己限制為系統的單一 Azure 資料中心時，您可能無法在放置群組內合併所有類型的 VM 系列。 之所以會發生這些限制，是因為執行特定 VM 類型所需的主機硬體可能不會出現在部署放置群組錨點 VM 的資料中心內。
+- 當您針對 SAP 系統以最佳效能為目標，並使用鄰近放置群組將自己限制為系統的單一 Azure 資料中心時，您可能無法在放置群組內合併所有類型的 VM 系列。 之所以會發生這些限制，是因為執行特定 VM 類型所需的主機硬體可能不會出現在部署放置群組「已設定範圍的 VM」的資料中心內。
 - 在這類 SAP 系統的生命週期期間，您可能會被迫將系統移至另一個資料中心。 如果您決定向外延展 HANA DBMS 層（例如，從四個節點移至16個節點），而且沒有足夠的容量來取得您在資料中心內使用之類型的額外12個 Vm，則此移動可能是必要的。
 - 由於硬體解除委任，Microsoft 可能會針對您在不同資料中心內使用的 VM 類型（而不是您最初使用的）建立容量。 在這種情況下，您可能需要將所有鄰近位置群組的 Vm 移到另一個資料中心。
 
@@ -55,7 +55,7 @@ Azure 上大多數的 SAP NetWeaver 和 S/4HANA 系統部署都不會使用[HANA
 
 避免在單一的鄰近放置群組中，將數個 SAP 生產或非生產系統進行捆綁。 當少數的 SAP 系統或 SAP 系統，以及某些周圍的應用程式需要低延遲的網路通訊時，您可以考慮將這些系統移至一個鄰近放置群組。 您應該避免系統的配套，因為您在鄰近放置群組中群組的系統越多，機率就愈高：
 
-- 您需要的 VM 類型無法在鄰近放置群組錨定的特定資料中心內執行。
+- 您需要的 VM 類型無法在鄰近放置群組的範圍內，于特定資料中心內執行。
 - 因為您在一段時間內將軟體新增至鄰近放置群組，所以當您需要更多時，這類非主流 Vm 的資源最後可能會無法使用。
 
 以下是理想的設定，如下所示：

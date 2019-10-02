@@ -14,12 +14,12 @@ ms.workload: infrastructure-services
 ms.date: 06/04/2019
 ms.author: rogirdh
 ms.custom: ''
-ms.openlocfilehash: 9947d28cbde7f4804283e03cc07093b9240ca6bf
-ms.sourcegitcommit: 992e070a9f10bf43333c66a608428fcf9bddc130
+ms.openlocfilehash: 0f35f22d6bd32d75d5c3b07d8a20b4bb7714e247
+ms.sourcegitcommit: 4f3f502447ca8ea9b932b8b7402ce557f21ebe5a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71241010"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71799567"
 ---
 # <a name="oracle-application-solutions-integrating-microsoft-azure-and-oracle-cloud-infrastructure-preview"></a>整合 Microsoft Azure 和 Oracle 雲端基礎結構的 oracle 應用程式解決方案（預覽）
 
@@ -28,7 +28,7 @@ Microsoft 和 Oracle 合作提供低延遲、高輸送量的跨雲端連線能�
 使用此跨雲端連線，您可以分割多層式應用程式，以在 Oracle 雲端基礎結構（OCI）上執行您的資料庫層，以及 Microsoft Azure 上的應用程式和其他層級。 其體驗類似于在單一雲端中執行整個解決方案堆疊。 
 
 > [!IMPORTANT]
-> 這項跨雲端功能目前為預覽狀態，並[適用限制](#preview-limitations)。 若要在 Azure 與 OCI 之間啟用低延遲連線，您的 Azure 訂用帳戶必須先針對這項功能列出。 您必須完成這[份簡短問卷](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbRyzVVsi364tClw522rL9tkpUMVFGVVFWRlhMNUlRQTVWSTEzT0dXMlRUTyQlQCN0PWcu)，才能在預覽版中註冊。 當訂用帳戶註冊完成之後，您會收到電子郵件。 在收到確認電子郵件後才能使用此功能。 您也可以聯繫 Microsoft 代表，以供此預覽版啟用。 預覽功能的存取權受限於 Microsoft 自行決定的可用性和限制。 填寫問卷並不保證能夠存取。 此預覽版是在沒有服務等級協定的情況下提供，不應用於生產工作負載。 可能不支援特定功能、可能已經限制功能，或者可能無法在所有 Azure 位置提供使用。 如需詳細資訊，請參閱 Microsoft Azure 預覽的[補充使用](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)規定。 在公開上市 (GA) 之前，此功能的某些領域可能會變更。
+> 這項跨雲端功能目前為預覽狀態，並[適用限制](#preview-limitations)。 若要建立 Azure 與 OCI 之間的低延遲連線，您的 Azure 訂用帳戶必須先啟用這項功能。 您必須完成這[份簡短問卷](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbRyzVVsi364tClw522rL9tkpUMVFGVVFWRlhMNUlRQTVWSTEzT0dXMlRUTyQlQCN0PWcu)，才能在預覽版中註冊。 當訂用帳戶註冊完成之後，您會收到電子郵件。 在收到確認電子郵件後才能使用此功能。 您也可以聯繫 Microsoft 代表，以供此預覽版啟用。 預覽功能的存取權受限於 Microsoft 自行決定的可用性和限制。 填寫問卷並不保證能夠存取。 此預覽版是在沒有服務等級協定的情況下提供，不應用於生產工作負載。 可能不支援特定功能、可能已經限制功能，或者可能無法在所有 Azure 位置提供使用。 如需詳細資訊，請參閱 Microsoft Azure 預覽的[補充使用](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)規定。 在公開上市 (GA) 之前，此功能的某些領域可能會變更。
 
 如果您想要完全在 Azure 基礎結構上部署 Oracle 解決方案，請參閱[Microsoft Azure 上的 ORACLE VM 映射和其部署](oracle-vm-solutions.md)。
 

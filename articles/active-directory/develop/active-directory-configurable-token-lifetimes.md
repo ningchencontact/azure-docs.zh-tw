@@ -13,24 +13,24 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 08/22/2019
+ms.date: 09/17/2019
 ms.author: ryanwi
 ms.custom: aaddev, annaba, identityplatformtop40
 ms.reviewer: hirsin
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f9244dfabef8b13105ef830f9f4543da9cb2cca9
-ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
+ms.openlocfilehash: b3696ebc216062a6d52fd187819f07dfb0078057
+ms.sourcegitcommit: 80da36d4df7991628fd5a3df4b3aa92d55cc5ade
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70842643"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71812583"
 ---
 # <a name="configurable-token-lifetimes-in-azure-active-directory-preview"></a>Azure Active Directory 中可設定的權杖存留期 (預覽)
 
 您可以指定 Azure Active Directory (Azure AD) 所簽發的權杖存留期。 不論是針對組織中所有的應用程式、針對多租用戶 (多組織) 應用程式，還是針對組織中特定的服務主體，都可以設定權杖存留期。
 
 > [!IMPORTANT]
-> 在預覽期間收到客戶的意見之後, 我們已在 Azure AD 條件式存取中實作為[驗證會話管理功能](https://go.microsoft.com/fwlink/?linkid=2083106)。 您可以使用這項新功能, 設定 [登入頻率] 來設定重新整理權杖存留期。 2019年11月1日之後, 您將無法使用可設定的權杖存留期原則來設定重新整理權杖, 但您仍然可以使用它來設定存取權杖。
+> 在預覽期間收到客戶的意見之後, 我們已在 Azure AD 條件式存取中實作為[驗證會話管理功能](https://go.microsoft.com/fwlink/?linkid=2083106)。 您可以使用這項新功能, 設定 [登入頻率] 來設定重新整理權杖存留期。 2019年11月1日之後，您將無法使用可設定的權杖存留期原則來設定會話和重新整理權杖。 您仍然可以在淘汰後設定存取權杖存留期。
 
 在 Azure AD 中，原則物件代表在組織中個別應用程式或所有應用程式上強制執行的一組規則。 每個原則類型都具有包含一組屬性的獨特結構，這些屬性會套用至它們已被指派的物件。
 

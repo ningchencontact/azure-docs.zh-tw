@@ -16,12 +16,12 @@ ms.date: 09/12/2019
 ms.author: rolyon
 ms.reviewer: skwan
 ms.custom: it-pro
-ms.openlocfilehash: 12f4b0276074b6732cf57443f51ef5d867f205a6
-ms.sourcegitcommit: fbea2708aab06c19524583f7fbdf35e73274f657
+ms.openlocfilehash: 5ed9088bcc5776fe1fb0d09e6ae771adabb1b879
+ms.sourcegitcommit: 4f3f502447ca8ea9b932b8b7402ce557f21ebe5a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/13/2019
-ms.locfileid: "70967428"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71802676"
 ---
 # <a name="manage-access-to-azure-resources-for-external-guest-users-using-rbac"></a>使用 RBAC 管理外部來賓使用者對 Azure 資源的存取
 
@@ -206,3 +206,4 @@ ms.locfileid: "70967428"
 - [在 Azure 入口網站中新增 Azure Active Directory B2B 共同作業使用者](../active-directory/b2b/add-users-administrator.md)
 - [Azure Active Directory B2B 共同作業使用者的屬性](../active-directory/b2b/user-properties.md)
 - [B2B 共同作業邀請電子郵件的元素-Azure Active Directory](../active-directory/b2b/invitation-email-elements.md)
+- [將來賓使用者新增為共同管理員](classic-administrators.md#adding-a-guest-user-as-a-co-administrator)

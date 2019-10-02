@@ -4,20 +4,32 @@ description: 瞭解如何使用 Azure 入口網站和不同的 Sdk，在具有�
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 07/03/2019
+ms.date: 09/28/2019
 ms.author: mjbrown
-ms.openlocfilehash: a1216daade2df832b606fceb648fca998c3fdec8
-ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
+ms.openlocfilehash: 5b0d182e09a4978a4d9c1184f085e140e5c698bc
+ms.sourcegitcommit: 80da36d4df7991628fd5a3df4b3aa92d55cc5ade
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71300143"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71811720"
 ---
 # <a name="create-containers-with-large-partition-key"></a>建立具有大型分割區索引鍵的容器
 
 Azure Cosmos DB 使用以雜湊為基礎的資料分割配置來達到水準的資料調整。 在5月 3 2019 之前建立的所有 Azure Cosmos 容器都會使用雜湊函式，根據資料分割索引鍵的前100個位元組來計算雜湊。 如果有多個分割區索引鍵具有相同的前100個位元組，則服務會將這些邏輯分割區視為相同的邏輯資料分割。 這可能會導致分割區大小配額不正確的問題，以及在資料分割索引鍵上套用的唯一索引。 引進了大型分割區索引鍵來解決此問題。 Azure Cosmos DB 現在支援大小上限為 2 KB 的大型資料分割索引鍵。
 
-使用增強版雜湊函式的功能來支援大型分割區索引鍵，它可以從最多 2 KB 的大型資料分割索引鍵產生唯一的雜湊。 對於具有高資料分割索引鍵基數（不論資料分割索引鍵大小）的案例，也建議使用此雜湊版本。 分割區索引鍵基數會定義為唯一邏輯分割區的數目，例如，在容器中的順序為 ~ 30000 邏輯分割區。 本文說明如何使用 Azure 入口網站和不同的 Sdk 來建立具有大型分割區索引鍵的容器。 
+使用增強版雜湊函式的功能來支援大型分割區索引鍵，它可以從最多 2 KB 的大型資料分割索引鍵產生唯一的雜湊。 對於具有高資料分割索引鍵基數（不論資料分割索引鍵大小）的案例，也建議使用此雜湊版本。 分割區索引鍵基數會定義為唯一邏輯分割區的數目，例如，在容器中的順序為 ~ 30000 邏輯分割區。 本文說明如何使用 Azure 入口網站和不同的 Sdk 來建立具有大型分割區索引鍵的容器。
+
+## <a name="create-a-large-partition-key-azure-portal"></a>建立大型分割區索引鍵（Azure 入口網站）
+
+若要建立大型分割區索引鍵，當您使用 Azure 入口網站建立新的容器時，請核取 [我的分割區索引**鍵大於 100-位元組**] 選項。 根據預設，所有的新容器都會使用大型分割區索引鍵來加入宣告。 如果您不需要大型分割區索引鍵，或如果您的應用程式在1.18 之前的 Sdk 版本上執行，請取消選取此核取方塊。
+
+![使用 Azure 入口網站建立大型分割區索引鍵](./media/large-partition-keys/large-partition-key-with-portal.png)
+
+## <a name="create-a-large-partition-key-powershell"></a>建立大型分割區索引鍵（PowerShell）
+
+若要建立具有大型分割區索引鍵支援的容器，請參閱
+
+* [建立具有大型分割區索引鍵大小的 Azure Cosmos 容器](manage-with-powershell.md##create-container-big-pk)
 
 ## <a name="create-a-large-partition-key-net-sdk"></a>建立大型分割區索引鍵（.Net SDK）
 
@@ -29,7 +41,7 @@ Azure Cosmos DB 使用以雜湊為基礎的資料分割配置來達到水準的�
 await database.CreateContainerAsync(
     new ContainerProperties(collectionName, $"/longpartitionkey")
     {
-        PartitionKeyDefinitionVersion = PartitionKeyDefinitionVersion.V2, 
+        PartitionKeyDefinitionVersion = PartitionKeyDefinitionVersion.V2,
     })
 ```
 
@@ -48,47 +60,6 @@ database,
            }
          },
       new RequestOptions { OfferThroughput = 400 });
-```
-
-## <a name="create-a-large-partition-key-azure-portal"></a>建立大型分割區索引鍵（Azure 入口網站） 
-
-若要建立大型分割區索引鍵，當您使用 Azure 入口網站建立新的容器時，請核取 [我的分割區索引**鍵大於 100-位元組**] 選項。 根據預設，所有的新容器都會使用大型分割區索引鍵來加入宣告。 如果您不需要大型分割區索引鍵，或如果您的應用程式在1.18 之前的 Sdk 版本上執行，請取消選取此核取方塊。
-
-![使用 Azure 入口網站建立大型分割區索引鍵](./media/large-partition-keys/large-partition-key-with-portal.png)
-
-## <a name="create-a-large-partition-key-powershell"></a>建立大型分割區索引鍵（PowerShell）
-
-若要使用 PowerShell 建立具有大型分割區索引鍵的容器`"version" = 2` ，請`partitionKey`為物件包含。
-
-```azurepowershell-interactive
-# Create a Cosmos SQL API container with large partition key support (version 2)
-$resourceGroupName = "myResourceGroup"
-$containerName = "mycosmosaccount" + "/sql/" + "myDatabase" + "/" + "myContainer"
-
-# Container with large partition key support (version = 2)
-$containerProperties = @{
-  "resource"=@{
-    "id"=$containerName;
-    "partitionKey"=@{
-        "paths"=@("/myPartitionKey");
-        "kind"="Hash";
-        "version" = 2
-    };
-    "indexingPolicy"=@{
-        "indexingMode"="Consistent";
-        "includedPaths"= @(@{
-            "path"="/*"
-        });
-        "excludedPaths"= @(@{
-            "path"="/myPathToNotIndex/*"
-        })
-    }
-  }
-}
-
-New-AzResource -ResourceType "Microsoft.DocumentDb/databaseAccounts/apis/databases/containers" `
-    -ApiVersion "2015-04-08" -ResourceGroupName $resourceGroupName `
-    -Name $containerName -PropertyObject $containerProperties
 ```
 
 ## <a name="supported-sdk-versions"></a>支援的 SDK 版本
@@ -110,5 +81,3 @@ New-AzResource -ResourceType "Microsoft.DocumentDb/databaseAccounts/apis/databas
 * [Azure Cosmos DB 中的要求單位](request-units.md)
 * [在容器和資料庫中佈建輸送量](set-throughput.md)
 * [使用 Azure Cosmos 帳戶](account-overview.md)
-
-

@@ -7,18 +7,24 @@ ms.date: 06/20/2019
 ms.topic: article
 ms.service: azure
 ms.assetid: ce37c848-ddd9-46ab-978e-6a1445728a3b
-ms.openlocfilehash: 70ad44eade871d52591014ee24e645b95c52f1e5
-ms.sourcegitcommit: b2db98f55785ff920140f117bfc01f1177c7f7e2
+ms.openlocfilehash: c7860a098096d718a6c5d7cd661ef2b1c1b21e89
+ms.sourcegitcommit: 4f3f502447ca8ea9b932b8b7402ce557f21ebe5a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68234909"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71802673"
 ---
 # <a name="classic-deployment-model"></a>傳統部署模型
 
-傳統部署模型是舊版的 Azure 部署模式土地會強制執行虛擬機器和虛擬機器擴展集的全域 vCPU 配額限制。 不再建議使用傳統部署模型, 而且現在已由 Resource Manager 模型取代。 若要深入瞭解這兩種部署模型和 Resource Manager 的優點, 請參閱 Resource Manager 部署模型頁面。 建立新的訂用帳戶時, 會指派個 vcpu 的預設配額。 每當使用傳統部署模型部署新的 VM 時, 所有區域的新和現有個 vcpu 使用量總和, 不得超過針對傳統部署模型所核准的 vCPU 配額。 深入瞭解[Azure 訂用帳戶和服務限制頁面](https://aka.ms/quotalimits)上的配額
+傳統部署模型是較舊的世代 Azure 部署模型。 它會強制執行虛擬機器和虛擬機器擴展集的全域 vCPU 配額限制。 不再建議使用傳統部署模型，而且現在已由 Resource Manager 模型取代。 
 
-您可以透過入口網站中的 [說明 + 支援] 分頁或 [使用方式 + 配額] 分頁, 要求增加傳統部署模型的個 vcpu 限制。
+若要深入瞭解這兩種部署模型以及使用 Resource Manager 的優點，請參閱[Resource Manager 和傳統部署](../azure-resource-manager/resource-manager-deployment-model.md)頁面。
+ 
+建立新的訂用帳戶時, 會指派個 vcpu 的預設配額。 每當使用傳統部署模型部署新的 VM 時，所有區域的新和現有 vCPU 使用量總和，不得超過針對傳統部署模型所核准的 vCPU 配額。
+ 
+深入瞭解 Azure 訂用帳戶[和服務限制](https://aka.ms/quotalimits)頁面上的配額。
+
+您可以透過入口網站中的 [說明 + 支援] 分頁或 [使用方式 + 配額] 分頁，要求增加傳統部署模型的 vCPU 配額限制。
 
 ## <a name="request-per-vm-series-vcpu-quota-increase-at-subscription-level-using-the-help--support-blade"></a>使用 [說明 **+ 支援**] 分頁, 在訂用帳戶層級增加每個 VM 系列 vCPU 配額的要求
 
@@ -28,7 +34,7 @@ ms.locfileid: "68234909"
 
    ![說明 + 支援](./media/resource-manager-core-quotas-request/helpsupport.png)
  
-2.  選取 [新增支援要求]  。 
+2.  選取 [新增支援要求]。 
 
       ![新增支援要求](./media/resource-manager-core-quotas-request/newsupportrequest.png)
 
@@ -64,7 +70,7 @@ ms.locfileid: "68234909"
 
 請遵循下列指示, 以使用 Azure 入口網站中提供的 Azure [使用量 + 配額] 分頁來建立支援要求。 
 
-1. 從 https://portal.azure.com 選取 [訂用帳戶]  。
+1. 從 https://portal.azure.com 選取 [訂用帳戶]。
 
    ![Subscriptions](./media/resource-manager-core-quotas-request/subscriptions.png)
 
@@ -72,13 +78,13 @@ ms.locfileid: "68234909"
 
    ![選取訂用帳戶](./media/resource-manager-core-quotas-request/select-subscription.png)
 
-3. 選取 [使用量 + 配額] 
+3. 選取 [使用量 + 配額]
 
    ![選取使用量和配額](./media/resource-manager-core-quotas-request/select-usage-quotas.png)
 
-4. 在右上角，選取 [要求增加配額]  。
+4. 在右上角，選取 [要求增加配額]。
 
-   ![要求增加配額](./media/resource-manager-core-quotas-request/request-increase.png)
+   ![要求增加](./media/resource-manager-core-quotas-request/request-increase.png)
 
 5. 選取 [**計算-VM (核心-個 vcpu) 訂用帳戶限制] 會增加**為報價類型。 
 

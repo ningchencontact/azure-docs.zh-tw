@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 04/26/2019
 ms.author: mimart
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 13c9003baaca11dce5a2192a8183674faddfa6dc
-ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
+ms.openlocfilehash: bd66df381e11582b30ded5e3b529070357f35ad2
+ms.sourcegitcommit: a19f4b35a0123256e76f2789cd5083921ac73daf
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68967288"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71720280"
 ---
 # <a name="assign-users-and-groups-to-an-application-in-azure-active-directory"></a>將使用者和群組指派至 Azure Active Directory 中的應用程式
 本文說明如何將使用者和群組指派至 Azure Active Directory (Azure AD) 中的應用程式。 首先，務必將使用者指派至應用程式，這樣管理員才能授予他們執行以下操作的存取權限：
@@ -34,7 +34,7 @@ ms.locfileid: "68967288"
 
 以群組為基礎之指派的可用性取決於您的授權合約。 僅安全性群組支援以群組為基礎的指派。 目前不支援嵌套群組成員資格和 O365 群組。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 在將使用者和群組指派給應用程式之前，您必須先要求使用者指派。 若需要使用者指派：
 
 1. 使用系統管理員帳戶登入 Azure 入口網站。
@@ -50,7 +50,7 @@ ms.locfileid: "68967288"
 
 若要直接將一或多個使用者指派至應用程式，請依照下列步驟執行︰
 
-1.  開啟 [Azure 入口網站](https://portal.azure.com/)，以**全域管理員**身分登入。
+1.  開啟[**Azure 入口網站**](https://portal.azure.com/)，並以**全域管理員或非系統管理員應用程式擁有**者身分登入。
 
 2.  按一下左側主導覽功能表底部的 [所有服務]，以開啟 [Azure Active Directory 延伸模組]。
 
@@ -82,13 +82,13 @@ ms.locfileid: "68967288"
 
 15. 按一下 [指派] 按鈕，將應用程式指派給選取的使用者。
 
-一小段時間之後, 您選取的使用者就能夠使用解決方案描述一節中所述的方法來啟動這些應用程式。
+一小段時間之後，您選取的使用者就能夠使用解決方案描述一節中所述的方法來啟動這些應用程式。
 
 ## <a name="assign-groups"></a>指派群組
 
 若要將一或多個群組直接指派給應用程式，請依照下列步驟執行：
 
-1.  開啟 [Azure 入口網站](https://portal.azure.com/)，以**全域管理員**身分登入。
+1.  開啟[**Azure 入口網站**](https://portal.azure.com/)，並以**全域管理員**身分登入，或以已指派 Azure AD Premium 授權的非系統管理員應用程式擁有者身分登入。
 
 2.  按一下左側主導覽功能表底部的 [所有服務]，以開啟 [Azure Active Directory 延伸模組]。
 
@@ -120,7 +120,7 @@ ms.locfileid: "68967288"
 
 15. 按一下 [指派] 按鈕，將應用程式指派給選取的群組。
 
-一小段時間之後, 您所選取之群組中的使用者就能夠使用解決方案描述一節中所述的方法來啟動這些應用程式。 如果這些都是動態群組，對於這些指派的群組內的使用者，這些指派可能會出現一些額外的處理延遲。
+一小段時間之後，您所選取之群組中的使用者就能夠使用解決方案描述一節中所述的方法來啟動這些應用程式。 如果這些都是動態群組，對於這些指派的群組內的使用者，這些指派可能會出現一些額外的處理延遲。
 
 ## <a name="enable-self-service-application-access"></a>啟用自助應用程式存取
 

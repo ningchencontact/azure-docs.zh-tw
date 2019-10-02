@@ -11,24 +11,26 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: sstein, carlrab
 ms.date: 06/03/2019
-ms.openlocfilehash: aefd3da1908b2be879b5ba500746fab48e43d5bd
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 73c31a60fb14df00f50fefb35ca123298241c61d
+ms.sourcegitcommit: 80da36d4df7991628fd5a3df4b3aa92d55cc5ade
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68566961"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71812375"
 ---
 # <a name="use-read-only-replicas-to-load-balance-read-only-query-workloads"></a>使用唯讀複本對唯讀查詢工作負載進行負載平衡
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-作為[高可用性架構](./sql-database-high-availability.md#premium-and-business-critical-service-tier-availability)的一部分, Premium、業務關鍵或超大規模資料庫服務層級中的每個資料庫都會自動布建一個主要複本和數個次要複本。 次要複本會以與主要複本相同的計算大小進行布建。 **讀取相應放大**功能可讓您使用其中一個唯讀複本的容量來負載平衡 SQL Database 唯讀工作負載, 而不是共用讀寫複本。 這種方式的唯讀工作負載將會與主要讀寫工作負載隔離，而且不會影響其效能。 此功能適用于包含邏輯上分隔唯讀工作負載 (例如分析) 的應用程式。 使用這個額外的容量不需額外費用, 即可獲得效能優勢。
+作為[高可用性架構](./sql-database-high-availability.md#premium-and-business-critical-service-tier-availability)的一部分，Premium 和商務關鍵服務層級中的每個資料庫都會自動布建主要複本和數個次要複本。 次要複本會以與主要複本相同的計算大小進行布建。 **讀取相應放大**功能可讓您使用其中一個唯讀複本的容量來負載平衡 SQL Database 唯讀工作負載, 而不是共用讀寫複本。 這種方式的唯讀工作負載將會與主要讀寫工作負載隔離，而且不會影響其效能。 此功能適用于包含邏輯上分隔唯讀工作負載 (例如分析) 的應用程式。 在 Premium 和商務關鍵性服務層級中，應用程式可以使用此額外容量來獲得效能優勢，而不需額外成本。
+
+當至少建立一個次要複本時，超大規模資料庫服務層級也會提供**讀取**相應放大功能。 如果唯讀工作負載所需的資源超過一個次要複本上的可用性，則可以使用多個次要複本。 「基本」、「標準」和「一般用途」服務層級的高可用性架構不包含任何複本。 **讀取相應放大**功能在這些服務層級中無法使用。
 
 下圖說明如何使用業務關鍵資料庫。
 
 ![唯讀複本](media/sql-database-read-scale-out/business-critical-service-tier-read-scale-out.png)
 
-在新的 Premium、業務關鍵和超大規模資料庫資料庫上, 預設會啟用讀取相應放大功能。 如果您的 SQL 連接字串是以`ApplicationIntent=ReadOnly`進行設定, 則該應用程式將由閘道重新導向至該資料庫的唯讀複本。 如需如何使用屬性的`ApplicationIntent`詳細資訊, 請參閱[指定應用程式意圖](https://docs.microsoft.com/sql/relational-databases/native-client/features/sql-server-native-client-support-for-high-availability-disaster-recovery#specifying-application-intent)。
+在新的 Premium、業務關鍵和超大規模資料庫資料庫上, 預設會啟用讀取相應放大功能。 針對超大規模資料庫，預設會為新的資料庫建立一個次要複本。 如果您的 SQL 連接字串是以`ApplicationIntent=ReadOnly`進行設定, 則該應用程式將由閘道重新導向至該資料庫的唯讀複本。 如需如何使用屬性的`ApplicationIntent`詳細資訊, 請參閱[指定應用程式意圖](https://docs.microsoft.com/sql/relational-databases/native-client/features/sql-server-native-client-support-for-high-availability-disaster-recovery#specifying-application-intent)。
 
 如果您想要確保應用程式連接到主要複本, 而不論`ApplicationIntent` SQL 連接字串中的設定為何, 您必須在建立資料庫時或在改變其設定時, 明確停用讀取相應放大。 例如, 如果您將資料庫從標準或一般用途層升級至高階、業務關鍵或超大規模資料庫層, 而且想要確定所有連線都會繼續移至主要複本, 請停用讀取相應放大。如需如何停用它的詳細資訊, 請參閱[啟用和停用讀取相應放大](#enable-and-disable-read-scale-out)。
 
@@ -37,7 +39,7 @@ ms.locfileid: "68566961"
 
 ## <a name="data-consistency"></a>資料一致性
 
-複本的其中一個優點是複本一律處於交易一致狀態，但在不同的時間點，不同的複本之間可能會有些微延遲。 讀取相應放大支援工作階段層級一致性。 這表示, 如果唯讀會話在無法使用複本所造成的連線錯誤之後重新連線, 它可能會被重新導向至與讀寫複本不是 100% 最新的複本。 同樣地, 如果應用程式使用讀寫會話寫入資料, 並且使用唯讀會話立即讀取, 則可能不會立即在複本上看到最新的更新。 延遲是因非同步交易記錄重做作業所造成。
+複本的其中一個優點是複本一律處於交易一致狀態，但在不同的時間點，不同的複本之間可能會有些微延遲。 讀取相應放大支援工作階段層級一致性。 這表示，如果唯讀會話在無法使用複本所造成的連線錯誤之後重新連線，它可能會被重新導向至與讀寫複本不是 100% 最新的複本。 同樣地, 如果應用程式使用讀寫會話寫入資料, 並且使用唯讀會話立即讀取, 則可能不會立即在複本上看到最新的更新。 延遲是因非同步交易記錄重做作業所造成。
 
 > [!NOTE]
 > 區域內的複寫延遲較低，這種情況很罕見。

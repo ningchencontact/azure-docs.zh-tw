@@ -11,12 +11,12 @@ ms.date: 09/14/2019
 ms.author: marsma
 ms.subservice: B2C
 ms.custom: fasttrack-edit
-ms.openlocfilehash: a8e35254a79ac43b35f45d1a20f3d1f6815f32be
-ms.sourcegitcommit: 6fe40d080bd1561286093b488609590ba355c261
-ms.translationtype: HT
+ms.openlocfilehash: bf9b6a3ad40d46b628bfcdb3fa3e32b2419360c9
+ms.sourcegitcommit: 4f3f502447ca8ea9b932b8b7402ce557f21ebe5a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/01/2019
-ms.locfileid: "71702814"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71802117"
 ---
 # <a name="accessing-azure-ad-b2c-audit-logs"></a>存取 Azure AD B2C 稽核記錄
 
@@ -112,10 +112,7 @@ Azure 入口網站提供 Azure AD B2C 租使用者中 audit 記錄事件的存�
 
 ### <a name="create-client-secret"></a>建立用戶端密碼
 
-1. 在 [ **API 存取**] 底下，選取 [**金鑰**]。
-1. 在 [**金鑰描述**] 方塊中輸入金鑰的描述。 例如， *Audit Log Key*。
-1. 選取有效**期間**，然後選取 [**儲存**]。
-1. 記錄索引鍵的**值**。 您需要此值，才能在自動化腳本中進行驗證，如稍後章節所示的範例 PowerShell 腳本。
+[!INCLUDE [active-directory-b2c-client-secret](../../includes/active-directory-b2c-client-secret.md)]
 
 您現在有一個應用程式具有必要的 API 存取、應用程式識別碼，以及您可以在自動化腳本中使用的金鑰。 如需如何使用腳本來取得活動事件的範例，請參閱本文稍後的 PowerShell 腳本一節。
 

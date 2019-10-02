@@ -1,6 +1,6 @@
 ---
-title: 呼叫 web Api （登入）-Microsoft 身分識別平台的 web 應用程式
-description: 了解如何建置呼叫 web Api （登入） 的 Web 應用程式
+title: 呼叫 web Api 的 web 應用程式（登入）-Microsoft 身分識別平臺
+description: 瞭解如何建立呼叫 web Api 的 Web 應用程式（登入）
 services: active-directory
 documentationcenter: dev-center-name
 author: jmprieur
@@ -11,48 +11,72 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 05/07/2019
+ms.date: 09/30/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 663cea72eb620217ad5fa8925d3bb00eedbf890c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 3036f8cb72f2a07673743a77e8be37614002563f
+ms.sourcegitcommit: a19f4b35a0123256e76f2789cd5083921ac73daf
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65074556"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71720204"
 ---
-# <a name="web-app-that-calls-web-apis---sign-in"></a>Web 應用程式呼叫 web Api-登入
+# <a name="web-app-that-calls-web-apis---sign-in"></a>呼叫 web Api 的 web 應用程式-登入
 
-您已經知道如何將登入新增至您的 web 應用程式。 您將了解，在[登入使用者-新增登入的 Web 應用程式](scenario-web-app-sign-user-sign-in.md)。
+您已經知道如何將登入新增至您的 web 應用程式。 您會在[登入使用者的 Web 應用程式中瞭解如何新增登入](scenario-web-app-sign-user-sign-in.md)。
 
-什麼不同這裡，是當使用者已簽署時，此應用程式，或任何應用程式，您想移除權杖快取中，與使用者相關聯的權杖。
+這裡的差異在於，當使用者已登出、來自此應用程式或任何應用程式時，您想要從權杖快取中移除，這是與使用者相關聯的權杖。
 
-## <a name="intercepting-the-callback-after-sign-out---single-sign-out"></a>登出後-單一登出攔截回呼
+## <a name="intercepting-the-callback-after-sign-out---single-sign-out"></a>在登出後攔截回呼-單一登出
 
-您的應用程式可以攔截之後`logout`事件，例如清除權杖快取已登出的帳戶相關聯的項目。我們會看到在本教學課程 （關於呼叫 Web API 的 Web 應用程式） 的第二部分中，web 應用程式，會在快取中儲存使用者的存取權杖。 攔截之後`logout`回呼可讓您的 web 應用程式，以從權杖快取中移除使用者。 這項機制所示`AddMsal()`方法的[StartupHelper.cs L137 143](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/blob/b87a1d859ff9f9a4a98eb7b701e6a1128d802ec5/Microsoft.Identity.Web/StartupHelpers.cs#L137-L143)
+例如，您的應用程式可以在 `logout` 事件之後攔截，以清除與已登出之帳戶相關聯的權杖快取專案。Web 應用程式會將使用者的存取權杖儲存在快取中。 在 `logout` 回呼之後攔截，可讓您的 web 應用程式從權杖快取中移除使用者。
 
-**登出 Url**您已註冊您的應用程式可讓您實作單一登出。Microsoft 身分識別平台`logout`端點會呼叫**登出 URL**向您的應用程式。 如果登出起始從您的 web 應用程式，或從另一個 web 應用程式或瀏覽器，則會發生這個呼叫。 如需詳細資訊，請參閱 <<c0> [ 單一登出](https://docs.microsoft.com/azure/active-directory/develop/v2-protocols-oidc#single-sign-out)概念文件。
+# <a name="aspnet-coretabaspnetcore"></a>[ASP.NET Core](#tab/aspnetcore)
+
+這項機制會在 WebAppServiceCollectionExtensions 的 `AddMsal()` 方法中說明[# L151-L157](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/blob/db7f74fd7e65bab9d21092ac1b98a00803e5ceb2/Microsoft.Identity.Web/WebAppServiceCollectionExtensions.cs#L151-L157)
+
+您為應用程式註冊的**登出 Url**可讓您執行單一登出。Microsoft 身分識別平臺 `logout` 端點會呼叫向您的應用程式註冊的**登出 URL** 。 如果登出是從您的 web 應用程式或從另一個 web 應用程式或瀏覽器起始，就會發生此呼叫。 如需詳細資訊，請參閱[單一登出](v2-protocols-oidc.md#single-sign-out)。
 
 ```CSharp
-public static IServiceCollection AddMsal(this IServiceCollection services, IEnumerable<string> initialScopes)
+public static class WebAppServiceCollectionExtensions
 {
-    services.AddTokenAcquisition();
+ public static IServiceCollection AddMsal(this IServiceCollection services, IConfiguration configuration, IEnumerable<string> initialScopes, string configSectionName = "AzureAd")
+ {
+  // Code omitted here
 
-    services.Configure<OpenIdConnectOptions>(AzureADDefaults.OpenIdScheme, options =>
-    {
-     ...
-        // Handling the sign-out: removing the account from MSAL.NET cache
-        options.Events.OnRedirectToIdentityProviderForSignOut = async context =>
-        {
-            // Remove the account from MSAL.NET token cache
-            var _tokenAcquisition = context.HttpContext.RequestServices.GetRequiredService<ITokenAcquisition>();
-            await _tokenAcquisition.RemoveAccount(context);
-        };
-    });
-    return services;
+  services.Configure<OpenIdConnectOptions>(AzureADDefaults.OpenIdScheme, options =>
+  {
+   // Code omitted here
+
+   // Handling the sign-out: removing the account from MSAL.NET cache
+   options.Events.OnRedirectToIdentityProviderForSignOut = async context =>
+   {
+    // Remove the account from MSAL.NET token cache
+    var tokenAcquisition = context.HttpContext.RequestServices.GetRequiredService<ITokenAcquisition>();
+    await tokenAcquisition.RemoveAccountAsync(context).ConfigureAwait(false);
+   };
+  });
+  return services;
+ }
 }
 ```
+
+RemoveAccountAsync 的程式碼可從 TokenAcquisition 取得，[網址為 Web/.cs # L264-L288](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/blob/db7f74fd7e65bab9d21092ac1b98a00803e5ceb2/Microsoft.Identity.Web/TokenAcquisition.cs#L264-L288)。
+
+# <a name="aspnettabaspnet"></a>[ASP.NET](#tab/aspnet)
+
+ASP.NET 範例不會從全域登出的快取中移除帳戶
+
+# <a name="javatabjava"></a>[Java](#tab/java)
+
+JAVA 範例不會從全域登出的快取中移除帳戶
+
+# <a name="pythontabpython"></a>[Python](#tab/python)
+
+Python 範例不會從全域登出的快取中移除帳戶
+
+---
 
 ## <a name="next-steps"></a>後續步驟
 

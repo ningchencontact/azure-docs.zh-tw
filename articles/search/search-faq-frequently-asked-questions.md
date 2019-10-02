@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 08/03/2017
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: d4aae2f2ef9ccbc645647125682d999c11c99ab6
-ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
+ms.openlocfilehash: 600c619134cae18e69b5a200cb03fbebd82dee0f
+ms.sourcegitcommit: a19f4b35a0123256e76f2789cd5083921ac73daf
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69649841"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71719895"
 ---
 # <a name="azure-search---frequently-asked-questions-faq"></a>Azure 搜尋服務 - 常見問題集 (FAQ)
 
@@ -30,7 +30,7 @@ Azure 搜尋服務支援多個資料來源、[許多語言的語言分析](https
 
 比較搜尋技術時，客戶經常詢問 Azure 搜尋服務與 Elasticsearch 相較下的詳細資料。 客戶選擇 Azure 搜尋服務而不是 Elasticsearch 來進行其搜尋應用程式專案的原因，通常是因為我們簡化了一個主要工作，或是需要與其他 Microsoft 技術的內建整合：
 
-+ Azure 搜尋服務是完全受控的雲端服務，當佈建足夠的備援時 (2 個用於讀取存取的複本及 3 個用於讀寫的複本)，會達到服務等級協定 (SLA) 的 99.9%。
++ Azure 搜尋服務是具有 99.9% 服務等級協定（SLA）的完全受控雲端服務，其布建具有足夠的冗余（讀取存取的2個複本，可供讀寫的三個複本）。
 + Microsoft 的[自然語言處理器](https://docs.microsoft.com/rest/api/searchservice/language-support)提供先進的語言分析。  
 + [Azure 搜尋服務索引子](search-indexer-overview.md)可以搜耙各種不同的 Azure 資料來源來建立初始和累加索引。
 + 如果您需要對查詢或索引量的波動快速回應，您可以使用 Azure 入口網站中的[滑桿控制項](search-manage.md#scale-up-or-down)或執行 [PowerShell 指令碼](search-manage-powershell.md)，並直接略過分區管理。  
@@ -42,17 +42,27 @@ Azure 搜尋服務支援多個資料來源、[許多語言的語言分析](https
 
 ## <a name="indexing-operations"></a>索引作業
 
-### <a name="backup-and-restore-or-download-and-move-indexes-or-index-snapshots"></a>可備份及還原 (或下載及移動) 索引或索引快照集嗎？
+### <a name="move-backup-and-restore-indexes-or-index-snapshots"></a>移動、備份和還原索引或索引快照集嗎？
 
-雖然您可以隨時[取得索引定義](https://docs.microsoft.com/rest/api/searchservice/get-index)，但沒有索引擷取、快照或備份還原功能，可將雲端中執行的「擴展」索引下載到本機系統，或移至其他 Azure 搜尋服務。
+在開發階段，您可能會想要在搜尋服務之間移動索引。 例如，您可以使用「基本」或「免費」定價層來開發您的索引，然後想要將它移至「標準」或「更高」層以供生產環境使用。 
 
-索引是從您撰寫的程式碼建立及擴展，而且只會在雲端中的 Azure 搜尋服務上執行。 一般而言，想要將索引移至其他服務的客戶可藉由編輯其程式碼以使用新的端點，然後重新執行索引來完成。 如果您想要有擷取快照集或備份索引的功能，請在 [User Voice](https://feedback.azure.com/forums/263029-azure-search/suggestions/8021610-backup-snapshot-of-index) 上投下一票。
+或者，您可能會想要將索引快照集備份至稍後可用來還原的檔案。 
+
+您可以使用此[Azure 搜尋服務 .net 範例](https://github.com/Azure-Samples/azure-search-dotnet-samples)存放庫中的**索引備份-還原範例程式**代碼來執行所有這些動作。 
+
+您也可以使用 Azure 搜尋服務 REST API，隨時[取得索引定義](https://docs.microsoft.com/rest/api/searchservice/get-index)。
+
+Azure 入口網站中目前沒有內建的索引提取、快照集或備份還原功能。 不過，我們正考慮在未來的版本中新增備份和還原功能。 如果您想要顯示這項功能的支援，請將投票轉型為[使用者心聲](https://feedback.azure.com/forums/263029-azure-search/suggestions/8021610-backup-snapshot-of-index)。
 
 ### <a name="can-i-restore-my-index-or-service-once-it-is-deleted"></a>已刪除的索引或服務是否可以還原？
 
-否，您無法還原索引或服務。 刪除 Azure 搜尋服務索引是不可逆的作業，因此索引無法復原。 當您刪除 Azure 搜尋服務時，服務中的所有索引都會永久刪除。 此外，如果您刪除包含一或多個 Azure 搜尋服務的 Azure 資源群組，所有服務都將永久刪除。  
+否，如果您刪除 Azure 搜尋服務索引或服務，就無法復原它。 當您刪除 Azure 搜尋服務時，服務中的所有索引都會永久刪除。 如果您刪除包含一或多個 Azure 搜尋服務服務的 Azure 資源群組，所有服務都會永久刪除。  
 
-若要還原索引、索引子、資料來源和技能等資源，您必須從程式碼重新加以建立。 針對索引，則必須從外部來源重新編製資料的索引。 因此，強烈建議您將原始資料的主要複本或備份保存在另一個資料存放區中，例如 Azure SQL Database 或 Cosmos DB。
+重新建立索引、索引子、資料來源和技能集等資源，需要您從程式碼重新建立它們。 
+
+若要重新建立索引，您必須重新編制外部來源的資料索引。 基於這個理由，建議您在另一個資料存放區中保留原始資料的主要複本或備份，例如 Azure SQL Database 或 Cosmos DB。
+
+或者，您可以使用此[Azure 搜尋服務 .net 範例](https://github.com/Azure-Samples/azure-search-dotnet-samples)存放庫中的**索引備份-還原**範例程式碼，將索引定義和索引快照集備份至一系列 JSON 檔案。 稍後，您可以視需要使用工具和檔案來還原索引。  
 
 ### <a name="can-i-index-from-sql-database-replicas-applies-to-azure-sql-database-indexershttpsdocsmicrosoftcomazuresearchsearch-howto-connecting-azure-sql-database-to-azure-search-using-indexers"></a>我可以從 SQL 資料庫複本建立索引嗎 (適用於 [Azure SQL Database 索引子](https://docs.microsoft.com/azure/search/search-howto-connecting-azure-sql-database-to-azure-search-using-indexers))
 
@@ -70,9 +80,9 @@ Azure 搜尋服務支援多個資料來源、[許多語言的語言分析](https
 
 ### <a name="why-are-there-zero-matches-on-terms-i-know-to-be-valid"></a>為什麼我認為有效的字詞沒有任何相符項目？
 
-最常見的情況是不知道每種查詢類型支援不同的搜尋行為和語言分析層級。 請針對主要工作負載的全文檢索搜尋，加入語言分析階段，以將字詞分解到根形式。 這種查詢剖析可以擴展可能的相符項目範圍，因為語彙基元化的字詞會符合更多變體。
+最常見的情況是不知道每種查詢類型支援不同的搜尋行為和語言分析層級。 全文檢索搜尋是主要工作負載，包括將詞彙細分為根表單的語言分析階段。 這種查詢剖析可以擴展可能的相符項目範圍，因為語彙基元化的字詞會符合更多變體。
 
-不過，萬用字元、模糊和 Regex 查詢的分析方式不像一般的字詞或片語查詢，且如果查詢不符合搜尋索引中的文字分析形式，就會造成不良的重新叫用。 如需有關查詢剖析和分析的詳細資訊，請參閱[查詢架構](https://docs.microsoft.com/azure/search/search-lucene-query-architecture)。
+不過，萬用字元、模糊和 Regex 查詢的分析方式不像一般的字詞或片語查詢，且如果查詢不符合搜尋索引中的文字分析形式，就會造成不良的重新叫用。 如需查詢剖析和分析的詳細資訊，請參閱[查詢架構](https://docs.microsoft.com/azure/search/search-lucene-query-architecture)。
 
 ### <a name="my-wildcard-searches-are-slow"></a>我的萬用字元搜尋速度很慢。
 

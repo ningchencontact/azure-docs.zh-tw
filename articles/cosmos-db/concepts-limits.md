@@ -6,12 +6,12 @@ ms.author: arramac
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 08/05/2019
-ms.openlocfilehash: 9b78c18547ef61b388a56a1272b5621cada43806
-ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
+ms.openlocfilehash: 8e22bf53a81d94c5204a76c58b43fed63e32b136
+ms.sourcegitcommit: 4f3f502447ca8ea9b932b8b7402ce557f21ebe5a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71120496"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71803390"
 ---
 # <a name="azure-cosmos-db-service-quotas"></a>Azure Cosmos DB 服務配額
 
@@ -27,13 +27,13 @@ ms.locfileid: "71120496"
 | 每個資料庫最多 ru （已布[建的共用輸送量模式](databases-containers-items.md#azure-cosmos-containers)） | 預設為1000000。 您可以藉由提出[Azure 支援票證](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request)來增加它 |
 | 每個（邏輯）分割區索引鍵的最大 ru | 10,000 |
 | 每個（邏輯）分割區索引鍵的所有專案儲存體上限| 10 GB |
-| 相異（邏輯）分割區索引鍵的最大數目 | 無限 |
-| 每個容器的儲存體上限 | 無限 |
-| 每個資料庫的儲存體上限 | 無限 |
+| 相異（邏輯）分割區索引鍵的最大數目 | 無限制 |
+| 每個容器的儲存體上限 | 無限制 |
+| 每個資料庫的儲存體上限 | 無限制 |
 | 每個帳戶的附件大小上限（附件功能正在進行折舊） | 2 GB | 
 
 > [!NOTE]
-> 如需管理具有儲存體或輸送量更高限制之資料分割索引鍵之工作負載的最佳作法，請參閱針對經常性資料[分割索引鍵的設計](synthetic-partition-keys.md)
+> 若要深入瞭解管理具有資料分割索引鍵的工作負載的最佳作法，其儲存體或輸送量需要較高的限制，請參閱[建立綜合分割](synthetic-partition-keys.md)區索引鍵。
 >
 
 Cosmos 容器（或共用輸送量資料庫）的最小輸送量必須為 400 ru。 當容器成長時，支援的最低輸送量也取決於下列因素：
@@ -75,8 +75,8 @@ Cosmos DB 會自動定期備份您的資料。 如需備份保留間隔和 windo
 
 | Resource | 預設限制 |
 | --- | --- |
-| 資料庫的最大數目 | 無限 |
-| 每個資料庫（或帳戶）的容器數目上限 | 無限 |
+| 資料庫的最大數目 | 無限制 |
+| 每個資料庫（或帳戶）的容器數目上限 | 無限制 |
 | 區域數目上限 | 無限制（所有 Azure 區域） |
 
 ## <a name="per-container-limits"></a>每個容器的限制

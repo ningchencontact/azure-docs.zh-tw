@@ -10,14 +10,14 @@ ms.service: application-insights
 ms.workload: mobile
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 12/17/2018
+ms.date: 09/16/2019
 ms.author: mbullwin
-ms.openlocfilehash: 778a95db8ce462d06e2464db56b542f8113a4960
-ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
+ms.openlocfilehash: 94e994a3dc1cd9d5d5d0b7acb5aed4783d881915
+ms.sourcegitcommit: 4f3f502447ca8ea9b932b8b7402ce557f21ebe5a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "67875368"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71802294"
 ---
 # <a name="application-insights-frequently-asked-questions"></a>Application Insights：常見問題集
 
@@ -29,7 +29,7 @@ ms.locfileid: "67875368"
 * [Azure 診斷](../../azure-monitor/platform/diagnostics-extension-to-application-insights.md)
 * [Java Web 應用程式](java-troubleshoot.md)
 
-我的伺服器沒有傳回資料 
+我的伺服器沒有傳回資料
 
 * [設定防火牆例外狀況](ip-addresses.md)
 * [設定 ASP.NET 伺服器](monitor-performance-live-website-now.md)
@@ -59,9 +59,9 @@ ms.locfileid: "67875368"
 
 [請參閱定價方案](https://azure.microsoft.com/pricing/details/application-insights/)。
 
-## <a name="how-much-is-it-costing"></a>費用是多少？
+## <a name="how-much-does-it-cost"></a>費用是多少？
 
-* 在 Application Insights 資源中開啟 [使用量和估計成本]  頁面。 系統會顯示一張最近使用量的圖表。 您可以視需要設定資料量上限。
+* 在 Application Insights 資源中開啟 [使用量和估計成本] 頁面。 系統會顯示一張最近使用量的圖表。 您可以視需要設定資料量上限。
 * 開啟 [Azure 帳單刀鋒視窗](https://portal.azure.com/#blade/Microsoft_Azure_Billing/BillingBlade/Overview)以查看您所有資源的帳單。
 
 ## <a name="q14"></a>Application Insights 在我的專案中修改什麼？
@@ -90,7 +90,7 @@ ms.locfileid: "67875368"
 請參閱您的應用程式類型所適用之 SDK 的[版本資訊](release-notes.md)。
 
 ## <a name="update"></a>如何變更我的專案將資料傳送到哪一個 Azure 資源？
-在 [方案總管] 中，以滑鼠右鍵按一下 `ApplicationInsights.config`，然後選擇 [更新 Application Insights]  。 您可以將資料傳送至 Azure 中的現有資源或新資源。 更新精靈會變更 ApplicationInsights.config 中的檢測金鑰，這決定伺服器 SDK 將您的資料送往何處。 除非您取消選取 [全部更新]，否則也會變更金鑰出現在您網頁中的位置。
+在 [方案總管] 中，以滑鼠右鍵按一下 `ApplicationInsights.config`，然後選擇 [更新 Application Insights]。 您可以將資料傳送至 Azure 中的現有資源或新資源。 更新精靈會變更 ApplicationInsights.config 中的檢測金鑰，這決定伺服器 SDK 將您的資料送往何處。 除非您取消選取 [全部更新]，否則也會變更金鑰出現在您網頁中的位置。
 
 ## <a name="what-is-status-monitor"></a>什麼是狀態監視器？
 
@@ -139,6 +139,8 @@ ms.locfileid: "67875368"
 
 * 瀏覽器遙測：我們會收集傳送者的 IP 位址。
 * 伺服器遙測：Application Insights 模組會收集用戶端 IP 位址。 如果已設定 `X-Forwarded-For`，則不會收集該位址。
+* 若要深入瞭解如何在 Application Insights 中收集 IP 位址和地理位置資料，請參閱這[篇文章](https://docs.microsoft.com/azure/azure-monitor/app/ip-collection)。
+
 
 您可以設定 `ClientIpHeaderTelemetryInitializer` 以從不同的標頭取得 IP 位址。 例如，在某些系統中，Proxy、負載平衡器或 CDN 會將它移至 `X-Originating-IP`。 [深入了解](https://apmtips.com/blog/2016/07/05/client-ip-address/)。
 
@@ -287,7 +289,7 @@ Azure 警示僅針對計量。 請建立一個會在每次事件發生時超出�
 </ApplicationInsights>
 ```
 
-請注意，ApplicationIdProvider 從 v2.6.0 才開始提供 
+請注意，ApplicationIdProvider 從 v2.6.0 才開始提供
 
 ### <a name="proxy-passthrough"></a>Proxy 傳遞
 

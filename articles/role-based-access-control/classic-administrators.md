@@ -11,15 +11,15 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/19/2019
+ms.date: 10/01/2019
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: c2096b6c5ddb72c8ab5c5d3203a05c94db51f6c5
-ms.sourcegitcommit: a874064e903f845d755abffdb5eac4868b390de7
+ms.openlocfilehash: 9c5e87d8d6fe49302bee2b2248f84ba98a650533
+ms.sourcegitcommit: 4f3f502447ca8ea9b932b8b7402ce557f21ebe5a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68444341"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71802321"
 ---
 # <a name="azure-classic-subscription-administrators"></a>Azure 傳統訂用帳戶管理員
 
@@ -56,12 +56,14 @@ Microsoft 建議您使用角色型存取控制 (RBAC) 管理 Azure 資源存取�
 
 獲指派「共同管理員」角色的[來賓使用者](../active-directory/b2b/b2b-quickstart-add-guest-users-portal.md)可能會發現與具備「共同管理員」角色的成員使用者相比有些差異。 請考慮下列狀況：
 
-- 具有 Azure AD 公司或學校帳戶的使用者 A 是 Azure 訂用帳戶的服務管理員。
+- 具有 Azure AD 帳戶（公司或學校帳戶）的使用者 A 是 Azure 訂用帳戶的服務管理員。
 - 使用者 B 具有 Microsoft 帳戶。
 - 使用者 A 將「共同管理員」角色指派給使用者 B。
 - 使用者 B 可以執行幾乎所有操作，但無法在 Azure AD 目錄中註冊應用程式或查閱使用者。
 
-您會預期使用者可以管理所有項目。 此差異的原因在於 Microsoft 帳戶是以來賓使用者而不是成員使用者身分新增至訂用帳戶。 在 Azure AD 中，來賓使用者與成員使用者具有不同的預設權限。 例如，成員使用者能夠在 Azure AD 中讀取其他使用者，來賓使用者不能。 成員使用者能夠在 Azure AD 中註冊新的服務主體，來賓使用者不能。 如果來賓使用者需要能夠執行這些工作，有一個可能的解決方案，就是指派來賓使用者所需的特定 Azure AD 系統管理員角色。 例如，在先前的案例中，您可以指派[目錄讀者](../active-directory/users-groups-roles/directory-assign-admin-roles.md#directory-readers)角色以讀取其他使用者，以及指派[應用程式開發人員](../active-directory/users-groups-roles/directory-assign-admin-roles.md#application-developer)角色，以便能夠建立服務主體。 如需有關成員使用者和來賓使用者及其權限的詳細資訊，請參閱 [Azure Active Directory 中的預設使用者權限是什麼？](../active-directory/fundamentals/users-default-permissions.md)
+您會預期使用者可以管理所有項目。 此差異的原因在於 Microsoft 帳戶是以來賓使用者而不是成員使用者身分新增至訂用帳戶。 在 Azure AD 中，來賓使用者與成員使用者具有不同的預設權限。 例如，成員使用者能夠在 Azure AD 中讀取其他使用者，來賓使用者不能。 成員使用者能夠在 Azure AD 中註冊新的服務主體，來賓使用者不能。
+
+如果來賓使用者需要能夠執行這些工作，有一個可能的解決方案，就是指派來賓使用者所需的特定 Azure AD 系統管理員角色。 例如，在先前的案例中，您可以指派[目錄讀者](../active-directory/users-groups-roles/directory-assign-admin-roles.md#directory-readers)角色以讀取其他使用者，以及指派[應用程式開發人員](../active-directory/users-groups-roles/directory-assign-admin-roles.md#application-developer)角色，以便能夠建立服務主體。 如需有關成員使用者和來賓使用者及其權限的詳細資訊，請參閱 [Azure Active Directory 中的預設使用者權限是什麼？](../active-directory/fundamentals/users-default-permissions.md)
 
 請注意，[適用於 Azure 資源的內建角色](../role-based-access-control/built-in-roles.md)與 [Azure AD 系統管理員角色](../active-directory/users-groups-roles/directory-assign-admin-roles.md)不同。 內建的角色不會授與任何 Azure AD 存取權。 如需詳細資訊，請參閱[了解各種不同角色](../role-based-access-control/rbac-and-directory-admin-roles.md)。
 
@@ -77,7 +79,7 @@ Microsoft 建議您使用角色型存取控制 (RBAC) 管理 Azure 資源存取�
 
 1. 在要移除的共同管理員旁邊新增核取記號。
 
-1. 按一下 [移除] 。
+1. 按一下 [移除]。
 
 1. 在出現的訊息方塊中，按一下 [確定]。
 
@@ -91,13 +93,13 @@ Microsoft 建議您使用角色型存取控制 (RBAC) 管理 Azure 資源存取�
 
 ### <a name="azure-portal"></a>Azure 入口網站
 
-1. 檢查變更服務系統管理員的限制, 以確保您的案例受到支援。
+1. 檢查變更服務系統管理員的限制，以確保您的案例受到支援。
 
 1. 以帳戶管理員身分登入 [Azure 入口網站](https://portal.azure.com)。
 
 1. 開啟[訂用帳戶](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade)，並選取訂用帳戶。
 
-1. 按一下 [內容] 。
+1. 按一下 [內容]。
 
     ![顯示帳戶系統管理員的螢幕擷取畫面](./media/classic-administrators/account-admin.png)
 
@@ -109,17 +111,17 @@ Microsoft 建議您使用角色型存取控制 (RBAC) 管理 Azure 資源存取�
 
 ### <a name="account-center"></a>帳戶中心
 
-1. 檢查變更服務系統管理員的限制, 以確保您的案例受到支援。
+1. 檢查變更服務系統管理員的限制，以確保您的案例受到支援。
 
 1. 以帳戶管理員身分登入[帳戶中心](https://account.windowsazure.com/subscriptions)。
 
 1. 按一下訂用帳戶。
 
-1. 按一下右側的 [編輯訂用帳戶詳細資料] 。
+1. 按一下右側的 [編輯訂用帳戶詳細資料]。
 
     ![顯示帳戶中心裡 [編輯訂用帳戶] 按鈕的螢幕擷取畫面](./media/classic-administrators/editsub.png)
 
-1. 在 [服務管理員  ] 方塊中，輸入新的服務管理員的電子郵件地址。
+1. 在 [服務管理員 ] 方塊中，輸入新的服務管理員的電子郵件地址。
 
     ![顯示應變更服務管理員電子郵件之方塊的螢幕擷取畫面](./media/classic-administrators/change-service-admin.png)
 
@@ -127,14 +129,16 @@ Microsoft 建議您使用角色型存取控制 (RBAC) 管理 Azure 資源存取�
 
 ### <a name="limitations-for-changing-the-service-administrator"></a>變更服務管理員的限制
 
-每個訂用帳戶都與 Azure AD 目錄相關聯。 若要尋找與訂用帳戶相關聯的目錄，請在 Azure 入口網站中開啟 [訂用帳戶]，然後選取訂用帳戶以查看目錄。
+每個 Azure 訂用帳戶只能有一個服務系統管理員。 根據帳戶管理員是 Microsoft 帳戶還是 Azure AD 帳戶（公司或學校帳戶），變更服務系統管理員的行為會有所不同。
 
-如果您以公司或學校帳戶登入，可以將組織中的其他帳戶新增為服務管理員。 例如，abby@contoso.com 可以將 bob@contoso.com 新增為服務管理員，但若想新增 john@notcontoso.com 為服務管理員，則 contoso.com 目錄中必須要有 john@notcontoso.com 才能這麼做。 以公司或學校帳戶登入的使用者可以繼續將 Microsoft 帳戶使用者新增為服務管理員。 每個 Azure 訂用帳戶只能有一個服務系統管理員。
+| 帳戶系統管理員帳戶 | 可以將服務管理員變更為不同的 Microsoft 帳戶嗎？ | 可以將服務管理員變更為相同目錄中的 Azure AD 帳戶嗎？ | 可以將服務管理員變更為不同目錄中的 Azure AD 帳戶嗎？ |
+| --- | --- | --- | --- |
+| Microsoft 帳戶 | 是 | 否 | 否 |
+| Azure AD 帳戶 | 是 | 是 | 否 |
 
-  | 登入方法 | 要將 Microsoft 帳戶使用者新增為服務管理員嗎？ | 要將同一組織中的公司或學校帳戶新增為服務管理員嗎？ | 要將不同組織中的公司或學校帳戶新增為服務管理員嗎？ |
-  | --- | --- | --- | --- |
-  |  Microsoft 帳戶 |是 |否 |否 |
-  |  工作或學校帳戶 |是 |是 |否 |
+如果帳戶管理員是 Azure AD 帳戶，您可以將服務管理員變更為相同目錄中的 Azure AD 帳戶，而不是在不同的目錄中。 例如，abby@contoso.com 可以將服務管理員變更為 bob@contoso.com，但無法將服務管理員變更為 john@notcontoso.com，除非 john@notcontoso.com 在 contoso.com 目錄中存在。
+
+如需有關 Microsoft 帳戶和 Azure AD 帳戶的詳細資訊，請參閱[什麼是 Azure Active Directory？](../active-directory/fundamentals/active-directory-whatis.md)。
 
 ## <a name="view-the-account-administrator"></a>檢視帳戶管理員
 
@@ -146,7 +150,7 @@ Microsoft 建議您使用角色型存取控制 (RBAC) 管理 Azure 資源存取�
 
 1. 開啟[訂用帳戶](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade)，並選取訂用帳戶。
 
-1. 按一下 [內容] 。
+1. 按一下 [內容]。
 
     該訂用帳戶的帳戶管理員會顯示在 [帳戶管理員] 方塊中。
 

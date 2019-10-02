@@ -4,14 +4,14 @@ description: 了解如何管理 Azure Cosmos DB 中的索引編製原則
 author: ThomasWeiss
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 09/17/2019
+ms.date: 09/28/2019
 ms.author: thweiss
-ms.openlocfilehash: b80a4b8697544a0f7fe7cee99b666a513f53a0d6
-ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
+ms.openlocfilehash: f7d364eb5db5c6d6304944d490468edf8b5ebe2e
+ms.sourcegitcommit: 80da36d4df7991628fd5a3df4b3aa92d55cc5ade
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71104858"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71811653"
 ---
 # <a name="manage-indexing-policies-in-azure-cosmos-db"></a>管理 Azure Cosmos DB 中的索引編製原則
 
@@ -334,6 +334,7 @@ WHERE c.name = "Tim" AND c.age > 18
 
 - 從 Azure 入口網站
 - 使用 Azure CLI
+- 使用 PowerShell
 - 使用其中一個 SDK
 
 [更新索引編製原則](index-policy.md#modifying-the-indexing-policy)將會觸發索引的轉換。 您也可以從 SDK 追蹤此轉換的進度。
@@ -361,21 +362,15 @@ Azure Cosmos 容器會將其索引編製原則儲存為 JSON 文件，並可從 
 
 ## <a name="use-the-azure-cli"></a>使用 Azure CLI
 
-從 Azure CLI 執行 [az cosmosdb collection update](/cli/azure/cosmosdb/collection#az-cosmosdb-collection-update) 命令可讓您取代容器索引編製原則的 JSON 定義：
+若要建立具有自訂索引編制原則的容器，請參閱[使用 CLI 建立具有自訂索引原則的容器](manage-with-cli.md#create-a-container-with-a-custom-index-policy)
 
-```azurecli-interactive
-az cosmosdb collection update \
-    --resource-group-name $resourceGroupName \
-    --name $accountName \
-    --db-name $databaseName \
-    --collection-name $containerName \
-    --indexing-policy "{\"indexingMode\": \"consistent\", \"includedPaths\": [{ \"path\": \"/*\", \"indexes\": [{ \"dataType\": \"String\", \"kind\": \"Range\" }] }], \"excludedPaths\": [{ \"path\": \"/headquarters/employees/?\" } ]}"
-```
+## <a name="use-powershell"></a>使用 PowerShell
+
+若要建立具有自訂索引編制原則的容器，請參閱[使用 Powershell 建立具有自訂索引原則的容器](manage-with-powershell.md#create-container-custom-index)
 
 ## <a name="use-the-net-sdk-v2"></a>使用 .NET SDK V2
 
 `DocumentCollection` `ExcludedPaths` `IndexingMode` [.Net SDK](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/) v2中的物件`IncludedPaths`會公開屬性，可讓您變更和新增或移除和。`IndexingPolicy`
-
 
 ```csharp
 // Retrieve the container's details
@@ -406,7 +401,6 @@ long indexTransformationProgress = container.IndexTransformationProgress;
 ## <a name="use-the-net-sdk-v3"></a>使用 .NET SDK V3
 
 來自`ContainerProperties` [.net SDK v3](https://www.nuget.org/packages/Microsoft.Azure.Cosmos/)的物件（請參閱[本快速入門](create-sql-api-dotnet.md)中有關其使用方式`IndexingPolicy`的資訊）會公開一個`IndexingMode`屬性，讓您`IncludedPaths`變更`ExcludedPaths`和新增或移除和。
-
 
 ```csharp
 // Retrieve the container's details
@@ -508,7 +502,7 @@ Collection<SpatialType> collectionOfSpatialTypes = new ArrayList<SpatialType>();
 
 SpatialSpec spec = new SpatialSpec();
 spec.setPath("/locations/*");
-collectionOfSpatialTypes.add(SpatialType.Point);          
+collectionOfSpatialTypes.add(SpatialType.Point);
 spec.setSpatialTypes(collectionOfSpatialTypes);
 spatialIndexes.add(spec);
 

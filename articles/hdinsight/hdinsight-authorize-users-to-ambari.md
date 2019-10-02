@@ -2,18 +2,18 @@
 title: 授權 Ambari 檢視的使用者 - Azure HDInsight
 description: 如何在啟用 ESP 的情況下，管理 HDInsight 叢集的 Ambari 使用者和群組權限。
 author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 09/26/2017
-ms.author: hrasheed
-ms.openlocfilehash: 533bd750056f2e961ca9239e995fbfc62b2381d0
-ms.sourcegitcommit: 8ef0a2ddaece5e7b2ac678a73b605b2073b76e88
+ms.date: 09/30/2019
+ms.openlocfilehash: 8fada1d944a3d6bb6c0f85b3fd456581b2b0bdc6
+ms.sourcegitcommit: a19f4b35a0123256e76f2789cd5083921ac73daf
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71076692"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71720022"
 ---
 # <a name="authorize-users-for-apache-ambari-views"></a>授權 Apache Ambari 檢視的使用者
 
@@ -31,6 +31,139 @@ Active Directory 使用者可以使用其網域認證來登入叢集節點。 �
 若要移至 **Ambari 管理頁面**，請在 [Apache Ambari Web UI](hdinsight-hadoop-manage-ambari.md) 上瀏覽至 **`https://<YOUR CLUSTER NAME>.azurehdinsight.net`** 。 輸入您建立叢集時所定義的叢集系統管理員使用者名稱和密碼。 接著，從 Ambari 儀表板中，選取 [admin] \(系統管理員\) 功能表底下的 [Manage Ambari] \(管理 Ambari\)：
 
 ![Apache Ambari 儀表板管理](./media/hdinsight-authorize-users-to-ambari/manage-apache-ambari.png)
+
+## <a name="add-users"></a>新增使用者
+
+### <a name="add-users-through-the-portal"></a>透過入口網站新增使用者
+
+1. 從 [管理] 頁面中，選取 [**使用者**]。
+
+    ![Apache Ambari 管理頁面使用者](./media/hdinsight-authorize-users-to-ambari/apache-ambari-management-page-users.png)
+
+1. 選取 [ **+ 建立本機使用者**]。
+
+1. 提供使用者**名稱**和**密碼**。 選取 [**儲存**]。
+
+### <a name="add-users-through-powershell"></a>透過 PowerShell 新增使用者
+
+以適當的值取代 `CLUSTERNAME`、`NEWUSER` 和 `PASSWORD`，以編輯下列變數。
+
+```powershell
+# Set-ExecutionPolicy Unrestricted
+
+# Begin user input; update values
+$clusterName="CLUSTERNAME"
+$user="NEWUSER"
+$userpass='PASSWORD'
+# End user input
+
+$adminCredentials = Get-Credential -UserName "admin" -Message "Enter admin password"
+
+$clusterName = $clusterName.ToLower()
+$createUserUrl="https://$($clusterName).azurehdinsight.net/api/v1/users"
+
+$createUserBody=@{
+    "Users/user_name" = "$user"
+    "Users/password" = "$userpass"
+    "Users/active" = "$true"
+    "Users/admin" = "$false"
+} | ConvertTo-Json
+
+# Create user
+$statusCode =
+Invoke-WebRequest `
+    -Uri $createUserUrl `
+    -Credential $adminCredentials `
+    -Method POST `
+    -Headers @{"X-Requested-By" = "ambari"} `
+    -Body $createUserBody | Select-Object -Expand StatusCode
+
+if ($statusCode -eq 201) {
+    Write-Output "User is created: $user"
+}
+else
+{
+    Write-Output 'User is not created'
+    Exit
+}
+
+$grantPrivilegeUrl="https://$($clusterName).azurehdinsight.net/api/v1/clusters/$($clusterName)/privileges"
+
+$grantPrivilegeBody=@{
+    "PrivilegeInfo" = @{
+        "permission_name" = "CLUSTER.USER"
+        "principal_name" = "$user"
+        "principal_type" = "USER"
+    }
+} | ConvertTo-Json
+
+# Grant privileges
+$statusCode =
+Invoke-WebRequest `
+    -Uri $grantPrivilegeUrl `
+    -Credential $adminCredentials `
+    -Method POST `
+    -Headers @{"X-Requested-By" = "ambari"} `
+    -Body $grantPrivilegeBody | Select-Object -Expand StatusCode
+
+if ($statusCode -eq 201) {
+    Write-Output 'Privilege is granted'
+}
+else
+{
+    Write-Output 'Privilege is not granted'
+    Exit
+}
+
+Write-Host "Pausing for 100 seconds"
+Start-Sleep -s 100
+
+$userCredentials = "$($user):$($userpass)"
+$encodedUserCredentials = [System.Convert]::ToBase64String([System.Text.Encoding]::ASCII.GetBytes($userCredentials))
+$zookeeperUrlHeaders = @{ Authorization = "Basic $encodedUserCredentials" }
+$getZookeeperurl="https://$($clusterName).azurehdinsight.net/api/v1/clusters/$($clusterName)/services/ZOOKEEPER/components/ZOOKEEPER_SERVER"
+
+# Perform query with new user
+$zookeeperHosts =
+Invoke-WebRequest `
+    -Uri $getZookeeperurl `
+    -Method Get `
+    -Headers $zookeeperUrlHeaders
+
+Write-Output $zookeeperHosts
+```
+
+### <a name="add-users-through-curl"></a>透過捲曲新增使用者
+
+以適當的值取代 `CLUSTERNAME`、`ADMINPASSWORD`、`NEWUSER` 和 `USERPASSWORD` 來編輯下面的變數。 腳本是設計來搭配 bash 來執行。 Windows 命令提示字元需要稍微修改。
+
+```bash
+export clusterName="CLUSTERNAME"
+export adminPassword='ADMINPASSWORD'
+export user="NEWUSER"
+export userPassword='USERPASSWORD'
+
+# create user
+curl -k -u admin:$adminPassword -H "X-Requested-By: ambari" -X POST \
+-d "{\"Users/user_name\":\"$user\",\"Users/password\":\"$userPassword\",\"Users/active\":\"true\",\"Users/admin\":\"false\"}" \
+https://$clusterName.azurehdinsight.net/api/v1/users
+
+echo "user created: $user"
+
+# grant permissions
+curl -k -u admin:$adminPassword -H "X-Requested-By: ambari" -X POST \
+-d '[{"PrivilegeInfo":{"permission_name":"CLUSTER.USER","principal_name":"'$user'","principal_type":"USER"}}]' \
+https://$clusterName.azurehdinsight.net/api/v1/clusters/$clusterName/privileges
+
+echo "Privilege is granted"
+
+echo "Pausing for 100 seconds"
+sleep 10s
+
+# perform query using new user account
+curl -k -u $user:$userPassword -H "X-Requested-By: ambari" \
+-X GET "https://$clusterName.azurehdinsight.net/api/v1/clusters/$clusterName/services/ZOOKEEPER/components/ZOOKEEPER_SERVER"
+```
 
 ## <a name="grant-permissions-to-apache-hive-views"></a>授與對 Apache Hive 檢視的權限
 
@@ -139,3 +272,4 @@ Ambari 隨附 [Apache Hive](https://hive.apache.org/) 和 [Apache TEZ](https://t
 * [管理 ESP HDInsight 叢集](./domain-joined/apache-domain-joined-manage.md)
 * [在 HDInsight 中搭配 Apache Hadoop 使用 Apache Hive 檢視](hadoop/apache-hadoop-use-hive-ambari-view.md)
 * [將 Azure AD 使用者同步至叢集](hdinsight-sync-aad-users-to-cluster.md)
+* [使用 Apache Ambari 管理 HDInsight 叢集 REST API](./hdinsight-hadoop-manage-ambari-rest-api.md)

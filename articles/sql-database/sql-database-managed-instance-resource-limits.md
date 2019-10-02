@@ -11,12 +11,12 @@ author: bonova
 ms.author: bonova
 ms.reviewer: carlrab, jovanpop, sachinp, sstein
 ms.date: 09/16/2019
-ms.openlocfilehash: 85ab8a61e0aebadf212217bc88e07e0066eca02b
-ms.sourcegitcommit: b03516d245c90bca8ffac59eb1db522a098fb5e4
+ms.openlocfilehash: 5eaade975adac86b6842d1d8f9f9b8f522d15bca
+ms.sourcegitcommit: 80da36d4df7991628fd5a3df4b3aa92d55cc5ade
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71146795"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71816089"
 ---
 # <a name="overview-azure-sql-database-managed-instance-resource-limits"></a>Azure SQL Database 受控實例資源限制的總覽
 
@@ -38,12 +38,27 @@ Azure SQL Database 受控實例可以部署在兩個硬體層代上：第4代和
 | 硬體 | Intel E5 2673 v3 (Haswell) 2.4-GHz 處理器，附加 SSD 虛擬核心 = 1 PP (實體核心) | Intel E5 2673 v4 (Broadwell) 2.3-GHz 處理器，快速 NVMe SSD，虛擬核心 = 1 LP (超執行緒) |
 | 虛擬核心數目 | 8 個、16 個、24 個虛擬核心 | 4、8、16、24、32、40、64、80虛擬核心 |
 | 最大記憶體（記憶體/核心比率） | 每個虛擬核心 7GB<br/>新增更多虛擬核心以取得更多記憶體。 | 每個虛擬核心 5.1 GB<br/>新增更多虛擬核心以取得更多記憶體。 |
-| 記憶體內部 OLTP 記憶體上限 | 實例限制：每個虛擬核心 3 GB<br/>資料庫限制：<br/> -8-核心：每個資料庫 8 GB<br/> -16-核心：每個資料庫 20 GB<br/> -24 核心：每個資料庫 36 GB | 實例限制：每個 vCore 2.5 GB<br/>資料庫限制：<br/> -8-核心：每個資料庫 13 GB<br/> -16-核心：每個資料庫 32 GB |
+| 記憶體內部 OLTP 記憶體上限 | 實例限制：1-每個 vCore 1.5 GB| 實例限制：0.8-每個 vCore 1.65 GB |
 | 實例保留的最大儲存體 |  一般用途： 8 TB<br/>業務關鍵：1TB | 一般用途：8 TB<br/> 商務關鍵性 1 TB、2 TB 或 4 TB，視核心數目而定 |
 
 > [!IMPORTANT]
 > - 第4代硬體即將推出。建議您在第5代硬體上部署新的受控實例。
 > - 目前，第4代硬體仍可在下欄區域使用：歐洲北部、西歐、美國東部、美國中南部、美國中北部、美國西部2、美國中部、加拿大中部、印度南部、東南亞和韓國中部。
+
+#### <a name="in-memory-oltp-available-space"></a>記憶體內部 OLTP 可用空間 
+
+記憶體內部 OLTP 空間的數量取決於虛擬核心和硬體產生的數目。 下表列出可用於記憶體內部 OLTP 物件的記憶體限制。
+
+| 每個 vCore 的記憶體內部 OLTP 空間    | **Gen5** | **Gen4** |
+| --- | --- | --- |
+| 4 | 3.14 GB | |   
+| 8 | 6.28 GB | 8 GB |
+| 16    | 15.77 GB | 20 GB |
+| 24    | 25.25 GB | 36 GB |
+| 32    | 37.94 GB | |
+| 40    | 52.23 GB | |
+| 64    | 99.9 GB   | |
+| 80    | 131.68 GB| |
 
 ### <a name="service-tier-characteristics"></a>服務層的特性
 
