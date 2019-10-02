@@ -1,6 +1,6 @@
 ---
-title: Microsoft 身分識別平台 iOS 快速入門 | Azure
-description: 了解如何在 iOS 應用程式中登入使用者及查詢 Microsoft Graph。
+title: Microsoft 身分識別平台 iOS 和 macOS 快速入門 | Azure
+description: 了解如何在 iOS 或 macOS 應用程式中登入使用者及查詢 Microsoft Graph。
 services: active-directory
 documentationcenter: dev-center-name
 author: TylerMSFT
@@ -12,23 +12,23 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/18/2019
+ms.date: 09/24/2019
 ms.author: twhitney
 ms.reviewer: jmprieur, saeeda
 ms.custom: aaddev, identityplatformtop40
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6e6a9dab8a2a37d7fa312b525453683fe789269b
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: 1b8637bb1a1ba397750bd04c88c6535fa3d1caa0
+ms.sourcegitcommit: 0486aba120c284157dfebbdaf6e23e038c8a5a15
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68852941"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71309643"
 ---
-# <a name="quickstart-sign-in-users-and-call-the-microsoft-graph-api-from-an-ios-app"></a>快速入門：從 iOS 應用程式登入使用者並呼叫 Microsoft Graph API
+# <a name="quickstart-sign-in-users-and-call-the-microsoft-graph-api-from-an-ios-or-macos-app"></a>快速入門：從 iOS 或 macOS 應用程式登入使用者並呼叫 Microsoft Graph API
 
-[!INCLUDE [active-directory-develop-applies-v2-msal](../../../includes/active-directory-develop-applies-v2-msal.md)]
+本快速入門包含示範原生 iOS 或 macOS 應用程式如何登入個人、公司與學校帳戶、取得存取權杖，以及呼叫 Microsoft Graph API 的程式碼範例。
 
-本快速入門包含示範原生 iOS 應用程式如何登入個人、公司與學校帳戶、取得存取權杖，以及呼叫 Microsoft Graph API 的程式碼範例。
+本快速入門適用於 iOS 和 macOS 應用程式。 只有 iOS 應用程式才需要某些步驟。 這些步驟會標注其僅適用於 iOS。
 
 ![示範本快速入門所產生之範例應用程式的運作方式](media/quickstart-v2-ios/ios-intro.svg)
 
@@ -36,14 +36,15 @@ ms.locfileid: "68852941"
 > **先決條件**
 > * XCode 10+
 > * iOS 10+ 
+> * macOS 10.12+
 
 > [!div renderon="docs"]
 > ## <a name="register-and-download-your-quickstart-app"></a>註冊並下載快速入門應用程式
 > 有兩個選項可用來啟動快速入門應用程式：
-> * [快速] [選項 1：註冊和自動設定您的應用程式，然後下載程式碼範例](#option-1-register-and-auto-configure-your-app-and-then-download-your-code-sample)
+> * [快速] [選項 1：註冊和自動設定您的應用程式，然後下載程式碼範例](#option-1-register-and-auto-configure-your-app-and-then-download-the-code-sample)
 > * [手動] [選項 2：註冊並手動設定您的應用程式和程式碼範例](#option-2-register-and-manually-configure-your-application-and-code-sample)
 >
-> ### <a name="option-1-register-and-auto-configure-your-app-and-then-download-your-code-sample"></a>選項 1：註冊和自動設定您的應用程式，然後下載程式碼範例
+> ### <a name="option-1-register-and-auto-configure-your-app-and-then-download-the-code-sample"></a>選項 1：註冊和自動設定您的應用程式，然後下載程式碼範例
 > #### <a name="step-1-register-your-application"></a>步驟 1：註冊您的應用程式
 > 若要註冊您的應用程式，
 > 1. 移至新的 [Azure 入口網站 - 應用程式註冊](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/applicationsListBlade/quickStartType/IosQuickstartPage/sourceType/docs)窗格。
@@ -58,41 +59,72 @@ ms.locfileid: "68852941"
 > 1. 瀏覽至 Microsoft 身分識別平台，以取得開發人員的[應用程式註冊](https://aka.ms/MobileAppReg)頁面。
 > 1. 選取 [新增註冊]  。
 > 1. 當 [註冊應用程式]  頁面出現時，輸入您應用程式的註冊資訊：
->      - 在 [名稱]  區段中，輸入當應用程式的使用者登入或同意使用您的應用程式時，將向使用者顯示且有意義的應用程式名稱，例如 `iOSQuickstart`。
->      - 略過此頁面上的其他設定。 
->      - 按 `Register` 按鈕。
-> 1. 按一下新的應用程式 > 移至 `Authentication` > `Add Platform` > `iOS`。    
->      - 為您的應用程式輸入***套件組合識別碼***。 
-> 1. 選取 `Configure` 並儲存 ***MSAL 設定***詳細資料，以供稍後使用。 
-
+>      - 在 [名稱]  區段中，輸入當應用程式的使用者登入或同意使用您的應用程式時，將向使用者顯示且有意義的應用程式名稱。
+>      - 略過此頁面上的其他設定。
+>      - 選取 `Register`。
+> 1. 在 [管理]  區段中，選取 `Authentication` > `Add Platform` > `iOS`。
+>      - 為您的應用程式輸入***套件組合識別碼***。 套件組合識別碼只是可唯一識別應用程式的唯一字串，例如 `com.<yourname>.identitysample.MSALMacOS`。 記下您所使用的值。
+>      - 請注意，iOS 組態也適用於 macOS 應用程式。
+> 1. 選取 `Configure` 並儲存 [MSAL 組態] 詳細資料，以供稍後在本快速入門中使用。
 > [!div renderon="portal" class="sxs-lookup"]
 >
 > #### <a name="step-1-configure-your-application"></a>步驟 1：設定您的應用程式
-> 若要讓此快速入門中的程式碼範例正確運作，您必須新增與 Auth 訊息代理程式相容的重導 URI。 
+> 若要讓此快速入門中的程式碼範例正確運作，您必須新增與 Auth 訊息代理程式相容的重導 URI。
 > > [!div renderon="portal" id="makechanges" class="nextstepaction"]
 > > [為我進行這項變更]()
 >
 > > [!div id="appconfigured" class="alert alert-info"]
 > > ![已設定](media/quickstart-v2-ios/green-check.png) 您的應用程式已設定了這些屬性
 
-#### <a name="step-2-download-your-web-server-or-project"></a>步驟 2：下載您的 Web 伺服器或專案
+#### <a name="step-2-download-the-sample-project"></a>步驟 2：下載範例專案
 
-- [下載程式碼範例](https://github.com/Azure-Samples/active-directory-ios-swift-native-v2/archive/master.zip)
+- [下載 iOS 的程式碼範例](https://github.com/Azure-Samples/active-directory-ios-swift-native-v2/archive/master.zip)
+- [下載 macOS 的程式碼範例](https://github.com/Azure-Samples/active-directory-macOS-swift-native-v2/archive/master.zip)
 
-#### <a name="step-3-configure-your-project"></a>步驟 3：設定您的專案
+#### <a name="step-3-install-dependencies"></a>步驟 3：安裝相依性
+
+在終端視窗中，瀏覽至包含所下載程式碼範例的資料夾，然後執行 `pod install` 來安裝最新的 MSAL 程式庫。
+
+#### <a name="step-4-configure-your-project"></a>步驟 4：設定您的專案
 
 > [!div renderon="docs"]
 > 如果您已選取上面的選項 1，則可以略過這些步驟。 
 
 > [!div renderon="portal" class="sxs-lookup"]
 > 1. 將 ZIP 檔案解壓縮並在 XCode 中開啟專案。
-> 1. 編輯 **ViewController.swift** 並將開頭為 'let kClientID' 的那一行取代為以下程式碼片段：
+> 1. 編輯 **ViewController.swift**，並使用下列程式碼片段來取代開頭為 'let kClientID' 的那一行。 請記得使用您在本快速入門中稍早於入口網站註冊應用程式時所儲存的用戶端識別碼來更新 `kClientID` 的值：
 >    ```swift
->    let kClientID = "Enter_the_Application_Id_here"
->    let kAuthority = "https://login.microsoftonline.com/Enter_the_Tenant_Info_Here"
->    ``` 
-> 1. 以滑鼠右鍵按一下 **Info.plist**，然後選取 [開啟為]   > [原始程式碼]  。
-> 1. 在 dict 根節點下方，使用您的***套件組合識別碼***來取代：
+>    let kClientID = "<ENTER_YOUR_APPLICATION/CLIENT_ID>"
+>    ```
+> 1. 開啟專案設定。 在 [身分識別]  區段中，輸入您在入口網站中輸入的 [套件組合識別碼]  。
+> 1. (僅限於 iOS) 以滑鼠右鍵按一下 **Info.plist**，然後選取 [開啟為]   > [原始程式碼]  。
+> 1. (僅限於 iOS) 在 dict 根節點下，使用您在入口網站中輸入的 [套件組合識別碼] 取代 `Enter_the_bundle_Id_Here`。
+>
+>    ```xml
+>    <key>CFBundleURLTypes</key>
+>    <array>
+>       <dict>
+>          <key>CFBundleURLSchemes</key>
+>          <array>
+>             <string>msauth.Enter_the_Bundle_Id_Here</string>
+>          </array>
+>       </dict>
+>    </array>
+>    ```
+> 1. 建置並執行應用程式！
+> [!div class="sxs-lookup" renderon="portal"]
+> > [!NOTE]
+> > 本快速入門支援 Enter_the_Supported_Account_Info_Here。
+> [!div renderon="docs"]
+>
+> 1. 將 ZIP 檔案解壓縮並在 XCode 中開啟專案。
+> 1. 編輯 **ViewController.swift**，並使用下列程式碼片段來取代開頭為 'let kClientID' 的那一行。 請記得使用您在本快速入門中稍早於入口網站註冊應用程式時所儲存的用戶端識別碼來更新 `kClientID` 的值：
+>    ```swift
+>    let kClientID = "<ENTER_YOUR_APPLICATION/CLIENT_ID>"
+>    ```
+> 1. 開啟專案設定。 在 [身分識別]  區段中，輸入您在入口網站中輸入的 [套件組合識別碼]  。
+> 1. (僅限於 iOS) 以滑鼠右鍵按一下 **Info.plist**，然後選取 [開啟為]   > [原始程式碼]  。
+> 1. (僅限於 iOS) 在 dict 根節點下，使用您在入口網站中使用的 [套件組合識別碼] 取代 `Enter_the_bundle_Id_Here`。
 >
 >    ```xml
 >    <key>CFBundleURLTypes</key>
@@ -108,41 +140,11 @@ ms.locfileid: "68852941"
 >    ```
 > 1. 建置並執行應用程式！ 
 
-> [!div class="sxs-lookup" renderon="portal"]
-> > [!NOTE]
-> > 本快速入門支援 Enter_the_Supported_Account_Info_Here。
-
-> [!div renderon="docs"]
->
-> 1. 將 ZIP 檔案解壓縮並在 XCode 中開啟專案。
-> 1. 編輯 **ViewController.swift**，並使用下列程式碼片段來取代開頭為 'let kClientID' 的那一行：
->
->    ```swift
->    let kClientID = "<ENTER_YOUR_APPLICATION/CLIENT_ID>"
-> 
->    ```
-> 1. 以滑鼠右鍵按一下 **Info.plist**，然後選取 [開啟為]   > [原始程式碼]  。
-> 1. 在 dict 根節點下方，使用您的***套件組合識別碼***來取代：
->
->    ```xml
->    <key>CFBundleURLTypes</key>
->    <array>
->       <dict>
->          <key>CFBundleURLSchemes</key>
->          <array>
->             <string>msauth.<ENTER_YOUR_BUNDLE_ID></string>
->          </array>
->       </dict>
->    </array>
->
->    ```
-> 1. 建置並執行應用程式！ 
-
 ## <a name="more-information"></a>相關資訊
 
 請閱讀這些小節以深入了解本快速入門。
 
-### <a name="getting-msal"></a>取得 MSAL
+### <a name="get-msal"></a>取得 MSAL
 
 MSAL ([MSAL.framework](https://github.com/AzureAD/microsoft-authentication-library-for-objc) \(英文\)) 是用來登入使用者並要求權杖的程式庫，該權杖可用來存取受 Microsoft 身分識別平台保護的 API。 您可以使用下列程序將 MSAL 新增至您的應用程式：
 
@@ -156,12 +158,16 @@ $ vi Podfile
 use_frameworks!
 
 target 'MSALiOS' do
-   pod 'MSAL', '~> 0.4.0'
+   pod 'MSAL'
 end
 
 ```
 
-### <a name="msal-initialization"></a>MSAL 初始化
+執行 CocoaPods 安裝命令：
+
+```pod install```
+
+### <a name="initialize-msal"></a>將 MSAL 初始化
 
 您可以透過加入下列程式碼來新增 MSAL 的參考：
 
@@ -176,7 +182,6 @@ let authority = try MSALAADAuthority(url: URL(string: kAuthority)!)
             
 let msalConfiguration = MSALPublicClientApplicationConfig(clientId: kClientID, redirectUri: nil, authority: authority)
 self.applicationContext = try MSALPublicClientApplication(configuration: msalConfiguration)
-
 ```
 
 > |其中： ||
@@ -185,28 +190,43 @@ self.applicationContext = try MSALPublicClientApplication(configuration: msalCon
 > | `authority` | Microsoft 身分識別平台端點。 在大部分情況下，這會是 *https<span/>://login.microsoftonline.com/common* |
 > | `redirectUri` | 應用程式的重新導向 URI。 您可以傳遞 'nil' 來使用預設值或您自訂的重新導向 URI。 |
 
-### <a name="additional-app-requirements"></a>其他應用程式需求  
+### <a name="for-ios-only-additional-app-requirements"></a>其他應用程式需求 (僅限於 iOS)
 
 您的應用程式在 `AppDelegate` 中也必須具有下列內容。 這讓 MSAL SDK 能夠在您執行驗證時，處理來自驗證訊息代理程式應用程式的權杖回應。
 
  ```swift
  func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
-         guard let sourceApplication = options[UIApplication.OpenURLOptionsKey.sourceApplication] as? String else {
-             return false
-         }
-         
-         return MSALPublicClientApplication.handleMSALResponse(url, sourceApplication: sourceApplication)
-     }
+        
+        return MSALPublicClientApplication.handleMSALResponse(url, sourceApplication: options[UIApplication.OpenURLOptionsKey.sourceApplication] as? String)
+    }
 
-```
+ ```
+
+> [!NOTE]
+> 在 iOS 13+ 上，如果您採用 `UISceneDelegate`而非 `UIApplicationDelegate`，請改為將此程式碼放入 `scene:openURLContexts:` 回呼中 (請參閱 [Apple 文件](https://developer.apple.com/documentation/uikit/uiscenedelegate/3238059-scene?language=objc))。
+> 如果您同時支援 UISceneDelegate 和 UIApplicationDelegate 以便與舊版 iOS 相容，則必須將 MSAL 回呼放在這兩個地方。
+
+ ```swift
+ func scene(_ scene: UIScene, openURLContexts URLContexts: Set<UIOpenURLContext>) {
+        
+        guard let urlContext = URLContexts.first else {
+            return
+        }
+        
+        let url = urlContext.url
+        let sourceApp = urlContext.options.sourceApplication
+        
+        MSALPublicClientApplication.handleMSALResponse(url, sourceApplication: sourceApp)
+    }
+ ```
 
 最後，您的應用程式在 ***Info.plist*** 中的 `CFBundleURLTypes` 旁邊必須有 `LSApplicationQueriesSchemes` 項目。 此範例會包含此項目。 
 
    ```xml 
    <key>LSApplicationQueriesSchemes</key>
    <array>
-      <string>msauth</string>
       <string>msauthv2</string>
+      <string>msauthv3</string>
    </array>
    ```
 
@@ -214,7 +234,7 @@ self.applicationContext = try MSALPublicClientApplication(configuration: msalCon
 
 MSAL 有兩種取得權杖的方法：`acquireToken` 與 `acquireTokenSilent`。
 
-#### <a name="acquiretoken-getting-a-token-interactively"></a>acquireToken：以互動方式取得權杖
+#### <a name="acquiretoken-get-a-token-interactively"></a>acquireToken：以互動方式取得權杖
 
 某些情況需要使用者與 Microsoft 身分識別平台互動。 在這些情況下，終端使用者可能需要選取自己的帳戶、輸入認證，或同意您應用程式的權限。 例如， 
 
@@ -224,21 +244,23 @@ MSAL 有兩種取得權杖的方法：`acquireToken` 與 `acquireTokenSilent`。
 * 需要 MFA 或其他條件式存取原則時
 
 ```swift
-let parameters = MSALInteractiveTokenParameters(scopes: kScopes)
-applicationContext.acquireToken(with: parameters) { (result, error) in /* Add your handling logic */}
+let parameters = MSALInteractiveTokenParameters(scopes: kScopes, webviewParameters: self.webViewParamaters!)
+self.applicationContext!.acquireToken(with: parameters) { (result, error) in /* Add your handling logic */}
 ```
 
 > |其中：||
 > |---------|---------|
 > | `scopes` | 包含所要求的範圍 (即適用於 Microsoft Graph 的 `[ "user.read" ]` 或適用於自訂 Web API 的 `[ "<Application ID URL>/scope" ]` (`api://<Application ID>/access_as_user`) |
 
-#### <a name="acquiretokensilent-getting-an-access-token-silently"></a>acquireTokenSilent：以無訊息方式取得存取權杖
+#### <a name="acquiretokensilent-get-an-access-token-silently"></a>acquireTokenSilent：以無訊息方式取得存取權杖
 
 應用程式應該不需要使用者在每次要求權杖時都必須登入。 如果使用者已經登入，這個方法可允許應用程式以無訊息方式要求權杖。 
 
 ```swift
-let parameters = MSALSilentTokenParameters(scopes: kScopes, account: applicationContext.allAccounts().first)
-applicationContext.acquireTokenSilent(with: parameters) { (result, error) in /* Add your handling logic */}
+guard let account = try self.applicationContext!.allAccounts().first else { return }
+        
+let silentParams = MSALSilentTokenParameters(scopes: kScopes, account: account)
+self.applicationContext!.acquireTokenSilent(with: silentParams) { (result, error) in /* Add your handling logic */}
 ```
 
 > |其中： ||
@@ -250,7 +272,7 @@ applicationContext.acquireTokenSilent(with: parameters) { (result, error) in /* 
 
 嘗試 iOS 教學課程以取得建置應用程式的完整逐步指南，包括本快速入門的完整說明。
 
-### <a name="learn-the-steps-to-create-the-application-used-in-this-quickstart"></a>了解建立本快速入門中所使用之應用程式的步驟
+### <a name="learn-how-to-create-the-application-used-in-this-quickstart"></a>了解如何建立本快速入門中所使用的應用程式
 
 > [!div class="nextstepaction"]
 > [呼叫 Graph API iOS 教學課程](https://docs.microsoft.com/azure/active-directory/develop/guidedsetups/active-directory-ios)

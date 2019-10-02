@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 03/14/2019
 ms.author: robinsh
-ms.openlocfilehash: 914568ee4b669605807c8a0e386cd540145c9522
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: ab6c381e779ddc19211f183b9bc80e586f58e804
+ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67446090"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71261418"
 ---
 # <a name="quickstart-enable-ssh-and-rdp-over-an-iot-hub-device-stream-by-using-a-c-proxy-application-preview"></a>快速入門：使用 C# Proxy 應用程式透過 IoT 中樞裝置串流進行 SSH 和 RDP 輸送 (預覽)
 
@@ -71,6 +71,8 @@ Microsoft Azure IoT 中樞目前支援裝置串流作為[預覽功能](https://a
    ```
 
 * [下載範例 C# 專案](https://github.com/Azure-Samples/azure-iot-samples-csharp/archive/master.zip)並將 ZIP 封存檔解壓縮。
+
+* 裝置 (Windows 或 Linux) 上用來驗證使用者的有效使用者帳戶和認證。
 
 ## <a name="create-an-iot-hub"></a>建立 IoT 中樞
 

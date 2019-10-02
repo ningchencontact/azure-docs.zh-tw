@@ -6,13 +6,13 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.topic: overview
-ms.date: 07/22/2019
-ms.openlocfilehash: 4619545ab1fed5f55504e80eede0d1cf240eea87
-ms.sourcegitcommit: bafb70af41ad1326adf3b7f8db50493e20a64926
+ms.date: 09/23/2019
+ms.openlocfilehash: e1863cc54759f6cc2266073629093d4923260525
+ms.sourcegitcommit: 992e070a9f10bf43333c66a608428fcf9bddc130
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68488698"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71240411"
 ---
 # <a name="overview-of-enterprise-security-in-azure-hdinsight"></a>Azure HDInsight 中的企業安全性概觀
 
@@ -52,7 +52,7 @@ Hadoop 系統管理員可以設定角色型存取控制 (RBAC)，以使用 Apach
 
 系統管理員可以檢視和報告所有對於 HDInsight 叢集資源和資料的存取。 針對在 Apache Ranger 支援的端點中所建立的存取控制原則，系統管理員也可以檢視和報告存取控制原則的所有變更。 
 
-若要存取 Apache Ranger 和 Ambari audit 稽核記錄以及 ssh 存取記錄，請[啟用 Azure 監視器](../hdinsight-hadoop-oms-log-analytics-tutorial.md)並檢視相關的稽核記錄。
+若要存取 Apache Ranger 和 Ambari 稽核記錄以及 ssh 存取記錄，請啟用 [Azure 監視器](../hdinsight-hadoop-oms-log-analytics-tutorial.md#cluster-auditing)並檢視可提供稽核記錄的資料表。
 
 ### <a name="encryption"></a>加密
 
@@ -73,6 +73,7 @@ HDInsight 叢集的兩個資料存放區 (Azure Blob 儲存體和 Azure Data Lak
 | 資料存取安全性 | 設定 Azure Data Lake Storage Gen1 和 Gen2 的[存取控制清單 (ACL)](../../storage/blobs/data-lake-storage-access-control.md)  | Customer |
 |  | 在儲存體帳戶上啟用 [[需要安全傳輸]](../../storage/common/storage-require-secure-transfer.md) 屬性。 | Customer |
 |  | 設定 [Azure 儲存體防火牆](../../storage/common/storage-network-security.md)和虛擬網路 | Customer |
+|  | 設定 Cosmos DB 和 [Azure SQL DB](https://docs.microsoft.com/azure/sql-database/sql-database-vnet-service-endpoint-rule-overview) 的 [Azure 虛擬網路服務端點](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoints-overview) | Customer |
 |  | 確定已針對傳輸中的資料啟用 [TLS 加密](../../storage/common/storage-security-tls.md)。 | Customer |
 |  | 設定[客戶管理的金鑰](../../storage/common/storage-encryption-keys-portal.md)以進行 Azure 儲存體加密 | Customer |
 | 應用程式和中介軟體安全性 | 與 AAD-DS 整合並[設定驗證](apache-domain-joined-configure-using-azure-adds.md) | Customer |

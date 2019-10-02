@@ -1,21 +1,21 @@
 ---
-title: Azure HPC Cache 概觀
+title: Azure HPC Cache 預覽概觀
 description: 說明 Azure HPC Cache，這是高效能運算的檔案存取加速器解決方案
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: overview
-ms.date: 09/06/2019
+ms.date: 09/24/2019
 ms.author: v-erkell
-ms.openlocfilehash: 77eca3ef58733a616705fdaac1d2880b5a990e8a
-ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
+ms.openlocfilehash: 093116a8def69e3f63af9aeb963abc60841cbe85
+ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71036873"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71257003"
 ---
-# <a name="what-is-azure-hpc-cache"></a>什麼是 Azure HPC Cache？
+# <a name="what-is-azure-hpc-cache-preview"></a>什麼是 Azure HPC Cache？ (預覽)
 
-Azure HPC Cache 可加快資料存取速度，以進行高效能運算 (HPC) 工作。 藉由在 Azure 中快取檔案，即使是透過 WAN 連結儲存資料的工作流程 (例如在您的本機資料中心網路連接儲存裝置 (NAS) 環境中)，也可使用雲端運算的延展性。
+Azure HPC Cache 可加快資料存取速度，以進行高效能運算 (HPC) 工作。 藉由在 Azure 中快取檔案，Azure HPC Cache 會將雲端運算的延展性帶入您現有的工作流程。 這項服務甚至可用於透過 WAN 連結儲存資料的工作流程，例如在您的本機資料中心網路連接儲存裝置 (NAS) 環境中。
 
 Azure HPC Cache 可輕鬆地從 Azure 入口網站啟動並進行監視。 現有的 NFS 儲存體或新的 Blob 容器可以成為其匯總命名空間的一部分，這會讓用戶端存取變得簡單，即使您變更後端儲存體目標也是如此。
 
@@ -37,13 +37,13 @@ Azure HPC Cache 可以加入至許多產業的各種不同工作流程中。 任
 
 許多生命科學工作流程都可以從向外延展檔案快取中獲益。
 
-想要將其基因分析工作流程移植到 Azure 的研究部門，可以使用 Azure HPC Cache 輕鬆地轉移它們。 因為快取提供 POSIX 檔案存取，所以它們可以在雲端中執行其現有的用戶端工作流程，而不需要任何變更。
+想要將其基因分析工作流程移植到 Azure 的研究部門，可以使用 Azure HPC Cache 輕鬆地轉移它們。 因為快取提供 POSIX 檔案存取，所以不需要任何用戶端變更，即可在雲端執行其現有的用戶端工作流程。
 
 您也可以利用 Azure HPC Cache 來改善工作 (例如，次要分析、藥理模擬或 AI 驅動的影像分析) 的效率。
 
 ### <a name="financial-services-analytics"></a>金融服務分析
 
-Azure HPC Cache 可協助加速量化的分析計算、風險分析工作負載，以及蒙地卡羅模擬分析，讓金融服務公司能夠更深入地進行策略決策。
+Azure HPC Cache 佈署可協助加速量化的分析計算、風險分析工作負載，以及蒙地卡羅模擬分析，讓金融服務公司能夠更深入地進行策略決策。
 
 ## <a name="region-availability"></a>區域可用性
 
@@ -57,6 +57,10 @@ Azure HPC Cache 可在下列 Azure 區域使用：
 * 美國西部 2
 
 如需最新的可用性資訊 ，請查看 [Azure HPC Cache 產品頁面](https://azure.microsoft.com/services/hpc-cache)。
+
+## <a name="preview-availability"></a>預覽可用性
+
+Azure HPC Cache 公開預覽限於確保服務品質。 填寫[這份表單](https://aka.ms/onboard-hpc-cache)以要求存取權。 將訂用帳戶新增至存取清單之後，即可建立測試快取。
 
 ## <a name="next-steps"></a>後續步驟
 

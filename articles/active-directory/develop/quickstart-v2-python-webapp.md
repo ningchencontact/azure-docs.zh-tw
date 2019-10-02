@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/11/2019
+ms.date: 09/25/2019
 ms.author: abpati
 ms.custom: aaddev
-ms.openlocfilehash: c5817427102bf10dcd1ece932b0f582d973efaf7
-ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.openlocfilehash: 587e7a82e2a9cde8ff6d08274928ab22aa969061
+ms.sourcegitcommit: 0486aba120c284157dfebbdaf6e23e038c8a5a15
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71257895"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71309617"
 ---
 # <a name="quickstart-add-sign-in-with-microsoft-to-a-python-web-app"></a>快速入門：將「使用 Microsoft 登入」新增至 Python Web 應用程式
 
@@ -101,48 +101,35 @@ ms.locfileid: "71257895"
 1. 開啟 **app_config.py** 檔案，其位於根資料夾並取代為下列程式碼片段：
 
 ```python
-AUTHORITY = "https://login.microsoftonline.com/Enter_the_Tenant_Name_Here"
-CLIENT_ID = "Enter_the_Application_Id_here"
 CLIENT_SECRET = "Enter_the_Client_Secret_Here"
-SCOPE = ["https://graph.microsoft.com/User.Read"]
-REDIRECT_URI = "http://localhost:5000/getAToken"
+CLIENT_ID = "Enter_the_Application_Id_here"
 ```
 
 > [!div renderon="docs"]
 > 其中：
 >
 > - `Enter_the_Application_Id_here` - 是您註冊的應用程式所具備的應用程式識別碼。
-> - `Enter_the_Tenant_Info_Here` - 是下列選項之一：
->   - 如果您的應用程式支援 [僅限我的組織]  ，請將此值取代為 [租用戶識別碼]  或 [租用戶名稱]  (例如 contoso.onmicrosoft.com)
->   - 如果您的應用程式支援 [任何組織目錄中的帳戶]  ，請將此值取代為 `organizations`
->   - 如果您的應用程式支援 [所有 Microsoft 帳戶使用者]  ，請將此值取代為 `common`
 > - `Enter_the_Client_Secret_Here` - 您在 [憑證與祕密]  中為您所註冊的應用程式建立的 [用戶端密碼]  。
 
 #### <a name="step-4-run-the-code-sample"></a>步驟 4：執行程式碼範例
 
-- 您需要使用 pip 安裝 MSAL Python 程式庫、Flask 架構、Flask-Session，以進行伺服器端工作階段管理和要求，如下所示：
+1. 您需要使用 pip 安裝 MSAL Python 程式庫、Flask 架構、Flask-Session，以進行伺服器端工作階段管理和要求，如下所示：
 
-```Shell
-pip install msal
-pip install flask
-pip install Flask-Session
-pip install requests
-```
+   ```Shell
+   pip install -r requirements.txt
+   ```
 
-- 如果已設定 Flask 的環境變數：從殼層或命令列執行 app.py：
+2. 從殼層或命令列執行 app.py：
 
-```Shell
-python app.py
-```
+   ```Shell
+   python app.py
+   ```
 
-- 如果未設定 Flask 的環境變數：
+## <a name="next-steps"></a>後續步驟
 
-    1. 瀏覽至專案目錄，以在殼層或命令列上輸入下列命令：
+深入了解可登入使用者而後呼叫 Web API 的 Web 應用程式：
 
-```Shell
-export FLASK_APP=app.py
-export FLASK_DEBUG=1
-flask run
-```
+> [!div class="nextstepaction"]
+> [案例：可登入使用者的 Web 應用程式](scenario-web-app-sign-user-overview.md)
 
 [!INCLUDE [Help and support](../../../includes/active-directory-develop-help-support-include.md)]

@@ -7,18 +7,18 @@ ms.topic: quickstart
 ms.date: 02/01/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 626a6a5e0449d267b67653c2f63303226dd0c99d
-ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
+ms.openlocfilehash: 95a5df4ca14f4be8553c83dfe8b4d09d00341102
+ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68699745"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71260387"
 ---
 # <a name="quickstart-create-and-manage-azure-files-share-with-windows-virtual-machines"></a>快速入門：使用 Windows 虛擬機器建立和管理 Azure 檔案共用
 
 本文示範建立和使用 Azure 檔案共用的基本步驟。 本快速入門主要說明如何快速設定 Azure 檔案共用，以協助您體驗此服務的運作方式。 如需關於在您自己的環境中建立和使用 Azure 檔案共用的詳細指示，請參閱[搭配 Windows 使用 Azure 檔案共用](storage-how-to-use-files-windows.md)。
 
-如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 。
+如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)。
 
 ## <a name="sign-in-to-azure"></a>登入 Azure
 
@@ -46,7 +46,7 @@ ms.locfileid: "68699745"
 
     ![選取檔案](./media/storage-files-quick-create-use-windows/click-files.png)
 
-1. 選取 [+ 檔案共用]  。
+1. 選取 [檔案共用]  。
 
     ![選取 [新增檔案共用] 按鈕](./media/storage-files-quick-create-use-windows/create-file-share.png)
 

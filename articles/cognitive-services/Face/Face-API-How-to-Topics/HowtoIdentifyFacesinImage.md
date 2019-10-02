@@ -10,12 +10,12 @@ ms.subservice: face-api
 ms.topic: sample
 ms.date: 04/10/2019
 ms.author: sbowles
-ms.openlocfilehash: 5806c17b0532f4d18b7ac57fbf70c92ed9d47daa
-ms.sourcegitcommit: 441e59b8657a1eb1538c848b9b78c2e9e1b6cfd5
+ms.openlocfilehash: c21647e3fbbc38e905a6d6ec116551004da20d5c
+ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67827506"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71300523"
 ---
 # <a name="example-identify-faces-in-images"></a>範例：識別影像中的臉部
 
@@ -81,7 +81,7 @@ CreatePersonResult friend1 = await faceClient.PersonGroupPerson.CreateAsync(
 // Define Bill and Clare in the same way
 ```
 ### <a name="step2-2"></a> 步驟 2.2：偵測臉部並將它們註冊到正確的人員
-在 HTTP 要求本文中，使用影像檔將 "POST" Web 要求傳送給[臉部 - 偵測](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) API，即可完成偵測。 使用用戶端程式庫時，會透過 FaceClient 類別的 DetectAsync 方法進行臉部偵測。
+在 HTTP 要求本文中，使用影像檔將 "POST" Web 要求傳送給[臉部 - 偵測](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) API，即可完成偵測。 使用用戶端程式庫時，會透過 FaceClient 類別的其中一個 DetectAsync 方法進行臉部偵測。
 
 針對每張偵測到的臉部，呼叫 [PersonGroup Person - 新增臉部](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523b) \(英文\)，以將它新增到正確的人員。
 
@@ -142,7 +142,7 @@ string testImageFile = @"D:\Pictures\test_img1.jpg";
 
 using (Stream s = File.OpenRead(testImageFile))
 {
-    var faces = await faceClient.Face.DetectAsync(s);
+    var faces = await faceClient.Face.DetectWithStreamAsync(s);
     var faceIds = faces.Select(face => face.FaceId).ToArray();
  
     var results = await faceClient.Face.IdentifyAsync(faceIds, personGroupId);

@@ -9,12 +9,12 @@ ms.subservice: translator-text
 ms.date: 02/21/2019
 ms.author: swmachan
 ms.topic: overview
-ms.openlocfilehash: cdbbe9006f57c8b29e19fda85eefc0795da95a00
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: 0269b4e611432093ea677e2ea7e429c84ce9db87
+ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68595502"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71257657"
 ---
 # <a name="what-is-custom-translator"></a>什麼是自訂翻譯工具？
 
@@ -40,7 +40,7 @@ ms.locfileid: "68595502"
 
 Microsoft Translator 在 2016 年發行了[類神經機器翻譯 (NMT)](https://blogs.msdn.microsoft.com/translation/2016/11/15/microsoft-translator-launching-neural-network-based-translations-for-all-its-speech-languages/)。 和業界標準的[統計機器翻譯 (SMT)](https://en.wikipedia.org/wiki/Statistical_machine_translation) 技術相比，NMT 的翻譯品質有了長足進步。 NMT 會先對整個句子的背景有更好的了解，再翻譯整個句子，因此翻譯品質更好、發音更像真人，且翻譯的內容會更通順。 [自訂翻譯工具](https://portal.customtranslator.azure.ai)會提供 NMT 而讓您的自訂模型產生更好的翻譯品質。
 
-您可以使用先前翻譯好的文件來建置翻譯系統。 這些文件中會有優於一般翻譯系統的領域專屬術語和風格。 使用者可以上傳 ALIGN、PDF、LCL、HTML、HTM、XLF、TMX、XLIFF、TXT、DOCX 和 XLSX 文件。
+您可以使用先前翻譯好的文件來建置翻譯系統。 這些文件中會有優於標準翻譯系統的領域專屬術語和風格。 使用者可以上傳 ALIGN、PDF、LCL、HTML、HTM、XLF、TMX、XLIFF、TXT、DOCX 和 XLSX 文件。
 
 自訂翻譯工具也可接受在文件層級進行處理的資料，以便更有效地收集和準備資料。 若使用者可以存取使用多種語言、但位於在不同文件中的相同內容版本，自訂翻譯工具就能夠自動比對文件之間的句子。
 

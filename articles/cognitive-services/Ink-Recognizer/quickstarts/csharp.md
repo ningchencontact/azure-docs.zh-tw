@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: ink-recognizer
 ms.topic: quickstart
-ms.date: 05/02/2019
+ms.date: 09/23/2019
 ms.author: aahi
-ms.openlocfilehash: 6a1b4ab43a7d87ac1162a7f0a3556d6bc3bfbfab
-ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
+ms.openlocfilehash: 86e69d75c067159a4daa637984a392a393dc46fa
+ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67721255"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71211795"
 ---
 # <a name="quickstart-recognize-digital-ink-with-the-ink-recognizer-rest-api-and-c"></a>快速入門：使用筆跡辨識器 REST API 與 C# 來辨識數位筆跡
 
@@ -60,7 +60,7 @@ ms.locfileid: "67721255"
     using Newtonsoft.Json.Linq;
     ```
 
-2. 針對您的訂用帳戶金鑰和端點建立變數。 以下是您可以用於手寫辨識的 URI。 該 URI 稍後會附加至您的服務端點，以建立 API 要求 URL。
+2. 針對您的訂用帳戶金鑰和端點建立變數。 將下面的端點取代為您的筆跡辨識器資源所產生的端點。 將它附加至筆跡辨識器 URI 以連線至 API。
 
     ```csharp
     // Replace the subscriptionKey string with your valid subscription key.
@@ -70,13 +70,13 @@ ms.locfileid: "67721255"
     const string dataPath = @"PATH-TO-INK-STROKE-DATA"; 
 
     // URI information for ink recognition:
-    const string endpoint = "https://api.cognitive.microsoft.com";
+    const string endpoint = "https://<your-custom-subdomain>.cognitiveservices.azure.com";
     const string inkRecognitionUrl = "/inkrecognizer/v1.0-preview/recognize";
     ```
 
 ## <a name="create-a-function-to-send-requests"></a>建立傳送要求的函式
 
-1. 建立名為 `Request` 的新非同步函式，取用上方建立的變數。
+1. 建立名為 `Request` 的新非同步函式，取用上面建立的變數。
 
 2. 使用 `HttpClient` 物件設定用戶端的安全性通訊協定和標頭資訊。 請務必將您的訂用帳戶金鑰新增至 `Ocp-Apim-Subscription-Key` 標頭。 然後建立要求的 `StringContent` 物件。
  

@@ -5,21 +5,21 @@ services: digital-twins
 author: dsk-2015
 ms.service: digital-twins
 ms.topic: include
-ms.date: 08/16/2019
+ms.date: 09/24/2019
 ms.author: dkshir
 ms.custom: include file
-ms.openlocfilehash: 87599c6e0c4bd4313eac154b4d07110cbe4389a0
-ms.sourcegitcommit: 55e0c33b84f2579b7aad48a420a21141854bc9e3
+ms.openlocfilehash: 5b88e3f17c1bbf60d38763f7fb349302ae4a920b
+ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69622965"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71310504"
 ---
 1. 登入 [Azure 入口網站](https://portal.azure.com)。
 
 1. 從左窗格中選取 [建立資源]  。 搜尋「Digital Twins」  ，然後選取 [Digital Twins]  。 選取 [建立]  以啟動部署程序。
 
-   ![用於建立新 Digital Twins 執行個體的選取項目](./media/create-digital-twins-portal/create-digital-twins.png)
+   [![用於建立新 Digital Twins 執行個體的選取項目](./media/create-digital-twins-portal/create-digital-twins.png)](./media/create-digital-twins-portal/create-digital-twins.png#lightbox)
 
 1. 在 [Digital Twins]  窗格中，輸入下列資訊：
    * **資源名稱**：為 Digital Twins 執行個體建立獨一無二的名稱。
@@ -27,7 +27,7 @@ ms.locfileid: "69622965"
    * **資源群組**：選取或建立 Digital Twins 執行個體的[資源群組](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview#resource-groups)。
    * **位置**：選取最接近裝置的位置。
 
-     ![已輸入資訊的 Digital Twins 窗格](./media/create-digital-twins-portal/create-digital-twins-param.png)
+     [![已輸入資訊的 Digital Twins 窗格](./media/create-digital-twins-portal/create-digital-twins-param.png)](./media/create-digital-twins-portal/create-digital-twins-param.png#lightbox)
 
 1. 檢閱 Digital Twins 資訊，然後選取 [建立]  。 Digital Twins 執行個體可能需要幾分鐘的時間才會建立好。 您可以在 [通知]  窗格中監視進度。
 
@@ -37,4 +37,4 @@ ms.locfileid: "69622965"
 
     將**管理 API** URL 修改為此格式：`https://yourDigitalTwinsName.yourLocation.azuresmartspaces.net/management/api/v1.0/`。 應用程式會使用修改後的 URL 作為基底 URL 來存取執行個體。 將這個修改後的 URL 複製到暫存檔。 您在下一節中將會用到此 URL。
 
-    ![管理 API](./media/create-digital-twins-portal/digital-twins-management-api.png)
+    [![管理 API](./media/create-digital-twins-portal/digital-twins-management-api.png)](./media/create-digital-twins-portal/digital-twins-management-api.png#lightbox)

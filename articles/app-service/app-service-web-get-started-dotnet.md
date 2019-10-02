@@ -14,12 +14,12 @@ ms.topic: quickstart
 ms.date: 08/30/2019
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: e8c6c21efd1ea406c8293819a2889e198e8455bd
-ms.sourcegitcommit: 6794fb51b58d2a7eb6475c9456d55eb1267f8d40
+ms.openlocfilehash: 82a1dc293a019e4a48760ccbce830d067f2d620d
+ms.sourcegitcommit: 992e070a9f10bf43333c66a608428fcf9bddc130
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70242024"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71240931"
 ---
 # <a name="create-an-aspnet-core-web-app-in-azure"></a>在 Azure 中建立 ASP.NET Core Web 應用程式
 
@@ -88,14 +88,14 @@ ms.locfileid: "70242024"
 
    [!INCLUDE [app-service-plan](../../includes/app-service-plan.md)]
 
-1. 在 [主控方案]  中選取 [新增]  。
+1. 針對 [主控方案]  選取 [新增]  。
 
 1. 在 [設定主控方案]  對話方塊中，輸入下表中的值，然後選取 [確定]  。
 
    | 設定 | 建議的值 | 說明 |
    |-|-|-|
    |App Service 方案| myAppServicePlan | App Service 方案的名稱。 |
-   | Location | 西歐 | 裝載 Web 應用程式的資料中心。 |
+   | 位置 | 西歐 | 裝載 Web 應用程式的資料中心。 |
    | 大小 | 免費 | [定價層](https://azure.microsoft.com/pricing/details/app-service/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)可決定裝載功能。 |
 
    ![建立 App Service 方案](./media/app-service-web-get-started-dotnet/app-service-plan-vs2019.png)

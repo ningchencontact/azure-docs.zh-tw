@@ -8,12 +8,12 @@ ms.date: 06/13/2019
 ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 4d03e5ee5faf39425e1bf927a3c0557b0ad01b82
-ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
+ms.openlocfilehash: e629cbdce55f236e095f606f56adec453b0b17c7
+ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68840116"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71299871"
 ---
 # <a name="tutorial-create-and-deploy-custom-iot-edge-modules"></a>教學課程：建立和部署自訂 IoT Edge 模組
 
@@ -27,7 +27,7 @@ IoT Edge 中樞可促進模組對模組的通訊。 使用 IoT Edge 中樞作為
 我們希望 IoT Edge 裝置為我們完成四件事：
 
 * 接收來自分葉裝置的資料
-* 預測適用於傳送資料之裝置的 RUL
+* 預測適用於傳送資料之裝置的剩餘使用年限 (RUL)
 * 只利用適用於裝置的 RUL 將訊息傳送至 IoT 中樞 (如果 RUL 低於某種程度，則可修改此函式，以便只傳送資料)
 * 將分葉裝置資料儲存至 IoT Edge 裝置上的本機檔案。 這個資料檔案會透過檔案上傳定期上傳到 IoT 中樞，以精簡機器學習模型的定型。 比起持續不斷的訊息串流處理，使用檔案上傳更符合成本效益。
 
@@ -56,7 +56,7 @@ IoT Edge 中樞可促進模組對模組的通訊。 使用 IoT Edge 中樞作為
 
 ## <a name="create-a-new-iot-edge-solution"></a>建立新的 IoT Edge 解決方案
 
-在執行我們的第二個 Azure Notebooks 期間，我們建立並發佈了包含 RUL 模型的容器映像。 Azure Machine Learning 會在映像建立過程中內建各個部分，讓該映像能夠部署為 Azure IoT Edge 模組。 在此步驟中，我們將使用 “Azure Machine Learning” 模組來建立 Azure IoT Edge 解決方案，並將該模組指向我們使用 Azure Notebooks 發佈的映像。
+在執行我們的第二個 Azure Notebooks 期間，我們建立並發佈了包含 RUL 模型的容器映像。 Azure Machine Learning 會在映像建立過程中封裝該模型，讓該映像能夠部署為 Azure IoT Edge 模組。 在此步驟中，我們將使用 “Azure Machine Learning” 模組來建立 Azure IoT Edge 解決方案，並將該模組指向我們使用 Azure Notebooks 發佈的映像。
 
 1. 開啟您開發機器的遠端桌面工作階段。
 
@@ -691,7 +691,7 @@ Avro 寫入器模組在我們的解決方案中有兩個任務，即儲存訊息
 
 5. 選取 [測試路由]  。 如果測試成功，您就會看到「訊息與查詢相符」。
 
-6. 選取 [ **儲存**]。
+6. 選取 [儲存]  。
 
 ### <a name="configure-file-upload"></a>設定檔案上傳
 
@@ -705,7 +705,7 @@ Avro 寫入器模組在我們的解決方案中有兩個任務，即儲存訊息
 
 4. 選取 [uploadturbofanfiles]  容器，然後按一下 [選取]  。
 
-5. 選取 [ **儲存**]。 入口網站會在儲存完成時通知您。
+5. 選取 [儲存]  。 入口網站會在儲存完成時通知您。
 
 > [!Note]
 > 我們並未針對此教學課程開啟上傳通知，但請參閱[接收檔案上傳通知](../iot-hub/iot-hub-java-java-file-upload.md#receive-a-file-upload-notification)，以了解如何處理檔案上傳通知的詳細說明。

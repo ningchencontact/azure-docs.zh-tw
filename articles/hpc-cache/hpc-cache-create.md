@@ -1,21 +1,21 @@
 ---
-title: 建立 Azure HPC Cache
+title: 建立 Azure HPC Cache (預覽)
 description: 如何建立 Azure HPC Cache 執行個體
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: tutorial
-ms.date: 09/06/2019
+ms.date: 09/24/2019
 ms.author: v-erkell
-ms.openlocfilehash: e1b69f17d964647944f23f4d16a0a1a5f112b60d
-ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
+ms.openlocfilehash: a0590c14032595bea685c69962ef27dca14d1d69
+ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71036996"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71300024"
 ---
-# <a name="create-an-azure-hpc-cache"></a>建立 Azure HPC Cache
+# <a name="create-an-azure-hpc-cache-preview"></a>建立 Azure HPC Cache (預覽)
 
-使用 Azure 入口網站建立快取。
+使用 Azure 入口網站建立快取。 
 
 ![Azure 入口網站中快取概觀的螢幕擷取畫面，其中 [建立] 按鈕位於底部](media/hpc-cache-home-page.png)
 
@@ -23,18 +23,20 @@ ms.locfileid: "71036996"
 
 ![Azure 入口網站中專案詳細資料頁面的螢幕擷取畫面](media/hpc-cache-create-basics.png)
 
-在 [專案詳細資料]  中，選取將裝載 Azure HPC Cache 的訂用帳戶和資源群組。 請確定訂用帳戶位於[預覽權限](hpc-cache-prereqs.md#azure-subscription)清單上。
+在 [專案詳細資料]  中，選取將要裝載快取的訂用帳戶和資源群組。 請確定訂用帳戶位於[預覽權限](hpc-cache-prereqs.md#azure-subscription)清單上。
 
 在 [服務詳細資料]  中，設定快取名稱和其他屬性：
 
 * 位置 - 選取其中一個[支援的區域](hpc-cache-overview.md#region-availability)。
 * 虛擬網路 - 您可以選取現有的虛擬網路，或建立一個新的虛擬網路。
-* 子網路 - 選擇或建立子網路，必須至少有 64 個 IP 位址 (/24) 且只會用於 Azure HPC Cache。
+* 子網路 - 選擇或建立子網路，必須至少有 64 個 IP 位址 (/24) 且只會用於此 Azure HPC Cache 執行個體。
 
 ## <a name="set-cache-capacity"></a>設定快取容量
-<!-- change link in GUI -->
+<!-- referenced from GUI - update aka.ms link if you change this header text -->
 
-在 [快取]  頁面上，您必須設定 Azure HPC Cache 的容量。 此值決定您的快取可以保存多少資料，以及它服務用戶端要求的速度。 在公開預覽期間之後，容量也會影響快取的成本。
+在 [快取]  頁面上，您必須設定快取的容量。 此值決定您的快取可以保存多少資料，以及它服務用戶端要求的速度。 
+
+在公開預覽期間之後，容量也會影響快取的成本。
 
 快取容量是以每秒輸入/輸出作業 (IOPS) 來測量。 藉由設定這兩個值來選擇容量：
 
@@ -43,9 +45,9 @@ ms.locfileid: "71036996"
 
 選擇其中一個可用的輸送量值和快取儲存體大小。 IOPS 容量會計算出來，並顯示在值選取器底下。
 
-請記住，實際的資料傳輸速率取決於工作負載、網路速度，以及儲存體目標的類型。 如果檔案不在快取中，或標示為過時，服務將會使用一些輸送量從後端儲存體擷取該檔案。 您選擇的值會設定整個快取的最大輸送量，而不是所有用戶端要求可使用的輸送輛。
+請記住，實際的資料傳輸速率取決於工作負載、網路速度，以及儲存體目標的類型。 您選擇的值會設定整個快取的最大輸送量，而不是所有用戶端要求可使用的輸送輛。 例如，如果用戶端要求的檔案尚未存放在快取中，或檔案被標示為過時，則您的快取會使用其部分的輸送量從後端儲存體提取該檔案。
 
-針對快取儲存體，Azure HPC Cache 會管理要快取和預先載入哪些檔案，以最大化快取命中率。 系統會持續評估快取內容，並將較不常存取的檔案移至長期儲存體。 選擇可輕鬆保存使用中檔案集的快取儲存體大小，且有額外空間可容納中繼資料和其他負荷。
+Azure HPC Cache 會管理要快取和預先載入哪些檔案，以最大化快取命中率。 系統會持續評估快取內容，並將較不常存取的檔案移至長期儲存體。 選擇可輕鬆保存使用中檔案集的快取儲存體大小，且有額外空間可容納中繼資料和其他負荷。
 
 ![快取大小頁面的螢幕擷取畫面](media/hpc-cache-create-iops.png)
 
@@ -61,9 +63,9 @@ ms.locfileid: "71036996"
 
 您最多可以定義十個不同的儲存體目標。
 
-[新增儲存體](hpc-cache-add-storage.md)中有新增儲存體目標的逐步指示。 Blob 儲存體和 NFS 匯出的程序不同。
+[新增儲存體目標](hpc-cache-add-storage.md)中有新增儲存體目標的逐步指示。 Blob 儲存體和 NFS 匯出的程序不同。
 
-以下是一些秘訣： 
+以下是一些秘訣：
 
 * 對於這兩種類型的儲存體，您都必須指定如何尋找後端儲存體系統 (NFS 位址或 Blob 容器名稱) 和用戶端對應的命名空間路徑。
 
@@ -73,7 +75,7 @@ ms.locfileid: "71036996"
 
 ## <a name="add-resource-tags-optional"></a>新增資源標記 (選擇性)
 
-[標籤]  頁面可讓您將[資源標籤](https://go.microsoft.com/fwlink/?linkid=873112) \(英文\) 新增至 Azure HPC Cache。 
+[標籤]  頁面可讓您將[資源標籤](https://go.microsoft.com/fwlink/?linkid=873112)新增至 Azure HPC Cache 執行個體。
 
 ## <a name="finish-creating-the-cache"></a>完成建立快取
 

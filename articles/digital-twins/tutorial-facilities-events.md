@@ -6,14 +6,14 @@ author: alinamstanciu
 ms.custom: seodec18
 ms.service: digital-twins
 ms.topic: tutorial
-ms.date: 08/05/2019
+ms.date: 09/23/2019
 ms.author: alinast
-ms.openlocfilehash: 30d43831b73edc52b461512faecac369f6bf00b0
-ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
+ms.openlocfilehash: fe2eb357ef89d70512e85db24d22f95cac1bd0ac
+ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68827824"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71300083"
 ---
 # <a name="tutorial-receive-notifications-from-your-azure-digital-twins-spaces-by-using-logic-apps"></a>教學課程：使用 Logic Apps 接收來自 Azure Digital Twins 空間的通知
 
@@ -23,7 +23,7 @@ ms.locfileid: "68827824"
 
 本教學課程說明如何整合這些通知與 Azure Logic Apps，以在空出這樣的房間時傳送電子郵件。 辦公室管理員可以使用這項資訊，來協助員工預約最具生產力的會議室。
 
-在本教學課程中，您了解如何：
+在本教學課程中，您會了解如何：
 
 > [!div class="checklist"]
 > * 整合事件與 Azure 事件方格。
@@ -38,6 +38,9 @@ ms.locfileid: "68827824"
 - 在工作電腦上下載並解壓縮 [Digital Twins C# 範例](https://github.com/Azure-Samples/digital-twins-samples-csharp)。
 - 在開發電腦上安裝 [.NET Core SDK 2.1.403 版或更新版本](https://www.microsoft.com/net/download)，以執行範例。 執行 `dotnet --version` 來確認是否已安裝正確版本。
 - 用來傳送通知電子郵件的 Office 365 帳戶。
+
+> [!TIP]
+> 如果您要佈建新的執行個體，請使用唯一的 Digital Twins 執行個體名稱。
 
 ## <a name="integrate-events-with-event-grid"></a>整合事件與事件方格
 
@@ -55,13 +58,13 @@ ms.locfileid: "68827824"
 
 1. 輸入事件方格主題的 [名稱]  ，然後選擇 [訂用帳戶]  。 選取針對 Digital Twins 執行個體所使用或建立的 [資源群組]  ，以及 [位置]  。 選取 [建立]  。 
 
-    ![建立事件方格主題](./media/tutorial-facilities-events/create-event-grid-topic.png)
+    [![建立事件方格主題](./media/tutorial-facilities-events/create-event-grid-topic.png)](./media/tutorial-facilities-events/create-event-grid-topic.png#lightbox)
 
 1. 從資源群組瀏覽至事件方格主題，選取 [概觀]  ，然後將 [主題端點]  的值複製到暫存檔。 您在後續章節中將會用到此 URL。 
 
 1. 選取 [存取金鑰]  ，然後將 **YOUR_KEY_1** 和 **YOUR_KEY_2** 複製到暫存檔。 下一節在建立端點時需要用到這些值。
 
-    ![事件方格金鑰](./media/tutorial-facilities-events/event-grid-keys.png)
+    [![事件方格金鑰](./media/tutorial-facilities-events/event-grid-keys.png)](./media/tutorial-facilities-events/event-grid-keys.png#lightbox)
 
 ### <a name="create-an-endpoint-for-the-event-grid-topic"></a>建立事件方格主題的端點
 
@@ -98,7 +101,7 @@ ms.locfileid: "68827824"
 
    此命令會建立事件方格的端點。 
 
-   ![事件方格的端點](./media/tutorial-facilities-events/dotnet-create-endpoints.png)
+   [![事件方格的端點](./media/tutorial-facilities-events/dotnet-create-endpoints.png)](./media/tutorial-facilities-events/dotnet-create-endpoints.png#lightbox)
 
 ## <a name="notify-events-with-logic-apps"></a>使用 Logic Apps 發出事件通知
 
@@ -110,7 +113,7 @@ ms.locfileid: "68827824"
 
 1. 輸入邏輯應用程式資源的 [名稱]  ，然後選取 [訂用帳戶]  、[資源群組]  和 [位置]  。 選取 [建立]  。
 
-    ![建立 Logic Apps 資源](./media/tutorial-facilities-events/create-logic-app.png)
+    [![建立 Logic Apps 資源](./media/tutorial-facilities-events/create-logic-app.png)](./media/tutorial-facilities-events/create-logic-app.png#lightbox)
 
 1. 開啟部署好的 Logic Apps 資源，然後開啟 [邏輯應用程式設計工具]  窗格。 
 
@@ -124,7 +127,7 @@ ms.locfileid: "68827824"
 
    c. 從 [資源名稱]  下拉式方塊中選取事件方格資源。
 
-   ![邏輯應用程式設計工具窗格](./media/tutorial-facilities-events/logic-app-resource-event.png)
+   [![邏輯應用程式設計工具窗格](./media/tutorial-facilities-events/logic-app-resource-event.png)](./media/tutorial-facilities-events/logic-app-resource-event.png#lightbox)
 
 1. 選取 [新增步驟]  按鈕。
 
@@ -156,7 +159,7 @@ ms.locfileid: "68827824"
 
     此承載有虛構值。 Logic Apps 會使用此承載範例來產生 [結構描述]  。
 
-    ![事件方格的 Logic Apps 剖析 JSON 視窗](./media/tutorial-facilities-events/logic-app-parse-json.png)
+    [![事件方格的 Logic Apps 剖析 JSON 視窗](./media/tutorial-facilities-events/logic-app-parse-json.png)](./media/tutorial-facilities-events/logic-app-parse-json.png#lightbox)
 
 1. 選取 [新增步驟]  按鈕。
 
@@ -168,7 +171,7 @@ ms.locfileid: "68827824"
 
    c. 在第二個 [選擇值]  文字方塊中，輸入`UdfCustom`。
 
-   ![已選取的條件](./media/tutorial-facilities-events/logic-app-condition.png)
+   [![已選取的條件](./media/tutorial-facilities-events/logic-app-condition.png)](./media/tutorial-facilities-events/logic-app-condition.png#lightbox)
 
 1. 在 [若為 true]  視窗中：
 
@@ -180,7 +183,7 @@ ms.locfileid: "68827824"
 
    d. 在相同視窗中的 [本文]  底下，輸入如下的文字：**房間內所偵測到的空氣品質不良，且需要調整溫度**。 您可以使用 [動態內容]  清單中的元素，任意地加上詳細說明。
 
-   ![Logic Apps 的「傳送電子郵件」選取項目](./media/tutorial-facilities-events/logic-app-send-email.png)
+   [![Logic Apps 的「傳送電子郵件」選取項目](./media/tutorial-facilities-events/logic-app-send-email.png)](./media/tutorial-facilities-events/logic-app-send-email.png#lightbox)
 
 1. 選取 [邏輯應用程式設計工具]  窗格頂端的 [儲存]  按鈕。
 
@@ -188,7 +191,7 @@ ms.locfileid: "68827824"
 
 在幾分鐘內，您應該就會開始從這個 Logic Apps 資源收到電子郵件通知。 
 
-   ![電子郵件通知](./media/tutorial-facilities-events/logic-app-notification.png)
+   [![電子郵件通知](./media/tutorial-facilities-events/logic-app-notification.png)](./media/tutorial-facilities-events/logic-app-notification.png#lightbox)
 
 若要停止接收這些電子郵件，請在入口網站中瀏覽至您的 Logic Apps 資源，然後選取 [概觀]  窗格。 選取 [停用]  。
 

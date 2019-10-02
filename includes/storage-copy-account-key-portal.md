@@ -8,21 +8,20 @@ ms.topic: include
 ms.date: 11/11/2018
 ms.author: tamram
 ms.custom: include file
-ms.openlocfilehash: 1eadda6e36e7e3798bf055b138bec1b897e3014d
-ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
+ms.openlocfilehash: 6ffc91a6e01cfb479a4090bcf13f15a7bd20095c
+ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69541441"
+ms.lasthandoff: 09/23/2019
+ms.locfileid: "71203962"
 ---
 ## <a name="copy-your-credentials-from-the-azure-portal"></a>從 Azure 入口網站複製您的認證
 
 範例應用程式必須授與對您儲存體帳戶的存取權。 請以連接字串的形式將您的儲存體帳戶認證提供給應用程式。 若要檢視您的儲存體帳戶認證：
 
-1. 登入 [Azure 入口網站](https://portal.azure.com)。
-2. 找出您的儲存體帳戶。
-3. 在儲存體帳戶概觀的 [設定]  區段中，選取 [存取金鑰]  。 您的帳戶存取金鑰和連接字串隨即顯示。
-4. 請記下您的儲存體帳戶名稱，您在驗證時將需用到。   
-5. 尋找 [金鑰 1]  下方的 [金鑰]  值，然後選取 [複製]  以複製帳戶金鑰。
+1. 在 [Azure 入口網站](https://portal.azure.com)中，移至您的儲存體帳戶。
+1. 在儲存體帳戶概觀的 [設定]  區段中，選取 [存取金鑰]  以顯示您的帳戶存取金鑰和連接字串。
+1. 請記下您的儲存體帳戶名稱，您在驗證時將需用到。   
+1. 尋找 [金鑰 1]  下方的 [金鑰]  值，然後選取 [複製]  以複製帳戶金鑰。
 
     ![顯示如何從 Azure 入口網站複製帳戶金鑰的螢幕擷取畫面](media/storage-copy-account-key-portal/portal-account-key.png)

@@ -11,12 +11,12 @@ author: sachinpMSFT
 ms.author: sachinp
 ms.reviewer: vanto, carlrab
 ms.date: 02/11/2019
-ms.openlocfilehash: d13ee8c46df9433530df1d26a86978daab709a52
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: 27b554159fca2043fbd0c853e260a66294c10387
+ms.sourcegitcommit: a7a9d7f366adab2cfca13c8d9cbcf5b40d57e63a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68883059"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71162302"
 ---
 # <a name="quickstart-create-a-server-level-firewall-rule-for-single-and-pooled-databases-using-the-azure-portal"></a>快速入門：使用 Azure 入口網站為單一和集區資料庫建立伺服器層級防火牆規則
 
@@ -54,10 +54,10 @@ SQL Database 服務會在資料庫伺服器層級建立單一和集區資料庫�
 4. 選擇工具列上的 [新增用戶端 IP]  ，將您目前的 IP 位址新增至新的伺服器層級 IP 防火牆規則。 伺服器層級 IP 防火牆規則可以針對單一 IP 位址或 IP 位址範圍開啟連接埠 1433。
 
    > [!IMPORTANT]
-   > 根據預設，已對所有 Azure 服務啟用透過 SQL Database 防火牆存取。 選擇此頁面上的 [關閉]  即可對所有 Azure 服務停用。
+   > 根據預設，已對所有 Azure 服務停用透過 SQL Database 防火牆存取。 如果您想要啟用所有 Azure 服務的存取權，請在此頁面上選擇 [開啟]  。
    >
 
-5. 選取 [ **儲存**]。 系統會為目前的 IP 位址建立伺服器層級 IP 防火牆規則，以便在 SQL Database 伺服器上開啟連接埠 1433。
+5. 選取 [儲存]  。 系統會為目前的 IP 位址建立伺服器層級 IP 防火牆規則，以便在 SQL Database 伺服器上開啟連接埠 1433。
 
 6. 關閉 [防火牆設定]  頁面。
 

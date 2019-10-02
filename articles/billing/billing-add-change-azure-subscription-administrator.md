@@ -1,47 +1,52 @@
 ---
-title: 新增或變更 Azure 訂用帳戶管理員 | Microsoft Docs
+title: 新增或變更 Azure 訂用帳戶系統管理員
 description: 說明如何使用角色型存取控制 (RBAC) 來新增或變更 Azure 訂用帳戶管理員。
-services: ''
-documentationcenter: ''
 author: genlin
-manager: adpick
-editor: ''
+manager: dcscontentpm
 tags: billing
-ms.assetid: 13a72d76-e043-4212-bcac-a35f4a27ee26
 ms.service: billing
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 02/19/2019
+ms.date: 09/24/2019
 ms.author: banders
-ms.openlocfilehash: 000315a2d751a05d3e401ee1bb9f593c6e321194
-ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
+ms.openlocfilehash: 2054fbb7d0a9f450ad487fc0f03d0af920c6cc4b
+ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "64922906"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71260932"
 ---
 # <a name="add-or-change-azure-subscription-administrators"></a>新增或變更 Azure 訂用帳戶系統管理員
 
-若要管理對 Azure 資源的存取，您必須具有適當的系統管理員角色。 Azure 有一個稱為角色型存取控制 (RBAC) 的授權系統，其中含有可供您選擇的內建角色。 您可以在不同範圍 (例如管理群組、訂用帳戶或資源群組) 指派這些角色。
 
-Microsoft 建議您使用 RBAC 來管理對資源的存取。 不過，如果您仍是使用傳統部署模型，且使用 [Azure 服務管理 PowerShell 模組](https://docs.microsoft.com/powershell/module/servicemanagement/azure) \(英文\) 來管理傳統資源，您會需要使用傳統系統管理員。 
+若要管理對 Azure 資源的存取，您必須具有適當的系統管理員角色。 Azure 有一個稱為[角色型存取控制](../role-based-access-control/overview.md) (RBAC) 的授權系統，其中含有可供您選擇的內建角色。 您可以在不同範圍 (例如管理群組、訂用帳戶或資源群組) 指派這些角色。 根據預設，建立新 Azure 訂用帳戶的人員可以將訂用帳戶的系統管理存取權指派給其他使用者。
+
+本文說明如何在訂用帳戶範圍使用 RBAC 來新增或變更使用者的系統管理員角色。
+
+Microsoft 建議您使用 RBAC 來管理對資源的存取。 不過，如果您仍是使用傳統部署模型，且使用 [Azure 服務管理 PowerShell 模組](https://docs.microsoft.com/powershell/module/servicemanagement/azure) \(英文\) 來管理傳統資源，您會需要使用傳統系統管理員。
 
 > [!TIP]
 > 如果您只使用 Azure 入口網站來管理傳統資源，則不需要使用傳統系統管理員。
 
 如需詳細資訊，請參閱 [Azure Resource Manager 與傳統部署](../azure-resource-manager/resource-manager-deployment-model.md)和 [Azure 傳統訂用帳戶管理員](../role-based-access-control/classic-administrators.md)。
 
-本文說明如何在訂用帳戶範圍使用 RBAC 來新增或變更使用者的系統管理員角色。
-
 <a name="add-an-admin-for-a-subscription"></a>
 
-## <a name="assign-a-user-as-an-administrator-of-a-subscription"></a>指派使用者做為訂用帳戶的系統管理員
+## <a name="assign-a-subscription-administrator"></a>指派訂用帳戶系統管理員
 
-若要讓使用者成為 Azure 訂用帳戶的系統管理員，請在訂用帳戶範圍為其指派[擁有者](../role-based-access-control/built-in-roles.md#owner)角色 (RBAC 角色)。 「擁有者」角色可授與使用者訂用帳戶中所有資源的完整存取權，包括將存取權委派給其他人的權限。 針對任何其他角色指派，這些步驟都相同。
+若要讓使用者成為 Azure 訂用帳戶的系統管理員，現有系統管理員會在訂用帳戶範圍為其指派[擁有者](../role-based-access-control/built-in-roles.md#owner)角色 (RBAC 角色)。 「擁有者」角色可授與使用者訂用帳戶中所有資源的完整存取權，包括將存取權委派給其他人的權限。 針對任何其他角色指派，這些步驟都相同。
 
-1. 在 Azure 入口網站中，開啟[訂用帳戶](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade)。
+如果您不確定誰是訂用帳戶的帳戶管理員，請使用下列步驟來找出帳戶管理員。
+
+1. 開啟 [Azure 入口網站中的 [訂用帳戶] 頁面](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade)。
+1. 選取您想要檢查的訂用帳戶，然後查看 [設定]  。
+1. 選取 [屬性]  。 該訂用帳戶的帳戶管理員會顯示在 [帳戶管理員]  方塊中。
+
+### <a name="to-assign-a-user-as-an-administrator"></a>將使用者指派為系統管理員
+
+1. 以訂用帳戶擁有者身分登入 Azure 入口網站並開啟[訂用帳戶](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade)。
 
 1. 選擇您想要授與存取權的訂用帳戶。
 

@@ -7,12 +7,12 @@ ms.topic: quickstart
 ms.date: 10/18/2018
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: b7665caad60a5135da5780da242772af3c0a05a4
-ms.sourcegitcommit: 909ca340773b7b6db87d3fb60d1978136d2a96b0
+ms.openlocfilehash: fef3daf6e9e535736002e309e3d27491364dc553
+ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/13/2019
-ms.locfileid: "70984889"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71260297"
 ---
 # <a name="quickstart-create-and-manage-azure-file-shares-with-the-azure-portal"></a>快速入門：使用 Azure 入口網站來建立及管理 Azure 檔案共用 
 [Azure 檔案服務](storage-files-introduction.md)是 Microsoft 易於使用的雲端檔案系統。 Azure 檔案共用可在 Windows、Linux 和 macOS 中掛接。 本指南會逐步說明透過 [Azure 入口網站](https://portal.azure.com/)來使用 Azure 檔案共用的基本概念。
@@ -29,7 +29,7 @@ ms.locfileid: "70984889"
 2. 在儲存體帳戶頁面上的 [服務]  區段中，選取 [檔案]  。
     ![儲存體帳戶之服務區段的螢幕擷取畫面；選取檔案服務](media/storage-how-to-use-files-portal/create-file-share-1.png)
 
-3. 在 [檔案服務]  頁面頂端的功能表上，按一下 [+ 檔案共用]  。 [新增檔案共用]  頁面隨即顯示。
+3. 在 [檔案服務]  頁面頂端的功能表上，按一下 [檔案共用]  。 [新增檔案共用]  頁面隨即顯示。
 4. 在 [名稱]  中輸入 *myshare*。
 5. 按一下 [確定]  以建立 Azure 檔案共用。
 

@@ -17,14 +17,14 @@ ms.author: ryanwi
 ms.reviewer: jmprieur
 ms.custom: aaddev, identityplatformtop40
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 703976e328eabb891e76459785484d929e2c5d3b
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: 2c29195e5e597583a5c16c7f1d9494d655f2b317
+ms.sourcegitcommit: 263a69b70949099457620037c988dc590d7c7854
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68853147"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71268600"
 ---
-# <a name="quickstart-set-up-a-dev-environment"></a>快速入門：設定開發環境
+# <a name="quickstart-set-up-a-tenant"></a>快速入門：設定租用戶
 
 Microsoft 身分識別平台可讓開發人員建置以各種自訂 Microsoft 365 環境與身分識別為目標的應用程式。 若要開始使用 Microsoft 身分識別平台，您將須存取一個環境 (也稱為 Azure AD 租用戶)，在該環境中註冊及管理應用程式、存取 Microsoft 365 的資料，以及部署自訂條件式存取與租用戶限制。
 

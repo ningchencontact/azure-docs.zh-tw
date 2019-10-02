@@ -6,20 +6,20 @@ author: alinamstanciu
 ms.custom: seodec18
 ms.service: digital-twins
 ms.topic: tutorial
-ms.date: 08/16/2019
+ms.date: 09/20/2019
 ms.author: alinast
-ms.openlocfilehash: 38df195f787407c4beab2f7251cf00c08a739e09
-ms.sourcegitcommit: 55e0c33b84f2579b7aad48a420a21141854bc9e3
+ms.openlocfilehash: bdf37225e815d3848a87b88737daf4b5a5d2560c
+ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69622892"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71300059"
 ---
 # <a name="tutorial-provision-your-building-and-monitor-working-conditions-with-azure-digital-twins-preview"></a>教學課程：使用 Azure Digital Twins 預覽版來佈建建築物及監視運作狀況
 
 本教學課程會示範如何使用 Azure Digital Twins 預覽版來監視您的空間是否有所需的溫度條件和舒適程度。 [設定範例建築物](tutorial-facilities-setup.md)後，您可以佈建您的建築物，並且依照本教學課程中的步驟對感應器資料執行自訂函式。
 
-在本教學課程中，您了解如何：
+在本教學課程中，您會了解如何：
 
 > [!div class="checklist"]
 > * 定義要監視的狀況。
@@ -37,6 +37,9 @@ ms.locfileid: "69622892"
 - 在開發電腦上安裝 [.NET Core SDK 2.1.403 版或更新版本](https://www.microsoft.com/net/download)，以建置和執行範例。 執行 `dotnet --version` 來確認是否已安裝正確版本。 
 - [Visual Studio Code](https://code.visualstudio.com/) 以探索範例程式碼。 
 
+> [!TIP]
+> 如果您要佈建新的執行個體，請使用唯一的 Digital Twins 執行個體名稱。
+
 ## <a name="define-conditions-to-monitor"></a>定義要監視的狀況
 
 您可以定義一組要在裝置或感應器資料中監視的特定狀況，稱之為「比對器」  。 接著，您可以定義稱為「使用者定義的函式」  的函式。 如果發生比對器所指定的狀況，這些函式可對來自空間和裝置的資料執行自訂邏輯。 如需詳細資訊，請閱讀[資料處理與使用者定義的函式](concepts-user-defined-functions.md)。 
@@ -50,25 +53,23 @@ ms.locfileid: "69622892"
         dataTypeValue: Temperature
 ```
 
-這個比對器會追蹤您在[第一個教學課程](tutorial-facilities-setup.md)中新增的 SAMPLE_SENSOR_TEMPERATURE 感應器。 
-
-<a id="udf"></a>
+這個比對器會追蹤您在[第一個教學課程](tutorial-facilities-setup.md)中新增的 `SAMPLE_SENSOR_TEMPERATURE` 感應器。 
 
 ## <a name="create-a-user-defined-function"></a>建立使用者定義的函式
 
 您可以使用使用者定義的函式來自訂感應器資料的處理方式。 這些函式是在發生比對器所描述的特定狀況時，可以在 Azure Digital Twins 執行個體內執行的自訂 JavaScript 程式碼。 您可以針對您想要監視的每個感應器，建立比對器和使用者定義的函式。 如需詳細資訊，請閱讀[資料處理與使用者定義的函式](concepts-user-defined-functions.md)。 
 
-在範例 provisionSample.yaml 檔案中，尋找以 **userdefinedfunctions** 類型開頭的區段。 這一節會佈建具有指定 **Name** 的使用者定義函式。 該函式會對 **matcherNames** 之下的比對器清單採取動作。 請注意，如何針對 UDF 提供您自己的 JavaScript 檔案作為 **script**。
+在範例 provisionSample.yaml  檔案中，尋找以 **userdefinedfunctions** 類型開頭的區段。 這一節會佈建具有指定 **Name** 的使用者定義函式。 該函式會對 **matcherNames** 之下的比對器清單採取動作。 請注意，如何針對 UDF 提供您自己的 JavaScript 檔案作為 **script**。
 
 也請注意名為 **roleassignments** 的區段。 它會將「空間管理員」角色指派給使用者定義的函式。 此角色可讓它存取來自任何已佈建空間的事件。 
 
-1. 在 provisionSample.yaml 檔案的 `matcherNames` 節點中新增或取消註解下列這行，將 UDF 設定為包含溫度比對器：
+1. 在 *provisionSample.yaml* 檔案的 `matcherNames` 節點中新增或取消註解下列這行，將 UDF 設定為包含溫度比對器：
 
     ```yaml
             - Matcher Temperature
     ```
 
-1. 在編輯器中開啟 **src\actions\userDefinedFunctions\availability.js** 檔案。 這是 provisionSample.yaml 的 **script** 元素中參考的檔案。 此檔案中的使用者定義函式會尋找以下狀況：在會議室中偵測不到任何移動，且二氧化碳濃度低於 1,000 ppm。 
+1. 在編輯器中開啟 **src\actions\userDefinedFunctions\availability.js** 檔案。 這是 provisionSample.yaml  的 **script** 元素中參考的檔案。 此檔案中的使用者定義函式會尋找以下狀況：在會議室中偵測不到任何移動，且二氧化碳濃度低於 1,000 ppm。 
 
    修改 JavaScript 檔案，以監視溫度以及其他狀況。 新增下列幾行程式碼以尋找下列狀況：在會議室中偵測不到任何移動、二氧化碳濃度低於 1,000 ppm，以及溫度低於華氏 78 度。
 
@@ -135,15 +136,12 @@ ms.locfileid: "69622892"
         if(carbonDioxideValue < carbonDioxideThreshold && !presence) {
             log(`${availableFresh}. Carbon Dioxide: ${carbonDioxideValue}. Presence: ${presence}.`);
             setSpaceValue(parentSpace.Id, spaceAvailFresh, availableFresh);
-
-            // Set up custom notification for air quality
-            parentSpace.Notify(JSON.stringify(availableFresh));
         }
         else {
             log(`${noAvailableOrFresh}. Carbon Dioxide: ${carbonDioxideValue}. Presence: ${presence}.`);
             setSpaceValue(parentSpace.Id, spaceAvailFresh, noAvailableOrFresh);
 
-            // Set up custom notification for air quality
+            // Set up custom notification for poor air quality
             parentSpace.Notify(JSON.stringify(noAvailableOrFresh));
         }
     ```
@@ -173,7 +171,7 @@ ms.locfileid: "69622892"
 
     g. 儲存檔案。
 
-1. 開啟命令視窗，然後移至 **occupancy-quickstart\src** 資料夾。執行下列命令來佈建空間智慧圖表和使用者定義的函式：
+1. 開啟命令視窗，然後移至 **occupancy-quickstart\src** 資料夾。 執行下列命令來佈建空間智慧圖表和使用者定義的函式：
 
     ```cmd/sh
     dotnet run ProvisionSample
@@ -182,16 +180,14 @@ ms.locfileid: "69622892"
    > [!IMPORTANT]
    > 若要防止未經授權存取您的 Digital Twins 管理 API，**occupancy-quickstart** 應用程式會要求您使用您的 Azure 帳戶認證登入。 它會儲存您的認證一小段時間，因此您不需在每次執行它時登入。 此程式第一次執行時，以及當您儲存的認證之後到期時，該應用程式都會將您導向登入頁面並提供工作階段專用程式碼，以在該頁面上輸入。 依照提示使用您的 Azure 帳戶登入。
 
-1. 您的帳戶經過驗證後，應用程式就會開始建立如 provisionSample.yaml 中所設定的範例空間圖形。 等候佈建完成。 可能需要數分鐘的時間。 之後，觀察命令視窗中的訊息，並且注意空間圖表的建立方式。 請注意，應用程式會在根節點或 `Venue` 建立 IoT 中樞。
+1. 您的帳戶經過驗證後，應用程式就會開始建立如 provisionSample.yaml  中所設定的範例空間圖形。 等候佈建完成。 可能需要數分鐘的時間。 之後，觀察命令視窗中的訊息，並且注意空間圖表的建立方式。 請注意，應用程式會在根節點或 `Venue` 建立 IoT 中樞。
 
 1. 從命令視窗中的輸出，將 `ConnectionString` 的值 (位於`Devices` 區段之下) 複製到您的剪貼簿。 您需要此值，以在下一節中模擬裝置連線。
 
-    ![佈建範例](./media/tutorial-facilities-udf/run-provision-sample.png)
+    [![佈建範例](./media/tutorial-facilities-udf/run-provision-sample.png)](./media/tutorial-facilities-udf/run-provision-sample.png#lightbox)
 
 > [!TIP]
 > 如果您在佈建過程中，收到類似於「I/O 作業因為執行緒結束或應用程式要求而中止」的錯誤訊息，請再次嘗試執行命令。 如果 HTTP 用戶端因為網路問題而逾時，就可能發生這種情形。
-
-<a id="simulate"></a>
 
 ## <a name="simulate-sensor-data"></a>模擬感應器資料
 
@@ -209,9 +205,9 @@ ms.locfileid: "69622892"
 
    a. **DeviceConnectionString**：指派上一節輸出視窗中的 `ConnectionString` 值。 請完整複製這個字串 (在括號內)，讓模擬器可以與 IoT 中樞正確地連線。
 
-   b. **Sensors** 陣列內的 **HardwareId**：因為您要模擬的事件來自已佈建到 Azure Digital Twins 執行個體的感應器，所以此檔案中的硬體識別碼和感應器名稱應該符合 provisionSample.yaml 檔案的 `sensors` 節點。
+   b. **Sensors** 陣列內的 **HardwareId**：因為您要模擬的事件來自已佈建到 Azure Digital Twins 執行個體的感應器，所以此檔案中的硬體識別碼和感應器名稱應該符合 provisionSample.yaml  檔案的 `sensors` 節點。
 
-      為溫度感應器新增項目。 appsettings.json 中的 **Sensors** 節點看起來應該如下所示：
+      為溫度感應器新增項目。 appsettings.json  中的 **Sensors** 節點看起來應該如下所示：
 
       ```JSON
       "Sensors": [{
@@ -249,9 +245,9 @@ ms.locfileid: "69622892"
 
 輸出視窗會顯示使用者定義函式的執行情形，並攔截來自裝置模擬的事件。 
 
-   ![UDF 的輸出](./media/tutorial-facilities-udf/udf-running.png)
+   [![UDF 的輸出](./media/tutorial-facilities-udf/udf-running.png)](./media/tutorial-facilities-udf/udf-running.png#lightbox)
 
-如果所監視的狀況符合，則使用者定義的函式會以我們在[稍早](#udf)看到的相關訊息設定空間的值。 `GetAvailableAndFreshSpaces` 函式會在主控台上列印出訊息。
+如果所監視的狀況符合，則使用者定義的函式會以我們在[稍早](#create-a-user-defined-function)看到的相關訊息設定空間的值。 `GetAvailableAndFreshSpaces` 函式會在主控台上列印出訊息。
 
 ## <a name="clean-up-resources"></a>清除資源
 

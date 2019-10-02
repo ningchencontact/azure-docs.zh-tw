@@ -8,12 +8,12 @@ ms.topic: overview
 ms.custom: mvc
 ms.date: 5/31/2019
 ms.author: victorh
-ms.openlocfilehash: 5f7fd47a096ddd57150a466f85fabcfc2f7045d9
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 725b284fa58296aea310f618c000e77d9a0fb4c9
+ms.sourcegitcommit: b03516d245c90bca8ffac59eb1db522a098fb5e4
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68564873"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71146629"
 ---
 # <a name="what-is-azure-application-gateway"></a>什麼是 Azure 應用程式閘道？
 
@@ -47,7 +47,7 @@ Standard_v2 或 WAF_v2 SKU 上的應用程式閘道 VIP 支援獨佔的靜態 VI
 
 ## <a name="web-application-firewall"></a>Web 應用程式防火牆
 
-Web 應用程式防火牆 (WAF) 是一項應用程式閘道功能，可提供 Web 應用程式的集中式保護，免於遭遇常見的攻擊和弱點。 WAF 會根據 [OWASP (Open Web Application Security Project) 核心規則集](https://www.owasp.org/index.php/Category:OWASP_ModSecurity_Core_Rule_Set_Project) 3.0 或 2.2.9 中的規則提供保護。 
+Web 應用程式防火牆 (WAF) 是一項應用程式閘道功能，可提供 Web 應用程式的集中式保護，免於遭遇常見的攻擊和弱點。 WAF 會根據 [OWASP (Open Web Application Security Project) 核心規則集](https://www.owasp.org/index.php/Category:OWASP_ModSecurity_Core_Rule_Set_Project) 3.1 (僅限 WAF_v2)、3.0 或 2.2.9 中的規則提供保護。 
 
 Web 應用程式已逐漸成為利用常見已知弱點的惡意攻擊目標。 這些攻擊中最常見的是 SQL 插入式攻擊、跨網站指令碼攻擊等等。 想要防止應用程式的程式碼受到這類攻擊會非常困難，而且可能需要對許多層次的應用程式拓撲執行嚴格的維護、修補和監視工作。 集中式 Web 應用程式防火牆有助於簡化安全性管理作業，且更加確保應用程式管理員能夠對抗威脅或入侵。 相較於保護每個個別的 Web 應用程式，WAF 方案還可透過在中央位置修補已知弱點，更快地因應安全性威脅。 現有的應用程式閘道可以輕易地轉換成已啟用 Web 應用程式防火牆的應用程式閘道。
 
@@ -63,7 +63,7 @@ URL 路徑型路由可讓您根據要求的 URL 路徑，將流量路由傳送�
 
 ## <a name="multiple-site-hosting"></a>多網站裝載
 
-多網站裝載可讓您在相同的應用程式閘道執行個體上設定多個網站。 此功能可讓您將最多 100 個網站新增到一個應用程式閘道，為您的部署設定更有效率的拓撲。 每個網站都可以導向到自己的集區。 例如，應用程式閘道可以從兩個伺服器集區 (名為 ContosoServerPool 和 FabrikamServerPool) 為 `contoso.com` 和 `fabrikam.com` 處理流量。
+多網站裝載可讓您在相同的應用程式閘道執行個體上設定多個網站。 此功能可讓您將最多 100 個網站新增到一個應用程式閘道，或 40 個網站用於 WAF (可取得最佳效能)，為您的部署設定更有效率的拓撲。 每個網站都可以導向到自己的集區。 例如，應用程式閘道可以從兩個伺服器集區 (名為 ContosoServerPool 和 FabrikamServerPool) 為 `contoso.com` 和 `fabrikam.com` 處理流量。
 
 對 `http://contoso.com` 的要求會路由傳送至 ContosoServerPool，而對 `http://fabrikam.com` 的要求則會路由傳送至 FabrikamServerPool。
 
@@ -107,6 +107,8 @@ WebSocket 和 HTTP/2 通訊協定都可透過長時間執行的 TCP 連線，讓
 
 清空連線可協助您在已規劃的服務更新期間，毫無錯誤地移除後端集區成員。 此設定會透過後端 http 設定啟用，而且可以在規則建立期間套用至後端集區的所有成員。 啟用之後，應用程式閘道可確保所有取消註冊的後端集區執行個體不會再接收任何新要求，但允許在已設定的時間限制內完成現有要求。 這適用於透過 API 呼叫從後端集區中確實移除的後端執行個體，以及根據健康情況探查的判斷，而回報為狀況不良的後端執行個體。
 
+如需詳細資訊，請參閱[應用程式閘道組態概觀](https://docs.microsoft.com/azure/application-gateway/configuration-overview#connection-draining)的「清空連線」一節。
+
 ## <a name="custom-error-pages"></a>自訂錯誤頁面
 
 應用程式閘道可讓您建立自訂的錯誤頁面，而不是顯示預設的錯誤頁面。 您可以使用自訂錯誤頁面來搭配您自己的商標和版面配置。
@@ -127,13 +129,13 @@ Application Gateway 支援在要求及回應封包於用戶端與後端應用程
 
 ## <a name="sizing"></a>調整大小
 
-應用程式閘道 Standard_v2 和 WAF_v2 SKU 可以設定自動調整或固定大小的部署。 這些 SKU 不會提供不同的執行個體大小。
+應用程式閘道 Standard_v2 和 WAF_v2 SKU 可以設定自動調整或固定大小的部署。 這些 SKU 不會提供不同的執行個體大小。 如需 v2 效能和定價的詳細資訊，請參閱[自動調整 v2 SKU](https://docs.microsoft.com/azure/application-gateway/application-gateway-autoscaling-zone-redundant#pricing)。
 
 應用程式閘道的標準和 WAF SKU 目前提供三種大小：**小型**、**中型**和**大型**。 小型執行個體大小是針對開發和測試案例。
 
 如需應用程式閘道限制的完整清單，請瀏覽[應用程式閘道服務限制](../azure-subscription-service-limits.md?toc=%2fazure%2fapplication-gateway%2ftoc.json#application-gateway-limits)。
 
-下表顯示每個應用程式閘道執行個體，在啟用 SSL 卸載時的平均效能輸送量：
+下表顯示每個應用程式閘道 v1 執行個體，在啟用 SSL 卸載時的平均效能輸送量：
 
 | 平均後端頁面回應大小 | 小型 | 中 | 大型 |
 | --- | --- | --- | --- |

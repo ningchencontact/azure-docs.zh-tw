@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: ink-recognizer
 ms.topic: quickstart
-ms.date: 05/02/2019
+ms.date: 09/23/2019
 ms.author: aahi
-ms.openlocfilehash: b1c739b6355d3b32063e5289720ed1d191611e65
-ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
+ms.openlocfilehash: 36ff0fe4550b140a722ed25f4e372f7c88581211
+ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67721242"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71212678"
 ---
 # <a name="quickstart-recognize-digital-ink-with-the-ink-recognizer-rest-api-and-java"></a>快速入門：使用筆跡辨識器 REST API 與 Java 來辨識數位筆跡
 
@@ -58,7 +58,7 @@ ms.locfileid: "67721242"
     import java.nio.file.Paths;
     ```
 
-2. 針對您的訂用帳戶金鑰和端點建立變數。 以下是您可以用於手寫辨識的 URI。 該 URI 稍後會附加至您的服務端點，以建立 API 要求 URL。
+2. 針對您的訂用帳戶金鑰和端點建立變數。 將下面的端點取代為您的筆跡辨識器資源所產生的端點。 將它附加至筆跡辨識器 URI 以連線至 API。
 
     ```java
     // Replace the subscriptionKey string value with your valid subscription key.
@@ -66,13 +66,13 @@ ms.locfileid: "67721242"
     // Replace the dataPath string with a path to the JSON formatted ink stroke data file.
     static final String dataPath = "PATH_TO_INK_STROKE_DATA";
     
-    static final String endpoint = "https://api.cognitive.microsoft.com";
+    static final String endpoint = "https://<your-custom-subdomain>.cognitiveservices.azure.com";
     static final String inkRecognitionUrl = "/inkrecognizer/v1.0-preview/recognize";
     ```
 
 ## <a name="create-a-function-to-send-requests"></a>建立傳送要求的函式
 
-1. 建立名為 `sendRequest()` 的新函式，取用上方建立的變數。 然後執行下列步驟。
+1. 建立名為 `sendRequest()` 的新函式，取用上面建立的變數。 然後執行下列步驟。
 
 2. 建立可將要求傳送至 API 的 `CloseableHttpClient` 物件。 藉由結合您的端點和手寫辨識器 URL，將要求傳送至 `HttpPut` 要求物件。
 

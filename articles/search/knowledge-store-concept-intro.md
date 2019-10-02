@@ -5,16 +5,15 @@ manager: nitinme
 author: HeidiSteen
 services: search
 ms.service: search
-ms.subservice: cognitive-search
 ms.topic: overview
 ms.date: 08/02/2019
 ms.author: heidist
-ms.openlocfilehash: f4308cf0309725fc0ba3b5feb047d04af2ebbe66
-ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
+ms.openlocfilehash: ec0bf6002d8e90b41c2eed3c21f53e38f0fbbe8f
+ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69638188"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71265210"
 ---
 # <a name="what-is-knowledge-store-in-azure-search"></a>什麼是 Azure 搜尋服務中的知識存放區？
 
@@ -26,13 +25,13 @@ ms.locfileid: "69638188"
 
 如果您過去使用過認知搜尋，您已經知道該技能集用來透過一連串的擴充移動文件。 結果可能是 Azure 搜尋服務索引，或 (此預覽版中的新功能) 知識存放區中的投影。 這兩個輸出 (搜尋索引和知識存放區) 實際上彼此不同。 它們共用相同的內容，但會以非常不同的方式存放和使用。
 
-實際上，根據您設定管線的方式，知識存放區會在 Azure 儲存體帳戶中以 Azure 資料表儲存體或 Blob 儲存體的形式建立。 任何可連線至 Azure 儲存體的工具或程序都可以取用知識存放區的內容。
+實際上，根據您設定管線的方式，知識存放區是 Azure 儲存體帳戶中以 Azure 資料表儲存體、Blob 儲存體或兩者的形式存在。 任何可連線至 Azure 儲存體的工具或程序都可以取用知識存放區的內容。
 
 投影是用於在知識存放區中建構資料的機制。 例如，透過投影，您可以選擇將輸出儲存為單一 Blob 或相關資料表集合。 透過 Azure 儲存體的內建[儲存體總管](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer?tabs=windows)，即可輕鬆檢視知識存放區內容。
 
 ![管線圖中的知識儲存區](./media/knowledge-store-concept-intro/annotationstore_sans_internalcache.png "管線圖中的知識存放區")
 
-若要使用知識存放區，請將 `knowledgeStore` 元素新增至索引管線中逐步定義作業的技能集。 在執行期間，Azure 搜尋服務會在 Azure 儲存體帳戶中建立一個空間，並填入管線建立的定義和內容。
+若要使用知識存放區，請將 `knowledgeStore` 元素新增至索引管線中逐步定義作業的技能集。 在執行期間，Azure 搜尋服務會在 Azure 儲存體帳戶中建立一個空間，並以管線內建立的定義投射擴充的文件。
 
 ## <a name="benefits-of-knowledge-store"></a>知識存放區的優點
 
@@ -105,6 +104,13 @@ ms.locfileid: "69638188"
 
             ], 
             "objects": [ 
+               
+            ]      
+        },
+        { 
+            "tables": [ 
+            ], 
+            "objects": [ 
                 { 
                 "storageContainer": "Reviews", 
                 "format": "json", 
@@ -112,7 +118,7 @@ ms.locfileid: "69638188"
                 "key": "/document/Review/Id" 
                 } 
             ]      
-        }    
+        }        
     ]     
     } 
 }
@@ -132,7 +138,7 @@ ms.locfileid: "69638188"
 
 * [Azure Blob 儲存體](search-howto-indexing-azure-blob-storage.md)
 
-[Azure 資料表儲存體](search-howto-indexing-azure-tables.md)可用於知識存放區中的輸出資料，但無法當作以 AI 為基礎之索引管線的輸入資料資源使用。
+* [Azure 資料表儲存體](search-howto-indexing-azure-tables.md)
 
 ### <a name="2---azure-search-service"></a>2 - Azure 搜尋服務
 
@@ -143,17 +149,17 @@ Azure 搜尋服務可提供索引子功能，而索引子用來端對端地驅�
 | Object | REST API | 說明 |
 |--------|----------|-------------|
 | 資料來源 | [建立資料來源](https://docs.microsoft.com/rest/api/searchservice/create-data-source)  | 一個資源，用以識別提供來源資料以建立擴充文件的外部 Azure 資料來源。  |
-| 技能集 | [建立技能集 (api-version=2019-05-06)](https://docs.microsoft.com/rest/api/searchservice/create-skillset)  | 一個資源，在索引編製期間負責對擴充管線中使用的[內建技能](cognitive-search-predefined-skills.md)和[自訂認知技能](cognitive-search-custom-skill-interface.md)協調用法。 |
+| 技能集 | [建立技能集 (api-version=2019-05-06-Preview)](https://docs.microsoft.com/rest/api/searchservice/create-skillset)  | 一個資源，在索引編製期間負責對擴充管線中使用的[內建技能](cognitive-search-predefined-skills.md)和[自訂認知技能](cognitive-search-custom-skill-interface.md)協調用法。 |
 | index | [建立索引](https://docs.microsoft.com/rest/api/searchservice/create-index)  | 表示 Azure 搜尋服務索引的結構描述。 索引中與來源資料中的欄位或在擴充階段產生的欄位 (例如，實體辨識所建立之組織名稱的欄位) 相對應的欄位。 |
 | 索引子 | [建立索引子 (api-version=2019-05-06)](https://docs.microsoft.com/rest/api/searchservice/create-skillset)  | 一項資源，用以定義在索引編製期間所使用的元件：包括資料來源、技能集、來源和中繼資料結構與目標索引的欄位關聯性，以及索引本身。 執行索引子是擷取和擴充資料的觸發程序。 輸出是以索引結構描述為基礎、以來源資料填入，並透過技能集進行擴充的搜尋索引。  |
 
 ### <a name="3---cognitive-services"></a>3 - 認知服務
 
-技能集內指定的擴充是以認知服務中的電腦視覺和語言功能為基礎。 系統會在索引編製期間，透過技能集使用認知服務功能。 技能集是技能的組合，而技能則會繫結至特定的電腦視覺和語言功能。 若要整合認知服務，您將會[附加認知服務資源](cognitive-search-attach-cognitive-services.md)到技能集。
+技能集內指定的擴充是自訂的，或以認知服務中的電腦視覺和語言功能為基礎。 系統會在索引編製期間，透過技能集使用認知服務功能。 技能集是技能的組合，而技能則會繫結至特定的電腦視覺和語言功能。 若要整合認知服務，您將會[附加認知服務資源](cognitive-search-attach-cognitive-services.md)到技能集。
 
 ### <a name="4---storage-account"></a>4 - 儲存體帳戶
 
-在您的 Azure 儲存體帳戶底下，Azure 搜尋服務會建立一個 Blob 容器或資料表，端視您設定技能集的方式而定。 如果您的資料是來自 Azure Blob 或資料表儲存體，則表示您已經設定。 否則，您將需要建立一個 Azure 儲存體帳戶。 Azure 儲存體中的資料表和物件包含以 AI 為基礎的索引管線所建立的擴充文件。
+在您的 Azure 儲存體帳戶底下，Azure 搜尋服務會建立一個 Blob 容器或資料表或兩者，端視您在技能集內設定投影的方式而定。 如果您的資料是來自 Azure Blob 或資料表儲存體，則表示您已經設定並可重複使用儲存體帳戶。 否則，您將需要建立一個 Azure 儲存體帳戶。 Azure 儲存體中的資料表和物件包含以 AI 為基礎的索引管線所建立的擴充文件。
 
 儲存體帳戶是在技能集中指定的。 在 `api-version=2019-05-06-Preview` 中，技能集定義包含知識存放區定義，讓您可以提供帳戶資訊。
 
@@ -179,15 +185,13 @@ Azure 搜尋服務可提供索引子功能，而索引子用來端對端地驅�
 
 + Blob 儲存體會針對每個文件建立一個全部包含 JSON 表示法。 您可以在一個技能集中使用兩個儲存體選項，以取得各式各樣的運算式。
 
-+ Azure 搜尋服務會在索引中保存內容。 如果您的案例與搜尋無關 (例如，如果您的目標是在另一個工具中分析)，您可以刪除管線所建立的索引。 但是您也可以保留索引，並使用 [[搜尋總管](search-explorer.md)] 之類的內建工具作為第三個媒體 ([儲存體總管] 和分析應用程式之外)，以便與內容互動。
-
-除了文件內容之外，擴充的文件還包含產生擴充之技能集版本的中繼資料。  
++ Azure 搜尋服務會在索引中保存內容。 如果您的案例與搜尋無關 (例如，如果您的目標是在另一個工具中分析)，您可以刪除管線所建立的索引。 但是您也可以保留索引，並使用 [[搜尋總管](search-explorer.md)] 之類的內建工具作為第三個媒體 ([儲存體總管] 和分析應用程式之外)，以便與內容互動。  
 
 ## <a name="inside-a-knowledge-store"></a>在知識存放區內
 
-知識存放區是由註釋快取和投影所組成。 服務會在內部使用*快取*，來快取技能的結果並追蹤變更。 「投影」  可定義符合預定用途之擴充的結構描述和結構。 每個知識存放區都有一個快取，但是有多個投影。 
+ 「投影」  可定義符合預定用途之擴充的結構描述和結構。 如果您的應用程式使用不同格式和形式的資料，您可定義多個投影。 
 
-快取一律是 Blob 容器，但是投影可以清楚表達為資料表或物件：
+投影可以物件或資料表的形式來表達：
 
 + 若是物件，投影會對應至 Blob 儲存體，其中投影會儲存到容器中，在諸如資料科學管線的案例中，JSON 的容器內會有物件或階層式表示法。
 

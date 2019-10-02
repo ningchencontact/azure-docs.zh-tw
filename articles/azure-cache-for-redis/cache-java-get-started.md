@@ -14,13 +14,13 @@ ms.tgt_pltfrm: cache
 ms.workload: tbd
 ms.date: 05/23/2018
 ms.author: yegu
-ms.custom: mvc, seo-java-august2019
-ms.openlocfilehash: 230bd4c0d53404ca5ac8d7e1385e8b0533880ca7
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.custom: mvc, seo-java-august2019, seo-java-september2019
+ms.openlocfilehash: 019defe782f8258acfd508745d36a0a6599d2e61
+ms.sourcegitcommit: a6718e2b0251b50f1228b1e13a42bb65e7bf7ee2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68881142"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71273915"
 ---
 # <a name="quickstart-use-azure-cache-for-redis-with-java"></a>快速入門：搭配使用 Azure Cache for Redis 與 Java
 
@@ -135,7 +135,7 @@ mvn exec:java -D exec.mainClass=example.demo.App
 
 在下列範例中，您會看到 `Message` 金鑰先前有快取值，此值是在 Azure 入口網站中使用 Redis 主控台所設定的。 應用程式更新了該快取值。 應用程式也已執行 `PING` 和 `CLIENT LIST` 命令。
 
-![快取應用程式已完成](./media/cache-java-get-started/cache-app-complete.png)
+![Azure Cache for Redis 應用程式已完成](./media/cache-java-get-started/azure-cache-redis-complete.png)
 
 ## <a name="clean-up-resources"></a>清除資源
 
@@ -151,7 +151,7 @@ mvn exec:java -D exec.mainClass=example.demo.App
 
 1. 在 [依名稱篩選]  文字方塊中，輸入您的資源群組名稱。 本文的指示是使用名為 TestResources  的資源群組。 在結果清單中的目標資源群組上方，選取 **...** ，然後按一下 [刪除資源群組]  。
 
-   ![刪除](./media/cache-java-get-started/cache-delete-resource-group.png)
+   ![Azure 資源群組已刪除](./media/cache-java-get-started/azure-cache-redis-delete-resource-group.png)
 
 1. 系統將會要求您確認是否刪除資源。 輸入您資源群組的名稱以進行確認，然後選取 [刪除]  。
 

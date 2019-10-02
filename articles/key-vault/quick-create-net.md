@@ -6,12 +6,12 @@ ms.author: mbaldwin
 ms.date: 05/20/2019
 ms.service: key-vault
 ms.topic: quickstart
-ms.openlocfilehash: d24323996e222caf6456372cbc65681d2055c3db
-ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
+ms.openlocfilehash: 4f039fde275e5dca49b3c78550722d827bead062
+ms.sourcegitcommit: 116bc6a75e501b7bba85e750b336f2af4ad29f5a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/14/2019
-ms.locfileid: "70996632"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71155105"
 ---
 # <a name="quickstart-azure-key-vault-client-library-for-net"></a>快速入門：適用於 .NET 的 Azure Key Vault 用戶端程式庫
 
@@ -83,7 +83,7 @@ dotnet add package Microsoft.Azure.Management.ResourceManager.Fluent
 本快速入門會使用預先建立的 Azure 金鑰保存庫。 您可以遵循 [Azure CLI 快速入門](quick-create-cli.md)、[Azure PowerShell 快速入門](quick-create-powershell.md)或 [Azure 入口網站快速入門](quick-create-portal.md)中的步驟來建立金鑰保存庫。 或者，您也可以直接執行下面的 Azure CLI 命令。
 
 > [!Important]
-> 每個金鑰保存庫必須有唯一的名稱。 下列範例會建立名為 myKV  的 Key Vault，但您必須將自己的 Key Vault 命名為不同名稱，並在本快速入門中全都使用該名稱。
+> 每個金鑰保存庫必須有唯一的名稱。 在下列範例中，以您的金鑰保存庫名稱取代 <your-unique-keyvault-name>。
 
 ```azurecli
 az group create --name "myResourceGroup" -l "EastUS"

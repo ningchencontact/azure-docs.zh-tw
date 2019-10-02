@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/01/2019
 ms.author: banders
-ms.openlocfilehash: 507ad62a917120689bee3f1e293e23c9ab8b0f66
-ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
+ms.openlocfilehash: f2f5b2ecf096d7dc8babb79a38d00158a2120688
+ms.sourcegitcommit: 3fa4384af35c64f6674f40e0d4128e1274083487
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "68598091"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71218067"
 ---
 # <a name="get-enterprise-agreement-reservation-costs-and-usage"></a>取得 Enterprise 合約保留成本和使用量
 
@@ -57,18 +57,20 @@ Azure 使用量資料中的其他可用資訊已變更：
 - 期限 - 12 個月或 36 個月。
 - RINormalizationRatio - 可在 AdditionalInfo 下取得。 這是將保留套用至使用量記錄的比率。 如果已對您的保留啟用執行個體大小彈性，該功能即可套用至其他大小。 此值會顯示對使用量記錄套用的保留比率。
 
+[請參閱欄位定義](https://docs.microsoft.com/rest/api/consumption/usagedetails/list#definitions)
+
 ## <a name="get-azure-consumption-and-reservation-usage-data-using-api"></a>使用 API 取得 Azure 使用量和保留使用量資料
 
 您可以使用 API 來取得資料，或從 Azure 入口網站下載資料。
 
-您可以使用 API 版本 &quot;2019-04-01-preview&quot; 來呼叫[使用量詳細資料 API](/rest/api/consumption/usagedetails/list)，以取得新的資料。 如需術語的詳細資訊，請參閱[使用量詞彙](billing-understand-your-usage.md)。 呼叫端應該是使用 [EA 入口網站](https://ea.azure.com)之 Enterprise 合約的企業系統管理員。 唯讀企業系統管理員也可以取得資料。
+您可以呼叫[使用量詳細資料 API](/rest/api/consumption/usagedetails/list)來取得新資料。 如需術語的詳細資訊，請參閱[使用量詞彙](billing-understand-your-usage.md)。 呼叫端應該是使用 [EA 入口網站](https://ea.azure.com)之 Enterprise 合約的企業系統管理員。 唯讀企業系統管理員也可以取得資料。
 
 在[適用於 Enterprise 客戶的報告 API - 使用量詳細資料](/rest/api/billing/enterprise/billing-enterprise-api-usage-detail)中無法取得此資料。
 
 以下是對 API 的呼叫範例：
 
 ```
-https://management.azure.com/providers/Microsoft.Billing/billingAccounts/{enrollmentId}/providers/Microsoft.Billing/billingPeriods/{billingPeriodId}/providers/Microsoft.Consumption/usagedetails?metric={metric}&amp;api-version=2019-04-01-preview&amp;$filter={filter}
+https://management.azure.com/providers/Microsoft.Billing/billingAccounts/{enrollmentId}/providers/Microsoft.Billing/billingPeriods/{billingPeriodId}/providers/Microsoft.Consumption/usagedetails?metric={metric}&amp;api-version=2019-05-01&amp;$filter={filter}
 ```
 
 如需有關 {enrollmentId} 和 {billingPeriodId} 的詳細資訊，請參閱[使用量詳細資料 – 清單](https://docs.microsoft.com/rest/api/consumption/usagedetails/list) API 一文。
@@ -120,9 +122,9 @@ https://management.azure.com/providers/Microsoft.Billing/billingAccounts/{enroll
 您可以依訂用帳戶、資源群組或標記，將保留使用退款給其他組織。 分攤成本資料提供下列資料類型的保留使用率貨幣值：
 
 - 資源 (例如 VM)
-- Resource group
+- 資源群組
 - Tags
-- Subscription
+- 訂用帳戶
 
 ### <a name="get-the-blended-rate-for-chargeback"></a>取得退款的混合費率
 

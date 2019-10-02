@@ -7,12 +7,12 @@ ms.service: lighthouse
 ms.date: 09/19/2019
 ms.topic: overview
 manager: carmonm
-ms.openlocfilehash: 402f82059f939de204e489bb36c2c2b82f816a19
-ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
+ms.openlocfilehash: a199dde6b9e36683b817f908e385aabcc431ce16
+ms.sourcegitcommit: 116bc6a75e501b7bba85e750b336f2af4ad29f5a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71105282"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71155135"
 ---
 # <a name="onboard-a-customer-to-azure-delegated-resource-management"></a>讓客戶在 Azure 委派的資源管理中上線
 
@@ -23,7 +23,7 @@ ms.locfileid: "71105282"
 您可以將您的 Microsoft 合作夥伴網路 (MPN) 識別碼與已上線的訂用帳戶建立關聯，以追蹤您對客戶參與的整體影響及接受表彰。 如需詳細資訊，請參閱[將合作夥伴識別碼連結到您的 Azure 帳戶](https://docs.microsoft.com/azure/billing/billing-partner-admin-link-started) \(部分機器翻譯\)。 請注意，您必須在服務提供者租用戶中執行此關聯。
 
 > [!NOTE]
-> 當客戶購買您發佈至 Azure Marketplace 的受控服務供應項目 (公用或私人) 時，系統可讓他們自動上線。 如需詳細資訊，請參閱[將受控服務供應項目發佈到 Azure Marketplace](publish-managed-services-offers.md)。 您也可以搭配發佈至 Azure Marketplace 的供應項目來使用這裡描述的上線程序。
+> 當客戶購買您發佈至 Azure Marketplace 的受控服務供應項目 (公用或私人) 時，系統也可讓他們上線。 如需詳細資訊，請參閱[將受控服務供應項目發佈到 Azure Marketplace](publish-managed-services-offers.md)。 您也可以搭配發佈至 Azure Marketplace 的供應項目來使用這裡描述的上線程序。
 
 上線程序需要您在服務提供者的租用戶與客戶的租用戶內都採取動作。 此文章中描述所有這些步驟。
 

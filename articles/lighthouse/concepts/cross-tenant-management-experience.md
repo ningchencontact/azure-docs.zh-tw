@@ -4,15 +4,15 @@ description: Azure 委派的資源管理能提供跨租用戶管理體驗。
 author: JnHs
 ms.service: lighthouse
 ms.author: jenhayes
-ms.date: 07/11/2019
+ms.date: 09/25/2019
 ms.topic: overview
 manager: carmonm
-ms.openlocfilehash: f6468e62e9969aa87d51e25ed220bf7d4bed989e
-ms.sourcegitcommit: 47b00a15ef112c8b513046c668a33e20fd3b3119
+ms.openlocfilehash: 17a32d50e2e0330218ff51b849cb4f3aeadb3d13
+ms.sourcegitcommit: 0486aba120c284157dfebbdaf6e23e038c8a5a15
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69971559"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71309658"
 ---
 # <a name="cross-tenant-management-experiences"></a>跨租用戶管理體驗
 
@@ -87,6 +87,10 @@ Azure 委派的資源管理能為管理多個客戶的資源提供更具彈性�
   - 透過自適性網路強化來強化網路安全性群組設定
   - 透過自適性應用程式控制來確保伺服器只會執行適當的應用程式與處理序
   - 透過檔案完整性監視 (FIM) 來監視對重要檔案與登錄的變更
+
+[Azure Sentinel](https://docs.microsoft.com/azure/sentinel/multiple-tenants-service-providers)：
+
+- 管理客戶租用戶中的 Azure Sentinel 資源
 
 [Azure 服務健康情況](https://docs.microsoft.com/azure/service-health/)：
 

@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: quickstart
-ms.date: 08/30/2019
+ms.date: 09/21/2019
 ms.author: diberry
-ms.openlocfilehash: 1724e2d81f1a18da5a200637cd25636166d5cb37
-ms.sourcegitcommit: 5f67772dac6a402bbaa8eb261f653a34b8672c3a
+ms.openlocfilehash: 8e52a37376e91e5c529cddd9b211d81c4b2fa442
+ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/01/2019
-ms.locfileid: "70206747"
+ms.lasthandoff: 09/23/2019
+ms.locfileid: "71203834"
 ---
 # <a name="quickstart-qna-maker-client-library-for-net"></a>快速入門：適用於 .NET 的 QnA Maker 用戶端程式庫
 
@@ -139,11 +139,15 @@ QnA Maker 用戶端是一種 [QnAMakerClient](https://docs.microsoft.com/dotnet/
 
 [!code-csharp[Create a knowledge base](~/samples-qnamaker-csharp/documentation-samples/quickstarts/Knowledgebase_Quickstart/Program.cs?name=CreateKB&highlight=29,30)]
 
+務必包含上述程式碼中參考的 [`MonitorOperation`](#get-status-of-an-operation) 函式，才能成功建立知識庫。 
+
 ## <a name="update-a-knowledge-base"></a>更新知識庫
 
 若要更新知識庫，請將知識庫識別碼以及包含 [add](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.knowledge.qnamaker.models.updatekboperationdtoadd?view=azure-dotnet)、[update](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.knowledge.qnamaker.models.updatekboperationdtoupdate?view=azure-dotnet) 和 [delete](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.knowledge.qnamaker.models.updatekboperationdtodelete?view=azure-dotnet) DTO 物件的 [UpdatekbOperationDTO](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.knowledge.qnamaker.models.updatekboperationdto?view=azure-dotnet) 傳遞至 [UpdateAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.knowledge.qnamaker.knowledgebaseextensions.updateasync?view=azure-dotnet) 方法。 使用 [MonitorOperation](#get-status-of-an-operation) 方法來判斷更新是否成功。
 
 [!code-csharp[Update a knowledge base](~/samples-qnamaker-csharp/documentation-samples/quickstarts/Knowledgebase_Quickstart/Program.cs?name=UpdateKB&highlight=4,13)]
+
+務必包含上述程式碼中參考的 [`MonitorOperation`](#get-status-of-an-operation) 函式，才能成功更新知識庫。 
 
 ## <a name="download-a-knowledge-base"></a>下載知識庫
 
@@ -182,6 +186,8 @@ QnA Maker 用戶端是一種 [QnAMakerClient](https://docs.microsoft.com/dotnet/
 
 從應用程式目錄使用 dotnet `run` 命令來執行應用程式。
 
+本文中的所有程式碼片段均[可用](https://github.com/Azure-Samples/cognitive-services-qnamaker-python/blob/master/documentation-samples/quickstarts/knowledgebase_quickstart/knowledgebase_quickstart.py)，並可以單一檔案的形式執行。
+
 ```console
 dotnet run
 ```
@@ -203,4 +209,3 @@ dotnet run
 * [QnA Maker API 是什麼？](../Overview/overview.md)
 * [編輯知識庫](../how-to/edit-knowledge-base.md)
 * [取得使用情況分析](../how-to/get-analytics-knowledge-base.md)
-* 此範例的原始程式碼可以在 [GitHub](https://github.com/Azure-Samples/cognitive-services-qnamaker-csharp/blob/master/documentation-samples/quickstarts/Knowledgebase_Quickstart/Program.cs) 上找到。

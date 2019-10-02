@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 07/22/2019
 ms.author: atsenthi
 ms.custom: mvc
-ms.openlocfilehash: 6ce702a9d27523b97a92ac8b4210e8e3151ae518
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: 69aa140fcecae13aae0d7a165c9f7bea0ab87ca1
+ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68598791"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71301027"
 ---
 # <a name="tutorial-add-an-https-endpoint-to-an-aspnet-core-web-api-front-end-service-using-kestrel"></a>教學課程：使用 Kestrel 將 HTTPS 端點新增至 ASP.NET Core Web API 前端服務
 
@@ -139,7 +139,7 @@ serviceContext =>
                     int port = serviceContext.CodePackageActivationContext.GetEndpoint("EndpointHttps").Port;
                     opt.Listen(IPAddress.IPv6Any, port, listenOptions =>
                     {
-                        listenOptions.UseHttps(GetCertificateFromStore());
+                        listenOptions.UseHttps(GetHttpsCertificateFromStore());
                         listenOptions.NoDelay = true;
                     });
                 })
@@ -164,21 +164,23 @@ serviceContext =>
 此外，新增下列方法，以便 Kestrel 在 `Cert:\LocalMachine\My` 存放區中使用主體來尋找憑證。  
 
 如果您使用上一個 PowerShell 命令建立了自我簽署的憑證，請將 "&lt;your_CN_value&gt;" 取代為 "mytestcert"，或使用您憑證的 CN。
+請注意，在本機部署到 `localhost` 的情況下，最好使用 "CN = localhost" 來避免驗證例外狀況。
 
 ```csharp
-private X509Certificate2 GetCertificateFromStore()
+private X509Certificate2 GetHttpsCertificateFromStore()
 {
-    var store = new X509Store(StoreName.My, StoreLocation.LocalMachine);
-    try
+    using (var store = new X509Store(StoreName.My, StoreLocation.LocalMachine))
     {
         store.Open(OpenFlags.ReadOnly);
         var certCollection = store.Certificates;
         var currentCerts = certCollection.Find(X509FindType.FindBySubjectDistinguishedName, "CN=<your_CN_value>", false);
-        return currentCerts.Count == 0 ? null : currentCerts[0];
-    }
-    finally
-    {
-        store.Close();
+        
+        if (currentCerts.Count == 0)
+                {
+                    throw new Exception("Https certificate is not found.");
+                }
+        
+        return currentCerts[0];
     }
 }
 ```

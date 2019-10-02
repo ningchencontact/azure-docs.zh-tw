@@ -4,15 +4,15 @@ description: 受控服務供應項目能允許服務提供者在 Azure Marketpla
 author: JnHs
 ms.service: lighthouse
 ms.author: jenhayes
-ms.date: 07/11/2019
+ms.date: 09/19/2019
 ms.topic: overview
 manager: carmonm
-ms.openlocfilehash: a6fcf5f1d0ac194d60f834fb8d26db019c538410
-ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
+ms.openlocfilehash: 0a6371a1020182650d83d5e7ec9bb2378b44b557
+ms.sourcegitcommit: 116bc6a75e501b7bba85e750b336f2af4ad29f5a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67810872"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71155264"
 ---
 # <a name="managed-services-offers-in-azure-marketplace"></a>Azure Marketplace 中的受控服務供應項目
 
@@ -20,9 +20,9 @@ ms.locfileid: "67810872"
 
 ## <a name="understand-managed-services-offers"></a>了解受控服務供應項目
 
-受控服務能簡化針對 Azure 委派的資源管理將客戶上線的程序。 當客戶在 Azure Marketplace 中購買供應項目之後，他們將能指定要上線的訂用帳戶和/或資源群組，讓您組織中的指定使用者可以從組織的租用戶中為客戶執行系統管理工作。
+受控服務能簡化針對 Azure 委派的資源管理將客戶上線的程序。 當客戶在 Azure Marketplace 中購買供應項目時，他們將能夠指定應上架的訂用帳戶和 (或) 資源群組。 請注意，必須手動註冊 **Microsoft.ManagedServices** 資源提供者，訂用帳戶才能先獲得上線授權。
 
-在那之後，客戶或服務提供者便不再需要針對客戶上線執行任何動作。 這是因為當您在 [Cloud Partner 入口網站](https://cloudpartner.azure.com/)中定義供應項目時，您會建立一份資訊清單，其中將會指定能使用 Azure 委派的資源管理來存取客戶資源的 Azure AD 使用者、群組及服務主體， 以及能定義其存取層級的角色。 透過將權限指派給 Azure AD 群組，而非一系列個別使用者或應用程式帳戶，您便可以在需要變更存取權時個別地加入或移除使用者。
+之後，貴組織中的使用者能夠根據您在 [Cloud Partner 入口網站](https://cloudpartner.azure.com/)中建立供應項目時所定義的存取權，在貴組織的租用戶中執行這些資源的管理工作。 這是透過資訊清單完成，該資訊清單可指定能使用 Azure 委派資源管理來存取客戶資源的 Azure AD 使用者、群組及服務主體，以及能定義其存取層級的角色。 透過將權限指派給 Azure AD 群組，而非一系列個別使用者或應用程式帳戶，您便可以在需要變更存取權時個別地加入或移除使用者。
 
 ## <a name="public-and-private-offers"></a>公用和私人供應項目
 

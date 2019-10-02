@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 58e3254d499e013dc686bf6b7d53f919a457c901
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.openlocfilehash: 7a863c8fe81a08f00385cb267bf360994918fe82
+ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58371277"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71212116"
 ---
 # <a name="quickstart-self-service-password-reset"></a>快速入門：自助式密碼重設
 
@@ -31,24 +31,24 @@ ms.locfileid: "58371277"
 
 ## <a name="enable-self-service-password-reset"></a>啟用自助式密碼重設
 
-> [!VIDEO https://www.youtube.com/embed/Pa0eyqjEjvQ]
+[在 YouTube 上以影片形式觀看此程序](https://youtu.be/Pa0eyqjEjvQ)
 
-1. 從您現有的 Azure AD 租用戶，在 [Azure 入口網站] 的 [Azure Active Directory] 下選取 [密碼重設]。
+1. 從您現有的 Azure AD 租用戶，在 [Azure 入口網站]  的 [Azure Active Directory]  下選取 [密碼重設]  。
 
-2. 在 [屬性] 頁面的 [已啟用自助式密碼重設] 下方，選擇 [已選取]。
-    * 在 [選取群組] 中，選擇您在本文的先決條件一節中建立的試驗群組。
-    * 按一下 [檔案] 。
+2. 在 [屬性]  頁面的 [已啟用自助式密碼重設]  下方，選擇 [已選取]  。
+    * 在 [選取群組]  中，選擇您在本文的先決條件一節中建立的試驗群組。
+    * 按一下 [檔案]  。
 
-3. 在 [驗證方法] 頁面中，選擇下列項目：
+3. 在 [驗證方法]  頁面中，選擇下列項目：
    * 需要重設的方法數：**1**
    * 使用者可用方法：
       * **電子郵件**
       * **行動應用程式代碼 (預覽)**
-   * 按一下 [檔案] 。
+   * 按一下 [檔案]  。
 
      ![選擇 SSPR 的驗證方法][Authentication]
 
-4. 在 [註冊] 頁面中，選擇下列項目：
+4. 在 [註冊]  頁面中，選擇下列項目：
    * 要求使用者在登入時註冊：**是**
    * 設定要求使用者重新確認其驗證資訊的等候天數：**365**
 
@@ -60,12 +60,12 @@ ms.locfileid: "58371277"
 2. 以非系統管理員測試使用者的身分登入，並註冊您的驗證電話。
 3. 完成後，按一下標示為**狀況良好**的按鈕，然後關閉瀏覽器視窗。
 4. 在 InPrivate 或 Incognito 模式中開啟新的瀏覽器視窗，並瀏覽至 [https://aka.ms/sspr](https://aka.ms/sspr)。
-5. 輸入非系統管理員測試使用者的使用者識別碼，以及 CAPTCHA 中的字元，然後按 [下一步]。
+5. 輸入非系統管理員測試使用者的使用者識別碼，以及 CAPTCHA 中的字元，然後按 [下一步]  。
 6. 依照驗證步驟重設您的密碼
 
 ## <a name="clean-up-resources"></a>清除資源
 
-要停用自助式密碼重設很容易。 開啟您的 Azure AD 租用戶並移至 [屬性] > [密碼重設]，然後選取 [已啟用自助式密碼重設] 下方的 [無]。
+要停用自助式密碼重設很容易。 開啟您的 Azure AD 租用戶並移至 [屬性]   > [密碼重設]  ，然後選取 [已啟用自助式密碼重設]  下方的 [無]  。
 
 ## <a name="next-steps"></a>後續步驟
 

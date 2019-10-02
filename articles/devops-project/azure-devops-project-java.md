@@ -16,12 +16,12 @@ ms.date: 07/09/2018
 ms.author: mlearned
 ms.custom: mvc, seo-java-july2019, seo-java-august2019, seo-java-september2019
 monikerRange: vsts
-ms.openlocfilehash: d395855de6bb16841d54821c87a6af6d5d62c11c
-ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
+ms.openlocfilehash: 49514022dc00afcd07002c7a3278c18a606e5ad5
+ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70898061"
+ms.lasthandoff: 09/23/2019
+ms.locfileid: "71203759"
 ---
 # <a name="quickstart-set-up-a-cicd-pipeline-for-a-java-app-with-azure-devops-projects"></a>快速入門：使用 Azure DevOps Projects 設定適用於 Java 應用程式的 CI/CD 管線
 
@@ -39,7 +39,7 @@ ms.locfileid: "70898061"
 
 2. 選取 [建立]  。
 
-    ![啟動連續傳遞設定](_img/azure-devops-project-java/fullbrowser.png)
+    ![在 DevOps Projects 中建立 Azure 資源](_img/azure-devops-project-java/continuous-delivery-configuration-full-browser.png)
 
 ## <a name="select-a-sample-application-and-azure-service"></a>選取應用程式範例和 Azure 服務
 
@@ -62,7 +62,7 @@ Java 範例包含數種應用程式架構的選擇。
 
 2. 選取 [瀏覽]  以檢視執行中應用程式。
 
-    ![儀表板檢視](_img/azure-devops-project-java/dashboardnopreview.png) 
+    ![在 Azure 入口網站中檢視應用程式儀表板](_img/azure-devops-project-java/azure-devops-application-dashboard.png) 
     
    DevOps Projects 會自動設定 CI 建置和發行觸發程序。  您現在已準備好利用 CI/CD 程序與小組共同進行 Java 應用程式的作業，這個程序會自動將您的最新工作部署到網站上。
 

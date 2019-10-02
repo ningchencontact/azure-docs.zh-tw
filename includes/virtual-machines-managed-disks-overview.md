@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 05/06/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 69c63d4eb2e0bfd04bb232cb0cf39965a5b77193
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: be82ab1597021d7198d7936ecd24e4bec64fdf25
+ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70104229"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71266903"
 ---
 ## <a name="benefits-of-managed-disks"></a>受控磁碟的好處
 
@@ -43,15 +43,21 @@ ms.locfileid: "70104229"
 
 您可以使用 [Azure 角色型存取控制 (RBAC)](../articles/role-based-access-control/overview.md) 將受控磁碟的特定權限指派給一個或多個使用者。 受控磁碟公開各種不同的作業，包括讀取、寫入 (建立/更新)、刪除和擷取磁碟的[共用存取簽章 (SAS) URI](../articles/storage/common/storage-dotnet-shared-access-signature-part-1.md)。 您可以授權某人只能存取他份內工作所需的作業。 例如，如果您不想讓某人將受控磁碟複製到儲存體帳戶，您可以選擇不要授權存取該受控磁碟的匯出動作。 同樣地，如果您不想讓某人使用 SAS URI 來複製受控磁碟，您可以選擇不要授與有關受控磁碟的這種權限。
 
+### <a name="upload-your-vhd"></a>上傳您的 vhd
+
+ 直接上傳可讓您輕鬆地將 vhd 轉送至 Azure 受控磁碟。 之前，您必須遵循涉入更深的程序，其中包含將您的資料暫存在儲存體帳戶中。 現在，步驟比較少。 您可以更輕鬆地將內部部署 VM 上傳至 Azure、上傳至大型受控磁碟，以及簡化備份和還原程序。 它也可讓您直接將資料上傳至受控磁碟，而不需將其附加至 VM，藉此降低成本。 您可使用直接上傳來上傳大小高達 32 TiB 的 vhd。
+
+ 若要了解如何將您的 vhd 轉送至 Azure，請參閱 [CLI](../articles/virtual-machines/linux/disks-upload-vhd-to-managed-disk-cli.md) 或 [PowerShell](../articles/virtual-machines/windows/disks-upload-vhd-to-managed-disk-powershell.md)文章。
+
 ## <a name="encryption"></a>加密
 
-受控磁片提供兩種不同的加密。 第一種是「儲存體服務加密」(SSE)，這會由儲存體服務執行。 第二種是「Azure 磁碟加密」，您可以在您 VM 的作業系統和資料磁碟上啟用它。
+受控磁片提供兩種不同的加密。 第一種是「儲存體服務加密」(SSE)，這會由儲存體服務執行。 第二種是 Azure 磁碟加密 (ADE)，您可以在您 VM 的作業系統和資料磁碟上啟用它。
 
 ### <a name="storage-service-encryption-sse"></a>儲存體服務加密 (SSE)
 
 [Azure 儲存體服務加密](../articles/storage/common/storage-service-encryption.md)提供待用加密，並保護資料安全，以符合組織安全性和合規性承諾。 在所有可用受控磁碟的區域中，所有受控磁碟、快照集和映像預設都會啟用 SSE。 如需詳細資訊，請造訪[受控磁碟常見問題頁面](../articles/virtual-machines/windows/faq-for-disks.md#managed-disks-and-storage-service-encryption)。
 
-### <a name="azure-disk-encryption-ade"></a>Azure 磁碟加密 (ADE)
+### <a name="azure-disk-encryption"></a>Azure 磁碟加密
 
 Azure 磁碟加密可讓您加密由 IaaS 虛擬機器所使用的作業系統和資料磁碟。 此加密包含受控磁碟。 對於 Windows，磁碟機是使用業界標準的 BitLocker 加密技術來加密。 對於 Linux，磁碟是使用 DM-Crypt 技術來加密。 加密程序會與 Azure Key Vault 整合，可讓您控制和管理磁碟加密金鑰。 如需詳細資訊，請參閱 [IaaS 虛擬機器適用的 Azure 磁碟加密](../articles/security/azure-security-disk-encryption-overview.md)。
 

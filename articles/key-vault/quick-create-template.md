@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 09/17/2019
 ms.author: jgao
-ms.openlocfilehash: 5a1e0329f8d0227c05924137d5eaddd9658d5b3c
-ms.sourcegitcommit: 8ef0a2ddaece5e7b2ac678a73b605b2073b76e88
+ms.openlocfilehash: 1e993ec50694d8672fbe05f982d5dbc45a815abb
+ms.sourcegitcommit: a7a9d7f366adab2cfca13c8d9cbcf5b40d57e63a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71076894"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71161481"
 ---
 # <a name="quickstart-set-and-retrieve-a-secret-from-azure-key-vault-using-resource-manager-template"></a>快速入門：使用 Resource Manager 範本從 Azure Key Vault 設定及擷取祕密
 
@@ -54,9 +54,14 @@ ms.locfileid: "71076894"
 
 ## <a name="create-a-vault-and-a-secret"></a>建立保存庫和秘密
 
-本快速入門中使用的範本是來自[Azure 快速入門範本](https://azure.microsoft.com/resources/templates/101-key-vault-create/)。
+本快速入門中使用的範本是來自 [Azure 快速入門範本](https://azure.microsoft.com/resources/templates/101-key-vault-create/)。
 
 [!code-json[<Azure Resource Manager template create key vault>](~/quickstart-templates/101-key-vault-create/azuredeploy.json)]
+
+範本中定義了兩個 Azure 資源：
+
+* **Microsoft.KeyVault/vaults**：建立 Azure 金鑰保存庫。
+* **Microsoft.KeyVault/vaults/secrets**：建立金鑰保存庫秘密。
 
 更多 Azure Key Vault 範本範例可在[此處](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Keyvault)找到。
 
@@ -82,6 +87,8 @@ ms.locfileid: "71076894"
 3. 選取 [購買]  。 成功部署金鑰保存庫之後，您會收到通知：
 
     ![Resource Manager 範本、Key Vault 整合、部署入口網站通知](./media/quick-create-template/resource-manager-template-portal-deployment-notification.png)
+
+Azure 入口網站用於部署範本。 除了 Azure 入口網站以外，您也可以使用 Azure PowerShell、Azure CLI 和 REST API。 若要了解其他部署方法，請參閱[部署範本](../azure-resource-manager/resource-group-template-deploy.md)。
 
 ## <a name="validate-the-deployment"></a>驗證部署
 

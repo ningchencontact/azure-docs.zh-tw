@@ -1,19 +1,19 @@
 ---
 title: 使用 Azure 入口網站設定 HDInsight 上的 Apache Kafka - 快速入門
 description: 在本快速入門中，您會了解如何使用 Azure 入口網站，在 Azure HDInsight 上建立 Apache Kafka 叢集。 您也會了解 Kafka 主題、訂閱者與取用者。
-ms.service: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
+ms.service: hdinsight
 ms.custom: mvc
 ms.topic: quickstart
 ms.date: 06/12/2019
-ms.openlocfilehash: e0a2eecaa4b2f03fa12353854e75b9fda097675d
-ms.sourcegitcommit: dd69b3cda2d722b7aecce5b9bd3eb9b7fbf9dc0a
+ms.openlocfilehash: b66306de6b2afa1e39a91ba3b3981aec4b440e1a
+ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70960277"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71123591"
 ---
 # <a name="quickstart-create-apache-kafka-cluster-in-azure-hdinsight-using-azure-portal"></a>快速入門：在 Azure HDInsight 中使用 Azure 入口網站建立 Apache Kafka 叢集
 
@@ -38,8 +38,8 @@ SSH 用戶端。 如需詳細資訊，請參閱[使用 SSH 連線至 HDInsight (
 1. 登入 [Azure 入口網站](https://portal.azure.com)。
 
 2. 從左側功能表，瀏覽至 [+ 建立資源]   > [分析]   > [HDInsight]  。
-   
-    ![建立 HDInsight 叢集](./media/apache-kafka-get-started/create-hdinsight-cluster.png)
+
+    ![Azure 入口網站建立資源 HDInsight](./media/apache-kafka-get-started/create-hdinsight-cluster.png)
 
 3. 從 [基本]  中，輸入或選取以下資訊：
 
@@ -47,9 +47,9 @@ SSH 用戶端。 如需詳細資訊，請參閱[使用 SSH 連線至 HDInsight (
     | --- | --- |
     | 叢集名稱 | HDInsight 叢集的唯一名稱。 |
     | 訂用帳戶 | 選取您的訂用帳戶。 |
-    
+
    選取 [叢集類型]  以顯示**叢集設定**。
-   
+
    ![HDInsight 基本組態上的 Apache Kafka 叢集](./media/apache-kafka-get-started/custom-basics-kafka1.png)
 
 4. 從 [叢集設定]  選取下列值：
@@ -61,7 +61,7 @@ SSH 用戶端。 如需詳細資訊，請參閱[使用 SSH 連線至 HDInsight (
 
     選取 [選取]  來儲存叢集類型設定，然後返回 [基本]  。
 
-    ![選取叢集類型](./media/apache-kafka-get-started/apache-kafka-cluster-type.png)
+    ![HDInsight apache kafka 叢集類型](./media/apache-kafka-get-started/apache-kafka-cluster-type.png)
 
 5. 從 [基本]  中，輸入或選取以下資訊：
 
@@ -77,7 +77,7 @@ SSH 用戶端。 如需詳細資訊，請參閱[使用 SSH 連線至 HDInsight (
 
     若要獲得高度資料可用性，請選取包含「三個容錯網域」  的區域 (位置)。 如需區域中的容錯網域數目的資訊，請參閱 [Linux 虛擬機器的可用性](../../virtual-machines/windows/manage-availability.md#use-managed-disks-for-vms-in-an-availability-set)文件。
 
-   ![選取訂用帳戶](./media/apache-kafka-get-started/hdinsight-basic-configuration-2.png)
+   ![Azure 入口網站建立叢集基本概念](./media/apache-kafka-get-started/hdinsight-basic-configuration-2.png)
 
     選取 [下一步]  來完成基本設定。
 
@@ -105,7 +105,7 @@ SSH 用戶端。 如需詳細資訊，請參閱[使用 SSH 連線至 HDInsight (
 
 11. 從 [摘要]  檢閱叢集組態。 使用 [編輯]  連結來變更所有不正確的設定。 最後，選取 [建立]  以建立叢集。
 
-    ![叢集組態摘要](./media/apache-kafka-get-started/kafka-configuration-summary.png)
+    ![kafka 叢集組態摘要](./media/apache-kafka-get-started/kafka-configuration-summary.png)
 
     建立叢集可能需要花費 20 分鐘的時間。
 

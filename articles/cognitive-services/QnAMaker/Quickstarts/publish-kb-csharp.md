@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: quickstart
-ms.date: 09/03/2019
+ms.date: 09/24/2019
 ms.author: diberry
-ms.openlocfilehash: dbd6bddd06713cae7ac69d19e8d13f20fa04f6d0
-ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
+ms.openlocfilehash: a116dd595b7bde3f320bc0617c99fdb2ab7830d4
+ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70306880"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71261966"
 ---
 # <a name="quickstart-publish-a-knowledge-base-in-qna-maker-using-c"></a>快速入門：使用 C# 在 QnA Maker 中發佈知識庫
 
@@ -51,15 +51,15 @@ ms.locfileid: "70306880"
 
 ## <a name="add-required-constants"></a>新增必要的常數
 
-在 **Main** 方法中，新增必要常數以存取 QnA Maker。 使用您自己的值加以取代。
+在 [程式]  類別中，新增必要常數以存取 QnA Maker。
 
-[!code-csharp[Add the required constants](~/samples-qnamaker-csharp/documentation-samples/quickstarts/publish-knowledge-base/QnAMakerPublishQuickstart/Program.cs?range=11-14 "Add the required constants")]
+[!code-csharp[Add the required constants](~/samples-qnamaker-csharp/documentation-samples/quickstarts/publish-knowledge-base/QnAMakerPublishQuickstart/Program.cs?range=8-34 "Add the required constants")]
 
-## <a name="add-post-request-to-publish-knowledge-base"></a>新增 POST 要求來發佈知識庫
+## <a name="add-the-main-method-to-publish-the-knowledge-base"></a>新增 Main 方法以發佈知識庫
 
 在必要常數之後，新增下列程式碼來對 QnA Maker API 提出 HTTPS 要求，以便發佈知識庫並接收回應：
 
-[!code-csharp[Add HTTP Post request and response](~/samples-qnamaker-csharp/documentation-samples/quickstarts/publish-knowledge-base/QnAMakerPublishQuickstart/Program.cs?range=16-29&dedent=8 "Add HTTP Post request and response")]
+[!code-csharp[Add HTTP Post request and response](~/samples-qnamaker-csharp/documentation-samples/quickstarts/publish-knowledge-base/QnAMakerPublishQuickstart/Program.cs?range=36-56 "Add HTTP Post request and response")]
 
 發佈成功時，API 呼叫會傳回 204 狀態，且回應主體中沒有任何內容。 
  

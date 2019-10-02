@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: personalizer
 ms.topic: overview
-ms.date: 09/03/2019
+ms.date: 09/19/2019
 ms.author: diberry
-ms.openlocfilehash: 3132d31e9e45718fa95c39a1b8160ea303ded25d
-ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
+ms.openlocfilehash: e2af5cb193653736a0d75b4194e09d42282d2fa6
+ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70883656"
+ms.lasthandoff: 09/23/2019
+ms.locfileid: "71203798"
 ---
 # <a name="what-is-personalizer"></a>什麼是個人化工具？
 
@@ -39,7 +39,7 @@ Azure 個人化工具是雲端式 API 服務，可讓您選擇最佳體驗來對
 1. 在 Azure 入口網站中建立及設定個人化服務的執行個體。 每個執行個體都是個人化工具迴圈。
 1. 使用 SDK，以使用者相關資訊 (「功能」  ) 和內容 (「動作」  ) 呼叫個人化工具。 使用個人化工具前，您不需要先提供已清理、標記的資料。 
 1. 在用戶端應用程式中，向使用者顯示個人化工具所選取的動作。
-1. 使用 SDK 將意見反應提供給個人化工具，指出是否使用者已選取個人化工具的動作。 這是「回報分數」  ，通常介於 -1 與 1 之間。
+1. 使用 SDK 將意見反應提供給個人化工具，指出是否使用者已選取個人化工具的動作。 這是 _[獎勵分數](concept-rewards.md)_ 。
 1. 在 Azure 入口網站檢視分析，以評估系統的運作情況以及您的資料對個人化有何幫助。
 
 ## <a name="where-can-i-use-personalizer"></a>個人化工具可以應用在何處？
@@ -60,7 +60,7 @@ Azure 個人化工具是雲端式 API 服務，可讓您選擇最佳體驗來對
 個人化工具服務有兩個 API：
 
 * 傳送要個人化的使用者相關資訊 (「功能」  ) 和內容 (_動作_)。 個人化工具會以排名最高的動作回應。
-* 以通常介於 0 與 1 (上一節表示 -1 與 1) 之間的數字，將有關排名方式的意見反應傳送給個人化工具。 
+* 將關於排名以[獎勵分數](concept-rewards.md)形式運作情形的意見反應傳送給個人化工具。 
 
 ![個人化事件的基本序列](media/what-is-personalizer/personalization-intro.png)
 

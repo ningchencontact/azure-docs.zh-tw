@@ -3,18 +3,18 @@ title: Azure Digital Twins 概觀 | Microsoft Docs
 description: 深入了解 Azure Digital Twins，一個關於空間智慧的 Azure IoT 解決方案。
 author: julieseto
 ms.author: jseto
-ms.date: 08/01/2019
+ms.date: 09/17/2019
 ms.topic: overview
 ms.service: digital-twins
 services: digital-twins
 manager: bertvanhoof
 ms.custom: mvc
-ms.openlocfilehash: 6bd4e3bb688e92d30a21c39599e2e5bdb7b17dba
-ms.sourcegitcommit: c662440cf854139b72c998f854a0b9adcd7158bb
+ms.openlocfilehash: 2b80d0b364330a0effa7b89c620bd935157de290
+ms.sourcegitcommit: 83df2aed7cafb493b36d93b1699d24f36c1daa45
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/02/2019
-ms.locfileid: "68736972"
+ms.lasthandoff: 09/22/2019
+ms.locfileid: "71178287"
 ---
 # <a name="overview-of-azure-digital-twins"></a>Azure Digital Twins 概觀
 
@@ -33,7 +33,7 @@ Azure Digital Twins 適用於各種環境類型，例如倉儲、辦公室、學
 - 分析建築物的佔用層級。
 - 找出您店裡最忙碌的收銀機。
 
-無論實際的商業案例為何，幾乎都可透過 Azure Digital Twins 佈建對應的數位執行個體。
+無論實際的商業案例為何，都可能透過 Azure Digital Twins 佈建對應的數位執行個體。
 
 下列影片會深入探討 Azure Digital Twins。
 
@@ -45,13 +45,13 @@ Azure Digital Twins 具有下列重要功能。
 
 ### <a name="spatial-intelligence-graph"></a>空間智慧圖形
 
-[*空間智慧圖形*](./concepts-objectmodel-spatialgraph.md#graph) (或空間圖形)  是實體環境的虛擬表示法。 使用此功能建立人員、地點與裝置間的關聯性模型。
+[*空間智慧圖形*](./concepts-objectmodel-spatialgraph.md#spatial-intelligence-graph) (或空間圖形)  是實體環境的虛擬表示法。 使用此功能建立人員、地點與裝置間的關聯性模型。
 
 假設有一個智慧型公用事業應用程式，其涉及連接到鄰近地區的數個電力用量電錶。 智慧型公共事業公司必須精確地監視及預測電力使用量並進行計費。 每個裝置和感應器都必須根據位置和消費者的相關內容來建立模型。 您可以使用空間智慧圖形以模型呈現這些複雜的關聯性種類。
 
 ### <a name="digital-twin-object-models"></a>Digital Twins 物件模型
 
-[Digital Twins 物件模型](./concepts-objectmodel-spatialgraph.md#model)是預先定義的裝置通訊協定和資料結構描述。 這些項目會配合您解決方案的網域專屬需求，以加速及簡化開發。
+[Digital Twins 物件模型](./concepts-objectmodel-spatialgraph.md#digital-twins-object-models)是預先定義的裝置通訊協定和資料結構描述。 這些項目會配合您解決方案的網域專屬需求，以加速及簡化開發。
 
 例如，會議室使用情况應用程式可以使用預先定義的空間類型，例如校園、大樓、樓層和會議室等。
 
@@ -93,9 +93,9 @@ Azure Digital Twins 可用來表示真實世界和其許多關聯性。 其簡�
 
 Azure Digital Twins 會使用 Azure IoT 中樞來連接 IoT 裝置和感應器，讓一切資訊隨時符合真實世界的最新情形。 下圖顯示 Azure Digital Twins 與其他 Azure IoT 服務的關聯性。
 
-![Azure Digital Twins 是建置在 Azure IoT 中樞之上的服務][1]
+[![Azure Digital Twins 是建置在 Azure IoT 中樞之上的服務](media/overview/azure-digital-twins-in-iot-ecosystem.png)](media/overview/azure-digital-twins-in-iot-ecosystem.png#lightbox)
 
-如需有關 IoT 的詳細資訊，請參閱 [Azure IoT 技術和解決方案](https://docs.microsoft.com/azure/iot-fundamentals/iot-services-and-technologies)。
+如需有關 IoT 的詳細資訊，請參閱 [Azure IoT 技術和解決方案](../iot-fundamentals/iot-services-and-technologies.md)。
 
 ## <a name="next-steps"></a>後續步驟
 
@@ -113,6 +113,3 @@ Azure Digital Twins 會使用 Azure IoT 中樞來連接 IoT 裝置和感應器�
 
 >[!div class="nextstepaction"]
 >[了解 Digital Twins 物件模型和空間智慧圖形](./concepts-objectmodel-spatialgraph.md)
-
-<!-- Images -->
-[1]: media/overview/azure-digital-twins-in-iot-ecosystem.png

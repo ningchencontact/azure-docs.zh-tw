@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 04/13/2018
 ms.author: sngun
 ms.custom: include file
-ms.openlocfilehash: 975bb5ee194e7bd9538660878cbed20c943fcf52
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: 45e6417ed990a233a699d98da89b9b951c1e834d
+ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67174528"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71210171"
 ---
 1. 在新的瀏覽器視窗中，登入 [Azure 入口網站](https://portal.azure.com/)。
 
@@ -33,7 +33,7 @@ ms.locfileid: "67174528"
 
     請選取 [檢閱 + 建立]  。 您可以略過 [網路]  和 [標記]  區段。 
 
-    ![Azure Cosmos DB 的新帳戶刀鋒視窗](./media/cosmos-db-create-dbaccount-graph/azure-cosmos-db-create-new-account.png)
+    ![Azure Cosmos DB 的新帳戶區段](./media/cosmos-db-create-dbaccount-graph/azure-cosmos-db-create-new-account.png)
 
 4. 建立帳戶需要幾分鐘的時間。 等候入口網站顯示 [恭喜!**已建立您的 Azure Cosmos DB 帳戶]** 頁面。
 

@@ -8,13 +8,13 @@ ms.devlang: java
 ms.topic: quickstart
 ms.date: 03/26/2019
 ms.author: lbosq
-ms.custom: seo-java-july2019, seo-java-august2019
-ms.openlocfilehash: 8689cb74e35d5b87c300f5fce239993691652ee2
-ms.sourcegitcommit: ee61ec9b09c8c87e7dfc72ef47175d934e6019cc
+ms.custom: seo-java-july2019, seo-java-august2019, seo-java-september2019
+ms.openlocfilehash: 1b37475cfa8df38a00ea6017d47e90677ed457d2
+ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70172535"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71212636"
 ---
 # <a name="quickstart-build-a-graph-database-with-the-java-sdk-and-the-azure-cosmos-db-table-api"></a>快速入門：使用 Java SDK 和 Azure Cosmos DB 資料表 API 來建置圖形資料庫
 
@@ -110,7 +110,7 @@ Azure Cosmos DB 是 Microsoft 的全域分散式多模型資料庫服務。 您�
 
     複製 URI 值的第一個部分。
 
-    ![在 Azure 入口網站的 [金鑰] 頁面中，檢視並複製存取金鑰](./media/create-graph-java/keys.png)
+    ![在 Azure 入口網站的 [金鑰] 頁面中，檢視並複製存取金鑰](./media/create-graph-java/copy-access-key-azure-portal.png)
 2. 開啟 src/remote.yaml 檔案，並將唯一 ID 貼至 `hosts: [$name$.graphs.azure.com]` 中的 `$name$`。
 
     remote.yaml 的行 1 現應如下所示 
@@ -219,15 +219,15 @@ Azure Cosmos DB 是 Microsoft 的全域分散式多模型資料庫服務。 您�
 
 12. 現在您可以將 rakesh 和 ashley 連線。 請確定已在 [結果]  清單中選取 **ashley**，然後選取右下方 [目標]  旁邊的 [![變更圖形中頂點的目標](./media/create-graph-java/edit-pencil-button.png)]。 您可能需要加寬視窗，才可看到按鈕。
 
-    ![變更圖形中頂點的目標](./media/create-graph-java/azure-cosmosdb-data-explorer-edit-target.png)
+    ![變更圖形中頂點的目標 - Azure CosmosDB](./media/create-graph-java/azure-cosmosdb-data-explorer-edit-target.png)
 
 13. 在 [目標]  方塊中輸入 rakesh  ，並在 [邊緣標籤]  方塊中輸入「認識」  ，然後選取核取方塊。
 
-    ![在 [資料總管] 中新增 ashley 與 rakesh 之間的連線](./media/create-graph-java/azure-cosmosdb-data-explorer-set-target.png)
+    ![在資料總管中新增連線 - Azure CosmosDB](./media/create-graph-java/azure-cosmosdb-data-explorer-set-target.png)
 
 14. 現在從 [結果] 清單中選取 **rakesh** 並查看 ashley 與 rakesh 是否已連線。 
 
-    ![[資料總管] 中連線的兩個頂點](./media/create-graph-java/azure-cosmosdb-graph-explorer.png)
+    ![資料總管中連線的兩個頂點 - Azure CosmosDB](./media/create-graph-java/azure-cosmosdb-graph-explorer.png)
 
     這會完成本教學課程中的資源建立部分。 您可以繼續將頂點新增至圖形、修改現有的頂點，或是變更查詢。 現在讓我們檢閱 Azure Cosmos DB 提供的計量，然後再清除資源。 
 

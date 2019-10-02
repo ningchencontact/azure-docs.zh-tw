@@ -12,29 +12,44 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 06/19/2019
+ms.date: 09/20/2019
 ms.author: allensu
 ms.custom: mvc
-ms.openlocfilehash: e1a04cad7fe5c9c95397ffad2faa80c7d657d0f8
-ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
+ms.openlocfilehash: ab55583d72297f2a1c72bac21e4414919f31b91b
+ms.sourcegitcommit: a7a9d7f366adab2cfca13c8d9cbcf5b40d57e63a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68273804"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71161358"
 ---
-# <a name="quickstart-create-a-standard-load-balancer-to-load-balance-vms-by-using-an-azure-resource-manager-template"></a>快速入門：使用 Azure Resource Manager 範本建立標準負載平衡器以平衡 VM 的負載
+# <a name="quickstart-create-a-standard-load-balancer-to-load-balance-vms-by-using-azure-resource-manager-template"></a>快速入門：使用 Azure Resource Manager 範本建立 Standard 負載平衡器以平衡 VM 的負載
 
-負載平衡會將傳入要求分散於多部虛擬機器 (VM)，藉此提供高可用性和範圍。 本快速入門會示範如何部署 Azure Resource Manager 範本，以建立標準負載平衡器來平衡 VM 的負載。
+負載平衡會將傳入要求分散於多部虛擬機器 (VM)，藉此提供高可用性和範圍。 本快速入門會示範如何部署 Azure Resource Manager 範本，以建立標準負載平衡器來平衡 VM 的負載。 相較於其他部署方法，使用 Resource Manager 範本所需的步驟比較少。
 
-如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 。
+[Resource Manager 範本](../azure-resource-manager/template-deployment-overview.md)是一個 JavaScript 物件標記法 (JSON) 檔案，定義了專案的基礎結構和組態。 範本會使用宣告式語法，可讓您陳述您要部署的項目，而不需要撰寫一連串程式設計命令來加以建立。 如果您要深入了解如何開發 Resource Manager 範本，請參閱 [Resource Manager 文件](/azure/azure-resource-manager/)和[範本參考](/azure/templates/microsoft.network/loadbalancers)。
+
+如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)。
 
 ## <a name="create-a-standard-load-balancer"></a>建立標準負載平衡器
 
 Standard Load Balancer 只支援標準公用 IP 位址。 當您建立標準負載平衡器時，您也必須建立新的標準公用 IP 位址，而該 IP 位址會設定為標準負載平衡器的前端。
 
-您可以使用許多方法來建立標準負載平衡器。 在本快速入門中，您會使用 Azure PowerShell 來部署 [Resource Manager 範本](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-load-balancer-standard-create/azuredeploy.json)。 Resource Manager 範本是 JSON 檔案，該檔案定義您需要為您的解決方案部署的資源。
+本快速入門中使用的範本是[快速入門範本](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-load-balancer-standard-create/azuredeploy.json)。
 
-若要了解部署和管理 Azure 解決方案的相關概念，請參閱 [Azure Resource Manager 文件](/azure/azure-resource-manager/)。 若要尋找更多有關 Azure Load Balancer 的範本，請參閱 [Azure 快速入門範本](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Network&pageNumber=1&sort=Popular)。
+[!code-json[<Azure Resource Manager template create standard load balancer>](~/quickstart-templates/101-load-balancer-standard-create/azuredeploy.json)]
+
+範本中已定義多個 Azure 資源：
+
+- **Microsoft.Network/loadBalancers**
+- **Microsoft.Network/publicIPAddresses**：適用於負載平衡器。
+- **Microsoft.Network/networkSecurityGroups**
+- **Microsoft.Network/virtualNetworks**
+- **Microsoft.Compute/virutalMachines** (其中 3 個)
+- **Microsoft.Network/publicIPAddresses** (其中 3 個)：適用於這三部虛擬機器。
+- **Microsoft.Network/networkInterfaces** (其中 3 個)
+- **Microsoft.Compute/virtualMachine/extensions** (其中 3 個)：用來設定 IIS 和網頁
+
+若要尋找更多有關 Azure Load Balancer 的範本，請參閱 [Azure 快速入門範本](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Network&pageNumber=1&sort=Popular)。
 
 1. 選取以下程式碼區塊的 [試用]  以開啟 Azure Cloud Shell，然後遵循指示登入 Azure。
 
@@ -65,7 +80,11 @@ Standard Load Balancer 只支援標準公用 IP 位址。 當您建立標準負�
 
    資源群組名稱是附加 **rg** 的專案名稱。 您會在下一節中用到資源群組名稱。
 
-部署範本需要約 10 分鐘。
+部署範本需要約 10 分鐘。 完成時，輸出如下：
+
+![Azure Standard Load Balancer Resource Manager 範本 PowerShell 部署輸出](./media/quickstart-load-balancer-standard-public-template/azure-standard-load-balancer-resource-manager-template-powershell-output.png)
+
+Azure PowerShell 用於部署範本。 除了 Azure PowerShell 以外，您也可以使用 Azure 入口網站、Azure CLI 和 REST API。 若要了解其他部署方法，請參閱[部署範本](../azure-resource-manager/resource-group-template-deploy-portal.md)。
 
 ## <a name="test-the-load-balancer"></a>測試負載平衡器
 
@@ -77,9 +96,13 @@ Standard Load Balancer 只支援標準公用 IP 位址。 當您建立標準負�
 
 1. 選取負載平衡器。 其預設名稱是附加 **-lb** 的專案名稱。
 
-1. 僅將公用 IP 位址中 IP 位址的部分複製並貼到您瀏覽器的網址列。 瀏覽器會顯示 Internet Information Services (IIS) Web 伺服器的預設頁面。
+1. 僅將公用 IP 位址中 IP 位址的部分複製並貼到您瀏覽器的網址列。
 
-   ![IIS 網頁伺服器](./media/tutorial-load-balancer-standard-zonal-portal/load-balancer-test.png)
+   ![Azure Standard Load Balancer Resource Manager 範本公用 IP](./media/quickstart-load-balancer-standard-public-template/azure-standard-load-balancer-resource-manager-template-deployment-public-ip.png)
+
+    瀏覽器會顯示 Internet Information Services (IIS) Web 伺服器的預設頁面。
+
+   ![IIS 網頁伺服器](./media/quickstart-load-balancer-standard-public-template/load-balancer-test-web-page.png)
 
 若要查看負載平衡器如何將流量分散於所有三部 VM，您可以從用戶端機器中強制重新整理您的網頁瀏覽器。
 
@@ -95,4 +118,3 @@ Standard Load Balancer 只支援標準公用 IP 位址。 當您建立標準負�
 
 > [!div class="nextstepaction"]
 > [Azure Load Balancer 教學課程](tutorial-load-balancer-standard-public-zone-redundant-portal.md)
- 

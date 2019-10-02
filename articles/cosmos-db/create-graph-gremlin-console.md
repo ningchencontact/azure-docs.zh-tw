@@ -7,12 +7,12 @@ ms.subservice: cosmosdb-graph
 ms.topic: quickstart
 ms.date: 07/23/2019
 ms.author: lbosq
-ms.openlocfilehash: 0a6ddfe1337575f4f61f4bba4638a16e54b0cde6
-ms.sourcegitcommit: c662440cf854139b72c998f854a0b9adcd7158bb
+ms.openlocfilehash: cb365517c581ebf83026046f385496afd3e28d7f
+ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/02/2019
-ms.locfileid: "68735261"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71261591"
 ---
 # <a name="quickstart-create-query-and-traverse-an-azure-cosmos-db-graph-database-using-the-gremlin-console"></a>快速入門：使用 Gremlin 主控台建立、查詢和周遊 Azure Cosmos DB 圖形資料庫
 
@@ -60,7 +60,7 @@ Gremlin 主控台是以 Groovy/Java 為基礎並且在 Linux、Mac 和 Windows �
     username|您的使用者名稱 |`/dbs/<db>/colls/<coll>` 表單的資源，其中 `<db>` 是您的資料庫名稱，而 `<coll>` 是您的集合名稱。
     password|您的主要金鑰 | 請看下方的第二個螢幕擷取畫面。 這是您的主要金鑰，可以從 Azure 入口網站 [金鑰] 頁面的 [主鑰金鑰] 方塊中擷取。 使用方塊左側的 [複製] 按鈕來複製此值。
     connectionPool|{enableSsl: true}|SSL 的連線集區設定。
-    序列化程式|{ className: org.apache.tinkerpop.gremlin.<br>driver.ser.GraphSONMessageSerializerV1d0,<br> config: { serializeResultToString: true }}|設定此值，並在貼入此值時刪除任何 `\n` 分行符號。
+    序列化程式|{ className: org.apache.tinkerpop.gremlin.<br>driver.ser.GraphSONMessageSerializerV2d0,<br> config: { serializeResultToString: true }}|設定此值，並在貼入此值時刪除任何 `\n` 分行符號。
 
     對於主機值，從 [概觀]  頁面複製 [Gremlin URI]  值：![在 Azure 入口網站的 [概觀] 頁面上檢視和複製 Gremlin URI 值](./media/create-graph-gremlin-console/gremlin-uri.png)
 

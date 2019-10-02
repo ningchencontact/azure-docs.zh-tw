@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: overview
-ms.date: 09/24/2018
+ms.date: 09/23/2019
 ms.author: alkohli
-ms.openlocfilehash: 3e871b8d4de8ff83e260aded89e09ad5b17b3297
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 678bef1b18d60679be6c296a1fd7beef42f721b7
+ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65799235"
+ms.lasthandoff: 09/23/2019
+ms.locfileid: "71203816"
 ---
 # <a name="azure-data-box-security-and-data-protection"></a>Azure 資料箱安全性和資料保護
 
@@ -58,7 +58,7 @@ Microsoft Azure 資料箱解決方案包含四個彼此互動的主要元件：
 
 - 待用資料的 AES 256 位元加密。
 - 可用於資料傳輸的加密通訊協定。
-- 將資料上傳至 Azure 完成之後，安全清除裝置中的資料。 資料清除是根據 NIST 800-88r1 標準。 資料清除事件記錄在[訂購記錄](data-box-logs.md#download-order-history)中。
+- 將資料上傳至 Azure 完成之後，安全清除裝置中的資料。 資料清除是依據[附錄 A：NIST 800-88r1 標準中的 ATA 硬碟](https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-88r1.pdf)中的指導方針進行。 資料清除事件記錄在[訂購記錄](data-box-logs.md#download-order-history)中。
 
 ### <a name="data-box-service-protection"></a>資料箱服務保護
 
@@ -106,7 +106,7 @@ Azure 資料箱會在服務中收集並顯示下列金鑰執行個體的個人�
 |[ISTA 2A](https://ista.org/docs/2Aoverview.pdf)     | 適用於不利的運輸條件耐久性          |
 |[NIST SP 800-147](https://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-147.pdf)      | 適用於安全韌體更新         |
 |[FIPS 140-2 Level 2](https://csrc.nist.gov/csrc/media/publications/fips/140/2/final/documents/fips1402.pdf)      | 適用於資料保護         |
-|[NIST SP 800-88r1](https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-88r1.pdf)      | 適用於資料清理         |
+|附錄 A：[NIST SP 800-88r1](https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-88r1.pdf) 中的 ATA 硬碟      | 適用於資料清理         |
 
 ## <a name="next-steps"></a>後續步驟
 

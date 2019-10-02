@@ -7,12 +7,12 @@ ms.service: private-link
 ms.topic: overview
 ms.date: 09/16/2019
 ms.author: kumud
-ms.openlocfilehash: fc3ae87ce5c4547526ae50f371684ac14dfcf266
-ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
+ms.openlocfilehash: 0c5541d7a80c3b6157ccadd979412163122ca8a2
+ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71104647"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71300755"
 ---
 # <a name="what-is-azure-private-link-preview"></a>什麼是 Azure Private Link？ (預覽)
 Azure Private Link 可讓您透過虛擬網路中的[私人端點](private-endpoint-overview.md)存取各項 Azure PaaS 服務 (例如 Azure 儲存體和 SQL Database)，以及 Azure 裝載的客戶/合作夥伴服務。 虛擬網路和服務間的流量會在通過 Microsoft 骨幹網路時隨之減少，降低資料在網際網路中公開的風險。 您也可以在虛擬網路 (VNet) 中建立自己的 [Private Link 服務](private-link-service-overview.md)，並私下提供給您的客戶。 使用 Azure Private Link 的設定和取用體驗在 Azure PaaS、客戶自有服務和共用合作夥伴服務之間是一致的。
@@ -40,11 +40,11 @@ Azure Private Link 提供下列優點：
 
 |案例  |支援的服務   |可用區域 | 狀態   |
 |---------|---------|---------|---------|
-|適用於客戶自有服務的 Private Link|Standard Load Balancer 後方的 Private Link 服務 |美國中西部；美國西部；美國中南部；美國東部；美國北部  |  預覽  |
+|適用於客戶自有服務的 Private Link|Standard Load Balancer 後方的 Private Link 服務 |美國中西部；美國西部；美國中南部；美國東部；美國中北部  |  預覽  |
 |適用於 Azure PaaS 服務的 Private Link   | Azure 儲存體        |  美國東部、美國西部、美國中西部       | 預覽         |
 |  | Azure Data Lake Storage Gen2        |  美國東部、美國西部、美國中西部       | 預覽         |
-|  |  Azure SQL Database         | 美國中西部；美國西部；美國中南部；美國東部；美國北部       |   預覽      |
-||Azure SQL 資料倉儲| 美國中西部；美國西部；美國中南部；美國東部；美國北部 |預覽|
+|  |  Azure SQL Database         | 美國中西部；美國西部；美國中南部；美國東部；美國中北部      |   預覽      |
+||Azure SQL 資料倉儲| 美國中西部；美國西部；美國中南部；美國東部；美國中北部 |預覽|
 
 如需最新通知，請查看 [Azure 虛擬網路更新頁面](https://azure.microsoft.com/updates/?product=virtual-network)。 
 

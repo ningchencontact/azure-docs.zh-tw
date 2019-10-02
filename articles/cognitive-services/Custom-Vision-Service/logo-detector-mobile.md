@@ -10,12 +10,12 @@ ms.subservice: custom-vision
 ms.topic: tutorial
 ms.date: 07/03/2019
 ms.author: pafarley
-ms.openlocfilehash: b0a5b110951d7b13110fab935d5ca1333f7f8c1e
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: bdcf8a0d63b880075cd22c73305afa8cf09a2e3b
+ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68564212"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71261980"
 ---
 # <a name="tutorial-recognize-azure-service-logos-in-camera-pictures"></a>教學課程：辨識相機圖片中的 Azure 服務標誌
 
@@ -28,7 +28,7 @@ ms.locfileid: "68564212"
 > - 將應用程式連線到 Azure 電腦視覺和自訂視覺。
 > - 建立 Azure 服務主體帳戶以從應用程式部署 Azure 服務。
 
-如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/) 。 
+如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶](https://azure.microsoft.com/free/)。 
 
 ## <a name="prerequisites"></a>必要條件
 
@@ -57,7 +57,7 @@ ms.locfileid: "68564212"
 
 應用程式會設定為使用特定的標記字串。 您可在 *Source\VisualProvision\Services\Recognition\RecognitionService.cs* 檔案中找到相關定義：
 
-[!code-csharp[Tag definitions](~/AIVisualProvision/Source/VisualProvision/Services/Recognition/RecognitionService.cs?range=18-33)]
+[!code-csharp[Tag definitions](~/AIVisualProvision/Source/VisualProvision/Services/Recognition/RecognitionService.cs?name=snippet_constants)]
 
 標記一個影像之後，請移至右側以標記下一個影像。 完成後請關閉標記視窗。
 
@@ -73,19 +73,19 @@ ms.locfileid: "68564212"
 
 ![自訂視覺網站的預測 API 視窗，顯示 URL 位址和 API 金鑰](media/azure-logo-tutorial/cusvis-endpoint.png)
 
-將影像檔案 URL 和 **Prediction-Key** 值複製到 *Source\VisualProvision\AppSettings.cs* 檔案中的適當欄位：
+將端點 URL 和 **Prediction-Key** 值複製到 *Source\VisualProvision\AppSettings.cs* 檔案中的適當欄位：
 
-[!code-csharp[Custom Vision fields](~/AIVisualProvision/Source/VisualProvision/AppSettings.cs?range=22-26)]
+[!code-csharp[Custom Vision fields](~/AIVisualProvision/Source/VisualProvision/AppSettings.cs?name=snippet_cusvis_keys)]
 
 ## <a name="examine-custom-vision-usage"></a>查看自訂視覺的使用方式
 
 開啟 *Source/VisualProvision/Services/Recognition/CustomVisionService.cs* 檔案，查看應用程式使用自訂視覺金鑰和端點 URL 的方式。 **PredictImageContentsAsync** 方法會使用影像檔案的位元組資料流和取消權杖 (用於非同步工作管理)、呼叫自訂視覺預測 API，然後傳回預測的結果。 
 
-[!code-csharp[Custom Vision fields](~/AIVisualProvision/Source/VisualProvision/Services/Recognition/CustomVisionService.cs?range=12-28)]
+[!code-csharp[Custom Vision fields](~/AIVisualProvision/Source/VisualProvision/Services/Recognition/CustomVisionService.cs?name=snippet_prediction)]
 
 此結果會採用 **PredictionResult** 執行個體的形式，其中會包含**預測**執行個體的清單。 **預測**中包含偵測到的標記和及其週框方塊在影像中的位置。
 
-[!code-csharp[Custom Vision fields](~/AIVisualProvision/Source/VisualProvision/Services/Recognition/Prediction.cs?range=3-12)]
+[!code-csharp[Custom Vision fields](~/AIVisualProvision/Source/VisualProvision/Services/Recognition/Prediction.cs?name=snippet_prediction_class)]
 
 若要深入了解應用程式處理這項資料的方式，請從 **GetResourcesAsync** 方法著手。 此方法定義於 *Source/VisualProvision/Services/Recognition/RecognitionService.cs* 檔案中。  
 
@@ -99,7 +99,7 @@ ms.locfileid: "68564212"
 
 然後，開啟 *Source\VisualProvision\AppSettings.cs* 檔案，並在 `ComputerVisionEndpoint` 和 `ComputerVisionKey` 變數中填入正確的值。
 
-[!code-csharp[Computer Vision fields](~/AIVisualProvision/Source/VisualProvision/AppSettings.cs?range=28-32)]
+[!code-csharp[Computer Vision fields](~/AIVisualProvision/Source/VisualProvision/AppSettings.cs?name=snippet_comvis_keys)]
 
 ## <a name="create-a-service-principal"></a>建立服務主體
 
@@ -133,7 +133,7 @@ az ad sp create-for-rbac --name <servicePrincipalName> --password <yourSPStrongP
 
 請記下 `clientId` 和 `tenantId` 值。 將其新增至 *Source\VisualProvision\AppSettings.cs* 檔案中的適當欄位。
 
-[!code-csharp[Computer Vision fields](~/AIVisualProvision/Source/VisualProvision/AppSettings.cs?range=8-16)]
+[!code-csharp[Computer Vision fields](~/AIVisualProvision/Source/VisualProvision/AppSettings.cs?name=snippet_serviceprincipal)]
 
 ## <a name="run-the-app"></a>執行應用程式
 

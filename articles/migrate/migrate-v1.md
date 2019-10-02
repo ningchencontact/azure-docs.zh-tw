@@ -7,12 +7,12 @@ ms.topic: overview
 ms.date: 07/11/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: b3607f0b462efceab322e6eaf616268a34b02fb0
-ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.openlocfilehash: 2c63d63e57a23963f17b6773f244973b051b57eb
+ms.sourcegitcommit: a7a9d7f366adab2cfca13c8d9cbcf5b40d57e63a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70142089"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71162462"
 ---
 # <a name="work-with-the-previous-version-of-azure-migrate"></a>使用舊版的 Azure Migrate
 
@@ -78,7 +78,7 @@ Azure Migrate 服務有兩個版本：
 
 **整備程度** | **State** | **詳細資料**
 --- | --- | ---
-可供 Azure 使用 | 無相容性問題。 機器可以依原樣移轉到 Azure，它將會在 Azure 中開機並包含完整的 Azure 支援。 | 對於已準備好的 VM，Azure Migrate 會建議這些 VM 在 Azure 中該有的大小。
+可供 Azure 使用 | 無相容性問題。 機器可以依原樣遷移到 Azure，它將會在 Azure 中開機並包含完整的 Azure 支援。 | 對於已準備好的 VM，Azure Migrate 會建議這些 VM 在 Azure 中該有的大小。
 可有條件地供 Azure 使用 | 該機器可能可以在 Azure 中開機，但可能沒有完整的 Azure 支援。 例如，Azure 中不支援使用較舊版本 Windows Server 的機器。 | Azure Migrate 會說明整備程度問題，並提供補救步驟。
 未備妥供 Azure 使用 |  VM 將無法在 Azure 中開機。 例如，如果 VM 的磁碟超過 4 TB，便無法在 Azure 上託管。 | Azure Migrate 會說明整備程度問題，並提供補救步驟。
 移轉整備程度未知 | Azure Migrate 無法識別 Azure 整備程度，通常是因為資料無法使用。
@@ -91,7 +91,7 @@ Azure Migrate 服務有兩個版本：
 **屬性** | **詳細資料** | **整備程度**
 --- | --- | ---
 **開機類型** | 支援 BIOS。 不支援 UEFI。 | 如果開機類型為 UEFI，便已有條件地就緒。
-**核心** | 機器核心 <= Azure VM 支援的核心數目上限 (128)。<br/><br/> 如果效能歷程記錄可用，則 Azure Migrate 會將已使用的核心數納入考量。<br/>如果 <br/>已在評量設定中指定緩和因數，則會將使用的核心數目乘以緩和因數。<br/><br/> 如果沒有效能記錄，Azure Migrate 會使用配置的核心，而不套用緩和因數。 | 小於或等於限制便就緒。
+**核心** | 機器核心 <= Azure VM 支援的核心數目上限 (128)。<br/><br/> 如果效能歷程記錄可用，則 Azure Migrate 會將已使用的核心數納入考量。<br/>如果評量設定已指定緩和因數，則會將使用的核心數目乘以緩和因數。<br/><br/> 如果沒有效能記錄，Azure Migrate 會使用配置的核心，而不套用緩和因數。 | 小於或等於限制便就緒。
 **記憶體** | 機器的記憶體大小 <= Azure VM 的記憶體上限 (Azure M 系列 Standard_M128m 上為 3892 GB &nbsp;<sup>2</sup>)。 [深入了解](https://docs.microsoft.com/azure/virtual-machines/windows/sizes)。<br/><br/> 如果效能歷程記錄可用，Azure Migrate 會將已使用的記憶體數納入考量。<br/><br/>如果已指定緩和因數，則會將使用的記憶體乘以緩和因數。<br/><br/> 如果沒有記錄，則會使用配置的記憶體，而不套用緩和因數。<br/><br/> | 在限制內便就緒。
 **存放磁碟** | 已配置的磁碟大小必須小於或等於 4 TB (4096 GB)。<br/><br/> 附加至機器的磁碟數目必須小於或等於 65，作業系統磁碟亦包含在內。 | 在限制內便就緒。
 **網路功能** | 機器必須附加 32 個以內的網路介面卡。 | 在限制內便就緒。

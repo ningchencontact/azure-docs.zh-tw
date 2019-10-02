@@ -5,15 +5,15 @@ author: jonels-msft
 ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: include
-ms.date: 05/14/2019
+ms.date: 09/12/2019
 ms.author: jonels
 ms.custom: include file
-ms.openlocfilehash: c07e352288d7dc1d0bf198fd74c8baaded3a2d23
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: fadbcf04f1cd474cf2d23963e88016d240272263
+ms.sourcegitcommit: a6718e2b0251b50f1228b1e13a42bb65e7bf7ee2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67174222"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71279882"
 ---
 如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶](https://azure.microsoft.com/free/)。
 
@@ -38,27 +38,20 @@ ms.locfileid: "67174222"
    > 必須有您在此處指定的伺服器系統管理員密碼，才能登入伺服器和其資料庫。 請記住或記錄此資訊，以供稍後使用。
 
 5. 按一下 [設定伺服器群組]  。 讓該區段中的設定維持不變，然後按一下 [儲存]  。
-6. 按一下 [檢閱 + 建立]  ，然後按一下 [建立]  以佈建伺服器。 佈建需要幾分鐘的時間。
-7. 此頁面會重新導向以監視部署。 當即時狀態從 [您的部署正在進行中]  變更為 [您的部署已完成]  時，按一下頁面左側的 [輸出]  功能表項目。
-8. [輸出] 頁面將包含協調器主機名稱，且旁邊會有按鈕可將此值複製到剪貼簿。 請記錄此資訊，以供後續使用。
+6. 按一下畫面底部的 [下一步:  網路 >]。
 
-## <a name="configure-a-server-level-firewall-rule"></a>設定伺服器層級防火牆規則
-
-「適用於 PostgreSQL 的 Azure 資料庫 – Hyperscale (Citus) (預覽)」服務會使用伺服器層級的防火牆。 根據預設，防火牆會防止所有外部應用程式和工具連線到協調器節點及其中的任何資料庫。 我們必須新增規則，以針對特定 IP 位址範圍開啟防火牆。
-
-1. 在您先前複製協調器節點主機名稱的 [輸出]  區段中，按一下 [上一頁] 返回 [概觀]  功能表項目。
-
-2. 尋找部署的伺服器群組名稱，然後對其按一下。 (伺服器群組名稱將「不會」  有尾碼。 舉例來說，名稱結尾為 "-c"、"-w0" 或 "-w1" 的項目不是伺服器群組)。
-
-3. 按一下左側功能表中 [安全性]  下方的 [防火牆]  。
-
-4. 按一下[+ 為目前的用戶端 IP 位址新增防火牆規則]  連結。
-
-5. 最後，按一下 [儲存]  按鈕。
+7. 在 [網路]  索引標籤中，按一下 [公用端點]  選項按鈕。
+   ![已選取公用端點](./media/azure-postgresql-hyperscale-create-db/network-public-endpoint.png)
+8. 按一下 [+ 新增目前用戶端 IP 位址]  連結。
+   ![已新增用戶端 IP](./media/azure-postgresql-hyperscale-create-db/network-add-client-ip.png)
 
    > [!NOTE]
    > Azure PostgreSQL 伺服器會透過連接埠 5432 進行通訊。 如果您嘗試從公司網路內進行連線，您網路的防火牆可能不允許透過連接埠 5432 的輸出流量。 若情況如此，除非 IT 部門開啟連接埠 5432，否則您無法連線至 Azure SQL Database 伺服器。
    >
+
+9. 按一下 [檢閱 + 建立]  ，然後按一下 [建立]  以佈建伺服器。 佈建需要幾分鐘的時間。
+10. 此頁面會重新導向以監視部署。 當即時狀態從 [您的部署正在進行中]  變更為 [您的部署已完成]  時，按一下頁面左側的 [輸出]  功能表項目。
+11. [輸出] 頁面將包含協調器主機名稱，且旁邊會有按鈕可將此值複製到剪貼簿。 請記錄此資訊，以供後續使用。
 
 ## <a name="connect-to-the-database-using-psql"></a>使用 psql 連線到資料庫
 

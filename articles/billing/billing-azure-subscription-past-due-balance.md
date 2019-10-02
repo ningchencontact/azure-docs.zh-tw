@@ -15,14 +15,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/20/2019
 ms.author: banders
-ms.openlocfilehash: 8f2dbc84fe09c825d8ef25aabafba7a672220192
-ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
+ms.openlocfilehash: cd3c29c4b65f45863647599ae2447584845f27c8
+ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71121716"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71300292"
 ---
 # <a name="resolve-past-due-balance-for-your-azure-subscription"></a>解決 Azure 訂用帳戶的逾期未付帳款
+
+本文適用於具有 Microsoft Online Services 方案帳戶的客戶。
 
 如果未收到您的付款或無法處理您的款項，您可能會收到電子郵件，或是在 Azure 入口網站或帳戶中心看到警示。
 如果您是[帳戶管理員](billing-subscription-transfer.md#whoisaa)，您可以在 [Azure 入口網站](https://portal.azure.com)中結算未付的費用。 如果您使用發票付款模式，將您的付款寄至您的發票底部所列的地址。
@@ -43,6 +45,13 @@ ms.locfileid: "71121716"
 1. 如果選取的付款方式也有 Microsoft 服務的未付費用，這會反映於未付的總餘額。 您也必須支付那些未付費用。
 1. 按一下 [付款]  。
 
+## <a name="troubleshoot-declined-credit-card"></a>針對遭拒的信用卡進行疑難排解
+
+如果信用卡遭到金融機構拒絕，請連絡您的金融機構來解決此問題。 請洽詢您的銀行以確定：
+- 卡片已啟用國際交易。
+- 卡片具有足夠的信用額度或資金來結清餘額。
+- 卡片已啟用定期付款。
+
 ## <a name="not-getting-billing-email-notifications"></a>未收到帳單電子郵件通知嗎？
 
 如果您是帳戶管理員，請[確認用於接收通知的電子郵件地址](billing-how-to-change-azure-account-profile.md)。 建議您使用您會定期收信的電子郵件地址。 如果電子郵件正確，請查看垃圾郵件資料夾。
@@ -52,6 +61,7 @@ ms.locfileid: "71121716"
 服務遭到取消，您的資源便無法使用。 服務終止 90 天後，就會刪除您的 Azure 資料。 若要深入了解，請參閱 [Microsoft 信任中心 - 我們如何管理您的資料](https://go.microsoft.com/fwLink/p/?LinkID=822930&clcid=0x409) \(英文\)。
 
 如果您已處理款項，但您的訂用帳戶狀態仍為停用，請連絡 [Azure 支援服務](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade)。
+
 
 ## <a name="need-help-contact-us"></a>需要協助嗎？ 與我們連絡。
 

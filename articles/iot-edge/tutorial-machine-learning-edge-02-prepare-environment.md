@@ -8,12 +8,12 @@ ms.date: 06/13/2019
 ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: fd3b5766ec2bd8d1babf847598f1fbe5b6511ce7
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 1db94e683a0dfb3b60b12bc5ac205c766d405d0a
+ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67432836"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71299832"
 ---
 # <a name="tutorial-set-up-an-environment-for-machine-learning-on-iot-edge"></a>教學課程：在 IoT Edge 上為機器學習設定環境
 
@@ -26,7 +26,7 @@ ms.locfileid: "67432836"
 
 此步驟通常是由雲端開發人員來執行。 某一部分的軟體可能也會對資料科學家有所幫助。
 
-在此文章期間，我們將會執行數個開發人員工作，包括針對 IoT Edge 模組和 IoT 裝置進行程式碼撰寫、編譯、設定及部署。 為了方便使用，我們已建立能建立已設定好許多必要條件之 Azure 虛擬機器的 PowerShell 指令碼。 我們建立的 VM 必須能處理 [nested virtualization](https://docs.microsoft.com/azure/virtual-machines/windows/nested-virtualization) \(部分機器翻譯\)，這也是為何我們會選擇 DS8V3 電腦大小。
+在此文章期間，我們將會執行數個開發人員工作，包括針對 IoT Edge 模組和 IoT 裝置進行程式碼撰寫、編譯、設定及部署。 為了方便使用，我們已建立能建立已設定好許多必要條件之 Azure 虛擬機器的 PowerShell 指令碼。 我們建立的 VM 必須能處理[巢狀虛擬化](https://docs.microsoft.com/azure/virtual-machines/windows/nested-virtualization)，這也是我們選擇 [Standard_D8s_v3](../virtual-machines/windows/sizes-general.md#dsv3-series-1) 電腦大小的原因。
 
 開發 VM 將會搭配下列項目進行設定：
 

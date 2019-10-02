@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 12/11/2018
 ms.author: lahugh
 ms.custom: mvc
-ms.openlocfilehash: 0c87a6968e5c6fd0e587c240b0a5df0a73f9909b
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: 28914244f7ea84ec133821d4b125cbd3b0378348
+ms.sourcegitcommit: a6718e2b0251b50f1228b1e13a42bb65e7bf7ee2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68321645"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71272341"
 ---
 # <a name="tutorial-render-a-scene-with-azure-batch"></a>教學課程：使用 Azure Batch 轉譯場景 
 
@@ -168,20 +168,20 @@ az storage container create \
     --name job-myrenderjob
 ```
 
-為了將輸出檔案寫入容器，Batch 需要使用共用存取簽章 (SAS) 權杖。 使用 [az storage account generate-sas](/cli/azure/storage/account#az-storage-account-generate-sas) 命令建立權杖。 此範例會建立可寫入帳戶中任何 blob 容器的權杖，而該權杖會在 2018 年 11 月 15 日到期：
+為了將輸出檔案寫入容器，Batch 需要使用共用存取簽章 (SAS) 權杖。 使用 [az storage account generate-sas](/cli/azure/storage/account#az-storage-account-generate-sas) 命令建立權杖。 此範例會建立可寫入帳戶中任何 blob 容器的權杖，而該權杖會在 2020 年 11 月 15 日到期：
 
 ```azurecli-interactive
 az storage account generate-sas \
     --permissions w \
     --resource-types co \
     --services b \
-    --expiry 2019-11-15
+    --expiry 2020-11-15
 ```
 
 請記下命令所傳回的權杖，如下所示。 您會在後面的步驟中使用此權杖。
 
 ```
-se=2018-11-15&sp=rw&sv=2017-04-17&ss=b&srt=co&sig=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+se=2020-11-15&sp=rw&sv=2019-09-24&ss=b&srt=co&sig=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 ```
 
 ## <a name="render-a-single-frame-scene"></a>轉譯單一框架場景
@@ -217,7 +217,7 @@ az batch job create \
   "commandLine": "cmd /c \"%3DSMAX_2018%3dsmaxcmdio.exe -secure off -v:5 -rfw:0 -start:1 -end:1 -outputName:\"dragon.jpg\" -w 400 -h 300 MotionBlur-DragonFlying.max\"",
   "resourceFiles": [
     {
-        "blobSource": "https://mystorageaccount.blob.core.windows.net/scenefiles/MotionBlur-DragonFlying.max",
+        "httpUrl": "https://mystorageaccount.blob.core.windows.net/scenefiles/MotionBlur-DragonFlying.max",
         "filePath": "MotionBlur-DragonFlying.max"
     }
   ],

@@ -11,12 +11,12 @@ ms.topic: sample
 ms.date: 04/17/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 3da22d11dce1e535763476d906ac45f3da22bc8d
-ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.openlocfilehash: 01e932caf5edc91d5556b60d33e4d100574f93f5
+ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70141276"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71170044"
 ---
 # <a name="sample-explore-an-image-processing-app-with-c"></a>範例：使用 C# 探索影像處理應用程式
 
@@ -80,7 +80,7 @@ git clone --recurse-submodules https://github.com/Microsoft/Cognitive-Face-Windo
    ![訂用帳戶金鑰管理頁面](../Images/Vision_UI_Subscription.PNG)  
 1. 在 [訂用帳戶金鑰]  中輸入您的訂用帳戶金鑰。
 1. 在 [端點]  中輸入端點 URL。  
-   舉例而言，如果您使用的是電腦視覺免費試用版的訂用帳戶金鑰，請輸入以下端點 URL：`https://westcentralus.api.cognitive.microsoft.com`
+   舉例而言，如果您使用的是電腦視覺免費試用版的訂用帳戶金鑰，請輸入以下端點 URL：`https://westcentralus.api.cognitive.microsoft.com`  
    [!INCLUDE [Custom subdomains notice](../../../../includes/cognitive-services-custom-subdomains-note.md)]
 1. 如果下次執行範例應用程式時，不想再輸入您的訂用帳戶金鑰和端點 URL，請選擇 [儲存設定]  ，將訂用帳戶金鑰和端點 URL 儲存到您的電腦上。 如果您想刪除先前儲存的訂用帳戶金鑰和端點 URL，請選擇 [刪除設定]  。
 

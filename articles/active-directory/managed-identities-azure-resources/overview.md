@@ -12,15 +12,15 @@ ms.subservice: msi
 ms.devlang: ''
 ms.topic: overview
 ms.custom: mvc
-ms.date: 06/19/2019
+ms.date: 09/26/2019
 ms.author: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8c4f670f3bb14610e7f29a9201b357e73dacf09b
-ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
+ms.openlocfilehash: 596da9cfe0e914183bd3b2603ffa1047f1d9352b
+ms.sourcegitcommit: 0486aba120c284157dfebbdaf6e23e038c8a5a15
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67293227"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71310013"
 ---
 # <a name="what-is-managed-identities-for-azure-resources"></a>什麼是適用於 Azure 資源的受控識別？
 
@@ -68,28 +68,29 @@ Azure 訂用帳戶的 Azure AD 可免費使用適用於 Azure 資源的受控識
 ### <a name="how-a-system-assigned-managed-identity-works-with-an-azure-vm"></a>系統指派的受控識別如何與 Azure VM 一起運作
 
 1. Azure Resource Manager 收到要求，請求在 VM 上啟用系統指派的受控識別。
+
 2. Azure Resource Manager 會在 Azure AD 中建立服務主體，代表 VM 的身分識別。 服務主體會建立在此訂用帳戶信任的 Azure AD 租用戶中。
-3. Azure Resource Manager 會在 VM 上設定身分識別：
-    1. 使用服務主體用戶端識別碼和憑證來更新 Azure Instance Metadata Service 身分識別端點。
-    1. 佈建 VM 擴充功能 (已計劃在 2019 年 1 月淘汰)，並新增服務主體用戶端識別碼和憑證。 (此步驟已規劃要淘汰。)
+
+3. Azure Resource Manager 會以服務主體用戶端識別碼和憑證來更新 Azure Instance Metadata Service 身分識別端點，進而在 VM 上設定身分識別。
+
 4. 在 VM 具有身分識別後，使用服務主體資訊對 VM 授與 Azure 資源的存取權。 若要呼叫 Azure Resource Manager，請在 Azure AD 中使用角色型存取控制 (RBAC)，將適當的角色指派給 VM 服務主體。 若要呼叫 Key Vault，請將 Key Vault 中特定祕密或金鑰的存取權授與您的程式碼。
+
 5. 您在 VM 上執行的程式碼可向能從 VM 內存取的 Azure Instance Metadata Service 端點要求權杖：`http://169.254.169.254/metadata/identity/oauth2/token`
     - resource 參數指定將權杖傳送至哪個服務。 若要向 Azure Resource Manager 進行驗證，請使用 `resource=https://management.azure.com/`。
     - API 版本參數會使用 api-version=2018-02-01 或更高版本來指定 IMDS 版本。
 
-> [!NOTE]
-> 您的程式碼也可以向 VM 擴充功能端點要求權杖，但這已列入規劃，即將淘汰。 如需 VM 擴充功能的詳細資訊，請參閱[從 VM 擴充功能移轉至 Azure IMDS 進行驗證](howto-migrate-vm-extension.md)。
-
 6. 使用步驟 3 所設定的用戶端識別碼和憑證，呼叫 Azure AD 以要求步驟 5 所指定的存取權杖。 Azure AD 會傳回 JSON Web 權杖 (JWT) 存取權杖。
+
 7. 您的程式碼會在呼叫上傳送存取權杖給支援 Azure AD 驗證的服務。
 
 ### <a name="how-a-user-assigned-managed-identity-works-with-an-azure-vm"></a>使用者指派的受控識別如何與 Azure VM 一起運作
 
 1. Azure Resource Manager 收到要求，請求建立使用者指派的受控識別。
+
 2. Azure Resource Manager 會在 Azure AD 中建立服務主體，以代表使用者指派的受控識別。 服務主體會建立在此訂用帳戶信任的 Azure AD 租用戶中。
-3. Azure Resource Manager 收到要求，請求在 VM 上設定使用者指派的受控識別：
-    1. 以使用者指派的受控識別服務主體用戶端識別碼和憑證，更新 Azure Instance Metadata Service 身分識別端點。
-    1. 佈建 VM 延伸模組，並新增使用者指派的受控識別服務主體用戶端識別碼和憑證。 (此步驟已規劃要淘汰。)
+
+3. Azure Resource Manager 會收到以下要求：在 VM 上設定使用者指派的受控識別，並以使用者指派的受控識別服務主體用戶端識別碼和憑證來更新 Azure Instance Metadata Service 身分識別端點。
+
 4. 建立使用者指派的受控識別後，使用服務主體資訊，以授權此身分識別來存取 Azure 資源。 若要呼叫 Azure Resource Manager，請在 Azure AD 中 使用 RBAC，將適當的角色指派給使用者所指派身分識別的服務主體。 若要呼叫 Key Vault，請將 Key Vault 中特定祕密或金鑰的存取權授與您的程式碼。
 
    > [!Note]
@@ -99,9 +100,6 @@ Azure 訂用帳戶的 Azure AD 可免費使用適用於 Azure 資源的受控識
     - resource 參數指定將權杖傳送至哪個服務。 若要向 Azure Resource Manager 進行驗證，請使用 `resource=https://management.azure.com/`。
     - 用戶端識別碼參數會指定為其要求權杖的身分識別。 當單一 VM 上有多個使用者指派的身分識別時，需要此值才能釐清。
     - API 版本參數可指定 Azure 執行個體中繼資料服務版本。 使用 `api-version=2018-02-01` 或更高版本。
-
-> [!NOTE]
-> 您的程式碼也可以向 VM 擴充功能端點要求權杖，但這已列入規劃，即將淘汰。 如需 VM 擴充功能的詳細資訊，請參閱[從 VM 擴充功能移轉至 Azure IMDS 進行驗證](howto-migrate-vm-extension.md)。
 
 6. 使用步驟 3 所設定的用戶端識別碼和憑證，呼叫 Azure AD 以要求步驟 5 所指定的存取權杖。 Azure AD 會傳回 JSON Web 權杖 (JWT) 存取權杖。
 7. 您的程式碼會在呼叫上傳送存取權杖給支援 Azure AD 驗證的服務。

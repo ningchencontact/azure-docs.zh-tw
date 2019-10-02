@@ -1,21 +1,18 @@
 ---
-title: 快速入門：設定地區人工智慧
-titleSuffix: Azure Data Science Virtual Machine
-description: 了解如何建立及設定「地區 AI 資料科學虛擬機器」。 「地區 AI 資料科學虛擬機器」會提供工具，可讓您使用地理資料來建立 AI 和 ML 解決方案。
-keywords: 深度學習、AI、資料科學工具、資料科學虛擬機器、地理空間分析
-services: machine-learning
+title: 快速入門：建立 Geo AI DSVM
+description: 在 Azure 上設定和建立 Geo AI 資料科學虛擬機器，以進行地理空間分析和機器學習。
 ms.service: machine-learning
 ms.subservice: data-science-vm
-author: vijetajo
-ms.author: vijetaj
+author: gvashishtha
+ms.author: gopalv
 ms.topic: quickstart
-ms.date: 03/05/2018
-ms.openlocfilehash: 7afeec3f71cd1af30093801fedabf3f0357ae3d0
-ms.sourcegitcommit: 5f67772dac6a402bbaa8eb261f653a34b8672c3a
+ms.date: 09/13/2019
+ms.openlocfilehash: 6b32d1f76091d7bbb8f870402020d0ac247d425b
+ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/01/2019
-ms.locfileid: "70208053"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71170718"
 ---
 # <a name="quickstart-set-up-a-geo-artificial-intelligence-virtual-machine-on-azure"></a>快速入門：在 Azure 上設定地區人工智慧虛擬機器 
 

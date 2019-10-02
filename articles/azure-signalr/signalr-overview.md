@@ -6,12 +6,12 @@ ms.service: signalr
 ms.topic: overview
 ms.date: 06/20/2019
 ms.author: zhshang
-ms.openlocfilehash: dc7ba3585ec49921c0a0e66185fc5550d3d4a006
-ms.sourcegitcommit: 82efacfaffbb051ab6dc73d9fe78c74f96f549c2
+ms.openlocfilehash: e7bdc62f7fa46bbacce7f264d8f331ea64b05430
+ms.sourcegitcommit: a6718e2b0251b50f1228b1e13a42bb65e7bf7ee2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67303632"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71273700"
 ---
 # <a name="what-is-azure-signalr-service"></a>什麼是 Azure SignalR 服務？
 
@@ -32,7 +32,7 @@ Azure SignalR Service 已經運用在各種不同的產業中，需要即時內�
 * **儀表板和監視：** 公司儀表板、金融市場資料、立即銷售更新、多玩家遊戲排行榜和 IoT 監視。
 * **聊天：** 即時聊天室、聊天機器人、線上客戶支援、即時購物助理、Messenger、遊戲中的交談等等。
 * **地圖上的即時位置：** 物流追蹤、傳遞狀態追蹤、運輸狀態更新、GPS 應用程式。
-* **即時目標廣告：** 個人化讀取時間推播廣告和供應項目、互動式廣告。
+* **即時目標廣告：** 個人化即時推播廣告和供應項目、互動式廣告。
 * **共同作業應用程式：** 共同創作、白板應用程式和小組會議軟體。
 * **推播通知：** 社交網路、電子郵件、遊戲、旅遊警示。
 * **即時廣播：** 即時音訊/視訊廣播、即時隱藏式輔助字幕、轉譯、事件/新聞廣播。

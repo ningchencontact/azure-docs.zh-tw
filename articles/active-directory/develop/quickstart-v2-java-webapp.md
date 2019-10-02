@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 08/11/2019
+ms.date: 09/18/2019
 ms.author: sagonzal
 ms.custom: aaddev
-ms.openlocfilehash: 22d65d20220bfda821fe255e08dd056b761a828d
-ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
+ms.openlocfilehash: 82a5054a98a5b77cf996be1fddd6502b8f3146bc
+ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71086984"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71120503"
 ---
 # <a name="quickstart-add-sign-in-with-microsoft-to-a-java-web-app"></a>快速入門：將「使用 Microsoft 登入」新增至 Java Web 應用程式
 
@@ -34,8 +34,8 @@ ms.locfileid: "71086984"
 
 ## <a name="prerequisites"></a>必要條件
 
-若要執行此範例，您將需要： 
-- Java 開發套件 (JDK) 8 或更新版本及 Maven。
+若要執行此範例，您將需要：
+- [Java 開發套件 (JDK)](https://openjdk.java.net/) 8 或更新版本，以及 [Maven](https://maven.apache.org/)。
 
 > [!div renderon="docs"]
 > ## <a name="register-and-download-your-quickstart-app"></a>註冊並下載快速入門應用程式

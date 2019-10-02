@@ -7,12 +7,12 @@ ms.service: lighthouse
 ms.date: 09/19/2019
 ms.topic: overview
 manager: carmonm
-ms.openlocfilehash: 4a1adf1be8798f4bb21b89ff0654287a2958146e
-ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
+ms.openlocfilehash: 4781126bc4fcfb6391db42a75553a13e0e4cc4f9
+ms.sourcegitcommit: 116bc6a75e501b7bba85e750b336f2af4ad29f5a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71105254"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71155141"
 ---
 # <a name="publish-a-managed-services-offer-to-azure-marketplace"></a>將受控服務供應項目發佈到 Azure Marketplace
 
@@ -24,6 +24,8 @@ ms.locfileid: "71105254"
 > 如果您不想將供應項目發佈至 Azure Marketplace，您可以使用 Azure Resource Manager 範本手動讓客戶上線。 如需詳細資訊，請參閱[讓客戶在 Azure 委派的資源管理中上線](onboard-customer.md)。
 
 發佈受控服務供應項目，類似於將任何其他類型供應項目發佈至 Azure Marketplace。 若要了解該程序，請參閱 [Azure Marketplace 和 Azure Marketplace 和 AppSource 發行指南](https://docs.microsoft.com/azure/marketplace/marketplace-publishers-guide) \(部分機器翻譯\) 和[管理 Azure 與 AppSource Marketplace 供應項目](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/manage-offers/cpp-manage-offers) \(部分機器翻譯\)。 您也應檢閱[商業市集認證原則](https://docs.microsoft.com/legal/marketplace/certification-policies)，尤其是[受控服務](https://docs.microsoft.com/legal/marketplace/certification-policies#700-managed-services)一節。
+
+當客戶新增您的供應項目時，他們將能夠[委派一個或多個特定訂用帳戶或資源群組](#the-customer-onboarding-process)，然後讓這些項目上線，以進行 Azure 委派的資源管理。 請注意，在訂用帳戶 (或訂用帳戶內的資源群組) 可以上線之前，訂用帳戶必須藉由手動註冊 **Microsoft.ManagedServices** 資源提供者來獲得上線的權限。
 
 > [!IMPORTANT]
 > 受控服務供應項目中的每個方案都包含 [資訊清單詳細資料]  ，您會為購買方案的客戶，在此區段中定義租用戶中能存取委派資源群組和/或訂閱的 Azure Active Directory (Azure AD) 項目。 請務必注意，您在此處包含的任何群組 (或使用者或服務主體)，都與購買方案的客戶有相同權限。 若要指派不同群組來搭配每個客戶一起使用，您必須發佈每個客戶專屬的個別私人方案。

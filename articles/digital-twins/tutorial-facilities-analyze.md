@@ -6,14 +6,14 @@ author: alinamstanciu
 ms.custom: seodec18
 ms.service: digital-twins
 ms.topic: tutorial
-ms.date: 08/05/2019
+ms.date: 09/23/2019
 ms.author: alinast
-ms.openlocfilehash: 0244d6ac51b7cad6b74139c39914223928e2b627
-ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
+ms.openlocfilehash: db62d2209207a807570e971ef4af5f9b10b06cb8
+ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68827827"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71300071"
 ---
 # <a name="tutorial-visualize-and-analyze-events-from-your-azure-digital-twins-spaces-by-using-time-series-insights"></a>教學課程：使用時間序列深入解析對來自 Azure Digital Twins 空間的事件進行視覺化檢視和分析
 
@@ -23,7 +23,7 @@ ms.locfileid: "68827827"
 
 本教學課程示範如何將來自 Azure Digital Twins 的通知和資料與 Azure Time Series Insights 進行整合。 然後，您便可將一段時間的感應器數值視覺化。 您可以尋找其中的趨勢，例如，哪個房間最常使用，以及一天當中的哪個時間最忙碌。 您也可以偵測異常，例如哪些房間感覺變得更悶熱，或是建築物中的某個區域是否一直傳送高溫度值，而表示空調故障。
 
-在本教學課程中，您了解如何：
+在本教學課程中，您會了解如何：
 
 > [!div class="checklist"]
 > * 使用 Azure 事件中樞來串流資料。
@@ -37,6 +37,9 @@ ms.locfileid: "68827827"
 - 執行中的 Digital Twins 執行個體。
 - 在工作電腦上下載並解壓縮 [Digital Twins C# 範例](https://github.com/Azure-Samples/digital-twins-samples-csharp)。
 - 在開發電腦上安裝 [.NET Core SDK 2.1.403 版或更新版本](https://www.microsoft.com/net/download)，以執行範例。 執行 `dotnet --version` 來確認是否已安裝正確版本。
+
+> [!TIP]
+> 如果您要佈建新的執行個體，請使用唯一的 Digital Twins 執行個體名稱。
 
 ## <a name="stream-data-by-using-event-hubs"></a>使用事件中樞來串流資料
 
@@ -54,10 +57,10 @@ ms.locfileid: "68827827"
 
 1. 在事件中樞命名空間部署中，選取 [概觀]  窗格，然後選取 [移至資源]  。
 
-    ![部署後的事件中樞命名空間](./media/tutorial-facilities-analyze/open-event-hub-ns.png)
+    [![部署後的事件中樞命名空間](./media/tutorial-facilities-analyze/open-event-hub-ns.png)](./media/tutorial-facilities-analyze/open-event-hub-ns.png#lightbox)
 
 1. 在事件中樞命名空間的 [概觀]  窗格中，選取頂端的 [事件中樞]  按鈕。
-    ![事件中樞按鈕](./media/tutorial-facilities-analyze/create-event-hub.png)
+    [![事件中樞按鈕](./media/tutorial-facilities-analyze/create-event-hub.png)](./media/tutorial-facilities-analyze/create-event-hub.png#lightbox)
 
 1. 輸入事件中樞的 [名稱]  ，然後選取 [建立]  。
 
@@ -65,13 +68,13 @@ ms.locfileid: "68827827"
 
 1. 選取頂端的 [取用者群組]  按鈕，然後為取用者群組輸入名稱，例如 **tsievents**。 選取 [建立]  。
 
-    ![事件中樞取用者群組](./media/tutorial-facilities-analyze/event-hub-consumer-group.png)
+    [![事件中樞取用者群組](./media/tutorial-facilities-analyze/event-hub-consumer-group.png)](./media/tutorial-facilities-analyze/event-hub-consumer-group.png#lightbox)
 
    取用者群組建立好之後，便會出現在事件中樞 [概觀]  窗格底部的清單中。
 
 1. 開啟事件中樞的 [共用存取原則]  窗格，然後選取 [新增]  按鈕。 輸入 **ManageSend** 作為原則名稱，確定所有核取方塊皆已選取，然後選取 [建立]  。
 
-    ![事件中樞連接字串](./media/tutorial-facilities-analyze/event-hub-connection-strings.png)
+    [![事件中樞連接字串](./media/tutorial-facilities-analyze/event-hub-connection-strings.png)](./media/tutorial-facilities-analyze/event-hub-connection-strings.png#lightbox)
 
 1. 開啟所建立的 ManageSend 原則，然後將 [連接字串 - 主要金鑰]  和 [連接字串 - 次要金鑰]  的值複製到暫存檔。 下一節在建立事件中樞的端點時需要用到這些值。
 
@@ -124,21 +127,21 @@ ms.locfileid: "68827827"
 
    此命令會為事件中樞建立兩個端點。
 
-   ![事件中樞的端點](./media/tutorial-facilities-analyze/dotnet-create-endpoints.png)
+   [![事件中樞的端點](./media/tutorial-facilities-analyze/dotnet-create-endpoints.png)](./media/tutorial-facilities-analyze/dotnet-create-endpoints.png#lightbox)
 
 ## <a name="analyze-with-time-series-insights"></a>使用時間序列深入解析來進行分析
 
 1. 在 [Azure 入口網站](https://portal.azure.com)的左側窗格中，選取 [建立資源]  。 
 
-1. 搜尋並選取新的**時間序列深入解析**資源。 選取 [建立]  。
+1. 搜尋並選取 [時間序列深入解析]  公開上市 (GA) 資源。 選取 [建立]  。
 
 1. 輸入時間序列深入解析執行個體的**名稱**，然後選取 [訂用帳戶]  。 選取用於 Digital Twins 執行個體的 [資源群組]  ，以及您的 [位置]  。 完成時，選取 [下一步:**事件來源**] 按鈕或 [事件來源]  索引標籤。
 
-    ![用於建立時間序列深入解析執行個體的選取項目](./media/tutorial-facilities-analyze/create-tsi.png)
+    [![用於建立時間序列深入解析執行個體的選取項目](./media/tutorial-facilities-analyze/create-tsi.png)](./media/tutorial-facilities-analyze/create-tsi.png#lightbox)
 
 1. 在 [事件來源]  索引標籤上輸入**名稱**，並選取 [事件中樞]  作為 [來源類型]  ，然後確定其他值都已正確地選取。 選取 [ManageSend]  作為 [事件中樞存取原則名稱]  ，然後選取您在上一節建立的取用者群組來作為 [事件中樞取用者群組]  。 選取 [檢閱 + 建立]  。
 
-    ![用於建立事件來源的選取項目](./media/tutorial-facilities-analyze/tsi-event-source.png)
+    [![用於建立事件來源的選取項目](./media/tutorial-facilities-analyze/tsi-event-source.png)](./media/tutorial-facilities-analyze/tsi-event-source.png#lightbox)
 
 1. 在 [檢閱 + 建立]  窗格中，檢閱您所輸入的資訊，然後選取 [建立]  。
 
@@ -150,13 +153,13 @@ ms.locfileid: "68827827"
 
 1. 產生幾個模擬事件後，返回時間序列深入解析總管，並選取頂端的 [重新整理] 按鈕。 您應該會看到系統已針對模擬感應器資料建立了分析圖表。 
 
-    ![時間序列深入解析總管中的圖表](./media/tutorial-facilities-analyze/tsi-explorer.png)
+    [![時間序列深入解析總管中的圖表](./media/tutorial-facilities-analyze/tsi-explorer.png)](./media/tutorial-facilities-analyze/tsi-explorer.png#lightbox)
 
 1. 在時間序列深入解析總管中，您接著可以針對來自房間、感應器和其他資源的不同事件和資料，產生圖表和熱度圖。 使用左側的 [量值]  和 [分割依據]  下拉式方塊，來建立您自己的視覺效果。 
 
    例如，選取 [事件]  作為 [量值]  並選取 [DigitalTwins-SensorHardwareId]  作為 [分割依據]  ，來為每個感應器產生熱度圖。 熱度圖將類似下圖：
 
-   ![時間序列深入解析總管中的熱度圖](./media/tutorial-facilities-analyze/tsi-explorer-heatmap.png)
+   [![時間序列深入解析總管中的熱度圖](./media/tutorial-facilities-analyze/tsi-explorer-heatmap.png)](./media/tutorial-facilities-analyze/tsi-explorer-heatmap.png#lightbox)
 
 ## <a name="clean-up-resources"></a>清除資源
 

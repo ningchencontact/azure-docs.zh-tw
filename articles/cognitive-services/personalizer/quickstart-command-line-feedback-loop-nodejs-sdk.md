@@ -10,12 +10,12 @@ ms.subservice: personalizer
 ms.topic: quickstart
 ms.date: 09/12/2019
 ms.author: diberry
-ms.openlocfilehash: 49fa2cd53ebefa811673ea25a1851081f8cfa415
-ms.sourcegitcommit: dd69b3cda2d722b7aecce5b9bd3eb9b7fbf9dc0a
+ms.openlocfilehash: ab593ae33f11fe3e39846c50e9f43f73f80894ba
+ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70958928"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71265969"
 ---
 # <a name="quickstart-personalize-client-library-for-nodejs"></a>快速入門：適用於 Node.js 的個人化工具用戶端程式庫
 
@@ -143,6 +143,11 @@ npm install @azure/ms-rest-azure-js @azure/ms-rest-js readline-sync uuid --save
 [!code-javascript[Create the learning loop](~/samples-personalizer/quickstarts/node/sample.js?name=mainLoop)]
 
 請仔細查看下列各節中的排名和報酬呼叫。
+
+新增下列方法，以在執行程式碼檔案之前，[取得內容選項](#get-content-choices-represented-as-actions)：
+
+* getActionsList
+* getContextFeaturesList
 
 ## <a name="request-a-rank"></a>要求排名
 
