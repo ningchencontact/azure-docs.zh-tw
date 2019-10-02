@@ -13,7 +13,7 @@ ms.subservice: B2C
 ms.custom: fasttrack-edit
 ms.openlocfilehash: a8e35254a79ac43b35f45d1a20f3d1f6815f32be
 ms.sourcegitcommit: 6fe40d080bd1561286093b488609590ba355c261
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 10/01/2019
 ms.locfileid: "71702814"
