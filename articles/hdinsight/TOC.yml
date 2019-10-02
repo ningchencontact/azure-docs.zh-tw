@@ -17,6 +17,8 @@
           href: ./hdinsight-administer-use-dotnet-sdk.md
         - name: 管理 HDInsight 叢集 - Powershell
           href: ./hdinsight-administer-use-powershell.md
+        - name: 建置 ETL 管線
+          href: ./hdinsight-sales-insights-etl.md
     - name: 範例
       items:
         - name: Azure CLI 範例

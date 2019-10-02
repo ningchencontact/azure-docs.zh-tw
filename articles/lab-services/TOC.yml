@@ -70,6 +70,14 @@
               href: devtest-lab-use-claim-capabilities.md
 - name: 使用說明指南
   items:
+    - name: 教室實驗室 - 類別類型
+      items:
+        - name: 類別類型
+          href: classroom-labs/class-types.md
+        - name: 在自然處理的狀態下進行深度學習
+          href: classroom-labs/class-type-deep-learning-natural-processing.md
+        - name: Linux 上的殼層指令碼
+          href: classroom-labs/class-type-shell-scripting-linux.md
     - name: 教室實驗室
       items:
         - name: 建立及設定實驗室帳戶 (實驗室帳戶擁有者)

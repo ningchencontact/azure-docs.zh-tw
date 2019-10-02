@@ -2,7 +2,7 @@
   href: index.yml
 - name: 概觀
   items:
-    - name: 什麼是 Azure 資料庫移轉服務 (DMS)？
+    - name: 何謂 Azure 資料庫移轉服務？
       href: dms-overview.md
 - name: 快速入門
   items:
@@ -10,41 +10,41 @@
       href: quickstart-create-data-migration-service-portal.md
 - name: 教學課程
   items:
-    - name: 將 SQL Server 離線遷移至 Azure SQL DB
+    - name: 將 SQL Server 離線遷移到 Azure SQL DB 單一資料庫
       href: tutorial-sql-server-to-azure-sql.md
-    - name: 將 SQL Server 線上遷移至 Azure SQL DB
+    - name: 將 SQL Server 線上遷移到 Azure SQL DB 單一資料庫
       href: tutorial-sql-server-azure-sql-online.md
-    - name: 將 SQL Server 離線遷移至 Azure SQL DB 受控執行個體
+    - name: 將 SQL Server 離線遷移到 Azure SQL DB 受控執行個體
       href: tutorial-sql-server-to-managed-instance.md
-    - name: 將 SQL Server 線上遷移 Azure SQL DB 受控執行個體
+    - name: 將 SQL Server 線上遷移到 Azure SQL DB 受控執行個體
       href: tutorial-sql-server-managed-instance-online.md
-    - name: 將 RDS SQL Server 線上遷移至 Azure SQL D 或 Azure SQL DB 受控執行個體
+    - name: 將 RDS SQL Server 線上遷移到 Azure SQL DB 單一資料庫或 Azure SQL DB 受控執行個體
       href: tutorial-rds-sql-server-azure-sql-and-managed-instance-online.md
     - name: 將 MySQL 線上遷移至適用於 MySQL 的 Azure DB
       href: tutorial-mysql-azure-mysql-online.md
     - name: 將 RDS MySQL 線上遷移至適用於 MySQL 的 Azure DB
       href: tutorial-rds-mysql-server-azure-db-for-mysql-online.md
-    - name: 將PostgreSQL 線上遷移至適用於 PostgreSQL 的 Azure DB
+    - name: 將 PostgreSQL 線上遷移到適用於 PostgreSQL 的 Azure DB
       href: tutorial-postgresql-azure-postgresql-online.md
-    - name: 將RDS PostgreSQL 線上遷移至適用於 PostgreSQL 的 Azure DB
+    - name: 將 RDS PostgreSQL 線上遷移到適用於 PostgreSQL 的 Azure DB
       href: tutorial-rds-postgresql-server-azure-db-for-postgresql-online.md
     - name: 將 MongoDB 離線遷移至 Azure Cosmos DB Mongo API
       href: tutorial-mongodb-cosmos-db.md
     - name: 將 MongoDB 線上遷移至 Azure Cosmos DB Mongo API
       href: tutorial-mongodb-cosmos-db-online.md
-    - name: 在線上將 Oracle 遷移至適用於 PostgreSQL 的 Azure 資料庫
+    - name: 將 Oracle 線上遷移到適用於 PostgreSQL 單一伺服器的 Azure 資料庫
       href: tutorial-oracle-azure-postgresql-online.md
 - name: 使用說明指南
   items:
-    - name: 使用 PowerShell 將 SQL Server 遷移至 Azure SQL DB
+    - name: 使用 PowerShell 將 SQL Server 遷移到 Azure SQL DB 單一資料庫
       href: howto-sql-server-to-azure-sql-powershell.md
-    - name: 使用 PowerShell 將 SQL Server 遷移至 Azure SQL DB 受控執行個體
+    - name: 使用 PowerShell 將 SQL Server 遷移到 Azure SQL DB 受控執行個體
       href: howto-sql-server-to-azure-sql-mi-powershell.md
     - name: 監視移轉活動
       href: how-to-monitor-migration-activity.md
-    - name: 將 SSIS 套件遷移至 Azure SQL Database
+    - name: 將 SSIS 套件重新部署到 Azure SQL Database 單一資料庫
       href: how-to-migrate-ssis-packages.md
-    - name: 將 SSIS 套件遷移至 Azure SQL Database 受控執行個體
+    - name: 將 SSIS 套件重新部署到 Azure SQL Database 受控執行個體
       href: how-to-migrate-ssis-packages-managed-instance.md
 - name: 資源
   expanded: true
@@ -61,11 +61,11 @@
           href: known-issues-troubleshooting-dms-source-connectivity.md
         - name: 針對常見問題和錯誤進行疑難排解
           href: known-issues-troubleshooting-dms.md
-        - name: 已知問題 - 線上移轉至 Azure SQL DB
+        - name: 已知問題 - 線上移轉至 Azure SQL DB 單一資料庫
           href: known-issues-azure-sql-online.md
         - name: 已知問題 - 線上移轉至適用於 MySQL 的 Azure DB
           href: known-issues-azure-mysql-online.md
-        - name: 已知問題 - 線上移轉至適用於 PostgreSQL 的 Azure DB
+        - name: 已知問題 - 線上移轉至適用於 PostgreSQL 單一資料庫的 Azure DB
           href: known-issues-azure-postgresql-online.md
     - name: 影片
       items:
@@ -89,7 +89,7 @@
       items:
         - name: 資料移轉案例可用的服務和工具
           href: dms-tools-matrix.md
-        - name: 資料庫移轉指南
+        - name: Azure 資料庫移轉指南
           href: 'https://aka.ms/datamigration'
         - name: Data Migration Assistant
           href: 'https://aka.ms/dma'
@@ -97,6 +97,8 @@
           href: 'https://aka.ms/ssma'
         - name: 資料庫測試助理
           href: 'https://aka.ms/dea-docs'
+        - name: 資料存取移轉工具組
+          href: 'https://marketplace.visualstudio.com/items?itemName=ms-databasemigration.data-access-migration-toolkit'
     - name: 常見問題集
       href: faq.md
     - name: User Voice 意見反應

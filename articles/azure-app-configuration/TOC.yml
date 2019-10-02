@@ -25,6 +25,8 @@
       items:
         - name: ASP.NET Core
           href: quickstart-feature-flag-aspnet-core.md
+        - name: Java Spring
+          href: quickstart-feature-flag-spring-boot.md
 - name: 教學課程
   items:
     - name: 啟用 ASP.NET Core 中的動態組態
@@ -33,6 +35,8 @@
       href: enable-dynamic-configuration-dotnet-core.md
     - name: 在 .NET Core 應用程式中使用功能旗標
       href: use-feature-flags-dotnet-core.md
+    - name: 在 Spring Boot 應用程式中使用功能旗標
+      href: use-feature-flags-spring-boot.md
     - name: 管理功能旗標
       href: manage-feature-flags.md
     - name: 與 CI/CD 管線整合
