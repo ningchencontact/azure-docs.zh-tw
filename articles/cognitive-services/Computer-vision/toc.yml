@@ -113,7 +113,7 @@
       href: concept-generating-thumbnails.md
     - name: 印刷和手寫文字辨識
       href: concept-recognizing-text.md
-    - name: 成人和猥褻內容偵測
+    - name: 成人內容偵測
       href: concept-detecting-adult-content.md
 - name: 使用說明指南
   items:

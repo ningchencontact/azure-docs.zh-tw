@@ -27,6 +27,8 @@
           href: tutorial-geofence.md
         - name: 空間分析
           href: tutorial-iot-hub-maps.md
+        - name: 使用 Azure Notebooks 進行 EV 路由 (Python)
+          href: tutorial-ev-routing.md
 - name: 概念
   items:
     - name: 向 Azure 地圖服務驗證

@@ -9,13 +9,13 @@ metadata:
   ms.topic: landing-page
   author: PatAltimore
   ms.author: patricka
-  ms.date: 08/29/2019
-  ms.openlocfilehash: 58aba8438b49b034fc78a8814869e819804cff1c
-  ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
+  ms.date: 09/18/2019
+  ms.openlocfilehash: f0abf5d3c81f7bd81c4fef6a15f34f753c1e1a24
+  ms.sourcegitcommit: a19f4b35a0123256e76f2789cd5083921ac73daf
   ms.translationtype: HT
   ms.contentlocale: zh-TW
-  ms.lasthandoff: 09/12/2019
-  ms.locfileid: "70932816"
+  ms.lasthandoff: 10/02/2019
+  ms.locfileid: "71718544"
 landingContent:
 - title: 關於 Azure 區塊鏈服務
   linkLists:
@@ -63,6 +63,22 @@ landingContent:
       url: https://channel9.msdn.com/Shows/Blocktalk/Getting-started-with-Azure-Blockchain-Service-Part-III-Send-data-to-the-ledger
     - text: 發佈事件和總帳資料
       url: https://channel9.msdn.com/Shows/Blocktalk/Getting-started-with-Azure-Blockchain-Service-Part-IV-Publish-events-and-ledger-data
+- title: 整合
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: 使用 Azure Logic Apps 整合區塊鏈
+      url: ethereum-logic-app.md
+  - linkListType: video
+    links:
+    - text: 使用 Ethereum 區塊鏈連接器搭配 Azure Logic Apps
+      url: https://channel9.msdn.com/Shows/Blocktalk/Logic-Apps-Connector-to-Ethereum-Blockchain-Networks?term=logic%20apps%20blockchain&lang-en=true
+    - text: 使用 Azure Logic Apps 與區塊鏈連線的常見案例
+      url: https://channel9.msdn.com/Shows/Blocktalk/Doing-more-with-Logic-Apps?term=logic%20apps%20blockchain&lang-en=true
+    - text: 從智慧型合約產生 Web 服務
+      url: https://channel9.msdn.com/Shows/Blocktalk/Generating-Web-Services-from-Smart-Contracts-Based-on-Logic-Apps-Flows-and-Azure-Functions?term=logic%20apps%20blockchain&lang-en=true
+    - text: 將智慧合約事件發佈到 Azure 事件方格或 Azure 服務匯流排
+      url: https://channel9.msdn.com/Shows/Blocktalk/Generate-Logic-Apps-and-Flows-to-Publish-Smart-Contract-Events-to-Event-Grid-and-Service-Bus?term=logic%20apps%20blockchain&lang-en=true
 - title: 管理
   linkLists:
   - linkListType: how-to-guide
@@ -75,8 +91,6 @@ landingContent:
       url: configure-transaction-nodes.md
     - text: 設定 Active Directory 存取
       url: configure-aad.md
-- title: API
-  linkLists:
   - linkListType: reference
     links:
     - text: REST API

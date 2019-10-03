@@ -47,6 +47,8 @@
       href: manage-cli.md
     - name: 使用 PowerShell 管理聯盟
       href: manage-consortium-powershell.md
+    - name: 使用 Logic Apps
+      href: ethereum-logic-app.md
 - name: 資源
   items:
     - name: 區塊鏈 REST API

@@ -7,6 +7,12 @@
       items:
         - name: Linux 容器中的 Web 應用程式
           href: secure-web-app.md
+        - name: 包含 Azure Active Directory 的 Web 應用程式
+          href: secure-aad-app.md
+    - name: 符合產業規範的解決方案
+      items:
+        - name: 支付卡產業
+          href: secure-pci-web-app.md
 - name: 概念
   expanded: true
   items:

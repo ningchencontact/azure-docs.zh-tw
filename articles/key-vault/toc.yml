@@ -66,12 +66,12 @@
       items:
         - name: 安全性概觀
           href: overview-security.md
-        - name: 內建安全性控制
-          href: key-vault-security-controls.md
         - name: 安全性環境
           href: key-vault-ovw-security-worlds.md
         - name: 保護您的金鑰保存庫
           href: key-vault-secure-your-key-vault.md
+        - name: 內建安全性控制
+          href: key-vault-security-controls.md
     - name: 虛刪除
       href: key-vault-ovw-soft-delete.md
     - name: 節流
@@ -98,8 +98,12 @@
       items:
         - name: 建議
           href: security-recommendations.md
-    - name: 使用 App Service 受控識別
-      href: managed-identity.md
+    - name: Authentication
+      items:
+        - name: 使用 App Service 受控識別
+          href: managed-identity.md
+        - name: 使用存取控制原則
+          href: key-vault-group-permissions-for-apps.md
     - name: Azure Key Vault 記錄
       href: key-vault-logging.md
     - name: 防火牆後的存取
@@ -114,8 +118,6 @@
       href: key-vault-soft-delete-cli.md
     - name: 透過 Azure PowerShell 使用 Key Vault 虛刪除
       href: key-vault-soft-delete-powershell.md
-    - name: 使用群組以授與存取權
-      href: key-vault-group-permissions-for-apps.md
     - name: 設定防火牆和虛擬網路
       href: key-vault-network-security.md
     - name: Java 開發

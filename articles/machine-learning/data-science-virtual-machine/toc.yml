@@ -4,10 +4,12 @@
 - name: 概觀
   expanded: true
   items:
-    - name: 什麼是資料科學虛擬機器？
+    - name: 什麼是資料科學虛擬機器 (DSVM)？
       href: overview.md
     - name: 什麼是 Geo AI DSVM？
       href: geo-ai-dsvm-overview.md
+    - name: DSVM 中包含的工具
+      href: tools-included.md
 - name: 快速入門
   expanded: true
   items:
