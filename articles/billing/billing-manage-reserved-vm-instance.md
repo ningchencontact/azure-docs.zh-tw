@@ -135,7 +135,7 @@ ms.locfileid: "68840015"
 在 Azure 入口網站中，有一種方式可檢視保留使用量。
 
 1. 登入 [Azure 入口網站](https://portal.azure.com/)。
-2. 選取 [所有服務]   > [保留][  ](https://portal.azure.com/#blade/Microsoft_Azure_Reservations/ReservationsBrowseBlade)，並記下保留的 [使用率 (%)]  。  
+2. 選取 [所有服務]   > [**保留**](https://portal.azure.com/#blade/Microsoft_Azure_Reservations/ReservationsBrowseBlade)，並記下保留的 [使用率 (%)]  。  
   ![顯示保留清單的影像](./media/billing-manage-reserved-vm-instance/reservation-list.png)
 3. 選取保留。
 4. 檢閱一段時間的保留使用趨勢。  

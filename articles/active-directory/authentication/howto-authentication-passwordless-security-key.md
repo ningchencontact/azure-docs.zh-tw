@@ -87,7 +87,7 @@ ms.locfileid: "70305065"
 
 ## <a name="obtain-fido2-security-keys"></a>取得 FIDO2 安全性金鑰
 
-如需有關支援的金鑰和製造商的詳細資訊，請參閱 <<c0>什麼是無密碼？一節中的 < FIDO2 安全性金鑰。
+如需有關支援的金鑰和製造商的詳細資訊，請參閱 [什麼是無密碼？](concept-authentication-passwordless.md)一節中的 < FIDO2 安全性金鑰。
 
 > [!NOTE]
 > 如果您購買並計畫使用 NFC 型安全性金鑰，您將需要支援的 NFC 讀取器。
