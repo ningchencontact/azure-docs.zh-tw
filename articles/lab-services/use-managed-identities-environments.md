@@ -11,12 +11,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/01/2019
 ms.author: spelluru
-ms.openlocfilehash: fc06d5d36cb6004c79bec79838c8f0d51961d560
-ms.sourcegitcommit: a19f4b35a0123256e76f2789cd5083921ac73daf
-ms.translationtype: HT
+ms.openlocfilehash: d1dd059f1a6f9ce96b27d4fe1f214978dfc06a8f
+ms.sourcegitcommit: 80da36d4df7991628fd5a3df4b3aa92d55cc5ade
+ms.translationtype: MT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 10/02/2019
-ms.locfileid: "71720148"
+ms.locfileid: "71815993"
 ---
 # <a name="use-azure-managed-identities-to-deploy-environments-in-a-lab"></a>使用 Azure 受控識別在實驗室中部署環境 
 身為實驗室擁有者，您可以使用受控識別在實驗室中部署環境。 當環境包含或有 Azure 資源的參考（例如金鑰保存庫、共用映射資源庫，以及環境資源群組外部的網路）時，這項功能會很有説明。 它可讓您建立不限於該環境之資源群組的沙箱環境。
@@ -54,7 +54,7 @@ ms.locfileid: "71720148"
 1. 建立身分識別之後，請記下此身分識別的資源識別碼。 看起來應該如下列範例所示： 
 
     `/subscriptions/0000000000-0000-0000-0000-00000000000000/resourceGroups/<RESOURCE GROUP NAME> /providers/Microsoft.ManagedIdentity/userAssignedIdentities/<NAME of USER IDENTITY>`.
-1. 使用**Fiddler**，執行類似下列範例的 PUT 命令。 針對服務執行器名稱，建議您使用身分識別的名稱，即使您可以指定任何想要的名稱也一樣。 
+1. 執行 PUT Https 方法，將新的 `ServiceRunner` 資源加入至實驗室，如下列範例所示。 服務執行器資源是用來管理和控制 DevTest Labs 中受控識別的 proxy 資源。 服務執行器名稱可以是任何有效的名稱，但建議您使用受控識別資源的名稱。 
  
     ```json
     PUT https://management.azure.com/subscriptions/{subId}/resourceGroups/{rg}/providers/Microsoft.Devtestlab/labs/{yourlabname}/serviceRunners/{serviceRunnerName}

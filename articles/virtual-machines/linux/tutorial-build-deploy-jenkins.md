@@ -12,12 +12,12 @@ ms.workload: infrastructure
 ms.date: 07/31/2018
 ms.author: tarcher
 ms.custom: jenkins
-ms.openlocfilehash: a62a302748cb7e60b6a857c686d1833ad499cc7a
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 42e1ede7c762fef1f33436ea4c757b0c0531a8f2
+ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70081662"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71828436"
 ---
 # <a name="tutorial-deploy-your-app-to-linux-virtual-machines-in-azure-with-using-jenkins-and-azure-devops-services"></a>教學課程：使用 Jenkins 和 Azure DevOps Services 在 Azure 中將應用程式部署至 Linux 虛擬機器
 
@@ -54,7 +54,7 @@ ms.locfileid: "70081662"
 ## <a name="get-the-sample-app"></a>取得範例應用程式
 
 您需要可部署的應用程式 (儲存在 Git 存放庫)。
-在本教學課程中，我們建議您使用[從 GitHub 中取得的此範例應用程式](https://github.com/azooinmyluggage/fabrikam-node)。 本教學課程包含用於安裝 Node.js 和應用程式的範例指令碼。 如果您需要使用自己的存放庫，就應該設定類似的範例。
+在本教學課程中，我們建議您使用[從 GitHub 中取得的此範例應用程式](https://github.com/azure-devops/fabrikam-node)。 本教學課程包含用於安裝 Node.js 和應用程式的範例指令碼。 如果您需要使用自己的存放庫，就應該設定類似的範例。
 
 建立此應用程式的分支並記下位置 (URL)，此教學課程的後續步驟中會用到此位置。 如需詳細資訊，請參閱[分支存放庫](https://help.github.com/articles/fork-a-repo/)。    
 
@@ -77,7 +77,7 @@ ms.locfileid: "70081662"
 5. 回到 Jenkins 儀表板，然後選取 [管理 Jenkins]  。
 6. 選取 [Global Tool Configuration] (全域工具設定)  。 尋找 **NodeJS**，然後選取 [NodeJS installations] (NodeJS 安裝)  。
 7. 選取 [Install automatically] (自動安裝)  選項，然後輸入 [名稱]  值。
-8. 選取 [ **儲存**]。
+8. 選取 [儲存]  。
 
 ## <a name="configure-a-jenkins-freestyle-project-for-nodejs"></a>設定適用於 Node.js 的 Jenkins Freestyle 專案
 

@@ -5,20 +5,20 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: tutorial
-ms.date: 08/31/2019
+ms.date: 09/27/2019
 ms.author: victorh
-ms.openlocfilehash: b558384fe6bc86cd7b0ebd640407557e23f68ddd
-ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
+ms.openlocfilehash: 53a4fca0c05cd54bae6d01d07e72e1033a247a05
+ms.sourcegitcommit: e9936171586b8d04b67457789ae7d530ec8deebe
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70194572"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71327372"
 ---
 # <a name="tutorial-configure-an-application-gateway-with-ssl-termination-using-the-azure-portal"></a>教學課程：使用 Azure 入口網站設定包含 SSL 終止的應用程式閘道
 
 您可以使用 Azure 入口網站來設定[應用程式閘道](overview.md)，當中包含使用虛擬機器作為後端伺服器的 SSL 終止憑證。
 
-在本教學課程中，您了解如何：
+在本教學課程中，您會了解如何：
 
 > [!div class="checklist"]
 > * 建立自我簽署憑證
@@ -26,7 +26,7 @@ ms.locfileid: "70194572"
 > * 建立用來作為後端伺服器的虛擬機器
 > * 測試應用程式閘道
 
-如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 。
+如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)。
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -82,7 +82,7 @@ Export-PfxCertificate `
    - **資源群組**：選取 **myResourceGroupAG** 作為資源群組。 如果資源群組不存在，請選取 [新建]  加以建立。
    - **應用程式閘道名稱**：輸入 myAppGateway  作為應用程式閘道的名稱。
 
-     ![建立新的應用程式閘道：基本概念](./media/application-gateway-create-gateway-portal/application-gateway-create-basics.png)
+        ![建立新的應用程式閘道：基本概念](./media/application-gateway-create-gateway-portal/application-gateway-create-basics.png)
 
 2.  Azure 需要虛擬網路才能在您所建立的資源之間進行通訊。 您可以建立新的虛擬網路，或使用現有的虛擬網路。 在此範例中，您將會在建立應用程式閘道時，同時建立新的虛擬網路。 在不同的子網路中，建立應用程式閘道執行個體。 在此範例中您會建立兩個子網路：一個用於應用程式閘道，另一個用於後端伺服器。
 
@@ -98,7 +98,7 @@ Export-PfxCertificate `
 
     選取 [確定]  以關閉 [建立虛擬網路]  視窗並儲存虛擬網路設定。
 
-     ![建立新的應用程式閘道：虛擬網路](./media/application-gateway-create-gateway-portal/application-gateway-create-vnet.png)
+    ![建立新的應用程式閘道：虛擬網路](./media/application-gateway-create-gateway-portal/application-gateway-create-vnet.png)
     
 3. 在 [基本]  索引標籤上，接受其他設定的預設值，然後選取 [下一步:  前端]。
 
@@ -110,7 +110,7 @@ Export-PfxCertificate `
 
 2. 針對 [公用 IP 位址]  選擇 [新建]  ，然後針對公用 IP 位址名稱輸入 *myAGPublicIPAddress*，然後選取 [確定]  。 
 
-     ![建立新的應用程式閘道：前端](./media/application-gateway-create-gateway-portal/application-gateway-create-frontends.png)
+   ![建立新的應用程式閘道：前端](./media/application-gateway-create-gateway-portal/application-gateway-create-frontends.png)
 
 3. 完成時，選取 [下一步:  後端]。
 
@@ -127,7 +127,7 @@ Export-PfxCertificate `
 
 3. 在 [新增後端集區]  視窗中，選取 [新增]  以儲存後端集區設定，並返回 [後端]  索引標籤。
 
-     ![建立新的應用程式閘道：後端](./media/application-gateway-create-gateway-portal/application-gateway-create-backends.png)
+   ![建立新的應用程式閘道：後端](./media/application-gateway-create-gateway-portal/application-gateway-create-backends.png)
 
 4. 在 [後端]  索引標籤上，選取 [下一步:  設定]。
 
@@ -152,19 +152,19 @@ Export-PfxCertificate `
    - **憑證名稱** - 輸入 mycert1*mycert1* 作為憑證的名稱。
    - **密碼** - 輸入 *Azure123456!* 作為密碼。
   
-      接受 [接聽程式]  索引標籤上其他設定的預設值，然後選取 [後端目標]  索引標籤以設定其餘的路由規則。
+        接受 [接聽程式]  索引標籤上其他設定的預設值，然後選取 [後端目標]  索引標籤以設定其餘的路由規則。
 
-   ![建立新的應用程式閘道：接聽程式](./media/application-gateway-create-gateway-portal/application-gateway-create-rule-listener.png)
+   ![建立新的應用程式閘道：接聽程式](./media/create-ssl-portal/application-gateway-create-rule-listener.png)
 
 4. 在 [後端目標]  索引標籤上，針對 [後端目標]  選取 [myBackendPool]  。
 
 5. 針對 [HTTP 設定]  ，選取 [新建]  以建立新的 HTTP 設定。 HTTP 設定將會決定路由規則的行為。 在隨即開啟的 [新增 HTTP 設定]  視窗中，針對 [HTTP 設定名稱]  輸入 *myHTTPSetting*。 接受 [新增 HTTP 設定]  視窗中其餘設定的預設值，然後選取 [新增]  以返回 [新增路由規則]  視窗。 
 
-     ![建立新的應用程式閘道：HTTP 設定](./media/application-gateway-create-gateway-portal/application-gateway-create-httpsetting.png)
+   ![建立新的應用程式閘道：HTTP 設定](./media/create-ssl-portal/application-gateway-create-httpsetting.png)
 
 6. 在 [新增路由規則]  視窗上，選取 [新增]  以儲存路由規則，並返回 [設定]  索引標籤。
 
-     ![建立新的應用程式閘道：路由規則](./media/application-gateway-create-gateway-portal/application-gateway-create-rule-backends.png)
+   ![建立新的應用程式閘道：路由規則](./media/application-gateway-create-gateway-portal/application-gateway-create-rule-backends.png)
 
 7. 完成時，選取 [下一步:  標籤]，然後選取 [下一步:  檢閱 + 建立]。
 
@@ -195,9 +195,9 @@ Export-PfxCertificate `
     - **虛擬機器名稱**：輸入 myVM  作為虛擬機器的名稱。
     - **使用者名稱**：輸入 azureuser  作為系統管理員使用者名稱。
     - **密碼**：輸入Azure123456!  作為系統管理員密碼。
-4. 接受其他預設值，然後選取 [下一步：**磁碟]** 。  
+4. 接受其他預設值，然後選取 [下一步：  磁碟]。  
 5. 接受 [磁碟]  索引標籤的預設值，然後選取 [下一步：  網路功能]。
-6. 在 [網路]  索引標籤上，確認已選取 [myVNet]  作為[虛擬網路]  ，且 [子網路]  設為 [myBackendSubnet]  。 接受其他預設值，然後選取 [下一步：**管理]** 。
+6. 在 [網路]  索引標籤上，確認已選取 [myVNet]  作為[虛擬網路]  ，且 [子網路]  設為 [myBackendSubnet]  。 接受其他預設值，然後選取 [下一步：  管理]。
 
    「應用程式閘道」可與其虛擬網路外的執行個體進行通訊，但您需要確保具有 IP 連線能力。
 1. 在 [管理]  索引標籤上，將 [開機診斷]  設為 [關閉]  。 接受其他預設值，然後選取 [檢閱 + 建立]  。
@@ -214,17 +214,17 @@ Export-PfxCertificate `
 
 2. 執行下列命令以在虛擬機器上安裝 IIS： 
 
-    ```azurepowershell-interactive
-    Set-AzVMExtension `
-      -ResourceGroupName myResourceGroupAG `
-      -ExtensionName IIS `
-      -VMName myVM `
-      -Publisher Microsoft.Compute `
-      -ExtensionType CustomScriptExtension `
-      -TypeHandlerVersion 1.4 `
-      -SettingString '{"commandToExecute":"powershell Add-WindowsFeature Web-Server; powershell Add-Content -Path \"C:\\inetpub\\wwwroot\\Default.htm\" -Value $($env:computername)"}' `
-      -Location EastUS
-    ```
+   ```azurepowershell-interactive
+          Set-AzVMExtension `
+            -ResourceGroupName myResourceGroupAG `
+            -ExtensionName IIS `
+            -VMName myVM `
+            -Publisher Microsoft.Compute `
+            -ExtensionType CustomScriptExtension `
+            -TypeHandlerVersion 1.4 `
+            -SettingString '{"commandToExecute":"powershell Add-WindowsFeature Web-Server; powershell Add-Content -Path \"C:\\inetpub\\wwwroot\\Default.htm\" -Value $($env:computername)"}' `
+            -Location EastUS
+   ```
 
 3. 建立第二個虛擬機器，並使用您先前完成的步驟來安裝 IIS。 請使用 myVM2  作為虛擬機器名稱，並作為 **Set-AzVMExtension** Cmdlet 的 **VMName** 設定。
 
@@ -242,7 +242,7 @@ Export-PfxCertificate `
 
     ![新增後端伺服器](./media/application-gateway-create-gateway-portal/application-gateway-backend.png)
 
-6. 選取 [ **儲存**]。
+6. 選取 [儲存]  。
 
 7. 等候部署完成，再繼續進行下一個步驟。
 

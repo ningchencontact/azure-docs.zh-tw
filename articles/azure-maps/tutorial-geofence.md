@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: a020ef91e52a5d801557399df827d3641bfb974e
-ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
+ms.openlocfilehash: 176cde77810a1c75cc18c351969a128fa78348af
+ms.sourcegitcommit: 8bae7afb0011a98e82cbd76c50bc9f08be9ebe06
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70934194"
+ms.lasthandoff: 10/01/2019
+ms.locfileid: "71694916"
 ---
 # <a name="set-up-a-geofence-by-using-azure-maps"></a>使用 Azure 地圖服務設定地理柵欄
 
@@ -148,10 +148,24 @@ ms.locfileid: "70934194"
    }
    ```
 
-5. 按一下 [Send] (傳送)，然後檢視回應標頭。 位置標頭會包含可用來存取或下載資料以供未來使用的 URI。 其中也包含已上傳資料的唯一 `udId`。
+5. 按一下 [Send] (傳送)，然後檢視回應標頭。 要求成功時，[位置]  標頭將會包含狀態 URI，用以查看上傳要求目前的狀態。 狀態 URI 將是下列格式。 
 
    ```HTTP
-   https://atlas.microsoft.com/mapData/{udId}/status?api-version=1.0&subscription-key={Subscription-key}
+   https://atlas.microsoft.com/mapData/{uploadStatusId}/status?api-version=1.0
+   ```
+
+6. 複製您的狀態 URI 並為其附加 `subscription-key` 參數，使其值設為您的 Azure 地圖服務帳戶訂用帳戶金鑰。 狀態 URI 格式應會如下所示：
+
+   ```HTTP
+   https://atlas.microsoft.com/mapData/{uploadStatusId}/status?api-version=1.0&subscription-key={Subscription-key}
+   ```
+
+7. 若要取得 `udId`，請在 Postman 應用程式中開啟新的索引標籤，然後在 [建立器] 索引標籤上選取 GET HTTP 方法，並對狀態 URI 提出 GET 要求。 如果您的資料上傳成功，您將會在回應本文中收到 udId。 請複製 udId 以供稍後使用。
+
+   ```JSON
+   {
+    "udid" : "{udId}"
+   }
    ```
 
 ## <a name="set-up-an-event-handler"></a>設定事件處理常式

@@ -11,20 +11,18 @@ ms.topic: quickstart
 ms.date: 09/05/2019
 ms.author: erhopf
 zone_pivot_groups: programming-languages-set-one
-ms.openlocfilehash: 5202b86d5b665c39fbb93365928c928aad2f40c1
-ms.sourcegitcommit: 88ae4396fec7ea56011f896a7c7c79af867c90a1
+ms.openlocfilehash: fcbf6878be53d7aa6bf9569da194b4e90f2b10db
+ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70393884"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71827457"
 ---
 # <a name="quickstart-look-up-words-with-bilingual-dictionary"></a>快速入門：在雙語字典中查詢單字
 
 在本快速入門中，您將了解如何使用翻譯工具文字 API 取得字詞的替代翻譯，以及這些替代翻譯的使用範例。
 
 本快速入門需要 [Azure 認知服務帳戶](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account)和翻譯工具文字資源。 如果您還沒有帳戶，可以使用[免費試用](https://azure.microsoft.com/try/cognitive-services/)來取得訂用帳戶金鑰。
-
-[!INCLUDE [Custom subdomains notice](../../../includes/cognitive-services-custom-subdomains-note.md)]
 
 ::: zone pivot="programming-language-csharp"
 

@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 07/05/2019
 ms.author: wolfma
-ms.openlocfilehash: d7d35c251848af5cfd5852080d01831085401227
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 12abb7fb6d5e93e226ae539f8161566e3c30bd65
+ms.sourcegitcommit: 4f3f502447ca8ea9b932b8b7402ce557f21ebe5a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68554125"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71803336"
 ---
 # <a name="quickstart-recognize-speech-in-c-on-macos-by-using-the-speech-sdk"></a>快速入門：使用語音 SDK 在 macOS 上以 C++ 辨識語音
 
@@ -25,13 +25,11 @@ ms.locfileid: "68554125"
 
 ## <a name="prerequisites"></a>必要條件
 
-您需要語音服務訂用帳戶金鑰，才能完成本快速入門。 您可以免費取得一個金鑰。 如需詳細資訊，請參閱[免費試用語音服務](get-started.md)。
+您需要語音服務訂用帳戶金鑰，才能完成本快速入門。 您可以免費取得一個金鑰， 如需詳細資訊，請參閱[免費試用語音服務](get-started.md)。
 
 ## <a name="install-speech-sdk"></a>安裝語音 SDK
 
 [!INCLUDE [License Notice](../../../includes/cognitive-services-speech-service-license-notice.md)]
-
-認知服務語音 SDK 目前的版本為 `1.6.0`。
 
 適用於 macOS 的語音 SDK 可從 https://aka.ms/csspeech/macosbinary 以壓縮的架構組合形式下載。
 

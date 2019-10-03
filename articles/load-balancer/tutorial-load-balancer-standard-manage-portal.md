@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 03/11/2019
 ms.author: allensu
 ms.custom: seodec18
-ms.openlocfilehash: 22d0e56a77036c551b6006f43997c92fcce07499
-ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
+ms.openlocfilehash: a0887a66b6cb886419f86d93973b991151141e0a
+ms.sourcegitcommit: e9936171586b8d04b67457789ae7d530ec8deebe
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68273361"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71327211"
 ---
 # <a name="tutorial-load-balance-internet-traffic-to-vms-using-the-azure-portal"></a>教學課程：使用 Azure 入口網站針對網際網路至 VM 的流量進行負載平衡
 
@@ -34,11 +34,11 @@ ms.locfileid: "68273361"
 > * 檢視作用中的 Load Balancer
 > * 從 Load Balancer 中新增和移除 VM
 
-如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 。 
+如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)。 
 
 ## <a name="sign-in-to-the-azure-portal"></a>登入 Azure 入口網站
 
-在 [https://portal.azure.com](https://portal.azure.com) 登入 Azure 入口網站。
+登入 Azure 入口網站：[https://portal.azure.com](https://portal.azure.com)。
 
 ## <a name="create-a-standard-load-balancer"></a>建立標準負載平衡器
 
@@ -49,9 +49,9 @@ ms.locfileid: "68273361"
 
     | 設定                 | 值                                              |
     | ---                     | ---                                                |
-    | Subscription               | 選取您的訂用帳戶。    |    
-    | Resource group         | 選取 [新建]  ，並在文字方塊中輸入 *myResourceGroupSLB*。|
-    | Name                   | *myLoadBalancer*                                   |
+    | 訂用帳戶               | 選取您的訂用帳戶。    |    
+    | 資源群組         | 選取 [新建]  ，並在文字方塊中輸入 *myResourceGroupSLB*。|
+    | 名稱                   | *myLoadBalancer*                                   |
     | 區域         | 選取 [西歐]  。                                        |
     | 類型          | 選取 [公用]  。                                        |
     | SKU           | 選取 [標準]  。                          |
@@ -85,12 +85,11 @@ ms.locfileid: "68273361"
      
     | 設定 | 值 |
     | ------- | ----- |
-    | Name | 輸入 *myHealthProbe*。 |
+    | 名稱 | 輸入 *myHealthProbe*。 |
     | 通訊協定 | 選取 [HTTP]  。 |
     | Port | 輸入 *80*。|
     | 間隔 | 輸入 *15* 作為探查嘗試之間的 [間隔]  秒數。 |
     | 狀況不良臨界值 | 選取 [2]  作為 [狀況不良閾值]  的數值，或將 VM 視為狀況不良之前，必須達到的連續探查失敗次數。|
-    | 健全狀況探查 | 選取 [myHealthProbe]  。 |
     
 4. 選取 [確定]  。
 
@@ -104,7 +103,7 @@ ms.locfileid: "68273361"
 
     | 設定 | 值 |
     | ------- | ----- |
-    | Name | 輸入 *myHTTPRule*。 |
+    | 名稱 | 輸入 *myHTTPRule*。 |
     | 通訊協定 | 選取 [TCP]  。 |
     | Port | 輸入 *80*。|
     | 後端連接埠 | 輸入 *80*。 |
@@ -124,11 +123,11 @@ ms.locfileid: "68273361"
 
     | 設定 | 值 |
     | ------- | ----- |
-    | Name | 輸入 *myVNet*。 |
+    | 名稱 | 輸入 *myVNet*。 |
     | 位址空間 | 輸入 *10.1.0.0/16*。 |
-    | Subscription | 選取您的訂用帳戶。|
-    | Resource group | 選取現有的資源 - *myResourceGroupSLB*。 |
-    | Location | 選取 [西歐]  。|
+    | 訂用帳戶 | 選取您的訂用帳戶。|
+    | 資源群組 | 選取現有的資源 - *myResourceGroupSLB*。 |
+    | 位置 | 選取 [西歐]  。|
     | 子網路 - 名稱 | 輸入 *myBackendSubnet*。 |
     | 子網路 - 位址範圍 | 輸入 *10.1.0.0/24*。 |
     

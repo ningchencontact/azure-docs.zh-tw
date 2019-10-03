@@ -10,12 +10,12 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.service: active-directory
 ms.subservice: B2C
-ms.openlocfilehash: 87d46fad1c0a5494910a8218c4e40994fc140386
-ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
+ms.openlocfilehash: fd4bf602cb5ca409b957e9dbd6f963d88428a63f
+ms.sourcegitcommit: 8bae7afb0011a98e82cbd76c50bc9f08be9ebe06
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71103388"
+ms.lasthandoff: 10/01/2019
+ms.locfileid: "71694635"
 ---
 # <a name="tutorial-grant-access-to-an-aspnet-web-api-using-azure-active-directory-b2c"></a>教學課程：使用 Azure Active Directory B2C 授與存取 ASP.NET Web API 的權限
 
@@ -54,23 +54,13 @@ Web API 資源必須先在您的租用戶中註冊，才能接受及回應受到
 
 範圍可用來控管對受保護資源的存取。 Web API 可使用範圍來實作以範圍為基礎的存取控制。 例如，Web API 的使用者可以同時具有讀取和寫入權限，Web API 的使用者也可能只具有讀取權限。 在本教學課程中，您會使用範圍來定義 Web API 的讀取和寫入權限。
 
-1. 選取 [應用程式]  ，然後選取 [webapi1]  。
-2. 選取 [發佈的範圍]  。
-3. 針對 [範圍]  ，輸入 `Hello.Read`，以及輸入 `Read access to hello` 作為描述。
-4. 針對 [範圍]  ，輸入 `Hello.Write`，以及輸入 `Write access to hello` 作為描述。
-5. 按一下 [檔案]  。
-
-發佈的範圍可以用來為用戶端應用程式授與對 Web API 的權限。
+[!INCLUDE [active-directory-b2c-scopes](../../includes/active-directory-b2c-scopes.md)]
 
 ## <a name="grant-permissions"></a>授與權限
 
 若要從應用程式呼叫受保護的 Web API，您必須為應用程式授與對 API 的權限。 在必要的教學課程中，您已在 Azure AD B2C 中建立名為 *webapp1* 的 Web 應用程式。 您可使用此應用程式來呼叫 Web API。
 
-1. 選取 [應用程式]  ，然後選取 [webapp1]  。
-2. 選取 [API 存取]  ，然後選取 [新增]  。
-3. 在 [選取 API]  下拉式清單中，選取 [webapi1]  。
-4. 在 [選取範圍]  下拉式清單中，選取您先前定義的 **Hello.Read** 和 **Hello.Write** 範圍。
-5. 按一下 [確定]  。
+[!INCLUDE [active-directory-b2c-permissions-api](../../includes/active-directory-b2c-permissions-api.md)]
 
 您的應用程式會進行註冊，以呼叫受保護的 Web API。 使用者會透過 Azure AD B2C 進行驗證以使用應用程式。 該應用程式會從 Azure AD B2C 取得授權授與，以存取受保護的 Web API。
 
@@ -79,8 +69,6 @@ Web API 資源必須先在您的租用戶中註冊，才能接受及回應受到
 現在已註冊 Web API 且已定義範圍，您可設定 Web API 以使用您的 Azure AD B2C 租用戶。 在本教學課程中，您會設定範例 Web API。 您在必要的教學課程中下載的專案包含範例 Web API。
 
 範例方案中有兩個專案：
-
-範例解決方案中有下列兩個專案：
 
 * **TaskWebApp** - 建立和編輯工作清單。 此範例會使用**註冊或登入**使用者流程來註冊或登入使用者。
 * **TaskService** - 支援建立、讀取、更新和刪除工作清單功能。 此 API 會受到 Azure AD B2C 的保護，且由 TaskWebApp 呼叫。
@@ -99,8 +87,8 @@ Web API 資源必須先在您的租用戶中註冊，才能接受及回應受到
 
     ```csharp
     <add key="api:ApiIdentifier" value="https://<Your tenant name>.onmicrosoft.com/api/" />
-    <add key="api:ReadScope" value="Hello.Read" />
-    <add key="api:WriteScope" value="Hello.Write" />
+    <add key="api:ReadScope" value="demo.read" />
+    <add key="api:WriteScope" value="demo.write" />
     ```
 
 ### <a name="configure-the-web-api"></a>設定 Web API
@@ -128,8 +116,8 @@ Web API 資源必須先在您的租用戶中註冊，才能接受及回應受到
 1. 進行範圍設定以符合您在入口網站中建立的項目。
 
     ```csharp
-    <add key="api:ReadScope" value="Hello.Read" />
-    <add key="api:WriteScope" value="Hello.Write" />
+    <add key="api:ReadScope" value="demo.read" />
+    <add key="api:WriteScope" value="demo.write" />
     ```
 
 ## <a name="run-the-sample"></a>執行範例

@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-cassandra
 ms.topic: sample
 ms.date: 9/25/2019
-ms.openlocfilehash: fc635be68c87d29b21c41bb70aac4e3cbe34bcd3
-ms.sourcegitcommit: a6718e2b0251b50f1228b1e13a42bb65e7bf7ee2
+ms.openlocfilehash: 3615157543d826050b8adf0e6ae59bf62ad9cb1b
+ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71274915"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71827309"
 ---
 # <a name="update-rus-for-a-cassandra-keyspace-and-table-using-azure-cli"></a>使用 Azure CLI 更新 Cassandra Keyspace 和資料表的 RU/秒
 
@@ -44,7 +44,7 @@ az group delete --name $resourceGroupName
 | [az cosmosdb create](/cli/azure/cosmosdb#az-cosmosdb-create) | 建立 Azure Cosmos DB 帳戶。 |
 | [az cosmosdb cassandra keyspace create](/cli/azure/cosmosdb/cassandra/keyspace#az-cosmosdb-cassandra-keyspace-create) | 建立 Azure Cosmos Cassandra Keyspace。 |
 | [az cosmosdb cassandra table create](/cli/azure/cosmosdb/cassandra/table#az-cosmosdb-cassandra-table-create) | 建立 Azure Cosmos Cassandra 資料表。 |
-| [az cosmosdb cassandra keyspace throughput update](/cli/azure/cosmosdb/cassandra/keyspace/throughputaz-cosmosdb-cassandra-keyspace-throughput-update) | 更新 Azure Cosmos Cassandra Keyspace 的 RU/秒。 |
+| [az cosmosdb cassandra keyspace throughput update](/cli/azure/cosmosdb/cassandra/keyspace/throughput?view=azure-cli-latest#az-cosmosdb-cassandra-keyspace-throughput-update) | 更新 Azure Cosmos Cassandra Keyspace 的 RU/秒。 |
 | [az cosmosdb cassandra table throughput update](/cli/azure/cosmosdb/cassandra/table/throughput#az-cosmosdb-cassandra-table-throughput-update) | 更新 Azure Cosmos Cassandra 資料表的 RU/秒。 |
 | [az group delete](/cli/azure/resource#az-resource-delete) | 刪除資源群組，包括所有的巢狀資源。 |
 

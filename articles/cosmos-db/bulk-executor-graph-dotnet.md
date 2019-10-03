@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 05/28/2019
 ms.author: lbosq
 ms.reviewer: sngun
-ms.openlocfilehash: 127c12b6a36f31f91fdce3700c43e2602a5c0194
-ms.sourcegitcommit: 55e0c33b84f2579b7aad48a420a21141854bc9e3
+ms.openlocfilehash: 51bd14c536e46291c8720e6c22e2e03a30243ddf
+ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69624533"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71827279"
 ---
 # <a name="using-the-graph-bulk-executor-net-library-to-perform-bulk-operations-in-azure-cosmos-db-gremlin-api"></a>在 Azure Cosmos DB Gremlin API 中使用圖形大量執行程式 .NET 程式庫執行大量作業
 
@@ -73,7 +73,7 @@ catch (Exception e)
 }
 ```
 
-如需與大量執行程式程式庫的參數有關的詳細資訊，請參閱[對 Azure Cosmos DB 進行 BulkImportData 的主題](https://docs.microsoft.com/azure/cosmos-db/bulk-executor-dot-net#bulk-import-data-to-azure-cosmos-db)。
+如需與大量執行程式程式庫的參數有關的詳細資訊，請參閱[對 Azure Cosmos DB 進行 BulkImportData 的主題](bulk-executor-dot-net.md#bulk-import-data-to-an-azure-cosmos-account)。
 
 承載必須具現化為 `GremlinVertex` 和 `GremlinEdge` 物件。 這些物件的建立方式如下：
 

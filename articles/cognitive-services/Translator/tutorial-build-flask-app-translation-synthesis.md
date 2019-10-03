@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: tutorial
 ms.date: 06/04/2019
 ms.author: swmachan
-ms.openlocfilehash: cef747e82e7d039952bec73e822f28eab2adaa97
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 8d85db0e9aa9da48713ca0c119a12160cc99dbff
+ms.sourcegitcommit: 2d9a9079dd0a701b4bbe7289e8126a167cfcb450
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67434897"
+ms.lasthandoff: 09/29/2019
+ms.locfileid: "71671850"
 ---
 # <a name="tutorial-build-a-flask-app-with-azure-cognitive-services"></a>教學課程：建置採用 Azure 認知服務的 Flask 應用程式
 
@@ -262,7 +262,8 @@ def about():
    # Don't forget to replace with your Cog Services subscription key!
    # If you prefer to use environment variables, see Extra Credit for more info.
    subscription_key = 'YOUR_TRANSLATOR_TEXT_SUBSCRIPTION_KEY'
-
+   
+   # Don't forget to replace with your Cog Services location!
    # Our Flask route will supply two arguments: text_input and language_output.
    # When the translate text button is pressed in our Flask app, the Ajax request
    # will grab these values from our web app, and use them in the request.
@@ -275,6 +276,7 @@ def about():
 
        headers = {
            'Ocp-Apim-Subscription-Key': subscription_key,
+           'Ocp-Apim-Subscription-Region': 'location',
            'Content-type': 'application/json',
            'X-ClientTraceId': str(uuid.uuid4())
        }
@@ -470,7 +472,7 @@ flask run
 
 按 **CTRL + c** 以終止應用程式，然後前往下一節。
 
-## <a name="analyze-sentiment"></a>分析人氣
+## <a name="analyze-sentiment"></a>分析情感
 
 [文字分析 API](https://docs.microsoft.com/azure/cognitive-services/text-analytics/overview) 可用來執行情感分析、從文字中擷取關鍵片語，或偵測原始語言。 在此應用程式中，我們將使用情感分析來判斷提供的文字是正面、中性還是負面的。 此 API 會傳回 0 到 1 之間的數值分數。 接近 1 的分數表示正面情感；接近 0 的分數表示負面情感。
 
