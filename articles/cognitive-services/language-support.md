@@ -6,16 +6,16 @@ services: cognitive-services
 author: erhopf
 manager: nitinme
 ms.service: cognitive-services
-ms.topic: article
-ms.date: 06/16/2019
+ms.topic: conceptual
+ms.date: 09/26/2019
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: cd31215f578062548c67f8d14e724dc49f73b21c
-ms.sourcegitcommit: 4b5dcdcd80860764e291f18de081a41753946ec9
+ms.openlocfilehash: d6519ad5a130eee25ab17135e26d7207047dcf7a
+ms.sourcegitcommit: e9936171586b8d04b67457789ae7d530ec8deebe
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/03/2019
-ms.locfileid: "68775014"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71327266"
 ---
 # <a name="natural-language-support-for-azure-cognitive-services"></a>Microsoft 認知服務的自然語言支援
 
@@ -38,7 +38,7 @@ Azure 認知服務可讓您建置用來觀察、聆聽、了解使用者以及�
 * 西班牙文
 
 > [!NOTE]
-> ¹ LUIS 和影片索引子:不支援語音轉換文字。
+> ¹不支援 LUIS、影片索引子、文字分析和語音轉換文字。
 
 ## <a name="additional-language-availability-by-service"></a>其他語言可用性 (依服務)
 
@@ -88,10 +88,10 @@ Azure 認知服務可讓您建置用來觀察、聆聽、了解使用者以及�
 |---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
 | [Content Moderator：文字篩選](https://docs.microsoft.com/azure/cognitive-services/content-moderator/text-moderation-api-languages) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 
-下列認知服務與語言無關, 而且沒有以語言為基礎的限制。
+下列認知服務與語言無關，而且沒有以語言為基礎的限制。
 
-* [個人化工具 (預覽)](https://docs.microsoft.com/azure/cognitive-services/personalizer/)
-* [異常偵測器 (預覽)](https://docs.microsoft.com/azure/cognitive-services/anomaly-detector/overview)
+* [個人化工具（預覽）](https://docs.microsoft.com/azure/cognitive-services/personalizer/)
+* [異常偵測器（預覽）](https://docs.microsoft.com/azure/cognitive-services/anomaly-detector/overview)
 
 
 ## <a name="see-also"></a>另請參閱

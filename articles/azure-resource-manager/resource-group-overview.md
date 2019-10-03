@@ -6,12 +6,12 @@ ms.service: azure-resource-manager
 ms.topic: overview
 ms.date: 08/29/2019
 ms.author: tomfitz
-ms.openlocfilehash: 4f9591b26891ab36ccbfa34126fb1ac1bdb9cf52
-ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
+ms.openlocfilehash: f8ec833a469e3c3a9b4c88343a48e109fc5c9728
+ms.sourcegitcommit: e1b6a40a9c9341b33df384aa607ae359e4ab0f53
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70164803"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71338215"
 ---
 # <a name="azure-resource-manager-overview"></a>Azure Resource Manager 概觀
 
@@ -59,7 +59,7 @@ Azure Resource Manager 是 Azure 的部署和管理服務。 其提供管理層�
 
 ## <a name="understand-scope"></a>了解範圍
 
-Azure 提供四個範圍層級：[管理群組](../governance/management-groups/index.md)、訂用帳戶、[資源群組](#resource-groups)和資源。 下圖顯示這些層級的範例。
+Azure 提供四個範圍層級：[管理群組](../governance/management-groups/overview.md)、訂用帳戶、[資源群組](#resource-groups)和資源。 下圖顯示這些層級的範例。
 
 ![影響範圍](./media/resource-group-overview/scope-levels.png)
 

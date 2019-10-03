@@ -7,12 +7,12 @@ ms.date: 03/11/2019
 ms.topic: quickstart
 ms.service: blueprints
 manager: carmonm
-ms.openlocfilehash: 473e16c610e7dee0b2838cb1a54ef7cd98958889
-ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
+ms.openlocfilehash: 225f5cfe36daaafb7f6ab5d64e77c626e52edaac
+ms.sourcegitcommit: e1b6a40a9c9341b33df384aa607ae359e4ab0f53
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/03/2019
-ms.locfileid: "70232979"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71338202"
 ---
 # <a name="quickstart-define-and-assign-a-blueprint-in-the-portal"></a>快速入門：在入口網站中定義和指派藍圖
 
@@ -26,7 +26,7 @@ ms.locfileid: "70232979"
 > - 檢查指派的藍圖的狀態和進度
 > - 移除已指派給訂用帳戶的藍圖
 
-如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free) 。
+如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶](https://azure.microsoft.com/free)。
 
 ## <a name="create-a-blueprint"></a>建立藍圖
 
@@ -223,7 +223,7 @@ ms.locfileid: "70232979"
 
    1. 從下拉式清單中選取可用的**供應項目**。
 
-   1. 使用省略符號選取訂用帳戶將成為其子系的[管理群組](../management-groups/index.md)。
+   1. 使用省略符號選取訂用帳戶將成為其子系的[管理群組](../management-groups/overview.md)。
 
    1. 選取頁面底部的 [建立]  。
 

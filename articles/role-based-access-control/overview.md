@@ -14,12 +14,12 @@ ms.workload: identity
 ms.date: 09/11/2019
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: e7113508ff7fe5d3471b193bb8dadb7cdab5a7ca
-ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
+ms.openlocfilehash: ff539311139d7e9823a2d7db2f5d8ee56f9231b6
+ms.sourcegitcommit: e1b6a40a9c9341b33df384aa607ae359e4ab0f53
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/14/2019
-ms.locfileid: "70995305"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71338653"
 ---
 # <a name="what-is-role-based-access-control-rbac-for-azure-resources"></a>什麼是 Azure 資源的角色型存取控制 (RBAC)？
 
@@ -80,7 +80,7 @@ Azure 具有可讓您授與物件內資料存取權的資料作業。 例如，�
 
 「範圍」  是要套用存取權的一組資源。 當您指派角色時，可以藉由定義範圍來進一步限制動作。 如果您想要讓某位使用者成為[網站參與者](built-in-roles.md#website-contributor)，但僅限於某個資源群組，這會很實用。
 
-在 Azure 中，您可以在多個層級指定範圍：[管理群組](../governance/management-groups/index.md)、訂用帳戶、資源群組或資源。 範圍的結構為父子式關聯性。
+在 Azure 中，您可以在多個層級指定範圍：[管理群組](../governance/management-groups/overview.md)、訂用帳戶、資源群組或資源。 範圍的結構為父子式關聯性。
 
 ![角色指派的範圍](./media/overview/rbac-scope.png)
 

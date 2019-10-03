@@ -6,14 +6,14 @@ author: yashesvi
 manager: yashar
 ms.service: billing
 ms.topic: conceptual
-ms.date: 07/10/2019
+ms.date: 10/01/2019
 ms.author: banders
-ms.openlocfilehash: 99eb4de86aa227d558bec54d011a0b1548d27cf0
-ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
+ms.openlocfilehash: 5ceef76bd5a5f6a2904d3619f310020e90cbec0e
+ms.sourcegitcommit: a19f4b35a0123256e76f2789cd5083921ac73daf
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "67811254"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71719702"
 ---
 # <a name="optimize-azure-databricks-costs-with-a-pre-purchase"></a>使用預先購買來最佳化 Azure Databricks 成本
 
@@ -51,8 +51,8 @@ Databricks 預先購買會套用至所有 Databricks 工作負載和層級。 �
 1. 選取一個訂用帳戶。 使用 [訂用帳戶]  清單來選取用來支付保留容量的訂用帳戶。 訂用帳戶的付款方式為收取保留容量的預付費用。 費用會從註冊的承諾用量金額餘額扣除或作為超額部分收費。
 1. 選取範圍。 使用 [範圍]  清單來選取訂用帳戶範圍：
     - **單一資源群組範圍** - 只會將保留折扣套用至所選資源群組中的相符資源。
-    - **單一訂用帳戶範圍** - 會將保留折扣套用至所選訂用帳戶中的相符資源。
-    - **共用範圍** - 會將保留折扣套用至計費內容中合格訂用帳戶的相符資源。 針對 Enterprise 合約客戶，計費內容為註冊。
+    - **單一訂用帳戶範圍** — 會將保留折扣套用至所選訂用帳戶中的相符資源。
+    - **共用範圍** — 會將保留折扣套用至計費內容中合格訂用帳戶的相符資源。 針對 Enterprise 合約客戶，計費內容為註冊。
 1. 選取您想要購買多少 Azure Databricks 認可單位，並完成購買。
 
 

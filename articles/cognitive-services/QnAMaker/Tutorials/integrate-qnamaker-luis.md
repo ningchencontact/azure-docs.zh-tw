@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
-ms.date: 06/11/2019
+ms.date: 09/26/2019
 ms.author: diberry
 ms.custom: seodec18
-ms.openlocfilehash: 6605aa268a7ee7fe75254df5dbe96e9dfbc71d79
-ms.sourcegitcommit: a6718e2b0251b50f1228b1e13a42bb65e7bf7ee2
+ms.openlocfilehash: 7e1ea234bde96ce84259841bbc592bf6373bc639
+ms.sourcegitcommit: 4f3f502447ca8ea9b932b8b7402ce557f21ebe5a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71272424"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71802801"
 ---
 # <a name="use-bot-with-qna-maker-and-luis-to-distribute-your-knowledge-base"></a>使用 QnA Maker 與 LUIS 的 Bot 來散發您的知識庫
 隨著 QnA Maker 知識庫變得愈來愈大，整體而言相當難以維護，因此需要將知識庫分割成較小的邏輯區塊。
@@ -37,13 +37,13 @@ ms.locfileid: "71272424"
 1. [建立應用程式](https://docs.microsoft.com/azure/cognitive-services/luis/create-new-app)。
 1. 針對每個 QnA Maker 知識庫[新增意圖](https://docs.microsoft.com/azure/cognitive-services/luis/add-intents)。 範例語句應對應到 QnA Maker 知識庫中的問題。
 1. [訓練 LUIS 應用程式](https://docs.microsoft.com/azure/cognitive-services/luis/luis-how-to-train)並[發行 LUIS 應用程式](https://docs.microsoft.com/azure/cognitive-services/luis/publishapp)您的 LUIS 應用程式。
-1. 在 [管理] 區段中，記下您的 LUIS 應用程式識別碼、LUIS 端點金鑰和主機區域。 您稍後將需要這些值。 
+1. 在 [**管理**] 區段中，記下您的 LUIS 應用程式識別碼、LUIS 端點金鑰和[自訂功能變數名稱](../../cognitive-services-custom-subdomains.md)。 您稍後將需要這些值。 
 
 ## <a name="create-qna-maker-knowledge-bases"></a>建立 QnA Maker 知識庫
 
 1. 登入 [QnA Maker](https://qnamaker.ai)。
 1. 針對 LUIS 應用程式中的每個意圖[建立](https://www.qnamaker.ai/Create)知識庫。
-1. 測試並發佈知識庫。 當您發行每個 KB 時，請記下 KB ID、主機 ( _.azurewebsites.net/qnamaker_ 前面的子網域) 和授權端點金鑰。 您稍後將需要這些值。 
+1. 測試並發佈知識庫。 當您發佈每個 KB 時，請記下 KB 識別碼、資源名稱（自訂子域 before _. azurewebsites.net/qnamaker_）和授權端點金鑰。 您稍後將需要這些值。 
 
     本文假設 KB 全部都建立在相同的 Azure QnA Maker 訂用帳戶中。
 
@@ -109,13 +109,13 @@ ms.locfileid: "71272424"
     [Serializable]
     public class QnAMakerService
     {
-        private string qnaServiceHostName;
+        private string qnaServiceResourceName;
         private string knowledgeBaseId;
         private string endpointKey;
 
-        public QnAMakerService(string hostName, string kbId, string endpointkey)
+        public QnAMakerService(string resourceName, string kbId, string endpointkey)
         {
-            qnaServiceHostName = hostName;
+            qnaServiceResourceName = resourceName;
             knowledgeBaseId = kbId;
             endpointKey = endpointkey;
 
@@ -136,7 +136,7 @@ ms.locfileid: "71272424"
         }
         public async Task<string> GetAnswer(string question)
         {
-            string uri = qnaServiceHostName + "/qnamaker/knowledgebases/" + knowledgeBaseId + "/generateAnswer";
+            string uri = qnaServiceResourceName + "/qnamaker/knowledgebases/" + knowledgeBaseId + "/generateAnswer";
             string questionJSON = "{\"question\": \"" + question.Replace("\"","'") +  "\"}";
 
             var response = await Post(uri, questionJSON);
@@ -169,7 +169,7 @@ ms.locfileid: "71272424"
         // QnA Maker global settings
         // assumes all KBs are created with same Azure service
         static string qnamaker_endpointKey = "<QnA Maker endpoint KEY>";
-        static string qnamaker_endpointDomain = "my-qnamaker-s0-s";
+        static string qnamaker_resourceName = "my-qnamaker-s0-s";
         
         // QnA Maker Human Resources Knowledge base
         static string HR_kbID = "<QnA Maker KNOWLEDGE BASE ID>";
@@ -178,8 +178,8 @@ ms.locfileid: "71272424"
         static string Finance_kbID = "<QnA Maker KNOWLEDGE BASE ID>";
 
         // Instantiate the knowledge bases
-        public QnAMakerService hrQnAService = new QnAMakerService("https://" + qnamaker_endpointDomain + ".azurewebsites.net", HR_kbID, qnamaker_endpointKey);
-        public QnAMakerService financeQnAService = new QnAMakerService("https://" + qnamaker_endpointDomain + ".azurewebsites.net", Finance_kbID, qnamaker_endpointKey);
+        public QnAMakerService hrQnAService = new QnAMakerService("https://" + qnamaker_resourceName + ".azurewebsites.net", HR_kbID, qnamaker_endpointKey);
+        public QnAMakerService financeQnAService = new QnAMakerService("https://" + qnamaker_resourceName + ".azurewebsites.net", Finance_kbID, qnamaker_endpointKey);
 
         public BasicLuisDialog() : base(new LuisService(new LuisModelAttribute(
             LUIS_appId,

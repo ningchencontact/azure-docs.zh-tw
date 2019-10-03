@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/11/2018
+ms.date: 10/01/2019
 ms.author: banders
-ms.openlocfilehash: 36430e9b0a4554761d53b537d3c32fa57068eabb
-ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
+ms.openlocfilehash: 6df787dbc06f7ee56ba9a26c8382396bf3b6e74a
+ms.sourcegitcommit: a19f4b35a0123256e76f2789cd5083921ac73daf
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "67490210"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71719588"
 ---
 # <a name="view-billing-accounts-in-azure-portal"></a>在 Azure 入口網站檢視計費帳戶  
 
@@ -43,7 +43,7 @@ Azure 入口網站目前支援下列計費帳戶類型：
 |影響範圍  |定義  |
 |---------|---------|
 |計費帳戶     | 代表一或多個 Azure 訂用帳戶的單一擁有者 (帳戶管理員)。 帳戶管理員有權執行各種計費工作，例如建立訂用帳戶、檢視發票或變更訂用帳戶的計費。  |
-|Subscription     |  代表 Azure 資源的群組。 發票會在此範圍產生。 它有自己的付款方式，可用來支付其發票。|
+|訂用帳戶     |  代表 Azure 資源的群組。 發票會在此範圍產生。 它有自己的付款方式，可用來支付其發票。|
 
 
 ### <a name="enterprise-agreement"></a>Enterprise 合約
@@ -85,7 +85,7 @@ Azure 入口網站目前支援下列計費帳戶類型：
 
 ## <a name="need-help-contact-us"></a>需要協助嗎？ 與我們連絡。
 
-如果您有問題或需要協助，請[建立支援要求](https://go.microsoft.com/fwlink/?linkid=2083458)。
+如有問題或需要協助，請[建立支援要求](https://go.microsoft.com/fwlink/?linkid=2083458)。
 
 ## <a name="next-steps"></a>後續步驟
 - 了解如何開始[分析成本](../cost-management/quick-acm-cost-analysis.md)。

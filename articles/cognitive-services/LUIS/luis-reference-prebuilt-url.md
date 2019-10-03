@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 05/07/2019
+ms.date: 09/27/2019
 ms.author: diberry
-ms.openlocfilehash: b05b4f8638eedc0830c887da59c0c22706a1c4ce
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: 77e1c9e64081e20ef064fd8341c54c13940f0dd4
+ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68933392"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71677303"
 ---
 # <a name="url-prebuilt-entity-for-a-luis-app"></a>LUIS 應用程式的 URL 預先建置實體
 URL 實體會擷取含有網域名稱或 IP 位址的 URL。 因為此實體已經定型，所以您不需要將包含 URL 的範例語句加入應用程式。 只有 `en-us` 文化特色才支援 URL 實體。 
@@ -26,7 +26,7 @@ URL 可從 [Recognizers-text](https://github.com/Microsoft/Recognizers-Text/blob
 
 ## <a name="resolution-for-prebuilt-url-entity"></a>解析預先建置的 URL 實體
 
-### <a name="api-version-2x"></a>API 2.x 版
+#### <a name="v2-prediction-endpoint-responsetabv2"></a>[V2 預測端點回應](#tab/V2)
 
 下列範例顯示解析的 **builtin.url** 實體。
 
@@ -54,9 +54,9 @@ URL 可從 [Recognizers-text](https://github.com/Microsoft/Recognizers-Text/blob
 }
 ```
 
-### <a name="preview-api-version-3x"></a>預覽 API 版本3。x
+#### <a name="v3-prediction-endpoint-responsetabv3"></a>[V3 預測端點回應](#tab/V3)
 
-下列 JSON 是`verbose`將參數設定為`false`:
+下列 JSON 是將 `verbose` 參數設定為 `false`：
 
 ```json
 {
@@ -78,7 +78,7 @@ URL 可從 [Recognizers-text](https://github.com/Microsoft/Recognizers-Text/blob
 }
 ```
 
-下列 JSON 是`verbose`將參數設定為`true`:
+下列 JSON 是將 `verbose` 參數設定為 `true`：
 
 ```json
 {
@@ -112,6 +112,11 @@ URL 可從 [Recognizers-text](https://github.com/Microsoft/Recognizers-Text/blob
 }
 ```
 
+
+* * * 
+
 ## <a name="next-steps"></a>後續步驟
+
+深入瞭解[V3 預測端點](luis-migration-api-v3.md)。
 
 了解 [ordinal](luis-reference-prebuilt-ordinal.md)、[number](luis-reference-prebuilt-number.md) 和 [temperature](luis-reference-prebuilt-temperature.md) 實體相關資訊。

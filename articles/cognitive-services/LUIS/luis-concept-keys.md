@@ -9,16 +9,16 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 09/02/2019
+ms.date: 09/27/2019
 ms.author: diberry
-ms.openlocfilehash: 5a6c87da7ae62af54990e0a1a2c62065717a201a
-ms.sourcegitcommit: 267a9f62af9795698e1958a038feb7ff79e77909
+ms.openlocfilehash: 70e58077fa40ce685324cd24b447886ec3411034
+ms.sourcegitcommit: 6fe40d080bd1561286093b488609590ba355c261
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70256968"
+ms.lasthandoff: 10/01/2019
+ms.locfileid: "71703189"
 ---
-# <a name="authoring-and-runtime-keys"></a>撰寫和執行時間金鑰
+# <a name="authoring-and-runtime-keys"></a>撰寫和執行階段金鑰
 
 
 >[!NOTE]
@@ -29,7 +29,7 @@ LUIS 使用兩種類型的 Azure 資源，每個類型都有索引鍵：
 * [撰寫](#programmatic-key)以建立意圖、實體和標籤語句、定型和發佈。 當您準備好要發佈 LUIS 應用程式時，您需要已指派給應用程式之執行時間的[預測端點金鑰](luis-how-to-azure-subscription.md)。
 * [執行時間的預測端點金鑰](#prediction-endpoint-runtime-key)。 用戶端應用程式（例如聊天機器人）需要透過此索引鍵來存取執行時間的**查詢預測端點**。 
 
-|Key|用途|認知服務`kind`|認知服務`type`|
+|Key|用途|認知服務 `kind`|認知服務 `type`|
 |--|--|--|--|
 |[授權金鑰](#programmatic-key)|撰寫、訓練、發行、測試。|`LUIS.Authoring`|`Cognitive Services`|
 |[預測端點執行時間索引鍵](#prediction-endpoint-runtime-key)| 查詢預測端點執行時間與使用者語句，以判斷意圖和實體。|`LUIS`|`Cognitive Services`|
@@ -83,12 +83,30 @@ LUIS 也會提供具有每月1000筆交易預測端點配額的[入門金鑰](lu
 ### <a name="use-runtime-key-in-query"></a>在查詢中使用執行時間索引鍵
 LUIS 執行時間端點接受兩種查詢樣式，兩者都使用預測端點執行時間索引鍵，但位於不同的位置。
 
-用來存取執行時間的端點會使用資源區域特有的子域， `{region}`在下表中以表示。 
+用來存取執行時間的端點會使用資源區域特有的子域，在下表中以 `{region}` 表示。 
+
+
+#### <a name="v2-prediction-endpointtabv2"></a>[V2 預測端點](#tab/V2)
 
 |指令動詞|範例 URL 和金鑰位置|
 |--|--|
-|[GET](https://{region}.dev.cognitive.microsoft.com/docs/services/5819c76f40a6350ce09de1ac/operations/5819c77140a63516d81aee78)|`https://{region}.api.cognitive.microsoft.com/luis/v2.0/apps/df67dcdb-c37d-46af-88e1-8b97951ca1c2?runtime-key=your-endpoint-key-here&verbose=true&timezoneOffset=0&q=turn%20on%20the%20lights`<br><br>`runtime-key` 的查詢字串值<br><br>將 `runtime-key` 的端點查詢值從撰寫 (入門) 金鑰變更為新的端點金鑰，以便使用 LUIS 端點金鑰配額率。 如果您建立金鑰並指派金鑰，但沒有變更 `runtime-key` 的端點查詢值，便不會使用端點金鑰配額。|
-|[POST](https://{region}.dev.cognitive.microsoft.com/docs/services/5819c76f40a6350ce09de1ac/operations/5819c77140a63516d81aee79)| `https://{region}.api.cognitive.microsoft.com/luis/v2.0/apps/df67dcdb-c37d-46af-88e1-8b97951ca1c2`<br><br> `Ocp-Apim-Subscription-Key` 的標頭值<br>如果您建立執行時間索引鍵，並指派執行時間索引鍵，但未變更的端點查詢`Ocp-Apim-Subscription-Key`值，則表示您不會使用執行時間索引鍵。|
+|[GET](https://westus.dev.cognitive.microsoft.com/docs/services/5819c76f40a6350ce09de1ac/operations/5819c77140a63516d81aee78)|`https://{region}.api.cognitive.microsoft.com/luis/v2.0/apps/df67dcdb-c37d-46af-88e1-8b97951ca1c2?runtime-key=your-endpoint-key-here&verbose=true&timezoneOffset=0&q=turn%20on%20the%20lights`|
+|[POST](https://westus.dev.cognitive.microsoft.com/docs/services/5819c76f40a6350ce09de1ac/operations/5819c77140a63516d81aee79)| `https://{region}.api.cognitive.microsoft.com/luis/v2.0/apps/df67dcdb-c37d-46af-88e1-8b97951ca1c2`|
+
+#### <a name="v3-prediction-endpointtabv3"></a>[V3 預測端點](#tab/V3)
+
+|指令動詞|範例 URL 和金鑰位置|
+|--|--|
+|[GET](https://westcentralus.dev.cognitive.microsoft.com/docs/services/luis-endpoint-api-v3-0-preview/operations/5cb0a91e54c9db63d589f433)|`https://{region}.api.cognitive.microsoft.com/luis/v3.0-preview/apps/df67dcdb-c37d-46af-88e1-8b97951ca1c2/slots/production/predict?runtime-key=your-endpoint-key-here&query=turn%20on%20the%20lights`|
+|[POST](https://westcentralus.dev.cognitive.microsoft.com/docs/services/luis-endpoint-api-v3-0-preview/operations/5cb0a5830f741b27cd03a061)| `https://{region}.api.cognitive.microsoft.com/luis/v3.0-preview/apps/df67dcdb-c37d-46af-88e1-8b97951ca1c2/slots/production/predict`| 
+
+深入瞭解[V3 預測端點](luis-migration-api-v3.md)。
+
+* * * 
+
+**GET**：將 `runtime-key` 的端點查詢值從撰寫 (入門) 金鑰變更為新的端點金鑰，以便使用 LUIS 端點金鑰配額率。 如果您建立金鑰並指派金鑰，但沒有變更 `runtime-key` 的端點查詢值，便不會使用端點金鑰配額。
+
+**POST**：變更 `Ocp-Apim-Subscription-Key` 的標頭值<br>如果您建立執行時間索引鍵，並指派執行時間索引鍵，但未變更 `Ocp-Apim-Subscription-Key` 的端點查詢值，則不會使用您的執行時間索引鍵。
 
 先前 URL 中使用的應用程式識別碼 `df67dcdb-c37d-46af-88e1-8b97951ca1c2` 是適用於[互動式示範](https://azure.microsoft.com/services/cognitive-services/language-understanding-intelligent-service/)的公用 IoT 應用程式。 
 
@@ -187,7 +205,7 @@ LUIS 執行時間端點接受兩種查詢樣式，兩者都使用預測端點執
 
 ## <a name="transfer-of-ownership"></a>擁有權的轉讓
 
-**針對[撰寫資源遷移](luis-migration-authoring.md)的應用程式**： 
+**針對[撰寫資源遷移](luis-migration-authoring.md)的應用程式**：身為資源的擁有者，您可以新增 `contributor`。
 
 **針對尚未遷移的應用程式**：將您的應用程式匯出為 JSON 檔案。 另一個 LUIS 使用者可以匯入應用程式，因此成為應用程式擁有者。 新的應用程式將會有不同的應用程式識別碼。  
 

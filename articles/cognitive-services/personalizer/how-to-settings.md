@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: personalizer
 ms.topic: conceptual
-ms.date: 09/12/2019
+ms.date: 09/30/2019
 ms.author: diberry
-ms.openlocfilehash: 376c2efbf3269092d0534870108ef6d753f8743e
-ms.sourcegitcommit: dd69b3cda2d722b7aecce5b9bd3eb9b7fbf9dc0a
+ms.openlocfilehash: bad581fbc53292b5a7c25157ef839e07f33e131e
+ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70962536"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71827884"
 ---
 # <a name="personalizer-settings"></a>個人化工具設定
 
@@ -87,6 +87,21 @@ ms.locfileid: "70962536"
 
 從 [資源管理] 的 [模型和原則] 區段，匯入新的學習原則或匯出目前的學習原則。
 您可以從先前的匯出取得學習原則檔案，或下載在離線評估期間探索到的優化原則。 對這些檔案進行手動變更將會影響機器學習服務的效能和離線評估的正確性，而且 Microsoft 無法擔保機器學習和評估的正確性，或手動編輯的原則所產生的服務例外狀況。
+
+## <a name="clear-data-for-your-learning-loop"></a>清除學習迴圈的資料
+
+1. 在 Azure 入口網站中，針對您的個人化工具資源，在 [**模型和原則**] 頁面上選取 [**清除資料**]。
+1. 若要清除所有資料，並將學習迴圈重設為原始狀態，請選取所有3個核取方塊。
+
+    ![在 Azure 入口網站中，清除個人化工具資源中的資料。](./media/settings/clear-data-from-personalizer-resource.png)
+
+    |設定|用途|
+    |--|--|
+    |記錄的個人化和報酬資料。|此記錄資料會用於離線評估。 如果您要重設資源，請清除資料。|
+    |重設個人化工具模型。|此模型會在每次重新定型時變更。 此定型頻率會在 [**設定**] 頁面上的 [**上傳模型頻率**] 中指定。 |
+    |將 [學習原則] 設定為 [預設]。|如果您已將學習原則變更為離線評估的一部分，則會重設為原始學習原則。|
+
+1. 選取 [**清除選取的資料**] 以開始清除進程。 狀態會在 Azure 通知的右上方導覽中回報。 
 
 ## <a name="next-steps"></a>後續步驟
 

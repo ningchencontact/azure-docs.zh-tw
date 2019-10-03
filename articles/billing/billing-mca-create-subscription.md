@@ -10,14 +10,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/01/2019
+ms.date: 10/01/2019
 ms.author: banders
-ms.openlocfilehash: 558410d980d261780f7287d1e27ed704b356fc2b
-ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
+ms.openlocfilehash: e1fafafe5f67d1775ca80a1f7c2aff4dec9e0bc4
+ms.sourcegitcommit: d4c9821b31f5a12ab4cc60036fde00e7d8dc4421
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "67490907"
+ms.lasthandoff: 10/01/2019
+ms.locfileid: "71709579"
 ---
 # <a name="create-an-additional-azure-subscription-for-microsoft-customer-agreement"></a>為 Microsoft 客戶合約建立額外的 Azure 訂用帳戶
 
@@ -73,7 +73,7 @@ ms.locfileid: "67490907"
 
 7. 輸入您要為其授與存取權之使用者的電子郵件地址。
 
-8. 選取 [ **儲存**]。
+8. 選取 [儲存]  。
 
 ## <a name="check-access"></a>檢查存取權
 [!INCLUDE [billing-check-mca](../../includes/billing-check-mca.md)]

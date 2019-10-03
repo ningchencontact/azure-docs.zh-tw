@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 05/07/2019
+ms.date: 09/27/2019
 ms.author: diberry
-ms.openlocfilehash: e28b541c1b5aa8f733c9f4ed44fd2ea5296b34d8
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: 04bc3019a55920351b0e91c87e63b8309d94e34c
+ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68933530"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71677616"
 ---
 # <a name="geographyv2-prebuilt-entity-for-a-luis-app"></a>LUIS 應用程式的 GeographyV2 預先建置實體
 預建 geographyV2 實體可偵測位置。 因為此實體已經定型，所以您不需要將包含 GeographyV2 的範例語句加入應用程式意圖。 英文[文化特性](luis-reference-prebuilt-entities.md)支援 GeographyV2 實體。
@@ -35,7 +35,7 @@ ms.locfileid: "68933530"
 
 ## <a name="resolution-for-geographyv2-entity"></a>GeographyV2 實體解析
 
-### <a name="api-version-2x"></a>API 2.x 版
+#### <a name="v2-prediction-endpoint-responsetabv2"></a>[V2 預測端點回應](#tab/V2)
 
 下列範例示範如何解析 **builtin.geographyV2** 實體。
 
@@ -93,9 +93,9 @@ ms.locfileid: "68933530"
 } 
 ```
 
-### <a name="preview-api-version-3x"></a>預覽 API 版本3。x
+#### <a name="v3-prediction-endpoint-responsetabv3"></a>[V3 預測端點回應](#tab/V3)
 
-下列 JSON 是`verbose`將參數設定為`false`:
+下列 JSON 是將 `verbose` 參數設定為 `false`：
 
 ```json
 {
@@ -121,7 +121,7 @@ ms.locfileid: "68933530"
 }
 ```
 
-下列 JSON 是`verbose`將參數設定為`true`:
+下列 JSON 是將 `verbose` 參數設定為 `true`：
 
 ```json
 {
@@ -191,6 +191,10 @@ ms.locfileid: "68933530"
 }
 ```
 
+* * * 
+
 ## <a name="next-steps"></a>後續步驟
+
+深入瞭解[V3 預測端點](luis-migration-api-v3.md)。
 
 了解 [email](luis-reference-prebuilt-email.md)、[number](luis-reference-prebuilt-number.md) 及 [ordinal](luis-reference-prebuilt-ordinal.md) 實體相關資訊。 

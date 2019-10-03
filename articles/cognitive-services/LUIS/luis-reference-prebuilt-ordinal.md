@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 06/25/2019
+ms.date: 09/27/2019
 ms.author: diberry
-ms.openlocfilehash: 51f1082034a710ed9d0f78b79bc6ae469771459e
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: d1d69b256c4fc7e7b9d1c84b7c409d01a9f8ce52
+ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68933474"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71677549"
 ---
 # <a name="ordinal-prebuilt-entity-for-a-luis-app"></a>LUIS 應用程式的序數預先建置實體
 序號是一組物件內的數值表示法：`first`、`second`、`third`。 因為此實體已經定型，所以您不需要將包含序數的範例語句加入應用程式意圖。 [多種文化特色](luis-reference-prebuilt-entities.md)都支援 ordinal 實體。 
@@ -26,7 +26,7 @@ ms.locfileid: "68933474"
 
 ## <a name="resolution-for-prebuilt-ordinal-entity"></a>解析預先建置的 ordinal 實體
 
-### <a name="api-version-2x"></a>API 2.x 版
+#### <a name="v2-prediction-endpoint-responsetabv2"></a>[V2 預測端點回應](#tab/V2)
 
 下列範例顯示解析的 **builtin.ordinal** 實體。
 
@@ -61,9 +61,9 @@ ms.locfileid: "68933474"
 }
 ```
 
-### <a name="preview-api-version-3x"></a>預覽 API 版本3。x
+#### <a name="v3-prediction-endpoint-responsetabv3"></a>[V3 預測端點回應](#tab/V3)
 
-下列 JSON 是`verbose`將參數設定為`false`:
+下列 JSON 是將 `verbose` 參數設定為 `false`：
 
 ```json
 {
@@ -88,7 +88,7 @@ ms.locfileid: "68933474"
 }
 ```
 
-下列 JSON 是`verbose`將參數設定為`true`:
+下列 JSON 是將 `verbose` 參數設定為 `true`：
 
 ```json
 {
@@ -128,6 +128,10 @@ ms.locfileid: "68933474"
 }
 ```
 
+* * * 
+
 ## <a name="next-steps"></a>後續步驟
+
+深入瞭解[V3 預測端點](luis-migration-api-v3.md)。
 
 瞭解[OrdinalV2](luis-reference-prebuilt-ordinal-v2.md)、[電話號碼](luis-reference-prebuilt-phonenumber.md)和[溫度](luis-reference-prebuilt-temperature.md)實體。 

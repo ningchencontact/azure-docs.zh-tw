@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 05/07/2019
+ms.date: 09/27/2019
 ms.author: diberry
-ms.openlocfilehash: c4e83ed15c2b15ccb3339ff775b08c8d2dab4c32
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: 4f46efaeddb0bfe789ef752abdd133c14da514da
+ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68932526"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71677699"
 ---
 # <a name="datetimev2-prebuilt-entity-for-a-luis-app"></a>LUIS 應用程式的 DatetimeV2 預先建置實體
 
@@ -53,7 +53,7 @@ DatetimeV2 可從 [Recognizers-text](https://github.com/Microsoft/Recognizers-Te
 |屬性名稱 |屬性類型和描述|
 |---|---|
 |實體|**string** - 以日期、時間、日期範圍或時間範圍的類型從語句中擷取的文字。|
-|type|**string** - 其中一個 [datetimeV2 子類型](#subtypes-of-datetimev2)
+|型別|**string** - 其中一個 [datetimeV2 子類型](#subtypes-of-datetimev2)
 |startIndex|**int** - 實體開始的語句中的索引。|
 |endIndex|**int** - 實體結束的語句中的索引。|
 |resolution|有一、二或四個[解析值](#values-of-resolution)的 `values` 陣列。|
@@ -82,14 +82,14 @@ DatetimeV2 可從 [Recognizers-text](https://github.com/Microsoft/Recognizers-Te
 |屬性名稱|屬性描述|
 |--|--|
 |timex|以遵循 [ISO 8601 標準](https://en.wikipedia.org/wiki/ISO_8601)的 TIMEX 格式表示的時間、日期或日期範圍，並對註解的 TIMEX3 屬性使用 TimeML 語言。 此註解會在 [TIMEX 指導方針](http://www.timeml.org/tempeval2/tempeval2-trial/guidelines/timex3guidelines-072009.pdf) \(英文\) 中說明。|
-|type|子類型, 可以是下列其中一個專案: `datetime`、 `date`、 `time`、 `daterange`、 `timerange`、 `datetimerange`、 `duration`、 `set`。|
+|型別|子類型，可以是下列其中一個專案： `datetime`、`date`、`time`、`daterange`、`timerange`、`datetimerange`、`duration`、`set`。|
 |value|**選用。** 使用 yyyy:MM:dd (date)，HH:mm:ss (time) yyyy:MM:dd HH:mm:ss (datetime) 格式的 datetime 物件。 如果 `type` 是 `duration`，則值會是秒數 (duration) <br/> 只有當 `type` 是 `datetime` 或 `date`、`time` 或 `duration 時才能使用。|
 
 ## <a name="valid-date-values"></a>有效的日期值
 
 **datetimeV2** 支援的日期範圍如下：
 
-| 最小值 | 最大值 |
+| Min | max |
 |----------|-------------|
 | 1900 年 1 月 1 日   | 2099 年 12 月 31 日 |
 
@@ -185,6 +185,8 @@ DatetimeV2 可從 [Recognizers-text](https://github.com/Microsoft/Recognizers-Te
 
 下列範例示範 LUIS 如何使用 **datetimeV2** 解析有時間範圍的語句。
 
+#### <a name="v2-prediction-endpoint-responsetabv2"></a>[V2 預測端點回應](#tab/V2)
+
 ```json
   "entities": [
     {
@@ -206,15 +208,15 @@ DatetimeV2 可從 [Recognizers-text](https://github.com/Microsoft/Recognizers-Te
   ]
 ```
 
-## <a name="preview-api-version-3x"></a>預覽 API 版本3。x
+#### <a name="v3-prediction-endpoint-responsetabv3"></a>[V3 預測端點回應](#tab/V3)
 
 API V3 中的 DatetimeV2 JSON 回應已經變更。 
 
-API V2 的變更:
-* `datetimeV2.timex.type`不再傳回屬性, `datetimev2.type`因為它是在父層級傳回的。 
-* 屬性已重新命名為`datetimeV2.value`。 `datetimeV2.timex`
+API V2 的變更：
+* `datetimeV2.timex.type` 屬性已不再傳回，因為它是在父層級傳回，`datetimev2.type`。 
+* @No__t-0 屬性已重新命名為 `datetimeV2.value`。
 
-針對語句, `8am on may 2nd 2017`, DatetimeV2 的 V3 版本是:
+針對語句，`8am on may 2nd 2017`，DatetimeV2 的 V3 版本為：
 
 ```JSON
 {
@@ -244,7 +246,7 @@ API V2 的變更:
 }
 ```
 
-下列 JSON 是`verbose`將參數設定為`false`:
+下列 JSON 是將 `verbose` 參數設定為 `false`：
 
 ```json
 {
@@ -289,6 +291,9 @@ API V2 的變更:
 }
 ```
 
+
+* * * 
+
 ## <a name="deprecated-prebuilt-datetime"></a>已被取代的預先建置 datetime
 
 `datetime` 預先建置的實體已過時 ，並由 **datetimeV2** 取代。 
@@ -301,6 +306,8 @@ API V2 的變更:
 4. 選取 [datetimeV2]，然後按一下 [儲存]。
 
 ## <a name="next-steps"></a>後續步驟
+
+深入瞭解[V3 預測端點](luis-migration-api-v3.md)。
 
 了解 [dimension](luis-reference-prebuilt-dimension.md)、[email](luis-reference-prebuilt-email.md) 實體與 [number](luis-reference-prebuilt-number.md) 的相關資訊。 
 

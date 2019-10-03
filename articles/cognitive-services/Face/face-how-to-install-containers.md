@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: conceptual
-ms.date: 09/18/2019
+ms.date: 09/24/2019
 ms.author: dapine
-ms.openlocfilehash: fbfc3f48bed5a4772573dcf2ab168cd3498a4cac
-ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
+ms.openlocfilehash: f2bf5766dc09b85f276349a5e72f1bc3b8ba23b3
+ms.sourcegitcommit: 9fba13cdfce9d03d202ada4a764e574a51691dcd
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71102026"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71316362"
 ---
 # <a name="install-and-run-face-containers"></a>安裝和執行臉部容器
 
@@ -126,8 +126,9 @@ ApiKey={API_KEY}
 
 ## <a name="troubleshooting"></a>疑難排解
 
-如果您執行具有輸出[裝載](./face-resource-container-config.md#mount-settings)的容器，而且已啟用記錄，則容器會產生記錄檔，有助於疑難排解您啟動或執行容器時所發生的問題。 
+如果您執行具有輸出[裝載](./face-resource-container-config.md#mount-settings)的容器，而且已啟用記錄，則容器會產生記錄檔，有助於疑難排解您啟動或執行容器時所發生的問題。
 
+[!INCLUDE [Cognitive Services FAQ note](../containers/includes/cognitive-services-faq-note.md)]
 
 ## <a name="billing"></a>帳務
 

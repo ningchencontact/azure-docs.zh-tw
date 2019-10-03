@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 05/07/2019
+ms.date: 09/27/2019
 ms.author: diberry
-ms.openlocfilehash: 06dada1633fcb90153358e0f1d048c5fa618db0b
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: 0005d679819f7516e1ded6294030cd42813e085f
+ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68933434"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71677523"
 ---
 # <a name="percentage-prebuilt-entity-for-a-luis-app"></a>LUIS 應用程式的百分比預先建置實體
 百分比數字可顯示為分數 `3 1/2` 或百分比 `2%`。 由於此實體已經定型，因此您不需要將包含百分比的範例語句加入至應用程式意圖。 [多種文化特色](luis-reference-prebuilt-entities.md)都支援百分比實體。 
@@ -26,7 +26,7 @@ ms.locfileid: "68933434"
 
 ## <a name="resolution-for-prebuilt-percentage-entity"></a>解析預先建置的百分比實體
 
-### <a name="api-version-2x"></a>API 2.x 版
+#### <a name="v2-prediction-endpoint-responsetabv2"></a>[V2 預測端點回應](#tab/V2)
 
 下列範例說明 **builtin.percentage** 實體的解析。
 
@@ -57,9 +57,9 @@ ms.locfileid: "68933434"
 }
 ```
 
-### <a name="preview-api-version-3x"></a>預覽 API 版本3。x
+#### <a name="v3-prediction-endpoint-responsetabv3"></a>[V3 預測端點回應](#tab/V3)
 
-下列 JSON 是`verbose`將參數設定為`false`:
+下列 JSON 是將 `verbose` 參數設定為 `false`：
 
 ```json
 {
@@ -81,7 +81,7 @@ ms.locfileid: "68933434"
 }
 ```
 
-下列 JSON 是`verbose`將參數設定為`true`:
+下列 JSON 是將 `verbose` 參數設定為 `true`：
 
 ```json
 {
@@ -115,6 +115,10 @@ ms.locfileid: "68933434"
 }
 ```
 
+* * * 
+
 ## <a name="next-steps"></a>後續步驟
+
+深入瞭解[V3 預測端點](luis-migration-api-v3.md)。
 
 了解 [ordinal](luis-reference-prebuilt-ordinal.md)、[number](luis-reference-prebuilt-number.md) 和 [temperature](luis-reference-prebuilt-temperature.md) 實體相關資訊。 

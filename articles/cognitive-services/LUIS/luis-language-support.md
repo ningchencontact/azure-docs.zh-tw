@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 09/04/2019
 ms.author: diberry
-ms.openlocfilehash: 3b1b31da68d821ff27fa30e75ec1522b9d4875c8
-ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
+ms.openlocfilehash: 94f019205959d63a05ed3d90ede59fece3c05901
+ms.sourcegitcommit: 9fba13cdfce9d03d202ada4a764e574a51691dcd
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70307449"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71316361"
 ---
 # <a name="language-and-region-support-for-luis"></a>LUIS 支援的語言與區域
 
@@ -34,18 +34,18 @@ LUIS 可理解下列語言的語句：
 |--|--|:--:|:--:|:--:|:--:|
 | 美式英文 |`en-US` | ✔ | ✔  |✔|✔|
 | *[中文](#chinese-support-notes) |`zh-CN` | ✔ | ✔ |✔|-|
-| 荷蘭文 |`nl-NL` |-|  -   |-|✔|
-| 法文 (法國) |`fr-FR` |-| ✔ |✔ |✔|
+| 荷蘭文 |`nl-NL` |✔|  -   |-|✔|
+| 法文 (法國) |`fr-FR` |✔| ✔ |✔ |✔|
 | 法文 (加拿大) |`fr-CA` |-|   -   |-|✔|
-| 德文 |`de-DE` |-| ✔ |✔ |✔|
+| 德文 |`de-DE` |✔| ✔ |✔ |✔|
 | Hindi | `hi-IN`|-|-|-|-|
-| 義大利文 |`it-IT` |-| ✔ |✔|✔|
-| *[日文](#japanese-support-notes) |`ja-JP` |-| ✔ |✔|僅限關鍵片語|
-| 韓文 |`ko-KR` |-|   -   |-|僅限關鍵片語|
-| 葡萄牙文 (巴西) |`pt-BR` |-| ✔ |✔ |並非所有的次文化特性|
-| 西班牙文 (西班牙) |`es-ES` |-| ✔ |✔|✔|
+| 義大利文 |`it-IT` |✔| ✔ |✔|✔|
+| *[日文](#japanese-support-notes) |`ja-JP` |✔| ✔ |✔|僅限關鍵片語|
+| 韓文 |`ko-KR` |✔|   -   |-|僅限關鍵片語|
+| 葡萄牙文 (巴西) |`pt-BR` |✔| ✔ |✔ |並非所有的次文化特性|
+| 西班牙文 (西班牙) |`es-ES` |✔| ✔ |✔|✔|
 | 西班牙文 (墨西哥)|`es-MX` |-|  -   |✔|✔|
-| 土耳其文 | `tr-TR` |-|-|-|僅限情感|
+| 土耳其文 | `tr-TR` |✔|-|-|僅限情感|
 
 
 語言支援會因[預建實體](luis-reference-prebuilt-entities.md)和[網域](luis-reference-prebuilt-domains.md)而有所不同。
@@ -54,7 +54,7 @@ LUIS 可理解下列語言的語句：
 
  - 在 `zh-cn` 文化特性中，LUIS 預期會有簡體中文字元集，而不是繁體字元集。
  - 意圖、實體、功能和規則運算式的名稱可能採用中文或羅馬字元。
- - 如需在`zh-cn`文化特性中支援哪些預建網域的相關資訊，請參閱預先建立的[網域參考](luis-reference-prebuilt-domains.md)。
+ - 如需 `zh-cn` 文化特性中支援哪些預建網域的相關資訊，請參閱預先建立的[網域參考](luis-reference-prebuilt-domains.md)。
 <!--- When writing regular expressions in Chinese, do not insert whitespace between Chinese characters.-->
 
 ### <a name="japanese-support-notes"></a>*日文支援附註
@@ -103,8 +103,8 @@ LUIS 可理解下列語言的語句：
 
 |文化特性|Version|用途|
 |--|--|--|
-|德文<br>`de-de`|1.0.0|使用以機器學習為基礎的 tokenizer 來分割它們，以嘗試將複合單字細分成單一元件，以 token 化單字。<br>如果使用者輸入`Ich fahre einen krankenwagen`做為語句，就會`Ich fahre einen kranken wagen`變成。 允許將`kranken`和`wagen`獨立標記為不同的實體。|
-|德文<br>`de-de`|1.0.2|藉由在空間上分割來 token 化單字。<br> 如果使用者輸入`Ich fahre einen krankenwagen`做為語句，它會保持為單一權杖。 因此`krankenwagen` ，會標示為單一實體。 |
+|德文<br>`de-de`|1.0.0|使用以機器學習為基礎的 tokenizer 來分割它們，以嘗試將複合單字細分成單一元件，以 token 化單字。<br>如果使用者輸入 `Ich fahre einen krankenwagen` 做為語句，則會變成 `Ich fahre einen kranken wagen`。 允許將 `kranken` 和 `wagen` 分別作為不同的實體標記。|
+|德文<br>`de-de`|1.0.2|藉由在空間上分割來 token 化單字。<br> 如果使用者輸入 `Ich fahre einen krankenwagen` 做為語句，它會保持為單一權杖。 因此 `krankenwagen` 會標示為單一實體。 |
 
 ### <a name="migrating-between-tokenizer-versions"></a>在 tokenizer 版本之間遷移
 <!--

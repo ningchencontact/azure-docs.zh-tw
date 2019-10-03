@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 09/18/2019
+ms.date: 09/26/2019
 ms.author: dapine
-ms.openlocfilehash: 4b8ea102c7acc55acec05234303ff4c215a4bc0f
-ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
+ms.openlocfilehash: dbd4f2cd4691f9ae6d8e37f38d2b600ec4897e45
+ms.sourcegitcommit: e9936171586b8d04b67457789ae7d530ec8deebe
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71105152"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71326706"
 ---
 # <a name="install-and-run-speech-service-containers"></a>安裝和執行語音服務容器
 
@@ -270,7 +270,9 @@ speech_config = speechsdk.SpeechConfig(
 
 ## <a name="troubleshooting"></a>疑難排解
 
-當您執行容器時，容器會使用 **stdout** 和 **stderr** 來輸出資訊，該資訊有助於排解在啟動或執行容器時所發生的問題。
+如果您在啟用輸出[掛接](speech-container-configuration.md#mount-settings)和記錄的情況下執行容器，容器將會產生記錄檔，有助於排解在啟動或執行容器時所發生的問題。
+
+[!INCLUDE [Cognitive Services FAQ note](../containers/includes/cognitive-services-faq-note.md)]
 
 ## <a name="billing"></a>帳務
 

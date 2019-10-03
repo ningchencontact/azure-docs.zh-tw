@@ -11,12 +11,12 @@ ms.author: jovanpop
 ms.reviewer: sstein, carlrab, bonova
 ms.date: 08/12/2019
 ms.custom: seoapril2019
-ms.openlocfilehash: 7f47798ec3d0be8885853454ced8c1ea4c2a268c
-ms.sourcegitcommit: a19f4b35a0123256e76f2789cd5083921ac73daf
+ms.openlocfilehash: 94e9a484afe42f8621380fa685f8bc9faeb894d3
+ms.sourcegitcommit: 80da36d4df7991628fd5a3df4b3aa92d55cc5ade
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 10/02/2019
-ms.locfileid: "71720395"
+ms.locfileid: "71816046"
 ---
 # <a name="managed-instance-t-sql-differences-limitations-and-known-issues"></a>受控實例的 T-sql 差異、限制和已知問題
 
@@ -544,7 +544,15 @@ WITH PRIVATE KEY (<private_key_options>)
 
 ## <a name="Issues"></a>已知問題
 
-### <a name="change-service-tier-and-create-instance-operations-are-blocked-by-ongioing-database-restore"></a>Ongioing 資料庫還原會封鎖變更服務層級和建立實例作業
+### <a name="wrong-error-returned-while-trying-to-remove-a-file-that-is-not-empty"></a>嘗試移除不是空的檔案時傳回錯誤的錯誤
+
+**日期**2019年10月
+
+SQL Server/受控執行個體[不允許使用者捨棄不是空的](https://docs.microsoft.com/sql/relational-databases/databases/delete-data-or-log-files-from-a-database.md#Prerequisites)檔案。 如果您嘗試使用 `ALTER DATABASE REMOVE FILE` 語句移除非空白的資料檔案，則不會立即傳回 `Msg 5042 – The file '<file_name>' cannot be removed because it is not empty` 的錯誤。 受控執行個體會繼續嘗試卸載檔案，而且在使用 `Internal server error` 30 分鐘之後，作業將會失敗。
+
+**因應措施**：使用 `DBCC SHRINKFILE (N'<file_name>', EMPTYFILE)` 命令移除檔案的內容。 如果這是檔案群組中唯一的檔案，您必須先從與這個檔案群組相關聯的資料表或分割區中刪除資料，然後再壓縮檔案，並選擇性地將此資料載入另一個資料表/資料分割。
+
+### <a name="change-service-tier-and-create-instance-operations-are-blocked-by-ongoing-database-restore"></a>進行中的資料庫還原會封鎖變更服務層級和建立實例作業
 
 **日期**Sep 2019
 

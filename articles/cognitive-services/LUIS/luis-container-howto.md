@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 09/20/2019
+ms.date: 09/30/2019
 ms.author: dapine
-ms.openlocfilehash: b15ab7be5467d35b774dce643d6bb3910560ae01
-ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
+ms.openlocfilehash: a718a2335ed4928c6cd40ad4dc832eaf82bc6a2b
+ms.sourcegitcommit: 8bae7afb0011a98e82cbd76c50bc9f08be9ebe06
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71172319"
+ms.lasthandoff: 10/01/2019
+ms.locfileid: "71695301"
 ---
 # <a name="install-and-run-luis-docker-containers"></a>安裝和執行 LUIS Docker 容器
  
@@ -309,7 +309,9 @@ curl -X GET \
 
 ## <a name="troubleshooting"></a>疑難排解
 
-如果您在啟用輸出[掛接](luis-container-configuration.md#mount-settings)和記錄的情況下執行容器，容器將會產生記錄檔，有助於排解在啟動或執行容器時所發生的問題。 
+如果您在啟用輸出[掛接](luis-container-configuration.md#mount-settings)和記錄的情況下執行容器，容器將會產生記錄檔，有助於排解在啟動或執行容器時所發生的問題。
+
+[!INCLUDE [Cognitive Services FAQ note](../containers/includes/cognitive-services-faq-note.md)]
 
 ## <a name="billing"></a>帳務
 
@@ -323,7 +325,6 @@ LUIS 容器會使用您 Azure 帳戶上的_認知服務_資源，將帳單資訊
 
 最新的容器（于 2019 build 發行）將支援：
 
-* Bing 拼寫檢查：使用`&spellCheck=true&bing-spell-check-subscription-key={bingKey}`查詢字串參數要求查詢預測端點。 若要深入瞭解，請使用[Bing 拼寫檢查 v7 教學](luis-tutorial-bing-spellcheck.md)課程。 如果使用這項功能，容器會將語句傳送至您的 Bing 拼寫檢查 V7 資源。
 * [新的預建網域](luis-reference-prebuilt-domains.md)：這些企業導向的網域包括實體、範例語句和模式。 擴充這些網域以供您自己使用。 
 
 <a name="unsupported-dependencies"></a>
@@ -341,6 +342,7 @@ LUIS 容器會使用您 Azure 帳戶上的_認知服務_資源，將帳單資訊
 |英文 (en-US) 文化特性不支援的實體|[GeographyV2](https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-prebuilt-geographyv2) 預先建置的實體|
 |語音預備|在容器中不支援外部相依性。|
 |情感分析|在容器中不支援外部相依性。|
+|Bing 拼字檢查|在容器中不支援外部相依性。|
 
 <!--blogs/samples/video courses -->
 [!INCLUDE [Discoverability of more container information](../../../includes/cognitive-services-containers-discoverability.md)]

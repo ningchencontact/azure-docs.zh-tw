@@ -72,7 +72,7 @@
   items:
     - name: 教室實驗室 - 類別類型
       items:
-        - name: 類別類型
+        - name: 課程類型概觀
           href: classroom-labs/class-types.md
         - name: 在自然處理的狀態下進行深度學習
           href: classroom-labs/class-type-deep-learning-natural-processing.md

@@ -1,21 +1,21 @@
 ---
 title: 列出實體類型-LUIS
 titleSuffix: Azure Cognitive Services
-description: 清單實體代表一組固定的封閉式相關字組及其同義字。 LUIS 並不會探索清單實體的額外值。 使用 [建議] 功能, 根據目前的清單查看新單字的建議。
+description: 清單實體代表一組固定的封閉式相關字組及其同義字。 LUIS 並不會探索清單實體的額外值。 使用 [建議] 功能，根據目前的清單查看新單字的建議。
 services: cognitive-services
 author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: reference
-ms.date: 07/24/2019
+ms.date: 09/29/2019
 ms.author: diberry
-ms.openlocfilehash: ca9f8b570ee28b1913c8ec81c66a5b70827c04d6
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 1757faf8ab2be0b62956b6939ee068929f9275a4
+ms.sourcegitcommit: 8bae7afb0011a98e82cbd76c50bc9f08be9ebe06
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68559952"
+ms.lasthandoff: 10/01/2019
+ms.locfileid: "71695245"
 ---
 # <a name="list-entity"></a>清單實體 
 
@@ -23,10 +23,10 @@ ms.locfileid: "68559952"
 
 清單實體不是機器學習。 它是全文相符的項目。 LUIS 會將與任何清單中項目相符的項目，在回應中標示為實體。 
 
-**當文字資料時, 實體就很適合:**
+**當文字資料時，實體就很適合：**
 
 * 是已知的組合。
-* 不常變更。 如果您需要經常變更清單, 或想要讓清單自我展開, 使用片語清單提升的簡單實體是較好的選擇。 
+* 不常變更。 如果您需要經常變更清單，或想要讓清單自我展開，使用片語清單提升的簡單實體是較好的選擇。 
 * 此組合不會超過此實體類型的最大 LUIS [界限](luis-boundaries.md)。
 * 語句中的文字是與同義字或正式名稱完全相符的項目。 LUIS 不會將清單用於完全相符之文字項目以外的範圍。 不會使用清單實體解析模糊比對、不區分大小寫、詞幹分析、複數和其他變化。 若要管理變化，請考慮使用[模式](luis-concept-patterns.md#syntax-to-mark-optional-text-in-a-template-utterance)並搭配選擇性的文字語法。
 
@@ -45,46 +45,73 @@ ms.locfileid: "68559952"
 
 在上述語句中，`paris` 一字會對應至 `Cities` 清單實體中的 paris 項目。 此清單實體會同時比對項目的正規化名稱及項目同義字。
 
-```JSON
-"entities": [
-  {
-    "entity": "paris",
-    "type": "Cities",
-    "startIndex": 18,
-    "endIndex": 22,
-    "resolution": {
-      "values": [
-        "Paris"
-      ]
-    }
-  }
-]
-```
-
-使用 Paris 同義字的另一個範例語句：
-
-`book 2 tickets to roissy`
+#### <a name="v2-prediction-endpoint-responsetabv2"></a>[V2 預測端點回應](#tab/V2)
 
 ```JSON
-"entities": [
-  {
-    "entity": "roissy",
-    "type": "Cities",
-    "startIndex": 18,
-    "endIndex": 23,
-    "resolution": {
-      "values": [
-        "Paris"
-      ]
+  "entities": [
+    {
+      "entity": "paris",
+      "type": "Cities",
+      "startIndex": 18,
+      "endIndex": 22,
+      "resolution": {
+        "values": [
+          "Paris"
+        ]
+      }
     }
-  }
-]
+  ]
 ```
+
+#### <a name="v3-prediction-endpoint-responsetabv3"></a>[V3 預測端點回應](#tab/V3)
+
+
+如果在查詢字串中設定 `verbose=false`，這就是 JSON：
+
+```json
+"entities": {
+    "Cities": [
+        [
+            "Paris"
+        ]
+    ]
+}
+```
+
+如果在查詢字串中設定 `verbose=true`，這就是 JSON：
+
+```json
+"entities": {
+    "Cities": [
+        [
+            "Paris"
+        ]
+    ],
+    "$instance": {
+        "Cities": [
+            {
+                "type": "Cities",
+                "text": "paris",
+                "startIndex": 18,
+                "length": 5,
+                "modelTypeId": 5,
+                "modelType": "List Entity Extractor",
+                "recognitionSources": [
+                    "model"
+                ]
+            }
+        ]
+    }
+}
+```
+
+* * * 
 
 |資料物件|實體名稱|值|
 |--|--|--|
-|簡單實體|`Customer`|`bob jones`|
+|列出實體|`Cities`|`paris`|
+
 
 ## <a name="next-steps"></a>後續步驟
 
-在本[教學](luis-quickstart-intent-and-list-entity.md)課程中, 您將瞭解如何使用**清單實體**, 從已知專案清單中解壓縮完全相符的文字。 
+在本[教學](luis-quickstart-intent-and-list-entity.md)課程中，您將瞭解如何使用**清單實體**，從已知專案清單中解壓縮完全相符的文字。 

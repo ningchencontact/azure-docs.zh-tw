@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: conceptual
 ms.date: 06/04/2019
 ms.author: swmachan
-ms.openlocfilehash: f9620cc5f135dd7b10da5528e5dec0f5baa70350
-ms.sourcegitcommit: 920ad23613a9504212aac2bfbd24a7c3de15d549
+ms.openlocfilehash: 79cf87cef4e58cf4e5a2039f30289d55038c8b92
+ms.sourcegitcommit: 2d9a9079dd0a701b4bbe7289e8126a167cfcb450
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "68226241"
+ms.lasthandoff: 09/29/2019
+ms.locfileid: "71671956"
 ---
 # <a name="request-limits-for-translator-text"></a>Translator Text 的要求限制
 
@@ -29,10 +29,10 @@ ms.locfileid: "68226241"
 
 | 運算 | 陣列元素的大小上限 |   陣列元素的最大數目 |  要求大小上限 (字元) |
 |:----|:----|:----|:----|
-| Translate | 5,000 | 100   | 5,000 |
+| 轉譯 | 5,000 | 100   | 5,000 |
 | Transliterate | 5,000 | 10    | 5,000 |
-| Detect | 10,000 | 100 |   50,000 |
-| BreakSentence | 10,000    | 100 | 5,0000 |
+| 偵測 | 10,000 | 100 |   50,000 |
+| BreakSentence | 10,000    | 100 | 50,000 |
 | 字典查閱| 100 |  10  | 1,000 |
 | 字典範例 | 100用於文字, 100 用於轉譯 (200 total)| 10|   2,000 |
 
@@ -56,7 +56,7 @@ ms.locfileid: "68226241"
 
 這些限制僅限於 Microsoft 的標準翻譯模型。 使用自訂翻譯的自訂翻譯模型的每秒限制為1800個字元。
 
-## <a name="latency"></a>Latency
+## <a name="latency"></a>延遲
 
 翻譯工具文字 API 的延遲上限為15秒, 使用標準模型。 使用自訂模型的轉譯具有25秒的最大延遲。 在此時間之前，您會收到結果或逾時回應。 回應通常會在 150 毫秒到 300 毫秒之間傳回。 回應時間會根據要求和語言組的大小而有所不同。 如果您未在該時間範圍內收到翻譯或[錯誤回應](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#errors), 您應該檢查您的網路連線, 然後重試。
 
@@ -73,7 +73,7 @@ ms.locfileid: "68226241"
 | 葡萄牙文 | pt | 290 |
 | 西班牙文 | es | 280 |
 | 義大利文 | it | 280 |
-| 泰文 | th | 258 |
+| 泰文 | 個 | 258 |
 
 > [!NOTE]
 > 這項限制不適用於翻譯。

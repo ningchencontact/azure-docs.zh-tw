@@ -11,19 +11,19 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 05/07/2019
 ms.author: diberry
-ms.openlocfilehash: a9da5089c9309ec06f29fd3e0868102cfa538049
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: b5f4855c03c1c003df8f58b135cb809f1757e58f
+ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68933449"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71677472"
 ---
 # <a name="personname-prebuilt-entity-for-a-luis-app"></a>LUIS 應用程式的 PersonName 預先建置實體
 預先建置的 personName 實體會偵測人員名稱。 由於此實體已經定型，因此您不需要將包含 PersonName 的範例語句加入至應用程式意圖。 personName 實體已支援英文與中文[文化特性](luis-reference-prebuilt-entities.md)。
 
 ## <a name="resolution-for-personname-entity"></a>personName 實體解析
 
-### <a name="api-version-2x"></a>API 2.x 版
+#### <a name="v2-prediction-endpoint-responsetabv2"></a>[V2 預測端點回應](#tab/V2)
 
 下列範例說明 **builtin.personName** 實體的解析。
 
@@ -44,10 +44,10 @@ ms.locfileid: "68933449"
   ]
 }
 ```
+#### <a name="v3-prediction-endpoint-responsetabv3"></a>[V3 預測端點回應](#tab/V3)
 
-### <a name="preview-api-version-3x"></a>預覽 API 版本3。x
 
-下列 JSON 是`verbose`將參數設定為`false`:
+下列 JSON 是將 `verbose` 參數設定為 `false`：
 
 ```json
 {
@@ -69,7 +69,7 @@ ms.locfileid: "68933449"
 }
 ```
 
-下列 JSON 是`verbose`將參數設定為`true`:
+下列 JSON 是將 `verbose` 參數設定為 `true`：
 
 ```json
 {
@@ -103,6 +103,10 @@ ms.locfileid: "68933449"
 }
 ```
 
+* * * 
+
 ## <a name="next-steps"></a>後續步驟
+
+深入瞭解[V3 預測端點](luis-migration-api-v3.md)。
 
 了解 [email](luis-reference-prebuilt-email.md)、[number](luis-reference-prebuilt-number.md) 及 [ordinal](luis-reference-prebuilt-ordinal.md) 實體相關資訊。 

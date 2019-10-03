@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 05/07/2019
+ms.date: 09/27/2019
 ms.author: diberry
-ms.openlocfilehash: f2868610bf9215b1414ea3ba342e3064b9c54f63
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: cb97cc5b0004442e00b970202dd01f76aa971a2a
+ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68933511"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71677581"
 ---
 # <a name="number-prebuilt-entity-for-a-luis-app"></a>LUIS 應用程式的數字預先建置實體
 數值用來量化、表達及描述各項資訊的方式眾多。 本文只涵蓋部分可能的範例。 LUIS 可解譯使用者語句的變化，並傳回一致的數值。 因為此實體已經定型，所以您不需要將包含數字的範例語句加入應用程式意圖。 
@@ -26,7 +26,7 @@ ms.locfileid: "68933511"
 
 ## <a name="examples-of-number-resolution"></a>數字解析範例
 
-| 語句        | 實體   | 解決方法 |
+| 語句        | 實體   | 解析度 |
 | ------------- |:----------------:| --------------:|
 | ```one thousand times```  | ```"one thousand"``` |   ```"1000"```      | 
 | ```1,000 people```        | ```"1,000"```    |   ```"1000"```      |
@@ -43,7 +43,7 @@ LUIS 會在所傳回 JSON 回應的 `resolution` 欄位中，包含 **`builtin.n
 ## <a name="resolution-for-prebuilt-number"></a>解析預先建置的數字
 
 
-### <a name="api-version-2x"></a>API 2.x 版
+#### <a name="v2-prediction-endpoint-responsetabv2"></a>[V2 預測端點回應](#tab/V2)
 
 下列範例顯示來自 LUIS 的 JSON 回應，其中包含「兩打」語句的值 24。
 
@@ -83,9 +83,9 @@ LUIS 會在所傳回 JSON 回應的 `resolution` 欄位中，包含 **`builtin.n
 }
 ```
 
-### <a name="preview-api-version-3x"></a>預覽 API 版本3。x
+#### <a name="v3-prediction-endpoint-responsetabv3"></a>[V3 預測端點回應](#tab/V3)
 
-下列 JSON 是`verbose`將參數設定為`false`:
+下列 JSON 是將 `verbose` 參數設定為 `false`：
 
 ```json
 {
@@ -107,7 +107,7 @@ LUIS 會在所傳回 JSON 回應的 `resolution` 欄位中，包含 **`builtin.n
 }
 ```
 
-下列 JSON 是`verbose`將參數設定為`true`:
+下列 JSON 是將 `verbose` 參數設定為 `true`：
 
 ```json
 {
@@ -141,6 +141,10 @@ LUIS 會在所傳回 JSON 回應的 `resolution` 欄位中，包含 **`builtin.n
 }
 ```
 
+* * * 
+
 ## <a name="next-steps"></a>後續步驟
+
+深入瞭解[V3 預測端點](luis-migration-api-v3.md)。
 
 了解 [currency](luis-reference-prebuilt-currency.md)、[ordinal](luis-reference-prebuilt-ordinal.md) 及 [percentage](luis-reference-prebuilt-percentage.md) 相關資訊。 

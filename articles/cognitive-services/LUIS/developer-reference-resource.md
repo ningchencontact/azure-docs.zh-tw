@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 09/18/2019
+ms.date: 09/27/2019
 ms.author: diberry
-ms.openlocfilehash: 97684a4668c1d495fa690674f7bd94e064737bd4
-ms.sourcegitcommit: a6718e2b0251b50f1228b1e13a42bb65e7bf7ee2
+ms.openlocfilehash: 0707ed3dfee9af27b7cab66c7952d1e7c1d57cb8
+ms.sourcegitcommit: 6fe40d080bd1561286093b488609590ba355c261
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71273958"
+ms.lasthandoff: 10/01/2019
+ms.locfileid: "71703206"
 ---
 # <a name="developer-resources-for-language-understanding"></a>Language Understanding 的開發人員資源
 
@@ -34,6 +34,8 @@ ms.locfileid: "71273958"
 ## <a name="language-understanding-authoring-and-prediction-requests"></a>Language Understanding 撰寫和預測要求
 
 Language Understanding 服務會從您需要建立的 Azure 資源進行存取。 有兩個資源：撰寫和預測端點資源。 這兩個資源都可讓您控制您的 LUIS 資源。 
+
+深入瞭解[V3 預測端點](luis-migration-api-v3.md)。
 
 ### <a name="rest-apis"></a>REST API
 

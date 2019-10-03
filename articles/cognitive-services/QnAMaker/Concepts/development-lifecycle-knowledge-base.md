@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
-ms.date: 04/16/2019
+ms.date: 09/25/2019
 ms.author: diberry
 ms.custom: seodec18
-ms.openlocfilehash: 97a4673be2a611149806855e792c5bf1f7a0942a
-ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
+ms.openlocfilehash: 530869928f7a25e779cb01f0fe392efdbb54c5ba
+ms.sourcegitcommit: 8bae7afb0011a98e82cbd76c50bc9f08be9ebe06
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68955163"
+ms.lasthandoff: 10/01/2019
+ms.locfileid: "71695107"
 ---
 # <a name="knowledge-base-lifecycle-in-qna-maker"></a>QnA Maker 中的知識庫生命週期
 QnA Maker 在反覆的週期中學習模型變更、語句範例、發佈資料以及從端點查詢收集資料時，會有最佳學習成效。 
@@ -28,14 +28,14 @@ QnA Maker 知識庫 (KB) 端點會根據知識庫的內容對使用者查詢提�
 
 ## <a name="testing-and-updating-the-knowledge-base"></a>測試和更新知識庫
 
-知識庫在填入內容 (透過編輯或自動擷取) 後即可供測試。 互動式測試可以透過**測試**面板在 QnA Maker 入口網站中完成, 方法是輸入一般使用者查詢, 並確認傳回的回應具有正確的回應和足夠的信賴分數。 
+知識庫在填入內容 (透過編輯或自動擷取) 後即可供測試。 互動式測試可以透過**測試**面板在 QnA Maker 入口網站中完成，方法是輸入一般使用者查詢，並確認傳回的回應具有正確的回應和足夠的信賴分數。 
 
-* **若要修正低信賴分數**: 新增替代問題。 
-* **當查詢不正確地傳回[預設回應](confidence-score.md#change-default-answer)時**: 請將新答案新增至正確的問題。 
+* **若要修正低信賴分數**：新增替代問題。 
+* **當查詢不正確地傳回[預設回應](confidence-score.md#change-default-answer)時**：請將新答案新增至正確的問題。 
 
 「測試-更新」的這個密封迴圈會持續執行，直到您得到滿意的結果為止。 了解如何[測試知識庫](../How-To/test-knowledge-base.md)。
 
-針對大型 kb, 請使用[generateAnswer API](../how-to/metadata-generateanswer-usage.md#get-answer-predictions-with-the-generateanswer-api)的自動化測試, 以及`isTest`查詢`test`知識庫的 body 屬性, 而不是已發行的知識庫。 
+針對大型 Kb，請使用[GENERATEANSWER API](../how-to/metadata-generateanswer-usage.md#get-answer-predictions-with-the-generateanswer-api)的自動化測試，以及查詢 @no__t 2 知識庫（而不是已發行的知識庫）的 `isTest` body 屬性。 
 
 ```json
 {
@@ -51,7 +51,7 @@ QnA Maker 知識庫 (KB) 端點會根據知識庫的內容對使用者查詢提�
 
 如此，對測試版知識庫所做的任何變更，都不會對可能正在生產應用程式中執行的已發行版本造成影響。
 
-這些知識庫全都可以個別進行測試。 您可以使用 api, 以 generateAnswer 呼叫中的 [ `isTest`主體] 屬性作為目標的測試版本。
+這些知識庫全都可以個別進行測試。 您可以使用 Api，以 generateAnswer 呼叫中的 `isTest` body 屬性作為目標的測試版本。
 
 了解如何[發佈知識庫](../Quickstarts/create-publish-knowledge-base.md#publish-the-knowledge-base)。
 
@@ -61,6 +61,14 @@ QnA Maker 知識庫 (KB) 端點會根據知識庫的內容對使用者查詢提�
 您可以取得服務使用情形的各種分析。 深入了解如何使用 Application Insights 取得 [QnA Maker 服務的分析](../How-To/get-analytics-knowledge-base.md)。
 
 您可以根據從分析得出的結論，適當[更新您的知識庫](../How-To/edit-knowledge-base.md)。
+
+## <a name="version-control-of-a-knowledge-base"></a>知識庫的版本控制
+
+QnA Maker 不提供版本控制。 您必須從 [**設定**] 頁面匯出知識庫，並使用您自己的方法和工具。
+
+從 [**設定**] 頁面完成將知識庫匯出為 TSV 或 XLS 格式的作業。 
+
+當您需要回到特定版本時，您需要從本機系統匯入該檔案。 在 [**設定**] 頁面上，匯入 TSV 或 XLS 檔案。 這會將目前知識庫中的問題和答案取代為匯入檔案的內容。   
 
 ## <a name="next-steps"></a>後續步驟
 

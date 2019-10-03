@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: reference
-ms.date: 07/24/2019
+ms.date: 09/29/2019
 ms.author: diberry
-ms.openlocfilehash: cda6c724a36a73dc34c2bf8e7158e3e3ec92d46b
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 2239387ffff4c30e1183721a528e666199316bed
+ms.sourcegitcommit: 8bae7afb0011a98e82cbd76c50bc9f08be9ebe06
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68563225"
+ms.lasthandoff: 10/01/2019
+ms.locfileid: "71695100"
 ---
 # <a name="patternany-entity"></a>Pattern.any 實體 
 
@@ -23,7 +23,7 @@ Pattern.any 是僅用於模式範本語句的可變長度預留位置，用來�
 
 Pattern.any 實體需要在[模式](luis-how-to-model-intent-pattern.md)範本裡的範例 (而不是意圖裡使用者所提供的範例) 中進行標記。
 
-**實體適用于下列情況:**
+**實體適用于下列情況：**
 
 * 實體的結尾可能會與語句的其餘文字混淆。 
 
@@ -41,49 +41,71 @@ Pattern.any 實體需要在[模式](luis-how-to-model-intent-pattern.md)範本�
 |`Was There's A Wocket In My Pocket! written by an American this year?`<br><br>Was **There's A Wocket In My Pocket!** written by an American this year?|
 ||
 
+
+
 ## <a name="example-json"></a>範例 JSON
 
+請考量下列查詢：
+
+`where is the form Understand your responsibilities as a member of the community and who needs to sign it after I read it?`
+
+使用內嵌的表單名稱，將其解壓縮為模式。任何：
+
+`Understand your responsibilities as a member of the community`
+
+#### <a name="v2-prediction-endpoint-responsetabv2"></a>[V2 預測端點回應](#tab/V2)
+
 ```JSON
-{
-  "query": "where is the form Understand your responsibilities as a member of the community and who needs to sign it after I read it?",
-  "topScoringIntent": {
-    "intent": "FindForm",
-    "score": 0.999999464
-  },
-  "intents": [
-    {
-      "intent": "FindForm",
-      "score": 0.999999464
-    },
-    {
-      "intent": "GetEmployeeBenefits",
-      "score": 4.883697E-06
-    },
-    {
-      "intent": "None",
-      "score": 1.02040713E-06
-    },
-    {
-      "intent": "GetEmployeeOrgChart",
-      "score": 9.278342E-07
-    },
-    {
-      "intent": "MoveAssetsOrPeople",
-      "score": 9.278342E-07
-    }
-  ],
-  "entities": [
-    {
-      "entity": "understand your responsibilities as a member of the community",
-      "type": "FormName",
-      "startIndex": 18,
-      "endIndex": 78,
-      "role": ""
-    }
-  ]
+"entities": [
+  {
+    "entity": "understand your responsibilities as a member of the community",
+    "type": "FormName",
+    "startIndex": 18,
+    "endIndex": 78,
+    "role": ""
+  }
+```
+
+
+#### <a name="v3-prediction-endpoint-responsetabv3"></a>[V3 預測端點回應](#tab/V3)
+
+如果在查詢字串中設定 `verbose=false`，這就是 JSON：
+
+```json
+"entities": {
+    "FormName": [
+        "Understand your responsibilities as a member of the community"
+    ]
 }
 ```
 
+如果在查詢字串中設定 `verbose=true`，這就是 JSON：
+
+```json
+"entities": {
+    "FormName": [
+        "Understand your responsibilities as a member of the community"
+    ],
+    "$instance": {
+        "FormName": [
+            {
+                "type": "FormName",
+                "text": "Understand your responsibilities as a member of the community",
+                "startIndex": 18,
+                "length": 61,
+                "modelTypeId": 7,
+                "modelType": "Pattern.Any Entity Extractor",
+                "recognitionSources": [
+                    "model"
+                ]
+            }
+        ]
+    }
+}
+```
+
+* * * 
+
 ## <a name="next-steps"></a>後續步驟
 
-在本[教學](luis-tutorial-pattern-any.md)課程中, 使用**模式。任何**實體都會從語句中解壓縮資料, 其中語句的格式正確, 而資料的結尾可能會與語句的其餘單字輕鬆混淆。
+在本[教學](luis-tutorial-pattern-any.md)課程中，使用**模式。任何**實體都會從語句中解壓縮資料，其中語句的格式正確，而資料的結尾可能會與語句的其餘單字輕鬆混淆。

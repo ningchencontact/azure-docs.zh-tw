@@ -9,14 +9,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/01/2019
+ms.date: 10/01/2019
 ms.author: banders
-ms.openlocfilehash: ac5bcf0a4dd9c7ee593c70a63509a21f28ba1456
-ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
+ms.openlocfilehash: 3fcd2bed0ea6a3ad4f2dba36113bf33461b51ce6
+ms.sourcegitcommit: d4c9821b31f5a12ab4cc60036fde00e7d8dc4421
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "67491468"
+ms.lasthandoff: 10/01/2019
+ms.locfileid: "71709728"
 ---
 # <a name="avoid-charges-with-your-azure-free-account"></a>避免 Azure 免費帳戶產生費用
 
@@ -59,7 +59,7 @@ Azure 免費帳戶提供使用量有限的每個月免費服務。 免費使用�
 
 ## <a name="need-help-contact-us"></a>需要協助嗎？ 與我們連絡。
 
-如果您有問題或需要協助，請[建立支援要求](https://go.microsoft.com/fwlink/?linkid=2083458)。
+如有問題或需要協助，請[建立支援要求](https://go.microsoft.com/fwlink/?linkid=2083458)。
 
 ## <a name="next-steps"></a>後續步驟
 - [升級您的免費試用 Azure 訂用帳戶](billing-upgrade-azure-subscription.md)

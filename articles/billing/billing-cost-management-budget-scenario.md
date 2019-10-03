@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: billing
-ms.date: 03/13/2019
+ms.date: 10/01/2019
 ms.author: banders
-ms.openlocfilehash: 37f129526cb184a2eeee9e36028e8f00b5bbc247
-ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
+ms.openlocfilehash: 8ff402299b26637473f3fb762a3320255ea4df64
+ms.sourcegitcommit: a19f4b35a0123256e76f2789cd5083921ac73daf
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "68443468"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71719920"
 ---
 # <a name="manage-costs-with-azure-budgets"></a>使用 Azure 預算來管理成本
 
@@ -277,8 +277,8 @@ ms.locfileid: "68443468"
 4.  新增並確認下列項目：
     - 動作群組名稱
     - 簡短名稱
-    - Subscription
-    - Resource group
+    - 訂用帳戶
+    - 資源群組
 
     ![Azure - 邏輯應用程式 - [新增動作群組]](./media/billing-cost-management-budget-scenario/billing-cost-management-budget-scenario-26.png)
 
