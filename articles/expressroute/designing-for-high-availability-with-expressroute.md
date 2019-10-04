@@ -88,7 +88,7 @@ ExpressRoute 支援透過私用對等互連的 BFD。 BFD 會將 Microsoft Enter
 
 <!--Image References-->
 [1]: ./media/designing-for-high-availability-with-expressroute/exr-reco.png "使用 ExpressRoute 進行連接的建議方式"
-[2]: ./media/designing-for-high-availability-with-expressroute/suboptimal-lastmile-connectivity.png "最新的最後英里"連線
+[2]: ./media/designing-for-high-availability-with-expressroute/suboptimal-lastmile-connectivity.png "最新的最後英里 連線"
 [3]: ./media/designing-for-high-availability-with-expressroute/nat-options.png "NAT 選項"
 
 
