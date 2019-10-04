@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/25/2019
 ms.author: mjbrown
-ms.openlocfilehash: 77d70aaa9c1ae5a111a47e08f259c0ce95fd7c92
-ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
+ms.openlocfilehash: 3a13f8928ba243195c30200dae0525e72c1c161b
+ms.sourcegitcommit: 15e3bfbde9d0d7ad00b5d186867ec933c60cebe6
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71300123"
+ms.lasthandoff: 10/03/2019
+ms.locfileid: "71844413"
 ---
 # <a name="migrate-non-partitioned-containers-to-partitioned-containers"></a>將非資料分割的容器遷移至分割的容器
 
@@ -99,7 +99,7 @@ ItemResponse<DeviceInformationItem> readResponse =
 
 ## <a name="access-documents-that-dont-have-a-partition-key"></a>存取沒有分割區索引鍵的檔
 
-應用程式可以使用名為 "CosmosContainerSettings. NonePartitionKeyValue" 的特殊系統屬性，存取沒有分割區索引鍵的現有檔，這是未遷移檔的值。 您可以在所有 CRUD 和查詢作業中使用這個屬性。 下列範例顯示從 NonePartitionKey 讀取單一檔的範例。 
+應用程式可以使用名為 "PartitionKey" 的特殊系統屬性，存取沒有分割區索引鍵的現有檔，這是未遷移檔的值。 您可以在所有 CRUD 和查詢作業中使用這個屬性。 下列範例顯示從 NonePartitionKey 讀取單一檔的範例。 
 
 ```csharp
 CosmosItemResponse<DeviceInformationItem> readResponse = 

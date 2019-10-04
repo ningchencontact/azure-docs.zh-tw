@@ -4,14 +4,14 @@ description: 顯示哪些 Azure 資源類型支援標記。 提供所有 Azure �
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: conceptual
-ms.date: 09/13/2019
+ms.date: 10/03/2019
 ms.author: tomfitz
-ms.openlocfilehash: 7b8d3de3eaa9cdbb945879f2acc283d74c8b4e82
-ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
+ms.openlocfilehash: 06028224379bd42e1e0ea21b684ce443abd5992a
+ms.sourcegitcommit: f2d9d5133ec616857fb5adfb223df01ff0c96d0a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/14/2019
-ms.locfileid: "70996835"
+ms.lasthandoff: 10/03/2019
+ms.locfileid: "71937005"
 ---
 # <a name="tag-support-for-azure-resources"></a>Azure 資源的標記支援
 本文將說明資源類型是否支援[標記](resource-group-using-tags.md)。 標記為 [**支援標記**] 的資料行指出資源類型是否有標記的屬性。 [**成本報表] 中**標示為 [標記] 的資料行指出該資源類型是否會將標記傳遞至成本報表。
@@ -40,7 +40,6 @@ ms.locfileid: "70996835"
 > - [Microsoft.Batch](#microsoftbatch)
 > - [Microsoft 帳單](#microsoftbilling)
 > - [Microsoft.BingMaps](#microsoftbingmaps)
-> - [Microsoft.BizTalkServices](#microsoftbiztalkservices)
 > - [Microsoft.Blockchain](#microsoftblockchain)
 > - [Microsoft.Blueprint](#microsoftblueprint)
 > - [Microsoft.BotService](#microsoftbotservice)
@@ -123,6 +122,7 @@ ms.locfileid: "70996835"
 > - [Microsoft.NetApp](#microsoftnetapp)
 > - [Microsoft.Network](#microsoftnetwork)
 > - [Microsoft.NotificationHubs](#microsoftnotificationhubs)
+> - [Objectstore 會](#microsoftobjectstore)
 > - [OffAzure](#microsoftoffazure)
 > - [Microsoft.OperationalInsights](#microsoftoperationalinsights)
 > - [Microsoft.OperationsManagement](#microsoftoperationsmanagement)
@@ -393,6 +393,7 @@ ms.locfileid: "70996835"
 > | billingAccounts/客戶 | 否 |否 |
 > | billingAccounts/customers/billingSubscriptions | 否 |否 |
 > | billingAccounts/customers/initiateTransfer | 否 |否 |
+> | billingAccounts/customers/原則 | 否 |否 |
 > | billingAccounts/customers/products | 否 |否 |
 > | billingAccounts/customers/交易所 | 否 |否 |
 > | billingAccounts/客戶/傳輸 | 否 |否 |
@@ -440,13 +441,6 @@ ms.locfileid: "70996835"
 > | ------------- | ----------- | ----------- |
 > | mapApis | 是 |是 |
 > | updateCommunicationPreference | 否 |否 |
-
-## <a name="microsoftbiztalkservices"></a>Microsoft.BizTalkServices
-
-> [!div class="mx-tableFixed"]
-> | 資源類型 | 支援標記 | 成本報告中的標記 |
-> | ------------- | ----------- | ----------- |
-> | BizTalk | 是 |是 |
 
 ## <a name="microsoftblockchain"></a>Microsoft.Blockchain
 
@@ -542,7 +536,7 @@ ms.locfileid: "70996835"
 > | 資源類型 | 支援標記 | 成本報告中的標記 |
 > | ------------- | ----------- | ----------- |
 > | capabilities | 否 |否 |
-> | domainNames | 是 |是 |
+> | domainNames | 否 |否 |
 > | domainNames/capabilities | 否 |否 |
 > | domainNames/internalLoadBalancers | 否 |否 |
 > | domainNames/serviceCertificates | 否 |否 |
@@ -556,7 +550,7 @@ ms.locfileid: "70996835"
 > | quotas | 否 |否 |
 > | resourceTypes | 否 |否 |
 > | validateSubscriptionMoveAvailability | 否 |否 |
-> | virtualMachines | 是 |是 |
+> | virtualMachines | 否 |否 |
 > | virtualMachines/diagnosticSettings | 否 |否 |
 > | virtualMachines/metricDefinitions | 否 |否 |
 > | virtualMachines/metrics | 否 |否 |
@@ -577,10 +571,10 @@ ms.locfileid: "70996835"
 > | expressRouteCrossConnections | 否 |否 |
 > | expressRouteCrossConnections/peerings | 否 |否 |
 > | gatewaySupportedDevices | 否 |否 |
-> | networkSecurityGroups | 是 |是 |
+> | networkSecurityGroups | 否 |否 |
 > | quotas | 否 |否 |
-> | reservedIps | 是 |是 |
-> | virtualNetworks | 是 |是 |
+> | reservedIps | 否 |否 |
+> | virtualNetworks | 否 |否 |
 > | virtualNetworks/remoteVirtualNetworkPeeringProxies | 否 |否 |
 > | virtualNetworks/virtualNetworkPeerings | 否 |否 |
 
@@ -596,7 +590,7 @@ ms.locfileid: "70996835"
 > | osPlatformImages | 否 |否 |
 > | publicImages | 否 |否 |
 > | quotas | 否 |否 |
-> | storageAccounts | 是 |是 |
+> | storageAccounts | 否 |否 |
 > | storageAccounts/blobServices | 否 |否 |
 > | storageAccounts/fileServices | 否 |否 |
 > | storageAccounts/Metricdefinitions.listasync | 否 |否 |
@@ -634,10 +628,10 @@ ms.locfileid: "70996835"
 > | diskEncryptionSets | 是 |是 |
 > | 磁碟 | 是 |是 |
 > | galleries | 是 |是 |
-> | 資源庫/應用程式 | 是 |是 |
-> | 資源庫/應用程式/版本 | 是 |是 |
-> | galleries/images | 是 |是 |
-> | galleries/images/versions | 是 |是 |
+> | 資源庫/應用程式 | 否 |否 |
+> | 資源庫/應用程式/版本 | 否 |否 |
+> | galleries/images | 否 |否 |
+> | galleries/images/versions | 否 |否 |
 > | hostGroups | 是 |是 |
 > | hostGroups/主機 | 是 |是 |
 > | 映像 | 是 |是 |
@@ -645,13 +639,11 @@ ms.locfileid: "70996835"
 > | restorePointCollections | 是 |是 |
 > | restorePointCollections/restorePoints | 否 |否 |
 > | sharedVMImages | 是 |是 |
-> | sharedVMImages/versions | 是 |是 |
+> | sharedVMImages/versions | 否 |否 |
 > | 快照集 | 是 |是 |
 > | virtualMachines | 是 |是 |
 > | virtualMachines/extensions | 是 |是 |
 > | virtualMachines/metricDefinitions | 否 |否 |
-> | virtualMachines/scriptJobs | 否 |否 |
-> | virtualMachines/softwareUpdateDeployments | 否 |否 |
 > | virtualMachineScaleSets | 是 |是 |
 > | virtualMachineScaleSets/extensions | 否 |否 |
 > | virtualMachineScaleSets/networkInterfaces | 否 |否 |
@@ -919,6 +911,9 @@ ms.locfileid: "70996835"
 > | serverGroups | 是 |是 |
 > | 伺服器 | 是 |是 |
 > | servers/advisors | 否 |否 |
+> | 伺服器/privateEndpointConnectionProxies | 否 |否 |
+> | 伺服器/privateEndpointConnections | 否 |否 |
+> | 伺服器/privateLinkResources | 否 |否 |
 > | servers/queryTexts | 否 |否 |
 > | servers/recoverableServers | 否 |否 |
 > | servers/topQueryStatistics | 否 |否 |
@@ -1199,6 +1194,7 @@ ms.locfileid: "70996835"
 > | clusters/databases | 否 |否 |
 > | clusters/databases/dataconnections | 否 |否 |
 > | clusters/databases/eventhubconnections | 否 |否 |
+> | 叢集/sharedidentities | 否 |否 |
 
 ## <a name="microsoftlabservices"></a>Microsoft.LabServices
 
@@ -1363,11 +1359,13 @@ ms.locfileid: "70996835"
 > | 資源類型 | 支援標記 | 成本報告中的標記 |
 > | ------------- | ----------- | ----------- |
 > | netAppAccounts | 是 |是 |
+> | netAppAccounts/backupPolicies | 是 |是 |
 > | netAppAccounts/capacityPools | 是 |是 |
 > | netAppAccounts/capacityPools/磁片區 | 是 |是 |
+> | netAppAccounts/capacityPools/磁片區/備份 | 否 |否 |
 > | netAppAccounts/capacityPools/磁片區/mountTargets | 是 |是 |
 > | netAppAccounts/capacityPools/磁片區/快照集 | 是 |是 |
-
+> | netAppAccounts/保存庫 | 否 |否 |
 ## <a name="microsoftnetwork"></a>Microsoft.Network
 
 > [!div class="mx-tableFixed"]
@@ -1458,6 +1456,7 @@ ms.locfileid: "70996835"
 > [!NOTE]
 > 針對 Azure Front 門板服務, 您可以在建立資源時套用標記, 但目前不支援更新或新增標籤。
 
+
 ## <a name="microsoftnotificationhubs"></a>Microsoft.NotificationHubs
 
 > [!div class="mx-tableFixed"]
@@ -1465,6 +1464,13 @@ ms.locfileid: "70996835"
 > | ------------- | ----------- | ----------- |
 > | 命名空間 | 是 |否 |
 > | namespaces/notificationHubs | 是 |否 |
+
+## <a name="microsoftobjectstore"></a>Objectstore 會
+
+> [!div class="mx-tableFixed"]
+> | 資源類型 | 支援標記 | 成本報告中的標記 |
+> | ------------- | ----------- | ----------- |
+> | osNamespaces | 是 |是 |
 
 ## <a name="microsoftoffazure"></a>Microsoft.OffAzure
 
@@ -1614,6 +1620,8 @@ ms.locfileid: "70996835"
 > | 資源 | 否 |否 |
 > | 訂用帳戶 | 否 |否 |
 > | subscriptions/providers | 否 |否 |
+> | subscriptions/resourceGroups | 否 |否 |
+> | subscriptions/resourcegroups/resources | 否 |否 |
 > | subscriptions/resources | 否 |否 |
 > | subscriptions/tagnames | 否 |否 |
 > | subscriptions/tagNames/tagValues | 否 |否 |
@@ -1680,6 +1688,7 @@ ms.locfileid: "70996835"
 > | securityStatusesSummaries | 否 |否 |
 > | serverVulnerabilityAssessments | 否 |否 |
 > | 設定 | 否 |否 |
+> | subAssessments | 否 |否 |
 > | 工作 | 否 |否 |
 > | topologies | 否 |否 |
 > | workspaceSettings | 否 |否 |

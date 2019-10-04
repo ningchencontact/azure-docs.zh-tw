@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 12/05/2017
 ms.author: mathoma
-ms.openlocfilehash: 2705b42849922ce7e3650162b8f1ff78723685c2
-ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
+ms.openlocfilehash: 57a325dd297955296a94db134b6a2a6d58a37f03
+ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70309249"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71828603"
 ---
 # <a name="storage-configuration-for-sql-server-vms"></a>SQL Server VM 的儲存體組態
 
@@ -42,9 +42,28 @@ ms.locfileid: "70309249"
 
 ### <a name="azure-portal"></a>Azure 入口網站
 
-使用 SQL Server 資源庫映像佈建 Azure VM 時，您可以選擇自動為新的 VM 設定儲存體。 您可指定儲存體大小、效能限制，以及工作負載類型。 下列螢幕擷取畫面顯示在 SQL VM 佈建期間使用的儲存體設定刀鋒視窗。
+使用 SQL Server 資源庫映射布建 Azure VM 時，請選取 [ **SQL Server 設定**] 索引標籤上的 [**變更**設定]，以開啟 [效能優化存放裝置設定] 頁面。 您可以保留預設值，或根據您的工作負載，修改最符合您需求的磁片設定類型。 
 
 ![佈建期間的 SQL Server VM 儲存體設定](./media/virtual-machines-windows-sql-storage-configuration/sql-vm-storage-configuration-provisioning.png)
+
+在 [**儲存體優化**] 底下，選取您要部署 SQL Server 的工作負載類型。 使用 [**一般**優化] 選項時，根據預設，您將會有一個具有5000最大 IOPS 的資料磁片，而且您將會針對資料、交易記錄和 TempDB 儲存體使用此相同磁片磁碟機。 選取**交易處理**（OLTP）或**資料倉儲**將會針對資料建立個別的磁片、針對交易記錄建立個別的磁片，並使用本機 SSD 進行 TempDB。 **交易處理**和**資料倉儲**之間沒有任何存放裝置差異，但它會變更您的[stripe 設定和追蹤旗標](#workload-optimization-settings)。 選擇高階儲存體會將資料磁片磁碟機的快取*設定為* *唯讀*，記錄磁片磁碟機則不會依據[SQL Server VM 效能最佳做法](virtual-machines-windows-sql-performance.md)。 
+
+![佈建期間的 SQL Server VM 儲存體設定](./media/virtual-machines-windows-sql-storage-configuration/sql-vm-storage-configuration.png)
+
+磁片設定是完全可自訂的，因此您可以為 SQL Server VM 工作負載設定所需的存放裝置拓朴、磁片類型和 IOPs。 如果您的 SQL Server VM 位於其中一個支援的區域（美國東部2、東南亞和北歐），而且您已為訂用帳戶啟用[ultra 磁片](/azure/virtual-machines/windows/disks-enable-ultra-ssd)，您也可以使用 UltraSSD （預覽）做為**磁片類型**的選項。  
+
+此外，您也能夠設定磁片的快取。 在搭配[Premium 磁片](/azure/virtual-machines/windows/disks-types#premium-ssd)使用時，Azure vm 具有稱為[Blob](/azure/virtual-machines/windows/premium-storage-performance#disk-caching)快取的多層快取技術。 Blob 快取使用虛擬機器 RAM 和本機 SSD 的組合來進行快取。 
+
+進階 SSD 的磁碟快取可以是*ReadOnly*、 *ReadWrite*或*None*。 
+
+- *唯讀*快取對於儲存在進階儲存體上 SQL Server 資料檔案非常有用。 *唯讀*快取會將較低的讀取延遲、高讀取 IOPS 和輸送量視為，從快取執行讀取，VM 記憶體和本機 SSD 內的作業系統。 這些讀取速度比從 Azure blob 儲存體讀取資料磁片快很多。 高階儲存體不會計算從快取向磁片 IOPS 和輸送量所提供的讀取次數。 因此，您適用的能夠達到更高的總 IOPS 輸送量。 
+- [*無*快取設定] 應該用於主控 SQL Server 記錄檔的磁片，因為記錄檔會依照順序寫入，而且不會受益于*唯讀*快取。 
+- *Readwrite*快取不應該用來裝載 SQL Server 檔案，因為 SQL Server 不支援使用*readwrite*快取的資料一致性。 如果寫入經過*readonly* blob 快取層，則會將*唯讀*blob 快取的浪費容量和延遲稍微增加。 
+
+
+   > [!TIP]
+   > 請確定您的存放裝置設定符合所選 VM 大小所加諸的限制。 選擇超過 VM 大小效能上限的儲存體參數會導致錯誤： `The desired performance might not be reached due to the maximum virtual machine disk performance cap.`。 藉由變更磁片類型來減少 IOPs，或藉由增加 VM 大小來增加效能上限限制。 
+
 
 根據您的選擇，Azure 會在建立 VM 後執行下列儲存體設定工作︰
 
@@ -64,6 +83,13 @@ ms.locfileid: "70309249"
 * [使用自動修補建立 VM](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-sql-full-autopatching)
 * [使用自 AKV 整合建立 VM](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-sql-full-keyvault)
 
+### <a name="quickstart-template"></a>快速入門範本
+
+您可以使用下列快速入門範本，使用儲存體優化來部署 SQL Server VM。 
+
+* [使用儲存體優化建立 VM](https://github.com/Azure/azure-quickstart-templates/tree/master/101-sql-vm-new-storage/)
+* [使用 UltraSSD 建立 VM](https://github.com/Azure/azure-quickstart-templates/tree/master/101-sql-vm-new-storage-ultrassd)
+
 ## <a name="existing-vms"></a>現有的 VM
 
 [!INCLUDE [windows-virtual-machines-sql-use-new-management-blade](../../../../includes/windows-virtual-machines-sql-new-resource.md)]
@@ -79,32 +105,11 @@ ms.locfileid: "70309249"
 
 ![設定現有 SQL Server VM 的儲存體](./media/virtual-machines-windows-sql-storage-configuration/sql-vm-storage-configuration-existing.png)
 
-視您之前是否用過這項功能而定，您看到的設定選項會有所不同。 第一次使用時，您可以指定新磁碟機的儲存體需求。 如果您先前使用這項功能來建立磁碟機，您可以選擇擴充該磁碟機的儲存體。
+您可以修改在 SQL Server VM 建立程式期間設定之磁片磁碟機的磁片設定。 選取 [**擴充磁片磁碟機**] 會開啟 [磁片磁碟機修改] 頁面，讓您可以變更磁片類型，以及新增額外的磁片。 
 
-### <a name="use-for-the-first-time"></a>第一次使用
+![設定現有 SQL Server VM 的儲存體](./media/virtual-machines-windows-sql-storage-configuration/sql-vm-storage-extend-drive.png)
 
-如果這是您第一次使用這項功能，您可以指定新磁碟機的儲存體大小和效能限制。 這種經驗類似於您在佈建時所會看到的情形。 主要差別在於您不得指定工作負載類型。 這項限制可防止中斷虛擬機器上任何現有的 SQL Server 設定。
 
-Azure 會根據您的規格建立新的磁碟機。 在此案例中，Azure 會執行下列儲存體設定工作︰
-
-* 建立進階儲存體資料磁碟並將其連接到虛擬機器。
-* 設定 SQL Server 可存取的資料磁碟。
-* 根據指定的大小和效能 (IOPS 和輸送量) 需求，設定存放集區中的資料磁碟。
-* 建立存放集區與虛擬機器上新磁碟機的關聯。
-
-如需 Azure 如何進行儲存體設定的詳細資訊，請參閱 [儲存體設定章節](#storage-configuration)。
-
-### <a name="add-a-new-drive"></a>加入新的磁碟機
-
-如果您已在 SQL Server VM 上設定儲存體，展開儲存體會顯示兩個新選項。 第一個選項是加入新的磁碟機，以提升您的 VM 的效能層級。
-
-不過，新增磁碟機之後，您必須執行一些額外的手動設定，才能達成效能提升。
-
-### <a name="extend-the-drive"></a>擴充磁碟機
-
-擴充儲存體的另一個選項是擴充現有的磁碟機。 此選項會增加您的磁碟機的可用儲存體，但不會提升效能。 使用存放集區，您無法在建立存放集區後改變資料行數目。 資料行數目會決定可以等量分散於資料磁碟的平行寫入數目。 因此，任何加入的資料磁碟均無法提升效能。 它們只能為寫入的資料提供更多的儲存空間。 這項限制也表示，在擴充磁碟機時，資料行數目會決定您可以新增的資料磁碟數目下限。 因此，如果您建立的存放集區包含四個資料磁碟，則資料行數目也是四個。 每次擴充存放裝置時，您都必須新增至少四個數據磁片。
-
-![延伸 SQL VM 的磁碟機](./media/virtual-machines-windows-sql-storage-configuration/sql-vm-storage-extend-a-drive.png)
 
 ## <a name="storage-configuration"></a>儲存體組態
 

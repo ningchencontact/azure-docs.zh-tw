@@ -6,12 +6,12 @@ ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 07/31/2019
 ms.author: tomfitz
-ms.openlocfilehash: c30bb47f3f35663a6ffcfc0126758eb82c9dec4e
-ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
+ms.openlocfilehash: b558e046f3402fdfa127192788d7d3ee1307ddeb
+ms.sourcegitcommit: f2d9d5133ec616857fb5adfb223df01ff0c96d0a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70194769"
+ms.lasthandoff: 10/03/2019
+ms.locfileid: "71937027"
 ---
 # <a name="string-functions-for-azure-resource-manager-templates"></a>Azure Resource Manager 範本的字串函式
 
@@ -762,9 +762,9 @@ JSON 物件。
 
 | Name | 類型 | 值 |
 | ---- | ---- | ----- |
-| formatTest | String | Hello, User。 格式化的數位:8,175,133 |
+| formatTest | String | Hello，User。 格式化的數位：8,175,133 |
 
-## <a name="guid"></a>GUID
+## <a name="guid"></a>guid
 
 `guid(baseString, ...)`
 
@@ -781,7 +781,7 @@ JSON 物件。
 
 當您需要建立格式為全域唯一識別碼的值時，此函式很有幫助。 您提供限制結果唯一性範圍的參數值。 您可以指定名稱對於訂用帳戶、資源群組或部署是否唯一。
 
-傳回的值不是隨機字串, 而是參數上雜湊函數的結果。 傳回的值為 36 個字元長。 這不是全域唯一的。 若要建立不是以參數的雜湊值為基礎的新 GUID, 請使用[newGuid](#newguid)函數。
+傳回的值不是隨機字串，而是參數上雜湊函數的結果。 傳回的值為 36 個字元長。 這不是全域唯一的。 若要建立不是以參數的雜湊值為基礎的新 GUID，請使用[newGuid](#newguid)函數。
 
 下列範例顯示如何使用 guid 來建立常用層級的唯一值。
 
@@ -850,7 +850,7 @@ JSON 物件。
 
 ### <a name="return-value"></a>傳回值
 
-整數，代表要尋找之項目的位置。 此值是以零為起始。 如果找不到專案, 則會傳回-1。
+整數，代表要尋找之項目的位置。 此值是以零為起始。 如果找不到專案，則會傳回-1。
 
 ### <a name="examples"></a>範例
 
@@ -963,7 +963,7 @@ JSON 物件。
 
 ### <a name="return-value"></a>傳回值
 
-整數，代表要尋找之項目的最後一個位置。 此值是以零為起始。 如果找不到專案, 則會傳回-1。
+整數，代表要尋找之項目的最後一個位置。 此值是以零為起始。 如果找不到專案，則會傳回-1。
 
 ### <a name="examples"></a>範例
 
@@ -1013,13 +1013,13 @@ JSON 物件。
 
 `length(string)`
 
-傳回字串中的字元數、陣列中的元素, 或物件中的根層級屬性。
+傳回字串中的字元數、陣列中的元素，或物件中的根層級屬性。
 
 ### <a name="parameters"></a>參數
 
 | 參數 | 必要項 | Type | 描述 |
 |:--- |:--- |:--- |:--- |
-| arg1 |是 |陣列、字串或物件 |要用來取得元素數目的陣列、用來取得字元數的字串, 或用來取得根層級屬性數目的物件。 |
+| arg1 |是 |陣列、字串或物件 |要用來取得元素數目的陣列、用來取得字元數的字串，或用來取得根層級屬性數目的物件。 |
 
 ### <a name="return-value"></a>傳回值
 
@@ -1093,15 +1093,15 @@ JSON 物件。
 
 ### <a name="remarks"></a>備註
 
-您只能針對參數的預設值, 在運算式中使用這個函數。 在範本中的任何其他地方使用此函數會傳回錯誤。 函式在範本的其他部分中不允許, 因為它會在每次呼叫時傳回不同的值。 使用相同的參數部署相同的範本, 並不會可靠地產生相同的結果。
+您只能針對參數的預設值，在運算式中使用這個函數。 在範本中的任何其他地方使用此函數會傳回錯誤。 函式在範本的其他部分中不允許，因為它會在每次呼叫時傳回不同的值。 使用相同的參數部署相同的範本，並不會可靠地產生相同的結果。
 
-NewGuid 函數與[guid](#guid)函數不同, 因為它不接受任何參數。 當您呼叫具有相同參數的 guid 時, 每次都會傳回相同的識別碼。 當您需要針對特定環境可靠地產生相同的 GUID 時, 請使用 guid。 當您每次需要不同的識別碼 (例如將資源部署到測試環境) 時, 請使用 newGuid。
+NewGuid 函數與[guid](#guid)函數不同，因為它不接受任何參數。 當您呼叫具有相同參數的 guid 時，每次都會傳回相同的識別碼。 當您需要針對特定環境可靠地產生相同的 GUID 時，請使用 guid。 當您每次需要不同的識別碼（例如將資源部署到測試環境）時，請使用 newGuid。
 
-如果您使用[選項來重新部署先前成功的部署](resource-group-template-deploy-rest.md#redeploy-when-deployment-fails), 而先前的部署包含使用 newGuid 的參數, 則不會重新評估參數。 相反地, 先前部署的參數值會自動在復原部署中重複使用。
+如果您使用[選項來重新部署先前成功的部署](resource-group-template-deploy-rest.md#redeploy-when-deployment-fails)，而先前的部署包含使用 newGuid 的參數，則不會重新評估參數。 相反地，先前部署的參數值會自動在復原部署中重複使用。
 
-在測試環境中, 您可能需要在短時間內重複部署只存留的資源。 您可以使用 newGuid 搭配[uniqueString](#uniquestring)來建立唯一的名稱, 而不是建立唯一的名稱。
+在測試環境中，您可能需要在短時間內重複部署只存留的資源。 您可以使用 newGuid 搭配[uniqueString](#uniquestring)來建立唯一的名稱，而不是建立唯一的名稱。
 
-請小心重新部署依賴 newGuid 函數的範本, 以取得預設值。 當您重新部署, 但未提供參數的值時, 會重新評估函式。 如果您想要更新現有的資源, 而不是建立新的資源, 請傳入先前部署的參數值。
+請小心重新部署依賴 newGuid 函數的範本，以取得預設值。 當您重新部署，但未提供參數的值時，會重新評估函式。 如果您想要更新現有的資源，而不是建立新的資源，請傳入先前部署的參數值。
 
 ### <a name="return-value"></a>傳回值
 
@@ -1132,7 +1132,7 @@ NewGuid 函數與[guid](#guid)函數不同, 因為它不接受任何參數。 �
 }
 ```
 
-上述範例的輸出會因每個部署而有所不同, 但會類似于:
+上述範例的輸出會因每個部署而有所不同，但會類似于：
 
 | Name | 類型 | 值 |
 | ---- | ---- | ----- |
@@ -1175,7 +1175,7 @@ NewGuid 函數與[guid](#guid)函數不同, 因為它不接受任何參數。 �
 }
 ```
 
-上述範例的輸出會因每個部署而有所不同, 但會類似于:
+上述範例的輸出會因每個部署而有所不同，但會類似于：
 
 | Name | 類型 | 值 |
 | ---- | ---- | ----- |
@@ -1193,7 +1193,7 @@ NewGuid 函數與[guid](#guid)函數不同, 因為它不接受任何參數。 �
 | 參數 | 必要項 | Type | 描述 |
 |:--- |:--- |:--- |:--- |
 | valueToPad |是 |字串或整數 |要靠右對齊的值。 |
-| totalLength |是 |ssNoversion |傳回字串中的字元總數。 |
+| totalLength |是 |int |傳回字串中的字元總數。 |
 | paddingCharacter |否 |單一字元 |要用於左側填補直到達到總長度的字元。 預設值是空格。 |
 
 如果原始字串長度超過要填補的字元數，則不會新增任何字元。
@@ -1296,7 +1296,7 @@ NewGuid 函數與[guid](#guid)函數不同, 因為它不接受任何參數。 �
 | 參數 | 必要項 | Type | 描述 |
 |:--- |:--- |:--- |:--- |
 | originalValue |是 |陣列或字串 |要用於略過的陣列或字串。 |
-| numberToSkip |是 |ssNoversion |要略過的元素或字元數。 如果此值為 0 或更小的值，則會傳回值內的所有元素或字元。 如果大於陣列或字串的長度, 則會傳回空陣列或字串。 |
+| numberToSkip |是 |int |要略過的元素或字元數。 如果此值為 0 或更小的值，則會傳回值內的所有元素或字元。 如果大於陣列或字串的長度，則會傳回空陣列或字串。 |
 
 ### <a name="return-value"></a>傳回值
 
@@ -1560,8 +1560,8 @@ NewGuid 函數與[guid](#guid)函數不同, 因為它不接受任何參數。 �
 | 參數 | 必要項 | Type | 描述 |
 |:--- |:--- |:--- |:--- |
 | stringToParse |是 |string |要用來擷取子字串的原始字串。 |
-| startIndex |否 |ssNoversion |起始字元位置為零的子字串。 |
-| length |否 |ssNoversion |子字串的字元數。 必須參考字串內的位置。 必須是零或更大的值。 |
+| startIndex |否 |int |起始字元位置為零的子字串。 |
+| length |否 |int |子字串的字元數。 必須參考字串內的位置。 必須是零或更大的值。 |
 
 ### <a name="return-value"></a>傳回值
 
@@ -1621,7 +1621,7 @@ NewGuid 函數與[guid](#guid)函數不同, 因為它不接受任何參數。 �
 | 參數 | 必要項 | Type | 描述 |
 |:--- |:--- |:--- |:--- |
 | originalValue |是 |陣列或字串 |要從其中擷取元素的陣列或字串。 |
-| numberToTake |是 |ssNoversion |要擷取的元素或字元數。 如果此值為 0 或更小的值，則會傳回空白陣列或字串。 如果大於給定陣列或字串的長度, 則會傳回陣列或字串中的所有元素。 |
+| numberToTake |是 |int |要擷取的元素或字元數。 如果此值為 0 或更小的值，則會傳回空白陣列或字串。 如果大於給定陣列或字串的長度，則會傳回陣列或字串中的所有元素。 |
 
 ### <a name="return-value"></a>傳回值
 
@@ -1676,7 +1676,7 @@ NewGuid 函數與[guid](#guid)函數不同, 因為它不接受任何參數。 �
 | Name | 類型 | 值 |
 | ---- | ---- | ----- |
 | arrayOutput | Array | ["one", "two"] |
-| stringOutput | String | 於 |
+| stringOutput | String | on |
 
 ## <a name="tolower"></a>toLower
 
@@ -1843,7 +1843,7 @@ NewGuid 函數與[guid](#guid)函數不同, 因為它不接受任何參數。 �
 
 當您需要建立資源的唯一名稱時，這個函式很有幫助。 您提供限制結果唯一性範圍的參數值。 您可以指定名稱對於訂用帳戶、資源群組或部署是否唯一。 
 
-傳回的值不是隨機字串, 而是雜湊函數的結果。 傳回的值為 13 個字元長。 這不是全域唯一的。 建議您將值與來自命名慣例的前置詞結合，建立有意義的名稱。 下列範例顯示傳回值的格式。 依提供的參數而改變的實際值。
+傳回的值不是隨機字串，而是雜湊函數的結果。 傳回的值為 13 個字元長。 這不是全域唯一的。 建議您將值與來自命名慣例的前置詞結合，建立有意義的名稱。 下列範例顯示傳回值的格式。 依提供的參數而改變的實際值。
 
     tcvhiyu5h2o5o
 
@@ -1867,7 +1867,7 @@ NewGuid 函數與[guid](#guid)函數不同, 因為它不接受任何參數。 �
 "[uniqueString(resourceGroup().id, deployment().name)]"
 ```
 
-下列範例顯示如何根據您的資源群組建立儲存體帳戶的唯一名稱。 在資源群組內, 如果以相同的方式來建立, 則名稱不是唯一的。
+下列範例顯示如何根據您的資源群組建立儲存體帳戶的唯一名稱。 在資源群組內，如果以相同的方式來建立，則名稱不是唯一的。
 
 ```json
 "resources": [{ 
@@ -1876,7 +1876,7 @@ NewGuid 函數與[guid](#guid)函數不同, 因為它不接受任何參數。 �
     ...
 ```
 
-如果您需要在每次部署範本時建立新的唯一名稱, 而不想要更新資源, 您可以使用[utcNow](#utcnow)函數搭配 uniqueString。 您可以在測試環境中使用這個方法。 如需範例, 請參閱[utcNow](#utcnow)。
+如果您需要在每次部署範本時建立新的唯一名稱，而不想要更新資源，您可以使用[utcNow](#utcnow)函數搭配 uniqueString。 您可以在測試環境中使用這個方法。 如需範例，請參閱[utcNow](#utcnow)。
 
 ### <a name="return-value"></a>傳回值
 
@@ -1914,10 +1914,26 @@ NewGuid 函數與[guid](#guid)函數不同, 因為它不接受任何參數。 �
 
 | 參數 | 必要項 | Type | 描述 |
 |:--- |:--- |:--- |:--- |
-| baseUri |是 |string |基底 uri 的字串。 |
+| baseUri |是 |string |基底 uri 的字串。 請小心觀察有關處理尾端斜線（'/'）的行為，如下表所述。  |
 | relativeUri |是 |string |要加入至基底 uri 字串的相對 uri 字串。 |
 
-**baseUri** 參數的值可包含特定檔案，但在建構 URI 時只會使用基底路徑。 例如，將 `http://contoso.com/resources/azuredeploy.json` 作為 baseUri 參數傳遞時，會產生 `http://contoso.com/resources/` 的基底 URI。
+* 如果**baseuri**以尾端斜線結束，則結果只是**baseUri** ，後面接著**relativeUri**。
+
+* 如果**baseUri**結尾不是兩個專案的尾端斜線，則會發生這種情況。  
+
+   * 如果**baseUri**完全沒有任何斜線（除了前面的 "//" 之外），結果只是**baseUri** ，後面接著**relativeUri**。
+
+   * 如果**baseUri**有一些斜線，但是結尾不是斜線，則最後一個斜線的所有內容都會從**baseuri**中移除，而結果會是**baseuri** ，後面接著**relativeUri**。
+     
+以下是一些範例：
+
+```
+uri('http://contoso.org/firstpath', 'myscript.sh') -> http://contoso.org/myscript.sh
+uri('http://contoso.org/firstpath/', 'myscript.sh') -> http://contoso.org/firstpath/myscript.sh
+uri('http://contoso.org/firstpath/azuredeploy.json', 'myscript.sh') -> http://contoso.org/firstpath/myscript.sh
+uri('http://contoso.org/firstpath/azuredeploy.json/', 'myscript.sh') -> http://contoso.org/firstpath/azuredeploy.json/myscript.sh
+```
+如需完整的詳細資訊，請依照[RFC 3986 第5節](https://tools.ietf.org/html/rfc3986#section-5)中的指定來解析**baseUri**和**relativeUri**參數。
 
 ### <a name="return-value"></a>傳回值
 
@@ -2082,7 +2098,7 @@ URI 編碼值的解碼字串。
 
 `utcNow(format)`
 
-以指定的格式傳回目前的 (UTC) 日期時間值。 如果未提供格式, 則會使用 ISO 8601 (yyyyMMddTHHmmssZ) 格式。 **這個函數只能用於參數的預設值。**
+以指定的格式傳回目前的（UTC）日期時間值。 如果未提供格式，則會使用 ISO 8601 （yyyyMMddTHHmmssZ）格式。 **這個函數只能用於參數的預設值。**
 
 ### <a name="parameters"></a>參數
 
@@ -2092,11 +2108,11 @@ URI 編碼值的解碼字串。
 
 ### <a name="remarks"></a>備註
 
-您只能針對參數的預設值, 在運算式中使用這個函數。 在範本中的任何其他地方使用此函數會傳回錯誤。 函式在範本的其他部分中不允許, 因為它會在每次呼叫時傳回不同的值。 使用相同的參數部署相同的範本, 並不會可靠地產生相同的結果。
+您只能針對參數的預設值，在運算式中使用這個函數。 在範本中的任何其他地方使用此函數會傳回錯誤。 函式在範本的其他部分中不允許，因為它會在每次呼叫時傳回不同的值。 使用相同的參數部署相同的範本，並不會可靠地產生相同的結果。
 
-如果您使用[選項來重新部署先前成功的部署](resource-group-template-deploy-rest.md#redeploy-when-deployment-fails), 而先前的部署包含使用 utcNow 的參數, 則不會重新評估參數。 相反地, 先前部署的參數值會自動在復原部署中重複使用。
+如果您使用[選項來重新部署先前成功的部署](resource-group-template-deploy-rest.md#redeploy-when-deployment-fails)，而先前的部署包含使用 utcNow 的參數，則不會重新評估參數。 相反地，先前部署的參數值會自動在復原部署中重複使用。
 
-請小心重新部署依賴 utcNow 函數的範本, 以取得預設值。 當您重新部署, 但未提供參數的值時, 會重新評估函式。 如果您想要更新現有的資源, 而不是建立新的資源, 請傳入先前部署的參數值。
+請小心重新部署依賴 utcNow 函數的範本，以取得預設值。 當您重新部署，但未提供參數的值時，會重新評估函式。 如果您想要更新現有的資源，而不是建立新的資源，請傳入先前部署的參數值。
 
 ### <a name="return-value"></a>傳回值
 
@@ -2143,7 +2159,7 @@ URI 編碼值的解碼字串。
 }
 ```
 
-上述範例的輸出會因每個部署而有所不同, 但會類似于:
+上述範例的輸出會因每個部署而有所不同，但會類似于：
 
 | Name | 類型 | 值 |
 | ---- | ---- | ----- |
@@ -2151,7 +2167,7 @@ URI 編碼值的解碼字串。
 | utcShortOutput | string | 03/05/2019 |
 | utcCustomOutput | string | 3 5 |
 
-下一個範例顯示如何在設定標記值時, 使用函式中的值。
+下一個範例顯示如何在設定標記值時，使用函式中的值。
 
 ```json
 {

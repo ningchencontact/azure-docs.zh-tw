@@ -6,14 +6,14 @@ author: mlearned
 manager: jeconnoc
 ms.service: container-service
 ms.topic: article
-ms.date: 07/08/2019
+ms.date: 10/02/2019
 ms.author: mlearned
-ms.openlocfilehash: 54a95186a297cf3604858341fb8f5aba3702bf5a
-ms.sourcegitcommit: 6794fb51b58d2a7eb6475c9456d55eb1267f8d40
+ms.openlocfilehash: 4d736556147797bcd007bdab1b5328deeadea712
+ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70241788"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71827361"
 ---
 # <a name="frequently-asked-questions-about-azure-kubernetes-service-aks"></a>Azure Kubernetes Service (AKS) 的常見問題集
 
@@ -25,7 +25,7 @@ ms.locfileid: "70241788"
 
 ## <a name="does-aks-support-node-autoscaling"></a>AKS 是否支援節點自動調整？
 
-是, 在 AKS 中, 以水準方式自動調整代理程式節點的功能目前僅供預覽。 如需相關指示, 請參閱[在 AKS 中自動調整叢集以符合應用程式需求][aks-cluster-autoscaler]。 AKS 自動調整是以[Kubernetes 自動調整程式][auto-scaler]為基礎。
+是, 在 AKS 中, 以水準方式自動調整代理程式節點的功能目前僅供預覽。 如需相關指示，請參閱[在 AKS 中自動調整叢集以符合應用程式需求][aks-cluster-autoscaler]。 AKS 自動調整是以[Kubernetes 自動調整程式][auto-scaler]為基礎。
 
 ## <a name="can-i-deploy-aks-into-my-existing-virtual-network"></a>可以將 AKS 部署到我現有的虛擬網路嗎？
 
@@ -48,25 +48,27 @@ ms.locfileid: "70241788"
 Azure 會在夜間排程自動將安全性修補程式套用至叢集中的 Linux 節點。 不過, 您必須負責確保這些 Linux 節點會視需要重新開機。 您有數個選項可以重新開機節點:
 
 - 手動、透過 Azure 入口網站，或透過 Azure CLI。
-- 藉由升級 AKS 叢集。 叢集會自動升級[cordon 和清空節點][cordon-drain], 然後使用最新的 Ubuntu 映射和新的修補程式版本或次要 Kubernetes 版本, 讓新的節點上線。 如需詳細資訊, 請參閱[Upgrade a AKS cluster][aks-upgrade]。
+- 藉由升級 AKS 叢集。 叢集會自動升級[cordon 和清空節點][cordon-drain]，然後使用最新的 Ubuntu 映射和新的修補程式版本或次要 Kubernetes 版本，讓新的節點上線。 如需詳細資訊，請參閱[Upgrade a AKS cluster][aks-upgrade]。
 - 藉由使用[Kured](https://github.com/weaveworks/kured), Kubernetes 的開放原始碼重新開機守護程式。 Kured 會以[DaemonSet](https://kubernetes.io/docs/concepts/workloads/controllers/daemonset/)的形式執行, 並監視每個節點是否有指出需要重新開機的檔案。 在叢集上, OS 重新開機是由相同的[cordon, 並][cordon-drain]在叢集升級時進行的清空程式所管理。
 
 如需使用 kured 的詳細資訊, 請參閱[將安全性和核心更新套用至 AKS 中的節點][node-updates-kured]。
 
 ### <a name="windows-server-nodes"></a>Windows Server 節點
 
-對於 Windows Server 節點 (目前在 AKS 中處於預覽狀態), Windows Update 不會自動執行並套用最新的更新。 依照 Windows Update 發行週期和您自己的驗證程式的定期排程, 您應該在 AKS 叢集中的叢集和 Windows Server 節點集區上執行升級。 此升級程式會建立節點來執行最新的 Windows Server 映射和修補程式, 然後移除較舊的節點。 如需此程式的詳細資訊, 請參閱[升級 AKS 中的節點集][nodepool-upgrade]區。
+對於 Windows Server 節點 (目前在 AKS 中處於預覽狀態), Windows Update 不會自動執行並套用最新的更新。 依照 Windows Update 發行週期和您自己的驗證程式的定期排程，您應該在 AKS 叢集中的叢集和 Windows Server 節點集區上執行升級。 此升級程式會建立節點來執行最新的 Windows Server 映射和修補程式, 然後移除較舊的節點。 如需此程式的詳細資訊, 請參閱[升級 AKS 中的節點集][nodepool-upgrade]區。
 
 ## <a name="why-are-two-resource-groups-created-with-aks"></a>為何會使用 AKS 建立兩個資源群組？
 
-每個 AKS 部署皆跨越兩個資源群組：
+AKS 建基於一些 Azure 基礎結構資源，包括虛擬機器擴展集、虛擬網路和受控磁片。 這可讓您在 AKS 所提供的受控 Kubernetes 環境中，利用 Azure 平臺的許多核心功能。 例如，大部分的 Azure 虛擬機器類型可直接與 AKS 搭配使用，而 Azure 保留可用於自動接收這些資源的折扣。
+
+若要啟用此架構，每個 AKS 部署都跨越兩個資源群組：
 
 1. 您會建立第一個資源群組。 此群組僅包含 Kubernetes 服務資源。 AKS 資源提供者會在部署期間自動建立第二個資源群組。 第二個資源群組的範例是*MC_myResourceGroup_myAKSCluster_eastus*。 如需如何指定此第二個資源群組名稱的相關資訊, 請參閱下一節。
-1. 第二個資源群組 (稱為*節點資源群組*) 包含與叢集相關聯的所有基礎結構資源。 這些資源包括 Kubernetes 節點 VM、虛擬網路和儲存體。 根據預設, 節點資源群組的名稱如*MC_myResourceGroup_myAKSCluster_eastus*。 每當刪除叢集時, AKS 就會自動刪除節點資源, 因此它應該只用于共用叢集生命週期的資源。
+1. 第二個資源群組 (稱為*節點資源群組*) 包含與叢集相關聯的所有基礎結構資源。 這些資源包括 Kubernetes 節點 VM、虛擬網路和儲存體。 根據預設，節點資源群組的名稱如*MC_myResourceGroup_myAKSCluster_eastus*。 每當刪除叢集時, AKS 就會自動刪除節點資源, 因此它應該只用于共用叢集生命週期的資源。
 
 ## <a name="can-i-provide-my-own-name-for-the-aks-node-resource-group"></a>我可以為 AKS 節點資源群組提供自己的名稱嗎？
 
-是的。 根據預設, AKS 會將 node 資源群組命名為*MC_resourcegroupname_clustername_location*, 但您也可以提供自己的名稱。
+是的。 根據預設，AKS 會將 node 資源群組命名為*MC_resourcegroupname_clustername_location*，但您也可以提供自己的名稱。
 
 若要指定您自己的資源組名, 請安裝[aks-preview][aks-preview-cli] Azure CLI 延伸模組版本*0.3.2*或更新版本。 當您使用[az AKS create][az-aks-create]命令建立 AKS 叢集時, 請使用 *--node--群組*參數並指定資源群組的名稱。 如果您[使用 Azure Resource Manager 範本][aks-rm-template]來部署 AKS 叢集, 您可以使用*nodeResourceGroup*屬性來定義資源組名。
 
@@ -114,9 +116,9 @@ AKS 目前不會與 Azure Key Vault 整合。 不過,[適用于 Kubernetes 專�
 
 ## <a name="does-aks-offer-a-service-level-agreement"></a>AKS 是否提供服務等級協定？
 
-在服務等級協定 (SLA) 中, 如果未符合已發佈的服務層級, 則提供者會同意補償客戶的服務成本。 由於 AKS 是免費的, 因此不會有任何費用可補償, 因此 AKS 沒有正式的 SLA。 不過, AKS 會尋求維護至少 99.5% 的 Kubernetes API 伺服器可用性。
+在服務等級協定 (SLA) 中, 如果未符合已發佈的服務層級, 則提供者會同意補償客戶的服務成本。 由於 AKS 是免費的，因此不會有任何費用可補償，因此 AKS 沒有正式的 SLA。 不過, AKS 會尋求維護至少 99.5% 的 Kubernetes API 伺服器可用性。
 
-請務必辨識 AKS 服務可用性之間的區別, 這是指 Kubernetes 控制平面的執行時間, 以及在 Azure 虛擬機器上執行的特定工作負載可用性。 雖然控制平面可能無法使用, 但如果沒有就緒, 則在 Azure Vm 上執行的叢集工作負載仍然可以運作。 假設 Azure Vm 是付費資源, 其受金融 SLA 支援。 如需 Azure VM SLA 的詳細資訊, 以及如何使用[可用性區域][availability-zones]之類的功能增加該可用性, 請參閱[這裡](https://azure.microsoft.com/en-us/support/legal/sla/virtual-machines/v1_8/)。
+請務必辨識 AKS 服務可用性之間的區別，這是指 Kubernetes 控制平面的執行時間，以及在 Azure 虛擬機器上執行的特定工作負載可用性。 雖然控制平面可能無法使用，但如果沒有就緒，則在 Azure Vm 上執行的叢集工作負載仍然可以運作。 假設 Azure Vm 是付費資源，其受金融 SLA 支援。 如需 Azure VM SLA 的詳細資訊，以及如何使用[可用性區域][availability-zones]之類的功能增加該可用性，請參閱[這裡](https://azure.microsoft.com/en-us/support/legal/sla/virtual-machines/v1_8/)。
 
 ## <a name="why-cant-i-set-maxpods-below-30"></a>為什麼我無法將 maxPods 設定為30以下？
 
@@ -127,7 +129,7 @@ AKS 目前不會與 Azure Key Vault 整合。 不過,[適用于 Kubernetes 專�
 | Azure CNI | 30 | 250 |
 | Kubenet | 30 | 110 |
 
-因為 AKS 是受控服務, 所以我們會部署和管理附加元件和 pod, 做為叢集的一部分。 在過去, 使用者可以將`maxPods`值定義為低於所需的受控 pod 執行的值 (例如, 30)。 AKS 現在會使用下列公式來計算最小 pod 數目: ((maxPods 或 (maxPods * vm_count)) > 受管理的附加元件最少。
+因為 AKS 是受控服務, 所以我們會部署和管理附加元件和 pod, 做為叢集的一部分。 在過去, 使用者可以將`maxPods`值定義為低於所需的受控 pod 執行的值 (例如, 30)。 AKS 現在會使用下列公式來計算最小 pod 數目：（（maxPods 或（maxPods * vm_count）） > 受管理的附加元件最少。
 
 使用者無法覆寫最低`maxPods`驗證。
 
@@ -149,43 +151,43 @@ AKS 代理程式節點會以標準 Azure 虛擬機器計費, 因此如果您已�
 
 ## <a name="why-is-my-cluster-delete-taking-so-long"></a>為什麼我的叢集刪除會花費很長的時間？ 
 
-大部分的叢集會在使用者要求時刪除;在某些情況下, 特別是當客戶帶入自己的資源群組, 或執行跨 RG 工作刪除作業時, 可能需要額外的時間或失敗。 如果您有刪除的問題, 請再次檢查您沒有 RG 的鎖定, 該 rg 外的任何資源會從 RG 解除關聯等等。
+大部分的叢集會在使用者要求時刪除;在某些情況下，特別是當客戶帶入自己的資源群組，或執行跨 RG 工作刪除作業時，可能需要額外的時間或失敗。 如果您有刪除的問題，請再次檢查您沒有 RG 的鎖定，該 rg 外的任何資源會從 RG 解除關聯等等。
 
-## <a name="if-i-have-pod--deployments-in-state-nodelost-or-unknown-can-i-still-upgrade-my-cluster"></a>如果我有處於 ' NodeLost ' 或「不明」狀態的 pod/部署, 仍然可以升級我的叢集嗎？
+## <a name="if-i-have-pod--deployments-in-state-nodelost-or-unknown-can-i-still-upgrade-my-cluster"></a>如果我有處於 ' NodeLost ' 或「不明」狀態的 pod/部署，仍然可以升級我的叢集嗎？
 
-您可以, 但 AKS 不建議這麼做。 理想的升級應該在叢集的狀態為已知且狀況良好時執行。
+您可以，但 AKS 不建議這麼做。 理想的升級應該在叢集的狀態為已知且狀況良好時執行。
 
-## <a name="if-i-have-a-cluster-with-one-or-more-nodes-in-an-unhealthy-state-or-shut-down-can-i-perform-an-upgrade"></a>如果我有一個或多個節點處於狀況不良狀態或已關閉的叢集, 我可以執行升級嗎？
+## <a name="if-i-have-a-cluster-with-one-or-more-nodes-in-an-unhealthy-state-or-shut-down-can-i-perform-an-upgrade"></a>如果我有一個或多個節點處於狀況不良狀態或已關閉的叢集，我可以執行升級嗎？
 
-否, 請刪除/移除處於失敗狀態的任何節點, 或在升級之前從叢集中移除。
+否，請刪除/移除處於失敗狀態的任何節點，或在升級之前從叢集中移除。
 
-## <a name="i-ran-a-cluster-delete-but-see-the-error-errno-11001-getaddrinfo-failed"></a>我已執行叢集刪除, 但看到錯誤`[Errno 11001] getaddrinfo failed` 
+## <a name="i-ran-a-cluster-delete-but-see-the-error-errno-11001-getaddrinfo-failed"></a>我執行了叢集刪除，但是看到錯誤 `[Errno 11001] getaddrinfo failed` 
 
-最常見的原因是使用者有一或多個網路安全性群組 (Nsg) 仍在使用中, 且與叢集相關聯。  請將其移除, 然後再次嘗試刪除。
+最常見的原因是使用者有一或多個網路安全性群組（Nsg）仍在使用中，且與叢集相關聯。  請將其移除，然後再次嘗試刪除。
 
-## <a name="i-ran-an-upgrade-but-now-my-pods-are-in-crash-loops-and-readiness-probes-fail"></a>我已執行升級, 但現在我的 pod 處於損毀迴圈, 而準備好探查失敗？
+## <a name="i-ran-an-upgrade-but-now-my-pods-are-in-crash-loops-and-readiness-probes-fail"></a>我已執行升級，但現在我的 pod 處於損毀迴圈，而準備好探查失敗？
 
-請確認您的服務主體未過期。  請參閱:[AKS 服務主體](https://docs.microsoft.com/azure/aks/kubernetes-service-principal)和[AKS 更新認證](https://docs.microsoft.com/azure/aks/update-credentials)。
+請確認您的服務主體未過期。  請參閱：[AKS 服務主體](https://docs.microsoft.com/azure/aks/kubernetes-service-principal)和[AKS 更新認證](https://docs.microsoft.com/azure/aks/update-credentials)。
 
-## <a name="my-cluster-was-working-but-suddenly-can-not-provision-loadbalancers-mount-pvcs-etc"></a>我的叢集已正常運作, 但突然無法布建 LoadBalancers、掛接 Pvc 等專案？ 
+## <a name="my-cluster-was-working-but-suddenly-can-not-provision-loadbalancers-mount-pvcs-etc"></a>我的叢集已正常運作，但突然無法布建 LoadBalancers、掛接 Pvc 等專案？ 
 
-請確認您的服務主體未過期。  請參閱:[AKS 服務主體](https://docs.microsoft.com/azure/aks/kubernetes-service-principal)和[AKS 更新認證](https://docs.microsoft.com/azure/aks/update-credentials)。
+請確認您的服務主體未過期。  請參閱：[AKS 服務主體](https://docs.microsoft.com/azure/aks/kubernetes-service-principal)和[AKS 更新認證](https://docs.microsoft.com/azure/aks/update-credentials)。
 
 ## <a name="can-i-use-the-virtual-machine-scale-set-apis-to-scale-manually"></a>我可以使用虛擬機器擴展集 Api 來手動調整嗎？
 
-否, 不支援使用虛擬機器擴展集 Api 進行調整作業。 使用 AKS Api (`az aks scale`)。
+否，不支援使用虛擬機器擴展集 Api 進行調整作業。 使用 AKS Api （`az aks scale`）。
 
 ## <a name="can-i-use-virtual-machine-scale-sets-to-manually-scale-to-0-nodes"></a>我可以使用虛擬機器擴展集來手動調整為0個節點嗎？
 
-否, 不支援使用虛擬機器擴展集 Api 進行調整作業。
+否，不支援使用虛擬機器擴展集 Api 進行調整作業。
 
 ## <a name="can-i-stop-or-de-allocate-all-my-vms"></a>我可以停止或取消配置我的所有 Vm 嗎？
 
-雖然 AKS 具有可承受這類設定並從中復原的恢復機制, 但這不是建議的設定。
+雖然 AKS 具有可承受這類設定並從中復原的恢復機制，但這不是建議的設定。
 
 ## <a name="can-i-use-custom-vm-extensions"></a>我可以使用自訂 VM 擴充功能嗎？
 
-AKS 不是受控服務, 且不支援操作 IaaS 資源。 安裝自訂群組件等。 請利用 kubernetes Api 和機制。 例如, 利用 Daemonset 來安裝必要的元件。
+AKS 不是受控服務，且不支援操作 IaaS 資源。 安裝自訂群組件等。 請利用 kubernetes Api 和機制。 例如，利用 Daemonset 來安裝必要的元件。
 
 <!-- LINKS - internal -->
 

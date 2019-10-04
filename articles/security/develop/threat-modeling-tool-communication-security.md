@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
-ms.openlocfilehash: 9c750522123995685191001988ae0081d9454ccf
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.openlocfilehash: 090242cde79f6c31b0f70e1a75240778dca89fa7
+ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68728365"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71828573"
 ---
 # <a name="security-frame-communication-security--mitigations"></a>安全性架構：通訊安全性 | 風險降低 
 | 產品/服務 | 文章 |
@@ -69,7 +69,7 @@ ms.locfileid: "68728365"
 | **SDL 階段**               | 部署 |  
 | **適用的技術** | 泛型 |
 | **屬性**              | 連結的服務類型-Azure 和內部部署 |
-| **參考**              |[在內部部署與 Azure Data Factory 之間移動資料](https://azure.microsoft.com/documentation/articles/data-factory-move-data-between-onprem-and-cloud/#create-gateway),[資料管理閘道](https://azure.microsoft.com/documentation/articles/data-factory-data-management-gateway/) |
+| **參考**              |[在內部部署與 Azure Data Factory 之間移動資料](https://azure.microsoft.com/documentation/articles/data-factory-move-data-between-onprem-and-cloud/#create-gateway)，[資料管理閘道](https://azure.microsoft.com/documentation/articles/data-factory-data-management-gateway/) |
 | **步驟** | <p>必須有資料管理閘道 (DMG) 工具才能連線到受到公司網路或防火牆保護的資料來源。</p><ol><li>鎖定電腦會隔離 DMG 工具，防止資料來源電腦上未正常運作的程式損壞或窺探。 (例如， 必須安裝最新的更新，啟用最低需求連接埠、受控制的帳戶佈建、啟用稽核、啟用磁碟加密等。)</li><li>資料閘道金鑰必須經常輪替，或是在每次 DMG 服務帳戶密碼更新時輪替</li><li>必須加密透過連結服務傳輸的資料</li></ol> |
 
 ## <a id="identity-https"></a>確定前往 Identity Server 的所有流量都是透過 HTTPS 連線
@@ -289,7 +289,7 @@ namespace CertificatePinningExample
 | **SDL 階段**               | 建置 |  
 | **適用的技術** | NET Framework 3 |
 | **屬性**              | N/A  |
-| **參考**              | [MSDN](https://msdn.microsoft.com/library/ff648500.aspx)、[Fortify Kingdom](https://vulncat.fortify.com/en/detail?id=desc.semantic.dotnet.wcf_misconfiguration_transport_security_enabled) |
+| **參考**              | [MSDN](https://msdn.microsoft.com/library/ff648500.aspx)、[Fortify Kingdom](https://vulncat.fortify.com/en/detail?id=desc.config.dotnet.wcf_misconfiguration_transport_security_enabled) |
 | **步驟** | 應用程式組態應確定敏感性資訊的所有存取都會使用 HTTPS。<ul><li>**說明：** 如果某應用程式負責處理敏感性資訊，卻未使用訊息層級加密，則只應允許其透過加密的傳輸通道進行通訊。</li><li>**建議︰** 確定已停用 HTTP 傳輸，並改為啟用 HTTPS 傳輸。 例如，以 `<httpsTransport/>` 標籤取代 `<httpTransport/>`。 請勿依賴網路組態 (防火牆) 來保證應用程式只能透過安全通道加以存取。 從哲學觀點來看，應用程式不該仰賴網路來確保其安全性。</li></ul><p>但從現實觀點來看，負責保護網路的人員不一定能跟隨應用程式安全性需求的演變腳步。</p>|
 
 ## <a id="message-protection"></a>WCF：將訊息安全性保護層級設定為 EncryptAndSign
@@ -301,7 +301,7 @@ namespace CertificatePinningExample
 | **適用的技術** | .NET Framework 3 |
 | **屬性**              | N/A  |
 | **參考**              | [MSDN](https://msdn.microsoft.com/library/ff650862.aspx) |
-| **步驟** | <ul><li>**說明：** 保護層級設定為「無」時，它會停用訊息保護。 機密性和完整性要有適當的設定層級才能實現。</li><li>**建議︰**<ul><li>當 `Mode=None` 時 - 停用訊息保護</li><li>當 `Mode=Sign` 時 - 會簽署但不加密訊息；若您認為資料完整性很重要，便應使用</li><li>當 `Mode=EncryptAndSign` 時 - 簽署並加密訊息</li></ul></li></ul><p>若您只需要驗證資訊的完整性而不必擔心機密性，請考慮關閉加密功能，只要簽署訊息即可。 對於需要驗證原始傳送者，但不會傳輸敏感性資料的作業或服務合約，這會非常實用。 在降低保護層級時，請注意訊息中並未包含任何個人識別資訊 (PII)。</p>|
+| **步驟** | <ul><li>**說明：** 保護層級設定為「無」時，它會停用訊息保護。 機密性和完整性要有適當的設定層級才能實現。</li><li>**建議︰**<ul><li>當 `Mode=None` 時 - 停用訊息保護</li><li>當 `Mode=Sign` 時 - 會簽署但不加密訊息；若您認為資料完整性很重要，便應使用</li><li>當 `Mode=EncryptAndSign` 時 - 簽署並加密訊息</li></ul></li></ul><p>若您只需要驗證資訊的完整性而不必擔心機密性，請考慮關閉加密功能，只要簽署訊息即可。 對於需要驗證原始傳送者，但不會傳輸敏感性資料的作業或服務合約，這會非常實用。 減少保護層級時，請小心訊息不包含任何個人資料。</p>|
 
 ### <a name="example"></a>範例
 下列範例顯示將服務和作業設定為只簽署訊息的情況。 `ProtectionLevel.Sign` 的服務合約範例：以下是在服務合約層級使用 ProtectionLevel.Sign 的範例︰ 

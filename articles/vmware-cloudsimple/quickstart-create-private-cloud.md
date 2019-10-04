@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: e5cea36760746eaa63451c9e9955368c71ba4472
-ms.sourcegitcommit: 80da36d4df7991628fd5a3df4b3aa92d55cc5ade
-ms.translationtype: HT
+ms.openlocfilehash: 1bd84a40236b54d799efcf04eae707aea9c6c945
+ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
+ms.translationtype: MT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 10/02/2019
-ms.locfileid: "71816137"
+ms.locfileid: "71828936"
 ---
 # <a name="quickstart---configure-a-private-cloud-environment"></a>快速入門-設定私人雲端環境
 
@@ -42,7 +42,7 @@ ms.locfileid: "71816137"
 
 5. 在 CloudSimple 入口網站中，提供私人雲端的 [名稱]。
 6. 選取私人雲端的 [**位置**]。
-7. 選取 [**節點類型**]，與您在 Azure 上購買的內容一致。 您可以選擇 [ [CS28] 或 [CS36] 選項](cloudsimple-node.md#vmware-solution-by-cloudsimple-nodes-sku)。 第二個選項包含最大計算和記憶體容量。
+7. 選取 [**節點類型**]，與您在 Azure 上購買的內容一致。
 8. 指定**節點計數**。  至少需要三個節點，才能建立私人雲端。
 
     ![建立私用雲端-基本資訊](media/create-private-cloud-basic-info.png)

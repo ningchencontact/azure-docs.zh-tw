@@ -10,21 +10,21 @@ ms.subservice: development
 ms.date: 09/05/2019
 ms.author: xiaoyul
 ms.reviewer: nibruno; jrasnick
-ms.openlocfilehash: 74a1a2218020718a05c9d01de96ddf4fccb35eb4
-ms.sourcegitcommit: 4f3f502447ca8ea9b932b8b7402ce557f21ebe5a
-ms.translationtype: MT
+ms.openlocfilehash: 7adf43110cffdc669b39632521c69ed5d3723257
+ms.sourcegitcommit: 15e3bfbde9d0d7ad00b5d186867ec933c60cebe6
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71802575"
+ms.lasthandoff: 10/03/2019
+ms.locfileid: "71845722"
 ---
 # <a name="performance-tuning-with-ordered-clustered-columnstore-index"></a>使用已排序叢集資料行存放區索引的效能微調  
 
 當使用者查詢 Azure SQL 資料倉儲中的資料行存放區資料表時，優化工具會檢查每個區段中所儲存的最小和最大值。  在查詢述詞界限外的區段不會從磁片讀取至記憶體。  如果要讀取的區段數目和大小總計很小，則查詢可以獲得更快的效能。   
 
 ## <a name="ordered-vs-non-ordered-clustered-columnstore-index"></a>已排序與未排序的叢集資料行存放區索引 
-根據預設，針對每個建立但沒有索引選項的 Azure 資料倉儲資料表，內部元件（索引產生器）會在其上建立未排序的叢集資料行存放區索引（CCI）。  每個資料行中的資料會壓縮成個別的 CCI 資料列群組區段。  每個區段的值範圍都有中繼資料，因此在查詢執行期間，不會從磁片讀取查詢述詞範圍外的區段。  CCI 提供最高層級的資料壓縮，並減少要讀取的區段大小，因此查詢的執行速度會更快。 不過，因為索引產生器不會在將資料壓縮成區段之前先排序，所以可能會發生具有重迭數值範圍的區段，因而導致查詢從磁片讀取更多區段，並花費更長的時間來完成。  
+根據預設，針對每個建立但沒有索引選項的 Azure 資料倉儲資料表，內部元件（索引產生器）會在其上建立未排序的叢集資料行存放區索引（CCI）。  每個資料行中的資料會壓縮成個別的 CCI 資料列群組區段。  每個區段的值範圍都有中繼資料，因此在查詢執行期間，不會從磁片讀取查詢述詞範圍外的區段。  CCI 提供最高層級的資料壓縮，並減少要讀取的區段大小，因此查詢的執行速度會更快。 不過，因為索引產生器不會先排序資料，再將其壓縮成區段，所以可能會發生具有重迭數值範圍的區段，因而導致查詢從磁片讀取更多區段，並花費更長的時間來完成。  
 
-建立已排序的 CCI 時，Azure SQL 資料倉儲引擎會依順序索引鍵將記憶體中的資料進行排序，然後索引產生器才會將其壓縮成索引區段。  使用已排序的資料，可以減少區段重迭，讓查詢具有更有效率的區段刪除，因而提高效能，因為從磁片讀取的區段數目較小。  如果所有資料都可以一次在記憶體中進行排序，則可以避免區段重迭。  由於資料倉儲資料表中的資料量很大，因此不會經常發生這種情況。  
+建立已排序的 CCI 時，Azure SQL 資料倉儲引擎會依順序索引鍵將記憶體中的現有資料進行排序，然後索引產生器才會將其壓縮成索引區段。  使用已排序的資料，可以減少區段重迭，讓查詢具有更有效率的區段刪除，因而提高效能，因為從磁片讀取的區段數目較小。  如果所有資料都可以一次在記憶體中進行排序，則可以避免區段重迭。  由於資料倉儲資料表中的資料量很大，因此不會經常發生這種情況。  
 
 若要檢查資料行的區段範圍，請以您的資料表名稱和資料行名稱執行此命令：
 
@@ -42,6 +42,9 @@ ORDER BY o.name, pnp.distribution_id, cls.min_data_id
 
 ```
 
+> [!NOTE] 
+> 在已排序的 CCI 資料表中，不會自動排序 DML 或資料載入作業所產生的新資料。  使用者可以重建已排序的 CCI，以排序資料表中的所有資料。  
+
 ## <a name="data-loading-performance"></a>資料載入效能
 
 將資料載入到已排序之 CCI 資料表的效能，類似于將資料載入分割資料表中。  
@@ -51,12 +54,24 @@ ORDER BY o.name, pnp.distribution_id, cls.min_data_id
 ![Performance_comparison_data_loading @ no__t-1
  
 ## <a name="reduce-segment-overlapping"></a>減少區段重迭
-以下選項可進一步減少在新資料表上透過 CTAS 或具有資料的現有資料表建立已排序的 CCI 時，區段重迭：
 
-- 使用較大的資源類別可讓更多資料在記憶體中一次排序，然後索引產生器才會將其壓縮成區段。  一旦在索引區段中，資料的實體位置就無法變更。  區段內或跨區段不會進行任何資料排序。  
+重迭區段的數目取決於要排序的資料大小、可用的記憶體，以及排序的 CCI 建立期間的平行處理原則的最大程度（MAXDOP）設定。 以下是在建立已排序的 CCI 時，減少區段重迭的選項。
 
-- 使用較低程度的平行處理原則（例如 DOP = 1）。  用於排序的 CCI 建立的每個執行緒都會在資料子集上運作，並在本機進行排序。  不同執行緒排序的資料上沒有全域排序。  使用平行線程可以縮短建立已排序之 CCI 的時間，但會產生比使用單一線程更多的重迭區段。 
+- 在較高的 DWU 上使用 xlargerc 資源類別，以允許更多記憶體進行資料排序，索引產生器才會將資料壓縮成區段。  一旦在索引區段中，資料的實體位置就無法變更。  區段內或跨區段不會進行任何資料排序。  
+
+- 建立具有 MAXDOP = 1 的已排序 CCI。  用於排序的 CCI 建立的每個執行緒都會在資料子集上運作，並在本機進行排序。  不同執行緒排序的資料上沒有全域排序。  使用平行線程可以縮短建立已排序之 CCI 的時間，但會產生比使用單一線程更多的重迭區段。  目前，只有在使用 CREATE TABLE AS SELECT 命令建立已排序的 CCI 資料表時，才支援 MAXDOP 選項。  透過 CREATE INDEX 或 CREATE TABLE 命令建立已排序的 CCI 不支援 MAXDOP 選項。 例如，
+
+```sql
+CREATE TABLE Table1 WITH (DISTRIBUTION = HASH(c1), CLUSTERED COLUMNSTORE INDEX ORDER(c1) )
+AS SELECT * FROM ExampleTable
+OPTION (MAXDOP 1);
+```
 - 先依照排序關鍵字預先排序資料，再將它們載入 Azure SQL 資料倉儲資料表。
+
+
+以下是已排序的 CCI 資料表散發範例，其中有零個區段重迭下列建議。 已排序的 CCI 資料表會在 DWU1000c 資料庫中，透過使用 MAXDOP 1 和 xlargerc 的20個堆積資料表中的 CTAS 來建立。  CCI 會在沒有重複專案的 BIGINT 資料行上排序。  
+
+![Segment_No_Overlapping](media/performance-tuning-ordered-cci/perfect-sorting-example.png)
 
 ## <a name="create-ordered-cci-on-large-tables"></a>在大型資料表上建立已排序的 CCI
 建立已排序的 CCI 是一種離線作業。  對於沒有分割區的資料表，使用者必須等到排序的 CCI 建立程式完成之後，才能存取資料。   針對資料分割資料表，由於引擎會依資料分割建立已排序的 CCI 分割區，因此，使用者仍可存取已排序的 CCI 建立不在處理中的資料。   您可以使用此選項，將在大型資料表上排序的 CCI 建立期間的停機時間降至最低： 

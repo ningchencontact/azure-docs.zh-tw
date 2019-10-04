@@ -7,15 +7,15 @@ ms.reviewer: veyalla
 ms.service: iot-edge
 services: iot-edge
 ms.topic: conceptual
-ms.date: 07/10/2019
+ms.date: 10/04/2019
 ms.author: kgremban
 ms.custom: seodec18
-ms.openlocfilehash: 6118c4ddf1386ff4cc816148938e1f5ddeaecc9e
-ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
+ms.openlocfilehash: 513cf477e8c2899da17ee8e9bdfdb9ad2bedd159
+ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71266087"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71828084"
 ---
 # <a name="install-the-azure-iot-edge-runtime-on-windows"></a>在 Windows 上安裝 Azure IoT Edge 執行階段
 
@@ -121,52 +121,12 @@ PowerShell 指令碼會下載並安裝 Azure IoT Edge 安全性精靈。 接著�
 
 ### <a name="option-2-install-and-automatically-provision"></a>選項 2：安裝並自動佈建
 
-在第二個選項中，使用 IoT 中樞裝置佈建服務來佈建裝置。 提供來自「裝置佈建服務」執行個體的**範圍識別碼**，以及來自您裝置的**註冊識別碼**。 使用 DPS 布建時, 您的證明機制可能需要額外的值, 例如, 當使用[對稱金鑰](how-to-auto-provision-symmetric-keys.md)時。
+在第二個選項中，使用 IoT 中樞裝置佈建服務來佈建裝置。 提供來自裝置布建服務實例的**範圍識別碼**，以及您慣用[證明機制](../iot-dps/concepts-security.md#attestation-mechanism)特定的任何其他資訊：
 
-下列範例示範如何使用 Windows 容器和 TPM 證明進行自動安裝:
+* [在 Windows 上建立及布建模擬 TPM Edge 裝置](how-to-auto-provision-simulated-device-windows.md)
+* [使用對稱金鑰證明建立和布建 IoT Edge 裝置](how-to-auto-provision-symmetric-keys.md)
 
-1. 依照在[Windows 上建立及布建模擬 TPM IoT Edge 裝置](how-to-auto-provision-simulated-device-windows.md)中的步驟來設定裝置布建服務, 並取出其**範圍識別碼**、模擬 TPM 裝置並取出其**註冊識別碼**, 然後建立個人註冊. 在 IoT 中樞註冊您的裝置之後, 請繼續進行這些安裝步驟。  
-
-   >[!TIP]
-   >在安裝和測試期間，請將執行 TPM 模擬器的視窗保持開啟。 
-
-1. 以系統管理員身分執行 PowerShell。
-
-   >[!NOTE]
-   >使用 PowerShell 的 AMD64 工作階段來安裝 IoT Edge，而不是使用 PowerShell (x86)。 如果您不確定正在使用的工作階段類型，請執行下列命令：
-   >
-   >```powershell
-   >(Get-Process -Id $PID).StartInfo.EnvironmentVariables["PROCESSOR_ARCHITECTURE"]
-   >```
-
-1. **IoTEdge**命令會檢查您的 Windows 電腦是否在支援的版本上, 開啟 [容器] 功能, 然後下載 moby 執行時間和 IoT Edge 執行時間。 命令預設為使用 Windows 容器。 
-
-   ```powershell
-   . {Invoke-WebRequest -useb https://aka.ms/iotedge-win} | Invoke-Expression; `
-   Deploy-IoTEdge
-   ```
-
-1. 此時, IoT 核心版裝置可能會自動重新開機。 其他 Windows 10 或 Windows Server 裝置可能會提示您重新開機。 若是如此, 請立即重新開機您的裝置。 一旦您的裝置準備就緒, 請再次以系統管理員身分執行 PowerShell。
-
-1. **Initialize-IoTEdge** 命令會設定機器的 IoT Edge 執行階段。 此命令預設為 Windows 容器的手動佈建。 `-Dps`使用旗標來使用裝置布建服務, 而不是手動布建。 以`{scope ID}`裝置布建服務中的範圍識別碼取代， `{registration ID}`並以裝置中的註冊識別碼取代，這兩者都應該在步驟1中抓取。
-
-   使用**IoTEdge**命令搭配使用 DPS 與 TPM 證明:
-
-   ```powershell
-   . {Invoke-WebRequest -useb https://aka.ms/iotedge-win} | Invoke-Expression; `
-   Initialize-IoTEdge -Dps -ScopeId {scope ID} -RegistrationId {registration ID}
-   ```
-
-   使用**IoTEdge**命令來搭配使用 DPS 與對稱金鑰證明。 取代`{symmetric key}`為裝置金鑰。
-
-   ```powershell
-   . {Invoke-WebRequest -useb https://aka.ms/iotedge-win} | Invoke-Expression; `
-   Initialize-IoTEdge -Dps -ScopeId {scope ID} -RegistrationId {registration ID} -SymmetricKey {symmetric key}
-   ```
-
-1. 使用[驗證成功安裝](#verify-successful-installation)中的步驟來檢查裝置上的 IoT Edge 狀態。 
-
-當您手動安裝及佈建裝置時，可以使用其他參數修改安裝，包括：
+當您自動安裝和布建裝置時，您可以使用其他參數來修改安裝，包括：
 
 * 將流量導向經過 Proxy 伺服器
 * 將安裝程式指向離線目錄
@@ -302,13 +262,13 @@ IoTEdge 命令會使用您的裝置連接字串和操作詳細資料來設定 Io
 | **Dps** | None | **切換參數**。 如果未指定布建類型, 則手動為預設值。<br><br>宣告您將提供裝置佈建服務 (DPS) 的範圍識別碼，以及透過 DPS 佈建的裝置註冊識別碼。  |
 | **DeviceConnectionString** | 此連接字串來自 IoT 中樞註冊的 IoT Edge 裝置，以單引號括住 | 此為手動安裝的**必要項目**。 如果您未提供指令碼參數中的連接字串，在安裝期間會提示您輸入一個連接字串。 |
 | **ScopeId** | 此範圍識別碼來自與您 IoT 中樞相關聯之裝置佈建服務的執行個體。 | 此為 DPS 安裝的**必要項目**。 如果您未提供指令碼參數中的範圍識別碼，在安裝期間會提示您輸入範圍識別碼。 |
-| **RegistrationId** | 由您裝置產生的註冊識別碼 | 此為 DPS 安裝的**必要項目**。 |
+| **RegistrationId** | 由您裝置產生的註冊識別碼 | 如果使用 TPM 或對稱金鑰證明，則為 DPS 安裝的**必要**項。 |
 | **SymmetricKey** | 使用 DPS 時, 用來布建 IoT Edge 裝置身分識別的對稱金鑰 | 如果使用對稱金鑰證明, 則為 DPS 安裝的**必要**項。 |
 | **ContainerOs** | **Windows** 或 **Linux** | 如果未指定容器作業系統, Windows 就是預設值。<br><br>針對 Windows 容器, IoT Edge 會使用安裝中所包含的 moby 容器引擎。 對於 Linux 容器，您需要先安裝容器引擎，再開始安裝。 |
 | **InvokeWebRequestParameters** | 參數和值的雜湊表 | 在安裝期間，會提出數個 Web 要求。 您可以使用此欄位，為這些 Web 要求設定參數。 此參數對於設定 Proxy 伺服器的認證非常有用。 如需詳細資訊，請參閱[設定 IoT Edge 裝置以透過 Proxy 伺服器進行通訊](how-to-configure-proxy-support.md)。 |
 | **AgentImage** | IoT Edge 代理程式映像 URI | 根據預設，新的 IoT Edge 安裝會為 IoT Edge 代理程式映像使用最新的輪替標籤。 使用此參數，為映像版本設定特定標籤，或提供您自己的代理程式映像。 如需詳細資訊，請參閱[了解 IoT Edge 標籤](how-to-update-iot-edge.md#understand-iot-edge-tags)。 |
 | **使用者名稱** | 容器登錄使用者名稱 | 只有在將 -AgentImage 參數設定為私人登錄中的容器時，才使用此參數。 提供可以存取登錄的使用者名稱。 |
-| **密碼** | 安全密碼字串 | 只有在將 -AgentImage 參數設定為私人登錄中的容器時，才使用此參數。 提供可以存取登錄的密碼。 | 
+| **密碼** | 安全密碼字串 | 只有在將 -AgentImage 參數設定為私人登錄中的容器時，才使用此參數。 提供可以存取登錄的密碼。 |
 
 ### <a name="update-iotedge"></a>Update-IoTEdge
 

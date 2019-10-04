@@ -5,15 +5,15 @@ services: digital-twins
 author: kingdomofends
 ms.service: digital-twins
 ms.topic: include
-ms.date: 08/12/2019
+ms.date: 10/02/2019
 ms.author: v-adgera
 ms.custom: include file
-ms.openlocfilehash: f4e32599076b284eac15d394b08035c557a3489b
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
-ms.translationtype: MT
+ms.openlocfilehash: 06d728846b7a1eec1b18cfb7f005cb7e5e8ec2ab
+ms.sourcegitcommit: 15e3bfbde9d0d7ad00b5d186867ec933c60cebe6
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "69012067"
+ms.lasthandoff: 10/03/2019
+ms.locfileid: "71843853"
 ---
 在以下範例中，`YOUR_MANAGEMENT_API_URL` 代表 Digital Twins API 的 URI：
 
@@ -21,7 +21,7 @@ ms.locfileid: "69012067"
 https://YOUR_INSTANCE_NAME.YOUR_LOCATION.azuresmartspaces.net/management/api/v1.0
 ```
 
-| 名稱 | 更換為 |
+| Name | 更換為 |
 | --- | --- |
 | YOUR_INSTANCE_NAME | Azure Digital Twins 執行個體的名稱 |
 | YOUR_LOCATION | 裝載您執行個體的區域 |

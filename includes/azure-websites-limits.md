@@ -4,12 +4,12 @@ ms.service: billing
 ms.topic: include
 ms.date: 08/09/2019
 ms.author: jroth
-ms.openlocfilehash: 1080e3488483610af0f0c9afadaf000895021821
-ms.sourcegitcommit: cd70273f0845cd39b435bd5978ca0df4ac4d7b2c
+ms.openlocfilehash: 8cdfe82888cca471aa5aae6717a16f62000c4ad5
+ms.sourcegitcommit: 15e3bfbde9d0d7ad00b5d186867ec933c60cebe6
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "69657742"
+ms.lasthandoff: 10/03/2019
+ms.locfileid: "71839212"
 ---
 | Resource | 免費 | 共用 | 基本 | 標準 | 進階 (v2) | 隔離式方案 </th> |
 | --- | --- | --- | --- | --- | --- | --- |
@@ -42,7 +42,7 @@ ms.locfileid: "69657742"
 <sup>2</sup>您可以在這些電腦上裝載的實際應用程式數目，會視應用程式的活動、電腦執行個體的大小，及對應的資源使用率而定。  
 <sup>3</sup>專用的執行個體可有不同的大小。 如需詳細資訊，請參閱 [App Service 價格](https://azure.microsoft.com/pricing/details/app-service/)。  
 <sup>4</sup>要求時可以有更多的。  
-<sup>5</sup>儲存體限制是跨相同 App Service 方案中所有應用程式的目前總大小。  
+<sup>5</sup>儲存體限制是相同 App service 方案中所有應用程式的總內容大小。 單一資源群組和區域中所有 App service 方案的所有應用程式的內容大小總計不能超過500GB。  
 <sup>6</sup>這些資源都會受到專用執行個體 (執行個體大小和執行個體數目) 上的實體資源限制。  
 <sup>7</sup>如果您將基本層的一個應用程式調整為兩個執行個體，則其中每個執行個體有 350 個並行連線。 針對標準層和以上版本，web 通訊端沒有理論上的限制，但其他因素可能會限制 web 通訊端的數目。 例如，允許的最大並行要求數（ `maxConcurrentRequestsPerCpu`由定義）為：每個小型 VM 7500、每中型 VM 15000 （7500 x 2 核心）和每個大型 VM 75000 （18750 x 4 核心）。  
 <sup>8</sup>在您的 App Service 執行個體中，以背景工作的方式隨選、依照排程或連續執行自訂可執行檔和/或指令碼。 若要連續執行 WebJobs，「永遠開啟」是必要選項。 若是排程 WebJobs，則 Azure 排程器免費或標準版本是必要項目。 在 App Service 實例中可執行檔 Webjob 數目沒有預先定義的限制。 有一些實際的限制取決於應用程式程式碼嘗試執行的動作。  

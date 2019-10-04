@@ -1,25 +1,24 @@
 ---
-title: 使用 Azure IoT Edge 對稱金鑰證明的 DPS Autoprovision 裝置 |Microsoft Docs
+title: 使用對稱金鑰證明自動布建具有 DPS 的裝置-Azure IoT Edge |Microsoft Docs
 description: 使用對稱金鑰證明來測試裝置布建服務 Azure IoT Edge 的自動裝置布建
 author: kgremban
 manager: philmea
 ms.author: kgremban
 ms.reviewer: mrohera
-ms.date: 07/10/2019
+ms.date: 10/04/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.custom: seodec18
-ms.openlocfilehash: 5a7e7fa011c0287d5e97ad7a8cd2e3ba77f298dd
-ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
+ms.openlocfilehash: 53b1abca25119f4168aaf12a66c4347c53ed0a62
+ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71299855"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71828068"
 ---
 # <a name="create-and-provision-an-iot-edge-device-using-symmetric-key-attestation"></a>使用對稱金鑰證明建立和布建 IoT Edge 裝置
 
-Azure IoT Edge 裝置可使用[裝置佈建服務](../iot-dps/index.yml)來自動佈建，就像未啟用 Edge 的裝置一樣。 如果您不熟悉自動佈建程序，請先檢閱[自動佈建概念](../iot-dps/concepts-auto-provisioning.md)，再繼續作業。
+Azure IoT Edge 裝置可用[裝置佈建服務](../iot-dps/index.yml)來自動佈建，就像未啟用 Edge 的裝置一樣。 如果您不熟悉自動佈建程序，請先檢閱[自動佈建概念](../iot-dps/concepts-auto-provisioning.md)，再繼續作業。
 
 本文說明如何使用 IoT Edge 裝置上的對稱金鑰證明, 建立裝置布建服務的個別註冊, 步驟如下:
 
@@ -27,7 +26,7 @@ Azure IoT Edge 裝置可使用[裝置佈建服務](../iot-dps/index.yml)來自�
 * 建立裝置的個別註冊。
 * 安裝 IoT Edge 執行時間, 並連接到 IoT 中樞。
 
-對稱金鑰證明是驗證裝置與裝置佈建服務執行個體的簡單方法。 對於不熟悉裝置佈建或沒有嚴格安全性需求的開發人員，這個證明方法代表 "Hello world" 經驗。 使用[TPM](../iot-dps/concepts-tpm-attestation.md)的裝置證明更為安全, 而且應該用於更嚴格的安全性需求。
+對稱金鑰證明是驗證裝置與裝置佈建服務執行個體的簡單方法。 對於不熟悉裝置佈建或沒有嚴格安全性需求的開發人員，這個證明方法代表 "Hello world" 經驗。 使用[TPM](../iot-dps/concepts-tpm-attestation.md)或[x.509 憑證](../iot-dps/concepts-security.md#x509-certificates)的裝置證明較安全，而且應該用於更嚴格的安全性需求。
 
 ## <a name="prerequisites"></a>必要條件
 
@@ -191,9 +190,29 @@ provisioning:
 
 ### <a name="windows-device"></a>Windows 裝置
 
-遵循指示, 在您產生衍生裝置金鑰的裝置上安裝 IoT Edge 執行時間。 請務必將 IoT Edge 執行階段設定為自動佈建，而不是手動佈建。
+在您產生衍生裝置金鑰的裝置上安裝 IoT Edge 執行時間。 您會將 IoT Edge 執行時間設定為自動布建，而不是手動布建。
 
-[在 Windows 上安裝並自動布建 IoT Edge](how-to-install-iot-edge-windows.md#option-2-install-and-automatically-provision)
+如需有關在 Windows 上安裝 IoT Edge 的詳細資訊，包括管理容器和更新 IoT Edge 等工作的必要條件和指示，請參閱[在 windows 上安裝 Azure IoT Edge 執行時間](how-to-install-iot-edge-windows.md)。
+
+1. 在系統管理員模式下開啟 [Azure PowerShell] 視窗。 安裝 IoT Edge 時，請務必使用 PowerShell 的 AMD64 會話，而不是 PowerShell （x86）。
+
+1. **IoTEdge**命令會檢查您的 Windows 電腦是否在支援的版本上, 開啟 [容器] 功能, 然後下載 moby 執行時間和 IoT Edge 執行時間。 命令預設為使用 Windows 容器。
+
+   ```powershell
+   . {Invoke-WebRequest -useb https://aka.ms/iotedge-win} | Invoke-Expression; `
+   Deploy-IoTEdge
+   ```
+
+1. 此時, IoT 核心版裝置可能會自動重新開機。 其他 Windows 10 或 Windows Server 裝置可能會提示您重新開機。 若是如此, 請立即重新開機您的裝置。 一旦您的裝置準備就緒, 請再次以系統管理員身分執行 PowerShell。
+
+1. **Initialize-IoTEdge** 命令會設定機器的 IoT Edge 執行階段。 除非您使用 `-Dps` 旗標來使用自動布建，否則命令會預設為使用 Windows 容器進行手動布建。
+
+   將`{scope_id}`、 `{registration_id}`和的預留位置值取代為您稍早收集的資料。`{symmetric_key}`
+
+   ```powershell
+   . {Invoke-WebRequest -useb https://aka.ms/iotedge-win} | Invoke-Expression; `
+   Initialize-IoTEdge -Dps -ScopeId {scope ID} -RegistrationId {registration ID} -SymmetricKey {symmetric key}
+   ```
 
 ## <a name="verify-successful-installation"></a>確認安裝成功
 

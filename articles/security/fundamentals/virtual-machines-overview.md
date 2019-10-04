@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/28/2019
 ms.author: terrylan
-ms.openlocfilehash: 7b33484084b4ada5aeaf89eb90167658ade15ad8
-ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
+ms.openlocfilehash: 4aca2a4495d4b6c3669982b2e7757b7252d70f6a
+ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69899789"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71828562"
 ---
 # <a name="azure-virtual-machines-security-overview"></a>Azure 虛擬機器安全性概觀
 本文提供可與虛擬機器搭配使用的核心 Azure 安全性功能的總覽。
@@ -102,7 +102,7 @@ Azure 磁碟加密是用於加密 Windows 和 Linux 虛擬機器磁碟的新功�
 深入了解：
 
 * [IaaS VM 適用的 Azure 磁碟加密](/azure/security/azure-security-disk-encryption-overview)
-* [快速入門：使用 Azure PowerShell 為 Windows IaaS VM 加密](../azure-disk-encryption-linux-powershell-quickstart.md)
+* [快速入門：使用 Azure PowerShell 為 Windows IaaS VM 加密](../../virtual-machines/linux/disk-encryption-powershell-quickstart.md)
 
 ## <a name="virtual-machine-backup"></a>虛擬機器備份
 

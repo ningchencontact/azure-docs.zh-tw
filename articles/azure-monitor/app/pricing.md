@@ -11,26 +11,25 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.reviewer: mbullwin
-ms.date: 09/30/2019
+ms.date: 10/03/2019
 ms.author: dalek
-ms.openlocfilehash: 448469d4c1ff15ed2ba814dfaa653c4d3c7e3452
-ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
+ms.openlocfilehash: 3e0bdd42ea19b7029d3f3df4ff9a5a275aec0271
+ms.sourcegitcommit: f2d9d5133ec616857fb5adfb223df01ff0c96d0a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/30/2019
-ms.locfileid: "71677806"
+ms.lasthandoff: 10/03/2019
+ms.locfileid: "71936688"
 ---
 # <a name="manage-usage-and-costs-for-application-insights"></a>管理 Application Insights 的使用量和成本
 
 > [!NOTE]
-> 本文說明如何在 Application Insights 中分析資料使用量。  請參閱下列文章以了解相關資訊。
-> - [監視使用量和估計成本](../../monitoring-and-diagnostics/monitoring-usage-and-estimated-costs.md)說明如何針對不同的定價模型，檢視多項 Azure 監視功能的使用量和估計成本。 其中也會說明如何變更定價模型。
+> 本文說明如何瞭解並控制 Application Insights 的成本。  相關文章、[監視使用量和估計成本](https://docs.microsoft.com/azure/azure-monitor/platform/usage-estimated-costs)說明如何針對不同的計價模式，跨多項 Azure 監視功能來查看使用量和估計成本。
 
 如果您有關於 Application Insights 定價運作方式的疑問，請在我們的[論壇](https://social.msdn.microsoft.com/Forums/home?forum=ApplicationInsights)中張貼問題。
 
 ## <a name="pricing-model"></a>定價模式
 
-[Azure 應用程式深入][start]解析的定價是以資料量內嵌為基礎，並可選擇性地保留較長的資料。 每項 Application Insights 資源都是個別計費的服務，並且會計入到您的 Azure 訂用帳戶帳單。
+[Azure 應用程式 Insights][start]的定價是隨用隨付模型，以資料量內嵌為基礎，並可選擇性地保留較長的資料。 每項 Application Insights 資源都是個別計費的服務，並且會計入到您的 Azure 訂用帳戶帳單。 
 
 ### <a name="data-volume-details"></a>資料量詳細資料
 
@@ -46,6 +45,22 @@ ms.locfileid: "71677806"
 [多重步驟 Web 測試](../../azure-monitor/app/availability-multistep.md)會產生額外費用。 多重步驟 Web 測試係指執行一系列動作的 Web 測試。
 
 單一頁面的「Ping 測試」不另外收費。 針對來自 Ping 測試和多重步驟測試的遙測，收費方式與來自您應用程式的其他遙測一樣。
+
+## <a name="estimating-the-costs-to-manage-your-application"></a>估計管理應用程式的成本 
+
+如果您尚未使用 Application Insights，您可以使用[Azure 監視器定價計算機](https://azure.microsoft.com/pricing/calculator/?service=monitor)來預估使用 Application Insights 的成本。 一開始請在搜尋方塊中輸入 "Azure 監視器"，然後按一下產生的 [Azure 監視器] 磚。 在頁面上向下 Azure 監視器，然後從 [類型] 下拉式清單中選取 [Application Insights]。  您可以在這裡輸入每月預期要收集的資料 GB 數目，因此問題是 Application Insights 收集監視應用程式的資料量。 
+
+有兩種方法可以解決這種情況：使用 ASP.NET SDK 中提供的預設監視和調適型取樣，或 estimtate 您根據其他類似客戶看到的內容 likley 資料內嵌。 
+
+### <a name="data-collection-when-using-sampling"></a>使用取樣時的資料收集
+
+透過 ASP.NET SDK 的調適型[取樣](https://docs.microsoft.com/azure/azure-monitor/app/sampling#adaptive-sampling-in-your-aspnetaspnet-core-web-applications)，資料磁片區會自動調整，以保持在預設 Application Insights 監視的指定最大傳輸速率。 如果應用程式產生較少的遙測資料（例如，在進行調試時或由於低使用量的緣故），取樣處理器就不會卸載專案，只要磁片區低於每秒設定的事件數層級即可。 針對高容量的應用程式，預設臨界值為每秒5個事件，調適型取樣會將每日事件數限制為432000。 使用一般的平均事件大小 1 KB，這會對應13.4 到每個節點每31天的遙測資料，每個月裝載您的應用程式（因為取樣是在每個節點的本機執行）。 
+
+針對不支援調適型取樣的 Sdk，您可以使用 [內建取樣） [https://docs.microsoft.com/azure/azure-monitor/app/sampling#ingestion-sampling ]，根據要保留的資料百分比來 Application Insights receved 資料，或針對[ASP.NET、ASP.NET Core 和 JAVA 設定固定速率取樣](https://docs.microsoft.com/azure/azure-monitor/app/sampling#fixed-rate-sampling-for-aspnet-aspnet-core-and-java-websites)用來減少從 web 伺服器和網頁瀏覽器傳送流量的網站
+
+### <a name="learn-from-what-similar-customers-collect"></a>瞭解類似客戶所收集的內容
+
+在適用于 Application Insights 的 Azure 監視定價計算機中，如果您啟用「根據應用程式活動估計資料量」功能，您可以提供應用程式的相關輸入（每月要求和頁面流覽數，以防您收集用戶端遙測），然後計算機會告訴您類似的應用程式所收集的資料中間值和第90百分位數。 當然，這些個應用程式會跨越 Application Insights 設定的範圍（例如，有些有預設[取樣](../../azure-monitor/app/sampling.md)，有些則沒有取樣等等），因此您仍然可以使用取樣，讓控制項減少您在最下方的中介層中所內嵌的資料量。 但這是一個起點，可瞭解其他類似客戶的觀點。 
 
 ## <a name="understand-your-usage-and-estimate-costs"></a>瞭解您的使用量和估計成本
 
@@ -64,6 +79,12 @@ E. 設定每日資料量上限。
 Application Insights 費用會加到您的 Azure 帳單中。 您可以在 Azure 入口網站的 [帳務] 區段中，或在 [Azure 計費入口網站](https://account.windowsazure.com/Subscriptions)中，查看您的 Azure 帳單詳細資料。 
 
 ![在左側功能表中，選取 [帳務]](./media/pricing/02-billing.png)
+
+## <a name="viewing-application-insights-usage-on-your-azure-bill"></a>在您的 Azure 帳單上查看 Application Insights 使用量 
+
+Azure 在[Azure 成本管理 + 計費](https://docs.microsoft.com/azure/cost-management/quick-acm-cost-analysis?toc=/azure/billing/TOC.json)中樞提供了大量有用的功能。 例如，「成本分析」功能可讓您查看 Azure 資源的花費。 依資源類型新增篩選（針對 Application Insights 的 insights/元件），可讓您查看追蹤您的支出。
+
+您可以[從 Azure 入口網站下載您的使用量](https://docs.microsoft.com/azure/billing/billing-download-azure-invoice-daily-usage-date#download-usage-in-azure-portal)，以進一步瞭解您的使用方式。 在下載的試算表中，您可以看到每天每個 Azure 資源的使用量。 在此 Excel 試算表中，您可以藉由先篩選「計量類別」資料行來顯示「Application Insights」和「Log Analytics」，然後在「包含」的「實例識別碼」資料行上新增篩選，來找到您 Application Insights 資源的使用量。[microsoft insights/元件]。  大部分的 Application Insights 使用量都會以 Log Analytics 計量類別的計量報告，因為所有 Azure 監視器元件都有單一記錄後端。  只有舊版定價層和多重步驟 web 測試的 Application Insights 資源，會以 Application Insights 的計量類別來報告。  使用量會顯示在 [取用的數量] 資料行中，每個專案的單位會顯示在 [測量單位] 資料行中。  有更多詳細資料可協助您[瞭解您的 Microsoft Azure 帳單](https://docs.microsoft.com/azure/billing/billing-understand-your-bill)。 
 
 ## <a name="managing-your-data-volume"></a>管理您的資料量 
 
@@ -156,16 +177,15 @@ systemEvents
 
 ## <a name="change-the-data-retention-period"></a>變更資料保留期
 
-> [!NOTE]
-> 我們已暫時移除這項功能，但我們會解決可能的問題。  我們將在2019年10月的第一周回復。
-
 Application Insights 資源的預設保留期為90天。 可以為每個 Application Insights 資源選取不同的保留週期。 一組完整的可用保留週期為30、60、90、120、180、270、365、550或730天。 
 
 若要變更保留期，請在 Application Insights 資源中，移至 [**使用量和估計成本**] 頁面，然後選取 [**資料保留**] 選項：
 
 ![調整每日遙測資料量上限](./media/pricing/pricing-005.png)
 
-針對較長的保留期啟用計費時，將會以目前為 Azure Log Analytics 資料保留費用的相同費率來計費保留時間超過90天的資料。 若要深入瞭解，請[Azure 監視器定價頁面](https://azure.microsoft.com/pricing/details/monitor/)。 藉由[投票此建議](https://feedback.azure.com/forums/357324-azure-monitor-application-insights/suggestions/17454031)，隨時掌握最新的可變保留進度。 
+您也可以使用 `retentionInDays` 參數，透過[ARM 來設定](https://docs.microsoft.com/azure/azure-monitor/app/powershell)保留期。 此外，如果您將資料保留期設定為30天，您可以使用 `immediatePurgeDataOn30Days` 參數來觸發立即清除較舊的資料，這可能適用于合規性相關案例。 此功能只會透過 ARM 公開。 
+
+在2019年12月開始針對較長的保留期計費時，保留超過90天的資料會以目前針對 Azure Log Analytics 資料保留期計費的費率來計費。 若要深入瞭解，請[Azure 監視器定價頁面](https://azure.microsoft.com/pricing/details/monitor/)。 藉由[投票此建議](https://feedback.azure.com/forums/357324-azure-monitor-application-insights/suggestions/17454031)，隨時掌握最新的可變保留進度。 
 
 ## <a name="data-transfer-charges-using-application-insights"></a>使用 Application Insights 的資料傳輸費用
 

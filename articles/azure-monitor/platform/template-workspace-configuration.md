@@ -13,18 +13,18 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 07/11/2019
 ms.author: magoedte
-ms.openlocfilehash: 3ac5d5d31bb54ce87859a6eec52dbe5948864d4c
-ms.sourcegitcommit: aaa82f3797d548c324f375b5aad5d54cb03c7288
+ms.openlocfilehash: 810ecbd4421eec8e8e809b429270601a0c94d623
+ms.sourcegitcommit: 15e3bfbde9d0d7ad00b5d186867ec933c60cebe6
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70147336"
+ms.lasthandoff: 10/03/2019
+ms.locfileid: "71840906"
 ---
 # <a name="manage-log-analytics-workspace-using-azure-resource-manager-templates"></a>使用 Azure Resource Manager 範本管理 Log Analytics 工作區
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-您可以使用[Azure Resource Manager 範本](../../azure-resource-manager/resource-group-authoring-templates.md), 在 Azure 監視器中建立和設定 Log Analytics 工作區。 您可以使用範本執行的工作範例包括︰
+您可以使用[Azure Resource Manager 範本](../../azure-resource-manager/resource-group-authoring-templates.md)，在 Azure 監視器中建立和設定 Log Analytics 工作區。 您可以使用範本執行的工作範例包括︰
 
 * 建立工作區，包括設定定價層 
 * 新增解決方案
@@ -53,7 +53,7 @@ ms.locfileid: "70147336"
 
 ## <a name="create-a-log-analytics-workspace"></a>建立 Log Analytics 工作區
 
-下列範例會從您的本機電腦使用範本建立工作區。 JSON 範本已設定為只需要新工作區的名稱和位置 (使用其他工作區參數的預設值, 例如定價層和保留期)。  
+下列範例會從您的本機電腦使用範本建立工作區。 JSON 範本已設定為只需要新工作區的名稱和位置（使用其他工作區參數的預設值，例如定價層和保留期）。  
 
 ### <a name="create-and-deploy-template"></a>建立和部署範本
 
@@ -121,7 +121,7 @@ ms.locfileid: "70147336"
 
 2. 編輯範本以符合您的需求。 檢閱 [Microsoft.OperationalInsights/workspaces 範本](https://docs.microsoft.com/azure/templates/microsoft.operationalinsights/workspaces)參考，以了解支援哪些屬性和值。 
 3. 將此檔案儲存為本機資料夾的 deploylaworkspacetemplate.json。
-4. 您已準備好部署此範本。 您可以使用 PowerShell 或命令列來建立工作區, 並將工作區名稱和位置指定為命令的一部分。
+4. 您已準備好部署此範本。 您可以使用 PowerShell 或命令列來建立工作區，並將工作區名稱和位置指定為命令的一部分。 在所有 Azure 訂用帳戶中，工作區名稱必須是全域唯一的。
 
    * 對於 PowerShell，從包含範本的資料夾使用下列命令：
    

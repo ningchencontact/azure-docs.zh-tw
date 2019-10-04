@@ -1,20 +1,20 @@
 ---
-title: 在 Azure Digital Twins 中建立及管理角色指派 | Microsoft Docs
-description: 在 Azure Digital Twins 中建立及管理角色指派。
+title: 建立和管理角色指派-Azure 數位 Twins |Microsoft Docs
+description: 瞭解如何在 Azure 數位 Twins 中建立和管理角色指派。
 author: lyrana
 manager: alinast
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 07/29/2019
+ms.date: 10/02/2019
 ms.author: lyhughes
 ms.custom: seodec18
-ms.openlocfilehash: 2c43dd7c0700efdd2fbf2f16c57c9c9dc69d3c6b
-ms.sourcegitcommit: 6fe40d080bd1561286093b488609590ba355c261
-ms.translationtype: MT
+ms.openlocfilehash: 9a9f3398df099eca7d83b38595364956e6b3b76b
+ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/01/2019
-ms.locfileid: "71703361"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71827721"
 ---
 # <a name="create-and-manage-role-assignments-in-azure-digital-twins"></a>在 Azure Digital Twins 中建立及管理角色指派
 
@@ -165,8 +165,8 @@ YOUR_MANAGEMENT_API_URL/roleassignments/check?userId=YOUR_USER_ID&path=YOUR_PATH
 | --- | --- | --- | --- |
 | YOUR_USER_ID |  真 | String |   UserId objectIdType 的 objectId。 |
 | YOUR_PATH | 真 | String |   用來檢查存取權的選擇路徑。 |
-| YOUR_ACCESS_TYPE |  真 | String |   要檢查的存取類型。 |
-| YOUR_RESOURCE_TYPE | 真 | String |  要檢查的資源。 |
+| YOUR_ACCESS_TYPE |  真 | String |   *讀取*、*建立*、*更新*或*刪除* |
+| YOUR_RESOURCE_TYPE | 真 | String |  *Device*、 *DeviceBlobMetadata*、 *DeviceExtendedProperty*、 *ExtendedPropertyKey*、 *ExtendedType*、 *Endpoint*、*金鑰*存放區、*比對器*、*本體*、 *Report*、 *RoleDefinition*、*感應器*、 *SensorExtendedProperty*、 *Space*、 *SpaceBlobMetadata*、 *SpaceExtendedProperty*、 *SpaceResource*、 *SpaceRoleAssignment*、 *System*、 *UerDefinedFunction*、 *User*、 *UserBlobMetadata*或*UserExtendedProperty* |
 
 成功的要求會傳回布林值 `true` 或 `false`，指示是否已為指定的路徑和資源，指派存取權類型給使用者。
 
@@ -198,7 +198,7 @@ YOUR_MANAGEMENT_API_URL/roleassignments?path=YOUR_PATH
 
 ### <a name="revoke-a-permission"></a>撤銷權限
 
-若要從收件者撤銷權限，請藉由提出驗證的 HTTP DELETE 要求，刪除角色指派：
+若要撤銷收件者的許可權，請藉由提出已驗證的 HTTP DELETE 要求來刪除角色指派：
 
 ```plaintext
 YOUR_MANAGEMENT_API_URL/roleassignments/YOUR_ROLE_ASSIGNMENT_ID

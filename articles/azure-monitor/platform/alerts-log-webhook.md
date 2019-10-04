@@ -8,18 +8,18 @@ ms.topic: conceptual
 ms.date: 06/25/2019
 ms.author: yalavi
 ms.subservice: alerts
-ms.openlocfilehash: 3e29bdf41b0421aa4461b11fbf9bc0535179486d
-ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
+ms.openlocfilehash: 3a072ae64104f8fded49ff6a00f5b58902c39903
+ms.sourcegitcommit: 15e3bfbde9d0d7ad00b5d186867ec933c60cebe6
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/30/2019
-ms.locfileid: "71677759"
+ms.lasthandoff: 10/03/2019
+ms.locfileid: "71838579"
 ---
 # <a name="webhook-actions-for-log-alert-rules"></a>Webhook 動作記錄警示規則
 [在 Azure 中建立記錄警示](alerts-log.md)時, 您可以選擇[使用動作群組](action-groups.md)來設定它, 以執行一或多個動作。 本文說明可用的不同 webhook 動作, 並說明如何設定以 JSON 為基礎的自訂 webhook。
 
 > [!NOTE]
-> 您也可以使用適用于 webhook 整合的[一般警示架構](https://aka.ms/commonAlertSchemaDocs)。 常見的警示架構可讓您在 Azure 監視器中的所有警示服務之間擁有單一可擴充且整合的警示承載。 [瞭解常見的警示架構定義。](https://aka.ms/commonAlertSchemaDefinitions)
+> 您也可以使用適用于 webhook 整合的[一般警示架構](https://aka.ms/commonAlertSchemaDocs)。 常見的警示架構可讓您在 Azure 監視器中的所有警示服務上擁有單一可擴充且整合的警示承載。請注意，一般警示架構不會接受記錄警示的自訂 JSON 選項。 如果選取該內容，則它會延遲一般的警示架構內容，而不論您可能已在警示規則層級進行的自訂。 [瞭解常見的警示架構定義。](https://aka.ms/commonAlertSchemaDefinitions)
 
 ## <a name="webhook-actions"></a>Webhook 動作
 

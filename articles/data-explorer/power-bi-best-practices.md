@@ -7,12 +7,12 @@ ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 09/26/2019
-ms.openlocfilehash: 53bed3fe50afef260ac44f73a9f82e6894015c90
-ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
+ms.openlocfilehash: e6767c1e03b074f43993e449ca81af951c579090
+ms.sourcegitcommit: f2d9d5133ec616857fb5adfb223df01ff0c96d0a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71349004"
+ms.lasthandoff: 10/03/2019
+ms.locfileid: "71937312"
 ---
 # <a name="best-practices-for-using-power-bi-to-query-and-visualize-azure-data-explorer-data"></a>使用 Power BI 來查詢 Azure 資料總管資料並將其視覺化的最佳做法
 
@@ -28,13 +28,13 @@ Azure 資料總管是一項快速又可高度調整的資料探索服務，可�
 
 * 匯**入模式與 DirectQuery 模式**-使用匯**入**模式來互動較小的資料集。 針對大型且經常更新的資料集，請使用**DirectQuery**模式。 例如，您可以使用 [匯**入**] 模式建立維度資料表，因為它們很小，而且不常變更。 根據預期的資料更新速率，設定重新整理間隔。 使用**DirectQuery**模式建立事實資料表，因為這些資料表很大，而且包含原始資料。 使用這些資料表，利用 Power BI 的[鑽取](https://docs.microsoft.com/power-bi/desktop-drillthrough)來呈現已篩選的資料。
 
-* **平行**處理原則-Azure 資料 explorer 是可線性調整的資料平臺，因此，您可以藉由增加端對端流程的平行處理原則，改善儀表板轉譯的效能，如下所示：
+* **平行**處理原則– Azure 資料總管是可線性調整的資料平臺，因此，您可以藉由增加端對端流程的平行處理原則，改善儀表板轉譯的效能，如下所示：
 
    * 在 Power BI 中增加[DirectQuery 的並行連接](https://docs.microsoft.com/power-bi/desktop-directquery-about#maximum-number-of-connections-option-for-directquery)數目。
 
    * 使用[弱式一致性來改善平行](/azure/kusto/concepts/queryconsistency)處理原則。 這可能會影響資料的時效性。
 
-* **有效**的交叉分析篩選器–您可以使用[同步](https://docs.microsoft.com/power-bi/visuals/power-bi-visualization-slicers#sync-and-use-slicers-on-other-pages)交叉分析篩選器，在準備就緒之前防止報表載入資料。 在您建立資料集的結構之後，請放置所有視覺效果，並標示所有交叉分析篩選器，您可以選取 [同步處理交叉分析篩選器]，只載入所需的資料。
+* **有效**的交叉分析篩選器–使用[同步](https://docs.microsoft.com/power-bi/visuals/power-bi-visualization-slicers#sync-and-use-slicers-on-other-pages)交叉分析篩選器，在您準備好之前，讓報表無法載入資料。 在您建立資料集的結構之後，請放置所有視覺效果，並標示所有交叉分析篩選器，您可以選取 [同步處理交叉分析篩選器]，只載入所需的資料。
 
 * **使用篩選**-盡可能使用多個 Power BI 篩選準則，將 Azure 資料總管搜尋重點放在相關的資料分區上。
 
@@ -46,7 +46,7 @@ Azure 資料總管是一項快速又可高度調整的資料探索服務，可�
 
 ### <a name="complex-queries-in-power-bi"></a>Power BI 中的複雜查詢
 
-複雜的查詢在 Kusto 中的表示方式比 Power Query 更輕鬆。 它們應該實作為[Kusto](/azure/kusto/query/functions)函式，並在 Power BI 中叫用。 在 Kusto 查詢中使用**DirectQuery**搭配 @no__t 1 語句時，這是必要的方法。 由於 Power BI 會聯結兩個查詢，而且 `let` 語句不能與 `join` 運算子一起使用，因此可能會發生語法錯誤。 因此，請將聯結的每個部分儲存為 Kusto 函式，並允許 Power BI 同時聯結這兩個函數。
+複雜的查詢在 Kusto 中的表示方式比 Power Query 更輕鬆。 它們應該實作為[Kusto](/azure/kusto/query/functions)函式，並在 Power BI 中叫用。 在 Kusto 查詢中使用**DirectQuery**搭配 @no__t 1 語句時，這是必要的方法。 因為 Power BI 聯結兩個查詢，而且 `let` 語句不能與 `join` 運算子一起使用，所以可能會發生語法錯誤。 因此，請將聯結的每個部分儲存為 Kusto 函式，並允許 Power BI 同時聯結這兩個函數。
 
 ### <a name="how-to-simulate-a-relative-data-time-operator"></a>如何模擬相對的資料時間運算子
 
@@ -104,7 +104,7 @@ in
     Source = Kusto.Contents("Help", "Samples", "StormEvents | where State == 'ALABAMA' | take 100", [])
     ```
 
-1. 以您的參數取代查詢的相關部分。 將查詢分割為多個部分，並使用 & 正負號，以及參數將其串連回來。
+1. 以您的參數取代查詢的相關部分。 將查詢分割為多個部分，並使用連字號（&）和參數將其串連回來。
 
    例如，在上述查詢中，我們`State == 'ALABAMA'`將會取得部分，並將其分割為： `State == '`和`'` ，而我們會在`State`它們之間放置參數：
    

@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/26/2019
+ms.date: 10/03/2019
 ms.author: mlottner
-ms.openlocfilehash: a9de9924b851024dd36c848203cc3ada2cde208c
-ms.sourcegitcommit: e9936171586b8d04b67457789ae7d530ec8deebe
+ms.openlocfilehash: b0f5696b36082375a29e99298395cf16734d5bb4
+ms.sourcegitcommit: f2d9d5133ec616857fb5adfb223df01ff0c96d0a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71329405"
+ms.lasthandoff: 10/03/2019
+ms.locfileid: "71937148"
 ---
 # <a name="azure-security-center-for-iot-baseline-and-custom-checks"></a>IoT 基準和自訂檢查的 Azure 資訊安全中心
 
@@ -32,7 +32,7 @@ ms.locfileid: "71329405"
 
 ## <a name="baseline-custom-checks"></a>基準自訂檢查
 
-基準自訂檢查會使用裝置的模組身分識別對應項，為每個裝置基準建立一份自訂的檢查清單。 
+基準自訂檢查會使用裝置的**模組身分識別**對應項，為每個裝置基準建立一份自訂的檢查清單。 
 
 ## <a name="setting-baseline-properties"></a>設定基準屬性
 
@@ -67,8 +67,8 @@ ms.locfileid: "71329405"
 | Name| 狀態 | 有效值| 預設值| 描述 |
 |----------|------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------|---------------|
 |baselineCustomChecksEnabled|必要： true |有效值：**布林值** |預設值： **false** |傳送高優先順序訊息之前的最大時間間隔。|
-|baselineCustomChecksFilePath |必要： true|有效值：**String**、 **null** |預設值：**PT5H** |基準 xml 設定的完整路徑|
-|baselineCustomChecksFileHash |必要： true|有效值：**String**、 **null** |預設值：**PT5H** |xml 設定檔 @no__t 0。 如需其他資訊，請使用[sha256sum 參考](https://linux.die.net/man/1/sha256sum)。 |
+|baselineCustomChecksFilePath |必要： true|有效值：**String**、 **null** |預設值： **null** |基準 xml 設定的完整路徑|
+|baselineCustomChecksFileHash |必要： true|有效值：**String**、 **null** |預設值： **null** |xml 設定檔 @no__t 0。 如需其他資訊，請使用[sha256sum 參考](https://linux.die.net/man/1/sha256sum)。 |
 
 若要查看其他基準範例，請參閱[自訂基準範例-1](https://ascforiot.blob.core.windows.net/public/custom_baseline_example_hyperv_ubuntu1804.xml)和[自訂基準範例-2](https://ascforiot.blob.core.windows.net/public/oms_audits.xml)。
 

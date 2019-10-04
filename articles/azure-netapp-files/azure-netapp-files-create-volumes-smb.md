@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 9/25/2019
+ms.date: 10/02/2019
 ms.author: b-juche
-ms.openlocfilehash: 3d34caba9512dc0c0b20cf10476f5c38a2fab8ce
-ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
+ms.openlocfilehash: bd00c04ecfc211ae4ed410e886c0fe6553bea241
+ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71299658"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71827516"
 ---
 # <a name="create-an-smb-volume-for-azure-netapp-files"></a>建立適用於 Azure NetApp Files 的 SMB 磁碟區
 
@@ -68,7 +68,11 @@ Azure NetApp Files 支援 NFS 和 SMBv3 磁片區。 磁碟區的容量耗用量
 
     如需支援的網路拓撲，請參閱[Azure NetApp Files 網路規劃的指導方針](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-network-topologies)。
 
-    網路安全性群組（Nsg）和防火牆必須已適當設定規則，以允許 Active Directory 和 DNS 流量要求。
+    網路安全性群組（Nsg）和防火牆必須已適當設定規則，以允許 Active Directory 和 DNS 流量要求。 
+
+* 「Azure NetApp Files 委派的子網」必須能夠連線到網域中的所有 Active Directory Domain Services （新增）網域控制站，包括所有的本機和遠端網域控制站。 否則，可能會發生服務中斷。  
+
+    如果您有無法透過 Azure NetApp Files 委派子網連線的網域控制站，您可以提交 Azure 支援要求，將範圍從**全域**（預設值）變更為**site**。  Azure NetApp Files 只需要與 Azure NetApp Files 委派子網位址空間所在網站中的網域控制站進行通訊。
 
     請參閱設計關於 AD 網站和服務[的網站拓撲](https://docs.microsoft.com/windows-server/identity/ad-ds/plan/designing-the-site-topology)。 
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: cache
 ms.workload: tbd
 ms.date: 07/05/2017
 ms.author: yegu
-ms.openlocfilehash: ddb9dd49af4557e6ff8d38110de4a99a9cf6fed7
-ms.sourcegitcommit: 6013bacd83a4ac8a464de34ab3d1c976077425c7
+ms.openlocfilehash: eb6773d1547499fcd3a73aebf8f17ec61b6dc06a
+ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/30/2019
-ms.locfileid: "71687010"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71827591"
 ---
 # <a name="how-to-administer-azure-cache-for-redis"></a>如何管理 Azure Cache for Redis
 本主題說明如何執行管理工作，例如為 Azure Cache for Redis 執行個體進行[重新啟動](#reboot)和[排程更新](#schedule-updates)。
@@ -83,7 +83,7 @@ ms.locfileid: "71687010"
 重新啟動適用於所有定價層。
 
 ## <a name="schedule-updates"></a>排程更新
-[排程更新] 刀鋒視窗可讓您指定適用於進階層快取的維護期間。 若指定了維護期間，即會在此期間進行任何 Redis 伺服器更新。 
+[**排程更新**] 分頁可讓您指定快取實例的維護視窗。 若指定了維護期間，即會在此期間進行任何 Redis 伺服器更新。 
 
 > [!NOTE] 
 > 維護期間僅適用於 Redis 伺服器更新，不適用於任何 Azure 更新，或是在裝載快取的 VM 上更新作業系統。

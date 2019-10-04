@@ -5,14 +5,14 @@ services: Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security
 author: qianw211
 ms.service: marketplace
 ms.topic: article
-ms.date: 9/26/2019
+ms.date: 10/2/2019
 ms.author: ellacroi
-ms.openlocfilehash: abc3b3a6be5f8c61c07fb29a6f168c8738733099
-ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
+ms.openlocfilehash: 4096b9201afc98f6e5eb239cf9e6883ac69b6e79
+ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71350378"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71827995"
 ---
 # <a name="microsoft-commercial-marketplace-faqs"></a>Microsoft 商業 Marketplace 常見問題
 
@@ -155,7 +155,7 @@ Azure 訂用帳戶隨附于發行者的獨立軟體廠商 (ISV) 解決方案定�
 
 **支援的試用種類為何？**
 
-免費試用供應專案是一種呼叫動作的清單, 可起始試用版。 這些會將客戶引導至發行者所定義的網站, 以設定試用版體驗。 試用版也可以新增至付費供應專案, 其中第一個月免費。 
+發行者可以為付費的 SaaS 供應專案新增一個免費月份，以及為 VM 映射加上一或三個免費的月耗用量。 免費試用供應專案是一種呼叫動作的清單, 可起始試用版。 這些會將客戶引導至發行者所定義的網站, 以設定試用版體驗。 試用版也可以新增至付費供應專案, 其中第一個月免費。 
 
 **我需要登記付款方式 (例如信用卡) 才能部署免費層或自備授權 (BYOL) 供應項目嗎？**
 
@@ -169,6 +169,10 @@ Azure 訂用帳戶隨附于發行者的獨立軟體廠商 (ISV) 解決方案定�
 
 是，對於 Enterprise 合約 (EA) 客戶，註冊管理員可以在所有帳戶註冊時關閉購買權限，然後在一段足夠完成購買的時間內恢復此權限。 此外，所有客戶都可以使用 Azure 原則來限制其 Azure 訂用帳戶的部署選項，包括 Azure Marketplace 資源的管理。
 
+**商用 marketplace 購買支援哪些付款條件？**
+
+客戶可以使用信用卡向 Azure Marketplace 和 Microsoft AppSource 購買供應專案。 如果您有現有的 Azure 訂用帳戶，從 Azure Marketplace 購買將會使用帳戶上所設定的付款條件，並顯示在與個別明細專案相同的發票上。 某些供應專案會取用 Azure 承諾用量，但大部分的 ommercial marketplace 購買並不會因 Azure 基礎結構的取用而 Enterprise 合約承諾。
+
 **我可以運用帳戶上的 Azure 訂用帳戶點數或預付金來購買 Azure Marketplace 供應項目嗎？**
 
 特定 Azure Marketplace 供應項目可以使用 Azure 訂用帳戶點數或預付金。 如需參與此方案的完整產品清單，請參閱 [Azure 預付金](https://azure.microsoft.com/updates/azure-marketplace-third-party-reseller-services-now-use-azure-monetary-commitment/)。 這些供應項目不包括 BYOL 或 BYOS 選項。 所有其他 Azure Marketplace 供應專案都不能使用 Azure 訂用帳戶點數或預付金: 例如免費的一個月試用點數、每月 MSDN 信用額度、Azure 促銷的信用額度、承諾用量餘額, 以及提供的任何其他免費信用額度Azure.
@@ -176,12 +180,6 @@ Azure 訂用帳戶隨附于發行者的獨立軟體廠商 (ISV) 解決方案定�
 **大量授權折扣適用於 Azure Marketplace 購買嗎？**
 
 資料分割 擁有 Azure Marketplace 所列解決方案的發行者可以設定價格。  標準 Microsoft 大量授權合約折扣不適用於 Azure Marketplace 購買。
-
-**我如何支付這些訂閱？我的 Azure Marketplace 購買會出現在 Azure 帳單上，還是會有另外的帳單？**
-
-MOSP- [Microsoft 線上訂閱者案](https://azure.microsoft.com/support/legal/subscription-agreement/?country=us&language=en)(例如, web direct) 客戶會針對其 Azure 訂用帳戶設定檔中的相同信用卡收取費用。 如果您未登記信用卡，您無法從 Azure Marketplace 購買。 在此情況下，您將獲得特別豁免而改以 Azure 帳單付費。
-
-Enterprise 合約 (EA) 客戶將透過其 EA 支付費用。 此處列出的特定 Azure Marketplace 供應項目會先從任何可用預付金中扣除，再於單季發票以超額形式計費。 間接 EA、教育及政府客戶將由其授權方案提供者 (LSP) 收取費用。
 
 **我可以在哪裡檢視 Azure Marketplace 訂閱詳細資料和帳單資訊？**
 
@@ -197,7 +195,7 @@ Enterprise 合約（EA）客戶可以在 [Azure 入口網站] [成本管理 + �
 
 **我的 Azure Marketplace 購買多久計費一次？**
 
-Enterprise 合約客戶, 針對所概述的特定服務, 第一次有可用的承諾用量金額, 而這些服務會在取用的月份中, 降低總成本。 不會從預付金當中扣除的所有 Azure Marketplace 供應項目，則會按月結算。 每年的 SaaS 訂用帳戶會針對一年的完整服務計費一次。
+不會從預付金當中扣除的所有 Azure Marketplace 供應項目，則會按月結算。 每年的 SaaS 訂用帳戶會針對一年的完整服務計費一次。
 
 MOSP- [Microsoft 線上訂閱者案](https://azure.microsoft.com/support/legal/subscription-agreement/)(web direct) 客戶會按月向其 Azure 訂用帳戶設定檔中的相同信用卡收取費用。 每年的 SaaS 訂用帳戶會針對一年的完整服務計費一次。
 
@@ -210,10 +208,6 @@ MOSP- [Microsoft 線上訂閱者案](https://azure.microsoft.com/support/legal/s
 **Azure Marketplace 中的虛擬機器供應專案之成本結構中的*價格*、*軟體價格*和總價有何差異？**
 
 「*價格*」指的是 Azure 虛擬機器執行軟體所需的成本。 「*軟體價格*」指的是在 Azure 虛擬機器上執行之 Marketplace 發行者軟體的成本。 「總價」指的是 Azure 虛擬機器的總成本, 以及在 Azure 虛擬機器上執行的 Marketplace 發行者軟體。
-
-**我是否可將帳戶上的 Azure 訂用帳戶點數或預付金用於所需的 Azure 產品與服務，以執行 Azure Marketplace 供應項目？**
-
-是的。 Azure 訂用帳戶點數或您帳戶上的預付金都可用於 Azure 產品和 Azure Marketplace 供應項目。 例如, Azure 預付金可套用至 Azure Marketplace 中虛擬機器供應專案的*價格*元件。 不過, Azure 訂用帳戶點數及預付金僅適用于在 Azure 虛擬機器上執行的特定 Marketplace 發行者軟體 (*軟體價格*)。
 
 **如何得知我已經使用多少 Azure Marketplace 購買？**
 

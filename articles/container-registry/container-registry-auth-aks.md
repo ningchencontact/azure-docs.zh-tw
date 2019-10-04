@@ -8,12 +8,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 08/27/2019
 ms.author: danlep
-ms.openlocfilehash: f80956ec401737766f7a85540e90be70b9d621e7
-ms.sourcegitcommit: 8e1fb03a9c3ad0fc3fd4d6c111598aa74e0b9bd4
+ms.openlocfilehash: dc5276227913d2da6e52ee3c0fb493b98e86688a
+ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70114694"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71827771"
 ---
 # <a name="authenticate-with-azure-container-registry-from-azure-kubernetes-service"></a>從 Azure Kubernetes Service 對 Azure Container Registry 進行驗證
 
@@ -21,7 +21,7 @@ ms.locfileid: "70114694"
 
 您只需要設定其中一種驗證方法。 最常見的方法是[使用 AKS 服務主體來授與存取權](#grant-aks-access-to-acr)。 如果您有特定需求, 您可以選擇性地[使用 Kubernetes 秘密來授與存取權](#access-with-kubernetes-secret)。
 
-本文假設您已建立 AKS 叢集，且您能夠使用 `kubectl` 命令列用戶端存取與叢集。 如果您想要在叢集建立時建立叢集並設定容器登錄的存取權, 請參閱[教學課程:](../aks/tutorial-kubernetes-deploy-cluster.md) [使用 Azure Kubernetes Service (預覽) 中的 Azure Container Registry](../aks/cluster-container-registry-integration.md)部署 AKS 叢集或進行驗證。
+本文假設您已建立 AKS 叢集，且您能夠使用 `kubectl` 命令列用戶端存取與叢集。 如果您想要在叢集建立時建立叢集並設定容器登錄的存取權，請參閱 [Tutorial：部署 AKS 叢集 @ no__t-0，或[使用來自 Azure Kubernetes Service 的 Azure Container Registry 進行驗證](../aks/cluster-container-registry-integration.md)。
 
 ## <a name="grant-aks-access-to-acr"></a>將 AKS 存取權授與 ACR
 

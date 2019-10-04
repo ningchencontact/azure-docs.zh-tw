@@ -8,12 +8,12 @@ services: digital-twins
 ms.topic: conceptual
 ms.date: 09/30/2019
 ms.author: v-adgera
-ms.openlocfilehash: f33e5be2408d2ebacd215c5f0601d712197254a7
-ms.sourcegitcommit: 4f3f502447ca8ea9b932b8b7402ce557f21ebe5a
-ms.translationtype: MT
+ms.openlocfilehash: f04946dffd66dcd44743197a0ca8f0fe21624285
+ms.sourcegitcommit: 15e3bfbde9d0d7ad00b5d186867ec933c60cebe6
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71803429"
+ms.lasthandoff: 10/03/2019
+ms.locfileid: "71844523"
 ---
 # <a name="how-to-configure-postman-for-azure-digital-twins"></a>如何針對 Azure Digital Twins 設定 Postman
 
@@ -122,7 +122,8 @@ ms.locfileid: "71803429"
    [![Content 類型多部分/混合](media/how-to-configure-postman/content-type.png)](media/how-to-configure-postman/content-type.png#lightbox)
 
 1. 將非文字資料序列化到檔案。 JSON 資料會儲存為 JSON 檔案。
-1. 在 [主體] 索引標籤底下新增每個檔案，做法是指派**索引鍵**名稱，然後選取 `file` 或 `text`。
+1. 在 [**主體**] 索引標籤底下，選取 [`form-data`]。 
+1. 藉由指派索引**鍵**名稱來新增每個檔案，然後選取 [`file`]。
 1. 接著，透過 [選擇檔案] 按鈕選取每個檔案。
 
    [@no__t 1Postman 用戶端範例](media/how-to-configure-postman/form-body.png)](media/how-to-configure-postman/form-body.png#lightbox)

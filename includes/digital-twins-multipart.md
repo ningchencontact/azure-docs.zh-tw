@@ -5,15 +5,15 @@ services: digital-twins
 author: kingdomofends
 ms.service: digital-twins
 ms.topic: include
-ms.date: 08/12/2019
+ms.date: 10/02/2019
 ms.author: v-adgera
 ms.custom: include file
-ms.openlocfilehash: f9b1b32775393196a77bef3aa2257f6fb66afdcb
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
-ms.translationtype: MT
+ms.openlocfilehash: 76a05817ae91bb49240e5d72988c776ce67ec1c0
+ms.sourcegitcommit: 15e3bfbde9d0d7ad00b5d186867ec933c60cebe6
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "69012066"
+ms.lasthandoff: 10/03/2019
+ms.locfileid: "71845490"
 ---
 > [!NOTE]
 > 多部分要求通常需要三個資訊片段：
@@ -26,7 +26,7 @@ ms.locfileid: "69012066"
 >
 > **Content-Type** 和 **Content-Disposition** 可能會依使用案例而有所不同。
 
-可以透過程式設計的方式 (透過 C#)、透過 REST 用戶端或 [Postman](https://docs.microsoft.com/azure/digital-twins/how-to-configure-postman#multi) 等工具進行多部分要求。 REST 用戶端工具可能對複雜的多部分要求具有不同程度的支援。 組態設定可能會隨著工具而略有不同。 確認哪一種工具最適合您的需求。
+可以透過程式設計的方式 (透過 C#)、透過 REST 用戶端或 [Postman](https://docs.microsoft.com/azure/digital-twins/how-to-configure-postman#make-a-multipart-post-request) 等工具進行多部分要求。 REST 用戶端工具可能對複雜的多部分要求具有不同程度的支援。 組態設定可能會隨著工具而略有不同。 確認哪一種工具最適合您的需求。
 
 > [!IMPORTANT]
 > 針對 Azure Digital Twins 管理 API 發出的多部分要求通常有兩個部分：

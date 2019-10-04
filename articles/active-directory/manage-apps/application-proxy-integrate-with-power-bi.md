@@ -16,12 +16,12 @@ ms.author: mimart
 ms.reviewer: japere
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b3d758b63b56bb84b1cb4e5793731da5eb4f5209
-ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
+ms.openlocfilehash: 6a81ecd855b098ec59c5b6f7761ceebfa7a03fa9
+ms.sourcegitcommit: f2d9d5133ec616857fb5adfb223df01ff0c96d0a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71103865"
+ms.lasthandoff: 10/03/2019
+ms.locfileid: "71936716"
 ---
 # <a name="enable-remote-access-to-power-bi-mobile-with-azure-ad-application-proxy"></a>使用 Azure AD 應用程式 Proxy 啟用 Power BI 行動版的遠端存取
 
@@ -121,6 +121,8 @@ SPN 是使用 Kerberos 驗證之服務的唯一識別碼。 您必須確定您�
    為 Power BI 行動版**Android**設定應用程式時，請新增下列類型的重新導向 Uri：公用用戶端（行動 & 桌面）：
    - `urn:ietf:wg:oauth:2.0:oob`
    - `mspbi-adal://com.microsoft.powerbimobile`
+   - `msauth://com.microsoft.powerbim/g79ekQEgXBL5foHfTlO2TPawrbI%3D` 
+   - `msauth://com.microsoft.powerbim/izba1HXNWrSmQ7ZvMXgqeZPtNEU%3D`
 
    > [!IMPORTANT]
    > 必須加入重新導向 Uri，應用程式才能正常運作。 如果您要為 Power BI 行動版 iOS 和 Android 設定應用程式，請將以下類型的 [公用用戶端（行動 & 桌面）] 重新導向 URI 新增至針對 iOS 所設定的`urn:ietf:wg:oauth:2.0:oob`重新導向 uri 清單：。

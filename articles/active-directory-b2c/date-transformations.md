@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 077915705c242805d3709b5d52d445288fa5336a
-ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
+ms.openlocfilehash: 13c3f3aaf54bc3fb8ef656b5c1ce227fa70cee0b
+ms.sourcegitcommit: f2d9d5133ec616857fb5adfb223df01ff0c96d0a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71064356"
+ms.lasthandoff: 10/03/2019
+ms.locfileid: "71936795"
 ---
 # <a name="date-claims-transformations"></a>日期宣告轉換
 
@@ -29,11 +29,11 @@ ms.locfileid: "71064356"
 
 | 項目 | TransformationClaimType | 資料類型 | 注意 |
 | ---- | ----------------------- | --------- | ----- |
-| inputClaim | leftOperand | string | 第一個宣告的類型，應該晚於第二個宣告。 |
-| inputClaim | rightOperand | string | 第二個宣告的類型，應該早於第一個宣告。 |
+| InputClaim | leftOperand | string | 第一個宣告的類型，應該晚於第二個宣告。 |
+| InputClaim | rightOperand | string | 第二個宣告的類型，應該早於第一個宣告。 |
 | InputParameter | AssertIfEqualTo | boolean | 指定當左運算元等於右運算元時，是否應該傳遞這個判斷提示。 |
 | InputParameter | AssertIfRightOperandIsNotPresent | boolean | 指定當右運算元遺失時，是否應該傳遞這個判斷提示。 |
-| InputParameter | TreatAsEqualIfWithinMillseconds | ssNoversion | 指定若要將兩個日期時間視為相等，彼此之間所允許相隔的毫秒數 (例如，為了考慮時鐘誤差因素)。 |
+| InputParameter | TreatAsEqualIfWithinMillseconds | int | 指定若要將兩個日期時間視為相等，彼此之間所允許相隔的毫秒數 (例如，為了考慮時鐘誤差因素)。 |
 
 **AssertDateTimeIsGreaterThan** 宣告轉換一律會從[驗證技術設定檔](validation-technical-profile.md)執行，其會透過[自我判斷技術設定檔](self-asserted-technical-profile.md)來呼叫。 **DateTimeGreaterThan** 自我判斷技術設定檔中繼資料會控制技術設定檔要呈現給使用者的錯誤訊息。
 
@@ -144,7 +144,7 @@ ms.locfileid: "71064356"
 | InputClaim | firstDateTime | dateTime | 第一個 dateTime，比較早於或晚於第二個 dateTime。 Null 值會擲回例外狀況。 |
 | InputClaim | secondDateTime | dateTime | 第二個 dateTime，用來比較早於或晚於第一個 dateTime。 Null 值會被視為目前的 datetTime。 |
 | InputParameter | 運算子 | string | 下列值之一：相同、晚於或早於。 |
-| InputParameter | timeSpanInSeconds | ssNoversion | 將時間範圍新增至第一個日期時間。 |
+| InputParameter | timeSpanInSeconds | int | 將時間範圍新增至第一個日期時間。 |
 | OutputClaim | 結果 | boolean | 叫用此 ClaimsTransformation 之後所產生的 ClaimType。 |
 
 使用此宣告轉換來判斷兩個 ClaimTypes 之間是等於、晚於還是早於。 例如，您可能會儲存上一次使用者接受服務條款 (TOS) 的時間。 3 個月後，您便可要求使用者再次存取 TOS。

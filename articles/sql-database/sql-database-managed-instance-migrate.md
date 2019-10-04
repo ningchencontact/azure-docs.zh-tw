@@ -11,12 +11,12 @@ author: bonova
 ms.author: bonova
 ms.reviewer: douglas, carlrab
 ms.date: 07/11/2019
-ms.openlocfilehash: 9508ce927ef03c83f1c4ef7bf28d2fc02b831a99
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: f877306170b45d65a52a4c76afd7f064e83f240a
+ms.sourcegitcommit: f2d9d5133ec616857fb5adfb223df01ff0c96d0a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68879932"
+ms.lasthandoff: 10/03/2019
+ms.locfileid: "71937299"
 ---
 # <a name="sql-server-instance-migration-to-azure-sql-database-managed-instance"></a>將 SQL Server 遷移至 Azure SQL Database 受控執行個體
 
@@ -57,7 +57,7 @@ ms.locfileid: "68879932"
 - 不同的伺服器或資料庫層級設定, 例如追蹤旗標或相容性層級
 - 您所使用的新功能 (例如透明資料庫加密 (TDE) 或自動容錯移轉群組) 可能會影響 CPU 和 IO 使用量。
 
-受控執行個體保證 99.99% 的可用性 (即使在重大案例中), 因此無法停用這些功能所造成的額外負荷。 如需詳細資訊, 請參閱[可能會在 SQL Server 和受控執行個體上造成不同效能的根本原因](https://azure.microsoft.com/blog/key-causes-of-performance-differences-between-sql-managed-instance-and-sql-server/)。
+受控執行個體保證 99.99% 的可用性（即使在重大案例中），因此無法停用這些功能所造成的額外負荷。 如需詳細資訊, 請參閱[可能會在 SQL Server 和受控執行個體上造成不同效能的根本原因](https://azure.microsoft.com/blog/key-causes-of-performance-differences-between-sql-managed-instance-and-sql-server/)。
 
 ### <a name="create-performance-baseline"></a>建立效能基準
 
@@ -68,7 +68,7 @@ ms.locfileid: "68879932"
 您需要在 SQL Server 實例上測量的部分參數如下: 
 - [監視 SQL Server 實例的 CPU 使用量](https://techcommunity.microsoft.com/t5/Azure-SQL-Database/Monitor-CPU-usage-on-SQL-Server/ba-p/680777#M131), 並記錄平均和尖峰 CPU 使用量。
 - [監視 SQL Server 實例的記憶體使用量](https://docs.microsoft.com/sql/relational-databases/performance-monitor/monitor-memory-usage), 並判斷不同元件所使用的記憶體數量, 例如緩衝集區、計畫快取、資料行存放集區、[記憶體內部 OLTP](https://docs.microsoft.com/sql/relational-databases/in-memory-oltp/monitor-and-troubleshoot-memory-usage?view=sql-server-2017)等等。此外, 您應該會找到 [Page Life 期望值 memory] 效能計數器的平均值和尖峰值。
-- 使用[_io_virtual_file_stats](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-io-virtual-file-stats-transact-sql) view 或[效能計數器](https://docs.microsoft.com/sql/relational-databases/performance-monitor/monitor-disk-usage), 監視來源 SQL SERVER 實例的磁片 IO 使用量。
+- 使用[_io_virtual_file_stats](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-io-virtual-file-stats-transact-sql) view 或[效能計數器](https://docs.microsoft.com/sql/relational-databases/performance-monitor/monitor-disk-usage)，監視來源 SQL SERVER 實例的磁片 IO 使用量。
 - 藉由檢查動態管理檢視或查詢存放區 (如果您要從 SQL Server 2016 + 版本進行遷移), 來監視工作負載和查詢效能或 SQL Server 實例。 識別工作負載中最重要查詢的平均持續時間和 CPU 使用量, 以與受控執行個體上執行的查詢進行比較。
 
 > [!Note]
@@ -169,7 +169,7 @@ ms.locfileid: "68879932"
 效能比較的結果可能是:
 - 受控執行個體上的工作負載效能會對齊或更佳, SQL Server 上的工作負載效能。 在此情況下, 您已成功確認遷移成功。
 - 大部分的效能參數和工作負載中的查詢都可以正常執行, 但有一些例外狀況會降低效能。 在此情況下, 您需要找出差異及其重要性。 如果有一些重要的查詢效能降低, 您應該調查基礎 SQL 計畫是否已變更, 或查詢是否遇到一些資源限制。 在此情況下, 緩和措施可能是直接或使用計劃指南, 在重要查詢 (例如變更的相容性層級、舊版基數估計工具) 上套用一些提示, 重建或建立可能會影響計畫的統計資料和索引。 
-- 與您的來源 SQL Server 相較之下, 大部分查詢的受控執行個體會變慢。 在此情況下, 請嘗試找出差異的根本原因, 例如[達到一些資源限制]( sql-database-managed-instance-resource-limits.md#instance-level-resource-limits), 如 IO 限制、記憶體限制、實例記錄速率限制等。如果沒有任何可能造成差異的資源限制, 請嘗試變更資料庫的相容性層級, 或變更資料庫設定 (例如舊版基數估計), 然後重新開始測試。 請參閱受控執行個體或查詢存放區 views 提供的建議, 以識別回歸效能的查詢。
+- 與您的來源 SQL Server 相較之下, 大部分查詢的受控執行個體會變慢。 在此情況下, 請嘗試找出差異的根本原因, 例如[達到一些資源限制]( sql-database-managed-instance-resource-limits.md#service-tier-characteristics), 如 IO 限制、記憶體限制、實例記錄速率限制等。如果沒有任何可能造成差異的資源限制, 請嘗試變更資料庫的相容性層級, 或變更資料庫設定 (例如舊版基數估計), 然後重新開始測試。 請參閱受控執行個體或查詢存放區 views 提供的建議, 以識別回歸效能的查詢。
 
 > [!IMPORTANT]
 > 受控執行個體具有依預設啟用的內建自動計畫更正功能。 這項功能可確保在貼上正常運作的查詢在未來不會降低。 在變更新設定之前, 請確定已啟用這項功能, 而且您已使用舊的設定來執行工作負載的時間長度已足夠, 以便讓受控執行個體瞭解基準效能和計畫。

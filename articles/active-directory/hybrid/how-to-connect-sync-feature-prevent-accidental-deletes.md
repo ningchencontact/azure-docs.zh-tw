@@ -16,12 +16,12 @@ ms.date: 07/12/2017
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 03c09a751119c1d6effa5795f2dbf7da422b7806
-ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.openlocfilehash: 48f3109b4c87e25444629ca25411894eab8a9d56
+ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70135788"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71827134"
 ---
 # <a name="azure-ad-connect-sync-prevent-accidental-deletes"></a>Azure AD Connect 同步：防止意外刪除
 本主題說明 Azure AD Connect 中的防止意外刪除 (可防止意外刪除) 功能。
@@ -58,8 +58,9 @@ ms.locfileid: "70135788"
 
 ![搜尋連接器空間](./media/how-to-connect-sync-feature-prevent-accidental-deletes/searchcs.png)
 
-[!NOTE] 如果您不確定是否需要所有刪除, 而且想要關閉更安全的路由。 您可以使用 PowerShell Cmdlet: `Enable-ADSyncExportDeletionThreshold`設定新的閾值, 而不是停用可能會導致不想要刪除的閾值。 
+[!NOTE] 如果您不確定是否需要所有刪除，而且想要關閉更安全的路由。 您可以使用 PowerShell Cmdlet： `Enable-ADSyncExportDeletionThreshold` 來設定新的閾值，而不是停用可能會導致不想要刪除的閾值。 
 
+## <a name="if-all-deletes-are-desired"></a>如果需要所有刪除
 如果想要刪除所有項目，請執行下列作業：
 
 1. 若要擷取目前的刪除閾值，請執行 PowerShell Cmdlet `Get-ADSyncExportDeletionThreshold`。 提供 Azure AD 全域系統管理員帳戶與密碼。 預設值為 500。

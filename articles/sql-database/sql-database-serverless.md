@@ -11,12 +11,12 @@ author: moslake
 ms.author: moslake
 ms.reviewer: sstein, carlrab
 ms.date: 09/06/2019
-ms.openlocfilehash: 04e3881b553f639bb2df948b6ad1154f86f1c9da
-ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
+ms.openlocfilehash: 86c03554f5faa1ebb40faa20b6a271f5310ccd4f
+ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71123092"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71828223"
 ---
 # <a name="azure-sql-database-serverless-preview"></a>Azure SQL Database 無伺服器（預覽）
 
@@ -171,7 +171,7 @@ SQL 快取會隨著資料以相同的方式從磁片提取，而且速度與布�
 
    |參數|值選擇|預設值|
    |---|---|---|---|
-   |vCore 數下限|{0.5, 1, 2, 4} 中未超過最大虛擬核心數的任一項|0.5 個虛擬核心|
+   |vCore 數下限|取決於已設定的最大虛擬核心-請參閱[資源限制](sql-database-vCore-resource-limits-single-databases.md#general-purpose-service-tier-for-serverless-compute)。|0.5 個虛擬核心|
    |自動暫停延遲|最小值:60分鐘（1小時）<br>最大值:10080 分鐘 (7 天)<br>增量：60 分鐘<br>停用自動暫停：-1|60 分鐘|
 
 > [!NOTE]

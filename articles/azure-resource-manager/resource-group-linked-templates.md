@@ -4,20 +4,20 @@ description: 描述如何在「Azure 資源管理員」範本中使用連結的�
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: conceptual
-ms.date: 07/17/2019
+ms.date: 10/02/2019
 ms.author: tomfitz
-ms.openlocfilehash: b48988c04f6b387a8124a812a836e2b92a9d3ada
-ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
+ms.openlocfilehash: 59af553f4080ca86e964b75234e4d812297d8541
+ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70194375"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71827339"
 ---
 # <a name="using-linked-and-nested-templates-when-deploying-azure-resources"></a>部署 Azure 資源時使用連結和巢狀的範本
 
-若要部署解決方案，您可以使用單一範本或有許多相關範本的主要範本。 相關範本可以是連結到主要範本的個別檔案，或是主要範本內巢狀的範本。
+若要部署解決方案，您可以使用單一範本或有許多相關範本的主要範本。 相關範本可以是從主要範本連結到的個別檔案，或是內嵌在主要範本中的範本。
 
-若為小型至中型的解決方案，單一範本會比較容易了解和維護。 您可以在單一檔案中看到所有的資源和值。 若為進階案例，連結的範本可讓您將解決方案細分成目標元件，並重複使用範本。
+若為小型至中型的解決方案，單一範本會比較容易了解和維護。 您可以在單一檔案中看到所有的資源和值。 針對先進的案例，連結的範本可讓您將解決方案細分為目標群組件。 在其他案例中，您可以輕鬆地重複使用這些範本。
 
 在使用連結的範本時，您會建立主要範本以在部署期間接收參數值。 主要範本包含所有連結的範本，並且會視需要將值傳遞至這些範本。
 
@@ -27,7 +27,7 @@ ms.locfileid: "70194375"
 > 針對連結或巢狀的範本，您只能使用[累加](deployment-modes.md)部署模式。
 >
 
-## <a name="link-or-nest-a-template"></a>連結或巢狀範本
+## <a name="deployments-resource"></a>部署資源
 
 若要連結到其他範本，請在主要範本中新增**部署**資源。
 
@@ -47,7 +47,7 @@ ms.locfileid: "70194375"
 
 您針對部署資源所提供的屬性，會根據您是連結到外部範本還是在主要範本中巢狀內嵌範本而有所不同。
 
-### <a name="nested-template"></a>巢狀範本
+## <a name="nested-template"></a>巢狀範本
 
 若要在主要範本巢狀範本，使用 **template** 屬性，並指定範本語法。
 
@@ -94,9 +94,17 @@ ms.locfileid: "70194375"
 
 巢狀範本需要與標準範本[相同的屬性](resource-group-authoring-templates.md)。
 
-### <a name="external-template-and-external-parameters"></a>外部範本和外部參數
+## <a name="external-template"></a>外部範本
 
-若要連結到外部的範本和參數檔案，請使用 **templateLink** 和 **parametersLink**。 在連結到範本時，Resource Manager 服務必須能夠存取該範本。 您無法指定本機檔案或只可在本機網路存取的檔案。 您可以只提供 URI 值，其中包含 **http** 或 **https**。 有一個選項是將連結的範本放在儲存體帳戶中，並將 URI 用於該項目。
+若要連結至外部範本，請使用**templateLink**屬性。 您無法指定本機檔案或只可在本機網路存取的檔案。 您可以只提供 URI 值，其中包含 **http** 或 **https**。 Resource Manager 必須能夠存取範本。
+
+有一個選項是將連結的範本放在儲存體帳戶中，並將 URI 用於該項目。
+
+您可以在外部檔案或內嵌中提供外部範本的參數。
+
+### <a name="external-parameters"></a>外部參數
+
+提供外部參數檔案時，請使用**parametersLink**屬性：
 
 ```json
 "resources": [
@@ -105,15 +113,15 @@ ms.locfileid: "70194375"
     "apiVersion": "2018-05-01",
     "name": "linkedTemplate",
     "properties": {
-    "mode": "Incremental",
-    "templateLink": {
+      "mode": "Incremental",
+      "templateLink": {
         "uri":"https://mystorageaccount.blob.core.windows.net/AzureTemplates/newStorageAccount.json",
         "contentVersion":"1.0.0.0"
-    },
-    "parametersLink": {
+      },
+      "parametersLink": {
         "uri":"https://mystorageaccount.blob.core.windows.net/AzureTemplates/newStorageAccount.parameters.json",
         "contentVersion":"1.0.0.0"
-    }
+      }
     }
   }
 ]
@@ -121,11 +129,11 @@ ms.locfileid: "70194375"
 
 您不需要提供範本的 `contentVersion` 屬性或參數。 如果您未提供內容版本值，則會部署目前的版本範本。 如果您提供內容版本值，它必須符合所連結範本中的版本；否則，部署會因為錯誤而失敗。
 
-### <a name="external-template-and-inline-parameters"></a>外部範本和內嵌參數
+### <a name="inline-parameters"></a>內嵌參數
 
 或者，您也可以提供內嵌的參數。 您無法對參數檔案同時使用內嵌參數和連結。 同時指定 `parametersLink` 和 `parameters` 時，部署將會失敗並發生錯誤。
 
-若要將值從主要範本傳遞至連結的範本，請使用 **parameters**。
+若要將值從主要範本傳遞至連結的範本，請使用**parameters**屬性。
 
 ```json
 "resources": [
@@ -269,7 +277,7 @@ ms.locfileid: "70194375"
 }
 ```
 
-如同其他資源類型，您可以設定連結的範本和其他資源之間的相依性。 因此，當其他資源需要來自所連結範本的輸出值時，請確定在資源之前部署所連結的範本。 或者，當連結的範本仰賴其他資源時，請確定在所連結的範本之前部署其他資源。
+如同其他資源類型，您可以設定連結的範本和其他資源之間的相依性。 當其他資源需要來自連結範本的輸出值時，請確定連結的範本在其之前已部署。 或者，當連結的範本仰賴其他資源時，請確定在所連結的範本之前部署其他資源。
 
 下列範例所顯示的範本，會部署公用 IP 位址並傳回資源識別碼：
 
@@ -480,7 +488,7 @@ done
 
 當然，也可以將參數檔案限制為透過 SAS Token 存取。
 
-目前, 您無法連結到位於[Azure 儲存體防火牆](../storage/common/storage-network-security.md)後方之儲存體帳戶中的範本。
+目前，您無法連結到位於[Azure 儲存體防火牆](../storage/common/storage-network-security.md)後方之儲存體帳戶中的範本。
 
 下列範例顯示如何在連結到範本時傳遞 SAS 權杖：
 

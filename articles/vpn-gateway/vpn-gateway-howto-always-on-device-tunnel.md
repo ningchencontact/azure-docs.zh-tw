@@ -5,14 +5,14 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: conceptual
-ms.date: 07/09/2019
+ms.date: 10/02/2019
 ms.author: cherylmc
-ms.openlocfilehash: 98d8c2f6870be16f3eb92219fc3d02f988390a41
-ms.sourcegitcommit: a8b638322d494739f7463db4f0ea465496c689c6
+ms.openlocfilehash: bc2ec2b952b4f0c6e61fc4953559fa882edfff09
+ms.sourcegitcommit: 15e3bfbde9d0d7ad00b5d186867ec933c60cebe6
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "68295473"
+ms.lasthandoff: 10/03/2019
+ms.locfileid: "71841148"
 ---
 # <a name="configure-an-always-on-vpn-device-tunnel"></a>設定 Always On VPN 裝置通道
 
@@ -24,7 +24,7 @@ Always On VPN 連接包含兩種類型的通道:
 
 * **裝置**通道會在使用者登入裝置之前, 連線到指定的 VPN 伺服器。 登入前的連線案例和裝置管理用途是使用裝置通道。
 
-*  使用者通道只會在使用者登入裝置之後連線。 使用者通道可讓使用者透過 VPN 伺服器存取組織資源。
+* 使用者通道只會在使用者登入裝置之後連線。 使用者通道可讓使用者透過 VPN 伺服器存取組織資源。
 
 裝置通道和使用者通道都是獨立運作的 VPN 設定檔。 它們可以同時連接, 而且可以適當地使用不同的驗證方法和其他 VPN 設定。
 
@@ -32,12 +32,7 @@ Always On VPN 連接包含兩種類型的通道:
 
 將 VPN 閘道設定為使用 IKEv2 和以憑證為基礎的驗證, 並使用這個[點對站文章](vpn-gateway-howto-point-to-site-resource-manager-portal.md)。
 
-## <a name="2-configure-the-user-tunnel"></a>2.設定使用者通道
-
-1. 在 Windows 10 用戶端上安裝用戶端憑證, 如此[點對站 VPN 用戶端一文](point-to-site-how-to-vpn-client-install-azure-cert.md)所示。 憑證必須位於目前的使用者存放區
-2. 使用[這些指示](https://docs.microsoft.com/windows-server/remote/remote-access/vpn/always-on-vpn/deploy/vpn-deploy-client-vpn-connections), 透過 POWERSHELL、SCCM 或 Intune 設定 Always On VPN 用戶端。
-
-## <a name="3-configure-the-device-tunnel"></a>3.設定裝置通道
+## <a name="2-configure-the-device-tunnel"></a>2.設定裝置通道
 
 必須符合下列需求, 才能成功建立裝置通道:
 
@@ -160,7 +155,7 @@ Always On VPN 連接包含兩種類型的通道:
    ![rasphone](./media/vpn-gateway-howto-always-on-device-tunnel/rasphone.png)
 1. 尋找**MachineCertTest**專案, 然後按一下 **[連接]** 。
 
-   ![連線](./media/vpn-gateway-howto-always-on-device-tunnel/connect.png)
+   ![連接](./media/vpn-gateway-howto-always-on-device-tunnel/connect.png)
 1. 如果連接成功, 請將電腦重新開機。 通道會自動連接。
 
 ## <a name="cleanup"></a>清除

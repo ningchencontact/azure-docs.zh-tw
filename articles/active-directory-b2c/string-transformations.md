@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 83379cc194f23ebff977babc7124a7bc90f4bc60
-ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
+ms.openlocfilehash: 77f0b196777ae0f2ff0b870eac0a01b11854190b
+ms.sourcegitcommit: f2d9d5133ec616857fb5adfb223df01ff0c96d0a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71063449"
+ms.lasthandoff: 10/03/2019
+ms.locfileid: "71936817"
 ---
 # <a name="string-claims-transformations"></a>字串宣告轉換
 
@@ -29,8 +29,8 @@ ms.locfileid: "71063449"
 
 | 項目 | TransformationClaimType | 資料類型 | 注意 |
 | ---- | ----------------------- | --------- | ----- |
-| inputClaim | inputClaim1 | string | 要比較的第一個宣告類型。 |
-| inputClaim | inputClaim2 | string | 要比較的第二個宣告類型。 |
+| InputClaim | inputClaim1 | string | 要比較的第一個宣告類型。 |
+| InputClaim | inputClaim2 | string | 要比較的第二個宣告類型。 |
 | InputParameter | stringComparison | string | 字串比較，其中一個值：Ordinal、OrdinalIgnoreCase。 |
 
 **AssertStringClaimsAreEqual** 宣告轉換一律會從[驗證技術設定檔](validation-technical-profile.md)執行，其會透過[自我判斷技術設定檔](self-asserted-technical-profile.md)來呼叫。 **UserMessageIfClaimsTransformationStringsAreNotEqual** 自我判斷技術設定檔中繼資料會控制要呈現給使用者的錯誤訊息。
@@ -154,8 +154,8 @@ ms.locfileid: "71063449"
 
 | 項目 | TransformationClaimType | 資料類型 | 注意 |
 | ---- | ----------------------- | --------- | ----- |
-| inputClaim | inputClaim1 | string | 要比較的第一個宣告類型。 |
-| inputClaim | inputClaim2 | string | 要比較的第二個宣告類型。 |
+| InputClaim | inputClaim1 | string | 要比較的第一個宣告類型。 |
+| InputClaim | inputClaim2 | string | 要比較的第二個宣告類型。 |
 | InputParameter | 運算子 | string | 可能的值：`EQUAL` 或 `NOT EQUAL`。 |
 | InputParameter | ignoreCase | boolean | 指定這個比較是否應忽略要比較之字串的大小寫。 |
 | OutputClaim | outputClaim | boolean | 叫用此宣告轉換之後所產生的 ClaimType。 |
@@ -195,7 +195,7 @@ ms.locfileid: "71063449"
 
 | 項目 | TransformationClaimType | 資料類型 | 注意 |
 | ---- | ----------------------- | --------- | ----- |
-| inputClaim | inputClaim1 | string | 要比較的宣告類型。 |
+| InputClaim | inputClaim1 | string | 要比較的宣告類型。 |
 | InputParameter | 運算子 | string | 可能的值：`EQUAL` 或 `NOT EQUAL`。 |
 | InputParameter | compareTo | string | 字串比較，其中一個值：Ordinal、OrdinalIgnoreCase。 |
 | InputParameter | ignoreCase | boolean | 指定這個比較是否應忽略要比較之字串的大小寫。 |
@@ -238,8 +238,8 @@ ms.locfileid: "71063449"
 | InputParameter | randomGeneratorType | string | 指定要產生的隨機值：`GUID` (全域唯一識別碼) 或 `INTEGER` (數字)。 |
 | InputParameter | stringFormat | string | [選擇性] 將隨機值格式化。 |
 | InputParameter | base64 | boolean | [選擇性] 將隨機值轉換為 base64。 如果套用字串格式，則會將字串格式之後的值編碼為 base64。 |
-| InputParameter | maximumNumber | ssNoversion | [選擇性] 僅適用於 `INTEGER` randomGeneratorType。 指定最大數字。 |
-| InputParameter | seed  | ssNoversion | [選擇性] 僅適用於 `INTEGER` randomGeneratorType。 指定隨機值的種子。 注意：相同的種子會產生相同的隨機數字序列。 |
+| InputParameter | maximumNumber | int | [選擇性] 僅適用於 `INTEGER` randomGeneratorType。 指定最大數字。 |
+| InputParameter | seed  | int | [選擇性] 僅適用於 `INTEGER` randomGeneratorType。 指定隨機值的種子。 注意：相同的種子會產生相同的隨機數字序列。 |
 | OutputClaim | outputClaim | string | 叫用此宣告轉換之後將產生的 ClaimType。 隨機值。 |
 
 下列範例會產生全域唯一識別碼。 此宣告轉換可用來建立隨機的 UPN (使用者主體名稱)。
@@ -504,7 +504,7 @@ ms.locfileid: "71063449"
 
 | 項目 | TransformationClaimType | 資料類型 | 注意 |
 | ---- | ----------------------- | --------- | ----- |
-| inputClaim | inputClaim | string | 要比較的宣告類型。 |
+| InputClaim | inputClaim | string | 要比較的宣告類型。 |
 | InputParameter | matchTo | string | 要與 `inputClaim` 比較的字串。 |
 | InputParameter | stringComparison | string | 可能的值：`Ordinal` 或 `OrdinalIgnoreCase`。 |
 | InputParameter | stringMatchMsg | string | 字串相等時要設定的第一個值。 |
@@ -553,7 +553,7 @@ ms.locfileid: "71063449"
 
 | 項目 | TransformationClaimType | 資料類型 | 注意 |
 | ---- | ----------------------- | --------- | ----- |
-| inputClaim | claimToMatch | string | 要比較的宣告類型。 |
+| InputClaim | claimToMatch | string | 要比較的宣告類型。 |
 | InputParameter | matchTo | string | 要與 inputClaim 比較的字串。 |
 | InputParameter | stringComparison | string | 可能的值：`Ordinal` 或 `OrdinalIgnoreCase`。 |
 | InputParameter | outputClaimIfMatched | string | 字串相等時要設定的值。 |

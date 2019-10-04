@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 06/28/2018
 ms.author: cynthn
-ms.openlocfilehash: c394b013b057a78e99cafc0adde9727d0a75a87c
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: effe1169fb531abd3fe8a206f2baf83380fcd28f
+ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70091835"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71828404"
 ---
 # <a name="mount-azure-file-storage-on-linux-vms-using-smb"></a>使用 SMB 在 Linux VM 上掛接 Azure 檔案儲存體
 
@@ -41,7 +41,7 @@ az group create --name myResourceGroup --location eastus
 
 ## <a name="create-a-storage-account"></a>建立儲存體帳戶
 
-使用 [az storage account create](/cli/azure/storage/account)，在您所建立的資源群組中建立新的儲存體帳戶。 這個範例會建立名為*mySTORAGEACCT\<random number >* 的儲存體帳戶, 並將該儲存體帳戶的名稱放在變數**STORAGEACCT**中。 儲存體帳戶名稱必須是唯一的，請使用 `$RANDOM` 在結尾附加一個數字，使其成為唯一名稱。
+使用 [az storage account create](/cli/azure/storage/account)，在您所建立的資源群組中建立新的儲存體帳戶。 這個範例會建立名為*mySTORAGEACCT @ no__t-1random number >* 的儲存體帳戶，並將該儲存體帳戶的名稱放入變數**STORAGEACCT**中。 儲存體帳戶名稱必須是唯一的，請使用 `$RANDOM` 在結尾附加一個數字，使其成為唯一名稱。
 
 ```bash
 STORAGEACCT=$(az storage account create \
@@ -115,5 +115,5 @@ sudo mount -t cifs //$STORAGEACCT.file.core.windows.net/myshare /mnt/MyAzureFile
 
 - [在建立期間使用 cloud-init 自訂 Linux VM](using-cloud-init.md)
 - [在 Linux VM 中新增磁碟](add-disk.md)
-- [使用 Azure CLI 將 Linux VM 上的磁碟加密](encrypt-disks.md)
+- [適用于 Linux Vm 的 Azure 磁碟加密](disk-encryption-overview.md)
 

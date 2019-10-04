@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/12/2019
 ms.author: kumud
-ms.openlocfilehash: a6ba401d9d10e900fef5e2d296e74a07f84162cd
-ms.sourcegitcommit: 2d9a9079dd0a701b4bbe7289e8126a167cfcb450
+ms.openlocfilehash: 1a3859e1831f64269e7684072ddf166f29566fd9
+ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/29/2019
-ms.locfileid: "71670759"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71828980"
 ---
 # <a name="azure-virtual-network-frequently-asked-questions-faq"></a>Azure 虛擬網路的常見問題 (FAQ)
 
@@ -395,7 +395,7 @@ Azure 服務帳戶的刪除是獨立的作業，即使已在網路端啟用服�
 
 ### <a name="does-azure-active-directory-azure-ad-support-vnet-service-endpoints"></a>Azure Active Directory （Azure AD）是否支援 VNet 服務端點？
 
-Azure Active Directory （Azure AD）不會以原生方式支援服務端點。 您可以在[這裡](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoints-overview)看到支援 VNet 服務端點的 Azure 服務完整清單。 請注意，[支援服務端點的服務] 底下所列的 "AzureActiveDirectory" 標記會用來支援服務端點，以 ADLS Gen 1。 對於 ADLS Gen 1，Azure Data Lake Storage Gen1 的虛擬網路整合會在您的虛擬網路與 Azure Active Directory （Azure AD）之間使用虛擬網路服務端點安全性，以在存取權杖中產生額外的安全性宣告。 這些宣告隨後會用來對 Data Lake Storage Gen1 帳戶驗證虛擬網路並允許存取。 深入瞭解 [Azure Data Lake Store Gen 1 VNet 整合] （.../data-lake-store/data-lake-store-network-security.md？ toc =% 2fazure% 2fvirtual-machines-network% 2ftoc.json'>. json
+Azure Active Directory （Azure AD）不會以原生方式支援服務端點。 您可以在[這裡](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoints-overview)看到支援 VNet 服務端點的 Azure 服務完整清單。 請注意，[支援服務端點的服務] 底下所列的 "AzureActiveDirectory" 標記會用來支援服務端點，以 ADLS Gen 1。 對於 ADLS Gen 1，Azure Data Lake Storage Gen1 的虛擬網路整合會在您的虛擬網路與 Azure Active Directory （Azure AD）之間使用虛擬網路服務端點安全性，以在存取權杖中產生額外的安全性宣告。 這些宣告隨後會用來對 Data Lake Storage Gen1 帳戶驗證虛擬網路並允許存取。 深入瞭解[Azure Data Lake Store Gen 1 VNet 整合](../data-lake-store/data-lake-store-network-security.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
 
 ### <a name="are-there-any-limits-on-how-many-vnet-service-endpoints-i-can-set-up-from-my-vnet"></a>從我的 VNet 能設定的 VNet 服務端點數量是否有限制？
 虛擬網路中的 VNet 服務端點總數沒有限制。 對於 Azure 服務資源（例如 Azure 儲存體帳戶），服務可能會強制執行用來保護資源的子網數目限制。 下表顯示一些範例限制： 

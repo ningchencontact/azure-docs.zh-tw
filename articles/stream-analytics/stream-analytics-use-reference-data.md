@@ -8,28 +8,28 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 06/21/2019
-ms.openlocfilehash: ed50dfd7e3c423c1c26a7dc19ae60dcb319f1850
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.openlocfilehash: 8d094113107d8c49e34779cf8be62ecd71cb8cce
+ms.sourcegitcommit: f2d9d5133ec616857fb5adfb223df01ff0c96d0a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67621603"
+ms.lasthandoff: 10/03/2019
+ms.locfileid: "71937192"
 ---
 # <a name="using-reference-data-for-lookups-in-stream-analytics"></a>使用參考資料在串流分析中進行查閱
 
-參考資料 （也稱為查詢資料表） 是有限的資料集是靜態或緩時變的本質，用來執行查閱或加強您的資料流。 比方說，在 IoT 案例中，您可以在參考資料中儲存有關感應器 (不常變更) 的中繼資料，並將其與即時 IoT 資料流聯結。 Azure 串流分析會將參考資料載入記憶體，以達到低延遲的串流處理。 若要使用 Azure 串流分析作業中的參考資料，您通常會在查詢中使用[參考資料聯結](https://docs.microsoft.com/stream-analytics-query/reference-data-join-azure-stream-analytics)。 
+參考資料（也稱為查閱資料表）是一種有限的資料集，其本質上是靜態或緩慢變更，用來執行查閱或擴充您的資料流程。 比方說，在 IoT 案例中，您可以在參考資料中儲存有關感應器 (不常變更) 的中繼資料，並將其與即時 IoT 資料流聯結。 Azure 串流分析會將參考資料載入記憶體，以達到低延遲的串流處理。 若要使用 Azure 串流分析作業中的參考資料，您通常會在查詢中使用[參考資料聯結](https://docs.microsoft.com/stream-analytics-query/reference-data-join-azure-stream-analytics)。 
 
 串流分析支援 Azure Blob 儲存體和 Azure SQL Database 作為參考資料的儲存層。 您還可以從 Azure Data Factory 將參考資料轉換和/或複製到 Blob 儲存體中，以使用[任意數目的雲端和內部部署資料存放區](../data-factory/copy-activity-overview.md)。
 
 ## <a name="azure-blob-storage"></a>Azure Blob 儲存體
 
-參考資料會依 Blob 名稱中指定之日期/時間的遞增順序，以 Blob 序列的形式建立模型 (在輸入組態中定義)。 它「只」  支援使用比序列中最後一個 Blob 指定之日期/時間「大」  的日期/時間來新增到序列的結尾。
+參考資料會依 Blob 名稱中指定之日期/時間的遞增順序，以 Blob 序列的形式建立模型 (在輸入組態中定義)。 它「只」支援使用比序列中最後一個 Blob 指定之日期/時間「大」的日期/時間來新增到序列的結尾。
 
 ### <a name="configure-blob-reference-data"></a>設定 Blob 參考資料
 
 若要設定參考資料，您必須先建立屬於「 **參考資料**」類型的輸入。 下表說明您在建立參考資料輸入及其描述時必須提供的每個屬性：
 
-|**屬性名稱**  |**說明**  |
+|**屬性名稱**  |**描述**  |
 |---------|---------|
 |輸入別名   | 在工作查詢中將用來參考這個輸入的易記名稱。   |
 |儲存體帳戶   | 您 blob 所在的儲存體帳戶名稱。 如果它與您的串流分析工作位於相同的訂用帳戶，您就可以從下拉式清單中選取它。   |
@@ -43,18 +43,18 @@ ms.locfileid: "67621603"
 
 ### <a name="static-reference-data"></a>靜態參考資料
 
-如果您的參考資料不應該變更，則在輸入組態中指定靜態路徑，以便啟用靜態參考資料的支援。 Azure 串流分析會從指定的路徑挑選 blob。 {date} 和 {time} 替代權杖並非必要。 因為參考資料是 Stream Analytics 中的不可變的所以不建議覆寫靜態參考資料 blob。
+如果您的參考資料不應該變更，則在輸入組態中指定靜態路徑，以便啟用靜態參考資料的支援。 Azure 串流分析會從指定的路徑挑選 blob。 {date} 和 {time} 替代權杖並非必要。 因為參考資料在串流分析中是不變的，因此不建議覆寫靜態參考資料 blob。
 
 ### <a name="generate-reference-data-on-a-schedule"></a>依排程產生參考資料
 
 如果您的參考資料是不常變更的資料集，可以啟用重新整理參考資料的支援，方法是使用 {date} 與 {time} 替代權杖指定輸入設定內的路徑模式。 串流分析會根據此路徑模式採用更新的參考資料定義。 例如，日期格式為 **"YYYY-MM-DD"** 且時間格式為 **"HH:mm"** 的模式 `sample/{date}/{time}/products.csv`，會指示串流分析在 UTC 時區 2015 年 4 月 16 日的下午 5:30 採用更新的 Blob `sample/2015-04-16/17-30/products.csv`。
 
-Azure 串流分析會每隔一分鐘自動掃描已重新整理的參考資料 blob。 如果有一些延遲 (例如，10:30:30) 上傳 blob 具有時間戳記 10:30:00，您會發現參考此 blob 的 Stream Analytics 作業中有一些延遲。 若要避免這種情況下，最好是早於目標的有效時間上傳的 blob (10： 在此範例中的 30:00) 以允許 Stream Analytics 作業探索並將其載入記憶體並執行作業的足夠的時間。 
+Azure 串流分析會每隔一分鐘自動掃描已重新整理的參考資料 blob。 如果使用時間戳10:30:00 的 blob 上傳了較小的延遲（例如，10:30:30），您會注意到參考此 blob 的串流分析作業中有短暫的延遲。 若要避免這類情況，建議您上傳早于目標有效時間（在此範例中為10:30:00）的 blob，讓串流分析作業有足夠的時間來探索並載入記憶體中，並執行操作。 
 
 > [!NOTE]
-> 目前串流分析作業只有在機器時間朝向 Blob 名稱中編碼的時間時，才會尋求 Blob 重新整理。 例如，作業會儘速尋找 `sample/2015-04-16/17-30/products.csv` ，但不早於 UTC 時區 2015 年 4 月 16 日的下午 5:30。 它「決不會」  尋找編碼時間早於最後一個探索到的 blob。
+> 目前串流分析作業只有在機器時間朝向 Blob 名稱中編碼的時間時，才會尋求 Blob 重新整理。 例如，作業會儘速尋找 `sample/2015-04-16/17-30/products.csv` ，但不早於 UTC 時區 2015 年 4 月 16 日的下午 5:30。 它「決不會」尋找編碼時間早於最後一個探索到的 blob。
 > 
-> 例如，一旦作業找到 blob`sample/2015-04-16/17-30/products.csv`就會忽略任何編碼日期早於 2015 年 4 月 16 日的下午 5:30 檔案因此如果晚到`sample/2015-04-16/17-25/products.csv`建立 blob 相同的容器中的作業不會使用。
+> 例如，一旦作業找到 blob `sample/2015-04-16/17-30/products.csv`，它會忽略編碼日期早于5:30 年4月16日下午的任何檔案2015，因此，如果在相同的容器中建立延遲抵達的 @no__t 1 blob，作業將不會使用它。
 > 
 > 同樣地，如果 `sample/2015-04-16/17-30/products.csv` 只會在 2015 年 4 月 16 日下午 10:03 產生，但容器中沒有日期較早的 Blob，則作業會從 2015 年 4 月 16 日下午 10:03 開始使用這個檔案，並在那之前使用先前的參考資料。
 > 
@@ -78,7 +78,7 @@ Azure 串流分析會每隔一分鐘自動掃描已重新整理的參考資料 b
 
 如果參考資料是緩慢變更的資料集，則需要定期重新整理作業中使用的快照集。 串流分析允許您在設定 Azure SQL Database 輸入連線時設定重新整理的頻率。 串流分析執行階段將依重新整理頻率所指定的間隔查詢 Azure SQL Database。 支援的最快重新整理頻率是每分鐘一次。 針對每次重新整理，串流分析都會在提供的儲存體帳戶中儲存新的快照集。
 
-串流分析提供了兩個用於查詢 Azure SQL Database 的選項。 快照集查詢是強制的，必須包含在每個作業中。 串流分析根據重新整理間隔定期執行快照集查詢，並使用查詢結果 (快照集) 作為參考資料集。 快照集查詢應該適合大部分情況，但如果遇到大型資料集和快速重新整理頻率的效能問題時，則可以使用差異查詢選項。 需要 60 秒以上才能傳回參考資料集的查詢將會導致逾時。
+串流分析提供了兩個用於查詢 Azure SQL Database 的選項。 快照集查詢是強制的，必須包含在每個作業中。 串流分析根據重新整理間隔定期執行快照集查詢，並使用查詢結果 (快照集) 作為參考資料集。 快照集查詢應該適合大部分情況，但如果遇到大型資料集和快速重新整理頻率的效能問題時，則可以使用差異查詢選項。 花費超過60秒來傳回參考資料集的查詢將會導致超時。
 
 使用差異查詢選項，串流分析最初會執行快照集查詢以取得基準參考資料集。 之後，串流分析會根據您的重新整理間隔定期執行差異查詢，以擷取增量變更。 這些增量變更會持續套用至參考資料集，以讓它保持更新。 使用差異查詢可能有助於減少儲存成本和網路 I/O 作業。
 
@@ -86,11 +86,13 @@ Azure 串流分析會每隔一分鐘自動掃描已重新整理的參考資料 b
 
 若要設定 SQL Database 參考資料，您必須先建立**參考資料**的輸入。 下表說明您在建立參考資料輸入及其描述時必須提供的每個屬性。 如需詳細資訊，請參閱[將來自 SQL Database 的參考資料用於 Azure 串流分析作業](sql-reference-data.md)。
 
-|**屬性名稱**|**說明**  |
+您可以使用[Azure SQL Database 受控執行個體](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance)做為參考資料輸入。 您必須[在 Azure SQL Database 受控執行個體中設定公用端點](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-public-endpoint-configure)，然後在 Azure 串流分析中手動設定下列設定。 以附加資料庫執行 SQL Server 的 Azure 虛擬機器，也可以透過手動方式進行下列設定來支援。
+
+|**屬性名稱**|**描述**  |
 |---------|---------|
 |輸入別名|在工作查詢中將用來參考這個輸入的易記名稱。|
-|Subscription|選擇您的訂用帳戶|
-|資料庫|包含參考資料的 Azure SQL Database。|
+|訂閱|選擇您的訂用帳戶|
+|資料庫|包含參考資料的 Azure SQL Database。 針對 Azure SQL Database 受控執行個體，必須指定埠3342。 例如， *sampleserver、3342、* 。|
 |使用者名稱|與 Azure SQL Database 相關聯的使用者名稱。|
 |密碼|與 Azure SQL Database 相關聯的密碼。|
 |定期重新整理|此選項可讓您選擇重新整理的頻率。 選擇 [開啟] 可讓您以 DD:HH:MM 指定重新整理的頻率。|

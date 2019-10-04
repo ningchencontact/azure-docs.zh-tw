@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: bonova
 ms.author: bonova
 ms.reviewer: carlrab, jovanpop, sachinp, sstein
-ms.date: 09/16/2019
-ms.openlocfilehash: 5eaade975adac86b6842d1d8f9f9b8f522d15bca
-ms.sourcegitcommit: 80da36d4df7991628fd5a3df4b3aa92d55cc5ade
-ms.translationtype: HT
+ms.date: 10/02/2019
+ms.openlocfilehash: a360d836f1ef09b0bb87e2af39aeab0460034cd4
+ms.sourcegitcommit: f2d9d5133ec616857fb5adfb223df01ff0c96d0a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71816089"
+ms.lasthandoff: 10/03/2019
+ms.locfileid: "71935613"
 ---
 # <a name="overview-azure-sql-database-managed-instance-resource-limits"></a>Azure SQL Database 受控實例資源限制的總覽
 
@@ -25,13 +25,9 @@ ms.locfileid: "71816089"
 > [!NOTE]
 > 若想了解支援的功能和 T-SQL 陳述式的差異，請參閱[功能差異](sql-database-features.md)和 [T-SQL 陳述式支援](sql-database-managed-instance-transact-sql-information.md)。 如需單一資料庫和受控實例中服務層級之間的一般 differencess，請參閱[服務層級比較](sql-database-service-tiers-general-purpose-business-critical.md#service-tier-comparison)。
 
-## <a name="instance-level-resource-limits"></a>執行個體層級的資源限制
+## <a name="hardware-generation-characteristics"></a>硬體世代特性
 
-受控實例具有相依于基礎結構和架構的特性和資源限制。 這些限制取決於硬體世代和服務層級。
-
-### <a name="hardware-generation-characteristics"></a>硬體世代特性
-
-Azure SQL Database 受控實例可以部署在兩個硬體層代上：第4代和第5代。 硬體世代具有不同的特性，如下表所述：
+受控實例具有相依于基礎結構和架構的特性和資源限制。 Azure SQL Database 受控實例可以部署在兩個硬體層代上：第4代和第5代。 硬體世代具有不同的特性，如下表所述：
 
 |   | **Gen4** | **Gen5** |
 | --- | --- | --- |
@@ -39,28 +35,28 @@ Azure SQL Database 受控實例可以部署在兩個硬體層代上：第4代和
 | 虛擬核心數目 | 8 個、16 個、24 個虛擬核心 | 4、8、16、24、32、40、64、80虛擬核心 |
 | 最大記憶體（記憶體/核心比率） | 每個虛擬核心 7GB<br/>新增更多虛擬核心以取得更多記憶體。 | 每個虛擬核心 5.1 GB<br/>新增更多虛擬核心以取得更多記憶體。 |
 | 記憶體內部 OLTP 記憶體上限 | 實例限制：1-每個 vCore 1.5 GB| 實例限制：0.8-每個 vCore 1.65 GB |
-| 實例保留的最大儲存體 |  一般用途： 8 TB<br/>業務關鍵：1TB | 一般用途：8 TB<br/> 商務關鍵性 1 TB、2 TB 或 4 TB，視核心數目而定 |
+| 實例保留的最大儲存體 |  一般用途：8 TB<br/>業務關鍵：1 TB | 一般用途：8 TB<br/> 商務關鍵性 1 TB、2 TB 或 4 TB，視核心數目而定 |
 
 > [!IMPORTANT]
 > - 第4代硬體即將推出。建議您在第5代硬體上部署新的受控實例。
 > - 目前，第4代硬體仍可在下欄區域使用：歐洲北部、西歐、美國東部、美國中南部、美國中北部、美國西部2、美國中部、加拿大中部、印度南部、東南亞和韓國中部。
 
-#### <a name="in-memory-oltp-available-space"></a>記憶體內部 OLTP 可用空間 
+### <a name="in-memory-oltp-available-space"></a>記憶體內部 OLTP 可用空間 
 
-記憶體內部 OLTP 空間的數量取決於虛擬核心和硬體產生的數目。 下表列出可用於記憶體內部 OLTP 物件的記憶體限制。
+[商務關鍵](sql-database-service-tier-business-critical.md)服務層級中的記憶體內部 OLTP 空間數量，取決於虛擬核心和硬體產生的數目。 下表列出可用於記憶體內部 OLTP 物件的記憶體限制。
 
-| 每個 vCore 的記憶體內部 OLTP 空間    | **Gen5** | **Gen4** |
+| 記憶體內部 OLTP 空間  | **Gen5** | **Gen4** |
 | --- | --- | --- |
-| 4 | 3.14 GB | |   
-| 8 | 6.28 GB | 8 GB |
-| 16    | 15.77 GB | 20 GB |
-| 24    | 25.25 GB | 36 GB |
-| 32    | 37.94 GB | |
-| 40    | 52.23 GB | |
-| 64    | 99.9 GB   | |
-| 80    | 131.68 GB| |
+| 4 個 vCore  | 3.14 GB | |   
+| 8 個 vCore  | 6.28 GB | 8 GB |
+| 16虛擬核心 | 15.77 GB | 20 GB |
+| 24虛擬核心 | 25.25 GB | 36 GB |
+| 32虛擬核心 | 37.94 GB | |
+| 40虛擬核心 | 52.23 GB | |
+| 64虛擬核心 | 99.9 GB    | |
+| 80虛擬核心 | 131.68 GB| |
 
-### <a name="service-tier-characteristics"></a>服務層的特性
+## <a name="service-tier-characteristics"></a>服務層的特性
 
 受控實例有兩個服務層級：[一般用途](sql-database-service-tier-general-purpose.md)與[業務關鍵](sql-database-service-tier-business-critical.md)。 這些層級提供[不同的功能](sql-database-service-tiers-general-purpose-business-critical.md)，如下表所述：
 
@@ -75,7 +71,7 @@ Azure SQL Database 受控實例可以部署在兩個硬體層代上：第4代和
 | 每個實例的資料庫檔案數目上限 | 最多280，除非已達到實例儲存體大小或[Azure Premium 磁片儲存體配置空間](sql-database-managed-instance-transact-sql-information.md#exceeding-storage-space-with-small-database-files)的限制。 | 32767每個資料庫的檔案，除非已達到實例儲存體大小限制。 |
 | 資料檔案大小上限 | 受限於目前可用的實例儲存體大小（最多 2 TB-8 TB）和[Azure Premium 磁片儲存體配置空間](sql-database-managed-instance-transact-sql-information.md#exceeding-storage-space-with-small-database-files)。 | 受限於目前可用的實例儲存體大小（最多 1 TB-4 TB）。 |
 | 記錄檔大小上限 | 受限於 2 TB 和目前可用的實例儲存體大小。 | 受限於 2 TB 和目前可用的實例儲存體大小。 |
-| 資料/記錄 IOPS (大約) | 每個檔案 500 - 7,500<br/>\*[增加檔案大小以取得更多 IOPS](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage-performance#premium-storage-disk-sizes)| 5.5 K-110 K （1375/vCore）<br/>新增更多虛擬核心，以取得更佳的 IO 效能。 |
+| 資料/記錄 IOPS (大約) | 每個實例最多 30-40 K IOPS *，500-每個檔案7500<br/>\*[增加檔案大小以取得更多 IOPS](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage-performance#premium-storage-disk-sizes)| 5.5 K-110 K （1375 IOPS/vCore）<br/>新增更多虛擬核心，以取得更佳的 IO 效能。 |
 | 記錄寫入輸送量限制（每個實例） | 每個虛擬核心 3 MB/秒<br/>最大值 22 MB/秒 | 每個 vCore 4 MB/秒<br/>最大 48 MB/秒 |
 | 資料輸送量 (大約) | 每個檔案 100 - 250 MB/秒<br/>\*[增加檔案大小以取得更佳的 IO 效能](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage-performance#premium-storage-disk-sizes) | 不受限制。 |
 | 儲存 IO 延遲（近似） | 5-10 毫秒 | 1-2 毫秒 |
@@ -88,9 +84,23 @@ Azure SQL Database 受控實例可以部署在兩個硬體層代上：第4代和
 > - 使用者和系統資料庫中的資料和記錄檔大小都會計入執行個體儲存體大小，並與儲存體大小上限相比較。 使用 <a href="https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-master-files-transact-sql">sys.master_files</a> 系統檢視來判斷資料庫所使用的總空間。 錯誤記錄不會持續留存，也不計入大小。 備份並未計入儲存體大小。
 > - 輸送量和 IOPS 也取決於受控實例未明確限制的頁面大小。
 > 您可以使用自動容錯移轉群組，在不同的 Azure 區域中建立另一個可讀取的複本。
+> - 最大實例 IOPS 取決於工作負載的檔案配置和散發。 例如，如果您建立 7 x 1GB 的檔案，其中每個都有最大的大小上限 IOPS，每個為7個小型檔案（小於 128 GB），每個都有 500 IOPS，如果您的工作負載可以使用所有檔案，您可以取得每個實例 38500 IOPS （7x5000 + 7x500）。 請注意，某些 IOPS 數量也會用於自動備份。
 
 > [!NOTE]
 > [在本文中，尋找受控實例集區中資源限制](sql-database-instance-pools.md#instance-pools-resource-limitations)的詳細資訊。
+
+### <a name="file-io-characteristics-in-general-purpose-tier"></a>一般用途層中的檔案 IO 特性
+
+在一般用途服務層級中，每個資料庫檔案都會取得相依于檔案大小的專用 IOPS 和輸送量。 較大的檔案會取得更多的 IOPS 和輸送量。 下表顯示資料庫檔案的 IO 特性：
+
+| 檔案大小           | 0-128 GiB | 128-256 GiB | 256-512 GiB | 0.5-1 TiB    | 1-2 TiB    | 2-4 TiB | 4-8 TiB |
+|---------------------|-------|-------|-------|-------|-------|-------|-------|
+| 每個檔案的 IOPS       | 500   | 1100 | 2300              | 5000              | 7500              | 7500              | 12,500   |
+| 每個檔案的輸送量 | 100 MiB/秒 | 125 MiB/秒 | 150 MiB/秒 | 200 MiB/秒 | 250 MiB/秒 | 250 MiB/秒 | 480 MiB/秒 | 
+
+如果您注意到某個資料庫檔案上有高 IO 延遲，或發現 IOPS/輸送量達到此限制，您可以藉由[增加檔案大小](https://techcommunity.microsoft.com/t5/Azure-SQL-Database/Increase-data-file-size-to-improve-HammerDB-workload-performance/ba-p/823337)來改善效能。
+
+此外，也有實例層級的限制，例如最大記錄寫入輸送量 22 MB/s，因此您可能無法在整個記錄檔上連線到檔案，因為您達到實例輸送量限制。
 
 ## <a name="supported-regions"></a>支援區域
 

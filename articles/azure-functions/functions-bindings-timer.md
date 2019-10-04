@@ -12,12 +12,12 @@ ms.topic: reference
 ms.date: 09/08/2018
 ms.author: cshoe
 ms.custom: ''
-ms.openlocfilehash: 77fa97cd339b6498263e12eae9cea50187493a89
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 57b4f018cd044b4f516266dcf9776e82252f7f22
+ms.sourcegitcommit: f2d9d5133ec616857fb5adfb223df01ff0c96d0a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70097122"
+ms.lasthandoff: 10/03/2019
+ms.locfileid: "71937118"
 ---
 # <a name="timer-trigger-for-azure-functions"></a>Azure Functions 的計時器觸發程序 
 
@@ -50,7 +50,7 @@ ms.locfileid: "70097122"
 
 ### <a name="c-example"></a>C# 範例
 
-下列範例顯示[ C# ](functions-dotnet-class-library.md)每次分鐘有一個可被五個值整除的函式 (例如, 如果函式是從18:57:00 開始, 下一個效能將會是 19:00:00)。 [`TimerInfo`](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions/Extensions/Timers/TimerInfo.cs)物件會傳遞至函式。
+下列範例顯示[ C# ](functions-dotnet-class-library.md)每次分鐘有一個可被五個值整除的函式（例如，如果函式是從18:57:00 開始，下一個效能將會是19:00:00）。 [@No__t 1](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions/Extensions/Timers/TimerInfo.cs)物件會傳遞至函式。
 
 ```cs
 [FunctionName("TimerTriggerCSharp")]
@@ -66,7 +66,7 @@ public static void Run([TimerTrigger("0 */5 * * * *")]TimerInfo myTimer, ILogger
 
 ### <a name="c-script-example"></a>C# 指令碼範例
 
-下列範例示範 function.json 檔案中的計時器觸發程序繫結，以及使用此繫結的 [C# 指令碼函式](functions-reference-csharp.md)。 此函式會寫入一項記錄，指出此函式引動過程是否由遺失的排程項目所造成。 [`TimerInfo`](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions/Extensions/Timers/TimerInfo.cs)物件會傳遞至函式。
+下列範例示範 function.json 檔案中的計時器觸發程序繫結，以及使用此繫結的 [C# 指令碼函式](functions-reference-csharp.md)。 此函式會寫入一項記錄，指出此函式引動過程是否由遺失的排程項目所造成。 [@No__t 1](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions/Extensions/Timers/TimerInfo.cs)物件會傳遞至函式。
 
 以下是 *function.json* 檔案中的繫結資料：
 
@@ -94,7 +94,7 @@ public static void Run(TimerInfo myTimer, ILogger log)
 
 ### <a name="f-example"></a>F# 範例
 
-下列範例示範 function.json 檔案中的計時器觸發程序繫結，以及使用此繫結的 [F# 指令碼函式](functions-reference-fsharp.md)。 此函式會寫入一項記錄，指出此函式引動過程是否由遺失的排程項目所造成。 [`TimerInfo`](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions/Extensions/Timers/TimerInfo.cs)物件會傳遞至函式。
+下列範例示範 function.json 檔案中的計時器觸發程序繫結，以及使用此繫結的 [F# 指令碼函式](functions-reference-fsharp.md)。 此函式會寫入一項記錄，指出此函式引動過程是否由遺失的排程項目所造成。 [@No__t 1](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions/Extensions/Timers/TimerInfo.cs)物件會傳遞至函式。
 
 以下是 *function.json* 檔案中的繫結資料：
 
@@ -165,7 +165,7 @@ module.exports = function (context, myTimer) {
 
 ### <a name="python-example"></a>Python 範例
 
-下列範例會使用計時器觸發程式系結, 其設定會在函式 *. json*檔案中加以描述。 使用系結的實際[Python](functions-reference-python.md)函式會在 *.py*檔案中描述。 傳入函式的物件為[TimerRequest 物件](/python/api/azure-functions/azure.functions.timerrequest)類型。 函式邏輯會寫入記錄, 指出目前的叫用是否因錯過的排程發生而造成。 
+下列範例會使用計時器觸發程式系結，其設定會在函式 *. json*檔案中加以描述。 使用系結的實際[Python](functions-reference-python.md)函式會在 *.py*檔案中描述。 傳入函式的物件為[TimerRequest 物件](/python/api/azure-functions/azure.functions.timerrequest)類型。 函式邏輯會寫入記錄，指出目前的叫用是否因錯過的排程發生而造成。 
 
 以下是 *function.json* 檔案中的繫結資料：
 
@@ -226,16 +226,16 @@ public static void Run([TimerTrigger("0 */5 * * * *")]TimerInfo myTimer, ILogger
 |**name** | n/a | 代表函式程式碼中計時器物件的變數名稱。 | 
 |**schedule**|**ScheduleExpression**|[CRON 運算式](#ncrontab-expressions)或 [TimeSpan](#timespan) 值。 `TimeSpan` 只能用於 App Service 方案上執行的函式應用程式。 您可以將排程運算式放在應用程式設定中，並將此屬性設定為以 **%** 符號包裝的應用程式設定名稱，如此範例所示："%ScheduleAppSetting%"。 |
 |**runOnStartup**|**RunOnStartup**|如果為 `true`，當執行階段啟動時，會叫用函式。 例如，當函式應用程式因無活動而處於閒置狀態後再甦醒時、 當函式應用程式因函式變更而重新啟動時，以及當函式應用程式相應放大時，執行階段便會啟動。因此 **runOnStartup** 應該很少設定為 `true`，尤其是在生產環境中。 |
-|**useMonitor**|**UseMonitor**|設定為 `true` 或 `false` 以表示是否應該監視排程。 排程監視會使排程持續進行，以協助確保即使在函式應用程式執行個體重新啟動時，排程也能正確地持續運作。 如果未明確設定，則循環間隔大於 1 分鐘的排程之預設值為 `true`。 若為每分鐘觸發超過一次的排程，預設值為 `false`。
+|**useMonitor**|**UseMonitor**|設定為 `true` 或 `false` 以表示是否應該監視排程。 排程監視會使排程持續進行，以協助確保即使在函式應用程式執行個體重新啟動時，排程也能正確地持續運作。 如果未明確設定，則會針對週期間隔大於或等於1分鐘的排程，預設值為 `true`。 若為每分鐘觸發超過一次的排程，預設值為 `false`。
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
 > [!CAUTION]
-> 建議不要在生產環境中將 **runOnStartup** 設定為 `true`。 使用此設定會在極度無法預期的情況下執行程式碼。 在特定的生產環境設定中，對於取用量方案中託管的應用程式，這些額外的執行會導致成本大幅增加。 例如, 啟用**runOnStartup**時, 每當調整您的函數應用程式時, 就會叫用觸發程式。 請確定在生產環境中啟用 **runOnStartup** 之前，您完全了解函式的實際執行行為。   
+> 建議不要在生產環境中將 **runOnStartup** 設定為 `true`。 使用此設定會在極度無法預期的情況下執行程式碼。 在特定的生產環境設定中，對於取用量方案中託管的應用程式，這些額外的執行會導致成本大幅增加。 例如，啟用**runOnStartup**時，每當調整您的函數應用程式時，就會叫用觸發程式。 請確定在生產環境中啟用 **runOnStartup** 之前，您完全了解函式的實際執行行為。   
 
 ## <a name="usage"></a>使用量
 
-叫用計時器觸發程式函式時, 計時器物件會傳遞至函式。 下列 JSON 是計時器物件的範例表示法。
+叫用計時器觸發程式函式時，計時器物件會傳遞至函式。 下列 JSON 是計時器物件的範例表示法。
 
 ```json
 {
@@ -254,7 +254,7 @@ public static void Run([TimerTrigger("0 */5 * * * *")]TimerInfo myTimer, ILogger
 
 ## <a name="ncrontab-expressions"></a>NCRONTAB 運算式 
 
-Azure Functions 使用[NCronTab](https://github.com/atifaziz/NCrontab)程式庫來解讀 NCronTab 運算式。 NCRONTAB exppression 類似于 CRON 運算式, 不同之處在于它會在開頭包含一個額外的第六個欄位, 以供時間精確度 (以秒為單位) 使用:
+Azure Functions 使用[NCronTab](https://github.com/atifaziz/NCrontab)程式庫來解讀 NCronTab 運算式。 NCRONTAB exppression 類似于 CRON 運算式，不同之處在于它會在開頭包含一個額外的第六個欄位，以供時間精確度（以秒為單位）使用：
 
 `{second} {minute} {hour} {day} {month} {day-of-week}`
 
@@ -291,13 +291,13 @@ CRON 運算式中的數字代表時間和日期，而非時間範圍。 例如�
 
 CRON 運算式使用的預設時區是國際標準時間 (UTC)。 若要讓 CRON 運算式以另一個時區為基礎，請為名為 `WEBSITE_TIME_ZONE` 的函式應用程式建立應用程式設定。 將值設定為所需的時區名稱，如 [Microsoft 時區索引](https://technet.microsoft.com/library/cc749073)中所示。 
 
-例如，*美加東部標準時間*是 UTC-05:00。 若要讓計時器觸發程式在每天的上午10:00 觸發, 請使用下列 NCRONTAB 運算式來表示 UTC 時區:
+例如，*美加東部標準時間*是 UTC-05:00。 若要讓計時器觸發程式在每天的上午10:00 觸發，請使用下列 NCRONTAB 運算式來表示 UTC 時區：
 
 ```
 "0 0 15 * * *"
 ``` 
 
-或者為名為 `WEBSITE_TIME_ZONE` 的函式應用程式建立應用程式設定，並將值設為**美加東部標準時間**。  然後使用下列 NCRONTAB 運算式: 
+或者為名為 `WEBSITE_TIME_ZONE` 的函式應用程式建立應用程式設定，並將值設為**美加東部標準時間**。  然後使用下列 NCRONTAB 運算式： 
 
 ```
 "0 0 10 * * *"
@@ -318,7 +318,7 @@ CRON 運算式使用的預設時區是國際標準時間 (UTC)。 若要讓 CRON
 |"01:00:00" | 每小時        |
 |"00:01:00"|每分鐘         |
 |"24:00:00" | 每 24 天        |
-|"1.00:00:00" | 每天        |
+|"1.00：00： 00" | 每天        |
 
 ## <a name="scale-out"></a>向外延展
 

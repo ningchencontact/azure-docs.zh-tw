@@ -1,25 +1,25 @@
 ---
 title: 在 Azure 入口網站中建立 Azure 搜尋服務索引 - Azure 搜尋服務
-description: 了解如何使用內建入口網站索引設計工具，為 Azure 搜尋服務建立索引。
+description: 瞭解如何使用內建入口網站索引設計工具建立 Azure 搜尋服務的索引。
 manager: nitinme
 author: heidisteen
 services: search
 ms.service: search
 ms.topic: conceptual
-ms.date: 02/16/2019
+ms.date: 10/02/2019
 ms.author: heidist
-ms.openlocfilehash: fec81cd9660348d492b1dabd24ac689f2b06e880
-ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
+ms.openlocfilehash: 4abef5a3030643d4c7b91d2911f350190972f1eb
+ms.sourcegitcommit: f2d9d5133ec616857fb5adfb223df01ff0c96d0a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69638817"
+ms.lasthandoff: 10/03/2019
+ms.locfileid: "71937273"
 ---
 # <a name="create-an-azure-search-index-in-the-portal"></a>在入口網站中建立 Azure 搜尋服務索引
 
-Azure 搜尋服務在入口網站中包含適用於原型的內建索引設計工具，或可供建立在您的 Azure 搜尋服務上裝載的[搜尋索引](search-what-is-an-index.md)。 此工具使用於結構描述建構。 當您儲存定義時，空的索引就會變成完全以 Azure 搜尋服務表示。 您將它與可搜尋資料一起載入的方式，由您決定。
+Azure 搜尋服務在入口網站中包含適用於原型的內建索引設計工具，或可供建立在您的 Azure 搜尋服務上裝載的[搜尋索引](search-what-is-an-index.md)。 此工具使用於結構描述建構。 當您儲存定義時，空的索引就會變成完全以 Azure 搜尋服務表示。 您可以自行決定如何使用可搜尋的內容來載入它。
 
-索引設計工具只是建立索引的一種方法。 以程式設計方式，您可使用 [.NET](search-create-index-dotnet.md) 或 [REST](search-create-index-rest-api.md) API 建立索引。
+索引設計工具只是建立索引的一種方法。 或者，您可以使用 [匯[入資料] wizard](search-get-started-portal.md)來建立和載入索引。 Wizard 僅適用于其本身建立的索引。 以程式設計方式，您可使用 [.NET](search-create-index-dotnet.md) 或 [REST](search-create-index-rest-api.md) API 建立索引。
 
 ## <a name="start-index-designer"></a>啟動索引設計工具
 
@@ -41,15 +41,17 @@ Azure 搜尋服務在入口網站中包含適用於原型的內建索引設計�
 
 1. 新增欄位以完整指定您要上傳的文件，為每個都設定[資料類型](https://docs.microsoft.com/rest/api/searchservice/supported-data-types) \(英文\)。 例如，如果文件包含 *hotel-id*、*hotel-name*、*address*、*city* 及 *region*，請為每一個在索引中建立對應的欄位。 請檢閱[下一節中的設計指導方針](#design)，以取得設定屬性的說明。
 
-2. 指定 Edm.String 類型的 *key* 欄位。 此欄位的值必須唯一地識別每個文件。 根據預設，已將該欄位命名為 id，但您可以將它重新命名，只要字串符合[命名規則](https://docs.microsoft.com/rest/api/searchservice/Naming-rules)即可。 例如，如果您的欄位集合包含 *hotel-id*，您就會針對您的索引鍵選擇它。 對於每個 Azure 搜尋服務索引而言，索引鍵欄位是必要的且必須為字串。
+1. 如果內送資料本質上為階層式，則您的架構應該包含[複雜類型](search-howto-complex-data-types.md)來代表嵌套結構。 內建的範例資料集飯店會使用位址（包含多個子欄位）來說明複雜型別，這些型別與每個飯店具有一對一關聯性，還有一個會議室複雜的集合，其中有多個房間與每個飯店相關聯。 
 
-3. 在每個欄位上設定屬性。 索引設計工具會排除對資料類型為無效的任何屬性，但不會建議要包含哪些。 請檢閱下一節中的指導方針，以了解有哪些屬性及其用途為何。
+1. 指定 Edm.String 類型的 *key* 欄位。 對於每個 Azure 搜尋服務索引而言，索引鍵欄位是必要的且必須為字串。 此欄位的值必須唯一地識別每個文件。 根據預設，已將該欄位命名為 id，但您可以將它重新命名，只要字串符合[命名規則](https://docs.microsoft.com/rest/api/searchservice/Naming-rules)即可。 例如，如果您的欄位集合包含 *hotel-id*，您就會針對您的索引鍵選擇它。 
+
+1. 在每個欄位上設定屬性。 索引設計工具會排除對資料類型為無效的任何屬性，但不會建議要包含哪些。 請檢閱下一節中的指導方針，以了解有哪些屬性及其用途為何。
 
     Azure 搜尋服務 API 文件包含具有簡單 hotels 索引功能的程式碼範例。 在以下的螢幕擷取畫面中，您可以看到索引定義，包括在索引定義期間指定的法文語言分析器，而您可以在入口網站中重新建立以當作練習。
 
     ![旅館示範索引](media/search-create-index-portal/field-definitions.png "旅館示範索引")
 
-4. 完成後，按一下 [建立]，以儲存並建立索引。
+1. 完成後，按一下 [建立]，以儲存並建立索引。
 
 <a name="design"></a>
 

@@ -6,12 +6,12 @@ ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 09/04/2019
 ms.author: tomfitz
-ms.openlocfilehash: 9e50a2705982a022284e1c54bd5ed7360a2d1663
-ms.sourcegitcommit: 88ae4396fec7ea56011f896a7c7c79af867c90a1
+ms.openlocfilehash: 7e13e2bed4e881d12737d8e0df0ff0ba2bb2bca9
+ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70390698"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71827467"
 ---
 # <a name="resource-functions-for-azure-resource-manager-templates"></a>Azure Resource Manager 範本的資源函式
 
@@ -45,13 +45,13 @@ ms.locfileid: "70390698"
 
 ### <a name="valid-uses"></a>有效用法
 
-清單函數只能用於資源定義的屬性和範本或部署的 [輸出] 區段。 搭配[屬性反復](resource-group-create-multiple.md#property-iteration)專案使用時，您可以使用的清單`input`函式，因為運算式已指派給資源屬性。 您無法將它們與`count`搭配使用，因為必須在解析清單函數之前判斷計數。
+清單函數只能用於資源定義的屬性和範本或部署的 [輸出] 區段。 搭配[屬性反復](resource-group-create-multiple.md#property-iteration)專案使用時，您可以使用 list 函數來 `input`，因為運算式已指派給資源屬性。 您無法將它們與 `count` 搭配使用，因為必須在解析清單函數之前判斷計數。
 
 ### <a name="implementations"></a>實作
 
 下表顯示可能的 list* 用法。
 
-| 資源類型 | 函數名稱 |
+| 資源類型 | 函式名稱 |
 | ------------- | ------------- |
 | Microsoft.AnalysisServices/servers | [listGatewayStatus](/rest/api/analysisservices/servers/listgatewaystatus) |
 | Microsoft.AppConfiguration/configurationStores | ListKeys |
@@ -189,13 +189,13 @@ ms.locfileid: "70390698"
 
 使用資源名稱或 [resourceId 函式](#resourceid)來指定資源。 在部署所參考資源的相同範本中使用這個函式時，請使用資源名稱。
 
-如果您在有條件地部署的資源中使用**list**函式，即使未部署資源，也會評估該函數。 如果**list**函數參考不存在的資源，您會收到錯誤。 使用**if**函式，確保只有在部署資源時才會評估函式。 如需使用 if 和 list 搭配條件式部署資源的範例範本，請參閱[if 函數](resource-group-template-functions-logical.md#if)。
+如果您在有條件地部署的資源中使用**list**函式, 即使未部署資源, 也會評估該函數。 如果**list**函數參考不存在的資源, 您會收到錯誤。 使用**if**函式, 確保只有在部署資源時才會評估函式。 如需使用 if 和 list 搭配條件式部署資源的範例範本, 請參閱[if 函數](resource-group-template-functions-logical.md#if)。
 
 ### <a name="list-example"></a>清單範例
 
 下列[範例範本](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/listkeys.json)顯示如何在 outputs 區段中從儲存體帳戶傳回主要和次要金鑰。 它也會傳回儲存體帳戶的 SAS 權杖。 
 
-若要取得 SAS 權杖，請傳遞物件以取得到期時間。 到期時間必須是未來的時間。 此範例的用意是要示範如何使用清單函式。 一般而言，您會在資源值中使用 SAS 權杖，而非將它傳回作為輸出值。 輸出值會儲存於部署歷程記錄，並不安全。
+若要取得 SAS 權杖, 請傳遞物件以取得到期時間。 到期時間必須是未來的時間。 此範例的用意是要示範如何使用清單函式。 一般而言，您會在資源值中使用 SAS 權杖，而非將它傳回作為輸出值。 輸出值會儲存於部署歷程記錄，並不安全。
 
 ```json
 {
@@ -398,11 +398,11 @@ ms.locfileid: "70390698"
 
 ### <a name="valid-uses"></a>有效用法
 
-參考函式只能用在資源定義的屬性中，以及範本或部署的輸出區段中。 搭配[屬性反復](resource-group-create-multiple.md#property-iteration)專案使用時，您可以使用的參考`input`函式，因為運算式已指派給資源屬性。 您無法將它與`count`搭配使用，因為必須在解析參考函數之前判斷計數。
+參考函式只能用在資源定義的屬性中，以及範本或部署的輸出區段中。 搭配[屬性反復](resource-group-create-multiple.md#property-iteration)專案使用時, 您可以使用的參考`input`函式, 因為運算式已指派給資源屬性。 您無法將它與`count`搭配使用, 因為必須在解析參考函數之前判斷計數。
 
-您無法在[嵌套範本](resource-group-linked-templates.md#nested-template)的輸出中使用 reference 函式，以傳回已在嵌套範本中部署的資源。 相反地，請使用[連結的範本](resource-group-linked-templates.md#external-template-and-external-parameters)。
+您無法在[嵌套範本](resource-group-linked-templates.md#nested-template)的輸出中使用 reference 函式, 以傳回已在嵌套範本中部署的資源。 相反地, 請使用[連結的範本](resource-group-linked-templates.md#external-template)。
 
-如果您在有條件地部署的資源中使用**reference**函式，即使未部署資源，也會評估該函數。  如果**reference**函數參考不存在的資源，您會收到錯誤。 使用**if**函式，確保只有在部署資源時才會評估函式。 如需使用 if 和 reference 搭配條件式部署資源的範例範本，請參閱[if](resource-group-template-functions-logical.md#if)函式。
+如果您在有條件地部署的資源中使用**reference**函式, 即使未部署資源, 也會評估該函數。  如果**reference**函數參考不存在的資源, 您會收到錯誤。 使用**if**函式, 確保只有在部署資源時才會評估函式。 如需使用 if 和 reference 搭配條件式部署資源的範例範本, 請參閱[if](resource-group-template-functions-logical.md#if)函式。
 
 ### <a name="implicit-dependency"></a>隱含相依性
 
@@ -601,7 +601,7 @@ resourceGroup 函式的常見用法是在和資源群組相同的位置中建立
 ]
 ```
 
-您也可以使用 resourceGroup 函式，將標記從資源群組套用至資源。 如需詳細資訊，請參閱[從資源群組套用標記](resource-group-using-tags.md#apply-tags-from-resource-group)。
+您也可以使用 resourceGroup 函式, 將標記從資源群組套用至資源。 如需詳細資訊, 請參閱[從資源群組套用標記](resource-group-using-tags.md#apply-tags-from-resource-group)。
 
 ### <a name="resource-group-example"></a>資源群組範例
 
@@ -774,10 +774,10 @@ resourceGroup 函式的常見用法是在和資源群組相同的位置中建立
 
 | Name | 類型 | 值 |
 | ---- | ---- | ----- |
-| sameRGOutput | 字串 | /subscriptions/{current-sub-id}/resourceGroups/examplegroup/providers/Microsoft.Storage/storageAccounts/examplestorage |
-| differentRGOutput | 字串 | /subscriptions/{current-sub-id}/resourceGroups/otherResourceGroup/providers/Microsoft.Storage/storageAccounts/examplestorage |
-| differentSubOutput | 字串 | /subscriptions/11111111-1111-1111-1111-111111111111/resourceGroups/otherResourceGroup/providers/Microsoft.Storage/storageAccounts/examplestorage |
-| nestedResourceOutput | 字串 | /subscriptions/{current-sub-id}/resourceGroups/examplegroup/providers/Microsoft.SQL/servers/serverName/databases/databaseName |
+| sameRGOutput | String | /subscriptions/{current-sub-id}/resourceGroups/examplegroup/providers/Microsoft.Storage/storageAccounts/examplestorage |
+| differentRGOutput | String | /subscriptions/{current-sub-id}/resourceGroups/otherResourceGroup/providers/Microsoft.Storage/storageAccounts/examplestorage |
+| differentSubOutput | String | /subscriptions/11111111-1111-1111-1111-111111111111/resourceGroups/otherResourceGroup/providers/Microsoft.Storage/storageAccounts/examplestorage |
+| nestedResourceOutput | String | /subscriptions/{current-sub-id}/resourceGroups/examplegroup/providers/Microsoft.SQL/servers/serverName/databases/databaseName |
 
 ## <a name="subscription"></a>subscription
 

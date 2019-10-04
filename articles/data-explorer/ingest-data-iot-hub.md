@@ -1,22 +1,22 @@
 ---
 title: 將資料從 IoT 中樞內嵌到 Azure 資料總管
-description: 在本文中, 您將瞭解如何從 IoT 中樞將資料內嵌 (載入) 至 Azure 資料總管。
+description: 在本文中，您將瞭解如何從 IoT 中樞將資料內嵌（載入）至 Azure 資料總管。
 author: oflipman
 ms.author: oflipman
 ms.reviewer: orspodek
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 08/27/2019
-ms.openlocfilehash: cbe9aa2ea664d97df6008de05d6cb84da9771bcc
-ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
-ms.translationtype: MT
+ms.openlocfilehash: 83f5339dbc4f093ba0b7287b53c053e319f928c9
+ms.sourcegitcommit: f2d9d5133ec616857fb5adfb223df01ff0c96d0a
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70166546"
+ms.lasthandoff: 10/03/2019
+ms.locfileid: "71937380"
 ---
-# <a name="ingest-data-from-iot-hub-into-azure-data-explorer-preview"></a>將資料從 IoT 中樞內嵌到 Azure 資料總管 (預覽)
+# <a name="ingest-data-from-iot-hub-into-azure-data-explorer-preview"></a>將資料從 IoT 中樞內嵌到 Azure 資料總管（預覽）
 
-Azure 資料總管是一項快速又可高度調整的資料探索服務，可用於處理記錄和遙測資料。 Azure 資料總管提供來自 IoT 中樞的內嵌 (資料載入), 這是一種龐大的資料串流平臺和 IoT 內嵌服務。
+Azure 資料總管是一項快速又可高度調整的資料探索服務，可用於處理記錄和遙測資料。 Azure 資料總管提供來自 IoT 中樞的內嵌（資料載入），這是一種龐大的資料串流平臺和 IoT 內嵌服務。
 
 ## <a name="prerequisites"></a>必要條件
 
@@ -38,7 +38,7 @@ Azure 資料總管是一項快速又可高度調整的資料探索服務，可�
 
 ## <a name="create-a-target-table-in-azure-data-explorer"></a>在 Azure 資料總管中建立目標資料表
 
-現在, 您會在 Azure 資料總管中建立一個 IoT 中樞將用來傳送資料的資料表。 您會在叢集內建立資料表, 並在[**必要條件**](#prerequisites)中布建資料庫。
+現在，您會在 Azure 資料總管中建立一個 IoT 中樞將用來傳送資料的資料表。 您會在叢集內建立資料表，並在[**必要條件**](#prerequisites)中布建資料庫。
 
 1. 在 Azure 入口網站中瀏覽至您的叢集，然後選取 [查詢]。
 
@@ -60,33 +60,33 @@ Azure 資料總管是一項快速又可高度調整的資料探索服務，可�
 
 ## <a name="connect-azure-data-explorer-table-to-iot-hub"></a>將 Azure 資料總管資料表連線到 IoT 中樞
 
-現在, 您會從 Azure 資料總管連線到 IoT 中樞。 當此連線完成時, 流入 iot 中樞的資料會串流至[您所建立的目標資料表](#create-a-target-table-in-azure-data-explorer)。
+現在，您會從 Azure 資料總管連線到 IoT 中樞。 當此連線完成時，流入 iot 中樞的資料會串流至[您所建立的目標資料表](#create-a-target-table-in-azure-data-explorer)。
 
-1. 選取工具列上的 [**通知**], 確認 IoT 中樞部署成功。
+1. 選取工具列上的 [**通知**]，確認 IoT 中樞部署成功。
 
-1. 在您建立的叢集下方, 選取 [**資料庫**], 然後選取您所建立的**testdb**資料庫。
+1. 在您建立的叢集下方，選取 [**資料庫**]，然後選取您所建立的**testdb**資料庫。
     
     ![選取測試資料庫](media/ingest-data-iot-hub/select-database.png)
 
-1. 選取 [資料擷取]，然後選取 [新增資料連線]。 然後，在表單中填寫以下資訊。 當您完成時, 請選取 [**建立**]。
+1. 選取 [資料擷取]，然後選取 [新增資料連線]。 然後，在表單中填寫以下資訊。 當您完成時，請選取 [**建立**]。
 
     ![IoT 中樞連接](media/ingest-data-iot-hub/iot-hub-connection.png)
 
-    **資料來源**:
+    **資料來源**：
 
     **設定** | **欄位描述**
     |---|---|
-    | 資料連線名稱 | 您想要在 Azure 中建立的連線名稱資料總管
-    | IoT 中樞 | IoT 中樞名稱 |
-    | 共用存取原則 | 共用存取原則的名稱。 必須擁有讀取權限 |
-    | 取用者群組 |  在 IoT 中樞內建端點中定義的取用者群組 |
-    | 事件系統屬性 | IoT 中樞事件系統屬性 |
+    | 資料連線名稱 | 您想要在 Azure 資料總管中建立的連線名稱。
+    | IoT 中樞 | IoT 中樞名稱。 |
+    | 共用存取原則 | 共用存取原則的名稱。 必須具有 [讀取] 許可權。 |
+    | 取用者群組 |  在 IoT 中樞內建端點中定義的取用者群組。 |
+    | 事件系統屬性 | IoT 中樞事件系統屬性。 如果每個事件訊息都有多筆記錄，系統屬性將會新增至第一個。 |
     | | 
 
     > [!NOTE]
-    > 在[手動容錯移轉](/azure/iot-hub/iot-hub-ha-dr#manual-failover)的情況下, 您必須重新建立資料連線。
+    > 在[手動容錯移轉](/azure/iot-hub/iot-hub-ha-dr#manual-failover)的情況下，您必須重新建立資料連線。
 
-    **目標資料表**:
+    **目標資料表**：
 
     路由內嵌資料有兩個選項：靜態和動態。 
     在本文中，您將使用靜態路由，您會指定資料表名稱、資料格式和對應。 因此，將 [我的資料包含路由資訊] 保留為未選取。
@@ -95,11 +95,12 @@ Azure 資料總管是一項快速又可高度調整的資料探索服務，可�
     |---|---|---|
     | 資料表 | *TestTable* | 您在**testdb**中建立的資料表。 |
     | 資料格式 | *JSON* | 支援的格式為 Avro、CSV、JSON、MULTILINE JSON、PSV、SOH、SCSV、TSV 和 TXT。 |
-    | 資料行對應 | *TestMapping* | 您在**testdb**中建立的對應, 其會將傳入的 JSON 資料對應至**testdb**的資料行名稱和資料類型。 對 JSON、多行 JSON 和 AVRO 而言是必要的, 而且對於其他格式則為選擇性。|
+    | 資料行對應 | *TestMapping* | 您在**testdb**中建立的對應，其會將傳入的 JSON 資料對應至**testdb**的資料行名稱和資料類型。 對 JSON、多行 JSON 和 AVRO 而言是必要的，而且對於其他格式則為選擇性。|
     | | |
 
-    > [!TIP]
-    > 選取 [我的資料包含路由資訊] 來使用動態路由，其中您的資料會包含必要的路由資訊，如[範例應用程式](https://github.com/Azure-Samples/event-hubs-dotnet-ingest)註解中所示。 如果靜態和動態屬性都已設定，則動態屬性會覆寫靜態屬性。 
+    > [!NOTE]
+    > * 選取 [我的資料包含路由資訊] 來使用動態路由，其中您的資料會包含必要的路由資訊，如[範例應用程式](https://github.com/Azure-Samples/event-hubs-dotnet-ingest)註解中所示。 如果靜態和動態屬性都已設定，則動態屬性會覆寫靜態屬性。 
+    > * 只有在建立資料連線之後排入佇列的事件才會內嵌。
 
 ## <a name="generate-sample-data-for-testing"></a>產生測試用的範例資料
 
@@ -111,7 +112,7 @@ Azure 資料總管是一項快速又可高度調整的資料探索服務，可�
 
 1. 在您選擇的文字編輯器中開啟 **SimulatedDevice.cs** 檔案。
 
-    將`s_connectionString`變數的值取代為 [[向 IoT 中樞註冊裝置](#register-a-device-to-the-iot-hub)] 中的裝置連接字串。 然後將變更儲存到 **SimulatedDevice.cs** 檔案。
+    將 `s_connectionString` 變數的值，取代為向[IoT 中樞註冊裝置](#register-a-device-to-the-iot-hub)中的裝置連接字串。 然後將變更儲存到 **SimulatedDevice.cs** 檔案。
 
 1. 在本機終端機視窗中，執行下列命令以安裝模擬裝置應用程式所需的套件：
 
@@ -131,9 +132,9 @@ Azure 資料總管是一項快速又可高度調整的資料探索服務，可�
 
 ## <a name="review-the-data-flow"></a>檢閱資料流程
 
-當應用程式產生資料時, 您現在可以看到來自 IoT 中樞的資料流程到叢集中的資料表。
+當應用程式產生資料時，您現在可以看到來自 IoT 中樞的資料流程到叢集中的資料表。
 
-1. 在 [Azure 入口網站] 的 IoT 中樞底下, 您會在應用程式執行時看到活動尖峰。
+1. 在 [Azure 入口網站] 的 IoT 中樞底下，您會在應用程式執行時看到活動尖峰。
 
     ![IoT 中樞計量](media/ingest-data-iot-hub/iot-hub-metrics.png)
 
@@ -150,7 +151,7 @@ Azure 資料總管是一項快速又可高度調整的資料探索服務，可�
     TestTable
     ```
 
-    結果集:
+    結果集：
     
     ![顯示內嵌資料結果](media/ingest-data-iot-hub/show-ingested-data.png)
 
@@ -160,7 +161,7 @@ Azure 資料總管是一項快速又可高度調整的資料探索服務，可�
 
 ## <a name="clean-up-resources"></a>清除資源
 
-如果您不打算再次使用您的 IoT 中樞, 請清除**測試中樞-rg**, 以避免產生成本。
+如果您不打算再次使用您的 IoT 中樞，請清除**測試中樞-rg**，以避免產生成本。
 
 1. 在 Azure 入口網站中選取靠左側的 [資源群組]，然後選取您所建立的群組。  
 

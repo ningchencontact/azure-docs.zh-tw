@@ -10,12 +10,12 @@ ms.service: azure-functions
 ms.topic: reference
 ms.date: 11/21/2017
 ms.author: cshoe
-ms.openlocfilehash: 983cf250f3a7188741c41386aac256bfdb28749b
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 512da03e6b473055e3a14d64a9ac0e25b8efca56
+ms.sourcegitcommit: 15e3bfbde9d0d7ad00b5d186867ec933c60cebe6
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70097333"
+ms.lasthandoff: 10/03/2019
+ms.locfileid: "71838906"
 ---
 # <a name="azure-functions-http-triggers-and-bindings"></a>Azure Functions HTTP 觸發程序和繫結
 
@@ -727,7 +727,7 @@ Functions 可讓您使用金鑰來提高開發期間存取 HTTP 函式端點的�
 
 ![在入口網站中管理函式金鑰。](./media/functions-bindings-http-webhook/manage-function-keys.png)
 
-您可以使用[金鑰管理 API](https://github.com/Azure/azure-functions-host/wiki/Key-management-API)以程式設計方式取得功能鍵。
+您可以使用[金鑰管理 api](https://github.com/Azure/azure-functions-host/wiki/Key-management-API)以程式設計方式取得功能鍵。
 
 ### <a name="api-key-authorization"></a>API 金鑰授權
 
@@ -740,8 +740,7 @@ Functions 可讓您使用金鑰來提高開發期間存取 HTTP 函式端點的�
 您可以允許匿名要求，這不需要金鑰。 您也可以要求使用主要金鑰。 您可以使用繫結 JSON 中的 `authLevel` 屬性來變更預設授權層級。 如需詳細資訊，請參閱[觸發程序 - 組態](#trigger---configuration)。
 
 > [!NOTE]
-> 在本機執行函式時，不論指定的驗證等級設定為何，都會停用授權。 發佈至 Azure 之後，就會強制執行您觸發程序中的 `authLevel` 設定。
-
+> 在本機執行函式時，不論指定的驗證等級設定為何，都會停用授權。 發佈至 Azure 之後，就會強制執行您觸發程序中的 `authLevel` 設定。 [在容器中的本機執行](functions-create-function-linux-custom-image.md#run-the-image-locally)時，仍然需要金鑰。
 
 
 ### <a name="secure-an-http-endpoint-in-production"></a>在生產環境中保護 HTTP 端點

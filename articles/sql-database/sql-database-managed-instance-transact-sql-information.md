@@ -11,12 +11,12 @@ ms.author: jovanpop
 ms.reviewer: sstein, carlrab, bonova
 ms.date: 08/12/2019
 ms.custom: seoapril2019
-ms.openlocfilehash: 94e9a484afe42f8621380fa685f8bc9faeb894d3
-ms.sourcegitcommit: 80da36d4df7991628fd5a3df4b3aa92d55cc5ade
-ms.translationtype: HT
+ms.openlocfilehash: 9796a4efdacef04390705607defb7b5cdd462886
+ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
+ms.translationtype: MT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 10/02/2019
-ms.locfileid: "71816046"
+ms.locfileid: "71828734"
 ---
 # <a name="managed-instance-t-sql-differences-limitations-and-known-issues"></a>受控實例的 T-sql 差異、限制和已知問題
 
@@ -334,7 +334,7 @@ WITH PRIVATE KEY (<private_key_options>)
 
 受控實例無法存取檔案共用和 Windows 資料夾, 因此適用下列條件約束:
 
-- 只支援 `CREATE ASSEMBLY FROM BINARY`。 請參閱 [CREATE ASSEMBLY FROM BINARY](https://docs.microsoft.com/sql/t-sql/statements/create-assembly-transact-sql)。 
+- 只支援 `CREATE ASSEMBLY FROM BINARY`。 請參閱[CREATE ASSEM 構件方法是 FROM BINARY](https://docs.microsoft.com/sql/t-sql/statements/create-assembly-transact-sql)。 
 - 不支援 `CREATE ASSEMBLY FROM FILE`。 請參閱 [CREATE ASSEMBLY FROM FILE](https://docs.microsoft.com/sql/t-sql/statements/create-assembly-transact-sql)。
 - `ALTER ASSEMBLY` 無法參考檔案。 請參閱 [ALTER ASSEMBLY](https://docs.microsoft.com/sql/t-sql/statements/alter-assembly-transact-sql)。
 
@@ -548,7 +548,7 @@ WITH PRIVATE KEY (<private_key_options>)
 
 **日期**2019年10月
 
-SQL Server/受控執行個體[不允許使用者捨棄不是空的](https://docs.microsoft.com/sql/relational-databases/databases/delete-data-or-log-files-from-a-database.md#Prerequisites)檔案。 如果您嘗試使用 `ALTER DATABASE REMOVE FILE` 語句移除非空白的資料檔案，則不會立即傳回 `Msg 5042 – The file '<file_name>' cannot be removed because it is not empty` 的錯誤。 受控執行個體會繼續嘗試卸載檔案，而且在使用 `Internal server error` 30 分鐘之後，作業將會失敗。
+SQL Server/受控執行個體[不允許使用者捨棄不是空的](https://docs.microsoft.com/sql/relational-databases/databases/delete-data-or-log-files-from-a-database#Prerequisites)檔案。 如果您嘗試使用 `ALTER DATABASE REMOVE FILE` 語句移除非空白的資料檔案，則不會立即傳回 `Msg 5042 – The file '<file_name>' cannot be removed because it is not empty` 的錯誤。 受控執行個體會繼續嘗試卸載檔案，而且在使用 `Internal server error` 30 分鐘之後，作業將會失敗。
 
 **因應措施**：使用 `DBCC SHRINKFILE (N'<file_name>', EMPTYFILE)` 命令移除檔案的內容。 如果這是檔案群組中唯一的檔案，您必須先從與這個檔案群組相關聯的資料表或分割區中刪除資料，然後再壓縮檔案，並選擇性地將此資料載入另一個資料表/資料分割。
 

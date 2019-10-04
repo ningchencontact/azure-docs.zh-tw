@@ -7,12 +7,12 @@ ms.service: private-link
 ms.topic: conceptual
 ms.date: 09/16/2019
 ms.author: kumud
-ms.openlocfilehash: 80f2e8a8fd41fbafbaf6d30bc1001b86c5dcdd50
-ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
+ms.openlocfilehash: 1fff9c076349d98d7a72c4bf69edb0a2795ac88f
+ms.sourcegitcommit: f2d9d5133ec616857fb5adfb223df01ff0c96d0a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71266375"
+ms.lasthandoff: 10/03/2019
+ms.locfileid: "71937366"
 ---
 # <a name="what-is-azure-private-endpoint"></a>什麼是 Azure 私用端點？
 
@@ -66,7 +66,7 @@ Azure 私用端點是一種網路介面，可讓您私下且安全地連線到 A
  
 ## <a name="access-to-a-private-link-resource-using-approval-workflow"></a>使用核准工作流程存取私人連結資源 
 您可以使用下列連接核准方法來連線到私人連結資源：
-- 當您擁有或具有特定私人連結資源的許可權時，**會自動**核准。 所需的許可權是以下列格式的私用連結資源類型為基礎：Microsoft.\<提供者 >/< resource_type >/privateEndpointConnectionApproval/action
+- 當您擁有或具有特定私人連結資源的許可權時，**會自動**核准。 所需的許可權是以下列格式的私用連結資源類型為基礎：@No__t-0Provider >/< resource_type >/privateEndpointConnectionApproval/action
 - 當您沒有必要的許可權，而且想要要求存取權時，**手動**要求。 將會起始核准工作流程。 私用端點和後續的私用端點連線將會以「擱置」狀態建立。 私用連結資源擁有者負責核准連接。 核准後，私用端點會啟用以正常傳送流量，如下列核准工作流程圖表所示。  
 
 ![工作流程核准](media/private-endpoint-overview/private-link-paas-workflow.png)
@@ -124,8 +124,9 @@ Azure 會在公用 DNS 上建立正式名稱 DNS 記錄（CNAME），以將解�
 |網路安全性群組（NSG）規則不適用於私人端點    |私用端點上不支援 NSG。 雖然包含私用端點的子網可以有相關聯的 NSG，但這些規則不會對私用端點所處理的流量生效。 您必須[停用網路原則強制執行](disable-private-endpoint-network-policy.md)，才能在子網中部署私人端點。 在相同子網上裝載的其他工作負載上仍會強制執行 NSG。   | 針對來源用戶端上的輸出流量使用 NSG 規則，以控制流量。        |
 |無法在已啟用服務端點或特定工作負載的子網中建立私人端點    |私人端點無法部署在啟用服務端點或子網的子網，以供委派至特定工作負載|  建立個別的子網以部署私人端點。        |
 |私人端點只能對應至相同區域中的私用連結服務（客戶擁有）    |   不支援從不同的區域連接到私人連結服務（您自己的）       |  在預覽期間，您必須在相同的區域中部署私用連結服務。        |
+|  不支援只有私人端點的對等互連虛擬網路   |   連接到對等互連上的私用端點時虛擬網路不支援任何其他工作負載       | 在對等互連虛擬網路上部署單一 VM 以啟用連線能力 |
 |特製化工作負載無法存取私人端點    |   下列部署到虛擬網路的服務無法使用私人端點來存取任何私人連結資源：<br>App Service 方案</br>Azure 容器執行個體</br>Azure NetApp Files</br>Azure 專用 HSM<br>       |   預覽期間不會緩和風險。       |
-|  入口網站不支援使用別名建立私人端點  |   入口網站只允許使用資源 URI 建立私人端點      | 使用資源 URI 來要求私人端點連接        |
+
 
 ## <a name="next-steps"></a>後續步驟
 - [使用入口網站建立適用於 SQL Database 伺服器的私人端點](create-private-endpoint-portal.md)

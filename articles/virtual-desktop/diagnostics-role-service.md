@@ -7,14 +7,14 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 08/29/2019
 ms.author: helohr
-ms.openlocfilehash: f041889f1594ef3852c8f2393be93bb7a6513b4c
-ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
+ms.openlocfilehash: 5401260921aee5fc54b50c1222188a6b244a0c5a
+ms.sourcegitcommit: 15e3bfbde9d0d7ad00b5d186867ec933c60cebe6
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/30/2019
-ms.locfileid: "71676640"
+ms.lasthandoff: 10/03/2019
+ms.locfileid: "71840136"
 ---
-# <a name="identify-issues-with-the-diagnostics-feature"></a>找出診斷功能的問題
+# <a name="identify-and-diagnose-issues"></a>識別並診斷問題
 
 Windows 虛擬桌面提供診斷功能，可讓系統管理員透過單一介面來識別問題。 每當使用者與系統互動時, Windows 虛擬桌面角色就會記錄一個診斷活動。 每個記錄檔都包含相關資訊, 例如交易中涉及的 Windows 虛擬桌面角色、錯誤訊息、租使用者資訊和使用者資訊。 診斷活動是由使用者和系統管理動作所建立, 而且可以分類為三個主要的值區:
 

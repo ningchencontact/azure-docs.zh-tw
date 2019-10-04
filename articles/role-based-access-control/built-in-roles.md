@@ -11,16 +11,16 @@ ms.devlang: ''
 ms.topic: reference
 ms.tgt_pltfrm: ''
 ms.workload: identity
-ms.date: 08/27/2019
+ms.date: 09/25/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: it-pro
-ms.openlocfilehash: c2066502a6a9d742c347e08d528a2490a390bb7e
-ms.sourcegitcommit: 2d9a9079dd0a701b4bbe7289e8126a167cfcb450
+ms.openlocfilehash: 65a049070806fd702497d50236e9d541de2e8b1a
+ms.sourcegitcommit: 15e3bfbde9d0d7ad00b5d186867ec933c60cebe6
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/29/2019
-ms.locfileid: "71672636"
+ms.lasthandoff: 10/03/2019
+ms.locfileid: "71842305"
 ---
 # <a name="built-in-roles-for-azure-resources"></a>適用於 Azure 資源的內建角色
 
@@ -60,6 +60,9 @@ ms.locfileid: "71672636"
 | [Azure Kubernetes Service 叢集管理員角色](#azure-kubernetes-service-cluster-admin-role) | 列出叢集管理員認證動作。 |
 | [Azure Kubernetes Service 叢集使用者角色](#azure-kubernetes-service-cluster-user-role) | 列出叢集使用者認證動作。 |
 | [Azure 地圖服務資料讀取器 (預覽)](#azure-maps-data-reader-preview) | 授與從 Azure 地圖服務帳戶讀取對應相關資料的存取權。 |
+| [Azure Sentinel 參與者](#azure-sentinel-contributor) | Azure Sentinel 參與者 |
+| [Azure Sentinel 讀取器](#azure-sentinel-reader) | Azure Sentinel 讀取器 |
+| [Azure Sentinel 回應程式](#azure-sentinel-responder) | Azure Sentinel 回應程式 |
 | [Azure 服務匯流排資料擁有者](#azure-service-bus-data-owner) | 允許 Azure 服務匯流排資源的完整存取權。 |
 | [Azure 服務匯流排資料接收器](#azure-service-bus-data-receiver) | 允許接收 Azure 服務匯流排資源的存取權。 |
 | [Azure 服務匯流排資料寄件者](#azure-service-bus-data-sender) | 允許 Azure 服務匯流排資源的「傳送」存取權。 |
@@ -178,7 +181,7 @@ ms.locfileid: "71672636"
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **描述** | 可讓您管理一切，但無法管理對資源的存取。 |
+> | **描述** | 除了授與資源的存取權之外，還可讓您管理所有專案。 |
 > | **Id** | b24988ac-6180-42a0-ab88-20f7382dd24c |
 > | **動作** |  |
 > | * | 建立和管理所有類型的資源 |
@@ -645,6 +648,89 @@ ms.locfileid: "71672636"
 > | 無 |  |
 > | **DataActions** |  |
 > | Microsoft.Maps/accounts/data/read | 將資料讀取權限授與地圖服務帳戶。 |
+> | **NotDataActions** |  |
+> | 無 |  |
+
+## <a name="azure-sentinel-contributor"></a>Azure Sentinel 參與者
+> [!div class="mx-tableFixed"]
+> | | |
+> | --- | --- |
+> | **描述** | Azure Sentinel 參與者 |
+> | **Id** | ab8e14d6-4a74-4a29-9ba8-549422addade |
+> | **動作** |  |
+> | SecurityInsights/* |  |
+> | Microsoft.OperationalInsights/workspaces/analytics/query/action | 使用新的引擎進行搜尋。 |
+> | Microsoft.OperationalInsights/workspaces/read | 取得現有工作區 |
+> | Microsoft.OperationalInsights/workspaces/savedSearches/* |  |
+> | Microsoft.OperationsManagement/solutions/read | 取得現有的 OMS 解決方案 |
+> | Microsoft.OperationalInsights/workspaces/query/read | 針對工作區中的資料執行查詢 |
+> | Microsoft.operationalinsights/工作區/資料來源/讀取 | 取得工作區下的資料來源。 |
+> | Microsoft Insights/活頁簿/* |  |
+> | Microsoft.Authorization/*/read | 讀取角色和角色指派 |
+> | Microsoft.Insights/alertRules/* | 建立和管理 Insights 警示規則 |
+> | Microsoft.Resources/deployments/* | 建立和管理資源群組部署 |
+> | Microsoft.Resources/subscriptions/resourceGroups/read | 取得或列出資源群組。 |
+> | Microsoft.Support/* | 建立和管理支援票證 |
+> | **NotActions** |  |
+> | 無 |  |
+> | **DataActions** |  |
+> | 無 |  |
+> | **NotDataActions** |  |
+> | 無 |  |
+
+## <a name="azure-sentinel-reader"></a>Azure Sentinel 讀取器
+> [!div class="mx-tableFixed"]
+> | | |
+> | --- | --- |
+> | **描述** | Azure Sentinel 讀取器 |
+> | **Id** | 8d289c81-5878-46d4-8554-54e1e3d8b5cb |
+> | **動作** |  |
+> | SecurityInsights/*/read |  |
+> | Microsoft.OperationalInsights/workspaces/analytics/query/action | 使用新的引擎進行搜尋。 |
+> | Microsoft.OperationalInsights/workspaces/read | 取得現有工作區 |
+> | Microsoft.OperationalInsights/workspaces/savedSearches/read | 取得已儲存的搜尋查詢 |
+> | Microsoft.OperationsManagement/solutions/read | 取得現有的 OMS 解決方案 |
+> | Microsoft.OperationalInsights/workspaces/query/read | 針對工作區中的資料執行查詢 |
+> | Microsoft.operationalinsights/工作區/資料來源/讀取 | 取得工作區下的資料來源。 |
+> | Microsoft Insights/活頁簿/讀取 | 讀取活頁簿 |
+> | Microsoft.Authorization/*/read | 讀取角色和角色指派 |
+> | Microsoft.Insights/alertRules/* | 建立和管理 Insights 警示規則 |
+> | Microsoft.Resources/deployments/* | 建立和管理資源群組部署 |
+> | Microsoft.Resources/subscriptions/resourceGroups/read | 取得或列出資源群組。 |
+> | Microsoft.Support/* | 建立和管理支援票證 |
+> | **NotActions** |  |
+> | 無 |  |
+> | **DataActions** |  |
+> | 無 |  |
+> | **NotDataActions** |  |
+> | 無 |  |
+
+## <a name="azure-sentinel-responder"></a>Azure Sentinel 回應程式
+> [!div class="mx-tableFixed"]
+> | | |
+> | --- | --- |
+> | **描述** | Azure Sentinel 回應程式 |
+> | **Id** | 3e150937-b8fe-4cfb-8069-0eaf05ecd056 |
+> | **動作** |  |
+> | SecurityInsights/*/read |  |
+> | SecurityInsights/案例/* |  |
+> | Microsoft.OperationalInsights/workspaces/analytics/query/action | 使用新的引擎進行搜尋。 |
+> | Microsoft.OperationalInsights/workspaces/read | 取得現有工作區 |
+> | Microsoft.operationalinsights/工作區/資料來源/讀取 | 取得工作區下的資料來源。 |
+> | Microsoft.OperationalInsights/workspaces/savedSearches/read | 取得已儲存的搜尋查詢 |
+> | Microsoft.OperationsManagement/solutions/read | 取得現有的 OMS 解決方案 |
+> | Microsoft.OperationalInsights/workspaces/query/read | 針對工作區中的資料執行查詢 |
+> | Microsoft.operationalinsights/工作區/資料來源/讀取 | 取得工作區下的資料來源。 |
+> | Microsoft Insights/活頁簿/讀取 | 讀取活頁簿 |
+> | Microsoft.Authorization/*/read | 讀取角色和角色指派 |
+> | Microsoft.Insights/alertRules/* | 建立和管理 Insights 警示規則 |
+> | Microsoft.Resources/deployments/* | 建立和管理資源群組部署 |
+> | Microsoft.Resources/subscriptions/resourceGroups/read | 取得或列出資源群組。 |
+> | Microsoft.Support/* | 建立和管理支援票證 |
+> | **NotActions** |  |
+> | 無 |  |
+> | **DataActions** |  |
+> | 無 |  |
 > | **NotDataActions** |  |
 > | 無 |  |
 
@@ -1767,7 +1853,7 @@ ms.locfileid: "71672636"
 > | Microsoft.Web/customApis/* | 建立及管理「自訂 API」。 |
 > | Microsoft.Web/serverFarms/join/action |  |
 > | Microsoft.Web/serverFarms/read | 取得 App Service 方案的屬性 |
-> | Microsoft.Web/sites/functions/listSecrets/action | 列出祕密 Web Apps 函式。 |
+> | Microsoft.Web/sites/functions/listSecrets/action | 列出函數秘密。 |
 > | **NotActions** |  |
 > | 無 |  |
 > | **DataActions** |  |
@@ -2278,6 +2364,7 @@ ms.locfileid: "71672636"
 > | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationProtectionContainers/replicationProtectedItems/recoveryPoints/read | 讀取任何複寫復原點 |
 > | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationProtectionContainers/replicationProtectedItems/repairReplication/action | 修復複寫 |
 > | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationProtectionContainers/replicationProtectedItems/reProtect/action | 重新保護受保護的項目 |
+> | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationProtectionContainers/switchprotection/action | 切換保護容器 |
 > | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationProtectionContainers/replicationProtectedItems/testFailover/action | 測試容錯移轉 |
 > | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationProtectionContainers/replicationProtectedItems/testFailoverCleanup/action | 測試容錯移轉清理 |
 > | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationProtectionContainers/replicationProtectedItems/unplannedFailover/action | 容錯移轉 |

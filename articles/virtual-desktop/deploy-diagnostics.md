@@ -5,14 +5,14 @@ services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: conceptual
-ms.date: 08/14/2019
+ms.date: 10/02/2019
 ms.author: helohr
-ms.openlocfilehash: 07a45f54eb7c00e20abcfb05979e24493e5b9604
-ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
-ms.translationtype: MT
+ms.openlocfilehash: c9ae01b3a8f49b210c363fea20bc3c221d9e837a
+ms.sourcegitcommit: 15e3bfbde9d0d7ad00b5d186867ec933c60cebe6
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/30/2019
-ms.locfileid: "71676665"
+ms.lasthandoff: 10/03/2019
+ms.locfileid: "71839625"
 ---
 # <a name="deploy-the-diagnostics-tool"></a>部署診斷工具
 
@@ -203,7 +203,7 @@ ms.locfileid: "71676665"
 
 ### <a name="how-to-read-activity-search-results"></a>如何讀取活動搜尋結果
 
-活動會依照時間戳記排序，第一次是最新的活動。 如果結果傳回錯誤，請先檢查是否為服務錯誤。 針對服務錯誤，請使用活動資訊建立支援票證，以協助我們進行此問題的偵錯工具。 使用者或系統管理員通常都可以解決所有其他錯誤類型。 如需最常見的錯誤案例清單和解決方法，請參閱[識別診斷功能的問題](diagnostics-role-service.md#common-error-scenarios)。
+活動會依照時間戳記排序，第一次是最新的活動。 如果結果傳回錯誤，請先檢查是否為服務錯誤。 針對服務錯誤，請使用活動資訊建立支援票證，以協助我們進行此問題的偵錯工具。 使用者或系統管理員通常都可以解決所有其他錯誤類型。 如需最常見的錯誤案例及其解決方式的清單，請參閱[識別並診斷問題](diagnostics-role-service.md#common-error-scenarios)。
 
 >[!NOTE]
 >服務錯誤在連結的檔中稱為「外部錯誤」。 當我們更新 PowerShell 參考時，這將會變更。

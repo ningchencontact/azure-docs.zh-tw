@@ -5,14 +5,14 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: include
-ms.date: 06/04/2018
+ms.date: 09/28/2019
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 43e381bd26dadbea5ef5bfb002e51465e180a097
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: a852807ab685e85b76d26e5b39c99a32f645bbd7
+ms.sourcegitcommit: 15e3bfbde9d0d7ad00b5d186867ec933c60cebe6
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67173865"
+ms.lasthandoff: 10/03/2019
+ms.locfileid: "71838169"
 ---
-請勿將其中包含目的地為 0.0.0.0/0 路由的路由表與閘道子網路建立關聯。 這麼做會讓閘道無法正常運作。
+**不支援**具有 0.0.0.0/0 目的地的使用者定義路由和 GatewaySubnet 上的 nsg。 使用此設定建立的閘道將會遭到封鎖而無法建立。 閘道需要存取管理控制器，才能正常運作。

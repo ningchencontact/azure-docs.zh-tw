@@ -1,20 +1,20 @@
 ---
-title: 在 Windows 虛擬桌面中建立租使用者和主機集區-Azure
-description: 如何解決在 Windows 虛擬桌面環境中設定租使用者和工作階段主機虛擬機器（VM）時的問題。
+title: 工作階段主機虛擬機器設定-Azure
+description: 如何解決在設定 Windows 虛擬桌面工作階段主機虛擬機器時的問題。
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: troubleshooting
-ms.date: 09/20/2019
+ms.date: 10/02/2019
 ms.author: helohr
-ms.openlocfilehash: d163bbf50193743b6602bc9ec3d330df4c14ebcc
-ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
+ms.openlocfilehash: 4c684a2db02b7587b6d81eaf2f034540250fc001
+ms.sourcegitcommit: 15e3bfbde9d0d7ad00b5d186867ec933c60cebe6
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/30/2019
-ms.locfileid: "71676428"
+ms.lasthandoff: 10/03/2019
+ms.locfileid: "71841302"
 ---
-# <a name="tenant-and-host-pool-creation"></a>建立租用戶和主機集區
+# <a name="session-host-virtual-machine-configuration"></a>設定工作階段主機虛擬機器
 
 使用本文來針對設定 Windows 虛擬桌面工作階段主機虛擬機器（Vm）時所發生的問題進行疑難排解。
 

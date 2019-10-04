@@ -1,5 +1,5 @@
 ---
-title: Azure 虛擬機器上 SQL Server 的版本資訊 |Microsoft Docs
+title: Azure 虛擬機器上 SQL Server 的檔變更 |Microsoft Docs
 description: 瞭解 Azure VM 上 SQL Server 的新功能和改進
 services: virtual-machines-windows
 author: MashaMSFT
@@ -12,22 +12,28 @@ ms.topic: conceptual
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 08/01/2019
-ms.openlocfilehash: 759bec280b40973cf651dec3741a71d67c01fe04
-ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
+ms.openlocfilehash: f680eae7f8c4cc2b57e3238a14b793f9b4298a79
+ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71200176"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71828601"
 ---
-# <a name="release-notes-for-sql-server-on-azure-virtual-machines"></a>Azure 虛擬機器上 SQL Server 的版本資訊
+# <a name="documentation-changes-for-sql-server-on-azure-virtual-machines"></a>Azure 虛擬機器上 SQL Server 的檔變更
 
-Azure 可讓您使用內建 SQL Server 映射來部署虛擬機器（VM）。 本文摘要說明[Azure 虛擬機器上](https://azure.microsoft.com/services/virtual-machines/sql-server/)最新版本 SQL Server 的新功能和改進。 本文也會列出值得注意的內容更新，這些更新並未與該版本直接相關，但會在同一個時間範圍內發佈。 如需其他 Azure 服務的改進功能，請參閱[服務更新](https://azure.microsoft.com/updates)。
+Azure 可讓您使用內建 SQL Server 映射來部署虛擬機器（VM）。 本文摘要說明與[Azure 虛擬機器上 SQL Server](https://azure.microsoft.com/services/virtual-machines/sql-server/)最新版本中的新功能和改進相關的檔變更。 
+
+
+## <a name="october-2019"></a>2019年10月
+
+| 變更 | 詳細資料 |
+| --- | --- |
+| **效能優化儲存體設定** | 您現在可以在建立新的 SQL Server VM 時，[完全自訂您的儲存體](virtual-machines-windows-sql-server-storage-configuration.md#new-vms)設定。 |
+| &nbsp; | &nbsp; |
 
 ## <a name="august-2019"></a>2019 年 8 月
 
-### <a name="service-improvements"></a>服務改進功能
-
-| 服務改進功能 | 詳細資料 |
+| 變更 | 詳細資料 |
 | --- | --- |
 | **Azure 專用主機** | 您可以在[Azure 專用主機](virtual-machines-windows-sql-dedicated-host.md)上執行 SQL Server VM。 |
 | &nbsp; | &nbsp; |
@@ -35,18 +41,16 @@ Azure 可讓您使用內建 SQL Server 映射來部署虛擬機器（VM）。 �
 
 ## <a name="july-2019"></a>2019年7月
 
-### <a name="documentation-improvements"></a>文件改進
 
-| 文件 | 詳細資料 |
+| 變更 | 詳細資料 |
 | --- | --- |
 | **將 SQL VM 移至不同的區域** | 使用 Azure Site Recovery，將[您的 SQL SERVER VM 從一個區域遷移至另一個區域](virtual-machines-windows-sql-move-different-region.md)。 |
 | &nbsp; | &nbsp; |
 
 ## <a name="june-2019"></a>2019 年 6 月
 
-### <a name="service-improvements"></a>服務改進功能
 
-| 服務改進功能 | 詳細資料 |
+| 變更 | 詳細資料 |
 | --- | --- |
 | **新的 SQL IaaS 安裝模式** | 現在可以在[輕量模式](virtual-machines-windows-sql-server-agent-extension.md)中安裝 SQL Server IaaS 延伸模組，以避免重新開機 SQL Server 服務。  |
 | **SQL Server 版本修改** | 您現在可以變更 SQL Server VM 的[版本屬性](virtual-machines-windows-sql-change-edition.md)。 |
@@ -57,28 +61,16 @@ Azure 可讓您使用內建 SQL Server 映射來部署虛擬機器（VM）。 �
 
 ## <a name="may-2019"></a>2019 年 5 月
 
-### <a name="service-improvements"></a>服務改進功能
-
-| 服務改進功能 | 詳細資料 |
+| 變更 | 詳細資料 |
 | --- | --- |
 | **Azure 入口網站中的新 SQL Server VM 管理** | 現在有一種方法可以在 Azure 入口網站中管理您的 SQL Server VM。 如需詳細資訊，請參閱[管理 Azure 入口網站中的 SQL Server vm](virtual-machines-windows-sql-manage-portal.md)。  | 
 | &nbsp; | &nbsp; |
-
-### <a name="documentation-improvements"></a>文件改進
-
-| 文件 | 詳細資料 |
-| --- | --- |
-| **新增 SQL Server VM 管理入口網站** | 大約有數十篇文章已更新為新的 SQL Server VM 管理入口網站體驗。 | 
-| &nbsp; | &nbsp; |
-
 
 
 
 ## <a name="april-2019"></a>2019 年 4 月
 
-### <a name="service-improvements"></a>服務改進功能
-
-| 服務改進功能 | 詳細資料 |
+| 變更 | 詳細資料 |
 | --- | --- |
 | **SQL Server 2008/2008 R2 的延伸支援** | 藉由依現有*方式*遷移至 Azure VM，擴充 SQL Server 2008 和 SQL Server 2008 R2 的[支援](virtual-machines-windows-sql-server-2008-eos-extend-support.md)。 | 
 | &nbsp; | &nbsp; |
@@ -86,7 +78,7 @@ Azure 可讓您使用內建 SQL Server 映射來部署虛擬機器（VM）。 �
 
 ## <a name="march-2019"></a>2019 年 3 月
 
-| 服務改進功能 | 詳細資料 |
+| 變更 | 詳細資料 |
 | --- | --- |
 | **自訂映射可支援性** | 您現在可以將[SQL Server IaaS 延伸](virtual-machines-windows-sql-server-agent-extension.md#installation)模組安裝到自訂作業系統和 SQL 映射，以提供[彈性授權](virtual-machines-windows-sql-ahb.md)的有限功能。 當您向 SQL 資源提供者註冊您的自訂映射時，請將授權類型指定為 "AHUB"。 否則，註冊將會失敗。 | 
 | **命名實例可支援性** | 如果預設實例已正確卸載，您現在可以搭配使用[SQL Server IaaS 擴充](virtual-machines-windows-sql-server-agent-extension.md#installation)功能與已命名的實例。 | 
@@ -96,16 +88,18 @@ Azure 可讓您使用內建 SQL Server 映射來部署虛擬機器（VM）。 �
 
 ## <a name="february-2019"></a>2019 年 2 月
 
-| 服務改進功能 | 詳細資料 |
+| 變更 | 詳細資料 |
 | --- | --- |
 | **入口網站改進** | 現在可以使用[Azure 入口網站](virtual-machines-windows-sql-ahb.md#change-the-license-for-vms-already-registered-with-the-resource-provider)，將 SQL Server VM 的授權模型從 [隨用隨付] 變更為 [自備授權]。|
 |**使用 Azure SQL Server VM CLI 簡化可用性群組部署** | 現在您可以比以往更輕鬆地將可用性群組部署至 Azure 中的 SQL Server VM。 您可以使用[Azure CLI](/cli/azure/sql/vm?view=azure-cli-2018-03-01-hybrid) ，從命令列建立 Windows 容錯移轉叢集、內部負載平衡器，以及可用性群組接聽程式。 如需詳細資訊，請參閱[使用 azure SQL SERVER VM CLI 在 AZURE vm 上設定 SQL Server 的 Always On 可用性群組](virtual-machines-windows-sql-availability-group-cli.md)。 | 
 | &nbsp; | &nbsp; |
 
+## <a name="2018"></a>2018
 
-## <a name="december-2018"></a>2018 年 12 月
 
-| 服務改進功能 | 詳細資料 |
+### <a name="december-2018"></a>2018 年 12 月
+
+| 變更 | 詳細資料 |
 | --- | --- |
 | **SQL Server 叢集的新資源提供者** | 新的資源提供者（Microsoft.sqlvirtualmachine/SqlVirtualMachineGroups）會定義 Windows 容錯移轉叢集的中繼資料。 將 SQL Server VM 加入至*SqlVirtualMachineGroups*啟動 Windows Server 容錯移轉叢集（WSFC）服務，並將 vm 加入叢集。  |
 |**使用 Azure 快速入門範本自動設定可用性群組部署** |現在可以建立 Windows 容錯移轉叢集、將 SQL Server 的 Vm 加入其中、建立接聽程式，以及使用兩個 Azure 快速入門範本來設定內部負載平衡器。 如需詳細資訊，請參閱[使用 azure 快速入門範本來設定 AZURE VM 上 SQL Server 的 Always On 可用性群組](virtual-machines-windows-sql-availability-group-quickstart-template.md)。 | 
@@ -113,9 +107,9 @@ Azure 可讓您使用內建 SQL Server 映射來部署虛擬機器（VM）。 �
 | &nbsp; | &nbsp; |
 
 
-## <a name="november-2018"></a>2018 年 11 月
+### <a name="november-2018"></a>2018 年 11 月
 
-| 服務改進功能 | 詳細資料 |
+| 變更 | 詳細資料 |
 | --- | --- |
 | **新增 SQL VM 資源提供者** |  新的資源提供者（Microsoft.sqlvirtualmachine）可讓您更有效地管理 SQL Server 的 Vm。 如需註冊 Vm 的詳細資訊，請參閱[在 Azure 中使用 SQL VM 資源提供者註冊 SQL Server 的虛擬機器](virtual-machines-windows-sql-register-with-resource-provider.md)。 |
 |**切換授權模型** | 您現在可以使用 Azure CLI 或 PowerShell，在 SQL Server VM 的按使用量付費和自備授權模型之間切換。 如需詳細資訊，請參閱[如何在 Azure 中變更 SQL Server 虛擬機器的授權模型](virtual-machines-windows-sql-ahb.md)。 | 

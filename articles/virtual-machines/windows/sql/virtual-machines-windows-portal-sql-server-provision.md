@@ -14,12 +14,12 @@ ms.workload: infrastructure-services
 ms.date: 05/04/2018
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 38fdbbf76806325e457f066e6b469a531c27b038
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 1e0bc4647476cd5c6aa0f38456ef8890b4ddcaa5
+ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70102217"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71828765"
 ---
 # <a name="how-to-provision-a-windows-sql-server-virtual-machine-in-the-azure-portal"></a>如何在 Azure 入口網站中佈建 Windows SQL Server 虛擬機器
 
@@ -36,9 +36,9 @@ ms.locfileid: "70102217"
 
 當您建立 SQL Server 虛擬機器時，您可以從虛擬機器資源庫選取其中一個預先設定的映像。 下列步驟示範如何選取其中一個 SQL Server 2017 映像。
 
-1. 在 Azure 入口網站的左側功能表中，選取 [Azure SQL]。 如果**AZURE SQL**不在清單中, 請選取 [**所有服務**], 然後在搜尋方塊中輸入 azure sql。 選擇性選取**AZURE SQL**旁的星號, 將它加入我的最愛, 然後將它新增為左側導覽中的專案。 
-1. 選取 [ **+ 新增**] 以開啟 [**選取 SQL 部署] 選項**頁面。 您可以選取 [**顯示詳細資料**] 來查看其他資訊。 
-1. 在`2017` [ **SQL 虛擬機器**] 磚的 [SQL Server 影像] 搜尋方塊中輸入, **然後選取 [免費 SQL Server 授權]:從下拉式 SQL Server 2017 Windows Server 2016**上的開發人員。 
+1. 在 Azure 入口網站的左側功能表中，選取 [Azure SQL]。 如果**AZURE SQL**不在清單中，請選取 [**所有服務**]，然後在搜尋方塊中輸入 azure sql。 (選用) 選取 **Azure SQL** 旁的星號將其設為最愛，並新增為左側導覽中的項目。 
+1. 選取 [+ 新增] 以開啟 [選取 SQL 部署選項] 頁面。 您可以選取 [**顯示詳細資料**] 來查看其他資訊。 
+1. 在 [ **SQL 虛擬機器**] 磚的 [SQL Server 影像] 搜尋方塊中輸入 `2017`，然後選取 [**Free SQL Server 授權]：SQL Server 2017 Developer on Windows Server 2016 @ no__t-0，從下拉式。 
 
 
    ![選取 SQL VM 映射](media/virtual-machines-windows-portal-sql-server-provision/select-sql-vm-image-portal.png)
@@ -54,17 +54,6 @@ ms.locfileid: "70102217"
 
 1. 選取 [建立]。
 
-
-## <a id="configure"></a> 設定選項
-
-有多個索引標籤可用於設定 SQL Server 的虛擬機器。 基於本指南的目的, 我們將著重于下列各項: 
-
-| 步驟 | 描述 |
-| --- | --- |
-| **基本概念** |[設定基本設定](#1-configure-basic-settings) |
-| **選用功能** |[設定選用功能](#2-configure-optional-features) |
-| **SQL Server 設定** |[進行 SQL Server 設定](#3-configure-sql-server-settings) |
-| **審查 + 建立** | [檢閱摘要](#4-review--create) |
 
 ## <a name="1-configure-basic-settings"></a>1.設定基本設定
 
@@ -111,7 +100,7 @@ ms.locfileid: "70102217"
 * 在 [ **Advanced**] 底下, 選取 [使用**受控磁碟**] 底下的 **[是]** 。
 
    > [!NOTE]
-   > Microsoft 建議使用 SQL Server 適用的受控磁碟。 受控磁碟會在背景中處理儲存體。 此外，當具有受控磁碟的虛擬機器在相同的可用性設定組時，Azure 會分散儲存資源以提供適當的備援。 如需詳細資訊, 請參閱[Azure 受控磁碟總覽](../managed-disks-overview.md)。 如需可用性設定組中受控磁碟的具體資訊，請參閱[在可用性設定組中使用 VM 的受控磁碟](../manage-availability.md)。
+   > Microsoft 建議使用 SQL Server 適用的受控磁碟。 受控磁碟會在背景中處理儲存體。 此外，當具有受控磁碟的虛擬機器在相同的可用性設定組時，Azure 會分散儲存資源以提供適當的備援。 如需詳細資訊，請參閱[Azure 受控磁碟總覽](../managed-disks-overview.md)。 如需可用性設定組中受控磁碟的具體資訊，請參閱[在可用性設定組中使用 VM 的受控磁碟](../manage-availability.md)。
 
 ![SQL VM 磁片設定](media/virtual-machines-windows-portal-sql-server-provision/azure-sqlvm-disks.png)
   
@@ -122,7 +111,7 @@ ms.locfileid: "70102217"
 
 * 建立新的**虛擬網路**, 或為您的 SQL Server VM 使用現有的 vNet。 同時指定**子網**。 
 
-* 在 [ **NIC 網路安全性群組**] 底下, 選取 [基本] 安全性群組或 [advanced] 安全性群組。 選擇 [基本] 選項可讓您選取 SQL Server VM 的輸入埠 (與 [**基本**] 索引標籤上所設定的相同值)。 選取 [advanced] 選項可讓您選擇現有的網路安全性群組, 或建立一個新的群組。 
+* 在 [ **NIC 網路安全性群組**] 底下，選取 [基本] 安全性群組或 [advanced] 安全性群組。 選擇 [基本] 選項可讓您選取 SQL Server VM 的輸入埠 (與 [**基本**] 索引標籤上所設定的相同值)。 選取 [advanced] 選項可讓您選擇現有的網路安全性群組, 或建立一個新的群組。 
 
 * 您可以對網路設定進行其他變更，或保留預設值。
 
@@ -141,8 +130,6 @@ ms.locfileid: "70102217"
 ## <a name="3-configure-sql-server-settings"></a>3.進行 SQL Server 設定
 
 在 [ **SQL Server 設定**] 索引標籤上, 設定 SQL Server 的特定設定和優化。 您可以設定 SQL Server 的設定包括下列各項:
-
-
 
 | 設定 |
 | --- |
@@ -208,24 +195,19 @@ ms.locfileid: "70102217"
 
 ### <a name="storage-configuration"></a>儲存體組態
 
-在 [ **SQL Server 設定**] 索引標籤的 [**存放裝置**設定] 底下, 選取 [**變更**設定] 以指定存放裝置需求。
+在 [ **SQL Server 設定**] 索引標籤的 [**存放裝置**設定] 底下，選取 [**變更**設定] 以開啟 [效能優化存放裝置設定] 頁面，並指定儲存體需求。
 
-
-> [!NOTE]
-> 如果將以手動方式將 VM 設定為使用標準儲存體，則無法使用此選項。 自動儲存體最佳化只適用於進階儲存體。
-
-> [!TIP]
-> 每個滑桿的停駐點數目和上限取決於您選取的 VM 大小。 較大型且更強大的 VM 能夠進一步相應增加。
-
-您可以用每秒輸入/輸出作業數 (IOPs)、輸送量 (單位為 MB/s) 及總儲存體大小來指定需求。 請使用滑動標尺來設定這些值。 您可以根據工作負載變更這些儲存體設定。 入口網站會自動根據這些需求計算要連結和設定的磁碟數目。
+![SQL VM 儲存體設定](media/virtual-machines-windows-sql-storage-configuration/sql-vm-storage-configuration-provisioning.png)
 
 在 [儲存體最佳化]底下，選取下列其中一個選項：
 
 * 是預設設定，支援大多數工作負載。
-* 可將儲存體最佳化來處理傳統資料庫 OLTP 工作負載。
+* **交易處理**會將傳統資料庫 OLTP 工作負載的儲存空間優化。
 * 可將儲存體最佳化來處理分析和報告工作負載。
 
-![SQL VM 儲存體設定](media/virtual-machines-windows-portal-sql-server-provision/azure-sqlvm-storage-configuration.png)
+![SQL VM 儲存體設定](media/virtual-machines-windows-sql-storage-configuration/sql-vm-storage-configuration.png)
+
+您可以選擇保留預設值，也可以手動變更儲存體拓撲，以符合您的 IOPS 需求。 如需詳細資訊，請參閱[儲存體](virtual-machines-windows-sql-server-storage-configuration.md)設定。 
 
 ### <a name="sql-server-license"></a>SQL Server 授權
 如果您是軟體保證客戶, 您可以利用[Azure Hybrid Benefit](https://azure.microsoft.com/pricing/hybrid-benefit/)來攜帶自己的 SQL Server 授權並節省資源。 

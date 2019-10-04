@@ -9,12 +9,12 @@ manager: barbkess
 ms.topic: conceptual
 ms.date: 09/05/2019
 ms.author: mbaldwin
-ms.openlocfilehash: c4ddda164a2d8a4e2a4d106c2d7bb8bfcbae3690
-ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
+ms.openlocfilehash: 0e35efc0da929136a889b1611a48a60671ed2af8
+ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70886360"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71828322"
 ---
 # <a name="security-controls-for-windows-virtual-machines"></a>Windows 虛擬機器的安全性控制項
 
@@ -35,7 +35,7 @@ ms.locfileid: "70886360"
 
 | 安全性控制 | 是/否 | 注意|
 |---|---|--|
-| Azure 監視支援 (Log analytics、App insights 等)| 是 | 請參閱[在 azure 中監視和更新 Linux 虛擬機器](/azure/virtual-machines/linux/tutorial-monitoring)和[在 azure 中監視和更新 Windows 虛擬機器](/azure/virtual-machines/windows/tutorial-monitoring)。 |
+| Azure 監視支援 (Log analytics、App insights 等)| 是 | [在 Azure 中監視和更新 Windows 虛擬機器](tutorial-monitoring.md)。 |
 | 控制和管理平面記錄和審核| 是 |  |
 | 資料平面記錄和審核 | 否 |  |
 
@@ -50,7 +50,7 @@ ms.locfileid: "70886360"
 
 | 安全性控制 | 是/否 | 注意 |
 |---|---|--|
-| 待用的伺服器端加密：Microsoft 管理的金鑰 | 是 | 瞭解[如何在 Azure 中將 Linux 虛擬機器加密](/azure/virtual-machines/linux/encrypt-disks), 以及如何[加密 Windows VM 上的虛擬磁片](/azure/virtual-machines/windows/encrypt-disks)。 |
+| 待用的伺服器端加密：Microsoft 管理的金鑰 | 是 | 請參閱[加密 WINDOWS VM 上的虛擬磁片](/azure/virtual-machines/windows/encrypt-disks)。 |
 | 傳輸中的加密 (例如 ExpressRoute 加密、VNet 加密中和 VNet VNet 加密)| 是 | Azure 虛擬機器支援[ExpressRoute](/azure/expressroute)和 VNet 加密。 請參閱[Vm 中的傳輸中加密](/azure/security/security-azure-encryption-overview#in-transit-encryption-in-vms)。 |
 | 待用的伺服器端加密：客戶管理的金鑰（BYOK） | 是 | 客戶管理的金鑰是支援的 Azure 加密案例;請參閱[Azure 加密總覽](/azure/security/security-azure-encryption-overview#in-transit-encryption-in-vms)。|
 | 資料行層級加密 (Azure 資料服務)| N/A | |

@@ -8,12 +8,12 @@ ms.service: batch
 ms.topic: article
 ms.date: 08/28/2019
 ms.author: lahugh
-ms.openlocfilehash: c3f5155c7d1576657f36445562b5b425148a838a
-ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
+ms.openlocfilehash: fa232fb48e80e3ae3751920e4215c4b4d3ded19a
+ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71348950"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71827923"
 ---
 # <a name="use-the-shared-image-gallery-to-create-a-custom-pool"></a>使用共用映射資源庫來建立自訂集區
 
@@ -58,7 +58,7 @@ ms.locfileid: "71348950"
 
 ### <a name="prepare-a-vm"></a>準備 VM
 
-如果您要為映射建立新的 VM, 請使用 Batch 所支援的第一方 Azure Marketplace 映射作為受控映射的基礎映射。 只有第一方映射可以用來作為基底映射。 若要取得 Azure Batch 所支援 Azure Marketplace 映射參考的完整清單, 請參閱[列出節點代理程式 sku](/rest/api/batchservice/account/listnodeagentskus)作業。
+如果您要為映射建立新的 VM, 請使用 Batch 所支援的第一方 Azure Marketplace 映射作為受控映射的基礎映射。 只有第一方映射可以用來作為基底映射。 若要取得 Azure Batch 所支援 Azure Marketplace 映射參考的完整清單, 請參閱[列出節點代理程式 sku](/java/api/com.microsoft.azure.batch.protocol.accounts.listnodeagentskus)作業。
 
 > [!NOTE]
 > 您無法使用具有額外授權和購買條款的第三方映像作為您的基礎映像。 如需這些 Marketplace 映像的相關資訊，請參閱 [Linux](../virtual-machines/linux/cli-ps-findimage.md#deploy-an-image-with-marketplace-terms

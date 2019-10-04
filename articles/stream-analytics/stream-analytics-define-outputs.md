@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 05/31/2019
-ms.openlocfilehash: 386dc737bb45eec031aaa1a0c55f4478b8302c54
-ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
+ms.openlocfilehash: 05bb8b75fb09f3b8df0a6775874e72bdb04fc65e
+ms.sourcegitcommit: f2d9d5133ec616857fb5adfb223df01ff0c96d0a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71173576"
+ms.lasthandoff: 10/03/2019
+ms.locfileid: "71937547"
 ---
 # <a name="understand-outputs-from-azure-stream-analytics"></a>了解來自 Azure 串流分析的輸出
 
@@ -52,21 +52,20 @@ ms.locfileid: "71173576"
 
 您可以使用[Azure SQL Database](https://azure.microsoft.com/services/sql-database/)做為本質上的關聯式資料, 或是相依于關係資料庫中所裝載內容之應用程式的輸出。 串流分析作業會寫入 SQL Database 中的現有資料表。 資料表架構必須完全符合作業輸出中的欄位及其類型。 您也可以透過 SQL Database 輸出選項, 將[Azure SQL 資料倉儲](https://azure.microsoft.com/documentation/services/sql-data-warehouse/)指定為輸出。 若要瞭解改善寫入輸送量的方式, 請參閱[使用 Azure SQL Database 作為輸出的串流分析](stream-analytics-sql-output-perf.md)一文。
 
+您也可以使用[Azure SQL Database 受控執行個體](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance)做為輸出。 您必須[在 Azure SQL Database 受控執行個體中設定公用端點](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-public-endpoint-configure)，然後在 Azure 串流分析中手動設定下列設定。 以附加資料庫執行 SQL Server 的 Azure 虛擬機器，也可以透過手動方式進行下列設定來支援。
+
 下表列出用來建立 SQL Database 輸出的屬性名稱及其描述。
 
 | 屬性名稱 | 描述 |
 | --- | --- |
 | 輸出別名 |此為易記名稱，用於在查詢中將查詢輸出指向這個資料庫。 |
 | 資料庫 | 您要傳送輸出的目標資料庫名稱。 |
-| 伺服器名稱 | SQL Database 伺服器名稱。 |
+| 伺服器名稱 | SQL Database 伺服器名稱。 針對 Azure SQL Database 受控執行個體，必須指定埠3342。 例如， *sampleserver、3342、* 。 |
 | 使用者名稱 | 具有資料庫之寫入權限的使用者名稱。 串流分析僅支援 SQL 驗證。 |
 | 密碼 | 連線到資料庫的密碼。 |
 | 資料表 | 要在其中寫入輸出的資料表名稱。 資料表名稱會區分大小寫。 這個資料表的架構應該完全符合您的作業輸出所產生的欄位和其類型的數目。 |
 |繼承資料分割配置| 繼承先前查詢步驟之資料分割配置的選項, 可讓多個寫入器具有資料表的完全平行拓撲。 如需詳細資訊，請參閱 [Azure 串流分析輸出至 Azure SQL Database](stream-analytics-sql-output-perf.md)。|
 |最大批次計數| 針對每個大量插入交易傳送的記錄數目建議的上限。|
-
-> [!NOTE]
-> 串流分析中的作業輸出支援 Azure SQL Database 供應專案, 但尚不支援在附加資料庫或 SQL Azure 受控執行個體中執行 SQL Server 的 Azure 虛擬機器。 這在未來的版本中有可能變更。
 
 ## <a name="blob-storage-and-azure-data-lake-gen2"></a>Blob 儲存體和 Azure Data Lake Gen2
 

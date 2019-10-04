@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 12/11/2018
-ms.openlocfilehash: 2a707eda6a7e32a95666dd70e196c8da3c3b7834
-ms.sourcegitcommit: 80da36d4df7991628fd5a3df4b3aa92d55cc5ade
-ms.translationtype: HT
+ms.openlocfilehash: 6f5472e42b7ef43123698f01ee76fb0e691aa45e
+ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
+ms.translationtype: MT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 10/02/2019
-ms.locfileid: "71815952"
+ms.locfileid: "71827794"
 ---
 # <a name="alert-and-monitor-data-factories-by-using-azure-monitor"></a>使用 Azure 監視器來警示及監視 data factory
 
@@ -472,7 +472,7 @@ Azure Data Factory 版本2會發出下列計量。
 * 在_Azure 診斷_模式中，診斷記錄會流入_AzureDiagnostics_資料表
 
 > [!NOTE]
-> 因為 Azure 記錄資料表不能有超過500個數據行，所以強烈建議您選取 [資源特定模式]。 如需詳細資訊, 請參閱[Log Analytics 已知限制](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-logs-stream-log-store#known-limitation-column-limit-in-azurediagnostics)。
+> 因為 Azure 記錄資料表不能有超過500個數據行，所以強烈建議您選取 [資源特定模式]。 如需詳細資訊, 請參閱[Log Analytics 已知限制](../azure-monitor/platform/resource-logs-collect-workspace.md#column-limit-in-azurediagnostics)。
 
 ### <a name="install-azure-data-factory-analytics-from-azure-marketplace"></a>從 Azure Marketplace 安裝 Azure Data Factory Analytics
 

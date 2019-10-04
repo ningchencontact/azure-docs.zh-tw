@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 09/20/2019
-ms.openlocfilehash: 0a718786cc7c72ef4ee9573c3c3e40401c53a315
-ms.sourcegitcommit: 0486aba120c284157dfebbdaf6e23e038c8a5a15
+ms.openlocfilehash: 6bff2210e77f7af98c1289b08159a89f42f2a3bd
+ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71308073"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71827615"
 ---
 # <a name="azure-hdinsight-frequently-asked-questions"></a>Azure HDInsight：常見問題集
 
@@ -193,7 +193,7 @@ Hive 中繼存放區用來儲存 Hive 伺服器所使用之資料來源的中繼
 
 ### <a name="how-do-i-create-a-keytab-for-an-hdinsight-esp-cluster"></a>如何? 建立 HDInsight ESP 叢集的 keytab？
 
-為您的網域使用者名稱建立 Kerberos keytab。 您稍後可以使用此 keytab 來驗證已加入網域的遠端叢集，而不需要輸入密碼。 請注意，功能變數名稱為大寫：
+為您的網域使用者名稱建立 Kerberos keytab。 您稍後可以使用此 keytab 來驗證已加入網域的遠端叢集，而不需要輸入密碼。 功能變數名稱為大寫：
 
 ```shell
 ktutil
@@ -310,14 +310,14 @@ HDInsight 叢集，或在建立叢集時新增至新叢集。 如需詳細資訊
 
 您可以使用下列 REST 端點，以 JSON 格式提取必要的資訊。 使用基本驗證標頭來提出要求。
 
-- Tez 查詢檢視： *HTTPs：\/ / \<cluster name >. hdinsightclustername>.azurehdinsight.net. net/ws/v1/timeline/HIVE_QUERY_ID/*
-- Tez Dag View： *HTTPs：\/ / \<cluster name >. hdinsightclustername>.azurehdinsight.net. net/ws/v1/timeline/TEZ_DAG_ID/*
+- Tez 查詢檢視： *HTTPs： \/ @ no__t-2 @ no__t-3cluster name >. hdinsightclustername>.azurehdinsight.net. net/ws/v1/timeline/HIVE_QUERY_ID/*
+- Tez Dag View： *HTTPs： \/ @ no__t-2 @ no__t-3cluster name >. hdinsightclustername>.azurehdinsight.net. net/ws/v1/timeline/TEZ_DAG_ID/*
 
 ### <a name="how-do-i-retrieve-the-configuration-details-from-hdi-cluster-by-using-an-azure-active-directory-user"></a>如何? 使用 Azure Active Directory 使用者從 HDI 叢集取出設定詳細資料嗎？
 
 若要與您的 AAD 使用者協商適當的驗證權杖，請使用下列格式來完成閘道：
 
-* HTTPs://`<cluster dnsname>`. azurehdinsight.net/api/v1/clusters/testclusterdem/stack_versions/1/repository_versions/1 
+* HTTPs://`<cluster dnsname>`.azurehdinsight.net/api/v1/clusters/testclusterdem/stack_versions/1/repository_versions/1 
 
 ### <a name="how-do-i-use-ambari-restful-api-to-monitor-yarn-performance"></a>如何? 使用 Ambari Restful API 來監視 YARN 效能嗎？
 
@@ -352,6 +352,10 @@ http://<headnodehost>:8080/api/v1/clusters/<ClusterName>/services/YARN/component
 ### <a name="how-much-does-it-cost-to-deploy-an-hdinsight-cluster"></a>部署 HDInsight 叢集需要多少成本？
 
 如需計費相關價格和常見問題的詳細資訊，請參閱[Azure HDInsight 定價](https://azure.microsoft.com/pricing/details/hdinsight/)頁面。
+
+### <a name="when-does-hdinsight-billing-start--stop"></a>HDInsight 計費何時開始 & 停止？
+
+HDInsight 叢集的計費起自叢集建立時，終至叢集刪除時。 計費是以每分鐘按比例計算。
 
 ### <a name="how-do-i-cancel-my-subscription"></a>如何? 取消我的訂用帳戶嗎？
 

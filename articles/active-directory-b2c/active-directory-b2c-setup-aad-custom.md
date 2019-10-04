@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 09/13/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 205809c34eb64255af511f316f138be1efd9983b
-ms.sourcegitcommit: 9fba13cdfce9d03d202ada4a764e574a51691dcd
+ms.openlocfilehash: 2aa2ed6fe4d8218737c42bb3d76084c5d677623f
+ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71315074"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71826939"
 ---
 # <a name="set-up-sign-in-with-an-azure-active-directory-account-using-custom-policies-in-azure-active-directory-b2c"></a>在 Azure Active Directory B2C 中使用自訂原則來設定以 Azure Active Directory 帳戶進行登入
 
@@ -58,7 +58,7 @@ ms.locfileid: "71315074"
 1. 在 [**原則**] 底下，選取 [ **Identity Experience Framework**]。
 1. 選取 [**原則金鑰**]，然後選取 [**新增**]。
 1. 針對 [選項] 選擇 `Manual`。
-1. 輸入原則金鑰的 [名稱]。 例如： `ContosoAppSecret` 。  前置`B2C_1A_`詞會在建立時自動新增至金鑰的名稱，因此在下一節的 XML 中，其參考將會*B2C_1A_ContosoAppSecret*。
+1. 輸入原則金鑰的 [名稱]。 例如： `ContosoAppSecret` 。  前置詞 `B2C_1A_` 會在建立時自動新增至金鑰的名稱，因此在下一節的 XML 中，其參考將會*B2C_1A_ContosoAppSecret*。
 1. 在 [**秘密**] 中，輸入您先前記錄的用戶端密碼。
 1. 針對 [金鑰使用方法]，選取 `Signature`。
 1. 選取 [建立]。
@@ -178,6 +178,8 @@ ms.locfileid: "71315074"
 1. 儲存 TrustFrameworkExtensions.xml 檔案，並再次上傳它以供驗證。
 
 ## <a name="create-an-azure-ad-b2c-application"></a>建立 Azure AD B2C 應用程式
+
+與 Azure AD B2C 的通訊會透過您在 B2C 租使用者中註冊的應用程式進行。 此節會列出您可以視需要完成以建立測試應用程式的步驟 (如果您尚未這麼做)。
 
 [!INCLUDE [active-directory-b2c-appreg-idp](../../includes/active-directory-b2c-appreg-idp.md)]
 

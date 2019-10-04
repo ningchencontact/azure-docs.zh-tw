@@ -16,12 +16,12 @@ ms.date: 09/03/2019
 ms.author: ajburnle
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0c99ee1987b592a2e8314d529b118fb26945271e
-ms.sourcegitcommit: 6794fb51b58d2a7eb6475c9456d55eb1267f8d40
+ms.openlocfilehash: 07a51b9f21d32fb3efdfef7c7f74cb3a1088115a
+ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70241701"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71827147"
 ---
 # <a name="what-is-azure-ad-entitlement-management-preview"></a>什麼是 Azure AD 權利管理？ (預覽)
 
@@ -34,7 +34,7 @@ ms.locfileid: "70241701"
 
 Azure Active Directory (Azure AD) 權利管理可協助您管理內部使用者和組織外部使用者的群組、應用程式和 SharePoint Online 網站的存取權。
 
-這段影片提供權利管理和其商業價值的總覽:
+這段影片提供權利管理和其商業價值的總覽：
 
 >[!VIDEO https://www.youtube.com/embed/_Lss6bFrnQ8]
 
@@ -122,16 +122,16 @@ Azure AD 權利管理有助於解決這些挑戰。
 | 詞彙或概念 | 描述 |
 | --- | --- |
 | 權利管理 | 指派、撤銷和管理存取套件的服務。 |
-| 存取套件 | 使用者可以要求之資源的許可權和原則集合。 存取套件一律包含在目錄中。 |
-| 存取要求 | 存取存取封裝的要求。 要求通常會經過工作流程。 |
+| 存取套件 | 小組或專案所需且受原則規範的資源組合。 存取套件一律包含在目錄中。 |
+| 存取要求 | 存取存取套件中資源的要求。 要求通常會經過工作流程。 |
 | policy | 定義存取生命週期的一組規則, 例如使用者取得存取權的方式、核准者, 以及使用者可以存取的時間長度。 範例原則包括員工存取權和外部存取。 |
 | 目錄 | 相關資源和存取封裝的容器。 |
 | 一般目錄 | 一律可使用的內建目錄。 若要將資源新增至一般目錄, 需要特定許可權。 |
-| resource | 使用者可被授與許可權的資產或服務 (例如, Office 群組、安全性群組、應用程式或 SharePoint Online 網站)。 |
+| resource | 使用者可被授與許可權的資產或服務（例如，Office 群組、安全性群組、應用程式或 SharePoint Online 網站）。 |
 | 資源類型 | 資源類型, 包括群組、應用程式和 SharePoint Online 網站。 |
 | 資源角色 | 與資源相關聯的許可權集合。 |
 | 資原始目錄 | 具有一或多個要共用之資源的目錄。 |
-| 指派的使用者 | 將存取套件指派給使用者, 讓使用者擁有該存取套件的所有資源角色。 |
+| 指派的使用者 | 將存取套件指派給使用者，讓使用者擁有該存取套件的所有資源角色。 |
 | 啟用 | 讓使用者可以要求存取套件的程式。 |
 
 ## <a name="license-requirements"></a>授權需求
@@ -142,15 +142,15 @@ Azure AD 權利管理有助於解決這些挑戰。
 
 ### <a name="which-users-must-have-licenses"></a>哪些使用者必須有授權？
 
-您的租使用者必須有至少多個 Azure AD Premium P2 授權, 因為您擁有使用中的成員使用者。 權利管理中的有效成員使用者包括:
+您的租使用者必須有至少多個 Azure AD Premium P2 授權，因為您擁有使用中的成員使用者。 權利管理中的有效成員使用者包括：
 
 - 起始或核准存取封裝要求的使用者。
 - 已獲指派存取套件的使用者。 
 - 管理存取套件的使用者。
 
-在成員使用者的授權中, 您也可以允許許多來賓使用者與權利管理互動。 如需如何計算可包含的來賓使用者數目的詳細資訊, 請參閱[AZURE ACTIVE DIRECTORY B2B 共同作業授權指引](../b2b/licensing-guidance.md)。
+在成員使用者的授權中，您也可以允許許多來賓使用者與權利管理互動。 如需如何計算可包含的來賓使用者數目的詳細資訊，請參閱[AZURE ACTIVE DIRECTORY B2B 共同作業授權指引](../b2b/licensing-guidance.md)。
 
-如需如何將授權指派給使用者的詳細資訊, 請參閱[使用 Azure Active Directory 入口網站指派或移除授權](../fundamentals/license-users-groups.md)。
+如需如何將授權指派給使用者的詳細資訊，請參閱[使用 Azure Active Directory 入口網站指派或移除授權](../fundamentals/license-users-groups.md)。
 
 ## <a name="next-steps"></a>後續步驟
 

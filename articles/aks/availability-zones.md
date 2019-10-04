@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 06/24/2019
 ms.author: mlearned
-ms.openlocfilehash: 4d76578de0c80570e67db03046c42985500ddcdb
-ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
+ms.openlocfilehash: e8ffb9051220cc80aa12adaa9dc9b1fcc6ddfc20
+ms.sourcegitcommit: 15e3bfbde9d0d7ad00b5d186867ec933c60cebe6
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70914718"
+ms.lasthandoff: 10/03/2019
+ms.locfileid: "71839989"
 ---
 # <a name="preview---create-an-azure-kubernetes-service-aks-cluster-that-uses-availability-zones"></a>預覽-建立使用可用性區域的 Azure Kubernetes Service （AKS）叢集
 
@@ -71,9 +71,14 @@ az provider register --namespace Microsoft.ContainerService
 
 目前可使用下欄區域中的可用性區域來建立 AKS 叢集：
 
+* 美國中部
 * 美國東部 2
+* East US
+* 法國中部
+* 日本東部
 * 北歐
 * 東南亞
+* 英國南部
 * 西歐
 * 美國西部 2
 

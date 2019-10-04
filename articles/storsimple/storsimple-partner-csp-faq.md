@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 02/08/2017
 ms.author: alkohli
-ms.openlocfilehash: 4750ba55c08ebac244e7515cae4e998155a79599
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 893e8de5efc523df34e2c1e139082d2b471cb63e
+ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60628864"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71828533"
 ---
 # <a name="storsimple-for-cloud-solutions-provider-program-frequently-asked-questions"></a>適用於雲端解決方案提供者的 StorSimple 方案：常見問題集
 
@@ -89,7 +89,7 @@ StorSimple 是依使用量計算的服務。 透過 CSP 途徑採購 StorSimple 
 您可以瀏覽 StorSimple in CSP 論壇，以獲得一些常見問題的答案。 您必須先加入 [Azure Advisor Yammer 群組](https://www.yammer.com/azureadvisors)。 接著搜尋並加入群組 - **StorSimple 合作夥伴顧問**。
 
 ### <a name="how-does-the-support-work-for-storsimple-for-csp"></a>StorSimple for CSP 的支援如何運作？ 
-StorSimple in CSP 的支援模型與 CSP 中其他 Azure 服務的支援模型相同。 如需詳細資訊，請移至 [CSP 的客戶支援](https://msdn.microsoft.com/partner-center/customer-support)。 
+StorSimple in CSP 的支援模型與 CSP 中其他 Azure 服務的支援模型相同。 如需詳細資訊，請移至 [CSP 的客戶支援](/partner-center/csp-overview)。
 
 如需 StorSimple for CSP 的詳細資訊，請移至：
 

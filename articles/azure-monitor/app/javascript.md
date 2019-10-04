@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 09/20/2019
 ms.author: mbullwin
-ms.openlocfilehash: 21a68c1daa3c7a2ab6689a72e23100be7582de1e
-ms.sourcegitcommit: a7a9d7f366adab2cfca13c8d9cbcf5b40d57e63a
+ms.openlocfilehash: 9b2cb9b16a91220db6fcc193fe64ea674b7103ab
+ms.sourcegitcommit: f2d9d5133ec616857fb5adfb223df01ff0c96d0a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71162194"
+ms.lasthandoff: 10/03/2019
+ms.locfileid: "71937080"
 ---
 # <a name="application-insights-for-web-pages"></a>適用於網頁的 Application Insights
 
@@ -50,7 +50,7 @@ appInsights.loadAppInsights();
 
 ### <a name="snippet-based-setup"></a>以程式碼片段為基礎的設定
 
-如果您的應用程式不使用 NPM，您可以在每個頁面的頂端貼上此程式碼片段，直接使用 Application Insights 檢測您的網頁。 最好是`<head>`區段中的第一個腳本，如此一來，它就可以監視所有相依性的潛在問題。
+如果您的應用程式不使用 NPM，您可以在每個頁面的頂端貼上此程式碼片段，直接使用 Application Insights 檢測您的網頁。 最好是`<head>`區段中的第一個腳本，如此一來，它就可以監視所有相依性的潛在問題。 如果您使用 Blazor 伺服器應用程式，請在 `<head>` 區段中的 `_Host.cshtml` 的檔案頂端新增程式碼片段。
 
 ```html
 <script type="text/javascript">

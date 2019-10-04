@@ -7,12 +7,12 @@ ms.reviewer: oflipman
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 09/26/2019
-ms.openlocfilehash: dfc0cd6686ac4ea1af2beb34edeadd17e4c952e1
-ms.sourcegitcommit: e9936171586b8d04b67457789ae7d530ec8deebe
+ms.openlocfilehash: b8aa87b871b86a8dab3b1984b638366a42708483
+ms.sourcegitcommit: f2d9d5133ec616857fb5adfb223df01ff0c96d0a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71329431"
+ms.lasthandoff: 10/03/2019
+ms.locfileid: "71936902"
 ---
 # <a name="create-an-azure-data-explorer-cluster-and-database-by-using-an-azure-resource-manager-template"></a>使用 Azure Resource Manager 範本建立 Azure 資料總管叢集和資料庫
 
@@ -110,7 +110,7 @@ Azure 資料總管是一項快速又可高度調整的資料探索服務，可�
 
     ![部署至 Azure](media/create-cluster-database-resource-manager/deploy-2-azure.png)
 
-您可以使用表單來[編輯和部署 Azure 入口網站中的範本](/azure/azure-resource-manager/resource-manager-quickstart-create-templates-use-the-portal#edit-and-deploy-the-template)。
+    您可以使用表單來[編輯和部署 Azure 入口網站中的範本](/azure/azure-resource-manager/resource-manager-quickstart-create-templates-use-the-portal#edit-and-deploy-the-template)。
 
 1. 完整的**基本概念**和**設定**章節。 選取 [唯一叢集] 和 [資料庫名稱]。
 建立 Azure 資料總管叢集和資料庫需要幾分鐘的時間。
@@ -140,9 +140,9 @@ Azure 資料總管是一項快速又可高度調整的資料探索服務，可�
 1. 以滑鼠右鍵按一下 [shell] 主控台, 然後選取 [**貼**上]。
 建立 Azure 資料總管叢集和資料庫需要幾分鐘的時間。
 
-#### <a name="verify-the-deployment-using-powershell"></a>使用 powershell 驗證部署
+#### <a name="verify-the-deployment-using-powershell"></a>使用 PowerShell 驗證部署
 
-若要驗證部署，請使用下列 Azure PowerShell 腳本。  如果 Cloud shell 仍為開啟狀態，您就不需要複製/執行第一行（讀取主機）。 如需有關在 PowerShell 中管理 Azure 資料總管資源的詳細資訊，請參閱[Az. Kusto](/powershell/module/az.kusto/?view=azps-2.7.0)。 進行相關的變更
+若要驗證部署，請使用下列 Azure PowerShell 腳本。  如果 Cloud Shell 仍為開啟狀態，您就不需要複製/執行第一行（讀取主機）。 如需有關在 PowerShell 中管理 Azure 資料總管資源的詳細資訊，請參閱[Az. Kusto](/powershell/module/az.kusto/?view=azps-2.7.0)。 
 
 ```azurepowershell-interactive
 $projectName = Read-Host -Prompt "Enter the same project name that you used in the last procedure"
@@ -163,9 +163,9 @@ Write-Host "Press [ENTER] to continue ..."
 
 遵循[清除資源](create-cluster-database-portal.md#clean-up-resources)中的步驟，以刪除 Azure 入口網站中的資源。
 
-### <a name="clean-up-resources-using-powershell"></a>使用 powershell 清除資源
+### <a name="clean-up-resources-using-powershell"></a>使用 PowerShell 清除資源
 
-如果 Cloud shell 仍為開啟狀態，您就不需要複製/執行第一行（讀取主機）。
+如果 Cloud Shell 仍為開啟狀態，您就不需要複製/執行第一行（讀取主機）。
 
 ```azurepowershell-interactive
 $projectName = Read-Host -Prompt "Enter the same project name that you used in the last procedure"

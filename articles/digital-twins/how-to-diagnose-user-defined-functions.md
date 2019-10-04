@@ -6,15 +6,15 @@ manager: alinast
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 08/12/2019
+ms.date: 10/01/2019
 ms.author: v-adgera
 ms.custom: seodec18
-ms.openlocfilehash: c1bd33ea5cbe45d6ff862645d614d54d20110ef4
-ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
-ms.translationtype: MT
+ms.openlocfilehash: df12d6866f5e9e6bf492e228e32b0b10f7266eb4
+ms.sourcegitcommit: 15e3bfbde9d0d7ad00b5d186867ec933c60cebe6
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71260849"
+ms.lasthandoff: 10/03/2019
+ms.locfileid: "71843850"
 ---
 # <a name="how-to-debug-user-defined-functions-in-azure-digital-twins"></a>如何為 Azure Digital Twins 中的使用者定義函式偵錯
 
@@ -55,6 +55,13 @@ AzureDiagnostics
 | 查詢值 | 更換為 |
 | --- | --- |
 | YOUR_CORRELATION_IDENTIFIER | 針對事件資料指定的相互關聯識別碼 |
+
+若要查看所有最近的遙測記錄查詢：
+
+```Kusto
+AzureDiagnostics
+| order by CorrelationId desc
+```
 
 如果您為使用者定義函數啟用記錄, 這些記錄會顯示在您的 log analytics 實例中, 其`UserDefinedFunction`類別目錄為。 若要取得它們, 請在 log analytics 中輸入下列查詢準則:
 

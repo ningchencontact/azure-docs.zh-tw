@@ -5,14 +5,14 @@ author: msmbaldwin
 ms.service: security
 ms.topic: article
 ms.author: mbaldwin
-ms.date: 03/25/2019
+ms.date: 09/30/2019
 ms.custom: seodec18
-ms.openlocfilehash: bd51e70122a5457c8dcf1bd8f2061fe25943e87f
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: 551918373f8292d798980600d6e0d43add55bd18
+ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "71224515"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71828275"
 ---
 # <a name="azure-disk-encryption-prerequisites"></a>Azure 磁碟加密的先決條件
 
@@ -70,6 +70,7 @@ Azure 磁碟加密也適用于具有 premium 儲存體的 Vm。
 | Ubuntu | 18.04| 作業系統和資料磁碟 |
 | Ubuntu | 16.04| 作業系統和資料磁碟 |
 | Ubuntu | 14.04.5</br>[搭配更新至 4.15 或更新版本的 Azure 調整核心](azure-security-disk-encryption-tsg.md#bkmk_Ubuntu14) | 作業系統和資料磁碟 |
+| RHEL | 7.7 | 作業系統和資料磁片（請參閱下面的附注） |
 | RHEL | 7.6 | 作業系統和資料磁片（請參閱下面的附注） |
 | RHEL | 7.5 | 作業系統和資料磁片（請參閱下面的附注） |
 | RHEL | 7.4 | 作業系統和資料磁片（請參閱下面的附注） |
@@ -77,6 +78,7 @@ Azure 磁碟加密也適用于具有 premium 儲存體的 Vm。
 | RHEL | 7.2 | 作業系統和資料磁片（請參閱下面的附注） |
 | RHEL | 6.8 | 資料磁片（請參閱下面的附注） |
 | RHEL | 6.7 | 資料磁片（請參閱下面的附注） |
+| CentOS | 7.7 | 作業系統和資料磁碟 |
 | CentOS | 7.6 | 作業系統和資料磁碟 |
 | CentOS | 7.5 | 作業系統和資料磁碟 |
 | CentOS | 7.4 | 作業系統和資料磁碟 |
@@ -181,7 +183,7 @@ Azure 磁碟加密也適用于具有 premium 儲存體的 Vm。
 
 
 ## <a name="prerequisite-workflow-for-key-vault"></a>Key Vault 的必要工作流程
-如果您已經熟悉 Azure 磁碟加密的 Key Vault 和 Azure AD 必要條件，您可以使用 [Azure 磁碟加密必要條件 PowerShell 指令碼](https://raw.githubusercontent.com/Azure/azure-powershell/master/src/Compute/Compute/Extension/AzureDiskEncryption/Scripts/AzureDiskEncryptionPreRequisiteSetup.ps1 )。 如需有關使用必要指令碼的詳細資訊，請參閱 [VM 加密快速入門](azure-disk-encryption-linux-powershell-quickstart.md)和 [Azure 磁碟加密附錄](azure-security-disk-encryption-appendix.md#bkmk_prereq-script)。 
+如果您已經熟悉 Azure 磁碟加密的 Key Vault 和 Azure AD 必要條件，您可以使用 [Azure 磁碟加密必要條件 PowerShell 指令碼](https://raw.githubusercontent.com/Azure/azure-powershell/master/src/Compute/Compute/Extension/AzureDiskEncryption/Scripts/AzureDiskEncryptionPreRequisiteSetup.ps1 )。 如需有關使用必要指令碼的詳細資訊，請參閱 [VM 加密快速入門](../virtual-machines/linux/disk-encryption-powershell-quickstart.md)和 [Azure 磁碟加密附錄](azure-security-disk-encryption-appendix.md#bkmk_prereq-script)。 
 
 1. 如有需要，請建立資源群組。
 2. 建立金鑰保存庫。 

@@ -8,12 +8,12 @@ ms.service: container-registry
 ms.topic: article
 ms.date: 07/02/2019
 ms.author: sajaya
-ms.openlocfilehash: 293f2a704fecb04bc6b65e49743ea80905f2394f
-ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.openlocfilehash: b365c914db0ce43da5dac4c5b889c854c0ea0639
+ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70142681"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71827415"
 ---
 # <a name="frequently-asked-questions-about-azure-container-registry"></a>關於 Azure Container Registry 的常見問題
 
@@ -260,6 +260,7 @@ ACR 支援提供不同許可權層級的[自訂角色](container-registry-roles.
 - [新的使用者權限在更新之後可能不會立即生效](#new-user-permissions-may-not-be-effective-immediately-after-updating)
 - [未在直接 REST API 呼叫上以正確的格式提供驗證資訊](#authentication-information-is-not-given-in-the-correct-format-on-direct-rest-api-calls)
 - [為什麼 Azure 入口網站不會列出我的所有存放庫或標籤？](#why-does-the-azure-portal-not-list-all-my-repositories-or-tags)
+- [為什麼 Azure 入口網站無法提取存放庫或標籤？](#why-does-the-azure-portal-fail-to-fetch-repositories-or-tags)
 - [如何? 在 Windows 上收集 HTTP 追蹤？](#how-do-i-collect-http-traces-on-windows)
 
 ### <a name="check-health-with-az-acr-check-health"></a>檢查健全狀況`az acr check-health`
@@ -339,7 +340,7 @@ sudo service docker restart
  * 視您的系統而定, 可能會在不同的位置產生記錄。 例如, 針對 Ubuntu 14.04, 它是`/var/log/upstart/docker.log`。   
 如需詳細資訊, 請參閱[Docker 檔](https://docs.docker.com/engine/admin/#read-the-logs)。    
 
- * 針對適用於 Windows 的 Docker, 記錄檔會在% LOCALAPPDATA%/docker/. 之下產生 不過, 它可能尚未包含所有的調試資訊。   
+ * 針對適用於 Windows 的 Docker，記錄檔會在% LOCALAPPDATA%/docker/. 之下產生 不過, 它可能尚未包含所有的調試資訊。   
 
    若要存取完整的背景程式記錄檔, 您可能需要一些額外的步驟:
 
@@ -409,6 +410,17 @@ curl $redirect_url
 ### <a name="why-does-the-azure-portal-not-list-all-my-repositories-or-tags"></a>為什麼 Azure 入口網站不會列出我的所有存放庫或標籤？ 
 
 如果您使用 Microsoft Edge/IE 瀏覽器, 您最多可以看到100存放庫或標籤。 如果您的登錄有100個以上的存放庫或標籤, 建議您使用 Firefox 或 Chrome 瀏覽器來列出所有的儲存機制或標籤。
+
+### <a name="why-does-the-azure-portal-fail-to-fetch-repositories-or-tags"></a>為什麼 Azure 入口網站無法提取存放庫或標籤？
+
+瀏覽器可能無法將提取存放庫或標記的要求傳送至伺服器。 可能的原因有很多種，例如：
+
+* 缺少網路連線能力
+* 防火牆
+* Ad 封鎖器
+* DNS 錯誤
+
+請洽詢您的網路系統管理員，或檢查您的網路設定和連線能力。 此外，您也可以在瀏覽器中嘗試 incognito 或私用會話，以避免任何過時的瀏覽器快取或 cookie。
 
 ### <a name="how-do-i-collect-http-traces-on-windows"></a>如何? 在 Windows 上收集 HTTP 追蹤？
 

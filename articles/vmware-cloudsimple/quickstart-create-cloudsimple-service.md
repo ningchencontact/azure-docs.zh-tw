@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 39395c9d082bc40836c14ee4c0d328341f96edca
-ms.sourcegitcommit: 80da36d4df7991628fd5a3df4b3aa92d55cc5ade
-ms.translationtype: HT
+ms.openlocfilehash: 228ca0f43322c271b1a6db55a37c852ca1f66799
+ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
+ms.translationtype: MT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 10/02/2019
-ms.locfileid: "71816109"
+ms.locfileid: "71828911"
 ---
 # <a name="quickstart---create-azure-vmware-solution-by-cloudsimple-service"></a>快速入門-建立 Azure VMware Solution by CloudSimple 服務
 
@@ -77,7 +77,7 @@ CloudSimple 服務可讓您使用 CloudSimple 的 Azure VMware 解決方案。  
 7. 輸入前置詞以識別節點。
 8. 選取節點資源的 [位置]。
 9. 選取要裝載節點資源的專用位置。
-10. 選取節點類型。 您可以選擇 [ [CS28] 或 [CS36] 選項](cloudsimple-node.md)。 第二個選項包含最大計算和記憶體容量。
+10. 選取[節點類型](cloudsimple-node.md)。
 11. 選取要布建的節點數目。
 12. 選取 [檢閱 + 建立]。
 13. 檢查設定。 若要修改任何設定，請按一下 [**上一步**]。

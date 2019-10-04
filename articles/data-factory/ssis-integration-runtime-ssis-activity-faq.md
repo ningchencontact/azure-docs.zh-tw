@@ -12,12 +12,12 @@ author: wenjiefu
 ms.author: wenjiefu
 ms.reviewer: sawinark
 manager: craigg
-ms.openlocfilehash: 8e800ec8a7a2dd52e052547efa51deaad8c9bb45
-ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
+ms.openlocfilehash: ec5a3ab0a2498e7d9bb24bed1bc0a37194e38e9e
+ms.sourcegitcommit: f2d9d5133ec616857fb5adfb223df01ff0c96d0a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71104912"
+ms.lasthandoff: 10/03/2019
+ms.locfileid: "71936957"
 ---
 # <a name="troubleshoot-package-execution-in-the-ssis-integration-runtime"></a>針對 SSIS 整合執行時間中的封裝執行進行疑難排解
 
@@ -121,12 +121,17 @@ ms.locfileid: "71104912"
 ### <a name="error-message-microsoft-ole-db-provider-for-analysis-services-hresult-0x80004005-description-com-error-com-error-mscorlib-exception-has-been-thrown-by-the-target-of-an-invocation"></a>錯誤訊息："適用于 Analysis Services 的 Microsoft OLE DB 提供者。 Hresult0x80004005 描述： 'COM 錯誤：COM 錯誤： mscorlib;調用的目標已擲回例外狀況」
 
 其中一個可能原因是已啟用 Azure 多重要素驗證的使用者名稱或密碼，並已針對 Azure Analysis Services Authentication 進行設定。 SSIS 整合執行時間不支援此驗證。 嘗試使用 Azure Analysis Services 驗證的服務主體：
+
 1. 如[自動化與服務主體](https://docs.microsoft.com/azure/analysis-services/analysis-services-service-principal)中所述，準備服務主體。
 2. 在 [連線管理員] 中，設定 [**使用特定使用者名稱和密碼**]：將 [ **AppID** ] 設為 username，並**clientSecret**為密碼。
 
 ### <a name="error-message-adonet-source-has-failed-to-acquire-the-connection-guid-with-the-following-error-message-login-failed-for-user-nt-authorityanonymous-logon-when-using-a-managed-identity"></a>錯誤訊息：「ADONET 來源無法取得連線 {GUID}，而出現下列錯誤訊息：使用受控識別時，使用者 ' NT AUTHORITY\ANONYMOUS 登入 ' "的登入失敗
 
 當參數*ConnectUsingManagedIdentity*為**True**時，請確定您未將連接管理員的驗證方法設定為**Active Directory 密碼驗證**。 您可以改為將它設定為 **[SQL 驗證**]，如果已設定*ConnectUsingManagedIdentity* ，則會忽略它。
+
+### <a name="error-message-0xc020801f-at--odata-source--cannot-acquire-a-managed-connection-from-the-run-time-connection-manager"></a>錯誤訊息："0xC020801F at ...，OData Source [...]：無法從執行時間連接管理員取得 managed 連接」
+
+其中一個可能的原因是，在您的 OData 來源所需的 SSIS 整合執行時間中，傳輸層安全性（TLS）不會啟用。 您可以使用自訂安裝程式，在 SSIS 整合執行時間中啟用 TLS。 如需更多詳細資料，請參閱[無法從 SSIS 連接 Project Online Odata](https://docs.microsoft.com/office365/troubleshoot/cant-connect-project-online-odata-from-ssis)和[自訂 Azure SSIS 整合運行](how-to-configure-azure-ssis-ir-custom-setup.md)時間的設定。
 
 ### <a name="error-message-request-staging-task-with-operation-guid--fail-since-error-failed-to-dispatch-staging-operation-with-error-message-microsoftsqlserverintegrationservicesaisagentcoreaisagentexception-failed-to-load-data-proxy"></a>錯誤訊息：「使用作業 guid 要求預備工作 ...因為錯誤而失敗：無法分派預備作業，錯誤訊息：IntegrationServices. AisAgentCore. AisAgentException：無法載入資料 proxy」。
 
