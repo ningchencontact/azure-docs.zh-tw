@@ -9,6 +9,8 @@
   items:
     - name: 開始使用
       href: video-indexer-get-started.md
+    - name: 邀請使用者
+      href: invite-users.md
 - name: 教學課程
   items:
     - name: 使用影片索引器 API

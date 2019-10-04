@@ -174,8 +174,6 @@
           href: backup-azure-reports-data-model.md
         - name: 適用於 Azure 備份的 Log Analytics 資料模型
           href: backup-azure-log-analytics-data-model.md
-        - name: 更新 Azure 備份中心報告內容套件
-          href: backup-azure-central-reporting-updates.md
     - name: Data Protection Manager
       items:
         - name: 在 Azure 入口網站中準備 DPM 工作負載
