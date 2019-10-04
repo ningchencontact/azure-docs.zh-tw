@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 08/15/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 87e130d3a4569971bffb9b1ac2e189babb900225
-ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
+ms.openlocfilehash: 3dfc3c309fe3583ddd4307cbfe4e55bf6522ffc3
+ms.sourcegitcommit: 4f7dce56b6e3e3c901ce91115e0c8b7aab26fb72
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/14/2019
-ms.locfileid: "70997579"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71955854"
 ---
 # <a name="what-disk-types-are-available-in-azure"></a>在 Azure 中可使用哪些磁碟類型？
 
@@ -27,7 +27,7 @@ Azure 受控磁片目前提供四種磁片類型，每種類型都是針對特�
 |---------|---------|---------|---------|---------|
 |磁碟類型   |SSD   |SSD   |SSD   |HDD   |
 |狀況   |IO 密集的工作負載 (例如 SAP HANA)、最上層資料庫 (例如 SQL、Oracle)，以及其他高交易量的工作負載。   |生產環境和重視效能的工作負載   |網頁伺服器，輕量使用的企業應用程式和開發/測試   |備份、不重要、存取不頻繁   |
-|磁碟大小   |65536 gib （GiB）    |32,767 GiB    |32,767 GiB   |32,767 GiB   |
+|最大磁片大小   |65536 gib （GiB）    |32,767 GiB    |32,767 GiB   |32,767 GiB   |
 |最大輸送量   |2000 MiB/秒    |900 MiB/秒   |750 MiB/秒   |500 MiB/秒   |
 |IOPS 上限   |160,000    |20,000   |6,000   |2,000   |
 

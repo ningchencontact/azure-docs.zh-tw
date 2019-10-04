@@ -9,12 +9,12 @@ ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 09/04/2018
 ms.author: glenga
-ms.openlocfilehash: c50615b9cbe5c3ca926d893858bb39eeb5720067
-ms.sourcegitcommit: 2ed6e731ffc614f1691f1578ed26a67de46ed9c2
+ms.openlocfilehash: 7c2e727ecb080d1db212e8b45a2c48bac81a3949
+ms.sourcegitcommit: d4c9821b31f5a12ab4cc60036fde00e7d8dc4421
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71129599"
+ms.lasthandoff: 10/01/2019
+ms.locfileid: "71709318"
 ---
 # <a name="code-and-test-azure-functions-locally"></a>撰寫 Azure Functions 並在本機進行測試
 
@@ -38,7 +38,7 @@ ms.locfileid: "71129599"
 ## <a name="next-steps"></a>後續步驟
 
 + 若要深入瞭解如何使用 Visual Studio 2019 C#來進行已編譯函式的本機開發，請參閱[使用 Visual Studio 開發 Azure Functions](functions-develop-vs.md)。
-+ 若要深入了解如何在 Mac、Linux 或 Windows 電腦上使用 VS Code 進行函式的本機開發，請參閱[適用於 Azure Functions 的 VS Code 文件](https://code.visualstudio.com/tutorials/functions-extension/getting-started)。
++ 若要深入瞭解在 Mac、Linux 或 Windows 電腦上使用 VS Code 功能的本機開發，請參閱[從 VS Code 部署 Azure Functions](/azure/javascript/tutorial-vscode-serverless-node-01)。
 + 若要深入了解如何從命令提示字元或終端機開發函式，請參閱[使用 Azure Functions Core Tools](functions-run-local.md)。
 
 <!-- LINKS -->

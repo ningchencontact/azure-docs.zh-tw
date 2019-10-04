@@ -13,16 +13,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: reference
-ms.date: 09/25/2019
+ms.date: 10/03/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8e7bd33d74d9ecf6ebc35981df7255ecc19253c7
-ms.sourcegitcommit: 80da36d4df7991628fd5a3df4b3aa92d55cc5ade
+ms.openlocfilehash: 72ae1301be4a3a3c086961aae72fb9eeb12aeda2
+ms.sourcegitcommit: 4d177e6d273bba8af03a00e8bb9fe51a447196d0
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71812589"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71960236"
 ---
 # <a name="azure-ad-connect-accounts-and-permissions"></a>Azure AD Connect：帳戶和權限
 
@@ -48,10 +48,10 @@ Azure AD Connect 會使用 3 個帳戶，以便將資訊從內部部署或 Windo
 
 - **SQL SA 帳戶 (選擇性)** ：用來在使用完整版 SQL Server 時建立 ADSync 資料庫。  這個 SQL Server 可位於 Azure AD Connect 安裝的本機或遠端。  此帳戶可以是和企業系統管理員相同的帳戶。  SQL 管理員可執行頻外資料庫佈建，然後由具有資料庫擁有者權限的 Azure AD Connect 管理員進行安裝。  如需這方面的資訊，請參閱[使用 SQL 委派的管理員權限安裝 Azure AD Connect](how-to-connect-install-sql-delegation.md)
 
-<<<<<<< HEAD
+
 >[!IMPORTANT]
 > 從 build 1.4. # # #. #，不再支援使用企業系統管理員或網域管理員帳戶作為 AD DS 連接器帳戶。  如果您在指定 [**使用現有的帳戶**] 時，嘗試輸入屬於企業系統管理員或網域管理員的帳戶，您將會收到錯誤。
-=======
+
 > [!NOTE]
 > 支援從 ESAE 系統管理樹系（也稱為「紅色樹系」）管理 Azure AD Connect 中使用的管理帳戶。
 > 專用的系統管理樹系可讓組織在比生產環境具有更強安全性控制的環境中裝載系統管理帳戶、工作站和群組。

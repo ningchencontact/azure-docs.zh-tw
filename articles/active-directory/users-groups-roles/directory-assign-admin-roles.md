@@ -14,16 +14,16 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 412bfee12e50b66a780f33b2bca8c4ecc61d83f7
-ms.sourcegitcommit: 3fa4384af35c64f6674f40e0d4128e1274083487
+ms.openlocfilehash: 8fee8692b2e09f9e4f5580d60d2f7a5a5cea2858
+ms.sourcegitcommit: 4f7dce56b6e3e3c901ce91115e0c8b7aab26fb72
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71219346"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71950353"
 ---
 # <a name="administrator-role-permissions-in-azure-active-directory"></a>Azure Active Directory 中的系統管理員角色權限
 
-使用 Azure Active Directory (Azure AD), 您可以指定有限的系統管理員, 以較低許可權的角色來管理身分識別工作。 指派系統管理員的目的, 是為了新增或變更使用者、指派系統管理角色、重設使用者密碼、管理使用者授權, 以及管理功能變數名稱等。 只能在 Azure AD 中的使用者設定中變更預設使用者權限。
+使用 Azure Active Directory （Azure AD），您可以指定有限的系統管理員，以較低許可權的角色來管理身分識別工作。 指派系統管理員的目的，是為了新增或變更使用者、指派系統管理角色、重設使用者密碼、管理使用者授權，以及管理功能變數名稱等。 只能在 Azure AD 中的使用者設定中變更預設使用者權限。
 
 ## <a name="limit-the-use-of-global-administrator"></a>限制全域管理員的使用
 
@@ -49,18 +49,18 @@ ms.locfileid: "71219346"
 
 ### <a name="application-administratorapplication-administrator-permissions"></a>[應用程式系統管理員](#application-administrator-permissions)
 
-此角色中的使用者可以建立和管理企業應用程式、應用程式註冊和應用程式 Proxy 設定的所有層面。 此角色也會授與能力來同意委派的權限以及 Microsoft Graph 和 Azure AD Graph 以外的應用程式權限。 在建立新的應用程式註冊或企業應用程式時, 不會將指派給此角色的使用者新增為擁有者。
+此角色中的使用者可以建立和管理企業應用程式、應用程式註冊和應用程式 Proxy 設定的所有層面。 此角色也會授與能力來同意委派的權限以及 Microsoft Graph 和 Azure AD Graph 以外的應用程式權限。 在建立新的應用程式註冊或企業應用程式時，不會將指派給此角色的使用者新增為擁有者。
 
 > [!IMPORTANT]
 > 此角色授與管理應用程式認證的能力。 獲指派此角色的使用者可以將認證新增至應用程式，並使用這些認證來模擬應用程式的身分識別。 如果應用程式的身分識別已授與 Azure Active Directory 的存取權，例如建立或更新使用者或其他物件的能力，則獲指派這個角色的使用者可以在模擬應用程式時執行這些動作。 模擬應用程式身分識別的這項能力，對於使用者透過 Azure AD 中角色指派所能執行的動作，是一種權限提高。 請務必了解，將應用程式系統管理員角色指派給使用者，會給予他們模擬應用程式身分識別的能力。
 
 ### <a name="application-developerapplication-developer-permissions"></a>[應用程式開發人員](#application-developer-permissions)
 
-將「使用者可以註冊應用程式」設定設為「否」時，此角色中的使用者可以建立應用程式註冊。 當「使用者可以同意應用程式代表自己存取公司資料」設定設為 [否] 時, 此角色也會授與許可權以代表自己的同意。 在建立新的應用程式註冊或企業應用程式時, 指派給此角色的使用者會被新增為擁有者。
+將「使用者可以註冊應用程式」設定設為「否」時，此角色中的使用者可以建立應用程式註冊。 當「使用者可以同意應用程式代表自己存取公司資料」設定設為 [否] 時，此角色也會授與許可權以代表自己的同意。 在建立新的應用程式註冊或企業應用程式時，指派給此角色的使用者會被新增為擁有者。
 
 ### <a name="authentication-administratorauthentication-administrator-permissions"></a>[驗證系統管理員](#authentication-administrator-permissions)
 
-具有此角色的使用者可以設定或重設非密碼認證, 並且可以更新所有使用者的密碼。 驗證系統管理員可以要求使用者針對現有的非密碼認證 (例如, MFA 或 FIDO) 重新註冊, 並撤銷**裝置上的 [記住 mfa**], 這會在非系統管理員的使用者登入或僅指派下列角色:
+具有此角色的使用者可以設定或重設非密碼認證，並且可以更新所有使用者的密碼。 驗證系統管理員可以要求使用者針對現有的非密碼認證（例如，MFA 或 FIDO）重新註冊，並撤銷**裝置上的 [記住 mfa**]，這會在非系統管理員的使用者登入或僅指派下列角色：
 
 * 驗證管理員
 * 目錄讀取者
@@ -71,7 +71,7 @@ ms.locfileid: "71219346"
 > [!IMPORTANT]
 > 對於可存取機密或私人資訊或 Azure Active Directory 內外重要組態的人員，具備此角色的使用者可以變更認證。 變更使用者的認證表示可承擔該使用者身分識別和權限。 例如:
 
-* 應用程式註冊和企業應用程式擁有者，他們可以管理他們自己的應用程式認證。 這些應用程式在 Azure AD 中可能有特殊權限，而在其他地方未授與驗證系統管理員。 透過此路徑, 驗證系統管理員可以假設應用程式擁有者的身分識別, 然後藉由更新應用程式的認證, 進一步假設特殊許可權應用程式的識別。
+* 應用程式註冊和企業應用程式擁有者，他們可以管理他們自己的應用程式認證。 這些應用程式在 Azure AD 中可能有特殊權限，而在其他地方未授與驗證系統管理員。 透過此路徑，驗證系統管理員可以假設應用程式擁有者的身分識別，然後藉由更新應用程式的認證，進一步假設特殊許可權應用程式的識別。
 * Azure 訂用帳戶擁有者，他們具有機密或私人資訊或者 Azure 中重要組態的存取權。
 * 安全性群組和 Office 365 群組擁有者，他們可以管理群組成員資格。 這個群組可以存取機密或私人資訊或者 Azure AD 和其他位置中的重要組態。
 * Azure AD 外部其他服務 (例如，Exchange Online、Office 安全性與合規性中心和人力資源系統) 中的系統管理員。
@@ -89,25 +89,25 @@ ms.locfileid: "71219346"
 
 ### <a name="b2c-user-flow-administratorb2c-user-flow-administrator-permissions"></a>[B2C 使用者流程管理員](#b2c-user-flow-administrator-permissions)
 
-具有此角色的使用者可以建立和管理 Azure 入口網站中的 B2C 消費者流程（也稱為「內建」原則）。 藉由建立或編輯使用者流程, 這些使用者可以變更使用者體驗的 html/CSS/javascript 內容、變更每個使用者流程的 MFA 需求、變更權杖中的宣告, 以及調整租使用者中所有原則的會話設定。 另一方面, 此角色並不包括檢查使用者資料的能力, 或對租使用者架構中包含的屬性進行變更。 Identity Experience Framework （也稱為「自訂」）原則的變更也不在此角色的範圍內。
+具有此角色的使用者可以建立和管理 Azure 入口網站中的 B2C 消費者流程（也稱為「內建」原則）。 藉由建立或編輯使用者流程，這些使用者可以變更使用者體驗的 html/CSS/javascript 內容、變更每個使用者流程的 MFA 需求、變更權杖中的宣告，以及調整租使用者中所有原則的會話設定。 另一方面，此角色並不包括檢查使用者資料的能力，或對租使用者架構中包含的屬性進行變更。 Identity Experience Framework （也稱為「自訂」）原則的變更也不在此角色的範圍內。
 
 ### <a name="b2c-user-flow-attribute-administratorb2c-user-flow-attribute-administrator-permissions"></a>[B2C 使用者流程屬性管理員](#b2c-user-flow-attribute-administrator-permissions)
 
-具有此角色的使用者可在租使用者中的所有使用者流程中, 新增或刪除自訂屬性。 因此, 具備此角色的使用者可以變更或新增元素至使用者架構, 並影響所有使用者流程的行為, 並間接導致使用者可能會要求哪些資料的變更, 最後以宣告的形式傳送給應用程式。 此角色無法編輯使用者流程。
+具有此角色的使用者可在租使用者中的所有使用者流程中，新增或刪除自訂屬性。 因此，具備此角色的使用者可以變更或新增元素至使用者架構，並影響所有使用者流程的行為，並間接導致使用者可能會要求哪些資料的變更，最後以宣告的形式傳送給應用程式。 此角色無法編輯使用者流程。
 
 ### <a name="b2c-ief-keyset-administratorb2c-ief-keyset-administrator-permissions"></a>[B2C IEF 索引鍵集管理員](#b2c-ief-keyset-administrator-permissions)
 
-使用者可以建立和管理權杖加密、權杖簽章和宣告加密/解密的原則金鑰和密碼。 藉由將新金鑰新增至現有的金鑰容器, 此有限的系統管理員可以視需要變換秘密, 而不會影響現有的應用程式。 此使用者可以查看這些秘密的完整內容及其到期日, 即使在建立之後也一樣。
+使用者可以建立和管理權杖加密、權杖簽章和宣告加密/解密的原則金鑰和密碼。 藉由將新金鑰新增至現有的金鑰容器，此有限的系統管理員可以視需要變換秘密，而不會影響現有的應用程式。 此使用者可以查看這些秘密的完整內容及其到期日，即使在建立之後也一樣。
 
 > [!IMPORTANT]
 > 這是敏感性角色。 在生產前和生產期間，應謹慎地仔細測試並指派金鑰集系統管理員角色。
 
 ### <a name="b2c-ief-policy-administratorb2c-ief-policy-administrator-permissions"></a>[B2C IEF 原則管理員](#b2c-ief-policy-administrator-permissions)
 
-此角色的使用者能夠在 Azure AD B2C 中建立、讀取、更新及刪除所有自訂原則, 因此可以完全控制相關 Azure AD B2C 租使用者中的 Identity Experience Framework。 藉由編輯原則, 此使用者可以與外部身分識別提供者建立直接同盟、變更目錄架構、變更所有使用者面向內容 (HTML、CSS、JavaScript)、變更需求以完成驗證、建立新使用者、傳送使用者資料到外部系統, 包括完整的遷移, 以及編輯所有使用者資訊, 包括密碼和電話號碼等敏感欄位。 相反地, 此角色無法變更加密金鑰, 或編輯用於租使用者中同盟的秘密。
+此角色的使用者能夠在 Azure AD B2C 中建立、讀取、更新及刪除所有自訂原則，因此可以完全控制相關 Azure AD B2C 租使用者中的 Identity Experience Framework。 藉由編輯原則，此使用者可以與外部身分識別提供者建立直接同盟、變更目錄架構、變更所有使用者面向內容（HTML、CSS、JavaScript）、變更需求以完成驗證、建立新使用者、傳送使用者資料到外部系統，包括完整的遷移，以及編輯所有使用者資訊，包括密碼和電話號碼等敏感欄位。 相反地，此角色無法變更加密金鑰，或編輯用於租使用者中同盟的秘密。
 
 > [!IMPORTANT]
-> B2 IEF 原則系統管理員是高度敏感的角色, 應針對生產環境中的租使用者以非常有限的基礎加以指派。 這些使用者的活動應該仔細地進行審核, 特別是針對生產環境中的租使用者。
+> B2 IEF 原則系統管理員是高度敏感的角色，應針對生產環境中的租使用者以非常有限的基礎加以指派。 這些使用者的活動應該仔細地進行審核，特別是針對生產環境中的租使用者。
 
 ### <a name="billing-administratorbilling-administrator-permissions"></a>[計費管理員](#billing-administrator-permissions)
 
@@ -115,7 +115,7 @@ ms.locfileid: "71219346"
 
 ### <a name="cloud-application-administratorcloud-application-administrator-permissions"></a>[雲端應用程式系統管理員](#cloud-application-administrator-permissions)
 
-此角色中的使用者具有與應用程式系統管理員角色相同的權限，但不包括管理應用程式 Proxy 的能力。 此角色會授與能力來建立和管理企業應用程式和應用程式註冊的所有層面。 此角色也會授與能力來同意委派的權限以及 Microsoft Graph 和 Azure AD Graph 以外的應用程式權限。 在建立新的應用程式註冊或企業應用程式時, 不會將指派給此角色的使用者新增為擁有者。
+此角色中的使用者具有與應用程式系統管理員角色相同的權限，但不包括管理應用程式 Proxy 的能力。 此角色會授與能力來建立和管理企業應用程式和應用程式註冊的所有層面。 此角色也會授與能力來同意委派的權限以及 Microsoft Graph 和 Azure AD Graph 以外的應用程式權限。 在建立新的應用程式註冊或企業應用程式時，不會將指派給此角色的使用者新增為擁有者。
 
 > [!IMPORTANT]
 > 此角色授與管理應用程式認證的能力。 獲指派此角色的使用者可以將認證新增至應用程式，並使用這些認證來模擬應用程式的身分識別。 如果應用程式的身分識別已授與 Azure Active Directory 的存取權，例如建立或更新使用者或其他物件的能力，則獲指派這個角色的使用者可以在模擬應用程式時執行這些動作。 模擬應用程式身分識別的這項能力，對於使用者透過 Azure AD 中角色指派所能執行的動作，是一種權限提高。 請務必了解，將雲端應用程式系統管理員角色指派給使用者，會給予他們模擬應用程式身分識別的能力。
@@ -152,7 +152,7 @@ ms.locfileid: "71219346"
 
 具有此角色的使用者能夠管理 Azure Active Directory 的條件式存取設定。
 > [!NOTE]
-> 若要在 Azure 中部署 Exchange ActiveSync 條件式存取原則, 使用者也必須是全域管理員。
+> 若要在 Azure 中部署 Exchange ActiveSync 條件式存取原則，使用者也必須是全域管理員。
 
 ### <a name="customer-lockbox-access-approvercustomer-lockbox-access-approver-permissions"></a>[客戶加密箱存取核准者](#customer-lockbox-access-approver-permissions)
 
@@ -161,7 +161,7 @@ ms.locfileid: "71219346"
 ### <a name="desktop-analytics-administratordesktop-analytics-administrator-permissions"></a>[電腦分析系統管理員](#desktop-analytics-administrator-permissions)
 
 
-此角色中的使用者可以管理電腦分析和 Office 自訂 & 原則服務。 針對電腦分析, 這包括能夠查看資產清查、建立部署計畫、查看部署和健康狀態。 若為 Office 自訂 & 原則服務, 此角色可讓使用者管理 Office 原則。
+此角色中的使用者可以管理電腦分析和 Office 自訂 & 原則服務。 針對電腦分析，這包括能夠查看資產清查、建立部署計畫、查看部署和健康狀態。 若為 Office 自訂 & 原則服務，此角色可讓使用者管理 Office 原則。
 
 ### <a name="device-administratordevice-administrators-permissions"></a>[裝置系統管理員](#device-administrators-permissions)
 
@@ -169,7 +169,10 @@ ms.locfileid: "71219346"
 
 ### <a name="directory-readersdirectory-readers-permissions"></a>[目錄讀取器](#directory-readers-permissions)
 
-此角色只應指派給不支援[同意架構](../develop/quickstart-v1-integrate-apps-with-azure-ad.md)的繼承應用程式。 請勿將它指派給使用者。
+此角色中的使用者可以讀取基本目錄資訊。 此角色應用於：
+* 授與一組特定的來賓使用者讀取權限，而不是將其授與所有來賓使用者。
+* 授與一組特定的非系統管理員使用者存取 Azure 入口網站時，[僅限系統管理員存取 Azure AD 入口網站] 設定為 [是]。
+* 將目錄. Read 的存取權授與服務主體。 All 不是選項。
 
 ### <a name="directory-synchronization-accountsdirectory-synchronization-accounts-permissions"></a>[目錄同步處理帳戶](#directory-synchronization-accounts-permissions)
 
@@ -195,10 +198,10 @@ ms.locfileid: "71219346"
 
 ### <a name="external-identity-provider-administratorexternal-identity-provider-administrator-permissions"></a>[外部識別提供者系統管理員](#external-identity-provider-administrator-permissions)
 
-此系統管理員會管理 Azure Active Directory 租使用者與外部身分識別提供者之間的同盟。 使用此角色，使用者可以加入新的身分識別提供者，並設定所有可用的設定（例如，驗證路徑、服務識別碼、指派的金鑰容器）。 此使用者可以讓租使用者信任來自外部識別提供者的驗證。 對終端使用者體驗產生的影響取決於租使用者的類型:
+此系統管理員會管理 Azure Active Directory 租使用者與外部身分識別提供者之間的同盟。 使用此角色，使用者可以加入新的身分識別提供者，並設定所有可用的設定（例如，驗證路徑、服務識別碼、指派的金鑰容器）。 此使用者可以讓租使用者信任來自外部識別提供者的驗證。 對終端使用者體驗產生的影響取決於租使用者的類型：
 
-* Azure Active Directory 員工和合作夥伴的租使用者: 新增同盟 (例如使用 Gmail) 會立即影響尚未兌換的所有來賓邀請。 請參閱[將 Google 新增為 B2B 來賓使用者的身分識別提供者](https://docs.microsoft.com/azure/active-directory/b2b/google-federation)。
-* Azure Active Directory B2C 租使用者:新增同盟（例如，使用 Facebook，或與另一個 Azure AD 組織）不會立即影響使用者流程，直到將識別提供者新增為使用者流程中的選項（也稱為內建原則）。 如需範例, 請參閱設定[Microsoft 帳戶做為身分識別提供者](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-setup-msa-app)。 若要變更使用者流程, 需要「B2C 使用者流程管理員」的有限角色。
+* Azure Active Directory 員工和合作夥伴的租使用者： 新增同盟（例如使用 Gmail）會立即影響尚未兌換的所有來賓邀請。 請參閱[將 Google 新增為 B2B 來賓使用者的身分識別提供者](https://docs.microsoft.com/azure/active-directory/b2b/google-federation)。
+* Azure Active Directory B2C 租使用者：新增同盟（例如，使用 Facebook，或與另一個 Azure AD 組織）不會立即影響使用者流程，直到將識別提供者新增為使用者流程中的選項（也稱為內建原則）。 如需範例，請參閱設定[Microsoft 帳戶做為身分識別提供者](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-setup-msa-app)。 若要變更使用者流程，需要「B2C 使用者流程管理員」的有限角色。
 
 ### <a name="global-administrator--company-administratorcompany-administrator-permissions"></a>[全域管理員/公司系統管理員](#company-administrator-permissions)
 
@@ -215,7 +218,7 @@ ms.locfileid: "71219346"
 
 ### <a name="helpdesk-administratorhelpdesk-administrator-permissions"></a>[技術服務管理員](#helpdesk-administrator-permissions)
 
-具備此角色的使用者可以變更密碼、讓重新整理權杖失效、管理服務要求，以及監視服務健康情況。 讓重新整理權杖失效會強制使用者重新登入。 技術服務管理員可以重設密碼, 並使非系統管理員的其他使用者重新整理權杖失效, 或只指派下列角色:
+具備此角色的使用者可以變更密碼、讓重新整理權杖失效、管理服務要求，以及監視服務健康情況。 讓重新整理權杖失效會強制使用者重新登入。 技術服務管理員可以重設密碼，並使非系統管理員的其他使用者重新整理權杖失效，或只指派下列角色：
 
 * 目錄讀取者
 * 來賓邀請者
@@ -233,7 +236,7 @@ ms.locfileid: "71219346"
 * 非系統管理員，例如主管、法律顧問和人力資源員工，他們可以存取機密或私人資訊。
 
 > [!NOTE]
-> 將系統管理許可權委派給使用者子集, 並將原則套用到使用者子集, 可以使用[管理單位 (預覽)](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-administrative-units)。
+> 將系統管理許可權委派給使用者子集，並將原則套用到使用者子集，可以使用[管理單位（預覽）](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-administrative-units)。
 >
 > 此角色先前在[Azure 入口網站](https://portal.azure.com/)中稱為「密碼管理員」。 我們已將其名稱變更為「技術服務管理員」，以符合其在 Azure AD PowerShell 中的名稱，Azure AD 圖形 API 和 Microsoft Graph API。
 
@@ -246,7 +249,7 @@ ms.locfileid: "71219346"
 
 ### <a name="kaizala-administratorkaizala-administrator-permissions"></a>[Kaizala 系統管理員](#kaizala-administrator-permissions)
 
-具有此角色的使用者具有全域許可權, 可管理 Microsoft Kaizala 中的設定 (當服務存在時), 以及管理支援票證和監控服務健康情況的能力。 此外, 使用者也可以存取與採用 & 使用 Kaizala by 組織成員和使用 Kaizala 動作產生的商務報表相關的報表。
+具有此角色的使用者具有全域許可權，可管理 Microsoft Kaizala 中的設定（當服務存在時），以及管理支援票證和監控服務健康情況的能力。 此外，使用者也可以存取與採用 & 使用 Kaizala by 組織成員和使用 Kaizala 動作產生的商務報表相關的報表。
 
 ### <a name="license-administratorlicense-administrator-permissions"></a>[授權管理員](#license-administrator-permissions)
 
@@ -254,7 +257,7 @@ ms.locfileid: "71219346"
 
 ### <a name="message-center-privacy-readermessage-center-privacy-reader-permissions"></a>[訊息中心隱私權讀者](#message-center-privacy-reader-permissions)
 
-此角色中的使用者可以監視訊息中心內的所有通知, 包括資料隱私權訊息。 訊息中心隱私權讀者會收到電子郵件通知, 包括資料隱私權的相關資訊, 並可使用訊息中心喜好設定取消訂閱。 只有全域管理員和訊息中心隱私權讀取者可以讀取資料隱私權訊息。 此外, 此角色包含可供您查看群組、網域和訂閱的功能。 此角色沒有任何許可權可查看、建立或管理服務要求。
+此角色中的使用者可以監視訊息中心內的所有通知，包括資料隱私權訊息。 訊息中心隱私權讀者會收到電子郵件通知，包括資料隱私權的相關資訊，並可使用訊息中心喜好設定取消訂閱。 只有全域管理員和訊息中心隱私權讀取者可以讀取資料隱私權訊息。 此外，此角色包含可供您查看群組、網域和訂閱的功能。 此角色沒有任何許可權可查看、建立或管理服務要求。
 
 ### <a name="message-center-readermessage-center-reader-permissions"></a>[訊息中心讀者](#message-center-reader-permissions)
 
@@ -285,26 +288,26 @@ ms.locfileid: "71219346"
 
 ### <a name="privileged-authentication-administratorprivileged-authentication-administrator-permissions"></a>[特殊許可權驗證管理員](#privileged-authentication-administrator-permissions)
 
-具有此角色的使用者可以為所有使用者設定或重設非密碼認證, 包括全域管理員, 而且可以更新所有使用者的密碼。 特殊許可權驗證系統管理員可以強制使用者針對現有的非密碼認證 (例如 MFA、FIDO) 重新註冊, 並撤銷「在裝置上記住 MFA」, 在下次登入所有使用者時提示 MFA。
+具有此角色的使用者可以為所有使用者設定或重設非密碼認證，包括全域管理員，而且可以更新所有使用者的密碼。 特殊許可權驗證系統管理員可以強制使用者針對現有的非密碼認證（例如 MFA、FIDO）重新註冊，並撤銷「在裝置上記住 MFA」，在下次登入所有使用者時提示 MFA。
 
 ### <a name="privileged-role-administratorprivileged-role-administrator-permissions"></a>[特殊許可權角色管理員](#privileged-role-administrator-permissions)
 
-具備此角色的使用者可以管理 Azure Active Directory 中，以及 Azure AD Privileged Identity Management 內的角色指派。 此外, 此角色可讓您管理 Privileged Identity Management 和管理單位的所有層面。
+具備此角色的使用者可以管理 Azure Active Directory 中，以及 Azure AD Privileged Identity Management 內的角色指派。 此外，此角色可讓您管理 Privileged Identity Management 和管理單位的所有層面。
 
 > [!IMPORTANT]
-> 此角色會授與管理所有 Azure AD 角色指派的能力, 包括全域管理員角色。 此角色不包含 Azure AD 中的任何其他特殊權限能力，例如建立或更新使用者。 不過，指派給這個角色的使用者可以藉由指派額外的角色，來授與自己或其他人額外權限。
+> 此角色會授與管理所有 Azure AD 角色指派的能力，包括全域管理員角色。 此角色不包含 Azure AD 中的任何其他特殊權限能力，例如建立或更新使用者。 不過，指派給這個角色的使用者可以藉由指派額外的角色，來授與自己或其他人額外權限。
 
 ### <a name="reports-readerreports-reader-permissions"></a>[報告讀取者](#reports-reader-permissions)
 
-具有此角色的使用者可以在 Microsoft 365 系統管理中心和 Power BI 中的採用內容套件中, 查看使用方式報告資料和報告儀表板。 此外，此角色還可讓使用者存取 Azure AD 中的登入報告與活動，以及 Microsoft Graph 報告 API 所傳回的資料。 獲指派「報告讀者」角色的使用者只能存取相關的使用情況和採用計量。 他們並不具備任何系統管理權限，因此無法進行設定或存取產品特定的系統管理中心 (例如 Exchange)。 這個角色沒有檢視、建立或管理支援票證的存取權。
+具有此角色的使用者可以在 Microsoft 365 系統管理中心和 Power BI 中的採用內容套件中，查看使用方式報告資料和報告儀表板。 此外，此角色還可讓使用者存取 Azure AD 中的登入報告與活動，以及 Microsoft Graph 報告 API 所傳回的資料。 獲指派「報告讀者」角色的使用者只能存取相關的使用情況和採用計量。 他們並不具備任何系統管理權限，因此無法進行設定或存取產品特定的系統管理中心 (例如 Exchange)。 這個角色沒有檢視、建立或管理支援票證的存取權。
 
 ### <a name="search-administratorsearch-administrator-permissions"></a>[搜尋系統管理員](#search-administrator-permissions)
 
-此角色中的使用者具有 Microsoft 365 系統管理中心內所有 Microsoft 搜尋管理功能的完整存取權。 搜尋系統管理員可以將 [搜尋管理員] 和 [搜尋編輯器] 角色委派給使用者, 以及建立和管理內容, 例如書簽、Q & As 和位置。 此外, 這些使用者可以查看訊息中心、監視服務健全狀況, 以及建立服務要求。
+此角色中的使用者具有 Microsoft 365 系統管理中心內所有 Microsoft 搜尋管理功能的完整存取權。 搜尋系統管理員可以將 [搜尋管理員] 和 [搜尋編輯器] 角色委派給使用者，以及建立和管理內容，例如書簽、Q & As 和位置。 此外，這些使用者可以查看訊息中心、監視服務健全狀況，以及建立服務要求。
 
 ### <a name="search-editorsearch-editor-permissions"></a>[搜尋編輯器](#search-editor-permissions)
 
-此角色中的使用者可以在 Microsoft 365 系統管理中心內建立、管理及刪除 Microsoft Search 的內容, 包括書簽、Q & As 和位置。
+此角色中的使用者可以在 Microsoft 365 系統管理中心內建立、管理及刪除 Microsoft Search 的內容，包括書簽、Q & As 和位置。
 
 ### <a name="security-administratorsecurity-administrator-permissions"></a>[安全性系統管理員](#security-administrator-permissions)
 
@@ -325,7 +328,7 @@ Windows Defender ATP 和 EDR | 指派角色<br>管理電腦群組<br>設定端�
 
 ### <a name="security-operatorsecurity-operator-permissions"></a>[安全性運算子](#security-operator-permissions)
 
-具有此角色的使用者可以管理警示, 並具有安全性相關功能的全域唯讀存取權, 包括 Microsoft 365 資訊安全中心、Azure Active Directory、身分識別保護、Privileged Identity Management 和 Office 365 中的所有資訊安全性 & 合規性中心。 關於 Office 365 權限的詳細資訊可在 [Office 365 安全性與法規遵循中心的權限](https://docs.microsoft.com/office365/securitycompliance/permissions-in-the-security-and-compliance-center)中取得。
+具有此角色的使用者可以管理警示，並具有安全性相關功能的全域唯讀存取權，包括 Microsoft 365 資訊安全中心、Azure Active Directory、身分識別保護、Privileged Identity Management 和 Office 365 中的所有資訊安全性 & 合規性中心。 關於 Office 365 權限的詳細資訊可在 [Office 365 安全性與法規遵循中心的權限](https://docs.microsoft.com/office365/securitycompliance/permissions-in-the-security-and-compliance-center)中取得。
 
 在 | 可以執行
 --- | ---
@@ -395,7 +398,7 @@ Windows Defender ATP 和 EDR | 查看和調查警示。 當您在 Windows Defend
 
 ### <a name="user-administratoruser-administrator-permissions"></a>[使用者管理員](#user-administrator-permissions)
 
-具有此角色的使用者可以建立使用者, 以及管理具有一些限制的使用者所有層面 (如下所示), 並可更新密碼到期原則。 此外，具有此角色的使用者可以建立與管理所有群組。 此角色也包含建立和管理使用者檢視、管理支援票證，以及監視服務健康情況的能力。
+具有此角色的使用者可以建立使用者，以及管理具有一些限制的使用者所有層面（如下所示），並可更新密碼到期原則。 此外，具有此角色的使用者可以建立與管理所有群組。 此角色也包含建立和管理使用者檢視、管理支援票證，以及監視服務健康情況的能力。
 
 | | |
 | --- | --- |
@@ -795,7 +798,7 @@ Windows Defender ATP 和 EDR | 查看和調查警示。 當您在 Windows Defend
 
 ### <a name="desktop-analytics-administrator-permissions"></a>電腦分析系統管理員許可權
 
-可以管理電腦分析和 Office 自訂 & 原則服務。 針對電腦分析, 這包括能夠查看資產清查、建立部署計畫、查看部署和健康狀態。 若為 Office 自訂 & 原則服務, 此角色可讓使用者管理 Office 原則。
+可以管理電腦分析和 Office 自訂 & 原則服務。 針對電腦分析，這包括能夠查看資產清查、建立部署計畫、查看部署和健康狀態。 若為 Office 自訂 & 原則服務，此角色可讓使用者管理 Office 原則。
 
 > [!NOTE]
 > 此角色具有 Azure Active Directory 以外的其他權限。 如需詳細資訊，請參閱前述角色說明。
@@ -1202,7 +1205,7 @@ Windows Defender ATP 和 EDR | 查看和調查警示。 當您在 Windows Defend
 
 ### <a name="privileged-authentication-administrator-permissions"></a>特殊許可權驗證管理員許可權
 
-允許針對任何使用者 (管理員或非系統管理員) 來查看、設定及重設驗證方法資訊。
+允許針對任何使用者（管理員或非系統管理員）來查看、設定及重設驗證方法資訊。
 
 | **動作** | **描述** |
 | --- | --- |
@@ -1229,7 +1232,7 @@ Windows Defender ATP 和 EDR | 查看和調查警示。 當您在 Windows Defend
 | microsoft.aad.privilegedIdentityManagement/allEntities/allTasks | 建立和刪除所有資源，以及讀取和更新 microsoft.aad.privilegedIdentityManagement 中的標準屬性。 |
 | microsoft 目錄/servicePrincipals/Serviceprincipals.approleassignedto/allTasks | 讀取和設定 Azure Active Directory 中的 Serviceprincipals.approleassignedto 屬性。 |
 | microsoft 目錄/servicePrincipals/oAuth2PermissionGrants/allTasks | 讀取和設定 Azure Active Directory 中的 oAuth2PermissionGrants 屬性。 |
-| microsoft 目錄/administrativeUnits/allProperties/allTasks | 建立和管理管理單位 (包括成員) |
+| microsoft 目錄/administrativeUnits/allProperties/allTasks | 建立和管理管理單位（包括成員） |
 | microsoft 目錄/roleAssignments/allProperties/allTasks | 建立和管理角色指派。 |
 | microsoft 目錄/roleDefinitions/allProperties/allTasks | 建立和管理角色定義。 |
 
@@ -1261,7 +1264,7 @@ Windows Defender ATP 和 EDR | 查看和調查警示。 當您在 Windows Defend
 | **動作** | **描述** |
 | --- | --- |
 | microsoft.office365.messageCenter/messages/read | 讀取 microsoft.office365.messageCenter 中的訊息。 |
-| microsoft.office365.search/allEntities/allProperties/allTasks | 建立和刪除所有資源, 以及讀取和更新 office365 中的所有屬性。 |
+| microsoft.office365.search/allEntities/allProperties/allTasks | 建立和刪除所有資源，以及讀取和更新 office365 中的所有屬性。 |
 | microsoft.office365.serviceHealth/allEntities/allTasks | 讀取及設定 Office 365 服務健康情況。 |
 | microsoft.office365.supportTickets/allEntities/allTasks | 建立和管理 Office 365 支援票證。 |
 | microsoft.office365.usageReports/allEntities/read | 讀取 Office 365 使用量報告。 |
@@ -1269,7 +1272,7 @@ Windows Defender ATP 和 EDR | 查看和調查警示。 當您在 Windows Defend
 
 ### <a name="search-editor-permissions"></a>搜尋編輯器許可權
 
-可以建立及管理編輯內容, 例如書簽、Q 和 As、位置、floorplan。
+可以建立及管理編輯內容，例如書簽、Q 和 As、位置、floorplan。
 
 > [!NOTE]
 > 此角色具有 Azure Active Directory 以外的其他權限。 如需詳細資訊，請參閱前述角色說明。
@@ -1279,7 +1282,7 @@ Windows Defender ATP 和 EDR | 查看和調查警示。 當您在 Windows Defend
 | **動作** | **描述** |
 | --- | --- |
 | microsoft.office365.messageCenter/messages/read | 讀取 microsoft.office365.messageCenter 中的訊息。 |
-| microsoft.office365.search/content/allProperties/allTasks | 建立和刪除內容, 以及讀取和更新 office365 中的所有屬性。 |
+| microsoft.office365.search/content/allProperties/allTasks | 建立和刪除內容，以及讀取和更新 office365 中的所有屬性。 |
 | microsoft.office365.usageReports/allEntities/read | 讀取 Office 365 使用量報告。 |
 
 ### <a name="security-administrator-permissions"></a>安全性系統管理員許可權

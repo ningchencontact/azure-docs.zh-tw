@@ -5,14 +5,14 @@ services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: conceptual
-ms.date: 09/23/2019
+ms.date: 10/03/2019
 ms.author: helohr
-ms.openlocfilehash: e7f565a995e4c2a5338f08437b0dd336846ba154
-ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
+ms.openlocfilehash: 3a6fb67ce531ed8cc028d2d0a8dfc3022544efe0
+ms.sourcegitcommit: 4f7dce56b6e3e3c901ce91115e0c8b7aab26fb72
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/30/2019
-ms.locfileid: "71679915"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71947574"
 ---
 # <a name="deploy-a-windows-7-virtual-machine-on-windows-virtual-desktop"></a>在 Windows 虛擬桌面上部署 Windows 7 虛擬機器
 
@@ -43,9 +43,15 @@ ms.locfileid: "71679915"
      shutdown /r /t 0
      ```
     
+11. 依照[這裡](https://docs.microsoft.com/powershell/module/windowsvirtualdesktop/export-rdsregistrationinfo)的指示來取得註冊權杖。
+12. [下載適用于 Windows 7 的 Windows 虛擬桌面代理程式](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE3JZCm)。
+13. [下載適用于 Windows 7 的 Windows 虛擬桌面代理程式管理員](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE3K2e3)。
+14. 開啟 Windows 虛擬桌面 Agent 安裝程式，並遵循指示進行。 出現提示時，提供您在步驟11中建立的註冊金鑰。
+15. 開啟 Windows 虛擬桌面安裝程式，並遵循指示進行。
+16. （選擇性）封鎖 TCP/3389 埠，以移除對 VM 的直接遠端桌面通訊協定存取。
+
 ## <a name="next-steps"></a>後續步驟
 
-您的 Windows 7 VM 現在已準備好部署在 Windows 虛擬桌面上。 依照[準備 Windows 虛擬桌面代理程式安裝的虛擬機器](create-host-pools-powershell.md#prepare-the-virtual-machines-for-windows-virtual-desktop-agent-installations)中的指示完成部署。
+您的 Windows 虛擬桌面部署現在已可供使用。 [下載最新版本的 Windows 虛擬桌面用戶端](https://aka.ms/wvd/clients/windows)以開始使用。
 
 如需 Windows 虛擬桌面上 Windows 7 的已知問題和疑難排解指示清單，請參閱疑難排解[Windows 虛擬桌面中的 windows 7 虛擬機器](troubleshoot-windows-7-vm.md)疑難排解一文。
-

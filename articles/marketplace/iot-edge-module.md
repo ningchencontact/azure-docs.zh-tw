@@ -8,12 +8,12 @@ ms.service: marketplace
 ms.topic: article
 ms.date: 09/22/2018
 ms.author: pabutler
-ms.openlocfilehash: 3010b63c7c4c575d915789c19b60710194c79196
-ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
+ms.openlocfilehash: 54369e0f2c943c146d186605833198253b960022
+ms.sourcegitcommit: 4f7dce56b6e3e3c901ce91115e0c8b7aab26fb72
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "67874676"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71949532"
 ---
 # <a name="iot-edge-modules"></a>IoT Edge 模組
 
@@ -45,11 +45,11 @@ IoT Edge 模組只會發佈至 Azure Marketplace，AppSource 則不適用。  �
  
 **帳單選項**
 
-Marketplace 目前針對 IoT Edge 模組支援 [免費]  和 [自備授權 (BYOL)]  計費選項。
+Marketplace 目前針對 IoT Edge 模組支援 [免費] 和 [自備授權 (BYOL)] 計費選項。
  
 **發佈選項**
 
-在所有情況下，IoT Edge 模組都應該選取 [交易]  發佈選項。  如需有關發佈選項的更多詳細資料，請參閱[選擇發佈選項](https://docs.microsoft.com/azure/marketplace/determine-your-listing-type)。  
+在所有情況下，IoT Edge 模組都應該選取 [交易] 發佈選項。  如需有關發佈選項的更多詳細資料，請參閱[選擇發佈選項](https://docs.microsoft.com/azure/marketplace/determine-your-listing-type)。  
 
 ## <a name="eligibility-criteria"></a>適用性準則
 
@@ -82,9 +82,7 @@ Marketplace 目前針對 IoT Edge 模組支援 [免費]  和 [自備授權 (BYOL
 
 如果您還沒有這麼做，請
 
-- 在 [Microsoft 合作夥伴網路](https://partner.microsoft.com/membership)中註冊。
-- 建立 [Microsoft 帳戶](https://account.microsoft.com/account/)(對 Azure Marketplace 交易供應項目而言為必要步驟；對其他項目則為建議步驟)。
-- 提交 [Marketplace 註冊表單](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/azureisv)。 如需詳細資訊, 請參閱如何[建立合作夥伴中心帳戶](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account)。
+- 在市集中[註冊](https://azuremarketplace.microsoft.com/sell)。
 
 如果您已註冊，且要建立新供應項目或使用現有供應項目，請
 

@@ -5,14 +5,14 @@ services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: conceptual
-ms.date: 09/30/2019
+ms.date: 10/03/2019
 ms.author: cherylmc
-ms.openlocfilehash: 72493f084b89d41c1e0d6ff60c35afa3491b0eda
-ms.sourcegitcommit: 6fe40d080bd1561286093b488609590ba355c261
+ms.openlocfilehash: 430d90b2b372602072527c49796244c503778a3b
+ms.sourcegitcommit: 7868d1c40f6feb1abcafbffcddca952438a3472d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/01/2019
-ms.locfileid: "71703449"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71959015"
 ---
 # <a name="virtual-wan-partners"></a>虛擬 WAN 夥伴
 
@@ -23,7 +23,7 @@ ms.locfileid: "71703449"
 ## <a name ="before"></a>開始自動化之前
 
 * 請確認您的裝置支援 IPsec IKEv1/IKEv2。 請參閱[預設原則](#default)。
-* 請參閱 [REST API](https://docs.microsoft.com/rest/api/azure/)，您將使用它來自動化 Azure 虛擬 WAN 的連線。
+* 查看您用來自動連線到 Azure 虛擬 WAN 的[REST api](#additional) 。
 * 測試 Azure 虛擬 WAN 的入口網站體驗。
 * 然後，決定要自動化哪些建立連線的步驟。 至少，我們建議自動化以下項目：
 
@@ -31,7 +31,16 @@ ms.locfileid: "71703449"
   * 將分支裝置資訊上傳到 Azure 虛擬 WAN
   * 下載 Azure 設定，並設定從分支裝置到 Azure 虛擬 WAN 的連線
 
-* 了解搭配 Azure 虛擬 WAN 可能產生的客戶體驗。
+### <a name ="additional"></a>其他資訊
+
+* [REST API](https://docs.microsoft.com/rest/api/virtualwan/virtualhubs)自動建立虛擬中樞
+* 為虛擬 WAN 自動化 Azure VPN 閘道的[REST API](https://docs.microsoft.com/rest/api/virtualwan/vpngateways)
+* [REST API](https://docs.microsoft.com/rest/api/virtualwan/vpnconnections)將 VPNSite 連線到 Azure VPN 中樞
+* [預設 IPsec 原則](#default)
+
+## <a name ="ae"></a>客戶體驗
+
+了解搭配 Azure 虛擬 WAN 可能產生的客戶體驗。
 
   1. 一般來說，虛擬 WAN 使用者將從建立虛擬 WAN 資源開始這個程序。
   2. 使用者會為內部部署系統 (您的分支控制器或 VPN 裝置佈建軟體) 設定以服務主體為基礎的資源群組，以將分支資訊寫入 Azure 虛擬 WAN。
@@ -41,8 +50,7 @@ ms.locfileid: "71703449"
   6. 解決方案中這個步驟接近完成時，使用者將會擁有在分支裝置與虛擬中樞順暢建立站對站連線的體驗。 您也可以對其他中樞設定額外的連線。 每個連線是主動-主動通道。 您的客戶可以選擇針對每個通道的連結使用不同的 ISP。
   7. 請考慮在 CPE 管理介面中提供疑難排解和監視功能。 一般案例包括「客戶無法存取 Azure 資源，因為 CPE 問題」、「在 CPE 端顯示 IPsec 參數」等等。
 
-## <a name ="understand"></a>了解自動化詳細資料
-
+## <a name ="understand"></a>自動化詳細資料
 
 ###  <a name="access"></a>存取控制
 
@@ -55,19 +63,18 @@ ms.locfileid: "71703449"
 
 ###  <a name="branch"></a>上傳分支裝置資訊
 
-設計上傳分支 (內部部署網站) 資訊到 Azure 的使用者體驗。 VPNSite 的 [REST API](https://docs.microsoft.com/rest/api/virtualwan/vpnsites) 可以用於在虛擬 WAN 中建立網站資訊。 您可以提供所有分支 SDWAN/VPN 裝置，或選取適當的裝置自訂。
-
+您應該設計使用者體驗，將分支（內部部署網站）資訊上傳至 Azure。 您可以使用適用于 VPNSite 的[REST api](https://docs.microsoft.com/rest/api/virtualwan/vpnsites) ，在虛擬 WAN 中建立網站資訊。 您可以提供所有分支 SDWAN/VPN 裝置，或選取適當的裝置自訂。
 
 ### <a name="device"></a>裝置設定下載和連線
 
-這個步驟涉及下載 Azure 設定，並設定從分支裝置到 Azure 虛擬 WAN 的連線。 在此步驟中，未使用提供者的客戶將手動下載 Azure 設定，並將之套用到內部部署的 SDWAN/VPN 裝置。 身為提供者，您應該將這個步驟自動化。 裝置控制器可以呼叫 'GetVpnConfiguration' REST API 來下載看起來類似下列檔案的 Azure 設定。
+這個步驟涉及下載 Azure 設定，並設定從分支裝置到 Azure 虛擬 WAN 的連線。 在此步驟中，未使用提供者的客戶將手動下載 Azure 設定，並將之套用到內部部署的 SDWAN/VPN 裝置。 身為提供者，您應該將這個步驟自動化。 如需其他資訊，請參閱下載[REST api](https://docs.microsoft.com/rest/api/virtualwan/vpnsitesconfiguration/download) 。 裝置控制器可以呼叫 ' GetVpnConfiguration ' REST API 來下載 Azure 設定。
 
 **設定注意事項**
 
   * 如果 Azure VNet 是附加到虛擬中樞，便會顯示為 ConnectedSubnets。
   * VPN 連線會使用路由式設定，並同時支援 IKEv1 和 IKEv2 通訊協定。
 
-#### <a name="understanding-the-device-configuration-file"></a>了解裝置設定檔
+## <a name="devicefile"></a>裝置設定檔
 
 裝置設定檔包含了設定內部部署 VPN 裝置時所要使用的設定。 當您檢視此檔案時，請注意下列資訊：
 
@@ -92,7 +99,7 @@ ms.locfileid: "71703449"
         ```
     * **Vpngateway 連線設定詳細資料**，例如 BGP、預先共用金鑰等等。PSK 是自動為您產生的預先共用金鑰。 您隨時都可以在自訂 PSK 的 [概觀] 頁面中編輯連線。
   
-#### <a name="example-device-configuration-file"></a>範例裝置設定檔
+**範例裝置設定檔**
 
   ```
   { 
@@ -197,11 +204,7 @@ ms.locfileid: "71703449"
    }
   ```
 
-## <a name="default"></a>IPsec 連線的預設原則
-
-[!INCLUDE [IPsec](../../includes/virtual-wan-ipsec-include.md)]
-
-### <a name="does-everything-need-to-match-between-the-virtual-hub-vpngateway-policy-and-my-on-premises-sdwanvpn-device-or-sd-wan-configuration"></a>虛擬中樞 vpngateway 原則和我的內部部署 SDWAN/VPN 裝置或 SD-WAN 設定之間的所有項目都必須相符嗎？
+## <a name="default"></a>連線詳細資料
 
 您的內部部署 SDWAN/VPN 裝置或 SD-WAN 設定必須符合或包含以下您在 Azure IPsec/IKE 原則中指定的演算法和參數。
 
@@ -211,6 +214,12 @@ ms.locfileid: "71703449"
 * IPsec 加密演算法
 * IPsec 完整性演算法
 * PFS 群組
+
+### <a name="default"></a>IPsec 連線的預設原則 
+
+使用預設原則時，在 IPsec 通道設定期間，Azure 可以同時做為啟動器和回應者。 不支援 Azure 做為回應者。
+
+[!INCLUDE [IPsec](../../includes/virtual-wan-ipsec-include.md)]
 
 ## <a name="next-steps"></a>後續步驟
 

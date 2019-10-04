@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 5/1/2019
 ms.author: alsin
-ms.openlocfilehash: ebf7b712dda19b396b044235bf194a5dd402ffac
-ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
+ms.openlocfilehash: 9fbe6768014550a3746085406e9039e83185c20f
+ms.sourcegitcommit: 4f7dce56b6e3e3c901ce91115e0c8b7aab26fb72
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/14/2019
-ms.locfileid: "70996427"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71949692"
 ---
 # <a name="azure-serial-console-for-windows"></a>適用于 Windows 的 Azure 序列主控台
 
@@ -104,7 +104,7 @@ Azure 上較新的 Windows Server 映射預設會啟用[特別的管理主控台
 
 1.  輸入 `cmd` 來建立具有 CMD 執行個體的通道。
 
-1.  輸入`ch -si 1`或按`<esc>+<tab>`快速鍵，切換至執行 CMD 實例的通道。
+1.  輸入 `ch -si 1`，或按 `<esc>+<tab>` 快速鍵，切換至執行 CMD 實例的通道。
 
 1.  按 **Enter** 鍵，然後輸入具有系統管理權限的登入認證。
 
@@ -124,7 +124,7 @@ Azure 上較新的 Windows Server 映射預設會啟用[特別的管理主控台
 如需有關將 Windows 設定成在收到 NMI 時建立損毀傾印的資訊，請參閱：[如何使用 NMI 來產生損毀傾印檔案](https://support.microsoft.com/help/927069/how-to-generate-a-complete-crash-dump-file-or-a-kernel-crash-dump-file) \(機器翻譯\)。
 
 ### <a name="use-function-keys-in-serial-console"></a>在序列主控台中使用功能鍵
-系統會啟用功能鍵供 Windows VM 中的序列主控台使用。 序列主控台下拉式清單中的 F8 提供方便進入 [進階開機設定] 功能表的簡單方式，但序列主控台與所有其他功能鍵相容。 視您使用序列主控台的電腦而定，您可能需要按下鍵盤上的**Fn**  +  **F1** （或 F2、F3 等等）。
+系統會啟用功能鍵供 Windows VM 中的序列主控台使用。 序列主控台下拉式清單中的 F8 提供方便進入 [進階開機設定] 功能表的簡單方式，但序列主控台與所有其他功能鍵相容。 視您使用序列主控台的電腦而定，您可能需要按下鍵盤上的**Fn** + **F1** （或 F2、F3 等等）。
 
 ### <a name="use-wsl-in-serial-console"></a>在序列主控台中使用 WSL
 Windows Server 2019 或更新版本已支援適用於 Linux 的 Windows 子系統 (WSL)，所以如果您是執行 Windows Server 2019 或更新版本，也可以啟用 WSL 以在序列主控台內使用。 這對已經熟悉 Linux 命令使用者來說可能有許多好處。 若要啟用 Windows Server 的 WSL，請參閱[安裝指南](https://docs.microsoft.com/windows/wsl/install-on-server)。
@@ -179,7 +179,7 @@ RDP 設定問題 | 存取序列主控台，然後變更設定。 如需詳細資
 與開機載入器互動 | 透過序列主控台存取 BCD。 如需資訊，請參閱[啟用序列主控台中的 Windows 開機功能表](#enable-the-windows-boot-menu-in-the-serial-console)。
 
 ## <a name="known-issues"></a>已知問題
-我們已了解序列主控台的一些問題。 以下是這些問題的清單，以及減輕其影響的步驟。 這些問題和緩和措施適用于 Vm 和虛擬機器擴展集實例。
+我們注意到序列主控台和 VM 的作業系統有一些問題。 以下是這些問題的清單，以及 Windows Vm 的緩和措施步驟。 這些問題和緩和措施適用于 Vm 和虛擬機器擴展集實例。 如果這些不符合您所看到的錯誤，請[參閱常見的](./serial-console-errors.md)序列主控台服務錯誤。
 
 問題                             |   風險降低
 :---------------------------------|:--------------------------------------------|
@@ -189,8 +189,6 @@ RDP 設定問題 | 存取序列主控台，然後變更設定。 如需詳細資
 在 SAC 中貼到 PowerShell 中時，如果原始內容中有重複字元，就會產生第三個字元。 | 因應措施是執行 `Remove-Module PSReadLine` 從目前的工作階段中卸載 PSReadLine 模組。 此動作不會刪除或解除安裝模組。
 某些鍵盤輸入會產生奇怪的 SAC 輸出 (例如 **[A**、 **[3~** )。 | SAC 提示字元不支援 [VT100](https://aka.ms/vtsequences) 逸出序列。
 貼上長字串沒有作用。 | 序列主控台會將貼上至終端機的字串長度限制為 2048 個字元，以防止多載序列連接埠頻寬。
-序列主控台無法搭配使用具有階層命名空間之 Azure Data Lake Storage Gen2 的儲存體帳戶使用。 | 這是階層命名空間的已知問題。 若要減輕問題，請確定您的 VM 開機診斷儲存體帳戶不是使用 Azure Data Lake Storage Gen2 建立的。 只有在建立儲存體帳戶時，才能設定此選項。 您可能必須在未啟用 Azure Data Lake Storage Gen2 的情況下，建立個別的開機診斷儲存體帳戶來減輕此問題。
-
 
 ## <a name="frequently-asked-questions"></a>常見問題集
 

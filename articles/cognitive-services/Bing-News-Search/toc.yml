@@ -49,8 +49,8 @@
     - name: 處理命中結果醒目提示
       href: ../Bing-Web-Search/hit-highlighting.md
       maintainContext: true
-    - name: 頁面最新消息
-      href: paging-news.md
+    - name: 逐頁檢視搜尋結果
+      href: ../Bing-Web-Search/paging-search-results.md
     - name: 調整大小和裁剪縮圖
       maintainContext: true
       href: ../bing-web-search/resize-and-crop-thumbnails.md

@@ -4,14 +4,14 @@ description: 描述如何解決資源群組歷程記錄中有超過800個部署�
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: troubleshooting
-ms.date: 10/02/2019
+ms.date: 10/04/2019
 ms.author: tomfitz
-ms.openlocfilehash: 755383c9d40c104d50ad9bb7a31b3a00f8348313
-ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
+ms.openlocfilehash: 5bbb686597850aaceff3d3b5c142b0cb1fb0eefd
+ms.sourcegitcommit: 4d177e6d273bba8af03a00e8bb9fe51a447196d0
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71827023"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71959644"
 ---
 # <a name="resolve-error-when-deployment-count-exceeds-800"></a>解決部署計數超過800的錯誤
 
@@ -31,6 +31,18 @@ ms.locfileid: "71827023"
 az group deployment delete --resource-group exampleGroup --name deploymentName
 ```
 
+若要刪除5天之前的所有部署，請使用：
+
+```azurecli-interactive
+startdate=$(date +%F -d "-5days")
+deployments=$(az group deployment list --resource-group exampleGroup --query "[?properties.timestamp>'$startdate'].name" --output tsv)
+
+for deployment in $deployments
+do
+  az group deployment delete --resource-group exampleGroup --name $deployment
+done
+```
+
 您可以使用下列命令取得部署歷程記錄中的目前計數：
 
 ```azurecli-interactive
@@ -43,6 +55,16 @@ az group deployment list --resource-group exampleGroup --query "length(@)"
 
 ```azurepowershell-interactive
 Remove-AzResourceGroupDeployment -ResourceGroupName exampleGroup -Name deploymentName
+```
+
+若要刪除5天之前的所有部署，請使用：
+
+```azurepowershell-interactive
+$deployments = Get-AzResourceGroupDeployment -ResourceGroupName exampleGroup | Where-Object Timestamp -gt ((Get-Date).AddDays(-5))
+
+foreach ($deployment in $deployments) {
+  Remove-AzResourceGroupDeployment -ResourceGroupName exampleGroup -Name $deployment.DeploymentName
+}
 ```
 
 您可以使用下列命令取得部署歷程記錄中的目前計數：

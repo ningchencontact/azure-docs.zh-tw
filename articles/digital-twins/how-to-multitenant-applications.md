@@ -1,19 +1,19 @@
 ---
 title: 使用 Azure Digital Twins 啟用多租用戶應用程式 | Microsoft Docs
 description: 如何為 Azure Digital Twins 設定多租用戶 Azure Active Directory 應用程式。
-author: mavoge
+ms.author: alinast
+author: alinamstanciu
 manager: bertvanhoof
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 08/12/2019
-ms.author: mavoge
-ms.openlocfilehash: 2ee3681640f68839c32e2963b34d5547abb6943b
-ms.sourcegitcommit: 62bd5acd62418518d5991b73a16dca61d7430634
+ms.date: 10/02/2019
+ms.openlocfilehash: 070b04b27982b84f101ee4d6f85f4e5b82760092
+ms.sourcegitcommit: 7868d1c40f6feb1abcafbffcddca952438a3472d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68976888"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71958807"
 ---
 # <a name="enable-multitenant-applications-with-azure-digital-twins"></a>使用 Azure Digital Twins 啟用多租用戶應用程式
 
@@ -57,20 +57,16 @@ ms.locfileid: "68976888"
   1. 開啟 [訂用帳戶]。
   1. 選取有要用於**開發人員**之應用程式的 Azure Active Directory 租用戶的訂用帳戶。
 
-     ![Azure Active Directory 訂用帳戶][1]
+     [@no__t 1Azure Active Directory 訂閱](media/multitenant/ad-subscriptions.png)](media/multitenant/ad-subscriptions.png#lightbox)
 
   1. 選取 [資源提供者]。
   1. 搜尋 **Microsoft.IoTSpaces**。
   1. 選取 [註冊]。
 
-     ![Azure Active Directory 資源提供者][2]
+     [@no__t 1Azure Active Directory 資源提供者](media/multitenant/ad-resource-providers.png)](media/multitenant/ad-resource-providers.png#lightbox)
   
 ## <a name="next-steps"></a>後續步驟
 
 - 若要深入了解如何使用 Azure Digital Twins 的使用者定義函式，請閱讀[如何建立 Azure Digital Twins 使用者定義函數](./how-to-user-defined-functions.md)。
 
 - 若要了解如何使用角色型存取控制進一步保護具有角色指派的應用程式，請參閱[如何建立及管理 Azure Digital Twins 的角色型存取控制](./security-create-manage-role-assignments.md)。
-
-<!-- Images -->
-[1]: media/multitenant/ad-subscriptions.png
-[2]: media/multitenant/ad-resource-providers.png

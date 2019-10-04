@@ -10,12 +10,12 @@ ms.subservice: development
 ms.date: 09/05/2019
 ms.author: xiaoyul
 ms.reviewer: nibruno; jrasnick
-ms.openlocfilehash: 7adf43110cffdc669b39632521c69ed5d3723257
-ms.sourcegitcommit: 15e3bfbde9d0d7ad00b5d186867ec933c60cebe6
-ms.translationtype: HT
+ms.openlocfilehash: ca0ac228bfe10992b658796d123c8dfbed74947f
+ms.sourcegitcommit: 4f7dce56b6e3e3c901ce91115e0c8b7aab26fb72
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/03/2019
-ms.locfileid: "71845722"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71948170"
 ---
 # <a name="performance-tuning-with-ordered-clustered-columnstore-index"></a>使用已排序叢集資料行存放區索引的效能微調  
 
@@ -44,6 +44,43 @@ ORDER BY o.name, pnp.distribution_id, cls.min_data_id
 
 > [!NOTE] 
 > 在已排序的 CCI 資料表中，不會自動排序 DML 或資料載入作業所產生的新資料。  使用者可以重建已排序的 CCI，以排序資料表中的所有資料。  
+
+## <a name="query-performance"></a>查詢效能
+
+排序的 CCI 中的查詢效能提升取決於查詢模式、資料大小、資料的排序程度、區段的實體結構，以及為查詢執行所選擇的 DWU 和資源類別。  在設計已排序的 CCI 資料表時，使用者應該先檢查所有這些因素，再選擇排序資料行。
+
+具有上述所有模式的查詢通常會以排序的 CCI 更快速執行。  
+1. 查詢具有相等、不相等或範圍述詞
+1. 述詞資料行和已排序的 CCI 資料行相同。  
+1. 述詞資料行的使用順序與已排序之 CCI 資料行的資料行序數相同。  
+ 
+在此範例中，資料表 T1 具有以 Col_C、Col_B 和 Col_A 順序排序的叢集資料行存放區索引。
+
+```sql
+
+CREATE CLUSTERED COLUMNSTORE INDEX MyOrderedCCI ON  T1
+ORDER (Col_C, Col_B, Col_A)
+
+```
+
+查詢1的效能比其他3個查詢更能受益于已排序的 CCI。 
+
+```sql
+-- Query #1: 
+
+SELECT * FROM T1 WHERE Col_C = 'c' AND Col_B = 'b' AND Col_A = 'a';
+
+-- Query #2
+
+SELECT * FROM T1 WHERE Col_B = 'b' AND Col_C = 'c' AND Col_A = 'a';
+
+-- Query #3
+SELECT * FROM T1 WHERE Col_B = 'b' AND Col_A = 'a';
+
+-- Query #4
+SELECT * FROM T1 WHERE Col_A = 'a' AND Col_C = 'c';
+
+```
 
 ## <a name="data-loading-performance"></a>資料載入效能
 
@@ -93,7 +130,7 @@ JOIN sys.columns c ON i.object_id = c.object_id AND c.column_id = i.column_id
 WHERE column_store_order_ordinal <>0
 ```
 
-**B.若要變更資料行序數，請在訂單清單中加入或移除資料行，或從 CCI 變更為已排序的 CCI：**
+**B.若要變更資料行序數，請在訂單清單中新增或移除資料行，或從 CCI 變更為已排序的 CCI：**
 ```sql
 CREATE CLUSTERED COLUMNSTORE INDEX InternetSales ON  InternetSales
 ORDER (ProductKey, SalesAmount)

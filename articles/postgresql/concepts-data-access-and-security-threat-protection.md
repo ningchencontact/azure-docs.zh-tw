@@ -1,26 +1,26 @@
 ---
-title: 進階的威脅防護-適用於 PostgreSQL 的 Azure 資料庫-單一伺服器
-description: 「進階威脅防護」會偵測出暗示對資料庫有潛在安全性威脅的異常資料庫活動。
+title: 先進的威脅防護概念-適用於 PostgreSQL 的 Azure 資料庫-單一伺服器
+description: 瞭解如何使用 Advanced 威脅防護來偵測異常資料庫活動，指出資料庫有潛在的安全性威脅。
 author: bolzmj
 ms.author: mbolz
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 5/6/2019
-ms.openlocfilehash: 81f42183276f95ddfb24fbdc388fef59acbe680e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 61c0e666458018d4e03d5560e417d28d0efadb27
+ms.sourcegitcommit: 4f7dce56b6e3e3c901ce91115e0c8b7aab26fb72
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65073532"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71950086"
 ---
-# <a name="advanced-threat-protection-in-azure-database-for-postgresql---single-server"></a>適用於 PostgreSQL-單一伺服器的 Azure 資料庫中的進階的威脅防護
+# <a name="advanced-threat-protection-in-azure-database-for-postgresql---single-server"></a>適用於 PostgreSQL 的 Azure 資料庫中的先進威脅防護-單一伺服器
 
 適用於 PostgreSQL 的 Azure 資料庫進階威脅防護偵測到異常活動，指出有不尋常及可能有害的活動試圖存取或惡意探索資料庫。
 
 > [!NOTE]
-> 進階的威脅防護處於公開預覽狀態。
+> 先進的威脅防護處於公開預覽狀態。
 
-「威脅防護」是「進階威脅防護」(ATP) 供應項目 (一個整合的進階安全性功能套件) 的一部分。 可存取及管理透過進階的威脅防護[Azure 入口網站](https://portal.azure.com)或使用[REST API](/rest/api/postgresql/serversecurityalertpolicies)。 此功能是適用於一般用途和記憶體最佳化的伺服器。
+「威脅防護」是「進階威脅防護」(ATP) 供應項目 (一個整合的進階安全性功能套件) 的一部分。 您可以透過[Azure 入口網站](https://portal.azure.com)或使用[REST API](/rest/api/postgresql/serversecurityalertpolicies)來存取和管理「先進的威脅防護」。 這項功能適用于一般用途和記憶體優化的伺服器。
 
 > [!NOTE]
 > 進階威脅防護功能**不**適用於下列 Azure 政府和主權雲端區域：US Gov 德克薩斯州、US Gov 亞利桑那州、US Gov 愛荷華州、US DoD 東部、US DoD 中部、德國中部、德國北部、中國東部、中國東部 2。 如需一般產品可用性，請瀏覽[依區域提供的產品](https://azure.microsoft.com/global-infrastructure/services/)。

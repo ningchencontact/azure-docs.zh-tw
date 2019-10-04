@@ -3,7 +3,7 @@ title: 個人化工具文件
 summary: 了解如何使用個人化工具，讓您的應用程式選擇最佳體驗來對使用者展現，進而從其即時行為中學習。
 metadata:
   ms.topic: landing-page
-  ms.date: 09/10/2019
+  ms.date: 10/03/2019
   ms.author: nitinme
   author: nitinme
   ms.service: cognitive-services
@@ -12,12 +12,12 @@ metadata:
   title: 個人化工具文件
   titleSuffix: Azure Cognitive Services
   description: Azure 個人化工具是雲端式 API 服務，可讓您選擇最佳體驗來對使用者展現，進而從其即時行為中學習。
-  ms.openlocfilehash: fd1b4a7c093beeb8d33579accee9178744b6fe50
-  ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
+  ms.openlocfilehash: f3ba5f5eef7885896d774fd8aab35784cfb6465e
+  ms.sourcegitcommit: 4f7dce56b6e3e3c901ce91115e0c8b7aab26fb72
   ms.translationtype: HT
   ms.contentlocale: zh-TW
-  ms.lasthandoff: 09/11/2019
-  ms.locfileid: "70882893"
+  ms.lasthandoff: 10/04/2019
+  ms.locfileid: "71950048"
 landingContent:
 - title: 關於個人化工具
   linkLists:
@@ -25,6 +25,10 @@ landingContent:
     links:
     - text: 什麼是個人化工具？
       url: what-is-personalizer.md
+  - linkListType: whats-new
+    links:
+    - text: 新功能
+      url: whats-new.md
   - linkListType: concept
     links:
     - text: 個人化工具的運作方式

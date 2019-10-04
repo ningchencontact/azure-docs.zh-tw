@@ -60,8 +60,9 @@
     - name: 處理命中結果醒目提示
       href: ../Bing-Web-Search/hit-highlighting.md
       maintainContext: true
-    - name: 逐頁檢視網頁
-      href: page-webpages.md
+    - name: 逐頁檢視搜尋結果
+      href: ../Bing-Web-Search/paging-search-results.md
+      maintainContext: true
 - name: 參考
   items:
     - name: Bing 自訂自動建議 API 參考

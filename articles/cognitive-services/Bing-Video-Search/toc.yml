@@ -50,7 +50,8 @@
     - name: 取得發燒影片
       href: trending-videos.md
     - name: 頁面影片
-      href: paging-videos.md
+      maintainContext: true
+      href: ../Bing-Web-Search/paging-search-results.md
     - name: 調整大小和裁剪縮圖
       maintainContext: true
       href: ../bing-web-search/resize-and-crop-thumbnails.md

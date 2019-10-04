@@ -6,14 +6,14 @@ manager: nitinme
 services: search
 ms.service: search
 ms.topic: conceptual
-ms.date: 07/01/2019
+ms.date: 10/03/2019
 ms.author: heidist
-ms.openlocfilehash: fd65bb134d9057246a1b8c5cc2986e979713d20b
-ms.sourcegitcommit: e9936171586b8d04b67457789ae7d530ec8deebe
+ms.openlocfilehash: 2d3b74476def5bdf46a6292996f0af9162b20b43
+ms.sourcegitcommit: 4f7dce56b6e3e3c901ce91115e0c8b7aab26fb72
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71327152"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71947786"
 ---
 # <a name="service-limits-in-azure-search"></a>Azure 搜尋中的服務限制
 儲存體、工作負載的最大限制，以及索引、檔和其他物件的數量上限，取決於您是否**在免費**、**基本**、**標準**或**儲存體優化**定價層布建[Azure 搜尋服務](search-create-service-portal.md)。
@@ -84,7 +84,7 @@ ms.locfileid: "71327152"
 
 |  免費 | 基本 | S1 | S2 | S3 | S3&nbsp;HD |
 |-------|-------|----|----|----|-------|
-|  10,000 |1&nbsp;百萬 |每個分割區 1500 萬個或每個服務 1 億 8 千萬個 |每個分割區 6000 萬個或每個服務 7 億 2 千萬個 |每個分割區 1 億 2 千萬個或每個服務 14 億個 |每個索引 1 百萬個或每個分割區 2 億個 |
+|  10,000 |1 @ no__t-0million |每個分割區 1500 萬個或每個服務 1 億 8 千萬個 |每個分割區 6000 萬個或每個服務 7 億 2 千萬個 |每個分割區 1 億 2 千萬個或每個服務 14 億個 |每個索引 1 百萬個或每個分割區 2 億個 |
 
 如果您的服務具有封鎖您的限制，請建立新的服務，然後將所有內容重新發佈至該服務。 沒有任何機制可以在幕後順暢地將您的服務重新佈建到新硬體上。
 
@@ -115,7 +115,7 @@ ms.locfileid: "71327152"
 | 執行時間上限 <sup>5</sup> | 1-3 分鐘 |24 小時 |24 小時 |24 小時 |24 小時 |N/A  |24 小時 |24 小時 |
 | 影像分析的認知搜尋技能集或 Blob 索引適用的執行時間上限 <sup>5</sup> | 3-10 分鐘 |2 小時 |2 小時 |2 小時 |2 小時 |N/A  |2 小時 |2 小時 |
 | Blob 索引子︰Blob 大小上限，MB |16 |16 |128 |256 |256 |N/A  |256 |256 |
-| Blob 索引子︰從 Blob 擷取的內容字元數上限 |32,000 |64,000 |4&nbsp;百萬 |4&nbsp;百萬 |4&nbsp;百萬 |N/A |4&nbsp;百萬 |4&nbsp;百萬 |
+| Blob 索引子︰從 Blob 擷取的內容字元數上限 |32,000 |64,000 |4 @ no__t-0million |4 @ no__t-0million |4 @ no__t-0million |N/A |4 @ no__t-0million |4 @ no__t-0million |
 
 <sup>1</sup> 免費服務有索引子執行時間上限，針對 Blob 來源為 3 分鐘，針對其他所有資料來源為 1 分鐘。 對於呼叫認知服務的 AI 索引，免費服務限制為每天20個免費交易，其中的交易會定義為成功通過擴充管線的檔。
 
@@ -146,7 +146,19 @@ ms.locfileid: "71327152"
 
 ## <a name="data-limits-cognitive-search"></a>資料限制 (認知搜尋)
 
-對「文字分析」發出呼叫以進行[實體辨識](cognitive-search-skill-entity-recognition.md)、[關鍵片語擷取](cognitive-search-skill-keyphrases.md)、[情感分析](cognitive-search-skill-sentiment.md)及[語言偵測](cognitive-search-skill-language-detection.md)的[認知搜尋管線](cognitive-search-concept-intro.md)會受到資料限制約束。 記錄的大小上限應為50000個字元，如所測量[`String.Length`](https://docs.microsoft.com/dotnet/api/system.string.length)。 如果您需要先分割資料，再將該資料傳送至情感分析器，請使用[文字分割技能](cognitive-search-skill-textsplit.md)。
+對「文字分析」發出呼叫以進行[實體辨識](cognitive-search-skill-entity-recognition.md)、[關鍵片語擷取](cognitive-search-skill-keyphrases.md)、[情感分析](cognitive-search-skill-sentiment.md)及[語言偵測](cognitive-search-skill-language-detection.md)的[認知搜尋管線](cognitive-search-concept-intro.md)會受到資料限制約束。 記錄的大小上限應為50000個字元，如[`String.Length`](https://docs.microsoft.com/dotnet/api/system.string.length)所測量。 如果您需要先分割資料，再將該資料傳送至情感分析器，請使用[文字分割技能](cognitive-search-skill-textsplit.md)。
+
+## <a name="throttling-limits"></a>節流限制
+
+搜尋查詢和索引編制要求會因為系統接近尖峰容量而受到節流。 不同 Api 的節流行為不同。 查詢 Api （搜尋/建議/自動完成）和根據服務的負載動態地建立 Api 節流。 索引 Api 具有靜態要求速率限制。 
+
+與索引相關之作業的靜態速率要求限制：
+
++ 列出索引（GET/indexes）：每個搜尋單位每秒5個
++ 取得索引（GET/indexes/myindex）：每個搜尋單位每秒10次
++ 建立索引（POST/indexes）：每個搜尋單位12每分鐘
++ 建立或更新索引（PUT/indexes/myindex）：每個搜尋單位每秒6個
++ 刪除索引（刪除/indexes/myindex）：每個搜尋單位12每分鐘 
 
 ## <a name="api-request-limits"></a>API 要求限制
 * 每個要求最多 16 MB <sup>1</sup>

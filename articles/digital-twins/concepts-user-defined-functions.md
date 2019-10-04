@@ -1,19 +1,19 @@
 ---
-title: Azure Digital Twins 的資料處理和使用者定義函式 | Microsoft Docs
+title: 資料處理和使用者定義函數-Azure 數位 Twins |Microsoft Docs
 description: Azure Digital Twins 的資料處理、比對器和使用者定義函式的概觀。
+ms.author: alinast
 author: alinamstanciu
 manager: bertvanhoof
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
 ms.date: 09/17/2019
-ms.author: alinast
-ms.openlocfilehash: 07facf06702a63df8ea93d43b9896b72322b209f
-ms.sourcegitcommit: 83df2aed7cafb493b36d93b1699d24f36c1daa45
+ms.openlocfilehash: b8ea5c54afd4b1e2c212422417688e528367d44f
+ms.sourcegitcommit: 4f7dce56b6e3e3c901ce91115e0c8b7aab26fb72
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/22/2019
-ms.locfileid: "71178260"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71949978"
 ---
 # <a name="data-processing-and-user-defined-functions"></a>資料處理與各項使用者定義功能
 
@@ -23,7 +23,7 @@ Azure Digital Twins 提供進階計算功能。 開發人員可定義自訂函�
 
 裝置將遙測資料傳送至 Azure Digital Twins 後，開發人員可依四階段處理資料：*驗證*、*比對*、*計算*和*分派*。
 
-[![Azure 數位 Twins 資料處理流程](media/concepts/digital-twins-data-processing-flow.png)](media/concepts/digital-twins-data-processing-flow.png#lightbox)
+[@no__t 1Azure 數位 Twins 資料處理流程](media/concepts/digital-twins-data-processing-flow.png)](media/concepts/digital-twins-data-processing-flow.png#lightbox)
 
 1. 驗證階段會將傳入的遙測訊息轉換為一般認知的[資料轉送物件](https://docs.microsoft.com/aspnet/web-api/overview/data/using-web-api-with-entity-framework/part-5)格式。 此階段也會執行裝置和感應器驗證。
 1. 比對階段會尋找適當的使用者定義函式並加以執行。 預先定義的比對器會根據傳入的遙測訊息中包含的裝置、感應器和空間資訊，來尋找使用者定義函式。
@@ -34,7 +34,7 @@ Azure Digital Twins 提供進階計算功能。 開發人員可定義自訂函�
 
 Azure Digital Twins 中的資料處理由三個物件的定義所組成：*比對器*、*使用者定義函式*和*角色指派*。
 
-[![Azure 數位 Twins 資料處理物件](media/concepts/digital-twins-user-defined-functions.png)](media/concepts/digital-twins-user-defined-functions.png#lightbox)
+[@no__t 1Azure 數位 Twins 資料處理物件](media/concepts/digital-twins-user-defined-functions.png)](media/concepts/digital-twins-user-defined-functions.png#lightbox)
 
 ### <a name="matchers"></a>比對器
 

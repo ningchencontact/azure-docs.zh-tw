@@ -9,13 +9,13 @@ ms.topic: conceptual
 ms.reviewer: trbye
 ms.author: trbye
 author: trevorbye
-ms.date: 10/01/2019
-ms.openlocfilehash: 50593741e185a146c5a376c34da959063198e7d0
-ms.sourcegitcommit: 80da36d4df7991628fd5a3df4b3aa92d55cc5ade
+ms.date: 10/03/2019
+ms.openlocfilehash: 3df95f88c057fa564078dbf05d5dfa4b26150f6a
+ms.sourcegitcommit: 4d177e6d273bba8af03a00e8bb9fe51a447196d0
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71813804"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71959648"
 ---
 # <a name="debug-and-troubleshoot-machine-learning-pipelines"></a>對機器學習管線進行調試和疑難排解
 
@@ -27,7 +27,7 @@ ms.locfileid: "71813804"
 
 管線中最常見的失敗之一，就是附加的腳本（資料清理腳本、計分腳本等）並未如預期執行，或包含遠端計算內容中的執行階段錯誤，這在 Azure 入口網站的工作區中很容易進行調試。 
 
-管線本身無法在本機執行，但單元測試基礎腳本是一種簡單的方式，可確保您的腳本會在隔離的情況下執行您預期的作業，而不會等候完整的管線執行持續時間。 需要進行一些開發工作才能執行此作業：
+管線本身無法在本機執行，但在您的本機電腦上隔離執行腳本，可讓您更快速地進行調試，因為您不需要等候計算和環境建立程式。 需要進行一些開發工作才能執行此作業：
 
 * 如果您的資料位於雲端資料存放區中，您將需要下載資料，並將其提供給您的腳本使用。 使用資料的小型範例，是在執行時間縮減並快速取得腳本行為的意見反應的好方法
 * 如果您嘗試模擬中繼管線步驟，您可能需要手動建立特定腳本預期來自前一個步驟的物件類型。
@@ -38,6 +38,9 @@ ms.locfileid: "71813804"
 * 附加自訂的 debug 設定
 * 暫停執行並檢查物件狀態
 * 攔截在執行時間之前不會公開的類型或邏輯錯誤
+
+> [!TIP] 
+> 一旦您可以驗證您的腳本是否如預期般執行，在嘗試使用多個步驟在管線中執行腳本之前，一個好的下一個步驟是在單一步驟管線中執行腳本。
 
 ## <a name="debugging-scripts-from-remote-context"></a>從遠端內容調試腳本
 

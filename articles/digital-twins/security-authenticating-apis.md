@@ -1,19 +1,19 @@
 ---
 title: 瞭解使用 Azure 數位 Twins 的 API 驗證 |Microsoft Docs
 description: 瞭解如何使用 Azure 數位 Twins 連接至 Api 並進行驗證。
-author: lyrana
-manager: alinast
+ms.author: alinast
+author: alinamstanciu
+manager: bertvanhoof
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
 ms.date: 09/30/2019
-ms.author: lyhughes
-ms.openlocfilehash: 6d8d6f03847fcd22a6d78c445ae039c73e9badfa
-ms.sourcegitcommit: a19f4b35a0123256e76f2789cd5083921ac73daf
+ms.openlocfilehash: c75db8d1885c8680dd316952a5f67e11dc26edb1
+ms.sourcegitcommit: 4f7dce56b6e3e3c901ce91115e0c8b7aab26fb72
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71719156"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71949787"
 ---
 # <a name="connect-to-and-authenticate-with-apis"></a>連接至 Api 並進行驗證
 
@@ -28,11 +28,11 @@ Azure Digital Twins 會使用 Azure Active Directory (Azure AD) 來驗證使用�
 
 Azure AD 支援[五個主要應用程式案例](../active-directory/develop/v2-app-types.md)：
 
-* 單一頁面應用程式 (SPA):使用者必須登入 Azure AD 所保護的單一頁面應用程式。
-* Web 瀏覽器到 web 應用程式:使用者必須登入 Azure AD 所保護的 web 應用程式。
-* 要 Web API 的原生應用程式:在手機、平板電腦或 PC 上執行的原生應用程式需要驗證使用者, 才能從 Azure AD 所保護的 Web API 取得資源。
-* 要 Web API 的 Web 應用程式:Web 應用程式必須從 Azure AD 所保護的 Web API 取得資源。
-* 要 Web API 的 Daemon 或伺服器應用程式:沒有 web UI 的背景程式應用程式或伺服器應用程式, 必須從 Azure AD 保護的 Web API 取得資源。
+* 單一頁面應用程式（SPA）：使用者必須登入 Azure AD 所保護的單一頁面應用程式。
+* Web 瀏覽器到 web 應用程式：使用者必須登入 Azure AD 所保護的 web 應用程式。
+* 要 Web API 的原生應用程式：在手機、平板電腦或 PC 上執行的原生應用程式需要驗證使用者，才能從 Azure AD 所保護的 Web API 取得資源。
+* 要 Web API 的 Web 應用程式：Web 應用程式必須從 Azure AD 所保護的 Web API 取得資源。
+* 要 Web API 的 Daemon 或伺服器應用程式：沒有 web UI 的背景程式應用程式或伺服器應用程式，必須從 Azure AD 保護的 Web API 取得資源。
 
 > [!IMPORTANT]
 > Azure 數位 Twins 支援下列兩種驗證程式庫：

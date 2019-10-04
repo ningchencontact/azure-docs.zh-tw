@@ -11,12 +11,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: jrasnick, carlrab
 ms.date: 01/25/2019
-ms.openlocfilehash: 83ff39e9f3b7f95256466c74011e55ebdc22a7a9
-ms.sourcegitcommit: d70c74e11fa95f70077620b4613bb35d9bf78484
+ms.openlocfilehash: 5df9df1474489d7f1b1fb4e1089143cca63a3e42
+ms.sourcegitcommit: f2d9d5133ec616857fb5adfb223df01ff0c96d0a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70910517"
+ms.lasthandoff: 10/03/2019
+ms.locfileid: "71935610"
 ---
 # <a name="monitoring-and-performance-tuning"></a>監視和效能微調
 
@@ -47,7 +47,7 @@ Azure SQL Database 服務包含工具和資源，可協助您進行疑難排解�
 
 從下列選項中選擇，以監視和疑難排解資料庫效能：
 
-- 在 [Azure 入口網站](https://portal.azure.com)中，選取 [ **SQL 資料庫**] 並選取資料庫。 在 [**監視**] 圖表中，尋找已接近其最大使用率的資源。 預設會顯示 DTU 耗用量。 選取 [**編輯**] 以變更所顯示的時間範圍和值。
+- 在  [Azure 入口網站](https://portal.azure.com)中，選取  **SQL 資料庫**] 並選取資料庫。 在 [**監視**] 圖表中，尋找已接近其最大使用率的資源。 預設會顯示 DTU 耗用量。 選取 [**編輯**] 以變更所顯示的時間範圍和值。
 - SQL Server Management Studio 之類的工具提供許多有用的報表，例如[效能儀表板](https://docs.microsoft.com/sql/relational-databases/performance/performance-dashboard)。 使用這些報告來監視資源使用狀況，並識別最常耗用資源的查詢。 您可以使用[查詢存放區](https://docs.microsoft.com/sql/relational-databases/performance/monitoring-performance-by-using-the-query-store#Regressed)來識別效能已回歸的查詢。
 - 在[Azure 入口網站](https://portal.azure.com)中，使用[查詢效能深入解析](sql-database-query-performance.md)來識別使用大部分資源的查詢。 這項功能僅適用于單一資料庫和彈性集區。
 - 使用[SQL Database Advisor](sql-database-advisor-portal.md)來查看建議，以協助您建立和卸載索引、參數化查詢，以及修正架構問題。 這項功能僅適用于單一資料庫和彈性集區。
@@ -187,7 +187,7 @@ ORDER BY count (distinct p.query_id) DESC
 
 找出問題之後，您可以微調問題查詢，或升級計算大小或服務層級，以增加 SQL 資料庫的容量以吸收 CPU 需求。 
 
-如需詳細資訊，請參閱在[Azure SQL Database 中調整單一資料庫資源](sql-database-single-database-scale.md)和[在 Azure SQL Database 中調整彈性集區資源](sql-database-elastic-pool-scale.md)。 如需調整受控實例的相關資訊，請參閱[實例層級的資源限制](sql-database-managed-instance-resource-limits.md#instance-level-resource-limits)。
+如需詳細資訊，請參閱在[Azure SQL Database 中調整單一資料庫資源](sql-database-single-database-scale.md)和[在 Azure SQL Database 中調整彈性集區資源](sql-database-elastic-pool-scale.md)。 如需調整受控實例的相關資訊，請參閱[服務層資源限制](sql-database-managed-instance-resource-limits.md#service-tier-characteristics)。
 
 ### <a name="performance-problems-caused-by-increased-workload-volume"></a>因工作負載量增加而造成的效能問題
 

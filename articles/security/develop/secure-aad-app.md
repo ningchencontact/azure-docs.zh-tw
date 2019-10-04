@@ -443,7 +443,7 @@ Azure 服務會廣泛記錄系統、使用者活動及系統健康情況：
 1.  流覽回到 Azure 入口網站。 在左側導覽窗格中，選取 [Azure Active Directory] 服務，然後選取 [應用程式註冊]。
 2.  在結果畫面中，選取 [WebApp-OpenIDConnect-DotNet-code-v2] 應用程式。
 3.  在 [重新導向 Uri] 區段的 [驗證] 索引標籤中，選取下拉式方塊中的 [Web]，然後新增下列重新導向 Uri。
-    https://WebApp-OpenIDConnect-DotNet-code-v2-contoso.azurewebsites.nethttps://WebApp-OpenIDConnect-DotNet-code-v2-contoso.azurewebsites.net/signin-oidc [Advanced settings] 區段中的 o 設定 [登出 URL]https://WebApp-OpenIDConnect-DotNet-code-v2-contoso.azurewebsites.net/signout-oidc
+    https://WebApp-OpenIDConnect-DotNet-code-v2-contoso.azurewebsites.net https://WebApp-OpenIDConnect-DotNet-code-v2-contoso.azurewebsites.net/signin-oidc [Advanced settings] 區段中的 o 設定 [登出 URL] https://WebApp-OpenIDConnect-DotNet-code-v2-contoso.azurewebsites.net/signout-oidc
 4.  在 [商標] 索引標籤中，將 [首頁 URL] 更新為應用程式服務的 https://WebApp-OpenIDConnect-DotNet-code-v2-contoso.azurewebsites.net 位址，例如。
         o 儲存設定。
 5.  如果您的應用程式呼叫 web api，請務必在專案 appsettings 上套用必要的變更，因此它會呼叫已發佈的 API URL，而不是 localhost。

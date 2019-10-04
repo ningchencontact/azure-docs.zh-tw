@@ -13,16 +13,18 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 06/12/2018
 ms.author: robreed
-ms.openlocfilehash: c37b81e08e5d9f150081a9dc12af51175e3f590c
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 6df6bb5c0be4bf1779541a815bd933965024809f
+ms.sourcegitcommit: 4d177e6d273bba8af03a00e8bb9fe51a447196d0
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70084693"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71960396"
 ---
 # <a name="dsc-extension-for-linux-microsoftostcextensionsdscforlinux"></a>適用於 Linux 的 DSC 擴充功能 (Microsoft.OSTCExtensions.DSCForLinux)
 
 期望的狀態設定 (DSC) 是一個管理平台，可讓您以組態作為程式碼來管理 IT 和開發基礎結構。
+
+> !請注意，適用于 linux 的 DSC 擴充功能和[linux 的 Azure 監視器虛擬機器擴充](/virtual-machines/extensions/oms-linux)功能目前有衝突，而且在並存設定中不支援。  這表示您不應該在相同的 VM 上一起使用這兩個解決方案。
 
 DSCForLinux 擴充功能由 Microsoft 所發佈及支援。 此擴充功能可在 Azure 虛擬機器上安裝 OMI 和 DSC 代理程式。 DSC 擴充功能也可執行下列動作
 
@@ -39,7 +41,7 @@ DSCForLinux 擴充功能由 Microsoft 所發佈及支援。 此擴充功能可�
 
 ### <a name="operating-system"></a>作業系統
 
-DSC Linux 延伸模組可支援所有 [Azure 背書的 Linux 散發套件](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros)，但下列項目除外：
+DSC Linux 延伸模組可支援所有 [Azure 背書的 Linux 散發套件](/virtual-machines/linux/endorsed-distros)，但下列項目除外：
 
 | 發佈 | Version |
 |---|---|

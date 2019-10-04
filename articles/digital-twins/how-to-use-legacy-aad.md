@@ -1,23 +1,23 @@
 ---
 title: 使用 Azure 數位 Twins 的舊版 AAD 應用程式註冊 |Microsoft Docs
-description: 本文說明如何使用舊版的方法, 為您的 Azure 數位 Twins 設定建立應用程式註冊與 Azure Active Directory。
+description: 本文說明如何使用舊版的方法，為您的 Azure 數位 Twins 設定建立應用程式註冊與 Azure Active Directory。
+ms.author: alinast
 author: alinamstanciu
-manager: philmea
+manager: bertvanhoof
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
 ms.date: 08/16/2019
-ms.author: alinast
-ms.openlocfilehash: e9689c71c881c7f5f29ac05fea53bb2c27f75591
-ms.sourcegitcommit: 55e0c33b84f2579b7aad48a420a21141854bc9e3
+ms.openlocfilehash: 204b048dad348e37d44399025c5cd7a9526dbd2d
+ms.sourcegitcommit: 4f7dce56b6e3e3c901ce91115e0c8b7aab26fb72
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69624742"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71949935"
 ---
 # <a name="register-your-azure-digital-twins-app-with-azure-active-directory-legacy"></a>向 Azure Active Directory 舊版註冊您的 Azure 數位 Twins 應用程式
 
-本文說明如何使用已淘汰的**應用程式註冊 (舊版)** 分頁來註冊您的範例應用程式。
+本文說明如何使用已淘汰的**應用程式註冊（舊版）** 分頁來註冊您的範例應用程式。
 
 > [!IMPORTANT]
 > * 2019 年 5 月，新的 [Azure Active Directory] > [應用程式註冊] 刀鋒視窗會取代舊版的 [Azure Active Directory] > [應用程式註冊 (舊版)] 刀鋒視窗。

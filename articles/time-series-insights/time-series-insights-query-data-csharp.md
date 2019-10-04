@@ -10,14 +10,14 @@ reviewer: jasonwhowell, kfile, tsidocs
 ms.devlang: csharp
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 08/08/2019
+ms.date: 10/03/2019
 ms.custom: seodec18
-ms.openlocfilehash: 66c79bed59c8966156d6f000e74e5300edc0245a
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: 353e3463c2be552210847ac3fe17bbfe2cec58c7
+ms.sourcegitcommit: 7868d1c40f6feb1abcafbffcddca952438a3472d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68883930"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71958124"
 ---
 # <a name="query-data-from-the-azure-time-series-insights-ga-environment-using-c"></a>使用從 Azure 時間序列深入解析 GA 環境查詢資料C#
 
@@ -31,11 +31,11 @@ ms.locfileid: "68883930"
 1. 在 Web 通訊端要求的範例中，要求感興趣環境的事件彙總資料。 要求整個可用性時間範圍內的資料。
 
 > [!NOTE]
-> 您可以在[https://github.com/Azure-Samples/Azure-Time-Series-Insights](https://github.com/Azure-Samples/Azure-Time-Series-Insights/tree/master/csharp-tsi-ga-sample)找到範例程式碼。
+> 範例程式碼可在[https://github.com/Azure-Samples/Azure-Time-Series-Insights](https://github.com/Azure-Samples/Azure-Time-Series-Insights/tree/master/csharp-tsi-ga-sample)取得。
 
 ## <a name="project-dependencies"></a>專案相依性
 
-新增 NuGet 套件`Microsoft.IdentityModel.Clients.ActiveDirectory`和`Newtonsoft.Json`。
+新增 `Microsoft.IdentityModel.Clients.ActiveDirectory` 和 `Newtonsoft.Json` 的 NuGet 套件。
 
 ## <a name="c-example"></a>C# 範例
 
@@ -43,6 +43,6 @@ ms.locfileid: "68883930"
 
 ## <a name="next-steps"></a>後續步驟
 
-- 若要深入瞭解查詢, 請參閱[查詢 API 參考](https://docs.microsoft.com/rest/api/time-series-insights/ga-query-api)。
+- 若要深入瞭解查詢，請參閱[查詢 API 參考](https://docs.microsoft.com/rest/api/time-series-insights/ga-query-api)。
 
 - 閱讀如何將[JavaScript 單一頁面應用程式](tutorial-create-tsi-sample-spa.md)連線至時間序列深入解析。

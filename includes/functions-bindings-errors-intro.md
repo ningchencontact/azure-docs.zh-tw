@@ -4,12 +4,12 @@ ms.service: azure-functions
 ms.topic: include
 ms.date: 09/04/2018
 ms.author: glenga
-ms.openlocfilehash: f771b6b0416c5777c1ebde7e2cf2c4ffc6f375ff
-ms.sourcegitcommit: 116bc6a75e501b7bba85e750b336f2af4ad29f5a
+ms.openlocfilehash: 178fa7d5f129a12736ec068fca605ba24cd37839
+ms.sourcegitcommit: 4f7dce56b6e3e3c901ce91115e0c8b7aab26fb72
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71155278"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71955855"
 ---
 Azure Functions 中引發的錯誤可能來自下列任何來源：
 
@@ -23,7 +23,7 @@ Azure Functions 中引發的錯誤可能來自下列任何來源：
 - [啟用 Application Insights](../articles/azure-functions/functions-monitoring.md)
 - [使用結構化錯誤處理](#use-structured-error-handling)
 - [等冪性的設計](../articles/azure-functions/functions-idempotent.md)
-- 執行重試原則（適當時）
+- [執行重試原則](../articles/azure-functions/functions-reliable-event-processing.md)（適當時）
 
 ### <a name="use-structured-error-handling"></a>使用結構化錯誤處理
 

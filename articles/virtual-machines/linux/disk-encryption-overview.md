@@ -7,16 +7,16 @@ ms.topic: article
 ms.author: mbaldwin
 ms.date: 08/06/2019
 ms.custom: seodec18
-ms.openlocfilehash: 14e82bc5f58383c37bfd82d793851fc7e927b2f4
-ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
-ms.translationtype: HT
+ms.openlocfilehash: 61c85d17e88016e5e9067d4be86e1cd290b4b12a
+ms.sourcegitcommit: 4f7dce56b6e3e3c901ce91115e0c8b7aab26fb72
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71828447"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71948196"
 ---
 # <a name="azure-disk-encryption-for-linux-vms"></a>適用于 Linux Vm 的 Azure 磁碟加密 
 
-Azure 磁碟加密有助於保護和保護您的資料, 以符合組織的安全性和合規性承諾。 它會使用 Linux 的[DM Crypt](https://en.wikipedia.org/wiki/Dm-crypt)功能，為 Azure 虛擬機器（vm）的 OS 和資料磁片提供磁片區加密，並與[Azure Key Vault](../../key-vault/index.yml)整合，協助您控制及管理磁片加密金鑰和密碼。 
+Azure 磁碟加密有助於保護和保護您的資料，以符合組織的安全性和合規性承諾。 它會使用 Linux 的[DM Crypt](https://en.wikipedia.org/wiki/Dm-crypt)功能，為 Azure 虛擬機器（vm）的 OS 和資料磁片提供磁片區加密，並與[Azure Key Vault](../../key-vault/index.yml)整合，協助您控制及管理磁片加密金鑰和密碼。 
 
 如果您使用[Azure 資訊安全中心](../../security-center/index.yml)，則會在您有未加密的 vm 時收到警示。 這些警示會顯示為「高嚴重性」，而建議就是加密這些 VM。
 
@@ -57,6 +57,7 @@ Azure 未背書的 Linux 伺服器散發套件不支援 Azure 磁碟加密;對�
 | Ubuntu | 18.04| 作業系統和資料磁碟 |
 | Ubuntu | 16.04| 作業系統和資料磁碟 |
 | Ubuntu | 14.04.5</br>[搭配更新至 4.15 或更新版本的 Azure 調整核心](disk-encryption-troubleshooting.md) | 作業系統和資料磁碟 |
+| RHEL | 7.7 | 作業系統和資料磁片（請參閱下面的附注） |
 | RHEL | 7.6 | 作業系統和資料磁片（請參閱下面的附注） |
 | RHEL | 7.5 | 作業系統和資料磁片（請參閱下面的附注） |
 | RHEL | 7.4 | 作業系統和資料磁片（請參閱下面的附注） |
@@ -64,6 +65,7 @@ Azure 未背書的 Linux 伺服器散發套件不支援 Azure 磁碟加密;對�
 | RHEL | 7.2 | 作業系統和資料磁片（請參閱下面的附注） |
 | RHEL | 6.8 | 資料磁片（請參閱下面的附注） |
 | RHEL | 6.7 | 資料磁片（請參閱下面的附注） |
+| CentOS | 7.7 | 作業系統和資料磁碟 |
 | CentOS | 7.6 | 作業系統和資料磁碟 |
 | CentOS | 7.5 | 作業系統和資料磁碟 |
 | CentOS | 7.4 | 作業系統和資料磁碟 |
@@ -106,14 +108,14 @@ Azure 磁碟加密需要 Azure Key Vault 來控制及管理磁片加密金鑰和
 如需詳細資訊，請參閱[建立和設定 Azure 磁碟加密的金鑰保存庫](disk-encryption-key-vault.md)。
 
 ## <a name="terminology"></a>術語
-下表定義 Azure 磁片加密檔中所使用的一些常見詞彙:
+下表定義 Azure 磁片加密檔中所使用的一些常見詞彙：
 
 | 術語 | 定義 |
 | --- | --- |
 | Azure Key Vault | Key Vault 是一個密碼編譯金鑰管理服務，以「美國聯邦資訊處理標準」(FIPS) 已驗證的硬體安全性模組為基礎。 這些標準可協助您保護密碼編譯金鑰和敏感性祕密。 如需詳細資訊，請參閱[Azure Key Vault](https://azure.microsoft.com/services/key-vault/)檔，以及[建立和設定 Azure 磁碟加密的金鑰保存庫](disk-encryption-key-vault.md)。 |
 | Azure CLI | [Azure CLI](/cli/azure/install-azure-cli) 已針對從命令列管理 Azure 資源進行最佳化。|
-| DM-Crypt |[DM Crypt](https://gitlab.com/cryptsetup/cryptsetup/wikis/DMCrypt)是以 linux 為基礎的透明磁片加密子系統, 用來在 linux vm 上啟用磁片加密。 |
-| 金鑰加密金鑰 (KEK) | 您可以用來保護或包裝秘密的非對稱金鑰 (RSA 2048)。 您可以提供硬體安全性模組 (HSM) 保護的金鑰或軟體保護的金鑰。 如需詳細資訊，請參閱[Azure Key Vault](https://azure.microsoft.com/services/key-vault/)檔，以及[建立和設定 Azure 磁碟加密的金鑰保存庫](disk-encryption-key-vault.md)。 |
+| DM-Crypt |[DM Crypt](https://gitlab.com/cryptsetup/cryptsetup/wikis/DMCrypt)是以 linux 為基礎的透明磁片加密子系統，用來在 linux vm 上啟用磁片加密。 |
+| 金鑰加密金鑰（KEK） | 您可以用來保護或包裝秘密的非對稱金鑰（RSA 2048）。 您可以提供硬體安全性模組 (HSM) 保護的金鑰或軟體保護的金鑰。 如需詳細資訊，請參閱[Azure Key Vault](https://azure.microsoft.com/services/key-vault/)檔，以及[建立和設定 Azure 磁碟加密的金鑰保存庫](disk-encryption-key-vault.md)。 |
 | PowerShell Cmdlet | 如需詳細資訊，請參閱 [Azure PowerShell Cmdlet](/powershell/azure/overview)。 |
 
 

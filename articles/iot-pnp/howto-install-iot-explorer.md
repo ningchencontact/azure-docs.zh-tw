@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-pnp
 services: iot-pnp
 ms.custom: mvc
-ms.openlocfilehash: 4e23a440f46b52633a88d0212e08c7b584f61a38
-ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
+ms.openlocfilehash: f59e449589c7f3027dc8a9daf9d8d12f04831dd7
+ms.sourcegitcommit: 4d177e6d273bba8af03a00e8bb9fe51a447196d0
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70932467"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71960580"
 ---
 # <a name="install-and-use-azure-iot-explorer"></a>安裝和使用 Azure IoT explorer
 
@@ -29,7 +29,7 @@ Azure IoT explorer 是一種圖形化工具，可與您的 IoT 隨插即用預�
 若要使用 Azure IoT explorer 工具，您需要：
 
 - Azure IoT 中樞。 有許多方法可將 IoT 中樞新增至您的 Azure 訂用帳戶，例如[使用 Azure CLI 建立 iot 中樞](../iot-hub/iot-hub-create-using-cli.md)。 您需要 IoT 中樞連接字串，才能執行 Azure IoT explorer 工具。 如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 。
-- 在 IoT 中樞註冊的裝置。 您可以使用下列 Azure CLI 命令來註冊裝置。 請務必以您的`{YourIoTHubName}`值`{YourDeviceID}`取代和預留位置：
+- 在 IoT 中樞註冊的裝置。 您可以使用下列 Azure CLI 命令來註冊裝置。 請務必以您的值取代 `{YourIoTHubName}` 和 `{YourDeviceID}` 預留位置：
 
     ```azurecli-interactive
     az iot hub device-identity create --hub-name {YourIoTHubName} --device-id {YourDeviceID}
@@ -65,29 +65,27 @@ IoT 隨插即用裝置的模型定義會儲存在公用儲存機制、公司存�
 
 您可以將其中一個模型定義來源拖放到清單中的不同等級。 如果發生衝突，則具有較高排名的定義來源會覆寫具有較低排名的來源。
 
-### <a name="overview-page"></a>概觀分頁
+### <a name="view-devices"></a>檢視裝置
 
-#### <a name="device-overview"></a>裝置總覽
+在此工具連線到您的 IoT 中樞之後，它會顯示 [**裝置**清單] 頁面，其中會列出向 IoT 中樞註冊的裝置身分識別。 您可以展開清單中的任何專案，以查看詳細資訊。
 
-在此工具連接到您的 IoT 中樞之後，它會顯示一個 [總覽] 頁面，其中列出向 Azure IoT 中樞註冊的所有裝置身分識別。 選取裝置以查看更多詳細資料。
+在 [**裝置**清單] 頁面上，您可以：
 
-#### <a name="device-management"></a>裝置管理
-
-- 若要向您的中樞註冊新的裝置，**請選取 [新增]** 。 輸入 [裝置識別碼]。 使用預設設定來自動產生驗證金鑰，並啟用與中樞的連線。
-- 若要刪除裝置身分識別，請選取 [**刪除**]。 完成此動作之前，請先檢查裝置詳細資料，以確定您正在刪除正確的裝置身分識別。
-- 此工具支援`capabilityID`和`interfaceID`查詢。 新增您`capabilityID`的或`interfaceID`做為參數，以查詢您的裝置。
+- 選取 [**新增**] 以向您的中樞註冊新的裝置。 然後輸入 [裝置識別碼]。 使用預設設定來自動產生驗證金鑰，並啟用與中樞的連線。
+- 選取裝置，然後選取 [**刪除**] 以刪除裝置身分識別。 完成此動作之前，請先檢查裝置詳細資料，以確定您正在刪除正確的裝置身分識別。
+- 查詢 `capabilityID` 並 `interfaceID`。 新增您的 `capabilityID` 或 `interfaceID` 做為參數來查詢您的裝置。
 
 ## <a name="interact-with-a-device"></a>與裝置互動
 
-按兩下 [總覽] 頁面上的裝置，以查看下一個層級的詳細資料。 有兩個區段：**裝置**和**數位**對應項。
+在 [**裝置**清單] 頁面上，選取 [**裝置識別碼**] 欄中的值，以查看已註冊裝置的詳細資料頁面。 針對裝置，有兩個區段：**裝置**和**數位**對應項。
 
 ### <a name="device"></a>裝置
 
-本節包含裝置身分**識別**、**遙測**和**裝置**對應項索引標籤。
+本節包含裝置身分**識別**、**裝置**對應項和**遙測**索引標籤。
 
-- 您可以在 [**裝置身分識別**] 索引標籤上，查看並更新裝置身分識別資訊。
-- 如果裝置已連線並主動傳送資料，您可以在 [**遙測**] 索引標籤上查看遙測。
-- 您可以在 [**裝置**對應項] 索引標籤上存取裝置對應項資訊。
+- 您可以在 [**裝置身分識別**] 索引標籤上，查看並更新[裝置身分識別](../iot-hub/iot-hub-devguide-identity-registry.md)資訊。
+- 您可以在 [**裝置**對應項] 索引標籤上存取[裝置](../iot-hub/iot-hub-devguide-device-twins.md)對應項資訊。
+- 如果裝置已連線並主動傳送資料，您可以在 [**遙測**] 索引標籤上查看[遙測](../iot-hub/iot-hub-devguide-messages-read-builtin.md)。
 
 ### <a name="digital-twin"></a>數位對應項
 

@@ -9,12 +9,12 @@ ms.author: robreed
 ms.date: 09/10/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 10ddb7272de164e6f92022a6f512df31753f7e31
-ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
+ms.openlocfilehash: 58aa310316a31eb63ca8dd614b60fb4bad73d997
+ms.sourcegitcommit: 4d177e6d273bba8af03a00e8bb9fe51a447196d0
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71265135"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71959997"
 ---
 # <a name="compiling-dsc-configurations-in-azure-automation-state-configuration"></a>編譯 Azure Automation State Configuration 中的 DSC 組態
 
@@ -56,7 +56,7 @@ Start-AzureRmAutomationDscCompilationJob -ResourceGroupName 'MyResourceGroup' -A
 ```powershell
 $CompilationJob = Start-AzureRmAutomationDscCompilationJob -ResourceGroupName 'MyResourceGroup' -AutomationAccountName 'MyAutomationAccount' -ConfigurationName 'SampleConfig'
 
-while($CompilationJob.EndTime –eq $null -and $CompilationJob.Exception –eq $null)
+while($null -eq $CompilationJob.EndTime -and $null -eq $CompilationJob.Exception)
 {
     $CompilationJob = $CompilationJob | Get-AzureRmAutomationDscCompilationJob
     Start-Sleep -Seconds 3
@@ -124,7 +124,7 @@ Start-AzureRmAutomationDscCompilationJob -ResourceGroupName 'MyResourceGroup' -A
 
 ### <a name="compiling-configurations-in-azure-automation-that-contain-composite-resources"></a>在包含複合資源的 Azure 自動化中編譯設定
 
-**複合資源**可讓您使用 DSC 組態作為組態內的巢狀資源。 這可讓您將多個組態套用至單一資源。 請[參閱複合資源：使用 DSC 設定做為資源](/powershell/dsc/authoringresourcecomposite) ，以深入瞭解**複合資源**。
+**複合資源**可讓您使用 DSC 組態作為組態內的巢狀資源。 這可讓您將多個組態套用至單一資源。 請參閱 @no__t 0Composite 資源：使用 DSC 設定做為資源 @ no__t-0，以深入瞭解**複合資源**。
 
 > [!NOTE]
 > 為了讓包含**複合資源**的設定正確編譯，您必須先確定複合依賴的任何 DSC 資源都已先匯入 Azure 自動化。

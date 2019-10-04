@@ -6,14 +6,14 @@ services: monitoring
 ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.author: anantr
+ms.author: robb
 ms.subservice: alerts
-ms.openlocfilehash: f97fa69926cd9c59a0617f409c72610336120333
-ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
+ms.openlocfilehash: 91a770b522011f3955ae0956e289886eb204cf47
+ms.sourcegitcommit: 6fe40d080bd1561286093b488609590ba355c261
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70916001"
+ms.lasthandoff: 10/01/2019
+ms.locfileid: "71702916"
 ---
 # <a name="manage-alert-instances-with-unified-alerts"></a>使用整合警示管理警示實例
 透過 Azure 監視器中的[整合警示體驗](https://aka.ms/azure-alerts-overview)，您可以在 Azure 中查看所有不同類型的警示。 這會跨越單一窗格中的多個訂用帳戶。 本文說明如何查看您的警示實例，以及如何尋找特定的警示實例以進行疑難排解。
@@ -25,7 +25,7 @@ ms.locfileid: "70916001"
 
 您可以透過下列任何方式移至 [警示] 頁面：
 
-   + 在 [Azure 入口網站](https://portal.azure.com/)中，選取 [**監視** > ] [**警示**]。  
+   + 在  [Azure 入口網站](https://portal.azure.com/)中，選取 **監視** > ] [**警示**]。  
      ![監視警示的螢幕擷取畫面](media/alerts-managing-alert-instances/monitoring-alerts-managing-alert-instances-toc.jpg)
   
    + 使用特定資源的內容。 開啟資源，移至 [**監視**] 區段，然後選擇 [**警示**]。 已針對該特定資源的警示預先篩選登陸頁面。

@@ -1,19 +1,19 @@
 ---
 title: 瀏覽 Azure Digital Twins API | Microsoft Docs
 description: 了解查詢 Azure Digital Twins 管理 API 的常見模式。
-author: kingdomofends
-manager: philmea
+ms.author: alinast
+author: alinamstanciu
+manager: bertvanhoof
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
 ms.date: 08/29/2019
-ms.author: v-adgera
-ms.openlocfilehash: 8472a86800d13cedd228ca881a7c095ff748350a
-ms.sourcegitcommit: ee61ec9b09c8c87e7dfc72ef47175d934e6019cc
+ms.openlocfilehash: b01b83ab0e673254da19888210d9678e313acca2
+ms.sourcegitcommit: 4f7dce56b6e3e3c901ce91115e0c8b7aab26fb72
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70172823"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71949864"
 ---
 # <a name="how-to-use-azure-digital-twins-management-apis"></a>如何使用 Azure Digital Twins 管理 API
 
@@ -97,11 +97,11 @@ Digital Twins API 支援使用下列參數篩選和瀏覽整個空間圖形：
 * **$skip**：如果您想要顯示整個集合，您應該在單一呼叫中要求它作為完整集合，然後在應用程式中執行分頁。 
 
 > [!NOTE]
-> 目前不支援某些 OData 選項 (例如 **$count**、 **$expand**和 **$search**的查詢選項)。
+> 目前不支援某些 OData 選項（例如 **$count**、 **$expand**和 **$search**的查詢選項）。
 
 ### <a name="examples"></a>範例
 
-下列清單描述數個具有有效 OData 語法的查詢:
+下列清單描述數個具有有效 OData 語法的查詢：
 
 - `YOUR_MANAGEMENT_API_URL/devices?$top=3&$orderby=Name desc`
 - `YOUR_MANAGEMENT_API_URL/keystores?$filter=endswith(Description,’space’)`
@@ -114,6 +114,6 @@ Digital Twins API 支援使用下列參數篩選和瀏覽整個空間圖形：
 
 若要了解一些常見的 API 查詢模式，請閱讀[如何針對一般工作查詢 Azure Digital Twins API](./how-to-query-common-apis.md)。
 
-若要深入瞭解您的 API 端點, 請閱讀[如何使用數位 Twins Swagger](./how-to-use-swagger.md)。
+若要深入瞭解您的 API 端點，請閱讀[如何使用數位 Twins Swagger](./how-to-use-swagger.md)。
 
-若要查看 OData 語法和可用的比較運算子, 請閱讀[Azure 搜尋服務中的 odata 比較運算子](../search/search-query-odata-comparison-operators.md)。
+若要查看 OData 語法和可用的比較運算子，請閱讀[Azure 搜尋服務中的 odata 比較運算子](../search/search-query-odata-comparison-operators.md)。

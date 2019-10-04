@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/12/2019
 ms.author: kumud
-ms.openlocfilehash: 1a3859e1831f64269e7684072ddf166f29566fd9
-ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
+ms.openlocfilehash: 642b99e3eaaf73844d30d1cd464ae0b777b0b3fa
+ms.sourcegitcommit: 7868d1c40f6feb1abcafbffcddca952438a3472d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71828980"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71957795"
 ---
 # <a name="azure-virtual-network-frequently-asked-questions-faq"></a>Azure 虛擬網路的常見問題 (FAQ)
 
@@ -254,7 +254,6 @@ VNet 對等互連 (或虛擬網路對等互連) 可讓您將虛擬網路連線�
 - Logic Apps
 - HDInsight
 -   Azure Batch
-- AKS
 - App Service 環境
 
 您可以透過 ExpressRoute 或透過 VNet 閘道的 VNet 對 VNet 來連接到這些資源。

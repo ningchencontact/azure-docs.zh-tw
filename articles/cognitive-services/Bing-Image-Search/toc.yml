@@ -50,10 +50,11 @@
       href: image-insights.md
     - name: 取得 .gif 影像
       href: gif-images.md
-    - name: 取得趨勢影像
+    - name: 取得發燒影像
       href: trending-images.md
-    - name: 逐頁檢視影像
-      href: paging-images.md
+    - name: 逐頁檢視搜尋結果
+      maintainContext: true
+      href: ../bing-web-search/paging-search-results.md
     - name: 調整大小和裁剪縮圖
       maintainContext: true
       href: ../bing-web-search/resize-and-crop-thumbnails.md

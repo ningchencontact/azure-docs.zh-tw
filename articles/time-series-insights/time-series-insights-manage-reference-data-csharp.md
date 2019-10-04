@@ -10,14 +10,14 @@ ms.reviewer: jasonh, kfile
 ms.devlang: csharp
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 08/08/2019
+ms.date: 10/03/2019
 ms.custom: seodec18
-ms.openlocfilehash: 2b9bd4b3516ee03ce78fcf255eba011f86f9c29c
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: d4f206b63be38c902f93a084889e60184ce03e07
+ms.sourcegitcommit: 7868d1c40f6feb1abcafbffcddca952438a3472d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68883943"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71958049"
 ---
 # <a name="manage-ga-reference-data-for-an-azure-time-series-insights-environment-by-using-c"></a>使用管理 Azure 時間序列深入解析環境的 GA 參考資料C#
 
@@ -36,7 +36,7 @@ ms.locfileid: "68883943"
 1. 編輯範例程式碼以取代在接近程式碼開頭之 **#DUMMY#** 所指定的範例常數。
 
 > [!NOTE]
-> 在[https://github.com/Azure-Samples/Azure-Time-Series-Insights](https://github.com/Azure-Samples/Azure-Time-Series-Insights/tree/master/csharp-tsi-ga-sample)中查看 GA 範例程式碼。
+> 查看[https://github.com/Azure-Samples/Azure-Time-Series-Insights](https://github.com/Azure-Samples/Azure-Time-Series-Insights/tree/master/csharp-tsi-ga-sample)的 GA 範例程式碼。
 
 ## <a name="project-dependencies"></a>專案相依性
 

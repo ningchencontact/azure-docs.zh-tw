@@ -8,24 +8,25 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
-ms.date: 09/25/2019
+ms.date: 09/26/2019
 ms.author: diberry
 ms.custom: seodec18
-ms.openlocfilehash: c0ceea5c86af8d733c838e19f77eaeadc8a12dbb
-ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
+ms.openlocfilehash: 00d3d63ff1a5b4d5dab0534e039145b97091af87
+ms.sourcegitcommit: 4f3f502447ca8ea9b932b8b7402ce557f21ebe5a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71300246"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71802158"
 ---
 # <a name="troubleshooting-for-qna-maker"></a>疑難排解 QnA Maker
 
 有關 QnA Maker 服務的常見問題策劃清單，可協助您更快速地採用服務，並獲得更好的結果。
 
+<a name="how-to-get-the-qnamaker-service-hostname"></a>
 
-## <a name="how-to-get-the-qnamaker-service-hostname"></a>如何取得 QnAMaker 服務主機名稱
+## <a name="how-to-get-the-qnamaker-service-endpoint"></a>如何取得 QnAMaker 服務端點
 
-當您連絡 QnAMaker 支援人員或 UserVoice 時，QnAMaker 服務主機名稱將有助於偵錯的用途。 主機名稱是下列格式的 URL： HTTPs:// *{hostname}* . azurewebsites.net。
+當您聯繫 QnAMaker 支援或 UserVoice 時，QnAMaker 服務端點適用于偵錯工具。 端點是下列格式的 URL： https://your-resource-name.azurewebsites.net 。
     
 1. 在 [Azure 入口網站](https://portal.azure.com)中移至 QnAMaker 服務 (資源群組)
 
@@ -35,9 +36,9 @@ ms.locfileid: "71300246"
 
      ![選取 QnAMaker App Service](./media/qnamaker-how-to-troubleshoot/qnamaker-azure-appservice.png)
 
-1. 主機名稱 URL 會顯示於 [概觀] 區段中
+1. [總覽] 區段提供端點 URL
 
-    ![QnAMaker 主機名稱](./media/qnamaker-how-to-troubleshoot/qnamaker-azure-gethostname.png)
+    ![QnAMaker 端點](./media/qnamaker-how-to-troubleshoot/qnamaker-azure-gethostname.png)
     
 
 ## <a name="use-the-help-bot-in-the-qna-maker-portal"></a>使用 QnA Maker 入口網站中的說明 bot
@@ -173,7 +174,7 @@ Azure 搜尋服務資源的名稱是 QnA Maker 資源名稱加上一些附加在
 您需要有下列有關知識庫的資訊：
 
 * 知識庫識別碼。
-* 知識庫的已發佈端點主機名稱-發行後，在 [**設定**] 頁面上找到。
+* 在您發佈之後，會在 [**設定**] 頁面上找到知識庫的已發佈端點自訂子功能變數名稱稱（稱為 `host`）。
 * 知識庫的已發佈端點金鑰-發行後，在 [**設定**] 頁面上找到。 
 
 透過這項資訊，請移至 Azure 入口網站中 bot 的 app service。 在 設定 底下 > 設定 下 **> 應用程式設定**，變更這些值。  

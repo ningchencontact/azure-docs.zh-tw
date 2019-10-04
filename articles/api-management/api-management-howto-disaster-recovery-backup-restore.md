@@ -12,27 +12,27 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 06/26/2019
 ms.author: apimpm
-ms.openlocfilehash: c566dc28338a47c1bf24066436c21544eb7c5c7d
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: 9c97723687484e8af82d63b6fb4999401a69fb2c
+ms.sourcegitcommit: 7868d1c40f6feb1abcafbffcddca952438a3472d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70072439"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71958538"
 ---
 # <a name="how-to-implement-disaster-recovery-using-service-backup-and-restore-in-azure-api-management"></a>如何在 Azure API 管理中使用服務備份和還原實作災害復原
 
 透過 Azure API 管理來發佈及管理 API，您將能夠利用非 Azure API 管理使用者要另行手動設計、實作及管理的容錯和基礎結構功能。 Azure 平台可緩和絕大部分可能的失敗後果，且成本低廉。
 
-若要從影響裝載您「API 管理」服務的區域可用性問題復原，請隨時準備好在另一個區域中重新建構您的服務。 根據您的復原時間目標, 您可能會想要在一或多個區域中保留待命服務。 您也可以根據您的復原點目標, 嘗試維護其設定和內容與作用中服務的同步。 服務備份和還原功能提供必要的建立區塊, 以執行嚴重損壞修復策略。
+若要從影響裝載您「API 管理」服務的區域可用性問題復原，請隨時準備好在另一個區域中重新建構您的服務。 根據您的復原時間目標，您可能會想要在一或多個區域中保留待命服務。 您也可以根據您的復原點目標，嘗試維護其設定和內容與作用中服務的同步。 服務備份和還原功能提供必要的建立區塊，以執行嚴重損壞修復策略。
 
-備份和還原作業也可以用來複寫操作環境 (例如開發和預備) 之間的 API 管理服務設定。 請注意, 諸如使用者和訂用帳戶等執行時間資料也會一併複製, 這可能不一定是理想的做法。
+備份和還原作業也可以用來複寫操作環境（例如開發和預備）之間的 API 管理服務設定。 請注意，諸如使用者和訂用帳戶等執行時間資料也會一併複製，這可能不一定是理想的做法。
 
-本指南說明如何自動執行備份和還原作業, 以及如何藉由 Azure Resource Manager, 確保成功驗證備份和還原要求。
+本指南說明如何自動執行備份和還原作業，以及如何藉由 Azure Resource Manager，確保成功驗證備份和還原要求。
 
 > [!IMPORTANT]
-> 還原操作不會變更目標服務的自訂主機名稱設定。 我們建議針對作用中和待命服務使用相同的自訂主機名稱和 TLS 憑證, 如此一來, 在還原作業完成之後, 即可透過簡單的 DNS CNAME 變更, 將流量重新導向至待命實例。
+> 還原操作不會變更目標服務的自訂主機名稱設定。 我們建議針對作用中和待命服務使用相同的自訂主機名稱和 TLS 憑證，如此一來，在還原作業完成之後，即可透過簡單的 DNS CNAME 變更，將流量重新導向至待命實例。
 >
-> 備份作業不會在 Azure 入口網站中的 [分析] 分頁上所顯示的報表中, 捕捉使用預先匯總的記錄資料。
+> 備份作業不會在 Azure 入口網站中的 [分析] 分頁上所顯示的報表中，捕捉使用預先匯總的記錄資料。
 
 > [!WARNING]
 > 每個備份會在 30 天後到期。 如果您在過了 30 天的到期時間後嘗試還原備份，還原會失敗並傳回 `Cannot restore: backup expired` 訊息。
@@ -152,7 +152,7 @@ POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/
 -   `subscriptionId` - 訂用帳戶的識別碼，此訂用帳戶會保留您嘗試備份的「API 管理」服務
 -   `resourceGroupName` - 您 Azure API 管理服務的資源群組名稱
 -   `serviceName` - 所要備份 API 管理服務的名稱，該名稱是在服務建立時所指定
--   `api-version`-取代為`2018-06-01-preview`
+-   `api-version`-取代為 `2018-06-01-preview`
 
 在要求的本文中指定目標 Azure 儲存體帳戶名稱、存取金鑰、Blob 容器名稱和備份名稱：
 
@@ -175,7 +175,7 @@ POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/
 -   備份在進行時，**請避免變更服務管理** (例如 SKU 升級或降級)、避免變更網域名稱等等。
 -   備份還原的**保證僅限建立後的 30 天內**。
 -   備份**不包含**用來建立分析報告的**使用量資料**。 請使用 [Azure API 管理 REST API][azure api management rest api] 來定期擷取分析報告，以利妥善保存。
--   此外, 下列專案不是備份資料的一部分: 自訂網域 SSL 憑證, 以及客戶所上傳的任何中繼或根憑證、開發人員入口網站內容和虛擬網路整合設定。
+-   此外，下列專案不是備份資料的一部分：自訂網域 SSL 憑證，以及客戶所上傳的任何中繼或根憑證、開發人員入口網站內容和虛擬網路整合設定。
 -   執行服務備份的頻率會影響您的復原點目標。 為了盡可能縮小，建議您實作定期備份，並在針對 API 管理服務進行變更後執行隨選備份。
 -   在備份作業進行時針對服務組態 (例如 API、原則及開發人員入口網站外觀) 所做的**變更** **可能會從備份中排除，因此可能會遺失**。
 -   **允許**從控制平面存取 Azure 儲存體帳戶。 客戶應該在其儲存體帳戶上開啟下列一組輸入 Ip 來進行備份。 
@@ -193,7 +193,7 @@ POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/
 -   `subscriptionId` - 訂用帳戶的識別碼，此訂用帳戶會保留您要還原備份的目標 API 管理服務
 -   `resourceGroupName` - 資源群組的名稱，該資源群組會保留您要還原備份的目標 Azure API 管理服務
 -   `serviceName` - 所要還原目標 API 管理服務的名稱，該名稱是在服務建立時所指定
--   `api-version`-取代為`2018-06-01-preview`
+-   `api-version`-取代為 `2018-06-01-preview`
 
 在要求的本文中，指定備份檔案位置。 也就是新增 Azure 儲存體帳戶名稱、存取金鑰、Blob 容器名稱和備份名稱：
 
@@ -218,7 +218,7 @@ POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/
 <!-- Dummy comment added to suppress markdown lint warning -->
 
 > [!NOTE]
-> 您也可以分別使用 PowerShell_備份-AzApiManagement_和_AzApiManagement_命令來執行備份和還原作業。
+> 您也可以分別使用 PowerShell[_備份-AzApiManagement_](/powershell/module/az.apimanagement/backup-azapimanagement)和[_AzApiManagement_](/powershell/module/az.apimanagement/restore-azapimanagement)命令來執行備份和還原作業。
 
 ## <a name="next-steps"></a>後續步驟
 

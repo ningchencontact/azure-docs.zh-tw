@@ -9,12 +9,12 @@ ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: conceptual
 ms.date: 08/01/2019
-ms.openlocfilehash: 8e2e9d30fa24e56711a0d6800a8ca9a34e53c12e
-ms.sourcegitcommit: fbea2708aab06c19524583f7fbdf35e73274f657
+ms.openlocfilehash: 6327f0c14b46ceaadbf7adaa58a70c32b39b7c2a
+ms.sourcegitcommit: 4d177e6d273bba8af03a00e8bb9fe51a447196d0
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/13/2019
-ms.locfileid: "70967203"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71960481"
 ---
 # <a name="add-artifacts-to-your-integration-service-environment-ise-in-azure-logic-apps"></a>在 Azure Logic Apps 中將成品新增至您的整合服務環境（ISE）
 
@@ -32,7 +32,7 @@ ms.locfileid: "70967203"
 
 若要建立在整合服務環境（ISE）中執行的邏輯應用程式，請遵循下列步驟：
 
-1. 尋找並開啟您的 ISE （如果尚未開啟）。 從 ISE 功能表的 [**設定**] 底下，選取 [**邏輯應用程式** > ] [**新增**]。
+1. 尋找並開啟您的 ISE （如果尚未開啟）。 從 ISE 功能表的 [**設定**] 底下，選取 [**邏輯應用程式**] [ > ] [**新增**]。
 
    ![將新的邏輯應用程式新增至 ISE](./media/add-artifacts-integration-service-environment-ise/add-logic-app-to-ise.png)
 
@@ -51,7 +51,7 @@ ms.locfileid: "70967203"
 
 1. 繼續[以一般方式建立邏輯應用程式](../logic-apps/quickstart-create-first-logic-app-workflow.md)。
 
-   如需觸發程式和動作的工作方式, 以及當您使用 ISE 與全域 Logic Apps 服務時的標記方式差異, 請參閱[ISE 總覽中的隔離與全域](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#difference)。
+   如需觸發程式和動作的工作方式，以及當您使用 ISE 與全域 Logic Apps 服務時的標記方式差異，請參閱[ISE 總覽中的隔離與全域](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#difference)。
 
 1. 若要管理 ISE 中的邏輯應用程式和 API 連線，請參閱[管理您的整合服務環境](../logic-apps/ise-manage-integration-service-environment.md)。
 
@@ -59,18 +59,17 @@ ms.locfileid: "70967203"
 
 ## <a name="create-integration-accounts"></a>建立整合帳戶
 
-根據在建立時選取的[ISE SKU](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#ise-level) , 您的 ISE 會包含特定的整合帳戶使用方式, 而不需額外費用。 存在於整合服務環境（ISE）中的邏輯應用程式，只能參考存在於相同 ISE 中的整合帳戶。 因此，若要讓整合帳戶在 ISE 中使用邏輯應用程式，整合帳戶和邏輯應用程式都必須使用與其位置*相同的環境*。 如需整合帳戶和 ise 的詳細資訊， [請參閱整合帳戶](connect-virtual-network-vnet-isolated-environment-overview.md#create-integration-account-environment
-)與 ISE。
+根據在建立時選取的[ISE SKU](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#ise-level) ，您的 ISE 會包含特定的整合帳戶使用方式，而不需額外費用。 存在於整合服務環境（ISE）中的邏輯應用程式，只能參考存在於相同 ISE 中的整合帳戶。 因此，若要讓整合帳戶在 ISE 中使用邏輯應用程式，整合帳戶和邏輯應用程式都必須使用與其位置*相同的環境*。 如需整合帳戶和 Ise 的詳細資訊，請參閱[整合帳戶與 ISE](connect-virtual-network-vnet-isolated-environment-overview.md#create-integration-account-environment)。
 
 若要建立使用 ISE 的整合帳戶，請遵循下列步驟：
 
-1. 尋找並開啟您的 ISE （如果尚未開啟）。 從 ISE 功能表的 [**設定**] 底下，選取 [**整合帳戶** > ] [**新增**]。
+1. 尋找並開啟您的 ISE （如果尚未開啟）。 從 ISE 功能表的 **設定** 底下，選取 **整合帳戶**  > **新增**。
 
    ![將新的整合帳戶新增至 ISE](./media/add-artifacts-integration-service-environment-ise/add-integration-account-to-ise.png)
 
    -或-
 
-   從主要 Azure 功能表中，選取 [**建立資源** > ] [**整合** > ] [整合**帳戶**]。
+   從主要 Azure 功能表中，選取 [**建立資源**] [ > **整合**] [ > **整合帳戶**]。
 
 1. 提供您整合帳戶的名稱、Azure 訂用帳戶、Azure 資源群組（新的或現有的）和定價層。
 
@@ -106,7 +105,7 @@ ms.locfileid: "70967203"
 
 若要在 ISE 中使用自訂連接器，請直接在 ISE 內建立這些自訂連接器。
 
-1. 尋找並開啟您的 ISE （如果尚未開啟）。 從 ISE 功能表的 [**設定**] 底下，選取 [**自訂連接器** > ] [**新增**]。
+1. 尋找並開啟您的 ISE （如果尚未開啟）。 從 ISE 功能表的 **設定** 底下，選取 **自訂連接器**  > **新增**。
 
    ![建立自訂連接器](./media/add-artifacts-integration-service-environment-ise/add-custom-connector-to-ise.png)
 

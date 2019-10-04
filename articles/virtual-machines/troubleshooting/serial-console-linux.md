@@ -13,20 +13,20 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 5/1/2019
 ms.author: alsin
-ms.openlocfilehash: f6e08f113e29b44e4ec94d14624d62c1c3d48d45
-ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
+ms.openlocfilehash: 15e0b8a5b3ea64148eb78cb376500adac2410a71
+ms.sourcegitcommit: 4f7dce56b6e3e3c901ce91115e0c8b7aab26fb72
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70124470"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71949677"
 ---
 # <a name="azure-serial-console-for-linux"></a>適用于 Linux 的 Azure 序列主控台
 
-Azure 入口網站中的序列主控台可讓您存取 Linux 虛擬機器 (Vm) 和虛擬機器擴展集實例的文字型主控台。 此序列連線會連線到 VM 或虛擬機器擴展集實例的 ttys0 序列埠, 以提供與網路或作業系統狀態無關的存取權。 您只能使用 Azure 入口網站來存取序列主控台, 而且只允許對 VM 或虛擬機器擴展集具有「參與者」或更高版本存取角色的使用者。
+Azure 入口網站中的序列主控台可讓您存取 Linux 虛擬機器（Vm）和虛擬機器擴展集實例的文字型主控台。 此序列連線會連線到 VM 或虛擬機器擴展集實例的 ttys0 序列埠，以提供與網路或作業系統狀態無關的存取權。 您只能使用 Azure 入口網站來存取序列主控台，而且只允許對 VM 或虛擬機器擴展集具有「參與者」或更高版本存取角色的使用者。
 
-序列主控台的運作方式與 Vm 和虛擬機器擴展集實例相同。 在本檔中, 除非另有指示, 否則所有提及的 Vm 都會隱含地包含虛擬機器擴展集實例。
+序列主控台的運作方式與 Vm 和虛擬機器擴展集實例相同。 在本檔中，除非另有指示，否則所有提及的 Vm 都會隱含地包含虛擬機器擴展集實例。
 
-如需 Windows 的序列主控台檔, 請參閱[windows 的序列主控台](../windows/serial-console.md)。
+如需 Windows 的序列主控台檔，請參閱[windows 的序列主控台](../windows/serial-console.md)。
 
 > [!NOTE]
 > 序列主控台已在全球 Azure 區域中正式推出。 目前尚未在 Azure Government 或「Azure 中國」雲端中提供序列主控台。
@@ -46,11 +46,11 @@ Azure 入口網站中的序列主控台可讓您存取 Linux 虛擬機器 (Vm) �
 
 - 如需有關 Linux 發行版本的特定設定，請參閱[序列主控台 Linux 發行版本可用性](#serial-console-linux-distribution-availability)。
 
-- 您的 VM 或虛擬機器擴展集實例必須設定為的序列輸出`ttys0`。 這是 Azure 映射的預設值, 但您會想要在自訂映射上再次檢查。 詳細資料[如下](#custom-linux-images)。
+- 您的 VM 或虛擬機器擴展集實例必須設定為 `ttys0` 的序列輸出。 這是 Azure 映射的預設值，但您會想要在自訂映射上再次檢查。 詳細資料[如下](#custom-linux-images)。
 
 
 > [!NOTE]
-> 序列主控台需要一個已設定密碼的本機使用者。 只使用 SSH 公開金鑰設定的 Vm 或虛擬機器擴展集, 將無法登入序列主控台。 若要建立具有密碼的本機使用者，請使用 [VM 存取擴充功能](https://docs.microsoft.com/azure/virtual-machines/linux/using-vmaccess-extension) (可透過在入口網站中選取 [重設密碼] 來使用此功能)，然後建立具有密碼的本機使用者。
+> 序列主控台需要一個已設定密碼的本機使用者。 只使用 SSH 公開金鑰設定的 Vm 或虛擬機器擴展集，將無法登入序列主控台。 若要建立具有密碼的本機使用者，請使用 [VM 存取擴充功能](https://docs.microsoft.com/azure/virtual-machines/linux/using-vmaccess-extension) (可透過在入口網站中選取 [重設密碼] 來使用此功能)，然後建立具有密碼的本機使用者。
 > 您也可以[使用 GRUB 來開機進入單一使用者模式](./serial-console-grub-single-user-mode.md)，以重設帳戶中的系統管理員密碼。
 
 ## <a name="serial-console-linux-distribution-availability"></a>序列主控台 Linux 發佈可用性
@@ -69,9 +69,9 @@ SUSE        | Azure 上提供的較新 SLES 映像已預設啟用序列主控台
 Oracle Linux        | 預設啟用的序列主控台存取。
 
 ### <a name="custom-linux-images"></a>自訂 Linux 映像
-若要啟用自訂 Linux VM 映像的序列主控台，請在 */etc/inittab* 檔案中啟用主控台存取以在 `ttyS0` 上執行終端機。 例如： `S0:12345:respawn:/sbin/agetty -L 115200 console vt102` 。 您可能也需要在 ttyS0 上產生 getty。 這可以透過來完成`systemctl start serial-getty@ttyS0.service`。
+若要啟用自訂 Linux VM 映像的序列主控台，請在 */etc/inittab* 檔案中啟用主控台存取以在 `ttyS0` 上執行終端機。 例如： `S0:12345:respawn:/sbin/agetty -L 115200 console vt102` 。 您可能也需要在 ttyS0 上產生 getty。 這可以使用 `systemctl start serial-getty@ttyS0.service` 來完成。
 
-您也會想要新增 ttys0 做為序列輸出的目的地。 如需有關設定自訂映射以使用序列主控台的詳細資訊, 請參閱在[Azure 中建立及上傳 LINUX VHD](https://aka.ms/createuploadvhd#general-linux-system-requirements)的一般系統需求。
+您也會想要新增 ttys0 做為序列輸出的目的地。 如需有關設定自訂映射以使用序列主控台的詳細資訊，請參閱在[Azure 中建立及上傳 LINUX VHD](https://aka.ms/createuploadvhd#general-linux-system-requirements)的一般系統需求。
 
 如果您正在建置自訂核心，則可以考慮啟用這些核心旗標：`CONFIG_SERIAL_8250=y` 與 `CONFIG_MAGIC_SYSRQ_SERIAL=y`。 組態檔通常位於 */boot/* 路徑中。
 
@@ -79,15 +79,15 @@ Oracle Linux        | 預設啟用的序列主控台存取。
 
 狀況          | 序列主控台中的動作
 :------------------|:-----------------------------------------
-損毀的 *FSTAB* 檔案 | 按下 **Enter** 鍵以繼續，並使用文字編輯器來修正 *FSTAB* 檔案。 您可能必須在單一使用者模式下，才能進行此操作。 如需詳細資訊, 請參閱[如何修正 fstab 問題](https://support.microsoft.com/help/3206699/azure-linux-vm-cannot-start-because-of-fstab-errors)和[使用序列主控台來存取 GRUB 與單一使用者模式](serial-console-grub-single-user-mode.md)的序列主控台一節。
-不正確的防火牆規則 |  如果您已將 iptables 設定為封鎖 SSH 連線, 您可以使用序列主控台來與您的 VM 互動, 而不需要 SSH。 如需更多詳細資料, 請參閱[iptables man 頁面](https://linux.die.net/man/8/iptables)。<br>同樣地, 如果您的 firewalld 封鎖了 SSH 存取, 您可以透過序列主控台存取 VM, 然後重新設定 firewalld。 您可以在[firewalld 檔](https://firewalld.org/documentation/)中找到更多詳細資料。
-檔案系統損毀/檢查 | 請參閱 Azure Linux VM 的序列主控台區段[因為檔案系統錯誤而無法啟動](https://support.microsoft.com/en-us/help/3213321/linux-recovery-cannot-ssh-to-linux-vm-due-to-file-system-errors-fsck), 如需使用序列主控台疑難排解損毀檔案系統的詳細資訊。
-SSH 設定問題 | 存取序列主控台，然後變更設定。 無論 VM 的 SSH 設定為何, 都可以使用序列主控台, 因為它不需要 VM 讓網路連線正常運作。 針對[Azure LINUX VM 失敗、發生錯誤或遭到拒絕的 SSH 連線進行疑難排解時,](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/troubleshoot-ssh-connection)可取得疑難排解指南。 如需更多詳細資料, 請前往[在 Azure 中連線到 LINUX VM 問題的詳細 SSH 疑難排解步驟](./detailed-troubleshoot-ssh-connection.md)
-與開機載入器互動 | 從序列主控台刀鋒視窗內重新啟動您的 VM，以存取 Linux VM 上的 GRUB。 如需更多詳細資料和散發版本特定的資訊, 請參閱[使用序列主控台存取 GRUB 和單一使用者模式](serial-console-grub-single-user-mode.md)。
+損毀的 *FSTAB* 檔案 | 按下 **Enter** 鍵以繼續，並使用文字編輯器來修正 *FSTAB* 檔案。 您可能必須在單一使用者模式下，才能進行此操作。 如需詳細資訊，請參閱[如何修正 fstab 問題](https://support.microsoft.com/help/3206699/azure-linux-vm-cannot-start-because-of-fstab-errors)和[使用序列主控台來存取 GRUB 與單一使用者模式](serial-console-grub-single-user-mode.md)的序列主控台一節。
+不正確的防火牆規則 |  如果您已將 iptables 設定為封鎖 SSH 連線，您可以使用序列主控台來與您的 VM 互動，而不需要 SSH。 如需更多詳細資料，請參閱[iptables man 頁面](https://linux.die.net/man/8/iptables)。<br>同樣地，如果您的 firewalld 封鎖了 SSH 存取，您可以透過序列主控台存取 VM，然後重新設定 firewalld。 您可以在[firewalld 檔](https://firewalld.org/documentation/)中找到更多詳細資料。
+檔案系統損毀/檢查 | 請參閱 Azure Linux VM 的序列主控台區段[因為檔案系統錯誤而無法啟動](https://support.microsoft.com/en-us/help/3213321/linux-recovery-cannot-ssh-to-linux-vm-due-to-file-system-errors-fsck)，如需使用序列主控台疑難排解損毀檔案系統的詳細資訊。
+SSH 設定問題 | 存取序列主控台，然後變更設定。 無論 VM 的 SSH 設定為何，都可以使用序列主控台，因為它不需要 VM 讓網路連線正常運作。 針對[Azure LINUX VM 失敗、發生錯誤或遭到拒絕的 SSH 連線進行疑難排解時，](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/troubleshoot-ssh-connection)可取得疑難排解指南。 如需更多詳細資料，請前往[在 Azure 中連線到 LINUX VM 問題的詳細 SSH 疑難排解步驟](./detailed-troubleshoot-ssh-connection.md)
+與開機載入器互動 | 從序列主控台刀鋒視窗內重新啟動您的 VM，以存取 Linux VM 上的 GRUB。 如需更多詳細資料和散發版本特定的資訊，請參閱[使用序列主控台存取 GRUB 和單一使用者模式](serial-console-grub-single-user-mode.md)。
 
 ## <a name="disable-the-serial-console"></a>停用序列主控台
 
-根據預設, 所有訂用帳戶都已啟用序列主控台存取。 您可以在訂用帳戶層級或 VM/虛擬機器擴展集層級停用序列主控台。 如需詳細指示, 請造訪[啟用和停用 Azure 序列主控台](./serial-console-enable-disable.md)。
+根據預設，所有訂用帳戶都已啟用序列主控台存取。 您可以在訂用帳戶層級或 VM/虛擬機器擴展集層級停用序列主控台。 如需詳細指示，請造訪[啟用和停用 Azure 序列主控台](./serial-console-enable-disable.md)。
 
 ## <a name="serial-console-security"></a>序列主控台安全性
 
@@ -107,7 +107,7 @@ SSH 設定問題 | 存取序列主控台，然後變更設定。 無論 VM 的 S
 如果在某位使用者已連線至序列主控台的情況下，另一位使用者成功取得該相同虛擬機器的存取權，系統就會將第一位使用者中斷連線，而讓第二位使用者連線至相同的工作階段。
 
 > [!CAUTION]
-> 這表示中斷連線的使用者將不會被登出。在進行中斷連線時強制登出的功能 (使用 SIGHUP 或類似的機制) 仍在藍圖中。 就 Windows 而言，在特殊系統管理主控台 (SAC) 中會啟用自動逾時，不過，針對 Linux，您則可以設定終端機逾時設定。 為此，請在您用以登入主控台之使用者的 *.bash_profile* 或 *.profile* 檔案中新增 `export TMOUT=600`。 此設定將在 10 分鐘後逾時。
+> 這表示中斷連線的使用者將不會被登出。在進行中斷連線時強制登出的功能（使用 SIGHUP 或類似的機制）仍在藍圖中。 就 Windows 而言，在特殊系統管理主控台 (SAC) 中會啟用自動逾時，不過，針對 Linux，您則可以設定終端機逾時設定。 為此，請在您用以登入主控台之使用者的 *.bash_profile* 或 *.profile* 檔案中新增 `export TMOUT=600`。 此設定將在 10 分鐘後逾時。
 
 ## <a name="accessibility"></a>協助工具選項
 協助工具是 Azure 序列主控台的主要焦點。 為此，我們已確認序列主控台完全可供存取。
@@ -119,16 +119,14 @@ SSH 設定問題 | 存取序列主控台，然後變更設定。 無論 VM 的 S
 序列主控台具備內建的螢幕助讀程式支援。 在開啟螢幕助讀程式的情況下瀏覽，可讓螢幕助讀程式大聲讀出目前所選按鈕的替代文字。
 
 ## <a name="known-issues"></a>已知問題
-我們已了解序列主控台的一些問題。 以下是這些問題的清單，以及減輕其影響的步驟。 這些問題和緩和措施適用于 Vm 和虛擬機器擴展集實例。
+我們注意到序列主控台和 VM 的作業系統有一些問題。 以下是這些問題的清單，以及適用于 Linux Vm 的緩和措施步驟。 這些問題和緩和措施適用于 Vm 和虛擬機器擴展集實例。 如果這些不符合您所看到的錯誤，請[參閱常見的](./serial-console-errors.md)序列主控台服務錯誤。
 
 問題                           |   風險降低
 :---------------------------------|:--------------------------------------------|
-在連線橫幅之後按下 **Enter** 鍵並不會顯示登入提示。 | 如需詳細資訊，請參閱[按 Enter 鍵沒有任何作用](https://github.com/Microsoft/azserialconsole/blob/master/Known_Issues/Hitting_enter_does_nothing.md) \(英文\)。 如果您執行的是自訂 VM、強化設備, 或是導致 Linux 無法連線到序列埠的 GRUB 設定, 就可能會發生此問題。
+在連線橫幅之後按下 **Enter** 鍵並不會顯示登入提示。 | 如需詳細資訊，請參閱[按 Enter 鍵沒有任何作用](https://github.com/Microsoft/azserialconsole/blob/master/Known_Issues/Hitting_enter_does_nothing.md) \(英文\)。 如果您執行的是自訂 VM、強化設備，或是導致 Linux 無法連線到序列埠的 GRUB 設定，就可能會發生此問題。
 序列主控台文字只會佔用部分的螢幕大小 (通常在使用文字編輯器之後)。 | 序列主控台不支援對視窗大小進行交涉 ([RFC 1073](https://www.ietf.org/rfc/rfc1073.txt))，這表示系統將不會傳送 SIGWINCH 訊號以更新螢幕大小，而且 VM 將無法得知您終端機的大小。 安裝 xterm 或類似的公用程式，以向您提供 `resize` 命令，然後再執行 `resize`。
 貼上長字串沒有作用。 | 序列主控台會將貼上至終端機的字串長度限制為 2048 個字元，以防止多載序列連接埠頻寬。
-序列主控台無法與儲存體帳戶防火牆搭配使用。 | 根據設計，序列主控台無法與開機診斷儲存體帳戶上啟用的儲存體帳戶防火牆搭配使用。
-序列主控台無法搭配使用具有階層命名空間之 Azure Data Lake Storage Gen2 的儲存體帳戶使用。 | 這是階層命名空間的已知問題。 若要減輕問題, 請確定您的 VM 開機診斷儲存體帳戶不是使用 Azure Data Lake Storage Gen2 建立的。 只有在建立儲存體帳戶時, 才能設定此選項。 您可能必須在未啟用 Azure Data Lake Storage Gen2 的情況下, 建立個別的開機診斷儲存體帳戶來減輕此問題。
-SLES BYOS 映射中的鍵盤輸入不穩定。 鍵盤輸入只會偶爾被辨識。 | 這是 Plymouth 套件的問題。 Plymouth 不應該在 Azure 中執行, 因為您不需要啟動顯示畫面, 而 Plymouth 會干擾平臺使用序列主控台的能力。 移除 Plymouth `sudo zypper remove plymouth` , 然後重新開機。 或者, 在行尾附加`plymouth.enable=0` , 以修改 GRUB 設定的核心行。 若要這麼做, 您可以[在開機時編輯開機專案](https://aka.ms/serialconsolegrub#single-user-mode-in-suse-sles), 或編輯中`/etc/default/grub`的 GRUB_CMDLINE_LINUX 行`grub2-mkconfig -o /boot/grub2/grub.cfg`, 以重建 GRUB, 然後重新開機。
+SLES BYOS 映射中的鍵盤輸入不穩定。 鍵盤輸入只會偶爾被辨識。 | 這是 Plymouth 套件的問題。 Plymouth 不應該在 Azure 中執行，因為您不需要啟動顯示畫面，而 Plymouth 會干擾平臺使用序列主控台的能力。 移除 `sudo zypper remove plymouth` 的 Plymouth，然後重新開機。 或者，將 `plymouth.enable=0` 附加到行尾，以修改 GRUB 設定的核心線。 若要這麼做，您可以[在開機時編輯開機專案](https://aka.ms/serialconsolegrub#single-user-mode-in-suse-sles)，或編輯 `/etc/default/grub` 中的 GRUB_CMDLINE_LINUX 行，以 `grub2-mkconfig -o /boot/grub2/grub.cfg` 重建 GRUB，然後重新開機。
 
 
 ## <a name="frequently-asked-questions"></a>常見問題集
@@ -154,7 +152,7 @@ A. 若要以訂用帳戶層級的規模啟用或停用序列主控台，您必�
 
 **問：誰可以存取我的 VM/虛擬機器擴展集的序列主控台？**
 
-A. 您必須擁有 VM 或虛擬機器擴展集的虛擬機器參與者角色或更高的許可權, 才能存取序列主控台。
+A. 您必須擁有 VM 或虛擬機器擴展集的虛擬機器參與者角色或更高的許可權，才能存取序列主控台。
 
 **問：我的序列主控台沒有顯示任何內容，該怎麼辦？**
 
@@ -164,7 +162,7 @@ A. 您映像的序列主控台存取設定很有可能是錯誤的。 如需有�
 
 A. 是的，它是！ 請參閱[序列主控台以取得虛擬機器擴展集](serial-console-overview.md#serial-console-for-virtual-machine-scale-sets)
 
-**問：如果我只使用 SSH 金鑰驗證來設定 VM 或虛擬機器擴展集, 仍然可以使用序列主控台來連線到我的 VM/虛擬機器擴展集實例嗎？**
+**問：如果我只使用 SSH 金鑰驗證來設定 VM 或虛擬機器擴展集，仍然可以使用序列主控台來連線到我的 VM/虛擬機器擴展集實例嗎？**
 
 A. 是的。 因為序列主控台並不需要 SSH 金鑰，因此您只需要設定使用者名稱/密碼組合就可以。 您可以透過在 Azure 入口網站中選取 [重設密碼] 並使用這些認證登入序列主控台來執行此操作。
 

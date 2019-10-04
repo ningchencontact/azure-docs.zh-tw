@@ -54,7 +54,7 @@
     - name: 處理命中結果醒目提示
       href: hit-highlighting.md
     - name: 逐頁檢視結果
-      href: paging-webpages.md
+      href: paging-search-results.md
     - name: 調整大小和裁剪縮圖
       href: resize-and-crop-thumbnails.md
     - name: 從 v5 升級到 v7

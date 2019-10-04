@@ -101,10 +101,6 @@
             - name: 2. 將遙測新增到 Application Insights
               displayName: 'Application insight, kusto'
               href: luis-tutorial-bot-nodejs-appinsights.md
-- name: 範例
-  items:
-    - name: 程式碼範例
-      href: 'https://github.com/Azure-Samples/cognitive-services-language-understanding'
 - name: 概念
   items:
     - name: 最佳作法
@@ -411,6 +407,8 @@
       href: 'https://github.com/Microsoft/Cognitive-Samples-IntelligentKiosk'
 - name: 資源
   items:
+    - name: 程式碼範例
+      href: 'https://github.com/Azure-Samples/cognitive-services-language-understanding'
     - name: 區域可用性
       href: 'https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services'
     - name: 語言與區域支援

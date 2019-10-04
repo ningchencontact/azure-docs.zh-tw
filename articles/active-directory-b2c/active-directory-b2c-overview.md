@@ -1,135 +1,133 @@
 ---
-title: 什麼是 Azure Active Directory B2C？ | Microsoft Docs
-description: 了解如何使用 Azure Active Directory B2C 在應用程式中建立和管理身分識別體驗，例如註冊/登入和設定檔管理。
+title: 什麼是 Azure Active Directory B2C？
+description: 了解如何使用 Azure Active Directory B2C 在應用程式中支援外部身分識別，包括使用 Facebook、Google 和其他識別提供者的社交登入。
 services: active-directory-b2c
 author: mmacy
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: overview
-ms.date: 02/20/2019
+ms.date: 09/19/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: ca636079439f811a887d16b627473e7d73930799
-ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
+ms.openlocfilehash: 007b23f07afec6163c2158feb3f17ba71e44bdb5
+ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71065700"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71120572"
 ---
 # <a name="what-is-azure-active-directory-b2c"></a>什麼是 Azure Active Directory B2C？
 
-Azure Active Directory B2C (Azure AD B2C) 是一項企業對消費者的身分識別管理服務。 此服務可讓您自訂和控制使用者如何安全地與您的 Web、桌面、行動或單頁應用程式互動。 透過 Azure AD B2C，使用者可以註冊、登入、重設密碼及編輯設定檔。 Azure AD B2C 可實作某種形式的 OpenID Connect 和 OAuth 2.0 通訊協定。 安全性權杖及其宣告可讓您提供資源的安全存取，這是此類通訊協定實作中的關鍵要素。
+Azure Active Directory B2C 提供企業對客戶身分識別即服務。 您的客戶會使用其慣用的社交、企業或本機帳戶身分識別來取得應用程式和 API 的單一登入存取權。
 
-*使用者旅程圖*是一個指定原則的要求，可控制使用者和您的應用程式與 Azure AD B2C 互動的行為。 您可以透過兩種途徑在 Azure AD B2C 中定義使用者旅程圖。
+![Azure AD B2C 識別提供者和下游應用程式的資訊圖表](media/active-directory-b2c-overview/azureadb2c-overview.png)
 
-如果您是應用程式開發人員，無論是否具備身分識別專業知識，您都可以選擇使用 Azure 入口網站來定義常用的身分識別使用者流程。 如果您是身分識別專業人員、系統整合者、顧問或內部身分識別小組成員，且熟悉 OpenID Connect 流程並了解識別提供者和宣告式驗證，則可以選擇以 XML 為基礎的自訂原則。
+Azure Active Directory B2C (Azure AD B2C) 是一種客戶身分識別存取管理 (CIAM) 解決方案，每天能夠支援數百萬名使用者和數十億次驗證。 它會負責驗證平台的規模調整和安全性，以及監控和自動處理威脅 (例如拒絕服務、密碼噴濺或暴力密碼破解攻擊)。
 
-在定義使用者旅程圖之前，您必須先建立 Azure AD B2C 租用戶，並在租用戶中註冊您的應用程式和 API。 完成這些工作後，即可開始定義具有使用者流程或自訂原則的使用者旅程圖。 您也可以選擇性地新增或變更識別提供者，或自訂使用者體驗旅程圖的方式。
+## <a name="custom-branded-identity-solution"></a>自訂品牌的身分識別解決方案
 
-## <a name="protocols-and-tokens"></a>通訊協定和權杖
+Azure AD B2C 是一種白標驗證解決方案。 您可以使用自己的品牌自訂整個使用者體驗，使其與您的 Web 和行動應用程式順暢地融合。
 
-Azure AD B2C 支援在使用者旅程圖中使用 [OpenID Connect 和 OAuth 2.0 通訊協定](active-directory-b2c-reference-protocols.md)。 在 Azure AD B2C 的 OpenID Connect 實作中，您的應用程式會向 Azure AD B2C 發出驗證要求，以起始使用者旅程圖。
+當使用者註冊、登入及修改其設定檔資訊時，自訂 Azure AD B2C 所顯示的每個頁面。 在使用者旅程圖中自訂 HTML、CSS 和 JavaScript，讓 Azure AD B2C 的外觀和操作體驗像是應用程式的原生部分。
 
-提出 Azure AD B2C 的要求後會產生安全性權杖，例如[識別碼權杖或存取權杖](active-directory-b2c-reference-tokens.md)。 此安全性權杖會定義使用者的身分識別。 權杖接收自 Azure AD B2C 端點，例如 `/token` 或 `/authorize` 端點。 經由這些權杖，您可以存取可用來驗證身分識別和允許存取安全資源的宣告。
+![自訂註冊和登入頁面和背景影像](media/active-directory-b2c-overview/sign-in-small.png)
 
-## <a name="tenants-and-applications"></a>租用戶和應用程式
+## <a name="single-sign-on-access-with-a-user-provided-identity"></a>以使用者提供的身分識別存取單一登入
 
-在 Azure AD B2C 中，*租用戶*代表您的組織，而實際上是一個使用者目錄。 每個 Azure AD B2C 租用戶都不相同，並與其他 Azure AD B2C 租用戶分開。 您可能已有 Azure Active Directory 租用戶，而 Azure AD B2C 租用戶是不同的租用戶。 租用戶包含已註冊要使用您的應用程式之使用者的相關資訊。 例如，密碼、設定檔資料和權限。 如需詳細資訊，請參閱[教學課程：建立 Azure Active Directory B2C 租用戶](tutorial-create-tenant.md)。
+Azure AD B2C 使用標準型驗證通訊協定，包括 OpenID Connect、OAuth 2.0 和 SAML。 它會與大多數現代化應用程式和商業現成軟體整合。
 
-在設定應用程式以使用 Azure AD B2C 之前，您必須先使用 Azure 入口網站在租用戶中註冊應用程式。 註冊程序會收集和指派一些值給您的應用程式。 這些值包括可唯一識別應用程式的應用程式識別碼，以及用來將回應傳回給應用程式的重新導向 URI。
+![第三方身分識別與 Azure AD B2C 同盟的圖表](media/active-directory-b2c-overview/scenario-singlesignon.png)
 
-每個應用程式的互動都遵循類似的高階模式：
+Azure AD B2C 可充當 Web 應用程式、行動應用程式和 API 的中央驗證授權單位，讓您為上述項目建置單一登入 (SSO) 解決方案。 集中收集使用者設定檔和喜好設定資訊，並擷取有關登入行為和註冊轉換的詳細分析。
 
-1. 應用程式引導使用者執行原則。
-2. 使用者完成根據原則定義來完成原則。
-3. 應用程式接收權杖。
-4. 應用程式使用權杖嘗試存取資源。
-5. 資源伺服器驗證權杖，以確認可授與存取權。
-6. 應用程式定期重新整理權杖。
+## <a name="integrate-with-external-user-stores"></a>與外部使用者存放區整合
 
-若要註冊 Web 應用程式，請完成[教學課程：註冊應用程式以啟用使用 Azure AD B2C 的註冊和登入](tutorial-register-applications.md)中的步驟。 您也可以[將 web API 應用程式新增至您的 Azure Active Directory B2C 租用戶](add-web-application.md)，或[將原生用戶端應用程式新增至您的 Azure Active Directory B2C 租用戶](add-native-application.md)。
+Azure AD B2C 提供一個目錄，可為每個使用者保存 100 個自訂屬性。 不過，您也可以與外部系統整合。 例如，使用 Azure AD B2C 進行驗證，但將其委派給外部客戶關係管理 (CRM) 或客戶忠誠度資料庫，作為客戶資料的真實來源。
 
-## <a name="user-journeys"></a>使用者旅程
+另一個外部使用者存放區案例是讓 Azure AD B2C 處理應用程式的驗證，但與儲存使用者設定檔或個人資料的外部系統整合。 例如，滿足資料落地需求，例如區域或內部部署資料儲存原則。
 
-使用者旅程圖中的原則可定義為[使用者流程](active-directory-b2c-reference-policies.md)或[自訂原則](active-directory-b2c-overview-custom.md)。 在 Azure 入口網站中，可以取得針對最常用身分識別工作預先定義的使用者流程，而這些工作包括註冊、登入和設定檔編輯。
+![Azure AD B2C 與外部使用者存放區通訊的邏輯圖表](media/active-directory-b2c-overview/scenario-remoteprofile.png)
 
-使用者旅程圖可讓您進行下列設定來控制行為：
+Azure AD B2C 可以在註冊或設定檔編輯期間，協助向使用者收集資訊，然後將該資料交給外部系統。 接著，在未來驗證期間，Azure AD B2C 可從外部系統擷取資料，並視需要將其包含在它傳送至您應用程式的驗證權杖回應中。
 
-- 使用者可用來註冊應用程式的社交帳戶
-- 對使用者收集的資料，例如名字或郵遞區號
-- Multi-Factor Authentication
-- 頁面的外觀與風格
-- 傳回至應用程式的資訊
+## <a name="progressive-profiling"></a>漸進式分析
 
-自訂原則是一種組態檔，可定義 Azure AD B2C 租用戶中的[身分識別體驗架構](trustframeworkpolicy.md)的行為。 身分識別體驗架構是建立多方信任並完成使用者旅程圖中各個步驟的基礎平台。
+另一個使用者旅程圖選項包含漸進式分析。 漸進式分析可讓客戶藉由收集最少量的資訊，快速完成其第一筆交易。 然後，在未來登入時，向客戶逐漸收集更多設定檔資料。
 
-您可變更自訂原則來完成多項工作。 自訂原則是一個或多個 XML 格式的檔案，各檔案在階層鏈中彼此參考。 [入門套件](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/archive/master.zip)可供自訂原則用來啟用常見的身分識別工作。
+![漸進式分析的視覺描述](media/active-directory-b2c-overview/scenario-progressive.png)
 
-您可以視需要在 Azure AD B2C 租用戶中使用不同類型的自訂原則或使用者流程，並且可以跨應用程式重複使用。 此彈性可讓您在稍微變更或完全不變更程式碼的情況下，定義及修改使用者身分識別體驗。 您可以在 HTTP 驗證要求中新增特定查詢參數，以使用原則。 若要建立您自己的自訂原則，請參閱[在 Azure Active Directory B2C 中開始使用自訂原則](active-directory-b2c-get-started-custom.md)。
+## <a name="third-party-identity-verification-and-proofing"></a>第三方身分識別驗證和證明
 
-## <a name="identity-providers"></a>識別提供者
+使用 Azure AD B2C 收集使用者資料，然後將其傳遞至第三方系統，以執行驗證、信任評分及核准建立使用者帳戶，進而促進身分識別驗證和證明。
 
-在您的應用程式中，您可以讓使用者使用不同的識別提供者登入。 *識別提供者*可建立、維護及管理身分識別資訊，同時對應用程式提供驗證服務。 您可以使用 Azure 入口網站新增 Azure AD B2C 支援的識別提供者。
+![顯示第三方身分識別證明之使用者流程的圖表](media/active-directory-b2c-overview/scenario-idproofing.png)
 
-您在應用程式中通常只會使用一個識別提供者，但您可以選擇新增更多個。 若要在您的 Azure AD B2C 租用戶中設定身分識別提供者，您必須先在識別提供者開發人員網站上建立應用程式，然後從您建立的識別提供者應用程式中記下應用程式識別碼或用戶端識別碼以及密碼或用戶端密碼。 此識別碼和密碼後續將用來設定您的應用程式。
+這些只是您可將 Azure AD B2C 當作企業對客戶身分識別平台來執行的一些作業。 本概觀的下列各節將逐步引導您使用 Azure AD B2C 的示範應用程式。 您也可以直接移至更深入的 [Azure AD B2C 技術概觀](technical-overview.md)。
 
-下列文章說明將一些常見的識別提供者新增至使用者流程的步驟：
+## <a name="example-woodgrove-groceries"></a>範例：WoodGrove Groceries
 
-- [Amazon](active-directory-b2c-setup-amzn-app.md)
-- [Facebook](active-directory-b2c-setup-fb-app.md)
-- [Microsoft 帳戶](active-directory-b2c-setup-msa-app.md)
+[WoodGrove Groceries][woodgrove] 是 Microsoft 所建立的即時 Web 應用程式，可示範數個 Azure AD B2C 功能。 接下來的幾節會回顧 Azure AD B2C 提供給 WoodGrove 網站的一些驗證選項。
 
-下列文章說明將一些常見的識別提供者新增至自訂原則的步驟：
-- [Amazon](setup-amazon-custom.md)
-- [Google](active-directory-b2c-custom-setup-goog-idp.md)
-- [Microsoft 帳戶](active-directory-b2c-custom-setup-msa-idp.md)
+### <a name="business-overview"></a>商務概觀
 
-如需詳細資訊，請參閱[教學課程：在 Azure Active Directory B2C 中將識別提供者新增至您的應用程式](tutorial-add-identity-providers.md)。
+WoodGrove 是一家線上雜貨店，專門銷售雜貨給個人消費者和企業客戶。 他們的企業客戶會代表其公司或他們所管理的企業購買雜貨。
 
+### <a name="sign-in-options"></a>登入選項
 
-## <a name="page-customization"></a>自訂頁面
+WoodGrove Groceries 會根據其客戶與商店之間的關係，提供數個登入選項：
 
-在使用者旅程圖中對客戶呈現的多數 HTML 和 CSS 內容都是可控制的。 您可以使用頁面自訂功能，自訂任何自訂原則或使用者流程的外觀與風格。 您可以使用此自訂功能來維護應用程式與 Azure AD B2C 之間的品牌和視覺一致性。
+* **個人**客戶可使用個人帳戶進行註冊或登入，例如使用社交識別提供者或電子郵件地址和密碼。
+* **企業**客戶可以使用其企業認證進行註冊或登入。
+* **合作夥伴**和供應商是將要銷售的產品提供給雜貨店的個人。 合作夥伴身分識別是由 [Azure Active Directory B2B](../active-directory/b2b/what-is-b2b.md) 提供。
 
-Azure AD B2C 會在使用者的瀏覽器中執行程式碼，並使用名為「跨原始資源共用 (CORS)」的新式方法。 首先，您必須在原則中使用自訂 HTML 內容指定 URL。 Azure AD B2C 會合併使用者介面元素與從您 URL 載入的 HTML 內容，然後對使用者顯示此頁面。
+![個人 (B2C)、企業 (B2C) 和合作夥伴 (B2B) 登入頁面](media/active-directory-b2c-overview/woodgrove-overview.png)
 
-您可以在查詢字串中將參數傳送至 Azure AD B2C。 將參數傳遞至您的 HTML 端點，即可動態變更網頁內容。 例如，您可以根據您從 Web 或行動裝置應用程式傳遞的參數，變更註冊或登入頁面的背景影像。
+### <a name="authenticate-individual-customers"></a>驗證個人客戶
 
-若要自訂使用者流程中的頁面，請參閱[教學課程：在 Azure Active Directory B2C 中自訂使用者介面體驗](tutorial-customize-ui.md)。 若要對自訂原則中的頁面進行自訂，請參閱[在 Azure Active Directory B2C 中使用自訂原則來自訂應用程式的使用者介面](active-directory-b2c-ui-customization-custom.md)或[在 Azure Active Directory B2C 中使用自訂原則設定具有動態內容的 UI](active-directory-b2c-ui-customization-custom-dynamic.md)。
+當客戶選取 [使用個人帳戶登入]  時，系統會將他們重新導向至 Azure AD B2C 所主控的自訂登入頁面。 您可在下圖中看到我們已自訂使用者介面 (UI)，其外觀和操作方式就像是 WoodGrove Groceries 網站。 WoodGrove 的客戶應該不知道驗證體驗是由 Azure AD B2C 所主控和保護。
 
-## <a name="developer-resources"></a>開發人員資源
+![由 Azure AD B2C 主控的自訂 WoodGrove 登入頁面](media/active-directory-b2c-overview/sign-in.png)
 
-### <a name="client-applications"></a>用戶端應用程式
+WoodGrove 可讓客戶使用其 Google、Facebook 或 Microsoft 帳戶作為其身分識別提供者來註冊和登入。 或者，他們也可以使用其電子郵件地址和密碼來註冊，以建立所謂的「本機帳戶」  。
 
-您可以選擇 [iOS](active-directory-b2c-devquickstarts-ios.md)、[Android](active-directory-b2c-devquickstarts-android.md) 和 .NET 等平台的應用程式。 Azure AD B2C 可讓您的使用者執行這些動作，同時保護其身分識別。
+當客戶選取 [使用個人帳戶註冊]  ，然後選取 [立即註冊]  時，他們會看到自訂註冊頁面。
 
-如果您是 ASP.NET Web 應用程式開發人員，請使用[教學課程：使用 Azure AD B2C 讓 Web 應用程式透過帳戶進行驗證](active-directory-b2c-tutorials-web-app.md)中的步驟設定您的應用程式，以進行帳戶驗證。
+![由 Azure AD B2C 主控的自訂 WoodGrove 註冊頁面](media/active-directory-b2c-overview/sign-up.png)
 
-如果您是桌面應用程式開發人員，請使用[教學課程：使用 Azure AD B2C 讓桌面應用程式透過帳戶進行驗證](active-directory-b2c-tutorials-desktop-app.md)中的步驟設定您的應用程式，以進行帳戶驗證。
+輸入電子郵件地址並選取 [傳送驗證碼]  之後，Azure AD B2C 就會將驗證碼傳送給他們。 輸入驗證碼後，選取 [驗證碼]  ，然後在表單上輸入其他資訊，還必須同意服務條款。
 
-如果您是使用 Node.js 的單頁應用程式開發人員，請使用[教學課程：使用 Azure AD B2C 讓單頁應用程式透過帳戶進行驗證](active-directory-b2c-tutorials-spa.md)中的步驟設定您的應用程式，以進行帳戶驗證。
+按一下 [建立]  按鈕會導致 Azure AD B2C 將使用者重新導向回到 WoodGrove Groceries 網站。 當它重新導向時，Azure AD B2C 會將 OpenID Connect 驗證權杖傳遞至 WoodGrove Web 應用程式。 使用者現在已登入並準備好開始，其顯示名稱會顯示在右上角以表示他們已登入。
 
-### <a name="apis"></a>API
-如果您的用戶端或 Web 應用程式需要呼叫 API，您可以在 Azure AD B2C 中設定這些資源的安全存取。
+![顯示使用者已登入的 WoodGrove Groceries 網站標頭](media/active-directory-b2c-overview/signed-in-individual.png)
 
-如果您是 ASP.NET Web 應用程式開發人員，請使用[教學課程：使用 Azure Active Directory B2C 授與存取 ASP.NET Web API 的權限](active-directory-b2c-tutorials-web-api.md)中的步驟設定您的應用程式，以呼叫受保護的 API。
+### <a name="authenticate-business-customers"></a>驗證企業客戶
 
-如果您是桌面應用程式開發人員，請使用[教學課程：使用 Azure Active Directory B2C 授與從桌面應用程式存取 Node.js Web API 的權限](active-directory-b2c-tutorials-desktop-app-webapi.md)中的步驟設定您的應用程式，以呼叫受保護的 API。
+當客戶選取 [企業客戶]  下的其中一個選項時，WoodGrove Groceries 網站會叫用不同於個人客戶所用的 Azure AD B2C 原則。
 
-如果您是使用 Node.js 的單頁應用程式開發人員，請使用[教學課程：使用 Azure Active Directory B2C 授與從單頁應用程式存取 ASP.NET Core Web API 的權限](active-directory-b2c-tutorials-spa-webapi.md)中的步驟設定您的應用程式，以進行帳戶驗證。
+此原則會向使用者顯示可使用其公司認證進行註冊和登入的選項。 在 WoodGrove 範例中，系統會提示使用者使用任何 Office 365 或 Azure AD 帳戶進行登入。 此原則會使用[多租用戶 Azure AD 應用程式](../active-directory/develop/howto-convert-app-to-be-multi-tenant.md)和 `/common` Azure AD 端點，讓 Azure AD B2C 與世界各地的任何 Office 365 客戶同盟。
 
-### <a name="javascript"></a>JavaScript
+### <a name="authenticate-partners"></a>驗證合作夥伴
 
-您可以將自己的 JavaScript 用戶端程式碼新增至 Azure AD B2C 中的應用程式。 若要在您的應用程式中設定 JavaScript，您可以定義[頁面配置](page-layout.md)，並在使用者流程或自訂原則中啟用 [JavaScript](javascript-samples.md)。
+[使用供應商帳戶登入]  連結會使用 Azure Active Directory B2B 的共同作業功能。 Azure AD B2B 是 Azure Active Directory 中用來管理合作夥伴身分識別的一系列功能。 這些身分識別可從 Azure Active Directory 同盟，以便存取受 Azure AD B2C 保護的應用程式。
 
-### <a name="user-accounts"></a>使用者帳戶
+在[什麼是 Azure Active Directory B2B 中的來賓使用者存取權？](../active-directory/b2b/what-is-b2b.md)中深入了解 Azure AD B2B。
 
-有許多常見的租用戶管理工作需要以程式設計方式執行。 使用者管理是主要範例。 您可能需要將現有的使用者存放區移轉至 Azure AD B2C 租用戶。 您希望在自己的頁面上裝載使用者註冊，並在幕後的 Azure AD B2C 目錄中建立使用者帳戶。 這類工作需要能夠建立、讀取、更新和刪除使用者帳戶。 這些工作都可以透過 [Azure AD 圖形 API](active-directory-b2c-devquickstarts-graph-dotnet.md) 來完成。
+<!-- UNCOMMENT WHEN REPO IS UPDATED WITH LATEST DEMO CODE
+### Sample code
+
+If you'd like to jump right into the code to see how the WoodGrove Groceries application is built, you can find the repository on GitHub:
+
+[Azure-Samples/active-directory-external-identities-woodgrove-demo][woodgrove-repo] (GitHub)
+-->
 
 ## <a name="next-steps"></a>後續步驟
 
-繼續進行教學課程，開始為您的應用程式進行註冊和登入體驗的設定。
+您現在已了解 Azure AD B2C 是什麼以及它可協助處理的一些案例，請進一步了解其功能和技術層面。
 
 > [!div class="nextstepaction"]
-> [教學課程：建立 Azure Active Directory B2C 租用戶](tutorial-create-tenant.md)
+> [Azure AD B2C 技術概觀 >](technical-overview.md)
+
+<!-- LINKS - External -->
+[woodgrove]: https://aka.ms/ciamdemo
+[woodgrove-repo]: https://github.com/Azure-Samples/active-directory-external-identities-woodgrove-demo

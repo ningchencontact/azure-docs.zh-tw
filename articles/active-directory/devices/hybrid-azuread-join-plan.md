@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 306382a7dede44a0f1db53373e14e81cb54098ca
-ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
+ms.openlocfilehash: a5d89c0784c2125f5a7810ff134686645e8314a6
+ms.sourcegitcommit: 4d177e6d273bba8af03a00e8bb9fe51a447196d0
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70914743"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71960214"
 ---
 # <a name="how-to-plan-your-hybrid-azure-active-directory-join-implementation"></a>如何：規劃混合式 Azure Active Directory Join 實作
 
@@ -155,8 +155,8 @@ ms.locfileid: "70914743"
 ## <a name="next-steps"></a>後續步驟
 
 > [!div class="nextstepaction"]
-> [設定同盟環境](hybrid-azuread-join-federated-domains.md)
-> 的混合式 Azure Active Directory 聯結[設定受管理環境的混合式 Azure Active Directory 聯結](hybrid-azuread-join-managed-domains.md)
+> [設定同盟環境的混合式 Azure Active Directory 聯結](hybrid-azuread-join-federated-domains.md)
+> [設定受管理環境的混合式 Azure Active Directory 聯結](hybrid-azuread-join-managed-domains.md)
 
 <!--Image references-->
 [1]: ./media/hybrid-azuread-join-plan/12.png

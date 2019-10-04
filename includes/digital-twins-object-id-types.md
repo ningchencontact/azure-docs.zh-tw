@@ -2,18 +2,19 @@
 title: 包含檔案
 description: 包含檔案
 services: digital-twins
-author: kingdomofends
+ms.author: alinast
+author: alinamstanciu
+manager: bertvanhoof
 ms.service: digital-twins
 ms.topic: include
 ms.date: 09/30/2019
-ms.author: v-adgera
 ms.custom: include file
-ms.openlocfilehash: 1f4cdf45fb643499f7d6ab717c6f36395ad292c8
-ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
-ms.translationtype: HT
+ms.openlocfilehash: 12d4278171d43fdaf8613a1c91bdbffc269adc56
+ms.sourcegitcommit: 4f7dce56b6e3e3c901ce91115e0c8b7aab26fb72
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71827720"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71949065"
 ---
 `objectIdType` (或 **物件識別碼類型**) 係指給予角色的身分識別類型。 除了 `DeviceId` 和 `UserDefinedFunctionId` 類型之外，物件識別碼類型還會對應至 Azure Active Directory 物件的屬性。
 

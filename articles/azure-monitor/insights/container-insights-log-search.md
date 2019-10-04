@@ -1,6 +1,6 @@
 ---
 title: 如何從容器的 Azure 監視器查詢記錄 |Microsoft Docs
-description: 適用于容器的 Azure 監視器會收集計量和記錄資料, 而本文會描述記錄並包含範例查詢。
+description: 適用于容器的 Azure 監視器會收集計量和記錄資料，而本文會描述記錄並包含範例查詢。
 services: azure-monitor
 documentationcenter: ''
 author: mgoedtel
@@ -13,16 +13,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/12/2019
 ms.author: magoedte
-ms.openlocfilehash: d6e65331db53be5ba13a75e6b03b271f1071716d
-ms.sourcegitcommit: 6b41522dae07961f141b0a6a5d46fd1a0c43e6b2
+ms.openlocfilehash: ae8dd4cccb6795faa02e6705404644f6ccc24864
+ms.sourcegitcommit: 4f7dce56b6e3e3c901ce91115e0c8b7aab26fb72
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "67989822"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71948055"
 ---
 # <a name="how-to-query-logs-from-azure-monitor-for-containers"></a>如何從容器的 Azure 監視器查詢記錄
 
-容器的 Azure 監視器會從容器主機和容器收集效能計量、清查資料和健全狀況狀態資訊, 並將其轉送至 Azure 監視器中的 Log Analytics 工作區。 每隔三分鐘會收集一次資料。 這項資料可用於 Azure 監視器中的[查詢](../../azure-monitor/log-query/log-query-overview.md)。 您可以將此資料套用至各種案例，包括移轉規劃、容量分析、探索和隨選效能疑難排解。
+容器的 Azure 監視器會從容器主機和容器收集效能計量、清查資料和健全狀況狀態資訊，並將其轉送至 Azure 監視器中的 Log Analytics 工作區。 每隔三分鐘會收集一次資料。 這項資料可用於 Azure 監視器中的[查詢](../../azure-monitor/log-query/log-query-overview.md)。 您可以將此資料套用至各種案例，包括移轉規劃、容量分析、探索和隨選效能疑難排解。
 
 ## <a name="container-records"></a>容器資料列
 
@@ -42,7 +42,7 @@ ms.locfileid: "67989822"
 | Kubernetes 叢集容器部分的效能計量 | Perf &#124; where ObjectName == “K8SContainer” | CounterName &#40; CpuRequestNanoCores、MemoryRequestBytes、CpuLimitNanoCores、MemoryWorkingSetBytes、RestartTimeEpoch、CpuUsageNanoCores、memoryRssBytes&#41;、CounterValue、TimeGenerated、CounterPath、及 sourcesystem | 
 | 自訂計量 |`InsightsMetrics` | Computer、Name、Namespace、原點、及 sourcesystem、Tags<sup>1</sup>、TimeGenerated、Type、Va、_ResourceId | 
 
-<sup>1</sup> *Tags*屬性代表對應度量的[多個維度](../platform/data-platform-metrics.md#multi-dimensional-metrics)。 如需`InsightsMetrics`資料表中所收集和儲存之計量的詳細資訊, 以及記錄屬性的描述, 請參閱[InsightsMetrics 總覽](https://github.com/microsoft/OMS-docker/blob/vishwa/june19agentrel/docs/InsightsMetrics.md)。
+<sup>1</sup> *Tags*屬性代表對應度量的[多個維度](../platform/data-platform-metrics.md#multi-dimensional-metrics)。 如需 `InsightsMetrics` 資料表中所收集和儲存之計量的詳細資訊，以及記錄屬性的描述，請參閱[InsightsMetrics 總覽](https://github.com/microsoft/OMS-docker/blob/vishwa/june19agentrel/docs/InsightsMetrics.md)。
 
 >[!NOTE]
 >目前的 Prometheus 支援是公開預覽中的一項功能。
@@ -50,9 +50,9 @@ ms.locfileid: "67989822"
 
 ## <a name="search-logs-to-analyze-data"></a>搜尋記錄來分析資料
 
-Azure 監視器記錄可協助您尋找趨勢、診斷瓶頸、預測或相互關聯資料, 協助您判斷目前的叢集設定是否以最佳方式執行。 已為您提供可立即開始使用，或自訂以您想要的方式傳回資訊的預先定義記錄搜尋。
+Azure 監視器記錄可協助您尋找趨勢、診斷瓶頸、預測或相互關聯資料，協助您判斷目前的叢集設定是否以最佳方式執行。 已為您提供可立即開始使用，或自訂以您想要的方式傳回資訊的預先定義記錄搜尋。
 
-您可以在預覽窗格中選取 [檢視 Kubernetes 事件記錄]  或 [檢視容器記錄]  選項，以在工作區中對資料執行互動式分析。 [記錄搜尋]  頁面會出現在您所在 Azure 入口網站頁面的右邊。
+您可以在預覽窗格中選取 [檢視 Kubernetes 事件記錄] 或 [檢視容器記錄] 選項，以在工作區中對資料執行互動式分析。 [記錄搜尋] 頁面會出現在您所在 Azure 入口網站頁面的右邊。
 
 ![在 Log Analytics 中分析資料](./media/container-insights-analyze/container-health-log-search-example.png)   
 
@@ -67,10 +67,11 @@ Azure 監視器記錄可協助您尋找趨勢、診斷瓶頸、預測或相互�
 | ContainerInventory<br> &#124; project Computer, Name, Image, ImageTag, ContainerState, CreatedTime, StartedTime, FinishedTime<br> &#124; render table | 列出所有容器的生命週期資訊| 
 | KubeEvents_CL<br> &#124; where not(isempty(Namespace_s))<br> &#124; sort by TimeGenerated desc<br> &#124; render table | Kubernetes 事件|
 | ContainerImageInventory<br> &#124; summarize AggregatedValue = count() by Image, ImageTag, Running | 映像清查 | 
-| **選取折線圖顯示選項**：<br> Perf<br> &#124; where ObjectName == "K8SContainer" and CounterName == "cpuUsageNanoCores" &#124; summarize AvgCPUUsageNanoCores = avg(CounterValue) by bin(TimeGenerated, 30m), InstanceName | 容器 CPU | 
-| **選取折線圖顯示選項**：<br> Perf<br> &#124; where ObjectName == "K8SContainer" and CounterName == "memoryRssBytes" &#124; summarize AvgUsedRssMemoryBytes = avg(CounterValue) by bin(TimeGenerated, 30m), InstanceName | 容器記憶體 |
+| **選取折線圖顯示選項**：<br> 效能<br> &#124; where ObjectName == "K8SContainer" and CounterName == "cpuUsageNanoCores" &#124; summarize AvgCPUUsageNanoCores = avg(CounterValue) by bin(TimeGenerated, 30m), InstanceName | 容器 CPU | 
+| **選取折線圖顯示選項**：<br> 效能<br> &#124; where ObjectName == "K8SContainer" and CounterName == "memoryRssBytes" &#124; summarize AvgUsedRssMemoryBytes = avg(CounterValue) by bin(TimeGenerated, 30m), InstanceName | 容器記憶體 |
+| InsightsMetrics<br> &#124;其中 Name = = "requests_count"<br> &#124;摘要 Val = any （Val） by TimeGenerated = bin （TimeGenerated，1m）<br> &#124;排序依據 TimeGenerated asc<br> &#124;專案 RequestsPerMinute = Val-上一個（Val），TimeGenerated <br> &#124;轉譯 barchart  | 使用自訂計量的每分鐘要求數 |
 
-下列範例是 Prometheus 計量查詢。 收集的計量會計算, 而為了判斷在特定時段內發生多少錯誤, 我們必須從計數中減去。 資料集會依*partitionKey*分割, 這表示每一組唯一的*名稱*、*主機名稱*和*OperationType*, 我們都會在該集合上執行子查詢, 藉由*TimeGenerated*排序記錄, 讓它能夠找出先前的*TimeGenerated*和記錄的時間計數, 以判斷速率。
+下列範例是 Prometheus 計量查詢。 收集的計量會計算，而為了判斷在特定時段內發生多少錯誤，我們必須從計數中減去。 資料集會依*partitionKey*分割，這表示每一組唯一的*名稱*、*主機名稱*和*OperationType*，我們都會在該集合上執行子查詢，藉由*TimeGenerated*排序記錄，讓它能夠找出先前的*TimeGenerated*和記錄的時間計數，以判斷速率。
 
 ```
 let data = InsightsMetrics 
@@ -98,10 +99,10 @@ operationData
 | extend SuccessPercentage = iif(OperationCount == 0, 1.0, 1 - (ErrorCount / OperationCount))
 ```
 
-輸出會顯示類似下面的結果:
+輸出會顯示類似下面的結果：
 
 ![資料內嵌磁片區的記錄查詢結果](./media/container-insights-log-search/log-query-example-prometheus-metrics.png)
 
 ## <a name="next-steps"></a>後續步驟
 
-容器的 Azure 監視器不包含預先定義的一組警示。 請參閱[使用適用于容器的 Azure 監視器建立效能警示](container-insights-alerts.md), 以瞭解如何建立建議的高 CPU 和記憶體使用率警示, 以支援您的 DevOps 或作業程式和程式。 
+容器的 Azure 監視器不包含預先定義的一組警示。 請參閱[使用適用于容器的 Azure 監視器建立效能警示](container-insights-alerts.md)，以瞭解如何建立建議的高 CPU 和記憶體使用率警示，以支援您的 DevOps 或作業程式和程式。 

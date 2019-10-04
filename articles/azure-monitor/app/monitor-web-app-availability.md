@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 09/16/2019
 ms.reviewer: sdash
 ms.author: mbullwin
-ms.openlocfilehash: 8e9cc93a74c299be6fb4898b4af143a43fc079f5
-ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
+ms.openlocfilehash: 3c7ba10525dedf213a416d9ce6b55c80539fedd7
+ms.sourcegitcommit: 80da36d4df7991628fd5a3df4b3aa92d55cc5ade
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71067032"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71812191"
 ---
 # <a name="monitor-the-availability-of-any-website"></a>監視任何網站的可用性
 
@@ -31,7 +31,7 @@ ms.locfileid: "71067032"
 
 * [URL Ping 測試](#create-a-url-ping-test)：您可以在 Azure 入口網站中建立的簡單測試。
 * [多步驟 web 測試](availability-multistep.md)：一系列 web 要求的記錄，可以回頭播放以測試更複雜的案例。 多步驟 web 測試會在 Visual Studio Enterprise 中建立，並上傳至入口網站進行執行。
-* [自訂追蹤可用性測試](https://docs.microsoft.com/dotnet/api/microsoft.applicationinsights.telemetryclient.trackavailability?view=azure-dotnet)：方法`TrackAvailability()`可以用來建立您自己的自訂可用性測試。
+* [自訂追蹤可用性測試](https://docs.microsoft.com/dotnet/api/microsoft.applicationinsights.telemetryclient.trackavailability?view=azure-dotnet)：如果您決定要建立自訂應用程式來執行可用性測試，可以使用 `TrackAvailability()` 方法將結果傳送給 Application Insights。
 
 **您最多可以為每個 Application Insights 資源建立100可用性測試。**
 
@@ -39,7 +39,7 @@ ms.locfileid: "71067032"
 
 為了建立可用性測試，您必須先建立 Application Insights 資源。 如果您已經建立資源，請繼續進行下一節，以[建立 URL Ping 測試](#create-a-url-ping-test)。
 
-從 Azure 入口網站中，選取 [**建立資源** > ] [**開發人員工具** > ] [**Application Insights** ]，然後[建立 Application Insights 資源](create-new-resource.md)。
+從 Azure 入口網站中，選取 **建立資源** > ] [**開發人員工具** > ] [**Application Insights** ]，然後[建立 Application Insights 資源](create-new-resource.md)。
 
 ## <a name="create-a-url-ping-test"></a>建立 URL Ping 測試
 

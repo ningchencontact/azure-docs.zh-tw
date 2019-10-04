@@ -1,20 +1,20 @@
 ---
 title: Azure Digital Twins 使用者定義函式用戶端程式庫參考 | Microsoft Docs
 description: Azure Digital Twins 使用者定義函式用戶端程式庫參考。
+ms.author: alinast
 author: alinamstanciu
 manager: bertvanhoof
 ms.service: digital-twins
 services: digital-twins
 ms.topic: article
 ms.date: 08/12/2019
-ms.author: alinast
 ms.custom: seodec18
-ms.openlocfilehash: 14c153a6e5837da28060122a629c8cc5df8262cf
-ms.sourcegitcommit: fe50db9c686d14eec75819f52a8e8d30d8ea725b
+ms.openlocfilehash: 36fb8a5588321426ccae7d6c6577fb4b48f3a4db
+ms.sourcegitcommit: 4f7dce56b6e3e3c901ce91115e0c8b7aab26fb72
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/14/2019
-ms.locfileid: "69013764"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71948895"
 ---
 # <a name="user-defined-functions-client-library-reference"></a>使用者定義函式用戶端程式庫參考
 

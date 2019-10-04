@@ -1,19 +1,19 @@
 ---
 title: Azure Digital Twins 中的輸出和端點 | Microsoft Docs
 description: 有關如何使用 Azure Digital Twins 建立端點的指導方針。
+ms.author: alinast
 author: alinamstanciu
 manager: bertvanhoof
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 08/12/2019
-ms.author: alinast
-ms.openlocfilehash: 3c33992ce3c130d6c06e0709a9c4ddcab4fff159
-ms.sourcegitcommit: fe50db9c686d14eec75819f52a8e8d30d8ea725b
+ms.date: 10/02/2019
+ms.openlocfilehash: e7516fffb4aa8806062655e39c591e4691e779b1
+ms.sourcegitcommit: 7868d1c40f6feb1abcafbffcddca952438a3472d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/14/2019
-ms.locfileid: "69013930"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71959104"
 ---
 # <a name="egress-and-endpoints"></a>輸出和端點
 
@@ -246,7 +246,7 @@ IoT 物件 (例如裝置與感應器) 會傳送事件，以便 Azure 訊息和�
 >[!IMPORTANT]
 > 請特別注意 **eventTypes** 屬性。 此屬性會定義端點處理的事件類型，並以此決定其路由方式。
 
-已驗證的 HTTP POST 要求:
+已驗證的 HTTP POST 要求：
 
 ```plaintext
 YOUR_MANAGEMENT_API_URL/endpoints

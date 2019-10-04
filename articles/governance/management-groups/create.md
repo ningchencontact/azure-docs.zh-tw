@@ -10,12 +10,12 @@ ms.workload: na
 ms.date: 04/05/2019
 ms.author: rithorn
 ms.topic: conceptual
-ms.openlocfilehash: 7b5ee5bfe4b7498bc13ff0c8582b49fed8478e0a
-ms.sourcegitcommit: e1b6a40a9c9341b33df384aa607ae359e4ab0f53
+ms.openlocfilehash: 1b53d8a15e6ca1d4fc5a8ed6d58e526fadd12466
+ms.sourcegitcommit: 4f7dce56b6e3e3c901ce91115e0c8b7aab26fb72
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71337790"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71949010"
 ---
 # <a name="create-management-groups-for-resource-organization-and-management"></a>建立用於資源組織及管理的管理群組
 
@@ -31,9 +31,13 @@ ms.locfileid: "71337790"
 
 1. 登入 [Azure 入口網站](https://portal.azure.com)。
 
-1. 選取 [所有服務] > [管理群組]。
+1. 選取 [**所有服務**] @no__t 1 [**管理 + 治理**]。
 
-1. 在主頁面上，選取 [新增管理群組]。
+1. 選取**成本管理 + 帳單**
+
+1. 在 成本管理 + 帳單-管理群組 頁面上，選取 **管理群組**
+
+1. 選取 [ **+ 新增管理群組**]。
 
    ![使用管理群組的頁面](./media/main.png)
 

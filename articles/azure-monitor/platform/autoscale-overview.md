@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: robb
 ms.subservice: autoscale
-ms.openlocfilehash: 05f20aec536ebdb702caea37051a65af9bbc659f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 3c70d11b83a116a9ce29ce202edeac6fe9464674
+ms.sourcegitcommit: 7868d1c40f6feb1abcafbffcddca952438a3472d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60787556"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71959036"
 ---
 # <a name="overview-of-autoscale-in-microsoft-azure-virtual-machines-cloud-services-and-web-apps"></a>Microsoft Azure 虛擬機器、雲端服務和 Web Apps 的自動調整概觀
 本文說明何謂 Microsoft Azure 自動調整、其優點，以及如何開始使用它。  
@@ -91,7 +91,6 @@ Azure 監視器自動調整僅適用於[虛擬機器擴展集](https://azure.mic
 
 對比之下，垂直調整則不同。 它會保持相同數量的 VM，但會讓 VM 的能力變強 (相應增加) 或變弱 (相應減少)。 能力是以記憶體、CPU 速度、磁碟空間等項目來加以測量。垂直調整有更多限制。 它取決於是否有較大容量的硬體可供使用，因此會很快達到上限，而且會因區域而異。 此外，垂直調整通常會需要 VM 停止並重新啟動。
 
-如需詳細資訊，請參閱[使用 Azure 自動化垂直調整 Azure 虛擬機器](../../virtual-machines/linux/vertical-scaling-automation.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)。
 
 ## <a name="methods-of-access"></a>存取方法
 您可以透過下列途徑設定自動調整
@@ -104,7 +103,7 @@ Azure 監視器自動調整僅適用於[虛擬機器擴展集](https://azure.mic
 ## <a name="supported-services-for-autoscale"></a>支援的自動調整服務
 | 服務 | 結構描述與文件 |
 | --- | --- |
-| Web Apps |[調整 Web Apps](../../azure-monitor/platform/autoscale-get-started.md) |
+| Web 應用程式 |[調整 Web Apps](../../azure-monitor/platform/autoscale-get-started.md) |
 | 雲端服務 |[自動調整雲端服務](../../cloud-services/cloud-services-how-to-scale-portal.md) |
 | 虛擬機器：傳統 |[調整傳統的虛擬機器可用性設定組](https://blogs.msdn.microsoft.com/kaevans/2015/02/20/autoscaling-azurevirtual-machines/) |
 | 虛擬機器：Windows 擴展集 |[在 Windows 中調整虛擬機器擴展集](../../virtual-machine-scale-sets/tutorial-autoscale-powershell.md) |

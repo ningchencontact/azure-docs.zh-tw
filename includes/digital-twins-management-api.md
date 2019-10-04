@@ -2,18 +2,19 @@
 title: 包含檔案
 description: 包含檔案
 services: digital-twins
-author: kingdomofends
+ms.author: alinast
+author: alinamstanciu
+manager: bertvanhoof
 ms.service: digital-twins
 ms.topic: include
 ms.date: 10/02/2019
-ms.author: v-adgera
 ms.custom: include file
-ms.openlocfilehash: 06d728846b7a1eec1b18cfb7f005cb7e5e8ec2ab
-ms.sourcegitcommit: 15e3bfbde9d0d7ad00b5d186867ec933c60cebe6
-ms.translationtype: HT
+ms.openlocfilehash: f9fad0f53211fcdedd1796b84e086cff0245cf0b
+ms.sourcegitcommit: 4f7dce56b6e3e3c901ce91115e0c8b7aab26fb72
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/03/2019
-ms.locfileid: "71843853"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71948962"
 ---
 在以下範例中，`YOUR_MANAGEMENT_API_URL` 代表 Digital Twins API 的 URI：
 

@@ -8,12 +8,12 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.date: 03/22/2018
 ms.author: sngun
-ms.openlocfilehash: c39db870e44d4e810817b70e2793b8805088180e
-ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
+ms.openlocfilehash: 325e84ec4489eb2f1f530585af7d3c4bc4b201fc
+ms.sourcegitcommit: 4f7dce56b6e3e3c901ce91115e0c8b7aab26fb72
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70932534"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71949560"
 ---
 # <a name="azure-cosmos-db-net-core-sdk-for-sql-api-release-notes-and-resources"></a>適用於 SQL API 的 Azure Cosmos DB .NET SDK：版本資訊和資源
 > [!div class="op_single_selector"]
@@ -43,9 +43,17 @@ ms.locfileid: "70932534"
 ## <a name="release-notes"></a>版本資訊
 
 > [!NOTE]
-> 如果您使用的是 .NET Core, 請參閱最新版本3.x 的[.NET SDK](sql-api-sdk-dotnet-standard.md), 其目標為 .NET Standard。 
+> 如果您使用的是 .NET Core，請參閱最新版本3.x 的[.NET SDK](sql-api-sdk-dotnet-standard.md)，其目標為 .NET Standard。 
 
-### <a name="a-name260260"></a><a name="2.6.0"/>2.6.0
+### <a name="a-name270270"></a><a name="2.7.0"/>2.7。0
+
+* 依查詢的順序加入陣列和物件的支援
+* 處理有效的資料分割索引鍵衝突
+* 已使用 ThenBy 運算子新增多個 OrderBy 運算子的 LINQ 支援
+* 自訂序列化設定現在會套用至所有 upsert 和取代作業
+* 已修正 AysncCache 鎖死問題，使其可與單一執行緒工作排程器搭配使用
+
+### <a name="a-name260260"></a><a name="2.6.0"/>2.6。0
 
 * 已將 PortReusePolicy 新增至 ConnectionPolicy
 * 已修正 ntdll.dll！RtlGetVersion TypeLoadException 在 UWP 應用程式中使用 SDK 時的問題
@@ -53,7 +61,7 @@ ms.locfileid: "70932534"
 ### <a name="a-name251251"></a><a name="2.5.1"/>2.5.1
 
 * SDK 的系統 .Net。 Http 版本現在符合 NuGet 套件中定義的專案。
-* 如果原始的寫入要求失敗, 則允許其回復至不同的區域。
+* 如果原始的寫入要求失敗，則允許其回復至不同的區域。
 * 新增寫入要求的會話重試原則。
 
 ### <a name="a-name241241"></a><a name="2.4.1"/>2.4.1
@@ -272,6 +280,7 @@ Microsoft 至少會在停用 SDK 的 **12 個月** 之前提供通知，以供�
 
 | Version | 發行日期 | 停用日期 |
 | --- | --- | --- |
+| [2.7.0](#2.7.0) |2019年9月23日 |--- |
 | [2.6.0](#2.6.0) |2019年8月30日 |--- |
 | [2.5.1](#2.5.1) |2019年7月02日 |--- |
 | [2.4.1](#2.4.1) |2019年6月20日 |--- |

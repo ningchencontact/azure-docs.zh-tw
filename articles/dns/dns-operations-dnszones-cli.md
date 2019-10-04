@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/27/2017
 ms.author: victorh
-ms.openlocfilehash: df741b34e1268c547723af87401760197d395780
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 14d0512a10329f36872d111825261ebc5ef71976
+ms.sourcegitcommit: 4d177e6d273bba8af03a00e8bb9fe51a447196d0
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61293824"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71959391"
 ---
 # <a name="how-to-manage-dns-zones-in-azure-dns-using-the-azure-cli"></a>如何使用 Azure CLI 管理 Azure DNS 中的 DNS 區域
 
@@ -68,8 +68,8 @@ az account list
 az account set --subscription "subscription name"
 ```
 
-### <a name="optional-to-installuse-azure-dns-private-zones-feature-public-preview"></a>選用：安裝/使用 Azure DNS 私人區域功能 (公開預覽)
-Azure DNS 私人區域功能是透過 Azure CLI 的擴充功能，以公開預覽版本發行。 安裝 “dns” Azure CLI 擴充功能 
+### <a name="optional-to-installuse-azure-dns-private-zones-feature"></a>選擇性：安裝/使用 Azure DNS 私人區域功能
+Azure DNS 私人區域功能可透過 Azure CLI 的延伸模組取得。 安裝 “dns” Azure CLI 擴充功能 
 ```
 az extension add --name dns
 ``` 
@@ -116,7 +116,7 @@ az network dns zone create --resource-group MyResourceGroup --name contoso.com -
 
 若要擷取 DNS 區域，請使用 `az network dns zone show`。 如需協助，請參閱 `az network dns zone show --help`。
 
-下列範例會從資源群組 MyResourceGroup  傳回 DNS 區域 contoso.com  及其相關聯的資料。 
+下列範例會從資源群組 MyResourceGroup 傳回 DNS 區域 contoso.com 及其相關聯的資料。 
 
 ```azurecli
 az network dns zone show --resource-group myresourcegroup --name contoso.com
@@ -186,7 +186,7 @@ az network dns zone update --resource-group myresourcegroup --name contoso.com -
 
 此命令會提示您確認。 選擇性的 `--yes` 參數會隱藏這個提示。
 
-下列範例示範如何從資源群組 MyResourceGroup  刪除區域 contoso.com  。
+下列範例示範如何從資源群組 MyResourceGroup 刪除區域 contoso.com。
 
 ```azurecli
 az network dns zone delete --resource-group myresourcegroup --name contoso.com

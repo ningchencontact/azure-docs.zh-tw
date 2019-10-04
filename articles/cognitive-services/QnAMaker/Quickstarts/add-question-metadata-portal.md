@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: quickstart
-ms.date: 08/27/2019
+ms.date: 10/01/2019
 ms.author: diberry
-ms.openlocfilehash: dc4548e0c07adc485d1bb5785179aeb7ea2f3fe1
-ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
+ms.openlocfilehash: ed50e6adbcca7cbb4935400c7850c37dc2ed389f
+ms.sourcegitcommit: 4f3f502447ca8ea9b932b8b7402ce557f21ebe5a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70196395"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71803537"
 ---
 # <a name="quickstart-add-questions-and-answer-with-qna-maker-portal"></a>快速入門：使用 QnA Maker 入口網站新增問題和答案
 
@@ -38,7 +38,7 @@ ms.locfileid: "70196395"
 * 要求僅符合特定中繼資料的答案。
 * 接收所有答案，但根據每個答案的中繼資料來對答案進行後置處理。
 
-如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 。 
+如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)。 
 
 ## <a name="prerequisites"></a>必要條件
 
@@ -70,7 +70,7 @@ ms.locfileid: "70196395"
     |`What is the max size of a knowledge base?`|
     |`How many GB of data can a knowledge base hold?`| 
 
-1. 選取 [儲存並訓練]  來重新訓練知識庫。 
+1. 選取 **儲存並訓練** 來重新訓練知識庫。 
 
 1. 選取 [測試]  ，然後輸入接近其中一個新的不同說法，但用語不是完全相同的問題：
 

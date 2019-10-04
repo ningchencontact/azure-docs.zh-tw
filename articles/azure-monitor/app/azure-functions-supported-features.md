@@ -3,7 +3,7 @@ title: Azure Application Insights - 支援 Azure Functions 的功能 | Microsoft
 description: 支援 Azure Functions 的 Application Insights 功能
 services: application-insights
 documentationcenter: .net
-author: MS-TimothyMothra
+author: TimothyMothra
 manager: ''
 ms.service: application-insights
 ms.workload: TBD
@@ -12,12 +12,12 @@ ms.topic: reference
 ms.date: 4/23/2019
 ms.reviewer: mbullwin
 ms.author: tilee
-ms.openlocfilehash: 0199d8f0c4a76a10fffcab7cf2819643d0ac2d68
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: cf39c8b5e204493380c095519e0ff25c3ce19f68
+ms.sourcegitcommit: 4d177e6d273bba8af03a00e8bb9fe51a447196d0
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67075349"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71959889"
 ---
 # <a name="application-insights-for-azure-functions-supported-features"></a>適用於 Azure Functions 的 Application Insights 支援的功能
 
@@ -66,9 +66,9 @@ Azure Functions 提供與 Application Insights 的[內建整合](https://docs.mi
 
 Azure Functions 依預設會在其設定中啟用取樣。 如需詳細資訊，請參閱[設定取樣](https://docs.microsoft.com/azure/azure-functions/functions-monitoring#configure-sampling)。
 
-如果您的專案上執行手動追蹤的遙測的 Application Insights SDK 的相依性，可能會遇到奇怪的行為，如果您的取樣組態不同於函式的取樣組態中。 
+如果您的專案相依于 Application Insights SDK 以進行手動遙測追蹤，則如果您的取樣設定與函式的取樣設定不同，可能會遇到奇怪的行為。 
 
-我們建議使用相同的設定，做為函式。 具有**Functions v2**，您可以取得相同的組態，您的建構函式中使用相依性插入：
+我們建議使用與函式相同的設定。 使用**函數 v2**，您可以在您的函式中使用相依性插入來取得相同的設定：
 
 ```csharp
 using Microsoft.ApplicationInsights;

@@ -11,12 +11,12 @@ author: GithubMirek
 ms.author: mireks
 ms.reviewer: vanto, carlrab
 ms.date: 03/12/2019
-ms.openlocfilehash: a14926dea576e0331cb8c0f8010f060f47faa3e7
-ms.sourcegitcommit: 007ee4ac1c64810632754d9db2277663a138f9c4
+ms.openlocfilehash: 11e3a9931d424433f2e3fd1f64e2e95a5835b65c
+ms.sourcegitcommit: 4d177e6d273bba8af03a00e8bb9fe51a447196d0
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69991168"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71960475"
 ---
 # <a name="configure-and-manage-azure-active-directory-authentication-with-sql"></a>使用 SQL 設定及管理 Azure Active Directory 驗證
 
@@ -29,7 +29,7 @@ ms.locfileid: "69991168"
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 > [!IMPORTANT]
-> Azure SQL Database 仍然支援 PowerShell Azure Resource Manager 模組, 但所有未來的開發都是針對 Az .Sql 模組。 如需這些 Cmdlet, 請參閱[AzureRM](https://docs.microsoft.com/powershell/module/AzureRM.Sql/)。 Az 模組和 AzureRm 模組中命令的引數本質上完全相同。
+> Azure SQL Database 仍然支援 PowerShell Azure Resource Manager 模組，但所有未來的開發都是針對 Az .Sql 模組。 如需這些 Cmdlet，請參閱[AzureRM](https://docs.microsoft.com/powershell/module/AzureRM.Sql/)。 Az 模組和 AzureRm 模組中命令的引數本質上完全相同。
 
 ## <a name="create-and-populate-an-azure-ad"></a>建立和填入 Azure AD
 
@@ -304,6 +304,9 @@ CREATE USER [ICU Nurses] FROM EXTERNAL PROVIDER;
 CREATE USER [appName] FROM EXTERNAL PROVIDER;
 ```
 
+> [!NOTE]
+> 此命令需要代表已登入使用者的 SQL 存取 Azure AD （「外部提供者」）。 有時候，會導致 Azure AD 將例外狀況傳回給 SQL 的情況發生。 在這些情況下，使用者會看到 SQL 錯誤33134，其中應該包含 AAD 特定的錯誤訊息。 在大部分的情況下，此錯誤會指出存取遭到拒絕，或使用者必須註冊 MFA 才能存取資源，或是必須透過 preauthorization 來處理第一方應用程式之間的存取權。 在前兩個案例中，此問題通常是由使用者的 AAD 租使用者中設定的條件式存取原則所造成：它們會讓使用者無法存取外部提供者。 更新 CA 原則以允許存取應用程式 ' 00000002-0000-0000-c000-000000000000 ' （AAD 圖形 API 的應用程式識別碼）應可解決此問題。 如果錯誤指出第一方應用程式之間的存取必須透過 preauthorization 處理，問題是因為使用者已以服務主體的身分登入。 如果是由使用者執行，則命令應會成功。
+
 > [!TIP]
 > 您無法從 Azure Active Directory 直接建立使用者，除了與您的 Azure 訂用帳戶相關聯的 Azure Active Directory 以外。 不過，在相關聯 Active Directory (稱為外部使用者) 中匯入之使用者的其他 Active Directory 成員可以新增至租用戶 Active Directory 中的 Active Directory 群組。 藉由建立該 AD 群組的自主資料庫使用者，來自外部 Active Directory 的使用者可以存取 SQL Database。
 
@@ -351,7 +354,7 @@ CREATE USER [appName] FROM EXTERNAL PROVIDER;
 使用此方法，可讓原生或同盟 Azure AD 使用者透過 Azure AD 對 SQL DB/DW 進行驗證。 原生使用者是在 Azure AD 中明確建立，且透過使用者名稱和密碼進行驗證的使用者，而同盟使用者則是將網域與 Azure AD 同盟的 Windows 使用者。 如果使用者想要使用他們的 Windows 認證，但其本機電腦未加入網域 (例如使用遠端存取)，則可以使用後一種方法 (利用使用者和密碼)。 在此情況下，Windows 使用者可以指定其網域帳戶和密碼，並且可使用同盟認證對 SQL DB/DW 進行驗證。
 
 1. 啟動 Management Studio 或 Data Tools，並在 [連線到伺服器] \(或 [連線到 Database Engine]) 對話方塊的 [驗證] 方塊中，選取 [Active Directory - 密碼]。
-2. 在 [**使用者名稱**] 方塊中, 以**username\@domain.com**的格式輸入您的 Azure Active Directory 使用者名稱。 使用者名稱必須是來自 Azure Active Directory 的帳戶或來自與 Azure Active Directory 建立同盟之網域的帳戶。
+2. 在 [**使用者名稱**] 方塊中，輸入您的 Azure Active Directory 使用者名稱，格式為**username\@domain.com**。 使用者名稱必須是來自 Azure Active Directory 的帳戶或來自與 Azure Active Directory 建立同盟之網域的帳戶。
 3. 在 [密碼] 方塊中，輸入您的 Azure Active Directory 帳戶或同盟網域帳戶的使用者密碼。
 
     ![選取 AD 密碼驗證][12]
@@ -414,7 +417,7 @@ conn.Open();
 下列陳述式中使用 sqlcmd 13.1 進行連線，從 [下載中心](https://go.microsoft.com/fwlink/?LinkID=825643)即可取得此版本。
 
 > [!NOTE]
-> `sqlcmd``-G`使用命令時, 不會使用系統身分識別, 而且需要使用者主體登入。
+> `sqlcmd` 搭配 `-G` 命令不適用於系統身分識別，而且需要使用者主體登入。
 
 ```cmd
 sqlcmd -S Target_DB_or_DW.testsrv.database.windows.net  -G  

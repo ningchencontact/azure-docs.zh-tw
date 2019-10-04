@@ -1,19 +1,19 @@
 ---
-title: 了解 Digital Twins 物件模型和空間智慧圖形 | Microsoft Docs
+title: 瞭解 Azure 數位 Twins 物件模型和空間智慧圖形 |Microsoft Docs
 description: 使用 Azure Digital Twins 建立人員、地點與裝置間的關聯性模型
+ms.author: alinast
 author: alinamstanciu
 manager: bertvanhoof
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
 ms.date: 09/17/2019
-ms.author: alinast
-ms.openlocfilehash: 37f2afbd9bae4ca6bccc5062515f166687d8913c
-ms.sourcegitcommit: 83df2aed7cafb493b36d93b1699d24f36c1daa45
+ms.openlocfilehash: 67a4aceb157ee3fe1b1d1553efd587a0f2838d88
+ms.sourcegitcommit: 4f7dce56b6e3e3c901ce91115e0c8b7aab26fb72
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/22/2019
-ms.locfileid: "71177063"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71950018"
 ---
 # <a name="understand-digital-twins-object-models-and-spatial-intelligence-graph"></a>了解 Digital Twins 物件模型和空間智慧圖形
 
@@ -23,7 +23,7 @@ Digital Twins 物件模型能描述網域特定的概念、類別和屬性。 �
 
 Digital Twins 物件模型和本體皆準備就緒後，即可填入「空間圖形」。 空間圖形是與 IoT 解決方案相關的空間、裝置和人員之間各種關聯性的虛擬表示法。 此圖表顯示使用智慧建築本體的空間圖形範例。
 
-[![數位 Twins 空間圖表建築物](media/concepts/digital-twins-spatial-graph-building.png)](media/concepts/digital-twins-spatial-graph-building.png#lightbox)
+[@no__t 1Digital Twins 空間圖形建築物](media/concepts/digital-twins-spatial-graph-building.png)](media/concepts/digital-twins-spatial-graph-building.png#lightbox)
 
 空間圖形可將空間、裝置、感應器和使用者結合在一起。 每個空間圖形都會以模仿真實世界的方式互相連結。 在此範例中，場地 43 具有四個樓層，每個樓層都有許多不同的區域。 使用者會與其工作站相關聯，並取得圖形某些部分的存取權。 系統管理員有權對空間圖形進行變更，而訪客只有檢視特定建築資料的權限。
 

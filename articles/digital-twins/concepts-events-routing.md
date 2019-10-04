@@ -1,19 +1,19 @@
 ---
-title: 使用 Azure Digital Twins 路由傳送事件和訊息 | Microsoft Docs
+title: 路由事件和訊息-Azure 數位 Twins |Microsoft Docs
 description: 使用 Azure Digital Twins 將事件和訊息路由至服務端點的概觀
+ms.author: alinast
 author: alinamstanciu
 manager: bertvanhoof
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
 ms.date: 09/17/2019
-ms.author: alinast
-ms.openlocfilehash: 81f2cc32ee10e891ffab127d6ecd7909eb75abd6
-ms.sourcegitcommit: 83df2aed7cafb493b36d93b1699d24f36c1daa45
+ms.openlocfilehash: 217a1d94a4a5235fc5886f34986ffcb3aef60873
+ms.sourcegitcommit: 4f7dce56b6e3e3c901ce91115e0c8b7aab26fb72
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/22/2019
-ms.locfileid: "71177077"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71949257"
 ---
 # <a name="routing-events-and-messages"></a>活動及訊息路線規劃
 
@@ -29,7 +29,7 @@ Azure 數位 Twins 提供兩種方式來將 IoT 事件連接至其他 Azure 服�
 
 使用者可以指定一個或多個輸出端點來傳送事件或轉送訊息。 事件和訊息會根據這些預先定義的路由喜好設定來傳送至端點。 換句話說，使用者可以指定特定端點來接收圖表作業事件，並指定另一個端點來接收裝置遙測事件，依此類推。
 
-[![Azure 數位 Twins 事件路由](media/concepts/digital-twins-events-routing.png)](media/concepts/digital-twins-events-routing.png#lightbox)
+[@no__t 1Azure 數位 Twins 事件路由](media/concepts/digital-twins-events-routing.png)](media/concepts/digital-twins-events-routing.png#lightbox)
 
 路由傳送至事件中樞可維持遙測訊息的傳送順序。 所以它們會以原先接收的相同順序抵達端點。 事件方格和服務匯流排則不保證端點收到事件的順序會與事件發生順序相同。 不過，事件結構描述包含可用來識別事件抵達端點後之順序的時間戳記。
 

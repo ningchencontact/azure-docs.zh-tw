@@ -9,18 +9,18 @@ manager: cshankar
 ms.reviewer: jasonh, kfile
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 08/06/2019
+ms.date: 10/03/2019
 ms.custom: seodec18
-ms.openlocfilehash: 5388b157ebea78a69355eb745492910f260be3ad
-ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
+ms.openlocfilehash: 5799974581ba74d3265f0a5a66f9b081ded9f800
+ms.sourcegitcommit: 4f7dce56b6e3e3c901ce91115e0c8b7aab26fb72
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68823655"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71948214"
 ---
 # <a name="understand-data-retention-in-azure-time-series-insights"></a>瞭解 Azure 時間序列深入解析中的資料保留
 
-本文說明兩個設定, 會影響 Azure 時間序列深入解析環境中的資料保留。
+本文說明兩個設定，會影響 Azure 時間序列深入解析環境中的資料保留。
 
 ## <a name="video"></a>視訊
 
@@ -28,15 +28,15 @@ ms.locfileid: "68823655"
 
 > [!VIDEO https://www.youtube.com/embed/03x6zKDQ6DU]
 
-您的每個 Azure 時間序列環境都有設定可控制**資料保留時間**。 可設定的值為 1 到 400 天。 資料會根據環境儲存容量或保留期間來刪除 (以先發生者為准)。
+您的每個 Azure 時間序列環境都有設定可控制**資料保留時間**。 可設定的值為 1 到 400 天。 資料會根據環境儲存容量或保留期間來刪除（以先發生者為准）。
 
-此外, 您的 Azure 時間序列環境具有「**超過儲存限制**」的行為設定。 當達到環境的最大容量時, 它會控制輸入和清除行為。 設定時有兩種行為可供選擇:
+此外，您的 Azure 時間序列環境具有「**超過儲存限制**」的行為設定。 當達到環境的最大容量時，它會控制輸入和清除行為。 設定時有兩種行為可供選擇：
 
 - **清除舊資料** (預設)  
 - **暫停輸入**
 
 > [!NOTE]
-> 根據預設，建立新環境時，保留期會設定為**清除舊資料**。 在建立時間之後, 您可以在時間序列深入解析環境的 [**設定**] 頁面上, 使用 [Azure 入口網站], 視需要切換此設定。
+> 根據預設，建立新環境時，保留期會設定為**清除舊資料**。 在建立時間之後，您可以在時間序列深入解析環境的 [**設定**] 頁面上，使用 [Azure 入口網站]，視需要切換此設定。
 
 如需切換保留行為的相關資訊，請檢閱[在時間序列深入解析中設定保留](time-series-insights-how-to-configure-retention.md)。
 
@@ -45,7 +45,7 @@ ms.locfileid: "68823655"
 ## <a name="purge-old-data"></a>清除舊資料
 
 - 此行為是時間序列深入解析環境的預設行為。  
-- 當使用者想要在其時間序列深入解析環境中一律看到*最新的資料*時, 這是慣用的行為。
+- 當使用者想要在其時間序列深入解析環境中一律看到*最新的資料*時，這是慣用的行為。
 - 在達到環境限制 (保留時間、大小或計數，以先達到者為準) 時，此行為就會「清除」資料。 保留期預設值為 30 天。
 - 最舊的內嵌資料會先清除 (FIFO 方法)。
 
@@ -55,7 +55,7 @@ ms.locfileid: "68823655"
 
 [**資料保留時間**] 設定為400天。 [容量] 是設定為 S1 單位，其中包含 30 GB 的總容量。   假設傳入的資料平均每天會累積至 500 MB。 在給定的資料傳入速率下，此環境只能將資料保留 60 天，因為會在 60 天時達到容量上限。 傳入資料累積為：每天 500 MB x 60 天 = 30 GB。
 
-在61st 日, 環境會顯示最不能的資料, 但會清除超過60天的舊資料。 清除動作可釋出空間供傳入的新資料使用，因此可以繼續瀏覽新資料。 如果使用者希望將資料保留更久一點，可以透過增加額外單位容量以提高環境的資料容納量，或減少傳入的資料量。  
+在61st 日，環境會顯示最不能的資料，但會清除超過60天的舊資料。 清除動作可釋出空間供傳入的新資料使用，因此可以繼續瀏覽新資料。 如果使用者希望將資料保留更久一點，可以透過增加額外單位容量以提高環境的資料容納量，或減少傳入的資料量。  
 
 ### <a name="example-two"></a>範例二
 
@@ -65,19 +65,19 @@ ms.locfileid: "68823655"
 
 ## <a name="pause-ingress"></a>暫停輸入
 
-- 「**暫停**輸入」設定的設計, 是為了確保在其保留期限之前達到大小和計數限制時, 不會清除資料。  
-- **暫停**輸入可為使用者提供額外的時間, 以在資料因保留期限違反而清除之前增加其環境的容量
-- 它可協助保護您免于資料遺失, 但如果輸入暫停超過事件來源的保留期間, 可能會造成資料遺失的機會。
-- 不過, 一旦達到環境的最大容量, 環境就會暫停資料輸入, 直到發生下列其他動作為止:
+- 「**暫停**輸入」設定的設計，是為了確保在其保留期限之前達到大小和計數限制時，不會清除資料。  
+- **暫停**輸入可為使用者提供額外的時間，以在資料因保留期限違反而清除之前增加其環境的容量
+- 它可協助保護您免于資料遺失，但如果輸入暫停超過事件來源的保留期間，可能會造成資料遺失的機會。
+- 不過，一旦達到環境的最大容量，環境就會暫停資料輸入，直到發生下列其他動作為止：
 
-   - 您會增加環境的最大容量, 以新增更多縮放單位, 如[如何調整您的時間序列深入解析環境](time-series-insights-how-to-scale-your-environment.md)中所述。
-   - 已達到資料保留期並清除資料, 將環境帶入其最大容量。
+   - 您會增加環境的最大容量，以新增更多縮放單位，如[如何調整您的時間序列深入解析環境](time-series-insights-how-to-scale-your-environment.md)中所述。
+   - 已達到資料保留期並清除資料，將環境帶入其最大容量。
 
 ### <a name="example-three"></a>範例三
 
-考慮保留期行為設定為**暫停輸入**的環境。 在此範例中，[資料保留期間] 設定為 60 天。 **容量**設定為 S1 的三 (3) 個單位。 假設此環境每天輸入 2 GB 資料。 在此環境中，一旦達到最大容量就會暫停輸入。
+考慮保留期行為設定為**暫停輸入**的環境。 在此範例中，[資料保留期間] 設定為 60 天。 **容量**設定為 S1 的三（3）個單位。 假設此環境每天輸入 2 GB 資料。 在此環境中，一旦達到最大容量就會暫停輸入。
 
-此時, 環境會顯示相同的資料集, 直到輸入繼續, 或直到**繼續**輸入為止 (這會清除較舊的資料以騰出空間給新的資料)。
+此時，環境會顯示相同的資料集，直到輸入繼續，或直到**繼續**輸入為止（這會清除較舊的資料以騰出空間給新的資料）。
 
 恢復繼續輸入時：
 
@@ -89,12 +89,12 @@ ms.locfileid: "68823655"
 
 當事件中樞受到影響時，請考慮調整 [訊息保留期] 屬性，以在「時間序列深入解析」中發生暫停輸入時，將資料遺失機率降到最低。
 
-[![事件中樞訊息保留。](media/time-series-insights-contepts-retention/event-hub-retention.png)](media/time-series-insights-contepts-retention/event-hub-retention.png#lightbox)
+[@no__t 1Event 中樞訊息保留。](media/time-series-insights-contepts-retention/event-hub-retention.png)](media/time-series-insights-contepts-retention/event-hub-retention.png#lightbox)
 
-如果事件來源 (`timeStampPropertyName`) 上未設定任何屬性, 時間序列深入解析預設為以 X 軸到達事件中樞的時間戳記。 如果`timeStampPropertyName`設定為其他專案, 環境會在剖析事件時, 尋找`timeStampPropertyName`資料封包中所設定的。
+如果事件來源（`timeStampPropertyName`）上未設定任何屬性，時間序列深入解析會預設為以 X 軸到達事件中樞的時間戳記。 如果 `timeStampPropertyName` 設定為其他專案，則在剖析事件時，環境會在資料封包中尋找已設定的 `timeStampPropertyName`。
 
 如果您需要相應增加環境以容納更多容量，或需要延長保留長度，請參閱[如何調整您的時間序列深入解析環境規模](time-series-insights-how-to-scale-your-environment.md)以了解詳細資訊。  
 
 ## <a name="next-steps"></a>後續步驟
 
-- 如需設定或變更資料保留設定的詳細資訊, 請參閱[在時間序列深入解析中設定保留](time-series-insights-how-to-configure-retention.md)。
+- 如需設定或變更資料保留設定的詳細資訊，請參閱[在時間序列深入解析中設定保留](time-series-insights-how-to-configure-retention.md)。
