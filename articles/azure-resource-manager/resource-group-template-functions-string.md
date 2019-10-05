@@ -6,12 +6,12 @@ ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 07/31/2019
 ms.author: tomfitz
-ms.openlocfilehash: b558e046f3402fdfa127192788d7d3ee1307ddeb
-ms.sourcegitcommit: f2d9d5133ec616857fb5adfb223df01ff0c96d0a
+ms.openlocfilehash: 93f17ea9d2ffa33d1dca9da3eb60f75165e8ed61
+ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/03/2019
-ms.locfileid: "71937027"
+ms.lasthandoff: 10/05/2019
+ms.locfileid: "71973341"
 ---
 # <a name="string-functions-for-azure-resource-manager-templates"></a>Azure Resource Manager 範本的字串函式
 
@@ -1097,7 +1097,7 @@ JSON 物件。
 
 NewGuid 函數與[guid](#guid)函數不同，因為它不接受任何參數。 當您呼叫具有相同參數的 guid 時，每次都會傳回相同的識別碼。 當您需要針對特定環境可靠地產生相同的 GUID 時，請使用 guid。 當您每次需要不同的識別碼（例如將資源部署到測試環境）時，請使用 newGuid。
 
-如果您使用[選項來重新部署先前成功的部署](resource-group-template-deploy-rest.md#redeploy-when-deployment-fails)，而先前的部署包含使用 newGuid 的參數，則不會重新評估參數。 相反地，先前部署的參數值會自動在復原部署中重複使用。
+如果您使用[選項來重新部署先前成功的部署](rollback-on-error.md)，而先前的部署包含使用 newGuid 的參數，則不會重新評估參數。 相反地，先前部署的參數值會自動在復原部署中重複使用。
 
 在測試環境中，您可能需要在短時間內重複部署只存留的資源。 您可以使用 newGuid 搭配[uniqueString](#uniquestring)來建立唯一的名稱，而不是建立唯一的名稱。
 
@@ -2110,7 +2110,7 @@ URI 編碼值的解碼字串。
 
 您只能針對參數的預設值，在運算式中使用這個函數。 在範本中的任何其他地方使用此函數會傳回錯誤。 函式在範本的其他部分中不允許，因為它會在每次呼叫時傳回不同的值。 使用相同的參數部署相同的範本，並不會可靠地產生相同的結果。
 
-如果您使用[選項來重新部署先前成功的部署](resource-group-template-deploy-rest.md#redeploy-when-deployment-fails)，而先前的部署包含使用 utcNow 的參數，則不會重新評估參數。 相反地，先前部署的參數值會自動在復原部署中重複使用。
+如果您使用[選項來重新部署先前成功的部署](rollback-on-error.md)，而先前的部署包含使用 utcNow 的參數，則不會重新評估參數。 相反地，先前部署的參數值會自動在復原部署中重複使用。
 
 請小心重新部署依賴 utcNow 函數的範本，以取得預設值。 當您重新部署，但未提供參數的值時，會重新評估函式。 如果您想要更新現有的資源，而不是建立新的資源，請傳入先前部署的參數值。
 

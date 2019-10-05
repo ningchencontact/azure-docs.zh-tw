@@ -1,17 +1,17 @@
 ---
 title: 使用 Azure CLI 與範本部署資源 | Microsoft Docs
-description: 使用 Azure Resource Manager 和 Azure CLI, 將資源部署至 Azure。 資源會定義在 Resource Manager 範本中。
+description: 使用 Azure Resource Manager 和 Azure CLI，將資源部署至 Azure。 資源會定義在 Resource Manager 範本中。
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 08/21/2019
 ms.author: tomfitz
-ms.openlocfilehash: bd43e919cc0b2bcf1d130c7e616b7da064abcc65
-ms.sourcegitcommit: 47b00a15ef112c8b513046c668a33e20fd3b3119
+ms.openlocfilehash: bef9d0490ce9109a960b69febf2970a289c25e40
+ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69971020"
+ms.lasthandoff: 10/05/2019
+ms.locfileid: "71973399"
 ---
 # <a name="deploy-resources-with-resource-manager-templates-and-azure-cli"></a>使用 Resource Manager 範本與 Azure CLI 部署資源
 
@@ -23,23 +23,23 @@ ms.locfileid: "69971020"
 
 ## <a name="deployment-scope"></a>部署範圍
 
-您可以將部署的目標設為 Azure 訂用帳戶或訂用帳戶內的資源群組。 在大部分情況下, 您會將部署目標設為資源群組。 使用訂用帳戶部署, 在訂用帳戶之間套用原則和角色指派。 您也可以使用「訂用帳戶」部署來建立資源群組, 並將資源部署到其中。 視部署的範圍而定, 您可以使用不同的命令。
+您可以將部署的目標設為 Azure 訂用帳戶或訂用帳戶內的資源群組。 在大部分情況下，您會將部署目標設為資源群組。 使用訂用帳戶部署，在訂用帳戶之間套用原則和角色指派。 您也可以使用「訂用帳戶」部署來建立資源群組，並將資源部署到其中。 視部署的範圍而定，您可以使用不同的命令。
 
-若要部署至**資源群組**, 請使用[az group deployment create](/cli/azure/group/deployment?view=azure-cli-latest#az-group-deployment-create):
+若要部署至**資源群組**，請使用[az group deployment create](/cli/azure/group/deployment?view=azure-cli-latest#az-group-deployment-create)：
 
 ```azurecli
 az group deployment create --resource-group <resource-group-name> --template-file <path-to-template>
 ```
 
-若要部署至**訂**用帳戶, 請使用[az deployment create](/cli/azure/deployment?view=azure-cli-latest#az-deployment-create):
+若要部署至**訂**用帳戶，請使用[az deployment create](/cli/azure/deployment?view=azure-cli-latest#az-deployment-create)：
 
 ```azurecli
 az deployment create --location <location> --template-file <path-to-template>
 ```
 
-目前, 只有透過 REST API 支援管理群組部署。 請參閱[使用 Resource Manager 範本部署資源和 Resource Manager REST API](resource-group-template-deploy-rest.md)。
+目前，只有透過 REST API 支援管理群組部署。 請參閱[使用 Resource Manager 範本部署資源和 Resource Manager REST API](resource-group-template-deploy-rest.md)。
 
-本文中的範例會使用資源群組部署。 如需訂用帳戶部署的詳細資訊, 請參閱在訂用帳戶[層級建立資源群組和資源](deploy-to-subscription.md)。
+本文中的範例會使用資源群組部署。 如需訂用帳戶部署的詳細資訊，請參閱在訂用帳戶[層級建立資源群組和資源](deploy-to-subscription.md)。
 
 ## <a name="deploy-local-template"></a>部署本機範本
 
@@ -96,41 +96,6 @@ az group deployment create --resource-group examplegroup \
   --parameters storageAccountType=Standard_GRS
 ```
 
-## <a name="redeploy-when-deployment-fails"></a>部署失敗時重新部署
-
-這項功能也稱為「*發生錯誤時復原*」。 當部署失敗時，您可以從部署記錄自動重新部署先前成功的部署。 若要指定重新部署，請在部署命令中使用 `--rollback-on-error` 參數。 如果您的基礎結構部署有已知的良好狀態, 而且想要還原為此狀態, 此功能就很有用。 有一些警告和限制:
-
-- 重新部署的執行方式與先前使用相同參數執行的完全相同。 您無法變更參數。
-- 先前的部署是使用[完整模式](./deployment-modes.md#complete-mode)來執行。 先前部署中未包含的任何資源都會刪除, 而且任何資源設定都會設為先前的狀態。 請確定您完全瞭解[部署模式](./deployment-modes.md)。
-- 重新部署只會影響資源, 任何資料變更都不會受到影響。
-- 只有資源群組部署支援這項功能, 而不是訂用帳戶層級部署。 如需訂用帳戶層級部署的詳細資訊, 請參閱在訂用帳戶[層級建立資源群組和資源](./deploy-to-subscription.md)。
-
-若要使用這個選項，您的部署必須有唯一的名稱，以便在歷程記錄中進行識別。 如果您沒有唯一的名稱，則目前失敗的部署可能會覆寫歷程記錄中先前成功的部署。 您只可以使用此選項搭配根層級部署。 從巢狀範本部署不適用於重新部署。
-
-若要重新部署最後一個成功的部署，請新增 `--rollback-on-error` 參數作為旗標。
-
-```azurecli-interactive
-az group deployment create \
-  --name ExampleDeployment \
-  --resource-group ExampleGroup \
-  --template-file storage.json \
-  --parameters storageAccountType=Standard_GRS \
-  --rollback-on-error
-```
-
-若要重新部署特定部署，請使用 `--rollback-on-error` 參數，並提供部署的名稱。
-
-```azurecli-interactive
-az group deployment create \
-  --name ExampleDeployment02 \
-  --resource-group ExampleGroup \
-  --template-file storage.json \
-  --parameters storageAccountType=Standard_GRS \
-  --rollback-on-error ExampleDeployment01
-```
-
-指定的部署必須成功。
-
 ## <a name="parameters"></a>參數
 
 若要傳遞參數值，您可以使用內嵌參數或參數檔案。
@@ -146,7 +111,7 @@ az group deployment create \
   --parameters exampleString='inline string' exampleArray='("value1", "value2")'
 ```
 
-如果您要使用 Azure CLI 搭配 Windows 命令提示字元 (CMD) 或 PowerShell, 請以下列格式傳遞陣列`exampleArray="['value1','value2']"`:。
+如果您要使用 Azure CLI 搭配 Windows 命令提示字元（CMD）或 PowerShell，請以下列格式傳遞陣列： `exampleArray="['value1','value2']"`。
 
 您也可以取得檔案內容，並提供該內容作為內嵌參數。
 
@@ -172,7 +137,7 @@ arrayContent.json 的格式為：
 
 相對於在您的指令碼中將參數做為內嵌值傳遞，使用包含該參數值的 JSON 檔案可能較為容易。 參數檔案必須是本機檔案。 Azure CLI 不支援外部參數檔案。
 
-如需參數檔案的詳細資訊, 請參閱[建立 Resource Manager 參數](resource-manager-parameter-files.md)檔案。
+如需參數檔案的詳細資訊，請參閱[建立 Resource Manager 參數](resource-manager-parameter-files.md)檔案。
 
 若要傳遞本機參數檔案，請使用 `@` 來指定名為 storage.parameters.json 的本機檔案。
 
@@ -237,7 +202,7 @@ az group deployment validate \
 
 ## <a name="next-steps"></a>後續步驟
 
-- 本主題中的範例會將資源部署到您預設訂用帳戶中的資源群組。 若要使用不同的訂用帳戶，請參閱[管理多個 Azure 訂用帳戶](/cli/azure/manage-azure-subscriptions-azure-cli)。
+- 當您收到錯誤時，若要回復為成功的部署，請參閱[發生錯誤時回復至部署成功](rollback-on-error.md)。
 - 若要指定如何處理存在於資源群組中、但尚未定義於範本中的資源，請參閱 [Azure Resource Manager 部署模式](deployment-modes.md)。
 - 若要了解如何在您的範本中定義參數，請參閱[了解 Azure Resource Manager 範本的結構和語法](resource-group-authoring-templates.md)。
 - 如需解決常見部署錯誤的秘訣，請參閱[使用 Azure Resource Manager 針對常見的 Azure 部署錯誤進行疑難排解](resource-manager-common-deployment-errors.md)。

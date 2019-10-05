@@ -5,15 +5,15 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: include
-ms.date: 08/02/2019
+ms.date: 10/04/2019
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: dbfa7ff6e30b64fe1025114590c1b1a8824e6cdf
-ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
+ms.openlocfilehash: 6c59513c2c84b5f280e8200411b53848768eaf29
+ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/05/2019
-ms.locfileid: "68780194"
+ms.lasthandoff: 10/05/2019
+ms.locfileid: "71970814"
 ---
 1. 在入口網站中，按一下 [+建立資源]。
 2. 在搜尋方塊中輸入**區域網路閘道**，然後按 **Enter** 鍵進行搜尋。 這將會傳回結果清單。 按一下 [區域網路閘道]，然後按一下 [建立] 按鈕以開啟 [建立區域網路閘道] 頁面。
@@ -28,6 +28,6 @@ ms.locfileid: "68780194"
    - **設定 BGP 設定**：僅在設定 BGP 時才使用。 否則，請勿選取此項目。
    - **訂用帳戶︰** 請確認已顯示正確的訂用帳戶。
    - **資源群組：** 選取您想要使用的資源群組。 您可以建立新的資源群組或選取已建立的資源群組。
-   - **位置：** 選取將要建立此物件的位置。 建議您選取 VNet 所在的相同位置，但您可以不用這麼做。
+   - **位置：** 位置與其他設定中的**區域**相同。 選取將要建立此物件的位置。 建議您選取 VNet 所在的相同位置，但您可以不用這麼做。
 
 4. 當您完成值的指定時，按一下頁面底部的 [建立] 按鈕，以建立區域網路閘道。

@@ -1,33 +1,37 @@
 ---
-title: 如何使用適用於 Java v7 的用戶端程式庫在 Azure 儲存體中建立 Blob | Microsoft Docs
-description: 在物件 (Blob) 儲存體中建立儲存體帳戶和容器。 然後，使用 Java v7 適用的 Azure 儲存體用戶端程式庫將 Blob 上傳至 Azure 儲存體、下載 Blob，以及列出容器中的 Blob。
+title: 快速入門：適用于 JAVA SDK 的 Azure Blob 儲存體用戶端程式庫 v8
+description: 在物件 (Blob) 儲存體中建立儲存體帳戶和容器。 然後使用適用于 JAVA SDK v8 的 Azure 儲存體用戶端程式庫，將 blob 上傳至 Azure 儲存體、下載 blob，以及列出容器中的 blob。
 author: mhopkins-msft
 ms.author: mhopkins
-ms.date: 02/04/2019
+ms.date: 10/05/2019
 ms.service: storage
 ms.subservice: blobs
 ms.topic: conceptual
-ms.openlocfilehash: 0aa3af754082d91c4a5994e42146d1f1f475f64d
-ms.sourcegitcommit: 88ae4396fec7ea56011f896a7c7c79af867c90a1
+ms.openlocfilehash: 87bae74265c4d3abe7301af35888561fcd256717
+ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70390323"
+ms.lasthandoff: 10/05/2019
+ms.locfileid: "71971998"
 ---
-# <a name="how-to-upload-download-and-list-blobs-using-the-client-library-for-java-v7"></a>如何使用適用於 Java v7 的用戶端程式庫上傳、下載及列出 Blob
+# <a name="quickstart-azure-blob-storage-client-library-for-java-sdk-v8"></a>快速入門：適用于 JAVA SDK 的 Azure Blob 儲存體用戶端程式庫 v8
 
-在本操作指南中，您會了解如何使用適用於 Java v7 的用戶端程式庫，在 Azure Blob 儲存體容器中上傳、下載及列出區塊 Blob。
+開始使用適用于 JAVA 的 Azure Blob 儲存體用戶端程式庫。 Azure Blob 儲存體是 Microsoft 針對雲端推出的物件儲存體解決方案。 請依照下列步驟來安裝套件，並試用基本工作的範例程式碼。 Blob 儲存體已針對儲存大量非結構化資料最佳化。
+
+使用適用于 JAVA 的 Azure Blob 儲存體用戶端程式庫：
+
+* 建立容器
+* 設定容器權限
+* 在 Azure 儲存體中建立 Blob
+* 將 Blob 下載到本機電腦
+* 列出容器中的所有 Blob
+* 刪除容器
 
 ## <a name="prerequisites"></a>必要條件
 
-如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 。
-
-同時在 [Azure 入口網站](https://portal.azure.com/#create/Microsoft.StorageAccount-ARM)中建立 Azure 儲存體帳戶。 如需建立帳戶的協助，請參閱[建立儲存體帳戶](../common/storage-quickstart-create-account.md)。
-
-確定您已滿足下列先決條件：
-
-* 安裝具有 Maven 整合的 IDE。
-
+* Azure 訂用帳戶 - [建立免費帳戶](https://azure.microsoft.com/free/)
+* Azure 儲存體帳戶 - [建立儲存體帳戶](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account)
+* 具有 Maven 整合的 IDE。
 * 或者，安裝並設定 Maven 從命令列運作。
 
 本指南使用具備「適用於 Java 開發人員的 Eclipse IDE」設定的 [Eclipse](https://www.eclipse.org/downloads/)。
@@ -205,6 +209,4 @@ sourceFile.deleteOnExit();
 在本文中，您已了解如何使用 Java 在本機磁碟和 Azure Blob 儲存體之間傳送檔案。 若要深入了解 Java 的用法，請繼續使用我們的 GitHub 開放原始碼存放庫。
 
 > [!div class="nextstepaction"]
-> [Microsoft Azure Storage SDK v10 for Java](https://github.com/azure/azure-storage-java) 
-> [Java API 參考](https://docs.microsoft.com/java/azure/)
-> [Java 的程式碼範例](../common/storage-samples-java.md)
+> JAVA [API 參考](https://docs.microsoft.com/java/azure/)@no__t[適用于 java 的1個程式碼範例](../common/storage-samples-java.md)

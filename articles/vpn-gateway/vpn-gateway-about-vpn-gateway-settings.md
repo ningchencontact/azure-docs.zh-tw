@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: conceptual
 ms.date: 10/03/2019
 ms.author: cherylmc
-ms.openlocfilehash: 063ca5307468da90eb905323f6b145dfdb6654fe
-ms.sourcegitcommit: 7868d1c40f6feb1abcafbffcddca952438a3472d
+ms.openlocfilehash: fa08ea44722b2def684c269c3f9a0a30a4890a12
+ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71959085"
+ms.lasthandoff: 10/05/2019
+ms.locfileid: "71970897"
 ---
 # <a name="about-vpn-gateway-configuration-settings"></a>關於 VPN 閘道組態設定
 
@@ -140,7 +140,7 @@ New-AzVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg `
 
 當您建立閘道子網路時，您可指定子網路包含的 IP 位址數目。 閘道子網路中的 IP 位址會配置給閘道 VM 和閘道服務。 有些組態需要的 IP 位址比其他組態多。 
 
-當您規劃閘道子網大小時，請參閱您打算建立之設定的檔。 例如，ExpressRoute/VPN 閘道並存設定所需的閘道子網，必須比其他大部分的設定還要大。 此外，您可能會想要確定閘道子網路包含足夠的 IP 位址，以因應未來可能的額外組態需求。 雖然您可以建立像 /29 這麼小的閘道子網路，但建議您建立 /28 或更大 (/28、/27、/26 等) 的閘道子網路。 這會容納大部分的設定。
+當您規劃閘道子網大小時，請參閱您打算建立之設定的檔。 例如，ExpressRoute/VPN 閘道並存設定所需的閘道子網，必須比其他大部分的設定還要大。 此外，您可能會想要確定閘道子網路包含足夠的 IP 位址，以因應未來可能的額外組態需求。 雖然您可以建立小至/29 的閘道子網，但建議您建立/27 或更大（/27、/26 等）的閘道子網（如果您有可用的位址空間）。 這會容納大部分的設定。
 
 下列 Resource Manager PowerShell 範例顯示名為 GatewaySubnet 的閘道子網路。 您可以看到 CIDR 標記法指定 /27，這可提供足以供大多數現有組態使用的 IP 位址。
 

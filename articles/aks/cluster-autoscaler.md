@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 07/18/2019
 ms.author: mlearned
-ms.openlocfilehash: e96d501196a629c7e37de7e5ad66b68863bf556f
-ms.sourcegitcommit: cd70273f0845cd39b435bd5978ca0df4ac4d7b2c
+ms.openlocfilehash: b2973a8e826ab8cc8da29f1ec9678d6a6e4fa975
+ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71097905"
+ms.lasthandoff: 10/05/2019
+ms.locfileid: "71971859"
 ---
 # <a name="preview---automatically-scale-a-cluster-to-meet-application-demands-on-azure-kubernetes-service-aks"></a>預覽-自動調整叢集，以符合 Azure Kubernetes Service 上的應用程式需求（AKS）
 
@@ -90,21 +90,21 @@ az aks create \
   --resource-group myResourceGroup \
   --name myAKSCluster \
   --node-count 1 \
-  --vm-set-type VirtualMachineScaleSets \
+  ---enable-vmss \
   --enable-cluster-autoscaler \
   --min-count 1 \
   --max-count 3
 ```
 
 > [!NOTE]
-> 如果您在執行時`az aks create`指定 *--kubernetes-version* ，該版本必須符合或超過 [[開始之前](#before-you-begin)] 區段中所述的最低版本號碼。
+> 如果您在執行 `az aks create` 時指定 *--kubernetes-version* ，該版本必須符合或超過 [[開始之前](#before-you-begin)] 區段中所述的最低版本號碼。
 
 建立叢集和設定叢集自動調整程式設定需要幾分鐘的時間。
 
 ## <a name="change-the-cluster-autoscaler-settings"></a>變更叢集自動調整程式設定
 
 > [!IMPORTANT]
-> 如果您的訂用帳戶上已啟用*多個代理程式*集區功能，請跳至[使用多個代理程式組件區自動調整一節](#use-the-cluster-autoscaler-with-multiple-node-pools-enabled)。 啟用多個代理程式組件區的叢集需要`az aks nodepool`使用命令集來變更節點集區特定屬性`az aks`，而不是。 下列指示假設您未啟用多個節點集區。 若要檢查您是否已啟用它， `az feature  list -o table`請執行並`Microsoft.ContainerService/multiagentpoolpreview`尋找。
+> 如果您的訂用帳戶上已啟用*多個代理程式*集區功能，請跳至[使用多個代理程式組件區自動調整一節](#use-the-cluster-autoscaler-with-multiple-node-pools-enabled)。 啟用多個代理程式組件區的叢集需要使用 `az aks nodepool` 命令設定來變更節點集區特定屬性，而不是 `az aks`。 下列指示假設您未啟用多個節點集區。 若要檢查是否已啟用，請執行 `az feature  list -o table`，並尋找 `Microsoft.ContainerService/multiagentpoolpreview`。
 
 在上一個步驟中，若要建立 AKS 叢集或更新現有的節點集區，叢集自動調整程式的最小節點計數設定為*1*，而節點計數上限設定為*3*。 隨著應用程式需求的變化，您可能需要調整叢集自動調整程式節點計數。
 
@@ -159,7 +159,7 @@ az aks nodepool update \
   --max-count 5
 ```
 
-您可以使用[az aks nodepool update][az-aks-nodepool-update]來停用叢集自動調整程式，並`--disable-cluster-autoscaler`傳遞參數。
+您可以使用[az aks nodepool update][az-aks-nodepool-update]來停用叢集自動調整程式，並傳遞 `--disable-cluster-autoscaler` 參數。
 
 ```azurecli-interactive
 az aks nodepool update \

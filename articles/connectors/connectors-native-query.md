@@ -9,18 +9,17 @@ editor: ''
 tags: connectors
 ms.assetid: 34e702c7-f9e5-4885-9266-fc7404adecfe
 ms.service: logic-apps
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/20/2016
 ms.author: jehollan
-ms.openlocfilehash: 2a82afe396039857e5b9ad6b8a6d0e710573037f
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 10332b95e0d385d7155003efcc52b4bae3969313
+ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60538211"
+ms.lasthandoff: 10/05/2019
+ms.locfileid: "71973755"
 ---
 # <a name="get-started-with-the-query-action"></a>開始使用查詢動作
 您可以使用查詢動作來處理完成以下工作流程的批次和陣列︰
@@ -38,8 +37,8 @@ ms.locfileid: "60538211"
 
 以下說明如何將它新增至邏輯應用程式︰
 
-1. 選取 [新增步驟]  按鈕。
-2. 選擇 [新增動作]  。
+1. 選取 [新增步驟] 按鈕。
+2. 選擇 [新增動作]。
 3. 在動作搜尋方塊中，輸入**篩選**以列出**篩選陣列**動作。
    
     ![使用查詢動作](./media/connectors-native-query/using-action-1.png)
@@ -56,7 +55,7 @@ ms.locfileid: "60538211"
 ## <a name="query-action"></a>查詢動作
 以下是此連接器所支援動作的詳細資料。 連接器有一個可能的動作。
 
-| 動作 | 描述 |
+| Action | 描述 |
 | --- | --- |
 | 篩選陣列 |評估陣列中的每個項目是否符合條件並傳回結果 |
 
@@ -70,7 +69,7 @@ ms.locfileid: "60538211"
 | Display name | 屬性名稱 | 描述 |
 | --- | --- | --- |
 | 從* |from |要篩選的陣列 |
-| 條件* |其中 |要針對每個項目評估的條件 |
+| 條件* |where |要針對每個項目評估的條件 |
 
 <br>
 

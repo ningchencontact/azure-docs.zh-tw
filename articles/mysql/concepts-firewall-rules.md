@@ -1,17 +1,17 @@
 ---
 title: 適用於 MySQL 的 Azure 資料庫伺服器防火牆規則
-description: 描述適用於 MySQL 的 Azure 資料庫伺服器防火牆規則。
+description: 瞭解如何使用防火牆規則來啟用適用於 MySQL 的 Azure 資料庫伺服器的連接。
 author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 09/22/2019
-ms.openlocfilehash: e84dfb35a435e32cd14b244b29044d700c79d14d
-ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
+ms.openlocfilehash: 1d75b9e7d997b0c62c7e235187907f0556318efe
+ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71203594"
+ms.lasthandoff: 10/05/2019
+ms.locfileid: "71970414"
 ---
 # <a name="azure-database-for-mysql-server-firewall-rules"></a>適用於 MySQL 的 Azure 資料庫伺服器防火牆規則
 防火牆會防止對您資料庫伺服器的所有存取，直到您指定哪些電腦擁有權限。 此防火牆會根據每一個要求的來源 IP 位址來授與伺服器存取權。
@@ -59,7 +59,7 @@ ms.locfileid: "71203594"
 
    * 改為針對您的用戶端電腦取得靜態 IP 位址，然後將 IP 位址新增為防火牆規則。
 
-* **伺服器的 IP 看起來是公用的：** 適用於 MySQL 的 Azure 資料庫伺服器的連線會透過可公開存取的 Azure 閘道進行路由傳送。 不過，實際的伺服器 IP 會受到防火牆保護。 如需詳細資訊，請流覽連線[架構一文](concepts-connectivity-architecture.md)。 
+* **伺服器的 IP 看起來是公用的：** 適用於 MySQL 的 Azure 資料庫伺服器連線會透過可公開存取的 Azure 閘道進行路由。 不過，實際的伺服器 IP 會受到防火牆保護。 如需詳細資訊，請瀏覽[連線架構文章](concepts-connectivity-architecture.md)。 
 
 ## <a name="next-steps"></a>後續步驟
 

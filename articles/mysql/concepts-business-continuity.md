@@ -1,21 +1,21 @@
 ---
-title: 使用適用於 MySQL 的 Azure 資料庫的商務持續性概觀
-description: 使用「適用於 MySQL 的 Azure 資料庫」的商務持續性概觀。
+title: 瞭解適用於 MySQL 的 Azure 資料庫中的商務持續性
+description: 瞭解使用適用於 MySQL 的 Azure 資料庫服務時的商務持續性（時間點還原、資料中心中斷、異地還原）。
 author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 02/01/2019
-ms.openlocfilehash: a09c1934ecb34518b191a8e730a72efecc85aa2f
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 28cd46077e67aa48169421607cd977103da735c5
+ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60525451"
+ms.lasthandoff: 10/05/2019
+ms.locfileid: "71972884"
 ---
-# <a name="overview-of-business-continuity-with-azure-database-for-mysql"></a>使用適用於 MySQL 的 Azure 資料庫的商務持續性概觀
+# <a name="understand-business-continuity-in-azure-database-for-mysql"></a>瞭解適用於 MySQL 的 Azure 資料庫中的商務持續性
 
-本概觀說明適用於 MySQL 的 Azure 資料庫針對商務持續性和災害復原所提供的功能。 了解有哪些選項可讓您從可能導致資料遺失或造成資料庫和應用程式無法使用的干擾性事件中復原。 了解當使用者或應用程式錯誤影響資料完整性、Azure 區域中斷，或您的應用程式需要維護時該如何處理。
+本文說明適用於 MySQL 的 Azure 資料庫針對商務持續性和嚴重損壞修復所提供的功能。 了解有哪些選項可讓您從可能導致資料遺失或造成資料庫和應用程式無法使用的干擾性事件中復原。 了解當使用者或應用程式錯誤影響資料完整性、Azure 區域中斷，或您的應用程式需要維護時該如何處理。
 
 ## <a name="features-that-you-can-use-to-provide-business-continuity"></a>可用來提供商務持續性的功能
 

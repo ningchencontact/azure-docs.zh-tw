@@ -1,17 +1,17 @@
 ---
-title: 將資料複寫至適用於 MySQL 的 Azure 資料庫。
-description: 本文將說明適用於 MySQL 的 Azure 資料庫之中的資料帶入複寫 (Data-in Replication)。
+title: 將資料複寫至適用於 MySQL 的 Azure 資料庫
+description: 瞭解如何使用資料輸入複寫，從外部伺服器同步處理到適用於 MySQL 的 Azure 資料庫服務。
 author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 09/13/2019
-ms.openlocfilehash: 5ef11e86b85a537a809352325d56ac3ff983c2c1
-ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
+ms.openlocfilehash: b501a1f1ea54aff5617932dc5085d6d19f86976c
+ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/14/2019
-ms.locfileid: "70993056"
+ms.lasthandoff: 10/05/2019
+ms.locfileid: "71970359"
 ---
 # <a name="replicate-data-into-azure-database-for-mysql"></a>將資料複寫至適用於 MySQL 的 Azure 資料庫
 
@@ -36,7 +36,7 @@ ms.locfileid: "70993056"
 - 每個資料表都必須有主索引鍵。
 - 主要伺服器應該使用 MySQL InnoDB 引擎。
 - 使用者必須有權設定二進位記錄，以及在主要伺服器上建立新的使用者。
-- 如果主伺服器已啟用 ssl，請確定已在`mysql.az_replication_change_master`預存程式中包含為該網域提供的 ssl CA 憑證。 請參閱下列[範例](https://docs.microsoft.com/azure/mysql/howto-data-in-replication#link-master-and-replica-servers-to-start-data-in-replication)和`master_ssl_ca`參數。
+- 如果主伺服器已啟用 SSL，請確定為該網域提供的 SSL CA 憑證已包含在 `mysql.az_replication_change_master` 預存程式中。 請參閱下列[範例](https://docs.microsoft.com/azure/mysql/howto-data-in-replication#link-master-and-replica-servers-to-start-data-in-replication)和 `master_ssl_ca` 參數。
 - 請確定主要伺服器的 IP 位址已新增至「適用於 MySQL 的 Azure 資料庫」複本伺服器的防火牆規則。 使用 [Azure 入口網站](https://docs.microsoft.com/azure/mysql/howto-manage-firewall-using-portal)或 [Azure CLI](https://docs.microsoft.com/azure/mysql/howto-manage-firewall-using-cli) 更新防火牆規則。
 - 確定裝載主要伺服器的機器允許連接埠 3306 上的輸入和輸出流量。
 - 確定主伺服器具有**公用 IP 位址**、DNS 可公開存取，或具有完整功能變數名稱（FQDN）。

@@ -8,24 +8,23 @@ ms.date: 07/09/2019
 ms.topic: conceptual
 ms.service: iot-central
 manager: peterpr
-ms.openlocfilehash: b5a78901a8fc3f4c370216c0cc378f57630d345e
-ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+ms.openlocfilehash: fed9c924274cb66671e233a7dc6d431d81e0dbfb
+ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69879756"
+ms.lasthandoff: 10/05/2019
+ms.locfileid: "71973180"
 ---
-# <a name="export-your-data-in-azure-iot-central-preview-features"></a>在 Azure IoT Central 中匯出資料 (預覽功能)
+# <a name="export-your-data-in-azure-iot-central-preview-features"></a>在 Azure IoT Central 中匯出資料（預覽功能）
 
 [!INCLUDE [iot-central-pnp-original](../../includes/iot-central-pnp-original-note.md)]
 
 *此主題適用於系統管理員。*
 
-本文說明如何使用 Azure IoT Central 中的連續資料匯出功能, 將您的資料匯出至您自己的**Azure 事件中樞**和**Azure 服務匯流排**實例。 您可以將**度量**、**裝置**及**裝置範本**匯出到您自己的目的地，以取得暖路徑見解和分析。 這包括觸發「Azure 串流分析」中的自訂規則、觸發 Azure Logic Apps 中的自訂工作流程，或透過 Azure Functions 來轉換及傳遞資料。 
+本文說明如何使用 Azure IoT Central 中的連續資料匯出功能，將您的資料匯出至您自己的**Azure 事件中樞**和**Azure 服務匯流排**實例。 您可以將**遙測**、**裝置**和**裝置範本**匯出到您自己的目的地，以取得暖路徑深入解析和分析。 這包括在 Azure 串流分析中觸發自訂規則、在 Azure Logic Apps 中觸發自訂工作流程，或透過要轉換的 Azure Functions 進行傳遞。
 
 > [!Note]
 > 同樣地，當您開啟連續資料匯出時，只會取得從該時刻起的資料。 目前，無法擷取「連續資料匯出」時的資料。 若要保留更多歷史資料，請儘早開啟「連續資料匯出」。
-
 
 ## <a name="prerequisites"></a>必要條件
 
@@ -33,9 +32,9 @@ ms.locfileid: "69879756"
 
 ## <a name="set-up-export-destination"></a>設定匯出目的地
 
-如果您沒有可匯出的現有事件中樞/服務匯流排, 請遵循下列步驟:
+如果您沒有要匯出的現有事件中樞/服務匯流排，請遵循下列步驟來建立一個：
 
-## <a name="create-event-hubs-namespace"></a>建立事件中樞命名空間
+### <a name="create-event-hubs-namespace"></a>建立事件中樞命名空間
 
 1. [在 Azure 入口網站中建立新事件中樞命名空間](https://ms.portal.azure.com/#create/Microsoft.EventHub)。 您可以透過 [Azure 事件中樞文件](https://docs.microsoft.com/azure/event-hubs/event-hubs-create)深入了解。
 2. 選擇訂用帳戶。 
@@ -44,7 +43,7 @@ ms.locfileid: "69879756"
     > 您現在可以將資料匯出至與隨用隨付 IoT Central 應用程式之訂用帳戶**不同**的其他訂用帳戶。 在此情況下，您將使用連接字串來進行連線。
 3. 在「事件中樞」命名空間中建立一個事件中樞。 移至您的命名空間，然後選取頂端的 [+ 事件中樞] 以建立事件中樞執行個體。
 
-## <a name="create-service-bus-namespace"></a>建立服務匯流排命名空間
+### <a name="create-service-bus-namespace"></a>建立服務匯流排命名空間
 
 1. [在 Azure 入口網站中建立新的服務匯流排命名空間](https://ms.portal.azure.com/#create/Microsoft.ServiceBus.1.0.5)。 您可以透過 [Azure 服務匯流排文件](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-create-namespace-portal)深入了解。
 2. 選擇訂用帳戶。 
@@ -57,25 +56,23 @@ ms.locfileid: "69879756"
 
 ## <a name="set-up-continuous-data-export"></a>設定連續資料匯出
 
-現在您已有事件中樞/服務匯流排目的地可將資料匯出至, 請遵循下列步驟來設定連續資料匯出。 
+現在您已有事件中樞/服務匯流排目的地可將資料匯出至，請遵循下列步驟來設定連續資料匯出。 
 
 1. 登入您的 IoT Central 應用程式。
 
-2. 在左側功能表中, 選取 [**資料匯出**]。
+2. 在左側功能表中，選取 [**資料匯出**]。
 
     > [!Note]
-    > 如果在左側功能表中沒有看到 [連續資料匯出]，即表示您不是應用程式的系統管理員。 請連絡系統管理員來設定資料匯出。
-
-    ![建立新的 cde 事件中樞](media/howto-export-data-pnp/export-menu1.png)
+    > 如果您在左側功能表中看不到 [資料匯出]，則您不是應用程式中的系統管理員。 請連絡系統管理員來設定資料匯出。
 
 3. 選取右上方的 [ **+ 新增**] 按鈕。 選擇其中一個**Azure 事件中樞**或**Azure 服務匯流排**做為匯出的目的地。 
 
     > [!NOTE] 
     > 每一應用程式的匯出數目上限是 5。 
 
-    ![建立新的連續資料匯出](media/howto-export-data-pnp/export-new1.png)
+    ![建立新的連續資料匯出](media/howto-export-data-pnp/export-new2.png)
 
-4. 在下拉式清單方塊中, 選取您的**事件中樞命名空間/服務匯流排命名空間**。 您也可以挑選清單中的最後一個選項，也就是 [輸入連接字串]。 
+4. 在下拉式清單方塊中，選取您的**事件中樞命名空間/服務匯流排命名空間**。 您也可以挑選清單中的最後一個選項，也就是 [輸入連接字串]。 
 
     > [!NOTE] 
     > 您只會看到**與 IoT Central 應用程式位於相同訂用帳戶中**的「儲存體帳戶」/「事件中樞命名空間」/「服務匯流排命名空間」。 如果您想要匯出到此訂用帳戶外的目的地，請選擇 [輸入連接字串]，然後參閱步驟 5。
@@ -83,74 +80,62 @@ ms.locfileid: "69879756"
     > [!NOTE] 
     > 如果是 7 天試用版應用程式，則設定連續資料匯出的唯一方式是透過連接字串。 這是因為 7 天試用版應用程式並沒有相關聯的 Azure 訂用帳戶。
 
-    ![建立新的 cde 事件中樞](media/howto-export-data-pnp/export-create1.png)
+    ![建立新的 cde 事件中樞](media/howto-export-data-pnp/export-eh.png)
 
 5. (選擇性) 如果您選擇 [輸入連接字串]，就會顯示一個可供您貼上連接字串的新方塊。 取得下列項目的連接字串：
-    - 事件中樞或服務匯流排, 請移至 Azure 入口網站中的命名空間。
-        - 在 [**設定**] 底下, 選取 [**共用存取原則**]
+    - 事件中樞或服務匯流排，請移至 Azure 入口網站中的命名空間。
+        - 在 [**設定**] 底下，選取 [**共用存取原則**]
         - 選擇預設的 [RootManageSharedAccessKey]，或建立新的原則
         - 複製主要連接字串或次要連接字串
- 
+
 6. 從下拉式清單方塊中選擇事件中樞/佇列或主題。
 
 7. 在 [要匯出的資料] 下，透過將類型設定為 [開啟] 以指定每種要匯出的資料類型。
 
-6. 若要開啟連續資料匯出，請務必將 [資料匯出] 設定為 [開啟]。 選取 [ **儲存**]。
+8. 若要開啟連續資料匯出，請確定 [**資料匯出**切換] 為 [**開啟**]。 選取 [儲存]。
 
-    ![設定連續資料匯出](media/howto-export-data-pnp/export-list1.png)
-
-7. 幾分鐘後，您的資料就會出現在所選擇的目的地中。
+9. 幾分鐘後，您的資料就會出現在所選擇的目的地中。
 
 
-## <a name="export-to-azure-event-hubs-and-azure-service-bus"></a>匯出至 Azure 事件中樞和 Azure 服務匯流排
+## <a name="data-format"></a>資料格式
 
-度量、裝置及裝置範本資料會以近乎即時的方式，匯出至事件中樞或「服務匯流排」佇列或主題。 匯出的度量資料包含您裝置傳送給 IoT Central 的訊息整體，而不僅限於度量本身的值。 匯出的裝置資料包含對所有裝置之屬性與設定進行的變更，而匯出的裝置範本則包含對所有裝置範本進行的變更。 匯出的資料會在 "body" 屬性中，且採用 JSON 格式。
+遙測、裝置和裝置範本資料會以近乎即時的方式匯出至您的事件中樞或服務匯流排佇列或主題。 匯出的遙測資料包含裝置傳送至 IoT Central 的全部訊息，而不只是遙測值本身。 匯出的裝置資料包含所有裝置的屬性和中繼資料變更，而匯出的裝置範本則包含所有裝置範本的變更。 匯出的資料會在 "body" 屬性中，且採用 JSON 格式。
 
 > [!NOTE]
 > 選擇「服務匯流排」作為匯出目的地時，佇列和主題**不得啟用 [工作階段] 或 [重複資料偵測]** 。 如果啟用這其中一個選項，有些訊息就不會送達到您的佇列或主題中。
 
-### <a name="measurements"></a>度量
+### <a name="telemetry"></a>遙測
 
 在 IoT Central 收到來自裝置的訊息之後，就會快速匯出新訊息。 「事件中樞」和「服務匯流排」中的每個匯出訊息都包含裝置以 JSON 格式在 "body" 屬性中傳送的完整訊息。 
 
 > [!NOTE]
-> 傳送量測的裝置會以裝置識別碼來表示 (請參閱以下各節)。 若要取得裝置的名稱，請匯出裝置資料，並使用與裝置訊息之 **deviceId** 相符的 **connectionDeviceId** 將每個訊息相互關聯。
+> 傳送遙測的裝置會以裝置識別碼來表示（請參閱下列各節）。 若要取得裝置的名稱，請匯出裝置資料，並使用與裝置訊息之 **deviceId** 相符的 **connectionDeviceId** 將每個訊息相互關聯。
 
-下列範例示範事件中樞或「服務匯流排」佇列或主題中所收到度量資料的相關訊息。
+下列範例顯示在事件中樞或服務匯流排的佇列或主題中收到之遙測資料的相關訊息。
 
 ```json
-{
-  "body": {
-    "humidity": 29.06963648666288,
-    "temp": 8.4503795661685,
-    "pressure": 1075.8334910110093,
-    "magnetometerX": 408.6966458887116,
-    "magnetometerY": -532.8809796603962,
-    "magnetometerZ": 174.70653875528205,
-    "accelerometerX": 1481.546749013788,
-    "accelerometerY": -1139.4316656437406,
-    "accelerometerZ": 811.6928695575307,
-    "gyroscopeX": 442.19879163299856,
-    "gyroscopeY": 123.23710975717177,
-    "gyroscopeZ": 708.5397575786151,
-    "deviceState": "DANGER"
+{ 
+  "body":{ 
+    "temp":67.96099945281145,
+    "humid":58.51139305465015,
+    "pm25":36.91162432340187
   },
-  "annotations": {
-    "iothub-connection-device-id": "<connectionDeviceId>",
-    "iothub-connection-auth-method": "{\"scope\":\"hub\",\"type\":\"sas\",\"issuer\":\"iothub\",\"acceptingIpFilterRule\":null}",
-    "iothub-connection-auth-generation-id": "<generationId>",
-    "iothub-enqueuedtime": 1539381029965,
-    "iothub-message-source": "Telemetry",
-    "x-opt-sequence-number": 25325,
-    "x-opt-offset": "<offset>",
-    "x-opt-enqueued-time": 1539381030200
+  "annotations":{ 
+    "iothub-connection-device-id":"<deviceId>",
+    "iothub-connection-auth-method":"{\"scope\":\"hub\",\"type\":\"sas\",\"issuer\":\"iothub\",\"acceptingIpFilterRule\":null}",
+    "iothub-connection-auth-generation-id":"<generationId>",
+    "iothub-enqueuedtime":1539381029965,
+    "iothub-message-source":"Telemetry",
+    "x-opt-sequence-number":25325,
+    "x-opt-offset":"<offset>",
+    "x-opt-enqueued-time":1539381030200
   },
-  "sequenceNumber": 25325,
-  "enqueuedTimeUtc": "2018-10-12T21:50:30.200Z",
-  "offset": "<offset>",
-  "properties": {
-    "content_type": "application/json",
-    "content_encoding": "utf-8"
+  "sequenceNumber":25325,
+  "enqueuedTimeUtc":"2018-10-12T21:50:30.200Z",
+  "offset":"<offset>",
+  "properties":{ 
+    "content_type":"application/json",
+    "content_encoding":"utf-8"
   }
 }
 ```
@@ -159,15 +144,14 @@ ms.locfileid: "69879756"
 
 包含裝置資料的訊息會以每幾分鐘一次的頻率，傳送到您的事件中樞或「服務匯流排」佇列或主題。 這意謂著每隔幾分鐘就會有一批訊息送達，其中包含下列相關資料
 - 已新增的新裝置
-- 屬性和設定值已變更的裝置
+- 屬性值已變更的裝置
 
 每個訊息皆代表自上次匯出訊息之後，對裝置進行的一或多項變更。 將在每個訊息中傳送的資訊包括：
-- IoT Central 中裝置的 `id`
+- IoT Central 中裝置的 `@id`
 - 裝置的 `name`
 - 來自[裝置佈建服務](https://aka.ms/iotcentraldocsdps) 的 `deviceId`
 - 裝置範本資訊
 - 屬性值
-- 設定值
 
 > [!NOTE]
 > 系統不會匯出自上個批次後刪除的裝置。 目前，在匯出的訊息中並沒有任何適用於已刪除之裝置的指標。
@@ -178,120 +162,223 @@ ms.locfileid: "69879756"
 
 
 ```json
-{
-  "body": {
-    "id": "<id>",
-    "name": "<deviceName>",
-    "simulated": true,
-    "deviceId": "<deviceId>",
-    "deviceTemplate": {
-      "id": "<templateId>",
-      "version": "1.0.0"
-    },
-    "properties": {
-      "cloud": {
-        "location": "Seattle"
+{ 
+  "body":{ 
+    "@id":"<id>",
+    "@type":"Device",
+    "displayName":"Airbox - 266d30aedn5",
+    "data":{ 
+      "$cloudProperties":{ 
+        "Color":"blue"
       },
-      "device": {
-        "dieNumber": 5445.5862873026645
+      "EnvironmentalSensor":{ 
+        "thsensormodel":{ 
+          "reported":{ 
+            "value":"A1",
+            "$lastUpdatedTimestamp":"2019-10-02T18:14:49.3820326Z"
+          }
+        },
+        "pm25sensormodel":{ 
+          "reported":{ 
+            "value":"P1",
+            "$lastUpdatedTimestamp":"2019-10-02T18:14:49.3820326Z"
+          }
+        }
+      },
+      "urn_azureiot_DeviceManagement_DeviceInformation":{ 
+        "totalStorage":{ 
+          "reported":{ 
+            "value":3088.1959855710156,
+            "$lastUpdatedTimestamp":"2019-10-02T18:14:49.3820326Z"
+          }
+        },
+        "totalMemory":{ 
+          "reported":{ 
+            "value":16005.703586477555,
+            "$lastUpdatedTimestamp":"2019-10-02T18:14:49.3820326Z"
+          }
+        }
       }
     },
-    "settings": {
-      "device": {
-        "fanSpeed": 0
-      }
-    }
+    "instanceOf":"<templateId>",
+    "deviceId":"<deviceId>",
+    "simulated":true
   },
-  "annotations": {
-    "iotcentral-message-source": "devices",
-    "x-opt-partition-key": "<partitionKey>",
-    "x-opt-sequence-number": 39740,
-    "x-opt-offset": "<offset>",
-    "x-opt-enqueued-time": 1539274959654
+  "annotations":{ 
+    "iotcentral-message-source":"devices",
+    "x-opt-partition-key":"<partitionKey>",
+    "x-opt-sequence-number":39740,
+    "x-opt-offset":"<offset>",
+    "x-opt-enqueued-time":1539274959654
   },
-  "partitionKey": "<partitionKey>",
-  "sequenceNumber": 39740,
-  "enqueuedTimeUtc": "2018-10-11T16:22:39.654Z",
-  "offset": "<offset>",
+  "partitionKey":"<partitionKey>",
+  "sequenceNumber":39740,
+  "enqueuedTimeUtc":"2019-10-02T18:14:49.3820326Z",
+  "offset":"<offset>"
 }
 ```
 
 ### <a name="device-templates"></a>裝置範本
 
 包含裝置範本資料的訊息會以每幾分鐘一次的頻率，傳送到您的事件中樞或「服務匯流排」佇列或主題。 這意謂著每隔幾分鐘就會有一批訊息送達，其中包含下列相關資料
-- 已新增的新裝置範本
-- 度量、屬性及設定定義已變更的裝置範本
+- 新增或建立版本的新裝置範本
+- 已變更 capabilityModels、cloudProperties、覆寫和初始值的裝置範本
 
 每個訊息皆代表自上次匯出訊息之後，對裝置範本進行的一或多項變更。 將在每個訊息中傳送的資訊包括：
-- 裝置範本的 `id`
+- 裝置範本的 `@id`
 - 裝置範本的 `name`
 - 裝置範本的 `version`
-- 量測資料類型和最小值/最大值
-- 屬性資料類型和預設值
-- 設定資料類型和預設值
+- 裝置 `capabilityModel`，包括其 `interfaces`，以及遙測、屬性和命令定義
+- `cloudProperties` 定義
+- 覆寫和初始值，以內嵌 `capabilityModel`
 
 > [!NOTE]
 > 系統不會匯出自上個批次後刪除的裝置範本。 目前，在匯出的訊息中並沒有任何適用於已刪除之裝置範本的指標。
 
-下列範例示範事件中樞或「服務匯流排」佇列或主題中裝置範本資料的相關訊息：
+下列範例顯示事件中樞或服務匯流排佇列或主題中的裝置範本訊息：
 
 ```json
-{
-  "body": {
-    "id": "<id>",
-    "version": "1.0.0",
-    "name": "<templateName>",
-    "measurements": {
-      "telemetry": {
-        "humidity": {
-          "dataType": "double",
-          "name": "humidity"
+{ 
+  "body":{ 
+    "@id":"<template-id>",
+    "@type":"DeviceModelDefinition",
+    "displayName":"Airbox",
+    "capabilityModel":{ 
+      "@id":"<id>",
+      "@type":"CapabilityModel",
+      "implements":[ 
+        { 
+          "@id":"<id>",
+          "@type":"InterfaceInstance",
+          "name":"EnvironmentalSensor",
+          "schema":{ 
+            "@id":"<id>",
+            "@type":"Interface",
+            "comment":"Requires temperature and humidity sensors.",
+            "description":"Provides functionality to report temperature, humidity. Provides telemetry, commands and read-write properties",
+            "displayName":"Environmental Sensor",
+            "contents":[ 
+              { 
+                "@id":"<id>",
+                "@type":"Telemetry",
+                "description":"Current temperature on the device",
+                "displayName":"Temperature",
+                "name":"temp",
+                "schema":"double",
+                "unit":"Units/Temperature/celsius",
+                "valueDetail":{ 
+                  "@id":"<id>",
+                  "@type":"ValueDetail/NumberValueDetail",
+                  "minValue":{ 
+                    "@value":"50"
+                  }
+                },
+                "visualizationDetail":{ 
+                  "@id":"<id>",
+                  "@type":"VisualizationDetail"
+                }
+              },
+              { 
+                "@id":"<id>",
+                "@type":"Telemetry",
+                "description":"Current humidity on the device",
+                "displayName":"Humidity",
+                "name":"humid",
+                "schema":"integer"
+              },
+              { 
+                "@id":"<id>",
+                "@type":"Telemetry",
+                "description":"Current PM2.5 on the device",
+                "displayName":"PM2.5",
+                "name":"pm25",
+                "schema":"integer"
+              },
+              { 
+                "@id":"<id>",
+                "@type":"Property",
+                "description":"T&H Sensor Model Name",
+                "displayName":"T&H Sensor Model",
+                "name":"thsensormodel",
+                "schema":"string"
+              },
+              { 
+                "@id":"<id>",
+                "@type":"Property",
+                "description":"PM2.5 Sensor Model Name",
+                "displayName":"PM2.5 Sensor Model",
+                "name":"pm25sensormodel",
+                "schema":"string"
+              }
+            ]
+          }
         },
-        "pressure": {
-          "dataType": "double",
-          "name": "pressure"
-        },
-        "temp": {
-          "dataType": "double",
-          "name": "temperature"
+        { 
+          "@id":"<id>",
+          "@type":"InterfaceInstance",
+          "name":"urn_azureiot_DeviceManagement_DeviceInformation",
+          "schema":{ 
+            "@id":"<id>",
+            "@type":"Interface",
+            "displayName":"Device information",
+            "contents":[ 
+              { 
+                "@id":"<id>",
+                "@type":"Property",
+                "comment":"Total available storage on the device in kilobytes. Ex. 20480000 kilobytes.",
+                "displayName":"Total storage",
+                "name":"totalStorage",
+                "displayUnit":"kilobytes",
+                "schema":"long"
+              },
+              { 
+                "@id":"<id>",
+                "@type":"Property",
+                "comment":"Total available memory on the device in kilobytes. Ex. 256000 kilobytes.",
+                "displayName":"Total memory",
+                "name":"totalMemory",
+                "displayUnit":"kilobytes",
+                "schema":"long"
+              }
+            ]
+          }
         }
-      }
+      ],
+      "displayName":"AAEONAirbox52"
     },
-    "properties": {
-      "cloud": {
-        "location": {
-          "dataType": "string",
-          "name": "Location"
+    "solutionModel":{ 
+      "@id":"<id>",
+      "@type":"SolutionModel",
+      "cloudProperties":[ 
+        { 
+          "@id":"<id>",
+          "@type":"CloudProperty",
+          "displayName":"Color",
+          "name":"Color",
+          "schema":"string",
+          "valueDetail":{ 
+            "@id":"<id>",
+            "@type":"ValueDetail/StringValueDetail"
+          },
+          "visualizationDetail":{ 
+            "@id":"<id>",
+            "@type":"VisualizationDetail"
+          }
         }
-      },
-      "device": {
-        "dieNumber": {
-          "dataType": "double",
-          "name": "Die Number"
-        }
-      }
+      ]
     },
-    "settings": {
-      "device": {
-        "fanSpeed": {
-          "dataType": "double",
-          "name": "Fan Speed",
-          "initialValue": 0
-        }
-      }
-    }
-  },
-  "annotations": {
-    "iotcentral-message-source": "deviceTemplates",
-    "x-opt-partition-key": "<partitionKey>",
-    "x-opt-sequence-number": 25315,
-    "x-opt-offset": "<offset>",
-    "x-opt-enqueued-time": 1539274985085
-  },
-  "partitionKey": "<partitionKey>",
-  "sequenceNumber": 25315,
-  "enqueuedTimeUtc": "2018-10-11T16:23:05.085Z",
-  "offset": "<offset>",
+    "annotations":{ 
+      "iotcentral-message-source":"deviceTemplates",
+      "x-opt-partition-key":"<partitionKey>",
+      "x-opt-sequence-number":25315,
+      "x-opt-offset":"<offset>",
+      "x-opt-enqueued-time":1539274985085
+    },
+    "partitionKey":"<partitionKey>",
+    "sequenceNumber":25315,
+    "enqueuedTimeUtc":"2019-10-02T16:23:05.085Z",
+    "offset":"<offset>"
+  }
 }
 ```
 
@@ -300,4 +387,4 @@ ms.locfileid: "69879756"
 既然您已知道如何將資料匯出至「Azure 事件中樞」和「Azure 服務匯流排」，請繼續進行下一個步驟：
 
 > [!div class="nextstepaction"]
-> [如何觸發 Azure Functions](howto-trigger-azure-functions.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json)
+> [如何觸發 Azure Functions](howto-trigger-azure-functions.md)

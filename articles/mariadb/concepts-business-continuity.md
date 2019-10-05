@@ -1,21 +1,21 @@
 ---
-title: 使用「適用於 MariaDB 的 Azure 資料庫」的商務持續性概觀
-description: 使用「適用於 MariaDB 的 Azure 資料庫」的商務持續性概觀。
+title: 瞭解適用於 MariaDB 的 Azure 資料庫中的商務持續性
+description: 瞭解使用適用於 MariaDB 的 Azure 資料庫服務時的商務持續性（時間點還原、資料中心中斷、異地還原）。
 author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: 4c64f920bf56195ad53ac8acbf3f9199090f0a8b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: d364c3a5fafaca514baade25cd3f5b4c0f10dc26
+ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61043001"
+ms.lasthandoff: 10/05/2019
+ms.locfileid: "71973602"
 ---
-# <a name="overview-of-business-continuity-with-azure-database-for-mariadb"></a>使用「適用於 MariaDB 的 Azure 資料庫」的商務持續性概觀
+# <a name="understand-business-continuity-in-azure-database-for-mariadb"></a>瞭解適用於 MariaDB 的 Azure 資料庫中的商務持續性
 
-此概觀說明適用於 MariaDB 的 Azure 資料庫針對商務持續性與災害復原所提供的功能。 了解有哪些選項可讓您從可能導致資料遺失或造成資料庫和應用程式無法使用的干擾性事件中復原。 了解當使用者或應用程式錯誤影響資料完整性、Azure 區域中斷，或您的應用程式需要維護時該如何處理。
+本文說明適用於 MariaDB 的 Azure 資料庫針對商務持續性和嚴重損壞修復所提供的功能。 了解有哪些選項可讓您從可能導致資料遺失或造成資料庫和應用程式無法使用的干擾性事件中復原。 了解當使用者或應用程式錯誤影響資料完整性、Azure 區域中斷，或您的應用程式需要維護時該如何處理。
 
 ## <a name="features-that-you-can-use-to-provide-business-continuity"></a>可用來提供商務持續性的功能
 

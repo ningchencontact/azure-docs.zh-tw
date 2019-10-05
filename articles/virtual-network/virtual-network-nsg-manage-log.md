@@ -13,19 +13,19 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/04/2018
 ms.author: kumud
-ms.openlocfilehash: 07b196b8e7081a6cce1ae87297528c1711b3b8bb
-ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.openlocfilehash: 047c92f1c50409e6a1716f0ef2f774464bd12a0a
+ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71259445"
+ms.lasthandoff: 10/05/2019
+ms.locfileid: "71972771"
 ---
 # <a name="diagnostic-logging-for-a-network-security-group"></a>適用於網路安全性群組的診斷記錄
 
 網路安全性群組 (NSG) 包含允許或拒絕前往虛擬網路子網路、網路介面或兩者流量的規則。 當您針對 NSG 啟用診斷記錄時，可以記錄下列類別的資訊：
 
-* **事件：** 記錄要根據 MAC 位址，將哪些 NSG 規則套用至 VM 的項目。 每隔 60 秒會收集一次這些規則的狀態。
-* **規則計數器：** 包含套用每個 NSG 規則以拒絕或允許流量之次數的項目。
+* **事件：** 記錄要根據 MAC 位址，將哪些 NSG 規則套用至 VM 的項目。
+* **規則計數器：** 包含套用每個 NSG 規則以拒絕或允許流量之次數的項目。 每隔 60 秒會收集一次這些規則的狀態。
 
 診斷記錄僅適用於透過 Azure Resource Manager 部署模型中部署的 NSG。 您無法啟用透過傳統部署模型部署的 NSG 診斷記錄。 若要深入了解這兩個模型，請參閱[了解 Azure 部署模型](../resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-network%2ftoc.json)。
 
@@ -57,7 +57,7 @@ ms.locfileid: "71259445"
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-您可以執行 [Azure Cloud Shell](https://shell.azure.com/powershell) 中採用的命令，或從您的電腦執行 PowerShell。 Azure Cloud Shell 是免費的互動式殼層。 它具有預先安裝和設定的共用 Azure 工具，可與您的帳戶搭配使用。 如果您從電腦執行 PowerShell, 您需要 Azure PowerShell 模組1.0.0 版或更新版本。 請在您的電腦上執行 `Get-Module -ListAvailable Az`，以尋找已安裝的版本。 如果您需要升級，請參閱[安裝 Azure PowerShell 模組](/powershell/azure/install-az-ps)。 如果您在本機執行`Connect-AzAccount` PowerShell，您也需要使用具有[必要許可權](virtual-network-network-interface.md#permissions)的帳戶來登入 Azure。
+您可以執行 [Azure Cloud Shell](https://shell.azure.com/powershell) 中採用的命令，或從您的電腦執行 PowerShell。 Azure Cloud Shell 是免費的互動式殼層。 它具有預先安裝和設定的共用 Azure 工具，可與您的帳戶搭配使用。 如果您從電腦執行 PowerShell，您需要 Azure PowerShell 模組1.0.0 版或更新版本。 請在您的電腦上執行 `Get-Module -ListAvailable Az`，以尋找已安裝的版本。 如果您需要升級，請參閱[安裝 Azure PowerShell 模組](/powershell/azure/install-az-ps)。 如果您是在本機執行 PowerShell，則也需要使用具有[必要許可權](virtual-network-network-interface.md#permissions)的帳戶來執行 `Connect-AzAccount` 來登入 Azure。
 
 若要啟用診斷記錄，您需要現有 NSG 的識別碼。 如果您沒有現有的 NSG，您可以使用[new-aznetworksecuritygroup](/powershell/module/az.network/new-aznetworksecuritygroup)建立一個。
 

@@ -4,20 +4,20 @@ description: 列出資源群組中可有超過800個實例的 Azure 資源類型
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: conceptual
-ms.date: 7/30/2019
+ms.date: 10/4/2019
 ms.author: tomfitz
-ms.openlocfilehash: eec448dcbf1c550b6b0a0ee0f17505fd6ddd3c74
-ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
+ms.openlocfilehash: 6677290999049dead40f39e9a840735810c7c763
+ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70194746"
+ms.lasthandoff: 10/05/2019
+ms.locfileid: "71973314"
 ---
 # <a name="resources-not-limited-to-800-instances-per-resource-group"></a>每個資源群組的資源不限於800實例
 
-根據預設, 您可以在每個資源群組中部署最多800個資源類型的實例。 不過, 某些資源類型會豁免800實例的限制。 本文列出在資源群組中可以有超過800個實例的 Azure 資源類型。 所有其他資源類型的限制為800實例。
+根據預設，您可以在每個資源群組中部署最多800個資源類型的實例。 不過，某些資源類型會豁免800實例的限制。 本文列出在資源群組中可以有超過800個實例的 Azure 資源類型。 所有其他資源類型的限制為800實例。
 
-針對某些資源類型, 您必須聯絡支援人員以移除800實例的限制。 這篇文章中注明了這些資源類型。
+針對某些資源類型，您必須聯絡支援人員以移除800實例的限制。 這篇文章中注明了這些資源類型。
 
 
 ## <a name="microsoftautomation"></a>Microsoft.Automation
@@ -40,6 +40,10 @@ ms.locfileid: "70194746"
 * 映像
 * 快照集
 * virtualMachines
+
+## <a name="microsoftcontainerinstance"></a>Microsoft.ContainerInstance
+
+* containerGroups
 
 ## <a name="microsoftcontainerregistry"></a>Microsoft.ContainerRegistry
 
@@ -81,6 +85,14 @@ ms.locfileid: "70194746"
 
 * integrationAccounts
 * workflows
+
+## <a name="microsoftnetapp"></a>Microsoft.NetApp
+
+* netAppAccounts
+* netAppAccounts/capacityPools
+* netAppAccounts/capacityPools/磁片區
+* netAppAccounts/capacityPools/磁片區/mountTargets
+* netAppAccounts/capacityPools/磁片區/快照集
 
 ## <a name="microsoftnetwork"></a>Microsoft.Network
 
@@ -133,6 +145,15 @@ ms.locfileid: "70194746"
 
 * jobcollections
 
+## <a name="microsoftservicefabricmesh"></a>Microsoft.ServiceFabricMesh
+
+* 應用程式
+* containerGroups
+* gateways
+* 網路
+* 祕密
+* 磁碟區
+
 ## <a name="microsoftstorage"></a>Microsoft.Storage
 
 * storageAccounts
@@ -144,4 +165,4 @@ ms.locfileid: "70194746"
 
 ## <a name="next-steps"></a>後續步驟
 
-如需配額和限制的完整清單, 請參閱[Azure 訂用帳戶和服務限制、配額和條件約束](../azure-subscription-service-limits.md)。
+如需配額和限制的完整清單，請參閱[Azure 訂用帳戶和服務限制、配額和條件約束](../azure-subscription-service-limits.md)。

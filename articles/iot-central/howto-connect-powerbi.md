@@ -5,14 +5,14 @@ ms.service: iot-central
 services: iot-central
 author: viv-liu
 ms.author: viviali
-ms.date: 06/09/2019
+ms.date: 10/4/2019
 ms.topic: conceptual
-ms.openlocfilehash: 897b72dd7b292492e45cdc7401fe1acc5c86ca20
-ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+ms.openlocfilehash: 3ce2f4304787107d0d6875333e4630dae8d7d1dd
+ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69877463"
+ms.lasthandoff: 10/05/2019
+ms.locfileid: "71973777"
 ---
 # <a name="visualize-and-analyze-your-azure-iot-central-data-in-a-power-bi-dashboard"></a>視覺化與分析 Power BI 儀表板中的 Azure IoT Central 資料
 
@@ -31,12 +31,19 @@ ms.locfileid: "69877463"
 
 此解決方案會設定管道，以便從[連續資料匯出](howto-export-data.md)中取得 Azure Blob 儲存體帳戶中的資料。 此資料會流至 Azure Functions、Azure Data Factory 和 Azure SQL Database，以便處理和轉換資料。 此輸出可在 Power BI 報告中進行視覺化與分析，您可以 PBIX 檔案格式下載該報告。 所有這些資源都會建立在您的 Azure 訂用帳戶中，因此您可以根據需求來自訂每個元件。
 
+> [!Note] 
+> 適用于 Azure IoT Central 的 Power BI 解決方案適用于不支援 IoT 隨插即用的 IoT Central 應用程式（今日預覽應用程式）
+
 ## <a name="get-the-power-bi-solution-for-azure-iot-centralhttpsakamsiotcentralpowerbisolutiontemplate-from-microsoft-appsource"></a>從 Microsoft AppSource取得 [Azure IoT Central 的 Power BI 解決方案](https://aka.ms/iotcentralpowerbisolutiontemplate)。
 
 ## <a name="prerequisites"></a>必要條件
 設定解決方案需要下列項目：
 - Azure 訂用帳戶的存取權
-- 使用[連續資料匯出](howto-export-data.md)從 IoT Central 應用程式匯出的資料。 我們建議您開啟量測、裝置和裝置範本串流，以充分利用 Power BI 儀表板。
+- 不支援 IoT 隨插即用的 IoT Central 應用程式（今日預覽應用程式）
+- 從您的 IoT Central 應用程式將連續資料匯出設定為 Azure Blob 儲存體
+    - 確定資料格式為 Avro
+    - 我們建議您開啟量測、裝置和裝置範本串流，以充分利用 Power BI 儀表板。
+    - 瞭解[如何設定連續資料匯出](howto-export-data-blob-storage.md)
 - Power BI Desktop (最新版)
 - Power BI Pro (如果您想與其他人共用儀表板)
 

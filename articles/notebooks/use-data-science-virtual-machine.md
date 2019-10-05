@@ -1,6 +1,6 @@
 ---
 title: 使用 Azure 資料科學虛擬機器
-description: 連接到 Azure 資料科學虛擬機器 (DSVM) 即可將可用的計算能力延伸到 Azure Notebook。
+description: 連線到 Azure 資料科學虛擬機器（DSVM），以擴充可供 Azure Notebooks 的計算能力。
 services: app-service
 documentationcenter: ''
 author: getroyer
@@ -9,65 +9,64 @@ ms.assetid: 0ccc2529-e17f-4221-b7c7-9496d6a731cc
 ms.service: azure-notebooks
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 06/13/2019
 ms.author: getroyer
-ms.openlocfilehash: fe9886429a5e894f40c04b1f65094e412c1dc9e2
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 0f06475708adaf1324eedbd8e315fe4d731339be
+ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67441195"
+ms.lasthandoff: 10/05/2019
+ms.locfileid: "71970111"
 ---
 # <a name="use-azure-data-science-virtual-machines"></a>使用 Azure 資料科學虛擬機器
 
-根據預設，專案則是在上執行**免費計算**層，也就是限制為 4 GB 的記憶體和 1 GB 的資料，以避免不當使用。 您可以藉由使用已佈建在 Azure 訂用帳戶中的其他虛擬機器來繞過這些限制。 基於此目的，最好的選擇是 Azure 資料科學虛擬機器 (DSVM) 使用**適用於 Linux (Ubuntu) 的資料科學虛擬機器**映像。 這類的 DSVM 已預先設定的所有內容，您需要 Azure notebook，並顯示自動開啟**執行**Azure Notebook 中的下拉式清單。
+根據預設，專案會在**免費計算**層上執行，其限制為 4 gb 的記憶體和 1 GB 的資料，以防止濫用。 您可以藉由使用已佈建在 Azure 訂用帳戶中的其他虛擬機器來繞過這些限制。 基於此目的，最佳選擇是使用**適用于 Linux （Ubuntu）的資料科學虛擬機器**的 Azure 資料科學虛擬機器（DSVM）映射。 這類 DSVM 會預先設定 Azure Notebooks 所需的所有專案，並自動顯示在 Azure Notebooks 的 [**執行**] 下拉式清單中。
 
 > [!Note]
-> 只有在使用上的 Linux Ubuntu 映像建立的 Dsvm 上支援 azure Notebook。 在 Windows 2012、 Windows 2016 或 Linux CentOS 映像上不支援 notebook。
+> 只有在使用 on Linux Ubuntu 映射建立的 Dsvm 上，才支援 Azure Notebooks。 Windows 2012、Windows 2016 或 Linux CentOS 映射不支援筆記本。
 
-## <a name="create-a-dsvm-instance"></a>建立 DSVM 執行個體
+## <a name="create-a-dsvm-instance"></a>建立 DSVM 實例
 
-若要建立新的 DSVM 執行個體，請依照[建立 Ubuntu 資料科學 VM](/azure/machine-learning/data-science-virtual-machine/dsvm-ubuntu-intro) 中的指示執行。 如需詳細資訊，包括定價詳細資料，請參閱 <<c0> [ 資料科學虛擬機器](https://azure.microsoft.com/services/virtual-machines/data-science-virtual-machines/)。
+若要建立新的 DSVM 執行個體，請依照[建立 Ubuntu 資料科學 VM](/azure/machine-learning/data-science-virtual-machine/dsvm-ubuntu-intro) 中的指示執行。 如需詳細資訊（包括定價詳細資訊），請參閱[資料科學虛擬機器](https://azure.microsoft.com/services/virtual-machines/data-science-virtual-machines/)。
 
 ## <a name="connect-to-the-dsvm"></a>連線至 DSVM
 
-一旦您正在建立 DSVM，請選取**執行**Azure Notebook 上的下拉式清單專案儀表板，然後選取適當的 DSVM 執行個體。 下拉式清單顯示 DSVM 執行個體，是否下列條件成立：
+建立 DSVM 之後，請選取 [Azure Notebooks 專案] 儀表板上的 [**執行**] 下拉式清單，然後選取適當的 DSVM 實例。 如果下列條件成立，則下拉式清單會顯示 DSVM 實例：
 
 - 您以使用 Azure Active Directory (AAD) 的帳戶 (如公司帳戶) 登入 Azure Notebooks。
 - 您的帳戶已連接到 Azure 訂用帳戶。
-- 您有一或多個虛擬機器，在該訂用帳戶，至少用於 Linux (Ubuntu) 映像中的資料科學虛擬機器的讀取存取。)
+- 您在該訂用帳戶中有一或多部虛擬機器，且至少具有讀取者存取權，使用 Linux （Ubuntu）的資料科學虛擬機器。）
 
 ![專案儀表板上的下拉式清單中的資料科學虛擬機器執行個體](media/project-compute-tier-dsvm.png)
 
 當您選取 DSVM 執行個體時，Azure Notebooks 可能會提示您輸入您在建立 VM 時使用的特定機器認證。
 
-如果不符合任何一種情況，您仍可連線到 DSVM。 在下拉式清單中，選取**直接計算**選項，會提示您輸入的名稱 （顯示在清單中）、 VM 的 IP 位址和連接埠 (通常是 8000，以便 JupyterHub 接聽的預設連接埠) 和 VM 認證：
+如果不符合任何條件，您仍然可以連接到 DSVM。 在下拉式清單中，選取 [**直接計算**] 選項，它會提示您輸入名稱（要顯示在清單中）、VM 的 IP 位址和埠（通常是8000、JupyterHub 接聽的預設埠），以及 vm 認證：
 
 ![收集 [直接計算] 選項伺服器資訊的提示](media/project-compute-tier-direct.png)
 
-您從 Azure 入口網站中 DSVM 頁面取得這些值。
+您可以從 Azure 入口網站的 [DSVM] 頁面取得這些值。
 
 ## <a name="accessing-azure-notebooks-files-from-the-dsvm"></a>從 DSVM 存取 Azure Notebooks 檔案
 
-檔案系統存取權是支援的 DSVM 版本 19.06.15 或更新版本。 若要檢查版本，請先連接到您的 DSVM，透過 SSH，，然後執行下列命令： `curl -H Metadata:true "http://169.254.169.254/metadata/instance?api-version=2018-10-01"` （您必須使用正確的 IP 位址，如下所示）。 版本號碼會顯示的輸出中的 「 版本 」。
+DSVM 版本的19.06.15 或更新版本支援檔案系統存取。 若要檢查版本，請先透過 SSH 連線到您的 DSVM，然後執行下列命令： `curl -H Metadata:true "http://169.254.169.254/metadata/instance?api-version=2018-10-01"` （您必須使用此處所示的確切 IP 位址）。 版本號碼會顯示在「版本」的輸出中。
 
-若要保留的檔案路徑的同位檢查**免費計算**層，您就能夠只在 DSVM 上一次開啟一個專案。 若要開啟新的專案，您必須關閉開啟的專案第一次。
+若要保留檔案路徑與**免費計算**層的同位，您一次只能在 DSVM 上開啟一個專案。 若要開啟新的專案，您必須先關閉開啟的專案。
 
-在 VM 上執行專案時，檔案都會掛接在根目錄中的 Jupyter 伺服器 （在 JupyterHub 中顯示的目錄），取代預設 Azure Notebooks 檔案。 當您關閉 VM 使用的位置**關機**notebook UI 中，Azure Notebooks 按鈕會還原預設檔案。
+當專案在 VM 上執行時，這些檔案會掛接到 Jupyter 伺服器的根目錄（顯示在 JupyterHub 中的目錄），取代預設的 Azure Notebooks 檔案。 當您使用筆記本 UI 上的 [**關機**] 按鈕關閉 VM 時，Azure Notebooks 會還原預設檔案。
 
-![Azure Notebook 中的 [關機] 按鈕](media/shutdown.png)
+![Azure Notebooks 中的 [關機] 按鈕](media/shutdown.png)
 
 ## <a name="create-new-dsvm-users"></a>建立新的 DSVM 使用者
 
-如果有多位使用者共用的 DSVM，您可以避免封鎖彼此建立並使用 DSVM 使用者針對每個 notebook 使用者：
+如果有多個使用者共用 DSVM，您可以建立並使用每個筆記本使用者的 DSVM 使用者，以避免彼此封鎖：
 
-1. 在  [Azure 入口網站](https://portal.azure.com)，瀏覽至您的虛擬機器。
-1. 底下**支援與疑難排解**在左邊界中，選取**重設密碼**。
-1. 輸入新的使用者名稱和密碼，然後選取**更新**。 （不影響現有的使用者名稱。）
-1. 重複上一個步驟的任何其他使用者。
+1. 在[Azure 入口網站](https://portal.azure.com)中，流覽至您的虛擬機器。
+1. 在左邊界的 [**支援與疑難排解**] 底下，選取 [**重設密碼**]。
+1. 輸入新的使用者名稱和密碼，然後選取 [**更新**]。 （現有的使用者名稱不會受到影響）。
+1. 針對任何其他使用者重複上一個步驟。
 
 ## <a name="next-steps"></a>後續步驟
 
-深入了解 Dsvm 上[介紹 Azure 資料科學虛擬機器](/azure/machine-learning/data-science-virtual-machine/overview)。
+深入瞭解[Azure 資料科學虛擬機器簡介](/azure/machine-learning/data-science-virtual-machine/overview)dsvm。

@@ -1,17 +1,17 @@
 ---
-title: 在適用於 MySQL 的 Azure 資料庫 Azure CLI、REST API 中建立及管理讀取複本
-description: 本文說明如何使用 Azure CLI 在適用於 MySQL 的 Azure 資料庫中設定和管理讀取複本，REST API
+title: 建立 & 管理讀取複本-適用於 MySQL 的 Azure 資料庫
+description: 瞭解如何使用 Azure CLI 或 REST API，在適用於 MySQL 的 Azure 資料庫中設定和管理讀取複本。
 author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 09/14/2019
-ms.openlocfilehash: 5bec4e7284e78506372d395bf022055fa31998e3
-ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
+ms.openlocfilehash: 741b50bdb2ec9c8d29a9f759e46209856de3a49c
+ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/14/2019
-ms.locfileid: "70993544"
+ms.lasthandoff: 10/05/2019
+ms.locfileid: "71970315"
 ---
 # <a name="how-to-create-and-manage-read-replicas-in-azure-database-for-mysql-using-the-azure-cli-and-rest-api"></a>如何使用 Azure CLI 和 REST API 來建立和管理適用於 MySQL 的 Azure 資料庫中的讀取複本
 
@@ -44,7 +44,7 @@ az mysql server replica create --name mydemoreplicaserver --source-server mydemo
 | name | mydemoreplicaserver | 所建立的新複本伺服器名稱。 |
 | source-server | mydemoserver | 要從中複寫的現有主要伺服器的名稱或識別碼。 |
 
-若要建立跨區域讀取複本，請使用`--location`參數。 下列 CLI 範例會在美國西部建立複本。
+若要建立跨區域讀取複本，請使用 `--location` 參數。 下列 CLI 範例會在美國西部建立複本。
 
 ```azurecli-interactive
 az mysql server replica create --name mydemoreplicaserver --source-server mydemoserver --resource-group myresourcegroup --location westus
@@ -133,7 +133,7 @@ PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{
 > [!NOTE]
 > 若要深入瞭解您可以在哪些區域中建立複本，請造訪[讀取複本概念一文](concepts-read-replicas.md)。 
 
-如果您尚未在一般用途`azure.replication_support`或記憶體優化的主伺服器上，將參數設定為 [**複本**]，並重新啟動伺服器，就會收到錯誤。 建立複本之前，請先完成這兩個步驟。
+如果您尚未在一般用途或記憶體優化的主伺服器上，將 `azure.replication_support` 參數設定為**REPLICA** ，並重新啟動伺服器，您會收到錯誤。 建立複本之前，請先完成這兩個步驟。
 
 使用與主伺服器相同的計算和儲存設定來建立複本。 建立複本之後，以下設定可以個別地從主要伺服器進行變更：計算世代、虛擬核心、儲存體及備份保留期間。 定價層也可以個別變更，但不能變更為基本層，或從基本層變更為別的層。
 

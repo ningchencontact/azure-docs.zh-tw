@@ -1,17 +1,17 @@
 ---
-title: 如何對適用於 MariaDB 的 Azure 資料庫中的查詢效能進行疑難排解
-description: 本文說明如何使用 EXPLAIN 對適用於 MariaDB 的 Azure 資料庫中的查詢效能進行疑難排解。
+title: 針對適用於 MariaDB 的 Azure 資料庫中的查詢效能進行疑難排解
+description: 瞭解如何使用說明，針對適用於 MariaDB 的 Azure 資料庫中的查詢效能進行疑難排解。
 author: ajlam
 ms.author: andrela
 ms.service: mariadb
-ms.topic: conceptual
+ms.topic: troubleshooting
 ms.date: 11/09/2018
-ms.openlocfilehash: 672635c8d8c84fa16c106ae79e97332fd740928d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a2f5e7e7c9ca39c092e13242ecdac2675b09fc0d
+ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60745157"
+ms.lasthandoff: 10/05/2019
+ms.locfileid: "71973496"
 ---
 # <a name="how-to-use-explain-to-profile-query-performance-in-azure-database-for-mariadb"></a>如何使用 EXPLAIN 剖析適用於 MariaDB 的 Azure 資料庫中的查詢效能
 **EXPLAIN** 是可最佳化查詢的便利工具。 EXPLAIN 陳述式可用來取得關於 SQL 陳述式如何執行的資訊。 下列輸出顯示 EXPLAIN 陳述式的執行範例。
@@ -33,7 +33,7 @@ possible_keys: NULL
         Extra: Using where
 ```
 
-在此範例中您可以看到，*key* 的值為 NULL。 此輸出表示 MariaDB 找不到任何查詢的最佳化索引，因此執行了完整資料表掃描。 我們將在 [識別碼]  資料行上新增索引，以最佳化此查詢。
+在此範例中您可以看到，*key* 的值為 NULL。 此輸出表示 MariaDB 找不到任何查詢的最佳化索引，因此執行了完整資料表掃描。 我們將在 [識別碼] 資料行上新增索引，以最佳化此查詢。
 
 ```sql
 mysql> ALTER TABLE tb1 ADD KEY (id);
@@ -139,7 +139,7 @@ possible_keys: NULL
         Extra: Using where; Using filesort
 ```
 
-MariaDB 會執行速度緩慢的「檔案排序」  作業，尤其是在必須排序許多資料列時。 若要最佳化此查詢，您可以對這兩個要排序的資料行建立結合的索引。
+MariaDB 會執行速度緩慢的「檔案排序」作業，尤其是在必須排序許多資料列時。 若要最佳化此查詢，您可以對這兩個要排序的資料行建立結合的索引。
 
 ```sql 
 mysql> ALTER TABLE tb1 ADD KEY my_sort2 (c1, c2);
@@ -163,7 +163,7 @@ possible_keys: NULL
  
 ## <a name="conclusion"></a>結論
  
-使用 EXPLAIN 和不同類型的索引可大幅提升效能。 單憑您已有資料表的索引，不一定表示 MariaDB 就可以將它用於您的查詢。 請務必使用 EXPLAIN 驗證您的假設，並使用索引將查詢最佳化。
+使用 EXPLAIN 和不同類型的索引可大幅提升效能。 在資料表上擁有索引不一定表示適用于 mariadb 可以將它用於您的查詢。 請務必使用 EXPLAIN 驗證您的假設，並使用索引將查詢最佳化。
 
 ## <a name="next-steps"></a>後續步驟
 - 若想知道是否有人可解答您最關切的問題，或是要張貼新問題/解答，請造訪 [MSDN 論壇](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureDatabaseforMariadb)或[堆疊溢位](https://stackoverflow.com/questions/tagged/azure-database-mariadb)。

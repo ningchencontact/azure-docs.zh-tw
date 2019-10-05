@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 01/04/2019
 ms.author: vturecek
-ms.openlocfilehash: 9854ad7118684e1a5e57b0809d733d812ad64176
-ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
+ms.openlocfilehash: b05473fd9868821285853b089fe711aa48f347fc
+ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71828842"
+ms.lasthandoff: 10/05/2019
+ms.locfileid: "71973427"
 ---
 # <a name="manage-encrypted-secrets-in-service-fabric-applications"></a>在 Service Fabric 應用程式中管理已加密的祕密
 本指南將逐步引導您完成管理 Service Fabric 應用程式中密碼的步驟。 密碼可以是任何機密資訊，例如儲存體連接字串、密碼或其他不會以純文字處理的值。
@@ -56,7 +56,7 @@ ms.locfileid: "71828842"
 </CodePackage>
 ```
 
-您也可以藉由在應用程式資訊清單中指定憑證，將秘密包含在 Service Fabric 應用程式中。 將**SecretsCertificate**元素新增至**ApplicationManifest** ，並包含所需的憑證指紋。
+您也應該在應用程式資訊清單中指定憑證，以將秘密包含在 Service Fabric 應用程式中。 將**SecretsCertificate**元素新增至**ApplicationManifest** ，並包含所需的憑證指紋。
 
 ```xml
 <ApplicationManifest … >

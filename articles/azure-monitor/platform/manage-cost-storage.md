@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 10/01/2019
 ms.author: magoedte
 ms.subservice: ''
-ms.openlocfilehash: fa0bd847596a601875d5662da1c000a5b1388eef
-ms.sourcegitcommit: 4d177e6d273bba8af03a00e8bb9fe51a447196d0
+ms.openlocfilehash: e1875ebdb62cfc6d606465b863215513aaa47c02
+ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71960271"
+ms.lasthandoff: 10/05/2019
+ms.locfileid: "71972911"
 ---
 # <a name="manage-usage-and-costs-with-azure-monitor-logs"></a>使用 Azure 監視器記錄來管理使用量和成本
 
@@ -161,7 +161,11 @@ Azure 在[Azure 成本管理 + 計費](https://docs.microsoft.com/azure/cost-man
 
 @No__t-0 和 @no__t 1 資料類型無法使用自訂保留來設定。 它們會採用預設工作區保留期或90天的最大值。 
 
-OSS 工具[ARMclient](https://github.com/projectkudu/ARMClient)是直接連接到 ARM 以設定保留資料類型的絕佳工具。  深入瞭解[David Ebbo](http://blog.davidebbo.com/2015/01/azure-resource-manager-client.html)和[Daniel Bowbyes](https://blog.bowbyes.co.nz/2016/11/02/using-armclient-to-directly-access-azure-arm-rest-apis-and-list-arm-policy-details/)的文章 ARMclient。 
+OSS 工具[ARMclient](https://github.com/projectkudu/ARMClient)是直接連接到 ARM 以設定保留資料類型的絕佳工具。  深入瞭解[David Ebbo](http://blog.davidebbo.com/2015/01/azure-resource-manager-client.html)和[Daniel Bowbyes](https://blog.bowbyes.co.nz/2016/11/02/using-armclient-to-directly-access-azure-arm-rest-apis-and-list-arm-policy-details/)的文章 ARMclient。  以下是使用 ARMClient 的範例，將 SecurityEvent 資料設定為730天保留期：
+
+```
+armclient PUT /subscriptions/00000000-0000-0000-0000-00000000000/resourceGroups/MyResourceGroupName/providers/Microsoft.OperationalInsights/workspaces/MyWorkspaceName/Tables/SecurityEvent?api-version=2017-04-26-preview "{properties: {retentionInDays: 730}}"
+```
 
 > [!NOTE]
 > 您可以使用個別資料類型的設定保留來降低資料保留成本。  針對從2019年10月（發行這項功能時）開始收集的資料，減少某些資料類型的保留期，可以降低您一段時間的保留成本。  針對稍早收集的資料，針對個別類型設定較低的保留不會影響您的保留成本。  

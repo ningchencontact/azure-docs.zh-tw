@@ -9,18 +9,18 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: 81d19552b56de540f235960c498c64e7b276320c
-ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
+ms.openlocfilehash: 781884b0973ca42db542f53d452dbaaf7a7f1fa7
+ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69030969"
+ms.lasthandoff: 10/05/2019
+ms.locfileid: "71973286"
 ---
 # <a name="azure-iot-edge-supported-systems"></a>Azure IoT Edge 支援的系統
 
-本文提供 IoT Edge (不論是正式或預覽狀態) 所支援的系統和元件詳細資料。 
+本文提供 IoT Edge （不論是正式或預覽狀態）所支援的系統和元件詳細資料。 
 
-如果您在使用 Azure IoT Edge 服務時遇到問題, 有幾種方式可以尋求支援。 請嘗試下列其中一個通道以取得支援:
+如果您在使用 Azure IoT Edge 服務時遇到問題，有幾種方式可以尋求支援。 請嘗試下列其中一個通道以取得支援：
 
 **報告 Bug** – Azure IoT Edge 產品大部分的開發都是在 IoT Edge 開放原始碼專案中進行。 您可以在專案的[問題頁面](https://github.com/azure/iotedge/issues)上報告錯誤。 我們也會快速地從專案中找出修正方式，並加入產品更新中。
 
@@ -30,84 +30,83 @@ ms.locfileid: "69030969"
 
 ## <a name="container-engines"></a>容器引擎
 
-Azure IoT Edge 模組會實作為容器, 因此 IoT Edge 需要容器引擎來啟動它們。 Microsoft 提供了容器引擎 moby-engine，以滿足此需求。 此容器引擎是以 Moby 開放原始碼專案為基礎。 Docker CE 和 Docker EE 是其他常用的容器引擎。 它們也是以 Moby 開放原始碼專案為基礎, 而且與 Azure IoT Edge 相容。 Microsoft 會針對使用這些容器引擎的系統提供最佳的支援;不過, Microsoft 無法針對其中的問題提供修正程式。 基於這個理由，Microsoft 建議在生產系統上使用 moby-engine。
+Azure IoT Edge 模組會實作為容器，因此 IoT Edge 需要容器引擎來啟動它們。 Microsoft 提供了容器引擎 moby-engine，以滿足此需求。 此容器引擎是以 Moby 開放原始碼專案為基礎。 Docker CE 和 Docker EE 是其他常用的容器引擎。 它們也是以 Moby 開放原始碼專案為基礎，而且與 Azure IoT Edge 相容。 Microsoft 會針對使用這些容器引擎的系統提供最佳的支援;不過，Microsoft 無法針對其中的問題提供修正程式。 基於這個理由，Microsoft 建議在生產系統上使用 moby-engine。
 
 <br>
 <center>
 
-![Moby 作為容器執行時間](./media/support/only-moby-for-production.png)
-</center>
+![Moby as container runtime @ no__t-1 @ no__t-2
 
 ## <a name="operating-systems"></a>作業系統
-Azure IoT Edge 會在大部分可執行容器的作業系統上執行;不過, 所有這些系統都不是同樣支援的。 以下將作業系統分組為各種階層，代表使用者可預期的支援程度。
-* 支援第1層系統。 針對第1層系統, Microsoft:
+Azure IoT Edge 會在大部分可執行容器的作業系統上執行;不過，所有這些系統都不是同樣支援的。 以下將作業系統分組為各種階層，代表使用者可預期的支援程度。
+* 支援第1層系統。 針對第1層系統，Microsoft：
     * 在自動化的測試中有此作業系統
     * 有為它們提供安裝套件
-* 第2層系統與 Azure IoT Edge 相容, 而且可以相當輕鬆地使用。 第2層系統:
-    * Microsoft 已在平臺上進行臨機操作測試, 或瞭解合作夥伴已成功在平臺上執行 Azure IoT Edge
+* 第2層系統與 Azure IoT Edge 相容，而且可以相當輕鬆地使用。 第2層系統：
+    * Microsoft 已在平臺上進行臨機操作測試，或瞭解合作夥伴已成功在平臺上執行 Azure IoT Edge
     * 其他平台的安裝套件或許能在這些平台上運作
     
-主機 OS 的系列必須一律與用於模組容器中之客體 OS 的系列相符。 換句話說，您只能在 Linux 上使用 Linux 容器和在 Windows 上使用 Windows 容器。 使用 Windows 時, 只支援進程隔離的容器, 而非 Hyper-v 隔離的容器。  
+主機 OS 的系列必須一律與用於模組容器中之客體 OS 的系列相符。 換句話說，您只能在 Linux 上使用 Linux 容器和在 Windows 上使用 Windows 容器。 使用 Windows 時，只支援進程隔離的容器，而非 Hyper-v 隔離的容器。  
 
 <br>
 <center>
 
-![主機 OS 符合來賓 OS](./media/support/edge-on-device.png)
-</center>
+![Host OS 符合來賓 OS @ no__t-1 @ no__t-2
 
 ### <a name="tier-1"></a>第 1 層
 
-下表所列的系統受到 Microsoft 的支援, 其為正式推出或處於公開預覽狀態, 並已在每個新版本中進行測試。 
+下表所列的系統受到 Microsoft 的支援，其為正式推出或處於公開預覽狀態，並已在每個新版本中進行測試。 
 
 | 作業系統 | AMD64 | ARM32v7 | ARM64 |
 | ---------------- | ----- | ------- | ----- |
-| Raspbian-stretch |  | ![Raspbian Stretch + ARM32v7](./media/tutorial-c-module/green-check.png) |  |
-| Ubuntu Server 16.04 | ![Ubuntu Server 16.04 + AMD64](./media/tutorial-c-module/green-check.png) |  | 公開預覽  |
-| Ubuntu Server 18.04 | ![Ubuntu Server 18.04 + AMD64](./media/tutorial-c-module/green-check.png) |  | 公開預覽 |
-| Windows 10 IoT 企業版, 組建17763 | ![Windows 10 IoT 企業版 + AMD64](./media/tutorial-c-module/green-check.png) |  |  |
-| Windows Server 2019, 組建17763 | ![Windows Server 2019 + AMD64](./media/tutorial-c-module/green-check.png) |  |  |
-| Windows Server IoT 2019, 組建17763 | ![Windows Server IoT 2019 + AMD64](./media/tutorial-c-module/green-check.png) |  |  |
-| Windows 10 IoT 核心版, 組建17763 | ![Windows IoT 核心版 + AMD64](./media/tutorial-c-module/green-check.png) |  |  |
+| Raspbian Stretch |  | ![Raspbian Stretch + ARM32v7](./media/tutorial-c-module/green-check.png) |  |
+| [Ubuntu Server 16.04](https://wiki.ubuntu.com/XenialXerus/ReleaseNotes) | ![Ubuntu Server 16.04 + AMD64](./media/tutorial-c-module/green-check.png) |  | 公開預覽  |
+| [Ubuntu Server 18.04](https://wiki.ubuntu.com/BionicBeaver/ReleaseNotes) | ![Ubuntu Server 18.04 + AMD64](./media/tutorial-c-module/green-check.png) |  | 公開預覽 |
+| [Windows 10 IoT 核心版](https://docs.microsoft.com/windows/iot-core/windows-iot-core)，組建17763 | ![Windows IoT 核心版 + AMD64](./media/tutorial-c-module/green-check.png) |  |  |
+| [Windows 10 IoT 企業版](https://docs.microsoft.com/windows/iot-core/windows-iot-enterprise)，組建17763 | ![Windows 10 IoT 企業版 + AMD64](./media/tutorial-c-module/green-check.png) |  |  |
+| [Windows Server 2019](https://docs.microsoft.com/windows-server/get-started-19/rel-notes-19)，組建17763 | ![Windows Server 2019 + AMD64](./media/tutorial-c-module/green-check.png) |  |  |
+| [Windows Server IoT 2019](https://docs.microsoft.com/windows/iot-core/windows-server)，組建17763 | ![Windows Server IoT 2019 + AMD64](./media/tutorial-c-module/green-check.png) |  |  |
 
 
-以上所列的 Windows 作業系統是在 Windows 上執行 Windows 容器的裝置需求, 這是唯一支援的生產環境設定。 適用于 Windows 的 Azure IoT Edge 安裝套件允許在 Windows 上使用 Linux 容器;不過, 此設定僅供開發和測試之用。 如需詳細資訊, 請參閱[在 Windows 上使用 IoT Edge 執行 Linux 容器](how-to-install-iot-edge-windows-with-linux.md)。
+以上所列的 Windows 作業系統是在 Windows 上執行 Windows 容器的裝置需求，這是唯一支援的生產環境設定。 適用于 Windows 的 Azure IoT Edge 安裝套件允許在 Windows 上使用 Linux 容器;不過，此設定僅供開發和測試之用。 如需詳細資訊，請參閱[在 Windows 上使用 IoT Edge 執行 Linux 容器](how-to-install-iot-edge-windows-with-linux.md)。
 
 ### <a name="tier-2"></a>第 2 層
 
-下表所列的系統會視為與 Azure IoT Edge 相容, 但不會主動進行測試或維護。 
+下表所列的系統會視為與 Azure IoT Edge 相容，但不是由 Microsoft 主動進行測試或維護。
 
 | 作業系統 | AMD64 | ARM32v7 | ARM64 |
 | ---------------- | ----- | ------- | ----- |
-| CentOS 7.5 | ![CentOS + AMD64](./media/tutorial-c-module/green-check.png) | ![CentOS + ARM32v7](./media/tutorial-c-module/green-check.png) | ![CentOS + ARM64](./media/tutorial-c-module/green-check.png) |
-| Debian 8 | ![Debian 8 + AMD64](./media/tutorial-c-module/green-check.png) | ![Debian 8 + ARM32v7](./media/tutorial-c-module/green-check.png) | ![Debian 8 + ARM64](./media/tutorial-c-module/green-check.png) |
-| Debian 9 | ![Debian 9 + AMD64](./media/tutorial-c-module/green-check.png) | ![Debian 9 + ARM32v7](./media/tutorial-c-module/green-check.png) | ![Debian 9 + ARM64](./media/tutorial-c-module/green-check.png) |
-| Debian 10<sup>1</sup> | ![Debian 10 + AMD64](./media/tutorial-c-module/green-check.png) | ![Debian 10 + ARM32v7](./media/tutorial-c-module/green-check.png) | ![Debian 10 + ARM64](./media/tutorial-c-module/green-check.png) |
-| RHEL 7.5 | ![RHEL 7.5 + AMD64](./media/tutorial-c-module/green-check.png) | ![RHEL 7.5 + ARM32v7](./media/tutorial-c-module/green-check.png) | ![RHEL 7.5 + ARM64](./media/tutorial-c-module/green-check.png) |
-| Ubuntu 16.04 | ![Ubuntu 16.04 + AMD64](./media/tutorial-c-module/green-check.png) | ![Ubuntu 16.04 + ARM32v7](./media/tutorial-c-module/green-check.png) | ![Ubuntu 16.04 + ARM64](./media/tutorial-c-module/green-check.png) |
-| Ubuntu 18.04 | ![Ubuntu 18.04 + AMD64](./media/tutorial-c-module/green-check.png) | ![Ubuntu 18.04 + ARM32v7](./media/tutorial-c-module/green-check.png) | ![Ubuntu 18.04 + ARM64](./media/tutorial-c-module/green-check.png) |
-| Wind River 8 | ![風河 8 + AMD64](./media/tutorial-c-module/green-check.png) |  |  |
-| Yocto | ![Yocto + AMD64](./media/tutorial-c-module/green-check.png) | ![Yocto + ARM32v7](./media/tutorial-c-module/green-check.png) | ![Yocto + ARM64](./media/tutorial-c-module/green-check.png) |
-| Raspbian Buster<sup>1</sup> |  | ![Raspbian Buster + ARM32v7](./media/tutorial-c-module/green-check.png) | ![Raspbian Buster + ARM64](./media/tutorial-c-module/green-check.png) |
+| [CentOS 7。5](https://wiki.centos.org/Manuals/ReleaseNotes/CentOS7.1804) | ![CentOS + AMD64](./media/tutorial-c-module/green-check.png) | ![CentOS + ARM32v7](./media/tutorial-c-module/green-check.png) | ![CentOS + ARM64](./media/tutorial-c-module/green-check.png) |
+| [Debian 8](https://www.debian.org/releases/jessie/) | ![Debian 8 + AMD64](./media/tutorial-c-module/green-check.png) | ![Debian 8 + ARM32v7](./media/tutorial-c-module/green-check.png) | ![Debian 8 + ARM64](./media/tutorial-c-module/green-check.png) |
+| [Debian 9](https://www.debian.org/releases/stretch/) | ![Debian 9 + AMD64](./media/tutorial-c-module/green-check.png) | ![Debian 9 + ARM32v7](./media/tutorial-c-module/green-check.png) | ![Debian 9 + ARM64](./media/tutorial-c-module/green-check.png) |
+| [Debian 10](https://www.debian.org/releases/buster/) <sup>1</sup> | ![Debian 10 + AMD64](./media/tutorial-c-module/green-check.png) | ![Debian 10 + ARM32v7](./media/tutorial-c-module/green-check.png) | ![Debian 10 + ARM64](./media/tutorial-c-module/green-check.png) |
+| [輔導 Embedded Linux 彈性作業系統](https://www.mentor.com/embedded-software/linux/mel-flex-os/) | ![導師 Embedded Linux 彈性 OS + AMD64](./media/tutorial-c-module/green-check.png) | ![輔導 Embedded Linux 彈性 OS + ARM32v7](./media/tutorial-c-module/green-check.png) | ![輔導 Embedded Linux 彈性 OS + ARM64](./media/tutorial-c-module/green-check.png) |
+| [導師 Embedded Linux 全作業系統](https://www.mentor.com/embedded-software/linux/mel-omni-os/) | ![導師 Embedded Linux 全作業系統 + AMD64](./media/tutorial-c-module/green-check.png) |  | ![導師 Embedded Linux 全作業系統 + ARM64](./media/tutorial-c-module/green-check.png) |
+| [RHEL 7。5](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/7.5_release_notes/index) | ![RHEL 7.5 + AMD64](./media/tutorial-c-module/green-check.png) | ![RHEL 7.5 + ARM32v7](./media/tutorial-c-module/green-check.png) | ![RHEL 7.5 + ARM64](./media/tutorial-c-module/green-check.png) |
+| [Ubuntu 16.04](https://wiki.ubuntu.com/XenialXerus/ReleaseNotes) | ![Ubuntu 16.04 + AMD64](./media/tutorial-c-module/green-check.png) | ![Ubuntu 16.04 + ARM32v7](./media/tutorial-c-module/green-check.png) | ![Ubuntu 16.04 + ARM64](./media/tutorial-c-module/green-check.png) |
+| [Ubuntu 18.04](https://wiki.ubuntu.com/BionicBeaver/ReleaseNotes) | ![Ubuntu 18.04 + AMD64](./media/tutorial-c-module/green-check.png) | ![Ubuntu 18.04 + ARM32v7](./media/tutorial-c-module/green-check.png) | ![Ubuntu 18.04 + ARM64](./media/tutorial-c-module/green-check.png) |
+| [風河8](https://docs.windriver.com/category/os-wind_river_linux) | ![風河 8 + AMD64](./media/tutorial-c-module/green-check.png) |  |  |
+| [Yocto](https://www.yoctoproject.org/) | ![Yocto + AMD64](./media/tutorial-c-module/green-check.png) | ![Yocto + ARM32v7](./media/tutorial-c-module/green-check.png) | ![Yocto + ARM64](./media/tutorial-c-module/green-check.png) |
+| Raspbian Buster <sup>1</sup> |  | ![Raspbian Buster + ARM32v7](./media/tutorial-c-module/green-check.png) | ![Raspbian Buster + ARM64](./media/tutorial-c-module/green-check.png) |
 
-<sup>1</sup> Debian 10 個系統, 包括 Raspian Buster, 請使用 IoT Edge 不支援的 OpenSSL 版本。 在安裝 IoT Edge 之前, 請使用下列命令來安裝較早的版本: 
+<sup>1</sup> Debian 10 個系統，包括 Raspian Buster，請使用 IoT Edge 不支援的 OpenSSL 版本。 在安裝 IoT Edge 之前，請使用下列命令來安裝較早的版本： 
 
 ```bash
 sudo apt-get install libssl1.0.2
 ```
 
 ## <a name="virtual-machines"></a>虛擬機器
-Azure IoT Edge 可以在虛擬機器中執行。 當客戶想要使用邊緣智慧擴充現有的基礎結構時, 將虛擬機器作為 IoT Edge 裝置是很常見的。 主機 VM OS 的系列必須一律與用於模組容器中之客體 OS 的系列相符。 這項需求與直接在裝置上執行 Azure IoT Edge 時相同。 Azure IoT Edge 與基礎虛擬化技術無關，且可在 Hyper-V 和 vSphere 等平台所提供的 VM 中運作。
+Azure IoT Edge 可以在虛擬機器中執行。 當客戶想要使用邊緣智慧擴充現有的基礎結構時，將虛擬機器作為 IoT Edge 裝置是很常見的。 主機 VM OS 的系列必須一律與用於模組容器中之客體 OS 的系列相符。 這項需求與直接在裝置上執行 Azure IoT Edge 時相同。 Azure IoT Edge 與基礎虛擬化技術無關，且可在 Hyper-V 和 vSphere 等平台所提供的 VM 中運作。
 
 <br>
 <center>
 
-![VM 中的 Azure IoT Edge](./media/support/edge-on-vm.png)
-</center>
+VM 中的 @no__t 0Azure IoT Edge @ no__t-1 @ no__t-2
 
 ## <a name="minimum-system-requirements"></a>最低系統需求
 Azure IoT Edge 在小如 Raspberry Pi3 至伺服器等級的硬體上都能順利執行。 針對您的案例選擇正確的硬體取決於您想要執行的工作負載。 決定最終的裝置可能很複雜，不過您可以在傳統膝上型電腦或桌上型電腦上輕鬆開始建立原型解決方案。
 
-在建立原型的同時進行體驗，有助於指引您選擇最終裝置。 您應該考慮的問題包括: 
+在建立原型的同時進行體驗，有助於指引您選擇最終裝置。 您應該考慮的問題包括： 
 
 * 您的工作負載中有多少個模組？
 * 您模組的容器共用多少層級？

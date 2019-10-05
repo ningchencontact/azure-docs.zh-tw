@@ -1,17 +1,17 @@
 ---
 title: 「適用於 MySQL 的 Azure 資料庫」中的讀取複本。
-description: 此文將說明「適用於 MySQL 的 Azure 資料庫」的讀取複本。
+description: 瞭解適用於 MySQL 的 Azure 資料庫中的讀取複本：選擇區域、建立複本、連接到複本、監視複寫，以及停止複寫。
 author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 09/06/2019
-ms.openlocfilehash: cdcb4832408b9e26e692a055e06bfb55e2fdfe96
-ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
+ms.openlocfilehash: 6ad71cecfd088a92bdd41ae13cb530c286ebea4c
+ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/14/2019
-ms.locfileid: "70993107"
+ms.lasthandoff: 10/05/2019
+ms.locfileid: "71970389"
 ---
 # <a name="read-replicas-in-azure-database-for-mysql"></a>讀取「適用於 MySQL 的 Azure 資料庫」中的複本
 
@@ -19,7 +19,7 @@ ms.locfileid: "70993107"
 
 複本是您所管理的新伺服器，類似于一般適用於 MySQL 的 Azure 資料庫伺服器。 針對每個讀取複本，系統每月會針對在虛擬核心中所佈建的計算量，以及在儲存體中所佈建的容量 (以 GB 為單位) 向您收費。
 
-若要深入了解 MySQL 複寫功能與問題，請參閱 [MySQL 複寫文件](https://dev.mysql.com/doc/refman/5.7/en/replication-features.html) \(英文\)。
+若要深入瞭解 MySQL 複寫功能和問題，請參閱[mysql 複寫檔](https://dev.mysql.com/doc/refman/5.7/en/replication-features.html)。
 
 ## <a name="when-to-use-a-read-replica"></a>何時應該使用讀取複本
 
@@ -36,10 +36,10 @@ ms.locfileid: "70993107"
 
 您可以在任何[適用於 MySQL 的 Azure 資料庫區域](https://azure.microsoft.com/global-infrastructure/services/?products=mysql)中擁有主伺服器。  主伺服器的配對區域或通用複本區域中可以有複本。 下圖顯示哪些複本區域可供使用，視您的主要區域而定。
 
-[![讀取複本區域](media/concepts-read-replica/read-replica-regions.png)](media/concepts-read-replica/read-replica-regions.png#lightbox)
+[@no__t 1Read 的複本區域](media/concepts-read-replica/read-replica-regions.png)](media/concepts-read-replica/read-replica-regions.png#lightbox)
 
 ### <a name="universal-replica-regions"></a>通用複本區域
-無論您的主伺服器位於何處，您都可以在下列任何區域中建立讀取複本。 這些是通用複本區域：
+無論您的主伺服器位於何處，您都可以在下列任何區域中建立讀取複本。 支援的通用複本區域包括：
 
 澳大利亞東部、澳大利亞東南部、美國中部、東亞、美國東部、美國東部2、日本東部、日本西部、韓國中部、南韓南部、美國中北部、北歐、美國中南部、東南亞、英國南部、英國西部、西歐、美國西部、美國西部2。
 
@@ -59,11 +59,11 @@ ms.locfileid: "70993107"
 
 ## <a name="create-a-replica"></a>建立複本
 
-如果主伺服器沒有任何現有的複本伺服器, 則主機會先重新開機以準備進行複寫。
+如果主伺服器沒有任何現有的複本伺服器，則主機會先重新開機以準備進行複寫。
 
 當您啟動建立複本工作流程時，會建立空白的適用於 MySQL 的 Azure 資料庫伺服器。 新的伺服器會具有主要伺服器上的資料。 建立時間取決於主要伺服器上的資料量，以及距離上次每週完整備份的時間。 時間的範圍可能介於數分鐘到數小時。
 
-每個複本都會啟用儲存體[自動成長](concepts-pricing-tiers.md#storage-auto-grow)。 自動成長功能可讓複本跟上複寫的資料，並防止因儲存體錯誤而造成的複寫中斷。
+每個複本都會啟用儲存體[自動成長](concepts-pricing-tiers.md#storage-auto-grow)。 自動成長功能可讓複本跟上複寫的資料，並防止因儲存錯誤而造成的複寫中斷。
 
 了解如何[在 Azure 入口網站中建立讀取複本](howto-read-replicas-portal.md)。
 
@@ -73,7 +73,7 @@ ms.locfileid: "70993107"
 
 複本會從主要伺服器繼承系統管理員帳戶。 系統會將主要伺服器上的所有使用者帳戶複寫到讀取複本。 您只能使用主要伺服器上可用的使用者帳戶來連線到讀取複本。
 
-您可以使用主機名稱和有效的使用者帳戶連接到複本，如同在一般適用於 MySQL 的 Azure 資料庫伺服器上所做的一樣。 對於名為**myreplica**且具有管理員使用者名稱**myadmin**的伺服器, 您可以使用 mysql CLI 來連線到複本:
+您可以使用主機名稱和有效的使用者帳戶連接到複本，如同在一般適用於 MySQL 的 Azure 資料庫伺服器上所做的一樣。 對於名為**myreplica**且具有管理員使用者名稱**myadmin**的伺服器，您可以使用 mysql CLI 來連線到複本：
 
 ```bash
 mysql -h myreplica.mysql.database.azure.com -u myadmin@myreplica -p
@@ -85,15 +85,15 @@ mysql -h myreplica.mysql.database.azure.com -u myadmin@myreplica -p
 
 適用於 MySQL 的 Azure 資料庫在 Azure 監視器中提供複寫**延遲（以秒為單位）** 度量。 此計量僅適用於複本。
 
-此計量是使用 MySQL 的`seconds_behind_master` `SHOW SLAVE STATUS`命令所提供的計量來計算。
+此度量計算方式是使用 MySQL 的 @no__t 1 命令中提供的 `seconds_behind_master` 計量。
 
-設定警示, 以在複寫延遲到達您的工作負載無法接受的值時通知您。
+設定警示，以在複寫延遲到達您的工作負載無法接受的值時通知您。
 
 ## <a name="stop-replication"></a>停止複寫
 
 您可以停止主要伺服器與複本之間的複寫。 當主要伺服器和讀取複本之間的複寫停止時，複本就會成為獨立伺服器。 獨立伺服器中的資料是起始「停止複寫」命令時，複本上所包含的可用資料。 獨立伺服器不會跟上主要伺服器。
 
-當您選擇停止複寫至複本時, 它會失去先前主要和其他複本的所有連結。 主要及其複本之間沒有自動容錯移轉。
+當您選擇停止複寫至複本時，它會失去先前主要和其他複本的所有連結。 主要及其複本之間沒有自動容錯移轉。
 
 > [!IMPORTANT]
 > 獨立伺服器無法再次設定為複本。
@@ -109,7 +109,7 @@ mysql -h myreplica.mysql.database.azure.com -u myadmin@myreplica -p
 
 ### <a name="master-server-restart"></a>主要伺服器重新啟動
 
-當您為沒有現有複本的主伺服器建立複本時, 主伺服器會先重新開機, 以準備好進行複寫。 請考慮這一點，並在離峰期間執行這些作業。
+當您為沒有現有複本的主伺服器建立複本時，主伺服器會先重新開機，以準備好進行複寫。 請將此納入考慮，並在離峰期間執行這些作業。
 
 ### <a name="new-replicas"></a>新複本
 
@@ -124,7 +124,7 @@ mysql -h myreplica.mysql.database.azure.com -u myadmin@myreplica -p
 
 ### <a name="stopped-replicas"></a>已停止的複本
 
-如果您停止主伺服器和讀取複本之間的複寫, 已停止的複本會成為可接受讀取和寫入的獨立伺服器。 獨立伺服器無法再次設定為複本。
+如果您停止主伺服器和讀取複本之間的複寫，已停止的複本會成為可接受讀取和寫入的獨立伺服器。 獨立伺服器無法再次設定為複本。
 
 ### <a name="deleted-master-and-standalone-servers"></a>已刪除的主要和獨立伺服器
 
@@ -136,13 +136,13 @@ mysql -h myreplica.mysql.database.azure.com -u myadmin@myreplica -p
 
 ### <a name="server-parameters"></a>伺服器參數
 
-若要避免資料不同步, 並避免潛在的資料遺失或損毀, 則在使用讀取複本時, 某些伺服器參數會被鎖定而無法更新。
+若要防止資料不同步，以及避免潛在的資料遺失或損毀，則會在使用讀取複本時，有些伺服器參數會被鎖定而無法更新。
 
-主要和複本伺服器上的下列伺服器參數都會被鎖定:
+主要和複本伺服器上的下列伺服器參數都會被鎖定：
 - [`innodb_file_per_table`](https://dev.mysql.com/doc/refman/5.7/en/innodb-multiple-tablespaces.html) 
 - [`log_bin_trust_function_creators`](https://dev.mysql.com/doc/refman/5.7/en/replication-options-binary-log.html#sysvar_log_bin_trust_function_creators)
 
-已在複本伺服器上鎖定[參數。`event_scheduler`](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_event_scheduler) 
+複本伺服器上的[@no__t 1](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_event_scheduler)參數已鎖定。 
 
 ### <a name="other"></a>其他
 

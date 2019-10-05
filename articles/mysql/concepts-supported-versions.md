@@ -1,17 +1,17 @@
 ---
-title: 適用於 MySQL 的 Azure 資料庫中支援的版本
-description: 描述適用於 MySQL 的 Azure 資料庫中支援的版本。
+title: 支援的版本-適用於 MySQL 的 Azure 資料庫
+description: 瞭解適用於 MySQL 的 Azure 資料庫服務中支援的 MySQL 伺服器版本。
 author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 09/12/2019
-ms.openlocfilehash: 25251b617522840412a4868331e155285f64a18c
-ms.sourcegitcommit: dd69b3cda2d722b7aecce5b9bd3eb9b7fbf9dc0a
+ms.openlocfilehash: f9c7278e60c8342aa7d5b68ab8da7143abaf4c89
+ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70962576"
+ms.lasthandoff: 10/05/2019
+ms.locfileid: "71970520"
 ---
 # <a name="supported-azure-database-for-mysql-server-versions"></a>支援的適用於 MySQL 的 Azure 資料庫伺服器版本
 

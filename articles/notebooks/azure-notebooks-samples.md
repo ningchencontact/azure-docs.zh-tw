@@ -4,21 +4,20 @@ description: 範例是您體驗在免費的 Azure Notebooks 雲端服務中執�
 services: app-service
 documentationcenter: ''
 author: kraigb
-manager: douge
+manager: barbkess
 ms.assetid: 07e95905-0f1b-49ce-a0f9-820f61952278
 ms.service: azure-notebooks
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 01/11/2019
 ms.author: kraigb
-ms.openlocfilehash: 50e24ce29b5378b3aa930c54824fd444cd823b46
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 8e4c817437c22d15e60cf48d5976c30433e83d75
+ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60631796"
+ms.lasthandoff: 10/05/2019
+ms.locfileid: "71970030"
 ---
 # <a name="discover-and-use-sample-notebooks"></a>探索和使用範例 Notebook
 
@@ -26,7 +25,7 @@ ms.locfileid: "60631796"
 
 一旦您找到想要探索的 Notebook，即應進一步了解下列細節：
 
-- 如果 Notebook 已在 Azure Notebooks 中，請使用專案儀表板上的 [複製]  按鈕，在您自己的帳戶中建立專案的複本。
+- 如果 Notebook 已在 Azure Notebooks 中，請使用專案儀表板上的 [複製] 按鈕，在您自己的帳戶中建立專案的複本。
 - 某些 Notebook 需要特定套件才能執行。 雖然您可以使用 `!pip install` (Python) 或 `install.packages` (R) 從 Notebook 本身安裝套件，您也可以[使用適當的環境設定 Azure Notebooks 專案](configure-manage-azure-notebooks-projects.md)。
 
 ## <a name="great-sample-notebooks"></a>絕佳的範例 Notebook

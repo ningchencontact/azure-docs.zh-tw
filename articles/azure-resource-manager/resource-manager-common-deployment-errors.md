@@ -6,20 +6,20 @@ author: tfitzmac
 keywords: 部署錯誤, azure 部署, 部署至 azure
 ms.service: azure-resource-manager
 ms.topic: troubleshooting
-ms.date: 08/30/2019
+ms.date: 10/04/2019
 ms.author: tomfitz
-ms.openlocfilehash: 0e03cd3747fe6770be7dddaf36d634547ed75b39
-ms.sourcegitcommit: a19f4b35a0123256e76f2789cd5083921ac73daf
+ms.openlocfilehash: ac700592a63e88936593c24f8f7ce06a08e289ce
+ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71718946"
+ms.lasthandoff: 10/05/2019
+ms.locfileid: "71972680"
 ---
 # <a name="troubleshoot-common-azure-deployment-errors-with-azure-resource-manager"></a>使用 Azure Resource Manager 針對常見的 Azure 部署錯誤進行疑難排解
 
 本文說明一些常見的 Azure 部署錯誤，並且提供解決錯誤的資訊。 如果您找不到部署錯誤的錯誤碼，請參閱[尋找錯誤碼](#find-error-code)。
 
-如果您要尋找有關錯誤碼的資訊，但本文並未提供該資訊，請讓我們知道。 在此頁面底部，您可以留下意見反應。 意見反應會與 GitHub 問題一併追蹤。 
+如果您要尋找有關錯誤碼的資訊，但本文並未提供該資訊，請讓我們知道。 在此頁面底部，您可以留下意見反應。 意見反應會與 GitHub 問題一併追蹤。
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -34,7 +34,9 @@ ms.locfileid: "71718946"
 | AuthorizationFailed | 您的帳戶或服務主體沒有完成部署的足夠存取權。 請檢查您的帳戶所屬的角色以及它針對部署範圍的存取權。<br><br>當所需的資源提供者未註冊時，您可能會收到這個錯誤。 | [Azure 角色型存取控制](../role-based-access-control/role-assignments-portal.md)<br><br>[解析註冊](resource-manager-register-provider-errors.md) |
 | BadRequest | 您傳送的部署值不符合資源管理員的預期。 請查看內部狀態訊息，以取得疑難排解的說明。 | [範本參考](/azure/templates/)和[支援位置](resource-location.md) |
 | 衝突 | 您要求的作業在資源的目前狀態下不允許。 例如，只有在建立 VM 時或解除配置 VM 之後，才可調整磁碟大小。 | |
-| DeploymentActive | 等候此資源群組的並行部署完成。 | |
+| DeploymentActiveAndUneditable | 等候此資源群組的並行部署完成。 | |
+| DeploymentNameInvalidCharacters | 部署名稱只能包含字母、數位、'-'、'. ' 或 ' _ '。 | |
+| DeploymentNameLengthLimitExceeded | 部署名稱限制為64個字元。  | |
 | DeploymentFailed | DeploymentFailed 錯誤是一般錯誤，不會提供您解決錯誤所需的詳細資料。 尋找錯誤碼的錯誤詳細資料，以提供更多資訊。 | [尋找錯誤碼](#find-error-code) |
 | DeploymentQuotaExceeded | 如果每個資源群組的部署達到 800 個數量限制，請從歷程記錄中刪除不再需要的部署。 | [解決部署計數超過800的錯誤](deployment-quota-exceeded.md) |
 | DnsRecordInUse | DNS 記錄名稱必須是唯一的。 請輸入其他名稱。 | |
@@ -124,13 +126,13 @@ az group deployment operation list --name exampledeployment -g examplegroup --qu
 
 ![部署失敗](./media/resource-manager-common-deployment-errors/deployment-failed.png)
 
-您會看到錯誤訊息和錯誤碼。 請注意，有兩個錯誤碼。 第一個錯誤碼 (**DeploymentFailed**) 是一般錯誤，不會提供您解決錯誤所需的詳細資料。 第二個錯誤碼 (**StorageAccountNotFound**) 會提供您需要的詳細資料。 
+您會看到錯誤訊息和錯誤碼。 請注意，有兩個錯誤碼。 第一個錯誤碼 (**DeploymentFailed**) 是一般錯誤，不會提供您解決錯誤所需的詳細資料。 第二個錯誤碼 (**StorageAccountNotFound**) 會提供您需要的詳細資料。
 
 ![錯誤詳細資料](./media/resource-manager-common-deployment-errors/error-details.png)
 
 ## <a name="enable-debug-logging"></a>啟用偵錯記錄
 
-有時您需要更多關於要求和回應的資訊，以了解哪裡出了錯。 在部署期間，您可以要求在部署期間記錄其他資訊。 
+有時您需要更多關於要求和回應的資訊，以了解哪裡出了錯。 在部署期間，您可以要求在部署期間記錄其他資訊。
 
 ### <a name="powershell"></a>PowerShell
 

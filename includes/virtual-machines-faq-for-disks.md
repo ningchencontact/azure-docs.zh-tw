@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 05/13/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: ffc77d2a175d300be306b1566324b2551e38aeab
-ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
+ms.openlocfilehash: 155ca71ae30559cc79e090a8a7bbc12c896b637f
+ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71266869"
+ms.lasthandoff: 10/05/2019
+ms.locfileid: "71973007"
 ---
 # <a name="frequently-asked-questions-about-azure-iaas-vm-disks-and-managed-and-unmanaged-premium-disks"></a>關於 Azure IaaS VM 磁碟及受控和非受控進階磁碟的常見問題集
 
@@ -293,6 +293,10 @@ GPT 分割只能在資料磁碟上使用，無法在 OS 磁碟上使用。 OS �
 **當我建立受控磁碟時，依預設是否啟用 Azure 儲存體服務加密？**
 
 是的。
+
+**受控磁片上的開機磁碟區預設是否加密？**
+
+是的。 根據預設，所有受控磁片都會加密，包括 OS 磁片。
 
 **誰負責管理加密金鑰？**
 

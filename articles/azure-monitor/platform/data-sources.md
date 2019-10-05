@@ -6,18 +6,17 @@ author: bwren
 manager: carmonm
 editor: tysonn
 ms.service: azure-monitor
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/23/2019
 ms.author: bwren
-ms.openlocfilehash: dabc336a1f92169ab573e7cf29e1a7a069ae20b1
-ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.openlocfilehash: 164d1db1a80ef577792740f67a27a856a4ba4c3b
+ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71262036"
+ms.lasthandoff: 10/05/2019
+ms.locfileid: "71972922"
 ---
 # <a name="sources-of-monitoring-data-for-azure-monitor"></a>Azure 監視器的監視資料來源
 Azure 監視器是以常見的[監視資料平臺](data-platform.md)為基礎，其中包含[記錄](data-platform-logs.md)和[計量](data-platform-metrics.md)。 將資料收集到這個平臺可讓您使用 Azure 監視器中的一組常用工具來分析多個資源的資料。 監視資料也可能會傳送到其他位置以支援特定案例，某些資源可能會在其他位置寫入至記錄或計量。
@@ -35,7 +34,7 @@ Azure 監視器是以常見的[監視資料平臺](data-platform.md)為基礎，
 ### <a name="azure"></a>Azure
 下表簡要說明 Azure 特有的應用層。 遵循連結以取得下列各節中各項的進一步詳細資料。
 
-| 層 | 描述 | 收集方法 |
+| 定價層 | 描述 | 收集方法 |
 |:---|:---|:---|
 | [Azure 租使用者](#azure-tenant) | 租用戶層級 Azure 服務的作業相關資料，例如 Azure Active Directory。 | 在入口網站中查看 AAD 資料，或使用租使用者診斷設定將集合設定為 Azure 監視器。 |
 | [Azure 訂用帳戶](#azure-subscription) | 與 Azure 訂用帳戶中跨資源服務的健康情況和管理相關的資料，例如 Resource Manager 和服務健康狀態。 | 在入口網站中觀看，或使用記錄設定檔將集合設定為 Azure 監視器。 |
@@ -44,7 +43,7 @@ Azure 監視器是以常見的[監視資料平臺](data-platform.md)為基礎，
 ### <a name="azure-other-cloud-or-on-premises"></a>Azure、其他雲端或內部部署 
 下表簡要說明可能位於 Azure、另一個雲端或內部部署中的應用層。 遵循連結以取得下列各節中各項的進一步詳細資料。
 
-| 層 | 描述 | 收集方法 |
+| 定價層 | 描述 | 收集方法 |
 |:---|:---|:---|
 | [作業系統（來賓）](#operating-system-guest) | 計算資源上作業系統的相關資料。 | 安裝 Log Analytics 代理程式以收集用戶端資料來源到 Azure 監視器和相依性代理程式，以收集支援適用於 VM 的 Azure 監視器的相依性。<br>若為 Azure 虛擬機器，請安裝 Azure 診斷擴充功能，以將記錄和計量收集到 Azure 監視器中。 |
 | [應用程式代碼](#application-code) | 實際應用程式和程式碼的效能和功能相關資料，包括效能追蹤、應用程式記錄和使用者遙測。 | 檢測您的程式碼，以將資料收集到 Application Insights。 |
@@ -61,8 +60,8 @@ Azure 監視器是以常見的[監視資料平臺](data-platform.md)為基礎，
 | Destination | 描述 | 參考資料 |
 |:---|:---|:---|
 | Azure 監視器記錄 | 設定要在 Azure 監視器中收集 Azure AD 記錄，以使用其他監視資料進行分析。 | [整合 Azure AD 記錄與 Azure 監視器記錄（預覽）](../../active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md) |
-| Azure 儲存體 | 將 Azure AD 記錄匯出至 Azure 儲存體以進行封存。 | [教學課程：將 Azure AD 記錄封存到 Azure 儲存體帳戶（預覽）](../../active-directory/reports-monitoring/quickstart-azure-monitor-route-logs-to-storage-account.md) |
-| 事件中樞 | 使用事件中樞，將 Azure AD 記錄串流至其他位置。 | [教學課程：將 Azure Active Directory 記錄串流至 Azure 事件中樞（預覽）](../../active-directory/reports-monitoring/tutorial-azure-monitor-stream-logs-to-event-hub.md)。 |
+| Azure 儲存體 | 將 Azure AD 記錄匯出至 Azure 儲存體以進行封存。 | [教學課程：將 Azure AD 記錄封存到 Azure 儲存體帳戶（預覽） ](../../active-directory/reports-monitoring/quickstart-azure-monitor-route-logs-to-storage-account.md) |
+| 事件中樞 | 使用事件中樞，將 Azure AD 記錄串流至其他位置。 | [教學課程：將 Azure Active Directory 記錄串流至 Azure 事件中樞（預覽） ](../../active-directory/reports-monitoring/tutorial-azure-monitor-stream-logs-to-event-hub.md)。 |
 
 
 

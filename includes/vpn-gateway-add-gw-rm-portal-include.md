@@ -5,15 +5,15 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: include
-ms.date: 09/24/2019
+ms.date: 10/04/2019
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 12d3f06ca349413231d69fc9de7b9d2f36645b23
-ms.sourcegitcommit: a6718e2b0251b50f1228b1e13a42bb65e7bf7ee2
+ms.openlocfilehash: ed828a09843648b129b701c9afd22aac9e2fa9b0
+ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71273759"
+ms.lasthandoff: 10/05/2019
+ms.locfileid: "71970812"
 ---
 1. 在入口網站中的左側按一下 [+ 建立資源]，並在搜尋中輸入「虛擬網路閘道」。 在搜尋傳回的結果中找出**虛擬網路閘道**，然後按一下該項目。 在 [**虛擬網路閘道**] 頁面上，按一下 [**建立**]。 這會開啟 [建立虛擬網路閘道] 頁面。
 
@@ -37,7 +37,7 @@ ms.locfileid: "71273759"
 
       **虛擬網路**：選擇您要新增此閘道的虛擬網路。
 
-      **閘道子網路位址範圍**︰只有當您選取的虛擬網路沒有閘道子網時，才會顯示此欄位。 如果您還沒有閘道子網，請填寫範圍。 可能的話，請將範圍設為/27 或更大（/26、/25 等）
+      **閘道子網路位址範圍**︰只有當您的 VNet 沒有閘道子網時，才會顯示此欄位。 可能的話，請將範圍設為/27 或更大（/26、/25 等等）。 我們不建議您建立小於/28 的範圍。 如果您已經有閘道子網，您可以藉由流覽至您的虛擬網路來查看 GatewaySubnet 詳細資料。 按一下 [**子網**] 以查看範圍。 如果您想要變更範圍，可以刪除並重新建立 GatewaySubnet。
 
    **公用 IP 位址**：此設定可指定會與 VPN 閘道建立關聯的公用 IP 位址物件。 建立 VPN 閘道時，系統會將公用 IP 位址動態指派給此物件。 公用 IP 位址只會在刪除或重新建立閘道時變更。 它不會因為重新調整、重設或 VPN 閘道的其他內部維護/升級而變更。
 

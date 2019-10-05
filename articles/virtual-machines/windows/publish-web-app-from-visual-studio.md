@@ -3,7 +3,7 @@ title: 從 Visual Studio 將 Web 應用程式發行到 Azure VM
 description: 從 Visual Studio 將 ASP.NET Web 應用程式發行到 Azure 虛擬機器
 services: virtual-machines-windows
 author: ghogen
-manager: douge
+manager: jillfra
 tags: azure-service-management
 ms.assetid: 70267837-3629-41e0-bb58-2167ac4932b3
 ms.prod: visual-studio-dev15
@@ -13,18 +13,18 @@ ms.workload: azure-vs
 ms.topic: conceptual
 ms.date: 11/03/2017
 ms.author: ghogen
-ms.openlocfilehash: 4b8e3ddf1cf5d61f730ce01a35ee0813b47ad2d2
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 6e5db9b4e46019aa386057d51d956ff11d90f498
+ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66305924"
+ms.lasthandoff: 10/05/2019
+ms.locfileid: "71970869"
 ---
 # <a name="publish-an-aspnet-web-app-to-an-azure-vm-from-visual-studio"></a>從 Visual Studio 將 ASP.NET Web 應用程式發行到 Azure VM
 
-本文件說明如何將 Azure 虛擬機器 (VM) 使用 ASP.NET web 應用程式發佈**Microsoft Azure 虛擬機器**在 Visual Studio 2019 的發佈功能。  
+本檔說明如何使用 Visual Studio 2019 中的**Microsoft Azure 虛擬機器**發佈功能，將 ASP.NET web 應用程式發佈到 Azure 虛擬機器（VM）。  
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 若要使用 Visual Studio 將 ASP.NET 專案發行到 Azure VM，必須正確設定 VM。
 
 - 機器必須設定為執行 ASP.NET web 應用程式，並安裝 WebDeploy。
@@ -34,13 +34,13 @@ ms.locfileid: "66305924"
 ## <a name="publish-your-aspnet-web-app-to-the-azure-vm-using-visual-studio"></a>使用 Visual Studio 將您的 ASP.NET Web 應用程式發行到 Azure VM
 下列章節說明如何將現有的 ASP.NET Web 應用程式發行到 Azure 虛擬機器。
 
-1. 在 Visual Studio 2019 中開啟 web 應用程式方案。
-2. 在方案總管中以滑鼠右鍵按一下專案，並選擇 [發行...] 
-3. 使用頁面右邊的箭頭捲動發行選項，直到您找到 [Microsoft Azure 虛擬機器]  為止。  
+1. 在 Visual Studio 2019 中開啟您的 web 應用程式解決方案。
+2. 在方案總管中以滑鼠右鍵按一下專案，並選擇 [發行...]
+3. 使用頁面右邊的箭頭捲動發行選項，直到您找到 [Microsoft Azure 虛擬機器] 為止。  
 
    ![發行頁面 - 發行按鈕]
 
-4. 選取 [Microsoft Azure 虛擬機器]  圖示，然後選擇 [發行]  。
+4. 選取 [Microsoft Azure 虛擬機器] 圖示，然後選擇 [發行]。
 
    ![發行頁面 - Microsoft Azure 虛擬機器圖示]
 
@@ -58,7 +58,7 @@ ms.locfileid: "66305924"
 
 7. 按一下 [確定] 以開始發行。
 
-8. 當系統提示輸入認證，提供使用者名稱和目標設定發佈權限的 VM 上的使用者帳戶的密碼。 這些認證通常是系統管理員使用者名稱和密碼建立 VM 時使用。  
+8. 當系統提示您輸入認證時，請在使用發佈許可權設定的目標 VM 上，提供使用者帳戶的使用者名稱和密碼。 這些認證通常是在建立 VM 時所使用的系統管理員使用者名稱和密碼。  
 
    ![WebDeploy 登入]
 
@@ -82,7 +82,7 @@ ms.locfileid: "66305924"
 
 ### <a name="re-publish"></a>重新發行
 
-若要將更新發佈到 Web 應用程式，請選取發行頁面上的 [發行]  按鈕。  
+若要將更新發佈到 Web 應用程式，請選取發行頁面上的 [發行] 按鈕。  
 - 若出現提示，請輸入使用者名稱和密碼。  
 - 會立即開始發行。
 
@@ -90,7 +90,7 @@ ms.locfileid: "66305924"
 
 ### <a name="modify-publish-profile-settings"></a>修改發行設定檔設定
 
-若要檢視和修改發行設定檔設定，請選取 [設定...]  。  
+若要檢視和修改發行設定檔設定，請選取 [設定...]。  
 
 ![發行頁面 - 設定按鈕]
 
@@ -99,14 +99,14 @@ ms.locfileid: "66305924"
 ![發行設定 - 連線頁面]
 
 #### <a name="save-user-name-and-password"></a>儲存使用者名稱和密碼
-- 請避免每次發行，提供驗證資訊。 若要這樣做，填入**使用者名**並**密碼**欄位，然後選取**儲存密碼** 方塊中。
-- 使用 [驗證連線]  按鈕可確認您已輸入正確的資訊。
+- 請避免在每次發行時提供驗證資訊。 若要這麼做，請填入 [**使用者名稱**] 和 [**密碼**] 欄位，然後選取 [**儲存密碼**] 方塊。
+- 使用 [驗證連線] 按鈕可確認您已輸入正確的資訊。
 
 #### <a name="deploy-to-clean-web-server"></a>部署到乾淨的 Web 伺服器
 
-- 如果您想要確保 web 伺服器已在每次上傳後 web 應用程式的全新複本，而且，沒有其他檔案未從先前的部署，您可以檢查**移除目的地上的其他檔案**中的核取方塊**設定** 索引標籤。
+- 如果您想要確保 web 伺服器在每次上傳之後都有全新的 web 應用程式複本，而且先前的部署不會留下其他檔案，您可以勾選 [**設定**] 索引標籤中的 [**移除目的地的其他**檔案] 核取方塊。
 
-- 警告：發行使用此設定會刪除存在於 web 伺服器 （wwwroot 目錄） 的所有檔案。 請確定您知道啟用這個選項下，發行前的電腦狀態。 
+- 警告：使用此設定進行發佈時，會刪除存在於網頁伺服器（wwwroot 目錄）上的所有檔案。 請確定您知道啟用這個選項下，發行前的電腦狀態。 
 
 ![發行設定 - 設定頁面]
 

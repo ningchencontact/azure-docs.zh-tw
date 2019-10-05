@@ -5,14 +5,14 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: conceptual
-ms.date: 09/24/2019
+ms.date: 10/04/2019
 ms.author: cherylmc
-ms.openlocfilehash: 9fb62d74025869c3442308f9e4ac9fb8fc02669b
-ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
+ms.openlocfilehash: 96a8b8d33f713faf96e7a96b32e9e41ca669e6cb
+ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71266544"
+ms.lasthandoff: 10/05/2019
+ms.locfileid: "71970816"
 ---
 # <a name="create-a-site-to-site-connection-in-the-azure-portal"></a>在 Azure 入口網站中建立站對站連線
 
@@ -42,21 +42,20 @@ ms.locfileid: "71266544"
 
 本文的範例使用下列值。 您可以使用這些值來建立測試環境，或參考這些值，進一步了解本文中的範例。 如需有關 VPN 閘道的一般設定詳細資訊，請參閱 [關於 VPN 閘道設定](vpn-gateway-about-vpn-gateway-settings.md)。
 
-* **VNet 名稱：** VNet1
+* **虛擬網路名稱：** VNet1
 * **位址空間：** 10.1.0.0/16
 * **訂用帳戶︰** 您要使用的訂用帳戶
 * **資源群組：** TestRG1
-* **位置：** East US
+* **區域：** East US
 * **子網路：** FrontEnd：10.1.0.0/24，BackEnd：10.1.1.0/24 (對此練習為選擇性)
-* **閘道子網路名稱：** GatewaySubnet (這會在入口網站中自動填入)
-* **閘道子網路位址範圍：** 10.1.255.0/27
+* **閘道子網位址範圍：** 10.1.255.0/27
 * **虛擬網路閘道名稱：** VNet1GW
-* **公用 IP：** VNet1GWIP
+* **公用 IP 位址名稱：** VNet1GWIP
 * **VPN 類型：** 以路由為基礎
 * **連線類型：** 站對站 (IPsec)
 * **閘道類型：** VPN
-* **區域網路閘道名稱：** Site1
-* **連線名稱：** VNet1toSite1
+* **局域網路閘道名稱：** Site1
+* **連接名稱：** VNet1toSite1
 * **共用金鑰：** 在此範例中，我們使用 abc123。 但是，您可以使用任何與您 VPN 硬體相容的項目。 值務必符合連線的兩端。
 
 ## <a name="CreatVNet"></a>1.建立虛擬網路
@@ -69,6 +68,16 @@ ms.locfileid: "71266544"
 
 [!INCLUDE [About gateway subnets](../../includes/vpn-gateway-about-gwsubnet-portal-include.md)]
 
+### <a name="example-settings"></a>範例設定
+
+* **> 區域的實例詳細資料：** East US
+* **虛擬網路 > 虛擬網路：** VNet1
+* **實例詳細資料 > 名稱：** VNet1GW
+* **> 閘道類型的實例詳細資料：** VPN
+* **> VPN 類型的實例詳細資料：** 以路由為基礎
+* **虛擬網路 > 閘道子網位址範圍：** 10.1.255.0/27
+* **公用 IP 位址 > 公用 IP 位址名稱：** VNet1GWIP
+
 [!INCLUDE [Create a vpn gateway](../../includes/vpn-gateway-add-gw-rm-portal-include.md)]
 
 [!INCLUDE [NSG warning](../../includes/vpn-gateway-no-nsg-include.md)]
@@ -77,6 +86,13 @@ ms.locfileid: "71266544"
 ## <a name="LocalNetworkGateway"></a>3.建立區域網路閘道
 
 區域網路閘道通常是指您的內部部署位置。 請賦予網站可供 Azure 參考的名稱，然後指定您想要與其建立連線之內部部署 VPN 裝置的 IP 位址。 也請指定 IP 位址首碼，以供系統透過 VPN 閘道路由至 VPN 裝置。 您指定的位址首碼是位於內部部署網路上的首碼。 如果您的內部部署網路變更，或者您需要變更 VPN 裝置的公用 IP 位址，您稍後可以輕鬆地更新這些值。
+
+**範例值**
+
+* **名稱：** Site1
+* **資源群組：** TestRG1
+* **位置：** East US
+
 
 [!INCLUDE [Add a local network gateway](../../includes/vpn-gateway-add-local-network-gateway-portal-include.md)]
 

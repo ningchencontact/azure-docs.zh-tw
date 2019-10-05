@@ -3,7 +3,7 @@ title: 在 Visual Studio 中設定和使用儲存體模擬器 | Microsoft Docs
 description: 在 Visual Studio 中設定和使用儲存體模擬器
 services: visual-studio-online
 author: ghogen
-manager: douge
+manager: jillfra
 assetId: c8e7996f-6027-4762-806e-614b93131867
 ms.prod: visual-studio-dev15
 ms.technology: vs-azure
@@ -12,12 +12,12 @@ ms.workload: azure-vs
 ms.topic: conceptual
 ms.date: 8/17/2017
 ms.author: ghogen
-ms.openlocfilehash: 39e2071a62d6a1f6ee050f862856815048e50430
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 08e3f5d5bb32d15b9d8d164c898d2b8d7a90108c
+ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62128291"
+ms.lasthandoff: 10/05/2019
+ms.locfileid: "71969705"
 ---
 # <a name="configuring-and-using-the-storage-emulator-with-visual-studio"></a>在 Visual Studio 中設定和使用儲存體模擬器
 [!INCLUDE [storage-try-azure-tools](../includes/storage-try-azure-tools.md)]
@@ -41,7 +41,7 @@ Azure SDK 開發環境包含儲存體模擬器，這是一個公用程式，可�
 > 
 
 ## <a name="initializing-and-running-the-storage-emulator"></a>初始化及執行儲存體模擬器
-您可以指定當您在 Visual Studio 中執行或偵錯服務時，讓 Visual Studio 自動啟動儲存體模擬器。 在 [方案總管] 中，開啟 **Azure** 專案的捷徑功能表並選擇 [屬性]  。 在 [開發]  索引標籤的 [啟動 Azure 儲存體模擬器]  清單中，選擇 [True]  \(如果未尚設定為此值)。
+您可以指定當您在 Visual Studio 中執行或偵錯服務時，讓 Visual Studio 自動啟動儲存體模擬器。 在 [方案總管] 中，開啟 **Azure** 專案的捷徑功能表並選擇 [屬性]。 在 [開發] 索引標籤的 [啟動 Azure 儲存體模擬器] 清單中，選擇 [True] \(如果未尚設定為此值)。
 
 第一次從 Visual Studio 執行或偵錯服務時，儲存體模擬器會啟動初始化程序。 此程序會保留本機連接埠給儲存體模擬器，並建立儲存體模擬器資料庫。 完成後，除非刪除儲存體模擬器資料庫，否則此程序不必再次執行。
 

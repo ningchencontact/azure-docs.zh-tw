@@ -8,12 +8,12 @@ ms.date: 07/09/2019
 ms.topic: conceptual
 ms.service: iot-central
 manager: peterpr
-ms.openlocfilehash: e6df6a1f751106f62cdfecc3a7b5efb0fe4c63bf
-ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+ms.openlocfilehash: 732ce570f8235d1f147055af6972c2a8d12599dc
+ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69876004"
+ms.lasthandoff: 10/05/2019
+ms.locfileid: "71971598"
 ---
 # <a name="export-your-data-in-azure-iot-central"></a>匯出 Azure IoT Central 中的資料
 
@@ -21,7 +21,7 @@ ms.locfileid: "69876004"
 
 *此主題適用於系統管理員。*
 
-本文說明如何使用 Azure IoT Central 中的連續資料匯出功能, 將您的資料匯出至您自己的**Azure 事件中樞**和**Azure 服務匯流排**實例。 您可以將**度量**、**裝置**及**裝置範本**匯出到您自己的目的地，以取得暖路徑見解和分析。 這包括觸發「Azure 串流分析」中的自訂規則、觸發 Azure Logic Apps 中的自訂工作流程，或透過 Azure Functions 來轉換及傳遞資料。 
+本文說明如何使用 Azure IoT Central 中的連續資料匯出功能，將您的資料匯出至您自己的**Azure 事件中樞**和**Azure 服務匯流排**實例。 您可以將**度量**、**裝置**及**裝置範本**匯出到您自己的目的地，以取得暖路徑見解和分析。 這包括觸發「Azure 串流分析」中的自訂規則、觸發 Azure Logic Apps 中的自訂工作流程，或透過 Azure Functions 來轉換及傳遞資料。 
 
 > [!Note]
 > 同樣地，當您開啟連續資料匯出時，只會取得從該時刻起的資料。 目前，無法擷取「連續資料匯出」時的資料。 若要保留更多歷史資料，請儘早開啟「連續資料匯出」。
@@ -33,9 +33,9 @@ ms.locfileid: "69876004"
 
 ## <a name="set-up-export-destination"></a>設定匯出目的地
 
-如果您沒有可匯出的現有事件中樞/服務匯流排, 請遵循下列步驟:
+如果您沒有要匯出的現有事件中樞/服務匯流排，請遵循下列步驟來建立一個：
 
-## <a name="create-event-hubs-namespace"></a>建立事件中樞命名空間
+### <a name="create-event-hubs-namespace"></a>建立事件中樞命名空間
 
 1. [在 Azure 入口網站中建立新事件中樞命名空間](https://ms.portal.azure.com/#create/Microsoft.EventHub)。 您可以透過 [Azure 事件中樞文件](https://docs.microsoft.com/azure/event-hubs/event-hubs-create)深入了解。
 2. 選擇訂用帳戶。 
@@ -44,7 +44,7 @@ ms.locfileid: "69876004"
     > 您現在可以將資料匯出至與隨用隨付 IoT Central 應用程式之訂用帳戶**不同**的其他訂用帳戶。 在此情況下，您將使用連接字串來進行連線。
 3. 在「事件中樞」命名空間中建立一個事件中樞。 移至您的命名空間，然後選取頂端的 [+ 事件中樞] 以建立事件中樞執行個體。
 
-## <a name="create-service-bus-namespace"></a>建立服務匯流排命名空間
+### <a name="create-service-bus-namespace"></a>建立服務匯流排命名空間
 
 1. [在 Azure 入口網站中建立新的服務匯流排命名空間](https://ms.portal.azure.com/#create/Microsoft.ServiceBus.1.0.5)。 您可以透過 [Azure 服務匯流排文件](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-create-namespace-portal)深入了解。
 2. 選擇訂用帳戶。 
@@ -57,25 +57,23 @@ ms.locfileid: "69876004"
 
 ## <a name="set-up-continuous-data-export"></a>設定連續資料匯出
 
-現在您已有事件中樞/服務匯流排目的地可將資料匯出至, 請遵循下列步驟來設定連續資料匯出。 
+現在您已有事件中樞/服務匯流排目的地可將資料匯出至，請遵循下列步驟來設定連續資料匯出。 
 
 1. 登入您的 IoT Central 應用程式。
 
-2. 在左側功能表中, 選取 [**連續資料匯出**]。
+2. 在左側功能表中，選取 [**連續資料匯出**]。
 
     > [!Note]
     > 如果在左側功能表中沒有看到 [連續資料匯出]，即表示您不是應用程式的系統管理員。 請連絡系統管理員來設定資料匯出。
-
-    ![建立新的 cde 事件中樞](media/howto-export-data/export_menu1.png)
 
 3. 選取右上方的 [ **+ 新增**] 按鈕。 選擇其中一個**Azure 事件中樞**或**Azure 服務匯流排**做為匯出的目的地。 
 
     > [!NOTE] 
     > 每一應用程式的匯出數目上限是 5。 
 
-    ![建立新的連續資料匯出](media/howto-export-data/export_new1.png)
+    ![建立新的連續資料匯出](media/howto-export-data/export-new2.png)
 
-4. 在下拉式清單方塊中, 選取您的**事件中樞命名空間/服務匯流排命名空間**。 您也可以挑選清單中的最後一個選項，也就是 [輸入連接字串]。 
+4. 在下拉式清單方塊中，選取您的**事件中樞命名空間/服務匯流排命名空間**。 您也可以挑選清單中的最後一個選項，也就是 [輸入連接字串]。 
 
     > [!NOTE] 
     > 您只會看到**與 IoT Central 應用程式位於相同訂用帳戶中**的「儲存體帳戶」/「事件中樞命名空間」/「服務匯流排命名空間」。 如果您想要匯出到此訂用帳戶外的目的地，請選擇 [輸入連接字串]，然後參閱步驟 5。
@@ -83,11 +81,11 @@ ms.locfileid: "69876004"
     > [!NOTE] 
     > 如果是 7 天試用版應用程式，則設定連續資料匯出的唯一方式是透過連接字串。 這是因為 7 天試用版應用程式並沒有相關聯的 Azure 訂用帳戶。
 
-    ![建立新的 cde 事件中樞](media/howto-export-data/export_create1.png)
+    ![建立新的 cde 事件中樞](media/howto-export-data/export-eh.png)
 
 5. (選擇性) 如果您選擇 [輸入連接字串]，就會顯示一個可供您貼上連接字串的新方塊。 取得下列項目的連接字串：
-    - 事件中樞或服務匯流排, 請移至 Azure 入口網站中的命名空間。
-        - 在 [**設定**] 底下, 選取 [**共用存取原則**]
+    - 事件中樞或服務匯流排，請移至 Azure 入口網站中的命名空間。
+        - 在 [**設定**] 底下，選取 [**共用存取原則**]
         - 選擇預設的 [RootManageSharedAccessKey]，或建立新的原則
         - 複製主要連接字串或次要連接字串
  
@@ -95,14 +93,12 @@ ms.locfileid: "69876004"
 
 7. 在 [要匯出的資料] 下，透過將類型設定為 [開啟] 以指定每種要匯出的資料類型。
 
-6. 若要開啟連續資料匯出，請務必將 [資料匯出] 設定為 [開啟]。 選取 [ **儲存**]。
+8. 若要開啟連續資料匯出，請確定 [**資料匯出**切換] 為 [**開啟**]。 選取 [儲存]。
 
-    ![設定連續資料匯出](media/howto-export-data/export_list1.png)
-
-7. 幾分鐘後，您的資料就會出現在所選擇的目的地中。
+9. 幾分鐘後，您的資料就會出現在所選擇的目的地中。
 
 
-## <a name="export-to-azure-event-hubs-and-azure-service-bus"></a>匯出至 Azure 事件中樞和 Azure 服務匯流排
+## <a name="data-format"></a>資料格式
 
 度量、裝置及裝置範本資料會以近乎即時的方式，匯出至事件中樞或「服務匯流排」佇列或主題。 匯出的度量資料包含您裝置傳送給 IoT Central 的訊息整體，而不僅限於度量本身的值。 匯出的裝置資料包含對所有裝置之屬性與設定進行的變更，而匯出的裝置範本則包含對所有裝置範本進行的變更。 匯出的資料會在 "body" 屬性中，且採用 JSON 格式。
 
@@ -146,7 +142,7 @@ ms.locfileid: "69876004"
     "x-opt-enqueued-time": 1539381030200
   },
   "sequenceNumber": 25325,
-  "enqueuedTimeUtc": "2018-10-12T21:50:30.200Z",
+  "enqueuedTimeUtc": "2018-10-02T21:50:30.200Z",
   "offset": "<offset>",
   "properties": {
     "content_type": "application/json",
@@ -211,7 +207,7 @@ ms.locfileid: "69876004"
   },
   "partitionKey": "<partitionKey>",
   "sequenceNumber": 39740,
-  "enqueuedTimeUtc": "2018-10-11T16:22:39.654Z",
+  "enqueuedTimeUtc": "2018-10-02T16:22:39.654Z",
   "offset": "<offset>",
 }
 ```
@@ -236,62 +232,62 @@ ms.locfileid: "69876004"
 下列範例示範事件中樞或「服務匯流排」佇列或主題中裝置範本資料的相關訊息：
 
 ```json
-{
-  "body": {
-    "id": "<id>",
-    "version": "1.0.0",
-    "name": "<templateName>",
-    "measurements": {
-      "telemetry": {
-        "humidity": {
-          "dataType": "double",
-          "name": "humidity"
+{ 
+  "body":{ 
+    "id":"<id>",
+    "version":"1.0.0",
+    "name":"<templateName>",
+    "measurements":{ 
+      "telemetry":{ 
+        "humidity":{ 
+          "dataType":"double",
+          "name":"humidity"
         },
-        "pressure": {
-          "dataType": "double",
-          "name": "pressure"
+        "pressure":{ 
+          "dataType":"double",
+          "name":"pressure"
         },
-        "temp": {
-          "dataType": "double",
-          "name": "temperature"
+        "temp":{ 
+          "dataType":"double",
+          "name":"temperature"
         }
       }
     },
-    "properties": {
-      "cloud": {
-        "location": {
-          "dataType": "string",
-          "name": "Location"
+    "properties":{ 
+      "cloud":{ 
+        "location":{ 
+          "dataType":"string",
+          "name":"Location"
         }
       },
-      "device": {
-        "dieNumber": {
-          "dataType": "double",
-          "name": "Die Number"
+      "device":{ 
+        "dieNumber":{ 
+          "dataType":"double",
+          "name":"Die Number"
         }
       }
     },
-    "settings": {
-      "device": {
-        "fanSpeed": {
-          "dataType": "double",
-          "name": "Fan Speed",
-          "initialValue": 0
+    "settings":{ 
+      "device":{ 
+        "fanSpeed":{ 
+          "dataType":"double",
+          "name":"Fan Speed",
+          "initialValue":0
         }
       }
     }
   },
-  "annotations": {
-    "iotcentral-message-source": "deviceTemplates",
-    "x-opt-partition-key": "<partitionKey>",
-    "x-opt-sequence-number": 25315,
-    "x-opt-offset": "<offset>",
-    "x-opt-enqueued-time": 1539274985085
+  "annotations":{ 
+    "iotcentral-message-source":"deviceTemplates",
+    "x-opt-partition-key":"<partitionKey>",
+    "x-opt-sequence-number":25315,
+    "x-opt-offset":"<offset>",
+    "x-opt-enqueued-time":1539274985085
   },
-  "partitionKey": "<partitionKey>",
-  "sequenceNumber": 25315,
-  "enqueuedTimeUtc": "2018-10-11T16:23:05.085Z",
-  "offset": "<offset>",
+  "partitionKey":"<partitionKey>",
+  "sequenceNumber":25315,
+  "enqueuedTimeUtc":"2018-10-02T16:23:05.085Z",
+  "offset":"<offset>"
 }
 ```
 

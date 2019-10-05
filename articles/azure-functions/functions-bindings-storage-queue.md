@@ -11,12 +11,12 @@ ms.topic: reference
 ms.date: 09/03/2018
 ms.author: cshoe
 ms.custom: cc996988-fb4f-47
-ms.openlocfilehash: 6c708bfd0f8e49e9a857b9f77fab6224354ff06a
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: ff0490a7854d0398df925fc56f766470ca9d1618
+ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70097191"
+ms.lasthandoff: 10/05/2019
+ms.locfileid: "71973459"
 ---
 # <a name="azure-queue-storage-bindings-for-azure-functions"></a>Azure Functions 的 Azure 佇列儲存體繫結
 
@@ -192,7 +192,7 @@ module.exports = async function (context, message) {
 
 下列範例示範如何讀取透過觸發程式傳遞至函式的佇列訊息。
 
-儲存體佇列觸發程式定義于函式 *. json*中, 其中*類型*設定`queueTrigger`為。
+儲存體佇列觸發程式定義于*function. json*中，其中*type*設為 `queueTrigger`。
 
 ```json
 {
@@ -209,7 +209,7 @@ module.exports = async function (context, message) {
 }
 ```
 
-程式 *_代碼\__  .py會宣告參數,讓您能夠讀取函式中的佇列訊息。\_* `func.ServiceBusMessage`
+程式碼 *_@no__t 2init_\_.py*會將參數宣告為 `func.ServiceBusMessage`，讓您可以讀取函式中的佇列訊息。
 
 ```python
 import logging
@@ -353,7 +353,7 @@ def main(msg: func.QueueMessage):
 
 ## <a name="trigger---hostjson-properties"></a>觸發程序 - host.json 屬性
 
-[host.json](functions-host-json.md#queues) 檔案包含控制佇列觸發程序行為的設定。 如需可用設定的詳細資訊, 請參閱[host. json 設定](#hostjson-settings)一節。
+[host.json](functions-host-json.md#queues) 檔案包含控制佇列觸發程序行為的設定。 如需可用設定的詳細資訊，請參閱[host. json 設定](#hostjson-settings)一節。
 
 ## <a name="output"></a>Output
 
@@ -520,7 +520,7 @@ module.exports = function(context) {
 
 下列範例示範如何將單一和多個值輸出到儲存體佇列。 *函數. json*所需的設定也是相同的方式。
 
-儲存體佇列系結定義于*function. json*中, 其中*type*設為`queue`。
+儲存體佇列系結定義于*function. json*中，其中*type*設為 `queue`。
 
 ```json
 {
@@ -552,7 +552,7 @@ module.exports = function(context) {
 }
 ```
 
-若要在佇列上設定個別訊息, 請將單一值傳遞給`set`方法。
+若要在佇列上設定個別訊息，請將單一值傳遞給 `set` 方法。
 
 ```python
 import azure.functions as func
@@ -566,7 +566,7 @@ def main(req: func.HttpRequest, msg: func.Out[str]) -> func.HttpResponse:
     return 'OK'
 ```
 
-若要在佇列上建立多個訊息, 請將參數宣告為適當的清單類型, 並將值陣列 (符合清單類型) 傳遞給`set`方法。
+若要在佇列上建立多個訊息，請將參數宣告為適當的清單類型，並將值陣列（符合清單類型）傳遞給 `set` 方法。
 
 ```python
 import azure.functions as func
@@ -677,7 +677,7 @@ public static string Run([HttpTrigger] dynamic input,  ILogger log)
 
 |屬性  |預設 | 描述 |
 |---------|---------|---------|
-|maxPollingInterval|00:00:01|佇列輪詢之間的間隔上限。 最小值為 00:00: 00.100 (100 毫秒), 而遞增至 00:01:00 (1 分鐘)。 |
+|maxPollingInterval|00:00:01|佇列輪詢之間的間隔上限。 最小值為00：00：00.100 （100毫秒），而遞增至00:01:00 （1分鐘）。  在1.x 中，資料類型是毫秒，而在2.x 中，這是 TimeSpan。|
 |visibilityTimeout|00:00:00|處理訊息失敗時，重試之間的時間間隔。 |
 |batchSize|16|Functions 執行階段會同時擷取，並以平行方式處理的佇列訊息數目。 當要處理的數目減少到 `newBatchThreshold` 時，執行階段就會取得另一個批次，並開始處理那些訊息。 因此，每個函式並行處理之訊息的上限為 `batchSize` 加上 `newBatchThreshold`。 這項限制個別套用至每個佇列觸發的函式。 <br><br>如果您需要避免平行執行在單一佇列上收到的訊息，可以將 `batchSize` 設定為 1。 不過，只要您的函式應用程式在單一虛擬機器 (VM) 上執行，這項設定就只會將並行排除。 如果函式應用程式相應放大為多個 VM，則每個 VM 可以執行每個佇列觸發之函式的一個執行個體。<br><br>最大值 `batchSize` 為 32。 |
 |maxDequeueCount|5|將訊息移至有害佇列之前，嘗試處理訊息的次數。|

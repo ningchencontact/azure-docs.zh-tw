@@ -1,17 +1,17 @@
 ---
 title: 適用於 MariaDB 的 Azure 資料庫的定價層
-description: 本文會說明適用於 MariaDB 的 Azure 資料庫的定價層。
+description: 深入瞭解適用於 MariaDB 的 Azure 資料庫的各種定價層，包括計算世代、儲存體類型、儲存體大小、虛擬核心、記憶體和備份保留期限。
 author: jan-eng
 ms.author: janeng
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 07/31/2019
-ms.openlocfilehash: b1b9353feb9142dd0709b89cffb942ec5efaf936
-ms.sourcegitcommit: 83df2aed7cafb493b36d93b1699d24f36c1daa45
+ms.openlocfilehash: ca9552ee60237158bd570ede4a13dbc349b6d1d1
+ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/22/2019
-ms.locfileid: "71179169"
+ms.lasthandoff: 10/05/2019
+ms.locfileid: "71973569"
 ---
 # <a name="azure-database-for-mariadb-pricing-tiers"></a>適用於 MariaDB 的 Azure 資料庫定價層
 
@@ -62,7 +62,7 @@ ms.locfileid: "71179169"
 
 ### <a name="reaching-the-storage-limit"></a>到達儲存體限制
 
-如果可用儲存空間小於512MB 或 5% 的布建儲存體大小，則具有小於 100 GB 布建儲存體的伺服器會標示為唯讀。 當可用儲存空間小於 5 GB 時，具有超過 100 GB 布建儲存體的伺服器會標示為 [唯讀]。
+若伺服器中佈建的儲存體小於 100 GB，當可用儲存空間小於 512MB 或所佈建儲存體大小的 5% 時，伺服器會標示為唯讀。 若伺服器中佈建的儲存體超過 100 GB，則只有在可用儲存空間小於 5 GB 時，伺服器所才會標示為唯讀。
 
 例如，如果您布建了 110 GB 的儲存空間，而實際的使用率超過 105 GB，伺服器就會標示為唯讀。 或者，如果您已布建 5 GB 的儲存體，則當可用的存放裝置達到低於 256 MB 時，伺服器會標示為唯讀。
 

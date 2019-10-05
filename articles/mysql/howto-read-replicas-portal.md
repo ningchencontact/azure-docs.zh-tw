@@ -1,17 +1,17 @@
 ---
-title: 在適用於 MySQL 的 Azure 資料庫中建立與管理讀取複本
-description: 本文說明如何使用入口網站在適用於 MySQL 的 Azure 資料庫中設定與管理讀取複本。
+title: 建立 & 管理讀取複本（Azure 入口網站）-適用於 MySQL 的 Azure 資料庫
+description: 瞭解如何使用 Azure 入口網站在適用於 MySQL 的 Azure 資料庫中設定和管理讀取複本。
 author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 09/04/2019
-ms.openlocfilehash: 275c7bc8127855712c191141ef681526da7c377b
-ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
+ms.openlocfilehash: a90e9cccf8b59dabbee8415818c0e819ba1b26c3
+ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70309494"
+ms.lasthandoff: 10/05/2019
+ms.locfileid: "71972881"
 ---
 # <a name="how-to-create-and-manage-read-replicas-in-azure-database-for-mysql-using-the-azure-portal"></a>如何使用 Azure 入口網站在適用於 MySQL 的 Azure 資料庫中建立與管理讀取複本
 

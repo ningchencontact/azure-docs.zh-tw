@@ -4,7 +4,7 @@ description: 了解如何設定在 Linux 上 Azure App Service 中執行的 Java
 keywords: azure app service，web 應用程式，linux，oss，java，java ee，jee，javaee
 services: app-service
 author: bmitchell287
-manager: douge
+manager: barbkess
 ms.service: app-service
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 06/26/2019
 ms.author: brendm
 ms.custom: seodec18
-ms.openlocfilehash: 8e47365f74668ba2b93bad2b65a9dc9e83080832
-ms.sourcegitcommit: cd70273f0845cd39b435bd5978ca0df4ac4d7b2c
+ms.openlocfilehash: 26f9bac42ef98f1063194340a5aa20aef6fe316e
+ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71098131"
+ms.lasthandoff: 10/05/2019
+ms.locfileid: "71972941"
 ---
 # <a name="configure-a-linux-java-app-for-azure-app-service"></a>設定適用于 Azure App Service 的 Linux JAVA 應用程式
 
@@ -59,7 +59,7 @@ Linux 上的 Azure App Service 可讓 Java 開發人員在全受控 Linux 服務
 
 ### <a name="troubleshooting-tools"></a>疑難排解工具
 
-內建的 JAVA 映射是以[Alpine Linux](https://alpine-linux.readthedocs.io/en/latest/getting_started.html)作業系統為基礎。 `apk`使用封裝管理員來安裝任何疑難排解工具或命令。
+內建的 JAVA 映射是以[Alpine Linux](https://alpine-linux.readthedocs.io/en/latest/getting_started.html)作業系統為基礎。 使用 [`apk` 套件管理員] 來安裝任何疑難排解工具或命令。
 
 ### <a name="flight-recorder"></a>飛行記錄器
 
@@ -67,7 +67,7 @@ App Service 上的所有 Linux JAVA 映射都已安裝了祖魯飛行記錄器�
 
 #### <a name="timed-recording"></a>計時記錄
 
-若要開始使用，請透過 SSH 連線到您`jcmd`的 App Service，然後執行命令，以查看執行的所有 JAVA 進程的清單。 除了 jcmd 本身之外，您還應該看到以處理序識別碼（pid）執行的 JAVA 應用程式。
+若要開始使用，請透過 SSH 連線到您的 App Service，然後執行 `jcmd` 命令來查看所有執行中的 JAVA 進程清單。 除了 jcmd 本身之外，您還應該看到以處理序識別碼（pid）執行的 JAVA 應用程式。
 
 ```shell
 078990bbcd11:/home# jcmd
@@ -82,17 +82,17 @@ Picked up JAVA_TOOL_OPTIONS: -Djava.net.preferIPv4Stack=true
 jcmd 116 JFR.start name=MyRecording settings=profile duration=30s filename="/home/jfr_example.jfr"
 ```
 
-在30秒的間隔期間，您可以藉由`jcmd 116 JFR.check`執行來驗證錄製是否正在進行中。 這會顯示指定 JAVA 進程的所有錄製。
+在30秒間隔期間，您可以藉由執行 `jcmd 116 JFR.check` 來驗證錄製是否正在進行中。 這會顯示指定 JAVA 進程的所有錄製。
 
 #### <a name="continuous-recording"></a>連續記錄
 
-您可以使用祖魯飛行記錄器，持續對您的 JAVA 應用程式進行程式碼剖析，而對執行時間效能（[來源](https://assets.azul.com/files/Zulu-Mission-Control-data-sheet-31-Mar-19.pdf)）的影響最小。 若要這麼做，請執行下列 Azure CLI 命令，以使用必要的設定來建立名為 JAVA_OPTS 的應用程式設定。 當您的應用程式啟動時，會將 JAVA_OPTS `java`應用程式設定的內容傳遞至命令。
+您可以使用祖魯飛行記錄器，持續對您的 JAVA 應用程式進行程式碼剖析，而對執行時間效能（[來源](https://assets.azul.com/files/Zulu-Mission-Control-data-sheet-31-Mar-19.pdf)）的影響最小。 若要這麼做，請執行下列 Azure CLI 命令，以使用必要的設定來建立名為 JAVA_OPTS 的應用程式設定。 當您的應用程式啟動時，會將 JAVA_OPTS 應用程式設定的內容傳遞至 `java` 命令。
 
 ```azurecli
 az webapp config appsettings set -g <your_resource_group> -n <your_app_name> --settings JAVA_OPTS=-XX:StartFlightRecording=disk=true,name=continuous_recording,dumponexit=true,maxsize=1024m,maxage=1d
 ```
 
-記錄開始之後，您可以隨時使用`JFR.dump`命令傾印目前的記錄資料。
+記錄開始之後，您可以使用 `JFR.dump` 命令，隨時傾印目前的記錄資料。
 
 ```shell
 jcmd <pid> JFR.dump name=continuous_recording filename="/home/recording1.jfr"
@@ -116,7 +116,7 @@ jcmd <pid> JFR.dump name=continuous_recording filename="/home/recording1.jfr"
 
 ### <a name="set-java-runtime-options"></a>設定 Java 執行階段選項
 
-若要在 Tomcat 和 JAVA SE 環境中設定已配置的記憶體或其他 JVM 執行時間選項，請使用`JAVA_OPTS`選項建立名為的[應用程式設定](../configure-common.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#configure-app-settings)。 App Service Linux 會在啟動時將此設定當成環境變數傳遞至 Java 執行階段。
+若要在 Tomcat 和 JAVA SE 環境中設定已配置的記憶體或其他 JVM 執行時間選項，請使用選項建立名為 `JAVA_OPTS` 的[應用程式設定](../configure-common.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#configure-app-settings)。 App Service Linux 會在啟動時將此設定當成環境變數傳遞至 Java 執行階段。
 
 在 Azure 入口網站中，於 Web 應用程式的 [應用程式設定] 下，建立名為 `JAVA_OPTS` 且包含其他設定的新應用程式設定 (例如 `-Xms512m -Xmx1204m`)。
 
@@ -133,9 +133,9 @@ jcmd <pid> JFR.dump name=continuous_recording filename="/home/recording1.jfr"
 
 執行具有其 App Service 方案中某個部署位置的單一應用程式開發人員，可以使用下列選項：
 
-- B1 和 S1 實例：`-Xms1024m -Xmx1024m`
-- B2 和 S2 實例：`-Xms3072m -Xmx3072m`
-- B3 和 S3 實例：`-Xms6144m -Xmx6144m`
+- B1 和 S1 實例： `-Xms1024m -Xmx1024m`
+- B2 和 S2 實例： `-Xms3072m -Xmx3072m`
+- B3 和 S3 實例： `-Xms6144m -Xmx6144m`
 
 調整應用程式堆積設定時，請檢閱 App Service 方案詳細資料，並考慮多個應用程式和部署位置需求以尋找最佳的記憶體配置。
 
@@ -175,7 +175,7 @@ az webapp start --name <app-name> --resource-group <resource-group-name>
 
 ### <a name="adjust-startup-timeout"></a>調整啟動超時
 
-如果您的 JAVA 應用程式特別大，您應該增加啟動時間限制。 若要這麼做，請建立應用程式`WEBSITES_CONTAINER_START_TIME_LIMIT`設定，並將它設定為 App Service 應該在超時前等待的秒數。最大值為`1800`秒。
+如果您的 JAVA 應用程式特別大，您應該增加啟動時間限制。 若要這麼做，請建立應用程式設定，`WEBSITES_CONTAINER_START_TIME_LIMIT`，並將它設定為 App Service 應該在超時前等待的秒數。最大值為 `1800` 秒。
 
 ### <a name="pre-compile-jsp-files"></a>預先編譯 JSP 檔案
 
@@ -191,13 +191,13 @@ az webapp start --name <app-name> --resource-group <resource-group-name>
 
 #### <a name="tomcat-and-wildfly"></a>Tomcat 和 Wildfly
 
-您的 Tomcat 或 Wildfly 應用程式可以藉由將主體物件轉換成對應物件，直接從 servlet 存取使用者的宣告。 Map 物件會將每個宣告類型對應到該類型的宣告集合。 在下列程式碼中`request` ，是的`HttpServletRequest`實例。
+您的 Tomcat 或 Wildfly 應用程式可以藉由將主體物件轉換成對應物件，直接從 servlet 存取使用者的宣告。 Map 物件會將每個宣告類型對應到該類型的宣告集合。 在下列程式碼中，`request` 是 `HttpServletRequest` 的實例。
 
 ```java
 Map<String, Collection<String>> map = (Map<String, Collection<String>>) request.getUserPrincipal();
 ```
 
-現在您可以檢查`Map`物件是否有任何特定的宣告。 例如，下列程式碼片段會逐一查看所有宣告類型，並列印每個集合的內容。
+現在您可以檢查 `Map` 物件是否有任何特定的宣告。 例如，下列程式碼片段會逐一查看所有宣告類型，並列印每個集合的內容。
 
 ```java
 for (Object key : map.keySet()) {
@@ -211,7 +211,7 @@ for (Object key : map.keySet()) {
     }
 ```
 
-若要將使用者登出，請`/.auth/ext/logout`使用路徑。 若要執行其他動作，請參閱[App Service 驗證和授權使用](https://docs.microsoft.com/azure/app-service/app-service-authentication-how-to)的檔。 Tomcat [HttpServletRequest 介面](https://tomcat.apache.org/tomcat-5.5-doc/servletapi/javax/servlet/http/HttpServletRequest.html)和其方法也有官方檔。 下列 servlet 方法也會根據您的 App Service 設定來序列化：
+若要將使用者登出，請使用 `/.auth/ext/logout` 路徑。 若要執行其他動作，請參閱[App Service 驗證和授權使用](https://docs.microsoft.com/azure/app-service/app-service-authentication-how-to)的檔。 Tomcat [HttpServletRequest 介面](https://tomcat.apache.org/tomcat-5.5-doc/servletapi/javax/servlet/http/HttpServletRequest.html)和其方法也有官方檔。 下列 servlet 方法也會根據您的 App Service 設定來序列化：
 
 ```java
 public boolean isSecure()
@@ -221,7 +221,7 @@ public String getScheme()
 public int getServerPort()
 ```
 
-若要停用此功能，請使用`WEBSITE_AUTH_SKIP_PRINCIPAL` `1`值建立名為的應用程式設定。 若要停用 App Service 新增的所有 servlet 篩選器，請`WEBSITE_SKIP_FILTERS`使用`1`值建立名為的設定。
+若要停用此功能，請建立名為 `WEBSITE_AUTH_SKIP_PRINCIPAL` 的應用程式設定，其值為 `1`。 若要停用 App Service 新增的所有 servlet 篩選器，請建立名為 `WEBSITE_SKIP_FILTERS` 的設定，其值為 `1`。
 
 #### <a name="spring-boot"></a>Spring Boot
 
@@ -237,7 +237,7 @@ Spring Boot 開發人員可以使用 [Azure Active Directory Spring Boot 簡易�
 
 首先，遵循將應用程式[存取權授與 Key Vault](../app-service-key-vault-references.md#granting-your-app-access-to-key-vault)的指示，並[在應用程式設定中 KeyVault 您的密碼參考](../app-service-key-vault-references.md#reference-syntax)。 您可以在遠端存取 App Service 終端機時，藉由列印環境變數，來驗證參考是否會解析為秘密。
 
-若要將這些秘密插入您的春季或 Tomcat 設定檔中，請使用環境`${MY_ENV_VAR}`變數插入語法（）。 如需春季設定檔，請參閱這[外部化](https://docs.spring.io/spring-boot/docs/current/reference/html/boot-features-external-config.html)設定的相關檔。
+若要將這些秘密插入您的春季或 Tomcat 設定檔中，請使用環境變數插入語法（`${MY_ENV_VAR}`）。 如需春季設定檔，請參閱這[外部化](https://docs.spring.io/spring-boot/docs/current/reference/html/boot-features-external-config.html)設定的相關檔。
 
 ## <a name="configure-apm-platforms"></a>設定 APM 平臺
 
@@ -273,13 +273,13 @@ Spring Boot 開發人員可以使用 [Azure Active Directory Spring Boot 簡易�
 
 ### <a name="starting-jar-apps"></a>啟動 JAR 應用程式
 
-根據預設，App Service 會預期您的 JAR 應用程式會命名為*app.config*。 如果它有此名稱，則會自動執行。 針對 Maven 使用者，您可以`<finalName>app</finalName>` `<build>`在*pom*的區段中包含來設定 JAR 名稱。 您可以藉由設定`archiveFileName`屬性，[在 Gradle 中執行相同的](https://docs.gradle.org/current/dsl/org.gradle.api.tasks.bundling.Jar.html#org.gradle.api.tasks.bundling.Jar:archiveFileName)動作。
+根據預設，App Service 會預期您的 JAR 應用程式會命名為*app.config*。 如果它有此名稱，則會自動執行。 針對 Maven 使用者，您可以在*pom*的 `<build>` 區段中包含 `<finalName>app</finalName>`，藉以設定 JAR 名稱。 您可以藉由設定 `archiveFileName` 屬性[，在 Gradle 中執行相同](https://docs.gradle.org/current/dsl/org.gradle.api.tasks.bundling.Jar.html#org.gradle.api.tasks.bundling.Jar:archiveFileName)的動作。
 
-如果您想要為 JAR 使用不同的名稱，您也必須提供可執行 JAR 檔案的[啟動命令](app-service-linux-faq.md#built-in-images)。 例如： `java -jar my-jar-app.jar` 。 您可以在入口網站中的 [設定] > [一般設定] 底下，或使用名為`STARTUP_COMMAND`的應用程式設定，設定啟動命令的值。
+如果您想要為 JAR 使用不同的名稱，您也必須提供可執行 JAR 檔案的[啟動命令](app-service-linux-faq.md#built-in-images)。 例如： `java -jar my-jar-app.jar` 。 您可以在入口網站中的 [設定] > [一般設定] 底下，或使用名為 `STARTUP_COMMAND` 的應用程式設定，設定啟動命令的值。
 
 ### <a name="server-port"></a>伺服器埠
 
-App Service Linux 會將傳入要求路由傳送至埠80，讓您的應用程式也應該在埠80上接聽。 您可以在應用程式的設定中執行此動作（例如，春天的*應用程式. 屬性*檔），或在您的啟動命令`java -jar spring-app.jar --server.port=80`中進行（例如，）。 請參閱下列適用于一般 JAVA 架構的檔：
+App Service Linux 會將傳入要求路由傳送至埠80，讓您的應用程式也應該在埠80上接聽。 您可以在應用程式的設定中執行此動作（例如，春天的*應用程式. 屬性*檔），或在啟動命令中進行（例如，`java -jar spring-app.jar --server.port=80`）。 請參閱下列適用于一般 JAVA 架構的檔：
 
 - [Spring Boot](https://docs.spring.io/spring-boot/docs/current/reference/html/howto-properties-and-configuration.html#howto-use-short-command-line-arguments)
 - [SparkJava](http://sparkjava.com/documentation#embedded-web-server)
@@ -300,7 +300,7 @@ App Service Linux 會將傳入要求路由傳送至埠80，讓您的應用程式
 | MySQL      | `com.mysql.jdbc.Driver`                        | [下載](https://dev.mysql.com/downloads/connector/j/) (請選取 [Platform Independent] \(不受平台影響\)) |
 | [SQL Server] | `com.microsoft.sqlserver.jdbc.SQLServerDriver` | [下載](https://docs.microsoft.com/sql/connect/jdbc/download-microsoft-jdbc-driver-for-sql-server?view=sql-server-2017#available-downloads-of-jdbc-driver-for-sql-server)                                                           |
 
-若要將 tomcat 設定為使用 JAVA 資料庫連線（JDBC）或 JAVA 持續性 API （JPA），請`CATALINA_OPTS`先自訂 tomcat 在啟動時所讀入的環境變數。 請透過 [App Service Maven 外掛程式](https://github.com/Microsoft/azure-maven-plugins/blob/develop/azure-webapp-maven-plugin/README.md)中的應用程式設定來設定這些值：
+若要將 Tomcat 設定為使用 JAVA 資料庫連線（JDBC）或 JAVA 持續性 API （JPA），請先自訂 Tomcat 在啟動時所讀入的 @no__t 0 環境變數。 請透過 [App Service Maven 外掛程式](https://github.com/Microsoft/azure-maven-plugins/blob/develop/azure-webapp-maven-plugin/README.md)中的應用程式設定來設定這些值：
 
 ```xml
 <appSettings>
@@ -311,7 +311,7 @@ App Service Linux 會將傳入要求路由傳送至埠80，讓您的應用程式
 </appSettings>
 ```
 
-或者 **，在 Azure 入口網站的 [**  > 設定**應用程式設定**] 頁面中設定環境變數。
+或者，在 Azure 入口網站的 [設定 **@no__t-** 1**應用程式設定**] 頁面中設定環境變數。
 
 接著，決定資料來源應僅供在 Tomcat Servlet 上執行的一個應用程式還是所有應用程式使用。
 
@@ -319,7 +319,7 @@ App Service Linux 會將傳入要求路由傳送至埠80，讓您的應用程式
 
 1. 在您專案的*中繼 INF/* 目錄中，建立一個*內容 .xml*檔案。 建立*中繼 INF/* 目錄（如果不存在）。
 
-2. 在*內容 .xml*中，新增`Context`元素以將資料來源連結至 JNDI 位址。 以上表中您驅動程式的類別名稱取代 `driverClassName` 預留位置。
+2. 在*內容 .xml*中，新增 @no__t 1 元素，以將資料來源連結至 JNDI 位址。 以上表中您驅動程式的類別名稱取代 `driverClassName` 預留位置。
 
     ```xml
     <Context>
@@ -352,7 +352,7 @@ App Service Linux 會將傳入要求路由傳送至埠80，讓您的應用程式
     cp -a /usr/local/tomcat/conf /home/tomcat/conf
     ```
 
-2. 在您的*伺服器*中， `<Server>`于元素內加入內容專案。
+2. 在您的*server .xml*中，于 `<Server>` 專案內加入 CoNtext 元素。
 
     ```xml
     <Server>
@@ -410,7 +410,7 @@ App Service Linux 會將傳入要求路由傳送至埠80，讓您的應用程式
 
 1. 在 [App Service] 頁面的 [設定] 區段中，設定字串的名稱，在 [值] 欄位中貼上您的 JDBC 連接字串，並將類型設定為 [自訂]。 您可以選擇性地將此連接字串設定為位置設定。
 
-    我們的應用程式可存取此連接字串，作為名為`CUSTOMCONNSTR_<your-string-name>`的環境變數。 例如，我們在上面建立的連接字串將會命名`CUSTOMCONNSTR_exampledb`為。
+    我們的應用程式可存取此連接字串，做為名為 `CUSTOMCONNSTR_<your-string-name>` 的環境變數。 例如，我們在上面建立的連接字串會命名為 `CUSTOMCONNSTR_exampledb`。
 
 2. 在您的*應用程式. properties*檔案中，使用環境變數名稱來參考此連接字串。 在我們的範例中，我們會使用下列程式。
 
@@ -480,7 +480,7 @@ Web 應用程式實例是無狀態的，因此每個啟動的新實例都必須�
 當您擁有模組的檔案和內容之後，請遵循下列步驟，將模組新增至 WildFly 應用程式伺服器。
 
 1. 使用 FTP，將您的檔案上傳至 */home*目錄下的 App Service 實例中的位置，例如 */home/site/deployments/tools*。 如需詳細資訊，請參閱[使用 FTP/S 將您的應用程式部署到 Azure App Service](../deploy-ftp.md)。
-2. **在 Azure 入口網站的 [**  > 設定] **[一般設定**] 頁面中，將 [**啟動腳本**] 欄位設為啟動 shell 腳本的位置，例如 */home/site/deployments/tools/startup.sh*。
+2. 在 Azure 入口網站的 [**設定 @no__t-** 1**一般設定**] 頁面中，將 [**啟動腳本**] 欄位設定為啟動 shell 腳本的位置，例如 */home/site/deployments/tools/startup.sh*。
 3. 按入口網站 [**總覽**] 區段中的 [**重新開機**] 按鈕，或使用 Azure CLI，重新開機您的 App Service 實例。
 
 ### <a name="configure-data-sources"></a>設定資料來源
@@ -489,13 +489,13 @@ Web 應用程式實例是無狀態的，因此每個啟動的新實例都必須�
 
 本節假設您已有應用程式、App Service 實例和 Azure 資料庫服務實例。 下列指示會參考您的 App Service 名稱、其資源群組，以及您的資料庫連接資訊。 您可以在 Azure 入口網站上找到此資訊。
 
-如果您想要從一開始就使用範例應用程式來完成整個過程，請[參閱教學課程：在 Azure](tutorial-java-enterprise-postgresql-app.md)中建立 JAVA EE 和 Postgres web 應用程式。
+如果您想要從一開始就使用範例應用程式來完成整個過程，請參閱 @no__t 0Tutorial：在 Azure @ no__t 中建立 JAVA EE 和 Postgres web 應用程式-0。
 
 下列步驟說明連接現有 App Service 和資料庫的需求。
 
 1. 下載適用于[于 postgresql](https://jdbc.postgresql.org/download.html)、 [MySQL](https://dev.mysql.com/downloads/connector/j/)或[SQL Server](https://docs.microsoft.com/sql/connect/jdbc/download-microsoft-jdbc-driver-for-sql-server)的 JDBC 驅動程式。 解壓縮下載的封存以取得驅動程式 .jar 檔案。
 
-2. 使用類似*module*的名稱建立檔案，然後新增下列標記。 將`<module name>`預留位置（包括角括弧`org.postgres` ）取代為適用于于 postgresql、 `com.mysql`適用于 MySQL 的`com.microsoft` ，或用於 SQL Server。 將`<JDBC .jar file path>`取代為上一個步驟中的 .jar 檔案名稱，包括將檔案放在 App Service 實例中的位置完整路徑。 這可以是 */home*目錄下的任何位置。
+2. 使用類似*module*的名稱建立檔案，然後新增下列標記。 以于 postgresql 的 `org.postgres` 取代 @no__t 0 預留位置（包括角括弧）、適用于 MySQL 的 `com.mysql`，或 SQL Server 的 `com.microsoft`。 將 `<JDBC .jar file path>` 取代為上一個步驟中的 .jar 檔案名稱，包括您將檔案放在 App Service 實例中的位置完整路徑。 這可以是 */home*目錄下的任何位置。
 
     ```xml
     <?xml version="1.0" ?>
@@ -510,7 +510,7 @@ Web 應用程式實例是無狀態的，因此每個啟動的新實例都必須�
     </module>
     ```
 
-3. 建立名稱類似*datasource-commands*的檔案，並新增下列程式碼。 將`<JDBC .jar file path>`取代為您在上一個步驟中使用的值。 將`<module file path>`取代為上一個步驟中的檔案名和 App Service 路徑，例如 */home/module.xml*。
+3. 建立名稱類似*datasource-commands*的檔案，並新增下列程式碼。 以您在上一個步驟中使用的值取代 `<JDBC .jar file path>`。 將 `<module file path>` 取代為上一個步驟中的檔案名和 App Service 路徑，例如 */home/module.xml*。
 
     **PostgreSQL**
 
@@ -550,7 +550,7 @@ Web 應用程式實例是無狀態的，因此每個啟動的新實例都必須�
 
     這個檔案是由下一個步驟中所述的啟動腳本執行。 它會將 JDBC 驅動程式安裝為 WildFly 模組、建立對應的 WildFly 資料來源，並重載伺服器以確保變更生效。
 
-4. 建立名稱類似*startup.sh*的檔案，並新增下列程式碼。 將`<JBoss CLI script>`取代為您在上一個步驟中建立的檔案名。 請務必包含您將在 App Service 實例中放置檔案之位置的完整路徑，例如 */home/datasource-commands.cli*。
+4. 建立名稱類似*startup.sh*的檔案，並新增下列程式碼。 以您在上一個步驟中建立的檔案名取代 `<JBoss CLI script>`。 請務必包含您將在 App Service 實例中放置檔案之位置的完整路徑，例如 */home/datasource-commands.cli*。
 
     ```bash
     #!/usr/bin/env bash
@@ -559,7 +559,7 @@ Web 應用程式實例是無狀態的，因此每個啟動的新實例都必須�
 
 5. 使用 FTP 將 JDBC .jar 檔案、模組 XML 檔案、JBoss CLI 腳本和啟動腳本上傳至您的 App Service 實例。 將這些檔案放在您在先前步驟中指定的位置，例如 */home*。 如需 FTP 的詳細資訊，請參閱[使用 ftp/S 將您的應用程式部署到 Azure App Service](https://docs.microsoft.com/azure/app-service/deploy-ftp)。
 
-6. 使用 [Azure CLI] 將設定新增至保存資料庫連接資訊的 App Service。 將`<resource group>` 和`<webapp name>`取代為您的 App Service 所使用的值。 將`<database server name>` 、`<database name>`、和`<admin password>`取代為您的資料庫連接資訊。 `<admin name>` 您可以從 Azure 入口網站取得您的 App Service 和資料庫資訊。
+6. 使用 [Azure CLI] 將設定新增至保存資料庫連接資訊的 App Service。 以您 App Service 使用的值取代 `<resource group>` 和 `<webapp name>`。 以您的資料庫連接資訊取代 `<database server name>`、`<database name>`、`<admin name>` 和 `<admin password>`。 您可以從 Azure 入口網站取得您的 App Service 和資料庫資訊。
 
     **于 postgresql**
 
@@ -601,13 +601,13 @@ Web 應用程式實例是無狀態的，因此每個啟動的新實例都必須�
     * **MySQL：** `jdbc:mysql://<database server name>:3306/<database name>?ssl=true\&useLegacyDatetimeCode=false\&serverTimezone=GMT`
     * **SQL Server：** `jdbc:sqlserver://<database server name>:1433;database=<database name>;user=<admin name>;password=<admin password>;encrypt=true;trustServerCertificate=false;hostNameInCertificate=*.database.windows.net;loginTimeout=30;`
 
-7. 在 Azure 入口網站中，流覽至您的 App Service 並**尋找**   > **設定 一般設定** 頁面。 將 [**啟動腳本**] 欄位設定為啟動腳本的名稱和位置，例如 */home/startup.sh*。
+7. 在 Azure 入口網站中，流覽至您的 App Service 並尋找 設定 **@no__t-** 1**一般設定** 頁面。 將 [**啟動腳本**] 欄位設定為啟動腳本的名稱和位置，例如 */home/startup.sh*。
 
 下次 App Service 重新開機時，它將會執行啟動腳本，並執行必要的設定步驟。 若要測試此設定是否正確發生，您可以使用 SSH 存取您的 App Service，然後從 Bash 提示字元自行執行啟動腳本。 您也可以檢查 App Service 記錄。 如需這些選項的詳細資訊，請參閱[記錄和偵錯工具](#logging-and-debugging-apps)。
 
 接下來，您將需要更新應用程式的 WildFly 設定，並重新部署它。 請使用下列步驟：
 
-1. 開啟應用程式的*src/main/resources/META-INF/持續性 .xml*檔案，並尋找`<jta-data-source>`元素。 取代其內容，如下所示：
+1. 開啟應用程式的*src/main/resources/META-INF/持續性 .xml*檔案，並尋找 @no__t 1 元素。 取代其內容，如下所示：
 
     **PostgreSQL**
 
@@ -657,7 +657,7 @@ Web 應用程式實例是無狀態的，因此每個啟動的新實例都必須�
 
 若要搭配使用 Tomcat 與 Redis，您必須將應用程式設定為使用[PersistentManager](http://tomcat.apache.org/tomcat-8.5-doc/config/manager.html)的執行。 下列步驟會使用[Pivotal 會話管理員來說明此程式： redis-store](https://github.com/pivotalsoftware/session-managers/tree/master/redis-store)作為範例。
 
-1. 開啟 Bash 終端機，並`export <variable>=<value>`使用來設定下列每個環境變數。
+1. 開啟 Bash 終端機，並使用 `export <variable>=<value>` 來設定下列每個環境變數。
 
     | 變數                 | 值                                                                      |
     |--------------------------|----------------------------------------------------------------------------|
@@ -710,7 +710,7 @@ Web 應用程式實例是無狀態的，因此每個啟動的新實例都必須�
 
 7. 流覽至 Redis 實例的 [ **Advanced settings** ] 區段，並將 [**僅允許透過 SSL 存取**] 設定為 [**否**]。 這可讓您的 App Service 實例透過 Azure 基礎結構與 Redis 快取進行通訊。
 
-8. 更新您`azure-webapp-maven-plugin`應用程式的*pom .xml*檔案中的設定，以參考您的 Redis 帳戶資訊。 此檔案會使用您先前設定的環境變數，將您的帳戶資訊保留在原始程式檔中。
+8. 更新您應用程式的*pom .xml*檔案中的 `azure-webapp-maven-plugin` 設定，以參考您的 Redis 帳戶資訊。 此檔案會使用您先前設定的環境變數，將您的帳戶資訊保留在原始程式檔中。
 
     如有必要，請將 `1.7.0` 變更為最新版的 [Maven 外掛程式 (適用於 Azure App Service)](/java/api/overview/azure/maven/azure-webapp-maven-plugin/readme)。
 

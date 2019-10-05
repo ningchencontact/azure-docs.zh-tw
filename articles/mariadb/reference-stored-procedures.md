@@ -1,19 +1,19 @@
 ---
-title: 適用於 MariaDB 的 Azure 資料庫預存程式
-description: 本文介紹適用於 MariaDB 的 Azure 資料庫特定的預存程式。
+title: 適用於 MariaDB 的 Azure 資料庫管理預存程式
+description: 瞭解適用於 MySQL 的 Azure 資料庫中的哪些預存程式有助於設定複寫中的資料、設定時區和終止查詢。
 author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 09/20/2019
-ms.openlocfilehash: d9daaf619a19c0f4e4a591d4bbb4925679fd1fcb
-ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
+ms.openlocfilehash: 0a33edeac735502964427ddc3b05076fb9fac969
+ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71174899"
+ms.lasthandoff: 10/05/2019
+ms.locfileid: "71973477"
 ---
-# <a name="azure-database-for-mariadb-stored-procedures"></a>適用於 MariaDB 的 Azure 資料庫預存程式
+# <a name="azure-database-for-mariadb-management-stored-procedures"></a>適用於 MariaDB 的 Azure 資料庫管理預存程式
 
 預存程式可在適用於 MariaDB 的 Azure 資料庫伺服器上使用，以協助管理您的適用于 mariadb 伺服器。 這包括管理伺服器的連線、查詢，以及設定資料複寫。  
 
@@ -39,9 +39,9 @@ ms.locfileid: "71174899"
 
 |**預存程序名稱**|**輸入參數**|**輸出參數**|**使用方式注意事項**|
 |-----|-----|-----|-----|
-|*mysql. az _kill*|processlist_id|N/A|相當於[`KILL CONNECTION`](https://dev.mysql.com/doc/refman/8.0/en/kill.html) command。 終止連接正在執行的任何語句之後，將會終止與所提供之 processlist_id 相關聯的連接。|
-|*mysql. az _kill_query*|processlist_id|N/A|相當於[`KILL QUERY`](https://dev.mysql.com/doc/refman/8.0/en/kill.html) command。 將會終止目前正在執行連接的語句。 讓連接本身保持運作。|
-|*mysql. az _load_timezone*|N/A|N/A|載入時區資料表以允許`time_zone`參數設定為已命名的值（例如 「美國/太平洋」）。|
+|*mysql. az _kill*|processlist_id|N/A|相當於[`KILL CONNECTION`](https://dev.mysql.com/doc/refman/8.0/en/kill.html)命令。 終止連接正在執行的任何語句之後，將會終止與所提供之 processlist_id 相關聯的連接。|
+|*mysql. az _kill_query*|processlist_id|N/A|相當於[`KILL QUERY`](https://dev.mysql.com/doc/refman/8.0/en/kill.html)命令。 將會終止目前正在執行連接的語句。 讓連接本身保持運作。|
+|*mysql. az _load_timezone*|N/A|N/A|載入時區資料表，以允許將 `time_zone` 參數設定為已命名的值（例如 「美國/太平洋」）。|
 
 ## <a name="next-steps"></a>後續步驟
 - 瞭解如何設定複寫[中的資料](howto-data-in-replication.md)
