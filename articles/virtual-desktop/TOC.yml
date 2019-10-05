@@ -54,7 +54,7 @@
       href: install-office-on-wvd-master-image.md
     - name: 設定 Windows 虛擬桌面的 GPU
       href: configure-vm-gpu.md
-    - name: 自動調整工作階段主機
+    - name: 動態調整工作階段主機
       href: set-up-scaling-script.md
     - name: 適用於 Windows 虛擬桌面使用者的自訂摘要
       href: customize-feed-for-virtual-desktop-users.md
@@ -84,7 +84,7 @@
   items:
     - name: 疑難排解概觀、意見反應和支援
       href: troubleshoot-set-up-overview.md
-    - name: 找出診斷功能的問題
+    - name: 識別並診斷問題
       href: diagnostics-role-service.md
     - name: 建立租用戶和主機集區
       href: troubleshoot-set-up-issues.md

@@ -191,6 +191,8 @@
       items:
         - name: 建立服務主體
           href: kubernetes-service-principal.md
+        - name: 使用受控識別 (預覽)
+          href: use-managed-identity.md
         - name: 叢集組態檔的限制存取
           href: control-kubeconfig-access.md
         - name: 透過網路原則保護 Pod 流量
