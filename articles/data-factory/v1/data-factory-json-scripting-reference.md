@@ -12,10 +12,10 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.openlocfilehash: 69218cedcd5d775fe6e499086663aa124f6bfe25
-ms.sourcegitcommit: 97605f3e7ff9b6f74e81f327edd19aefe79135d2
+ms.sourcegitcommit: 4d177e6d273bba8af03a00e8bb9fe51a447196d0
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/06/2019
+ms.lasthandoff: 10/04/2019
 ms.locfileid: "70736012"
 ---
 # <a name="azure-data-factory---json-scripting-reference"></a>Azure Data Factory - JSON 指令碼參考
@@ -87,7 +87,7 @@ ms.locfileid: "70736012"
 | --- | --- | --- |
 | name |活動的名稱。 指定名稱，代表活動設定要進行的動作<br/><ul><li>字元數目上限︰260</li><li>開頭必須為字母、數字或底線 (\_)</li><li>不允許使用下列字元：“.”、“+”、“?”、“/”、“<”、”>”、”*”、”%”、”&”、”:”、”\\”</li></ul> |是 |
 | description |說明活動用途的文字。 |否 |
-| Type |指定活動的類型。 如需了解不同類型的活動，請參閱[資料存放區](#data-stores)和[資料轉換活動](#data-transformation-activities)小節。 |是 |
+| 型別 |指定活動的類型。 如需了解不同類型的活動，請參閱[資料存放區](#data-stores)和[資料轉換活動](#data-transformation-activities)小節。 |是 |
 | inputs |活動所使用的輸入資料表<br/><br/>`// one input table`<br/>`"inputs":  [ { "name": "inputtable1"  } ],`<br/><br/>`// two input tables` <br/>`"inputs":  [ { "name": "inputtable1"  }, { "name": "inputtable2"  } ],` |對 HDInsightStreaming 和 SqlServerStoredProcedure 活動來說為非必要 <br/> <br/> 對所有其他活動來說為必要 |
 | outputs |活動所使用的輸出資料表。<br/><br/>`// one output table`<br/>`"outputs":  [ { "name": “outputtable1” } ],`<br/><br/>`//two output tables`<br/>`"outputs":  [ { "name": “outputtable1” }, { "name": “outputtable2” }  ],` |是 |
 | linkedServiceName |活動所使用的連結服務名稱。 <br/><br/>活動可能會要求您指定可連結至所需計算環境的連結服務。 |對於 HDInsight 活動、Azure Machine Learning 活動和預存程序活動而言為必要。 <br/><br/>否：所有其他 |
@@ -285,7 +285,7 @@ Azure Data Factory 中的資料集定義如下：
 | 屬性 | 描述 | 必要項 | 預設 |
 | --- | --- | --- | --- |
 | name | 資料集的名稱。 請參閱 [Azure Data Factory - 命名規則](data-factory-naming-rules.md) ，以了解命名規則。 |是 |NA |
-| Type | 資料集的類型。 指定 Azure Data Factory 支援的其中一種類型 (例如︰AzureBlob、AzureSqlTable)。 關於 Data Factory 支援的所有資料存放區和資料集類型，請參閱[資料存放區](#data-stores)一節。 |
+| 型別 | 資料集的類型。 指定 Azure Data Factory 支援的其中一種類型 (例如︰AzureBlob、AzureSqlTable)。 關於 Data Factory 支援的所有資料存放區和資料集類型，請參閱[資料存放區](#data-stores)一節。 |
 | structure | 資料集的結構描述。 它包含資料行、其類型等。 | 否 |NA |
 | typeProperties | 對應至所選類型的屬性。 關於支援的類型和其屬性，請參閱[資料存放區](#data-stores)一節。 |是 |NA |
 | external | 用來指定資料集是否由 Data Factory 管線明確產生的布林值旗標。 |否 |false |
@@ -297,7 +297,7 @@ Azure Data Factory 中的資料集定義如下：
 | 屬性 | 描述 | 必要項 |
 | --- | --- | --- |
 | name |資料行的名稱。 |是 |
-| Type |資料行的資料類型。  |否 |
+| 型別 |資料行的資料類型。  |否 |
 | culture |.NET 型文化特性是在已指定類型 (type) 且是 .NET 類型 `Datetime` 或 `Datetimeoffset` 時使用。 預設值為 `en-us`。 |否 |
 | format |格式字串是在已指定類型且是 .NET 類型 `Datetime` 或 `Datetimeoffset` 時使用。 |否 |
 
@@ -590,7 +590,7 @@ Azure 儲存體 SAS 連結服務可讓您使用共用存取簽章 (SAS)，將 Az
 
 | 屬性 | 描述 | 必要項 |
 |:--- |:--- |:--- |
-| Type | 類型屬性必須設定為：**AzureDataLakeStore** | 是 |
+| 型別 | 類型屬性必須設定為：**AzureDataLakeStore** | 是 |
 | dataLakeStoreUri | 指定有關 Azure Data Lake Store 帳戶的資訊。 它的格式如下：`https://[accountname].azuredatalakestore.net/webhdfs/v1` 或 `adl://[accountname].azuredatalakestore.net/`。 | 是 |
 | subscriptionId | Data Lake Store 所屬的 Azure 訂用帳戶識別碼。 | 接收 (Sink) 的必要項目 |
 | resourceGroupName | Data Lake Store 所屬的 Azure 資源群組名稱。 | 接收 (Sink) 的必要項目 |
@@ -1311,7 +1311,7 @@ Azure 儲存體 SAS 連結服務可讓您使用共用存取簽章 (SAS)，將 Az
 
 | 屬性 | 描述 | 必要項 |
 | -------- | ----------- | -------- |
-| Type | type 屬性必須設為 **AzureSearchIndex**。| 是 |
+| 型別 | type 屬性必須設為 **AzureSearchIndex**。| 是 |
 | IndexName | Azure 搜尋服務索引的名稱。 Data Factory 不會建立索引。 索引必須存在於 Azure 搜尋服務中。 | 是 |
 
 #### <a name="example"></a>範例
@@ -1398,7 +1398,7 @@ Azure 儲存體 SAS 連結服務可讓您使用共用存取簽章 (SAS)，將 Az
 
 | 屬性 | 描述 | 必要項 |
 |:--- |:--- |:--- |
-| Type |類型屬性必須設定為：**AzureStorage** |是 |
+| 型別 |類型屬性必須設定為：**AzureStorage** |是 |
 | connectionString |針對 connectionString 屬性指定連接到 Azure 儲存體所需的資訊。 |是 |
 
 **範例:**
@@ -1420,7 +1420,7 @@ Azure 儲存體 SAS 連結服務可讓您使用共用存取簽章 (SAS)，將 Az
 
 | 屬性 | 描述 | 必要項 |
 |:--- |:--- |:--- |
-| Type |類型屬性必須設定為：**AzureStorageSas** |是 |
+| 型別 |類型屬性必須設定為：**AzureStorageSas** |是 |
 | sasUri |指定 Azure 儲存體資源 (例如 Blob、容器或資料表) 的共用存取簽章 URI。 |是 |
 
 **範例:**
@@ -2452,7 +2452,7 @@ encryptedCredential | 加密的認證字串。 | string | 否
 
 | 屬性 | 描述 | 必要項 |
 | --- | --- | --- |
-| Type |type 屬性應設為：**OnPremisesSqlServer**。 |是 |
+| 型別 |type 屬性應設為：**OnPremisesSqlServer**。 |是 |
 | connectionString |指定使用 SQL 驗證或 Windows 驗證連接至內部部署 SQL Server 資料庫所需的 connectionString 資訊。 |是 |
 | gatewayName |Data Factory 服務應該用來連接到內部部署 SQL Server 資料庫的閘道器名稱。 |是 |
 | username |如果您使用「Windows 驗證」，請指定使用者名稱。 範例︰**domainname\\username**。 |否 |
@@ -3315,7 +3315,7 @@ encryptedCredential | 加密的認證字串。 | string | 否
 
 | 屬性 | 描述 | 必要項 |
 | --- | --- | --- |
-| Type |確保 type 屬性設為 **OnPremisesFileServer**。 |是 |
+| 型別 |確保 type 屬性設為 **OnPremisesFileServer**。 |是 |
 | host |指定想要複製之資料夾的根路徑。 字串中的特殊字元需使用逸出字元 ‘ \ ’。 如需範例，請參閱「範例連結服務和資料集定義」。 |是 |
 | userid |指定具有伺服器存取權之使用者的識別碼。 |否 (如果您選擇 encryptedCredential) |
 | password |指定使用者 (userid) 的密碼。 |否 (如果您選擇 encryptedCredential) |
@@ -3728,7 +3728,7 @@ auto-
 
 | 屬性 | 描述 | 必要項 |
 | --- | --- | --- |
-| Type |類型屬性必須設定為：**Hdfs** |是 |
+| 型別 |類型屬性必須設定為：**Hdfs** |是 |
 | url |到 HDFS 的 URL |是 |
 | authenticationType |匿名或 Windows。 <br><br> 若要對 HDFS 連接器使用 **Kerberos 驗證**，請參閱這一節據以設定您的內部部署環境。 |是 |
 | userName |Windows 驗證的使用者名稱。 |是 (適用於 Windows 驗證) |
@@ -3779,7 +3779,7 @@ auto-
 | 屬性 | 描述 | 必要項 |
 | --- | --- | --- |
 | folderPath |資料夾的路徑。 範例： `myfolder`<br/><br/>使用逸出字元 ‘ \ ’ 當做字串中的特殊字元。 例如︰若為 folder\subfolder，請指定 folder\\\\subfolder；若為 d:\samplefolder，請指定 d:\\\\samplefolder。<br/><br/>您可以結合此屬性與 **partitionBy**，讓資料夾路徑以配量開始/結束日期時間為基礎。 |是 |
-| fileName |如果您想要資料表參考資料夾中的特定檔案，請指定 **folderPath** 中的檔案名稱。 如果沒有為此屬性指定任何值，資料表會指向資料夾中的所有檔案。<br/><br/>若未指定輸出資料集的 fileName，所產生檔案的名稱是下列格式︰ <br/><br/>`Data.<Guid>.txt`（例如：Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt |否 |
+| fileName |如果您想要資料表參考資料夾中的特定檔案，請指定 **folderPath** 中的檔案名稱。 如果沒有為此屬性指定任何值，資料表會指向資料夾中的所有檔案。<br/><br/>若未指定輸出資料集的 fileName，所產生檔案的名稱是下列格式︰ <br/><br/>`Data.<Guid>.txt` （例如：Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt |否 |
 | partitionedBy |partitionedBy 可以用來指定時間序列資料的動態 folderPath 和 filename。 範例：folderPath 可針對每小時的資料進行參數化。 |否 |
 | format | 以下是支援的檔案類型：**TextFormat**、**JsonFormat**、**AvroFormat**、**OrcFormat**、**ParquetFormat**。 將格式下的 **type** 屬性設定為這些值其中之一。 如需詳細資訊，請參閱[文字格式](data-factory-supported-file-and-compression-formats.md#text-format)、[Json 格式](data-factory-supported-file-and-compression-formats.md#json-format)、[Avro 格式](data-factory-supported-file-and-compression-formats.md#avro-format)、[Orc 格式](data-factory-supported-file-and-compression-formats.md#orc-format)和 [Parquet 格式](data-factory-supported-file-and-compression-formats.md#parquet-format)章節。 <br><br> 如果您想要在以檔案為基礎的存放區之間**依原樣複製檔案** (二進位複本)，請在輸入和輸出資料集定義中略過格式區段。 |否 |
 | compression | 指定此資料的壓縮類型和層級。 支援的類型為：**GZip**、**Deflate**、**BZip2** 及 **ZipDeflate**。 支援的層級為：**Optimal** 和 **Fastest**。 如需詳細資訊，請參閱 [Azure Data Factory 中的檔案和壓縮格式](data-factory-supported-file-and-compression-formats.md#compression-support)。 |否 |
@@ -4593,7 +4593,7 @@ auto-
 
 | 屬性 | 描述 | 必要項 |
 | --- | --- | --- |
-| environmentUrl | 指定 Salesforce 執行個體的 URL。 <br><br> -預設值為 "HTTPs\/：/login.salesforce.com"。 <br> - 若要從沙箱複製資料，請指定「"https://test.salesforce.com"」。 <br> - 若要從自訂網域複製資料，舉例來說，請指定 "https://[網域].my.salesforce.com"。 |否 |
+| environmentUrl | 指定 Salesforce 執行個體的 URL。 <br><br> -預設值為 "HTTPs： \//login. salesforce .com"。 <br> - 若要從沙箱複製資料，請指定「"https://test.salesforce.com"」。 <br> - 若要從自訂網域複製資料，舉例來說，請指定 "https://[網域].my.salesforce.com"。 |否 |
 | username |指定使用者帳戶的使用者名稱。 |是 |
 | password |指定使用者帳戶的密碼。 |是 |
 | securityToken |指定使用者帳戶的安全性權杖。 如需如何重設/取得安全性權杖的指示，請參閱 [取得安全性權杖](https://help.salesforce.com/apex/HTViewHelpDoc?id=user_security_token.htm) 。 若要整體了解安全性權杖，請參閱[安全性和 API](https://developer.salesforce.com/docs/atlas.en-us.api.meta/api/sforce_api_concepts_security.htm)。 |是 |
@@ -4743,7 +4743,7 @@ auto-
 
 | 屬性 | 描述 | 必要項 |
 |:--- |:--- |:--- |
-| Type |資料集的類型。 必須設定為 **WebTable** |是 |
+| 型別 |資料集的類型。 必須設定為 **WebTable** |是 |
 | path |包含資料表之資源的相對 URL。 |資料分割 當路徑未指定時，則只會使用在連結服務定義中指定的 URL。 |
 | index |資源中資料表的索引。 如需如何取得 HTML 網頁中資料表索引的步驟，請參閱「取得 HTML 網頁中資料表的索引」一節。 |是 |
 
@@ -4836,7 +4836,7 @@ Azure Data Factory 服務可自動建立以 Windows/Linux 為基礎的隨選 HDI
 
 | 屬性 | 描述 | 必要項 |
 | --- | --- | --- |
-| Type |type 屬性應設為 **HDInsightOnDemand**。 |是 |
+| 型別 |type 屬性應設為 **HDInsightOnDemand**。 |是 |
 | clusterSize |叢集中的背景工作/資料節點數。 HDInsight 叢集會利用您為此屬性指定的 2 個前端節點以及背景工作節點數目來建立。 節點大小為具有 4 個核心的 Standard_D3，因此 4 個背景工作節點的叢集需要 24 個核心 (4\*4 = 16 個核心用於背景工作節點，加上 2\*4 = 8 個核心用於前端節點)。 如需 Standard_D3 層的詳細資料，請參閱[在 HDInsight 中建立 Linux 型 Hadoop 叢集](../../hdinsight/hdinsight-hadoop-provision-linux-clusters.md)。 |是 |
 | timetolive |隨選 HDInsight 叢集允許的閒置時間。 指定在活動執行完成後，如果叢集中沒有其他作用中的作業，隨選 HDInsight 叢集要保持運作多久。<br/><br/>例如，如果活動執行花費 6 分鐘，而 timetolive 設為 5 分鐘，叢集會在處理活動執行的 6 分鐘期間之後保持運作 5 分鐘。 如果 6 分鐘期間內執行了另一個活動執行，它便會由相同叢集來處理。<br/><br/>建立隨選 HDInsight 叢集是昂貴的作業 (可能需要一段時間)，因此請視需要使用這項設定，重複使用隨選 HDInsight 叢集以改善 Data Factory 的效能。<br/><br/>如果您將 timetolive 值設為 0，叢集會在處理活動執行後立即刪除。 另一方面，如果您設定較高的值，叢集可能會有不必要的閒置而導致高成本。 因此，請務必根據您的需求設定適當的值。<br/><br/>如果適當地設定 timetolive 屬性值，則多個管線可以共用相同的隨選 HDInsight 叢集執行個體 |是 |
 | 版本 |HDInsight 叢集的版本。 如需詳細資訊，請參閱 [Azure Data Factory 中支援的 HDInsight 版本](data-factory-compute-linked-services.md#supported-hdinsight-versions-in-azure-data-factory)。 |否 |
@@ -4874,7 +4874,7 @@ Azure Data Factory 服務可自動建立以 Windows/Linux 為基礎的隨選 HDI
 
 | 屬性 | 描述 | 必要項 |
 | --- | --- | --- |
-| Type |type 屬性應設為 **HDInsight**。 |是 |
+| 型別 |type 屬性應設為 **HDInsight**。 |是 |
 | clusterUri |HDInsight 叢集的 URI。 |是 |
 | username |指定要用來連接到現有 HDInsight 叢集的使用者名稱。 |是 |
 | password |指定使用者帳戶的密碼。 |是 |
@@ -4907,7 +4907,7 @@ Azure Data Factory 服務可自動建立以 Windows/Linux 為基礎的隨選 HDI
 
 | 屬性 | 描述 | 必要項 |
 | --- | --- | --- |
-| Type |type 屬性應設為 **AzureBatch**。 |是 |
+| 型別 |type 屬性應設為 **AzureBatch**。 |是 |
 | accountName |建立 Azure Batch 帳戶。 |是 |
 | accessKey |Azure Batch 帳戶的存取金鑰。 |是 |
 | poolName |虛擬機器的集區名稱。 |是 |
@@ -5006,7 +5006,7 @@ Azure Data Factory 服務可自動建立以 Windows/Linux 為基礎的隨選 HDI
 
 | 屬性 | 描述 | 必要項 |
 | --- | --- | --- |
-| Type |type 屬性應設為：**OnPremisesSqlServer**。 |是 |
+| 型別 |type 屬性應設為：**OnPremisesSqlServer**。 |是 |
 | connectionString |指定使用 SQL 驗證或 Windows 驗證連接至內部部署 SQL Server 資料庫所需的 connectionString 資訊。 |是 |
 | gatewayName |Data Factory 服務應該用來連接到內部部署 SQL Server 資料庫的閘道器名稱。 |是 |
 | username |如果您使用「Windows 驗證」，請指定使用者名稱。 範例︰**domainname\\username**。 |否 |
