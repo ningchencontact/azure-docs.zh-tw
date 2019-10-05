@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 09/03/2019
 ms.author: alkohli
 ms.localizationpriority: high
-ms.openlocfilehash: 528be96f95523089c78562814c292fb0f40849e1
-ms.sourcegitcommit: 49c4b9c797c09c92632d7cedfec0ac1cf783631b
+ms.openlocfilehash: b9d724a44a94ed13786391a235bb9967036f29dc
+ms.sourcegitcommit: e1b6a40a9c9341b33df384aa607ae359e4ab0f53
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/05/2019
-ms.locfileid: "70240248"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71338489"
 ---
 ::: zone target="docs"
 
@@ -32,7 +32,7 @@ ms.locfileid: "70240248"
 
 本教學課程說明如何連接 Azure 資料箱的纜線、加以連線並開啟。
 
-在本教學課程中，您了解如何：
+在本教學課程中，您會了解如何：
 
 > [!div class="checklist"]
 > * 連接資料箱的纜線
@@ -53,7 +53,7 @@ ms.locfileid: "70240248"
     - 連線至高速網路。 強烈建議您具有至少一個 10 GbE 的連線。 如果無法使用 10 GbE 連線，也可以使用 1 GbE 資料連結，但是複製速度會受到影響。 
 6. 您必須能夠進入放置資料箱所在的平坦表面。 如果您想要將裝置放在標準機架上，您的資料中心機架中需要有 7U 插槽。 您可以將裝置平放或垂直放置在機架中。
 7. 您已購買下列纜線，以將您的資料箱連線至主機電腦。
-    - 一或多條 10 GbE SFP+ Twinax 銅線或 SFP+ 光纖纜線 (搭配 DATA 1、DATA 2 網路介面使用)。 資料箱具有採用 PCI Express 3.0 網路介面的 Mellanox ConnectX®-3 Pro EN 雙連接埠 10GBASE-T 配接器，所以與這個介面相容的纜線應該有作用。 例如，CISCO SFP-H10GB-CU3M 10GBASE-CU TWINMAX SFP +3M 纜線已用於內部測試。 如需詳細資訊，請參閱 [Mellanox 中支援的纜線和交換器清單](https://www.mellanox.com/pdf/firmware/ConnectX3-FW-2_42_5000-release_notes.pdf)。
+    - 一或多條 10 GbE SFP+ Twinax 銅線或 SFP+ 光纖纜線 (搭配 DATA 1、DATA 2 網路介面使用)。 資料箱具有採用 PCI Express 3.0 網路介面的 Mellanox ConnectX®-3 Pro EN 雙連接埠 10GBASE-T 配接器，所以與這個介面相容的纜線應該有作用。 例如，CISCO SFP-H10GB-CU3M 10GBASE-CU TWINAX SFP +3M 纜線已用於內部測試。 如需詳細資訊，請參閱 [Mellanox 中支援的纜線和交換器清單](https://www.mellanox.com/pdf/firmware/ConnectX3-FW-2_42_5000-release_notes.pdf)。
     - 一條 RJ-45 CAT 6 網路線 (與 MGMT 網路介面搭配使用)
     - 一條 RJ-45 CAT 6A 或一條 RJ-45 CAT 6 網路線 (與 DATA 3 網路介面搭配使用，分別設定為 10 Gbps 或 1 Gbps)
 
