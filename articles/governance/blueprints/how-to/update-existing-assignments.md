@@ -1,18 +1,17 @@
 ---
 title: 如何從入口網站更新現有的指派
-description: 瞭解在 Azure 藍圖中, 從入口網站更新現有指派的機制。
+description: 瞭解在 Azure 藍圖中，從入口網站更新現有指派的機制。
 author: DCtheGeek
 ms.author: dacoulte
 ms.date: 10/25/2018
 ms.topic: conceptual
 ms.service: blueprints
-manager: carmonm
-ms.openlocfilehash: e5697d00c2b0a869667d74e93c3ccae593bf200b
-ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
+ms.openlocfilehash: bf1fdca5476f66249eb5b73bbcbf5913142eb0d3
+ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/03/2019
-ms.locfileid: "70231945"
+ms.lasthandoff: 10/06/2019
+ms.locfileid: "71978487"
 ---
 # <a name="how-to-update-an-existing-blueprint-assignment"></a>如何更新現有的藍圖指派
 
@@ -28,7 +27,7 @@ ms.locfileid: "70231945"
 
 1. 選取頁面左側的 [指派的藍圖]。
 
-1. 在藍圖清單中，以滑鼠左鍵按一下藍圖指派。 然後按一下 [**更新指派**] 按鈕, 或以滑鼠右鍵按一下藍圖指派, 然後選取 [**更新指派**]。
+1. 在藍圖清單中，以滑鼠左鍵按一下藍圖指派。 然後按一下 [**更新指派**] 按鈕，或以滑鼠右鍵按一下藍圖指派，然後選取 [**更新指派**]。
 
    ![更新現有的藍圖指派](../media/update-existing-assignments/update-assignment.png)
 

@@ -6,13 +6,12 @@ ms.author: dacoulte
 ms.date: 08/21/2019
 ms.topic: troubleshooting
 ms.service: resource-graph
-manager: carmonm
-ms.openlocfilehash: 4cd4d89f276770cba401d7941a975fad8e49c8cd
-ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
+ms.openlocfilehash: abf6d22f2010db9bff97c7a93354c1cf8e1e1644
+ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/15/2019
-ms.locfileid: "71000531"
+ms.lasthandoff: 10/06/2019
+ms.locfileid: "71976612"
 ---
 # <a name="troubleshoot-errors-using-azure-resource-graph"></a>使用 Azure Resource Graph 疑難排解錯誤
 
@@ -69,11 +68,11 @@ $response
 
 #### <a name="cause"></a>原因
 
-Azure Resource Graph REST API 僅支援`Content-Type` **application/json**的。 某些 REST 工具或代理程式預設為**text/純文字**，REST API 不支援。
+Azure Resource Graph REST API 僅支援**application/json**`Content-Type`。 某些 REST 工具或代理程式預設為**text/純文字**，REST API 不支援。
 
 #### <a name="resolution"></a>解析度
 
-驗證您用來查詢 Azure Resource Graph 的工具或代理程式是否已為`Content-Type` **application/json**設定 REST API 標頭。
+驗證您用來查詢 Azure Resource Graph 的工具或代理程式是否已為**application/json**設定 REST API 標頭 @no__t 0。
 ### <a name="rest-403"></a>案例：沒有清單中所有訂用帳戶的讀取權限
 
 #### <a name="issue"></a>問題

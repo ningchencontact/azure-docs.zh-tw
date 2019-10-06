@@ -1,50 +1,49 @@
 ---
 title: 取得資源變更
-description: 了解如何尋找資源已變更時，並取得一份變更的屬性。
+description: 瞭解如何在資源變更時尋找，並取得已變更屬性的清單。
 services: resource-graph
 author: DCtheGeek
 ms.author: dacoulte
 ms.date: 05/10/2019
 ms.topic: conceptual
 ms.service: resource-graph
-manager: carmonm
-ms.openlocfilehash: b6ef57a3f39c82be30d92aef72c1bbe03b653768
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 2027f56d44be14895a40550d78a79d9e9dda9d97
+ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66236513"
+ms.lasthandoff: 10/06/2019
+ms.locfileid: "71980306"
 ---
 # <a name="get-resource-changes"></a>取得資源變更
 
-取得變更過程的每日使用情況、 重新設定和甚至是重新部署的資源。
-變更可能來自個別或透過自動化程序。 大部分的變更是根據設計，但有時不。 過去 14 天的變更歷程記錄，使用 Azure 資源的圖表可讓您：
+資源會在每日使用、重新設定，甚至重新部署的過程中有所變更。
+變更可以來自個人或自動化程式。 大部分的變更都是根據設計，但有時不會。 在過去14天的變更歷程記錄中，Azure Resource Graph 可讓您：
 
 - 了解何時在 Azure Resource Manager 屬性上偵測到變更。
 - 查看該變更事件中有哪些屬性變更。
 
-變更偵測和詳細資料會有價值的下列範例案例：
+變更偵測和詳細資料對於下列範例案例很有用：
 
-- 在 事件管理，以了解_潛在_相關的變更。 查詢特定的時間範圍期間變更事件，並評估變更詳細資料。
-- 保留設定管理資料庫，又稱為 CMDB，最新狀態。 而不要重新整理所有資源和其完整的屬性集的排程頻率，只會取得變更的項目。
-- 了解哪些其他屬性可能已經變更，當資源變更合規性狀態。 這些額外的屬性評估可深入了解可能需要管理透過 Azure 原則定義其他屬性。
+- 在事件管理期間，瞭解_潛在_的相關變更。 在特定時間範圍內查詢變更事件，並評估變更詳細資料。
+- 將設定管理資料庫（稱為 CMDB）保持在最新狀態。 並不是以排程的頻率重新整理所有資源及其完整的屬性集，而是只會取得變更的內容。
+- 瞭解當資源變更合規性狀態時，其他哪些屬性可能已變更。 評估這些額外的屬性可提供其他可能需要透過 Azure 原則定義來管理的屬性的深入解析。
 
-本文說明如何收集此資訊，透過圖形資源的 SDK。 若要查看 Azure 入口網站中的這項資訊，請參閱 Azure 原則[修訂歷程記錄](../../policy/how-to/determine-non-compliance.md#change-history-preview)或 Azure 活動記錄檔[修訂歷程記錄](../../../azure-monitor/platform/activity-log-view.md#azure-portal)。
+本文說明如何透過 Resource Graph 的 SDK 收集這項資訊。 若要在 Azure 入口網站中查看這項資訊，請參閱 Azure 原則的[變更歷程記錄](../../policy/how-to/determine-non-compliance.md#change-history-preview)或 Azure 活動記錄[變更歷程記錄](../../../azure-monitor/platform/activity-log-view.md#azure-portal)。
 
 > [!NOTE]
-> 資源圖形中的變更詳細資料適用於資源管理員屬性。 追蹤虛擬機器內的變更，請參閱 Azure 自動化[變更追蹤](../../../automation/automation-change-tracking.md)或 「 Azure 原則[Vm 的客體設定](../../policy/concepts/guest-configuration.md)。
+> Resource Graph 中的變更詳細資料適用于 Resource Manager 屬性。 如需追蹤虛擬機器內部的變更，請參閱 Azure 自動化的[變更追蹤](../../../automation/automation-change-tracking.md)或 Azure 原則的[vm 來賓](../../policy/concepts/guest-configuration.md)設定。
 
 > [!IMPORTANT]
-> Azure 資源的圖形中的變更歷程記錄處於公開預覽狀態。
+> Azure Resource Graph 中的變更歷程記錄處於公開預覽狀態。
 
-## <a name="find-when-changes-were-detected"></a>尋找當偵測到變更
+## <a name="find-when-changes-were-detected"></a>尋找偵測到變更的時間
 
-查看變更內容的資源上的第一個步驟是尋找與該時段內的資源相關的變更事件。 這個步驟透過**resourceChanges** REST 端點。
+查看資源變更的第一個步驟，是在一段時間內尋找與該資源相關的變更事件。 此步驟是透過**resourceChanges** REST 端點完成。
 
 **ResourceChanges**端點需要要求主體中的兩個參數：
 
-- **resourceId**:要尋找的變更的 Azure 資源。
-- **間隔**:具有的屬性_開始_並_結束_日期，來檢查是否有變更的事件使用的時機**Zulu 時區 (Z)** 。
+- **resourceId**：要在其中尋找變更的 Azure 資源。
+- **間隔**：具有_開始_和_結束_日期的屬性，可供何時使用**祖魯時間區域（Z）** 檢查變更事件。
 
 要求本文範例：
 
@@ -58,7 +57,7 @@ ms.locfileid: "66236513"
 }
 ```
 
-使用上述的要求內文，REST API URI **resourceChanges**是：
+使用上述要求主體時， **resourceChanges**的 REST API URI 為：
 
 ```http
 POST https://management.azure.com/providers/Microsoft.ResourceGraph/resourceChanges?api-version=2018-09-01-preview
@@ -90,17 +89,17 @@ POST https://management.azure.com/providers/Microsoft.ResourceGraph/resourceChan
 }
 ```
 
-每個偵測到變更事件**resourceId**已**changeId**是重複該資源。 雖然**changeId**字串有時候可能包含其他屬性，它具有只保證是唯一的。 變更記錄包含時間的快照集的前後。
-變更事件發生在這個視窗在某個時間點的時間。
+**ResourceId**的每個偵測到的變更事件都有該資源獨有的**changeId** 。 雖然**changeId**字串有時可能會包含其他屬性，但它只保證是唯一的。 變更記錄包含建立快照集之前和之後的時間。
+變更事件發生在此時段的某個時間點。
 
-## <a name="see-what-properties-changed"></a>請參閱變更的屬性
+## <a name="see-what-properties-changed"></a>查看哪些屬性已變更
 
-具有**changeId**從**resourceChanges**端點**resourceChangeDetails** REST 端點，然後用來取得變更事件的細節。
+透過**resourceChanges**端點的**changeId** ，接著會使用**resourceChangeDetails** REST 端點來取得變更事件的詳細資訊。
 
 **ResourceChangeDetails**端點需要要求主體中的兩個參數：
 
-- **resourceId**:要尋找的變更的 Azure 資源。
-- **changeId**:唯一的變更事件**resourceId**從收集**resourceChanges**。
+- **resourceId**：要在其中尋找變更的 Azure 資源。
+- **changeId**：從**resourceChanges**收集的**resourceId**的唯一變更事件。
 
 要求本文範例：
 
@@ -111,7 +110,7 @@ POST https://management.azure.com/providers/Microsoft.ResourceGraph/resourceChan
 }
 ```
 
-使用上述的要求內文，REST API URI **resourceChangeDetails**是：
+使用上述要求主體時， **resourceChangeDetails**的 REST API URI 為：
 
 ```http
 POST https://management.azure.com/providers/Microsoft.ResourceGraph/resourceChangeDetails?api-version=2018-09-01-preview
@@ -219,12 +218,12 @@ POST https://management.azure.com/providers/Microsoft.ResourceGraph/resourceChan
 }
 ```
 
-**beforeSnapshot**並**afterSnapshot**每個提供擷取快照當時的時間和屬性在該時間。 在某個時間點，這些快照集之間發生的變更。 查看上述範例中，我們可以看到已變更之屬性的已**supportsHttpsTrafficOnly**。
+**beforeSnapshot**和**afterSnapshot**會分別提供快照集的建立時間，以及當時的屬性。 這項變更會發生在這些快照集之間的某個時間點。 查看上述範例，我們可以看到變更的屬性已**supportsHttpsTrafficOnly**。
 
-若要以程式設計的方式比較的結果，比較**內容**每個快照集來判斷差異的部分。 如果您比較整個快照集，**時間戳記**一律會顯示為儘管所預期的差異。
+若要以程式設計方式比較結果，請比較每個快照的**內容**部分，以判斷差異。 如果您比較整個快照集，則**時間戳記**一律會顯示為差異，而不是預期。
 
 ## <a name="next-steps"></a>後續步驟
 
-- 請參閱中的使用中的語言[入門查詢](../samples/starter.md)。
-- 在中使用進階，請參閱[進階查詢](../samples/advanced.md)。
-- 了解如何[探索資源](../concepts/explore-resources.md)。
+- 請參閱[入門查詢](../samples/starter.md)中使用的語言。
+- 請參閱 advanced[查詢](../samples/advanced.md)中的 advanced 使用。
+- 瞭解如何[探索資源](../concepts/explore-resources.md)。

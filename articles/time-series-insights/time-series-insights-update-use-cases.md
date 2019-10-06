@@ -10,12 +10,12 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 09/24/2019
 ms.custom: seodec18
-ms.openlocfilehash: f4eb1b69a1464cacaf666e49f4aff7422d63611d
-ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
+ms.openlocfilehash: 906cff017c3f80cb1bdd369453b18564d19eb492
+ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71264522"
+ms.lasthandoff: 10/06/2019
+ms.locfileid: "71981163"
 ---
 # <a name="azure-time-series-insights-preview-use-cases"></a>Azure 時間序列深入解析預覽版使用案例
 
@@ -38,7 +38,7 @@ Azure 時間序列深入解析是端對端的平臺即服務供應專案。 它�
 
 立即探索與分析數十億個事件，並找出異常行為及發掘資料背後隱藏的趨勢。 時間序列深入解析能為您的 IoT 和 DevOps 分析工作負載提供近乎即時的效能。
 
-[![資料瀏覽器](media/v2-update-use-cases/data-explorer.svg)](media/v2-update-use-cases/data-explorer.svg#lightbox)
+[@no__t 1Data explorer](media/v2-update-use-cases/data-explorer.svg)](media/v2-update-use-cases/data-explorer.svg#lightbox)
 
 大部分的客戶都同意取得深入解析所需的最短時間量是時間序列深入解析的最顯著功能之一：
 
@@ -56,11 +56,11 @@ Azure 時間序列深入解析是端對端的平臺即服務供應專案。 它�
 
 - 第二個方式是使用 JavaScript SDK 在 Web 應用程式中快速內嵌功能強大的圖表和圖形。 只需幾行程式碼，您就可以撰寫功能強大的查詢。 您可以使用它們來填入折線圖、圓形圖、橫條圖、熱度圖及資料格等等。 透過使用 SDK，所有這些元素都是立即可用。 SDK 還會擷取時間序列深入解析查詢 API。 您可以使用它們來撰寫類似 SQL 的述詞，以查詢要在儀表板上顯示的資料。 如需混合式展示層解決方案，時間序列深入解析會提供參數化的 URL。 它們提供與時間序列深入解析預覽版總管的無縫連接點，以深入探討資料。
 
-    * 如需深入瞭解 JavaScript SDK 的詳細資訊，請閱讀[時間序列深入解析 JS 用戶端程式庫](tutorial-explore-js-client-lib.md)和[時間序列深入解析用戶端](https://github.com/Microsoft/tsiclient)檔。
+    * 請參閱[時間序列深入解析 JS 用戶端程式庫](https://github.com/microsoft/tsiclient/blob/master/docs/API.md)和[時間序列深入解析用戶端](https://github.com/Microsoft/tsiclient)檔，以深入瞭解 JavaScript SDK。
 
     * 若要深入瞭解如何共用 Url 和新的 UI，請查看[Azure 時間序列深入解析 Preview explorer 中的視覺化資料](time-series-insights-update-explorer.md)。
 
-- 第三個方式是使用強大的 API 來查詢儲存在時間序列深入解析中的資料。 時間序列深入解析具有時態性運算子`from`，例如、 `first` `to`、和`last`。 它`average`具有匯總和轉換，例如、 `min`、 `max`、 `split by`、 `order by`和。 `DateHistogram` 它`has`也有篩選運算子，例如、 `in`、 `and`、 `or`、 `greater than`和。 `REGEX` 所有這些運算子使下游應用程式能夠快速尋找資料中的有趣趨勢和模式。 您可以使用它們來填入自產的視覺效果，以找出異常狀況。
+- 第三個方式是使用強大的 API 來查詢儲存在時間序列深入解析中的資料。 時間序列深入解析具有時態性運算子，例如 `from`、`to`、`first` 和 `last`。 它具有匯總和轉換，例如 `average`、`min`、`max`、`split by`、`order by` 和 `DateHistogram`。 它也有篩選運算子，例如 `has`、`in`、`and`、`or`、`greater than` 和 `REGEX`。 所有這些運算子使下游應用程式能夠快速尋找資料中的有趣趨勢和模式。 您可以使用它們來填入自產的視覺效果，以找出異常狀況。
 
 ## <a name="operational-analysis-and-driving-process-efficiency"></a>營運分析與推動流程效率
 
@@ -86,7 +86,7 @@ Azure 時間序列深入解析是端對端的平臺即服務供應專案。 它�
 
 與 Machine Learning 和 Azure Databricks 這類進階分析服務整合。 時間序列深入解析會輸入來自數百萬個裝置的未經處理資料。 它會加入可由 Azure 分析服務套件順暢使用的內容相關資料。
 
-[![分析](media/v2-update-use-cases/advanced-analytics.svg)](media/v2-update-use-cases/advanced-analytics.svg#lightbox)
+[![Analytics](media/v2-update-use-cases/advanced-analytics.svg)](media/v2-update-use-cases/advanced-analytics.svg#lightbox)
 
 進階分析和機器學習服務會取用並處理大量的資料。 這項資料用來制定資料導向決策，並執行預測性分析。 在 IoT 使用案例中，進階分析演算法會從來自數百萬個裝置所收集的資料中學習。 這些裝置每秒會傳輸多次資料。 從 IoT 裝置所收集的資料是未經處理的。 它缺少了內容相關資訊，例如裝置的位置和感應器讀取的單位。 因此，未經處理的資料很難直接供進階分析使用。
 

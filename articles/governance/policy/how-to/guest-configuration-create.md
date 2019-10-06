@@ -6,13 +6,12 @@ ms.author: dacoulte
 ms.date: 09/20/2019
 ms.topic: conceptual
 ms.service: azure-policy
-manager: carmonm
-ms.openlocfilehash: 8fd50ed571e42a1eb6673c56a61314d2adfe27f2
-ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
+ms.openlocfilehash: fcb65e75de730178901742dc36c72776e39b044b
+ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71172460"
+ms.lasthandoff: 10/06/2019
+ms.locfileid: "71977963"
 ---
 # <a name="how-to-create-guest-configuration-policies"></a>如何建立來賓設定原則
 
@@ -62,9 +61,9 @@ ms.locfileid: "71172460"
 
 ### <a name="requirements-for-guest-configuration-custom-resources"></a>來賓設定自訂資源的需求
 
-當來賓設定審核電腦時，它會先`Test-TargetResource`執行，以判斷它是否處於正確的狀態。 函數所傳回的布林值會決定來賓指派的 Azure Resource Manager 狀態是否應該符合規範。 如果布林值`$false`適用于設定中的任何資源，則提供者將會`Get-TargetResource`執行。 如果布林值為`$true` ， `Get-TargetResource`則不會呼叫。
+當來賓設定審核電腦時，它會先執行 `Test-TargetResource`，以判斷它是否處於正確的狀態。 函數所傳回的布林值會決定來賓指派的 Azure Resource Manager 狀態是否應該符合規範。 如果設定中的任何資源的布林值 `$false`，則提供者會 `Get-TargetResource` 執行。 如果布林值為 `$true`，則不會呼叫 `Get-TargetResource`。
 
-此函式具有 Windows Desired State Configuration 尚未需要之來賓設定的特殊需求。 `Get-TargetResource`
+函數 `Get-TargetResource` 對於 Windows Desired State Configuration 尚未需要的來賓設定具有特殊需求。
 
 - 傳回的雜湊表必須包含名為「**原因**」的屬性。
 - 原因屬性必須是陣列。
@@ -75,9 +74,9 @@ ms.locfileid: "71172460"
 服務應該會有屬性**代碼**和**片語**。 撰寫自訂資源時，請將您想要顯示的文字（通常是 stdout）設定為資源不符合 [**片語**] 值的原因。 程式**代碼**有特定的格式需求，因此報告可以清楚顯示用來執行 audit 的資源相關資訊。 此解決方案可讓來賓設定可擴充。 只要輸出可以被捕捉並當做 [**片語**] 屬性的字串值傳回，即可執行任何命令來審核電腦。
 
 - 程式**代碼**（字串）：資源的名稱，重複，再加上不含空格的簡短名稱作為原因的識別碼。 這三個值應該以冒號分隔，且不含空格。
-  - 例如，`registry:registry:keynotpresent`
+  - 範例會 `registry:registry:keynotpresent`
 - **片語**（字串）：人們可讀取的文字，以說明為何設定不符合規範。
-  - 例如，`The registry key $key is not present on the machine.`
+  - 範例會 `The registry key $key is not present on the machine.`
 
 ```powershell
 $reasons = @()
@@ -96,9 +95,9 @@ return @{
 
 ### <a name="custom-guest-configuration-configuration-on-linux"></a>Linux 上的自訂來賓設定設定
 
-Linux 上的「來賓設定」 DSC 設定會`ChefInSpecResource`使用資源為引擎提供[Chef InSpec](https://www.chef.io/inspec/)定義的名稱。 [**名稱**] 是唯一必要的資源屬性。
+Linux 上的「來賓設定」 DSC 設定會使用 `ChefInSpecResource` 資源，為引擎提供[Chef InSpec](https://www.chef.io/inspec/)定義的名稱。 [**名稱**] 是唯一必要的資源屬性。
 
-下列範例會建立名為**基準**的設定、匯入**GuestConfiguration**資源模組， `ChefInSpecResource`並使用資源將 InSpec 定義的名稱設定為**linux-patch-基準**：
+下列範例會建立名為**基準**的設定、匯入**GuestConfiguration**資源模組，並使用 `ChefInSpecResource` 資源將 InSpec 定義的名稱設定為**linux-patch-基準**：
 
 ```azurepowershell-interactive
 # Define the DSC configuration and import GuestConfiguration
@@ -122,7 +121,7 @@ baseline
 
 只有來賓設定代理程式會使用 Azure 原則來賓設定的 DSC 設定，它不會與 Windows PowerShell Desired State Configuration 衝突。
 
-下列範例會建立名為**AuditBitLocker**的設定、匯入**GuestConfiguration**資源模組， `Service`並使用資源來審查執行中的服務：
+下列範例會建立名為**AuditBitLocker**的設定、匯入**GuestConfiguration**資源模組，並使用 `Service` 資源來審核執行中的服務：
 
 ```azurepowershell-interactive
 # Define the DSC configuration and import GuestConfiguration
@@ -155,14 +154,14 @@ AuditBitLocker
   - 廠商具有 Chef InSpec 定義和其他內容的資料夾
   - 時段未內建的 DSC 資源模組
 
-`New-GuestConfigurationPackage` Cmdlet 會建立封裝。 下列格式是用來建立自訂套件：
+@No__t-0 Cmdlet 會建立封裝。 下列格式是用來建立自訂套件：
 
 ```azurepowershell-interactive
 New-GuestConfigurationPackage -Name '{PackageName}' -Configuration '{PathToMOF}' `
     -Path '{OutputFolder}' -Verbose
 ```
 
-`New-GuestConfigurationPackage` Cmdlet 的參數：
+@No__t-0 Cmdlet 的參數：
 
 - **名稱**：來賓設定套件名稱。
 - **設定**：已編譯的 DSC 設定檔完整路徑。
@@ -191,7 +190,7 @@ New-GuestConfigurationPackage -Name '{PackageName}' -Configuration '{PathToMOF}'
 
 1. 最後，在您的自訂資源內使用上述產生的用戶端識別碼，以使用機器提供的權杖來存取 Key Vault。
 
-   Key Vault `client_id`實例的和 url 可以當做[屬性](/powershell/dsc/resources/authoringresourcemof#creating-the-mof-schema)傳遞至資源，因此不需要更新多個環境的資源，或如果需要變更這些值。
+   Key Vault 實例的 `client_id` 和 url 可以當做[屬性](/powershell/dsc/resources/authoringresourcemof#creating-the-mof-schema)傳遞至資源，因此不需要更新多個環境的資源，或需要變更這些值。
 
 下列程式碼範例可用於自訂資源，以使用使用者指派的身分識別從 Key Vault 取出秘密。 從要求傳回到 Key Vault 的值是純文字。 最佳做法是將它儲存在 credential 物件中。
 
@@ -209,19 +208,19 @@ $credential = New-Object System.Management.Automation.PSCredential('secret',$val
 
 ## <a name="test-a-guest-configuration-package"></a>測試來賓設定套件
 
-建立設定套件之後，但在將它發佈至 Azure 之前，您可以從您的工作站或 CI/CD 環境測試套件的功能。 GuestConfiguration 模組包含一個 Cmdlet `Test-GuestConfigurationPackage` ，它會在您的開發環境中載入與 Azure 機器內部使用的相同代理程式。 使用此解決方案，您可以在發行至計費的測試/QA/生產環境之前，在本機執行整合測試。
+建立設定套件之後，但在將它發佈至 Azure 之前，您可以從您的工作站或 CI/CD 環境測試套件的功能。 GuestConfiguration 模組包含 Cmdlet `Test-GuestConfigurationPackage`，它會在您的開發環境中載入與 Azure 機器內部使用的相同代理程式。 使用此解決方案，您可以在發行至計費的測試/QA/生產環境之前，在本機執行整合測試。
 
 ```azurepowershell-interactive
 Test-GuestConfigurationPackage -Path .\package\AuditWindowsService\AuditWindowsService.zip -Verbose
 ```
 
-`Test-GuestConfigurationPackage` Cmdlet 的參數：
+@No__t-0 Cmdlet 的參數：
 
 - **名稱**：來賓設定原則名稱。
 - **參數**：以 hashtable 格式提供的原則參數。
 - **路徑**：來賓設定套件的完整路徑。
 
-此 Cmdlet 也支援來自 PowerShell 管線的輸入。 將`New-GuestConfigurationPackage` Cmdlet 的輸出傳送`Test-GuestConfigurationPackage`至 Cmdlet。
+此 Cmdlet 也支援來自 PowerShell 管線的輸入。 透過管道將 `New-GuestConfigurationPackage` Cmdlet 的輸出傳送至 `Test-GuestConfigurationPackage` Cmdlet。
 
 ```azurepowershell-interactive
 New-GuestConfigurationPackage -Name AuditWindowsService -Configuration .\DSCConfig\localhost.mof -Path .\package -Verbose | Test-GuestConfigurationPackage -Verbose
@@ -231,7 +230,7 @@ New-GuestConfigurationPackage -Name AuditWindowsService -Configuration .\DSCConf
 
 ## <a name="create-the-azure-policy-definition-and-initiative-deployment-files"></a>建立 Azure 原則定義和計畫部署檔案
 
-建立來賓設定自訂原則封裝並上傳至電腦可存取的位置之後，請建立 Azure 原則的來賓設定原則定義。 此`New-GuestConfigurationPolicy` Cmdlet 會使用可公開存取的來賓設定自訂原則套件，並建立**auditIfNotExists**和**deployIfNotExists**原則定義。 同時也會建立同時包含這兩個原則定義的原則計畫定義。
+建立來賓設定自訂原則封裝並上傳至電腦可存取的位置之後，請建立 Azure 原則的來賓設定原則定義。 @No__t-0 Cmdlet 會使用可公開存取的來賓設定自訂原則套件，並建立**auditIfNotExists**和**deployIfNotExists**原則定義。 同時也會建立同時包含這兩個原則定義的原則計畫定義。
 
 下列範例會從適用于 Windows 的來賓設定自訂原則套件，在指定的路徑中建立原則和計畫定義，並提供名稱、描述和版本：
 
@@ -246,7 +245,7 @@ New-GuestConfigurationPolicy
     -Verbose
 ```
 
-`New-GuestConfigurationPolicy` Cmdlet 的參數：
+@No__t-0 Cmdlet 的參數：
 
 - **ContentUri**：來賓設定內容套件的公用 HTTP （s） uri。
 - **DisplayName**：原則顯示名稱。
@@ -256,7 +255,7 @@ New-GuestConfigurationPolicy
 - **路徑**：建立原則定義的目的地路徑。
 - **平臺**：適用于來賓設定原則和內容套件的目標平臺（Windows/Linux）。
 
-下列檔案是由`New-GuestConfigurationPolicy`所建立：
+下列檔案是由 `New-GuestConfigurationPolicy` 所建立：
 
 - **auditIfNotExists json**
 - **deployIfNotExists json**
@@ -270,7 +269,7 @@ Cmdlet 輸出會傳回物件，其中包含原則檔的計畫顯示名稱和路�
 
 「來賓設定」支援在執行時間覆寫設定的屬性。 這項功能表示封裝中 MOF 檔案中的值不一定要被視為靜態。 覆寫值是透過 Azure 原則提供，而且不會影響撰寫或編譯設定的方式。
 
-Cmdlet `New-GuestConfigurationPolicy`和`Test-GuestConfigurationPolicyPackage`包含名為**Parameters**的參數。 這個參數會採用 hashtable 定義，包括每個參數的所有詳細資料，並自動建立用來建立每個 Azure 原則定義之檔案的所有必要區段。
+Cmdlet `New-GuestConfigurationPolicy`，`Test-GuestConfigurationPolicyPackage` 包含名為**Parameters**的參數。 這個參數會採用 hashtable 定義，包括每個參數的所有詳細資料，並自動建立用來建立每個 Azure 原則定義之檔案的所有必要區段。
 
 下列範例會建立 Azure 原則來審核服務，而使用者會在原則指派時從服務清單中選取。
 
@@ -339,14 +338,14 @@ Configuration FirewalldEnabled {
 
 ## <a name="publish-to-azure-policy"></a>發行至 Azure 原則
 
-**GuestConfiguration** resource 模組可讓您透過`Publish-GuestConfigurationPolicy` Cmdlet，在 Azure 中建立原則定義和計畫定義。
-Cmdlet 只有**Path**參數，它會指向所建立`New-GuestConfigurationPolicy`之三個 JSON 檔案的位置。
+**GuestConfiguration** resource 模組提供一種方法，可讓您在 Azure 中建立原則定義和計畫定義，其中一個步驟是透過 @no__t 1 Cmdlet。
+Cmdlet 只有**Path**參數，會指向 `New-GuestConfigurationPolicy` 所建立的三個 JSON 檔案的位置。
 
 ```azurepowershell-interactive
 Publish-GuestConfigurationPolicy -Path '.\policyDefinitions' -Verbose
 ```
 
-此`Publish-GuestConfigurationPolicy` Cmdlet 會接受來自 PowerShell 管線的路徑。 這項功能表示您可以建立原則檔案，並在一組輸送的命令中發佈它們。
+@No__t-0 Cmdlet 會接受來自 PowerShell 管線的路徑。 這項功能表示您可以建立原則檔案，並在一組輸送的命令中發佈它們。
 
 ```azurepowershell-interactive
 New-GuestConfigurationPolicy -ContentUri 'https://storageaccountname.blob.core.windows.net/packages/AuditBitLocker.zip?st=2019-07-01T00%3A00%3A00Z&se=2024-07-01T00%3A00%3A00Z&sp=rl&sv=2018-03-28&sr=b&sig=JdUf4nOCo8fvuflOoX%2FnGo4sXqVfP5BYXHzTl3%2BovJo%3D' -DisplayName 'Audit BitLocker service.' -Description 'Audit if the BitLocker service is not enabled on Windows machine.' -Path '.\policyDefinitions' -Platform 'Windows' -Version 1.2.3.4 -Verbose | ForEach-Object {$_.Path} | Publish-GuestConfigurationPolicy -Verbose
@@ -361,14 +360,14 @@ New-GuestConfigurationPolicy -ContentUri 'https://storageaccountname.blob.core.w
 
 當您使用自訂內容套件發佈自訂 Azure 原則之後，如果您想要發佈新的版本，則必須更新兩個欄位。
 
-- **版本**：當您執行`New-GuestConfigurationPolicy` Cmdlet 時，您必須指定大於目前發行的版本號碼。 屬性會更新新原則檔案中的來賓設定指派版本，讓擴充功能能夠辨識封裝已更新。
-- **contentHash**：`New-GuestConfigurationPolicy` Cmdlet 會自動更新此屬性。 這是所建立`New-GuestConfigurationPackage`之封裝的雜湊值。 屬性對於您發行的`.zip`檔案而言必須是正確的。 如果只更新**contentUri**屬性（例如，在有人可以從入口網站手動變更原則定義的情況下），延伸模組就不會接受內容套件。
+- **版本**：當您執行 `New-GuestConfigurationPolicy` Cmdlet 時，您必須指定大於目前發行的版本號碼。 屬性會更新新原則檔案中的來賓設定指派版本，讓擴充功能能夠辨識封裝已更新。
+- **contentHash**：這個屬性會由 `New-GuestConfigurationPolicy` Cmdlet 自動更新。 它是 `New-GuestConfigurationPackage` 所建立之封裝的雜湊值。 屬性對於您發行的 `.zip` 檔案必須是正確的。 如果只更新**contentUri**屬性（例如，在有人可以從入口網站手動變更原則定義的情況下），延伸模組就不會接受內容套件。
 
 釋放更新套件的最簡單方式是重複本文中所述的程式，並提供更新的版本號碼。 該進程可確保所有屬性都已正確更新。
 
 ## <a name="converting-windows-group-policy-content-to-azure-policy-guest-configuration"></a>將 Windows 群組原則內容轉換成 Azure 原則來賓設定
 
-「來賓設定」在「Windows 機器」執行時，是 PowerShell Desired State Configuration 語法的實施。 DSC 社區已發佈工具，可將匯出的群組原則範本轉換成 DSC 格式。 將此工具與上述的來賓設定 Cmdlet 搭配使用，您就可以轉換 Windows 群組原則內容，並將其封裝/發佈以供 Azure 原則進行審核。 如需使用此工具的詳細資訊，請[參閱快速入門：將群組原則轉換成](/powershell/dsc/quickstarts/gpo-quickstart)DSC。
+「來賓設定」在「Windows 機器」執行時，是 PowerShell Desired State Configuration 語法的實施。 DSC 社區已發佈工具，可將匯出的群組原則範本轉換成 DSC 格式。 將此工具與上述的來賓設定 Cmdlet 搭配使用，您就可以轉換 Windows 群組原則內容，並將其封裝/發佈以供 Azure 原則進行審核。 如需使用此工具的詳細資訊，請參閱 [Quickstart：將群組原則轉換為 DSC @ no__t-0。
 內容轉換後，上述步驟會建立套件，並將其發佈為 Azure 原則將與任何 DSC 內容相同。
 
 ## <a name="optional-signing-guest-configuration-packages"></a>選擇性：簽署來賓設定套件
@@ -378,21 +377,21 @@ New-GuestConfigurationPolicy -ContentUri 'https://storageaccountname.blob.core.w
 
 若要啟用此案例，您需要完成兩個步驟。 執行 Cmdlet 來簽署內容套件，並將標記附加至需要簽署程式碼的電腦上。
 
-若要使用簽章驗證功能，請`Protect-GuestConfigurationPackage`執行 Cmdlet 來簽署封裝，然後再發佈。 此 Cmdlet 需要「程式碼簽署」憑證。
+若要使用簽章驗證功能，請執行 `Protect-GuestConfigurationPackage` Cmdlet 來簽署套件，然後再發佈封裝。 此 Cmdlet 需要「程式碼簽署」憑證。
 
 ```azurepowershell-interactive
 $Cert = Get-ChildItem -Path cert:\LocalMachine\My | Where-Object {($_.Subject-eq "CN=mycert") }
 Protect-GuestConfigurationPackage -Path .\package\AuditWindowsService\AuditWindowsService.zip -Certificate $Cert -Verbose
 ```
 
-`Protect-GuestConfigurationPackage` Cmdlet 的參數：
+@No__t-0 Cmdlet 的參數：
 
 - **路徑**：來賓設定套件的完整路徑。
 - **憑證**：用來簽署封裝的程式碼簽署憑證。 只有在簽署 Windows 的內容時，才支援這個參數。
 - **PrivateGpgKeyPath**：私用 GPG 機碼路徑。 只有在簽署適用于 Linux 的內容時，才支援此參數。
 - **PublicGpgKeyPath**：公用 GPG 金鑰路徑。 只有在簽署適用于 Linux 的內容時，才支援此參數。
 
-GuestConfiguration 代理程式預期憑證公開金鑰會出現在 Windows 電腦上的「受信任的根憑證授權」中，以及`/usr/local/share/ca-certificates/extra` Linux 電腦上的路徑中。 若要讓節點驗證已簽署的內容，請先在電腦上安裝憑證公開金鑰，再套用自訂原則。 此程式可以使用 VM 內的任何技術來完成，或使用 Azure 原則。 [這裡提供](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-push-certificate-windows)範例範本。
+GuestConfiguration 代理程式預期憑證公開金鑰會出現在 Windows 電腦上的「受信任的根憑證授權」中，以及 Linux 電腦上 `/usr/local/share/ca-certificates/extra` 的路徑中。 若要讓節點驗證已簽署的內容，請先在電腦上安裝憑證公開金鑰，再套用自訂原則。 此程式可以使用 VM 內的任何技術來完成，或使用 Azure 原則。 [這裡提供](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-push-certificate-windows)範例範本。
 Key Vault 存取原則必須允許計算資源提供者在部署期間存取憑證。 如需詳細步驟，請參閱[在 Azure Resource Manager 中設定虛擬機器的 Key Vault](../../../virtual-machines/windows/key-vault-setup.md#use-templates-to-set-up-key-vault)。
 
 以下是從簽署憑證匯出公開金鑰以匯入到電腦的範例。
@@ -404,7 +403,7 @@ $Cert | Export-Certificate -FilePath "$env:temp\DscPublicKey.cer" -Force
 
 建立 GPG 金鑰以搭配 Linux 機器使用的良好參考，是由 GitHub 上的文章所提供，[產生新的 GPG 金鑰](https://help.github.com/en/articles/generating-a-new-gpg-key)。
 
-發佈內容之後，請將具有名稱`GuestConfigPolicyCertificateValidation`和值`enabled`的標籤，附加至需要程式碼簽署的所有虛擬機器。 您可以使用 Azure 原則，大規模地傳遞這個標記。 請參閱[Apply 標記及其預設值](../samples/apply-tag-default-value.md)範例。 一旦此標記已就緒，使用`New-GuestConfigurationPolicy` Cmdlet 產生的原則定義就會透過「來賓設定」延伸模組來啟用需求。
+發佈內容之後，將名稱為 `GuestConfigPolicyCertificateValidation` 的標籤和值 `enabled` 附加到需要程式碼簽署的所有虛擬機器。 您可以使用 Azure 原則，大規模地傳遞這個標記。 請參閱[Apply 標記及其預設值](../samples/apply-tag-default-value.md)範例。 一旦此標記備妥，使用 `New-GuestConfigurationPolicy` Cmdlet 產生的原則定義就會透過來賓設定延伸模組來啟用需求。
 
 ## <a name="preview-troubleshooting-guest-configuration-policy-assignments"></a>預覽針對來賓設定原則指派進行疑難排解
 

@@ -6,19 +6,18 @@ ms.author: dacoulte
 ms.date: 04/15/2019
 ms.topic: reference
 ms.service: blueprints
-manager: carmonm
-ms.openlocfilehash: dcf073c58a723b8dbd835ac331c0ce9d16187445
-ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
+ms.openlocfilehash: a3021e79ddfb808db64896d79bb163d42236b295
+ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/03/2019
-ms.locfileid: "70232864"
+ms.lasthandoff: 10/06/2019
+ms.locfileid: "71978391"
 ---
 # <a name="functions-for-use-with-azure-blueprints"></a>搭配 Azure 藍圖使用的函數
 
-Azure 藍圖提供讓藍圖定義更具動態功能的函式。 這些函式可與藍圖定義和藍圖成品搭配使用。 除了透過藍圖參數取得動態值之外, Resource Manager 範本成品也支援 Resource Manager 函數的完整使用。
+Azure 藍圖提供讓藍圖定義更具動態功能的函式。 這些函式可與藍圖定義和藍圖成品搭配使用。 除了透過藍圖參數取得動態值之外，Resource Manager 範本成品也支援 Resource Manager 函數的完整使用。
 
-支援下列功能:
+支援下列功能：
 
 - [artifacts](#artifacts)
 - [concat](#concat)
@@ -41,7 +40,7 @@ Azure 藍圖提供讓藍圖定義更具動態功能的函式。 這些函式可�
 
 ### <a name="return-value"></a>傳回值
 
-輸出屬性的物件。 **輸出**屬性取決於所參考的藍圖成品類型。 所有類型都遵循以下格式:
+輸出屬性的物件。 **輸出**屬性取決於所參考的藍圖成品類型。 所有類型都遵循以下格式：
 
 ```json
 {
@@ -63,7 +62,7 @@ Azure 藍圖提供讓藍圖定義更具動態功能的函式。 這些函式可�
 
 #### <a name="resource-manager-template-artifact"></a>Resource Manager 範本成品
 
-傳回之物件的**輸出**屬性會定義在 Resource Manager 範本內, 並由部署傳回。
+傳回之物件的**輸出**屬性會定義在 Resource Manager 範本內，並由部署傳回。
 
 #### <a name="role-assignment-artifact"></a>角色指派成品
 
@@ -79,7 +78,7 @@ Azure 藍圖提供讓藍圖定義更具動態功能的函式。 這些函式可�
 
 ### <a name="example"></a>範例
 
-具有識別碼_myTemplateArtifact_的 Resource Manager 範本成品, 其中包含下列範例輸出屬性:
+具有識別碼_myTemplateArtifact_的 Resource Manager 範本成品，其中包含下列範例輸出屬性：
 
 ```json
 {
@@ -105,14 +104,14 @@ Azure 藍圖提供讓藍圖定義更具動態功能的函式。 這些函式可�
 }
 ```
 
-從_myTemplateArtifact_範例中取出資料的一些範例包括:
+從_myTemplateArtifact_範例中取出資料的一些範例包括：
 
 | 運算式 | Type | 值 |
 |:---|:---|:---|
 |`[artifacts("myTemplateArtifact").outputs.myArray]` | Array | \["first", "second"\] |
 |`[artifacts("myTemplateArtifact").outputs.myArray[0]]` | string | 頭 |
 |`[artifacts("myTemplateArtifact").outputs.myString]` | string | 「我的字串值」 |
-|`[artifacts("myTemplateArtifact").outputs.myObject]` | 物件 | {"myproperty": "my value", "anotherProperty": true} |
+|`[artifacts("myTemplateArtifact").outputs.myObject]` | 物件 | {"myproperty"： "my value"，"anotherProperty"： true} |
 |`[artifacts("myTemplateArtifact").outputs.myObject.myProperty]` | string | "my value" |
 |`[artifacts("myTemplateArtifact").outputs.myObject.anotherProperty]` | Bool | 真 |
 
@@ -135,7 +134,7 @@ Azure 藍圖提供讓藍圖定義更具動態功能的函式。 這些函式可�
 
 ### <a name="remarks"></a>備註
 
-Azure 藍圖函式與 Azure Resource Manager 範本函式不同之處在于, 它只適用于字串。
+Azure 藍圖函式與 Azure Resource Manager 範本函式不同之處在于，它只適用于字串。
 
 ### <a name="example"></a>範例
 
@@ -159,11 +158,11 @@ Azure 藍圖函式與 Azure Resource Manager 範本函式不同之處在于, 它
 
 ### <a name="remarks"></a>備註
 
-Azure 藍圖函式與 Azure Resource Manager 範本函式不同之處在于, 它只適用于藍圖參數。
+Azure 藍圖函式與 Azure Resource Manager 範本函式不同之處在于，它只適用于藍圖參數。
 
 ### <a name="example"></a>範例
 
-在藍圖定義中定義參數_principalIds_ :
+在藍圖定義中定義參數_principalIds_ ：
 
 ```json
 {
@@ -185,7 +184,7 @@ Azure 藍圖函式與 Azure Resource Manager 範本函式不同之處在于, 它
 }
 ```
 
-然後使用_principalIds_作為藍圖成品`parameters()`中的引數:
+然後使用_principalIds_作為藍圖成品中 `parameters()` 的引數：
 
 ```json
 {
@@ -219,13 +218,13 @@ Azure 藍圖函式與 Azure Resource Manager 範本函式不同之處在于, 它
 
 ### <a name="remarks"></a>備註
 
-Azure 藍圖功能與 Azure Resource Manager 範本函式不同。 無法在訂用帳戶層級成品或藍圖定義中使用函數。`resourceGroup()` 它只能用於屬於資源群組成品一部分的藍圖成品。
+Azure 藍圖功能與 Azure Resource Manager 範本函式不同。 @No__t-0 函數不能用在訂用帳戶層級成品或藍圖定義中。 它只能用於屬於資源群組成品一部分的藍圖成品。
 
-`resourceGroup()`函數的常見用法是在與資源群組成品相同的位置中建立資源。
+@No__t-0 函式的常見用法是在與資源群組成品相同的位置中建立資源。
 
 ### <a name="example"></a>範例
 
-若要使用資源群組的位置, 請在藍圖定義或指派期間設定為另一個成品的位置, 並在藍圖定義中宣告資源群組預留位置物件。 在此範例中, _NetworkingPlaceholder_是資源群組預留位置的名稱。
+若要使用資源群組的位置，請在藍圖定義或指派期間設定為另一個成品的位置，並在藍圖定義中宣告資源群組預留位置物件。 在此範例中， _NetworkingPlaceholder_是資源群組預留位置的名稱。
 
 ```json
 {
@@ -241,7 +240,7 @@ Azure 藍圖功能與 Azure Resource Manager 範本函式不同。 無法在訂�
 }
 ```
 
-然後在以`resourceGroup()`資源群組預留位置物件為目標之藍圖成品的內容中使用函式。 在此範例中, 範本成品會部署至_NetworkingPlaceholder_資源群組, 並將_NetworkingPlaceholder_資源群組位置動態填入的參數_resourceLocation_提供給template. _NetworkingPlaceholder_資源群組的位置可能已在藍圖定義上以靜態方式定義, 或在指派期間以動態方式定義。 不論是哪一種情況, 範本成品都會以參數的形式提供, 並使用它將資源部署到正確的位置。
+然後在以資源群組預留位置物件為目標的藍圖成品內容中，使用 `resourceGroup()` 函數。 在此範例中，範本成品會部署至_NetworkingPlaceholder_資源群組，並將_NetworkingPlaceholder_資源群組位置動態填入的參數_resourceLocation_提供給template. _NetworkingPlaceholder_資源群組的位置可能已在藍圖定義上以靜態方式定義，或在指派期間以動態方式定義。 不論是哪一種情況，範本成品都會以參數的形式提供，並使用它將資源部署到正確的位置。
 
 ```json
 {
@@ -266,7 +265,7 @@ Azure 藍圖功能與 Azure Resource Manager 範本函式不同。 無法在訂�
 
 `resourceGroups(placeholderName)`
 
-傳回物件, 表示指定的資源群組成品。 不同`resourceGroup()`于需要成品內容的, 此函式是在不在該資源群組的內容中時, 用來取得特定資源群組預留位置的屬性。
+傳回物件，表示指定的資源群組成品。 不同于需要成品內容的 `resourceGroup()`，此函式是在不在該資源群組的內容中時，用來取得特定資源群組預留位置的屬性。
 
 ### <a name="parameters"></a>參數
 
@@ -287,7 +286,7 @@ Azure 藍圖功能與 Azure Resource Manager 範本函式不同。 無法在訂�
 
 ### <a name="example"></a>範例
 
-若要使用資源群組的位置, 請在藍圖定義或指派期間設定為另一個成品的位置, 並在藍圖定義中宣告資源群組預留位置物件。 在此範例中, _NetworkingPlaceholder_是資源群組預留位置的名稱。
+若要使用資源群組的位置，請在藍圖定義或指派期間設定為另一個成品的位置，並在藍圖定義中宣告資源群組預留位置物件。 在此範例中， _NetworkingPlaceholder_是資源群組預留位置的名稱。
 
 ```json
 {
@@ -303,7 +302,7 @@ Azure 藍圖功能與 Azure Resource Manager 範本函式不同。 無法在訂�
 }
 ```
 
-然後從任何`resourceGroups()`藍圖成品的內容使用函式, 以取得資源群組預留位置物件的參考。 在此範例中, 範本成品會部署在_NetworkingPlaceholder_資源群組之外, 並提供以_NetworkingPlaceholder_資源群組位置動態填入的參數_artifactLocation_至template. _NetworkingPlaceholder_資源群組的位置可能已在藍圖定義上以靜態方式定義, 或在指派期間以動態方式定義。 不論是哪一種情況, 範本成品都會以參數的形式提供, 並使用它將資源部署到正確的位置。
+然後，從任何藍圖成品的內容使用 `resourceGroups()` 函式，以取得資源群組預留位置物件的參考。 在此範例中，範本成品會部署在_NetworkingPlaceholder_資源群組之外，並提供以_NetworkingPlaceholder_資源群組位置動態填入的參數_artifactLocation_至template. _NetworkingPlaceholder_資源群組的位置可能已在藍圖定義上以靜態方式定義，或在指派期間以動態方式定義。 不論是哪一種情況，範本成品都會以參數的形式提供，並使用它將資源部署到正確的位置。
 
 ```json
 {
@@ -345,7 +344,7 @@ Azure 藍圖功能與 Azure Resource Manager 範本函式不同。 無法在訂�
 
 ### <a name="example"></a>範例
 
-使用訂用帳戶的顯示名稱和`concat()`函式, 來建立當做參數名稱傳遞至範本成品的命名慣例。
+使用訂用帳戶的 [顯示名稱] 和 [`concat()`] 函式，建立當做_參數名稱_傳遞至範本成品的命名慣例。
 
 ```json
 {

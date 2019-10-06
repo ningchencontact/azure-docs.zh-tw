@@ -7,13 +7,12 @@ ms.author: dacoulte
 ms.date: 09/05/2019
 ms.topic: conceptual
 ms.service: blueprints
-manager: carmonm
-ms.openlocfilehash: b5cf0cf5dc8a0964d981c5537b6fa41f1c6c2058
-ms.sourcegitcommit: fbea2708aab06c19524583f7fbdf35e73274f657
+ms.openlocfilehash: 2e810c810fd2c143f3d3e43a6ff1df87a150fa3b
+ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/13/2019
-ms.locfileid: "70968493"
+ms.lasthandoff: 10/06/2019
+ms.locfileid: "71981634"
 ---
 # <a name="deploy-the-canada-federal-pbmm-blueprint-samples"></a>部署加拿大聯邦 PBMM 藍圖範例
 
@@ -47,7 +46,7 @@ ms.locfileid: "70968493"
 
 ## <a name="publish-the-sample-copy"></a>發佈範例複本
 
-您的環境中現已建立了藍圖範例複本。 該複本會以**草稿**模式建立，而且必須先**發佈**，才能進行指派和部署。 藍圖範例的複本可以根據您的環境和需求進行自訂, 但該修改可能會將其從標準中移出。
+您的環境中現已建立了藍圖範例複本。 該複本會以**草稿**模式建立，而且必須先**發佈**，才能進行指派和部署。 藍圖範例的複本可以根據您的環境和需求進行自訂，但該修改可能會將其從標準中移出。
 
 1. 在左窗格中選取 [所有服務]，然後搜尋並選取 [原則]。 在 [原則] 頁面上，選取 [藍圖]。
 
@@ -98,10 +97,10 @@ ms.locfileid: "70968493"
 
 成品名稱|成品類型|參數名稱|描述|
 |-|-|-|-|
-|\[預覽\]：部署適用於 Linux VM 的 Log Analytics 代理程式 |原則指派 |Linux VM 的 Log Analytics 工作區 |如需詳細資訊, 請參閱在[Azure 入口網站中建立 Log Analytics 工作區](../../../../azure-monitor/learn/quick-create-workspace.md)。 |
-|\[預覽\]：部署適用於 Linux VM 的 Log Analytics 代理程式 |原則指派 |選擇性：要新增至範圍的 VM 映像清單，這些映像具有支援的 Linux OS |空陣列可以用來表示沒有選擇性參數：`[]` |
-|\[預覽\]：部署適用於 Windows VM 的 Log Analytics 代理程式 |原則指派 |選擇性：要新增至範圍的 VM 映像清單，這些映像具有支援的 Windows OS |空陣列可以用來表示沒有選擇性參數：`[]` |
-|\[預覽\]：部署適用於 Windows VM 的 Log Analytics 代理程式 |原則指派 |Windows VM 的 Log Analytics 工作區 |如需詳細資訊, 請參閱在[Azure 入口網站中建立 Log Analytics 工作區](../../../../azure-monitor/learn/quick-create-workspace.md)。 |
+|\[預覽\]：部署適用於 Linux VM 的 Log Analytics 代理程式 |原則指派 |Linux VM 的 Log Analytics 工作區 |如需詳細資訊，請參閱在[Azure 入口網站中建立 Log Analytics 工作區](../../../../azure-monitor/learn/quick-create-workspace.md)。 |
+|\[預覽\]：部署適用於 Linux VM 的 Log Analytics 代理程式 |原則指派 |選擇性：要新增至範圍的 VM 映像清單，這些映像具有支援的 Linux OS |空陣列可用來表示沒有選擇性參數： `[]` |
+|\[預覽\]：部署適用於 Windows VM 的 Log Analytics 代理程式 |原則指派 |選擇性：要新增至範圍的 VM 映像清單，這些映像具有支援的 Windows OS |空陣列可用來表示沒有選擇性參數： `[]` |
+|\[預覽\]：部署適用於 Windows VM 的 Log Analytics 代理程式 |原則指派 |Windows VM 的 Log Analytics 工作區 |如需詳細資訊，請參閱在[Azure 入口網站中建立 Log Analytics 工作區](../../../../azure-monitor/learn/quick-create-workspace.md)。 |
 |\[預覽\]：審核加拿大聯邦 PBMM 控制及部署特定的 VM 延伸模組，以支援審核需求 |原則指派 |應設定 VM 的 Log Analytics 工作區識別碼 |這是應設定 VM 的 Log Analytics 工作區識別碼 (GUID)。 |
 |\[預覽\]：審核加拿大聯邦 PBMM 控制及部署特定的 VM 延伸模組，以支援審核需求 |原則指派 |應啟用診斷記錄的資源類型清單 |如果未啟用診斷記錄設定，要審核的資源類型清單。 您可以在 [Azure 監視器診斷記錄結構描述](../../../../azure-monitor/platform/diagnostic-logs-schema.md#supported-log-categories-per-resource-type)中找到可用值。 |
 |\[預覽\]：審核加拿大聯邦 PBMM 控制及部署特定的 VM 延伸模組，以支援審核需求 |原則指派 |Administrators 群組 |小組. 範例： `Administrator; myUser1; myUser2` |
@@ -117,7 +116,7 @@ ms.locfileid: "70968493"
 既然您已複習部署加拿大聯邦 PBMM 範例的步驟，請流覽下列文章以瞭解總覽和控制項對應：
 
 > [!div class="nextstepaction"]
-> [加拿大聯邦 PBMM 藍圖-簡介](./index.md)
+> [加拿大聯邦 PBMM 藍圖-總覽](./index.md)
 > [加拿大聯邦 PBMM 藍圖-控制項對應](./control-mapping.md)
 
 有關藍圖及其使用方式的其他文件：

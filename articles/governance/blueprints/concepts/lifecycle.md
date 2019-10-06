@@ -6,13 +6,12 @@ ms.author: dacoulte
 ms.date: 07/30/2019
 ms.topic: conceptual
 ms.service: blueprints
-manager: carmonm
-ms.openlocfilehash: 6112f6f2834f02cec970af886360844c5314150d
-ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
+ms.openlocfilehash: 154e66366d4a687e60d7bddd28278414e3a4ccd7
+ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68678995"
+ms.lasthandoff: 10/06/2019
+ms.locfileid: "71981036"
 ---
 # <a name="understand-the-lifecycle-of-an-azure-blueprint"></a>了解 Azure 藍圖生命週期
 
@@ -68,11 +67,11 @@ ms.locfileid: "68678995"
 
 1. 在左側窗格中選取 [所有服務]。 搜尋並選取 [藍圖]。
 
-1. 從左邊的頁面選取 [**藍圖定義**], 然後使用篩選選項來找出您想要刪除其版本的藍圖。 按一下該藍圖以開啟編輯頁面。
+1. 從左邊的頁面選取 [**藍圖定義**]，然後使用篩選選項來找出您想要刪除其版本的藍圖。 按一下該藍圖以開啟編輯頁面。
 
 1. 按一下 [已發佈的版本] 索引標籤，然後找出您要刪除的版本。
 
-1. 以滑鼠右鍵按一下要刪除的版本, 然後選取 [**刪除此版本**]。
+1. 以滑鼠右鍵按一下要刪除的版本，然後選取 [**刪除此版本**]。
 
 ## <a name="deleting-the-blueprint"></a>刪除藍圖
 
@@ -101,14 +100,14 @@ ms.locfileid: "68678995"
 
 ### <a name="unassigning-assignments"></a>取消指派指派
 
-如果不再需要藍圖, 則可以從管理群組或訂用帳戶取消指派。 在藍圖解除期間, 會發生下列情況:
+如果不再需要藍圖，則可以從管理群組或訂用帳戶取消指派。 在藍圖解除期間，會發生下列情況：
 
 - 移除[藍圖資源鎖定](resource-locking.md)
 - 刪除藍圖指派物件
-- 條件如果使用**系統指派的受控識別**, 它也會一併刪除
+- 條件如果使用**系統指派的受控識別**，它也會一併刪除
 
 > [!NOTE]
-> 藍圖指派所部署的所有資源都會保留在原處, 但不再受 Azure 藍圖保護。
+> 藍圖指派所部署的所有資源都會保留在原處，但不再受 Azure 藍圖保護。
 
 ## <a name="next-steps"></a>後續步驟
 

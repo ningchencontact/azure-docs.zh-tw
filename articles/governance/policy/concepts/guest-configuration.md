@@ -6,13 +6,12 @@ ms.author: dacoulte
 ms.date: 09/20/2019
 ms.topic: conceptual
 ms.service: azure-policy
-manager: carmonm
-ms.openlocfilehash: 51129f89f45d65007f8a7f37df0353121ebdbdd8
-ms.sourcegitcommit: e1b6a40a9c9341b33df384aa607ae359e4ab0f53
+ms.openlocfilehash: ac8d4d2519ce918a943cfe1e93ed2c5c7afd9a47
+ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71338389"
+ms.lasthandoff: 10/06/2019
+ms.locfileid: "71978048"
 ---
 # <a name="understand-azure-policys-guest-configuration"></a>了解 Azure 原則的來賓設定
 
@@ -34,7 +33,7 @@ ms.locfileid: "71338389"
 
 ## <a name="register-guest-configuration-resource-provider"></a>註冊來賓設定資源提供者
 
-您必須先註冊資源提供者，才能使用「來賓設定」。 您可以透過入口網站或透過 PowerShell 註冊。 如果透過入口網站來指派來賓設定原則, 則會自動註冊資源提供者。
+您必須先註冊資源提供者，才能使用「來賓設定」。 您可以透過入口網站或透過 PowerShell 註冊。 如果透過入口網站來指派來賓設定原則，則會自動註冊資源提供者。
 
 ### <a name="registration---portal"></a>註冊 - 入口網站
 
@@ -87,7 +86,7 @@ Register-AzResourceProvider -ProviderNamespace 'Microsoft.GuestConfiguration'
 |Suse|SLES|12 SP3|
 
 > [!IMPORTANT]
-> 「來賓設定」可以審核執行受支援 OS 的節點。 如果您想要審核使用自訂映射的虛擬機器, 您需要複製**DeployIfNotExists**定義, 並修改**If**區段以包含您的映射屬性。
+> 「來賓設定」可以審核執行受支援 OS 的節點。 如果您想要審核使用自訂映射的虛擬機器，您需要複製**DeployIfNotExists**定義，並修改**If**區段以包含您的映射屬性。
 
 ### <a name="unsupported-client-types"></a>不支援的用戶端類型
 
@@ -97,7 +96,7 @@ Register-AzResourceProvider -ProviderNamespace 'Microsoft.GuestConfiguration'
 
 若要與 Azure 中的來賓設定資源提供者通訊，機器需要在埠**443**上對 Azure 資料中心進行輸出存取。 如果您使用 Azure 中不允許輸出流量的私人虛擬網路，請使用[網路安全性群組](../../../virtual-network/manage-network-security-group.md#create-a-security-rule)規則來設定例外狀況。 Azure 原則來賓設定目前不存在服務標籤。
 
-針對 [IP 位址清單], 您可以下載[Microsoft Azure 資料中心 IP 範圍](https://www.microsoft.com/download/details.aspx?id=41653)。 此檔案會每週更新，並具有目前已部署的範圍及任何即將進行的 IP 範圍變更。 您只需要允許對部署 Vm 的區域中的 Ip 進行輸出存取。
+針對 [IP 位址清單]，您可以下載[Microsoft Azure 資料中心 IP 範圍](https://www.microsoft.com/download/details.aspx?id=41653)。 此檔案會每週更新，並具有目前已部署的範圍及任何即將進行的 IP 範圍變更。 您只需要允許對部署 Vm 的區域中的 Ip 進行輸出存取。
 
 > [!NOTE]
 > Azure 資料中心 IP 位址 XML 檔會列出在 Microsoft Azure 資料中心使用的 IP 位址範圍。 此檔案包含計算、SQL 和儲存體範圍。 每週會公佈已更新的檔案。 檔案會反映目前已部署的範圍及任何即將進行的 IP 範圍變更。 出現在檔案中的新範圍至少有一週的時間不會在資料中心中使用。 最好是每週下載新的 XML 檔案。 接著，更新您的網站以便正確地識別在 Azure 中執行的服務。 Azure ExpressRoute 使用者應該注意到，在每個月的第一週，此檔案會用來更新 Azure 空間的邊界閘道協定 (BGP) 公告。
@@ -113,7 +112,7 @@ Register-AzResourceProvider -ProviderNamespace 'Microsoft.GuestConfiguration'
   - 安裝最新版的 **Microsoft.GuestConfiguration** 延伸模組
   - 安裝[驗證工具](#validation-tools)和相依性 (如有需要)
 
-如果**DeployIfNotExists**指派不符合規範, 則可以使用[補救](../how-to/remediate-resources.md#create-a-remediation-task)工作。
+如果**DeployIfNotExists**指派不符合規範，則可以使用[補救](../how-to/remediate-resources.md#create-a-remediation-task)工作。
 
 一旦**DeployIfNotExists**指派符合規範， **AuditIfNotExists**原則指派就會使用本機驗證工具來判斷設定指派是否符合規範。 驗證工具會將結果提供給「來賓設定」用戶端。 用戶端會將結果轉送至「來賓延伸模組」，以便透過「來賓設定」資源提供者提供結果。
 
@@ -122,7 +121,7 @@ Register-AzResourceProvider -ProviderNamespace 'Microsoft.GuestConfiguration'
 > [!NOTE]
 > **AuditIfNotExists**原則需要**DeployIfNotExists**原則才會傳回結果。 若沒有**DeployIfNotExists**， **AuditIfNotExists**原則會顯示 "0 of 0" 資源作為狀態。
 
-「來賓設定」的所有內建原則都包含在一個方案中，以聚集要在指派中使用的定義。 名為 *[預覽] 的內建計劃：Linux 和 Windows 機器*內的 Audit Password security 設定包含18個原則。 針對 Windows 有 6 組 **DeployIfNotExists** 和 **AuditIfNotExists**，針對 Linux 則有 3 組。 [原則定義](definition-structure.md#policy-rule)邏輯會驗證只會評估目標作業系統。
+「來賓設定」的所有內建原則都包含在一個方案中，以聚集要在指派中使用的定義。 名為 *[預覽] 的內建計劃：Linux 和 Windows 電腦中的 Audit Password security 設定 @ no__t-0 包含18個原則。 針對 Windows 有 6 組 **DeployIfNotExists** 和 **AuditIfNotExists**，針對 Linux 則有 3 組。 [原則定義](definition-structure.md#policy-rule)邏輯會驗證只會評估目標作業系統。
 
 ### <a name="multiple-assignments"></a>多個指派
 
@@ -135,17 +134,17 @@ Register-AzResourceProvider -ProviderNamespace 'Microsoft.GuestConfiguration'
 
 ## <a name="client-log-files"></a>用戶端記錄檔
 
-「來賓設定」延伸模組會將記錄檔寫入下列位置:
+「來賓設定」延伸模組會將記錄檔寫入下列位置：
 
 Windows：`C:\Packages\Plugins\Microsoft.GuestConfiguration.ConfigurationforWindows\<version>\dsc\logs\dsc.log`
 
 Linux：`/var/lib/waagent/Microsoft.GuestConfiguration.ConfigurationforLinux-<version>/GCAgent/logs/dsc.log`
 
-其中`<version>` , 是指目前的版本號碼。
+其中 `<version>` 指的是目前的版本號碼。
 
 ### <a name="collecting-logs-remotely"></a>從遠端收集記錄檔
 
-針對來賓設定設定或模組進行疑難排解的第一個步驟，應該是`Test-GuestConfigurationPackage`遵循[測試來賓設定套件](../how-to/guest-configuration-create.md#test-a-guest-configuration-package)中的步驟來使用 Cmdlet。
+針對來賓設定設定或模組進行疑難排解的第一個步驟，應該是遵循[測試來賓設定套件](../how-to/guest-configuration-create.md#test-a-guest-configuration-package)中的步驟來使用 `Test-GuestConfigurationPackage` Cmdlet。
 如果不成功，則收集用戶端記錄檔有助於診斷問題。
 
 #### <a name="windows"></a>Windows
@@ -172,14 +171,14 @@ egrep -B $linesToIncludeBeforeMatch -A $linesToIncludeAfterMatch 'DSCEngine|DSCM
 
 ## <a name="guest-configuration-samples"></a>來賓設定範例
 
-下列位置提供原則來賓設定的範例:
+下列位置提供原則來賓設定的範例：
 
 - [範例索引-來賓設定](../samples/index.md#guest-configuration)
 - [Azure 原則 GitHub 存放庫範例](https://github.com/Azure/azure-policy/tree/master/samples/GuestConfiguration)
 
 ## <a name="next-steps"></a>後續步驟
 
-- 如[Azure 原則範例](../samples/index.md), 請參閱範例。
+- 如[Azure 原則範例](../samples/index.md)，請參閱範例。
 - 檢閱 [Azure 原則定義結構](definition-structure.md)。
 - 檢閱[了解原則效果](effects.md)。
 - 瞭解如何以程式設計[方式建立原則](../how-to/programmatically-create.md)。

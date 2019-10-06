@@ -6,17 +6,16 @@ ms.author: dacoulte
 ms.date: 04/24/2019
 ms.topic: conceptual
 ms.service: blueprints
-manager: carmonm
-ms.openlocfilehash: 8d3cee73d8614c4aea2d2883cdcf2f049b1b8f67
-ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
+ms.openlocfilehash: 5c62fdb698dddf293d339904fd0c854052d636eb
+ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/03/2019
-ms.locfileid: "70232942"
+ms.lasthandoff: 10/06/2019
+ms.locfileid: "71981055"
 ---
 # <a name="understand-resource-locking-in-azure-blueprints"></a>了解 Azure 藍圖中的資源鎖定
 
-如果有一種機制可維護環境一致性，那麼大規模建立一貫化的環境才真正有用。 本文說明 Azure 藍圖中資源鎖定的運作方式。 若要查看資源鎖定和應用程式_拒絕指派_的範例, 請參閱[保護新的資源](../tutorials/protect-new-resources.md)教學課程。
+如果有一種機制可維護環境一致性，那麼大規模建立一貫化的環境才真正有用。 本文說明 Azure 藍圖中資源鎖定的運作方式。 若要查看資源鎖定和應用程式_拒絕指派_的範例，請參閱[保護新的資源](../tutorials/protect-new-resources.md)教學課程。
 
 ## <a name="locking-modes-and-states"></a>鎖定模式和狀態
 
@@ -53,20 +52,20 @@ ms.locfileid: "70232942"
 
 ![在資源群組上建立藍圖拒絕指派](../media/resource-locking/blueprint-deny-assignment.png)
 
-每個模式的[拒絕指派屬性](../../../role-based-access-control/deny-assignments.md#deny-assignment-properties)如下所示:
+每個模式的[拒絕指派屬性](../../../role-based-access-control/deny-assignments.md#deny-assignment-properties)如下所示：
 
 |模式 |Permissions.Actions |Permissions.NotActions |Principals[i].Type |ExcludePrincipals[i].Id | DoNotApplyToChildScopes |
 |-|-|-|-|-|-|
-|唯讀 |**\*** |**\*/read** |SystemDefined (每個人) |**excludedPrincipals**中的藍圖指派和使用者定義 |資源群組- _true_;資源- _false_ |
-|不刪除 |**\*/delete** | |SystemDefined (每個人) |**excludedPrincipals**中的藍圖指派和使用者定義 |資源群組- _true_;資源- _false_ |
+|唯讀 |**\*** |**\*/讀取** |SystemDefined （每個人） |**excludedPrincipals**中的藍圖指派和使用者定義 |資源群組- _true_;資源- _false_ |
+|不刪除 |**\*/delete** | |SystemDefined （每個人） |**excludedPrincipals**中的藍圖指派和使用者定義 |資源群組- _true_;資源- _false_ |
 
 > [!IMPORTANT]
 > Azure Resource Manager 最多可快取 30 分鐘的角色指派詳細資料。 因此，藍圖資源上拒絕指派的拒絕動作可能不會立即完全生效。 在這段時間內，有可能會刪除藍圖鎖定所要保護的資源。
 
 ## <a name="exclude-a-principal-from-a-deny-assignment"></a>從拒絕指派中排除主體
 
-在某些設計或安全性案例中, 可能需要從藍圖指派所建立的[拒絕指派](../../../role-based-access-control/deny-assignments.md)中排除主體。 這項作業會在 REST API 中完成, 方法是在[建立指派](/rest/api/blueprints/assignments/createorupdate)時, 將最多五個值新增至 [**鎖定**] 屬性中的**excludedPrincipals**陣列。
-這是包含**excludedPrincipals**的要求主體範例:
+在某些設計或安全性案例中，可能需要從藍圖指派所建立的[拒絕指派](../../../role-based-access-control/deny-assignments.md)中排除主體。 這項作業會在 REST API 中完成，方法是在[建立指派](/rest/api/blueprints/assignments/createorupdate)時，將最多五個值新增至 [**鎖定**] 屬性中的**excludedPrincipals**陣列。
+這是包含**excludedPrincipals**的要求主體範例：
 
 ```json
 {

@@ -6,13 +6,12 @@ ms.author: dacoulte
 ms.date: 09/17/2019
 ms.topic: conceptual
 ms.service: azure-policy
-manager: carmonm
-ms.openlocfilehash: 06a5ffbef2b841acc7ea7ecc82d05dfccbc0cab1
-ms.sourcegitcommit: b03516d245c90bca8ffac59eb1db522a098fb5e4
+ms.openlocfilehash: 991cfb54dc511c284c5f5d0cf1807d5dd42b34ea
+ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71147008"
+ms.lasthandoff: 10/06/2019
+ms.locfileid: "71978064"
 ---
 # <a name="understand-azure-policy-effects"></a>了解 Azure 原則效果
 
@@ -26,7 +25,7 @@ ms.locfileid: "71147008"
 - [拒絕](#deny)
 - [DeployIfNotExists](#deployifnotexists)
 - [Disabled](#disabled)
-- [EnforceRegoPolicy](#enforceregopolicy)預覽
+- [EnforceRegoPolicy](#enforceregopolicy) （預覽）
 - [編輯](#modify)
 
 ## <a name="order-of-evaluation"></a>評估順序
@@ -65,7 +64,7 @@ Append 效果只有一個 **details** 陣列且為必要。 由於 **details** �
 
 ### <a name="append-examples"></a>Append 範例
 
-範例 1：使用非 **[\*]** [別名](definition-structure.md#aliases)搭配具有陣列**值**的單一**欄位/值**組，以設定儲存體帳戶的 IP 規則。 當非 **[\*]** 別名是陣列時，效果會將 **value** 當做整個陣列來附加。 如果陣列已經存在，就會因為衝突而發生拒絕事件。
+範例 1：使用非 **[\*]** [別名](definition-structure.md#aliases)搭配具有陣列**值**的單一**欄位/值**組，以在儲存體帳戶上設定 IP 規則。 當非 **[\*]** 別名是陣列時，效果會將 **value** 當做整個陣列來附加。 如果陣列已經存在，就會因為衝突而發生拒絕事件。
 
 ```json
 "then": {
@@ -97,7 +96,7 @@ Append 效果只有一個 **details** 陣列且為必要。 由於 **details** �
 
 ## <a name="modify"></a>修改
 
-在建立或更新期間，會使用 Modify 來新增、更新或移除資源上的標記。 常見的範例是在資源（例如 costCenter）上更新標記。 修改原則應一律`mode`設定為 [_索引_]。 您可以使用[補救](../how-to/remediate-resources.md)工作來補救現有不符合規範的資源。
+在建立或更新期間，會使用 Modify 來新增、更新或移除資源上的標記。 常見的範例是在資源（例如 costCenter）上更新標記。 修改原則應一律將 `mode` 設定為 [_索引_]。 您可以使用[補救](../how-to/remediate-resources.md)工作來補救現有不符合規範的資源。
 單一修改規則可以有任意數目的作業。
 
 > [!IMPORTANT]
@@ -116,14 +115,14 @@ Append 效果只有一個 **details** 陣列且為必要。 由於 **details** �
 - **roleDefinitionIds** [必要]
   - 此屬性必須包含與訂用帳戶可存取之角色型存取控制角色識別碼相符的字串陣列。 如需詳細資訊，請參閱[補救 - 設定原則定義](../how-to/remediate-resources.md#configure-policy-definition)。
   - 定義的角色必須包括授與[參與者](../../../role-based-access-control/built-in-roles.md#contributor)角色的所有作業。
-- **作業**具備
+- **作業**[必要]
   - 要在比對資源上完成之所有標記作業的陣列。
   - 屬性：
-    - 作業具備
+    - 作業 **[必要**]
       - 定義要對相符資源採取的動作。 選項包括： _addOrReplace_、 _Add_、 _Remove_。 _新增_的行為類似于[附加](#append)效果。
-    - **欄位**具備
+    - **欄位**[必要]
       - 要加入、取代或移除的標記。 標記名稱必須遵守其他[欄位](./definition-structure.md#fields)的相同命名慣例。
-    - **值**選擇性
+    - **值**（選擇性）
       - 要設定標記的值。
       - 如果作業是_addOrReplace_或_Add_ **，就**需要這個屬性。
 
@@ -131,9 +130,9 @@ Append 效果只有一個 **details** 陣列且為必要。 由於 **details** �
 
 **Operations**屬性陣列可讓您從單一原則定義以不同的方式更改數個標記。 每項作業都是由 [作業]、[**欄位**] 和 [**值**] 屬性**所組成。** 作業會決定補救工作對標記執行的動作，欄位會決定要更改的標記，而值則會定義該標記的新設定。 以下範例會變更下列標記：
 
-- `environment`將標記設定為 "Test"，即使它已經存在且具有不同的值。
-- 移除標記`TempResource`。
-- 將標記設定為原則指派上設定的原則參數_DeptName。_ `Dept`
+- 將 `environment` 標記設定為 "Test"，即使它已經存在且具有不同的值。
+- 移除標記 `TempResource`。
+- 將 `Dept` 標記設定為原則指派上設定的原則參數_DeptName_ 。
 
 ```json
 "details": {
@@ -167,7 +166,7 @@ Append 效果只有一個 **details** 陣列且為必要。 由於 **details** �
 
 ### <a name="modify-examples"></a>修改範例
 
-範例 1：新增標記，並將現有`environment`標記取代為 "Test"： `environment`
+範例 1：新增 `environment` 標記，並將現有的 @no__t 1 標記取代為 "Test"：
 
 ```json
 "then": {
@@ -187,7 +186,7 @@ Append 效果只有一個 **details** 陣列且為必要。 由於 **details** �
 }
 ```
 
-範例 2：移除標記並`environment`新增標記，或以參數化`environment`的值取代現有標記： `env`
+範例 2：移除 `env` 標記，並加入 `environment` 標記，或使用參數化的值取代現有的 @no__t 2 標記：
 
 ```json
 "then": {
@@ -241,7 +240,7 @@ Audit 效果可用來在評估到不符合規範的資源時，在活動記錄�
 
 ### <a name="audit-evaluation"></a>Audit 評估
 
-Audit 是在建立或更新資源期間 Azure 原則所檢查的最後一個效果。 Azure 原則接著會將資源傳送至資源提供者。 Audit 對資源要求和評估週期的運作方式相同。 Azure 原則將作業`Microsoft.Authorization/policies/audit/action`新增至活動記錄檔，並將該資源標示為不符合規範。
+Audit 是在建立或更新資源期間 Azure 原則所檢查的最後一個效果。 Azure 原則接著會將資源傳送至資源提供者。 Audit 對資源要求和評估週期的運作方式相同。 Azure 原則會將 `Microsoft.Authorization/policies/audit/action` 作業新增至活動記錄，並將資源標示為不符合規範。
 
 ### <a name="audit-properties"></a>Audit 屬性
 
@@ -263,7 +262,7 @@ AuditIfNotExists 可讓您稽核符合下列條件的資源：符合 **if** 條�
 
 ### <a name="auditifnotexists-evaluation"></a>AuditIfNotExists 評估
 
-AuditIfNotExists 的執行順序是在「資源提供者」已處理建立或更新資源要求，並且已傳回成功狀態碼之後。 如果沒有任何相關資源，或 **ExistenceCondition** 所定義的資源未評估為 true，就會進行稽核。 Azure 原則會將`Microsoft.Authorization/policies/audit/action`作業新增至活動記錄，其方式與審核效果相同。 當觸發時，滿足 **if** 條件的資源會是標示為不符合規範的資源。
+AuditIfNotExists 的執行順序是在「資源提供者」已處理建立或更新資源要求，並且已傳回成功狀態碼之後。 如果沒有任何相關資源，或 **ExistenceCondition** 所定義的資源未評估為 true，就會進行稽核。 Azure 原則會將 `Microsoft.Authorization/policies/audit/action` 作業新增至活動記錄，其方式與審核效果相同。 當觸發時，滿足 **if** 條件的資源會是標示為不符合規範的資源。
 
 ### <a name="auditifnotexists-properties"></a>AuditIfNotExists 屬性
 
@@ -274,7 +273,7 @@ AuditIfNotExists 效果的 **details** 屬性含有定義所要比對相關資�
   - 如果**details. type**是在**if**條件資源下的資源類型，原則就會在評估的資源範圍內查詢此**類型**的資源。 否則，原則查詢會在與評估資源相同的資源群組內。
 - **Name** (選擇性)
   - 指定要比對的資源確切名稱，然後使原則擷取一個特定資源，而不是所指定類型的所有資源。
-  - **如果 if. field. type**和 **. details.** 類型相符，則**Name**會變成_必要_，而且必須是`[field('name')]`。 不過，應該改為考慮[審核](#audit)效果。
+  - **如果 if. field. type**和 **. details.** 類型相符，則會變成_必要_**名稱**，而且必須 `[field('name')]`。 不過，應該改為考慮[審核](#audit)效果。
 - **ResourceGroupName** (選擇性)
   - 允許比對來自不同資源群組的相關資源。
   - 如果 **type** 是一個會在 **if** 條件資源下的資源，則不適用。
@@ -345,7 +344,7 @@ DeployIfNotExists 效果的**details**屬性具有所有子屬性，可定義要
   - 從嘗試在 **if** 條件資源下擷取資源開始著手，然後在與 **if** 條件資源相同的資源群組內進行查詢。
 - **Name** (選擇性)
   - 指定要比對的資源確切名稱，然後使原則擷取一個特定資源，而不是所指定類型的所有資源。
-  - **如果 if. field. type**和 **. details.** 類型相符，則**Name**會變成_必要_，而且必須是`[field('name')]`。
+  - **如果 if. field. type**和 **. details.** 類型相符，則會變成_必要_**名稱**，而且必須 `[field('name')]`。
 - **ResourceGroupName** (選擇性)
   - 允許比對來自不同資源群組的相關資源。
   - 如果 **type** 是一個會在 **if** 條件資源下的資源，則不適用。
@@ -432,7 +431,7 @@ DeployIfNotExists 效果的**details**屬性具有所有子屬性，可定義要
 
 ## <a name="enforceregopolicy"></a>EnforceRegoPolicy
 
-此效果會與的原則定義*模式* `Microsoft.ContainerService.Data`搭配使用。 它可用來傳遞以[Rego](https://www.openpolicyagent.org/docs/how-do-i-write-policies.html#what-is-rego)定義的許可控制規則，以在[Azure Kubernetes Service](../../../aks/intro-kubernetes.md)上[開啟原則代理程式](https://www.openpolicyagent.org/)（OPA）。
+這項效果適用于原則定義*模式*`Microsoft.ContainerService.Data`。 它可用來傳遞以[Rego](https://www.openpolicyagent.org/docs/how-do-i-write-policies.html#what-is-rego)定義的許可控制規則，以在[Azure Kubernetes Service](../../../aks/intro-kubernetes.md)上[開啟原則代理程式](https://www.openpolicyagent.org/)（OPA）。
 
 > [!NOTE]
 > [適用于 Kubernetes 的 Azure 原則](rego-for-aks.md)處於公開預覽狀態，而且只支援內建原則定義。
@@ -446,11 +445,11 @@ DeployIfNotExists 效果的**details**屬性具有所有子屬性，可定義要
 
 EnforceRegoPolicy 效果的**details**屬性具有描述 Rego 許可控制規則的子屬性。
 
-- **policyId**具備
+- **policyId** [必要]
   - 當做參數傳遞至 Rego 許可控制規則的唯一名稱。
-- **原則**具備
+- **原則**[必要]
   - 指定 Rego 許可控制規則的 URI。
-- **policyParameters**選擇性
+- **policyParameters** [選用]
   - 定義要傳遞至 rego 原則的任何參數和值。
 
 ### <a name="enforceregopolicy-example"></a>EnforceRegoPolicy 範例
@@ -513,7 +512,7 @@ EnforceRegoPolicy 效果的**details**屬性具有描述 Rego 許可控制規則
 
 ## <a name="next-steps"></a>後續步驟
 
-- 如[Azure 原則範例](../samples/index.md), 請參閱範例。
+- 如[Azure 原則範例](../samples/index.md)，請參閱範例。
 - 檢閱 [Azure 原則定義結構](definition-structure.md)。
 - 瞭解如何以程式設計[方式建立原則](../how-to/programmatically-create.md)。
 - 瞭解如何[取得合規性資料](../how-to/getting-compliance-data.md)。

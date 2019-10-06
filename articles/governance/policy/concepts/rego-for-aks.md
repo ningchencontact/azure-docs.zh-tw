@@ -6,13 +6,12 @@ ms.author: dacoulte
 ms.date: 06/24/2019
 ms.topic: conceptual
 ms.service: azure-policy
-manager: carmonm
-ms.openlocfilehash: e16c40c6a4f3539aa286c4c2d0859459ca18a91c
-ms.sourcegitcommit: e1b6a40a9c9341b33df384aa607ae359e4ab0f53
+ms.openlocfilehash: 9af29495fca4c8197040a5556de0ea6966b3d68d
+ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71338373"
+ms.lasthandoff: 10/06/2019
+ms.locfileid: "71981434"
 ---
 # <a name="understand-azure-policy-for-azure-kubernetes-service"></a>瞭解 Azure Kubernetes Service 的 Azure 原則
 
@@ -218,7 +217,7 @@ Azure 原則附加元件是 Kubernetes 控制器/容器，會將記錄保留在 
 
 ## <a name="next-steps"></a>後續步驟
 
-- 如[Azure 原則範例](../samples/index.md), 請參閱範例。
+- 如[Azure 原則範例](../samples/index.md)，請參閱範例。
 - 檢閱[原則定義結構](definition-structure.md)。
 - 檢閱[了解原則效果](effects.md)。
 - 瞭解如何以程式設計[方式建立原則](../how-to/programmatically-create.md)。

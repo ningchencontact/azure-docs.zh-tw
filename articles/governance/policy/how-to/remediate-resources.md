@@ -6,13 +6,12 @@ ms.author: dacoulte
 ms.date: 09/09/2019
 ms.topic: conceptual
 ms.service: azure-policy
-manager: carmonm
-ms.openlocfilehash: d6ca7827200815cf9b9b1c7ac697d06f9c6b306d
-ms.sourcegitcommit: b03516d245c90bca8ffac59eb1db522a098fb5e4
+ms.openlocfilehash: 219a3c56f9e4e4c9e132fa759b017fac63ade766
+ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71147058"
+ms.lasthandoff: 10/06/2019
+ms.locfileid: "71977979"
 ---
 # <a name="remediate-non-compliant-resources-with-azure-policy"></a>補救不符合 Azure 原則規範的資源
 
@@ -161,7 +160,7 @@ if ($roleDefinitionIds.Count -gt 0)
 
 ### <a name="create-a-remediation-task-through-azure-cli"></a>透過 Azure CLI 建立補救工作
 
-若要建立具有 Azure CLI 的**補救**工作，請`az policy remediation`使用命令。 請`{subscriptionId}`以您的訂用`{myAssignmentId}`帳戶 ID 取代，並以您的**deployIfNotExists**或**修改**原則指派識別碼取代。
+若要建立具有 Azure CLI 的**補救**工作，請使用 `az policy remediation` 命令。 以您的訂用帳戶識別碼取代 `{subscriptionId}`，並使用您的**deployIfNotExists**或**修改**原則指派識別碼來 `{myAssignmentId}`。
 
 ```azurecli-interactive
 # Login first with az login if not using Cloud Shell
@@ -174,7 +173,7 @@ az policy remediation create --name myRemediation --policy-assignment '/subscrip
 
 ### <a name="create-a-remediation-task-through-azure-powershell"></a>透過 Azure PowerShell 建立補救工作
 
-若要建立具有 Azure PowerShell 的**補救**工作，請`Start-AzPolicyRemediation`使用命令。 請`{subscriptionId}`以您的訂用`{myAssignmentId}`帳戶 ID 取代，並以您的**deployIfNotExists**或**修改**原則指派識別碼取代。
+若要建立具有 Azure PowerShell 的**補救**工作，請使用 `Start-AzPolicyRemediation` 命令。 以您的訂用帳戶識別碼取代 `{subscriptionId}`，並使用您的**deployIfNotExists**或**修改**原則指派識別碼來 `{myAssignmentId}`。
 
 ```azurepowershell-interactive
 # Login first with Connect-AzAccount if not using Cloud Shell
@@ -187,7 +186,7 @@ Start-AzPolicyRemediation -Name 'myRemedation' -PolicyAssignmentId '/subscriptio
 
 ## <a name="next-steps"></a>後續步驟
 
-- 如[Azure 原則範例](../samples/index.md), 請參閱範例。
+- 如[Azure 原則範例](../samples/index.md)，請參閱範例。
 - 檢閱 [Azure 原則定義結構](../concepts/definition-structure.md)。
 - 檢閱[了解原則效果](../concepts/effects.md)。
 - 瞭解如何以程式設計[方式建立原則](programmatically-create.md)。

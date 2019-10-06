@@ -6,13 +6,12 @@ ms.author: dacoulte
 ms.date: 09/23/2019
 ms.topic: conceptual
 ms.service: azure-policy
-manager: carmonm
-ms.openlocfilehash: b24a0e9f3f557ea2ac425db7caeed63959d18dd8
-ms.sourcegitcommit: a19bee057c57cd2c2cd23126ac862bd8f89f50f5
+ms.openlocfilehash: 2aee31d3e874f709d5ec30ed4ddc0ba0445d4130
+ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71181401"
+ms.lasthandoff: 10/06/2019
+ms.locfileid: "71980752"
 ---
 # <a name="evaluate-the-impact-of-a-new-azure-policy"></a>評估新 Azure 原則的影響
 
@@ -38,7 +37,7 @@ Azure 原則是一種功能強大的工具，可讓您管理 Azure 資源以符�
 ## <a name="audit-existing-resources"></a>審核現有的資源
 
 在想要使用新的原則定義來管理新的或更新的資源之前，最好先查看它如何評估有限的現有資源子集，例如測試資源群組。 在您的原則指派上使用[強制模式](./assignment-structure.md#enforcement-mode)
-_停_用（DoNotEnforce），以防止觸發或建立活動記錄專案的[效果](./effects.md)。
+_已停_用（DoNotEnforce），以防止觸發或建立活動記錄專案的[效果](./effects.md)。
 
 此步驟讓您有機會評估現有資源上新原則的相容性結果，而不會影響工作流程。 檢查是否沒有符合規範的資源標示為不符合規範（_誤報_），而且所有您預期不相容的資源都會標示為正確。
 資源的初始子集如預期般驗證之後，就會慢慢地將評估擴展到所有現有的資源。

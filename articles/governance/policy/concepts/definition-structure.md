@@ -6,20 +6,19 @@ ms.author: dacoulte
 ms.date: 09/09/2019
 ms.topic: conceptual
 ms.service: azure-policy
-manager: carmonm
-ms.openlocfilehash: b2b38fe2d9a2bf4c645e5b1cda4b8fba356353d3
-ms.sourcegitcommit: a19bee057c57cd2c2cd23126ac862bd8f89f50f5
+ms.openlocfilehash: 27cf1539fc98b2ad7f1b82e194989c1619ab99fb
+ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71181197"
+ms.lasthandoff: 10/06/2019
+ms.locfileid: "71980699"
 ---
 # <a name="azure-policy-definition-structure"></a>Azure 原則定義結構
 
 「Azure 原則」會使用資源原則定義為資源建立慣例。 每個定義都會描述資源合規性，以及當資源不符合規範時應套用的效果。
 藉由定義慣例，您可以控制成本以及更輕鬆地管理您的資源。 例如，您可以指定僅允許特定類型的虛擬機器。 或者，您可以要求所有資源都有特定標籤。 原則會由所有子資源繼承。 如果將某個原則套用至資源群組，它會適用於該資源群組中的所有資源。
 
-Azure 原則所使用的結構描述位於此處：[https://docs.microsoft.com/azure/templates/microsoft.authorization/2019-01-01/policydefinitions](/azure/templates/microsoft.authorization/2019-01-01/policydefinitions)
+您可在這裡找到原則定義架構： [https://schema.management.azure.com/schemas/2019-06-01/policyDefinition.json](https://schema.management.azure.com/schemas/2019-06-01/policyDefinition.json)
 
 使用 JSON 來建立原則定義。 原則定義中包含以下的項目︰
 
@@ -84,7 +83,7 @@ Azure 原則所使用的結構描述位於此處：[https://docs.microsoft.com/a
 
 ### <a name="resource-provider-modes"></a>資源提供者模式
 
-目前唯一支援的資源提供者模式`Microsoft.ContainerService.Data` ，是用來管理[Azure Kubernetes Service](../../../aks/intro-kubernetes.md)上的許可控制站規則。
+目前唯一支援的資源提供者模式為 `Microsoft.ContainerService.Data`，用於管理[Azure Kubernetes Service](../../../aks/intro-kubernetes.md)上的「許可控制站」規則。
 
 > [!NOTE]
 > [適用于 Kubernetes 的 Azure 原則](rego-for-aks.md)處於公開預覽狀態，而且只支援內建原則定義。
@@ -247,7 +246,7 @@ Azure 原則所使用的結構描述位於此處：[https://docs.microsoft.com/a
 使用 **like** 和 **notLike** 條件時，您可以在值中提供 `*` 萬用字元。
 值不應包含多個 `*` 萬用字元。
 
-當使用**match**和**notMatch**條件時，請`#`提供來比對數位`?` 、針對字母， `.`以比對任何字元，以及任何其他字元以符合該實際字元。
+當使用**match**和**notMatch**條件時，請提供 `#` 來比對數位、`?` 表示字母、`.` 以比對任何字元，以及任何其他字元以符合該實際字元。
 **match** 和 **notMatch** 都會區分大小寫。 不會區分大小寫的替代項目，可在 **matchInsensitively** 和 **notMatchInsensitively** 中取得。 如需範例，請參閱[允許數個名稱模式](../samples/allow-multiple-name-patterns.md)。
 
 ### <a name="fields"></a>欄位
@@ -367,7 +366,7 @@ Azure 原則所使用的結構描述位於此處：[https://docs.microsoft.com/a
 }
 ```
 
-上述範例原則規則使用[substring （）](../../../azure-resource-manager/resource-group-template-functions-string.md#substring)來比較**名稱**的前三個字元和**abc**。 如果**名稱**少於3個字元， `substring()`函數會產生錯誤。 此錯誤會導致原則變成**拒絕**效果。
+上述範例原則規則使用[substring （）](../../../azure-resource-manager/resource-group-template-functions-string.md#substring)來比較**名稱**的前三個字元和**abc**。 如果**名稱**少於三個字元，則 @no__t 1 函式會導致錯誤。 此錯誤會導致原則變成**拒絕**效果。
 
 相反地，請使用[if （）](../../../azure-resource-manager/resource-group-template-functions-logical.md#if)函式來檢查**name**的前三個字元是否等於**abc** ，而不允許少於3個字元的**名稱**導致錯誤：
 
@@ -385,7 +384,7 @@ Azure 原則所使用的結構描述位於此處：[https://docs.microsoft.com/a
 }
 ```
 
-使用修改過的原則規則`if()` ，會先檢查**名稱**的長度，再`substring()`嘗試取得少於三個字元的值。 如果**名稱**太短，則會改為傳回值「不是以 abc 開頭」，並與**abc**比較。 簡短名稱不是**abc**開頭的資源仍會失敗原則規則，但在評估期間不會再造成錯誤。
+使用修改過的原則規則，`if()` 會先檢查**名稱**的長度，然後再嘗試取得少於三個字元的值 `substring()`。 如果**名稱**太短，則會改為傳回值「不是以 abc 開頭」，並與**abc**比較。 簡短名稱不是**abc**開頭的資源仍會失敗原則規則，但在評估期間不會再造成錯誤。
 
 ### <a name="effect"></a>效果
 
@@ -517,7 +516,7 @@ Azure 原則支援下列類型的效果：
 
 ' Normal ' 別名會將欄位表示為單一值。 此欄位適用于完全相符的比較案例，因為整個值集合必須完全依照定義，而不是更多或更少。
 
-**[\*]** 別名可讓您比較陣列中每個專案的值，以及每個元素的特定屬性。 這個方法可讓您比較「如果沒有 '、' （如果有的話）」和「if 所有」案例的元素屬性。 使用**ipRules [\*]** ，範例會驗證每個_動作_是否為「_拒絕_」，但不會擔心有多少規則存在或 IP_值_為何。 此範例規則會檢查是否有任何相符的**ipRules [\*]. value** to **10.0.4.1** ，而且只有在找不到至少一個相符專案時，才會套用**effectType** ：
+**[@No__t-1]** 別名可以與陣列中每個元素的值以及每個專案的特定屬性進行比較。 這個方法可讓您比較「如果沒有 '、' （如果有的話）」和「if 所有」案例的元素屬性。 使用**ipRules [\*]** ，範例會驗證每個_動作_是否為「_拒絕_」，但不會擔心有多少規則存在或 IP_值_為何。 此範例規則會檢查是否有任何相符的**ipRules [\*]. value** to **10.0.4.1** ，而且只有在找不到至少一個相符專案時，才會套用**effectType** ：
 
 ```json
 "policyRule": {
@@ -539,7 +538,7 @@ Azure 原則支援下列類型的效果：
 }
 ```
 
-如需詳細資訊，請參閱[評估\*[] 別名](../how-to/author-policies-for-arrays.md#evaluating-the--alias)。
+如需詳細資訊，請參閱[評估 [\*] 別名](../how-to/author-policies-for-arrays.md#evaluating-the--alias)。
 
 ## <a name="initiatives"></a>方案
 
@@ -621,7 +620,7 @@ Azure 原則支援下列類型的效果：
 
 ## <a name="next-steps"></a>後續步驟
 
-- 如[Azure 原則範例](../samples/index.md), 請參閱範例。
+- 如[Azure 原則範例](../samples/index.md)，請參閱範例。
 - 檢閱[了解原則效果](effects.md)。
 - 瞭解如何以程式設計[方式建立原則](../how-to/programmatically-create.md)。
 - 瞭解如何[取得合規性資料](../how-to/getting-compliance-data.md)。

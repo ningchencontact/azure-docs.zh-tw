@@ -6,17 +6,16 @@ ms.author: dacoulte
 ms.date: 02/01/2019
 ms.topic: conceptual
 ms.service: azure-policy
-manager: carmonm
-ms.openlocfilehash: d9aadc477c3f39cfbb108d2f3eece0c9e0b06264
-ms.sourcegitcommit: 6794fb51b58d2a7eb6475c9456d55eb1267f8d40
+ms.openlocfilehash: ff50619d7b3d5bc803e8ee8d9e4cbf4389a4191f
+ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70239150"
+ms.lasthandoff: 10/06/2019
+ms.locfileid: "71978092"
 ---
 # <a name="get-compliance-data-of-azure-resources"></a>取得 Azure 資源的相容性資料
 
-Azure 原則的其中一個最大優點，就是能夠針對訂用帳戶中的資源或訂用帳戶的[管理群組](../../management-groups/overview.md)，提供相關見解和控制權。 此控制權可運用在許多不同方面，例如防止在錯誤的位置建立資源、強制執行通用且一致的標記使用方式，或稽核現有的資源以取得適當的組態和設定。 在所有情況下, Azure 原則都會產生資料, 讓您瞭解環境的合規性狀態。
+Azure 原則的其中一個最大優點，就是能夠針對訂用帳戶中的資源或訂用帳戶的[管理群組](../../management-groups/overview.md)，提供相關見解和控制權。 此控制權可運用在許多不同方面，例如防止在錯誤的位置建立資源、強制執行通用且一致的標記使用方式，或稽核現有的資源以取得適當的組態和設定。 在所有情況下，Azure 原則都會產生資料，讓您瞭解環境的合規性狀態。
 
 有數種方式可存取原則和計畫指派所產生的合規性資訊：
 
@@ -26,11 +25,11 @@ Azure 原則的其中一個最大優點，就是能夠針對訂用帳戶中的�
 在查看這些報告合規性的方法之前，讓我們來看何時會更新合規性資訊，以及觸發評估週期的頻率和事件。
 
 > [!WARNING]
-> 如果合規性狀態報表為 [**未註冊**], 請確認**Microsoft.policyinsights**資源提供者已註冊, 且使用者擁有適當的角色型存取控制 (RBAC) 許可權, 如[中的 RBAC 中所述Azure 原則](../overview.md#rbac-permissions-in-azure-policy)。
+> 如果合規性狀態報表為 [**未註冊**]，請確認**Microsoft.policyinsights**資源提供者已註冊，且使用者擁有適當的角色型存取控制（RBAC）許可權，如[中的 RBAC 中所述Azure 原則](../overview.md#rbac-permissions-in-azure-policy)。
 
 ## <a name="evaluation-triggers"></a>評估觸發程序
 
-透過 `PolicyStates` 和 `PolicyEvents` 作業可在 `Microsoft.PolicyInsights`「資源提供者」中取得完成的評估週期結果。 如需 Azure 原則 Insights REST API 作業的詳細資訊, 請參閱[Azure 原則 Insights](/rest/api/policy-insights/)。
+透過 `PolicyStates` 和 `PolicyEvents` 作業可在 `Microsoft.PolicyInsights`「資源提供者」中取得完成的評估週期結果。 如需 Azure 原則 Insights REST API 作業的詳細資訊，請參閱[Azure 原則 Insights](/rest/api/policy-insights/)。
 
 下列各種事件都會導致評估指派的原則和計畫：
 
@@ -92,8 +91,8 @@ https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.
 | --- | --- | --- | --- |
 | 存在 | 拒絕、稽核、附加\*、DeployIfNotExist\*、AuditIfNotExist\* | 真 | 不相容 |
 | 存在 | 拒絕、稽核、附加\*、DeployIfNotExist\*、AuditIfNotExist\* | 偽 | 相容 |
-| 換一個 | 稽核、AuditIfNotExist\* | 真 | 不相容 |
-| 換一個 | 稽核、AuditIfNotExist\* | 偽 | 相容 |
+| 新增 | 稽核、AuditIfNotExist\* | 真 | 不相容 |
+| 新增 | 稽核、AuditIfNotExist\* | 偽 | 相容 |
 
 \* Append、DeployIfNotExist 和 AuditIfNotExist 效果需要 IF 陳述式為 TRUE。
 這些效果也需要存在條件為 FALSE，以呈現不符合規範。 若為 TRUE，IF 條件會觸發相關資源的存在條件評估。
@@ -142,11 +141,11 @@ Azure 入口網站示範視覺化並了解您環境中合規性狀態的圖形�
 
 <a name="change-history-preview"></a>
 
-當資源判斷為**不符合規範**時, 有許多可能的原因。 若要判斷資源不**符合規範**的原因, 或找出所需的變更, 請參閱[判斷不符合規範](./determine-non-compliance.md)。
+當資源判斷為**不符合規範**時，有許多可能的原因。 若要判斷資源不**符合規範**的原因，或找出所需的變更，請參閱[判斷不符合規範](./determine-non-compliance.md)。
 
 ## <a name="command-line"></a>命令列
 
-您可以使用 REST API (隨附於 [ARMClient](https://github.com/projectkudu/ARMClient)) 或 Azure PowerShell 來擷取入口網站中所提供的相同資訊。 如需 REST API 的完整詳細資料, 請參閱[Azure 原則 Insights](/rest/api/policy-insights/)參考。 REST API 參考頁面上有每個作業的 [試用] 綠色按鈕，可讓您直接在瀏覽器中試用。
+您可以使用 REST API (隨附於 [ARMClient](https://github.com/projectkudu/ARMClient)) 或 Azure PowerShell 來擷取入口網站中所提供的相同資訊。 如需 REST API 的完整詳細資料，請參閱[Azure 原則 Insights](/rest/api/policy-insights/)參考。 REST API 參考頁面上有每個作業的 [試用] 綠色按鈕，可讓您直接在瀏覽器中試用。
 
 若要在 Azure PowerShell 中使用下列範例，請透過此範例程式碼建構驗證權杖。 然後以字串取代範例中的 $restUri，以擷取稍後可供剖析的 JSON 物件。
 
@@ -175,7 +174,7 @@ $response
 
 ### <a name="summarize-results"></a>摘要結果
 
-使用 REST API 時，可以由容器、定義或指派來執行摘要。 以下是使用 Azure 原則深入解析[摘要的](/rest/api/policy-insights/policystates/summarizeforsubscription)訂用帳戶, 在訂用帳戶層級摘要的範例:
+使用 REST API 時，可以由容器、定義或指派來執行摘要。 以下是使用 Azure 原則深入解析[摘要的](/rest/api/policy-insights/policystates/summarizeforsubscription)訂用帳戶，在訂用帳戶層級摘要的範例：
 
 ```http
 POST https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.PolicyInsights/policyStates/latest/summarize?api-version=2018-04-04
@@ -285,7 +284,7 @@ https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.
 }
 ```
 
-如需查詢原則事件的詳細資訊, 請參閱[Azure 原則事件](/rest/api/policy-insights/policyevents)參考文章。
+如需查詢原則事件的詳細資訊，請參閱[Azure 原則事件](/rest/api/policy-insights/policyevents)參考文章。
 
 ### <a name="azure-powershell"></a>Azure PowerShell
 
@@ -413,14 +412,14 @@ Trent Baker
 
 ## <a name="azure-monitor-logs"></a>Azure 監視器記錄
 
-如果您的[Log Analytics 工作區](../../../log-analytics/log-analytics-overview.md)與`AzureActivity`您的訂用帳戶系結的[活動記錄分析解決方案](../../../azure-monitor/platform/activity-log-collect.md)有關, 您也可以`AzureActivity`使用簡單的 Kusto 查詢來查看評估週期中不符合規範的結果, 以及目錄. 有了「Azure 監視器」記錄中的詳細資料，您便可以設定警示來監看不符合規範的情況。
+如果您的[Log Analytics 工作區](../../../log-analytics/log-analytics-overview.md)從系結至訂用帳戶的[活動記錄分析解決方案](../../../azure-monitor/platform/activity-log-collect.md)中 `AzureActivity`，您也可以使用簡單的 Kusto 查詢和 @no__t 3 資料表，從評估週期中查看不符合規範的結果。 有了「Azure 監視器」記錄中的詳細資料，您便可以設定警示來監看不符合規範的情況。
 
 
 ![使用 Azure 監視器記錄 Azure 原則合規性](../media/getting-compliance-data/compliance-loganalytics.png)
 
 ## <a name="next-steps"></a>後續步驟
 
-- 如[Azure 原則範例](../samples/index.md), 請參閱範例。
+- 如[Azure 原則範例](../samples/index.md)，請參閱範例。
 - 檢閱 [Azure 原則定義結構](../concepts/definition-structure.md)。
 - 檢閱[了解原則效果](../concepts/effects.md)。
 - 瞭解如何以程式設計[方式建立原則](programmatically-create.md)。

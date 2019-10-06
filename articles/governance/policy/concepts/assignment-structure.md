@@ -6,21 +6,18 @@ ms.author: dacoulte
 ms.date: 09/23/2019
 ms.topic: conceptual
 ms.service: azure-policy
-manager: carmonm
-ms.openlocfilehash: a01cee2ba803a048e426507b57b96d0833743636
-ms.sourcegitcommit: a19bee057c57cd2c2cd23126ac862bd8f89f50f5
+ms.openlocfilehash: 5326e765701a42323ea62df8d35128c4117b2ed9
+ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71181375"
+ms.lasthandoff: 10/06/2019
+ms.locfileid: "71981425"
 ---
 # <a name="azure-policy-assignment-structure"></a>Azure 原則指派結構
 
 Azure 原則會使用原則指派，以定義原則或方案所要指派的資源。 原則指派可以在指派時決定該資源群組的參數值，讓您可以重複使用原則定義，以滿足相同的資源屬性，並具有不同的合規性需求。
 
-Azure 原則所使用的結構描述位於此處：[https://docs.microsoft.com/azure/templates/microsoft.authorization/2019-01-01/policyassignments](/azure/templates/microsoft.authorization/2019-01-01/policyassignments)
-
-您可以使用 JSON 來建立原則指派。 原則定義中包含以下的項目︰
+您可以使用 JSON 來建立原則指派。 原則指派包含的元素：
 
 - 顯示名稱
 - description
@@ -76,7 +73,7 @@ Azure 原則所使用的結構描述位於此處：[https://docs.microsoft.com/a
 ## <a name="policy-definition-id"></a>原則定義識別碼
 
 此欄位必須是原則定義或計畫定義的完整路徑名稱。
-`policyDefinitionId`是字串，而不是陣列。 如果經常同時指派多個原則，建議您改用[計畫](./definition-structure.md#initiatives)。
+`policyDefinitionId` 是字串，而不是陣列。 如果經常同時指派多個原則，建議您改用[計畫](./definition-structure.md#initiatives)。
 
 ## <a name="parameters"></a>參數
 
@@ -94,7 +91,7 @@ Azure 原則所使用的結構描述位於此處：[https://docs.microsoft.com/a
 }
 ```
 
-在此範例中，先前在原則定義中定義的參數`prefix`是`suffix`和。 此特定原則指派會`prefix`將設定為`suffix` **DeptA**和 **-LC**。 相同的原則定義可重複用於不同部門的一組不同參數，減少原則定義的重複程度和複雜度，同時提供彈性。
+在此範例中，先前在原則定義中定義的參數會 `prefix`，並 `suffix`。 此特定原則指派會將 `prefix` 設定為**DeptA** ，並 `suffix` 到 **-LC**。 相同的原則定義可重複用於不同部門的一組不同參數，減少原則定義的重複程度和複雜度，同時提供彈性。
 
 ## <a name="next-steps"></a>後續步驟
 

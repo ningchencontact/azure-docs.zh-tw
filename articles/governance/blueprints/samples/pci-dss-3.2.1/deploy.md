@@ -7,13 +7,12 @@ ms.author: dacoulte
 ms.date: 06/24/2019
 ms.topic: conceptual
 ms.service: blueprints
-manager: carmonm
-ms.openlocfilehash: 430cf7cde22cc8de337d33e1f083121503d084f5
-ms.sourcegitcommit: b7b0d9f25418b78e1ae562c525e7d7412fcc7ba0
+ms.openlocfilehash: f95f9a592085fd93fba5e6b11a1a75609eb70295
+ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/08/2019
-ms.locfileid: "70802350"
+ms.lasthandoff: 10/06/2019
+ms.locfileid: "71980931"
 ---
 # <a name="deploy-the-pci-dss-v321-blueprint-sample"></a>部署 PCI-DSS 3.2.1 藍圖範例
 
@@ -98,7 +97,7 @@ ms.locfileid: "70802350"
 
 |成品名稱|成品類型|參數名稱|描述|
 |-|-|-|-|
-|\[預覽\] Audit PCI v 3.2.1：2018控制及部署特定的 VM 擴充功能以支援 Audit 需求|原則指派|資源類型的清單 | 已選取資源類型的 Audit 診斷設定。 預設值為選取所有資源| 
+|\[Preview @ no__t-1 Audit PCI v 3.2.1：2018控制及部署特定的 VM 擴充功能以支援 Audit 需求|原則指派|資源類型的清單 | 已選取資源類型的 Audit 診斷設定。 預設值為選取所有資源| 
 |允許的位置|原則指派|允許的位置清單|允許部署到任何資源的資料中心位置清單。 這份清單可自訂為全球所需的 Azure 位置。 選取您想要允許的位置。| 
 |允許的資源群組位置|原則指派 |允許的位置 |此原則可讓您限制組織可在其中建立資源群組的位置。 它可用來強制執行地理合規性需求。| 
 |在 SQL 伺服器上部署稽核|原則指派|保留天數|資料保留（以天為單位）。 預設值為180，但 PCI 需要365。| 
@@ -109,8 +108,8 @@ ms.locfileid: "70802350"
 既然您已複習部署 PCI-DSS v5.2 藍圖範例的步驟，請流覽下列文章以瞭解總覽和控制項對應：
 
 > [!div class="nextstepaction"]
-> [Pci-dss 3.2.1 藍圖-總覽](./index.md)
->  [pci-dss 3.2.1 藍圖-控制項對應](./control-mapping.md)
+> [PCI-DSS 3.2.1 藍圖-總覽](./index.md)
+> [PCI-DSS v 3.2.1 藍圖-控制項對應](./control-mapping.md)
 
 有關藍圖及其使用方式的其他文件：
 

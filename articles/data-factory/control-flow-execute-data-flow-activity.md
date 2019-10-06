@@ -1,6 +1,6 @@
 ---
-title: 執行 Azure Data Factory 中的資料流活動 |Microsoft Docs
-description: 如何執行資料的流程從 data factory 管線中。
+title: Azure Data Factory 中的資料流程活動 |Microsoft Docs
+description: 如何從 data factory 管線內部執行資料流程。
 services: data-factory
 documentationcenter: ''
 author: kromerm
@@ -8,17 +8,18 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 02/22/2019
+ms.date: 10/07/2019
 ms.author: makromer
-ms.openlocfilehash: 24b27c16573a35b1d8749d7ff381fbef970f4bd0
-ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
+ms.openlocfilehash: 7db410e97046b6d251eb73e754e40eab09a2ee64
+ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/29/2019
-ms.locfileid: "67471664"
+ms.lasthandoff: 10/06/2019
+ms.locfileid: "71981754"
 ---
-# <a name="execute-data-flow-activity-in-azure-data-factory"></a>Azure Data Factory 中執行資料的流程活動
-用於執行資料流活動觸發的管線執行和管線偵錯 (sandbox) 執行中執行您的 ADF 資料流。
+# <a name="data-flow-activity-in-azure-data-factory"></a>Azure Data Factory 中的資料流程活動
+
+使用資料流程活動，透過對應資料流程來轉換和移動資料。 如果您不熟悉資料流程，請參閱[對應資料流程總覽](concepts-data-flow-overview.md)
 
 [!INCLUDE [notes](../../includes/data-factory-data-flow-preview.md)]
 
@@ -30,12 +31,19 @@ ms.locfileid: "67471664"
     "type": "ExecuteDataFlow",
     "typeProperties": {
       "dataflow": {
-         "referenceName": "dataflow1",
+         "referenceName": "MyDataFlow",
          "type": "DataFlowReference"
       },
-        "compute": {
-          "computeType": "General",
-          "coreCount": 8,
+      "staging": {
+          "linkedService": {
+              "referenceName": "MyStagingLinkedService",
+              "type": "LinkedServiceReference"
+          },
+          "folderPath": "my-container/my-folder"
+      },
+      "integrationRuntime": {
+          "referenceName": "MyDataFlowIntegrationRuntime",
+          "type": "IntegrationRuntimeReference"
       }
 }
 
@@ -43,57 +51,59 @@ ms.locfileid: "67471664"
 
 ## <a name="type-properties"></a>類型屬性
 
-* ```dataflow``` 是您想要執行的資料流量實體的名稱
-* ```compute``` 描述的 Spark 執行環境
-* ```coreCount``` 若要指派給此活動執行，在資料流程的核心數目
+屬性 | 描述 | 允許的值 | 必要項
+-------- | ----------- | -------------- | --------
+資料流程 | 正在執行之資料流程的參考 | DataFlowReference | 是
+integrationRuntime | 資料流程執行所在的計算環境 | IntegrationRuntimeReference | 是
+暫存。 linkedService | 如果您使用的是 SQL DW 來源或接收，用於 PolyBase 暫存的儲存體帳戶 | LinkedServiceReference | 只有在資料流程讀取或寫入至 SQL DW 時
+暫存。 folderPath | 如果您使用的是 SQL DW 來源或接收，則為用於 PolyBase 暫存的 blob 儲存體帳戶中的資料夾路徑 | String | 只有在資料流程讀取或寫入至 SQL DW 時
 
-![執行資料流程](media/data-flow/activity-data-flow.png "執行資料流程")
+![執行資料流程](media/data-flow/activity-data-flow.png "執行")資料流程
 
-### <a name="debugging-pipelines-with-data-flows"></a>偵錯資料流程管線
+### <a name="data-flow-integration-runtime"></a>資料流程整合執行時間
 
-![偵錯 按鈕](media/data-flow/debugbutton.png "偵錯 按鈕")
+選擇要用於資料流程活動執行的 Integration Runtime。 根據預設，Data Factory 將會使用具有四個背景工作角色核心且沒有存留時間（TTL）的「自動解析」 Azure Integration runtime。 此 IR 具有一般目的計算類型，並會在與您的處理站相同的區域中執行。 您可以建立自己的 Azure 整合執行時間，以定義您的資料流程活動執行的特定區域、計算類型、核心計數和 TTL。
 
-利用適用於以互動方式執行管線偵錯版中測試您的資料流的 warmed 的叢集，使用資料流程偵錯。 您可以使用管線進行偵錯的選項來測試管線中的資料流程。
+就管線執行而言，叢集是一種作業叢集，需要幾分鐘的時間才能開始執行。 如果未指定 TTL，每次執行管線時都需要此啟動時間。 如果您指定 TTL，暖叢集集區會在最後一次執行後指定的時間保持作用中狀態，因而縮短啟動時間。 例如，如果您有60分鐘的 TTL，並每隔一小時執行一次資料流程，叢集集區就會保持作用中狀態。 如需詳細資訊，請參閱[Azure 整合運行](concepts-integration-runtime.md)時間。
 
-### <a name="run-on"></a>執行位置
-
-這是必要的欄位定義要用於您的 資料流程的活動執行的整合執行階段。 根據預設，Data Factory 會使用預設的自動解決 Azure 整合執行階段。 不過，您可以建立您的 Azure 整合執行階段定義特定區域，您的資料流活動執行的計算類型、 核心計數和 TTL。
-
-Data Flow 執行的預設值是 8 核心的一般計算，當 TTL 為 60 分鐘的時間。
-
-選擇在資料流程的此執行的計算環境。 預設值是 Azure 自動解析預設整合執行階段。 這項選擇會在相同的區域，為您的 data factory 中的 Spark 環境上執行資料流程的資料。 計算類型會是作業的叢集，這表示計算環境將會需要幾分鐘時間來啟動。
-
-您的資料流活動的 Spark 執行環境的控制權。 在  [Azure 整合執行階段](concepts-integration-runtime.md)是設定來設定的計算類型 （一般用途、 記憶體最佳化，並計算最佳化），背景工作角色核心數目和存留時間以符合與您的資料流計算的執行引擎需求。 此外，設定 TTL 可讓您維護暖立即可供工作執行的叢集。
-
-![Azure 整合執行階段](media/data-flow/ir-new.png "Azure 整合執行階段")
+![Azure Integration Runtime](media/data-flow/ir-new.png "Azure Integration Runtime")
 
 > [!NOTE]
-> 將資料流程的活動中的整合執行階段選取項目僅適用於*觸發執行*的管線。 使用偵錯，偵錯資料流程管線，將針對 8 核心預設的 Spark 叢集中執行。
+> [資料流程] 活動中的 Integration Runtime 選取專案僅適用于已*觸發*的管線執行。 在偵錯工具中指定的叢集上執行資料流程的管線處理。
 
-### <a name="staging-area"></a>臨時區域
+### <a name="polybase"></a>PolyBase
 
-如果您在快要融化資料到 Azure 資料倉儲，您必須選擇預備環境位置，針對 Polybase 批次負載。 暫存設定僅適用於 Azure 資料倉儲工作負載。
+如果您使用 Azure SQL 資料倉儲做為接收或來源，則必須為您的 PolyBase 批次負載選擇預備位置。 PolyBase 允許大量批次載入，而不是逐列載入資料。 PolyBase 可大幅減少載入 SQL DW 的時間。
 
-## <a name="parameterized-datasets"></a>參數化資料集
+## <a name="parameterizing-data-flows"></a>參數化資料流程
 
-如果您使用參數化資料集，請務必設定參數值。
+### <a name="parameterized-datasets"></a>參數化資料集
 
-![執行資料流參數](media/data-flow/params.png "參數")
+如果您的資料流程使用參數化資料集，請在 [**設定**] 索引標籤中設定參數值。
 
-## <a name="parameterized-data-flows"></a>參數化的資料流
+![執行資料流程參數](media/data-flow/params.png "參數")
 
-如果您在資料流程內有參數，您將設定執行資料流活動的參數區段中的動態參數的值您的資料流量這裡。 若要設定使用動態運算式的參數值或常值的靜態值，您可以使用 ADF 管線運算式語言 （僅適用於字串參數的型別） 或資料的 流程運算式語言。
+### <a name="parameterized-data-flows"></a>參數化資料流程
 
-![執行資料流參數範例](media/data-flow/parameter-example.png "參數範例")
+如果您的資料流程已參數化，請在 [**參數**] 索引標籤中設定資料流程參數的動態值。您可以使用 ADF 管線運算式語言（僅適用于字串類型）或資料流程運算式語言來指派動態或常值參數值。 如需詳細資訊，請參閱[資料流程參數](parameters-data-flow.md)。
 
-### <a name="debugging-data-flows-with-parameters"></a>使用參數的偵錯資料流程
+![執行資料流程參數範例](media/data-flow/parameter-example.png "參數範例")
 
-在此目前的時間，您可以只偵錯資料流，以從管線進行偵錯使用 execute 資料流程活動執行的參數。 在 ADF 資料流程 」 中的互動式偵錯工作階段即將推出。 管線執行和偵錯執行，不過，可使用的參數。
+## <a name="pipeline-debug-of-data-flow-activity"></a>資料流程活動的管線 debug
 
-理想的作法是建立具有靜態內容的資料流程，讓您在設計階段能否有可用的完整中繼資料資料行傳播。 然後當您實作您的資料流管線時，請使用動態參數化資料集取代靜態的資料集。
+若要使用「資料流程」活動執行「調試管線」，您必須在頂端列上透過 [資料流程 **] [資料流程**處理] 滑杆切換至 [資料流程] [調試] 模式。 [偵錯工具] 模式可讓您針對作用中的 Spark 叢集執行資料流程。 如需詳細資訊，請參閱[Debug Mode](concepts-data-flow-debug-mode.md)。
+
+![調試 按鈕](media/data-flow/debugbutton.png "調試 按鈕")
+
+Debug 管線會針對使用中的 debug 叢集執行，而不是在 [資料流程] 活動設定中指定的整合執行時間環境。 您可以在啟動 [debug] 模式時選擇 [debug compute] 環境。
+
+## <a name="monitoring-the-data-flow-activity"></a>監視資料流程活動
+
+資料流程活動具有特殊的監視體驗，您可以在其中查看資料分割、階段時間和資料歷程資訊。 透過 [**動作**] 底下的 [眼鏡] 圖示開啟 [監視中] 窗格。 如需詳細資訊，請參閱[監視資料流程](concepts-data-flow-monitoring.md)。
 
 ## <a name="next-steps"></a>後續步驟
-請參閱 Data Factory 支援的其他控制流程活動： 
+
+請參閱 Data Factory 支援的控制流程活動： 
 
 - [If Condition 活動](control-flow-if-condition-activity.md)
 - [執行管道活動](control-flow-execute-pipeline-activity.md)

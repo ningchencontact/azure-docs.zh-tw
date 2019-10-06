@@ -6,13 +6,12 @@ ms.author: dacoulte
 ms.date: 12/11/2018
 ms.topic: troubleshooting
 ms.service: blueprints
-manager: carmonm
-ms.openlocfilehash: 14e957986df7a114b8c865ee82e2ac447683dc2c
-ms.sourcegitcommit: 267a9f62af9795698e1958a038feb7ff79e77909
+ms.openlocfilehash: b99e94bfdcbf12e82a094f14995b6b93aa3354ed
+ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70257179"
+ms.lasthandoff: 10/06/2019
+ms.locfileid: "71978231"
 ---
 # <a name="troubleshoot-errors-using-azure-blueprints"></a>針對使用 Azure 藍圖發生的錯誤進行疑難排解
 
@@ -24,9 +23,9 @@ ms.locfileid: "70257179"
 
 1. 在左側窗格中選取 [所有服務]。 搜尋並選取 [藍圖]。
 
-1. 從左邊的頁面選取 [**指派的藍圖**], 然後使用 [搜尋] 方塊來篩選藍圖指派, 以尋找失敗的指派。 您也可以依 [佈建狀態] 欄排序指派表格，以查看所有已群組在一起的失敗指派。
+1. 從左邊的頁面選取 [**指派的藍圖**]，然後使用 [搜尋] 方塊來篩選藍圖指派，以尋找失敗的指派。 您也可以依 [佈建狀態] 欄排序指派表格，以查看所有已群組在一起的失敗指派。
 
-1. 以滑鼠左鍵按一下狀態為 [_失敗_] 的藍圖, 或按一下滑鼠右鍵, 然後選取 [ **View 指派詳細資料**]。
+1. 以滑鼠左鍵按一下狀態為 [_失敗_] 的藍圖，或按一下滑鼠右鍵，然後選取 [ **View 指派詳細資料**]。
 
 1. 代表指派失敗的紅色橫幅警告位於藍圖指派頁面的最上方。 按一下該橫幅上的任一處，以取得更多詳細資料。
 
@@ -63,7 +62,7 @@ ms.locfileid: "70257179"
 
 #### <a name="resolution"></a>解析度
 
-若要將函式作為參數傳遞，請使用 `[` 逸出整個字串，讓藍圖參數看起來像 `[[resourceGroup().tags.myTag]`。 逸出字元會導致「藍圖」在處理藍圖時，將值視為字串。 接著「藍圖」會將函式置於成品上，讓它如預期般地為動態函式。 如需詳細資訊, 請參閱[Azure Resource Manager 範本中的語法和運算式](../../../azure-resource-manager/template-expressions.md)。
+若要將函式作為參數傳遞，請使用 `[` 逸出整個字串，讓藍圖參數看起來像 `[[resourceGroup().tags.myTag]`。 逸出字元會導致「藍圖」在處理藍圖時，將值視為字串。 接著「藍圖」會將函式置於成品上，讓它如預期般地為動態函式。 如需詳細資訊，請參閱[Azure Resource Manager 範本中的語法和運算式](../../../azure-resource-manager/template-expressions.md)。
 
 ## <a name="next-steps"></a>後續步驟
 
