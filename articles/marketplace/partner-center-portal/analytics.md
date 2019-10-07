@@ -18,7 +18,7 @@ ms.locfileid: "71036635"
 
 瞭解如何在 Microsoft 合作夥伴中心存取分析報告，以監視銷售、評估效能，以及在 marketplace 中優化您的供應專案。 身為合作夥伴，您可以使用合作夥伴中心所支援的資料視覺效果和深入解析圖形來監視您的供應專案清單，並尋找最大化銷售的方法。 改良的分析工具可讓您對效能結果採取行動，並與客戶和轉銷商保持更好的關係。 
 
-若要存取合作夥伴中心分析工具，請開啟 [商業 Marketplace] 底下的 [ **[分析](https://partner.microsoft.com/dashboard/commercial-marketplace/analytics/summary)** ] 儀表板。
+若要存取合作夥伴中心分析工具，請開啟 [商業 Marketplace] 底下的 **[分析](https://partner.microsoft.com/dashboard/commercial-marketplace/analytics/summary)** 儀表板。
 
 |**儀表板**|**顯示的內容**|
 |:---|:---|
@@ -116,7 +116,7 @@ ms.locfileid: "71036635"
 
 ### <a name="orders-by-geography"></a>依地理位置的訂單
 
-[**依地理位置的訂單**] 熱度圖會在世界地圖上顯示訂單計數，並以 [ **[geography] 熱度圖](#customers-by-geography)** 的方式運作。
+[**依地理位置的訂單**] 熱度圖會在世界地圖上顯示訂單計數，並以 **[geography 熱度圖](#customers-by-geography)** 的方式運作。
 
 ### <a name="trends-for-active-and-canceled-orders"></a>作用中和已取消訂單的趨勢
 
@@ -137,7 +137,7 @@ ms.locfileid: "71036635"
 **依 marketplace 授權類型的訂單**圖表會根據 marketplace 供應專案的授權類型和計費方式，顯示每月訂單計數。 授權類型包括：
 
 - **透過 Azure 計費**：當您選擇透過 Microsoft 使用此授權類型來[銷售您的供應](./create-new-saas-offer.md#sell-through-microsoft)專案時，Microsoft 會代表您向客戶收費。 付款類型包含透過信用卡或企業發票的隨用隨付。
-- **攜帶您自己的授權**：Microsoft 不會向客戶收取這類 marketplace 供應專案的使用量。 在 marketplace 中列為 [ **[立即取得] （免費）](./create-new-saas-offer.md#get-it-now-free)** 。
+- **攜帶您自己的授權**：Microsoft 不會向客戶收取這類 marketplace 供應專案的使用量。 在 marketplace 中列為 **[立即取得（免費）](./create-new-saas-offer.md#get-it-now-free)** 。
 - **免費**：Microsoft 不會向客戶收取這類 marketplace 供應專案的使用量。 列為 marketplace 中的 **[免費試用版](./create-new-saas-offer.md##free-trial-listing)** 。
 - **Microsoft 身為轉銷商**：代表 Microsoft 轉售商在 **[雲端解決方案提供者（CSP）計畫](./create-new-saas-offer.md#csp-program-opt-in)** 中銷售的優惠。
 
