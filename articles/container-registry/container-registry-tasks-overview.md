@@ -1,6 +1,6 @@
 ---
-title: 使用 Azure Container Registry 工作 (ACR 工作) 自動建立及修補容器映射
-description: ACR 工作簡介, 這是 Azure Container Registry 中的一套功能, 可在雲端中提供安全、自動化的容器映射組建、管理和修補。
+title: 使用 Azure Container Registry 工作（ACR 工作）自動建立及修補容器映射
+description: ACR 工作簡介，這是 Azure Container Registry 中的一套功能，可在雲端中提供安全、自動化的容器映射組建、管理和修補。
 services: container-registry
 author: dlepow
 manager: gwallace
@@ -8,16 +8,16 @@ ms.service: container-registry
 ms.topic: article
 ms.date: 09/05/2019
 ms.author: danlep
-ms.openlocfilehash: c62987031a73aa4840c1d036689a3c52fb4dc4a0
-ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
+ms.openlocfilehash: e2686dcd5615c42abf78cbf4575bab6008024718
+ms.sourcegitcommit: be344deef6b37661e2c496f75a6cf14f805d7381
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70914669"
+ms.lasthandoff: 10/07/2019
+ms.locfileid: "72001396"
 ---
 # <a name="automate-container-image-builds-and-maintenance-with-acr-tasks"></a>使用 ACR 工作自動化容器映射組建和維護
 
-容器提供新的虛擬化層級，並且隔離應用程式和開發人員相依性與基礎結構和作業需求。 不過, 仍然需要解決此應用程式虛擬化如何透過容器生命週期進行管理和修補。
+容器提供新的虛擬化層級，並且隔離應用程式和開發人員相依性與基礎結構和作業需求。 不過，仍然需要解決此應用程式虛擬化如何透過容器生命週期進行管理和修補。
 
 ## <a name="what-is-acr-tasks"></a>什麼是 ACR 工作？
 
@@ -44,9 +44,9 @@ ACR 工作支援數種建立和維護容器映射和其他成品的案例。 如
 
 「ACR 工作」的[快速工作](container-registry-tutorial-quick-task.md)功能可在您認可第一行程式碼之前，藉由將您的容器映像建置卸交給 Azure，提供一個整合式開發體驗。 使用快速工作時，您可以在認可程式碼之前，先確認您的自動化建置定義並攔截可能的問題。
 
-使用熟悉`docker build`的格式時, Azure CLI 中的[az acr build][az-acr-build]命令會採用[內容](#context-locations)(要建立的一組檔案), 將它傳送 ACR 工作, 而且根據預設, 會在完成時將建立的映射推送至其登錄。
+使用熟悉的 `docker build` 格式，Azure CLI 中的[az acr build][az-acr-build]命令會採用[內容](#context-locations)（要建立的一組檔案），將它傳送 ACR 工作，而且根據預設，會在完成時將建立的映射推送至其登錄。
 
-如需簡介, 請參閱在 Azure Container Registry 中[建立和執行容器映射](container-registry-quickstart-task-cli.md)的快速入門。  
+如需簡介，請參閱在 Azure Container Registry 中[建立和執行容器映射](container-registry-quickstart-task-cli.md)的快速入門。  
 
 「ACR 工作」已設計為容器生命週期原始物件。 例如，您可以將「ACR 工作」整合到 CI/CD 解決方案中。 藉由執行[az login][az-login]與[服務主體][az-login-service-principal]，您的 CI/CD 解決方案就可以發出[az acr build][az-acr-build]命令來啟動映射組建。
 
@@ -72,7 +72,7 @@ ACR 工作支援數種建立和維護容器映射和其他成品的案例。 如
 
 ## <a name="automate-os-and-framework-patching"></a>自動進行作業系統和架構修補
 
-「ACR 工作」之所以能夠真正增強您的容器建置工作流程，是因為它能夠偵測基底映像的更新。 當更新的基底映射推送至您的登錄, 或在公用儲存機制 (例如 Docker Hub) 中更新基底映射時, ACR 工作可以根據它自動建立任何應用程式映射。
+「ACR 工作」之所以能夠真正增強您的容器建置工作流程，是因為它能夠偵測基底映像的更新。 當更新的基底映射推送至您的登錄，或在公用儲存機制（例如 Docker Hub）中更新基底映射時，ACR 工作可以根據它自動建立任何應用程式映射。
 
 容器映像可概括地分類為「基底」映像和「應用程式」映像。 您的基底映像通常包含您的應用程式建置所在的作業系統和應用程式架構，以及其他自訂項目。 這些基底映像本身通常是以公用上游映像為基礎，例如：[Alpine Linux][base-alpine]、 [Windows][base-windows]、 [.net][base-dotnet]或[node.js][base-node]。 您有數個應用程式映像可能會共用一個通用基底映像。
 
@@ -99,7 +99,7 @@ ACR 工作支援數種建立和維護容器映射和其他成品的案例。 如
 
 ## <a name="multi-step-tasks"></a>多步驟工作
 
-多步驟工作提供以步驟為基礎的工作定義和執行, 以便在雲端中建立、測試及修補容器映射。 在[YAML](container-registry-tasks-reference-yaml.md)檔中定義的工作步驟會指定容器映射或其他成品的個別組建和推送作業。 它們也可以定義一或多個容器的執行，其中每個步驟都使用容器作為其執行環境。
+多步驟工作提供以步驟為基礎的工作定義和執行，以便在雲端中建立、測試及修補容器映射。 在[YAML](container-registry-tasks-reference-yaml.md)檔中定義的工作步驟會指定容器映射或其他成品的個別組建和推送作業。 它們也可以定義一或多個容器的執行，其中每個步驟都使用容器作為其執行環境。
 
 例如，您可以建立一個自動執行下列操作的多步驟工作：
 
@@ -124,11 +124,12 @@ ACR 工作支援數種建立和維護容器映射和其他成品的案例。 如
 | GitHub 主要分支 | GitHub 存放庫之主要 (或其他預設) 分支內的檔案。  | `https://github.com/gituser/myapp-repo.git` |
 | GitHub 分支 | GitHub 存放庫的特定分支。| `https://github.com/gituser/myapp-repo.git#mybranch` |
 | GitHub 子資料夾 | GitHub 存放庫中子資料夾內的檔案。 範例會顯示分支和子資料夾規格的組合。 | `https://github.com/gituser/myapp-repo.git#mybranch:myfolder` |
+| Azure DevOps 子資料夾 | Azure 存放庫中子資料夾內的檔案。 範例會顯示分支和子資料夾規格的組合。 | `https://dev.azure.com/user/myproject/_git/myapp-repo#mybranch:myfolder` |
 | 遠端 Tarball | 遠端 Web 伺服器上壓縮封存中的檔案。 | `http://remoteserver/myapp.tar.gz` |
 
 ## <a name="image-platforms"></a>映射平臺
 
-根據預設，ACR 工作會建立 Linux OS 和 amd64 架構的映射。 `--platform`指定標記以建立其他架構的 Windows 映像或 Linux 映射。 指定 os/架構格式（例如， `--platform Linux/arm`）的作業系統和選擇性的支援架構。 針對 ARM 架構，選擇性地指定 OS/架構/變異格式的 variant （例如， `--platform Linux/arm64/v8`）：
+根據預設，ACR 工作會建立 Linux OS 和 amd64 架構的映射。 指定 `--platform` 標記，以建立其他架構的 Windows 映像或 Linux 映射。 指定 os/架構格式的作業系統和（選擇性）支援的架構（例如，`--platform Linux/arm`）。 針對 ARM 架構，選擇性地指定 OS/架構/變數格式的 variant （例如，`--platform Linux/arm64/v8`）：
 
 | OS | 架構|
 | --- | ------- | 
@@ -137,9 +138,9 @@ ACR 工作支援數種建立和維護容器映射和其他成品的案例。 如
 
 ## <a name="view-task-logs"></a>查看工作記錄
 
-每個工作執行都會產生可供您檢查的記錄輸出, 以判斷工作步驟是否已順利執行。 如果您使用[az acr build](/cli/azure/acr#az-acr-build)、 [az acr run](/cli/azure/acr#az-acr-run)或[az acr task run](/cli/azure/acr/task#az-acr-task-run)命令來觸發工作, 則會將工作執行的記錄輸出串流處理到主控台, 並儲存以供日後抓取。 當工作自動觸發時（例如，由原始程式碼認可或基底映射更新），只會儲存工作記錄。 查看在 Azure 入口網站中執行之工作的記錄, 或使用[az acr task logs](/cli/azure/acr/task#az-acr-task-logs)命令。
+每個工作執行都會產生可供您檢查的記錄輸出，以判斷工作步驟是否已順利執行。 如果您使用[az acr build](/cli/azure/acr#az-acr-build)、 [az acr run](/cli/azure/acr#az-acr-run)或[az acr task run](/cli/azure/acr/task#az-acr-task-run)命令來觸發工作，則會將工作執行的記錄輸出串流處理到主控台，並儲存以供日後抓取。 當工作自動觸發時（例如，由原始程式碼認可或基底映射更新），只會儲存工作記錄。 查看在 Azure 入口網站中執行之工作的記錄，或使用[az acr task logs](/cli/azure/acr/task#az-acr-task-logs)命令。
 
-根據預設，在登錄中執行工作的資料和記錄會保留30天，然後自動清除。 如果您想要封存工作執行的資料, 請使用[az acr task update-run](/cli/azure/acr/task#az-acr-task-update-run)命令來啟用保存。 下列範例會在登錄*myregistry*中啟用 [工作執行*cf11* ] 的封存。
+根據預設，在登錄中執行工作的資料和記錄會保留30天，然後自動清除。 如果您想要封存工作執行的資料，請使用[az acr task update-run](/cli/azure/acr/task#az-acr-task-update-run)命令來啟用保存。 下列範例會在登錄*myregistry*中啟用 [工作執行*cf11* ] 的封存。
 
 ```azurecli
 az acr task update-run --registry myregistry --run-id cf11 --no-archive false

@@ -10,12 +10,12 @@ author: gvashishtha
 ms.author: gopalv
 ms.topic: conceptual
 ms.date: 10/1/2019
-ms.openlocfilehash: fd38bf1f7741c4d610ef43a12d90533d4ac7b703
-ms.sourcegitcommit: 4f3f502447ca8ea9b932b8b7402ce557f21ebe5a
+ms.openlocfilehash: db95788b0f2c041157bdc16000d0328c042e86d5
+ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71802420"
+ms.lasthandoff: 10/05/2019
+ms.locfileid: "71973696"
 ---
 # <a name="deep-learning-and-ai-frameworks-for-the-azure-data-science-vm"></a>適用于 Azure 資料科學 VM 的深度學習和 AI 架構
 下面列出 DSVM 的深度學習架構。
@@ -26,8 +26,8 @@ ms.locfileid: "71802420"
 | ------------- | ------------- |
 | 支援的版本 | |
 | 支援的 DSVM 版本      | Linux (Ubuntu)     |
-| 它是如何在 DSVM 上設定/安裝的？  | Caffe 是安裝在 `/opt/caffe` 中。   範例位於`/opt/caffe/examples`。|
-| 如何執行它      | 使用 X2Go 登入您的 VM，然後啟動新的終端機並輸入下列內容：<br/>`cd /opt/caffe/examples`<br/>`source activate root`<br/>`jupyter notebook`<br/><br/>具有範例筆記本的新瀏覽器視窗將會開啟。 二進位檔安裝在 /opt/caffe/build/install/bin。<br/><br/>已安裝的 Caffe 版本需要 Python 2.7，而且無法與預設啟用的 Python 3.5 搭配使用。 若要切換至 Python 2.7， `source activate root`請執行以切換至 Anaconda 環境。|    
+| 它是如何在 DSVM 上設定/安裝的？  | Caffe 是安裝在 `/opt/caffe` 中。   範例位於 `/opt/caffe/examples`。|
+| 如何執行它      | 使用 X2Go 登入您的 VM，然後啟動新的終端機並輸入下列內容：<br/>`cd /opt/caffe/examples`<br/>`source activate root`<br/>`jupyter notebook`<br/><br/>具有範例筆記本的新瀏覽器視窗將會開啟。 二進位檔安裝在 /opt/caffe/build/install/bin。<br/><br/>已安裝的 Caffe 版本需要 Python 2.7，而且無法與預設啟用的 Python 3.5 搭配使用。 若要切換至 Python 2.7，請執行 `source activate root` 來切換至 Anaconda 環境。|    
 
 ## <a name="caffe2httpsgithubcomcaffe2caffe2"></a>[Caffe2](https://github.com/caffe2/caffe2)
 
@@ -83,6 +83,33 @@ ms.locfileid: "71802420"
 | 支援的 DSVM 版本      | Windows 和 Linux   |
 | 它是如何在 DSVM 上設定/安裝的？  | CNTK 安裝在[Windows 2016](dsvm-languages.md#python-windows-server-2016-edition)上的 python 3.6 和[Linux](./dsvm-languages.md#python-linux-edition)上的 python 3.5 中 |
 | 如何執行它      | 終端機啟動正確的環境，然後執行 Python。 <br/>Jupyter連接到[Jupyter](provision-vm.md)或[JupyterHub](dsvm-ubuntu-intro.md#how-to-access-the-ubuntu-data-science-virtual-machine)，然後開啟 CNTK 目錄來尋找範例。 |
+
+## <a name="mxnethttpsmxnetapacheorg"></a>[MXNet](https://mxnet.apache.org/)
+|    |           |
+| ------------- | ------------- |
+| 支援的版本 | 1.3.0 |
+| 支援的 DSVM 版本      | Windows 和 Linux   |
+| 它是如何在 DSVM 上設定/安裝的？  | MXNet 安裝在 Windows 上的 `C:\dsvm\tools\mxnet` 中，而在 Ubuntu 上則 `/dsvm/tools/mxnet`。 Python 系結會安裝在[Windows 2016](dsvm-languages.md#python-windows-server-2016-edition)上的 python 3.6 和[Linux](./dsvm-languages.md#python-linux-edition)上的 python 3.5 中，而 Ubuntu DSVM 也會包含 R 系結。 |
+| 如何執行它      | 終端機啟用正確的 conda 環境，然後執行 `import mxnet`。 <br/>Jupyter連接到[Jupyter](provision-vm.md#access-the-dsvm)或[JupyterHub](dsvm-ubuntu-intro.md#how-to-access-the-ubuntu-data-science-virtual-machine)，然後開啟 `mxnet` 目錄以取得範例。 |
+
+## <a name="mxnet-model-serverhttpsgithubcomawslabsmxnet-model-serverquick-start"></a>[MXNet 模型伺服器](https://github.com/awslabs/mxnet-model-server#quick-start)
+
+|    |           |
+| ------------- | ------------- |
+| 支援的版本 | 1.0.1 |
+| 支援的 DSVM 版本      | Windows 和 Linux   |
+| 它是如何在 DSVM 上設定/安裝的？  | MXNet 模型伺服器安裝在[Windows 2016](dsvm-languages.md#python-windows-server-2016-edition)上的 python 3.6 和[Linux](./dsvm-languages.md#python-linux-edition)上的 python 3.5 中 |
+| 如何執行它      | 終端機執行 `sudo systemctl stop jupyterhub`，以先停止 JupyterHub 服務，因為這兩者都是在相同的埠上接聽。 然後啟動正確的 conda 環境，並執行 `mxnet-model-server --start --models squeezenet=https://s3.amazonaws.com/model-server/model_archive_1.0/squeezenet_v1.1.mar` |
+
+## <a name="nvidia-system-management-interface-nvidia-smihttpsdevelopernvidiacomnvidia-system-management-interface"></a>[NVidia 系統管理介面（nvidia-smi-s）](https://developer.nvidia.com/nvidia-system-management-interface)
+
+|    |           |
+| ------------- | ------------- |
+| 支援的版本 |  |
+| 支援的 DSVM 版本      | Windows 和 Linux   |
+| 這是什麼？ | 用來查詢 GPU 活動的 NVIDIA 工具 |
+| 它是如何在 DSVM 上設定/安裝的？  | `nvidia-smi` 位於系統路徑上。 |
+| 如何執行它      | 在**具有 GPU 的**虛擬機器上，開啟命令提示字元（在 Windows 上）或終端機（在 Linux 上），然後執行 `nvidia-smi`。 |
 
 ## <a name="pytorchhttpspytorchorg"></a>[PyTorch](https://pytorch.org/)
 

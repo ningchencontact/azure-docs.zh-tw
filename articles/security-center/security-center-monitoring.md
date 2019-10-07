@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/28/2018
 ms.author: memildin
-ms.openlocfilehash: b7bb67ec052244689b2775c280ff39a2121da3fa
-ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
+ms.openlocfilehash: 57d47712fe20fac0bf370a9a100a07a37d7aa753
+ms.sourcegitcommit: 9f330c3393a283faedaf9aa75b9fcfc06118b124
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71201690"
+ms.lasthandoff: 10/07/2019
+ms.locfileid: "71996676"
 ---
 # <a name="strengthen-your-security-posture-with-azure-security-center"></a>使用 Azure 資訊安全中心來加強安全性狀態
 本文可協助您加強安全性狀態。 您可以使用「Azure 資訊安全中心」中的監視功能來確保您的資源安全性儘可能嚴密周到，並監視是否符合原則規範。
@@ -34,7 +34,7 @@ ms.locfileid: "71201690"
 - 若要監視您的網路資源 (例如虛擬機器、網路安全性群組與端點) 並接收有關如何改進其安全性的建議，請參閱[保護 Azure 資訊安全中心內的網路](security-center-network-recommendations.md)以取得詳細資訊。 
 - 若要監視您的資料與儲存體資源 (例如 SQL 伺服器與儲存體帳戶) 並接收有關如何改進其安全性的建議，請參閱[保護 Azure 資訊安全中心內的 Azure SQL 服務和資料](security-center-sql-service-recommendations.md)以取得詳細資訊。 
 - 若要監視您的身分識別與存取資源 (包括 MFA 與帳戶權限) 並接收有關如何改進其安全性的建議，請參閱[在 Azure 資訊安全中心監視身分識別和存取](security-center-identity-access.md)以取得詳細資訊。 
-- 若要監視對您資源的 Just-In-Time 存取，請參閱[使用 Just-In-Time 管理虛擬機器存取](security-center-just-in-time.md)以取得詳細資訊。 
+- 若要監視對您資源的即時存取，請參閱[使用即時管理虛擬機器存取](security-center-just-in-time.md)以取得詳細資訊。 
 
 
 如需如何套用建議的詳細資訊，請參閱[實作 Azure 資訊安全中心的安全性建議](security-center-recommendations.md)。

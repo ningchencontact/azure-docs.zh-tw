@@ -7,12 +7,12 @@ ms.reviewer: orspodek
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 06/03/2019
-ms.openlocfilehash: 2fc2b847c18cecbcea3c137312b18bb274398cc6
-ms.sourcegitcommit: e9936171586b8d04b67457789ae7d530ec8deebe
+ms.openlocfilehash: b3329ccb3edb3077a45e3bbf9ba7b48d7e3a93a2
+ms.sourcegitcommit: 9f330c3393a283faedaf9aa75b9fcfc06118b124
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71326631"
+ms.lasthandoff: 10/07/2019
+ms.locfileid: "71996224"
 ---
 # <a name="create-an-azure-data-explorer-cluster-and-database-by-using-python"></a>使用 Python 建立 Azure 資料總管叢集與資料庫
 
@@ -35,54 +35,59 @@ Azure 資料總管是快速、完全受控的資料分析服務，可即時分�
 若要為 Azure 資料總管 (Kusto) 安裝 Python 套件，請開啟在其路徑中有 Python 的命令提示字元。 請執行這個命令：
 
 ```
+pip install azure-common
 pip install azure-mgmt-kusto
-pip install adal
-pip install msrestazure
 ```
+## <a name="authentication"></a>驗證
+若要執行本文中的範例，我們需要 Azure AD 應用程式和服務主體，才能存取資源。 核取 [[建立 Azure AD 應用程式](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal)] 以建立免費的 Azure AD 應用程式，並在訂用帳戶範圍中新增角色指派。 它也會說明如何取得 `Directory (tenant) ID`、`Application ID` 和 @no__t 2。
 
 ## <a name="create-the-azure-data-explorer-cluster"></a>建立 Azure 資料總管叢集
 
 1. 使用下列命令建立您的叢集：
 
     ```Python
-    from azure.mgmt.kusto.kusto_management_client import KustoManagementClient
+    from azure.mgmt.kusto import KustoManagementClient
     from azure.mgmt.kusto.models import Cluster, AzureSku
-    from adal import AuthenticationContext
-    from msrestazure.azure_active_directory import AdalAuthentication
+    from azure.common.credentials import ServicePrincipalCredentials
 
+    #Directory (tenant) ID
     tenant_id = "xxxxxxxx-xxxxx-xxxx-xxxx-xxxxxxxxx"
+    #Application ID
     client_id = "xxxxxxxx-xxxxx-xxxx-xxxx-xxxxxxxxx"
+    #Client Secret
     client_secret = "xxxxxxxxxxxxxx"
     subscription_id = "xxxxxxxx-xxxxx-xxxx-xxxx-xxxxxxxxx"
-    context = AuthenticationContext('https://login.microsoftonline.com/{}'.format(tenant_id))
-    credentials = AdalAuthentication(context.acquire_token_with_client_credentials,
-                                         resource="https://management.core.windows.net/",
-                                         client_id=client_id,
-                                         client_secret=client_secret)
+    credentials = ServicePrincipalCredentials(
+        client_id=client_id,
+        secret=client_secret,
+        tenant=tenant_id
+    )
 
     location = 'Central US'
-    sku = 'D13_v2'
+    sku_name = 'Standard_D13_v2'
     capacity = 5
+    tier = "Standard"
     resource_group_name = 'testrg'
     cluster_name = 'mykustocluster'
-    cluster = Cluster(location=location, sku=AzureSku(name=sku, capacity=capacity))
+    cluster = Cluster(location=location, sku=AzureSku(name=sku_name, capacity=capacity, tier=tier))
     
     kustoManagementClient = KustoManagementClient(credentials, subscription_id)
     
     cluster_operations = kustoManagementClient.clusters
     
-    cluster_operations.create_or_update(resource_group_name, cluster_name, cluster)
+    poller = cluster_operations.create_or_update(resource_group_name, cluster_name, cluster)
     ```
 
    |**設定** | **建議的值** | **欄位描述**|
    |---|---|---|
    | cluster_name | *mykustocluster* | 所需的叢集名稱。|
-   | SKU | *D13_v2* | 將用於叢集的 SKU。 |
+   | sku_name | *Standard_D13_v2* | 將用於叢集的 SKU。 |
+   | tier | *標準* | SKU 層。 |
+   | 容量 | *number* | 叢集的實例數目。 |
    | resource_group_name | *testrg* | 將在其中建立叢集的資源群組名稱。 |
 
-    有其他選擇性參數可供您使用，例如叢集的容量。
-    
-1. 設定[*您的認證*](/azure/python/python-sdk-azure-authenticate)
+    > [!NOTE]
+    > **建立**叢集是長時間執行的作業。 方法**create_or_update**會傳回 LROPoller 的實例，請參閱[LROPoller 類別](/python/api/msrest/msrest.polling.lropoller?view=azure-python)以取得詳細資訊。
 
 1. 執行下列命令來檢查是否已成功建立叢集：
 
@@ -109,7 +114,8 @@ pip install msrestazure
                         soft_delete_period=softDeletePeriod,
                         hot_cache_period=hotCachePeriod)
     
-    database_operations.create_or_update(resource_group_name = resource_group_name, cluster_name = clusterName, database_name = databaseName, parameters = _database)
+    #Returns an instance of LROPoller, see https://docs.microsoft.com/python/api/msrest/msrest.polling.lropoller?view=azure-python
+    poller =database_operations.create_or_update(resource_group_name = resource_group_name, cluster_name = clusterName, database_name = databaseName, parameters = _database)
     ```
 
    |**設定** | **建議的值** | **欄位描述**|

@@ -12,12 +12,12 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 09/23/2019
 ms.custom: seodec18
-ms.openlocfilehash: 9cee148b6cb17f18c06e98158ac21638cedf519c
-ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
+ms.openlocfilehash: e98c004b802711c83558bf4d7ec86c418679836b
+ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71828751"
+ms.lasthandoff: 10/06/2019
+ms.locfileid: "71981143"
 ---
 # <a name="authentication-and-authorization-for-azure-time-series-insights-api"></a>Azure Time Series Insights API 的驗證和授權
 
@@ -33,7 +33,7 @@ Azure Active Directory 應用程式註冊流程牽涉到三個主要步驟。
 
 1. 在 Azure Active Directory 中[註冊應用程式](#azure-active-directory-app-registration)。
 1. 授權應用程式擁有[時間序列深入解析環境的資料存取權](#granting-data-access)。
-1. 使用**應用程式識別碼**和**用戶端密碼**，從`https://api.timeseries.azure.com/`您的[用戶端應用程式](#client-app-initialization)取得權杖。 此權杖可用來呼叫 Time Series Insights API。
+1. 使用**應用程式識別碼**和**用戶端密碼**，從[用戶端應用程式](#client-app-initialization)中的 `https://api.timeseries.azure.com/` 取得權杖。 此權杖可用來呼叫 Time Series Insights API。
 
 根據**步驟 3**，將您的應用程式和使用者認證分開，可讓您：
 
@@ -59,15 +59,15 @@ Azure Active Directory 應用程式註冊流程牽涉到三個主要步驟。
 
 1. 針對時間序列深入解析環境，選取 [**資料存取原則**]，然後選取 [**新增**]。
 
-   [![將新的資料存取原則新增至時間序列深入解析環境](media/authentication-and-authorization/time-series-insights-data-access-policies-add.png)](media/authentication-and-authorization/time-series-insights-data-access-policies-add.png#lightbox)
+   [![Add 時間序列深入解析環境的新資料存取原則](media/authentication-and-authorization/time-series-insights-data-access-policies-add.png)](media/authentication-and-authorization/time-series-insights-data-access-policies-add.png#lightbox)
 
 1. 在 [**選取使用者**] 對話方塊中，貼上 [Azure Active Directory 應用程式註冊] 區段中的 [**應用程式名稱**] 或 [**應用程式識別碼**]。
 
-   [![在 [選取使用者] 對話方塊中尋找應用程式](media/authentication-and-authorization/time-series-insights-data-access-policies-select-user.png)](media/authentication-and-authorization/time-series-insights-data-access-policies-select-user.png#lightbox)
+   [在 [選取使用者] 對話方塊中 @no__t 1Find 應用程式](media/authentication-and-authorization/time-series-insights-data-access-policies-select-user.png)](media/authentication-and-authorization/time-series-insights-data-access-policies-select-user.png#lightbox)
 
 1. 選取角色。 選取 [**讀取器**] 來查詢資料或**參與者**，以查詢資料並變更參考資料。 選取 [確定]。
 
-   [![選取 [選取使用者角色] 對話方塊中的 [讀取器] 或 [參與者]](media/authentication-and-authorization/time-series-insights-data-access-policies-select-role.png)](media/authentication-and-authorization/time-series-insights-data-access-policies-select-role.png#lightbox)
+   [在 [選取使用者角色] 對話方塊中 @no__t 1Pick 讀取者或參與者](media/authentication-and-authorization/time-series-insights-data-access-policies-select-role.png)](media/authentication-and-authorization/time-series-insights-data-access-policies-select-role.png#lightbox)
 
 1. 選取 **[確定]** 以儲存原則。
 
@@ -110,28 +110,28 @@ Azure Active Directory 應用程式註冊流程牽涉到三個主要步驟。
 若要對[時間序列深入解析 REST api](https://docs.microsoft.com/rest/api/time-series-insights/)執行已驗證的查詢，必須使用您選擇的 REST 用戶端（Postman、JavaScript、 C#），在[授權標頭](/rest/api/apimanagement/2019-01-01/authorizationserver/createorupdate)中傳遞有效的 OAuth 2.0 持有人權杖。 
 
 > [!IMPORTANT]
-> 權杖必須完全發行至`https://api.timeseries.azure.com/`資源（也稱為權杖的「物件」）。
-> * 因此，您的[Postman](https://www.getpostman.com/) **AuthURL**會符合下列規定：`https://login.microsoftonline.com/microsoft.onmicrosoft.com/oauth2/authorize?resource=https://api.timeseries.azure.com/`
+> 權杖必須完全發行至 @no__t 0 資源（也稱為權杖的「物件」）。
+> * 因此，您的[Postman](https://www.getpostman.com/) **AuthURL**會符合： `https://login.microsoftonline.com/microsoft.onmicrosoft.com/oauth2/authorize?resource=https://api.timeseries.azure.com/`
 
 > [!TIP]
-> 請參閱[探索 Azure 時間序列深入解析 javascript 用戶端程式庫](tutorial-explore-js-client-lib.md#authentication)教學課程，以瞭解如何使用[JAVASCRIPT 用戶端 SDK](https://github.com/microsoft/tsiclient/blob/master/docs/API.md)以程式設計方式驗證時間序列深入解析 api。
+> 請參閱託管的 Azure 時間序列深入解析[用戶端 sdk 範例視覺效果](https://tsiclientsample.azurewebsites.net/)，以瞭解如何使用[JAVASCRIPT 用戶端 sdk](https://github.com/microsoft/tsiclient/blob/master/docs/API.md)搭配圖表和圖形，以程式設計方式驗證時間序列深入解析 api。
 
 ### <a name="http-headers"></a>HTTP 標頭
 
 必要的要求標頭：
 
-- `Authorization`若要進行驗證和授權，必須在 Authorization 標頭中傳遞有效的 OAuth 2.0 持有人權杖。 權杖必須完全發行至`https://api.timeseries.azure.com/`資源（也稱為權杖的「物件」）。
+- `Authorization` 用於驗證和授權，必須在 Authorization 標頭中傳遞有效的 OAuth 2.0 持有人權杖。 權杖必須完全發行至 @no__t 0 資源（也稱為權杖的「物件」）。
 
 選擇性的要求標頭：
 
-- `Content-type`-僅`application/json`支援。
+- `Content-type`-僅支援 `application/json`。
 - `x-ms-client-request-id`-用戶端要求識別碼。 服務會記錄此值。 允許服務跨服務追蹤作業。
 - `x-ms-client-session-id`-用戶端會話識別碼。 服務會記錄此值。 允許服務追蹤跨服務的一組相關作業。
 - `x-ms-client-application-name`-產生此要求的應用程式名稱。 服務會記錄此值。
 
 回應標頭：
 
-- `Content-type`-僅`application/json`支援。
+- `Content-type`-僅支援 `application/json`。
 - `x-ms-request-id`-伺服器產生的要求識別碼。 可以用來與 Microsoft 聯繫以調查要求。
 
 ### <a name="http-parameters"></a>HTTP 參數
@@ -143,7 +143,7 @@ Azure Active Directory 應用程式註冊流程牽涉到三個主要步驟。
 
 選擇性的 URL 查詢字串參數：
 
-- `timeout=<timeout>`–要求執行的伺服器端超時。 僅適用于[取得環境事件](https://docs.microsoft.com/rest/api/time-series-insights/ga-query-api#get-environment-events-api)和[取得環境匯總](https://docs.microsoft.com/rest/api/time-series-insights/ga-query-api#get-environment-aggregates-api)api。 Timeout 值應採用 ISO 8601 持續時間格式，例如`"PT20S"` ，且應在範圍`1-30 s`內。 預設值為 `30 s`。
+- `timeout=<timeout>` –要求執行的伺服器端超時。 僅適用于[取得環境事件](https://docs.microsoft.com/rest/api/time-series-insights/ga-query-api#get-environment-events-api)和[取得環境匯總](https://docs.microsoft.com/rest/api/time-series-insights/ga-query-api#get-environment-aggregates-api)api。 Timeout 值應採用 ISO 8601 持續時間格式，例如 `"PT20S"`，且應在 `1-30 s` 的範圍內。 預設值為 `30 s`。
 
 ## <a name="next-steps"></a>後續步驟
 

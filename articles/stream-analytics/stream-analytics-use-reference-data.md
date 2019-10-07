@@ -8,12 +8,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 06/21/2019
-ms.openlocfilehash: 8d094113107d8c49e34779cf8be62ecd71cb8cce
-ms.sourcegitcommit: f2d9d5133ec616857fb5adfb223df01ff0c96d0a
+ms.openlocfilehash: 3bf90812abcef30b6bf300ba00ebd9f4186229cb
+ms.sourcegitcommit: be344deef6b37661e2c496f75a6cf14f805d7381
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/03/2019
-ms.locfileid: "71937192"
+ms.lasthandoff: 10/07/2019
+ms.locfileid: "72000398"
 ---
 # <a name="using-reference-data-for-lookups-in-stream-analytics"></a>使用參考資料在串流分析中進行查閱
 
@@ -60,7 +60,7 @@ Azure 串流分析會每隔一分鐘自動掃描已重新整理的參考資料 b
 > 
 > 此情況有例外，就是當工作需要回到之前來重新處理資料，或當工作第一次啟動的時候。 啟動時，作業會尋找在指定作業啟動時間之前產生的最新 Blob。 這是為了確保在作業啟動時，會有 **非空白** 的參考資料集。 如果無法找到，作業會顯示下列診斷： `Initializing input without a valid reference data blob for UTC time <start time>`。
 
-[Azure Data Factory](https://azure.microsoft.com/documentation/services/data-factory/) 可用來針對串流分析更新參考資料定義時所需的已更新 Blob，協調建立這些 Blob 的工作。 Data Factory 是雲端架構資料整合服務，用來協調以及自動移動和轉換資料。 Data Factory 可 [連線到大量雲端式和內部部署的資料存放區](../data-factory/copy-activity-overview.md) ，也可根據您指定的定期排程輕鬆移動資料。 如需詳細資訊及逐步解說指南，瞭解該如何設定 Data Factory 管線才能產生依預先定義排程重新整理的「串流分析」參考資料，請查看此 [GitHub 範例](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/ReferenceDataRefreshForASAJobs)。
+[Azure Data Factory](https://azure.microsoft.com/documentation/services/data-factory/) 可用來針對串流分析更新參考資料定義時所需的已更新 Blob，協調建立這些 Blob 的工作。 Data Factory 是雲端架構資料整合服務，用來協調以及自動移動和轉換資料。 Data Factory 可 [連線到大量雲端式和內部部署的資料存放區](../data-factory/copy-activity-overview.md) ，也可根據您指定的定期排程輕鬆移動資料。 如需詳細資訊及逐步解說指南，瞭解該如何設定 Data Factory 管線才能產生依預先定義排程重新整理的「串流分析」參考資料，請查看此 [GitHub 範例](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV1/ReferenceDataRefreshForASAJobs)。
 
 ### <a name="tips-on-refreshing-blob-reference-data"></a>重新整理 Blob 參考資料的秘訣
 

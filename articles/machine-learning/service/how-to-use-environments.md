@@ -10,12 +10,12 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 ms.date: 09/27/2019
-ms.openlocfilehash: 2056970a91a90fc14528b13650472722a235c354
-ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
+ms.openlocfilehash: 4d4d83e12d284ce760b8a7e87fd42e6c8ebb4850
+ms.sourcegitcommit: be344deef6b37661e2c496f75a6cf14f805d7381
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71350494"
+ms.lasthandoff: 10/07/2019
+ms.locfileid: "72001205"
 ---
 # <a name="create-and-manage-reusable-environments-for-training-and-deployment-with-azure-machine-learning"></a>建立和管理可重複使用的環境，以 Azure Machine Learning 進行定型和部署。
 
@@ -160,7 +160,7 @@ run.wait_for_completion(show_output=True)
 
 如果 Conda 封裝存放庫中有可用的套件，建議使用 Conda over pip 安裝。 原因是 Conda 套件通常會隨附預先建立的二進位檔，讓安裝更可靠。
 
-下列範例會分別`scikit-learn` `myenv`使用`pillow` [`add_conda_package()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.conda_dependencies.condadependencies?view=azure-ml-py#add-conda-package-conda-package-)和[方法，將版本0.21.3和封裝加入至環境。`add_pip_package()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.conda_dependencies.condadependencies?view=azure-ml-py#add-pip-package-pip-package-)
+下列範例會將 `scikit-learn` （特別是版本0.21.3）和 @no__t 1 封裝加入至環境，分別 `myenv` 與[`add_conda_package()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.conda_dependencies.condadependencies?view=azure-ml-py#add-conda-package-conda-package-)和[`add_pip_package()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.conda_dependencies.condadependencies?view=azure-ml-py#add-pip-package-pip-package-)方法。
 
 ```python
 from azureml.core import Environment
@@ -178,7 +178,7 @@ myenv.python.conda_dependencies=conda_dep
 
 ### <a name="private-wheel-files"></a>私人滾輪檔案
 
-您可以使用私用的 pip 滾輪檔案，方法是先使用靜態[`add_private_pip_wheel()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment.environment?view=azure-ml-py#add-private-pip-wheel-workspace--file-path--exist-ok-false-)方法將它上傳至您的工作區儲存體，然後再捕獲儲存體 url，再將 URL 傳遞`add_pip_package()`給方法。
+您可以使用私人 pip 滾輪檔案，方法是先使用靜態[`add_private_pip_wheel()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment.environment?view=azure-ml-py#add-private-pip-wheel-workspace--file-path--exist-ok-false-)方法將它上傳至您的工作區儲存體，然後再捕獲儲存體 URL，再將 URL 傳遞給 `add_pip_package()` 方法
 
 ```python
 # During environment creation the service replaces the URL by secure SAS URL, so your wheel file is kept private and secure
@@ -207,7 +207,7 @@ myenv.register(workspace=ws)
 
 ### <a name="get-existing-environments"></a>取得現有的環境
 
-環境類別提供的方法可讓您依名稱、清單或特定定型執行，來抓取工作區中的現有環境。 針對疑難排解或審核用途，請重現性
+環境類別提供的方法，可讓您依名稱、清單或特定定型執行來抓取工作區中的現有環境，以進行疑難排解或審核，以及重現性。
 
 #### <a name="view-list-of-environments"></a>查看環境清單
 
@@ -216,7 +216,7 @@ myenv.register(workspace=ws)
 #### <a name="get-environment-by-name"></a>依名稱取得環境
 
 您也可以依名稱和版本取得特定的環境。
-下列程式碼會使用[get （）](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment(class)?view=azure-ml-py#get-workspace--name--version-none-)方法， `1` `myenv`在`ws`工作區上取出環境的版本。
+下列程式碼會使用[get （）](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment(class)?view=azure-ml-py#get-workspace--name--version-none-)方法來抓取 `ws` 工作區上 `myenv` 的環境 `1` 版本。
 
 ```python
 restored_environment = Environment.get(workspace=ws,name="myenv",version="1")
@@ -243,22 +243,22 @@ Run.get_environment()
 
 ```python
 from azureml.core import Image
-build = env.build()
+build = env.build(workspace=ws)
 build.wait_for_completion(show_output=True)
 ```
 
 ## <a name="docker-and-environments"></a>Docker 和環境
 
- AzureMachineLearning`Environments`類別的[DockerSection](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment.dockersection?view=azure-ml-py) ，可讓您自訂和控制定型執行執行所在的客體作業系統。
+ Azure Machine Learning @no__t 1 類別的[DockerSection](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment.dockersection?view=azure-ml-py) ，可讓您自訂和控制定型執行執行所在的客體作業系統。
 
-當您`enable`使用 docker 時，服務會建立 docker 映射，並在該 docker 容器中建立具有您規格的 Python 環境。 這會為您的定型執行提供額外的隔離和重現性。
+當您 `enable` Docker 時，服務會建立 Docker 映射，並在該 Docker 容器中建立具有您規格的 Python 環境。 這會為您的定型執行提供額外的隔離和重現性。
 
 ```python
 # Creates the environment inside a Docker container.
 myenv.docker.enabled = True
 ```
 
-建立之後，Docker 映射預設會出現在與工作區相關聯的 Azure Container Registry 中。  存放庫名稱的形式為*azureml/azureml_ @ no__t-1uuid @ no__t-2*。 唯一識別碼（*uuuid*）元件會對應到從環境設定計算出來的雜湊。 這可讓服務判斷對應至指定環境的映射是否已存在，以供重複使用。
+建立之後，Docker 映射預設會出現在與工作區相關聯的 Azure Container Registry 中。  存放庫名稱的形式為*azureml/azureml_ @ no__t-1uuid @ no__t-2*。 唯一識別碼（*uuid*）元件會對應到從環境設定計算出來的雜湊。 這可讓服務判斷對應至指定環境的映射是否已存在，以供重複使用。
 
 此外，服務會自動使用其中一個以 Ubuntu Linux 為基礎的[基底映射](https://github.com/Azure/AzureML-Containers)，並安裝指定的 Python 套件。 基底映射具有 CPU 和 GPU 版本。 Azure Machine Learning 服務會自動偵測要使用哪個版本。
 
@@ -269,7 +269,7 @@ myenv.docker.base_image_registry="your_registry_location"
 ```
 
 > [!NOTE]
-> 如果您在`environment.python.user_managed_dependencies=False`使用自訂 Docker 映射時指定，服務將會在映射中建立 Conda 環境，並在該環境中執行此工作，而不是使用您可能已安裝在基底映射上的 Python 程式庫。 將參數設定為`True` ，以使用您自己安裝的封裝。
+> 如果您在使用自訂 Docker 映射時指定 `environment.python.user_managed_dependencies=False`，服務將會在映射中建立 Conda 環境，並在該環境中執行此工作，而不是使用您可能已安裝在基底映射上的 Python 程式庫。 將參數設定為 `True`，以使用您自己安裝的套件。
 
 ## <a name="using-environments-for-training"></a>使用環境進行定型
 
@@ -300,7 +300,7 @@ run = exp.submit(runconfig)
 ```
 
 > [!NOTE]
-> 若要停用執行歷程記錄或執行快照集， `ScriptRunConfig.run_config.history`請使用底下的設定。
+> 若要停用執行歷程記錄或執行快照集，請使用 [`ScriptRunConfig.run_config.history`] 底下的設定。
 
 如果您未在回合設定中指定環境，服務會在您提交執行時為您建立預設環境。
 
@@ -334,7 +334,7 @@ run = experiment.submit(sk_est)
 
 若要部署 web 服務，請在您的部署物件中結合環境、推斷計算、評分腳本和已註冊的模型、[部署（）](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py#deploy-workspace--name--models--inference-config--deployment-config-none--deployment-target-none-)。 深入瞭解如何[部署 web 服務](how-to-deploy-and-where.md)。
 
-在此範例中，假設您已完成要將該模型部署到 Azure 容器實例（ACI）的定型回合。 建立 web 服務時，會將模型和計分檔案掛接在映射上，並將 Azure Machine Learning 推斷堆疊加入至映射。
+在此範例中，假設您已完成定型回合，並想要將該模型部署到 Azure 容器實例（ACI）。 建立 web 服務時，會將模型和計分檔案掛接在影像上，並將 Azure Machine Learning 推斷堆疊加入至映射。
 
 ```python
 from azureml.core.model import InferenceConfig, Model

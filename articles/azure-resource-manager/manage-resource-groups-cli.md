@@ -8,12 +8,12 @@ ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 02/11/2019
 ms.author: jgao
-ms.openlocfilehash: e55755e3edcc54d0d75c937c4d18b845b0282833
-ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
+ms.openlocfilehash: 4fdd99b3e9efc108960217cddfc8a397eadf99b6
+ms.sourcegitcommit: be344deef6b37661e2c496f75a6cf14f805d7381
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/05/2019
-ms.locfileid: "71972742"
+ms.lasthandoff: 10/07/2019
+ms.locfileid: "72001579"
 ---
 # <a name="manage-azure-resource-manager-resource-groups-by-using-azure-cli"></a>使用 Azure CLI 管理 Azure Resource Manager 資源群組
 
@@ -78,7 +78,7 @@ az group delete --name $resourceGroupName
 
 ## <a name="deploy-a-resource-group-and-resources"></a>部署資源群組和資源
 
-您可以使用 Resource Manager 範本來建立資源群組，並將資源部署到群組。 如需詳細資訊，請參閱[建立資源群組並部署資源](./deploy-to-subscription.md#create-resource-group-and-deploy-resources)。
+您可以使用 Resource Manager 範本來建立資源群組，並將資源部署到群組。 如需詳細資訊，請參閱[建立資源群組並部署資源](./deploy-to-subscription.md#resource-group-and-resources)。
 
 ## <a name="redeploy-when-deployment-fails"></a>部署失敗時重新部署
 

@@ -7,12 +7,12 @@ ms.reviewer: orspodek
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 08/27/2019
-ms.openlocfilehash: 327fd5352a3f067638c7f9ceb51e2de9e284d845
-ms.sourcegitcommit: 4f7dce56b6e3e3c901ce91115e0c8b7aab26fb72
+ms.openlocfilehash: ef66e6a69b6d33b16a558293fe29b8adf51cd137
+ms.sourcegitcommit: 9f330c3393a283faedaf9aa75b9fcfc06118b124
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71947840"
+ms.lasthandoff: 10/07/2019
+ms.locfileid: "71996751"
 ---
 # <a name="ingest-data-from-iot-hub-into-azure-data-explorer-preview"></a>將資料從 IoT 中樞內嵌到 Azure 資料總管（預覽）
 
@@ -80,8 +80,7 @@ Azure 資料總管是一項快速又可高度調整的資料探索服務，可�
     | IoT 中樞 | IoT 中樞名稱 |
     | 共用存取原則 | 共用存取原則的名稱。 必須擁有讀取權限 |
     | 取用者群組 |  在 IoT 中樞內建端點中定義的取用者群組 |
-    | 事件系統屬性 | [IoT 中樞事件系統屬性](/azure/iot-hub/iot-hub-devguide-messages-construct#system-properties-of-d2c-iot-hub-messages)（如果每個事件訊息有多個記錄），系統屬性將會新增至第一個。|
-    | | 
+    | 事件系統屬性 | [IoT 中樞事件系統屬性](/azure/iot-hub/iot-hub-devguide-messages-construct#system-properties-of-d2c-iot-hub-messages)。 加入系統屬性時，[建立](/azure/kusto/management/tables#create-table)或[更新](/azure/kusto/management/tables#alter-table-and-alter-merge-table)資料表架構和[對應](/azure/kusto/management/mappings)以包含選取的屬性。 | | | 
 
     > [!NOTE]
     > 在[手動容錯移轉](/azure/iot-hub/iot-hub-ha-dr#manual-failover)的情況下，您必須重新建立資料連線。
@@ -95,7 +94,7 @@ Azure 資料總管是一項快速又可高度調整的資料探索服務，可�
     |---|---|---|
     | 資料表 | *TestTable* | 您在**testdb**中建立的資料表。 |
     | 資料格式 | *JSON* | 支援的格式為 Avro、CSV、JSON、多行 JSON、PSV、SOHSV、SCSV、TSV、TSVE 和 TXT。 |
-    | 資料行對應 | *TestMapping* | 您在**testdb**中建立的對應，其會將傳入的 JSON 資料對應至**testdb**的資料行名稱和資料類型。 對 JSON、多行 JSON 和 AVRO 而言是必要的，而且對於其他格式則為選擇性。|
+    | 資料行對應 | *TestMapping* | 您在**testdb**中建立的[對應](/azure/kusto/management/mappings)，其會將傳入的 JSON 資料對應至**testdb**的資料行名稱和資料類型。 對 JSON、多行 JSON 和 AVRO 而言是必要的，而且對於其他格式則為選擇性。|
     | | |
 
     > [!NOTE]

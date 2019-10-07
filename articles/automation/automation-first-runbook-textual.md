@@ -10,12 +10,12 @@ ms.author: robreed
 ms.date: 09/24/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 010c6b00161c7a0a004932528fa4f608aa7c5e23
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: ab6d213e83c2d7eba95c6c9a6dca5edc1f0f2215
+ms.sourcegitcommit: 9f330c3393a283faedaf9aa75b9fcfc06118b124
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68850673"
+ms.lasthandoff: 10/07/2019
+ms.locfileid: "71996515"
 ---
 # <a name="my-first-powershell-workflow-runbook"></a>我的第一個 PowerShell 工作流程 Runbook
 
@@ -33,7 +33,7 @@ ms.locfileid: "68850673"
 
 * Azure 訂用帳戶。 如果您沒有這類帳戶，可以[啟用自己的 MSDN 訂戶權益](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/)或註冊[免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)。
 * [自動化帳戶](automation-offering-get-started.md) ，用來保存 Runbook 以及向 Azure 資源驗證。  此帳戶必須擁有啟動和停止虛擬機器的權限。
-* Azure 虛擬機器。 您會停止並啟動這部電腦, 因此它不應該是生產 VM。
+* Azure 虛擬機器。 您會停止並啟動這部電腦，因此它不應該是生產 VM。
 
 ## <a name="step-1---create-new-runbook"></a>步驟 1 - 建立新的 Runbook
 
@@ -80,7 +80,7 @@ ms.locfileid: "68850673"
 1. 按一下 [開始] 以開始測試。 此選項應該是唯一啟用的選項。
 1. 隨即會建立 [Runbook 工作](automation-runbook-execution.md) ，並顯示其狀態。
 
-   作業狀態會以「*佇列*」啟動, 表示正在等候雲端中的 runbook 背景工作可供使用。 當背景工作角色宣告該作業時，狀態會變更為 [正在開始]，然後 Runbook 真正開始執行時再變更為 [執行中]。
+   作業狀態會以「*佇列*」啟動，表示正在等候雲端中的 runbook 背景工作可供使用。 當背景工作角色宣告該作業時，狀態會變更為 [正在開始]，然後 Runbook 真正開始執行時再變更為 [執行中]。
 
 1. Runbook 工作完成時，會顯示其輸出。 在您的案例中，您應該會看到「Hello World」。
 
@@ -90,7 +90,7 @@ ms.locfileid: "68850673"
 
 ## <a name="step-4---publish-and-start-the-runbook"></a>步驟 4 - 發佈和啟動 Runbook
 
-您建立的 Runbook 仍處於 [草稿] 模式。 您必須先發佈該檔案, 才能在生產環境中執行。 當您發佈 Runbook 時，您會使用草稿版本覆寫現有的已發佈版本。 在您的案例中，因為您剛剛建立 Runbook，所以還沒有已發佈的版本。
+您建立的 Runbook 仍處於 [草稿] 模式。 您必須先發佈該檔案，才能在生產環境中執行。 當您發佈 Runbook 時，您會使用草稿版本覆寫現有的已發佈版本。 在您的案例中，因為您剛剛建立 Runbook，所以還沒有已發佈的版本。
 
 1. 按一下 [發佈] 來發佈 Runbook，然後出現提示時按一下 [是]。
 1. 如果您現在向左捲動以檢視 [Runbook] 窗格中的 Runbook，則畫面會顯示 [已發佈] 的 [撰寫狀態]。
@@ -103,27 +103,27 @@ ms.locfileid: "68850673"
 1. 作業窗格會針對您所建立的 Runbook 作業開啟。 您可以關閉此窗格，但在此情況下，您會讓它開啟，以便觀看作業的進度。
 1. [作業摘要] 中會顯示作業狀態，且符合當您測試 Runbook 時看到的狀態。
 
-   ![作業摘要](media/automation-first-runbook-textual/job-pane-status-blade-jobsummary.png)
+   ![工作摘要](media/automation-first-runbook-textual/job-pane-status-blade-jobsummary.png)
 
 1. 一旦 Runbook 狀態顯示 [已完成]，請按一下 [輸出]。 [輸出] 窗格會開啟，而且可以看到您的「Hello World」。
 
-   ![作業摘要](media/automation-first-runbook-textual/job-pane-status-blade-outputtile.png)
+   ![工作摘要](media/automation-first-runbook-textual/job-pane-status-blade-outputtile.png)
 
 1. 關閉 [輸出] 窗格。
-1. 按一下 [所有記錄] 以開啟 Runbook 作業的 [資料流] 窗格。 您應該只會在輸出資料流程中看到*Hello World* , 但此視圖可以顯示 runbook 作業的其他資料流程, 例如 runbook 寫入時的詳細資訊和錯誤。
+1. 按一下 [所有記錄] 以開啟 Runbook 作業的 [資料流] 窗格。 您應該只會在輸出資料流程中看到*Hello World* ，但此視圖可以顯示 runbook 作業的其他資料流程，例如 runbook 寫入時的詳細資訊和錯誤。
 
-   ![作業摘要](media/automation-first-runbook-textual/job-pane-status-blade-alllogstile.png)
+   ![工作摘要](media/automation-first-runbook-textual/job-pane-status-blade-alllogstile.png)
 
-1. 關閉 [資料流程] 頁面和 [作業] 頁面, 以返回 [MyFirstRunbook] 頁面。
+1. 關閉 [資料流程] 頁面和 [作業] 頁面，以返回 [MyFirstRunbook] 頁面。
 1. 按一下 [**作業**] 以開啟此 runbook 的 [作業] 頁面。 這麼頁面會列出此 Runbook 建立的所有工作。 由於您只執行一次作業，因此應該只會看到列出一項作業。
 
    ![工作 (Job)](media/automation-first-runbook-textual/runbook-control-job-tile.png)
 
-1. 您可以按一下此作業, 以開啟您啟動 runbook 時所看到的相同工作頁面。 這個動作可讓您回到過去的時間，並檢視針對特定 Runbook 所建立的任何工作詳細資料。
+1. 您可以按一下此作業，以開啟您啟動 runbook 時所看到的相同工作頁面。 這個動作可讓您回到過去的時間，並檢視針對特定 Runbook 所建立的任何工作詳細資料。
 
 ## <a name="step-5---add-authentication-to-manage-azure-resources"></a>步驟 5 - 加入驗證來管理 Azure 資源
 
-您已測試並發行您的 Runbook，但是到目前為止，它似乎並不實用。 您想要讓它管理 Azure 資源。 不過, 除非您已使用[必要條件](#prerequisites)中所參考的認證進行驗證, 否則無法這麼做。 您必須利用 **Connect-AzureRmAccount** Cmdlet 來執行。
+您已測試並發行您的 Runbook，但是到目前為止，它似乎並不實用。 您想要讓它管理 Azure 資源。 不過，除非您已使用[必要條件](#prerequisites)中所參考的認證進行驗證，否則無法這麼做。 您可以使用**disconnect-azaccount** Cmdlet 來執行此動作。
 
 1. 按一下 MyFirstRunbook-Workflow 窗格上的 [編輯] 以開啟文字編輯器。
 2. 您不再需要 **Write-Output** 行，因此可以放心刪除。
@@ -132,17 +132,17 @@ ms.locfileid: "68850673"
 
    ```powershell-interactive
    # Ensures you do not inherit an AzureRMContext in your runbook
-   Disable-AzureRmContextAutosave –Scope Process
+   Disable-AzContextAutosave –Scope Process
 
    $Conn = Get-AutomationConnection -Name AzureRunAsConnection
-   Connect-AzureRmAccount -ServicePrincipal -Tenant $Conn.TenantID `
+   Connect-AzAccount -ServicePrincipal -Tenant $Conn.TenantID `
    -ApplicationId $Conn.ApplicationID -CertificateThumbprint $Conn.CertificateThumbprint
 
-   $AzureContext = Select-AzureRmSubscription -SubscriptionId $Conn.SubscriptionID
+   $AzureContext = Select-AzSubscription -SubscriptionId $Conn.SubscriptionID
    ```
 
    > [!IMPORTANT]
-   > **Add-AzureRmAccount** 和 **Login-AzureRmAccount** 現在是 **Connect-AzureRMAccount** 的別名。 如果 **Connect-AzureRMAccount** Cmdlet 不存在，您可以使用 **Add-AzureRmAccount** 或 **Login-AzureRmAccount**，或者在自動化帳戶中[更新模組](automation-update-azure-modules.md)至最新版本。
+   > **Disconnect-azaccount**和**登入-Disconnect-azaccount**現在是**disconnect-azaccount**的別名。 如果**disconnect-azaccount** Cmdlet 不存在，您可以使用**disconnect-azaccount**或**登入 disconnect-azaccount**，或是將您的自動化帳戶中的[模組更新](automation-update-azure-modules.md)為最新版本。
 
 > [!NOTE]
 > 即使您才剛建立新的自動化帳戶，可能還是需要[更新模組](automation-update-azure-modules.md)。
@@ -154,22 +154,22 @@ ms.locfileid: "68850673"
 
 ## <a name="step-6---add-code-to-start-a-virtual-machine"></a>步驟 6 - 加入程式碼以啟動虛擬機器
 
-由於您的 Runbook 正在驗證您的 Azure 訂用帳戶，所以您可以管理資源。 您會新增一個命令以啟動虛擬機器。 您可以在 Azure 訂用帳戶中挑選任何虛擬機器, 而現在您會在 runbook 中硬式編碼該名稱。 如果您要管理跨多個訂用帳戶的資源, 您必須使用 **-AzureRmCoNtext**參數以及[AzureRmCoNtext](/powershell/module/azurerm.profile/get-azurermcontext)。
+由於您的 Runbook 正在驗證您的 Azure 訂用帳戶，所以您可以管理資源。 您會新增一個命令以啟動虛擬機器。 您可以在 Azure 訂用帳戶中挑選任何虛擬機器，而現在您會在 runbook 中硬式編碼該名稱。 如果您要管理跨多個訂用帳戶的資源，您必須使用 **-set-azcoNtext**參數以及[set-azcoNtext](/powershell/module/az.accounts/get-azcontext)。
 
-1. 在 *Connect-AzureRmAccount* 後面輸入 Start-AzureRmVM -Name 'VMName' -ResourceGroupName 'NameofResourceGroup'，提供所要啟動虛擬機器的名稱和資源群組名稱。
+1. 在*disconnect-azaccount*之後，輸入*update-azvm-Name ' VMName '-ResourceGroupName ' NameofResourceGroup '* ，提供要啟動之虛擬機器的名稱和資源組名。
 
    ```powershell-interactive
    workflow MyFirstRunbook-Workflow
    {
-   # Ensures you do not inherit an AzureRMContext in your runbook
-   Disable-AzureRmContextAutosave –Scope Process
+   # Ensures you do not inherit an AzContext in your runbook
+   Disable-AzContextAutosave –Scope Process
 
    $Conn = Get-AutomationConnection -Name AzureRunAsConnection
-   Connect-AzureRmAccount -ServicePrincipal -Tenant $Conn.TenantID -ApplicationId $Conn.ApplicationID -CertificateThumbprint $Conn.CertificateThumbprint
+   Connect-AzAccount -ServicePrincipal -Tenant $Conn.TenantID -ApplicationId $Conn.ApplicationID -CertificateThumbprint $Conn.CertificateThumbprint
 
-   $AzureContext = Select-AzureRmSubscription -SubscriptionId $Conn.SubscriptionID
+   $AzureContext = Select-AzSubscription -SubscriptionId $Conn.SubscriptionID
 
-   Start-AzureRmVM -Name 'VMName' -ResourceGroupName 'ResourceGroupName' -AzureRmContext $AzureContext
+   Start-AzVM -Name 'VMName' -ResourceGroupName 'ResourceGroupName' -AzContext $AzureContext
    }
    ```
 
@@ -180,7 +180,7 @@ ms.locfileid: "68850673"
 
 您的 Runbook 目前會啟動您在 Runbook 中硬式編碼的虛擬機器，但如果可以在啟動 Runbook 時指定虛擬機器，它會更有用。 您會將輸入參數新增至 Runbook，以提供該功能。
 
-1. 如下列範例所示，將 [VMName] 和 [ResourceGroupName] 的參數新增至 Runbook，並搭配使用這些變數與 **Start-AzureRmVM** Cmdlet。
+1. 將*VMName*和*ResourceGroupName*的參數新增至 runbook，並搭配使用這些變數與**update-azvm** Cmdlet，如下列範例所示。
 
    ```powershell-interactive
    workflow MyFirstRunbook-Workflow
@@ -189,12 +189,12 @@ ms.locfileid: "68850673"
      [string]$VMName,
      [string]$ResourceGroupName
     )
-   # Ensures you do not inherit an AzureRMContext in your runbook
-   Disable-AzureRmContextAutosave –Scope Process
+   # Ensures you do not inherit an AzContext in your runbook
+   Disable-AzContextAutosave –Scope Process
 
    $Conn = Get-AutomationConnection -Name AzureRunAsConnection
-   Connect-AzureRmAccount -ServicePrincipal -Tenant $Conn.TenantID -ApplicationId $Conn.ApplicationID -CertificateThumbprint $Conn.CertificateThumbprint
-   Start-AzureRmVM -Name $VMName -ResourceGroupName $ResourceGroupName
+   Connect-AzAccount -ServicePrincipal -Tenant $Conn.TenantID -ApplicationId $Conn.ApplicationID -CertificateThumbprint $Conn.CertificateThumbprint
+   Start-AzVM -Name $VMName -ResourceGroupName $ResourceGroupName
    }
    ```
 
@@ -210,7 +210,7 @@ ms.locfileid: "68850673"
 
 ## <a name="next-steps"></a>後續步驟
 
-* 如需 PowerShell 的詳細資訊 (包括語言參考和學習模組), 請參閱[powershell](https://docs.microsoft.com/en-us/powershell/scripting/overview)檔。
+* 如需 PowerShell 的詳細資訊（包括語言參考和學習模組），請參閱[powershell](https://docs.microsoft.com/en-us/powershell/scripting/overview)檔。
 * 若要開始使用圖形化 Runbook，請參閱 [我的第一個圖形化 Runbook](automation-first-runbook-graphical.md)
 * 若要開始使用 PowerShell Runbook，請參閱 [我的第一個 PowerShell Runbook](automation-first-runbook-textual-powershell.md)
 * 若要深入了解 Runbook 類型、其優點和限制，請參閱 [Azure 自動化 Runbook 類型](automation-runbook-types.md)

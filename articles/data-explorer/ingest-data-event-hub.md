@@ -7,12 +7,12 @@ ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 07/17/2019
-ms.openlocfilehash: a83e2163c9aa970932f2eea8e2e04a715107ac7f
-ms.sourcegitcommit: 4f7dce56b6e3e3c901ce91115e0c8b7aab26fb72
+ms.openlocfilehash: a0568d3c3258fe082fe8451820fe7a25390cfe78
+ms.sourcegitcommit: 9f330c3393a283faedaf9aa75b9fcfc06118b124
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71950262"
+ms.lasthandoff: 10/07/2019
+ms.locfileid: "71996779"
 ---
 # <a name="ingest-data-from-event-hub-into-azure-data-explorer"></a>將資料從事件中樞內嵌至 Azure 資料總管
 
@@ -114,7 +114,7 @@ Azure 資料總管是一項快速又可高度調整的資料探索服務，可�
     | 事件中樞命名空間 | 唯一命名空間名稱 | 您先前選擇用來辨識命名空間的名稱。 |
     | 事件中樞 | *test-hub* | 您建立的事件中樞。 |
     | 取用者群組 | *test-group* | 在您所建立事件中樞中定義的取用者群組。 |
-    | 事件系統屬性 | 選取相關的屬性 | [事件中樞系統屬性](/azure/service-bus-messaging/service-bus-amqp-protocol-guide#message-annotations) |
+    | 事件系統屬性 | 選取相關的屬性 | [事件中樞系統屬性](/azure/service-bus-messaging/service-bus-amqp-protocol-guide#message-annotations)。 如果每個事件訊息有多個記錄，系統屬性將會新增至第一個。 加入系統屬性時，[建立](/azure/kusto/management/tables#create-table)或[更新](/azure/kusto/management/tables#alter-table-and-alter-merge-table)資料表架構和[對應](/azure/kusto/management/mappings)以包含選取的屬性。 |
     | | |
 
     目標資料表：
@@ -126,7 +126,7 @@ Azure 資料總管是一項快速又可高度調整的資料探索服務，可�
     |---|---|---|
     | 資料表 | *TestTable* | 您在 **TestDatabase** 中建立的資料表。 |
     | 資料格式 | *JSON* | 支援的格式為 Avro、CSV、JSON、多行 JSON、PSV、SOHSV、SCSV、TSV、TSVE 和 TXT。 支援的壓縮選項：GZip |
-    | 資料行對應 | *TestMapping* | 您在 **TestDatabase** 中建立的對應，會將傳入的 JSON 資料對應至 **TestTable** 的資料行名稱與資料類型。 需要 JSON、MULTILINE JSON 或 AVRO，而其他格式為選用性質。|
+    | 資料行對應 | *TestMapping* | 您在**TestDatabase**中建立的[對應](/azure/kusto/management/mappings)，其會將傳入的 JSON 資料對應至**TestTable**的資料行名稱和資料類型。 需要 JSON、MULTILINE JSON 或 AVRO，而其他格式為選用性質。|
     | | |
 
     > [!NOTE]

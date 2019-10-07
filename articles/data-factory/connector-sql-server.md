@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 09/09/2019
 ms.author: jingwang
-ms.openlocfilehash: 7b266a21aabf37765de4f4f94cd3939cec697585
-ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
+ms.openlocfilehash: b87676e773c4b7714a3b5ef21a6be703e0e3761a
+ms.sourcegitcommit: be344deef6b37661e2c496f75a6cf14f805d7381
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71058506"
+ms.lasthandoff: 10/07/2019
+ms.locfileid: "72001390"
 ---
 # <a name="copy-data-to-and-from-sql-server-by-using-azure-data-factory"></a>使用 Azure Data Factory 從 SQL Server 複製資料
 > [!div class="op_single_selector" title1="選取您要使用的 Azure Data Factory 版本："]
@@ -65,13 +65,13 @@ ms.locfileid: "71058506"
 | 屬性 | 描述 | 必要項 |
 |:--- |:--- |:--- |
 | 型別 | 類型屬性必須設定為 **SqlServer**。 | 是 |
-| connectionString |指定使用 SQL 驗證或 Windows 驗證連接到 SQL Server 資料庫所需的**connectionString**資訊。 請參考下列範例。<br/>將此欄位標記為**SecureString** ，將它安全地儲存在 Azure Data Factory 中。 您也可以將密碼放在 Azure Key Vault 中。 如果是 SQL 驗證，請從連接`password`字串中提取設定。 如需詳細資訊，請參閱資料表後面的 JSON 範例，並[將認證儲存在 Azure Key Vault 中](store-credentials-in-key-vault.md)。 |是 |
+| connectionString |指定使用 SQL 驗證或 Windows 驗證連接到 SQL Server 資料庫所需的**connectionString**資訊。 請參考下列範例。<br/>將此欄位標記為**SecureString** ，將它安全地儲存在 Azure Data Factory 中。 您也可以將密碼放在 Azure Key Vault 中。 如果是 SQL 驗證，請從連接字串中提取 `password` 設定。 如需詳細資訊，請參閱資料表後面的 JSON 範例，並[將認證儲存在 Azure Key Vault 中](store-credentials-in-key-vault.md)。 |是 |
 | userName |如果您使用 Windows 驗證，請指定使用者名稱。 範例為 **domainname\\username**。 |否 |
 | password |針對您為使用者名稱指定的使用者帳戶指定密碼。 將此欄位標記為**SecureString** ，將它安全地儲存在 Azure Data Factory 中。 或者，您可以[參考儲存在 Azure Key Vault 中的秘密](store-credentials-in-key-vault.md)。 |否 |
 | connectVia | 用來連線到資料存放區的[整合執行階段](concepts-integration-runtime.md)。 深入瞭解[必要條件](#prerequisites)一節。 如果未指定，則會使用預設的 Azure integration runtime。 |否 |
 
 >[!TIP]
->如果您遇到錯誤碼為 "UserErrorFailedToConnectToSqlServer" 的錯誤，並出現類似「資料庫的會話限制為 XXX 且已達到」的訊息，請將新增`Pooling=false`至您的連接字串，然後再試一次。
+>如果您遇到錯誤碼為 "UserErrorFailedToConnectToSqlServer" 的錯誤，並出現類似「資料庫的會話限制為 XXX 且已達到」的訊息，請將 `Pooling=false` 新增至您的連接字串，然後再試一次。
 
 **範例 1：使用 SQL 驗證**
 
@@ -94,7 +94,7 @@ ms.locfileid: "71058506"
 }
 ```
 
-**範例 2：在 Azure Key Vault 中使用 SQL 驗證搭配密碼**
+**範例 2：在 Azure Key Vault @ no__t-0 中使用 SQL 驗證搭配密碼
 
 ```json
 {
@@ -160,7 +160,7 @@ ms.locfileid: "71058506"
 | 型別 | 資料集的類型屬性必須設定為 **SqlServerTable**。 | 是 |
 | schema | 架構的名稱。 |否 (來源)；是 (接收)  |
 | table | 資料表/視圖的名稱。 |否 (來源)；是 (接收)  |
-| tableName | 具有架構的資料表/視圖名稱。 此屬性支援回溯相容性。 針對新的工作負載`schema` ， `table`請使用和。 | 否 (來源)；是 (接收) |
+| tableName | 具有架構的資料表/視圖名稱。 此屬性支援回溯相容性。 針對新的工作負載，請使用 `schema` 並 `table`。 | 否 (來源)；是 (接收) |
 
 **範例**
 
@@ -201,9 +201,9 @@ ms.locfileid: "71058506"
 **注意事項：**
 
 - 如果為**SqlSource**指定了**sqlReaderQuery** ，複製活動就會針對 SQL Server 來源執行此查詢，以取得資料。 如果預存程序接受參數，您也可以藉由指定 **sqlReaderStoredProcedureName** 和 **storedProcedureParameters** 來指定預存程序。
-- 如果您未指定**sqlReaderQuery**或**sqlReaderStoredProcedureName**，則會使用資料集 JSON 的 "structure" 區段中所定義的資料行來建立查詢。 查詢`select column1, column2 from mytable`會針對 SQL Server 執行。 如果資料集定義沒有 "structure"，則會從資料表中選取所有資料行。
+- 如果您未指定**sqlReaderQuery**或**sqlReaderStoredProcedureName**，則會使用資料集 JSON 的 "structure" 區段中所定義的資料行來建立查詢。 查詢 `select column1, column2 from mytable` 會針對 SQL Server 執行。 如果資料集定義沒有 "structure"，則會從資料表中選取所有資料行。
 
-**範例：使用 SQL 查詢**
+**範例：使用 SQL 查詢 @ no__t-0
 
 ```json
 "activities":[
@@ -301,13 +301,13 @@ GO
 |:--- |:--- |:--- |
 | 型別 | 複製活動接收的 type 屬性必須設定為 **SqlSink**。 | 是 |
 | writeBatchSize |要插入 SQL 資料表中*每個批次*的資料列數目。<br/>允許的值為整數的資料列數目。 根據預設，Azure Data Factory 會依據資料列大小，以動態方式決定適當的批次大小。 |否 |
-| writeBatchTimeout |此屬性會指定在逾時前等待批次插入作業完成的時間。<br/>允許的值適用于 timespan。 例如，"00:30:00" 代表30分鐘。 |否 |
+| writeBatchTimeout |此屬性會指定在逾時前等待批次插入作業完成的時間。<br/>允許的值適用于 timespan。 例如，"00:30:00" 代表30分鐘。 如果未指定任何值，則 timeout 會預設為 "02:00:00"。 |否 |
 | preCopyScript |這個屬性會指定要在將資料寫入 SQL Server 之前，要執行之複製活動的 SQL 查詢。 每一複製回合只會叫用此查詢一次。 您可以使用此屬性來清除預先載入的資料。 |否 |
-| sqlWriterStoredProcedureName | 定義如何將來源資料套用到目標資料表的預存程序名稱。 <br/>此預存程序將會*依批次叫用*。 對於只執行一次且與來源資料無關的作業（例如，刪除或截斷），請使用`preCopyScript`屬性。 | 否 |
+| sqlWriterStoredProcedureName | 定義如何將來源資料套用到目標資料表的預存程序名稱。 <br/>此預存程序將會*依批次叫用*。 對於只執行一次且與來源資料無關的作業（例如，delete 或截斷），請使用 `preCopyScript` 屬性。 | 否 |
 | storedProcedureTableTypeParameterName |預存程式中指定之資料表類型的參數名稱。  |否 |
 | sqlWriterTableType |要在預存程式中使用的資料表類型名稱。 複製活動可讓正在移動的資料可用於此資料表類型的暫存資料表。 然後，預存程序程式碼可以合併正在複製的資料與現有的資料。 |否 |
 | storedProcedureParameters |預存程序的參數。<br/>允許的值為：名稱和值組。 參數的名稱和大小寫必須符合預存程序參數的名稱和大小寫。 | 否 |
-| tableOption | 指定是否要根據來源架構，自動建立接收資料表（如果不存在）。 當 sink 指定了複製活動中所設定的預存程式或分段複製時，不支援自動建立資料表。 允許的值為`none` ：（預設值`autoCreate`）、。 |否 |
+| tableOption | 指定是否要根據來源架構，自動建立接收資料表（如果不存在）。 當 sink 指定了複製活動中所設定的預存程式或分段複製時，不支援自動建立資料表。 允許的值為： `none` （預設值），`autoCreate`。 |否 |
 
 **範例 1：附加資料**
 
@@ -342,7 +342,7 @@ GO
 ]
 ```
 
-**範例 2：在複製期間叫用預存程式**
+**範例 2：在複製 @ no__t-0 期間叫用預存程式
 
 若要了解更多詳細資料，請參閱[叫用 SQL 接收中的預存程序](#invoke-a-stored-procedure-from-a-sql-sink)。
 
@@ -512,7 +512,7 @@ END
 | FILESTREAM attribute (varbinary(max)) |Byte[] |
 | 浮點數 |Double |
 | image |Byte[] |
-| ssNoversion |Int32 |
+| int |Int32 |
 | money |Decimal |
 | nchar |String, Char[] |
 | ntext |String, Char[] |

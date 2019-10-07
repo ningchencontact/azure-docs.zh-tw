@@ -114,22 +114,34 @@
           href: sisense.md
     - name: 管理
       items:
-        - name: 檢查叢集健康情況
-          href: check-cluster-health.md
-        - name: 選取叢集虛擬機器 SKU
-          href: manage-cluster-choose-sku.md
-        - name: 管理叢集的水平調整
-          href: manage-cluster-horizontal-scaling.md
-        - name: 管理叢集的垂直調整
-          href: manage-cluster-vertical-scaling.md
-        - name: 管理叢集安全性
-          href: manage-cluster-security.md
-        - name: 管理資料庫權限
-          href: manage-database-permissions.md
-        - name: 刪除資料
-          href: delete-data.md
-        - name: 處理資料重複
-          href: dealing-with-duplicates.md
+        - name: 叢集
+          items:
+            - name: 選取叢集虛擬機器 SKU
+              href: manage-cluster-choose-sku.md
+            - name: 管理叢集的水平調整
+              href: manage-cluster-horizontal-scaling.md
+            - name: 管理叢集的垂直調整
+              href: manage-cluster-vertical-scaling.md
+            - name: 管理叢集安全性
+              href: manage-cluster-security.md
+            - name: 檢查叢集健康情況
+              href: check-cluster-health.md
+        - name: 資料庫
+          items:
+            - name: 管理資料庫權限
+              href: manage-database-permissions.md
+            - name: 原則
+              items:
+                - name: 'C#'
+                  href: database-table-policies-csharp.md
+                - name: Python
+                  href: database-table-policies-python.md
+        - name: 資料
+          items:
+            - name: 刪除資料
+              href: delete-data.md
+            - name: 處理資料重複
+              href: dealing-with-duplicates.md
     - name: 監視
       items:
         - name: 使用診斷記錄來監視擷取

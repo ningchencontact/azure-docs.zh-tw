@@ -7,12 +7,12 @@ ms.reviewer: oflipman
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 09/26/2019
-ms.openlocfilehash: b8aa87b871b86a8dab3b1984b638366a42708483
-ms.sourcegitcommit: f2d9d5133ec616857fb5adfb223df01ff0c96d0a
+ms.openlocfilehash: e2e051db00c9b8de5268e64be70ab99752bf7a55
+ms.sourcegitcommit: be344deef6b37661e2c496f75a6cf14f805d7381
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/03/2019
-ms.locfileid: "71936902"
+ms.lasthandoff: 10/07/2019
+ms.locfileid: "72001423"
 ---
 # <a name="create-an-azure-data-explorer-cluster-and-database-by-using-an-azure-resource-manager-template"></a>使用 Azure Resource Manager 範本建立 Azure 資料總管叢集和資料庫
 
@@ -67,11 +67,11 @@ Azure 資料總管是一項快速又可高度調整的資料探索服務，可�
           "name": "[parameters('clusters_kustocluster_name')]",
           "type": "Microsoft.Kusto/clusters",
           "sku": {
-              "name": "D13_v2",
+              "name": "Standard_D13_v2",
               "tier": "Standard",
               "capacity": 2
           },
-          "apiVersion": "2019-09-07-preview",
+          "apiVersion": "2019-05-15",
           "location": "[parameters('location')]",
           "tags": {
             "Created By": "GitHub quickstart template"
@@ -80,7 +80,7 @@ Azure 資料總管是一項快速又可高度調整的資料探索服務，可�
       {
           "name": "[concat(parameters('clusters_kustocluster_name'), '/', parameters('databases_kustodb_name'))]",
           "type": "Microsoft.Kusto/clusters/databases",
-          "apiVersion": "2019-09-07-preview",
+          "apiVersion": "2019-05-15",
           "location": "[parameters('location')]",
           "dependsOn": [
               "[resourceId('Microsoft.Kusto/clusters', parameters('clusters_kustocluster_name'))]"
@@ -121,7 +121,7 @@ Azure 資料總管是一項快速又可高度調整的資料探索服務，可�
 
 #### <a name="deploy-the-template-using-powershell"></a>使用 powershell 部署範本
 
-1. 從下列程式碼區塊中選取 [**試試看**], 然後依照指示登入 Azure Cloud shell。
+1. 從下列程式碼區塊中選取 [**試試看**]，然後依照指示登入 Azure Cloud shell。
 
     ```azurepowershell-interactive
     $projectName = Read-Host -Prompt "Enter a project name that is used for generating resource names"
@@ -137,7 +137,7 @@ Azure 資料總管是一項快速又可高度調整的資料探索服務，可�
     ```
 
 1. 選取 [複製] 來複製 PowerShell 指令碼。
-1. 以滑鼠右鍵按一下 [shell] 主控台, 然後選取 [**貼**上]。
+1. 以滑鼠右鍵按一下 [shell] 主控台，然後選取 [**貼**上]。
 建立 Azure 資料總管叢集和資料庫需要幾分鐘的時間。
 
 #### <a name="verify-the-deployment-using-powershell"></a>使用 PowerShell 驗證部署

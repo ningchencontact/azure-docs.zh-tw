@@ -11,12 +11,12 @@ ms.author: jovanpop
 ms.reviewer: sstein, carlrab, bonova
 ms.date: 08/12/2019
 ms.custom: seoapril2019
-ms.openlocfilehash: 704c1cdf95424bffa19e0946d13fa45d1b520753
-ms.sourcegitcommit: 4d177e6d273bba8af03a00e8bb9fe51a447196d0
+ms.openlocfilehash: 9a043d07004870c00c656b655d56a1526f8993d8
+ms.sourcegitcommit: be344deef6b37661e2c496f75a6cf14f805d7381
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71959943"
+ms.lasthandoff: 10/07/2019
+ms.locfileid: "72000505"
 ---
 # <a name="managed-instance-t-sql-differences-limitations-and-known-issues"></a>受控實例的 T-sql 差異、限制和已知問題
 
@@ -110,7 +110,7 @@ Azure SQL Database 中的資料庫和 SQL Server 中的資料庫兩者之間的�
 
 請參閱 [CREATE CERTIFICATE](https://docs.microsoft.com/sql/t-sql/statements/create-certificate-transact-sql) 和 [BACKUP CERTIFICATE](https://docs.microsoft.com/sql/t-sql/statements/backup-certificate-transact-sql)。 
  
-**因應措施**：憑證或私密金鑰的腳本，儲存為 .sql 檔案，並從二進位檔建立：
+**因應措施**：請改為[取得憑證二進位內容和私密金鑰、將它儲存為 .sql 檔案，並從二進位檔建立](https://docs.microsoft.com/sql/t-sql/functions/certencoded-transact-sql#b-copying-a-certificate-to-another-database)，而不是建立憑證的備份及還原備份：
 
 ```sql
 CREATE CERTIFICATE  

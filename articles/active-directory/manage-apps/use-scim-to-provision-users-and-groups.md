@@ -16,16 +16,16 @@ ms.author: mimart
 ms.reviewer: arvinh
 ms.custom: aaddev;it-pro;seohack1
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9344feeadc5f4146c3b3f853082cd9255100af5c
-ms.sourcegitcommit: 4f7dce56b6e3e3c901ce91115e0c8b7aab26fb72
+ms.openlocfilehash: b5c24a2340775712f1105448b2aacfdc9a75f1a6
+ms.sourcegitcommit: be344deef6b37661e2c496f75a6cf14f805d7381
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71949640"
+ms.lasthandoff: 10/07/2019
+ms.locfileid: "72001718"
 ---
 # <a name="scim-user-provisioning-with-azure-active-directory"></a>使用 Azure Active Directory SCIM 使用者布建
 
-適用于跨網域身分識別管理（SCIM）的系統是標準化的通訊協定和架構，其目標是要在系統間管理身分識別的方式上提高一致性。 當應用程式支援 SCIM 端點以進行使用者管理時，Azure AD 的使用者布建服務可以傳送要求，以建立、修改或刪除指派給此端點的使用者和群組。
+適用于跨網域身分識別管理（[SCIM](https://techcommunity.microsoft.com/t5/Identity-Standards-Blog/bg-p/IdentityStandards)）的系統是標準化的通訊協定和架構，其目標是要在系統間管理身分識別的方式上提高一致性。 當應用程式支援 SCIM 端點以進行使用者管理時，Azure AD 的使用者布建服務可以傳送要求，以建立、修改或刪除指派給此端點的使用者和群組。
 
 許多 Azure AD 的應用程式都支援[預先整合的自動使用者布建](../saas-apps/tutorial-list.md)執行 SCIM，做為接收使用者變更通知的方法。  除了這些功能之外，客戶也可以使用 Azure 入口網站中的一般「非資源庫」整合選項，連接支援[SCIM 2.0 通訊協定規格](https://tools.ietf.org/html/rfc7644)特定設定檔的應用程式。
 

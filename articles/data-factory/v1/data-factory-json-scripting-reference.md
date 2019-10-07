@@ -12,10 +12,10 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.openlocfilehash: 69218cedcd5d775fe6e499086663aa124f6bfe25
-ms.sourcegitcommit: 4d177e6d273bba8af03a00e8bb9fe51a447196d0
+ms.sourcegitcommit: 9f330c3393a283faedaf9aa75b9fcfc06118b124
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/04/2019
+ms.lasthandoff: 10/07/2019
 ms.locfileid: "70736012"
 ---
 # <a name="azure-data-factory---json-scripting-reference"></a>Azure Data Factory - JSON 指令碼參考
@@ -227,7 +227,7 @@ ms.locfileid: "70736012"
 
 如需有關建立此管道的完整逐步解說，請參閱[教學課程：使用 Hadoop 叢集建置您的第一個管線來處理資料](data-factory-build-your-first-pipeline.md)。
 
-## <a name="linked-service"></a>已連結的服務
+## <a name="linked-service"></a>連結服務
 連結服務定義的高階結構如下所示︰
 
 ```json
@@ -405,7 +405,7 @@ structure:
 
 ## <a name="azure-blob-storage"></a>Azure Blob 儲存體
 
-### <a name="linked-service"></a>已連結的服務
+### <a name="linked-service"></a>連結服務
 連結服務有兩種類型：Azure 儲存體連結服務和 Azure 儲存體 SAS 連結服務。
 
 #### <a name="azure-storage-linked-service"></a>Azure 儲存體連結服務
@@ -585,7 +585,7 @@ Azure 儲存體 SAS 連結服務可讓您使用共用存取簽章 (SAS)，將 Az
 
 ## <a name="azure-data-lake-store"></a>Azure Data Lake Store
 
-### <a name="linked-service"></a>已連結的服務
+### <a name="linked-service"></a>連結服務
 若要定義 Azure Data Lake Store 連結服務，請將連結服務的 type 設為 **AzureDataLakeStore**，並在 **typeProperties** 區段中指定下列屬性︰
 
 | 屬性 | 描述 | 必要項 |
@@ -781,7 +781,7 @@ Azure 儲存體 SAS 連結服務可讓您使用共用存取簽章 (SAS)，將 Az
 
 ## <a name="azure-cosmos-db"></a>Azure Cosmos DB
 
-### <a name="linked-service"></a>已連結的服務
+### <a name="linked-service"></a>連結服務
 若要定義 Azure Cosmos DB 連結服務，請將連結服務的 **type** 設定為 **DocumentDb**，並在 **typeProperties** 區段中指定下列屬性︰
 
 | **屬性** | **描述** | **必要** |
@@ -931,7 +931,7 @@ Azure 儲存體 SAS 連結服務可讓您使用共用存取簽章 (SAS)，將 Az
 
 ## <a name="azure-sql-database"></a>Azure SQL Database
 
-### <a name="linked-service"></a>已連結的服務
+### <a name="linked-service"></a>連結服務
 若要定義 Azure SQL Database 連結服務，請將連結服務的 **type** 設為 **AzureSqlDatabase**，並在 **typeProperties** 區段中指定下列屬性︰
 
 | 屬性 | 描述 | 必要項 |
@@ -1102,7 +1102,7 @@ Azure 儲存體 SAS 連結服務可讓您使用共用存取簽章 (SAS)，將 Az
 
 ## <a name="azure-sql-data-warehouse"></a>Azure SQL 資料倉儲
 
-### <a name="linked-service"></a>已連結的服務
+### <a name="linked-service"></a>連結服務
 若要定義 Azure SQL 資料倉儲連結服務，請將連結服務的 **type** 設為 **AzureSqlDW**，並在 **typeProperties** 區段中指定下列屬性︰
 
 | 屬性 | 描述 | 必要項 |
@@ -1281,7 +1281,7 @@ Azure 儲存體 SAS 連結服務可讓您使用共用存取簽章 (SAS)，將 Az
 
 ## <a name="azure-search"></a>Azure 搜尋服務
 
-### <a name="linked-service"></a>已連結的服務
+### <a name="linked-service"></a>連結服務
 若要定義 Azure 搜尋服務連結服務，請將連結服務的 **type** 設為 **AzureSearch**，並在 **typeProperties** 區段中指定下列屬性︰
 
 | 屬性 | 描述 | 必要項 |
@@ -1390,7 +1390,7 @@ Azure 儲存體 SAS 連結服務可讓您使用共用存取簽章 (SAS)，將 Az
 
 ## <a name="azure-table-storage"></a>Azure 表格儲存體
 
-### <a name="linked-service"></a>已連結的服務
+### <a name="linked-service"></a>連結服務
 連結服務有兩種類型：Azure 儲存體連結服務和 Azure 儲存體 SAS 連結服務。
 
 #### <a name="azure-storage-linked-service"></a>Azure 儲存體連結服務
@@ -1587,7 +1587,7 @@ Azure 儲存體 SAS 連結服務可讓您使用共用存取簽章 (SAS)，將 Az
 
 ## <a name="amazon-redshift"></a>Amazon RedShift
 
-### <a name="linked-service"></a>已連結的服務
+### <a name="linked-service"></a>連結服務
 若要定義 Amazon Redshift 連結服務，請將連結服務的 **type** 設為 **AmazonRedshift**，並在 **typeProperties** 區段中指定下列屬性︰
 
 | 屬性 | 描述 | 必要項 |
@@ -1699,7 +1699,7 @@ Azure 儲存體 SAS 連結服務可讓您使用共用存取簽章 (SAS)，將 Az
 
 ## <a name="ibm-db2"></a>IBM DB2
 
-### <a name="linked-service"></a>已連結的服務
+### <a name="linked-service"></a>連結服務
 若要定義 IBM DB2 連結服務，請將連結服務的 **type** 設為 **OnPremisesDB2**，並在 **typeProperties** 區段中指定下列屬性︰
 
 | 屬性 | 描述 | 必要項 |
@@ -1815,7 +1815,7 @@ Azure 儲存體 SAS 連結服務可讓您使用共用存取簽章 (SAS)，將 Az
 
 ## <a name="mysql"></a>MySQL
 
-### <a name="linked-service"></a>已連結的服務
+### <a name="linked-service"></a>連結服務
 若要定義 MySQL 連結服務，請將連結服務的 **type** 設為 **OnPremisesMySql**，並在 **typeProperties** 區段中指定下列屬性︰
 
 | 屬性 | 描述 | 必要項 |
@@ -1937,7 +1937,7 @@ Azure 儲存體 SAS 連結服務可讓您使用共用存取簽章 (SAS)，將 Az
 
 ## <a name="oracle"></a>Oracle
 
-### <a name="linked-service"></a>已連結的服務
+### <a name="linked-service"></a>連結服務
 若要定義 Oracle 連結服務，請將連結服務的 **type** 設為 **OnPremisesOracle**，並在 **typeProperties** 區段中指定下列屬性︰
 
 | 屬性 | 描述 | 必要項 |
@@ -2106,7 +2106,7 @@ Azure 儲存體 SAS 連結服務可讓您使用共用存取簽章 (SAS)，將 Az
 
 ## <a name="postgresql"></a>PostgreSQL
 
-### <a name="linked-service"></a>已連結的服務
+### <a name="linked-service"></a>連結服務
 若要定義 PostgreSQL 連結服務，請將連結服務的 **type** 設為 **OnPremisesPostgreSql**，並在 **typeProperties** 區段中指定下列屬性︰
 
 | 屬性 | 描述 | 必要項 |
@@ -2335,7 +2335,7 @@ encryptedCredential | 加密的認證字串。 | string | 否
 
 ## <a name="sap-hana"></a>SAP HANA
 
-### <a name="linked-service"></a>已連結的服務
+### <a name="linked-service"></a>連結服務
 若要定義 SAP HANA 連結服務，請將連結服務的 **type** 設為 **SapHana**，並在 **typeProperties** 區段中指定下列屬性︰
 
 屬性 | 描述 | 允許的值 | 必要項
@@ -2445,7 +2445,7 @@ encryptedCredential | 加密的認證字串。 | string | 否
 
 ## <a name="sql-server"></a>[SQL Server]
 
-### <a name="linked-service"></a>已連結的服務
+### <a name="linked-service"></a>連結服務
 您可以建立 **OnPremisesSqlServer** 類型的連結服務，以將內部部署 SQL Server 資料庫連結至資料處理站。 下表提供內部部署 SQL Server 連結服務專屬 JSON 元素的描述。
 
 下表提供 SQL Server 連結服務專屬 JSON 元素的描述。
@@ -2664,7 +2664,7 @@ encryptedCredential | 加密的認證字串。 | string | 否
 
 ## <a name="sybase"></a>Sybase
 
-### <a name="linked-service"></a>已連結的服務
+### <a name="linked-service"></a>連結服務
 若要定義 Sybase 連結服務，請將連結服務的 **type** 設為 **OnPremisesSybase**，並在 **typeProperties** 區段中指定下列屬性︰
 
 | 屬性 | 描述 | 必要項 |
@@ -2784,7 +2784,7 @@ encryptedCredential | 加密的認證字串。 | string | 否
 
 ## <a name="teradata"></a>Teradata
 
-### <a name="linked-service"></a>已連結的服務
+### <a name="linked-service"></a>連結服務
 若要定義 Teradata 連結服務，請將連結服務的 **type** 設為 **OnPremisesTeradata**，並在 **typeProperties** 區段中指定下列屬性︰
 
 | 屬性 | 描述 | 必要項 |
@@ -2898,7 +2898,7 @@ encryptedCredential | 加密的認證字串。 | string | 否
 ## <a name="cassandra"></a>Cassandra
 
 
-### <a name="linked-service"></a>已連結的服務
+### <a name="linked-service"></a>連結服務
 若要定義 Cassandra 連結服務，請將連結服務的 **type** 設為 **OnPremisesCassandra**，並在 **typeProperties** 區段中指定下列屬性︰
 
 | 屬性 | 描述 | 必要項 |
@@ -3025,7 +3025,7 @@ encryptedCredential | 加密的認證字串。 | string | 否
 
 ## <a name="mongodb"></a>MongoDB
 
-### <a name="linked-service"></a>已連結的服務
+### <a name="linked-service"></a>連結服務
 若要定義 MongoDB 連結服務，請將連結服務的 **type** 設為 **OnPremisesMongoDB**，並在 **typeProperties** 區段中指定下列屬性︰
 
 | 屬性 | 描述 | 必要項 |
@@ -3146,7 +3146,7 @@ encryptedCredential | 加密的認證字串。 | string | 否
 ## <a name="amazon-s3"></a>Amazon S3
 
 
-### <a name="linked-service"></a>已連結的服務
+### <a name="linked-service"></a>連結服務
 若要定義 Amazon S3 連結服務，請將連結服務的 **type** 設為 **AwsAccessKey**，並在 **typeProperties** 區段中指定下列屬性︰
 
 | 屬性 | 描述 | 允許的值 | 必要 |
@@ -3310,7 +3310,7 @@ encryptedCredential | 加密的認證字串。 | string | 否
 ## <a name="file-system"></a>檔案系統
 
 
-### <a name="linked-service"></a>已連結的服務
+### <a name="linked-service"></a>連結服務
 您可以利用「內部部署檔案伺服器」已連結服務，將內部部署的檔案系統連結到 Azure Data Factory。 下表說明內部部署檔案伺服器連結服務專屬的 JSON 元素。
 
 | 屬性 | 描述 | 必要項 |
@@ -3545,7 +3545,7 @@ auto-
 
 ## <a name="ftp"></a>FTP
 
-### <a name="linked-service"></a>已連結的服務
+### <a name="linked-service"></a>連結服務
 若要定義 FTP 連結服務，請將連結服務的 **type** 設為 **FtpServer**，並在 **typeProperties** 區段中指定下列屬性︰
 
 | 屬性 | 描述 | 必要項 | 預設 |
@@ -3723,7 +3723,7 @@ auto-
 
 ## <a name="hdfs"></a>HDFS
 
-### <a name="linked-service"></a>已連結的服務
+### <a name="linked-service"></a>連結服務
 若要定義 HDFS 連結服務，請將連結服務的 **type** 設為 **Hdfs**，並在 **typeProperties** 區段中指定下列屬性︰
 
 | 屬性 | 描述 | 必要項 |
@@ -3859,7 +3859,7 @@ auto-
 ## <a name="sftp"></a>SFTP
 
 
-### <a name="linked-service"></a>已連結的服務
+### <a name="linked-service"></a>連結服務
 若要定義 SFTP 連結服務，請將連結服務的 **type** 設為 **Sftp**，並在 **typeProperties** 區段中指定下列屬性︰
 
 | 屬性 | 描述 | 必要項 |
@@ -4066,7 +4066,7 @@ auto-
 
 ## <a name="http"></a>HTTP
 
-### <a name="linked-service"></a>已連結的服務
+### <a name="linked-service"></a>連結服務
 若要定義 HTTP 連結服務，請將連結服務的 **type** 設為 **Http**，並在 **typeProperties** 區段中指定下列屬性︰
 
 | 屬性 | 描述 | 必要項 |
@@ -4264,7 +4264,7 @@ auto-
 
 ## <a name="odata"></a>OData
 
-### <a name="linked-service"></a>已連結的服務
+### <a name="linked-service"></a>連結服務
 若要定義 OData 連結服務，請將連結服務的 **type** 設為 **OData**，並在 **typeProperties** 區段中指定下列屬性︰
 
 | 屬性 | 描述 | 必要項 |
@@ -4434,7 +4434,7 @@ auto-
 ## <a name="odbc"></a>ODBC
 
 
-### <a name="linked-service"></a>已連結的服務
+### <a name="linked-service"></a>連結服務
 若要定義 ODBC 連結服務，請將連結服務的 **type** 設為 **OnPremisesOdbc**，並在 **typeProperties** 區段中指定下列屬性︰
 
 | 屬性 | 描述 | 必要項 |
@@ -4588,7 +4588,7 @@ auto-
 ## <a name="salesforce"></a>Salesforce
 
 
-### <a name="linked-service"></a>已連結的服務
+### <a name="linked-service"></a>連結服務
 若要定義 Salesforce 連結服務，請將連結服務的 **type** 設為 **Salesforce**，並在 **typeProperties** 區段中指定下列屬性︰
 
 | 屬性 | 描述 | 必要項 |
@@ -4711,7 +4711,7 @@ auto-
 
 ## <a name="web-data"></a>Web 資料
 
-### <a name="linked-service"></a>已連結的服務
+### <a name="linked-service"></a>連結服務
 若要定義 Web 連結服務，請將連結服務的 **type** 設為 **Web**，並在 **typeProperties** 區段中指定下列屬性︰
 
 | 屬性 | 描述 | 必要項 |
@@ -4831,7 +4831,7 @@ auto-
 ## <a name="on-demand-azure-hdinsight-cluster"></a>隨選 Azure HDInsight 叢集
 Azure Data Factory 服務可自動建立以 Windows/Linux 為基礎的隨選 HDInsight 叢集來處理資料。 此叢集會建立在與叢集相關聯的儲存體帳戶 (JSON 中的 linkedServiceName 屬性) 相同的區域中。 您可以在此連結服務上執行下列轉換活動：[.NET 自訂活動](#net-custom-activity)、[Hive 活動](#hdinsight-hive-activity)、[Pig 活動](#hdinsight-pig-activity)、[MapReduce 活動](#hdinsight-mapreduce-activity)、Hadoop 串流活動、[Spark 活動](#hdinsight-spark-activity)。
 
-### <a name="linked-service"></a>已連結的服務
+### <a name="linked-service"></a>連結服務
 下表描述隨選 HDInsight 連結服務的 Azure JSON 定義中所使用的屬性。
 
 | 屬性 | 描述 | 必要項 |
@@ -4869,7 +4869,7 @@ Azure Data Factory 服務可自動建立以 Windows/Linux 為基礎的隨選 HDI
 ## <a name="existing-azure-hdinsight-cluster"></a>現有的 Azure HDInsight 叢集
 您可以建立 Azure HDInsight 連結服務，以向 Data Factory 註冊自己的 HDInsight 叢集。 您可以在此連結服務上執行下列資料轉換活動：[.NET 自訂活動](#net-custom-activity)、[Hive 活動](#hdinsight-hive-activity)、[Pig 活動](#hdinsight-pig-activity)、[MapReduce 活動](#hdinsight-mapreduce-activity)、Hadoop 串流活動、[Spark 活動](#hdinsight-spark-activity)。
 
-### <a name="linked-service"></a>已連結的服務
+### <a name="linked-service"></a>連結服務
 下表描述 Azure HDInsight 連結服務的 Azure JSON 定義中所使用的屬性。
 
 | 屬性 | 描述 | 必要項 |
@@ -4902,7 +4902,7 @@ Azure Data Factory 服務可自動建立以 Windows/Linux 為基礎的隨選 HDI
 ## <a name="azure-batch"></a>Azure Batch
 您可以建立 Azure Batch 連結服務，以向資料處理站註冊虛擬機器 (VM) 的 Batch 集區。 您可以使用 Azure Batch 或 Azure HDInsight 執行 .NET 自訂活動。 您可以在此連結服務上執行 [.NET 自訂活動](#net-custom-activity)。
 
-### <a name="linked-service"></a>已連結的服務
+### <a name="linked-service"></a>連結服務
 下表描述 Azure Batch 連結服務的 Azure JSON 定義中所使用的屬性。
 
 | 屬性 | 描述 | 必要項 |
@@ -4934,7 +4934,7 @@ Azure Data Factory 服務可自動建立以 Windows/Linux 為基礎的隨選 HDI
 ## <a name="azure-machine-learning"></a>Azure Machine Learning
 您可建立 Azure Machine Learning 連結服務，以向資料處理站註冊 Machine Learning 批次評分端點。 可以在此連結服務上執行的兩個資料轉換活動：[Machine Learning 批次執行活動](#machine-learning-batch-execution-activity)、[Machine Learning 更新資源活動](#machine-learning-update-resource-activity)。
 
-### <a name="linked-service"></a>已連結的服務
+### <a name="linked-service"></a>連結服務
 下表描述 Azure Machine Learning 連結服務的 Azure JSON 定義中所使用的屬性。
 
 | 屬性 | 描述 | 必要項 |
@@ -4961,7 +4961,7 @@ Azure Data Factory 服務可自動建立以 Windows/Linux 為基礎的隨選 HDI
 ## <a name="azure-data-lake-analytics"></a>Azure Data Lake Analytics
 您應建立 **Azure Data Lake Analytics** 連結服務，將 Azure Data Lake Analytics 計算服務連結至 Azure Data Factory，然後再使用管線中的 [Data Lake Analytics U-SQL 活動](data-factory-usql-activity.md) 。
 
-### <a name="linked-service"></a>已連結的服務
+### <a name="linked-service"></a>連結服務
 
 下表描述 Azure Data Lake Analytics 連結服務的 JSON 定義中所使用的屬性。
 
@@ -4999,7 +4999,7 @@ Azure Data Factory 服務可自動建立以 Windows/Linux 為基礎的隨選 HDI
 ## <a name="sql-server"></a>[SQL Server]
 您可以建立 SQL Server 連結服務，並將其與 [預存程序活動](data-factory-stored-proc-activity.md) 搭配使用，以叫用 Data Factory 管線中的預存程序。
 
-### <a name="linked-service"></a>已連結的服務
+### <a name="linked-service"></a>連結服務
 您可以建立 **OnPremisesSqlServer** 類型的連結服務，以將內部部署 SQL Server 資料庫連結至資料處理站。 下表提供內部部署 SQL Server 連結服務專屬 JSON 元素的描述。
 
 下表提供 SQL Server 連結服務專屬 JSON 元素的描述。
@@ -5075,7 +5075,7 @@ activities | 描述
 
 | 屬性 | 描述 | 必要項 |
 | --- | --- | --- |
-| 指令碼 |指定 Hive 指令碼內嵌 |否 |
+| script |指定 Hive 指令碼內嵌 |否 |
 | scriptPath |在 Azure Blob 儲存體中儲存 Hive 指令碼，並提供檔案的路徑。 使用 'script' 或 'scriptPath' 屬性。 兩者無法同時使用。 檔案名稱有區分大小寫。 |否 |
 | defines |在使用 'hiveconf' 的 Hive 指令碼內指定參數做為參考的金鑰/值組 |否 |
 
@@ -5234,7 +5234,7 @@ activities | 描述
 | mapper | 對應程式可執行檔的名稱。 在範例中，cat.exe 是對應程式可執行檔。|
 | reducer | 歸納器可執行檔的名稱。 在範例中，cat.exe 是減壓器可執行檔。 |
 | input | 對應工具的輸入檔 (包括位置)。 在 `"wasb://adfsample@<account name>.blob.core.windows.net/example/data/gutenberg/davinci.txt"` 範例中：adfsample 是 blob 容器、example/data/Gutenberg 是資料夾，而 davinci.txt 是 blob。 |
-| 輸出 | 歸納器的輸出檔 (包括位置)。 Hadoop 串流作業的輸出會寫入針對這個屬性指定的位置。 |
+| output | 歸納器的輸出檔 (包括位置)。 Hadoop 串流作業的輸出會寫入針對這個屬性指定的位置。 |
 | filePaths | 對應器和歸納器可執行檔的路徑。 在 "adfsample/example/apps/wc.exe" 範例中，adfsample 是 blob 容器，example/apps 是資料夾，而 wc.exe 是可執行檔。 |
 | fileLinkedService | Azure 儲存體連結服務，代表含有 filePaths 區段中指定之檔案的 Azure 儲存體。 |
 | arguments | MapReduce 程式以逗號分隔的引數清單。 在執行階段，您會看到幾個來自 MapReduce 架構的額外引數 (例如：mapreduce.job.tags)。 若要區分您的引數與 MapReduce 引數，請考慮同時使用選項和值作為引數，如下列範例所示 (-s、--input、--output 等等是後面接著其值的選項) |
@@ -5475,7 +5475,7 @@ trainedModelDatasetName | 此資料集指向重新訓練作業所傳回的 iLear
 |:--- |:--- |:--- |
 | scriptPath |包含 U-SQL 指令碼的資料夾的路徑。 檔案的名稱有區分大小寫。 |否 (如果您使用指令碼) |
 | scriptLinkedService |連結服務會連結包含 Data Factory 的指令碼的儲存體 |否 (如果您使用指令碼) |
-| 指令碼 |指定內嵌指令碼而不是指定 scriptPath 和 scriptLinkedService。 例如："script":"CREATE DATABASE test". |否 (如果您使用 scriptPath 和 scriptLinkedService) |
+| script |指定內嵌指令碼而不是指定 scriptPath 和 scriptLinkedService。 例如："script":"CREATE DATABASE test". |否 (如果您使用 scriptPath 和 scriptLinkedService) |
 | degreeOfParallelism |同時用來執行作業的節點數目上限。 |否 |
 | priority |判斷應該選取排入佇列的哪些工作首先執行。 編號愈低，優先順序愈高。 |否 |
 | 參數 |U-SQL 指令碼的參數 |否 |

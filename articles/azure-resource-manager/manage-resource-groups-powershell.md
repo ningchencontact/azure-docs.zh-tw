@@ -8,12 +8,12 @@ ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 02/11/2019
 ms.author: jgao
-ms.openlocfilehash: e78a6ffd269b7a93c1d224fd4afe580cf0b31b06
-ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
+ms.openlocfilehash: 59c83cb1becf8869d0e8710121816d1bb75e621e
+ms.sourcegitcommit: be344deef6b37661e2c496f75a6cf14f805d7381
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/05/2019
-ms.locfileid: "71972729"
+ms.lasthandoff: 10/07/2019
+ms.locfileid: "72001576"
 ---
 # <a name="manage-azure-resource-manager-resource-groups-by-using-azure-powershell"></a>使用 Azure PowerShell 管理 Azure Resource Manager 資源群組
 
@@ -81,7 +81,7 @@ Remove-AzResourceGroup -Name $resourceGroupName
 
 ## <a name="deploy-a-resource-group-and-resources"></a>部署資源群組和資源
 
-您可以使用 Resource Manager 範本來建立資源群組，並將資源部署到群組。 如需詳細資訊，請參閱[建立資源群組並部署資源](./deploy-to-subscription.md#create-resource-group-and-deploy-resources)。
+您可以使用 Resource Manager 範本來建立資源群組，並將資源部署到群組。 如需詳細資訊，請參閱[建立資源群組並部署資源](./deploy-to-subscription.md#resource-group-and-resources)。
 
 ## <a name="redeploy-when-deployment-fails"></a>部署失敗時重新部署
 

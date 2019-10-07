@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 05/22/2019
 ms.author: spelluru
 ms.custom: include file
-ms.openlocfilehash: a20481ea42a0772ab42322e912cfce67877734d6
-ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
+ms.openlocfilehash: 8c836582798f40cf6e9ffff264c1612cb4037f74
+ms.sourcegitcommit: 9f330c3393a283faedaf9aa75b9fcfc06118b124
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71830050"
+ms.lasthandoff: 10/07/2019
+ms.locfileid: "71996883"
 ---
 下表提供[Azure 事件中樞](https://azure.microsoft.com/services/event-hubs/)特定的配額和限制。 如需事件中樞價格的相關資訊，請參閱[事件中樞價格](https://azure.microsoft.com/pricing/details/event-hubs/)。
 
@@ -55,5 +55,5 @@ ms.locfileid: "71830050"
 | 分割區 | 2000/CU |
 | 取用者群組 | 每個事件中樞不會有每個 CU 的限制（1000） |
 | 代理連線 | 包含 10 萬個 |
-| 訊息保留期 | 最多7天，每個 CU 包含 10 TB |
+| 訊息保留期 | 90天，每個 CU 包含 10 TB |
 | 擷取 | 內含 |

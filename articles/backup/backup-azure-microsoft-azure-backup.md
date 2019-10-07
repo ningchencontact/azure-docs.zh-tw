@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 11/13/2018
 ms.author: dacurwin
-ms.openlocfilehash: 3f427726a128eed426a64bc533075ba0cdde9544
-ms.sourcegitcommit: 992e070a9f10bf43333c66a608428fcf9bddc130
+ms.openlocfilehash: 7a0f1f7dd79be250370fa97096a0cbf6dfc7f637
+ms.sourcegitcommit: 387da88b8262368c1b67fffea58fe881308db1c2
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71241065"
+ms.lasthandoff: 10/07/2019
+ms.locfileid: "71982844"
 ---
 # <a name="install-and-upgrade-azure-backup-server"></a>安裝及升級 Azure 備份伺服器
 
@@ -32,7 +32,7 @@ ms.locfileid: "71241065"
 >
 >
 
-部署在 Azure VM 中的 MABS 可以在 Azure 中備份 Vm，但它們必須位於相同的網域中，才能啟用備份作業。 備份 Azure VM 的程式與備份內部部署 Vm 的程式相同, 但在 Azure 中部署 MABS 有一些限制。 如需有關限制的詳細資訊，請參閱[DPM 做為 Azure 虛擬機器](https://docs.microsoft.com/system-center/dpm/install-dpm?view=sc-dpm-1807#setup-prerequisites)
+部署在 Azure VM 中的 MABS 可以在 Azure 中備份 Vm，但它們必須位於相同的網域中，才能啟用備份作業。 備份 Azure VM 的程式與備份內部部署 Vm 的程式相同，但在 Azure 中部署 MABS 有一些限制。 如需有關限制的詳細資訊，請參閱[DPM 做為 Azure 虛擬機器](https://docs.microsoft.com/system-center/dpm/install-dpm?view=sc-dpm-1807#setup-prerequisites)
 
 > [!NOTE]
 > Azure 有兩種用來建立和使用資源的部署模型：[Azure Resource Manager 和傳統](../azure-resource-manager/resource-manager-deployment-model.md)。 本文提供的資訊和程序可供還原使用 Resource Manager 模型部署的 VM。
@@ -149,7 +149,7 @@ Azure 備份伺服器一律加入網域。 如果您打算將伺服器移到不�
 下載所有檔案之後，按一下 [MicrosoftAzureBackupInstaller.exe]。 這會啟動 [Microsoft Azure 備份安裝精靈] ，並將安裝程式檔案解壓縮至您所指定的位置。 繼續執行精靈，然後按一下 [解壓縮] 按鈕，以開始解壓縮程序。
 
 > [!WARNING]
-> 至少需要 4 GB 的可用空間, 才能將安裝程式檔案解壓縮。
+> 至少需要 4 GB 的可用空間，才能將安裝程式檔案解壓縮。
 >
 >
 
@@ -184,11 +184,14 @@ Azure 備份伺服器一律加入網域。 如果您打算將伺服器移到不�
 
     將下列值使用於 SSRS 設定： 
     - 服務帳戶：' 使用內建帳戶 ' 應為網路服務
-    - Web 服務 URL：' 虛擬目錄 ' 應該是 ReportServer_<SQLInstanceName>
-    - 資料庫：DatabaseName 應為 ReportServer $<SQLInstanceName>
-    - 入口網站 URL：' 虛擬目錄 ' 應該是 Reports_<SQLInstanceName>
+    - Web 服務 URL：' 虛擬目錄 ' 應為 ReportServer_ @ no__t-0
+    - 資料庫：DatabaseName 應為 ReportServer $ <SQLInstanceName>
+    - 入口網站 URL：' 虛擬目錄 ' 應為 Reports_ @ no__t-0
 
     [深入了解](https://docs.microsoft.com/sql/reporting-services/report-server/configure-and-administer-a-report-server-ssrs-native-mode?view=sql-server-2017) SSRS 設定。
+
+    > [!NOTE]
+    > 做為 MABS 資料庫使用之 SQL Server 的授權，受[Microsoft 線上服務條款](https://www.microsoft.com/en-us/licensing/product-licensing/products)（OST）所規範。 根據 OST，與 MABS 配套的 SQL Server 只能用來作為 MABS 的資料庫。
 
 4. 提供 Microsoft Azure 備份伺服器檔案的安裝位置，按 [下一步]。
 
@@ -256,8 +259,8 @@ MABS 會使用 System Center Data Protection Manager 保護代理程式。 [這�
 
 
   > [!IMPORTANT]
-  > - 新的伺服器名稱必須與原始 Azure 備份伺服器執行個體的名稱相同。 如果您想要使用先前的存放集區和 MABS 資料庫 (DPMDB) 來保留復原點, 則無法變更新 Azure 備份伺服器實例的名稱。
-  > - 您必須擁有 MABS 資料庫 (DPMDB) 的備份。 您必須還原資料庫。
+  > - 新的伺服器名稱必須與原始 Azure 備份伺服器執行個體的名稱相同。 如果您想要使用先前的存放集區和 MABS 資料庫（DPMDB）來保留復原點，則無法變更新 Azure 備份伺服器實例的名稱。
+  > - 您必須擁有 MABS 資料庫（DPMDB）的備份。 您必須還原資料庫。
 
 1. 在顯示窗格中，選取您要更新保護代理程式的用戶端電腦。
 2. 關閉原始的 Azure 備份伺服器，或將其從網路中取出。
@@ -270,17 +273,17 @@ MABS 會使用 System Center Data Protection Manager 保護代理程式。 [這�
 9. 從 SQL 還原 DPMDB
 10. 從新伺服器上的系統管理員命令列，切換至 Microsoft Azure 備份安裝位置和 bin 資料夾
 
-    路徑範例：C:\windows\system32 > cd "c:\Program Files\Microsoft Azure Backup\DPM\DPM\bin\"
+    路徑範例：C:\windows\system32 > cd "c:\Program Files\Microsoft Azure Backup\DPM\DPM\bin @ no__t-0
 
-11. 若要 Azure 備份, 請執行 DPMSYNC-SYNC
+11. 若要 Azure 備份，請執行 DPMSYNC-SYNC
 
-    如果您已將新的磁片新增到 DPM 存放集區, 而不是移動舊版, 則請執行 DPMSYNC-Reallocatereplica
+    如果您已將新的磁片新增到 DPM 存放集區，而不是移動舊版，則請執行 DPMSYNC-Reallocatereplica
 
 ## <a name="network-connectivity"></a>網路連線
 
 Azure 備份伺服器需要連線至 Azure 備份服務，產品才能順利運作。 若要驗證機器是否連接至 Azure，請在Azure 備份伺服器 PowerShell 主控台中使用 ```Get-DPMCloudConnection``` Cmdlet。 如果 Cmdlet 的輸出為 TRUE，表示連線存在，否則沒有連線。
 
-同時，Azure 訂用帳戶也必須處於狀況良好狀態。 若要找出您的訂用帳戶狀態並加以管理, 請登入[訂用帳戶入口網站](https://account.windowsazure.com/Subscriptions)。
+同時，Azure 訂用帳戶也必須處於狀況良好狀態。 若要找出您的訂用帳戶狀態並加以管理，請登入[訂用帳戶入口網站](https://account.windowsazure.com/Subscriptions)。
 
 在您了解 Azure 連線和 Azure 訂用帳戶的狀態後，您可以使用下表來確認提供的備份/還原功能會受到哪些影響。
 
@@ -295,7 +298,7 @@ Azure 備份伺服器需要連線至 Azure 備份服務，產品才能順利運�
 
 ### <a name="recovering-from-loss-of-connectivity"></a>從連線中斷的情況復原
 
-如果您的防火牆或 proxy 無法存取 Azure, 您必須允許防火牆/proxy 設定檔中的下列網域位址:
+如果您的防火牆或 proxy 無法存取 Azure，您必須允許防火牆/proxy 設定檔中的下列網域位址：
 
 * `http://www.msftncsi.com/ncsi.txt`
 * \*.Microsoft.com

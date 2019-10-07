@@ -14,22 +14,22 @@ ms.devlang: nodejs
 ms.topic: article
 ms.date: 04/10/2019
 ms.author: aschhab
-ms.custom: seo-javascript-september2019
-ms.openlocfilehash: 5c539570e4127a6715ea63fe8ec617d3cfa83ba1
-ms.sourcegitcommit: 2d9a9079dd0a701b4bbe7289e8126a167cfcb450
+ms.custom: seo-javascript-september2019, seo-javascript-october2019
+ms.openlocfilehash: 1aba29f8ed7cacb8f2911ae2d37358869e6a7730
+ms.sourcegitcommit: be344deef6b37661e2c496f75a6cf14f805d7381
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/29/2019
-ms.locfileid: "71671999"
+ms.lasthandoff: 10/07/2019
+ms.locfileid: "72001134"
 ---
 # <a name="use-service-bus-queues-in-azure-with-nodejs-and-the-azure-sb-package"></a>在 Azure 中使用 node.js 的服務匯流排佇列和 azure sb 套件
 > [!div class="op_multi_selector" title1="程式設計語言" title2="Node.js 套件"]
 > - [(Node.js | azure-sb)](service-bus-nodejs-how-to-use-queues.md)
 > - [(Node.js | @azure/service-bus)](service-bus-nodejs-how-to-use-queues-new-package.md)
 
-在本教學課程中，您將瞭解如何建立 node.js 應用程式，以使用[azure sb](https://www.npmjs.com/package/azure-sb)封裝來傳送訊息，並接收來自服務匯流排佇列的訊息。 這些範例是以 JavaScript 撰寫，並使用在內部使用`azure-sb`套件的 node.js [Azure 模組](https://www.npmjs.com/package/azure)。
+在本教學課程中，您將瞭解如何建立 node.js 應用程式，以使用[Azure sb](https://www.npmjs.com/package/azure-sb)封裝來傳送訊息，並接收來自 Azure 服務匯流排佇列的訊息。 這些範例是以 JavaScript 撰寫的，並使用 node.js [azure 模組](https://www.npmjs.com/package/azure)，其會在內部使用 azure sb 套件。
 
-[Azure sb](https://www.npmjs.com/package/azure-sb)套件會使用[服務匯流排 REST 執行時間 api](/rest/api/servicebus/service-bus-runtime-rest)。 您可以使用使用更快速[@azure/service-bus](https://www.npmjs.com/package/@azure/service-bus) [AMQP 1.0 通訊協定](service-bus-amqp-overview.md)的新套件，取得更快的體驗。 若要深入瞭解新的套件，請參閱[如何搭配使用服務匯流排佇列與 node.js @azure/service-bus和套件](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-nodejs-how-to-use-queues-new-package)，否則請繼續閱讀以瞭解如何使用[azure](https://www.npmjs.com/package/azure)封裝。
+[Azure sb](https://www.npmjs.com/package/azure-sb)套件會使用[服務匯流排 REST 執行時間 api](/rest/api/servicebus/service-bus-runtime-rest)。 您可以使用新的[@azure/service-bus](https://www.npmjs.com/package/@azure/service-bus) ，使用更快速的[AMQP 1.0 通訊協定](service-bus-amqp-overview.md)來取得更快的體驗。 若要深入瞭解新的套件，請參閱[如何搭配使用服務匯流排佇列與 node.js 和 @no__t 1 套件](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-nodejs-how-to-use-queues-new-package)，否則請繼續閱讀以瞭解如何使用[azure](https://www.npmjs.com/package/azure)封裝。
 
 ## <a name="prerequisites"></a>必要條件
 - Azure 訂用帳戶。 若要完成此教學課程，您需要 Azure 帳戶。 您可以啟用[MSDN 訂閱者權益](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers/?WT.mc_id=A85619ABF)或註冊[免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF)。
@@ -75,7 +75,7 @@ var azure = require('azure');
 ```
 
 ### <a name="set-up-an-azure-service-bus-connection"></a>設定 Azure 服務匯流排連接
-Azure 模組會讀取環境變數 `AZURE_SERVICEBUS_CONNECTION_STRING`，以取得連接服務匯流排所需的資訊。 如果未設定此環境變數，您必須在呼叫`createServiceBusService`時指定帳戶資訊。
+Azure 模組會讀取環境變數 `AZURE_SERVICEBUS_CONNECTION_STRING`，以取得連接服務匯流排所需的資訊。 如果未設定此環境變數，您必須在呼叫 `createServiceBusService` 時指定帳戶資訊。
 
 如需在 Azure 網站的[Azure 入口網站][Azure portal]中設定環境變數的範例，請參閱[使用儲存體的 Node.js Web 應用程式][Node.js Web Application with Storage]。
 
@@ -124,7 +124,7 @@ function handle (requestOptions, next)
 function (returnObject, finalCallback, next)
 ```
 
-在此回呼中，以及處理`returnObject` （來自對伺服器之要求的回應）之後，回呼必須`next`叫用（如果存在）以繼續處理其他篩選準則，或是叫`finalCallback`用結束服務叫用的 invoke.
+在此回呼中，以及處理 `returnObject` （來自對伺服器之要求的回應）之後，回呼必須叫用 `next` （如果存在）以繼續處理其他篩選器，或叫用結束服務叫用的 `finalCallback`。
 
 Azure SDK for Node.js 包含了兩個實作重試邏輯的篩選器： `ExponentialRetryPolicyFilter` 與 `LinearRetryPolicyFilter`。 下列程式碼會建立使用 `ExponentialRetryPolicyFilter` 的 `ServiceBusService` 物件：
 
@@ -158,7 +158,7 @@ serviceBusService.sendQueueMessage('myqueue', message, function(error){
 
 在接收作業中讀取和刪除訊息的預設行為是最簡單的模型，且最適合可容許在發生失敗時不處理訊息的應用程式案例。 若要了解此行為，請考慮取用者發出接收要求，接著系統在處理此要求之前當機的案例。 因為服務匯流排會將訊息標示為已取用，所以當應用程式重新開機並開始重新取用訊息時，它將會遺漏當機前使用的訊息。
 
-如果參數設定為 true，接收會變成兩階段作業，因此可以支援無法容許遺漏訊息的應用程式。 `isPeekLock` 當服務匯流排收到要求時，它會尋找要取用的下一個訊息、將其鎖定以防止其他取用者接收此訊息，然後將它傳回應用程式。 在應用程式完成處理訊息 (或可靠地儲存此訊息以供未來處理) 之後，它可透過呼叫 `deleteMessage` 方法和以參數形式提供要刪除的訊息，完成接收程序的第二個階段。 `deleteMessage` 方法會將訊息標示為已取用，並將其從佇列中移除。
+如果 `isPeekLock` 參數設定為**true**，接收會變成兩階段作業，因此可以支援無法容許遺漏訊息的應用程式。 當服務匯流排收到要求時，它會尋找要取用的下一個訊息、將其鎖定以防止其他取用者接收此訊息，然後將它傳回應用程式。 在應用程式完成處理訊息 (或可靠地儲存此訊息以供未來處理) 之後，它可透過呼叫 `deleteMessage` 方法和以參數形式提供要刪除的訊息，完成接收程序的第二個階段。 `deleteMessage` 方法會將訊息標示為已取用，並將其從佇列中移除。
 
 下列範例示範如何使用 `receiveQueueMessage` 來接收和處理訊息。 範例首先會接收並刪除訊息，然後使用設定為 **true** 的 `isPeekLock` 接收訊息，接著使用 `deleteMessage` 刪除訊息：
 

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/19/2019
 ms.author: memildin
-ms.openlocfilehash: 7448516e464a379e27abd45834b31760fca3fedd
-ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
+ms.openlocfilehash: 01cc625767cbf437031f503cf4b0d4dc59b62e08
+ms.sourcegitcommit: 9f330c3393a283faedaf9aa75b9fcfc06118b124
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71201858"
+ms.lasthandoff: 10/07/2019
+ms.locfileid: "71996292"
 ---
 # <a name="onboarding-to-azure-security-center-standard-for-enhanced-security"></a>上架到 Azure 資訊安全中心標準版以增強安全性
 升級至資訊安全中心標準版，讓您的混合式雲端工作負載能充分享有強化的安全性管理和威脅防護。  您可以免費試用「標準版」。 如需詳細資訊，請參閱資訊安全中心[價格頁面](https://azure.microsoft.com/pricing/details/security-center/)。
@@ -111,7 +111,7 @@ ms.locfileid: "71201858"
 
 - [啟用資料收集](security-center-enable-data-collection.md)
 - [威脅情報報告](security-center-threat-report.md)
-- [Just-In-Time VM 存取](security-center-just-in-time.md)
+- [Just-In-Time 虛擬機器存取](security-center-just-in-time.md)
 
 <!--Image references-->
 [1]: ./media/security-center-onboarding/onboard.png

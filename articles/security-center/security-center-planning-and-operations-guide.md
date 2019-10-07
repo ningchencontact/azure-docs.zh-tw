@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 09/10/2019
 ms.author: memildin
-ms.openlocfilehash: 62387fe7ddbde75e79724c77dd7eeedd5cae64c3
-ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
+ms.openlocfilehash: abcd6dc8c50b819dd02347b938602af7f2152d04
+ms.sourcegitcommit: 9f330c3393a283faedaf9aa75b9fcfc06118b124
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71201866"
+ms.lasthandoff: 10/07/2019
+ms.locfileid: "71996630"
 ---
 # <a name="azure-security-center-planning-and-operations-guide"></a>Azure 資訊安全中心規劃和操作指南
 本指南適用于規劃使用 Azure 資訊安全中心的資訊技術（IT）專業人員、IT 架構設計師、資訊安全分析師和雲端系統管理員。
@@ -203,7 +203,7 @@ Azure 資訊安全中心使用 Microsoft Monitoring Agent –這是 Azure 監視
 
 ### <a name="hardening-access-and-applications"></a>強化存取和應用程式
 
-您也應該在安全性作業中採用預防措施，來限制對 VM 的存取，並且控制在 VM 上執行的應用程式。 藉由鎖定前往您的 Azure VM 的輸入流量，可以降低被攻擊的曝光度，同時提供簡易存取以在需要時連線到 VM。 使用 [Just-in-Time VM](https://docs.microsoft.com/azure/security-center/security-center-just-in-time) 存取功能來強化您的 VM 存取。
+您也應該在安全性作業中採用預防措施，來限制對 VM 的存取，並且控制在 VM 上執行的應用程式。 藉由鎖定前往您的 Azure VM 的輸入流量，可以降低被攻擊的曝光度，同時提供簡易存取以在需要時連線到 VM。 使用[即時 VM](https://docs.microsoft.com/azure/security-center/security-center-just-in-time)存取功能來強化 vm 的存取權。
 
 您可以使用彈性[應用](https://docs.microsoft.com/azure/security-center/security-center-adaptive-application)程式控制來限制哪些應用程式可以在 Azure 中的 vm 上執行。 除了其他優點以外，這有助於強化您的 Vm 以抵禦惡意程式碼。 使用機器學習服務，資訊安全中心會分析在 VM 中執行的處理常式，以協助您建立允許清單規則。
 

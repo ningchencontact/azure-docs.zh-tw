@@ -18,12 +18,12 @@ ms.author: ryanwi
 ms.reviewer: elisol, bryanla
 ms.custom: aaddev, seoapril2019
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a97c10303a1ce74e53f46c21176c876faed307e7
-ms.sourcegitcommit: 7868d1c40f6feb1abcafbffcddca952438a3472d
+ms.openlocfilehash: bd20928816a30ad2843ce6c876bd77152dcd69e1
+ms.sourcegitcommit: be344deef6b37661e2c496f75a6cf14f805d7381
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71958646"
+ms.lasthandoff: 10/07/2019
+ms.locfileid: "72001746"
 ---
 # <a name="list-your-application-in-the-azure-active-directory-application-gallery"></a>在 Azure Active Directory 應用程式庫中列出您的應用程式
 
@@ -36,7 +36,7 @@ ms.locfileid: "71958646"
 - 快速搜尋可在應用程式庫中找到您的應用程式。
 - 免費、基本及進階 Azure AD 的客戶都可使用這項整合。
 - 共同客戶可取得逐步設定教學課程。
-- 使用系統進行跨網域身分識別管理（SCIM）的客戶，可以針對相同的應用程式使用布建。
+- 使用系統進行跨網域身分識別管理（[SCIM](https://techcommunity.microsoft.com/t5/Identity-Standards-Blog/Provisioning-with-SCIM-getting-started/ba-p/880010)）的客戶，可以針對相同的應用程式使用布建。
 
 ## <a name="prerequisites"></a>必要條件
 

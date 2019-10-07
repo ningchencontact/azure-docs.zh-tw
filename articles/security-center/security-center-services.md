@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/24/2019
 ms.author: memildin
-ms.openlocfilehash: ad662cdeb0a87e57eb9e3e7480d120be1c6c729e
-ms.sourcegitcommit: 3fa4384af35c64f6674f40e0d4128e1274083487
+ms.openlocfilehash: d756f9dfbd0012f884bb0c4a1e27efc76d613234
+ms.sourcegitcommit: 387da88b8262368c1b67fffea58fe881308db1c2
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71218253"
+ms.lasthandoff: 10/07/2019
+ms.locfileid: "71982830"
 ---
 # <a name="supported-features-available-in-azure-security-center"></a>Azure 資訊安全中心提供支援的功能
 
@@ -39,20 +39,21 @@ ms.locfileid: "71218253"
 |----|----|----|----|----|----|----|----|
 |**環境**|**Azure**||**Non-Azure**|**Azure**||**Non-Azure**||
 ||**虛擬機器**|**虛擬機器擴展集**||**虛擬機器**|**虛擬機器擴展集**|
-|VMBA 威脅偵測警示|✔|✔|✔|✔ (在支援的版本上)|✔ (在支援的版本上)|✔|建議 (免費) 威脅偵測 (標準)|
+|虛擬機器行為分析威脅偵測警示|✔|✔|✔|✔ (在支援的版本上)|✔ (在支援的版本上)|✔|建議（免費）威脅偵測（標準）|
 |網路型威脅偵測警示|✔|✔|X|✔|✔|X|標準|
 |Microsoft Defender ATP 整合|✔ (在支援的版本上)|✔ (在支援的版本上)|✔|X|X|X|標準|
 |遺漏修補程式|✔|✔|✔|✔|✔|✔|免費|
 |安全性設定|✔|✔|✔|✔|✔|✔|免費|
 |Endpoint protection 評估|✔|✔|✔|X|X|X|免費|
-|JIT VM 存取|✔|X|X|✔|X|X|標準|
+|即時 VM 存取|✔|X|X|✔|X|X|標準|
 |自適性應用程式控制|✔|X|✔|✔|X|✔|標準|
-|FIM|✔|✔|✔|✔|✔|✔|標準|
+|檔案完整性監視|✔|✔|✔|✔|✔|✔|標準|
 |磁片加密評估|✔|✔|X|✔|✔|X|免費|
 |第三方部署|✔|X|X|✔|X|X|免費|
 |NSG 評量|✔|✔|X|✔|✔|X|免費|
 |無檔案型威脅偵測|✔|✔|✔|X|X|X|標準|
 |網路對應|✔|✔|X|✔|✔|X|標準|
+|自適性網路強化|✔|X|X|✔|X|X|標準|
 |自適性網路控制措施|✔|✔|X|✔|✔|X|標準|
 |法規合規性儀表板 & 報告|✔|✔|✔|✔|✔|✔|標準|
 |Docker 託管 IaaS 容器上的建議和威脅偵測|X|X|X|✔|✔|✔|標準|
@@ -64,7 +65,7 @@ ms.locfileid: "71218253"
  - 您是否可以使用 Azure 資訊安全中心安裝適用於您的每個解決方案。
  - 資訊安全中心可以探索哪些端點保護解決方案。 如果探索到這些端點保護解決方案的其中一個，資訊安全中心不會建議安裝。
 
-如需每一項保護何時產生建議的相關資訊, 請參閱[Endpoint Protection 評估和建議](security-center-endpoint-protection.md)。
+如需每一項保護何時產生建議的相關資訊，請參閱[Endpoint Protection 評估和建議](security-center-endpoint-protection.md)。
 
 | Endpoint Protection| 平台 | 資訊安全中心安裝 | 資訊安全中心探索 |
 |------|------|-----|-----|
@@ -73,8 +74,8 @@ ms.locfileid: "71218253"
 | 趨勢微–所有版本 * | Windows Server 系列  | 否 | 是 |
 | Symantec v12.1.1100+| Windows Server 系列  | 否 | 是 |
 | McAfee v10+ | Windows Server 系列  | 否 | 是 |
-| McAfee v10+ | Linux 伺服器系列  | 否 | 是的 **\*** |
-| Sophos V9 +| Linux 伺服器系列  | 否 | 是的 **\***  |
+| McAfee v10+ | Linux 伺服器系列  | 否 | 是 **\*** |
+| Sophos V9 +| Linux 伺服器系列  | 否 | 是 **\***  |
 
  **\*** 涵蓋範圍狀態和支援的資料目前僅適用于與受保護的訂用帳戶相關聯的 Log Analytics 工作區，而且不會反映在 Azure 資訊安全中心入口網站中。
 
@@ -88,7 +89,7 @@ ms.locfileid: "71218253"
 
 Azure 資訊安全中心支援下列 PaaS 資源：
 
-|服務|建議 (免費)|威脅偵測 (標準)|
+|服務|建議（免費）|威脅偵測（標準）|
 |----|----|----|
 |SQL|✔| ✔|
 |PostGreSQL*|✔| ✔|
@@ -120,7 +121,7 @@ Azure 資訊安全中心支援下列 PaaS 資源：
 
 \* 這些功能目前以公開預覽形式支援。
 
-\*\*Azure Active Directory （Azure AD）建議僅適用于標準訂閱。
+\* @ no__t-1 Azure Active Directory （Azure AD）建議僅適用于標準訂閱。
 
 ## <a name="next-steps"></a>後續步驟
 

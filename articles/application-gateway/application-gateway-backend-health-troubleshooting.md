@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 08/30/2019
 ms.author: surmb
-ms.openlocfilehash: 8f90cc3b41eab1847b0d4483b92a282d46af765b
-ms.sourcegitcommit: 0486aba120c284157dfebbdaf6e23e038c8a5a15
+ms.openlocfilehash: 71e1f8be2af5556d86996175e8a1ddbccc9c7de1
+ms.sourcegitcommit: be344deef6b37661e2c496f75a6cf14f805d7381
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71309296"
+ms.lasthandoff: 10/07/2019
+ms.locfileid: "72001678"
 ---
 <a name="troubleshoot-backend-health-issues-in-application-gateway"></a>針對應用程式閘道中的後端健康情況問題進行疑難排解
 ==================================================
@@ -81,13 +81,13 @@ BackendAddressPoolsText : [
 [**詳細資料**] 欄中顯示的訊息會提供有關此問題的詳細資訊，並根據這些資訊，您可以開始針對問題進行疑難排解。
 
 > [!NOTE]
-> 預設的探查\<要求會以通訊協定\>：//127.0.0.1：\<port\>/的格式傳送。 例如， http://127.0.0.1:80 針對埠80上的 HTTP 探查。 只有200到399的 HTTP 狀態碼會被視為狀況良好。 通訊協定和目的地埠會繼承自 HTTP 設定。 如果您想要應用程式閘道探查不同的通訊協定、主機名稱或路徑，並將不同的狀態碼辨識為狀況良好，請設定自訂探查，並將其與 HTTP 設定產生關聯。
+> 預設探查要求的傳送格式為 \<protocol @ no__t-1：//127.0.0.1： \<port @ no__t-3/。 例如，針對埠80上的 HTTP 探查， http://127.0.0.1:80 。 只有200到399的 HTTP 狀態碼會被視為狀況良好。 通訊協定和目的地埠會繼承自 HTTP 設定。 如果您想要應用程式閘道探查不同的通訊協定、主機名稱或路徑，並將不同的狀態碼辨識為狀況良好，請設定自訂探查，並將其與 HTTP 設定產生關聯。
 
 <a name="error-messages"></a>錯誤訊息
 ------------------------
 #### <a name="backend-server-timeout"></a>後端伺服器超時
 
-**訊息：** 後端回應應用程式閘道\'健康情況探查所花費的時間，超過探查設定中的超時閾值。
+**訊息：** 後端回應應用程式閘道 @ no__t-0-0 健康情況探查所花費的時間，超過探查設定中的超時閾值。
 
 **原因：** 應用程式閘道將 HTTP （S）探查要求傳送至後端伺服器之後，它會等待來自後端伺服器的回應設定一段時間。 如果後端伺服器未在設定的期間內回應（超時值），則會將它標示為狀況不良，直到重新開始在設定的超時期間內回應為止。
 
@@ -131,7 +131,7 @@ BackendAddressPoolsText : [
 
 **解決方案：** 如果您收到此錯誤，請遵循下列步驟：
 
-1.  檢查您是否可以使用瀏覽器或 PowerShell，連接到 HTTP 設定中所述埠上的後端伺服器。 例如，執行下列命令：`Test-NetConnection -ComputerName
+1.  檢查您是否可以使用瀏覽器或 PowerShell，連接到 HTTP 設定中所述埠上的後端伺服器。 例如，執行下列命令： `Test-NetConnection -ComputerName
     www.bing.com -Port 443`
 
 1.  如果所述的埠不是所需的埠，請輸入正確的埠號碼，讓應用程式閘道連接到後端伺服器
@@ -155,7 +155,7 @@ BackendAddressPoolsText : [
     ```
 1.  如果您在 NSG 或 UDR 中找不到任何問題，請檢查您的後端伺服器是否有應用程式相關問題，使用戶端無法在設定的埠上建立 TCP 會話。 有幾件事需要檢查：
 
-    a.  開啟命令提示字元（Win + R-\> cmd），輸入`netstat`，然後選取 enter。
+    a.  開啟命令提示字元（Win + R-\> cmd），輸入 `netstat`，然後選取 Enter。
 
     b.  檢查伺服器是否正在接聽已設定的埠。 例如:
     ```
@@ -168,15 +168,15 @@ BackendAddressPoolsText : [
 
 #### <a name="http-status-code-mismatch"></a>HTTP 狀態碼不符
 
-**訊息：** 後端\'s HTTP 回應的狀態碼不符合探查設定。 預期：已收到 {HTTPStatusCode0}： {HTTPStatusCode1}。
+**訊息：** 後端 @ no__t 的狀態碼-0-零 HTTP 回應不符合探查設定。 預期：已收到 {HTTPStatusCode0}： {HTTPStatusCode1}。
 
-**原因：** 建立 TCP 連線並完成 SSL 交握後（如果已啟用 SSL），應用程式閘道會將探查當做 HTTP GET 要求傳送至後端伺服器。 如先前所述，預設\<探查會是通訊協定\>：//127.0.0.1：\> \<port/，而它會將開始風行200到399中的回應狀態碼視為狀況良好。 如果伺服器傳回任何其他狀態碼，則會將此訊息標示為狀況不良。
+**原因：** 建立 TCP 連線並完成 SSL 交握後（如果已啟用 SSL），應用程式閘道會將探查當做 HTTP GET 要求傳送至後端伺服器。 如先前所述，預設探查將會是 \<protocol @ no__t-1：//127.0.0.1： @no__t 2port @ no__t-3/，且會將開始風行200到399中的回應狀態碼視為狀況良好。 如果伺服器傳回任何其他狀態碼，則會將此訊息標示為狀況不良。
 
 **解決方案：** 視後端伺服器的回應碼而定，您可以採取下列步驟。 以下列出一些常見的狀態碼：
 
 | **錯誤** | **動作** |
 | --- | --- |
-| 探查狀態碼不相符：收到401 | 檢查後端伺服器是否需要驗證。 應用程式閘道探查此時無法傳遞認證以進行驗證。 允許\"探查狀態碼\"中的 HTTP 401 符合或探查至伺服器不需要驗證的路徑。 | |
+| 探查狀態碼不相符：收到401 | 檢查後端伺服器是否需要驗證。 應用程式閘道探查此時無法傳遞認證以進行驗證。 允許在探查狀態碼符合中 @no__t 0HTTP 401 @ no__t-1，或探查至伺服器不需要驗證的路徑。 | |
 | 探查狀態碼不相符：收到403 | 禁止存取。 檢查後端伺服器上是否允許存取路徑。 | |
 | 探查狀態碼不相符：收到404 | 找不到頁面。 檢查後端伺服器上的主機名稱路徑是否可存取。 將 [主機名稱] 或 [路徑] 參數變更為可存取的值。 | |
 | 探查狀態碼不相符：收到405 | 應用程式閘道的探查要求會使用 HTTP GET 方法。 檢查您的伺服器是否允許這種方法。 | |
@@ -189,7 +189,7 @@ BackendAddressPoolsText : [
 
 #### <a name="http-response-body-mismatch"></a>HTTP 回應主體不符
 
-**訊息：** 後端\'s HTTP 回應的主體與探查設定不相符。 收到的回應主體不包含 {string}。
+**訊息：** 後端 @ no__t 的主體-0-零 HTTP 回應不符合探查設定。 收到的回應主體不包含 {string}。
 
 **原因：** 當您建立自訂探查時，您可以透過比對字串與回應主體，將後端伺服器標示為狀況良好。 例如，您可以將應用程式閘道設定為接受「未經授權」，以符合的字串。 如果探查要求的後端伺服器回應包含**未經授權**的字串，則會將它標示為狀況良好。 否則，會將此訊息標示為狀況不良。
 
@@ -216,9 +216,9 @@ BackendAddressPoolsText : [
 
 1.  選取 [Win + R] 或以滑鼠右鍵按一下 [**開始**] 按鈕，然後選取 [**執行**]。
 
-1.  輸入`certmgr.msc` ，然後選取 enter 鍵。 您也可以在 [**開始**] 功能表上搜尋 [憑證管理員]。
+1.  輸入 `certmgr.msc`，然後選取 Enter。 您也可以在 [**開始**] 功能表上搜尋 [憑證管理員]。
 
-1.  找出憑證（通常在`\Certificates - Current User\\Personal\\Certificates\`中），然後將它開啟。
+1.  找出憑證，通常是在 `\Certificates - Current User\\Personal\\Certificates\`，然後將它開啟。
 
 1.  選取 [根憑證]，然後選取 [**查看憑證**]。
 
@@ -259,20 +259,22 @@ OpenSSL> s_client -connect 10.0.0.4:443 -servername www.example.com -showcerts
 ```
 如果輸出未顯示所傳回憑證的完整鏈，請使用完整的鏈再次匯出憑證，包括根憑證。 在後端伺服器上設定該憑證。 
 
-已連接（00000188） \
-深度 = 0 OU = 已驗證網域控制，CN \*=. example.com \
-確認錯誤： num = 20：無法取得本機簽發者憑證 \
-確認傳回： 1 \
-深度 = 0 OU = 已驗證網域控制，CN \*=. example.com \
-確認錯誤： num = 21：無法驗證第一個憑證 \
-確認傳回： 1 \
-\-\-\-\
-憑證鏈 \
- 0 s：/OU = 網域控制已驗證/CN = *。範例 .com \
-   i：/C = US/ST = 亞利桑那/L = Scottsdale/O = GoDaddy .com，inc./ou =http://certs.godaddy.com/repository//CN=Go Daddy 安全憑證授權單位單位-G2 \
-\-----開始憑證-----\
-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\
-\-----結束憑證-----
+```
+  CONNECTED(00000188)\
+  depth=0 OU = Domain Control Validated, CN = \*.example.com\
+  verify error:num=20:unable to get local issuer certificate\
+  verify return:1\
+  depth=0 OU = Domain Control Validated, CN = \*.example.com\
+  verify error:num=21:unable to verify the first certificate\
+  verify return:1\
+  \-\-\-\
+  Certificate chain\
+   0 s:/OU=Domain Control Validated/CN=*.example.com\
+     i:/C=US/ST=Arizona/L=Scottsdale/O=GoDaddy.com, Inc./OU=http://certs.godaddy.com/repository//CN=Go Daddy Secure Certificate Authority - G2\
+  \-----BEGIN CERTIFICATE-----\
+  xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\
+  \-----END CERTIFICATE-----
+```
 
 #### <a name="backend-certificate-invalid-common-name-cn"></a>後端憑證不正確一般名稱（CN）
 
@@ -300,7 +302,7 @@ xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\
 
 1.  輸入**certmgr.msc** ，然後選取 enter。 您也可以在 [**開始**] 功能表上搜尋 [憑證管理員]。
 
-1.  找出憑證（通常在`\Certificates - Current User\\Personal\\Certificates`中），然後開啟憑證。
+1.  找出憑證（通常是在 `\Certificates - Current User\\Personal\\Certificates`），然後開啟憑證。
 
 1.  在 [**詳細資料**] 索引標籤上，檢查憑證**主體**。
 
@@ -317,7 +319,7 @@ xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\
 
 #### <a name="backend-certificate-is-invalid"></a>後端憑證無效
 
-**訊息：** 後端憑證無效。 目前的日期不在憑證\"的有效\"來源\"和有效\"截止日期範圍內。
+**訊息：** 後端憑證無效。 目前的日期不在 @ no__t-1 的 \"Valid 內，\"Valid 至憑證的 @ no__t-3 日期範圍。
 
 **原因：** 每個憑證都有一個有效範圍，除非伺服器的 SSL 憑證有效，HTTPS 連線才會是安全的。 目前的資料必須在**有效的 from**和**valid 到**範圍內。 如果不是，則會將憑證視為無效，而且會產生安全性問題，應用程式閘道將後端伺服器標示為狀況不良。
 

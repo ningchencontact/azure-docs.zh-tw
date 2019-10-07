@@ -8,12 +8,12 @@ ms.service: azure-resource-manager
 ms.topic: troubleshooting
 ms.date: 10/04/2019
 ms.author: tomfitz
-ms.openlocfilehash: ac700592a63e88936593c24f8f7ce06a08e289ce
-ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
+ms.openlocfilehash: 185570992ad0308b500da30bca212a0495bcb0fa
+ms.sourcegitcommit: be344deef6b37661e2c496f75a6cf14f805d7381
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/05/2019
-ms.locfileid: "71972680"
+ms.lasthandoff: 10/07/2019
+ms.locfileid: "72001629"
 ---
 # <a name="troubleshoot-common-azure-deployment-errors-with-azure-resource-manager"></a>使用 Azure Resource Manager 針對常見的 Azure 部署錯誤進行疑難排解
 
@@ -44,6 +44,7 @@ ms.locfileid: "71972680"
 | InUseSubnetCannotBeDeleted | 當您嘗試更新資源時，可能會收到此錯誤，並藉由刪除和建立資源來處理要求。 請務必指定所有不變的值。 | [更新資源](/azure/architecture/building-blocks/extending-templates/update-resource) |
 | InvalidAuthenticationTokenTenant | 取得適當租用戶的存取權杖。 您只能從您的帳戶所屬的租用戶取得權杖。 | |
 | InvalidContentLink | 您最有可能嘗試連結至無法使用的嵌套範本。 再次確認您為巢狀範本提供的 URI。 如果儲存體帳戶中已有範本，請確定 URI 可存取。 您可能需要傳遞 SAS 權杖。 目前，您無法連結到位於[Azure 儲存體防火牆](../storage/common/storage-network-security.md)後方之儲存體帳戶中的範本。 請考慮將您的範本移至另一個存放庫（例如 GitHub）。 | [連結的範本](resource-group-linked-templates.md) |
+| InvalidDeploymentLocation | 在訂用帳戶層級部署時，您為先前使用的部署名稱提供了不同的位置。 | [訂用帳戶層級部署](deploy-to-subscription.md) |
 | InvalidParameter | 您為資源提供的其中一個值與預期值不相符。 此錯誤的原因可能是許多不同情況。 例如，密碼強度不足，或 blob 名稱不正確。 錯誤訊息應該會指出需要更正的值。 | |
 | InvalidRequestContent | 部署值包含無法辨識的值，或遺漏必要的值。 請確認您的資源類型值。 | [範本參考](/azure/templates/) |
 | InvalidRequestFormat | 執行部署時啟用 debug 記錄，並確認要求的內容。 | [偵錯記錄](#enable-debug-logging) |

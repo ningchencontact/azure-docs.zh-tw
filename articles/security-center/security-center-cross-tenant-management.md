@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/11/2019
 ms.author: memildin
-ms.openlocfilehash: 178911390a4cb694171adf6c807369cab0c0499a
-ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
+ms.openlocfilehash: f7aa75601639bc0c5652010fb44b01dec0d2622b
+ms.sourcegitcommit: 9f330c3393a283faedaf9aa75b9fcfc06118b124
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71202363"
+ms.lasthandoff: 10/07/2019
+ms.locfileid: "71996938"
 ---
 # <a name="cross-tenant-management-in-security-center"></a>資訊安全中心中的跨租使用者管理
 
@@ -55,5 +55,6 @@ Views 和動作基本上相同。 以下是一些範例：
 ## <a name="next-steps"></a>後續步驟
 本文說明跨租使用者管理在資訊安全中心中的運作方式。 如要深入了解資訊安全中心，請參閱下列主題：
 
-* [使用 Azure 資訊安全中心強化您的安全性](security-center-monitoring.md)狀態--瞭解如何監視 Azure 資源的健康情況。
-* [Azure 資訊安全中心常見問題集](security-center-faq.md)-- 尋找有關使用服務的常見問題。
+* [使用 Azure 資訊安全中心強化您的安全性](security-center-monitoring.md)狀態-瞭解如何監視 Azure 資源的健康情況。
+* [Azure 資訊安全中心常見問題集](security-center-faq.md) - 尋找有關使用服務的常見問題。
+* [瞭解企業案例中的 Azure 燈塔](https://docs.microsoft.com/azure/lighthouse/concepts/enterprise)-探索 azure 燈塔可以如何在使用多個 Azure AD 租使用者的企業內簡化跨租使用者管理。

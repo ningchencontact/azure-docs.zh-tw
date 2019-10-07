@@ -13,17 +13,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 04/03/2019
+ms.date: 10/01/2019
 ms.author: ryanwi
 ms.reviewer: luleon, paulgarn, jeedes
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8e7681afe3f5361b17670312c8391349c650a89d
-ms.sourcegitcommit: f2d9d5133ec616857fb5adfb223df01ff0c96d0a
-ms.translationtype: HT
+ms.openlocfilehash: fd752540d078ef57c8b6150edbf9b124bc445fe0
+ms.sourcegitcommit: 4f7dce56b6e3e3c901ce91115e0c8b7aab26fb72
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/03/2019
-ms.locfileid: "71936780"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71949380"
 ---
 # <a name="how-to-customize-claims-issued-in-the-saml-token-for-enterprise-applications"></a>HOW TO：針對 Azure AD 中的企業應用程式，自訂 SAML 權杖中發出的宣告
 
@@ -83,6 +83,20 @@ ms.locfileid: "71936780"
 | 擴充屬性 1-15 | 內部部署擴充屬性，用來擴充 Azure AD 結構描述 |
 
 如需詳細資訊，請參閱 @no__t 0Table 3：每個來源 @ no__t-0 的有效識別碼值。
+
+您也可以將任何常數（靜態）值指派給您在 Azure AD 中定義的任何宣告。 請遵循下列步驟來指派常數值：
+
+1. 在  [Azure 入口網站](https://portal.azure.com/)的 **使用者屬性 & 宣告**] 區段上，按一下 [**編輯**] 圖示來編輯宣告。
+
+1. 按一下您要修改的必要宣告。
+
+1. 依據您的組織輸入**來源屬性**中的常數值，然後按一下 [**儲存**]。
+
+    ![在 Azure 入口網站中開啟 [使用者屬性 & 宣告] 區段](./media/active-directory-saml-claims-customization/organization-attribute.png)
+
+1. 常數值會顯示如下。
+
+    ![在 Azure 入口網站中開啟 [使用者屬性 & 宣告] 區段](./media/active-directory-saml-claims-customization/edit-attributes-claims.png)
 
 ### <a name="special-claims---transformations"></a>特殊宣告-轉換
 

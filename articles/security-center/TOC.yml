@@ -113,7 +113,7 @@
           href: security-center-identity-access.md
     - name: 套用雲端防禦
       items:
-        - name: 管理及時存取
+        - name: 管理 Just-In-Time 存取
           href: security-center-just-in-time.md
         - name: 自適性應用程式控制
           href: security-center-adaptive-application.md
@@ -147,6 +147,8 @@
   items:
     - name: REST API
       href: 'https://docs.microsoft.com/rest/api/securitycenter/'
+    - name: 版本資訊
+      href: 'https://azure.microsoft.com/updates/?product=security-center'
     - name: 功能與 API 淘汰 (2019 年 6 月)
       href: security-center-features-retirement-july2019.md
     - name: 端點保護評量和建議

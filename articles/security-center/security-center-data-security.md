@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/28/2018
 ms.author: memildin
-ms.openlocfilehash: 30f4358bea2670cfa8d825bf1ef75feeba7ea851
-ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
+ms.openlocfilehash: 3c63283a1a13e2deb178a53dfc5045d371d6a28a
+ms.sourcegitcommit: 9f330c3393a283faedaf9aa75b9fcfc06118b124
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71202352"
+ms.lasthandoff: 10/07/2019
+ms.locfileid: "71996929"
 ---
 # <a name="azure-security-center-data-security"></a>Azure 資訊安全中心資料安全性
 為了協助客戶防範、偵測和回應威脅，Azure 資訊安全中心會收集和處理安全性的相關資料，包括組態資訊、中繼資料、事件記錄、損毀傾印檔等等。 Microsoft 從撰寫程式碼到運作服務均遵守嚴格的規範與安全性指導方針。
@@ -80,7 +80,7 @@ Microsoft Monitoring Agent 會掃描各種安全性相關設定，並將其轉�
 
 客戶可以取用來自不同資料流的資訊安全中心相關資料，如下所示：
 
-* **Azure 活動**：所有的安全性警示、已核准的資訊安全中心 [Just-In-Time](https://docs.microsoft.com/azure/security-center/security-center-just-in-time) 要求，以及[調適性應用程式控制](https://docs.microsoft.com/azure/security-center/security-center-adaptive-application)產生的所有警示。
+* **Azure 活動**：所有安全性警示、已核准的資訊安全中心[即時](https://docs.microsoft.com/azure/security-center/security-center-just-in-time)要求，以及彈性[應用](https://docs.microsoft.com/azure/security-center/security-center-adaptive-application)程式控制所產生的所有警示。
 * **Azure 監視器記錄**：所有安全性警示。
 
 

@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8fee8692b2e09f9e4f5580d60d2f7a5a5cea2858
-ms.sourcegitcommit: 4f7dce56b6e3e3c901ce91115e0c8b7aab26fb72
+ms.openlocfilehash: 27b5a8a7667419e0e3345fb453eefd840368b643
+ms.sourcegitcommit: be344deef6b37661e2c496f75a6cf14f805d7381
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71950353"
+ms.lasthandoff: 10/07/2019
+ms.locfileid: "72001683"
 ---
 # <a name="administrator-role-permissions-in-azure-active-directory"></a>Azure Active Directory 中的系統管理員角色權限
 
@@ -398,13 +398,13 @@ Windows Defender ATP 和 EDR | 查看和調查警示。 當您在 Windows Defend
 
 ### <a name="user-administratoruser-administrator-permissions"></a>[使用者管理員](#user-administrator-permissions)
 
-具有此角色的使用者可以建立使用者，以及管理具有一些限制的使用者所有層面（如下所示），並可更新密碼到期原則。 此外，具有此角色的使用者可以建立與管理所有群組。 此角色也包含建立和管理使用者檢視、管理支援票證，以及監視服務健康情況的能力。
+具有此角色的使用者可以建立使用者，以及管理具有一些限制的使用者所有層面（如下所示），並可更新密碼到期原則。 此外，具有此角色的使用者可以建立與管理所有群組。 此角色也包含建立和管理使用者檢視、管理支援票證，以及監視服務健康情況的能力。 使用者系統管理員沒有許可權，無法管理大部分管理員角色中使用者的某些使用者屬性。 下表列出此限制的例外狀況角色。
 
 | | |
 | --- | --- |
 |一般權限|<p>建立 [使用者和群組]</p><p>建立和管理使用者檢視</p><p>建立 Office 支援票證<p>更新密碼到期原則|
 |<p>所有使用者，包括所有管理員</p>|<p>管理授權</p><p>管理使用者主體名稱以外的所有使用者屬性</p>
-|只有非管理員或者下列任何有限管理員角色的使用者：<ul><li>目錄讀取者<li>來賓邀請者<li>技術服務管理員<li>訊息中心讀取者<li>報告讀取者<li>使用者管理員|<p>刪除及還原</p><p>停用和啟用</p><p>使重新整理權杖失效</p><p>管理包含使用者主體名稱的所有使用者屬性</p><p>重設密碼</p><p>更新 (FIDO) 裝置金鑰</p>
+|只有非管理員或者下列任何有限管理員角色的使用者：<ul><li>目錄讀取者<li>來賓邀請者<li>技術服務管理員<li>訊息中心讀取者<li>報告讀取者<li>使用者管理員|<p>刪除及還原</p><p>停用和啟用</p><p>使重新整理權杖失效</p><p>管理包含使用者主體名稱的所有使用者屬性</p><p>重設密碼</p><p>更新 (FIDO) 裝置金鑰</p>|
 
 > [!IMPORTANT]
 > 具備此角色的使用者可以變更可存取機密或私人資訊或 Azure Active Directory 內外重要組態的人員密碼。 變更使用者的密碼表示可承擔該使用者身分識別和權限。 例如:

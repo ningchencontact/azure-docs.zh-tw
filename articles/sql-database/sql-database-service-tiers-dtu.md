@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: carlrab
 ms.date: 09/06/2019
-ms.openlocfilehash: 03f16987941f79f9161ccbc172bb2ca1a7139384
-ms.sourcegitcommit: a4b5d31b113f520fcd43624dd57be677d10fc1c0
+ms.openlocfilehash: e735d8832912f5b512b7cfe015ca47efbe641da7
+ms.sourcegitcommit: be344deef6b37661e2c496f75a6cf14f805d7381
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70773214"
+ms.lasthandoff: 10/07/2019
+ms.locfileid: "72000437"
 ---
 # <a name="service-tiers-in-the-dtu-based-purchase-model"></a>以 DTU 為基礎的購買模式的服務層
 
@@ -35,7 +35,7 @@ ms.locfileid: "70773214"
 | :-- | --: |--:| --:|
 |目標工作負載|開發與生產|開發與生產|開發與生產|
 |執行時間 SLA|99.99%|99.99%|99.99%|
-|備份保留|7 天|35 天|35 天|
+|備份保留上限|7 天|35 天|35 天|
 |CPU|低|低、中、高|中、高|
 |IO 輸送量 (大約) |1-5 每個 DTU 的 IOPS| 1-5 每個 DTU 的 IOPS | 每個 DTU 25 IOPS|
 |IO 延遲 (大約)|5 毫秒 (讀取)，10 毫秒 (寫入)|5 毫秒 (讀取)，10 毫秒 (寫入)|2 毫秒 (讀取/寫入)|

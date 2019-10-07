@@ -11,12 +11,12 @@ author: nacharya1
 ms.author: nilesha
 ms.date: 06/20/2019
 ms.custom: seodec18
-ms.openlocfilehash: 8b38b359821d3d4926085fee8e412fbe06155739
-ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
+ms.openlocfilehash: e9bc0cf3ab0d168a55ab04913bdc71eed5c5fced
+ms.sourcegitcommit: be344deef6b37661e2c496f75a6cf14f805d7381
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71350625"
+ms.lasthandoff: 10/07/2019
+ms.locfileid: "72001224"
 ---
 # <a name="what-is-automated-machine-learning"></a>什麼是自動化機器學習服務？
 
@@ -37,6 +37,14 @@ ms.locfileid: "71350625"
 + 運用資料科學最佳做法
 + 提供敏捷式問題解決
 
+常見的自動化 ML 使用案例包括：
++ [詐騙偵測](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/classification-credit-card-fraud/auto-ml-classification-credit-card-fraud.ipynb)
++ [行銷預測](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/classification-bank-marketing/auto-ml-classification-bank-marketing.ipynb)
++ [需求預測](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/forecasting-energy-demand/auto-ml-forecasting-energy-demand.ipynb)
++ [銷售預測](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/forecasting-orange-juice-sales/auto-ml-forecasting-orange-juice-sales.ipynb)
++ [效能預測](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/regression-hardware-performance/auto-ml-regression-hardware-performance.ipynb)
++ [材質耐久性預測](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/regression-concrete-strength/auto-ml-regression-concrete-strength.ipynb)
+
 ## <a name="how-automated-ml-works"></a>自動化 ML 的運作方式
 
 使用**Azure Machine Learning**，您可以使用下列步驟來設計和執行自動化 ML 訓練實驗：
@@ -55,7 +63,7 @@ ms.locfileid: "71350625"
 
 在定型期間，Azure Machine Learning 會在並行管線中建立數個，以嘗試不同的演算法和參數。 一旦達到實驗中定義的結束準則，它就會停止。
 
-您也可以檢查已記錄的執行資訊，其中包含執行期間所收集的[計量](how-to-understand-automated-ml.md)。 定型回合會產生 Python 序列化物件（`.pkl` file），其中包含模型和資料前置處理。
+您也可以檢查已記錄的執行資訊，其中包含執行期間所收集的[計量](how-to-understand-automated-ml.md)。 定型回合會產生 Python 序列化物件（`.pkl` 檔案），其中包含模型和資料前置處理。
 
 雖然模型建立是自動化的，您也可以瞭解產生之模型的[重要或相關功能](how-to-configure-auto-train.md#explain)。
 
@@ -74,7 +82,7 @@ ms.locfileid: "71350625"
 
 在每個自動化機器學習實驗中，您的資料都會自動調整或正規化，以協助演算法執行得很好。  在模型定型期間，下列其中一個調整或正規化技術將會套用至每個模型。
 
-|調整&nbsp;正規化& &nbsp;| 描述 |
+|調整 @ no__t-0 @ no__t-1 @ no__t-2normalization| 描述 |
 | ------------- | ------------- |
 | [StandardScaleWrapper](https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.StandardScaler.html)  | 藉由移除平均值並調整為單位變異數，將功能標準化  |
 | [MinMaxScalar](https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.MinMaxScaler.html)  | 藉由依該資料行的最小值和最大值調整每項功能來轉換功能  |
@@ -90,7 +98,7 @@ ms.locfileid: "71350625"
 
 + Azure 入口網站：[使用這些步驟](how-to-create-portal-experiments.md)**選取 [** **Advanced] 設定**中的 [前置處理] 核取方塊。
 
-+ Python SDK：指定`"preprocess": True`類別的。 [ `AutoMLConfig` ](https://docs.microsoft.com/python/api/azureml-train-automl/azureml.train.automl.automlconfig?view=azure-ml-py)
++ Python SDK：指定[@no__t 2 類別](https://docs.microsoft.com/python/api/azureml-train-automl/azureml.train.automl.automlconfig?view=azure-ml-py)的 `"preprocess": True`。
 
 
 ## <a name="time-series-forecasting"></a>時間序列預測
@@ -165,7 +173,7 @@ ms.locfileid: "71350625"
 
 請參閱範例，並瞭解如何使用自動化機器學習來建立模型：
 
-+ [遵循教學課程：使用 Azure 自動化 Machine Learning 自動定型回歸模型](tutorial-auto-train-models.md)
++ 遵循 [Tutorial：使用 Azure 自動化將回歸模型自動定型 Machine Learning @ no__t-0
 
 + 設定自動訓練實驗的設定：
   + 在 Azure 入口網站介面或工作區登陸頁面（預覽）中，[使用下列步驟](how-to-create-portal-experiments.md)。

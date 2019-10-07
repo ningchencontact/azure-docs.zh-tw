@@ -7,12 +7,12 @@ ms.reviewer: orspodek
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 06/03/2019
-ms.openlocfilehash: 4a3f37c232fcd7a0fcbdac051ed36916ef5c2868
-ms.sourcegitcommit: e9936171586b8d04b67457789ae7d530ec8deebe
+ms.openlocfilehash: 35f11ee9bce4dc7c68e12749f69d2f2e4253d4bc
+ms.sourcegitcommit: 9f330c3393a283faedaf9aa75b9fcfc06118b124
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71326671"
+ms.lasthandoff: 10/07/2019
+ms.locfileid: "71996256"
 ---
 # <a name="create-an-azure-data-explorer-cluster-and-database-by-using-c"></a>使用 C# 建立 Azure 資料總管叢集與資料庫
 
@@ -38,40 +38,50 @@ Azure 資料總管是快速、完全受控的資料分析服務，可即時分�
 
 1. 安裝用來驗證的 [Microsoft.IdentityModel.Clients.ActiveDirectory NuGet 套件](https://www.nuget.org/packages/Microsoft.IdentityModel.Clients.ActiveDirectory/)。
 
+## <a name="authentication"></a>驗證
+若要執行本文中的範例，我們需要 Azure AD 應用程式和服務主體，才能存取資源。 核取 [[建立 Azure AD 應用程式](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal)] 以建立免費的 Azure AD 應用程式，並在訂用帳戶範圍中新增角色指派。 它也會說明如何取得 `Directory (tenant) ID`、`Application ID` 和 @no__t 2。
+
 ## <a name="create-the-azure-data-explorer-cluster"></a>建立 Azure 資料總管叢集
 
 1. 使用下列程式碼建立您的叢集：
 
     ```csharp
-    var resourceGroupName = "testrg";
-    var clusterName = "mykustocluster";
-    var location = "Central US";
-    var sku = new AzureSku("D13_v2", 5);
-    var cluster = new Cluster(location, sku);
-
-    var authenticationContext = new AuthenticationContext("https://login.windows.net/{tenantName}");
-    var credential = new ClientCredential(clientId: "xxxxxxxx-xxxxx-xxxx-xxxx-xxxxxxxxx", clientSecret: "xxxxxxxxxxxxxx");
+    var tenantId = "xxxxxxxx-xxxxx-xxxx-xxxx-xxxxxxxxx";//Directory (tenant) ID
+    var clientId = "xxxxxxxx-xxxxx-xxxx-xxxx-xxxxxxxxx";//Application ID
+    var clientSecret = "xxxxxxxxxxxxxx";//Client Secret
+    var subscriptionId = "xxxxxxxx-xxxxx-xxxx-xxxx-xxxxxxxxx";
+    var authenticationContext = new AuthenticationContext($"https://login.windows.net/{tenantId}");
+    var credential = new ClientCredential(clientId, clientSecret);
     var result = await authenticationContext.AcquireTokenAsync(resource: "https://management.core.windows.net/", clientCredential: credential);
 
     var credentials = new TokenCredentials(result.AccessToken, result.AccessTokenType);
 
     var kustoManagementClient = new KustoManagementClient(credentials)
     {
-        SubscriptionId = "xxxxxxxx-xxxxx-xxxx-xxxx-xxxxxxxxx"
+        SubscriptionId = subscriptionId
     };
 
-    kustoManagementClient.Clusters.CreateOrUpdate(resourceGroupName, clusterName, cluster);
+    var resourceGroupName = "testrg";
+    var clusterName = "mykustocluster";
+    var location = "Central US";
+    var skuName = "Standard_D13_v2";
+    var tier = "Standard";
+    var capacity = 5;
+    var sku = new AzureSku(skuName, tier, capacity);
+    var cluster = new Cluster(location, sku);
+    await kustoManagementClient.Clusters.CreateOrUpdateAsync(resourceGroupName, clusterName, cluster);
     ```
 
    |**設定** | **建議的值** | **欄位描述**|
    |---|---|---|
    | clusterName | *mykustocluster* | 所需的叢集名稱。|
-   | SKU | *D13_v2* | 將用於叢集的 SKU。 |
+   | skuName | *Standard_D13_v2* | 將用於叢集的 SKU。 |
+   | tier | *標準* | SKU 層。 |
+   | 容量 | *number* | 叢集的實例數目。 |
    | resourceGroupName | *testrg* | 將在其中建立叢集的資源群組名稱。 |
 
-    有其他選擇性參數可供您使用，例如叢集的容量。
-
-1. 設定[您的認證](https://docs.microsoft.com/dotnet/azure/dotnet-sdk-azure-authenticate?view=azure-dotnet)
+    > [!NOTE]
+    > **建立**叢集是長時間執行的作業，因此強烈建議使用 CreateOrUpdateAsync，而不是 CreateOrUpdate。 
 
 1. 執行下列命令來檢查是否已成功建立叢集：
 
@@ -91,7 +101,7 @@ Azure 資料總管是快速、完全受控的資料分析服務，可即時分�
     var databaseName = "mykustodatabase";
     var database = new Database(location: location, softDeletePeriod: softDeletePeriod, hotCachePeriod: hotCachePeriod);
 
-    kustoManagementClient.Databases.CreateOrUpdate(resourceGroupName, clusterName, databaseName, database);
+    await kustoManagementClient.Databases.CreateOrUpdateAsync(resourceGroupName, clusterName, databaseName, database);
     ```
 
    |**設定** | **建議的值** | **欄位描述**|

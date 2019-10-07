@@ -15,12 +15,12 @@ ms.date: 06/12/2019
 ms.author: mimart
 ms.reviewer: arvinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ac78029ba2d1f45ef67ef0d858fdd2917bd4a97a
-ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
+ms.openlocfilehash: 3ef652b05f62218ee1d0e72543bfa546f0c14abe
+ms.sourcegitcommit: be344deef6b37661e2c496f75a6cf14f805d7381
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71033330"
+ms.lasthandoff: 10/07/2019
+ms.locfileid: "72001705"
 ---
 # <a name="automate-user-provisioning-and-deprovisioning-to-saas-applications-with-azure-active-directory"></a>自動化使用 Azure Active Directory 對於 SaaS 應用程式的使用者佈建和取消佈建
 
@@ -56,18 +56,15 @@ Azure Active Directory （Azure AD）可讓您自動化在雲端（[SaaS](https:
 
 Azure AD 布建**服務**會藉由連接到每個應用程式廠商所提供的使用者管理 API 端點，將使用者布建到 SaaS 應用程式和其他系統。 這些使用者管理 API 端點可以讓 Azure AD 以程式設計方式建立、更新和移除使用者。 對於選取的應用程式，布建服務也可以建立、更新和移除其他身分識別相關物件，例如群組和角色。
 
-![Azure AD 布建](./media/user-provisioning/provisioning0.PNG)
-服務*圖1：Azure AD 佈建服務*
+@no__t 0Azure AD 布建服務 @ no__t-1 @ no__t-2Figure 1：Azure AD 佈建服務*
 
-![輸出使用者布建](./media/user-provisioning/provisioning1.PNG)
-工作流程*圖2：從 Azure AD 至熱門 SaaS 應用程式的「輸出」使用者佈建工作流程*
+@no__t 0Outbound 使用者布建工作流程 @ no__t-1 @ no__t-2Figure 2：從 Azure AD 至熱門 SaaS 應用程式的「輸出」使用者佈建工作流程*
 
-![輸入使用者布建](./media/user-provisioning/provisioning2.PNG)
-工作流程*圖3：從熱門人力資本管理 (HCM) 應用程式至 Azure Active Directory 和 Windows Server Active Directory 的「輸入」使用者佈建工作流程*
+@no__t 0Inbound 使用者布建工作流程 @ no__t-1 @ no__t-2Figure 3：從熱門人力資本管理 (HCM) 應用程式至 Azure Active Directory 和 Windows Server Active Directory 的「輸入」使用者佈建工作流程*
 
 ## <a name="what-applications-and-systems-can-i-use-with-azure-ad-automatic-user-provisioning"></a>哪些應用程式和系統可以搭配使用 Azure AD 自動使用者佈建？
 
-Azure AD 為許多熱門的 SaaS 應用程式和人力資源系統提供預先整合的支援，以及可執行 SCIM 2.0 standard 特定部分之應用程式的一般支援。
+Azure AD 為許多熱門的 SaaS 應用程式和人力資源系統提供預先整合的支援，以及可執行[SCIM 2.0 standard](https://techcommunity.microsoft.com/t5/Identity-Standards-Blog/Provisioning-with-SCIM-getting-started/ba-p/880010)特定部分之應用程式的一般支援。
 
 ### <a name="pre-integrated-applications"></a>預先整合的應用程式
 
@@ -93,7 +90,7 @@ Azure AD 為許多熱門的 SaaS 應用程式和人力資源系統提供預先�
 1. 選擇 [ **+ 新增應用程式**] 以新增應用程式。 視您的案例而定，新增下列其中一項：
 
    - [**新增您自己的應用程式**] 選項支援自訂開發的 SCIM 整合。
-   - [**從資源庫** > 新增**精選應用程式**] 區段中的所有應用程式都支援自動布建。 如需額外的應用程式，請參閱[適用於使用者佈建的應用程式教學課程清單](../saas-apps/tutorial-list.md)。
+   - **從資源庫新增** 中的所有應用程式  > **精選應用程式** 區段都支援自動布建。 如需額外的應用程式，請參閱[適用於使用者佈建的應用程式教學課程清單](../saas-apps/tutorial-list.md)。
 
 1. 提供任何詳細資料，然後選取 [**新增**]。 新應用程式會新增至企業應用程式清單，並開啟至其 [應用程式管理] 畫面。
 1. 選取 **[** 布建] 以管理應用程式的使用者帳戶布建設定。
