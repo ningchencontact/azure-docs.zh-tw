@@ -7,18 +7,22 @@ ms.service: private-link
 ms.topic: quickstart
 ms.date: 09/16/2019
 ms.author: kumud
-ms.openlocfilehash: 15b4d3208be693a5b8d858d30b663347515f5a68
-ms.sourcegitcommit: 2ed6e731ffc614f1691f1578ed26a67de46ed9c2
+ms.openlocfilehash: d7c2aee3ad73552a57776af5ce6585b36518d169
+ms.sourcegitcommit: 6013bacd83a4ac8a464de34ab3d1c976077425c7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71130295"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71687059"
 ---
 # <a name="create-a-private-endpoint-using-azure-portal"></a>使用 Azure 入口網站建立私人端點
 
 私人端點是 Azure 中私人連結的基本要素。 其可讓 Azure 資源 (例如虛擬機器 (VM)) 與私人連結資源進行私密通訊。 在本快速入門中，您將了解如何使用 Azure PowerShell 在 Azure 虛擬網路上建立 VM，以及建立具有 Azure 私人端點的 SQL Database 伺服器。 然後，您就可以從 VM 安全地存取 SQL Database 伺服器。
 
 如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)。
+
+
+> [!NOTE]
+> 私人端點不允許與相同子網路中的服務端點搭配使用！
 
 ## <a name="sign-in-to-azure"></a>登入 Azure
 
@@ -210,30 +214,31 @@ ms.locfileid: "71130295"
     Name:    myserver.privatelink.database.windows.net
     Address:  10.0.0.5
     Aliases:   myserver.database.windows.net
-3. Install [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms?view=sql-server-2017).
+    ```
+3. 安裝 [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms?view=sql-server-2017)。
 
-4. In **Connect to server**, enter or select this information:
+4. 在 [連線至伺服器] **** 中，輸入或選取這項資訊：
 
-    | Setting | Value |
+    | 設定 | 值 |
     | ------- | ----- |
-    | Server type| Select **Database Engine**.|
-    | Server name| Select *myserver.database.windows.net* |
-    | User name | Enter a password provided during the SQL server creation. |
-    |Password |Enter a password provided during the SQL server creation. |
-    |Remember password|Select **Yes**.|
+    | 伺服器類型| 選取 [資料庫引擎]  。|
+    | 伺服器名稱| 選取 *myserver.database.windows.net* |
+    | 使用者名稱 | 輸入 SQL Server 建立期間所提供的密碼。 |
+    |密碼 |輸入 SQL Server 建立期間所提供的密碼。 |
+    |記住密碼|選取 [是]  。|
     |||
-1. Select **Connect**.
-2. Browse databases from left menu.
-3. (Optionally) Create or query information from mydatabase.
-4. Close the remote desktop connection to *myVm*. 
+1. 選取 [連線] **** 。
+2. 瀏覽左側功能表中的資料庫。
+3. (選擇性) 從 mydatabase 建立或查詢資訊。
+4. 關閉對  *myVm* 的遠端桌面連線。 
 
-## Clean up resources 
-When you're done using the private endpoint, SQL server, and the VM, delete the resource group and all of the resources it contains: 
-1. Enter *myResourceGroup* in the **Search** box at the top of the portal and select *myResourceGroup* from the search results. 
-2. Select **Delete resource group**. 
-3. Enter myResourceGroup for **TYPE THE RESOURCE GROUP NAME** and select **Delete**.
+## <a name="clean-up-resources"></a>清除資源 
+在私人端點、SQL Server 和 VM 使用完畢後，請刪除資源群組及其包含的所有資源： 
+1. 在入口網站頂端的 [搜尋**] **  方塊中輸入  *myResourceGroup* ，然後從搜尋結果中選取 [myResourceGroup*] * 。 
+2. 選取 [刪除資源群組] **** 。 
+3. 針對 [輸入資源群組名稱**] **  輸入 myResourceGroup，然後選取 [刪除] **** 。
 
-## Next steps
+## <a name="next-steps"></a>後續步驟
 
-In this quickstart, you created a VM on a virtual network, a SQL database server, and a private endpoint for private access. You connected to one VM from the internet and securely communicated to the SQL database server using Private Link. To learn more about private endpoints, see [What is Azure private endpoint?](private-endpoint-overview.md).
+在本快速入門中，您在虛擬網路、SQL 資料庫伺服器和私人端點上建立了 VM 以進行私用存取。 您從網際網路連線到其中一個 VM，然後使用私人連結安全地與 SQL 資料庫伺服器進行通訊。 若要深入了解私人端點，請參閱[什麼是 Azure 私人端點？](private-endpoint-overview.md)。
 

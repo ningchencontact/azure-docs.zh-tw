@@ -10,12 +10,12 @@ ms.author: tzvikei
 author: tsikiksr
 ms.reviewer: nibaccam
 ms.date: 09/26/2019
-ms.openlocfilehash: 38c319fb89e8c763f8231c18cbb59bef099193e2
-ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.openlocfilehash: 3ddd228488d8ba4adc6780db1f65fdb634291d3b
+ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71259320"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71350511"
 ---
 # <a name="tutorial-create-your-first-classification-model-with-automated-machine-learning"></a>教學課程：使用自動化機器學習建立第一個分類模型
 
@@ -50,7 +50,7 @@ Azure Machine Learning 工作區是雲端中您用來實驗、定型及部署機
 
 ## <a name="create-and-run-the-experiment"></a>建立及執行實驗
 
-您在工作區登陸頁面中完成下列實驗設定和執行步驟，該頁面是統一的介面，為所有技能等級的資料科學從業人員，提供執行資料科學情節的機器學習工具。
+您在工作區登陸頁面中完成下列實驗設定和執行步驟，該頁面是統一的介面，為所有技能等級的資料科學從業人員，提供執行資料科學情節的機器學習工具。 Internet Explorer 瀏覽器不支援此工作區登陸頁面。
 
 1. 登入[工作區登陸頁面](https://ml.azure.com/workspaceportal/) \(英文\)。
 
@@ -58,7 +58,7 @@ Azure Machine Learning 工作區是雲端中您用來實驗、定型及部署機
 
 1. 選取 [馬上開始]  。
 
-1. 在左側窗格中，選取 [撰寫]  下的 [自動化 ML]  。
+1. 在左側窗格中，選取 [撰寫]  區段下的 [自動化 ML]  。
 
    由於這是您的第一個自動化 ML 實驗，因此您會看到使用者入門畫面。
 
@@ -99,23 +99,21 @@ Azure Machine Learning 工作區是雲端中您用來實驗、定型及部署機
        
     1. 確認 [設定與預覽]  表單的填入方式如下，然後選取 [下一步]  。
         
-        欄位|教學課程的值
-        ---|---
-        檔案格式| Delimited (分隔檔)
-        分隔符號| Comma (逗號)
-        編碼| UTF-8
-        資料行標題| All files have same headers (所有檔案都有相同的標頭)
-        Skip rows (略過資料列) | None
+        欄位|說明| 教學課程的值
+        ---|---|---
+        檔案格式|定義檔案中所儲存資料的版面配置和類型。| Delimited (分隔檔)
+        分隔符號|一或多個字元，用來指定純文字或其他資料流程中個別獨立區域之間的界限。 |Comma (逗號)
+        編碼|識別要用來讀取資料集之字元結構描述資料表的位元。| UTF-8
+        資料行標題| 指出資料集標題 (如果有的話) 的處理方式。| All files have same headers (所有檔案都有相同的標頭)
+        Skip rows (略過資料列) | 指出資料集內略過多少資料列 (如果有的話)。| None
     
-    1. [Schema]  \(結構描述\) 表單可讓您進一步設定此實驗的資料。 針對此範例，請選取 [day_of_week]  特徵的切換開關，如此一來，就不會將它包含在此實驗中。 選取 [Done]  \(完成\)，以完成檔案上傳及建立實驗資料集。
-
         ![預覽索引標籤的設定](media/tutorial-1st-experiment-automated-ml/schema-tab-config.gif)
 
 1. 請選取 [分類]  作為預測工作。
 
 1. 選取 [y]  作為您要預測的目標資料行。 此資料行會指出用戶端是否已申請定期存款。
 
-1. 展開 [進階設定]  並填入欄位，如下所示。
+1. 展開 [進階設定]  並填入欄位，如下所示。 這些設定可進一步控制訓練作業。 否則會根據實驗選取範圍和資料來套用預設值。
 
    >[!NOTE]
    > 在此教學課程中，您不會為每個反覆項目的計量分數或最大核心數設定閾值。 您也不會防止演算法受到測試。
@@ -138,10 +136,10 @@ Azure Machine Learning 工作區是雲端中您用來實驗、定型及部署機
 
 ##  <a name="explore-iteration-results"></a>探索反覆項目結果
 
-當實驗進行時，該畫面會以完成時建立的不同反覆項目 (模型) 來更新 [反覆項目圖表]  和 [反覆項目清單]  ，並以計量分數進行排序。 依預設，根據所選 **AUC_weighted** 計量評分最高的模型會在清單頂端。
+當實驗進行時，該畫面會以完成時建立不同反覆項目 (模型) 來更新 [反覆項目圖表]  和 [反覆項目清單]  。 根據預設，反覆項目會依計量分數排序。 在本教學課程中，根據所選 **AUC_weighted** 計量評分最高的模型會在清單頂端。
 
 當您等候所有實驗反覆項目完成時，即可選取已完成反覆項目的**名稱**，來探索其效能詳細資料。 
-   
+
 以下顯示每個反覆項目所產生的圖表和執行計量，例如，精確度與召回率曲線、混淆矩陣、加權精確度分數等等。 
 
 ![執行反覆項目的詳細資料](media/tutorial-1st-experiment-automated-ml/run-detail.gif)
@@ -199,6 +197,7 @@ Azure Machine Learning 工作區是雲端中您用來實驗、定型及部署機
 + 深入了解[前置處理](how-to-create-portal-experiments.md#preprocess)。
 + 深入了解[資料分析](how-to-create-portal-experiments.md#profile)。
 + 深入了解[自動化機器學習](concept-automated-ml.md)。
++ 如需分類計量和圖表的詳細資訊，請參閱[了解自動化機器學習結果](how-to-understand-automated-ml.md#classification)一文。
 
 >[!NOTE]
 > 此銀行行銷資料集可在 [Creative Commons (CCO：公用網域) 授權](https://creativecommons.org/publicdomain/zero/1.0/)底下取得。 個別資料庫內容中的任何權限都是以[資料庫內容授權](https://creativecommons.org/publicdomain/zero/1.0/)為依據，並可在 [Kaggle](https://www.kaggle.com/janiobachmann/bank-marketing-dataset) 上取得。 此資料集原本位在 [UCI Machine Learning 資料庫](https://archive.ics.uci.edu/ml/datasets/bank+marketing)內。<br><br>
