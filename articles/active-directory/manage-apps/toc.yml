@@ -241,6 +241,8 @@
           items:
             - name: 針對使用者佈建進行疑難排解
               href: application-provisioning-config-problem.md
+            - name: 隔離狀態
+              href: application-provisioning-quarantine-status.md
             - name: 佈建記錄
               href: /azure/active-directory/reports-monitoring/concept-provisioning-logs?context=azure/active-directory/manage-apps/context/manage-apps-context
             - name: 同步屬性以對應 - 資源庫應用程式
@@ -357,6 +359,8 @@
           href: provisioning-agent-release-version-history.md
     - name: 適用於內部部屬應用程式的 Application Proxy
       items:
+        - name: 應用程式 Proxy 常見問題集
+          href: application-proxy-faq.md
         - name: 應用程式 Proxy 版本記錄
           href: application-proxy-release-version-history.md
 - name: 資源

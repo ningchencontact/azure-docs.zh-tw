@@ -82,6 +82,8 @@
       href: functions-deployment-technologies.md
     - name: 事件和傳訊
       items:
+        - name: 可靠事件處理
+          href: functions-reliable-event-processing.md
         - name: 設計訴求為進行相同輸入
           href: functions-idempotent.md
     - name: 觸發和繫結

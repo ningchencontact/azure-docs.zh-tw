@@ -219,6 +219,94 @@
                   href: scenario-mobile-call-api.md
                 - name: 移動至生產環境
                   href: scenario-mobile-production.md
+        - name: Microsoft Authentication Library (MSAL)
+          items:
+            - name: 概觀
+              href: msal-overview.md
+            - name: 帳戶和租用戶設定檔 (Android)
+              href: accounts-overview.md
+            - name: 授權代理程式 (Android)
+              href: authorization-agents.md
+            - name: 訊息代理程式驗證 (Android)
+              href: brokered-auth.md
+            - name: 移轉
+              items:
+                - name: 遷移至 MSAL.NET
+                  href: msal-net-migration.md
+                - name: 遷移至 MSAL.js
+                  href: msal-compare-msal-js-and-adal-js.md
+                - name: 遷移到 MSAL.Android
+                  href: migrate-android-adal-msal.md
+                - name: 遷移到 MSAL.iOS 和 MacOS
+                  href: migrate-objc-adal-msal.md
+                - name: 使用訊息代理程式將 Xamarin 應用程式遷移到 MSAL.NET
+                  href: msal-net-migration-ios-broker.md
+            - name: 支援的驗證流程
+              href: msal-authentication-flows.md
+            - name: 單一和多帳戶公用用戶端應用程式 (Android)
+              href: single-multi-account.md
+            - name: 取得和快取權杖
+              items:
+                - name: 取得和快取權杖
+                  href: msal-acquire-cache-tokens.md
+                - name: v1.0 應用程式的範圍
+                  href: msal-v1-app-scopes.md
+            - name: 用戶端應用程式
+              items:
+                - name: 用戶端應用程式
+                  href: msal-client-applications.md
+                - name: 應用程式組態 (.NET)
+                  href: msal-client-application-configuration.md
+                - name: 初始化應用程式 (.NET)
+                  href: msal-net-initializing-client-applications.md
+                - name: 用戶端判斷提示 (.NET)
+                  href: msal-net-client-assertions.md
+                - name: 初始化應用程式 (JS)
+                  href: msal-js-initializing-client-applications.md
+            - name: 處理錯誤和例外狀況
+              href: msal-handling-exceptions.md
+            - name: 記錄
+              href: msal-logging.md
+            - name: 單一登入
+              items:
+                - name: 使用 MSAL.js 進行單一登入
+                  href: msal-js-sso.md
+                - name: 使用 MSAL.js 進行單一登入 (適用於 iOS 和 macOS)
+                  items:
+                    - name: MSAL 應用程式間的 SSO
+                      href: single-sign-on-macos-ios.md
+                    - name: ADAL 與 MSAL 應用程式間的 SSO
+                      href: sso-between-adal-msal-apps-macos-ios.md
+            - name: 與 ADFS 整合
+              items:
+                - name: MSAL.NET 中的 ADFS 支援
+                  href: msal-net-adfs-support.md
+            - name: 與 Azure AD B2C 整合
+              items:
+                - name: Android
+                  href: msal-android-b2c.md
+                - name: JavaScript
+                  href: msal-b2c-overview.md
+                - name: .NET
+                  href: msal-net-aad-b2c-considerations.md
+                - name: iOS 和 macOS
+                  href: 'config-authority.md#b2c'
+            - name: 考量事項與已知問題
+              items:
+                - name: MSAL.NET
+                  items:
+                    - name: 網頁瀏覽器
+                      href: msal-net-web-browsers.md
+                - name: MSAL.js
+                  items:
+                    - name: 使用 IE 的考量事項
+                      href: msal-js-use-ie-browser.md
+                    - name: 已知問題 - IE 和 Microsoft Edge
+                      href: msal-js-known-issues-ie-edge-browsers.md
+                    - name: 已知問題 - Safari
+                      href: msal-js-known-issues-safari-browser.md
+                - name: 適用於 iOS 和 macOS SSL 的 MSAL 問題
+                  href: ssl-issues.md
         - name: 驗證通訊協定
           items:
             - name: 應用程式類型和 OAuth2.0
@@ -368,98 +456,6 @@
               href: vs-active-directory-webapi-what-happened.md
             - name: 驗證偵測期間發生錯誤
               href: vs-active-directory-error.md
-    - name: Microsoft Authentication Library (MSAL)
-      items:
-        - name: 概觀
-          href: msal-overview.md
-        - name: 帳戶和租用戶設定檔 (Android)
-          href: accounts-overview.md
-        - name: 授權代理程式 (Android)
-          href: authorization-agents.md
-        - name: 訊息代理程式驗證 (Android)
-          items:
-            - name: 訊息代理程式驗證 (Android)
-              href: brokered-auth.md
-        - name: 移轉
-          items:
-            - name: 遷移至 MSAL.NET
-              href: msal-net-migration.md
-            - name: 遷移至 MSAL.js
-              href: msal-compare-msal-js-and-adal-js.md
-            - name: 遷移到 MSAL.Android
-              href: migrate-android-adal-msal.md
-            - name: 遷移到 MSAL.iOS 和 MacOS
-              href: migrate-objc-adal-msal.md
-            - name: 使用訊息代理程式將 Xamarin 應用程式遷移到 MSAL.NET
-              href: msal-net-migration-ios-broker.md
-        - name: 支援的驗證流程
-          href: msal-authentication-flows.md
-        - name: 單一和多帳戶公用用戶端應用程式 (Android)
-          href: single-multi-account.md
-        - name: 取得和快取權杖
-          items:
-            - name: 取得和快取權杖
-              href: msal-acquire-cache-tokens.md
-            - name: v1.0 應用程式的範圍
-              href: msal-v1-app-scopes.md
-        - name: 用戶端應用程式
-          items:
-            - name: 用戶端應用程式
-              href: msal-client-applications.md
-            - name: 應用程式組態 (.NET)
-              href: msal-client-application-configuration.md
-            - name: 初始化應用程式 (.NET)
-              href: msal-net-initializing-client-applications.md
-            - name: 用戶端判斷提示 (.NET)
-              href: msal-net-client-assertions.md
-            - name: 初始化應用程式 (JS)
-              href: msal-js-initializing-client-applications.md
-        - name: 處理錯誤和例外狀況
-          href: msal-handling-exceptions.md
-        - name: 記錄
-          href: msal-logging.md
-        - name: 單一登入
-          items:
-            - name: 使用 MSAL.js 進行單一登入
-              href: msal-js-sso.md
-            - name: 使用 MSAL.js 進行單一登入 (適用於 iOS 和 macOS)
-              items:
-                - name: MSAL 應用程式間的 SSO
-                  href: single-sign-on-macos-ios.md
-                - name: ADAL 與 MSAL 應用程式間的 SSO
-                  href: sso-between-adal-msal-apps-macos-ios.md
-        - name: 與 ADFS 整合
-          items:
-            - name: MSAL.NET 中的 ADFS 支援
-              href: msal-net-adfs-support.md
-        - name: 與 Azure AD B2C 整合
-          items:
-            - name: Android
-              href: msal-android-b2c.md
-            - name: JavaScript
-              href: msal-b2c-overview.md
-            - name: .NET
-              href: msal-net-aad-b2c-considerations.md
-            - name: iOS 和 macOS
-              href: 'config-authority.md#b2c'
-        - name: 考量事項與已知問題
-          items:
-            - name: MSAL.NET
-              items:
-                - name: 網頁瀏覽器
-                  href: msal-net-web-browsers.md
-            - name: MSAL.js
-              items:
-                - name: 使用 IE 的考量事項
-                  href: msal-js-use-ie-browser.md
-                - name: 已知問題 - IE 和 Microsoft Edge
-                  href: msal-js-known-issues-ie-edge-browsers.md
-                - name: 已知問題 - Safari
-                  href: msal-js-known-issues-safari-browser.md
-            - name: 適用於 iOS 和 macOS 的 MSAL
-              items:
-                - name: SSL 問題
-                  href: ssl-issues.md
     - name: 參考
       items:
         - name: 驗證程式庫
