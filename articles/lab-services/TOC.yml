@@ -78,6 +78,8 @@
           href: classroom-labs/class-type-deep-learning-natural-processing.md
         - name: Linux 上的殼層指令碼
           href: classroom-labs/class-type-shell-scripting-linux.md
+        - name: 道德入侵
+          href: classroom-labs/class-type-ethical-hacking.md
     - name: 教室實驗室
       items:
         - name: 建立及設定實驗室帳戶 (實驗室帳戶擁有者)
@@ -90,6 +92,8 @@
               href: classroom-labs/how-to-connect-peer-virtual-network.md
             - name: 附加或中斷連結共用映像資源庫
               href: classroom-labs/how-to-attach-detach-shared-image-gallery.md
+            - name: 在範本 VM 上啟用巢狀虛擬化
+              href: classroom-labs/how-to-enable-nested-virtualization-template-vm.md
         - name: 建立和設定教室實驗室 (講師)
           items:
             - name: 建立和管理教室實驗室

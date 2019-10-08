@@ -6,52 +6,75 @@
       href: resource-group-overview.md
     - name: 範本概觀
       href: template-deployment-overview.md
-- name: 快速入門
-  expanded: true
-  items:
-    - name: 建立範本 - 入口網站
-      href: resource-manager-quickstart-create-templates-use-the-portal.md
-    - name: 建立範本 - VS Code
-      href: resource-manager-quickstart-create-templates-use-visual-studio-code.md
-    - name: 建立範本 - Visual Studio
-      href: vs-azure-tools-update-deploy-script-to-az-powershell.md
-    - name: 建立範本 - IntelliJ IDEA
-      href: resource-manager-quickstart-create-templates-use-intellij.md
 - name: 教學課程
   items:
-    - name: 利用範本參考
-      href: resource-manager-tutorial-create-encrypted-storage-accounts.md
-    - name: 建立多個執行個體
-      displayName: 'iteration,copy'
-      href: resource-manager-tutorial-create-multiple-instances.md
-    - name: 設定資源部署順序
-      displayName: 'dependent resources, dependency'
-      href: resource-manager-tutorial-create-templates-with-dependent-resources.md
-    - name: 使用條件
-      href: resource-manager-tutorial-use-conditions.md
-    - name: 整合 Key Vault
-      displayName: secrets
-      href: resource-manager-tutorial-use-key-vault.md
-    - name: 建立連結的範本
-      href: resource-manager-tutorial-create-linked-templates.md
-    - name: 部署 VM 延伸模組
-      displayName: virtual machine extensions
-      href: resource-manager-tutorial-deploy-vm-extensions.md
-    - name: 部署 SQL 延伸模組
-      href: resource-manager-tutorial-deploy-sql-extensions-bacpac.md
-    - name: 保護成品
-      href: resource-manager-tutorial-secure-artifacts.md
-    - name: 透過 Azure Pipelines 的持續整合
-      displayName: DevOps
-      href: resource-manager-tutorial-use-azure-pipelines.md
-    - name: 使用安全部署實務
-      displayName: adm
-      href: deployment-manager-tutorial.md
-    - name: 在部署管理員中使用健康情況檢查
-      displayName: adm
-      href: deployment-manager-tutorial-health-check.md
-    - name: 針對範本部署進行疑難排解
-      href: resource-manager-tutorial-troubleshoot.md
+    - name: 初學者
+      items:
+        - name: 1 - 建立第一個範本
+          href: template-tutorial-create-first-template.md
+        - name: 2 - 新增資源
+          href: template-tutorial-add-resource.md
+        - name: 3 - 新增參數
+          href: template-tutorial-add-parameters.md
+        - name: 4 - 新增範本函式
+          href: template-tutorial-add-functions.md
+        - name: 5 - 新增變數
+          href: template-tutorial-add-variables.md
+        - name: 6 - 新增輸出
+          href: template-tutorial-add-outputs.md
+        - name: 7 - 使用匯出的範本
+          href: template-tutorial-export-template.md
+        - name: 8 - 使用快速入門範本
+          href: template-tutorial-quickstart-template.md
+        - name: 9 - 標籤標記
+          href: template-tutorial-add-tags.md
+        - name: 10 - 使用參數檔案
+          href: template-tutorial-use-parameter-file.md
+    - name: 進階
+      items:
+        - name: 建立範本 - 入口網站
+          href: resource-manager-quickstart-create-templates-use-the-portal.md
+        - name: 建立範本 - VS Code
+          href: resource-manager-quickstart-create-templates-use-visual-studio-code.md
+        - name: 建立範本 - Visual Studio
+          href: vs-azure-tools-resource-groups-deployment-projects-create-deploy.md
+        - name: 建立範本 - IntelliJ IDEA
+          href: resource-manager-quickstart-create-templates-use-intellij.md
+        - name: 利用範本參考
+          href: resource-manager-tutorial-create-encrypted-storage-accounts.md
+        - name: 建立多個執行個體
+          displayName: 'iteration,copy'
+          href: resource-manager-tutorial-create-multiple-instances.md
+        - name: 設定資源部署順序
+          displayName: 'dependent resources, dependency'
+          href: resource-manager-tutorial-create-templates-with-dependent-resources.md
+        - name: 使用條件
+          href: resource-manager-tutorial-use-conditions.md
+        - name: 整合 Key Vault
+          displayName: secrets
+          href: resource-manager-tutorial-use-key-vault.md
+        - name: 建立連結的範本
+          href: resource-manager-tutorial-create-linked-templates.md
+        - name: 部署 VM 延伸模組
+          displayName: virtual machine extensions
+          href: resource-manager-tutorial-deploy-vm-extensions.md
+        - name: 部署 SQL 延伸模組
+          href: resource-manager-tutorial-deploy-sql-extensions-bacpac.md
+        - name: 保護成品
+          href: resource-manager-tutorial-secure-artifacts.md
+        - name: 透過 Azure Pipelines 的持續整合
+          displayName: DevOps
+          href: resource-manager-tutorial-use-azure-pipelines.md
+        - name: 使用安全部署實務
+          displayName: adm
+          href: deployment-manager-tutorial.md
+        - name: 在部署管理員中使用健康情況檢查
+          displayName: adm
+          href: deployment-manager-tutorial-health-check.md
+        - name: 將 VS Deployment 指令碼更新為 Az Powershell
+          href: vs-azure-tools-update-deploy-script-to-az-powershell.md
+        - name: 針對範本部署進行疑難排解
+          href: resource-manager-tutorial-troubleshoot.md
 - name: 範例
   items:
     - name: Resource Manager 範本
@@ -76,8 +99,8 @@
           href: deployment-manager-health-check.md
     - name: Resource Manager 與傳統部署
       href: resource-manager-deployment-model.md
-    - name: 內建安全性控制
-      href: azure-resource-manager-security-controls.md
+    - name: Azure 常見安全性屬性
+      href: azure-resource-manager-security-attributes.md
 - name: 作法
   items:
     - name: 建立範本
@@ -120,14 +143,17 @@
           displayName: deployment
           href: resource-group-template-deploy-portal.md
         - name: 部署 - CLI
-          displayName: 'deployment,rollback on error,redeploy'
+          displayName: deployment
           href: resource-group-template-deploy-cli.md
         - name: 部署 - PowerShell
-          displayName: 'deployment,rollback on error,redeploy'
+          displayName: deployment
           href: resource-group-template-deploy.md
         - name: 部署 - REST API
-          displayName: 'deployment,rollback on error,redeploy'
+          displayName: deployment
           href: resource-group-template-deploy-rest.md
+        - name: 發生錯誤時重新部署
+          displayName: rollback
+          href: rollback-on-error.md
         - name: 使用 SAS 權杖保護範本
           href: secure-template-with-sas-token.md
         - name: 部署至多個資源群組或訂用帳戶
@@ -221,8 +247,6 @@
           href: resource-manager-common-deployment-errors.md
         - name: AccountNameInvalid
           href: resource-manager-storage-account-name-errors.md
-        - name: DeploymentQuotaExceeded
-          href: deployment-quota-exceeded.md
         - name: InvalidTemplate
           href: resource-manager-invalid-template-errors.md
         - name: Linux 部署問題

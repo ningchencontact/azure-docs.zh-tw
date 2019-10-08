@@ -12,12 +12,12 @@ metadata:
   author: KingdomOfEnds
   ms.author: v-adgera
   ms.date: 09/04/2019
-  ms.openlocfilehash: 46cea77843b388f128885891dcdbb9b01b6cd2f5
-  ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
+  ms.openlocfilehash: 14358c23bf9739c75915b66849a657633e2cc2db
+  ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
   ms.translationtype: HT
   ms.contentlocale: zh-TW
-  ms.lasthandoff: 09/26/2019
-  ms.locfileid: "71289165"
+  ms.lasthandoff: 10/06/2019
+  ms.locfileid: "71978857"
 landingContent:
 - title: 關於 Azure 時間序列深入解析
   linkLists:
@@ -41,10 +41,8 @@ landingContent:
     links:
     - text: Azure 時間序列深入解析預覽教學課程
       url: time-series-insights-update-create-environment.md
-    - text: 建立單頁 Web 應用程式
-      url: tutorial-create-tsi-sample-spa.md
-    - text: 時間序列深入解析 JavaScript 用戶端程式庫
-      url: tutorial-explore-js-client-lib.md
+    - text: 用戶端 SDK 範例視覺效果
+      url: https://tsiclientsample.azurewebsites.net/
   - linkListType: how-to-guide
     links:
     - text: 佈建和管理
@@ -85,10 +83,8 @@ landingContent:
     links:
     - text: 建立時間序列深入解析環境
       url: tutorial-create-populate-tsi-environment.md
-    - text: 建立單頁 Web 應用程式
-      url: tutorial-create-tsi-sample-spa.md
-    - text: 時間序列深入解析 JavaScript 用戶端程式庫
-      url: tutorial-explore-js-client-lib.md
+    - text: 用戶端 SDK 範例視覺效果
+      url: https://tsiclientsample.azurewebsites.net/
   - linkListType: how-to-guide
     links:
     - text: 建立環境
