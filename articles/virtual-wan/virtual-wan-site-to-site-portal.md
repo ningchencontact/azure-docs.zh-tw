@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 07/25/2019
 ms.author: cherylmc
 Customer intent: As someone with a networking background, I want to connect my local site to my VNets using Virtual WAN and I don't want to go through a Virtual WAN partner.
-ms.openlocfilehash: e9be7ef5c4f37c66f7cbf2c6226936438b367108
-ms.sourcegitcommit: f5cc71cbb9969c681a991aa4a39f1120571a6c2e
+ms.openlocfilehash: 357cc23c9dedb49dfd19dc897102762066ffd1b2
+ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68515158"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71679352"
 ---
 # <a name="tutorial-create-a-site-to-site-connection-using-azure-virtual-wan"></a>教學課程：使用 Azure 虛擬 WAN 來建立站對站連線
 
@@ -25,7 +25,7 @@ ms.locfileid: "68515158"
 
 ![虛擬 WAN 的圖表](./media/virtual-wan-about/virtualwan.png)
 
-在本教學課程中，您了解如何：
+在本教學課程中，您會了解如何：
 
 > [!div class="checklist"]
 > * 建立 WAN
@@ -53,7 +53,7 @@ ms.locfileid: "68515158"
 
 建立需要的網站數目，這會與您的實體位置相對應。 例如，如果您在紐約 (NY)、倫敦和洛杉磯 (LA) 各有分公司，就會建立三個不同網站。 這些網站包含您內部部署的 VPN 裝置端點。 在此階段中，您可以只為網站指定一個私人位址空間。
 
-1. 按一下您所建立的 WAN。 在 WAN 頁面的 [WAN 架構]  底下，按一下 [VPN 網站]  以開啟 [VPN 網站] 頁面。
+1. 按一下您所建立的 WAN。 在 WAN 頁面的 [虛擬 WAN 架構]  底下，按一下 [VPN 網站]  以開啟 [VPN 網站] 頁面。
 2. 在 [VPN 網站]  頁面上，按一下 [+ 建立網站]  。
 3. 在 [建立網站]  頁面上，填寫下列欄位：
 

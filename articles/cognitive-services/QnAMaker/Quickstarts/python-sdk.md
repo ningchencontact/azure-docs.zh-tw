@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: quickstart
-ms.date: 09/21/2019
+ms.date: 10/01/2019
 ms.author: diberry
-ms.openlocfilehash: 90712012f904f7b098af01433fee4a97ee8f2160
-ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
+ms.openlocfilehash: 81e5ac5e5017330d2c5ea8bf5b269c4ce70b495b
+ms.sourcegitcommit: 4f3f502447ca8ea9b932b8b7402ce557f21ebe5a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71203769"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71802844"
 ---
 # <a name="quickstart-qna-maker-client-library-for-python"></a>快速入門：適用於 Python 的 QnA Maker 用戶端程式庫
 
@@ -29,6 +29,8 @@ ms.locfileid: "71203769"
 
 [參考文件](https://docs.microsoft.com/python/api/azure-cognitiveservices-knowledge-qnamaker/azure.cognitiveservices.knowledge.qnamaker?view=azure-python) | [程式庫來源程式碼](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/cognitiveservices/azure-cognitiveservices-knowledge-qnamaker) | [套件 (pypi)](https://pypi.org/project/azure-cognitiveservices-knowledge-qnamaker/) | [Python 範例](https://github.com/Azure-Samples/cognitive-services-qnamaker-python/blob/master/documentation-samples/quickstarts/knowledgebase_quickstart/knowledgebase_quickstart.py)
 
+[!INCLUDE [Custom subdomains notice](../../../../includes/cognitive-services-custom-subdomains-note.md)]
+
 ## <a name="prerequisites"></a>必要條件
 
 * Azure 訂用帳戶 - [建立免費帳戶](https://azure.microsoft.com/free/)
@@ -40,7 +42,7 @@ ms.locfileid: "71203769"
 
 Azure 認知服務會由您訂閱的 Azure 資源呈現。 請使用 [Azure 入口網站](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account)或 [Azure CLI](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account-cli) 在本機電腦上建立 QnA Maker 的資源。 
 
-從資源取得金鑰後，請為資源[建立環境變數](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) (名為 `QNAMAKER_KEY` 和 `QNAMAKER_HOST`)。 使用位於 Azure 入口網站中的金鑰和主機值。
+從資源取得金鑰後，請為資源[建立環境變數](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) (名為 `QNAMAKER_KEY` 和 `QNAMAKER_HOST`)。 使用位於 Azure 入口網站中的金鑰和端點值。
 
 ### <a name="install-the-python-library-for-qna-maker"></a>安裝 Python QnA Maker 程式庫
 
@@ -82,7 +84,7 @@ pip install azure-cognitiveservices-knowledge-qnamaker
 |環境變數|Python 變數|範例|
 |--|--|--|
 |`QNAMAKER_KEY`|`subscription_key`|32 字元的 GUID|
-|`QNAMAKER_HOST`|`host`|`https://westus.api.cognitive.microsoft.com`|
+|`QNAMAKER_HOST`|`host`|`https://your-resource-name.api.cognitive.microsoft.com` - 將 `your-resource-name` 變更為您自己的資源名稱|
 ||||
 
 [!code-python[Azure resource variables](~/samples-qnamaker-python/documentation-samples/quickstarts/knowledgebase_quickstart/knowledgebase_quickstart.py?name=resourcekeys)]
@@ -148,7 +150,7 @@ pip install azure-cognitiveservices-knowledge-qnamaker
 
 使用 `python knowledgebase_quickstart.py` 命令從您的應用程式目錄執行應用程式。
 
-本文中的所有程式碼片段均[可用](https://github.com/Azure-Samples/cognitive-services-qnamaker-python/blob/master/documentation-samples/quickstarts/knowledgebase_quickstart/knowledgebase_quickstart.py)，並可以單一檔案的形式執行。 
+本文中的所有程式碼片段都是[可用](https://github.com/Azure-Samples/cognitive-services-qnamaker-python/blob/master/documentation-samples/quickstarts/knowledgebase_quickstart/knowledgebase_quickstart.py)的，並可以單一檔案的形式執行。 
 
 ```console
 python knowledgebase_quickstart.py

@@ -10,14 +10,16 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 07/05/2019
 ms.author: chlandsi
-ms.openlocfilehash: 45cd1210ee6af3c456171a427729f6e16caf2d58
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: f843636b0c4f604af4984c6d75bb6c3cae75d275
+ms.sourcegitcommit: 4f3f502447ca8ea9b932b8b7402ce557f21ebe5a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68559366"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71803302"
 ---
 # <a name="quickstart-recognize-speech-in-objective-c-on-macos-using-the-speech-sdk"></a>快速入門：使用語音 SDK 在 macOS 上以 Objective-C 辨識語音
+
+另備有[語音合成](quickstart-text-to-speech-objectivec-macos.md)的快速入門。
 
 [!INCLUDE [Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
 
@@ -33,8 +35,6 @@ ms.locfileid: "68559366"
 ## <a name="get-the-speech-sdk-for-macos"></a>取得適用於 macOS 的語音 SDK
 
 [!INCLUDE [License Notice](../../../includes/cognitive-services-speech-service-license-notice.md)]
-
-認知服務語音 SDK 目前的版本為 `1.6.0`。
 
 適用於 Mac 的認知服務語音 SDK 會以架構組合的形式散發。
 它可在 Xcode 專案中作為 [CocoaPod](https://cocoapods.org/) 使用，或是從 https://aka.ms/csspeech/macosbinary 下載並手動連結。 本指南使用 CocoaPod。
@@ -68,7 +68,7 @@ ms.locfileid: "68559366"
 
 1. 依照[安裝指示](https://guides.cocoapods.org/using/getting-started.html)中的說明安裝 CocoaPod 相依性管理員。
 1. 瀏覽至範例應用程式的目錄 (`helloworld`)。 在該目錄中放入名為 `Podfile` 的文字檔和下列內容：  
-   [!code-objectivec[Quickstart Code](~/samples-cognitive-services-speech-sdk/quickstart/objectivec-macos/helloworld/Podfile)]
+   [!code-ruby[Quickstart Code](~/samples-cognitive-services-speech-sdk/quickstart/objectivec-macos/helloworld/Podfile)]
 1. 瀏覽至終端機的 `helloworld` 目錄，並執行命令 `pod install`。 這將會產生一個 `helloworld.xcworkspace` Xcode 工作區，其中包含範例應用程式和作為相依性的語音 SDK。 此工作區將用於下列作業。
 
 ## <a name="add-the-sample-code"></a>新增範例程式碼

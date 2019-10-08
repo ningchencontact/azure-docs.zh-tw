@@ -1,5 +1,5 @@
 ---
-title: 快速入門：辨識語音，Java (Windows、Linux) - 語音服務
+title: 快速入門：辨識語音，Java (Windows、Linux、macOS) - 語音服務
 titleSuffix: Azure Cognitive Services
 description: 在此快速入門中，您將了解如何建立簡單的 Java 應用程式，以擷取及轉譯來自電腦麥克風的使用者語音。
 services: cognitive-services
@@ -10,16 +10,16 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 07/05/2019
 ms.author: fmegen
-ms.openlocfilehash: 498e41b08133113be9789ef49291b8e2bb0f3705
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 9438cd1345d324b068db8837216afb39241cb2a2
+ms.sourcegitcommit: 4f3f502447ca8ea9b932b8b7402ce557f21ebe5a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68554106"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71802475"
 ---
 # <a name="quickstart-recognize-speech-with-the-speech-sdk-for-java"></a>快速入門：使用適用於 Java 的語音 SDK 來辨識語音
 
-另備有[語音轉換語音翻譯](quickstart-translate-speech-java-jre.md)和[語音優先虛擬助理](quickstart-virtual-assistant-java-jre.md)的快速入門。
+另備有[語音轉換語音翻譯](quickstart-translate-speech-java-jre.md)、[語音優先虛擬助理](quickstart-virtual-assistant-java-jre.md)和[語音合成](quickstart-text-to-speech-java-jre.md)的快速入門。
 
 如有需要，請選擇不同的程式設計語言和/或環境：<br/>
 [!INCLUDE [Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
@@ -95,6 +95,7 @@ ms.locfileid: "68554106"
 
 ## <a name="see-also"></a>另請參閱
 
-- [快速入門：翻譯語音，Java (Windows、Linux)](quickstart-translate-speech-java-jre.md)
+- [快速入門：翻譯語音，Java (Windows、Linux、macOS)](quickstart-translate-speech-java-jre.md)
+- [快速入門：合成語音，Java (Windows、Linux、macOS)](quickstart-text-to-speech-java-jre.md)
 - [自訂原音模型](how-to-customize-acoustic-models.md)
 - [自訂語言模型](how-to-customize-language-model.md)

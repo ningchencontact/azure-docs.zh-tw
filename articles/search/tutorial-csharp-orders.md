@@ -7,12 +7,12 @@ ms.topic: tutorial
 ms.author: v-pettur
 author: PeterTurcan
 ms.date: 06/21/2019
-ms.openlocfilehash: 32e253b4e131d753ab6937d0aa2a49bda471e091
-ms.sourcegitcommit: c63e5031aed4992d5adf45639addcef07c166224
+ms.openlocfilehash: 684ce33e5ecf587aa2030a817680f2d405225117
+ms.sourcegitcommit: e9936171586b8d04b67457789ae7d530ec8deebe
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67466598"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71327656"
 ---
 # <a name="c-tutorial-order-the-results---azure-search"></a>C# 教學課程：排序結果 - Azure 搜尋服務
 
@@ -20,7 +20,7 @@ ms.locfileid: "67466598"
 
 為了輕鬆地比較傳回的結果，此專案是建置在 [C# 教學課程：搜尋結果分頁 - Azure 搜尋服務](tutorial-csharp-paging.md)教學課程中所建立的無限捲動專案之上。
 
-在此教學課程中，您了解如何：
+在本教學課程中，您會了解如何：
 > [!div class="checklist"]
 > * 根據一個屬性排序結果
 > * 根據多個屬性排序結果
@@ -29,9 +29,9 @@ ms.locfileid: "67466598"
 
 ## <a name="prerequisites"></a>必要條件
 
-若要完成此教學課程，您需要：
+若要完成本教學課程，您需要：
 
-啟動並執行 [C# 教學課程：搜尋結果分頁 - Azure 搜尋服務](tutorial-csharp-paging.md)專案的無限捲動版本。 此專案可為您的版本，或從 GitHub 安裝：[建立第一個應用程式](https://github.com/Azure-Samples/azure-search-dotnet-samples)。
+啟動並執行 [C# 教學課程：搜尋結果分頁 - Azure 搜尋服務](tutorial-csharp-paging.md)專案的無限捲動版本。 此專案可以是您自己的版本，或從 GitHub 安裝：[建立第一個應用程式](https://github.com/Azure-Samples/azure-search-dotnet-samples)。
 
 ## <a name="order-results-based-on-one-property"></a>根據一個屬性排序結果
 
@@ -320,7 +320,7 @@ ms.locfileid: "67466598"
 
     ![顯示房間價格範圍](./media/tutorial-csharp-create-first-app/azure-search-orders-rooms.png)
 
-搜尋參數的 **OrderBy** 屬性不會接受 **Rooms.BaseRate** 之類的項目提供最便宜房間價格，即使房間已經根據價格排序 (並非如此)。 為了顯示範例資料集中的旅館並根據房間價格排序，您需要在您的首頁控制器中排序結果，並按照想要的順序將結果傳送至檢視。
+搜尋參數的 **OrderBy** 屬性不會接受 **Rooms.BaseRate** 之類的項目提供最便宜房間價格，即使房間已經根據價格排序。 在此情況下，會議室不會依費率排序。 為了顯示範例資料集中的旅館並根據房間價格排序，您需要在您的首頁控制器中排序結果，並按照想要的順序將結果傳送至檢視。
 
 ## <a name="order-results-based-on-multiple-values"></a>根據多個值排序結果
 

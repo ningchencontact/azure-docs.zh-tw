@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 01/29/2019
 ms.author: suhuruli
 ms.custom: mvc, devcenter, seo-java-august2019, seo-java-september2019
-ms.openlocfilehash: ca6a1063f6ddd5c42d0d08f43b87a3387cc46a14
-ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
+ms.openlocfilehash: 4ef0db5f72f5849942bb043261f1166cf7c046b1
+ms.sourcegitcommit: 6fe40d080bd1561286093b488609590ba355c261
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70859260"
+ms.lasthandoff: 10/01/2019
+ms.locfileid: "71703285"
 ---
 # <a name="quickstart--deploy-a-java-app-to-azure-service-fabric-on-linux"></a>快速入門：將 Java 應用程式部署至 Linux 上的 Azure Service Fabric
 
@@ -28,7 +28,7 @@ ms.locfileid: "70859260"
 
 Azure Service Fabric 是一個分散式系統平台，可讓您部署及管理微服務與容器。
 
-![應用程式螢幕擷取畫面](./media/service-fabric-quickstart-java/votingapp.png)
+![Azure Service Fabric 投票範例](./media/service-fabric-quickstart-java/service-fabric-voting-sample.png)
 
 在此快速入門中，您可了解如何：
 
@@ -62,22 +62,22 @@ git clone https://github.com/Azure-Samples/service-fabric-java-quickstart.git
     ```
     啟動本機叢集需要一些時間。 若要確認該叢集完全啟動，請存取位於 **http://localhost:19080** 的 Service Fabric Explorer。 五個狀況良好的節點表示本機叢集已啟動並執行。
 
-    ![本機叢集狀況良好](./media/service-fabric-quickstart-java/localclusterup.png)
+    ![Azure Service Fabric Explorer 顯示狀況良好的節點](./media/service-fabric-quickstart-java/service-fabric-explorer-healthy-nodes.png)
 
 2. 開啟 Eclipse。
 3. 選取 [檔案]   > [匯入]   > [Gradle]   > [現有的 Gradle 專案]  ，然後依照精靈的指示操作。
 4. 選取 [目錄]  ，然後在您從 GitHub 資料夾複製的 `service-fabric-java-quickstart` 資料夾中選擇 `Voting` 目錄。 選取 [完成]  。
 
-    ![Eclipse 匯入對話方塊](./media/service-fabric-quickstart-java/eclipseimport.png)
+    ![將 Gradle 專案匯入 Eclipse 中](./media/service-fabric-quickstart-java/eclipse-import-gradle-project.png)
 
 5. 在 Eclipse 的 [封裝總管] 中現在有 `Voting` 專案。
 6. 以滑鼠右鍵按一下專案，並選取 [Service Fabric]  下拉式清單下的 [發佈應用程式]  。 選擇 **PublishProfiles/Local.json** 作為目標設定檔，並選取 [發佈]  。
 
-    ![本機發佈對話方塊](./media/service-fabric-quickstart-java/localjson.png)
+    ![Azure Service Fabric 發佈本機 JSON](./media/service-fabric-quickstart-java/service-fabric-publish-local-json.png)
 
 7. 開啟您最愛的網頁瀏覽器，並存取 `http://localhost:8080` 以存取應用程式。
 
-    ![本機應用程式前端](./media/service-fabric-quickstart-java/runninglocally.png)
+    ![Azure Service Fabric 本機主機](./media/service-fabric-quickstart-java/service-fabric-local-host.png)
 
 您現在可以新增一組投票選項，並開始進行投票。 應用程式會執行並將所有資料儲存在 Service Fabric 叢集中，而不需要個別資料庫。
 
@@ -92,14 +92,14 @@ Service Fabric Explorer 會在所有 Service Fabric 叢集中執行，並可藉�
 1. 在您的叢集中開啟 Service Fabric Explorer，例如 `https://localhost:19080`。
 2. 選取樹狀檢視中 **fabric:/Voting/VotingWeb** 節點旁的省略符號 ( **...** )，然後選取 [調整服務]  。
 
-    ![Service Fabric Explorer 的 [調整服務]](./media/service-fabric-quickstart-java/scaleservicejavaquickstart.png)
+    ![在 Azure Service Fabric 中調整服務](./media/service-fabric-quickstart-java/service-fabric-scale-service.png)
 
     您現在可以選擇調整 Web 前端服務的執行個體數目。
 
 3. 將數字變更為 **2**，然後選取 [縮放服務]  。
 4. 選取樹狀檢視中的 **fabric:/Voting/VotingWeb** 節點，然後展開資料分割節點 (以 GUID 表示)。
 
-    ![Service Fabric Explorer 調整服務完成](./media/service-fabric-quickstart-java/servicescaled.png)
+    ![Azure Service Fabric 中已調整的服務](./media/service-fabric-quickstart-java/service-fabric-explorer-service-scaled.png)
 
     您現在會看到此服務具有兩個執行個體，而且在樹狀檢視中，您會看到執行個體執行所在的節點。
 

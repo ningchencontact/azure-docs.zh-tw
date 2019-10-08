@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: personalizer
 ms.topic: quickstart
-ms.date: 09/12/2019
+ms.date: 09/26/2019
 ms.author: diberry
-ms.openlocfilehash: 014a5f264b9beed666f718cda52d197381d58876
-ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
+ms.openlocfilehash: 4409f04f9fd370b862ee62f9595ffca9fe6e4406
+ms.sourcegitcommit: 4f3f502447ca8ea9b932b8b7402ce557f21ebe5a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71266245"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71802539"
 ---
 # <a name="quickstart-personalize-client-library-for-python"></a>快速入門：適用於 Python 的個人化工具用戶端程式庫
 
@@ -33,9 +33,19 @@ ms.locfileid: "71266245"
 * Azure 訂用帳戶 - [建立免費帳戶](https://azure.microsoft.com/free/)
 * [Python 3.x](https://www.python.org/)
 
-## <a name="setting-up"></a>設定
+## <a name="using-this-quickstart"></a>使用此快速入門
 
-### <a name="create-a-personalizer-azure-resource"></a>建立個人化工具 Azure 資源
+
+使用本快速入門有幾個步驟：
+
+* 在 Azure 入口網站中，建立個人化工具資源
+* 在 Azure 入口網站中，於個人化工具資源的 [設定]  頁面上，變更模型更新頻率
+* 在程式碼編輯器中，建立程式碼檔案並編輯程式碼檔案
+* 在命令列或終端機中，從命令列安裝 SDK
+* 在命令列或終端機中，執行程式碼檔案
+
+
+## <a name="create-a-personalizer-azure-resource"></a>建立個人化工具 Azure 資源
 
 Azure 認知服務會由您訂閱的 Azure 資源呈現。 請使用 [Azure 入口網站](https://portal.azure.com/)或 [Azure CLI](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account-cli) 在本機電腦上建立個人化工具的資源。 如需詳細資訊，請參閱[如何使用 Azure 入口網站建立認知服務資源](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account)。 您也可以：
 
@@ -50,7 +60,7 @@ Azure 認知服務會由您訂閱的 Azure 資源呈現。 請使用 [Azure 入�
 在 Azure 入口網站中，可以從 [快速入門]  頁面取得金鑰和端點值。
 
 
-### <a name="install-the-python-library-for-personalizer"></a>安裝 Python 個人化工具程式庫
+## <a name="install-the-python-library-for-personalizer"></a>安裝 Python 個人化工具程式庫
 
 使用下列命令安裝適用於 Python 的個人化工具用戶端程式庫：
 
@@ -58,11 +68,9 @@ Azure 認知服務會由您訂閱的 Azure 資源呈現。 請使用 [Azure 入�
 pip install azure-cognitiveservices-personalizer
 ```
 
-如果您使用 Visual Studio IDE，則可以取得可下載 NuGet 套件形式的用戶端程式庫。
+## <a name="change-the-model-update-frequency"></a>變更模型更新頻率
 
-### <a name="change-the-model-update-frequency"></a>變更模型更新頻率
-
-在 Azure 入口網站的個人化資源中，將 [模型更新頻率]  變更為 10 秒。 如此可快速定型服務，讓您查看最上次的動作如何針對每個反覆項目變更。
+在 Azure 入口網站中，於個人化工具資源的 [設定]  頁面上，將 [模型更新頻率]  變更為 10 秒。 如此可快速定型服務，讓您查看最上次的動作如何針對每個反覆項目變更。
 
 ![變更模型更新頻率](./media/settings/configure-model-update-frequency-settings.png)
 
@@ -92,13 +100,15 @@ pip install azure-cognitiveservices-personalizer
 
 ## <a name="add-the-dependencies"></a>新增相依性
 
-從專案目錄，在慣用的編輯器或 IDE 中開啟 **Program.cs** 檔案。 將現有的 `using` 程式碼取代為下列 `using` 指示詞：
+從專案目錄，在慣用的編輯器或 IDE 中開啟 **sample.py** 檔案。 新增下列內容：
 
 [!code-python[Add module dependencies](~/samples-personalizer/quickstarts/python/sample.py?name=Dependencies)]
 
 ## <a name="add-personalizer-resource-information"></a>新增個人化工具資源資訊
 
-在 [程式]  類別中，針對從環境變數中提取的資源 Azure 金鑰和端點 (名稱為 `PERSONALIZER_RESOURCE_KEY` 和 `PERSONALIZER_RESOURCE_ENDPOINT`) 建立變數。 如果您在應用程式啟動後才建立環境變數，則執行該應用程式的編輯器、IDE 或殼層必須先關閉再重新載入後，才能存取該變數。 這些方法稍後會在本快速入門中建立。
+針對從環境變數中提取的資源 Azure 金鑰和端點 (名稱為 `PERSONALIZER_RESOURCE_KEY` 和 `PERSONALIZER_RESOURCE_ENDPOINT`) 建立變數。 如果您在應用程式啟動後才建立環境變數，則執行該應用程式的編輯器、IDE 或殼層必須先關閉再重新載入後，才能存取該變數。 這些方法稍後會在本快速入門中建立。
+
+資源名稱是端點 URL 的一部分：`https://<your-resource-name>.api.cognitive.microsoft.com/`。
 
 [!code-python[Create variables to hold the Personalizer resource key and endpoint values found in the Azure portal.](~/samples-personalizer/quickstarts/python/sample.py?name=AuthorizationVariables)]
 
@@ -110,7 +120,7 @@ pip install azure-cognitiveservices-personalizer
 
 ## <a name="get-content-choices-represented-as-actions"></a>取得以動作表示的內容選擇
 
-動作代表您想要讓個人化工具進行排名的內容選擇。 將下列方法新增至 [程式] 類別，以從命令列取得一天時間和目前食物喜好的使用者輸入。
+動作代表您想要讓個人化工具進行排名的內容選擇。 新增下列方法，以從命令列取得一天時間和目前食物喜好的使用者輸入。
 
 [!code-python[Present time out day preference to the user](~/samples-personalizer/quickstarts/python/sample.py?name=getActions)]
 
@@ -122,7 +132,7 @@ pip install azure-cognitiveservices-personalizer
 
 個人化工具學習迴圈是[排名](#request-a-rank)和[獎勵](#send-a-reward)呼叫的循環。 在本快速入門中，用於個人化內容的每個排名呼叫後面都會接著獎勵呼叫，以告訴個人化工具該服務在內容排名上的成效。 
 
-在程式的 `main` 方法中，下列程式碼會在命令列上進行詢問使用者喜好的循環迴圈，並將該資訊傳送至個人化工具以進行排名，然後向客戶顯示已排名的選取項目，讓他們從清單中選擇，接著傳送獎勵給個人化工具，告知服務在排名選取項目上的成效為何。
+下列程式碼會在命令列上進行詢問使用者喜好的循環迴圈，並將該資訊傳送至個人化工具以進行排名，然後向客戶顯示已排名的選取項目，讓他們從清單中選擇，接著傳送獎勵給個人化工具，告知服務在排名選取項目上的成效為何。
 
 [!code-python[The Personalizer learning loop ranks the request.](~/samples-personalizer/quickstarts/python/sample.py?name=mainLoop&highlight=9,10,29)]
 

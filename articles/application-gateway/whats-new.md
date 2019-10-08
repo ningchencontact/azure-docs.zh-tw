@@ -7,16 +7,16 @@ ms.service: application-gateway
 ms.topic: overview
 ms.date: 4/30/2019
 ms.author: victorh
-ms.openlocfilehash: 6755825aa123b3d7d1eed23291790ff3dc477ac5
-ms.sourcegitcommit: 49c4b9c797c09c92632d7cedfec0ac1cf783631b
+ms.openlocfilehash: 5ae7aa2dfbab5ff62f9ce56bc3a790294e369529
+ms.sourcegitcommit: 6013bacd83a4ac8a464de34ab3d1c976077425c7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/05/2019
-ms.locfileid: "70382474"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71686829"
 ---
 # <a name="whats-new-in-azure-application-gateway"></a>Azure 應用程式閘道的新功能為何？
 
-Azure 應用程式閘道會持續更新。 為了讓您隨時掌握最新的開發訊息，此文章提供下列相關資訊：
+Azure 應用程式閘道會持續更新。 為了讓您隨時掌握最新的開發訊息，本文提供下列相關資訊：
 
 - 最新版本
 - 已知問題

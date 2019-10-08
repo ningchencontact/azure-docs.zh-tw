@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 6cde60ee31b1654d79affd6e9050f426365ba29f
-ms.sourcegitcommit: 992e070a9f10bf43333c66a608428fcf9bddc130
+ms.openlocfilehash: 0c7d88d76a3fea87b3cfe4032186140f38c263d3
+ms.sourcegitcommit: 8bae7afb0011a98e82cbd76c50bc9f08be9ebe06
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71240966"
+ms.lasthandoff: 10/01/2019
+ms.locfileid: "71693396"
 ---
 # <a name="tutorial-develop-iot-edge-modules-for-windows-devices"></a>教學課程：開發適用於 Windows 裝置的 IoT Edge 模組
 
@@ -134,7 +134,7 @@ Azure IoT Edge Tools 擴充功能會針對 Visual Studio 中所有支援的 IoT 
    | ----- | ----- |
    | Visual Studio 範本 | 選取 [C# 模組]  。 | 
    | 模組名稱 | 接受預設值 **IotEdgeModule1**。 | 
-   | 存放庫 URL | 映像存放庫包含容器登錄名稱和容器映像名稱。 系統會從模組專案名稱值預先填入容器映像。 將 **localhost:5000** 取代為 Azure Container Registry 的登入伺服器值。 您可以在 Azure 入口網站中，從容器登錄的 [概觀] 頁面擷取登入伺服器。 <br><br> 最終的映像存放庫看起來類似於：\<登錄名稱\>.azurecr.io/iotedgemodule1。 |
+   | 存放庫 URL | 映像存放庫包含容器登錄名稱和容器映像名稱。 系統會從模組專案名稱值預先填入容器映像。 將 **localhost:5000** 取代為 Azure Container Registry 的登入伺服器值。 您可以在 Azure 入口網站中，從容器登錄的 [概觀]  頁面擷取**登入伺服器**值。 <br><br> 最終的映像存放庫看起來類似於：\<登錄名稱\>.azurecr.io/iotedgemodule1。 |
 
       ![針對目標裝置、模組類型和容器登錄設定您的專案](./media/tutorial-develop-for-windows/add-module-to-solution.png)
 
@@ -143,33 +143,38 @@ Azure IoT Edge Tools 擴充功能會針對 Visual Studio 中所有支援的 IoT 
 Visual Studio 視窗中載入您的新專案後，請花點時間熟悉其所建立的檔案： 
 
 * 名為 **CSharpTutorialApp** 的 IoT Edge 專案。
-    * **Modules** 資料夾包含專案中所納入模組的指標。 在此案例中，應該就是 IotEdgeModule1。 
-    * **deployment.template.json** 檔案是可協助您建立部署資訊清單的範本。 「部署資訊清單」  檔案會確切定義您想要在裝置上部署的模組、模組的設定方式，以及模組要如何彼此通訊以及與雲端通訊。 
+  * **Modules** 資料夾包含專案中所納入模組的指標。 在此案例中，應該就是 IotEdgeModule1。 
+  * 隱藏的 **.env** 檔案會保有容器登錄的認證。 這些認證會與 IoT Edge 裝置共用，使其具有存取權而得以提取容器映像。
+  * **deployment.template.json** 檔案是可協助您建立部署資訊清單的範本。 「部署資訊清單」  檔案會確切定義您想要在裝置上部署的模組、模組的設定方式，以及模組要如何彼此通訊以及與雲端通訊。
+    > [!TIP]
+    > 在 [登錄認證] 區段中，位址會自動填入您在建立解決方案時所提供的資訊。 不過，使用者名稱和密碼會參照 .env 檔案中所儲存的變數。 這麼做是為了確保安全，因為 .env 檔案會遭到 git 忽略，但部署範本則不會。
 * 名為 **IotEdgeModule1** 的 IoT Edge 模組專案。
-    * **program.cs** 檔案包含預設的 C# 模組程式碼，此程式碼隨附於專案範本中。 預設模組會從來源取得輸入，再將其傳遞至 IoT 中樞。 
-    * **module.json** 檔案會保存模組的相關詳細資料，包括完整的映像存放庫、映像版本，以及要對每個支援的平台使用哪一個 Dockerfile。
+  * **program.cs** 檔案包含預設的 C# 模組程式碼，此程式碼隨附於專案範本中。 預設模組會從來源取得輸入，再將其傳遞至 IoT 中樞。 
+  * **module.json** 檔案會保存模組的相關詳細資料，包括完整的映像存放庫、映像版本，以及要對每個支援的平台使用哪一個 Dockerfile。
 
 ### <a name="provide-your-registry-credentials-to-the-iot-edge-agent"></a>對 IoT Edge 代理程式提供登錄認證
 
-IoT Edge 執行階段需要登錄認證才能將容器映像提取到 IoT Edge 裝置。 請將這些認證新增至部署範本。 
+IoT Edge 執行階段需要登錄認證才能將容器映像提取到 IoT Edge 裝置。 IoT Edge 擴充功能會嘗試從 Azure 提取您的容器登錄資訊，並將其填入部署範本中。
 
-1. 開啟 **deployment.template.json** 檔案。
+1. 開啟模組解決方案中的 **deployment.template.json** 檔案。
 
-2. 在 $edgeAgent 所需的屬性中尋找 **registryCredentials** 屬性。 
-
-3. 使用您的認證更新此屬性，並遵循以下格式： 
+1. 在 $edgeAgent 所需的屬性中尋找 **registryCredentials** 屬性，並確定其中包含正確的資訊。
 
    ```json
    "registryCredentials": {
      "<registry name>": {
-       "username": "<username>",
-       "password": "<password>",
+       "username": "$CONTAINER_REGISTRY_USERNAME_<registry name>",
+       "password": "$CONTAINER_REGISTRY_PASSWORD_<registry name>",
        "address": "<registry name>.azurecr.io"
      }
    }
    ```
 
-4. 儲存 deployment.template.json 檔案。 
+1. 開啟模組解決方案中的 **.env** 檔案。 (該檔案依預設會隱藏於方案總管中，因此您可能需要選取 [顯示所有檔案]  按鈕加以顯示。)
+
+1. 新增您從 Azure Container Registry 複製過來的 [使用者名稱]  和 [密碼]  值。
+
+1. 將變更儲存至 .env 檔案。
 
 ### <a name="review-the-sample-code"></a>檢閱範例程式碼
 

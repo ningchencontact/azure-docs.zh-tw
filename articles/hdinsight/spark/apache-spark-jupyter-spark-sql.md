@@ -2,18 +2,18 @@
 title: 快速入門：使用範本在 HDInsight 中建立 Spark 叢集
 description: 本快速入門會說明如何使用 Resource Manager 範本在 Azure HDInsight 中建立 Apache Spark 叢集，以及執行簡單的 Spark SQL 查詢。
 author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: quickstart
 ms.date: 06/12/2019
-ms.author: hrasheed
 ms.custom: mvc
-ms.openlocfilehash: d0d6d091a955f37a12fe6c4066f0e4f999696e21
-ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
+ms.openlocfilehash: e3e8a61e07f3d61bd69bd9bb12db72a613eeff99
+ms.sourcegitcommit: e1b6a40a9c9341b33df384aa607ae359e4ab0f53
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70884538"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71337586"
 ---
 # <a name="quickstart-create-apache-spark-cluster-in-azure-hdinsight-using-resource-manager-template"></a>快速入門：使用 Resource Manager 範本在 Azure HDInsight 中建立 Apache Spark 叢集
 
@@ -24,7 +24,7 @@ ms.locfileid: "70884538"
 叢集會使用 Azure 儲存體 Blob 作為叢集存放區。 如需有關如何使用 Data Lake Storage Gen2 的詳細資訊，請參閱[快速入門：在 HDInsight 中設定叢集](../../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md)。
 
 > [!IMPORTANT]  
-> 不論使用與否，HDInsight 叢集都是按分鐘計費。 請務必在使用完叢集後將其刪除。 如需詳細資訊，請參閱此文章的[清除資源](#clean-up-resources)一節。
+> 不論使用與否，HDInsight 叢集都是按分鐘計費。 請務必在使用完叢集後將其刪除。 如需詳細資訊，請參閱本文的[清除資源](#clean-up-resources)一節。
 
 如果您沒有 Azure 訂用帳戶，請在開始之前先[建立免費帳戶](https://azure.microsoft.com/free/)。
 
@@ -54,9 +54,11 @@ ms.locfileid: "70884538"
 如果您在建立 HDInsight 叢集時遇到問題，可能是您沒有這麼做的適當權限。 如需詳細資訊，請參閱[存取控制需求](../hdinsight-hadoop-create-linux-clusters-portal.md)。
 
 ## <a name="install-intellijeclipse-for-spark-application"></a>安裝 IntelliJ/Eclipse for Spark 應用程式
+
 使用適用於 IntelliJ/Eclipse 外掛程式的 Azure 工具組來開發以 [Scala](https://www.scala-lang.org/) 撰寫的 Spark 應用程式，然後直接從 IntelliJ/Eclipse 整合式開發環境 (IDE) 將它們提交到 Azure HDInsight Spark 叢集。 如需詳細資訊，請參閱[使用 IntelliJ 撰寫/提交 Spark 應用程式](./apache-spark-intellij-tool-plugin.md)和[使用 Eclipse 撰寫/提交 Spark 應用程式](./apache-spark-eclipse-tool-plugin.md)。
 
 ## <a name="install-vscode-for-pysparkhive-applications"></a>安裝 VSCode for PySpark/hive 應用程式
+
 了解如何使用適用於 Visual Studio Code (VS Code) 的 Azure HDInsight 工具來建立、提交 Hive 批次作業、互動式 Hive 查詢、PySpark 批次和 pySpark 互動式指令碼。 Azure HDInsight 工具可以安裝於 VSCode 所支援的平台上。 這些包括 Windows、Linux 及 MacOS。 如需詳細資訊，請參閱[使用 VSCode 撰寫/提交 PySpark 應用程式](../hdinsight-for-vscode.md)。
 
 ## <a name="create-a-jupyter-notebook"></a>建立 Jupyter Notebook
@@ -64,6 +66,7 @@ ms.locfileid: "70884538"
 [Jupyter Notebook](https://jupyter.org/) 是支援各種程式設計語言的互動式 Notebook 環境。 Notebook 可讓您與資料互動、將程式碼與 Markdown 文字相結合，並執行簡單的視覺效果。
 
 1. 開啟 [Azure 入口網站](https://portal.azure.com)。
+
 2. 選取 [HDInsight 叢集]  ，然後選取您所建立的叢集。
 
     ![在 Azure 入口網站中開啟 HDInsight 叢集](./media/apache-spark-jupyter-spark-sql/azure-portal-open-hdinsight-cluster.png)
@@ -78,7 +81,6 @@ ms.locfileid: "70884538"
 
    新的 Notebook 隨即建立並以 Untitled(Untitled.pynb) 名稱開啟。
 
-
 ## <a name="run-spark-sql-statements"></a>執行 Spark SQL 陳述式
 
 SQL (結構化查詢語言) 是最常見且廣泛使用的語言，可用於查詢及轉換資料。 Spark SQL 可作為 Apache Spark 的擴充功能，可讓您使用熟悉的 SQL 語法來處理結構化資料。
@@ -88,37 +90,39 @@ SQL (結構化查詢語言) 是最常見且廣泛使用的語言，可用於查�
     ![核心狀態](./media/apache-spark-jupyter-spark-sql/jupyter-spark-kernel-status.png "核心狀態")
 
     當您第一次啟動 Notebook 時，核心會在背景執行某些工作。 等待核心準備就緒。
-2. 將以下程式碼貼入空白儲存格，然後按下 **SHIFT + ENTER** 鍵以執行此程式碼。 此命令會列出叢集上的 Hive 資料表：
+1. 將以下程式碼貼入空白儲存格，然後按下 **SHIFT + ENTER** 鍵以執行此程式碼。 此命令會列出叢集上的 Hive 資料表：
 
     ```sql
     %%sql
     SHOW TABLES
     ```
+
     當您使用 Jupyter Notebook 搭配 HDInsight Spark 叢集時，您可取得預設的 `spark` 工作階段，用來執行使用 Spark SQL 的 Hive 查詢。 `%%sql` 會告知 Jupyter Notebook 使用預設的 `spark` 工作階段來執行 Hive 查詢。 此查詢會擷取 Hive 資料表 (**hivesampletable**) 中的前 10 個資料列，依預設所有 HDInsight 叢集均隨附該資料表。 第一次提交查詢時，Jupyter 會建立 Notebook 的 Spark 應用程式。 大約需要 30 秒才能完成。 Spark 應用程式準備就緒後，查詢便會在大約一秒內執行，並產生結果。 輸出看起來如下：
 
-    ![HDInsight Spark 中的 Hive 查詢](./media/apache-spark-jupyter-spark-sql/hdinsight-spark-get-started-hive-query.png "HDInsight Spark 中的 Hive 查詢")
+    ![HDInsight Spark 中的 Apache Hive 查詢](./media/apache-spark-jupyter-spark-sql/hdinsight-spark-get-started-hive-query.png "HDInsight Spark 中的 Hive 查詢")
 
     每當您在 Jupyter 中執行查詢時，網頁瀏覽器視窗標題將會顯示 Notebook 標題和 **(忙碌)** 狀態。 您也會在右上角的 **PySpark** 文字旁看到一個實心圓。
 
-2. 執行另一個查詢，以查看 `hivesampletable` 中的資料。
+1. 執行另一個查詢，以查看 `hivesampletable` 中的資料。
 
     ```sql
     %%sql
     SELECT * FROM hivesampletable LIMIT 10
     ```
-    
+
     畫面應會重新整理以顯示查詢輸出。
 
     ![HDInsight Spark 中的 Hive 查詢輸出](./media/apache-spark-jupyter-spark-sql/hdinsight-spark-get-started-hive-query-output.png "HDInsight Spark 中的 Hive 查詢輸出")
 
-2. 從 Notebook 的 [檔案]  功能表中，選取 [關閉並終止]  。 關閉 Notebook 可釋出叢集資源，包括 Spark 應用程式。
+1. 從 Notebook 的 [檔案]  功能表中，選取 [關閉並終止]  。 關閉 Notebook 可釋出叢集資源，包括 Spark 應用程式。
 
 ## <a name="clean-up-resources"></a>清除資源
+
 HDInsight 會將您的資料和 Jupyter Notebook 儲存於 Azure 儲存體或 Azure Data Lake Store 中，以便您在未使用叢集時安全地進行刪除。 您也需支付 HDInsight 叢集的費用 (即使未使用)。 由於叢集費用是儲存體費用的許多倍，所以刪除未使用的叢集符合經濟效益。 如果您打算立即進行[後續步驟](#next-steps)中所列的教學課程，則建議保留叢集。
 
 切換回 Azure 入口網站，然後選取 [刪除]  。
 
-![刪除 HDInsight 叢集](./media/apache-spark-jupyter-spark-sql/hdinsight-azure-portal-delete-cluster.png "刪除 HDInsight 叢集")
+![Azure 入口網站刪除 HDInsight 叢集](./media/apache-spark-jupyter-spark-sql/hdinsight-azure-portal-delete-cluster.png "刪除 HDInsight 叢集")
 
 您也可以選取資源群組名稱來開啟資源群組頁面，然後選取 [刪除資源群組]  。 刪除資源群組時，會同時刪除 HDInsight Spark 叢集及預設儲存體帳戶。
 
@@ -128,5 +132,3 @@ HDInsight 會將您的資料和 Jupyter Notebook 儲存於 Azure 儲存體或 Az
 
 > [!div class="nextstepaction"]
 >[在 Apache Spark 上執行互動式查詢](./apache-spark-load-data-run-query.md)
-
-

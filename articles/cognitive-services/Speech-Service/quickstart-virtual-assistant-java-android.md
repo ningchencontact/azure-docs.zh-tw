@@ -10,16 +10,16 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 07/05/2019
 ms.author: travisw
-ms.openlocfilehash: 1c203bb39a90fdb1c77c3a2c844318a748df7c63
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: f5b8623c835b4188d098ab2acf842abef30138e9
+ms.sourcegitcommit: 4f3f502447ca8ea9b932b8b7402ce557f21ebe5a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68559212"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71800059"
 ---
 # <a name="quickstart-create-a-voice-first-virtual-assistant-in-java-on-android-by-using-the-speech-sdk"></a>快速入門：使用語音 SDK 在 Android 上以 Java 建立語音優先虛擬助理
 
-另備有[語音轉文字](quickstart-java-android.md)的快速入門。
+另備有[語音轉文字](quickstart-java-android.md)和[文字轉語音](quickstart-text-to-speech-java-android.md)的快速入門。
 
 在本文中，您將使用[語音 SDK](speech-sdk.md) 在 Android 上以 Java 建立語音優先虛擬助理。 此應用程式會連線至您已使用 [Direct Line Speech 通道](https://docs.microsoft.com/azure/bot-service/bot-service-channel-connect-directlinespeech)撰寫並設定的 Bot。 接著，它會將語音要求傳送至 Bot，並呈現具備語音功能的回應活動。
 
@@ -100,7 +100,7 @@ ms.locfileid: "68559212"
 * `recoText` 元素會在您與 Bot 交談時顯示語音轉文字的結果。
 * `activityText` 元素會針對來自 Bot 的最新 Bot Framework 活動顯示 JSON 承載。
 
-UI 的文字和圖形化表示法現在應會顯示如下：
+UI 的文字表現方式和畫面現在應會如下：
 
 ![](media/sdk/qs-java-android-assistant-designer-ui.png)
 

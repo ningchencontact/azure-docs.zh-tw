@@ -8,19 +8,19 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: overview
-ms.date: 07/03/2019
+ms.date: 10/01/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 915388b850b1b046dae91a20540881480694a944
-ms.sourcegitcommit: fbea2708aab06c19524583f7fbdf35e73274f657
+ms.openlocfilehash: db62f003f7eb8dd272305b86712cf1d721797114
+ms.sourcegitcommit: a19f4b35a0123256e76f2789cd5083921ac73daf
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/13/2019
-ms.locfileid: "70967049"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71719548"
 ---
 # <a name="what-is-computer-vision"></a>什麼是電腦視覺？
 
-Azure 的電腦視覺服務可供開發人員存取進階演算法，以處理影像並傳回資訊。 若要分析影像，您可以上傳影像或指定影像 URL。 影像處理演算法可根據您感興趣的視覺化功能，以不同的方式分析內容。 例如，電腦視覺可判斷影像中是否包含成人或猥褻內容，也可以尋找影像中的所有人臉。
+Azure 的電腦視覺服務可供開發人員存取進階演算法，以處理影像並傳回資訊。 若要分析影像，您可以上傳影像或指定影像 URL。 影像處理演算法可根據您感興趣的視覺化功能，以不同的方式分析內容。 例如，電腦視覺可判斷影像中是否包含成人內容，也可以尋找影像中的所有人臉。
 
 您可以藉由使用原生 SDK 或直接叫用 REST API，在應用程式中使用電腦視覺。 本頁會廣泛說明電腦視覺的功用。
 
@@ -52,7 +52,7 @@ Azure 的電腦視覺服務可供開發人員存取進階演算法，以處理�
 
 ## <a name="moderate-content-in-images"></a>調節影像中的內容
 
-您可以使用電腦視覺在影像中[偵測成人和猥褻內容](concept-detecting-adult-content.md)，並傳回兩者的信賴分數。 您可以在滑動標尺上設定成人和猥褻內容偵測的篩選條件，以配合您的喜好設定。
+您可以使用電腦視覺在影像中[偵測成人內容](concept-detecting-adult-content.md)，並傳回不同分類的信賴分數。 為內容加上旗標的閾值可用滑動標尺來設定，以配合您的喜好設定。
 
 ## <a name="use-containers"></a>使用容器
 

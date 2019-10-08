@@ -1,12 +1,11 @@
 ---
-title: 將資料來源連線至 Azure Sentinel 預覽版？| Microsoft Docs
+title: 將資料來源連線至 Azure Sentinel？| Microsoft Docs
 description: 了解如何將資料來源連線至 Azure Sentinel。
 services: sentinel
 documentationcenter: na
 author: rkarlin
-manager: rkarlin
+manager: angrobe
 editor: ''
-ms.assetid: a3b63cfa-b5fe-4aff-b105-b22b424c418a
 ms.service: azure-sentinel
 ms.subservice: azure-sentinel
 ms.devlang: na
@@ -14,20 +13,18 @@ ms.topic: overview
 ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/04/2019
+ms.date: 09/23/2019
 ms.author: rkarlin
-ms.openlocfilehash: 4928657aa9052b50faf1f326cc09797c5aaf69bb
-ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
+ms.openlocfilehash: d8d3e52882a5cde9b00bf07ded933ae4d45b454b
+ms.sourcegitcommit: 992e070a9f10bf43333c66a608428fcf9bddc130
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/05/2019
-ms.locfileid: "68780507"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71240173"
 ---
 # <a name="connect-data-sources"></a>連線資料來源
 
-> [!IMPORTANT]
-> Azure Sentinel 目前為公開預覽狀態。
-> 此預覽版本是在沒有服務等級協定的情況下提供，不建議用於生產工作負載。 可能不支援特定功能，或可能已經限制功能。 如需詳細資訊，請參閱 [Microsoft Azure 預覽版增補使用條款](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)。
+
 
 
 
@@ -65,7 +62,7 @@ Azure Sentinel 支援下列資料連線方法：
 - **透過 API 連線的外部解決方案**：某些資料來源會使用自身提供的 API 進行連線。 一般而言，大部分的安全性技術都會提供一組 API，藉此來擷取事件記錄。API 可連線到 Azure Sentinel 並收集特定資料類型，然後將其傳送至 Azure Log Analytics。 透過 API 連線的設備包括：
     - [Barracuda](connect-barracuda.md)
     - [Symantec](connect-symantec.md)
-- **透過代理程式連線的外部解決方案**：透過代理程式，Azure Sentinel 可以連線到所有其他使用 Syslog 通訊協定執行即時記錄串流的資料來源。 <br>大部分設備會使用 Syslog 通訊協定來傳送事件訊息，包含記錄本身和記錄的相關資料。 記錄的格式並不相同，但大部分的設備都支援常見事件格式 (CEF) 標準。 <br>Azure Sentinel 代理程式以 Microsoft Monitoring Agent 作為基礎，可將 CEF 格式的記錄轉換成 Log Analytics 可擷取的格式。 根據不同設備類型，代理程式可能會直接安裝在設備上，或安裝在專用的 Linux 伺服器上。 適用於 Linux 的代理程式會透過 UDP 從 Syslog 精靈接收事件，但如果預期 Linux 機器會收集大量的 Syslog 事件，則會透過 TCP 將事件從 Syslog 精靈傳送到代理程式，然後從該處傳送至 Log Analytics。
+- **透過代理程式連線的外部解決方案**：透過代理程式，Azure Sentinel 可以連線到所有其他使用 Syslog 通訊協定執行即時記錄串流的資料來源。 <br>大部分設備會使用 Syslog 通訊協定來傳送事件訊息，包含記錄本身和記錄的相關資料。 記錄的格式並不相同，但大部分的設備都支援常見事件格式 (CEF) 標準。 <br>Azure Sentinel 代理程式以 Log Analytics 代理程式作為基礎，可將 CEF 格式的記錄轉換成 Log Analytics 可擷取的格式。 根據不同設備類型，代理程式可能會直接安裝在設備上，或安裝在專用的 Linux 伺服器上。 適用於 Linux 的代理程式會透過 UDP 從 Syslog 精靈接收事件，但如果預期 Linux 機器會收集大量的 Syslog 事件，則會透過 TCP 將事件從 Syslog 精靈傳送到代理程式，然後從該處傳送至 Log Analytics。
     - 防火牆、Proxy 和端點：
         - [F5](connect-f5.md)
         - [Check Point](connect-checkpoint.md)
@@ -90,6 +87,42 @@ Azure Sentinel 支援下列資料連線方法：
 或者，您可以透過手動方式在現有的 Azure VM、在另一個雲端中的 VM 或在內部部署機器上部署代理程式。
 
 ![內部部署的 CEF](./media/connect-cef/cef-syslog-onprem.png)
+
+## <a name="map-data-types-with-azure-sentinel-connection-options"></a>使用 Azure Sentinel 連線選項對應資料類型
+
+
+| **資料類型** | **如何連線** | **資料連接器？** | **註解** |
+|------|---------|-------------|------|
+| AWSCloudTrail | [連線 AWS](connect-aws.md) | V | |
+| AzureActivity | [連線 Azure 活動](connect-azure-activity.md)和[活動記錄概觀](../azure-monitor/platform/activity-logs-overview.md)| V | |
+| AuditLogs | [Connect Azure AD](connect-azure-active-directory.md)  | V | |
+| SigninLogs | [Connect Azure AD](connect-azure-active-directory.md)  | V | |
+| AzureFirewall |[Azure 診斷](../firewall/tutorial-diagnostics.md) | V | |
+| InformationProtectionLogs_CL  | [Azure 資訊保護報告](https://docs.microsoft.com/azure/information-protection/reports-aip)<br>[連線 Azure 資訊保護](connect-azure-information-protection.md)  | V | 除了資料類型之外，這通常會使用 **InformationProtectionEvents**函式。 如需詳細資訊，請參閱[如何修改報告及建立自訂查詢](https://docs.microsoft.com/azure/information-protection/reports-aip#how-to-modify-the-reports-and-create-custom-queries)|
+| AzureNetworkAnalytics_CL  | [流量分析結構描述](../network-watcher/traffic-analytics.md) [流量分析](../network-watcher/traffic-analytics.md)  | | |
+| CommonSecurityLog  | [連線 CEF](connect-common-event-format.md)  | V | |
+| OfficeActivity | [連線 Office 365](connect-office-365.md) | V | |
+| SecurityEvents | [連線 Windows 安全性事件](connect-windows-security-events.md)  | V | 若為不安全的通訊協定活頁簿，請參閱[不安全的通訊協定活頁簿設定](https://blogs.technet.microsoft.com/jonsh/azure-sentinel-insecure-protocols-dashboard-setup/)  |
+| syslog | [連線 Syslog](connect-syslog.md) | V | |
+| Microsoft Web 應用程式防火牆 (WAF) - (AzureDiagnostics) |[連線 Microsoft Web 應用程式防火牆](connect-microsoft-waf.md) | V | |
+| SymantecICDx_CL | [連線 Symantec](connect-symantec.md) | V | |
+| ThreatIntelligenceIndicator  | [連線威脅情報](connect-threat-intelligence.md)  | V | |
+| VMConnection <br> ServiceMapComputer_CL<br> ServiceMapProcess_CL|  [Azure 監視服務對應](../azure-monitor/insights/service-map.md)<br>[Azure 監視器 VM 見解上線](../azure-monitor/insights/vminsights-onboard.md) <br> [啟用 Azure 監視器 VM 見解](../azure-monitor/insights/vminsights-enable-overview.md) <br> [使用單一 VM 上線](../azure-monitor/insights/vminsights-enable-single-vm.md)<br>  [使用透過原則上線](../azure-monitor/insights/vminsights-enable-at-scale-policy.md)| X | VM 見解活頁簿  |
+| DnsEvents | [連線 DNS](connect-dns.md) | V | |
+| W3CIISLog | [連線 IIS 記錄](../azure-monitor/platform/data-sources-iis-logs.md)  | X | |
+| WireData | [連線 Wire Data](../azure-monitor/insights/wire-data.md) | X | |
+| WindowsFirewall | [連線 Windows 防火牆](connect-windows-firewall.md) | V | |
+| AADIP SecurityAlert  | [連線 Azure AD Identity Protection](connect-azure-ad-identity-protection.md)  | V | |
+| AATP SecurityAlert  | [連線 Azure ATP](connect-azure-atp.md) | V | |
+| ASC SecurityAlert  | [連線 Azure 資訊安全中心](connect-azure-security-center.md)  | V | |
+| MCAS SecurityAlert  | [連線 Microsoft Cloud App Security](connect-cloud-app-security.md)  | V | |
+| SecurityAlert | | | |
+| Sysmon (事件) | [連線 Sysmon](https://azure.microsoft.com/blog/detecting-in-memory-attacks-with-sysmon-and-azure-security-center)<br> [連線 Windows 事件](../azure-monitor/platform/data-sources-windows-events.md) <br> [取得 Sysmon 剖析器](https://github.com/Azure/Azure-Sentinel/blob/master/Parsers/SysmonParser.txt)| X | 預設不會在虛擬機器上安裝 Sysmon 集合。 如需有關如何安裝 Sysmon 代理程式的詳細資訊，請參閱 [Sysmon](https://docs.microsoft.com/sysinternals/downloads/sysmon)。 |
+| ConfigurationData  | [自動執行 VM 清查](../automation/automation-vm-inventory.md)| X | |
+| ConfigurationChange  | [自動執行 VM 追蹤](../automation/change-tracking.md) | X | |
+| F5 BIG-IP | [連線 F5 BIG-IP](https://devcentral.f5.com/s/articles/Integrating-the-F5-BIGIP-with-Azure-Sentinel.md)  | X | |
+| McasShadowItReporting  |  | X | |
+| Barracuda_CL | [連線 Barracuda](connect-barracuda.md) | V | |
 
 
 ## <a name="next-steps"></a>後續步驟

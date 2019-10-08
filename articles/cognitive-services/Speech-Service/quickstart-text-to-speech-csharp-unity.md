@@ -1,41 +1,40 @@
 ---
 title: 快速入門：合成語音 (Unity) - 語音服務
 titleSuffix: Azure Cognitive Services
-description: 使用本指南，可透過 Unity 和適用於 Unity 的語音 SDK (搶鮮版 (Beta)) 建立文字轉語音的應用程式。 完成後，您將可從文字合成語音並即時傳至裝置的喇叭。
+description: 使用本指南，可透過 Unity 和適用於 Unity 的語音 SDK 建立文字轉語音的應用程式。 完成後，您將可從文字合成語音並即時傳至裝置的喇叭。
 services: cognitive-services
 author: yinhew
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart
-ms.date: 6/26/2019
+ms.date: 9/19/2019
 ms.author: yinhew
-ms.openlocfilehash: 507ab9ef9bb3e482e5a33d2406424dfb9116de54
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: be5f07b8ea58d0d62c70e0e9dc8ab187ce4a0f63
+ms.sourcegitcommit: 4f3f502447ca8ea9b932b8b7402ce557f21ebe5a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68553614"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71803193"
 ---
-# <a name="quickstart-synthesize-speech-with-the-speech-sdk-for-unity-beta"></a>快速入門：使用適用於 Unity 的語音 SDK (搶鮮版 (Beta)) 來合成語音
+# <a name="quickstart-synthesize-speech-with-the-speech-sdk-for-unity"></a>快速入門：使用適用於 Unity 的語音 SDK 來合成語音
 
 另備有[語音辨識](quickstart-csharp-unity.md)的快速入門。
 
-參考本指南，可使用 [Unity](https://unity3d.com/) 和適用於 Unity 的語音 SDK (搶鮮版 (Beta)) 建立文字轉語音的應用程式。
+使用本指南，可使用 [Unity](https://unity3d.com/) 和適用於 Unity 的語音 SDK 來建立文字轉語音的應用程式。
 完成後，您將可從文字合成語音並即時傳至裝置的喇叭。
 如果您不熟悉 Unity，建議您先詳讀 [Unity 使用者手冊](https://docs.unity3d.com/Manual/UnityManual.html)，再開始進行應用程式開發。
 
 > [!NOTE]
-> 適用於 Unity 的語音 SDK 目前為搶鮮版 (Beta)。
-> 它支援 Windows Desktop (x86 和 x64) 或通用 Windows 平台 (x86、x64、ARM/ARM64)，以及 Android (x86、ARM32/64)。
+> 它支援 Windows Desktop (x86 和 x64) 或通用 Windows 平台 (x86、x64、ARM/ARM64)、Android (x86、ARM32/64) 以及 iOS (x64 模擬器、ARM32 和 ARM64)。
 
 ## <a name="prerequisites"></a>必要條件
 
 若要完成此專案，您需要：
 
 * [Unity 2018.3 或更新版本](https://store.unity.com/)與[新增 UWP ARM64 支援的 Unity 2019.1](https://blogs.unity3d.com/2019/04/16/introducing-unity-2019-1/#universal)
-* [Visual Studio 2017](https://visualstudio.microsoft.com/downloads/)
-     * 如需 ARM64 支援，安裝[適用於 ARM64 的選擇性建置工具和適用於 ARM64 的 Windows 10 SDK](https://blogs.windows.com/buildingapps/2018/11/15/official-support-for-windows-10-on-arm-development/) 
+* [Visual Studio 2019](https://visualstudio.microsoft.com/downloads/)。 15.9 版或更高版本的 Visual Studio 2017 也可以接受。
+* 如需 Windows ARM64 支援，請安裝[適用於 ARM64 的選擇性建置工具和適用於 ARM64 的 Windows 10 SDK](https://blogs.windows.com/buildingapps/2018/11/15/official-support-for-windows-10-on-arm-development/) 
 * 適用於語音服務的訂用帳戶金鑰。 [免費取得一個金鑰](get-started.md)。
 
 ## <a name="create-a-unity-project"></a>建立 Unity 專案

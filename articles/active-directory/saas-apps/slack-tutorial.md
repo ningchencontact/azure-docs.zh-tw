@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 08/23/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1c2d877a1dc611e02e9fbc245df230ca669a2ae4
-ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
+ms.openlocfilehash: b94607691b662dcfcf0e166cd5c339b00ed0573d
+ms.sourcegitcommit: e9936171586b8d04b67457789ae7d530ec8deebe
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/03/2019
-ms.locfileid: "70171436"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71326687"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-slack"></a>教學課程：Azure Active Directory 單一登入 (SSO) 與 Slack 整合
 
@@ -87,7 +87,7 @@ ms.locfileid: "70171436"
 
 1. 在 [基本 SAML 組態]  區段上，輸入下列欄位的值：
 
-    a. 在 [登入 URL]  文字方塊中，使用下列模式輸入 URL：`https://<companyname>.slack.com`
+    a. 在 [登入 URL]  文字方塊中，使用下列模式輸入 URL：`https://<your Slack company>.slack.com`
 
     b. 在 [識別碼 (實體識別碼)]  文字方塊中，輸入 URL：`https://slack.com`
 
@@ -136,7 +136,7 @@ ms.locfileid: "70171436"
 
 1. 在不同的 Web 瀏覽器視窗中，以系統管理員身分登入您的 Slack 公司網站。
 
-2. 瀏覽至 [Microsoft Azure AD]  ，然後移至 [小組設定]  。
+2. 瀏覽至左側您的 Slack 公司名稱，在我們的案例中已設定為 [Microsoft Azure AD]  ，然後移至如下列螢幕擷取畫面所示的 [小組設定]  。
 
      ![在應用程式端設定單一登入](./media/slack-tutorial/tutorial_slack_001.png)
 

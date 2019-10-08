@@ -9,14 +9,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: quickstart
-ms.date: 09/05/2019
+ms.date: 09/27/2019
 ms.author: diberry
-ms.openlocfilehash: 1704b62cae6375d376fc43fb7a2940cd9c717072
-ms.sourcegitcommit: 49c4b9c797c09c92632d7cedfec0ac1cf783631b
+ms.openlocfilehash: 748c51e74db20ac101dc2dff0d924567acded114
+ms.sourcegitcommit: 6fe40d080bd1561286093b488609590ba355c261
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/05/2019
-ms.locfileid: "70382513"
+ms.lasthandoff: 10/01/2019
+ms.locfileid: "71703231"
 ---
 # <a name="quickstart-use-prebuilt-home-automation-app"></a>快速入門：使用預先建置的家庭自動化應用程式
 
@@ -24,22 +24,22 @@ ms.locfileid: "70382513"
 
 ## <a name="prerequisites"></a>必要條件
 
-針對此文章，您需要免費 LUIS 帳戶，在位於 [https://www.luis.ai](https://www.luis.ai) (英文) 的 LUIS 入口網站上建立。 
+在本文中，您需要免費 LUIS 帳戶，在位於 [https://www.luis.ai](https://www.luis.ai) (英文) 的 LUIS 入口網站上建立。 
 
 [!INCLUDE [Sign in to LUIS](./includes/sign-in-process.md)]
 
 ## <a name="create-a-new-app"></a>建立新的應用程式
 您可以在 [我的應用程式]  上建立和管理應用程式。 
 
-2. 選取 [建立新的應用程式]  。
+1. 選取 [建立新的應用程式]  。
 
     [![應用程式清單的螢幕擷取畫面](media/luis-quickstart-new-app/app-list.png "應用程式清單的螢幕擷取畫面")](media/luis-quickstart-new-app/app-list.png)
 
-3. 在對話方塊中，將您的應用程式命名為 "Home Automation"。
+1. 在對話方塊中，將您的應用程式命名為 "Home Automation"。
 
     [![建立新應用程式快顯對話方塊的螢幕擷取畫面](media/luis-quickstart-new-app/create-new-app-dialog.png "建立新應用程式快顯對話方塊的螢幕擷取畫面")](media/luis-quickstart-new-app/create-new-app-dialog.png)
 
-4. 選擇您的應用程式文化特性。 請針對這個「家庭自動化」應用程式，選擇 [英文]。 然後選取 [完成]  。 LUIS 會建立「家庭自動化」應用程式。 
+1. 選擇您的應用程式文化特性。 請針對這個「家庭自動化」應用程式，選擇 [英文]。 然後選取 [完成]  。 LUIS 會建立「家庭自動化」應用程式。 
 
     >[!NOTE]
     >建立應用程式之後便無法變更文化特性 (Culture)。 
@@ -101,69 +101,27 @@ Turn off the lights
 
 1. [!INCLUDE [LUIS How to get endpoint first step](../../../includes/cognitive-services-luis-tutorial-how-to-get-endpoint.md)] 
 
-1. 移至位址中的 URL 結尾並輸入 `turn off the living room light`，然後按 Enter。 瀏覽器會顯示 HTTP 端點 JSON 回應的 **V2 API** 版本。
+1. 移至位址中的 URL 結尾並輸入 `turn off the living room light`，然後按 Enter。 
+
+    #### <a name="v2-prediction-endpointtabv2"></a>[V2 預測端點](#tab/V2)
+
+    `https://<region>.api.cognitive.microsoft.com/luis/**v2.0**/apps/<appID>?subscription-key=<YOUR_KEY>&**q=<user-utterance-text>**`
+
+    瀏覽器會顯示 HTTP 端點 JSON 回應的 **V2 API** 版本。
 
     ```json
     {
-      "query": "turn off the living room light",
+      "query": "turn off the lights",
       "topScoringIntent": {
         "intent": "HomeAutomation.TurnOff",
-        "score": 0.9753089
+        "score": 0.995867
       },
-      "intents": [
-        {
-          "intent": "HomeAutomation.TurnOff",
-          "score": 0.9753089
-        },
-        {
-          "intent": "HomeAutomation.QueryState",
-          "score": 0.01027893
-        },
-        {
-          "intent": "HomeAutomation.TurnUp",
-          "score": 0.006881481
-        },
-        {
-          "intent": "HomeAutomation.SetDevice",
-          "score": 0.006786365
-        },
-        {
-          "intent": "HomeAutomation.TurnDown",
-          "score": 0.005145787
-        },
-        {
-          "intent": "HomeAutomation.TurnOn",
-          "score": 0.004114749
-        },
-        {
-          "intent": "None",
-          "score": 0.000598924
-        }
-      ],
       "entities": [
         {
-          "entity": "living room",
-          "type": "HomeAutomation.Location",
-          "startIndex": 13,
-          "endIndex": 23,
-          "score": 0.94558233
-        },
-        {
-          "entity": "living room light",
-          "type": "HomeAutomation.DeviceName",
-          "startIndex": 13,
-          "endIndex": 29,
-          "resolution": {
-            "values": [
-              "living room light"
-            ]
-          }
-        },
-        {
-          "entity": "light",
+          "entity": "lights",
           "type": "HomeAutomation.DeviceType",
-          "startIndex": 25,
-          "endIndex": 29,
+          "startIndex": 13,
+          "endIndex": 18,
           "resolution": {
             "values": [
               "light"
@@ -174,56 +132,38 @@ Turn off the lights
     }
     ```
     
-## <a name="query-the-v3-api-prediction-endpoint"></a>查詢 V3 API 預測端點
+    #### <a name="v3-prediction-endpointtabv3"></a>[V3 預測端點](#tab/V3)
 
-針對 [V3 API 查詢](luis-migration-api-v3.md)，請在瀏覽器中變更 GET 方法 HTTPS 要求，將角括弧中的值變更為您自己的值。 
+    針對 [V3 API 查詢](luis-migration-api-v3.md)，請在瀏覽器中變更 GET 方法 HTTPS 要求，將角括弧中的值變更為您自己的值。     
 
-**使用 GET 方法的 V2 URL**：
+    `https://<region>.api.cognitive.microsoft.com/luis/**v3.0-preview**/apps/<appID>/**slots**/**production**/**predict**?subscription-key=<YOUR_KEY>&**query=<user-utterance-text>**`
 
-https://\<區域>.api.cognitive.microsoft.com/luis/**v2.0**/apps/\<應用程式識別碼>?verbose=true&subscription-key=\<您的金鑰>&**q=\<使用者語句文字>**
-
-**使用 GET 方法的 V3 URL**：
-
-https://\<區域>.api.cognitive.microsoft.com/luis/**v3.0-preview**/apps/\<應用程式識別碼>/**slots**/**production**/**predict**?verbose=true&subscription-key=\<您的金鑰>&**query=\<使用者語句文字>**
-
-瀏覽器會顯示 HTTP 端點 JSON 回應的 **V3 API** 版本。
-
-```json
-{
-    "query": "turn off the lights",
-    "prediction": {
-        "normalizedQuery": "turn off the lights",
-        "topIntent": "HomeAutomation.TurnOff",
-        "intents": {
-            "HomeAutomation.TurnOff": {
-                "score": 0.99649024
-            }
-        },
-        "entities": {
-            "HomeAutomation.DeviceType": [
-                [
-                    "light"
-                ]
-            ],
-            "$instance": {
+    ```json
+    {
+        "query": "turn off the lights",
+        "prediction": {
+            "normalizedQuery": "turn off the lights",
+            "topIntent": "HomeAutomation.TurnOff",
+            "intents": {
+                "HomeAutomation.TurnOff": {
+                    "score": 0.99649024
+                }
+            },
+            "entities": {
                 "HomeAutomation.DeviceType": [
-                    {
-                        "type": "HomeAutomation.DeviceType",
-                        "text": "lights",
-                        "startIndex": 13,
-                        "length": 6,
-                        "modelTypeId": 5,
-                        "modelType": "List Entity Extractor",
-                        "recognitionSources": [
-                            "model"
-                        ]
-                    }
+                    [
+                        "light"
+                    ]
                 ]
             }
         }
     }
-}
-```
+    ```
+
+
+    深入了解 [V3 預測端點](luis-migration-api-v3.md)。
+    
+    * * * 
 
 ## <a name="clean-up-resources"></a>清除資源
 

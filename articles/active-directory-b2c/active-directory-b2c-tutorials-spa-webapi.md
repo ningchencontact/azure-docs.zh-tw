@@ -10,12 +10,12 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.service: active-directory
 ms.subservice: B2C
-ms.openlocfilehash: 6d354ab25125b0df90ac3d6852d7eafe5d5aba46
-ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
+ms.openlocfilehash: 60fe9569b0e6e92ae161271439ecbf1b04788ed4
+ms.sourcegitcommit: 8bae7afb0011a98e82cbd76c50bc9f08be9ebe06
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71064682"
+ms.lasthandoff: 10/01/2019
+ms.locfileid: "71694599"
 ---
 # <a name="tutorial-grant-access-to-an-aspnet-core-web-api-from-a-single-page-application-using-azure-active-directory-b2c"></a>教學課程：使用 Azure Active Directory B2C 授與從單頁應用程式存取 ASP.NET Core Web API 的權限
 
@@ -38,32 +38,15 @@ ms.locfileid: "71064682"
 
 ## <a name="add-a-web-api-application"></a>新增 Web API 應用程式
 
-Web API 資源必須先在您的租用戶中註冊，才能接受及回應受到用戶端應用程式保護而提供存取權杖的資源要求。
-
-1. 登入 [Azure 入口網站](https://portal.azure.com)。
-1. 選取頂端功能表中的 [目錄 + 訂用帳戶]  篩選，然後選擇包含您租用戶的目錄，以確定您使用的是包含 Azure AD B2C 租用戶的目錄。
-1. 選擇 Azure 入口網站左上角的 [所有服務]  ，然後搜尋並選取 [Azure AD B2C]  。
-1. 選取 [應用程式]  ，然後選取 [新增]  。
-1. 輸入應用程式的名稱。 例如，*webapi1*。
-1. 針對 [包含 Web 應用程式/Web API]  和 [允許隱含流程]  ，選取 [是]  。
-1. 針對**回覆 URL**，請輸入 Azure AD B2C 應傳回您的應用程式所要求任何權杖的端點。 在本教學課程中，範例會在本機執行並在 `https://localhost:5000` 接聽。
-1. 針對 [應用程式識別碼 URI]  ，將 API 端點識別碼輸入至顯示的 URI。 在本教學課程中請輸入 `api`，讓完整的 URI 類似於 `https://contosotenant.onmicrosoft.com/api`。
-1. 按一下頁面底部的 [新增]  。
-1. 選取 *webapi1* 應用程式以開啟其屬性頁面。
-1. 記錄屬性頁面上顯示的 [應用程式識別碼]  。 您後續設定 Web 應用程式時，將需要使用此識別碼。
+[!INCLUDE [active-directory-b2c-appreg-webapi](../../includes/active-directory-b2c-appreg-webapi.md)]
 
 ## <a name="configure-scopes"></a>設定範圍
 
 範圍可用來控管對受保護資源的存取。 Web API 可使用範圍來實作以範圍為基礎的存取控制。 例如，有些使用者可能同時具有讀取和寫入權限，而有些則可能只有唯讀權限。 在本教學課程中，您會定義 Web API 的讀取和寫入權限。
 
-1. 選取[應用程式]  ，然後選取 [webapi1]  以開啟其 [屬性] 頁面 (如果尚未開啟)。
-1. 選取 [發佈的範圍]  。
-1. 針對 [範圍]  請輸入 `Hello.Read`，並輸入 `Read access to hello` 作為 [描述]  。
-1. 針對 [範圍]  請輸入 `Hello.Write`，並輸入 `Write access to hello` 作為 [描述]  。
-1. 選取 [儲存]  。
-1. 在設定單頁應用程式時，請記錄 `Hello.Read` 範圍的 [完整範圍值]  ，以供後續步驟使用。 完整範圍值會類似於 `https://yourtenant.onmicrosoft.com/api/Hello.Read`。
+[!INCLUDE [active-directory-b2c-scopes](../../includes/active-directory-b2c-scopes.md)]
 
-發佈的範圍可以用來為用戶端應用程式授與對 Web API 的權限。
+在設定單頁應用程式時，請記錄 `demo.read` 範圍的 [完整範圍值]  ，以供後續步驟使用。 完整範圍值會類似於 `https://yourtenant.onmicrosoft.com/api/demo.read`。
 
 ## <a name="grant-permissions"></a>授與權限
 
@@ -71,12 +54,7 @@ Web API 資源必須先在您的租用戶中註冊，才能接受及回應受到
 
 在必要條件教學課程中，您已建立名為 *webapp1* 的 Web 應用程式。 在本教學課程中，您會設定該應用程式，以呼叫您在上一節中建立的 Web API，即 *webapi1*。
 
-1. 在 Azure 入口網站中瀏覽至您的 B2C 租用戶
-1. 選取 [應用程式]  ，然後選取 [webapp1]  。
-1. 選取 [API 存取]  ，然後選取 [新增]  。
-1. 在 [選取 API]  下拉式清單中，選取 [webapi1]  。
-1. 在 [選取範圍]  下拉式清單中，選取您先前定義的 **Hello.Read** 和 **Hello.Write** 範圍。
-1. 按一下 [確定]  。
+[!INCLUDE [active-directory-b2c-permissions-api](../../includes/active-directory-b2c-permissions-api.md)]
 
 您的單頁 Web 應用程式會進行註冊，以呼叫受保護的 Web API。 使用者會向 Azure AD B2C 進行驗證，以使用該單頁應用程式。 該單頁應用程式會從 Azure AD B2C 取得授權授與，以存取受保護的 Web API。
 
@@ -101,8 +79,8 @@ git clone https://github.com/Azure-Samples/active-directory-b2c-dotnetcore-webap
       "ClientId": "<webapi-application-ID>",
       "Policy": "B2C_1_signupsignin1",
 
-      "ScopeRead": "Hello.Read",
-      "ScopeWrite": "Hello.Write"
+      "ScopeRead": "demo.read",
+      "ScopeWrite": "demo.write"
     },
     ```
 
@@ -154,7 +132,7 @@ git clone https://github.com/Azure-Samples/active-directory-b2c-dotnetcore-webap
 若要變更 SPA 中的設定：
 
 1. 從您在上一個教學課程下載或複製的 [active-directory-b2c-javascript-msal-singlepageapp][github-js-spa] 專案中，開啟 *index.html* 檔案。
-1. 使用您先前建立的 *Hello.Read* 範圍的 URI 以及 Web API 的 URL 來設定範例。
+1. 使用您先前建立的 *demo.read* 範圍的 URI 以及 Web API 的 URL 來設定範例。
     1. 在 `appConfig` 定義中，將 `b2cScopes` 值取代為範圍的完整 URI (您先前記錄的 [完整範圍值]  )。
     1. 將 `webApi` 值變更為您在上一節中指定的 `applicationURL` 值。
 
@@ -163,7 +141,7 @@ git clone https://github.com/Azure-Samples/active-directory-b2c-dotnetcore-webap
     ```javascript
     // The current application coordinates were pre-registered in a B2C tenant.
     var appConfig = {
-      b2cScopes: ["https://<your-tenant-name>.onmicrosoft.com/api/Hello.Read"],
+      b2cScopes: ["https://<your-tenant-name>.onmicrosoft.com/api/demo.read"],
       webApi: "http://localhost:5000/"
     };
     ```

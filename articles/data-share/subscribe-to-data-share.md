@@ -1,17 +1,17 @@
 ---
-title: 教學課程 - 使用 Azure Data Share Preview 接受和接收資料
+title: 教學課程：接受和接收資料 - Azure Data Share 預覽版
 description: 教學課程 - 使用 Azure Data Share Preview 接受和接收資料
 author: joannapea
+ms.author: joanpo
 ms.service: data-share
 ms.topic: tutorial
 ms.date: 07/10/2019
-ms.author: joanpo
-ms.openlocfilehash: fc63c1a0b3b496de8e5ecea58f79f1db9d872e80
-ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
+ms.openlocfilehash: 235ef25b2d655c4388dee5bdcf88d179f3373697
+ms.sourcegitcommit: e9936171586b8d04b67457789ae7d530ec8deebe
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67838431"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71327405"
 ---
 # <a name="tutorial-accept-and-receive-data-using-azure-data-share-preview"></a>教學課程：使用 Azure Data Share Preview 接受和接收資料
 
@@ -28,7 +28,7 @@ ms.locfileid: "67838431"
 
 請先確定您已完成所有必要條件再接受資料共用邀請。 
 
-* Azure 訂用帳戶：如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/) 。
+* Azure 訂用帳戶：如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶](https://azure.microsoft.com/free/)。
 * Azure 儲存體帳戶：如果您還沒有此帳戶，則可以建立 [Azure 儲存體帳戶](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account)。 
 * 資料共用邀請：Microsoft Azure 所送來的邀請，主旨標題為「來自 **<yourdataprovider@domain.com>** 的 Azure Data Share 邀請」。
 * 將角色指派新增至儲存體帳戶的權限，其存在於 Microsoft.Authorization/role assignments/write  權限中。 此權限存在於擁有者角色中。 
@@ -81,7 +81,7 @@ ms.locfileid: "67838431"
 
 ![快照集設定](./media/snapshot-settings.png "快照集設定") 
 
-選取 [ *儲存*]。 
+選取 [儲存]  。 
 
 ## <a name="trigger-a-snapshot"></a>觸發快照集
 

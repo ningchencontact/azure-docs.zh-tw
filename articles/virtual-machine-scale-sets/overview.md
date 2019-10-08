@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
 ms.custom: mvc
-ms.date: 05/21/2018
+ms.date: 09/26/2019
 ms.author: manayar
-ms.openlocfilehash: 98c183d65a18c186b515df8ec02ba26b8c2c4143
-ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
+ms.openlocfilehash: 73580814dcfe8f967684aca4ce433a40e7bbedc0
+ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66258315"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71679395"
 ---
 # <a name="what-are-virtual-machine-scale-sets"></a>什麼是虛擬機器擴展集？
 Azure 虛擬機器擴展集可讓您建立和管理一組負載平衡的相同 VM。 VM 執行個體的數目可以自動增加或減少，以因應需求或已定義的排程。 擴展集可為您的應用程式提供高可用性，並且可讓您集中管理、設定和更新大量的 VM。 透過虛擬機器擴展集，您將可針對計算、巨量資料和容器工作負載等領域建立大規模的服務。
@@ -62,6 +62,11 @@ Azure 虛擬機器擴展集可提供對跨 VM 執行的應用程式進行管理�
 
 擴展集不會產生額外費用。 您只需支付基礎計算資源的費用，例如 VM 執行個體、負載平衡器或受控磁碟儲存體。 管理和自動化功能 (例如自動調整和備援能力) 不會產生使用 VM 的額外費用。
 
+## <a name="how-to-monitor-your-scale-sets"></a>如何監視您的擴展集
+
+使用[適用於 VM 的 Azure 監視器](../azure-monitor/insights/vminsights-overview.md)，此監視其提供簡單的上線程序，且會自動從擴展集內的 VM 收集重要的 CPU、記憶體、磁碟和網路效能計數器。 它也提供其他監視功能和預先定義的視覺效果，可協助您專注於擴展集的可用性和效能。
+
+為您的[虛擬機器擴展集應用程式](../azure-monitor/app/azure-vm-vmss-apps.md)啟用監視功能，讓 Application Insights 收集應用程式的詳細資訊，包括頁面檢視、應用程式要求和例外狀況。 設定[可用性測試](../azure-monitor/app/monitor-web-app-availability.md)來模擬使用者流量，進一步確認您應用程式的可用性。
 
 ## <a name="next-steps"></a>後續步驟
 若要開始使用，請先在 Azure 入口網站中建立虛擬機器擴展集。

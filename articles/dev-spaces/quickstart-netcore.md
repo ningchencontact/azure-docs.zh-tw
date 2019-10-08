@@ -10,12 +10,12 @@ ms.topic: quickstart
 description: 在 Azure 上使用容器和微服務快速進行 Kubernetes 開發
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, 容器, Helm, 服務網格, 服務網格路由, kubectl, k8s
 manager: gwallace
-ms.openlocfilehash: 162a020351efb27fe25b566918ddda555fac35eb
-ms.sourcegitcommit: a4b5d31b113f520fcd43624dd57be677d10fc1c0
+ms.openlocfilehash: b65dc5ed5d6d69ecde2108fcc322e27999704123
+ms.sourcegitcommit: 80da36d4df7991628fd5a3df4b3aa92d55cc5ade
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70772608"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71815849"
 ---
 # <a name="quickstart-debug-and-iterate-with-visual-studio-code-and-net-core-on-kubernetes-using-azure-dev-spaces-visual-studio-code"></a>快速入門：在 Kubernetes 上使用 Azure Dev Spaces (Visual Studio Code) 以 Visual Studio Code 和 .NET Core 進行偵錯和逐一查看
 
@@ -24,6 +24,11 @@ ms.locfileid: "70772608"
 - 使用 Azure 中受管理的 Kubernetes 叢集，設定 Azure Dev Spaces。
 - 使用 Visual Studio Code 在容器中反覆開發程式碼。
 - 從 Visual Studio Code 對開發人員空間中的程式碼進行偵錯。
+
+Azure Dev Spaces 也可讓您使用下列工具進行偵錯和逐一查看：
+- [Java 和 Visual Studio Code](quickstart-java.md)
+- [Node.js 和 Visual Studio Code](quickstart-nodejs.md)
+- [.NET Core 和 Visual Studio](quickstart-netcore-visualstudio.md)
 
 ## <a name="prerequisites"></a>必要條件
 
@@ -45,6 +50,9 @@ az aks create -g MyResourceGroup -n MyAKS --location eastus --disable-rbac --gen
 
 使用 `use-dev-spaces` 命令在 AKS 叢集上啟用 Dev Spaces，並遵循提示來進行。 下列命令會在 MyResourceGroup  群組中的 MyAKS  叢集上啟用 Dev Spaces，並建立「預設」  開發空間。
 
+> [!NOTE]
+> `use-dev-spaces` 命令也會安裝 Azure Dev Spaces CLI (如果尚未安裝)。 您無法在 Azure Cloud Shell 中安裝 Azure Dev Spaces CLI。
+
 ```cmd
 $ az aks use-dev-spaces -g MyResourceGroup -n MyAKS
 
@@ -65,7 +73,7 @@ Managed Kubernetes cluster 'MyAKS' in resource group 'MyResourceGroup' is ready 
 
 ## <a name="get-sample-application-code"></a>取得應用程式範例的程式碼
 
-在此文章中，您會使用 [Azure Dev Spaces 應用程式範例](https://github.com/Azure/dev-spaces)來示範如何使用 Azure Dev Spaces。
+在本文中，您會使用 [Azure Dev Spaces 應用程式範例](https://github.com/Azure/dev-spaces)來示範如何使用 Azure Dev Spaces。
 
 從 GitHub 複製應用程式。
 

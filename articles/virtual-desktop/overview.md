@@ -1,22 +1,22 @@
 ---
-title: 什麼是 Windows 虛擬桌面預覽版？  - Azure
-description: Windows 虛擬桌面預覽版的概觀。
+title: 什麼是 Windows 虛擬桌面？  - Azure
+description: Windows 虛擬桌面的概觀。
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: overview
 ms.date: 08/07/2019
 ms.author: helohr
-ms.openlocfilehash: 440ebfffec9378e0dad1fd04e0880c90571bb0f1
-ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
+ms.openlocfilehash: 97087b7fdc6e4cdaccf922a1c72f35284c7a7040
+ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71301006"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71676559"
 ---
-# <a name="what-is-windows-virtual-desktop-preview"></a>什麼是 Windows 虛擬桌面預覽版？ 
+# <a name="what-is-windows-virtual-desktop"></a>什麼是 Windows 虛擬桌面？ 
 
-Windows 虛擬桌面預覽版是可在雲端執行的桌面和應用程式虛擬化服務，現在以公開預覽方式提供。
+Windows 虛擬桌面是可以在雲端執行的桌面與應用程式虛擬化服務。
 
 以下是您在 Azure 上執行 Windows 虛擬桌面時可以執行的作業：
 
@@ -88,7 +88,19 @@ Windows 虛擬桌面預覽版是可在雲端執行的桌面和應用程式虛擬
 >[!NOTE]
 >如果需要 Azure 訂用帳戶，您可以[註冊一個月的免費試用](https://azure.microsoft.com/free/)。 如果您使用 Azure 免費試用版，您應該使用 Azure AD Domain Services 讓您的 Windows Server Active Directory 與 Azure Active Directory 保持同步。
 
-Windows 虛擬桌面包含您交付給使用者的 Windows 桌面與應用程式，以及由 Microsoft 在 Azure 上裝載為服務的管理解決方案。 在公開預覽期間，桌面和應用程式都可以部署在任何 Azure 區域的虛擬機器 (VM) 中，而這些 VM 的管理解決方案和資料都會位於美國 (美國東部 2 區域)。 當您在公開預覽期間測試服務時，這可能會導致資料轉送至美國。 我們會開始將管理解決方案和資料當地語系化擴充至所有開始公開推出的 Azure 區域。
+您為 Windows 虛擬桌面建立的 Azure 虛擬機器必須具有下列 URL 的輸出 TCP 443 存取權：
+
+* *.wvd.microsoft.com
+* *.blob.core.windows.net
+* *.core.windows.net
+* *.servicebus.windows.net
+* prod.warmpath.msftcloudes.com
+* catalogartifact.azureedge.net
+
+>[!NOTE]
+>對於可靠的 Windows 虛擬桌面部署而言，開啟這些 URL 是不可或缺的。 不支援封鎖這些 URL 的存取，而且會影響服務功能。 這些 URL 僅對應於 Windows 虛擬桌面的網站和資源，並不包含其他服務 (例如 Azure AD) 的 URL。
+
+Windows 虛擬桌面包含您交付給使用者的 Windows 桌面與應用程式，以及由 Microsoft 在 Azure 上裝載為服務的管理解決方案。 桌面和應用程式都可以部署在任何 Azure 區域的虛擬機器 (VM) 中，而這些 VM 的管理解決方案和資料都會位於美國 (美國東部 2 區域)。 這可能會導致資料轉送到美國。
 
 為了達到最佳效能，請確定您的網路符合下列需求：
 
@@ -108,11 +120,28 @@ Windows 虛擬桌面包含您交付給使用者的 Windows 桌面與應用程式
 Windows 虛擬桌面支援下列 OS 映像：
 
 * Windows 10 企業版的多重工作階段
+* Windows 10 企業版
+* Windows 7 企業版
+* Windows Server 2019
 * Windows Server 2016
+* Windows Server 2012 R2
+
+可用的自動化和部署選項取決於您所選的作業系統和版本，如下表所示： 
+
+|作業系統|Azure 映像庫|手動 VM 部署|Azure Resource Manager 範本整合|在 Azure Marketplace 上佈建主機集區|Windows 虛擬桌面代理程式更新|
+|--------------------------------------|:------:|:------:|:------:|:------:|:------:|
+|Windows 10 多工作階段，版本1903|yes|是|是|yes|自動|
+|Windows 10 多工作階段，版本1809|yes|是|否|否|自動|
+|Windows 10 企業版，版本1903|yes|是|是|yes|自動|
+|Windows 10 企業版，版本1809|yes|是|否|否|自動|
+|Windows 7 企業版|yes|是|否|否|手動|
+|Windows Server 2019|yes|是|否|否|自動|
+|Windows Server 2016|yes|是|是|yes|自動|
+|Windows Server 2012 R2|yes|是|否|否|自動|
 
 ## <a name="next-steps"></a>後續步驟
 
 若要開始使用，您必須建立租用戶。 若要深入了解如何建立租用戶，請繼續進行租用戶建立教學課程。
 
 > [!div class="nextstepaction"]
-> [在 Windows 虛擬桌面預覽版中建立租用戶](tenant-setup-azure-active-directory.md)
+> [在 Windows 虛擬桌面中建立租用戶](tenant-setup-azure-active-directory.md)

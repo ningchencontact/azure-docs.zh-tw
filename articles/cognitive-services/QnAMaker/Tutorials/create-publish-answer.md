@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: tutorial
-ms.date: 09/05/2019
+ms.date: 10/01/2019
 ms.author: diberry
-ms.openlocfilehash: e5b8cd01a64274e58927a5647897b1f9d86f7c24
-ms.sourcegitcommit: 88ae4396fec7ea56011f896a7c7c79af867c90a1
+ms.openlocfilehash: f0888b25258f6a7830df1195995159432b19907d
+ms.sourcegitcommit: 4f3f502447ca8ea9b932b8b7402ce557f21ebe5a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70390877"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71802811"
 ---
 # <a name="tutorial-using-c-create-knowledge-base-then-answer-question"></a>教學課程：使用 C# 來建立知識庫然後回答問題
 
@@ -41,7 +41,7 @@ ms.locfileid: "70390877"
 ## <a name="prerequisites"></a>必要條件
 
 * 最新 [**Visual Studio Community 版本**](https://www.visualstudio.com/downloads/)。
-* 您必須有 [QnA Maker 服務](../How-To/set-up-qnamaker-service-azure.md)。 若要擷取您的金鑰，請選取儀表板中 [資源管理]  下方的 [金鑰]  。 
+* 您必須有 [QnA Maker 服務](../How-To/set-up-qnamaker-service-azure.md)。 若要擷取您的金鑰和資源名稱，請在 Azure 入口網站中選取 QnA Maker 資源的 [快速入門]  。 
 
 > [!NOTE] 
 > 從 [**Azure-Samples/cognitive-services-qnamaker-csharp** GitHub 存放庫](https://github.com/Azure-Samples/cognitive-services-qnamaker-csharp/tree/master/documentation-samples/tutorials/create-publish-answer-knowledge-base)可取得完整的解決方案檔。
@@ -146,13 +146,13 @@ ms.locfileid: "70390877"
 對於任何其他回應，該回應則會原封不動地傳回。
 
 ## <a name="generating-an-answer"></a>產生答案
-若要存取 KB 以傳送問題和接收最佳答案，程式需要 KB 詳細資料 API 中的_端點主機_，和端點 API 中的_主要端點金鑰_。 這些方法將在以下幾節中與產生答案的方法一起說明。 
+若要存取 KB 以傳送問題和接收最佳答案，程式需要 KB 詳細資料 API 中的_資源名稱_，和端點 API 中的_主要端點金鑰_。 這些方法將在以下幾節中與產生答案的方法一起說明。 
 
 下表說明如何使用資料來建構 URI：
 
 |產生答案 URI 範本|
 |--|
-|https://**HOSTNAME**.azurewebsites.net/qnamaker/knowledgebases/**KBID**/generateAnswer|
+|https://**your-resource-name**.azurewebsites.net/qnamaker/knowledgebases/**KBID**/generateAnswer|
 
 _主要端點_會傳遞作為標頭，用以驗證產生答案的要求：
 
@@ -169,7 +169,7 @@ _主要端點_會傳遞作為標頭，用以驗證產生答案的要求：
 ```
 
 ## <a name="get-kb-details"></a>取得 KB 詳細資料
-新增下列方法以取得 KB 詳細資料。 這些詳細資料包含 KB 的主機名稱。 主機名稱是您在建立 QnA Maker 資源時所輸入的 QnA Maker Azure Web 服務名稱。 
+新增下列方法以取得 KB 詳細資料。 這些詳細資料包含 KB 的資源名稱，在下列 JSON 中稱為 `hostName`。 資源名稱是您在建立 QnA Maker 資源時所輸入的 QnA Maker 資源名稱。 
 
 [!code-csharp[Get KB Details](~/samples-qnamaker-csharp/documentation-samples/tutorials/create-publish-answer-knowledge-base/QnaMakerQuickstart/Program.cs?range=260-273 "Add publish method")]
 

@@ -12,48 +12,42 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/12/2019
 ms.author: jaserano
-ms.openlocfilehash: 45f6f181ddbf7e76662f76c433d8ff68c18f0de1
-ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
+ms.openlocfilehash: 7795007b5bb27b9da540c6c3bcb0df45d1e17d80
+ms.sourcegitcommit: a19f4b35a0123256e76f2789cd5083921ac73daf
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "69657082"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71718710"
 ---
 # <a name="troubleshoot-azure-payment-issues"></a>針對 Azure 付款問題進行疑難排解
 
-您嘗試在 Microsoft Azure 入口網站或 Azure 帳戶中心更新付款資訊時，可能會遇到某些問題。 在進行問題的疑難排解之前，請先考量下列指引：
+您嘗試在 Microsoft Azure 入口網站或 Azure 帳戶中心更新付款資訊帳戶時，可能會遇到某些問題或錯誤。
 
-- 確定您為 Azure 帳戶設定檔 (包括連絡人電子郵件、地址和電話號碼) 提供的資訊正確無誤。
-- 請確認信用卡資訊正確。
-- 確定您沒有具有相同資訊的 Microsoft 帳戶。
+若要解決您的問題，請選取下列與您的錯誤最相似的主題。
 
-## <a name="issues"></a>問題
-
-若要解決任何錯誤，請選取您在嘗試註冊 Azure 時所遇到的問題。
-
-### <a name="unable-to-remove-a-credit-card-from-a-saved-billing-payment-method"></a>無法從已儲存的帳單付款方式中移除信用卡
+## <a name="unable-to-remove-a-credit-card-from-a-saved-billing-payment-method"></a>無法從已儲存的帳單付款方式中移除信用卡
 
 根據設計，您無法從作用中的訂用帳戶移除信用卡。
 
 如果要刪除現有的卡片，必須將新的卡片新增至訂用帳戶，才能成功刪除舊的付款方式，或者您必須取消訂用帳戶。 這會永久刪除訂用帳戶並移除卡片。
 
-### <a name="unable-to-delete-an-old-payment-method-after-adding-a-new-payment-method"></a>加入新的付款方式之後，無法刪除舊的付款方式
+## <a name="unable-to-delete-an-old-payment-method-after-adding-a-new-payment-method"></a>加入新的付款方式之後，無法刪除舊的付款方式
 
 新的付款方式可能無法與訂用帳戶建立關聯。 如需將付款方式與訂用帳戶建立關聯的協助，請參閱[新增、更新或移除用於 Azure 的信用卡或轉帳卡](billing-how-to-change-credit-card.md)。
 
 若要針對遭拒卡片的相關問題進行疑難排解，請參閱[如何在 Azure 註冊上針對遭到拒絕的卡片進行疑難排解](billing-troubleshoot-declined-card.md)。
 
-### <a name="unable-to-delete-a-payment-method-because-of-cannot-delete-payment-method-error"></a>無法刪除付款方式，因為出現「無法刪除付款方式」  錯誤
+## <a name="unable-to-delete-a-payment-method-because-of-cannot-delete-payment-method-error"></a>無法刪除付款方式，因為出現「無法刪除付款方式」  錯誤
 
 這是因為未付餘額所造成。 請先清除任何未付餘額，再刪除付款方式。
 
-### <a name="unable-to-see-subscriptions-under-my-account-to-update-the-payment-method"></a>無法查看我帳號底下的訂用帳戶來更新付款方式
+## <a name="unable-to-see-subscriptions-under-my-account-to-update-the-payment-method"></a>無法查看我帳號底下的訂用帳戶來更新付款方式
 
 您使用的電子郵件識別碼可能與訂用帳戶所使用的不同。
 
 若要針對此問題進行疑難排解，請參閱 [Azure 入口網站或 Azure 帳戶中心的「找不到訂用帳戶」登入錯誤](billing-no-subscriptions-found.md)。
 
-### <a name="unable-to-make-payment-for-a-subscription"></a>無法對訂用帳戶進行付款
+## <a name="unable-to-make-payment-for-a-subscription"></a>無法對訂用帳戶進行付款
 
 如果您收到錯誤訊息：*付款已逾期。您的付款方式有問題*或*我們很抱歉，資訊無法儲存。請關閉瀏覽器，然後再試一次。* 這可能是因為卡片上有待付款項，因為卡片遭到您金融機構的拒絕。
 
@@ -65,7 +59,7 @@ ms.locfileid: "69657082"
 - 卡片具有信用額度限制，而且必須付清餘額。
 - 卡片上已啟用定期付款。
 
-### <a name="unable-to-change-payment-method-because-of-browser-issues-browser-does-not-respond-does-not-load-and-so-on"></a>因為瀏覽器問題而無法變更付款方式 (瀏覽器沒有回應、未載入等等)
+## <a name="unable-to-change-payment-method-because-of-browser-issues-browser-does-not-respond-does-not-load-and-so-on"></a>因為瀏覽器問題而無法變更付款方式 (瀏覽器沒有回應、未載入等等)
 
 登出所有作用中的 Azure 工作階段，然後依照[在 Microsoft Edge 中進行 InPrivate 瀏覽](https://support.microsoft.com/help/4026200/microsoft-edge-browse-inprivate)一文中的步驟，在 Microsoft Edge 或 Internet Explorer 中啟動 InPrivate 工作階段。
 
@@ -77,11 +71,11 @@ ms.locfileid: "69657082"
 - 使用另一個瀏覽器
 - 刪除快取的 Cookie
 
-### <a name="my-subscription-is-still-disabled-after-updating-the-payment-method"></a>更新付款方式後，我的訂用帳戶仍無法使用。
+## <a name="my-subscription-is-still-disabled-after-updating-the-payment-method"></a>更新付款方式後，我的訂用帳戶仍無法使用。
 
 這是未付餘額所造成的問題。 請先清除任何未付餘額，再刪除付款方式。
 
-### <a name="unable-to-change-payment-method-because-of-an-xml-error-response-page"></a>無法變更付款方式，因為出現 XML 錯誤回應頁面
+## <a name="unable-to-change-payment-method-because-of-an-xml-error-response-page"></a>無法變更付款方式，因為出現 XML 錯誤回應頁面
 
 如果您使用 [Azure 入口網站](https://portal.azure.com/)新增信用卡，就會收到此訊息。
 

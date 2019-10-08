@@ -10,19 +10,21 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 07/05/2019
 ms.author: wolfma
-ms.openlocfilehash: c9b63685ae73fb4e056c72a640d6c4049e98b8b8
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 2f728231c01056ecb8709f84f13e834ef3618dc8
+ms.sourcegitcommit: 4f3f502447ca8ea9b932b8b7402ce557f21ebe5a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68559505"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71803305"
 ---
 # <a name="quickstart-recognize-speech-in-java-on-android-by-using-the-speech-sdk"></a>快速入門：使用語音 SDK 在 Android 上以 Java 辨識語音
+
+另備有[語音合成](quickstart-text-to-speech-java-android.md)和[語音優先虛擬助理](quickstart-virtual-assistant-java-android.md)的快速入門。
 
 [!INCLUDE [Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
 
 在本文中，您將了解如何使用認知服務語音 SDK 將語音轉換成文字，以開發 Android 的 Java 應用程式。
-應用程式以語音 SDK Maven 套件 1.6.0 版和 Android Studio 3.3 為基礎。
+應用程式以語音 SDK Maven 套件和 Android Studio 3.3 為基礎。
 語音 SDK 目前與使用 32/64 位元 ARM 和 Intel x86/x64 相容處理器的 Android 裝置相容。
 
 > [!NOTE]

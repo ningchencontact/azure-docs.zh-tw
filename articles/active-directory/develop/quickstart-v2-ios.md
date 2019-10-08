@@ -17,12 +17,12 @@ ms.author: twhitney
 ms.reviewer: jmprieur, saeeda
 ms.custom: aaddev, identityplatformtop40
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1b8637bb1a1ba397750bd04c88c6535fa3d1caa0
-ms.sourcegitcommit: 0486aba120c284157dfebbdaf6e23e038c8a5a15
+ms.openlocfilehash: bdb1ae92b17bef281e3b82a8c1a21344fa37f0da
+ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71309643"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71345545"
 ---
 # <a name="quickstart-sign-in-users-and-call-the-microsoft-graph-api-from-an-ios-or-macos-app"></a>快速入門：從 iOS 或 macOS 應用程式登入使用者並呼叫 Microsoft Graph API
 
@@ -94,11 +94,11 @@ ms.locfileid: "71309643"
 > 1. 將 ZIP 檔案解壓縮並在 XCode 中開啟專案。
 > 1. 編輯 **ViewController.swift**，並使用下列程式碼片段來取代開頭為 'let kClientID' 的那一行。 請記得使用您在本快速入門中稍早於入口網站註冊應用程式時所儲存的用戶端識別碼來更新 `kClientID` 的值：
 >    ```swift
->    let kClientID = "<ENTER_YOUR_APPLICATION/CLIENT_ID>"
+>    let kClientID = "Enter_the_Application_Id_Here"
 >    ```
 > 1. 開啟專案設定。 在 [身分識別]  區段中，輸入您在入口網站中輸入的 [套件組合識別碼]  。
 > 1. (僅限於 iOS) 以滑鼠右鍵按一下 **Info.plist**，然後選取 [開啟為]   > [原始程式碼]  。
-> 1. (僅限於 iOS) 在 dict 根節點下，使用您在入口網站中輸入的 [套件組合識別碼] 取代 `Enter_the_bundle_Id_Here`。
+> 1. (僅限於 iOS) 在 dict 根節點下，使用您在入口網站中輸入的 [套件組合識別碼] 取代 `CFBundleURLSchemes`。
 >
 >    ```xml
 >    <key>CFBundleURLTypes</key>
@@ -120,7 +120,7 @@ ms.locfileid: "71309643"
 > 1. 將 ZIP 檔案解壓縮並在 XCode 中開啟專案。
 > 1. 編輯 **ViewController.swift**，並使用下列程式碼片段來取代開頭為 'let kClientID' 的那一行。 請記得使用您在本快速入門中稍早於入口網站註冊應用程式時所儲存的用戶端識別碼來更新 `kClientID` 的值：
 >    ```swift
->    let kClientID = "<ENTER_YOUR_APPLICATION/CLIENT_ID>"
+>    let kClientID = "Enter_the_Application_Id_Here"
 >    ```
 > 1. 開啟專案設定。 在 [身分識別]  區段中，輸入您在入口網站中輸入的 [套件組合識別碼]  。
 > 1. (僅限於 iOS) 以滑鼠右鍵按一下 **Info.plist**，然後選取 [開啟為]   > [原始程式碼]  。

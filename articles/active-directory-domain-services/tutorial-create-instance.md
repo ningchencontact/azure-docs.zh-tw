@@ -9,12 +9,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 08/14/2019
 ms.author: iainfou
-ms.openlocfilehash: 8c346b75b30737645721d8b39a655a85ed446fae
-ms.sourcegitcommit: 992e070a9f10bf43333c66a608428fcf9bddc130
+ms.openlocfilehash: 536ada668db724ca50d7db820aff173f7222bab2
+ms.sourcegitcommit: e1b6a40a9c9341b33df384aa607ae359e4ab0f53
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71229533"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71336849"
 ---
 # <a name="tutorial-create-and-configure-an-azure-active-directory-domain-services-instance"></a>教學課程：建立並設定 Azure Active Directory Domain Services 執行個體
 
@@ -42,7 +42,8 @@ Azure Active Directory Domain Services (Azure AD DS) 提供受控網域服務，
     * 如果需要，請[建立 Azure Active Directory 租用戶][create-azure-ad-tenant]或[將 Azure 訂用帳戶與您的帳戶建立關聯][associate-azure-ad-tenant]。
 * 您必須擁有 Azure AD 租用戶的*全域管理員*權限，才能啟用 Azure AD DS。
 * 您需要 Azure 訂用帳戶中的「參與者」  權限，才能建立必要的 Azure AD DS 資源。
-* Azure AD 租用戶必須[設定為可進行自助式密碼重設][configure-sspr]。
+
+雖然 Azure AD DS 不需要，但建議針對 Azure AD 租用戶[設定自助式密碼重設 (SSPR)][configure-sspr]。 使用者不需 SSPR 即可變更其密碼，但是如果他們忘記密碼且需要加以重設，SSPR 會協助他們。
 
 > [!IMPORTANT]
 > 建立 Azure AD DS 受控網域之後，您就無法將執行個體移至不同的資源群組、虛擬網路、訂用帳戶等。當您部署 Azure AD DS 執行個體時，請仔細選取最適當的訂用帳戶、資源群組、區域和虛擬網路。

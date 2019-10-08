@@ -1,22 +1,22 @@
 ---
-title: 使用 Azure Marketplace 建立 Windows 虛擬桌面預覽版主機集區 - Azure
-description: 如何使用 Azure Marketplace 建立 Windows 虛擬桌面預覽版主機集區。
+title: 使用 Azure Marketplace 建立 Windows 虛擬桌面主機集區 - Azure
+description: 如何使用 Azure Marketplace 建立 Windows 虛擬桌面主機集區。
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: tutorial
 ms.date: 08/30/2019
 ms.author: helohr
-ms.openlocfilehash: d6628f1522880f650bfd8c728fe46fd050a8e6a0
-ms.sourcegitcommit: 5f67772dac6a402bbaa8eb261f653a34b8672c3a
+ms.openlocfilehash: c0b93529872de774e1a6e915ef8254c5c0e0a1a9
+ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/01/2019
-ms.locfileid: "70208375"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71676716"
 ---
 # <a name="tutorial-create-a-host-pool-by-using-the-azure-marketplace"></a>教學課程：使用 Azure Marketplace 建立主機集區
 
-主機集區是 Windows 虛擬桌面預覽版租用戶環境中一或多個相同虛擬機器的集合。 每個主機集區都可以包含一個應用程式群組，而使用者可如同在實體桌面上與其互動。
+主機集區是 Windows 虛擬桌面租用戶環境中一或多個相同虛擬機器的集合。 每個主機集區都可以包含一個應用程式群組，而使用者可如同在實體桌面上與其互動。
 
 本教學課程說明如何使用 Microsoft Azure Marketplace 供應項目，在 Windows 虛擬桌面租用戶中建立主機集區。 工作包括：
 
@@ -80,7 +80,7 @@ Add-RdsAccount -DeploymentUrl "https://rdbroker.wvd.microsoft.com"
 3. 選取可連線至 Active Directory 伺服器的虛擬網路，然後選擇要裝載虛擬機器的子網路。
 4. 選取 [確定]  。
 
-### <a name="windows-virtual-desktop-preview-tenant-information"></a>Windows 虛擬桌面預覽版租用戶資訊
+### <a name="windows-virtual-desktop-tenant-information"></a>Windows 虛擬桌面租用戶資訊
 
 針對 [Windows 虛擬桌面租用戶資訊]  刀鋒視窗：
 

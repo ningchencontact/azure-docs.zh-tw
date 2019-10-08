@@ -16,12 +16,12 @@ ms.author: jmprieur
 ms.reviwer: brandwe
 ms.custom: aaddev, identityplatformtop40
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a53a0d5ea8405c116d0286d3b67b1640f98ed96d
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: 0a26a7fc27fa13d86eb3b82fd4be70e5b371581f
+ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68852452"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71677971"
 ---
 # <a name="sign-in-users-and-call-the-microsoft-graph-from-an-android-app"></a>從 Android 應用程式登入使用者並呼叫 Microsoft Graph
 
@@ -49,7 +49,7 @@ ms.locfileid: "68852452"
 
 ## <a name="prerequisites"></a>必要條件
 
-* 本教學課程需要 Android Studio 第 16 版或更新版本 (建議使用 19 以上的版本)。
+* 本教學課程需要 Android Studio 3.5 版。
 
 ## <a name="create-a-project"></a>建立專案
 
@@ -59,15 +59,16 @@ ms.locfileid: "68852452"
 2. 選取 [基本活動]  ，然後選取 [下一步]  。
 3. 為您的應用程式命名。
 4. 儲存套件名稱。 您稍後會在 Azure 入口網站中加以輸入。
-5. 將 [最低 API 層級]  設為 [API 19]  或更高，然後按一下 [完成]  。
-6. 在專案檢視中，從下拉式清單中選擇 [專案]  以顯示來源和非來源專案檔，然後開啟 **app/build.gradle**，並將 `targetSdkVersion` 設為 `27`。
+5. 將語言從 [Kotlin]  變更為 [Java]  。
+6. 將 [最低 API 層級]  設為 [API 19]  或更高，然後按一下 [完成]  。
+7. 在專案檢視中，從下拉式清單中選擇 [專案]  以顯示來源和非來源專案檔，然後開啟 **app/build.gradle**，並將 `targetSdkVersion` 設為 `28`。
 
 ## <a name="register-your-application"></a>註冊您的應用程式
 
 1. 移至 [Azure 入口網站](https://aka.ms/MobileAppReg)。
 2. 開啟 [應用程式註冊](https://ms.portal.azure.com/?feature.broker=true#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredAppsPreview) 刀鋒視窗，然後按一下 [+新增註冊]  。
 3. 輸入應用程式的 [名稱]  ，然後不設定 [重新導向 URI] 而直接按一下 [註冊]  。
-4. 在顯示的窗格中，從 [管理]  區段選取 [驗證]   > [+ 新增平台]   > [Android]  。
+4. 在顯示的窗格中，從 [管理]  區段選取 [驗證]   > [+ 新增平台]   > [Android]  。 (您可能必須選取靠近刀鋒視窗頂端的 [切換到新的體驗]，才能看到此區段)
 5. 輸入您專案的套件名稱。 如果您已下載程式碼，此值會是 `com.azuresamples.msalandroidapp`。
 6. 在 [設定 Android 應用程式]  頁面的 [簽章雜湊]  區段中，按一下 [產生開發簽章雜湊]  。 然後，複製要用於平台的 KeyTool 命令。
 
@@ -83,8 +84,8 @@ ms.locfileid: "68852452"
 
 1. 在 Android Studio 的專案窗格中，瀏覽至 **app\src\main\res**。
 2. 以滑鼠右鍵按一下 [res]  ，然後選擇 [新增]   > [目錄]  。 輸入 `raw` 作為新的目錄名稱，然後按一下 [確定]  。
-3. 在 [app]   > [src]   > res   > [raw]  中，建立名為 `auth_config.json` 的新 JSON 檔案，並貼上您先前儲存的 [MSAL 設定]。 請參閱 [ MSAL 組態，以取得詳細資訊](https://github.com/AzureAD/microsoft-authentication-library-for-android/wiki/Configuring-your-app)。
-4. 在 [app]   > [src]   > [main]   > [AndroidManifest.xml]  中，於下方新增 `BrowserTabActivity` 活動。 此輸入可讓 Microsoft 在完成驗證後回呼您的應用程式：
+3. 在 app   > src   > main   > res   > raw  中，建立名為 `auth_config.json` 的新 JSON 檔案，並貼上您先前儲存的 MSAL 設定。 請參閱 [ MSAL 組態，以取得詳細資訊](https://github.com/AzureAD/microsoft-authentication-library-for-android/wiki/Configuring-your-app)。
+4. 在 [app]   > [src]   > [main]   > [AndroidManifest.xml]  中，於應用程式主體下方新增 `BrowserTabActivity` 活動。 此輸入可讓 Microsoft 在完成驗證後回呼您的應用程式：
 
     ```xml
     <!--Intent filter to capture System Browser or Authenticator calling back to our app after sign-in-->
@@ -114,7 +115,7 @@ ms.locfileid: "68852452"
 ### <a name="create-the-apps-ui"></a>建立應用程式 UI
 
 1. 在 Android Studio 專案視窗中，瀏覽至 [app]   > [src]   > [main]   > [res]   > [layout]  ，然後開啟 [activity_main.xml]  ，並開啟 [文字]  檢視。
-2. 變更活動配置，例如：從 `<androidx.coordinatorlayout.widget.CoordinatorLayout` 變更為 `<androidx.coordinatorlayout.widget.LinearLayout`。
+2. 變更活動配置，例如：從 `<androidx.coordinatorlayout.widget.CoordinatorLayout` 變更為 `<androidx.coordinatorlayout.widget.DrawerLayout`。 
 3. 將 `android:orientation="vertical"` 屬性新增至 `LinearLayout` 節點。
 4. 將下列程式碼貼到 `LinearLayout` 節點中，並取代目前的內容：
 
@@ -176,13 +177,13 @@ ms.locfileid: "68852452"
 
     ```gradle  
     implementation 'com.android.volley:volley:1.1.1'
-    implementation 'com.microsoft.identity.client:msal:0.3.+'
+    implementation 'com.microsoft.identity.client:msal:1.0.+'
     ```
 
 ### <a name="use-msal"></a>使用 MSAL
 
 現在，請在 `MainActivity.java` 內進行變更，以在您的應用程式中新增和使用 MSAL。
-在 Android Studio 專案視窗中，瀏覽至 [app]   > [src]   > [main]   > [java]   > [com.example.msal]  ，然後開啟 `MainActivity.java`。
+在 Android Studio 專案視窗中，瀏覽至 [app]   > [src]   > [main]   > [java]   > [com.example.(您的應用程式)]  ，然後開啟 `MainActivity.java`。
 
 #### <a name="required-imports"></a>必要的匯入項目
 

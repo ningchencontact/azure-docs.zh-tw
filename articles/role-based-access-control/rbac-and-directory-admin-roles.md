@@ -11,16 +11,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
-ms.date: 02/22/2019
+ms.date: 10/01/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: it-pro;
-ms.openlocfilehash: e9ce71f12d50aa414579e5fc7c2961156965a337
-ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
+ms.openlocfilehash: 1fe1d50f24c70c89ea0fbaa952673cdeacc4f1bf
+ms.sourcegitcommit: 4f3f502447ca8ea9b932b8b7402ce557f21ebe5a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71037533"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71803152"
 ---
 # <a name="classic-subscription-administrator-roles-azure-rbac-roles-and-azure-ad-administrator-roles"></a>傳統訂用帳戶管理員角色、Azure RBAC 角色和 Azure AD 管理員角色
 
@@ -45,7 +45,7 @@ ms.locfileid: "71037533"
 | 傳統訂用帳戶管理員 | 限制 | 權限 | 注意 |
 | --- | --- | --- | --- |
 | 帳戶管理員 | 每個 Azure 帳戶 1 名 | <ul><li>存取 [Azure 帳戶中心](https://account.azure.com/Subscriptions)</li><li>管理帳戶中的所有訂用帳戶</li><li>建立新的訂用帳戶</li><li>取消訂用帳戶</li><li>變更訂用帳戶的計費</li><li>變更服務管理員</li></ul> | 在概念上，就是訂用帳戶的計費擁有者。<br>帳戶管理員無法存取 Azure 入口網站。 |
-| 服務管理員 | 每個 Azure 訂用帳戶 1 名 | <ul><li>在 [Azure 入口網站](https://portal.azure.com)中管理服務</li><li>將使用者指派給共同管理員角色</li></ul> | 根據預設，新訂用帳戶的帳戶管理員也是服務管理員。<br>服務管理員與在訂用帳戶範圍獲派擁有者角色的使用者具有同等的存取權。<br>服務管理員可完整存取 Azure 入口網站。 |
+| 服務管理員 | 每個 Azure 訂用帳戶 1 名 | <ul><li>在 [Azure 入口網站](https://portal.azure.com)中管理服務</li><li>取消訂用帳戶</li><li>將使用者指派給共同管理員角色</li></ul> | 根據預設，新訂用帳戶的帳戶管理員也是服務管理員。<br>服務管理員與在訂用帳戶範圍獲派擁有者角色的使用者具有同等的存取權。<br>服務管理員可完整存取 Azure 入口網站。 |
 | 共同管理員 | 每個訂用帳戶 200 名 | <ul><li>具有與服務管理員相同的存取權限，但無法變更訂用帳戶與 Azure 目錄的關聯</li><li>將使用者指派給共同管理員角色，但無法變更服務管理員</li></ul> | 共同管理員與在訂用帳戶範圍獲派擁有者角色的使用者具有同等的存取權。 |
 
 在 Azure 入口網站中，您可以使用 [傳統管理員]  索引標籤管理共同管理員或檢視服務管理員。
@@ -63,6 +63,8 @@ ms.locfileid: "71037533"
 Azure 帳戶代表計費關聯性。 Azure 帳戶就是使用者身分識別、一或多個 Azure 訂用帳戶，以及一組相關聯的 Azure 資源。 建立帳戶的人員就是該帳戶中所有訂用帳戶的帳戶管理員。 該人員也是訂用帳戶的預設服務管理員。
 
 Azure 訂用帳戶可協助您組織 Azure 資源的存取權。 它們也可協助您控制如何根據資源使用量產生報告、計費及付費。 每個訂用帳戶可以有不同的計費和付款設定，因此，依照辦公室、部門、專案等等，您可有不同的訂用帳戶和不同的方案。 每個服務都屬於某個訂用帳戶，而且需要訂用帳戶識別碼才能進行程式設計作業。
+
+每個訂用帳戶都與 Azure AD 目錄相關聯。 若要尋找與訂用帳戶相關聯的目錄，請在 Azure 入口網站中開啟 [訂用帳戶]  ，然後選取訂用帳戶以查看目錄。
 
 帳戶和訂用帳戶都是在 [Azure 帳戶中心](https://account.azure.com/Subscriptions)中管理。
 

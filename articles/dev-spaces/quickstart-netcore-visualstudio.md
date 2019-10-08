@@ -12,12 +12,12 @@ keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, 容器, Helm
 manager: gwallace
 ms.custom: vs-azure
 ms.workload: azure-vs
-ms.openlocfilehash: ece47c86fba6bc975a4146f596fa001014352a4f
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.openlocfilehash: 41dea16f7938d391f8cdf03e1a731e8082f74b26
+ms.sourcegitcommit: 8bae7afb0011a98e82cbd76c50bc9f08be9ebe06
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68725848"
+ms.lasthandoff: 10/01/2019
+ms.locfileid: "71695479"
 ---
 # <a name="quickstart-debug-and-iterate-with-visual-studio-and-net-core-on-kubernetes-with-azure-dev-spaces"></a>快速入門：在 Kubernetes 上使用 Azure Dev Spaces 以 Visual Studio 和 .NET Core 進行偵錯和逐一查看
 
@@ -26,6 +26,11 @@ ms.locfileid: "68725848"
 - 使用 Azure 中受管理的 Kubernetes 叢集，設定 Azure Dev Spaces。
 - 使用 Visual Studio 在容器中反覆開發程式碼。
 - 使用 Visual Studio 對叢集中執行的程式碼進行偵錯。
+
+Azure Dev Spaces 也可讓您使用下列工具進行偵錯和逐一查看：
+- [Java 和 Visual Studio Code](quickstart-java.md)
+- [Node.js 和 Visual Studio Code](quickstart-nodejs.md)
+- [.NET Core 和 Visual Studio Code](quickstart-netcore.md)
 
 ## <a name="prerequisites"></a>必要條件
 

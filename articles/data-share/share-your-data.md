@@ -1,17 +1,17 @@
 ---
-title: 教學課程 - 使用 Azure Data Share Preview 與客戶及合作夥伴共用資料
+title: 教學課程：在貴組織外部共用 - Azure Data Share 預覽版
 description: 教學課程 - 使用 Azure Data Share Preview 與客戶及合作夥伴共用資料
 author: joannapea
+ms.author: joanpo
 ms.service: data-share
 ms.topic: tutorial
 ms.date: 07/10/2019
-ms.author: joanpo
-ms.openlocfilehash: 01888f3656765b922c1b646e7ca8e07d81e799f3
-ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
+ms.openlocfilehash: f7df46a6a6f149ef0228fda8c967469a25dc3d50
+ms.sourcegitcommit: e9936171586b8d04b67457789ae7d530ec8deebe
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67838435"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71327407"
 ---
 # <a name="tutorial-share-your-data-using-azure-data-share-preview"></a>教學課程：使用 Azure Data Share Preview 共用資料
 
@@ -27,7 +27,7 @@ ms.locfileid: "67838435"
 
 ## <a name="prerequisites"></a>必要條件
 
-* Azure 訂用帳戶：如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/) 。
+* Azure 訂用帳戶：如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶](https://azure.microsoft.com/free/)。
 * Azure 儲存體帳戶：如果您還沒有此帳戶，則可以建立 [Azure 儲存體帳戶](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account)
 * 將角色指派新增至儲存體帳戶的權限，其存在於 Microsoft.Authorization/role assignments/write  權限中。 此權限存在於擁有者角色中。 
 * 您收件者的 Azure 登入電子郵件地址 (不能使用其電子郵件別名)。
@@ -50,10 +50,10 @@ ms.locfileid: "67838435"
 
      **設定** | **建議的值** | **欄位描述**
     |---|---|---|
-    | Name | datashareacount  | 指定資料共用帳戶的名稱。 |
-    | Subscription | 您的訂用帳戶 | 選取您要用於資料共用帳戶的 Azure 訂用帳戶。|
-    | Resource group | *test-resource-group* | 使用現有資源群組，或建立新的資源群組。 |
-    | Location | 美國東部 2  | 選取資料共用帳戶的區域。
+    | 名稱 | datashareacount  | 指定資料共用帳戶的名稱。 |
+    | 訂用帳戶 | 您的訂用帳戶 | 選取您要用於資料共用帳戶的 Azure 訂用帳戶。|
+    | 資源群組 | *test-resource-group* | 使用現有資源群組，或建立新的資源群組。 |
+    | 位置 | 美國東部 2  | 選取資料共用帳戶的區域。
     | | |
 
 1. 選取 [建立]  來佈建資料共用帳戶。 佈建新的資料共用帳戶一般需要大約不到 2 分鐘的時間。 

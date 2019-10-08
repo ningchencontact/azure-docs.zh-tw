@@ -13,12 +13,12 @@ ms.topic: tutorial
 ms.date: 12/05/2018
 ms.author: tomfitz
 ms.custom: mvc
-ms.openlocfilehash: 8c551e5c61c091e46870efcc8bffcb669aa78ea9
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: cb0050f79f2f6a38b9cd58ee87aa88899f0f5a15
+ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70100324"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71674996"
 ---
 # <a name="tutorial-learn-about-windows-virtual-machine-management-with-azure-powershell"></a>教學課程：了解如何使用 Azure PowerShell 來管理 Windows 虛擬機器
 
@@ -235,8 +235,8 @@ Remove-AzResourceGroup -Name myResourceGroup
 > * 使用鎖定保護重要資源
 > * 標記資源以進行計費和管理
 
-請前進到下一個教學課程，以了解如何使虛擬機器具備高可用性。
+請繼續進行下一個教學課程，以了解如何在 Linux 虛擬機器上識別變更及管理套件更新。
 
 > [!div class="nextstepaction"]
-> [監視虛擬機器](tutorial-monitoring.md)
+> [管理虛擬機器](tutorial-config-management.md)
 

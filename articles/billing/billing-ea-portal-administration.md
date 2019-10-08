@@ -4,16 +4,16 @@ description: 本文將說明系統管理員在 Azure EA 入口網站中完成的
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 09/18/2019
+ms.date: 09/25/2019
 ms.topic: conceptual
 ms.service: billing
 manager: boalcsva
-ms.openlocfilehash: 236a8d6d280e75102df84fec5ab3df51f7ba355b
-ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
+ms.openlocfilehash: 87947fb29d8fa7dd86818caef139e776c04c7650
+ms.sourcegitcommit: 0486aba120c284157dfebbdaf6e23e038c8a5a15
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71105474"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71308095"
 ---
 # <a name="azure-ea-portal-administration"></a>Azure EA 入口網站系統管理員
 
@@ -31,7 +31,7 @@ ms.locfileid: "71105474"
 
 Azure EA 系統管理員建立部門之後，Azure 企業系統管理員就可以新增部門系統管理員，並將其與部門產生關聯。 部門系統管理員可以建立新的帳戶。 必須有新帳戶，才能建立 Azure EA 訂用帳戶。
 
-如需有關新增部門的詳細資訊，請參閱＜建立 Azure EA 部門＞。
+如需新增部門管理員的詳細資訊，請參閱[建立 Azure EA 部門管理員](billing-ea-portal-get-started.md#add-a-department-admin)。
 
 ## <a name="enterprise-user-roles"></a>企業使用者角色
 
@@ -124,14 +124,14 @@ Azure EA 帳戶是 Azure EA 入口網站中用來管理訂用帳戶的組織單�
 
 當您要求註冊轉移時，請提供下列資訊：
 
-- 針對來源註冊，須提供要轉移的註冊號碼和帳戶
-- 針對目標註冊，須提供轉移目的地的註冊號碼和帳戶
+- 針對來源註冊，須提供要轉移的註冊號碼和帳戶。
+- 針對目標註冊，須提供轉移目的地的註冊號碼和帳戶。
 - 針對註冊轉移有效日期，可以是目標註冊開始日期或其之後的日期。 選擇的日期無法影響已發出之超額發票的使用量。
 
 註冊轉移之前要記住的其他幾點：
 
-- 目標和來源註冊都需要 EA 系統管理員的核准
-  - 在某些情況下，Microsoft 可能會向來源註冊的 EA 系統管理員要求額外核准
+- 目標和來源註冊都需要 EA 系統管理員的核准。
+  - 在某些情況下，Microsoft 可能會向來源註冊的 EA 系統管理員要求額外核准。
 - 如果註冊轉移不符合您的需求，請考慮帳戶轉移。
 - 只有您指定的帳戶會轉移。 您可以要求轉移所有帳戶。
 - 來源註冊會將其狀態保持為 [作用中]/[已擴充]。 您可以繼續使用註冊，直到到期為止。
@@ -208,7 +208,7 @@ Azure EA 入口網站可以將訂用帳戶從一個帳戶擁有者轉移至另�
 6. 視需要新增連絡人，然後按一下 [新增]  。
 7. 按一下 [檔案]  。
 
-![顯示新增連絡人以加入連絡人的範例 ](./media/billing-ea-portal-administration/create-ea-manage-partner-notification.png)
+![顯示 [新增連絡人] 方塊的範例 ](./media/billing-ea-portal-administration/create-ea-manage-partner-notification.png)
 
 ## <a name="azure-sponsorship-offer"></a>Azure 贊助供應項目
 Azure 贊助供應項目是有贊助限制的 Microsoft Azure 帳戶。 只有 Microsoft 所選的限定客戶，才能收到電子郵件邀請。 若您獲選參加 Microsoft Azure 贊助供應項目，您將會收到屬於您帳戶識別碼的電子郵件邀請。

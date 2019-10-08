@@ -13,16 +13,16 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 07/25/2019
+ms.date: 09/27/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fb2e3e45da0a072eadb0eac9f8a0266f9e14cda2
-ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
+ms.openlocfilehash: 5330111e5ae56471d26ebc39dca1a036246945e1
+ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69031970"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71348623"
 ---
 # <a name="authentication-flows-and-application-scenarios"></a>驗證流程和應用程式情節
 
@@ -169,33 +169,97 @@ MSAL iOS 和 MSAL Android 預設會使用系統網頁瀏覽器。 不過，您�
 
 涉及取得權杖的案例也會對應至 [Microsoft 身分識別平台通訊協定](active-directory-v2-protocols.md)中所述的 OAuth 2.0 驗證流程
 
-|案例 | 詳細情節逐步解說 | OAuth 2.0 Flow/Grant | 對象 |
-|--|--|--|--|
-| [![單一頁面應用程式](media/scenarios/spa-app.svg)](scenario-spa-overview.md) | [單一頁面應用程式](scenario-spa-overview.md) | [隱含](v2-oauth2-implicit-grant-flow.md) | 公司或學校帳戶與個人帳戶、B2C
-| [![登入使用者的 Web 應用程式](media/scenarios/scenario-webapp-signs-in-users.svg)](scenario-web-app-sign-user-overview.md) | [登入使用者的 Web 應用程式](scenario-web-app-sign-user-overview.md) | [授權碼](v2-oauth2-auth-code-flow.md) | 公司或學校帳戶與個人帳戶、B2C |
-| [![呼叫 Web API 的 Web 應用程式](media/scenarios/web-app.svg)](scenario-web-app-call-api-overview.md) | [呼叫 Web API 的 Web 應用程式](scenario-web-app-call-api-overview.md) | [授權碼](v2-oauth2-auth-code-flow.md) | 公司或學校帳戶與個人帳戶、B2C |
-| [![呼叫 Web API 的傳統型應用程式](media/scenarios/desktop-app.svg)](scenario-desktop-overview.md) | [呼叫 Web API 的傳統型應用程式](scenario-desktop-overview.md)| 互動式 (具有 PKCE 的[授權碼](v2-oauth2-auth-code-flow.md)) | 公司或學校帳戶與個人帳戶、B2C |
-| | | 整合的 Windows | 公司或學校帳戶 |
-| | | [資源擁有者密碼](v2-oauth-ropc.md)  | 公司或學校帳戶、B2C |
-| ![裝置程式碼流程](media/scenarios/device-code-flow-app.svg)| [呼叫 Web API 的傳統型應用程式](scenario-desktop-overview.md) | [裝置程式碼](v2-oauth2-device-code.md)  | 公司或學校帳戶* |
-| [![呼叫 Web API 的行動裝置應用程式](media/scenarios/mobile-app.svg)](scenario-mobile-overview.md) | [呼叫 Web API 的行動裝置應用程式](scenario-mobile-overview.md) | 互動式 (具有 PKCE 的[授權碼](v2-oauth2-auth-code-flow.md))  |   公司或學校帳戶與個人帳戶、B2C
-| | | 資源擁有者密碼  | 公司或學校帳戶、B2C |
-| [![精靈應用程式](media/scenarios/daemon-app.svg)](scenario-daemon-overview.md) | [精靈應用程式](scenario-daemon-overview.md) | [用戶端認證](v2-oauth2-client-creds-grant-flow.md)  |   僅限應用程式權限 (無使用者) 僅限 AAD 組織
-| [![呼叫 Web API 的 Web API](media/scenarios/web-api.svg)](scenario-web-api-call-api-overview.md) | [呼叫 Web API 的 Web API](scenario-web-api-call-api-overview.md)| [代表](v2-oauth2-on-behalf-of-flow.md) | 公司或學校帳戶與個人帳戶 |
+<table>
+ <thead>
+  <tr><th>案例</th> <th>詳細情節逐步解說</th> <th>OAuth 2.0 Flow/Grant</th> <th>對象</th></tr>
+ </thead>
+ <tbody>
+  <tr>
+   <td><a href="scenario-spa-overview.md"><img alt="Single Page App" src="media/scenarios/spa-app.svg"></a></td>
+   <td><a href="scenario-spa-overview.md">單一頁面應用程式</a></td>
+   <td><a href="v2-oauth2-implicit-grant-flow.md">隱含</a></td>
+   <td>公司或學校帳戶與個人帳戶、B2C</td>
+ </tr>
+
+  <tr>
+   <td><a href="scenario-web-app-sign-user-overview.md"><img alt="Web App that signs in users" src="media/scenarios/scenario-webapp-signs-in-users.svg"></a></td>
+   <td><a href="scenario-web-app-sign-user-overview.md">登入使用者的 Web 應用程式</a></td>
+   <td><a href="v2-oauth2-auth-code-flow.md">授權碼</a></td>
+   <td>公司或學校帳戶與個人帳戶、B2C</td>
+ </tr>
+
+  <tr>
+   <td><a href="scenario-web-app-call-api-overview.md"><img alt="Web App that signs in users" src="media/scenarios/web-app.svg"></a></td>
+   <td><a href="scenario-web-app-call-api-overview.md">呼叫 Web API 的 Web 應用程式</a></td>
+   <td><a href="v2-oauth2-auth-code-flow.md">授權碼</a></td>
+   <td>公司或學校帳戶與個人帳戶、B2C</td>
+ </tr>
+
+  <tr>
+   <td rowspan="3"><a href="scenario-desktop-overview.md"><img alt=Desktop app that calls web APIs" src="media/scenarios/desktop-app.svg"></a></td>
+   <td rowspan="4"><a href="scenario-desktop-overview.md">呼叫 Web API 的傳統型應用程式</a></td>
+   <td>互動式 (具有 PKCE 的<a href="v2-oauth2-auth-code-flow.md">授權碼</a>)</td>
+   <td>公司或學校帳戶與個人帳戶、B2C</td>
+ </tr>
+
+  <tr>
+   <td>整合式 Windows 驗證</td>
+   <td>公司或學校帳戶</td>
+ </tr>
+
+  <tr>
+   <td><a href="v2-oauth-ropc.md">資源擁有者密碼</a></td>
+   <td>公司或學校帳戶、B2C</td>
+ </tr>
+
+  <tr>
+   <td><a href="scenario-desktop-acquire-token.md#command-line-tool-without-web-browser"><img alt="Browserless application" src="media/scenarios/device-code-flow-app.svg"></a></td>
+   <td><a href="v2-oauth2-device-code.md">裝置程式碼</a></td>
+   <td>公司或學校帳戶*</td>
+ </tr>
+
+ <tr>
+   <td rowspan="2"><a href="scenario-mobile-overview.md"><img alt="Mobile app that calls web APIs" src="media/scenarios/mobile-app.svg"></a></td>
+   <td rowspan="2"><a href="scenario-mobile-overview.md">呼叫 Web API 的行動裝置應用程式</a></td>
+   <td>互動式 (具有 PKCE 的<a href="v2-oauth2-auth-code-flow.md">授權碼</a>)</td>
+   <td>公司或學校帳戶與個人帳戶、B2C</td>
+ </tr>
+
+  <tr>
+   <td><a href="v2-oauth-ropc.md">資源擁有者密碼</a></td>
+   <td>公司或學校帳戶、B2C</td>
+ </tr>
+
+  <tr>
+   <td><a href="scenario-daemon-overview.md"><img alt="Daemon app that calls Web APIs" src="media/scenarios/daemon-app.svg"></a></td>
+   <td><a href=scenario-daemon-overview.md">呼叫 Web API 的精靈應用程式</a></td>
+   <td><a href="v2-oauth2-client-creds-grant-flow.md">用戶端認證</a></td>
+   <td>僅限應用程式權限 (無使用者) 僅限 AAD 組織</td>
+ </tr>
+
+  <tr>
+   <td><a href=scenario-web-api-call-api-overview.md"><img alt="Web API that calls web APIs" src="media/scenarios/web-api.svg"></a></td>
+   <td><a href=scenario-web-api-call-api-overview.md">呼叫 Web API 的 Web API</a></td>
+   <td><a href="v2-oauth2-on-behalf-of-flow.md">代表</a></td>
+   <td>公司或學校帳戶與個人帳戶</td>
+ </tr>
+
+ </tbody>
+</table>
 
 ## <a name="scenarios-and-supported-platforms-and-languages"></a>情節與支援的平台與語言
 
-並非每個平台都可使用每種應用程式類型。 您也可以使用各種語言來建置應用程式。 Microsoft 驗證程式庫支援多種**平台** (JavaScript、.NET Framework、.NET Core、Windows 10/UWP、Xamarin.iOS、Xamarin.Android、原生 iOS、原生 Android、Java、Python)
+並非每個平台都可使用每種應用程式類型。 您也可以使用各種語言來建置應用程式。 Microsoft 驗證程式庫支援多種**平台** (JavaScript、.NET Framework、.NET Core、Windows 10/UWP、Xamarin.iOS、Xamarin.Android、原生 iOS、Mac OS、原生 Android、Java、Python)。 在下表中，針對 Windows，每次提及 .NET Core 時，.NET Framework 也可行 (會被省略以避免資料表雜亂)
 
 |案例  | Windows | Linux | Mac | iOS | Android
 |--|--|--|--|--|--|--|
-| [單一頁面應用程式](scenario-spa-overview.md) <br/>[![單一頁面應用程式](media/scenarios/spa-app.svg)](scenario-spa-overview.md) | ![MSAL.js](media/sample-v2-code/logo_js.png) MSAL.js | ![MSAL.js](media/sample-v2-code/logo_js.png) MSAL.js | ![MSAL.js](media/sample-v2-code/logo_js.png) MSAL.js | ![MSAL.js](media/sample-v2-code/logo_js.png) MSAL.js | ![MSAL.js](media/sample-v2-code/logo_js.png) MSAL.js
-| [登入使用者的 Web 應用程式](scenario-web-app-sign-user-overview.md) <br/>[![登入使用者的 Web 應用程式](media/scenarios/scenario-webapp-signs-in-users.svg)](scenario-web-app-sign-user-overview.md) | ![ASP.NET](media/sample-v2-code/logo_NET.png)</br> ASP.NET ![ASP.NET Core](media/sample-v2-code/logo_NETcore.png)ASP.NET Core | ![ASP.NET Core](media/sample-v2-code/logo_NETcore.png)ASP.NET Core | ![ASP.NET Core](media/sample-v2-code/logo_NETcore.png)ASP.NET Core
-| [呼叫 Web API 的 Web 應用程式](scenario-web-app-call-api-overview.md) <br/> [![呼叫 Web API 的 Web 應用程式](media/scenarios/web-app.svg)](scenario-web-app-call-api-overview.md) | ![ASP.NET](media/sample-v2-code/logo_NET.png) </br> ASP.NET + MSAL.NET </br> ![ASP.NET Core](media/sample-v2-code/logo_NETcore.png)ASP.NET Core + MSAL.NET ![MSAL Java](media/sample-v2-code/logo_java.png) msal4j ![MSAL Python](media/sample-v2-code/logo_python.png) Flask + MSAL Python| ![ASP.NET Core](media/sample-v2-code/logo_NETcore.png)ASP.NET Core + MSAL.NET ![MSAL Java](media/sample-v2-code/logo_java.png) msal4j ![MSAL Python](media/sample-v2-code/logo_python.png) Flask + MSAL Python| ![ASP.NET Core](media/sample-v2-code/logo_NETcore.png)ASP.NET Core + MSAL.NET ![MSAL Java](media/sample-v2-code/logo_java.png) msal4j ![MSAL Python](media/sample-v2-code/logo_python.png) Flask + MSAL Python
-| [呼叫 Web API 的傳統型應用程式](scenario-desktop-overview.md) <br/> [![呼叫 Web API 的傳統型應用程式](media/scenarios/desktop-app.svg)](scenario-desktop-overview.md) ![裝置程式碼流程](media/scenarios/device-code-flow-app.svg) | ![MSAL.NET](media/sample-v2-code/logo_NET.png)  MSAL.NET ![.NET Core](media/sample-v2-code/logo_NETcore.png) MSAL.NET ![MSAL Java](media/sample-v2-code/logo_java.png) msal4j ![MSAL Python](media/sample-v2-code/logo_python.png) MSAL Python| ![.NET Core](media/sample-v2-code/logo_NETcore.png)MSAL.NET ![MSAL Java](media/sample-v2-code/logo_java.png) msal4j ![MSAL Python](media/sample-v2-code/logo_python.png) MSAL Python| ![.NET Core](media/sample-v2-code/logo_NETcore.png) MSAL.NET ![MSAL Java](media/sample-v2-code/logo_java.png) msal4j ![MSAL Python](media/sample-v2-code/logo_python.png) MSAL Python
-| [呼叫 Web API 的行動裝置應用程式](scenario-mobile-overview.md) <br/> [![呼叫 Web API 的行動裝置應用程式](media/scenarios/mobile-app.svg)](scenario-mobile-overview.md) | ![UWP](media/sample-v2-code/logo_windows.png) MSAL.NET ![Xamarin](media/sample-v2-code/logo_xamarin.png) MSAL.NET | | | ![iOS/Objective C 或 swift](media/sample-v2-code/logo_iOS.png) MSAL.iOS | ![Android](media/sample-v2-code/logo_Android.png) MSAL.Android
-| [精靈應用程式](scenario-daemon-overview.md) <br/> [![精靈應用程式](media/scenarios/daemon-app.svg)](scenario-daemon-overview.md) | ![.NET](media/sample-v2-code/logo_NET.png) MSAL.NET ![.NET Core](media/sample-v2-code/logo_NETcore.png)MSAL.NET ![MSAL Java](media/sample-v2-code/logo_java.png) msal4j ![MSAL Python](media/sample-v2-code/logo_python.png) MSAL Python| ![.NET Core](media/sample-v2-code/logo_NETcore.png) MSAL.NET ![MSAL Java](media/sample-v2-code/logo_java.png) msal4j ![MSAL Python](media/sample-v2-code/logo_python.png) MSAL Python| ![.NET Core](media/sample-v2-code/logo_NETcore.png)MSAL.NET ![MSAL Java](media/sample-v2-code/logo_java.png) msal4j ![MSAL Python](media/sample-v2-code/logo_python.png) MSAL Python
-| [呼叫 Web API 的 Web API](scenario-web-api-call-api-overview.md) <br/> [![呼叫 Web API 的 Web API](media/scenarios/web-api.svg)](scenario-web-api-call-api-overview.md) | ![.NET](media/sample-v2-code/logo_NET.png) MSAL.NET ![.NET Core](media/sample-v2-code/logo_NETcore.png)MSAL.NET ![MSAL Java](media/sample-v2-code/logo_java.png) msal4j ![MSAL Python](media/sample-v2-code/logo_python.png) MSAL Python| ![.NET Core](media/sample-v2-code/logo_NETcore.png) MSAL.NET ![MSAL Java](media/sample-v2-code/logo_java.png) msal4j ![MSAL Python](media/sample-v2-code/logo_python.png) MSAL Python| ![.NET Core](media/sample-v2-code/logo_NETcore.png)MSAL.NET ![MSAL Java](media/sample-v2-code/logo_java.png) msal4j ![MSAL Python](media/sample-v2-code/logo_python.png) MSAL Python
+| [單一頁面應用程式](scenario-spa-overview.md) <br/>[![單一頁面應用程式](media/scenarios/spa-app.svg)](scenario-spa-overview.md) | ![MSAL.js](media/sample-v2-code/small_logo_js.png)<br/>MSAL.js | ![MSAL.js](media/sample-v2-code/small_logo_js.png)<br/>MSAL.js | ![MSAL.js](media/sample-v2-code/small_logo_js.png)<br/>MSAL.js | ![MSAL.js](media/sample-v2-code/small_logo_js.png) MSAL.js | ![MSAL.js](media/sample-v2-code/small_logo_js.png)<br/>MSAL.js
+| [登入使用者的 Web 應用程式](scenario-web-app-sign-user-overview.md) <br/>[![登入使用者的 Web 應用程式](media/scenarios/scenario-webapp-signs-in-users.svg)](scenario-web-app-sign-user-overview.md) | ![ASP.NET Core](media/sample-v2-code/small_logo_NETcore.png)<br/>ASP.NET Core | ![ASP.NET Core](media/sample-v2-code/small_logo_NETcore.png)<br/>ASP.NET Core | ![ASP.NET Core](media/sample-v2-code/small_logo_NETcore.png)<br/>ASP.NET Core
+| [呼叫 Web API 的 Web 應用程式](scenario-web-app-call-api-overview.md) <br/> <br/>[![呼叫 Web API 的 Web 應用程式](media/scenarios/web-app.svg)](scenario-web-app-call-api-overview.md) | ![ASP.NET Core](media/sample-v2-code/small_logo_NETcore.png)<br/>ASP.NET Core + MSAL.NET ![MSAL Java](media/sample-v2-code/small_logo_java.png) <br/>msal4j<br/>![MSAL Python](media/sample-v2-code/small_logo_python.png)<br/>Flask + MSAL Python| ![ASP.NET Core](media/sample-v2-code/small_logo_NETcore.png)<br/>ASP.NET Core + MSAL.NET ![MSAL Java](media/sample-v2-code/small_logo_java.png)<br/>msal4j<br/>![MSAL Python](media/sample-v2-code/small_logo_python.png)<br/>Flask + MSAL Python| ![ASP.NET Core](media/sample-v2-code/small_logo_NETcore.png)<br/>ASP.NET Core + MSAL.NET ![MSAL Java](media/sample-v2-code/small_logo_java.png)<br/>msal4j<br/> ![MSAL Python](media/sample-v2-code/small_logo_python.png)<br/>Flask + MSAL Python
+| [呼叫 Web API 的傳統型應用程式](scenario-desktop-overview.md) <br/> <br/>[![呼叫 Web API 的傳統型應用程式](media/scenarios/desktop-app.svg)](scenario-desktop-overview.md) ![裝置程式碼流程](media/scenarios/device-code-flow-app.svg) | ![.NET Core](media/sample-v2-code/small_logo_NETcore.png)MSAL.NET ![MSAL Java](media/sample-v2-code/small_logo_java.png)<br/>msal4j<br/> ![MSAL Python](media/sample-v2-code/small_logo_python.png)<br/>MSAL Python| ![.NET Core](media/sample-v2-code/small_logo_NETcore.png)MSAL.NET ![MSAL Java](media/sample-v2-code/small_logo_java.png)msal4j<br/>![MSAL Python](media/sample-v2-code/small_logo_python.png)<br/>MSAL Python| ![.NET Core](media/sample-v2-code/small_logo_NETcore.png)MSAL.NET ![MSAL Java](media/sample-v2-code/small_logo_java.png)<br/>msal4j<br/>![MSAL Python](media/sample-v2-code/small_logo_python.png)<br/>MSAL Python <br/> MSAL.objc |
+| [呼叫 Web API 的行動裝置應用程式](scenario-mobile-overview.md) <br/> [![呼叫 Web API 的行動裝置應用程式](media/scenarios/mobile-app.svg)](scenario-mobile-overview.md) | ![UWP](media/sample-v2-code/small_logo_windows.png) MSAL.NET ![Xamarin](media/sample-v2-code/small_logo_xamarin.png) MSAL.NET | | | ![iOS/Objective C 或 swift](media/sample-v2-code/small_logo_iOS.png) MSAL.objc | ![Android](media/sample-v2-code/small_logo_Android.png) MSAL.Android
+| [精靈應用程式](scenario-daemon-overview.md) <br/> [![精靈應用程式](media/scenarios/daemon-app.svg)](scenario-daemon-overview.md) | ![.NET Core](media/sample-v2-code/small_logo_NETcore.png)MSAL.NET ![MSAL Java](media/sample-v2-code/small_logo_java.png)<br/>msal4j<br/>![MSAL Python](media/sample-v2-code/small_logo_python.png)<br/>MSAL Python| ![.NET Core](media/sample-v2-code/small_logo_NETcore.png) MSAL.NET ![MSAL Java](media/sample-v2-code/small_logo_java.png)<br/>msal4j<br/>![MSAL Python](media/sample-v2-code/small_logo_python.png)<br/>MSAL Python| ![.NET Core](media/sample-v2-code/small_logo_NETcore.png)MSAL.NET ![MSAL Java](media/sample-v2-code/small_logo_java.png)<br/>msal4j<br/>![MSAL Python](media/sample-v2-code/small_logo_python.png)<br/>MSAL Python
+| [呼叫 Web API 的 Web API](scenario-web-api-call-api-overview.md) <br/><br/> [![呼叫 Web API 的 Web API](media/scenarios/web-api.svg)](scenario-web-api-call-api-overview.md) | ![ASP.NET Core](media/sample-v2-code/small_logo_NETcore.png)<br/>ASP.NET Core + MSAL.NET ![MSAL Java](media/sample-v2-code/small_logo_java.png)<br/>msal4j<br/>![MSAL Python](media/sample-v2-code/small_logo_python.png)<br/>MSAL Python| ![.NET Core](media/sample-v2-code/small_logo_NETcore.png)<br/>ASP.NET Core + MSAL.NET ![MSAL Java](media/sample-v2-code/small_logo_java.png)<br/>msal4j<br/>![MSAL Python](media/sample-v2-code/small_logo_python.png)<br/>MSAL Python| ![.NET Core](media/sample-v2-code/small_logo_NETcore.png)<br/>ASP.NET Core + MSAL.NET ![MSAL Java](media/sample-v2-code/small_logo_java.png)<br/>msal4j<br/>![MSAL Python](media/sample-v2-code/small_logo_python.png)<br/>MSAL Python
 
 另請參閱 [Microsoft 支援的程式庫 (依 OS/語言)](reference-v2-libraries.md#microsoft-supported-libraries-by-os--language)
 

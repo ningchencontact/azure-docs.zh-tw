@@ -10,14 +10,14 @@ ms.custom: mvc, seo-javascript-september2019
 ms.topic: tutorial
 ms.service: active-directory
 ms.subservice: B2C
-ms.openlocfilehash: 06bb71b27edf97f9b7e3333aef93af7bd0e0529e
-ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
+ms.openlocfilehash: 9b3d18a7f59415b27b1a70067c9a8a610140ca25
+ms.sourcegitcommit: 2d9a9079dd0a701b4bbe7289e8126a167cfcb450
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71064790"
+ms.lasthandoff: 09/29/2019
+ms.locfileid: "71672929"
 ---
-# <a name="tutorial-enable-authentication-in-a-single-page-application-using-azure-active-directory-b2c"></a>教學課程：使用 Azure Active Directory B2C 在單頁應用程式中啟用驗證
+# <a name="tutorial-enable-authentication-in-a-single-page-application-using-azure-active-directory-b2c-azure-ad-b2c"></a>教學課程：使用 Azure Active Directory B2C (Azure AD B2C) 在單頁應用程式中啟用驗證
 
 本教學課程將說明如何使用 AAzure Active Directory B2C (Azure AD B2C) 在單頁應用程式 (SPA) 中登入和註冊使用者。 Azure AD B2C 可讓您的應用程式使用開放式標準通訊協定向社交帳戶、企業帳戶和 Azure Active Directory 帳戶進行驗證。
 

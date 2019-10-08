@@ -4,15 +4,15 @@ description: 了解如何讓客戶在 Azure 委派的資源管理中上線，讓
 author: JnHs
 ms.author: jenhayes
 ms.service: lighthouse
-ms.date: 09/19/2019
+ms.date: 09/30/2019
 ms.topic: overview
 manager: carmonm
-ms.openlocfilehash: a199dde6b9e36683b817f908e385aabcc431ce16
-ms.sourcegitcommit: 116bc6a75e501b7bba85e750b336f2af4ad29f5a
+ms.openlocfilehash: b2e935a3a5ff2b6da99ad693f2d4e924ae811caf
+ms.sourcegitcommit: 8bae7afb0011a98e82cbd76c50bc9f08be9ebe06
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71155135"
+ms.lasthandoff: 10/01/2019
+ms.locfileid: "71694838"
 ---
 # <a name="onboard-a-customer-to-azure-delegated-resource-management"></a>讓客戶在 Azure 委派的資源管理中上線
 
@@ -113,11 +113,11 @@ az role definition list --name "<roleName>" | grep name
 
 ## <a name="create-an-azure-resource-manager-template"></a>建立 Azure Resource Manager 範本
 
-若要讓客戶上線，您必須建立包含下列各項的 [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/) \(部分機器翻譯\) 範本：
+若要讓客戶上線，您必須為供應項目建立包含下列資訊的 [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/) 範本。 當客戶在 Azure 入口網站的[服務提供者頁面](view-manage-service-providers.md)中檢視供應項目詳細資料時，**mspOfferName** 和 **mspOfferDescription** 值都會顯示。
 
 |欄位  |定義  |
 |---------|---------|
-|**mspName**     |服務提供者名稱         |
+|**mspOfferName**     |說明此定義的名稱。 此值會以供應項目標題的形式向客戶顯示。         |
 |**mspOfferDescription**     |您供應項目的簡短描述 (例如，「Contoso VM 管理供應項目」)      |
 |**managedByTenantId**     |您的租用戶識別碼         |
 |**authorizations**     |來自您租用戶使用者/群組/SPN 的 **principalId** 值，每個都包含 **principalIdDisplayName**，以協助您的客戶了解授權的目的，並且對應至內建 **roleDefinitionId** 值以指定存取層級         |
@@ -132,9 +132,9 @@ az role definition list --name "<roleName>" | grep name
 |訂用帳戶 (使用發佈至 Azure Marketplace 的供應項目時)   |[marketplaceDelegatedResourceManagement.json](https://github.com/Azure/Azure-Lighthouse-samples/blob/master/Azure-Delegated-Resource-Management/templates/marketplace-delegated-resource-management/marketplaceDelegatedResourceManagement.json)  |[marketplaceDelegatedResourceManagement.parameters.json](https://github.com/Azure/Azure-Lighthouse-samples/blob/master/Azure-Delegated-Resource-Management/templates/marketplace-delegated-resource-management/marketplaceDelegatedResourceManagement.parameters.json)    |
 
 > [!IMPORTANT]
-> 這裡描述的程序針對每個要上線的訂用帳戶，都需要個別部署。
-> 
-> 如果您要將不同訂用帳戶中的多個資源群組上線，您也需要個別部署。 不過，將單一訂用帳戶中的多個資源群組上線，是可在一次部署中完成的。
+> 這裡描述的程序針對每個要上線的訂用帳戶，都需要個別部署。 如果您要將不同訂用帳戶中的多個資源群組上線，您也需要個別部署。 不過，將單一訂用帳戶中的多個資源群組上線，是可在一次部署中完成的。
+>
+> 將多個供應項目套用至相同的訂用帳戶 (或訂用帳戶內的資源群組) 時，也需要個別部署。 所套用的每個供應專案必須使用不同的 **mspOfferName**。
 
 下列範例顯示將會用於訂用帳戶上線的已修改 **resourceProjection.parameters.json**。 與資源群組參數檔案 (位於 [rg-delegated-resource-management](https://github.com/Azure/Azure-Lighthouse-samples/tree/master/Azure-Delegated-Resource-Management/templates/rg-delegated-resource-management) 資料夾) 類似，但還包含 **rgName** 參數，以識別要上線的特定資源群組。
 
@@ -143,7 +143,7 @@ az role definition list --name "<roleName>" | grep name
     "$schema": "https://schema.management.azure.com/schemas/2018-05-01/subscriptionDeploymentParameters.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
-        "mspName": {
+        "mspOfferName": {
             "value": "Fabrikam Managed Services - Interstellar"
         },
         "mspOfferDescription": {

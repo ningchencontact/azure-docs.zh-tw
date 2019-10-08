@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: overview
 ms.date: 07/05/2019
 ms.author: erhopf
-ms.openlocfilehash: 0aa4286d8cb630f221613bebd13f7ea722224ac6
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: 993064a36bd12c95e83ffb7c9635c3e4dfcec0f0
+ms.sourcegitcommit: 4f3f502447ca8ea9b932b8b7402ce557f21ebe5a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70068835"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71803354"
 ---
 # <a name="what-are-the-speech-services"></a>什麼是語音服務？
 
@@ -41,6 +41,8 @@ Azure 語音服務是由以下功能所組成。 請使用此資料表中的連�
 
 了解 Azure 語音服務的新功能。
 
+* 2019 年 9 月
+  * 發行的語音 SDK 1.7.0。 如需更新、增強功能和已知問題的完整清單，請參閱[版本資訊](releasenotes.md)。
 * 2019 年 8 月
   * **新教學課程**：[使用語音 SDK 和 C# 透過聲音啟用 Bot](tutorial-voice-enable-your-bot-speech-sdk.md)
   * 針對 `en-US-JessaNeural` 語音新增說話風格 [`chat`](speech-synthesis-markup.md#adjust-speaking-styles)。 

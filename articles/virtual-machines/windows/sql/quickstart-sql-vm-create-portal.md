@@ -13,12 +13,12 @@ ms.workload: infrastructure-services
 ms.date: 07/11/2019
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 3ba804f76f8d443c0b49a9b4e5425333f01f0b9a
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: bbf127f105f0ef22a23f00541396c2ac66b0e5f9
+ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70102334"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71828370"
 ---
 # <a name="quickstart-create-a-sql-server-2017-windows-virtual-machine-in-the-azure-portal"></a>快速入門：在 Azure 入口網站中建立 SQL Server 2017 Windows 虛擬機器
 
@@ -35,7 +35,7 @@ ms.locfileid: "70102334"
 
 ## <a id="subscription"></a> 取得 Azure 訂用帳戶
 
-如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 。
+如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)。
 
 ## <a id="select"></a> 選取 SQL Server VM 映像
 
@@ -57,7 +57,7 @@ ms.locfileid: "70102334"
 
 1. 在 [專案詳細資料]  區段中選取您的 Azure 訂用帳戶，然後選取 [新建]  以建立新的資源群組。 輸入 _SQLVM-RG_ 作為名稱。
 
-   ![Subscription](media/quickstart-sql-vm-create-portal/basics-project-details.png)
+   ![訂用帳戶](media/quickstart-sql-vm-create-portal/basics-project-details.png)
 
 1. 在 [執行個體詳細資料]  下方：
     1. 輸入 _SQLVM_ 作為 [虛擬機器名稱]  。 
@@ -81,9 +81,10 @@ ms.locfileid: "70102334"
 在 [SQL Server 設定]  索引標籤上，設定下列選項：
 
 1. 在 [安全性與網路]  下方，針對 [SQL 連線]  選取 [公用 (網際網路)]  ，並將連接埠變更為 `1401`，以避免在公用案例中使用已知的連接埠號碼。 
-1. 在 [SQL 驗證]  下方，選取 [啟用]  。 SQL 登入設定為您對 VM 設定的相同使用者名稱和密碼。 使用 [Azure Key Vault 整合]  和 [儲存體組態]  的預設設定。  
+1. 在 [SQL 驗證]  下方，選取 [啟用]  。 SQL 登入設定為您對 VM 設定的相同使用者名稱和密碼。 使用 [**Azure Key Vault 整合**](virtual-machines-windows-ps-sql-keyvault.md)的預設設定。 **儲存體組態**不適用於基本 SQL Server VM 映像，但您可以在[儲存體組態](virtual-machines-windows-sql-server-storage-configuration.md#new-vms)中找到與其他映像的可用選項有關的詳細資訊。  
 
    ![SQL Server 安全性設定](media/quickstart-sql-vm-create-portal/sql-server-settings.png)
+
 
 1. 視需要變更任何其他設定，然後選取 [檢閱 + 建立]  。 
 

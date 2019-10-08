@@ -10,14 +10,16 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 07/05/2019
 ms.author: chlandsi
-ms.openlocfilehash: 01a2b9d5bad7d490f5ee9f6a21af5bc1308bdab1
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: d87fd06b45d1d3636c442d962daa79cf526e74f2
+ms.sourcegitcommit: 4f3f502447ca8ea9b932b8b7402ce557f21ebe5a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68553645"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71803275"
 ---
 # <a name="quickstart-recognize-speech-in-objective-c-on-ios-using-the-speech-sdk"></a>快速入門：使用語音 SDK 在 iOS 上以 Objective-C 辨識語音
+
+另備有[語音合成](quickstart-text-to-speech-objectivec-ios.md)的快速入門。
 
 [!INCLUDE [Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
 
@@ -34,8 +36,6 @@ ms.locfileid: "68553645"
 ## <a name="get-the-speech-sdk-for-ios"></a>取得適用於 iOS 的語音 SDK
 
 [!INCLUDE [License Notice](../../../includes/cognitive-services-speech-service-license-notice.md)]
-
-認知服務語音 SDK 目前的版本為 `1.6.0`。
 
 適用於 iOS 的認知服務語音 SDK 目前以 Cocoa Framework 的形式散發。
 您可以從[這裡](https://aka.ms/csspeech/iosbinary)加以下載。 請將檔案下載到您的主目錄。
@@ -87,7 +87,7 @@ ms.locfileid: "68553645"
     <string>Need microphone access for speech recognition from microphone.</string>
     ```
 
-## <a name="building-and-running-the-sample"></a>建置並執行範例
+## <a name="build-and-run-the-sample"></a>建置並執行範例
 
 1. 顯示偵錯輸出 ([檢視]   > [偵錯區域]   > [啟動主控台]  )。
 1. 在 [產品]   > [目的地]  功能表中的清單中，選擇 iOS 模擬器或是連接到您開發電腦的 iOS 裝置，當做應用程式的目的地。

@@ -1,25 +1,25 @@
 ---
 title: 部署管理工具 - Azure
-description: 如何安裝使用者介面工具以管理 Windows 虛擬桌面預覽版資源。
+description: 如何安裝使用者介面工具以管理 Windows 虛擬桌面資源。
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: tutorial
 ms.date: 06/04/2019
 ms.author: helohr
-ms.openlocfilehash: e0f9dbd9bf6b0c12d3e3f028ab9cd4c80cdb5124
-ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
+ms.openlocfilehash: f07403d8d0b2c6d0dd7a6b851a87b47b0c32501a
+ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68816497"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71679495"
 ---
 # <a name="tutorial-deploy-a-management-tool"></a>教學課程：部署管理工具
 
-管理工具提供使用者介面 (UI) 讓您管理 Microsoft 虛擬桌面預覽版資源。 在此教學課程中，您將學到如何部署及連線到管理工具。
+管理工具提供使用者介面 (UI) 讓您管理 Microsoft 虛擬桌面資源。 在此教學課程中，您將學到如何部署及連線到管理工具。
 
 >[!NOTE]
->這些指示適用於可搭配您組織現有程序使用的 Windows 虛擬桌面預覽版特定設定。
+>這些指示適用於可搭配您組織現有程序使用的 Windows 虛擬桌面特定設定。
 
 ## <a name="important-considerations"></a>重要考量︰
 

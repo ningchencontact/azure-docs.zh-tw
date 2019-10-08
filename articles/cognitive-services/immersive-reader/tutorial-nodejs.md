@@ -10,12 +10,12 @@ ms.subservice: immersive-reader
 ms.topic: tutorial
 ms.date: 06/20/2019
 ms.author: metan
-ms.openlocfilehash: e0c85dba22a7c689631a853bc22d58d1cc4093aa
-ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
+ms.openlocfilehash: 2a07e392170fb9e6993f4c560a4896a468d90820
+ms.sourcegitcommit: e1b6a40a9c9341b33df384aa607ae359e4ab0f53
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71104996"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71338494"
 ---
 # <a name="tutorial-launch-the-immersive-reader-nodejs"></a>教學課程：啟動沈浸式閱讀程式 (Node.js)
 
@@ -68,7 +68,7 @@ ClientSecret => Azure AD Application Service Principal password
 Subdomain    => Immersive Reader resource subdomain (resource 'Name' if the resource was created in the Azure portal, or 'CustomSubDomain' option if the resource was created with Azure CLI Powershell. Check the Azure portal for the subdomain on the Endpoint in the resource Overview page, for example, 'https://[SUBDOMAIN].cognitiveservices.azure.com/')
 ````
 
-擁有這些值之後，請建立名為 _.env_ 的新檔案，然後將下列程式碼貼入其中，並提供上述的自訂屬性值。
+擁有這些值之後，請建立名為 _.env_ 的新檔案，然後將下列程式碼貼入其中，並提供上述的自訂屬性值。 請勿包含引號或 "{" 和 "}" 字元。
 
 ```text
 TENANT_ID={YOUR_TENANT_ID}
@@ -85,44 +85,50 @@ SUBDOMAIN={YOUR_SUBDOMAIN}
 require('dotenv').config();
 ```
 
-開啟 _routes\index.js_ 檔案，並在檔案頂端加入下列程式碼：
+開啟 _routes\index.js_ 檔案，並以下列程式碼取代其內容。
+
+此程式碼會建立 API 端點，其可使用服務主體密碼取得 Azure AD 驗證權杖。 也會擷取子網域。 然後會傳回包含權杖和子網域的物件。
 
 ```javascript
 var request = require('request');
-```
+var express = require('express');
+var router = express.Router();
 
-接著，將下列程式碼直接加在該行下方。 此程式碼會建立 API 端點，其可使用服務主體密碼取得 Azure AD 驗證權杖，然後傳回該權杖。 另外還有可供存取子網域的第二個端點。
-
-```javascript
-router.get('/getimmersivereadertoken', function(req, res) {
-  request.post ({
-          headers: {
-              'content-type': 'application/x-www-form-urlencoded'
-          },
-          url: `https://login.windows.net/${process.env.TENANT_ID}/oauth2/token`,
-          form: {
-              grant_type: 'client_credentials',
-              client_id: process.env.CLIENT_ID,
-              client_secret: process.env.CLIENT_SECRET,
-              resource: 'https://cognitiveservices.azure.com/'
-          }
-      },
-      function(err, resp, token) {
-          if (err) {
-              return res.status(500).send('CogSvcs IssueToken error');
-          }
-
-          return res.send(JSON.parse(token).access_token);
-      }
+router.get('/getimmersivereaderlaunchparams', function(req, res) {
+    request.post ({
+                headers: {
+                    'content-type': 'application/x-www-form-urlencoded'
+                },
+                url: `https://login.windows.net/${process.env.TENANT_ID}/oauth2/token`,
+                form: {
+                    grant_type: 'client_credentials',
+                    client_id: process.env.CLIENT_ID,
+                    client_secret: process.env.CLIENT_SECRET,
+                    resource: 'https://cognitiveservices.azure.com/'
+                }
+        },
+        function(err, resp, tokenResponse) {
+                if (err) {
+                    return res.status(500).send('CogSvcs IssueToken error');
+                }
+        
+                const token = JSON.parse(tokenResponse).access_token;
+                const subdomain = process.env.SUBDOMAIN;
+                return res.send({token: token, subdomain: subdomain});
+        }
   );
 });
-
-router.get('/subdomain', function (req, res) {
-    return res.send(process.env.SUBDOMAIN);
+ 
+/* GET home page. */
+router.get('/', function(req, res, next) {
+  res.render('index', { title: 'Express' });
 });
+
+module.exports = router;
+
 ```
 
-**getimmersivereadertoken** API 端點在某種形式的驗證 (例如 [OAuth](https://oauth.net/2/)) 後面應受到保護，以防止未經授權的使用者取得權杖，用於沈浸式閱讀程式服務和計費；該工作已超出本教學課程的範圍。
+**getimmersivereaderlaunchparams** API 端點在某種形式的驗證 (例如 [OAuth](https://oauth.net/2/)) 後面應受到保護，以防止未經授權的使用者取得權杖，用於沈浸式閱讀程式服務和計費；該工作已超出本教學課程的範圍。
 
 ## <a name="launch-the-immersive-reader-with-sample-content"></a>使用範例內容啟動沈浸式閱讀程式
 
@@ -139,52 +145,42 @@ router.get('/subdomain', function (req, res) {
     extends layout
 
     block content
-      h2(id='title') Geography
-      p(id='content') The study of Earth's landforms is called physical geography. Landforms can be mountains and valleys. They can also be glaciers, lakes or rivers.
-      div(class='immersive-reader-button' data-button-style='iconAndText' data-locale='en-US' onclick='launchImmersiveReader()')
-      script.
-
-        function getImmersiveReaderTokenAsync() {
-            return new Promise((resolve, reject) => {
-                $.ajax({
-                    url: '/getimmersivereadertoken',
-                    type: 'GET',
-                    success: token => {
-                        resolve(token);
-                    },
-                    error: err => {
-                        console.log('Error in getting token!', err);
-                        reject(err);
-                    }
-                });
-            });
-        }
-
-        function getSubdomainAsync() {
-            return new Promise((resolve, reject) => {
-                $.ajax({
-                    url: '/subdomain',
-                    type: 'GET',
-                    success: subdomain => { resolve(subdomain); },
-                    error: err => { reject(err); }
-                });
-            });
-        }
-
-        async function launchImmersiveReader() {
-            const content = {
-                title: document.getElementById('title').innerText,
-                chunks: [{
-                    content: document.getElementById('content').innerText + '\n\n',
-                    lang: 'en'
-                }]
-            };
-
-            const token = await getImmersiveReaderTokenAsync();
-            const subdomain = await getSubdomainAsync();
-
-            ImmersiveReader.launchAsync(token, subdomain, content);
-        }
+          h2(id='title') Geography
+          p(id='content') The study of Earth's landforms is called physical geography. Landforms can be mountains and valleys. They can also be glaciers, lakes or rivers.
+          div(class='immersive-reader-button' data-button-style='iconAndText' data-locale='en-US' onclick='launchImmersiveReader()')
+          script.
+        
+            function getImmersiveReaderLaunchParamsAsync() {
+                    return new Promise((resolve, reject) => {
+                        $.ajax({
+                                url: '/getimmersivereaderlaunchparams',
+                                type: 'GET',
+                                success: data => {
+                                        resolve(data);
+                                },
+                                error: err => {
+                                        console.log('Error in getting token and subdomain!', err);
+                                        reject(err);
+                                }
+                        });
+                    });
+            }
+        
+            async function launchImmersiveReader() {
+                    const content = {
+                            title: document.getElementById('title').innerText,
+                            chunks: [{
+                                    content: document.getElementById('content').innerText + '\n\n',
+                                    lang: 'en'
+                            }]
+                    };
+            
+                    const launchParams = await getImmersiveReaderLaunchParamsAsync();
+                    const token = launchParams.token;
+                    const subdomain = launchParams.subdomain;
+            
+                    ImmersiveReader.launchAsync(token, subdomain, content);
+            }
     ```
 
 3. Web 應用程式現在已經準備好了。 執行下列動作以啟動應用程式︰
@@ -220,13 +216,13 @@ router.get('/subdomain', function (req, res) {
 
 根據預設，沈浸式閱讀程式介面的語言會符合瀏覽器的語言設定。 您也可以使用下列程式碼指定沈浸式閱讀程式介面的語言。
 
-1. 在 _views\index.pug_ 中，以下列程式碼取代 `ImmersiveReader.launchAsync(token, content)` 呼叫。
+1. 在 _views\index.pug_ 中，以下列程式碼取代 `ImmersiveReader.launchAsync(token, subdomain, content)` 呼叫。
 
     ```javascript
     const options = {
         uiLang: 'fr',
     }
-    ImmersiveReader.launchAsync(token, content, options);
+    ImmersiveReader.launchAsync(token, subdomain, content, options);
     ```
 
 2. 瀏覽至 _http://localhost:3000_ 。 當您啟動沈浸式閱讀程式，介面會以法文顯示。

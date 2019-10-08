@@ -10,12 +10,12 @@ ms.topic: quickstart
 description: 在 Azure 上使用容器、微服務和 Java 快速進行 Kubernetes 開發
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, 容器, Java, Helm, 服務網格, 服務網格路由傳送, kubectl, k8s
 manager: gwallace
-ms.openlocfilehash: 28b6a2ecff756c878bb3bc0a69976e7cede5f7ee
-ms.sourcegitcommit: a4b5d31b113f520fcd43624dd57be677d10fc1c0
+ms.openlocfilehash: 2154ec3ae99ae816b970c96ffde435f1a3366e99
+ms.sourcegitcommit: 80da36d4df7991628fd5a3df4b3aa92d55cc5ade
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70772667"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71815867"
 ---
 # <a name="quickstart-debug-and-iterate-with-visual-studio-code-and-java-on-kubernetes-using-azure-dev-spaces"></a>快速入門：在 Kubernetes 上使用 Azure Dev Spaces 以 Visual Studio Code 和 Java 進行偵錯和逐一查看
 
@@ -25,6 +25,10 @@ ms.locfileid: "70772667"
 - 使用 Visual Studio Code 在容器中反覆開發程式碼。
 - 從 Visual Studio Code 對開發人員空間中的程式碼進行偵錯。
 
+Azure Dev Spaces 也可讓您使用下列工具進行偵錯和逐一查看：
+- [Node.js 和 Visual Studio Code](quickstart-nodejs.md)
+- [.NET Core 和 Visual Studio Code](quickstart-netcore.md)
+- [.NET Core 和 Visual Studio](quickstart-netcore-visualstudio.md)
 
 ## <a name="prerequisites"></a>必要條件
 
@@ -46,6 +50,9 @@ az aks create -g MyResourceGroup -n MyAKS --location eastus --disable-rbac --gen
 ## <a name="enable-azure-dev-spaces-on-your-aks-cluster"></a>在 AKS 叢集上啟用 Azure Dev Spaces
 
 使用 `use-dev-spaces` 命令在 AKS 叢集上啟用 Dev Spaces，並遵循提示來進行。 下列命令會在 MyResourceGroup  群組中的 MyAKS  叢集上啟用 Dev Spaces，並建立「預設」  開發空間。
+
+> [!NOTE]
+> `use-dev-spaces` 命令也會安裝 Azure Dev Spaces CLI (如果尚未安裝)。 您無法在 Azure Cloud Shell 中安裝 Azure Dev Spaces CLI。
 
 ```cmd
 $ az aks use-dev-spaces -g MyResourceGroup -n MyAKS

@@ -9,14 +9,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/01/2019
+ms.date: 09/26/2019
 ms.author: banders
-ms.openlocfilehash: 4d83228fbec395d604e5ce3f988d2a6157f21eed
-ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
+ms.openlocfilehash: 2259c9f05b157226c30a0e32e791ba540fa5af99
+ms.sourcegitcommit: e1b6a40a9c9341b33df384aa607ae359e4ab0f53
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "67490655"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71338322"
 ---
 # <a name="terms-in-your-microsoft-customer-agreement-price-sheet"></a>您 Microsoft 客戶合約價位表中的詞彙
 
@@ -30,29 +30,34 @@ ms.locfileid: "67490655"
 
 | **欄位名稱**   | **說明**   |
 | --- | --- |
+| basePrice  | 客戶登入時的市場價格，或服務計量在登入後啟動時的市場價格。   |
 | billingAccountId  | 計費帳戶的唯一識別碼。   |
 | billingAccountName  | 計費帳戶的名稱。  |
+| billingCurrency | 將費用過帳的貨幣 |
 | billingProfileId  | 帳單設定檔的唯一識別碼。   |
 | billingProfileName  | 設定用來接收發票的帳單設定檔名稱。 價位表中的價格會與此帳單設定檔相關聯。 |
-| productOrderName  | 購買的產品方案名稱。 |
-| serviceFamily  | Azure 服務的類型。例如：計算、分析、安全性 |
+| 貨幣 | 反映所有價格的貨幣。 |
+| discount | 針對分級層、免費層、內含數量或協商折扣所提供的價格折扣 (適用的話)。 以百分比表示。 |
+| effectiveEndDate  | 有效價格的結束日期。 |
+| effectiveStartDate  | 價格生效的開始日期。 |
+| includedQuantity | 客戶有權取用的特定服務數量 (不需累加費用)。 |
+| marketPrice | 所指定服務目前的主要市場價格。 |
+| meterId  | 計量的唯一識別碼。 |
+| meterCategory  | 計量的分類類別名稱。 例如，雲端服務  、網路  等等。 |
+| meterName  | 計量的名稱。 計量代表 Azure 服務的可部署資源。 |
+| meterSubCategory  | 計量的子分類類別名稱。  |
+| meterType  |  計量類型的名稱。 |
+| meterRegion  | 可使用服務計量的區域名稱。 針對根據資料中心位置定價的某些服務，識別資料中心的位置。    |
 | Products  | 產生費用的產品名稱。例如：基本 SQL DB 與標準 SQL DB  |
 | productId  | 已耗用計量之產品的唯一識別碼。 |
-| unitOfMeasure  | 識別服務的計費測量單位。 例如，計算服務會依小時計費。 |
-| meterId  | 計量的唯一識別碼。 |
-| meterName  | 計量的名稱。 計量代表 Azure 服務的可部署資源。 |
-| meterCategory  | 計量的分類類別名稱。 例如，_雲端服務_、_網路_等等。 |
-| meterType  |  計量類型的名稱。 |
-| meterSubCategory  | 計量的子分類類別名稱。  |
-| meterRegion  | 可使用服務計量的區域名稱。 針對根據資料中心位置定價的某些服務，識別資料中心的位置。    |
-| tierId  | 識別定價層 (如果適用)。 若價格會根據取用的單位數而有所不同，此欄位會與 tierMinimumUnits 搭配用以設定階層式價格。    |
+| productOrderName  | 購買的產品方案名稱。 |
+| serviceFamily  | Azure 服務的類型。例如：計算、分析、安全性 |
 | tierMinimumUnits  | 定義已定義價格之階層範圍的下限。 例如，如果範圍是 0 到 100，則 tierMinimumUnits 會是 0。  |
-| effectiveStartDate  | 價格生效的開始日期。 |
-| effectiveEndDate  | 有效價格的結束日期。 |
+| unitOfMeasure  | 識別服務的計費測量單位。 例如，計算服務會依小時計費。 |
 | unitPrice  | 計費時與計量和產品訂單名稱相關的每單位價格 (不是有效混合價格)。  注意：如果服務在各層之間的價格有所差異，則單位價格與使用量詳細資料下載中的有效價格會不相同。  如果服務採用多層式定價，則有效價格會是各層間的混合費率，而不會顯示特定層的單位價格。 混合價格或有效價格是跨多層之取用數量的淨價格 (每一層都有特定的單位價格)。 |
-| basePrice  | 客戶登入時的市場價格，或服務計量在登入後啟動時的市場價格。   |
 
-## <a name="check-access-to-a-microsoft-customer-agreement"></a>檢查對 Microsoft 客戶合約的存取權
+
+## <a name="check-access-to-a-microsoft-customer-agreement"></a>檢查 Microsoft 客戶合約的存取
 [!INCLUDE [billing-check-mca](../../includes/billing-check-mca.md)]
 
 ## <a name="need-help-contact-us"></a>需要協助嗎？ 與我們連絡。

@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 07/05/2019
 ms.author: erhopf
-ms.openlocfilehash: 0afe5897c723e22405d9bde2e9c9e729d0373a06
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: a2e43b72bda65c5f1e7515888ac33b0ac806e64c
+ms.sourcegitcommit: 4f3f502447ca8ea9b932b8b7402ce557f21ebe5a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68553671"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71803250"
 ---
 # <a name="quickstart-convert-text-to-speech-using-python"></a>快速入門：使用 Python 將文字轉換為語音
 
@@ -101,7 +101,7 @@ def get_token(self):
 然後，使用語音合成標記語言 (SSML) 建構要求本文。 此範例會定義結構，並使用您稍早建立的 `tts` 輸入。
 
 >[!NOTE]
-> 此範例會使用 `ZiraRUS` 語音音調。 如需 Microsoft 提供的完整語音/語言清單，請參閱[語言支援](language-support.md)。
+> 此範例會使用 `Guy24KRUS` 語音音調。 如需 Microsoft 提供的完整語音/語言清單，請參閱[語言支援](language-support.md)。
 > 如果您想要為品牌建立獨特可辨識的語音，請參閱[建立自訂語音音調](how-to-customize-voice-font.md)。
 
 最後，您會對服務提出要求。 如果要求成功，且傳回狀態碼 200，則語音回應會寫入到有時間戳記的檔案。
@@ -173,5 +173,6 @@ python tts.py
 ## <a name="see-also"></a>另請參閱
 
 * [文字轉換語音 API 參考](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis)
+* [使用 Python 和語音 SDK 將文字轉換為語音](quickstart-text-to-speech-python.md)
 * [建立自訂語音調](how-to-customize-voice-font.md)
 * [錄製語音樣本來建立自訂語音](record-custom-voice-samples.md)

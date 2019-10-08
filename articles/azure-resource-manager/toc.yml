@@ -134,8 +134,7 @@
           href: resource-group-linked-templates.md
         - name: 建立多個執行個體
           href: resource-group-create-multiple.md
-        - name: 在訂用帳戶中建立資源群組和資源
-          displayName: subscription level deployment
+        - name: 訂用帳戶層級資源
           href: deploy-to-subscription.md
     - name: 部署範本
       items:

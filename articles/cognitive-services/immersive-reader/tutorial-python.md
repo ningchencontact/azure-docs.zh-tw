@@ -10,23 +10,23 @@ ms.subservice: immersive-reader
 ms.topic: tutorial
 ms.date: 08/02/2019
 ms.author: dylankil
-ms.openlocfilehash: 5e33108c9fc674abaf980a1272cca31aa21cffff
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
+ms.openlocfilehash: 6404a5d49bd7af1ed5d74299f03eda8d0bb14b89
+ms.sourcegitcommit: e9936171586b8d04b67457789ae7d530ec8deebe
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68990394"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71326418"
 ---
 # <a name="tutorial-launch-the-immersive-reader-using-the-python-sample-project"></a>教學課程：使用 Python 範例專案啟動沈浸式閱讀程式
 
-在[概觀](./overview.md)中，您會了解什麼是沈浸式閱讀程式，及其如何實作經實證的技術，針對語言學習者、沈浸式讀者及存在學習差異的學生改善其閱讀理解程度。 本教學課程說明如何建立會啟動沈浸式閱讀程式的 Python Web 應用程式。 在本教學課程中，您了解如何：
+在[概觀](./overview.md)中，您會了解什麼是沈浸式閱讀程式，及其如何實作經實證的技術，針對語言學習者、沈浸式讀者及存在學習差異的學生改善其閱讀理解程度。 本教學課程說明如何建立會啟動沈浸式閱讀程式的 Python Web 應用程式。 在本教學課程中，您會了解如何：
 
 > [!div class="checklist"]
 > * 使用範例專案建立具有 Pip、Flask、Jinja 和 virtualenv 的 Python Web 應用程式
 > * 取得存取權杖
 > * 使用範例內容啟動沈浸式閱讀程式
 
-如果您沒有 Azure 訂用帳戶，請在開始前先建立 [免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 。
+如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)。
 
 ## <a name="prerequisites"></a>必要條件
 
@@ -113,7 +113,7 @@ pip install jinja2
 安裝 virtualenv。 一項用來建立獨立 Python 環境的工具。
 
 ```cmd
-pip install pip install virtualenv
+pip install virtualenv
 ```
 
 安裝 virtualenvwrapper-win。 Virtualenvwrapper 背後的構想是要讓 virtualenv 更容易使用。
@@ -126,6 +126,12 @@ pip install virtualenvwrapper-win
 
 ```cmd
 pip install requests
+```
+
+安裝 python-dotenv 模組。 此模組會從 .env 檔案讀取機碼值組，並將其新增至環境變數。
+
+```cmd
+pip install python-dotenv
 ```
 
 建立虛擬環境
@@ -251,6 +257,12 @@ pip install virtualenvwrapper --user
 
 ```bash
 pip install requests --user
+```
+
+安裝 python-dotenv 模組。 此模組會從 .env 檔案讀取機碼值組，並將其新增至環境變數。
+
+```bash
+pip install python-dotenv --user
 ```
 
 選擇要用來保存虛擬環境的資料夾，並執行下列命令

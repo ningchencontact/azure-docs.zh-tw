@@ -1,22 +1,22 @@
 ---
-title: 管理 Windows 虛擬桌面預覽版的應用程式群組 - Azure
-description: 描述如何設定 Azure Active Directory 中的 Windows 虛擬桌面預覽版租用戶。
+title: 管理 Windows 虛擬桌面的應用程式群組 - Azure
+description: 說明如何設定 Azure Active Directory 中的 Windows 虛擬桌面租用戶。
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: tutorial
 ms.date: 08/29/2019
 ms.author: helohr
-ms.openlocfilehash: 2bec7e490443727fa294e7be9412bb20ae66e691
-ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
+ms.openlocfilehash: e158c0a6090493bec0169c144f030300de921516
+ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70163244"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71679447"
 ---
-# <a name="tutorial-manage-app-groups-for-windows-virtual-desktop-preview"></a>教學課程：管理 Windows 虛擬桌面預覽版的應用程式群組
+# <a name="tutorial-manage-app-groups-for-windows-virtual-desktop"></a>教學課程：管理 Windows 虛擬桌面的應用程式群組
 
-針對新 Windows 虛擬桌面預覽版主機集區建立的預設應用程式群組也會發佈完整桌面。 此外，您可以為主機集區建立一或多個 RemoteApp 應用程式群組。 遵循本教學課程來建立 RemoteApp 應用程式群組及發佈個別 [開始]  功能表應用程式。
+為新的 Windows 虛擬桌面主機集區建立的預設應用程式群組，也會發佈完整桌面。 此外，您可以為主機集區建立一或多個 RemoteApp 應用程式群組。 遵循本教學課程來建立 RemoteApp 應用程式群組及發佈個別 [開始]  功能表應用程式。
 
 在本教學課程中，您將了解如何：
 

@@ -1,27 +1,27 @@
 ---
 title: 教學課程：在 Azure HDInsight 中建置 Spark 機器學習應用程式
 description: 教學課程 - 逐步指示如何使用 Jupyter Notebook 在 HDInsight Spark 叢集中建置 Apache Spark 機器學習應用程式。
-ms.service: hdinsight
 author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
+ms.service: hdinsight
 ms.custom: hdinsightactive,mvc
 ms.topic: tutorial
 ms.date: 06/26/2019
-ms.author: hrasheed
-ms.openlocfilehash: e1a52072ab3309454742d2d3e8582b58a33666e3
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: e77414da964d548b64250bbf98f86bee1529f2ab
+ms.sourcegitcommit: e9936171586b8d04b67457789ae7d530ec8deebe
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67448698"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71327023"
 ---
-# <a name="tutorial-build-an-apache-spark-machine-learning-application-in-azure-hdinsight"></a>教學課程：在 Azure HDInsight 中建置 Apache Spark 機器學習應用程式 
+# <a name="tutorial-build-an-apache-spark-machine-learning-application-in-azure-hdinsight"></a>教學課程：在 Azure HDInsight 中建置 Apache Spark 機器學習應用程式
 
 在本教學課程中，您將了解如何使用 [Jupyter Notebook](https://jupyter.org/) 為 Azure HDInsight 建置 [Apache Spark](https://spark.apache.org/) 機器學習應用程式。
 
 [MLib](https://spark.apache.org/docs/latest/ml-guide.html) 是 Spark 的可調整機器學習程式庫，由常見的學習演算法和公用程式 (包括分類、迴歸、群集、協同篩選、維度縮減，以及基礎最佳化基本項目) 所組成。
 
-在本教學課程中，您了解如何：
+在本教學課程中，您會了解如何：
 > [!div class="checklist"]
 > * 開發 Apache Spark 機器學習應用程式
 
@@ -43,7 +43,7 @@ ms.locfileid: "67448698"
 
 1. 使用 PySpark 核心建立 Jupyter Notebook。 如需指示，請參閱[建立 Jupyter Notebook](./apache-spark-jupyter-spark-sql.md#create-a-jupyter-notebook)。
 
-1. 匯入此案例所需的類型。 將下列程式碼片段貼到空白儲存格中，然後按 **SHIFT + ENTER**。 
+1. 匯入此案例所需的類型。 將下列程式碼片段貼到空白儲存格中，然後按 **SHIFT + ENTER**。
 
     ```PySpark
     from pyspark.ml import Pipeline
@@ -60,7 +60,7 @@ ms.locfileid: "67448698"
     from numpy import array
     ```
 
-3. 載入資料 (hvac.csv)、剖析資料，以及利用它來為模型定型。 
+1. 載入資料 (hvac.csv)、剖析資料，以及利用它來為模型定型。
 
     ```PySpark
     # Define a type called LabelDocument
@@ -72,7 +72,7 @@ ms.locfileid: "67448698"
         if (values[3] > values[2]):
             hot = 1.0
         else:
-            hot = 0.0        
+            hot = 0.0
 
         textValue = str(values[4]) + " " + str(values[5])
 
@@ -87,7 +87,7 @@ ms.locfileid: "67448698"
 
     在程式碼片段中，您必須定義函式來比較實際溫度與目標溫度。 如果實際溫度較高，代表建築物是熱的，我們以 **1.0**值來表示這個狀態。 否則，大樓會是冷的，並以 **0.0** 值來表示。
 
-4. 設定包含三個階段的 Spark 機器學習管線：tokenizer、hashingTF 及 lr。
+1. 設定包含三個階段的 Spark 機器學習管線：tokenizer、hashingTF 及 lr。
 
     ```PySpark
     tokenizer = Tokenizer(inputCol="SystemInfo", outputCol="words")
@@ -98,18 +98,18 @@ ms.locfileid: "67448698"
 
     如需有關管線及其運作方式的詳細資訊，請參閱 [Apache Spark 機器學習管線](https://spark.apache.org/docs/latest/ml-pipeline.html) \(英文\)。
 
-5. 讓管線符合訓練文件。
+1. 讓管線符合訓練文件。
 
     ```PySpark
     model = pipeline.fit(training)
     ```
 
-6. 驗證訓練文件以根據應用程式的進度設立檢查點。
+1. 驗證訓練文件以根據應用程式的進度設立檢查點。
 
     ```PySpark
     training.show()
     ```
-   
+
     輸出如下：
 
     ```output
@@ -145,7 +145,7 @@ ms.locfileid: "67448698"
 
     請注意，實際溫度比目標溫度低的情況代表建築物處於低溫狀態。 因此在訓練輸出中，第一個資料列的 [label]  值為 [0.0]  ，這代表建築物不是熱的。
 
-7. 準備要做為定型模型之執行依據的資料集。 方法是傳遞系統識別碼和系統年期 (在訓練輸出中以 **SystemInfo** 來代表)，然後模型會預測該系統識別碼和系統年期所屬的建築物溫度會較熱 (以 1.0 表示) 或較冷 (以 0.0 表示)。
+1. 準備要做為定型模型之執行依據的資料集。 方法是傳遞系統識別碼和系統年期 (在訓練輸出中以 **SystemInfo** 來代表)，然後模型會預測該系統識別碼和系統年期所屬的建築物溫度會較熱 (以 1.0 表示) 或較冷 (以 0.0 表示)。
 
     ```PySpark
     # SystemInfo here is a combination of system ID followed by system age
@@ -159,7 +159,7 @@ ms.locfileid: "67448698"
         .map(lambda x: Document(*x)).toDF()
     ```
 
-8. 最後，根據測試資料進行預測。
+1. 最後，根據測試資料進行預測。
 
     ```PySpark
     # Make predictions on test documents and print columns of interest
@@ -182,9 +182,10 @@ ms.locfileid: "67448698"
 
    從預測的第一個資料列可看出，對於識別碼為 20 且年期為 25 年的 HVAC 系統而言，建築物會是熱的 (**prediction=1.0**)。 DenseVector (0.49999) 的第一個值對應到預測 0.0，而第二個值 (0.5001) 對應到預測 1.0。 在輸出中，即使第二個值只是稍微高一點，模型仍舊顯示 **prediction=1.0**。
 
-10. 關閉 Notebook 來釋放資源。 若要這麼做，請從 Notebook 的 [檔案]  功能表中，選取 [關閉並終止]  。 此動作會關機並且關閉 Notebook。
+1. 關閉 Notebook 來釋放資源。 若要這麼做，請從 Notebook 的 [檔案]  功能表中，選取 [關閉並終止]  。 此動作會關機並且關閉 Notebook。
 
 ## <a name="use-anaconda-scikit-learn-library-for-spark-machine-learning"></a>使用適用於 Spark 機器學習的 Anaconda scikit-learn 程式庫
+
 HDInsight 中的 Apache Spark 叢集包含 Anaconda 程式庫。 其中也包含適用於機器學習的 **scikit-learn** 程式庫。 此程式庫另包含用來直接從 Jupyter Notebook 建置範例應用程式的各種資料集。 如需使用 sscikit-learn 程式庫的詳細資訊，請參閱 [https://scikit-learn.org/stable/auto_examples/index.html](https://scikit-learn.org/stable/auto_examples/index.html)。
 
 ## <a name="clean-up-resources"></a>清除資源
@@ -201,7 +202,7 @@ HDInsight 中的 Apache Spark 叢集包含 Anaconda 程式庫。 其中也包含
 
 1. 選取 [刪除]  。 選取 [是]  。
 
-![刪除 HDInsight 叢集](./media/apache-spark-ipython-notebook-machine-learning/hdinsight-azure-portal-delete-cluster.png "刪除 HDInsight 叢集")
+![Azure 入口網站刪除 HDInsight 叢集](./media/apache-spark-ipython-notebook-machine-learning/hdinsight-azure-portal-delete-cluster.png "刪除 HDInsight 叢集")
 
 ## <a name="next-steps"></a>後續步驟
 

@@ -5,15 +5,15 @@ services: digital-twins
 author: dsk-2015
 ms.service: digital-twins
 ms.topic: include
-ms.date: 09/24/2019
+ms.date: 09/30/2019
 ms.author: dkshir
 ms.custom: include file
-ms.openlocfilehash: 1fc30ea5aa843329b6227bfa564b3d10e2273cd7
-ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
+ms.openlocfilehash: 6e808fb64d004f117a3c25946ad97e26ddfadaa3
+ms.sourcegitcommit: 4f3f502447ca8ea9b932b8b7402ce557f21ebe5a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71310487"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71802379"
 ---
 >[!NOTE]
 >本節提供[新增 Azure AD 應用程式註冊](https://docs.microsoft.com/azure/active-directory/develop/quickstart-register-app)的指示。 如果您仍有舊版的原生應用程式註冊，只要受支援，您即可使用。 此外，如果新的應用程式註冊方法在您的設定中因故無法，您可以嘗試建立舊版的原生 AAD 應用程式。 如需詳細指示，請參閱[使用舊版 Azure Active Directory 註冊 Azure Digital Twins 應用程式](../articles/digital-twins/how-to-use-legacy-aad.md)。 
@@ -39,16 +39,18 @@ ms.locfileid: "71310487"
 
 1. 開啟應用程式註冊的 [API 權限]  窗格。 選取 [新增權限]  按鈕。 在 [要求 API 權限]  窗格中，選取 [我的組織使用的 API]  索引標籤，然後搜尋：
     
-    1. **Azure Digital Twins**。 選取 **Azure Digital Twins** API。
+    1. `Azure Digital Twins` 。 選取 **Azure Digital Twins** API。
 
         [![搜尋 API 或 Azure Digital Twins](./media/digital-twins-permissions/aad-aap-search-api-dt.png)](./media/digital-twins-permissions/aad-aap-search-api-dt.png#lightbox)
 
-    1. 或者，搜尋 **Azure 智慧空間**。 選取 [Azure 智慧空間服務]  API。
+    1. 或者，搜尋 `Azure Smart Spaces Service`。 選取 [Azure 智慧空間服務]  API。
 
         [![Azure 智慧空間的搜尋 API](./media/digital-twins-permissions/aad-app-search-api.png)](./media/digital-twins-permissions/aad-app-search-api.png#lightbox)
 
-    > [!NOTE]
-    > 搜尋時所顯示的確切名稱，可能會根據您所屬的 Azure 租用戶而有所不同。
+    > [!IMPORTANT]
+    > 所顯示的 Azure AD API 名稱和識別碼取決於您的租用戶：
+    > * 測試租用戶和客戶帳戶應搜尋 `Azure Digital Twins`。
+    > * 其他 Microsoft 帳戶應搜尋 `Azure Smart Spaces Service`。
 
 1. 選取的 API 會在相同的 [要求 API 權限]  窗格中顯示為 **Azure Digital Twins**。 選取 [讀取 (1)]  下拉式清單，然後選取 [Read.Write]  核取方塊。 選取 [新增權限]  按鈕。
 

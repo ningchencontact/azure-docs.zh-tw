@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: quickstart
-ms.date: 09/21/2019
+ms.date: 10/01/2019
 ms.author: diberry
-ms.openlocfilehash: 8e52a37376e91e5c529cddd9b211d81c4b2fa442
-ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
+ms.openlocfilehash: 31bd85ca9b106758dbb7bfd399b7a493ea7fea9f
+ms.sourcegitcommit: 4f3f502447ca8ea9b932b8b7402ce557f21ebe5a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71203834"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71803096"
 ---
 # <a name="quickstart-qna-maker-client-library-for-net"></a>快速入門：適用於 .NET 的 QnA Maker 用戶端程式庫
 
@@ -30,6 +30,8 @@ ms.locfileid: "71203834"
 
 [參考文件](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.knowledge.qnamaker?view=azure-dotnet) | [程式庫原始程式碼](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/cognitiveservices/Knowledge.QnAMaker) | [套件 (NuGet)](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Knowledge.QnAMaker/) | [C# 範例](https://github.com/Azure-Samples/cognitive-services-qnamaker-csharp)
 
+[!INCLUDE [Custom subdomains notice](../../../../includes/cognitive-services-custom-subdomains-note.md)]
+
 ## <a name="prerequisites"></a>必要條件
 
 * Azure 訂用帳戶 - [建立免費帳戶](https://azure.microsoft.com/free/)
@@ -41,7 +43,7 @@ ms.locfileid: "71203834"
 
 Azure 認知服務會由您訂閱的 Azure 資源呈現。 請使用 [Azure 入口網站](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account)或 [Azure CLI](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account-cli) 在本機電腦上建立 QnA Maker 的資源。 
 
-從資源取得金鑰後，請為名為 `QNAMAKER_SUBSCRIPTION_KEY` 的金鑰[建立環境變數](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication)。
+取得資源的金鑰和端點後，請為金鑰[建立環境變數](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) (名為 `QNAMAKER_SUBSCRIPTION_KEY`)。 資源名稱會作為端點 URL 的一部分。
 
 ### <a name="create-a-new-c-application"></a>建立新的 C# 應用程式
 
@@ -113,13 +115,16 @@ QnA Maker 用戶端是一種 [QnAMakerClient](https://docs.microsoft.com/dotnet/
 
 接下來，使用金鑰建立 [ApiKeyServiceClientCredentials](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.knowledge.qnamaker.apikeyserviceclientcredentials?view=azure-dotnet) 物件，並使用該物件與您的端點來建立 [QnAMakerClient](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.knowledge.qnamaker.qnamakerclient?view=azure-dotnet) 物件。
 
-如果金鑰並非如此程式碼範例所示位於 `westus` 區域中，請變更 **Endpoint** 變數的位置。 您可在 Azure 入口網站中 QnA Maker 資源的 [概觀]  頁面上找到此位置。
+將**端點**變數 `<your-custom-domain>` 變更為您自訂網域的名稱。 您可在 Azure 入口網站中 QnA Maker 資源的 [概觀]  頁面上找到此位置。
 
-[!code-csharp[Authorization to resource key](~/samples-qnamaker-csharp/documentation-samples/quickstarts/Knowledgebase_Quickstart/Program.cs?name=Authorization)]
+```csharp
+var subscriptionKey = Environment.GetEnvironmentVariable("QNAMAKER_SUBSCRIPTION_KEY");
+var client = new QnAMakerClient(new ApiKeyServiceClientCredentials(subscriptionKey)) { Endpoint = "https://<your-custom-domain>.api.cognitive.microsoft.com" };
+```
 
 ## <a name="authenticate-the-runtime-for-generating-an-answer"></a>驗證執行階段以產生解答
 
-在 **main** 方法中，針對從 `QNAMAKER_ENDPOINT_HOSTNAME` 和 `QNAMAKER_ENDPOINT_KEY` 環境變數提取而來的資源 Azure 金鑰建立一個變數。 這些值會在您發佈知識庫時傳回。 發佈之後，您可以在 QnA Maker 入口網站的 [設定]  頁面上找到這些設定。 
+在 **main** 方法中，針對從 `QNAMAKER_ENDPOINT_HOSTNAME` 和 `QNAMAKER_ENDPOINT_KEY` 環境變數提取而來的資源驗證建立一個變數。 這些值會在您發佈知識庫時傳回。 發佈之後，您可以在 QnA Maker 入口網站的 [設定]  頁面上找到這些設定。 
 
 建立 [QnAMakerRuntimeClient](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.knowledge.qnamaker.qnamakerruntimeclient?view=azure-dotnet) 來查詢知識庫，以產生解答，或從主動式學習進行訓練。
 

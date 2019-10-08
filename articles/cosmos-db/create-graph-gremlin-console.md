@@ -7,12 +7,12 @@ ms.subservice: cosmosdb-graph
 ms.topic: quickstart
 ms.date: 07/23/2019
 ms.author: lbosq
-ms.openlocfilehash: cb365517c581ebf83026046f385496afd3e28d7f
-ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.openlocfilehash: 3f25bbbbc8b3f34bdb89ba8797b042826a88ca8d
+ms.sourcegitcommit: 80da36d4df7991628fd5a3df4b3aa92d55cc5ade
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71261591"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71815959"
 ---
 # <a name="quickstart-create-query-and-traverse-an-azure-cosmos-db-graph-database-using-the-gremlin-console"></a>快速入門：使用 Gremlin 主控台建立、查詢和周遊 Azure Cosmos DB 圖形資料庫
 
@@ -55,7 +55,7 @@ Gremlin 主控台是以 Groovy/Java 為基礎並且在 Linux、Mac 和 Windows �
 
     設定|建議的值|說明
     ---|---|---
-    主機|[*account-name*.gremlin.cosmos.azure.com]|請參閱下列螢幕擷取畫面。 這是 Azure 入口網站的 [概觀] 頁面上的 Gremlin URI 值，其以方括號括住並已移除尾端的 :443/。
+    主機|[*account-name*.**gremlin**.cosmos.azure.com]|請參閱下列螢幕擷取畫面。 這是 Azure 入口網站的 [概觀] 頁面上的 **Gremlin URI** 值，此值以方括號括住，並已移除尾端的 :443/。 注意：請務必使用 Gremlin 值，而**不要**使用以 [*account-name*.documents.azure.com] 結尾的 URI，因為這樣可能會導致後續在嘗試執行 Gremlin 查詢時發生「主機未及時回應」的例外狀況。 
     連接埠|443|設為 443。
     username|您的使用者名稱 |`/dbs/<db>/colls/<coll>` 表單的資源，其中 `<db>` 是您的資料庫名稱，而 `<coll>` 是您的集合名稱。
     password|您的主要金鑰 | 請看下方的第二個螢幕擷取畫面。 這是您的主要金鑰，可以從 Azure 入口網站 [金鑰] 頁面的 [主鑰金鑰] 方塊中擷取。 使用方塊左側的 [複製] 按鈕來複製此值。
@@ -85,7 +85,7 @@ serializer: { className: org.apache.tinkerpop.gremlin.driver.ser.GraphSONMessage
 1. 在您的終端機執行 `:remote connect tinkerpop.server conf/remote-secure.yaml`，以連線到您的應用程式服務。
 
     > [!TIP]
-    > 如果您收到 `No appenders could be found for logger` 錯誤，確定您如步驟 2 所述更新了 remote-secure.yaml 檔案中的序列化程式值。 
+    > 如果您收到 `No appenders could be found for logger` 錯誤，確定您如步驟 2 所述更新了 remote-secure.yaml 檔案中的序列化程式值。 如果您的設定正確無誤，則可以逕行忽略此警告，因為這不會影響主控台的使用。 
 
 1. 接下來，執行 `:remote console` 以將所有主控台命令重新導向至遠端伺服器。
 

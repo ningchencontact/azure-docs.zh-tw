@@ -11,12 +11,12 @@ ms.topic: overview
 ms.date: 03/20/2019
 ms.author: noelc
 ROBOTS: NOINDEX
-ms.openlocfilehash: 51bfcc47961e870fb7fb87b26a78aea0f1564d46
-ms.sourcegitcommit: 88ae4396fec7ea56011f896a7c7c79af867c90a1
+ms.openlocfilehash: 65678f08399f378b8580eed79e49197dd4d84c64
+ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70390316"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71351145"
 ---
 # <a name="what-is-project-acoustics"></a>何謂 Project Acoustics？
 聲場專案是可提供 3D 互動式體驗的聲場引擎。 它可模擬複雜場景中的遮蔽、障礙物、傳送和殘響等聲波效果，完全不需要手動加上區域標記或 CPU 密集作業射線追蹤。 它也包含遊戲引擎和音訊中介軟體整合。 聲場專案的原理類似於靜態光照：離線詳細模擬物理特性以提供實際基準，並透過清楚表達的設計控制項，使用輕量的執行階段，實現您虛擬世界聲場的藝術目標。
@@ -58,11 +58,10 @@ ms.locfileid: "70390316"
 ## <a name="download"></a>下載
 * [聲場專案 Unity 外掛程式與範例](https://www.microsoft.com/en-us/download/details.aspx?id=57346)
 * [聲場專案 Unreal 和 Wwise 外掛程式與範例](https://www.microsoft.com/download/details.aspx?id=58090)
-  * 如需 Xbox 二進位檔與支援，請透過下面的「註冊」表單，與我們連絡
+  * 如需 Xbox 二進位檔和其他支援，請透過[論壇](https://github.com/microsoft/ProjectAcoustics/issues)與我們連絡。
 
 ## <a name="contact-us"></a>與我們連絡
 * [聲場專案討論及問題回報](https://github.com/microsoft/ProjectAcoustics/issues)
-* [註冊以接收聲場專案更新](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbRwMoAEhDCLJNqtVIPwQN6rpUOFRZREJRR0NIQllDOTQ1U0JMNVc4OFNFSy4u)
 
 ## <a name="next-steps"></a>後續步驟
 * 試用 [Unreal](unreal-quickstart.md) 或 [Unity 聲場專案快速入門](unity-quickstart.md)

@@ -7,12 +7,12 @@ ms.date: 09/06/2019
 ms.service: storage
 ms.subservice: common
 ms.topic: sample
-ms.openlocfilehash: 03a036ce5381130af4bbcea88c87d77cd93cf6a9
-ms.sourcegitcommit: 86d49daccdab383331fc4072b2b761876b73510e
+ms.openlocfilehash: e2816d8e6fdd900473cceebb20c96794f3f9f0f9
+ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70743893"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71350885"
 ---
 # <a name="azure-storage-samples"></a>Azure 儲存體範例
 
@@ -40,13 +40,7 @@ ms.locfileid: "70743893"
 ## <a name="nodejs-samples"></a>Node.js 範例
 若要瀏覽 Node.js 範例，請下載 [Node.js 儲存體用戶端程式庫](https://github.com/Azure/azure-storage-node)。
 
-* [Blob 上傳程式](https://github.com/Azure/azure-storage-node/tree/master/examples/blobuploader)
-* [上傳及下載 Blob](https://github.com/Azure/azure-storage-node/blob/master/examples/samples/blobuploaddownloadsample.js)
-* [接續權杖](https://github.com/Azure/azure-storage-node/blob/master/examples/samples/continuationsample.js)
-* [重試原則](https://github.com/Azure/azure-storage-node/blob/master/examples/samples/retrypolicysample.js)
-* [共用存取簽章](https://github.com/Azure/azure-storage-node/blob/master/examples/samples/sassample.js)
-* [快照集](https://github.com/Azure/azure-storage-node/blob/master/examples/samples/snapshotsample.js)
-* [資料表查詢](https://github.com/Azure/azure-storage-node/blob/master/examples/samples/tablequerysample.js)
+* [使用 JavaScript/Node.js 的 Azure 儲存體範例](storage-samples-javascript.md)
 
 ## <a name="c-samples"></a>C++ 範例
 若要瀏覽 C++ 範例，請從 NuGet 下載 [C++ 儲存體用戶端程式庫](https://www.nuget.org/packages/wastorage/)。
@@ -71,4 +65,5 @@ ms.locfileid: "70743893"
 
 * [使用 .NET 的 Azure 儲存體範例](storage-samples-dotnet.md)
 * [使用 Java 的 Azure 儲存體範例](storage-samples-java.md)
+* [使用 JavaScript 的 Azure 儲存體範例](storage-samples-javascript.md)
 * [使用 Python 的 Azure 儲存體範例](storage-samples-python.md)

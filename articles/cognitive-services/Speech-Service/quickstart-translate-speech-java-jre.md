@@ -10,16 +10,16 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 07/05/2019
 ms.author: erhopf
-ms.openlocfilehash: cbb86dd4b24cb325b8ea6708ebc2ffc89a697757
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 402bf198981641db74a86bbc420fab83124f0b47
+ms.sourcegitcommit: 4f3f502447ca8ea9b932b8b7402ce557f21ebe5a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68553398"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71802024"
 ---
 # <a name="quickstart-translate-speech-with-the-speech-sdk-for-java"></a>快速入門：使用適用於 Java 的語音 SDK 來轉譯語音
 
-另備有[語音轉換文字](quickstart-java-jre.md)和[語音優先虛擬助理](quickstart-virtual-assistant-java-jre.md)的快速入門。
+另備有[語音轉文字](quickstart-java-jre.md)、[文字轉語音](quickstart-text-to-speech-java-jre.md)和[語音優先虛擬助理](quickstart-virtual-assistant-java-jre.md)的快速入門。
 
 在此快速入門中，您將會建立簡單的 Java 應用程式以從電腦的麥克風即時擷取使用者語音，翻譯該語音，然後將翻譯的文字轉譯到命令列。 此應用程式的設計訴求是要在 64 位元 Windows 或 64 位元 Linux (Ubuntu 16.04、Ubuntu 18.04、Debian 9) 或在 macOS 10.13 或更新版本上執行。 此應用程式是使用語音 SDK Maven 套件和 Eclipse Java IDE 來建置。
 

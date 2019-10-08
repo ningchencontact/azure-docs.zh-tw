@@ -7,17 +7,17 @@ author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 07/12/2019
 ms.service: application-insights
-ms.custom: mvc, seo-javascript-2019
+ms.custom: mvc, seo-javascript-september2019
 ms.topic: quickstart
 manager: carmonm
-ms.openlocfilehash: 3312822d3e4f74a2db39712d61880c8dd0dd8d5e
-ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
+ms.openlocfilehash: 1db26002167f4b7c5b4fc19699ddb021de8ac23d
+ms.sourcegitcommit: 6fe40d080bd1561286093b488609590ba355c261
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/15/2019
-ms.locfileid: "71001177"
+ms.lasthandoff: 10/01/2019
+ms.locfileid: "71703022"
 ---
-# <a name="start-monitoring-your-nodejs-web-application"></a>開始監視 Node.js Web 應用程式
+# <a name="quickstart-start-monitoring-your-nodejs-web-application-with-azure-application-insights"></a>快速入門：使用 Azure Application Insights 開始監視您的 Node.js Web 應用程式
 
 Azure Application Insights 可讓您輕鬆監視 Web 應用程式的可用性、效能和使用情形。 還可讓您快速識別並診斷應用程式的錯誤，不必等使用者回報。 從 0.20 版 SDK 開始，您可以監視常見的第三方套件，包括 MongoDB、MySQL 和 Redis。
 

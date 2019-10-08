@@ -7,14 +7,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: quickstart
-ms.date: 09/10/2019
+ms.date: 10/01/2019
 ms.author: pafarley
-ms.openlocfilehash: 8d47ae84fd489b4841d8bcf7755da6c30cf6035d
-ms.sourcegitcommit: fbea2708aab06c19524583f7fbdf35e73274f657
+ms.openlocfilehash: ab6a0d5c2a4c4623506d90b76b77462abb8fe4af
+ms.sourcegitcommit: a19f4b35a0123256e76f2789cd5083921ac73daf
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/13/2019
-ms.locfileid: "70967008"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71719501"
 ---
 # <a name="quickstart-computer-vision-client-library-for-python"></a>快速入門：適用於 Python 的電腦視覺用戶端程式庫
 
@@ -64,7 +64,7 @@ Azure 認知服務會由您訂閱的 Azure 資源呈現。 請使用 [Azure 入�
 您可以使用下列命令來安裝用戶端程式庫：
 
 ```console
-pip install --upgrade azure-cognitiveservices-Computer Vision
+pip install --upgrade azure-cognitiveservices-vision-computervision
 ```
 
 ## <a name="object-model"></a>物件模型
@@ -128,7 +128,7 @@ pip install --upgrade azure-cognitiveservices-Computer Vision
 
 下列程式碼會偵測影像中的公司品牌和標誌，並將其輸出到主控台。 如需詳細資訊，請參閱[品牌偵測](../concept-brand-detection.md)。
 
-[!code-python[](~/cognitive-services-quickstart-code/python/ComputerVision/ComputerVisionQuickstart.py?name=snippet_objects)]
+[!code-python[](~/cognitive-services-quickstart-code/python/ComputerVision/ComputerVisionQuickstart.py?name=snippet_brands)]
 
 ### <a name="detect-faces"></a>偵測臉部
 
@@ -136,9 +136,9 @@ pip install --upgrade azure-cognitiveservices-Computer Vision
 
 [!code-python[](~/cognitive-services-quickstart-code/python/ComputerVision/ComputerVisionQuickstart.py?name=snippet_faces)]
 
-### <a name="detect-adult-or-racy-content"></a>偵測成人或猥褻內容
+### <a name="detect-adult-racy-or-gory-content"></a>偵測成人、猥褻或暴力內容
 
-下列程式碼會列印影像中偵測到的成人或猥褻內容。 如需詳細資訊，請參閱[成人和猥褻內容](../concept-detecting-adult-content.md)。
+下列程式碼會列印影像中偵測到的成人內容。 如需詳細資訊，請參閱[成人、猥褻、暴力內容](../concept-detecting-adult-content.md)。
 
 [!code-python[](~/cognitive-services-quickstart-code/python/ComputerVision/ComputerVisionQuickstart.py?name=snippet_adult)]
 

@@ -1,35 +1,34 @@
 ---
 title: 快速入門：辨識語音 (Unity) - 語音服務
 titleSuffix: Azure Cognitive Services
-description: 使用本指南，可透過 Unity 和適用於 Unity 的語音 SDK (搶鮮版 (Beta)) 建立語音轉文字的應用程式。 完成之後，您可以使用電腦的麥克風將語音即時轉譯為文字。
+description: 使用本指南，可透過 Unity 和適用於 Unity 的語音 SDK 建立語音轉文字的應用程式。 完成之後，您可以使用電腦的麥克風將語音即時轉譯為文字。
 services: cognitive-services
 author: jhakulin
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart
-ms.date: 07/24/2019
+ms.date: 09/17/2019
 ms.author: jhakulin
-ms.openlocfilehash: 1b6e60edd86cff2d657b562f05351e20571c0909
-ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
+ms.openlocfilehash: a7ac6831fd21fcc0dc425b57f5d73d8c328f9350
+ms.sourcegitcommit: 4f3f502447ca8ea9b932b8b7402ce557f21ebe5a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68815319"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71803477"
 ---
-# <a name="quickstart-recognize-speech-with-the-speech-sdk-for-unity-beta"></a>快速入門：使用適用於 Unity 的語音 SDK (搶鮮版 (Beta)) 來辨識語音
+# <a name="quickstart-recognize-speech-with-the-speech-sdk-for-unity"></a>快速入門：使用適用於 Unity 的語音 SDK 來辨識語音
 
 另備有[文字轉換語音](quickstart-text-to-speech-csharp-unity.md)的快速入門。
 
 [!INCLUDE [Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
 
-使用本指南，可透過 [Unity](https://unity3d.com/) 和適用於 Unity 的語音 SDK (搶鮮版 (Beta)) 建立語音轉文字的應用程式。
+使用本指南，可使用 [Unity](https://unity3d.com/) 和適用於 Unity 的語音 SDK 來建立語音轉文字的應用程式。
 完成之後，您便可以命令裝置將語音即時轉譯為文字。
 如果您不熟悉 Unity，建議您在開發應用程式之前，先研究 [Unity 使用者手冊](https://docs.unity3d.com/Manual/UnityManual.html)。
 
 > [!NOTE]
-> 適用於 Unity 的語音 SDK 目前為搶鮮版 (Beta)。
-> 它支援 Windows Desktop (x86 和 x64) 或通用 Windows 平台 (x86、x64、ARM/ARM64)，以及 Android (x86、ARM32/64)。
+> 適用於 Unity 的語音 SDK 支援 Windows Desktop (x86 和 x64) 或通用 Windows 平台 (x86、x64、ARM/ARM64)、Android (x86、ARM32/64) 以及 iOS (x64 模擬器、ARM32 和 ARM64)
 
 ## <a name="prerequisites"></a>必要條件
 
@@ -37,7 +36,7 @@ ms.locfileid: "68815319"
 
 - [Unity 2018.3 或更新版本](https://store.unity.com/)與[新增 UWP ARM64 支援的 Unity 2019.1](https://blogs.unity3d.com/2019/04/16/introducing-unity-2019-1/#universal)。
 - [Visual Studio 2019](https://visualstudio.microsoft.com/downloads/)。 15.9 版或更高版本的 Visual Studio 2017 也可以接受。
-  - 如需 ARM64 支援，安裝[適用於 ARM64 的選擇性建置工具和適用於 ARM64 的 Windows 10 SDK](https://blogs.windows.com/buildingapps/2018/11/15/official-support-for-windows-10-on-arm-development/)。
+- 如需 Windows ARM64 支援，請安裝[適用於 ARM64 的選擇性建置工具和適用於 ARM64 的 Windows 10 SDK](https://blogs.windows.com/buildingapps/2018/11/15/official-support-for-windows-10-on-arm-development/)。
 - 適用於語音服務的訂用帳戶金鑰。 [免費取得一個金鑰](get-started.md)。
 - 能夠存取電腦的麥克風。
 
@@ -62,7 +61,7 @@ ms.locfileid: "68815319"
 
 [!INCLUDE [License Notice](../../../includes/cognitive-services-speech-service-license-notice.md)]
 
-1. 下載和開啟 [適用於 Unity 的語音 SDK (搶鮮版 (Beta))](https://aka.ms/csspeech/unitypackage)，其會封裝為 Unity 資產套件 (.unitypackage)。 當資產套件開啟時，[匯入 Unity 套件]  對話方塊隨即出現。
+1. 下載和開啟[適用於 Unity 的語音 SDK](https://aka.ms/csspeech/unitypackage)，其會封裝為 Unity 資產套件 (.unitypackage)。 當資產套件開啟時，[匯入 Unity 套件]  對話方塊隨即出現。
 
    [![Unity 編輯器中的 [匯入 Unity 套件] 對話方塊](media/sdk/qs-csharp-unity-01-import.png)](media/sdk/qs-csharp-unity-01-import.png#lightbox)
 1. 確定所有檔案皆已選取，然後選取 [匯入]  。 一會兒之後，Unity 資產套件就會匯入到您的專案中。

@@ -10,12 +10,12 @@ ms.topic: quickstart
 description: 使用 Azure Dev Spaces 在 AKS 上部署微服務
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, 容器, Helm, 服務網格, 服務網格路由傳送, kubectl, k8s
 manager: gwallace
-ms.openlocfilehash: b845a176497891f55990c560e719832c6eaebb73
-ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
+ms.openlocfilehash: 58cb436a7c2ba0d6a49f5138e46a1f92cdc97a94
+ms.sourcegitcommit: 80da36d4df7991628fd5a3df4b3aa92d55cc5ade
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70842516"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71815829"
 ---
 # <a name="quickstart-develop-an-application-on-kubernetes-using-azure-dev-spaces"></a>快速入門：使用 Azure Dev Spaces 在 Kubernetes 上開發應用程式
 在本指南中，您將了解如何：
@@ -41,6 +41,9 @@ az aks create -g MyResourceGroup -n MyAKS --location eastus --disable-rbac --gen
 
 使用 `use-dev-spaces` 命令在 AKS 叢集上啟用 Dev Spaces，並遵循提示來進行。 下列命令會在 MyResourceGroup  群組中的 MyAKS  叢集上啟用 Dev Spaces，並建立「預設」  開發空間。
 
+> [!NOTE]
+> `use-dev-spaces` 命令也會安裝 Azure Dev Spaces CLI (如果尚未安裝)。 您無法在 Azure Cloud Shell 中安裝 Azure Dev Spaces CLI。
+
 ```cmd
 $ az aks use-dev-spaces -g MyResourceGroup -n MyAKS
 
@@ -61,7 +64,7 @@ Managed Kubernetes cluster 'MyAKS' in resource group 'MyResourceGroup' is ready 
 
 ## <a name="get-sample-application-code"></a>取得應用程式範例的程式碼
 
-在此文章中，您會使用 [Azure Dev Spaces 應用程式範例](https://github.com/Azure/dev-spaces)來示範如何使用 Azure Dev Spaces。
+在本文中，您會使用 [Azure Dev Spaces 應用程式範例](https://github.com/Azure/dev-spaces)來示範如何使用 Azure Dev Spaces。
 
 請複製 GitHub 中的應用程式，然後瀏覽至 dev-spaces/samples/nodejs/getting-started/webfrontend  目錄：
 

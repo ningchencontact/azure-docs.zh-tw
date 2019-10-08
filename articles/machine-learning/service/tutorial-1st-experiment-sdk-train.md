@@ -10,12 +10,12 @@ author: trevorbye
 ms.author: trbye
 ms.reviewer: trbye
 ms.date: 09/03/2019
-ms.openlocfilehash: b5d3a687adc8ecefcf581f7eda3b9e13d1973c62
-ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
+ms.openlocfilehash: c775b16eaa15ccd7115f4770bf197545a9de2500
+ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/15/2019
-ms.locfileid: "71004022"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71828023"
 ---
 # <a name="tutorial-train-your-first-ml-model"></a>教學課程：定型第一個 ML 模型
 
@@ -35,21 +35,15 @@ ms.locfileid: "71004022"
 
 在本教學課程的這個部分中，您會在第一個部分結束時開啟的範例 Jupyter Notebook `tutorials/tutorial-1st-experiment-sdk-train.ipynb` 中執行程式碼。 本文會逐步解說此 Notebook 中的相同程式碼。
 
-## <a name="launch-jupyter-web-interface"></a>啟動 Jupyter Web 介面
+## <a name="open-the-notebook"></a>開啟 Notebook
 
-1. 在 Azure 入口網站中您的工作區頁面上，選取左側的 [Notebook VM]  。
+1. 登入[工作區登陸頁面](https://ml.azure.com/) \(英文\)。
 
-1. 針對您在本教學課程的第一部分中建立的 VM，選取 [URI]  資料行中的 [Jupyter]  。
+1. 開啟資料夾中的 **tutorial-1st-experiment-sdk-train.ipynb**，如[第一部分](tutorial-1st-experiment-sdk-setup.md#open)所說明。
 
-    ![啟動 Jupyter Notebook 伺服器](./media/tutorial-1st-experiment-sdk-setup/start-server.png)
 
-   此連結會啟動 Notebook 伺服器，並且在新的瀏覽器索引標籤中開啟 Jupyter Notebook 網頁。此連結只適用於建立 VM 的人員。 工作區的每個使用者都必須建立自己的 VM。
-
-1. 在 Jupyter Notebook 網頁上，選取頂端的資料夾名稱，其具有您的使用者名稱。  
-
-   此資料夾存在於工作區[儲存體帳戶](concept-workspace.md#resources)中，而不是 Notebook VM 本身。  如果您刪除 Notebook VM，您仍會保有所有工作。  您後續建立新的 Notebook VM 時，將會載入相同的資料夾。 如果您與他人共用您的工作區，你們將會看到彼此的資料夾。
-
-1. 開啟 `samples-*` 子目錄，然後開啟 Jupyter Notebook `tutorials/tutorial-1st-experiment-sdk-train.ipynb`，而**不是**`.yml`相同名稱的檔案。 
+> [!Warning]
+> 請**不要**在 Jupyter 介面中建立新的  Notebook！ Notebook `tutorials/tutorial-1st-experiment-sdk-train.ipynb` 包含本教學課程中**所需的所有程式碼和資料**。
 
 ## <a name="connect-workspace-and-create-experiment"></a>連結工作區並建立實驗
 
@@ -57,7 +51,7 @@ ms.locfileid: "71004022"
 > 本文的其餘部分包含與您在 Notebook 中所見相同的內容。  
 >
 > 如果您想要在執行程式碼時進行閱讀，請立即切換到 Jupyter Notebook。 
-> 若要在 Notebook 中執行單一程式碼資料格，請按一下程式碼資料格，然後按 **Shift+Enter**。 或者，從頂端功能表中選擇 [資料格] > [全部執行]  ，以執行整個 Notebook。
+> 若要在 Notebook 中執行單一程式碼資料格，請按一下程式碼資料格，然後按 **Shift+Enter**。 或者，從頂端工具列中選擇 [全部執行]  ，以執行整個 Notebook。
 
 使用 `from_config().` 函式匯入 `Workspace` 類別，並從 `config.json` 檔案載入您的訂用帳戶資訊。根據預設，此功能會在目前的目錄中尋找 JSON 檔案，但您也可以使用 `from_config(path="your/file/path")` 指定路徑參數來指向檔案。 在雲端 Notebook 伺服器中，檔案會自動位於根目錄中。
 
@@ -139,7 +133,7 @@ experiment
 
 ## <a name="view-training-results-in-portal"></a>在入口網站中查看定型結果
 
-遵循 **Azure 入口網站**的連結，即可前往主要實驗頁面。 在這裡，您會看到實驗中的所有個別執行。 任何自訂記錄的值 (在此案例中為 `alpha_value` 和 `rmse`) 都會變成每項執行的欄位，而且也會提供給實驗頁面頂端的圖表和圖格使用。 若要將記錄的計量新增至圖表或圖格，請將滑鼠停留在其上方，按一下 [編輯] 按鈕，然後尋找您的自訂記錄計量。
+遵循 **Azure 入口網站的連結**，即可前往主要實驗頁面。 在這裡，您會看到實驗中的所有個別執行。 任何自訂記錄的值 (在此案例中為 `alpha_value` 和 `rmse`) 都會變成每項執行的欄位，而且也會提供給實驗頁面頂端的圖表和圖格使用。 若要將記錄的計量新增至圖表或圖格，請將滑鼠停留在其上方，按一下 [編輯] 按鈕，然後尋找您的自訂記錄計量。
 
 當您針對數百個或數千個不同的執行來訓練模型時，此頁面可讓您輕鬆查看所定型的每個模型，特別是定型方式，以及您獨特的計量如何隨著時間變更。
 

@@ -11,14 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
-ms.date: 05/21/2018
+ms.date: 09/30/2019
 ms.author: spelluru
-ms.openlocfilehash: 964f5624a3a588a1520a08365c5fa9c783114e48
-ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
+ms.openlocfilehash: 67ebce2130bf5594d3c8c671934f7141a02eb60d
+ms.sourcegitcommit: 8bae7afb0011a98e82cbd76c50bc9f08be9ebe06
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56958825"
+ms.lasthandoff: 10/01/2019
+ms.locfileid: "71694658"
 ---
 # <a name="introduction-to-classroom-labs"></a>教室實驗室簡介
 Azure 實驗室服務可讓您在雲端中快速設定教室實驗室環境。 教育工作者可建立教室實驗室、佈建 Windows 或 Linux 虛擬機器、在教室中安裝必要的軟體和工具實驗室，然後使其可供學生使用。 教室中的學生可連線至實驗室中的虛擬機器 (VM)，並將這些機器用於專案、指派、教室練習等。 
@@ -33,6 +33,9 @@ Azure 實驗室服務是一項受控服務，這表示此服務會自動處理�
 
 ## <a name="cost-optimization-and-tracking"></a>成本最佳化與追蹤  
 精確地控制實驗室使用者可以使用虛擬機器多少小時，以控管您的預算。 在實驗室中設定排程，允許使用者僅在指定的時段內使用虛擬機器，或設定週期性自動關機和開始時間。 追蹤個別使用者的使用量並設定限制。
+
+## <a name="example-class-types"></a>範例課程類型
+您可以使用 Azure 實驗室服務來設定數個課程類型的實驗室。 請參閱 [Azure 實驗室服務的範例課程類型](class-types.md)一文提供的數個範例，以了解您可以使用 Azure 實驗室服務來設定其實驗室的課程類型。 
 
 ## <a name="next-steps"></a>後續步驟
 開始使用 Azure 實驗室服務設定建立教室實驗室所需的實驗室帳戶：

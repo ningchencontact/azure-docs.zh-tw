@@ -7,12 +7,12 @@ ms.date: 09/06/2019
 ms.service: storage
 ms.subservice: common
 ms.topic: sample
-ms.openlocfilehash: 57249bd2fa4d3c8aefe19a85ec9a2b6b584b00d2
-ms.sourcegitcommit: 86d49daccdab383331fc4072b2b761876b73510e
+ms.openlocfilehash: 9d6e441adeb7025e09b8d73764d2defab439dd90
+ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70743947"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71350912"
 ---
 # <a name="azure-storage-samples-using-net"></a>使用 .NET 的 Azure 儲存體範例
 
@@ -98,5 +98,6 @@ ms.locfileid: "70743947"
 如需其他語言的範例相關資訊︰
 
 * Java：[使用 Java 的 Azure 儲存體範例](storage-samples-java.md)
+* JavaScript/Node.js：[使用 JavaScript 的 Azure 儲存體範例](storage-samples-javascript.md)
 * Python：[使用 Python 的 Azure 儲存體範例](storage-samples-python.md)
 * 所有其他語言：[Azure 儲存體範例](../storage-samples.md)

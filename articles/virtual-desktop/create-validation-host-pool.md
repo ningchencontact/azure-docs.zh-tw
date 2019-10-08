@@ -1,5 +1,5 @@
 ---
-title: 建立 Windows 虛擬桌面預覽主機集區來驗證服務更新 - Azure
+title: 建立 Windows 虛擬桌面主機集區來驗證服務更新 - Azure
 description: 將更新推展到生產環境之前，如何建立驗證主機集區來監視服務更新。
 services: virtual-desktop
 author: Heidilohr
@@ -7,16 +7,16 @@ ms.service: virtual-desktop
 ms.topic: tutorial
 ms.date: 08/29/2019
 ms.author: helohr
-ms.openlocfilehash: 3843a03b3b6d41520b121e5088fb13eac956e6fa
-ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
+ms.openlocfilehash: c294bb41afae1257add0c96a9f77adad3f871849
+ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70163584"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71676667"
 ---
 # <a name="tutorial-create-a-host-pool-to-validate-service-updates"></a>教學課程：建立主機集區以驗證服務更新
 
-主機集區是 Windows 虛擬桌面預覽版租用戶環境中一或多個相同虛擬機器的集合。 將主機集區部署到生產環境之前，強烈建議您建立驗證主機集區。 更新會先套用到驗證主機集區，讓您先監視服務更新，再將其推展到生產環境。 若沒有驗證主機集區，您可能無法發現引入錯誤的變更，這可能會導致您生產環境中的使用者停機。
+主機集區是 Windows 虛擬桌面租用戶環境中一或多個相同虛擬機器的集合。 將主機集區部署到生產環境之前，強烈建議您建立驗證主機集區。 更新會先套用到驗證主機集區，讓您先監視服務更新，再將其推展到生產環境。 若沒有驗證主機集區，您可能無法發現引入錯誤的變更，這可能會導致您生產環境中的使用者停機。
 
 為了確保您的應用程式可使用最新更新，驗證主機集區應盡可能類似於您生產環境中的主機集區。 使用者應該經常連線到驗證主機集區，就如同連線到生產主機集區一樣。 如果您已在主機集區上進行自動化測試，則應該在驗證主機集區上包含自動化測試。
 
@@ -71,7 +71,7 @@ Cmdlet 的結果應該類似以下輸出：
 
 ## <a name="update-schedule"></a>更新排程
 
-在預覽版中，服務更新大約每個月發生一次。 如有重大問題，則會更頻繁地提供重大更新。
+每個月都會進行服務更新。 如有重大問題，則會更頻繁地提供重大更新。
 
 ## <a name="next-steps"></a>後續步驟
 

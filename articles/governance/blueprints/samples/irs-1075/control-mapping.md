@@ -7,12 +7,12 @@ ms.date: 08/07/2019
 ms.topic: sample
 ms.service: blueprints
 manager: carmonm
-ms.openlocfilehash: 5a3eab2c703c63a4d73fa468224aed88a92b8b94
-ms.sourcegitcommit: 0486aba120c284157dfebbdaf6e23e038c8a5a15
+ms.openlocfilehash: 675a0b93fed3764fb3d6c78bcee819928a03b353
+ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71309488"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71350770"
 ---
 # <a name="control-mapping-of-the-irs-1075-blueprint-sample"></a>IRS 1075 藍圖範例的控制項對應
 
@@ -78,7 +78,7 @@ Azure 會實作[角色型存取控制 (RBAC)](../../../../role-based-access-cont
 
 ## <a name="93112-ac-17-1-remote-access--automated-monitoring--control"></a>9.3.1.12 AC-17 (1) 遠端存取 | 自動化監視 / 控制
 
-此藍圖指派了 [Azure 原則](../../../policy/overview.md)定義，監視 Azure App Service 應用程式的遠端偵錯已關閉，而且指派原則定義，稽核允許帳戶無需密碼便可從遠端連線的 Linux 虛擬機器，來協助您監視和控制遠端存取。 這個藍圖還指派一個 Azure 原則定義，協助您監視無限制地存取儲存體帳戶。 監視這些指標可協助您確保遠端存取方法符合安全性原則。
+此藍圖藉由指派 [Azure 原則](../../../policy/overview.md)定義來監視和控制遠端存取，進而監視 Azure App Service 應用程式的遠端偵錯程式是否已關閉。 此藍圖也會指派 Azure 原則定義，以稽核允許帳戶無需密碼便可從遠端連線的 Linux 虛擬機器。 此外，此藍圖還會指派 Azure 原則定義，協助您監視無限制地存取儲存體帳戶。 監視這些指標可協助您確保遠端存取方法符合安全性原則。
 
 - \[預覽\]：稽核允許不使用密碼從帳戶遠端連線的 Linux VM
 - \[預覽\]：部署需求以稽核允許不使用密碼從帳戶遠端連線的 Linux VM

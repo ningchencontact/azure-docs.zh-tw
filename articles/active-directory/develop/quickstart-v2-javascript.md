@@ -16,25 +16,22 @@ ms.workload: identity
 ms.date: 04/11/2019
 ms.author: nacanuma
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 988c73236d9f5ef360ded03bca36a4bb24ebd308
-ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
+ms.openlocfilehash: c41dedf6b4fe52ba3250ada14b0cca6bbeb636af
+ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71290827"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71827121"
 ---
 # <a name="quickstart-sign-in-users-and-acquire-an-access-token-from-a-javascript-single-page-application"></a>快速入門：登入使用者及從 JavaScript 單頁應用程式取得存取權杖
 
-在本快速入門中，您會了解如何使用程式碼範例，該範例示範 JavaScript 單頁應用程式 (SPA) 如何讓使用者登入個人帳戶、公司帳戶和學校帳戶。 JavaScript SPA 也可以取得呼叫 Microsoft Graph API 或任何 Web API 的存取權杖。
-
-![本快速入門中的範例應用程式的運作方式](media/quickstart-v2-javascript/javascriptspa-intro.svg)
+在本快速入門中，您會使用程式碼範例了解 JavaScript 單頁應用程式 (SPA) 如何讓使用者登入個人帳戶、公司帳戶和學校帳戶。 JavaScript SPA 也可以取得呼叫 Microsoft Graph API 或任何 Web API 的存取權杖。 (如需圖例，請參閱[此範例的運作方式](#how-the-sample-works)。)
 
 ## <a name="prerequisites"></a>必要條件
 
-本快速入門需要下列設定：
-* 為了搭配 Node.js 伺服器來執行專案，請下載並安裝 [Node.js](https://nodejs.org/en/download/) \(英文\)。
-* 為了編輯專案檔，請下載並安裝 [Visual Studio Code](https://code.visualstudio.com/download) \(英文\)。
-* 為了執行作為 Visual Studio 解決方案的專案，請下載並安裝 [Visual Studio 2019](https://visualstudio.microsoft.com/downloads/)。
+* Azure 訂用帳戶 - [建立免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
+* [Node.js](https://nodejs.org/en/download/).
+* [Visual Studio Code](https://code.visualstudio.com/download) (用來編輯專案檔) 或 [Visual Studio 2019](https://visualstudio.microsoft.com/downloads/) (用來執行專案以作為 Visual Studio 解決方案)。
 
 > [!div renderon="docs"]
 > ## <a name="register-and-download-your-quickstart-application"></a>註冊並下載快速入門應用程式
@@ -81,8 +78,6 @@ ms.locfileid: "71290827"
 * 若要使用 Node.js 搭配網頁伺服器來執行專案，請[下載核心專案檔](https://github.com/Azure-Samples/active-directory-javascript-graphapi-v2/archive/quickstart.zip)。 若要開啟檔案，請使用 [Visual Studio Code](https://code.visualstudio.com/) \(英文\) 等編輯器。
 
 * (選擇性) 若要搭配 IIS 伺服器來執行專案，請[下載 Visual Studio 專案](https://github.com/Azure-Samples/active-directory-javascript-graphapi-v2/archive/vsquickstart.zip)。 將 zip 檔案解壓縮至本機資料夾 (例如 *C:\Azure-Samples*)。
-
-
 
 #### <a name="step-3-configure-your-javascript-app"></a>步驟 3：設定您的 JavaScript 應用程式
 
@@ -144,6 +139,10 @@ var msalConfig = {
 在瀏覽器載入應用程式之後，請選取 [登入]  。 第一次登入時，系統會提示您同意允許應用程式存取您的設定檔，並將您登入。 成功登入後，您的使用者設定檔資訊應該會顯示在頁面上。
 
 ## <a name="more-information"></a>詳細資訊
+
+### <a name="how-the-sample-works"></a>此範例的運作方式
+
+![本快速入門中的範例應用程式的運作方式](media/quickstart-v2-javascript/javascriptspa-intro.svg)
 
 ### <a name="msaljs"></a>msal.js
 

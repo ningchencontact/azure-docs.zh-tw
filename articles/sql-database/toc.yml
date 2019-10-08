@@ -34,6 +34,8 @@
           href: sql-database-server-level-firewall-rule.md
         - name: 在受控執行個體中設定公用端點
           href: sql-database-managed-instance-public-endpoint-configure.md
+        - name: 在受控執行個體中設定連線類型
+          href: sql-database-managed-instance-connection-type.md
         - name: 用戶端 VM 連線至受控執行個體
           href: sql-database-managed-instance-configure-vm.md
         - name: 點對站連線至受控執行個體

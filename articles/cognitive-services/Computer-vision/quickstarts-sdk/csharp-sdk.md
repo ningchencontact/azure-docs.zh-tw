@@ -7,14 +7,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: quickstart
-ms.date: 09/10/2019
+ms.date: 10/01/2019
 ms.author: pafarley
-ms.openlocfilehash: 73c9f80a830b41df2afbb5eda4aede0f3c9ef665
-ms.sourcegitcommit: fbea2708aab06c19524583f7fbdf35e73274f657
+ms.openlocfilehash: 27884d83b9ca828a81922d27fe958334665e664a
+ms.sourcegitcommit: a19f4b35a0123256e76f2789cd5083921ac73daf
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/13/2019
-ms.locfileid: "70968389"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71719526"
 ---
 # <a name="quickstart-computer-vision-client-library-for-net"></a>快速入門：適用於 .NET 的電腦視覺用戶端程式庫
 
@@ -185,9 +185,9 @@ dotnet add package Microsoft.Azure.CognitiveServices.Vision.ComputerVision --ver
 
 [!code-csharp[](~/cognitive-services-dotnet-sdk-samples/documentation-samples/quickstarts/ComputerVision/Program.cs?name=snippet_faces)]
 
-### <a name="detect-adult-or-racy-content"></a>偵測成人或猥褻內容
+### <a name="detect-adult-racy-or-gory-content"></a>偵測成人、猥褻或暴力內容
 
-下列程式碼會列印影像中偵測到的成人或猥褻內容。 如需詳細資訊，請參閱[成人和猥褻內容](../concept-detecting-adult-content.md)。
+下列程式碼會列印影像中偵測到的成人內容。 如需詳細資訊，請參閱[成人、猥褻、暴力內容](../concept-detecting-adult-content.md)。
 
 [!code-csharp[](~/cognitive-services-dotnet-sdk-samples/documentation-samples/quickstarts/ComputerVision/Program.cs?name=snippet_adult)]
 

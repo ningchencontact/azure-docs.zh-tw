@@ -11,17 +11,17 @@ ms.topic: quickstart
 ms.date: 08/28/2019
 ms.author: aahi
 ms.custom: seo-javascript-september2019
-ms.openlocfilehash: 9f9bc3bfe0c8eb023dcc9cca879eeb92175fc094
-ms.sourcegitcommit: b7b0d9f25418b78e1ae562c525e7d7412fcc7ba0
+ms.openlocfilehash: 2b98949ca93be5ec0324561a053df730705af152
+ms.sourcegitcommit: 2d9a9079dd0a701b4bbe7289e8126a167cfcb450
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/08/2019
-ms.locfileid: "70801519"
+ms.lasthandoff: 09/29/2019
+ms.locfileid: "71671883"
 ---
-# <a name="quickstart-using-nodejs-to-call-the-text-analytics-cognitive-service"></a>快速入門：使用 Node.js 來呼叫文字分析認知服務  
+# <a name="quickstart-use-nodejs-to-call-the-text-analytics-cognitive-service"></a>快速入門：使用 Node.js 來呼叫文字分析認知服務  
 <a name="HOLTop"></a>
 
-此文章示範如何使用 [文字分析 API](//go.microsoft.com/fwlink/?LinkID=759711)  與 Node.JS 來[偵測語言](#Detect)、[分析情感](#SentimentAnalysis)、[擷取關鍵片語](#KeyPhraseExtraction)，以[及識別已連結實體](#Entities)。
+本文示範如何使用 [文字分析 API](//go.microsoft.com/fwlink/?LinkID=759711)  與 Node.JS 來[偵測語言](#Detect)、[分析情感](#SentimentAnalysis)、[擷取關鍵片語](#KeyPhraseExtraction)，以[及識別已連結實體](#Entities)。
 
 如需 API 的技術文件，請參閱 [API 定義](//go.microsoft.com/fwlink/?LinkID=759346)。
 
@@ -150,7 +150,7 @@ get_language(documents);
 ```
 <a name="SentimentAnalysis"></a>
 
-## <a name="analyze-sentiment"></a>分析人氣
+## <a name="analyze-sentiment"></a>分析情感
 
 情感分析 API 會使用 [Sentiment 方法](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c9)，偵測一組文字記錄中的情緒態度。 藉由分析原始文字而獲得有關於正面或負面情感的線索，情感分析可用來了解客戶對您的品牌或主題有何看法。 下列範例會為兩份文件提供評分，一份是英文，另一份則是西班牙文。
 

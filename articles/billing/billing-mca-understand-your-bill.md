@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/01/2019
 ms.author: banders
-ms.openlocfilehash: ee250589133abb1944ff17e39dc650cbae4279c6
-ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
+ms.openlocfilehash: 8ab6cf061531a1ef3c72b2f36d25932c7498d291
+ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "67490668"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71345279"
 ---
 # <a name="understand-charges-on-your-microsoft-customer-agreement-invoice"></a>了解 Microsoft 客戶合約發票上的費用
 
@@ -115,7 +115,7 @@ ms.locfileid: "67490668"
 
 3. 選取帳單設定檔。 視存取權之不同，您可能必須選取計費帳戶。 從計費帳戶中選取 [帳單設定檔]  ，然後選取帳單設定檔。
 
-4. 選取位於頁面左側的 [所有交易]  。
+4. 選取頁面左側的 [所有訂用帳戶]  。
 
 5. [Azure 訂用帳戶] 頁面會顯示帳單設定檔中每個訂用帳戶當月和上個月的費用。 當月費用是當月的待決費用，會在當月的發票產生時計費。 如果上個月的發票尚未產生，則上個月的費用也會列為待決。
 

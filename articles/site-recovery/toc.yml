@@ -371,7 +371,7 @@
               href: delete-vault.md
     - name: 應用程式災害復原
       items:
-        - name: 為內部部署應用程式設定 Azure 災害復原
+        - name: 關於內部部署應用程式的災害復原
           href: site-recovery-workload.md
         - name: Active Directory 和 DNS
           href: site-recovery-active-directory.md

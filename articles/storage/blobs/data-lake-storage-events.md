@@ -1,5 +1,5 @@
 ---
-title: 教學課程：使用 Azure Data Lake Storage Gen2 事件更新 Databricks Delta 資料表 | Microsoft Docs
+title: 教學課程：實作資料湖擷取模式以更新 Azure Databricks 差異資料表 | Microsoft Docs
 description: 本教學課程說明如何使用事件方格訂用帳戶、Azure 函式和 Azure Databricks 作業，將資料列插入至儲存在 Azure DataLake Storage Gen2 中的資料表。
 author: normesta
 ms.subservice: data-lake-storage-gen2
@@ -8,14 +8,14 @@ ms.topic: tutorial
 ms.date: 08/20/2019
 ms.author: normesta
 ms.reviewer: sumameh
-ms.openlocfilehash: 5a85e3b16a5a93fedd6a2257f5601b0673f825ad
-ms.sourcegitcommit: beb34addde46583b6d30c2872478872552af30a1
+ms.openlocfilehash: 03a07e70c967f92fe5dcc7c951aeea299b050405
+ms.sourcegitcommit: e9936171586b8d04b67457789ae7d530ec8deebe
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69904638"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71326998"
 ---
-# <a name="tutorial-use-azure-data-lake-storage-gen2-events-to-update-a-databricks-delta-table"></a>教學課程：使用 Azure Data Lake Storage Gen2 事件更新 Databricks Delta 資料表
+# <a name="tutorial-implement-the-data-lake-capture-pattern-to-update-a-databricks-delta-table"></a>教學課程：實作資料湖擷取模式以更新 Databricks 差異資料表
 
 本教學課程說明如何在具有階層命名空間的儲存體帳戶中處理事件。
 

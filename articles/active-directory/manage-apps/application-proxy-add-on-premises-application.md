@@ -8,16 +8,16 @@ ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 08/28/2019
+ms.date: 09/30/2019
 ms.author: mimart
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fe6da9b1557293ee9002681c6ce90c1c6c62a25b
-ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
+ms.openlocfilehash: c3f3d7eb0fe544316aec1ce1ece45b2c7c1d9085
+ms.sourcegitcommit: 8bae7afb0011a98e82cbd76c50bc9f08be9ebe06
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/03/2019
-ms.locfileid: "70231250"
+ms.lasthandoff: 10/01/2019
+ms.locfileid: "71694724"
 ---
 # <a name="tutorial-add-an-on-premises-application-for-remote-access-through-application-proxy-in-azure-active-directory"></a>教學課程：新增內部部署應用程式以便透過 Azure Active Directory 中的應用程式 Proxy 進行遠端存取
 
@@ -50,6 +50,9 @@ Azure Active Directory (Azure AD) 有一項應用程式 Proxy 服務，可讓使
 
 1. 將連接器伺服器實體放在靠近應用程式伺服器的位置，以便連接器和應用程式之間能有最佳效能。 如需詳細資訊，請參閱[網路拓撲考量](application-proxy-network-topology.md)。
 1. 連接器伺服器和 Web 應用程式伺服器應該屬於相同的 Active Directory 網域或橫跨信任網域。 伺服器必須位於相同網域或信任網域，才能搭配使用單一登入 (SSO) 與整合式 Windows 驗證 (IWA) 和 Kerberos 限制委派 (KCD) 的需求。 如果連接器伺服器和 Web 應用程式伺服器位於不同的 Active Directory 網域，則必須使用以資源為基礎的委派才能實現單一登入。 如需詳細資訊，請參閱[使用應用程式 Proxy 進行單一登入的 KCD](application-proxy-configure-single-sign-on-with-kcd.md)。
+
+> [!WARNING]
+> 如果您已部署 Azure AD 密碼保護 Proxy，請勿在相同的機器上同時安裝 Azure AD 應用程式 Proxy 和 Azure AD 密碼保護 Proxy。 Azure AD 應用程式 Proxy 和 Azure AD 密碼保護 Proxy 會安裝不同版本的 Azure AD Connect 代理程式更新程式服務。 這些不同的版本安裝在相同的機器上時，彼此會不相容。
 
 #### <a name="tls-requirements"></a>TLS 需求
 

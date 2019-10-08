@@ -12,15 +12,15 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 08/28/2019
+ms.date: 10/1/2019
 ms.author: magattus
 ms.custom: mvc
-ms.openlocfilehash: 10e0f24642d54c43d6c818773d0eb17815ab784b
-ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
+ms.openlocfilehash: b6ac528d0d2916f513be4e2a72bff061bdad8e58
+ms.sourcegitcommit: a19f4b35a0123256e76f2789cd5083921ac73daf
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/14/2019
-ms.locfileid: "70996911"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71718656"
 ---
 # <a name="tutorial-configure-https-on-an-azure-cdn-custom-domain"></a>教學課程：在 Azure CDN 自訂網域上設定 HTTPS
 
@@ -190,7 +190,7 @@ Azure CDN 預設支援 CDN 端點主機名稱上的 HTTPS。 舉例來說，當�
 ### <a name="custom-domain-is-not-mapped-to-your-cdn-endpoint"></a>自訂網域未對應至您的 CDN 端點
 
 >[!NOTE]
->如果您使用**來自 Akamai 的 Azure CDN**，您的自訂網域必須對應至您的 CDN 端點，具有如上所述的 CNAME 記錄。  此功能目前為待處理項目 (backlog)。 
+>如果您使用 **Akamai 中的 Azure CDN**，則應該設定下列 CNAME 以啟用自動網域驗證。 "_acme-challenge.<custom domain hostname> -> CNAME -> <custom domain hostname>.ak-acme-challenge.azureedge.net"
 
 如果 CNAME 記錄項目包含 cdnverify 子網域，請依照此步驟中的其餘指示進行操作。
 

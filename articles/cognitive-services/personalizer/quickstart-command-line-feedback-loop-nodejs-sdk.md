@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: personalizer
 ms.topic: quickstart
-ms.date: 09/12/2019
+ms.date: 09/26/2019
 ms.author: diberry
-ms.openlocfilehash: ab593ae33f11fe3e39846c50e9f43f73f80894ba
-ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
+ms.openlocfilehash: b7ea28f98340d3c3547b0ed66771b3982a03143d
+ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71265969"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71345256"
 ---
 # <a name="quickstart-personalize-client-library-for-nodejs"></a>快速入門：適用於 Node.js 的個人化工具用戶端程式庫
 
@@ -31,11 +31,21 @@ ms.locfileid: "71265969"
 ## <a name="prerequisites"></a>必要條件
 
 * Azure 訂用帳戶 - [建立免費帳戶](https://azure.microsoft.com/free/)
-* 最新版的 [Node.js](https://nodejs.org)。
+* 最新版的 [Node.js](https://nodejs.org) 和 NPM。
 
-## <a name="setting-up"></a>設定
+## <a name="using-this-quickstart"></a>使用此快速入門
 
-### <a name="create-a-personalizer-azure-resource"></a>建立個人化工具 Azure 資源
+
+使用本快速入門有幾個步驟：
+
+* 在 Azure 入口網站中，建立個人化工具資源
+* 在 Azure 入口網站中，於個人化工具資源的 [設定]  頁面上，變更模型更新頻率。
+* 在程式碼編輯器中，建立程式碼檔案並編輯程式碼檔案
+* 在命令列或終端中，從命令列安裝 SDK
+* 在命令列或終端中，執行程式碼檔案
+
+
+## <a name="create-a-personalizer-azure-resource"></a>建立個人化工具 Azure 資源
 
 Azure 認知服務會由您訂閱的 Azure 資源呈現。 請使用 [Azure 入口網站](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account)或 [Azure CLI](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account-cli) 在本機電腦上建立個人化工具的資源。 您也可以：
 
@@ -50,7 +60,7 @@ Azure 認知服務會由您訂閱的 Azure 資源呈現。 請使用 [Azure 入�
 在 Azure 入口網站中，可以從 [快速入門]  頁面取得金鑰和端點值。
 
 
-### <a name="create-a-new-nodejs-application"></a>建立新的 Node.js 應用程式
+## <a name="create-a-new-nodejs-application"></a>建立新的 Node.js 應用程式
 
 在主控台視窗 (例如 cmd、PowerShell 或 Bash) 中，為您的應用程式建立新的目錄，並瀏覽至該目錄。 
 
@@ -64,7 +74,7 @@ mkdir myapp && cd myapp
 npm init -y
 ```
 
-### <a name="install-the-nodejs-library-for-personalizer"></a>安裝 Node.js 個人化工具程式庫
+## <a name="install-the-nodejs-library-for-personalizer"></a>安裝 Node.js 個人化工具程式庫
 
 使用下列命令安裝適用於 Node.js 的個人化工具用戶端程式庫：
 
@@ -78,9 +88,9 @@ npm install @azure/cognitiveservices-personalizer --save
 npm install @azure/ms-rest-azure-js @azure/ms-rest-js readline-sync uuid --save
 ```
 
-### <a name="change-the-model-update-frequency"></a>變更模型更新頻率
+## <a name="change-the-model-update-frequency"></a>變更模型更新頻率
 
-在 Azure 入口網站的個人化資源中，將 [模型更新頻率]  變更為 10 秒。 如此可快速定型服務，讓您查看最上次的動作如何針對每個反覆項目變更。
+在 Azure 入口網站中，於個人化工具資源的 [設定]  頁面上，將 [模型更新頻率]  變更為 10 秒。 如此可快速定型服務，讓您查看最上次的動作如何針對每個反覆項目變更。
 
 ![變更模型更新頻率](./media/settings/configure-model-update-frequency-settings.png)
 

@@ -7,14 +7,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: quickstart
-ms.date: 09/18/2019
+ms.date: 10/01/2019
 ms.author: pafarley
-ms.openlocfilehash: bcce9c53e2618f9501dde63905fb834bce7985ee
-ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
+ms.openlocfilehash: fdf2b132b5d07b2b12c679cb436968c6fb19887e
+ms.sourcegitcommit: a19f4b35a0123256e76f2789cd5083921ac73daf
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71204453"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71719518"
 ---
 # <a name="quickstart-computer-vision-client-library-for-nodejs"></a>快速入門：適用於 Node.js 的電腦視覺用戶端程式庫
 
@@ -171,9 +171,9 @@ npm install azure-cognitiveservices-computervision ms-rest-azure
 
 [!code-javascript[](~/cognitive-services-quickstart-code/javascript/ComputerVision/ComputerVisionQuickstart.js?name=snippet_formatfaces)]
 
-### <a name="detect-adult-or-racy-content"></a>偵測成人或猥褻內容
+### <a name="detect-adult-racy-or-gory-content"></a>偵測成人、猥褻或暴力內容
 
-下列程式碼會列印影像中偵測到的成人或猥褻內容。 如需詳細資訊，請參閱[成人和猥褻內容](../concept-detecting-adult-content.md)。
+下列程式碼會列印影像中偵測到的成人內容。 如需詳細資訊，請參閱[成人、猥褻、暴力內容](../concept-detecting-adult-content.md)。
 
 定義要使用的影像 URL：
 

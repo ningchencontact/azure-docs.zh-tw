@@ -8,16 +8,16 @@ ms.service: hdinsight
 ms.custom: mvc
 ms.topic: quickstart
 ms.date: 06/12/2019
-ms.openlocfilehash: b66306de6b2afa1e39a91ba3b3981aec4b440e1a
-ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
+ms.openlocfilehash: f11cbdab59548906f751116a2ca7b9c545b25d91
+ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71123591"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71677875"
 ---
 # <a name="quickstart-create-apache-kafka-cluster-in-azure-hdinsight-using-azure-portal"></a>快速入門：在 Azure HDInsight 中使用 Azure 入口網站建立 Apache Kafka 叢集
 
-Apache Kafka 是一個開放原始碼的分散式串流平台。 它通常會用來作為訊息代理程式，因為可以提供類似「發佈-訂閱」訊息佇列的功能。 
+Apache Kafka 是一個開放原始碼的分散式串流平台。 它通常會用來作為訊息代理程式，因為可以提供類似「發佈-訂閱」訊息佇列的功能。
 
 在本快速入門中，您會了解如何使用 Azure 入口網站來建立 [Apache Kafka](https://kafka.apache.org) \(英文\) 叢集。 您也會了解如何使用內含的公用程式，使用 Apache Kafka 來傳送和接收訊息。
 
@@ -37,75 +37,64 @@ SSH 用戶端。 如需詳細資訊，請參閱[使用 SSH 連線至 HDInsight (
 
 1. 登入 [Azure 入口網站](https://portal.azure.com)。
 
-2. 從左側功能表，瀏覽至 [+ 建立資源]   > [分析]   > [HDInsight]  。
+1. 從左側功能表，瀏覽至 [+ 建立資源]   > [分析]   > [HDInsight]  。
 
     ![Azure 入口網站建立資源 HDInsight](./media/apache-kafka-get-started/create-hdinsight-cluster.png)
 
-3. 從 [基本]  中，輸入或選取以下資訊：
+1. 在 [基本]  之下，輸入或選取下列值：
 
-    | 設定 | 值 |
-    | --- | --- |
-    | 叢集名稱 | HDInsight 叢集的唯一名稱。 |
-    | 訂用帳戶 | 選取您的訂用帳戶。 |
+    |屬性  |說明  |
+    |---------|---------|
+    |訂用帳戶    |  選取 Azure 訂用帳戶。 |
+    |資源群組     | 建立資源群組，或選取現有的資源群組。  資源群組是 Azure 元件的容器。  在此案例中，資源群組包含 HDInsight 叢集和相依的 Azure 儲存體帳戶。 |
+    |叢集名稱   | 輸入 Hadoop 叢集的名稱。 由於 HDInsight 中的所有叢集共用相同的 DNS 命名空間，因此這個名稱必須是唯一的。 名稱最多可包含 59 個字元，而這些字元可以是字母、數字和連字號。 名稱的第一個和最後一個字元不可以是連字號。 |
+    |位置    | 選取您要建立叢集的 Azure 位置。  選擇靠近您的位置，以獲得最佳效能。 |
+    |叢集類型| 選取 [選取叢集類型]  。 然後選取 [Kafka]  作為叢集類型。|
+    |版本|將會指定叢集類型的預設版本。 如果您想要指定不同的版本，請從下拉式清單中選取。|
+    |叢集登入使用者名稱和密碼    | 預設登入名稱為 **admin**。密碼長度至少必須為 10 個字元，且必須包含至少一個數字、一個大寫字母及一個小寫字母、一個非英數字元 (除了字元 ' " ` \)。 確定您**不會提供**常見密碼，例如 "Pass@word1"。|
+    |安全殼層 (SSH) 使用者名稱 | 預設的使用者名稱為 **sshuser**。  您可以為 SSH 使用者名稱提供另一個名稱。 |
+    |將叢集登入密碼用於 SSH| 選取此核取方塊，讓 SSH 使用者所使用的密碼等同於您提供給叢集登入使用者的密碼。|
 
-   選取 [叢集類型]  以顯示**叢集設定**。
-
-   ![HDInsight 基本組態上的 Apache Kafka 叢集](./media/apache-kafka-get-started/custom-basics-kafka1.png)
-
-4. 從 [叢集設定]  選取下列值：
-
-    | 設定 | 值 |
-    | --- | --- |
-    | 叢集類型 | Kafka |
-    | 版本 | Kafka 1.1.0 (HDI 3.6) |
-
-    選取 [選取]  來儲存叢集類型設定，然後返回 [基本]  。
-
-    ![HDInsight apache kafka 叢集類型](./media/apache-kafka-get-started/apache-kafka-cluster-type.png)
-
-5. 從 [基本]  中，輸入或選取以下資訊：
-
-    | 設定 | 值 |
-    | --- | --- |
-    | 叢集登入使用者名稱 | 存取裝載於叢集上 Web 服務或 REST API 時的登入名稱。 請保留預設值 (admin)。 |
-    | 叢集登入密碼 | 存取裝載於叢集上 Web 服務或 REST API 時的登入密碼。 |
-    | 安全殼層 (SSH) 使用者名稱 | 透過 SSH 存取叢集時使用的登入資訊。 依預設，密碼要與叢集登入密碼相同。 |
-    | 資源群組 | 在其中建立叢集的資源群組。 |
-    | 位置 | 在其中建立叢集的 Azure 區域。 |
+   ![Azure 入口網站建立叢集基本概念](./media/apache-kafka-get-started/azure-portal-cluster-basics-blank.png)
 
     每個 Azure 區域 (位置) 提供_容錯網域_。 容錯網域是 Azure 資料中心內基礎硬體的邏輯群組。 每個容錯網域會共用通用電源和網路交換器。 實作 HDInsight 叢集內節點的虛擬機器和受控磁碟會分散於這些容錯網域。 此架構會限制實體硬體故障的潛在影響。
 
     若要獲得高度資料可用性，請選取包含「三個容錯網域」  的區域 (位置)。 如需區域中的容錯網域數目的資訊，請參閱 [Linux 虛擬機器的可用性](../../virtual-machines/windows/manage-availability.md#use-managed-disks-for-vms-in-an-availability-set)文件。
 
-   ![Azure 入口網站建立叢集基本概念](./media/apache-kafka-get-started/hdinsight-basic-configuration-2.png)
+    選取頁面底部的 [下一步:  儲存體>>] 索引標籤，以前進到儲存體設定。
 
-    選取 [下一步]  來完成基本設定。
+1. 在 [儲存體]  索引標籤中，提供下列值：
 
-6. 針對本快速入門，請保留預設的安全性設定。 若要深入了解企業安全性套件，請造訪[使用 Azure Active Directory Domain Services 設定具有企業安全性套件的 HDInsight 叢集](../domain-joined/apache-domain-joined-configure-using-azure-adds.md)。 若要了解如何在 Apache Kafka 磁碟加密上使用自己的金鑰，請造訪[在 Azure HDInsight 上攜帶您自己的 Apache Kafka 金鑰](apache-kafka-byok.md)
+    |屬性  |說明  |
+    |---------|---------|
+    |主要儲存體類型|使用預設值 [Azure 儲存體]  。|
+    |選取方法|使用預設值 [從清單中選取]  。|
+    |主要儲存體帳戶|使用下拉式清單來選取現有的儲存體帳戶，或選取 [新建]  。 如果您建立新的帳戶，其名稱的長度必須介於 3 到 24 個字元之間，且只能包含數字和小寫字母。|
+    |容器|使用自動填入的值。|
+
+    ![HDInsight Linux 開始提供叢集存放區值](./media/apache-kafka-get-started/azure-portal-cluster-storage-blank.png "提供用於建立 HDInsight 叢集的存放區值")
+
+    選取 [安全性 + 網路]  索引標籤。
+
+1. 針對本快速入門，請保留預設的安全性設定。 若要深入了解企業安全性套件，請造訪[使用 Azure Active Directory Domain Services 設定具有企業安全性套件的 HDInsight 叢集](../domain-joined/apache-domain-joined-configure-using-azure-adds.md)。 若要了解如何在 Apache Kafka 磁碟加密上使用自己的金鑰，請造訪[在 Azure HDInsight 上攜帶您自己的 Apache Kafka 金鑰](apache-kafka-byok.md)
 
    如果您想要將叢集連線到虛擬網路，請從 [虛擬網路]  下拉式清單中選取虛擬網路。
 
-   ![將叢集新增至虛擬網路](./media/apache-kafka-get-started/kafka-security-config.png)
+   ![將叢集新增至虛擬網路](./media/apache-kafka-get-started/azure-portal-cluster-security-networking-kafka-vn.png)
 
-7. 從 [儲存體]  ，選取或建立儲存體帳戶。 本文件的步驟是將其他欄位保留為預設值。 使用 [下一步]  按鈕以儲存儲存體組態。 如需有關如何使用 Data Lake Storage Gen2 的詳細資訊，請參閱[快速入門：在 HDInsight 中設定叢集](../../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md)。
+    選取 [組態 + 定價]  索引標籤。
 
-   ![設定 HDInsight 的儲存體帳戶](./media/apache-kafka-get-started/storage-configuration.png)
+1. 若要保證 HDInsight 上的 Apache Kafka 可用性，則必須將 [背景工作節點]  的 [節點數目]  項目設為 3 或更高。 預設值為 4。
 
-8. 從 [應用程式 (選擇性)]  中選取 [下一步]  ，以使用預設設定繼續進行。
+    [每個背景工作節點的標準磁碟數]  項目會設定 HDInsight 上 Apache Kafka 的延展性。 HDInsight 上的 Apache Kafka 會在叢集中使用虛擬機器的本機磁碟來儲存資料。 Apache Kafka 的 I/O 非常大量，因此會使用 [Azure 受控磁碟](../../virtual-machines/windows/managed-disks-overview.md)來提供高輸送量，並為每個節點提供更多儲存空間。 受控磁碟的類型可以是__標準__ (HDD) 或__進階__ (SSD)。 磁碟類型取決於背景工作節點 (Apache Kafka 代理程式) 所使用的 VM 大小。 進階磁碟會自動與 DS 和 GS 系列的 VM 搭配使用。 所有其他的 VM 類型是使用標準磁碟。
 
-9. 從 [叢集大小]  中選取 [下一步]  ，以使用預設設定繼續進行。
+   ![設定 Apache Kafka 叢集大小](./media/apache-kafka-get-started/azure-portal-cluster-configuration-pricing-kafka.png)
 
-    若要保證 HDInsight 上的 Apache Kafka 可用性，則必須將 [背景工作節點數]  項目設為 3 或更高。 預設值為 4。
+    選取 [檢閱 + 建立]  索引標籤。
 
-    [每個背景工作角色節點的磁碟數]  項目會設定 HDInsight 上 Apache Kafka 的延展性。 HDInsight 上的 Apache Kafka 會在叢集中使用虛擬機器的本機磁碟來儲存資料。 Apache Kafka 的 I/O 非常大量，因此會使用 [Azure 受控磁碟](../../virtual-machines/windows/managed-disks-overview.md)來提供高輸送量，並為每個節點提供更多儲存空間。 受控磁碟的類型可以是__標準__ (HDD) 或__進階__ (SSD)。 磁碟類型取決於背景工作節點 (Apache Kafka 代理程式) 所使用的 VM 大小。 進階磁碟會自動與 DS 和 GS 系列的 VM 搭配使用。 所有其他的 VM 類型是使用標準磁碟。
+1. 檢閱叢集的組態。 變更任何不正確的設定。 最後，選取 [建立]  以建立叢集。
 
-   ![設定 Apache Kafka 叢集大小](./media/apache-kafka-get-started/apace-kafka-cluster-size.png)
-
-10. 從 [進階設定]  中選取 [下一步]  ，以使用預設設定繼續進行。
-
-11. 從 [摘要]  檢閱叢集組態。 使用 [編輯]  連結來變更所有不正確的設定。 最後，選取 [建立]  以建立叢集。
-
-    ![kafka 叢集組態摘要](./media/apache-kafka-get-started/kafka-configuration-summary.png)
+    ![kafka 叢集組態摘要](./media/apache-kafka-get-started/azure-portal-cluster-review-create-kafka.png)
 
     建立叢集可能需要花費 20 分鐘的時間。
 
@@ -150,7 +139,7 @@ SSH 用戶端。 如需詳細資訊，請參閱[使用 SSH 連線至 HDInsight (
 在本節中，您會從叢集上的 Apache Ambari REST API 取得主機資訊。
 
 1. 安裝 [jq](https://stedolan.github.io/jq/)，這是命令列 JSON 處理器。 此公用程式可用來剖析 JSON 文件，而且在剖析主機資訊時很有用。 從開啟的 SSH 連線，輸入下列命令來安裝 `jq`：
-   
+
     ```bash
     sudo apt -y install jq
     ```
@@ -200,7 +189,7 @@ SSH 用戶端。 如需詳細資訊，請參閱[使用 SSH 連線至 HDInsight (
     ```
 
     此命令會傳回類似以下文字的資訊：
-   
+
     `wn1-kafka.eahjefxxp1netdbyklgqj5y1ud.cx.internal.cloudapp.net:9092,wn0-kafka.eahjefxxp1netdbyklgqj5y1ud.cx.internal.cloudapp.net:9092`
 
 ## <a name="manage-apache-kafka-topics"></a>管理 Apache Kafka 主題
@@ -213,7 +202,7 @@ Kafka 會將資料串流儲存於「主題」  中。 您可以使用 `kafka-top
     /usr/hdp/current/kafka-broker/bin/kafka-topics.sh --create --replication-factor 3 --partitions 8 --topic test --zookeeper $KAFKAZKHOSTS
     ```
 
-    此命令會使用 `$KAFKAZKHOSTS` 中儲存的主機資訊連線到 Zookeeper。 然後建立名為 **test** 的 Apache Kafka 主題。 
+    此命令會使用 `$KAFKAZKHOSTS` 中儲存的主機資訊連線到 Zookeeper。 然後建立名為 **test** 的 Apache Kafka 主題。
 
     * 此主題中所儲存的資料會分割到八個分割區。
 
@@ -267,11 +256,11 @@ Kafka 會在主題中儲存「記錄」  。 記錄是由「產生者」  產生
 若要將記錄儲存至您稍早建立的 test 主題，然後利用取用者進行讀取，請使用下列步驟：
 
 1. 若要將記錄寫入主題，請從 SSH 連線使用 `kafka-console-producer.sh` 公用程式：
-   
+
     ```bash
     /usr/hdp/current/kafka-broker/bin/kafka-console-producer.sh --broker-list $KAFKABROKERS --topic test
     ```
-   
+
     在此命令之後，您會抵達空白行。
 
 2. 在空白行中輸入文字訊息並按一下 enter 鍵。 如此輸入幾個訊息，然後使用 **Ctrl + C** 返回一般提示。 每一行都會以個別記錄傳送至 Apache Kafka 主題。
@@ -302,7 +291,7 @@ Kafka 會在主題中儲存「記錄」  。 記錄是由「產生者」  產生
 
 > [!WARNING]  
 > HDInsight 叢集的計費起自叢集建立時，終至叢集刪除時。 計費是以每分鐘按比例計算，因此不再使用時，請一律刪除您的叢集。
-> 
+>
 > 刪除 HDInsight 叢集上的 Apache Kafka，也會刪除 Kafka 中儲存的任何資料。
 
 ## <a name="next-steps"></a>後續步驟

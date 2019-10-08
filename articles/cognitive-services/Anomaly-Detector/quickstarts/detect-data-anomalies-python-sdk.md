@@ -10,16 +10,16 @@ ms.subservice: anomaly-detector
 ms.topic: quickstart
 ms.date: 08/01/2019
 ms.author: aahi
-ms.openlocfilehash: 59a4d79cc68c57faf54bde3d42370fb17a317325
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.openlocfilehash: 28dbcde723e25577545cfd44fed9ef00249d8f30
+ms.sourcegitcommit: 8bae7afb0011a98e82cbd76c50bc9f08be9ebe06
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68725550"
+ms.lasthandoff: 10/01/2019
+ms.locfileid: "71694900"
 ---
 # <a name="quickstart-anomaly-detector-client-library-for-python"></a>快速入門：適用於 Python 的 Anomaly Detector 用戶端程式庫
 
-開始使用適用於 .NET 的 Anomaly Detector 用戶端程式庫。 請遵循下列步驟來安裝套件，並試用基本工作的程式碼範例。 Anomaly Detector 服務可藉由自動對時間序列資料使用最適合的模型，而讓您找出其中的異常狀況，不論是什麼產業、情境或資料量都沒問題。
+開始使用適用於 Python 的 Anomaly Detector 用戶端程式庫。 請遵循下列步驟來安裝套件，並試用基本工作的程式碼範例。 Anomaly Detector 服務可藉由自動對時間序列資料使用最適合的模型，而讓您找出其中的異常狀況，不論是什麼產業、情境或資料量都沒問題。
 
 使用適用於 Python 的 Anomaly Detector 用戶端程式庫來：
 
@@ -70,7 +70,7 @@ Anomaly Detector 回應是 [LastDetectResponse](https://docs.microsoft.com/pytho
 
 ## <a name="code-examples"></a>程式碼範例 
 
-這些程式碼片段會示範如何使用適用於 .NET 的 Anomaly Detector 用戶端程式庫來執行下列動作：
+這些程式碼片段會示範如何使用適用於 Python 的 Anomaly Detector 用戶端程式庫來執行下列動作：
 
 * [驗證用戶端](#authenticate-the-client)
 * [從檔案載入時間序列資料集](#load-time-series-data-from-a-file)

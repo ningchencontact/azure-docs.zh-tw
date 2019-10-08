@@ -10,12 +10,12 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.service: active-directory
 ms.subservice: B2C
-ms.openlocfilehash: 9a3c11c7303d467a1a993c49d983131639683239
-ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
+ms.openlocfilehash: 3740a032db6ca9fd0fb88ce348610684d9f895bc
+ms.sourcegitcommit: e9936171586b8d04b67457789ae7d530ec8deebe
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71064883"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71326319"
 ---
 # <a name="tutorial-enable-authentication-in-a-native-client-application-using-azure-active-directory-b2c"></a>教學課程：使用 Azure Active Directory B2C 在原生用戶端應用程式中啟用驗證
 
@@ -37,20 +37,9 @@ ms.locfileid: "71064883"
 
 ## <a name="add-the-native-client-application"></a>新增原生用戶端應用程式
 
-1. 登入 [Azure 入口網站](https://portal.azure.com)。
-2. 選取頂端功能表中的 [目錄 + 訂用帳戶]  篩選，然後選擇包含您租用戶的目錄，以確定您使用的是包含 Azure AD B2C 租用戶的目錄。
-3. 選擇 Azure 入口網站左上角的 [所有服務]  ，然後搜尋並選取 [Azure AD B2C]  。
-4. 選取 [應用程式]  ，然後選取 [新增]  。
-5. 輸入應用程式的名稱。 例如，*nativeapp1*。
-6. 針對 [包含 Web 應用程式/Web API]  ，選取 [否]  。
-7. 針對 [包含原生用戶端]  ，選取 [是]  。
-8. 針對 [重新導向 URI]  ，輸入具有自訂配置的有效重新導向 URI。 選擇重新導向 URI 時，有兩個重要考量︰
+[!INCLUDE [active-directory-b2c-appreg-native](../../includes/active-directory-b2c-appreg-native.md)]
 
-    - **唯一** - 每個應用程式的重新導向 URI 的配置都應該是唯一。 在範例 `com.onmicrosoft.contoso.appname://redirect/path`中，`com.onmicrosoft.contoso.appname` 為配置。 應該遵循這個模式。 如果兩個應用程式共用相同配置，系統會讓使用者選擇應用程式。 如果使用者做出錯誤的選擇，登入便會失敗。
-    - **完成** - 重新導向 URI 必須有配置和路徑。 路徑的網域後面必須至少包含一個正斜線。 例如，`//contoso/` 可正常運作，而 `//contoso` 會失敗。 確定重新導向 URI 未包含特殊字元 (例如底線)。
-
-9. 按一下頁面底部的 [新增]  。
-10. 在 [屬性] 頁面上，記錄您會在設定範例時使用的應用程式識別碼。
+記錄 [應用程式識別碼]  ，以便在稍後的步驟中使用。
 
 ## <a name="configure-the-sample"></a>設定範例
 
