@@ -55,7 +55,7 @@ PolyBase 會從 UTF-8 和 UTF-16 編碼分隔符號文字檔載入資料。 除�
 | :-------------------: | :----------------------------------------------------------: |
 |        tinyint        |                           tinyint                            |
 |       smallint        |                           smallint                           |
-|          ssNoversion          |                             ssNoversion                              |
+|          int          |                             int                              |
 |        Bigint         |                            Bigint                            |
 |        boolean        |                             bit                              |
 |        double         |                            FLOAT                             |
