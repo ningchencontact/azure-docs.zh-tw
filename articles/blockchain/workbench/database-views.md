@@ -237,7 +237,7 @@ Azure Blockchain Workbench 提供一組資料庫檢視，可讓您存取在執�
 | ContractDeployedByUserLastName     | nvarchar(255) | 是         | 合約部署者的使用者姓氏 |
 | ContractDeployedByUserExternalId   | nvarchar(255) | 否          | 合約部署者的使用者外部識別碼。 根據預設，此識別碼是在聯盟中代表其身分識別的 guid Azure Active Directory |
 | ContractDeployedByUserEmailAddress | nvarchar(255) | 是         | 合約部署者的使用者電子郵件地址 |
-| WorkflowPropertyId                 | ssNoversion           |             | 工作流程屬性的唯一識別碼 |
+| WorkflowPropertyId                 | int           |             | 工作流程屬性的唯一識別碼 |
 | WorkflowPropertyDataTypeId         | int           | 否          | 屬性之資料類型的識別碼 |
 | WorkflowPropertyDataTypeName       | nvarchar(50)  | 否          | 屬性之資料類型的名稱 |
 | WorkflowPropertyName               | nvarchar(50)  | 否          | 工作流程屬性的名稱 |
