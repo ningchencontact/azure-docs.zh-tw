@@ -9,12 +9,12 @@ manager: rkarlin
 ms.topic: conceptual
 ms.date: 09/05/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 570bf7968b3d6fac44dc770a7fda1e0784dbdcf9
-ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
+ms.openlocfilehash: 7d7e69e8ad0c5b14ac7ed8b941a7949f4f675812
+ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70886788"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72176761"
 ---
 # <a name="security-controls-for-azure-virtual-machine-scale-sets"></a>Azure 虛擬機器擴展集的安全性控制
 
@@ -35,7 +35,7 @@ ms.locfileid: "70886788"
 
 | 安全性控制 | 是/否 | 注意|
 |---|---|--|
-| Azure 監視支援 (Log analytics、App insights 等)| 是 | 請參閱[在 azure 中監視和更新 Linux 虛擬機器](/azure/virtual-machines/linux/tutorial-monitoring)和[在 azure 中監視和更新 Windows 虛擬機器](/azure/virtual-machines/windows/tutorial-monitoring)。 |
+| Azure 監視支援（Log analytics、App insights 等）| 是 | 請參閱[在 azure 中監視和更新 Linux 虛擬機器](/azure/virtual-machines/linux/tutorial-monitoring)和[在 azure 中監視和更新 Windows 虛擬機器](/azure/virtual-machines/windows/tutorial-monitoring)。 |
 | 控制和管理平面記錄和審核| 是 |  |
 | 資料平面記錄和審核 | 否 |  |
 
@@ -50,17 +50,17 @@ ms.locfileid: "70886788"
 
 | 安全性控制 | 是/否 | 注意 |
 |---|---|--|
-| 待用的伺服器端加密：Microsoft 管理的金鑰 | 是 | 瞭解[如何在 Azure 中將 Linux 虛擬機器加密](/azure/virtual-machines/linux/encrypt-disks), 以及如何[加密 Windows VM 上的虛擬磁片](/azure/virtual-machines/windows/encrypt-disks)。 |
-| 傳輸中的加密 (例如 ExpressRoute 加密、VNet 加密中和 VNet VNet 加密)| 是 | Azure 虛擬機器支援[ExpressRoute](/azure/expressroute)和 VNet 加密。 請參閱[Vm 中的傳輸中加密](/azure/security/security-azure-encryption-overview#in-transit-encryption-in-vms)。 |
+| 待用的伺服器端加密：Microsoft 管理的金鑰 | 是 | 瞭解[如何在 Azure 中將 Linux 虛擬機器加密](/azure/virtual-machines/linux/disk-encryption-linux)，以及如何[加密 Windows VM 上的虛擬磁片](/azure/virtual-machines/windows/encrypt-disks)。 |
+| 傳輸中的加密（例如 ExpressRoute 加密、VNet 加密中和 VNet VNet 加密）| 是 | Azure 虛擬機器支援[ExpressRoute](/azure/expressroute)和 VNet 加密。 請參閱[Vm 中的傳輸中加密](/azure/security/security-azure-encryption-overview#in-transit-encryption-in-vms)。 |
 | 待用的伺服器端加密：客戶管理的金鑰（BYOK） | 是 | 客戶管理的金鑰是支援的 Azure 加密案例;請參閱[Azure 加密總覽](/azure/security/security-azure-encryption-overview#in-transit-encryption-in-vms)。|
-| 資料行層級加密 (Azure 資料服務)| N/A | |
+| 資料行層級加密（Azure 資料服務）| N/A | |
 | API 呼叫加密| 是 | 透過 HTTPS 和 SSL。 |
 
 ## <a name="configuration-management"></a>設定管理
 
 | 安全性控制 | 是/否 | 注意|
 |---|---|--|
-| 設定管理支援 (設定的版本設定等)| 是 |  | 
+| 設定管理支援（設定的版本設定等）| 是 |  | 
 
 ## <a name="next-steps"></a>後續步驟
 

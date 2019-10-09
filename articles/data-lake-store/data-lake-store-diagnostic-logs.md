@@ -30,29 +30,29 @@ ms.locfileid: "60878685"
 
 ## <a name="enable-diagnostic-logging-for-your-data-lake-storage-gen1-account"></a>啟用 Data Lake Storage Gen1 帳戶的診斷記錄
 1. 登入新的 [Azure 入口網站](https://portal.azure.com)。
-2. 開啟 Data Lake Storage Gen1 帳戶，接著在 Data Lake Storage Gen1 帳戶刀鋒視窗中，按一下 [診斷設定]  。
-3. 在 [診斷設定]  刀鋒視窗中，按一下 [開啟診斷]  。
+2. 開啟 Data Lake Storage Gen1 帳戶，接著在 Data Lake Storage Gen1 帳戶刀鋒視窗中，按一下 [診斷設定]。
+3. 在 [診斷設定] 刀鋒視窗中，按一下 [開啟診斷]。
 
     ![啟用診斷記錄](./media/data-lake-store-diagnostic-logs/turn-on-diagnostics.png "啟用診斷記錄")
 
-3. 在 [診斷設定]  刀鋒視窗中，進行下列變更以設定診斷記錄。
+3. 在 [診斷設定] 刀鋒視窗中，進行下列變更以設定診斷記錄。
    
     ![啟用診斷記錄](./media/data-lake-store-diagnostic-logs/enable-diagnostic-logs.png "啟用診斷記錄")
    
-   * 針對 [名稱]  ，輸入診斷記錄設定的值。
+   * 針對 [名稱]，輸入診斷記錄設定的值。
    * 您可以選擇不同的資料儲存/處理方法。
      
-        * 選取 [封存至儲存體帳戶]  選項可將記錄儲存到 Azure 儲存體帳戶。 如果您想要保存資料以供日後批次處理，可以使用此選項。 如果您選取此選項，必須提供用來儲存記錄的 Azure 儲存體帳戶。
+        * 選取 [封存至儲存體帳戶] 選項可將記錄儲存到 Azure 儲存體帳戶。 如果您想要保存資料以供日後批次處理，可以使用此選項。 如果您選取此選項，必須提供用來儲存記錄的 Azure 儲存體帳戶。
         
-        * 選取 [串流至事件中樞]  選項可將記錄資料串流到 Azure 事件中樞。 如果您有即時分析內送記錄的下游處理管線，很可能會使用這個選項。 如果您選取此選項，必須提供要使用的 Azure 事件中樞詳細資料。
+        * 選取 [串流至事件中樞] 選項可將記錄資料串流到 Azure 事件中樞。 如果您有即時分析內送記錄的下游處理管線，很可能會使用這個選項。 如果您選取此選項，必須提供要使用的 Azure 事件中樞詳細資料。
 
         * 選取的選項**傳送至 Log Analytics**若要使用 Azure 監視器服務分析產生的記錄資料。 如果您選取此選項，必須提供要用來執行記錄分析的 Log Analytics 工作區詳細資料。 請參閱[檢視或分析以 Azure 監視器的記錄搜尋所收集的資料](../azure-monitor/learn/tutorial-viewdata.md)如需有關使用 Azure 監視器記錄檔。
      
    * 指定要取得稽核記錄、要求記錄或兩者。
    * 指定的資料的保留天數。 只有在您使用 Azure 儲存體帳戶來封存記錄資料時，才適用保留期。
-   * 按一下 [儲存]  。
+   * 按一下 [儲存]。
 
-一旦您啟用了診斷設定，即可在 [診斷記錄]  索引標籤中查看記錄。
+一旦您啟用了診斷設定，即可在 [診斷記錄] 索引標籤中查看記錄。
 
 ## <a name="view-diagnostic-logs-for-your-data-lake-storage-gen1-account"></a>檢視 Data Lake Storage Gen1 帳戶的診斷記錄
 檢視 Data Lake Storage Gen1 帳戶的記錄資料有兩種方式。
@@ -61,17 +61,17 @@ ms.locfileid: "60878685"
 * 從儲存資料的 Azure 儲存體帳戶
 
 ### <a name="using-the-data-lake-storage-gen1-settings-view"></a>使用 Data Lake Storage Gen1 設定檢是
-1. 從 Data Lake Storage Gen1 帳戶的 [設定]  刀鋒視窗中，按一下 [診斷記錄]  。
+1. 從 Data Lake Storage Gen1 帳戶的 [設定] 刀鋒視窗中，按一下 [診斷記錄]。
    
     ![檢視診斷記錄](./media/data-lake-store-diagnostic-logs/view-diagnostic-logs.png "檢視診斷記錄") 
-2. 在 [診斷記錄]  刀鋒視窗中，您應該會看到依照 [稽核記錄]  和 [要求記錄]  分類的記錄。
+2. 在 [診斷記錄] 刀鋒視窗中，您應該會看到依照 [稽核記錄] 和 [要求記錄] 分類的記錄。
    
    * 要求記錄會擷取所有以 Data Lake Storage Gen1 帳戶提出的 API 要求。
    * 稽核記錄與要求記錄相似，不過能針對以 Data Lake Storage Gen1 帳戶執行之作業提供更詳細的明細。 例如，要求記錄中的一個上傳 API 呼叫可能會致使稽核記錄出現多個「附加」作業。
-3. 若要下載記錄，請針對每個記錄項目按一下 [下載]  連結。
+3. 若要下載記錄，請針對每個記錄項目按一下 [下載] 連結。
 
 ### <a name="from-the-azure-storage-account-that-contains-log-data"></a>從包含記錄資料的 Azure 儲存體帳戶
-1. 開啟與與用於記錄的 Data Lake Storage Gen1 關聯的 Azure 儲存體帳戶刀鋒視窗，然後按一下 [Blob]。 [Blob 服務]  刀鋒視窗會列出兩個容器。
+1. 開啟與與用於記錄的 Data Lake Storage Gen1 關聯的 Azure 儲存體帳戶刀鋒視窗，然後按一下 [Blob]。 [Blob 服務] 刀鋒視窗會列出兩個容器。
    
     ![檢視診斷記錄](./media/data-lake-store-diagnostic-logs/view-diagnostic-logs-storage-account.png "檢視診斷記錄")
    

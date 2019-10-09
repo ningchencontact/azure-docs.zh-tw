@@ -13,13 +13,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 2/23/2018
-ms.author: subramar
-ms.openlocfilehash: ed000dc4be1ae45382d688d4a596ec745c69d0bb
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: atsenthi
+ms.openlocfilehash: 38656d286cae631cb5def0e0c8b171268e4cf428
+ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60711148"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72167257"
 ---
 # <a name="role-based-access-control-for-service-fabric-clients"></a>角色型存取控制 (適用於 Service Fabric 用戶端)
 Azure Service Fabric 針對連線到 Service Fabric 叢集的用戶端，支援兩種不同的存取控制類型：系統管理員和使用者。 存取控制可讓叢集系統管理員針對不同的使用者群組限制特定叢集作業的存取權，讓叢集更加安全。  
@@ -52,9 +52,9 @@ Azure Service Fabric 針對連線到 Service Fabric 叢集的用戶端，支援�
 * **RecoverSystemPartitions**：復原系統服務分割                             
 
 ### <a name="cluster-operations"></a>叢集作業
-* **ProvisionFabric**:MSI 和/或叢集資訊清單佈建                             
+* **ProvisionFabric**：MSI 和/或叢集資訊清單布建                             
 * **UpgradeFabric**：啟動叢集升級                             
-* **UnprovisionFabric**:MSI 和/或叢集資訊清單取消佈建                         
+* **Unprovisionfabric 解除**：MSI 和/或叢集資訊清單取消布布                         
 * **MoveNextFabricUpgradeDomain**：以明確的更新網域繼續進行叢集升級                             
 * **ReportFabricUpgradeHealth**：以目前的升級進度繼續進行叢集升級                             
 * **StartInfrastructureTask**：啟動基礎結構工作                             
@@ -100,7 +100,7 @@ Azure Service Fabric 針對連線到 Service Fabric 叢集的用戶端，支援�
 系統管理員存取控制也可存取上述作業。
 
 ## <a name="changing-default-settings-for-client-roles"></a>變更用戶端角色的預設設定
-在叢集資訊清單檔案中，您可以視需要提供系統管理員功能給用戶端。 您可以在[建立叢集](service-fabric-cluster-creation-via-portal.md)時，前往 [Fabric 設定]  選項，並在 [名稱]  、[系統管理員]  、[使用者]  和 [值]  欄位中提供上述設定來變更預設值。
+在叢集資訊清單檔案中，您可以視需要提供系統管理員功能給用戶端。 您可以在[建立叢集](service-fabric-cluster-creation-via-portal.md)時，前往 [Fabric 設定] 選項，並在 [名稱]、[系統管理員]、[使用者] 和 [值] 欄位中提供上述設定來變更預設值。
 
 ## <a name="next-steps"></a>後續步驟
 [Service Fabric 叢集安全性](service-fabric-cluster-security.md)

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 05/31/2017
 ms.author: mikeray
-ms.openlocfilehash: 28819bc9d2eaf7d4b595bed59bcd1df8741b62a5
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 48848fbacdc0e205604bb163aa36bdafcd175b0b
+ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70101836"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72173532"
 ---
 # <a name="extend-on-premises-always-on-availability-groups-to-azure"></a>將內部部署 Always On 可用性群組延伸至 Azure
 Always On 可用性群組可透過新增次要複本，為資料庫群組提供高可用性。 如果發生故障，這些複本便可容錯移轉資料庫。 此外，它們還可用來卸載讀取工作負載或備份工作。
@@ -39,7 +39,7 @@ Always On 可用性群組可透過新增次要複本，為資料庫群組提供�
 本章節將說明如何使用 [加入 Azure 複本精靈] 延伸您的 Always On 可用性群組解決方案使其包含 Azure 複本。
 
 > [!IMPORTANT]
-> [加入 Azure 複本精靈] 僅支援以傳統部署模型建立的虛擬機器。 新的 VM 部署應該使用較新的 Resource Manager 模型。 如果您是使用搭配 Resource Manager 的 VM，您應該使用 Transact-SQL 命令 (未顯示於此) 手動新增次要 Azure 複本。 此精靈並無法在 Resource Manager 的案例中運作。
+> [加入 Azure 複本精靈] 僅支援以傳統部署模型建立的虛擬機器。 新的 VM 部署應該使用較新的 Resource Manager 模型。 如果您使用具有 Resource Manager 的 Vm，則必須使用 Transact-sql 命令手動新增次要 Azure 複本（此處未顯示）。 此精靈並無法在 Resource Manager 的案例中運作。
 
 1. 在 SQL Server Management Studio 中，依序展開 [Always On 高可用性] > [可用性群組] > [您的可用性群組名稱]。
 2. 以滑鼠右鍵按一下 [可用性複本]，然後按一下 [新增複本]。
@@ -47,7 +47,7 @@ Always On 可用性群組可透過新增次要複本，為資料庫群組提供�
    
     ![SQL](./media/virtual-machines-windows-classic-sql-onprem-availability/IC742861.png)
 4. 您必須連線到所有現有的次要複本。 您可以按一下 [連接...] 位於每個複本旁，或可以按一下 [全部連接...] 。 在驗證之後，按 [下一步] ，前進到下一個畫面。
-5. 在 [**指定複本**] 頁面上, 會在頂端列出多個索引標籤:[**複本**]、[**端點**]、[**備份喜好**設定 **]** 和接聽程式。 從 [複本] 索引標籤按一下 [新增 Azure 複本...] 以啟動 [加入 Azure 複本精靈]。
+5. 在 [**指定複本**] 頁面上，會在頂端列出多個索引標籤：[**複本**]、[**端點**]、[**備份喜好**設定 **]** 和接聽程式。 從 [複本] 索引標籤按一下 [新增 Azure 複本...] 以啟動 [加入 Azure 複本精靈]。
    
     ![SQL](./media/virtual-machines-windows-classic-sql-onprem-availability/IC742863.png)
 6. 如果您先前已安裝 Azure 管理憑證，請從本機的 Windows 憑證存放區選取現有的 Azure 管理憑證。 如果您先前已使用過 Azure 訂用帳戶的識別碼，請選取或輸入該識別碼。 您可以按 [下載] 下載並安裝 Azure 管理憑證，然後使用 Azure 帳戶下載訂用帳戶清單。

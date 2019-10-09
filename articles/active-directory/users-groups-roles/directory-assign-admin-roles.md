@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3992ea29d3d81262b5d9b8b126c8fca54feca67d
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.openlocfilehash: d70a2aa6ad0e092fc6df9f5792029dc759345321
+ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72026374"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72169783"
 ---
 # <a name="administrator-role-permissions-in-azure-active-directory"></a>Azure Active Directory 中的系統管理員角色權限
 
@@ -214,18 +214,19 @@ ms.locfileid: "72026374"
 
 ### <a name="global-readerglobal-reader-permissions"></a>[全域讀者](#global-reader-permissions)
 
-此角色中的使用者可以跨 Microsoft 365 服務讀取設定和系統管理資訊，但無法採取管理動作。 全域讀取器是全域管理員的唯讀對應。 指派全域讀取者，而不是全域管理員，以進行規劃、審核或調查。 將全域讀取器與其他有限的系統管理員角色（例如 Exchange 系統管理員）搭配使用，可讓您在沒有叫用全域管理員角色的情況下，更輕鬆地完成工作。 全域讀取者可搭配新的 Microsoft 365 系統管理中心、Exchange 系統管理中心、小組系統管理中心、安全中心、合規性中心、Azure AD 系統管理中心和裝置管理系統管理中心。 
+此角色中的使用者可以跨 Microsoft 365 服務讀取設定和系統管理資訊，但無法採取管理動作。 全域讀取器是全域管理員的唯讀對應。 指派全域讀取者，而不是全域管理員進行規劃、審核或調查。 將全域讀取器與其他有限的系統管理員角色（例如 Exchange 系統管理員）搭配使用，可讓您在沒有指派全域系統管理員角色的情況下，更輕鬆地完成工作。 全域讀取者可與 Microsoft 365 系統管理中心、Exchange 系統管理中心、小組系統管理中心、安全中心、合規性中心、Azure AD 系統管理中心和裝置管理系統管理中心搭配運作。
 
 > [!NOTE]
-> 全域讀取者角色現在有下列限制-
->* SharePoint 系統管理中心-SharePoint 系統管理中心不支援全域讀取者角色。 因此，在左窗格的 [ [M365 系統管理中心](https://admin.microsoft.com/Adminportal/Home#/homepage)] 中，您不會看到 [SharePoint]。 當您移至 HTTPs：//{租使用者名稱}-admin.sharepoint.com 時，您會收到拒絕存取的情況。 
+> 全域讀取者角色現在有幾個限制：
+>
+>* SharePoint 系統管理中心-SharePoint 系統管理中心不支援全域讀取者角色。 您不會在[Microsoft 365 系統管理中心](https://admin.microsoft.com/Adminportal/Home#/homepage)的 [系統管理中心] 底下的左窗格中看到 [SharePoint]，而且當您嘗試前往*HTTPs：//{Azure AD 組織名稱}-admin.sharepoint.com*時，您會收到拒絕存取的情況。
 >* [Azure AD 入口網站](https://portal.azure.com/#blade/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/AllApps/menuId/)-全域讀取器無法讀取企業應用程式的布建模式。
->* [M365 系統管理中心](https://admin.microsoft.com/Adminportal/Home#/homepage)-全域讀取者無法讀取 cusomter 加密箱要求。 在 M365 系統管理中心的左窗格中，[支援] 底下不會找到 [客戶加密箱要求] 索引標籤。
->* [M365 資訊安全中心](https://security.microsoft.com/homepage)-全域讀取器無法讀取敏感度和保留標籤。 您在 M365 資訊安全中心的 分類 底下的左窗格中，找不到 敏感度標籤、保留標籤 和 標籤
->* [小組系統管理中心](https://admin.teams.microsoft.com)-全域讀取者無法讀取小組生命週期、報表 & 呼叫分析、IP 電話裝置管理和應用程式類別目錄。
->* 特殊許可權[存取管理（PAM）](https://docs.microsoft.com/en-us/office365/securitycompliance/privileged-access-management-overview)不支援全域讀取器。
-> 
-> 這些功能的支援會隨時間而不同。
+>* [M365 系統管理中心](https://admin.microsoft.com/Adminportal/Home#/homepage)-全域讀取者無法讀取客戶加密箱要求。 您在 M365 系統管理中心的左窗格中，找不到 [**支援**] 下的 [**客戶加密箱要求**] 索引標籤。
+>* [M365 安全性中心](https://security.microsoft.com/homepage)-全域讀取者無法讀取敏感度和保留標籤。 您在 M365 的 [安全性中心] 的左窗格中，找不到 [**敏感度卷**標]、[**保留標籤**] 和 [**標籤分析**]
+>* [小組系統管理中心](https://admin.teams.microsoft.com)-全域讀者無法讀取**小組生命週期**、**分析 & 報告**、 **IP 電話裝置管理**和**應用程式類別目錄**。
+>* [特殊許可權[存取管理（PAM）](https://docs.microsoft.com/en-us/office365/securitycompliance/privileged-access-management-overview) ] 不支援 [全域讀取者] 角色。
+>
+> 這些功能目前正在開發中。
 >
 
 ### <a name="guest-inviterguest-inviter-permissions"></a>[來賓邀請者](#guest-inviter-permissions)

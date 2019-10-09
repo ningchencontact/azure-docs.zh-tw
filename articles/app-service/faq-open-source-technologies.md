@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 10/31/2018
 ms.author: genli
 ms.custom: seodec18
-ms.openlocfilehash: 941a218dbda2c27a598e5a53f2b947184ee78085
-ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
+ms.openlocfilehash: b92fe0a8073437d2cf0e908b4e734a0c01c342eb
+ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71121228"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72169676"
 ---
 # <a name="open-source-technologies-faqs-for-web-apps-in-azure"></a>Azure 中的 Web Apps 相關開放原始碼技術常見問題集
 
@@ -187,24 +187,24 @@ App Service 沒有內建的電子郵件功能。 如需從應用程式傳送電�
 
 如果您最近移轉至 Azure，WordPress 可能會重新導向至舊網域 URL。 這是 MySQL 資料庫中的設定所致。
 
-WordPress Buddy+ 是 Azure 網站擴充功能，可讓您直接在資料庫中更新重新導向 URL。 如需使用 WordPress Buddy+ 的詳細資訊，請參閱 [WordPress 工具以及使用 WordPress Buddy+ 進行 MySQL 移轉](https://blogs.msdn.microsoft.com/azureossds/2016/12/21/wordpress-tools-and-mysql-migration-with-wordpress-buddy/) (英文)。
+WordPress Buddy+ 是 Azure 網站擴充功能，可讓您直接在資料庫中更新重新導向 URL。 如需使用 WordPress Buddy+ 的詳細資訊，請參閱 [WordPress 工具以及使用 WordPress Buddy+ 進行 MySQL 移轉](https://sharepointforum.org/threads/wordpress-tools-and-mysql-migration-with-wordpress-buddy.82929/) (英文)。
 
 或者，如果您想要使用 SQL 查詢或 PHPMyAdmin 手動更新重新導向 URL，請參閱 [WordPress：重新導向至錯誤的 URL](https://blogs.msdn.microsoft.com/azureossds/2016/07/12/wordpress-redirecting-to-wrong-url/) (英文)。
 
 ## <a name="how-do-i-change-my-wordpress-sign-in-password"></a>如何變更我的 WordPress 登入密碼？
 
-如果您忘記您的 WordPress 登入密碼，可以使用 WordPress Buddy+ 更新該密碼。 若要重設密碼，請安裝 WordPress Buddy+ Azure 網站擴充功能，然後完成 [WordPress 工具以及使用 WordPress Buddy+ 進行 MySQL 移轉](https://blogs.msdn.microsoft.com/azureossds/2016/12/21/wordpress-tools-and-mysql-migration-with-wordpress-buddy/) (英文) 中所述的步驟。
+如果您忘記您的 WordPress 登入密碼，可以使用 WordPress Buddy+ 更新該密碼。 若要重設密碼，請安裝 WordPress Buddy+ Azure 網站擴充功能，然後完成 [WordPress 工具以及使用 WordPress Buddy+ 進行 MySQL 移轉](https://sharepointforum.org/threads/wordpress-tools-and-mysql-migration-with-wordpress-buddy.82929/) (英文) 中所述的步驟。
 
 ## <a name="i-cant-sign-in-to-wordpress-how-do-i-resolve-this"></a>我無法登入 WordPress。 如何解決這個問題？
 
-最近安裝外掛程式之後，如果您發現遭鎖定而無法進入 WordPress，則表示外掛程式可能有問題。 WordPress Buddy+ 是 Azure 網站擴充功能，可協助您停用 WordPress 中的外掛程式。 如需詳細資訊，請參閱 [WordPress 工具以及使用 WordPress Buddy+ 進行 MySQL 移轉](https://blogs.msdn.microsoft.com/azureossds/2016/12/21/wordpress-tools-and-mysql-migration-with-wordpress-buddy/) (英文)。
+最近安裝外掛程式之後，如果您發現遭鎖定而無法進入 WordPress，則表示外掛程式可能有問題。 WordPress Buddy+ 是 Azure 網站擴充功能，可協助您停用 WordPress 中的外掛程式。 如需詳細資訊，請參閱 [WordPress 工具以及使用 WordPress Buddy+ 進行 MySQL 移轉](https://sharepointforum.org/threads/wordpress-tools-and-mysql-migration-with-wordpress-buddy.82929/) (英文)。
 
 ## <a name="how-do-i-migrate-my-wordpress-database"></a>我要如何移轉我的 WordPress 資料庫？
 
 對於移轉連線到 WordPress 網站的 MySQL 資料庫，您有多個選項：
 
 * 開發人員：使用[命令提示字元或 PHPMyAdmin](https://blogs.msdn.microsoft.com/azureossds/2016/03/02/migrating-data-between-mysql-databases-using-kudu-console-azure-app-service/)
-* 非開發人員：使用 [WordPress Buddy +](https://blogs.msdn.microsoft.com/azureossds/2016/12/21/wordpress-tools-and-mysql-migration-with-wordpress-buddy/)
+* 非開發人員：使用 [WordPress Buddy +](https://sharepointforum.org/threads/wordpress-tools-and-mysql-migration-with-wordpress-buddy.82929/)
 
 ## <a name="how-do-i-help-make-wordpress-more-secure"></a>如何使 WordPress 更安全？
 

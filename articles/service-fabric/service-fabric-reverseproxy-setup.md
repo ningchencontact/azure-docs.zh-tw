@@ -12,13 +12,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 11/13/2018
-ms.author: chackdan
-ms.openlocfilehash: 826e7e953bd713bb623ec469b45c56012601490b
-ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
+ms.author: pepogors
+ms.openlocfilehash: 3fd1716fa7b9c32bb5b5e49598139b6a5e728692
+ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69030815"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72166586"
 ---
 # <a name="set-up-and-configure-reverse-proxy-in-azure-service-fabric"></a>安裝及設定 Azure Service Fabric 中的反向 Proxy
 反向 Proxy 是選用的 Azure Service Fabric 服務，可協助在 Service Fabric 叢集中執行的微服務進行探索，並與其他擁有 HTTP 端點的服務通訊。 如需詳細資訊，請參閱 [Azure Service Fabric 中的反向 Proxy](service-fabric-reverseproxy.md)。 這篇文章會示範如何在叢集中安裝及設定反向 Proxy。 
@@ -333,7 +333,7 @@ Azure 入口網站提供選項，以在您建立新的 Service Fabric 叢集時�
 
 如需更新 Azure 叢集之網狀架構設定的相關詳細資訊，請參閱[使用 Resource Manager 範本自訂叢集設定](service-fabric-cluster-config-upgrade-azure.md)。 針對獨立叢集，請參閱[自訂獨立叢集的叢集設定](service-fabric-cluster-config-upgrade-windows-server.md)。 
 
-多個網狀架構設定用來協助建立反向 Proxy 與服務之間的安全通訊。 如需這些設定的詳細資訊, 請參閱[使用反向 Proxy 連接到安全服務](service-fabric-reverseproxy-configure-secure-communication.md)。
+多個網狀架構設定用來協助建立反向 Proxy 與服務之間的安全通訊。 如需這些設定的詳細資訊，請參閱[使用反向 Proxy 連接到安全服務](service-fabric-reverseproxy-configure-secure-communication.md)。
 
 ## <a name="next-steps"></a>後續步驟
 * [設定透過反向 Proxy 轉送到安全的 HTTP 服務](service-fabric-reverseproxy-configure-secure-communication.md)

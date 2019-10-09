@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/07/2019
 ms.author: anavin
-ms.openlocfilehash: c488b96940cac03b9c392f0ac4bd1d32a15ba111
-ms.sourcegitcommit: f9e81b39693206b824e40d7657d0466246aadd6e
+ms.openlocfilehash: a53d5810b20aa8389c152889fed5d7f4e8cfc5b7
+ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72035275"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72177665"
 ---
 # <a name="virtual-network-peering"></a>虛擬網路對等互連
 
@@ -90,7 +90,7 @@ VNet 對等互連和全域 VNet 對等互連都支援閘道傳輸。 只有當�
 
 我們會針對使用虛擬網路對等互連連線的輸入和輸出流量收取少許費用。 如需有關 VNet 對等互連和全域 VNet 對等互連定價的詳細資訊，請參閱[定價頁面](https://azure.microsoft.com/pricing/details/virtual-network)。
 
-閘道傳輸是一種對等互連屬性，可讓虛擬網路利用對等互連虛擬網路中的 VPN/ExpressRoute 閘道，來進行跨單位或 VNet 對 VNet 連線。 如需詳細資訊，請參閱[VPN 閘道費用](https://azure.microsoft.com/pricing/details/vpn-gateway/)或 ExpressRoute 閘道費用和[VNet 對等互連費用。](https://azure.microsoft.com/pricing/details/virtual-network)
+閘道傳輸是一種對等互連屬性，可讓虛擬網路利用對等互連虛擬網路中的 VPN/ExpressRoute 閘道，來進行跨單位或 VNet 對 VNet 連線。 對等互連 VNet 中閘道（輸入或輸出）的流量會產生 VNet 對等互連費用。 如需詳細資訊，請參閱[VPN 閘道費用](https://azure.microsoft.com/pricing/details/vpn-gateway/)或 ExpressRoute 閘道費用和[VNet 對等互連費用。](https://azure.microsoft.com/pricing/details/virtual-network)
 
 ## <a name="next-steps"></a>後續步驟
 

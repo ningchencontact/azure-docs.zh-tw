@@ -23,9 +23,9 @@
       href: storage-sync-files-extend-servers.md
 - name: 概念
   items:
-    - name: 關於 Azure 檔案
+    - name: 規劃 Azure 檔案服務部署
       href: storage-files-planning.md
-    - name: 關於 Azure 檔案同步
+    - name: 規劃 Azure 檔案同步部署
       href: storage-sync-files-planning.md
     - name: 關於雲端階層處理
       href: storage-sync-cloud-tiering.md

@@ -1,26 +1,30 @@
 ---
-title: Azure 虛擬 WAN 的預設 IPsec 原則 |Microsoft Docs
-description: 本文提供針對虛擬 WAN IPsec 原則的相關資訊。
+title: Azure 虛擬 WAN 預設 IPsec 原則 |Microsoft Docs
+description: 本文提供虛擬 WAN 的 IPsec 原則相關資訊。
 services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: conceptual
-ms.date: 05/28/2019
+ms.date: 10/07/2019
 ms.author: cherylmc
-ms.openlocfilehash: fcc9979b9f6d2efcdcbb575f3fd149d8df9c20b0
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 5533e35a632f2d58bd8af8f52aafa11d1b677cb9
+ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66307208"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72168413"
 ---
-# <a name="virtual-wan-default-policies-for-ipsec-connectivity"></a>IPsec 連線的虛擬 WAN 的預設原則
+# <a name="virtual-wan-default-policies-for-ipsec-connectivity"></a>IPsec 連線能力的虛擬 WAN 預設原則
 
 本文說明支援的 IPsec 原則組合。
 
-## <a name="default-ipsec-policies"></a>預設的 IPsec 原則
+## <a name="default-ipsec-policies"></a>預設 IPsec 原則
 
 [!INCLUDE [IPsec](../../includes/virtual-wan-ipsec-include.md)]
+
+## <a name="custom-ipsec-policies"></a>自訂 IPsec 原則
+
+[!INCLUDE [IPsec](../../includes/virtual-wan-ipsec-custom-include.md)]
 
 ## <a name="next-steps"></a>後續步驟
 

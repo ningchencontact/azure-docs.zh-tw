@@ -9,16 +9,16 @@ ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 09/08/2018
 ms.author: glenga
-ms.openlocfilehash: 5a4bc05e0a0b0b6a2c1b859caea2aadc12b8e0e0
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 3ae75dc988ad70871efa45eb8c61db15804922ee
+ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70096409"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72176588"
 ---
 # <a name="hostjson-reference-for-azure-functions-2x"></a>適用於 Azure Functions 2.x 的 host.json 參考  
 
-> [!div class="op_single_selector" title1="選取您要使用的 Azure Functions 執行階段版本: "]
+> [!div class="op_single_selector" title1="選取您要使用的 Azure Functions 執行階段版本： "]
 > * [第 1 版](functions-host-json-v1.md)
 > * [第 2 版](functions-host-json.md)
 
@@ -117,6 +117,9 @@ ms.locfileid: "70096409"
 |---------|---------|---------| 
 |isEnabled|true|啟用或停用取樣。| 
 |maxTelemetryItemsPerSecond|5|取樣的開始臨界值。| 
+|EnableLiveMetrics |true|啟用即時計量集合。|
+|EnableDependencyTracking|true|啟用相依性追蹤。|
+|EnablePerformanceCountersCollection|true|啟用 Kudu 效能計數器集合。|
 
 ## <a name="cosmosdb"></a>cosmosDb
 
@@ -134,7 +137,7 @@ ms.locfileid: "70096409"
 
 傳回包含所有繫結特定設定 (例如 [http](#http) 和 [eventHub](#eventhub)) 之物件的屬性。
 
-## <a name="functions"></a>函數
+## <a name="functions"></a>functions
 
 工作主機所執行的函式清單。 空陣列表示已執行所有函式。 預定只能在[本機執行](functions-run-local.md)時使用。 在 Azure 的函數應用程式中，您應該改為依照[如何停用 Azure Functions 中的函式](disable-function.md)中的步驟來停用特定函式，而不是使用此設定。
 
@@ -147,9 +150,9 @@ ms.locfileid: "70096409"
 ## <a name="functiontimeout"></a>functionTimeout
 
 指出所有函式的逾時持續期間。 它會遵循 timespan 字串格式。 在無伺服器的使用情況方案中，有效範圍是從 1 秒到 10 分鐘，而預設值是 5 分鐘。  
-在專用 (App Service) 方案中, 沒有整體限制, 而且預設值取決於執行階段版本: 
-+ 1\.x 版: 預設值為*null*, 表示沒有超時。   
-+ 2\.x 版: 預設值為30分鐘。 的值表示`-1`未系結的執行。
+在專用（App Service）方案中，沒有整體限制，而且預設值取決於執行階段版本： 
++ 1\.x 版：預設值為*null*，表示沒有超時。   
++ 2\.x 版：預設值為30分鐘。 值為 `-1` 表示未系結的執行。
 
 ```json
 {
@@ -211,10 +214,10 @@ ms.locfileid: "70096409"
 |---------|---------|---------|
 |fileLoggingMode|debugOnly|定義已啟用何種檔案記錄層級。  選項為 `never`、`always`、`debugOnly`。 |
 |logLevel|n/a|為應用程式中的函式定義記錄類別篩選的物件。 2\.x 版會依循 ASP.NET Core 的記錄類別篩選配置。 這可讓您篩選特定函式的記錄。 如需詳細資訊，請參閱 ASP.NET Core 文件中的[記錄篩選](https://docs.microsoft.com/aspnet/core/fundamentals/logging/?view=aspnetcore-2.1#log-filtering)。 |
-|主控台|n/a| [console](#console)記錄設定。 |
+|console|n/a| [console](#console)記錄設定。 |
 |applicationInsights|n/a| [applicationInsights](#applicationinsights) 設定。 |
 
-## <a name="console"></a>主控台
+## <a name="console"></a>console
 
 此設定是 [logging](#logging) 的子系。 它會在非處於偵錯模式時控制主控台記錄。
 
@@ -286,7 +289,7 @@ Singleton 鎖定行為的組態設定。 如需詳細資訊，請參閱[單一�
 
 ## <a name="manageddependency"></a>managedDependency
 
-受控相依性是一項預覽功能, 目前僅支援以 PowerShell 為基礎的函式。 它可讓服務自動管理相依性。 當 enabled 屬性設定為 true 時, 將會處理[.psd1](functions-reference-powershell.md#dependency-management)檔案。 發行任何次要版本時, 將會更新相依性。
+受控相依性是一項預覽功能，目前僅支援以 PowerShell 為基礎的函式。 它可讓服務自動管理相依性。 當 enabled 屬性設定為 true 時，將會處理[.psd1](functions-reference-powershell.md#dependency-management)檔案。 發行任何次要版本時，將會更新相依性。
 
 ```json
 {

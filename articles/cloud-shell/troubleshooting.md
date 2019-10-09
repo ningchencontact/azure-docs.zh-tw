@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/24/2018
 ms.author: damaerte
-ms.openlocfilehash: eb7deacc068661ca9a4f473ee2d36b7d4464c81c
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 91dc87cd6bda93663fb4b4eae3d498ae56ba4b3e
+ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60199438"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72169604"
 ---
 # <a name="troubleshooting--limitations-of-azure-cloud-shell"></a>Azure Cloud Shell 的疑難排解和限制
 
@@ -36,7 +36,7 @@ ms.locfileid: "60199438"
 
 ### <a name="disabling-cloud-shell-in-a-locked-down-network-environment"></a>在鎖定的網路環境中停用 Cloud Shell
 
-- **詳細資料**：建議系統管理員阻止其使用者存取 Cloud Shell。 Cloud Shell 存取 `ux.console.azure.com` 網域時可能會遭到拒絕，進而停止任何對 Cloud Shell 進入點的存取，例如 portal.azure.com、shell.azure.com、Visual Studio Code 的 Azure 帳戶擴充及 docs.microsoft.com。
+- **詳細資料**：建議系統管理員阻止其使用者存取 Cloud Shell。 Cloud Shell 利用 `ux.console.azure.com` 網域的存取權，這可能會遭到拒絕，並停止對 Cloud Shell e 的任何存取，包括 portal.azure.com、shell.azure.com、Visual Studio Code Azure 帳戶延伸模組，以及 docs.microsoft.com。
 - **解決方案**︰透過環境的網路設定來限制 `ux.console.azure.com` 的存取權。 Cloud Shell 圖示仍會顯示在 portal.azure.com 中，但無法成功連線至該服務。
 
 ### <a name="storage-dialog---error-403-requestdisallowedbypolicy"></a>儲存體對話方塊 - 錯誤：403 RequestDisallowedByPolicy
@@ -54,7 +54,7 @@ ms.locfileid: "60199438"
 - **解決方案**︰確認您已將您的網路設定設定為啟用傳送 https 要求和 websocket 要求至 *.console.azure.com 中的網域。
 
 ### <a name="set-your-cloud-shell-connection-to-support-using-tls-12"></a>設定您的 Cloud Shell 連線以支援使用 TLS 1.2
- - **詳細資料**：若要定義 Cloud Shell 連線的 TLS 版本，您必須設定瀏覽器特有的設定。
+ - **詳細資料**：若要定義 Cloud Shell 連接的 TLS 版本，您必須設定瀏覽器特定的設定。
  - **解決方案**︰瀏覽至瀏覽器的安全性設定，然後選取 [使用 TLS 1.2] 旁的核取方塊。
 
 ## <a name="bash-troubleshooting"></a>Bash 疑難排解
@@ -158,7 +158,7 @@ Azure Cloud Shell 會謹慎處理您的個人資料，Azure Cloud Shell 服務�
 [!INCLUDE [GDPR-related guidance](../../includes/gdpr-intro-sentence.md)]
 
 ### <a name="export"></a>匯出
-若要匯出  Cloud Shell 為您儲存的使用者設定 (例如慣用殼層、字型大小和字型)，請執行下列命令。
+若要匯出 Cloud Shell 為您儲存的使用者設定 (例如慣用殼層、字型大小和字型)，請執行下列命令。
 
 1. [![](https://shell.azure.com/images/launchcloudshell.png "啟動 Azure Cloud Shell")](https://shell.azure.com)
 2. 在 Bash 或 PowerShell 中執行下列命令：
@@ -178,7 +178,7 @@ PowerShell：
 ```
 
 ### <a name="delete"></a>DELETE
-若要刪除  Cloud Shell 為您儲存的使用者設定 (例如慣用殼層、字型大小和字型)，請執行下列命令。 下次您啟動 Cloud Shell 時，系統會要求您再次設置檔案共用。 
+若要刪除 Cloud Shell 為您儲存的使用者設定 (例如慣用殼層、字型大小和字型)，請執行下列命令。 下次您啟動 Cloud Shell 時，系統會要求您再次設置檔案共用。 
 
 >[!Note]
 > 如果您刪除您的使用者設定，實際的 Azure 檔案共用將不會刪除。 請移至 Azure 檔案以完成該動作。
@@ -199,3 +199,5 @@ PowerShell：
   $token= ((Invoke-WebRequest -Uri "$env:MSI_ENDPOINT`?resource=https://management.core.windows.net/" -Headers @{Metadata='true'}).content |  ConvertFrom-Json).access_token
   Invoke-WebRequest -Method Delete -Uri https://management.azure.com/providers/Microsoft.Portal/usersettings/cloudconsole?api-version=2017-12-01-preview -Headers @{Authorization = "Bearer $token"}
   ```
+## <a name="azure-government-limitations"></a>Azure Government 限制
+Azure Government 中的 Azure Cloud Shell 只能透過 Azure 入口網站存取。

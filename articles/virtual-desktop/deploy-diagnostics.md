@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 10/02/2019
 ms.author: helohr
-ms.openlocfilehash: 83f10eb9dadfda5b87f1da287718f59da17c5110
-ms.sourcegitcommit: 4f7dce56b6e3e3c901ce91115e0c8b7aab26fb72
+ms.openlocfilehash: 1bb23e3330f2350572175733445c8ef2c5ea79bb
+ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71947608"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72177776"
 ---
 # <a name="deploy-the-diagnostics-tool"></a>部署診斷工具
 
@@ -197,7 +197,7 @@ ms.locfileid: "71947608"
 
 在您將診斷工具提供給使用者之前，請確定他們具有下列許可權：
 
-- 使用者需要 log analytics 的讀取存取權。 如需詳細資訊，請參閱以[Azure 監視器開始使用角色、許可權和安全性](/articles/azure-monitor/platform/roles-permissions-security.md)。
+- 使用者需要 log analytics 的讀取存取權。 如需詳細資訊，請參閱以[Azure 監視器開始使用角色、許可權和安全性](/azure/azure-monitor/platform/roles-permissions-security)。
 -  使用者也需要 Windows 虛擬桌面租使用者的讀取權限（RDS 讀取者角色）。 如需詳細資訊，請參閱[Windows 虛擬桌面中的委派存取](delegated-access-virtual-desktop.md)。
 
 您也需要為使用者提供下列資訊：

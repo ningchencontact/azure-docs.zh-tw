@@ -9,12 +9,12 @@ ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: article
 ms.date: 07/19/2019
-ms.openlocfilehash: 02c27faa4ac45165747d5eb450e75f666ba7d013
-ms.sourcegitcommit: 6fe40d080bd1561286093b488609590ba355c261
+ms.openlocfilehash: 62d2a2533bf7b5b0e9e98d09c34583e55403753f
+ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/01/2019
-ms.locfileid: "71703474"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72174750"
 ---
 # <a name="limits-and-configuration-information-for-azure-logic-apps"></a>Azure Logic Apps 的限制和設定資訊
 
@@ -50,8 +50,8 @@ ms.locfileid: "71703474"
 
 | Name | 多租使用者限制 | 整合服務環境限制 | 注意 |
 |------|--------------------|---------------------------------------|-------|
-| 執行持續時間 | 90 天 | 365 天 | 若要變更預設限制, 請參閱[變更執行持續時間](#change-duration)。 |
-| 儲存體保留期 | 從執行開始時間算起 90 天 | 365 天 | 若要變更預設限制, 請參閱[變更儲存體保留](#change-retention)。 |
+| 執行持續時間 | 90 天 | 365 天 | 若要變更預設限制，請參閱[變更執行持續時間](#change-duration)。 |
+| 儲存體保留期 | 從執行開始時間算起 90 天 | 365 天 | 若要變更預設限制，請參閱[變更儲存體保留](#change-retention)。 |
 | 最小循環間隔 | 1 秒 | 1 秒 ||
 | 最大循環間隔 | 500 天 | 500 天 ||
 |||||
@@ -61,7 +61,7 @@ ms.locfileid: "71703474"
 
 ### <a name="change-run-duration-and-storage-retention"></a>變更執行持續時間和儲存體保留期
 
-若要變更執行持續時間和儲存體保留期的預設限制, 請遵循下列步驟。 如果需要指定超過上限的值，請[與 Logic Apps 小組連絡](mailto://logicappsemail@microsoft.com)來協助處理您的需求。
+若要變更執行持續時間和儲存體保留期的預設限制，請遵循下列步驟。 如果需要指定超過上限的值，請[與 Logic Apps 小組連絡](mailto://logicappsemail@microsoft.com)來協助處理您的需求。
 
 1. 在 Azure 入口網站的邏輯應用程式功能表上，選擇 [工作流程設定]。
 
@@ -95,7 +95,7 @@ ms.locfileid: "71703474"
 
 | Name | 限制 | 注意 |
 | ---- | ----- | ----- |
-| 動作：每 5 分鐘執行次數 | 100000是預設限制, 但300000是最大限制。 | 若要變更預設限制，請參閱[以「輸送量」模式執行您的邏輯應用程式](../logic-apps/logic-apps-workflow-actions-triggers.md#run-high-throughput-mode) (此為預覽版)。 或者，您可以視需要將工作負載分散到多個邏輯應用程式。 |
+| 動作：每 5 分鐘執行次數 | 100000是預設限制，但300000是最大限制。 | 若要變更預設限制，請參閱[以「輸送量」模式執行您的邏輯應用程式](../logic-apps/logic-apps-workflow-actions-triggers.md#run-high-throughput-mode) (此為預覽版)。 或者，您可以視需要將工作負載分散到多個邏輯應用程式。 |
 | 動作：並行連出呼叫數目 | ~2,500 | 您可以視需要減少並行要求數目或縮短持續時間。 |
 | 執行階段端點：並行連入呼叫數目 | ~1,000 | 您可以視需要減少並行要求數目或縮短持續時間。 |
 | 執行階段端點：每 5 分鐘讀取呼叫數目  | 60,000 | 您可以視需要將工作負載分散到多個應用程式。 |
@@ -103,14 +103,14 @@ ms.locfileid: "71703474"
 | 每 5 分鐘的內容輸送量 | 600 MB | 您可以視需要將工作負載分散到多個應用程式。 |
 ||||
 
-### <a name="integration-service-environment-ise"></a>整合服務環境 (ISE)
+### <a name="integration-service-environment-ise"></a>整合服務環境（ISE）
 
 以下是 Premium SKU 的輸送量限制：
 
 | Name | 限制 | 注意 |
 |------|-------|-------|
-| 基礎單位執行限制 | 當基礎結構容量達到 80% 時，系統節流 | 提供每分鐘 ~ 4000 個動作執行, 也就是每個月 ~ 160000000 個動作執行次數 | |
-| 縮放單位執行限制 | 當基礎結構容量達到 80% 時，系統節流 | 每個縮放單位可提供 ~ 2000 每分鐘額外的動作執行, 也就是每個月 ~ 80000000 個更多動作執行次數 | |
+| 基礎單位執行限制 | 當基礎結構容量達到 80% 時，系統節流 | 提供每分鐘 ~ 4000 個動作執行，也就是每個月 ~ 160000000 個動作執行次數 | |
+| 縮放單位執行限制 | 當基礎結構容量達到 80% 時，系統節流 | 每個縮放單位可提供 ~ 2000 每分鐘額外的動作執行，也就是每個月 ~ 80000000 個更多動作執行次數 | |
 | 可新增的縮放單位上限 | 10 | |
 ||||
 
@@ -131,7 +131,7 @@ Azure Logic Apps 透過閘道支援寫入作業，包括插入和更新。 不�
 
 以下是單一 HTTP 要求或同步連接器呼叫的限制：
 
-#### <a name="timeout"></a>等候逾時
+#### <a name="timeout"></a>逾時
 
 某些連接器作業會進行非同步呼叫或接聽 Webhook 要求，因此這些作業的逾時可能會超過這些限制。 如需詳細資訊，請參閱特定連接器的技術詳細資料以及[工作流程觸發程序和動作](../logic-apps/logic-apps-workflow-actions-triggers.md#http-action)。
 
@@ -146,7 +146,7 @@ Azure Logic Apps 透過閘道支援寫入作業，包括插入和更新。 不�
 | Name | 多租使用者限制 | 整合服務環境限制 | 注意 |
 |------|--------------------|---------------------------------------|-------|
 | 訊息大小 | 100 MB | 200 MB | 若要解決此限制，請參閱[使用區塊化處理大型訊息](../logic-apps/logic-apps-handle-large-messages.md)。 不過，某些連接器和 API 可能不支援區塊化或甚至預設限制。 |
-| 使用區塊化時的訊息大小 | 1 GB | 5 GB | 此限制適用於原生支援區塊化的動作，或可讓您在其執行階段設定中啟用區塊化的動作。 <p>對於整合服務環境, Logic Apps 引擎支援此限制, 但連接器有自己的區塊限制, 最高可達引擎限制, 例如, 請參閱[Azure Blob 儲存體連接器](/connectors/azureblob/)。 如需有關區塊化的詳細資訊, 請參閱[使用區塊化處理大型訊息](../logic-apps/logic-apps-handle-large-messages.md)。 |
+| 使用區塊化時的訊息大小 | 1 GB | 5 GB | 此限制適用於原生支援區塊化的動作，或可讓您在其執行階段設定中啟用區塊化的動作。 <p>對於整合服務環境，Logic Apps 引擎支援此限制，但連接器有自己的區塊限制，最高可達引擎限制，例如，請參閱[Azure Blob 儲存體連接器](/connectors/azureblob/)。 如需有關區塊化的詳細資訊，請參閱[使用區塊化處理大型訊息](../logic-apps/logic-apps-handle-large-messages.md)。 |
 | 運算式評估限制 | 131,072 個字元 | 131,072 個字元 | `@concat()`、`@base64()`、`@string()` 運算式的長度不能超過此限制。 |
 |||||
 
@@ -154,7 +154,7 @@ Azure Logic Apps 透過閘道支援寫入作業，包括插入和更新。 不�
 
 | Name | 限制 | 注意 |
 | ---- | ----- | ----- |
-| 重試嘗試 | 90 | 預設值為 4。 若要變更預設值，請使用[重試原則參數](../logic-apps/logic-apps-workflow-actions-triggers.md)。 |
+| 重試次數 | 90 | 預設值為 4。 若要變更預設值，請使用[重試原則參數](../logic-apps/logic-apps-workflow-actions-triggers.md)。 |
 | 重試延遲上限 | 1 天 | 若要變更預設值，請使用[重試原則參數](../logic-apps/logic-apps-workflow-actions-triggers.md)。 |
 | 重試延遲下限 | 5 秒 | 若要變更預設值，請使用[重試原則參數](../logic-apps/logic-apps-workflow-actions-triggers.md)。 |
 ||||
@@ -173,7 +173,7 @@ Azure Logic Apps 透過閘道支援寫入作業，包括插入和更新。 不�
 
 <a name="managed-identity"></a>
 
-## <a name="managed-identities"></a>受控識別
+## <a name="managed-identities"></a>受控身分識別
 
 | Name | 限制 |
 | ---- | ----- |
@@ -184,13 +184,13 @@ Azure Logic Apps 透過閘道支援寫入作業，包括插入和更新。 不�
 
 ## <a name="integration-account-limits"></a>整合帳戶限制
 
-每個 Azure 訂用帳戶都有下列整合帳戶限制:
+每個 Azure 訂用帳戶都有下列整合帳戶限制：
 
 * 每個 Azure 區域一個[免費層](../logic-apps/logic-apps-pricing.md#integration-accounts)整合帳戶
 
-* 1000整合帳戶總數, 包括[開發人員和高階 sku](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#ise-level)的任何[整合服務環境 (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md)中的整合帳戶。
+* 1000整合帳戶總數，包括[開發人員和高階 sku](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#ise-level)的任何[整合服務環境（ISE）](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md)中的整合帳戶。
 
-* 每個 ISE (無論是[開發人員或](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#ise-level)高階) 限制為5個整合帳戶總數:
+* 每個 ISE （無論是[開發人員或](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#ise-level)高階）限制為5個整合帳戶總數：
 
   | ISE SKU | 整合帳戶限制 |
   |---------|----------------------------|
@@ -198,18 +198,18 @@ Azure Logic Apps 透過閘道支援寫入作業，包括插入和更新。 不�
   | **開發人員** | 5總計-[免費](../logic-apps/logic-apps-pricing.md#integration-accounts)（限制為1個帳戶）和[標準](../logic-apps/logic-apps-pricing.md#integration-accounts)結合，或所有標準帳戶。 不允許任何基本帳戶。 使用[開發人員 SKU](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#ise-level)進行實驗、開發和測試，但不適用於生產或效能測試。 |
   |||
 
-當您新增的整合帳戶超出 ISE 隨附的整合帳戶時, 額外成本也適用。 若要瞭解 Ise 的定價和計費方式, 請參閱[Logic Apps 定價模式](../logic-apps/logic-apps-pricing.md#fixed-pricing)。 如需定價費率, 請參閱[Logic Apps 定價](https://azure.microsoft.com/pricing/details/logic-apps/)。
+當您新增的整合帳戶超出 ISE 隨附的整合帳戶時，額外成本也適用。 若要瞭解 Ise 的定價和計費方式，請參閱[Logic Apps 定價模式](../logic-apps/logic-apps-pricing.md#fixed-pricing)。 如需定價費率，請參閱[Logic Apps 定價](https://azure.microsoft.com/pricing/details/logic-apps/)。
 
 <a name="artifact-number-limits"></a>
 
 ### <a name="artifact-limits-per-integration-account"></a>每個整合帳戶的成品限制
 
-以下是每個整合帳戶層的構件數目限制。 如需定價費率, 請參閱[Logic Apps 定價](https://azure.microsoft.com/pricing/details/logic-apps/)。 若要瞭解整合帳戶的定價和計費方式, 請參閱[Logic Apps 定價模式](../logic-apps/logic-apps-pricing.md#integration-accounts)。
+以下是每個整合帳戶層的構件數目限制。 如需定價費率，請參閱[Logic Apps 定價](https://azure.microsoft.com/pricing/details/logic-apps/)。 若要瞭解整合帳戶的定價和計費方式，請參閱[Logic Apps 定價模式](../logic-apps/logic-apps-pricing.md#integration-accounts)。
 
 > [!NOTE]
-> 僅針對探索案例 (而非生產案例) 使用免費層。 這個層會限制輸送量和使用量，且沒有任何服務等級協定 (SLA)。
+> 僅針對探索案例（而非生產案例）使用免費層。 這個層會限制輸送量和使用量，且沒有任何服務等級協定 (SLA)。
 
-| 成品 | 免費 | 基本 | 標準 |
+| 構件 | 免費 | 基本 | 標準 |
 |----------|------|-------|----------|
 | EDI 交易協議 | 10 | 1 | 1,000 |
 | EDI 交易夥伴 | 25 | 2 | 1,000 |
@@ -224,11 +224,11 @@ Azure Logic Apps 透過閘道支援寫入作業，包括插入和更新。 不�
 
 ### <a name="artifact-capacity-limits"></a>成品容量限制
 
-| 成品 | 限制 | 注意 |
+| 構件 | 限制 | 注意 |
 | -------- | ----- | ----- |
 | 組件 | 8 MB | 若要上傳大於 2 MB 的檔案，請使用 [Azure 儲存體帳戶和 Blob 容器](../logic-apps/logic-apps-enterprise-integration-schemas.md)。 |
 | 對應 (XSLT 檔案) | 8 MB | 若要上傳大於 2 MB 的檔案，請使用 [Azure Logic Apps REST API - 對應](https://docs.microsoft.com/rest/api/logic/maps/createorupdate)。 |
-| 架構 | 8 MB | 若要上傳大於 2 MB 的檔案，請使用 [Azure 儲存體帳戶和 Blob 容器](../logic-apps/logic-apps-enterprise-integration-schemas.md)。 |
+| 結構描述 | 8 MB | 若要上傳大於 2 MB 的檔案，請使用 [Azure 儲存體帳戶和 Blob 容器](../logic-apps/logic-apps-enterprise-integration-schemas.md)。 |
 ||||
 
 | 執行階段端點 | 限制 | 注意 |
@@ -243,7 +243,7 @@ Azure Logic Apps 透過閘道支援寫入作業，包括插入和更新。 不�
 
 ### <a name="b2b-protocol-as2-x12-edifact-message-size"></a>B2B 通訊協定 (AS2、X12、EDIFACT) 訊息大小
 
-以下是適用于 B2B 通訊協定的訊息大小限制:
+以下是適用于 B2B 通訊協定的訊息大小限制：
 
 | Name | 多租使用者限制 | 整合服務環境限制 | 注意 |
 |------|--------------------|---------------------------------------|-------|
@@ -256,7 +256,7 @@ Azure Logic Apps 透過閘道支援寫入作業，包括插入和更新。 不�
 
 ## <a name="disabling-or-deleting-logic-apps"></a>停用或刪除邏輯應用程式
 
-當您停用邏輯應用程式後，就不會具現化新的執行。 所有進行中和暫止的執行都會繼續執行, 直到完成為止, 這可能需要一些時間才能完成。
+當您停用邏輯應用程式後，就不會具現化新的執行。 所有進行中和暫止的執行都會繼續執行，直到完成為止，這可能需要一些時間才能完成。
 
 當您刪除邏輯應用程式後，就不會具現化新的執行。 所有進行中和擱置的執行都會取消。 如果您有數千個執行，加以取消可能需要很長的時間。
 
@@ -275,7 +275,7 @@ Azure Logic Apps 用於傳入和撥出電話的 IP 位址，取決於您的邏�
 
 * 針對在整合服務環境（ISE）中執行的邏輯應用程式，請確定您已[開啟這些埠](../logic-apps/connect-virtual-network-vnet-isolated-environment.md#ports)。
 
-* 邏輯應用程式無法直接存取具有[防火牆規則](../storage/common/storage-network-security.md)且存在於相同區域中的 Azure 儲存體帳戶。 不過，邏輯應用程式可以存取存在於不同區域中的 Azure 儲存體帳戶，因為公用 IP 位址是用來跨區域進行通訊。 請確定您允許[在您的區域中，針對受控連接器的輸出 IP 位址](../logic-apps/logic-apps-limits-and-config.md#outbound)。 或者，您可以在此使用更多的先進選項：
+* 邏輯應用程式無法直接存取具有[防火牆規則](../storage/common/storage-network-security.md)且存在於相同區域中的 Azure 儲存體帳戶。 不過，如果您允許[區域中受控連接器的輸出 IP 位址](../logic-apps/logic-apps-limits-and-config.md#outbound)，則邏輯應用程式可以存取不同區域中的儲存體帳戶，除非您使用 azure 表格儲存體連接器或 Azure 佇列儲存體連接器。 若要存取表格儲存體或佇列儲存體，您仍然可以使用 HTTP 觸發程式和動作。 否則，您可以在此使用更多更先進的選項：
 
   * 建立[整合服務環境](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md)，此環境可連線至 Azure 虛擬網路中的資源。
 
@@ -292,7 +292,7 @@ Azure Logic Apps 用於傳入和撥出電話的 IP 位址，取決於您的邏�
 
 | 區域 | IP |
 |--------|----|
-| 澳大利亞東部 | 13.75.153.66、52.187.231.161、104.210.89.222、104.210.89.244 |
+| 澳洲東部 | 13.75.153.66、52.187.231.161、104.210.89.222、104.210.89.244 |
 | 澳大利亞東南部 | 13.73.115.153、40.115.78.70、40.115.78.237、52.189.216.28 |
 | 巴西南部 | 191.234.166.198、191.235.86.199、191.235.94.220、191.235.95.229 |
 | 加拿大中部 | 13.88.249.209、40.85.241.105、52.233.29.79、52.233.30.218 |
@@ -328,7 +328,7 @@ Azure Logic Apps 用於傳入和撥出電話的 IP 位址，取決於您的邏�
 
 | 區域 | Logic Apps IP | 受控連接器 IP |
 |--------|---------------|-----------------------|
-| 澳大利亞東部 | 13.75.149.4、52.187.226.96、52.187.226.139、52.187.227.245、52.187.229.130、52.187.231.184、104.210.90.241、104.210.91.55 | 13.70.72.192 - 13.70.72.207, 13.72.243.10 |
+| 澳洲東部 | 13.75.149.4、52.187.226.96、52.187.226.139、52.187.227.245、52.187.229.130、52.187.231.184、104.210.90.241、104.210.91.55 | 13.70.72.192 - 13.70.72.207, 13.72.243.10 |
 | 澳大利亞東南部 | 13.70.159.205、13.73.114.207、13.77.3.139、13.77.56.167、13.77.58.136、52.189.214.42、52.189.220.75、52.189.222.77 | 13.77.50.240 - 13.77.50.255, 13.70.136.174 |
 | 巴西南部 | 191.234.161.28、191.234.161.168、191.234.162.131、191.234.162.178、191.234.182.26、191.235.82.221、191.235.91.7、191.237.255.116 | 191.233.203.192 - 191.233.203.207, 104.41.59.51 | 
 | 加拿大中部 | 13.71.184.150、13.71.186.1、40.85.250.135、40.85.250.212、40.85.252.47、52.233.29.92、52.228.39.241、52.228.39.244 | 13.71.170.208 - 13.71.170.223, 13.71.170.224 - 13.71.170.239, 52.237.24.126 |

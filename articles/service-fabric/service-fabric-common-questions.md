@@ -13,13 +13,13 @@ ms.topic: troubleshooting
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/18/2017
-ms.author: chackdan
-ms.openlocfilehash: 0bd8a7d403ad1fe0f7abb15356cc9c90ed6b3f02
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: pepogors
+ms.openlocfilehash: 23479692e815b5dda010ec2035c206df15715347
+ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66153824"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72167417"
 ---
 # <a name="commonly-asked-service-fabric-questions"></a>Service Fabric 的常見問題
 
@@ -72,9 +72,9 @@ ms.locfileid: "66153824"
 因為下列三個原因，我們要求生產環境叢集至少有 5 個節點：
 1. 即使未執行任何使用者服務，Service Fabric 叢集仍會執行一組具設定狀態的系統服務，包括命名服務及容錯移轉管理員服務。 這些系統服務對於維持叢集的運作是不可或缺的。
 2. 我們一律會針對每個節點放置一個服務複本，因此叢集大小是服務 (實際上是分割區) 可以擁有的複本數量上限。
-3. 由於叢集升級將會至少讓一個節點停機，我們希望擁有至少一個節點的緩衝，因此我們希望生產環境叢集在最低限度以外  能有至少兩個節點。 最低限度是系統服務的仲裁大小，其說明如下。  
+3. 由於叢集升級將會至少讓一個節點停機，我們希望擁有至少一個節點的緩衝，因此我們希望生產環境叢集在最低限度以外能有至少兩個節點。 最低限度是系統服務的仲裁大小，其說明如下。  
 
-我們希望叢集在面臨兩個節點同時失敗時仍然可用。 若要使 Service Fabric 叢集可用，則系統服務必須可供使用。 具狀態服務 (例如命名服務和容錯移轉管理員服務) 會根據強式一致性，追蹤哪些服務已經部署至叢集，以及它們目前的裝載位置。 該強式一致性接著會根據取得「仲裁」  的能力，提供任何指定的更新給那些服務的狀態，其中仲裁代表指定之服務的特定多數複本 (N/2 + 1)。 因此，如果我們需要針對兩個節點同時中斷 (因此同時中斷系統服務的兩個複本) 的復原性，我們必須要讓 ClusterSize - QuorumSize >= 2，這會讓下限強制成為五。 若要達成這個結果，請考慮讓有 N 個節點的叢集有 N 個系統服務複本，亦即每個節點上都有一個。 系統服務的仲裁大小為 (N/2 + 1)。 上述的不等式看起來會像這樣：N - (N/2 + 1) >= 2。 有兩種情況要考量：當 N 是偶數和 N 是奇數。 如果 N 是偶數，假設 N = 2\*m，而 m >= 1，則不等式看起來會像這樣：2\*m - (2\*m/2 + 1) >= 2 或 m >= 3。 N 的最小值是 6，這是在 m = 3 時達成。 相反地，如果 N 是奇數，假設 N = 2\*m+1，而 m >= 1，則不等式看起來會像這樣：2\*m+1 - ( (2\*m+1)/2 + 1 ) >= 2 或 2\*m+1 - (m+1) >= 2 或 m >= 2。 N 的最小值是 5，這是在 m = 2 時達成。 因此，上述滿足不等式 ClusterSize - QuorumSize >= 2 的所有 N 值，其最小值為 5。
+我們希望叢集在面臨兩個節點同時失敗時仍然可用。 若要使 Service Fabric 叢集可用，則系統服務必須可供使用。 具狀態服務 (例如命名服務和容錯移轉管理員服務) 會根據強式一致性，追蹤哪些服務已經部署至叢集，以及它們目前的裝載位置。 該強式一致性接著會根據取得「仲裁」的能力，提供任何指定的更新給那些服務的狀態，其中仲裁代表指定之服務的特定多數複本 (N/2 + 1)。 因此，如果我們需要針對兩個節點同時中斷 (因此同時中斷系統服務的兩個複本) 的復原性，我們必須要讓 ClusterSize - QuorumSize >= 2，這會讓下限強制成為五。 若要達成這個結果，請考慮讓有 N 個節點的叢集有 N 個系統服務複本，亦即每個節點上都有一個。 系統服務的仲裁大小為 (N/2 + 1)。 上述的不等式看起來會像這樣：N - (N/2 + 1) >= 2。 有兩種情況要考量：當 N 是偶數和 N 是奇數。 如果 N 是偶數，假設 N = 2\*m，而 m >= 1，則不等式看起來會像這樣：2\*m - (2\*m/2 + 1) >= 2 或 m >= 3。 N 的最小值是 6，這是在 m = 3 時達成。 相反地，如果 N 是奇數，假設 N = 2\*m+1，而 m >= 1，則不等式看起來會像這樣：2\*m+1 - ( (2\*m+1)/2 + 1 ) >= 2 或 2\*m+1 - (m+1) >= 2 或 m >= 2。 N 的最小值是 5，這是在 m = 2 時達成。 因此，上述滿足不等式 ClusterSize - QuorumSize >= 2 的所有 N 值，其最小值為 5。
 
 請注意，在上述引數中我們已假設每個節點都有系統服務的複本，因此仲裁大小是根據叢集中的節點數量計算而來。 不過，藉由變更 *TargetReplicaSetSize*，我們可以讓仲裁大小小於 (N/2+1)，這可能會讓您認為我們能夠有小於 5 個節點的叢集，且仍然有 2 個額外節點高於仲裁大小。 例如，在有 4 個節點的叢集中，如果我們將 TargetReplicaSetSize 設為 3，基於 TargetReplicaSetSize 的仲裁大小會是 (3/2 + 1) 或 2，因此我們得出 ClusterSize - QuorumSize = 4-2 >= 2。 不過，如果我們同時遺失任一組節點 (可能是裝載兩個複本的兩個節點)，就無法保證系統服務能達到或高於仲裁，而讓系統服務進入仲裁遺失 (僅剩擁有單一複本)，且將會變為無法使用。
 
@@ -136,7 +136,7 @@ ms.locfileid: "66153824"
 您的應用程式可使用下列方法取得向 KeyVault 驗證所需的認證：
 
 A. 在您的應用程式建置/封裝作業期間，您可以將憑證提取到 SF 應用程式的資料套件中，並以此憑證向 KeyVault 驗證。
-B. 針對虛擬機器擴展集已啟用 MSI 的主機，您可以開發簡單 PowerShell SetupEntryPoint SF 應用程式以取得[來自 MSI 端點的存取權杖](https://docs.microsoft.com/azure/active-directory/managed-service-identity/how-to-use-vm-token)，然後[從金鑰保存庫擷取您的祕密](/powershell/module/azurerm.keyvault/get-azurekeyvaultsecret).
+B. 對於已啟用虛擬機器擴展集的 MSI，您可以為 SF 應用程式開發簡單的 PowerShell SetupEntryPoint，以[從 MSI 端點取得存取權杖](https://docs.microsoft.com/azure/active-directory/managed-service-identity/how-to-use-vm-token)，然後[從 KeyVault 取出您的秘密](/powershell/module/azurerm.keyvault/get-azurekeyvaultsecret)。
 
 ## <a name="application-design"></a>應用程式設計
 
@@ -192,4 +192,4 @@ B. 針對虛擬機器擴展集已啟用 MSI 的主機，您可以開發簡單 Po
 
 ## <a name="next-steps"></a>後續步驟
 
-深入了解[核心 Service Fabric 概念](service-fabric-technical-overview.md)並[最佳做法](service-fabric-best-practices-overview.md)冰 Fabric concepts](service-fabric-technical-overview.md) 和[最佳做法](service-fabric-best-practices-overview.md)
+瞭解[核心 Service Fabric 概念](service-fabric-technical-overview.md)和[最佳做法](service-fabric-best-practices-overview.md)ice 網狀架構概念] （overview.md）和[最佳作法](service-fabric-best-practices-overview.md)

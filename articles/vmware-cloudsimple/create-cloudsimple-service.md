@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: d6d4af28d79b2375e774da98d4fdb1ad9dc22063
-ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
+ms.openlocfilehash: 99194c42dbc6ef07301be517021bf0fb4b4e7c23
+ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71035729"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72173514"
 ---
 # <a name="create-the-azure-vmware-solution-by-cloudsimple-service"></a>依 CloudSimple 服務建立 Azure VMware 解決方案
 
@@ -30,10 +30,10 @@ ms.locfileid: "71035729"
 
 1. 選取 [所有服務]。
 2. 搜尋**CloudSimple Services**。
-    ![搜尋 CloudSimple 服務](media/create-cloudsimple-service-search.png)
+    @no__t 0Search CloudSimple Service @ no__t-1
 3. 選取 [ **CloudSimple 服務**]。
 4. 按一下 [**新增**] 以建立新的服務。
-    ![新增 CloudSimple 服務](media/create-cloudsimple-service-add.png)
+    @no__t 0Add CloudSimple Service @ no__t-1
 5. 選取您要在其中建立 CloudSimple 服務的訂用帳戶。
 6. 選取服務的資源群組。 若要新增新的資源群組，**請按一下 [新建]** 。
 7. 輸入名稱以識別服務。
@@ -46,5 +46,6 @@ ms.locfileid: "71035729"
 
 ## <a name="next-steps"></a>後續步驟
 
+* 瞭解如何布建[節點](create-nodes.md)
 * 瞭解如何[建立私用雲端](create-private-cloud.md)
 * 瞭解如何[設定私用雲端環境](quickstart-create-private-cloud.md)

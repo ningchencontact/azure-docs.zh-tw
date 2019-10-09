@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 09/18/2019
 ms.author: rajanaki
-ms.openlocfilehash: f6e2fedf3f2f8384d4a6062852888c312e8285a1
-ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
+ms.openlocfilehash: ecfe993a137ca63c84438870ec54ac1e6d6707da
+ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71212877"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72173487"
 ---
 # <a name="add-azure-automation-runbooks-to-recovery-plans"></a>將 Azure 自動化 Runbook 新增至復原方案
 
@@ -112,14 +112,14 @@ $vmMap = $RecoveryPlanContext.VmMap
 ## <a name="customize-the-recovery-plan"></a>自訂復原方案
 
 1. 在保存庫中，選取 [復原**方案（Site Recovery）** ]
-2. 若要建立復原方案，請按一下 [ **+ 復原方案**]。 [深入了解](/site-recovery-create-recovery-plans.md)。 如果您已經有復原方案，請選取以將它開啟。
+2. 若要建立復原方案，請按一下 [ **+ 復原方案**]。 [深入了解](site-recovery-create-recovery-plans.md)。 如果您已經有復原方案，請選取以將它開啟。
 3. 在 [復原方案] 頁面中，按一下 [**自訂**]。
 
     ![按一下 [自訂] 按鈕](media/site-recovery-runbook-automation-new/custom-rp.png)
 
-2. 按一下 [ **群組 1] 旁的省略號（...）：啟動** [ > **新增 post 動作**]。
+2. 按一下 [**Group 1] 旁的省略號（...）：啟動 @ no__t-0 @ no__t-1**新增 post 動作**。
 3. 在 [**插入動作**] 中，確認已選取 [**腳本**]，然後指定腳本的名稱（**Hello World**）。
-4. 指定自動化帳戶，然後選取 runbook。 若要儲存指令碼，請按一下 [確定]。 腳本會新增至 **[群組 1]：後續步驟**。
+4. 指定自動化帳戶，然後選取 runbook。 若要儲存指令碼，請按一下 [確定]。 腳本會新增至 **Group 1：後續步驟 @ no__t-0。
 
 
 ## <a name="reuse-a-runbook-script"></a>重複使用 runbook 腳本

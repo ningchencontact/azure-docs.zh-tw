@@ -745,10 +745,12 @@
               href: /dotnet/api/overview/azure/storage/management
         - name: Java
           items:
-            - name: Blob、佇列、資料表和檔案 (v7)
-              href: /java/api/overview/azure/storage/client?view=azure-java-stable
-            - name: Blob SDK (v10)
-              href: /java/api/overview/azure/storage/client?view=azure-java-preview
+            - name: Blob、佇列和檔案 (版本 12.x - 預覽)
+              href: 'https://azure.github.io/azure-sdk-for-java/track2reports/index.html'
+            - name: Blob、佇列和檔案 (版本 8)
+              href: 'https://docs.microsoft.com/java/api/overview/azure/storage?view=azure-java-legacy'
+            - name: 儲存體資源提供者
+              href: /java/api/overview/azure/storage/management
         - name: REST
           items:
             - name: Blob、佇列、資料表和檔案

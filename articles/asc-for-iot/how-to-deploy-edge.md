@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/23/2019
+ms.date: 10/08/2019
 ms.author: mlottner
-ms.openlocfilehash: bb6a975d2a2fc2cc3e65fa8969f8b005be8b1417
-ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
+ms.openlocfilehash: 128265cd3e69cd27bab6538c9eb376410439824d
+ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71299710"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72176668"
 ---
 # <a name="deploy-a-security-module-on-your-iot-edge-device"></a>在您的 IoT Edge 裝置上部署安全性模組
 
@@ -48,7 +48,7 @@ ms.locfileid: "71299710"
     - 執行下列命令，確認 AuditD 為作用中： 
    
     `sudo systemctl status auditd`<br>
-    - 預期的回應為：`active (running)` 
+    - 預期的回應為： `active (running)` 
         
 
 ### <a name="deployment-using-azure-portal"></a>使用 Azure 入口網站進行部署
@@ -70,7 +70,7 @@ ms.locfileid: "71299710"
 
 #### <a name="step-1-add-modules"></a>步驟 1:新增模組
 
-1. 從 [**新增模組**] 索引標籤的 [**部署模組**] 區域中，按一下 [ **AzureSecurityCenterforIoT**]。 
+1. 從 [**新增模組**] 索引標籤的 [**部署模組**] 區域中，按一下 [ **AzureSecurityCenterforIoT**] 的 [**設定**] 選項。 
    
 1. 將**名稱**變更為**azureiotsecurity**。
 1. 將**映射 URI**變更為**mcr.microsoft.com/ascforiot/azureiotsecurity:1.0.0**。
@@ -95,10 +95,13 @@ ms.locfileid: "71299710"
 1. 確認已選取 [**設定模組對應項的所需屬性**]，並將 configuration 物件變更為：
       
     ``` json
-    "desired": {
-        "ms_iotn:urn_azureiot_Security_SecurityAgentConfiguration": {
-          } 
-        }
+    { 
+       "properties.desired":{ 
+      "ms_iotn:urn_azureiot_Security_SecurityAgentConfiguration":{ 
+
+          }
+       }
+    }
     ```
 
 1. 按一下 [儲存]。
@@ -110,13 +113,25 @@ ms.locfileid: "71299710"
          
     ``` json
     { 
-    "HostConfig":{
-                    "PortBindings":{
-                    "8883/tcp": [{"HostPort": "8883"}],
-                    "443/tcp": [{"HostPort": "443"}],
-                    "5671/tcp": [{"HostPort": "5671"}]
-                    }
-        }
+       "HostConfig":{ 
+          "PortBindings":{ 
+             "8883/tcp":[ 
+                { 
+                   "HostPort":"8883"
+                }
+             ],
+             "443/tcp":[ 
+                { 
+                   "HostPort":"443"
+                }
+             ],
+             "5671/tcp":[ 
+                { 
+                   "HostPort":"5671"
+                }
+             ]
+          }
+       }
     }
     ```
 1. 按一下 [儲存]。
@@ -125,16 +140,15 @@ ms.locfileid: "71299710"
 
 #### <a name="step-2-specify-routes"></a>步驟 2:指定路由 
 
-1. 在 [**指定路由**] 索引標籤中，確定您有路由（明確或隱含），可將訊息從**azureiotsecurity**模組轉送至 **$upstream**。 
-1. 按一下 [下一步]。
+1. 在 [**指定路由**] 索引標籤中，確定您有路由（明確或隱含），它會根據下列範例，將訊息從**azureiotsecurity**模組轉送至 **$Upstream** ，然後按 **[下一步]** 。 
 
-    ~~~Default implicit route
-    "route": "FROM /messages/* INTO $upstream" 
-    ~~~
+~~~Default implicit route
+"route": "FROM /messages/* INTO $upstream" 
+~~~
 
-    ~~~Explicit route
-    "ASCForIoTRoute": "FROM /messages/modules/azureiotsecurity/* INTO $upstream"
-    ~~~
+~~~Explicit route
+"ASCForIoTRoute": "FROM /messages/modules/azureiotsecurity/* INTO $upstream"
+~~~
 
 #### <a name="step-3-review-deployment"></a>步驟 3：檢閱部署
 
@@ -166,7 +180,7 @@ ms.locfileid: "71299710"
 
    `sudo docker logs azureiotsecurity`
    
-1. 如需更詳細的記錄，請將下列環境變數新增至**azureiotsecurity**模組`logLevel=Debug`部署：。
+1. 如需更詳細的記錄，請將下列環境變數新增至**azureiotsecurity**模組部署： `logLevel=Debug`。
 
 ## <a name="next-steps"></a>後續步驟
 

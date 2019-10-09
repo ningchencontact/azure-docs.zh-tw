@@ -16,16 +16,16 @@ ms.author: lizross
 ms.reviewer: dhanyahk
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2598ce01c749574833d53133ed3aced184e71737
-ms.sourcegitcommit: 8bae7afb0011a98e82cbd76c50bc9f08be9ebe06
+ms.openlocfilehash: 616a637df20e43c20faadaf3db9243c28f94de34
+ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/01/2019
-ms.locfileid: "71694612"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72174740"
 ---
 # <a name="whats-new-in-azure-active-directory"></a>Azure Active Directory 的新增功能？
 
->藉由複製並貼上此 URL，取得何時要重新流覽此頁面以`https://docs.microsoft.com/api/search/rss?search=%22release+notes+for+azure+AD%22&locale=en-us`進行更新![的通知：在](./media/whats-new/feed-icon-16x16.png)您的 RSS 摘要讀取器圖示摘要讀取器中。
+>藉由複製並貼上此 URL，取得何時要重新流覽此頁面以進行更新的通知： `https://docs.microsoft.com/api/search/rss?search=%22release+notes+for+azure+AD%22&locale=en-us` 放入您的 @no__t 1RSS 摘要讀取器圖示 @ no__t-2 摘要讀取器。
 
 Azure AD 會持續不斷進行改進。 為了讓您隨時掌握最新的開發訊息，本文提供下列相關資訊：
 
@@ -39,7 +39,7 @@ Azure AD 會持續不斷進行改進。 為了讓您隨時掌握最新的開發�
 
 ---
 
-## <a name="september-2019"></a>2019年9月
+## <a name="september-2019"></a>2019 年 9 月
 
 ### <a name="my-profile-is-re-naming-and-integrating-with-the-microsoft-office-account-page"></a>我的設定檔正在重新命名，並與 Microsoft Office 帳戶頁面整合
 
@@ -137,7 +137,7 @@ Power BI 行動應用程式與 Azure AD 應用程式 Proxy 之間的新整合，
 **服務類別：** 其他  
 **產品功能：** 目錄
 
-我們已發行自動升級客戶的更新版本 Azure AD Connect。 這個新版本包含數個新功能、改進和 bug 修正。 如需這個新版本的詳細資訊，請參閱 @no__t 0Azure AD Connect：版本發行歷程記錄](https://docs.microsoft.com/azure/active-directory/hybrid/reference-connect-version-history#14x0)。
+我們已發行自動升級客戶的更新版本 Azure AD Connect。 這個新版本包含數個新功能、改進和 bug 修正。 如需這個新版本的詳細資訊，請參閱 @no__t 0Azure AD Connect：版本發行歷程記錄](https://docs.microsoft.com/azure/active-directory/hybrid/reference-connect-version-history#14250)。
 
 ---
 
@@ -167,7 +167,7 @@ Power BI 行動應用程式與 Azure AD 應用程式 Proxy 之間的新整合，
 
 ## <a name="august-2019"></a>2019 年 8 月
 
-### <a name="plan-for-change-deprecation-of-the-power-bi-content-packs"></a>規劃變更:取代 Power BI 內容套件
+### <a name="plan-for-change-deprecation-of-the-power-bi-content-packs"></a>規劃變更：取代 Power BI 內容套件
 
 **類型：** 針對變更做規劃  
 **服務類別：** 報表  
@@ -262,7 +262,7 @@ Power BI 行動應用程式與 Azure AD 應用程式 Proxy 之間的新整合，
 
 已向您的組織註冊行動應用程式的使用者，現在可以藉由核准來自 Microsoft Authenticator 應用程式的通知，或從行動應用程式或硬體權杖輸入程式碼，來重設自己的密碼。
 
-如需詳細資訊， [請參閱運作方式：Azure AD 自助式密碼重設](https://aka.ms/authappsspr)。 如需使用者體驗的詳細資訊，請參閱[重設您自己的工作或學校密碼總覽](https://docs.microsoft.com/azure/active-directory/user-help/user-help-password-reset-overview)。
+如需詳細資訊，請參閱 @no__t 0How 的運作方式：Azure AD 自助式密碼重設](https://aka.ms/authappsspr)。 如需使用者體驗的詳細資訊，請參閱[重設您自己的工作或學校密碼總覽](https://docs.microsoft.com/azure/active-directory/user-help/user-help-password-reset-overview)。
 
 ---
 
@@ -272,7 +272,7 @@ Power BI 行動應用程式與 Azure AD 應用程式 Proxy 之間的新整合，
 **服務類別：** 驗證 (登入)  
 **產品功能：** 使用者驗證
 
-從 Azure AD authentication library （ADAL.NET）第5.0.0 版-preview 開始，應用程式開發人員必須[針對 web 應用程式和 Web api，將每個帳戶的一個](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet/wiki/Token-cache-serialization#custom-token-cache-serialization-in-web-applications--web-api)快取序列化。 否則，某些使用代理者[流程](https://docs.microsoft.com/azure/active-directory/develop/scenario-web-api-call-api-app-configuration#on-behalf-of-flow)的案例以及某些特定的`UserAssertion`使用案例，可能會導致權限提高。 為避免此弱點，ADAL.NET 現在會忽略適用于代理者案例的 Microsoft authentication library for dotnet （MSAL.NET）共用快取。
+從 Azure AD authentication library （ADAL.NET）第5.0.0 版-preview 開始，應用程式開發人員必須[針對 web 應用程式和 Web api，將每個帳戶的一個](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet/wiki/Token-cache-serialization#custom-token-cache-serialization-in-web-applications--web-api)快取序列化。 否則，某些使用代理者[流程](https://docs.microsoft.com/azure/active-directory/develop/scenario-web-api-call-api-app-configuration#on-behalf-of-flow)的案例，以及某些 `UserAssertion` 的特定使用案例，可能會導致權限提高。 為避免此弱點，ADAL.NET 現在會忽略適用于代理者案例的 Microsoft authentication library for dotnet （MSAL.NET）共用快取。
 
 如需有關此問題的詳細資訊，請參閱[Azure Active Directory 驗證程式庫權限提高弱點](https://portal.msrc.microsoft.com/security-guidance/advisory/CVE-2019-1258)。
 
@@ -292,7 +292,7 @@ Power BI 行動應用程式與 Azure AD 應用程式 Proxy 之間的新整合，
 
 ---
 
-### <a name="new-versions-of-the-azuread-powershell-and-azureadpreview-powershell-modules-are-available"></a>有新版本的 AzureAD PowerShell 和 AzureADPreview PowerShell 模組可供使用
+### <a name="new-versions-of-the-azuread-powershell-and-azureadpreview-powershell-modules-are-available"></a>新版本的 AzureAD PowerShell 和 AzureADPreview PowerShell 模組可用
 
 **類型：** 已變更的功能  
 **服務類別：** 其他  
@@ -300,7 +300,7 @@ Power BI 行動應用程式與 Azure AD 應用程式 Proxy 之間的新整合，
 
 AzureAD 和 AzureAD Preview PowerShell 模組的新更新可供使用：
 
-- 已將`-Filter`新參數新增至 AzureAD `Get-AzureADDirectoryRole`模組中的參數。 此參數可協助您篩選 Cmdlet 所傳回的目錄角色。
+- 已將新的 `-Filter` 參數新增至 AzureAD 模組中的 `Get-AzureADDirectoryRole` 參數。 此參數可協助您篩選 Cmdlet 所傳回的目錄角色。
 - 新的 Cmdlet 已新增至 AzureADPreview 模組，以協助在 Azure AD 中定義和指派自訂角色，包括：
 
     - `Get-AzureADMSRoleAssignment`
@@ -325,19 +325,19 @@ AzureAD 和 AzureAD Preview PowerShell 模組的新更新可供使用：
 
 ---
 
-### <a name="new-microsoft-graph-app-permission-available-for-use-with-access-reviews"></a>新的 Microsoft Graph 應用程式許可權可與存取審查搭配使用
+### <a name="new-microsoft-graph-app-permission-available-for-use-with-access-reviews"></a>可用於存取評論的新 Microsoft Graph 應用程式權限
 
 **類型：** 已變更的功能  
 **服務類別：** 存取權檢閱  
 **產品功能：** Identity Governance
 
-我們引進了新的 Microsoft Graph 應用程式許可權`AccessReview.ReadWrite.Membership`，可讓應用程式自動建立和抓取群組成員資格和應用程式指派的存取權審查。 此許可權可供您的排程工作或自動化的一部分使用，而不需要登入的使用者內容。
+我們引進了新的 Microsoft Graph 應用程式許可權，`AccessReview.ReadWrite.Membership`，可讓應用程式自動建立和抓取群組成員資格和應用程式指派的存取權審查。 此許可權可供您的排程工作或自動化的一部分使用，而不需要登入的使用者內容。
 
 如需詳細資訊，請參閱[如何使用 PowerShell 的 Microsoft Graph 應用程式許可權建立 Azure AD 存取評論的範例](https://techcommunity.microsoft.com/t5/Azure-Active-Directory/Example-how-to-create-Azure-AD-access-reviews-using-Microsoft/m-p/807241)。
 
 ---
 
-### <a name="azure-ad-activity-logs-are-now-available-for-government-cloud-instances-in-azure-monitor"></a>Azure AD 活動記錄現在可供中的政府雲端實例使用 Azure 監視器
+### <a name="azure-ad-activity-logs-are-now-available-for-government-cloud-instances-in-azure-monitor"></a>Azure AD 活動記錄現可供 Azure 監視器中的政府雲端執行個體使用
 
 **類型：** 已變更的功能  
 **服務類別：** 報表  
@@ -357,7 +357,7 @@ AzureAD 和 AzureAD Preview PowerShell 模組的新更新可供使用：
 
 在2019年9月25日，我們將關閉舊的非增強式安全性資訊體驗，以註冊和管理使用者安全性資訊，並只開啟新的[增強版](https://techcommunity.microsoft.com/t5/Azure-Active-Directory-Identity/Cool-enhancements-to-the-Azure-AD-combined-MFA-and-password/ba-p/354271)。 這表示您的使用者將無法再使用舊體驗。
 
-如需增強式安全性資訊體驗的詳細資訊，請參閱我們的系統[管理員檔](https://aka.ms/securityinfodocs) 和我們的[使用者檔](https://aka.ms/securityinfoguide)。
+如需增強式安全性資訊體驗的詳細資訊，請參閱我們的系統[管理員檔](https://aka.ms/securityinfodocs) and 我們的[使用者檔](https://aka.ms/securityinfoguide)。
 
 #### <a name="to-turn-on-this-new-experience-you-must"></a>若要開啟此新體驗，您必須：
 
@@ -374,11 +374,11 @@ AzureAD 和 AzureAD Preview PowerShell 模組的新更新可供使用：
     儲存設定之後，您將無法再存取舊的安全性資訊體驗。
 
 >[!Important]
->如果您未在2019年9月25日之前完成這些步驟，將會自動啟用您的 Azure Active Directory 租使用者以獲得增強的體驗。 如果您有任何疑問，請在上registrationpreview@microsoft.com聯絡我們。
+>如果您未在2019年9月25日之前完成這些步驟，將會自動啟用您的 Azure Active Directory 租使用者以獲得增強的體驗。 如有任何疑問，請在 registrationpreview@microsoft.com 與我們聯繫。
 
 ---
 
-### <a name="authentication-requests-using-post-logins-will-be-more-strictly-validated"></a>使用 POST 登入的驗證要求將會更嚴格地進行驗證
+### <a name="authentication-requests-using-post-logins-will-be-more-strictly-validated"></a>將會更嚴格地驗證使用 POST 登入的驗證要求
 
 **類型：** 已變更的功能  
 **服務類別：** 驗證 (登入)  
@@ -390,9 +390,9 @@ AzureAD 和 AzureAD Preview PowerShell 模組的新更新可供使用：
 
 ---
 
-## <a name="july-2019"></a>2019年7月
+## <a name="july-2019"></a>2019 年 7 月
 
-### <a name="plan-for-change-application-proxy-service-update-to-support-only-tls-12"></a>規劃變更:僅支援 TLS 1.2 的應用程式 Proxy 服務更新
+### <a name="plan-for-change-application-proxy-service-update-to-support-only-tls-12"></a>規劃變更：僅支援 TLS 1.2 的應用程式 Proxy 服務更新
 
 **類型：** 針對變更做規劃  
 **服務類別：** 應用程式 Proxy  
@@ -406,7 +406,7 @@ AzureAD 和 AzureAD Preview PowerShell 模組的新更新可供使用：
 
 ---
 
-### <a name="plan-for-change-design-updates-are-coming-for-the-application-gallery"></a>規劃變更:應用程式資源庫的設計更新即將推出
+### <a name="plan-for-change-design-updates-are-coming-for-the-application-gallery"></a>規劃變更：應用程式資源庫的設計更新即將推出
 
 **類型：** 針對變更做規劃  
 **服務類別：** 企業應用程式  
@@ -416,7 +416,7 @@ AzureAD 和 AzureAD Preview PowerShell 模組的新更新可供使用：
 
 ---
 
-### <a name="plan-for-change-removal-of-the-mfa-server-ip-address-from-the-office-365-ip-address"></a>規劃變更:從 Office 365 IP 位址移除 MFA server IP 位址
+### <a name="plan-for-change-removal-of-the-mfa-server-ip-address-from-the-office-365-ip-address"></a>規劃變更：從 Office 365 IP 位址移除 MFA server IP 位址
 
 **類型：** 針對變更做規劃  
 **服務類別：** MFA  
@@ -434,7 +434,7 @@ AzureAD 和 AzureAD Preview PowerShell 模組的新更新可供使用：
 
 在2019年7月26日，我們變更了透過[用戶端認證授](https://docs.microsoft.com/azure/active-directory/develop/v1-oauth2-client-creds-grant-flow)與提供僅限應用程式權杖的方式。 先前，應用程式可以取得權杖來呼叫其他應用程式，而不論用戶端應用程式是否在租使用者中。 我們已更新此行為，因此只有存在於資源租使用者中的用戶端應用程式，才能呼叫單一租使用者資源（有時稱為 Web Api）。
 
-如果您的應用程式不在資源租使用者中，您會收到錯誤訊息，指出`The service principal named <app_name> was not found in the tenant named <tenant_name>. This can happen if the application has not been installed by the administrator of the tenant.`若要修正此問題，您必須使用系統[管理員同意端點](https://docs.microsoft.com/azure/active-directory/develop/v2-permissions-and-consent#using-the-admin-consent-endpoint)或[透過 PowerShell，在租使用者中建立用戶端應用程式服務主體](https://docs.microsoft.com/azure/active-directory/develop/howto-authenticate-service-principal-powershell)，可確保您的租使用者已提供應用程式許可權，以在租使用者內操作。
+如果您的應用程式不在資源租使用者中，您會收到錯誤訊息，指出，`The service principal named <app_name> was not found in the tenant named <tenant_name>. This can happen if the application has not been installed by the administrator of the tenant.` 若要修正此問題，您必須使用系統[管理員同意端點](https://docs.microsoft.com/azure/active-directory/develop/v2-permissions-and-consent#using-the-admin-consent-endpoint)或[透過 PowerShell](https://docs.microsoft.com/azure/active-directory/develop/howto-authenticate-service-principal-powershell)，在租使用者中建立用戶端應用程式服務主體。這可確保您的租使用者已提供應用程式許可權，以在租使用者內操作。
 
 如需詳細資訊，請參閱[驗證的新功能](https://docs.microsoft.com/azure/active-directory/develop/reference-breaking-changes#app-only-tokens-for-single-tenant-applications-are-only-issued-if-the-client-app-exists-in-the-resource-tenant)。
 
@@ -469,7 +469,7 @@ Azure AD 客戶現在可以設定原則來管理其組織之使用者和群組�
 
 ---
 
-### <a name="automate-user-account-provisioning-for-these-newly-supported-saas-apps"></a>針對這些新支援的 SaaS 應用程式自動布建使用者帳戶
+### <a name="automate-user-account-provisioning-for-these-newly-supported-saas-apps"></a>自動為這些新支援的 SaaS 應用程式進行使用者帳戶佈建
 
 **類型：** 新功能  
 **服務類別：** 企業應用程式  
@@ -493,7 +493,7 @@ Azure AD 客戶現在可以設定原則來管理其組織之使用者和群組�
 
 ---
 
-### <a name="new-azure-ad-domain-services-service-tag-for-network-security-group"></a>網路安全性群組的新 Azure AD Domain Services 服務標記
+### <a name="new-azure-ad-domain-services-service-tag-for-network-security-group"></a>網路安全性群組的新 Azure AD Domain Services 服務標籤
 
 **類型：** 新功能  
 **服務類別：** Azure AD Domain Services  
@@ -573,7 +573,7 @@ Azure AD 客戶現在可以設定原則來管理其組織之使用者和群組�
 
 ---
 
-### <a name="automate-user-account-provisioning-for-these-newly-supported-saas-apps"></a>針對這些新支援的 SaaS 應用程式自動布建使用者帳戶
+### <a name="automate-user-account-provisioning-for-these-newly-supported-saas-apps"></a>自動為這些新支援的 SaaS 應用程式進行使用者帳戶佈建
 
 **類型：** 新功能  
 **服務類別：** 企業應用程式  
@@ -597,7 +597,7 @@ Azure AD 客戶現在可以設定原則來管理其組織之使用者和群組�
 
 ---
 
-### <a name="new-check-for-duplicate-group-names-in-the-azure-ad-portal"></a>在 Azure AD 入口網站中新檢查重複的組名
+### <a name="new-check-for-duplicate-group-names-in-the-azure-ad-portal"></a>適用於 Azure AD 入口網站中重複群組名稱的新檢查
 
 **類型：** 新功能  
 **服務類別：** 群組管理  
@@ -615,9 +615,9 @@ Azure AD 客戶現在可以設定原則來管理其組織之使用者和群組�
 **服務類別：** 驗證 (登入)  
 **產品功能：** 使用者驗證
 
-Azure AD 應用程式現在可以針對 OAuth 2.0 要求，使用靜態查詢參數（例如， `https://contoso.com/oauth2?idp=microsoft`）來註冊並使用回復（重新導向） uri。 靜態查詢參數受限於回復 uri 的字串比對，就像回復 URI 的任何其他部分一樣。 如果沒有任何已註冊的字串符合 URL 解碼的重新導向 uri，則會拒絕要求。 如果找到回復 URI，則會使用整個字串來重新導向使用者，包括靜態查詢參數。
+Azure AD 的應用程式現在可以針對 OAuth 2.0 要求，使用靜態查詢參數（例如，`https://contoso.com/oauth2?idp=microsoft`）註冊並使用回復（重新導向） Uri。 靜態查詢參數受限於回復 uri 的字串比對，就像回復 URI 的任何其他部分一樣。 如果沒有任何已註冊的字串符合 URL 解碼的重新導向 uri，則會拒絕要求。 如果找到回復 URI，則會使用整個字串來重新導向使用者，包括靜態查詢參數。
 
-動態回復 Uri 仍然是禁止的，因為它們代表安全性風險，而且無法用來在驗證要求中保留狀態資訊。 基於此目的，請使用`state`參數。
+動態回復 Uri 仍然是禁止的，因為它們代表安全性風險，而且無法用來在驗證要求中保留狀態資訊。 基於此目的，請使用 `state` 參數。
 
 目前，Azure 入口網站的應用程式註冊畫面仍會封鎖查詢參數。 不過，您可以手動編輯應用程式資訊清單，以在您的應用程式中新增和測試查詢參數。 如需詳細資訊，請參閱[驗證的新功能](https://docs.microsoft.com/azure/active-directory/develop/reference-breaking-changes#redirect-uris-can-now-contain-query-string-parameters)。
 
@@ -675,7 +675,7 @@ Azure AD 應用程式現在可以針對 OAuth 2.0 要求，使用靜態查詢參
 
 ---
 
-### <a name="automate-user-account-provisioning-for-these-newly-supported-saas-apps"></a>針對這些新支援的 SaaS 應用程式自動布建使用者帳戶
+### <a name="automate-user-account-provisioning-for-these-newly-supported-saas-apps"></a>自動為這些新支援的 SaaS 應用程式進行使用者帳戶佈建
 
 **類型：** 新功能  
 **服務類別：** 企業應用程式  
@@ -1015,7 +1015,7 @@ Azure AD 存取審查的新更新可讓您：
 **服務類別：** AD 同步  
 **產品功能：** 平台
 
-Azure AD Connect 正在轉換我們的電子郵件警示系統，可能會向一些客戶顯示新的電子郵件寄件者。 若要解決此情況，您`azure-noreply@microsoft.com`必須將新增至您組織的允許清單，否則將無法繼續接收來自 Office 365、Azure 或同步服務的重要警示。
+Azure AD Connect 正在轉換我們的電子郵件警示系統，可能會向一些客戶顯示新的電子郵件寄件者。 若要解決此情況，您必須將 `azure-noreply@microsoft.com` 新增至您組織的允許清單，否則您將無法繼續接收來自 Office 365、Azure 或同步服務的重要警示。
 
 ---
 

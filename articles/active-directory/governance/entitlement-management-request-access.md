@@ -16,12 +16,12 @@ ms.date: 04/19/2019
 ms.author: ajburnle
 ms.reviewer: mamkumar
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0c8a96a4557a500bd4726b8df44ada5df328b7c3
-ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
+ms.openlocfilehash: 2aaa58d3027fecdbfdf594e5712cbdbd758380a7
+ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71290894"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72169826"
 ---
 # <a name="request-access-to-an-access-package-in-azure-ad-entitlement-management-preview"></a>Azure AD 權利管理（預覽）中的存取權套件要求存取權
 
@@ -38,7 +38,7 @@ ms.locfileid: "71290894"
 
 第一個步驟是登入我的存取權入口網站，您可以在其中要求存取權套件的存取權。
 
-**必要角色：** 要求者
+**必要角色：** 申請者
 
 1. 從您正在使用的專案或商務經理尋找電子郵件或訊息。 電子郵件應該包含您需要存取的存取套件連結。 此連結會以 "myaccess" 開頭，包括目錄提示，並以如下所示的存取套件識別碼結尾：
  
@@ -54,7 +54,7 @@ ms.locfileid: "71290894"
 
 在我的存取權入口網站中找到存取套件之後，您就可以提交要求。
 
-**必要角色：** 要求者
+**必要角色：** 申請者
 
 1. 在清單中尋找存取封裝。  如有需要，您可以輸入搜尋字串，然後選取 [**名稱**]、[**目錄**] 或 [**資源**] 篩選來進行搜尋。
 
@@ -83,7 +83,7 @@ ms.locfileid: "71290894"
 
 如果您提交存取要求，而要求仍在**等待核准**狀態，您可以取消要求。
 
-**必要角色：** 要求者
+**必要角色：** 申請者
 
 1. 在我的存取權入口網站中，按一下左側的 [**要求歷程記錄**]，以查看您的要求清單和狀態。
 
@@ -99,7 +99,7 @@ ms.locfileid: "71290894"
 
 如果您要求存取已套用多項原則的存取封裝，可能會要求您選取原則。 例如，存取套件管理員可能會為兩個內部員工群組設定具有兩個原則的存取封裝。 第一個原則可能會允許存取60天，而且需要核准。 第二個原則可能允許存取2天，而不需要核准。 如果您遇到這種情況，您必須選取您想要使用的原則。
 
-**必要角色：** 要求者
+**必要角色：** 申請者
 
 ## <a name="next-steps"></a>後續步驟
 

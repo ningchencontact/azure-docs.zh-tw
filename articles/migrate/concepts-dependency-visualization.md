@@ -1,17 +1,17 @@
 ---
 title: Azure Migrate 的相依性視覺效果 | Microsoft Docs
-description: 概述伺服器評定服務中的評估計算, Azure Migrate
+description: 概述伺服器評定服務中的評估計算，Azure Migrate
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 07/18/2019
 ms.author: hamusa
-ms.openlocfilehash: 33594e09778b9a629645e12357e6bafe561ad35e
-ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
+ms.openlocfilehash: 5b71146f0c2aff51a0c2498705b047e9fa4632c8
+ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71202906"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72178127"
 ---
 # <a name="dependency-visualization"></a>相依性視覺效果
 
@@ -22,24 +22,24 @@ Azure Migrate：伺服器評估會評估要遷移至 Azure 的內部部署機器
 
 ## <a name="overview"></a>總覽
 
-伺服器評估中的相依性視覺效果可讓您建立高信賴度群組來進行遷移評量。 使用相依性視覺效果, 您可以查看電腦的網路相依性, 並識別需要一起遷移至 Azure 的相關電腦。 當您並不完全了解構成應用程式和需要一起移轉到 Azure 的機器時，此功能會很實用。
+伺服器評估中的相依性視覺效果可讓您建立高信賴度群組來進行遷移評量。 使用相依性視覺效果，您可以查看電腦的網路相依性，並識別需要一起遷移至 Azure 的相關電腦。 當您並不完全了解構成應用程式和需要一起移轉到 Azure 的機器時，此功能會很實用。
 
 ## <a name="before-you-start"></a>開始之前
 
 - 請確定您已[建立](how-to-add-tool-first-time.md)Azure Migrate 專案。
-- 如果您已經建立專案, 請確定您已[新增](how-to-assess.md)Azure Migrate:伺服器評量工具。
-- 請確定您已在 Azure Migrate 中探索到您的電腦。若要這麼做, 您可以設定[VMware](how-to-set-up-appliance-vmware.md)或[hyper-v](how-to-set-up-appliance-hyper-v.md)的 Azure Migrate 設備。 設備會探索內部部署機器, 然後將中繼資料和效能資料傳送至 Azure Migrate:。 [深入了解](migrate-appliance.md)。
+- 如果您已經建立專案，請確定您已[新增](how-to-assess.md)Azure Migrate：伺服器評量工具。
+- 請確定您已在 Azure Migrate 中探索到您的電腦。若要這麼做，您可以設定[VMware](how-to-set-up-appliance-vmware.md)或[hyper-v](how-to-set-up-appliance-hyper-v.md)的 Azure Migrate 設備。 設備會探索內部部署機器，然後將中繼資料和效能資料傳送至 Azure Migrate：。 [深入了解](migrate-appliance.md)。
 
 ## <a name="how-does-it-work"></a>運作方式
 
 Azure Migrate 使用[Azure 監視器記錄](../log-analytics/log-analytics-overview.md)中的[服務對應](../operations-management-suite/operations-management-suite-service-map.md)解決方案來進行相依性視覺效果。
 - 若要利用相依性視覺效果，您需要將新的或現有的 Log Analytics 工作區與 Azure Migrate 專案建立關聯。
-- 您只能在建立 Azure Migrate 專案的相同訂用帳戶中, 建立或附加工作區。
-- 若要將 Log Analytics 工作區附加至專案:
-    1. 在 [伺服器] 索引標籤的 **[Azure Migrate：伺服器評估** ] 磚中, 按一下 **[總覽**]。
-    2. 在 **[總覽**] 中, 按一下向下箭號以展開 [**基本**]。
-    3. 在 [ **OMS 工作區**] 中, 按一下 [**需要**設定]。
-    4. 在 [**設定工作區**] 中, 指定您要建立新的工作區, 或使用現有的工作區:
+- 您只能在建立 Azure Migrate 專案的相同訂用帳戶中，建立或附加工作區。
+- 若要將 Log Analytics 工作區附加至專案：
+    1. 在 [伺服器] 索引標籤的 **[Azure Migrate：伺服器評定 @ no__t-0] 磚中，按一下 **[總覽**]。
+    2. 在 **[總覽**] 中，按一下向下箭號以展開 [**基本**]。
+    3. 在 [ **OMS 工作區**] 中，按一下 [**需要**設定]。
+    4. 在 [**設定工作區**] 中，指定您要建立新的工作區，或使用現有的工作區：
     
     ![新增工作區](./media/how-to-create-group-machine-dependencies/workspace.png)
 
@@ -51,7 +51,7 @@ Azure Migrate 使用[Azure 監視器記錄](../log-analytics/log-analytics-overv
   > 一旦您將工作區連結到專案，您之後便無法變更它。
 
   > [!NOTE]
-  > Azure Migrate 目前支援在「美國東部」、「東南亞」和「西歐」區域中建立 OMS 工作區。 如果工作區是在任何其他區域的 Azure Migrate 外部建立，則目前無法與 Azure Migrate 專案相關聯。 
+  > Azure Migrate 目前支援「美國東部」、「東南亞」和「西歐」區域中的 Log Analytics 工作區建立或關聯。 如果工作區是在不支援的區域中的 Azure Migrate 外部建立，則目前無法與 Azure Migrate 專案相關聯。 
 
 - 相關聯的工作區會以索引鍵 **Migration Project** 和**專案名稱**的值標記，您可用來在 Azure 入口網站中搜尋。
 - 若要瀏覽到與專案相關聯的工作區，您可以移至專案 [概觀] 頁面的 [基本資訊] 區段，然後存取該工作區
@@ -68,7 +68,7 @@ Azure Migrate 使用[Azure 監視器記錄](../log-analytics/log-analytics-overv
 
 ## <a name="do-i-need-to-pay-for-it"></a>我需要支付多少費用？
 
-相依性視覺效果功能免費提供。 在伺服器評估中使用相依性視覺效果功能需要服務對應, 而且會要求您將 Log Analytics 工作區 (新的或現有的) 與 Azure Migrate 專案相關聯。 伺服器評估中的相依性視覺效果功能在前180天免費。
+相依性視覺效果功能免費提供。 在伺服器評估中使用相依性視覺效果功能需要服務對應，而且會要求您將 Log Analytics 工作區（新的或現有的）與 Azure Migrate 專案相關聯。 伺服器評估中的相依性視覺效果功能在前180天免費。
 
 1. 在此 Log Analytics 工作區內使用服務對應以外的任何解決方案，將會產生[標準 Log Analytics](https://azure.microsoft.com/pricing/details/log-analytics/) 費用。
 2. 為了支援不需額外成本的移轉案例，自 Log Analytics 工作區與 Azure Migrate 專案建立關聯當天算起的前 180 天，服務對應解決方案將不會產生任何費用，而 180 天則適用標準收費方式。 經過 180 天後，會套用標準 Log Analytics 費用。
@@ -84,9 +84,9 @@ Azure Migrate 使用[Azure 監視器記錄](../log-analytics/log-analytics-overv
 
 ## <a name="how-do-i-manage-the-workspace"></a>如何管理工作區？
 
-您可以使用 Azure Migrate 外部的 Log Analytics 工作區。 如果您刪除建立它的 Azure Migrate 專案, 則不會刪除它。 如果不再需要工作區中，請手動[刪除工作區](../azure-monitor/platform/manage-access.md)。
+您可以使用 Azure Migrate 外部的 Log Analytics 工作區。 如果您刪除建立它的 Azure Migrate 專案，則不會刪除它。 如果不再需要工作區中，請手動[刪除工作區](../azure-monitor/platform/manage-access.md)。
 
-除非您刪除 Azure Migrate 專案, 否則請勿刪除 Azure Migrate 建立的工作區。 如果這樣做，相依性視覺效果功能不會如預期般運作。
+除非您刪除 Azure Migrate 專案，否則請勿刪除 Azure Migrate 建立的工作區。 如果這樣做，相依性視覺效果功能不會如預期般運作。
 
 ## <a name="next-steps"></a>後續步驟
 - [使用機器相依性的群組機器](how-to-create-group-machine-dependencies.md)

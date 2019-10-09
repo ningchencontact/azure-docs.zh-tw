@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/01/2019
 ms.author: kumud
-ms.openlocfilehash: 9bf44aa5ab18f94ec91650548dc13360ce1b1f3d
-ms.sourcegitcommit: f2d9d5133ec616857fb5adfb223df01ff0c96d0a
+ms.openlocfilehash: 5fa340fc3c839d74f292f551b73184ea4df1c0f1
+ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/03/2019
-ms.locfileid: "71938495"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72175956"
 ---
 # <a name="add-or-remove-a-subnet-delegation"></a>新增或移除子網委派
 
@@ -45,6 +45,12 @@ ms.locfileid: "71938495"
     | 子網路 - 位址範圍 | 輸入 *10.0.0.0/24*。 |
     |||
 1. 將其餘部分保留為預設值，然後選取 [**建立**]。
+
+## <a name="permissons"></a>許可權
+
+如果您未建立想要委派給 Azure 服務的子網，您需要下列許可權： `Microsoft.Network/virtualNetworks/subnets/write`。
+
+內建[網路參與者](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor)角色也包含必要的許可權。
 
 ## <a name="delegate-a-subnet-to-an-azure-service"></a>將子網委派給 Azure 服務
 
