@@ -160,8 +160,8 @@ steps:
 | `network` | object | 選擇性 |
 | `ports` | [字串, 字串, ...] | 選擇性 |
 | `pull` | bool | 選擇性 |
-| `repeat` | ssNoversion | 選擇性 |
-| `retries` | ssNoversion | 選擇性 |
+| `repeat` | int | 選擇性 |
+| `retries` | int | 選擇性 |
 | `retryDelay` | 整數 (秒) | 選擇性 |
 | `secret` | object | 選擇性 |
 | `startDelay` | 整數 (秒) | 選擇性 |
@@ -277,8 +277,8 @@ steps:
 | `network` | object | 選擇性 |
 | `ports` | [字串, 字串, ...] | 選擇性 |
 | `pull` | bool | 選擇性 |
-| `repeat` | ssNoversion | 選擇性 |
-| `retries` | ssNoversion | 選擇性 |
+| `repeat` | int | 選擇性 |
+| `retries` | int | 選擇性 |
 | `retryDelay` | 整數 (秒) | 選擇性 |
 | `secret` | object | 選擇性 |
 | `startDelay` | 整數 (秒) | 選擇性 |
@@ -378,8 +378,8 @@ steps:
 | `ports` | [字串, 字串, ...] | 是 | 從容器發佈到主機的埠陣列。 |  None |
 | `pull` | bool | 是 | 是否要先強制提取容器, 再執行它以防止任何快取行為。 | `false` |
 | `privileged` | bool | 是 | 是否要以特殊許可權模式執行容器。 | `false` |
-| `repeat` | ssNoversion | 是 | 重複執行容器的重試次數。 | 0 |
-| `retries` | ssNoversion | 是 | 容器失敗執行時嘗試的重試次數。 只有當容器的結束代碼不是零時, 才會嘗試重試。 | 0 |
+| `repeat` | int | 是 | 重複執行容器的重試次數。 | 0 |
+| `retries` | int | 是 | 容器失敗執行時嘗試的重試次數。 只有當容器的結束代碼不是零時, 才會嘗試重試。 | 0 |
 | `retryDelay` | 整數 (秒) | 是 | 容器執行重試之間的延遲 (以秒為單位)。 | 0 |
 | `secret` | object | 是 | 識別 Azure 資源的 Azure Key Vault 秘密或[受控識別](container-registry-tasks-authentication-managed-identity.md)。 | None |
 | `startDelay` | 整數 (秒) | 是 | 延遲容器執行的秒數。 | 0 |
