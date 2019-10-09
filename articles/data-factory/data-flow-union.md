@@ -7,43 +7,43 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 02/12/2019
-ms.openlocfilehash: af2225d749283c7124f89d5a7cd735b2f6bfd121
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 35d5b2250cb5f2f5bd5b3a0073dc2e3c655ceccb
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61348007"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72029911"
 ---
 # <a name="mapping-data-flow-union-transformation"></a>對應資料流程聯集轉換
 
-[!INCLUDE [notes](../../includes/data-factory-data-flow-preview.md)]
 
-集合聯集會將多個資料流結合在一起，並使那些資料流的 SQL 集合聯集成為來自集合聯集轉換的新輸出。 所有的每個輸入資料流中的結構描述會結合內資料流程中，而不需要有聯結索引鍵。
 
-您可以結合 n 個資料流，在 [設定] 資料表中，選取 [+] 圖示旁邊每個設定的資料列，包括在資料流程中的來源資料以及從現有的轉換的資料流。
+集合聯集會將多個資料流結合在一起，並使那些資料流的 SQL 集合聯集成為來自集合聯集轉換的新輸出。 每個輸入資料流程中的所有架構都會合並在您的資料流程內，而不需要有聯結索引鍵。
 
-![聯集的轉換](media/data-flow/union.png "聯集")
+您可以在 [設定] 資料表中結合 n 個數據流，方法是選取每個已設定資料列旁的 [+] 圖示，包括來源資料，以及資料流程中現有轉換的資料流程。
 
-在此情況下，您可以結合不同的中繼資料 （在此範例中，三個不同的來源檔案） 的多個來源，並將它們合併成單一資料流：
+聯![集轉換]聯(media/data-flow/union.png "集")
 
-![聯集轉換概觀](media/data-flow/union111.png "聯集 1")
+在此情況下，您可以結合多個來源的不同中繼資料（在此範例中，三個不同的來源檔案），並將它們結合成單一資料流程：
 
-若要這麼做，請新增額外的資料列聯集的設定中包含您想要新增的所有來源。 就不需要針對相同的查詢或聯結索引鍵：
+聯![集轉換總覽]聯(media/data-flow/union111.png "集 1")
 
-![聯集轉換設定](media/data-flow/unionsettings.png "聯集的設定")
+若要達成此目的，請加入您想要加入的所有來源，以在聯集設定中加入其他資料列。 不需要常見的查閱或聯結索引鍵：
 
-如果您將選取的轉換後等位時，您將能夠重新命名重疊的欄位或欄位不是名為 headerless 來源。 按一下 「 檢查 」，以查看具有 132 的總資料行，在此範例中三個不同來源的合併中繼資料：
+聯![集轉換設定]聯(media/data-flow/unionsettings.png "集設定")
 
-![最終的聯集轉換](media/data-flow/union333.png "聯集 3")
+如果您在聯集後設定選取轉換，您將能夠重新命名不是從 headerless 來源命名的重迭欄位或欄位。 按一下 [檢查] 以查看此範例中三個不同來源的 [結合中繼資料與132總計] 資料行：
+
+聯![集轉換最終]聯(media/data-flow/union333.png "集 3")
 
 ## <a name="name-and-position"></a>名稱和位置
 
-當您選擇 「 依名稱的聯集 」 時，每個資料行值將拖放至對應的資料行，從每個來源，使用新的串連的中繼資料結構描述中。
+當您選擇 [依名稱聯集] 時，每個資料行值都會從每個來源的對應資料行中，加上新的串連中繼資料架構。
 
-如果您選擇 「 依位置的聯集 」 時，每個資料行值會放置到每個對應的來源，在新合併的資料流其中每個來源的資料會加入到相同的資料流中產生的原始位置中：
+如果您選擇「依位置的聯集」，每個資料行值都會從每個對應來源的原始位置中卸載，因而產生新的結合資料串流，其中每個來源的資料會加入至相同的資料流程：
 
-![聯集的輸出](media/data-flow/unionoutput.png "聯集的輸出")
+聯![集輸出]聯(media/data-flow/unionoutput.png "集輸出")
 
 ## <a name="next-steps"></a>後續步驟
 
-瀏覽類似的轉換，包括[聯結](data-flow-join.md)並[Exists](data-flow-exists.md)。
+探索類似的轉換，包括[Join](data-flow-join.md)和[Exists](data-flow-exists.md)。

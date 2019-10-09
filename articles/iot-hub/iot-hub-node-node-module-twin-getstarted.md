@@ -9,12 +9,12 @@ services: iot-hub
 ms.devlang: nodejs
 ms.topic: conceptual
 ms.date: 04/26/2018
-ms.openlocfilehash: 3796017af643c993871757482ed17d1765cd6494
-ms.sourcegitcommit: b7b0d9f25418b78e1ae562c525e7d7412fcc7ba0
+ms.openlocfilehash: e33987d382a2afd93644a413084339fcd330d2e2
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/08/2019
-ms.locfileid: "70802413"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72029711"
 ---
 # <a name="get-started-with-iot-hub-module-identity-and-module-twin-nodejs"></a>開始使用 IoT 中樞模組身分識別和模組對應項（node.js）
 
@@ -54,9 +54,9 @@ ms.locfileid: "70802413"
 
 1. 建立目錄來保存您的程式碼。
 
-2. 在該目錄的內部，先執行  **npm init -y**  以使用預設值建立空白的 package.json。 這是程式碼的專案檔。
+2. 在該目錄的內部，先執行 **npm init -y** 以使用預設值建立空白的 package.json。 這是程式碼的專案檔。
 
-3. 執行 **npm install-S azure-iothub\@模組-preview**以在 **node_modules**  子目錄中安裝服務 SDK。
+3. 執行**npm install-S azure-iothub @ no__t-1modules-preview** ，將服務 SDK 安裝在**node_modules**子目錄中。
 
     > [!NOTE]
     > 子目錄名稱 node_modules 使用字組模組來表示「節點程式庫」。 此詞彙在此處與 IoT 中樞模組無關。
@@ -133,7 +133,7 @@ ms.locfileid: "70802413"
 
    ![Azure 入口網站模組詳細資料](./media/iot-hub-node-node-module-twin-getstarted/module-detail.png)
 
-2. 與您在上述步驟中所做的一樣，請為您的裝置程式碼建立一個目錄，並使用 NPM 將它初始化並安裝裝置 SDK （**NPM install-S amqp\@模組-preview**）。
+2. 與您在上述步驟中所做的一樣，請為您的裝置程式碼建立一個目錄，並使用 NPM 將它初始化並安裝裝置 SDK （**NPM install-S amqp @ no__t-1modules-preview**）。
 
    > [!NOTE]
    > 您可能會感覺 npm 安裝命令執行速度慢。 請耐心等候，它正從封裝存放庫中提取大量程式碼。
@@ -192,7 +192,7 @@ ms.locfileid: "70802413"
     });
     ```
 
-4. 使用  **node twin.js** 命令執行此動作。
+4. 使用 **node twin.js** 命令執行此動作。
 
    ```cmd/sh
    F:\temp\module_twin>node twin.js

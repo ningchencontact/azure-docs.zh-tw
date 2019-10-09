@@ -13,12 +13,12 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 923c828a3d7e9e10d79fcf079839b84c2f0e0f77
-ms.sourcegitcommit: a4b5d31b113f520fcd43624dd57be677d10fc1c0
+ms.openlocfilehash: dbe3b0218b73649d40f27d17ee2c7de2853c6b7c
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70772378"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72025547"
 ---
 # <a name="view-custom-role-assignments-in-azure-active-directory"></a>查看 Azure Active Directory 中的自訂角色指派
 
@@ -31,8 +31,8 @@ ms.locfileid: "70772378"
 
 此程式說明如何以全組織範圍來查看角色的指派。
 
-1. 使用特殊權限角色管理員或全域管理員 Azure AD 組織中的許可權登入 [Azure AD 系統管理中心。](https://aad.portal.azure.com)  
-1. 選取 [ **Azure Active Directory**]，選取 [ **角色和系統管理員**]，然後選取要開啟的角色並查看其屬性。
+1. 登入 Azure AD 系統 [管理中心](https://aad.portal.azure.com) with 特殊權限角色管理員或 Azure AD 組織中的全域管理員許可權。
+1. 選取 [ **Azure Active Directory**]，選取 [**角色和系統管理員**]，然後選取要開啟的角色並查看其屬性。
 1. 選取 [**指派**] 以查看角色的指派。
 
     ![當您從清單中開啟角色時，請查看角色指派和許可權](./media/roles-view-assignments/role-assignments.png)
@@ -104,12 +104,12 @@ HTTP/1.1 200 OK
 
 本節說明如何使用單一應用程式範圍來查看角色的指派。 此功能目前為公開預覽狀態。
 
-1. 使用特殊權限角色管理員或全域管理員 Azure AD 組織中的許可權登入 [Azure AD 系統管理中心。](https://aad.portal.azure.com)  
+1. 登入 Azure AD 系統 [管理中心](https://aad.portal.azure.com) with 特殊權限角色管理員或 Azure AD 組織中的全域管理員許可權。
 1. 選取 [**應用程式註冊**]，然後選取 [應用程式註冊] 以查看其屬性。 您可能必須選取 [**所有應用程式**]，才能在您的 Azure AD 組織中查看應用程式註冊的完整清單。
 
     ![從 [應用程式註冊] 頁面建立或編輯應用程式註冊](./media/roles-create-custom/appreg-all-apps.png)
 
-1. 在應用程式註冊中，選取 [ **角色和系統管理員**]，然後選取要查看其屬性的角色。
+1. 在應用程式註冊中，選取 [**角色和系統管理員**]，然後選取要查看其屬性的角色。
 
     ![從 [應用程式註冊] 頁面中查看應用程式註冊角色指派](./media/roles-view-assignments/appreg-assignments.png)
 

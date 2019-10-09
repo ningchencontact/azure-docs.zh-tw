@@ -12,12 +12,12 @@ ms.date: 04/11/2019
 ms.author: ajburnle
 ms.reviewer: jeffsta
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4002c14ed6340a0e1a89ee295d47c98436515775
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 0c416d7279dd558b8a793064e295b7654925b1c8
+ms.sourcegitcommit: f9e81b39693206b824e40d7657d0466246aadd6e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68561799"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72034883"
 ---
 # <a name="add-or-update-a-users-profile-information-using-azure-active-directory"></a>使用 Azure Active Directory 新增或更新使用者的設定檔資訊
 使用 Azure Active Directory (Azure AD) 新增使用者設定檔資訊，包括個人資料圖片、工作特定資訊，以及一些設定。 如需新增使用者的詳細資訊，請參閱[如何在 Azure Active Directory 中新增或刪除使用者](add-users-azure-active-directory.md)。
@@ -40,17 +40,17 @@ ms.locfileid: "68561799"
 
     - **個人資料圖片。** 選取使用者帳戶的縮圖影像。 此圖會出現在 Azure Active Directory 和使用者的個人頁面上，例如 myapps.microsoft.com 頁面。
 
-    - **身分識別。** 新增或更新使用者的其他識別值, 例如「結婚的姓氏」。 您可以從 [名字] 和 [姓氏] 的值獨立設定此名稱。 例如, 您可以使用它來包含姓名縮寫、公司名稱, 或變更所顯示的名稱順序。 在另一個範例中, 對於名稱為「Chris 綠色」的兩位使用者, 您可以使用身分識別字串將其名稱設定為「Chris B」。綠色 (Contoso)。
+    - **身分識別。** 新增或更新使用者的其他識別值，例如「結婚的姓氏」。 您可以從 [名字] 和 [姓氏] 的值獨立設定此名稱。 例如，您可以使用它來包含姓名縮寫、公司名稱，或變更所顯示的名稱順序。 在另一個範例中，對於名稱為「Chris 綠色」的兩位使用者，您可以使用身分識別字串將其名稱設定為「Chris B」。綠色（Contoso）。
 
     - **工作資訊。** 新增任何工作相關資訊，例如使用者的職稱、部門或經理。
 
     - **設定。** 決定使用者是否可以登入 Azure Active Directory 租用戶。 您也可以指定使用者的全域位置。
 
-    - **。** 新增使用者的任何相關連絡資訊。 例如，街道地址或行動電話號碼。
+    - **。** 新增使用者的任何相關連絡人資訊，但不包括某些使用者的電話或行動連絡人資訊（只有全域管理員可以為系統管理員角色的使用者進行更新）。
 
     - **驗證連絡資訊。** 驗證這項資訊，以確定具有使用者的有效電話號碼和電子郵件地址。 Azure Active Directory 會使用這項資訊，在登入期間確定使用者是真正的使用者。 只有全域系統管理員才能更新驗證連絡資訊。
 
-4. 選取 [ **儲存**]。
+4. 選取 [儲存]。
 
     系統將為使用者儲存您的所有變更。
 
