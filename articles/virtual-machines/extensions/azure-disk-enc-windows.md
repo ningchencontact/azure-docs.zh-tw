@@ -145,7 +145,7 @@ Azure 磁碟加密有兩個架構: v1.1, 這是較新的建議架構, 不會使�
 | apiVersion | 2015-06-15 | date |
 | publisher | Microsoft.Azure.Security | string |
 | type | AzureDiskEncryptionForLinux | string |
-| typeHandlerVersion | 0.1、1。1 | ssNoversion |
+| typeHandlerVersion | 0.1、1。1 | int |
 | (0.1 架構)AADClientID | xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx | guid | 
 | (0.1 架構)AADClientSecret | password | string |
 | (0.1 架構)AADClientCertificate | thumbprint | string |
