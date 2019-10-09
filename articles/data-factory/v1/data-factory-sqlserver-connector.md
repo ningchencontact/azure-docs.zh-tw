@@ -665,7 +665,7 @@ create table dbo.TargetTbl
 | FILESTREAM attribute (varbinary(max)) |Byte[] |
 | Float |Double |
 | image |Byte[] |
-| ssNoversion |Int32 |
+| int |Int32 |
 | money |Decimal |
 | nchar |String, Char[] |
 | ntext |String, Char[] |
