@@ -41,8 +41,8 @@ ms.locfileid: "70194326"
 
 | 參數 | 必要項 | Type | 描述 |
 |:--- |:--- |:--- |:--- | 
-|operand1 |是 |ssNoversion |要新增的第一個數字。 |
-|operand2 |是 |ssNoversion |要新增的第二個數字。 |
+|operand1 |是 |int |要新增的第一個數字。 |
+|operand2 |是 |int |要新增的第二個數字。 |
 
 ### <a name="return-value"></a>傳回值
 
@@ -113,7 +113,7 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 | 參數 | 必要項 | Type | 描述 |
 |:--- |:--- |:--- |:--- |
 | loopName | 否 | string | 用來取得反覆項目的迴圈名稱。 |
-| offset |否 |ssNoversion |要加入到以零為起始之反覆項目值的數字。 |
+| offset |否 |int |要加入到以零為起始之反覆項目值的數字。 |
 
 ### <a name="remarks"></a>備註
 
@@ -158,8 +158,8 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 
 | 參數 | 必要項 | Type | 描述 |
 |:--- |:--- |:--- |:--- |
-| operand1 |是 |ssNoversion |被除數。 |
-| operand2 |是 |ssNoversion |除數。 不能為 0。 |
+| operand1 |是 |int |被除數。 |
+| operand2 |是 |int |除數。 不能為 0。 |
 
 ### <a name="return-value"></a>傳回值
 
@@ -254,7 +254,7 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 
 <a id="int" />
 
-## <a name="int"></a>ssNoversion
+## <a name="int"></a>int
 `int(valueToConvert)`
 
 將指定的值轉換成整數。
@@ -451,8 +451,8 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 
 | 參數 | 必要項 | Type | 描述 |
 |:--- |:--- |:--- |:--- |
-| operand1 |是 |ssNoversion |被除數。 |
-| operand2 |是 |ssNoversion |除數，不能為 0。 |
+| operand1 |是 |int |被除數。 |
+| operand2 |是 |int |除數，不能為 0。 |
 
 ### <a name="return-value"></a>傳回值
 代表餘數的整數。
@@ -521,8 +521,8 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 
 | 參數 | 必要項 | Type | 描述 |
 |:--- |:--- |:--- |:--- |
-| operand1 |是 |ssNoversion |要相乘的第一個數字。 |
-| operand2 |是 |ssNoversion |要相乘的第二個數字。 |
+| operand1 |是 |int |要相乘的第一個數字。 |
+| operand2 |是 |int |要相乘的第二個數字。 |
 
 ### <a name="return-value"></a>傳回值
 
@@ -592,8 +592,8 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 
 | 參數 | 必要項 | Type | 描述 |
 |:--- |:--- |:--- |:--- |
-| operand1 |是 |ssNoversion |減數。 |
-| operand2 |是 |ssNoversion |被減數。 |
+| operand1 |是 |int |減數。 |
+| operand2 |是 |int |被減數。 |
 
 ### <a name="return-value"></a>傳回值
 代表減法的整數。
