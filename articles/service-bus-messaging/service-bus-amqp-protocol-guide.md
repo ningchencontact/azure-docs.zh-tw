@@ -380,7 +380,7 @@ CBS 會定義由傳訊基礎結構所提供的虛擬管理節點 (名為 *$cbs*)
 
 | Key | 選擇性 | 值類型 | 值內容 |
 | --- | --- | --- | --- |
-| status-code |否 |ssNoversion |HTTP 回應碼 **[RFC2616]** 。 |
+| status-code |否 |int |HTTP 回應碼 **[RFC2616]** 。 |
 | status-description |是 |string |狀態的描述。 |
 
 用戶端可以針對傳訊基礎結構中的任何實體重複呼叫 *put-token*。 權杖的範圍為目前用戶端且錨點為目前連線，這表示伺服器會在連線捨棄時捨棄所有保留的權杖。
