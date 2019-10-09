@@ -152,7 +152,7 @@ ms.locfileid: "71122705"
 |---------------|------|-------------|
 | headers | object | 要求的標頭 |
 | body | object | JSON 物件 | 具有來自要求之本文內容的物件 |
-| status code | ssNoversion | 來自要求的狀態碼 |
+| status code | int | 來自要求的狀態碼 |
 |||
 
 | status code | 描述 |
