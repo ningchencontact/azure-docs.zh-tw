@@ -46,7 +46,7 @@ Azure Cosmos DB 是 Microsoft 的全域分散式多模型資料庫服務。 您�
 |**欄位**|**型別** |**描述** |
 |---------|---------|---------|
 | customAction   |  string  |   名稱的自訂命令，它必須是"CreateDatabase 」。      |
-| offerThroughput | ssNoversion  | 您在資料庫設定的佈建的輸送量。 這個參數是選擇性的。 |
+| offerThroughput | int  | 您在資料庫設定的佈建的輸送量。 這個參數是選擇性的。 |
 
 ### <a name="output"></a>Output
 
@@ -88,7 +88,7 @@ db.runCommand({customAction: "CreateDatabase", offerThroughput: 1000 });
 |**欄位**|**型別** |**描述** |
 |---------|---------|---------|
 | customAction    |    string     |   自訂命令名稱。 必須是"UpdateDatabase 」。      |
-|  offerThroughput   |  ssNoversion       |     您想要在資料庫上設定的新佈建的輸送量。    |
+|  offerThroughput   |  int       |     您想要在資料庫上設定的新佈建的輸送量。    |
 
 ### <a name="output"></a>Output
 
@@ -164,7 +164,7 @@ db.runCommand({customAction: "GetDatabase"});
 |---------|---------|---------|
 | customAction    | string | 自訂命令名稱。 必須是 「 CreateCollection"     |
 | collection      | string | 集合的名稱                                   |
-| offerThroughput | ssNoversion    | 若要在資料庫上設定的佈建的輸送量。 這是選擇性參數 |
+| offerThroughput | int    | 若要在資料庫上設定的佈建的輸送量。 這是選擇性參數 |
 | shardKey        | string | 分區金鑰路徑，以建立分區化集合。 這是選擇性參數 |
 
 ### <a name="output"></a>Output
@@ -209,7 +209,7 @@ db.runCommand({customAction: "CreateCollection", collection: "testCollection", o
 |---------|---------|---------|
 |  customAction   |   string      |   自訂命令名稱。 必須是"UpdateCollection 」。      |
 |  collection   |   string      |   集合的名稱。       |
-| offerThroughput   |ssNoversion|   若要設定的集合上佈建的輸送量。|
+| offerThroughput   |int|   若要設定的集合上佈建的輸送量。|
 
 ## <a name="output"></a>Output
 
