@@ -315,7 +315,7 @@ Data Factory 服務支援使用資料管理閘道器連接至內部部署 MySQL 
 | 列舉 |String |
 | FLOAT |Single |
 | 不帶正負號的 int |Int64 |
-| ssNoversion |Int32 |
+| int |Int32 |
 | 不帶正負號的整數 |Int64 |
 | integer |Int32 |
 | long varbinary |Byte[] |
