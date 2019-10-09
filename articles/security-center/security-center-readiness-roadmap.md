@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/03/2018
 ms.author: yurid
-ms.openlocfilehash: a5d11be7d4fbe7f23b5584775c5d9a57c2214155
-ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
+ms.openlocfilehash: b2b4dc1aa9486e432fb2fae48343c21fba620221
+ms.sourcegitcommit: 9f330c3393a283faedaf9aa75b9fcfc06118b124
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71200991"
+ms.lasthandoff: 10/07/2019
+ms.locfileid: "71996687"
 ---
 # <a name="azure-security-center-readiness-roadmap"></a>Azure 資訊安全中心整備藍圖
 本文件提供的整備藍圖將協助您開始使用 Azure 資訊安全中心。
@@ -89,16 +89,16 @@ Azure 資訊安全中心提供統一的安全性管理和進階的威脅防護�
 
 ## <a name="advanced-cloud-defense"></a>進階雲端防禦
 
-Azure VM 可以利用資訊安全中心的進階雲端防禦功能。 這些功能包含 Just-In-Time 虛擬機器 (VM) 存取以及自適性應用程式控制。
+Azure VM 可以利用資訊安全中心的進階雲端防禦功能。 這些功能包括及時的虛擬機器（VM）存取，以及彈性應用程式控制。
 
 使用下列資源來了解如何在資訊安全中心使用這些功能。
 
 影片  
-* [Azure 資訊安全中心 - Just-in-Time VM 存取](https://youtu.be/UOQb2FcdQnU)
+* [Azure 資訊安全中心–即時 VM 存取](https://youtu.be/UOQb2FcdQnU)
 * [Azure 資訊安全中心 - 自適性應用程式控制](https://youtu.be/wWWekI1Y9ck)
 
 文章    
-* [使用 Just-In-Time 管理虛擬機器存取](https://docs.microsoft.com/azure/security-center/security-center-just-in-time)
+* [使用即時管理虛擬機器存取](https://docs.microsoft.com/azure/security-center/security-center-just-in-time)
 * [Azure 資訊安全中心的自適性應用程式控制](https://docs.microsoft.com/azure/security-center/security-center-adaptive-application)
 
 ## <a name="hands-on-activities"></a>實際操作活動
