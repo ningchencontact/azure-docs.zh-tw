@@ -78,7 +78,7 @@ Azure Blockchain Workbench 應用程式是以組態中繼資料和智慧合約�
 | bool     | 布林值資料類型。 |
 | 合約 | 合約類型的位址。 |
 | 列舉     | 列舉的具名值組。 使用列舉類型時，您也可以指定一份 EnumValues 清單。 每個值的上限為 255 個字元。 有效值的字元包括大小寫字母 (A-Z、a-z) 和數字 (0-9)。 請參閱 [Solidity 中的組態範例和用法](#example-configuration-of-type-enum)。 |
-| ssNoversion      | 整數資料類型。 |
+| int      | 整數資料類型。 |
 | money    | 金額資料類型。 |
 | 狀態    | 工作流程狀態。 |
 | string  | 字串資料類型。 最多 4000 個字元。 請參閱[組態範例](#example-configuration-of-type-string)。 |
