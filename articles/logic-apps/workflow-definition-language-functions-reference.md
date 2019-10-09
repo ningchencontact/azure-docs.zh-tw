@@ -2271,7 +2271,7 @@ indexOf('hello world', 'world')
 
 <a name="int"></a>
 
-### <a name="int"></a>ssNoversion
+### <a name="int"></a>int
 
 傳回字串的整數版本。
 
