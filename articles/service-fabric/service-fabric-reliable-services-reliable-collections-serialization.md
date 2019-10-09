@@ -44,7 +44,7 @@ Reliable State Manager 具有下列類型的內建序列化程式：
 - decimal
 - double
 - FLOAT
-- ssNoversion
+- int
 - uint
 - long
 - ulong
