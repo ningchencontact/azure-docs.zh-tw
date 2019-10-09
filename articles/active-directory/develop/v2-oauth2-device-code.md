@@ -80,8 +80,8 @@ scope=user.read%20openid%20profile
 |`device_code`     | String | 長字串，可用於驗證用戶端與授權伺服器之間的工作階段。 用戶端會使用此參數來向授權伺服器要求存取權杖。 |
 |`user_code`       | String | 向使用者顯示的簡短字串, 用來識別次要裝置上的會話。|
 |`verification_uri`| URI | 為了執行登入程序，使用者應使用 `user_code` 查看的 URI。 |
-|`expires_in`      | ssNoversion | `device_code` 和 `user_code` 到期之前的秒數。 |
-|`interval`        | ssNoversion | 用戶端在輪詢要求之間應等待的秒數。 |
+|`expires_in`      | int | `device_code` 和 `user_code` 到期之前的秒數。 |
+|`interval`        | int | 用戶端在輪詢要求之間應等待的秒數。 |
 | `message`        | String | 人類看得懂的字串，包含使用者說明。 在 `?mkt=xx-XX` 形式的要求中加入  **查詢參數**、填寫適當的語言文化代碼，即可進行當地語系化。 |
 
 ## <a name="authenticating-the-user"></a>驗證使用者
@@ -135,7 +135,7 @@ device_code: GMMhmHCXhWEzkobqIHGG_EnNYYsAkukHspeYUk9E8
 | --------- | ------ | ----------- |
 | `token_type` | String| 一律是「Bearer」。 |
 | `scope` | 空格分隔的字串 | 如果傳回了存取權杖，則會列出存取權杖的有效範圍。 |
-| `expires_in`| ssNoversion | 包含的存取權杖須經過多久 (秒數) 才會生效。 |
+| `expires_in`| int | 包含的存取權杖須經過多久 (秒數) 才會生效。 |
 | `access_token`| 不透明字串 | 針對已要求的[範圍](v2-permissions-and-consent.md)發出。  |
 | `id_token`   | JWT | 原始 `scope` 參數包含 `openid` 範圍時發出。  |
 | `refresh_token` | 不透明字串 | 原始 `scope` 參數包含 `offline_access` 時發出。  |
