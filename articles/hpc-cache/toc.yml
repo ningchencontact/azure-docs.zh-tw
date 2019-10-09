@@ -36,3 +36,5 @@
   items:
     - name: 開啟支援票證
       href: hpc-cache-support-ticket.md
+    - name: 從區域性中斷復原
+      href: hpc-region-recovery.md

@@ -110,7 +110,7 @@
           href: groups-naming-policy.md
         - name: 群組到期參考
           href: groups-lifecycle.md
-        - name: 還原已到期或已刪除的群組
+        - name: 還原已刪除的群組
           href: groups-restore-deleted.md
         - name: 管理群組設定
           href: /azure/active-directory/fundamentals/active-directory-groups-settings-azure-portal?context=azure/active-directory/users-groups-roles/context/ugr-context
@@ -134,7 +134,7 @@
           href: licensing-groups-resolve-problems.md
         - name: 變更群組授權的使用者
           href: licensing-groups-migrate-users.md
-        - name: 變更使用者的授權
+        - name: 變更使用者或群組的授權
           href: licensing-groups-change-licenses.md
         - name: 其他案例
           href: licensing-group-advanced.md
@@ -168,7 +168,7 @@
           href: roles-delegate-by-task.md
         - name: Microsoft 365 角色
           href: roles-m365-workload-docs.md
-        - name: 管理員角色安全性
+        - name: 角色安全性
           items:
             - name: 角色安全性規劃
               href: directory-admin-roles-secure.md

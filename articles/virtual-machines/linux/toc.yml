@@ -196,6 +196,8 @@
               href: disk-encryption-cli-quickstart.md
             - name: 使用 Azure PowerShell 加密 VM
               href: disk-encryption-powershell-quickstart.md
+            - name: 使用 Azure 入口網站加密 VM
+              href: disk-encryption-portal-quickstart.md
             - name: 適用於 Azure 磁碟加密的金鑰保存庫
               href: disk-encryption-key-vault.md
             - name: 磁碟加密範例指令碼
