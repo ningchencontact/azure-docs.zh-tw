@@ -357,7 +357,7 @@ Data Factory 會以和來源資料存放區中的資料表相同的名稱，在�
 | FILESTREAM attribute (varbinary(max)) |Byte[] |
 | Float |Double |
 | image |Byte[] |
-| ssNoversion |Int32 |
+| int |Int32 |
 | money |Decimal |
 | nchar |String, Char[] |
 | ntext |String, Char[] |
