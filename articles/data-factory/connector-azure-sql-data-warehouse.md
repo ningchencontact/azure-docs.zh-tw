@@ -613,7 +613,7 @@ NULL 值是一種特殊形式的預設值。 如果資料欄可以是 Null，Blo
 | FILESTREAM attribute (varbinary(max)) | Byte[]                         |
 | 浮點數                                 | Double                         |
 | image                                 | Byte[]                         |
-| ssNoversion                                   | Int32                          |
+| int                                   | Int32                          |
 | money                                 | Decimal                        |
 | nchar                                 | String, Char[]                 |
 | numeric                               | Decimal                        |
