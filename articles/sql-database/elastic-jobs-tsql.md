@@ -1215,14 +1215,14 @@ GO
 |**job_execution_id**   |uniqueidentifier|  作業執行的執行個體唯一識別碼。
 |**job_name**   |nvarchar(128)  |作業的名稱。
 |**job_id** |uniqueidentifier|  作業的唯一識別碼。
-|**job_version**    |ssNoversion    |作業的版本 (會在作業每次修改時自動更新)。
-|**step_id**    |ssNoversion|   步驟的唯一識別碼 (用於此作業)。 NULL 表示這是父作業執行。
+|**job_version**    |int    |作業的版本 (會在作業每次修改時自動更新)。
+|**step_id**    |int|   步驟的唯一識別碼 (用於此作業)。 NULL 表示這是父作業執行。
 |**is_active**| bit |表示資訊是使用中還是非使用中。 1 表示使用中的作業，0 表示非使用中。
 |**lifecycle**| nvarchar(50)|表示作業狀態的值：‘Created’、‘In Progress’、‘Failed’、‘Succeeded’、‘Skipped’、'SucceededWithSkipped’|
 |**create_time**|   datetime2(7)|   建立作業的日期和時間。
 |**start_time** |datetime2(7)|  作業開始執行的日期和時間。 如果作業尚未執行，則為 NULL。
 |**end_time**|  datetime2(7)    |作業執行完成的日期和時間。 如果作業尚未執行或尚未完成執行，則為 NULL。
-|**current_attempts**   |ssNoversion    |重試步驟的次數。 父作業將是 0，子作業執行將是 1 或更大的值，視執行原則而定。
+|**current_attempts**   |int    |重試步驟的次數。 父作業將是 0，子作業執行將是 1 或更大的值，視執行原則而定。
 |**current_attempt_start_time** |datetime2(7)|  作業開始執行的日期和時間。 NULL 表示這是父作業執行。
 |**last_message**   |nvarchar(max)| 作業或步驟歷程記錄訊息。 
 |**target_type**|   nvarchar(128)   |包含伺服器中的所有資料庫、彈性集區中的所有資料庫或個別資料庫的目標資料庫或資料庫集合的類型。 Target_type 的有效值為 'SqlServer'、'SqlElasticPool' 或 'SqlDatabase'。 NULL 表示這是父作業執行。
@@ -1242,10 +1242,10 @@ GO
 |------|------|-------|
 |**job_name**|  nvarchar(128)   |作業的名稱。|
 |**job_id**|    uniqueidentifier    |作業的唯一識別碼。|
-|**job_version**    |ssNoversion    |作業的版本 (會在作業每次修改時自動更新)。|
+|**job_version**    |int    |作業的版本 (會在作業每次修改時自動更新)。|
 |**description**    |nvarchar(512)| 作業的描述。 enabled bit 會指出作業是啟用還是停用。 1 表示啟用的作業，0 表示停用的作業。|
 |**schedule_interval_type** |nvarchar(50)   |指出何時要執行作業的值：「單次、「分鐘」、「小時」、「天」、「週」、「月」
-|**schedule_interval_count**|   ssNoversion|    每次執行作業之間所發生的 schedule_interval_type 期間數目。|
+|**schedule_interval_count**|   int|    每次執行作業之間所發生的 schedule_interval_type 期間數目。|
 |**schedule_start_time**    |datetime2(7)|  作業上次開始執行的日期和時間。|
 |**schedule_end_time**| datetime2(7)|   作業上次執行完成的日期和時間。|
 
@@ -1260,7 +1260,7 @@ GO
 |------|------|-------|
 |**job_name**|  nvarchar(128)   |作業的名稱。|
 |**job_id**|    uniqueidentifier    |作業的唯一識別碼。|
-|**job_version**    |ssNoversion    |作業的版本 (會在作業每次修改時自動更新)。|
+|**job_version**    |int    |作業的版本 (會在作業每次修改時自動更新)。|
 
 
 ### <a name="jobsteps-view"></a>作業步驟檢視
@@ -1273,8 +1273,8 @@ GO
 |------|------|-------|
 |**job_name**   |nvarchar(128)| 作業的名稱。|
 |**job_id** |uniqueidentifier   |作業的唯一識別碼。|
-|**job_version**|   ssNoversion|    作業的版本 (會在作業每次修改時自動更新)。|
-|**step_id**    |ssNoversion    |步驟的唯一識別碼 (用於此作業)。|
+|**job_version**|   int|    作業的版本 (會在作業每次修改時自動更新)。|
+|**step_id**    |int    |步驟的唯一識別碼 (用於此作業)。|
 |**step_name**  |nvarchar(128)  |步驟的唯一名稱 (用於此作業)。|
 |**command_type**   |nvarchar(50)   |要在作業步驟中執行的命令類型。 針對 v1，值必須等於並預設為 ‘TSql’。|
 |**command_source** |nvarchar(50)|  命令的位置。 針對 v1，「內嵌」是預設且唯一可接受的值。|
@@ -1282,11 +1282,11 @@ GO
 |**credential_name**|   nvarchar(128)   |用來執行作業的資料庫範圍認證名稱。|
 |**target_group_name**| nvarchar(128)   |目標群組的名稱。|
 |**target_group_id**|   uniqueidentifier|   目標群組的唯一識別碼。|
-|**initial_retry_interval_seconds**|    ssNoversion |第一次重試之前的延遲時間。 預設值為 1。|
-|**maximum_retry_interval_seconds** |ssNoversion|   重試之間的延遲上限。 如果重試之間的延遲時間超出此值，該延遲將會限定為此值。 預設值為 120。|
+|**initial_retry_interval_seconds**|    int |第一次重試之前的延遲時間。 預設值為 1。|
+|**maximum_retry_interval_seconds** |int|   重試之間的延遲上限。 如果重試之間的延遲時間超出此值，該延遲將會限定為此值。 預設值為 120。|
 |**retry_interval_backoff_multiplier**  |real|  在多個作業步驟執行嘗試失敗時要套用至重試延遲的乘數。 預設值為 2.0。|
-|**retry_attempts** |ssNoversion|   此步驟失敗時嘗試使用的重試次數。 預設值為 10，表示不會重試。|
-|**step_timeout_seconds**   |ssNoversion|   重試間隔的時間長度 (秒)。 預設值為 0，表示 0 分鐘的間隔。|
+|**retry_attempts** |int|   此步驟失敗時嘗試使用的重試次數。 預設值為 10，表示不會重試。|
+|**step_timeout_seconds**   |int|   重試間隔的時間長度 (秒)。 預設值為 0，表示 0 分鐘的間隔。|
 |**output_type**    |nvarchar(11)|  命令的位置。 在目前的預覽版中，「內嵌」是預設且唯一可接受的值。|
 |**output_credential_name**|    nvarchar(128)   |要用來連線至目的地伺服器以存放結果集的認證名稱。|
 |**output_subscription_id**|    uniqueidentifier|   查詢執行結果集的目的地伺服器\資料庫的訂用帳戶唯一識別碼。|
@@ -1295,7 +1295,7 @@ GO
 |**output_database_name**   |nvarchar(128)| 結果集的目的地資料庫名稱。|
 |**output_schema_name** |nvarchar(max)| 目的地結構描述的名稱。 若未指定，則預設為 dbo。|
 |**output_table_name**| nvarchar(max)|  用來存放查詢結果的結果集資料表名稱。 如果資料表尚不存在，則會根據結果集的結構描述自動建立資料表。 結構描述必須符合結果集的結構描述。|
-|**max_parallelism**|   ssNoversion|    每個彈性集區將逐一執行作業步驟的資料庫數目上限。 預設值為 NULL，表示沒有限制。 |
+|**max_parallelism**|   int|    每個彈性集區將逐一執行作業步驟的資料庫數目上限。 預設值為 NULL，表示沒有限制。 |
 
 
 ### <a name="jobstep_versions-view"></a>jobstep_versions 視圖
@@ -1325,7 +1325,7 @@ GO
 |-----|-----|-----|
 |**target_group_name**  |nvarchar(128|要刪除的目標群組 (資料庫集合) 的名稱。 |
 |**target_group_id**    |uniqueidentifier   |目標群組的唯一識別碼。|
-|**membership_type**    |ssNoversion|   指定是否要在目標群組中包含或排除目標群組成員。 target_group_name 的有效值為「包含」或「排除」。|
+|**membership_type**    |int|   指定是否要在目標群組中包含或排除目標群組成員。 target_group_name 的有效值為「包含」或「排除」。|
 |**target_type**    |nvarchar(128)| 包含伺服器中的所有資料庫、彈性集區中的所有資料庫或個別資料庫的目標資料庫或資料庫集合的類型。 Target_type 的有效值為 'SqlServer'、'SqlElasticPool'、'Sql Database' 或 'SqlShardMap'。|
 |**target_id**  |uniqueidentifier|  目標群組成員的唯一識別碼。|
 |**refresh_credential_name**    |nvarchar(128)  |用來連線至目標群組成員的資料庫範圍認證的名稱。|
