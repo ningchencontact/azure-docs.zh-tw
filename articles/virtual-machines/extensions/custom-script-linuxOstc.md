@@ -123,7 +123,7 @@ Linux 自訂指令碼擴充功能有兩個：
 | apiVersion | 2015-06-15 | date |
 | publisher | Microsoft.OSTCExtensions | string |
 | Type | CustomScriptForLinux | string |
-| typeHandlerVersion | 1.5 | ssNoversion |
+| typeHandlerVersion | 1.5 | int |
 | fileUris (例如) | https://github.com/MyProject/Archive/MyPythonScript.py | 陣列 |
 | commandToExecute (例如) | python MyPythonScript.py \<my-param1\> | string |
 | enableInternalDNSCheck | true | boolean |
