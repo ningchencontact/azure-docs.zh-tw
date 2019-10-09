@@ -14,21 +14,21 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 06/25/2019
 ms.author: emalani
-ms.openlocfilehash: 04c8e7b2b60a60f17c49862d5c17793c16456032
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: dc1183e1557d634ab1880376a1347f43f33b329f
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67443531"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72027500"
 ---
 # <a name="enable-offline-sync-for-your-cordova-mobile-app"></a>啟用 Cordova 行動應用程式的離線同步處理
 [!INCLUDE [app-service-mobile-selector-offline](../../includes/app-service-mobile-selector-offline.md)]
 
 > [!NOTE]
-> Visual Studio App Center 投入新的和整合式服務行動應用程式開發的核心。 開發人員可以使用**建置**，**測試**並**散發**services 設定持續整合和傳遞管線。 應用程式部署之後，開發人員可以監視的狀態和其應用程式使用的使用方式**Analytics**並**診斷**服務，並使用使用者參與**推播**服務。 開發人員也可以利用**Auth**來驗證使用者並**資料**保存和同步處理雲端中的應用程式資料的服務。 請參閱[App Center](https://appcenter.ms/?utm_source=zumo&utm_campaign=app-service-mobile-cordova-get-started-offline-data)今天。
->
+> Visual Studio App Center 支援行動應用程式開發的端對端和整合式服務中心。 開發人員可以使用**組建**、**測試**和**散發**服務來設定持續整合和傳遞管線。 部署應用程式之後，開發人員可以使用**分析**和**診斷**服務來監視其應用程式的狀態和使用，並與使用**推**播服務的使用者互動。 開發人員也可以利用**驗證**來驗證其使用者和**資料**服務，以保存及同步雲端中的應用程式資料。
+> 如果您想要在您的行動應用程式中整合雲端服務，請立即註冊 App Center [App center](https://appcenter.ms/?utm_source=zumo&utm_medium=Azure&utm_campaign=zumo%20doc) 。
 
-## <a name="overview"></a>概觀
+## <a name="overview"></a>總覽
 此教學課程介紹適用於 Cordova 之 Azure 行動應用程式的離線同步處理功能。 離線同步處理可讓使用者與行動應用程式進行互動&mdash;檢視、新增或修改資料&mdash;即使沒有網路連接進也可行。 變更會儲存在本機資料庫中。  裝置恢復上線後，這些變更就會與遠端服務進行同步處理。
 
 本教學課程是根據您完成教學課程 [Apache Cordova 快速入門]時所建立之 Mobile Apps 的 Cordova 快速入門方案。 在本教學課程中，您將會更新快速入門方案來新增 Azure Mobile Apps 的離線功能。  我們也會在應用程式中反白顯示離線特有的程式碼。
@@ -178,7 +178,7 @@ ms.locfileid: "67443531"
 
 5. (選擇性) 使用 Visual Studio 檢視您的 Azure SQL Database 資料表，以查看後端資料庫中的資料並無變更。
 
-    在 Visual Studio 中，開啟 [伺服器總管]  。 瀏覽至 [Azure]  ->[SQL Database 中您的資料庫]  。 在資料庫上按一下滑鼠右鍵，並選取 [在 SQL Server 物件總管中開啟]  。 現在您可以瀏覽至您的 SQL Database 資料表和其內容。
+    在 Visual Studio 中，開啟 [伺服器總管]。 瀏覽至 [Azure]->[SQL Database 中您的資料庫]。 在資料庫上按一下滑鼠右鍵，並選取 [在 SQL Server 物件總管中開啟]。 現在您可以瀏覽至您的 SQL Database 資料表和其內容。
 
 ## <a name="optional-test-the-reconnection-to-your-mobile-backend"></a>(選擇性) 測試與行動後端的重新連線
 

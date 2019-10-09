@@ -8,14 +8,14 @@ manager: cshankar
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 08/08/2019
+ms.date: 10/07/2019
 ms.custom: seodec18
-ms.openlocfilehash: 2a740d8ee0eb50cfa01f36bd8f5590a58e1e6627
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: 8f4ed6de5ff47efa441c371b80670c500f57c9bb
+ms.sourcegitcommit: f9e81b39693206b824e40d7657d0466246aadd6e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68931920"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72034056"
 ---
 # <a name="time-series-model"></a>時間序列模型
 
@@ -25,7 +25,7 @@ ms.locfileid: "68931920"
 
 時間序列模型在查詢和瀏覽中扮演重要角色，因為它們將裝置和非裝置實體關聯化。 保留在時間序列模型中的資料，利用其中儲存的公式來提供時間序列查詢計算。
 
-[![時間序列模型總覽](media/v2-update-tsm/tsm.png)](media/v2-update-tsm/tsm.png#lightbox)
+[@no__t 1Time 系列模型總覽](media/v2-update-tsm/tsm.png)](media/v2-update-tsm/tsm.png#lightbox)
 
 ## <a name="key-capabilities"></a>主要功能
 
@@ -37,13 +37,13 @@ ms.locfileid: "68931920"
 
 ## <a name="entity-components"></a>實體元件
 
-時間序列模型有三個核心元件:
+時間序列模型有三個核心元件：
 
 * <a href="#time-series-model-types">時間序列模型類型</a>
 * <a href="#time-series-model-hierarchies">時間序列模型階層</a>
 * <a href="#time-series-model-instances">時間序列模型實例</a>
 
-這些元件會結合以指定時間序列模型, 並組織您的 Azure 時間序列深入解析資料。
+這些元件會結合以指定時間序列模型，並組織您的 Azure 時間序列深入解析資料。
 
 ## <a name="time-series-model-types"></a>時間序列模型類型
 
@@ -82,7 +82,7 @@ ms.locfileid: "68931920"
 
 下列矩陣是當作變數定義的說明：
 
-[![類型變數定義表](media/v2-update-tsm/table.png)](media/v2-update-tsm/table.png#lightbox)
+[@no__t 1Type 變數定義表](media/v2-update-tsm/table.png)](media/v2-update-tsm/table.png#lightbox)
 
 | 定義 | 描述 |
 | --- | ---|
@@ -134,7 +134,7 @@ ms.locfileid: "68931920"
 | ID4 | "building" = "1000", "floor" = "10"  |
 | ID5 | 未設定 “building”、“floor” 或 “room” |
 
-在上述範例中, **ID1**和**ID4**會在 Azure 時間序列深入解析 explorer 中顯示為階層 H1 的一部分, 而其餘部分則分類為*無上層實例*, 因為它們不符合指定的資料層次。
+在上述範例中， **ID1**和**ID4**會在 Azure 時間序列深入解析 explorer 中顯示為階層 H1 的一部分，而其餘部分則分類為*無上層實例*，因為它們不符合指定的資料層次。
 
 ## <a name="time-series-model-instances"></a>時間序列模型執行個體
 
@@ -144,7 +144,7 @@ ms.locfileid: "68931920"
 
 *instanceFields* 是執行個體的屬性，以及定義執行個體的任何靜態資料。 它們定義階層或非階層的值，同時也支援建立索引以執行搜尋作業。
 
-*Name*屬性是選擇性的, 而且區分大小寫。 如果不使用 name，則會預設為時間序列識別碼。 如果有提供 name，則時間序列識別碼仍然可在 Well (總管內圖表下方的方格) 中取得。
+*Name*屬性是選擇性的，而且區分大小寫。 如果不使用 name，則會預設為時間序列識別碼。 如果有提供 name，則時間序列識別碼仍然可在 Well (總管內圖表下方的方格) 中取得。
 
 ### <a name="time-series-model-instance-json-example"></a>時間序列模型執行個體 JSON 範例
 

@@ -10,12 +10,12 @@ ms.reviewer: jmartens, garye
 ms.author: jordane
 author: jpe316
 ms.date: 07/12/2019
-ms.openlocfilehash: 3997f327bd6512eeee2cb5e7a0af802f12d1727a
-ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
+ms.openlocfilehash: 910974eac6a67c9c9fe68c502f2876ef68bb94eb
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71034303"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72028529"
 ---
 # <a name="run-batch-predictions-on-large-data-sets-with-azure-machine-learning-pipelines"></a>在具有 Azure Machine Learning 管線的大型資料集上執行批次預測
 
@@ -26,7 +26,7 @@ ms.locfileid: "71034303"
 >[!TIP]
 > 如果您的系統需要低延遲處理 (為了快速處理單一文件或小型文件集)，請使用[即時評分](how-to-consume-web-service.md)而不是批次預測。
 
-在下列步驟中, 您會建立[機器學習管線](concept-ml-pipelines.md)來註冊預先定型的電腦視覺模型 ([開始-V3](https://arxiv.org/abs/1512.00567))。 然後, 您可以使用預先定型的模型, 對 Azure Blob 儲存體帳戶中可用的映射執行批次評分。 這些用於計分的影像均為來自 [ImageNet](http://image-net.org/) \(英文\) 資料集的未標記影像。
+在下列步驟中，您會建立[機器學習管線](concept-ml-pipelines.md)來註冊預先定型的電腦視覺模型（[開始-V3](https://arxiv.org/abs/1512.00567)）。 然後，您可以使用預先定型的模型，對 Azure Blob 儲存體帳戶中可用的映射執行批次評分。 這些用於計分的影像均為來自 [ImageNet](http://image-net.org/) \(英文\) 資料集的未標記影像。
 
 ## <a name="prerequisites"></a>必要條件
 
@@ -59,7 +59,7 @@ ms.locfileid: "71034303"
 
 首先，存取具備模型、標籤及影像的資料存放區。
 
-使用名為*sampledata*的公用 blob 容器, 其位於保存 ImageNet 評估集之映射的*pipelinedata*帳戶中。 此公用容器的資料存放區名稱為 *images_datastore*。 向您的工作區註冊此資料存放區：
+使用名為*sampledata*的公用 blob 容器，其位於保存 ImageNet 評估集之映射的*pipelinedata*帳戶中。 此公用容器的資料存放區名稱為 *images_datastore*。 向您的工作區註冊此資料存放區：
 
 ```python
 from azureml.core import Datastore
@@ -193,7 +193,7 @@ model = Model.register(
 >[!Warning]
 >下列程式碼只是[範例 Notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/machine-learning-pipelines/pipeline-batch-scoring/pipeline-batch-scoring.ipynb) \(英文\) 所使用之 [batch_score.p](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/machine-learning-pipelines/pipeline-batch-scoring/batch_scoring.py) 中內含的範例。 您將需針對您的案例建立自己的計分指令碼。
 
-`batch_score.py` 指令碼會接受  *dataset_path* 中的輸入影像、 *model_dir* 中預先定型的模型，並將 *results-label.txt* 輸出至 *output_dir*。
+@No__t 0 腳本會接受*dataset_path*中的輸入影像、model_dir 中的預先定型模型 *，* 並將*results-label*輸出到*output_dir*。
 
 ```python
 # Snippets from a sample scoring script

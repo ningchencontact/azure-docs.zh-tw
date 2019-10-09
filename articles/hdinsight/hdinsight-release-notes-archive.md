@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 04/15/2019
-ms.openlocfilehash: cf985f08f13198a9041b1d50f2c6c7f0fec70911
-ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
+ms.openlocfilehash: 16ce90d3db1091fa759d940f4bbf91a3ef924e42
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/10/2019
-ms.locfileid: "68945046"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72025533"
 ---
 # <a name="archived-release-notes"></a>封存的版本資訊
 
@@ -166,7 +166,7 @@ HDP 2.6.4 提供了 Hadoop Common 2.7.3 和下列 Apache 修補程式：
 
 -   [YARN-6805](https://issues.apache.org/jira/browse/YARN-6805)：LinuxContainerExecutor 中的 NPE，因為 PrivilegedOperationException 結束代碼為 Null。
 
-### <a name="hbase"></a>HBase
+### <a name="hbase"></a>hbase
 
 此版本提供 HBase 1.1.2 和下列 Apache 修補程式。
 
@@ -270,7 +270,7 @@ HDP 2.6.4 提供了 Hadoop Common 2.7.3 和下列 Apache 修補程式：
 
 -   [*HIVE-17013*](https://issues.apache.org/jira/browse/HIVE-17013)：根據對檢視的選取來刪除具有子查詢的要求。
 
--   [*HIVE-17063*](https://issues.apache.org/jira/browse/HIVE-17063): 第一次卸載資料分割時, 將覆寫分割區插入外部資料表時失敗。
+-   [*HIVE-17063*](https://issues.apache.org/jira/browse/HIVE-17063)：第一次卸載資料分割時，將覆寫分割區插入外部資料表時失敗。
 
 -   [*HIVE-17259*](https://issues.apache.org/jira/browse/HIVE-17259)：Hive JDBC 無法辨識 UNIONTYPE 資料行。
 
@@ -368,7 +368,7 @@ HDP 2.6.4 提供了 Hadoop Common 2.7.3 和下列 Apache 修補程式：
 
 -   [*HIVE-16828*](https://issues.apache.org/jira/browse/HIVE-16828)：在啟用 CBO 的情況下，對已分割的檢視所進行的查詢會擲回 IndexOutOfBoundException。
 
--   [*HIVE-17063*](https://issues.apache.org/jira/browse/HIVE-17063): 第一次卸載資料分割時, 將覆寫分割區插入外部資料表時失敗。
+-   [*HIVE-17063*](https://issues.apache.org/jira/browse/HIVE-17063)：第一次卸載資料分割時，將覆寫分割區插入外部資料表時失敗。
 
 -   [*HIVE-17259*](https://issues.apache.org/jira/browse/HIVE-17259)：Hive JDBC 無法辨識 UNIONTYPE 資料行。
 
@@ -822,73 +822,73 @@ HDP 2.6.4 提供了 Hadoop Common 2.7.3 和下列 Apache 修補程式：
 
 ### <a name="cve-2017-7676"></a>**CVE-2017-7676**
 
-| **摘要：**  Apache Ranger 原則評估會忽略 '\*' 萬用字元之後的字元 |
+| **摘要：** Apache Ranger 原則評估會忽略 ' \* ' 萬用字元之後的字元 |
 |----------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **嚴重性：**  嚴重                                                                           |
-| **廠商：**  Hortonworks                                                                          |
-| **受影響的版本：**  HDInsight 3.6 版本，包含 Apache Ranger 0.5.x/0.6.x/0.7.0 版     |
-| **受影響的使用者：**  所使用的 Ranger 原則在 '\*' 萬用字元之後有字元的環境 – 例如 my\*test、test\*.txt |
-| **影響：**  原則資源比對器會忽略 '\*' 萬用字元之後的字元，而導致非預期的行為。      |
-| **修正詳細資料：**  Ranger 原則資源比對器已更新為會正確處理萬用字元相符項目。           |
-| **建議動作：**  升級至 HDI 3.6 (含 Apache Ranger 0.7.1+)。                                |
+| **嚴重性：** 重大                                                                           |
+| **廠商：** Hortonworks                                                                          |
+| **受影響的版本：** HDInsight 3.6 版本，包括 Apache Ranger 版本 0.5. x/0.6. x/0.7。0     |
+| **受影響的使用者：** 使用 ' \* ' 萬用字元後之字元的環境（例如 my @ no__t-1test，test\*.txt） |
+| **產生**原則資源比對器會忽略 ' \* ' 萬用字元之後的字元，這可能會導致非預期的行為。      |
+| **修正詳細資料：** 已更新 Ranger 原則資源比對器，以正確處理萬用字元相符專案。           |
+| **建議的動作：** 升級至 HDI 3.6 （使用 Apache Ranger 0.7.1 +）。                                |
 
 ### <a name="cve-2017-7677"></a>**CVE-2017-7677**
 
-| **摘要：**  在指定了外部位置時，Apache Ranger Hive 授權者應檢查有無 RWX 權限 |
+| **摘要：** 指定外部位置時，Apache Ranger Hive 授權者應該檢查是否有 RWX 許可權 |
 |--------------------------------------------------------------------------------------------------|
-| **嚴重性：**  嚴重                                                                           |
-| **廠商：**  Hortonworks                                                                          |
-| **受影響的版本：**  HDInsight 3.6 版本，包含 Apache Ranger 0.5.x/0.6.x/0.7.0 版 |
-| **受影響的使用者：**  對 hive 資料表使用外部位置的環境 |
-| **影響：**  在對 hive 資料表使用外部位置的環境中，Apache Ranger Hive 授權者應該檢查是否有指定用於建立資料表的外部位置 RWX 權限。 |
-| **修正詳細資料：**  Ranger Hive 授權者已更新為會正確地處理外部位置的權限檢查。 |
-| **建議動作：**  使用者應升級至 HDI 3.6 (含 Apache Ranger 0.7.1+)。 |
+| **嚴重性：** 重大                                                                           |
+| **廠商：** Hortonworks                                                                          |
+| **受影響的版本：** HDInsight 3.6 版本，包括 Apache Ranger 版本 0.5. x/0.6. x/0.7。0 |
+| **受影響的使用者：** 針對 hive 資料表使用外部位置的環境 |
+| **產生**在針對 hive 資料表使用外部位置的環境中，Apache Ranger Hive 授權者應該檢查針對 create table 指定之外部位置的 RWX 許可權。 |
+| **修正詳細資料：** Ranger Hive 授權者已更新，可正確處理外部位置的許可權檢查。 |
+| **建議的動作：** 使用者應升級至 HDI 3.6 （使用 Apache Ranger 0.7.1 +）。 |
 
 ### <a name="cve-2017-9799"></a>**CVE-2017-9799**
 
-| **摘要：**  在 Apache Storm 中，可能會以錯誤使用者身分執行程式碼 |
+| **摘要：** 在 Apache Storm 中，可能會以錯誤使用者的身分執行程式碼 |
 |--------------------------------------------------------------------------------------------------|
-|**嚴重性：**  重要 |
-| **廠商：**  Hortonworks |
-| **受影響的版本：**  HDP 2.4.0、HDP-2.5.0、HDP-2.6.0 |
-| **受影響的使用者：**  在安全模式中使用 Storm，並使用 blobstore 散發拓撲型成品，或使用 blobstore 散發任何拓撲資源的使用者。 |
-| **影響：**  理論上，在某些情況和 storm 的組態下，拓撲的擁有者可以誘騙監督員以不同的非根使用者身分啟動背景工作角色。 在最糟糕的情況下，這可能會導致其他使用者的安全認證受到危害。 這項弱點僅適用於已啟用安全性的 Apache Storm 安裝。 |
-| **風險降低：**  升級至 HDP-2.6.2.1，因為目前沒有因應措施。  |
+|**嚴重性：** 重要事項 |
+| **廠商：** Hortonworks |
+| **受影響的版本：** HDP 2.4.0、HDP-2.5.0、HDP-2.6。0 |
+| **受影響的使用者：** 在安全模式中使用風暴，並使用 blobstore 來散發拓撲型成品，或使用 blobstore 散發任何拓撲資源的使用者。 |
+| **產生**在某些情況下，如果設定為 [風暴]，則在理論上，拓撲的擁有者可以誘騙監督員以不同的非根使用者身分啟動背景工作角色。 在最糟糕的情況下，這可能會導致其他使用者的安全認證受到危害。 這項弱點僅適用於已啟用安全性的 Apache Storm 安裝。 |
+| **緩和：** 升級至 HDP-hdp-2.6.2.1，因為目前沒有因應措施。  |
 
 ### <a name="cve-2016-4970"></a>**CVE-2016-4970**
 
-| **摘要：**  Netty 4.0.x (4.0.37.Final 之前) 和 4.1.x (4.1.1.Final 之前) 中的 handler/ssl/OpenSslEngine.java 可讓遠端攻擊者造成拒絕服務 (無限迴圈) |
+| **摘要：** Netty 4.0.x (4.0.37.Final 之前) 和 4.1.x (4.1.1.Final 之前) 中的 handler/ssl/OpenSslEngine.java 可讓遠端攻擊者造成拒絕服務 (無限迴圈) |
 |--------------------------------------------------------------------------------------------------|
-| **嚴重性：** 中  |
-| **廠商：**  Hortonworks  |
-| **受影響的版本：**  HDP 2.x.x (自 2.3.x 起)  |
-| **受影響的使用者：**  使用 HDFS 的所有使用者。 |
-| **影響：**  影響不大，因為 Hortonworks 不會直接在 Hadoop 程式碼基底中使用 OpenSslEngine.java。     |
-| **建議動作：**  升級至 HDP 2.6.3。   |
+| **嚴重性：** 中度  |
+| **廠商：** Hortonworks  |
+| **受影響的版本：** 從 2.3. x 開始的 HDP 2。x  |
+| **受影響的使用者：** 使用 HDFS 的所有使用者。 |
+| **產生**影響很低，因為 Hortonworks 不會直接在 Hadoop 程式碼基底中使用 Opensslengine.java。     |
+| **建議的動作：** 升級至 HDP 2.6.3。   |
 
 ### <a name="cve-2016-8746"></a>**CVE-2016-8746**
 
-| **摘要：**  原則評估中有 Apache Ranger 路徑比對問題                                                                    |
+| **摘要：** 原則評估中的 Apache Ranger 路徑比對問題                                                                    |
 |----------------------------------------------------------------------------------------------------------------------------------------|
-| **嚴重性：**  一般                                                                                                                   |
+| **嚴重性：** 一般                                                                                                                   |
 | **廠商：** Hortonworks                                                                                                                |
-| **受影響的版本：**  所有 HDP 2.5 版本，包含 Apache Ranger 0.6.0/0.6.1/0.6.2 版                                         |
-| **受影響的使用者：**  Ranger 原則管理工具的所有使用者。                                                                         |
-| **影響：**  在某些情況下，當原則包含萬用字元和遞迴旗標時，Ranger 原則引擎不會正確地比對路徑。 |
+| **受影響的版本：** 所有 HDP 2.5 版本，包括 Apache Ranger 版本 0.6.0/0.6.1/0.6.2 版                                         |
+| **受影響的使用者：** Ranger 原則管理工具的所有使用者。                                                                         |
+| **產生**當原則包含萬用字元和遞迴旗標時，Ranger 原則引擎不正確地比對路徑。 |
 | **修正詳細資料：** 已修正原則評估邏輯                                                                                          |
-| **建議動作：**  使用者應升級至 HDP 2.5.4+ (含 Apache Ranger 0.6.3+) 或 HDP 2.6+ (含 Apache Ranger 0.7.0+)         |
+| **建議的動作：** 使用者應升級至 HDP 2.5.4 + （含 Apache Ranger 0.6.3 +）或 HDP 2.6 + （含 Apache Ranger 0.7.0 +）         |
 
 ### <a name="cve-2016-8751"></a>**CVE-2016-8751**
 
-| **摘要：**  Apache Ranger 的預存跨網站指令碼問題  |
+| **摘要：** Apache Ranger 儲存的跨網站腳本問題  |
 |--------------------------------------------------------------------------------------------------|
-| **嚴重性：**  一般 |
-| **廠商：**  Hortonworks |
-| **受影響的版本：**  所有 HDP 2.3/2.4/2.5 版本，包含 Apache Ranger 0.5.x/0.6.0/0.6.1/0.6.2 版  |
-| **受影響的使用者：**  Ranger 原則管理工具的所有使用者。 |
-| **影響：**  在輸入自訂原則條件時，Apache Ranger 很容易受到預存跨網站指令碼的攻擊。 管理使用者可以在一般使用者登入和存取原則時，儲存某些任意的 javascript 程式碼執行。 |
-| **修正詳細資料：**  已新增邏輯來處理使用者輸入。  |
-| **建議動作：**  使用者應升級至 HDP 2.5.4+ (含 Apache Ranger 0.6.3+) 或 HDP 2.6+ (含 Apache Ranger 0.7.0+)  |
+| **嚴重性：** 一般 |
+| **廠商：** Hortonworks |
+| **受影響的版本：** 所有 HDP 2.3/2.4/2.5 版本，包括 Apache Ranger 版本 0.5. x/0.6.0/0.6.1/0.6.2 版  |
+| **受影響的使用者：** Ranger 原則管理工具的所有使用者。 |
+| **產生**在輸入自訂原則條件時，Apache Ranger 很容易受到預存跨網站腳本的攻擊。 管理使用者可以在一般使用者登入和存取原則時，儲存某些任意的 javascript 程式碼執行。 |
+| **修正詳細資料：** 已新增用來淨化使用者輸入的邏輯。  |
+| **建議的動作：** 使用者應升級至 HDP 2.5.4 + （含 Apache Ranger 0.6.3 +）或 HDP 2.6 + （含 Apache Ranger 0.7.0 +）  |
 
 ## <a name="fixed-issues-for-support"></a>支援的已修正問題
 
@@ -990,7 +990,7 @@ HDP 2.6.4 提供了 Hadoop Common 2.7.3 和下列 Apache 修補程式：
 | BUG-93136              | [HIVE-18189](https://issues.apache.org/jira/browse/HIVE-18189)                                                                         | cbo 停用時，無法依位置排序                                                   |
 | BUG-93595              | [HIVE-12378](https://issues.apache.org/jira/browse/HIVE-12378)、 [HIVE-15883](https://issues.apache.org/jira/browse/HIVE-15883)         | Hive 插入中的 HBase 對應資料表在使用小數點和二進位資料行時會失敗                                  |
 | BUG-94007              | [PHOENIX 1751](https://issues.apache.org/jira/browse/PHOENIX-1751)、 [PHOENIX 3112](https://issues.apache.org/jira/browse/PHOENIX-3112) | Phoenix 查詢會傳回 Null 值，因為 HBase 部分資料列                                          |
-| BUG-94144              | [HIVE-17063](https://issues.apache.org/jira/browse/HIVE-17063)                                                                         | 第一次卸載資料分割時, 將覆寫資料分割插入外部資料表會失敗                        |
+| BUG-94144              | [HIVE-17063](https://issues.apache.org/jira/browse/HIVE-17063)                                                                         | 第一次卸載資料分割時，將覆寫資料分割插入外部資料表會失敗                        |
 | BUG-94280              | [HIVE-12785](https://issues.apache.org/jira/browse/HIVE-12785)                                                                         | 檢視具有等位型別，且用於 \`cast\` 結構的 UDF 會中斷                                          |
 | BUG-94505              | [PHOENIX-4525](https://issues.apache.org/jira/browse/PHOENIX-4525)                                                                     | GroupBy 執行中發生整數溢位                                                                  |
 | BUG-95618              | [HIVE-18506](https://issues.apache.org/jira/browse/HIVE-18506)                                                                         | LlapBaseInputFormat - 負數的陣列索引                                                             |
@@ -1427,13 +1427,13 @@ HDP 2.6.4 提供了 Hadoop Common 2.7.3 和下列 Apache 修補程式：
 
 ## <a name="deprecation"></a>淘汰
 
--   **OMS 入口網站：** 我們已從 HDInsight 資源頁面中移除指向 OMS 入口網站的連結。 Azure 監視器記錄一開始會使用自己的入口網站 (稱為 OMS 入口網站) 來管理其設定和分析收集的資料。 這個入口網站中的所有功能都已移至 Azure 入口網站，並將繼續進行開發。 HDInsight 已淘汰對於 OMS 入口網站的支援。 客戶將會使用 Azure 入口網站中的 HDInsight Azure 監視器記錄整合。
+-   **OMS 入口網站：** 我們已從 HDInsight 資源頁面中移除指向 OMS 入口網站的連結。 Azure 監視器記錄一開始會使用自己的入口網站（稱為 OMS 入口網站）來管理其設定和分析收集的資料。 這個入口網站中的所有功能都已移至 Azure 入口網站，並將繼續進行開發。 HDInsight 已淘汰對於 OMS 入口網站的支援。 客戶將會使用 Azure 入口網站中的 HDInsight Azure 監視器記錄整合。
 
 -   **Spark 2.3**
 
     -   <https://spark.apache.org/releases/spark-release-2-3-0.html#deprecations>
 
-## <a name="upgrading"></a>正在升級
+## <a name="upgrading"></a>升級中
 
 這些功能全都可在 HDInsight 3.6 中使用。 若要取得最新版本的 Spark、Kafka 和 R Server (機器學習服務)，請在[建立 HDInsight 3.6 叢集](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-provision-linux-clusters)時選擇 Spark、Kafka、ML 服務版本。 若要取得 ADLS 的支援，您可以選擇 ADLS 儲存體類型選項。 現有叢集不會自動升級為這些版本。
 

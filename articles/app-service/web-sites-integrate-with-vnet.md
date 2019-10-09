@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 08/21/2019
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: d4b7733ce3ac6db4c39f632401661eefce11d20c
-ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
+ms.openlocfilehash: a6d0cba41e694e154da32a878cb4c076aae13e65
+ms.sourcegitcommit: f9e81b39693206b824e40d7657d0466246aadd6e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71827570"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72034717"
 ---
 # <a name="integrate-your-app-with-an-azure-virtual-network"></a>將您的應用程式與 Azure 虛擬網路整合
 本檔說明 Azure App Service 虛擬網路整合功能，以及如何使用[Azure App Service](https://go.microsoft.com/fwlink/?LinkId=529714)中的應用程式進行設定。 [Azure 虛擬網路][VNETOverview]（vnet）可讓您將許多 Azure 資源放在非網際網路可路由網路中。  
@@ -64,6 +64,10 @@ VNet 整合不支援的事項包括：
 
 ## <a name="regional-vnet-integration"></a>區域 VNet 整合 
 
+> [!NOTE]
+> 對等互連尚未提供以 Linux 為基礎的 App Service。
+>
+
 當 VNet 整合與您的應用程式位於相同區域中的 Vnet 使用時，它需要使用至少具有32個位址的委派子網。 子網不能用於其他任何專案。 從您的應用程式發出的輸出呼叫將會從委派子網中的位址進行。 當您使用此版本的 VNet 整合時，會從您 VNet 中的位址進行呼叫。 使用 VNet 中的位址可讓您的應用程式執行下列動作：
 
 * 對服務端點安全服務進行呼叫
@@ -108,7 +112,7 @@ VNet 整合不支援的事項包括：
 若要中斷您應用程式與 VNet 的連線，請選取 [中斷連線]。 這會重新啟動 Web 應用程式。 
 
 
-#### <a name="web-app-for-containers"></a>Web App for Containers
+#### <a name="web-app-for-containers"></a>適用於容器的 Web 應用程式
 
 如果您將 Linux 上的 App Service 與內建映射搭配使用，區域 VNet 整合功能就能運作，而不需要進行其他變更。 如果您使用用於容器的 Web App，您需要修改 docker 映射，才能使用 VNet 整合。 在您的 docker 映射中，使用埠環境變數作為主要 web 伺服器的接聽埠，而不是使用硬式編碼的埠號碼。 埠環境變數會在容器啟動時，由 App Service 平臺自動設定。 如果您使用 SSH，則在使用區域 VNet 整合時，必須將 SSH daemon 設定為接聽 SSH_PORT 環境變數所指定的埠號碼。
 
@@ -240,7 +244,7 @@ ASP VNet 整合 UI 會向您顯示 ASP 中的應用程式所使用的所有 VNet
 1. 移至入口網站中的 [App Service 方案] > [網路] > [VNet 整合 UI]。  選取您的應用程式連線到的 VNet。 在路由區段中，新增與您的應用程式所連線到的 VNet 對等互連之 VNet 的位址範圍。  
 
 
-## <a name="pricing-details"></a>定價詳細資料
+## <a name="pricing-details"></a>價格詳細資料
 除了 ASP 定價層費用以外，區域 VNet 整合功能不需額外付費。
 
 使用閘道所需的 VNet 整合功能有三個相關費用：

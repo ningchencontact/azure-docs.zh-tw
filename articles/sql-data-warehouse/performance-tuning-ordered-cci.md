@@ -10,12 +10,12 @@ ms.subservice: development
 ms.date: 09/05/2019
 ms.author: xiaoyul
 ms.reviewer: nibruno; jrasnick
-ms.openlocfilehash: ca0ac228bfe10992b658796d123c8dfbed74947f
-ms.sourcegitcommit: 4f7dce56b6e3e3c901ce91115e0c8b7aab26fb72
+ms.openlocfilehash: 0aecb2309743ffecc2fb68435192224c6c690aee
+ms.sourcegitcommit: f9e81b39693206b824e40d7657d0466246aadd6e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71948170"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72035089"
 ---
 # <a name="performance-tuning-with-ordered-clustered-columnstore-index"></a>使用已排序叢集資料行存放區索引的效能微調  
 
@@ -43,7 +43,7 @@ ORDER BY o.name, pnp.distribution_id, cls.min_data_id
 ```
 
 > [!NOTE] 
-> 在已排序的 CCI 資料表中，不會自動排序 DML 或資料載入作業所產生的新資料。  使用者可以重建已排序的 CCI，以排序資料表中的所有資料。  
+> 在已排序的 CCI 資料表中，不會自動排序 DML 或資料載入作業所產生的新資料。  使用者可以重建已排序的 CCI，以排序資料表中的所有資料。  在 Azure SQL 資料倉儲中，資料行存放區索引重建是一項離線作業。  針對資料分割資料表，一次重建就會執行一個資料分割。  分割區中正在重建的資料會處於「離線」狀態，且在該分割區的重建完成之前無法使用。 
 
 ## <a name="query-performance"></a>查詢效能
 
@@ -84,11 +84,17 @@ SELECT * FROM T1 WHERE Col_A = 'a' AND Col_C = 'c';
 
 ## <a name="data-loading-performance"></a>資料載入效能
 
-將資料載入到已排序之 CCI 資料表的效能，類似于將資料載入分割資料表中。  
-由於資料排序，將資料載入到已排序的 CCI 資料表可能需要更多時間，而不是將資料載入到未排序的 CCI 資料表。  
+將資料載入到已排序之 CCI 資料表的效能類似于分割資料表。  由於資料排序作業的不同，將資料載入到已排序的 CCI 資料表所需的時間可能會比未排序的 CCI 資料表長，但在排序的 CCI 之後，查詢可以更快速執行。  
 
 以下是將資料載入具有不同架構之資料表的範例效能比較。
-![Performance_comparison_data_loading @ no__t-1
+
+![Performance_comparison_data_loading](media/performance-tuning-ordered-cci/cci-data-loading-performance.png)
+
+
+以下是 CCI 和已排序的 CCI 之間的範例查詢效能比較。
+
+![Performance_comparison_data_loading](media/performance-tuning-ordered-cci/occi_query_performance.png)
+
  
 ## <a name="reduce-segment-overlapping"></a>減少區段重迭
 
@@ -116,7 +122,7 @@ OPTION (MAXDOP 1);
 1.  在目標大型資料表上建立資料分割（稱為資料表 A）。
 2.  使用與資料表 A 相同的資料表和資料分割架構，建立空的已排序 CCI 資料表（稱為資料表 B）。
 3.  將一個資料分割從資料表 A 切換到資料表 B。
-4.  在資料表 B 上執行 ALTER INDEX < Ordered_CCI_Index > REBUILD，以重建已切換的資料分割。  
+4.  在資料表 B 上執行 ALTER INDEX < Ordered_CCI_Index > REBUILD PARTITION = < Partition_ID >，以重建已切換的資料分割。  
 5.  針對資料表 A 中的每個資料分割，重複步驟3和4。
 6.  當所有分割區從資料表 A 切換至 B 資料表並已重建之後，請卸載資料表 A，並將資料表 B 重新命名為數據表 A。 
 

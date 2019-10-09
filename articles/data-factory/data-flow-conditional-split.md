@@ -6,16 +6,16 @@ ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 02/03/2019
-ms.openlocfilehash: dd51cc2d5f95598154b76b5da8e3fc9e4801100d
-ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
+ms.openlocfilehash: fec2b09b9dc471135d9cdd00ac2465728a47bdbf
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71104940"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72026927"
 ---
 # <a name="mapping-data-flow-conditional-split-transformation"></a>對應資料流程條件式分割轉換
 
-[!INCLUDE [notes](../../includes/data-factory-data-flow-preview.md)]
+
 
 ![條件式分割工具箱](media/data-flow/conditionalsplit2.png "條件式分割工具箱")
 
@@ -27,7 +27,7 @@ ms.locfileid: "71104940"
 
 若要新增額外的條件，請選取設定窗格底部的 [加入資料流]，然後按一下 [運算式產生器] 文字方塊以建置您的運算式。
 
-![條件式分割多]個(media/data-flow/conditionalsplit3.png "條件式分割多")個
+![條件式分割多重](media/data-flow/conditionalsplit3.png "條件式分割多")個
 
 ## <a name="next-steps"></a>後續步驟
 

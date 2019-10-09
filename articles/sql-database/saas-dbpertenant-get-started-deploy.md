@@ -11,12 +11,12 @@ author: MightyPen
 ms.author: genemi
 ms.reviewer: sstein
 ms.date: 01/25/2019
-ms.openlocfilehash: d5326a3a154ed6f193b5527a0150ad84c843c273
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: d5f64f0a9abfa736c1db0e562b6f18ecfc1f6de5
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68570452"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72023825"
 ---
 # <a name="deploy-and-explore-a-multitenant-saas-app-that-uses-the-database-per-tenant-pattern-with-sql-database"></a>部署及探索搭配 SQL Database 使用每一租用戶一個資料庫模式的多租用戶 SaaS 應用程式
 
@@ -36,7 +36,7 @@ ms.locfileid: "68570452"
 
 我們提供了[一系列的相關教學課程](saas-dbpertenant-wingtip-app-overview.md#sql-database-wingtip-saas-tutorials)，帶領您探索各式各樣的 SaaS 設計和管理模式。 這些教學課程所涵蓋的內容，超出本文的初始部署程序。 閱讀教學課程時，您可以檢查我們提供的指令碼，了解各個 SaaS 模式的實作方式。 指令碼示範 SQL Database 的功能如何簡化 SaaS 應用程式的開發過程。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 若要完成本教學課程，請確定您已安裝 Azure PowerShell。 如需詳細資訊，請參閱[開始使用 Azure PowerShell](https://docs.microsoft.com/powershell/azure/get-started-azureps)。
 
@@ -114,7 +114,7 @@ ms.locfileid: "68570452"
 
     ![事件中樞](media/saas-dbpertenant-get-started-deploy/events-hub.png)
 
-2. 選取 [事件中樞] 中的 [Fabrikam Jazz Club] ****  。
+2. 選取 [事件中樞] 中的 [ **Fabrikam 爵士樂] 俱樂部**。
 
     ![Events](./media/saas-dbpertenant-get-started-deploy/fabrikam.png)
 
@@ -220,14 +220,14 @@ Demo-LoadGenerator.ps1 會模擬客戶交易的作用中工作負載。 下列�
 
 既然您已經開始對租用戶集合執行負載，讓我們看看已部署的一些資源。
 
-1. 在  [Azure 入口網站](https://portal.azure.com)中，瀏覽到您的 SQL 伺服器清單。 然後開啟  **catalog-dpt-&lt;USER&gt;**  伺服器。
+1. 在  [Azure 入口網站](https://portal.azure.com)中，瀏覽到您的 SQL 伺服器清單。 然後開啟 **catalog-dpt-&lt;USER&gt;** 伺服器。
     - 目錄伺服器包含兩個資料庫，**tenantcatalog** 和 **basetenantdb** (basetenantdb 是複製的範本資料庫，用以建立新租用戶)。
 
    ![資料庫](./media/saas-dbpertenant-get-started-deploy/databases.png)
 
 2. 返回 SQL Server 清單。
 
-3. 開啟內含租用戶資料庫的 **tenants1-dpt-&lt;USER&gt;**  伺服器。
+3. 開啟內含租用戶資料庫的 **tenants1-dpt-&lt;USER&gt;** 伺服器。
 
 4. 查看下列項目：
 
@@ -240,7 +240,7 @@ Demo-LoadGenerator.ps1 會模擬客戶交易的作用中工作負載。 下列�
 
 *LoadGenerator.ps1* 執行幾分鐘之後，您應該能獲得足夠的資料來觀察一些監視功能。 這些監視功能已內建在集區和資料庫中。
 
-瀏覽至 **tenants1-dpt-&lt;user&gt;** 伺服器，然後選取 [Pool1] ****  檢視集區的資源使用率。 下列圖表中的負載產生器執行了一個小時。
+瀏覽至 **tenants1-dpt-&lt;user&gt;** 伺服器，然後選取 [Pool1] 檢視集區的資源使用率。 下列圖表中的負載產生器執行了一個小時。
 
    ![監視集區](./media/saas-dbpertenant-get-started-deploy/monitor-pool.png)
 

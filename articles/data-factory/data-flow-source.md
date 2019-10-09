@@ -6,16 +6,16 @@ ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 09/06/2019
-ms.openlocfilehash: 16bc4c2651d5571bce823aa9c69f823d7fede8af
-ms.sourcegitcommit: b7b0d9f25418b78e1ae562c525e7d7412fcc7ba0
+ms.openlocfilehash: c3c24e9dc674ac29c8ca4d0d445cc3f572cda71e
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/08/2019
-ms.locfileid: "70801671"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72029227"
 ---
 # <a name="source-transformation-for-mapping-data-flow"></a>對應資料流程的來源轉換 
 
-[!INCLUDE [notes](../../includes/data-factory-data-flow-preview.md)]
+
 
 「來源」轉換會為數據流設定您的資料來源。 在設計資料流程時，您的第一個步驟一律會設定來源轉換。 若要新增來源，請按一下 [資料流程] 畫布中的 [**新增來源**] 方塊。
 
@@ -70,16 +70,16 @@ Azure Data Factory 可以存取超過80的原生連接器。 若要在資料流�
 
 萬用字元範例：
 
-* ```*```代表任何一組字元
-* ```**```表示遞迴目錄的嵌套
-* ```?```取代一個字元
-* ```[]```比對括弧中的一個或多個字元
+* ```*``` 代表任何一組字元
+* ```**``` 代表遞迴目錄的嵌套
+* ```?``` 會取代一個字元
+* ```[]``` 符合括弧中的一個或多個字元
 
-* ```/data/sales/**/*.csv```取得/data/sales 下的所有 csv 檔案
-* ```/data/sales/20??/**```取得20世紀的所有檔案
-* ```/data/sales/2004/*/12/[XY]1?.csv```取得2004年12月的所有 csv 檔案，從 X 或 Y 前面加上兩位數的數位
+* ```/data/sales/**/*.csv``` 會取得/data/sales 下的所有 csv 檔案
+* ```/data/sales/20??/**``` 取得20世紀的所有檔案
+* ```/data/sales/2004/*/12/[XY]1?.csv``` 會從 X 或 Y 前面加上兩位數的數位，取得2004中的所有 csv 檔案
 
-**資料分割根路徑：** 如果您的檔案來源中有使用格式的```key=value```資料分割資料夾（例如 year = 2019），則您可以將該資料分割資料夾樹狀結構的最上層指派給資料流程資料流程中的資料行名稱。
+**資料分割根路徑：** 如果您的檔案來源中有 ```key=value``` 格式的分割資料夾（例如 year = 2019），則可以將該資料分割資料夾樹狀結構的最上層指派給資料流程資料流程中的資料行名稱。
 
 首先，設定萬用字元以包含所有分割資料夾的路徑，加上您想要讀取的分葉檔案。
 
@@ -126,17 +126,17 @@ Azure Data Factory 可以存取超過80的原生連接器。 若要在資料流�
 
 如果您的來源是 SQL Database 或 SQL 資料倉儲，則 [**來源選項**] 索引標籤中會提供其他 SQL 特定設定。 
 
-**源**選取您是否要將來源指向資料表（相當於```Select * from <table-name>```），或輸入自訂的 SQL 查詢。
+**源**選取您是否要將來源指向資料表（相當於 ```Select * from <table-name>```），或輸入自訂的 SQL 查詢。
 
 **查詢**：如果您在 [輸入] 欄位中選取 [查詢]，請輸入您的來源的 SQL 查詢。 此設定會覆寫您在資料集中選擇的任何資料表。 這裡不支援**Order By**子句，但您可以設定完整的 SELECT FROM 語句。 您也可以使用使用者定義資料表函數。 **select * From udfGetData （）** 是 SQL 中傳回資料表的 UDF。 此查詢會產生您可以在資料流程中使用的來源資料表。
 
 **批次大小**：輸入批次大小，將大型資料區塊為讀取。
 
 **隔離等級**：對應資料流程中 SQL 來源的預設值為「未認可」。 您可以在這裡將隔離等級變更為下列其中一個值：
-* 讀取認可的
-* 讀取未認可的
+* 讀取認可
+* 讀取未認可
 * 可重複讀取
-* 可序列化
+* 化
 * 無（忽略隔離等級）
 
 ![隔離等級](media/data-flow/isolationlevel.png "隔離等級")
@@ -145,7 +145,7 @@ Azure Data Factory 可以存取超過80的原生連接器。 若要在資料流�
 
 如同資料集內的架構，來源中的投射會定義來源資料的資料行、類型和格式。 對於大部分的資料集類型（例如 SQL 和 Parquet），會修正來源中的投射，以反映資料集中所定義的架構。 當您的來源檔案不是強型別（例如，一般 csv 檔案，而不是 Parquet 檔案）時，您可以在來源轉換中定義每個欄位的資料類型。
 
-![[投射] 索引標籤上的設定](media/data-flow/source3.png "投射")
+投射索引標籤(media/data-flow/source3.png "投影")![上的設定]
 
 如果您的文字檔沒有已定義的架構，請選取 [偵測**資料類型**]，讓 Data Factory 將會取樣並推斷資料類型。 選取 [**定義預設格式**] 以自動偵測預設資料格式。 
 
@@ -167,7 +167,7 @@ Azure Data Factory 可以存取超過80的原生連接器。 若要在資料流�
 
 您可以選擇根據查詢來分割連接。 輸入 WHERE 述詞的內容。 例如，輸入 year > 1980。
 
-如需有關對應資料流程內優化的詳細資訊，請參閱 [[優化]](concepts-data-flow-optimize-tab.md)索引標籤。
+如需有關對應資料流程內優化的詳細資訊，請參閱 [[優化]](concepts-data-flow-overview.md#optimize)索引標籤。
 
 ## <a name="next-steps"></a>後續步驟
 

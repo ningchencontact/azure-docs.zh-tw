@@ -1,22 +1,22 @@
 ---
-title: Azure Data Factory 將資料流排序 」 轉換的對應
-description: Azure Data Factory 將資料排序 」 轉換的對應
+title: Azure Data Factory 對應的資料流程排序轉換
+description: Azure Data Factory 對應資料排序轉換
 author: kromerm
 ms.author: makromer
 ms.reviewer: douglasl
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 10/08/2018
-ms.openlocfilehash: d0482d1081c16dc89e7371c4c33de9b2bb4e4c2e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f9d2699c870de21daea9ce421c79f089c04b99fa
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61348154"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72029132"
 ---
 # <a name="azure-data-factory-data-flow-sort-transformations"></a>Azure Data Factory 資料流程排序轉換
 
-[!INCLUDE [notes](../../includes/data-factory-data-flow-preview.md)]
+
 
 ![排序設定](media/data-flow/sort.png "排序")
 
@@ -35,4 +35,4 @@ ms.locfileid: "61348154"
 
 ## <a name="next-steps"></a>後續步驟
 
-完成排序之後，您可能想要使用[彙總 」 轉換](data-flow-aggregate.md)
+排序之後，您可能會想要使用「[匯總」轉換](data-flow-aggregate.md)

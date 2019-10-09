@@ -6,20 +6,20 @@ ms.service: managed-applications
 ms.topic: conceptual
 ms.date: 08/06/2019
 ms.author: tomfitz
-ms.openlocfilehash: 54eb2df06df56c33e1a3cd74e7a4a93c07aab682
-ms.sourcegitcommit: 5ded08785546f4a687c2f76b2b871bbe802e7dae
+ms.openlocfilehash: 5a28acfeeda12ab999b16f71cbe789fefcea736f
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69575658"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72028356"
 ---
 # <a name="test-your-portal-interface-for-azure-managed-applications"></a>測試 Azure 受控應用程式的入口網站介面
 
-建立受控應用程式[的 createUiDefinition json](create-uidefinition-overview.md)檔案之後, 您需要測試使用者體驗。 若要簡化測試, 請使用在入口網站中載入檔案的沙箱環境。 您不需要實際部署受控應用程式。 沙箱會在目前的全螢幕入口網站體驗中呈現您的使用者介面。 或者, 您可以使用腳本來測試介面。 本文中會展示這兩種方法。 沙箱是預覽介面的建議方式。
+建立受控應用程式[的 createUiDefinition json](create-uidefinition-overview.md)檔案之後，您需要測試使用者體驗。 若要簡化測試，請使用在入口網站中載入檔案的沙箱環境。 您不需要實際部署受控應用程式。 沙箱會在目前的全螢幕入口網站體驗中呈現您的使用者介面。 或者，您可以使用腳本來測試介面。 本文中會展示這兩種方法。 沙箱是預覽介面的建議方式。
 
 ## <a name="prerequisites"></a>必要條件
 
-* **createUiDefinition.json** 檔案。 如果您沒有此檔案, 請複製[範例](https://github.com/Azure/azure-quickstart-templates/blob/master/100-marketplace-sample/createUiDefinition.json)檔案。
+* **createUiDefinition.json** 檔案。 如果您沒有此檔案，請複製[範例](https://github.com/Azure/azure-quickstart-templates/blob/master/100-marketplace-sample/createUiDefinition.json)檔案。
 
 * Azure 訂用帳戶。 如果您沒有 Azure 訂用帳戶，請在開始之前先[建立免費帳戶](https://azure.microsoft.com/free/)。
 
@@ -33,17 +33,17 @@ ms.locfileid: "69575658"
 
    ![選取預覽](./media/test-createuidefinition/select-preview.png)
 
-1. 您所建立的表單隨即顯示。 您可以逐步執行使用者體驗, 並填入值。
+1. 您所建立的表單隨即顯示。 您可以逐步執行使用者體驗，並填入值。
 
    ![顯示表單](./media/test-createuidefinition/show-ui-form.png)
 
 ### <a name="troubleshooting"></a>疑難排解
 
-如果您的表單在選取**預覽**之後不會顯示, 您可能會發生語法錯誤。 在右側的捲軸上尋找紅色指示器, 然後流覽至該指標。
+如果您的表單在選取**預覽**之後不會顯示，您可能會發生語法錯誤。 在右側的捲軸上尋找紅色指示器，然後流覽至該指標。
 
 ![顯示語法錯誤](./media/test-createuidefinition/show-syntax-error.png)
 
-如果您的表單未顯示, 而您看到有卸載的雲端圖示, 您的表單就會發生錯誤, 例如遺漏的屬性。 在您的瀏覽器中開啟 Web 開發人員工具。 [主控台] 會顯示關於介面的重要訊息。
+如果您的表單未顯示，而您看到有卸載的雲端圖示，您的表單就會發生錯誤，例如遺漏的屬性。 在您的瀏覽器中開啟 Web 開發人員工具。 [主控台] 會顯示關於介面的重要訊息。
 
 ![顯示錯誤](./media/test-createuidefinition/show-error.png)
 
@@ -91,17 +91,17 @@ ms.locfileid: "69575658"
 
 指令碼會在瀏覽器中開啟新的索引標籤。 它會顯示入口網站，其中包含您用來建立受控應用程式的介面。
 
-提供欄位的值。 完成後, 您會看到傳遞至範本的值, 您可以在瀏覽器的開發人員工具主控台中找到此範本。
+提供欄位的值。 完成後，您會看到傳遞至範本的值，您可以在瀏覽器的開發人員工具主控台中找到此範本。
 
 ![顯示值](./media/test-createuidefinition/show-json.png)
 
 您可以使用這些值作為參數檔案來測試部署範本。
 
-如果入口網站在 [摘要] 畫面上停止回應, 輸出區段中可能會有錯誤。 例如，您可能參考了不存在的控制項。 如果輸出中的參數是空的, 則參數可能會參考不存在的屬性。 例如，控制項的參考有效，但屬性參考無效。
+如果入口網站在 [摘要] 畫面上停止回應，輸出區段中可能會有錯誤。 例如，您可能參考了不存在的控制項。 如果輸出中的參數是空的，則參數可能會參考不存在的屬性。 例如，控制項的參考有效，但屬性參考無效。
 
 ## <a name="test-your-solution-files"></a>測試您的解決方案檔案
 
-現在您已確認入口網站介面正常運作，接下來可以驗證您的 createUiDefinition 檔案是否與 mainTemplate.json 檔案正確整合。 您可以執行驗證指令碼測試來測試解決方案檔案的內容，包括 createUiDefinition 檔案。 指令碼會驗證 JSON 語法、檢查文字欄位上的 regex 運算式，並確定入口網站介面的輸出值符合您的範本參數。 如需執行此指令碼的相關資訊，請參閱[執行範本的靜態驗證檢查](https://github.com/Azure/azure-quickstart-templates/tree/master/test/template-validation-tests)。
+現在您已確認入口網站介面正常運作，接下來可以驗證您的 createUiDefinition 檔案是否與 mainTemplate.json 檔案正確整合。 您可以執行驗證指令碼測試來測試解決方案檔案的內容，包括 createUiDefinition 檔案。 指令碼會驗證 JSON 語法、檢查文字欄位上的 regex 運算式，並確定入口網站介面的輸出值符合您的範本參數。 如需執行此指令碼的相關資訊，請參閱[執行範本的靜態驗證檢查](https://github.com/Azure/azure-quickstart-templates/tree/master/test)。
 
 ## <a name="next-steps"></a>後續步驟
 

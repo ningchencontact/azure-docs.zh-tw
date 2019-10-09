@@ -1,36 +1,22 @@
 ---
-title: 商務程序的程式庫 |Azure Marketplace
-description: 商務程序文件庫和方法的說明。
+title: 商務程式程式庫 |Azure Marketplace
+description: 已淘汰此 CPP 文章並連結至電腦文章;Was 「商務程式程式庫和方法的說明」。
 services: Azure, Marketplace, Cloud Partner Portal,
-author: pbutlerm
+author: ChJenk
 manager: Ricardo.Villalobos
 ms.service: marketplace
 ms.topic: conceptual
-ms.date: 09/13/2018
-ms.author: pabutler
-ms.openlocfilehash: 870e77f3390c820278970f5ffda002b4826b82a4
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 09/30/2019
+ms.author: v-chjen
+ms.openlocfilehash: f29d82a187027c3eee9d89258b6cf6c166089e70
+ms.sourcegitcommit: f9e81b39693206b824e40d7657d0466246aadd6e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64935632"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72034405"
 ---
 # <a name="business-process-libraries"></a>商務程序文件庫
 
-商務程序文件庫就是端對端案例的工作指南。 商務程序文件庫應該直接與您的行銷內容保持一致。 商務程序文件庫中的每個商務程序都應該有相關聯的[工作錄音](https://docs.microsoft.com/dynamics365/operations/dev-itpro/user-interface/task-recorder)。 如果您有 Dynamics 365 for Operations 以外的程序，請將 Visio 連結至您 BPM 文件庫。
+[Cloud Partner 入口網站](https://cloudpartner.azure.com/)不再支援建立和管理 Dynamics 365 for 財務和營運供應專案。 相反地，此功能已移至 Microsoft[合作夥伴中心入口網站](https://partner.microsoft.com/)。 如需詳細資訊，請參閱[建立新的 Dynamics 365 For Operations 供應](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-new-operations-offer)專案。
 
-如需詳細資訊，請參閱[商務程序模組工具](https://docs.microsoft.com/dynamics365/operations/dev-itpro/lcs-solutions/business-process-modeler-libraries-lcs-solutions)。
-
-## <a name="methodologies"></a>方法
-
-Microsoft Dynamics 適用的生命週期服務 (LCS) 會提供可用來確保重複性與可預測性更高的實作專案體驗的方法。 您可以使用提供的其中一種方法，或建立您自己的方法。 您可以使用方法，輕鬆地追蹤並報告您的進度。
-
-方法是由階段、工作及里程碑所組成。 每個階段都可以有任意數目的工作，而且其中有些是必要工作。 完成階段中的所有工作後，該階段就可以標示為完成。 您也可以建立預期完成階段的里程碑。 LCS 專案中包含下列方法：
-
-- 實作
-- 確定步驟
-- 了解開發
-- 移轉並建立解決方案
-- 取用解決方案
-
-如需詳細資訊，請參閱 [LCS 方法](https://docs.microsoft.com/dynamics365/operations/dev-itpro/lifecycle-services/create-methodology)。
+在建立新的 Dynamics 365 for Operations 供應專案之前，您應該先閱讀[建立合作夥伴中心帳戶](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account)，然後開啟已選取 [**總覽**] 頁面的 [[商業 Marketplace] 儀表板](https://partner.microsoft.com/dashboard/directory)。 請依照[建立新的 Dynamics 365 For Operations 供應](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-new-operations-offer)專案中的指示來建立您的供應專案。

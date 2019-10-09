@@ -8,12 +8,12 @@ ms.date: 08/13/2019
 ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
-ms.openlocfilehash: 4523d7bf8f6c0ffc0ebfbc57d20a19baec08c91b
-ms.sourcegitcommit: a19f4b35a0123256e76f2789cd5083921ac73daf
+ms.openlocfilehash: 99def93a20a365dd0ff5fc27e9c52909ee30bd83
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71720348"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72028128"
 ---
 # <a name="build-highly-available-azure-storage-applications-with-geo-zone-redundant-storage-gzrs-preview"></a>建立具有異地區域冗余儲存體（切換）（預覽）的高可用性 Azure 儲存體應用程式
 
@@ -35,7 +35,7 @@ Microsoft 建議針對需要一致性、持久性、高可用性、絕佳效能�
 - 美國東部 2
 - 美國中部
 
-Microsoft 會繼續在其他 Azure 區域中啟用切換和 RA 切換。 請定期查看 [Azure 服務更新](https://azure.microsoft.com/updates/) 頁面，以取得支援區域的相關資訊。
+Microsoft 會繼續在其他 Azure 區域中啟用切換和 RA 切換。 請定期查看 [Azure 服務更新](https://azure.microsoft.com/updates/) page，以取得支援區域的相關資訊。
 
 如需預覽定價的詳細 [資訊，請](https://azure.microsoft.com/pricing/details/storage/files/)參閱 [blob](https://azure.microsoft.com/pricing/details/storage/blobs)、檔案、 [佇列](https://azure.microsoft.com/pricing/details/storage/queues/)和 [資料表](https://azure.microsoft.com/pricing/details/storage/tables/)的切換預覽定價。
 
@@ -49,11 +49,11 @@ Microsoft 會繼續在其他 Azure 區域中啟用切換和 RA 切換。 請定�
 > [!IMPORTANT]
 > 非同步複寫牽涉到將資料寫入主要區域，以及何時複寫到次要區域之間的延遲時間。 當發生區域性災害時，如果無法從主要區域復原尚未複寫到次要區域的變更，則這些變更可能會遺失。
 
-當您建立儲存體帳戶時，可以指定要如何複寫該帳戶中的資料，而且您也可以指定該帳戶的主要區域。 異地複寫帳戶的配對次要區域是根據主要區域而定，且無法變更。 如需有關 Azure 所支援區域的最新資訊，請參閱 [商務持續性和嚴重損壞修復（BCDR）：Azure 配對區域](https://docs.microsoft.com/azure/best-practices-availability-paired-regions)。 如需使用切換或 RA-切換建立儲存體帳戶的相關資訊，請參閱[建立儲存體帳戶](storage-quickstart-create-account.md)。
+當您建立儲存體帳戶時，可以指定要如何複寫該帳戶中的資料，而且您也可以指定該帳戶的主要區域。 異地複寫帳戶的配對次要區域是根據主要區域而定，且無法變更。 如需有關 Azure 所支援區域的最新資訊，請參閱 @ no__t-0Business 持續性和嚴重損壞修復（BCDR）：Azure 配對區域](https://docs.microsoft.com/azure/best-practices-availability-paired-regions)。 如需使用切換或 RA-切換建立儲存體帳戶的相關資訊，請參閱[建立儲存體帳戶](storage-quickstart-create-account.md)。
 
 ### <a name="use-ra-gzrs-for-high-availability"></a>使用 RA-切換來提供高可用性
 
-當您啟用儲存體帳戶的切換時，您的資料可以從次要端點和儲存體帳戶的主要端點讀取。 次要端點會將尾碼 *（次要* ）附加至帳戶名稱。 例如，如果 Blob 服務的主要端點是 `myaccount.blob.core.windows.net`，則次要端點會是。 `myaccount-secondary.blob.core.windows.net` 主要和次要端點會有相同的儲存體帳戶存取金鑰。
+當您啟用儲存體帳戶的切換時，您的資料可以從次要端點和儲存體帳戶的主要端點讀取。 次要端點會將尾碼 *（次要）* 附加至帳戶名稱。 例如，如果 Blob 服務的主要端點是 @ no__t-0，則您的次要端點會是 @ no__t-1。 主要和次要端點會有相同的儲存體帳戶存取金鑰。
 
 若要在發生區域性中斷的情況下利用切換的功能，您必須事先設計應用程式來處理此案例。 您的應用程式應該讀取及寫入主要端點，但在主要區域無法使用的情況下，請切換為使用次要端點。 如需使用 RA 切換設計高可用性的指引，請參閱 [使用 ra-切換或 RA-GRS 設計高度可用的應用程式](https://docs.microsoft.com/azure/storage/common/storage-designing-ha-apps-with-ragrs)。
 
@@ -115,7 +115,7 @@ Set-AzStorageAccount -ResourceGroupName <resource-group> -AccountName <storage-a
 
 在即時移轉期間，您可以在來源和目的地儲存體帳戶之間遷移資料時，使用您的儲存體帳戶。 在即時移轉過程中，您的帳戶會繼續符合其持久性和可用性的 SLA。 即時移轉不會造成停機或資料遺失。
 
-只有一般用途 v2 帳戶支援切換/RA-切換，因此在提交即時移轉至切換/RA 切換的要求之前，您必須將帳戶升級為一般用途 v2。 如需詳細資訊，請參閱 [Azure 儲存體帳戶總覽](https://docs.microsoft.com/azure/storage/common/storage-account-overview) 和 [升級至一般用途 v2 儲存體帳戶](https://docs.microsoft.com/azure/storage/common/storage-account-upgrade)。
+只有一般用途 v2 帳戶支援切換/RA-切換，因此在提交即時移轉至切換/RA 切換的要求之前，您必須將帳戶升級為一般用途 v2。 如需詳細資訊，請參閱 [Azure 儲存體帳戶總覽](https://docs.microsoft.com/azure/storage/common/storage-account-overview) and [升級至一般用途 v2 儲存體帳戶](https://docs.microsoft.com/azure/storage/common/storage-account-upgrade)。
 
 完成遷移之後，儲存體帳戶的複寫設定會更新為**異地區域冗余儲存體（切換）** 或**讀取權限異地區域-多餘儲存體（RA-切換）** 。 服務端點、存取金鑰、共用存取簽章（SAS）和任何其他帳戶設定選項會保持不變且原封不動。
 
@@ -133,18 +133,18 @@ Set-AzStorageAccount -ResourceGroupName <resource-group> -AccountName <storage-a
 
 若要要求即時移轉，請使用 [Azure 入口網站](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview)。 從入口網站中，選取要遷移至切換或 RA 切換的儲存體帳戶，並遵循下列指示：
 
-1. 選取 [ **新增支援要求**]。
-2. 根據您的帳戶資訊完成 **基本概念** 。 在 [ **服務** ] 區段中，選取 [ **儲存體帳戶管理** ]，並指定要遷移的帳戶。
-3. 選取 [下一步] **** 。
-4. 在 [ **問題** ] 區段中指定下列值：
+1. 選取 [**新增支援要求**]。
+2. 根據您的帳戶資訊，完成 [基本] 資訊。 在 [**服務**] 區段中，選取 [**儲存體帳戶管理**]，並指定要遷移的帳戶。
+3. 選取 [下一步]。
+4. 在 [問題] 區段中，指定下列值︰
     - **嚴重性**：將預設值保持不變。
-    - **問題類型**：選取 [ **資料移轉**]。
-    - **類別**：選取 **區域內的 [遷移至（RA-）切換**]。
-    - **標題**：輸入描述性標題，例如 **（RA-）切換帳戶遷移**。
-    - **詳細資料**：在 **詳細資料**@no__t 1box 中輸入其他詳細資料，例如，在 \_ @ no__t-3 區域中，我想要從 [LRS，GRS] 遷移至切換。 或者，我想要從 \_ @ no__t-1 區域中的 [LRS，RA-GRS] 遷移至 [RA-切換]。
-5. 選取 [下一步] **** 。
-6. 在 [ **連絡人資訊** ] 分頁上，確認連絡人資訊是否正確。
-7. 選取 [建立] **** 。
+    - **問題類型**：選取 [資料移轉]。
+    - **類別**：選取**區域內的 [遷移至（RA-）切換**]。
+    - **標題**：輸入描述性標題，例如 **（RA-）切換帳戶遷移**。
+    - **詳細資料**：在 [**詳細資料**] 方塊中輸入其他詳細資料，例如，在 \_ @ no__t-2 區域中，[我要從 [LRS，GRS] 遷移至切換]。 或者，我想要從 \_ @ no__t-1 區域中的 [LRS，RA-GRS] 遷移至 [RA-切換]。
+5. 選取 [下一步]。
+6. 確認 [連絡人資訊] 刀鋒視窗上的連絡人資訊正確。
+7. 選取 [建立]。
 
 支援代表會聯絡您以提供協助。
 

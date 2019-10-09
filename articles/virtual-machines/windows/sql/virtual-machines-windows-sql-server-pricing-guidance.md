@@ -15,12 +15,12 @@ ms.workload: iaas-sql-server
 ms.date: 08/09/2018
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: d9b4cf755bbf2e225bee813510c083570b0f8064
-ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
+ms.openlocfilehash: 604f18fe2fbf4d8b4f3778817455d92a2811620b
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70280178"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72028620"
 ---
 # <a name="pricing-guidance-for-sql-server-azure-vms"></a>SQL Server Azure VM 的定價指導方針
 
@@ -58,13 +58,13 @@ ms.locfileid: "70280178"
 |-----|-----|
 | Web | 小型網站 |
 | 標準 | 小型到中型工作負載 |
-| 企業 | 大型或任務關鍵性工作負載|
+| Enterprise | 大型或任務關鍵性工作負載|
 
 您有兩個選項來支付這些版本的 SQL Server 授權：*依使用量付費*或*自備授權 (BYOL)* 。
 
 ## <a name="pay-per-usage"></a>依使用量付費
 
-**依使用量支付 SQL Server 授權費用**意謂著執行 Azure VM 的每秒鐘費用都包含 SQL Server 授權的費用。 您可以在 [Windows](https://azure.microsoft.com/pricing/details/virtual-machines/windows) 或 [Linux](https://azure.microsoft.com/pricing/details/virtual-machines/linux) 適用的 Azure VM 定價頁面，查看不同 SQL Server 版本 (Web、Standard、Enterprise) 的定價。
+**依使用量支付 SQL Server 授權**（也稱為隨**用隨付**）表示執行 Azure VM 的每秒成本包括 SQL Server 授權的成本。 您可以在 [Windows](https://azure.microsoft.com/pricing/details/virtual-machines/windows) 或 [Linux](https://azure.microsoft.com/pricing/details/virtual-machines/linux) 適用的 Azure VM 定價頁面，查看不同 SQL Server 版本 (Web、Standard、Enterprise) 的定價。
 
 所有 SQL Server 版本 (2012 SP3 到 2017) 的費用都相同。 每秒鐘的授權費用取決於 VM vCPU 數目。
 
@@ -74,7 +74,7 @@ ms.locfileid: "70280178"
 
 - **存留期或規模不明的工作負載**。 例如，有幾個月不需用到或依需求可能需要較多或較少運算能力的應用程式。
 
-若要使用上述其中一個依使用量付費的映像來建立 SQL Server 2017 Azure VM，請參閱下列連結：
+若要使用其中一個隨用隨付映射來建立 SQL Server 2017 Azure VM，請參閱下列連結：
 
 | 平台 | 授權的映像 |
 |---|---|
@@ -98,7 +98,7 @@ ms.locfileid: "70280178"
 **透過「授權行動性」自備 SQL Server 授權** (也稱為 **BYOL**) 意謂著在 Azure VM 中使用現有的「SQL Server 大量授權」搭配「軟體保證」。 使用 BYOL 的 SQL Server VM 只會收取執行 VM 的費用，不會收取 SQL Server 授權費用，但前提是您已經透過「大量授權」方案取得授權和「軟體保證」。
 
 > [!IMPORTANT]
-> BYOL 映像需要具有軟體保證的 Enterprise 合約。 Azure 雲端解決方案合作夥伴 (CSP) 目前不會提供這類映像。 CSP 客戶可以藉由部署隨用隨付映射並啟用[Azure Hybrid Benefit](virtual-machines-windows-sql-ahb.md), 來攜帶自己的授權。
+> BYOL 映像需要具有軟體保證的 Enterprise 合約。 Azure 雲端解決方案合作夥伴 (CSP) 目前不會提供這類映像。 CSP 客戶可以藉由部署隨用隨付映射並啟用[Azure Hybrid Benefit](virtual-machines-windows-sql-ahb.md)，來攜帶自己的授權。
 
 > [!NOTE]
 > BYOL 映像目前只適用於 Windows 虛擬機器。 不過，您可以在僅有 Linux 的 VM 上手動安裝 SQL Server。 請參閱 [Linux SQL VM 常見問題集](../../linux/sql/sql-server-linux-faq.md)中的指導方針。
@@ -113,7 +113,7 @@ ms.locfileid: "70280178"
 
 | BYOL 優點 | 描述 |
 |-----|-----|
-| **節省成本** | [Azure Hybrid Benefit](https://azure.microsoft.com/pricing/hybrid-benefit/)最多可提供 55% 的節約。 如需詳細資訊, 請參閱[交換器授權模型](virtual-machines-windows-sql-ahb.md) |
+| **節省成本** | [Azure Hybrid Benefit](https://azure.microsoft.com/pricing/hybrid-benefit/)最多可提供 55% 的節約。 如需詳細資訊，請參閱[交換器授權模型](virtual-machines-windows-sql-ahb.md) |
 | **免費的被動次要複本** | 自備授權的另一個優點是每一 SQL Server 可享有[一個免費的被動次要複本授權](https://azure.microsoft.com/pricing/licensing-faq/)，以用於提供高可用性。 這讓高可用性 SQL Server 部署 (例如使用「永遠開啟可用性群組」) 的授權費用得以砍半。 執行被動次要複本的權限是透過「容錯移轉伺服器軟體保證」權益來提供。 |
 
 若要使用上述其中一個自備授權映像來建立 SQL Server 2017 Azure VM，請查看前面帶有 "{BYOL}" 的 VM：

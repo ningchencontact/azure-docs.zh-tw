@@ -10,21 +10,21 @@ ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer: sashan, moslake, carlrab
-ms.date: 02/23/2019
-ms.openlocfilehash: 41acef4ebe13ac6152d795db4adfae5a6ae1ad91
-ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
+ms.date: 10/01/2019
+ms.openlocfilehash: 7b5fd9800fdd2ee3b46087308f81f506e3e09e03
+ms.sourcegitcommit: f9e81b39693206b824e40d7657d0466246aadd6e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/14/2019
-ms.locfileid: "70995421"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72034968"
 ---
 # <a name="azure-sql-database-service-tiers"></a>Azure SQL Database 服務層級
 
 Azure SQL Database 是以針對雲端環境調整的 SQL Server 資料庫引擎架構為基礎，以確保 99.99% 的可用性，即使發生基礎結構失敗也是一樣。 Azure SQL Database 中會使用三個服務層級，每個都有不同的架構模型。 這些服務層級為：
 
-- [一般用途](sql-database-service-tier-general-purpose.md)，專為大部分的一般工作負載所設計。
-- [商務關鍵性](sql-database-service-tier-business-critical.md)，專為具有一個可讀取複本的低延遲工作負載所設計。
-- [超大規模資料庫](sql-database-service-tier-hyperscale.md)，這是針對非常大型的資料庫（最多 100 TB）所設計，具有多個可讀取的複本。
+- [一般用途](sql-database-service-tier-general-purpose.md)，專為以預算為導向的工作負載而設計。
+- [超大規模資料庫](sql-database-service-tier-hyperscale.md)是針對大部分的商務工作負載所設計，可提供高度可擴充的儲存體、讀取向外延展，以及快速的資料庫還原功能。
+- [業務關鍵](sql-database-service-tier-business-critical.md)，專為低延遲工作負載所設計，其具有高彈性的失敗和快速容錯移轉。
 
 這篇文章討論在 vCore 為基礎的購買模型中，在一般用途和業務關鍵服務層的服務層級、儲存體和備份考慮方面的差異。
 
@@ -32,29 +32,29 @@ Azure SQL Database 是以針對雲端環境調整的 SQL Server 資料庫引擎�
 
 下表描述最新一代（第5代）服務層級之間的主要差異。 請注意，單一資料庫和受控執行個體中的服務層特性可能會有所不同。
 
-| | 資源類型 | 一般目的 |  超大規模 | 商務關鍵性 |
+| | 資源類型 | 一般目的 |  超大規模資料庫 | 業務關鍵 |
 |:---:|:---:|:---:|:---:|:---:|
-| **適用對象** | |  大部分的商業工作負載。 提供以預算為導向且平衡的計算與儲存體選項。 | 具有大型資料容量需求的資料應用程式、自動調整儲存體的能力，最高可達 100 TB，並可調整計算流暢地。 | 具有高交易率和最低延遲 IO 的 OLTP 應用程式。 使用數個分開的複本，針對失敗提供最高的復原能力。|
+| **適用對象** | |  提供以預算為導向且平衡的計算與儲存體選項。 | 大部分的商業工作負載。 自動調整儲存體大小，最高可達 100 TB，流暢的垂直和水準計算調整，快速的資料庫還原。 | 具有高交易率和低 IO 延遲的 OLTP 應用程式。 為失敗提供最高的復原能力，並使用多個同步更新的複本快速容錯移轉。|
 |  **適用于資源類型：** ||單一資料庫/彈性集區/受控執行個體 | 單一資料庫 | 單一資料庫/彈性集區/受控執行個體 |
 | **計算大小**|單一資料庫/彈性集區 | 1 到 80 個虛擬核心 | 1到80虛擬核心 | 1 到 80 個虛擬核心 |
-| | 受管理的執行個體 | 4、8、16、24、32、40、64、80虛擬核心 | N/A | 4、8、16、24、32、40、64、80虛擬核心 |
+| | 受控執行個體 | 4、8、16、24、32、40、64、80虛擬核心 | N/A | 4、8、16、24、32、40、64、80虛擬核心 |
 | | 受控實例集區 | 2、4、8、16、24、32、40、64、80虛擬核心 | N/A | N/A |
 | **儲存體類型** | 全部 | 進階遠端儲存體 (每個執行個體) | 與本機 SSD 快取分離的儲存體 (每個執行個體) | 超快速本機 SSD 儲存體 (每個執行個體) |
 | **資料庫大小** | 單一資料庫/彈性集區 | 5 GB – 4 TB | 最多 100 TB | 5 GB – 4 TB |
-| | 受管理的執行個體  | 32 GB – 8 TB | N/A | 32 GB – 4 TB |
+| | 受控執行個體  | 32 GB – 8 TB | N/A | 32 GB – 4 TB |
 | **儲存體大小** | 單一資料庫/彈性集區 | 5 GB – 4 TB | 最多 100 TB | 5 GB – 4 TB |
-| | 受管理的執行個體  | 32 GB – 8 TB | N/A | 32 GB – 4 TB |
+| | 受控執行個體  | 32 GB – 8 TB | N/A | 32 GB – 4 TB |
 | **TempDB 大小** | 單一資料庫/彈性集區 | [每個 vCore 32 GB](sql-database-vcore-resource-limits-single-databases.md#general-purpose-service-tier-for-provisioned-compute) | [每個 vCore 32 GB](sql-database-vcore-resource-limits-single-databases.md#hyperscale-service-tier-for-provisioned-compute) | [每個 vCore 32 GB](sql-database-vcore-resource-limits-single-databases.md#business-critical-service-tier-for-provisioned-compute) |
-| | 受管理的執行個體  | [每個 vCore 24 GB](sql-database-managed-instance-resource-limits.md#service-tier-characteristics) | N/A | 最多 4 TB-[依儲存體大小限制](sql-database-managed-instance-resource-limits.md#service-tier-characteristics) |
+| | 受控執行個體  | [每個 vCore 24 GB](sql-database-managed-instance-resource-limits.md#service-tier-characteristics) | N/A | 最多 4 TB-[依儲存體大小限制](sql-database-managed-instance-resource-limits.md#service-tier-characteristics) |
 | **記錄寫入輸送量** | 單一資料庫 | [每個 vCore 1.875 MB/秒（最多 30 MB/秒）](sql-database-vcore-resource-limits-single-databases.md#general-purpose-service-tier-for-provisioned-compute) | 100 MB/秒 | [每個 vCore 6 MB/s （最大 96 MB/秒）](sql-database-vcore-resource-limits-single-databases.md#business-critical-service-tier-for-provisioned-compute) |
-| | 受管理的執行個體 | [每個 vCore 3 MB/s （最大 22 MB/秒）](sql-database-managed-instance-resource-limits.md#service-tier-characteristics) | N/A | [每個 vcore 4 MB/s （最大 48 MB/秒）](sql-database-managed-instance-resource-limits.md#service-tier-characteristics) |
+| | 受控執行個體 | [每個 vCore 3 MB/s （最大 22 MB/秒）](sql-database-managed-instance-resource-limits.md#service-tier-characteristics) | N/A | [每個 vcore 4 MB/s （最大 48 MB/秒）](sql-database-managed-instance-resource-limits.md#service-tier-characteristics) |
 |**Availability**|全部| 99.99% |  [具有一個次要複本的 99.95%，還有更多複本的 99.99%](sql-database-service-tier-hyperscale-faq.md#what-slas-are-provided-for-a-hyperscale-database) | 99.99% <br/> [具有區域冗余單一資料庫的 99.995%](https://azure.microsoft.com/blog/understanding-and-leveraging-azure-sql-database-sla/) |
 |**備份**|全部|RA-GRS、7-35 天 (預設為 7 天)| GRS、7天、固定時間點恢復（PITR） | RA-GRS、7-35 天 (預設為 7 天) |
 |**記憶體內部 OLTP** | | N/A | N/A | 可用 |
 |**唯讀複本**| | 0  | 0 - 4 | 1（內建，價格已包含在內） |
-|**定價/計費** | 單一資料庫 | [vCore、保留的儲存體和備份儲存體](https://azure.microsoft.com/pricing/details/sql-database/single/)會收費。 <br/>IOPS 不會收費。 | [每個複本的 vCore 和使用的儲存體](https://azure.microsoft.com/pricing/details/sql-database/single/)都會收費。 <br/>IOPS 不會收費。<br/>備份儲存體尚未收費。 | [vCore、保留的儲存體和備份儲存體](https://azure.microsoft.com/pricing/details/sql-database/single/)會收費。 <br/>IOPS 不會收費。 |
+|**定價/計費** | 單一資料庫 | [vCore、保留的儲存體和備份儲存體](https://azure.microsoft.com/pricing/details/sql-database/single/)會收費。 <br/>IOPS 不會收費。 | [每個複本的 vCore 和使用的儲存體](https://azure.microsoft.com/pricing/details/sql-database/single/)都會收費。 <br/>IOPS 尚未收費。 | [vCore、保留的儲存體和備份儲存體](https://azure.microsoft.com/pricing/details/sql-database/single/)會收費。 <br/>IOPS 不會收費。 |
 || 受控執行個體 | [vCore 和保留的儲存體](https://azure.microsoft.com/pricing/details/sql-database/managed/)會收費。 <br/>IOPS 不會收費。<br/>備份儲存體尚未收費。 | N/A | [vCore 和保留的儲存體](https://azure.microsoft.com/pricing/details/sql-database/managed/)會收費。 <br/>IOPS 不會收費。<br/>備份儲存體尚未收費。 | 
-|**折扣模型**| | [保留的實例](sql-database-reserved-capacity.md)<br/>[Azure Hybrid Benefit](sql-database-service-tiers-vcore.md#azure-hybrid-benefit)（不適用於開發/測試訂閱）<br/>[企業](https://azure.microsoft.com/offers/ms-azr-0148p/)與[隨用隨付](https://azure.microsoft.com/offers/ms-azr-0023p/)開發/測試訂閱| [Azure Hybrid Benefit](sql-database-service-tiers-vcore.md#azure-hybrid-benefit)（不適用於開發/測試訂閱）<br/>[企業](https://azure.microsoft.com/offers/ms-azr-0148p/)與[隨用隨付](https://azure.microsoft.com/offers/ms-azr-0023p/)開發/測試訂閱| [保留的實例](sql-database-reserved-capacity.md)<br/>[Azure Hybrid Benefit](sql-database-service-tiers-vcore.md#azure-hybrid-benefit)（不適用於開發/測試訂閱）<br/>[企業](https://azure.microsoft.com/offers/ms-azr-0148p/)與[隨用隨付](https://azure.microsoft.com/offers/ms-azr-0023p/)開發/測試訂閱|
+|**折扣模型**| | [保留的實例](sql-database-reserved-capacity.md)<br/>[Azure Hybrid Benefit](sql-database-service-tiers-vcore.md#azure-hybrid-benefit) （不適用於開發/測試訂閱）<br/>[企業](https://azure.microsoft.com/offers/ms-azr-0148p/)與[隨用隨付](https://azure.microsoft.com/offers/ms-azr-0023p/)開發/測試訂閱| [Azure Hybrid Benefit](sql-database-service-tiers-vcore.md#azure-hybrid-benefit) （不適用於開發/測試訂閱）<br/>[企業](https://azure.microsoft.com/offers/ms-azr-0148p/)與[隨用隨付](https://azure.microsoft.com/offers/ms-azr-0023p/)開發/測試訂閱| [保留的實例](sql-database-reserved-capacity.md)<br/>[Azure Hybrid Benefit](sql-database-service-tiers-vcore.md#azure-hybrid-benefit) （不適用於開發/測試訂閱）<br/>[企業](https://azure.microsoft.com/offers/ms-azr-0148p/)與[隨用隨付](https://azure.microsoft.com/offers/ms-azr-0023p/)開發/測試訂閱|
 
 如需詳細資訊，請參閱單一資料庫中的服務層[級（vCore）](sql-database-vcore-resource-limits-single-databases.md)、[單一資料庫集區（vCore）](sql-database-dtu-resource-limits-single-databases.md)、[單一資料庫（dtu）](sql-database-dtu-resource-limits-single-databases.md)、[單一資料庫集區（dtu）](sql-database-dtu-resource-limits-single-databases.md)和[受控執行個體](sql-database-managed-instance-resource-limits.md)中的詳細差異頁面.
 
@@ -63,7 +63,7 @@ Azure SQL Database 是以針對雲端環境調整的 SQL Server 資料庫引擎�
 
 ## <a name="data-and-log-storage"></a>資料和記錄儲存體
 
-下列因素會影響資料和記錄檔所使用的儲存空間量：
+下列因素會影響用於資料和記錄檔的儲存空間量，並適用于一般用途和商務關鍵性。 如需超大規模資料庫中資料和記錄儲存體的詳細資訊，請參閱[超大規模資料庫服務層級](sql-database-service-tier-hyperscale.md)。
 
 - 已配置的儲存體會由資料檔案（MDF）和記錄檔（LDF）使用。
 - 每個單一資料庫計算大小都支援資料庫大小上限，預設大小上限為 32 GB。
@@ -72,8 +72,8 @@ Azure SQL Database 是以針對雲端環境調整的 SQL Server 資料庫引擎�
 - 您可以選取 10 GB 到支援的最大值之間的任何單一資料庫大小。
   - 針對標準或一般用途服務層級中的儲存體，增加或減少大小（以 10 GB 為增量單位）。
   - 針對 premium 或業務關鍵服務層級中的儲存體，增加或減少大小（以 250-GB 為單位）。
-- 在一般用途服務層級中`tempdb` ，會使用連接的 SSD，而此儲存成本會包含在 vCore 價格中。
-- 在業務關鍵服務層級中`tempdb` ，會與 MDF 和 LDF 檔案共用附加的 SSD， `tempdb`而儲存體成本則包含在 vCore 價格中。
+- 在一般用途服務層級中，`tempdb` 會使用連接的 SSD，而此儲存成本會包含在 vCore 價格中。
+- 在業務關鍵服務層級中，`tempdb` 會與 MDF 和 LDF 檔案共用附加的 SSD，而 @no__t 1 儲存成本會包含在 vCore 價格中。
 
 > [!IMPORTANT]
 > 系統會向您收取配置給 MDF 和 LDF 檔案的總儲存體費用。

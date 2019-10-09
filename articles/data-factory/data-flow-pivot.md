@@ -6,15 +6,15 @@ ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 01/30/2019
-ms.openlocfilehash: 0b68007f8c3383997f0d31888198af866d38b590
-ms.sourcegitcommit: 83df2aed7cafb493b36d93b1699d24f36c1daa45
+ms.openlocfilehash: 1412f7d822d83a8712d27dd4e86311567d6ac714
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/22/2019
-ms.locfileid: "71178647"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72029308"
 ---
 # <a name="azure-data-factory-pivot-transformation"></a>Azure data factory 資料透視轉換
-[!INCLUDE [notes](../../includes/data-factory-data-flow-preview.md)]
+
 
 使用 ADF 資料流程中的樞紐做為彙總，其中一個或多個群組資料行都有個別的資料行值會轉換成相異資料列。 基本上，您可以將資料列值樞紐處理為新的資料行 (將資料轉換成中繼資料)。
 
@@ -60,7 +60,7 @@ ms.locfileid: "71178647"
 
 Pivot 會根據資料列值動態產生新的資料行名稱。 您可以將這些新的資料行轉換成中繼資料，稍後可在資料流程中加以參考。 若要這麼做，請按一下 [資料預覽] 索引標籤。您的 Pivot 轉換所產生的所有新資料行都會顯示在資料表標頭中具有 "漂移" 圖示。 按一下 [地圖漂移] 按鈕，將新的資料行轉換成中繼資料，使其成為資料流程模型的一部分。
 
-![Pivot 資料行](media/data-flow/newpivot1.png "Map 漂移 Pivot 資料行")
+![Pivot 資料行](media/data-flow/newpivot1.png "對應漂移 pivot 資料行")
 
 ### <a name="landing-new-columns-in-sink"></a>登陸接收器中的新資料行
 

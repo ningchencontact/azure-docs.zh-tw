@@ -11,14 +11,14 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 09/30/2019
+ms.date: 10/07/2019
 ms.author: magoedte
-ms.openlocfilehash: 66f3a9ae1f29d863170dcb4bc43e38b648602eed
-ms.sourcegitcommit: 8bae7afb0011a98e82cbd76c50bc9f08be9ebe06
+ms.openlocfilehash: 1eec8b79579a1c4d5c889b830706299ccc25e88b
+ms.sourcegitcommit: f9e81b39693206b824e40d7657d0466246aadd6e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/01/2019
-ms.locfileid: "71695019"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72035643"
 ---
 # <a name="collect-log-data-with-the-log-analytics-agent"></a>使用 Log Analytics 代理程式收集記錄資料
 
@@ -53,7 +53,7 @@ Azure Log Analytics 代理程式先前稱為 Microsoft Monitoring Agent (MMA) �
 Windows 代理程式正式支援下列 Windows 作業系統版本：
 
 * Windows Server 2019
-* Windows Server 2008 R2、 2012、 2012 R2、 2016、 1709版、 1803版
+* Windows Server 2008 SP2 （x64）、2008 R2、2012、2012 R2、2016、版本1709和1803
 * Windows 7 SP1、Windows 8 企業版和專業版，以及 Windows 10 Enterprise 和 Pro
 
 >[!NOTE]
@@ -112,12 +112,12 @@ Windows 代理程式正式支援下列 Windows 作業系統版本：
 
 |代理程式資源|連接埠 |Direction |略過 HTTPS 檢查|
 |------|---------|--------|--------|   
-|*.ods.opinsights.azure.com |連接埠 443 |傳出|是 |  
-|*.oms.opinsights.azure.com |連接埠 443 |傳出|是 |  
-|*.blob.core.windows.net |連接埠 443 |傳出|是 |  
-|*.azure-automation.net |連接埠 443 |傳出|是 |  
+|*.ods.opinsights.azure.com |連接埠 443 |輸出|是 |  
+|*.oms.opinsights.azure.com |連接埠 443 |輸出|是 |  
+|*.blob.core.windows.net |連接埠 443 |輸出|是 |  
+|*.azure-automation.net |連接埠 443 |輸出|是 |  
 
-如需 Azure Government 所需的防火牆資訊, 請參閱[Azure Government 管理](../../azure-government/documentation-government-services-monitoringandmanagement.md#azure-monitor-logs)。 
+如需 Azure Government 所需的防火牆資訊，請參閱[Azure Government 管理](../../azure-government/documentation-government-services-monitoringandmanagement.md#azure-monitor-logs)。 
 
 如果您打算使用 Azure 自動化混合式 Runbook 背景工作角色連線到自動化服務並向其註冊，以便在您的環境中使用 Runbook，它必須具有[設定適用於混合式 Runbook 背景工作角色的網路](../../automation/automation-hybrid-runbook-worker.md#network-planning)中所述的連接埠號碼和 URL 存取權。 
 
@@ -133,7 +133,7 @@ Windows 和 Linux 代理程式支援使用 HTTPS 通訊協定，透過 proxy 伺
 |屬性| 描述 |
 |--------|-------------|
 |Protocol | https |
-|使用者 | 用於驗證 Proxy 的選擇性使用者名稱 |
+|user | 用於驗證 Proxy 的選擇性使用者名稱 |
 |password | 用於驗證 Proxy 的選擇性密碼 |
 |proxyhost | Proxy 伺服器/Log Analytics 閘道的位址或 FQDN |
 |port | Proxy 伺服器/Log Analytics 閘道的選擇性連接埠號碼 |

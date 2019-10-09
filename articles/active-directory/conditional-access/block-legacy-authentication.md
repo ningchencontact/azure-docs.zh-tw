@@ -1,6 +1,6 @@
 ---
-title: 如何使用條件式存取封鎖舊版驗證 Azure Active Directory (Azure AD) |Microsoft Docs
-description: 瞭解如何藉由使用 Azure AD 條件式存取來封鎖舊版驗證, 以改善您的安全性狀態。
+title: 如何使用條件式存取封鎖舊版驗證 Azure Active Directory （Azure AD） |Microsoft Docs
+description: 瞭解如何藉由使用 Azure AD 條件式存取來封鎖舊版驗證，以改善您的安全性狀態。
 services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
@@ -11,20 +11,20 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0d227b4cf7090cdc3177c7045d6137f30a13f71b
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: f4e4dc33d670c5f6c5ebefa21ccf1a1ff941e913
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68931961"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72024572"
 ---
-# <a name="how-to-block-legacy-authentication-to-azure-ad-with-conditional-access"></a>HOW TO：使用條件式存取封鎖舊版驗證 Azure AD   
+# <a name="how-to-block-legacy-authentication-to-azure-ad-with-conditional-access"></a>作法：使用條件式存取封鎖舊版驗證 Azure AD   
 
 為了讓您的使用者能夠輕鬆存取雲端應用程式，Azure Active Directory (Azure AD) 支援多種驗證通訊協定，包括舊式驗證。 不過，舊式通訊協定並不支援多重要素驗證 (MFA)。 在許多環境中，MFA 都是防止身分識別遭竊的常用工具。 
 
-如果您的環境已準備好封鎖舊版驗證以改善租使用者的保護, 您可以使用條件式存取來達成此目標。 本文說明如何設定條件式存取原則, 以封鎖您租使用者的舊版驗證。
+如果您的環境已準備好封鎖舊版驗證以改善租使用者的保護，您可以使用條件式存取來達成此目標。 本文說明如何設定條件式存取原則，以封鎖您租使用者的舊版驗證。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 本文假設您已熟悉以下各項： 
 
@@ -46,23 +46,23 @@ Azure AD 支援數個最常用的驗證和授權通訊協定，包括舊式驗�
 
 ## <a name="implementation"></a>實作
 
-本節說明如何設定條件式存取原則, 以封鎖舊版驗證。 
+本節說明如何設定條件式存取原則，以封鎖舊版驗證。 
 
 ### <a name="identify-legacy-authentication-use"></a>識別舊版驗證使用
 
-您必須先瞭解您的使用者是否有使用舊版驗證的應用程式, 以及它如何影響您的整體目錄, 才可以在目錄中封鎖舊版驗證。 Azure AD 登入記錄可以用來瞭解您是否使用舊版驗證。
+您必須先瞭解您的使用者是否有使用舊版驗證的應用程式，以及它如何影響您的整體目錄，才可以在目錄中封鎖舊版驗證。 Azure AD 登入記錄可以用來瞭解您是否使用舊版驗證。
 
-1. 流覽至**Azure 入口網站** >  **Azure Active Directory**  > 登**入**。
-1. 新增 [用戶端應用程式] 欄 (如果未顯示, 請按一下 [資料**行** > ] [**用戶端應用程式**])
-1. **新增篩選** > **用戶端應用程式**> 選取**其他用戶端**的所有選項,然後按一下 [套用]。
+1. 流覽至**Azure 入口網站** > **Azure Active Directory** >  登**入**。
+1. 新增 [用戶端應用程式] 資料行（如果未顯示，請按一下 [資料**行**]  > **用戶端應用程式**）。
+1. **新增篩選器** > **用戶端應用程式**> 選取**其他用戶端**的所有選項，**然後按一下 [** 套用]。
 
-篩選只會顯示舊版驗證通訊協定所進行的登入嘗試。 按一下每個個別的登入嘗試, 將會顯示其他詳細資料。 [**基本資訊**] 索引標籤下的 [**用戶端應用程式**] 欄位會指出所使用的舊版驗證通訊協定。
+篩選只會顯示舊版驗證通訊協定所進行的登入嘗試。 按一下每個個別的登入嘗試，將會顯示其他詳細資料。 [**基本資訊**] 索引標籤下的 [**用戶端應用程式**] 欄位會指出所使用的舊版驗證通訊協定。
 
-這些記錄會指出哪些使用者仍會根據傳統驗證, 以及哪些應用程式使用舊版通訊協定來提出驗證要求。 對於不會出現在這些記錄中且已確認不會使用舊版驗證的使用者, 請只為這些使用者執行條件式存取原則。
+這些記錄會指出哪些使用者仍會根據傳統驗證，以及哪些應用程式使用舊版通訊協定來提出驗證要求。 對於不會出現在這些記錄中且已確認不會使用舊版驗證的使用者，請只為這些使用者執行條件式存取原則。
 
 ### <a name="block-legacy-authentication"></a>封鎖舊式驗證 
 
-在條件式存取原則中, 您可以設定與用來存取資源的用戶端應用程式相關聯的條件。 用戶端應用程式條件可讓您針對 [行動裝置應用程式和桌面用戶端] 選取 [其他用戶端]，讓使用舊式驗證的應用程式能夠縮減其範圍。
+在條件式存取原則中，您可以設定與用來存取資源的用戶端應用程式相關聯的條件。 用戶端應用程式條件可讓您針對 [行動裝置應用程式和桌面用戶端] 選取 [其他用戶端]，讓使用舊式驗證的應用程式能夠縮減其範圍。
 
 ![其他用戶端](./media/block-legacy-authentication/01.png)
 
@@ -78,9 +78,9 @@ Azure AD 支援數個最常用的驗證和授權通訊協定，包括舊式驗�
 - 所有雲端應用程式
 - 封鎖存取
 
-![工作分派](./media/block-legacy-authentication/03.png)
+![指派](./media/block-legacy-authentication/03.png)
 
-Azure 有一項安全性功能, 可防止您建立這類原則, 因為此設定違反條件式存取原則的[最佳作法](best-practices.md)。
+Azure 有一項安全性功能，可防止您建立這類原則，因為此設定違反條件式存取原則的[最佳作法](best-practices.md)。
  
 ![不支援原則設定](./media/block-legacy-authentication/04.png)
 
@@ -101,15 +101,15 @@ Azure 有一項安全性功能, 可防止您建立這類原則, 因為此設定�
 
 ## <a name="what-you-should-know"></a>您應該知道的事情
 
-使用**其他用戶端**封鎖存取也會使用基本驗證來封鎖 Exchange Online PowerShell。
+使用**其他用戶端**封鎖存取也會使用基本驗證來封鎖 Exchange Online PowerShell 和 Dynamics 365。
 
 為**其他用戶端**設定原則會讓整個組織封鎖特定用戶端，例如 SPConnect。 之所以執行此封鎖，是因為舊版用戶端以非預期的方式進行驗證。 主要的 Office 應用程式 (例如，較舊的 Office 用戶端) 不會有這個問題。
 
 原則最慢可能需要 24 小時才會生效。
 
-您可以為**其他用戶端**條件選取所有可用的授與控制項;不過, 終端使用者體驗一律是相同的封鎖存取。
+您可以為**其他用戶端**條件選取所有可用的授與控制項;不過，終端使用者體驗一律是相同的封鎖存取。
 
-如果您使用**其他用戶端**條件封鎖舊版驗證, 您也可以設定裝置平臺和位置條件。 例如，如果您只想要封鎖行動裝置的舊版驗證，請選取下列項目來設定**裝置平台**條件：
+如果您使用**其他用戶端**條件封鎖舊版驗證，您也可以設定裝置平臺和位置條件。 例如，如果您只想要封鎖行動裝置的舊版驗證，請選取下列項目來設定**裝置平台**條件：
 
 - Android
 - iOS
@@ -119,5 +119,5 @@ Azure 有一項安全性功能, 可防止您建立這類原則, 因為此設定�
 
 ## <a name="next-steps"></a>後續步驟
 
-- 如果您還不熟悉如何設定條件式存取原則, 請參閱[使用 Azure Active Directory 條件式存取來要求特定應用程式的 MFA](app-based-mfa.md) , 以取得範例。
-- 如需新式驗證支援的詳細資訊, 請參閱[office 2013 和 office 2016 用戶端應用程式的新式驗證運作方式](https://docs.microsoft.com/office365/enterprise/modern-auth-for-office-2013-and-2016) 
+- 如果您還不熟悉如何設定條件式存取原則，請參閱[使用 Azure Active Directory 條件式存取來要求特定應用程式的 MFA](app-based-mfa.md) ，以取得範例。
+- 如需新式驗證支援的詳細資訊，請參閱[office 2013 和 office 2016 用戶端應用程式的新式驗證運作方式](https://docs.microsoft.com/office365/enterprise/modern-auth-for-office-2013-and-2016) 

@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/04/2019
 ms.author: spelluru
-ms.openlocfilehash: c92dd48e81512b79fb72cbb751303504d1036594
-ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
+ms.openlocfilehash: df24f846f1600685803fdd485f1810d66e32ae37
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/06/2019
-ms.locfileid: "71982030"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72028684"
 ---
 # <a name="set-up-a-lab-to-teach-ethical-hacking-class"></a>設定實驗室來教道德的駭客課程 
 本文說明如何設定一個著重于道德入侵辯論的類別。 滲透測試是指當有人嘗試取得系統或網路的存取權，以示範惡意攻擊者可能會利用的弱點時，所使用的一種實務攻擊。 
@@ -128,7 +128,11 @@ Rapid7 Metasploitable 映射是刻意設定了安全性弱點的映射。 您將
 ## <a name="cost"></a>成本  
 如果您想要估計此實驗室的成本，可以使用下列範例： 
  
-對於25名學生的課程，其中有20小時的排程類別時間，以及10小時的家庭作業或指派配額，實驗室的價格如下：25名學生 * （20 + 10）小時 * 55 實驗室單位 * 每小時0.01 美元 = 412.50。 如需定價的詳細資訊，請參閱[Azure 實驗室服務定價](https://azure.microsoft.com/pricing/details/lab-services/)。
+對於25名學生的課程，其中有20小時的排程類別時間，以及10小時的家庭作業或指派配額，實驗室的價格如下： 
+
+25名學生 * （20 + 10）小時 * 55 實驗室單位 * 每小時0.01 美元 = 412.50 美元。 
+
+如需價格的詳細資訊，請參閱[Azure 實驗室服務定價](https://azure.microsoft.com/pricing/details/lab-services/)。
 
 ## <a name="conclusion"></a>結論
 本文逐步解說建立適用于道德攻擊類別的實驗室的步驟。 其中包含設定嵌套虛擬化的步驟，以在主機虛擬機器內建立兩部虛擬機器以進行滲透測試。

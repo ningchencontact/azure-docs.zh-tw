@@ -7,16 +7,16 @@ ms.reviewer: daperlov
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 09/12/2019
-ms.openlocfilehash: 68c0da5a7fe2b02c6115a8c1bbc24feb95e12adb
-ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
+ms.openlocfilehash: 5eff92352251febca1d4e7033618372dc929d987
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/15/2019
-ms.locfileid: "71003696"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72029400"
 ---
 # <a name="schema-drift-in-mapping-data-flow"></a>對應資料流程中的架構漂移
 
-[!INCLUDE [notes](../../includes/data-factory-data-flow-preview.md)]
+
 
 架構漂移是您的來源通常會變更中繼資料的情況。 欄位、資料行和、類型可以即時加入、移除或變更。 如果沒有處理架構漂移的情況，您的資料流程就會變得容易受到上游資料來源變更的影響。 當傳入的資料行和欄位變更時，一般 ETL 模式會失敗，因為它們通常會系結至這些來源名稱。
 
@@ -52,7 +52,7 @@ Azure Data Factory 原本就支援從執行變更為執行的彈性架構，讓�
 
 當您的資料流程具有漂移資料行時，您可以使用下列方法在轉換中存取它們：
 
-* `byPosition`使用和`byName`運算式，依名稱或位置號碼明確參考資料行。
+* 使用 `byPosition` 和 @no__t 1 運算式，依名稱或位置號碼明確參考資料行。
 * 在衍生的資料行或匯總轉換中加入資料行模式，以符合名稱、資料流程、位置或類型的任何組合
 * 在 Select 或 Sink 轉換中新增以規則為基礎的對應，以透過模式將漂移的資料行與資料行的別名進行比對
 
@@ -64,7 +64,7 @@ Azure Data Factory 原本就支援從執行變更為執行的彈性架構，讓�
 
 ![地圖漂移](media/data-flow/mapdrifted1.png "地圖漂移")
 
-在產生的「衍生的資料行」轉換中，每個漂移資料行都會對應到其偵測到的名稱和資料類型。 在上述資料預覽中，會偵測到資料行 ' movieId ' 為整數。 按一下**對應漂移**之後，movieId 就會在衍生的資料行中`toInteger(byName('movieId'))`定義為，並包含在下游轉換的架構視圖中。
+在產生的「衍生的資料行」轉換中，每個漂移資料行都會對應到其偵測到的名稱和資料類型。 在上述資料預覽中，會偵測到資料行 ' movieId ' 為整數。 按一下**對應漂移**之後，movieId 就會在衍生的資料行中定義為 `toInteger(byName('movieId'))`，並包含在下游轉換的架構視圖中。
 
 ![地圖漂移](media/data-flow/mapdrifted2.png "地圖漂移")
 

@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 11/30/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 8cb5c82e551ed6299f754f518ebeebca0be4964d
-ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
+ms.openlocfilehash: ca17d049d988b2bc8b60249d99c03f70c555d3fb
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/30/2019
-ms.locfileid: "71679309"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72023731"
 ---
 # <a name="configure-the-resource-owner-password-credentials-flow-in-azure-ad-b2c"></a>在 Azure AD B2C 中設定資源擁有者密碼認證流程
 
@@ -25,7 +25,7 @@ ms.locfileid: "71679309"
 
 在 Azure Active Directory B2C （Azure AD B2C）中，支援下列選項：
 
-- **原生用戶端**：程式碼在使用者端的裝置上執行時，使用者會在驗證期間與之互動。 裝置可以是在原生作業系統 (例如 Android) 執行的行動應用程式，也可以是在瀏覽器 (例如 JavaScript) 執行的行動應用程式。
+- **原生用戶端**：程式碼在使用者端的裝置上執行時，使用者會在驗證期間與之互動。 裝置可以是在原生作業系統（例如 Android 和 iOS）中執行的行動應用程式。
 - **公用用戶端流程**：只會以 API 呼叫傳送應用程式所收集的使用者認證。 應用程式的認證不會傳送。
 - **新增宣告**：可以變更識別碼權杖內容以新增宣告。
 

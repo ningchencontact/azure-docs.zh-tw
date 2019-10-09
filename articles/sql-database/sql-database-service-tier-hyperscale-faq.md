@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer: ''
-ms.date: 05/06/2019
-ms.openlocfilehash: 8c35877c7de2fa89a8fe7a94c11787814183df9e
-ms.sourcegitcommit: a7a9d7f366adab2cfca13c8d9cbcf5b40d57e63a
+ms.date: 10/02/2019
+ms.openlocfilehash: 6f2ef181e7f61696245a4413d7a28d84801f2838
+ms.sourcegitcommit: f9e81b39693206b824e40d7657d0466246aadd6e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71162262"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72032880"
 ---
 # <a name="faq-about-azure-sql-hyperscale-databases"></a>關於 Azure SQL 超大規模資料庫的常見問題
 
@@ -37,23 +37,23 @@ ms.locfileid: "71162262"
 
 ### <a name="how-does-the-hyperscale-service-tier-differ-from-the-general-purpose-and-business-critical-service-tiers"></a>超大規模資料庫服務層級與一般用途和商務關鍵服務層級有何不同
 
-以 vCore 為基礎的服務層級主要是根據可用性、儲存體類型和 IOPs 來區分。
+以 vCore 為基礎的服務層級主要是根據可用性、儲存體類型和 IOPS 來區分。
 
 - 一般用途服務層級針對 IO 延遲或容錯移轉時間並非優先考量的案例提供了一組平衡的計算和儲存體選項，適用於大多數的商務工作負載。
 - 超大規模資料庫服務層級對於非常大的資料庫工作負載可發揮最佳效益。
 - 商務關鍵服務層級適用於 IO 延遲是優先考量的商務工作負載。
 
-| | 資源類型 | 一般目的 |  超大規模 | 商務關鍵性 |
+| | 資源類型 | 一般目的 |  超大規模資料庫 | 業務關鍵 |
 |:---:|:---:|:---:|:---:|:---:|
-| **適用對象** |全部|  大部分的商業工作負載。 提供以預算為導向且平衡的計算與儲存體選項。 | 具有大型資料容量需求，且能夠自動調整儲存體並流暢地調整計算的資料應用程式。 | 具有高交易率和最低延遲 IO 的 OLTP 應用程式。 使用數個分開的複本，針對失敗提供最高的復原能力。|
+| **適用對象** |全部|提供以預算為導向且平衡的計算與儲存體選項。|大部分的商業工作負載。 自動調整儲存體大小，最高可達 100 TB，流暢的垂直和水準計算調整，快速的資料庫還原。|具有高交易率和低 IO 延遲的 OLTP 應用程式。 為失敗提供最高的復原能力，並使用多個同步更新的複本快速容錯移轉。|
 |  **資源類型** ||單一資料庫/彈性集區/受控執行個體 | 單一資料庫 | 單一資料庫/彈性集區/受控執行個體 |
 | **計算大小**|單一資料庫/彈性集區 * | 1 到 80 個虛擬核心 | 1 到 80 個虛擬核心* | 1 到 80 個虛擬核心 |
-| |受管理的執行個體 | 8 個、16 個、24 個、32 個、40 個、64 個、80 個虛擬核心 | N/A | 8 個、16 個、24 個、32 個、40 個、64 個、80 個虛擬核心 |
+| |受控執行個體 | 8 個、16 個、24 個、32 個、40 個、64 個、80 個虛擬核心 | N/A | 8 個、16 個、24 個、32 個、40 個、64 個、80 個虛擬核心 |
 | **儲存體類型** | 全部 |進階遠端儲存體 (每個執行個體) | 與本機 SSD 快取分離的儲存體 (每個執行個體) | 超快速本機 SSD 儲存體 (每個執行個體) |
 | **儲存體大小** | 單一資料庫/彈性集區 | 5 GB – 4 TB | 最多 100 TB | 5 GB – 4 TB |
-| | 受管理的執行個體  | 32 GB – 8 TB | N/A | 32 GB – 4 TB |
-| **IO 輸送量** | 單一資料庫** | 每個虛擬核心 500 IOPS，且 IOPS 上限為 7000 | 超大規模資料庫是多層式架構，在多個層級進行快取。 有效的 IOPs 將視工作負載而定。 | 5000 IOPS，IOPS 上限為 200,000|
-| | 受管理的執行個體 | 視檔案大小而定 | N/A | 受控執行個體：視檔案大小而定|
+| | 受控執行個體  | 32 GB – 8 TB | N/A | 32 GB – 4 TB |
+| **IOPS** | 單一資料庫** | 每個虛擬核心 500 IOPS，且 IOPS 上限為 7000 | 超大規模資料庫是多層式架構，在多個層級進行快取。 有效的 IOPS 將視工作負載而定。 | 5000 IOPS，IOPS 上限為 200,000|
+| | 受控執行個體 | 視檔案大小而定 | N/A | 受控執行個體：視檔案大小而定|
 |**Availability**|全部|1 個複本、無讀取規模、無本機快取 | 多個複本，最多4個讀取規模，部分本機快取 | 3 個複本、1 個讀取規模、區域備援 HA、完整本機快取 |
 |**備份**|全部|RA-GRS、7-35 天 (預設為 7 天)| GRS、7天、固定時間點恢復（PITR） | RA-GRS、7-35 天 (預設為 7 天) |
 
@@ -61,7 +61,7 @@ ms.locfileid: "71162262"
 
 ### <a name="who-should-use-the-hyperscale-service-tier"></a>誰應使用超大規模資料庫服務層級
 
-超大規模資料庫服務層級主要適用於具有大型內部部署 SQL Server 資料庫，且想要藉由移至雲端來現代化其應用程式的客戶，或是已使用 SQL Server 資料庫而想要大幅擴充資料庫成長潛能的客戶。 超大規模資料庫也適用於想要兼顧高效能和高延展性的客戶。 使用超大規模資料庫，您將可：
+超大規模資料庫服務層級適用于擁有大型內部部署 SQL Server 資料庫，而且想要藉由移至雲端或已經使用 Azure SQL Database 的客戶將其應用程式現代化的客戶，而且想要大幅擴充資料庫成長的可能性。 超大規模資料庫也適用於想要兼顧高效能和高延展性的客戶。 使用超大規模資料庫，您將可：
 
 - 支援最多 100 TB 的資料庫大小
 - 快速備份資料庫而無須考慮資料庫大小 (備份以檔案快照集為基礎)
@@ -173,7 +173,7 @@ SQL Database 超大規模資料庫架構不僅支援大型資料庫，同時也�
 
 ### <a name="in-what-increments-does-my-database-size-grow"></a>資料庫大小成長的遞增量為何
 
-1 GB
+每個資料檔案會成長 10 GB。 多個資料檔案可能會同時成長。
 
 ### <a name="is-the-storage-in-sql-database-hyperscale-local-or-remote"></a>「SQL Database 超大規模資料庫」中的儲存體是本機還是遠端的
 
@@ -217,9 +217,9 @@ SQL Database 超大規模資料庫架構不僅支援大型資料庫，同時也�
 
 是的。 超大規模資料庫尚不支援某些 Azure SQL Database 功能，包括但不限於長期保留備份。 在您將資料庫移轉至「超大規模資料庫」後，這些功能將會停止運作。  我們希望這些限制是暫時性的。
 
-### <a name="can-i-move-my--on-premises-sql-server-database-or-my-sql-server-virtual-machine-database-to-hyperscale"></a>我是否可將內部部署 SQL Server 資料庫或 SQL Server 虛擬機器資料庫移至「超大規模資料庫」
+### <a name="can-i-move-my-on-premises-sql-server-database-or-my-sql-server-virtual-machine-database-to-hyperscale"></a>我可以將內部部署 SQL Server 資料庫或 SQL Server 的虛擬機器資料庫移至超大規模資料庫
 
-是的。 您可以使用所有現有的移轉技術來移轉至「超大規模資料庫」，包括 BACPAC、異動複寫、邏輯資料載入等。 另請參閱 [Azure 資料庫移轉服務](../dms/dms-overview.md)。
+是的。 您可以使用所有現有的遷移技術來遷移至超大規模資料庫，包括異動複寫，以及任何其他資料移動技術（大量複製、Azure Data Factory、Azure Databricks、SSIS）。 另請參閱 [Azure 資料庫移轉服務](../dms/dms-overview.md)。
 
 ### <a name="what-is-my-downtime-during-migration-from-an-on-premises-or-virtual-machine-environment-to-hyperscale-and-how-can-i-minimize-it"></a>從內部部署或虛擬機器環境移轉至「超大規模資料庫」期間的停機時間有多長？如何盡量縮短
 
@@ -228,11 +228,13 @@ SQL Database 超大規模資料庫架構不僅支援大型資料庫，同時也�
 
 ### <a name="how-much-time-would-it-take-to-bring-in-x-amount-of-data-to-sql-database-hyperscale"></a>將某個數量的資料移至「SQL Database 超大規模資料庫」需要多少時間
 
-超大規模資料庫能夠耗用 100 MB/秒的新/已變更資料。
+超大規模資料庫能夠耗用 100 MB/秒的新/變更資料，但將資料移至 Azure SQL 資料庫所需的時間也會受到可用的網路輸送量、來源讀取速度和目標超大規模資料庫資料庫服務等級目標的影響。
 
 ### <a name="can-i-read-data-from-blob-storage-and-do-fast-load-like-polybase-and-sql-data-warehouse"></a>我是否可從 Blob 儲存體讀取資料並執行快速載入 (例如 Polybase 和 SQL 資料倉儲)
 
 您可以從 Azure 儲存體讀取資料，並將資料載入超大規模資料庫中 (就像使用一般的單一資料庫一樣)。 Azure SQL Database 目前不支援 PolyBase。 您可以使用 [Azure Data Factory](https://docs.microsoft.com/azure/data-factory/)，或透過 [SQL 的 Spark 連接器](sql-database-spark-connector.md)在 [Azure Databricks](https://docs.microsoft.com/azure/azure-databricks/) 中執行 Spark 作業，藉以執行 Polybase。 SQL 的 Spark 連接器支援大量插入。
+
+您也可以使用 BULK INSERT 或 OPENROWSET，從 Azure Blob 存放區大量讀取資料：[Azure Blob 儲存體中的資料大量存取的範例](https://docs.microsoft.com/sql/relational-databases/import-export/examples-of-bulk-access-to-data-in-azure-blob-storage?view=sql-server-2017#accessing-data-in-a-csv-file-referencing-an-azure-blob-storage-location)。
 
 「超大規模資料庫」不支援簡單復原或大量記錄模式。 若要提供高可用性，必須使用完整復原模式。 不過，「超大規模資料庫」憑藉新的記錄架構，而可提供優於單一 Azure SQL 資料庫的資料擷取速率。
 
@@ -365,11 +367,11 @@ IOPS 和 IO 延遲會根據工作負載模式而有所不同。  如果需要存
 ### <a name="how-do-i-validate-if-i-have-successfully-connected-to-secondary-compute-node-using-ssms--other-client-tools"></a>如何? 驗證是否已使用 SSMS/其他用戶端工具成功連線到次要計算節點？
 
 您可以使用 SSMS/其他用戶端工具來執行下列 T-SQL 查詢： `SELECT DATABASEPROPERTYEX ( '<database_name>' , 'updateability' )`。
-如果您的`READ_ONLY`連接指向唯讀次要節點，或`READ_WRITE`如果您的連線指向主要節點，則結果會是。
+如果您的連接是指向唯讀次要節點，@no__t 或如果您的連線指向主要節點，則結果會 `READ_ONLY`。
 
 ### <a name="can-i-create-a-dedicated-endpoint-for-the-read-scale-replica"></a>是否可以建立讀取規模複本的專用端點
 
-資料分割 您只能藉由指定`ApplicationIntent=ReadOnly`來連接到讀取級別複本。
+資料分割 您只能藉由指定 `ApplicationIntent=ReadOnly` 來連接到讀取級別複本。
 
 ### <a name="does-the-system-do-intelligent-load-balancing-of-the-read-workload"></a>系統是否會對讀取工作負載進行智慧型負載平衡
 
@@ -381,7 +383,7 @@ IOPS 和 IO 延遲會根據工作負載模式而有所不同。  如果需要存
 
 ### <a name="do-i-get-different-temp-db-sizing-for-my-primary-compute-and-my-additional-secondary-compute-nodes"></a>主要計算節點和其他次要計算節點是否可以有不同的暫存資料庫大小
 
-資料分割 您`tempdb`的會根據計算大小布建而設定，次要計算節點的大小與主要計算相同。
+資料分割 您的 `tempdb` 是根據計算大小布建而設定，次要計算節點的大小與主要計算相同。
 
 ### <a name="can-i-add-indexes-and-views-on-my-secondary-compute-nodes"></a>是否可以在次要計算節點上新增索引和檢視
 

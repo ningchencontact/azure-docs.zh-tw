@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: billgib
 ms.date: 09/19/2018
-ms.openlocfilehash: 7b238044fd3795ae2f49c2fa21367e6499a65672
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 95d13c997d3871815ebd541e5985eb9fef726a76
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68570116"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72029751"
 ---
 # <a name="manage-schema-in-a-saas-application-using-the-database-per-tenant-pattern-with-azure-sql-database"></a>使用每一租用戶一個資料庫的模式，透過 Azure SQL Database 管理 SaaS 應用程式中的結構描述
  
@@ -72,7 +72,7 @@ Demo-SchemaManagement.ps1 指令碼會呼叫 Deploy-SchemaManagement.ps1 指令�
 
 ## <a name="create-a-job-to-deploy-new-reference-data-to-all-tenants"></a>建立作業以將新的參考資料部署到所有租用戶
 
-在 Wingtip Tickets 應用程式中，每個租用戶資料庫都包含一組支援的場地類型。 每個場地都屬於特定場地類型，其中定義了可舉辦的事件種類，並決定應用程式中使用的背景影像。 若要讓應用程式支援新的事件類型，則必須更新此參考資料及新增場地類型。  在此練習中, 您會將更新部署至所有租使用者資料庫, 以新增兩個額外的場地類型:*Motorcycle Racing* (機車賽) 和 *Swimming Club* (游泳俱樂部)。
+在 Wingtip Tickets 應用程式中，每個租用戶資料庫都包含一組支援的場地類型。 每個場地都屬於特定場地類型，其中定義了可舉辦的事件種類，並決定應用程式中使用的背景影像。 若要讓應用程式支援新的事件類型，則必須更新此參考資料及新增場地類型。  在此練習中，您會將更新部署至所有租使用者資料庫，以新增兩個額外的場地類型：*Motorcycle Racing* (機車賽) 和 *Swimming Club* (游泳俱樂部)。
 
 首先，檢閱每個租用戶資料庫中的場地類型。 連線至 SQL Server Management Studio (SSMS) 中的其中一個租用戶資料庫，並檢查 VenueTypes 資料表。  您也可以在 Azure 入口網站的查詢編輯器中查詢此資料表 (從資料庫頁面進行存取)。 
 
@@ -85,8 +85,8 @@ Demo-SchemaManagement.ps1 指令碼會呼叫 Deploy-SchemaManagement.ps1 指令�
 
 1. 在 SSMS 中，連線到目錄伺服器：catalog-dpt-&lt;user&gt;.database.windows.net 伺服器 
 1. 在 SSMS 中，開啟檔案 …\\Learning Modules\\Schema Management\\DeployReferenceData.sql
-1. 修改語句:SET @wtpUser = &lt; user&gt; , 並以您部署 Wingtip ticket SaaS Database Per Tenant 應用程式時所使用的使用者值取代
-1. 請確定您已連線到_jobagent_資料庫, 然後按 **F5**  以執行腳本
+1. 修改語句：設定 @wtpUser = &lt;user @ no__t-2，並取代您在部署 Wingtip 票證 SaaS Database Per Tenant 應用程式時所使用的使用者值
+1. 確定您已連線到 jobagent 資料庫，然後按 **F5** 以執行指令碼
 
 請觀察 *DeployReferenceData.sql* 指令碼中的下列元素：
 * **sp\_add\_target\_group** 會建立目標群組名稱 DemoServerGroup。
@@ -126,7 +126,7 @@ Demo-SchemaManagement.ps1 指令碼會呼叫 Deploy-SchemaManagement.ps1 指令�
 > * 更新所有租用戶資料庫中的參考資料
 > * 針對所有租用戶資料庫中的資料表建立索引
 
-接下來, 請嘗試[特定報表教學](saas-tenancy-cross-tenant-reporting.md)課程, 以探索跨租使用者資料庫執行分散式查詢。
+接下來，請嘗試[特定報表教學](saas-tenancy-cross-tenant-reporting.md)課程，以探索跨租使用者資料庫執行分散式查詢。
 
 
 ## <a name="additional-resources"></a>其他資源

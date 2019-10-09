@@ -14,21 +14,21 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.date: 06/25/2019
 ms.author: emalani
-ms.openlocfilehash: eed900ee54f62056eceeb35a43a4ba6526b049ca
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: a94b302ad813094cb4ce67e4bffc3dd43586366b
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67447098"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72027052"
 ---
 # <a name="create-a-xamarinandroid-app"></a>建立 Xamarin.Android 應用程式
 [!INCLUDE [app-service-mobile-selector-get-started](../../includes/app-service-mobile-selector-get-started.md)]
 
 > [!NOTE]
-> Visual Studio App Center 投入新的和整合式服務行動應用程式開發的核心。 開發人員可以使用**建置**，**測試**並**散發**services 設定持續整合和傳遞管線。 應用程式部署之後，開發人員可以監視的狀態和其應用程式使用的使用方式**Analytics**並**診斷**服務，並使用使用者參與**推播**服務。 開發人員也可以利用**Auth**來驗證使用者並**資料**保存和同步處理雲端中的應用程式資料的服務。 請參閱[App Center](https://appcenter.ms/?utm_source=zumo&utm_campaign=app-service-mobile-xamarin-android-get-started)今天。
->
+> Visual Studio App Center 支援行動應用程式開發的端對端和整合式服務中心。 開發人員可以使用**組建**、**測試**和**散發**服務來設定持續整合和傳遞管線。 部署應用程式之後，開發人員可以使用**分析**和**診斷**服務來監視其應用程式的狀態和使用，並與使用**推**播服務的使用者互動。 開發人員也可以利用**驗證**來驗證其使用者和**資料**服務，以保存及同步雲端中的應用程式資料。
+> 如果您想要在您的行動應用程式中整合雲端服務，請立即註冊 App Center [App center](https://appcenter.ms/?utm_source=zumo&utm_medium=Azure&utm_campaign=zumo%20doc) 。
 
-## <a name="overview"></a>概觀
+## <a name="overview"></a>總覽
 本教學課程將示範如何將雲端後端服務加入至 Xamarin.Android 應用程式。 如需詳細資訊，請參閱 [什麼是 Mobile Apps？](app-service-mobile-value-prop.md)。
 
 以下是完成之應用程式的螢幕擷取畫面：
@@ -53,24 +53,24 @@ ms.locfileid: "67447098"
 ## <a name="create-a-database-connection-and-configure-the-client-and-server-project"></a>建立資料庫連接，並設定用戶端和伺服器專案
 [!INCLUDE [app-service-mobile-configure-new-backend.md](../../includes/app-service-mobile-configure-new-backend.md)]
 
-## <a name="run-the-xamarinandroid-app"></a>執行 Xamarin.Android 應用程式
-1. 開啟 Xamarin.Android 專案。
+## <a name="run-the-xamarinandroid-app"></a>執行 Xamarin Android 應用程式
+1. 開啟 [Xamarin] 專案。
 
-2. 移至[Azure 入口網站](https://portal.azure.com/)並瀏覽至您所建立的行動應用程式。 在 `Overview`刀鋒視窗中，搜尋 URL，也就是您的行動裝置應用程式的公用端點。 範例-將會針對我的應用程式名稱"test123"sitename https://test123.azurewebsites.net 。
+2. 移至  [Azure 入口網站](https://portal.azure.com/)，然後流覽至您所建立的行動應用程式。 在 [`Overview`] 分頁上，尋找您的行動應用程式的公用端點 URL。 範例-我的應用程式名稱 "test123" 的 sitename 將會 https://test123.azurewebsites.net 。
 
-3. 開啟檔案`ToDoActivity.cs`在此資料夾中-xamarin.android/ZUMOAPPNAME/ToDoActivity.cs。 應用程式名稱是`ZUMOAPPNAME`。
+3. 開啟此資料夾中 `ToDoActivity.cs` 的檔案-[xamarin]/[z]/[ToDoActivity]。 應用程式名稱為 `ZUMOAPPNAME`。
 
-4. 在 `ToDoActivity`類別中，取代`ZUMOAPPURL`變數與上述的公用端點。
+4. 在 `ToDoActivity` 類別中，將 `ZUMOAPPURL` 變數取代為上述公用端點。
 
     `const string applicationURL = @"ZUMOAPPURL";`
 
-    會變成
+    滿
     
     `const string applicationURL = @"https://test123.azurewebsites.net";`
     
-5. 按 F5 鍵來部署和執行應用程式。
+5. 按 F5 鍵以部署並執行應用程式。
 
-6. 在應用程式中輸入有意義的文字 (例如 Complete the tutorial  )，然後按一下 [新增]  按鈕。
+6. 在應用程式中輸入有意義的文字 (例如 Complete the tutorial)，然後按一下 [新增] 按鈕。
 
     ![][10]
 

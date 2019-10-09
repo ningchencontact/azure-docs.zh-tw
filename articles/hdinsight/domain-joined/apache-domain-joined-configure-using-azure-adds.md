@@ -1,19 +1,19 @@
 ---
 title: 在 HDInsight 中使用 Azure Active Directory 的企業安全性套件
 description: 了解如何使用 Azure Active Directory Domain Services 來設定 HDInsight 企業安全性套件叢集。
-ms.service: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
+ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: seodec18
-ms.date: 04/23/2019
-ms.openlocfilehash: aa18c4a078edf579e8d9c4c09df99100dfcea148
-ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
+ms.date: 10/02/2019
+ms.openlocfilehash: 5989aca2b577621c31fe486877ea006cb25d47b5
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70918319"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72030383"
 ---
 # <a name="enterprise-security-package-configurations-with-azure-active-directory-domain-services-in-hdinsight"></a>在 HDInsight 中使用 Azure Active Directory Domain Services 的企業安全性套件設定
 
@@ -82,27 +82,27 @@ New-SelfSignedCertificate -Subject contoso100.onmicrosoft.com `
 
 將 Azure AD-DS 執行個體和 HDInsight 叢集放在相同的 Azure 虛擬網路中比較容易。 若您計畫使用不同的 VNET，您必須將那些虛擬網路設定為同儕節點，以便 HDI VM 可以看見網域控制站。 如需詳細資訊，請參閱[虛擬網路對等互連](../../virtual-network/virtual-network-peering-overview.md)。 
 
-VNET 對等互連後，請將 HDInsight VNET 設定為使用自訂的 DNS 伺服器，並輸入 Azure AD-DS 的私人 IP 作為 DNS 伺服器位址。 當兩個 VNET 使用相同的 DNS 伺服器時，您的自訂網域名稱將解析為正確的 IP，並且可從 HDInsight 存取。 例如，如果您的功能變數名稱`contoso.com`在此步驟之後， `ping contoso.com`應該會解析為正確的 Azure AD-DS IP。
+VNET 對等互連後，請將 HDInsight VNET 設定為使用自訂的 DNS 伺服器，並輸入 Azure AD-DS 的私人 IP 作為 DNS 伺服器位址。 當兩個 VNET 使用相同的 DNS 伺服器時，您的自訂網域名稱將解析為正確的 IP，並且可從 HDInsight 存取。 例如，如果您的功能變數名稱為 `contoso.com`，則在此步驟之後，`ping contoso.com` 應該會解析為正確的 Azure AD DS IP。
 
 ![為對等互連的 VNET 設定自訂 DNS 伺服器](./media/apache-domain-joined-configure-using-azure-adds/hdinsight-aadds-peered-vnet-configuration.png)
 
-如果您在您的 HDInsight 子網路中使用網路安全性群組 (NSG) 規則，您應該允許輸入和輸出流量[所需的 IP](../hdinsight-management-ip-addresses.md)。 
+如果您在 HDInsight 子網中使用網路安全性群組（NSG）規則，您應該允許輸入和輸出流量所[需的 ip](../hdinsight-management-ip-addresses.md) 。
 
 **若要測試**您的網路是否已正確設定，請將 Windows VM 加入至 HDInsight VNET/子網路，並 Ping 網域名稱 (它應更會解析為 IP)，接著執行 **ldp.exe** 以存取 Azure AD-DS 網域。 接著，**將此 Windows VM 加入至網域**，以確認用戶端與伺服器之間的所有必要 RPC 呼叫都會成功。 您也可以使用 **nslookup** 來確認對您儲存體帳戶或您可能使用之任何外部 DB (例如，外部 Hive 中繼存放區或 Ranger DB) 的網路存取。
-您應該確認所有[必要連接埠](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd772723(v=ws.10)#communication-to-domain-controllers) \(英文\) 都已在 AAD-DS 子網路網路安全性群組規則中列為允許清單 (若 AAD-DS 已由 NSG 保護)。 如果此 Windows VM 網域成功加入網域，您就可以繼續進行下一個步驟並建立 ESP 叢集。
+您應該確認所有[必要連接埠](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd772723(v=ws.10)#communication-to-domain-controllers) \(英文\) 都已在 AAD-DS 子網路網路安全性群組規則中列為允許清單 (若 AAD-DS 已由 NSG 保護)。 如果加入此 windows VM 的網域成功，您可以繼續進行下一個步驟，並建立 ESP 叢集。
 
 ## <a name="create-a-hdinsight-cluster-with-esp"></a>建立具有 ESP 的 HDInsight 叢集
 
-正確設定上述步驟之後，下一個步驟是在已啟用 ESP 的情況下建立 HDInsight 叢集。 當您建立 HDInsight 叢集時，您可以在 [自訂] 索引標籤中啟用「企業安全性套件」。若偏好使用 Azure Resource Manager 範本來進行部署，請使用入口網站體驗一次，並在最後一個 [摘要] 頁面下載預先填寫的範本，以供未來重複使用。
+正確設定上述步驟之後，下一個步驟是在已啟用 ESP 的情況下建立 HDInsight 叢集。 當您建立 HDInsight 叢集時，您可以在 [**安全性 + 網路**] 索引標籤中啟用企業安全性套件。如果您想要使用 Azure Resource Manager 範本進行部署，請使用入口網站體驗一次，然後在 [**審查 + 建立**] 頁面上下載預先填入的範本，以供日後重複使用。
 
 > [!NOTE]  
 > ESP 叢集名稱的前六個字元在您的環境中必須是唯一的。 例如，如果您在不同的 VNET 中有多個 ESP 叢集，您應該選擇能確保叢集名稱前六個字元是唯一的命名慣例。
 
-![Azure HDInsight 企業安全性套件網域驗證](./media/apache-domain-joined-configure-using-azure-adds/hdinsight-create-cluster-esp-domain-validate.png)
+![Azure HDInsight 企業安全性套件網域驗證](./media/apache-domain-joined-configure-using-azure-adds/azure-portal-cluster-security-networking-esp.png)
 
-在您啟用 ESP 後，系統會自動偵測及驗證與 Azure AD-DS 有關的常見錯誤設定。 修正這些錯誤之後，您可以繼續進行下一個步驟： 
+在您啟用 ESP 後，系統會自動偵測及驗證與 Azure AD-DS 有關的常見錯誤設定。 修正這些錯誤之後，您可以繼續進行下一個步驟：
 
-![Azure HDInsight 企業安全性套件失敗的網域驗證](./media/apache-domain-joined-configure-using-azure-adds/hdinsight-create-cluster-esp-domain-validate-failed.png)
+![Azure HDInsight 企業安全性套件失敗的網域驗證](./media/apache-domain-joined-configure-using-azure-adds/azure-portal-cluster-security-networking-esp-error.png)
 
 建立具有 ESP 的 HDInsight 叢集時，必須提供下列參數：
 
@@ -112,13 +112,9 @@ VNET 對等互連後，請將 HDInsight VNET 設定為使用自訂的 DNS 伺服
 
 - **LDAPS URL**：例如 `ldaps://contoso.com:636`。
 
-下列螢幕擷取畫面顯示 Azure 入口網站中的成功設定：
-
-![Azure HDInsight ESP Active Directory Domain Services 的設定](./media/apache-domain-joined-configure-using-azure-adds/hdinsight-domain-joined-configuration-azure-aads-portal.png).
-
 您所建立的受控識別，可在建立新的叢集時從 [使用者指派的受控識別] 下拉式清單中選擇。
 
-![Azure HDInsight ESP Active Directory Domain Services 受控識別](./media/apache-domain-joined-configure-using-azure-adds/hdinsight-identity-managed-identity.png).
+![Azure HDInsight ESP Active Directory Domain Services 受控識別](./media/apache-domain-joined-configure-using-azure-adds/azure-portal-cluster-security-networking-identity.png).
 
 ## <a name="next-steps"></a>後續步驟
 

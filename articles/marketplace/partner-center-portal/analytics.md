@@ -7,12 +7,12 @@ ms.author: shthota
 ms.service: marketplace
 ms.topic: conceptual
 ms.date: 09/09/2019
-ms.openlocfilehash: 87ecf534fa7d4f3609882f5f18b314c246e388bd
-ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
+ms.openlocfilehash: b48e0cddfe4880382147e7bfb634335f10d6f5f9
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71036635"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72028858"
 ---
 # <a name="analytics-for-the-commercial-marketplace-in-partner-center"></a>合作夥伴中心的商業 Marketplace 分析
 
@@ -26,6 +26,7 @@ ms.locfileid: "71036635"
 |[訂單](#orders-dashboard)|具有圖形化和可下載格式之訂單的相關資訊|
 |[客戶](#customer-dashboard)|您的客戶相關資訊，包括成長趨勢，以圖形化且可下載的格式呈現|
 |[下載次數](#downloads-dashboard)|過去30天內的下載要求清單|
+|[評等和評論](#ratings-and-reviews)| 您的客戶對於其所取得之供應專案的評等和評論的相關資訊。
 
 ## <a name="summary-dashboard"></a>摘要儀表板
 
@@ -44,7 +45,7 @@ ms.locfileid: "71036635"
 
 ![合作夥伴中心分析儀表板](./media/analyze-dashboard.png)
 
-### <a name="totals"></a>總計
+### <a name="totals"></a>總和
 
 在選取的日期範圍內，[**總計**] 區段會顯示所建立的所有訂單或已取得的客戶計數。 
 
@@ -236,26 +237,26 @@ ms.locfileid: "71036635"
 |---|---|---|
 | Azure 授權類型 | Customer、Order | 客戶用來購買 Azure 的授權合約類型。 也稱為通道 |
 | Azure 授權類型：雲端解決方案提供者 | Customer、Order | 終端客戶透過其雲端解決方案提供者 (作為您的轉銷商) 取得 Azure 和您的 Marketplace 供應項目。|
-| Azure 授權類型：企業 | Customer、Order | 終端客戶透過 Enterprise 合約 (直接與 Microsoft 簽署) 取得 Azure 和您的 Marketplace 供應項目。|
+| Azure 授權類型：Enterprise | Customer、Order | 終端客戶透過 Enterprise 合約 (直接與 Microsoft 簽署) 取得 Azure 和您的 Marketplace 供應項目。|
 | Azure 授權類型：企業透過轉銷商  | Customer、Order | 終端客戶透過協助其與 Microsoft Enterprise 合約的轉銷商，取得 Azure 和您的 Marketplace 供應專案。|  |
 | Azure 授權類型：隨用隨付| Customer、Order | 終端客戶透過「隨用隨付」合約取得 Azure 和您的 Marketplace 供應專案，並直接與 Microsoft 簽署。||
 | 雲端執行個體名稱| 順序| 發生 VM 部署的 Microsoft Cloud。||
 | 雲端實例名稱：Azure 全域| 順序| 公用的全球 Microsoft 雲端。|| |
 | 雲端實例名稱：Azure Government | 順序| 政府特有的 Microsoft 雲端，適用于下列其中一種政府：中國、德國或美國地區。| |
-| 客戶縣/市| 客戶| 客戶提供的城市名稱。 城市可能與客戶的 Azure 訂用帳戶中的城市不同。||
-| 客戶通訊語言  | 客戶| 客戶慣用於通訊的語言。||
-| 客戶公司名稱 | Customer、Order | 客戶提供的公司名稱。 名稱可能與客戶的 Azure 訂用帳戶中的名稱不同。|  |
+| 客戶縣/市| Customer| 客戶提供的城市名稱。 城市可能與客戶的 Azure 訂用帳戶中的城市不同。||
+| 客戶通訊語言  | Customer| 客戶慣用於通訊的語言。||
+| 客戶公司名稱 | Customer、Order | 客戶提供的公司名稱。 名稱可能與客戶的 Azure 訂用帳戶中的城市不同。|  |
 | 客戶國家/地區 | Customer、Order | 客戶提供的國家/地區名稱。 國家（地區）可能會與客戶 Azure 訂用帳戶中的國家/地區不同。|  |
-| 客戶電子郵件| 客戶| 終端客戶所提供的電子郵件地址。 電子郵件可能與客戶的 Azure 訂用帳戶中的電子郵件地址不同。||
-| 客戶名字| 客戶| 客戶提供的名稱。 名稱可能與客戶的 Azure 訂用帳戶中提供的名稱不同。| |
+| 客戶電子郵件| Customer| 終端客戶所提供的電子郵件地址。 電子郵件可能與客戶的 Azure 訂用帳戶中的電子郵件地址不同。||
+| 客戶名字| Customer| 客戶提供的名稱。 名稱可能與客戶的 Azure 訂用帳戶中提供的名稱不同。| |
 | 客戶識別碼 | Customer、Order | 指派給客戶的唯一識別碼。 客戶可能會有零或多個 Azure Marketplace 訂用帳戶。|  |
-| 客戶郵遞區號  | 客戶| 客戶所提供的郵遞區號。 程式碼可能不同于客戶的 Azure 訂用帳戶中提供的郵遞區號。| |
-| 客戶州| 客戶| 客戶提供的狀態（位址）。 狀態可能與客戶的 Azure 訂用帳戶中提供的狀態不同。| |
-| 取得日期| 客戶| 客戶購買您所發佈之任何供應專案的第一個日期。| |
-| 損失日期| 客戶| 客戶最近一次已購買的所有供應專案的最後一個日期。||
+| 客戶郵遞區號  | Customer| 客戶所提供的郵遞區號。 程式碼可能不同于客戶的 Azure 訂用帳戶中提供的郵遞區號。| |
+| 客戶州| Customer| 客戶提供的狀態（位址）。 狀態可能與客戶的 Azure 訂用帳戶中提供的狀態不同。| |
+| 取得日期| Customer| 客戶購買您所發佈之任何供應專案的第一個日期。| |
+| 損失日期| Customer| 客戶最近一次已購買的所有供應專案的最後一個日期。||
 | 是新客戶  | 順序| 此值將會識別一或多個新客戶第一次取得您的供應專案（或非）。 如果在同一個日曆月份內「取得日期」，值會是「是」。 如果客戶已在行事曆月份之前購買任何供應專案，值將會是「否」。 |
 | 為預覽 SKU| 順序| 此值可讓您知道您是否已將 SKU 標記為「預覽」。 如果 SKU 已適當標記，則值為 "Yes"，而且只有您所授權的 Azure 訂用帳戶可以部署和使用此映射。 如果 SKU 尚未識別為 "preview"，則值為 "No"。  |
-| 促銷連絡人是否加入宣告| 客戶| 此值可讓您知道客戶是否主動加入宣告來自發行者的促銷連絡人。 目前，我們沒有向客戶顯示該選項，因此我們一律指出 [否]。 一旦部署了此功能，我們就會開始據以更新。|
+| 促銷連絡人是否加入宣告| Customer| 此值可讓您知道客戶是否主動加入宣告來自發行者的促銷連絡人。 目前，我們沒有向客戶顯示該選項，因此我們一律指出 [否]。 一旦部署了此功能，我們就會開始據以更新。|
 | Marketplace 授權類型| 順序| Marketplace 供應項目的計費方法。||
 | Marketplace 授權類型：透過 Azure 計費| 順序| Microsoft 是您對於此 Marketplace 供應項目的代理人，並且會代替您向客戶收取費用。 (PAYG 信用卡或企業發票)||
 | Marketplace 授權類型：攜帶您自己的授權 | 順序| VM 需要客戶提供的授權金鑰來進行部署。 Microsoft 不會向客戶收取透過 marketplace 以這種方式列出供應專案的費用。||
@@ -276,12 +277,47 @@ ms.locfileid: "71036635"
 | 供應專案類型：虛擬機器 | 順序| 當您要將虛擬設備部署到與客戶相關的訂用帳戶時，請使用「虛擬機器」供應項目類型。||
 | 供應專案類型：Visual Studio Marketplace 延伸模組  | 順序| 供應專案類型先前可供 Azure DevOps 延伸模組開發人員使用。 未來 Azure DevOps 延伸模組開發人員可以直接將其延伸模組銷售給客戶。 擴充功能供應專案可以設定為付費或包含試用版。 |
 | 訂單取消日期| 順序| Marketplace 訂單取消日期。||
-| 訂單 ID| 順序| Marketplace 服務客戶訂單的唯一識別碼。 以虛擬機器使用量為基礎的供應專案未與訂單相關聯。| |
+| 訂單識別碼| 順序| Marketplace 服務客戶訂單的唯一識別碼。 以虛擬機器使用量為基礎的供應專案未與訂單相關聯。| |
 | 訂單購買日期| 順序| 建立 Marketplace 訂單的日期。|||
 | 訂單狀態| 順序| 在資料上次重新整理時，Marketplace 的狀態。|     |
-| 訂單狀態：有效  | 順序| 客戶已購買訂單，但尚未取消其訂單。|         |
+| 訂單狀態：Active  | 順序| 客戶已購買訂單，但尚未取消其訂單。|         |
 | 訂單狀態：已取消 | 順序| 客戶先前已購買訂單，並在後續取消訂單。||
-| 提供者電子郵件| 客戶| 與 Microsoft 與終端客戶之間關係相關之提供者的電子郵件地址。 如果客戶是透過轉銷商的企業，這會是轉銷商。 如果涉及雲端解決方案提供者（CSP），這會是 CSP。|
-| 提供者名稱| 客戶| 與 Microsoft 和終端客戶之間關係相關的提供者名稱。 如果客戶是透過轉銷商的企業，這會是轉銷商。 如果涉及雲端解決方案提供者（CSP），這會是 CSP。|
+| 提供者電子郵件| Customer| 與 Microsoft 與終端客戶之間關係相關之提供者的電子郵件地址。 如果客戶是透過轉銷商的企業，這會是轉銷商。 如果涉及雲端解決方案提供者（CSP），這會是 CSP。|
+| 提供者名稱| Customer| 與 Microsoft 和終端客戶之間關係相關的提供者名稱。 如果客戶是透過轉銷商的企業，這會是轉銷商。 如果涉及雲端解決方案提供者（CSP），這會是 CSP。|
 | SKU| 順序| 發佈期間定義的 SKU 名稱。 供應專案可能有許多 Sku，但 SKU 只能與單一供應專案相關聯。||
 | 試用結束日期| 順序| 此訂單將結束或已結束的日期。||
+
+## <a name="ratings-and-reviews"></a>評等和評論
+
+當客戶在這兩個 marketplace 中流覽、搜尋和購買供應專案時，他們可以針對他們取得的供應專案留下評等和評論。 他們可以提交新的評等或評論，以及更新或刪除已提交的評等或評論。 評論會在 Azure marketplace 或 AppSource 中張貼于供應專案產品顯示頁面的 [評論] 索引標籤上。 客戶可以包含其評等或評論的名稱，或是以匿名方式張貼。  
+
+> [!NOTE]
+> 客戶只能對其所擁有的評等和評論進行變更。
+
+**評量 & [審查] 儀表板**會顯示客戶活動的趨勢和深入解析。 它提供下列各項的圖形化表示：
+
+- 評等 & 評論  
+- 審查批註
+
+### <a name="marketplace-storefront-tabs"></a>Marketplace 店面索引標籤
+
+發行者可以在 AppSource & Azure Marketplace 索引標籤中，分別查看其供應專案計量。 若要查看特定的供應專案計量，請從下拉式清單中選取 [**供應**專案]：
+
+![合作夥伴中心分析供應專案下拉式清單](./media/analyze-offer-dropdown.png)
+
+### <a name="ratings-and-reviews-summary"></a>評等和評論摘要
+
+[評等] & [評論摘要] 區段會顯示下列所選日期範圍的度量：
+
+- **平均評等：** 客戶針對所選供應專案所提交之所有評等的加權平均星級評等。
+- **評等明細：** 星級評等的明細，依據提交評等的客戶計數。 橫條圖會以實際和修訂的評等來堆疊（已更新的評等計數）。
+- **評等總計：** 已提交評等的整體計數。 此計數也包含具有和不含評論的評等。
+- **包含評論的評等：** 已提交的評論計數。
+
+![合作夥伴中心分析評等和評論摘要](./media/analyze-ratings-summary.png)
+
+### <a name="review-comments"></a>審查批註
+
+評論會依時間先後順序顯示。 預設的 view 會顯示所有評論。 您可以使用下拉式功能表中的**篩選**器，透過星級評等來篩選評論。 您也可以搜尋出現在審查中的關鍵字。  
+
+![合作夥伴中心分析審核意見](./media/analyze-reviews.png)

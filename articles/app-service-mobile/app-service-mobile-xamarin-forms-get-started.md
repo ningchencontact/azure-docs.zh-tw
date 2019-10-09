@@ -13,22 +13,22 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.date: 06/25/2019
 ms.author: emalani
-ms.openlocfilehash: bca0f0de7de321060635459c4435525f650c7467
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 42ec213a191ff460b05f94dff401fbed1a3bd510
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67446328"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72025075"
 ---
 # <a name="create-a-xamarinforms-app-with-azure"></a>使用 Azure 建立 Xamarin.Forms 應用程式
 
 [!INCLUDE [app-service-mobile-selector-get-started](../../includes/app-service-mobile-selector-get-started.md)]
 
 > [!NOTE]
-> Visual Studio App Center 投入新的和整合式服務行動應用程式開發的核心。 開發人員可以使用**建置**，**測試**並**散發**services 設定持續整合和傳遞管線。 應用程式部署之後，開發人員可以監視的狀態和其應用程式使用的使用方式**Analytics**並**診斷**服務，並使用使用者參與**推播**服務。 開發人員也可以利用**Auth**來驗證使用者並**資料**保存和同步處理雲端中的應用程式資料的服務。 請參閱[App Center](https://appcenter.ms/?utm_source=zumo&utm_campaign=app-service-mobile-xamarin-forms-get-started)今天。
->
+> Visual Studio App Center 支援行動應用程式開發的端對端和整合式服務中心。 開發人員可以使用**組建**、**測試**和**散發**服務來設定持續整合和傳遞管線。 部署應用程式之後，開發人員可以使用**分析**和**診斷**服務來監視其應用程式的狀態和使用，並與使用**推**播服務的使用者互動。 開發人員也可以利用**驗證**來驗證其使用者和**資料**服務，以保存及同步雲端中的應用程式資料。
+> 如果您想要在您的行動應用程式中整合雲端服務，請立即註冊 App Center [App center](https://appcenter.ms/?utm_source=zumo&utm_medium=Azure&utm_campaign=zumo%20doc) 。
 
-## <a name="overview"></a>概觀
+## <a name="overview"></a>總覽
 本教學課程說明如何使用 Azure App Service 的 Mobile Apps 功能作為後端，將雲端型後端服務新增到 Xamarin.Forms 行動裝置應用程式。 您會同時建立新的 Mobile Apps 後端，以及可在 Azure 中儲存應用程式資料的簡易待辦事項清單 Xamarin.Forms 應用程式。
 
 完成本教學課程是所有其他 Xamarin.Forms 應用程式的行動應用程式教學課程的必要條件。
@@ -39,9 +39,9 @@ ms.locfileid: "67446328"
 
 * 使用中的 Azure 帳戶。 如果您沒有帳戶，可以註冊 Azure 試用版並取得最多 10 個免費的行動應用程式，即使在試用期結束之後仍可繼續使用這些應用程式。 如需詳細資訊，請參閱 [Azure 免費試用](https://azure.microsoft.com/pricing/free-trial/)。
 
-* Visual Studio Tools for Xamarin，在 Visual Studio 2017 或更新版本或 Visual Studio for mac。 請參閱[Xamarin 安裝頁面][Install Xamarin]如需相關指示。
+* 適用于 Xamarin、Visual Studio 2017 或更新版本，或 Visual Studio for Mac 的 Visual Studio Tools。 如需相關指示，請參閱[Xamarin 安裝頁面][Install Xamarin]。
 
-* (選擇性) 若要建置 iOS 應用程式，則需要安裝了 Xcode 9.0 或更新版本的 Mac。 Visual Studio for Mac 可以用來開發 iOS 應用程式或 Visual Studio 2017 或更新版本可用 （只要 Mac 在網路上可用）。
+* (選擇性) 若要建置 iOS 應用程式，則需要安裝了 Xcode 9.0 或更新版本的 Mac。 Visual Studio for Mac 可用來開發 iOS 應用程式，或可以使用 Visual Studio 2017 或更新版本（只要網路上有 Mac 可用）。
 
 ## <a name="create-a-new-mobile-apps-back-end"></a>建立新的 Mobile Apps 後端
 [!INCLUDE [app-service-mobile-dotnet-backend-create-new-service](../../includes/app-service-mobile-dotnet-backend-create-new-service.md)]
@@ -49,21 +49,21 @@ ms.locfileid: "67446328"
 ## <a name="create-a-database-connection-and-configure-the-client-and-server-project"></a>建立資料庫連接，並設定用戶端和伺服器專案
 [!INCLUDE [app-service-mobile-configure-new-backend.md](../../includes/app-service-mobile-configure-new-backend.md)]
 
-## <a name="run-the-xamarinforms-solution"></a>執行 Xamarin.Forms 方案
+## <a name="run-the-xamarinforms-solution"></a>執行 Xamarin Forms 解決方案
 
-Visual Studio Tools for Xamarin 所開啟的方案，請參閱[Xamarin 安裝指示][Install Xamarin]。 如果工具已安裝好，請遵循下列步驟來下載並開啟解決方案：
+需要 Xamarin 的 Visual Studio Tools 才能開啟解決方案，請參閱[xamarin 安裝指示][Install Xamarin]。 如果工具已安裝好，請遵循下列步驟來下載並開啟解決方案：
 
 ### <a name="visual-studio-windows-and-mac"></a>Visual Studio （Windows 和 Mac）
 
-1. 移至[Azure 入口網站](https://portal.azure.com/)並瀏覽至您所建立的行動應用程式。 在 `Overview`刀鋒視窗中，搜尋 URL，也就是您的行動裝置應用程式的公用端點。 範例-將會針對我的應用程式名稱"test123"sitename https://test123.azurewebsites.net 。
+1. 移至  [Azure 入口網站](https://portal.azure.com/)，然後流覽至您所建立的行動應用程式。 在 [`Overview`] 分頁上，尋找您的行動應用程式的公用端點 URL。 範例-我的應用程式名稱 "test123" 的 sitename 將會 https://test123.azurewebsites.net 。
 
-2. 開啟檔案`Constants.cs`在此資料夾中-xamarin.forms/ZUMOAPPNAME。 應用程式名稱是`ZUMOAPPNAME`。
+2. 在此資料夾中開啟 `Constants.cs` 的檔案-xamarin. forms/z。 應用程式名稱為 `ZUMOAPPNAME`。
 
-3. 在 `Constants.cs`類別中，取代`ZUMOAPPURL`變數與上述的公用端點。
+3. 在 `Constants.cs` 類別中，將 `ZUMOAPPURL` 變數取代為上述公用端點。
 
     `public static string ApplicationURL = @"ZUMOAPPURL";`
 
-    會變成
+    滿
 
     `public static string ApplicationURL = @"https://test123.azurewebsites.net";`
     
@@ -75,21 +75,21 @@ Visual Studio Tools for Xamarin 所開啟的方案，請參閱[Xamarin 安裝指
 
 ### <a name="visual-studio"></a>Visual Studio
 
-1. 以滑鼠右鍵按一下 Android (Droid) 專案，然後選取 [設為起始專案]  。
+1. 以滑鼠右鍵按一下 Android (Droid) 專案，然後選取 [設為起始專案]。
 
-2. 在 [建置]  功能表上，選取 [組態管理員]  。
+2. 在 [建置] 功能表上，選取 [組態管理員]。
 
-3. 在 [組態管理員]  對話方塊中，選取 Android 專案旁邊的 [建置]  和 [部署]  核取方塊，並確定共用程式碼專案已核取 [建置]  方塊。
+3. 在 [組態管理員] 對話方塊中，選取 Android 專案旁邊的 [建置] 和 [部署] 核取方塊，並確定共用程式碼專案已核取 [建置] 方塊。
 
-4. 若要建置專案並在 Android 模擬器中啟動應用程式，請按 **F5** 鍵，或是按一下 [啟動]  按鈕。
+4. 若要建置專案並在 Android 模擬器中啟動應用程式，請按 **F5** 鍵，或是按一下 [啟動] 按鈕。
 
 ### <a name="visual-studio-for-mac"></a>Visual Studio for Mac
 
-1. 以滑鼠右鍵按一下 Android 專案，然後選取 [設為起始專案]  。
+1. 以滑鼠右鍵按一下 Android 專案，然後選取 [設為起始專案]。
 
-2. 若要建置專案並在 Android 模擬器中啟動應用程式，請選取 [執行]  功能表，再選取 [開始偵錯]  。
+2. 若要建置專案並在 Android 模擬器中啟動應用程式，請選取 [執行] 功能表，再選取 [開始偵錯]。
 
-在應用程式中，輸入有意義的文字 (例如「了解 Xamarin」  )，然後選取加號 ( **+** )。
+在應用程式中，輸入有意義的文字 (例如「了解 Xamarin」)，然後選取加號 ( **+** )。
 
 ![Android 待辦事項應用程式][11]
 
@@ -105,21 +105,21 @@ Visual Studio Tools for Xamarin 所開啟的方案，請參閱[Xamarin 安裝指
 
 ### <a name="visual-studio"></a>Visual Studio
 
-1. 以滑鼠右鍵按一下 iOS 專案，然後選取 [設為起始專案]  。
+1. 以滑鼠右鍵按一下 iOS 專案，然後選取 [設為起始專案]。
 
-2. 在 [建置]  功能表上，選取 [組態管理員]  。
+2. 在 [建置] 功能表上，選取 [組態管理員]。
 
-3. 在 [組態管理員]  對話方塊中，選取 iOS 專案旁邊的 [建置]  和 [部署]  核取方塊，並確定共用程式碼專案已核取 [建置]  方塊。
+3. 在 [組態管理員] 對話方塊中，選取 iOS 專案旁邊的 [建置] 和 [部署] 核取方塊，並確定共用程式碼專案已核取 [建置] 方塊。
 
 4. 若要建置專案並在 iPhone 模擬器中啟動應用程式，請選取 **F5** 鍵。
 
 ### <a name="visual-studio-for-mac"></a>Visual Studio for Mac
 
-1. 以滑鼠右鍵按一下 iOS 專案，然後選取 [設為起始專案]  。
+1. 以滑鼠右鍵按一下 iOS 專案，然後選取 [設為起始專案]。
 
-2. 在 [執行]  功能表上，選取 [開始偵錯]  以建置專案並在 iPhone 模擬器中啟動應用程式。
+2. 在 [執行] 功能表上，選取 [開始偵錯] 以建置專案並在 iPhone 模擬器中啟動應用程式。
 
-在應用程式中，輸入有意義的文字 (例如「了解 Xamarin」  )，然後選取加號 ( **+** )。
+在應用程式中，輸入有意義的文字 (例如「了解 Xamarin」)，然後選取加號 ( **+** )。
 
 ![iOS 待辦事項應用程式][10]
 
@@ -135,18 +135,18 @@ Visual Studio Tools for Xamarin 所開啟的方案，請參閱[Xamarin 安裝指
 
 ### <a name="visual-studio"></a>Visual Studio
 
-1. 以滑鼠右鍵按一下任意 UWP 專案，然後選取 [設為起始專案]  。
+1. 以滑鼠右鍵按一下任意 UWP 專案，然後選取 [設為起始專案]。
 
-2. 在 [建置]  功能表上，選取 [組態管理員]  。
+2. 在 [建置] 功能表上，選取 [組態管理員]。
 
-3. 在 [組態管理員]  對話方塊中，選取所選擇 Windows 專案旁邊的 [建置]  和 [部署]  核取方塊，並確定共用程式碼專案已核取 [建置]  方塊。
+3. 在 [組態管理員] 對話方塊中，選取所選擇 Windows 專案旁邊的 [建置] 和 [部署] 核取方塊，並確定共用程式碼專案已核取 [建置] 方塊。
 
-4. 若要建置專案並在 Windows 模擬器中啟動應用程式，請按 **F5** 鍵，或是按一下 [啟動]  按鈕 (名稱應該是**本機電腦**)。
+4. 若要建置專案並在 Windows 模擬器中啟動應用程式，請按 **F5** 鍵，或是按一下 [啟動] 按鈕 (名稱應該是**本機電腦**)。
 
 > [!NOTE]
 > Windows 專案不能在 macOS 中執行。
 
-在應用程式中，輸入有意義的文字 (例如「了解 Xamarin」  )，然後選取加號 ( **+** )。
+在應用程式中，輸入有意義的文字 (例如「了解 Xamarin」)，然後選取加號 ( **+** )。
 
 此動作會傳送 post 要求到 Azure 中代管的新 Mobile Apps 後端。 要求中的資料會插入 TodoItem 資料表中。 Mobile Apps 後端會傳回資料表中儲存的項目，而該資料會顯示在清單中。
 

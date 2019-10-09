@@ -8,12 +8,12 @@ ms.service: container-instances
 ms.topic: article
 ms.date: 07/11/2019
 ms.author: danlep
-ms.openlocfilehash: ad7f93bb3934ca01b7f45c0bd4b5cc8be81ea54b
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: 05f1bcd5e80d7c06fbaca1abe89c84f6743a5979
+ms.sourcegitcommit: f9e81b39693206b824e40d7657d0466246aadd6e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68325531"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72034980"
 ---
 # <a name="deploy-container-instances-into-an-azure-virtual-network"></a>將容器執行個體部署至 Azure 虛擬網路
 
@@ -30,6 +30,7 @@ ms.locfileid: "68325531"
 > [!IMPORTANT]
 > 此功能目前在預覽階段，但[有某些限制](#preview-limitations)。 若您同意[補充的使用規定][terms-of-use]即可取得預覽。 在公開上市 (GA) 之前，此功能的某些領域可能會變更。
 
+
 ## <a name="virtual-network-deployment-limitations"></a>虛擬網路部署限制
 
 當您將容器群組部署至虛擬網路時，會有特定限制。
@@ -40,7 +41,7 @@ ms.locfileid: "68325531"
 
 ## <a name="preview-limitations"></a>預覽限制
 
-雖然這項功能處於預覽狀態, 但在將容器群組部署至虛擬網路時, 適用下列限制。 
+雖然這項功能處於預覽狀態，但在將容器群組部署至虛擬網路時，適用下列限制。 
 
 [!INCLUDE [container-instances-vnet-limits](../../includes/container-instances-vnet-limits.md)]
 
@@ -73,9 +74,9 @@ ms.locfileid: "68325531"
 
 ### <a name="network-profile"></a>網路設定檔
 
-網路設定檔是 Azure 資源的網路設定範本。 其會為資源指定特定的網路屬性，例如應該部署該資源的子網路。 當您第一次使用[az container create][az-container-create]命令將容器群組部署至子網 (也就是虛擬網路) 時, Azure 會為您建立網路設定檔。 然後您可以在日後部署至子網路時，使用該網路設定檔。 
+網路設定檔是 Azure 資源的網路設定範本。 其會為資源指定特定的網路屬性，例如應該部署該資源的子網路。 當您第一次使用[az container create][az-container-create]命令將容器群組部署至子網（也就是虛擬網路）時，Azure 會為您建立網路設定檔。 然後您可以在日後部署至子網路時，使用該網路設定檔。 
 
-若要使用 Resource Manager 範本、YAML 檔案或程式設計方法將容器群組部署至子網路，您必須提供網路設定檔的完整 Resource Manager 資源識別碼。 您可以使用先前使用[az container create][az-container-create]建立的設定檔, 或使用 Resource Manager 範本建立設定檔 (請參閱[範本範例](https://github.com/Azure/azure-quickstart-templates/tree/master/101-aci-vnet)和[參考](https://docs.microsoft.com/azure/templates/microsoft.network/networkprofiles))。 若要取得先前建立之設定檔的識別碼, 請使用[az network profile list][az-network-profile-list]命令。 
+若要使用 Resource Manager 範本、YAML 檔案或程式設計方法將容器群組部署至子網路，您必須提供網路設定檔的完整 Resource Manager 資源識別碼。 您可以使用先前使用[az container create][az-container-create]建立的設定檔，或使用 Resource Manager 範本建立設定檔（請參閱[範本範例](https://github.com/Azure/azure-quickstart-templates/tree/master/101-aci-vnet)和[參考](https://docs.microsoft.com/azure/templates/microsoft.network/networkprofiles)）。 若要取得先前建立之設定檔的識別碼，請使用[az network profile list][az-network-profile-list]命令。 
 
 在下圖中，多個容器群組已部署到委派至 Azure 容器執行個體的子網路。 當您將一個容器群組部署至子網路後，就可立即指定相同的網路設定檔來部署其他容器群組。
 
@@ -83,11 +84,11 @@ ms.locfileid: "68325531"
 
 ## <a name="deployment-scenarios"></a>部署案例
 
-您可以使用[az container create][az-container-create]將容器群組部署至新的虛擬網路, 並允許 Azure 為您建立所需的網路資源, 或部署到現有的虛擬網路。 
+您可以使用[az container create][az-container-create]將容器群組部署至新的虛擬網路，並允許 Azure 為您建立所需的網路資源，或部署到現有的虛擬網路。 
 
 ### <a name="new-virtual-network"></a>新的虛擬網路
 
-若要部署到新的虛擬網路, 並讓 Azure 自動為您建立網路資源, 請在執行[az container create][az-container-create]時指定下列各項:
+若要部署到新的虛擬網路，並讓 Azure 自動為您建立網路資源，請在執行[az container create][az-container-create]時指定下列各項：
 
 * 虛擬網路名稱
 * CIDR 格式的虛擬網路位址首碼
@@ -96,14 +97,14 @@ ms.locfileid: "68325531"
 
 虛擬網路及子網路位址首碼分別指定了虛擬網路及子網路的位址空間。 這些值會使用無類別網域間路由選擇 (CIDR) 標記法呈現，例如：`10.0.0.0/16`。 如需使用子網路的詳細資訊，請參閱[新增、變更或刪除虛擬網路子網路](../virtual-network/virtual-network-manage-subnet.md)。
 
-當您利用此方法部署了第一個容器群組後，就可以透過指定虛擬網路及子網路名稱，或是 Azure 自動為您建立的網路設定檔，來部署至同一個子網路。 因為 Azure 將該子網路委派至 Azure 容器執行個體，所以您「只」  能將容器群組部署至子網路。
+當您利用此方法部署了第一個容器群組後，就可以透過指定虛擬網路及子網路名稱，或是 Azure 自動為您建立的網路設定檔，來部署至同一個子網路。 因為 Azure 將該子網路委派至 Azure 容器執行個體，所以您「只」能將容器群組部署至子網路。
 
 ### <a name="existing-virtual-network"></a>現有的虛擬網路
 
 將容器群組部署至現有的虛擬網路：
 
-1. 在現有的虛擬網路中建立子網路，或是將「所有」  其他資源的子網路清空
-1. 使用[az container create][az-container-create]部署容器群組, 並指定下列其中一項:
+1. 在現有的虛擬網路中建立子網路，或是將「所有」其他資源的子網路清空
+1. 使用[az container create][az-container-create]部署容器群組，並指定下列其中一項：
    * 虛擬網路名稱及子網路名稱
    * 虛擬網路資源識別碼與子網路資源識別碼，其允許使用不同資源群組中的虛擬網路
    * 您可以使用[az network profile list][az-network-profile-list]取得的網路設定檔案名稱或識別碼
@@ -118,7 +119,7 @@ ms.locfileid: "68325531"
 
 首先，部署容器群組，並為新的虛擬網路及子網路指定參數。 當您指定這些參數時，Azure 會建立虛擬網路及子網路，將子網路委派至 Azure 容器執行個體，以及建立網路設定檔。 當您建立這些資源後，您的容器群組就會部署至子網路。
 
-執行下列[az container create][az-container-create]命令, 以指定新的虛擬網路和子網的設定。 您必須提供在以下區域中建立的資源群組名稱：[支援](#preview-limitations)虛擬網路中的容器群組。 此命令會部署公用 Microsoft [aci-helloworld][aci-helloworld]容器, 其會執行小型 node.js web 伺服器以提供靜態網頁。 在下一節中，您會對同一個子網路部署第二個容器群組，並測試兩個容器執行個體之間的通訊。
+執行下列[az container create][az-container-create]命令，以指定新的虛擬網路和子網的設定。 您必須提供在以下區域中建立的資源群組名稱：[支援](#preview-limitations)虛擬網路中的容器群組。 此命令會部署公用 Microsoft [aci-helloworld][aci-helloworld]容器，其會執行小型 node.js web 伺服器以提供靜態網頁。 在下一節中，您會對同一個子網路部署第二個容器群組，並測試兩個容器執行個體之間的通訊。
 
 ```azurecli
 az container create \
@@ -191,7 +192,7 @@ index.html           100% |*******************************|  1663   0:00:00 ETA
 * `networkProfile`:為 Azure 資源指定網路設定，例如虛擬網路及子網路。
   * `id`:`networkProfile` 的完整 Resource Manager 資源識別碼。
 
-若要使用 YAML 檔案將容器群組部署至虛擬網路，您需要先取得網路設定檔的識別碼。 執行[az network profile list][az-network-profile-list]命令, 並指定包含您的虛擬網路和委派子網的資源組名。
+若要使用 YAML 檔案將容器群組部署至虛擬網路，您需要先取得網路設定檔的識別碼。 執行[az network profile list][az-network-profile-list]命令，並指定包含您的虛擬網路和委派子網的資源組名。
 
 ``` azurecli
 az network profile list --resource-group myResourceGroup --query [0].id --output tsv
@@ -235,13 +236,13 @@ tags: null
 type: Microsoft.ContainerInstance/containerGroups
 ```
 
-使用[az container create][az-container-create]命令來`--file`部署容器群組, 並指定參數的 YAML 檔案名:
+使用[az container create][az-container-create]命令來部署容器群組，並為 `--file` 參數指定 YAML 檔案名：
 
 ```azurecli
 az container create --resource-group myResourceGroup --file vnet-deploy-aci.yaml
 ```
 
-部署完成後, 請執行[az container show][az-container-show]命令來顯示其狀態:
+部署完成後，請執行[az container show][az-container-show]命令來顯示其狀態：
 
 ```console
 $ az container show --resource-group myResourceGroup --name appcontaineryaml --output table
@@ -264,12 +265,16 @@ az container delete --resource-group myResourceGroup --name appcontaineryaml -y
 
 ### <a name="delete-network-resources"></a>刪除網路資源
 
+
+> [!NOTE]
+> 如果您在嘗試移除網路設定檔時收到錯誤，請允許2-3 天讓平臺自動減輕問題，然後再次嘗試刪除。 如果您在移除網路設定檔時仍有問題，請[開啟 [支援] reqest。](https://azure.microsoft.com/support/create-ticket/)
+
 此功能的初始預覽需要額外使用幾項命令來刪除您先前建立的網路資源。 如果您使用了本文前幾節的範例命令來建立虛擬網路及子網路，您可以使用下列指令碼來刪除這些網路資源。
 
-在執行指令碼之前，請將變數 `RES_GROUP` 設定為包含應刪除虛擬網路及子網路的資源群組名稱。 如果您未使用稍早建議的`aci-vnet`名稱, 請更新虛擬網路的名稱。 此指令碼會針對 Bash 殼層加以格式化。 如果您慣用其他殼層，例如 PowerShell 或是命令提示字元，您需要相應調整變數指派及存取子。
+在執行指令碼之前，請將變數 `RES_GROUP` 設定為包含應刪除虛擬網路及子網路的資源群組名稱。 如果您未使用稍早建議的 `aci-vnet` 名稱，請更新虛擬網路的名稱。 此指令碼會針對 Bash 殼層加以格式化。 如果您慣用其他殼層，例如 PowerShell 或是命令提示字元，您需要相應調整變數指派及存取子。
 
 > [!WARNING]
-> 此指令碼會刪除資源！ 它會刪除虛擬網路及內含的所有子網路。 在執行此指令碼之前，請先確認您已不再需要虛擬網路中的「任何」  資源，包括內含的任何子網路。 一旦您刪除後，**這些資源就無法復原**。
+> 此指令碼會刪除資源！ 它會刪除虛擬網路及內含的所有子網路。 在執行此指令碼之前，請先確認您已不再需要虛擬網路中的「任何」資源，包括內含的任何子網路。 一旦您刪除後，**這些資源就無法復原**。
 
 ```azurecli
 # Replace <my-resource-group> with the name of your resource group

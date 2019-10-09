@@ -12,16 +12,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 09/24/2018
+ms.date: 08/13/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 86895ab315784c49c2b240badb249dce57ae958a
-ms.sourcegitcommit: 55e0c33b84f2579b7aad48a420a21141854bc9e3
+ms.openlocfilehash: 7791e7b50a963d2f92a2cbc460e36f9e83bb1b52
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69622566"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72025710"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on"></a>Azure Active Directory 無縫單一登入
 
@@ -53,8 +53,8 @@ ms.locfileid: "69622566"
 
 - 登入使用者名稱可以是內部部署的預設使用者名稱 (`userPrincipalName`)，或在 Azure AD Connect 中設定的另一個屬性 (`Alternate ID`)。 兩種使用案例均可行，因為無縫 SSO 在 Kerberos 票證中使用 `securityIdentifier` 宣告在 Azure AD 中查詢對應的使用者物件。
 - 無縫 SSO 是一種靈活變換的功能。 如果因任何原因而失敗，使用者登入體驗會改回其一般行為；亦即，使用者必須在登入頁面上輸入密碼。
-- 如果`https://myapps.microsoft.com/contoso.com`應用程式 (例如) `domain_hint`轉送 (OpenID connect) 或`whr` (SAML) 參數來識別您的租使用者, 或`login_hint`在其 Azure AD 登入要求中, 將參數識別為使用者, 則使用者為自動登入, 而不需要輸入使用者名稱或密碼。
-- 如果應用程式 (例如`https://contoso.sharepoint.com`,) 將登入要求傳送至設定為租使用者的 Azure AD 端點 (也`https://login.microsoftonline.com/contoso.com/<.>`就是或`https://login.microsoftonline.com/<tenant_ID>/<.>` ), 而不是 Azure AD 的通用端點 (也就是), `https://login.microsoftonline.com/common/<...>`則使用者也會獲得無訊息登入體驗.
+- 如果應用程式（例如 `https://myapps.microsoft.com/contoso.com`）轉送 `domain_hint` （OpenID Connect）或 `whr` （SAML）參數來識別您的租使用者，或在其 Azure AD 登入要求中，以 `login_hint` 參數來識別使用者，則會自動登入使用者，而不需要他們輸入使用者名稱或密碼。
+- 如果應用程式（例如 `https://contoso.sharepoint.com`）將登入要求傳送至設定為租使用者的 Azure AD 端點，也就是 `https://login.microsoftonline.com/contoso.com/<..>` 或 `https://login.microsoftonline.com/<tenant_ID>/<..>`-而不是 Azure AD 通用端點（也就是 `https://login.microsoftonline.com/common/<...>`），使用者也會獲得無訊息登入體驗。
 - 支援登出。 這可讓使用者選擇使用另一個 Azure AD 帳戶來進行登入，而不自動使用「無縫 SSO」來自動登入。
 - 使用非互動式流程，來支援 Office 365 Win32 用戶端 (Outlook、Word、Excel 和其他產品) 16.0.8730.xxxx 版和更新版本。 針對 OneDrive，您必須啟用 [OneDrive 無訊息設定功能](https://techcommunity.microsoft.com/t5/Microsoft-OneDrive-Blog/Previews-for-Silent-Sync-Account-Configuration-and-Bandwidth/ba-p/120894) \(英文\) 以獲得無訊息登入體驗。
 - 您可以透過 Azure AD Connect 啟用它。
@@ -63,7 +63,7 @@ ms.locfileid: "69622566"
 
 | 作業系統\瀏覽器 |Internet Explorer|Microsoft Edge|Google Chrome|Mozilla Firefox|Safari|
 | --- | --- |--- | --- | --- | -- 
-|Windows 10|是\*|否|是|是\*\*\*|N/A
+|Windows 10|是\*|是|是|是\*\*\*|N/A
 |Windows 8.1|是\*|N/A|是|是\*\*\*|N/A
 |Windows 8|是\*|N/A|是|是\*\*\*|N/A
 |Windows 7|是\*|N/A|是|是\*\*\*|N/A

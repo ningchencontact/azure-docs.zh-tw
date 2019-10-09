@@ -7,16 +7,16 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 01/30/2019
-ms.openlocfilehash: 160ff8bbcb8ce5a4f1f32245cc366281640c5919
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 28fedf96ec178aae0615129421bdae7721a66105
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61348033"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72029939"
 ---
-# <a name="azure-data-factory-unpivot-transformation"></a>Azure Data Factory 取消樞紐轉換
+# <a name="azure-data-factory-unpivot-transformation"></a>Azure Data Factory Unpivot 轉換
 
-[!INCLUDE [notes](../../includes/data-factory-data-flow-preview.md)]
+
 
 使用 ADF 對應資料流程中的 [取消樞紐] 來將非正常化資料集轉換成較正常化的版本，作法是將單一資料列之多個資料行的值展開為單一資料行中相同值的多個資料列。
 
@@ -54,4 +54,4 @@ ms.locfileid: "61348033"
 
 ## <a name="next-steps"></a>後續步驟
 
-使用[樞紐轉換](data-flow-pivot.md)樞紐資料行的資料列。
+使用 [[樞紐分析表] 轉換](data-flow-pivot.md)來將資料列資料行。

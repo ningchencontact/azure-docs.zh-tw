@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 04/22/2019
 ms.author: tyleonha
 ms.reviewer: glenga
-ms.openlocfilehash: 6cf03d1269cac5dcfa67c2d4778be3fce9ee63aa
-ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
+ms.openlocfilehash: 9163f2b7943a8022b88b2ed514f4a466e61a8d98
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/05/2019
-ms.locfileid: "71973375"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72029009"
 ---
 # <a name="azure-functions-powershell-developer-guide"></a>Azure Functions PowerShell 開發人員指南
 
@@ -85,7 +85,7 @@ $TriggerMetadata.sys
 | 屬性   | 描述                                     | Type     |
 |------------|-------------------------------------------------|----------|
 | UtcNow     | 當函式在 UTC 時間內觸發時        | DateTime |
-| MethodName | 已觸發之函式的名稱     | string   |
+| 名稱 | 已觸發之函式的名稱     | string   |
 | RandGuid   | 此函式執行的唯一 guid | string   |
 
 每個觸發程式類型都有一組不同的中繼資料。 例如，`QueueTrigger` 的 `$TriggerMetadata` 包含 `InsertionTime`、`Id`、`DequeueCount`，還有其他專案。 如需佇列觸發程式中繼資料的詳細資訊，請移至[佇列觸發程式的官方檔](functions-bindings-storage-queue.md#trigger---message-metadata)。 請查看您正在使用之[觸發](functions-triggers-bindings.md)程式的相關檔，以查看觸發程式中繼資料內有哪些內容。
@@ -136,8 +136,8 @@ Produce-MyOutputValue | Push-OutputBinding -Name myQueue
 
 | Name | Type | 位置 | 描述 |
 | ---- | ---- |  -------- | ----------- |
-| **`-Name`** | String | 1 | 您想要設定的輸出系結名稱。 |
-| **`-Value`** | 物件 | 2 | 您想要設定的輸出系結值，這是從管線 ByValue 接受的。 |
+| **`-Name`** | 字串 | 1 | 您想要設定的輸出系結名稱。 |
+| **`-Value`** | Object | 2 | 您想要設定的輸出系結值，這是從管線 ByValue 接受的。 |
 | **`-Clobber`** | SwitchParameter | 已命名 | 選擇性當指定時，會強制針對指定的輸出系結設定值。 | 
 
 也支援下列一般參數： 
@@ -434,6 +434,9 @@ requirements.psd1
 | MDMaxBackgroundUpgradePeriod      | "7.00：00： 00" （7天）     | 每個 PS 工作者會在背景工作進程啟動時，啟動檢查 PS 資源庫上的模組升級，然後在該程式之後每個 MDMaxBackgroundUpgradePeriod。 如果 PS 資源庫上有新的模組版本可供使用，則會將其安裝到 PS 背景工作角色可用的檔案系統上。 降低此值可讓您的函數應用程式更快取得較新的模組版本，但也會增加應用程式資源使用量（網路 i/o、CPU、儲存體）。 增加此值會減少應用程式資源使用量，但也可能會延遲傳遞新的模組版本至您的應用程式。      | 
 | MDNewSnapshotCheckPeriod          | "01:00:00" （1小時）       | 將新的模組版本安裝至檔案系統後，每個 PS 背景工作角色都必須重新開機。 重新開機 PS 背景工作角色可能會影響您的應用程式可用性，因為它可能會中斷目前的函式呼叫。 在重新開機所有 PS 背景工作之前，函式呼叫可能會使用舊的或新的模組版本。 重新開機所有 PS 背景工作角色將會在 MDNewSnapshotCheckPeriod 中完成。 增加這個值將會減少中斷的頻率，但也可能會增加函式呼叫使用舊或新模組版本不具決定性的時間長度。 |
 | MDMinBackgroundUpgradePeriod      | "1.00：00： 00" （1天）     | 為了避免在頻繁的工作者重新開機時進行過多的模組升級，如果有任何背景工作角色在最後一個 MDMinBackgroundUpgradePeriod 內已起始，則不會執行檢查模組升級。 |
+
+> [!NOTE]
+> 受控相依性依賴 www.powershellgallery.com 的存取權來下載模組。 您必須藉由新增任何必要的防火牆規則，以確保函式執行時間可以存取此 url。
 
 利用您自己的自訂模組，與一般做法稍有不同。
 

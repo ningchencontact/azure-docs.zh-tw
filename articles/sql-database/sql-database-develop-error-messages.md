@@ -11,13 +11,13 @@ ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer: ''
-ms.date: 03/06/2019
-ms.openlocfilehash: 24bd2cca2e4ed053d51f618d90274e8988a09c26
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.date: 10/02/2019
+ms.openlocfilehash: 19febc5a0a6e4a72cfebfaecd917185538130152
+ms.sourcegitcommit: f9e81b39693206b824e40d7657d0466246aadd6e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68568899"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72035031"
 ---
 # <a name="sql-error-codes-for-sql-database-client-applications-database-connection-errors-and-other-issues"></a>請參閱 SQL Database 用戶端應用程式的 SQL 錯誤碼：資料庫連線錯誤和其他問題
 
@@ -54,14 +54,36 @@ Azure 基礎結構能夠在 SQL Database 服務出現繁重的工作負載時動
 
 | 錯誤碼 | Severity | 描述 |
 | ---:| ---:|:--- |
-| 4060 |16 |無法開啟登入所要求的資料庫 "%.&#x2a;ls"。 登入失敗。 如需詳細資訊, 請參閱[錯誤4000到 4999](https://docs.microsoft.com/sql/relational-databases/errors-events/database-engine-events-and-errors#errors-4000-to-4999)|
-| 40197 |17 |服務處理您的要求時發生錯誤。 請再試一次。 錯誤代碼 %d。<br/><br/>當服務因為軟體或硬體升級、硬體故障或任何其他容錯移轉問題而關閉時，您會收到這個錯誤。 內嵌在錯誤 40197 訊息中的錯誤代碼 (%d) 提供發生的失敗或容錯移轉種類的其他資訊。 錯誤代碼會內嵌在錯誤 40197 的訊息錯誤範例包括 40020、40143、40166 和 40540。<br/><br/>重新連線到您的 SQL Database 伺服器時，會自動連線至健康情況良好的資料庫複本。 您的應用程式必須攔截錯誤 40197、記錄訊息中內嵌的錯誤碼 (%d) 以進行疑難排解，並嘗試重新連接到 SQL Database 直到資源可供使用，並再次建立您的連線。 如需詳細資訊, 請參閱[暫時性錯誤](sql-database-connectivity-issues.md#transient-errors-transient-faults)。|
-| 40501 |20 |服務目前忙碌中。 在 10 秒後重試要求。 事件識別碼：%ls。 程式碼：%d。 如需詳細資訊，請參閱： <br/>&bull;[資料庫伺服器資源限制](sql-database-resource-limits-database-server.md) &nbsp;<br/>&bull;[單一資料庫以 DTU 為基礎的限制](sql-database-service-tiers-dtu.md) &nbsp;<br/>&bull;彈性集區[的以 DTU 為基礎的限制](sql-database-dtu-resource-limits-elastic-pools.md) &nbsp;<br/>&bull;[單一資料庫以 vCore 為基礎的限制](sql-database-vcore-resource-limits-single-databases.md) &nbsp;<br/>&bull;彈性集區[的 vCore 為基礎的限制](sql-database-vcore-resource-limits-elastic-pools.md) &nbsp;<br/>&bull;[受控實例資源限制。](sql-database-managed-instance-resource-limits.md) &nbsp;|
-| 40613 |17 |資料庫 '%.&#x2a;ls' (在伺服器 '%.&#x2a;ls' 上) 目前無法使用。 請稍後重試連接。 如果問題持續發生，請連絡客戶支援服務，並提供工作階段追蹤識別碼 '%.&#x2a;ls'。<br/><br/> 如果已經為資料庫建立現有的專用管理員連接 (DAC), 就可能會發生這個錯誤。 如需詳細資訊, 請參閱[暫時性錯誤](sql-database-connectivity-issues.md#transient-errors-transient-faults)。|
-| 49918 |16 |無法處理要求。 資源不足，無法處理要求。<br/><br/>服務目前忙碌中。 請稍後再重試要求。 如需詳細資訊，請參閱： <br/>&bull;[資料庫伺服器資源限制](sql-database-resource-limits-database-server.md) &nbsp;<br/>&bull;[單一資料庫以 DTU 為基礎的限制](sql-database-service-tiers-dtu.md) &nbsp;<br/>&bull;彈性集區[的以 DTU 為基礎的限制](sql-database-dtu-resource-limits-elastic-pools.md) &nbsp;<br/>&bull;[單一資料庫以 vCore 為基礎的限制](sql-database-vcore-resource-limits-single-databases.md) &nbsp;<br/>&bull;彈性集區[的 vCore 為基礎的限制](sql-database-vcore-resource-limits-elastic-pools.md) &nbsp;<br/>&bull;[受控實例資源限制。](sql-database-managed-instance-resource-limits.md) &nbsp; |
-| 49919 |16 |無法處理建立或更新要求。 訂用帳戶 "%ld" 太多建立或更新作業進行中。<br/><br/>服務正忙於處理多個建立或更新您訂用帳戶或伺服器的要求。 要求目前已封鎖以求資源最佳化。 查詢 [sys.dm_operation_status](https://msdn.microsoft.com/library/dn270022.aspx) 以查看暫止的作業。 等待直到暫止的建立或更新要求完成，或刪除您的其中一個暫止要求，稍後再重試您的要求。 如需詳細資訊，請參閱： <br/>&bull;[資料庫伺服器資源限制](sql-database-resource-limits-database-server.md) &nbsp;<br/>&bull;[單一資料庫以 DTU 為基礎的限制](sql-database-service-tiers-dtu.md) &nbsp;<br/>&bull;彈性集區[的以 DTU 為基礎的限制](sql-database-dtu-resource-limits-elastic-pools.md) &nbsp;<br/>&bull;[單一資料庫以 vCore 為基礎的限制](sql-database-vcore-resource-limits-single-databases.md) &nbsp;<br/>&bull;彈性集區[的 vCore 為基礎的限制](sql-database-vcore-resource-limits-elastic-pools.md) &nbsp;<br/>&bull;[受控實例資源限制。](sql-database-managed-instance-resource-limits.md) &nbsp; |
-| 49920 |16 |無法處理要求。 訂用帳戶 "%ld" 太多作業進行中。<br/><br/>服務正忙於處理這個訂用帳戶的多個要求。 要求目前已封鎖以求資源最佳化。 查詢 [sys.dm_operation_status](https://msdn.microsoft.com/library/dn270022.aspx) 以查看作業狀態。 等候直到暫止的要求已完成，或刪除您其中一個暫止要求，稍後再重試您的要求。 如需詳細資訊，請參閱： <br/>&bull;[資料庫伺服器資源限制](sql-database-resource-limits-database-server.md) &nbsp;<br/>&bull;[單一資料庫以 DTU 為基礎的限制](sql-database-service-tiers-dtu.md) &nbsp;<br/>&bull;彈性集區[的以 DTU 為基礎的限制](sql-database-dtu-resource-limits-elastic-pools.md) &nbsp;<br/>&bull;[單一資料庫以 vCore 為基礎的限制](sql-database-vcore-resource-limits-single-databases.md) &nbsp;<br/>&bull;彈性集區[的 vCore 為基礎的限制](sql-database-vcore-resource-limits-elastic-pools.md) &nbsp;<br/>&bull;[受控實例資源限制。](sql-database-managed-instance-resource-limits.md) &nbsp; |
+| 4060 |16 |無法開啟登入所要求的資料庫 "%.&#x2a;ls"。 登入失敗。 如需詳細資訊，請參閱[錯誤4000到 4999](https://docs.microsoft.com/sql/relational-databases/errors-events/database-engine-events-and-errors#errors-4000-to-4999)|
+| 40197 |17 |服務處理您的要求時發生錯誤。 請再試一次。 錯誤代碼 %d。<br/><br/>當服務因為軟體或硬體升級、硬體故障或任何其他容錯移轉問題而關閉時，您會收到這個錯誤。 [內嵌在錯誤40197訊息中](sql-database-develop-error-messages.md#embedded-error-codes)的錯誤碼（% d）提供發生的失敗或容錯移轉類型的其他資訊。 錯誤代碼會內嵌在錯誤 40197 的訊息錯誤範例包括 40020、40143、40166 和 40540。<br/><br/>重新連線到您的 SQL Database 伺服器時，會自動連線至健康情況良好的資料庫複本。 您的應用程式必須攔截錯誤 40197、記錄訊息中內嵌的錯誤碼 (%d) 以進行疑難排解，並嘗試重新連接到 SQL Database 直到資源可供使用，並再次建立您的連線。 如需詳細資訊，請參閱[暫時性錯誤](sql-database-connectivity-issues.md#transient-errors-transient-faults)。|
+| 40501 |20 |服務目前忙碌中。 在 10 秒後重試要求。 事件識別碼：%ls。 程式碼：%d。 如需詳細資訊，請參閱： <br/>&bull; &nbsp;[資料庫伺服器資源限制](sql-database-resource-limits-database-server.md)<br/>&bull; &nbsp;[個以 DTU 為基礎的單一資料庫限制](sql-database-service-tiers-dtu.md)<br/>&bull; &nbsp; 個[以 DTU 為基礎的彈性](sql-database-dtu-resource-limits-elastic-pools.md)集區限制<br/>&bull; &nbsp; 個[vCore 為基礎的單一資料庫限制](sql-database-vcore-resource-limits-single-databases.md)<br/>&bull; &nbsp; 個彈性集區的[vCore 為基礎的限制](sql-database-vcore-resource-limits-elastic-pools.md)<br/>&bull; &nbsp; 個[受控實例資源限制](sql-database-managed-instance-resource-limits.md)。|
+| 40613 |17 |資料庫 '%.&#x2a;ls' (在伺服器 '%.&#x2a;ls' 上) 目前無法使用。 請稍後重試連接。 如果問題持續發生，請連絡客戶支援服務，並提供工作階段追蹤識別碼 '%.&#x2a;ls'。<br/><br/> 如果已經為資料庫建立現有的專用管理員連接（DAC），就可能會發生這個錯誤。 如需詳細資訊，請參閱[暫時性錯誤](sql-database-connectivity-issues.md#transient-errors-transient-faults)。|
+| 49918 |16 |無法處理要求。 資源不足，無法處理要求。<br/><br/>服務目前忙碌中。 請稍後再重試要求。 如需詳細資訊，請參閱： <br/>&bull; &nbsp;[資料庫伺服器資源限制](sql-database-resource-limits-database-server.md)<br/>&bull; &nbsp;[個以 DTU 為基礎的單一資料庫限制](sql-database-service-tiers-dtu.md)<br/>&bull; &nbsp; 個[以 DTU 為基礎的彈性](sql-database-dtu-resource-limits-elastic-pools.md)集區限制<br/>&bull; &nbsp; 個[vCore 為基礎的單一資料庫限制](sql-database-vcore-resource-limits-single-databases.md)<br/>&bull; &nbsp; 個彈性集區的[vCore 為基礎的限制](sql-database-vcore-resource-limits-elastic-pools.md)<br/>&bull; &nbsp; 個[受控實例資源限制](sql-database-managed-instance-resource-limits.md)。 |
+| 49919 |16 |無法處理建立或更新要求。 訂用帳戶 "%ld" 太多建立或更新作業進行中。<br/><br/>服務正忙於處理多個建立或更新您訂用帳戶或伺服器的要求。 要求目前已封鎖以求資源最佳化。 查詢 [sys.dm_operation_status](https://msdn.microsoft.com/library/dn270022.aspx) 以查看暫止的作業。 等待直到暫止的建立或更新要求完成，或刪除您的其中一個暫止要求，稍後再重試您的要求。 如需詳細資訊，請參閱： <br/>&bull; &nbsp;[資料庫伺服器資源限制](sql-database-resource-limits-database-server.md)<br/>&bull; &nbsp;[個以 DTU 為基礎的單一資料庫限制](sql-database-service-tiers-dtu.md)<br/>&bull; &nbsp; 個[以 DTU 為基礎的彈性](sql-database-dtu-resource-limits-elastic-pools.md)集區限制<br/>&bull; &nbsp; 個[vCore 為基礎的單一資料庫限制](sql-database-vcore-resource-limits-single-databases.md)<br/>&bull; &nbsp; 個彈性集區的[vCore 為基礎的限制](sql-database-vcore-resource-limits-elastic-pools.md)<br/>&bull; &nbsp; 個[受控實例資源限制](sql-database-managed-instance-resource-limits.md)。 |
+| 49920 |16 |無法處理要求。 訂用帳戶 "%ld" 太多作業進行中。<br/><br/>服務正忙於處理這個訂用帳戶的多個要求。 要求目前已封鎖以求資源最佳化。 查詢 [sys.dm_operation_status](https://msdn.microsoft.com/library/dn270022.aspx) 以查看作業狀態。 等候直到暫止的要求已完成，或刪除您其中一個暫止要求，稍後再重試您的要求。 如需詳細資訊，請參閱： <br/>&bull; &nbsp;[資料庫伺服器資源限制](sql-database-resource-limits-database-server.md)<br/>&bull; &nbsp;[個以 DTU 為基礎的單一資料庫限制](sql-database-service-tiers-dtu.md)<br/>&bull; &nbsp; 個[以 DTU 為基礎的彈性](sql-database-dtu-resource-limits-elastic-pools.md)集區限制<br/>&bull; &nbsp; 個[vCore 為基礎的單一資料庫限制](sql-database-vcore-resource-limits-single-databases.md)<br/>&bull; &nbsp; 個彈性集區的[vCore 為基礎的限制](sql-database-vcore-resource-limits-elastic-pools.md)<br/>&bull; &nbsp; 個[受控實例資源限制](sql-database-managed-instance-resource-limits.md)。 |
 | 4221 |16 |登入 read-secondary 失敗，因為 'HADR_DATABASE_WAIT_FOR_TRANSITION_TO_VERSIONING' 上的等候時間很長。 無法使用複本進行登入，因為在複本回收時執行中之交易的資料列版本已遺失。 將主要複本上的使用中交易復原或認可，就可以解決問題。 避免在主要伺服器上的冗長寫入交易，就可讓此條件發生率降至最低。 |
+
+## <a name="embedded-error-codes"></a>內嵌的錯誤碼
+
+下列錯誤內嵌于較一般的錯誤碼40197：
+
+```
+The service has encountered an error processing your request. Please try again. Error code %d.
+```
+
+| 錯誤碼 | Severity | 描述 | 
+| ---:| ---:|:---|
+|  1104 |17 |TEMPDB 在溢出期間已用盡空間。 藉由卸載物件和（或）重寫查詢來建立空間，以耗用較少的資料列。 如果問題仍然持續發生，請考慮升級至較高的服務等級目標。|
+| 40020 |16 |資料庫正在轉換中，交易即將終止。|
+| 40143 |16 |資料節點為要求的分割區裝載的複本不是主要複本。|
+| 40166 |16 |正在進行 CloudDB 重新設定，並中止所有新的使用者交易。|
+| 40540 |16 |交易已中止，因為資料庫已移至唯讀模式。 這是暫時性的情況，請重試操作。|
+
+如需其他內嵌錯誤的詳細資料，請參閱查詢 `sys.messages`：
+
+```sql
+SELECT * FROM sys.[messages] WHERE [message_id] = <error_code>
+```
 
 ## <a name="database-copy-errors"></a>資料庫複製錯誤
 
@@ -92,7 +114,7 @@ Azure 基礎結構能夠在 SQL Database 服務出現繁重的工作負載時動
 * 應用程式耗用太多記憶體。
 * 應用程式耗用太多 `TempDb` 空間。
 
-相關主題:
+相關主題：
 
 * 如需詳細資訊，請參閱：
   * [資料庫伺服器資源限制](sql-database-resource-limits-database-server.md)
@@ -104,14 +126,14 @@ Azure 基礎結構能夠在 SQL Database 服務出現繁重的工作負載時動
 
 | 錯誤碼 | Severity | 描述 |
 | ---:| ---:|:--- |
-| 10928 |20 |資源識別碼：%d。 資料庫的 %s 限制是 %d，且已達到。 如需詳細資訊，請參閱[單一和集區資料庫的 SQL Database 資源限制](sql-database-resource-limits-database-server.md)。<br/><br/>資源識別碼可指出已達到限制的資源。 對於背景工作執行緒，資源識別碼 = 1。 對於工作階段，資源識別碼 = 2。<br/><br/>如需有關此錯誤以及其解決方法的詳細資訊，請參閱： <br/>&bull;[資料庫伺服器資源限制](sql-database-resource-limits-database-server.md) &nbsp;<br/>&bull;[單一資料庫以 DTU 為基礎的限制](sql-database-service-tiers-dtu.md) &nbsp;<br/>&bull;彈性集區[的以 DTU 為基礎的限制](sql-database-dtu-resource-limits-elastic-pools.md) &nbsp;<br/>&bull;[單一資料庫以 vCore 為基礎的限制](sql-database-vcore-resource-limits-single-databases.md) &nbsp;<br/>&bull;彈性集區[的 vCore 為基礎的限制](sql-database-vcore-resource-limits-elastic-pools.md) &nbsp;<br/>&bull;[受控實例資源限制。](sql-database-managed-instance-resource-limits.md) &nbsp; |
-| 10929 |20 |資源識別碼：%d。 %s 最小保證是 %d，最大限制是 %d，而資料庫的目前使用量是 %d。 但伺服器目前太忙碌，無法針對此資料庫支援大於 %d 的要求。 資源識別碼可指出已達到限制的資源。 對於背景工作執行緒，資源識別碼 = 1。 對於工作階段，資源識別碼 = 2。 如需詳細資訊，請參閱： <br/>&bull;[資料庫伺服器資源限制](sql-database-resource-limits-database-server.md) &nbsp;<br/>&bull;[單一資料庫以 DTU 為基礎的限制](sql-database-service-tiers-dtu.md) &nbsp;<br/>&bull;彈性集區[的以 DTU 為基礎的限制](sql-database-dtu-resource-limits-elastic-pools.md) &nbsp;<br/>&bull;[單一資料庫以 vCore 為基礎的限制](sql-database-vcore-resource-limits-single-databases.md) &nbsp;<br/>&bull;彈性集區[的 vCore 為基礎的限制](sql-database-vcore-resource-limits-elastic-pools.md) &nbsp;<br/>&bull;[受控實例資源限制。](sql-database-managed-instance-resource-limits.md) &nbsp; <br/>或者，請稍後再試一次。 |
-| 40544 |20 |資料庫已達到大小配額。 資料分割或刪除資料、卸除索引，或參閱可能解決方式的文件。 如需資料庫調整, 請參閱[調整單一資料庫資源](sql-database-single-database-scale.md)和[調整彈性集區資源](sql-database-elastic-pool-scale.md)。|
-| 40549 |16 |工作階段已終止，因為您有長時間執行的交易。 請嘗試縮短您的交易時間。 如需批次處理的詳細資訊, 請參閱[如何使用批次處理來改善 SQL Database 應用程式效能](sql-database-use-batching-to-improve-performance.md)。|
-| 40550 |16 |工作階段已終止，因為它取得太多鎖定。 嘗試在單一交易中讀取或修改較少的資料列。 如需批次處理的詳細資訊, 請參閱[如何使用批次處理來改善 SQL Database 應用程式效能](sql-database-use-batching-to-improve-performance.md)。|
-| 40551 |16 |已終止工作階段，因為它過度使用 `TEMPDB`。 請嘗試修改查詢，以減少使用暫存資料表空間。<br/><br/>如果您是使用暫存物件，請在工作階段不再需要暫存物件時予以卸除，藉此節省 `TEMPDB` 資料庫的空間。 如需 SQL Database 中 tempdb 使用方式的詳細資訊, 請參閱[SQL Database 中的 tempdb 資料庫](https://docs.microsoft.com/sql/relational-databases/databases/tempdb-database#tempdb-database-in-sql-database)。|
-| 40552 |16 |已終止工作階段，因為過度使用交易記錄檔空間。 請嘗試在單一交易中修改較少的資料列。 如需批次處理的詳細資訊, 請參閱[如何使用批次處理來改善 SQL Database 應用程式效能](sql-database-use-batching-to-improve-performance.md)。<br/><br/>如果您使用 `bcp.exe` 公用程式或 `System.Data.SqlClient.SqlBulkCopy` 類別執行大量插入，請嘗試使用 `-b batchsize` 或 `BatchSize` 選項來限制每一筆交易中要複製到伺服器的資料列數目。 如果您要使用 `ALTER INDEX` 陳述式重建索引，請嘗試使用 `REBUILD WITH ONLINE = ON` 選項。 如需 vCore 購買模型之交易記錄檔大小的詳細資訊, 請參閱: <br/>&bull;[單一資料庫以 vCore 為基礎的限制](sql-database-vcore-resource-limits-single-databases.md) &nbsp;<br/>&bull;彈性集區[的 vCore 為基礎的限制](sql-database-vcore-resource-limits-elastic-pools.md) &nbsp;<br/>&bull;[受控實例資源限制。](sql-database-managed-instance-resource-limits.md) &nbsp;|
-| 40553 |16 |已終止工作階段，因為過度使用記憶體。 請嘗試修改查詢以處理較少的資料列。<br/><br/>減少 Transact-SQL 程式碼中的 `ORDER BY` 和 `GROUP BY` 作業數目，從而減少查詢的記憶體需求。 如需資料庫調整, 請參閱[調整單一資料庫資源](sql-database-single-database-scale.md)和[調整彈性集區資源](sql-database-elastic-pool-scale.md)。|
+| 10928 |20 |資源識別碼：%d。 資料庫的 %s 限制是 %d，且已達到。 如需詳細資訊，請參閱[單一和集區資料庫的 SQL Database 資源限制](sql-database-resource-limits-database-server.md)。<br/><br/>資源識別碼可指出已達到限制的資源。 對於背景工作執行緒，資源識別碼 = 1。 對於工作階段，資源識別碼 = 2。<br/><br/>如需有關此錯誤以及其解決方法的詳細資訊，請參閱： <br/>&bull; &nbsp;[資料庫伺服器資源限制](sql-database-resource-limits-database-server.md)<br/>&bull; &nbsp;[個以 DTU 為基礎的單一資料庫限制](sql-database-service-tiers-dtu.md)<br/>&bull; &nbsp; 個[以 DTU 為基礎的彈性](sql-database-dtu-resource-limits-elastic-pools.md)集區限制<br/>&bull; &nbsp; 個[vCore 為基礎的單一資料庫限制](sql-database-vcore-resource-limits-single-databases.md)<br/>&bull; &nbsp; 個彈性集區的[vCore 為基礎的限制](sql-database-vcore-resource-limits-elastic-pools.md)<br/>&bull; &nbsp; 個[受控實例資源限制](sql-database-managed-instance-resource-limits.md)。 |
+| 10929 |20 |資源識別碼：%d。 %s 最小保證是 %d，最大限制是 %d，而資料庫的目前使用量是 %d。 但伺服器目前太忙碌，無法針對此資料庫支援大於 %d 的要求。 資源識別碼可指出已達到限制的資源。 對於背景工作執行緒，資源識別碼 = 1。 對於工作階段，資源識別碼 = 2。 如需詳細資訊，請參閱： <br/>&bull; &nbsp;[資料庫伺服器資源限制](sql-database-resource-limits-database-server.md)<br/>&bull; &nbsp;[個以 DTU 為基礎的單一資料庫限制](sql-database-service-tiers-dtu.md)<br/>&bull; &nbsp; 個[以 DTU 為基礎的彈性](sql-database-dtu-resource-limits-elastic-pools.md)集區限制<br/>&bull; &nbsp; 個[vCore 為基礎的單一資料庫限制](sql-database-vcore-resource-limits-single-databases.md)<br/>&bull; &nbsp; 個彈性集區的[vCore 為基礎的限制](sql-database-vcore-resource-limits-elastic-pools.md)<br/>&bull; &nbsp; 個[受控實例資源限制](sql-database-managed-instance-resource-limits.md)。 <br/>或者，請稍後再試一次。 |
+| 40544 |20 |資料庫已達到大小配額。 資料分割或刪除資料、卸除索引，或參閱可能解決方式的文件。 如需資料庫調整，請參閱[調整單一資料庫資源](sql-database-single-database-scale.md)和[調整彈性集區資源](sql-database-elastic-pool-scale.md)。|
+| 40549 |16 |工作階段已終止，因為您有長時間執行的交易。 請嘗試縮短您的交易時間。 如需批次處理的詳細資訊，請參閱[如何使用批次處理來改善 SQL Database 應用程式效能](sql-database-use-batching-to-improve-performance.md)。|
+| 40550 |16 |工作階段已終止，因為它取得太多鎖定。 嘗試在單一交易中讀取或修改較少的資料列。 如需批次處理的詳細資訊，請參閱[如何使用批次處理來改善 SQL Database 應用程式效能](sql-database-use-batching-to-improve-performance.md)。|
+| 40551 |16 |已終止工作階段，因為它過度使用 `TEMPDB`。 請嘗試修改查詢，以減少使用暫存資料表空間。<br/><br/>如果您是使用暫存物件，請在工作階段不再需要暫存物件時予以卸除，藉此節省 `TEMPDB` 資料庫的空間。 如需 SQL Database 中 tempdb 使用方式的詳細資訊，請參閱[SQL Database 中的 tempdb 資料庫](https://docs.microsoft.com/sql/relational-databases/databases/tempdb-database#tempdb-database-in-sql-database)。|
+| 40552 |16 |已終止工作階段，因為過度使用交易記錄檔空間。 請嘗試在單一交易中修改較少的資料列。 如需批次處理的詳細資訊，請參閱[如何使用批次處理來改善 SQL Database 應用程式效能](sql-database-use-batching-to-improve-performance.md)。<br/><br/>如果您使用 `bcp.exe` 公用程式或 `System.Data.SqlClient.SqlBulkCopy` 類別執行大量插入，請嘗試使用 `-b batchsize` 或 `BatchSize` 選項來限制每一筆交易中要複製到伺服器的資料列數目。 如果您要使用 `ALTER INDEX` 陳述式重建索引，請嘗試使用 `REBUILD WITH ONLINE = ON` 選項。 如需 vCore 購買模型之交易記錄檔大小的詳細資訊，請參閱： <br/>&bull; &nbsp; 個[vCore 為基礎的單一資料庫限制](sql-database-vcore-resource-limits-single-databases.md)<br/>&bull; &nbsp; 個彈性集區的[vCore 為基礎的限制](sql-database-vcore-resource-limits-elastic-pools.md)<br/>&bull; &nbsp; 個[受控實例資源限制](sql-database-managed-instance-resource-limits.md)。|
+| 40553 |16 |已終止工作階段，因為過度使用記憶體。 請嘗試修改查詢以處理較少的資料列。<br/><br/>減少 Transact-SQL 程式碼中的 `ORDER BY` 和 `GROUP BY` 作業數目，從而減少查詢的記憶體需求。 如需資料庫調整，請參閱[調整單一資料庫資源](sql-database-single-database-scale.md)和[調整彈性集區資源](sql-database-elastic-pool-scale.md)。|
 
 ## <a name="elastic-pool-errors"></a>彈性集區錯誤
 
@@ -119,8 +141,8 @@ Azure 基礎結構能夠在 SQL Database 服務出現繁重的工作負載時動
 
 | 錯誤碼 | Severity | 描述 | 更正措施 |
 |:--- |:--- |:--- |:--- |
-| 1132 | 17 |彈性集區已達到其儲存體限制。 彈性集區的儲存體使用量不能超過 (%d) MB。 當彈性集區達到儲存體限制時，嘗試將資料寫入資料庫。 如需資源限制的相關資訊, 請參閱: <br/>&bull;彈性集區[的以 DTU 為基礎的限制](sql-database-dtu-resource-limits-elastic-pools.md) &nbsp;<br/>&bull;彈性集區[的 vCore 為基礎限制。](sql-database-vcore-resource-limits-elastic-pools.md) &nbsp; <br/> |請考慮盡可能增加彈性集區的 DTU 及/或儲存體，以提高其儲存體限制、減少彈性集區中個別資料庫所使用的儲存體量，或是從彈性集區移除資料庫。 如需彈性集區調整, 請參閱[調整彈性集區資源](sql-database-elastic-pool-scale.md)。|
-| 10929 | 16 |%s 最小保證是 %d，最大限制是 %d，而資料庫的目前使用量是 %d。 但伺服器目前太忙碌，無法針對此資料庫支援大於 %d 的要求。 如需資源限制的相關資訊, 請參閱: <br/>&bull;彈性集區[的以 DTU 為基礎的限制](sql-database-dtu-resource-limits-elastic-pools.md) &nbsp;<br/>&bull;彈性集區[的 vCore 為基礎限制。](sql-database-vcore-resource-limits-elastic-pools.md) &nbsp; <br/> 或者，請稍後再試一次。 每個資料庫的最小 DTU / vCore；每個資料庫的最大 DTU / vCore。 彈性集區中的所有資料庫並行背景工作 (要求) 總數試圖超過集區限制。 |請考慮盡可能增加彈性集區的 DTU 或 vCore，以提高其背景工作數的限制，或是從彈性集區移除資料庫。 |
+| 1132 | 17 |彈性集區已達到其儲存體限制。 彈性集區的儲存體使用量不能超過 (%d) MB。 當彈性集區達到儲存體限制時，嘗試將資料寫入資料庫。 如需資源限制的相關資訊，請參閱： <br/>&bull; &nbsp; 個[以 DTU 為基礎的彈性](sql-database-dtu-resource-limits-elastic-pools.md)集區限制<br/>&bull; &nbsp; 個彈性集區的[vCore 為基礎的限制](sql-database-vcore-resource-limits-elastic-pools.md)。 <br/> |請考慮盡可能增加彈性集區的 DTU 及/或儲存體，以提高其儲存體限制、減少彈性集區中個別資料庫所使用的儲存體量，或是從彈性集區移除資料庫。 如需彈性集區調整，請參閱[調整彈性集區資源](sql-database-elastic-pool-scale.md)。|
+| 10929 | 16 |%s 最小保證是 %d，最大限制是 %d，而資料庫的目前使用量是 %d。 但伺服器目前太忙碌，無法針對此資料庫支援大於 %d 的要求。 如需資源限制的相關資訊，請參閱： <br/>&bull; &nbsp; 個[以 DTU 為基礎的彈性](sql-database-dtu-resource-limits-elastic-pools.md)集區限制<br/>&bull; &nbsp; 個彈性集區的[vCore 為基礎的限制](sql-database-vcore-resource-limits-elastic-pools.md)。 <br/> 或者，請稍後再試一次。 每個資料庫的最小 DTU / vCore；每個資料庫的最大 DTU / vCore。 彈性集區中的所有資料庫並行背景工作 (要求) 總數試圖超過集區限制。 |請考慮盡可能增加彈性集區的 DTU 或 vCore，以提高其背景工作數的限制，或是從彈性集區移除資料庫。 |
 | 40844 | 16 |伺服器 '%ls' 上的資料庫 '%ls' 是彈性集區中的 '%ls' 版資料庫，且無法有連續複製關聯性。  |N/A |
 | 40857 | 16 |找不到伺服器 '%ls' 的彈性集區，彈性集區名稱: '%ls'。 指定的彈性集區不存在於指定的伺服器中。 | 請提供有效的彈性集區名稱。 |
 | 40858 | 16 |彈性集區 '%ls' 已存在於伺服器 '%ls' 中。 指定的彈性集區已存在於指定的 SQL Database 伺服器中。 | 請提供新的彈性集區名稱。 |
@@ -140,7 +162,7 @@ Azure 基礎結構能夠在 SQL Database 服務出現繁重的工作負載時動
 | 40891 | 16 |每個資料庫的最小 DTU (%d) 不能超過每個資料庫的最大 DTU (%d)。 試圖將每個資料庫的最小 DTU 設為超過每個資料庫的最大 DTU。 |請確定每個資料庫的最小 DTU 並未超過每個資料庫的最大 DTU。 |
 | TBD | 16 |彈性集區中個別資料庫的儲存體大小，不能超過 '%.*ls' 服務層級彈性集區所允許的大小上限。 資料庫的大小上限超過彈性集區服務層級所允許的大小上限。 |請將資料庫的大小上限設定在彈性集區服務層級所允許的大小上限內。 |
 
-相關主題:
+相關主題：
 
 * [建立彈性集區 (C#)](sql-database-elastic-pool-manage-csharp.md)
 * [管理彈性集區 (C#)](sql-database-elastic-pool-manage-csharp.md)

@@ -14,26 +14,26 @@ ms.devlang: javascript
 ms.topic: article
 ms.date: 06/25/2019
 ms.author: emalani
-ms.openlocfilehash: e6755c3fb1fca342d94fdaa96c0dce614d762172
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 8fe8485926e2c10b7fe58836196132f2881699a4
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67443561"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72025713"
 ---
 # <a name="add-push-notifications-to-your-apache-cordova-app"></a>新增推播通知至您的 Apache Cordova 應用程式
 
 [!INCLUDE [app-service-mobile-selector-get-started-push](../../includes/app-service-mobile-selector-get-started-push.md)]
 
 > [!NOTE]
-> Visual Studio App Center 投入新的和整合式服務行動應用程式開發的核心。 開發人員可以使用**建置**，**測試**並**散發**services 設定持續整合和傳遞管線。 應用程式部署之後，開發人員可以監視的狀態和其應用程式使用的使用方式**Analytics**並**診斷**服務，並使用使用者參與**推播**服務。 開發人員也可以利用**Auth**來驗證使用者並**資料**保存和同步處理雲端中的應用程式資料的服務。 請參閱[App Center](https://appcenter.ms/?utm_source=zumo&utm_campaign=app-service-mobile-cordova-get-started-push)今天。
->
+> Visual Studio App Center 支援行動應用程式開發的端對端和整合式服務中心。 開發人員可以使用**組建**、**測試**和**散發**服務來設定持續整合和傳遞管線。 部署應用程式之後，開發人員可以使用**分析**和**診斷**服務來監視其應用程式的狀態和使用，並與使用**推**播服務的使用者互動。 開發人員也可以利用**驗證**來驗證其使用者和**資料**服務，以保存及同步雲端中的應用程式資料。
+> 如果您想要在您的行動應用程式中整合雲端服務，請立即註冊 App Center [App center](https://appcenter.ms/?utm_source=zumo&utm_medium=Azure&utm_campaign=zumo%20doc) 。
 
-## <a name="overview"></a>概觀
+## <a name="overview"></a>總覽
 
-在本教學課程中，您會新增推播通知給[Apache Cordova 快速入門][5]專案，以便每次插入記錄時，傳送推播通知至裝置。
+在本教學課程中，您會將推播通知新增至[Apache Cordova 快速入門][5]專案，以便在每次插入一筆記錄時，將推播通知傳送至裝置。
 
-如果您未使用下載的快速入門伺服器專案，則需要推播通知擴充套件。 如需詳細資訊，請參閱 <<c0> [ 使用 Mobile Apps.NET 後端伺服器 SDK][1]。
+如果您未使用下載的快速入門伺服器專案，則需要推播通知擴充套件。 如需詳細資訊，請參閱使用適用于[Mobile Apps 的 .net 後端伺服器 SDK][1]。
 
 ## <a name="prerequisites"></a>必要條件
 
@@ -41,19 +41,19 @@ ms.locfileid: "67443561"
 
 若要完成本教學課程，您需要：
 
-* 裝有[Visual Studio Community 2015][2]或更新版本
+* [Visual Studio Community 2015][2]或更新版本的電腦
 * [Visual Studio Tools for Apache Cordova][4]
-* [作用中 Azure 帳戶][3]
-* 已完成[Apache Cordova 快速入門][5]專案
-* (Android)A [Google 帳戶][6]已驗證的電子郵件地址
-* (iOS)[Apple Developer Program 成員資格][7]和 iOS 裝置 （iOS 模擬器不支援推播通知）
-* (Windows)A [Microsoft Store 開發人員帳戶][8]和 Windows 10 裝置
+* [有效的 Azure 帳戶][3]
+* 已完成的[Apache Cordova 快速入門][5]專案
+* 面向具有已驗證電子郵件地址的[Google 帳戶][6]
+* IOS[Apple 開發人員計畫成員資格][7]和 ios 裝置（ios 模擬器不支援推播通知）
+* 時段[Microsoft Store 開發人員帳戶][8]和 Windows 10 裝置
 
 ## <a name="configure-hub"></a>設定通知中樞
 
 [!INCLUDE [app-service-mobile-configure-notification-hub](../../includes/app-service-mobile-configure-notification-hub.md)]
 
-[觀看示範本節步驟的影片][9]。
+[觀看顯示本節步驟的影片][9]。
 
 ## <a name="update-the-server-project"></a>更新伺服器專案
 
@@ -68,9 +68,9 @@ ms.locfileid: "67443561"
 如果您的專案使用 6.1.1 版以前的 Apache Cordova，請更新用戶端專案。 若要更新專案，請採取下列步驟：
 
 * 以滑鼠右鍵按一下 `config.xml` 開啟設定設計工具。
-* 選取 [平台]  索引標籤。
-* 在 [Cordova CLI]  文字方塊中選取 [6.1.1]  。 
-* 若要更新專案，選取 [建置]  ，然後選取 [建置解決方案]  。
+* 選取 [平台] 索引標籤。
+* 在 [Cordova CLI] 文字方塊中選取 [6.1.1]。 
+* 若要更新專案，選取 [建置]，然後選取 [建置解決方案]。
 
 #### <a name="install-the-push-plugin"></a>安裝推播外掛程式
 
@@ -80,13 +80,13 @@ Apache Cordova 應用程式原本就不會處理裝置或網路功能。  這些
 
 **從命令提示：**
 
-執行以下命令：
+執行下列命令：
 
     cordova plugin add phonegap-plugin-push
 
 **從 Visual Studio 內：**
 
-1. 在方案總管中開啟 `config.xml` 檔案。 接著，選取 [外掛程式]   > [自訂]  。 然後選取 [Git]  作為安裝來源。
+1. 在方案總管中開啟 `config.xml` 檔案。 接著，選取 [外掛程式] > [自訂]。 然後選取 [Git] 作為安裝來源。
 
 2. 輸入 `https://github.com/phonegap/phonegap-plugin-push` 作為來源。
 
@@ -99,13 +99,13 @@ Apache Cordova 應用程式原本就不會處理裝置或網路功能。  這些
     >[!NOTE]
     >自 2.0.0 版開始，google-services.json 必須安裝在專案的根資料夾中，以設定寄件者識別碼。 如需詳細資訊，請參閱[安裝文件。](https://github.com/phonegap/phonegap-plugin-push/blob/master/docs/INSTALLATION.md)
 
-5. 選取 [新增]  。
+5. 選取 [新增]。
 
 推撥外掛程式現已安裝。
 
 #### <a name="install-the-device-plugin"></a>安裝裝置外掛程式
 
-遵循您安裝推播外掛程式時的相同程序。 從核心外掛程式清單中新增裝置外掛程式。 (選取 [外掛程式]   > [核心]  以尋找它。)您需要此外掛程式才能取得平台名稱。
+遵循您安裝推播外掛程式時的相同程序。 從核心外掛程式清單中新增裝置外掛程式。 (選取 [外掛程式] > [核心] 以尋找它。)您需要此外掛程式才能取得平台名稱。
 
 #### <a name="register-your-device-when-the-application-starts"></a>在應用程式啟動時註冊您的裝置 
 
@@ -181,7 +181,7 @@ Apache Cordova 應用程式原本就不會處理裝置或網路功能。  這些
     pushRegistration.on('error', handleError);
     }
     ```
-3. (Android)在上述程式碼，取代`Your_Project_ID`的數字專案識別碼從應用程式[Google Developer Console][18]。
+3. 面向在上述程式碼中，將 `Your_Project_ID` 取代為您應用程式從[Google Developer 主控台][18]的數值專案識別碼。
 
 ## <a name="optional-configure-and-run-the-app-on-android"></a>(選擇性) 在 Android 上設定和執行應用程式
 
@@ -199,7 +199,7 @@ Apache Cordova 應用程式原本就不會處理裝置或網路功能。  這些
 
 #### <a name="configure-your-cordova-app-for-android"></a>針對 Android 設定您的 Cordova 應用程式
 
-在 Cordova 應用程式中，開啟 **config.xml**。 然後取代`Your_Project_ID`的數字專案識別碼從應用程式[Google Developer Console][18]。
+在 Cordova 應用程式中，開啟 **config.xml**。 然後，將 `Your_Project_ID` 取代為您的應用程式從[Google Developer Console][18]的數值專案識別碼。
 
 ```xml
 <plugin name="phonegap-plugin-push" version="1.7.1" src="https://github.com/phonegap/phonegap-plugin-push.git">
@@ -221,8 +221,8 @@ pushRegistration = PushNotification.init({
 
 在您可以將應用程式部署到您的 Android 裝置之前，您需要啟用 USB 偵錯。 在您的 Android 手機上執行下列步驟：
 
-1. 移至 [設定]   > [關於手機]  。 然後點選 [組建編號]  ，直到啟用開發人員模式為止 (大約七次)。
-2. 回到 [設定]   > [開發人員選項]  ，啟用 [USB 偵錯]  。 然後使用 USB 纜線將您的 Android 手機連接到開發電腦。
+1. 移至 [設定] > [關於手機]。 然後點選 [組建編號]，直到啟用開發人員模式為止 (大約七次)。
+2. 回到 [設定] > [開發人員選項]，啟用 [USB 偵錯]。 然後使用 USB 纜線將您的 Android 手機連接到開發電腦。
 
 我們測試時使用的是執行 Android 6.0 (Marshmallow) 的 Google Nexus 5 X 裝置。 不過，這些技術在任何現代化 Android 版本中都是相同的。
 
@@ -230,13 +230,13 @@ pushRegistration = PushNotification.init({
 
 推播外掛程式仰賴 Android Google Play 服務來進行推播通知。
 
-1. 在 Visual Studio 中，選取 [工具]   > [Android]   > [Android SDK 管理員]  。 然後展開 [Extras]  資料夾。 請檢查適當的方塊，確定已安裝所有下列的 SDK：
+1. 在 Visual Studio 中，選取 [工具] > [Android] > [Android SDK 管理員]。 然後展開 [Extras] 資料夾。 請檢查適當的方塊，確定已安裝所有下列的 SDK：
 
    * Android 2.3 或更新版本
    * Google Repository 版本 27 或更高版本
    * Google Play 服務 9.0.2 或更高版本
 
-2. 選取 [安裝套件]  。 然後等待安裝完成。
+2. 選取 [安裝套件]。 然後等待安裝完成。
 
 目前的必要程式庫會在 [phonegap-plugin-push Installation 文件][19]中列出。
 
@@ -244,9 +244,9 @@ pushRegistration = PushNotification.init({
 
 您現在可以執行應用程式，在 TodoItem 資料表中插入項目，以測試推播通知。 只要是使用相同的後端，您可以從相同的裝置或第二部裝置來測試。 以下列方法之一在 Android 平台上測試 Cordova 應用程式︰
 
-* *實體裝置︰* 使用 USB 纜線將 Android 裝置連接到開發電腦。  請選取 [裝置]  ，不要選取 [Google Android 模擬器]  。 Visual Studio 會將應用程式部署至裝置，並執行應用程式。 您接著可以在裝置上與應用程式互動。
+* *實體裝置︰* 使用 USB 纜線將 Android 裝置連接到開發電腦。  請選取 [裝置]，不要選取 [Google Android 模擬器]。 Visual Studio 會將應用程式部署至裝置，並執行應用程式。 您接著可以在裝置上與應用程式互動。
 
-  螢幕畫面分享應用程式，例如[Mobizen][20]可協助您開發 Android 應用程式。 Mobizen 會將您的 Android 畫面投射至電腦上的網頁瀏覽器。
+  [Mobizen)][20]之類的螢幕共用應用程式可協助您開發 Android 應用程式。 Mobizen 會將您的 Android 畫面投射至電腦上的網頁瀏覽器。
 
 * *在 Android 模擬器上：* 使用模擬器時，還需要其他設定步驟。
 
@@ -254,9 +254,9 @@ pushRegistration = PushNotification.init({
 
     ![Android 虛擬裝置管理員](./media/app-service-mobile-cordova-get-started-push/google-apis-avd-settings.png)
 
-    如果您想要使用更快速的 x86 模擬器，模擬器[安裝 HAXM 驅動程式][11]，然後設定模擬器來使用它。
+    如果您想要使用更快速的 x86 模擬器，請[安裝 HAXM 驅動程式][11]，然後設定模擬器來使用它。
 
-    選取 [應用程式]   > [設定]   > [新增帳戶]  將 Google 帳戶加入 Android 裝置。 然後遵循提示。
+    選取 [應用程式] > [設定] > [新增帳戶] 將 Google 帳戶加入 Android 裝置。 然後遵循提示。
 
     ![將 Google 帳戶新增至 Android 裝置](./media/app-service-mobile-cordova-get-started-push/add-google-account.png)
 
@@ -270,9 +270,9 @@ pushRegistration = PushNotification.init({
 
 #### <a name="install-and-run-the-ios-remote-build-agent-on-a-mac-or-cloud-service"></a>在 Mac 或雲端服務上安裝及執行 iOS 遠端組建代理程式
 
-您可以使用 Visual Studio 在 iOS 上執行 Cordova 應用程式之前，請瀏覽中的步驟[iOS 安裝指南][12]安裝和執行遠端組建代理程式。
+在使用 Visual Studio 在 iOS 上執行 Cordova 應用程式之前，請先完成[ios 安裝指南][12]中的步驟，以安裝和執行遠端組建代理程式。
 
-確定您可以建置適用於 iOS 的應用程式。 必須執行安裝指南中的步驟才能從 Visual Studio 針對 iOS 建置應用程式。 如果您沒有 Mac，您可以在 MacInCloud 之類的服務上使用遠端組建代理程式來針對 iOS 建置。 如需詳細資訊，請參閱 <<c0> [ 在雲端執行您的 iOS 應用程式][21]。
+確定您可以建置適用於 iOS 的應用程式。 必須執行安裝指南中的步驟才能從 Visual Studio 針對 iOS 建置應用程式。 如果您沒有 Mac，您可以在 MacInCloud 之類的服務上使用遠端組建代理程式來針對 iOS 建置。 如需詳細資訊，請參閱[在雲端中執行您的 iOS 應用程式][21]。
 
 > [!NOTE]
 > 必須有 Xcode 7 或更新版本，才能在 iOS 上使用推播外掛程式。
@@ -311,17 +311,17 @@ pushRegistration = PushNotification.init({
 
 ##### <a name="test-push-notifications-in-your-ios-app"></a>在 iOS 應用程式中測試推播通知
 
-1. 在 Visual Studio 中，請確定已選取 **iOS** 作為部署目標。 然後選取 [裝置]  以在連接的 iOS 裝置上執行推播通知。
+1. 在 Visual Studio 中，請確定已選取 **iOS** 作為部署目標。 然後選取 [裝置] 以在連接的 iOS 裝置上執行推播通知。
 
     您可以在連接至 PC 與 iTunes 的 iOS 裝置上執行推播通知。 iOS 模擬器不支援推播通知。
 
-2. 在 Visual Studio 中選取 [執行]  按鈕或 **F5** 以建置專案，並在 iOS 裝置上啟動應用程式。 然後，選取 [確定]  以接收推播通知。
+2. 在 Visual Studio 中選取 [執行] 按鈕或 **F5** 以建置專案，並在 iOS 裝置上啟動應用程式。 然後，選取 [確定] 以接收推播通知。
 
    > [!NOTE]
    > 應用程式在第一次執行期間會要求您確認推播通知。
 
 3. 在應用程式中輸入一項工作，然後選取加號 **(+)** 圖示。
-4. 驗證已收到通知。 然後選取 [確定]  關閉通知。
+4. 驗證已收到通知。 然後選取 [確定] 關閉通知。
 
 ## <a name="optional-configure-and-run-on-windows"></a>(選擇性) 在 Windows 上設定和執行
 
@@ -341,7 +341,7 @@ pushRegistration = PushNotification.init({
 
 #### <a name="configure-your-cordova-app-to-support-windows-push-notifications"></a>設定 Cordova 應用程式以支援 Windows 推播通知
 
-以滑鼠右鍵按一下 **config.xml** 開啟設定設計工具。 然後選取 [檢視設計工具]  。 接下來，選取 [Windows]  索引標籤，然後在 [Windows 目標版本]  底下選取 [Windows 10]  。
+以滑鼠右鍵按一下 **config.xml** 開啟設定設計工具。 然後選取 [檢視設計工具]。 接下來，選取 [Windows] 索引標籤，然後在 [Windows 目標版本] 底下選取 [Windows 10]。
 
 若要在您的預設 (偵錯) 組建中支援推播通知，請開啟 **build.json** 檔案。 然後將 "release" 設定複製到您的偵錯設定。
 
@@ -373,9 +373,9 @@ pushRegistration = PushNotification.init({
 
 #### <a name="test-push-notifications-in-your-windows-app"></a>在 Windows 應用程式中測試推播通知
 
-在 Visual Studio 中，確定已選取 Windows 平台做為部署目標，例如 **Windows-x64** 或 **Windows-x86**。 若要在裝載 Visual Studio 的 Windows 10 電腦上執行應用程式，請選擇 [本機電腦]  。
+在 Visual Studio 中，確定已選取 Windows 平台做為部署目標，例如 **Windows-x64** 或 **Windows-x86**。 若要在裝載 Visual Studio 的 Windows 10 電腦上執行應用程式，請選擇 [本機電腦]。
 
-1. 選取 [執行]  按鈕，以建置專案並啟動應用程式。
+1. 選取 [執行] 按鈕，以建置專案並啟動應用程式。
 
 2. 在應用程式中輸入新 todoitem 的名稱，然後選取加號 **(+)** 圖示來加入它。
 
@@ -384,7 +384,7 @@ pushRegistration = PushNotification.init({
 ## <a name="next-steps"></a>接續步驟
 
 * 請閱讀 [通知中樞][17] ，了解推播通知的相關資訊。
-* 如果您尚未這樣做，請繼續進行教學課程[將驗證新增][14]至 Apache Cordova 應用程式。
+* 如果您尚未這麼做，請[將驗證新增][14]至您的 Apache Cordova 應用程式，以繼續進行本教學課程。
 
 了解如何使用下列 SDK：
 

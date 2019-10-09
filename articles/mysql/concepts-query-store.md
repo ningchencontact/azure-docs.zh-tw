@@ -6,16 +6,16 @@ ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 06/27/2019
-ms.openlocfilehash: e938baa21f9d2351b3270f4fa2411bf8ecb547d4
-ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
+ms.openlocfilehash: bac270dc0d49c0eaa8c01b030256aa9bb597db80
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/05/2019
-ms.locfileid: "71972805"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72029874"
 ---
 # <a name="monitor-azure-database-for-mysql-performance-with-query-store"></a>使用查詢存放區監視適用於 MySQL 的 Azure 資料庫效能
 
-**適用于：** @no__t-適用于 MySQL 5.7 的1Azure 資料庫
+**適用範圍：** 適用於 MySQL 的 Azure 資料庫5。7
 
 > [!IMPORTANT]
 > 查詢存放區處於預覽狀態。
@@ -37,14 +37,14 @@ ms.locfileid: "71972805"
 ### <a name="enable-query-store-using-the-azure-portal"></a>使用 Azure 入口網站啟用查詢存放區
 
 1. 登入 Azure 入口網站並選取您的適用於 MySQL 的 Azure 資料庫伺服器。
-1. 選取 [ **伺服器參數**]  in 功能表的 [ **設定**] @no__t-[3section]。
+1. 在功能表的 [設定] 區段中，選取 [伺服器參數]。
 1. 搜尋 query_store_capture_mode 參數。
-1. 將 [值] 設定為 [全部] 並 [ **儲存**]。
+1. 將 [值] 設定為 [全部] 並 [**儲存**]。
 
 若要啟用查詢存放區中的等候統計資料：
 
 1. 搜尋 query_store_wait_sampling_capture_mode 參數。
-1. 將 [值] 設定為 [全部] 並 [ **儲存**]。
+1. 將 [值] 設定為 [全部] 並 [**儲存**]。
 
 最多允許20分鐘，讓第一批資料保存在 mysql 資料庫中。
 
@@ -78,10 +78,10 @@ SELECT * FROM mysql.query_store_wait_stats;
 | **觀測** | **動作** |
 |---|---|
 |高鎖定等候數 | 查看受影響查詢的查詢文字，並找出目標實體。 查看查詢存放區，針對經常執行和/或持續時間很長的實體，尋找修改同一實體的其他查詢。 找出這些查詢之後，請考慮變更應用程式邏輯，改善並行存取，或使用限制較少的隔離等級。 |
-|高緩衝區 IO 等候數 | 在查詢存放區中尋找實體讀取次數高的查詢。 如果它們符合具有高 IO 等候的查詢，請考慮在基礎實體上引進索引，以執行搜尋而不是掃描。 這可將查詢的 IO 額外負荷降到最低。 檢查 **效能建議**@no__t-在入口網站中1for 您的伺服器，以查看此伺服器是否有可優化查詢的索引建議。 |
-|高記憶體等候數 | 找出查詢存放區中記憶體耗用量名列前茅的查詢。 這些查詢可能會進一步延遲受影響查詢的進度。 檢查 **效能建議**@no__t-在入口網站中1for 您的伺服器，以查看是否有可優化這些查詢的索引建議。|
+|高緩衝區 IO 等候數 | 在查詢存放區中尋找實體讀取次數高的查詢。 如果它們符合具有高 IO 等候的查詢，請考慮在基礎實體上引進索引，以執行搜尋而不是掃描。 這可將查詢的 IO 額外負荷降到最低。 請在入口網站檢查伺服器的**效能建議**，以查看是否有此伺服器的索引建議，可供將查詢最佳化。 |
+|高記憶體等候數 | 找出查詢存放區中記憶體耗用量名列前茅的查詢。 這些查詢可能會進一步延遲受影響查詢的進度。 請在入口網站檢查伺服器的**效能建議**，以查看是否有索引建議，可供將這些查詢最佳化。|
 
-## <a name="configuration-options"></a>設定選項
+## <a name="configuration-options"></a>組態選項
 
 啟用查詢存放區時，會以每 15 分鐘的彙總時間範圍儲存資料一次，每個範圍內最多可有 500 個相異的查詢。
 
@@ -108,7 +108,7 @@ SELECT * FROM mysql.query_store_wait_stats;
 
 ## <a name="views-and-functions"></a>檢視和函式
 
-使用下列檢視和函式來檢視和管理查詢存放區。 「[選取許可權」公用角色](howto-create-users.md#how-to-create-additional-admin-users-in-azure-database-for-mysql)中的任何人都可以使用這些視圖來查看查詢存放區中的資料。 這些 views 僅適用于**mysql** database。
+使用下列檢視和函式來檢視和管理查詢存放區。 「[選取許可權」公用角色](howto-create-users.md#how-to-create-additional-admin-users-in-azure-database-for-mysql)中的任何人都可以使用這些視圖來查看查詢存放區中的資料。 這些視圖只能在**mysql**資料庫中使用。
 
 移除常值和常數之後，查看查詢結構，其會呈現標準化。 如果兩個查詢完全相同 (但常值除外)，則兩者會有相同的雜湊碼。
 

@@ -14,16 +14,20 @@ ms.devlang: node
 ms.topic: article
 ms.date: 10/01/2016
 ms.author: crdun
-ms.openlocfilehash: 6eaaeba8a36bcba8134d605889185fb8827dd05c
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: 74a522f8761c2eeaf329c90ae35aef0f44c40254
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68851198"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72027200"
 ---
 # <a name="how-to-use-the-mobile-apps-nodejs-sdk"></a>如何使用 Mobile Apps Node.js SDK
 
 [!INCLUDE [app-service-mobile-selector-server-sdk](../../includes/app-service-mobile-selector-server-sdk.md)]
+
+> [!NOTE]
+> Visual Studio App Center 支援行動應用程式開發的端對端和整合式服務中心。 開發人員可以使用**組建**、**測試**和**散發**服務來設定持續整合和傳遞管線。 部署應用程式之後，開發人員可以使用**分析**和**診斷**服務來監視其應用程式的狀態和使用，並與使用**推**播服務的使用者互動。 開發人員也可以利用**驗證**來驗證其使用者和**資料**服務，以保存及同步雲端中的應用程式資料。
+> 如果您想要在您的行動應用程式中整合雲端服務，請立即註冊 App Center [App center](https://appcenter.ms/?utm_source=zumo&utm_medium=Azure&utm_campaign=zumo%20doc) 。
 
 本文提供詳細的資訊及範例，說明如何在 Azure App Service 的 Mobile Apps 功能中使用 Node.js 後端。
 
@@ -135,7 +139,7 @@ Visual Studio 2015 需要延伸模組才能在整合式開發環境 (IDE) 內開
 
     儲存檔案。
 
-1. 請在本機執行應用程式 (在上`http://localhost:3000`提供 API), 或發佈至 Azure。
+1. 請在本機執行應用程式（API 會在 `http://localhost:3000`）或發佈至 Azure。
 
 ### <a name="create-node-backend-portal"></a>使用 Azure 入口網站建立 Node.js 後端
 
@@ -374,7 +378,7 @@ azureMobile.js 檔案中的大部分設定在 [Azure 入口網站]中都有對�
 |:--- |:--- |:--- |:--- |
 | **MS_MobileAppName** |name |應用程式的名稱 |string |
 | **MS_MobileLoggingLevel** |logging.level |要記錄的訊息的最小記錄層級 |error、warning、info、verbose、debug、silly |
-| **MS_DebugMode** |偵錯 |啟用或停用偵錯模式 |true、false |
+| **MS_DebugMode** |debug |啟用或停用偵錯模式 |true、false |
 | **MS_TableSchema** |data.schema |SQL 資料表的預設結構描述名稱 |字串 (預設值：dbo) |
 | **MS_DynamicSchema** |data.dynamicSchema |啟用或停用偵錯模式 |true、false |
 | **MS_DisableVersionHeader** |version (設定為未定義) |停用 X-ZUMO-Server-Version 標頭 |true、false |
@@ -389,7 +393,7 @@ azureMobile.js 檔案中的大部分設定在 [Azure 入口網站]中都有對�
 1. 捲動至 [應用程式設定] 區段。
 1. 如果您的應用程式設定已存在，請選取應用程式設定的值以編輯該值。
    如果您的應用程式設定不存在，請在 [機碼] 方塊中輸入應用程式設定，並在 [值] 方塊中輸入值。
-1. 選取 [ **儲存**]。
+1. 選取 [儲存]。
 
 變更大部分的應用程式設定都需要重新啟動服務。
 

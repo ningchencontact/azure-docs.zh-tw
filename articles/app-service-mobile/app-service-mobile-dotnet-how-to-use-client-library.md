@@ -14,26 +14,25 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 06/25/2019
 ms.author: emalani
-ms.openlocfilehash: af0a4af2bec29e68175d2e15203a02507f08bfeb
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 2abced3bd7f1afe5e447a60c73da26fa302ced98
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67446347"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72027378"
 ---
 # <a name="how-to-use-the-managed-client-for-azure-mobile-apps"></a>如何針對 Azure Mobile Apps 使用受控用戶端
 [!INCLUDE [app-service-mobile-selector-client-library](../../includes/app-service-mobile-selector-client-library.md)]
 
 > [!NOTE]
-> Visual Studio App Center 投入新的和整合式服務行動應用程式開發的核心。 開發人員可以使用**建置**，**測試**並**散發**services 設定持續整合和傳遞管線。 應用程式部署之後，開發人員可以監視的狀態和其應用程式使用的使用方式**Analytics**並**診斷**服務，並使用使用者參與**推播**服務。 開發人員也可以利用**Auth**來驗證使用者並**資料**保存和同步處理雲端中的應用程式資料的服務。 請參閱[App Center](https://appcenter.ms/?utm_source=zumo&utm_campaign=app-service-mobile-dotnet-how-to-use-client-library)今天。
->
+> Visual Studio App Center 支援行動應用程式開發的端對端和整合式服務中心。 開發人員可以使用**組建**、**測試**和**散發**服務來設定持續整合和傳遞管線。 部署應用程式之後，開發人員可以使用**分析**和**診斷**服務來監視其應用程式的狀態和使用，並與使用**推**播服務的使用者互動。 開發人員也可以利用**驗證**來驗證其使用者和**資料**服務，以保存及同步雲端中的應用程式資料。
+> 如果您想要在您的行動應用程式中整合雲端服務，請立即註冊 App Center [App center](https://appcenter.ms/?utm_source=zumo&utm_medium=Azure&utm_campaign=zumo%20doc) 。
 
-## <a name="overview"></a>概觀
-本指南將示範如何在 Windows 和 Xamarin 應用程式中針對 Azure App Service Mobile Apps 使用受控用戶端程式庫，來執行一般案例。 如果您不熟悉 Mobile Apps，應考慮先完成 [Azure Mobile Apps 快速入門][1] 教學課程。 在本指南中，我們會著重於用戶端受控 SDK。 若要深入了解伺服器端 Sdk 適用於 Mobile Apps，請參閱文件[.NET 伺服器 SDK][2] or the
-[Node.js Server SDK][3]。
+## <a name="overview"></a>總覽
+本指南將示範如何在 Windows 和 Xamarin 應用程式中針對 Azure App Service Mobile Apps 使用受控用戶端程式庫，來執行一般案例。 如果您不熟悉 Mobile Apps，應考慮先完成 [Azure Mobile Apps 快速入門][1] 教學課程。 在本指南中，我們會著重於用戶端受控 SDK。 若要深入瞭解 Mobile Apps 的伺服器端 Sdk，請參閱[.Net SERVER sdk][2]或[node.js 伺服器 sdk][3]的檔。
 
 ## <a name="reference-documentation"></a>參考文件
-用戶端 SDK 的參考文件位於此處：[Azure Mobile Apps.NET 用戶端參考][4]。
+用戶端 SDK 的參考文件位於此處：[Azure Mobile Apps .net 用戶端參考][4]。
 您也可以在 [Azure-Samples GitHub 儲存機制][5]中找到數個用戶端範例。
 
 ## <a name="supported-platforms"></a>支援的平台
@@ -65,16 +64,15 @@ public class TodoItem
 }
 ```
 
-[JsonPropertyAttribute][6]用來定義*PropertyName*用戶端欄位與資料表欄位之間的對應。
+[JsonPropertyAttribute][6]是用來定義用戶端欄位和資料表欄位之間的*PropertyName*對應。
 
-若要了解如何在 Mobile Apps 後端建立資料表，請參閱[.NET 伺服器 SDK 主題][7]
-or the [Node.js Server SDK topic][8]。 如果您已使用＜快速入門＞在 Azure 入口網站中建立行動應用程式後端，也可以使用 **Azure 入口網站** 中的 [Azure 入口網站]設定。
+若要瞭解如何在 Mobile Apps 後端中建立資料表，請參閱[.Net 伺服器 sdk 主題][7]或[node.js 伺服器 SDK 主題][8]。 如果您已使用＜快速入門＞在 Azure 入口網站中建立行動應用程式後端，也可以使用 **Azure 入口網站** 中的 [Azure 入口網站]設定。
 
 ### <a name="how-to-install-the-managed-client-sdk-package"></a>作法：安裝受控用戶端 SDK 封裝
 使用下列其中一種方法，從 [NuGet][9]針對 Mobile Apps 安裝受控用戶端 SDK 封裝：
 
-* **Visual Studio** 以滑鼠右鍵按一下您的專案、按一下 [管理 NuGet 套件]  ，搜尋 `Microsoft.Azure.Mobile.Client` 套件，然後按一下 [安裝]  。
-* **Xamarin Studio**以滑鼠右鍵按一下您的專案中，按一下**新增** > **新增 NuGet 套件**，搜尋`Microsoft.Azure.Mobile.Client`封裝，然後按一下 **加入封裝**.
+* **Visual Studio** 以滑鼠右鍵按一下您的專案、按一下 [管理 NuGet 套件]，搜尋 `Microsoft.Azure.Mobile.Client` 套件，然後按一下 [安裝]。
+* **Xamarin Studio**以滑鼠右鍵按一下您的專案，然後按一下 **新增** >**新增 NuGet 套件**，搜尋 `Microsoft.Azure.Mobile.Client` 套件，然後按一下 **新增套件**。
 
 在您的主要活動檔案中，記得加入下列 **using** 陳述式：
 
@@ -86,8 +84,7 @@ using Microsoft.WindowsAzure.MobileServices;
 > 請注意，您 Android 專案中所參考的所有支援套件都必須具有相同版本。 此 SDK 具有 Android 平台的 `Xamarin.Android.Support.CustomTabs` 相依性，因此若您的專案使用較新的支援套件，您必須直接安裝具有必要版本的此套件以避免發生衝突。
 
 ### <a name="symbolsource"></a>操作說明：使用 Visual Studio 中的偵錯符號
-適用於 Microsoft.Azure.Mobile 命名空間的符號位於[SymbolSource][10] .  Refer to the
-[SymbolSource instructions][11]来整合 SymbolSource 與 Visual Studio。
+您可以在 [SymbolSource][10]上取得適用於 Microsoft.Azure.Mobile 命名空間的符號。  若要整合 SymbolSource 與 Visual Studio，請參閱 [SymbolSource 指示][11] 。
 
 ## <a name="create-client"></a>建立 Mobile Apps 用戶端
 下列程式碼會建立用來存取行動應用程式後端的 [MobileServiceClient][12] 物件。
@@ -381,7 +378,7 @@ await table.DeleteAsync(jo);
 提出刪除要求時，必須指定 ID。 其他屬性不會傳遞至服務，或者服務會將它們忽略。 `DeleteAsync` 呼叫的結果通常會是 `null`。 您可以從 `InsertAsync` 呼叫的結果取得所要傳入的 ID。 當您嘗試刪除項目但未指定 `id` 欄位時，會擲回 `MobileServiceInvalidOperationException`。
 
 ### <a name="optimisticconcurrency"></a>操作說明：使用開放式並行存取來解決衝突
-兩個或多個用戶端可能會同時對相同項目寫入變更。 在沒有偵測到衝突的情況下，最後寫入將覆寫任何先前的更新。  會假設每筆交易都可以認可，因此不會使用任何資源鎖定。  在認可交易之前，開放式並行存取控制項會驗證沒有其他交易已修改此資料。 如果資料已修改，則會復原認可的交易。
+兩個或多個用戶端可能會同時對相同項目寫入變更。 在沒有偵測到衝突的情況下，最後寫入將覆寫任何先前的更新。 會假設每筆交易都可以認可，因此不會使用任何資源鎖定。  在認可交易之前，開放式並行存取控制項會驗證沒有其他交易已修改此資料。 如果資料已修改，則會復原認可的交易。
 
 Mobile Apps 支援開放式並行存取控制項，方法是使用 `version` 系統屬性資料行來追蹤對每個項目的變更，該資料行是針對行動應用程式後端中的每個資料表所定義的。 每當更新記錄時，Mobile Apps 會將該筆記錄的 `version` 屬性設定為新值。 在每次更新要求期間，要求所提供的該筆記錄 `version` 屬性會與伺服器上該筆記錄的相同屬性進行比對。 如果隨著要求傳遞的版本與後端不符，則用戶端程式庫會引發 `MobileServicePreconditionFailedException<T>` 例外狀況。 例外狀況所提供的類型是來自包含該記錄之伺服器版本的後端記錄。 接著應用程式可以使用這項資訊，來決定是否要針對後端的正確 `version` 值來執行更新要求以認可變更。
 
@@ -524,13 +521,13 @@ PullOptions pullOptions = new PullOptions
 ## <a name="#offlinesync"></a>使用離線資料表
 離線資料表會使用本機 SQLite 存放區來儲存資料供離線時使用。  所有資料表作業都是針對本機 SQLite 存放區而非遠端伺服器存放區完成。  若要建立離線資料表，先準備您的專案：
 
-1. 在 Visual Studio 中，以滑鼠右鍵按一下方案 > [管理方案的 NuGet 套件...]  ，然後為方案中的所有專案，尋找並安裝 **Microsoft.Azure.Mobile.Client.SQLiteStore** NuGet 套件。
+1. 在 Visual Studio 中，以滑鼠右鍵按一下方案 > [管理方案的 NuGet 套件...]，然後為方案中的所有專案，尋找並安裝 **Microsoft.Azure.Mobile.Client.SQLiteStore** NuGet 套件。
 2. (選擇性) 若要支援 Windows 裝置，請安裝下列其中一個 SQLite 執行階段封裝︰
 
-   * **Windows 8.1 執行階段：** 安裝[適用於 Windows 8.1 的 SQLite][3]。
+   * **Windows 8.1 執行階段：** 安裝[SQLite for Windows 8.1][3]。
    * **Windows Phone 8.1：** 安裝[SQLite for Windows Phone 8.1][4]。
-   * **通用 Windows 平台**安裝[適用於通用 Windows SQLite][5]。
-3. (選擇性)。 若為 Windows 裝置，請按一下 [參考]   >  [新增參考...]  ，展開 **Windows** 資料夾 > [擴充功能]  ，然後啟用適當的 **SQLite for Windows** SDK 及 **Visual C++ 2013 Runtime for Windows** SDK。
+   * **通用 Windows 平臺**安裝[適用于通用 Windows 的 SQLite][5]。
+3. (選擇性)。 若為 Windows 裝置，請按一下 [參考]  >  [新增參考...]，展開 **Windows** 資料夾 > [擴充功能]，然後啟用適當的 **SQLite for Windows** SDK 及 **Visual C++ 2013 Runtime for Windows** SDK。
     每個 Windows 平台的 SQLite SDK 名稱稍有差異。
 
 建立資料表參考之前，必須準備本機存放區：
@@ -662,9 +659,9 @@ InvokeApiAsync() 方法會在您想要呼叫的 API 前面加上 '/api/'，除�
 3. 根據您使用的平台，將下列程式碼新增至您的應用程式。 在每個程式碼中，進行下列取代：
 
    * 以您佈建應用程式的租用戶名稱取代 **INSERT-AUTHORITY-HERE** 。 格式應為 https://login.microsoftonline.com/contoso.onmicrosoft.com 。 您可以從 [Azure 入口網站]之 Azure Active Directory 的 [網域] 索引標籤中複製這個值。
-   * 以您行動應用程式後端的用戶端識別碼取代 INSERT-RESOURCE-ID-HERE  。 您可以從入口網站 [Azure Active Directory 設定]  底下的 [進階]  索引標籤取得用戶端識別碼。
-   * 以您從原生用戶端應用程式中複製的用戶端識別碼取代 INSERT-CLIENT-ID-HERE  。
-   * 使用 HTTPS 配置，以您網站的 **/.auth/login/done** 端點取代 *INSERT-REDIRECT-URI-HERE* 。 此值應該類似 https://contoso.azurewebsites.net/.auth/login/done  。
+   * 以您行動應用程式後端的用戶端識別碼取代 INSERT-RESOURCE-ID-HERE 。 您可以從入口網站 [Azure Active Directory 設定] 底下的 [進階] 索引標籤取得用戶端識別碼。
+   * 以您從原生用戶端應用程式中複製的用戶端識別碼取代 INSERT-CLIENT-ID-HERE 。
+   * 使用 HTTPS 配置，以您網站的 **/.auth/login/done** 端點取代 *INSERT-REDIRECT-URI-HERE* 。 此值應該類似 https://contoso.azurewebsites.net/.auth/login/done。
 
      每個平台所需的程式碼如下：
 
@@ -872,7 +869,7 @@ client.Logout();
 vault.Remove(vault.Retrieve("Facebook", client.currentUser.UserId));
 ```
 
-Xamarin 應用程式會使用 [Xamarin.Auth] API，將憑證安全地儲存在 [帳戶]  物件中。 如需使用這些 API 的範例，請參閱 [ContosoMoments 照片分享範例](https://github.com/azure-appservice-samples/ContosoMoments)中的 [AuthStore.cs] 程式碼檔案。
+Xamarin 應用程式會使用 [Xamarin.Auth] API，將憑證安全地儲存在 [帳戶] 物件中。 如需使用這些 API 的範例，請參閱 [ContosoMoments 照片分享範例](https://github.com/azure-appservice-samples/ContosoMoments)中的 [AuthStore.cs] 程式碼檔案。
 
 當您使用用戶端管理的驗證時，您也可以快取向您的提供者 (例如 Facebook 或 Twitter) 取得的存取權杖。 您可以提供此權杖，以向後端要求新的驗證權杖，如下所示︰
 
@@ -916,11 +913,11 @@ private async void InitNotificationsAsync()
 
 若要取得這個值：
 
-1. 在 Visual Studio 方案總管中，以滑鼠右鍵按一下 Microsoft Store 應用程式專案，然後按一下 [市集]   > [將應用程式與市集建立關聯...]  。
-2. 在精靈中按 [下一步]  ，使用 Microsoft 帳戶登入，在 [保留新的應用程式名稱]  中輸入您應用程式的名稱，然後按一下 [保留]  。
-3. 成功建立應用程式註冊之後，選取應用程式名稱，按 [下一步]  ，然後按一下 [關聯]  。
-4. 使用您的 Microsoft 帳戶登入 [Windows 開發人員中心] 。 在 [我的應用程式]  底下，按一下您建立的應用程式註冊。
-5. 按一下 [應用程式管理]   >  [應用程式身分識別]  ，然後向下捲動找到您的 [套件 SID]  。
+1. 在 Visual Studio 方案總管中，以滑鼠右鍵按一下 Microsoft Store 應用程式專案，然後按一下 [市集] > [將應用程式與市集建立關聯...]。
+2. 在精靈中按 [下一步]，使用 Microsoft 帳戶登入，在 [保留新的應用程式名稱] 中輸入您應用程式的名稱，然後按一下 [保留]。
+3. 成功建立應用程式註冊之後，選取應用程式名稱，按 [下一步]，然後按一下 [關聯]。
+4. 使用您的 Microsoft 帳戶登入 [Windows 開發人員中心] 。 在 [我的應用程式]底下，按一下您建立的應用程式註冊。
+5. 按一下 [應用程式管理]  >  [應用程式身分識別]，然後向下捲動找到您的 [套件 SID]。
 
 許多使用套件 SID 的情況會將其視為 URI，在這種情況下，您必須使用 *ms-app://* 作為配置。 記下您封裝 SID 的版本，封裝 SID 是由串連這個值作為首碼所形成。
 

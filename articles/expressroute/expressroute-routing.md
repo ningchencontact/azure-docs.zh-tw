@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 09/19/2019
 ms.author: cherylmc
 ms.custom: seodec18
-ms.openlocfilehash: 77c90cccbbfa5865878ae4dc47e5009697560ed3
-ms.sourcegitcommit: be344deef6b37661e2c496f75a6cf14f805d7381
-ms.translationtype: HT
+ms.openlocfilehash: a52f9fca172e42aa39a4507347185026451a8ff2
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/07/2019
-ms.locfileid: "72001307"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72029031"
 ---
 # <a name="expressroute-routing-requirements"></a>ExpressRoute 路由需求
 若要使用 ExpressRoute 連線到 Microsoft 雲端服務，您必須設定和管理路由。 有些連線提供者會以受控服務形式提供路由的設定和管理。 請洽詢您的連線服務提供者，以查看他們是否提供這類服務。 如果沒有，您必須遵循下列需求：
@@ -183,7 +183,7 @@ ExpressRoute 不能設定為傳輸路由器。 您必須依賴連線提供者的
 | 日本東部 | 12076:51012 | 12076:52012 | 12076:53012 | 12076:54012 |
 | 日本西部 | 12076:51013 | 12076:52013 | 12076:53013 | 12076:54013 |
 | **澳大利亞** | |
-| 澳大利亞東部 | 12076:51015 | 12076:52015 | 12076:53015 | 12076:54015 |
+| 澳洲東部 | 12076:51015 | 12076:52015 | 12076:53015 | 12076:54015 |
 | 澳大利亞東南部 | 12076:51016 | 12076:52016 | 12076:53016 | 12076:54016 |
 | **澳洲政府** | |
 | 澳大利亞中部 | 12076:51032 | 12076:52032 | 12076:53032 | 12076:54032 |
@@ -215,14 +215,16 @@ ExpressRoute 不能設定為傳輸路由器。 您必須依賴連線提供者的
 
 | **服務** | **BGP 社群值** |
 | --- | --- |
-| Exchange Online | 12076:5010 |
-| SharePoint Online | 12076:5020 |
-| 商務用 Skype Online | 12076:5030 |
+| Exchange Online * * | 12076:5010 |
+| SharePoint Online * * | 12076:5020 |
+| 商務用 Skype Online * * | 12076:5030 |
+| CRM Online |12076:5040 |
 | Azure 全域服務* | 12076:5050 |
-| 其他 Office 365 Online 服務 | 12076:5100 |
+| Azure Active Directory |12076:5060 |
+| 其他 Office 365 線上服務 * * | 12076:5100 |
 
 *Azure 全域服務目前只包括 Azure DevOps。
-
+\* * Microsoft 所需的授權，請參閱[設定 microsoft 對等互連的路由篩選](how-to-routefilter-portal.md) 
 
 > [!NOTE]
 > Microsoft 不接受任何您在向 Microsoft 通告的路由上設定的 BGP 社群值。
@@ -234,11 +236,11 @@ ExpressRoute 不能設定為傳輸路由器。 您必須依賴連線提供者的
 | **國家雲端 Azure 區域**| **BGP 社群值** |
 | --- | --- |
 | **美國政府** |  |
-| US Gov 亞利桑那州 | 12076:51106 |
+| 美國政府亞利桑那州 | 12076:51106 |
 | US Gov 愛荷華州 | 12076:51109 |
-| US Gov 維吉尼亞州 | 12076:51105 |
-| US Gov 德克薩斯州 | 12076:51108 |
-| 美國 DoD 中部 | 12076:51209 |
+| 美國政府維吉尼亞州 | 12076:51105 |
+| 美國政府德克薩斯州 | 12076:51108 |
+| 美國國防部中央 | 12076:51209 |
 | 美國 DoD 東部 | 12076:51205 |
 
 

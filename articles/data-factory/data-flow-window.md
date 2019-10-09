@@ -7,16 +7,16 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 01/30/2019
-ms.openlocfilehash: 6f3f06ff54fc76416ba63f4f09835897d546f8dc
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: cf58db14398026da62ed13c66be815be8fe166a2
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61349625"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72029899"
 ---
 # <a name="azure-data-factory-window-transformation"></a>Azure Data Factory 視窗轉換
 
-[!INCLUDE [notes](../../includes/data-factory-data-flow-preview.md)]
+
 
 視窗轉換可供您定義資料流資料行的視窗型彙總。 在運算式產生器中，您可以定義以資料或時間視窗 (SQL OVER 子句) 為基礎的各種彙總，例如 LEAD、LAG、NTILE、CUMEDIST、RANK 等等。 包含這些彙總的輸出中，將產生新的欄位。 您也可以包含選擇性的群組依據欄位。
 
@@ -48,4 +48,4 @@ Over 子句的另一個部分是設定 ```Order By```。 這會設定資料排�
 
 ## <a name="next-steps"></a>後續步驟
 
-如果您要尋找簡單的 group by 彙總，使用[彙總轉換](data-flow-aggregate.md)
+如果您要依匯總尋找簡單的群組，請使用「[匯總」轉換](data-flow-aggregate.md)

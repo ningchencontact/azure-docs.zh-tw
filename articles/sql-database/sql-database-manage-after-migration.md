@@ -11,12 +11,12 @@ author: joesackmsft
 ms.author: josack
 ms.reviewer: sstein
 ms.date: 02/13/2019
-ms.openlocfilehash: dead041845c123672d881a8538644b56c34a58a2
-ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
+ms.openlocfilehash: 36e48e86ed3cf7138f7ff5efe89d08c07df87f25
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70845596"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72028266"
 ---
 # <a name="new-dba-in-the-cloud--managing-your-single-and-pooled-databases-in-azure-sql-database"></a>雲端中的新 DBA - 在 Azure SQL Database 中管理您的單一和集區資料庫
 
@@ -282,7 +282,7 @@ SQL Azure 平台會分析伺服器中不同資料庫的使用量歷程記錄，�
 
 #### <a name="azure-sql-analytics-preview-in-azure-monitor-logs"></a>Azure 監視器記錄中的 Azure SQL 分析（預覽）
 
-[Azure 監視器記錄](../azure-monitor/insights/azure-sql.md)可讓您收集和視覺化主要的 Azure sql Azure 效能計量，每個工作區最多支援150000個 sql 資料庫和5000個 sql 彈性集區。 您可以使用它來監視和收到通知。 您可以監視跨多個 Azure 訂用帳戶和彈性集區的 SQL Database 和彈性集區計量，並可用來識別應用程式堆疊的各層問題。
+[Azure 監視器記錄](../azure-monitor/insights/azure-sql.md)可讓您收集和視覺化主要的 Azure sql database 效能計量，每個工作區最多支援150000個 sql 資料庫和5000個 sql 彈性集區。 您可以使用它來監視和收到通知。 您可以監視跨多個 Azure 訂用帳戶和彈性集區的 SQL Database 和彈性集區計量，並可用來識別應用程式堆疊的各層問題。
 
 ### <a name="i-am-noticing-performance-issues-how-does-my-sql-database-troubleshooting-methodology-differ-from-sql-server"></a>我注意到效能問題：我的 SQL Database 和 SQL Server 疑難排解方法有何不同
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: azurecli
 ms.date: 11/22/2018
 ms.author: delhan
-ms.openlocfilehash: 9ae8620b803fa9a911f44840a5fff5d190a316a1
-ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
+ms.openlocfilehash: 6883d046078b5dccd2f1e83e87b41ca83edc92e3
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71086524"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72030595"
 ---
 # <a name="disable-the-guest-os-firewall-in-azure-vm"></a>停用 Azure VM 中的客體 OS 防火牆
 
@@ -92,7 +92,7 @@ ms.locfileid: "71086524"
 
 1.  在要對其進行疑難排解的 VM 上，啟動登錄編輯程式 ，然後前往 [檔案] > [連線網路登錄]。
 
-2.  開啟  *TARGET MACHINE*\SYSTEM 分支，然後指定下列值：
+2.  開啟*目的電腦*\SYSTEM 分支，然後指定下列值：
 
     ```
     <TARGET MACHINE>\SYSTEM\CurrentControlSet\services\SharedAccess\Parameters\FirewallPolicy\DomainProfile\EnableFirewall           -->        0 
@@ -102,13 +102,13 @@ ms.locfileid: "71086524"
 
 3.  重新啟動服務。 由於您無法使用遠端登錄來執行上述作業，因此必須使用 [移除服務主控台]。
 
-4.  開啟  **Services.msc** 的執行個體。
+4.  開啟**services.msc**的實例。
 
 5.  按一下 [服務 (本機)]。
 
 6.  選取 [連線到另一部電腦]。
 
-7.  輸入問題 VM 的 **私人 IP 位址 (DIP)**  。
+7.  輸入問題 VM 的**私人 IP 位址（DIP）** 。
 
 8.  重新啟動本機防火牆原則。
 

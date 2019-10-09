@@ -1,6 +1,6 @@
 ---
 title: 在 Azure 中使用 SQL VM 資源提供者註冊 SQL Server 虛擬機器 |Microsoft Docs
-description: 向 SQL VM 資源提供者註冊您的 SQL Server VM, 以改善管理能力。
+description: 向 SQL VM 資源提供者註冊您的 SQL Server VM，以改善管理能力。
 services: virtual-machines-windows
 documentationcenter: na
 author: MashaMSFT
@@ -14,12 +14,12 @@ ms.workload: iaas-sql-server
 ms.date: 06/24/2019
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 2bf7118d1f4be065969312d1fb9b0cf77e820d48
-ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.openlocfilehash: b0a7221107f05ff2239bd77cc18e7ffedc18efc1
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71262889"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72023590"
 ---
 # <a name="register-a-sql-server-virtual-machine-in-azure-with-the-sql-vm-resource-provider"></a>在 Azure 中使用 SQL VM 資源提供者註冊 SQL Server 虛擬機器
 
@@ -38,10 +38,15 @@ ms.locfileid: "71262889"
 
 - **免費管理**：向 SQL VM 資源提供者註冊，而且所有管理性模式完全免費。 與資源提供者沒有相關聯的額外成本，或變更管理模式。 
 
-若要利用 SQL VM 資源提供者, 您也必須向您的訂用帳戶註冊 SQL VM 資源提供者。 您可以使用 Azure 入口網站、Azure CLI 或 PowerShell 來完成這項操作。 
+若要利用 SQL VM 資源提供者，您也必須向您的訂用帳戶註冊 SQL VM 資源提供者。 您可以使用 Azure 入口網站、Azure CLI 或 PowerShell 來完成這項操作。 
 
   > [!NOTE]
   > 向資源提供者註冊時，沒有相關聯的其他授權需求。 向 SQL VM 資源提供者註冊可提供簡化的方法，以滿足通知 Microsoft，已啟用 Azure Hybrid Benefit 來管理每個資源的授權註冊表單。 
+
+如需使用 SQL VM 資源提供者之優點的詳細資訊，請參閱下列[channel9](https://channel9.msdn.com/Shows/Data-Exposed/Benefit-from-SQL-VM-Resource-Provider-when-self-installing-SQL-Server-on-Azure?WT.mc_id=dataexposed-c9-niner)影片： 
+
+<iframe src="https://channel9.msdn.com/Shows/Data-Exposed/Benefit-from-SQL-VM-Resource-Provider-when-self-installing-SQL-Server-on-Azure/player" width="960" height="540" allowFullScreen frameBorder="0" title="在 Azure 上自行安裝 SQL Server 時，從 SQL VM 資源提供者獲益-Microsoft Channel 9 影片"></iframe>
+
 
 ## <a name="prerequisites"></a>必要條件
 
@@ -55,13 +60,13 @@ ms.locfileid: "71262889"
 ## <a name="register-with-sql-vm-resource-provider"></a>向 SQL VM 資源提供者註冊
 如果 VM 上未安裝[SQL Server IaaS 代理程式擴充](virtual-machines-windows-sql-server-agent-extension.md)功能，您可以藉由指定輕量 sql 管理模式向 sql VM 資源提供者註冊。 
 
-在註冊程式期間指定輕量時，SQL VM 資源提供者會自動以[輕量模式](#change-management-modes)安裝 Sql IaaS 延伸模組，並驗證 SQL Server 實例中繼資料。這不會重新開機 SQL Server 服務。 向 SQL VM 資源提供者註冊為 ' PAYG ' 或 ' AHUB ' 時, 您需要提供所需的 SQL Server 授權類型。
+在註冊程式期間指定輕量時，SQL VM 資源提供者會自動以[輕量模式](#change-management-modes)安裝 Sql IaaS 延伸模組，並驗證 SQL Server 實例中繼資料。這不會重新開機 SQL Server 服務。 向 SQL VM 資源提供者註冊為 ' PAYG ' 或 ' AHUB ' 時，您需要提供所需的 SQL Server 授權類型。
 
 以輕量模式向 SQL VM 資源提供者註冊，將可確保合規性並啟用彈性的授權，以及就地 SQL Server 版本更新。 容錯移轉叢集實例和多重實例部署只能在輕量模式中向 SQL VM 資源提供者註冊。 您可以隨時[升級](#change-management-modes)為完整管理模式，但是這麼做會重新開機 SQL Server 服務。 
 
 
 # <a name="powershelltabpowershell"></a>[PowerShell](#tab/powershell)
-如果 VM 上已安裝 SQL Server IaaS 擴充功能，請使用下列程式碼片段向 SQL VM 資源提供者註冊。 向 SQL VM 資源提供者註冊時，您必須提供您想要的 SQL Server 授權類型： [隨用隨付] （`PAYG`）或 [Azure Hybrid Benefit （`AHUB`）]。 
+如果 VM 上已安裝 SQL Server IaaS 擴充功能，請使用下列程式碼片段向 SQL VM 資源提供者註冊。 向 SQL VM 資源提供者註冊時，您必須提供您想要的 SQL Server 授權類型：隨用隨付（`PAYG`）或 Azure Hybrid Benefit （`AHUB`）。 
 
 使用下列 PowerShell 程式碼片段來註冊 SQL Server VM：
 
@@ -96,7 +101,7 @@ ms.locfileid: "71262889"
   ```
 ---
 
-如果手動將 SQL IaaS 延伸模組安裝到 VM，您可以直接建立 Microsoft.sqlvirtualmachine/SqlVirtualMachines 類型的中繼資料資源，以完整模式向 SQL VM 資源提供者註冊。 以下是在 VM 上已安裝 SQL IaaS 擴充功能時, 要向 SQL VM 資源提供者註冊的程式碼片段。 您需要提供所需的 SQL Server 授權類型為 ' PAYG ' 或 ' AHUB '。 若要在完整管理模式中註冊，請使用下列 PowerShell 命令：
+如果手動將 SQL IaaS 延伸模組安裝到 VM，您可以直接建立 Microsoft.sqlvirtualmachine/SqlVirtualMachines 類型的中繼資料資源，以完整模式向 SQL VM 資源提供者註冊。 以下是在 VM 上已安裝 SQL IaaS 擴充功能時，要向 SQL VM 資源提供者註冊的程式碼片段。 您需要提供所需的 SQL Server 授權類型為 ' PAYG ' 或 ' AHUB '。 若要在完整管理模式中註冊，請使用下列 PowerShell 命令：
 
   ```powershell-interactive
   # Get the existing  Compute VM
@@ -111,9 +116,9 @@ ms.locfileid: "71262889"
 
 ## <a name="register-sql-server-2008-or-2008-r2-on-windows-server-2008-vms"></a>在 Windows Server 上註冊 SQL Server 2008 或 2008 R2 2008 Vm
 
-安裝在 Windows Server 2008 上的 SQL Server 2008 和 2008 R2，可以在[無代理程式模式下](#change-management-modes)向 SQL VM 資源提供者註冊。 此選項可確保合規性, 並允許在功能有限的 Azure 入口網站中監視 SQL Server 的 VM。
+安裝在 Windows Server 2008 上的 SQL Server 2008 和 2008 R2，可以在[無代理程式模式下](#change-management-modes)向 SQL VM 資源提供者註冊。 此選項可確保合規性，並允許在功能有限的 Azure 入口網站中監視 SQL Server 的 VM。
 
-下表詳細說明註冊期間所提供參數的可接受值:
+下表詳細說明註冊期間所提供參數的可接受值：
 
 | 參數 | 可接受的值                                 |
 | :------------------| :--------------------------------------- |
@@ -159,7 +164,7 @@ ms.locfileid: "71262889"
 
 ### <a name="command-line"></a>命令列
 
-使用 Az CLI 或 PowerShell 來確認目前 SQL Server 的 VM 註冊狀態。 `ProvisioningState`會顯示`Succeeded`註冊是否成功。 
+使用 Az CLI 或 PowerShell 來確認目前 SQL Server 的 VM 註冊狀態。 如果註冊成功，`ProvisioningState` 會顯示 `Succeeded`。 
 
 # <a name="az-clitabbash"></a>[AZ CLI](#tab/bash)
 
@@ -302,13 +307,13 @@ Register-AzResourceProvider -ProviderNamespace Microsoft.SqlVirtualMachine
 
 **向 SQL VM 資源提供者註冊的必要條件為何？**
 
-在輕量模式或無代理程式模式中, 不需要向 SQL VM 資源提供者註冊。 以完整模式向 SQL VM 資源提供者註冊的必要條件是已在 VM 上安裝 SQL Server IaaS 延伸模組。
+在輕量模式或無代理程式模式中，不需要向 SQL VM 資源提供者註冊。 以完整模式向 SQL VM 資源提供者註冊的必要條件是已在 VM 上安裝 SQL Server IaaS 延伸模組。
 
 **如果 VM 上未安裝 SQL Server IaaS 擴充功能，是否可以向 SQL VM 資源提供者註冊？**
 
 是，如果您未在 VM 上安裝 SQL Server IaaS 擴充功能，您可以在輕量管理模式中向 SQL VM 資源提供者註冊。 在輕量模式中，SQL VM 資源提供者會使用主控台應用程式來確認 SQL Server 實例的版本。 
 
-向 SQL VM 資源提供者註冊時的預設 SQL 管理模式已_滿_。 如果向 SQL VM 資源提供者註冊時未設定 SQL 管理屬性, 則會將模式設定為完整管理能力。 在 VM 上安裝 SQL IaaS 擴充功能是在完整管理模式下向 SQL VM 資源提供者註冊的必要條件。
+向 SQL VM 資源提供者註冊時的預設 SQL 管理模式已_滿_。 如果向 SQL VM 資源提供者註冊時未設定 SQL 管理屬性，則會將模式設定為完整管理能力。 在 VM 上安裝 SQL IaaS 擴充功能是在完整管理模式下向 SQL VM 資源提供者註冊的必要條件。
 
 **向 SQL VM 資源提供者註冊會在我的 VM 上安裝代理程式嗎？**
 
@@ -360,7 +365,7 @@ Register-AzResourceProvider -ProviderNamespace Microsoft.SqlVirtualMachine
 
 **如果有多個 SQL Server 實例，可以向 SQL VM 資源提供者註冊 VM 嗎？**
 
-是的。 SQL VM 資源提供者只會註冊一個 SQL Server 實例。 SQL VM 資源提供者會在多個實例的情況下，註冊預設的 SQL Server 實例。 如果沒有預設實例, 則只支援在輕量模式下註冊。 若要從輕量升級到完整的管理性模式，預設 SQL Server 實例應該存在，或 VM 應該只有一個名為 SQL Server 實例。
+是的。 SQL VM 資源提供者只會註冊一個 SQL Server 實例。 SQL VM 資源提供者會在多個實例的情況下，註冊預設的 SQL Server 實例。 如果沒有預設實例，則只支援在輕量模式下註冊。 若要從輕量升級到完整的管理性模式，預設 SQL Server 實例應該存在，或 VM 應該只有一個名為 SQL Server 實例。
 
 **我可以向 SQL VM 資源提供者註冊 SQL Server 容錯移轉叢集實例嗎？**
 

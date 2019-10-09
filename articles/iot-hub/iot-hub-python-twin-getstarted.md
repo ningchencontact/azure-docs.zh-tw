@@ -8,12 +8,12 @@ ms.devlang: python
 ms.topic: conceptual
 ms.date: 08/26/2019
 ms.author: robinsh
-ms.openlocfilehash: 565330528638bb6c8e0458a9761e2cf9fa4e3d2a
-ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
+ms.openlocfilehash: 729371ede8df3dc21f70bc5742de52f2be874507
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/15/2019
-ms.locfileid: "71001455"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72029996"
 ---
 # <a name="get-started-with-device-twins-python"></a>開始使用裝置對應項 (Python)
 
@@ -70,7 +70,7 @@ ms.locfileid: "71001455"
    from iothub_service_client import IoTHubDeviceTwin, IoTHubError
    ```
 
-4. 新增下列程式碼。 將`[IoTHub Connection String]`取代為您在[取得 iot 中樞連接字串](#get-the-iot-hub-connection-string)中複製的 iot 中樞連接字串。 將`[Device Id]`取代為您在[IoT 中樞註冊新裝置](#register-a-new-device-in-the-iot-hub)中註冊的裝置識別碼。
+4. 新增下列程式碼。 以您在[取得 iot 中樞連接字串](#get-the-iot-hub-connection-string)中複製的 IoT 中樞連接字串取代 `[IoTHub Connection String]`。 以您在[IoT 中樞註冊新裝置](#register-a-new-device-in-the-iot-hub)中註冊的裝置識別碼取代 `[Device Id]`。
   
     ```python
     CONNECTION_STRING = "[IoTHub Connection String]"
@@ -171,7 +171,7 @@ ms.locfileid: "71001455"
     from azure.iot.device import IoTHubModuleClient
     ```
 
-4. 新增下列程式碼。 將預留位置值取代為您在[IoT 中樞註冊新裝置](#register-a-new-device-in-the-iot-hub)中所複製的裝置連接字串。 `[IoTHub Device Connection String]`
+4. 新增下列程式碼。 以您在[IoT 中樞註冊新裝置](#register-a-new-device-in-the-iot-hub)中所複製的裝置連接字串，取代 `[IoTHub Device Connection String]` 預留位置值。
 
     ```python
     CONNECTION_STRING = "[IoTHub Device Connection String]"
@@ -187,7 +187,7 @@ ms.locfileid: "71001455"
             print(patch)
 
     def iothub_client_init():
-        client = IoTHubDeviceClient.create_from_connection_string(CONNECTION_STRING)
+        client = IoTHubModuleClient.create_from_connection_string(CONNECTION_STRING)
         return client
 
     def iothub_client_sample_run():

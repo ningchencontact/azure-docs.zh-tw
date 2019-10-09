@@ -6,13 +6,13 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 04/02/2019
-ms.openlocfilehash: df9e6e3a9116b9a4490d8847e9a9d3e9e112f4f7
-ms.sourcegitcommit: cd70273f0845cd39b435bd5978ca0df4ac4d7b2c
+ms.date: 10/03/2019
+ms.openlocfilehash: 16b0fdcbae51b30e14fbf7ea4d98699dfaf19804
+ms.sourcegitcommit: f9e81b39693206b824e40d7657d0466246aadd6e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71098782"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72035726"
 ---
 # <a name="customize-azure-hdinsight-clusters-by-using-script-actions"></a>使用腳本動作自訂 Azure HDInsight 叢集
 
@@ -157,13 +157,9 @@ HDInsight 提供一些指令碼以在 HDInsight 叢集上安裝下列元件：
 
 ### <a name="use-a-script-action-during-cluster-creation-from-the-azure-portal"></a>在建立叢集期間從 Azure 入口網站使用指令碼動作
 
-1. 依照[使用 Apache Hadoop、Apache Spark、Apache Kafka 及其他工具在 HDInsight 中設定叢集](hdinsight-hadoop-provision-linux-clusters.md)所述，開始建立叢集。 在叢集建立期間，您會抵達 [叢集摘要] 頁面。 請從 [叢集摘要] 頁面中，選取 [進階設定] 的 [編輯] 連結。
+1. 開始建立叢集，如在[HDInsight 中建立以 Linux 為基礎](hdinsight-hadoop-create-linux-clusters-portal.md)的叢集中所述，使用 Azure 入口網站。 在叢集建立期間，您會到達步驟6：**腳本動作**。 流覽至**選擇性**的  >  **+ 提交新**的。
 
-    ![Azure 入口網站叢集的 advanced 設定](./media/hdinsight-hadoop-customize-cluster-linux/advanced-settings-link.png)
-
-1. 從 [進階設定] 區段中，選取 [指令碼動作]。 從 [指令碼動作] 區段中，選取 [+ 送出新的]。
-
-    ![入口網站腳本動作提交新的](./media/hdinsight-hadoop-customize-cluster-linux/add-new-script-action.png)
+    ![Azure 入口網站叢集腳本動作](./media/hdinsight-hadoop-customize-cluster-linux/azure-portal-cluster-classic-script-action.png)
 
 1. 使用 [選取指令碼] 項目來選取預先製作的指令碼。 若要使用自訂指令碼，請選取 [自訂]。 然後為您的指令碼提供 [名稱] 和 [Bash 指令碼 URI]。
 
@@ -185,7 +181,7 @@ HDInsight 提供一些指令碼以在 HDInsight 叢集上安裝下列元件：
 
     ![HDInsight 多個腳本動作](./media/hdinsight-hadoop-customize-cluster-linux/multiple-scripts-actions.png)
 
-    新增完指令碼之後，請選取 [選取] 按鈕，然後選取 [下一步] 按鈕以返回 [叢集摘要] 區段。
+    當您完成新增腳本時，請選取 [__選取__] 按鈕，然後按 [__下一步]__ 按鈕繼續前往 [叢集__摘要__] 區段。
 
 1. 若要建立叢集，請從 [叢集摘要] 區段選取 [建立]。
 
@@ -235,9 +231,7 @@ HDInsight .NET SDK 提供用戶端程式庫，可讓您更輕鬆地從 .NET 應�
 
 移至 [Azure 入口網站](https://portal.azure.com)：
 
-1. 從左側功能表中選取 [所有服務]。
-
-1. 在 [分析] 底下，選取 [HDInsight 叢集]。
+1. 從左側功能表中，流覽至 [**所有服務**] [ >  **分析**] [ >  個**HDInsight**叢集]。
 
 1. 從清單中選取您的叢集，這會開啟預設檢視。
 
@@ -308,7 +302,7 @@ HDInsight .NET SDK 提供用戶端程式庫，可讓您更輕鬆地從 .NET 應�
 
     如果您省略這個命令的參數，系統會提示您輸入參數。 如果您以 `-u` 指定的指令碼可接受參數，您可以使用 `-p` 參數來指定它們。
 
-    有效的節點類型為 `headnode``workernode` 和 `zookeeper`。 如果指令碼應該要套用至數個節點類型，請以分號 `;` 分隔來指定類型。 例如： `-n headnode;workernode` 。
+    有效的節點類型為 `headnode``workernode` 和 `zookeeper`。 如果指令碼應該要套用至數個節點類型，請以分號 `;` 分隔來指定類型。 例如，`-n headnode;workernode`。
 
     若要保存指令碼，請新增 `--persistOnSuccess`。 您之後也可以使用 `azure hdinsight script-action persisted set` 來保存指令碼。
 
@@ -336,9 +330,7 @@ HDInsight .NET SDK 提供用戶端程式庫，可讓您更輕鬆地從 .NET 應�
 
 1. 登入 [Azure 入口網站](https://portal.azure.com)。
 
-1. 從左側功能表中選取 [所有服務]。
-
-1. 在 [分析] 底下，選取 [HDInsight 叢集]。
+1. 從左側功能表中，流覽至 [**所有服務**] [ > **分析**] [ >  個**HDInsight**叢集]。
 
 1. 從清單中選取您的叢集，這會開啟預設檢視。
 
@@ -403,8 +395,8 @@ HDInsight 服務中有兩種類型的開放原始碼元件可供使用：
 
   * [Apache Hadoop YARN](https://hadoop.apache.org/docs/current/hadoop-yarn/hadoop-yarn-site/YARN.html) ResourceManager。
   * Hive 查詢語言 [HiveQL](https://cwiki.apache.org/confluence/display/Hive/LanguageManual)。
-  * [Apache Mahout](https://mahout.apache.org/)。 
-    
+  * [Apache Mahout](https://mahout.apache.org/)。
+
     如需完整的叢集元件清單，請參閱[可以搭配 HDInsight 使用的 Apache Hadoop 元件和版本有哪些？](hdinsight-component-versioning.md)
 
 * **自訂元件**。 身為叢集的使用者，您可以安裝或在工作負載中使用社群中可用或您建立的任何元件。

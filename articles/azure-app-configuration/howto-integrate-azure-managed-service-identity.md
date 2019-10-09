@@ -13,28 +13,31 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/24/2019
 ms.author: yegu
-ms.openlocfilehash: 4318c4b4d8f1b1f0974d0fae0a2ae5bd6e94b593
-ms.sourcegitcommit: 8ef0a2ddaece5e7b2ac678a73b605b2073b76e88
+ms.openlocfilehash: 3a5517c31cdac0bf6f5ea386a8614d15521d4479
+ms.sourcegitcommit: f9e81b39693206b824e40d7657d0466246aadd6e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71076541"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72035544"
 ---
 # <a name="integrate-with-azure-managed-identities"></a>與 Azure 受控識別整合
 
 Azure Active Directory [受控識別](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview)可協助簡化您雲端應用程式的祕密管理。 透過受控識別，您可以設定程式碼來使用為其執行所在的 Azure 計算服務建立的服務主體。 您會使用受控識別，而不是使用儲存在 Azure Key Vault 中的個別認證或本機連接字串。 
 
-「Azure 應用程式組態」及其 .NET Core、.NET 和 Java Spring 用戶端程式庫皆隨附內建的受控服務識別 (MSI) 支援。 雖然您不一定要使用此功能，但 MSI 可讓您不再需要含有祕密的存取權杖。 您的程式碼只需知道應用程式組態存放區的服務端點，即可存取它。 您可將此 URL 直接內嵌在程式碼中，而無須擔心暴露任何祕密。
+「Azure 應用程式組態」及其 .NET Core、.NET 和 Java Spring 用戶端程式庫皆隨附內建的受控服務識別 (MSI) 支援。 雖然您不一定要使用此功能，但 MSI 可讓您不再需要含有祕密的存取權杖。 您的程式碼只能使用服務端點來存取應用程式設定存放區。 您可將此 URL 直接內嵌在程式碼中，而無須擔心暴露任何祕密。
 
 本教學課程會示範如何運用 MSI 的優勢來存取應用程式設定。 本文會以快速入門中介紹的 Web 應用程式作為基礎。 繼續進行之前，請先完成[使用應用程式設定建立 ASP.NET Core 應用程式](./quickstart-aspnet-core-app.md)。
 
+此外，本教學課程也會選擇性地顯示如何搭配使用 MSI 與應用程式組態的 Key Vault 參考。 這可讓您順暢地存取儲存在 Key Vault 中的秘密，以及應用程式組態中的設定值。 如果您想要探索這項功能，請先完成搭配[ASP.NET Core 使用 Key Vault 參考](./use-key-vault-references-dotnet-core.md)。
+
 您可以使用任何程式碼編輯器來進行本教學課程中的步驟。 Windows、macOS 及 Linux 平台上都有提供的 [Visual Studio Code](https://code.visualstudio.com/) 是一個絕佳的選項。
 
-在本教學課程中，您會了解如何：
+在本教學課程中，您將了解如何：
 
 > [!div class="checklist"]
 > * 授與「應用程式組態」的受控識別存取權。
 > * 設定讓應用程式在您連線到「應用程式組態」時使用受控識別。
+> * （選擇性）將您的應用程式設定為透過應用程式組態 Key Vault 參考連接到 Key Vault 時使用受控識別。
 
 ## <a name="prerequisites"></a>必要條件
 
@@ -63,23 +66,25 @@ Azure Active Directory [受控識別](https://docs.microsoft.com/azure/active-di
 
 1. 在 [Azure 入口網站](https://portal.azure.com)中，選取 [所有資源]，然後選取您在快速入門中建立的應用程式組態存放區。
 
-2. 選取 [存取控制 (IAM)]。
+1. 選取 [存取控制 (IAM)]。
 
-3. 在 [檢查存取權] 索引標籤上，選取 [新增角色指派] 卡片 UI 中的 [新增]。
+1. 在 [檢查存取權] 索引標籤上，選取 [新增角色指派] 卡片 UI 中的 [新增]。
 
-4. 在 [角色] 底下，選取 [參與者]。 在 [存取權指派對象為] 底下，選取 [系統指派的受控識別] 底下的 [App Service]。
+1. 在 [角色] 底下，選取 [參與者]。 在 [存取權指派對象為] 底下，選取 [系統指派的受控識別] 底下的 [App Service]。
 
-5. 在 [訂用帳戶] 底下，選取您的 Azure 訂用帳戶。 選取您應用程式的 App Service 資源。
+1. 在 [訂用帳戶] 底下，選取您的 Azure 訂用帳戶。 選取您應用程式的 App Service 資源。
 
-6. 選取 [儲存]。
+1. 選取 [儲存]。
 
     ![新增受控識別](./media/add-managed-identity.png)
+
+1. 選擇性：如果您也想要授與 Key Vault 的存取權，請遵循[使用受控識別提供 Key Vault 驗證](https://docs.microsoft.com/azure/key-vault/managed-identity)中的指示。
 
 ## <a name="use-a-managed-identity"></a>建立受控識別
 
 1. 前往 Azure 入口網站中的 [設定] 畫面，然後按一下 [**存取金鑰**] 索引標籤，以尋找應用程式設定存放區的 URL。
 
-2. 開啟 *appsettings.json*，然後新增下列指令碼。 以應用程式設定存放區的 URL 取代 *\<service_endpoint >* （包括括弧）。 
+1. 開啟 *appsettings.json*，然後新增下列指令碼。 以應用程式設定存放區的 URL 取代 *@no__t 1service_endpoint >* （包括括弧）。 
 
     ```json
     "AppConfig": {
@@ -87,7 +92,7 @@ Azure Active Directory [受控識別](https://docs.microsoft.com/azure/active-di
     }
     ```
 
-3. 開啟 *Program.cs*，然後取代 `config.AddAzureAppConfiguration()` 方法來更新 `CreateWebHostBuilder` 方法。
+1. 如果您只想要存取直接儲存在應用程式組態中的值，請開啟*Program.cs*，並藉由取代 `config.AddAzureAppConfiguration()` 方法來更新 @no__t 1 方法。
 
     ```csharp
     public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
@@ -100,6 +105,24 @@ Azure Active Directory [受控識別](https://docs.microsoft.com/azure/active-di
             })
             .UseStartup<Startup>();
     ```
+
+1. 如果您想要使用應用程式組態值以及 Key Vault 參考，請開啟*Program.cs*，並更新 `CreateWebHostBuilder` 方法，如下所示。 這會使用 `AzureServiceTokenProvider` 建立新的 `KeyVaultClient`，並將此參考傳遞給 `UseAzureKeyVault` 方法的呼叫。
+
+    ```csharp
+        public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
+            WebHost.CreateDefaultBuilder(args)
+                .ConfigureAppConfiguration((hostingContext, config) =>
+                {
+                    var settings = config.Build();
+                    AzureServiceTokenProvider azureServiceTokenProvider = new AzureServiceTokenProvider();
+                    KeyVaultClient kvClient = new KeyVaultClient(new KeyVaultClient.AuthenticationCallback(azureServiceTokenProvider.KeyVaultTokenCallback));
+                    
+                    config.AddAzureAppConfiguration(options => options.ConnectWithManagedIdentity(settings["AppConfig:Endpoint"])).UseAzureKeyVault(kvClient));
+                })
+                .UseStartup<Startup>();
+    ```
+
+    您現在可以存取 Key Vault 參考，就像任何其他應用程式組態金鑰一樣。 Config 提供者會使用您設定來進行驗證的 `KeyVaultClient`，Key Vault 並抓取值。
 
 [!INCLUDE [Prepare repository](../../includes/app-service-deploy-prepare-repo.md)]
 
@@ -114,7 +137,7 @@ Azure Active Directory [受控識別](https://docs.microsoft.com/azure/active-di
 [!INCLUDE [Configure a deployment user](../../includes/configure-deployment-user-no-h.md)]
 
 ### <a name="enable-local-git-with-kudu"></a>使用 Kudu 啟用本機 Git
-如果您的應用程式還沒有本機 git 存放庫，您必須從應用程式的專案目錄執行下列命令，將它初始化：
+如果您的應用程式沒有本機 git 存放庫，則必須將它初始化。 若要這樣做，請從應用程式的專案目錄執行下列命令：
 
 ```cmd
 git init

@@ -6,12 +6,12 @@ ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 09/18/2019
-ms.openlocfilehash: b295ab442e70772a86d6699e1063c7a1c728f1a7
-ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
+ms.openlocfilehash: 17083029f2377037b99abfa3ce8371661eccb957
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71091125"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72029983"
 ---
 # <a name="server-logs-in-azure-database-for-postgresql---single-server"></a>適用於 PostgreSQL 的 Azure 資料庫-單一伺服器中的伺服器記錄
 適用於 PostgreSQL 的 Azure 資料庫會產生查詢和錯誤記錄。 查詢和錯誤記錄可用來針對組態錯誤及未達最佳效能的情況，進行識別、疑難排解及修復。 (不包括對交易記錄的存取)。 
@@ -24,7 +24,7 @@ ms.locfileid: "71091125"
 如需有關這些參數的詳細資訊，請參閱 PostgreSQL 的[錯誤報告和記錄](https://www.postgresql.org/docs/current/static/runtime-config-logging.html) \(英文\) 文件。 若要了解如何設定「適用於 PostgreSQL 的 Azure 資料庫」參數，請參閱[入口網站文件](howto-configure-server-parameters-using-portal.md)或 [CLI 文件](howto-configure-server-parameters-using-cli.md)。
 
 ## <a name="access-server-logs-through-portal-or-cli"></a>透過入口網站或 CLI 存取伺服器記錄
-如果您已啟用記錄，便可以使用 [Azure 入口網站](howto-configure-server-logs-in-portal.md)、[Azure CLI](howto-configure-server-logs-using-cli.md) 及 Azure REST API 從「適用於 PostgreSQL 的 Azure 資料庫」記錄儲存體存取記錄。 記錄檔每達 1 小時或 100 MB 大小 (以先達到者為準) 就會輪替。 您可以使用與您伺服器相關的  **log\_retention\_period**  參數，來設定此記錄檔儲存體的保留期。 預設值為 3 天；最大值為 7 天。 您的伺服器必須配置足夠的儲存體來保存記錄檔。 (此保留參數不會控管「Azure 診斷記錄」)。
+如果您已啟用記錄，便可以使用 [Azure 入口網站](howto-configure-server-logs-in-portal.md)、[Azure CLI](howto-configure-server-logs-using-cli.md) 及 Azure REST API 從「適用於 PostgreSQL 的 Azure 資料庫」記錄儲存體存取記錄。 記錄檔每達 1 小時或 100 MB 大小 (以先達到者為準) 就會輪替。 您可以使用與您伺服器相關的 **log\_retention\_period** 參數，來設定此記錄檔儲存體的保留期。 預設值為 3 天；最大值為 7 天。 您的伺服器必須配置足夠的儲存體來保存記錄檔。 (此保留參數不會控管「Azure 診斷記錄」)。
 
 
 ## <a name="diagnostic-logs"></a>診斷記錄

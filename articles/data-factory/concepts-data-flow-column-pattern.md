@@ -6,18 +6,18 @@ ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 01/30/2019
-ms.openlocfilehash: 4df831c1329ab13f19e6ecf979e404d4a90e5f72
-ms.sourcegitcommit: 3fa4384af35c64f6674f40e0d4128e1274083487
+ms.openlocfilehash: 535656f315f65ffb7aa241618fe9e73b8246b71f
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71219758"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72027857"
 ---
 # <a name="mapping-data-flows-column-patterns"></a>對應資料流程資料行模式
 
-[!INCLUDE [notes](../../includes/data-factory-data-flow-preview.md)]
 
-數個 Azure Data Factory 資料流程轉換支援「資料行模式」的概念，因此您可以根據模式建立範本資料行，而不是硬式編碼的資料行名稱。 您可以在運算式產生器中使用這項功能來定義模式, 以符合轉換的資料行, 而不需要精確的特定功能變數名稱。 如果傳入來源欄位經常變更, 則模式非常有用, 特別是在變更文字檔或 NoSQL 資料庫中的資料行時。 這種情況有時稱為「架構漂移」。
+
+數個 Azure Data Factory 資料流程轉換支援「資料行模式」的概念，因此您可以根據模式建立範本資料行，而不是硬式編碼的資料行名稱。 您可以在運算式產生器中使用這項功能來定義模式，以符合轉換的資料行，而不需要精確的特定功能變數名稱。 如果傳入來源欄位經常變更，則模式非常有用，特別是在變更文字檔或 NoSQL 資料庫中的資料行時。 這種情況有時稱為「架構漂移」。
 
 此「彈性架構」處理目前是在衍生的資料行和匯總轉換，以及做為「規則型對應」的選取和接收轉換中找到。
 
@@ -32,12 +32,12 @@ ms.locfileid: "71219758"
 
 如果您選擇使用某個運算式產生器 Regex 函式，可以接著連續使用 $1、$2、$3 等來參考與您 Regex 運算式相符的子模式。
 
-資料行模式案例的範例是使用 SUM 搭配一系列的輸入欄位。 彙總 SUM 計算是在「彙總」轉換中。 接著, 您可以在符合 "integer" 的欄位類型的每個相符項上使用 SUM, 然後使用 $ $ 來參考運算式中的每個相符項。
+資料行模式案例的範例是使用 SUM 搭配一系列的輸入欄位。 彙總 SUM 計算是在「彙總」轉換中。 接著，您可以在符合 "integer" 的欄位類型的每個相符項上使用 SUM，然後使用 $ $ 來參考運算式中的每個相符項。
 
 ## <a name="match-columns"></a>符合資料行
 資料![行模式類型](media/data-flow/pattern2.png "模式類型")
 
-若要根據資料行建立模式, 您可以比對資料行名稱、類型、資料流程或位置, 並搭配運算式函數和正則運算式使用任何組合。
+若要根據資料行建立模式，您可以比對資料行名稱、類型、資料流程或位置，並搭配運算式函數和正則運算式使用任何組合。
 
 資料![行位置](media/data-flow/position.png "資料 行位置")
 
@@ -50,11 +50,11 @@ ms.locfileid: "71219758"
 
 ## <a name="pattern-matching-special-columns"></a>模式比對特殊資料行
 
-* `$$`會在設計階段以「偵測模式」和在執行時間執行時，轉譯為每個相符項的名稱
-* `name`代表每個傳入資料行的名稱
-* `type`代表每個傳入資料行的資料類型
-* `stream`表示在您的流程中，與每個資料流程或轉換相關聯的名稱
-* `position`這是資料流程中資料行的序數位置
+* `$$` 會在設計階段以「調試」模式和在執行時間執行時，轉譯為每個相符項的名稱
+* `name` 代表每個傳入資料行的名稱
+* `type` 代表每個傳入資料行的資料類型
+* `stream` 代表與流程中每個資料流程或轉換相關聯的名稱
+* `position` 是資料流程中資料行的序數位置
 
 ## <a name="next-steps"></a>後續步驟
 * 深入瞭解資料轉換的 ADF 對應資料流程[運算式語言](https://aka.ms/dataflowexpressions)

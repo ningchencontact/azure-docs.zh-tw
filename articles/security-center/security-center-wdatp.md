@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/24/2019
 ms.author: memildin
-ms.openlocfilehash: 07934e3c7d9f61ecb4153e6a169882509a81dc75
-ms.sourcegitcommit: 992e070a9f10bf43333c66a608428fcf9bddc130
+ms.openlocfilehash: fb401226e9697afb71dfa7a30f9814e07c3422c2
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71241033"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72028075"
 ---
 # <a name="microsoft-defender-advanced-threat-protection-with-azure-security-center"></a>使用 Azure 資訊安全中心的 Microsoft Defender Advanced 威脅防護
 
@@ -53,7 +53,7 @@ Azure 資訊安全中心現在提供下列功能：
 資訊安全中心中的 Microsoft Defender ATP 支援在標準服務訂用帳戶中的 Windows Server 2016、2012 R2 和 2008 R2 SP1 作業系統上進行偵測。
 
 > [!NOTE]
-> 當您使用 Azure 資訊安全中心來監視伺服器時，系統會自動建立 Microsoft Defender ATP 租使用者，而且 Microsoft Defender ATP 資料預設會儲存在歐洲。 如果您需要將資料移至另一個位置, 您必須聯絡 Microsoft 支援服務以重設租使用者。 已針對 Office 365 GCC 客戶停用利用此整合的伺服器端點監視。
+> 當您使用 Azure 資訊安全中心來監視伺服器時，系統會自動建立 Microsoft Defender ATP 租使用者，而且 Microsoft Defender ATP 資料預設會儲存在歐洲。 如果您需要將資料移至另一個位置，您必須聯絡 Microsoft 支援服務以重設租使用者。 已針對 Office 365 GCC 客戶停用利用此整合的伺服器端點監視。
 
 ## <a name="onboarding-servers-to-security-center"></a>讓伺服器在資訊安全中心上線 
 
@@ -70,7 +70,7 @@ Azure 資訊安全中心現在提供下列功能：
 
 ## <a name="enable-microsoft-defender-atp-integration"></a>啟用 Microsoft Defender ATP 整合
 
-若要查看 Microsoft Defender ATP 整合是否已啟用，請選取 [資訊**安全中心** > **定價 & 設定**] > 按一下您的訂用帳戶。
+若要查看是否已啟用 Microsoft Defender ATP 整合，請選取 資訊**安全中心**  > **定價 & 設定** > 按一下您的訂用帳戶。
 您可以在這裡查看目前已啟用的整合內容。
 
   ![已啟用 Microsoft Defender ATP 整合的 Azure 資訊安全中心威脅偵測設定頁面](media/security-center-wdatp/enable-integrations.png)
@@ -107,7 +107,7 @@ Azure 資訊安全中心現在提供下列功能：
 
 3. 如果命令成功，您會在 Azure 資訊安全中心儀表板和 Microsoft Defender ATP 入口網站上看到新的警示。 此警示可能需要幾分鐘才會顯示。
 
-4. 若要在資訊安全中心檢閱警示，請前往**安全性警示** >  **可疑的 Powershell 命令列**。
+4. 若要在資訊安全中心檢閱警示，請前往**安全性警示** >  **可疑的 Powershell 命令列**。
 
 5. 從 [調查] 視窗中，選取 [移至 Microsoft Defender ATP 入口網站] 連結。
 

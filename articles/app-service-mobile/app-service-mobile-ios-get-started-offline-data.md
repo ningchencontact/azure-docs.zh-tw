@@ -14,21 +14,21 @@ ms.devlang: objective-c
 ms.topic: article
 ms.date: 06/25/2019
 ms.author: emalani
-ms.openlocfilehash: f7ae3e7a33ae7df70214ed171b00cc2accbaccb5
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 0c96442de5b8eea2ec969c48e6a815b6ae78b5c4
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67446380"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72027288"
 ---
 # <a name="enable-offline-syncing-with-ios-mobile-apps"></a>啟用 iOS Mobile Apps 的離線同步處理
 [!INCLUDE [app-service-mobile-selector-offline](../../includes/app-service-mobile-selector-offline.md)]
 
 > [!NOTE]
-> Visual Studio App Center 投入新的和整合式服務行動應用程式開發的核心。 開發人員可以使用**建置**，**測試**並**散發**services 設定持續整合和傳遞管線。 應用程式部署之後，開發人員可以監視的狀態和其應用程式使用的使用方式**Analytics**並**診斷**服務，並使用使用者參與**推播**服務。 開發人員也可以利用**Auth**來驗證使用者並**資料**保存和同步處理雲端中的應用程式資料的服務。 請參閱[App Center](https://appcenter.ms/?utm_source=zumo&utm_campaign=app-service-mobile-ios-get-started-offline-data)今天。
->
+> Visual Studio App Center 支援行動應用程式開發的端對端和整合式服務中心。 開發人員可以使用**組建**、**測試**和**散發**服務來設定持續整合和傳遞管線。 部署應用程式之後，開發人員可以使用**分析**和**診斷**服務來監視其應用程式的狀態和使用，並與使用**推**播服務的使用者互動。 開發人員也可以利用**驗證**來驗證其使用者和**資料**服務，以保存及同步雲端中的應用程式資料。
+> 如果您想要在您的行動應用程式中整合雲端服務，請立即註冊 App Center [App center](https://appcenter.ms/?utm_source=zumo&utm_medium=Azure&utm_campaign=zumo%20doc) 。
 
-## <a name="overview"></a>概觀
+## <a name="overview"></a>總覽
 本教學課程涵蓋適用於 iOS 的 Azure App Service Mobile Apps 功能的離線同步處理說明。 透過離線同步處理，終端使用者即使沒有網路連線，也可以和行動裝置 App 互動以檢視、新增、修改資料。 變更會儲存在本機資料庫中。 裝置恢復上線後，這些變更就會與遠端後端進行同步處理。
 
 如果這是您第一次接觸 Mobile Apps，請先完成[建立 iOS 應用程式] 教學課程。 如果您不使用下載的快速入門伺服器專案，則必須將資料存取擴充套件新增至您的專案。 如需伺服器擴充套件的詳細資訊，請參閱 [使用 Azure Mobile Apps 的 .NET 後端伺服器 SDK](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md)。
@@ -133,7 +133,7 @@ Mobile Apps 的離線資料同步處理功能可讓終端使用者在無法存�
 
 在 Objective-C 與 Swift 版本中，您可以使用 **pullWithQuery** 方法來指定查詢，以篩選想要擷取的記錄。 在此範例中，查詢會擷取遠端 `TodoItem` 資料表中的所有記錄。
 
-**pullWithQuery** 的第二個參數是用於「增量同步處理」  的查詢識別碼。增量同步處理會使用記錄的 `UpdatedAt` 時間戳記 (在本機存放區中稱為 `updatedAt`)，僅取出自上次同步處理後修改的記錄。對您應用程式中的每個邏輯查詢而言，查詢識別碼應該是唯一的描述性字串。 若選擇不要增量同步處理，請傳遞 `nil` 做為查詢識別碼。 此方法可能效率不佳，因為它會在每次提取作業擷取所有記錄。
+**pullWithQuery** 的第二個參數是用於「增量同步處理」的查詢識別碼。增量同步處理會使用記錄的 `UpdatedAt` 時間戳記 (在本機存放區中稱為 `updatedAt`)，僅取出自上次同步處理後修改的記錄。對您應用程式中的每個邏輯查詢而言，查詢識別碼應該是唯一的描述性字串。 若選擇不要增量同步處理，請傳遞 `nil` 做為查詢識別碼。 此方法可能效率不佳，因為它會在每次提取作業擷取所有記錄。
 
 當您修改或新增資料、使用者執行重新整理動作及啟動時，Objective-C 應用程式就會同步處理。
 
@@ -163,12 +163,12 @@ Mobile Apps 的離線資料同步處理功能可讓終端使用者在無法存�
 
 ![MS_TableOperations 資料表屬性][defining-core-data-tableoperations-entity]
 
-| 屬性 | 類型 |
+| 屬性 | Type |
 | --- | --- |
 | id | Integer 64 |
 | itemId | String |
 | properties | Binary Data |
-| table | String |
+| table | 字串 |
 | tableKind | Integer 16 |
 
 
@@ -176,9 +176,9 @@ Mobile Apps 的離線資料同步處理功能可讓終端使用者在無法存�
 
  ![MS_TableOperationErrors 資料表屬性][defining-core-data-tableoperationerrors-entity]
 
-| 屬性 | 類型 |
+| 屬性 | Type |
 | --- | --- |
-| id |String |
+| id |字串 |
 | operationId |Integer 64 |
 | properties |Binary Data |
 | tableKind |Integer 16 |
@@ -187,26 +187,26 @@ Mobile Apps 的離線資料同步處理功能可讓終端使用者在無法存�
 
  ![][defining-core-data-tableconfig-entity]
 
-| 屬性 | 類型 |
+| 屬性 | Type |
 | --- | --- |
-| id |String |
+| id |字串 |
 | key |String |
 | keyType |Integer 64 |
-| table |String |
-| value |String |
+| table |字串 |
+| value |字串 |
 
 ### <a name="data-table"></a>資料表
 
 **TodoItem**
 
-| 屬性 | 類型 | 附註 |
+| 屬性 | Type | 注意 |
 | --- | --- | --- |
 | id | 字串 (標示為必要) |遠端存放區中的主索引鍵 |
 | 完成 | Boolean | To-do 項目欄位 |
-| text |String |To-do 項目欄位 |
+| text |字串 |To-do 項目欄位 |
 | 建立時間 | Date | (選擇性) 對應至 **createdAt** 系統屬性 |
 | 更新時間 | Date | (選擇性) 對應至 **updatedAt** 系統屬性 |
-| version | String | (選擇性) 用來偵測衝突，對應至版本 |
+| 版本 | 字串 | (選擇性) 用來偵測衝突，對應至版本 |
 
 ## <a name="setup-sync"></a>變更應用程式的同步處理行為
 在本節中，您將修改 App，使它在啟動或有使用者插入並更新項目時不會同步處理。 只有在執行重新整理動作按鈕時，它才會同步。
@@ -253,10 +253,10 @@ Mobile Apps 的離線資料同步處理功能可讓終端使用者在無法存�
 2. 新增一些 To-do 項目。 結束模擬器 (或強制關閉 App)，然後重新啟動它。 確認已保存您的變更。
 
 3. 檢視遠端 **TodoItem** 資料表的內容：
-   * 針對 Node.js 後端，請移至 [Azure 入口網站](https://portal.azure.com/)，在您的行動裝置 App 後端中按一下 [簡易表]   >  [TodoItem]  。  
+   * 針對 Node.js 後端，請移至 [Azure 入口網站](https://portal.azure.com/)，在您的行動裝置 App 後端中按一下 [簡易表]  >  [TodoItem]。  
    * 針對 .NET 後端，請使用 SQL 工具 (例如 SQL Server Management Studio) 或 REST 用戶端 (例如 Fiddler 或 Postman)。  
 
-4. 請確認新項目「尚未」  同步處理到伺服器。
+4. 請確認新項目「尚未」同步處理到伺服器。
 
 5. 請將 **QSTodoService.m** 中的 URL 變更回正確的 URL，然後重新執行 App。
 

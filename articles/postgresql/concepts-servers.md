@@ -1,23 +1,23 @@
 ---
-title: Azure Database for PostgreSQL-單一伺服器中的伺服器概念
-description: 本文章提供考量和指導方針設定和管理 Azure Database for PostgreSQL-單一伺服器。
+title: 適用於 PostgreSQL 的 Azure 資料庫-單一伺服器中的伺服器概念
+description: 本文提供設定和管理適用於 PostgreSQL 的 Azure 資料庫單一伺服器的考慮和指導方針。
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 5/6/2019
-ms.openlocfilehash: bc135e58d0fbabc809f3718915e9f4e35b8ed875
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: bd7c24489e8ac7b26cb703923ddf9cbb741cfd68
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65067166"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72029977"
 ---
 # <a name="azure-database-for-postgresql---single-server"></a>適用於 PostgreSQL 的 Azure 資料庫 - 單一伺服器
-這篇文章提供熟悉 Azure Database for PostgreSQL-單一伺服器的考量和指導方針。
+本文提供使用適用於 PostgreSQL 的 Azure 資料庫單一伺服器的考慮和指導方針。
 
 ## <a name="what-is-an-azure-database-for-postgresql-server"></a>什麼是適用於 PostgreSQL 的 Azure 資料庫伺服器？
-Azure Database for PostgreSQL-單一伺服器部署選項中的伺服器是多個資料庫的中央管理點。 這與您可能已在內部部署領域中熟悉的 PostgreSQL 伺服器建構相同。 具體來說，PostgreSQL 服務會受到管理、提供效能保證、公開伺服器層級的存取和功能。
+[適用於 PostgreSQL 的 Azure 資料庫-單一伺服器] 部署選項中的伺服器是多個資料庫的中央管理點。 這與您可能已在內部部署領域中熟悉的 PostgreSQL 伺服器建構相同。 具體來說，PostgreSQL 服務會受到管理、提供效能保證、公開伺服器層級的存取和功能。
 
 適用於 PostgreSQL 的 Azure 資料庫伺服器：
 
@@ -64,6 +64,6 @@ PostgreSQL 伺服器參數會判斷伺服器的設定。 在適用於 PostgreSQL
 
 ## <a name="next-steps"></a>後續步驟
 - 如需服務的概觀，請參閱 [適用於 PostgreSQL 的 Azure 資料庫概觀](overview.md)。
-- 如需有關以您 **服務層級**為依據之特定資源配額與限制的資訊，請參閱 [服務層級](concepts-pricing-tiers.md)。
+- 如需根據您的**服務層級**之特定資源配額和限制的詳細資訊，請參閱 [服務層級](concepts-pricing-tiers.md)。
 - 如需有關連線到服務的資訊，請參閱 [適用於 PostgreSQL 的 Azure 資料庫的連線庫](concepts-connection-libraries.md)。
 - 透過 [Azure 入口網站](howto-configure-server-parameters-using-portal.md)或 [Azure CLI](howto-configure-server-parameters-using-cli.md) 檢視和編輯伺服器參數。

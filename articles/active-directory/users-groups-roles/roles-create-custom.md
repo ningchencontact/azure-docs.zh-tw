@@ -13,12 +13,12 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f008cdf80e15e2737fea19f72ec6703932cf301f
-ms.sourcegitcommit: 49c4b9c797c09c92632d7cedfec0ac1cf783631b
+ms.openlocfilehash: b1a5aee1be7580956c32947e9bda7e2928a006c3
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/05/2019
-ms.locfileid: "70382812"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72026392"
 ---
 # <a name="create-and-assign-a-custom-role-in-azure-active-directory"></a>在 Azure Active Directory 中建立及指派自訂角色
 
@@ -30,8 +30,8 @@ ms.locfileid: "70382812"
 
 ### <a name="create-a-new-custom-role-to-grant-access-to-manage-app-registrations"></a>建立新的自訂角色，以授與管理應用程式註冊的存取權
 
-1. 使用特殊權限角色管理員或全域管理員 Azure AD 組織中的許可權登入 [Azure AD 系統管理中心。](https://aad.portal.azure.com)  
-1. 選取 [ **Azure Active Directory**  > **角色和系統管理員** >] **新的自訂角色**。
+1. 登入 Azure AD 系統 [管理中心](https://aad.portal.azure.com) with 特殊權限角色管理員或 Azure AD 組織中的全域管理員許可權。
+1. 選取**Azure Active Directory** >  個**角色和系統管理員** >  個**新的自訂角色**。
 
    ![從 [角色和系統管理員] 頁面建立或編輯角色](./media/roles-create-custom/new-custom-role.png)
 
@@ -40,11 +40,11 @@ ms.locfileid: "70382812"
    ![在 [基本] 索引標籤上提供自訂角色的名稱和描述](./media/roles-create-custom/basics-tab.png)
 
 1. 在 [**許可權**] 索引標籤上，選取管理應用程式註冊的基本屬性和認證屬性所需的許可權。 如需每個許可權的詳細說明，請參閱[Azure Active Directory 中的應用程式註冊子類型和許可權](./roles-custom-available-permissions.md)。
-   1. 首先，在搜尋列中輸入「認證」，然後選取`microsoft.directory/applications/credentials/update`許可權。
+   1. 首先，在搜尋列中輸入「認證」，然後選取 [`microsoft.directory/applications/credentials/update`] 許可權。
 
       ![在 [許可權] 索引標籤上選取自訂角色的許可權](./media/roles-create-custom/permissions-tab.png)
 
-   1. 接下來，在搜尋列中輸入「基本」，選取`microsoft.directory/applications/basic/update`許可權，然後按 **[下一步]** 。
+   1. 接下來，在搜尋列中輸入「基本」，選取 [`microsoft.directory/applications/basic/update`] 許可權，然後按 **[下一步]** 。
 1. 在 [**審查 + 建立**] 索引標籤上，檢查許可權，然後選取 [**建立**]。
 
 您的自訂角色會顯示在可用角色的清單中，以供指派。

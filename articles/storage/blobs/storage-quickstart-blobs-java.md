@@ -7,12 +7,12 @@ ms.date: 10/05/2019
 ms.service: storage
 ms.subservice: blobs
 ms.topic: conceptual
-ms.openlocfilehash: 87bae74265c4d3abe7301af35888561fcd256717
-ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
+ms.openlocfilehash: c88202c41a7ee6b6d215bd185aeca580bcc88eef
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/05/2019
-ms.locfileid: "71971998"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72030460"
 ---
 # <a name="quickstart-azure-blob-storage-client-library-for-java-sdk-v8"></a>快速入門：適用于 JAVA SDK 的 Azure Blob 儲存體用戶端程式庫 v8
 
@@ -209,4 +209,4 @@ sourceFile.deleteOnExit();
 在本文中，您已了解如何使用 Java 在本機磁碟和 Azure Blob 儲存體之間傳送檔案。 若要深入了解 Java 的用法，請繼續使用我們的 GitHub 開放原始碼存放庫。
 
 > [!div class="nextstepaction"]
-> JAVA [API 參考](https://docs.microsoft.com/java/azure/)@no__t[適用于 java 的1個程式碼範例](../common/storage-samples-java.md)
+> JAVA [API 參考](https://docs.microsoft.com/java/api/overview/azure/storage?view=azure-java-legacy)@no__t[適用于 java 的1個程式碼範例](../common/storage-samples-java.md)

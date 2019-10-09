@@ -11,12 +11,12 @@ ms.reviewer: maghan
 manager: jroth
 ms.topic: conceptual
 ms.date: 08/14/2019
-ms.openlocfilehash: 4386a7adba17eefe3c373697597abdb7d69c476a
-ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
+ms.openlocfilehash: ff1d34852890a8d5005153ebdfa2fa0f9749d129
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71265974"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72030612"
 ---
 # <a name="continuous-integration-and-delivery-cicd-in-azure-data-factory"></a>Azure Data Factory 中的持續整合和傳遞 (CI/CD)
 
@@ -122,7 +122,7 @@ ms.locfileid: "71265974"
 
     f.  選取 **…** 在 [**範本參數] 欄位中。** 選擇參數檔案。 根據您是已建立複本還是使用預設檔案 *ARMTemplateParametersForFactory.json*，選擇正確的檔案。
 
-    g.  選取 **…** (位於 [覆寫範本參數] 欄位旁)，並填入目標 Data Factory 的資訊。 針對來自金鑰保存庫的認證，輸入雙引號之間的密碼名稱。 例如，如果密碼的名稱是`cred1`，請輸入`"$(cred1)"`作為其值。
+    g.  選取 **…** (位於 [覆寫範本參數] 欄位旁)，並填入目標 Data Factory 的資訊。 針對來自金鑰保存庫的認證，輸入雙引號之間的密碼名稱。 例如，如果密碼的名稱 `cred1`，請輸入 `"$(cred1)"`for 其值。
 
     ![](media/continuous-integration-deployment/continuous-integration-image9.png)
 
@@ -196,7 +196,7 @@ ms.locfileid: "71265974"
 
     ![](media/continuous-integration-deployment/continuous-integration-image11.png)
 
-您可以遵循類似的`Start-AzDataFactoryV2Trigger`步驟（使用函式），在部署之後重新開機觸發程式。
+您可以遵循類似的步驟（使用 `Start-AzDataFactoryV2Trigger` 函數），在部署之後重新開機觸發程式。
 
 > [!IMPORTANT]
 > 在持續整合和部署案例中，跨不同環境的整合執行階段類型必須是相同的。 例如，如果您在開發環境中有*自我裝載*整合執行階段 (IR)，則相同的 IR 在其他環境 (例如測試和生產環境) 中也必須屬於*自我裝載*類型。 同樣地，如果您要跨多個階段共用整合執行階段，則必須將所有環境中的整合執行階段設定為*連結自我裝載*，例如開發、測試和生產環境。
@@ -328,21 +328,21 @@ else {
 * 您會使用自動化的 CI/CD，而您想要在 Resource Manager 部署期間變更某些屬性，但預設不會將屬性參數化。
 * 因為預設 Resource Manager 範本的數目超過允許的最大值（256），所以您的 factory 很大。
 
-在這些情況下，若要覆寫預設參數化範本，請在存放庫的根資料夾 中建立名為 *arm-template-parameters-definition*的檔案。 檔案名必須完全相符。 Data Factory 會嘗試從您目前在 Azure Data Factory 入口網站中的任何分支讀取此檔案，而不只是從共同作業分支。 您可以從私人分支建立或編輯檔案，您可以在其中使用 UI 中的 [**匯出 ARM] 範本**來測試您的變更。 然後，您可以將檔案合併到共同作業分支。 如果找不到任何檔案，則會使用預設範本。
+在這些情況下，若要覆寫預設參數化範本，請在存放庫的根資料夾中建立名為*arm-template-parameters-definition*的檔案。 檔案名必須完全相符。 Data Factory 會嘗試從您目前在 Azure Data Factory 入口網站中的任何分支讀取此檔案，而不只是從共同作業分支。 您可以從私人分支建立或編輯檔案，您可以在其中使用 UI 中的 [**匯出 ARM] 範本**來測試您的變更。 然後，您可以將檔案合併到共同作業分支。 如果找不到任何檔案，則會使用預設範本。
 
 
 ### <a name="syntax-of-a-custom-parameters-file"></a>自訂參數檔案的語法
 
 以下是您在撰寫自訂參數檔案時所要使用的一些指導方針。 檔案是由每個實體類型的區段所組成：觸發程式、管線、連結服務、資料集、整合執行時間等等。
 * 在相關實體類型下輸入屬性路徑。
-* 當您將屬性名稱設定為 '\*' ' 時，表示您想要將它下的所有屬性（僅向下到第一個層級，而非以遞迴方式）參數化。 您也可以為此提供任何例外狀況。
-* 當您將屬性的值設定為字串時，就表示您想要將屬性參數化。 使用格式 `<action>:<name>:<stype>`。
-   *  `<action>` 可以是下列其中一個字元：
-      * `=` 表示保留目前的值做為參數的預設值。
-      * `-` 表示不保留參數的預設值。
-      * `|` 這是一個特殊案例，用於連接字串或金鑰 Azure Key Vault 的秘密。
-   * `<name>` 這是參數的名稱。 如果是空的，則會接受屬性的名稱。 如果值是以`-`字元開頭，則名稱會縮短。 例如， `AzureStorage1_properties_typeProperties_connectionString`會縮短為`AzureStorage1_connectionString`。
-   * `<stype>` 這是參數的類型。 `string`如果 `<stype>`為空白，則 預設類型為。 支援的值`string`： `bool`、 `number`、 `object`、和`securestring`。
+* 當您將屬性名稱設定為 ' \* ' ' 時，表示您想要將它下的所有屬性（僅向下到第一個層級，而非以遞迴方式）參數化。 您也可以為此提供任何例外狀況。
+* 當您將屬性的值設定為字串時，就表示您想要將屬性參數化。 請使用 @ no__t-0 的格式。
+   *  `<action>` @ no__t-1can 是下列其中一個字元：
+      * `=` @ no__t-1means 保留目前的值做為參數的預設值。
+      * `-` @ no__t-1means 不會保留參數的預設值。
+      * `|` @ no__t-針對連接字串或金鑰的 Azure Key Vault，sp1 是秘密的特殊案例。
+   * `<name>` @ no__t-sp1 是參數的名稱。 如果是空的，則會接受屬性的名稱。 如果值的開頭為 `-` 字元，則會縮短名稱。 例如，`AzureStorage1_properties_typeProperties_connectionString` 會縮短為 `AzureStorage1_connectionString`。
+   * `<stype>` @ no__t-sp1 是參數的類型。 如果 @ no__t-0 @ no__t-sp1 是為空白，則預設類型為 `string`。 支援的值： `string`、`bool`、`number`、`object` 和 `securestring`。
 * 當您在定義檔中指定陣列時，就表示範本中的相符屬性是陣列。 Data Factory 會使用陣列的 Integration Runtime 物件中指定的定義，逐一查看陣列中的所有物件。 第二個物件 (字串) 會變成屬性的名稱，以作為每個反覆項目參數的名稱。
 * 資源實例不可能有特定的定義。 任何定義都會套用至該類型的所有資源。
 * 根據預設，系統會將所有安全字串（例如 Key Vault 秘密）和安全字串（例如連接字串、金鑰和權杖）參數化。
@@ -414,27 +414,27 @@ else {
 
 #### <a name="pipelines"></a>管線
     
-* Path activity/typeProperties/waitTimeInSeconds 中的任何屬性都已參數化。 管線中具有名為`waitTimeInSeconds`之程式碼層級屬性的任何活動（例如`Wait` ，活動）都會參數化為具有預設名稱的數位。 但它在 Resource Manager 範本中沒有預設值。 在 Resource Manager 部署期間，這會是必要的輸入。
-* 同樣地，名`headers`為的屬性（例如， `Web`活動中的）會以類型`object` （JObject）進行參數化。 它具有預設值，其值與來源 factory 中的相同。
+* Path activity/typeProperties/waitTimeInSeconds 中的任何屬性都已參數化。 管線中具有名為 `waitTimeInSeconds` 之程式碼層級屬性的任何活動（例如，@no__t 1 活動）會參數化為數位，且預設名稱為。 但它在 Resource Manager 範本中沒有預設值。 在 Resource Manager 部署期間，這會是必要的輸入。
+* 同樣地，名為 `headers` 的屬性（例如，在 @no__t 1 活動中）會以類型 `object` （JObject）進行參數化。 它具有預設值，其值與來源 factory 中的相同。
 
 #### <a name="integrationruntimes"></a>IntegrationRuntimes
 
-* 路徑`typeProperties`下的所有屬性都會使用其各自的預設值進行參數化。 例如， **IntegrationRuntimes**類型屬性底下有兩個屬性： `computeProperties`和。 `ssisProperties` 這兩個屬性類型都會使用其各自的預設值和類型（物件）來建立。
+* 路徑 `typeProperties` 下的所有屬性都會以其各自的預設值進行參數化。 例如， **IntegrationRuntimes**類型屬性底下有兩個屬性： `computeProperties` 和 `ssisProperties`。 這兩個屬性類型都會使用其各自的預設值和類型（物件）來建立。
 
 #### <a name="triggers"></a>觸發程序
 
-* 在`typeProperties`底下，會將兩個屬性參數化。 第一個是`maxConcurrency`，其指定為具有預設值，且的類型`string`為。 它的預設參數名稱`<entityName>_properties_typeProperties_maxConcurrency`是。
-* `recurrence`屬性也已參數化。 在其底下，會指定該層級的所有屬性，以預設值和參數名稱參數化為字串。 例外狀況是`interval`屬性，其參數化為數位類型，且參數名稱`<entityName>_properties_typeProperties_recurrence_triggerSuffix`後置字元為。 同樣地， `freq`屬性是字串，而且會參數化為字串。 不過，屬性`freq`在沒有預設值的情況下參數化。 名稱會縮短並加上尾碼。 例如： `<entityName>_freq` 。
+* 在 `typeProperties` 下，會將兩個屬性參數化。 第一個是 `maxConcurrency`，指定為具有預設值，且的類型為 @ no__t-1。 它的預設參數名稱為 `<entityName>_properties_typeProperties_maxConcurrency`。
+* @No__t-0 屬性也已參數化。 在其底下，會指定該層級的所有屬性，以預設值和參數名稱參數化為字串。 例外狀況是 `interval` 屬性，它會參數化為數位類型，且參數名稱後置字元為 `<entityName>_properties_typeProperties_recurrence_triggerSuffix`。 同樣地，`freq` 屬性是字串，而且會參數化為字串。 不過，`freq` 屬性會在沒有預設值的情況下參數化。 名稱會縮短並加上尾碼。 例如，`<entityName>_freq`。
 
 #### <a name="linkedservices"></a>LinkedServices
 
-* 連結服務是唯一的。 因為已連結的服務和資料集有範圍廣泛的類型，所以您可以提供特定類型的自訂。 在此範例中，將會套用類型`AzureDataLakeStore`的所有連結服務、特定的範本，並針對所有其他專案\*（透過）套用不同的範本。
-* 屬性會參數化`securestring`為值，它不會有預設值，而且會有加`connectionString`上尾碼的簡短參數名稱。 `connectionString`
-* 屬性`secretAccessKey`剛好`AmazonS3`是（例如，在連結服務中）。 `AzureKeyVaultSecret` 它會自動參數化為 Azure Key Vault 秘密，並從已設定的金鑰保存庫提取。 您也可以將金鑰保存庫本身參數化。
+* 連結服務是唯一的。 因為已連結的服務和資料集有範圍廣泛的類型，所以您可以提供特定類型的自訂。 在此範例中，所有類型的連結服務 `AzureDataLakeStore`，將會套用特定的範本，而所有其他的應用程式（透過 \*）將會套用不同的範本。
+* @No__t-0 屬性會參數化為 `securestring` 值，它不會有預設值，而且會有一個加上尾碼為 `connectionString` 的簡短參數名稱。
+* @No__t-0 的屬性會是 `AzureKeyVaultSecret` （例如，在 @no__t 2 連結服務中）。 它會自動參數化為 Azure Key Vault 秘密，並從已設定的金鑰保存庫提取。 您也可以將金鑰保存庫本身參數化。
 
 #### <a name="datasets"></a>資料集
 
-* 雖然特定類型的自訂適用于資料集，但您可以在不明確擁有\*層級設定的情況下提供設定。 在上述範例中，下`typeProperties`的所有資料集屬性都會參數化。
+* 雖然特定類型的自訂適用于資料集，但您可以在不明確擁有 @no__t 4.9.0-層級設定的情況下提供設定。 在上述範例中，`typeProperties` 下的所有資料集屬性都已參數化。
 
 ### <a name="default-parameterization-template"></a>預設參數化範本
 
@@ -545,7 +545,7 @@ else {
 }
 ```
 
-以下是如何將單一值新增至預設參數化範本的範例。 我們只想要將 Databricks 連結服務的現有 Databricks 互動式叢集識別碼新增到參數檔案。 請注意，下列檔案與上述檔案相同，但`existingClusterId`包含在的 [屬性] `Microsoft.DataFactory/factories/linkedServices`欄位底下。
+以下是如何將單一值新增至預設參數化範本的範例。 我們只想要將 Databricks 連結服務的現有 Databricks 互動式叢集識別碼新增到參數檔案。 請注意，下列檔案與上述檔案相同，但在 `Microsoft.DataFactory/factories/linkedServices` 的 [內容] 欄位底下包含 `existingClusterId` 除外。
 
 ```json
 {
@@ -657,11 +657,11 @@ else {
 
 如果您已為資料處理站設定持續整合和部署（CI/CD），您可能會在您的 factory 變得更大時遇到 Azure Resource Manager 範本限制。 限制的範例是 Resource Manager 範本中的資源數目上限。 為了配合大型工廠，並產生 factory 的完整 Resource Manager 範本，Data Factory 現在會產生連結的 Resource Manager 範本。 透過這項功能，整個 factory 承載會分成數個檔案，因此您不會遇到限制。
 
-如果您已設定 Git，則會產生連結的範本，並將其與`adf_publish`分支中的完整 Resource Manager 範本一起儲存在名`linkedTemplates`為的新資料夾底下。
+如果您已設定 Git，則會產生連結的範本，並連同 `adf_publish` 分支的完整 Resource Manager 範本一起儲存在名為 `linkedTemplates` 的新資料夾底下。
 
 ![連結的 Resource Manager 範本資料夾](media/continuous-integration-deployment/linked-resource-manager-templates.png)
 
-連結的 Resource Manager 範本通常有一個主要範本，以及一組連結到主要範本的子系範本。 父代範本稱為 `ArmTemplate_master.json`，而子系範本的命名模式為 `ArmTemplate_0.json`、`ArmTemplate_1.json`，依此類推。 若要使用連結的範本，而不是完整的 Resource Manager 範本，請將您的`ArmTemplate_master.json` `ArmTemplateForFactory.json` CI/CD 工作更新為指向，而不是（完整 Resource Manager 範本）。 Resource Manager 也會要求您將連結的範本上傳至儲存體帳戶，以便 Azure 在部署期間存取這些範本。 如需詳細資訊，請參閱[透過 VSTS 部署連結的 ARM 範本](https://blogs.msdn.microsoft.com/najib/2018/04/22/deploying-linked-arm-templates-with-vsts/) (英文)。
+連結的 Resource Manager 範本通常有一個主要範本，以及一組連結到主要範本的子系範本。 父代範本稱為 `ArmTemplate_master.json`，而子系範本的命名模式為 `ArmTemplate_0.json`、`ArmTemplate_1.json`，依此類推。 若要使用連結的範本，而不是完整的 Resource Manager 範本，請將您的 CI/CD 工作更新為指向 `ArmTemplate_master.json`，而不是 `ArmTemplateForFactory.json` （完整 Resource Manager 範本）。 Resource Manager 也會要求您將連結的範本上傳至儲存體帳戶，以便 Azure 在部署期間存取這些範本。 如需詳細資訊，請參閱[透過 VSTS 部署連結的 ARM 範本](https://blogs.msdn.microsoft.com/najib/2018/04/22/deploying-linked-arm-templates-with-vsts/) (英文)。
 
 請記得在在部署工作之前和之後，於 CI/CD 管線中新增 Data Factory 指令碼。
 

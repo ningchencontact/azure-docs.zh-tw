@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/23/2019
 ms.author: rkarlin
-ms.openlocfilehash: fdb34173e0ca52f57a004e3a5b4a076e423ff5bd
-ms.sourcegitcommit: 992e070a9f10bf43333c66a608428fcf9bddc130
+ms.openlocfilehash: 6d61b94a50716966ac0b3c75551ddd9d8e291965
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71240109"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72024468"
 ---
 # <a name="tutorial-detect-threats-out-of-the-box"></a>教學課程：預設偵測到威脅
 
@@ -29,7 +29,7 @@ ms.locfileid: "71240109"
 > 這項功能是在沒有服務等級協定的情況下提供，不建議用於生產工作負載。
 > 如需詳細資訊，請參閱 [Microsoft Azure 預覽版增補使用條款](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)。
 
-在您將 [資料來源](quickstart-onboard.md) 連接到 Azure Sentinel 之後，您會想要在發生可疑的情況時收到通知。 為了讓您這麼做，Azure Sentinel 提供現成可用的內建範本。 這些範本是由 Microsoft 的安全性專家和分析師團隊所設計，以已知的威脅、常見的攻擊媒介和可疑的活動擴大鏈為基礎。 啟用這些範本之後，他們會自動搜尋在您環境中看起來可疑的任何活動。 許多範本都可以根據您的需求自訂，以搜尋或篩選出活動。 這些範本所產生的警示將會建立您可以在環境中指派和調查的事件。
+在您將 [資料來源連接](quickstart-onboard.md)@no__t 1to Azure Sentinel 之後，您會想要在發生可疑的情況時收到通知。 為了讓您這麼做，Azure Sentinel 提供現成可用的內建範本。 這些範本是由 Microsoft 的安全性專家和分析師團隊所設計，以已知的威脅、常見的攻擊媒介和可疑的活動擴大鏈為基礎。 啟用這些範本之後，他們會自動搜尋在您環境中看起來可疑的任何活動。 許多範本都可以根據您的需求自訂，以搜尋或篩選出活動。 這些範本所產生的警示將會建立您可以在環境中指派和調查的事件。
 
 本教學課程可協助您偵測 Azure Sentinel 的威脅：
 
@@ -39,7 +39,7 @@ ms.locfileid: "71240109"
 
 ## <a name="about-out-of-the-box-detections"></a>關於現成的偵測
 
-若要查看所有現成的偵測，請移至 [**分析**]，然後前往 [ **規則範本**]。 此索引標籤包含所有 Azure Sentinel 內建規則。
+若要查看所有現成的偵測，請移至 [**分析**]，然後前往 [**規則範本**]。 此索引標籤包含所有 Azure Sentinel 內建規則。
 
    ![使用內建偵測來尋找 Azure Sentinel 的威脅](media/tutorial-detect-built-in/view-oob-detections.png)
 
@@ -58,7 +58,7 @@ ms.locfileid: "71240109"
  
 1. 這會根據選取的範本開啟 [規則建立嚮導]。 所有詳細資料都自動填入，而對於**排定的規則**或**Microsoft 安全性規則**，您可以自訂邏輯以更符合您的組織，或根據內建範本建立其他規則。 依照規則建立嚮導中的步驟執行並根據範本建立規則之後，新規則會出現在 [作用中**規則**] 索引標籤中。
 
-如需有關 wizard 中欄位的詳細資訊，請[參閱教學課程：建立自訂分析規則來偵測可疑](tutorial-detect-threats-custom.md)的威脅。
+如需有關 wizard 中欄位的詳細資訊，請參閱 @no__t 0Tutorial：建立自訂分析規則來偵測可疑威脅 @ no__t-0。
 
 
 

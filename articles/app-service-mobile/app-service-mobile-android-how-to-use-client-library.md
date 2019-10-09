@@ -13,18 +13,18 @@ ms.devlang: java
 ms.topic: article
 ms.date: 06/25/2019
 ms.author: emalani
-ms.openlocfilehash: 6a6db136926a7f9d631c717f5cab6c025d97fb48
-ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
+ms.openlocfilehash: b67e0eaabe63707455eaa6cd4b235ec828dddff3
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "67443534"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72025454"
 ---
 # <a name="how-to-use-the-azure-mobile-apps-sdk-for-android"></a>如何使用 Android 版 Azure Mobile Apps SDK
 
 > [!NOTE]
-> Visual Studio App Center 是投資新的整合式服務中心, 以進行行動應用程式開發。 開發人員可以使用**組建**、**測試**和**散發**服務來設定持續整合和傳遞管線。 部署應用程式之後, 開發人員可以使用**分析**和**診斷**服務來監視其應用程式的狀態和使用, 並與使用**推**播服務的使用者互動。 開發人員也可以利用**驗證**來驗證其使用者和**資料**服務, 以保存及同步雲端中的應用程式資料。 立即查看[App Center](https://appcenter.ms/?utm_source=zumo&utm_campaign=app-service-mobile-android-how-to-use-client-library) 。
->
+> Visual Studio App Center 支援行動應用程式開發的端對端和整合式服務中心。 開發人員可以使用**組建**、**測試**和**散發**服務來設定持續整合和傳遞管線。 部署應用程式之後，開發人員可以使用**分析**和**診斷**服務來監視其應用程式的狀態和使用，並與使用**推**播服務的使用者互動。 開發人員也可以利用**驗證**來驗證其使用者和**資料**服務，以保存及同步雲端中的應用程式資料。
+> 如果您想要在您的行動應用程式中整合雲端服務，請立即註冊 App Center [App center](https://appcenter.ms/signup?utm_source=zumo&utm_medium=Azure&utm_campaign=zumo%20doc) 。
 
 本指南說明如何使用適用於 Mobile Apps 的 Android 用戶端 SDK 來實作常見案例，例如：
 
@@ -33,7 +33,7 @@ ms.locfileid: "67443534"
 * 處理錯誤。
 * 自訂用戶端。
 
-本指南著重於用戶端 Android SDK。  若要深入瞭解 Mobile Apps 的伺服器端 Sdk, 請參閱使用[.net 後端 sdk][10]或[如何使用 NODE.JS 後端 sdk][11]。
+本指南著重於用戶端 Android SDK。  若要深入瞭解 Mobile Apps 的伺服器端 Sdk，請參閱使用[.net 後端 sdk][10]或[如何使用 NODE.JS 後端 sdk][11]。
 
 ## <a name="reference-documentation"></a>參考文件
 
@@ -57,7 +57,7 @@ Android 版 Azure Mobile Apps SDK 支援 API 層級 19 至 24 (KitKat 至 Nougat
 
 變更以下兩個 build.gradle 檔案：
 
-1. 將此程式碼新增至*專案*層級**gradle**檔案:
+1. 將此程式碼新增至*專案*層級**gradle**檔案：
 
     ```gradle
     buildscript {
@@ -164,7 +164,7 @@ Azure Mobile Apps SDK 的核心，是提供對行動裝置應用程式後端上�
 
 若要存取 SQL Azure 資料表的資料，請定義對應至行動應用程式後端中資料表的用戶端資料類別。 本主題中的範例採用名為 MyDataTable 的資料表，其中包含下列資料行：
 
-* ID
+* id
 * text
 * 完成
 
@@ -201,7 +201,7 @@ public final void setPriority(Integer priority) {
 }
 ```
 
-若要了解如何在 Mobile Apps 後端中建立資料表，請參閱[做法：定義資料表控制器][15] (.net 後端) 或[使用動態架構定義資料表][16](node.js 後端)。
+若要了解如何在 Mobile Apps 後端中建立資料表，請參閱[做法：定義資料表控制器 @ no__t-0 （.NET 後端）或[使用動態架構定義資料表][16]（node.js 後端）。
 
 Azure Mobile Apps 後端資料表定義了五個特殊欄位，其中四個可供用戶端使用︰
 
@@ -211,7 +211,7 @@ Azure Mobile Apps 後端資料表定義了五個特殊欄位，其中四個可�
 * `byte[] version`:通常會以字串表示，版本也是由伺服器設定。
 * `boolean deleted`:表示記錄已刪除，但尚未清除。  請勿使用 `deleted` 作為您類別中的屬性。
 
-`id` 是必填欄位。  `updatedAt` 欄位和 `version` 欄位是用於離線同步處理 (分別適用於增量同步處理和衝突解決)。  `createdAt` 欄位是參考欄位，且用戶端不可使用。  名稱為屬性的 "across-the-wire" 名稱，且不可調整。  不過, 您可以使用[gson][3]程式庫, 在您的物件和「跨網路」名稱之間建立對應。  例如:
+`id` 是必填欄位。  `updatedAt` 欄位和 `version` 欄位是用於離線同步處理 (分別適用於增量同步處理和衝突解決)。  `createdAt` 欄位是參考欄位，且用戶端不可使用。  名稱為屬性的 "across-the-wire" 名稱，且不可調整。  不過，您可以使用[gson][3]程式庫，在您的物件和「跨網路」名稱之間建立對應。  例如:
 
 ```java
 package com.example.zumoappname;
@@ -271,7 +271,7 @@ public class ToDoItem
 
 ### <a name="create-a-table-reference"></a>建立資料表參考
 
-若要存取資料表, 請先在[MobileServiceClient][9]上呼叫**getTable**方法來建立[MobileServiceTable][8]物件。  此方法有兩個多載：
+若要存取資料表，請先在[MobileServiceClient][9]上呼叫**getTable**方法來建立[MobileServiceTable][8]物件。  此方法有兩個多載：
 
 ```java
 public class MobileServiceClient {
@@ -314,7 +314,7 @@ List<MyDataTable> results = mDataTable
     .get()              // Converts the async into a sync result
 ```
 
-上述範例會傳回所有結果 (最多為伺服器所設定的最大頁面大小)。  `.execute()` 方法會在後端執行查詢。  在傳輸到 Mobile Apps 後端之前, 查詢會轉換成[OData v3][19]查詢。  在收到時，Mobile Apps 後端在 SQL Azure 執行個體上執行查詢之前，會將查詢轉換成 SQL 陳述式。  由於網路活動需要一些時間, `.execute()`因此方法[`ListenableFuture<E>`][18]會傳回。
+上述範例會傳回所有結果 (最多為伺服器所設定的最大頁面大小)。  `.execute()` 方法會在後端執行查詢。  在傳輸到 Mobile Apps 後端之前，查詢會轉換成[OData v3][19]查詢。  在收到時，Mobile Apps 後端在 SQL Azure 執行個體上執行查詢之前，會將查詢轉換成 SQL 陳述式。  因為網路活動需要一些時間，所以 `.execute()` 方法會傳回[`ListenableFuture<E>`][18]。
 
 ### <a name="filtering"></a>篩選傳回的資料
 
@@ -701,7 +701,7 @@ mJsonToDoTable = mClient.getTable("ToDoItem");
 在您建立 **MobileServiceJsonTable**的執行個體後，它就幾乎具有和型別程式設計模型所能使用的一樣的 API。 在某些情況下，這些方法會採用不具型別的參數，而非具型別的參數。
 
 ### <a name="json_insert"></a>插入不具型別的資料表中
-下列程式碼將說明如何執行插入。 第一個步驟是建立[JsonObject][1], 這是[gson][3]程式庫的一部分。
+下列程式碼將說明如何執行插入。 第一個步驟是建立[JsonObject][1]，這是[gson][3]程式庫的一部分。
 
 ```java
 JsonObject jsonItem = new JsonObject();
@@ -1280,7 +1280,7 @@ private class CustomHeaderFilter implements ServiceFilter {
 
 ### <a name="conversions"></a>設定自動序列化
 
-您可以使用[gson][3] API 指定套用至每個資料行的轉換策略。 Android 用戶端程式庫會使用幕後的[gson][3] , 將 JAVA 物件序列化為 JSON 資料, 然後再將資料傳送至 Azure App Service。  下列程式碼使用 **setFieldNamingStrategy()** 方法來設定策略。 此範例會刪除每個欄位名稱的起始字元 ("m")，然後將下一個字元轉換為小寫。 比方說，它會將「mId」變成「id」。  實作轉換策略，以減少大部分欄位上的 `SerializedName()` 註釋需要。
+您可以使用[gson][3] API 指定套用至每個資料行的轉換策略。 Android 用戶端程式庫會使用幕後的[gson][3] ，將 JAVA 物件序列化為 JSON 資料，然後再將資料傳送至 Azure App Service。  下列程式碼使用 **setFieldNamingStrategy()** 方法來設定策略。 此範例會刪除每個欄位名稱的起始字元 ("m")，然後將下一個字元轉換為小寫。 比方說，它會將「mId」變成「id」。  實作轉換策略，以減少大部分欄位上的 `SerializedName()` 註釋需要。
 
 ```java
 FieldNamingStrategy namingStrategy = new FieldNamingStrategy() {

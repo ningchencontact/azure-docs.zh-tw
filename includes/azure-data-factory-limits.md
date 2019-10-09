@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 5/30/2019
 ms.author: jingwang
 ms.custom: include file
-ms.openlocfilehash: c92bb8b2adb3e91e691e9fd1c17a7ee43e84fd11
-ms.sourcegitcommit: cd70273f0845cd39b435bd5978ca0df4ac4d7b2c
+ms.openlocfilehash: 6dc846ab6af0ed4d6d48c6f6db0abbce06427c36
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "68362469"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72035878"
 ---
 Azure Data Factory 是多租使用者服務，具有下列預設限制，以確保客戶訂用帳戶會受到彼此的工作負載保護。 若要提高訂用帳戶的最大限制，請聯絡支援人員。
 
@@ -27,7 +27,7 @@ Azure Data Factory 是多租使用者服務，具有下列預設限制，以確�
 | 每個資料處理站的並行管線執行會在 factory 中的所有管線之間共用 | 10,000  | [連絡客戶支援](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/)。 |
 | 每個訂用帳戶每個[Azure Integration Runtime 區域](../articles/data-factory/concepts-integration-runtime.md#integration-runtime-location)的並行外部活動執行<br><small>外部活動是在整合執行時間上管理，但在連結的服務上執行，包括 Databricks、預存程式、HDInsights 和其他。</small> | 3000 | [連絡客戶支援](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/)。 |
 | 每個訂用帳戶每個[Azure Integration Runtime 區域](../articles/data-factory/concepts-integration-runtime.md#integration-runtime-location)的並行管線活動執行 <br><small>管線活動會在整合執行時間上執行，包括 Lookup、GetMetadata 和 Delete。</small>| 1000 | [連絡客戶支援](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/)。 |
-| 每個訂用帳戶每個[Azure Integration Runtime 區域](../articles/data-factory/concepts-integration-runtime.md#integration-runtime-location)的並行撰寫作業<br><small>包括 [測試連接]、[流覽資料夾清單] 和 [資料表清單]、[預覽資料]。 | 200 | [連絡客戶支援](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/)。 |
+| 每個訂用帳戶每個[Azure Integration Runtime 區域](../articles/data-factory/concepts-integration-runtime.md#integration-runtime-location)的並行撰寫作業<br><small>Including 測試連接、流覽資料夾清單和資料表清單、預覽資料。 | 200 | [連絡客戶支援](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/)。 |
 | 並行資料整合單位<sup>1</sup>每個訂用帳戶每個[Azure Integration Runtime 區域](../articles/data-factory/concepts-integration-runtime.md#integration-runtime-location)的耗用量| 區域群組 1<sup>2</sup>：6000<br>區域群組 2<sup>2</sup>：3000<br>區域群組 3<sup>2</sup>：1500 | [連絡客戶支援](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/)。 |
 | 每個管線的活動上限，包括容器的內部活動 | 40 | 40 |
 | 可以針對單一自我裝載整合執行時間建立之連結整合執行時間的最大數目 | 100 | [連絡客戶支援](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/)。 |
@@ -44,6 +44,10 @@ Azure Data Factory 是多租使用者服務，具有下列預設限制，以確�
 | 讀取 API 呼叫 | 12500/h<br/><br/> 這是由 Azure Resource Manager 所加諸的限制，而不是 Azure Data Factory。 | [連絡客戶支援](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/)。 |
 | 監視每分鐘查詢次數 | 1,000 | [連絡客戶支援](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/)。 |
 | 每分鐘的實體 CRUD 作業 | 50 | [連絡客戶支援](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/)。 |
+| 資料流程 debug 會話的最長時間 | 8小時 | 8小時 |
+| 每個 factory 的並行資料流程數 | 50 | [連絡客戶支援](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/)。 |
+| 每個處理站的每個使用者的資料流程多個資料流程 debug 會話數目 | 3 | 3 |
+| 資料流程 Azure IR TTL 限制 | 4小時 | [連絡客戶支援](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/)。 |
 
 <sup>1</sup>資料整合單位（DIU）用於雲端到雲端複製作業，請從[資料整合單位（第2版）](../articles/data-factory/copy-activity-performance.md#data-integration-units)深入瞭解。 如需計費的詳細資訊，請參閱[Azure Data Factory 定價](https://azure.microsoft.com/pricing/details/data-factory/)。
 

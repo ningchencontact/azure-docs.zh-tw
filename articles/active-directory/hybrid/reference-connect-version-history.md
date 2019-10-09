@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 10/2/2019
+ms.date: 10/7/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e6776d7ff21599a1cfab47fd0e4ab0fbef5d3d8c
-ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
+ms.openlocfilehash: 5132581c3d79db88dabc3c20ac3b962226d8a12d
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71827106"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72025842"
 ---
 # <a name="azure-ad-connect-version-release-history"></a>Azure AD Connect：版本發行歷程記錄
 Azure Active Directory (Azure AD) 團隊會定期以新的特性和功能更新 Azure AD Connect。 並非所有新增項目都適用於所有的對象。
@@ -34,7 +34,7 @@ Azure Active Directory (Azure AD) 團隊會定期以新的特性和功能更新 
 主題 |  詳細資料
 --------- | --------- |
 從 Azure AD Connect 升級的步驟 | [從舊版升級到最新版本](how-to-upgrade-previous-version.md) Azure AD Connect 的多種方法。
-必要權限 | 如需套用更新所需權限的詳細資訊，請參閱[帳戶和權限](reference-connect-accounts-permissions.md#upgrade)。
+所需的權限 | 如需套用更新所需權限的詳細資訊，請參閱[帳戶和權限](reference-connect-accounts-permissions.md#upgrade)。
 
 下載 | [下載 Azure AD Connect](https://go.microsoft.com/fwlink/?LinkId=615771)。
 
@@ -44,6 +44,8 @@ Azure Active Directory (Azure AD) 團隊會定期以新的特性和功能更新 
 並非所有版本的 Azure AD Connect 都可自動升級。 發行狀態會指出版本是否可自動升級或僅供下載。 如果您的 Azure AD Connect 伺服器上已啟用自動升級，則該伺服器將會自動升級為可自動升級的最新版 Azure AD Connect。 請注意，並非所有 Azure AD Connect 組態都符合自動升級的資格。 請遵循下列連結來深入了解[自動升級](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-install-automatic-upgrade)
 
 ## <a name="14250"></a>1.4.25.0
+
+
 
 ### <a name="release-status"></a>發行狀態
 9/28/2019：已發行，可自動升級為選取租使用者。 未提供下載。
@@ -56,12 +58,15 @@ Azure Active Directory (Azure AD) 團隊會定期以新的特性和功能更新 
 
 ## <a name="14180"></a>1.4.18.0
 
+>[!WARNING]
+>我們正在調查事件，其中有些客戶在升級到此版本的 Azure AD Connect 之後，遇到現有混合式 Azure AD 加入的裝置問題。 我們建議已部署混合式 Azure AD join 的客戶，將升級為此版本的延遲，直到這些問題的根本原因完全瞭解並緩和為止。 系統會儘快提供詳細資訊。
+
 >[!IMPORTANT]
 >使用此版本的 Azure AD Connect 某些客戶可能會看到部分或所有的 Windows 裝置從 Azure AD 消失。 這不是問題的原因，因為在條件式存取授權期間，Azure AD 不會使用這些裝置身分識別。 如需詳細資訊，請參閱[瞭解 Azure AD Connect 1.4. x 裝置 disappearnce](reference-connect-device-disappearance.md)
 
 
 ### <a name="release-status"></a>發行狀態
-9/25/2019：已發行，可供自動升級和下載
+9/25/2019：已從手動下載移除，直到事件調查完成為止。
 
 ### <a name="new-features-and-improvements"></a>新功能和改進
 - 新的疑難排解工具有助於疑難排解「使用者未同步」、「群組未同步」或「群組成員未同步」案例。
@@ -103,7 +108,7 @@ Azure Active Directory (Azure AD) 團隊會定期以新的特性和功能更新 
 >[!IMPORTANT]
 >將 Azure AD Connect 從舊版升級至1.3.21.0 的已知問題，在此情況下，即使 Azure AD Connect 升級成功，O365 入口網站也不會反映更新的版本。
 >
-> 若要解決此問題，您必須匯入**AdSync**模組，然後`Set-ADSyncDirSyncConfiguration`在 Azure AD Connect 伺服器上執行 powershell Cmdlet。  您可以使用下列步驟：
+> 若要解決此問題，您必須匯入**AdSync**模組，然後在 Azure AD Connect 伺服器上執行 @ no__t-1 powershell Cmdlet。  您可以使用下列步驟：
 >
 >1. 在系統管理員身分模式中開啟 Powershell
 >2. 執行 `Import-Module "ADSync"`
@@ -352,7 +357,7 @@ Azure Active Directory (Azure AD) 團隊會定期以新的特性和功能更新 
 >[!NOTE]
 >這個版本是適用於 Azure AD Connect 的 Hotfix
 
-### <a name="azure-ad-connect-sync"></a>Azure AD Connect 同步
+### <a name="azure-ad-connect-sync"></a>Azure AD Connect 同步處理
 #### <a name="fixed-issues"></a>已修正的問題
 已更正中國租用戶的自動 Azure 執行個體探索偶爾會失敗的問題。  
 
@@ -460,7 +465,7 @@ Azure AD Connect 1.1.654.0 版 (和更新版本) 已新增改進，以確保 Azu
 *   將特定物件上所有的 ACE 移除，除了 SELF 特有的 ACE 之外。 關於 SELF，我們需要將預設權限維持不變。
 *   指派這些特定權限：
 
-Type     | Name                          | 存取權               | 套用至
+Type     | Name                          | Access               | 套用至
 ---------|-------------------------------|----------------------|--------------|
 允許    | 系統                        | 完全控制         | 此物件  |
 允許    | 企業系統管理員             | 完全控制         | 此物件  |
@@ -469,9 +474,9 @@ Type     | Name                          | 存取權               | 套用至
 允許    | 企業網域控制站 | 清單內容        | 此物件  |
 允許    | 企業網域控制站 | 讀取所有屬性  | 此物件  |
 允許    | 企業網域控制站 | 讀取權限     | 此物件  |
-允許    | 已驗證的使用者           | 清單內容        | 此物件  |
-允許    | 已驗證的使用者           | 讀取所有屬性  | 此物件  |
-允許    | 已驗證的使用者           | 讀取權限     | 此物件  |
+允許    | 驗證的使用者           | 清單內容        | 此物件  |
+允許    | 驗證的使用者           | 讀取所有屬性  | 此物件  |
+允許    | 驗證的使用者           | 讀取權限     | 此物件  |
 
 若要加強 AD DS 帳戶的設定，您可以執行[這個 PowerShell 指令碼](https://gallery.technet.microsoft.com/Prepare-Active-Directory-ef20d978)。 PowerShell 指令碼會將上述權限指派給 AD DS 帳戶。
 
@@ -485,7 +490,7 @@ Type     | Name                          | 存取權               | 套用至
 Set-ADSyncRestrictedPermissions -ObjectDN <$ObjectDN> -Credential <$Credential>
 ```
 
-位置 
+Where 
 
 **$ObjectDN** = 必須加強權限的 Active Directory 帳戶。
 
@@ -804,13 +809,13 @@ CBool(
     |CertFormat|CertNotAfter|CertPublicKeyOid|
     |CertSerialNumber|CertNotBefore|CertPublicKeyParametersOid|
     |CertVersion|CertSignatureAlgorithmOid|Select|
-    |CertKeyAlgorithmParams|CertHashString|位置|
+    |CertKeyAlgorithmParams|CertHashString|Where|
     |||With|
 
 * 已引進下列結構描述變更，以允許客戶建立自訂的同步處理規則來流動群組物件的 sAMAccountName、domainNetBios 和 domainFQDN，以及使用者物件的 distinguishedName：
 
   * 已將下列屬性新增至 MV 結構描述中：
-    * 群組：帳戶名稱
+    * 群組：AccountName
     * 群組：domainNetBios
     * 群組：domainFQDN
     * 人員：distinguishedName
@@ -854,7 +859,7 @@ CBool(
 
 **已修正的問題：**
 
-Azure AD Connect 同步
+Azure AD Connect 同步處理
 
 * 已修正導致下列情況的問題：即使客戶已使用 Set-ADSyncAutoUpgrade Cmdlet 停用此功能，Azure AD Connect 伺服器仍發生自動升級。 透過此修正，伺服器上的自動升級程序仍會定期檢查升級，但下載的安裝程式會接受自動升級組態。
 * 在 DirSync 就地升級期間，Azure AD Connect 會建立 Azure AD 服務帳戶，以供 Azure AD 連接器用來與 Azure AD 同步處理。 建立帳戶之後，Azure AD Connect 會使用此帳戶向 Azure AD 進行驗證。 有時候，驗證會因為暫時性問題而失敗，這又導致 DirSync 就地升級失敗，發生錯誤 [執行設定 AAD 同步工作時發生錯誤:*AADSTS50034:* 若要登入此應用程式，該帳戶必須新增至 xxx.onmicrosoft.com 目錄]。 為了改善 DirSync 升級的彈性，Azure AD Connect 現在會重試驗證步驟。
@@ -871,7 +876,7 @@ Azure AD Connect 同步
 
 **新功能/改進︰**
 
-Azure AD Connect 同步
+Azure AD Connect 同步處理
 * 同步處理規則變更 – 已實作下列同步處理規則變更︰
   * 已將預設同步處理規則集更新為 **userCertificate** 和 **userSMIMECertificate** 屬性有超過 15 個值時不匯出屬性。
   * AD 屬性 **employeeID** 和 **msExchBypassModerationLink** 現在已包含在預設同步處理規則集中。
@@ -927,7 +932,7 @@ AD FS 管理
 
 **新功能/改進︰**
 
-Azure AD Connect 同步
+Azure AD Connect 同步處理
 * Azure AD Connect Sync 現在支援使用「虛擬服務帳戶」、「受控服務帳戶」及「群組受控服務帳戶」作為其服務帳戶。 這僅適用於新的 Azure AD Connect 安裝。 安裝 Azure AD Connect 時：
     * 根據預設，Azure AD Connect 精靈會建立一個「虛擬服務帳戶」，並使用它作為其服務帳戶。
     * 如果您是在網域控制站上進行安裝，Azure AD Connect 就會回復成先前的行為，也就是會建立網域使用者帳戶，並改用它作為服務帳戶。
@@ -953,7 +958,7 @@ Azure AD Connect 同步
 
 **已修正的問題：**
 
-Azure AD Connect 同步
+Azure AD Connect 同步處理
 * 修正當「Azure AD 連接器」的顯示名稱不包含指派給 Azure AD 租用戶的初始 onmicrosoft.com 網域時，會造成 Azure AD Connect 精靈發生失敗的問題。
 * 修正當「同步處理服務帳戶」的密碼包含特殊字元 (例如單引號、冒號及空格) 時，會造成 Azure AD Connect 精靈在連線到 SQL Database 時發生失敗的問題。
 * 已修正在您暫時將內部部署 AD 物件從同步處理中排除，然後再次包含以進行同步處理時，會造成「映射具有與映射不同的錨點」在執行模式下于 Azure AD Connect 伺服器上發生錯誤的問題。
@@ -972,7 +977,7 @@ AD FS 管理
 
 **新功能/改進︰**
 
-Azure AD Connect 同步
+Azure AD Connect 同步處理
 * Get-ADSyncScheduler Cmdlet 現在會傳回一個名為 SyncCycleInProgress 的新布林值屬性。 如果傳回的值為 true，即表示有已排定的同步處理循環正在進行。
 * 用來儲存 Azure AD Connect 安裝和設定記錄的目的地資料夾已經從 %localappdata%\AADConnect 移到 %programdata%\AADConnect，以提升記錄的存取便利性。
 

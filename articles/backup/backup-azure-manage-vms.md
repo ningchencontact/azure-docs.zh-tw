@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 09/18/2019
 ms.author: dacurwin
-ms.openlocfilehash: 9e7d6a027a60590396446479aecf1644ef753ecf
-ms.sourcegitcommit: 2ed6e731ffc614f1691f1578ed26a67de46ed9c2
+ms.openlocfilehash: 24e36e231d80a82362333b7a711f94cf627816ac
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71130162"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72029252"
 ---
 # <a name="manage-azure-vm-backups-with-azure-backup-service"></a>使用 Azure 備份服務管理 Azure VM 備份
 
@@ -49,7 +49,7 @@ ms.locfileid: "71130162"
 
     ![開啟 [備份專案] 圖格](./media/backup-azure-manage-vms/contoso-vault-1606.png)
 
-6. 在 [ **備份專案** ] 分頁中，您可以查看受保護 vm 的清單。 在此範例中，保存庫會保護一部虛擬機器： demobackup。  
+6. 在 [**備份專案**] 分頁中，您可以查看受保護 vm 的清單。 在此範例中，保存庫會保護一部虛擬機器： demobackup。  
 
     ![查看 [備份專案] 分頁](./media/backup-azure-manage-vms/backup-items-blade-select-item.png)
 
@@ -66,7 +66,7 @@ ms.locfileid: "71130162"
 
     ![開啟 [備份專案] 圖格](./media/backup-azure-manage-vms/contoso-vault-1606.png)
 
-3. 在 [ **備份專案** ] 分頁中，您可以使用最新的還原點時間來查看受保護的 vm 清單和上次備份狀態。
+3. 在 [**備份專案**] 分頁中，您可以使用最新的還原點時間來查看受保護的 vm 清單和上次備份狀態。
 
     ![查看 [備份專案] 分頁](./media/backup-azure-manage-vms/backup-items-blade-select-item.png)
 

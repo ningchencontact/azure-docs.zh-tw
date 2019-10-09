@@ -7,26 +7,26 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 09/06/2019
-ms.openlocfilehash: 7d1023f6c46c15b6f982193350923f5c91cdc4b9
-ms.sourcegitcommit: b7b0d9f25418b78e1ae562c525e7d7412fcc7ba0
+ms.openlocfilehash: 925e52f9f62860d8cd0951b9e72af09cbb7800fc
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/08/2019
-ms.locfileid: "70801689"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72027811"
 ---
 # <a name="mapping-data-flow-debug-mode"></a>對應資料流程偵錯模式
 
-[!INCLUDE [notes](../../includes/data-factory-data-flow-preview.md)]
+
 
 ## <a name="overview"></a>總覽
 
 Azure Data Factory 對應資料流程的 [偵錯工具模式] 可讓您在建立和偵錯工具資料流程時，以互動方式監看「資料圖形」轉換。 您可以在資料流程設計會話以及管線的資料流程執行期間，使用 debug 會話。 若要開啟 [偵錯模式]，請使用設計介面頂端的 [資料流程 Debug] 按鈕。
 
-![Debug 滑杆](media/data-flow/debugbutton.png "Debug 滑杆")
+![Debug 滑杆](media/data-flow/debugbutton.png "debug 滑杆")
 
-當您開啟滑杆時，系統會提示您選取想要使用的整合執行時間設定。 如果選擇 AutoResolveIntegrationRuntime，則會啟動具有8個一般計算核心（具有60分鐘存留時間）的叢集。 如需有關「資料流程整合執行時間」的詳細資訊，請參閱[資料流程效能](concepts-data-flow-performance.md#increase-size-of-your-compute-engine-in-azure-integration-runtime)。
+當您開啟滑杆時，系統會提示您選取想要使用的整合執行時間設定。 如果選擇 AutoResolveIntegrationRuntime，則會啟動具有8個一般計算核心（具有60分鐘存留時間）的叢集。 如需有關「資料流程整合執行時間」的詳細資訊，請參閱[資料流程效能](concepts-data-flow-performance.md#increasing-compute-size-in-azure-integration-runtime)。
 
-![DEBUG IR 選取範圍](media/data-flow/debugbutton2.png "DEBUG IR 選取範圍")
+![DEBUG ir 選取專案](media/data-flow/debugbutton2.png "調試 ir 選取範圍")
 
 當開啟 [偵錯工具] 模式時，您會以互動方式建立使用中 Spark 叢集的資料流程。 在 Azure Data Factory 中關閉偵錯後，將會關閉此工作階段。 您應該留意在您已開啟偵錯工作階段的期間內，由 Azure Databricks 所產生的每小時費用。
 
@@ -42,11 +42,11 @@ Azure Data Factory 對應資料流程的 [偵錯工具模式] 可讓您在建立
 
 您可以按一下 [資料流程畫布] 工具列上的 [偵錯工具設定] 來編輯 debug 設定。 您可以在這裡選取每個來源轉換所使用的資料列限制或檔案來源。 此設定中的資料列限制僅適用于目前的「偵錯工具」會話。 您也可以選取要用於 SQL DW 來源的預備連結服務。 
 
-![Debug 設定](media/data-flow/debug-settings.png "Debug 設定")
+[![調試設定]](media/data-flow/debug-settings.png "調試設定")
 
 如果您的資料流程或其任何參考的資料集內有參數，您可以選取 [**參數**] 索引標籤，指定要在偵錯工具中使用的值。
 
-![Debug 設定參數](media/data-flow/debug-settings2.png "Debug 設定參數")
+![Debug 設定參數]的(media/data-flow/debug-settings2.png "debug settings 參數")
 
 ## <a name="data-preview"></a>資料預覽
 
@@ -67,15 +67,15 @@ Azure Data Factory 對應資料流程的 [偵錯工具模式] 可讓您在建立
 
 看到資料預覽之後，您就可以產生快速轉換，以轉換、移除或修改資料行。 按一下欄標題，然後從 [資料預覽] 工具列中選取其中一個選項。
 
-![快速動作](media/data-flow/quick-actions1.png "快速動作")
+![快速動作]快速(media/data-flow/quick-actions1.png "動作")
 
 一旦您選取修改後，資料預覽就會立即重新整理。 按一下右上角的 [**確認**]，以產生新的轉換。
 
-![快速動作](media/data-flow/quick-actions2.png "快速動作")
+![快速動作]快速(media/data-flow/quick-actions2.png "動作")
 
 **轉換**和**Modify**會產生「衍生的資料行」轉換，而「**移除**」將會產生「選取」轉換。
 
-![快速動作](media/data-flow/quick-actions3.png "快速動作")
+![快速動作]快速(media/data-flow/quick-actions3.png "動作")
 
 > [!NOTE]
 > 如果您編輯資料流程，則必須先重新提取資料預覽，再新增快速轉換。
@@ -84,7 +84,7 @@ Azure Data Factory 對應資料流程的 [偵錯工具模式] 可讓您在建立
 
 在 [資料預覽] 索引標籤中選取資料行，然後按一下 [資料預覽] 工具列中的 [**統計**資料]，就會在資料格的最右邊顯示圖表，其中包含每個欄位的詳細統計資料。 Azure Data Factory 會根據要顯示圖表類型的資料取樣近進行判斷。 高基數位段會預設為 Null/NOT Null 圖表，而具有低基數的類別和數值資料將會顯示顯示資料值頻率的橫條圖。 您也會看到字串欄位的最大/len 長度、數值欄位中的最小/最大值、標準 dev、百分位數、計數和平均值。
 
-![資料行統計資料](media/data-flow/stats.png "資料行統計資料")
+![資料行統計]資料(media/data-flow/stats.png "行統計資料")
 
 ## <a name="next-steps"></a>後續步驟
 

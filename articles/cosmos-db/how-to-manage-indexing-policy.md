@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/28/2019
 ms.author: thweiss
-ms.openlocfilehash: f7d364eb5db5c6d6304944d490468edf8b5ebe2e
-ms.sourcegitcommit: 80da36d4df7991628fd5a3df4b3aa92d55cc5ade
+ms.openlocfilehash: 46d0124eb701b0c2d779a96c8efd50ba43e8fc07
+ms.sourcegitcommit: f9e81b39693206b824e40d7657d0466246aadd6e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71811653"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72034447"
 ---
 # <a name="manage-indexing-policies-in-azure-cosmos-db"></a>管理 Azure Cosmos DB 中的索引編製原則
 
@@ -42,7 +42,7 @@ Azure Cosmos DB 會遵循針對每個容器所定義的[索引編製原則](inde
     }
 ```
 
-此編制索引原則等同于以下的設定，其會```kind```以```dataType```手動方式```precision```將、和設為其預設值。 這些屬性不再需要明確設定，而且您可以完全從索引編制原則中省略它們（如上述範例所示）。
+此編制索引原則等同于下面的一項，它會手動將 ```kind```、```dataType``` 和 ```precision``` 設定為預設值。 這些屬性不再需要明確設定，而且您可以完全從索引編制原則中省略它們（如上述範例所示）。
 
 ```json
     {
@@ -96,7 +96,7 @@ Azure Cosmos DB 會遵循針對每個容器所定義的[索引編製原則](inde
     }
 ```
 
-此編制索引原則等同于以下的設定，其會```kind```以```dataType```手動方式```precision```將、和設為其預設值。 這些屬性不再需要明確設定，而且您可以完全從索引編制原則中省略它們（如上述範例所示）。
+此編制索引原則等同于下面的一項，它會手動將 ```kind```、```dataType``` 和 ```precision``` 設定為預設值。 這些屬性不再需要明確設定，而且您可以完全從索引編制原則中省略它們（如上述範例所示）。
 
 ```json
     {
@@ -320,7 +320,7 @@ WHERE c.name = "Tim" AND c.age > 18
 
 ### <a name="no-indexing"></a>無索引編製
 
-此原則將會關閉索引編制。 如果`indexingMode`設定為`none`，您就無法在容器上設定 TTL。
+此原則將會關閉索引編制。 如果 `indexingMode` 設定為 `none`，您就無法在容器上設定 TTL。
 
 ```json
     {
@@ -370,7 +370,7 @@ Azure Cosmos 容器會將其索引編製原則儲存為 JSON 文件，並可從 
 
 ## <a name="use-the-net-sdk-v2"></a>使用 .NET SDK V2
 
-`DocumentCollection` `ExcludedPaths` `IndexingMode` [.Net SDK](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/) v2中的物件`IncludedPaths`會公開屬性，可讓您變更和新增或移除和。`IndexingPolicy`
+[.NET SDK v2](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/)中的 `DocumentCollection` 物件會公開一個 @no__t 2 屬性，讓您變更 `IndexingMode` 並新增或移除 `IncludedPaths` 和 `ExcludedPaths`。
 
 ```csharp
 // Retrieve the container's details
@@ -400,7 +400,7 @@ long indexTransformationProgress = container.IndexTransformationProgress;
 
 ## <a name="use-the-net-sdk-v3"></a>使用 .NET SDK V3
 
-來自`ContainerProperties` [.net SDK v3](https://www.nuget.org/packages/Microsoft.Azure.Cosmos/)的物件（請參閱[本快速入門](create-sql-api-dotnet.md)中有關其使用方式`IndexingPolicy`的資訊）會公開一個`IndexingMode`屬性，讓您`IncludedPaths`變更`ExcludedPaths`和新增或移除和。
+[.NET SDK v3](https://www.nuget.org/packages/Microsoft.Azure.Cosmos/)中的 `ContainerProperties` 物件（請參閱[本快速入門](create-sql-api-dotnet.md)中有關其使用方式的資訊）會公開一個 `IndexingPolicy` 屬性，可讓您變更 `IndexingMode` 並新增或移除 `IncludedPaths` 和 `ExcludedPaths`。
 
 ```csharp
 // Retrieve the container's details
@@ -424,7 +424,7 @@ containerResponse.Resource.IndexingPolicy.CompositeIndexes.Add(new Collection<Co
 await client.GetContainer("database", "container").ReplaceContainerAsync(containerResponse.Resource);
 ```
 
-若要追蹤索引轉換進度，請傳遞`RequestOptions` `PopulateQuotaInfo`將屬性設定為`true`的物件，然後從`x-ms-documentdb-collection-index-transformation-progress`回應標頭取出值。
+若要追蹤索引轉換進度，請傳遞 `RequestOptions` 物件，將 @no__t 1 屬性設定為 `true`，然後從 `x-ms-documentdb-collection-index-transformation-progress` 回應標頭中取出值。
 
 ```csharp
 // retrieve the container's details
@@ -459,44 +459,34 @@ await client.GetDatabase("database").DefineContainer(name: "container", partitio
 
 [Java SDK](https://mvnrepository.com/artifact/com.microsoft.azure/azure-cosmosdb) 中的 `DocumentCollection` 物件 (請參閱關於其使用方式的[這個快速入門](create-sql-api-java.md)) 會公開 `getIndexingPolicy()` 和 `setIndexingPolicy()` 方法。 這些方法所管理的 `IndexingPolicy` 物件可讓您變更索引編製模式，以及新增或移除已納入和排除的路徑。
 
-取得容器的詳細資料
-
 ```java
+// Retrieve the container's details
 Observable<ResourceResponse<DocumentCollection>> containerResponse = client.readCollection(String.format("/dbs/%s/colls/%s", "database", "container"), null);
 containerResponse.subscribe(result -> {
 DocumentCollection container = result.getResource();
 IndexingPolicy indexingPolicy = container.getIndexingPolicy();
-```
 
-將索引編制模式設定為一致
-
-```java
+// Set the indexing mode to consistent
 indexingPolicy.setIndexingMode(IndexingMode.Consistent);
-```
 
-新增包含的路徑
+// Add an included path
 
-```java
 Collection<IncludedPath> includedPaths = new ArrayList<>();
 ExcludedPath includedPath = new IncludedPath();
-includedPath.setPath("/age/*");
+includedPath.setPath("/*");
 includedPaths.add(includedPath);
 indexingPolicy.setIncludedPaths(includedPaths);
-```
 
-新增排除的路徑
+// Add an excluded path
 
-```java
 Collection<ExcludedPath> excludedPaths = new ArrayList<>();
 ExcludedPath excludedPath = new ExcludedPath();
 excludedPath.setPath("/name/*");
 excludedPaths.add(excludedPath);
 indexingPolicy.setExcludedPaths(excludedPaths);
-```
 
-新增空間索引
+// Add a spatial index
 
-```java
 Collection<SpatialSpec> spatialIndexes = new ArrayList<SpatialSpec>();
 Collection<SpatialType> collectionOfSpatialTypes = new ArrayList<SpatialType>();
 
@@ -508,20 +498,17 @@ spatialIndexes.add(spec);
 
 indexingPolicy.setSpatialIndexes(spatialIndexes);
 
-```
+// Add a composite index
 
-加入複合索引
-
-```java
 Collection<ArrayList<CompositePath>> compositeIndexes = new ArrayList<>();
 ArrayList<CompositePath> compositePaths = new ArrayList<>();
 
 CompositePath nameCompositePath = new CompositePath();
-nameCompositePath.setPath("/name/*");
+nameCompositePath.setPath("/name");
 nameCompositePath.setOrder(CompositePathSortOrder.Ascending);
 
 CompositePath ageCompositePath = new CompositePath();
-ageCompositePath.setPath("/age/*");
+ageCompositePath.setPath("/age");
 ageCompositePath.setOrder(CompositePathSortOrder.Descending);
 
 compositePaths.add(ageCompositePath);
@@ -529,12 +516,11 @@ compositePaths.add(nameCompositePath);
 
 compositeIndexes.add(compositePaths);
 indexingPolicy.setCompositeIndexes(compositeIndexes);
-```
 
-使用變更來更新容器
+// Update the container with changes
 
-```java
  client.replaceCollection(container, null);
+});
 ```
 
 若要在容器上追蹤索引轉換進度，請傳遞會要求填入配額資訊的 `RequestOptions` 物件，然後從 `x-ms-documentdb-collection-index-transformation-progress` 回應標頭中擷取值。

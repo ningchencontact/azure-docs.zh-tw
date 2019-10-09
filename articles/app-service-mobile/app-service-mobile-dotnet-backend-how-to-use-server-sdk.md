@@ -15,15 +15,19 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 10/01/2016
 ms.author: crdun
-ms.openlocfilehash: d277786fd08e1448b3d5ccf4fd45055fe069e4c0
-ms.sourcegitcommit: cd70273f0845cd39b435bd5978ca0df4ac4d7b2c
+ms.openlocfilehash: 6481d95db27df9e0b957d61bef24a1cc40b243e7
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71097768"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72025323"
 ---
 # <a name="work-with-the-net-backend-server-sdk-for-azure-mobile-apps"></a>使用適用於 Azure Mobile Apps 的 .NET 後端伺服器 SDK
 [!INCLUDE [app-service-mobile-selector-server-sdk](../../includes/app-service-mobile-selector-server-sdk.md)]
+
+> [!NOTE]
+> Visual Studio App Center 支援行動應用程式開發的端對端和整合式服務中心。 開發人員可以使用**組建**、**測試**和**散發**服務來設定持續整合和傳遞管線。 部署應用程式之後，開發人員可以使用**分析**和**診斷**服務來監視其應用程式的狀態和使用，並與使用**推**播服務的使用者互動。 開發人員也可以利用**驗證**來驗證其使用者和**資料**服務，以保存及同步雲端中的應用程式資料。
+> 如果您想要在您的行動應用程式中整合雲端服務，請立即註冊 App Center [App center](https://appcenter.ms/?utm_source=zumo&utm_medium=Azure&utm_campaign=zumo%20doc) 。
 
 本主題說明如何在主要的 Azure App Service Mobile Apps 案例中使用 .NET 後端伺服器 SDK Azure Mobile Apps SDK 可協助您從 ASP.NET 應用程式使用行動用戶端。
 
@@ -214,7 +218,7 @@ DTO 用來定義 SQL Database 內的資料表。  若要建立資料庫項目，
 
 確定 PageSize 等於或大於用戶端所要求的大小。  如需變更用戶端頁面大小的詳細資料，請參閱特定用戶端的做法文件。
 
-## <a name="how-to-define-a-custom-api-controller"></a>HOW TO：定義自訂 API 控制器
+## <a name="how-to-define-a-custom-api-controller"></a>作法：定義自訂 API 控制器
 自訂 API 控制器透過公開端點，提供最基本的功能給您的行動應用程式後端。 您可以使用屬性 [MobileAppController] 來註冊行動裝置特定 API 控制器。 `MobileAppController` 屬性會註冊路由、設定 Mobile Apps JSON 序列化程式，以及開啟 [用戶端版本檢查](app-service-mobile-client-and-server-versioning.md)。
 
 1. 在 Visual Studio 中，以滑鼠右鍵按一下 [控制器] 資料夾，然後按一下 [新增] > [控制器]，選取 [Web API 2 控制器&mdash;空白]，然後按一下 [新增]。
@@ -237,7 +241,7 @@ DTO 用來定義 SQL Database 內的資料表。  若要建立資料庫項目，
 
 您也可以使用 `UseDefaultConfiguration()` 擴充方法，而不是 `MapApiControllers()`。 用戶端仍然可以存取任何沒有套用 **MobileAppControllerAttribute** 的控制器，但是使用任何行動應用程式用戶端 SDK 的用戶端可能會無法正確取用。
 
-## <a name="how-to-work-with-authentication"></a>HOW TO：使用驗證
+## <a name="how-to-work-with-authentication"></a>作法：使用驗證
 Azure Mobile Apps 會使用 App Service 驗證 / 授權來保護您的行動後端。  本節說明如何在 .NET 後端伺服器專案中執行下列驗證相關工作：
 
 * [操作說明：將驗證新增至伺服器專案](#add-auth)
@@ -361,7 +365,7 @@ App Service 也可讓您向登入提供者要求特定宣告。 每個識別提�
 
 `Query()` 方法會傳回可由 LINQ 操作的 `IQueryable`來處理篩選。
 
-## <a name="how-to-add-push-notifications-to-a-server-project"></a>HOW TO：將推播通知新增至伺服器專案
+## <a name="how-to-add-push-notifications-to-a-server-project"></a>作法：將推播通知新增至伺服器專案
 透過擴充 **MobileAppConfiguration** 物件並建立通知中樞用戶端，將推播通知加入您的伺服器專案中。
 
 1. 在 Visual Studio 中，以滑鼠右鍵按一下伺服器專案並按一下 [管理 NuGet 封裝]，搜尋 `Microsoft.Azure.Mobile.Server.Notifications`，然後按一下 [安裝]。
@@ -428,7 +432,7 @@ App Service 也可讓您向登入提供者要求特定宣告。 每個識別提�
 
 在註冊來自已驗證用戶端的推播通知時，請確定驗證已完成，然後再嘗試註冊。 如需詳細資訊，請參閱 .NET 後端的 App Service Mobile Apps 完成的快速入門範例中的[推播給使用者][6]。
 
-## <a name="how-to-debug-and-troubleshoot-the-net-server-sdk"></a>HOW TO：針對 .NET 伺服器 SDK 進行偵錯和疑難排解
+## <a name="how-to-debug-and-troubleshoot-the-net-server-sdk"></a>作法：針對 .NET 伺服器 SDK 進行偵錯和疑難排解
 Azure App Service 提供了數個適用於 ASP.NET 應用程式的偵錯和疑難排解技術：
 
 * [監視 Azure App Service](../app-service/web-sites-monitor.md)

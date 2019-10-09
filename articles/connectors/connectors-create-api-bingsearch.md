@@ -11,12 +11,12 @@ ms.reviewer: klam, LADocs
 ms.topic: conceptual
 ms.date: 05/21/2018
 tags: connectors
-ms.openlocfilehash: 61004ed75a1935ada21b5c620a909fb5289aebb8
-ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
+ms.openlocfilehash: f7558a5836d8f087e719346fb38bbf24ece2c8fb
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/27/2019
-ms.locfileid: "70050992"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72026780"
 ---
 # <a name="find-news-with-bing-search-and-azure-logic-apps"></a>使用 Bing 搜尋和 Azure Logic Apps 尋找新聞
 
@@ -45,7 +45,7 @@ ms.locfileid: "70050992"
 
 2. 在搜尋方塊中，輸入 "Bing 搜尋" 作為篩選條件。 從觸發程序清單中，選取您想要的觸發程序。
 
-   這個範例會使用此觸發程式:**Bing 搜尋-新的新聞文章**
+   這個範例會使用此觸發程式：**Bing 搜尋-新的新聞文章**
 
    ![尋找 Bing 搜尋觸發程序](./media/connectors-create-api-bing-search/add-trigger.png)
 
@@ -60,7 +60,7 @@ ms.locfileid: "70050992"
    | Market | 是 | <*locale*> | 搜尋地區設定。 預設為 "en-US"，但您可以選取其他值。 |
    | Safe Search | 是 | <*search-level*> | 排除成人內容的篩選層級。 預設為「中度」，但您可以選取其他層級。 |
    | Count | 否 | <*results-count*> | 傳回指定數目的結果。 預設為 20，但您可以指定其他值。 傳回結果的實際數目可能小於指定數目。 |
-   | 位移 | 否 | <*skip-value*> | 傳回結果前要跳過的結果數目 |
+   | Offset | 否 | <*skip-value*> | 傳回結果前要跳過的結果數目 |
    |||||
 
    例如:
@@ -69,7 +69,7 @@ ms.locfileid: "70050992"
 
 4. 選取要讓觸發程序檢查結果的間隔和頻率。
 
-5. 當您完成時, 請在設計工具工具列上選取 [**儲存**]。
+5. 當您完成時，請在設計工具工具列上選取 [**儲存**]。
 
 6. 現在，繼續針對您想要使用觸發程序結果來執行的工作，於邏輯應用程式中新增一或多個動作。
 
@@ -81,21 +81,21 @@ ms.locfileid: "70050992"
 
 1. 在 Azure 入口網站或 Visual Studio 的邏輯應用程式設計工具中，開啟邏輯應用程式。 這個範例會使用 Azure 入口網站。
 
-2. 在觸發程式或動作底下, 選取 [**新增步驟**  > ] [新增**動作**]。
+2. 在觸發程式或動作底下，選取 [**新增步驟** > ] [**加入動作**]。
 
-   這個範例會使用此觸發程式:
+   這個範例會使用此觸發程式：
 
    **Bing 搜尋-新的新聞文章**
 
    ![新增動作](./media/connectors-create-api-bing-search/add-action.png)
 
    若要在現有步驟之間新增動作，請將滑鼠放在連接箭頭上。 
-   選取顯示的加號 ( **+** ), 然後選取 [**新增動作**]。
+   選取顯示的加號（ **+** ），然後選取 [**新增動作**]。
 
 3. 在搜尋方塊中，輸入 "Bing 搜尋" 作為篩選條件。
 從 [動作] 清單中，選取您想要的動作。
 
-   這個範例會使用此動作:
+   這個範例會使用此動作：
 
    **Bing 搜尋-依查詢列出新聞**
 
@@ -111,13 +111,13 @@ ms.locfileid: "70050992"
    | Market | 是 | <*locale*> | 搜尋地區設定。 預設為 "en-US"，但您可以選取其他值。 |
    | Safe Search | 是 | <*search-level*> | 排除成人內容的篩選層級。 預設為「中度」，但您可以選取其他層級。 |
    | Count | 否 | <*results-count*> | 傳回指定數目的結果。 預設為 20，但您可以指定其他值。 傳回結果的實際數目可能小於指定數目。 |
-   | 位移 | 否 | <*skip-value*> | 傳回結果前要跳過的結果數目 |
+   | Offset | 否 | <*skip-value*> | 傳回結果前要跳過的結果數目 |
    |||||
 
    例如，假設您想要的結果其類別名稱包括 "tech" 這個字。
 
    1. 按一下 [搜尋查詢] 方塊，動態內容清單隨即出現。 
-   從該清單中選取 [**運算式**], 運算式產生器隨即出現。 
+   從該清單中選取 [**運算式**]，運算式產生器隨即出現。 
 
       ![Bing 搜尋觸發程序](./media/connectors-create-api-bing-search/bing-search-action.png)
 
@@ -142,7 +142,7 @@ ms.locfileid: "70050992"
 
       `"@{contains(triggerBody()?['category'],'tech')}"`
 
-5. 當您完成時, 請在設計工具工具列上選取 [**儲存**]。
+5. 當您完成時，請在設計工具工具列上選取 [**儲存**]。
 
 <a name="create-connection"></a>
 
@@ -161,13 +161,13 @@ ms.locfileid: "70050992"
 
    例如:
 
-   ![建立連接](./media/connectors-create-api-bing-search/bing-search-create-connection.png)
+   ![建立連線](./media/connectors-create-api-bing-search/bing-search-create-connection.png)
 
 2. 當您完成時，選取 [建立]。
 
 ## <a name="connector-reference"></a>連接器參考
 
-如需如連接器的 OpenAPI (先前為 Swagger) 檔案所述的技術詳細資料 (例如觸發程式、動作和限制), 請參閱[連接器的參考頁面](/connectors/bingsearch/)。
+如需如連接器的 OpenAPI （先前為 Swagger）檔案所述的技術詳細資料（例如觸發程式、動作和限制），請參閱[連接器的參考頁面](/connectors/bingsearch/)。
 
 ## <a name="next-steps"></a>後續步驟
 

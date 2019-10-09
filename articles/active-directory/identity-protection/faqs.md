@@ -11,20 +11,20 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e30f8264870272fc12dcb7e15b37e5fd30688bcb
-ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
+ms.openlocfilehash: 8d36b513b6835088b5120072906667cd30af505d
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70126518"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72025734"
 ---
 # <a name="azure-active-directory-identity-protection-faq"></a>Azure Active Directory Identity Protection 常見問題集
 
 本文包含有關 Azure Active Directory (Azure AD) Identity Protection.常見問題的解答。 如需詳細資訊，請參閱 [Azure Active Directory Identity Protection](../active-directory-identityprotection.md)。 
 
-## <a name="why-do-some-risk-detections-have-closed-system-status"></a>為什麼部分風險偵測具有「已關閉 (系統)」狀態？
+## <a name="why-do-some-risk-detections-have-closed-system-status"></a>為什麼部分風險偵測具有「已關閉（系統）」狀態？
 
-**答：** Identity Protection 偵測到這些風險偵測, 並于稍後關閉, 因為事件不再被視為有風險。 這些事件不會計入使用者的風險層級。 
+**答：** Identity Protection 偵測到這些風險偵測，並于稍後關閉，因為事件不再被視為有風險。 這些事件不會計入使用者的風險層級。 
 
 ---
 
@@ -41,6 +41,6 @@ ms.locfileid: "70126518"
 
 ## <a name="how-can-i-sort-users-in-users-flagged-for-risk"></a>如何排序 [標幟為有風險的使用者] 中的使用者？
 
-**答：** 請按一下 [標幟為有風險的使用者] 頁面頂端的 [下載]，以下載標幟為有風險的使用者報告。 接著，您便可以根據可用的欄位 (包括 [上次更新時間 (UTC)]) 來排序所下載的資料。
+**答：** 按一下 [已**標示為風險的使用者**] 頁面頂端的 [**下載**]，下載標示為風險的使用者報告。 接著，您便可以根據可用的欄位 (包括 [上次更新時間 (UTC)]) 來排序所下載的資料。
 
 ---

@@ -15,12 +15,12 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8b5479bc7f4e65f23a2e2dcf7deb91742fe50610
-ms.sourcegitcommit: 49c4b9c797c09c92632d7cedfec0ac1cf783631b
+ms.openlocfilehash: 1d5a29ca7ed4eb23c2e0edd4d39cc2920e779acb
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/05/2019
-ms.locfileid: "70382496"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72025523"
 ---
 # <a name="delegate-app-registration-permissions-in-azure-active-directory"></a>在 Azure Active Directory 中委派應用程式註冊許可權
 
@@ -61,10 +61,10 @@ ms.locfileid: "70382496"
 
 ### <a name="to-assign-an-owner-to-an-enterprise-application"></a>將擁有者指派給企業應用程式
 
-1. 使用適用于組織應用程式系統管理員或雲端應用程式管理員的帳戶，登入[您的 Azure AD 組織](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview) 。
-1. 在組織的 [ [應用程式註冊] 頁面](https://portal.azure.com/#blade/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/AllApps/menuId/) 上，選取應用程式以開啟應用程式的 [總覽] 頁面。
-1. 選取 [ **擁有** 者] 以查看應用程式的擁有者清單。
-1. 選取 [ **新增** ] 以選取要新增至應用程式的一或多個擁有者。
+1. 登入[您的 Azure AD 組織](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview) with 符合組織應用程式系統管理員或雲端應用程式管理員的帳戶。
+1. 在 [ [應用程式註冊] 頁面](https://portal.azure.com/#blade/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/AllApps/menuId/)上 @no__t 1for 組織，選取一個應用程式以開啟應用程式的 [總覽] 頁面。
+1. 選取 [擁有者] 以查看應用程式的擁有者清單。
+1. 選取 [新增]，以選取一或多個要新增至應用程式的擁有者。
 
 > [!IMPORTANT]
 > 使用者和服務主體可以是應用程式註冊的擁有者。 只有使用者可以是企業應用程式的擁有者。 群組無法指派為任何一個的擁有者。

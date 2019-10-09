@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 01/09/2019
 ms.author: cynthn
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 5ef060127840838778a00fdabd2d56b2ef23d6f4
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 3abc221295a90dfbf7e46e3bd5bff1c8c0937162
+ms.sourcegitcommit: f9e81b39693206b824e40d7657d0466246aadd6e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70082689"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72035013"
 ---
 # <a name="install-nvidia-gpu-drivers-on-n-series-vms-running-linux"></a>在執行 Linux 的 N 系列 VM 上安裝 NVIDIA GPU 驅動程式
 
@@ -171,7 +171,7 @@ sudo reboot
 
 ## <a name="install-grid-drivers-on-nv-or-nvv3-series-vms"></a>在 NV 或 NVv3 系列 Vm 上安裝 GRID 驅動程式
 
-若要在 NV 或 NVv3 系列 Vm 上安裝 NVIDIA GRID 驅動程式, 請建立每個 VM 的 SSH 連線, 並遵循 Linux 散發套件的步驟。 
+若要在 NV 或 NVv3 系列 Vm 上安裝 NVIDIA GRID 驅動程式，請建立每個 VM 的 SSH 連線，並遵循 Linux 散發套件的步驟。 
 
 ### <a name="ubuntu"></a>Ubuntu 
 
@@ -190,7 +190,7 @@ sudo reboot
    
    sudo apt-get install linux-azure -y
    ```
-3. 停用與 NVIDIA 驅動程式不相容的 Nouveau 核心驅動程式。 (僅在 NV 或 NVv2 VM 上使用 NVIDIA 驅動程式。)若要這麼做, 請使用下列`/etc/modprobe.d`內容`nouveau.conf` , 在名為的中建立檔案:
+3. 停用與 NVIDIA 驅動程式不相容的 Nouveau 核心驅動程式。 (僅在 NV 或 NVv2 VM 上使用 NVIDIA 驅動程式。)若要這樣做，請使用下列內容，在名為 `nouveau.conf` 的 `/etc/modprobe.d` 中建立檔案：
 
    ```
    blacklist nouveau
@@ -230,7 +230,7 @@ sudo reboot
    EnableUI=FALSE
    ```
    
-9. 從中`/etc/nvidia/gridd.conf`移除下列內容 (如果有的話):
+9. 從 `/etc/nvidia/gridd.conf` 中移除下列內容（如果有的話）：
  
    ```
    FeatureType=0
@@ -254,7 +254,7 @@ sudo reboot
    sudo yum install hyperv-daemons
    ```
 
-2. 停用與 NVIDIA 驅動程式不相容的 Nouveau 核心驅動程式。 (僅在 NV 或 NV2 VM 上使用 NVIDIA 驅動程式。)若要這麼做, 請使用下列`/etc/modprobe.d`內容`nouveau.conf` , 在名為的中建立檔案:
+2. 停用與 NVIDIA 驅動程式不相容的 Nouveau 核心驅動程式。 (僅在 NV 或 NV2 VM 上使用 NVIDIA 驅動程式。)若要這樣做，請使用下列內容，在名為 `nouveau.conf` 的 `/etc/modprobe.d` 中建立檔案：
 
    ```
    blacklist nouveau
@@ -302,7 +302,7 @@ sudo reboot
    IgnoreSP=FALSE
    EnableUI=FALSE 
    ```
-9. 從中`/etc/nvidia/gridd.conf`移除下列內容 (如果有的話):
+9. 從 `/etc/nvidia/gridd.conf` 中移除下列內容（如果有的話）：
  
    ```
    FeatureType=0
@@ -362,6 +362,7 @@ fi
 ## <a name="troubleshooting"></a>疑難排解
 
 * 您可以使用 `nvidia-smi` 設定持續性模式，如此當您需要查詢卡片時，命令的輸出更快。 若要設定持續性模式，請執行 `nvidia-smi -pm 1`。 請注意，如果重新啟動 VM，模式設定就會消失。 您一律可以編寫指令碼在啟動時執行模式設定。
+* 如果您已將 NVIDIA CUDA 驅動程式更新為最新版本，並尋找 RDMA connectivcity 已不再運作，請[重新安裝 RDMA 驅動程式](https://docs.microsoft.com/azure/virtual-machines/linux/n-series-driver-setup#rdma-network-connectivity)以 reistablish 該連線能力。 
 
 ## <a name="next-steps"></a>後續步驟
 

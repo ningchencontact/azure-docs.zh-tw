@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: azurecli
 ms.date: 11/22/2018
 ms.author: delhan
-ms.openlocfilehash: 6e90b164fac4ea1123f5f9a43eea1169d93d9a04
-ms.sourcegitcommit: 116bc6a75e501b7bba85e750b336f2af4ad29f5a
+ms.openlocfilehash: 0cbd1a24f5c460e248d55777735da6809befba63
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71154029"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72028802"
 ---
 # <a name="azure-vm-guest-os-firewall-is-blocking-inbound-traffic"></a>Azure VM 客體 OS 防火牆封鎖輸入流量
 
@@ -102,7 +102,7 @@ ms.locfileid: "71154029"
 
 #### <a name="mitigation-2"></a>緩解措施 2
 
-1.  查詢防火牆設定檔，以判斷是否要將輸入防火牆原則設定為  *BlockInboundAlways*：
+1.  查詢防火牆設定檔，以判斷輸入防火牆原則是否設定為*BlockInboundAlways*：
 
     ```cmd
     netsh advfirewall show allprofiles | more
@@ -115,7 +115,7 @@ ms.locfileid: "71154029"
     >    * *BlockInbound*：除非您具備允許輸入流量的有效規則，否則會封鎖所有輸入流量。
     >    * *BlockInboundAlways*：會忽略所有防火牆規則，並封鎖所有流量。
 
-2.  編輯  *DefaultInboundAction* ，以將這些設定檔設為 **允許** 流量。 若要這樣做，請執行下列命令：
+2.  編輯*DefaultInboundAction*以設定這些設定檔以**允許**流量。 若要這樣做，請執行下列命令：
 
     ```cmd
     netsh advfirewall set allprofiles firewallpolicy allowinbound,allowoutbound
@@ -138,7 +138,7 @@ ms.locfileid: "71154029"
 
 2.  啟動復原 VM 的遠端桌面連線。
 
-3.  確定該磁碟在磁碟管理主控台中標示為 **線上** 。 記下指派給已連結系統磁碟的磁碟機代號。
+3.  確定該磁碟在磁碟管理主控台中標示為 [線上]。 記下指派給已連結系統磁碟的磁碟機代號。
 
 #### <a name="mitigation-1"></a>緩解措施 1
 
@@ -150,7 +150,7 @@ ms.locfileid: "71154029"
 
 2.  啟動復原 VM 的遠端桌面連線。
 
-3.  在系統磁碟連結至復原 VM 後，請確定該磁碟在磁碟管理主控台中標示為 **線上** 。 記下指派給已連結 OS 磁碟的磁碟機代號。
+3.  將系統磁片連結至復原 VM 之後，請確定該磁片在磁片管理主控台中標示為 [**線上**]。 記下指派給已連結 OS 磁碟的磁碟機代號。
 
 4.  開啟提升權限的 CMD 執行個體，然後執行下列指令碼：
 

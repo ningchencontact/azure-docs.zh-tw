@@ -14,21 +14,21 @@ ms.devlang: javascript
 ms.topic: article
 ms.date: 06/25/2019
 ms.author: emalani
-ms.openlocfilehash: 327cb3a3667c63454549ec694790769c9ea1fd58
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 3cf18e6da56b25e453d52dc58020961f672da27d
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67446427"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72027444"
 ---
 # <a name="how-to-use-apache-cordova-client-library-for-azure-mobile-apps"></a>如何使用適用於 Azure Mobile Apps 的 Apache Cordova 用戶端程式庫
 [!INCLUDE [app-service-mobile-selector-client-library](../../includes/app-service-mobile-selector-client-library.md)]
 
 > [!NOTE]
-> Visual Studio App Center 投入新的和整合式服務行動應用程式開發的核心。 開發人員可以使用**建置**，**測試**並**散發**services 設定持續整合和傳遞管線。 應用程式部署之後，開發人員可以監視的狀態和其應用程式使用的使用方式**Analytics**並**診斷**服務，並使用使用者參與**推播**服務。 開發人員也可以利用**Auth**來驗證使用者並**資料**保存和同步處理雲端中的應用程式資料的服務。 請參閱[App Center](https://appcenter.ms/?utm_source=zumo&utm_campaign=app-service-mobile-cordova-how-to-use-client-library)今天。
->
+> Visual Studio App Center 支援行動應用程式開發的端對端和整合式服務中心。 開發人員可以使用**組建**、**測試**和**散發**服務來設定持續整合和傳遞管線。 部署應用程式之後，開發人員可以使用**分析**和**診斷**服務來監視其應用程式的狀態和使用，並與使用**推**播服務的使用者互動。 開發人員也可以利用**驗證**來驗證其使用者和**資料**服務，以保存及同步雲端中的應用程式資料。
+> 如果您想要在您的行動應用程式中整合雲端服務，請立即註冊 App Center [App center](https://appcenter.ms/?utm_source=zumo&utm_medium=Azure&utm_campaign=zumo%20doc) 。
 
-## <a name="overview"></a>概觀
+## <a name="overview"></a>總覽
 本指南說明如何使用最新的 [適用於 Azure Mobile Apps 的 Apache Cordova 外掛程式]執行一般案例。 如果您是 Azure Mobile Apps 的新手，請先完成 [Azure Mobile Apps 快速啟動] 以建立後端、建立資料表及下載預先建置的 Apache Cordova 專案。 在本指南中，我們會著重於用戶端 Apache Cordova 外掛程式。
 
 ## <a name="supported-platforms"></a>支援的平台
@@ -99,11 +99,11 @@ Azure App Service 支援使用各種外部識別提供者來驗證與授權應�
 請遵循下列指示來將您的本機設定加入組態︰
 
 1. 登入 [Azure 入口網站]
-2. 選取 [所有資源]  或 [應用程式服務]  ，然後按一下行動應用程式的名稱。
-3. 按一下 [工具] 
-4. 按一下 [觀察] 功能表中的 [資源總管]  ，然後按一下 [前往]  。  新的視窗或索引標籤隨即開啟。
-5. 在左側導覽中，展開網站的 [config]  、[authsettings]  節點。
-6. 按一下 [編輯] 
+2. 選取 [所有資源] 或 [應用程式服務]，然後按一下行動應用程式的名稱。
+3. 按一下 [工具]
+4. 按一下 [觀察] 功能表中的 [資源總管]，然後按一下 [前往]。  新的視窗或索引標籤隨即開啟。
+5. 在左側導覽中，展開網站的 [config]、[authsettings] 節點。
+6. 按一下 [編輯]
 7. 尋找「allowedExternalRedirectUrls」元素。  它可能會設定為 null 或值陣列。  將此值變更為下列值︰
 
          "allowedExternalRedirectUrls": [
@@ -111,20 +111,20 @@ Azure App Service 支援使用各種外部識別提供者來驗證與授權應�
              "https://localhost:3000"
          ],
 
-    使用您服務的 URL 來取代 URL。  範例包括`http://localhost:3000`（適用於 Node.js 範例服務），或`http://localhost:4400`（適用於 Ripple 服務）。  不過，這些 URL 都是範例 - 您的情況 (包括範例中提及的服務) 可能會有差異。
-8. 按一下螢幕右上角的 [讀/寫]  按鈕。
-9. 按一下綠色 [PUT]  按鈕。
+    使用您服務的 URL 來取代 URL。  範例包括 `http://localhost:3000` （適用于 node.js 範例服務）或 `http://localhost:4400` （適用于 Ripple 服務）。  不過，這些 URL 都是範例 - 您的情況 (包括範例中提及的服務) 可能會有差異。
+8. 按一下螢幕右上角的 [讀/寫] 按鈕。
+9. 按一下綠色 [PUT] 按鈕。
 
 此時即會儲存設定。  在設定完成儲存之前，請勿關閉瀏覽器視窗。
 此外，請將這些回送 URL 新增至 App Service 的 CORS 設定：
 
 1. 登入 [Azure 入口網站]
-2. 選取 [所有資源]  或 [應用程式服務]  ，然後按一下行動應用程式的名稱。
-3. [設定] 刀鋒視窗隨即自動開啟。  如果沒有，請按一下 [所有設定]  。
-4. 按一下 API 功能表下方的 [CORS]  。
+2. 選取 [所有資源] 或 [應用程式服務]，然後按一下行動應用程式的名稱。
+3. [設定] 刀鋒視窗隨即自動開啟。  如果沒有，請按一下 [所有設定]。
+4. 按一下 API 功能表下方的 [CORS] 。
 5. 輸入在提供的方塊中輸入您希望加入的 URL，然後按 Enter 鍵。
 6. 視需要輸入其他的 URL。
-7. 按一下 [儲存]  來儲存這些設定。
+7. 按一下 [儲存] 來儲存這些設定。
 
 大約需要 10-15 秒的時間，才能使新的設定生效。
 

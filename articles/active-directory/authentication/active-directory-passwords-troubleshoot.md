@@ -12,12 +12,12 @@ manager: daveba
 ms.reviewer: sahenry
 ms.custom: seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 30fd1ebf8a59c80764335be47c986ea77f5d1438
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: c4f236f2f2fdbf2736f87f754f48387f9f41850d
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68879177"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72024631"
 ---
 # <a name="troubleshoot-self-service-password-reset"></a>針對自助式密碼重設進行疑難排解
 
@@ -40,7 +40,7 @@ ms.locfileid: "68879177"
 
 | Error | 方案 |
 | --- | --- |
-| 我在 Azure 入口網站中的 Azure AD 之下看不到 [密碼重設] 區段。 | 如果您沒有指派 Azure AD 授權給執行此作業的系統管理員, 就會發生這種情況。 <br> <br> 將授權指派給所提及的系統管理員帳戶。 您可以遵循[指派、驗證授權及解決其問題](../users-groups-roles/licensing-groups-assign.md#step-1-assign-the-required-licenses)一文中的步驟。|
+| 我在 Azure 入口網站中的 Azure AD 之下看不到 [密碼重設] 區段。 | 如果您沒有指派 Azure AD 授權給執行此作業的系統管理員，就會發生這種情況。 <br> <br> 將授權指派給所提及的系統管理員帳戶。 您可以遵循[指派、驗證授權及解決其問題](../users-groups-roles/licensing-groups-assign.md#step-1-assign-the-required-licenses)一文中的步驟。|
 | 我看不到特定的設定選項。 | 許多 UI 元素只會在需要時出現。 如果您想要看到這些元素，請嘗試啟用所有選項。 |
 | 我看不到 [內部部署整合] 索引標籤。 | 只有在您下載 Azure AD Connect 並設定密碼回寫後，這個選項才會出現。 如需詳細資訊，請參閱[利用快速設定開始使用 Azure AD Connect](../hybrid/how-to-connect-install-express.md)。 |
 
@@ -48,7 +48,7 @@ ms.locfileid: "68879177"
 
 | Error | 方案 |
 | --- | --- |
-| 我在 [自助式密碼管理] 稽核事件類別中看不到任何密碼管理活動類型。 | 如果您沒有指派 Azure AD 授權給執行此作業的系統管理員, 就會發生這種情況。 <br> <br> 您可以將授權指派給所提及的系統管理員帳戶，以解決這個問題。 如需詳細資訊，請參閱[指派、驗證授權及解決其問題](../users-groups-roles/licensing-groups-assign.md#step-1-assign-the-required-licenses)。 |
+| 我在 [自助式密碼管理] 稽核事件類別中看不到任何密碼管理活動類型。 | 如果您沒有指派 Azure AD 授權給執行此作業的系統管理員，就會發生這種情況。 <br> <br> 您可以將授權指派給所提及的系統管理員帳戶，以解決這個問題。 如需詳細資訊，請參閱[指派、驗證授權及解決其問題](../users-groups-roles/licensing-groups-assign.md#step-1-assign-the-required-licenses)。 |
 | 使用者註冊顯示多個時間。 | 目前當使用者註冊時，我們會將所註冊的每一筆個別資料記錄為個別事件。 <br> <br> 如果您需要彙總此資料並以更有彈性的方式檢視，可以下載報告，並在 Excel 中以樞紐分析表開啟資料。
 
 ## <a name="troubleshoot-the-password-reset-registration-portal"></a>疑難排解密碼重設註冊入口網站
@@ -56,7 +56,7 @@ ms.locfileid: "68879177"
 | Error | 方案 |
 | --- | --- |
 | 目錄未啟用密碼重設功能。 **您的系統管理員尚未為您啟用這項功能。** | 將 [已啟用自助式密碼重設] 旗標切換為 [選取項目] 或 [全部]，然後選取 [儲存]。 |
-| 使用者未獲指派 Azure AD 授權。 **您的系統管理員尚未為您啟用這項功能。** | 如果您沒有指派 Azure AD 授權給執行此作業的系統管理員, 就會發生這種情況。 <br> <br> 您可以將授權指派給所提及的系統管理員帳戶，以解決這個問題。 如需詳細資訊，請參閱[指派、驗證授權及解決其問題](../users-groups-roles/licensing-groups-assign.md#step-1-assign-the-required-licenses)。|
+| 使用者未獲指派 Azure AD 授權。 **您的系統管理員尚未為您啟用這項功能。** | 如果您沒有指派 Azure AD 授權給執行此作業的系統管理員，就會發生這種情況。 <br> <br> 您可以將授權指派給所提及的系統管理員帳戶，以解決這個問題。 如需詳細資訊，請參閱[指派、驗證授權及解決其問題](../users-groups-roles/licensing-groups-assign.md#step-1-assign-the-required-licenses)。|
 | 處理要求時發生錯誤。 | 許多問題都會造成此情形，但這個錯誤通常是因為服務中斷或設定問題所導致。 如果您看到這個錯誤，而且它會影響您的業務，請連絡 Microsoft 支援服務人員以尋求其他協助。 |
 
 ## <a name="troubleshoot-the-password-reset-portal"></a>疑難排解密碼重設入口網站
@@ -64,7 +64,7 @@ ms.locfileid: "68879177"
 | Error | 方案 |
 | --- | --- |
 | 目錄未啟用密碼重設功能。 | 將 [已啟用自助式密碼重設] 旗標切換為 [選取項目] 或 [全部]，然後選取 [儲存]。 |
-| 使用者未獲指派 Azure AD 授權。 | 如果您沒有指派 Azure AD 授權給執行此作業的系統管理員, 就會發生這種情況。 <br> <br> 如果您將授權指派給所提及的系統管理員帳戶，就可以解決這個問題。 如需詳細資訊，請參閱[指派、驗證授權及解決其問題](../users-groups-roles/licensing-groups-assign.md#step-1-assign-the-required-licenses)。 |
+| 使用者未獲指派 Azure AD 授權。 | 如果您沒有指派 Azure AD 授權給執行此作業的系統管理員，就會發生這種情況。 <br> <br> 如果您將授權指派給所提及的系統管理員帳戶，就可以解決這個問題。 如需詳細資訊，請參閱[指派、驗證授權及解決其問題](../users-groups-roles/licensing-groups-assign.md#step-1-assign-the-required-licenses)。 |
 | 目錄已啟用密碼重設，但使用者的驗證資訊遺失或格式不正確。 | 在繼續之前，請確定使用者已在目錄中登記格式正確的連絡資料。 如需詳細資訊，請參閱 [Azure AD 自助式密碼重設所用的資料](howto-sspr-authenticationdata.md)。 |
 | 目錄已啟用密碼重設，原則設定為需要兩個驗證方法，但使用者只登記一個連絡資料。 | 在繼續之前，請確定使用者有至少兩個已正確設定的連絡方法。 例如，擁有行動電話號碼和辦公室電話號碼。 |
 | 目錄已啟用密碼重設，並已正確設定使用者，但無法連絡到使用者。 | 原因可能是暫時性的服務錯誤，或如果連絡資料不正確，而無法正確偵測到。 <br> <br> 如果使用者等候 10 秒，就會出現「再試一次」和「連絡您的系統管理員」連結。 如果使用者選取「再試一次」，就會重試該呼叫。 如果使用者選取「連絡您的系統管理員」，就會傳送表單電子郵件給其全域系統管理員，要求對該使用者帳戶執行密碼重設。 |
@@ -75,14 +75,14 @@ ms.locfileid: "68879177"
 | 使用者在驗證其電話號碼時看到錯誤。 | 輸入的電話號碼與登記的電話號碼不符時，就會發生這個錯誤。 請確定使用者在嘗試使用電話式方法來重設密碼時，輸入了完整的電話號碼，包括區碼和國碼。 |
 | 處理要求時發生錯誤。 | 許多問題都會造成此情形，但這個錯誤通常是因為服務中斷或設定問題所導致。 如果您看到這個錯誤，而且它會影響您的業務，請連絡 Microsoft 支援服務人員以尋求其他協助。 |
 | 內部部署原則違規 | 密碼不符合內部部署的 Active Directory 密碼原則。 |
-| 密碼未遵循模糊原則 | 使用的密碼會出現在 [[禁用密碼] 清單](https://docs.microsoft.com/azure/active-directory/authentication/concept-password-ban-bad#how-are-passwords-evaluated)中, 而且不能使用。 |
+| 密碼未遵循模糊原則 | 使用的密碼會出現在 [[禁用密碼] 清單](https://docs.microsoft.com/azure/active-directory/authentication/concept-password-ban-bad#how-are-passwords-evaluated)中，而且不能使用。 |
 
 ## <a name="troubleshoot-password-writeback"></a>針對密碼回寫進行疑難排解
 
 | Error | 方案 |
 | --- | --- |
 | 無法內部部署啟動密碼重設服務。 Azure AD Connect 電腦的應用程式事件記錄中出現錯誤 6800。 <br> <br> 上架之後，同盟、傳遞驗證或密碼雜湊同步使用者無法重設其密碼。 | 啟用「密碼回寫」時，同步處理引擎會透過與雲端上線服務通訊，呼叫回寫程式庫來執行設定 (上線)。 在上線期間或啟動 Windows Communication Foundation (WCF) 端點來進行「密碼回寫」時，如果發生任何錯誤，都會導致 Azure AD Connect 電腦的事件記錄中出現錯誤。 <br> <br> 在 Azure AD Sync (ADSync) 服務重新啟動期間，若已設定回寫，就會啟動 WCF 端點。 不過，如果端點啟動失敗，我們會記錄事件 6800，並讓同步處理服務啟動。 出現此事件即表示「密碼回寫」端點並未啟動。 此事件 (6800) 的事件記錄詳細資料，以及 PasswordResetService 元件所產生的事件記錄項目會指出為何無法啟動端點。 如果「密碼回寫」仍然無法運作，請檢閱這些事件記錄錯誤，然後嘗試重新啟動 Azure AD Connect。 如果此問題持續發生，請嘗試先將「密碼回寫」停用再重新啟用。
-| 當使用者嘗試在已啟用密碼回寫時重設密碼或解除鎖定帳戶，作業會失敗。 <br> <br> 此外，在解除鎖定作業發生之後，您會在 Azure AD Connect 事件記錄檔中看到事件，其中包含：「Synchronization Engine returned an error hr=800700CE, message=The filename or extension is too long」。 | 尋找 Azure AD Connect 的 Active Directory 帳戶, 並重設密碼, 使其包含不超過256個字元。 然後從 [開始] 功能表開啟 [同步處理服務]。 瀏覽至 [連接器]，然後尋找 [Active Directory 連接器]。 選取它，然後選取 [屬性]。 瀏覽至 [認證] 頁面，然後輸入新密碼。 選取 [確定] 以關閉頁面。 |
+| 當使用者嘗試在已啟用密碼回寫時重設密碼或解除鎖定帳戶，作業會失敗。 <br> <br> 此外，在解除鎖定作業發生之後，您會在 Azure AD Connect 事件記錄檔中看到事件，其中包含：「Synchronization Engine returned an error hr=800700CE, message=The filename or extension is too long」。 | 尋找 Azure AD Connect 的 Active Directory 帳戶，並重設密碼，使其包含不超過256個字元。 然後從 [開始] 功能表開啟 [同步處理服務]。 瀏覽至 [連接器]，然後尋找 [Active Directory 連接器]。 選取它，然後選取 [屬性]。 瀏覽至 [認證] 頁面，然後輸入新密碼。 選取 [確定] 以關閉頁面。 |
 | 在 Azure AD Connect 安裝程序的最後一個步驟，您會看到一個錯誤，指出無法設定「密碼回寫」。 <br> <br> Azure AD Connect 應用程式事件記錄包含錯誤 32009，以及「取得授權權杖時發生錯誤」文字。 | 下列兩種情況會發生此錯誤： <br><ul><li>針對在 Azure AD Connect 安裝程序開始時所指定的全域系統管理員帳戶，指定了錯誤的密碼。</li><li>針對在 Azure AD Connect 安裝程序開始時所指定的全域系統管理員帳戶，嘗試使用同盟使用者。</li></ul> 若要修正此問題，請確定您並未針對在安裝程序開始時所指定的全域系統管理員使用同盟帳戶。 也請確定所指定的密碼正確。 |
 | Azure AD Connect 電腦的事件記錄包含透過執行 PasswordResetService 所擲回的錯誤 32002。 <br> <br> 此錯誤指出：「連線到服務匯流排時發生錯誤。 權杖提供者無法提供安全性權杖。」 | 您的內部部署環境無法連線到雲端的 Azure 服務匯流排端點。 這個錯誤是因為防火牆規則封鎖連往特定連接埠或網址的輸出連線所導致。 如需詳細資訊，請參閱[連線必要條件](../hybrid/how-to-connect-install-prerequisites.md)。 在您更新這些規則之後，請重新啟動 Azure AD Connect 電腦，「密碼回寫」應該就會再次開始運作。 |
 | 運作一段時間之後，同盟、傳遞驗證或密碼雜湊同步使用者無法重設其密碼。 | 在某些罕見的情況下，Azure AD Connect 重新啟動後，「密碼回寫」服務可能仍無法重新啟動。 在這些情況下，請先檢查「密碼回寫」是否在內部部署環境中顯示為已啟用。 您可以使用 Azure AD Connect 精靈或 PowerShell 來檢查 (請參閱上一節「做法」)。 如果此功能顯示為已啟用，請再次嘗試透過 UI 或 PowerShell 啟用或停用此功能。 如果這麼做沒有效，請嘗試完整解除安裝再重新安裝 Azure AD Connect。 |
@@ -93,14 +93,14 @@ ms.locfileid: "68879177"
 
 ## <a name="password-writeback-event-log-error-codes"></a>密碼回寫事件記錄錯誤碼
 
-當您針對密碼回寫的問題進行疑難排解時, 最佳做法是在您的 Azure AD Connect 機上檢查應用程式事件記錄檔。 這個事件記錄包含「密碼回寫」兩個相關來源的事件。 PasswordResetService 來源會說明與「密碼回寫」作業相關的作業和問題。 ADSync 來源會說明與 Active Directory 環境中的密碼設定相關的作業和問題。
+當您針對密碼回寫的問題進行疑難排解時，最佳做法是在您的 Azure AD Connect 機上檢查應用程式事件記錄檔。 這個事件記錄包含「密碼回寫」兩個相關來源的事件。 PasswordResetService 來源會說明與「密碼回寫」作業相關的作業和問題。 ADSync 來源會說明與 Active Directory 環境中的密碼設定相關的作業和問題。
 
 ### <a name="if-the-source-of-the-event-is-adsync"></a>如果事件來源是 ADSync
 
 | 程式碼 | 名稱或訊息 | 描述 |
 | --- | --- | --- |
 | 6329 | BAIL：MMS(4924) 0x80230619：「有一項限制讓密碼無法變更為目前指定的密碼。」 | 當「密碼回寫」服務嘗試在本機目錄上設定不符合密碼有效期、歷程記錄、複雜度或網域篩選需求的密碼時，就會發生此事件。 <br> <br> 如果您有最短的密碼使用期限，且最近在該時段內變更過密碼，就必須在到達網域中指定的使用期限後，才能再次變更密碼。 若要進行測試，最短使用期限應該設定為 0。 <br> <br> 如果已啟用密碼歷程記錄需求，則必須選取最近 N 次未用過的密碼，其中 N 是密碼歷程記錄設定。 如果您選取最近 N 次用過的密碼，則會在此案例中看到失敗。 若要進行測試，密碼歷程記錄應該設定為 0。 <br> <br> 如果您有密碼複雜度需求，則會在使用者嘗試變更或重設密碼時強制執行這些需求。 <br> <br> 如果您啟用密碼篩選功能，當使用者選取的密碼不符合篩選準則時，重設或變更作業就會失敗。 |
-| 6329 | MMS(3040): admaexport.cpp(2837)：伺服器未包含 LDAP 密碼原則控制項。 | 如果未在 DC 上啟用 LDAP_SERVER_POLICY_HINTS_OID 控制項 (1.2.840.113556.1.4.2066)，就會發生此問題。 若要使用密碼回寫功能，您必須啟用該控制項。 若要這樣做, Dc 必須在 Windows Server 2008R2 或更新版本上。 |
+| 6329 | MMS(3040): admaexport.cpp(2837)：伺服器未包含 LDAP 密碼原則控制項。 | 如果未在 DC 上啟用 LDAP_SERVER_POLICY_HINTS_OID 控制項 (1.2.840.113556.1.4.2066)，就會發生此問題。 若要使用密碼回寫功能，您必須啟用該控制項。 若要這樣做，Dc 必須在 Windows Server 2008R2 或更新版本上。 |
 | HR 8023042 | 同步處理引擎傳回的錯誤 hr= 80230402，訊息=嘗試取得物件失敗，因為存在具有相同錨點的重複項目。 | 在多個網域中啟用相同的使用者識別碼時，就會發生此錯誤。 例如，如果您在同步處理的帳戶和資源樹系中皆存在相同的使用者識別碼，且在每個樹系中皆為啟用時。 <br> <br> 如果您使用非唯一的錨點屬性 (例如別名或 UPN)，而且兩個使用者共用該相同的錨點屬性時，也會發生此錯誤。 <br> <br> 若要解決這個問題，請確定您的網域內沒有重複的使用者，且每個使用者皆使用唯一的錨點屬性。 |
 
 ### <a name="if-the-source-of-the-event-is-passwordresetservice"></a>如果事件來源為 PasswordResetService
@@ -174,6 +174,9 @@ ms.locfileid: "68879177"
 
 如需詳細資訊，請在 [Azure AD Connect 的必要條件](../hybrid/how-to-connect-install-prerequisites.md)一文中檢閱連線必要條件。
 
+> [!NOTE]
+> 如果帳戶的 [密碼永久有效] 或 [使用者無法變更密碼] 設定是在 AD DS 內部部署的帳戶上設定，則 SSPR 也可能會失敗。 
+
 ### <a name="restart-the-azure-ad-connect-sync-service"></a>重新啟動 Azure AD Connect 同步處理服務
 
 如需解決服務的連線問題或其他暫時性問題，請重新啟動 Azure AD Connect 同步處理服務：
@@ -229,7 +232,7 @@ Azure AD Connect 需要 Active Directory **重設密碼**權限才能執行密�
 
 1. 登入 Azure AD Connect 伺服器，並啟動 **Synchronization Service Manager**，方法是選取 [開始] > [同步處理服務]。
 1. 在 [連接器] 索引標籤下，選取內部部署 [Active Directory Domain Services] 連接器，然後選取 [屬性]。  
-   ![顯示如何編輯屬性的 Synchronization Service Manager](./media/active-directory-passwords-troubleshoot/checkpermission01.png)  
+   @no__t 0Synchronization Service Manager 顯示如何編輯屬性 @ no__t-1  
   
 1. 在快顯視窗中，選取 [連線到 Active Directory 樹系] 索引標籤，然後記下 [使用者名稱] 屬性。 這個屬性是 Azure AD Connect 用來執行目錄同步作業的 AD DS 帳戶。 若要讓 Azure AD Connect 能夠執行密碼回寫，AD DS 帳戶必須有「重設密碼」權限。  
 
@@ -255,7 +258,7 @@ Azure AD Connect 需要 Active Directory **重設密碼**權限才能執行密�
 
 如果您有關於 Azure AD 和自助式密碼重設的一般問題，您可以在 [Azure AD 論壇](https://social.msdn.microsoft.com/Forums/en-US/home?forum=WindowsAzureAD)尋求社群協助。 社群的成員包括工程師、產品經理、MVP 和夥伴 IT 專業人員。
 
-## <a name="contact-microsoft-support"></a>請連絡 Microsoft 支援
+## <a name="contact-microsoft-support"></a>連絡 Microsoft 支援
 
 如果找不到問題的答案，我們的支援團隊一直都能進一步協助您。
 
@@ -270,7 +273,7 @@ Azure AD Connect 需要 Active Directory **重設密碼**權限才能執行密�
 
   * 如果您所在的頁面底部沒有支援碼，請選取 F12，搜尋 SID 和 CID，然後將這兩個結果傳送給支援工程師。
 * **日期、時間和時區**：請包含發生錯誤的精確日期和時間 (含時區)。
-* **使用者識別碼**：看到錯誤的使用者是誰？ 例如,*使用者\@contoso.com*。
+* **使用者識別碼**：看到錯誤的使用者是誰？ 例如， *user\@contoso.com*。
    * 這是同盟使用者嗎？
    * 這是傳遞驗證使用者嗎？
    * 這是密碼雜湊同步使用者嗎？

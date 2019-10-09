@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/14/2018
 ms.author: yushwang
-ms.openlocfilehash: d04d62d66b4ba22437e6d854566f8bbf5536a6fc
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: a4a0431a8d40f7905805e0a7d902988b7eb26208
+ms.sourcegitcommit: f9e81b39693206b824e40d7657d0466246aadd6e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66121090"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72035038"
 ---
 # <a name="configure-ipsecike-policy-for-s2s-vpn-or-vnet-to-vnet-connections"></a>設定 S2S VPN 或 VNet 對 VNet 連線的 IPsec/IKE 原則
 
@@ -109,7 +109,7 @@ IPsec 和 IKE 通訊協定標準支援各種不同的密碼編譯演算法的各
 | 2                         | DHGroup2                 | PFS2         | 1024 位元 MODP  |
 | 14                        | DHGroup14<br>DHGroup2048 | PFS2048      | 2048 位元 MODP  |
 | 19                        | ECP256                   | ECP256       | 256 位元 ECP    |
-| 20                        | ECP384                   | ECP284       | 384 位元 ECP    |
+| 20                        | ECP384                   | ECP384       | 384 位元 ECP    |
 | 24                        | DHGroup24                | PFS24        | 2048 位元 MODP  |
 
 如需詳細資訊，請參閱 [RFC3526](https://tools.ietf.org/html/rfc3526) 和 [RFC5114](https://tools.ietf.org/html/rfc5114)。
@@ -322,7 +322,7 @@ New-AzVirtualNetworkGatewayConnection -Name $Connection21 -ResourceGroupName $RG
 相同的步驟適用於 S2S 和 VNet 對 VNet 連線。
 
 > [!IMPORTANT]
-> 只有 Standard  和 HighPerformance  以路由為基礎的 VPN 閘道才支援 IPsec/IKE 原則。 它不適用於 Basic 閘道 SKU 或以原則為基礎的 VPN 閘道。
+> 只有 Standard 和 HighPerformance 以路由為基礎的 VPN 閘道才支援 IPsec/IKE 原則。 它不適用於 Basic 閘道 SKU 或以原則為基礎的 VPN 閘道。
 
 #### <a name="1-show-the-ipsecike-policy-of-a-connection"></a>1.顯示連線的 IPsec/IKE 原則
 

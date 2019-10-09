@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 929c923fda8c1c2bddd96d0b4d4e4b6ce6d29de9
-ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
+ms.openlocfilehash: 52f86f85ec303d23a78fd942276bfe46d0f12832
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70845319"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72030407"
 ---
 # <a name="configure-dns-for-name-resolution-for-private-cloud-vcenter-access-from-on-premises-workstations"></a>針對從內部部署工作站存取私人雲端 vCenter 的名稱解析設定 DNS
 
@@ -23,7 +23,7 @@ ms.locfileid: "70845319"
 
 1. 登入[CloudSimple 入口網站](access-cloudsimple-portal.md)。
 
-2. 流覽至 [**資源** > ] [**私人**雲端]，然後選取您想要連線的私人雲端。
+2. 流覽至 [**資源** > **私人**雲端]，然後選取您想要連線的私人雲端。
 
 3. 在私人雲端 [**基本資訊**] 底下的 [**摘要**] 頁面上，複製 [私人雲端 DNS 伺服器 IP 位址]。
 
@@ -65,7 +65,7 @@ zone “cloudsimple.io”
 3. 根據您的環境選取適當的選項，然後按 **[下一步]** 。
 
     ![新增區域](media/DNS03.png)
-4. 選取**正向對應區域** ，然後按 **[下一步]** 。
+4. 選取**正向對應區域**，然後按 **[下一步]** 。
 
     ![新增區域](media/DNS01.png)
 5. 輸入區功能變數名稱稱，然後按 **[下一步]** 。

@@ -12,12 +12,12 @@ ms.topic: article
 ms.date: 07/05/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: 5558eeb4012ac563388ad47df61114534e9859ed
-ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
+ms.openlocfilehash: c6c8bcfec9a8bdf6948190c5f132c2e1763b9973
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70308332"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72025629"
 ---
 # <a name="developing-with-media-services-v3-apis"></a>使用媒體服務 v3 Api 進行開發
 
@@ -32,7 +32,7 @@ ms.locfileid: "70308332"
 * **服務主體驗證**-用來驗證服務（例如： web 應用程式、函數應用程式、邏輯應用程式、API 和微服務）。 通常使用這種驗證方法的應用程式有執行精靈服務、中介層服務或排程的工作的應用程式。 例如，對於 Web 應用程式，應該一律是連接至服務主體媒體服務的中介層。
 * **使用者驗證**-用來驗證使用應用程式與媒體服務資源互動的人員。 互動式應用程式應該會先提示使用者輸入使用者的認證。 例如，授權的使用者用來監控編碼工作或即時串流的管理主控台應用程式。
 
-媒體服務 API 需要讓 REST API 要求的使用者或應用程式能夠存取媒體服務帳戶資源，並使用**參與者**或**擁有**者角色。 您可以使用**讀取器**角色來存取 API，但只能使用**取得**或**列出** 作業。 如需詳細資訊，請參閱[媒體服務帳戶的角色型存取控制](rbac-overview.md)。
+媒體服務 API 需要讓 REST API 要求的使用者或應用程式能夠存取媒體服務帳戶資源，並使用**參與者**或**擁有**者角色。 您可以使用**讀取器**角色來存取 API，但只能使用**取得**或**列出**作業。 如需詳細資訊，請參閱[媒體服務帳戶的角色型存取控制](rbac-overview.md)。
 
 請考慮使用 Azure 資源的受控識別，透過 Azure Resource Manager 存取媒體服務 API，而不是建立服務主體。 若要深入瞭解 Azure 資源的受控識別，請參閱[什麼是適用于 azure 資源的受控](../../active-directory/managed-identities-azure-resources/overview.md)識別。
 
@@ -83,7 +83,7 @@ Azure 媒體服務 v3 資源名稱 (例如資產、作業、轉換) 會受到 Az
 
 ## <a name="long-running-operations"></a>長時間執行的作業
 
-在 Azure 媒體服務[swagger](https://github.com/Azure/azure-rest-api-specs/blob/master/specification/mediaservices/resource-manager/Microsoft.Media/stable/2018-07-01/streamingservice.json)檔案`x-ms-long-running-operation`中以標記的作業是長時間執行的作業。 
+Azure 媒體服務[swagger](https://github.com/Azure/azure-rest-api-specs/blob/master/specification/mediaservices/resource-manager/Microsoft.Media/stable/2018-07-01/streamingservice.json)檔案中以 `x-ms-long-running-operation` 標記的作業是長時間執行的作業。 
 
 如需如何追蹤非同步 Azure 作業的詳細資訊，請參閱[非同步作業](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-async-operations#monitor-status-of-operation)。
 
@@ -95,7 +95,7 @@ Azure 媒體服務 v3 資源名稱 (例如資產、作業、轉換) 會受到 Az
 * [開始實況活動](https://docs.microsoft.com/rest/api/media/liveevents/start)
 * [停止 LiveEvent](https://docs.microsoft.com/rest/api/media/liveevents/stop)
 
-  當停止`removeOutputsOnStop`事件時，請使用參數來刪除所有相關聯的即時輸出。  
+  當停止事件時，請使用 `removeOutputsOnStop` 參數來刪除所有相關聯的即時輸出。  
 * [重設 LiveEvent](https://docs.microsoft.com/rest/api/media/liveevents/reset)
 * [建立 LiveOutput](https://docs.microsoft.com/rest/api/media/liveevents/create)
 * [刪除 LiveOutput](https://docs.microsoft.com/rest/api/media/liveevents/delete)

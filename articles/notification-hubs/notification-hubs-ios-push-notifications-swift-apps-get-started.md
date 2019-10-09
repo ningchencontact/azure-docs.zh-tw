@@ -16,12 +16,12 @@ ms.date: 05/21/2019
 ms.author: miparker
 ms.reviewer: jowargo
 ms.lastreviewed: 05/21/2019
-ms.openlocfilehash: b830538f81d1696c34db3e4f66a07346c17bcdcc
-ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
+ms.openlocfilehash: 8dae5bcc082ba5dd0953e3e97f609e4031547a35
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71211965"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72030651"
 ---
 # <a name="tutorial-push-notifications-to-swift-ios-apps-that-use-the-notification-hubs-rest-api"></a>教學課程：將通知推送至使用通知中樞 REST API 的 Swift iOS 應用程式
 
@@ -75,7 +75,7 @@ ms.locfileid: "71211965"
 
 1. 設定新專案的選項時：
 
-   1. 指定在 Apple 開發人員入口網站中設定套件組合`com.<organization>`**識別碼**時，所使用的**產品名稱**（PushDemo）和**組織識別碼**（）。
+   1. 指定在 Apple 開發人員入口網站中設定套件組合**識別碼**時，所使用的**產品名稱**（PushDemo）和**組織識別碼**（`com.<organization>`）。
 
    1. 選擇要為其設定**應用程式識別碼**的**小組**。
 
@@ -91,16 +91,16 @@ ms.locfileid: "71211965"
 
    | Key                            | Type                     | 值                     |
    |--------------------------------| -------------------------| --------------------------|
-   | notificationHubKey             | String                   | \<hubKey>                  |
-   | notificationHubKeyName         | String                   | \<hubKeyName>              |
-   | notificationHubName            | String                   | \<hubName>                 |
-   | notificationHubNamespace       | String                   | \<hubNamespace>            |
+   | notificationHubKey             | 字串                   | \<hubKey>                  |
+   | notificationHubKeyName         | 字串                   | \<hubKeyName>              |
+   | notificationHubName            | 字串                   | \<hubName>                 |
+   | notificationHubNamespace       | 字串                   | \<hubNamespace>            |
 
    流覽至 Azure 入口網站中的 通知中樞 資源，即可找到所需的值。 特別是， **notificationHubName**和**notificationHubNamespace**值位於 [**總覽**] 頁面中 [**基本**] 摘要的右上角。
 
    ![通知中樞 Essentials 摘要](./media/notification-hubs-ios-push-notifications-swift-apps-get-started/hub-essentials.png)
 
-   您也可以流覽至 [**存取原則**]，然後選取個別的**存取原則**（例如`DefaultFullSharedAccessSignature`），以尋找**notificationHubKeyName**和**notificationHubKey**值。 之後，從**主要連接字串**複製前置詞`SharedAccessKeyName=`為的`notificationHubKeyName`值`notificationHubKey`，並在前面`SharedAccessKey=`加上的值。
+   您也可以流覽至 [**存取原則**]，然後選取個別的**存取原則**（例如 `DefaultFullSharedAccessSignature`）來尋找**notificationHubKeyName**和**notificationHubKey**值。 之後，從**主要連接字串**複製值，其前面加上 `SharedAccessKeyName=` 的 `notificationHubKeyName`，並在 `notificationHubKey` 前面加上 `SharedAccessKey=` 的值。
 
    連接字串應採用下列格式：
 
@@ -108,15 +108,15 @@ ms.locfileid: "71211965"
    Endpoint=sb://<namespace>.servicebus.windows.net/;SharedAccessKeyName=<notificationHubKeyName>;SharedAccessKey=<notificationHubKey>
    ```
 
-   若要讓它保持簡單`DefaultFullSharedAccessSignature` ，請指定，讓您可以使用權杖來傳送通知。 實際上，在`DefaultListenSharedAccessSignature`您只想要接收通知的情況下，會是較佳的選擇。
+   若要讓它保持簡單，請指定 `DefaultFullSharedAccessSignature`，讓您可以使用權杖來傳送通知。 實際上，在您只想要接收通知的情況下，`DefaultListenSharedAccessSignature` 會是較佳的選擇。
 
 1. 在 [**專案導覽器**] 底下，選取**專案名稱**，然後選取 [**一般**] 索引標籤。
 
-1. 尋找 [身分**識別**]，然後設定 [套件組合**識別碼**] `com.<organization>.PushDemo`值，使其符合，也就是上一個步驟中用於**應用程式識別碼**的值。
+1. 尋找 [**識別**]，然後設定 [套件組合**識別碼**] 值，使其符合 `com.<organization>.PushDemo`，也就是上一個步驟中用於**應用程式識別碼**的值。
 
 1. 尋找 [**簽署**]，然後為您的**Apple 開發人員帳戶**選取適當的**小組**。 小組值應符合您用來建立憑證和設定檔的**專案**。
 
-1. Xcode 應該根據套件組合**識別碼**，自動拉出適當的布建**設定檔**值。 如果您沒有看到新的布建**設定檔**值，請嘗試藉由選取**Xcode**  > **喜好** > 設定**帳戶** > 視圖來重新整理**簽署身分識別**的設定檔**詳細資料**。 選取 [**簽署識別**]，然後選取右下角**的 [重新**整理] 按鈕以下載設定檔。
+1. Xcode 應該根據套件組合**識別碼**，自動拉出適當的布建**設定檔**值。 如果您看不到新的布建**設定檔**值，請**嘗試 @no__t-** 5**帳戶** > **視圖詳細資料**中選取 @no__t **Xcode**，以重新整理**簽署身分識別**的設定檔。 選取 [**簽署識別**]，然後選取右下角**的 [重新**整理] 按鈕以下載設定檔。
 
 1. 選取 [**功能**] 索引標籤，並確定已啟用**推播通知**。
 
@@ -285,8 +285,8 @@ SharedAccessSignature sig=<UrlEncodedSignature>&se=<ExpiryEpoch>&skn=<KeyName>&s
 進程本身牽涉到相同的六個主要步驟：  
 
 1. 以[UNIX Epoch 時間](https://en.wikipedia.org/wiki/Unix_time)格式計算到期日，這表示從國際標準時間（1970年1月1日午夜）起經過的秒數。
-1. 將代表您嘗試存取之資源的**ResourceUrl**格式化，使其具有百分比編碼和小寫。 **ResourceUrl**的格式`'https://<namespace>.servicebus.windows.net/<hubName>'`為。
-1. 準備**StringToSign**，其格式為`'<UrlEncodedResourceUrl>\n<ExpiryEpoch>'`。
+1. 將代表您嘗試存取之資源的**ResourceUrl**格式化，使其具有百分比編碼和小寫。 **ResourceUrl**的格式為 `'https://<namespace>.servicebus.windows.net/<hubName>'`。
+1. 準備**StringToSign**，其格式為 `'<UrlEncodedResourceUrl>\n<ExpiryEpoch>'`。
 1. 使用**StringToSign**值的 HMAC-SHA256 哈**希來計算**和 Base64 編碼簽章。 雜湊值會與個別**授權規則**之**連接字串**的索引**鍵**部分搭配使用。
 1. 格式化 Base64 編碼簽章 **，使其**以百分比編碼。
 1. 使用**UrlEncodedSignature**、 **ExpiryEpoch**、 **KeyName**和**UrlEncodedResourceUrl**值，以預期的格式來建立權杖。
@@ -297,7 +297,7 @@ SharedAccessSignature sig=<UrlEncodedSignature>&se=<ExpiryEpoch>&skn=<KeyName>&s
 
 若要新增和設定橋接標頭：
 
-1. 在 Xcode 中，**選取** > [檔案] [**新增** >    > ] [檔案**標頭檔**]。 將標頭檔命名為**BridgingHeader**。
+1. 在 Xcode 中，**選取 [** 檔案]  >  個**新**的 @no__t **-3 個**檔案  > **標頭檔**。 將標頭檔命名為**BridgingHeader**。
 
 1. 編輯檔案以匯入**CommonHMAC。 h**：
 
@@ -313,11 +313,11 @@ SharedAccessSignature sig=<UrlEncodedSignature>&se=<ExpiryEpoch>&skn=<KeyName>&s
 
 1. 更新目標的**組建設定**以參考橋接標頭：
 
-   1. 開啟 [ **建築物設定** ] 索引標籤，並向下流覽至 [ **Swift 編譯器** ] 區段。
+   1. 開啟 [**建築物設定**] 索引標籤，並向下流覽至 [ **Swift 編譯器**] 區段。
 
-   1. 確定 [ **安裝目標-C 相容性標頭** ] 選項設定為 **[是]** 。
+   1. 確定 [**安裝目標-C 相容性標頭**] 選項設定為 **[是]** 。
 
-   1. 在 [ `'<ProjectName>/BridgingHeader.h'` **目標-C 橋接標頭** ] 選項中輸入檔案路徑。 這是我們橋接標頭的檔案路徑。
+   1. 在 [**目標-C 橋接標頭**] 選項中，輸入 `'<ProjectName>/BridgingHeader.h'` 的檔案路徑。 這是我們橋接標頭的檔案路徑。
 
    如果您找不到這些選項，請確定您已選取 [ **All** ]，而不是 [**基本**] 或 [**自訂**]。
 
@@ -662,7 +662,7 @@ class NotificationRegistrationService {
    | ------------------------------ | ------------------------------ |
    | Content-Type                   | application/json;charset=utf-8 |
    | Authorization                  | \<sasToken>                     |
-   | ServiceBusNotification-Format  | 樣板                       |
+   | ServiceBusNotification-Format  | template                       |
    | Tags                           | "12345"                        |
 
 1. 將**要求本文**設定為使用具有下列 JSON 承載的**原始 json （application. json）** ：

@@ -6,12 +6,12 @@ ms.service: hpc-cache
 ms.topic: conceptual
 ms.date: 10/01/2019
 ms.author: rohogue
-ms.openlocfilehash: 302d727ede9604d11972eaa8f46a3e27f204858f
-ms.sourcegitcommit: d4c9821b31f5a12ab4cc60036fde00e7d8dc4421
+ms.openlocfilehash: dbcc68bacf8a11a7a85d5fad7fb4435fd03c7f93
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/01/2019
-ms.locfileid: "71710030"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72024570"
 ---
 # <a name="add-storage-targets"></a>新增儲存體目標
 
@@ -37,13 +37,16 @@ ms.locfileid: "71710030"
 
 ![[新增儲存體目標] 頁面的螢幕擷取畫面，其中填入了新的 Azure Blob 儲存體目標的資訊](media/hpc-cache-add-blob.png)
 
-<!-- need to replace screenshot after note text is updated with both required RBAC roles -->
+<!-- need to replace screenshot after note text is updated with both required RBAC roles and also with correct search term -->
 
 * **儲存體目標名稱**-在 Azure HPC 快取中設定用來識別此儲存體目標的名稱。
 * **目標型別**-選擇 [ **Blob**]。
 * **儲存體帳戶**-選取包含要參考之容器的帳戶。
 
   您將需要授權快取實例來存取儲存體帳戶，如[新增存取角色](#add-the-access-control-roles-to-your-account)中所述。
+
+  如需您可以使用之儲存體帳戶類型的詳細資訊，請參閱[Blob 儲存體需求](hpc-cache-prereqs.md#blob-storage-requirements)。
+
 * **儲存體容器**-選取此目標的 Blob 容器。
 
 * **虛擬命名空間路徑**-設定此儲存體目標的面向用戶端檔案路徑。 請參閱[設定匯總命名空間](hpc-cache-namespace.md)，以深入瞭解虛擬命名空間功能。
@@ -54,7 +57,7 @@ ms.locfileid: "71710030"
 
 Azure HPC 快取會使用[角色型存取控制（RBAC）](https://docs.microsoft.com/azure/role-based-access-control/index)來授權快取應用程式存取 Azure Blob 儲存體目標的儲存體帳戶。
 
-儲存體帳戶擁有者必須明確地為使用者「StorageCache 資源提供者」新增角色 [[儲存體帳戶參與者](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-account-contributor)] 和 [[儲存體 Blob 資料參與者](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-contributor)]。
+儲存體帳戶擁有者必須明確地為使用者「HPC 快取資源提供者」新增角色[儲存體帳戶參與者](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-account-contributor)和[儲存體 Blob 資料參與者](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-contributor)。
 
 您可以提早執行此動作，或按一下頁面上的連結來新增 Blob 儲存體目標。
 
@@ -62,13 +65,16 @@ Azure HPC 快取會使用[角色型存取控制（RBAC）](https://docs.microsof
 
 1. 開啟儲存體帳戶的 [**存取控制（IAM）** ] 頁面。 （[**新增儲存體目標**] 頁面中的連結會自動為選取的帳戶開啟此頁面）。
 
-1. 按一下頁面 **+** 頂端的，然後選擇 [**新增角色指派**]。
+1. 按一下頁面頂端的 [ **+** ]，然後選擇 [**新增角色指派**]。
 
 1. 從清單中選取 [儲存體帳戶參與者] 角色。
 
 1. 在 [**指派存取權給**] 欄位中，保留選取預設值（「Azure AD 使用者、群組或服務主體」）。  
 
-1. 在 [**選取**] 欄位中，搜尋 "storagecache"。  此字串應符合一個名為「HPC 快取資源提供者」的安全性主體。 按一下該主體來選取它。
+1. 在 [**選取**] 欄位中，搜尋 "hpc"。  此字串應符合一個名為「HPC 快取資源提供者」的服務主體。 按一下該主體來選取它。
+
+   > [!NOTE]
+   > 如果 "hpc" 的搜尋無法正常執行，請嘗試改為使用字串 "storagecache"。 提早加入預覽的使用者可能需要使用較舊的服務主體名稱。
 
 1. 按一下 [**儲存**] 按鈕，將角色指派新增至儲存體帳戶。
 

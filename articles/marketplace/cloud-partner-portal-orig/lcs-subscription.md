@@ -1,40 +1,22 @@
 ---
 title: LCS 訂用帳戶
-description: 建立訂用帳戶的教學課程簡介。
+description: 已取代此 CPP 文章，連結到電腦文章;was 「建立訂用帳戶的教學課程簡介」。
 services: Azure, Marketplace, Cloud Partner Portal,
-author: pbutlerm
+author: ChJenk
 manager: Ricardo.Villalobos
 ms.service: marketplace
 ms.topic: conceptual
-ms.date: 09/13/2018
-ms.author: pabutler
-ms.openlocfilehash: 43d27f832d5eb456de60e86257e2be8575f94bf9
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 09/30/2019
+ms.author: v-chjen
+ms.openlocfilehash: 58733bec13c99f2c871c1782d56db8304386dc44
+ms.sourcegitcommit: f9e81b39693206b824e40d7657d0466246aadd6e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64935206"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72034383"
 ---
 # <a name="lcs-subscription"></a>LCS 訂用帳戶
 
-在此教學課程中，您將了解如何建立訂用帳戶。 此訂用帳戶將能為您提供 Microsoft Online 測試租用戶及 Microsoft Dynamics 週期服務專案，以供您部署環境。 您也會在 Microsoft Online 租用戶中設定額外的使用者，並取得下列服務管理功能的使用經驗。 以下是您將會學到的技能：
+[Cloud Partner 入口網站](https://cloudpartner.azure.com/)不再支援建立和管理 Dynamics 365 for 財務和營運供應專案。 相反地，此功能已移至 Microsoft[合作夥伴中心入口網站](https://partner.microsoft.com/)。 如需詳細資訊，請參閱[建立新的 Dynamics 365 For Operations 供應](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-new-operations-offer)專案。
 
-- 訂閱及建立新的 Microsoft Online 測試租用戶。
-- 瀏覽至週期服務專案。
-- 對週期服務使用各種功能。
-- 將額外的使用者新增至 Microsoft Azure Active Directory 及用戶端上。
-- 檢視訂用帳戶電子郵件中的資源。
-
-## <a name="key-terms"></a>主要詞彙
-
-**Microsoft Online Services 租用戶**：租用戶是由您組織的所有訂用帳戶和使用者所組成的群組。 租用戶會和您在 Microsoft Online Services 中的首個訂用帳戶一起建立。
-
-**訂用帳戶**：訂用帳戶能為您提供線上環境。 此環境能讓您取得雲端上的 Dynamics 365 for Operations 體驗，也能讓您了解如何將自己所開發的自訂項目部署到雲端上。
-
-**Microsoft Azure Active Directory** -的雲端環境，包括 Azure Active Directory (AD)，可協助您管理使用者、 群組、 安全性角色和授權的線上應用程式，類似於其管理的內部部署的方式環境。
-
-**使用者**：您組織所訂閱之服務的使用者是在 Azure AD 中管理的。 您可以新增租用戶中的任何使用者，並為其指派安全性角色。
-
-**開發人員與系統管理員**：開發人員與系統管理員是同時具有週期服務存取權的使用者，這能讓他們管理專案和環境。 這些使用者同時也是終端使用者。
-
-請參閱 [LCS 訂用帳戶](https://docs.microsoft.com/dynamics365/operations/dev-itpro/dev-tools/sign-up-preview-subscription) \(英文\) 以取得詳細資料。
+在建立新的 Dynamics 365 for Operations 供應專案之前，您應該先閱讀[建立合作夥伴中心帳戶](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account)，然後開啟已選取 [**總覽**] 頁面的 [[商業 Marketplace] 儀表板](https://partner.microsoft.com/dashboard/directory)。 請依照[建立新的 Dynamics 365 For Operations 供應](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-new-operations-offer)專案中的指示來建立您的供應專案。

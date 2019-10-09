@@ -11,12 +11,12 @@ ms.workload: na
 ms.topic: article
 ms.date: 09/06/2019
 ms.author: juliako
-ms.openlocfilehash: 618aa58fe8553789c831ca933ae6be73843b93dd
-ms.sourcegitcommit: b7b0d9f25418b78e1ae562c525e7d7412fcc7ba0
+ms.openlocfilehash: 2d01828cb61937b45665e953a13795b5346a5f1b
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/08/2019
-ms.locfileid: "70801398"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72030523"
 ---
 # <a name="azure-media-services-v3-release-notes"></a>Azure 媒體服務 v3 版本資訊
 
@@ -34,7 +34,7 @@ ms.locfileid: "70801398"
 
 如需詳細資訊，請參閱[從媒體服務 v2 移至 v3 的移轉指導](migrate-from-v2-to-v3.md#known-issues)。
 
-## <a name="september-2019"></a>2019年9月
+## <a name="september-2019"></a>2019 年 9 月
 
 媒體服務 v3 宣佈即時事件即時線性編碼24小時 x 365 天的預覽。
  
@@ -275,4 +275,5 @@ Azure CLI 2.0 模組即將推出，內含所有功能的操作 (包括即時、�
 
 ## <a name="next-steps"></a>後續步驟
 
-[概觀](media-services-overview.md)
+- [概觀](media-services-overview.md)
+- [媒體服務 v2 版本資訊](../previous/media-services-release-notes.md)

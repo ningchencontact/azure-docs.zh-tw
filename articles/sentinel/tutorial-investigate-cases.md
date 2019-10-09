@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/23/2019
 ms.author: rkarlin
-ms.openlocfilehash: 026689b68244052c3ad7cb50cd90d7319b6760ef
-ms.sourcegitcommit: 992e070a9f10bf43333c66a608428fcf9bddc130
+ms.openlocfilehash: fbab3eff3d7f742c2542e4264ef1b2124c5f15e5
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71229409"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72024617"
 ---
 # <a name="tutorial-investigate-incidents-with-azure-sentinel"></a>教學課程：使用 Azure Sentinel 調查事件
 
@@ -44,7 +44,7 @@ ms.locfileid: "71229409"
 
 ## <a name="how-to-investigate-incidents"></a>如何調查事件
 
-1. 選取 [ **事件**]。 [ **事件** ] 頁面可讓您知道有多少事件、已開啟的數目、已設定為 **進行中**的數目，以及已關閉的事件數目。 針對每個事件，您可以查看發生的時間，以及事件的狀態。 查看嚴重性，以決定要優先處理的事件。
+1. 選取 [**事件**]。 [**事件**] 頁面可讓您知道有多少事件、已開啟的數目、已設定為**進行中**的數目，以及已關閉的事件數目。 針對每個事件，您可以查看發生的時間，以及事件的狀態。 查看嚴重性，以決定要優先處理的事件。
 
     ![查看事件嚴重性](media/tutorial-investigate-cases/incident-severity.png)
 
@@ -54,7 +54,7 @@ ms.locfileid: "71229409"
 
 1. 若要在事件中查看警示和實體的更多詳細資料，請選取 [事件] 頁面中的 [**查看完整詳細資料**]，並查看摘要事件資訊的相關索引標籤。 在 [**警示**] 索引標籤中，檢查警示本身。 您可以查看警示的所有相關資訊–觸發警示的查詢、每個查詢所傳回的結果數目，以及對警示執行腳本的能力。 若要更進一步向下切入事件，請選取**事件**的數目。 這會開啟產生結果的查詢，以及在 Log Analytics 中觸發警示的事件。 在 [**實體**] 索引標籤中，您可以看到您對應為警示規則定義之一部分的所有實體。
 
-    ![檢視警示詳細資料](media/tutorial-investigate-cases/alert-details.png)
+    ![查看警示詳細資料](media/tutorial-investigate-cases/alert-details.png)
 
 1. 如果您要主動調查事件，建議您將事件的狀態設定為 [**進行中**]，直到您關閉它為止。
 
@@ -78,14 +78,14 @@ ms.locfileid: "71229409"
 
 若要使用調查圖形：
 
-1. 選取事件，然後選取 [ **調查**]。 這會帶您前往調查圖表。 圖形會提供直接連接到警示，且每個資源彼此連線的對應實體。
+1. 選取事件，然後選取 [**調查**]。 這會帶您前往調查圖表。 圖形會提供直接連接到警示，且每個資源彼此連線的對應實體。
 
    > [!IMPORTANT] 
    > 只有當您在設定分析規則時使用實體對應欄位，才能夠調查事件。 調查圖表需要您的原始事件包含實體。
 
    ![檢視地圖](media/tutorial-investigate-cases/map1.png)
 
-1. 選取實體以開啟 [ **實體** ] 窗格，讓您可以查看該實體的資訊。
+1. 選取實體以開啟 [**實體**] 窗格，讓您可以查看該實體的資訊。
 
     ![在地圖中觀看實體](media/tutorial-investigate-cases/map-entities.png)
   
@@ -95,9 +95,9 @@ ms.locfileid: "71229409"
 
    例如，您可以在電腦上要求相關的警示。 如果您選取探索查詢，所產生的結果會加回圖表中。 在此範例中，選取 [**相關警示**] 會將下列警示傳回圖形：
 
-    ![檢視相關警示](media/tutorial-investigate-cases/related-alerts.png)
+    ![查看相關警示](media/tutorial-investigate-cases/related-alerts.png)
 
-1. 針對每個探索查詢，您可以選取 [**事件\>** ] 來開啟用於記錄分析中的原始事件結果和查詢的選項。
+1. 針對每個探索查詢，您可以選取 [**事件 @ no__t-1**] 來開啟原始事件結果和 Log Analytics 中使用的查詢。
 
 1. 為了瞭解事件，圖形提供平行的時間軸。
 
