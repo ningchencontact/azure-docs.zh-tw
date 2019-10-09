@@ -94,7 +94,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 | --------- | ------ | ----------- |
 | `token_type` | String | 一律設定為 `Bearer`。 |
 | `scope` | 空格分隔的字串 | 如果傳回了存取權杖，此參數會列出存取權杖的有效範圍。 |
-| `expires_in`| ssNoversion | 所含存取權杖的有效時間長度 (秒數)。 |
+| `expires_in`| int | 所含存取權杖的有效時間長度 (秒數)。 |
 | `access_token`| 不透明字串 | 針對已要求的[範圍](v2-permissions-and-consent.md)發出。 |
 | `id_token` | JWT | 原始 `scope` 參數包含 `openid` 範圍時發出。 |
 | `refresh_token` | 不透明字串 | 原始 `scope` 參數包含 `offline_access` 時發出。 |
