@@ -130,7 +130,7 @@ ms.locfileid: "60878685"
 | --- | --- | --- |
 | HttpMethod |字串 |作業使用的 HTTP 方法。 例如，GET。 |
 | `Path` |字串 |執行作業的所在路徑 |
-| RequestContentLength |ssNoversion |HTTP 要求的內容長度 |
+| RequestContentLength |int |HTTP 要求的內容長度 |
 | ClientRequestId |字串 |可唯一識別此要求的識別碼 |
 | StartTime |字串 |伺服器接收到要求的時間 |
 | EndTime |字串 |伺服器傳送回應的時間 |
