@@ -47,45 +47,45 @@ Audit 事件會寫入至在審核設定期間定義的`AzureDiagnostics` Log Ana
 | action_id | action_id_s | 動作的識別碼 | Varchar （4） | string |
 | action_name | action_name_s | 動作的名稱 | N/A | string |
 | additional_information | additional_information_s | 與事件相關的任何其他資訊，儲存為 XML | nvarchar(4000) | string |
-| affected_rows | affected_rows_d | 受查詢影響的資料列數目 | Bigint | ssNoversion |
+| affected_rows | affected_rows_d | 受查詢影響的資料列數目 | Bigint | int |
 | application_name | application_name_s| 用戶端應用程式的名稱 | nvarchar(128) | string |
-| audit_schema_version | audit_schema_version_d | 一律為1 | ssNoversion | ssNoversion |
+| audit_schema_version | audit_schema_version_d | 一律為1 | int | int |
 | class_type | class_type_s | 發生 audit 的可審核實體類型 | Varchar （2） | string |
 | class_type_desc | class_type_description_s | 進行 audit 的可審核實體描述 | N/A | string |
 | client_ip | client_ip_s | 用戶端應用程式的來源 IP | nvarchar(128) | string |
 | connection_id | N/A | 伺服器中的連接識別碼 | GUID | N/A |
 | data_sensitivity_information | data_sensitivity_information_s | 由經過審核的查詢所傳回的資訊類型和敏感度標籤，是根據資料庫中的分類資料行。 深入瞭解[Azure SQL Database 資料探索與分類](sql-database-data-discovery-and-classification.md) | nvarchar(4000) | string |
 | database_name | database_name_s | 發生動作的資料庫內容 | sysname | string |
-| database_principal_id | database_principal_id_d | 動作執行所在之資料庫使用者內容的識別碼 | ssNoversion | ssNoversion |
+| database_principal_id | database_principal_id_d | 動作執行所在之資料庫使用者內容的識別碼 | int | int |
 | database_principal_name | database_principal_name_s | 執行動作所在的資料庫使用者內容名稱 | sysname | string |
-| duration_milliseconds | duration_milliseconds_d | 查詢執行持續時間（毫秒） | Bigint | ssNoversion |
+| duration_milliseconds | duration_milliseconds_d | 查詢執行持續時間（毫秒） | Bigint | int |
 | event_time | event_time_t | 可審核動作的引發日期和時間 | 日期時間2 | datetime |
 | host_name | N/A | 用戶端主機名稱 | string | N/A |
 | is_column_permission | is_column_permission_s | 表示這是否為數據行層級許可權的旗標。 1 = true，0 = false | bit | string |
 | N/A | is_server_level_audit_s | 表示此 audit 是否在伺服器層級的旗標 | N/A | string |
-| object_ 識別碼 | object_id_d | 發生 audit 之實體的識別碼。 這包括：伺服器物件、資料庫、資料庫物件和架構物件。 如果實體是伺服器本身，或如果不是在物件層級執行，則為0 | ssNoversion | ssNoversion |
+| object_ 識別碼 | object_id_d | 發生 audit 之實體的識別碼。 這包括：伺服器物件、資料庫、資料庫物件和架構物件。 如果實體是伺服器本身，或如果不是在物件層級執行，則為0 | int | int |
 | object_name | object_name_s | 發生 audit 之實體的名稱。 這包括：伺服器物件、資料庫、資料庫物件和架構物件。 如果實體是伺服器本身，或如果不是在物件層級執行，則為0 | sysname | string |
 | permission_bitmask | permission_bitmask_s | 適用時，會顯示已授與、拒絕或撤銷的許可權 | Varbinary （16） | string |
-| response_rows | response_rows_d | 結果集中傳回的資料列數目 | Bigint | ssNoversion |
+| response_rows | response_rows_d | 結果集中傳回的資料列數目 | Bigint | int |
 | schema_name | schema_name_s | 發生動作的架構內容。 若為在架構外發生的審核，則為 Null | sysname | string |
 | N/A | securable_class_type_s | 對應至所要審核之 class_type 的安全物件 | N/A | string |
 | sequence_group_id | sequence_group_id_g | 唯一識別碼 | varbinary | GUID |
-| sequence_number | sequence_number_d | 追蹤單一 audit 記錄中太大而無法納入進行審核的寫入緩衝區中的記錄順序 | ssNoversion | ssNoversion |
+| sequence_number | sequence_number_d | 追蹤單一 audit 記錄中太大而無法納入進行審核的寫入緩衝區中的記錄順序 | int | int |
 | server_instance_name | server_instance_name_s | 發生 audit 之伺服器實例的名稱 | sysname | string |
-| server_principal_id | server_principal_id_d | 執行動作之登入內容的識別碼 | ssNoversion | ssNoversion |
+| server_principal_id | server_principal_id_d | 執行動作之登入內容的識別碼 | int | int |
 | server_principal_name | server_principal_name_s | 目前的登入 | sysname | string |
 | server_principal_sid | server_principal_sid_s | 目前的登入 SID | varbinary | string |
-| session_id | session_id_d | 發生事件之會話的識別碼 | smallint | ssNoversion |
+| session_id | session_id_d | 發生事件之會話的識別碼 | smallint | int |
 | session_server_principal_name | session_server_principal_name_s | 會話的伺服器主體 | sysname | string |
 | 陳述式 | statement_s | 已執行的 t-sql 語句（如果有的話） | nvarchar(4000) | string |
 | 成功 | succeeded_s | 指出觸發事件的動作是否成功。 對於登入和批次以外的事件，這只會報告許可權檢查成功或失敗，而不是作業。 1 = 成功，0 = 失敗 | bit | string |
-| target_database_principal_id | target_database_principal_id_d | 授與/拒絕/撤銷作業執行所在的資料庫主體。 0（如果不適用） | ssNoversion | ssNoversion |
+| target_database_principal_id | target_database_principal_id_d | 授與/拒絕/撤銷作業執行所在的資料庫主體。 0（如果不適用） | int | int |
 | target_database_principal_name | target_database_principal_name_s | 動作的目標使用者。 Null （如果不適用） | string | string |
-| target_server_principal_id | target_server_principal_id_d | 授與/拒絕/撤銷作業執行所在的伺服器主體。 如果不適用，則傳回0 | ssNoversion | ssNoversion |
+| target_server_principal_id | target_server_principal_id_d | 授與/拒絕/撤銷作業執行所在的伺服器主體。 如果不適用，則傳回0 | int | int |
 | target_server_principal_name | target_server_principal_name_s | 動作的目標登入。 Null （如果不適用） | sysname | string |
 | target_server_principal_sid | target_server_principal_sid_s | 目標登入的 SID。 Null （如果不適用） | varbinary | string |
-| transaction_id | transaction_id_d | 僅限 SQL Server （從2016開始）-0 （針對 Azure SQL DB） | Bigint | ssNoversion |
-| user_defined_event_id | user_defined_event_id_d | 使用者定義的事件識別碼，以引數形式傳遞給 sp_audit_write。 對於系統事件（預設值）為 Null，使用者定義事件則為非零。 如需詳細資訊，請參閱[sp_audit_write （transact-sql）](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-audit-write-transact-sql) 。 | smallint | ssNoversion |
+| transaction_id | transaction_id_d | 僅限 SQL Server （從2016開始）-0 （針對 Azure SQL DB） | Bigint | int |
+| user_defined_event_id | user_defined_event_id_d | 使用者定義的事件識別碼，以引數形式傳遞給 sp_audit_write。 對於系統事件（預設值）為 Null，使用者定義事件則為非零。 如需詳細資訊，請參閱[sp_audit_write （transact-sql）](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-audit-write-transact-sql) 。 | smallint | int |
 | user_defined_information | user_defined_information_s | 將使用者定義的資訊當做引數傳遞給 sp_audit_write。 對於系統事件（預設值）為 Null，使用者定義事件則為非零。 如需詳細資訊，請參閱[sp_audit_write （transact-sql）](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-audit-write-transact-sql) 。 | nvarchar(4000) | string |
 
 ## <a name="next-steps"></a>後續步驟
