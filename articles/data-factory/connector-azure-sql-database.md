@@ -593,7 +593,7 @@ END
 | FILESTREAM attribute (varbinary(max)) |Byte[] |
 | 浮點數 |Double |
 | image |Byte[] |
-| ssNoversion |Int32 |
+| int |Int32 |
 | money |Decimal |
 | nchar |String, Char[] |
 | ntext |String, Char[] |
