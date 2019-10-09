@@ -496,7 +496,7 @@ ms.locfileid: "60587915"
 ## <a name="conversion-functions"></a>轉換函式
 這些函式可用來轉換 JSON 資料類型與編碼之間的值。
 
-### <a name="int"></a>ssNoversion
+### <a name="int"></a>int
 將參數轉換成整數。 此函式支援數值和字串類型的參數。
 
 下列範例會傳回 `1`：
