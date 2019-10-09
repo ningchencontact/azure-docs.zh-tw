@@ -143,7 +143,7 @@ Azure 資料目錄的重點在於如何支援由群眾外包系統中的中繼�
 <tr><td></td><td>內容</td><td>string</td><td>如何取得這項資料資產的指示。 內容可能是一個 URL、電子郵件地址或一組指示。</td></tr>
 
 <tr><td>TableDataProfile ("tableDataProfiles")</td><td></td><td></td><td></td></tr>
-<tr><td></td><td>numberOfRows</td></td><td>ssNoversion</td><td>在此資料集的資料列數目。</td></tr>
+<tr><td></td><td>numberOfRows</td></td><td>int</td><td>在此資料集的資料列數目。</td></tr>
 <tr><td></td><td>大小</td><td>long</td><td>以位元組為單位的資料集大小。  </td></tr>
 <tr><td></td><td>schemaModifiedTime</td><td>string</td><td>上次修改結構描述的時間。</td></tr>
 <tr><td></td><td>dataModifiedTime</td><td>string</td><td>上次修改此資料集 (新增、修改或刪除資料) 的時間</td></tr>
@@ -185,7 +185,7 @@ Azure 資料目錄的重點在於如何支援由群眾外包系統中的中繼�
 <tr><td>「資料行」</td><td></td><td></td><td></td></tr>
 <tr><td></td><td>name</td><td>string</td><td>資料行或屬性的名稱。</td></tr>
 <tr><td></td><td>type</td><td>string</td><td>資料行或屬性的資料類型。 允許的類型取決於資產的資料 sourceType。  僅支援一部分類型。</td></tr>
-<tr><td></td><td>maxLength</td><td>ssNoversion</td><td>資料行或屬性允許的長度上限。 衍生自資料來源。 只適用於某些來源類型。</td></tr>
+<tr><td></td><td>maxLength</td><td>int</td><td>資料行或屬性允許的長度上限。 衍生自資料來源。 只適用於某些來源類型。</td></tr>
 <tr><td></td><td>precision</td><td>byte</td><td>資料行或屬性的精確度。 衍生自資料來源。 只適用於某些來源類型。</td></tr>
 <tr><td></td><td>isNullable</td><td>Boolean</td><td>是否允許資料行有 Null 值。 衍生自資料來源。 只適用於某些來源類型。</td></tr>
 <tr><td></td><td>expression</td><td>string</td><td>如果值是導出資料行，此欄位會包含表示此值的運算式。 衍生自資料來源。 只適用於某些來源類型。</td></tr>
@@ -197,8 +197,8 @@ Azure 資料目錄的重點在於如何支援由群眾外包系統中的中繼�
 <tr><td></td><td>上限 </td><td>string</td><td>在此資料集內的最大值。</td></tr>
 <tr><td></td><td>avg </td><td>double</td><td>在此資料集內的平均值。</td></tr>
 <tr><td></td><td>stdev </td><td>double</td><td>此資料集的標準差。</td></tr>
-<tr><td></td><td>nullCount </td><td>ssNoversion</td><td>在此資料集內 null 值的計數。</td></tr>
-<tr><td></td><td>distinctCount  </td><td>ssNoversion</td><td>在此資料集內相異值的計數。</td></tr>
+<tr><td></td><td>nullCount </td><td>int</td><td>在此資料集內 null 值的計數。</td></tr>
+<tr><td></td><td>distinctCount  </td><td>int</td><td>在此資料集內相異值的計數。</td></tr>
 
 
 </table>
