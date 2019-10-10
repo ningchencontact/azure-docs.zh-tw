@@ -1,18 +1,18 @@
 ---
 title: 針對 Azure Data Share Preview 進行疑難排解
-description: 了解如何使用 Azure Data Share Preview 進行問題的疑難排解
+description: 瞭解如何在使用 Azure 資料共用預覽建立或接收資料共用時，針對邀請和錯誤的問題進行疑難排解。
 services: data-share
 author: joannapea
 ms.author: joanpo
 ms.service: data-share
 ms.topic: troubleshooting
 ms.date: 07/10/2019
-ms.openlocfilehash: 62b386f4648074bbf1f002e162151253e5b43bc9
-ms.sourcegitcommit: e9936171586b8d04b67457789ae7d530ec8deebe
+ms.openlocfilehash: 592a2d464aed8c39dfd11734beccbd0399d75fd9
+ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71320300"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72169216"
 ---
 # <a name="troubleshoot-common-issues-in-azure-data-share-preview"></a>針對 Azure Data Share Preview 的常見問題進行疑難排解
 

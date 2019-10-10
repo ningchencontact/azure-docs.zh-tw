@@ -15,12 +15,12 @@ ms.date: 04/15/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7f5e2443a285e065426e3dba0312ef6420097ef1
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: d4f9686be08de2589cddadf741dadf243d0e7895
+ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60348018"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72174445"
 ---
 # <a name="azure-active-directory-pass-through-authentication-security-deep-dive"></a>Azure Active Directory 傳遞驗證安全性深入探討
 
@@ -99,7 +99,7 @@ ms.locfileid: "60348018"
     - Azure AD 中的根 CA 會用來簽署憑證。 
 
       > [!NOTE]
-      > 此 CA「不在」  Windows 受信任的根憑證授權單位存放區中。
+      > 此 CA「不在」Windows 受信任的根憑證授權單位存放區中。
     - 此 CA 僅供傳遞驗證功能使用。 此 CA 只會在驗證代理程式註冊期間用來簽署 CSR。
     -  沒有任何其他 Azure AD 服務會使用此 CA。
     - 此憑證的主體 (辨別名稱或 DN) 設定為您的租用戶識別碼。 此 DN 是可唯一識別租用戶的 GUID。 此 DN 可將憑證的範圍限制為只能用於您的租用戶。
@@ -132,9 +132,9 @@ ms.locfileid: "60348018"
 
 1. 使用者嘗試存取應用程式，例如 [Outlook Web App](https://outlook.office365.com/owa)。
 2. 如果使用者還未登入，應用程式將瀏覽器重新導向至 Azure AD 登入頁面。
-3. Azure AD STS 服務會透過 [使用者登入]  頁面回應。
-4. 使用者將其使用者名稱輸入 [使用者登入]  頁面中，然後選取 [下一步]  按鈕。
-5. 使用者將其密碼輸入 [使用者登入]  頁面中，然後選取 [登入]  按鈕。
+3. Azure AD STS 服務會透過 [使用者登入] 頁面回應。
+4. 使用者將其使用者名稱輸入 [使用者登入] 頁面中，然後選取 [下一步] 按鈕。
+5. 使用者將其密碼輸入 [使用者登入] 頁面中，然後選取 [登入] 按鈕。
 6. 使用者名稱與密碼會在 HTTPS POST 要求中提交至 Azure AD STS。
 7. Azure AD STS 會針對您的租用戶上註冊的所有驗證代理程式，擷取 Azure SQL 資料庫中的公開金鑰，並使用這些金鑰為其密碼加密。
     - Azure AD STS 會針對您的租用戶上註冊的 "N" 個驗證代理程式，產生 "N" 個加密密碼值。
@@ -147,7 +147,8 @@ ms.locfileid: "60348018"
 12. 驗證代理程式會從 Active Directory 接收結果，例如成功、使用者名稱或密碼不正確、密碼過期等。
 
    > [!NOTE]
-   > 如果驗證代理程式失敗的登入程序期間，會卸除整個登入要求。 沒有任何手動關閉的登入要求一個驗證代理程式從另一個驗證代理程式在內部。 這些代理程式只會與通訊與雲端，而不是與彼此。
+   > 如果驗證代理程式在登入過程中失敗，則會捨棄整個登入要求。 從一個驗證代理程式到另一個內部部署驗證代理程式，都不會有任何登入要求的退出。 這些代理程式只會與雲端通訊，而不會與彼此通訊。
+   
 13. 驗證代理程式會透過連接埠 443 上，輸出相互驗證的 HTTPS 通道，將結果轉送回 Azure AD STS。 相互驗證會使用先前在註冊期間發給驗證代理程式的憑證。
 14. Azure AD STS 會驗證此結果是否與您租用戶上的特定登入要求相互關聯。
 15. Azure AD STS 會依照設定的方式，繼續進行登入程序。 例如，如果密碼驗證成功，使用者可能要經過 Multi-Factor Authentication，或重新導向回應用程式。
@@ -184,7 +185,7 @@ ms.locfileid: "60348018"
 
 ## <a name="auto-update-of-the-authentication-agents"></a>驗證代理程式的自動更新
 
-Updater 應用程式 （與 bug 修正或效能增強功能） 的新版本發行時，會自動更新驗證代理程式。 Updater 應用程式不會處理租用戶的任何密碼驗證要求。
+更新程式應用程式會在發行新版本（具有 bug 修正或效能增強功能）時，自動更新驗證代理程式。 更新程式應用程式不會處理租使用者的任何密碼驗證要求。
 
 Azure AD 會將新版的軟體當作已簽署的 **Windows Installer 套件 (MSI)** 進行裝載。 MSI 是使用以 SHA256 作為摘要演算法的 [Microsoft Authenticode](https://msdn.microsoft.com/library/ms537359.aspx) 簽署的。 
 
@@ -206,7 +207,7 @@ Azure AD 會將新版的軟體當作已簽署的 **Windows Installer 套件 (MSI
     - 重新啟動驗證代理程式服務
 
 >[!NOTE]
->如果您在租用戶上註冊了多個驗證代理程式，則 Azure AD 不會更新其憑證或者不會同時更新這些憑證。 相反地，Azure AD 會因此一次一個，以確保登入要求的高可用性。
+>如果您在租用戶上註冊了多個驗證代理程式，則 Azure AD 不會更新其憑證或者不會同時更新這些憑證。 相反地，Azure AD 一次執行此動作，以確保登入要求的高可用性。
 >
 
 

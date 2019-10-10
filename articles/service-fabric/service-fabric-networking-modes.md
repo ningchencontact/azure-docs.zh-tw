@@ -13,13 +13,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 2/23/2018
-ms.author: subramar
-ms.openlocfilehash: d749e1355e69ad93c8c211474043f88127ec76f0
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.author: atsenthi
+ms.openlocfilehash: aa7b63453a5147742e27b9bb32ad05221e745f8c
+ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68599397"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72168796"
 ---
 # <a name="service-fabric-container-networking-modes"></a>Service Fabric 容器網路模式
 
@@ -30,7 +30,7 @@ ms.locfileid: "68599397"
 當某個容器服務重新啟動或移到叢集中的另一個節點時，IP 位址便會變更。 因此，不建議使用以動態方式指派的 IP 位址來探索容器服務。 只有 Service Fabric 命名服務或 DNS 服務可用於服務探索。 
 
 >[!WARNING]
->Azure 允許每個虛擬網路總共65356個 Ip。 節點數目和容器服務實例數目的總和 (使用開啟模式) 不能超過虛擬網路中的65356個 Ip。 針對高密度的情況，建議使用 nat 網路模式。 此外, 其他相依性 (例如負載平衡器) 將會有其他[限制](https://docs.microsoft.com/azure/azure-subscription-service-limits)。 目前每個節點最多50個 Ip 已經過測試且經過證實穩定。 
+>Azure 允許每個虛擬網路總共65356個 Ip。 節點數目和容器服務實例數目的總和（使用開啟模式）不能超過虛擬網路中的65356個 Ip。 針對高密度的情況，建議使用 nat 網路模式。 此外，其他相依性（例如負載平衡器）將會有其他[限制](https://docs.microsoft.com/azure/azure-subscription-service-limits)。 目前每個節點最多50個 Ip 已經過測試且經過證實穩定。 
 >
 
 ## <a name="set-up-open-networking-mode"></a>設定 Open 網路模式
@@ -203,9 +203,9 @@ ms.locfileid: "68599397"
    |設定 |值 | |
    | --- | --- | --- |
    |Priority |2000 | |
-   |名稱 |Custom_Dns  | |
+   |Name |Custom_Dns  | |
    |Source |VirtualNetwork | |
-   |目的地 | VirtualNetwork | |
+   |Destination | VirtualNetwork | |
    |服務 | DNS (UDP/53) | |
    |Action | 允許  | |
    | | |

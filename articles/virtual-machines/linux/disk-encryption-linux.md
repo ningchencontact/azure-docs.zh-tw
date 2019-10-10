@@ -7,12 +7,12 @@ ms.topic: article
 ms.author: mbaldwin
 ms.date: 08/06/2019
 ms.custom: seodec18
-ms.openlocfilehash: e7f8c029c5ceff0865b060cf8edc794454d6c282
-ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
+ms.openlocfilehash: 0a1515144f340938cddfd5ca9f2ac4803bcb3f77
+ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71828472"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72174725"
 ---
 # <a name="azure-disk-encryption-scenarios-on-linux-vms"></a>Linux Vm 上的 Azure 磁碟加密案例
 
@@ -36,7 +36,7 @@ Azure 磁碟加密使用 Linux 的 DM Crypt 功能，為 Azure 虛擬機器（Vm
 
 ## <a name="install-tools-and-connect-to-azure"></a>安裝工具並連接至 Azure
 
-Azure 磁碟加密可以透過[Azure CLI](/cli/azure)和[Azure PowerShell](/azure/new-azureps-module-az)來啟用及管理。 若要這麼做，您必須在本機安裝這些工具，並聯機到您的 Azure 訂用帳戶。
+Azure 磁碟加密可以透過[Azure CLI](/cli/azure)和[Azure PowerShell](/powershell/azure/new-azureps-module-az)來啟用及管理。 若要這麼做，您必須在本機安裝這些工具，並聯機到您的 Azure 訂用帳戶。
 
 ### <a name="azure-cli"></a>Azure CLI
 
@@ -66,7 +66,7 @@ az account set --subscription "<subscription name or ID>"
 如需詳細資訊，請參閱[開始使用 Azure CLI 2.0](/cli/azure/get-started-with-azure-cli)。 
 
 ### <a name="azure-powershell"></a>Azure PowerShell
-[Azure PowerShell az 模組](/azure/new-azureps-module-az)提供了一組 Cmdlet，可使用[Azure Resource Manager](../../azure-resource-manager/resource-group-overview.md)模型來管理您的 Azure 資源。 您可以在瀏覽器中使用[Azure Cloud Shell](../../cloud-shell/overview.md)，也可以使用[安裝 Azure PowerShell 模組](/powershell/azure/install-az-ps)中的指示，將它安裝在本機電腦上。 
+[Azure PowerShell az 模組](/powershell/azure/new-azureps-module-az)提供了一組 Cmdlet，可使用[Azure Resource Manager](../../azure-resource-manager/resource-group-overview.md)模型來管理您的 Azure 資源。 您可以在瀏覽器中使用[Azure Cloud Shell](../../cloud-shell/overview.md)，也可以使用[安裝 Azure PowerShell 模組](/powershell/azure/install-az-ps)中的指示，將它安裝在本機電腦上。 
 
 如果您已將它安裝在本機上，請確定您是使用最新版的 Azure PowerShell SDK 版本來設定 Azure 磁碟加密。 下載最新版的 [Azure PowerShell 版本](https://github.com/Azure/azure-powershell/releases)。
 
@@ -202,7 +202,7 @@ key-encryption-key 參數值的語法為 KEK 的完整 URI： https://[keyvault-
 | volumeType | 執行加密作業所在磁碟區的類型。 有效值為 _OS_、_Data_ 和 _All_。 
 | forceUpdateTag | 每次需要強制執行作業時傳入唯一的值，例如 GUID。 |
 | resizeOSDisk | 是否應該先將 OS 分割區調整大小以佔用完整的 OS VHD，然後才分割系統磁碟區。 |
-| 位置 | 所有資源的位置。 |
+| location | 所有資源的位置。 |
 
 
 ## <a name="use-encryptformatall-feature-for-data-disks-on-linux-vms"></a>針對 Linux Vm 上的資料磁片使用 EncryptFormatAll 功能
@@ -390,7 +390,7 @@ New-AzVM -VM $VirtualMachine -ResourceGroupName "MyVirtualMachineResourceGroup"
 Azure 磁碟加密不適用於下列 Linux 案例、功能和技術：
 
 - 將基本層 VM 或透過傳統 VM 建立方法建立的 Vm 加密。
-- 當 OS 磁片磁碟機加密時, 在 OS 磁片磁碟機或 Linux VM 的資料磁片磁碟機上停用加密。
+- 當 OS 磁片磁碟機加密時，在 OS 磁片磁碟機或 Linux VM 的資料磁片磁碟機上停用加密。
 - 將 Linux 虛擬機器擴展集的 OS 磁片磁碟機加密。
 - 加密 Linux Vm 上的自訂映射。
 - 與內部部署金鑰管理系統整合。
@@ -402,6 +402,6 @@ Azure 磁碟加密不適用於下列 Linux 案例、功能和技術：
 
 ## <a name="next-steps"></a>後續步驟
 
-- [Azure 磁碟加密總覽](disk-encryption-overview.md)
+- [Azure 磁碟加密概觀](disk-encryption-overview.md)
 - [Azure 磁碟加密範例腳本](disk-encryption-sample-scripts.md)
 - [Azure 磁碟加密疑難排解](disk-encryption-troubleshooting.md)

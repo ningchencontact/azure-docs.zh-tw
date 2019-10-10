@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 05/24/2018
 ms.author: v-jysur
-ms.openlocfilehash: 31d9307d23d308192b362d9570911c86a7dd8372
-ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
+ms.openlocfilehash: eb9d803bcc9667c26acecbfd098a3022b7421478
+ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/27/2019
-ms.locfileid: "70051827"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72177656"
 ---
 # <a name="connect-azure-to-itsm-tools-using-it-service-management-connector"></a>使用 IT Service Management Connector 將 Azure 連線到 ITSM 工具
 
@@ -64,7 +64,7 @@ ITSMC 支援與下列 ITSM 工具連線：
 3. 在 [OMS 工作區] 區段中，選取您要安裝解決方案的 Azure Log Analytics 工作區。
    >[!NOTE]
    > * 因屬於 Microsoft Operations Management Suite (OMS) 轉換為 Azure 監視器的一環，OMS 工作區現在稱為 Log Analytics 工作區。
-   > * ITSM 連接器只能安裝在下欄區域中的 Log Analytics 工作區:美國東部、西歐、東南亞、東南部澳大利亞、美國中西部、東亞、英國南部、印度中部、加拿大中部。
+   > * ITSM 連接器只能安裝在下欄區域中的 Log Analytics 工作區：美國東部、西歐、東南亞、東南部澳大利亞、美國中西部、東亞、英國南部、印度中部、加拿大中部。
 
 4. 在 [OMS 工作區設定] 區段中，選取您要建立解決方案資源的資源群組。
 
@@ -83,7 +83,7 @@ ITSMC 支援與下列 ITSM 工具連線：
 
 若要建立連線，您將需要準備 ITSM 工具，以允許來自 ITSM Connector 解決方案的連線。  
 
-根據您所連線的 ITSM 產品，使用下列步驟：
+根據您所連接的 ITSM 產品，使用下列步驟：
 
 - [System Center Service Manager (SCSM)](../../azure-monitor/platform/itsmc-connections.md#connect-system-center-service-manager-to-it-service-management-connector-in-azure)
 - [ServiceNow](../../azure-monitor/platform/itsmc-connections.md#connect-servicenow-to-it-service-management-connector-in-azure)
@@ -194,7 +194,7 @@ ServiceDeskWorkItemType_s="Incident"
 - 解決者
 - 關閉者
 - Source
-- 指派給
+- 指派對象
 - Category
 - 標題
 - 描述
@@ -226,10 +226,10 @@ ServiceDeskWorkItemType_s="ChangeRequest"
 - Priority
 - 風險
 - 影響
-- 指派給
+- 指派對象
 - 建立日期
 - 關閉日期
-- 最後修改日期
+- 上次修改日期
 - 要求日期
 - 計劃開始日期
 - 計劃結束日期
@@ -256,7 +256,7 @@ ServiceDeskWorkItemType_s="ChangeRequest"
 | Title_s|  簡短說明 |
 | Description_s|  注意 |
 | CreatedDate_t|  已開啟 |
-| ClosedDate_t| 已關閉|
+| ClosedDate_t| 關閉|
 | ResolvedDate_t|已解決|
 | Computer  | 設定項目 |
 
@@ -267,8 +267,8 @@ ServiceDeskWorkItemType_s="ChangeRequest"
 | ServiceDeskId_s| 數字 |
 | CreatedBy_s | 要求者 |
 | ClosedBy_s | 關閉者 |
-| AssignedTo_s | 指派給  |
-| Title_s|  簡短描述 |
+| AssignedTo_s | 指派對象  |
+| Title_s|  簡短說明 |
 | Type_s|  Type |
 | Category_s|  Category |
 | CRState_s|  State|
@@ -292,7 +292,7 @@ ServiceDeskWorkItemType_s="ChangeRequest"
    - 請確定您已正確輸入每個連線的使用者名稱、密碼、用戶端識別碼及用戶端密碼。  
    - 請檢查您在對應的 ITSM 產品中是否擁有足夠權限來進行連線。  
    - 對於服務管理連線，  
-   - 請確定已成功部署 Web 應用程式，且已建立混合式連線。 若要確認已成功與內部部署 Service Manager 電腦建立連線, 請造訪 Web 應用程式 URL, 如建立[混合](../../azure-monitor/platform/itsmc-connections.md#configure-the-hybrid-connection)式連線檔中所述。  
+   - 請確定已成功部署 Web 應用程式，且已建立混合式連線。 若要確認已成功與內部部署 Service Manager 電腦建立連線，請造訪 Web 應用程式 URL，如建立[混合](../../azure-monitor/platform/itsmc-connections.md#configure-the-hybrid-connection)式連線檔中所述。  
 
 2. 如果 ServiceNow 的資料未同步處理至 Log Analytics，請確定 ServiceNow 執行個體並非處在睡眠中。 ServiceNow 開發人員執行個體閒置很長的時間時，有時會進入睡眠狀態。 否則，請回報問題。
 3. 如果引發 Log Analytics 警示，但未在 ITSM 產品中建立工作項目，或未將設定項目建立為/連結至工作項目，或需任何其他一般資訊，請查看下列位置：
@@ -305,7 +305,7 @@ ServiceDeskWorkItemType_s="ChangeRequest"
 3.  如果您無法建立服務匯流排轉送命名空間，請確定所需的資源提供者已在訂用帳戶中註冊。 如果未註冊，請以手動方式從 Azure 入口網站建立服務匯流排轉送命名空間。 您也可以在建立它時，同時從 Azure 入口網站[建立混合式連線](../../azure-monitor/platform/itsmc-connections.md#configure-the-hybrid-connection)。
 
 
-## <a name="contact-us"></a>請與我們連絡
+## <a name="contact-us"></a>與我們連絡
 
 如需關於 IT 服務管理連接器的任何查詢或意見反應，請與我們連絡：[omsitsmfeedback@microsoft.com](mailto:omsitsmfeedback@microsoft.com)。
 

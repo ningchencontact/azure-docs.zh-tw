@@ -1,17 +1,17 @@
 ---
 title: Azure 資料共用預覽的角色和需求
-description: Azure 資料共用預覽的角色和需求
+description: 深入瞭解在 Azure 資料共用預覽版中，資料提供者和資料取用者共用資料的存取控制角色和需求。
 author: joannapea
+ms.author: joanpo
 ms.service: data-share
 ms.topic: conceptual
 ms.date: 07/10/2019
-ms.author: joanpo
-ms.openlocfilehash: 7bf98f8774551292574d4f1951eba44657fa7de0
-ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
+ms.openlocfilehash: c0841f6386440776c6ea719f9932a53cada9d9c4
+ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70307348"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72166381"
 ---
 # <a name="roles-and-requirements-for-azure-data-share-preview"></a>Azure 資料共用預覽的角色和需求
 
@@ -30,9 +30,9 @@ Azure 資料共用會使用 Azure 服務的受控識別（先前稱為 Msi）來
 | |  |  |
 |---|---|---|
 |**儲存類型**|**Data Provider 來源儲存體帳戶**|**資料取用者目標儲存體帳戶**|
-|Azure Blob 儲存體| 儲存體 Blob 資料讀者 | 儲存體 Blob 資料參與者
-|Azure Data Lake Gen1 | 擁有者 | 不受支援
-|Azure Data Lake Gen2 | 儲存體 Blob 資料讀者 | 儲存體 Blob 資料參與者
+|Azure Blob 儲存體| 儲存體 Blob 資料讀取器 | 儲存體 Blob 資料參與者
+|Azure Data Lake Gen1 | 擁有者 | 不支援
+|Azure Data Lake Gen2 | 儲存體 Blob 資料讀取器 | 儲存體 Blob 資料參與者
 |
 ### <a name="data-providers"></a>資料提供者 
 若要將資料集新增至 Azure 資料共用，必須將資料提供者資料共用資源受控識別新增至儲存體 Blob 資料讀取器角色。 如果使用者是透過 Azure 新增資料集，而且是儲存體帳戶的擁有者，或是已指派 Microsoft 授權/角色指派/寫入權限的自訂角色成員，Azure 資料共用服務就會自動完成此作業。 

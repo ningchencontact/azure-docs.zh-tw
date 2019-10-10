@@ -5,14 +5,14 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: article
-ms.date: 01/28/2019
+ms.date: 10/08/2019
 ms.author: anzaman
-ms.openlocfilehash: 486a910226db5dc7b36aaf873e7bb8115eb78805
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: cb5969ccb4ee9780b597326a3811395c3b7d9971
+ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60653477"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72168471"
 ---
 # <a name="about-point-to-site-vpn-routing"></a>關於點對站 VPN 路由
 
@@ -30,7 +30,7 @@ Azure 目前支援兩種遠端存取通訊協定，即 IKEv2 和 SSTP。 許多�
 
 ## <a name="isolatedvnet"></a>一個隔離的 VNet
 
-此範例中的點對站 VPN 閘道連線是用於未與任何其他虛擬網路 (VNet1) 建立連線或對等互連的 VNet。 在此範例中，使用 SSTP 或 IKEv2 的用戶端可以存取 VNet1。
+此範例中的點對站 VPN 閘道連線是用於未與任何其他虛擬網路 (VNet1) 建立連線或對等互連的 VNet。 在此範例中，用戶端可以存取 VNet1。
 
 ![隔離的 VNet 路由](./media/vpn-gateway-about-point-to-site-routing/1.jpg "隔離的 VNet 路由")
 

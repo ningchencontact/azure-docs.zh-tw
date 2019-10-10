@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/11/2018
 ms.author: mikeray
-ms.openlocfilehash: 3e954a6c714e525e5bbefe8f62c798cf8ac9a517
-ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
+ms.openlocfilehash: b30ccbcba0b2126d1fe1abce9ae67a55ce25f601
+ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71036392"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72170260"
 ---
 # <a name="configure-sql-server-failover-cluster-instance-on-azure-virtual-machines"></a>在 Azure 虛擬機器上設定 SQL Server 容錯移轉叢集執行個體
 
@@ -81,7 +81,7 @@ S2D 支援兩種類型的架構 - 交集和超交集。 本文件中的架構為
 - [Azure 資源群組](../../../azure-resource-manager/manage-resource-groups-portal.md)
 
 > [!IMPORTANT]
-> 目前不支援將 [SQL Server IaaS 代理程式擴充功能](virtual-machines-windows-sql-server-agent-extension.md)用於 Azure 上的 SQL Server FCI。 建議您在參與 FCI 的 VM 上解除安裝此擴充功能。 針對 SQL，此擴充功能支援自動備份和修補之類的功能，以及部分入口網站功能。 在代理程式解除安裝後，這些功能即不適用於 SQL VM。
+> 目前，只有[SQL Server IaaS 代理程式擴充](virtual-machines-windows-sql-server-agent-extension.md)功能的[輕量](virtual-machines-windows-sql-register-with-resource-provider.md#register-with-sql-vm-resource-provider)管理模式才支援 Azure 虛擬機器上的 SQL Server 容錯移轉叢集實例。 從參與容錯移轉叢集的 Vm 卸載完整延伸模組，然後以 `lightweight` 模式向 SQL VM 資源提供者註冊。 完整延伸模組支援自動備份、修補和先進入口網站管理等功能。 在輕量管理模式中重新安裝代理程式之後，這些功能將無法在 SQL Vm 上使用。
 
 ### <a name="what-to-have"></a>應備項目
 
@@ -277,7 +277,7 @@ New-Cluster -Name <FailoverCluster-Name> -Node ("<node1>","<node2>") –StaticAd
 
 #### <a name="windows-server-2019"></a>Windows Server 2019
 
-下列 PowerShell 會建立適用于 Windows Server 2019 的容錯移轉叢集。  如需詳細資訊，請參閱[blog 容錯移轉叢集：叢集網路物件](https://blogs.windows.com/windowsexperience/2018/08/14/announcing-windows-server-2019-insider-preview-build-17733/#W0YAxO8BfwBRbkzG.97)。  使用節點名稱 (虛擬機器名稱) 和 Azure VNET 中可用的 IP 位址來更新指令碼：
+下列 PowerShell 會建立適用于 Windows Server 2019 的容錯移轉叢集。  如需詳細資訊，請參閱 @no__t 0Failover 叢集的 blog：叢集網路物件 @ no__t-0。  使用節點名稱 (虛擬機器名稱) 和 Azure VNET 中可用的 IP 位址來更新指令碼：
 
 ```powershell
 New-Cluster -Name <FailoverCluster-Name> -Node ("<node1>","<node2>") –StaticAddress <n.n.n.n> -NoStorage -ManagementPointNetworkType Singleton 
@@ -409,7 +409,7 @@ S2D 的磁碟需為空白且不含分割區或其他資料。 若要清理磁碟
 
    - **名稱**：健康情況探查的名稱。
    - **通訊協定**：TCP。
-   - **連接埠**：將設定為您在防火牆中為[此步驟](#ports)中的健康狀態探查所建立的埠。 在本文中，範例會使用 TCP 通訊`59999`埠。
+   - **連接埠**：將設定為您在防火牆中為[此步驟](#ports)中的健康狀態探查所建立的埠。 在本文中，範例使用 TCP 埠 `59999`。
    - **間隔**：5 秒。
    - **狀況不良閾值**：2 次連續失敗。
 

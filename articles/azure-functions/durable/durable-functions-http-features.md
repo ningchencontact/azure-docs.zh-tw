@@ -8,12 +8,12 @@ ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 09/04/2019
 ms.author: azfuncdf
-ms.openlocfilehash: 953558e34d41184f75d72baf5982e84eb51b1781
-ms.sourcegitcommit: 8bae7afb0011a98e82cbd76c50bc9f08be9ebe06
+ms.openlocfilehash: e9b2967905bc927432d1ca4606bc2b2ba2ac4108
+ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/01/2019
-ms.locfileid: "71694880"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72177368"
 ---
 # <a name="http-features"></a>HTTP 功能
 
@@ -152,7 +152,7 @@ public static async Task CheckSiteAvailable(
 > [!NOTE]
 > 協調器函式也原本就支援伺服器端輪詢取用者模式，如[非同步作業追蹤](#async-operation-tracking)中所述。 這項支援表示一個函式應用程式中的協調流程可以輕鬆地協調其他函數應用程式中的協調器函式。 這類似于[子協調流程](durable-functions-sub-orchestrations.md)概念，但支援跨應用程式通訊。 這種支援特別適用于微服務樣式的應用程式開發。
 
-### <a name="managed-identities"></a>受控識別
+### <a name="managed-identities"></a>受控身分識別
 
 Durable Functions 原本就支援對接受 Azure Active Directory （Azure AD）權杖以進行授權的 Api 呼叫。 這項支援使用[Azure 受控](../../active-directory/managed-identities-azure-resources/overview.md)識別來取得這些權杖。
 
@@ -210,6 +210,38 @@ public static async Task RunOrchestrator(
 > 如果您是 .NET 開發人員，您可能會想知道這項功能為何會使用**DurableHttpRequest**和**DurableHttpResponse**類型，而不是內建的 .net **HttpRequestMessage**和**HttpResponseMessage**類型。
 >
 > 這是刻意設計的選擇。 主要的原因是自訂類型有助於確保使用者不會對內部 HTTP 用戶端支援的行為做出不正確的假設。 Durable Functions 的特定類型也可以簡化 API 設計。 它們也可以更輕鬆地建立可用的特殊功能，例如[受控識別整合](#managed-identities)和[輪詢取用者模式](#http-202-handling)。 
+
+### <a name="extensibility-net-only"></a>擴充性（僅限 .NET）
+
+您可以使用[Azure Functions .net](https://docs.microsoft.com/azure/azure-functions/functions-dotnet-dependency-injection)相依性插入，自訂協調流程內部 HTTP 用戶端的行為。 這種功能對於進行小型行為變更很有用。 它也適用于透過插入模擬物件來對 HTTP 用戶端進行單元測試。
+
+下列範例示範如何使用相依性插入，針對呼叫外部 HTTP 端點的協調器函式停用 SSL 憑證驗證。
+
+```csharp
+public class Startup : FunctionsStartup
+{
+    public override void Configure(IFunctionsHostBuilder builder)
+    {
+        // Register own factory
+        builder.Services.AddSingleton<
+            IDurableHttpMessageHandlerFactory,
+            MyDurableHttpMessageHandlerFactory>();
+    }
+}
+
+public class MyDurableHttpMessageHandlerFactory : IDurableHttpMessageHandlerFactory
+{
+    public HttpMessageHandler CreateHttpMessageHandler()
+    {
+        // Disable SSL certificate validation (not recommended in production!)
+        return new HttpClientHandler
+        {
+            ServerCertificateCustomValidationCallback =
+                HttpClientHandler.DangerousAcceptAnyServerCertificateValidator,
+        };
+    }
+}
+```
 
 ## <a name="next-steps"></a>後續步驟
 

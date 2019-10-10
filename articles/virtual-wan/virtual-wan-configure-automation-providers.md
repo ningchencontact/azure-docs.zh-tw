@@ -5,14 +5,14 @@ services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: conceptual
-ms.date: 10/03/2019
+ms.date: 10/07/2019
 ms.author: cherylmc
-ms.openlocfilehash: 430d90b2b372602072527c49796244c503778a3b
-ms.sourcegitcommit: 7868d1c40f6feb1abcafbffcddca952438a3472d
+ms.openlocfilehash: 2f847d8db983303d46b465f4f80bff65eeff632f
+ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71959015"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72168501"
 ---
 # <a name="virtual-wan-partners"></a>虛擬 WAN 夥伴
 
@@ -215,11 +215,13 @@ ms.locfileid: "71959015"
 * IPsec 完整性演算法
 * PFS 群組
 
-### <a name="default"></a>IPsec 連線的預設原則 
+### <a name="default"></a>IPsec 連線的預設原則
 
-使用預設原則時，在 IPsec 通道設定期間，Azure 可以同時做為啟動器和回應者。 不支援 Azure 做為回應者。
+[!INCLUDE [IPsec Default](../../includes/virtual-wan-ipsec-include.md)]
 
-[!INCLUDE [IPsec](../../includes/virtual-wan-ipsec-include.md)]
+### <a name="custom"></a>IPsec 連線能力的自訂原則
+
+[!INCLUDE [IPsec Custom](../../includes/virtual-wan-ipsec-custom-include.md)]
 
 ## <a name="next-steps"></a>後續步驟
 

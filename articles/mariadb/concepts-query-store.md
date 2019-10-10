@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 06/27/2019
-ms.openlocfilehash: 69e001530de238f5d38c46b0a238a087f4487d9c
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.openlocfilehash: d68934174c3bbb53bba4eb786ac79ab94725151b
+ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72023675"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72166223"
 ---
 # <a name="monitor-azure-database-for-mariadb-performance-with-query-store"></a>使用查詢存放區監視適用於 MariaDB 的 Azure 資料庫效能
 
@@ -104,7 +104,7 @@ SELECT * FROM mysql.query_store_wait_stats;
 > [!NOTE]
 > 目前**query_store_capture_mode**會取代這項設定，這表示必須同時啟用**query_store_capture_mode**和**query_store_wait_sampling_capture_mode** ，等候統計資料才能正常執行。 如果**query_store_capture_mode**已關閉，則等候統計資料也會關閉，因為等候統計資料會使用 performance_schema，以及由查詢存放區所捕獲的 query_text。
 
-使用 [Azure 入口網站](howto-server-parameters.md)來取得或設定參數的不同值。
+使用[Azure 入口網站](howto-server-parameters.md)來取得或設定參數的不同值。
 
 ## <a name="views-and-functions"></a>檢視和函式
 

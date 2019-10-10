@@ -12,12 +12,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 10/23/2018
 ms.author: genli
-ms.openlocfilehash: 9f7957fb0e6e888367c1f8ded1abfb3828697cbb
-ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
+ms.openlocfilehash: 7949bedec2d304cd87fb512b44cd61d6f0894638
+ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71087085"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72168945"
 ---
 # <a name="remote-desktop-services-isnt-starting-on-an-azure-vm"></a>遠端桌面服務未在 Azure VM 上啟動
 
@@ -113,7 +113,7 @@ ms.locfileid: "71087085"
 #### <a name="termservice-service-is-stopped-because-of-an-access-denied-problem"></a>TermService 服務因為拒絕存取問題而停止
 
 1. 連線至[序列主控台](serial-console-windows.md)並開啟 PowerShell 執行個體。
-2. 執行下列指令碼來下載處理程序監視工具：
+2. 執行下列腳本來下載進程監視工具：
 
    ```
    remove-module psreadline  
@@ -141,16 +141,16 @@ ms.locfileid: "71087085"
    procmon /Terminate 
    ```
 
-5. 收集檔案  **c:\temp\ProcMonTrace.PML**：
+5. 收集檔案**c:\temp\ProcMonTrace.PML**：
 
     1. [將資料磁碟連結至 VM](../windows/attach-managed-disk-portal.md
 )。
-    2. 您可以使用序列主控台，將檔案複製到新的磁碟機。 例如： `copy C:\temp\ProcMonTrace.PML F:\` 。 在此命令中，F 是所連結之資料磁碟的磁碟機代號。
+    2. 您可以使用序列主控台，將檔案複製到新的磁碟機。 例如，`copy C:\temp\ProcMonTrace.PML F:\`。 在此命令中，F 是所連結之資料磁碟的磁碟機代號。
     3. 將資料磁碟機中斷連結，並連結到作用中且已安裝處理序監視的 VM。
 
-6. 使用作用中 VM 的處理序監視開啟 **ProcMonTrace.PML**。 然後依 [結果] 是 [拒絕存取]來篩選，如下列螢幕擷取畫面中所示 **：**
+6. 使用作用中 VM 的處理序監視開啟 **ProcMonTrace.PML**。 然後依**結果篩選為拒絕存取**，如下列螢幕擷取畫面所示：
 
-    ![在處理程序監視中依結果篩選](./media/troubleshoot-remote-desktop-services-issues/process-monitor-access-denined.png)
+    ![依進程監視器中的結果篩選](./media/troubleshoot-remote-desktop-services-issues/process-monitor-access-denined.png)
 
  
 6. 修正輸出上的登錄機碼、資料夾或檔案。 當用於服務上的登入帳戶沒有存取這些物件的 ACL 權限時，通常會發生此問題。 若要知道登入帳戶的正確 ACL 權限，您可以在狀況良好的 VM 上查看。 
@@ -221,6 +221,6 @@ ms.locfileid: "71087085"
 
 4. [將 OS 磁碟中斷連結並建立 VM](../windows/troubleshoot-recovery-disks-portal.md)。 然後檢查問題是否已解決。
 
-## <a name="need-help-contact-support"></a>需要協助嗎？ 連絡支援人員
+## <a name="need-help-contact-support"></a>需要協助嗎？ 請連絡支援人員
 
 如果仍需要協助，請[連絡支援人員](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)以解決您的問題。

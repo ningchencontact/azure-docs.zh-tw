@@ -9,14 +9,14 @@ editor: ''
 ms.service: media-services
 ms.workload: na
 ms.topic: article
-ms.date: 09/06/2019
+ms.date: 10/07/2019
 ms.author: juliako
-ms.openlocfilehash: 2d01828cb61937b45665e953a13795b5346a5f1b
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.openlocfilehash: 34d68974366eb17704b4ea1291bd1d29a0eea95a
+ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72030523"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72168625"
 ---
 # <a name="azure-media-services-v3-release-notes"></a>Azure 媒體服務 v3 版本資訊
 
@@ -36,17 +36,39 @@ ms.locfileid: "72030523"
 
 ## <a name="september-2019"></a>2019 年 9 月
 
+###  <a name="media-services-v3"></a>媒體服務 v3  
+
+#### <a name="live-linear-encoding-of-live-events"></a>即時事件的即時線性編碼
+
 媒體服務 v3 宣佈即時事件即時線性編碼24小時 x 365 天的預覽。
- 
+
+###  <a name="media-services-v2"></a>媒體服務 v2  
+
+#### <a name="deprecation-of-media-processors"></a>淘汰媒體處理器
+
+我們宣佈*Azure 媒體索引子*和*Azure 媒體索引子 2 Preview*已淘汰。 [Azure 媒體索引子](../previous/media-services-index-content.md)媒體處理器將于2020年10月1日淘汰。 [Azure 媒體索引子 2 Preview](../previous/media-services-process-content-with-indexer2.md)媒體處理器將于2020年1月1日淘汰。 [Azure 媒體服務影片索引子](https://docs.microsoft.com/azure/media-services/video-indexer/)會取代這些舊版媒體處理器。
+
+如需詳細資訊，請參閱[從 Azure 媒體索引子遷移和 Azure 媒體索引子2，到 Azure 媒體服務影片索引子](../previous/migrate-indexer-v1-v2.md)。
+
 ## <a name="august-2019"></a>2019 年 8 月
 
-### <a name="south-africa-regional-pair-is-open-for-media-services"></a>南非地區配對已開放媒體服務 
+###  <a name="media-services-v3"></a>媒體服務 v3  
+
+#### <a name="south-africa-regional-pair-is-open-for-media-services"></a>南非地區配對已開放媒體服務 
 
 媒體服務現在可以在南非北部和南非西部區域中使用。
 
 如需詳細資訊，請參閱[媒體服務 v3 所在的雲端和區域](azure-clouds-regions.md)。
 
-## <a name="july-2019"></a>2019年7月
+###  <a name="media-services-v2"></a>媒體服務 v2  
+
+#### <a name="deprecation-of-media-processors"></a>淘汰媒體處理器
+
+我們宣佈淘汰*Windows Azure 媒體編碼器*（WAME）和*Azure 媒體編碼器*（AME）媒體處理器，即將于2019年11月30日淘汰。
+
+如需詳細資訊，請參閱[將 WAME 遷移至媒體編碼器標準](https://go.microsoft.com/fwlink/?LinkId=2101334)並[將 AME 遷移至媒體編碼器標準](https://go.microsoft.com/fwlink/?LinkId=2101335)。
+ 
+## <a name="july-2019"></a>2019 年 7 月
 
 ### <a name="content-protection"></a>內容保護
 

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/20/2019
 ms.author: magoedte
-ms.openlocfilehash: fa3c8b8cee0b8621a6a2800655f62a3d339f67c3
-ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
+ms.openlocfilehash: 24eb8440ed4746b51b92ce371b5d58b8d55de9a3
+ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71211993"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72177600"
 ---
 # <a name="designing-your-azure-monitor-logs-deployment"></a>設計您的 Azure 監視器記錄部署
 
@@ -32,7 +32,7 @@ Log Analytics 工作區提供：
 
 * 資料儲存體的地理位置。
 * 藉由授與不同的使用者存取權限，遵循其中一個建議的設計策略來進行資料隔離。
-* 設定的範圍，例如[定價層](https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#changing-pricing-tier)、[保留期](https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#change-the-data-retention-period)和[資料上限](https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#daily-cap)。
+* 設定的範圍，例如[定價層](https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#changing-pricing-tier)、[保留期](https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#change-the-data-retention-period)和[資料上限](https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#manage-your-maximum-daily-data-volume)。
 
 這篇文章提供設計和遷移考慮、存取控制總覽，以及瞭解我們建議您的 IT 組織所採用的設計整合的詳細總覽。
 
@@ -63,7 +63,7 @@ Log Analytics 工作區提供：
 * 向管理群組報告的 Linux 電腦必須設定為直接向 Log Analytics 工作區報告。 如果您的 Linux 電腦已直接回報至工作區，而您想要使用 Operations Manager 來監視它們，請遵循下列步驟向[Operations Manager 管理群組報告](agent-manage.md#configure-agent-to-report-to-an-operations-manager-management-group)。 
 * 您可以在 Windows 電腦上安裝 Log Analytics Windows 代理程式，並將它報告至與工作區整合的 Operations Manager，以及不同的工作區。
 
-## <a name="access-control-overview"></a>存取控制總覽
+## <a name="access-control-overview"></a>存取控制概觀
 
 使用角色型存取控制（RBAC），您可以只授與使用者和群組使用工作區中的監視資料所需的存取權數量。 這可讓您使用單一工作區，將收集到的資料儲存在所有資源上，以配合您的 IT 組織作業模型。 例如，您將存取權授與您負責裝載于 Azure 虛擬機器（Vm）上之基礎結構服務的小組，因此他們只能存取 Vm 所產生的記錄。 這會遵循我們的新資源內容記錄模型。 此模型的基礎是針對 Azure 資源所發出的每個記錄檔記錄，它會自動與此資源相關聯。 記錄會轉送到中央工作區，以根據資源來遵循範圍和 RBAC。
 
@@ -71,18 +71,18 @@ Log Analytics 工作區提供：
 
 | 因素 | 描述 |
 |:---|:---|
-| [存取模式](#access-mode) | 使用者用來存取工作區的方法。  定義可用資料的範圍, 以及套用的存取控制模式。 |
-| [存取控制模式](#access-control-mode) | 在工作區上設定, 以定義是否要在工作區或資源層級套用許可權。 |
+| [存取模式](#access-mode) | 使用者用來存取工作區的方法。  定義可用資料的範圍，以及套用的存取控制模式。 |
+| [存取控制模式](#access-control-mode) | 在工作區上設定，以定義是否要在工作區或資源層級套用許可權。 |
 | [Permissions](manage-access.md) | 適用于工作區或資源的個人或使用者群組的許可權。 定義使用者可存取的資料。 |
 | [資料表層級 RBAC](manage-access.md#table-level-rbac) | 選擇性的細微許可權，適用于所有使用者，不論其存取模式或存取控制模式為何。 定義使用者可以存取的資料類型。 |
 
 ## <a name="access-mode"></a>存取模式
 
-*存取模式*指的是使用者存取 Log Analytics 工作區的方式, 並定義他們可以存取的資料範圍。 
+*存取模式*指的是使用者存取 Log Analytics 工作區的方式，並定義他們可以存取的資料範圍。 
 
 使用者有兩個選項可存取資料：
 
-* **工作區-內容**：您可以在有許可權的工作區中查看所有記錄。 在此模式中的查詢範圍為工作區中所有資料表的所有資料。 當您以工作區作為範圍來存取記錄時, 例如當您從 Azure 入口網站的 [ **Azure 監視器**] 功能表中選取 [**記錄**] 時, 這就是使用的存取模式。
+* **工作區-內容**：您可以在有許可權的工作區中查看所有記錄。 在此模式中的查詢範圍為工作區中所有資料表的所有資料。 當您以工作區作為範圍來存取記錄時，例如當您從 Azure 入口網站的 [ **Azure 監視器**] 功能表中選取 [**記錄**] 時，這就是使用的存取模式。
 
     ![工作區中的 Log Analytics 內容](./media/design-logs-deployment/query-from-workspace.png)
 
@@ -91,23 +91,23 @@ Log Analytics 工作區提供：
     ![來自資源的 Log Analytics 內容](./media/design-logs-deployment/query-from-resource.png)
 
     > [!NOTE]
-    > 記錄僅適用于資源內容查詢（如果它們已正確關聯至相關資源）。 目前, 下列資源有一些限制:
+    > 記錄僅適用于資源內容查詢（如果它們已正確關聯至相關資源）。 目前，下列資源有一些限制：
     > - Azure 外部的電腦
     > - Service Fabric
     > - Application Insights
     >
-    > 您可以藉由執行查詢並檢查您感興趣的記錄, 來測試記錄是否已正確地與資源相關聯。 如果[_ResourceId](log-standard-properties.md#_resourceid)屬性中有正確的資源識別碼，則資料可供以資源為中心的查詢使用。
+    > 您可以藉由執行查詢並檢查您感興趣的記錄，來測試記錄是否已正確地與資源相關聯。 如果[_ResourceId](log-standard-properties.md#_resourceid)屬性中有正確的資源識別碼，則資料可供以資源為中心的查詢使用。
 
 Azure 監視器會根據您執行記錄搜尋的內容，自動決定正確的模式。 範圍一律會顯示在 Log Analytics 的左上角區段中。
 
 ### <a name="comparing-access-modes"></a>比較存取模式
 
-下表摘要說明存取模式:
+下表摘要說明存取模式：
 
 | | 工作區-內容 | 資源內容 |
 |:---|:---|:---|
-| 每個模型的用途為何？ | 管理中心。 需要設定資料收集的系統管理員, 以及需要存取各種資源的使用者。 目前也需要存取 Azure 外部資源的記錄。 | 應用程式小組。 受監視的 Azure 資源系統管理員。 |
-| 使用者需要什麼才能查看記錄？ | 工作區的許可權。 請參閱[使用工作區許可權來管理存取權](manage-access.md#manage-access-using-workspace-permissions)中的**工作區許可權**。 | 資源的讀取權限。 請參閱[使用 Azure 許可權來管理存取權](manage-access.md#manage-access-using-azure-permissions)中的**資源許可權**。 許可權可以是繼承的 (例如, 從包含的資源群組), 或直接指派給資源。 系統將會自動指派資源的記錄許可權。 |
+| 每個模型的用途為何？ | 管理中心。 需要設定資料收集的系統管理員，以及需要存取各種資源的使用者。 目前也需要存取 Azure 外部資源的記錄。 | 應用程式小組。 受監視的 Azure 資源系統管理員。 |
+| 使用者需要什麼才能查看記錄？ | 工作區的許可權。 請參閱[使用工作區許可權來管理存取權](manage-access.md#manage-access-using-workspace-permissions)中的**工作區許可權**。 | 資源的讀取權限。 請參閱[使用 Azure 許可權來管理存取權](manage-access.md#manage-access-using-azure-permissions)中的**資源許可權**。 許可權可以是繼承的（例如，從包含的資源群組），或直接指派給資源。 系統將會自動指派資源的記錄許可權。 |
 | 許可權的範圍為何？ | 區域. 具有工作區存取權的使用者可以從他們有許可權的資料表查詢工作區中的所有記錄。 請參閱[資料表存取控制](manage-access.md#table-level-rbac) | Azure 資源。 使用者可以從任何工作區查詢可存取的特定資源、資源群組或訂用帳戶的記錄，但無法查詢其他資源的記錄。 |
 | 使用者存取記錄的方式為何？ | <ul><li>從**Azure 監視器** 功能表啟動**記錄**。</li></ul> <ul><li>從**Log Analytics 工作區**啟動**記錄**。</li></ul> <ul><li>從 Azure 監視器活頁[簿](../visualizations.md#workbooks)。</li></ul> | <ul><li>從 Azure 資源的功能表啟動**記錄**</li></ul> <ul><li>從**Azure 監視器** 功能表啟動**記錄**。</li></ul> <ul><li>從**Log Analytics 工作區**啟動**記錄**。</li></ul> <ul><li>從 Azure 監視器活頁[簿](../visualizations.md#workbooks)。</li></ul> |
 
@@ -115,15 +115,15 @@ Azure 監視器會根據您執行記錄搜尋的內容，自動決定正確的�
 
 *存取控制模式*是每個工作區上的一項設定，可定義如何決定工作區的許可權。
 
-* **需要工作區許可權**:這個控制模式不允許細微的 RBAC。 若要讓使用者存取工作區, 他們必須被授與工作區或特定資料表的許可權。
+* **需要工作區許可權**：這個控制模式不允許細微的 RBAC。 若要讓使用者存取工作區，他們必須被授與工作區或特定資料表的許可權。
 
     如果使用者在工作區內容模式之後存取工作區，他們就可以存取已授與存取權之任何資料表中的所有資料。 如果使用者在資源內容模式之後存取工作區，他們就只能存取已授與存取權的任何資料表中該資源的資料。
 
     這是在2019年3月之前建立之所有工作區的預設設定。
 
-* **使用資源或工作區許可權**:這個控制模式允許細微的 RBAC。 使用者可以藉由指派 Azure `read`許可權，將存取權授與他們可以查看的資源相關聯的資料。 
+* **使用資源或工作區許可權**：這個控制模式允許細微的 RBAC。 使用者可以藉由指派 Azure `read` 許可權，將存取權授與他們可以查看的資源相關聯的資料。 
 
-    當使用者存取工作區內容模式中的工作區時，會套用工作區許可權。 當使用者存取資源內容模式中的工作區時，只會驗證資源許可權，而且會忽略工作區許可權。 將使用者從工作區許可權中移除, 並允許辨識其資源許可權, 以啟用 RBAC。
+    當使用者存取工作區內容模式中的工作區時，會套用工作區許可權。 當使用者存取資源內容模式中的工作區時，只會驗證資源許可權，而且會忽略工作區許可權。 將使用者從工作區許可權中移除，並允許辨識其資源許可權，以啟用 RBAC。
 
     這是2019年3月之後所建立之所有工作區的預設設定。
 

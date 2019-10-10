@@ -13,12 +13,12 @@ ms.workload: identity
 ms.custom: it-pro
 ms.reviewer: jeffsta
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f53ade09c5e2e7db0499122526a1de482af9378f
-ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
+ms.openlocfilehash: d392ae97a8325dd4a56acd807ebfb2b951216eae
+ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70901616"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72174281"
 ---
 # <a name="bulk-restore-deleted-users-preview-in-azure-active-directory"></a>在 Azure Active Directory 中大量還原已刪除的使用者（預覽）
 
@@ -26,18 +26,22 @@ Azure Active Directory （Azure AD）支援大量使用者建立和刪除作業�
 
 ## <a name="to-bulk-restore-users"></a>大量還原使用者
 
-1. 使用組織中使用者系統管理員的帳戶登[入您的 Azure AD 組織](https://aad.portal.azure.com)。
-1. 在 Azure AD 中，選取 [**使用者** > **刪除**]。
+1. 使用 Azure AD 組織中使用者系統管理員的帳戶登[入您的 Azure AD 組織](https://aad.portal.azure.com)。
+1. 在 Azure AD 中，選取 **已刪除**的**使用者** > 。
 1. 在 [**刪除的使用者**] 頁面上，選取 [**大量還原**]，以上傳要還原之使用者屬性的有效 CSV 檔案。
 
    ![在 [刪除的使用者] 頁面上選取 [大量還原] 命令](./media/users-bulk-restore/bulk-restore.png)
 
-1. 當您完成編輯 CSV 檔案，或如果您已準備好上傳，請選取 [**上傳您的 csv**檔案以進行驗證] 底下的檔案。
+1. 開啟 CSV 檔案，並為您要還原的每個使用者新增一行。 唯一必要的值是**ObjectID**。 然後儲存檔案。
 
    ![選取您要加入的本機 CSV 檔案，其中列出您要新增的使用者](./media/users-bulk-restore/upload-button.png)
 
-1. 當檔案內容經過驗證時，請修正檔案資訊，並在發生錯誤時重新提交檔。 提交有效的檔案會自動啟動資料上傳作業。
-1. 在 CSV 檔案通過驗證之後，請選取 [**提交**] 來啟動還原使用者的 Azure batch 作業。 如果發生錯誤，您可以在 [大量作業結果] 頁面上下載並查看結果檔案。 檔案包含每個錯誤的原因。
+1. 在 [**大量還原（預覽）** ] 頁面上，于 [**上傳您的 csv**檔案] 底下，流覽至檔案。 當您選取檔案並按一下 [**提交**] 時，CSV 檔案的驗證就會啟動。
+1. 當檔案內容經過驗證後，您會看到「檔案已成功上傳」。 如果發生錯誤，您必須修正這些錯誤，才能提交作業。
+1. 當您的檔案通過驗證時，請選取 [**提交**] 來啟動還原使用者的 Azure 大量作業。
+1. 當還原作業完成時，您會看到大量作業成功的通知。
+
+如果發生錯誤，您可以在 [**大量作業結果**] 頁面上下載並查看結果檔案。 檔案包含每個錯誤的原因。
 
 ## <a name="check-status"></a>檢查狀態
 

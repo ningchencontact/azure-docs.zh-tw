@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/26/2019
 ms.author: bwren
-ms.openlocfilehash: 39691c0efbac7b7a48dd844641d63e0ca178e95f
-ms.sourcegitcommit: e9936171586b8d04b67457789ae7d530ec8deebe
+ms.openlocfilehash: 957df2d03352756c74a5450de240afde2615e50b
+ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71327468"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72177626"
 ---
 # <a name="custom-logs-in-azure-monitor"></a>Azure 監視器中的自訂記錄
 
@@ -74,7 +74,7 @@ Azure 監視器中的「自訂記錄」資料來源可讓您從 Windows 和 Linu
 4. 變更用來識別新記錄的分隔符號，並選取最能識別記錄檔中的記錄的分隔符號。
 5. 按一下 [下一步]。
 
-### <a name="step-3-add-log-collection-paths"></a>步驟 3. 新增記錄收集路徑
+### <a name="step-3-add-log-collection-paths"></a>步驟 3. 新增記錄檔收集路徑
 您必須在代理程式上定義一個或多個它可以在其中找到自訂記錄檔的路徑。  您可以提供該記錄檔的特定路徑和名稱，或者您可以使用萬用字元為該名稱指定路徑。 這可支援每天會建立一個新檔案的應用程式或在一個檔案到達特定大小時提供支援。 您也可以為單一記錄檔提供多個路徑。
 
 例如，應用程式可能會每天建立一個記錄檔，且名稱中會包含日期，如同 log20100316.txt。 這類記錄檔的模式可能是 *log\*.txt*，而這會套用到任何遵循應用程式命名配置的記錄檔。
@@ -146,7 +146,7 @@ Azure 監視器會從每個自訂記錄檔收集新的項目，間隔大約為�
 
 ![上傳和剖析範例記錄檔](media/data-sources-custom-logs/delimiter.png)
 
-### <a name="add-log-collection-paths"></a>新增記錄收集路徑
+### <a name="add-log-collection-paths"></a>新增記錄檔收集路徑
 記錄將位於 *C:\MyApp\Logs*。  每一天都會建立一個新檔案，且其名稱中包括「appYYYYMMDD.log」模式的日期。  此記錄的完整模式為 *C:\MyApp\Logs\\\*.log*。
 
 ![記錄檔收集路徑](media/data-sources-custom-logs/collection-path.png)
@@ -172,7 +172,7 @@ Azure 監視器會從每個自訂記錄檔收集新的項目，間隔大約為�
 在使用自訂記錄無法收集資料的情況下，請考慮下列的替代策略：
 
 - 使用自訂指令碼或其他方法，將資料寫入至「Azure 監視器」所收集的 [Windows 事件](data-sources-windows-events.md)或 [Syslog](data-sources-syslog.md)。 
-- 使用 [HTTP 資料收集器 API](data-collector-api.md) 將資料直接傳送給「Azure 監視器」。 [使用 Azure 自動化 Runbook 在 Azure 監視器中收集記錄資料](runbook-datacollect.md)提供使用「Azure 自動化」中 Runbook 的範例。
+- 使用 [HTTP 資料收集器 API](data-collector-api.md) 將資料直接傳送給「Azure 監視器」。 
 
 ## <a name="next-steps"></a>後續步驟
 * 請參閱[在 Azure 監視器中剖析文字資料](../log-query/parse-text.md)以了解將每個匯入的記錄項目剖析成多個屬性的方法。

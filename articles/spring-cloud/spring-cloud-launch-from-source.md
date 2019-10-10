@@ -1,23 +1,26 @@
 ---
-title: 從原始程式碼啟動您的春天雲端應用程式
+title: 快速入門：從原始程式碼啟動您的春天雲端應用程式
 description: 瞭解如何直接從原始程式碼啟動 Azure 春季雲端應用程式
 author: jpconnock
 ms.service: spring-cloud
 ms.topic: conceptual
 ms.date: 9/27/2019
 ms.author: jeconnoc
-ms.openlocfilehash: a161b38ab6d23ad86df1ef7e843640276ba486bf
-ms.sourcegitcommit: d773b5743cb54b8cbcfa5c5e4d21d5b45a58b081
+ms.openlocfilehash: 445cac1494828362d54a8c15e68d27f01b165841
+ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72038804"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72170540"
 ---
 # <a name="launch-your-spring-cloud-application-from-source-code"></a>從原始程式碼啟動您的春天雲端應用程式
 
 Azure 春季雲端可讓您直接從 java 原始程式碼或預先建立的 JAR 啟動應用程式。 本文會引導您完成必要的步驟。
 
-## <a name="initial-requirements"></a>初始需求
+## <a name="prerequisites"></a>必要條件
+
+>[!Note]
+> 開始本快速入門之前，請確定您的 Azure 訂用帳戶可以存取 Azure 春季雲端。  作為預覽服務，我們會要求您與我們聯繫，讓我們可以將您的訂用帳戶新增至我們的允許清單。  如果您想要探索 Azure 春季雲端的功能，請 @no__t 0fill 此表單 @ no__t-1。
 
 開始之前，請確定您的 Azure 訂用帳戶具有必要的相依性：
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/16/2018
 ms.author: kumud
-ms.openlocfilehash: 0a80630ffa363d2b633667d8104cc0326c4afa2e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 17db8dbcba8dd0181be9ca7289ea1b85079ff9a1
+ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66478601"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72168502"
 ---
 # <a name="plan-virtual-networks"></a>規劃虛擬網路
 
@@ -27,7 +27,7 @@ ms.locfileid: "66478601"
 
 ## <a name="naming"></a>命名
 
-所有 Azure 資源都有名稱。 名稱在範圍內必須是唯一的，而範圍可能會依每個資源類型而有所不同。 例如，虛擬網路的名稱在[資源群組](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#resource-group)內必須是唯一的，但在[訂用帳戶](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#subscription)或 Azure [區域](https://azure.microsoft.com/regions/#services)內則可以重複。 在隨時間管理數個網路資源的情況下，定義可讓您在命名資源時一致地使用的命名慣例將會很有幫助。 如需建議，請參閱[命名慣例](/azure/architecture/best-practices/naming-conventions?toc=%2fazure%2fvirtual-network%2ftoc.json#networking)。
+所有 Azure 資源都有名稱。 名稱在範圍內必須是唯一的，而範圍可能會依每個資源類型而有所不同。 例如，虛擬網路的名稱在[資源群組](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#resource-group)內必須是唯一的，但在[訂用帳戶](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#subscription)或 Azure [區域](https://azure.microsoft.com/regions/#services)內則可以重複。 在隨時間管理數個網路資源的情況下，定義可讓您在命名資源時一致地使用的命名慣例將會很有幫助。 如需建議，請參閱[命名慣例](/azure/cloud-adoption-framework/ready/considerations/naming-and-tagging#virtual-networking)。
 
 ## <a name="regions"></a>Regions
 
@@ -77,7 +77,7 @@ ms.locfileid: "66478601"
 - 如果子網路內不同的 VM 需要套用不同的安全性規則，您可以將 VM 中的網路介面與一或多個應用程式安全性群組建立關聯。 安全性規則可以在其來源、目的地，或是上述兩者中指定應用程式安全性群組。 該規則接著只會套用到身為該應用程式安全性群組成員的網路介面。 深入了解[網路安全性群組](security-overview.md)和[應用程式安全性群組](security-overview.md#application-security-groups)。
 - Azure 會在每個網路安全性群組內建立數個預設的安全性規則。 其中一個預設規則會允許流量流經虛擬網路中所有資源。 若要覆寫這個行為，請使用網路安全性群組、透過自訂路由將流量路由傳送到 NVA，或是上述兩者。 建議您熟悉 Azure 的所有[預設安全性規則](security-overview.md#default-security-rules)，並了解網路安全性群組規則套用到資源的方法。
 
-您可以檢視範例來實作周邊網路 (也稱為 DMZ) 的設計，Azure 和網際網路使用之間[NVA](/azure/architecture/reference-architectures/dmz/secure-vnet-dmz?toc=%2Fazure%2Fvirtual-network%2Ftoc.json)。
+您可以使用[NVA](/azure/architecture/reference-architectures/dmz/secure-vnet-dmz?toc=%2Fazure%2Fvirtual-network%2Ftoc.json)，在 Azure 與網際網路之間，查看用來執行周邊網路（也稱為 DMZ）的範例設計。
 
 ### <a name="traffic-routing"></a>流量路由
 

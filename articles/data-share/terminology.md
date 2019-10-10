@@ -1,17 +1,17 @@
 ---
 title: Azure 資料共用預覽術語
-description: Azure 資料共用預覽術語
+description: 瞭解用來描述 Azure 資料共用預覽（資料提供者、資料取用者、資料共用、共用訂用帳戶、快照、邀請、收件者）所使用之資源的常用詞彙。
 author: joannapea
+ms.author: joanpo
 ms.service: data-share
 ms.topic: conceptual
 ms.date: 07/10/2019
-ms.author: joanpo
-ms.openlocfilehash: b78a1b250f46c2ddd2b36e19590c4a94ca3ab3fb
-ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
+ms.openlocfilehash: dd3235b7d87d8e02f44a440741b90f675263d147
+ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70844696"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72166281"
 ---
 # <a name="azure-data-share-preview-concepts"></a>Azure 資料共用預覽概念 
 
@@ -49,13 +49,13 @@ Azure 資料共用預覽引進與資料共用相關的一些新術語。 本文�
 
 資料取用者可以加入宣告此快照集排程來接收累加式更新，其中包括自從第一次產生新的快照集以來已變更的任何資料。 
 
-## <a name="invitation"></a>邀請
+## <a name="invitation"></a>邀
 
 資料提供者可以邀請多個接收者加入其資料共用。 他們可以藉由將收件者新增至資料共用來執行此動作。 建立資料共用之後，也可以加入邀請。 
 
 如果邀請尚未被接受，資料提供者就可以刪除已傳送的邀請。 如果資料提供者刪除邀請但尚未接受，資料取用者就無法接受它。 
 
-邀請最多可重新傳送到每日5次。 
+邀請最多可重新傳送一天五次。 
 
 ## <a name="recipient"></a>收件者
 

@@ -15,12 +15,12 @@ ms.date: 10/16/2018
 ms.author: cephalin
 ms.reviewer: apurvajo
 ms.custom: seodec18
-ms.openlocfilehash: 7c899bae6cf36e68664a3ce60939f72a4b5bd1ab
-ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
+ms.openlocfilehash: 9569928882bcaaa1d2406c9af1b2197c2ba6e93d
+ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/15/2019
-ms.locfileid: "71001216"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72177509"
 ---
 # <a name="buy-and-configure-an-ssl-certificate-for-azure-app-service"></a>購買及設定 Azure App Service 的 SSL 憑證
 
@@ -50,7 +50,7 @@ ms.locfileid: "71001216"
 | 設定 | 描述 |
 |-|-|
 | Name | App Service 憑證的易記名稱。 |
-| 裸網域主機名稱 | 在此指定根域。 發行*的憑證會保護根*域和`www`子域。 在發行的憑證中，[一般名稱] 欄位包含根域，[主體別名] 欄位則包含`www`網域。 若只要保護所有子網域，請在這裡指定子網域的完整網域名稱 (例如 `mysubdomain.contoso.com`)。|
+| 裸網域主機名稱 | 在此指定根域。 發行*的憑證會保護根*域和 @no__t 1 子域。 在發行的憑證中，[一般名稱] 欄位包含根域，[主體別名] 欄位則包含 `www` 網域。 若只要保護所有子網域，請在這裡指定子網域的完整網域名稱 (例如 `mysubdomain.contoso.com`)。|
 | 訂閱 | 裝載 Web 應用程式的資料中心。 |
 | 資源群組 | 包含憑證的資源群組。 您可以使用新的資源群組，或為您的 App Service 應用程式選取相同的資源群組。 |
 | 憑證 SKU | 決定要建立的憑證類型：標準憑證或[萬用字元憑證](https://wikipedia.org/wiki/Wildcard_certificate)。 |
@@ -66,7 +66,7 @@ ms.locfileid: "71001216"
 
 [Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-overview) 是一項 Azure 服務，可協助保護雲端應用程式和服務所使用的密碼編譯金鑰和祕密。 這是 App Service 憑證的儲存體選擇。
 
-在 [Key Vault 狀態] 頁面中，按一下 [Key Vault 存放庫] 來建立新的保存庫或選擇現有的保存庫。 如果您選擇建立新的保存庫，請使用下表來協助您設定保存庫並按一下 [建立]。 了解如何在相同訂用帳戶和資源群組中建立新的 Key Vault。
+在 [Key Vault 狀態] 頁面中，按一下 [Key Vault 存放庫] 來建立新的保存庫或選擇現有的保存庫。 如果您選擇建立新的保存庫，請使用下表來協助您設定保存庫，然後按一下 [**建立**]。
 
 | 設定 | 描述 |
 |-|-|
@@ -79,7 +79,7 @@ ms.locfileid: "71001216"
 
 選取保存庫之後，關閉 [Key Vault 存放庫] 頁面。 [存放區] 選項應顯示綠色核取記號，表示成功。 讓頁面保持開啟，以供下一個步驟使用。
 
-## <a name="verify-domain-ownership"></a>驗證網域擁有權
+## <a name="verify-domain-ownership"></a>確認網域擁有權
 
 從您在上一個步驟中使用的相同 [憑證設定] 頁面，按一下 [步驟 2：驗證]。
 
@@ -121,7 +121,7 @@ ms.locfileid: "71001216"
 
 使用 `HTTPS://<domain_name>` 而非 `HTTP://<domain_name>` 來造訪您的應用程式，確認已正確設定憑證。
 
-## <a name="rekey-certificate"></a>重設憑證的金鑰
+## <a name="rekey-certificate"></a>重設金鑰憑證
 
 如果您認為憑證的私密金鑰遭到入侵，您可以重設憑證的金鑰。 在 [ [App Service 憑證](https://portal.azure.com/#blade/HubsExtension/Resources/resourceType/Microsoft.CertificateRegistration%2FcertificateOrders)] 頁面中選取憑證，然後從左側導覽中選取 [**重設金鑰和同步**處理]。
 

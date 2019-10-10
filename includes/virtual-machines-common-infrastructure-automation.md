@@ -4,12 +4,12 @@ ms.service: virtual-machines
 ms.topic: include
 ms.date: 04/11/2019
 ms.author: cynthn
-ms.openlocfilehash: 15724adfc6eb875f3d2d5b6d3ecbbb54135a7265
-ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
+ms.openlocfilehash: 90ccc89f80da7c2abce324c077f0fb1a436b8d44
+ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67671407"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72170989"
 ---
 # <a name="use-infrastructure-automation-tools-with-virtual-machines-in-azure"></a>在 Azure 中使用基礎結構自動化工具搭配虛擬機器
 若要以一致的方式大規模建立並管理 Azure 虛擬機器 (VM)，通常需要某種形式的自動化。 有許多工具和解決方案可讓您將完整的 Azure 基礎結構部署及管理生命週期自動化。 本文介紹的一些基礎結構自動化工具可供您在 Azure 中使用。 這些工具通常符合下列其中一種方法：
@@ -64,15 +64,15 @@ Cloud-init 也適用於散發套件。 例如，您不使用 **apt-get install**
 
 
 ## <a name="powershell-dsc"></a>PowerShell DSC
-[PowerShell 預期狀態設定 (DSC)](https://msdn.microsoft.com/powershell/dsc/overview) 是一個管理平台，可定義目標電腦的設定。 也可透過 [Open Management Infrastructure (OMI) 伺服器](https://collaboration.opengroup.org/omi/)在 Linux 上使用 DSC。
+[PowerShell 預期狀態設定 (DSC)](/powershell/scripting/dsc/overview/overview) 是一個管理平台，可定義目標電腦的設定。 也可透過 [Open Management Infrastructure (OMI) 伺服器](https://collaboration.opengroup.org/omi/)在 Linux 上使用 DSC。
 
 DSC 設定會定義要在電腦上安裝的項目，以及設定主機的方式。 本機設定管理員 (LCM) 引擎會在每個目標節點上執行，這些節點會以推送組態作為基礎來處理要求的動作。 提取伺服器是一項在中央主機上執行的 web 服務，可儲存 DSC 設定和相關聯的資源。 提取伺服器會與每個目標主機上的 LCM 引擎通訊，以提供必要的合規性相關設定和報告。
 
 了解如何：
 
 - [建立基本的 DSC 設定](https://msdn.microsoft.com/powershell/dsc/quickstarts/website-quickstart)。
-- [設定 DSC 提取伺服器](https://msdn.microsoft.com/powershell/dsc/pullserver)。
-- [使用 DSC for Linux](https://msdn.microsoft.com/powershell/dsc/lnxgettingstarted)。
+- [設定 DSC 提取伺服器](/powershell/scripting/dsc/pull-server/pullserver)。
+- [使用 DSC for Linux](/powershell/scripting/dsc/getting-started/lnxgettingstarted)。
 
 
 ## <a name="azure-custom-script-extension"></a>Azure 自訂指令碼擴充功能

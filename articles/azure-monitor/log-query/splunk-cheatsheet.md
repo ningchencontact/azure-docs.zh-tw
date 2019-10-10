@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/21/2018
 ms.author: bwren
-ms.openlocfilehash: fb637197139001c67a4cfa773f897e6701dc1e9c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 03a0d755cf6d099f07a7c6d853e1d747908eec05
+ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61425129"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72177643"
 ---
 # <a name="splunk-to-azure-monitor-log-query"></a>從 Splunk 到 Azure 監視器記錄查詢
 
@@ -36,11 +36,11 @@ ms.locfileid: "61425129"
  | 結構化的事件中繼資料 | N/A | table |  Splunk 沒有事件中繼資料的搜尋語言概念。 Azure 監視器記錄有資料表的概念，且資料表具有資料行。 每個事件執行個體會對應至一個資料列。 |
  | 資料記錄 | 事件 | 資料列 |  僅限詞彙變更。 |
  | 資料記錄屬性 | field |  column |  在 Azure 監視器中，這已預先定義為資料表結構的一部分。 在 Splunk 中，每個事件都有自己的欄位集。 |
- | 類型 | datatype |  datatype |  Azure 監視器資料類型在資料行上設定時更明確。 兩者都能夠以動態方式使用資料類型，且擁有大致相當的資料類型集，包括 JSON 支援。 |
+ | 型別 | datatype |  datatype |  Azure 監視器資料類型在資料行上設定時更明確。 兩者都能夠以動態方式使用資料類型，且擁有大致相當的資料類型集，包括 JSON 支援。 |
  | 查詢和搜尋  | 搜尋 | query |  Azure 監視器與 Splunk 兩者的概念基本上相同。 |
  | 事件擷取時間 | 系統時間 | ingestion_time() |  在 Splunk 中，每個事件都會取得事件編製索引時間的系統時間戳記。 在 Azure 監視器中，您可以定義稱為 ingestion_time 的原則，其會公開可透過 ingestion_time() 函式參考的系統資料行。 |
 
-## <a name="functions"></a>函式
+## <a name="functions"></a>Functions
 
 下表指出 Azure 監視器中與 Splunk 函式相等的函式。
 
@@ -125,12 +125,12 @@ Splunk 也有 `eval` 函式，其無法與 `eval` 運算子相比較。 Splunk �
 
 
 ### <a name="rename"></a>重新命名 
-Azure 監視器使用相同的運算子重新命名及建立新的欄位。 Splunk 有兩個不同的運算子，`eval` 和 `rename`。
+Azure 監視器使用 `project-rename` 運算子來重新命名欄位。 `project-rename` 可讓查詢利用為欄位預先建立的任何索引。 Splunk 有 `rename` 運算子可執行相同動作。
 
 | |  | |
 |:---|:---|:---|
 | Splunk | **rename** |  <code>Event.Rule=330009.2<br>&#124; rename Date.Exception as execption</code> |
-| Azure 監視器 | **extend** | <code>Office_Hub_OHubBGTaskError<br>&#124; extend exception = Date_Exception</code> |
+| Azure 監視器 | **專案-重新命名** | <code>Office_Hub_OHubBGTaskError<br>&#124; project-rename exception = Date_Exception</code> |
 | | |
 
 

@@ -1,20 +1,20 @@
 ---
-title: 自動調整和區域-多餘應用程式閘道 v2
+title: 自動調整規模和區域備援應用程式閘道 v2
 description: 本文介紹 Azure 應用程式 Standard_v2 和 WAF_v2 SKU，其中包括自動調整和區域多餘的功能。
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: article
-ms.date: 6/13/2019
+ms.date: 10/09/2019
 ms.author: victorh
-ms.openlocfilehash: b97dab0f41915ac6193c35cad9a6af812b16fd4a
-ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
+ms.openlocfilehash: f58ac4448f50e8e02f2838fef02c9f884f69266b
+ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71104877"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72177442"
 ---
-# <a name="autoscaling-and-zone-redundant-application-gateway-v2"></a>自動調整和區域-多餘應用程式閘道 v2 
+# <a name="autoscaling-and-zone-redundant-application-gateway-v2"></a>自動調整規模和區域備援應用程式閘道 v2 
 
 應用程式閘道和 Web 應用程式防火牆（WAF）也適用于 Standard_v2 和 WAF_v2 SKU。 V2 SKU 提供效能增強功能，並新增對靜態 Vip 的自動調整、區域冗余和支援等重要新功能的支援。 標準和 WAF SKU 下的現有功能會繼續在新的 v2 SKU 中受到支援，但[比較](#differences-with-v1-sku)一節中會列出一些例外狀況。
 
@@ -35,7 +35,7 @@ ms.locfileid: "71104877"
 
 ## <a name="supported-regions"></a>支援區域
 
-Standard_v2 和 WAF_v2 SKU 適用于下欄區域：美國中北部、美國中南部、美國西部、美國西部2、美國東部、美國東部2、美國中部、北歐、西歐、東南亞、法國中部、英國西部、日本東部、日本西部、澳大利亞東部、澳大利亞東南部、加拿大中部、加拿大東部、東亞、韓國中央、南韓南部、印度南部、英國南部、印度中部、印度西部、印度南部。
+Standard_v2 和 WAF_v2 SKU 適用于下欄區域：美國中北部、美國中南部、美國西部、美國西部2、美國東部、美國東部2、美國中部、北歐、西歐、東南亞、法國中部、英國西部、日本東部、日本西部、澳大利亞東部、澳大利亞東南部、巴西南部、加拿大中部、加拿大東部、東部亞洲、韓國中部、南韓南部、印度南部、英國南部、印度中部、印度西部、印度南部。
 
 ## <a name="pricing"></a>定價
 
@@ -118,7 +118,7 @@ Standard_v2 和 WAF_v2 SKU 適用于下欄區域：美國中北部、美國中�
 | 區域備援                                   |          | &#x2713; |
 | 靜態 VIP                                        |          | &#x2713; |
 | Azure Kubernetes Service （AKS）輸入控制器 |          | &#x2713; |
-| Azure Key Vault 整合                       |          | &#x2713; |
+| Azure 金鑰保存庫整合                       |          | &#x2713; |
 | 重寫 HTTP （S）標頭                           |          | &#x2713; |
 | URL 型路由                                 | &#x2713; | &#x2713; |
 | 多網站裝載                             | &#x2713; | &#x2713; |
@@ -137,7 +137,7 @@ Standard_v2 和 WAF_v2 SKU 適用于下欄區域：美國中北部、美國中�
 
 ## <a name="differences-with-v1-sku"></a>V1 SKU 的差異
 
-|差異|詳細資料|
+|時差|詳細資料|
 |--|--|
 |驗證憑證|不支援。<br>如需詳細資訊，請參閱[應用程式閘道端對端 SSL 的概觀](ssl-overview.md#end-to-end-ssl-with-the-v2-sku)。|
 |在相同子網路上混合使用 Standard_v2 和標準應用程式閘道|不支援|

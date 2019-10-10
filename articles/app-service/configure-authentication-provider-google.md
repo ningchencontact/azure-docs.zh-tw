@@ -14,14 +14,15 @@ ms.topic: article
 ms.date: 09/02/2019
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: fcbb284a0807ef88c5f40a7c8b65398d45bf73d7
-ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
+ms.openlocfilehash: 917fa87a0cd0f7b0615a5139a7c15311f866739a
+ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/03/2019
-ms.locfileid: "70232143"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72176975"
 ---
-# <a name="how-to-configure-your-app-service-application-to-use-google-login"></a>如何設定 App Service 應用程式以使用 Google 登入
+# <a name="configure-your-app-service-app-to-use-google-login"></a>將您的 App Service 應用程式設定為使用 Google 登入
+
 [!INCLUDE [app-service-mobile-selector-authentication](../../includes/app-service-mobile-selector-authentication.md)]
 
 本主題說明如何設定 Azure App Service，以使用 Google 做為驗證提供者。
@@ -29,31 +30,35 @@ ms.locfileid: "70232143"
 若要完成本主題的程序，您必須具有已通過電子郵件地址驗證的 Google 帳戶。 若要建立新的 Google 帳戶，請前往 [accounts.google.com](https://go.microsoft.com/fwlink/p/?LinkId=268302)。
 
 ## <a name="register"> </a>向 Google 註冊您的應用程式
-1. 依照 google 登[入伺服器端應用程式](https://developers.google.com/identity/sign-in/web/server-side-flow)的 google 檔, 建立用戶端識別碼和用戶端密碼, 並提供下列資訊 (不需要變更任何程式碼):
-    - 針對**授權的 JavaScript 來源**, `https://<app-name>.azurewebsites.net`請在 *\<應用*程式名稱中使用與您的應用程式名稱 >。
-    - 針對**授權**的重新導向 URI `https://<app-name>.azurewebsites.net/.auth/login/google/callback`, 請使用。
-1. 建立用戶端識別碼和用戶端秘密之後, 請複製其值。
+
+1. 依照 google 登[入伺服器端應用程式](https://developers.google.com/identity/sign-in/web/server-side-flow)的 google 檔，建立用戶端識別碼和用戶端密碼。 不需要進行任何程式碼變更。 只要使用下列資訊：
+    - 針對**授權的 JavaScript 來源**，請使用 `https://<app-name>.azurewebsites.net`，並以您的應用程式名稱在 *\<app-name >* 中。
+    - 若為已授權的重新**導向 URI**，請使用 `https://<app-name>.azurewebsites.net/.auth/login/google/callback`。
+1. 複製 [應用程式識別碼] 和 [應用程式密碼] 的值。
 
     > [!IMPORTANT]
-    > 用戶端密碼是重要的安全性認證。 請勿與任何人共用此密碼，或在用戶端應用程式中加以散發。
-
+    > 應用程式密碼是重要的安全性認證。 請勿與任何人共用此密碼，或在用戶端應用程式中加以散發。
 
 ## <a name="secrets"> </a>將 Google 資訊新增至應用程式
-1. 在 [Azure 入口網站]中，瀏覽至您的 App Service 應用程式。 從左側功能表中, 選取 [**驗證/授權**]。
-2. 如果 [驗證/授權] 功能未啟用，請切換到 [開]。
-3. 按一下 [Google]。 貼上您先前取得的 [應用程式識別碼] 和 [應用程式密碼] 值, 並選擇性地啟用應用程式所需的任何範圍。 然後按一下 [確定]。
 
-   App Service 提供驗證, 但不會限制對您網站內容和 Api 的已授權存取。 如需詳細資訊, 請參閱[授權或拒絕使用者](app-service-authentication-how-to.md#authorize-or-deny-users)。
-4. (選擇性) 若要限制只有透過 Google 授權的使用者可以存取您的網站，請將 [要求未經驗證時所採取的動作] 設為 [Google]。 這會要求所有要求都需經過驗證，且所有未經驗證的要求都會重新導向至 Google 以進行驗證。
+1. 在[Azure 入口網站]中，移至您的 App Service 應用程式。
+1. 選取 [**設定**] [ >  個**驗證/授權**]，並確定**App Service 驗證**已**開啟**。
+1. 選取 [ **Google**]，然後貼上您先前取得的 [應用程式識別碼] 和 [應用程式密碼] 值。 啟用應用程式所需的任何範圍。
+1. 選取 [確定]。
 
-    > [!NOTE]
-    > 以這種方式限制存取適用于應用程式的所有呼叫, 這對於想要公開使用首頁的應用程式 (如許多單頁應用程式), 可能不是理想的做法。 對於這類應用程式, 可能會慣用 [**允許匿名要求 (無動作)** ], 而應用程式會以手動方式啟動登入本身, 如[這裡](overview-authentication-authorization.md#authentication-flow)所述。
-    
-5. 按一下 [儲存]。
+   App Service 提供驗證，但不會限制對您網站內容和 Api 的已授權存取。 如需詳細資訊，請參閱[授權或拒絕使用者](app-service-authentication-how-to.md#authorize-or-deny-users)。
+
+1. 選擇性若要將網站存取限制為只有 Google 驗證的使用者，請將 [**要求未經驗證時所採取的動作**] 設定為 [ **google**]。 當您設定此功能時，您的應用程式會要求所有要求都必須經過驗證。 它也會將所有未經驗證的要求重新導向至 Google 進行驗證。
+
+    > [!CAUTION]
+    > 以這種方式限制存取適用于對您應用程式的所有呼叫，這對於具有公開可用首頁的應用程式（如許多單頁應用程式），可能不是理想的做法。 對於這類應用程式，可能會慣用 [**允許匿名要求（無動作）** ]，讓應用程式手動啟動驗證。 如需詳細資訊，請參閱[驗證流程](overview-authentication-authorization.md#authentication-flow)。
+
+1. 選取 [儲存]。
 
 現在，您已可在應用程式中使用 Google 進行驗證。
 
-## <a name="related-content"> </a>相關內容
+## <a name="related-content"> </a>後續步驟
+
 [!INCLUDE [app-service-mobile-related-content-get-started-users](../../includes/app-service-mobile-related-content-get-started-users.md)]
 
 <!-- Anchors. -->

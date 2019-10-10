@@ -4,17 +4,17 @@ description: 如何設定下游或分葉裝置，以連線到 Azure IoT Edge 閘
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 09/07/2019
+ms.date: 10/08/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: 822e58d1d35cfb9b62565ca78ea2277b8d194bc0
-ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
+ms.openlocfilehash: c37c3ed2031746d7c476850749bb3dc613252654
+ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71266113"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72176800"
 ---
 # <a name="connect-a-downstream-device-to-an-azure-iot-edge-gateway"></a>將下游裝置連線到 Azure IoT Edge 閘道
 
@@ -121,7 +121,7 @@ import-certificate  <file path>\azure-iot-test-only.root.ca.cert.pem -certstorel
 
 * 您複製並儲存在下游裝置上某個位置之根 CA 憑證的完整路徑。
 
-    例如： `<path>/azure-iot-test-only.root.ca.cert.pem` 。 
+    例如，`<path>/azure-iot-test-only.root.ca.cert.pem`。 
 
 ### <a name="nodejs"></a>NodeJS
 
@@ -183,17 +183,23 @@ var options = {
 本節介紹將 Azure IoT Python 裝置用戶端連線到 IoT Edge 閘道的範例應用程式。 
 
 1. 從[適用于 Python 的 Azure IoT 裝置 SDK 範例](https://github.com/Azure/azure-iot-sdk-python/tree/master/azure-iot-device/samples/advanced-edge-scenarios)取得**send_message**的範例。 
-2. 請確定您是在邊緣容器中執行，或在偵錯工具案例中，已`EdgeHubConnectionString`設定和`EdgeModuleCACertificateFile`環境變數。
+2. 請確定您是在 IoT Edge 容器中執行，或在偵錯工具案例中，已設定 `EdgeHubConnectionString` 和 `EdgeModuleCACertificateFile` 環境變數。
 3. 如需如何在裝置上執行此範例的指示，請參閱 SDK 文件。 
 
 
 ## <a name="test-the-gateway-connection"></a>測試閘道連線
 
-這是一個範例命令，用來測試是否已正確設定所有專案。 您應該會看到訊息指出：「驗證完成」。
+使用此範例命令來測試您的下游裝置是否可連線到閘道裝置： 
 
 ```cmd/sh
 openssl s_client -connect mygateway.contoso.com:8883 -CAfile <CERTDIR>/certs/azure-iot-test-only.root.ca.cert.pem -showcerts
 ```
+
+此命令會測試透過 MQTTS （埠8883）的連線。 如果您要使用不同的通訊協定，請視需要調整 AMQPS （5671）或 HTTPS （433）的命令。
+
+此命令的輸出可能很長，包括鏈中所有憑證的相關資訊。 如果您的連線成功，您會看到類似 `Verification: OK` 或 `Verify return code: 0 (ok)` 的一行。
+
+![驗證閘道連線](./media/how-to-connect-downstream-device/verification-ok.png)
 
 ## <a name="troubleshoot-the-gateway-connection"></a>針對閘道連線進行疑難排解
 

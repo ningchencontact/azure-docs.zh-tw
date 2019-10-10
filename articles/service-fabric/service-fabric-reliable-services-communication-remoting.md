@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 09/20/2017
 ms.author: vturecek
-ms.openlocfilehash: a9ef2cd695f9591f299bb85b95d14d60b987c38d
-ms.sourcegitcommit: 267a9f62af9795698e1958a038feb7ff79e77909
+ms.openlocfilehash: 1654a7be8c3aba4efa6fcf96024ea987e2957e73
+ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70258696"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72173452"
 ---
 # <a name="service-remoting-in-c-with-reliable-services"></a>使用 Reliable Services 在 C# 中進行服務遠端處理
 
@@ -36,7 +36,7 @@ ms.locfileid: "70258696"
 只要兩個簡單步驟，就能設定服務的遠端處理：
 
 1. 建立服務實作的介面。 這個介面會定義可在您的服務上用於遠端程序呼叫的方法。 方法也必須是傳回工作的非同步方法。 此介面必須實作 `Microsoft.ServiceFabric.Services.Remoting.IService` ，表示服務具有遠端處理介面。
-2. 在您的服務中使用遠端接聽程式。 遠端接聽程式是提供遠端功能的 `ICommunicationListener` 實作。 `Microsoft.ServiceFabric.Services.Remoting.Runtime` 命名空間包含適用於無狀態與具狀態服務的擴充方法 `CreateServiceRemotingListener`，可用於建立使用預設遠端傳輸通訊協定的遠端接聽程式。
+2. 在您的服務中使用遠端接聽程式。 遠端接聽程式是提供遠端功能的 `ICommunicationListener` 實作。 `Microsoft.ServiceFabric.Services.Remoting.Runtime` 命名空間包含適用於無狀態與具狀態服務的擴充方法 `CreateServiceRemotingInstanceListeners`，可用於建立使用預設遠端傳輸通訊協定的遠端接聽程式。
 
 >[!NOTE]
 >`Remoting` 命名空間是以名為 `Microsoft.ServiceFabric.Services.Remoting` 的個別 NuGet 套件形式來提供使用。
@@ -322,7 +322,7 @@ string message = await helloWorldClient.HelloWorldAsync();
 若要從 V1 升級為 V2 (介面相容，也稱為 V2_1)，需要 2 個步驟。 遵循此序列中的步驟。
 
 > [!NOTE]
-> 從 V1 升級至 V2 時, 請確定`Remoting`已將命名空間更新為使用 v2。 範例：' ServiceFabric. FabricTransport. 用戶端 '
+> 從 V1 升級至 V2 時，請確定 `Remoting` 命名空間已更新為使用 V2。 範例：' ServiceFabric. FabricTransport. 用戶端 '
 >
 >
 

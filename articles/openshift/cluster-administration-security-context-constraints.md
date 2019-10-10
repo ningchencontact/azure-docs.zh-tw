@@ -7,16 +7,16 @@ ms.author: jzim
 ms.service: container-service
 ms.topic: article
 ms.date: 09/25/2019
-ms.openlocfilehash: afbde512ecb5a38eac38d6f5db614d92cd44c908
-ms.sourcegitcommit: f2d9d5133ec616857fb5adfb223df01ff0c96d0a
+ms.openlocfilehash: f98f55dca8b3dbbfbe03cb8c79691cedb63335a0
+ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/03/2019
-ms.locfileid: "71937426"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72168984"
 ---
 # <a name="manage-security-context-constraints-in-azure-red-hat-openshift"></a>在 Azure Red Hat OpenShift 中管理安全性內容條件約束 
 
-安全性內容條件約束（SCCs）可讓叢集系統管理員控制 pod 的許可權。 若要深入瞭解此 API 類型，請參閱[SCCs 的架構檔](https://https://docs.openshift.com/container-platform/3.11/architecture/additional_concepts/authorization.html)。 您可以使用 CLI，以一般 API 物件的形式管理實例中的 SCCs。
+安全性內容條件約束（SCCs）可讓叢集系統管理員控制 pod 的許可權。 若要深入瞭解此 API 類型，請參閱[SCCs 的架構檔](https://docs.openshift.com/container-platform/3.11/architecture/additional_concepts/authorization.html)。 您可以使用 CLI，以一般 API 物件的形式管理實例中的 SCCs。
 
 ## <a name="list-security-context-constraints"></a>列出安全性內容條件約束
 

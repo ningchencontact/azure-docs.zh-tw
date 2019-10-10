@@ -9,16 +9,16 @@ ms.topic: article
 ms.date: 09/25/2019
 ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: 7c4812a63137dc2efc5eab2cb3b9e136a5465e78
-ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
+ms.openlocfilehash: 28a391fded422b00508e006bfd613d6c98d82f17
+ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71300467"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72166461"
 ---
 # <a name="troubleshoot-common-issues-in-azure-container-instances"></a>在 Azure 容器執行個體中針對常見問題進行疑難排解
 
-本文說明如何針對管理或將容器部署到 Azure 容器執行個體的常見問題，進行疑難排解。 另請參閱[常見問題](container-instances-faq.md)。 
+本文說明如何針對管理或將容器部署到 Azure 容器執行個體的常見問題，進行疑難排解。 另請參閱[常見問題](container-instances-faq.md)。
 
 如果您需要其他支援，請參閱[Azure 入口網站](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)中的可用說明 **+ 支援**選項。
 
@@ -28,12 +28,12 @@ ms.locfileid: "71300467"
 
 | `Scope` | 長度 | 大小寫 | 有效字元 | 建議模式 | 範例 |
 | --- | --- | --- | --- | --- | --- |
-| 容器群組名稱 | 1-64 |區分大小寫 |除了第一個或最後一個字元以外，都可以使用英數字元和連字號 |`<name>-<role>-CG<number>` |`web-batch-CG1` |
-| 容器名稱 | 1-64 |區分大小寫 |除了第一個或最後一個字元以外，都可以使用英數字元和連字號 |`<name>-<role>-CG<number>` |`web-batch-CG1` |
+| 容器群組名稱 | 1-64 |不區分大小寫 |除了第一個或最後一個字元以外，都可以使用英數字元和連字號 |`<name>-<role>-CG<number>` |`web-batch-CG1` |
+| 容器名稱 | 1-64 |不區分大小寫 |除了第一個或最後一個字元以外，都可以使用英數字元和連字號 |`<name>-<role>-CG<number>` |`web-batch-CG1` |
 | 容器連接埠 | 介於 1 到 65535 之間 |Integer |介於 1 到 65535 之間的整數 |`<port-number>` |`443` |
-| DNS 名稱標籤 | 5-63 |區分大小寫 |除了第一個或最後一個字元以外，都可以使用英數字元和連字號 |`<name>` |`frontend-site1` |
-| 環境變數 | 1-63 |區分大小寫 |除了第一個或最後一個字元以外，都可以使用英數字元和底線 (_) |`<name>` |`MY_VARIABLE` |
-| 磁碟區名稱 | 5-63 |區分大小寫 |除了第一個或最後一個字元以外，都可以使用小寫字母、數字和連字號。 不能包含兩個連續連字號。 |`<name>` |`batch-output-volume` |
+| DNS 名稱標籤 | 5-63 |不區分大小寫 |除了第一個或最後一個字元以外，都可以使用英數字元和連字號 |`<name>` |`frontend-site1` |
+| 環境變數 | 1-63 |不區分大小寫 |除了第一個或最後一個字元以外，都可以使用英數字元和底線 (_) |`<name>` |`MY_VARIABLE` |
+| 磁碟區名稱 | 5-63 |不區分大小寫 |除了第一個或最後一個字元以外，都可以使用小寫字母、數字和連字號。 不能包含兩個連續連字號。 |`<name>` |`batch-output-volume` |
 
 ## <a name="os-version-of-image-not-supported"></a>不支援映像的 OS 版本
 
@@ -48,7 +48,7 @@ ms.locfileid: "71300467"
 }
 ```
 
-當部署以半年通道版本1709或1803為基礎的 Windows 映像 (不受支援) 時, 最常遇到此錯誤。 如需 Azure 容器實例中支援的 Windows 映像, 請參閱[常見問題](container-instances-faq.md#what-windows-base-os-images-are-supported)。
+當部署以半年通道版本1709或1803為基礎的 Windows 映像（不受支援）時，最常遇到此錯誤。 如需 Azure 容器實例中支援的 Windows 映像，請參閱[常見問題](container-instances-faq.md#what-windows-base-os-images-are-supported)。
 
 ## <a name="unable-to-pull-image"></a>無法提取映像
 
@@ -56,7 +56,7 @@ ms.locfileid: "71300467"
 
 若要解決此問題，請刪除容器執行個體並重試您的部署。 請確定此映像存在在登錄中，而且您已輸入正確的映像名稱。
 
-如果無法提取映射, 則[az container show][az-container-show]的輸出中會顯示如下的事件:
+如果無法提取映射，則[az container show][az-container-show]的輸出中會顯示如下的事件：
 
 ```bash
 "events": [
@@ -91,7 +91,7 @@ ms.locfileid: "71300467"
 
 容器群組的[重新啟動原則](container-instances-restart-policy.md)預設為 [一律]，因此容器群組中的群組在執行完成後一律會重新啟動。 如果您要執行以工作為基礎的容器，則可能需要將此設定變更為 [OnFailure] 或 [永不]。 如果指定 **OnFailure** 後仍持續重新啟動，可能是容器中執行的應用程式或指令碼的問題。
 
-如果執行的容器群組不含長時間執行的程序，您可能會看到 Ubuntu 或 Alpine 之類的映像重複地結束並重新啟動。 透過 [EXEC](container-instances-exec.md) 連線是不可行的，因為容器沒有任何程序可維持其存留狀態。 若要解決此問題, 請在您的容器群組部署中包含如下的啟動命令, 讓容器保持執行狀態。
+如果執行的容器群組不含長時間執行的程序，您可能會看到 Ubuntu 或 Alpine 之類的映像重複地結束並重新啟動。 透過 [EXEC](container-instances-exec.md) 連線是不可行的，因為容器沒有任何程序可維持其存留狀態。 若要解決此問題，請在您的容器群組部署中包含如下的啟動命令，讓容器保持執行狀態。
 
 ```azurecli-interactive
 ## Deploying a Linux container
@@ -104,7 +104,7 @@ az container create -g myResourceGroup --name mywindowsapp --os-type Windows --i
  --command-line "ping -t localhost"
 ```
 
-容器執行個體 API 和 Azure 入口網站包含 `restartCount` 屬性。 若要檢查容器的重新開機次數, 您可以使用 Azure CLI 中的[az container show][az-container-show]命令。 在下列範例輸出中 (為簡潔起見已截斷畫面)，您可以在輸出的結尾看到 `restartCount` 屬性。
+容器執行個體 API 和 Azure 入口網站包含 `restartCount` 屬性。 若要檢查容器的重新開機次數，您可以使用 Azure CLI 中的[az container show][az-container-show]命令。 在下列範例輸出中 (為簡潔起見已截斷畫面)，您可以在輸出的結尾看到 `restartCount` 屬性。
 
 ```json
 ...
@@ -176,7 +176,7 @@ mcr.microsoft.com/azuredocs/aci-helloworld    latest    7367f3256b41    15 month
 
 ### <a name="cached-images"></a>快取的影像
 
-Azure 容器實例會使用快取機制, 協助針對建置於通用[Windows 基底映射](container-instances-faq.md#what-windows-base-os-images-are-supported)(包括`nanoserver:1809`、 `servercore:ltsc2019`和`servercore:1809`) 的映射進行容器啟動時間的速度。 一般使用的 Linux 映射 ( `ubuntu:1604`例如`alpine:3.6`和) 也會進行快取。 如需最新的快取映射和標籤清單, 請使用列出快取的[影像][list-cached-images]API。
+Azure 容器實例會使用快取機制，協助針對建置於通用[Windows 基底映射](container-instances-faq.md#what-windows-base-os-images-are-supported)的映射（包括 `nanoserver:1809`、`servercore:ltsc2019` 和 `servercore:1809`）來加速容器啟動時間。 常用的 Linux 映射，例如 `ubuntu:1604` 和 `alpine:3.6` 也會進行快取。 如需最新的快取映射和標籤清單，請使用列出快取的[影像][list-cached-images]API。
 
 > [!NOTE]
 > 在 Azure 容器執行個體中使用以 Windows Server 2019 為基礎的映像是預覽功能。
@@ -204,9 +204,9 @@ Azure 容器執行個體不會公開基礎結構 (其中裝載容器群組) 的�
 
 ## <a name="container-group-ip-address-may-not-be-accessible-due-to-mismatched-ports"></a>因為埠不相符，所以可能無法存取容器群組 IP 位址
 
-Azure 容器實例尚未支援像是一般 docker 設定的埠對應。 如果您認為容器群組的 IP 位址應該是時無法存取，請確定您已將容器映射設定為接聽您在容器群組中使用`ports`屬性所公開的相同埠。
+Azure 容器實例尚未支援像是一般 docker 設定的埠對應。 如果您認為容器群組的 IP 位址應該是無法存取的，請確定您已將容器映射設定為接聽您在容器群組中使用 `ports` 屬性所公開的相同埠。
 
-如果您想要確認 Azure 容器實例可以在您于容器映射中設定的埠上接聽，請測試公開該埠`aci-helloworld`之映射的部署。 同時執行`aci-helloworld`應用程式，使其在埠上接聽。 `aci-helloworld`接受選擇性的環境變數`PORT` ，以覆寫接聽的預設通訊埠80。 例如，若要測試埠9000：
+如果您想要確認 Azure 容器實例可以在您于容器映射中設定的埠上接聽，請測試公開端口的 @no__t 0 映射部署。 同時執行 `aci-helloworld` 應用程式，使其在埠上接聽。 `aci-helloworld` 會接受選擇性的環境變數 `PORT`，以覆寫接聽的預設通訊埠80。 例如，若要測試埠9000：
 
 1. 設定容器群組以公開端口9000，並將埠號碼傳遞為環境變數的值：
     ```azurecli
@@ -215,11 +215,11 @@ Azure 容器實例尚未支援像是一般 docker 設定的埠對應。 如果�
     --ip-address Public --ports 9000 \
     --environment-variables 'PORT'='9000'
     ```
-1. 在的命令輸出`az container create`中，尋找容器群組的 IP 位址。 尋找 [ **ip**] 的值。 
+1. 在 `az container create` 的命令輸出中，尋找容器群組的 IP 位址。 尋找 [ **ip**] 的值。 
 1. 成功布建容器之後，請在瀏覽器中流覽至容器應用程式的 IP 位址和埠，例如： `192.0.2.0:9000`。 
 
     您應該會看到「歡迎使用 Azure 容器實例！」 web 應用程式所顯示的訊息。
-1. 當您完成容器的作業時，請使用命令將`az container delete`它移除：
+1. 當您完成容器的作業時，請使用 `az container delete` 命令將它移除：
 
     ```azurecli
     az container delete --resource-group myResourceGroup --name mycontainer
@@ -227,10 +227,10 @@ Azure 容器實例尚未支援像是一般 docker 設定的埠對應。 如果�
 
 ## <a name="next-steps"></a>後續步驟
 
-瞭解如何[取得容器記錄和事件](container-instances-get-logs.md), 以協助您進行容器的偵錯工具。
+瞭解如何[取得容器記錄和事件](container-instances-get-logs.md)，以協助您進行容器的偵錯工具。
 
 <!-- LINKS - External -->
-[azure-name-restrictions]: https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions#naming-rules-and-restrictions
+[azure-name-restrictions]: https://docs.microsoft.com/azure/cloud-adoption-framework/ready/considerations/naming-and-tagging#resource-naming
 [windows-sac-overview]: https://docs.microsoft.com/windows-server/get-started/semi-annual-channel-overview
 [docker-multi-stage-builds]: https://docs.docker.com/engine/userguide/eng-image/multistage-build/
 [docker-hub-windows-core]: https://hub.docker.com/_/microsoft-windows-servercore

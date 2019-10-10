@@ -8,12 +8,12 @@ ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 12/20/2017
 ms.author: cshoe
-ms.openlocfilehash: bf60ba7d940ab3ea3f4d30fc9fb1d76f9304ec1b
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 1db929e3ec4b400113d04cb7dd1cd4b8d2e86a9a
+ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70086585"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72176603"
 ---
 # <a name="microsoft-graph-bindings-for-azure-functions"></a>適用於 Azure Functions 的 Microsoft Graph 繫結
 
@@ -360,9 +360,9 @@ module.exports = function (context, req) {
 
 這個繫結需要下列 Azure AD 權限︰
 
-|Resource|使用權限|
+|Resource|權限|
 |--------|--------|
-|Microsoft Graph|讀取使用者的檔案|
+|Microsoft Graph|讀取使用者檔案|
 
 繫結會向 .NET 函式公開下列類型：
 - string[][]
@@ -523,7 +523,7 @@ module.exports = function (context, req) {
 
 這個繫結需要下列 Azure AD 權限︰
 
-|Resource|使用權限|
+|Resource|權限|
 |--------|--------|
 |Microsoft Graph|可以完整存取使用者檔案|
 
@@ -666,9 +666,9 @@ module.exports = function (context, req) {
 
 這個繫結需要下列 Azure AD 權限︰
 
-|Resource|使用權限|
+|Resource|權限|
 |--------|--------|
-|Microsoft Graph|讀取使用者的檔案|
+|Microsoft Graph|讀取使用者檔案|
 
 繫結會向 .NET 函式公開下列類型：
 - byte[]
@@ -814,7 +814,7 @@ module.exports = function (context, req) {
 
 這個繫結需要下列 Azure AD 權限︰
 
-|Resource|使用權限|
+|Resource|權限|
 |--------|--------|
 |Microsoft Graph|可以完整存取使用者檔案|
 
@@ -964,7 +964,7 @@ module.exports = function (context, req) {
 
 這個繫結需要下列 Azure AD 權限︰
 
-|Resource|使用權限|
+|Resource|權限|
 |--------|--------|
 |Microsoft Graph|以使用者的身分傳送電子郵件|
 
@@ -1087,11 +1087,11 @@ module.exports = function (context) {
 
 ### <a name="webhook-trigger---attributes"></a>Webhook 觸發程序 - 屬性
 
-在 [C# 類別庫](functions-dotnet-class-library.md)中，使用 [GraphWebHookTrigger](https://github.com/Azure/azure-functions-microsoftgraph-extension/blob/master/src/MicrosoftGraphBinding/Bindings/GraphWebHookTriggerAttribute.cs) 屬性。
+在[ C#類別庫](functions-dotnet-class-library.md)中，使用[GraphWebhookTrigger](https://github.com/Azure/azure-functions-microsoftgraph-extension/blob/master/src/MicrosoftGraphBinding/Bindings/GraphWebhookTriggerAttribute.cs)屬性。
 
 ### <a name="webhook-trigger---configuration"></a>Webhook 觸發程式 - 設定
 
-下表說明您在 *function.json* 檔案中設定的繫結設定屬性內容和 `GraphWebHookTrigger` 屬性。
+下表說明您在 *function.json* 檔案中設定的繫結設定屬性內容和 `GraphWebhookTrigger` 屬性。
 
 |function.json 屬性 | 屬性內容 |描述|
 |---------|---------|----------------------|
@@ -1239,11 +1239,11 @@ module.exports = function (context, req) {
 
 ### <a name="webhook-input---attributes"></a>Webhook 輸入 - 屬性
 
-在 [C# 類別庫](functions-dotnet-class-library.md)中，使用 [GraphWebHookSubscription](https://github.com/Azure/azure-functions-microsoftgraph-extension/blob/master/src/MicrosoftGraphBinding/Bindings/GraphWebHookSubscriptionAttribute.cs) 屬性。
+在[ C#類別庫](functions-dotnet-class-library.md)中，使用[GraphWebhookSubscription](https://github.com/Azure/azure-functions-microsoftgraph-extension/blob/master/src/MicrosoftGraphBinding/Bindings/GraphWebhookSubscriptionAttribute.cs)屬性。
 
 ### <a name="webhook-input---configuration"></a>Webhook 輸入 - 設定
 
-下表說明您在 *function.json* 檔案中設定的繫結設定屬性內容和 `GraphWebHookSubscription` 屬性。
+下表說明您在 *function.json* 檔案中設定的繫結設定屬性內容和 `GraphWebhookSubscription` 屬性。
 
 |function.json 屬性 | 屬性內容 |描述|
 |---------|---------|----------------------|
@@ -1380,11 +1380,11 @@ module.exports = function (context, req) {
 
 ### <a name="webhook-output---attributes"></a>Webhook 輸出 - 屬性
 
-在 [C# 類別庫](functions-dotnet-class-library.md)中，使用 [GraphWebHookSubscription](https://github.com/Azure/azure-functions-microsoftgraph-extension/blob/master/src/MicrosoftGraphBinding/Bindings/GraphWebHookSubscriptionAttribute.cs) 屬性。
+在[ C#類別庫](functions-dotnet-class-library.md)中，使用[GraphWebhookSubscription](https://github.com/Azure/azure-functions-microsoftgraph-extension/blob/master/src/MicrosoftGraphBinding/Bindings/GraphWebhookSubscriptionAttribute.cs)屬性。
 
 ### <a name="webhook-output---configuration"></a>Webhook 輸出 - 設定
 
-下表說明您在 *function.json* 檔案中設定的繫結設定屬性內容和 `GraphWebHookSubscription` 屬性。
+下表說明您在 *function.json* 檔案中設定的繫結設定屬性內容和 `GraphWebhookSubscription` 屬性。
 
 |function.json 屬性 | 屬性內容 |描述|
 |---------|---------|----------------------|
