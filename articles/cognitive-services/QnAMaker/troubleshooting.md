@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 09/26/2019
 ms.author: diberry
 ms.custom: seodec18
-ms.openlocfilehash: 00d3d63ff1a5b4d5dab0534e039145b97091af87
-ms.sourcegitcommit: 4f3f502447ca8ea9b932b8b7402ce557f21ebe5a
+ms.openlocfilehash: 51d21dca1d8a5223e67cb7ea8489800989cff55c
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71802158"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72026024"
 ---
 # <a name="troubleshooting-for-qna-maker"></a>疑難排解 QnA Maker
 
@@ -99,7 +99,7 @@ QnA Maker 會在 QnA Maker 入口網站中提供**協助**bot，協助您。 您
 
 ### <a name="the-updates-that-i-made-to-my-knowledge-base-are-not-reflected-on-publish-why-not"></a>我對知識庫所做的更新並未在發佈時反映。 為什麼？
 
-無論是資料表更新、測試或設定，每個編輯作業都必須先儲存才能加以發佈。 每次完成編輯作業後，請務必按一下 [儲存並訓練] 按鈕 **。**  
+無論是資料表更新、測試或設定，每個編輯作業都必須先儲存才能加以發佈。 每次編輯作業之後，請務必按一下 [**儲存並定型**] 按鈕。
 
 ### <a name="does-the-knowledge-base-support-rich-data-or-multimedia"></a>知識庫是否支援豐富的資料或多媒體？
 
@@ -123,7 +123,7 @@ QnA Maker 會在 QnA Maker 入口網站中提供**協助**bot，協助您。 您
 
 刪除 Azure 搜尋服務索引是不可逆的作業，因此索引無法復原。 
 
-### <a name="i-deleted-my-testkb-index-in-my-search-service-how-can-i-fix-this"></a>我已在`testkb`搜尋服務中刪除我的索引。 我該怎麼辦？ 
+### <a name="i-deleted-my-testkb-index-in-my-search-service-how-can-i-fix-this"></a>我在搜尋服務中刪除了我的 `testkb` 索引。 我該怎麼辦？ 
 
 您的舊資料無法復原。 建立新的 QnA Maker 資源，然後再次建立您的知識庫。
 
@@ -139,7 +139,7 @@ QnA Maker 會在 QnA Maker 入口網站中提供**協助**bot，協助您。 您
 
 Azure 搜尋服務資源的名稱是 QnA Maker 資源名稱加上一些附加在結尾的隨機字母。 這讓您難以區別 QnA Maker 的多個搜尋服務資源。 建立個別的 Azure 搜尋服務 (以您想要的方式為它命名) 並將它連結到您的 QnA Service。 這些步驟類似于[升級 Azure 搜尋](How-To/set-up-qnamaker-service-azure.md#upgrade-the-azure-search-service)服務所需執行的步驟。
 
-### <a name="when-qna-maker-returns-runtime-core-is-not-initialized-how-do-i-fix-it"></a>當 QnA Maker `Runtime core is not initialized,`傳回如何修正此問題？
+### <a name="when-qna-maker-returns-runtime-core-is-not-initialized-how-do-i-fix-it"></a>當 QnA Maker 傳回時 `Runtime core is not initialized,` 如何修正此問題？
 
 您的 app service 的磁碟空間可能已滿。 修復磁碟空間的步驟：
 
@@ -147,7 +147,7 @@ Azure 搜尋服務資源的名稱是 QnA Maker 資源名稱加上一些附加在
 1. 在仍在 App service 的情況下，依序選取 [**開發工具**]、[ **Advanced tools**] 和 [ **Go**]。 這會開啟新的瀏覽器視窗。
 1. 依序選取 [ **Debug console**] 和 [ **CMD** ] 以開啟命令列工具。 
 1. 流覽至_site/wwwroot/Data/QnAMaker/_ 目錄。
-1. 移除名稱開頭為`rd`的所有資料夾。 
+1. 移除名稱開頭為 `rd` 的所有資料夾。 
 
     **請勿刪除**下列各項：
 
@@ -179,7 +179,7 @@ Azure 搜尋服務資源的名稱是 QnA Maker 資源名稱加上一些附加在
 
 透過這項資訊，請移至 Azure 入口網站中 bot 的 app service。 在 設定 底下 > 設定 下 **> 應用程式設定**，變更這些值。  
 
-知識庫的端點金鑰會標示`QnAAuthkey`在 ABS 服務中。 
+在 ABS 服務中，知識庫的端點金鑰會標示為 `QnAAuthkey`。 
 
 ### <a name="can-two-or-more-client-applications-share-a-knowledge-base"></a>有兩個或多個用戶端應用程式可以共用知識庫嗎？ 
 
