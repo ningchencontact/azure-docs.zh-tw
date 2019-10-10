@@ -6,13 +6,12 @@ ms.author: dacoulte
 ms.date: 08/26/2019
 ms.topic: overview
 ms.service: blueprints
-manager: carmonm
-ms.openlocfilehash: 631aa956573fd611988030af8ea7e34c6c266045
-ms.sourcegitcommit: aaa82f3797d548c324f375b5aad5d54cb03c7288
+ms.openlocfilehash: 86f58594ce1af91b19f70cbdb1114a90180e3b4f
+ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70146107"
+ms.lasthandoff: 10/06/2019
+ms.locfileid: "71981718"
 ---
 # <a name="overview-of-the-azure-blueprints-service"></a>Azure 藍圖服務概觀
 
@@ -54,7 +53,7 @@ Azure 藍圖服務由散佈於世界各地的 [Azure Cosmos DB](../../cosmos-db/
 
 |資源  | 階層選項| 說明  |
 |---------|---------|---------|
-|資源群組 | Subscription | 建立新的資源群組以供藍圖內的其他成品使用。  這些預留位置資源群組可讓您確切地以自己想要的方式組織資源，並針對包含的原則和角色指派成品以及 Azure Resource Manager 範本提供範圍限制器。 |
+|資源群組 | 訂用帳戶 | 建立新的資源群組以供藍圖內的其他成品使用。  這些預留位置資源群組可讓您確切地以自己想要的方式組織資源，並針對包含的原則和角色指派成品以及 Azure Resource Manager 範本提供範圍限制器。 |
 |Azure Resource Manager 範本 | 訂用帳戶、資源群組 | 範本可用來撰寫複雜的環境。 範例環境：SharePoint 伺服器陣列、Azure Automation State Configuration 或 Log Analytics 工作區。 |
 |原則指派 | 訂用帳戶、資源群組 | 可讓原則或方案指派到藍圖所指派到的訂用帳戶。 原則或方案必須在藍圖定義位置的範圍內。 如果原則或方案具有參數，您可以在藍圖建立或是藍圖指派期間指派這些參數。 |
 |角色指派 | 訂用帳戶、資源群組 | 新增現有使用者或群組到內建角色，以確保適當人員一律擁有資源的正確存取權。 角色指派可針對整個訂用帳戶進行定義，或是以巢狀方式針對包含在藍圖內的特定資源群組定義。 |
@@ -126,10 +125,10 @@ Azure 藍圖服務由散佈於世界各地的 [Azure Cosmos DB](../../cosmos-db/
 
 |Object|欄位|允許的字元|最大 長度|
 |-|-|-|-|
-|藍圖|Name|字母、數字、連字號和句點|48|
+|藍圖|名稱|字母、數字、連字號和句點|48|
 |藍圖|版本|字母、數字、連字號和句點|20|
-|藍圖指派|Name|字母、數字、連字號和句點|90|
-|藍圖成品|Name|字母、數字、連字號和句點|48|
+|藍圖指派|名稱|字母、數字、連字號和句點|90|
+|藍圖成品|名稱|字母、數字、連字號和句點|48|
 
 ## <a name="video-overview"></a>影片概觀
 

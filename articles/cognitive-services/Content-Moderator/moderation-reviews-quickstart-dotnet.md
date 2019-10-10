@@ -10,21 +10,21 @@ ms.subservice: content-moderator
 ms.topic: conceptual
 ms.date: 03/19/2019
 ms.author: sajagtap
-ms.openlocfilehash: 8c9f8b3733a4b2491c4199f041ba6b24efbb0224
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: e3b36eae4f6dc4343828a38fa4ffe3920a83f589
+ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68881906"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72242876"
 ---
-# <a name="create-human-reviews-net"></a>建立人工審核 (.NET)
+# <a name="create-human-reviews-net"></a>建立人工審核（.NET）
 
-審查儲存和顯示內容, 供人力仲裁者評估。 當使用者完成審查時, 會將結果傳送至指定的回呼端點。 本指南提供資訊和程式碼範例, 可協助您開始使用[內容仲裁 SDK for .net](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.ContentModerator/)來執行下列動作:
+審查儲存和顯示內容，供人力仲裁者評估。 當使用者完成審查時，會將結果傳送至指定的回呼端點。 本指南提供資訊和程式碼範例，可協助您開始使用[內容仲裁 SDK for .net](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.ContentModerator/)來執行下列動作：
 
 - 為人工審核者建立一組審核項目
 - 為人工審核者取得現有審核項目的狀態
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 - 在內容仲裁[審查工具](https://contentmoderator.cognitive.microsoft.com/)網站上登入或建立帳戶。
 
@@ -59,8 +59,7 @@ ms.locfileid: "68881906"
 
 ```csharp
 using Microsoft.Azure.CognitiveServices.ContentModerator;
-using Microsoft.CognitiveServices.ContentModerator;
-using Microsoft.CognitiveServices.ContentModerator.Models;
+using Microsoft.Azure.CognitiveServices.ContentModerator.Models;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
@@ -536,4 +535,4 @@ Creating reviews for the following images:
 
 ## <a name="next-steps"></a>後續步驟
 
-取得[內容仲裁 .NET SDK](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.ContentModerator/) , 並為此和其他適用于 .Net 的內容仲裁快速入門下載[Visual Studio 解決方案](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/ContentModerator), 並開始進行您的整合。
+取得[內容仲裁 .NET SDK](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.ContentModerator/) ，並為此和其他適用于 .Net 的內容仲裁快速入門下載[Visual Studio 解決方案](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/ContentModerator)，並開始進行您的整合。

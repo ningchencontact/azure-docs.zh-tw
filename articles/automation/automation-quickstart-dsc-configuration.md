@@ -11,12 +11,12 @@ ms.date: 11/06/2018
 ms.topic: quickstart
 ms.custom: mvc
 manager: carmonm
-ms.openlocfilehash: 2c01172bf22fb286f790543b02a4c1e482b05fe7
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: d5eca6ffce8390b2f8b4deae589d43f40897756d
+ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68850558"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72243466"
 ---
 # <a name="configure-a-virtual-machine-with-desired-state-configuration"></a>使用 Desired State Configuration 來設定虛擬機器
 
@@ -42,8 +42,8 @@ ms.locfileid: "68850558"
 2. 按一下 [新增]  以開啟 [VM 選取] 頁面。
 3. 尋找您需要啟用 DSC 的虛擬機器。 若要尋找特定的虛擬機器，您可以使用搜尋欄位和篩選選項。
 4. 按一下虛擬機器，然後選取 [連線] 
-5. 選取適用於虛擬機器的 DSC 設定。 如果您已經備妥設定，可以將它指定為「節點設定名稱」  。 您可以設定[設定模式](https://docs.microsoft.com/powershell/dsc/metaconfig)來控制電腦的設定行為。
-6. 按一下 [確定] 
+5. 選取適用於虛擬機器的 DSC 設定。 如果您已經備妥設定，可以將它指定為「節點設定名稱」  。 您可以設定[設定模式](https://docs.microsoft.com/powershell/scripting/dsc/managing-nodes/metaConfig)來控制電腦的設定行為。
+6. 按一下 [檔案] &gt; [新增] &gt; [專案] 
 
 ![將 Azure VM 上架至 DSC](./media/automation-quickstart-dsc-configuration/dsc-onboard-azure-vm.png)
 
@@ -64,7 +64,7 @@ ms.locfileid: "68850558"
 
 本快速入門所使用的 DSC 設定會設定電腦上的 Apache HTTP Server、MySQL 和 PHP。
 
-如需 DSC 設定的詳細資訊，請參閱 [DSC 設定](https://docs.microsoft.com/powershell/dsc/configurations)。
+如需 DSC 設定的詳細資訊，請參閱 [DSC 設定](https://docs.microsoft.com/powershell/scripting/dsc/configurations/configurations)。
 
 在文字編輯器中輸入下列項目，並將其本機儲存為 `LAMPServer.ps1`。
 
@@ -104,7 +104,7 @@ configuration LAMPServer {
 1. 在自動化帳戶的左側窗格中選取 [狀態組態 (DSC)]  ，然後按一下 [組態]  索引標籤。
 2. 按一下 [+ 新增] 
 3. 選取您在先前步驟中儲存的組態檔 
-4. 按一下 [確定] 
+4. 按一下 [檔案] &gt; [新增] &gt; [專案] 
 
 ## <a name="compile-a-configuration"></a>編譯設定
 
@@ -142,7 +142,7 @@ DSC 設定必須先編譯成節點設定 (MOF 文件)，才可以指派至節點
 > [!div class="nextstepaction"]
 > [使用 DSC 和 Chocolatey 持續部署至 VM](./automation-dsc-cd-chocolatey.md)
 
-* 若要深入了解 PowerShell Desired State Configuration，請參閱 [PowerShell Desired State Configuration 概觀](https://docs.microsoft.com/powershell/dsc/overview)。
+* 若要深入了解 PowerShell Desired State Configuration，請參閱 [PowerShell Desired State Configuration 概觀](https://docs.microsoft.com/powershell/scripting/dsc/overview/overview)。
 * 若要深入了解從 PowerShell 管理 Automation DSC，請參閱 [Azure PowerShell](https://docs.microsoft.com/powershell/module/azurerm.automation/)
 * 若要了解如何將 DSC 報告轉寄到 Azure 監視器記錄以進行報告及警示，請參閱[將 DSC 報告轉寄到 Azure 監視器記錄](https://docs.microsoft.com/azure/automation/automation-dsc-diagnostics) 
 

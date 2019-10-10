@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 09/25/2019
 ms.author: abpati
 ms.custom: aaddev
-ms.openlocfilehash: 587e7a82e2a9cde8ff6d08274928ab22aa969061
-ms.sourcegitcommit: 0486aba120c284157dfebbdaf6e23e038c8a5a15
+ms.openlocfilehash: 241935afa023162a35559cd3c46206efa7a7835f
+ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71309617"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72240189"
 ---
 # <a name="quickstart-add-sign-in-with-microsoft-to-a-python-web-app"></a>快速入門：將「使用 Microsoft 登入」新增至 Python Web 應用程式
 
@@ -37,9 +37,8 @@ ms.locfileid: "71309617"
 若要執行此範例，您將需要：
 
 - [Python 2.7+](https://www.python.org/downloads/release/python-2713) 或 [Python 3+](https://www.python.org/downloads/release/python-364/)
-- [Flask](http://flask.pocoo.org/)、[Flask-Session](https://pythonhosted.org/Flask-Session/)、[requests](https://2.python-requests.org/en/master/)
-- [MSAL Python](https://github.com/AzureAD/microsoft-authentication-library-for-python) 
-- Azure Active Directory (Azure AD) 租用戶。 如需有關如何取得 Azure AD 租用戶的詳細資訊，請參閱[如何取得 Azure AD 租用戶。](https://docs.microsoft.com/azure/active-directory/develop/quickstart-create-new-tenant)
+- [Flask](http://flask.pocoo.org/)、[Flask-Session](https://pythonhosted.org/Flask-Session/)、[requests](https://requests.kennethreitz.org//en/master/)
+- [MSAL Python](https://github.com/AzureAD/microsoft-authentication-library-for-python)
 
 > [!div renderon="docs"]
 >

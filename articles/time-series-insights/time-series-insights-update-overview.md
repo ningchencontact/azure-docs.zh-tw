@@ -11,12 +11,12 @@ ms.workload: big-data
 ms.topic: overview
 ms.date: 09/23/2019
 ms.custom: seodec18
-ms.openlocfilehash: ffa4424dd3173cf6493ec219fe92925c970ad08c
-ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.openlocfilehash: e4a57c6d4a9034d9145058e9137759c2cea19aa6
+ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71258316"
+ms.lasthandoff: 10/06/2019
+ms.locfileid: "71978664"
 ---
 # <a name="what-is-azure-time-series-insights-preview"></a>什麼是 Azure 時間序列深入解析預覽版？
 
@@ -81,7 +81,7 @@ IoT 資料通常僅在來自第一方來源 (如 CRM 或 ERP) 的其他資料輸
 | 與其他資料解決方案順暢地持續整合 | 時間序列深入解析中的資料[儲存](./time-series-insights-update-storage-ingress.md)在開放原始碼的 Apache Parquet 檔案中。 無論是第一方還是協力廠商，這種與其他資料解決方案的整合對於端對端案例都很容易。 這些案例包括商業智慧、進階的機器學習服務和預測性分析。 |
 | 近乎即時的資料探索 | 藉由 [Azure 時間序列深入解析預覽版總管](./time-series-insights-update-explorer.md)的使用者體驗，您可以為透過擷取管線串流的所有資料提供視覺效果。 連線事件來源後不久，您可以檢視、探索及查詢事件資料。 如此一來，您可以驗證裝置是否如預期般發出資料。 您也可以監視 IoT 資產的健康情況、生產力和整體效率。 |
 | 根本原因分析和異常偵測 | [Azure 時間序列深入解析預覽版總管](./time-series-insights-update-explorer.md)同時支援模式和透視檢視，可進行和儲存多步驟的根本原因分析。 透過與 Azure 串流分析結合，您可使用時間序列深入解析來近乎即時地偵測警示與異常狀況。 |
-| 在時間序列深入解析平台上建置自訂應用程式 | 「時間序列深入解析」支援 [JavaScript SDK](./tutorial-explore-js-client-lib.md)。 SDK 提供豐富的控制項和簡化的存取查詢。 使用 SDK 在時間序列深入解析上建置自訂 IoT 應用程式，以符合您的特定業務需求。 您也可以直接使用時間序列深入解析[查詢 API](./time-series-insights-update-tsq.md)，將資料導到自訂 IoT 應用程式中。 |
+| 在時間序列深入解析平台上建置自訂應用程式 | 「時間序列深入解析」支援 [JavaScript SDK](https://github.com/microsoft/tsiclient/blob/master/docs/API.md)。 SDK 提供豐富的控制項和簡化的存取查詢。 使用 SDK 在時間序列深入解析上建置自訂 IoT 應用程式，以符合您的特定業務需求。 您也可以直接使用時間序列深入解析[查詢 API](./time-series-insights-update-tsq.md)，將資料導到自訂 IoT 應用程式中。 |
 
 ## <a name="next-steps"></a>後續步驟
 

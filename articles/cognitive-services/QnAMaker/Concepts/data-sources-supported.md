@@ -10,12 +10,12 @@ ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 09/25/2019
 ms.author: diberry
-ms.openlocfilehash: 1a9f3eb0ea79a0cd79850e721d081b00dc582a31
-ms.sourcegitcommit: 8bae7afb0011a98e82cbd76c50bc9f08be9ebe06
+ms.openlocfilehash: 4bd1386c68f3173c19b282c1e01ecff545c4bcd7
+ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/01/2019
-ms.locfileid: "71695285"
+ms.lasthandoff: 10/05/2019
+ms.locfileid: "71972057"
 ---
 # <a name="data-sources-for-qna-maker-content"></a>QnA Maker 內容的資料來源
 
@@ -34,9 +34,9 @@ QnA Maker 會自動從半結構化的內容 (例如，儲存為網頁、PDF 檔�
 |\* Excel|結構化 QnA 檔案<br> (包括 RTF、HTML 支援)|[Sample QnA FAQ.xls](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/QnA%20Maker%20Sample%20FAQ.xlsx)|
 |\* TXT/TSV|結構化 QnA 檔案|[Sample chit-chat.tsv](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/Scenario_Responses_Friendly.tsv)|
 
-**TSV 和 XLS**檔案（來自匯出的知識庫）只能透過從 QnA Maker 入口網站的 [**設定**] 頁面匯入檔案來使用。 在建立知識庫時，或從 [**設定**] 頁面上的 [新增檔案或 URL] 功能，都無法使用它們做為資料來源。 
+### <a name="import-and-export-knowledge-base"></a>匯入和匯出知識庫
 
-深入瞭解如何使用[多回合]()檔。 
+**TSV 和 XLS**檔案（來自匯出的知識庫）只能透過從 QnA Maker 入口網站的 [**設定**] 頁面匯入檔案來使用。 在知識庫建立期間，或在 [**設定**] 頁面上的 [ **+ 新增**檔案] 或 [ **+ 新增 URL** ] 功能，都無法使用這些資料來源做為資料來源。 
 
 ## <a name="data-source-locations"></a>資料來源位置
 
@@ -144,7 +144,7 @@ Answer2
 
 採用結構化 .txt、.tsv 或 .xls 檔案形式的 QnA 也可上傳至 QnA Maker，以便建立或擴大知識庫。  這些檔案可以是純文字，也可以具有 RTF 或 HTML 的內容。 
 
-| 問題  | 回答  | 中繼資料（1個索引鍵：1值） |
+| 問題  | Answer  | 中繼資料（1個索引鍵：1值） |
 |-----------|---------|-------------------------|
 | 問題 1 | 解答 1 | <code>Key1:Value1 &#124; Key2:Value2</code> |
 | 問題 2 | 解答 2 |      `Key:Value`           |
@@ -171,7 +171,7 @@ Answer2
 
 匯入知識庫後，將會取代現有知識庫的內容。 匯入時必須要有包含資料來源資訊的結構化 .tsv 檔案。 這項資訊可協助 QnA Maker 將問答組分組，並將其歸於特定資料來源。
 
-| 問題  | 回答  | Source| 中繼資料（1個索引鍵：1值） |          
+| 問題  | Answer  | Source| 中繼資料（1個索引鍵：1值） |          
 |-----------|---------|----|---------------------|
 | 問題 1 | 解答 1 | Url1 | <code>Key1:Value1 &#124; Key2:Value2</code> |
 | 問題 2 | 解答 2 | 編輯|    `Key:Value`       |
@@ -184,7 +184,7 @@ Answer2
 
 ## <a name="formatting-considerations"></a>格式化考量
 
-匯入檔案或 URL 之後，QnA Maker 會以[markdown 格式](https://en.wikipedia.org/wiki/Markdown)轉換並儲存您的內容。 轉換程式會在文字中加入新行，例如`\n\n`。 Markdown 格式的知識可協助您瞭解已轉換的內容，並管理您的知識庫內容。 
+匯入檔案或 URL 之後，QnA Maker 會以[markdown 格式](https://en.wikipedia.org/wiki/Markdown)轉換並儲存您的內容。 轉換程式會在文字中加入新行，例如 `\n\n`。 Markdown 格式的知識可協助您瞭解已轉換的內容，並管理您的知識庫內容。 
 
 如果您直接在知識庫中新增或編輯內容，請使用**markdown 格式**來建立 rtf 文字內容，或變更已在解答中的 markdown 格式內容。 QnA Maker 支援許多 markdown 格式，可將豐富的文字功能帶入您的內容。 不過，用戶端應用程式（例如聊天機器人）可能不支援相同的一組 markdown 格式。 測試用戶端應用程式的答案顯示是很重要的。 
 
@@ -193,19 +193,19 @@ Answer2
 |用途|格式|範例 markdown|轉譯<br>如聊天機器人中所顯示|
 |--|--|--|--|
 2個句子之間的新行。|`\n\n`|`How can I create a bot with \n\n QnA Maker?`|![將兩個句子之間的新行格式化](../media/qnamaker-concepts-datasources/format-newline.png)|
-|從 h1 到 h6 的標頭，的`#`數位代表哪一個標頭。 1 `#`是 h1。|`\n# text \n## text \n### text \n####text \n#####text` |`## Creating a bot \n ...text.... \n### Important news\n ...text... \n### Related Information\n ....text...`<br><br>`\n# my h1 \n## my h2\n### my h3 \n#### my h4 \n##### my h5`|![具有 markdown 標頭的格式](../media/qnamaker-concepts-datasources/format-headers.png)<br>![格式為 markdown 標頭 H1 至 H5](../media/qnamaker-concepts-datasources/format-h1-h5.png)|
+|從 h1 到 h6 的標頭，`#` 的數目代表哪一個標頭。 1 `#` 是 h1。|`\n# text \n## text \n### text \n####text \n#####text` |`## Creating a bot \n ...text.... \n### Important news\n ...text... \n### Related Information\n ....text...`<br><br>`\n# my h1 \n## my h2\n### my h3 \n#### my h4 \n##### my h5`|![具有 markdown 標頭的格式](../media/qnamaker-concepts-datasources/format-headers.png)<br>![格式為 markdown 標頭 H1 至 H5](../media/qnamaker-concepts-datasources/format-h1-h5.png)|
 |斜體 |`*text*`|`How do I create a bot with *QnA Maker*?`|![具有斜體的格式](../media/qnamaker-concepts-datasources/format-italics.png)|
 |字串（粗體）|`**text**`|`How do I create a bot with **QnA Maker**?`|![具有強式標記的格式（粗體）](../media/qnamaker-concepts-datasources/format-strong.png)|
 |連結的 URL|`[text](https://www.my.com)`|`How do I create a bot with [QnA Maker](https://www.qnamaker.ai)?`|![URL 的格式（超連結）](../media/qnamaker-concepts-datasources/format-url.png)|
 |\* 公用影像的 URL|`![text](https://www.my.com/image.png)`|`How can I create a bot with ![QnAMaker](https://review.docs.microsoft.com/en-us/azure/cognitive-services/qnamaker/media/qnamaker-how-to-key-management/qnamaker-resource-list.png)`|![公用影像 URL 的格式 ](../media/qnamaker-concepts-datasources/format-image-url.png)|
-|刪除線|`~~text~~`|`some ~~questoins~~ questions need to be asked`|![刪除線的格式](../media/qnamaker-concepts-datasources/format-strikethrough.png)|
+|線|`~~text~~`|`some ~~questoins~~ questions need to be asked`|![刪除線的格式](../media/qnamaker-concepts-datasources/format-strikethrough.png)|
 |粗體和斜體|`***text***`|`How can I create a ***QnA Maker*** bot?`|![粗體和斜體的格式](../media/qnamaker-concepts-datasources/format-bold-italics.png)|
 |連結的粗體 URL|`[**text**](https://www.my.com)`|`How do I create a bot with [**QnA Maker**](https://www.qnamaker.ai)?`|![粗體 URL 的格式](../media/qnamaker-concepts-datasources/format-bold-url.png)|
 |連結的斜體 URL|`[*text*](https://www.my.com)`|`How do I create a bot with [*QnA Maker*](https://www.qnamaker.ai)?`|![斜體 URL 的格式](../media/qnamaker-concepts-datasources/format-url-italics.png)|
 |Escape markdown 符號|`\*text\*`|`How do I create a bot with \*QnA Maker\*?`|![斜體 URL 的格式](../media/qnamaker-concepts-datasources/format-escape-markdown-symbols.png)|
 |已排序清單|`\n 1. item1 \n 1. item2`|`This is an ordered list: \n 1. List item 1 \n 1. List item 2`<br>上述範例使用內建于 markdown 的自動編號。<br>`This is an ordered list: \n 1. List item 1 \n 2. List item 2`<br>上述範例使用明確編號。|![已排序清單的格式](../media/qnamaker-concepts-datasources/format-ordered-list.png)|
 |未排序清單|`\n * item1 \n * item2`<br>或<br>`\n - item1 \n - item2`|`This is an ordered list: \n * List item 1 \n * List item 2`|![未排序清單的格式](../media/qnamaker-concepts-datasources/format-unordered-list.png)|
-|嵌套清單|`\n * Parent1 \n\t * Child1 \n\t * Child2 \n * Parent2`<br><br>`\n * Parent1 \n\t 1. Child1 \n\t * Child2 \n 1. Parent2`<br><br>您可以將已排序和未排序的清單一併嵌套在一起。 `\t`索引標籤表示子項目的縮排層級。|`This is an unordered list: \n * List item 1 \n\t * Child1 \n\t * Child2 \n * List item 2`<br><br>`This is an ordered nested list: \n 1. Parent1 \n\t 1. Child1 \n\t 1. Child2 \n 1. Parent2`|![嵌套未排序清單的格式](../media/qnamaker-concepts-datasources/format-nested-unordered-list.png)<br>![嵌套排序清單的格式](../media/qnamaker-concepts-datasources/format-nested-ordered-list.png)|
+|嵌套清單|`\n * Parent1 \n\t * Child1 \n\t * Child2 \n * Parent2`<br><br>`\n * Parent1 \n\t 1. Child1 \n\t * Child2 \n 1. Parent2`<br><br>您可以將已排序和未排序的清單一併嵌套在一起。 索引標籤 [`\t`] 表示子專案的縮排層級。|`This is an unordered list: \n * List item 1 \n\t * Child1 \n\t * Child2 \n * List item 2`<br><br>`This is an ordered nested list: \n 1. Parent1 \n\t 1. Child1 \n\t 1. Child2 \n 1. Parent2`|![嵌套未排序清單的格式](../media/qnamaker-concepts-datasources/format-nested-unordered-list.png)<br>![嵌套排序清單的格式](../media/qnamaker-concepts-datasources/format-nested-ordered-list.png)|
 
 \* QnA Maker 不會以任何方式處理影像。 這是用戶端應用程式用來呈現影像的角色。 
 
@@ -213,10 +213,10 @@ Answer2
 
 | 保留 HTML  | API 要求中的標記法  | 標記法（KB） |
 |-----------|---------|-------------------------|
-| 是 | \&lt; br\&gt; | &lt;b&gt; |
-| 是 | \&lt; h3\&gt; 標\&頭 lt;\&/h3 gt; | &lt;h3&gt;標&lt;頭/h3&gt; |
+| 是 | \&lt; br @ no__t-1gt; | &lt;br @ no__t-1 |
+| 是 | \&lt; h3 @ no__t-1gt; header @ no__t-2lt;/h3 @ no__t-3gt; | &lt;h3 @ no__t-1header @ no__t-2/h3 @ no__t-3 |
 
-此外，在 KB 中，CR LF （\r\n）會轉換為 \n。 LF （\n）會保持不被保留。 如果您想要將任何 escape 序列（例如 \t 或 \n）轉義，您可以使用反斜線，\\例如\\： '\\r\\n\\' 和 '\\t '
+此外，在 KB 中，CR LF （\r\n）會轉換為 \n。 LF （\n）會保持不被保留。 如果您想要將任何 escape 序列（例如 \t 或 \n）轉義，您可以使用反斜線，例如： ' \\ @ no__t-1r @ no__t-2 @ no__t-3n ' 和 ' \\ @ no__t-5t '
 
 ## <a name="editing-your-knowledge-base-locally"></a>在本機編輯您的知識庫
 

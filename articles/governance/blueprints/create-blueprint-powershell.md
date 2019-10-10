@@ -6,17 +6,16 @@ ms.author: dacoulte
 ms.date: 08/21/2019
 ms.topic: quickstart
 ms.service: blueprints
-manager: carmonm
-ms.openlocfilehash: d2069819203e821b42ea2f70e38f27b49053639e
-ms.sourcegitcommit: d70c74e11fa95f70077620b4613bb35d9bf78484
+ms.openlocfilehash: 6a1ef5aece030ac359e9c5811c815bec5ed57d27
+ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70910044"
+ms.lasthandoff: 10/06/2019
+ms.locfileid: "71978522"
 ---
 # <a name="quickstart-define-and-assign-an-azure-blueprint-with-powershell"></a>快速入門：使用 PowerShell 定義和指派 Azure 藍圖
 
-了解如何建立及指派有助於定義常用模式的藍圖，以根據 Resource Manager 範本、原則、安全性等，開發出可重複使用並可快速部署的組態。 在此教學課程中，您將了解如何使用 Azure 藍圖在您的組織中處理藍圖的建立、發佈和指派等常見工作，例如：
+了解如何建立及指派有助於定義常用模式的藍圖，以根據 Resource Manager 範本、原則、安全性等，開發出可重複使用並可快速部署的組態。 在本教學課程中，您將了解如何使用 Azure 藍圖在您的組織中處理藍圖的建立、發佈和指派等常見工作，例如：
 
 > [!div class="checklist"]
 > - 建立新藍圖並新增各種支援成品
@@ -26,7 +25,7 @@ ms.locfileid: "70910044"
 > - 檢查指派的藍圖的狀態和進度
 > - 移除已指派給訂用帳戶的藍圖
 
-如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free) 。
+如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶](https://azure.microsoft.com/free)。
 
 ## <a name="prerequisites"></a>必要條件
 

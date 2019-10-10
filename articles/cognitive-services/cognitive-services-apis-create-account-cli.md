@@ -7,14 +7,14 @@ author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: conceptual
-ms.date: 07/17/2019
+ms.date: 10/04/2019
 ms.author: aahi
-ms.openlocfilehash: cd00f49aea08e5c94a9206b64f66f4424ef3ca04
-ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
+ms.openlocfilehash: d50b0858ac7c4c0e5e0263bd157e044d0fec4489
+ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71057642"
+ms.lasthandoff: 10/05/2019
+ms.locfileid: "71972673"
 ---
 # <a name="create-a-cognitive-services-resource-using-the-azure-command-line-interfacecli"></a>使用 Azure 命令列介面（CLI）建立認知服務資源
 
@@ -60,7 +60,7 @@ az account list-locations \
 
 在您擁有 azure 位置之後，請使用[az group create](/cli/azure/group#az-group-create)命令在 Azure CLI 中建立新的資源群組。
 
-在下列範例中，將 azure 位置`westus2`取代為您的訂用帳戶可用的其中一個 azure 位置。
+在下列範例中，以您的訂用帳戶可用的其中一個 Azure 位置取代 azure 位置 `westus2`。
 
 ```azurecli-interactive
 az group create \
@@ -75,20 +75,20 @@ az group create \
 建立新資源時，您必須知道您想要使用的服務「種類」，以及您想要的[定價層](https://azure.microsoft.com/pricing/details/cognitive-services/)（或 sku）。 建立資源時，您將使用此和其他資訊做為參數。
 
 > [!NOTE]
-> 許多認知服務都有免費層，您可以用來試用服務。 若要使用免費層，請`F0`使用做為資源的 sku。
+> 許多認知服務都有免費層，您可以用來試用服務。 若要使用免費層，請使用 `F0` 作為資源的 sku。
 
-### <a name="vision"></a>辨識
+### <a name="vision"></a>視覺
 
 | 服務                    | 種類                      |
 |----------------------------|---------------------------|
 | 電腦視覺            | `ComputerVision`          |
 | 自訂視覺-預測 | `CustomVision.Prediction` |
 | 自訂視覺訓練   | `CustomVision.Training`   |
-| 人脸辨识 API                   | `Face`                    |
+| 人臉識別 API                   | `Face`                    |
 | 表單辨識器            | `FormRecognizer`          |
 | 筆跡辨識器             | `InkRecognizer`           |
 
-### <a name="search"></a>搜尋
+### <a name="search"></a>Search
 
 | 服務            | 種類                  |
 |--------------------|-----------------------|
@@ -120,7 +120,7 @@ az group create \
 | 服務           | 種類               |
 |-------------------|--------------------|
 | 異常偵測器  | `AnomalyDetector`  |
-| Content Moderator | `ContentModerator` |
+| 內容仲裁 | `ContentModerator` |
 | 個人化工具      | `Personalizer`     |
 
 您可以使用[az cognitiveservices account list-種類](https://docs.microsoft.com/cli/azure/cognitiveservices/account?view=azure-cli-latest#az-cognitiveservices-account-list-kinds)命令來尋找可用的認知服務「種類」清單：
@@ -133,7 +133,7 @@ az cognitiveservices account list-kinds
 
 若要建立並訂閱新的認知服務資源，請使用[az cognitiveservices account create](https://docs.microsoft.com/cli/azure/cognitiveservices/account?view=azure-cli-latest#az-cognitiveservices-account-create)命令。 此命令會將新的可計費資源新增至稍早建立的資源群組。 建立新資源時，您必須知道您想要使用的服務「種類」，以及其定價層（或 sku）和 Azure 位置：
 
-您可以使用下列命令來建立異常偵測器的 F0 （免費`anomaly-detector-resource` ）資源，並將其命名為。
+您可以使用下列命令，建立名為 `anomaly-detector-resource` 的異常偵測器的 F0 （免費）資源。
 
 ```azurecli-interactive
 az cognitiveservices account create \
@@ -170,6 +170,16 @@ az login
 * 在定價層中啟用的服務功能。
 * 預先定義的交易量成本。 超過此數量會導致您服務的[定價詳細資料](https://azure.microsoft.com/pricing/details/cognitive-services/custom-vision-service/)中所指定的額外費用。
 
+## <a name="get-current-quota-usage-for-your-resource"></a>取得資源的目前配額使用量
+
+使用[az cognitiveservices account list-usage](https://docs.microsoft.com/en-us/cli/azure/cognitiveservices/account?view=azure-cli-latest#az-cognitiveservices-account-list-usage)命令來取得認知服務資源的使用量。
+
+```azurecli-interactive
+az cognitiveservices account list-usage \
+    --name anomaly-detector-resource \
+    --resource-group cognitive-services-resource-group \
+    --subscription subscription-name
+```
 
 ## <a name="clean-up-resources"></a>清除資源
 

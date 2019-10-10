@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: erhopf
-ms.openlocfilehash: 9bb654f37ecc4fda46171e859adac0236b51e4b2
-ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
+ms.openlocfilehash: 636c397001a3130c60fc2bf498339ad058aca374
+ms.sourcegitcommit: 4d177e6d273bba8af03a00e8bb9fe51a447196d0
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70881489"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71959404"
 ---
 # <a name="get-started-with-custom-voice"></a>開始使用自訂語音
 
@@ -59,6 +59,6 @@ ms.locfileid: "70881489"
 
 ## <a name="next-steps"></a>後續步驟
 
-- [準備自訂語音資料](how-to-custom-voice.md)
+- [準備自訂語音資料](how-to-custom-voice-prepare-data.md)
 - [建立自訂語音](how-to-custom-voice-create-voice.md)
-- [輥記錄您的語音範例](record-custom-voice-samples.md)
+- [Guide：錄製您的語音範例 @ no__t-0

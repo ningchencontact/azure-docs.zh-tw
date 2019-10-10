@@ -10,12 +10,12 @@ ms.subservice: content-moderator
 ms.topic: conceptual
 ms.date: 03/19/2019
 ms.author: sajagtap
-ms.openlocfilehash: 6ec258bc52513772716fa8fe1078653575c923f3
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: 5a0d462f08e88ae4d26e1c684cfaf772910d2220
+ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68882015"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72242859"
 ---
 # <a name="create-video-reviews-using-net"></a>使用 .NET 來建立影片審核項目
 
@@ -27,7 +27,7 @@ ms.locfileid: "68882015"
 - 取得審核項目的狀態和詳細資料
 - 發佈審核項目
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 - 在內容仲裁[審查工具](https://contentmoderator.cognitive.microsoft.com/)網站上登入或建立帳戶。
 - 本文假設您已[仲裁影片 (請參閱快速入門)](video-moderation-api.md)，而且具有回應資料。 您需要使用它來為人工仲裁者建立以畫面為基礎的審核項目。
@@ -86,8 +86,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Threading;
 using Microsoft.Azure.CognitiveServices.ContentModerator;
-using Microsoft.CognitiveServices.ContentModerator;
-using Microsoft.CognitiveServices.ContentModerator.Models;
+using Microsoft.Azure.CognitiveServices.ContentModerator.Models;
 using Newtonsoft.Json;
 ```
 
@@ -166,7 +165,7 @@ public static ContentModeratorClient NewClient()
 **CreateVideoReviews** 具有下列必要參數：
 1. 一個包含 MIME 類型的字串，這應該是 "application/json"。 
 1. 您的 Content Moderator 小組名稱。
-1. **IList\<CreateVideoReviewsBodyItem >** 物件。 每個 **CreateVideoReviewsBodyItem** 物件皆代表一個影片審核項目。 這個快速入門會一次建立一個審核項目。
+1. **IList @ no__t-1CreateVideoReviewsBodyItem >** 物件。 每個 **CreateVideoReviewsBodyItem** 物件皆代表一個影片審核項目。 這個快速入門會一次建立一個審核項目。
 
 **CreateVideoReviewsBodyItem** 具有數個屬性。 您必須至少設定下列屬性：
 - **Content**。 要審核的影片 URL。
@@ -174,7 +173,7 @@ public static ContentModeratorClient NewClient()
 - **Status**。 請將值設定為 "Unpublished"。 如果您未設定此屬性，則會預設為 "Pending"，意謂著已發佈影片審核項目而正等待人工審核。 發佈影片審核項目之後，您就無法再將影片畫面、文字記錄或文字記錄仲裁結果新增至該審核項目。
 
 > [!NOTE]
-> **Createvideoreviews 專案識別碼**會傳回 >\<的 IList 字串。 這些字串中每個都包含影片審核項目的識別碼。 這些識別碼是 GUID 且與 **ContentId** 屬性的值不同。 
+> **Createvideoreviews 專案識別碼**會傳回 IList @ no__t-1string >。 這些字串中每個都包含影片審核項目的識別碼。 這些識別碼是 GUID 且與 **ContentId** 屬性的值不同。 
 
 將下列方法定義新增至 VideoReviews 命名空間、Program 類別。
 
@@ -224,18 +223,18 @@ private static string CreateReview(ContentModeratorClient client, string id, str
 1. 一個包含 MIME 類型的字串，這應該是 "application/json"。
 1. 您的 Content Moderator 小組名稱。
 1. **CreateVideoReviews** 所傳回的影片審核項目識別碼。
-1. **IList\<VideoFrameBodyItem >** 物件。 每個 **VideoFrameBodyItem** 物件皆代表一個影片審核項目。
+1. **IList @ no__t-1VideoFrameBodyItem >** 物件。 每個 **VideoFrameBodyItem** 物件皆代表一個影片審核項目。
 
 **VideoFrameBodyItem** 具有下列屬性：
 - **Timestamp**。 一個包含從影片中擷取影片畫面之時間 (以秒為單位) 的字串。
 - **FrameImage**。 影片畫面的 URL。
-- **中繼資料**： IList\<VideoFrameBodyItemMetadataItem >。 **VideoFrameBodyItemMetadataItem** 就是一個索引鍵/值組。 有效的索引鍵包括：
+- **中繼資料**： IList @ no__t-0VideoFrameBodyItemMetadataItem >。 **VideoFrameBodyItemMetadataItem** 就是一個索引鍵/值組。 有效的索引鍵包括：
 - **reviewRecommended**。 如果建議對影片畫面進行人工審核，則為 True。
 - **adultScore**。 一個對影片畫面中成人內容的嚴重性進行評等的值 (0 到 1)。
 - **a**。 如果影片包含成人內容，則為 True。
 - **racyScore**。 一個對影片畫面中猥褻內容的嚴重性進行評等的值 (0 到 1)。
 - **r**。 如果影片畫面包含猥褻內容，則為 True。
-- **ReviewerResultTags**。 IList\<VideoFrameBodyItemReviewerResultTagsItem >。 **VideoFrameBodyItemReviewerResultTagsItem** 就是一個索引鍵/值組。 應用程式可以使用這些標籤來組織影片畫面。
+- **ReviewerResultTags**。 IList @ no__t-0VideoFrameBodyItemReviewerResultTagsItem >。 **VideoFrameBodyItemReviewerResultTagsItem** 就是一個索引鍵/值組。 應用程式可以使用這些標籤來組織影片畫面。
 
 > [!NOTE]
 > 本快速入門會為 **adultScore** 和 **racyScore** 屬性產生隨機值。 在生產環境應用程式中，您會從部署成「Azure 媒體服務」的[影片仲裁服務](video-moderation-api.md)取得這些值。

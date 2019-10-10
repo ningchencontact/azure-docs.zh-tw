@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 09/25/2019
 ms.author: diberry
 ms.custom: seodec18
-ms.openlocfilehash: 530869928f7a25e779cb01f0fe392efdbb54c5ba
-ms.sourcegitcommit: 8bae7afb0011a98e82cbd76c50bc9f08be9ebe06
+ms.openlocfilehash: 52d4efaba25dcede3322586d05fceb4d166f51e3
+ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/01/2019
-ms.locfileid: "71695107"
+ms.lasthandoff: 10/05/2019
+ms.locfileid: "71973812"
 ---
 # <a name="knowledge-base-lifecycle-in-qna-maker"></a>QnA Maker 中的知識庫生命週期
 QnA Maker 在反覆的週期中學習模型變更、語句範例、發佈資料以及從端點查詢收集資料時，會有最佳學習成效。 
@@ -24,7 +24,7 @@ QnA Maker 在反覆的週期中學習模型變更、語句範例、發佈資料�
 ![編寫週期](../media/qnamaker-concepts-lifecycle/kb-lifecycle.png)
 
 ## <a name="creating-a-qna-maker-knowledge-base"></a>建立 QnA Maker 知識庫
-QnA Maker 知識庫 (KB) 端點會根據知識庫的內容對使用者查詢提供最相符的解答。 建立知識庫是指為問題、解答和相關聯的中繼資料設定內容存放庫的一次性動作。 知識庫可藉由對既有的內容編目來建立，這些內容包括常見問題集頁面、產品手冊或結構化問答組。 了解如何[建立知識庫](../How-To/create-knowledge-base.md)。
+QnA Maker 知識庫 (KB) 端點會根據知識庫的內容對使用者查詢提供最相符的解答。 建立知識庫是指為問題、解答和相關聯的中繼資料設定內容存放庫的一次性動作。 知識庫可藉由對既有的內容編目來建立，這些內容包括常見問題集頁面、產品手冊或結構化問答組。 了解如何[建立知識庫](../quickstarts/create-publish-knowledge-base.md)。
 
 ## <a name="testing-and-updating-the-knowledge-base"></a>測試和更新知識庫
 
@@ -74,8 +74,3 @@ QnA Maker 不提供版本控制。 您必須從 [**設定**] 頁面匯出知識�
 
 > [!div class="nextstepaction"]
 > [信賴分數](./confidence-score.md)
-
-## <a name="see-also"></a>另請參閱 
-
-[知識庫](./knowledge-base.md)
-[QnA Maker 概觀](../Overview/overview.md)

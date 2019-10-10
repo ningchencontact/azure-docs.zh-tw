@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
-ms.date: 06/27/2019
+ms.date: 10/02/2019
 ms.author: diberry
-ms.openlocfilehash: 2f9b624ffcc04963046ad817bb2bc9c025161506
-ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
+ms.openlocfilehash: 03e04853e93bb78391476a365b20550d471e1dbb
+ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71300258"
+ms.lasthandoff: 10/05/2019
+ms.locfileid: "71971798"
 ---
 # <a name="get-an-answer-with-the-generateanswer-api-and-metadata"></a>取得 GenerateAnswer API 和中繼資料的解答
 
@@ -48,7 +48,7 @@ QnA Maker 可讓您以索引鍵和值組的形式，將中繼資料新增至您�
 若要取得端點詳細資料：
 1. 登入 [https://www.qnamaker.ai](https://www.qnamaker.ai)。
 1. 在 [**我的知識庫**] 中，選取您知識庫的 [查看程式**代碼**]。
-    ![我知識庫的螢幕擷取畫面](../media/qnamaker-how-to-metadata-usage/my-knowledge-bases.png)
+    @no__t-My 知識庫 @ no__t-1 的0Screenshot
 1. 取得 GenerateAnswer 端點詳細資料。
 
     ![端點詳細資料的螢幕擷取畫面](../media/qnamaker-how-to-metadata-usage/view-code.png)
@@ -64,7 +64,7 @@ QnA Maker 可讓您以索引鍵和值組的形式，將中繼資料新增至您�
 POST 要求會使用：
 
 * 必要的[URI 參數](https://docs.microsoft.com/rest/api/cognitiveservices/qnamakerruntime/runtime/train#uri-parameters)
-* 必要的[標頭屬性](https://docs.microsoft.com/azure/cognitive-services/qnamaker/quickstarts/get-answer-from-knowledge-base-nodejs#add-a-post-request-to-send-question-and-get-an-answer)， `Authorization`用於安全性
+* 必要的[標頭屬性](https://docs.microsoft.com/azure/cognitive-services/qnamaker/quickstarts/get-answer-from-knowledge-base-nodejs#add-a-post-request-to-send-question-and-get-an-answer)，`Authorization`，用於安全性
 * 必要的[主體屬性](https://docs.microsoft.com/rest/api/cognitiveservices/qnamakerruntime/runtime/train#feedbackrecorddto)。 
 
 GenerateAnswer URL 的格式如下： 
@@ -73,7 +73,7 @@ GenerateAnswer URL 的格式如下：
 https://{QnA-Maker-endpoint}/knowledgebases/{knowledge-base-ID}/generateAnswer
 ```
 
-請記得將的 HTTP 標頭屬性`Authorization`設定為，並將字串`EndpointKey`的值加上尾端空格，然後在 [**設定**] 頁面上找到端點金鑰。
+請記得將 `Authorization` 的 HTTP 標頭屬性設定為 `EndpointKey` 的字串值加上尾端空格，然後在 [**設定**] 頁面上找到端點金鑰。
 
 範例 JSON 主體如下所示：
 
@@ -219,9 +219,9 @@ GenerateAnswer 的回應包含相符的問題和答案集合的對應中繼資�
 
 ## <a name="match-questions-only-by-text"></a>只比對問題（依文字）
 
-根據預設，QnA Maker 會搜尋問題和答案。 如果您只想要搜尋問題，若要產生解答，請`RankerType=QuestionOnly`在 GenerateAnswer 要求的 POST 主體中使用。
+根據預設，QnA Maker 會搜尋問題和答案。 如果您只想要搜尋問題，若要產生解答，請在 GenerateAnswer 要求的 POST 主體中使用 `RankerType=QuestionOnly`。
 
-您可以使用`isTest=true`在測試 kb 中搜尋已`isTest=false`發佈的 kb、使用或。
+您可以使用 `isTest=false` 來搜尋已發佈的 kb，或使用 `isTest=true` 的測試 kb。
 
 ```json
 {
@@ -249,4 +249,4 @@ GenerateAnswer 的回應包含相符的問題和答案集合的對應中繼資�
 [**發佈**] 頁面也會提供資訊，以使用[Postman](../Quickstarts/get-answer-from-kb-using-postman.md)和[捲曲](../Quickstarts/get-answer-from-kb-using-curl.md)產生答案。 
 
 > [!div class="nextstepaction"]
-> [建立知識庫](./create-knowledge-base.md)
+> [建立知識庫 bot](../tutorials/integrate-qnamaker-luis.md)

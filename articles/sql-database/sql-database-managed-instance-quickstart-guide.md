@@ -11,12 +11,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: sstein, carlr
 ms.date: 07/11/2019
-ms.openlocfilehash: a8dfe0db5277a995b6e6675381ebeb5aeb243c9b
-ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
+ms.openlocfilehash: 65b6b503d107b36813d1716348ce5f11fa840cc0
+ms.sourcegitcommit: f2d9d5133ec616857fb5adfb223df01ff0c96d0a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69647207"
+ms.lasthandoff: 10/03/2019
+ms.locfileid: "71937220"
 ---
 # <a name="getting-started-with-azure-sql-database-managed-instance"></a>開始使用 Azure SQL Database 受控執行個體
 
@@ -73,6 +73,6 @@ ms.locfileid: "69647207"
 ## <a name="next-steps"></a>後續步驟
 
 - 在[這裡取得受控執行個體中已支援功能的高階清單](sql-database-features.md)，並在[這裡取得詳細資料和已知問題](sql-database-managed-instance-transact-sql-information.md)。
-- 了解[受控執行個體的技術特性](sql-database-managed-instance-resource-limits.md#instance-level-resource-limits)。
+- 了解[受控執行個體的技術特性](sql-database-managed-instance-resource-limits.md#service-tier-characteristics)。
 - 如需更進階的操作說明，請參閱[如何在 Azure SQL Database 中使用受控執行個體](sql-database-howto-managed-instance.md)。
 - [為您的內部部署資料庫識別正確的 Azure SQL Database/受控執行個體 SKU](/sql/dma/dma-sku-recommend-sql-db/)。
