@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
-ms.openlocfilehash: eb4f0e26d1795abc3392e9736e71093fab79aae2
-ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
+ms.openlocfilehash: 1bef73e6be4bdbe8828e1d20ea6e684759984627
+ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68967938"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72244638"
 ---
 # <a name="security-frame-authentication--mitigations"></a>安全性框架：驗證 | 緩和措施 
 
@@ -49,7 +49,7 @@ ms.locfileid: "68967938"
 | **適用的技術** | 泛型 |
 | **屬性**              | N/A  |
 | **參考**              | N/A  |
-| 詳細資料 | <p>驗證是實體證明其身分識別的程序 (通常透過使用者名稱和密碼等認證)。 有多個驗證通訊協定可列入考量。 下列是其中一些通訊協定︰</p><ul><li>用戶憑證</li><li>Windows 架構</li><li>表單架構</li><li>同盟 - ADFS</li><li>同盟 - Azure AD</li><li>同盟 - Identity Server</li></ul><p>考慮使用標準驗證機制來識別來源程序</p>|
+| 詳細資料 | <p>驗證是實體證明其身分識別的程序 (通常透過使用者名稱和密碼等認證)。 有多個驗證通訊協定可列入考量。 下列是其中一些通訊協定︰</p><ul><li>Client certificates</li><li>Windows 架構</li><li>表單架構</li><li>同盟 - ADFS</li><li>同盟 - Azure AD</li><li>同盟 - Identity Server</li></ul><p>考慮使用標準驗證機制來識別來源程序</p>|
 
 ## <a id="handle-failed-authn"></a>應用程式必須安全地處理失敗的驗證案例
 
@@ -104,7 +104,7 @@ ms.locfileid: "68967938"
 | **適用的技術** | 泛型 |
 | **屬性**              | N/A  |
 | **參考**              | N/A  |
-| 詳細資料 | <p>必須實作符合組織原則和最佳作法的密碼和帳戶原則。</p><p>若要防止暴力密碼破解及以字典為基礎的猜測︰必須實作強式密碼原則，以確保使用者建立複雜的密碼 (例如，長度最少 12 個字元、英數字元和特殊字元)。</p><p>帳戶鎖定原則可能會以下列方式實作︰</p><ul><li>**軟式鎖定︰** 這是保護使用者以對抗暴力密碼破解攻擊的理想選項。 例如, 每當使用者輸入錯誤的密碼三次時, 應用程式可能會鎖定該帳戶一分鐘, 以減緩暴力密碼破解的處理速度, 讓攻擊者更不容易獲利。 如果您要在此範例中執行硬鎖定的對策, 您可以藉由永久鎖定帳戶來達成「DoS」。 或者，應用程式可產生 OTP (一次性密碼) 並以頻外方式 (透過電子郵件、簡訊等) 將它傳送給使用者。 另一種方法則是在達到嘗試失敗次數閾值之後，實作 CAPTCHA。</li><li>**硬式鎖定︰** 每當您偵測到攻擊應用程式的使用者, 並藉由永久鎖定其帳戶來加以計數器, 直到回應小組有時間執行其辯論時, 就應該套用這種類型的鎖定。 在此程式之後, 您可以決定讓使用者回到其帳戶, 或對他們採取進一步的法律動作。 這種方法可防止攻擊者進一步入侵您的應用程式和基礎結構。</li></ul><p>若要防禦對於預設和可預測帳戶的攻擊，請確認所有金鑰和密碼均可取代，而且會在安裝階段後產生或取代。</p><p>如果應用程式必須自動產生密碼，請確保所產生的密碼是隨機的且具有高熵。</p>|
+| 詳細資料 | <p>必須實作符合組織原則和最佳作法的密碼和帳戶原則。</p><p>若要防止暴力密碼破解及以字典為基礎的猜測︰必須實作強式密碼原則，以確保使用者建立複雜的密碼 (例如，長度最少 12 個字元、英數字元和特殊字元)。</p><p>帳戶鎖定原則可能會以下列方式實作︰</p><ul><li>**軟式鎖定︰** 這是保護使用者以對抗暴力密碼破解攻擊的理想選項。 例如，每當使用者輸入錯誤的密碼三次時，應用程式可能會鎖定該帳戶一分鐘，以減緩暴力密碼破解的處理速度，讓攻擊者更不容易獲利。 如果您要在此範例中執行硬鎖定的對策，您可以藉由永久鎖定帳戶來達成「DoS」。 或者，應用程式可產生 OTP (一次性密碼) 並以頻外方式 (透過電子郵件、簡訊等) 將它傳送給使用者。 另一種方法則是在達到嘗試失敗次數閾值之後，實作 CAPTCHA。</li><li>**硬式鎖定︰** 每當您偵測到攻擊應用程式的使用者，並藉由永久鎖定其帳戶來加以計數器，直到回應小組有時間執行其辯論時，就應該套用這種類型的鎖定。 在此程式之後，您可以決定讓使用者回到其帳戶，或對他們採取進一步的法律動作。 這種方法可防止攻擊者進一步入侵您的應用程式和基礎結構。</li></ul><p>若要防禦對於預設和可預測帳戶的攻擊，請確認所有金鑰和密碼均可取代，而且會在安裝階段後產生或取代。</p><p>如果應用程式必須自動產生密碼，請確保所產生的密碼是隨機的且具有高熵。</p>|
 
 ## <a id="controls-username-enum"></a>實作控制項以避免列舉使用者名稱
 
@@ -181,7 +181,7 @@ ms.locfileid: "68967938"
 | **適用的技術** | 泛型 |
 | **屬性**              | N/A  |
 | **參考**              | [什麼是 Azure Multi-Factor Authentication？](https://azure.microsoft.com/documentation/articles/multi-factor-authentication/) |
-| **步驟** | <p>多因素驗證 (MFA) 是需要多種驗證方法，並在使用者登入和交易中新增重要的第二層安全性的驗證方法。 其運作方式需要下列其中任何二或多個驗證方法：</p><ul><li>您知道的某些資訊 (通常是密碼)</li><li>您擁有的某些東西 (不容易輕易複製的信任裝置，例如電話)</li><li>您身上的某些特徵 (生物識別技術)</li><ul>|
+| **步驟** | <p>多因素驗證 (MFA) 是需要多種驗證方法，並在使用者登入和交易中新增重要的第二層安全性的驗證方法。 其運作方式需要下列其中任何二或多個驗證方法：</p><ul><li>您知道的某些資訊 (通常是密碼)</li><li>您擁有的事物 (不易複製的受信任裝置，例如電話)</li><li>您身上的某些特徵 (生物識別技術)</li><ul>|
 
 ## <a id="anon-access-cluster"></a>限制 Service Fabric 叢集的匿名存取
 
@@ -308,7 +308,7 @@ ms.locfileid: "68967938"
 | **SDL 階段**               | 建置 |  
 | **適用的技術** | .NET Framework 3 |
 | **屬性**              | 用戶端認證類型 - None |
-| **參考**              | [MSDN](https://msdn.microsoft.com/library/ff648500.aspx)、[Fortify](https://vulncat.fortify.com/en/detail?id=desc.semantic.dotnet.wcf_misconfiguration_anonymous_message_client) |
+| **參考**              | [MSDN](https://msdn.microsoft.com/library/ff648500.aspx)、[Fortify](https://community.microfocus.com/t5/UFT-Discussions/UFT-API-Test-with-WCF-wsHttpBinding/m-p/600927) |
 | **步驟** | 缺少驗證表示每個人都能夠存取此服務。 不會驗證其用戶端的服務可允許所有使用者進行存取。 設定應用程式以針對用戶端認證進行驗證。 將訊息 clientCredentialType 設定為 Windows 或 [憑證] 即可完成此作業。 |
 
 ### <a name="example"></a>範例
@@ -324,7 +324,7 @@ ms.locfileid: "68967938"
 | **SDL 階段**               | 建置 |  
 | **適用的技術** | 泛型、.NET Framework 3 |
 | **屬性**              | 用戶端認證類型 - None |
-| **參考**              | [MSDN](https://msdn.microsoft.com/library/ff648500.aspx)、[Fortify](https://vulncat.fortify.com/en/detail?id=desc.semantic.dotnet.wcf_misconfiguration_anonymous_transport_client) |
+| **參考**              | [MSDN](https://msdn.microsoft.com/library/ff648500.aspx)、[Fortify](https://community.microfocus.com/t5/UFT-Discussions/UFT-API-Test-with-WCF-wsHttpBinding/m-p/600927) |
 | **步驟** | 缺少驗證表示每個人都能夠存取此服務。 不會驗證其用戶端的服務可允許所有使用者存取其功能。 設定應用程式以針對用戶端認證進行驗證。 將傳輸 clientCredentialType 設定為 Windows 或 [憑證] 即可完成此作業。 |
 
 ### <a name="example"></a>範例
@@ -341,7 +341,7 @@ ms.locfileid: "68967938"
 | **適用的技術** | 泛型 |
 | **屬性**              | N/A  |
 | **參考**              | [ASP.NET Web API 中的驗證和授權](https://www.asp.net/web-api/overview/security/authentication-and-authorization-in-aspnet-web-api)、[外部驗證服務與 ASP.NET Web API (C#)](https://www.asp.net/web-api/overview/security/external-authentication-services) |
-| **步驟** | <p>驗證是實體證明其身分識別的程序 (通常透過使用者名稱和密碼等認證)。 有多個驗證通訊協定可列入考量。 下列是其中一些通訊協定︰</p><ul><li>用戶憑證</li><li>Windows 架構</li><li>表單架構</li><li>同盟 - ADFS</li><li>同盟 - Azure AD</li><li>同盟 - Identity Server</li></ul><p>[參考] 區段中的連結提供如何實作每個驗證方案來保護 Web API 的低階詳細資料。</p>|
+| **步驟** | <p>驗證是實體證明其身分識別的程序 (通常透過使用者名稱和密碼等認證)。 有多個驗證通訊協定可列入考量。 下列是其中一些通訊協定︰</p><ul><li>Client certificates</li><li>Windows 架構</li><li>表單架構</li><li>同盟 - ADFS</li><li>同盟 - Azure AD</li><li>同盟 - Identity Server</li></ul><p>[參考] 區段中的連結提供如何實作每個驗證方案來保護 Web API 的低階詳細資料。</p>|
 
 ## <a id="authn-aad"></a>使用 Azure Active Directory 所支援的標準驗證案例
 
@@ -435,7 +435,7 @@ OpenIdConnectOptions openIdConnectOptions = new OpenIdConnectOptions
 | **適用的技術** | 泛型 |
 | **屬性**              | N/A  |
 | **參考**              | [ADAL](https://azure.microsoft.com/documentation/articles/active-directory-authentication-libraries/) |
-| **步驟** | <p>Azure AD 驗證程式庫 (ADAL) 可讓用戶端應用程式開發人員輕鬆地向雲端或內部部署 Active Directory (AD) 驗證使用者，然後取得存取權杖來保護 API 呼叫。</p><p>ADAL 有許多功能可使開發人員的驗證更容易，例如非同步支援、儲存存取權杖和更新權杖的可設定權杖快取、當存取權杖到期並且更新權杖可供使用時自動更新權杖等等。</p><p>藉由處理大部分的複雜度，ADAL 可以幫助開發人員專注於他們的應用程式中的商務邏輯，並輕鬆地保護資源而不需成為安全性方面的專家。 個別的程式庫適用于 .NET、JavaScript (用戶端和 node.js)、Python、iOS、Android 和 JAVA。</p>|
+| **步驟** | <p>Azure AD 驗證程式庫 (ADAL) 可讓用戶端應用程式開發人員輕鬆地向雲端或內部部署 Active Directory (AD) 驗證使用者，然後取得存取權杖來保護 API 呼叫。</p><p>ADAL 有許多功能可使開發人員的驗證更容易，例如非同步支援、儲存存取權杖和更新權杖的可設定權杖快取、當存取權杖到期並且更新權杖可供使用時自動更新權杖等等。</p><p>藉由處理大部分的複雜度，ADAL 可以幫助開發人員專注於他們的應用程式中的商務邏輯，並輕鬆地保護資源而不需成為安全性方面的專家。 個別的程式庫適用于 .NET、JavaScript （用戶端和 node.js）、Python、iOS、Android 和 JAVA。</p>|
 
 ## <a id="authn-devices-field"></a>驗證連線到現場閘道的裝置
 
@@ -456,7 +456,7 @@ OpenIdConnectOptions openIdConnectOptions = new OpenIdConnectOptions
 | **SDL 階段**               | 建置 |  
 | **適用的技術** | 泛型、C#、Node.JS  |
 | **屬性**              | N/A、閘道選擇 - Azure IoT 中樞 |
-| **參考**              | N/A、[具有 .net 的 Azure IoT 中樞](https://azure.microsoft.com/documentation/articles/iot-hub-csharp-csharp-getstarted/)、[與 Iot 中樞和 Node JS 消費者入門](https://azure.microsoft.com/documentation/articles/iot-hub-node-node-getstarted),[使用 SAS 和憑證來保護 IoT](https://azure.microsoft.com/documentation/articles/iot-hub-sas-tokens/), [Git 存放庫](https://github.com/Azure/azure-iot-sdks/tree/master/node) |
+| **參考**              | N/A、[具有 .net 的 Azure IoT 中樞](https://azure.microsoft.com/documentation/articles/iot-hub-csharp-csharp-getstarted/)、[與 Iot 中樞和 Node JS 消費者入門](https://azure.microsoft.com/documentation/articles/iot-hub-node-node-getstarted)，[使用 SAS 和憑證來保護 IoT](https://azure.microsoft.com/documentation/articles/iot-hub-sas-tokens/)， [Git 存放庫](https://github.com/Azure/azure-iot-sdks/tree/master/node) |
 | **步驟** | <ul><li>**泛型：** 使用傳輸層安全性 (TLS) 或 IPSec 來驗證裝置。 如果裝置無法處理完整的非對稱密碼編譯，則基礎結構應該支援在這些裝置上使用預先共用金鑰 (PSK)。 利用 Azure AD、Oauth。</li><li>**C#:** 建立 DeviceClient 執行個體時，Create 方法預設會建立一個使用 AMQP 通訊協定來與 IoT 中樞通訊的 DeviceClient 執行個體。 若要使用 HTTPS 通訊協定，請使用可讓您指定通訊協定的 Create 方法的覆寫。 若您使用 HTTPS 通訊協定，您也應該將 `Microsoft.AspNet.WebApi.Client` Nuget 套件新增至您的專案，以包含 `System.Net.Http.Formatting` 命名空間。</li></ul>|
 
 ### <a name="example"></a>範例

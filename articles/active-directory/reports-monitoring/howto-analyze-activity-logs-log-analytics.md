@@ -17,12 +17,12 @@ ms.date: 04/18/2019
 ms.author: chadam
 ms.reviewer: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 77eb03089d956d0fb32ef0463b3d1cdb49ff0dbb
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
+ms.openlocfilehash: 1670c93f83ecd6f5bd557d24ec754998a225db0c
+ms.sourcegitcommit: 1c2659ab26619658799442a6e7604f3c66307a89
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68989819"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72255618"
 ---
 # <a name="analyze-azure-ad-activity-logs-with-azure-monitor-logs"></a>使用 Azure 監視器記錄來分析 Azure AD 活動記錄
 
@@ -32,13 +32,19 @@ ms.locfileid: "68989819"
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-log-analytics-rebrand.md)]
 
-## <a name="prerequisites"></a>先決條件 
+## <a name="prerequisites"></a>必要條件 
 
 若要繼續，您需要：
 
 * Azure 訂用帳戶中的 Log Analytics 工作區。 了解如何[建立 Log Analytics 工作區](https://docs.microsoft.com/azure/log-analytics/log-analytics-quick-create-workspace)。
 * 首先，請完成[將 Azure AD 活動記錄路由至 Log Analytics 工作區](howto-integrate-activity-logs-with-log-analytics.md)的步驟。
-
+*  [存取](https://docs.microsoft.com/en-us/azure/azure-monitor/platform/manage-access#manage-access-using-workspace-permissions)log analytics 工作區
+* Azure Active Directory 中的下列角色（如果您是透過 Azure Active Directory 入口網站存取 Log Analytics）
+    - 安全性系統管理員
+    - 安全性讀取者
+    - 報告讀取者
+    - 全域管理員
+    
 ## <a name="navigate-to-the-log-analytics-workspace"></a>瀏覽至 Log Analytics 工作區
 
 1. 登入 [Azure 入口網站](https://portal.azure.com)。 

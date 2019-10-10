@@ -1,17 +1,17 @@
 ---
-title: 建立 Azure HPC 快取（預覽）
+title: 建立 Azure HPC Cache (預覽)
 description: 如何建立 Azure HPC Cache 執行個體
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: conceptual
 ms.date: 09/24/2019
-ms.author: v-erkell
-ms.openlocfilehash: 68ae316dff1518dd8115006764c6cc3036f59e4a
-ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
+ms.author: rohogue
+ms.openlocfilehash: fa6408d33504c6ac73eacec079e9c08acd4cece2
+ms.sourcegitcommit: 1c2659ab26619658799442a6e7604f3c66307a89
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71299925"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72255261"
 ---
 # <a name="plan-the-aggregated-namespace"></a>規劃彙總的命名空間
 
@@ -57,7 +57,7 @@ NFS 儲存體目標可以有多個虛擬命名空間路徑，前提是每一個�
 | *IP 位址或主機名稱* | /goldline/templates  | acme2017/sku798   | /templates/sku798 |
 | *IP 位址或主機名稱* | /goldline/templates  | acme2017/sku980   | /templates/sku980 |
 
-用戶端應用程式可以掛接快取，並輕鬆地存取匯總的``/source``命名``/templates/sku798``空間檔案``/templates/sku980``路徑、和。
+用戶端應用程式可以掛接快取，並輕鬆地存取匯總的命名空間檔案路徑 ``/source``、``/templates/sku798`` 和 ``/templates/sku980``。
 
 ## <a name="next-steps"></a>後續步驟
 

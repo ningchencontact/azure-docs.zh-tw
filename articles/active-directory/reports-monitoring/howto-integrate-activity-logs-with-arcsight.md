@@ -17,12 +17,12 @@ ms.date: 04/19/2019
 ms.author: chadam
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6e4f0f81c5f135e885fe06d4fb4fa67514e8781b
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
+ms.openlocfilehash: 8d202cb0cc2d073326a5bcc8fb0d540c232afa98
+ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68988149"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72240900"
 ---
 # <a name="integrate-azure-active-directory-logs-with-arcsight-using-azure-monitor"></a>使用 Azure 監視器整合 Azure Active Directory 記錄與 ArcSight
 
@@ -30,13 +30,13 @@ ms.locfileid: "68988149"
 
 在本文中，您將了解如何使用 Azure 監視器將 Azure AD 記錄路由傳送至 ArcSight。 
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 若要使用此功能，您必須要有：
 * 包含 Azure AD 活動記錄的 Azure 事件中樞。 了解如何[將活動記錄串流至事件中樞](quickstart-azure-monitor-stream-logs-to-event-hub.md)。 
 * 已設定的 ArcSight Syslog NG Daemon SmartConnector (SmartConnector) 或 ArcSight Load Balancer 執行個體。 如果事件傳送到 ArcSight Load Balancer，Load Balancer 便會將其傳送至 SmartConnector。
 
-下載並開啟[適用於 Azure 監視器事件中樞的 ArcSight SmartConnector 設定指南](https://community.softwaregrp.com/dcvta86296/attachments/dcvta86296/connector-documentation/1232/2/Microsoft%20Azure%20Monitor%20Event%20Hub.pdf)。 本指南包含所需步驟，可用來安裝和設定適用於 Azure 監視器的 ArcSight SmartConnector。 
+下載並開啟[適用於 Azure 監視器事件中樞的 ArcSight SmartConnector 設定指南](https://community.microfocus.com/dcvta86296/attachments/dcvta86296/connector-documentation/1232/8/Microsoft%20Azure%20Monitor%20Event%20Hub.pdf)。 本指南包含所需步驟，可用來安裝和設定適用於 Azure 監視器的 ArcSight SmartConnector。 
 
 ## <a name="integrate-azure-ad-logs-with-arcsight"></a>將 Azure AD 記錄與 ArcSight 整合
 

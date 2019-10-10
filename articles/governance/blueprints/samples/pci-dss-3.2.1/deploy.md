@@ -1,18 +1,18 @@
 ---
 title: 範例-PCI-DSS v 3.2.1 藍圖-部署步驟
-description: 部署付款卡產業資料安全標準3.2.1 藍圖範例的步驟。
+description: 適用于付款卡產業資料安全標準 v2.0 藍圖範例的部署步驟，包括藍圖成品參數詳細資訊。
 services: blueprints
 author: DCtheGeek
 ms.author: dacoulte
 ms.date: 06/24/2019
 ms.topic: conceptual
 ms.service: blueprints
-ms.openlocfilehash: f95f9a592085fd93fba5e6b11a1a75609eb70295
-ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
+ms.openlocfilehash: fa409b873ea1dd0c0970ebc694ad68673df4d033
+ms.sourcegitcommit: 961468fa0cfe650dc1bec87e032e648486f67651
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/06/2019
-ms.locfileid: "71980931"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72248850"
 ---
 # <a name="deploy-the-pci-dss-v321-blueprint-sample"></a>部署 PCI-DSS 3.2.1 藍圖範例
 
@@ -82,7 +82,7 @@ ms.locfileid: "71980931"
 
      保留預設的 [系統指派] 受控識別選項。
 
-   - 成品參數
+   - 構件參數
 
      本節中定義的參數會套用至其定義所屬的成品。 這些參數是[動態參數](../../concepts/parameters.md#dynamic-parameters)，因為定義於藍圖指派期間。 如需完整清單或成品參數及其說明，請參閱[成品參數資料表](#artifact-parameters-table)。
 

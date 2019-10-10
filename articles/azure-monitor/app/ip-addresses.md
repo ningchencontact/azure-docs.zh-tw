@@ -10,14 +10,14 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 07/18/2019
+ms.date: 10/09/2019
 ms.author: mbullwin
-ms.openlocfilehash: 4eda37fab14a45a0bb5159beaabb9522046d1580
-ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
+ms.openlocfilehash: 76de724ba5f966d2b2630d0a0570966bb72c3bad
+ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/05/2019
-ms.locfileid: "71969647"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72243254"
 ---
 # <a name="ip-addresses-used-by-application-insights-and-log-analytics"></a>Application Insights 和 Log Analytics 使用的 IP 位址
 [Azure Application Insights](../../azure-monitor/app/app-insights-overview.md) 服務會使用一些 IP 位址。 如果您所監視的應用程式裝載於防火牆後面，您可能需要知道這些位址。
@@ -38,7 +38,12 @@ ms.locfileid: "71969647"
 | 用途 | URL | IP | 連接埠 |
 | --- | --- | --- | --- |
 | 遙測 |dc.services.visualstudio.com<br/>dc.applicationinsights.microsoft.com |40.114.241.141<br/>104.45.136.42<br/>40.84.189.107<br/>168.63.242.221<br/>52.167.221.184<br/>52.169.64.244<br/>40.85.218.175<br/>104.211.92.54<br/>52.175.198.74<br/>51.140.6.23<br/>40.71.12.231<br/>13.69.65.22<br/>13.78.108.165<br/>13.70.72.233<br/>20.44.8.7<br/>13.86.218.248<br/>40.79.138.41<br/>52.231.18.241<br/>13.75.38.7<br/>102.133.162.117<br/>40.73.171.20<br/>102.133.155.50<br/>52.162.110.67<br/>191.233.204.248 | 443 |
-| 即時計量資料流 |rt.services.visualstudio.com<br/>rt.applicationinsights.microsoft.com |23.96.28.38<br/>13.92.40.198 |443 |
+| 即時計量資料流（美國東部） |use.rt.prod.applicationinsights.trafficmanager.net |23.96.28.38<br/>13.92.40.198<br/>52.226.139.56<br/>52.226.140.207 |443 |
+| 即時計量資料流（美國中南部） |ussc.rt.prod.applicationinsights.trafficmanager.net |157.55.177.6<br/>104.44.140.84<br/>104.215.81.124<br/>23.100.122.113 |443 |
+| 即時計量資料流（北歐） |eun.rt.prod.applicationinsights.trafficmanager.net |40.115.103.168<br/>40.115.104.31<br/>40.87.140.215<br/>40.87.138.220 |443 |
+| 即時計量資料流（西歐） |euw.rt.prod.applicationinsights.trafficmanager.net |13.80.134.255<br/>40.68.61.229<br/>23.101.69.223<br/>52.232.106.242 |443 |
+| 即時計量資料流（東亞） |ase.rt.prod.applicationinsights.trafficmanager.net |23.100.90.7<br/>23.101.13.65<br/>23.101.0.142<br/>23.101.9.4 |443 |
+| 即時計量資料流（東南亞） |asse.rt.prod.applicationinsights.trafficmanager.net |207.46.224.101<br/>207.46.236.191<br/>137.116.151.139<br/>23.101.9.4 |443 |
 
 ## <a name="status-monitor"></a>狀態監視器
 狀態監視器組態 - 只有在進行變更時才需要。
@@ -54,7 +59,7 @@ ms.locfileid: "71969647"
 | 組態 |`login.live.com` | |`443` |
 | 安裝 | `globalcdn.nuget.org`，`packages.nuget.org`，`api.nuget.org/v3/index.json` `nuget.org`，`api.nuget.org`，`dc.services.vsallin.net` | |`443` |
 
-## <a name="availability-tests"></a>可用性測試
+## <a name="availability-tests"></a>可用性集合
 這是用來執行 [可用性 Web 測試](../../azure-monitor/app/monitor-web-app-availability.md) 的位址清單。 如果您想要在您的應用程式上執行 Web 測試，但您的 Web 伺服器限於為特定用戶端提供服務，則您必須允許來自我們的可用性測試伺服器的連入流量。
 
 為來自這些位址 (IP 位址會依照位置分組) 的連入流量開啟連接埠 80 (http) 和 443 (https)︰
@@ -220,7 +225,7 @@ East US
 | --- | --- | --- |
 | 警示 | 23.96.11.4 | 443 |
 
-## <a name="profiler"></a>Profiler
+## <a name="profiler"></a>分析工具
 
 | 用途 | URI | IP | 連接埠 |
 | --- | --- | --- | --- |

@@ -7,14 +7,14 @@ ms.topic: conceptual
 ms.date: 07/29/2019
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: e07d154ce5dae8a461bf9db19303db685f8a4152
-ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
+ms.openlocfilehash: 6771164c26c51e40d80d0c82b42f04c4f95c4c37
+ms.sourcegitcommit: 1c2659ab26619658799442a6e7604f3c66307a89
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71103070"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72255099"
 ---
-# <a name="troubleshoot-azure-file-sync"></a>疑難排解 Azure 檔案同步
+# <a name="troubleshoot-azure-file-sync"></a>針對 Azure 檔案同步進行移難排解
 使用 Azure 檔案同步，將組織的檔案共用集中在 Azure 檔案服務中，同時保有內部部署檔案伺服器的彈性、效能及相容性。 Azure 檔案同步會將 Windows Server 轉換成 Azure 檔案共用的快速快取。 您可以使用 Windows Server 上可用的任何通訊協定來從本機存取資料，包括 SMB、NFS 和 FTPS。 您可以視需要存取多個散佈於世界各地的快取。
 
 本文旨在協助您針對使用 Azure 檔案同步部署時所發生的問題進行疑難排解，並解決這些問題。 文中也說明如果需要更深入調查問題，如何從系統收集重要的記錄。 如果您找不到問題的答案，可透過下列管道 (依先後順序) 和我們連絡：
@@ -41,7 +41,7 @@ StorageSyncAgent.msi /l*v AFSInstaller.log
 
 若要解決此問題，請將 PDC 角色轉移到另一個執行 Windows Server 2012 R2 或更新版本的網域控制站，然後安裝同步代理程式。
 
-<a id="server-registration-prerequisites"></a> **[伺服器註冊] 會顯示下列訊息：「遺漏必要元件」**
+<a id="server-registration-prerequisites"></a>@no__t 1Server 註冊會顯示下列訊息：「遺漏必要元件」**
 
 如果未在 PowerShell 5.1 上安裝 Az 或 AzureRM PowerShell 模組，則會顯示此訊息。 
 
@@ -56,7 +56,7 @@ StorageSyncAgent.msi /l*v AFSInstaller.log
     - [AzureRM 模組]( https://go.microsoft.com/fwlink/?linkid=856959)
 3. 執行 ServerRegistration.exe，然後完成精靈的指示向儲存體同步服務註冊伺服器。
 
-<a id="server-already-registered"></a> **[伺服器註冊] 會顯示下列訊息：「此伺服器已註冊」** 
+<a id="server-already-registered"></a>@no__t 1Server 註冊會顯示下列訊息：「此伺服器已註冊」** 
 
 ![[伺服器註冊] 對話方塊的螢幕擷取畫面顯示 [此伺服器已註冊] 錯誤訊息](media/storage-sync-files-troubleshoot/server-registration-1.png)
 
@@ -185,7 +185,7 @@ Set-AzStorageSyncServerEndpoint `
 > [!Note]  
 > 如果 [已註冊的伺服器] 刀鋒視窗上的伺服器狀態為 [顯示為離線]，請執行[伺服器端點的健康狀態為 [無活動] 或 [擱置中]，且 [已註冊的伺服器] 刀鋒視窗上的伺服器狀態為 [顯示為離線]](#server-endpoint-noactivity) 一節所列的步驟。
 
-## <a name="sync"></a>同步
+## <a name="sync"></a>Sync
 <a id="afs-change-detection"></a>**如果我直接在我的 Azure 檔案共用中透過 SMB 建立檔案，或是透過入口網站建立檔案，要等多久檔案才會同步至同步群組中的伺服器？**  
 [!INCLUDE [storage-sync-files-change-detection](../../../includes/storage-sync-files-change-detection.md)]
 
@@ -274,9 +274,9 @@ PerItemErrorCount: 1006.
 #### <a name="troubleshooting-per-filedirectory-sync-errors"></a>個別檔案/目錄同步錯誤的疑難排解
 **ItemResults 記錄 - 個別項目同步錯誤**  
 
-| HRESULT | HRESULT (十進位) | 錯誤字串 | 問題 | 修復 |
+| HRESULT | HRESULT (十進位) | 錯誤字串 | 問題 | 補救 |
 |---------|-------------------|--------------|-------|-------------|
-| 0x80070043 | -2147942467 | ERROR_BAD_NET_NAME | 無法存取伺服器上的階層式檔案。 如果未在刪除伺服器端點之前回收階層式檔案, 就會發生此問題。 | 若要解決此問題, 請參閱在[刪除伺服器端點之後, 伺服器上的](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=portal1%2Cazure-portal#tiered-files-are-not-accessible-on-the-server-after-deleting-a-server-endpoint)階層式檔案無法存取。 |
+| 0x80070043 | -2147942467 | ERROR_BAD_NET_NAME | 無法存取伺服器上的階層式檔案。 如果未在刪除伺服器端點之前回收階層式檔案，就會發生此問題。 | 若要解決此問題，請參閱在[刪除伺服器端點之後，伺服器上的](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=portal1%2Cazure-portal#tiered-files-are-not-accessible-on-the-server-after-deleting-a-server-endpoint)階層式檔案無法存取。 |
 | 0x80c80207 | -2134375929 | ECS_E_SYNC_CONSTRAINT_CONFLICT | 無法同步檔案或目錄變更，因為尚未同步相依的資料夾。 將在同步相依的變更之後同步此項目。 | 不需要任何動作。 |
 | 0x8007007b | -2147024773 | ERROR_INVALID_NAME | 檔案或目錄名稱無效。 | 請重新命名有問題的檔案或目錄。 如需詳細資訊，請參閱[處理不支援的字元](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=portal1%2Cazure-portal#handling-unsupported-characters)。 |
 | 0x80c80255 | -2134375851 | ECS_E_XSMB_REST_INCOMPATIBILITY | 檔案或目錄名稱無效。 | 請重新命名有問題的檔案或目錄。 如需詳細資訊，請參閱[處理不支援的字元](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=portal1%2Cazure-portal#handling-unsupported-characters)。 |
@@ -285,8 +285,8 @@ PerItemErrorCount: 1006.
 | 0x80070002 | -2147024894 | ERROR_FILE_NOT_FOUND | 檔案已刪除，但同步處理並不知道變更。 | 不需要任何動作。 當變更偵測偵測到檔案已刪除之後，同步處理就會停止記錄此錯誤。 |
 | 0x80c80205 | -2134375931 | ECS_E_SYNC_ITEM_SKIP | 檔案已略過，但會在下一個同步會話期間同步處理。 | 不需要任何動作。 |
 | 0x80c8603e | -2134351810 | ECS_E_AZURE_STORAGE_SHARE_SIZE_LIMIT_REACHED | 無法同步檔案，因為已達 Azure 檔案共用限制。 | 若要解決此問題，請參閱疑難排解指南中的[您已達到 Azure 檔案共用儲存體限制](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=portal1%2Cazure-portal#-2134351810)一節。 |
-| 0x80c8027C | -2134375812 | ECS_E_ACCESS_DENIED_EFS | 檔案是由不支援的解決方案（例如 NTFS EFS）所加密。 | 將檔案解密, 並使用支援的加密解決方案。 如需支援解決方案的清單，請參閱計劃指南中的[加密解決方案](https://docs.microsoft.com/azure/storage/files/storage-sync-files-planning#encryption-solutions)一節。 |
-| 0x80c80283 | -2160591491 | ECS_E_ACCESS_DENIED_DFSRRO | 檔案位於 [DFS-R 唯讀複寫] 資料夾。 | 檔案位於 [DFS-R 唯讀複寫] 資料夾。 Azure 檔案儲存體同步處理不支援 DFS-R 唯讀複寫資料夾上的伺服器端點。 如需詳細資訊, 請參閱[規劃指南](https://docs.microsoft.com/azure/storage/files/storage-sync-files-planning#distributed-file-system-dfs)。 |
+| 0x80c8027C | -2134375812 | ECS_E_ACCESS_DENIED_EFS | 檔案是由不支援的解決方案（例如 NTFS EFS）所加密。 | 將檔案解密，並使用支援的加密解決方案。 如需支援解決方案的清單，請參閱計劃指南中的[加密解決方案](https://docs.microsoft.com/azure/storage/files/storage-sync-files-planning#encryption-solutions)一節。 |
+| 0x80c80283 | -2160591491 | ECS_E_ACCESS_DENIED_DFSRRO | 檔案位於 [DFS-R 唯讀複寫] 資料夾。 | 檔案位於 [DFS-R 唯讀複寫] 資料夾。 Azure 檔案儲存體同步處理不支援 DFS-R 唯讀複寫資料夾上的伺服器端點。 如需詳細資訊，請參閱[規劃指南](https://docs.microsoft.com/azure/storage/files/storage-sync-files-planning#distributed-file-system-dfs)。 |
 | 0x80070005 | -2147024891 | ERROR_ACCESS_DENIED | 檔案具有「刪除擱置」狀態。 | 不需要任何動作。 當所有開啟的檔案控制代碼都關閉之後，檔案就會被刪除。 |
 | 0x80c86044 | -2134351804 | ECS_E_AZURE_AUTHORIZATION_FAILED | 無法同步檔案，因為已啟用儲存體帳戶上的防火牆和虛擬網路設定，而且伺服器無法存取儲存體帳戶。 | 遵循部署指南中的[設定防火牆和虛擬網路設定](https://docs.microsoft.com/azure/storage/files/storage-sync-files-deployment-guide?tabs=azure-portal#configure-firewall-and-virtual-network-settings)一節所述的步驟，新增伺服器 IP 位址或虛擬網路。 |
 | 0x80c80243 | -2134375869 | ECS_E_SECURITY_DESCRIPTOR_SIZE_TOO_LARGE | 無法同步檔案，因為安全描述項大小超過 64 KiB 限制。 | 若要解決此問題，請移除檔案上的存取控制專案（ACE），以減少安全描述項大小。 |
@@ -342,7 +342,7 @@ PerItemErrorCount: 1006.
 
 不需要任何動作；伺服器會再試一次。 如果此錯誤持續數小時，請建立支援要求。
 
-<a id="-2134364043"></a>**同步處理會遭到封鎖, 直到變更偵測完成還原後**  
+<a id="-2134364043"></a>**同步處理會遭到封鎖，直到變更偵測完成還原後**  
 
 | | |
 |-|-|
@@ -351,7 +351,7 @@ PerItemErrorCount: 1006.
 | **錯誤字串** | ECS_E_SYNC_BLOCKED_ON_CHANGE_DETECTION_POST_RESTORE |
 | **需要補救** | 否 |
 
-不需採取任何動作。 使用 Azure 備份還原檔案或檔案共用 (雲端端點) 時, 同步處理會遭到封鎖, 直到 Azure 檔案共用上的變更偵測完成為止。 一旦還原完成, 且持續時間是以檔案共用中的檔案數目為依據, 變更偵測就會立即執行。
+不需採取任何動作。 使用 Azure 備份還原檔案或檔案共用（雲端端點）時，同步處理會遭到封鎖，直到 Azure 檔案共用上的變更偵測完成為止。 一旦還原完成，且持續時間是以檔案共用中的檔案數目為依據，變更偵測就會立即執行。
 
 <a id="-2147216747"></a>**同步處理失敗，因為同步處理資料庫已卸載。**  
 
@@ -1010,60 +1010,71 @@ New-FsrmFileScreen -Path "E:\AFSdataset" -Description "Filter unsupported charac
 > [!NOTE]
 > 如果檔案無法回收，則會每小時在遙測事件記錄中記錄一次事件識別碼 9006 (對於每個錯誤碼會記錄一個事件)。 如果在診斷問題時需要額外的資訊，則應使用作業和診斷事件記錄。
 
-### <a name="tiered-files-are-not-accessible-on-the-server-after-deleting-a-server-endpoint"></a>刪除伺服器端點之後, 伺服器上的階層式檔案無法存取
-如果未在刪除伺服器端點之前回收檔案, 伺服器上的階層式檔案將會變成無法存取。
+### <a name="recall-errors-and-remediation"></a>召回錯誤和補救
+
+| HRESULT | HRESULT (十進位) | 錯誤字串 | 問題 | 補救 |
+|---------|-------------------|--------------|-------|-------------|
+| 0x80070079 | -121 | ERROR_SEM_TIMEOUT | 因為 i/o 超時，所以檔案無法重新叫用。 發生此問題的原因有好幾個：伺服器資源限制、網路連線不佳或 Azure 儲存體問題（例如，節流）。 | 不需要任何動作。 如果錯誤持續數小時，請開啟支援案例。 |
+| 0x80070036 | -2147024842 | ERROR_NETWORK_BUSY | 因為發生網路問題，所以檔案無法重新叫用。  | 如果錯誤持續發生，請檢查 Azure 檔案共用的網路連線。 |
+| 0x80c80037 | -2134376393 | ECS_E_SYNC_SHARE_NOT_FOUND | 因為已刪除伺服器端點，所以檔案無法重新叫用。 | 若要解決此問題，請參閱在[刪除伺服器端點之後，伺服器上的](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=portal1%2Cazure-portal#tiered-files-are-not-accessible-on-the-server-after-deleting-a-server-endpoint)階層式檔案無法存取。 |
+| 0x80070005 | -2147024891 | ERROR_ACCESS_DENIED | 檔案因「拒絕存取」錯誤而無法重新叫用。 如果已啟用儲存體帳戶上的防火牆和虛擬網路設定，而且伺服器無法存取儲存體帳戶，就會發生此問題。 | 若要解決此問題，請遵循部署指南中[設定防火牆和虛擬網路設定](https://docs.microsoft.com/azure/storage/files/storage-sync-files-deployment-guide?tabs=azure-portal#configure-firewall-and-virtual-network-settings)一節所述的步驟，新增伺服器 IP 位址或虛擬網路。 |
+| 0x80c86002 | -2134351870 | ECS_E_AZURE_RESOURCE_NOT_FOUND | 檔案無法重新叫用，因為它無法在 Azure 檔案共用中存取。 | 若要解決此問題，請確認檔案存在於 Azure 檔案共用中。 如果檔案存在於 Azure 檔案共用中，請升級至最新的 Azure 檔案同步代理程式版本。 |
+| 0x80c8305f | -2134364065 | ECS_E_EXTERNAL_STORAGE_ACCOUNT_AUTHORIZATION_FAILED | 因為儲存體帳戶的授權失敗，所以檔案無法重新叫用。 | 若要解決此問題，請確認[Azure 檔案同步具有儲存體帳戶的存取權](https://docs.microsoft.com/en-us/azure/storage/files/storage-sync-files-troubleshoot?tabs=portal1%2Cazure-portal#troubleshoot-rbac)。 |
+
+### <a name="tiered-files-are-not-accessible-on-the-server-after-deleting-a-server-endpoint"></a>刪除伺服器端點之後，伺服器上的階層式檔案無法存取
+如果未在刪除伺服器端點之前回收檔案，伺服器上的階層式檔案將會變成無法存取。
 
 無法存取階層式檔案時所記錄的錯誤
 - 同步處理檔案時，會在 ItemResults 事件記錄檔中記錄錯誤碼-2147942467 （0x80070043-ERROR_BAD_NET_NAME）
 - 重新叫用檔案時，錯誤代碼-2134376393 （0x80c80037-ECS_E_SYNC_SHARE_NOT_FOUND）會記錄在 RecallResults 事件記錄檔中
 
-如果符合下列條件, 就可以還原分層式檔案的存取:
+如果符合下列條件，就可以還原分層式檔案的存取：
 - 已在過去30天內刪除伺服器端點
 - 未刪除雲端端點 
 - 檔案共用未刪除
 - 未刪除同步群組
 
-如果符合上述條件, 您可以在30天內, 于相同的同步處理群組中重新建立伺服器端點, 以還原伺服器上檔案的存取權。 
+如果符合上述條件，您可以在30天內，于相同的同步處理群組中重新建立伺服器端點，以還原伺服器上檔案的存取權。 
 
-如果不符合上述條件, 就無法還原存取, 因為伺服器上的這些階層式檔案現在是孤立的。 請依照下列指示來移除孤立的分層檔案。
+如果不符合上述條件，就無法還原存取，因為伺服器上的這些階層式檔案現在是孤立的。 請依照下列指示來移除孤立的分層檔案。
 
 **注意事項**
-- 當伺服器上的階層式檔案無法存取時, 如果您直接存取 Azure 檔案共用, 則完整檔案應該仍然可以存取。
-- 若要防止未來的孤立分層檔案, 請遵循刪除伺服器端點時[移除伺服器端點](https://docs.microsoft.com/azure/storage/files/storage-sync-files-server-endpoint#remove-a-server-endpoint)中記載的步驟。
+- 當伺服器上的階層式檔案無法存取時，如果您直接存取 Azure 檔案共用，則完整檔案應該仍然可以存取。
+- 若要防止未來的孤立分層檔案，請遵循刪除伺服器端點時[移除伺服器端點](https://docs.microsoft.com/azure/storage/files/storage-sync-files-server-endpoint#remove-a-server-endpoint)中記載的步驟。
 
 <a id="get-orphaned"></a>**如何取得孤立分層檔案的清單** 
 
 1. 確認已安裝 Azure 檔案同步代理程式版本5.1 版或更新版本。
-2. 執行下列 PowerShell 命令以列出孤立的分層檔案:
+2. 執行下列 PowerShell 命令以列出孤立的分層檔案：
 ```powershell
 Import-Module "C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.ServerCmdlets.dll"
 $orphanFiles = Get-StorageSyncOrphanedTieredFiles -path <server endpoint path>
 $orphanFiles.OrphanedTieredFiles > OrphanTieredFiles.txt
 ```
-3. 儲存 OrphanTieredFiles 時, 如果需要從備份還原檔案, 檔案就會被刪除。
+3. 儲存 OrphanTieredFiles 時，如果需要從備份還原檔案，檔案就會被刪除。
 
 <a id="remove-orphaned"></a>**如何移除孤立的分層檔案** 
 
-*選項 1：刪除孤立的分層檔案*
+*選項 1：刪除孤立的分層檔案 @ no__t-0
 
-此選項會刪除 Windows Server 上的孤立階層式檔案, 但如果伺服器端點因為30天后重新建立或連接到不同的同步群組而存在, 則需要移除該伺服器端點。 如果在重新建立伺服器端點之前, Windows Server 或 Azure 檔案共用上的檔案已更新, 就會發生檔案衝突。
+此選項會刪除 Windows Server 上的孤立階層式檔案，但如果伺服器端點因為30天后重新建立或連接到不同的同步群組而存在，則需要移除該伺服器端點。 如果在重新建立伺服器端點之前，Windows Server 或 Azure 檔案共用上的檔案已更新，就會發生檔案衝突。
 
 1. 確認已安裝 Azure 檔案同步代理程式版本5.1 版或更新版本。
 2. 備份 Azure 檔案共用和伺服器端點位置。
-3. 遵循[移除伺服器端點](https://docs.microsoft.com/azure/storage/files/storage-sync-files-server-endpoint#remove-a-server-endpoint)中記載的步驟, 移除同步群組中的伺服器端點 (如果存在)。
+3. 遵循[移除伺服器端點](https://docs.microsoft.com/azure/storage/files/storage-sync-files-server-endpoint#remove-a-server-endpoint)中記載的步驟，移除同步群組中的伺服器端點（如果存在）。
 
 > [!Warning]  
-> 如果在使用 StorageSyncOrphanedTieredFiles Cmdlet 之前未移除伺服器端點, 則在伺服器上刪除孤立的階層式檔案將會刪除 Azure 檔案共用中的完整檔案。 
+> 如果在使用 StorageSyncOrphanedTieredFiles Cmdlet 之前未移除伺服器端點，則在伺服器上刪除孤立的階層式檔案將會刪除 Azure 檔案共用中的完整檔案。 
 
-4. 執行下列 PowerShell 命令以列出孤立的分層檔案:
+4. 執行下列 PowerShell 命令以列出孤立的分層檔案：
 
 ```powershell
 Import-Module "C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.ServerCmdlets.dll"
 $orphanFiles = Get-StorageSyncOrphanedTieredFiles -path <server endpoint path>
 $orphanFiles.OrphanedTieredFiles > OrphanTieredFiles.txt
 ```
-5. 儲存 OrphanTieredFiles 時, 如果需要從備份還原檔案, 檔案就會被刪除。
-6. 執行下列 PowerShell 命令來刪除孤立的分層檔案:
+5. 儲存 OrphanTieredFiles 時，如果需要從備份還原檔案，檔案就會被刪除。
+6. 執行下列 PowerShell 命令來刪除孤立的分層檔案：
 
 ```powershell
 Import-Module "C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.ServerCmdlets.dll"
@@ -1071,25 +1082,25 @@ $orphanFilesRemoved = Remove-StorageSyncOrphanedTieredFiles -Path <folder path c
 $orphanFilesRemoved.OrphanedTieredFiles > DeletedOrphanFiles.txt
 ```
 **注意事項** 
-- 在伺服器上修改的階層式檔案若未同步至 Azure 檔案共用, 將會被刪除。
-- 將不會刪除可存取 (不是孤立) 的階層式檔案。
+- 在伺服器上修改的階層式檔案若未同步至 Azure 檔案共用，將會被刪除。
+- 將不會刪除可存取（不是孤立）的階層式檔案。
 - 非階層式檔案會保留在伺服器上。
 
-7. 選擇性：如果在步驟3中刪除, 請重新建立伺服器端點。
+7. 選擇性：如果在步驟3中刪除，請重新建立伺服器端點。
 
-*選項 2：掛接 Azure 檔案共用, 並將伺服器上的孤立檔案複製到本機*
+*選項 2：掛接 Azure 檔案共用，並將伺服器上的孤立檔案 @ no__t-0 複製到本機
 
-此選項不需要移除伺服器端點, 但需要有足夠的磁碟空間, 才能將完整檔案複製到本機。
+此選項不需要移除伺服器端點，但需要有足夠的磁碟空間，才能將完整檔案複製到本機。
 
 1. 在具有孤立分層檔案的 Windows 伺服器上[掛接](https://docs.microsoft.com/azure/storage/files/storage-how-to-use-files-windows)Azure 檔案共用。
-2. 執行下列 PowerShell 命令以列出孤立的分層檔案:
+2. 執行下列 PowerShell 命令以列出孤立的分層檔案：
 ```powershell
 Import-Module "C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.ServerCmdlets.dll"
 $orphanFiles = Get-StorageSyncOrphanedTieredFiles -path <server endpoint path>
 $orphanFiles.OrphanedTieredFiles > OrphanTieredFiles.txt
 ```
 3. 使用 OrphanTieredFiles 輸出檔來識別伺服器上的孤立分層檔案。
-4. 將完整檔案從 Azure 檔案共用複製到 Windows Server, 以覆寫孤立的階層式檔案。
+4. 將完整檔案從 Azure 檔案共用複製到 Windows Server，以覆寫孤立的階層式檔案。
 
 ### <a name="how-to-troubleshoot-files-unexpectedly-recalled-on-a-server"></a>如何針對在伺服器上意外重新叫用檔案的問題進行疑難排解  
 防毒程式、備份及其他讀取大量檔案的應用程式，除非採用離線屬性並略過讀取這些檔案的內容，否則將會導致非預期的重新叫用。 略過支援此選項之產品的離線檔案，有助於在執行防毒掃描、備份等作業時，避免發生非預期的重新叫用。
@@ -1114,7 +1125,7 @@ $orphanFiles.OrphanedTieredFiles > OrphanTieredFiles.txt
 如果問題沒有解決，執行 AFSDiag 工具：
 1. 建立將用來儲存 AFSDiag 輸出的目錄 (例如 C:\Output)。
     > [!NOTE]
-    >AFSDiag 會先刪除輸出目錄中的所有內容, 然後再收集記錄檔。 指定不包含資料的輸出位置。
+    >AFSDiag 會先刪除輸出目錄中的所有內容，然後再收集記錄檔。 指定不包含資料的輸出位置。
 2. 開啟提升權限的 PowerShell 視窗，然後執行下列命令 (每個命令後要按 Enter 鍵)：
 
     ```powershell

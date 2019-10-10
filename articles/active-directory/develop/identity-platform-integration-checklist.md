@@ -16,12 +16,12 @@ ms.date: 09/11/2019
 ms.author: ryanwi
 ms.reviewer: lenalepa, sureshja, jesakowi
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: 1f4afe1c31ae964aab82664de12144185069af5a
-ms.sourcegitcommit: b03516d245c90bca8ffac59eb1db522a098fb5e4
+ms.openlocfilehash: f7e9b738a55248678a207f0b298ef65e6c2761a4
+ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71145665"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72240141"
 ---
 # <a name="microsoft-identity-platform-best-practices-and-recommendations"></a>Microsoft 身分識別平臺最佳做法和建議
 
@@ -60,7 +60,7 @@ ms.locfileid: "71145665"
 
 |   |   |
 |---|---|
-| ![核取方塊](./media/active-directory-integration-checklist/checkbox-two.svg) | 管理您的重新導向 Uri： <ul><li>維護所有重新導向 Uri 的擁有權，並將它們的 DNS 記錄保持在最新狀態。</li><li>請勿在您的 Uri 中使用萬用字元（*）。</li><li>針對 web 應用程式，請確定所有 Uri 都是安全且加密的（例如，使用 HTTPs 架構）。</li><li>若為公用用戶端，請使用平臺特定的重新導向 Uri （主要適用于 iOS 和 Android）。 否則，請使用具有大量隨機性的重新導向 Uri，以避免在回呼至您的應用程式時發生衝突。</li><li>如果您的應用程式是從隔離的 web 代理程式中使用， https://login.microsoftonline.com/common/oauth2/nativeclient 您可以使用。</li><li>定期檢查並修剪所有未使用或不必要的重新導向 Uri。</li></ul> |
+| ![核取方塊](./media/active-directory-integration-checklist/checkbox-two.svg) | 管理您的重新導向 Uri： <ul><li>維護所有重新導向 Uri 的擁有權，並將它們的 DNS 記錄保持在最新狀態。</li><li>請勿在您的 Uri 中使用萬用字元（*）。</li><li>針對 web 應用程式，請確定所有 Uri 都是安全且加密的（例如，使用 HTTPs 架構）。</li><li>若為公用用戶端，請使用平臺特定的重新導向 Uri （主要適用于 iOS 和 Android）。 否則，請使用具有大量隨機性的重新導向 Uri，以避免在回呼至您的應用程式時發生衝突。</li><li>如果您的應用程式是從隔離的 web 代理程式中使用，您可以使用 https://login.microsoftonline.com/common/oauth2/nativeclient 。</li><li>定期檢查並修剪所有未使用或不必要的重新導向 Uri。</li></ul> |
 | ![核取方塊](./media/active-directory-integration-checklist/checkbox-two.svg) | 如果您的應用程式已在目錄中註冊，請將應用程式註冊擁有者的清單最小化並手動監視。 |
 | ![核取方塊](./media/active-directory-integration-checklist/checkbox-two.svg) | 除非明確需要，否則請勿啟用[OAuth2 隱含授與流程](v2-oauth2-implicit-grant-flow.md)的支援。 瞭解[這裡](v1-oauth2-implicit-grant-flow.md#suitable-scenarios-for-the-oauth2-implicit-grant)的有效案例。 |
 | ![核取方塊](./media/active-directory-integration-checklist/checkbox-two.svg) | 移至使用者名稱/密碼之外。 請勿使用[資源擁有者密碼認證流程（ROPC）](v2-oauth-ropc.md)，這會直接處理使用者的密碼。 此流程需要高程度的信任和使用者暴露，而且只有在無法使用其他、更安全的流程時才使用。 在某些情節中，仍然需要此流程 (例如 DevOps)，但請注意，使用它會對您的應用程式施加限制式。  如需更現代化的方法，請參閱[驗證流程和應用程式案例](authentication-flows-app-scenarios.md)。|
@@ -87,7 +87,7 @@ ms.locfileid: "71145665"
 | ![核取方塊](./media/active-directory-integration-checklist/checkbox-two.svg) | [瞭解同意體驗](application-consent-experience.md)，並設定應用程式的同意提示，讓使用者和系統管理員有足夠的資訊來判斷他們是否信任您的應用程式。 |
 | ![核取方塊](./media/active-directory-integration-checklist/checkbox-two.svg) | 在互動式流程之前嘗試無訊息驗證（無訊息權杖取得），將使用者在使用您的應用程式時需要輸入登入認證的次數降到最低。 |
 | ![核取方塊](./media/active-directory-integration-checklist/checkbox-two.svg) | 針對每個登入，請勿使用「提示 = 同意」。 如果您判斷需要同意其他許可權（例如，如果您已變更應用程式的必要許可權），請只使用 prompt = 同意。 |
-| ![核取方塊](./media/active-directory-integration-checklist/checkbox-two.svg) | 適用時，請使用使用者資料來擴充您的應用程式。 使用[MICROSOFT GRAPH API](https://developer.microsoft.com/graph)是執行此動作的簡單方式。 可協助您開始使用的[Graph explorer](https://developer.microsoft.com/graph/graph-explorer)工具。 |
+| ![核取方塊](./media/active-directory-integration-checklist/checkbox-two.svg) | 適用時，請使用使用者資料來擴充您的應用程式。 使用[MICROSOFT GRAPH API](https://developer.microsoft.com/graph)是執行此動作的簡單方法。 可協助您開始使用的[Graph Explorer](https://developer.microsoft.com/graph/graph-explorer)工具。 |
 | ![核取方塊](./media/active-directory-integration-checklist/checkbox-two.svg) | 註冊應用程式所需的完整許可權集，讓系統管理員可以輕鬆地將同意授與其租使用者。 在執行時間使用累加[式同意](azure-ad-endpoint-comparison.md#incremental-and-dynamic-consent)，以協助使用者瞭解當第一次啟動時要求應用程式時，可能會顧慮或混淆使用者的許可權。 |
 | ![核取方塊](./media/active-directory-integration-checklist/checkbox-two.svg) | 實行[全新的單一登出體驗](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/tree/master/1-WebApp-OIDC/1-6-SignOut)。 這是隱私權和安全性需求，可提供良好的使用者體驗。 |
 

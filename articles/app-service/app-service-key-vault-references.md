@@ -11,17 +11,17 @@ ms.topic: article
 ms.date: 09/03/2019
 ms.author: mahender
 ms.custom: seodec18
-ms.openlocfilehash: cf4eade598de24e323a8c8647a64921f8797e3a2
-ms.sourcegitcommit: 6013bacd83a4ac8a464de34ab3d1c976077425c7
+ms.openlocfilehash: 311a9fc887db399cb16d6cbb2bcec665a7ddfce7
+ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/30/2019
-ms.locfileid: "71686744"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72240110"
 ---
 # <a name="use-key-vault-references-for-app-service-and-azure-functions-preview"></a>使用 App Service 和 Azure Functions 的 Key Vault 參考 (預覽)
 
 > [!NOTE] 
-> Key Vault 參考目前處於預覽狀態。
+> 目前，Key Vault 的參考處於預覽狀態，且 Linux 取用方案目前不支援。
 
 本主題示範如何在 App Service 或 Azure Functions 應用程式中使用來自 Azure Key Vault 的祕密，而不需要變更任何程式碼。 [Azure Key Vault](../key-vault/key-vault-overview.md) 是提供集中式祕密管理的服務，可完整控制存取原則和稽核歷程記錄。
 

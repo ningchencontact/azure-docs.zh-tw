@@ -56,11 +56,11 @@
     - name: SSH 疑難排解
       href: troubleshoot-ssh-connection.md
     - name: 檔案系統錯誤系統錯誤
-      href: 'https://support.microsoft.com/help/3213321'
+      href: linux-recovery-cannot-start-file-system-errors.md
     - name: 核心相關開機問題疑難排解
       href: 'https://support.microsoft.com/help/4091524'
     - name: fstab 錯誤疑難排解
-      href: 'https://support.microsoft.com/help/3206699'
+      href: linux-virtual-machine-cannot-start-fstab-errors.md
     - name: 詳細 SSH 疑難排解
       href: detailed-troubleshoot-ssh-connection.md
 - name: 常見的錯誤訊息

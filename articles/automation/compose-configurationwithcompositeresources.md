@@ -10,16 +10,16 @@ ms.author: robreed
 ms.date: 08/21/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: e153186a3917be3aa94cb663dec58bc3db46aae9
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: d9d16d9d9967af5bf8f9e13406e13d5637325f52
+ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68850405"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72243360"
 ---
 # <a name="composing-dsc-configurations-in-azure-automation-state-configuration-dsc-using-composite-resources"></a>使用複合資源在 Azure Automation State Configuration (DSC) 中撰寫 DSC 設定
 
-要使用多個預期狀態設定 (DSC) 組態來管理資源時，最佳路徑是使用[複合資源](/powershell/dsc/authoringresourcecomposite)。 複合資源是巢狀且參數化的設定，用來在另一個設定中當作 DSC 資源。 這樣可建立複雜的設定，同時允許以個別方式管理及建置基礎複合資源 (參數化設定)。
+要使用多個預期狀態設定 (DSC) 組態來管理資源時，最佳路徑是使用[複合資源](/powershell/scripting/dsc/resources/authoringresourcecomposite)。 複合資源是巢狀且參數化的設定，用來在另一個設定中當作 DSC 資源。 這樣可建立複雜的設定，同時允許以個別方式管理及建置基礎複合資源 (參數化設定)。
 
 Azure 自動化能夠[匯入和編譯複合資源](automation-dsc-compile.md#compiling-configurations-in-azure-automation-that-contain-composite-resources)。
 一旦複合資源匯入到自動化帳戶之後，您就可以使用 [State Configuration (DSC)] 頁面中的 [撰寫設定] 體驗。

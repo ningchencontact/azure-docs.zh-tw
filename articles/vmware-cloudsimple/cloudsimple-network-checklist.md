@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: a83112c1555d50976e5a20106b877f5c0099a5f3
-ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
+ms.openlocfilehash: bfb170036293dc9f519259dc92737f30380aa84a
+ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72178149"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72244816"
 ---
 # <a name="networking-prerequisites-for-azure-vmware-solution-by-cloudsimple"></a>Azure VMware Solution by CloudSimple 的網路必要條件
 
@@ -58,6 +58,7 @@ Azure VMware Solution by CloudSimple 提供 VMware 私用雲端環境，可供�
 
 ## <a name="next-steps"></a>後續步驟
 
+* [用於存取私人雲端的內部部署防火牆設定](on-premises-firewall-configuration.md)
 * [快速入門-建立 CloudSimple 服務](quickstart-create-cloudsimple-service.md)
 * [快速入門-設定私人雲端](quickstart-create-private-cloud.md)
 * 深入瞭解[Azure 網路](cloudsimple-azure-network-connection.md)連線

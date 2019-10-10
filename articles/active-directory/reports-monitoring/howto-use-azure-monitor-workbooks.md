@@ -14,12 +14,12 @@ ms.subservice: report-monitor
 ms.date: 04/18/2019
 ms.author: chadam
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 288fa54a1a6dd4eb05f953a4490bf7736d6d7ff8
-ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
+ms.openlocfilehash: 9bea8da4f0d694be3a39a8f5dfaca8e54ce2773d
+ms.sourcegitcommit: 1c2659ab26619658799442a6e7604f3c66307a89
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70931255"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72255656"
 ---
 # <a name="how-to-use-azure-monitor-workbooks-for-azure-active-directory-reports"></a>如何使用 Azure Active Directory 報表 Azure 監視器活頁簿
 
@@ -48,6 +48,13 @@ ms.locfileid: "70931255"
 - 具有 premium （P1 或 P2）授權的 Active Directory 租使用者。 瞭解如何[取得 premium 授權](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-get-started-premium)。
 
 - [Log Analytics 工作區](https://docs.microsoft.com/azure/azure-monitor/learn/quick-create-workspace)。
+
+- [存取](https://docs.microsoft.com/azure/azure-monitor/platform/manage-access#manage-access-using-workspace-permissions)log analytics 工作區
+- Azure Active Directory 中的角色（如果您是透過 Azure Active Directory 入口網站存取 Log Analytics）
+    - 安全性系統管理員
+    - 安全性讀取者
+    - 報告讀取者
+    - 全域管理員
 
 ## <a name="roles"></a>角色
 您必須是下列其中一種角色，而且可以[存取基礎 Log Analytics](https://docs.microsoft.com/en-us/azure/azure-monitor/platform/manage-access#manage-access-using-azure-permissions)工作區來管理活頁簿：
@@ -85,7 +92,7 @@ ms.locfileid: "70931255"
 
 - 成功
 
-- 等候使用者動作
+- 暫止使用者動作
 
 - 失敗
 
@@ -93,9 +100,9 @@ ms.locfileid: "70931255"
 
 - 時間範圍
 
-- App
+- 應用程式
 
-- 使用者人數
+- 使用者
 
 ![登入分析](./media/howto-use-azure-monitor-workbooks/43.png)
 
@@ -127,9 +134,9 @@ ms.locfileid: "70931255"
 
 - 時間範圍
 
-- App
+- 應用程式
 
-- 使用者人數
+- 使用者
 
 - 通訊協定
 
@@ -151,9 +158,9 @@ ms.locfileid: "70931255"
 
 - 時間範圍
 
-- App
+- 應用程式
 
-- 使用者人數
+- 使用者
 
 ![使用條件式存取登入](./media/howto-use-azure-monitor-workbooks/49.png)
 
@@ -188,9 +195,9 @@ ms.locfileid: "70931255"
 
 - 時間範圍
 
-- App
+- 應用程式
 
-- 使用者人數
+- 使用者
 
 ![藉由授與控制項來登入](./media/howto-use-azure-monitor-workbooks/50.png)
 
@@ -219,7 +226,7 @@ ms.locfileid: "70931255"
 
 - 成功
 
-- 擱置動作
+- 暫止動作
 
 - 失敗
 
@@ -228,9 +235,9 @@ ms.locfileid: "70931255"
 
 - 時間範圍
 
-- App
+- 應用程式
 
-- 使用者人數
+- 使用者
 
 ![對登入進行疑難排解](./media/howto-use-azure-monitor-workbooks/52.png)
 

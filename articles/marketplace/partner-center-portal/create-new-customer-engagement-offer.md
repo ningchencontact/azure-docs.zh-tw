@@ -7,12 +7,12 @@ ms.author: jenhayes
 ms.service: marketplace
 ms.topic: conceptual
 ms.date: 10/04/2019
-ms.openlocfilehash: f1d5f97328af699cb7245212b709c750a970392a
-ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
+ms.openlocfilehash: 703b8b5732109faed1523c678af612e7fc8dab6d
+ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/05/2019
-ms.locfileid: "71969528"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72244091"
 ---
 # <a name="create-a-new-dynamics-365-for-customer-engagement--powerapps-offer"></a>為客戶參與 & PowerApps 供應專案建立新的 Dynamics 365
 
@@ -85,7 +85,7 @@ ms.locfileid: "71969528"
 
 ## <a name="connect-lead-management"></a>連接潛在客戶管理
 
-[!INCLUDE [Test drive content](./includes/connect-lead-management.md)]
+[!INCLUDE [Connect lead management](./includes/connect-lead-management.md)]
 
 如需詳細資訊，請參閱[潛在客戶管理總覽](./commercial-marketplace-get-customer-leads.md)。
 
@@ -99,7 +99,7 @@ ms.locfileid: "71969528"
 
 選取最少1個，最多三個類別。 這些會用來將您的供應專案放入適當的 marketplace 搜尋區域。 請務必在供應專案描述中，呼叫您的供應專案如何支援這些類別。 
 
-### <a name="industry"></a>產業
+### <a name="industry"></a>業界
 
 您可以選擇性地選取最多兩個產業，以協助在 marketplace 中將您的供應專案分類。 如果您的供應專案不是特定產業，請將此區段保留空白。 請務必在供應專案描述中，呼叫您的供應專案如何支援選取的產業。 
 
@@ -138,7 +138,7 @@ ms.locfileid: "71969528"
 
 您在此處輸入的名稱會向客戶顯示，做為供應專案清單的標題。 當您建立供應專案時，此欄位會預先填入您在**供應專案別名**中輸入的文字，但您可以變更此值。 此名稱可能是商標（您可以包含商標或著作權符號）。 名稱不能超過50個字元，而且不能包含任何 emoji。
 
-### <a name="short-description"></a>簡短描述
+### <a name="short-description"></a>簡短說明
 
 提供供應專案的簡短描述（最多100個字元）。 這可用於 marketplace 搜尋結果。
 
@@ -195,7 +195,7 @@ ms.locfileid: "71969528"
 
 您可以提供三種大小的供應專案標誌：**小型（48 x 48）** 、**大型（216 x 216）** 和**寬（255 x 115）** 。 需要小型和大型大小。
 
-#### <a name="hero"></a>Hero
+#### <a name="hero"></a>主圖
 
 主圖影像是選擇性的。 如果您提供一個，則必須測量 815 x 290 圖元。
 
@@ -362,7 +362,7 @@ Microsoft 可以藉由使用這種類型的試用產品來裝載和維護服務�
 
 您必須上傳一個 .pdf 檔案，其中列出您供應專案的金鑰使用案例，該檔列于檔（.pdf 格式）中。 在我們核准您的 marketplace 供應專案之前，我們的驗證小組可能會驗證此處所列的所有案例。
 
-## <a name="publish"></a>發行
+## <a name="publish"></a>發佈
 
 ### <a name="submit-offer-to-preview"></a>提交供應專案以供預覽
 

@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 10/8/2019
-ms.openlocfilehash: d867cceb3e7261f658e2406617144c9150e36f2a
-ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
+ms.openlocfilehash: 20da8abff943e71deb5d5ec8b7bd6411c176e2e3
+ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72173445"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72244558"
 ---
 # <a name="understand-outputs-from-azure-stream-analytics"></a>了解來自 Azure 串流分析的輸出
 
@@ -104,7 +104,7 @@ Azure Blob 儲存體提供符合成本效益且可調整的解決方案，讓您
 
 ## <a name="event-hubs"></a>事件中樞
 
-[Azure 事件中樞](https://azure.microsoft.com/services/event-hubs/) 服務是具高延展性的發佈-訂閱事件擷取器。 它每秒可以收集數百萬個事件。 事件中樞做為輸出的其中一種用法，就是當串流分析作業的輸出變成另一個串流工作的輸入時。
+[Azure 事件中樞](https://azure.microsoft.com/services/event-hubs/) 服務是具高延展性的發佈-訂閱事件擷取器。 它每秒可以收集數百萬個事件。 事件中樞做為輸出的其中一種用法，就是當串流分析作業的輸出變成另一個串流工作的輸入時。 如需訊息大小上限和批次大小優化的詳細資訊，請參閱[輸出批次大小](#output-batch-size)一節。
 
 您需要幾個參數，以將事件中樞的資料流程設定為輸出。
 
@@ -119,7 +119,7 @@ Azure Blob 儲存體提供符合成本效益且可調整的解決方案，讓您
 | 事件序列化格式 | 輸出資料的序列化格式。 支援 JSON、CSV 和 Avro。 |
 | 編碼 | 對於 CSV 和 JSON 而言，UTF-8 是目前唯一支援的編碼格式。 |
 | 分隔符號 | 僅適用于 CSV 序列化。 串流分析支援多種序列化 CSV 格式資料的通用分隔符號。 支援的值是逗號、分號、空格、索引標籤和分隔號。 |
-| 格式 | 僅適用于 JSON 序列化。 **分隔的行會**指定輸出的格式化方式是讓每個 JSON 物件都以新行分隔。 **陣列**指定將輸出格式化為 JSON 物件的陣列。 只有在作業停止或串流分析已移動到下一個時間範圍時，才會關閉這個陣列。 一般來說，最好使用以行分隔的 JSON，因為它不需要任何特殊處理，而輸出檔案仍會寫入。 如需詳細資訊，請參閱[輸出批次大小](#output-batch-size)一節。 |
+| 格式 | 僅適用于 JSON 序列化。 **分隔的行會**指定輸出的格式化方式是讓每個 JSON 物件都以新行分隔。 **陣列**指定將輸出格式化為 JSON 物件的陣列。  |
 | 屬性資料行 | 選擇性。 以逗號分隔的資料行，必須附加為外寄訊息的使用者屬性，而不是承載。 如需此功能的詳細資訊，請[查看輸出的自訂中繼資料屬性](#custom-metadata-properties-for-output)一節。 |
 
 ## <a name="power-bi"></a>Power BI

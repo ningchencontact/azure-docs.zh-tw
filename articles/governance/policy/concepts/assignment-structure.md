@@ -6,12 +6,12 @@ ms.author: dacoulte
 ms.date: 09/23/2019
 ms.topic: conceptual
 ms.service: azure-policy
-ms.openlocfilehash: 5326e765701a42323ea62df8d35128c4117b2ed9
-ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
+ms.openlocfilehash: a75c64ebb6ba3eeffeccd98cf41365fe96218573
+ms.sourcegitcommit: 1c2659ab26619658799442a6e7604f3c66307a89
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/06/2019
-ms.locfileid: "71981425"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72255904"
 ---
 # <a name="azure-policy-assignment-structure"></a>Azure 原則指派結構
 
@@ -58,8 +58,7 @@ Azure 原則會使用原則指派，以定義原則或方案所要指派的資�
 
 ## <a name="enforcement-mode"></a>強制模式
 
-**EnforcementMode**屬性可讓客戶在現有資源上測試原則結果，而不需要在[Azure 活動記錄](../../../azure-monitor/platform/activity-logs-overview.md)中起始原則效果或觸發專案。
-此案例通常稱為「What If」，並與安全的部署做法一致。
+**EnforcementMode**屬性可讓客戶在現有資源上測試原則結果，而不需要在[Azure 活動記錄](../../../azure-monitor/platform/activity-logs-overview.md)中起始原則效果或觸發專案。 此案例通常稱為「What If」，並與安全的部署做法一致。 **enforcementMode**與[停用](./effects.md#disabled)的效果不同，因為這會導致根本無法評估資源。
 
 此屬性具有下列值：
 

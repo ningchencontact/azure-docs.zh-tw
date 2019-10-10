@@ -1,6 +1,6 @@
 ---
 title: Azure Data Box Edge 限制 | Microsoft Docs
-description: 描述 Azure 資料方塊邊緣的系統限制和建議的大小。
+description: 描述 Azure Data Box Edge 的系統限制和建議大小。
 services: databox
 author: alkohli
 ms.service: databox
@@ -8,14 +8,14 @@ ms.subservice: edge
 ms.topic: article
 ms.date: 03/22/2019
 ms.author: alkohli
-ms.openlocfilehash: b454b563cdb870ca8f07a45b796dc6b1e272502d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 9adfc1ef355c31f0bfeeb6c3b194d62426b7b9b3
+ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64924608"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72244307"
 ---
-# <a name="azure-data-box-edge-limits"></a>Azure 資料方塊邊緣的限制
+# <a name="azure-data-box-edge-limits"></a>Azure Data Box Edge 限制
 
 當您部署和操作 Microsoft Azure Data Box Edge 解決方案時，請考慮這些限制。
 
@@ -53,4 +53,4 @@ ms.locfileid: "64924608"
 
 ## <a name="next-steps"></a>後續步驟
 
-- [準備部署 Azure 資料箱閘道](data-box-gateway-deploy-prep.md)
+- [準備部署 Azure Data Box Edge](data-box-edge-deploy-prep.md)

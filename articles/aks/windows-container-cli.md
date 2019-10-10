@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 06/17/2019
 ms.author: mlearned
-ms.openlocfilehash: 8e00053d5ce7c481b026d2fe0ce590d7b8799d8a
-ms.sourcegitcommit: 8ef0a2ddaece5e7b2ac678a73b605b2073b76e88
+ms.openlocfilehash: ff4367194f06a8a6895c9c16252b01c3b94995d3
+ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71075446"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72241247"
 ---
 # <a name="preview---create-a-windows-server-container-on-an-azure-kubernetes-service-aks-cluster-using-the-azure-cli"></a>預覽-使用 Azure CLI 在 Azure Kubernetes Service （AKS）叢集上建立 Windows Server 容器
 
@@ -61,7 +61,7 @@ az feature register --name WindowsPreview --namespace Microsoft.ContainerService
 ```
 
 > [!NOTE]
-> 您在成功註冊*WindowsPreview*功能旗標之後所建立的任何 AKS 叢集都會使用此預覽叢集體驗。 若要繼續建立一般、完全支援的叢集, 請勿在生產訂用帳戶上啟用預覽功能。 使用個別的測試或開發 Azure 訂用帳戶來測試預覽功能。
+> 您在成功註冊*WindowsPreview*功能旗標之後所建立的任何 AKS 叢集都會使用此預覽叢集體驗。 若要繼續建立一般、完全支援的叢集，請勿在生產訂用帳戶上啟用預覽功能。 使用個別的測試或開發 Azure 訂用帳戶來測試預覽功能。
 
 註冊需要幾分鐘的時間才能完成。 使用[az feature list][az-feature-list]命令來檢查註冊狀態：
 
@@ -69,7 +69,7 @@ az feature register --name WindowsPreview --namespace Microsoft.ContainerService
 az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/WindowsPreview')].{Name:name,State:properties.state}"
 ```
 
-當註冊狀態為`Registered`時，請按 ctrl-c 停止監視狀態。  然後使用[az provider register][az-provider-register]命令重新整理*microsoft.containerservice*資源提供者的註冊：
+當註冊狀態為 `Registered` 時，請按 Ctrl-c 停止監視狀態。  然後使用[az provider register][az-provider-register]命令重新整理*microsoft.containerservice*資源提供者的註冊：
 
 ```azurecli-interactive
 az provider register --namespace Microsoft.ContainerService
@@ -77,12 +77,12 @@ az provider register --namespace Microsoft.ContainerService
 
 ### <a name="limitations"></a>限制
 
-當您建立和管理支援多個節點集區的 AKS 叢集時, 適用下列限制:
+當您建立和管理支援多個節點集區的 AKS 叢集時，適用下列限制：
 
 * 當您成功註冊*WindowsPreview*之後，會有多個節點集區可用於建立的叢集。 如果您為訂用帳戶註冊*MultiAgentpoolPreview*功能，也可以使用多個節點集區。 您無法新增或管理具有現有 AKS 叢集的節點集區，這項功能在成功註冊之前就已建立。
 * 您無法刪除第一個節點集區。
 
-雖然這項功能處於預覽狀態, 但仍適用下列其他限制:
+雖然這項功能處於預覽狀態，但仍適用下列其他限制：
 
 * AKS 叢集最多可以有八個節點集區。
 * AKS 叢集在這八個節點集區中最多可以有400個節點。
@@ -141,7 +141,7 @@ az aks create \
     --generate-ssh-keys \
     --windows-admin-password $PASSWORD_WIN \
     --windows-admin-username azureuser \
-    --vm-set-type VirtualMachineScaleSets \
+    --enable-vmss \
     --network-plugin azure
 ```
 
@@ -153,7 +153,7 @@ az aks create \
 
 ## <a name="add-a-windows-server-node-pool"></a>新增 Windows Server 節點集區
 
-根據預設，系統會使用可執行 Linux 容器的節點集區來建立 AKS 叢集。 使用`az aks nodepool add`命令來新增可執行 Windows Server 容器的其他節點集區。
+根據預設，系統會使用可執行 Linux 容器的節點集區來建立 AKS 叢集。 使用 `az aks nodepool add` 命令來新增可執行 Windows Server 容器的其他節點集區。
 
 ```azurecli
 az aks nodepool add \
@@ -165,7 +165,7 @@ az aks nodepool add \
     --kubernetes-version 1.14.6
 ```
 
-上述命令會建立名為*npwin*的新節點集區，並將它新增至*myAKSCluster*。 建立節點集區以執行 Windows Server 容器時，[*節點-vm-大小*] 的預設值是*Standard_D2s_v3*。 如果您選擇設定 [*節點-vm 大小*] 參數，請檢查[受限制的 vm 大小][restricted-vm-sizes]清單。 建議的最小大小為*Standard_D2s_v3*。 上述命令也會使用執行時`az aks create`所建立之預設 vnet 中的預設子網。
+上述命令會建立名為*npwin*的新節點集區，並將它新增至*myAKSCluster*。 建立節點集區以執行 Windows Server 容器時，[*節點-vm-大小*] 的預設值是*Standard_D2s_v3*。 如果您選擇設定 [*節點-vm 大小*] 參數，請檢查[受限制的 vm 大小][restricted-vm-sizes]清單。 建議的最小大小為*Standard_D2s_v3*。 上述命令也會使用執行 `az aks create` 時，在預設 vnet 中建立的預設子網。
 
 ## <a name="connect-to-the-cluster"></a>連接到叢集
 

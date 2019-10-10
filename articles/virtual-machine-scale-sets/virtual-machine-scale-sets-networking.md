@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/17/2017
 ms.author: manayar
-ms.openlocfilehash: a9141adfb1dd05efd73061379be89ddf27ab3832
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 5be64ad2b3141791d5612aba84324278ea812875
+ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60803056"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72244833"
 ---
 # <a name="networking-for-azure-virtual-machine-scale-sets"></a>Azure 虛擬機器擴展集的網路
 
@@ -117,7 +117,7 @@ az vmss create \
     {
     "name": "nic1",
     "properties": {
-      "primary": "true",
+      "primary": true,
       "ipConfigurations": [
       {
         "name": "ip1",
@@ -184,14 +184,14 @@ Get-AzPublicIpAddress -ResourceGroupName myrg -Name myvmsspip
 若要查詢 [Azure 資源總管](https://resources.azure.com)：
 
 1. 在 Web 瀏覽器中開啟 [Azure 資源總管](https://resources.azure.com)。
-1. 從左側按一下 [訂用帳戶]  旁的 [+]  ，即可展開訂用帳戶。 如果 [訂用帳戶]  底下只有一個項目，則可能已經展開。
+1. 從左側按一下 [訂用帳戶] 旁的 [+]，即可展開訂用帳戶。 如果 [訂用帳戶] 底下只有一個項目，則可能已經展開。
 1. 展開您的訂用帳戶。
 1. 展開您的資源群組。
-1. 展開 [提供者]  。
-1. 展開 [Microsoft.Compute]  。
-1. 展開 [virtualMachineScaleSets]  。
+1. 展開 [提供者]。
+1. 展開 [Microsoft.Compute]。
+1. 展開 [virtualMachineScaleSets]。
 1. 展開您的擴展集。
-1. 按一下 [publicipaddresses]  。
+1. 按一下 [publicipaddresses]。
 
 若要查詢 Azure REST API：
 
@@ -251,7 +251,7 @@ GET https://management.azure.com/subscriptions/{your sub ID}/resourceGroups/{RG 
         {
         "name": "nic1",
         "properties": {
-            "primary": "true",
+            "primary": true,
             "ipConfigurations": [
             {
                 "name": "ip1",
@@ -283,7 +283,7 @@ GET https://management.azure.com/subscriptions/{your sub ID}/resourceGroups/{RG 
         {
         "name": "nic2",
         "properties": {
-            "primary": "false",
+            "primary": false,
             "ipConfigurations": [
             {
                 "name": "ip1",
@@ -330,7 +330,7 @@ GET https://management.azure.com/subscriptions/{your sub ID}/resourceGroups/{RG 
         {
             "name": "nic1",
             "properties": {
-                "primary": "true",
+                "primary": true,
                 "ipConfigurations": [
                     {
                         "name": "ip1",

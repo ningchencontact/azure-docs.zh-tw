@@ -4,23 +4,24 @@ description: 瞭解如何在資源變更時尋找，並取得已變更屬性的�
 services: resource-graph
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 05/10/2019
+ms.date: 10/09/2019
 ms.topic: conceptual
 ms.service: resource-graph
-ms.openlocfilehash: 2027f56d44be14895a40550d78a79d9e9dda9d97
-ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
+ms.openlocfilehash: 13e2a848f9d178fc6554062c324c951102e1343b
+ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/06/2019
-ms.locfileid: "71980306"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72244105"
 ---
 # <a name="get-resource-changes"></a>取得資源變更
 
 資源會在每日使用、重新設定，甚至重新部署的過程中有所變更。
 變更可以來自個人或自動化程式。 大部分的變更都是根據設計，但有時不會。 在過去14天的變更歷程記錄中，Azure Resource Graph 可讓您：
 
-- 了解何時在 Azure Resource Manager 屬性上偵測到變更。
-- 查看該變更事件中有哪些屬性變更。
+- 尋找在 Azure Resource Manager 屬性上偵測到變更的時間
+- 如需每項資源變更，請參閱屬性變更詳細資料。
+- 查看偵測到的變更前後的資源完整比較
 
 變更偵測和詳細資料對於下列範例案例很有用：
 
@@ -36,14 +37,15 @@ ms.locfileid: "71980306"
 > [!IMPORTANT]
 > Azure Resource Graph 中的變更歷程記錄處於公開預覽狀態。
 
-## <a name="find-when-changes-were-detected"></a>尋找偵測到變更的時間
+## <a name="find-detected-change-events-and-view-change-details"></a>尋找偵測到的變更事件並查看變更詳細資料
 
-查看資源變更的第一個步驟，是在一段時間內尋找與該資源相關的變更事件。 此步驟是透過**resourceChanges** REST 端點完成。
+查看資源變更的第一個步驟，是在一段時間內尋找與該資源相關的變更事件。 每個變更事件也會包含資源變更的詳細資料。 此步驟是透過**resourceChanges** REST 端點完成。
 
-**ResourceChanges**端點需要要求主體中的兩個參數：
+**ResourceChanges**端點會接受要求主體中的下列參數：
 
-- **resourceId**：要在其中尋找變更的 Azure 資源。
-- **間隔**：具有_開始_和_結束_日期的屬性，可供何時使用**祖魯時間區域（Z）** 檢查變更事件。
+- **resourceId** \[required @ no__t-2：要在其中尋找變更的 Azure 資源。
+- **interval** \[required @ no__t-2：具有_開始_和_結束_日期的屬性，可供何時使用**祖魯時間區域（Z）** 檢查變更事件。
+- **fetchPropertyChanges** （選擇性）：布林值屬性，如果回應物件包含屬性變更，則設定。
 
 要求本文範例：
 
@@ -51,9 +53,10 @@ ms.locfileid: "71980306"
 {
     "resourceId": "/subscriptions/{subscriptionId}/resourceGroups/MyResourceGroup/providers/Microsoft.Storage/storageAccounts/mystorageaccount",
     "interval": {
-        "start": "2019-03-28T00:00:00.000Z",
-        "end": "2019-03-31T00:00:00.000Z"
-    }
+        "start": "2019-09-28T00:00:00.000Z",
+        "end": "2019-09-29T00:00:00.000Z"
+    },
+    "fetchPropertyChanges": true
 }
 ```
 
@@ -67,38 +70,100 @@ POST https://management.azure.com/providers/Microsoft.ResourceGraph/resourceChan
 
 ```json
 {
-    "changes": [{
-            "changeId": "{\"beforeId\":\"xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx\",\"beforeTime\":'2019-05-09T00:00:00.000Z\",\"afterId\":\"xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx\",\"beforeTime\":'2019-05-10T00:00:00.000Z\"}",
+    "changes": [
+        {
+            "changeId": "{\"beforeId\":\"3262e382-9f73-4866-a2e9-9d9dbee6a796\",\"beforeTime\":\"2019-09-28T00:45:35.012Z\",\"afterId\":\"6178968e-981e-4dac-ac37-340ee73eb577\",\"afterTime\":\"2019-09-28T00:52:53.371Z\"}",
             "beforeSnapshot": {
-                "timestamp": "2019-03-29T01:32:05.993Z"
+                "snapshotId": "3262e382-9f73-4866-a2e9-9d9dbee6a796",
+                "timestamp": "2019-09-28T00:45:35.012Z"
             },
             "afterSnapshot": {
-                "timestamp": "2019-03-29T01:54:24.42Z"
-            }
+                "snapshotId": "6178968e-981e-4dac-ac37-340ee73eb577",
+                "timestamp": "2019-09-28T00:52:53.371Z"
+            },
+            "changeType": "Create"
         },
         {
-            "changeId": "9dc352cb-b7c1-4198-9eda-e5e3ed66aec8",
+            "changeId": "{\"beforeId\":\"a00f5dac-86a1-4d86-a1c5-a9f7c8147b7c\",\"beforeTime\":\"2019-09-28T00:43:38.366Z\",\"afterId\":\"3262e382-9f73-4866-a2e9-9d9dbee6a796\",\"afterTime\":\"2019-09-28T00:45:35.012Z\"}",
             "beforeSnapshot": {
-                "timestamp": "2019-03-28T10:30:19.68Z"
+                "snapshotId": "a00f5dac-86a1-4d86-a1c5-a9f7c8147b7c",
+                "timestamp": "2019-09-28T00:43:38.366Z"
             },
             "afterSnapshot": {
-                "timestamp": "2019-03-28T21:12:31.337Z"
-            }
+                "snapshotId": "3262e382-9f73-4866-a2e9-9d9dbee6a796",
+                "timestamp": "2019-09-28T00:45:35.012Z"
+            },
+            "changeType": "Delete"
+        },
+        {
+            "changeId": "{\"beforeId\":\"b37a90d1-7ebf-41cd-8766-eb95e7ee4f1c\",\"beforeTime\":\"2019-09-28T00:43:15.518Z\",\"afterId\":\"a00f5dac-86a1-4d86-a1c5-a9f7c8147b7c\",\"afterTime\":\"2019-09-28T00:43:38.366Z\"}",
+            "beforeSnapshot": {
+                "snapshotId": "b37a90d1-7ebf-41cd-8766-eb95e7ee4f1c",
+                "timestamp": "2019-09-28T00:43:15.518Z"
+            },
+            "afterSnapshot": {
+                "snapshotId": "a00f5dac-86a1-4d86-a1c5-a9f7c8147b7c",
+                "timestamp": "2019-09-28T00:43:38.366Z"
+            },
+            "propertyChanges": [
+                {
+                    "propertyName": "tags.org",
+                    "afterValue": "compute",
+                    "changeCategory": "User",
+                    "changeType": "Insert"
+                },
+                {
+                    "propertyName": "tags.team",
+                    "afterValue": "ARG",
+                    "changeCategory": "User",
+                    "changeType": "Insert"
+                }
+            ],
+            "changeType": "Update"
+        },
+        {
+            "changeId": "{\"beforeId\":\"19d12ab1-6ac6-4cd7-a2fe-d453a8e5b268\",\"beforeTime\":\"2019-09-28T00:42:46.839Z\",\"afterId\":\"b37a90d1-7ebf-41cd-8766-eb95e7ee4f1c\",\"afterTime\":\"2019-09-28T00:43:15.518Z\"}",
+            "beforeSnapshot": {
+                "snapshotId": "19d12ab1-6ac6-4cd7-a2fe-d453a8e5b268",
+                "timestamp": "2019-09-28T00:42:46.839Z"
+            },
+            "afterSnapshot": {
+                "snapshotId": "b37a90d1-7ebf-41cd-8766-eb95e7ee4f1c",
+                "timestamp": "2019-09-28T00:43:15.518Z"
+            },
+            "propertyChanges": [{
+                "propertyName": "tags.cgtest",
+                "afterValue": "hello",
+                "changeCategory": "User",
+                "changeType": "Insert"
+            }],
+            "changeType": "Update"
         }
     ]
 }
 ```
 
-**ResourceId**的每個偵測到的變更事件都有該資源獨有的**changeId** 。 雖然**changeId**字串有時可能會包含其他屬性，但它只保證是唯一的。 變更記錄包含建立快照集之前和之後的時間。
-變更事件發生在此時段的某個時間點。
+**ResourceId**的每個偵測到的變更事件都具有下列屬性：
 
-## <a name="see-what-properties-changed"></a>查看哪些屬性已變更
+- **changeId** -此值對該資源而言是唯一的。 雖然**changeId**字串有時可能會包含其他屬性，但它只保證是唯一的。
+- **beforeSnapshot** -包含偵測到變更之前所取得之資源快照集的**snapshotId**和**時間戳記**。
+- **afterSnapshot** -包含偵測到變更之後所建立之資源快照集的**snapshotId**和**時間戳記**。
+- **changeType** -描述在**beforeSnapshot**和**afterSnapshot**之間針對整個變更記錄偵測到的變更類型。 值為：_建立_、_更新_和_刪除_。 只有在**changeType**是_Update_時，才會包含**propertyChanges**屬性陣列。
+- **propertyChanges** -此屬性陣列會詳細說明**beforeSnapshot**與**afterSnapshot**之間已更新的所有資源屬性：
+  - **propertyName** -已改變之資源屬性的名稱。
+  - **changeCategory** -描述進行變更的內容。 值為：_系統_和_使用者_。
+  - **changeType** -描述針對個別資源屬性偵測到的變更類型。
+    值為：_Insert_、 _Update_、 _Remove_。
+  - **beforeValue** - **beforeSnapshot**中 resource 屬性的值。 當**changeType**為_Insert_時，不會顯示。
+  - **afterValue** - **afterSnapshot**中 resource 屬性的值。 當**ChangeType** _移除_時，不會顯示。
 
-透過**resourceChanges**端點的**changeId** ，接著會使用**resourceChangeDetails** REST 端點來取得變更事件的詳細資訊。
+## <a name="compare-resource-changes"></a>比較資源變更
+
+透過**resourceChanges**端點的**changeId** ，就會使用**resourceChangeDetails** REST 端點來取得已變更資源的前後快照集。
 
 **ResourceChangeDetails**端點需要要求主體中的兩個參數：
 
-- **resourceId**：要在其中尋找變更的 Azure 資源。
+- **resourceId**：要用來比較變更的 Azure 資源。
 - **changeId**：從**resourceChanges**收集的**resourceId**的唯一變更事件。
 
 要求本文範例：
@@ -220,7 +285,7 @@ POST https://management.azure.com/providers/Microsoft.ResourceGraph/resourceChan
 
 **beforeSnapshot**和**afterSnapshot**會分別提供快照集的建立時間，以及當時的屬性。 這項變更會發生在這些快照集之間的某個時間點。 查看上述範例，我們可以看到變更的屬性已**supportsHttpsTrafficOnly**。
 
-若要以程式設計方式比較結果，請比較每個快照的**內容**部分，以判斷差異。 如果您比較整個快照集，則**時間戳記**一律會顯示為差異，而不是預期。
+若要比較結果，請使用**resourceChanges**中的 [**變更**] 屬性，或評估**resourceChangeDetails**中每個快照集的**內容**部分，以判斷差異。 如果您比較快照集，則**時間戳記**一律會顯示為差異，而不是預期。
 
 ## <a name="next-steps"></a>後續步驟
 

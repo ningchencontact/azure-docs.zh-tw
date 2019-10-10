@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 5/8/2019
 ms.author: mbaldwin
-ms.openlocfilehash: b79ed7ea3113f097f767ad7ff8bdc47b4e4916eb
-ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
+ms.openlocfilehash: 338977c236ebb8f1b800eb6c28747a010e708300
+ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70883560"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72244228"
 ---
 # <a name="frequently-asked-questions-faq"></a>常見問題集 (FAQ)
 
@@ -58,9 +58,9 @@ HSM 可用於儲存密碼編譯金鑰，以供密碼編譯功能使用，例如 
 
 Microsoft 僅透過專用硬體安全模組 (HSM) 服務提供 Gemalto SafeNet Luna Network HSM，而無法裝載任何客戶提供的裝置。
 
-### <a name="q-does-azure-dedicated-hsm-support-payment-pinetf-features"></a>問：Azure 專用 HSM 支援付款（PIN/ETF）功能嗎？
+### <a name="q-does-azure-dedicated-hsm-support-payment-pineft-features"></a>問：Azure 專用 HSM 是否支援付款（PIN/EFT）功能？
 
-Azure 專用硬體安全模組 (HSM) 服務使用 SafeNet Luna Network HSM 7 (型號 A790) 裝置。 這些裝置不支援付款 HSM 的特定功能 (例如 PIN 或 ETF) 或認證。 如果您想要 Azure 專用 HSM 服務在未來支援付款 Hsm，請將意見反應傳遞給您的 Microsoft 客戶代表。
+Azure 專用硬體安全模組 (HSM) 服務使用 SafeNet Luna Network HSM 7 (型號 A790) 裝置。 這些裝置不支援付款 HSM 特有的功能（例如 PIN 或 EFT）或認證。 如果您想要 Azure 專用 HSM 服務在未來支援付款 Hsm，請將意見反應傳遞給您的 Microsoft 客戶代表。
 
 ### <a name="q-which-azure-regions-is-dedicated-hsm-available-in"></a>問：專用 HSM 提供哪些 Azure 區域？
 
@@ -78,7 +78,7 @@ Azure 專用硬體安全模組 (HSM) 服務使用 SafeNet Luna Network HSM 7 (�
 * 英國西部
 * 加拿大中部
 * 加拿大東部
-* 澳大利亞東部
+* 澳洲東部
 * 澳大利亞東南部
 
 ## <a name="interoperability"></a>互通性

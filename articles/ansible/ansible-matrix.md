@@ -1,5 +1,5 @@
 ---
-title: 適用於 Azure 的 Ansible 模組和版本對照表 |Microsoft Docs
+title: Azure 的 Ansible 模組和版本對照表
 description: Azure 的 Ansible 模組和版本對照表
 keywords: ansible, 角色, 對照表, 版本, azure, devops
 ms.topic: reference
@@ -8,24 +8,24 @@ author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
 ms.date: 04/30/2019
-ms.openlocfilehash: b3396b2f4639cc7298b77810dbaafadd308d6b24
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 18654500a78178c46e72f9f6cd01e8507fa179f0
+ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65230988"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72241550"
 ---
 # <a name="ansible-module-and-version-matrix"></a>Ansible 模組和版本對照表
 
-Ansible 包含一組用來佈建和設定 Azure 資源的模組。 這些資源包括虛擬機器、擴展集、網路服務和容器服務。 本文會列出各種的 Ansible 模組，適用於 Azure 和它們附的 Ansible 版本。
+Ansible 包含一組用來佈建和設定 Azure 資源的模組。 這些資源包括虛擬機器、擴展集、網路服務和容器服務。 本文列出適用于 Azure 的各種 Ansible 模組和其隨附的 Ansible 版本。
 
 ## <a name="ansible-modules-for-azure"></a>Azure 的 Ansible 模組
 
-可以執行下列的模組，直接在遠端主機上或透過劇本。
+下列模組可以直接在遠端主機上執行，或透過操作手冊來執行。
 
-這些模組可從 Ansible 的正式發行，以及從下列 Microsoft 劇本角色。
+這些模組可從 Ansible 官方版本和下列 Microsoft 腳本角色取得。
 
-| Azure 的 Ansible 模組                   |  Ansible 2.4 |  Ansible 2.5 |  Ansible 2.6 | Ansible 2.7 | Ansible 2.8 | Ansible 角色 | 
+| Azure 的 Ansible 模組                   |  Ansible 2.4 |  Ansible 2.5 |  Ansible 2.6 | Ansible 2.7 | Ansible 2。8 | Ansible 角色 | 
 |---------------------------------------------|--------------|--------------|-----------------------------|-------------------------------------|--------------|--------------| 
 | **計算**                    |           |                          |                          |                            |           |           |
 | azure_rm_availabilityset                    | 是          | 是                         | 是          | 是          | 是          | 是          |
@@ -190,10 +190,10 @@ Ansible 包含一組用來佈建和設定 Azure 資源的模組。 這些資源�
 
 ## <a name="introduction-to-playbook-role-for-azure"></a>Azure 劇本角色簡介
 
-[Azure_preview_module 劇本角色](https://galaxy.ansible.com/Azure/azure_preview_modules/)包含所有最新的 Azure 模組。 相較於官方 Ansible 版本，此角色會更加及時地推出更新和錯誤修正。 如果您使用 Ansible 佈建用途的 Azure 資源時，我們鼓勵您安裝`azure_preview_module`劇本角色。
+[Azure_preview_module 腳本角色](https://galaxy.ansible.com/Azure/azure_preview_modules/)包含所有最新的 azure 模組。 相較於官方 Ansible 版本，此角色會更加及時地推出更新和錯誤修正。 如果您將 Ansible 用於 Azure 資源布建用途，建議您安裝 `azure_preview_module` 腳本角色。
 
-`azure_preview_module`劇本角色每三週發行。
+@No__t-0 腳本角色每三周發行一次。
 
 ## <a name="next-steps"></a>後續步驟
 
-如需劇本角色的詳細資訊，請參閱[建立可重複使用的劇本](https://docs.ansible.com/ansible/latest/playbooks_reuse.html)。 
+如需腳本角色的詳細資訊，請參閱[建立可重複使用](https://docs.ansible.com/ansible/latest/playbooks_reuse.html)的腳本。 

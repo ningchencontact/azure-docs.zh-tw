@@ -1,21 +1,21 @@
 ---
-title: Microsoft Genomics:如何提出支援要求 |Microsoft Docs
-titleSuffix: Azure
-description: 本概觀說明如何提出支援要求以連絡 Microsoft Genomics。 如果您無法使用疑難排解指南或常見問題集對問題進行疑難排解，這會很有幫助。
+title: 如何提出支援要求
+titleSuffix: Microsoft Genomics
+description: 本文說明當您無法使用疑難排解指南或常見問題來解決問題時，如何提出支援要求來與 Microsoft Genomics。
 keywords: 疑難排解, 錯誤, 偵錯, 支援
 services: genomics
 author: grhuynh
 manager: cgronlun
 ms.author: grhuynh
 ms.service: genomics
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/23/2018
-ms.openlocfilehash: ed37d42d8ec1692cc5edb62b68536803f47205f5
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ddfe8b6010ddc241364ccf7b2d4f5f648bd3ce0e
+ms.sourcegitcommit: 961468fa0cfe650dc1bec87e032e648486f67651
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60721208"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72248601"
 ---
 # <a name="how-to-contact-microsoft-genomics-for-support"></a>如何連絡 Microsoft Genomics 以取得支援
 本概觀說明如何提出支援要求以連絡 Microsoft Genomics。 如果您無法使用[疑難排解指南](troubleshooting-guide-genomics.md)或[常見問題集](frequently-asked-questions-genomics.md)針對問題進行疑難排解，這會很有幫助。 

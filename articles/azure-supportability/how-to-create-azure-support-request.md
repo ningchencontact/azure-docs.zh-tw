@@ -2,32 +2,27 @@
 title: 如何建立 Azure 支援要求 | Microsoft Docs
 description: 如何建立 Azure 支援要求。
 services: Azure Supportability
-documentationcenter: ''
 author: ganganarayanan
 manager: scotthit
-editor: ''
 ms.assetid: fd6841ea-c1d5-4bb7-86bd-0c708d193b89
 ms.service: azure-supportability
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 10/25/2016
 ms.author: gangan
-ms.openlocfilehash: 462a14d7845c6723a3482e50b01c50e3d913beee
-ms.sourcegitcommit: 8ef0a2ddaece5e7b2ac678a73b605b2073b76e88
+ms.openlocfilehash: 0195cc86875b075e00e9305d803b8d637905db78
+ms.sourcegitcommit: 961468fa0cfe650dc1bec87e032e648486f67651
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71072090"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72248701"
 ---
 # <a name="how-to-create-an-azure-support-request"></a>如何建立 Azure 支援要求
 ## <a name="summary"></a>總結
 Azure 客戶可以在 Azure 入口網站 ([https://portal.azure.com](https://portal.azure.com)) 中建立和管理支援要求。
 
 > [!NOTE]
-> 適用于德國的商業[https://portal.azure.com](https://portal.azure.com)使用 Azure 入口網站是 Azure 入口網站[https://portal.microsoftazure.de](https://portal.microsoftazure.de)   
-> 美國政府的 Azure 入口網站是[https://portal.azure.us](https://portal.azure.us)
+> 適用于商業的 Azure 入口網站是德國的[https://portal.azure.com](https://portal.azure.com) Azure 入口網站[https://portal.microsoftazure.de](https://portal.microsoftazure.de)   
+> 美國政府的 Azure 入口網站[https://portal.azure.us](https://portal.azure.us)
 
 
 根據客戶的意見反應，我們已更新支援要求體驗，著重在三個主要目標︰
@@ -41,11 +36,11 @@ Azure 客戶可以在 Azure 入口網站 ([https://portal.azure.com](https://por
 
 **從頂端導覽列**
 
-![說明及支援](./media/how-to-create-azure-support-request/HelpandSupport.png)
+![說明與支援](./media/how-to-create-azure-support-request/HelpandSupport.png)
 
 在 [說明 + 支援] 頁面中選取 [新增支援要求]。
 
-![新增支援要求](./media/how-to-create-azure-support-request/NewSupportRequest.png)
+![新的支援要求](./media/how-to-create-azure-support-request/NewSupportRequest.png)
 
 **從資源刀鋒視窗**
 
@@ -76,7 +71,7 @@ Azure 客戶可以在 Azure 入口網站 ([https://portal.azure.com](https://por
 ## <a name="related-help"></a>相關說明
 我們會根據問題類型和您選取的類別，提供可協助您解決問題的解決方案。
 
-![相關的說明](./media/how-to-create-azure-support-request/RelatedHelp.png)
+![相關說明](./media/how-to-create-azure-support-request/RelatedHelp.png)
 
 我們也會根據您問題的文字描述，提供內容相關的自助解決方案。
 
@@ -100,7 +95,7 @@ Azure 客戶可以在 Azure 入口網站 ([https://portal.azure.com](https://por
 
 **從頂端導覽列**
 
-![說明及支援](./media/how-to-create-azure-support-request/HelpandSupport.png)
+![說明與支援](./media/how-to-create-azure-support-request/HelpandSupport.png)
 
 從 [說明與支援] 頁面，選取左功能表中的 [所有支援要求]。
 
@@ -127,8 +122,8 @@ Azure 客戶可以在 Azure 入口網站 ([https://portal.azure.com](https://por
 
 ![VID-2](./media/how-to-create-azure-support-request/VID-2.png)
 
-## <a name="feedback"></a>意見
+## <a name="feedback"></a>意見反應
 我們歡迎意見反應和建議！ 請將您的 [建議](https://feedback.azure.com/forums/266794-support-feedback)傳送給我們。 此外，您可以透過 [Twitter](https://twitter.com/azuresupport) 或 [MSDN 論壇](https://social.msdn.microsoft.com/Forums/azure)與我們連絡。
 
-## <a name="learn-more"></a>更多資訊
+## <a name="learn-more"></a>深入了解
 [Azure 支援常見問題集](https://azure.microsoft.com/support/faq)

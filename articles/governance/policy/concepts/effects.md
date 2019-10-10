@@ -6,12 +6,12 @@ ms.author: dacoulte
 ms.date: 09/17/2019
 ms.topic: conceptual
 ms.service: azure-policy
-ms.openlocfilehash: 991cfb54dc511c284c5f5d0cf1807d5dd42b34ea
-ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
+ms.openlocfilehash: eb15aa3c6dbe0f4db62a2029a3c97b4475ab53a2
+ms.sourcegitcommit: 1c2659ab26619658799442a6e7604f3c66307a89
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/06/2019
-ms.locfileid: "71978064"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72255876"
 ---
 # <a name="understand-azure-policy-effects"></a>了解 Azure 原則效果
 
@@ -45,7 +45,10 @@ ms.locfileid: "71978064"
 
 針對測試情況，或當原則定義已將效果參數化時，此效果相當有用。 這個彈性讓您得以停用單一指派，而不是停用該原則的所有指派。
 
-## <a name="append"></a>附加
+已停用效果的替代方法是在原則指派上設定的**enforcementMode** 。
+_停用_ **enforcementMode**時，仍會評估資源。 記錄（例如活動記錄）和原則效果都不會發生。 如需詳細資訊，請參閱[原則指派-強制模式](./assignment-structure.md#enforcement-mode)。
+
+## <a name="append"></a>Append
 
 Append 可用來在建立或更新所要求的資源時，為資源新增額外的欄位。 常見的範例是針對儲存體資源指定允許的 Ip。
 
@@ -161,7 +164,7 @@ Append 效果只有一個 **details** 陣列且為必要。 由於 **details** �
 |運算 |描述 |
 |-|-|
 |addOrReplace |將已定義的標籤和值新增至資源，即使標記已經存在且具有不同的值。 |
-|加入 |將已定義的標記和值加入至資源。 |
+|加 |將已定義的標記和值加入至資源。 |
 |移除 |從資源中移除已定義的標記。 |
 
 ### <a name="modify-examples"></a>修改範例

@@ -7,12 +7,12 @@ ms.author: v-qiwe
 ms.service: marketplace
 ms.topic: conceptual
 ms.date: 10/04/2019
-ms.openlocfilehash: 48ef7aeb1804aca9001288f6babd302b9c3a8347
-ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
+ms.openlocfilehash: d035f26e4b550eb1e5d2cca161f14880814a15f6
+ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/05/2019
-ms.locfileid: "71969546"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72244184"
 ---
 # <a name="create-a-new-saas-offer"></a>建立新的 SaaS 供應專案
 
@@ -160,18 +160,7 @@ SaaS 提供了以一般費用、每位使用者或使用計量付費服務的消
 
 ## <a name="connect-lead-management"></a>連接潛在客戶管理
 
-藉由在 marketplace 中列出您的供應專案並連結客戶關係管理（CRM）系統，直接與客戶連線，讓您可以在客戶有興趣或部署您的之後，立即收到客戶連絡人資訊。基礎.
-
-- **選擇潛在客戶目的地**（下拉式功能表）：提供連線詳細資料給您希望我們傳送客戶潛在客戶的 CRM 系統。 
-
-合作夥伴中心支援下列適用于潛在客戶管理的 CRM 系統。 選取設定指示的連結。
-
-- Azure Blob –提供連絡人電子郵件、容器名稱和儲存體帳戶連接字串。 
-- [Azure 資料表](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-azure-table)–提供連絡人電子郵件和儲存體帳戶連接字串。 
-- [DYNAMICS CRM Online](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-dynamics) –提供連絡人電子郵件、URL 和驗證模式（Office 365 或 Azure Active Directory）。
-- [Https 端點](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-https)–提供連絡人電子郵件和 HTTPS 端點 URL。 
-- [Marketo](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-marketo) –提供連絡人電子郵件、表單識別碼、MUNCHKIN 帳戶識別碼和伺服器識別碼。
-- [Salesforce](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-salesforce) -提供連絡人電子郵件和組織識別碼。 
+[!INCLUDE [Connect lead management](./includes/connect-lead-management-a.md)]
 
 #### <a name="additional-lead-management-resources"></a>其他潛在客戶管理資源
 - [潛在客戶管理常見問題](https://docs.microsoft.com/azure/marketplace/lead-management-for-cloud-marketplace#frequently-asked-questions)
@@ -188,7 +177,7 @@ SaaS 提供了以一般費用、每位使用者或使用計量付費服務的消
 ### <a name="category"></a>Category
 選取最少一個（1）和最多三個（3）分類，用來將您的供應專案分組至適當的 marketplace 搜尋區域。 請在供應專案描述中，打電話給您的供應專案如何支援這些類別。 
 
-### <a name="industry"></a>產業
+### <a name="industry"></a>業界
 選取最多兩個（2）用來將您的供應專案分組至適當 marketplace 搜尋區域的產業。 如果您的供應專案並非產業專屬，請不要選取其中一個。 請在供應專案描述中，打電話給您的供應專案如何支援選取的產業。 
 
 ### <a name="app-version"></a>應用程式版本
@@ -317,7 +306,7 @@ Azure Marketplace 發行者可以選擇在標準合約下提供其軟體，而�
 - **CSP 計畫行銷材料**（選擇性）：如果您選擇將您的供應專案延伸至[雲端解決方案提供者（CSP）](https://docs.microsoft.com/azure/marketplace/cloud-solution-providers)方案，則必須提供行銷資料的連結。 CSP 藉由讓 CSP 合作夥伴組合、行銷及轉售您的供應專案，來將您的供應專案延伸至更廣泛的合格客戶。 這些轉銷商將需要存取行銷您供應專案的素材。 如需詳細資訊，請參閱[進入市場服務](https://partner.microsoft.com/reach-customers/gtm)。
 - **有用的連結**（選擇性）：有關您的應用程式的選擇性補充線上檔，或提供**標題**和**URL**所列出的相關服務。 按一下 [ **+ 新增 URL**] 來新增其他有用的連結。
 
-#### <a name="contact-information"></a>連絡資訊
+#### <a name="contact-information"></a>連絡人資訊
 
 - **連絡人**：針對每個客戶連絡人，提供員工**姓名**、**電話號碼**和**電子郵件**位址。  （這些*不會*公開顯示）。 **支援連絡人**群組也需要**支援 URL** 。  （此資訊*將*會公開顯示）。
 
@@ -484,7 +473,7 @@ Azure Marketplace 發行者可以選擇在標準合約下提供其軟體，而�
 
 [!INCLUDE [Test drive content](./includes/commercial-marketplace-test-drive.md)]
 
-## <a name="publish"></a>發行
+## <a name="publish"></a>發佈
 
 #### <a name="submit-offer-to-preview"></a>提交供應專案以供預覽
 

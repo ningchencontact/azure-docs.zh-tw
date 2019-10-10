@@ -5,21 +5,21 @@ services: expressroute
 author: cherylmc
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 10/07/2019
+ms.date: 10/09/2019
 ms.author: cherylmc
-ms.openlocfilehash: 904dbed711a0ae4d072ea888e7bd83211e68ab16
-ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
+ms.openlocfilehash: 650e45ca9092b9c81b2127eb995a0297745410a4
+ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72178666"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72244147"
 ---
 # <a name="expressroute-encryption"></a>ExpressRoute 加密
  
 ExpressRoute 支援幾種加密技術，可確保您的網路與 Microsoft 網路之間資料的機密性和完整性。
 
 ## <a name="point-to-point-encryption-by-macsec-faq"></a>依 MACsec 的點對點加密常見問題
-MACsec 是[IEEE 標準](https://1.ieee802.org/security/802-1ae/)。 它會將媒體存取控制（MAC）層級或網路層2上的資料加密。 當您透過 ExpressRoute Direct 連接到 Microsoft 時，您可以使用 MACsec 來加密您的網路裝置與 Microsoft 網路裝置之間的實體連結。 根據預設，ExpressRoute Direct 埠上的 MACsec 已停用。 您會攜帶自己的 MACsec 金鑰進行加密，並將它儲存在 Azure Key Vault 中。 您決定何時要旋轉金鑰。 請參閱下面的其他常見問題。
+MACsec 是[IEEE 標準](https://1.ieee802.org/security/802-1ae/)。 它會將媒體存取控制（MAC）層級或網路層2上的資料加密。 當您透過[ExpressRoute Direct](expressroute-erdirect-about.md)連接到 microsoft 時，您可以使用 MACsec 來加密您的網路裝置與 microsoft 網路裝置之間的實體連結。 根據預設，ExpressRoute Direct 埠上的 MACsec 已停用。 您會攜帶自己的 MACsec 金鑰進行加密，並將它儲存在[Azure Key Vault](../key-vault/key-vault-overview.md)中。 您決定何時要旋轉金鑰。 請參閱下面的其他常見問題。
 ### <a name="can-i-enable-macsec-on-my-expressroute-circuit-provisioned-by-an-expressroute-provider"></a>我可以在 ExpressRoute 提供者布建的 ExpressRoute 線路上啟用 MACsec 嗎？
 資料分割 MACsec 會使用一個實體（也就是客戶）所擁有的金鑰，來加密實體連結上的所有流量。 因此，它僅適用于 ExpressRoute Direct。
 ### <a name="can-i-encrypt-some-of-the-expressroute-circuits-on-my-expressroute-direct-ports-and-leave-other-circuits-on-the-same-ports-unencrypted"></a>我可以加密 ExpressRoute Direct 埠上的某些 ExpressRoute 線路，並在未加密的相同埠上保留其他線路嗎？ 
@@ -27,9 +27,11 @@ MACsec 是[IEEE 標準](https://1.ieee802.org/security/802-1ae/)。 它會將媒
 ### <a name="when-i-enabledisable-macsec-or-update-macsec-key-will-my-on-premises-network-lose-connectivity-to-microsoft-over-expressroute"></a>當我啟用/停用 MACsec 或更新 MACsec 金鑰時，我的內部部署網路會透過 ExpressRoute 失去與 Microsoft 的連線能力嗎？
 是的。 針對 MACsec 設定，我們只支援預先共用金鑰模式。 這表示您需要在您的裝置和 Microsoft （透過我們的 API）上更新金鑰。 這項變更不是不可部分完成的，因此當兩端之間有索引鍵不相符時，您將會失去連線能力。 我們強烈建議您針對設定變更排程維護時段。 若要將停機時間降到最低，建議您在將網路流量切換至另一個連結之後，一次更新一個 ExpressRoute Direct 連結的設定。  
 ### <a name="will-traffic-continue-to-flow-if-theres-a-mismatch-in-macsec-key-between-my-devices-and-microsofts"></a>如果我的裝置與 Microsoft 之間的 MACsec 金鑰不相符，流量是否會繼續流動？
-資料分割 如果已設定 MACsec，且發生金鑰不符的情況，您就會失去與 Microsoft 的連線能力。 換句話說，我們不會回復到未加密的連線，而是公開您的資料。 
+資料分割 如果 MACsec 已設定，而且發生金鑰不符的情況，您就會失去與 Microsoft 的連線能力。 換句話說，我們不會回復到未加密的連線，而是公開您的資料。 
 ### <a name="will-enabling-macsec-on-expressroute-direct-degrade-network-performance"></a>啟用 ExpressRoute Direct 的 MACsec 會降低網路效能嗎？
 MACsec 加密和解密會發生在我們使用的路由器上的硬體中。 對我們的端不會有任何效能影響。 不過，您應該向網路廠商檢查您所使用的裝置，並查看 MACsec 是否有任何效能含意。
+### <a name="which-cipher-suites-are-supported-for-encryption"></a>支援加密的加密套件有哪些？
+我們支援 AES128 （GCM – AES –128）和 AES256 （GCM – AES –256）。
 
 ## <a name="end-to-end-encryption-by-ipsec-faq"></a>IPsec 常見問題的端對端加密
 IPsec 是一種[IETF 標準](https://tools.ietf.org/html/rfc6071)。 它會以網際網路通訊協定（IP）層級或網路層3來加密資料。 您可以使用 IPsec 來加密內部部署網路與 Azure 上的虛擬網路（VNET）之間的端對端連線。 請參閱下面的其他常見問題。

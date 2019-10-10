@@ -5,13 +5,13 @@ author: ekpgh
 ms.service: avere-vfxt
 ms.topic: conceptual
 ms.date: 02/28/2019
-ms.author: v-erkell
-ms.openlocfilehash: 47a4b38d39c52992b51284776ec34cb9491020e7
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: rohogue
+ms.openlocfilehash: f42a9cf5aaa3256865bcf388aa5bd422664c73dd
+ms.sourcegitcommit: 1c2659ab26619658799442a6e7604f3c66307a89
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65595419"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72255400"
 ---
 # <a name="avere-vfxt-for-azure-faq"></a>Avere vFXT for Azure 常見問題集
 
@@ -25,7 +25,7 @@ Avere vFXT for Azure 是高效能的檔案系統，可快取 Azure 計算中的�
 
 ### <a name="is-avere-vfxt-a-storage-solution"></a>Avere vFXT 是儲存體解決方案嗎？
 
-資料分割 Avere vFXT 是連接至儲存體環境的檔案系統「快取」  ，例如 EMC 或 NetApp NAS 或 Azure Blob 容器。 Avere vFXT 可簡化用戶端的資料要求，並快取提供的資料，長時間大規模地改善效能。 Avere vFXT 本身不會儲存資料。 它沒有背後所儲存資料量的相關資訊。
+資料分割 Avere vFXT 是連接至儲存體環境的檔案系統「快取」，例如 EMC 或 NetApp NAS 或 Azure Blob 容器。 Avere vFXT 可簡化用戶端的資料要求，並快取提供的資料，長時間大規模地改善效能。 Avere vFXT 本身不會儲存資料。 它沒有背後所儲存資料量的相關資訊。
 
 ### <a name="is-avere-vfxt-a-tiering-solution"></a>Avere vFXT 是階層處理解決方案嗎？
 
@@ -63,7 +63,7 @@ Avere vFXT 算是一種快取， 因此不會特別儲存資料。 而是結合�
 
 ### <a name="what-regions-are-supported"></a>支援哪些區域？
 
-除了主權區域 （中國、 德國） 之外的所有區域都支援 Avere vFXT 適用於 Azure。 請確定您所要使用的區域可支援數量龐大的計算核心，以及建立 Avere vFXT 叢集所需的 VM 執行個體。
+除了主權區域（中國、德國）之外，所有區域都支援 Avere vFXT for Azure。 請確定您所要使用的區域可支援數量龐大的計算核心，以及建立 Avere vFXT 叢集所需的 VM 執行個體。
 
 ### <a name="how-do-i-get-help-with-avere-vfxt"></a>如何取得 Avere vFXT 的相關協助？
 
@@ -88,7 +88,7 @@ Avere vFXT 是由多個 Azure 虛擬機器構成的叢集設備。 Python 程式
 
 ### <a name="what-kind-of-azure-virtual-machines-does-avere-vfxt-run-on"></a>Avere vFXT 可在哪種 Azure 虛擬機器上執行？  
 
-適用於 Azure 叢集 Avere vFXT 使用 Microsoft Azure E32s_v3 虛擬機器。 
+Avere vFXT for Azure 叢集會使用 Microsoft Azure E32s_v3 虛擬機器。 
 
 <!-- ### Can I mix and match virtual machine types for my cluster?
 
@@ -177,7 +177,7 @@ Avere vFXT for Azure 目前不支援本機 SSD。 用於 Avere vFXT 的磁碟必
 
 ### <a name="does-avere-vfxt-require-its-own-subnet"></a>Avere vFXT 需要自己的子網路嗎？
 
-是的。 Avere vFXT 嚴格作為高可用性 (HA) 叢集執行，並要求操作的多個 IP 位址。 如果叢集位於自己的子網路中，您要避免 IP 位址發生衝突，這可能會造成安裝和一般操作發生問題。 只要 IP 位址沒有重疊，叢集的子網路可以位於現有的虛擬網路內。
+是的。 Avere vFXT 完全以高可用性（HA）叢集的方式執行，而且需要多個 IP 位址才能運作。 如果叢集位於自己的子網路中，您要避免 IP 位址發生衝突，這可能會造成安裝和一般操作發生問題。 只要 IP 位址沒有重疊，叢集的子網路可以位於現有的虛擬網路內。
 
 ### <a name="can-i-run-avere-vfxt-on-infiniband"></a>可以在 InfiniBand 上執行 Avere vFXT 嗎？
 
@@ -200,13 +200,13 @@ Avere vFXT 環境類似任何其他的 Azure VM，它需要透過網路閘道或
 
 不可以，用來運作 Avere vFXT 的網路環境應該要透過最佳做法加以保護。  
 
-### <a name="can-i-restrict-internet-access-from-my-clusters-virtual-network"></a>可以從我的叢集虛擬網路限制存取網際網路嗎？ 
+### <a name="can-i-restrict-internet-access-from-my-clusters-virtual-network"></a>我可以限制從叢集的虛擬網路存取網際網路嗎？ 
 
-一般情況下，您可以在 vnet 上設定額外的安全性，如有需要但一些限制可能會干擾叢集操作。
+一般而言，您可以視需要在 vnet 上設定額外的安全性，但某些限制可能會干擾叢集的作業。
 
-比方說，限制輸出網際網路存取，從您的 vnet 會導致叢集問題除非您也將新增一個規則，明確允許存取 AzureCloud。 這種情況下所述[GitHub 上的補充文件](https://github.com/Azure/Avere/tree/master/src/vfxt/internet_access.md)。
+例如，限制來自 vnet 的輸出網際網路存取會導致叢集發生問題，除非您也新增了明確允許存取 AzureCloud 的規則。 [GitHub 上的補充檔](https://github.com/Azure/Avere/tree/master/src/vfxt/internet_access.md)會說明這種情況。
 
-具有自訂安全性的說明，請連絡支援服務中所述[取得協助與您的系統](avere-vfxt-open-ticket.md#open-a-support-ticket-for-your-avere-vfxt)。
+如需自訂安全性的協助，請聯絡支援人員，如[取得系統協助](avere-vfxt-open-ticket.md#open-a-support-ticket-for-your-avere-vfxt)中所述。
 
 ## <a name="technical-back-end-storage-core-filers"></a>技術：後端儲存體 (核心檔案管理工具)
 
@@ -226,7 +226,7 @@ Avere vFXT 不是儲存體。 它是快取，會從稱為核心檔案管理工�
 * NetApp ONTAP (Clustered Mode 9.4、9.3、9.2、9.1P1、8.0-8.3) 與 (7-Mode 7.*、8.0-8.3) 
 
   > [!NOTE] 
-  > Azure 的 NetApp 檔案目前不支援。 
+  > 目前不支援 Azure NetApp Files。 
 
 * Azure Blob 容器 (僅限本地備援儲存體) 
 * AWS S3 貯體 

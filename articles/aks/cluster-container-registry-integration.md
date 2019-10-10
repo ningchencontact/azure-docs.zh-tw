@@ -8,12 +8,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 09/17/2018
 ms.author: mlearned
-ms.openlocfilehash: ab744efd205d826cb7ae2c3eda7bba28f4a9bee0
-ms.sourcegitcommit: cd70273f0845cd39b435bd5978ca0df4ac4d7b2c
+ms.openlocfilehash: d9d432c073872e7bb7f3562979e78989faea65eb
+ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71097811"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72241102"
 ---
 # <a name="authenticate-with-azure-container-registry-from-azure-kubernetes-service"></a>從 Azure Kubernetes Service 對 Azure Container Registry 進行驗證
 
@@ -39,7 +39,7 @@ az aks create -n myAKSCluster -g myResourceGroup --attach-acr <acr-name-or-resou
 ```
 **ACR 資源識別碼的格式如下：** 
 
-/subscriptions/< 訂用帳戶-d >/resourceGroups/< 資源群組-名稱 >/providers/Microsoft.ContainerRegistry/registries/{name} 
+/subscriptions/\<subscription-id @ no__t-1/resourceGroups/\<resource-group-name @ no__t-3/provider/Microsoft. ContainerRegistry/registry/\<name @ no__t-5 
   
 此步驟可能需要幾分鐘的時間才能完成。
 
@@ -61,7 +61,7 @@ az aks update -n myAKSCluster -g myResourceGroup --detach-acr <acr-resource-id>
 
 ## <a name="log-in-to-your-acr"></a>登入您的 ACR
 
-使用下列命令登入您的 ACR。  將<acrname>參數取代為您的 ACR 名稱。  例如，預設值為**aks < 您的資源群組 > acr**。
+使用下列命令登入您的 ACR。  將 <acrname> 參數取代為您的 ACR 名稱。  例如，預設值為**aks < 您的資源群組 > acr**。
 
 ```azurecli
 az acr login -n <acrName>

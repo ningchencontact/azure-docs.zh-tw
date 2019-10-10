@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 05/09/2019
 ms.author: sharadag
 ms.custom: include file
-ms.openlocfilehash: deca0034996f6c8ddcac71cd4f191c1a0659b655
-ms.sourcegitcommit: cd70273f0845cd39b435bd5978ca0df4ac4d7b2c
+ms.openlocfilehash: 37ebe2f0c5cbbaca712e69ab4484379ecf0f4830
+ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "67333368"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72237303"
 ---
 | Resource | 預設/最大限制 |
 | --- | --- |
@@ -24,7 +24,7 @@ ms.locfileid: "67333368"
 | 每個後端集區的後端 | 100 |
 | 要符合路由規則的路徑模式 | 25 |
 | 每個原則的自訂 Web 應用程式防火牆規則 | 10 |
-| 每個資源的 Web 應用程式防火牆原則 | 100 |
+| 每個訂用帳戶的 Web 應用程式防火牆原則 | 100 |
 | 每個自訂規則的 Web 應用程式防火牆比對條件 | 10 |
 | 每個符合條件的 Web 應用程式防火牆 IP 位址範圍 | 600 |
 | Web 應用程式防火牆字串符合每個符合條件的值 | 10 |
@@ -53,4 +53,5 @@ ms.locfileid: "67333368"
 | **上傳** |  只要每個 CTE 上傳小於 2 GB，就不會有任何限制。 | 大小不能大於 2 GB。 |
 
 ### <a name="other-limits"></a>其他限制
-- URL 大小上限-8192 位元組-指定原始 URL 的長度上限（配置 + 主機名稱 + 埠 + 路徑 + 查詢字串）-最大查詢字串大小-4096 個位元組-指定查詢字串的最大長度（以位元組為單位）。
+- URL 大小上限-8192 位元組-指定原始 URL 的最大長度（配置 + 主機名稱 + 埠 + 路徑 + URL 的查詢字串）
+- 查詢字串大小上限-4096 個位元組-指定查詢字串的最大長度（以位元組為單位）。

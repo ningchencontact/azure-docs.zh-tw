@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: dafc78e49cb0118181bae4522d4cb456509ea2cb
-ms.sourcegitcommit: 2d9a9079dd0a701b4bbe7289e8126a167cfcb450
+ms.openlocfilehash: bb9b3a4add951079ab918d3ac02ca5e38eff6161
+ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/29/2019
-ms.locfileid: "71673431"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72241162"
 ---
 # <a name="dynamic-membership-rules-for-groups-in-azure-active-directory"></a>Azure Active Directory 中群組的動態成員資格規則
 
@@ -43,7 +43,7 @@ Azure AD 提供規則產生器，更快速地建立及更新您的重要規則�
 - 具有五個以上運算式的規則
 - 直接報告規則
 - 設定[運算子優先順序](groups-dynamic-membership.md#operator-precedence)
-- [具有複雜運算式的規則](groups-dynamic-membership.md#rules-with-complex-expressions);例如`(user.proxyAddresses -any (_ -contains "contoso"))`
+- [具有複雜運算式的規則](groups-dynamic-membership.md#rules-with-complex-expressions);例如 `(user.proxyAddresses -any (_ -contains "contoso"))`
 
 > [!NOTE]
 > 「規則產生器」可能無法顯示在文字方塊中所建立的某些規則。 當規則產生器無法顯示規則時，您可能會看到一則訊息。 規則產生器不會以任何方式變更支援的語法、驗證或處理動態群組規則。
@@ -79,7 +79,7 @@ user.department -eq "Sales"
 有三種類型的屬性可用來建構成員資格規則。
 
 - Boolean
-- String
+- 字串
 - 字串集合
 
 以下是您可用來建立單一運算式的使用者屬性。
@@ -138,11 +138,11 @@ user.department -eq "Sales"
 | 運算子 | 語法 |
 | --- | --- |
 | Not Equals |-ne |
-| 等於 |-eq |
+| Equals |-eq |
 | Not Starts With |-notStartsWith |
 | 開頭為 |-startsWith |
 | Not Contains |-notContains |
-| 包含 |-contains |
+| Contains |-contains |
 | Not Match |-notMatch |
 | Match |-match |
 | 在 | -in |
@@ -342,7 +342,7 @@ device.objectid -ne null
 (user.extensionAttribute15 -eq "Marketing")
 ```
 
-自訂擴充屬性會從內部部署 Windows Server AD 或從連線的 SaaS 應用程式進行同步處理，而且格式為 `user.extension_[GUID]__[Attribute]`，其中：
+自訂擴充屬性會從內部部署 Windows Server AD 或從連線的 SaaS 應用程式進行同步處理，而且格式為 `user.extension_[GUID]_[Attribute]`，其中：
 
 * 對於在 Azure AD 中建立屬性的應用程式而言，[GUID] 是其在 Azure AD 中的唯一識別碼
 * [Attribute] 是屬性建立時的名稱
@@ -350,7 +350,7 @@ device.objectid -ne null
 以下是使用自訂擴充屬性的規則範例：
 
 ```
-user.extension_c272a57b722d4eb29bfe327874ae79cb__OfficeNumber -eq "123"
+user.extension_c272a57b722d4eb29bfe327874ae79cb_OfficeNumber -eq "123"
 ```
 
 使用 [Graph 總管] 查詢使用者的屬性並搜尋屬性名稱，即可在目錄中找到自訂屬性名稱。 此外，您現在可以在動態使用者群組規則建立器中選取 [取得自訂擴充屬性] 連結，輸入唯一的應用程式識別碼，然後接收在建立動態成員資格規則時所要使用的自訂擴充屬性完整清單。 您也可以重新整理這份清單，來針對該應用程式取得任何新的自訂擴充屬性。

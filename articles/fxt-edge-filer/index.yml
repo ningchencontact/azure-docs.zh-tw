@@ -8,7 +8,7 @@ metadata:
   ms.service: fxt-edge-filer
   ms.topic: landing-page
   ms.date: 07/10/2019
-  ms.author: v-erkell
+  ms.author: rohogue
 abstract:
   description: Azure FXT Edge Filer 混合式儲存體快取是一個硬體/軟體混合式系統，可加速檔案式、讀取密集高效能運算 (HPC) 工作流程的資料存取速度。 三個以上的 Azure FXT Edge Filer 裝置叢集可加速內部部署 NAS 系統 (NetApp 或 Dell EMC Isilon)、雲端儲存體或解決方案組合的儲存體效能。
 sections:

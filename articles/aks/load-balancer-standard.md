@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 09/27/2019
 ms.author: zarhoads
-ms.openlocfilehash: c9b6f6cf52d71451d2e1de27d0637eeb749b1e0b
-ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
+ms.openlocfilehash: 55ded9a733baaac7fbc78621bd625d57d1d37ad1
+ms.sourcegitcommit: 1c2659ab26619658799442a6e7604f3c66307a89
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71349055"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72255497"
 ---
 # <a name="use-a-standard-sku-load-balancer-in-azure-kubernetes-service-aks"></a>在 Azure Kubernetes Service 中使用標準 SKU 負載平衡器（AKS）
 
@@ -145,7 +145,7 @@ $ az aks show --resource-group myResourceGroup --name myAKSCluster
 
 若要在您的叢集上使用負載平衡器，請使用服務類型*LoadBalancer*建立服務資訊清單。 若要顯示負載平衡器運作，請建立另一個資訊清單，其中包含要在叢集上執行的範例應用程式。 這個範例應用程式會透過負載平衡器公開，並可透過瀏覽器來查看。
 
-建立名`sample.yaml`為的資訊清單，如下列範例所示：
+建立名為 `sample.yaml` 的資訊清單，如下列範例所示：
 
 ```yaml
 apiVersion: apps/v1
@@ -221,7 +221,7 @@ spec:
           value: "azure-vote-back"
 ```
 
-上述資訊清單會設定兩個部署： *azure-投票-front*和*azure 投票*。 若要使用負載平衡器來設定要公開的*azure 投票-front*部署，請建立名`standard-lb.yaml`為的資訊清單，如下列範例所示：
+上述資訊清單會設定兩個部署： *azure-投票-front*和*azure 投票*。 若要使用負載平衡器來設定要公開的*azure 投票-front*部署，請建立名為 `standard-lb.yaml` 的資訊清單，如下列範例所示：
 
 ```yaml
 apiVersion: v1
@@ -245,7 +245,7 @@ kubectl apply -f sample.yaml
 kubectl apply -f standard-lb.yaml
 ```
 
-*標準*SKU 負載平衡器現在已設定為公開範例應用程式。 使用[kubectl get][kubectl-get]查看*azure 投票*的服務詳細資料，以查看負載平衡器的公用 IP。 負載平衡器的公用 IP 位址會顯示在 [*外部 IP* ] 資料行中。 IP 位址可能需要一或兩分鐘的時間，才會從 *\<暫\>止狀態*變更為實際的外部 IP 位址，如下列範例所示：
+*標準*SKU 負載平衡器現在已設定為公開範例應用程式。 使用[kubectl get][kubectl-get]查看*azure 投票*的服務詳細資料，以查看負載平衡器的公用 IP。 負載平衡器的公用 IP 位址會顯示在 [*外部 IP* ] 資料行中。 IP 位址可能需要一到兩分鐘的時間才能從 *\<pending @ no__t-2*變更為實際的外部 IP 位址，如下列範例所示：
 
 ```
 $ kubectl get service azure-vote-front
@@ -254,12 +254,12 @@ NAME                TYPE           CLUSTER-IP     EXTERNAL-IP     PORT(S)       
 azure-vote-front    LoadBalancer   10.0.227.198   52.179.23.131   80:31201/TCP   16s
 ```
 
-在瀏覽器中流覽至公用 IP，並確認您看到範例應用程式。 在上述範例中，公用 IP 是`52.179.23.131`。
+在瀏覽器中流覽至公用 IP，並確認您看到範例應用程式。 在上述範例中，公用 IP 為 `52.179.23.131`。
 
-![瀏覽至 Azure 投票的影像](media/container-service-kubernetes-walkthrough/azure-vote.png)
+![瀏覽至 Azure 投票的影像](media/container-service-kubernetes-walkthrough/azure-voting-application.png)
 
 > [!NOTE]
-> 您也可以將負載平衡器設定為內部，而不公開公用 IP。 若要將負載平衡器設定為內部`service.beta.kubernetes.io/azure-load-balancer-internal: "true"` ，請新增作為「 *LoadBalancer* 」服務的注釋。 您可以在[這裡][internal-lb-yaml]查看範例 yaml 資訊清單，以及有關內部負載平衡器的詳細資料。
+> 您也可以將負載平衡器設定為內部，而不公開公用 IP。 若要將負載平衡器設定為內部，請將 `service.beta.kubernetes.io/azure-load-balancer-internal: "true"` 新增為*LoadBalancer*服務的注釋。 您可以在[這裡][internal-lb-yaml]查看範例 yaml 資訊清單，以及有關內部負載平衡器的詳細資料。
 
 ## <a name="optional---scale-the-number-of-managed-public-ips"></a>選擇性-調整受控公用 Ip 的數目
 
@@ -276,7 +276,7 @@ az aks update \
 
 上述範例會將*myResourceGroup*中*myAKSCluster*叢集的受控輸出公用 ip 數目設定為*2* 。 
 
-您也可以在建立叢集時，使用*負載平衡器管理的 ip 計數*參數來設定初始受控輸出公用 ip 數目，方法是附加`--load-balancer-managed-outbound-ip-count`參數並將它設定為您想要的值。 受控輸出公用 Ip 的預設數目為1。
+您也可以在建立叢集時，使用*負載平衡器管理的 ip 計數*參數來設定初始受控輸出公用 ip 數目，方法是附加 `--load-balancer-managed-outbound-ip-count` 參數，並將它設定為您想要的值。 受控輸出公用 Ip 的預設數目為1。
 
 ## <a name="optional---provide-your-own-public-ips-or-prefixes-for-egress"></a>選擇性-提供您自己的公用 Ip 或輸出的首碼
 

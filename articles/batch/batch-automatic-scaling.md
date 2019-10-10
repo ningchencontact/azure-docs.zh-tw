@@ -11,19 +11,19 @@ ms.service: batch
 ms.topic: article
 ms.tgt_pltfrm: ''
 ms.workload: multiple
-ms.date: 06/20/2017
+ms.date: 10/08/2019
 ms.author: lahugh
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 2014b00a82a6d56bf58b471336c6d809721abea9
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: bdea67d682bab335de02e55f5864460e3daefb95
+ms.sourcegitcommit: 1c2659ab26619658799442a6e7604f3c66307a89
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70095426"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72254938"
 ---
-# <a name="create-an-automatic-scaling-formula-for-scaling-compute-nodes-in-a-batch-pool"></a>建立自動調整公式來調整 Batch 集區中的計算節點
+# <a name="create-an-automatic-formula-for-scaling-compute-nodes-in-a-batch-pool"></a>建立自動公式以調整 Batch 集區中的計算節點
 
-Azure Batch 可以根據您定義的參數自動調整集區。 使用自動調整，Batch 會隨著工作需求增加，動態地將節點新增至集區，以及隨著工作需求減少而移除計算節點。 自動調整 Batch 應用程式所使用的計算節點數目，可讓您節省時間與金錢。 
+Azure Batch 可以根據您定義的參數自動調整集區。 使用自動調整，Batch 會隨著工作需求增加，動態地將節點新增至集區，以及隨著工作需求減少而移除計算節點。 自動調整 Batch 應用程式所使用的計算節點數目，可讓您節省時間與金錢。
 
 您可讓您定義的「自動調整公式」與計算節點的集區產生關聯，以在該集區上啟用自動調整。 Batch 服務會使用自動調整公式來判斷要執行您的工作負載所需的計算節點數目。 計算節點可以是專用節點或[低優先順序節點](batch-low-pri-vms.md)。 Batch 會回應定期收集的服務計量資料。 使用此計量資料，Batch 會根據您的公式以可設定的間隔調整集區中的計算節點數目。
 
@@ -39,7 +39,8 @@ Azure Batch 可以根據您定義的參數自動調整集區。 使用自動調�
 >
 
 ## <a name="automatic-scaling-formulas"></a>自動調整公式
-自動調整公式是您定義的字串值，其中包含一或多個陳述式。 自動調整公式會指派給集區的[autoScaleFormula][rest_autoscaleformula]元素 (batch REST) 或[CloudPool. AutoScaleFormula][net_cloudpool_autoscaleformula]屬性 (batch .net)。 Batch 集區會使用您的公式來決定集區中可供下一個間隔處理的目標計算節點數目。 公式字串不得超過 8 KB、最多只能包含 100 個陳述式 (以分號隔開)，而且可以包含換行和註解。
+
+自動調整公式是您定義的字串值，其中包含一或多個陳述式。 自動調整公式會指派給集區的[autoScaleFormula][rest_autoscaleformula]元素（batch REST）或[CloudPool. AutoScaleFormula][net_cloudpool_autoscaleformula]屬性（batch .net）。 Batch 集區會使用您的公式來決定集區中可供下一個間隔處理的目標計算節點數目。 公式字串不得超過 8 KB、最多只能包含 100 個陳述式 (以分號隔開)，而且可以包含換行和註解。
 
 您可以將自動調整公式視為 Batch 自動調整「語言」。 公式陳述式是自由格式的運算式，可以包括服務定義的變數 (Batch 服務所定義的變數) 和使用者定義的變數 (您所定義的變數)。 它們可以使用內建類型、運算子和函式對這些值執行各種作業。 例如，陳述式可能會採用下列格式：
 
@@ -60,15 +61,17 @@ $variable2 = function2($OtherServiceDefinedVariable, $variable1);
 
 ### <a name="sample-autoscale-formulas"></a>自動調整公式範例
 
-以下是兩個自動調整公式的範例, 可加以調整以適用于大部分的案例。 範例公式`startingNumberOfVMs`中`maxNumberofVMs`的變數和可以依據您的需求進行調整。
+以下是兩個自動調整公式的範例，可加以調整以適用于大部分的案例。 範例公式中 `startingNumberOfVMs` 和 `maxNumberofVMs` 的變數可以依據您的需求進行調整。
 
 #### <a name="pending-tasks"></a>暫止工作
+
 ```
 startingNumberOfVMs = 1;
 maxNumberofVMs = 25;
 pendingTaskSamplePercent = $PendingTasks.GetSamplePercent(180 * TimeInterval_Second);
 pendingTaskSamples = pendingTaskSamplePercent < 70 ? startingNumberOfVMs : avg($PendingTasks.GetSample(180 * TimeInterval_Second));
 $TargetDedicatedNodes=min(maxNumberofVMs, pendingTaskSamples);
+$NodeDeallocationOption = taskcompletion;
 ```
 
 使用此自動調整公式，一開始會建立包含單一 VM 的集區。 `$PendingTasks` 計量會定義執行中或已排入佇列的工作數目。 公式會尋找過去 180 秒內的平均擱置中工作數目，並據以設定 `$TargetDedicatedNodes` 變數。 公式會確保目標專用節點數目絕不會超出 25 部 VM。 集區會隨著新工作的提交而自動成長。 隨著工作完成，VM 會逐一變成可用，且自動調整公式會縮小集區。
@@ -76,15 +79,18 @@ $TargetDedicatedNodes=min(maxNumberofVMs, pendingTaskSamples);
 此公式會調整專用節點，但是可加以修改，套用來調整低優先順序節點。
 
 #### <a name="preempted-nodes"></a>搶先節點 
+
 ```
 maxNumberofVMs = 25;
 $TargetDedicatedNodes = min(maxNumberofVMs, $PreemptedNodeCount.GetSample(180 * TimeInterval_Second));
 $TargetLowPriorityNodes = min(maxNumberofVMs , maxNumberofVMs - $TargetDedicatedNodes);
+$NodeDeallocationOption = taskcompletion;
 ```
 
-這個範例會建立一個以25個低優先順序節點開頭的集區。 每次佔用低優先順序節點時, 就會將其取代為專用節點。 如同第一個範例, `maxNumberofVMs`變數會防止集區超過25部 vm。 這個範例適用于利用低優先順序的 Vm, 同時也確保集區的存留期只會發生固定數目的 preemptions。
+這個範例會建立一個以25個低優先順序節點開頭的集區。 每次佔用低優先順序節點時，就會將其取代為專用節點。 如同第一個範例，@no__t 0 變數會防止集區超過25部 Vm。 這個範例適用于利用低優先順序的 Vm，同時也確保集區的存留期只會發生固定數目的 preemptions。
 
 ## <a name="variables"></a>變數
+
 您可以在自動調整公式中同時使用**服務定義**和**使用者定義**的變數。 服務定義的變數內建在 Batch 服務中。 有些服務定義的變數是讀寫，有些是唯讀。 使用者定義的變數是您定義的變數。 在上一節中所示的範例公式中，`$TargetDedicatedNodes` 和 `$PendingTasks` 是服務定義的變數。 `startingNumberOfVMs` 和 `maxNumberofVMs` 變數是使用者定義的變數。
 
 > [!NOTE]
@@ -100,7 +106,7 @@ $TargetLowPriorityNodes = min(maxNumberofVMs , maxNumberofVMs - $TargetDedicated
 | --- | --- |
 | $TargetDedicatedNodes |集區之專用計算節點的目標數目。 專用節點數目被指定作為目標，因為集區不一定會達到想要的節點數目。 例如，如果在集區達到初始目標之前，自動調整評估修改目標專用節點數目，則集區可能未達到目標。 <br /><br /> 如果目標超過 Batch 帳戶節點或核心配額，以 Batch 服務設定建立之帳戶中的集區可能未達到其目標。 如果目標超過訂用帳戶的共用核心配額，以使用者訂用帳戶設定建立之帳戶中的集區可能未達到其目標。|
 | $TargetLowPriorityNodes |集區之低優先順序計算節點的目標數目。 低優先順序節點數目被指定作為目標，因為集區不一定會達到想要的節點數目。 例如，如果在集區達到初始目標之前，自動調整評估修改目標低優先順序節點數目，則集區可能未達到目標。 如果目標超過 Batch 帳戶節點或核心配額，則集區也可能未達到其目標。 <br /><br /> 如需有關低優先順序計算節點的詳細資訊，請參閱[搭配 Batch 使用低優先順序 VM (預覽)](batch-low-pri-vms.md)。 |
-| $NodeDeallocationOption |計算節點從集區移除時所發生的動作。 可能的值包括：<ul><li>**requeue**：立即終止工作，並將這些工作放回工作佇列，為它們重新排程。<li>**terminate**：立即終止工作，並從作業佇列移除這些工作。<li>**taskcompletion**：等待目前執行中的工作完成，然後再從集區中移除該節點。<li>**retaineddata**：等待所有本機工作保留在節點上的資料先清除，再從集區移除節點。</ul> |
+| $NodeDeallocationOption |計算節點從集區移除時所發生的動作。 可能的值為：<ul><li>**requeue**--預設值。 立即終止工作，並將它們放回作業佇列，使其重新排程。 此動作可確保節點的目標數目儘快達到，但可能較不有效率，因為任何執行中的工作將會中斷，而且必須重新開機，因而浪費已完成的任何工作。 <li>**terminate**：立即終止工作，並從作業佇列移除這些工作。<li>**taskcompletion**：等待目前執行中的工作完成，然後再從集區中移除該節點。 使用此選項可避免工作中斷和重新排入佇列，並浪費工作已完成的任何工作。 <li>**retaineddata**：等待所有本機工作保留在節點上的資料先清除，再從集區移除節點。</ul> |
 
 您可以取得這些服務定義的變數值，以根據 Batch 服務提供的計量進行調整：
 
@@ -132,6 +138,7 @@ $TargetLowPriorityNodes = min(maxNumberofVMs , maxNumberofVMs - $TargetDedicated
 >
 
 ## <a name="types"></a>型別
+
 公式中支援以下類型：
 
 * double
@@ -161,6 +168,7 @@ $TargetLowPriorityNodes = min(maxNumberofVMs , maxNumberofVMs - $TargetDedicated
   * TimeInterval_Year
 
 ## <a name="operations"></a>作業
+
 上一節列出的類型允許這些作業。
 
 | 運算 | 支援的運算子 | 結果類型 |
@@ -216,6 +224,7 @@ $TargetLowPriorityNodes = min(maxNumberofVMs , maxNumberofVMs - $TargetDedicated
 評估之前，*doubleVecList* 值會轉換成單一的 *doubleVec*。 例如，如果 `v = [1,2,3]`，呼叫 `avg(v)` 就相當於呼叫 `avg(1,2,3)`。 呼叫 `avg(v, 7)` 就相當於呼叫 `avg(1,2,3,7)`。
 
 ## <a name="getsampledata"></a>取得樣本資料
+
 自動調整公式會對 Batch 服務所提供的度量資料 (範例) 產生作用。 公式會根據從服務取得的值擴大或縮減集區大小。 上述服務定義的變數是可提供各種方法來存取與該物件相關聯資料的物件。 例如，下列運算式顯示取得最後五分鐘的 CPU 使用量的要求：
 
 ```
@@ -275,6 +284,7 @@ $runningTasksSample = $RunningTasks.GetSample(60 * TimeInterval_Second, 120 * Ti
 >
 
 ## <a name="metrics"></a>計量
+
 您可以在定義公式時使用資源和工作計量。 您會根據您取得和評估的度量資料來調整集區中專用節點的目標數目。 如需每個度量的詳細資訊，請參閱上面的 [變數](#variables) 一節。
 
 <table>
@@ -321,13 +331,15 @@ $runningTasksSample = $RunningTasks.GetSample(60 * TimeInterval_Second, 120 * Ti
 </table>
 
 ## <a name="write-an-autoscale-formula"></a>撰寫自動調整公式
+
 您建置自動調整公式的方式是使用上述元件撰寫陳述式，再將這些陳述式結合成完整的公式。 在本節中，我們會建立可以執行一些真實世界調整決策的範例自動調整公式。
 
 首先，讓我們定義新自動調整公式的需求。 公式應該︰
 
 1. 如果 CPU 使用率偏高，則增加集區中專用計算節點的目標數目。
-2. 如果 CPU 使用率偏低，則減少集區中專用計算節點的目標數目。
-3. 一律以 400 為專用節點的數目上限。
+1. 如果 CPU 使用率偏低，則減少集區中專用計算節點的目標數目。
+1. 一律以 400 為專用節點的數目上限。
+1. 減少節點數目時，請勿移除正在執行工作的節點;如有必要，請等候工作完成以移除節點。
 
 為了在高 CPU 使用率期間增加節點數目，將陳述式定義為在使用者定義的變數 (`$totalDedicatedNodes`) 中填入 110% 的專用節點目前目標數目值，但僅限在過去 10 分鐘期間平均 CPU 使用率下限大於 70%。 否則，請使用專用節點目前數目值。
 
@@ -365,7 +377,7 @@ $TargetDedicatedNodes = min(400, $totalDedicatedNodes)
 
 ## <a name="create-an-autoscale-enabled-pool-with-batch-sdks"></a>使用 Batch Sdk 建立已啟用自動調整的集區
 
-您可以使用任何[Batch sdk](batch-apis-tools.md#azure-accounts-for-batch-development)、 [Batch REST API](https://docs.microsoft.com/rest/api/batchservice/) [BATCH PowerShell Cmdlet](batch-powershell-cmdlets-get-started.md)和[batch CLI](batch-cli-get-started.md)來設定集區自動調整。 在本節中, 您可以查看 .NET 和 Python 的範例。
+您可以使用任何[Batch sdk](batch-apis-tools.md#azure-accounts-for-batch-development)、 [Batch REST API](https://docs.microsoft.com/rest/api/batchservice/) [BATCH PowerShell Cmdlet](batch-powershell-cmdlets-get-started.md)和[batch CLI](batch-cli-get-started.md)來設定集區自動調整。 在本節中，您可以查看 .NET 和 Python 的範例。
 
 ### <a name="net"></a>.NET
 
@@ -377,7 +389,7 @@ $TargetDedicatedNodes = min(400, $totalDedicatedNodes)
 1. (選擇性) 設定 [CloudPool.AutoScaleEvaluationInterval](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.cloudpool.autoscaleevaluationinterval) 屬性 (預設值為 15 分鐘)。
 1. 使用 [CloudPool.Commit](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.cloudpool.commit) 或 [CommitAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.cloudpool.commitasync) 認可集區。
 
-下列程式碼片段在 .NET 中建立已啟用自動調整的集區。 集區的自動調整公式會將星期一的專用節點目標數目設定為 5，而將一週其他各天的節點目標數目設定為 1。 [自動調整間隔](#automatic-scaling-interval) 設定為 30 分鐘。 在這篇文章中C#的其他程式碼片段中`myBatchClient` , 是適當初始化的[BatchClient][net_batchclient]類別實例。
+下列程式碼片段在 .NET 中建立已啟用自動調整的集區。 集區的自動調整公式會將星期一的專用節點目標數目設定為 5，而將一週其他各天的節點目標數目設定為 1。 [自動調整間隔](#automatic-scaling-interval) 設定為 30 分鐘。 在這篇文章中C#的其他程式碼片段中，`myBatchClient` 是適當初始化的[BatchClient][net_batchclient]類別實例。
 
 ```csharp
 CloudPool pool = myBatchClient.PoolOperations.CreatePool(
@@ -391,7 +403,7 @@ await pool.CommitAsync();
 ```
 
 > [!IMPORTANT]
-> 當您建立已啟用自動調整的集區時，請勿在對 **CreatePool** 的呼叫上指定 _targetDedicatedNodes_ 參數或 _targetLowPriorityNodes_ 參數。 請改為在集區上指定 **AutoScaleEnabled** 和 **AutoScaleFormula** 屬性。 這些屬性的值會判斷每個節點類型的目標數目。 此外, 若要手動調整已啟用自動調整的集區大小 (例如, 使用[BatchClient. PoolOperations. ResizePoolAsync][net_poolops_resizepoolasync]), 請先**停**用集區上的自動調整, 然後調整其大小。
+> 當您建立已啟用自動調整的集區時，請勿在對 **CreatePool** 的呼叫上指定 _targetDedicatedNodes_ 參數或 _targetLowPriorityNodes_ 參數。 請改為在集區上指定 **AutoScaleEnabled** 和 **AutoScaleFormula** 屬性。 這些屬性的值會判斷每個節點類型的目標數目。 此外，若要手動調整已啟用自動調整的集區大小（例如，使用[BatchClient. PoolOperations. ResizePoolAsync][net_poolops_resizepoolasync]），請先**停**用集區上的自動調整，然後調整其大小。
 >
 >
 
@@ -399,8 +411,8 @@ await pool.CommitAsync();
 
 依預設，Batch 服務會根據其自動調整公式每隔 15 分鐘調整集區的大小。 可使用下列的集區屬性設定此間隔：
 
-* [CloudPool. AutoScaleEvaluationInterval][net_cloudpool_autoscaleevalinterval] (Batch .net)
-* [autoScaleEvaluationInterval][rest_autoscaleinterval](REST API)
+* [CloudPool. AutoScaleEvaluationInterval][net_cloudpool_autoscaleevalinterval] （Batch .net）
+* [autoScaleEvaluationInterval][rest_autoscaleinterval] （REST API）
 
 最小間隔為 5 分鐘，而最大間隔為 168 小時。 如果指定此範圍以外的時間間隔，則 Batch 服務會傳回「不正確的要求 (400)」錯誤。
 
@@ -411,7 +423,7 @@ await pool.CommitAsync();
 
 ### <a name="python"></a>Python
 
-同樣地, 您可以透過下列方式, 使用 Python SDK 建立已啟用自動調整的集區:
+同樣地，您可以透過下列方式，使用 Python SDK 建立已啟用自動調整的集區：
 
 1. 建立集區並指定其設定。
 1. 將集區新增至服務用戶端。
@@ -457,8 +469,8 @@ response = batch_service_client.pool.enable_auto_scale(pool_id, auto_scale_formu
 
 每個 Batch SDK 會提供啟用自動調整的方法。 例如:
 
-* [BatchClient. PoolOperations. EnableAutoScaleAsync][net_enableautoscaleasync] (Batch .net)
-* [在集區上啟用自動調整][rest_enableautoscale](REST API)
+* [BatchClient. PoolOperations. EnableAutoScaleAsync][net_enableautoscaleasync] （Batch .net）
+* [在集區上啟用自動調整][rest_enableautoscale]（REST API）
 
 當您在現有集區啟用自動調整時，請記住下列幾點：
 
@@ -473,7 +485,7 @@ response = batch_service_client.pool.enable_auto_scale(pool_id, auto_scale_formu
 >
 >
 
-此C#程式碼片段會使用[Batch .net][net_api]程式庫, 在現有的集區上啟用自動調整:
+此C#程式碼片段會使用[Batch .net][net_api]程式庫，在現有的集區上啟用自動調整：
 
 ```csharp
 // Define the autoscaling formula. This formula sets the target number of nodes
@@ -520,7 +532,7 @@ await myBatchClient.PoolOperations.EnableAutoScaleAsync(
 
     在這個 REST 要求中，於 URI 中指定集區識別碼，以及於要求主體的 *autoScaleFormula* 元素中指定自動調整公式。 作業的回應會包含可能與公式相關的任何錯誤資訊。
 
-在此[Batch .net][net_api]程式碼片段中, 我們會評估自動調整公式。 如果集區並未啟用自動調整，我們會先加以啟用。
+在此[Batch .net][net_api]程式碼片段中，我們會評估自動調整公式。 如果集區並未啟用自動調整，我們會先加以啟用。
 
 ```csharp
 // First obtain a reference to an existing pool
@@ -634,9 +646,11 @@ Error:
 ```
 
 ## <a name="example-autoscale-formulas"></a>自動調整公式範例
+
 讓我們看看下面幾個公式，其顯示調整集區中計算資源數量的不同方式。
 
 ### <a name="example-1-time-based-adjustment"></a>範例 1：以時間為基礎的調整
+
 假設您想要根據一週的天數和一天的時間，調整集區大小。 這個範例示範如何據以增加或減少集區中的節點數目。
 
 此公式會先取得目前的時間。 如果是工作日 (1-5) 且在上班時間內 (上午 8:00 - 下午 6:00)，則將目標集區大小設為 20 個節點。 否則，它會設定為 10 個節點。
@@ -647,9 +661,11 @@ $workHours = $curTime.hour >= 8 && $curTime.hour < 18;
 $isWeekday = $curTime.weekday >= 1 && $curTime.weekday <= 5;
 $isWorkingWeekdayHour = $workHours && $isWeekday;
 $TargetDedicatedNodes = $isWorkingWeekdayHour ? 20:10;
+$NodeDeallocationOption = taskcompletion;
 ```
 
 ### <a name="example-2-task-based-adjustment"></a>範例 2：以工作為基礎的調整
+
 在此範例中，是根據佇列中的工作數目調整集區大小。 公式字串中接受註解和換行。
 
 ```csharp
@@ -664,11 +680,12 @@ $targetVMs = $tasks > 0? $tasks:max(0, $TargetDedicatedNodes/2);
 // The pool size is capped at 20, if target VM value is more than that, set it
 // to 20. This value should be adjusted according to your use case.
 $TargetDedicatedNodes = max(0, min($targetVMs, 20));
-// Set node deallocation mode - keep nodes active only until tasks finish
+// Set node deallocation mode - let running tasks finish before removing a node
 $NodeDeallocationOption = taskcompletion;
 ```
 
 ### <a name="example-3-accounting-for-parallel-tasks"></a>範例 3：考量平行工作
+
 此範例會根據工作數目調整集區大小。 此公式也會考慮已針對集區設定的[cloudpool.maxtaskspercomputenode][net_maxtasks]值。 已在集區上啟用[平行工作執行](batch-parallel-node-tasks.md)的情況下，這個方法很有用。
 
 ```csharp
@@ -690,6 +707,7 @@ $NodeDeallocationOption = taskcompletion;
 ```
 
 ### <a name="example-4-setting-an-initial-pool-size"></a>範例 4：設定初始集區大小
+
 此範例顯示的 C# 程式碼片段具有自動調整公式，其在初始期間將集區大小設為指定的節點數目。 然後在初始期間經過之後，再根據執行中和作用中的工作數目來調整集區大小。
 
 下列程式碼片段中的公式：
@@ -714,6 +732,7 @@ string formula = string.Format(@"
 ```
 
 ## <a name="next-steps"></a>後續步驟
+
 * [使用並行節點工作最大化 Azure Batch 計算資源使用量](batch-parallel-node-tasks.md) 包含有關如何對集區中的計算節點同時執行多項工作的詳細資料。 除了自動調整，這項功能有助於減少某些工作負載的作業持續時間，進而節省金錢。
 * 另一種效率提升方式，則是確定您的 Batch 應用程式以最佳方式查詢 Batch 服務。 請參閱[有效率地查詢 Azure Batch 服務](batch-efficient-list-queries.md)，以了解如何在查詢可能數千個計算節點或工作的狀態時，限制越過網路的資料量。
 

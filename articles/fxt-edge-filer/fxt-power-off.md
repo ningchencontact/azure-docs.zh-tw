@@ -1,39 +1,39 @@
 ---
-title: 如何關閉 Microsoft Azure FXT 邊緣篩選單元
-description: 啟動和安全關閉 Azure FXT 邊緣篩選節點的程序
+title: 如何關閉 Microsoft Azure FXT Edge 檔案管理工具單位
+description: Azure FXT Edge 檔案管理工具節點的啟動和安全關機程式
 author: ekpgh
 ms.service: fxt-edge-filer
 ms.topic: conceptual
 ms.date: 07/01/2019
-ms.author: v-erkell
-ms.openlocfilehash: 6921e7a52e43a63055b59242c02cc6ca3b8c5313
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.author: rohogue
+ms.openlocfilehash: 91445c4219abaa67385105f52515f52c87e2cf06
+ms.sourcegitcommit: 1c2659ab26619658799442a6e7604f3c66307a89
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67620092"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72255996"
 ---
-# <a name="how-to-safely-power-off-azure-fxt-edge-filer-hardware"></a>如何安全地關閉 Azure FXT 邊緣篩選硬體電源
+# <a name="how-to-safely-power-off-azure-fxt-edge-filer-hardware"></a>如何安全地關閉 Azure FXT Edge 檔案管理工具硬體的電源
 
-雖然您可以使用的實體電源按鈕來切換在個別節點上，您不應該使用它來關閉在正常情況下的單位。
+雖然您可以使用實體電源按鈕來切換個別節點，但您不應該在正常情況下使用它來關閉單位。
 
-Azure FXT 邊緣篩選節點是用來做為叢集的一部分之後，您應該使用叢集的控制面板軟體關閉硬體。 
+使用 Azure FXT Edge 檔案管理工具節點做為叢集的一部分之後，您應該使用「叢集控制台」軟體來關閉硬體。 
 
 > [!NOTE] 
-> 若要避免可能發生資料遺失或損毀，請一律使用控制台中的軟體來關閉 Azure FXT 邊緣篩選。 請勿用於實體電源按鈕關閉除非 Microsoft 客戶服務及支援指示要執行這項操作。
+> 若要避免可能的資料遺失或損毀，請一律使用「控制台」軟體來關閉 Azure FXT Edge 檔案管理工具。 除非您已指示 Microsoft 客戶服務及支援人員執行此動作，否則請勿使用 [實體電源] 按鈕進行關機。
 > 
-> 在發生電力的緊急狀況，中斷連接電源線，或使用您的資料中心的電力中斷連線機制。
+> 在電力緊急情況下，中斷電源線的連線，或使用您的資料中心電力中斷連線機制。
 
-## <a name="shut-down-a-node-from-the-control-panel"></a>關閉節點從 控制台
+## <a name="shut-down-a-node-from-the-control-panel"></a>從 [控制台] 關閉節點
 
-請遵循下列指示來安全地關閉 Azure FXT 邊緣篩選節點的電源：
+請遵循這些指示來安全地關閉 Azure FXT Edge 檔案管理工具節點：
 
-1. 登入叢集的 [控制台]。 (在中的指示[開啟 [設定] 頁面](fxt-cluster-create.md#open-the-settings-pages))
-1. 按一下 **設定**索引標籤，然後載入**叢集** > **FXT 節點**頁面。
-1. 叢集節點的清單中，找出您的想来關閉。 按一下 **關閉電源**按鈕及其**動作**資料行。 
-1. 請稍候數分鐘。 節點將會關閉，然後關閉電源。
+1. 登入叢集控制台。 （[開啟 [設定] 頁面中的](fxt-cluster-create.md#open-the-settings-pages)指示）
+1. 按一下 **設定** 索引標籤，然後載入**叢集 @no__t-** 2**FXT 節點** 頁面。
+1. 在叢集節點清單中，找出您想要關閉的節點。 按一下 [**動作**] 資料行中的 [**關閉電源**] 按鈕。 
+1. 請稍候片刻。 節點將會關閉，並關閉其電源。
 
 ## <a name="next-steps"></a>後續步驟
 
-* 了解的狀態 Led 和中的其他指標[監視 Azure FXT 邊緣篩選硬體狀態](fxt-monitor.md)。
-* 在中所提供的深入了解 Azure FXT 邊緣篩選 power[連接電源纜線](fxt-network-power.md#connect-power-cables)。
+* 深入瞭解[監視 AZURE FXT Edge 檔案管理器硬體狀態](fxt-monitor.md)中的狀態 led 和其他指示器。
+* 深入瞭解[連接電源纜線](fxt-network-power.md#connect-power-cables)中的 Azure FXT Edge 檔案管理工具電源供應器。

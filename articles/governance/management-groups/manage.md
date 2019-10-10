@@ -1,17 +1,17 @@
 ---
-title: 如何變更、刪除或管理您的管理群組-Azure 治理
+title: 如何使用您的管理群組-Azure 治理
 description: 了解如何檢視、維護、更新及刪除您的管理群組階層。
 author: rthorn17
 ms.service: governance
 ms.date: 05/22/2019
 ms.author: rithorn
 ms.topic: conceptual
-ms.openlocfilehash: 28bfabd5c28fe833050551e7be690c0ea3d1e6a0
-ms.sourcegitcommit: e1b6a40a9c9341b33df384aa607ae359e4ab0f53
+ms.openlocfilehash: 57695157119b81580777c0581adccb267e7e9faa
+ms.sourcegitcommit: 1c2659ab26619658799442a6e7604f3c66307a89
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71338949"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72255939"
 ---
 # <a name="manage-your-resources-with-management-groups"></a>利用管理群組來管理您的資源
 
@@ -126,7 +126,7 @@ az account management-group delete --name 'Contoso'
 
 1. 若要查看管理群組的詳細資訊，請選取管理群組標題旁的 **(詳細資料)** 連結。 如果此連結無法使用，表示您沒有檢視該管理群組的權限。
 
-   ![主要](./media/main.png)
+   ![主要區段](./media/main.png)
 
 ### <a name="view-in-powershell"></a>在 PowerShell 中檢視
 

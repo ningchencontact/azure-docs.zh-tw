@@ -5,13 +5,13 @@ author: ekpgh
 ms.service: avere-vfxt
 ms.topic: conceptual
 ms.date: 10/31/2018
-ms.author: v-erkell
-ms.openlocfilehash: 9fd9eaf1e62d063026e0e656346baaaade87064f
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.author: rohogue
+ms.openlocfilehash: c28189bf227a6a81ae9e72e889a0dc598cd7949e
+ms.sourcegitcommit: 1c2659ab26619658799442a6e7604f3c66307a89
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60410101"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72256275"
 ---
 # <a name="avere-cluster-dns-configuration"></a>Avere 叢集 DNS 組態
 
@@ -41,8 +41,7 @@ ms.locfileid: "60410101"
 
 叢集 vserver 會顯示在左側，而 IP 位址則會出現在中間和右側。 使用 A 記錄和指標設定每個用戶端的存取點，如圖所示。
 
-![Avere 叢集循環配置資源 DNS 圖表](media/avere-vfxt-rrdns-diagram.png) 
-<!--- separate text description file provided  [diagram text description](avere-vfxt-rrdns-alt-text.md) -->
+@no__t 0Avere 叢集迴圈配置資源 DNS 圖表 @ no__t-1<!--- separate text description file provided  [diagram text description](avere-vfxt-rrdns-alt-text.md) -->
 
 每個面向用戶端的 IP 位址都必須有唯一的名稱，供叢集內部使用 (在此圖表中，為了清楚起見，用戶端 IP 名稱為 vs1-client-IP-*，但在生產環境中，您可能要使用更精簡的名稱，例如 client*)。
 
@@ -74,7 +73,7 @@ update add 12.0.0.10.in-addr.arpa. 86400 PTR vs1-client-IP-12.example.com
 
 ## <a name="cluster-dns-settings"></a>叢集 DNS 設定
 
-指定 vFXT 叢集在 [叢集]   > [系統管理網路]  設定頁面中使用的 DNS 伺服器。 該頁面上的設定包括：
+指定 vFXT 叢集在 [叢集] > [系統管理網路] 設定頁面中使用的 DNS 伺服器。 該頁面上的設定包括：
 
 * DNS 伺服器位址
 * DNS 網域名稱

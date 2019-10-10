@@ -13,12 +13,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 04/16/2018
 ms.author: glenga
-ms.openlocfilehash: d74d1c33816b3c028a26335af4c6d5b23b7a2046
-ms.sourcegitcommit: 7868d1c40f6feb1abcafbffcddca952438a3472d
+ms.openlocfilehash: 4fd73f528ac823a8e794a880f87dd5f8872e1251
+ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71958479"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72243268"
 ---
 # <a name="azure-functions-python-developer-guide"></a>Azure Functions Python 開發人員指南
 
@@ -316,7 +316,7 @@ def main():
 
 根據預設，每個函式主控制項實例都有單一的語言工作者進程。 不過，支援每個主控制項實例有多個語言工作者進程。 接著，函式呼叫可以平均分散在這些語言工作者進程中。 使用[FUNCTIONS_WORKER_PROCESS_COUNT](functions-app-settings.md#functions_worker_process_count)應用程式設定來變更此值。 
 
-## <a name="context"></a>內容
+## <a name="context"></a>Context
 
 若要在執行期間取得函數的調用內容，請在其簽章中包含[`context`](/python/api/azure-functions/azure.functions.context?view=azure-python)引數。 
 
@@ -331,7 +331,7 @@ def main(req: azure.functions.HttpRequest,
     return f'{context.invocation_id}'
 ```
 
-[**內容**](/python/api/azure-functions/azure.functions.context?view=azure-python)類具有下列方法：
+[**內容**](/python/api/azure-functions/azure.functions.context?view=azure-python)類具有下列字串屬性：
 
 `function_directory`  
 函式執行所在的目錄。

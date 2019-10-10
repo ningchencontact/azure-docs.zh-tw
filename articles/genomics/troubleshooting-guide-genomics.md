@@ -1,29 +1,29 @@
 ---
-title: Microsoft Genomics：疑難排解指南 | Microsoft Docs
-titleSuffix: Azure
-description: 深入了解疑難排解策略
+title: 疑難排解指南
+titleSuffix: Microsoft Genomics
+description: 瞭解使用 Microsoft Genomics 的疑難排解策略。
 keywords: 疑難排解, 錯誤, 偵錯
-services: microsoft-genomics
+services: genomics
 author: ruchir
 editor: jasonwhowell
 ms.author: ruchir
 ms.service: genomics
 ms.workload: genomics
-ms.topic: article
+ms.topic: troubleshooting
 ms.date: 10/29/2018
-ms.openlocfilehash: 78084e6beac7b390b1ea1afe888030c5224856b6
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ce8af4d444e642a8f67f43f8cf403ce9b2cb08ab
+ms.sourcegitcommit: 961468fa0cfe650dc1bec87e032e648486f67651
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60790499"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72248522"
 ---
 # <a name="troubleshooting-guide"></a>疑難排解指南
 
 以下是使用 Microsoft Genomics 服務 (MSGEN) 時，可能發生之一些常見問題的疑難排解祕訣。
 
  如需與疑難排解不相關的常見問題集，請參閱[常見問題](frequently-asked-questions-genomics.md)。
-## <a name="step-1-locate-error-codes-associated-with-the-workflow"></a>步驟 1：找出與工作流程關聯的錯誤碼
+## <a name="step-1-locate-error-codes-associated-with-the-workflow"></a>步驟 1:找出與工作流程相關聯的錯誤碼
 
 您可以透過下列方式，找到與工作流程相關聯的錯誤訊息：
 
@@ -43,7 +43,7 @@ msgen status -u URL -k KEY -w ID
 
 * URL - API 的基底 URI
 * KEY - Genomics 帳戶的存取金鑰
-    * 若要尋找您的 URL 和 KEY，請前往 Azure 入口網站，然後開啟您的 Microsoft Genomics 帳戶頁面。 在 [管理]  標題之下，選擇 [存取金鑰]  。 您可以看到 API URL 以及存取金鑰。
+    * 若要尋找您的 URL 和 KEY，請前往 Azure 入口網站，然後開啟您的 Microsoft Genomics 帳戶頁面。 在 [管理] 標題之下，選擇 [存取金鑰]。 您可以看到 API URL 以及存取金鑰。
 
   
 * ID - 工作流程識別碼
@@ -93,14 +93,14 @@ msgen status -w 1001 -f "config.txt"
 若要進行疑難排解，請檢查 standardoutput.txt 的內容，並記下出現的任何錯誤訊息。
 
 
-## <a name="step-2-try-recommended-steps-for-common-errors"></a>步驟 2：請嘗試為常見錯誤的建議的步驟
+## <a name="step-2-try-recommended-steps-for-common-errors"></a>步驟 2:嘗試常見錯誤的建議步驟
 
 本節簡短說明 Microsoft Genomics 服務 (msgen) 輸出的常見錯誤，以及您可以用來解決那些錯誤的策略。 
 
 Microsoft Genomics 服務 (msgen) 可能擲出下列兩種錯誤：
 
-1. 內部服務錯誤：內部的服務，藉由修正參數或輸入的檔案可能無法解析的錯誤。 有時候重新提交工作流程，可能可以修正這些錯誤。
-2. 輸入的錯誤：使用正確的引數，或修正可解決的錯誤檔案格式。
+1. 內部服務錯誤：服務內部的錯誤，可能無法藉由修正參數或輸入檔來解決。 有時候重新提交工作流程，可能可以修正這些錯誤。
+2. 輸入錯誤：可以使用正確的引數或修正檔案格式來解決的錯誤。
 
 ### <a name="1-internal-service-errors"></a>1.內部服務錯誤
 
@@ -137,7 +137,7 @@ Microsoft Genomics 服務 (msgen) 可能擲出下列兩種錯誤：
 | FASTQ        | 308        |  FASTQ 讀取錯誤。 兩個讀取都以不同方式回應。 您是否選擇了正確的 FASTQ 檔案？                                                                                       | 請修正 FASTQ 檔案的格式，然後再次提交工作流程。                                                                         |
 |        |       |                                                                                        |                                                                           |
 
-## <a name="step-3-contact-microsoft-genomics-support"></a>步驟 3：請連絡 Microsoft Genomics 支援服務
+## <a name="step-3-contact-microsoft-genomics-support"></a>步驟 3：聯絡 Microsoft Genomics 支援
 
 如果持續發生作業失敗，或是有任何其他問題，請從 Azure 入口網站連絡 Microsoft Genomics 支援服務。 您可以在[此處](file-support-ticket-genomics.md)找到如何提交支援要求的其他資訊。
 

@@ -1,22 +1,22 @@
 ---
-title: Azure Site Recovery 可以保護哪些工作負載？ | Microsoft Docs
+title: 關於具有 Azure Site Recovery 之內部部署應用程式的嚴重損壞修復
 description: 描述可以透過 Azure Site Recovery 服務使用災害復原來保護的工作負載。
 author: rayne-wiselman
 ms.service: site-recovery
 services: site-recovery
 ms.topic: conceptual
-ms.date: 09/03/2019
+ms.date: 10/10/2019
 ms.author: raynew
-ms.openlocfilehash: f3ff6e5e05cab9aab5257d810c6785e7691bae45
-ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
+ms.openlocfilehash: ad989a28e150635637a477d07803107a9fefff63
+ms.sourcegitcommit: 1c2659ab26619658799442a6e7604f3c66307a89
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/03/2019
-ms.locfileid: "70232200"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72255552"
 ---
-# <a name="what-workloads-can-you-protect-with-azure-site-recovery"></a>Azure Site Recovery 可以保護哪些工作負載？
+# <a name="about-disaster-recovery-for-on-premises-apps"></a>關於內部部署應用程式的災害復原
 
-本文說明您可以使用 [Azure Site Recovery](site-recovery-overview.md) 服務進行災害復原保護的工作負載和應用程式。
+本文說明內部部署工作負載和應用程式，您可以使用[Azure Site Recovery](site-recovery-overview.md)服務來保護損毀修復。
 
 
 
@@ -35,13 +35,13 @@ Site Recovery 可協助您實作應用程式層級的保護和復原，如下所
 * 應用程式無從驗證，針對在受支援電腦上執行的任何工作負載提供複寫。
 * 僅需 30 秒即可完成 PRO 近同步複寫，能滿足大多數重要商務應用程式的需求。
 * 適用於單一或多層式架構應用程式的應用程式一致性快照。
-* 與 SQL Server AlwaysOn 整合, 並與其他應用層級的複寫技術合作, 包括 AD 複寫、SQL AlwaysOn、Exchange 資料庫可用性群組 (Dag)。
+* 與 SQL Server AlwaysOn 整合，並與其他應用層級的複寫技術合作，包括 AD 複寫、SQL AlwaysOn、Exchange 資料庫可用性群組（Dag）。
 * 彈性修復計劃，讓您只要按一下就能復原整個應用程式堆疊，並在方案中納入外部指令碼和手動動作。
 * Site Recovery 和 Azure 中的進階網路管理可簡化應用程式網路需求，包括保留 IP 位址、設定負載平衡，以及與 Azure 流量管理員整合而達到低 RTO 網路轉換。
 * 豐富的自動化程式庫，提供已可用於生產環境的應用程式特定指令碼，這些指令碼可供下載並與復原方案整合。
 
 ## <a name="workload-summary"></a>工作負載摘要
-Site Recovery 可複寫在支援的機器上執行的任何應用程式。 此外, 我們與產品小組合作, 為數據表中所指定的應用程式執行額外的測試。
+Site Recovery 可複寫在支援的機器上執行的任何應用程式。 此外，我們與產品小組合作，為數據表中所指定的應用程式執行額外的測試。
 
 | **工作負載** |**將 Azure VM 複寫至 Azure** |**將 Hyper-V VM 複寫至次要網站** | **將 Hyper-V VM 複寫至 Azure** | **將 VMware VM 複寫到次要網站** | **將 VMware VM 複寫到 Azure** |
 | --- | --- | --- | --- | --- |---|

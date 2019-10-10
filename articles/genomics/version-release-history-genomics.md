@@ -1,20 +1,20 @@
 ---
-title: 版本發行歷程記錄 - Microsoft Genomics
-titleSuffix: Azure
-description: Microsoft Genomics 會定期更新 Microsoft Genomics Python 用戶端，以進行修正並推出新功能。
+title: 版本發行歷程記錄
+titleSuffix: Microsoft Genomics
+description: Microsoft Genomics Python 用戶端更新的發行歷程記錄，用於修正和新功能。
 services: genomics
 author: grhuynh
 manager: cgronlun
 ms.author: grhuynh
 ms.service: genomics
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/11/2019
-ms.openlocfilehash: 2037bcf173951769f1627f809352ef60afce2d50
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 03bbbed53cd0494e8507a156d0fadac8dcd4297a
+ms.sourcegitcommit: 961468fa0cfe650dc1bec87e032e648486f67651
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60780945"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72249145"
 ---
 # <a name="version-release-history"></a>版本發行歷程記錄
 Microsoft Genomics 小組會定期更新 Microsoft Genomics Python 用戶端，以進行修正並推出新功能。 

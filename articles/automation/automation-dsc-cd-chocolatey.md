@@ -9,12 +9,12 @@ ms.author: robreed
 ms.date: 08/08/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: b53cb65ec99637dadb16ed9d97c495571be956d7
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f4512b79873d7f770b32a452a02c53bc5575bdac
+ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61073883"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72243592"
 ---
 # <a name="usage-example-continuous-deployment-to-virtual-machines-using-automation-state-configuration-and-chocolatey"></a>使用範例：使用自動化狀態設定和 Chocolatey 持續部署至虛擬機器
 
@@ -36,7 +36,7 @@ DevOps 領域中有許多工具可協助處理持續整合管線中的各個點�
 [apt get](https://en.wikipedia.org/wiki/Advanced_Packaging_Tool) 這類封裝管理員在 Linux 領域中相當知名，但在 Windows 領域中沒有那麼出名。
 [Chocolatey](https://chocolatey.org/) 就是如此，Scott Hanselman 的[部落格](https://www.hanselman.com/blog/IsTheWindowsUserReadyForAptget.aspx)對此主題有深入介紹。 簡單的說，Chocolatey 可讓您使用命令列，從封裝的中央儲存機制將封裝安裝到 Windows 系統。 您可以建立和管理您自己的儲存機制，而 Chocolatey 可以從您指定的任何數量的儲存機制來安裝封裝。
 
-預期狀態設定 (DSC) ([概觀](/powershell/dsc/overview)) 是一個 PowerShell 工具，可讓您為電腦宣告您想要的組態。 例如，您可以說「我想要安裝 Chocolatey、我想要安裝 IIS、我想要開啟連接埠 80、我想要安裝網站 1.0.0 版」。 DSC 本機組態管理員 (LCM) 會實作該組態。 DSC 提取伺服器有一個儲存機制保存您電腦的組態。 每台電腦上的 LCM 會定期檢查電腦的組態是否符合已儲存的組態。 它可能報告狀態，也可能嘗試讓電腦回復到符合已儲存的組態。 您可以編輯提取伺服器上儲存的組態，讓一台電腦或一群電腦符合已變更的組態。
+預期狀態設定 (DSC) ([概觀](/powershell/scripting/dsc/overview/overview)) 是一個 PowerShell 工具，可讓您為電腦宣告您想要的組態。 例如，您可以說「我想要安裝 Chocolatey、我想要安裝 IIS、我想要開啟連接埠 80、我想要安裝網站 1.0.0 版」。 DSC 本機組態管理員 (LCM) 會實作該組態。 DSC 提取伺服器有一個儲存機制保存您電腦的組態。 每台電腦上的 LCM 會定期檢查電腦的組態是否符合已儲存的組態。 它可能報告狀態，也可能嘗試讓電腦回復到符合已儲存的組態。 您可以編輯提取伺服器上儲存的組態，讓一台電腦或一群電腦符合已變更的組態。
 
 Azure 自動化是 Microsoft Azure 中的受控服務，可讓您使用 Runbook、節點、認證、資源以及排程和全域變數之類的資產，將各種工作自動化。
 Azure 自動化狀態設定擴充了此自動化功能而納入 PowerShell DSC 工具。 以下提供清楚的[概觀](automation-dsc-overview.md)。
@@ -51,7 +51,7 @@ Resource Manager 範本的主要功能之一，能夠在佈建時將 VM 擴充�
 ## <a name="quick-trip-around-the-diagram"></a>圖表速覽
 
 從頂端開始，您撰寫程式碼、建置和測試，然後建立安裝封裝。
-Chocolatey 可以處理各種類型的安裝封裝，例如 MSI、MSU、ZIP 等。 如果 Chocolatey 的原生功能不是很足夠，您還有 PowerShell 的完整功能可執行實際安裝。 將套件放在一些地方可 – 套件存放庫。 這個使用範例使用 Azure blob 儲存體帳戶中的公用資料夾，但可以是任何位置。 Chocolatey 可自然搭配 NuGet 伺服器和其他一些工具，一起管理封裝中繼資料。 [這篇文章](https://github.com/chocolatey/choco/wiki/How-To-Host-Feed) 說明選項。 這個使用範例使用 NuGet。 Nuspec 是封裝的中繼資料。 Nuspec 會「編譯」成 NuPkg，然後儲存在 NuGet 伺服器中。 當您的組態依名稱要求某個封裝，而且參考 NuGet 伺服器時，Chocolatey DSC 資源 (現在位於 VM) 會為您抓取封裝並安裝。 您也可以要求特定版本的封裝。
+Chocolatey 可以處理各種類型的安裝封裝，例如 MSI、MSU、ZIP 等。 如果 Chocolatey 的原生功能不是很足夠，您還有 PowerShell 的完整功能可執行實際安裝。 將封裝放入某個可連線的位置–套件存放庫。 這個使用範例使用 Azure blob 儲存體帳戶中的公用資料夾，但可以是任何位置。 Chocolatey 可自然搭配 NuGet 伺服器和其他一些工具，一起管理封裝中繼資料。 [這篇文章](https://github.com/chocolatey/choco/wiki/How-To-Host-Feed) 說明選項。 這個使用範例使用 NuGet。 Nuspec 是封裝的中繼資料。 Nuspec 會「編譯」成 NuPkg，然後儲存在 NuGet 伺服器中。 當您的組態依名稱要求某個封裝，而且參考 NuGet 伺服器時，Chocolatey DSC 資源 (現在位於 VM) 會為您抓取封裝並安裝。 您也可以要求特定版本的封裝。
 
 圖表左下方有一個 Azure Resource Manager 範本。 在這個使用範例中，VM 擴充功能會將 VM 註冊到 Azure 自動化狀態設定提取伺服器 (也就是提取伺服器)，作為「節點」。 組態儲存在提取伺服器中。
 它實際上會儲存兩次：一次儲存為純文字，另一次編譯成 MOF 檔案 (供對此有所瞭解的人使用。)在入口網站，MOF 是「節點組態」(而非只是「組態」)。 它是與「節點」相關聯的構件，因此節點會知道其組態。 下列詳細資料示範如何將節點組態指派給節點。
@@ -60,7 +60,7 @@ Chocolatey 可以處理各種類型的安裝封裝，例如 MSI、MSU、ZIP 等�
 
 如果您不是從 Resource Manager 範本開始，也沒關係。 有一些 PowerShell Cmdlet 可協助您向提取伺服器註冊 VM，以及完成其餘所有工作。 如需詳細資料，請參閱這篇文章：[將機器上架交由 Azure 自動化 State Configuration 管理](automation-dsc-onboarding.md)。
 
-## <a name="step-1-setting-up-the-pull-server-and-automation-account"></a>步驟 1：設定提取伺服器和自動化帳戶
+## <a name="step-1-setting-up-the-pull-server-and-automation-account"></a>步驟 1:設定提取伺服器和自動化帳戶
 
 在已驗證的 (`Connect-AzureRmAccount`) PowerShell 命令列上：(設定提取伺服器可能需要幾分鐘的時間)
 
@@ -71,7 +71,7 @@ New-AzureRmAutomationAccount –ResourceGroupName MY-AUTOMATION-RG –Location M
 
 您可以將自動化帳戶放入下列任何區域 (也就是位置)︰美國東部 2、美國中南部、美國維吉尼亞州政府、西歐、東南亞、日本東部、印度中部和澳大利亞東南部、加拿大中部、北歐。
 
-## <a name="step-2-vm-extension-tweaks-to-the-resource-manager-template"></a>步驟 2：VM 擴充功能根據 Resource Manager 範本進行調整
+## <a name="step-2-vm-extension-tweaks-to-the-resource-manager-template"></a>步驟 2:VM 擴充功能根據 Resource Manager 範本進行調整
 
 此 [Azure 快速入門範本](https://github.com/Azure/azure-quickstart-templates/tree/master/dsc-extension-azure-automation-pullserver)提供 VM 註冊的詳細資料 (使用 PowerShell DSC VM 延伸模組)。
 此步驟會將新的 VM 註冊到提取伺服器的狀態設定節點清單中。 這項註冊的一部分會指定要套用至節點的節點組態。 此節點組態尚無須存在於提取伺服器中，因此這個動作可以在步驟 4 中首次執行。 但在步驟 2 中，您必須決定節點名稱和組態名稱。 在此使用範例中，節點名稱是 'isvbox'，組態名稱是 'ISVBoxConfig'。 因此，節點組態名稱 (將在 DeploymentTemplate.json 中指定) 是 'ISVBoxConfig.isvbox'。

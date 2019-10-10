@@ -16,12 +16,12 @@ ums.workload: na
 ms.date: 05/28/2019
 ms.author: barclayn
 ms.custom: azlog
-ms.openlocfilehash: 0820ca227a4d0e8c71ed3f35cd8fa2841163d38f
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.openlocfilehash: e7f3a9bc9aade5f8ade857e9c2f14f8e9898a7da
+ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68727655"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72244663"
 ---
 # <a name="integrate-azure-active-directory-audit-logs"></a>整合 Azure Active Directory 稽核記錄
 
@@ -50,7 +50,7 @@ Azure Active Directory (Azure AD) 稽核事件可協助您識別 Azure Active Di
 
    ``Azlog.exe authorizedirectoryreader tenantId``
 
-   範例:
+   範例：
 
    ``AZLOG.exe authorizedirectoryreader ba2c0000-d24b-4f4e-92b1-48c4469999``
 
@@ -74,7 +74,7 @@ Azure Active Directory (Azure AD) 稽核事件可協助您識別 Azure Active Di
 ## <a name="next-steps"></a>後續步驟
 若要深入了解 Azure 記錄整合，請參閱：
 
-* [Azure 記錄的 Microsoft Azure 記錄整合](https://www.microsoft.com/download/details.aspx?id=53324)：下載中心頁面會提供 Azure 記錄整合的詳細資料、系統需求和安裝指示。
+* [Azure 記錄的 Microsoft Azure 記錄整合](https://azure.microsoft.com/services/monitor/)：下載中心頁面會提供 Azure 記錄整合的詳細資料、系統需求和安裝指示。
 * [Azure 記錄整合簡介](azure-log-integration-overview.md)：本文為您介紹 Azure 記錄整合、其主要功能以及運作方式。
 * [Azure 記錄整合常見問題集](azure-log-integration-faq.md)：本文提供 Azure 記錄整合的相關問題解答。
 * [Azure 診斷和 Azure 稽核記錄的新功能](https://azure.microsoft.com/blog/new-features-for-azure-diagnostics-and-azure-audit-logs/) \(英文\)：此部落格文章為您介紹 Azure 稽核記錄和其他功能，協助您深入了解您的 Azure 資源的作業。

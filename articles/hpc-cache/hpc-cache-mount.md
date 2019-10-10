@@ -5,13 +5,13 @@ author: ekpgh
 ms.service: hpc-cache
 ms.topic: conceptual
 ms.date: 09/24/2019
-ms.author: v-erkell
-ms.openlocfilehash: ea23331ebc75b5ede22c9f7357a9e0de12d819e2
-ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
+ms.author: rohogue
+ms.openlocfilehash: 3257cf92c628650fc50e0a36ec37fcab920aba2f
+ms.sourcegitcommit: 1c2659ab26619658799442a6e7604f3c66307a89
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71299974"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72254579"
 ---
 # <a name="mount-the-azure-hpc-cache-preview"></a>裝載 Azure HPC 快取（預覽）
 
@@ -25,7 +25,7 @@ Mount 命令由兩個元素所組成：
 ![Azure HPC 快取實例 [總覽] 頁面的螢幕擷取畫面，並在右下方的 [掛接位址] 清單周圍加上醒目提示方塊](media/hpc-cache-mount-addresses.png)
 
 > [!NOTE] 
-> 快取掛接位址會對應至快取子網內的網路介面。 在資源群組中，這些 nic 會以結尾`-cluster-nic-`為的名稱和數位來列出。 請勿更改或刪除這些介面，否則快取將會變成無法使用。
+> 快取掛接位址會對應至快取子網內的網路介面。 在資源群組中，這些 Nic 會以 `-cluster-nic-` 和數位結尾的名稱列出。 請勿更改或刪除這些介面，否則快取將會變成無法使用。
 
 虛擬命名空間路徑會顯示在 [**儲存體目標**] 頁面中。 按一下個別的儲存體目標名稱以查看其詳細資料，包括與其相關聯的匯總命名空間路徑。
 
@@ -45,7 +45,7 @@ root@test-client:/tmp# sudo mount 10.0.0.28:/blob-demo-0722 ./hpccache/ -orw,tcp
 root@test-client:/tmp# 
 ```
 
-此命令成功之後，儲存體匯出的內容應該會顯示在用戶端上``hpccache``的目錄中。
+此命令成功之後，儲存體匯出的內容應該會顯示在用戶端上的 ``hpccache`` 目錄中。
 
 > [!NOTE] 
 > 您的用戶端必須能夠存取裝載快取的虛擬網路和子網。 例如，在相同的虛擬網路內建立用戶端 Vm，或使用端點、閘道或虛擬網路中的其他解決方案，從外部進行存取。 請記住，快取的子網內不能裝載任何其他東西。

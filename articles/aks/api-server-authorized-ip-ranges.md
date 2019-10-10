@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 05/06/2019
 ms.author: mlearned
-ms.openlocfilehash: 59e64b7c84e589da57ea28d6655c9305f4fdc101
-ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
+ms.openlocfilehash: 5819a6c6d73b2ee51fc72d2b56d99b0efb3ea0be
+ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71058350"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72241141"
 ---
 # <a name="preview---secure-access-to-the-api-server-using-authorized-ip-address-ranges-in-azure-kubernetes-service-aks"></a>預覽-在 Azure Kubernetes Service （AKS）中使用授權的 IP 位址範圍來保護 API 伺服器的存取
 
@@ -51,19 +51,19 @@ az extension update --name aks-preview
 若要使用 API 伺服器授權的 IP 範圍，請先在您的訂用帳戶上啟用功能旗標。 若要註冊*APIServerSecurityPreview*功能旗標，請使用[az feature register][az-feature-register]命令，如下列範例所示：
 
 > [!CAUTION]
-> 當您在訂用帳戶上註冊功能時, 目前無法取消註冊該功能。 啟用一些預覽功能之後, 預設值可能會用於在訂用帳戶中建立的所有 AKS 叢集。 請勿在生產訂用帳戶上啟用預覽功能。 使用個別的訂用帳戶來測試預覽功能並收集意見反應。
+> 當您在訂用帳戶上註冊功能時，目前無法取消註冊該功能。 啟用一些預覽功能之後，預設值可能會用於在訂用帳戶中建立的所有 AKS 叢集。 請勿在生產訂用帳戶上啟用預覽功能。 使用個別的訂用帳戶來測試預覽功能並收集意見反應。
 
 ```azurecli-interactive
 az feature register --name APIServerSecurityPreview --namespace Microsoft.ContainerService
 ```
 
-狀態需要幾分鐘的時間才會顯示「已註冊」。 您可以使用[az feature list][az-feature-list]命令來檢查註冊狀態:
+狀態需要幾分鐘的時間才會顯示「已註冊」。 您可以使用[az feature list][az-feature-list]命令來檢查註冊狀態：
 
 ```azurecli-interactive
 az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/APIServerSecurityPreview')].{Name:name,State:properties.state}"
 ```
 
-準備好時, 請使用[az provider register][az-provider-register]命令重新整理*microsoft.containerservice*資源提供者的註冊:
+準備好時，請使用[az provider register][az-provider-register]命令重新整理*microsoft.containerservice*資源提供者的註冊：
 
 ```azurecli-interactive
 az provider register --namespace Microsoft.ContainerService
@@ -228,7 +228,7 @@ echo "Public IP address for the Azure Firewall instance that should be added to 
 
 使用[az aks update][az-aks-update]命令，並指定要允許的 *--api 伺服器授權 ip 範圍*。 這些 IP 位址範圍通常是內部部署網路所使用的位址範圍。 新增您自己在上一個步驟中取得的 Azure 防火牆公用 IP 位址，例如*20.42.25.196/32*。
 
-下列範例會在名為*myResourceGroup*的資源群組中，于名為*myAKSCluster*的叢集上啟用 API 伺服器授權的 IP 範圍。 要授權的 IP 位址範圍是*20.42.25.196/32* （Azure 防火牆公用 IP 位址），然後是*172.0.0.0/16*和*168.10.0.0/18*：
+下列範例會在名為*myResourceGroup*的資源群組中，于名為*myAKSCluster*的叢集上啟用 API 伺服器授權的 IP 範圍。 要授權的 IP 位址範圍是*20.42.25.196/32* （Azure 防火牆公用 IP 位址），然後是*172.0.0.0/16* （Pod/節點位址範圍）和*168.10.0.0/18* （ServiceCidr）：
 
 ```azurecli-interactive
 az aks update \
@@ -236,6 +236,13 @@ az aks update \
     --name myAKSCluster \
     --api-server-authorized-ip-ranges 20.42.25.196/32,172.0.0.0/16,168.10.0.0/18
 ```
+
+> [!NOTE]
+> 您應該將這些範圍新增至允許清單：
+> - 防火牆公用 IP 位址
+> - 服務 CIDR
+> - 子網的位址範圍，包含節點和 pod
+> - 任何範圍，代表您將從中管理叢集的網路
 
 ## <a name="update-or-disable-authorized-ip-ranges"></a>更新或停用授權的 IP 範圍
 

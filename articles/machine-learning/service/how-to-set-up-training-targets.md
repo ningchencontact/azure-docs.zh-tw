@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 06/12/2019
 ms.custom: seodec18
-ms.openlocfilehash: 7c3bae2fff9e20ed9427c72b5f5f632d975f9f94
-ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
+ms.openlocfilehash: bce04a14a13d5b3615963f298f35af0d2fc480bb
+ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71034423"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72244424"
 ---
 # <a name="set-up-and-use-compute-targets-for-model-training"></a>設定及使用計算目標進行模型定型 
 
@@ -68,7 +68,7 @@ ML 管線是由多個**步驟**所構成，這些步驟是管線中的相異計�
 > [!TIP]
 > 在定型模型時，ML 管線可以使用執行設定或估算器。
 
-雖然 ML 管線可以訓練模型，但它們也可以在定型之後，在定型和部署模型之前準備資料。 管線的主要使用案例之一是批次評分。 如需詳細資訊， [請參閱管線：優化機器學習工作](concept-ml-pipelines.md)流程。
+雖然 ML 管線可以訓練模型，但它們也可以在定型之後，在定型和部署模型之前準備資料。 管線的主要使用案例之一是批次評分。 如需詳細資訊，請參閱 [Pipelines：優化機器學習工作流程 @ no__t-0。
 
 ## <a name="set-up-in-python"></a>在 Python 中設定
 
@@ -106,7 +106,7 @@ Azure Machine Learning Compute 有預設限制，例如可配置的核心數目�
 您可以建立 Azure Machine Learning Compute 做為執行階段的計算目標。 系統會自動為您的執行建立計算。 執行完成之後，就會自動刪除計算。 
 
 > [!NOTE]
-> 若要指定要使用的節點數目上限，您通常會將`node_count`設定為節點的數目。 目前有（04/04/2019）個 bug，導致無法運作。 若要解決此問題， `amlcompute._cluster_max_node_count`請使用回合設定的屬性。 例如： `run_config.amlcompute._cluster_max_node_count = 5` 。
+> 若要指定要使用的節點數目上限，您通常會將 `node_count` 設定為節點數目。 目前有（04/04/2019）個 bug，導致無法運作。 因應措施是使用執行設定的 `amlcompute._cluster_max_node_count` 屬性。 例如： `run_config.amlcompute._cluster_max_node_count = 5` 。
 
 > [!IMPORTANT]
 > Azure Machine Learning Compute 的執行式建立目前為「預覽」狀態。 如果您使用自動化超參數調整或自動化機器學習，請勿使用回合式建立。 若要使用超參數微調或自動化機器學習，請改為建立[持續性計算](#persistent)目標。
@@ -206,7 +206,7 @@ Azure HDInsight 是巨量資料分析的常用平台。 此平台會提供 Apach
 
    try:
     # if you want to connect using SSH key instead of username/password you can provide parameters private_key_file and private_key_passphrase
-    attach_config = HDInsightCompute.attach_configuration(address='<clustername>-ssh.azureinsight.net', 
+    attach_config = HDInsightCompute.attach_configuration(address='<clustername>-ssh.azurehdinsight.net', 
                                                           ssh_port=22, 
                                                           username='<ssh-username>', 
                                                           password='<ssh-pwd>')
@@ -295,7 +295,7 @@ myvm = ComputeTarget(workspace=ws, name='my-vm-name')
  
 1. 在 [應用程式] 底下，選取 [計算]。
 
-    [![[查看計算] 索引標籤](./media/how-to-set-up-training-targets/azure-machine-learning-service-workspace.png)](./media/how-to-set-up-training-targets/azure-machine-learning-service-workspace-expanded.png)
+    [![View 計算 索引標籤](./media/how-to-set-up-training-targets/azure-machine-learning-service-workspace.png)](./media/how-to-set-up-training-targets/azure-machine-learning-service-workspace-expanded.png)
 
 ### <a id="portal-create"></a>建立計算目標
 
@@ -379,7 +379,7 @@ myvm = ComputeTarget(workspace=ws, name='my-vm-name')
 > [!IMPORTANT]
 > 當您提交定型回合時，會建立包含定型腳本之目錄的快照集，並傳送到計算目標。 它也會在您的工作區中儲存為實驗的一部分。 如果您變更檔案並再次提交執行，則只會上傳變更的檔案。
 >
-> 若要防止檔案包含在快照中, 請在目錄中建立 [.gitignore](https://git-scm.com/docs/gitignore) `.amlignore`或檔案, 並在其中新增檔案。 檔案會使用與 [.gitignore](https://git-scm.com/docs/gitignore) 檔案相同的語法和模式。`.amlignore` 如果這兩個檔案都`.amlignore`存在, 則會優先使用該檔案。
+> 若要防止檔案包含在快照中, 請在目錄中建立 [.gitignore](https://git-scm.com/docs/gitignore) `.amlignore`或檔案, 並在其中新增檔案。 檔案會使用與 [.gitignore](https://git-scm.com/docs/gitignore) 檔案相同的語法和模式。`.amlignore` 如果兩個檔案都存在，則會優先使用 @no__t 0 檔案。
 > 
 > 如需詳細資訊，請參閱[快照集](concept-azure-machine-learning-architecture.md#snapshots)。
 
@@ -406,7 +406,7 @@ myvm = ComputeTarget(workspace=ws, name='my-vm-name')
 [!code-python[](~/aml-sdk-samples/ignore/doc-qa/how-to-set-up-training-targets/amlcompute2.py?name=amlcompute_submit)]
 
 > [!TIP]
-> 此範例預設為僅使用計算目標的一個節點來進行定型。 若要使用一個以上的節點，請`node_count`將執行設定的設為所需的節點數目。 例如，下列程式碼會將用於定型的節點數目設定為四個：
+> 此範例預設為僅使用計算目標的一個節點來進行定型。 若要使用一個以上的節點，請將回合設定的 `node_count` 設為所需的節點數目。 例如，下列程式碼會將用於定型的節點數目設定為四個：
 >
 > ```python
 > src.run_config.node_count = 4
@@ -422,7 +422,7 @@ myvm = ComputeTarget(workspace=ws, name='my-vm-name')
 
 ## <a name="create-run-configuration-and-submit-run-using-azure-machine-learning-cli"></a>使用 Azure Machine Learning CLI 建立執行設定並提交執行
 
-您可以使用[Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)和[Machine Learning CLI 擴充](reference-azure-machine-learning-cli.md)功能來建立執行設定，並在不同的計算目標上提交執行。 下列範例假設您已有現有的 Azure Machine Learning 工作區，而且您已使用`az login` CLI 命令登入 Azure。 
+您可以使用[Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)和[Machine Learning CLI 擴充](reference-azure-machine-learning-cli.md)功能來建立執行設定，並在不同的計算目標上提交執行。 下列範例假設您已有現有的 Azure Machine Learning 工作區，而且您已使用 `az login` CLI 命令登入 Azure。 
 
 ### <a name="create-run-configuration"></a>建立執行設定
 
@@ -432,7 +432,7 @@ myvm = ComputeTarget(workspace=ws, name='my-vm-name')
 az ml folder attach
 ```
 
-此命令會建立一個`.azureml`子資料夾，其中包含不同計算目標的範本執行設定檔案。 您可以複製並編輯這些檔案，以自訂您的設定，例如新增 Python 套件或變更 Docker 設定。  
+此命令會建立子資料夾 `.azureml`，其中包含不同計算目標的範本執行設定檔案。 您可以複製並編輯這些檔案，以自訂您的設定，例如新增 Python 套件或變更 Docker 設定。  
 
 ### <a name="structure-of-run-configuration-file"></a>執行設定檔案的結構
 
@@ -493,13 +493,13 @@ az ml run submit-hyperdrive -e <experiment> -c <runconfig> --hyperdrive-configur
 
 請注意 runconfig 中的*arguments*區段和 HyperDrive config 中的*參數空間*。它們包含要傳遞至定型腳本的命令列引數。 在 runconfig 中，每個反復專案的值都維持不變，而 HyperDrive config 中的範圍則會反復查看。 請勿在這兩個檔案中指定相同的引數。
 
-如需這些```az ml``` CLI 命令和完整引數集的詳細資訊，請參閱[參考檔](reference-azure-machine-learning-cli.md)。
+如需這些 ```az ml``` CLI 命令和完整引數集的詳細資訊，請參閱[參考檔](reference-azure-machine-learning-cli.md)。
 
 <a id="gitintegration"></a>
 
 ## <a name="git-tracking-and-integration"></a>Git 追蹤與整合
 
-當您啟動定型回合, 其中來原始目錄是本機 Git 存放庫時, 儲存機制的相關資訊會儲存在執行歷程記錄中。 例如, 存放庫的目前認可識別碼會記錄為歷程記錄的一部分。
+當您啟動定型回合，其中來原始目錄是本機 Git 存放庫時，儲存機制的相關資訊會儲存在執行歷程記錄中。 例如，存放庫的目前認可識別碼會記錄為歷程記錄的一部分。
 
 ## <a name="notebook-examples"></a>筆記本範例
 

@@ -5,17 +5,17 @@ author: ekpgh
 ms.service: avere-vfxt
 ms.topic: conceptual
 ms.date: 02/20/2019
-ms.author: v-erkell
-ms.openlocfilehash: 46978d19a0789bb43e861ca89661aa5b78eb4ec7
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.author: rohogue
+ms.openlocfilehash: 1317e900fd4448ded046ffea481313f8ea9f68e3
+ms.sourcegitcommit: 1c2659ab26619658799442a6e7604f3c66307a89
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60409870"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72256230"
 ---
 # <a name="plan-your-avere-vfxt-system"></a>規劃您的 Avere vFXT 系統
 
-這篇文章說明如何規劃新的 Avere vFXT 定位，並針對您的需求的適當調整大小的 Azure 叢集。 
+本文說明如何根據您的需求，規劃適當定位和調整大小的新 Avere vFXT for Azure 叢集。 
 
 前往 Azure Marketplace 或建立任何 VM 之前，請考慮叢集與 Azure 中其他元素互動的方式。 規劃叢集資源在私人網路和子網路中的位置，並決定您後端儲存體的位置。 請確定您所建立的叢集節點足夠強大，可支援您的工作流程。 
 
@@ -32,21 +32,21 @@ ms.locfileid: "60409870"
 * 所有元素都應該使用針對 Avere vFXT 部署建立的新訂用帳戶管理。 優點包括： 
   * 追蹤成本更簡單 - 在一個訂用帳戶中檢視和稽核所有資源、基礎結構及計算循環的成本。
   * 清除更容易 - 您可以在完成專案後移除整個訂用帳戶。
-  * 方便資料分割資源的配額-其他重要的工作負載防範可能節流藉由隔離 Avere vFXT 用戶端與單一訂用帳戶中的叢集的資源。 將大量的高效能運算工作流程的用戶端時，這可避免衝突。
+  * 方便的資源配額分割-藉由將單一訂用帳戶中的 Avere vFXT 用戶端和叢集隔離，保護其他重要工作負載免于可能的資源節流。 這可避免在產生高效能運算工作流程的大量用戶端時發生衝突。
 
 * 找出接近 vFXT 叢集的用戶端計算系統。 後端儲存體可能更加遙遠。  
 
-* VFXT 叢集和叢集控制站 VM 應該位於相同的虛擬網路 (vnet)，在相同的資源群組，並使用相同的儲存體帳戶。 自動的叢集建立範本會為處理大部分的情況。
+* VFXT 叢集和叢集控制器 VM 應該位於相同的虛擬網路（vnet），位於相同的資源群組中，並使用相同的儲存體帳戶。 在大部分情況下，自動叢集建立範本會處理這種情況。
 
 * 此叢集必須位於自己的子網路中，以避免 IP 位址與用戶端或計算資源發生衝突。 
 
-* 叢集建立範本可以建立大部分的叢集，包括資源群組、 虛擬網路、 子網路和儲存體帳戶的所需的基礎結構資源。 如果您想要使用已經存在的資源，請確定它們符合此表中的需求。 
+* 叢集建立範本可以為叢集建立大部分需要的基礎結構資源，包括資源群組、虛擬網路、子網和儲存體帳戶。 如果您想要使用已經存在的資源，請確定它們符合此表中的需求。 
 
-  | Resource | 使用現有的嗎？ | 需求 |
+  | Resource | 使用現有的？ | 需求 |
   |----------|-----------|----------|
-  | Resource group | 是，如果是空的 | 必須是空的| 
-  | 儲存體帳戶 | 如果連接的現有 Blob 容器，在叢集建立之後 <br/>  否，如果在叢集建立期間建立新的 Blob 容器 | 必須是空的現有 Blob 容器 <br/> &nbsp; |
-  | 虛擬網路 | 是 | 如果建立新的 Azure Blob 容器必須包含儲存體服務端點 | 
+  | 資源群組 | 是，如果是空的 | 必須是空的| 
+  | 儲存體帳戶 | 是，如果在叢集建立後連接現有的 Blob 容器 <br/>  否，如果在叢集建立期間建立新的 Blob 容器 | 現有的 Blob 容器必須是空的 <br/> &nbsp; |
+  | 虛擬網路 | 是 | 如果要建立新的 Azure Blob 容器，必須包含儲存體服務端點 | 
   | Subnet | 是 |   |
 
 ## <a name="ip-address-requirements"></a>IP 位址需求 
@@ -78,9 +78,9 @@ Avere vFXT 叢集會使用下列 IP 位址：
 | --- | --- | --- | --- | --- | --- | --- |
 | Standard_E32s_v3 | 32  | 256 GiB | 512 GB  | 32 | 51,200 IOPS <br/> 768 MBps | 16,000 MBps (8)  |
 
-每個節點的磁碟快取都可以設定，而且範圍可以從 1000 GB 到 8000 GB。 每個節點的 4 TB 是建議的快取大小 Standard_E32s_v3 節點。
+每個節點的磁碟快取都可以設定，而且範圍可以從 1000 GB 到 8000 GB。 Standard_E32s_v3 節點的建議快取大小是每個節點 4 TB。
 
-如需有關這些 Vm 的詳細資訊，閱讀 Microsoft Azure 文件：
+如需這些 Vm 的詳細資訊，請閱讀 Microsoft Azure 檔：
 
 * [記憶體最佳化的虛擬機器大小](https://docs.microsoft.com/azure/virtual-machines/windows/sizes-memory)
 
@@ -124,7 +124,7 @@ Avere vFXT for Azure 位於私人子網路，叢集並沒有公用 IP 位址。 
 
 如果您在叢集控制器上設定公用 IP 位址，您可以將其作為跳板主機，從私人子網路外連絡 Avere vFXT 叢集。 不過，由於控制器有修改叢集節點的存取權限，因此會產生輕微的安全性風險。  
 
-若要改善具有公用 IP 位址的控制站的安全性，部署指令碼會自動建立網路安全性群組，將輸入的存取限制為只有連接埠 22。 若要進一步保護系統，您可以鎖定 IP 來源位址範圍的存取，也就是只允許從要用來存取叢集的機器進行連線。
+為了改善具有公用 IP 位址的控制器安全性，部署腳本會自動建立網路安全性群組，將輸入存取限制為僅限埠22。 若要進一步保護系統，您可以鎖定 IP 來源位址範圍的存取，也就是只允許從要用來存取叢集的機器進行連線。
 
 建立叢集時，您可以選擇是否要在叢集控制器上建立公用 IP 位址。 
 
@@ -133,14 +133,14 @@ Avere vFXT for Azure 位於私人子網路，叢集並沒有公用 IP 位址。 
 
 ## <a name="vm-access-roles"></a>VM 存取角色 
 
-Azure 會使用[角色型存取控制](../role-based-access-control/index.yml)(RBAC) 來授權叢集來執行特定工作的 Vm。 例如，叢集控制器需要授權，才能建立和設定叢集節點 Vm。 叢集節點必須能夠指派或重新指派到其他叢集節點的 IP 位址。
+Azure 會使用[角色型存取控制](../role-based-access-control/index.yml)（RBAC）來授權叢集 vm 執行特定工作。 例如，叢集控制器需要授權，才能建立和設定叢集節點 Vm。 叢集節點必須能夠將 IP 位址指派或重新指派給其他叢集節點。
 
-兩個內建的 Azure 角色用於 Avere vFXT 虛擬機器： 
+Avere vFXT 虛擬機器使用兩個內建的 Azure 角色： 
 
-* 叢集控制站會使用內建角色[Avere 參與者](../role-based-access-control/built-in-roles.md#avere-contributor)。 
-* 叢集節點使用的內建角色[Avere 運算子](../role-based-access-control/built-in-roles.md#avere-operator)
+* 叢集控制器會使用內建的角色[Avere 參與者](../role-based-access-control/built-in-roles.md#avere-contributor)。 
+* 叢集節點使用內建的角色[Avere 運算子](../role-based-access-control/built-in-roles.md#avere-operator)
 
-如果您需要自訂 Avere vFXT 元件存取角色，您必須定義您自己的角色，並將其指派給 Vm 時建立。 您無法在 Azure Marketplace 中使用的部署範本。 中所述，在 Azure 入口網站中開啟票證，請參閱 Microsoft 客戶服務與支援中心[取得協助與您的系統](avere-vfxt-open-ticket.md)。 
+如果您需要自訂 Avere vFXT 元件的存取角色，您必須定義您自己的角色，然後在建立 Vm 時將其指派給它們。 您無法使用 Azure Marketplace 中的部署範本。 如[取得系統的協助](avere-vfxt-open-ticket.md)中所述，在 Azure 入口網站中開啟票證，以諮詢 Microsoft 客戶服務及支援。 
 
 ## <a name="next-step-understand-the-deployment-process"></a>下一步：了解部署程序
 

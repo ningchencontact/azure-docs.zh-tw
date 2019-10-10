@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: 36465f016eeb066c0e12f6434deb98fd7b10966a
-ms.sourcegitcommit: 7868d1c40f6feb1abcafbffcddca952438a3472d
+ms.openlocfilehash: 599b5b075f32294f9e68c776c4a7744283e9c269
+ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71958763"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72244034"
 ---
 # <a name="prepare-to-deploy-your-iot-edge-solution-in-production"></a>準備在生產環境中部署 IoT Edge 解決方案
 
@@ -177,9 +177,11 @@ Azure IoT 中樞和 IoT Edge 之間的通訊通道一律會設定為輸出。 �
    | mcr.microsoft.com  | 443 | Microsoft 容器登錄 |
    | global.azure-devices-provisioning.net  | 443 | DPS 存取 (選用) |
    | \*.azurecr.io | 443 | 個人和協力廠商容器登錄 |
-   | \*.blob.core.windows.net | 443 | 映像差異的下載 | 
+   | \*.blob.core.windows.net | 443 | 從 blob 儲存體下載 Azure Container Registry 映射差異  | 
    | \*.azure-devices.net | 5671、8883、443 | IoT 中樞存取 |
    | \*.docker.io  | 443 | Docker Hub 存取（選擇性） |
+
+其中一些防火牆規則會繼承自 Azure Container Registry。 如需詳細資訊，請參閱[設定規則以存取防火牆後方的 Azure container registry](../container-registry/container-registry-firewall-access-rules.md)。
 
 ### <a name="configure-communication-through-a-proxy"></a>設定 Proxy 通訊
 

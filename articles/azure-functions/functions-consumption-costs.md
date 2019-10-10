@@ -7,18 +7,18 @@ ms.date: 9/20/2019
 ms.topic: conceptual
 ms.service: azure-functions
 manager: gwallace
-ms.openlocfilehash: fa35e5bea7b0d7f2435a8ad31b9195d2fd35a45c
-ms.sourcegitcommit: a19bee057c57cd2c2cd23126ac862bd8f89f50f5
+ms.openlocfilehash: 0ff41eb511ad4513fc9bf5a2ded7ef47b08d12ab
+ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71181258"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72243315"
 ---
 # <a name="estimating-consumption-plan-costs"></a>估計耗用量方案成本
 
 在 Azure Functions 中執行的應用程式目前有三種類型的主控方案，每個方案都有自己的定價模型： 
 
-| 方案 | 描述 |
+| 規劃 | 描述 |
 | ---- | ----------- |
 | [**率**](functions-scale.md#consumption-plan) | 您只需針對函數應用程式執行的時間付費。 此方案包含每個訂用帳戶的[免費授]與[定價頁面]。|
 | [**進階**](functions-scale.md#premium-plan) | 提供您與取用方案相同的功能和調整機制，但具備增強的效能和 VNET 存取權。 成本是根據您選擇的定價層。 若要深入瞭解，請參閱[Azure Functions Premium 方案](functions-premium-plan.md)。 |
@@ -30,11 +30,11 @@ ms.locfileid: "71181258"
 
 Durable Functions 也可以在取用量方案中執行。 若要深入瞭解使用 Durable Functions 時的成本考慮，請參閱[Durable Functions 計費](./durable/durable-functions-billing.md)。
 
-## <a name="consumption-plan-costs"></a>耗用量方案成本
+## <a name="consumption-plan-costs"></a>使用量方案成本
 
 單一函式執行的執行*成本*是以*GB*為單位來測量。 執行成本的計算方式是將其記憶體使用量與執行時間合併。 針對較長成本執行的函式會更多，如同耗用更多記憶體的函數一樣。 
 
-假設函式所使用的記憶體數量保持不變。 在此情況下，計算成本是簡單的乘法。 例如，假設您的函式已耗用 0.5 GB 3 秒。 然後執行成本為`0.5GB * 3s = 1.5 GB-seconds`。 
+假設函式所使用的記憶體數量保持不變。 在此情況下，計算成本是簡單的乘法。 例如，假設您的函式已耗用 0.5 GB 3 秒。 然後執行成本會 `0.5GB * 3s = 1.5 GB-seconds`。 
 
 由於記憶體使用量會隨著時間而改變，因此計算基本上是一段時間內記憶體使用量的整數。  系統會以固定間隔取樣進程的記憶體使用量（連同子進程）來進行這項計算。 如[定價頁面]中所述，記憶體使用量會無條件進位到最接近的 128-MB 值區。 當您的處理常式使用 160 MB 時，會向您收取 256 MB 的費用。 計算會將並行處理納入考慮，這是相同進程中的多個並行函數執行。
 
@@ -61,11 +61,11 @@ Durable Functions 也可以在取用量方案中執行。 若要深入瞭解使�
 
 + **觸發程式和**系結：從您的函式系結讀取輸入[和將輸出](functions-triggers-bindings.md)寫入至函式系結所花費的時間，會計算為執行時間。 例如，當您的函式使用輸出系結將訊息寫入至 Azure 儲存體佇列時，您的執行時間會包含將訊息寫入佇列所需的時間，這會包含在函數成本的計算中。 
 
-+ **非同步執行**：您的函式等候非同步要求結果的時間（`await`在中C#）會視為執行時間。 GB 秒的計算是以函式的開始和結束時間，以及該期間內的記憶體使用量為基礎。 在這段時間內，CPU 活動不會考慮到計算中的情況。 您可以使用[Durable Functions](durable/durable-functions-overview.md)，在非同步作業期間降低成本。 在協調器函式中，您不需支付花費在等候的時間。
++ **非同步執行**：您的函式等候非同步要求結果的時間（在中C#為 @no__t 0）會視為執行時間。 GB 秒的計算是以函式的開始和結束時間，以及該期間內的記憶體使用量為基礎。 在這段時間內，CPU 活動不會考慮到計算中的情況。 您可以使用[Durable Functions](durable/durable-functions-overview.md)，在非同步作業期間降低成本。 在協調器函式中，您不需支付花費在等候的時間。
 
 ## <a name="view-execution-data"></a>查看執行資料
 
-在[您的發票](/billing/billing-download-azure-invoice.md)中，您可以查看總執行的成本相關資料 **-函數**和**執行時間函數**，以及實際的計費成本。 不過，此發票資料是過去發票期間的每月匯總。 
+在[您的發票](/azure/billing/billing-download-azure-invoice)中，您可以查看總執行的成本相關資料 **-函數**和**執行時間函數**，以及實際的計費成本。 不過，此發票資料是過去發票期間的每月匯總。 
 
 若要進一步瞭解函數的成本影響，您可以使用 Azure 監視器來查看您的函式應用程式目前所產生的成本相關計量。 您可以使用[Azure 入口網站]或 REST api 中的[Azure 監視器計量瀏覽器](../azure-monitor/platform/metrics-getting-started.md)來取得此資料。
 
@@ -73,9 +73,9 @@ Durable Functions 也可以在取用量方案中執行。 若要深入瞭解使�
 
 使用[Azure 監視器計量瀏覽器](../azure-monitor/platform/metrics-getting-started.md)，以圖形格式為您的取用方案函式應用程式來查看成本相關資料。 
 
-1. 在**搜尋服務、資源和**檔的`monitor` [Azure 入口網站]頂端，搜尋並選取 [**服務**] 底下的 [**監視**]。
+1. 在**搜尋服務、資源和**檔的[Azure 入口網站]頂端搜尋 `monitor`，然後選取 [**服務**] 底下的 [**監視**]。
 
-1. 在左側選取 [**計量** > ] [**選取資源**]，然後使用影像下方的設定來選擇您的函數應用程式。
+1. 在左側選取 [**計量**]  > **選取資源**，然後使用影像下方的設定來選擇您的函數應用程式。
 
     ![選取您的函數應用程式資源](media/functions-consumption-costing/select-a-resource.png)
 
@@ -101,13 +101,13 @@ Durable Functions 也可以在取用量方案中執行。 若要深入瞭解使�
 
 當執行單位數目大於執行計數時，圖表只會顯示執行單位。
 
-此圖表顯示在兩小時期間`Function Execution Units`內使用的總計1110000000，以 MB-毫秒為單位。 若要轉換成 GB 秒，請除以1024000。 在此範例中，函式應用`1110000000 / 1024000 = 1083.98`程式已耗用 GB-秒。 您可以採用此值並乘以函式[定價頁面][定價頁面]上目前的執行時間價格，這會提供這兩個小時的費用，假設您已使用任何免費的執行時間授與。 
+此圖表顯示在兩小時期間內（以 MB-毫秒為單位）耗用的總計 1110000000 @no__t 0。 若要轉換成 GB 秒，請除以1024000。 在此範例中，函式應用程式耗用 `1110000000 / 1024000 = 1083.98` GB-秒。 您可以採用此值並乘以函式[定價頁面][定價頁面]上目前的執行時間價格，這會提供這兩個小時的費用，假設您已使用任何免費的執行時間授與。 
 
 ### <a name="azure-cli"></a>Azure CLI
 
 [Azure CLI](/cli/azure/)具有用來抓取計量的命令。 您可以從本機命令環境或使用[Azure Cloud Shell](../cloud-shell/overview.md)直接從入口網站使用 CLI。 例如，下列[az monitor 計量 list](/cli/azure/monitor/metrics#az-monitor-metrics-list)命令會傳回過去使用的相同時間週期內的每小時資料。
 
-請務必將取代`<AZURE_SUBSCRIPTON_ID>`為您執行命令的 Azure 訂用帳戶識別碼。
+請務必使用執行命令的 Azure 訂用帳戶識別碼來取代 `<AZURE_SUBSCRIPTON_ID>`。
 
 ```azurecli-interactive
 az monitor metrics list --resource /subscriptions/<AZURE_SUBSCRIPTION_ID>/resourceGroups/metrics-testing-consumption/providers/Microsoft.Web/sites/metrics-testing-consumption --metric FunctionExecutionUnits,FunctionExecutionCount --aggregation Total --interval PT1H --start-time 2019-09-11T21:46:00Z --end-time 2019-09-11T23:18:00Z
@@ -192,7 +192,7 @@ az monitor metrics list --resource /subscriptions/<AZURE_SUBSCRIPTION_ID>/resour
   ]
 }
 ```
-此特定回應顯示從`2019-09-11T21:46`到`2019-09-11T23:18`，應用程式在這段期間耗用 1110000000 MB-毫秒（1083.98 GB-秒）。
+此特定的回應顯示從 `2019-09-11T21:46` 到 `2019-09-11T23:18`，應用程式會在這段期間內使用 1110000000 MB-毫秒（1083.98 GB-秒）。
 
 ## <a name="determine-memory-usage"></a>判斷記憶體使用量
 
@@ -210,14 +210,14 @@ performanceCounters
 
 結果看起來如下列範例所示：
 
-| UTC \[時間戳記\]          | name          | value       |
+| 時間戳記 \[UTC @ no__t-1          | name          | value       |
 |----------------------------|---------------|-------------|
-| 9/12/2019，1:05:14\.947 AM | 私用位元組 | 209932288 |
-| 9/12/2019，1:06:14\.994 AM | 私用位元組 | 212189184 |
-| 9/12/2019，1:06:30\.010 AM | 私用位元組 | 231714816 |
-| 9/12/2019，1:07:15\.040 AM | 私用位元組 | 210591744 |
-| 9/12/2019，1:12:16\.285 AM | 私用位元組 | 216285184 |
-| 9/12/2019，1:12:31\.376 AM | 私用位元組 | 235806720 |
+| 9/12/2019、1：05： 14 @ NO__T-0947 AM | 私用位元組 | 209932288 |
+| 9/12/2019、1：06： 14 @ NO__T-0994 AM | 私用位元組 | 212189184 |
+| 9/12/2019、1：06： 30 @ NO__T-MYLNXSTORAGE02 AM | 私用位元組 | 231714816 |
+| 9/12/2019、1：07： 15 @ NO__T-0040 AM | 私用位元組 | 210591744 |
+| 9/12/2019、1：12： 16 @ NO__T-0285 AM | 私用位元組 | 216285184 |
+| 9/12/2019、1：12： 31 @ NO__T-0376 AM | 私用位元組 | 235806720 |
 
 ## <a name="function-level-metrics"></a>函數層級計量
 
@@ -232,9 +232,9 @@ customMetrics
 
 | name                       | averageDurationMilliseconds |
 |----------------------------|-----------------------------|
-| QueueTrigger AvgDurationMs | 16\.087                     |
-| QueueTrigger MaxDurationMs | 90\.249                     |
-| QueueTrigger MinDurationMs | 8\.522                      |
+| QueueTrigger AvgDurationMs | 16 @ no__t-0087                     |
+| QueueTrigger MaxDurationMs | 90 @ no__t-0249                     |
+| QueueTrigger MinDurationMs | 8 @ no__t-0522                      |
 
 ## <a name="next-steps"></a>後續步驟
 

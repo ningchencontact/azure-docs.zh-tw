@@ -7,12 +7,12 @@ ms.author: v-chjen
 ms.service: marketplace
 ms.topic: conceptual
 ms.date: 10/04/2019
-ms.openlocfilehash: 78702b52b1a5c490bfd6273c3f4e575c6e3c20fb
-ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
+ms.openlocfilehash: 78a73e687d653998cf4e641c216f383474dcc8bd
+ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/05/2019
-ms.locfileid: "71969602"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72244443"
 ---
 # <a name="create-a-new-dynamics-365-business-central-offer"></a>建立新的 Dynamics 365 Business Central 供應專案
 
@@ -85,7 +85,7 @@ ms.locfileid: "71969602"
 
 ## <a name="connect-lead-management"></a>連接潛在客戶管理
 
-[!INCLUDE [Test drive content](./includes/connect-lead-management.md)]
+[!INCLUDE [Connect lead management](./includes/connect-lead-management.md)]
 
 如需詳細資訊，請參閱[潛在客戶管理總覽](./commercial-marketplace-get-customer-leads.md)。
 
@@ -99,7 +99,7 @@ ms.locfileid: "71969602"
 
 選取最少1個，最多三個類別，用來將您的供應專案放入適當的 marketplace 搜尋區域。 請務必在供應專案描述中，呼叫您的供應專案如何支援這些類別。 
 
-### <a name="industry"></a>產業
+### <a name="industry"></a>業界
 
 您可以選擇性地選取最多兩個產業，以協助在 marketplace 中將您的供應專案分類。 如果您的供應專案不是特定產業，請將此區段保留空白。 請務必在供應專案描述中，呼叫您的供應專案如何支援選取的產業。 
 
@@ -134,7 +134,7 @@ ms.locfileid: "71969602"
 
 您在此處輸入的名稱會向客戶顯示，做為供應專案清單的標題。 當您建立供應專案時，此欄位會預先填入您在**供應專案別名**中輸入的文字，但您可以變更此值。 此名稱可能是商標（您可以包含商標或著作權符號）。 名稱不能超過50個字元，而且不能包含任何 emoji。
 
-### <a name="short-description"></a>簡短描述
+### <a name="short-description"></a>簡短說明
 
 提供供應專案的簡短描述（最多100個字元），這可用於 marketplace 搜尋結果。
 
@@ -191,7 +191,7 @@ ms.locfileid: "71969602"
 
 提供兩種大小的供應專案標誌：**小型（48 x 48）** 和**大型（216 x 216）** 。
 
-#### <a name="hero"></a>Hero
+#### <a name="hero"></a>主圖
 
 主圖影像是選擇性的。 如果您提供一個，則必須測量 815 x 290 圖元。
 
@@ -234,7 +234,7 @@ ms.locfileid: "71969602"
 
 [**技術**設定] 頁面會定義用來連線到您的供應專案的技術詳細資料。 此連線可讓我們為終端客戶布建您的供應專案（如果他們選擇取得）。
 
-### <a name="package-type"></a>封裝類型
+### <a name="package-type"></a>套件類型
 
 選取適用于您供應專案的選項：
 
@@ -379,7 +379,7 @@ Microsoft 可以藉由使用這種類型的試用產品來裝載和維護服務�
 
 如果需要測試帳戶才能讓認證小組正確地檢查您的供應專案，請使用您的**測試帳戶**資訊上傳 .pdf、.doc 或 .docx 檔案。
 
-## <a name="publish"></a>發行
+## <a name="publish"></a>發佈
 
 ### <a name="submit-offer-to-preview"></a>提交供應專案以供預覽
 
