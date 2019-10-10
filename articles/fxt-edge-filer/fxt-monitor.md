@@ -1,85 +1,85 @@
 ---
-title: 監視 Azure FXT 邊緣篩選
-description: 如何監視 Azure FXT 邊緣篩選混合式儲存體快取的硬體狀態
+title: 監視 Azure FXT Edge 檔案管理工具
+description: 如何監視 Azure FXT Edge 檔案管理工具混合式儲存體快取的硬體狀態
 author: ekpgh
 ms.service: fxt-edge-filer
 ms.topic: conceptual
 ms.date: 06/20/2019
-ms.author: v-erkell
-ms.openlocfilehash: e6afd90c4e5a1b0759b3de7789ec37db4c04f2c7
-ms.sourcegitcommit: 441e59b8657a1eb1538c848b9b78c2e9e1b6cfd5
+ms.author: rohogue
+ms.openlocfilehash: 3f422339af2040ad81c585c0e193e6cb3667b135
+ms.sourcegitcommit: 1c2659ab26619658799442a6e7604f3c66307a89
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67827449"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72254880"
 ---
-# <a name="monitor-azure-fxt-edge-filer-hardware-status"></a>監視 Azure FXT 邊緣篩選硬體狀態
+# <a name="monitor-azure-fxt-edge-filer-hardware-status"></a>監視 Azure FXT Edge 檔案管理工具硬體狀態
 
-Azure FXT 邊緣篩選混合式儲存體快取系統有多個可協助系統管理員了解運作硬體底座內建的狀態燈號。
+Azure FXT Edge 檔案管理工具混合式儲存體快取系統會在底座內建多個狀態燈，協助系統管理員瞭解硬體的運作方式。
 
-## <a name="system-health-status"></a>系統健康狀態
+## <a name="system-health-status"></a>系統健全狀況狀態
 
-若要監視在較高層級的快取作業，使用 [軟體] 控制台中**儀表板**頁面上，如中所述[控制面板儀表板指南](https://azure.github.io/Avere/legacy/dashboard/4_7/html/ops_dashboard_index.html)
+若要以較高的層級監視快取作業，請使用 [軟體控制台] 的 [**儀表板**] 頁面，如[控制台儀表板指南](https://azure.github.io/Avere/legacy/dashboard/4_7/html/ops_dashboard_index.html)中所述
 
 ## <a name="hardware-status-leds"></a>硬體狀態 Led
 
-本章節將說明各種內建於 Azure FXT 邊緣篩選硬體的狀態燈號。
+本節說明 Azure FXT Edge 檔案管理工具硬體內建的各種狀態燈。
 
-### <a name="hard-drive-status-leds"></a>硬碟機狀態 Led
+### <a name="hard-drive-status-leds"></a>硬碟狀態 Led
 
-![圖片的硬碟機前端，水平的具有 2 的圖說文字標籤 （左上的角），1 （左下角） 和 3 （右側）](media/fxt-monitor/fxt-drive-callouts.png)
+![硬碟正面、水準、具有標注標籤2（左上角）、1（左下角）和3（右邊）的圖片](media/fxt-monitor/fxt-drive-callouts.png)
 
-每個磁碟機載具有兩個的狀態 Led： 活動指示器 （1） 和狀態指示器 (2)。 
+每個磁片磁碟機貨運公司都有兩個狀態 Led：活動指示器（1）和狀態指示器（2）。 
 
-* 活動 LED (1) 號誌時磁碟機正在使用中。  
-* 狀態 LED (2) 會指出磁碟機的條件，使用下表中的程式碼。
+* 當磁片磁碟機正在使用中時，活動 LED （1）燈亮起。  
+* 狀態 LED （2）會使用下表中的程式碼來指出磁片磁碟機的條件。
 
-| 磁碟機狀態 LED 狀態              | 意義  |
+| 磁片磁碟機狀態 LED 狀態              | 意義  |
 |-------------------------------------|----------------------------------------------------------|
-| 會閃爍綠色兩次每秒鐘      | 用來識別磁碟機*或* <br> 準備移除磁碟機  |
-| 關閉 （光環）                         | 系統無法完成啟動*或* <br>磁碟機已準備好移除 |
-| 會閃爍綠色、 琥珀色，並關閉       | 磁碟機故障預測   |
-| 四次每秒鐘會閃爍琥珀色 | 失敗的磁碟機   |
-| 持續的綠燈                         | 磁碟機在線上 |
+| 每秒閃爍一次綠色      | 識別磁片磁碟機*或* <br> 準備要移除的磁片磁碟機  |
+| Off （unlit）                         | 系統尚未完成啟動*或* <br>磁片磁碟機已準備好移除 |
+| 閃爍綠色、琥珀色和關閉       | 預測磁片磁碟機失敗   |
+| 每秒閃爍四次琥珀色 | 磁片磁碟機失敗   |
+| 實心綠色                         | 磁片磁碟機已上線 |
 
-磁碟機 (3) 的右邊會標示為的磁碟機容量及其他資訊。
+磁片磁碟機的右側（3）會標示磁片磁碟機的容量和其他資訊。
 
-磁碟機與磁碟機之間的空間會印有磁碟機編號。 在 Azure FXT Edge Filer 中，磁碟機 0 是左上方的磁碟機，磁碟機 1 則在磁碟機 0 的正下方。 編號會繼續在此模式中。 
+磁碟機與磁碟機之間的空間會印有磁碟機編號。 在 Azure FXT Edge Filer 中，磁碟機 0 是左上方的磁碟機，磁碟機 1 則在磁碟機 0 的正下方。 編號會繼續在該模式中進行。 
 
 ![FXT 底座中某個硬碟機擴充插槽的相片，其中顯示了磁碟機編號和容量標籤](media/fxt-drives-photo.png)
 
-## <a name="left-control-panel"></a>左的控制台
+## <a name="left-control-panel"></a>左方控制台
 
-左邊前端的控制台中有各種不同的狀態 LED 指示器 （1） 和反白顯示的大型系統健康情況指標 (2)。 
+左側的控制台具有各種狀態 LED 指示器（1）和一個大型的系統健康情況指示器（2）。 
 
-![左側的狀態 面板中，標記在左側，而 2 標記淺右邊的大型系統健康情況指示器狀態指標的 1](media/fxt-monitor/fxt-control-panel-left.jpg)
+![左方狀態面板，左側有1個標籤狀態指示器，2則標示右側的大型系統健康情況指示器燈](media/fxt-monitor/fxt-control-panel-left.jpg)
 
-### <a name="control-panel-status-indicators"></a>控制面板狀態指標 
+### <a name="control-panel-status-indicators"></a>控制台狀態指示器 
 
-左邊的狀態指示器顯示實心琥珀色燈光在該系統中是否發生錯誤。 下表描述錯誤的可能原因和解決方案。 
+如果該系統中發生錯誤，左邊的狀態指標會顯示穩定的琥珀色燈。 下表描述錯誤的可能原因和解決辦法。 
 
-如果這些解決方案中，在嘗試之後仍有錯誤[連絡支援人員](fxt-support-ticket.md)取得協助。 
+如果您在嘗試這些解決方案之後仍有錯誤，請[聯絡支援](fxt-support-ticket.md)人員以取得協助。 
 
 | 圖示 | 描述 | 錯誤狀況 | 可能的解決方案 |
 |----------------|---------------|--------------------|----------------------|
-| ![磁碟機圖示](media/fxt-monitor/fxt-hd-icon.jpg) | 磁碟機狀態 | 磁碟機錯誤 | 檢查系統事件記錄檔，來判斷磁碟機是否有錯誤，或 <br>執行適當的線上診斷測試;重新啟動系統並執行內嵌的診斷 (ePSA)，或 <br>如果磁碟機設定 RAID 陣列中，重新啟動系統，並輸入主機配接器設定公用程式 |
-|![溫度圖示](media/fxt-monitor/fxt-temp-icon.jpg) | 溫度狀態 | 熱錯誤-例如，風扇故障或周圍溫度 je mimo rozsah | 請檢查下列可定址的條件： <br>冷卻風扇遺漏或已失敗 <br>系統的封面，空氣死亡記憶體模組空白，或後填滿括號會移除 <br>周圍溫度過長 <br>外部氣流阻礙 |
-|![電力圖示](media/fxt-monitor/fxt-electric-icon.jpg) | 電源狀態 | 電力的錯誤-例如電壓超出範圍，無法 psu 已運轉或失敗的電壓 regulator |  檢查系統事件記錄檔或針對特定問題的系統訊息。 如果 psu 已運轉問題，請檢查 psu 已運轉狀態 LED，並如有需要請重新連接 psu 已運轉。 | 
-|![記憶體圖示](media/fxt-monitor/fxt-memory-icon.jpg) | 記憶體狀態 | 記憶體錯誤 | 請檢查系統事件記錄檔或失敗的記憶體; 位置的系統訊息重新連接記憶體模組。 |
-|![PCIe 圖示](media/fxt-monitor/fxt-pcie-icon.jpg) | PCIe 狀態 | PCIe 卡錯誤 | 重新啟動系統;更新 PCIe 卡驅動程式;重新安裝智慧卡 |
+| ![磁片磁碟機圖示](media/fxt-monitor/fxt-hd-icon.jpg) | 磁片磁碟機狀態 | 磁片磁碟機錯誤 | 檢查 [系統] 事件記錄檔，判斷磁片磁碟機是否發生錯誤，或 <br>執行適當的線上診斷測試;重新開機系統並執行內嵌診斷（ePSA），或 <br>如果磁片磁碟機是在 RAID 陣列中設定的，請重新開機系統並輸入主機介面卡設定公用程式 |
+|![溫度圖示](media/fxt-monitor/fxt-temp-icon.jpg) | 溫度狀態 | 熱錯誤-例如，風扇已故障或環境溫度超出範圍 | 檢查是否有下列可定址條件： <br>冷卻風扇遺失或已失敗 <br>已移除系統的封面、金屬導片、記憶體模組空白或後端填充括弧 <br>環境溫度過高 <br>外部氣流受到阻礙 |
+|![電力圖示](media/fxt-monitor/fxt-electric-icon.jpg) | 電力狀態 | 電力錯誤-例如，電壓超出範圍、失敗的 PSU 或失敗的電壓調節器 |  檢查系統事件記錄檔或系統訊息中的特定問題。 如果有 PSU 問題，請檢查 PSU 狀態 LED 並視需要重新拔插 PSU。 | 
+|![記憶體圖示](media/fxt-monitor/fxt-memory-icon.jpg) | 記憶體狀態 | 記憶體錯誤 | 檢查系統事件記錄檔或系統訊息，找出失敗記憶體的位置;重新放置記憶體模組。 |
+|![PCIe 圖示](media/fxt-monitor/fxt-pcie-icon.jpg) | PCIe 狀態 | PCIe 卡錯誤 | 重新開機系統;更新 PCIe 卡驅動程式;重新安裝卡片 |
 
 
-### <a name="system-health-status-indicator"></a>系統健全狀況狀態指標
+### <a name="system-health-status-indicator"></a>系統健全狀況狀態指示器
 
-大型的亮燈的按鈕右邊的 [左] 控制台指出整體系統狀態，並也做為系統識別碼模式中的單元定位器燈號。
+左側 [控制台] 右邊的 [大亮] 按鈕表示整體系統狀態，也用來做為系統識別碼模式中的單位定位器光源。
 
-按下的系統健全狀況和系統識別碼模式和系統健康狀態模式之間切換 [ID] 按鈕。
+按 [系統健全狀況和識別碼] 按鈕，以在系統識別碼模式與系統健康狀態模式之間切換。
 
-|系統健全狀況狀態的狀態 | 條件 |
+|系統健全狀況狀態 | 條件 |
 |-------------------------------------------|-----------------------------------------------|
-| 藍色實線 | 正常的作業： 系統會開啟運作正常，且系統識別碼模式不是作用中。 <br/>如果您想要切換至 [系統識別碼模式，請按系統健康狀態和 ID] 按鈕。 |
-| 閃爍藍色 | 系統識別碼模式才有作用。 如果您想要切換至 系統健康情況的模式，請按系統健康狀態和系統 ID 按鈕。 |
-| Solid 琥珀色 | 系統會在保全的模式。 如果問題持續發生，請[請連絡 Microsoft 客戶服務及支援](fxt-support-ticket.md)。 |
-| 閃爍琥珀色 | 系統錯誤。 檢查系統事件記錄檔中特定的錯誤訊息。 如需系統韌體和監視系統元件的代理程式所產生的事件和錯誤訊息資訊，請參閱 qrl.dell.com 的錯誤程式碼查詢頁面。 |
+| 實心藍色 | 正常操作：系統已開啟、正常運作，且系統識別碼模式不在使用中。 <br/>如果您想要切換至 [系統識別碼] 模式，請按 [系統健全狀況和識別碼] 按鈕。 |
+| 閃爍藍色 | 系統識別碼模式為使用中。 如果您想要切換到系統健康狀態模式，請按 [系統健全狀況和系統識別碼] 按鈕。 |
+| 單色琥珀色 | 系統處於不安全的模式。 如果問題持續發生，請[洽詢 Microsoft 客戶服務及支援](fxt-support-ticket.md)。 |
+| 閃爍琥珀色 | 系統錯誤。 檢查系統事件記錄檔中是否有特定的錯誤訊息。 如需系統監視器和監視系統元件之代理程式所產生之事件和錯誤訊息的詳細資訊，請參閱 < 錯誤碼查閱頁面，網址為 qrl.dell.com。 |
 
 

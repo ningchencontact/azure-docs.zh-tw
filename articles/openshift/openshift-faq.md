@@ -8,12 +8,12 @@ manager: jeconnoc
 ms.service: container-service
 ms.topic: article
 ms.date: 05/08/2019
-ms.openlocfilehash: 86875643950e11f1e5030676c1ab3825039749ed
-ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
+ms.openlocfilehash: 8f7349310f72c8cccc7b1906239ece3038dd7861
+ms.sourcegitcommit: 961468fa0cfe650dc1bec87e032e648486f67651
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71203531"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72249223"
 ---
 # <a name="azure-red-hat-openshift-faq"></a>Azure Red Hat OpenShift 常見問題
 
@@ -39,7 +39,7 @@ ms.locfileid: "71203531"
 
 ## <a name="what-cluster-operations-are-available"></a>有哪些叢集作業可供使用？
 
-您只能相應增加或減少計算節點的數目。 建立之後，不允許對`Microsoft.ContainerService/openShiftManagedClusters`資源進行其他修改。 計算節點的最大數目限制為20。
+您只能相應增加或減少計算節點的數目。 建立後，不允許對 `Microsoft.ContainerService/openShiftManagedClusters` 資源進行其他修改。 計算節點的最大數目限制為20。
 
 ## <a name="what-virtual-machine-sizes-can-i-use"></a>我可以使用哪些虛擬機器大小？
 
@@ -59,11 +59,11 @@ ms.locfileid: "71203531"
 
 ## <a name="is-the-docker-registry-available-externally-so-i-can-use-tools-such-as-jenkins"></a>Docker 登錄是否可在外部使用，因此我可以使用 Jenkins 這類工具？
 
-中`https://docker-registry.apps.<clustername>.<region>.azmosa.io/`提供 Docker 登錄，但未提供強大的儲存持久性保證。 您也可以使用[Azure Container Registry](https://azure.microsoft.com/services/container-registry/)。
+Docker 登錄可從 `https://docker-registry.apps.<clustername>.<region>.azmosa.io/` 取得，但未提供強大的儲存持久性保證。 您也可以使用[Azure Container Registry](https://azure.microsoft.com/services/container-registry/)。
 
 ## <a name="is-cross-namespace-networking-supported"></a>是否支援跨命名空間的網路？
 
-客戶和個別專案管理員可以使用`NetworkPolicy`物件，針對每個專案自訂跨命名空間的網路功能（包括拒絕它）。
+客戶和個別專案管理員可以使用 `NetworkPolicy` 物件，針對每個專案自訂跨命名空間的網路功能（包括拒絕它）。
 
 ## <a name="can-an-admin-manage-users-and-quotas"></a>系統管理員可以管理使用者和配額嗎？
 
@@ -71,7 +71,7 @@ ms.locfileid: "71203531"
 
 ## <a name="can-i-restrict-a-cluster-to-only-certain-azure-ad-users"></a>我可以將叢集限制為只有特定 Azure AD 的使用者嗎？
 
-是的。 您可以藉由設定 Azure AD 應用程式來限制哪些 Azure AD 使用者可以登入叢集。 如需詳細資訊[，請參閱如何：將您的應用程式限制為一組使用者](https://docs.microsoft.com/azure/active-directory/develop/howto-restrict-your-app-to-a-set-of-users)
+是的。 您可以藉由設定 Azure AD 應用程式來限制哪些 Azure AD 使用者可以登入叢集。 如需詳細資訊，請參閱 [How to：將您的應用程式限制為一組使用者 @ no__t-0
 
 ## <a name="can-a-cluster-have-compute-nodes-across-multiple-azure-regions"></a>叢集可以跨多個 Azure 區域擁有計算節點嗎？
 
@@ -85,15 +85,15 @@ ms.locfileid: "71203531"
 
 是的。 您可以使用 OSBA 搭配 Azure Red Hat OpenShift。 如需詳細資訊，請參閱[Open Service Broker For Azure](https://github.com/Azure/open-service-broker-azure#openshift-project-template) 。
 
-## <a name="i-am-trying-to-peer-into-a-virtual-network-in-a-different-subscription-but-getting-failed-to-get-vnet-cidr-error"></a>我嘗試對等互連至不同訂用帳戶中的虛擬網路， `Failed to get vnet CIDR`但收到錯誤。
+## <a name="i-am-trying-to-peer-into-a-virtual-network-in-a-different-subscription-but-getting-failed-to-get-vnet-cidr-error"></a>我想要對等互連至不同訂用帳戶中的虛擬網路，但收到 `Failed to get vnet CIDR` 錯誤。
 
-在具有虛擬網路的訂用帳戶中，請務必向`Microsoft.ContainerService`註冊提供者`az provider register -n Microsoft.ContainerService --wait` 
+在具有虛擬網路的訂用帳戶中，請務必向 `az provider register -n Microsoft.ContainerService --wait` 註冊 @no__t 0 提供者 
 
 ## <a name="what-is-the-azure-red-hat-openshift-aro-maintenance-process"></a>什麼是 Azure Red Hat OpenShift （ARO）維護程式？
 
 ARO 有三種類型的維護：升級、備份和還原 etcd 資料，以及雲端提供者起始的維護。
 
-+ 升級包含軟體升級和 Cve。 CVE 補救會在啟動`yum update`時執行，並提供立即緩和措施。  在平行中，將會建立新的映射組建，以供未來的叢集建立。
++ 升級包含軟體升級和 Cve。 CVE 補救會在啟動時執行，`yum update` 並提供立即緩和。  在平行中，將會建立新的映射組建，以供未來的叢集建立。
 
 + 備份和管理 etcd 資料是一個自動化程式，視動作而定，可能需要叢集停機。 如果正在從備份還原 etcd 資料庫，將會有停機時間。 我們會每小時備份 etcd，並保留過去6小時的備份。
 
@@ -129,9 +129,9 @@ ARO 有三種類型的維護：升級、備份和還原 etcd 資料，以及雲�
 
 Syslog、docker logs、日記和 dmesg 是由受控服務處理，不會向客戶公開。
 
-## <a name="how-can-a-customer-get-access-to-metrics-like-cpumemory-at-the-node-level-to-take-action-to-scale-debug-issues-etc-i-cannot-seem-to-run-kubectl-top-on-an-aro-cluster"></a>客戶如何取得節點層級的計量（例如 CPU/記憶體），以採取動作來調整規模、進行調試問題等。我似乎不能在`kubectl top` ARO 叢集上執行。
+## <a name="how-can-a-customer-get-access-to-metrics-like-cpumemory-at-the-node-level-to-take-action-to-scale-debug-issues-etc-i-cannot-seem-to-run-kubectl-top-on-an-aro-cluster"></a>客戶如何取得節點層級的計量（例如 CPU/記憶體），以採取動作來調整規模、進行調試問題等。我似乎無法在 ARO 叢集上執行 `kubectl top`。
 
-`kubectl top`Red Hat OpenShift 無法使用。 它需要支援的計量來源（Heapster （已淘汰）或計量伺服器（發展或 Alpha），這兩者都不會包含在 OpenShift 監視堆疊中。
+`kubectl top` 無法在 Red Hat OpenShift 上使用。 它需要支援的計量來源（Heapster （已淘汰）或計量伺服器（發展或 Alpha），這兩者都不會包含在 OpenShift 監視堆疊中。
 
 ## <a name="what-is-the-default-pod-scheduler-configuration-for-aro"></a>ARO 的預設 pod 排程器設定為何？
 
@@ -189,7 +189,7 @@ SDN 是 openshift-ovs-es-networkpolicy，而且無法設定。
 
 每個 Azure Red Hat OpenShift 叢集專門用於指定的客戶，並在客戶的訂用帳戶內。 
 
-## <a name="can-we-choose-any-persistent-storage-solution-ocs"></a>我們可以選擇任何持續性儲存體解決方案。 OCS? 
+## <a name="can-we-choose-any-persistent-storage-solution-like-ocs"></a>我們可以選擇任何持續性儲存體解決方案，例如 OCS 嗎？ 
 
 有兩個儲存類別可供選取：Azure 磁片和 Azure 檔案。
 

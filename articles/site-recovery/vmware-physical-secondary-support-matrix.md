@@ -6,14 +6,14 @@ manager: carmonm
 ms.service: site-recovery
 services: site-recovery
 ms.topic: article
-ms.date: 08/22/2019
+ms.date: 10/10/2019
 ms.author: raynew
-ms.openlocfilehash: c330afb2c5d315b3d386d1477669f1aab2f6e6f9
-ms.sourcegitcommit: 47b00a15ef112c8b513046c668a33e20fd3b3119
+ms.openlocfilehash: 908d681b271aa8acdb0898676c33d396461d8f9a
+ms.sourcegitcommit: 1c2659ab26619658799442a6e7604f3c66307a89
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69972069"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72255197"
 ---
 # <a name="support-matrix-for-disaster-recovery-of-vmware-vms-and-physical-servers-to-a-secondary-site"></a>從 VMware VM 和實體伺服器至次要網站之災害復原的支援矩陣
 
@@ -25,12 +25,23 @@ ms.locfileid: "69972069"
 > [!NOTE]
 > 內部部署 VMware VM 和實體伺服器的複寫是由 InMage Scout 提供。 InMage Scout 包含在 Azure Site Recovery 服務訂用帳戶中。
 
+## <a name="end-of-support-announcement"></a>終止支援公告
+在內部部署 VMware 或實體資料中心之間進行複寫的 Site Recovery 案例即將到達支援終止。
+
+- 從2018年8月起，無法在復原服務保存庫中設定案例，而且無法從保存庫下載 InMage Scout 軟體。 現有的部署仍受支援。
+- - 自 2020 年 12 月 31 日起，將不再支援此案例。
+現有的合作夥伴可在支援終止前將新客戶登入至案例。
+- 在 2018 年和 2019 年期間，將會發行兩項更新：
+
+    - 更新 7：修正網路組態和合規性問題，並提供 TLS 1.2 支援。
+    - 更新 8：新增 Linux 作業系統 RHEL/CentOS 7.3/7.4/7.5 和 SUSE 12 的支援
+    - 在更新 8 之後，將不再發行其他更新。 更新 8 將為作業系統新增有限的 Hotfix 支援，以及目前能力所及的最佳 Bug 修正程式。
 
 ## <a name="host-servers"></a>主機伺服器
 
 **作業系統** | **詳細資料**
 --- | ---
-vCenter Server | vCenter 5.5、6.0 和 6.5<br/><br/> 如果您是執行 6.0 或 6.5，請注意，僅支援 5.5 的功能。
+vCenter 伺服器 | vCenter 5.5、6.0 和 6.5<br/><br/> 如果您是執行 6.0 或 6.5，請注意，僅支援 5.5 的功能。
 
 
 ## <a name="replicated-vm-support"></a>已複寫的 VM 支援

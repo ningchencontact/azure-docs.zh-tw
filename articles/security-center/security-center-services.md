@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/24/2019
 ms.author: memildin
-ms.openlocfilehash: d756f9dfbd0012f884bb0c4a1e27efc76d613234
-ms.sourcegitcommit: 387da88b8262368c1b67fffea58fe881308db1c2
+ms.openlocfilehash: ed231bc05d58a40c93cea74081c027e5b49f5306
+ms.sourcegitcommit: 1c2659ab26619658799442a6e7604f3c66307a89
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/07/2019
-ms.locfileid: "71982830"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72254502"
 ---
 # <a name="supported-features-available-in-azure-security-center"></a>Azure 資訊安全中心提供支援的功能
 
@@ -39,35 +39,35 @@ ms.locfileid: "71982830"
 |----|----|----|----|----|----|----|----|
 |**環境**|**Azure**||**Non-Azure**|**Azure**||**Non-Azure**||
 ||**虛擬機器**|**虛擬機器擴展集**||**虛擬機器**|**虛擬機器擴展集**|
-|虛擬機器行為分析威脅偵測警示|✔|✔|✔|✔ (在支援的版本上)|✔ (在支援的版本上)|✔|建議（免費）威脅偵測（標準）|
-|網路型威脅偵測警示|✔|✔|X|✔|✔|X|標準|
-|Microsoft Defender ATP 整合|✔ (在支援的版本上)|✔ (在支援的版本上)|✔|X|X|X|標準|
-|遺漏修補程式|✔|✔|✔|✔|✔|✔|免費|
-|安全性設定|✔|✔|✔|✔|✔|✔|免費|
-|Endpoint protection 評估|✔|✔|✔|X|X|X|免費|
-|即時 VM 存取|✔|X|X|✔|X|X|標準|
-|自適性應用程式控制|✔|X|✔|✔|X|✔|標準|
-|檔案完整性監視|✔|✔|✔|✔|✔|✔|標準|
-|磁片加密評估|✔|✔|X|✔|✔|X|免費|
-|第三方部署|✔|X|X|✔|X|X|免費|
-|NSG 評量|✔|✔|X|✔|✔|X|免費|
-|無檔案型威脅偵測|✔|✔|✔|X|X|X|標準|
-|網路對應|✔|✔|X|✔|✔|X|標準|
-|自適性網路強化|✔|X|X|✔|X|X|標準|
+|[Microsoft Defender ATP 整合](https://docs.microsoft.com/azure/security-center/security-center-wdatp)|✔ (在支援的版本上)|✔ (在支援的版本上)|✔|X|X|X|標準|
+|[虛擬機器行為分析威脅偵測警示](https://docs.microsoft.com/azure/security-center/security-center-alerts-iaas)|✔|✔|✔|✔ (在支援的版本上)|✔ (在支援的版本上)|✔|建議（免費）威脅偵測（標準）|
+|[Fileless 威脅偵測警示](https://docs.microsoft.com/azure/security-center/security-center-alerts-iaas#fileless-attack-detection-)|✔|✔|✔|X|X|X|標準|
+|[以網路為基礎的威脅偵測警示](https://docs.microsoft.com/azure/security-center/security-center-alerts-service-layer#azure-network-layer)|✔|✔|X|✔|✔|X|標準|
+|[即時 VM 存取](https://docs.microsoft.com/azure/security-center/security-center-just-in-time)|✔|X|X|✔|X|X|標準|
+|[檔案完整性監視](https://docs.microsoft.com/azure/security-center/security-center-file-integrity-monitoring)|✔|✔|✔|✔|✔|✔|標準|
+|[自動調整應用程式控制項](https://docs.microsoft.com/azure/security-center/security-center-adaptive-application)|✔|X|✔|✔|X|✔|標準|
+|[網路地圖](https://docs.microsoft.com/azure/security-center/security-center-network-recommendations#network-map)|✔|✔|X|✔|✔|X|標準|
+|[彈性網路強化](https://docs.microsoft.com/azure/security-center/security-center-adaptive-network-hardening)|✔|X|X|✔|X|X|標準|
 |自適性網路控制措施|✔|✔|X|✔|✔|X|標準|
-|法規合規性儀表板 & 報告|✔|✔|✔|✔|✔|✔|標準|
+|[法規合規性儀表板 & 報告](https://docs.microsoft.com/azure/security-center/security-center-compliance-dashboard)|✔|✔|✔|✔|✔|✔|標準|
 |Docker 託管 IaaS 容器上的建議和威脅偵測|X|X|X|✔|✔|✔|標準|
+|缺少 OS 修補程式評估|✔|✔|✔|✔|✔|✔|免費|
+|安全性錯誤的評估|✔|✔|✔|✔|✔|✔|免費|
+|[Endpoint protection 評估](https://docs.microsoft.com/azure/security-center/security-center-services#supported-endpoint-protection-solutions-)|✔|✔|✔|X|X|X|免費|
+|磁片加密評估|✔|✔|X|✔|✔|X|免費|
+|協力廠商的弱點評估|✔|X|X|✔|X|X|免費|
+|[網路安全性評量]()|✔|✔|X|✔|✔|X|免費|
 
 ### 支援的端點保護解決方案<a name="endpoint-supported"></a>
 
 下表提供的矩陣指出：
 
  - 您是否可以使用 Azure 資訊安全中心安裝適用於您的每個解決方案。
- - 資訊安全中心可以探索哪些端點保護解決方案。 如果探索到這些端點保護解決方案的其中一個，資訊安全中心不會建議安裝。
+ - 資訊安全中心可以探索哪些端點保護解決方案。 如果探索到此清單中的 endpoint protection 解決方案，資訊安全中心不建議安裝一個。
 
 如需每一項保護何時產生建議的相關資訊，請參閱[Endpoint Protection 評估和建議](security-center-endpoint-protection.md)。
 
-| Endpoint Protection| 平台 | 資訊安全中心安裝 | 資訊安全中心探索 |
+| 端點保護| 平台 | 資訊安全中心安裝 | 資訊安全中心探索 |
 |------|------|-----|-----|
 | Windows Defender (Microsoft 反惡意程式碼軟體)| Windows Server 2016| 否，內建於 OS| 是 |
 | System Center Endpoint Protection (Microsoft 反惡意程式碼軟體) | Windows Server 2012 R2、2012、2008 R2 (請參閱下列附註) | 透過延伸模組 | 是 |
@@ -77,7 +77,7 @@ ms.locfileid: "71982830"
 | McAfee v10+ | Linux 伺服器系列  | 否 | 是 **\*** |
 | Sophos V9 +| Linux 伺服器系列  | 否 | 是 **\***  |
 
- **\*** 涵蓋範圍狀態和支援的資料目前僅適用于與受保護的訂用帳戶相關聯的 Log Analytics 工作區，而且不會反映在 Azure 資訊安全中心入口網站中。
+ **\*** 涵蓋範圍狀態和支援的資料目前僅適用于與受保護的訂用帳戶相關聯的 Log Analytics 工作區。 它不會反映在 Azure 資訊安全中心入口網站中。
 
 > [!NOTE]
 >
@@ -99,21 +99,21 @@ Azure 資訊安全中心支援下列 PaaS 資源：
 |儲存體帳戶|✔| NA|
 |App Service|✔| ✔|
 |函數|✔| X|
-|雲端服務|✔| X|
+|服務雲端|✔| X|
 |VNet|✔| NA|
 |Subnet|✔| NA|
 |NIC|✔| NA|
 |NSG|✔| NA|
 |訂閱|✔ **| ✔|
-|Batch 帳戶|✔| X|
+|批次帳戶|✔| X|
 |Service fabric 帳戶|✔| X|
 |自動化帳戶|✔| X|
 |負載平衡器|✔| X|
-|搜尋|✔| X|
+|Search|✔| X|
 |服務匯流排命名空間|✔| X|
 |串流分析|✔| X|
 |事件中樞命名空間|✔| X|
-|Logic Apps|✔| X|
+|邏輯應用程式|✔| X|
 |Redis|✔| NA|
 |Data Lake Analytics|✔| X|
 |Data Lake Store|✔| X|

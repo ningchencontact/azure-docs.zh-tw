@@ -3,18 +3,18 @@ title: 詞彙詞彙-IoT 隨插即用預覽 |Microsoft Docs
 description: 概念-與 IoT 隨插即用 Preview 相關的常見詞彙詞彙。
 author: ChrisGMsft
 ms.author: chrisgre
-ms.date: 08/29/2019
+ms.date: 10/10/2019
 ms.topic: conceptual
 ms.custom: mvc
 ms.service: iot-pnp
 services: iot-pnp
 manager: philmea
-ms.openlocfilehash: 7b37912c58312644059f3990b4776514e081a4bb
-ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
+ms.openlocfilehash: a5c9d2d54fcce1179e43c38027db23c3d7e557e8
+ms.sourcegitcommit: 961468fa0cfe650dc1bec87e032e648486f67651
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70858841"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72249294"
 ---
 # <a name="glossary-of-terms-for-iot-plug-and-play-preview"></a>IoT 隨插即用預覽詞彙詞彙
 
@@ -38,7 +38,7 @@ Azure CLI 是用來管理 Azure 資源的跨平臺命令列工具。 適用于 A
 - 呼叫裝置[命令](#commands)。
 - 管理[模型存放庫](#model-repository)、[介面](#interface)和[裝置功能模型](#device-capability-model)。
 
-## <a name="azure-iot-central"></a>Azure IoT Central
+## <a name="azure-iot-central"></a>Azure IoT 中心
 
 Azure IoT Central 是完全受控的軟體即服務解決方案，可讓您輕鬆地連線、監視及管理您的[IoT 隨插即用裝置](#iot-plug-and-play-device)。 您可以使用[裝置功能模型](#device-capability-model)來自動設定 IoT Central 應用程式，以監視和管理您的裝置。
 
@@ -97,6 +97,7 @@ IoT 中樞是託管於雲端中的受控服務，可做為 IoT 應用程式與�
 
 - 裝置連接字串可讓[iot 隨插即用裝置](#iot-plug-and-play-device)連線到 iot 中樞上的裝置面向端點。 裝置上的用戶端程式代碼會使用連接字串來建立與 IoT 中樞的安全連線。
 - IoT 中樞連接字串可讓後端解決方案和工具安全地連接到 IoT 中樞上的服務面向端點。 這些解決方案和工具會管理 IoT 中樞和與其連線的裝置。
+- 公司模型存放庫連接字串可讓後端解決方案和工具安全地連接到[公司模型存放庫](#company-model-repository)。 這些解決方案和工具會使用或管理存放庫中的[裝置功能模型](#device-capability-model)和[介面](#interface)。
 
 ## <a name="device-capability-model"></a>裝置功能模型
 
@@ -178,7 +179,7 @@ IoT 隨插即用裝置通常是小型的獨立計算裝置，可收集資料或�
 
 有一個可儲存[認證裝置](#device-certification)之[裝置功能模型](#device-capability-model)和[介面](#interface)的單一公用模型存放庫。 公用模型存放庫也會儲存[常用的介面](#common-interface)定義。
 
-## <a name="registration-id"></a>註冊 ID
+## <a name="registration-id"></a>註冊識別碼
 
 註冊識別碼可唯一識別裝置布建[服務](#device-provisioning-service)中的裝置。 此識別碼與裝置識別碼不同，這是[IoT 中樞](#azure-iot-hub)內裝置的唯一識別碼。
 

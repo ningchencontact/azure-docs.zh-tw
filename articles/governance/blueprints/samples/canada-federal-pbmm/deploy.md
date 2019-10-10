@@ -1,18 +1,18 @@
 ---
 title: 範例-加拿大聯邦 PBMM 藍圖-部署步驟
-description: TheCanada 聯邦 PBMM 藍圖範例的部署步驟。
+description: 加拿大聯邦 PBMM 藍圖範例的部署步驟，包括藍圖成品參數詳細資料。
 services: blueprints
 author: DCtheGeek
 ms.author: dacoulte
 ms.date: 09/05/2019
 ms.topic: conceptual
 ms.service: blueprints
-ms.openlocfilehash: 2e810c810fd2c143f3d3e43a6ff1df87a150fa3b
-ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
+ms.openlocfilehash: 0e799de92f25c688b41d3ac5718fe3a2b7a8aba0
+ms.sourcegitcommit: 961468fa0cfe650dc1bec87e032e648486f67651
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/06/2019
-ms.locfileid: "71981634"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72249018"
 ---
 # <a name="deploy-the-canada-federal-pbmm-blueprint-samples"></a>部署加拿大聯邦 PBMM 藍圖範例
 
@@ -82,7 +82,7 @@ ms.locfileid: "71981634"
 
      保留預設的 [系統指派] 受控識別選項。
 
-   - 成品參數
+   - 構件參數
 
      本節中定義的參數會套用至其定義所屬的成品。 這些參數是[動態參數](../../concepts/parameters.md#dynamic-parameters)，因為定義於藍圖指派期間。 如需完整清單或成品參數及其說明，請參閱[成品參數資料表](#artifact-parameters-table)。
 
@@ -97,17 +97,17 @@ ms.locfileid: "71981634"
 
 成品名稱|成品類型|參數名稱|描述|
 |-|-|-|-|
-|\[預覽\]：部署適用於 Linux VM 的 Log Analytics 代理程式 |原則指派 |Linux VM 的 Log Analytics 工作區 |如需詳細資訊，請參閱在[Azure 入口網站中建立 Log Analytics 工作區](../../../../azure-monitor/learn/quick-create-workspace.md)。 |
+|\[預覽\]：部署適用於 Linux VM 的 Log Analytics 代理程式 |原則指派 |適用於 Linux VM 的 Log Analytics 工作區 |如需詳細資訊，請參閱在[Azure 入口網站中建立 Log Analytics 工作區](../../../../azure-monitor/learn/quick-create-workspace.md)。 |
 |\[預覽\]：部署適用於 Linux VM 的 Log Analytics 代理程式 |原則指派 |選擇性：要新增至範圍的 VM 映像清單，這些映像具有支援的 Linux OS |空陣列可用來表示沒有選擇性參數： `[]` |
 |\[預覽\]：部署適用於 Windows VM 的 Log Analytics 代理程式 |原則指派 |選擇性：要新增至範圍的 VM 映像清單，這些映像具有支援的 Windows OS |空陣列可用來表示沒有選擇性參數： `[]` |
-|\[預覽\]：部署適用於 Windows VM 的 Log Analytics 代理程式 |原則指派 |Windows VM 的 Log Analytics 工作區 |如需詳細資訊，請參閱在[Azure 入口網站中建立 Log Analytics 工作區](../../../../azure-monitor/learn/quick-create-workspace.md)。 |
+|\[預覽\]：部署適用於 Windows VM 的 Log Analytics 代理程式 |原則指派 |適用於 Windows VM 的 Log Analytics 工作區 |如需詳細資訊，請參閱在[Azure 入口網站中建立 Log Analytics 工作區](../../../../azure-monitor/learn/quick-create-workspace.md)。 |
 |\[預覽\]：審核加拿大聯邦 PBMM 控制及部署特定的 VM 延伸模組，以支援審核需求 |原則指派 |應設定 VM 的 Log Analytics 工作區識別碼 |這是應設定 VM 的 Log Analytics 工作區識別碼 (GUID)。 |
 |\[預覽\]：審核加拿大聯邦 PBMM 控制及部署特定的 VM 延伸模組，以支援審核需求 |原則指派 |應啟用診斷記錄的資源類型清單 |如果未啟用診斷記錄設定，要審核的資源類型清單。 您可以在 [Azure 監視器診斷記錄結構描述](../../../../azure-monitor/platform/diagnostic-logs-schema.md#supported-log-categories-per-resource-type)中找到可用值。 |
 |\[預覽\]：審核加拿大聯邦 PBMM 控制及部署特定的 VM 延伸模組，以支援審核需求 |原則指派 |Administrators 群組 |小組. 範例： `Administrator; myUser1; myUser2` |
 |\[預覽\]：審核加拿大聯邦 PBMM 控制及部署特定的 VM 延伸模組，以支援審核需求 |原則指派 |應納入 Windows VM 系統管理員群組中的使用者清單 |應納入系統管理員本機群組中之成員的分號分隔清單。 範例： `Administrator; myUser1; myUser2` |
-|在儲存體帳戶部署進階威脅防護 |原則指派 |效果 |如需原則效果的相關資訊，請參閱[瞭解 Azure 原則效果](../../../policy/concepts/effects.md)。 |
+|在儲存體帳戶上部署進階威脅防護 |原則指派 |作用 |如需原則效果的相關資訊，請參閱[瞭解 Azure 原則效果](../../../policy/concepts/effects.md)。 |
 |在 SQL 伺服器上部署稽核 |原則指派 |保留期間天數中的值 (0 表示無保留天數限制) |保留天數（選擇性，如果未指定，則為_180_天） |
-|在 SQL 伺服器上部署稽核 |原則指派 |儲存體帳戶用於 SQL 伺服器稽核的資源群組名稱 |「審核」會將資料庫事件寫入您 Azure 儲存體帳戶中的 audit 記錄（系統會在每個區域中建立一個儲存體帳戶，而該區域中的所有伺服器都共用該地區的 SQL Server）。 重要-針對適當的審核作業，請勿刪除或重新命名資源群組或儲存體帳戶。 |
+|在 SQL 伺服器上部署稽核 |原則指派 |SQL server 稽核之儲存體帳戶的資源群組名稱 |「審核」會將資料庫事件寫入您 Azure 儲存體帳戶中的 audit 記錄（系統會在每個區域中建立一個儲存體帳戶，而該區域中的所有伺服器都共用該地區的 SQL Server）。 重要-針對適當的審核作業，請勿刪除或重新命名資源群組或儲存體帳戶。 |
 |部署網路安全性群組的診斷設定 |原則指派 |網路安全性群組診斷的儲存體帳戶前置詞 |此首碼會與網路安全性群組位置結合，以形成所建立的儲存體帳戶名稱。 |
 |部署網路安全性群組的診斷設定 |原則指派 |儲存體帳戶用於網路安全性群組診斷的資源群組名稱 (必須存在) |建立儲存體帳戶的資源群組。 此資源群組必須已存在。 |
 

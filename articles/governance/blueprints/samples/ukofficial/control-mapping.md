@@ -1,18 +1,18 @@
 ---
 title: 範例-英國官方和英國 NHS 藍圖-控制項對應
-description: 英國官方和英國 NHS 藍圖範例的控制項對應。
+description: 英國官方和英國 NHS 藍圖範例的控制項對應。 每個控制項都會對應至一或多個可協助評量的 Azure 原則。
 services: blueprints
 author: DCtheGeek
 ms.author: dacoulte
 ms.date: 06/26/2019
 ms.topic: conceptual
 ms.service: blueprints
-ms.openlocfilehash: 823b890f1898de5006b965ffa19520016aceb121
-ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
+ms.openlocfilehash: 9001e752c9b0f79d7c688e0b13fd7133004ff4ad
+ms.sourcegitcommit: 961468fa0cfe650dc1bec87e032e648486f67651
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/06/2019
-ms.locfileid: "71980870"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72248793"
 ---
 # <a name="control-mapping-of-the-uk-official-and-uk-nhs-blueprint-samples"></a>英國官方和英國 NHS 藍圖範例的控制項對應
 
@@ -27,22 +27,22 @@ ms.locfileid: "71980870"
 
 藍圖藉由指派[Azure 原則](../../../policy/overview.md)定義來對儲存體帳戶和 Redis 快取進行不安全的連線，協助您確保 Azure 服務的資訊傳輸是安全的。
 
-- 應該只允許對 Redis Cache 的安全連線
-- 應啟用儲存體帳戶的安全傳輸
+- 僅應啟用與您 Redis Cache 的安全連線
+- 應啟用與儲存體帳戶的安全傳輸
 
 ## <a name="23-data-at-rest-protection"></a>2.3 待用資料保護
 
 此藍圖藉由指派[Azure 原則](../../../policy/overview.md)定義來強制執行特定如何控制項並使用弱式密碼編譯設定，協助您在使用如何控制項時強制執行原則。
 了解您的 Azure 資源在哪些層面可能使用非最佳化的密碼編譯組態，有助於您採取更正措施，以確保資源會根據您的資訊安全性原則進行設定。 具體而言，此藍圖所指派的原則需要 data lake storage 帳戶的加密;需要 SQL 資料庫的透明資料加密;在儲存體帳戶、SQL 資料庫、虛擬機器磁片和自動化帳戶變數上審核遺失的加密;對儲存體帳戶和 Redis Cache 的不安全連線進行審核;audit 弱式虛擬機器密碼加密;和會在未加密的 Service Fabric 通訊中進行審核。
 
-- 應在 SQL 資料庫上啟用透明資料加密
-- 應在虛擬機器上套用磁碟加密
-- 自動化帳戶變數應加密
-- 應啟用儲存體帳戶的安全傳輸
+- 應啟用 SQL 資料庫上的透明資料加密
+- 虛擬機器上應套用磁碟加密
+- 應加密自動化帳戶變數
+- 應啟用與儲存體帳戶的安全傳輸
 - Service Fabric 叢集應將 ClusterProtectionLevel 屬性設定為 EncryptAndSign
-- 應在 SQL 資料庫上啟用透明資料加密
+- 應啟用 SQL 資料庫上的透明資料加密
 - 部署 SQL DB 透明資料加密
-- Data Lake Store 帳戶需要加密
+- 需要加密 Data Lake Store 帳戶
 - 允許的位置（已硬式編碼為「英國南部」和「英國西部」）
 - 允許的資源群組位置（已硬式編碼為「英國南部」和「英國西部」）
 
@@ -50,18 +50,18 @@ ms.locfileid: "71980870"
 
 此藍圖藉由指派[Azure 原則](../../../policy/overview.md)定義來監視遺失的 endpoint protection、遺失系統更新、作業系統弱點、SQL 弱點和虛擬，協助您執行資訊系統弱點電腦弱點。 這些深入解析可讓您即時檢視已部署資源的安全性狀態，並且可協助您排定補救措施的優先順序。
 
-- 在 Azure 資訊安全中心中監視缺少的 Endpoint Protection
-- 您應在機器上安裝系統更新
-- 您應在機器上修復安全性組態的弱點
-- 應修復 SQL 資料庫的弱點
-- 弱點評量解決方案應修復弱點
+- 在 Azure 資訊安全中心內監視缺少的 Endpoint Protection
+- 機器上應安裝系統更新
+- 應補救您機器上安全性設定的弱點
+- 您的 SQL 資料庫上應補救的弱點
+- 應由弱點評定解決方案補救弱點
 
 ## <a name="53-protective-monitoring"></a>5.3 防護監視
 
 此藍圖會指派[Azure 原則](../../../policy/overview.md)定義來協助您保護資訊系統資產，以提供不受限制的存取、白名單活動和威脅的防護監視。
 
 - 稽核不受限制的儲存體帳戶網路存取
-- 應在虛擬機器上啟用自適性應用程式控制
+- 虛擬機器上應啟用自適性應用程式控制
 - 在 SQL 伺服器上部署威脅偵測
 - 部署適用于 Windows Server 的預設 Microsoft IaaS 反惡意程式碼擴充功能
 
@@ -69,24 +69,24 @@ ms.locfileid: "71980870"
 
 Azure 會實行角色型存取控制（RBAC），以協助您管理可存取 Azure 資源的人員。 您可以使用 Azure 入口網站，檢閱可存取 Azure 資源的人員及其權限。 此藍圖藉由指派[Azure 原則](../../../policy/overview.md)定義來審查具有擁有者和/或讀取/寫入權限的外部帳戶，以及具有擁有者、讀取和/或不含多重要素之寫入權限的帳戶，以協助您限制和控制存取權限已啟用驗證。
 
-- 應在您訂用帳戶上具有擁有者權限的帳戶上啟用 MFA
-- MFA 應啟用具有您訂用帳戶寫入權限的帳戶
-- 應在您訂用帳戶上具有讀取權限的帳戶上啟用 MFA
-- 具有擁有者權限的外部帳戶應該從您的訂用帳戶中移除
-- 應從訂用帳戶移除具有寫入權限的外部帳戶
-- 具有讀取權限的外部帳戶應該從您的訂用帳戶中移除
+- 具有您訂用帳戶擁有者權限的帳戶上應啟用 MFA
+- 在訂用帳戶上具有寫入權限的帳戶，應啟用 MFA
+- 具有您訂用帳戶讀取權限的帳戶上應啟用 MFA
+- 應從訂用帳戶中移除具備擁有者權限的外部帳戶
+- 應從訂用帳戶中移除具備寫入權限的外部帳戶
+- 應從訂用帳戶中移除具備讀取權限的外部帳戶
 
 此藍圖會指派 Azure 原則定義，以針對 SQL server 和 Service Fabric 來審查 Azure Active Directory authentication 的使用。 使用 Azure Active Directory 驗證可針對資料庫使用者及其他 Microsoft 服務，簡化權限管理及集中管理身分識別。
 
 - 應針對 SQL 伺服器佈建 Azure Active Directory 管理員
-- Service Fabric 叢集應只能使用 Azure Active Directory 進行用戶端驗證
+- Service Fabric 叢集只應使用 Azure Active Directory 進行用戶端驗證
 
 此藍圖也會指派 Azure 原則定義來審查應優先進行審查的帳戶，包括折舊的帳戶和外部帳戶。 必要時可以封鎖帳戶的登入 (或移除帳戶)，而立即移除對 Azure 資源的存取權限。 此藍圖會指派兩個 Azure 原則定義來審查應視為移除的折舊帳戶。
 
-- 已取代帳戶應該從您的訂用帳戶中移除
+- 已淘汰的帳戶應從您的訂用帳戶移除
 - 具有擁有者權限的已取代帳戶應該從您的訂用帳戶中移除
-- 具有擁有者權限的外部帳戶應該從您的訂用帳戶中移除
-- 應從訂用帳戶移除具有寫入權限的外部帳戶
+- 應從訂用帳戶中移除具備擁有者權限的外部帳戶
+- 應從訂用帳戶中移除具備寫入權限的外部帳戶
 
 此藍圖也會指派一個 Azure 原則定義來審查 Linux VM 密碼檔案許可權，以便在設定錯誤時發出警示。 這種設計可讓您採取更正動作，以確保驗證器不會遭到入侵。
 
@@ -111,8 +111,8 @@ Azure 會實行角色型存取控制（RBAC），以協助您管理可存取 Azu
 - \[預覽\]：部署需求以稽核允許不使用密碼從帳戶遠端連線的 Linux VM
 - \[預覽\]：稽核有不具密碼帳戶的 Linux VM
 - \[預覽\]：稽核允許不使用密碼從帳戶遠端連線的 Linux VM
-- 儲存體帳戶應遷移至新的 Azure Resource Manager 資源
-- 虛擬機器應該遷移至新的 Azure Resource Manager 資源
+- 儲存體帳戶應移轉至新的 Azure Resource Manager 資源
+- 虛擬機器應移轉至新的 Azure Resource Manager 資源
 - 稽核不是使用受控磁碟的 VM
 
 ## <a name="11-external-interface-protection"></a>11外部介面保護
@@ -120,7 +120,7 @@ Azure 會實行角色型存取控制（RBAC），以協助您管理可存取 Azu
 除了使用超過25個原則來進行適當的安全使用者管理之外，此藍圖還會指派監視不受限制之儲存體帳戶的[Azure 原則](../../../policy/overview.md)定義，協助您保護服務介面不受未經授權的存取。 具有不受限制存取權的儲存體帳戶，可能會允許非預期的存取訊號系統內所包含的資訊。 此藍圖也會指派一個原則，在虛擬機器上啟用彈性應用程式控制。
 
 - 稽核不受限制的儲存體帳戶網路存取
-- 應在虛擬機器上啟用自適性應用程式控制
+- 虛擬機器上應啟用自適性應用程式控制
 
 ## <a name="12-secure-service-administration"></a>12安全服務管理
 
@@ -128,22 +128,22 @@ Azure 會實行角色型存取控制（RBAC），以協助您管理可存取 Azu
 
 用於雲端服務管理的系統將會有該服務的高度存取權限。 其洩露會有重大影響，包括規避安全性控制及竊取或操控大量資料。 服務提供者的系統管理員用來管理操作服務的方法，應該設計來降低可能會破壞服務安全性的任何入侵風險。 如果未實行此準則，攻擊者可能會有略過安全性控制項並竊取或操作大量資料的方法。
 
-- 應在您訂用帳戶上具有擁有者權限的帳戶上啟用 MFA
-- MFA 應啟用具有您訂用帳戶寫入權限的帳戶
-- 具有擁有者權限的外部帳戶應該從您的訂用帳戶中移除
-- 應從訂用帳戶移除具有寫入權限的外部帳戶
+- 具有您訂用帳戶擁有者權限的帳戶上應啟用 MFA
+- 在訂用帳戶上具有寫入權限的帳戶，應啟用 MFA
+- 應從訂用帳戶中移除具備擁有者權限的外部帳戶
+- 應從訂用帳戶中移除具備寫入權限的外部帳戶
 
 此藍圖會指派 Azure 原則定義，以針對 SQL server 和 Service Fabric 來審查 Azure Active Directory authentication 的使用。 使用 Azure Active Directory 驗證可針對資料庫使用者及其他 Microsoft 服務，簡化權限管理及集中管理身分識別。
 
 - 應針對 SQL 伺服器佈建 Azure Active Directory 管理員
-- Service Fabric 叢集應只能使用 Azure Active Directory 進行用戶端驗證
+- Service Fabric 叢集只應使用 Azure Active Directory 進行用戶端驗證
 
 此藍圖也會指派 Azure 原則定義來審查應優先進行審查的帳戶，包括以較高的許可權來折舊帳戶和外部帳戶。 必要時可以封鎖帳戶的登入 (或移除帳戶)，而立即移除對 Azure 資源的存取權限。 此藍圖會指派兩個 Azure 原則定義來審查應視為移除的折舊帳戶。
 
-- 已取代帳戶應該從您的訂用帳戶中移除
+- 已淘汰的帳戶應從您的訂用帳戶移除
 - 具有擁有者權限的已取代帳戶應該從您的訂用帳戶中移除
-- 具有擁有者權限的外部帳戶應該從您的訂用帳戶中移除
-- 應從訂用帳戶移除具有寫入權限的外部帳戶
+- 應從訂用帳戶中移除具備擁有者權限的外部帳戶
+- 應從訂用帳戶中移除具備寫入權限的外部帳戶
 
 此藍圖也會指派一個 Azure 原則定義來審查 Linux VM 密碼檔案許可權，以便在設定錯誤時發出警示。 這種設計可讓您採取更正動作，以確保驗證器不會遭到入侵。
 
@@ -153,7 +153,7 @@ Azure 會實行角色型存取控制（RBAC），以協助您管理可存取 Azu
 
 此藍圖指派了 [Azure 原則](../../../policy/overview.md)定義，稽核 Azure 資源的記錄設定，以協助您確保會記錄系統事件。 指派的原則也會稽核虛擬機器是否未將記錄傳送至指定的記錄分析工作區。
 
-- 應該在 SQL Server 上的進階資料安全性設定上啟用稽核
+- 應對 SQL Server 上的進階資料安全性設定，啟用稽核
 - 稽核診斷設定
 - 稽核 SQL 伺服器層級稽核設定
 - \[預覽\]：部署適用於 Linux VM 的 Log Analytics 代理程式

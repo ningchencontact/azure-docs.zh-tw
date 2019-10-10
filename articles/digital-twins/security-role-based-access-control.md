@@ -8,16 +8,16 @@ ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
 ms.date: 09/30/2019
-ms.openlocfilehash: 1d4243457f51f11db5bc9681b29d27293fbc6250
-ms.sourcegitcommit: 4f7dce56b6e3e3c901ce91115e0c8b7aab26fb72
+ms.openlocfilehash: e89a8f98d92e92fa8afe93340576b14ff1dd5051
+ms.sourcegitcommit: 961468fa0cfe650dc1bec87e032e648486f67651
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71949047"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72249190"
 ---
 # <a name="role-based-access-control-in-azure-digital-twins"></a>Azure Digital Twins 中的角色型存取控制
 
-Azure Digital Twins 可讓您精確地對空間圖表中的特定資料、資源和動作進行存取控制。 這會透過名為角色型存取控制 (RBAC) 的細微角色和權限管理來達成。 RBAC 是由「角色」和「角色指派」所組成的。 角色會識別權限的層級。 角色指派會將角色與使用者或裝置產生關聯。
+Azure 數位 Twins 可對空間圖表中的特定資料、資源和動作進行精確的存取控制。 它會透過名[為角色型存取控制](https://docs.microsoft.com/azure/role-based-access-control/)（RBAC）的細微角色和版權管理來執行此動作。 RBAC 是由「角色」和「角色指派」所組成的。 角色會識別權限的層級。 角色指派會將角色與使用者或裝置產生關聯。
 
 使用 RBAC，就可以將權限授與：
 
@@ -84,3 +84,5 @@ Azure Digital Twins 的角色指派會建立物件 (例如，使用者或 Azure 
 ## <a name="next-steps"></a>後續步驟
 
 - 若要深入了解如何建立和管理 Azure Digital Twins 角色指派，請閱讀[建立和管理角色指派](./security-create-manage-role-assignments.md)。
+
+- 深入瞭解[適用于 Azure 的 RBAC](https://docs.microsoft.com/azure/role-based-access-control/)。

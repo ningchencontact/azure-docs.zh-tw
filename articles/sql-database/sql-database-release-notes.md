@@ -9,12 +9,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 05/15/2019
 ms.author: sstein
-ms.openlocfilehash: 90be253a4763aebd31b663aa0e765c187c8bff92
-ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
+ms.openlocfilehash: f1450399dc027a6977f4c99507e2e15b301272c4
+ms.sourcegitcommit: 961468fa0cfe650dc1bec87e032e648486f67651
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71266426"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72249378"
 ---
 # <a name="sql-database-release-notes"></a>SQL Database 版本資訊
 
@@ -46,8 +46,9 @@ ms.locfileid: "71266426"
 
 | 功能 | 詳細資料 |
 | ---| --- |
+| <a href="/azure/sql-database/sql-database-managed-instance-connectivity-architecture#service-aided-subnet-configuration-public-preview-in-east-us-and-west-us">服務輔助子網設定</a> | 管理子網設定的安全且方便的方式。 |
 | <a href="/azure/sql-database/sql-database-instance-pools">實例集區</a> | 方便且符合成本效益的方式，將較小的 SQL 實例遷移至雲端。 |
-| <a href="https://aka.ms/managed-instance-tde-byok">具有攜帶您自己的金鑰的透明資料加密（TDE）（BYOK）</a> |如需詳細資訊[，請參閱 Azure Key Vault 中客戶管理的金鑰的 Azure SQL 透明資料加密：攜帶您自己的金鑰支援](transparent-data-encryption-byok-azure-sql.md)。|
+| <a href="https://aka.ms/managed-instance-tde-byok">具有攜帶您自己的金鑰的透明資料加密（TDE）（BYOK）</a> |如需詳細資訊，請參閱在 Azure Key Vault 中使用客戶管理的金鑰 @no__t 0Azure SQL 透明資料加密：攜帶您自己的金鑰支援 @ no__t-0。|
 | <a href="https://aka.ms/managed-instance-aadlogins">實例層級 Azure AD 伺服器主體（登入）</a> | 使用<a href="https://docs.microsoft.com/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current">CREATE LOGIN FROM EXTERNAL PROVIDER</a>語句來建立伺服器層級的登入。 |
 | [異動複寫](sql-database-managed-instance-transactional-replication.md) | 將資料表中的變更複寫到位於受控實例、單一資料庫或 SQL Server 實例上的其他資料庫，或在其他受控實例或 SQL Server 實例中變更某些資料列時，更新您的資料表。 如需相關資訊，請參閱[在 Azure SQL Database 受控實例資料庫中設定](replication-with-sql-database-managed-instance.md)複寫。 |
 | 威脅偵測 |如需相關資訊，請參閱[在 Azure SQL Database 受控實例中設定威脅偵測](sql-database-managed-instance-threat-detection.md)。|

@@ -1,7 +1,7 @@
 ---
-title: 使用共用的存取簽章-Microsoft Genomics 提交工作流程
-titleSuffix: Azure
-description: 本文假設您已安裝 msgen 用戶端，並已成功執行透過服務的範例資料。
+title: 使用共用存取簽章的工作流程
+titleSuffix: Microsoft Genomics
+description: 本文示範如何使用共用存取簽章（SAS）（而非儲存體帳戶金鑰）將工作流程提交至 Microsoft Genomics 服務。
 services: genomics
 author: grhuynh
 manager: cgronlun
@@ -9,18 +9,18 @@ ms.author: grhuynh
 ms.service: genomics
 ms.topic: conceptual
 ms.date: 03/02/2018
-ms.openlocfilehash: 833067f53f53f347ce091a64702d44a78cde836f
-ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
+ms.openlocfilehash: d6228762b9a1299d8e9229f7a0f73dc7d0bca2b2
+ms.sourcegitcommit: 961468fa0cfe650dc1bec87e032e648486f67651
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/08/2019
-ms.locfileid: "67657107"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72248593"
 ---
 # <a name="submit-a-workflow-to-microsoft-genomics-using-a-sas-instead-of-a-storage-account-key"></a>使用 SAS (而非儲存體帳戶金鑰) 將工作流程提交到 Microsoft Genomics 
 
-這篇文章示範如何提交至 Microsoft Genomics 服務使用 config.txt 檔案，其中包含工作流程[共用存取簽章 (SAS)](https://docs.microsoft.com/azure/storage/common/storage-dotnet-shared-access-signature-part-1)而不是儲存體帳戶金鑰。 如果對於在 config.txt 檔案中看得見儲存體帳戶金鑰有安全性疑慮，這項功能很有用。 
+本文示範如何使用包含[共用存取簽章（SAS）](https://docs.microsoft.com/azure/storage/common/storage-dotnet-shared-access-signature-part-1)的 config.xml 檔案（而非儲存體帳戶金鑰），將工作流程提交至 Microsoft Genomics 服務。 如果對於在 config.txt 檔案中看得見儲存體帳戶金鑰有安全性疑慮，這項功能很有用。 
 
-本文假設您已安裝並執行 `msgen` 用戶端，且熟悉如何使用 Azure 儲存體。 如果您已成功提交工作流程使用提供的範例資料，您已準備好繼續進行這篇文章。 
+本文假設您已安裝並執行 `msgen` 用戶端，且熟悉如何使用 Azure 儲存體。 如果您已使用提供的範例資料成功地提交工作流程，則您已準備好繼續進行本文。 
 
 ## <a name="what-is-a-sas"></a>什麼是 SAS？
 [共用存取簽章 (SAS)](https://docs.microsoft.com/azure/storage/common/storage-dotnet-shared-access-signature-part-1) 可提供您儲存體帳戶中資源的委派存取。 透過 SAS，您可以對用戶端授與儲存體帳戶中資源的存取權，而不必共用帳戶金鑰。 這是在您應用程式中使用共用存取簽章的重點 - SAS 是共用儲存體資源的安全方式，而不會危害您的帳戶金鑰。
@@ -33,14 +33,14 @@ ms.locfileid: "67657107"
 提交至 Microsoft Genomics 服務的每個工作流程都需要兩個或多個 SAS 權杖，一個用於每個輸入檔案，一個用於輸出容器。
 
 輸入檔案的 SA 應該具有下列屬性：
-1.  範圍 (帳戶、容器、blob)：blob
-2.  到期：現在起 48 小時
-3.  權限：讀取
+ - 範圍 (帳戶、容器、blob)：blob
+ - 到期：現在起 48 小時
+ - 權限：讀取
 
 輸出容器的 SAS 應該具有下列屬性：
-1.  範圍 (帳戶、容器、blob)：容器
-2.  到期：現在起 48 小時
-3.  權限：讀取、寫入、刪除
+ - 範圍 (帳戶、容器、blob)：容器
+ - 到期：現在起 48 小時
+ - 權限：讀取、寫入、刪除
 
 
 ## <a name="create-a-sas-for-the-input-files-and-the-output-container"></a>建立輸入檔案的 SAS 和輸出容器
@@ -56,7 +56,7 @@ ms.locfileid: "67657107"
  ![Genomics SAS 儲存體總管](./media/quickstart-input-sas/genomics-sas-storageexplorer.png "Genomics SAS 儲存體總管")
 
 
-### <a name="set-up-create-a-sas-programmatically"></a>設定：以程式設計方式建立的 SAS
+### <a name="set-up-create-a-sas-programmatically"></a>設定：以程式設計方式建立 SAS
 
 若要使用 Azure 儲存體 SDK 建立 SAS，請參閱數種語言的現有文件 (包括 [.NET](https://docs.microsoft.com/azure/storage/common/storage-dotnet-shared-access-signature-part-1)、[Python](https://docs.microsoft.com/azure/storage/blobs/storage-python-how-to-use-blob-storage) 和 [Node.js](https://docs.microsoft.com/azure/storage/blobs/storage-nodejs-how-to-use-blob-storage))。 
 

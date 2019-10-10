@@ -11,14 +11,14 @@ ms.service: azure-monitor
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/07/2019
+ms.date: 10/08/2019
 ms.author: magoedte
-ms.openlocfilehash: ada573cc919d775af52abc5a75004866aebbeddb
-ms.sourcegitcommit: f9e81b39693206b824e40d7657d0466246aadd6e
+ms.openlocfilehash: dfa823955cccba4ac7ec6859894a4562f0810d76
+ms.sourcegitcommit: 961468fa0cfe650dc1bec87e032e648486f67651
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72033946"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72248763"
 ---
 # <a name="configure-agent-data-collection-for-azure-monitor-for-containers"></a>為容器的 Azure 監視器設定代理程式資料收集
 
@@ -64,7 +64,7 @@ Azure 監視器容器會從容器化的代理程式，收集從部署至裝載�
 
 | 端點 | `Scope` | 範例 |
 |----------|-------|---------|
-| Pod 注釋 | 全叢集 | 備註 <br>`prometheus.io/scrape: "true"` <br>`prometheus.io/path: "/mymetrics"` <br>`prometheus.io/port: "8000" <br>prometheus.io/scheme: "http"` |
+| Pod 注釋 | 全叢集 | 備註 <br>`prometheus.io/scrape: "true"` <br>`prometheus.io/path: "/mymetrics"` <br>`prometheus.io/port: "8000"` <br>`prometheus.io/scheme: "http"` |
 | Kubernetes 服務 | 全叢集 | `http://my-service-dns.my-namespace:9100/metrics` <br>`https://metrics-server.kube-system.svc.cluster.local/metrics` |
 | url/端點 | 每個節點和/或全叢集的叢集 | `http://myurl:9101/metrics` |
 
@@ -79,9 +79,9 @@ Azure 監視器容器會從容器化的代理程式，收集從部署至裝載�
 | | `prometheus.io/scrape` | Boolean | True 或 False | 啟用 pod 的抓取。 `monitor_kubernetes_pods` 必須設為 `true`。 |
 | | `prometheus.io/scheme` | 字串 | http 或 https | 預設為透過 HTTP 的 scrapping。 如有必要，請將設定為 `https`。 | 
 | | `prometheus.io/path` | 字串 | 以逗號分隔的陣列 | 從中提取計量的來源 HTTP 資源路徑。 如果計量路徑不 `/metrics`，請使用此注釋加以定義。 |
-| | `prometheus.io/port` | 字串 | 9102 | 指定要接聽的埠。 如果未設定埠，則會預設為9102。 |
+| | `prometheus.io/port` | 字串 | 9102 | 指定要抓取的埠。 如果未設定埠，則會預設為9102。 |
 | 全節點 | `urls` | 字串 | 以逗號分隔的陣列 | HTTP 端點（IP 位址或指定的有效 URL 路徑）。 例如： `urls=[$NODE_IP/metrics]` 。 （$NODE _IP 是容器參數的特定 Azure 監視器，可以用來取代節點 IP 位址。 必須全部大寫）。 |
-| 全節點或全叢集 | `interval` | 字串 | 60s | 收集間隔的預設值為一分鐘（60秒）。 您可以將 *[prometheus_data_collection_settings]* 和/或 *[prometheus_data_collection_settings]* 的集合修改為時間單位，例如 ns、us （或Âμs）、ms、s、m、h。 |
+| 全節點或全叢集 | `interval` | 字串 | 60s | 收集間隔的預設值為一分鐘（60秒）。 您可以將 *[prometheus_data_collection_settings]* 和/或 *[prometheus_data_collection_settings]* 的集合修改為時間單位，例如 s、m、h。 |
 | 全節點或全叢集 | `fieldpass`<br> `fielddrop`| 字串 | 以逗號分隔的陣列 | 您可以藉由設定 [允許（`fieldpass`）] 和 [不允許] （`fielddrop`）清單，指定要收集的特定計量。 您必須先設定允許清單。 |
 
 ConfigMaps 是全域清單，而且只能有一個 ConfigMap 套用至代理程式。 您不能有另一個 ConfigMaps overruling 集合。
@@ -91,7 +91,8 @@ ConfigMaps 是全域清單，而且只能有一個 ConfigMap 套用至代理程�
 請執行下列步驟來設定您的 ConfigMap 設定檔，並將其部署到您的叢集。
 
 1. [下載](https://github.com/microsoft/OMS-docker/blob/ci_feature_prod/Kubernetes/container-azm-ms-agentconfig.yaml)範本 ConfigMap yaml 檔，並將它儲存為 azm-ms-agentconfig. yaml。  
-1. 使用您的自訂來編輯 ConfigMap yaml 檔。
+
+2. 編輯 ConfigMap yaml 檔與您的自訂專案，以收集 stdout、stderr 和/或環境變數。
 
     - 若要排除 stdout 記錄檔收集的特定命名空間，您可以使用下列範例來設定索引鍵/值： `[log_collection_settings.stdout] enabled = true exclude_namespaces = ["my-namespace-1", "my-namespace-2"]`。
     
@@ -99,48 +100,67 @@ ConfigMaps 是全域清單，而且只能有一個 ConfigMap 套用至代理程�
     
     - 若要停用 stderr 記錄收集整個叢集，請使用下列範例來設定索引鍵/值： `[log_collection_settings.stderr] enabled = false`。
     
-    - 下列範例示範如何從整個叢集、從代理程式的 DameonSet 全節點，以及藉由指定 pod 注釋，來設定 ConfigMap 檔案的計量。
+3. 若要設定整個叢集的 Kubernetes 服務集合，請使用下列範例來設定 ConfigMap 檔案。
 
-        - 從整個叢集的特定 URL 抓取 Prometheus 計量。
+    ```
+    prometheus-data-collection-settings: |- 
+    # Custom Prometheus metrics data collection settings
+    [prometheus_data_collection_settings.cluster] 
+    interval = "1m"  ## Valid time units are s, m, h.
+    fieldpass = ["metric_to_pass1", "metric_to_pass12"] ## specify metrics to pass through 
+    fielddrop = ["metric_to_drop"] ## specify metrics to drop from collecting
+    kubernetes_services = ["http://my-service-dns.my-namespace:9102/metrics"]
+    ```
+
+4. 若要設定從整個叢集的特定 URL 抓取 Prometheus 計量，請使用下列範例來設定 ConfigMap 檔案。
+
+    ```
+    prometheus-data-collection-settings: |- 
+    # Custom Prometheus metrics data collection settings
+    [prometheus_data_collection_settings.cluster] 
+    interval = "1m"  ## Valid time units are s, m, h.
+    fieldpass = ["metric_to_pass1", "metric_to_pass12"] ## specify metrics to pass through 
+    fielddrop = ["metric_to_drop"] ## specify metrics to drop from collecting
+    urls = ["http://myurl:9101/metrics"] ## An array of urls to scrape metrics from
+    ```
+
+5. 若要從代理程式的 DaemonSet 針對叢集中的每個個別節點設定 Prometheus 計量的抓取，請在 ConfigMap 中設定下列各項：
+    
+    ```
+    prometheus-data-collection-settings: |- 
+    # Custom Prometheus metrics data collection settings 
+    [prometheus_data_collection_settings.node] 
+    interval = "1m"  ## Valid time units are s, m, h. 
+    urls = ["http://$NODE_IP:9103/metrics"] 
+    fieldpass = ["metric_to_pass1", "metric_to_pass2"] 
+    fielddrop = ["metric_to_drop"] 
+    ```
+
+    >[!NOTE]
+    >$NODE _IP 是容器參數的特定 Azure 監視器，可以用來取代節點 IP 位址。 必須全部大寫。 
+
+6. 若要藉由指定 pod 注釋來設定 Prometheus 計量的抓取，請執行下列步驟：
+
+    1. 在 ConfigMap 中，指定下列各項：
 
         ```
          prometheus-data-collection-settings: |- 
          # Custom Prometheus metrics data collection settings
          [prometheus_data_collection_settings.cluster] 
-         interval = "1m"  ## Valid time units are ns, us (or µs), ms, s, m, h.
-         fieldpass = ["metric_to_pass1", "metric_to_pass12"] ## specify metrics to pass through 
-         fielddrop = ["metric_to_drop"] ## specify metrics to drop from collecting
-         urls = ["http://myurl:9101/metrics"] ## An array of urls to scrape metrics from
+         interval = "1m"  ## Valid time units are s, m, h
+         monitor_kubernetes_pods = true 
         ```
 
-        - 從在叢集的每個節點中執行的代理程式 DaemonSet 中，抓取 Prometheus 計量。
+    2. 指定 pod 注釋的下列設定：
 
         ```
-         prometheus-data-collection-settings: |- 
-         # Custom Prometheus metrics data collection settings 
-         [prometheus_data_collection_settings.node] 
-         interval = "1m"  ## Valid time units are ns, us (or µs), ms, s, m, h. 
-         # Node level scrape endpoint(s). These metrics will be scraped from agent's DaemonSet running in every node in the cluster 
-         urls = ["http://$NODE_IP:9103/metrics"] 
-         fieldpass = ["metric_to_pass1", "metric_to_pass2"] 
-         fielddrop = ["metric_to_drop"] 
+         - prometheus.io/scrape:"true" #Enable scraping for this pod 
+         - prometheus.io/scheme:"http:" #If the metrics endpoint is secured then you will need to set this to `https`, if not default ‘http’
+         - prometheus.io/path:"/mymetrics" #If the metrics path is not /metrics, define it with this annotation. 
+         - prometheus.io/port:"8000" #If port is not 9102 use this annotation
         ```
 
-        - 藉由指定 pod 注釋來抓取 Prometheus 計量。
-
-        ```
-         prometheus-data-collection-settings: |- 
-         # Custom Prometheus metrics data collection settings
-         [prometheus_data_collection_settings.cluster] 
-         interval = "1m"  ## Valid time units are ns, us (or µs), ms, s, m, h
-         monitor_kubernetes_pods = true #replicaset will scrape Kubernetes pods for the following prometheus annotations: 
-          - prometheus.io/scrape:"true" #Enable scraping for this pod 
-          - prometheus.io/scheme:"http:" #If the metrics endpoint is secured then you will need to set this to `https`, if not default ‘http’
-          - prometheus.io/path:"/mymetrics" #If the metrics path is not /metrics, define it with this annotation. 
-          - prometheus.io/port:"8000" #If port is not 9102 use this annotation
-        ```
-
-1. 執行下列 kubectl 命令來建立 ConfigMap： `kubectl apply -f <configmap_yaml_file.yaml>`。
+7. 執行下列 kubectl 命令來建立 ConfigMap： `kubectl apply -f <configmap_yaml_file.yaml>`。
     
     範例： `kubectl apply -f container-azm-ms-agentconfig.yaml`. 
     
@@ -186,29 +206,32 @@ config::unsupported/missing config schema version - 'v21' , using defaults
                     schema-versions=v1 
 ```
 
-## <a name="review-prometheus-data-usage"></a>審查 Prometheus 資料使用量
+## <a name="query-prometheus-metrics-data"></a>查詢 Prometheus 計量資料
 
 若要依 Azure 監視器來查看剪輯的 prometheus 計量，請指定 "prometheus" 作為命名空間。 以下是從 `default` kubernetes 命名空間中查看 prometheus 計量的範例查詢。
 
 ```
 InsightsMetrics 
-| where Namespace contains "prometheus"
+| where Namespace == "prometheus"
 | extend tags=parse_json(Tags)
-| where tostring(tags.namespace) == "default" 
+| summarize count() by Name
 ```
 
 Prometheus 資料也可以依名稱直接查詢。
 
 ```
 InsightsMetrics 
+| where Namespace == "prometheus"
 | where Name contains "some_prometheus_metric"
 ```
+
+## <a name="review-prometheus-data-usage"></a>審查 Prometheus 資料使用量
 
 若要識別每日計量大小的內嵌磁片區（GB）以瞭解其是否為高，請提供下列查詢。
 
 ```
 InsightsMetrics 
-| where Namespace contains "prometheus"
+| where Namespace == "prometheus"
 | where TimeGenerated > ago(24h)
 | summarize VolumeInGB = (sum(_BilledSize) / (1024 * 1024 * 1024)) by Name
 | order by VolumeInGB desc

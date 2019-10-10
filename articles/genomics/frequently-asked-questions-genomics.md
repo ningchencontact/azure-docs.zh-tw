@@ -1,28 +1,28 @@
 ---
-title: Microsoft Genomics:常見的問題-常見問題集 |Microsoft Docs
-titleSuffix: Azure
+title: 常見問題-常見問題
+titleSuffix: Microsoft Genomics
 description: 有關 Microsoft Genomics 之客戶常見問題的解答。
 services: genomics
 author: grhuynh
 manager: cgronlun
 ms.author: grhuynh
 ms.service: genomics
-ms.topic: article
+ms.topic: troubleshooting
 ms.date: 12/07/2017
-ms.openlocfilehash: d36a2c6379a95cc67a55c2cc266ced94b4a0179a
-ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
+ms.openlocfilehash: 80a656ee687b71fcaf09a02d70d0a5a4300186bc
+ms.sourcegitcommit: 961468fa0cfe650dc1bec87e032e648486f67651
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67672222"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72249234"
 ---
-# <a name="microsoft-genomics-common-questions"></a>Microsoft Genomics:常見問題
+# <a name="microsoft-genomics-common-questions"></a>Microsoft Genomics：常見問題
 
 本文會列出關於 Microsoft Genomics 的最常見疑問。 如需有關 Microsoft Genomics 服務的詳細資訊，請參閱[什麼是 Microsoft Genomics？](overview-what-is-genomics.md)。 如需有關疑難排解的詳細資訊，請參閱[疑難排解指南](troubleshooting-guide-genomics.md)。 
 
 
-## <a name="how-do-i-run-gatk4-workflows-on-microsoft-genomics"></a>如何在 Microsoft Genomics 執行 GATK4 工作流程？
-在 Microsoft Genomics 服務的 config.txt 檔案中，指定要 process_name `gatk4`。 請注意，您將享有一般的計費費率。
+## <a name="how-do-i-run-gatk4-workflows-on-microsoft-genomics"></a>如何? 在 Microsoft Genomics 上執行 GATK4 工作流程？
+在 Microsoft Genomics 服務的 config.xml 檔案中，將 process_name 指定為 `gatk4`。 請注意，您將以一般計費費率計費。
 
 
 ## <a name="what-is-the-sla-for-microsoft-genomics"></a>什麼是適用於 Microsoft Genomics 的 SLA？
@@ -46,10 +46,10 @@ Microsoft Genomics 是根據每個工作流程所處理的 Gb 數來計費。 �
  |`cancel`             |傳送要求以取消 `--workflow-id` 所指定的工作流程處理。 另請參閱 `msgen help cancel`。 |
 
 ## <a name="where-do-i-get-the-value-for---api-url-base"></a>哪裡可取得 `--api-url-base` 的值？
-移至 Azure 入口網站，然後開啟您的 Genomics 帳戶頁面。 在 [管理]  標題之下，選擇 [存取金鑰]  。 您可以看到 API URL 以及存取金鑰。
+移至 Azure 入口網站，然後開啟您的 Genomics 帳戶頁面。 在 [管理] 標題之下，選擇 [存取金鑰]。 您可以看到 API URL 以及存取金鑰。
 
 ## <a name="where-do-i-get-the-value-for---access-key"></a>哪裡可取得 `--access-key` 的值？
-移至 Azure 入口網站，然後開啟您的 Genomics 帳戶頁面。 在 [管理]  標題之下，選擇 [存取金鑰]  。 您可以看到 API URL 以及存取金鑰。
+移至 Azure 入口網站，然後開啟您的 Genomics 帳戶頁面。 在 [管理] 標題之下，選擇 [存取金鑰]。 您可以看到 API URL 以及存取金鑰。
 
 ## <a name="why-do-i-need-two-access-keys"></a>為什麼需要兩個存取金鑰？
 如果您想要在不中斷服務使用的情況下更新 (重新產生) 存取金鑰，您就需要兩個存取金鑰。 例如，如果您想要更新的第一個金鑰，則您所有的新工作流程就應使用第二個金鑰。 然後，等到所有使用第一個金鑰的工作流程都完成之後，再更新第一個金鑰。

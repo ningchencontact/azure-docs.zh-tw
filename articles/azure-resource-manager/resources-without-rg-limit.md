@@ -4,14 +4,14 @@ description: 列出資源群組中可有超過800個實例的 Azure 資源類型
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: conceptual
-ms.date: 10/4/2019
+ms.date: 10/09/2019
 ms.author: tomfitz
-ms.openlocfilehash: 6677290999049dead40f39e9a840735810c7c763
-ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
+ms.openlocfilehash: 0f9db618b69ff692350f333b8a4a4354f4980169
+ms.sourcegitcommit: 961468fa0cfe650dc1bec87e032e648486f67651
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/05/2019
-ms.locfileid: "71973314"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72249128"
 ---
 # <a name="resources-not-limited-to-800-instances-per-resource-group"></a>每個資源群組的資源不限於800實例
 
@@ -32,13 +32,13 @@ ms.locfileid: "71973314"
 
 ## <a name="microsoftbotservice"></a>Microsoft.BotService
 
-* botServices-聯絡支援以擴充限制。
+* botServices-根據預設，限制為800個實例。 這項限制可以透過聯絡支援人員來增加。
 
 ## <a name="microsoftcompute"></a>Microsoft.Compute
 
-* 磁碟
-* 映像
-* 快照集
+* disks
+* images
+* snapshots
 * virtualMachines
 
 ## <a name="microsoftcontainerinstance"></a>Microsoft.ContainerInstance
@@ -58,16 +58,16 @@ ms.locfileid: "71973314"
 
 ## <a name="microsoftdbformariadb"></a>Microsoft.DBforMariaDB
 
-* 伺服器
+* servers
 
 ## <a name="microsoftdbformysql"></a>Microsoft.DBforMySQL
 
-* 伺服器
+* servers
 
 ## <a name="microsoftdbforpostgresql"></a>Microsoft.DBforPostgreSQL
 
 * serverGroups
-* 伺服器
+* servers
 * serversv2
 
 ## <a name="microsoftenterpriseknowledgegraph"></a>Microsoft.EnterpriseKnowledgeGraph
@@ -128,7 +128,7 @@ ms.locfileid: "71973314"
 * privateDnsZones/virtualNetworkLinks
 * privateEndpoints
 * privateLinkServices
-* publicIPAddresses-聯絡支援以擴充限制。
+* publicIPAddresses-根據預設，限制為800個實例。 這項限制可以透過聯絡支援人員來增加。
 * serviceEndpointPolicies
 * trafficmanagerprofiles
 * virtualNetworkTaps
@@ -139,7 +139,7 @@ ms.locfileid: "71973314"
 
 ## <a name="microsoftpowerbi"></a>Microsoft.PowerBI
 
-* workspaceCollections-聯絡支援以擴充限制。
+* workspaceCollections-根據預設，限制為800個實例。 這項限制可以透過聯絡支援人員來增加。
 
 ## <a name="microsoftscheduler"></a>Microsoft.Scheduler
 
@@ -147,11 +147,11 @@ ms.locfileid: "71973314"
 
 ## <a name="microsoftservicefabricmesh"></a>Microsoft.ServiceFabricMesh
 
-* 應用程式
+* 應用程式所需
 * containerGroups
 * gateways
-* 網路
-* 祕密
+* networks
+* 密碼
 * 磁碟區
 
 ## <a name="microsoftstorage"></a>Microsoft.Storage
@@ -161,7 +161,7 @@ ms.locfileid: "71973314"
 ## <a name="microsoftweb"></a>Microsoft.Web
 
 * apiManagementAccounts/apis
-* 網站
+* sites
 
 ## <a name="next-steps"></a>後續步驟
 

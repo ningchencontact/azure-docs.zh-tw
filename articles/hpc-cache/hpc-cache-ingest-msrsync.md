@@ -5,21 +5,21 @@ author: ekpgh
 ms.service: hpc-cache
 ms.topic: conceptual
 ms.date: 08/30/2019
-ms.author: v-erkell
-ms.openlocfilehash: 265ec55a6e013a37cf963b6256e900c070311f72
-ms.sourcegitcommit: a19bee057c57cd2c2cd23126ac862bd8f89f50f5
+ms.author: rohogue
+ms.openlocfilehash: 6eac6c367be42021a4654f85c8f4ec980c9f6925
+ms.sourcegitcommit: 1c2659ab26619658799442a6e7604f3c66307a89
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71180942"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72255292"
 ---
 # <a name="azure-hpc-cache-preview-data-ingest---msrsync-method"></a>Azure HPC Cache （預覽）資料內嵌-msrsync 方法
 
-本文提供詳細的指示，說明如何``msrsync``使用公用程式將資料複製到 azure Blob 儲存體容器，以與 azure HPC 快取搭配使用。
+本文提供詳細的指示，說明如何使用 @no__t 0 公用程式，將資料複製到 Azure Blob 儲存體容器，以與 Azure HPC 快取搭配使用。
 
 若要深入瞭解如何將資料移至 Azure HPC 快取的 Blob 儲存體，請參閱[將資料移至 Azure blob 儲存體以進行 AZURE hpc](hpc-cache-ingest.md)快取。
 
-此``msrsync``工具可以用來將資料移至 Azure HPC 快取的後端儲存體目標。 此工具的設計目的是要藉由執行多個平行的 ``rsync`` 處理序，將頻寬使用情況最佳化。 您可以從 GitHub 取得它，網址為 https://github.com/jbd/msrsync 。
+@No__t-0 工具可以用來將資料移至 Azure HPC 快取的後端儲存體目標。 此工具的設計目的是要藉由執行多個平行的 ``rsync`` 處理序，將頻寬使用情況最佳化。 您可以從 GitHub 取得它，網址為 https://github.com/jbd/msrsync 。
 
 ``msrsync`` 會將來源目錄分解成個別的「貯體」，然後在每個貯體上執行個別的 ``rsync`` 處理序。
 
@@ -27,14 +27,14 @@ ms.locfileid: "71180942"
 
 請注意，``msrsync`` 只能在本機磁碟區寫入和寫出。 來源和目的地必須可在用來發出命令的工作站上以本機掛接的形式存取。
 
-遵循這些指示，以``msrsync``使用 azure HPC 快取來填入 azure Blob 儲存體：
+遵循這些指示，使用 ``msrsync`` 來填入 Azure Blob 儲存體與 Azure HPC 快取：
 
-1. 安裝``msrsync``及其必要條件（``rsync``和 Python 2.6 或更新版本）
+1. 安裝 ``msrsync`` 及其必要條件（``rsync`` 和 Python 2.6 或更新版本）
 1. 決定要複製的檔案和目錄總數。
 
-   例如，使用公用程式``prime.py``搭配引數```prime.py --directory /path/to/some/directory``` （可透過下載<https://github.com/Azure/Avere/blob/master/src/clientapps/dataingestor/prime.py>取得）。
+   例如，使用公用程式 ``prime.py`` 搭配引數 ```prime.py --directory /path/to/some/directory``` （可透過下載 <https://github.com/Azure/Avere/blob/master/src/clientapps/dataingestor/prime.py> 取得）。
 
-   如果未使用``prime.py``，您可以使用 GNU ``find``工具來計算專案數，如下所示：
+   如果未使用 ``prime.py``，您可以使用 GNU ``find`` 工具來計算專案數，如下所示：
 
    ```bash
    find <path> -type f |wc -l         # (counts files)
@@ -44,7 +44,7 @@ ms.locfileid: "71180942"
 
 1. 將項目數除以 64 以決定每一處理序的項目數。 當您執行命令時，請將此數目與 ``-f`` 選項搭配使用來設定貯體的大小。
 
-1. ``msrsync``發出命令以複製檔案：
+1. 發出 ``msrsync`` 命令以複製檔案：
 
    ```bash
    msrsync -P --stats -p64 -f<ITEMS_DIV_64> --rsync "-ahv --inplace" <SOURCE_PATH> <DESTINATION_PATH>

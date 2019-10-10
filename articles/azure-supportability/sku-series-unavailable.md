@@ -2,23 +2,17 @@
 title: 無法使用的 SKU 系列 |Microsoft Docs
 description: 對於選取的訂用帳戶，此區域中某些 SKU 系列無法使用。
 services: Azure Supportability
-documentationcenter: ''
 author: stevendotwang
-manager: rajatk
-editor: ''
 ms.service: azure-supportability
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 11/09/2017
 ms.author: xingwan
-ms.openlocfilehash: a57899e36a6716a6fd59cb018119c225b7396c0d
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: e317ae1ad88cf162f1d55a06d19e7b3b0b88ce60
+ms.sourcegitcommit: 961468fa0cfe650dc1bec87e032e648486f67651
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60649087"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72249051"
 ---
 # <a name="region-or-sku-unavailable"></a>無法使用區域或 SKU
 本文說明如何解決無法存取區域或 VM SKU 的 Azure 訂用帳戶問題。

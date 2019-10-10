@@ -4,12 +4,12 @@ ms.service: virtual-machines
 ms.topic: include
 ms.date: 11/25/2018
 ms.author: cynthn
-ms.openlocfilehash: 40f0a667ffa23010ef00ed105454ab305171cc19
-ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
+ms.openlocfilehash: 11924b44a51767df68372cd94c581b2feaa8ac25
+ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67812463"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72247099"
 ---
 ### <a name="number-of-fault-domains-per-region"></a>每個區域的容錯網域數目
 
@@ -23,7 +23,7 @@ ms.locfileid: "67812463"
 | 美國中北部    | 3                       |
 | 美國中南部    | 3                       |
 | 美國中西部     | 2                       |
-| 加拿大中部      | 3                      |
+| 加拿大中部      | 3                       |
 | 加拿大東部         | 2                       |
 |                     |                         |
 | 北歐        | 3                       |
@@ -42,6 +42,11 @@ ms.locfileid: "67812463"
 | 南韓南部         | 2                       |
 | 阿拉伯聯合大公國北部           | 2                       |
 |                     |                         |
+| 中國東部          | 2                       |
+| 中國東部 2        | 2                       |
+| 中國北部         | 2                       |
+| 中國北部 2       | 2                       |
+|
 | 澳洲東部      | 2                       |
 | 澳大利亞東南部 | 2                       |
 | 澳大利亞中部   | 2                       |

@@ -1,18 +1,18 @@
 ---
 title: 範例-英國官方和英國 NHS 藍圖-部署步驟
-description: 英國官方和英國 NHS 藍圖範例的部署步驟。
+description: 英國官方和英國 NHS 藍圖範例的部署步驟，包括藍圖成品參數詳細資料。
 services: blueprints
 author: DCtheGeek
 ms.author: dacoulte
 ms.date: 06/26/2019
 ms.topic: conceptual
 ms.service: blueprints
-ms.openlocfilehash: e2109c5b524c0b38886327bf4c1ea7087380b40f
-ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
+ms.openlocfilehash: c2c6089d9c600626a93906e460ef1c662c32cb59
+ms.sourcegitcommit: 961468fa0cfe650dc1bec87e032e648486f67651
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/06/2019
-ms.locfileid: "71978236"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72248283"
 ---
 # <a name="deploy-the-uk-official-and-uk-nhs-blueprint-samples"></a>部署英國官方和英國 NHS 藍圖範例
 
@@ -82,7 +82,7 @@ ms.locfileid: "71978236"
 
      保留預設的 [系統指派] 受控識別選項。
 
-   - 成品參數
+   - 構件參數
 
      本節中定義的參數會套用至其定義所屬的成品。 這些參數是[動態參數](../../concepts/parameters.md#dynamic-parameters)，因為定義於藍圖指派期間。 如需完整清單或成品參數及其說明，請參閱[成品參數資料表](#artifact-parameters-table)。
 
