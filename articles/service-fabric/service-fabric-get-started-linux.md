@@ -13,13 +13,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 2/23/2018
-ms.author: subramar
-ms.openlocfilehash: 6916eea26f03d7b9cd0b3792fa65354619f97f74
-ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
+ms.author: atsenthi
+ms.openlocfilehash: 6471d3f58fbe0e19910f39e9527f193d00a228be
+ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68828499"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72170612"
 ---
 # <a name="prepare-your-development-environment-on-linux"></a>在 Linux 上準備您的開發環境
 > [!div class="op_single_selector"]
@@ -36,7 +36,7 @@ ms.locfileid: "68828499"
 不支援在適用於 Linux 的 Windows 子系統上安裝 Service Fabric 執行階段。 您可以使用支援的 Azure Service Fabric 命令列介面 (CLI)，管理裝載於雲端或內部部署中其他地方的 Service Fabric 實體。 如需如何安裝 CLI 的資訊，請參閱[設定 Service Fabric CLI](./service-fabric-cli.md)。
 
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 以下為支援開發的作業系統版本。
 
@@ -178,8 +178,8 @@ SDK 安裝程式隨附的 Service Fabric 執行階段包含下表中的套件。
 
  | | DotNetCore | Java | Python | NodeJS | 
 --- | --- | --- | --- |---
-Ubuntu | 2.0.0 | AzulJDK 1.8 | 內含於 npm | 最新 |
-RHEL | - | OpenJDK 1.8 | 內含於 npm | 最新 |
+Ubuntu | 2.0.0 | AzulJDK 1.8 | 內含於 npm | latest |
+RHEL | - | OpenJDK 1.8 | 內含於 npm | latest |
 
 ## <a name="set-up-a-local-cluster"></a>設定本機叢集
 在安裝完成之後，請啟動本機叢集。
@@ -272,7 +272,7 @@ Service Fabric 提供的 Scaffolding 工具可協助您從終端機使用 Yeoman
 > 
 > 在 Ubuntu 上，建議您直接從 Eclipse 網站安裝，而不要使用套件安裝程式 (`apt` 或 `apt-get`)。 這麼做可確保您會取得最新版的 Eclipse。 您可以安裝適用於 Java 開發人員或 Java EE 開發人員的 Eclipse IDE。
 
-1. 在 Eclipse 中，確定您已安裝 Eclipse Neon 或更新版本以及 Buildship 2.2.1 版或更新版本。 請選取 [說明] >  [關於 Eclipse] >  [安裝詳細資料]，檢查已安裝的元件版本。 您可以使用 [Eclipse Buildship：適用于 Gradle][buildship-update]的 Eclipse 外掛程式。
+1. 在 Eclipse 中，確定您已安裝 Eclipse Neon 或更新版本以及 Buildship 2.2.1 版或更新版本。 請選取 [說明] >  [關於 Eclipse] >  [安裝詳細資料]，檢查已安裝的元件版本。 您可以使用 [Eclipse Buildship：適用于 Gradle @ no__t-0 的 Eclipse 外掛程式。
 
 2. 若要安裝 Service Fabric 外掛程式，請選取 [說明]  >  [安裝新軟體]。
 

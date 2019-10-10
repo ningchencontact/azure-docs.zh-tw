@@ -9,12 +9,12 @@ ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: azfuncdf
-ms.openlocfilehash: dbe51eddcf748843fd90cc533063fd25e7c282fd
-ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
+ms.openlocfilehash: d96229bb5e3d288915b64e5a7ce29a8651f2a181
+ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70933373"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72177388"
 ---
 # <a name="eternal-orchestrations-in-durable-functions-azure-functions"></a>Durable Functions (Azure Functions) 中的永久性協調流程
 
@@ -77,7 +77,7 @@ module.exports = df.orchestrator(function*(context) {
 使用[StartNewAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_StartNewAsync_)方法來啟動永久性協調流程。 這與觸發任何其他協調流程函數並無不同。  
 
 > [!NOTE]
-> 如果您需要確保單一永久性協調流程正在執行，請務必在啟動協調流程時維護相同`id`的實例。 如需詳細資訊，請參閱[執行個體管理](durable-functions-instance-management.md)。
+> 如果您需要確保單一永久性協調流程正在執行，請務必在啟動協調流程時，維持相同的實例 `id`。 如需詳細資訊，請參閱[執行個體管理](durable-functions-instance-management.md)。
 
 ```csharp
 [FunctionName("Trigger_Eternal_Orchestration")]
@@ -87,7 +87,7 @@ public static async Task<HttpResponseMessage> OrchestrationTrigger(
 {
     string instanceId = "StaticId";
     // Null is used as the input, since there is no input in "Periodic_Cleanup_Loop".
-    await client.StartNewAsync("Periodic_Cleanup_Loop"), instanceId, null); 
+    await client.StartNewAsync("Periodic_Cleanup_Loop", instanceId, null); 
     return client.CreateCheckStatusResponse(request, instanceId);
 }
 ```

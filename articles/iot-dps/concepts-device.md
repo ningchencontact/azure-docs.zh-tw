@@ -8,18 +8,18 @@ ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 manager: briz
-ms.openlocfilehash: 2904da863707c5f653d774b0a480cc48c95c8d1c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 8ea1be02dee0e0ef00010e8ac7a4dfb75eadbe96
+ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60745973"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72173392"
 ---
 # <a name="iot-hub-device-provisioning-service-device-concepts"></a>IoT 中樞裝置佈建服務的裝置概念
 
 IoT 中樞裝置佈建服務是 IoT 中樞適用的協助程式服務，用於設定在指定 IoT 中樞上的全自動佈建裝置作業。 這項裝置佈建服務可以讓您以安全且可調整的方式佈建數百萬個裝置。
 
-本文說明裝置佈建的裝置  概念概觀。 本文與為裝置進行[製造步驟](about-iot-dps.md#manufacturing-step)，也就是部署準備工作的角色相關。
+本文說明裝置佈建的裝置概念概觀。 本文與為裝置進行[製造步驟](about-iot-dps.md#manufacturing-step)，也就是部署準備工作的角色相關。
 
 ## <a name="attestation-mechanism"></a>證明機制
 
@@ -44,7 +44,7 @@ IoT 中樞裝置佈建服務是 IoT 中樞適用的協助程式服務，用於�
 
 ## <a name="registration-id"></a>註冊識別碼
 
-註冊識別碼是裝置佈建服務中之裝置的唯一識別碼。 每個裝置識別碼在佈建服務的[識別碼範圍](#id-scope)中都必須是獨一無二的。 每個裝置都必須要有註冊識別碼。 註冊識別碼中有英數字元、小寫字母且可能包含連字號。
+註冊識別碼是裝置佈建服務中之裝置的唯一識別碼。 在布建服務[識別碼範圍](#id-scope)中，註冊識別碼必須是唯一的。 每個裝置都必須要有註冊識別碼。 註冊識別碼中有英數字元、小寫字母且可能包含連字號。
 
 * 若為 TPM，TPM 本身會提供註冊識別碼。
 * 若為 X.509 式證明方法，則會提供註冊識別碼作為憑證的主體名稱。

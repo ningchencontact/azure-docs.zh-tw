@@ -5,14 +5,14 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: article
-ms.date: 3/28/2019
+ms.date: 10/09/2019
 ms.author: victorh
-ms.openlocfilehash: 896e1fb3e93fc0a542f0dca75cc1d87b3a2c237c
-ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
+ms.openlocfilehash: 36f26808b94893990ceec65e114b11113dbafd6f
+ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71057901"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72177475"
 ---
 # <a name="back-end-health-and-diagnostic-logs-for-application-gateway"></a>應用程式閘道的後端健康情況和診斷記錄
 
@@ -149,7 +149,7 @@ az network application-gateway show-backend-health --resource-group AdatumAppGat
 
 5. 輸入設定的名稱，確認設定，然後選取 [**儲存**]。
 
-### <a name="activity-log"></a>活動記錄
+### <a name="activity-log"></a>活動記錄檔
 
 根據預設，Azure 會產生活動記錄。 記錄會在 Azure 的事件記錄存放區中保留 90 天。 閱讀[檢視事件和活動記錄](../monitoring-and-diagnostics/insights-debugging-with-events.md)一文，深入了解這些記錄。
 
@@ -261,7 +261,7 @@ az network application-gateway show-backend-health --resource-group AdatumAppGat
 |healthyHostCount     | 後端集區中狀況良好主機的數目。        |
 |unHealthyHostCount     | 後端集區中狀況不良主機的數目。        |
 |requestCount     | 處理的要求數目。        |
-|延遲 | 從執行個體到處理要求的後端之間的要求平均延遲，單位為毫秒。 |
+|latency | 從執行個體到處理要求的後端之間的要求平均延遲，單位為毫秒。 |
 |failedRequestCount| 失敗的要求數目。|
 |throughput| 自最後一個記錄以來的平均輸送量，測量單位為每秒位元組。|
 
@@ -347,7 +347,7 @@ az network application-gateway show-backend-health --resource-group AdatumAppGat
 您可以使用下列任何方法，檢視和分析活動記錄資料：
 
 * **Azure 工具**：透過 Azure PowerShell、Azure CLI、Azure REST API 或 Azure 入口網站，從活動記錄擷取資訊。 [活動作業與 Resource Manager](../azure-resource-manager/resource-group-audit.md) 一文會詳述每個方法的逐步指示。
-* **Power BI**：如果還沒有 [Power BI](https://powerbi.microsoft.com/pricing) 帳戶，您可以免費試用。 使用 [Power BI 的 Azure 活動記錄內容套件](https://powerbi.microsoft.com/en-us/documentation/powerbi-content-pack-azure-audit-logs/)，您可以使用預先設定的儀表板 (可按原樣使用或加以自訂) 來分析資料。
+* **Power BI**：如果還沒有 [Power BI](https://powerbi.microsoft.com/pricing) 帳戶，您可以免費試用。 藉由使用[Power BI 範本應用程式](https://docs.microsoft.com/power-bi/service-template-apps-overview)，您可以分析您的資料。
 
 ### <a name="view-and-analyze-the-access-performance-and-firewall-logs"></a>檢視及分析存取、效能和防火牆記錄
 

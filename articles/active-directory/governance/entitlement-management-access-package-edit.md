@@ -16,12 +16,12 @@ ms.date: 09/26/2019
 ms.author: ajburnle
 ms.reviewer: ''
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4a79cf166025ced6cb08d2f9e24801ea498fdc1c
-ms.sourcegitcommit: e9936171586b8d04b67457789ae7d530ec8deebe
+ms.openlocfilehash: 864a6476ad894952a2ef877d534ffe8a86e07819
+ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71326385"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72170015"
 ---
 # <a name="edit-and-manage-an-existing-access-package-in-azure-ad-entitlement-management-preview"></a>在 Azure AD 權利管理（預覽）中編輯和管理現有的存取套件
 
@@ -80,7 +80,7 @@ ms.locfileid: "71326385"
     |  |  |
     | --- | --- |
     | 安全性 | 用來授與資源的存取權。 |
-    | 發佈 | 用來傳送通知給一群人。 |
+    | 配送映像 | 用來傳送通知給一群人。 |
     | O365 | 未啟用小組的 Office 365 群組。 用於在公司內部和外部的使用者之間共同作業。 |
     | 小組 | 已啟用小組的 Office 365 群組。 用於在公司內部和外部的使用者之間共同作業。 |
 
@@ -161,7 +161,7 @@ ms.locfileid: "71326385"
 
     已移除存取套件之現有指派的任何使用者，將會自動在此資源角色中撤銷其存取權。
 
-## <a name="add-a-new-policy"></a>新增原則
+## <a name="add-a-new-policy"></a>加入新的原則
 
 您指定誰可以要求存取套件的方式是建立原則。 如果您想要允許不同組使用者被授與不同核准和到期設定的指派，您可以為單一存取封裝建立多個原則。 單一原則不能用來將內部和外部使用者指派給相同的存取封裝。 不過，您可以在相同的存取套件中建立兩個原則，一個用於內部使用者，另一個用於外部使用者。 如果有多個套用至使用者的原則，則會在其要求選取要指派的原則時提示他們。
 
@@ -309,7 +309,7 @@ ms.locfileid: "71326385"
 
 將整個我的存取權入口網站連結傳送給內部商業夥伴時，請務必將它複製。 這可確保合作夥伴可以存取您目錄的入口網站來提出要求。 
 
-此連結會以 "myaccess" 開頭，包括目錄提示，並以存取套件識別碼結尾。請確定連結包含下列所有內容：
+此連結會以 "myaccess" 開頭，包括目錄提示，並以存取套件識別碼結尾。 請確定連結包含下列所有內容：
 
  `https://myaccess.microsoft.com/@<directory_hint>#/access-packages/<access_package_id>`
 
@@ -367,5 +367,4 @@ ms.locfileid: "71326385"
 
 ## <a name="next-steps"></a>後續步驟
 
-- [新增類別目錄擁有者或存取套件管理員](entitlement-management-delegate.md#add-a-catalog-owner-or-an-access-package-manager)
 - [要求處理和電子郵件通知](entitlement-management-process.md)

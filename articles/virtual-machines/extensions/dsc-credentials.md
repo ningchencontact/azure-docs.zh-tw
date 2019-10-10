@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: na
 ms.date: 05/02/2018
 ms.author: robreed
-ms.openlocfilehash: 38a302545f2dd46a8123816a41c97ae26ee4c260
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: b0625e3ac14e28cb4d43313bf1d9bc8b7afa08b1
+ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70092501"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72176698"
 ---
 # <a name="pass-credentials-to-the-azure-dscextension-handler"></a>將認證傳遞至 Azure DSCExtension 處理常式
 
@@ -83,11 +83,11 @@ $vm | Update-AzVM
 
 執行此程式碼會提示您輸入認證。 提供認證之後，它會暫時儲存在記憶體中。 使用 **Set-AzVMDscExtension** Cmdlet 發佈認證時，認證會透過 HTTPS 傳輸至 VM。 在 VM 中，Azure 會使用本機 VM 憑證儲存在磁碟上加密的認證。 認證會在記憶體中短暫地解密後再重新加密，以便傳遞給 DSC。
 
-此流程與[使用不含延伸模組處理常式的安全組態](/powershell/dsc/securemof)不同。 Azure 環境提供一個透過憑證以安全傳輸組態資料的方式。 使用 DSC 擴充處理常式時，您不需要在 **ConfigurationData** 中提供 **$CertificatePath** 或 **$CertificateID**/  **$Thumbprint** 項目。
+此流程與[使用不含延伸模組處理常式的安全組態](/powershell/scripting/dsc/pull-server/securemof)不同。 Azure 環境提供一個透過憑證以安全傳輸組態資料的方式。 使用 DSC 擴充處理常式時，您不需要在 **ConfigurationData** 中提供 **$CertificatePath** 或 **$CertificateID**/  **$Thumbprint** 項目。
 
 ## <a name="next-steps"></a>後續步驟
 
 - 取得 [Azure DSC 擴充處理常式簡介](dsc-overview.md)。
 - 查看 [適用於 DSC 擴充功能的 Azure Resource Manager 範本](dsc-template.md)。
-- 如需有關 PowerShell DSC 的詳細資訊，請移至 [PowerShell 文件中心](/powershell/dsc/overview)。
+- 如需有關 PowerShell DSC 的詳細資訊，請移至 [PowerShell 文件中心](/powershell/scripting/dsc/overview/overview)。
 - 如需更多您可以使用 PowerShell DSC 進行管理的功能，以及更多 DSC 資源，請瀏覽 [PowerShell 資源庫](https://www.powershellgallery.com/packages?q=DscResource&x=0&y=0)。

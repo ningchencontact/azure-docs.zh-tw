@@ -13,13 +13,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/29/2017
-ms.author: chackdan
-ms.openlocfilehash: 4e9aa2bbb99cac2ffc2b57ccb9299bf4ee7a729e
-ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
+ms.author: pepogors
+ms.openlocfilehash: a7c5ec023eb03d7d68a43ffecdc74aa4e505a0ce
+ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "67876266"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72170485"
 ---
 # <a name="diagnostics-and-performance-monitoring-for-reliable-service-remoting"></a>Reliable Service Remoting 的診斷和效能監視
 Reliable ServiceRemoting 執行階段會發出[效能計數器](https://msdn.microsoft.com/library/system.diagnostics.performancecounter.aspx)。 這些項目提供深入了解 ServiceRemoting 的運作方式，並有助於疑難排解及效能監視。
@@ -96,7 +96,7 @@ Reliable Service 執行階段會發佈與執行服務方法相關的下列效能
 | --- | --- | --- |
 | Service Fabric Service |# of outstanding requests |服務中正在處理的要求數目 |
 | Service Fabric Service |每個要求的平均毫秒數 |服務處理要求所花費的時間 (單位為毫秒) |
-| Service Fabric Service |要求還原序列化的平均毫秒數 |當服務收到服務要求訊息時，將它還原序列化所花費的時間 (單位為毫秒) |
+| Service Fabric Service |Average milliseconds for request deserialization |當服務收到服務要求訊息時，將它還原序列化所花費的時間 (單位為毫秒) |
 | Service Fabric Service |要求序列化的平均毫秒數 |在回應傳送至用戶端之前，序列化服務回應訊息所花費的時間 (單位為毫秒) |
 
 ## <a name="next-steps"></a>後續步驟

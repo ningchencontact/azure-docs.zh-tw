@@ -11,12 +11,12 @@ author: moslake
 ms.author: moslake
 ms.reviewer: sstein, carlrab
 ms.date: 09/06/2019
-ms.openlocfilehash: 86c03554f5faa1ebb40faa20b6a271f5310ccd4f
-ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
+ms.openlocfilehash: 3b2cc5c0b5deab084c6fdae9435ea3a90b2dd8a6
+ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71828223"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72173408"
 ---
 # <a name="azure-sql-database-serverless-preview"></a>Azure SQL Database 無伺服器（預覽）
 
@@ -241,7 +241,7 @@ Set-AzSqlDatabase `
 
 #### <a name="use-powershell"></a>使用 PowerShell
 
-修改自動暫停延遲是藉由在 PowerShell `AutoPauseDelayInMinutes`中使用引數的[set-azsqldatabase 搭配](https://docs.microsoft.com/powershell/module/az.sql/set-azsqldatabase)命令來執行。
+修改自動暫停延遲是藉由使用 `AutoPauseDelayInMinutes` 引數在 PowerShell 中的[set-azsqldatabase 搭配](https://docs.microsoft.com/powershell/module/az.sql/set-azsqldatabase)命令來執行。
 
 ## <a name="monitoring"></a>監視
 
@@ -326,7 +326,7 @@ VCore 單位價格是每秒 vCore 的費用。 如需指定區域中的特定單
 
 ## <a name="available-regions"></a>可用區域
 
-無伺服器計算層級在全球可用，但下欄區域除外：澳大利亞中部、中國東部、中國北部、法國南部、德國中部、德國東北部、印度西部、南韓南部、南非西部、英國北部、英國南部、英國西部和美國中西部。
+無伺服器計算層級在全球可用，但下欄區域除外：中國東部、中國北部、德國中部、德國東北部、英國北部、英國南部2、美國中西部和 US Gov 中部（愛荷華州）。
 
 ## <a name="next-steps"></a>後續步驟
 

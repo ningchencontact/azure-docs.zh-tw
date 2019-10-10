@@ -8,24 +8,24 @@ ms.date: 08/13/2019
 ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
-ms.openlocfilehash: 99def93a20a365dd0ff5fc27e9c52909ee30bd83
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.openlocfilehash: 395e8b1bc92ea64c8a5cea114be443d6411c7412
+ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72028128"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72170336"
 ---
 # <a name="build-highly-available-azure-storage-applications-with-geo-zone-redundant-storage-gzrs-preview"></a>建立具有異地區域冗余儲存體（切換）（預覽）的高可用性 Azure 儲存體應用程式
 
 異地區域冗余儲存體（切換）（預覽）結婚[區域冗余儲存體（ZRS）](storage-redundancy-zrs.md)的高可用性，並防止[異地多餘儲存體（GRS）](storage-redundancy-grs.md)所提供的區域性中斷。 切換儲存體帳戶中的資料會複寫到主要區域中的三個[Azure 可用性區域](../../availability-zones/az-overview.md)，也會複寫到次要地理區域，以保護不受區域性災難的影響。 每個 Azure 區域都會與相同地理位置內的另一個區域配對，以共同形成區域配對。 如需詳細資訊和例外狀況，請參閱[檔](https://docs.microsoft.com/azure/best-practices-availability-paired-regions)。
 
-透過切換儲存體帳戶，您可以在可用性區域無法使用或無法復原時，繼續讀取和寫入資料。 此外，如果發生全區域中斷或嚴重損壞而無法復原主要區域的情況，您的資料也會是持久的。 切換的設計目的是要在指定的一年內提供至少 99.99999999999999% （16個9）的物件持久性。 切換也提供與 LRS、ZRS、GRS 或 RA-GRS 相同的擴充 [性目標](storage-scalability-targets.md)。 如果您的應用程式需要能夠在主要區域發生嚴重損壞時讀取資料，您可以選擇性地使用讀取權限異地區域冗余儲存體（RA-切換）來啟用次要區域中資料的讀取權限。
+透過切換儲存體帳戶，您可以在可用性區域無法使用或無法復原時，繼續讀取和寫入資料。 此外，如果發生全區域中斷或嚴重損壞而無法復原主要區域的情況，您的資料也會是持久的。 切換的設計目的是要在指定的一年內提供至少 99.99999999999999% （16個9）的物件持久性。 切換也提供與 LRS、ZRS、GRS 或 RA-GRS 相同的擴充[性目標](storage-scalability-targets.md)。 如果您的應用程式需要能夠在主要區域發生嚴重損壞時讀取資料，您可以選擇性地使用讀取權限異地區域冗余儲存體（RA-切換）來啟用次要區域中資料的讀取權限。
 
 Microsoft 建議針對需要一致性、持久性、高可用性、絕佳效能和復原的應用程式，使用切換來進行嚴重損壞修復。 如需在發生區域性嚴重損壞時，對次要區域進行讀取存取的額外安全性，請為您的儲存體帳戶啟用 [RA-切換]。
 
 ## <a name="about-the-preview"></a>關於預覽
 
-只有一般用途 v2 儲存體帳戶支援切換和 RA 切換。 如需儲存體帳戶類型的詳細資訊，請參閱 [Azure 儲存體帳戶總覽](storage-account-overview.md)。 切換和 RA-切換支援區塊 blob、不是 VHD 磁片、檔案、資料表和佇列的分頁 blob。
+只有一般用途 v2 儲存體帳戶支援切換和 RA 切換。 如需有關儲存體帳戶類型的詳細資訊，請參閱 [Azure 儲存體帳戶概觀](storage-account-overview.md)。 切換和 RA-切換支援區塊 blob、不是 VHD 磁片、檔案、資料表和佇列的分頁 blob。
 
 切換和 RA-切換目前在下欄區域提供預覽：
 
@@ -35,9 +35,9 @@ Microsoft 建議針對需要一致性、持久性、高可用性、絕佳效能�
 - 美國東部 2
 - 美國中部
 
-Microsoft 會繼續在其他 Azure 區域中啟用切換和 RA 切換。 請定期查看 [Azure 服務更新](https://azure.microsoft.com/updates/) page，以取得支援區域的相關資訊。
+Microsoft 會繼續在其他 Azure 區域中啟用切換和 RA 切換。 請定期查看[Azure 服務更新](https://azure.microsoft.com/updates/)頁面，以取得支援區域的相關資訊。
 
-如需預覽定價的詳細 [資訊，請](https://azure.microsoft.com/pricing/details/storage/files/)參閱 [blob](https://azure.microsoft.com/pricing/details/storage/blobs)、檔案、 [佇列](https://azure.microsoft.com/pricing/details/storage/queues/)和 [資料表](https://azure.microsoft.com/pricing/details/storage/tables/)的切換預覽定價。
+如需預覽定價的詳細[資訊，請](https://azure.microsoft.com/pricing/details/storage/files/)參閱[blob](https://azure.microsoft.com/pricing/details/storage/blobs)、檔案、[佇列](https://azure.microsoft.com/pricing/details/storage/queues/)和[資料表](https://azure.microsoft.com/pricing/details/storage/tables/)的切換預覽定價。
 
 > [!IMPORTANT]
 > Microsoft 建議不要針對生產工作負載使用預覽功能。
@@ -49,13 +49,13 @@ Microsoft 會繼續在其他 Azure 區域中啟用切換和 RA 切換。 請定�
 > [!IMPORTANT]
 > 非同步複寫牽涉到將資料寫入主要區域，以及何時複寫到次要區域之間的延遲時間。 當發生區域性災害時，如果無法從主要區域復原尚未複寫到次要區域的變更，則這些變更可能會遺失。
 
-當您建立儲存體帳戶時，可以指定要如何複寫該帳戶中的資料，而且您也可以指定該帳戶的主要區域。 異地複寫帳戶的配對次要區域是根據主要區域而定，且無法變更。 如需有關 Azure 所支援區域的最新資訊，請參閱 @ no__t-0Business 持續性和嚴重損壞修復（BCDR）：Azure 配對區域](https://docs.microsoft.com/azure/best-practices-availability-paired-regions)。 如需使用切換或 RA-切換建立儲存體帳戶的相關資訊，請參閱[建立儲存體帳戶](storage-quickstart-create-account.md)。
+當您建立儲存體帳戶時，可以指定要如何複寫該帳戶中的資料，而且您也可以指定該帳戶的主要區域。 異地複寫帳戶的配對次要區域是根據主要區域而定，且無法變更。 如需有關 Azure 所支援區域的最新資訊，請參閱[商務持續性和災害復原 (BCDR)：Azure 配對區域](https://docs.microsoft.com/azure/best-practices-availability-paired-regions)。 如需使用切換或 RA-切換建立儲存體帳戶的相關資訊，請參閱[建立儲存體帳戶](storage-quickstart-create-account.md)。
 
 ### <a name="use-ra-gzrs-for-high-availability"></a>使用 RA-切換來提供高可用性
 
-當您啟用儲存體帳戶的切換時，您的資料可以從次要端點和儲存體帳戶的主要端點讀取。 次要端點會將尾碼 *（次要）* 附加至帳戶名稱。 例如，如果 Blob 服務的主要端點是 @ no__t-0，則您的次要端點會是 @ no__t-1。 主要和次要端點會有相同的儲存體帳戶存取金鑰。
+當您啟用儲存體帳戶的切換時，您的資料可以從次要端點和儲存體帳戶的主要端點讀取。 次要端點會將尾碼 *（次要）* 附加至帳戶名稱。 例如，如果 Blob 服務的主要端點是 `myaccount.blob.core.windows.net`，則次要端點會是 `myaccount-secondary.blob.core.windows.net`。 主要和次要端點會有相同的儲存體帳戶存取金鑰。
 
-若要在發生區域性中斷的情況下利用切換的功能，您必須事先設計應用程式來處理此案例。 您的應用程式應該讀取及寫入主要端點，但在主要區域無法使用的情況下，請切換為使用次要端點。 如需使用 RA 切換設計高可用性的指引，請參閱 [使用 ra-切換或 RA-GRS 設計高度可用的應用程式](https://docs.microsoft.com/azure/storage/common/storage-designing-ha-apps-with-ragrs)。
+若要在發生區域性中斷的情況下利用切換的功能，您必須事先設計應用程式來處理此案例。 您的應用程式應該讀取及寫入主要端點，但在主要區域無法使用的情況下，請切換為使用次要端點。 如需使用 RA 切換設計高可用性的指引，請參閱[使用 ra-切換或 RA-GRS 設計高度可用的應用程式](https://docs.microsoft.com/azure/storage/common/storage-designing-ha-apps-with-ragrs)。
 
 由於資料會以非同步方式複寫到次要區域，因此次要區域通常會在主要區域後面。 若要判斷哪些寫入作業已複寫到次要區域，您的應用程式會檢查儲存體帳戶的上次同步處理時間。 在上次同步處理時間之前寫入主要區域的所有寫入作業，都已成功複寫到次要區域，這表示它們可以從次要資料庫讀取。 在上次同步處理時間之後寫入主要區域的任何寫入作業，可能會或可能尚未複寫到次要區域，這表示它們可能無法供讀取作業使用。
 
@@ -115,7 +115,7 @@ Set-AzStorageAccount -ResourceGroupName <resource-group> -AccountName <storage-a
 
 在即時移轉期間，您可以在來源和目的地儲存體帳戶之間遷移資料時，使用您的儲存體帳戶。 在即時移轉過程中，您的帳戶會繼續符合其持久性和可用性的 SLA。 即時移轉不會造成停機或資料遺失。
 
-只有一般用途 v2 帳戶支援切換/RA-切換，因此在提交即時移轉至切換/RA 切換的要求之前，您必須將帳戶升級為一般用途 v2。 如需詳細資訊，請參閱 [Azure 儲存體帳戶總覽](https://docs.microsoft.com/azure/storage/common/storage-account-overview) and [升級至一般用途 v2 儲存體帳戶](https://docs.microsoft.com/azure/storage/common/storage-account-upgrade)。
+只有一般用途 v2 帳戶支援切換/RA-切換，因此在提交即時移轉至切換/RA 切換的要求之前，您必須將帳戶升級為一般用途 v2。 如需詳細資訊，請參閱[Azure 儲存體帳戶總覽](https://docs.microsoft.com/azure/storage/common/storage-account-overview)和[升級至一般用途 v2 儲存體帳戶](https://docs.microsoft.com/azure/storage/common/storage-account-upgrade)。
 
 完成遷移之後，儲存體帳戶的複寫設定會更新為**異地區域冗余儲存體（切換）** 或**讀取權限異地區域-多餘儲存體（RA-切換）** 。 服務端點、存取金鑰、共用存取簽章（SAS）和任何其他帳戶設定選項會保持不變且原封不動。
 
@@ -127,11 +127,11 @@ Set-AzStorageAccount -ResourceGroupName <resource-group> -AccountName <storage-a
 - 只有標準儲存體帳戶類型支援即時移轉。 進階儲存體帳戶必須以手動方式移轉。
 - 不支援從切換或 RA 切換帳戶即時移轉至 LRS、GRS 或 RA-GRS 帳戶。 您必須手動將資料移至新的或現有的儲存體帳戶。
 - 您可以要求從 GRS 到 RA-切換的即時移轉。 不過，不支援從 RA-GRS 遷移至切換。 在此情況下，您必須要求即時移轉至切換，然後以手動方式將儲存體帳戶轉換為使用切換。
-- 受控磁片僅支援 LRS，且無法遷移至切換或 RA-切換。 如需與可用性設定組整合的詳細說明，請參閱 [Azure 受控磁片簡介](https://docs.microsoft.com/azure/virtual-machines/windows/managed-disks-overview#integration-with-availability-sets)。
-- 您可以在標準 HDD 儲存體上儲存標準 SSD 受控磁碟的快照集和映射，並在 [LRS、ZRS、切換和 RA 切換選項之間進行選擇](https://azure.microsoft.com/pricing/details/managed-disks/)。
+- 受控磁片僅支援 LRS，且無法遷移至切換或 RA-切換。 如需與可用性設定組整合的詳細說明，請參閱[Azure 受控磁片簡介](https://docs.microsoft.com/azure/virtual-machines/windows/managed-disks-overview#integration-with-availability-sets)。
+- 您可以在標準 HDD 儲存體上儲存標準 SSD 受控磁碟的快照集和映射，並在[LRS、ZRS、切換和 RA 切換選項之間進行選擇](https://azure.microsoft.com/pricing/details/managed-disks/)。
 - 切換不支援包含大型檔案共用的帳戶。
 
-若要要求即時移轉，請使用 [Azure 入口網站](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview)。 從入口網站中，選取要遷移至切換或 RA 切換的儲存體帳戶，並遵循下列指示：
+若要要求即時移轉，請使用[Azure 入口網站](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview)。 從入口網站中，選取要遷移至切換或 RA 切換的儲存體帳戶，並遵循下列指示：
 
 1. 選取 [**新增支援要求**]。
 2. 根據您的帳戶資訊，完成 [基本] 資訊。 在 [**服務**] 區段中，選取 [**儲存體帳戶管理**]，並指定要遷移的帳戶。

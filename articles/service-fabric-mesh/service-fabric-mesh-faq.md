@@ -4,17 +4,17 @@ description: 了解 Azure Service Fabric Mesh 的常見問題和解答。
 services: service-fabric-mesh
 keywords: ''
 author: chackdan
-ms.author: chackdan
+ms.author: pepogors
 ms.date: 4/23/2019
 ms.topic: troubleshooting
 ms.service: service-fabric-mesh
 manager: jeanpaul.connock
-ms.openlocfilehash: 950f9ac89b9d3224db29b32fe2d1e403ccc98116
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: edd30dc8799ae9e5410ebc862574d632d09b9483
+ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65143283"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72168689"
 ---
 # <a name="commonly-asked-service-fabric-mesh-questions"></a>Service Fabric Mesh 的常見問題
 
@@ -28,7 +28,7 @@ Azure Service Fabric Mesh 是一個受到完整管理的服務，讓開發人員
 
 ### <a name="what-is-the-cost-of-participating-in-the-preview"></a>參與預覽版的成本為何？
 
-目前沒有將應用程式或容器部署至網狀結構預覽收取費用。 請觀看 5 月更新啟用計費。 不過，我們建議您刪除的資源部署，而且不讓它們保持執行，除非您要主動測試。
+將應用程式或容器部署至網格預覽目前沒有任何費用。 請留意中的更新，以啟用計費。 不過，我們建議您刪除所部署的資源，而不是讓它們保持執行狀態，除非您主動進行測試。
 
 ### <a name="is-there-a-quota-limit-of-the-number-of-cores-and-ram"></a>核心和 RAM 數目是否有配額限制？
 
@@ -79,7 +79,7 @@ Azure Service Fabric Mesh 是一個受到完整管理的服務，讓開發人員
 
 ## <a name="deployments"></a>部署
 
-### <a name="what-container-images-are-supported"></a>支援哪些容器映像？
+### <a name="what-container-images-are-supported"></a>支援哪些容器映射？
 
 如果您是在 Windows Fall Creators Update (1709 版) 機器上進行開發，則只能使用 Windows 1709 版 Docker 映像。
 
@@ -96,11 +96,11 @@ Azure Service Fabric Mesh 是一個受到完整管理的服務，讓開發人員
     - 沒有已知的限制
 
 > [!NOTE]
-> Visual Studio 工具的網狀結構還不支援部署到 Windows Server 2019 和 1809年容器。
+> 網格的 Visual Studio 工具尚未支援部署到 Windows Server 2019 和1809容器中。
 
-### <a name="what-types-of-applications-can-i-deploy"></a>可以部署何種類型的應用程式？ 
+### <a name="what-types-of-applications-can-i-deploy"></a>我可以部署哪些類型的應用程式？ 
 
-您可以部署任何符合的限制內的容器中執行放在應用程式資源 （如需配額的詳細資訊請參閱以上） 上的項目。 如果我們偵測到您用來執行不合法的工作負載網狀結構或濫用系統 （也就採礦），然後我們會保留在服務上執行您訂用帳戶終止您的部署和封鎖清單的權限。 請連絡我們如果您有任何問題，在執行特定工作負載。 
+您可以部署在容器中執行的任何專案，以符合應用程式資源上的限制（如需配額的詳細資訊，請參閱上文）。 如果我們偵測到您使用網格來執行不合法的工作負載，或濫用系統（亦即「挖掘」），則我們會保留終止部署的權利，並封鎖清單您的訂用帳戶在服務上執行。 如果您有任何關於執行特定工作負載的問題，請與我們聯繫。 
 
 ## <a name="developer-experience-issues"></a>開發人員體驗問題
 
@@ -144,9 +144,9 @@ Azure Mesh 目前不支援跨應用程式的 DNS 解析。
 - 將多個應用程式部署至本機叢集時，請使用五節點叢集。
 - 移除您目前沒有在測試的應用程式。
 
-### <a name="vs-tooling-has-limited-support-for-windows-containers"></a>VS 工具適用於 Windows 容器的支援有限
+### <a name="vs-tooling-has-limited-support-for-windows-containers"></a>VS 工具對 Windows 容器的支援有限
 
-Visual Studio 工具僅支援目前部署與 Windows Server 1709 和 1803年的基底 OS 版本的 Windows 容器。 
+Visual Studio 工具僅支援使用 Windows Server 1709 和1803的基本 OS 版本來部署 Windows 容器。 
 
 ## <a name="feature-gaps-and-other-known-issues"></a>功能差距和其他已知問題
 
