@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 09/04/2019
 ms.author: diberry
-ms.openlocfilehash: 94f019205959d63a05ed3d90ede59fece3c05901
-ms.sourcegitcommit: 9fba13cdfce9d03d202ada4a764e574a51691dcd
+ms.openlocfilehash: bd1e665114fff4d5b7b0b2dca267207bdeebab56
+ms.sourcegitcommit: 4f7dce56b6e3e3c901ce91115e0c8b7aab26fb72
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71316361"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71949554"
 ---
 # <a name="language-and-region-support-for-luis"></a>LUIS 支援的語言與區域
 
@@ -30,7 +30,7 @@ LUIS 在服務內有各種不同的功能。 並非所有功能都有相同的�
 
 LUIS 可理解下列語言的語句：
 
-| 語言 |地區設定  |  預建網域 | 預建實體 | 片語清單建議 | \**[文字分析](https://docs.microsoft.com/azure/cognitive-services/text-analytics/text-analytics-supported-languages)<br>(情感和<br>關鍵字)|
+| 語言 |Locale  |  預建網域 | 預建實體 | 片語清單建議 | \**[文字分析](https://docs.microsoft.com/azure/cognitive-services/text-analytics/text-analytics-supported-languages)<br>(情感和<br>關鍵字)|
 |--|--|:--:|:--:|:--:|:--:|
 | 美式英文 |`en-US` | ✔ | ✔  |✔|✔|
 | *[中文](#chinese-support-notes) |`zh-CN` | ✔ | ✔ |✔|-|
@@ -73,7 +73,9 @@ LUIS 可理解下列語言的語句：
 如需支援的語言清單和狀態，請參閱 Bing 拼字檢查[支援的語言](https://docs.microsoft.com/azure/cognitive-services/bing-spell-check/bing-spell-check-supported-languages)。
 
 ## <a name="rare-or-foreign-words-in-an-application"></a>應用程式中的罕見或外來字
-在 `en-us` 文化特性中，LUIS 會學習辨識大部分的英文字，包括俚語。 在 `zh-cn` 文化特性中，LUIS 會學習辨識大部分的中文字元。 如果您使用 `en-us` 中的罕見字組或 `zh-cn` 中的字元，而且您發現 LUIS 似乎無法辨識該字組或字元，您可以將該字組或字元新增到[片語清單功能](luis-how-to-add-features.md)。 例如，應用程式文化特性外部的字組 (也就是外來字組) 應新增至片語清單功能。 此片語清單應標記為不可互換，表示一些罕見字組會構成 LUIS 應學習辨識的類別，但這些字組並不是同義字或可彼此互換。
+在 `en-us` 文化特性中，LUIS 會學習辨識大部分的英文字，包括俚語。 在 `zh-cn` 文化特性中，LUIS 會學習辨識大部分的中文字元。 如果您使用 `en-us` 中的罕見字組或 `zh-cn` 中的字元，而且您發現 LUIS 似乎無法辨識該字組或字元，您可以將該字組或字元新增到[片語清單功能](luis-how-to-add-features.md)。 例如，應用程式文化特性外部的字組 (也就是外來字組) 應新增至片語清單功能。 
+
+<!--This phrase list should be marked non-interchangeable, to indicate that the set of rare words forms a class that LUIS should learn to recognize, but they are not synonyms or interchangeable with each other.-->
 
 ### <a name="hybrid-languages"></a>混合式語言
 混合式語言結合來自兩個文化特性 (例如英文和中文) 的文字。 LUIS 中不支援這些語言，因為應用程式是以單一文化特性為基礎。

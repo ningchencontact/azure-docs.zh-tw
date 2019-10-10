@@ -3,8 +3,8 @@ title: 在 Linux 上建立 Python 應用程式 - Azure App Service | Microsoft D
 description: 短短幾分鐘內在 Linux 上的 Azure App Service 中部署第一個 Python Hello World 應用程式。
 services: app-service\web
 documentationcenter: ''
-author: cephalin
-manager: jeconnoc
+author: msangapu-msft
+manager: gwallace
 editor: ''
 ms.assetid: ''
 ms.service: app-service-web
@@ -14,18 +14,18 @@ ms.topic: quickstart
 ms.date: 08/23/2019
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 08b1b85b980f992e799fc5198891290ec0d55c5d
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+experimental: false
+experiment_id: 1e304dc9-5add-4b
+ms.openlocfilehash: d6e062145474b8479db749627b56163106f088d8
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70071008"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72024938"
 ---
-# <a name="create-a-python-app-in-azure-app-service-on-linux-preview"></a>在 Linux 上的 Azure App Service 中建立 Python 應用程式 (預覽)
+# <a name="create-a-python-app-in-azure-app-service-on-linux"></a>在 Linux 上的 Azure App Service 中建立 Python 應用程式
 
-[Linux 上的 App Service](app-service-linux-intro.md) 使用 Linux 作業系統提供可高度擴充、自我修復的 Web 主機服務。 本快速入門說明如何使用 [Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview) 在 Linux 上的 App Service 中將 Python 應用程式部署於內建的 Python 映像 (預覽) 之上。
-
-您可以使用 Mac、Windows 或 Linux 機器，依照本文中的步驟操作。
+在本快速入門中，您將一個簡單的 Python 應用程式部署到 [Linux 上的 App Service](app-service-linux-intro.md)，它提供了一個可高度擴充、自我修復的 Web 裝載服務。 您將透過互動式的瀏覽器型 Azure Cloud Shell 使用 Azure 命令列介面 ([Azure CLI](/cli/azure/install-azure-cli))，以便用 Mac、Linux 或 Windows 電腦按照步驟進行操作。
 
 ![在 Azure 中執行的範例應用程式](media/quickstart-python/hello-world-in-browser.png)
 
@@ -122,7 +122,7 @@ http://<app_name>.azurewebsites.net
 
 **恭喜！** 您已將第一個 Python 應用程式部署至 Linux 上的 App Service。
 
-## <a name="update-locally-and-redeploy-the-code"></a>在本機更新和重新部署程式碼
+## <a name="update-and-redeploy-the-code"></a>更新和重新部署程式碼
 
 在 Cloud Shell 中，輸入 `code application.py` 以開啟 Cloud Shell 編輯器。
 
@@ -163,8 +163,6 @@ az webapp up -n <app_name>
 [!INCLUDE [cli-samples-clean-up](../../../includes/cli-samples-clean-up.md)]
 
 ## <a name="next-steps"></a>後續步驟
-
-在 Linux 上的 App Service 中，內建的 Python 映像目前處於預覽狀態，您可以自訂用來啟動應用程式的命令。 您也可以改用自訂容器來建立生產 Python 應用程式。
 
 > [!div class="nextstepaction"]
 > [教學課程：使用 PostgreSQL 的 Python 應用程式](tutorial-python-postgresql-app.md)

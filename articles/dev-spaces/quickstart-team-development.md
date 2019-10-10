@@ -10,12 +10,12 @@ ms.topic: quickstart
 description: 在 Azure 上使用容器和微服務進行小組 Kubernetes 開發
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, 容器, Helm, 服務網格, 服務網格路由傳送, kubectl, k8s
 manager: gwallace
-ms.openlocfilehash: 3509fd32e06117ce3709f110223b38ef0e0eed30
-ms.sourcegitcommit: 80da36d4df7991628fd5a3df4b3aa92d55cc5ade
+ms.openlocfilehash: 15833294e1dd5b75251ad54fa1f33bc4ed5e2c20
+ms.sourcegitcommit: f9e81b39693206b824e40d7657d0466246aadd6e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71815797"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72035172"
 ---
 # <a name="quickstart-team-development-on-kubernetes-using-azure-dev-spaces"></a>快速入門：使用 Azure Dev Spaces 在 Kubernetes 上進行小組開發
 
@@ -41,8 +41,6 @@ ms.locfileid: "71815797"
 az group create --name MyResourceGroup --location eastus
 az aks create -g MyResourceGroup -n MyAKS --location eastus --disable-rbac --generate-ssh-keys
 ```
-
-*MyAKS* 叢集也會搭配單一節點建立、使用 *Standard_DS2_v2* 大小，以及停用 RBAC。
 
 ## <a name="enable-azure-dev-spaces-on-your-aks-cluster"></a>在 AKS 叢集上啟用 Azure Dev Spaces
 

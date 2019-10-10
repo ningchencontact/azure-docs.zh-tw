@@ -10,12 +10,12 @@ ms.subservice: content-moderator
 ms.topic: conceptual
 ms.date: 07/03/2019
 ms.author: sajagtap
-ms.openlocfilehash: 144137109f97a8c2049430ed1e05117ea6c95d7f
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: d1c2f8b06d333be23f25a2d150c23269bf84cd2e
+ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68564404"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72242833"
 ---
 # <a name="check-text-against-a-custom-term-list-in-c"></a>在 C# 中根據自訂字詞清單檢查文字
 
@@ -40,7 +40,7 @@ Azure Content Moderator 中的預設全域字詞清單已可滿足大部分內�
 
 ## <a name="create-your-visual-studio-project"></a>建立 Visual Studio 專案
 
-1. 將一個新的 [主控台應用程式 (.NET Framework)]  專案新增到您的解決方案。
+1. 將一個新的 [主控台應用程式 (.NET Framework)] 專案新增到您的解決方案。
 
 1. 將專案命名為 **TermLists**。 選取此專案作為解決方案的單一啟始專案。
 
@@ -59,8 +59,7 @@ Azure Content Moderator 中的預設全域字詞清單已可滿足大部分內�
 
 ```csharp
 using Microsoft.Azure.CognitiveServices.ContentModerator;
-using Microsoft.CognitiveServices.ContentModerator;
-using Microsoft.CognitiveServices.ContentModerator.Models;
+using Microsoft.Azure.CognitiveServices.ContentModerator.Models;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
@@ -415,7 +414,7 @@ static void Main(string[] args)
 
 ## <a name="run-the-application-to-see-the-output"></a>執行應用程式以查看此輸出
 
-您的主控台輸出看起來會像下面這樣:
+您的主控台輸出看起來會像下面這樣：
 
 ```console
 Creating term list.

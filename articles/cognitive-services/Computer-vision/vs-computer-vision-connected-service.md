@@ -11,21 +11,21 @@ ms.topic: conceptual
 ms.date: 07/03/2019
 ms.author: ghogen
 ms.custom: seodec18
-ms.openlocfilehash: ff3ae9ec4a775e2450a552e414ec52597593dd39
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.openlocfilehash: e4308f98b6e547acd4adfb62ab78c0517247d905
+ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67604272"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72177097"
 ---
 # <a name="use-connected-services-in-visual-studio-to-connect-to-the-computer-vision-api"></a>使用 Visual Studio 中已連線的服務來連線到電腦視覺 API
 
 這篇文章和其附屬文件提供使用適用於認知服務電腦視覺 API 的 Visual Studio 連線服務功能詳細資料。 此功能適用於已安裝認知服務擴充功能的 Visual Studio 2017 15.7 或更新版本。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 - Azure 訂用帳戶。 如果您沒有訂用帳戶，您可以註冊 [免費帳戶](https://azure.microsoft.com/pricing/free-trial/)。
-- 已安裝 [Web 開發]  工作負載的 Visual Studio 2017 15.7.3 版或更新版本。 [立即下載](https://visualstudio.microsoft.com/downloads/)。
+- 已安裝 [Web 開發] 工作負載的 Visual Studio 2017 15.7.3 版或更新版本。 [立即下載](https://visualstudio.microsoft.com/downloads/)。
 
 [!INCLUDE [vs-install-cognitive-services-vsix](../../../includes/vs-install-cognitive-services-vsix.md)]
 
@@ -33,12 +33,12 @@ ms.locfileid: "67604272"
 
 1. 建立新的 ASP.NET Core Web 專案。 使用空白專案範本。 
 
-1. 在 [方案總管]  中，選擇 [新增]   > [連線服務]  。
+1. 在 [方案總管] 中，選擇 [新增] > [連線服務]。
    [連線服務] 頁面隨即出現，並顯示您可新增至專案的服務。
 
    ![Visual Studio 專案上的滑鼠右鍵功能表：新增 > 已連線的服務](../media/vs-common/Connected-Service-Menu.PNG)
 
-1. 在可用服務的功能表中，選擇 [認知服務電腦視覺 API]  。
+1. 在可用服務的功能表中，選擇 [認知服務電腦視覺 API]。
 
    ![連線服務功能表：概述分析影像](./media/vs-computer-vision-connected-service/Cog-Vision-Connected-Service-0.PNG)
 
@@ -62,7 +62,7 @@ ms.locfileid: "67604272"
    [4/26/2018 5:15:40.286 PM] Installing NuGet package 'Microsoft.Azure.CognitiveServices.Vision.ComputerVision' version 2.1.0.
    [4/26/2018 5:15:44.117 PM] Retrieving keys...
    [4/26/2018 5:15:45.602 PM] Changing appsettings.json setting: ComputerVisionAPI_ServiceKey=<service key>
-   [4/26/2018 5:15:45.606 PM] Changing appsettings.json setting: ComputerVisionAPI_ServiceEndPoint=https://australiaeast.api.cognitive.microsoft.com/vision/v2.0
+   [4/26/2018 5:15:45.606 PM] Changing appsettings.json setting: ComputerVisionAPI_ServiceEndPoint=https://australiaeast.api.cognitive.microsoft.com/vision/v2.1
    [4/26/2018 5:15:45.609 PM] Changing appsettings.json setting: ComputerVisionAPI_Name=WebApplication-Core-ComputerVision_ComputerVisionAPI
    [4/26/2018 5:15:46.747 PM] Successfully added Computer Vision API to the project.
    ```
@@ -90,11 +90,11 @@ ms.locfileid: "67604272"
       }
    ```
 
-1. 在專案的 wwwroot 資料夾中，新增影像資料夾，然後將影像檔案新增至 wwwroot 資料夾。 例如，您可以使用這個[電腦視覺 API 頁面](https://azure.microsoft.com/services/cognitive-services/computer-vision/)上的其中一個影像。 在其中一個影像上按一下滑鼠右鍵，儲存到本機硬碟，然後在 [方案總管] 中的影像資料夾上按一下滑鼠右鍵，然後選擇 [新增]   > [現有項目]  ，將它新增至您的專案。 您的專案在 [方案總管] 中看起來應該如下所示： 
+1. 在專案的 wwwroot 資料夾中，新增影像資料夾，然後將影像檔案新增至 wwwroot 資料夾。 例如，您可以使用這個[電腦視覺 API 頁面](https://azure.microsoft.com/services/cognitive-services/computer-vision/)上的其中一個影像。 在其中一個影像上按一下滑鼠右鍵，儲存到本機硬碟，然後在 [方案總管] 中的影像資料夾上按一下滑鼠右鍵，然後選擇 [新增] > [現有項目]，將它新增至您的專案。 您的專案在 [方案總管] 中看起來應該如下所示： 
   
    ![已選取影像檔之方案總管檢視的螢幕擷取畫面](media/vs-computer-vision-connected-service/Cog-Vision-Connected-Service-3.PNG) 
 
-1. 在影像檔案上按一下滑鼠右鍵，選擇 [屬性]，然後選擇 [有更新時才複製]  。 
+1. 在影像檔案上按一下滑鼠右鍵，選擇 [屬性]，然後選擇 [有更新時才複製]。 
 
    ![影像屬性視窗；[複製到輸出目錄] 設為 [有更新時才複製]](media/vs-computer-vision-connected-service/Cog-Vision-Connected-Service-5.PNG) 
  
@@ -255,8 +255,8 @@ ms.locfileid: "67604272"
 不再需要資源群組時，請加以刪除。 這會刪除認知服務與相關資源。 若要透過入口網站刪除資源群組：
 
 1. 在入口網站頂端的 [搜尋] 方塊中，輸入資源群組的名稱。 當您在搜尋結果中看到本快速入門中使用的資源群組時，請加以選取。
-2. 選取 [刪除資源群組]  。
-3. 在 [輸入資源群組名稱:]  方塊中輸入資源群組的名稱，然後選取 [刪除]  。
+2. 選取 [刪除資源群組]。
+3. 在 [輸入資源群組名稱:] 方塊中輸入資源群組的名稱，然後選取 [刪除]。
 
 ## <a name="next-steps"></a>後續步驟
 

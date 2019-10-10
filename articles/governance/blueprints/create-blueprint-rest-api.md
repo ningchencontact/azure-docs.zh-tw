@@ -6,13 +6,12 @@ ms.author: dacoulte
 ms.date: 02/04/2019
 ms.topic: quickstart
 ms.service: blueprints
-manager: carmonm
-ms.openlocfilehash: f5c2b58fc6877bc196eb98faab88712f474523cb
-ms.sourcegitcommit: 6794fb51b58d2a7eb6475c9456d55eb1267f8d40
+ms.openlocfilehash: 16540441aa8bc5d115606e1c5b3bdc2302ae2c20
+ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70241333"
+ms.lasthandoff: 10/06/2019
+ms.locfileid: "71978504"
 ---
 # <a name="quickstart-define-and-assign-an-azure-blueprint-with-rest-api"></a>快速入門：使用 REST API 定義和指派 Azure 藍圖
 
@@ -26,7 +25,7 @@ ms.locfileid: "70241333"
 > - 檢查指派的藍圖的狀態和進度
 > - 移除已指派給訂用帳戶的藍圖
 
-如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free) 。
+如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶](https://azure.microsoft.com/free)。
 
 ## <a name="getting-started-with-rest-api"></a>開始使用 REST API
 

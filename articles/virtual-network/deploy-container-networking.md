@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 9/18/2018
 ms.author: aanandr
 ms.custom: ''
-ms.openlocfilehash: 657c23ad410d7aade17b3153f02ba0138edf4250
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 5146675b6eefd11fc1e6875ed9009ece92753ffb
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58104092"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72028100"
 ---
 # <a name="deploy-the-azure-virtual-network-container-network-interface-plug-in"></a>部署 Azure 虛擬網路容器網路介面外掛程式
 
@@ -159,10 +159,10 @@ CNI 網路組態檔是以 JSON 格式描述。 根據預設，它出現在 Linux
 
 - **cniVersion**：Azure 虛擬網路 CNI 外掛程式支援版本 0.3.0 和 0.3.1 的  [CNI 規格](https://github.com/containernetworking/cni/blob/master/SPEC.md)。
 - **名稱**：網路的名稱。 這個屬性可以設定為任何唯一值。
-- **類型**：網路外掛程式的名稱。 設定為  *azure vnet*。
+- **類型**：網路外掛程式的名稱。 設定為 *azure-vnet*。
 - **模式**：作業模式。 此為選擇性欄位。 唯一支援的模式是 "bridge"。 如需詳細資訊，請參閱 [作業模式](https://github.com/Azure/azure-container-networking/blob/master/docs/network.md)。
 - **橋接器**：橋接器名稱，用來將容器連線到虛擬網路。 此為選擇性欄位。 如果省略，外掛程式會根據主要介面索引自動挑選一個唯一名稱。
-- **ipam 類型**：IPAM 外掛程式的名稱。 一律設定為  *azure-vnet-ipam*。
+- **ipam 類型**：IPAM 外掛程式的名稱。 一律設定為 *azure-vnet-ipam*。
 
 ## <a name="download-and-install-the-plug-in"></a>下載並安裝外掛程式
 

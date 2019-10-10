@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: conceptual
-ms.date: 09/24/2019
+ms.date: 10/03/2019
 ms.author: dapine
 ms.custom: seodec18
-ms.openlocfilehash: 98330e88b0b94c488fd968d8fc18806ec6908b26
-ms.sourcegitcommit: 9fba13cdfce9d03d202ada4a764e574a51691dcd
+ms.openlocfilehash: 7c137572fadd07254343b7b4c34b5a63534b9d88
+ms.sourcegitcommit: f2d9d5133ec616857fb5adfb223df01ff0c96d0a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71316202"
+ms.lasthandoff: 10/03/2019
+ms.locfileid: "71936989"
 ---
 # <a name="install-and-run-computer-vision-containers"></a>安裝並執行電腦視覺容器
 
@@ -45,8 +45,6 @@ ms.locfileid: "71316202"
 
 [!INCLUDE [Request access to public preview](../../../includes/cognitive-services-containers-request-access.md)]
 
-[!INCLUDE [Gathering required parameters](../containers/includes/container-gathering-required-parameters.md)]
-
 ### <a name="the-host-computer"></a>主機電腦
 
 [!INCLUDE [Host Computer requirements](../../../includes/cognitive-services-containers-host-computer.md)]
@@ -63,7 +61,7 @@ ms.locfileid: "71316202"
 
 | 容器 | Container Registry/存放庫/映射名稱 |
 |-----------|------------|
-| 閱讀 | `containerpreview.azurecr.io/microsoft/cognitive-services-read:latest` |
+| 讀取 | `containerpreview.azurecr.io/microsoft/cognitive-services-read:latest` |
 
 # <a name="recognize-texttabrecognize-text"></a>[辨識文字](#tab/recognize-text)
 
@@ -106,7 +104,7 @@ docker pull containerpreview.azurecr.io/microsoft/cognitive-services-recognize-t
 
 ## <a name="run-the-container-with-docker-run"></a>透過 `docker run` 執行容器
 
-將 [docker run](https://docs.docker.com/engine/reference/commandline/run/) 命令執行容器。 如需如何取得`{ENDPOINT_URI}`和`{API_KEY}`值的詳細資訊，請參閱[收集必要的參數](#gathering-required-parameters)。
+將 [docker run](https://docs.docker.com/engine/reference/commandline/run/) 命令執行容器。 如需如何取得 `{ENDPOINT_URI}` 和 @no__t 2 值的詳細資訊，請參閱[收集必要的參數](#gathering-required-parameters)。
 
 命令的[範例](computer-vision-resource-container-config.md#example-docker-run-commands)可供使用。`docker run`
 
@@ -167,13 +165,13 @@ ApiKey={API_KEY}
 
 ### <a name="asynchronous-read"></a>非同步讀取
 
-您可以使用`POST /vision/v2.0/read/core/asyncBatchAnalyze`和`GET /vision/v2.0/read/operations/{operationId}`作業，以非同步方式讀取影像，類似于電腦視覺服務使用這些對應 REST 作業的方式。 非同步 POST 方法會`operationId`傳回，做為 HTTP GET 要求的識別碼使用。
+您可以使用 `POST /vision/v2.0/read/core/asyncBatchAnalyze` 和 @no__t 1 作業，以非同步方式讀取影像，類似于電腦視覺服務如何使用這些對應的 REST 作業。 非同步 POST 方法會傳回 `operationId`，做為 HTTP GET 要求的識別碼使用。
 
-從 swagger UI 中，選取`asyncBatchAnalyze`以在瀏覽器中展開。 然後選取 [**試試** > 看] **[選擇**檔案]。 在此範例中，我們將使用下列影像：
+從 swagger UI 中，選取 [`asyncBatchAnalyze`]，以在瀏覽器中展開。 然後選取 立即**試用**  > **選擇**檔案。 在此範例中，我們將使用下列影像：
 
 ![索引標籤與空格](media/tabs-vs-spaces.png)
 
-當非同步 POST 順利執行時，它會傳回**HTTP 202**狀態碼。 作為回應的一部分，有一個`operation-location`標頭會保存要求的結果端點。
+當非同步 POST 順利執行時，它會傳回**HTTP 202**狀態碼。 作為回應的一部分，有一個 `operation-location` 標頭，其中包含要求的結果端點。
 
 ```http
  content-length: 0
@@ -182,7 +180,7 @@ ApiKey={API_KEY}
  server: Kestrel
 ```
 
-`operation-location`是完整的 URL，並可透過 HTTP GET 來存取。 以下是從上一個影像執行`operation-location` URL 的 JSON 回應：
+@No__t-0 是完整的 URL，並可透過 HTTP GET 來存取。 以下是從上一個影像執行 @no__t 0 URL 的 JSON 回應：
 
 ```json
 {
@@ -273,7 +271,7 @@ ApiKey={API_KEY}
 
 ### <a name="synchronous-read"></a>同步讀取
 
-您可以使用`POST /vision/v2.0/read/core/Analyze`作業來同步讀取影像。 當影像完整讀取時，只有，API 才會傳回 JSON 回應。 唯一的例外狀況是如果發生錯誤。 當發生錯誤時，會傳回下列 JSON：
+您可以使用 `POST /vision/v2.0/read/core/Analyze` 作業來同步讀取影像。 當影像完整讀取時，只有，API 才會傳回 JSON 回應。 唯一的例外狀況是如果發生錯誤。 當發生錯誤時，會傳回下列 JSON：
 
 ```json
 {
@@ -281,7 +279,7 @@ ApiKey={API_KEY}
 }
 ```
 
-JSON 回應物件與非同步版本具有相同的物件圖形。 如果您是 JavaScript 使用者，而且想要型別安全，可以使用下列類型，將 JSON 回應轉換為`AnalyzeResult`物件。
+JSON 回應物件與非同步版本具有相同的物件圖形。 如果您是 JavaScript 使用者，而且想要型別安全，可以使用下列類型，將 JSON 回應轉換為 `AnalyzeResult` 物件。
 
 ```typescript
 export interface AnalyzeResult {
@@ -333,7 +331,7 @@ export interface Word {
 
 ### <a name="synchronous-text-recognition"></a>同步文字辨識
 
-您可以使用 `POST /vision/v2.0/recognizeTextDirect` 作業同步地辨識影像中的印刷文字。 因為這項作業是同步的，所以此作業的要求主體與作業相同`POST /vision/v2.0/recognizeText` ，但此作業的回應主體與作業所傳回`GET /vision/v2.0/textOperations/*{id}*`的相同。
+您可以使用 `POST /vision/v2.0/recognizeTextDirect` 作業同步地辨識影像中的印刷文字。 因為這項作業是同步的，所以此作業的要求本文與 @no__t 0 作業相同，但這項作業的回應主體與 `GET /vision/v2.0/textOperations/*{id}*` 作業所傳回的相同。
 
 ***
 

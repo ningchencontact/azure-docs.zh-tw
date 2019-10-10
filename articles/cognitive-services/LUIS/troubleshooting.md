@@ -9,14 +9,14 @@ services: cognitive-services
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 09/03/2019
+ms.date: 10/04/2019
 ms.author: diberry
-ms.openlocfilehash: 3907a244bc2d85e7225f94b15150298fd80a032f
-ms.sourcegitcommit: 49c4b9c797c09c92632d7cedfec0ac1cf783631b
+ms.openlocfilehash: 8adc052e732fdc54bd3b51873fdcf13a55f1f490
+ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/05/2019
-ms.locfileid: "70382347"
+ms.lasthandoff: 10/05/2019
+ms.locfileid: "71971976"
 ---
 # <a name="language-understanding-frequently-asked-questions-faq"></a>Language Understanding 常見問題集 (FAQ)
 
@@ -28,7 +28,7 @@ ms.locfileid: "70382347"
 
 <a name="luis-authoring"></a>
 
-## <a name="authoring"></a>製作
+## <a name="authoring"></a>編寫
 
 ### <a name="what-are-the-luis-best-practices"></a>LUIS 最佳做法為何？
 從[撰寫週期](luis-concept-app-iteration.md)開始，然後閱讀[最佳做法](luis-concept-best-practices.md)。
@@ -219,6 +219,10 @@ Get-AzCognitiveServicesAccountUsage -ResourceGroupName <your-resource-group> -Na
 ### <a name="i-need-to-handle-more-endpoint-queries-how-do-i-do-that"></a>我需要處理更多端點查詢。 該怎麼做？ 
 
 若要深入瞭解，請參閱修正 HTTP 狀態碼[403](#i-received-an-http-403-error-status-code-how-do-i-fix-it)和[429](#i-received-an-http-429-error-status-code-how-do-i-fix-it) 。
+
+### <a name="i-created-an-authoring-key-but-it-isnt-showing-in-the-luis-portal-what-happened"></a>我建立了撰寫金鑰，但它並未顯示在 LUIS 入口網站中。 發生什麼情況？
+
+在[遷移至撰寫金鑰體驗](luis-migration-authoring.md)之後，可在 LUIS 入口網站中取得撰寫金鑰。  
 
 ## <a name="app-management"></a>應用程式管理
 

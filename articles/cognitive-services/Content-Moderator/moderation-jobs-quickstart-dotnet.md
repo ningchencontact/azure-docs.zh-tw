@@ -1,7 +1,7 @@
 ---
 title: 使用 .NET 進行審核作業-內容仲裁
 titleSuffix: Azure Cognitive Services
-description: 使用內容仲裁 .NET SDK, 針對 Azure 內容仲裁中的影像或文字內容起始端對端內容審核作業。
+description: 使用內容仲裁 .NET SDK，針對 Azure 內容仲裁中的影像或文字內容起始端對端內容審核作業。
 services: cognitive-services
 author: sanjeev3
 manager: nitinme
@@ -10,23 +10,23 @@ ms.subservice: content-moderator
 ms.topic: conceptual
 ms.date: 03/18/2019
 ms.author: sajagtap
-ms.openlocfilehash: c291a914ae9e76ce548df2a52523d60b69f0a7b0
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: bc20af10e2e5b2ceb26c1cc891a8f69eb44e5740
+ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68882718"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72242892"
 ---
-# <a name="define-and-use-moderation-jobs-net"></a>定義和使用審核作業 (.NET)
+# <a name="define-and-use-moderation-jobs-net"></a>定義和使用審核作業（.NET）
 
-審核作業可做為內容仲裁、工作流程和評論功能的一種包裝函式。 本指南提供資訊和程式碼範例, 可協助您開始使用[內容仲裁 SDK for .net](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.ContentModerator/)來執行下列動作:
+審核作業可做為內容仲裁、工作流程和評論功能的一種包裝函式。 本指南提供資訊和程式碼範例，可協助您開始使用[內容仲裁 SDK for .net](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.ContentModerator/)來執行下列動作：
 
 - 啟動審核作業以掃描和建立人工審核者的檢閱
 - 取得擱置中檢閱的狀態
 - 追蹤並取得檢閱的最終狀態
 - 將審核結果提交至回呼 URL
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 - 在內容仲裁[審查工具](https://contentmoderator.cognitive.microsoft.com/)網站上登入或建立帳戶。
 
@@ -67,8 +67,7 @@ ms.locfileid: "68882718"
 
 ```csharp
 using Microsoft.Azure.CognitiveServices.ContentModerator;
-using Microsoft.CognitiveServices.ContentModerator;
-using Microsoft.CognitiveServices.ContentModerator.Models;
+using Microsoft.Azure.CognitiveServices.ContentModerator.Models;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;

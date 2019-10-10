@@ -1,6 +1,7 @@
 ---
 title: 尋找空閒會議室 - Azure Digital Twins | Microsoft Docs
 description: 在本快速入門中，您會執行兩個 .NET Core 應用程式範例，將模擬的動作和二氧化碳遙測資料傳送至 Azure Digital Twins 中的空間。 我們的目標是要在計算雲端中的處理能力後，從管理 API 尋找有新鮮空氣的空閒會議室。
+ms.author: alinast
 author: alinamstanciu
 manager: bertvanhoof
 ms.service: digital-twins
@@ -8,14 +9,13 @@ services: digital-twins
 ms.devlang: csharp
 ms.topic: quickstart
 ms.custom: mvc seodec18
-ms.date: 08/16/2019
-ms.author: alinast
-ms.openlocfilehash: 40a98f915bc11ad17eae27596519cc78539fb2bb
-ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
+ms.date: 10/03/2019
+ms.openlocfilehash: 3c9a806b936b9f167d1700c95b1e769926abb17b
+ms.sourcegitcommit: 7868d1c40f6feb1abcafbffcddca952438a3472d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69640292"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71958901"
 ---
 # <a name="quickstart-find-available-rooms-by-using-azure-digital-twins"></a>快速入門：使用 Azure Digital Twins 尋找空閒會議室
 
@@ -133,7 +133,7 @@ Azure Digital Twins 服務可讓您重新建立實體環境的數位影像。 �
 https://YOUR_INSTANCE_NAME.YOUR_LOCATION.azuresmartspaces.net/management/swagger
 ```
 
-| Name | 更換為 |
+| 名稱 | 更換為 |
 | --- | --- |
 | YOUR_INSTANCE_NAME | Digital Twins 執行個體的名稱 |
 | YOUR_LOCATION | 裝載您執行個體的伺服器區域 |

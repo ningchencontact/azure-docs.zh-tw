@@ -13,12 +13,14 @@ ms.tgt_pltfrm: na
 ms.topic: quickstart
 ms.date: 08/23/2019
 ms.author: cephalin
-ms.openlocfilehash: d4f1cd5193f29e929c822966ca427c6e6ebf67de
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+experimental: true
+experiment_id: 1e304dc9-5add-4b
+ms.openlocfilehash: 253e2e5015c2cb7a71386b88b4d86ac6bff6a0fe
+ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70070966"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72242468"
 ---
 # <a name="create-a-python-app-in-azure-app-service-on-linux"></a>在 Linux 上的 Azure App Service 中建立 Python 應用程式
 
@@ -50,13 +52,14 @@ cd python-docs-hello-world
 在本機執行應用程式，以便您查看它在部署至 Azure 時的樣貌。 開啟終端機視窗，並使用下列命令安裝必要的相依性，然後啟動內建的開發伺服器。 
 
 ```bash
-# In Bash
+# In Bash (for Linux or Mac)
 python3 -m venv venv
 source venv/bin/activate
 pip install -r requirements.txt
 FLASK_APP=application.py flask run
-
-# In PowerShell
+```
+```powershell
+# In Powershell (for Windows)
 py -3 -m venv env
 env\scripts\activate
 pip install -r requirements.txt

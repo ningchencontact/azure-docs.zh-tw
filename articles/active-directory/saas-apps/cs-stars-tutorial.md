@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/25/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1a4c28f5892e8e885004c7fcc721b873a96c52ac
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 635d04e049b66452fa000048082aced9aa62c20a
+ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67104487"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72241369"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-cs-stars"></a>教學課程：Azure Active Directory 與 CS Stars 整合
 
@@ -110,7 +110,7 @@ CS Stars 與 Azure AD 整合提供下列優點：
     b. 在 [識別碼 (實體識別碼)]  文字方塊中，使用下列模式輸入 URL：`https://<subdomain>.csstars.com/enterprise/`
 
     > [!NOTE]
-    > 這些都不是真正的值。 請使用實際的「登入 URL」及「識別碼」來更新這些值。 請連絡 [CS Stars 用戶端支援小組](https://www.marshclearsight.com/support/)以取得這些值。 您也可以參考 Azure 入口網站中**基本 SAML 組態**區段所示的模式。
+    > 這些都不是真正的值。 請使用實際的「登入 URL」及「識別碼」來更新這些值。 請連絡 [CS Stars 用戶端支援小組](http://www.riskonnectclearsight.com/support/)以取得這些值。 您也可以參考 Azure 入口網站中**基本 SAML 組態**區段所示的模式。
 
 4. 在 [以 SAML 設定單一登入]  頁面的 [SAML 簽署憑證]  區段中按一下 [下載]  ，以依據您的需求從指定選項下載**同盟中繼資料 XML**，並儲存在您的電腦上。
 
@@ -128,7 +128,7 @@ CS Stars 與 Azure AD 整合提供下列優點：
 
 ### <a name="configure-cs-stars-single-sign-on"></a>設定 CS Stars 單一登入
 
-若要在 **CS Stars** 端設定單一登入，您必須將從 Azure 入口網站下載的 [同盟中繼資料 XML]  和複製的適當 URL 傳送給 [CS Stars 支援小組](https://www.marshclearsight.com/support/)。 他們會進行此設定，讓兩端的 SAML SSO 連線都設定正確。
+若要在 **CS Stars** 端設定單一登入，您必須將從 Azure 入口網站下載的 [同盟中繼資料 XML]  和複製的適當 URL 傳送給 [CS Stars 支援小組](http://www.riskonnectclearsight.com/support/)。 他們會進行此設定，讓兩端的 SAML SSO 連線都設定正確。
 
 ### <a name="create-an-azure-ad-test-user"></a>建立 Azure AD 測試使用者 
 
@@ -183,7 +183,7 @@ CS Stars 與 Azure AD 整合提供下列優點：
 
 ### <a name="create-cs-stars-test-user"></a>建立 CS Stars 測試使用者
 
-在本節中，您會在 CS Stars 中建立名為 Britta Simon 的使用者。 請與  [CS Stars 支援小組](https://www.marshclearsight.com/support/)合作，在 CS Stars 平台中新增使用者。 您必須先建立和啟動使用者，然後才能使用單一登入。
+在本節中，您會在 CS Stars 中建立名為 Britta Simon 的使用者。 請與  [CS Stars 支援小組](http://www.riskonnectclearsight.com/support/)合作，在 CS Stars 平台中新增使用者。 您必須先建立和啟動使用者，然後才能使用單一登入。
 
 ### <a name="test-single-sign-on"></a>測試單一登入 
 

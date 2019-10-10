@@ -11,12 +11,12 @@ ms.workload: big-data
 ms.topic: overview
 ms.date: 09/24/2019
 ms.custom: seodec18
-ms.openlocfilehash: 706960f18080b4883735195b21ed05c3763e8617
-ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
+ms.openlocfilehash: 0c832e272029dc110e156ef89deb908fec02f1b2
+ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71264507"
+ms.lasthandoff: 10/06/2019
+ms.locfileid: "71981203"
 ---
 # <a name="what-is-azure-time-series-insights"></a>什麼是 Azure 時間序列深入解析？
 
@@ -31,7 +31,7 @@ ms.locfileid: "71264507"
 - 時間序列深入解析可透過 [時間序列深入解析總管] 提供立即可用的視覺效果。 
 - 時間序列深入解析可在 [時間序列深入解析總管] 中提供查詢服務，也可以用 API 查詢，API 方便整合，可將時間序列資料嵌入到自訂應用程式中。
 
-如果您要建置應用程式，以供內部取用或供外部客戶使用，則可以使用時間序列深入解析來作為後端。 您可以將其用於編製索引、儲存和彙總時間序列資料。 若要打造頂級的自訂視覺效果和使用者體驗，請使用[用戶端 SDK](tutorial-explore-js-client-lib.md)。 時間序列深入解析也配有數個用來啟用這些自訂案例的[查詢 API](how-to-shape-query-json.md)。
+如果您要建置應用程式，以供內部取用或供外部客戶使用，則可以使用時間序列深入解析來作為後端。 您可以將其用於編製索引、儲存和彙總時間序列資料。 若要打造頂級的自訂視覺效果和使用者體驗，請使用[用戶端 SDK](https://github.com/microsoft/tsiclient/blob/master/docs/API.md)。 時間序列深入解析也配有數個用來啟用這些自訂案例的[查詢 API](how-to-shape-query-json.md)。
 
 時間序列資料代表資產或處理程序如何隨著時間改變。 時間序列資料會根據時間戳記編製索引，而且時間是最具意義的軸，這類資料會隨著時間軸進行組織。 時間序列資料通常會依照順序送達，因此會將其視為插入資料庫，而不是更新資料庫。
 

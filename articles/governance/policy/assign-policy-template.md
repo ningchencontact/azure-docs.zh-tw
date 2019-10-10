@@ -6,13 +6,12 @@ ms.author: dacoulte
 ms.date: 03/13/2019
 ms.topic: quickstart
 ms.service: azure-policy
-manager: carmonm
-ms.openlocfilehash: f31d6197c22be4d66e0610ad7914f541a45ed995
-ms.sourcegitcommit: 59fd8dc19fab17e846db5b9e262a25e1530e96f3
+ms.openlocfilehash: 72d8fab39e8dd11cf46eb2977a9b9fe288ca2de1
+ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65979565"
+ms.lasthandoff: 10/06/2019
+ms.locfileid: "71980807"
 ---
 # <a name="quickstart-create-a-policy-assignment-to-identify-non-compliant-resources-by-using-a-resource-manager-template"></a>快速入門：使用 Resource Manager 建立原則指派以識別不相容資源
 
@@ -41,7 +40,7 @@ ms.locfileid: "65979565"
 
 1. 選取或輸入下列值：
 
-   | Name | 值 |
+   | 名稱 | 值 |
    |------|-------|
    | 訂用帳戶 | 選取 Azure 訂用帳戶。 |
    | 資源群組 | 選取 [新建]  指定名稱，然後選取 [確定]  。 在螢幕擷取畫面中，資源群組名稱為 *mypolicyquickstart\<MMDD 格式的日期>rg*。 |

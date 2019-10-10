@@ -14,12 +14,12 @@ ms.tgt_pltfrm: ASP.NET Core
 ms.workload: tbd
 ms.date: 04/19/2019
 ms.author: yegu
-ms.openlocfilehash: 6f9094a52ff3558fa8d1f2fee1d80ed8eb09a416
-ms.sourcegitcommit: 8ef0a2ddaece5e7b2ac678a73b605b2073b76e88
+ms.openlocfilehash: d7a9f365c9e2b6039451375f4ad50a7ce04cdd5b
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71076333"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72029725"
 ---
 # <a name="quickstart-add-feature-flags-to-an-aspnet-core-app"></a>快速入門：將功能旗標新增至 ASP.NET Core 應用程式
 
@@ -51,7 +51,7 @@ ms.locfileid: "71076333"
 1. 在新的資料夾中，執行下列命令以建立新的 ASP.NET Core MVC Web 應用程式專案：
 
    ```    
-   dotnet new mvc
+   dotnet new mvc --no-https
    ```
 
 ## <a name="add-secret-manager"></a>新增祕密管理員
