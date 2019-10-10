@@ -8,12 +8,12 @@ ms.service: azure-resource-manager
 ms.date: 05/23/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: a42ccb1c0e60f5bf1568ccea13392186577f2875
-ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
+ms.openlocfilehash: 97d9aa1ed9440011fdaab3aa8eb9d3942b5a8acf
+ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67205712"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72170371"
 ---
 # <a name="tutorial-use-azure-deployment-manager-with-resource-manager-templates-public-preview"></a>教學課程：使用 Azure 部署管理員搭配 Resource Manager 範本 (公開預覽)
 
@@ -80,7 +80,7 @@ ms.locfileid: "67205712"
 
 ## <a name="download-the-tutorial-files"></a>下載教學課程檔案
 
-1. 下載本教學課程所使用的[範本和成品](https://armtutorials.blob.core.windows.net/admtutorial/ADMTutorial.zip)。
+1. 下載本教學課程所使用的[範本和成品](https://github.com/Azure/azure-docs-json-samples/raw/master/tutorial-adm/ADMTutorial.zip)。
 2. 將檔案解壓縮到您所在地點的電腦。
 
 根資料夾下有兩個資料夾：
