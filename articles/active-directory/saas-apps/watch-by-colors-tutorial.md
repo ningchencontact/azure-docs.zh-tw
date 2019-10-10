@@ -16,16 +16,16 @@ ms.topic: tutorial
 ms.date: 09/09/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e7d0810c393cf9b6060f456c5ff01d03673b62a9
-ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
+ms.openlocfilehash: 6d8fdc8ba2337a3be49a4645e48a45120fb0ccec
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70861312"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72026086"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-watch-by-colors"></a>教學課程：Azure Active Directory 單一登入 (SSO) 與 Watch by Colors 整合
 
-在此教學課程中，您會了解如何整合 Watch by Colors 與 Azure Active Directory (Azure AD)。 在整合 Watch by Colors 與 Azure AD 時，您可以︰
+在本教學課程中，您會了解如何整合 Watch by Colors 與 Azure Active Directory (Azure AD)。 在整合 Watch by Colors 與 Azure AD 時，您可以︰
 
 * 在 Azure AD 中控制可存取 Watch by Colors 的人員。
 * 讓使用者使用其 Azure AD 帳戶自動登入 Watch by Colors。
@@ -42,7 +42,7 @@ ms.locfileid: "70861312"
 
 ## <a name="scenario-description"></a>案例描述
 
-在此教學課程中，您會在測試環境中設定和測試 Azure AD SSO。
+在本教學課程中，您會在測試環境中設定和測試 Azure AD SSO。
 
 * Watch by Colors 支援由 **SP 和 IDP** 起始的 SSO
 
@@ -80,7 +80,7 @@ ms.locfileid: "70861312"
 
    ![編輯基本 SAML 組態](common/edit-urls.png)
 
-1. 在 [基本 SAML 組態] ****   區段上，已預先以  **IDP**  起始的模式設定好應用程式，並已經為 Azure 預先填入必要的 URL。 使用者必須按一下 [儲存] ****   按鈕，才能儲存組態。
+1. 在 [基本 SAML 組態]  區段上，已預先以 **IDP** 起始的模式設定好應用程式，並已經為 Azure 預先填入必要的 URL。 使用者必須按一下 [儲存]  按鈕，才能儲存設定。
 
 1. 如果您想要以 **SP** 起始模式設定應用程式，請按一下 [設定其他 URL]  ，然後執行下列步驟：
 

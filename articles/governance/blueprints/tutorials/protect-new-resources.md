@@ -6,13 +6,12 @@ ms.author: dacoulte
 ms.date: 03/28/2019
 ms.topic: tutorial
 ms.service: blueprints
-manager: carmonm
-ms.openlocfilehash: 274c437acd8df50d631727fc352c4b9ebecead18
-ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
+ms.openlocfilehash: a82b24f89cea580a1c79a1dec60996629b7b14f3
+ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66479967"
+ms.lasthandoff: 10/06/2019
+ms.locfileid: "71978133"
 ---
 # <a name="tutorial-protect-new-resources-with-azure-blueprints-resource-locks"></a>教學課程：使用 Azure 藍圖資源鎖定保護新資源
 
@@ -29,7 +28,7 @@ ms.locfileid: "66479967"
 
 ## <a name="prerequisites"></a>必要條件
 
-若要完成此教學課程，您需要 Azure 訂用帳戶。 如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/) 。
+若要完成此教學課程，您需要 Azure 訂用帳戶。 如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶](https://azure.microsoft.com/free/)。
 
 ## <a name="create-a-blueprint-definition"></a>建立藍圖定義
 
@@ -157,7 +156,7 @@ ms.locfileid: "66479967"
 
      |成品名稱|成品類型|參數名稱|值|說明|
      |-|-|-|-|-|
-     |RGtoLock 資源群組|資源群組|Name|TestingBPLocks|定義要套用藍圖鎖定的新資源群組名稱。|
+     |RGtoLock 資源群組|資源群組|名稱|TestingBPLocks|定義要套用藍圖鎖定的新資源群組名稱。|
      |RGtoLock 資源群組|資源群組|位置|美國西部 2|定義要套用藍圖鎖定的新資源群組位置。|
      |StorageAccount|Resource Manager 範本|storageAccountType (StorageAccount)|Standard_GRS|儲存體 SKU。 預設值是 Standard_LRS  。|
 

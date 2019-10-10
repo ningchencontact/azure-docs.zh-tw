@@ -9,12 +9,12 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: philmea
-ms.openlocfilehash: db9f7e75af01ed83c39ef3a37ab2612426ef6ea4
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: a3faa76c1506664a075648edc7d57fbba542b011
+ms.sourcegitcommit: 4d177e6d273bba8af03a00e8bb9fe51a447196d0
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70099614"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71960537"
 ---
 # <a name="tutorial-define-a-new-device-type-in-your-azure-iot-central-application"></a>教學課程：在 Azure IoT Central 應用程式中定義新的裝置類型
 
@@ -31,7 +31,7 @@ ms.locfileid: "70099614"
 * 具有裝置屬性，例如裝置的韌體版本和序號。
 * 具有設定，例如目標溫度。
 
-在本教學課程中，您了解如何：
+在本教學課程中，您會了解如何：
 
 > [!div class="checklist"]
 > * 建立新的裝置範本
@@ -289,7 +289,7 @@ ms.locfileid: "70099614"
 
     | 欄位                | 值                |
     | -------------------- | -------------------- |
-    | 顯示名稱         | Location             |
+    | 顯示名稱         | 位置             |
     | 欄位名稱           | location             |
     | 初始值        | 美國華盛頓州西雅圖          |
     | 說明          | 裝置位置      |
@@ -298,7 +298,7 @@ ms.locfileid: "70099614"
 
     ![設定裝置屬性](./media/tutorial-define-device-type/configureproperties.png)
 
-    選取 [ **儲存**]。
+    選取 [儲存]  。
 
 1. 若要將上次維修日期屬性新增至裝置範本，請選擇 [日期]  。
 
@@ -313,7 +313,7 @@ ms.locfileid: "70099614"
 
     ![設定裝置屬性](./media/tutorial-define-device-type/configureproperties2.png)
 
-    選取 [ **儲存**]。
+    選取 [儲存]  。
 
 1. 您可以藉由移動屬性圖格和調整其大小，來自訂 [屬性]  索引標籤的版面配置。
 
@@ -330,7 +330,7 @@ ms.locfileid: "70099614"
 
     ![設定韌體版本](./media/tutorial-define-device-type/configureproperties3.png)
 
-    選取 [ **儲存**]。
+    選取 [儲存]  。
 
 1. 若要將裝置屬性 (例如序號) 新增至您的裝置範本，請選擇 [裝置屬性]  。
 
@@ -345,7 +345,7 @@ ms.locfileid: "70099614"
 
     ![設定序號](./media/tutorial-define-device-type/configureproperties4.png)
 
-    選取 [ **儲存**]。
+    選取 [儲存]  。
 
     > [!NOTE]
     > 裝置屬性會從裝置傳送至應用程式。 當實際的裝置連線到 IoT Central 時，將會更新韌體版本和序號的值。
@@ -365,14 +365,14 @@ ms.locfileid: "70099614"
     | 顯示名稱         | 回應命令    |
     | 欄位名稱           | 回應            |
     | 預設逾時      | 30              |
-    | 顯示類型         | text            |
+    | 資料類型         | text            |
     | 說明          | 裝置命令  |  
 
     您可以選取 [輸入欄位]  的 **+** ，以將其他輸入新增至命令。
 
     ![準備新增設定](./media/tutorial-define-device-type/commandsecho1.png)
 
-     選取 [ **儲存**]。
+     選取 [儲存]  。
 
 1. 您可以藉由移動命令圖格和調整其大小，來自訂 [命令]  索引標籤的版面配置。
 

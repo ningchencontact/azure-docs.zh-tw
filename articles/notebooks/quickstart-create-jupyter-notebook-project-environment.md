@@ -4,21 +4,20 @@ description: 在使用一組已安裝的特定套件及啟動指令碼設定的 
 services: app-service
 documentationcenter: ''
 author: kraigb
-manager: douge
+manager: barbkess
 ms.assetid: e049f591-27a7-440f-a1a3-c5bef25e8a28
 ms.service: azure-notebooks
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: quickstart
 ms.date: 12/04/2018
 ms.author: kraigb
-ms.openlocfilehash: 954bbc22e42865991ca7f38fbf3f6f0e8e78a437
-ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
+ms.openlocfilehash: 6ec0d2fae285889a731e9b881ea90f15b96c85f2
+ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/07/2019
-ms.locfileid: "66754021"
+ms.lasthandoff: 10/05/2019
+ms.locfileid: "71973076"
 ---
 # <a name="quickstart-create-a-project-with-a-custom-environment"></a>快速入門：使用自訂環境建立專案
 
@@ -32,7 +31,7 @@ Azure Notebooks 中的專案是一組檔案，集合了筆記本、資料檔案�
 
     ![瀏覽器視窗頂端的 [我的專案] 連結](media/quickstarts/my-projects-link.png)
 
-1. 在 [我的專案]  頁面上，選取 [+ 新增專案]  \(鍵盤快速鍵：n\)；只有在瀏覽器視窗很窄時，該按鈕才會顯示為 **+** ：
+1. 在 [我的專案]  頁面上，選取 [+ 新增專案]  \(鍵盤快速鍵：n\)；瀏覽器視窗很窄時，該按鈕會顯示為 **+** ：
 
     ![[我的專案] 頁面上的 [新增專案] 命令](media/quickstarts/new-project-command.png)
 

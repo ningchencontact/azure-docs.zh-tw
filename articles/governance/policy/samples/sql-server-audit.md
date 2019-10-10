@@ -2,17 +2,16 @@
 title: 範例 - 稽核 SQL Server 稽核設定
 description: 此原則定義範例會使用 auditIfNotExists 稽核 SQL Server 稽核設定。
 author: DCtheGeek
-manager: carmonm
 ms.service: azure-policy
 ms.topic: sample
 ms.date: 01/23/2019
 ms.author: dacoulte
-ms.openlocfilehash: c4510a316760fa948aa39627c9a9c517437b1d77
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: c548d1e0e9f21f482a0cfc4b19c482e040d7f298
+ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59790972"
+ms.lasthandoff: 10/06/2019
+ms.locfileid: "71980360"
 ---
 # <a name="sample---audit-sql-server-audit-settings"></a>範例 - 稽核 SQL Server 稽核設定
 
@@ -58,7 +57,7 @@ ms.locfileid: "59790972"
 
 ## <a name="deploy-with-the-portal"></a>使用入口網站部署
 
-指派原則時，從可用的內建定義選取 [稽核 SQL Server 層級稽核設定]。
+指派原則時，從可用的內建定義選取 [稽核 SQL Server 層級稽核設定]  。
 
 ## <a name="deploy-with-powershell"></a>使用 PowerShell 部署
 

@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: tutorial
 ms.date: 9/27/2019
-ms.openlocfilehash: 5b9be86b0a3d17c9c325b565979fccbec92f5733
-ms.sourcegitcommit: 80da36d4df7991628fd5a3df4b3aa92d55cc5ade
+ms.openlocfilehash: d8ea5a507cc110c92bb74491c3376f7b671638d9
+ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71815869"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72175997"
 ---
 # <a name="branching-and-chaining-activities-in-a-data-factory-pipeline"></a>在 Data Factory 管道中將活動分支和鏈結
 
@@ -38,7 +38,7 @@ ms.locfileid: "71815869"
 > * 啟動管道執行
 > * 監視管道和活動執行
 
-本教學課程使用 .NET SDK。 您可以使用其他機制與 Azure Data Factory 互動。 如需 Data Factory 的快速入門，請參閱 [5 分鐘快速入門](https://docs.microsoft.com/azure/data-factory/#5-minute-quickstarts)。
+本教學課程使用 .NET SDK。 您可以使用其他機制與 Azure Data Factory 互動。 如需 Data Factory 的快速入門，請參閱 [5 分鐘快速入門](/azure/data-factory/quickstart-create-data-factory-portal)。
 
 如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶](https://azure.microsoft.com/free/)。
 

@@ -6,13 +6,12 @@ ms.author: dacoulte
 ms.date: 04/23/2019
 ms.topic: quickstart
 ms.service: resource-graph
-manager: carmonm
-ms.openlocfilehash: 688c591cbe94c69c73779843011cb24c3d2fd4cf
-ms.sourcegitcommit: 6794fb51b58d2a7eb6475c9456d55eb1267f8d40
+ms.openlocfilehash: 14bac2299505214b8b087946222c5560a9d90efd
+ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70241086"
+ms.lasthandoff: 10/06/2019
+ms.locfileid: "71976873"
 ---
 # <a name="starter-resource-graph-queries"></a>入門 Resource Graph 查詢
 
@@ -34,7 +33,7 @@ ms.locfileid: "70241086"
 > - [顯示虛擬機器資源的別名](#show-aliases)
 > - [顯示特定別名的相異值](#distinct-alias-values)
 
-如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free) 。
+如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶](https://azure.microsoft.com/free)。
 
 ## <a name="language-support"></a>語言支援
 

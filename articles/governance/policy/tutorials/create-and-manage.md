@@ -6,13 +6,12 @@ ms.author: dacoulte
 ms.date: 02/04/2019
 ms.topic: tutorial
 ms.service: azure-policy
-manager: carmonm
-ms.openlocfilehash: c12345791e62aa99bd07dde7fc44dd52d0989941
-ms.sourcegitcommit: 59fd8dc19fab17e846db5b9e262a25e1530e96f3
+ms.openlocfilehash: 82c56a01d7f14f1eeae26dfa784f3545552bf6b9
+ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65979173"
+ms.lasthandoff: 10/06/2019
+ms.locfileid: "71981394"
 ---
 # <a name="tutorial-create-and-manage-policies-to-enforce-compliance"></a>教學課程：建立和管理原則來強制執行相容性
 
@@ -24,7 +23,7 @@ ms.locfileid: "65979173"
 > - 解決不相容或拒絕的資源
 > - 在整個組織中實作新的原則
 
-如果您想要指派原則以識別現有資源的目前合規性狀態，快速入門文章會說明如何執行這項操作。 如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/) 。
+如果您想要指派原則以識別現有資源的目前合規性狀態，快速入門文章會說明如何執行這項操作。 如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶](https://azure.microsoft.com/free/)。
 
 ## <a name="assign-a-policy"></a>指派原則
 
@@ -113,7 +112,7 @@ ms.locfileid: "65979173"
 
    若要檢視更多的 Azure 原則範例，請參閱 [Azure 原則範例](../samples/index.md)。
 
-1. 選取 [ **儲存**]。
+1. 選取 [儲存]  。
 
 ## <a name="create-a-policy-definition-with-rest-api"></a>使用 REST API 來建立原則定義
 

@@ -8,20 +8,20 @@ manager: cshankar
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: tutorial
-ms.date: 07/29/2019
+ms.date: 10/02/2019
 ms.custom: seodec18
-ms.openlocfilehash: 998471d99a785eeff39ef7c99e60e1d9b49e0d7a
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.openlocfilehash: e680652d490d75701780e2e3618a43451bfe2819
+ms.sourcegitcommit: 15e3bfbde9d0d7ad00b5d186867ec933c60cebe6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68725822"
+ms.lasthandoff: 10/03/2019
+ms.locfileid: "71845107"
 ---
 # <a name="tutorial-set-up-an-azure-time-series-insights-preview-environment"></a>教學課程：設定 Azure 時間序列深入解析預覽版環境
 
 本教學課程會逐步引導您完成建立「Azure 時間序列深入解析預覽版」隨用隨付 (PAYG) 環境的程序。 
 
-在本教學課程中，您了解如何：
+在本教學課程中，您會了解如何：
 
 > [!div class="checklist"]
 > * 建立 Azure 時間序列深入解析預覽版環境。
@@ -260,7 +260,7 @@ ms.locfileid: "68725822"
    | **層級 2** | 輸入**縣市**。 |
    | **層級 3** | 輸入**建築物**。 |
 
-   選取 [ **儲存**]。
+   選取 [儲存]  。
 
     [![階層欄位，其中含有 [建立] 按鈕](media/v2-update-provision/define-eight-add-hierarchy.png)](media/v2-update-provision/define-eight-add-hierarchy.png#lightbox)
 
@@ -285,7 +285,7 @@ ms.locfileid: "68725822"
 
     [![執行個體欄位，其中含有 [儲存] 按鈕](media/v2-update-provision/define-eleven-chiller.png)](media/v2-update-provision/define-eleven-chiller.png#lightbox)
 
-   選取 [ **儲存**]。
+   選取 [儲存]  。
 
 1. 針對其他感應器重複上一個步驟。 更新下列值：
 
@@ -337,7 +337,7 @@ ms.locfileid: "68725822"
 您現在已完成本教學課程，請清除您所建立的資源：
 
 1. 從 [Azure 入口網站](https://portal.azure.com)的左側功能表中，選取 [所有資源]  ，找出 Azure 時間序列深入解析資源群組。
-1. 選取 [刪除]  或個別移除每個資源，以刪除整個資源群組 (和其中包含的所有資源)。
+1. 選取 [刪除]  以刪除整個資源群組 (和其中包含的所有資源)，或個別移除每個資源。
 
 ## <a name="next-steps"></a>後續步驟
 

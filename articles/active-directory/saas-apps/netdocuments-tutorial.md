@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 09/03/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0bf25ce318415a8aa36bca8d4cd7380e4e8e67ca
-ms.sourcegitcommit: 86d49daccdab383331fc4072b2b761876b73510e
+ms.openlocfilehash: 71e5e13485c4a10664d98363e8e99bfd3b4f4bcf
+ms.sourcegitcommit: f9e81b39693206b824e40d7657d0466246aadd6e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70743465"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72035714"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-netdocuments"></a>教學課程：Azure Active Directory 單一登入 (SSO) 與 NetDocuments 整合
 
@@ -42,7 +42,7 @@ ms.locfileid: "70743465"
 
 ## <a name="scenario-description"></a>案例描述
 
-在此教學課程中，您會在測試環境中設定和測試 Azure AD SSO。
+在本教學課程中，您會在測試環境中設定和測試 Azure AD SSO。
 
 * NetDocuments 支援由 **SP** 起始的 SSO
 
@@ -85,6 +85,8 @@ ms.locfileid: "70743465"
     a. 在 [登入 URL]  文字方塊中，使用下列模式輸入 URL：`https://vault.netvoyage.com/neWeb2/docCent.aspx?whr=<Repository ID>`
 
     b. 在 [回覆 URL]  文字方塊中，使用下列模式來輸入 URL：`https://vault.netvoyage.com/neWeb2/docCent.aspx?whr=<Repository ID>`
+    
+    c. 在 [識別碼 (實體識別碼)]  文字方塊中，使用下列模式輸入 URL：`http://netdocuments.com/VAULT`
 
     > [!NOTE]
     > 這些都不是真正的值。 請使用實際的「登入 URL」和「回覆 URL」來更新這些值。 存放庫識別碼是一個以 **CA-** 開頭，後面再加上與您 NetDocuments 存放庫相關聯的 8 字元代碼所組成的值。 您可以查看 [NetDocuments 同盟身分識別支援文件](https://support.netdocuments.com/hc/en-us/articles/205220410-Federated-Identity-Login)，以取得詳細資訊。 或者，如果您無法使用上述資訊進行設定，您可以連絡 [NetDocuments 用戶端支援小組](https://support.netdocuments.com/hc/)以取得這些值。 您也可以參考 Azure 入口網站中**基本 SAML 組態**區段所示的模式。

@@ -2,17 +2,16 @@
 title: 範例 - 每個子網路上的 NSG x
 description: 此原則定義範例會要求搭配每個虛擬子網路使用特定的網路安全性群組。
 author: DCtheGeek
-manager: carmonm
 ms.service: azure-policy
 ms.topic: sample
 ms.date: 01/23/2019
 ms.author: dacoulte
-ms.openlocfilehash: b42ae790005560b403033ea5b98010792c9a3ca4
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 977deba4ee083fae5cbf24905cee84a3a0d020c4
+ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59263650"
+ms.lasthandoff: 10/06/2019
+ms.locfileid: "71981341"
 ---
 # <a name="sample---network-security-group-x-on-every-subnet"></a>範例 - 每一個子網路上的網路安全性群組 x
 

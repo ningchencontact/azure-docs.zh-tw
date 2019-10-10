@@ -11,18 +11,18 @@ ms.topic: quickstart
 ms.date: 07/03/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 0d430f7c9a6e9d59b20cd1420b65f70d9c6994d5
-ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.openlocfilehash: 350bc95e08aa994e4cb70db6bf1f08d53bbec5a3
+ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70141444"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72177294"
 ---
 # <a name="quickstart-generate-a-thumbnail-using-the-computer-vision-rest-api-and-curl"></a>快速入門：使用電腦視覺 REST API 和 cURL 產生縮圖
 
 在此快速入門中，您會使用電腦視覺的 REST API 從影像產生縮圖。 您可指定所需高度和寬度，其可與輸入影像的外觀比例不同。 「電腦視覺」會使用智慧型裁剪，以智慧方式識別關注區域，並產生該區域周圍的裁剪座標。
 
-如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/ai/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=cognitive-services) 。
+如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶](https://azure.microsoft.com/free/ai/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=cognitive-services)。
 
 ## <a name="prerequisites"></a>必要條件
 
@@ -38,7 +38,7 @@ ms.locfileid: "70141444"
 1. 請將下列程式碼複製到編輯器中。
 1. 將 `<Subscription Key>` 取代為您的有效訂用帳戶金鑰。
 1. 以要用來儲存縮圖的路徑和檔案名稱取代 `<File>`。
-1. 必要時，請將要求 URL (`https://westcentralus.api.cognitive.microsoft.com/vision/v2.0`) 變更為使用您取得訂用帳戶金鑰的位置。
+1. 必要時，請將要求 URL (`https://westcentralus.api.cognitive.microsoft.com/vision/v2.1`) 變更為使用您取得訂用帳戶金鑰的位置。
 1. (選擇性) 變更要分析的影像 (`{\"url\":\"...`)。
 1. 在已安裝 cURL 的電腦上開啟命令視窗。
 1. 將程式碼貼入視窗中，然後執行命令。
@@ -61,7 +61,7 @@ ms.locfileid: "70141444"
 1. 將文字編輯器中的命令貼到命令提示字元視窗中，然後執行該命令。
 
     ```bash
-    curl -H "Ocp-Apim-Subscription-Key: <subscriptionKey>" -o <thumbnailFile> -H "Content-Type: application/json" "https://westcentralus.api.cognitive.microsoft.com/vision/v2.0/generateThumbnail?width=100&height=100&smartCropping=true" -d "{\"url\":\"https://upload.wikimedia.org/wikipedia/commons/thumb/5/56/Shorkie_Poo_Puppy.jpg/1280px-Shorkie_Poo_Puppy.jpg\"}"
+    curl -H "Ocp-Apim-Subscription-Key: <subscriptionKey>" -o <thumbnailFile> -H "Content-Type: application/json" "https://westcentralus.api.cognitive.microsoft.com/vision/v2.1/generateThumbnail?width=100&height=100&smartCropping=true" -d "{\"url\":\"https://upload.wikimedia.org/wikipedia/commons/thumb/5/56/Shorkie_Poo_Puppy.jpg/1280px-Shorkie_Poo_Puppy.jpg\"}"
     ```
 
 ## <a name="examine-the-response"></a>檢查回應

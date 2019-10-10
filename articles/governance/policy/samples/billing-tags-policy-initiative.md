@@ -2,17 +2,16 @@
 title: 範例 - 計費標籤原則計畫
 description: 此原則定義集範例會要求針對成本中心和產品名稱使用指定的標籤值。
 author: DCtheGeek
-manager: carmonm
 ms.service: azure-policy
 ms.topic: sample
 ms.date: 01/23/2019
 ms.author: dacoulte
-ms.openlocfilehash: 5b084bd5a1b34dc2ce8ac8abb2a4af03a22262d2
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: f2190b5759c53d645c1d0150004271ba04669c94
+ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65787336"
+ms.lasthandoff: 10/06/2019
+ms.locfileid: "71981407"
 ---
 # <a name="sample---billing-tags-policy-initiative"></a>範例 - 計費標籤原則計畫
 

@@ -6,13 +6,12 @@ ms.author: dacoulte
 ms.date: 03/05/2019
 ms.topic: tutorial
 ms.service: blueprints
-manager: carmonm
-ms.openlocfilehash: 137764cba91ab94adef4719a0d34b6fb9e6efe29
-ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
+ms.openlocfilehash: f3250052a7e26b5d8ef7cb1d411f9d9252089875
+ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/03/2019
-ms.locfileid: "70232621"
+ms.lasthandoff: 10/06/2019
+ms.locfileid: "71980730"
 ---
 # <a name="tutorial-create-an-environment-from-a-blueprint-sample"></a>教學課程：從藍圖範例建立環境
 
@@ -29,7 +28,7 @@ ms.locfileid: "70232621"
 
 ## <a name="prerequisites"></a>必要條件
 
-若要完成此教學課程，您需要 Azure 訂用帳戶。 如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/) 。
+若要完成此教學課程，您需要 Azure 訂用帳戶。 如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶](https://azure.microsoft.com/free/)。
 
 ## <a name="create-blueprint-definition-from-sample"></a>從範例建立藍圖定義
 
@@ -104,11 +103,11 @@ ms.locfileid: "70232621"
 
      |成品名稱|成品類型|參數名稱|值|說明|
      |-|-|-|-|-|
-     |ProdRG 資源群組|Resource group|Name|ProductionRG|定義第一個資源群組的名稱。|
-     |ProdRG 資源群組|Resource group|Location|美國西部 2|設定第一個資源群組的位置。|
+     |ProdRG 資源群組|資源群組|名稱|ProductionRG|定義第一個資源群組的名稱。|
+     |ProdRG 資源群組|資源群組|位置|美國西部 2|設定第一個資源群組的位置。|
      |參與者|角色指派|使用者或群組|{您的識別碼}|定義要對第一個資源群組內的哪些使用者或群組授與「參與者」  角色指派。|
-     |PreProdRG 資源群組|Resource group|Name|PreProductionRG|定義第二個資源群組的名稱。|
-     |PreProdRG 資源群組|Resource group|Location|美國西部|設定第二個資源群組的位置。|
+     |PreProdRG 資源群組|資源群組|名稱|PreProductionRG|定義第二個資源群組的名稱。|
+     |PreProdRG 資源群組|資源群組|位置|美國西部|設定第二個資源群組的位置。|
      |擁有者|角色指派|使用者或群組|{您的識別碼}|定義要對第二個資源群組內的哪些使用者或群組授與「擁有者」  角色指派。|
      |讀取者|角色指派|使用者或群組|{您的識別碼}|定義要對第二個資源群組內的哪些使用者或群組授與「讀取者」  角色指派。|
 

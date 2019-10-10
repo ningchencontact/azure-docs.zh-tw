@@ -2,17 +2,16 @@
 title: 範例 - 稽核應用程式是否未安裝於 Linux VM 內
 description: 此範例原則來賓設定方案和定義會稽核指定的應用程式是否未安裝於 Linux 虛擬機器內。
 author: DCtheGeek
-manager: carmonm
 ms.service: azure-policy
 ms.topic: sample
 ms.date: 05/02/2019
 ms.author: dacoulte
-ms.openlocfilehash: eda5a2a6d2dae58f8da72deccbb89a34c7f21dae
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: ef2ab4bebf2247b08cdc80ed74bbe17a67c5baae
+ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65204023"
+ms.lasthandoff: 10/06/2019
+ms.locfileid: "71977043"
 ---
 # <a name="sample---audit-if-specified-applications-arent-installed-inside-linux-vms"></a>範例 - 稽核指定的應用程式是否未安裝於 Linux VM 內
 
@@ -45,12 +44,12 @@ ms.locfileid: "65204023"
 
 ### <a name="initiative-parameters"></a>計畫參數
 
-|Name |類型 |說明 |
+|名稱 |類型 |說明 |
 |---|---|---|
 |applicationName |字串 |應用程式名稱。 範例：'python'、'powershell' 或以逗號分隔的清單，例如 'python,powershell'。 使用 \* 進行萬用字元比對，例如 'power\*'。 |
 
 透過 PowerShell 或 Azure CLI 建立指派時，可以使用 `-PolicyParameter` (PowerShell) 或 `--params` (Azure CLI) 在字串中或透過檔案將參數值當作 JSON 傳遞。
-PowerShell 也支援 `-PolicyParameterObject` ，其要求將名稱/值雜湊表傳遞給 Cmdlet，其中 [名稱] 是參數名稱，而 [值] 是在指派過程中傳遞的單一值或值陣列。
+PowerShell 也支援 `-PolicyParameterObject` ，其要求將名稱/值雜湊表傳遞給 Cmdlet，其中 [名稱]  是參數名稱，而 [值]  是在指派過程中傳遞的單一值或值陣列。
 
 在此範例參數中，會稽核應用程式 _python_ 和_powershell_ 的安裝。
 

@@ -2,17 +2,16 @@
 title: 範例 - 允許的位置
 description: 此原則定義範例會要求將所有資源部署到已核准的位置。
 author: DCtheGeek
-manager: carmonm
 ms.service: azure-policy
 ms.topic: sample
 ms.date: 01/26/2019
 ms.author: dacoulte
-ms.openlocfilehash: 2823cee863941926fffe332295328d6ecfb54001
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 5c4a23b355a4d7841c42d03042399635a55bac03
+ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59264721"
+ms.lasthandoff: 10/06/2019
+ms.locfileid: "71980644"
 ---
 # <a name="sample---allowed-region-locations"></a>範例 - 允許的區域位置
 
@@ -52,12 +51,12 @@ ms.locfileid: "59264721"
 
 ## <a name="parameters"></a>參數
 
-|Name |類型 |欄位 |說明 |
+|名稱 |類型 |欄位 |說明 |
 |---|---|---|---|
-|listOfAllowedLocations |陣列 |位置 |允許的位置清單|
+|listOfAllowedLocations |Array |位置 |允許的位置清單|
 
 透過 PowerShell 或 Azure CLI 建立指派時，可以使用 `-PolicyParameter` (PowerShell) 或 `--params` (Azure CLI) 在字串中或透過檔案將參數值當作 JSON 傳遞。
-PowerShell 也支援 `-PolicyParameterObject` ，其要求將名稱/值雜湊表傳遞給 Cmdlet，其中 [名稱] 是參數名稱，而 [值] 是在指派過程中傳遞的單一值或值陣列。
+PowerShell 也支援 `-PolicyParameterObject` ，其要求將名稱/值雜湊表傳遞給 Cmdlet，其中 [名稱]  是參數名稱，而 [值]  是在指派過程中傳遞的單一值或值陣列。
 
 在此範例中參數，將只會允許 _eastus2_ 或 _westus_ 位置。
 

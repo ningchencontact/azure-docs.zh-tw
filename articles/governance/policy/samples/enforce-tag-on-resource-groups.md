@@ -2,17 +2,16 @@
 title: 範例 - 對資源群組強制執行標籤及其值
 description: 此原則定義範例會要求對資源群組使用標籤和值。
 author: DCtheGeek
-manager: carmonm
 ms.service: azure-policy
 ms.topic: sample
 ms.date: 01/31/2019
 ms.author: dacoulte
-ms.openlocfilehash: a7a76fbde74ab80f8aa0f5e67e6445504c3aafa5
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 00c94aa6077c8a8599b31e9ab37f925fdfebefb0
+ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59276655"
+ms.lasthandoff: 10/06/2019
+ms.locfileid: "71977177"
 ---
 # <a name="sample---enforce-tag-and-its-value-on-resource-groups"></a>範例 - 對資源群組強制執行標籤及其值
 
@@ -50,13 +49,13 @@ ms.locfileid: "59276655"
 
 [!code-json[parameters](../../../../policy-templates/samples/ResourceGroup/enforce-resourceGroup-tags/azurepolicy.parameters.json "Policy parameters (JSON)")]
 
-|Name |類型 |欄位 |說明 |
+|名稱 |類型 |欄位 |說明 |
 |---|---|---|---|
 |tagName |字串 |tags |標記的名稱，例如 costCenter|
 |tagValue |字串 |tags |標記的值，例如 headquarter|
 
 透過 PowerShell 或 Azure CLI 建立指派時，可以使用 `-PolicyParameter` (PowerShell) 或 `--params` (Azure CLI) 在字串中或透過檔案將參數值當作 JSON 傳遞。
-PowerShell 也支援 `-PolicyParameterObject` ，其要求將名稱/值雜湊表傳遞給 Cmdlet，其中 [名稱] 是參數名稱，而 [值] 是在指派過程中傳遞的單一值或值陣列。
+PowerShell 也支援 `-PolicyParameterObject` ，其要求將名稱/值雜湊表傳遞給 Cmdlet，其中 [名稱]  是參數名稱，而 [值]  是在指派過程中傳遞的單一值或值陣列。
 
 在此範例參數中，會將 _tagName_ 定義為 **costCenter**，並將 _tagValue_ 定義為 **headquarter**。
 
@@ -163,7 +162,7 @@ az policy definition delete --name `echo $definition | jq '.name' -r`
 | [az policy assignment delete](/cli/azure/policy/assignment?view=azure-cli-latest#az-policy-assignment-delete) | 移除現有的 Azure 原則指派。 |
 | [az policy definition delete](/cli/azure/policy/definition?view=azure-cli-latest#az-policy-definition-delete) | 移除現有的 Azure 原則定義。 |
 
-有數個工具可用來與 Resource Manager REST API 互動，例如 [ARMClient](https://github.com/projectkudu/ARMClient) 或 PowerShell。 在[原則定義結構](../concepts/definition-structure.md#aliases)的 [別名] 區段中，可以找到從 PowerShell 呼叫 REST API 的範例。
+有數個工具可用來與 Resource Manager REST API 互動，例如 [ARMClient](https://github.com/projectkudu/ARMClient) 或 PowerShell。 在[原則定義結構](../concepts/definition-structure.md#aliases)的 [別名]  區段中，可以找到從 PowerShell 呼叫 REST API 的範例。
 
 ## <a name="rest-api"></a>REST API
 

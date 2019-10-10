@@ -4,21 +4,20 @@ description: 快速地從本機電腦或 Web URL，將 Jupyter Notebook 移轉�
 services: app-service
 documentationcenter: ''
 author: kraigb
-manager: douge
+manager: barbkess
 ms.assetid: 2e935425-3923-4a33-89b2-0f2100b0c0c4
 ms.service: azure-notebooks
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: quickstart
 ms.date: 12/04/2018
 ms.author: kraigb
-ms.openlocfilehash: 7df64c3fb70bdf3e7689787ec558bfe0e4942352
-ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
+ms.openlocfilehash: 2151d5b04b0fe5d47e8e2ddfb750ac279b6f74fa
+ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/07/2019
-ms.locfileid: "66754018"
+ms.lasthandoff: 10/05/2019
+ms.locfileid: "71970194"
 ---
 # <a name="quickstart-migrate-a-local-jupyter-notebook"></a>快速入門：遷移本機 Jupyter 筆記本
 
@@ -36,7 +35,7 @@ ms.locfileid: "66754018"
 
     ![瀏覽器視窗頂端的 [我的專案] 連結](media/quickstarts/my-projects-link.png)
 
-1. 在 [我的專案]  頁面上，選取 [+ 新增專案]  \(鍵盤快速鍵：n\)；只有在瀏覽器視窗很窄時，該按鈕才會顯示為 **+** ：
+1. 在 [我的專案]  頁面上，選取 [+ 新增專案]  \(鍵盤快速鍵：n\)；瀏覽器視窗很窄時，該按鈕會顯示為 **+** ：
 
     ![[我的專案] 頁面上的 [新增專案] 命令](media/quickstarts/new-project-command.png)
 

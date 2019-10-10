@@ -6,13 +6,12 @@ ms.author: dacoulte
 ms.date: 03/14/2019
 ms.topic: sample
 ms.service: blueprints
-manager: carmonm
-ms.openlocfilehash: fb68b2f78e48dabf5b1377b7c811840a85604f53
-ms.sourcegitcommit: b7b0d9f25418b78e1ae562c525e7d7412fcc7ba0
+ms.openlocfilehash: 4804e10488c537dbf997aba0ec49f784bc67457d
+ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/08/2019
-ms.locfileid: "70802421"
+ms.lasthandoff: 10/06/2019
+ms.locfileid: "71981594"
 ---
 # <a name="deploy-the-iso-27001-app-service-environmentsql-database-workload-blueprint-sample"></a>部署 ISO 27001 App Service 環境/SQL Database 工作負載藍圖範例
 
@@ -24,7 +23,7 @@ ms.locfileid: "70802421"
 > - 將您的範例複本標記為**已發佈**
 > - 將您的藍圖複本指派給現有的訂用帳戶
 
-如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free) 。
+如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶](https://azure.microsoft.com/free)。
 
 ## <a name="deploy-the-iso-27001-shared-services-blueprint-sample"></a>部署 ISO 27001 共用服務藍圖範例
 
@@ -115,35 +114,35 @@ ms.locfileid: "70802421"
 
 |成品名稱|成品類型|參數名稱|說明|
 |-|-|-|-|
-|Log Analytics 資源群組|Resource group|Name|**已鎖定** - 串連**組織名稱**與 `-workload-log-rg` 來形成唯一的資源群組。|
-|Log Analytics 資源群組|Resource group|Location|**已鎖定** - 使用藍圖參數。|
+|Log Analytics 資源群組|資源群組|名稱|**已鎖定** - 串連**組織名稱**與 `-workload-log-rg` 來形成唯一的資源群組。|
+|Log Analytics 資源群組|資源群組|位置|**已鎖定** - 使用藍圖參數。|
 |Log Analytics 範本|Resource Manager 範本|服務層|設定 Log Analytics 工作區的服務層級。 預設值為「PerNode」  。|
 |Log Analytics 範本|Resource Manager 範本|記錄保留天數|資料保留天數。 預設值為「365」  。|
-|Log Analytics 範本|Resource Manager 範本|Location|用來建立 Log Analytics 工作區的區域。 預設值為「美國西部 2」  。|
-|網路資源群組|Resource group|Name|**已鎖定** - 串連**組織名稱**與 `-workload-net-rg` 來形成唯一的資源群組。|
-|網路資源群組|Resource group|Location|**已鎖定** - 使用藍圖參數。|
+|Log Analytics 範本|Resource Manager 範本|位置|用來建立 Log Analytics 工作區的區域。 預設值為「美國西部 2」  。|
+|網路資源群組|資源群組|名稱|**已鎖定** - 串連**組織名稱**與 `-workload-net-rg` 來形成唯一的資源群組。|
+|網路資源群組|資源群組|位置|**已鎖定** - 使用藍圖參數。|
 |網路安全性群組範本|Resource Manager 範本|記錄保留天數|資料保留天數。 預設值為「365」  。|
 |虛擬網路與路由表範本|Resource Manager 範本|Azure 防火牆私人 IP|設定 [Azure 防火牆](../../../../firewall/overview.md)的私人 IP。 應是 CIDR 標記法的一部份，定義於 _ISO 27001：共用服務_成品參數 **Azure 防火牆子網路位址首碼**。 預設值為 10.0.4.4  。|
 |虛擬網路與路由表範本|Resource Manager 範本|共用服務訂用帳戶識別碼|用來啟用工作負載和共用服務間 VNET 對等互連的值。|
 |虛擬網路與路由表範本|Resource Manager 範本|虛擬網路位址首碼|虛擬網路的 CIDR 標記法。 預設值為 10.1.0.0/16  。|
 |虛擬網路與路由表範本|Resource Manager 範本|預設子網路位址首碼|虛擬網路預設子網路的 CIDR 標記法。 預設值為 10.1.0.0/16  。|
 |虛擬網路與路由表範本|Resource Manager 範本|ADDS IP 位址|第一個 ADDS VM 的 IP 位址。 此值會作為自訂 VNET DNS。|
-|金鑰保存庫資源群組|Resource group|Name|**已鎖定** - 串連**組織名稱**與 `-workload-kv-rg` 來形成唯一的資源群組。|
-|金鑰保存庫資源群組|Resource group|Location|**已鎖定** - 使用藍圖參數。|
+|金鑰保存庫資源群組|資源群組|名稱|**已鎖定** - 串連**組織名稱**與 `-workload-kv-rg` 來形成唯一的資源群組。|
+|金鑰保存庫資源群組|資源群組|位置|**已鎖定** - 使用藍圖參數。|
 |Key Vault 範本|Resource Manager 範本|AAD 物件識別碼|需要 Key Vault 執行個體存取權的帳戶所具有的 AAD 物件識別碼。 沒有預設值，且不能空白。 若要從 Azure 入口網站尋找此值，請在 [服務]  底下搜尋並選取 [使用者]。 使用 [名稱]  方塊來篩選帳戶名稱並選取該帳戶。 在 [使用者設定檔]  頁面上，選取 [物件識別碼]  旁的 [按一下以複製] 圖示。|
 |Key Vault 範本|Resource Manager 範本|記錄保留天數|資料保留天數。 預設值為「365」  。|
 |Key Vault 範本|Resource Manager 範本|Key Vault SKU|指定所建立 Key Vault 的 SKU。 預設值為「進階」  。|
 |Key Vault 範本|Resource Manager 範本|Azure SQL Server 管理員使用者名稱|用於存取 Azure SQL Server 的使用者名稱。 必須符合 **Azure SQL Database 範本**中的相同屬性值。 預設值為「sql-admin-user」  。|
-|Azure SQL Database 資源群組|Resource group|Name|**已鎖定** - 串連**組織名稱**與 `-workload-azsql-rg` 來形成唯一的資源群組。|
-|Azure SQL Database 資源群組|Resource group|Location|**已鎖定** - 使用藍圖參數。|
+|Azure SQL Database 資源群組|資源群組|名稱|**已鎖定** - 串連**組織名稱**與 `-workload-azsql-rg` 來形成唯一的資源群組。|
+|Azure SQL Database 資源群組|資源群組|位置|**已鎖定** - 使用藍圖參數。|
 |Azure SQL Database 範本|Resource Manager 範本|Azure SQL Server 管理員使用者名稱|Azure SQL Server 的使用者名稱。 必須符合 **Key Vault 範本**中的相同屬性值。 預設值為「sql-admin-user」  。|
 |Azure SQL Database 範本|Resource Manager 範本|Azure SQL Server 管理員密碼 (Key Vault 資源識別碼)|Key Vault 的資源識別碼。 使用「/subscription/{subscriptionId}/resourceGroups/{orgName}-workload-kv/providers/Microsoft.KeyVault/vaults/{orgName}-workload-kv」，並將 `{subscriptionId}` 取代為訂用帳戶識別碼以及將 `{orgName}` 取代為**組織名稱**藍圖參數。|
 |Azure SQL Database 範本|Resource Manager 範本|Azure SQL Server 管理員密碼 (Key Vault 祕密名稱)|SQL Server 管理員的使用者名稱。必須符合 **Key Vault 範本**屬性 **Azure SQL Server 管理員使用者名稱**中的值。|
 |Azure SQL Database 範本|Resource Manager 範本|記錄保留天數|資料保留天數。 預設值為「365」  。|
 |Azure SQL Database 範本|Resource Manager 範本|AAD 管理員物件識別碼|會指派為 Active Directory 管理員的使用者所具有的 AAD 物件識別碼。沒有預設值，且不能空白。 若要從 Azure 入口網站尋找此值，請在 [服務]  底下搜尋並選取 [使用者]。 使用 [名稱]  方塊來篩選帳戶名稱並選取該帳戶。 在 [使用者設定檔]  頁面上，選取 [物件識別碼]  旁的 [按一下以複製] 圖示。|
 |Azure SQL Database 範本|Resource Manager 範本|AAD 管理員登入|Microsoft 帳戶 (例如 live.com 或 outlook.com) 目前不能設定為管理員。只有組織內的使用者和安全性群組可以設定為管理員。沒有預設值，且不能空白。 若要從 Azure 入口網站尋找此值，請在 [服務]  底下搜尋並選取 [使用者]。 使用 [名稱]  方塊來篩選帳戶名稱並選取該帳戶。 在 [使用者設定檔]  頁面上，複製 [使用者名稱]  。|
-|App Service 環境資源群組|Resource group|Name|**已鎖定** - 串連**組織名稱**與 `-workload-ase-rg` 來形成唯一的資源群組。|
-|App Service 環境資源群組|Resource group|Location|**已鎖定** - 使用藍圖參數。|
+|App Service 環境資源群組|資源群組|名稱|**已鎖定** - 串連**組織名稱**與 `-workload-ase-rg` 來形成唯一的資源群組。|
+|App Service 環境資源群組|資源群組|位置|**已鎖定** - 使用藍圖參數。|
 |App Service 環境範本|Resource Manager 範本|網域名稱|範例所建立 Active Directory 的名稱。 預設值為「contoso.com」  。|
 |App Service 環境範本|Resource Manager 範本|ASE 位置|App Service 環境位置。 預設值為「美國西部 2」  。|
 |App Service 環境範本|Resource Manager 範本|應用程式閘道記錄保留天數|資料保留天數。 預設值為「365」  。|

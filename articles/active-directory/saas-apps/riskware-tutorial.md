@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/25/2019
 ms.author: jeedes
-ms.openlocfilehash: b2bfbed33433521fd086d474ea4b754f5435f5e6
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 6eaa1be81d3ac0733c0829bc45e1b62f8aae5755
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67092915"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72027109"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-riskware"></a>教學課程：Azure Active Directory 與 Riskware 整合
 
@@ -170,7 +170,7 @@ ms.locfileid: "67092915"
 
     g. 在 [XML Identity Tag Name] \(XML 身分識別標記名稱\)  文字方塊中，輸入 SAML 回應中包含唯一識別碼的屬性，例如 NameID。
 
-    h. 在記事本中開啟從 Azure 入口網站下載的  **Metadata Xml** ，複製中繼資料檔中的憑證，然後將其貼到 [憑證]  文字方塊中
+    h. 在記事本中開啟從 Azure 入口網站下載的 **Metadata Xml**，複製中繼資料檔中的憑證，然後將其貼到 [Certificate]\(憑證\)  文字方塊中
 
     i. 在 [Consumer URL]\(取用者 URL\)  文字方塊中，貼上您向支援小組取得的**回覆 URL** 值。
 

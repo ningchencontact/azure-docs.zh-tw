@@ -2,17 +2,16 @@
 title: 範例 - 稽核 SQL Database 的透明資料加密
 description: 此原則定義範例會稽核 SQL 資料庫是否未啟用透明資料加密。
 author: DCtheGeek
-manager: carmonm
 ms.service: azure-policy
 ms.topic: sample
 ms.date: 01/23/2019
 ms.author: dacoulte
-ms.openlocfilehash: e8ee800ff9f286f901a84a039e3c433442ae11b2
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: de7819f43b2d0ce4d6d047b324db94d3e5f85eec
+ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59789573"
+ms.lasthandoff: 10/06/2019
+ms.locfileid: "71981312"
 ---
 # <a name="sample---audit-sql-database-encryption"></a>範例 - 稽核 SQL 資料庫加密
 
@@ -28,7 +27,7 @@ ms.locfileid: "59789573"
 
 ## <a name="deploy-with-the-portal"></a>使用入口網站部署
 
-指派原則時，從可用的內建定義選取 [稽核透明資料加密狀態]。
+指派原則時，從可用的內建定義選取 [稽核透明資料加密狀態]  。
 
 ## <a name="deploy-with-powershell"></a>使用 PowerShell 部署
 

@@ -2,17 +2,16 @@
 title: 範例 - 稽核診斷設定
 description: 此原則定義範例會稽核是否未針對指定的資源類型啟用診斷設定。
 author: DCtheGeek
-manager: carmonm
 ms.service: azure-policy
 ms.topic: sample
 ms.date: 01/23/2019
 ms.author: dacoulte
-ms.openlocfilehash: 66c9c1c21cad7fb4058a91be826a50059691877c
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: b71876195ffd3993b49794835781e8ccbd1648d3
+ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59797766"
+ms.lasthandoff: 10/06/2019
+ms.locfileid: "71977468"
 ---
 # <a name="sample---audit-diagnostic-setting"></a>範例 - 稽核診斷設定
 
@@ -36,7 +35,7 @@ ms.locfileid: "59797766"
 
 ## <a name="deploy-with-the-portal"></a>使用入口網站部署
 
-指派原則時，從可用的內建定義選取 [稽核診斷設定]。
+指派原則時，從可用的內建定義選取 [稽核診斷設定]  。
 
 ## <a name="deploy-with-powershell"></a>使用 PowerShell 部署
 

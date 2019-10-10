@@ -2,17 +2,16 @@
 title: 範例 - 要求 Data Lake Store 加密
 description: 此原則定義範例需要啟用 Data Lake Store 加密。
 author: DCtheGeek
-manager: carmonm
 ms.service: azure-policy
 ms.topic: sample
 ms.date: 01/23/2019
 ms.author: dacoulte
-ms.openlocfilehash: f9e38b737cad255ef2d9802490b5d114950d01e6
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 9cee9f2d94f822679acee0813471e271a38a38e3
+ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59785903"
+ms.lasthandoff: 10/06/2019
+ms.locfileid: "71977185"
 ---
 # <a name="sample---require-data-lake-store-encryption"></a>範例 - 需要 Data Lake Store 加密
 
@@ -46,7 +45,7 @@ ms.locfileid: "59785903"
 
 ## <a name="deploy-with-the-portal"></a>使用入口網站部署
 
-指派原則時，從可用的內建定義選取 [在 DataLakeStore 帳戶上強制加密]。
+指派原則時，從可用的內建定義選取 [在 DataLakeStore 帳戶上強制加密]  。
 
 ## <a name="deploy-with-powershell"></a>使用 PowerShell 部署
 

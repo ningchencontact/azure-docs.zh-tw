@@ -2,17 +2,16 @@
 title: 範例 - 允許的資源類型
 description: 此原則定義範例會確保只部署已核准的資源類型。
 author: DCtheGeek
-manager: carmonm
 ms.service: azure-policy
 ms.topic: sample
 ms.date: 01/23/2019
 ms.author: dacoulte
-ms.openlocfilehash: 9235f771abeaa5ccf053f697707aeb32115c7f01
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 91a5b7b44b12ee581488d5aa0d3d9eca8c4dce83
+ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59280993"
+ms.lasthandoff: 10/06/2019
+ms.locfileid: "71980628"
 ---
 # <a name="sample---allowed-resource-types"></a>範例 - 允許的資源類型
 

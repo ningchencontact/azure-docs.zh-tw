@@ -4,12 +4,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 08/06/2019
 ms.author: erhopf
-ms.openlocfilehash: 9207814c921f51b10939c6e9d1747e1e124f9890
-ms.sourcegitcommit: beb34addde46583b6d30c2872478872552af30a1
+ms.openlocfilehash: 6591fd6eb232bf5fb242c9e08830324f864dac2f
+ms.sourcegitcommit: 15e3bfbde9d0d7ad00b5d186867ec933c60cebe6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69907203"
+ms.lasthandoff: 10/03/2019
+ms.locfileid: "71837518"
 ---
 [!INCLUDE [Prerequisites](prerequisites-python.md)]
 
@@ -112,7 +112,10 @@ python detect.py
 
 ## <a name="sample-response"></a>範例回應
 
-請在此[語言清單](https://docs.microsoft.com/azure/cognitive-services/translator/language-support)中尋找國家/地區縮寫。
+執行範例之後，您應該會看到下列內容列印到終端機：
+
+> [!NOTE]
+> 請在此[語言清單](https://docs.microsoft.com/azure/cognitive-services/translator/language-support)中尋找國家/地區縮寫。
 
 ```json
 [

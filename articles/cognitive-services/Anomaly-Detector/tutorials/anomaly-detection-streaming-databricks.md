@@ -9,14 +9,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: anomaly-detector
 ms.topic: tutorial
-ms.date: 05/08/2019
+ms.date: 10/01/2019
 ms.author: aahi
-ms.openlocfilehash: 8d3f5d0e10fadd31fd8bde77339b872c1b90451f
-ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
+ms.openlocfilehash: 75c2c8bf8b3baee1f9f89282840622e1e29d2a18
+ms.sourcegitcommit: 15e3bfbde9d0d7ad00b5d186867ec933c60cebe6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67721466"
+ms.lasthandoff: 10/03/2019
+ms.locfileid: "71837761"
 ---
 # <a name="tutorial-anomaly-detection-on-streaming-data-using-azure-databricks"></a>教學課程：使用 Azure Databricks 對串流資料進行異常情況偵測
 
@@ -165,7 +165,7 @@ ms.locfileid: "67721466"
 
     |值 |說明  |
     |---------|---------|
-    |Name     | Anomaly Detector 資源的名稱。        |
+    |名稱     | Anomaly Detector 資源的名稱。        |
     |訂用帳戶     | 將與資源相關聯的 Azure 訂用帳戶。        |
     |位置     | Azure 位置。        |
     |定價層     | 服務的定價層。 如需 Anomaly Detector 定價的詳細資訊，請參閱[定價頁面](https://azure.microsoft.com/pricing/details/cognitive-services/anomaly-detector/)。        |

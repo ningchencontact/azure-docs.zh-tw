@@ -9,16 +9,16 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: 30751bebd397b378924453987462c9e2b3b55ebf
-ms.sourcegitcommit: 4f3f502447ca8ea9b932b8b7402ce557f21ebe5a
+ms.openlocfilehash: c4b46bc952782fc7c9b56d6f0c049fe17b63d0f2
+ms.sourcegitcommit: 15e3bfbde9d0d7ad00b5d186867ec933c60cebe6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71803892"
+ms.lasthandoff: 10/03/2019
+ms.locfileid: "71836410"
 ---
 # <a name="electric-vehicle-routing-using-azure-notebooks-python"></a>使用 Azure Notebooks (Python) 的電動車路線
 
-Azure 地圖服務是原本就整合在 Azure 中的地理空間服務 API 產品組合，可讓開發人員、企業及 ISV 建立位置感知應用程式以及 IoT、行動、物流和資產追蹤解決方案。 您可以從 Python 和 R 等語言呼叫 Azure 地圖服務 REST API，以啟用地理空間資料分析和機器學習案例。 Azure 地圖服務提供一組健全的[路線規劃 API]([https://docs.microsoft.com/rest/api/maps/route)，可讓使用者根據不同的條件 (例如車輛類型或可達區域) 計算數個資料點之間的路線。 在本教學課程中，我們將逐步解說一個案例，以協助車輛電量偏低的電動車駕駛者依據行車所需時間找出離他最近的充電站。
+Azure 地圖服務是原本就整合在 Azure 中的地理空間服務 API 產品組合，可讓開發人員、企業及 ISV 建立位置感知應用程式以及 IoT、行動、物流和資產追蹤解決方案。 您可以從 Python 和 R 等語言呼叫 Azure 地圖服務 REST API，以啟用地理空間資料分析和機器學習案例。 Azure 地圖服務提供一組健全的[路線規劃 API](https://docs.microsoft.com/rest/api/maps/route)，可讓使用者根據不同的條件 (例如車輛類型或可達區域) 計算數個資料點之間的路線。 在本教學課程中，我們將逐步解說一個案例，以協助車輛電量偏低的電動車駕駛者依據行車所需時間找出離他最近的充電站。
 
 在本教學課程中，您將：
 

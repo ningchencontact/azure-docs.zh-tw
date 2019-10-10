@@ -2,17 +2,16 @@
 title: 範例 - 拒絕 Hybrid Use Benefit
 description: 此原則定義範例禁止使用 Azure Hybrid Use Benefit (AHUB)。
 author: DCtheGeek
-manager: carmonm
 ms.service: azure-policy
 ms.topic: sample
 ms.date: 01/23/2019
 ms.author: dacoulte
-ms.openlocfilehash: 4523fb5d3ac1e91606650a9c359e46e3b697d1b5
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 4c573a0c5ef7dd5328379dc9e3dffb029d24f619
+ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59262239"
+ms.lasthandoff: 10/06/2019
+ms.locfileid: "71980542"
 ---
 # <a name="sample---deny-hybrid-use-benefit"></a>範例 - 拒絕 Hybrid Use Benefit
 

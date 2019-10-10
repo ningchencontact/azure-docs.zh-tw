@@ -1,7 +1,7 @@
 ---
 title: 快速入門：自訂語音優先虛擬助理 (預覽)，C# (UWP) - 語音服務
 titleSuffix: Azure Cognitive Services
-description: 在此文章中，您會使用認知服務語音軟體開發套件 (SDK) 來建立 C# 通用 Windows 平台 (UWP) 應用程式。 您會將用戶端應用程式連線到先前建立的 Bot Framework Bot，該 Bot 設定為使用 Direct Line Speech 頻道。 應用程式是使用語音 SDK NuGet 套件與 Microsoft Visual Studio 2019 所建置的。
+description: 在本文中，您會使用認知服務語音軟體開發套件 (SDK) 來建立 C# 通用 Windows 平台 (UWP) 應用程式。 您會將用戶端應用程式連線到先前建立的 Bot Framework Bot，該 Bot 設定為使用 Direct Line Speech 頻道。 應用程式是使用語音 SDK NuGet 套件與 Microsoft Visual Studio 2019 所建置的。
 services: cognitive-services
 author: trrwilson
 manager: nitinme
@@ -11,17 +11,17 @@ ms.topic: quickstart
 ms.date: 08/19/2019
 ms.author: travisw
 ms.openlocfilehash: c676e98eb812a31d6fb8d7cc0f58929f803c868e
-ms.sourcegitcommit: 49c4b9c797c09c92632d7cedfec0ac1cf783631b
+ms.sourcegitcommit: 9f330c3393a283faedaf9aa75b9fcfc06118b124
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/05/2019
+ms.lasthandoff: 10/07/2019
 ms.locfileid: "70382122"
 ---
 # <a name="quickstart-create-a-voice-first-virtual-assistant-with-the-speech-sdk-uwp"></a>快速入門：使用語音 SDK、UWP 建立語音優先虛擬助理
 
 [語音辨識](quickstart-csharp-uwp.md)、[語音合成](quickstart-text-to-speech-csharp-uwp.md)和[語音翻譯](quickstart-translate-speech-uwp.md)也提供快速入門。
 
-在此文章中，您會使用[語音 SDK](speech-sdk.md)來開發 C# 通用 Windows 平台 (UWP) 應用程式。 此程式會連線到先前撰寫和設定的 Bot，讓您從用戶端應用程式獲得語音優先虛擬助理體驗。 應用程式是利用[語音 SDK NuGet 套件](https://aka.ms/csspeech/nuget) \(英文\) 與 Microsoft Visual Studio 2019 (任何版本) 所建置的。
+在本文中，您會使用[語音 SDK](speech-sdk.md)來開發 C# 通用 Windows 平台 (UWP) 應用程式。 此程式會連線到先前撰寫和設定的 Bot，讓您從用戶端應用程式獲得語音優先虛擬助理體驗。 應用程式是利用[語音 SDK NuGet 套件](https://aka.ms/csspeech/nuget) \(英文\) 與 Microsoft Visual Studio 2019 (任何版本) 所建置的。
 
 > [!NOTE]
 > 通用 Windows 平台可讓您開發應用程式，以在任何支援 Windows 10 的裝置 (包括 PC、Xbox、Surface Hub 與其他裝置) 上執行。
@@ -409,7 +409,7 @@ ms.locfileid: "70382122"
 
 1. 從功能表列中，選擇 [建置]   > [建置方案]  來建置應用程式。 現在會編譯程式碼，而且不會出現任何錯誤。
 
-1. 選擇 [偵錯]   > [開始偵錯]  \(或按 **F5**\) 以啟動應用程式。 **helloworld** 視窗會出現。
+1. 選擇 [偵錯]   > [開始偵錯]  (或按 **F5**) 以啟動應用程式。 **helloworld** 視窗會出現。
 
    ![範例 UWP 虛擬助理應用程式 (C#) - 快速入門](media/sdk/qs-virtual-assistant-uwp-helloworld-window.png)
 
