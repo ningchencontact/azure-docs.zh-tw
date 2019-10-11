@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.service: container-service
 ms.date: 05/06/2019
 ms.author: mlearned
-ms.openlocfilehash: 8752d888e24e7135d488be6d1b377070a30fe4eb
-ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
+ms.openlocfilehash: ab0aebf0b66ac01e19699795b14063df31cb9621
+ms.sourcegitcommit: b4665f444dcafccd74415fb6cc3d3b65746a1a31
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "67613834"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72263752"
 ---
 # <a name="create-and-configure-an-azure-kubernetes-services-aks-cluster-to-use-virtual-nodes-in-the-azure-portal"></a>在 Azure 入口網站中建立和設定 Azure Kubernetes Service (AKS) 叢集以使用虛擬節點
 
@@ -24,7 +24,7 @@ ms.locfileid: "67613834"
 
 虛擬節點能夠進行在 ACI 與 AKS 叢集中執行的 pod 之間的網路通訊。 為了提供此通訊功能，需要建立虛擬網路子網路並指派委派權限。 虛擬節點只能與使用「進階」網路所建立的 AKS 叢集搭配運作。 但根據預設，系統會使用「基本」網路來建立 AKS 叢集。 本文說明如何建立虛擬網路和子網路，然後部署使用進階網路的 AKS 叢集。
 
-如果您先前未使用 ACI，請向您的訂用帳戶註冊服務提供者。 您可以使用[az provider list][az-provider-list]命令來檢查 ACI 提供者註冊的狀態, 如下列範例所示:
+如果您先前未使用 ACI，請向您的訂用帳戶註冊服務提供者。 您可以使用[az provider list][az-provider-list]命令來檢查 ACI 提供者註冊的狀態，如下列範例所示：
 
 ```azurecli-interactive
 az provider list --query "[?contains(namespace,'Microsoft.ContainerInstance')]" -o table
@@ -38,7 +38,7 @@ Namespace                    RegistrationState
 Microsoft.ContainerInstance  Registered
 ```
 
-如果提供者顯示為*NotRegistered*, 請使用 [az provider register] [az-provider-register] 來註冊提供者, 如下列範例所示:
+如果提供者顯示為*NotRegistered*，請使用 [az provider register] [az-provider-register] 來註冊提供者，如下列範例所示：
 
 ```azurecli-interactive
 az provider register --namespace Microsoft.ContainerInstance
@@ -46,16 +46,16 @@ az provider register --namespace Microsoft.ContainerInstance
 
 ## <a name="regional-availability"></a>區域可用性
 
-虛擬節點部署支援下欄區域:
+虛擬節點部署支援下欄區域：
 
-* 澳大利亞東部 (australiaeast)
-* 美國中部 (centralus)
+* 澳大利亞東部（australiaeast）
+* 美國中部（centralus）
 * 美國東部 (eastus)
-* 美國東部 2 (eastus2)
-* 日本東部 (japaneast)
+* 美國東部2（eastus2）
+* 日本東部（japaneast）
 * 北歐 (northeurope)
-* 東南亞 (southeastasia)
-* 美國中西部 (westcentralus)
+* 東南亞（southeastasia）
+* 美國中西部（westcentralus）
 * 西歐 (westeurope)
 * 美國西部 (westus)
 * 美國西部 2 (westus2)
@@ -64,12 +64,12 @@ az provider register --namespace Microsoft.ContainerInstance
 虛擬節點功能非常依賴 ACI 的功能集。 虛擬節點尚未支援下列案例
 
 * 使用服務主體來提取 ACR 映射。 [因應措施](https://github.com/virtual-kubelet/virtual-kubelet/blob/master/providers/azure/README.md#Private-registry)是使用[Kubernetes 秘密](https://kubernetes.io/docs/tasks/configure-pod-container/pull-image-private-registry/#create-a-secret-by-providing-credentials-on-the-command-line)
-* [虛擬網路限制](../container-instances/container-instances-vnet.md), 包括 VNet 對等互連、Kubernetes 網路原則, 以及使用網路安全性群組連到網際網路的輸出流量。
+* [虛擬網路限制](../container-instances/container-instances-vnet.md)，包括 VNet 對等互連、Kubernetes 網路原則，以及使用網路安全性群組連到網際網路的輸出流量。
 * Init 容器
 * [主機別名](https://kubernetes.io/docs/concepts/services-networking/add-entries-to-pod-etc-hosts-with-host-aliases/)
 * ACI 中 exec 的[引數](../container-instances/container-instances-exec.md#restrictions)
 * [Daemonset](concepts-clusters-workloads.md#statefulsets-and-daemonsets)不會將 pod 部署至虛擬節點
-* 虛擬節點也不支援[Windows Server 節點 (目前在 AKS 中處於預覽狀態)](windows-container-cli.md) 。 您可以使用虛擬節點來排程 Windows Server 容器, 而不需要 AKS 叢集中的 Windows Server 節點。
+* 虛擬節點也不支援[Windows Server 節點（目前在 AKS 中處於預覽狀態）](windows-container-cli.md) 。 您可以使用虛擬節點來排程 Windows Server 容器，而不需要 AKS 叢集中的 Windows Server 節點。
 
 ## <a name="sign-in-to-azure"></a>登入 Azure
 
@@ -83,12 +83,12 @@ az provider register --namespace Microsoft.ContainerInstance
 
 - 專案詳細資料：選取 Azure 訂用帳戶，然後選取或建立 Azure 資源群組，例如 *myResourceGroup*。 輸入 **Kubernetes 叢集名稱**，例如 myAKSCluster。
 - 叢集詳細資料：選取 AKS 叢集的區域、Kubernetes 版本及 DNS 名稱前置詞。
-- *主要節點集*區:選取 AKS 節點的 VM 大小。 VM 大小**無法**在 AKS 叢集部署完畢後變更。
+- *主要節點集*區：選取 AKS 節點的 VM 大小。 VM 大小**無法**在 AKS 叢集部署完畢後變更。
      - 選取要部署到叢集的節點數目。 本文將 [節點計數] 設為 1。 節點計數**可以**在叢集部署完畢後調整。
 
-按一下 **下一步調整**。
+按一下 **下一步縮放 @ no__t-0。
 
-在 [**調整**] 頁面上, 選取 [**虛擬節點**] 下的 [*已啟用*]。
+在 [**調整**] 頁面上，選取 [**虛擬節點**] 下的 [*已啟用*]。
 
 ![建立 AKS 叢集並啟用虛擬節點](media/virtual-nodes-portal/enable-virtual-nodes.png)
 
@@ -106,7 +106,7 @@ Azure Cloud Shell 是免費的互動式 Shell，可讓您用來執行本文中�
 
 若要開啟 Cloud Shell，請選取程式碼區塊右上角的 [試試看]。 您也可以移至 [https://shell.azure.com/bash](https://shell.azure.com/bash)，從另一個瀏覽器索引標籤啟動 Cloud Shell。 選取 [複製] 即可複製程式碼區塊，將它貼到 Cloud Shell 中，然後按 enter 鍵加以執行。
 
-使用[az aks get-認證][az-aks-get-credentials]命令來設定`kubectl`以連線到您的 Kubernetes 叢集。 下列範例會針對 myResourceGroup 資源群組中的叢集名稱 myAKSCluster 取得認證：
+使用[az aks get-認證][az-aks-get-credentials]命令，將 `kubectl` 設定為連接到您的 Kubernetes 叢集。 下列範例會針對 myResourceGroup 資源群組中的叢集名稱 myAKSCluster 取得認證：
 
 ```azurecli-interactive
 az aks get-credentials --resource-group myResourceGroup --name myAKSCluster
@@ -130,7 +130,7 @@ aks-agentpool-14693408-0       Ready     agent     32m       v1.11.2
 
 ## <a name="deploy-a-sample-app"></a>部署範例應用程式
 
-在 Azure Cloud Shell 中，建立名為 `virtual-node.yaml` 的檔案，然後將下列 YAML 複製進來。 若要排程節點上的容器, 請定義[nodeSelector][node-selector]和[toleration][toleration] 。 這些設定會允許 Pod 在虛擬節點上進行排程，並確認該功能已成功啟用。
+在 Azure Cloud Shell 中，建立名為 `virtual-node.yaml` 的檔案，然後將下列 YAML 複製進來。 若要排程節點上的容器，請定義[nodeSelector][node-selector]和[toleration][toleration] 。 這些設定會允許 Pod 在虛擬節點上進行排程，並確認該功能已成功啟用。
 
 ```yaml
 apiVersion: apps/v1
@@ -169,7 +169,7 @@ spec:
 kubectl apply -f virtual-node.yaml
 ```
 
-使用[kubectl get][kubectl-get] pod 命令`-o wide`搭配引數, 以輸出 pod 清單和已排程節點。 請注意，`virtual-node-helloworld` pod 已排定在 `virtual-node-linux` 節點上。
+使用[kubectl get][kubectl-get] pod 命令搭配 `-o wide` 引數，以輸出 pod 清單和已排程的節點。 請注意，`virtual-node-helloworld` pod 已排定在 `virtual-node-linux` 節點上。
 
 ```
 $ kubectl get pods -o wide
@@ -181,7 +181,7 @@ virtual-node-helloworld-9b55975f-bnmfl   1/1       Running   0          4m      
 Pod 會從 Azure 虛擬網路的子網路 (為搭配使用虛擬節點而委派) 獲派內部 IP 位址。
 
 > [!NOTE]
-> 如果您使用儲存在 Azure Container Registry 中的映射, 請[設定並使用 Kubernetes 秘密][acr-aks-secrets]。 目前的虛擬節點限制是您無法使用整合式 Azure AD 服務主體驗證。 如果您未使用祕密，已在虛擬節點上排程的 Pod 就無法啟動並會回報錯誤 `HTTP response status code 400 error code "InaccessibleImage"`。
+> 如果您使用儲存在 Azure Container Registry 中的映射，請[設定並使用 Kubernetes 秘密][acr-aks-secrets]。 目前的虛擬節點限制是您無法使用整合式 Azure AD 服務主體驗證。 如果您未使用祕密，已在虛擬節點上排程的 Pod 就無法啟動並會回報錯誤 `HTTP response status code 400 error code "InaccessibleImage"`。
 
 ## <a name="test-the-virtual-node-pod"></a>測試虛擬節點 Pod
 
@@ -219,7 +219,7 @@ $ curl -L 10.241.0.4
 
 ## <a name="next-steps"></a>後續步驟
 
-在本文中，Pod 已在虛擬節點上進行排程，並獲派私人的內部 IP 位址。 您可以改為建立服務部署，並透過負載平衡器或輸入控制器將流量路由到您的 Pod。 如需詳細資訊, 請參閱[在 AKS 中建立基本輸入控制器][aks-basic-ingress]。
+在本文中，Pod 已在虛擬節點上進行排程，並獲派私人的內部 IP 位址。 您可以改為建立服務部署，並透過負載平衡器或輸入控制器將流量路由到您的 Pod。 如需詳細資訊，請參閱[在 AKS 中建立基本輸入控制器][aks-basic-ingress]。
 
 虛擬節點是 AKS 中調整解決方案的一個元件。 如需有關調整解決方案的詳細資訊，請參閱下列文章：
 
@@ -238,6 +238,7 @@ $ curl -L 10.241.0.4
 [aks-github]: https://github.com/azure/aks/issues]
 [virtual-node-autoscale]: https://github.com/Azure-Samples/virtual-node-autoscale
 [virtual-kubelet-repo]: https://github.com/virtual-kubelet/virtual-kubelet
+[acr-aks-secrets]: https://kubernetes.io/docs/tasks/configure-pod-container/pull-image-private-registry/
 
 <!-- LINKS - internal -->
 [aks-network]: ./networking-overview.md
@@ -245,5 +246,4 @@ $ curl -L 10.241.0.4
 [aks-hpa]: tutorial-kubernetes-scale.md
 [aks-cluster-autoscaler]: cluster-autoscaler.md
 [aks-basic-ingress]: ingress-basic.md
-[acr-aks-secrets]: ../container-registry/container-registry-auth-aks.md#access-with-kubernetes-secret
 [az-provider-list]: /cli/azure/provider#az-provider-list

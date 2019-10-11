@@ -17,14 +17,14 @@ ms.author: twhitney
 ms.reviewer: ''
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 218e659452779b6372541c3abec908878493f5d2
-ms.sourcegitcommit: 263a69b70949099457620037c988dc590d7c7854
+ms.openlocfilehash: 2a554602b9648190926168e4886d4f0773692225
+ms.sourcegitcommit: b4665f444dcafccd74415fb6cc3d3b65746a1a31
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71268917"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72264143"
 ---
-# <a name="how-to-sso-between-adal-and-msal-apps-on-macos-and-ios"></a>HOW TO：MacOS 和 iOS 上的 ADAL 與 MSAL 應用程式之間的 SSO
+# <a name="how-to-sso-between-adal-and-msal-apps-on-macos-and-ios"></a>作法：MacOS 和 iOS 上的 ADAL 與 MSAL 應用程式之間的 SSO
 
 適用于 iOS 的 Microsoft 驗證程式庫（MSAL）可以在應用程式之間與[ADAL 目標-C](https://github.com/AzureAD/azure-activedirectory-library-for-objc)共用 SSO 狀態。 您可以依自己的步調將應用程式遷移至 MSAL，以確保您的使用者仍能受益于跨應用程式的 SSO--即使是使用 ADAL 和 MSAL 應用程式的混合。
 
@@ -42,11 +42,11 @@ ADAL 2.7. x 可以讀取 MSAL 快取格式。 您不需要針對具有 ADAL 2.7.
 
 ### <a name="account-identifier-differences"></a>帳戶識別碼差異
 
-MSAL 和 ADAL 使用不同的帳戶識別碼。 ADAL 會使用 UPN 作為其主要帳戶識別碼。 MSAL 會使用以物件識別碼為基礎的非可顯示帳戶識別碼和 AAD 帳戶的租使用者識別碼，以及`sub`其他帳戶類型的宣告。
+MSAL 和 ADAL 使用不同的帳戶識別碼。 ADAL 會使用 UPN 作為其主要帳戶識別碼。 MSAL 會使用以物件識別碼為基礎的非可顯示帳戶識別碼和 AAD 帳戶的租使用者識別碼，以及其他帳戶類型的 `sub` 宣告。
 
-當您在 MSAL `MSALAccount`結果中收到物件時，它會`identifier`在屬性中包含帳戶識別碼。 應用程式應該針對後續的無訊息要求使用此識別碼。
+當您在 MSAL 結果中收到 @no__t 0 的物件時，它會在 `identifier` 屬性中包含帳戶識別碼。 應用程式應該針對後續的無訊息要求使用此識別碼。
 
-除了之外`identifier`， `MSALAccount`物件還包含名`username`為的可顯示識別碼。 這會在`userId` ADAL 中轉譯為。 `username`不會視為唯一的識別碼，而且可以隨時變更，因此應該只用于與 ADAL 的回溯相容性案例。 MSAL 支援使用`username`或`identifier`的快取查詢，這是`identifier`建議查詢的位置。
+除了 `identifier`，`MSALAccount` 物件包含名為 `username` 的可顯示識別碼。 這會轉譯為 ADAL 中的 `userId`。 `username` 不會視為唯一的識別碼，而且可以隨時變更，因此應該只用于與 ADAL 的回溯相容性案例。 MSAL 支援使用 `username` 或 `identifier` 的快取查詢，這是建議 `identifier` 進行查詢的方式。
 
 下表摘要說明 ADAL 與 MSAL 之間的帳戶識別碼差異：
 
@@ -54,9 +54,9 @@ MSAL 和 ADAL 使用不同的帳戶識別碼。 ADAL 會使用 UPN 作為其主�
 | --------------------------------- | ------------------------------------------------------------ | --------------- | ------------------------------ |
 | 可顯示的識別碼            | `username`                                                   | `userId`        | `userId`                       |
 | 唯一的不可顯示識別碼 | `identifier`                                                 | `homeAccountId` | N/A                            |
-| 沒有已知的帳戶識別碼               | 透過`allAccounts:`中的 API 查詢所有帳戶`MSALPublicClientApplication` | N/A             | N/A                            |
+| 沒有已知的帳戶識別碼               | 透過 `MSALPublicClientApplication` 中的 `allAccounts:` API 查詢所有帳戶 | N/A             | N/A                            |
 
-這是提供`MSALAccount`這些識別碼的介面：
+這是提供這些識別碼的 @no__t 0 介面：
 
 ```objc
 @protocol MSALAccount <NSObject>
@@ -89,7 +89,7 @@ MSAL 和 ADAL 使用不同的帳戶識別碼。 ADAL 會使用 UPN 作為其主�
 
 ### <a name="sso-from-msal-to-adal"></a>從 MSAL 到 ADAL 的 SSO
 
-如果您有 MSAL 應用程式和 ADAL 應用程式，且使用者第一次登入以`username` `userId`MSAL 為基礎的應用程式，您可以`MSALAccount`從物件儲存，並將它傳遞至以 adal 為基礎的應用程式，以取得 adal 應用程式中的 SSO。 然後 ADAL 可以使用`acquireTokenSilentWithResource:clientId:redirectUri:userId:completionBlock:` API 以無訊息模式尋找帳戶資訊。
+如果您有 MSAL 應用程式和 ADAL 應用程式，且使用者第一次登入以 MSAL 為基礎的應用程式，您可以在 ADAL 應用程式中取得 SSO，方法是從 @no__t 1 物件儲存 `username`，並將它傳遞至以 ADAL 為基礎的應用程式（`userId`）。 然後 ADAL 可以使用 `acquireTokenSilentWithResource:clientId:redirectUri:userId:completionBlock:` API 以無訊息模式尋找帳戶資訊。
 
 ### <a name="sso-from-adal-to-msal"></a>從 ADAL 到 MSAL 的 SSO
 
@@ -97,20 +97,20 @@ MSAL 和 ADAL 使用不同的帳戶識別碼。 ADAL 會使用 UPN 作為其主�
 
 #### <a name="adals-homeaccountid"></a>ADAL 的 homeAccountId
 
-ADAL 2.7. x `homeAccountId` `ADUserInformation`會透過這個屬性，在結果中的物件中傳回：
+ADAL 2.7. x 會透過這個屬性，傳回結果中 `ADUserInformation` 物件的 `homeAccountId`：
 
 ```objc
 /*! Unique AAD account identifier across tenants based on user's home OID/home tenantId. */
 @property (readonly) NSString *homeAccountId;
 ```
 
-`homeAccountId`在 ADAL 的中，相當`identifier`于 MSAL 中的。 您可以儲存此識別碼，以用於使用`accountForIdentifier:error:` API 進行帳戶查閱的 MSAL。
+ADAL 中的 `homeAccountId` 相當於 MSAL 中的 `identifier`。 您可以儲存此識別碼，以便在 MSAL 中用於使用 `accountForIdentifier:error:` API 的帳戶查閱。
 
-#### <a name="adals-userid"></a>ADAL`userId`
+#### <a name="adals-userid"></a>ADAL 的 `userId`
 
-如果`homeAccountId`無法使用，或您只有可顯示的識別碼，您可以使用 ADAL 的`userId`來查閱 MSAL 中的帳戶。
+如果 `homeAccountId` 無法使用，或您只有可顯示的識別碼，您可以使用 ADAL 的 `userId` 來查閱 MSAL 中的帳戶。
 
-在 MSAL 中，首先依據`username`或`identifier`查閱帳戶。 如果您`identifier`有，請一律使用來查詢，而且`username`只會使用做為回復。 如果找到帳戶，請使用 acquireTokenSilent 呼叫中的帳戶。
+在 MSAL 中，先 `username` 或 `identifier` 來查詢帳戶。 如果您有，請一律使用 `identifier` 來進行查詢，而且只會使用 `username` 做為回復。 如果找到帳戶，請使用 `acquireTokenSilent` 呼叫中的帳戶。
 
 Objective-C：
 
@@ -139,7 +139,7 @@ MSALSilentTokenParameters *silentParameters = [[MSALSilentTokenParameters alloc]
 [application acquireTokenSilentWithParameters:silentParameters completionBlock:completionBlock];
 ```
 
-快速
+Swift：
 
 ```swift
         
@@ -195,7 +195,7 @@ Returns account for for the given username (received from an account object retu
 
 較舊的 ADAL 版本原本就不支援 MSAL 快取格式。 不過，為了確保順利從 ADAL 遷移至 MSAL，MSAL 可以讀取較舊的 ADAL 快取格式，而不會再次提示使用者認證。
 
-由於`homeAccountId`舊版 ADAL 無法使用，因此您必須`username`使用來查詢帳戶：
+因為較舊的 ADAL 版本無法使用 `homeAccountId`，所以您需要使用 `username` 來查詢帳戶：
 
 ```objc
 /*!
@@ -219,7 +219,7 @@ MSALSilentTokenParameters *silentParameters = [[MSALSilentTokenParameters alloc]
 [application acquireTokenSilentWithParameters:silentParameters completionBlock:completionBlock];
 ```
 
-快速
+Swift：
 
 ```swift
 do {
@@ -259,7 +259,7 @@ MSALSilentTokenParameters *silentParameters = [[MSALSilentTokenParameters alloc]
 [application acquireTokenSilentWithParameters:silentParameters completionBlock:completionBlock];
 ```
 
-快速
+Swift：
 
 ```swift
       
@@ -289,4 +289,4 @@ do {
 
 ## <a name="next-steps"></a>後續步驟
 
-深入瞭解[驗證流程和應用程式案例](authentication-flows-app-scenarios.md)
+深入了解[驗證流程和應用程式案例](authentication-flows-app-scenarios.md)

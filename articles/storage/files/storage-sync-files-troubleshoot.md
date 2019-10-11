@@ -4,15 +4,15 @@ description: 針對 Azure 檔案同步常見問題進行疑難排解。
 author: jeffpatt24
 ms.service: storage
 ms.topic: conceptual
-ms.date: 07/29/2019
+ms.date: 10/10/2019
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: 6771164c26c51e40d80d0c82b42f04c4f95c4c37
-ms.sourcegitcommit: 1c2659ab26619658799442a6e7604f3c66307a89
+ms.openlocfilehash: 31a9eda0e17083aac25be071c1d1a3ab84049e39
+ms.sourcegitcommit: f272ba8ecdbc126d22a596863d49e55bc7b22d37
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72255099"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72274889"
 ---
 # <a name="troubleshoot-azure-file-sync"></a>針對 Azure 檔案同步進行移難排解
 使用 Azure 檔案同步，將組織的檔案共用集中在 Azure 檔案服務中，同時保有內部部署檔案伺服器的彈性、效能及相容性。 Azure 檔案同步會將 Windows Server 轉換成 Azure 檔案共用的快速快取。 您可以使用 Windows Server 上可用的任何通訊協定來從本機存取資料，包括 SMB、NFS 和 FTPS。 您可以視需要存取多個散佈於世界各地的快取。
@@ -797,6 +797,17 @@ PerItemErrorCount: 1006.
 4. 如果已在伺服器端點上啟用雲端階層處理，請執行在[刪除伺服器端點後無法在伺服器上存取](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=portal1%2Cazure-portal#tiered-files-are-not-accessible-on-the-server-after-deleting-a-server-endpoint)階層式檔案一節中所述的步驟，以刪除伺服器上的孤立分層檔案。
 5. 重新建立同步群組。
 
+<a id="-2145844941"></a>**同步處理失敗，因為 HTTP 要求已重新導向**  
+
+| | |
+|-|-|
+| **HRESULT** | 0x80190133 |
+| **HRESULT (十進位)** | -2145844941 |
+| **錯誤字串** | HTTP_E_STATUS_REDIRECT_KEEP_VERB |
+| **需要補救** | 是 |
+
+發生此錯誤的原因是 Azure 檔案同步不支援 HTTP 重新導向（3xx 狀態碼）。 若要解決此問題，請停用 proxy 伺服器或網路裝置上的 HTTP 重新導向。
+
 ### <a name="common-troubleshooting-steps"></a>常用的疑難排解步驟
 <a id="troubleshoot-storage-account"></a>**確認儲存體帳戶確實存在。**  
 # <a name="portaltabazure-portal"></a>[入口網站](#tab/azure-portal)
@@ -1008,7 +1019,7 @@ New-FsrmFileScreen -Path "E:\AFSdataset" -Description "Filter unsupported charac
         - 在提高權限的命令提示字元，執行 `fltmc`。 確認已列出 StorageSync.sys 和 StorageSyncGuard.sys 檔案系統篩選器驅動程式。
 
 > [!NOTE]
-> 如果檔案無法回收，則會每小時在遙測事件記錄中記錄一次事件識別碼 9006 (對於每個錯誤碼會記錄一個事件)。 如果在診斷問題時需要額外的資訊，則應使用作業和診斷事件記錄。
+> 如果檔案無法回收，則會每小時在遙測事件記錄中記錄一次事件識別碼 9006 (對於每個錯誤碼會記錄一個事件)。 請查看[召回錯誤和修復](#recall-errors-and-remediation)一節，以查看錯誤碼是否列出補救步驟。
 
 ### <a name="recall-errors-and-remediation"></a>召回錯誤和補救
 
@@ -1018,8 +1029,12 @@ New-FsrmFileScreen -Path "E:\AFSdataset" -Description "Filter unsupported charac
 | 0x80070036 | -2147024842 | ERROR_NETWORK_BUSY | 因為發生網路問題，所以檔案無法重新叫用。  | 如果錯誤持續發生，請檢查 Azure 檔案共用的網路連線。 |
 | 0x80c80037 | -2134376393 | ECS_E_SYNC_SHARE_NOT_FOUND | 因為已刪除伺服器端點，所以檔案無法重新叫用。 | 若要解決此問題，請參閱在[刪除伺服器端點之後，伺服器上的](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=portal1%2Cazure-portal#tiered-files-are-not-accessible-on-the-server-after-deleting-a-server-endpoint)階層式檔案無法存取。 |
 | 0x80070005 | -2147024891 | ERROR_ACCESS_DENIED | 檔案因「拒絕存取」錯誤而無法重新叫用。 如果已啟用儲存體帳戶上的防火牆和虛擬網路設定，而且伺服器無法存取儲存體帳戶，就會發生此問題。 | 若要解決此問題，請遵循部署指南中[設定防火牆和虛擬網路設定](https://docs.microsoft.com/azure/storage/files/storage-sync-files-deployment-guide?tabs=azure-portal#configure-firewall-and-virtual-network-settings)一節所述的步驟，新增伺服器 IP 位址或虛擬網路。 |
-| 0x80c86002 | -2134351870 | ECS_E_AZURE_RESOURCE_NOT_FOUND | 檔案無法重新叫用，因為它無法在 Azure 檔案共用中存取。 | 若要解決此問題，請確認檔案存在於 Azure 檔案共用中。 如果檔案存在於 Azure 檔案共用中，請升級至最新的 Azure 檔案同步代理程式版本。 |
-| 0x80c8305f | -2134364065 | ECS_E_EXTERNAL_STORAGE_ACCOUNT_AUTHORIZATION_FAILED | 因為儲存體帳戶的授權失敗，所以檔案無法重新叫用。 | 若要解決此問題，請確認[Azure 檔案同步具有儲存體帳戶的存取權](https://docs.microsoft.com/en-us/azure/storage/files/storage-sync-files-troubleshoot?tabs=portal1%2Cazure-portal#troubleshoot-rbac)。 |
+| 0x80c86002 | -2134351870 | ECS_E_AZURE_RESOURCE_NOT_FOUND | 檔案無法重新叫用，因為它無法在 Azure 檔案共用中存取。 | 若要解決此問題，請確認檔案存在於 Azure 檔案共用中。 如果檔案存在於 Azure 檔案共用中，請升級至最新的 Azure 檔案同步[代理程式版本](https://docs.microsoft.com/azure/storage/files/storage-files-release-notes#supported-versions)。 |
+| 0x80c8305f | -2134364065 | ECS_E_EXTERNAL_STORAGE_ACCOUNT_AUTHORIZATION_FAILED | 因為儲存體帳戶的授權失敗，所以檔案無法重新叫用。 | 若要解決此問題，請確認[Azure 檔案同步具有儲存體帳戶的存取權](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=portal1%2Cazure-portal#troubleshoot-rbac)。 |
+| 0x80c86030 | -2134351824 | ECS_E_AZURE_FILE_SHARE_NOT_FOUND | 檔案無法重新叫用，因為無法存取 Azure 檔案共用。 | 確認檔案共用存在且可供存取。 如果檔案共用已刪除並重新建立，請執行同步處理失敗中所述的步驟，[因為已刪除](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=portal1%2Cazure-portal#-2134375810)並重新建立 Azure 檔案共用一節，以刪除並重新建立同步群組。 |
+| 0x800705aa | -2147023446 | ERROR_NO_SYSTEM_RESOURCES | 檔案因 insuffcient 系統資源而無法重新叫用。 | 如果錯誤持續發生，請調查哪一個應用程式或核心模式驅動程式是耗盡系統資源。 |
+| 0x8007000e | -2147024882 | ERROR_OUTOFMEMORY | 檔案因 insuffcient 記憶體而無法重新叫用。 | 如果錯誤持續發生，請調查哪一個應用程式或核心模式驅動程式造成記憶體不足的狀況。 |
+| 0x80070070 | -2147024784 | ERROR_DISK_FULL | 因為磁碟空間不足，所以無法重新叫用檔案。 | 若要解決此問題，請將檔案移至不同的磁片區、增加磁片區的大小，或使用 StorageSyncCloudTiering 指令程式來強制執行檔案，以釋放磁片區上的空間。 |
 
 ### <a name="tiered-files-are-not-accessible-on-the-server-after-deleting-a-server-endpoint"></a>刪除伺服器端點之後，伺服器上的階層式檔案無法存取
 如果未在刪除伺服器端點之前回收檔案，伺服器上的階層式檔案將會變成無法存取。

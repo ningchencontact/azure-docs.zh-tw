@@ -9,26 +9,26 @@ ms.topic: article
 ms.date: 03/15/2018
 ms.author: alehall
 ms.custom: mvc
-ms.openlocfilehash: ddaff590fd493b430a72c30dd35cb1b891b80d84
-ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
+ms.openlocfilehash: 647cb0573922bb53232dbce3f3a7a2557553d47d
+ms.sourcegitcommit: b4665f444dcafccd74415fb6cc3d3b65746a1a31
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67205339"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72263888"
 ---
 # <a name="running-apache-spark-jobs-on-aks"></a>在 AKS 上執行 Apache Spark 作業
 
-[Apache Spark][apache-spark] 是進行大規模資料處理的快速引擎。 從 [Spark 2.3.0 版][spark-latest-release] 開始，Apache Spark 支援與 Kubernetes 叢集的原生整合。 Azure Kubernetes Service (AKS) 是在 Azure 中執行的受控 Kubernetes 環境。 本文件詳述在 Azure Kubernetes Service (AKS) 叢集上準備和執行 Apache Spark 作業的做法。
+[Apache Spark][apache-spark]是大規模資料處理的快速引擎。 在[Spark 2.3.0 版本][spark-latest-release]中，Apache Spark 支援與 Kubernetes 叢集的原生整合。 Azure Kubernetes Service (AKS) 是在 Azure 中執行的受控 Kubernetes 環境。 本文件詳述在 Azure Kubernetes Service (AKS) 叢集上準備和執行 Apache Spark 作業的做法。
 
 ## <a name="prerequisites"></a>必要條件
 
 為了要完成本文中的步驟，您需要下列項目。
 
-* 對 Kubernetes 和 [Apache Spark][spark-quickstart] 的基本了解。
-* [Docker Hub][docker-hub] 帳戶，或 [Azure Container Registry][acr-create]。
-* 在您的開發系統上[安裝][azure-cli] Azure CLI。
-* 在您的系統上安裝 [JDK 8][java-install]。
-* 在您的系統上安裝 SBT ([Scala 建置工具][sbt-install])。
+* 對 Kubernetes 和[Apache Spark][spark-quickstart]的基本瞭解。
+* [Docker Hub][docker-hub]帳戶或[Azure Container Registry][acr-create]。
+* Azure CLI[安裝][azure-cli]在您的開發系統上。
+* [JDK 8][java-install]安裝在您的系統上。
+* 已安裝在您系統上的 SBT （[Scala Build Tool][sbt-install]）。
 * 在您的系統上安裝 Git 命令列工具。
 
 ## <a name="create-an-aks-cluster"></a>建立 AKS 叢集
@@ -55,7 +55,7 @@ az aks create --resource-group mySparkCluster --name mySparkCluster --node-vm-si
 az aks get-credentials --resource-group mySparkCluster --name mySparkCluster
 ```
 
-如果您使用 Azure Container Registry (ACR) 來儲存容器映像，請設定 AKS 與 ACR 之間的驗證。 請參閱 [ACR 驗證文件][acr-aks]以取得這些步驟。
+如果您使用 Azure Container Registry (ACR) 來儲存容器映像，請設定 AKS 與 ACR 之間的驗證。 如需這些步驟，請參閱[ACR 驗證檔][acr-aks]。
 
 ## <a name="build-the-spark-source"></a>建置 Spark 來源
 
@@ -313,14 +313,14 @@ ENTRYPOINT [ "/opt/entrypoint.sh" ]
 ```
 
 > [!WARNING]
-> 從 Spark[文件][spark-docs]:「 Kubernetes 排程器目前為實驗性。 在未來的版本中，可組態、容器映像和進入點可能會有行為上的變更。」
+> 從 Spark[檔][spark-docs]：「Kubernetes 排程器目前為實驗性。 在未來的版本中，可組態、容器映像和進入點可能會有行為上的變更。」
 
 ## <a name="next-steps"></a>後續步驟
 
 如需詳細資料，請參閱 Spark 文件。
 
 > [!div class="nextstepaction"]
-> [Spark 文件][spark-docs]
+> [Spark 檔][spark-docs]
 
 <!-- LINKS - external -->
 [apache-spark]: https://spark.apache.org/
@@ -333,7 +333,7 @@ ENTRYPOINT [ "/opt/entrypoint.sh" ]
 
 
 <!-- LINKS - internal -->
-[acr-aks]: https://docs.microsoft.com/azure/container-registry/container-registry-auth-aks
+[acr-aks]: cluster-container-registry-integration.md
 [acr-create]: https://docs.microsoft.com/azure/container-registry/container-registry-get-started-azure-cli
 [aks-quickstart]: https://docs.microsoft.com/azure/aks/
 [azure-cli]: https://docs.microsoft.com/cli/azure/?view=azure-cli-latest

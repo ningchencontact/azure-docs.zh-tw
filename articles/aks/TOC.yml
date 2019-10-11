@@ -215,8 +215,6 @@
               href: azure-ad-integration.md
         - name: 使用 Kubernetes RBAC 搭配 Azure AD 整合
           href: azure-ad-rbac.md
-        - name: 使用 ACR 驗證
-          href: ../container-registry/container-registry-auth-aks.md
           maintainContext: true
     - name: 監視和記錄
       items:

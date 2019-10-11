@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: troubleshooting
 ms.date: 10/02/2019
 ms.author: helohr
-ms.openlocfilehash: 4c684a2db02b7587b6d81eaf2f034540250fc001
-ms.sourcegitcommit: 15e3bfbde9d0d7ad00b5d186867ec933c60cebe6
+ms.openlocfilehash: 167d880f82314fc3b5ade299442f04d62b5dacb9
+ms.sourcegitcommit: f272ba8ecdbc126d22a596863d49e55bc7b22d37
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/03/2019
-ms.locfileid: "71841302"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72274483"
 ---
 # <a name="session-host-virtual-machine-configuration"></a>設定工作階段主機虛擬機器
 
@@ -62,11 +62,11 @@ ms.locfileid: "71841302"
 
 **原因 1：** Vm 位於與網域所在的虛擬網路（VNET）沒有關聯的虛擬網路上。
 
-**修正 1:** 在布建 Vm 的 VNET 和執行網域控制站（DC）的 VNET 之間，建立 VNET 對等互連。 請參閱[建立虛擬網路對等互連-Resource Manager、不同的](https://docs.microsoft.com/azure/virtual-network/create-peering-different-subscriptions)訂用帳戶。
+**修正1：** 在布建 Vm 的 VNET 和執行網域控制站（DC）的 VNET 之間，建立 VNET 對等互連。 請參閱[建立虛擬網路對等互連-Resource Manager、不同的](https://docs.microsoft.com/azure/virtual-network/create-peering-different-subscriptions)訂用帳戶。
 
 **原因 2：** 使用 Azure Active Directory Domain Services （Azure AD DS）時，虛擬網路不會更新其 DNS 伺服器設定，以指向受管理的網域控制站。
 
-**修正 2:** 若要更新包含 Azure AD DS 之虛擬網路的 DNS 設定，請參閱[更新 Azure 虛擬網路的 dns 設定](https://docs.microsoft.com/azure/active-directory-domain-services/tutorial-create-instance#update-dns-settings-for-the-azure-virtual-network)。
+**修正2：** 若要更新包含 Azure AD DS 之虛擬網路的 DNS 設定，請參閱[更新 Azure 虛擬網路的 dns 設定](https://docs.microsoft.com/azure/active-directory-domain-services/tutorial-create-instance#update-dns-settings-for-the-azure-virtual-network)。
 
 **原因3：** 網路介面的 DNS 伺服器設定不會指向虛擬網路上的適當 DNS 伺服器。
 
@@ -80,7 +80,7 @@ ms.locfileid: "71841302"
 
 請遵循這些指示來確認已安裝元件，並檢查是否有錯誤訊息。
 
-1. 勾選 [**控制台** > ] [**程式** > ] [程式**和功能**]，確認已安裝這兩個元件。 如果**Windows 虛擬桌面 agent**和**Windows 虛擬桌面 agent 開機載入**器不可見，則不會安裝在 VM 上。
+1. 勾選 [**控制台**] 中的 **[@no__t @no__t] [程式** **和功能]，** 確認已安裝這兩個元件。 如果**Windows 虛擬桌面 agent**和**Windows 虛擬桌面 agent 開機載入**器不可見，則不會安裝在 VM 上。
 2. 開啟 [檔案**瀏覽器**] 並流覽至**C:\Windows\Temp\scriptlogs.log**。 如果檔案遺失，則表示安裝這兩個元件的 PowerShell DSC 無法在提供的安全性內容中執行。
 3. 如果檔案**C:\Windows\Temp\scriptlogs.log**存在，請將它開啟，並檢查是否有錯誤訊息。
 
@@ -88,11 +88,11 @@ ms.locfileid: "71841302"
 
 **原因 1：** 在 Azure Resource Manager 範本的輸入期間提供的認證不正確或許可權不足。
 
-**修正 1:** 使用 [使用[PowerShell 建立主機集](https://docs.microsoft.com/azure/virtual-desktop/create-host-pools-powershell)區]，手動將遺失的元件新增至 vm。
+**修正1：** 使用 [使用[PowerShell 建立主機集](https://docs.microsoft.com/azure/virtual-desktop/create-host-pools-powershell)區]，手動將遺失的元件新增至 vm。
 
 **原因 2：** PowerShell DSC 能夠啟動並執行，但無法完成，因為它無法登入 Windows 虛擬桌面並取得所需的資訊。
 
-**修正 2:** 確認下列清單中的專案。
+**修正2：** 確認下列清單中的專案。
 
 - 請確定帳戶沒有 MFA。
 - 請確認租使用者名稱正確，且租使用者存在於 Windows 虛擬桌面中。
@@ -141,11 +141,11 @@ ms.locfileid: "71841302"
 
 **原因 1：** RDAgentBootLoader 服務已停止。
 
-**修正 1:** 啟動 [工作管理員]，如果 [服務] 索引標籤報告 RDAgentBootLoader 服務的 [已停止] 狀態，請啟動服務。
+**修正1：** 啟動 [工作管理員]，如果 [服務] 索引標籤報告 RDAgentBootLoader 服務的 [已停止] 狀態，請啟動服務。
 
 **原因 2：** 埠443可能已關閉。
 
-**修正 2:** 請遵循這些指示來開啟埠443。
+**修正2：** 請遵循這些指示來開啟埠443。
 
 1. 從[Sysinternal 工具](https://docs.microsoft.com/sysinternals/downloads/psping)下載 PSPing 工具，確認埠443已開啟。
 2. 在執行代理程式的工作階段主機 VM 上安裝 PSPing。
@@ -296,13 +296,13 @@ Windows 虛擬桌面並存堆疊會隨著 Windows Server 2019 自動安裝。 �
 
 16. 當 Cmdlet 完成執行時，請使用故障的並存堆疊重新開機 VM。
 
-## <a name="remote-licensing-model-isnt-configured"></a>未設定遠端授權模型
+## <a name="remote-desktop-licensing-mode-isnt-configured"></a>未設定遠端桌面授權模式
 
 如果您使用系統管理帳戶登入 Windows 10 企業版的多會話，您可能會收到一則通知，指出「遠端桌面授權模式未設定，遠端桌面服務會在 X 天內停止運作。 在連接代理人伺服器上，使用伺服器管理員來指定遠端桌面授權模式。」
 
 如果時間限制過期，就會出現一則錯誤訊息，指出「遠端會話已中斷連線，因為這部電腦沒有可用的遠端桌面用戶端存取使用權」。
 
-如果您看到其中一個訊息，這表示您需要開啟 [群組原則編輯器]，並手動將授權模式設定為 [**每位使用者**]。 手動設定程式會根據您所使用的 Windows 10 企業版多個會話版本而有所不同。 下列各節將說明如何檢查您的版本號碼，以及要對每個版本進行的動作。
+如果您看到其中一個訊息，這表示映射並未安裝最新的 Windows 更新，或您正在將遠端桌面授權模式設定為 [**每位使用者**]。 移除設定此原則的任何設定，然後遵循步驟來識別 Windows 10 企業版多會話的版本，並安裝對應的更新。  
 
 >[!NOTE]
 >Windows 虛擬桌面只有在您的主機集區包含 Windows Server 工作階段主機時，才需要 RDS 用戶端存取許可證（CAL）。 若要瞭解如何設定 RDS CAL，請參閱[使用用戶端存取許可證來授權您的 RDS 部署](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/rds-client-access-license)。
@@ -322,59 +322,20 @@ Windows 虛擬桌面並存堆疊會隨著 Windows Server 2019 自動安裝。 �
 
 ### <a name="version-1809"></a>版本1809
 
-如果您的版本號碼顯示為 "1809"，您可以升級至 Windows 10 企業版的多會話版本1903，或使用最新的映射重新部署主機集區。
-
-若要升級至 Windows 10，版本1903：
-
-1. 如果您還沒有這麼做，請下載並安裝[Windows 10 5 月2019更新](https://support.microsoft.com/help/4028685/windows-10-get-the-update)。
-2. 使用您的系統管理員帳戶登入您的電腦。
-3. 執行**gpedit.msc**開啟 [群組原則編輯器]。
-4. 在 [電腦設定] 底下，移至**系統管理範本** >  **Windows 元件** > **遠端桌面服務** > **遠端桌面工作階段主機** > **授權**.
-5. 選取 **[設定遠端桌面授權模式]** 。
-6. 在開啟的視窗中，先選取 [**已啟用**]，然後在 [選項] 底下，依據**使用者**指定 RD 工作階段主機伺服器的授權模式，如下圖所示。
-    
-    ![[設定遠端桌面授權模式] 視窗的螢幕擷取畫面，其依據步驟6中的指示所設定。](media/group-policy-editor-per-user.png)
-
-7. 選取 [套用]。
-8. 選取 [確定]。
-9.  重新啟動您的電腦。
-
-若要使用最新的映射重新部署主機集區：
-
-1. 請遵循[使用 Azure Marketplace 建立主機集](create-host-pools-azure-marketplace.md)區中的指示，直到系統提示您選擇映射作業系統版本。 您可以選擇具有或不含 Office365 ProPlus 的 Windows 10 企業版多重會話。
-2. 使用您的系統管理員帳戶登入您的電腦。
-3. 執行**gpedit.msc**開啟 [群組原則編輯器]。
-4. 在 [電腦設定] 底下，移至**系統管理範本** >  **Windows 元件** > **遠端桌面服務** > **遠端桌面工作階段主機** > **授權**.
-5. 選取 **[設定遠端桌面授權模式]** 。
-6. 在開啟的視窗中，先選取 [**已啟用**]，然後在 [選項] 底下，依據**使用者**指定 RD 工作階段主機伺服器的授權模式。
-7. 選取 [套用]。
-8. 選取 [確定]。
-9.  重新啟動您的電腦。
+如果您的版本號碼顯示為 "1809"，請安裝[KB4516077 更新](https://support.microsoft.com/help/4516077)。
 
 ### <a name="version-1903"></a>版本1903
 
-如果您的版本號碼顯示為 "1903"，請遵循下列指示：
-
-1. 使用您的系統管理員帳戶登入您的電腦。
-2. 執行**gpedit.msc**開啟 [群組原則編輯器]。
-3. 在 [電腦設定] 底下，移至**系統管理範本** >  **Windows 元件** > **遠端桌面服務** > **遠端桌面工作階段主機** > **授權**.
-4. 選取 **[設定遠端桌面授權模式]** 。
-6. 在開啟的視窗中，先選取 [**已啟用**]，然後在 [選項] 底下，依據**使用者**指定 RD 工作階段主機伺服器的授權模式，如下圖所示。
-    
-    ![[設定遠端桌面授權模式] 視窗的螢幕擷取畫面，其依據步驟6中的指示所設定。](media/group-policy-editor-per-user.png)
-
-7. 選取 [套用]。
-8. 選取 [確定]。
-9.  重新啟動您的電腦。
+如果您的版本號碼顯示為 "1903"，請安裝[KB4517211 更新](https://support.microsoft.com/help/4517211)。
 
 ## <a name="next-steps"></a>後續步驟
 
-- 如需疑難排解 Windows 虛擬桌面和擴大追蹤的總覽, 請參閱[疑難排解總覽、意見反應和支援](troubleshoot-set-up-overview.md)。
-- 若要針對在 Windows 虛擬桌面環境中建立租使用者和主機集區的問題進行疑難排解, 請參閱[建立租使用者和主機集](troubleshoot-set-up-issues.md)區。
-- 若要在 Windows 虛擬桌面中設定虛擬機器 (VM) 時針對問題進行疑難排解, 請參閱[工作階段主機虛擬機器](troubleshoot-vm-configuration.md)設定。
-- 若要疑難排解 Windows 虛擬桌面用戶端連線的問題, 請參閱[遠端桌面用戶端連接](troubleshoot-client-connection.md)。
-- 若要針對搭配 Windows 虛擬桌面使用 PowerShell 時的問題進行疑難排解, 請參閱[Windows 虛擬桌面 PowerShell](troubleshoot-powershell.md)。
+- 如需疑難排解 Windows 虛擬桌面和擴大追蹤的總覽，請參閱[疑難排解總覽、意見反應和支援](troubleshoot-set-up-overview.md)。
+- 若要針對在 Windows 虛擬桌面環境中建立租使用者和主機集區的問題進行疑難排解，請參閱[建立租使用者和主機集](troubleshoot-set-up-issues.md)區。
+- 若要在 Windows 虛擬桌面中設定虛擬機器（VM）時針對問題進行疑難排解，請參閱[工作階段主機虛擬機器](troubleshoot-vm-configuration.md)設定。
+- 若要疑難排解 Windows 虛擬桌面用戶端連線的問題，請參閱[遠端桌面用戶端連接](troubleshoot-client-connection.md)。
+- 若要針對搭配 Windows 虛擬桌面使用 PowerShell 時的問題進行疑難排解，請參閱[Windows 虛擬桌面 PowerShell](troubleshoot-powershell.md)。
 - 若要深入瞭解此服務，請參閱[Windows 虛擬桌面環境](https://docs.microsoft.com/azure/virtual-desktop/environment-setup)。
-- 若要進行疑難排解教學課程，請參閱[教學課程：針對 Resource Manager 範本部署](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-tutorial-troubleshoot)進行疑難排解。
+- 若要進行疑難排解教學課程，請參閱[教學課程：針對 Resource Manager 範本部署 @ no__t-0 進行疑難排解。
 - 若要了解稽核動作，請參閱 [使用 Resource Manager 來稽核作業](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-audit)。
 - 若要了解部署期間可採取哪些動作來判斷錯誤，請參閱 [檢視部署作業](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-deployment-operations)。

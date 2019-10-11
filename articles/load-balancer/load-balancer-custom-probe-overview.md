@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/17/2019
 ms.author: allensu
-ms.openlocfilehash: 22f0ef7da9018da128e9a978cefa71eaa786829c
-ms.sourcegitcommit: cd70273f0845cd39b435bd5978ca0df4ac4d7b2c
+ms.openlocfilehash: 62af688c6090b61f2596ab376cb479c270b87759
+ms.sourcegitcommit: f272ba8ecdbc126d22a596863d49e55bc7b22d37
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71098934"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72274109"
 ---
 # <a name="load-balancer-health-probes"></a>Load Balancer 健康情況探查
 
@@ -30,7 +30,7 @@ ms.locfileid: "71098934"
 | | 標準 SKU | 基本 SKU |
 | --- | --- | --- |
 | [探查類型](#types) | TCP, HTTP, HTTPS | TCP, HTTP |
-| [探查關閉行為](#probedown) | 關閉所有探查、繼續所有 TCP 流程。 | 所有探查關閉時, 所有 TCP 流量都會過期。 | 
+| [探查關閉行為](#probedown) | 關閉所有探查、繼續所有 TCP 流程。 | 所有探查關閉時，所有 TCP 流量都會過期。 | 
 
 
 >[!IMPORTANT]
@@ -116,7 +116,7 @@ TCP 探查會利用定義的連接埠執行三向開放 TCP 交握，藉此初�
 
 HTTP 和 HTTPS 探查建立在 TCP 探查的基礎上，並會發出含有指定路徑的 HTTP GET。 這兩個探查皆支援 HTTP GET 的相對路徑。 HTTPS 探查就是加入傳輸層安全性 (TLS，之前稱為 SSL) 包裝函式的 HTTP 探查。 當執行個體在逾時期限內以 HTTP 狀態 200 回應時，健康情況探查會標示為已啟動。  依預設，健康情況探查會每隔 15 秒嘗試檢查一次已設定的健康情況探查連接埠。 最小探查間隔為 5 秒。 所有間隔的總持續時間不能超過 120 秒。
 
-如果您想要表達健康情況探查，HTTP / HTTPS 探查也很重要。  如果探查連接埠也是服務本身的接聽程式，請實作您自己的邏輯，將執行個體從負載平衡循環中移出。 例如，如果執行個體使用超過 90% CPU，並傳回非 200 HTTP 狀態，您可以決定移除執行個體。 
+如果探查埠也是服務本身的接聽程式，HTTP/HTTPS 探查也很適合用來執行您自己的邏輯，以從負載平衡器輪替中移除實例。 例如，如果執行個體使用超過 90% CPU，並傳回非 200 HTTP 狀態，您可以決定移除執行個體。 
 
 如果您使用雲端服務而且有使用 w3wp.exe 的 Web 角色，也能讓網站的監視自動化。 網站程式碼中的失敗，會將非 200 的狀態傳回給負載平衡器探查。
 
@@ -205,7 +205,7 @@ Load Balancer 會為其內部健康情況模型使用分散式探查服務。 �
 
 AzureLoadBalancer 服務標籤會在您的[網路安全性群組](../virtual-network/security-overview.md)中識別此來源 IP 位址，且預設即會許可健康情況探查的流量。
 
-除了 Load Balancer 健康情況探查以外,[下列作業會使用此 IP 位址](../virtual-network/what-is-ip-address-168-63-129-16.md):
+除了 Load Balancer 健康情況探查以外，[下列作業會使用此 IP 位址](../virtual-network/what-is-ip-address-168-63-129-16.md)：
 
 - 啟用 VM 代理程式來與平台通訊，藉此表示它處於「就緒」狀態
 - 啟用與 DNS 虛擬伺服器的通訊，以提供篩選後的名稱解析給未定義自訂 DNS 伺服器的客戶。  此篩選可確保客戶只可以解析其部署的主機名稱。
@@ -241,7 +241,7 @@ AzureLoadBalancer 服務標籤會在您的[網路安全性群組](../virtual-net
 
 公用和內部[Standard Load Balancer](load-balancer-standard-overview.md)都會透過 Azure 監視器以多維度計量的形式，將每個端點和後端端點的健康情況探查狀態公開。 這些計量可供其他 Azure 服務或合作夥伴應用程式使用。 
 
-基本公用 Load Balancer 會透過 Azure 監視器記錄, 公開每個後端集區摘要的健康情況探查狀態。  內部基本負載平衡器無法使用 Azure 監視器記錄。  您可以使用[Azure 監視器記錄](load-balancer-monitor-log.md)來檢查公用負載平衡器探查健全狀況狀態和探查計數。 記錄可以與 Power BI 或 Azure Operation Insights 搭配使用，以提供負載平衡器健康狀態。
+基本公用 Load Balancer 會透過 Azure 監視器記錄，公開每個後端集區摘要的健康情況探查狀態。  內部基本負載平衡器無法使用 Azure 監視器記錄。  您可以使用[Azure 監視器記錄](load-balancer-monitor-log.md)來檢查公用負載平衡器探查健全狀況狀態和探查計數。 記錄可以與 Power BI 或 Azure Operation Insights 搭配使用，以提供負載平衡器健康狀態。
 
 ## <a name="limitations"></a>限制
 

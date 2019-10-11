@@ -8,18 +8,18 @@ ms.service: container-registry
 ms.topic: article
 ms.date: 04/23/2018
 ms.author: danlep
-ms.openlocfilehash: d2099de9ad909b23b79a92a831d7730b1cf126e3
-ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
+ms.openlocfilehash: b11f88cbb29016032cbf536a2c970573eda82152
+ms.sourcegitcommit: b4665f444dcafccd74415fb6cc3d3b65746a1a31
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68311629"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72262854"
 ---
 # <a name="authenticate-with-azure-container-registry-from-azure-container-instances"></a>使用來自 Azure 容器執行個體的 Azure Container Registry 進行驗證
 
 您可以使用 Azure Active Directory (Azure AD) 服務主體，來提供 Azure Container Registry 中私人容器登錄的存取權。
 
-在本文中，您將了解如何建立及設定 Azure AD 服務主體，並使其具備您登錄的「提取」  權限。 然後，您會使用服務主體進行驗證，來啟動 Azure 容器執行個體 (ACI) 中的容器，以從您的私人登錄中提取其映像。
+在本文中，您將了解如何建立及設定 Azure AD 服務主體，並使其具備您登錄的「提取」權限。 然後，您會使用服務主體進行驗證，來啟動 Azure 容器執行個體 (ACI) 中的容器，以從您的私人登錄中提取其映像。
 
 ## <a name="when-to-use-a-service-principal"></a>何時使用服務主體
 
@@ -57,7 +57,7 @@ az container create \
 下列文章包含運用服務主體與 ACR 的其他詳細資料：
 
 * [使用服務主體進行 Azure Container Registry 驗證](container-registry-auth-service-principal.md)
-* [從 Azure Kubernetes Service 對 Azure Container Registry 進行驗證 (AKS)](container-registry-auth-aks.md)
+* [從 Azure Kubernetes Service 對 Azure Container Registry 進行驗證 (AKS)](../aks/cluster-container-registry-integration.md)
 
 <!-- IMAGES -->
 

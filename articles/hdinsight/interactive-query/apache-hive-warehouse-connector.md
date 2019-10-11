@@ -6,13 +6,13 @@ ms.author: nakhanha
 ms.reviewer: hrasheed
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 04/29/2019
-ms.openlocfilehash: 8a946a75a2dbd487494d70d0fd195a5becf5bd5a
-ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
+ms.date: 10/08/2019
+ms.openlocfilehash: 440820b7772d8edeb43ce328b8393789d7ba2973
+ms.sourcegitcommit: b4665f444dcafccd74415fb6cc3d3b65746a1a31
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71122213"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72264305"
 ---
 # <a name="integrate-apache-spark-and-apache-hive-with-the-hive-warehouse-connector"></a>將 Apache Spark 和 Apache Hive 與 Hive 倉儲連接器整合
 
@@ -38,49 +38,52 @@ Hive 倉儲連接器所支援的部分作業包括：
 
 請遵循下列步驟，在 Azure HDInsight 中的 Spark 和互動式查詢叢集之間設定 Hive 倉儲連接器：
 
-1. 使用 Azure 入口網站搭配儲存體帳戶和自訂 Azure 虛擬網路來建立 HDInsight Spark 4.0 叢集。 如需在 Azure 虛擬網路中建立叢集的詳細資訊，請參閱[將 HDInsight 新增至現有的虛擬網路](../../hdinsight/hdinsight-plan-virtual-network-deployment.md#existingvnet)。
-1. 使用 Azure 入口網站搭配與 Spark 叢集相同的儲存體帳戶和 Azure 虛擬網路，建立 HDInsight 互動式查詢（LLAP）4.0 叢集。
-1. 將互動式查詢叢集 headnode0 `/etc/hosts`上的檔案內容複寫到 Spark 叢集 headnode0 上`/etc/hosts`的檔案。 此步驟可讓您的 Spark 叢集解析互動式查詢叢集中的節點 IP 位址。 使用`cat /etc/hosts`來查看已更新檔案的內容。 輸出應該會看起來像下面螢幕擷取畫面中所示的內容。
+### <a name="create-clusters"></a>建立叢集
 
-    ![hive 倉儲連接器主控檔案](./media/apache-hive-warehouse-connector/hive-warehouse-connector-hosts-file.png)
+1. 建立具有儲存體帳戶和自訂 Azure 虛擬網路的 HDInsight Spark **4.0**叢集。 如需在 Azure 虛擬網路中建立叢集的詳細資訊，請參閱[將 HDInsight 新增至現有的虛擬網路](../../hdinsight/hdinsight-plan-virtual-network-deployment.md#existingvnet)。
 
-1. 執行下列步驟來設定 Spark 叢集設定： 
-    1. 移至 Azure 入口網站，選取 [HDInsight 叢集]，然後按一下您的叢集名稱。
-    1. 在右側的 [叢集**儀表板**] 底下，選取 [ **Ambari home**]。
-    1. 在 Ambari web UI 中，按一下 [ **SPARK2**  >   > ] [SPARK2] [**自訂] [預設值**]。
+1. 使用與 Spark 叢集相同的儲存體帳戶和 Azure 虛擬網路，建立 HDInsight 互動式查詢（LLAP） **4.0**叢集。
 
-        ![Apache Ambari Spark2 configuration](./media/apache-hive-warehouse-connector/hive-warehouse-connector-spark2-ambari.png)
+### <a name="modify-hosts-file"></a>修改 hosts 檔案
 
-    1. 將`spark.hadoop.hive.llap.daemon.service.hosts`設定為與位於 * * Advanced hive-interactive-site * * 之下的**llap**屬性相同的值。 例如： `@llap0`
+從互動式查詢叢集 headnode0 上的 @no__t 0 檔案複製節點資訊，並將資訊串連至 Spark 叢集 headnode0 上的 @no__t 1 檔案。 此步驟可讓您的 Spark 叢集解析互動式查詢叢集中的節點 IP 位址。 使用 `cat /etc/hosts` 來查看已更新檔案的內容。 最後的輸出應該看起來像下面螢幕擷取畫面中所顯示的內容。
 
-    1. 設定`spark.sql.hive.hiveserver2.jdbc.url`為 JDBC 連接字串，它會連接到互動式查詢叢集上的 Hiveserver2。 叢集的連接字串看起來會像下面的 URI。 `CLUSTERNAME`是您的 Spark 叢集名稱， `user`而和`password`參數會設定為叢集的正確值。
+![hive 倉儲連接器主控檔案](./media/apache-hive-warehouse-connector/hive-warehouse-connector-hosts-file.png)
 
-        ```
-        jdbc:hive2://LLAPCLUSTERNAME.azurehdinsight.net:443/;user=admin;password=PWD;ssl=true;transportMode=http;httpPath=/hive2
-        ```
+### <a name="gather-preliminary-information"></a>收集初步資訊
 
-        > [!Note]
-        > JDBC URL 應該包含用來連接到 Hiveserver2 的認證，包括使用者名稱和密碼。
+#### <a name="from-your-interactive-query-cluster"></a>從您的互動式查詢叢集中
 
-    1. 將`spark.datasource.hive.warehouse.load.staging.dir`設定為適當的 HDFS 相容臨時目錄。 如果您有兩個不同的叢集，則臨時目錄應該是 LLAP 叢集之儲存體帳戶的預備目錄中的資料夾，讓 HiveServer2 有其存取權。 例如， `wasb://STORAGE_CONTAINER_NAME@STORAGE_ACCOUNT_NAME.blob.core.windows.net/tmp`其中`STORAGE_ACCOUNT_NAME`是叢集所使用的儲存體帳戶名稱，而`STORAGE_CONTAINER_NAME`是儲存體容器的名稱。
+1. 使用 `https://LLAPCLUSTERNAME.azurehdinsight.net` 流覽至叢集的 Apache Ambari 首頁，其中 `LLAPCLUSTERNAME` 是互動式查詢叢集的名稱。
 
-    1. 使用`spark.datasource.hive.warehouse.metastoreUri`互動式查詢叢集的中繼存放區 URI 值來設定。 若要尋找 LLAP 叢集的 metastoreUri，請在 [ **hive**  >  **ADVANCED**  >  **General**] 下的 LLAP 叢集的 Ambari UI 中尋找 [ **hive. 中繼存放區. uri** ] 屬性。 值看起來會像下列 URI：
+1. 流覽至**hive**@no__t **-1 個**配置  > **advanced** > **advanced hive-site** > **zookeeper** ，並記下值。 值可能類似于： `zk0-iqgiro.rekufuk2y2cezcbowjkbwfnyvd.bx.internal.cloudapp.net:2181,zk1-iqgiro.rekufuk2y2cezcbowjkbwfnyvd.bx.internal.cloudapp.net:2181,zk4-iqgiro.rekufuk2y2cezcbowjkbwfnyvd.bx.internal.cloudapp.net:2181`。
 
-        ```
-        thrift://hn0-hwclla.0iv2nyrmse1uvp2caa4e34jkmf.cx.internal.cloudapp.net:9083,
-        thrift://hn1-hwclla.0iv2nyrmse1uvp2caa4e34jkmf.cx.internal.cloudapp.net:9083
-        ```
+1. 流覽至**hive**@no__t **-1 個**配置  > **Advanced** > **一般** > **中繼存放區**，並記下值。 值可能類似于： `thrift://hn0-iqgiro.rekufuk2y2cezcbowjkbwfnyvd.bx.internal.cloudapp.net:9083,thrift://hn1-iqgiro.rekufuk2y2cezcbowjkbwfnyvd.bx.internal.cloudapp.net:9083`。
 
-    1. 針對`spark.security.credentials.hiveserver2.enabled` YARN `false`用戶端部署模式，將設為。
-    1. 設定`spark.hadoop.hive.zookeeper.quorum`為 LLAP 叢集的 Zookeeper 仲裁。 若要尋找 LLAP 叢集的 Zookeeper 仲裁，請在**hive**  >  **advanced**  >  **advanced hive-site**底下的 LLAP 叢集的 Ambari UI 中，尋找**Zookeeper. 仲裁**屬性。 值看起來會像下列字串：
+#### <a name="from-your-apache-spark-cluster"></a>從您的 Apache Spark 叢集
 
-        ```
-        zk1-nkhvne.0iv2nyrmse1uvp2caa4e34jkmf.cx.internal.cloudapp.net:2181,
-        zk4-nkhvne.0iv2nyrmse1uvp2caa4e34jkmf.cx.internal.cloudapp.net:2181,
-        zk6-nkhvne.0iv2nyrmse1uvp2caa4e34jkmf.cx.internal.cloudapp.net:2181
-        ```
+1. 使用 `https://SPARKCLUSTERNAME.azurehdinsight.net` 流覽至叢集的 Apache Ambari 首頁，其中 `SPARKCLUSTERNAME` 是您 Apache Spark 叢集的名稱。
 
-若要測試 Hive 倉儲連接器的設定，請依照[連接和執行查詢](#connecting-and-running-queries)一節中的步驟進行。
+1. 流覽至**Hive**@no__t **-1 個**配置  > **advanced** > **advanced hive-interactive-site** > **llap** ，並記下值。 值可能類似于： `@llap0`。
+
+### <a name="configure-spark-cluster-settings"></a>設定 Spark 叢集設定
+
+從您的 Spark Ambari web UI，流覽至**Spark2**@no__t-**1 個** >  個**自訂 Spark2-預設值**。
+
+![Apache Ambari Spark2 configuration](./media/apache-hive-warehouse-connector/hive-warehouse-connector-spark2-ambari.png)
+
+視需要選取 [**新增屬性**]，以新增/更新下列各項：
+
+| Key | 值 |
+|----|----|
+|`spark.hadoop.hive.llap.daemon.service.hosts`|您先前從**hive. llap**取得的值。|
+|`spark.sql.hive.hiveserver2.jdbc.url`|`jdbc:hive2://LLAPCLUSTERNAME.azurehdinsight.net:443/;user=admin;password=PWD;ssl=true;transportMode=http;httpPath=/hive2`. 設定為 JDBC 連接字串，它會連接到互動式查詢叢集上的 Hiveserver2。 以互動式查詢叢集的名稱取代 `LLAPCLUSTERNAME`。 將 `PWD` 取代為實際密碼。|
+|`spark.datasource.hive.warehouse.load.staging.dir`|`wasbs://STORAGE_CONTAINER_NAME@STORAGE_ACCOUNT_NAME.blob.core.windows.net/tmp`. 將設定為適當的 HDFS 相容臨時目錄。 如果您有兩個不同的叢集，則臨時目錄應該是 LLAP 叢集之儲存體帳戶的預備目錄中的資料夾，讓 HiveServer2 有其存取權。  以叢集所使用的儲存體帳戶名稱取代 `STORAGE_ACCOUNT_NAME`，並以儲存體容器的名稱 `STORAGE_CONTAINER_NAME`。|
+|`spark.datasource.hive.warehouse.metastoreUri`|您先前從**hive. 中繼存放區**取得的值。|
+|`spark.security.credentials.hiveserver2.enabled`|適用于 YARN 用戶端部署模式的 `false`。|
+|`spark.hadoop.hive.zookeeper.quorum`|您先前從**hive. zookeeper**取得的值。|
+
+儲存變更並視需要重新開機元件。
 
 ## <a name="using-the-hive-warehouse-connector"></a>使用 Hive 倉儲連接器
 
@@ -98,17 +101,17 @@ Hive 倉儲連接器所支援的部分作業包括：
 
 若要啟動 spark shell 會話，請執行下列步驟：
 
-1. 透過 SSH 連線到叢集的前端節點。 如需使用 SSH 連線到您的叢集的詳細資訊，請參閱[使用 ssh 連線到 HDInsight （Apache Hadoop）](../../hdinsight/hdinsight-hadoop-linux-use-ssh-unix.md)。
-1. 輸入`cd /usr/hdp/current/hive_warehouse_connector`或提供在 spark shell 命令中當做參數使用之所有 jar 檔案的完整路徑，以變更為正確的目錄。
+1. 透過 SSH 連線到您 Apache Spark 叢集的前端節點。 如需使用 SSH 連線到您的叢集的詳細資訊，請參閱[使用 ssh 連線到 HDInsight （Apache Hadoop）](../../hdinsight/hdinsight-hadoop-linux-use-ssh-unix.md)。
+
 1. 輸入下列命令以啟動 spark shell：
 
     ```bash
     spark-shell --master yarn \
-    --jars /usr/hdp/3.0.1.0-183/hive_warehouse_connector/hive-warehouse-connector-assembly-1.0.0.3.0.1.0-183.jar \
+    --jars /usr/hdp/current/hive_warehouse_connector/hive-warehouse-connector-assembly-1.0.0.3.0.2.1-8.jar \
     --conf spark.security.credentials.hiveserver2.enabled=false
     ```
 
-1. 您會看到歡迎使用的訊息， `scala>`以及您可以在其中輸入命令的提示。
+    您會看到歡迎使用訊息和 @no__t 0 提示字元，您可以在其中輸入命令。
 
 1. 啟動 spark shell 之後，您可以使用下列命令來啟動 Hive 倉儲連接器實例：
 
@@ -121,8 +124,10 @@ Hive 倉儲連接器所支援的部分作業包括：
 
 企業安全性套件（ESP）為 Azure HDInsight 中的 Apache Hadoop 叢集，提供企業級的功能，例如 Active Directory 型驗證、多使用者支援和角色型存取控制。 如需 ESP 的詳細資訊，請參閱[在 HDInsight 中使用企業安全性套件](../domain-joined/apache-domain-joined-architecture.md)。
 
-1. 遵循[連接和執行查詢](#connecting-and-running-queries)底下的初始步驟1和2。
-1. 輸入`kinit`網域使用者並登入。
+1. 透過 SSH 連線到您 Apache Spark 叢集的前端節點。 如需使用 SSH 連線到您的叢集的詳細資訊，請參閱[使用 ssh 連線到 HDInsight （Apache Hadoop）](../../hdinsight/hdinsight-hadoop-linux-use-ssh-unix.md)。
+
+1. 輸入 `kinit`，並使用網域使用者登入。
+
 1. 使用完整的設定參數清單來啟動 spark-shell，如下所示。 在角括弧之間的所有大寫字母中的所有值都必須根據您的叢集來指定。 如果您需要找出下列任何參數的輸入值，請參閱[Hive 倉儲連接器設定](#hive-warehouse-connector-setup)上的一節：
 
     ```bash
@@ -152,21 +157,25 @@ df.filter("state = 'Colorado'").show()
 
 Spark 原本就不支援寫入 Hive 的受控 ACID 資料表。 不過，您可以使用 HWC 將任何資料框架寫出至 Hive 資料表。 您可以在下列範例中看到這項功能的運作方式：
 
-1. 建立名`sampletable_colorado`為的資料表，並使用下列命令來指定其資料行：
+1. 建立名為 `sampletable_colorado` 的資料表，並使用下列命令來指定其資料行：
 
     ```scala
     hive.createTable("sampletable_colorado").column("clientid","string").column("querytime","string").column("market","string").column("deviceplatform","string").column("devicemake","string").column("devicemodel","string").column("state","string").column("country","string").column("querydwelltime","double").column("sessionid","bigint").column("sessionpagevieworder","bigint").create()
     ```
 
-2. 篩選資料表`hivesampletable` ，其中的資料`state`行`Colorado`等於。 此 Hive 資料表的查詢會以 Spark 資料框架的形式傳回。 然後，資料框架會`sampletable_colorado` `write`使用函數儲存在 Hive 資料表中。
+1. 篩選資料表 `hivesampletable`，其中的資料行 `state` 等於 `Colorado`。 此 Hive 資料表的查詢會以 Spark 資料框架的形式傳回。 然後，資料框架會使用 `write` 函數，儲存在 Hive 資料表 `sampletable_colorado`。
 
     ```scala
     hive.table("hivesampletable").filter("state = 'Colorado'").write.format(HiveWarehouseSession.HIVE_WAREHOUSE_CONNECTOR).option("table","sampletable_colorado").save()
     ```
 
-您可以在下列螢幕擷取畫面中看到產生的資料表。
+1. 使用下列命令來查看結果：
 
-![hive 倉儲連接器顯示 hive 資料表](./media/apache-hive-warehouse-connector/hive-warehouse-connector-show-hive-table.png)
+    ```scala
+    hive.table("sampletable_colorado").show()
+    ```
+    
+    ![hive 倉儲連接器顯示 hive 資料表](./media/apache-hive-warehouse-connector/hive-warehouse-connector-show-hive-table.png)
 
 ### <a name="structured-streaming-writes"></a>結構化串流寫入
 
@@ -174,44 +183,52 @@ Spark 原本就不支援寫入 Hive 的受控 ACID 資料表。 不過，您可�
 
 請遵循下列步驟來建立 Hive 倉儲連接器範例，以從 localhost 埠9999上的 Spark 資料流程將資料內嵌至 Hive 資料表。
 
-1. 在 Spark 叢集上開啟終端機。
+1. 遵循 [[連接和執行查詢](#connecting-and-running-queries)] 底下的步驟。
+
 1. 使用下列命令來開始 spark 串流：
 
     ```scala
-    val lines = spark.readStream.format("socket").option("host", "localhost").option("port",9988).load()
+    val lines = spark.readStream.format("socket").option("host", "localhost").option("port",9999).load()
     ```
 
 1. 執行下列步驟，為您建立的 Spark 資料流程產生資料：
-    1. 在相同的 Spark 叢集上開啟另一個終端機。
+    1. 在相同的 Spark 叢集中開啟第二個 SSH 會話。
     1. 在命令提示字元中，輸入 `nc -lk 9999`。 此命令會使用 netcat 公用程式，從命令列將資料傳送至指定的埠。
-    1. 輸入您想要 Spark 串流內嵌的單字，後面接著 [回車]。
 
-        ![將資料輸入至 Apache spark 資料流程](./media/apache-hive-warehouse-connector/hive-warehouse-connector-spark-stream-data-input.png)
-
-1. 建立新的 Hive 資料表來保存串流資料。 在 spark shell 中，輸入下列命令：
+1. 返回第一個 SSH 會話，並建立新的 Hive 資料表來保存串流資料。 在 spark shell 中，輸入下列命令：
 
     ```scala
     hive.createTable("stream_table").column("value","string").create()
     ```
 
-1. 使用下列命令，將串流資料寫入至新建立的資料表：
+1. 然後使用下列命令，將串流資料寫入至新建立的資料表：
 
     ```scala
     lines.filter("value = 'HiveSpark'").writeStream.format(HiveWarehouseSession.STREAM_TO_STREAM).option("database", "default").option("table","stream_table").option("metastoreUri",spark.conf.get("spark.datasource.hive.warehouse.metastoreUri")).option("checkpointLocation","/tmp/checkpoint1").start()
     ```
 
     >[!Important]
-    > 因為 Apache Spark `database`中的已知問題，所以目前必須手動設定和選項。`metastoreUri` 如需有關此問題的詳細資訊，請參閱[SPARK-25460](https://issues.apache.org/jira/browse/SPARK-25460)。
+    > @No__t-0 和 @no__t 1 選項目前必須手動設定，因為 Apache Spark 中有已知問題。 如需有關此問題的詳細資訊，請參閱[SPARK-25460](https://issues.apache.org/jira/browse/SPARK-25460)。
 
-1. 您可以使用下列命令來查看插入資料表的資料：
+1. 返回第二個 SSH 會話，然後輸入下列值：
+
+    ```bash
+    foo
+    HiveSpark
+    bar
+    ```
+
+1. 返回第一個 SSH 會話，並記下簡短的活動。 使用下列命令來查看資料：
 
     ```scala
     hive.table("stream_table").show()
     ```
 
+使用**Ctrl + C**在第二個 SSH 會話上停止 netcat。 使用 `:q`，在第一個 SSH 會話上結束 spark shell。
+
 ### <a name="securing-data-on-spark-esp-clusters"></a>保護 Spark ESP 叢集上的資料
 
-1. 輸入下列命令`demo`來建立包含一些範例資料的資料表：
+1. 輸入下列命令，以建立具有一些範例資料的資料表 `demo`：
 
     ```scala
     create table demo (name string);
@@ -220,7 +237,7 @@ Spark 原本就不支援寫入 Hive 的受控 ACID 資料表。 不過，您可�
     INSERT INTO demo VALUES ('InteractiveQuery');
     ```
 
-1. 使用下列命令來查看資料表的內容。 套用原則之前， `demo`資料表會顯示完整的資料行。
+1. 使用下列命令來查看資料表的內容。 套用原則之前，`demo` 資料表會顯示完整的資料行。
 
     ```scala
     hive.executeQuery("SELECT * FROM demo").show()
@@ -229,9 +246,9 @@ Spark 原本就不支援寫入 Hive 的受控 ACID 資料表。 不過，您可�
     ![套用 ranger 原則之前的示範表](./media/apache-hive-warehouse-connector/hive-warehouse-connector-table-before-ranger-policy.png)
 
 1. 套用只顯示資料行最後四個字元的資料行遮罩原則。  
-    1. 移至位於`https://CLUSTERNAME.azurehdinsight.net/ranger/`的 Ranger 管理 UI。
+    1. 移至 `https://CLUSTERNAME.azurehdinsight.net/ranger/` 的 Ranger 管理 UI。
     1. 按一下 [ **hive**] 底下叢集的 hive 服務。
-        ![ranger service manager](./media/apache-hive-warehouse-connector/hive-warehouse-connector-ranger-service-manager.png)
+        @no__t 0ranger service manager @ no__t-1
     1. 按一下 [**遮罩**] 索引標籤，然後 [**新增原則**]
 
         ![hive 倉儲連接器 ranger hive 原則清單](./media/apache-hive-warehouse-connector/hive-warehouse-connector-ranger-hive-policy-list.png)

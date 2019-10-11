@@ -17,16 +17,16 @@ ms.author: twhitney
 ms.reviewer: ''
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4e85fc5e6e907e32c0ad67af339c48cf84ef4764
-ms.sourcegitcommit: 263a69b70949099457620037c988dc590d7c7854
+ms.openlocfilehash: 46dc3a44041acd90dbab449215138eeecbda7105
+ms.sourcegitcommit: b4665f444dcafccd74415fb6cc3d3b65746a1a31
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71269034"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72264190"
 ---
 # <a name="configure-keychain"></a>設定 keychain
 
-當[適用于 iOS 和 macOS 的 Microsoft 驗證程式庫](msal-overview.md)（MSAL）登入使用者，或重新整理權杖時，它會嘗試在 keychain 中快取權杖。 藉由在 keychain 中快取權杖，MSAL 可以在相同的 Apple 開發人員散發的多個應用程式之間提供無訊息單一登入（SSO）。 SSO 可透過 keychain 存取群組功能來完成（請參閱[Apple 的檔](https://developer.apple.com/documentation/security/keychain_services/keychain_items/sharing_access_to_keychain_items_among_a_collection_of_apps?language=objc)）
+當[適用于 iOS 和 macOS 的 Microsoft 驗證程式庫](msal-overview.md)（MSAL）登入使用者，或重新整理權杖時，它會嘗試在 keychain 中快取權杖。 在 keychain 中快取權杖，可讓 MSAL 在相同的 Apple 開發人員散發的多個應用程式之間提供無訊息單一登入（SSO）。 SSO 是透過 keychain 存取群組功能來達成。 如需詳細資訊，請參閱 Apple 的[Keychain 專案檔案](https://developer.apple.com/documentation/security/keychain_services/keychain_items/sharing_access_to_keychain_items_among_a_collection_of_apps?language=objc)。
 
 本文涵蓋如何設定應用程式權利，讓 MSAL 可以將快取的權杖寫入 iOS 和 macOS keychain。
 
@@ -34,21 +34,21 @@ ms.locfileid: "71269034"
 
 ### <a name="ios"></a>iOS
 
-IOS 上的 MSAL 預設`com.microsoft.adalcache`會使用存取群組。 這是 MSAL 和 Azure AD 驗證程式庫（ADAL） Sdk 所使用的共用存取群組，可確保來自相同發行者的多個應用程式之間的最佳單一登入（SSO）體驗。
+IOS 上的 MSAL 預設會使用 @no__t 0 存取群組。 這是 MSAL 和 Azure AD 驗證程式庫（ADAL） Sdk 所使用的共用存取群組，可確保來自相同發行者的多個應用程式之間的最佳單一登入（SSO）體驗。
 
-在 iOS 上，將`com.microsoft.adalcache` keychain 群組新增至您的應用程式在 XCode 中的許可權，並在**專案設定** > **功能** >  **keychain 共用**
+在 iOS 上，將 `com.microsoft.adalcache` keychain 群組新增至您的應用程式在 XCode 中的權利，其位於**專案設定** > **功能** > **keychain 共用**
 
 ### <a name="macos"></a>macOS
 
-MacOS 上的 MSAL `com.microsoft.identity.universalstorage`預設會使用存取群組。
+根據預設，MSAL on macOS 會使用 `com.microsoft.identity.universalstorage` 存取群組。
 
-由於 macOS keychain 的限制，MSAL `access group`不會直接轉譯為 kSecAttrAccessGroup 10.14 和更早版本上的 keychain 存取群組屬性（請參閱[macOS](https://developer.apple.com/documentation/security/ksecattraccessgroup?language=objc)）。 不過，其行為類似于 SSO 的觀點，確保相同的 Apple 開發人員所散發的多個應用程式可以具有無訊息 SSO。
+由於 macOS keychain 的限制，MSAL 的 `access group` 不會直接轉譯為 KSecAttrAccessGroup 10.14 和更早版本上的 keychain 存取群組屬性（請參閱[macOS](https://developer.apple.com/documentation/security/ksecattraccessgroup?language=objc)）。 不過，其行為類似于 SSO 的觀點，確保相同的 Apple 開發人員所散發的多個應用程式可以具有無訊息 SSO。
 
 在 macOS 10.15 （macOS Catalina）上，MSAL 會使用 keychain access group 屬性來達到無訊息 SSO，類似于 iOS。
 
 ## <a name="custom-keychain-access-group"></a>自訂 keychain 存取群組
 
-如果您想要使用不同的 keychain 存取群組，您可以在建立`MSALPublicClientApplicationConfig` `MSALPublicClientApplication`之前傳遞自訂群組，如下所示：
+如果您想要使用不同的 keychain 存取群組，在建立 `MSALPublicClientApplication` 之前，您可以在建立 `MSALPublicClientApplicationConfig` 之前傳遞自訂群組，如下所示：
 
 Objective-C：
 
@@ -68,7 +68,7 @@ MSALPublicClientApplication *application = [[MSALPublicClientApplication alloc] 
 
 
 
-快速
+Swift：
 
 ```swift
 let config = MSALPublicClientApplicationConfig(clientId: "your-client-id",
@@ -96,7 +96,7 @@ Objective-C：
 config.cacheConfig.keychainSharingGroup = [[NSBundle mainBundle] bundleIdentifier];
 ```
 
-快速
+Swift：
 
 ```swift
 if let bundleIdentifier = Bundle.main.bundleIdentifier {

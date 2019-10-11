@@ -7,16 +7,16 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 04/25/2019
 ms.author: mlearned
-ms.openlocfilehash: 304b9dae9f3a1e134809d8959a96dc4e3ec0edd3
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.openlocfilehash: e24d930ec82ea92a040efeed3056a10917ce2b2a
+ms.sourcegitcommit: b4665f444dcafccd74415fb6cc3d3b65746a1a31
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67615117"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72263915"
 ---
 # <a name="service-principals-with-azure-kubernetes-service-aks"></a>服務主體與 Azure Kubernetes Service (AKS)
 
-若要使用 Azure Api 互動，AKS 叢集需要[Azure Active Directory (AD) 服務主體][aad-service-principal]。 需要服務主體才能動態建立及管理其他 Azure 資源，例如 Azure 負載平衡器或容器登錄 (ACR)。
+若要與 Azure Api 互動，AKS 叢集需要[Azure Active Directory （AD）服務主體][aad-service-principal]。 需要服務主體才能動態建立及管理其他 Azure 資源，例如 Azure 負載平衡器或容器登錄 (ACR)。
 
 此文章說明如何為您的 AKS 叢集建立及管理服務主體。
 
@@ -24,13 +24,13 @@ ms.locfileid: "67615117"
 
 若要建立 Azure AD 服務主體，您必須有足夠權限向 Azure AD 租用戶註冊應用程式，並將應用程式指派給您訂用帳戶中的角色。 如果您沒有必要的權限，您可能需要要求您的 Azure AD 或訂用帳戶系統管理員指派必要權限，或或要求其預先建立服務主體以供您搭配 AKS 叢集使用。
 
-如果您使用服務主體從不同的 Azure AD 租用戶，有可用的權限的其他考量當您部署叢集。 您可能沒有適當的權限來讀取和寫入目錄資訊。 如需詳細資訊，請參閱[什麼是 Azure Active Directory 中的預設使用者權限？][azure-ad-permissions]
+如果您使用來自不同 Azure AD 租使用者的服務主體，則當您部署叢集時，會有關于可用許可權的其他考慮。 您可能沒有適當的許可權可以讀取和寫入目錄資訊。 如需詳細資訊，請參閱[Azure Active Directory 中的預設使用者許可權為何？][azure-ad-permissions]
 
-您也需要 Azure CLI 2.0.59 版或更新版本安裝並設定。 執行  `az --version` 以尋找版本。 如果您需要安裝或升級，請參閱 [安裝 Azure CLI][install-azure-cli]。
+您也需要安裝並設定 Azure CLI 版本2.0.59 或更新版本。 執行  `az --version` 以尋找版本。 如果您需要安裝或升級，請參閱 [安裝 Azure CLI][install-azure-cli]。
 
 ## <a name="automatically-create-and-use-a-service-principal"></a>自動建立並使用服務主體
 
-當您建立 AKS 叢集在 Azure 入口網站或使用[az aks 建立][az-aks-create]命令時，Azure 可以自動產生服務主體。
+當您在 Azure 入口網站或使用[az AKS create][az-aks-create]命令建立 AKS 叢集時，Azure 可以自動產生服務主體。
 
 在下列 Azure CLI 範例中，未指定服務主體。 在此案例中，Azure CLI 會為 AKS 叢集建立服務主體。 若要成功完成此作業，您的 Azure 帳戶必須有建立服務主體的適當權限。
 
@@ -40,7 +40,7 @@ az aks create --name myAKSCluster --resource-group myResourceGroup
 
 ## <a name="manually-create-a-service-principal"></a>手動建立服務主體
 
-若要以手動方式使用 Azure CLI 建立服務主體，請使用[az ad sp 建立-針對-rbac][az-ad-sp-create]命令。 在下列範例中，`--skip-assignment` 參數會防止指派任何額外的預設指派：
+若要使用 Azure CLI 手動建立服務主體，請使用[az ad sp create-rbac][az-ad-sp-create]命令。 在下列範例中，`--skip-assignment` 參數會防止指派任何額外的預設指派：
 
 ```azurecli-interactive
 az ad sp create-for-rbac --skip-assignment
@@ -60,7 +60,7 @@ az ad sp create-for-rbac --skip-assignment
 
 ## <a name="specify-a-service-principal-for-an-aks-cluster"></a>為 AKS 叢集指定服務主體
 
-若要使用現有的服務主體，當您建立 AKS 叢集使用[az aks 建立][az-aks-create]命令，使用`--service-principal`並`--client-secret`參數來指定`appId`和`password`從的輸出[az ad sp 建立-針對-rbac][az-ad-sp-create]命令：
+當您使用[az AKS create][az-aks-create]命令建立 AKS 叢集時，若要使用現有的服務主體，請使用 `--service-principal` 和 `--client-secret` 參數，從[az ad sp create-rbac][az-ad-sp-create]命令的輸出中指定 `appId` 和 `password`：
 
 ```azurecli-interactive
 az aks create \
@@ -70,7 +70,7 @@ az aks create \
     --client-secret <password>
 ```
 
-若使用 Azure 入口網站來部署 AKS 叢集，請在 [建立 Kubernetes 叢集]  對話方塊的 [驗證]  頁面選擇 [設定服務主體]  。 選取 [一般]  索引標籤，並指定下列值：
+若使用 Azure 入口網站來部署 AKS 叢集，請在 [建立 Kubernetes 叢集] 對話方塊的 [驗證] 頁面選擇 [設定服務主體]。 選取 [一般] 索引標籤，並指定下列值：
 
 - **服務主體用戶端識別碼**是您的 *appId*
 - **服務主體用戶端祕密** 是 *password* 值
@@ -79,9 +79,9 @@ az aks create \
 
 ## <a name="delegate-access-to-other-azure-resources"></a>將存取權委派給其他 Azure 資源
 
-AKS 叢集的服務主體可用來存取其他資源。 例如，如果您想要部署您的 AKS 叢集到現有的 Azure 虛擬網路子網路或連線至 Azure Container Registry (ACR)，您要委派給服務主體的這些資源的存取權。
+AKS 叢集的服務主體可用來存取其他資源。 例如，如果您想要將 AKS 叢集部署到現有的 Azure 虛擬網路子網，或連線至 Azure Container Registry （ACR），則需要將這些資源的存取權委派給服務主體。
 
-若要委派權限，使用下列方法建立角色指派[az 角色指派建立][az-role-assignment-create]命令。 指派`appId`給特定的範圍，例如資源群組或虛擬網路資源。 接著，角色會定義資源上的服務主體可擁有哪些權限，如下列範例所示：
+若要委派許可權，請使用[az role 指派 create][az-role-assignment-create]命令來建立角色指派。 將 `appId` 指派給特定範圍，例如資源群組或虛擬網路資源。 接著，角色會定義資源上的服務主體可擁有哪些權限，如下列範例所示：
 
 ```azurecli
 az role assignment create --assignee <appId> --scope <resourceScope> --role Contributor
@@ -93,46 +93,46 @@ az role assignment create --assignee <appId> --scope <resourceScope> --role Cont
 
 ### <a name="azure-container-registry"></a>Azure Container Registry
 
-如果您使用 Azure Container Registry (ACR) 作為您的容器映像存放區，則必須對 AKS 叢集授與可讀取和提取映像的權限。 AKS 叢集的服務主體必須獲派登錄上的「讀者」  角色。 如需詳細步驟，請參閱 <<c0> [ 授與 AKS 存取 ACR][aks-to-acr]。
+如果您使用 Azure Container Registry （ACR）做為容器映射存放區，則必須將許可權授與 AKS 叢集的服務主體，才能讀取和提取映射。 目前，建議的設定是使用[az aks create][az-aks-create]或 [az aks update] [az-aks-update] 命令來與登錄整合，並為服務主體指派適當的角色。 如需詳細步驟，請參閱[使用來自 Azure Kubernetes Service 的 Azure Container Registry 進行驗證][aks-to-acr]。
 
 ### <a name="networking"></a>網路功能
 
 您可以使用進階網路功能，其中虛擬網路和子網路或公用 IP 位址都在另一個資源群組中。 指派下列一組角色權限：
 
-- 建立[自訂角色][rbac-custom-role]並定義下列角色權限：
+- 建立[自訂角色][rbac-custom-role]，並定義下列角色許可權：
   - *Microsoft.Network/virtualNetworks/subnets/join/action*
   - *Microsoft.Network/virtualNetworks/subnets/read*
   - *Microsoft.Network/virtualNetworks/subnets/write*
   - *Microsoft.Network/publicIPAddresses/join/action*
   - *Microsoft.Network/publicIPAddresses/read*
   - *Microsoft.Network/publicIPAddresses/write*
-- 或者，您也可以指派[網路參與者][rbac-network-contributor]虛擬網路內的子網路上的內建角色
+- 或者，在虛擬網路中的子網上指派[網路參與者][rbac-network-contributor]內建角色
 
 ### <a name="storage"></a>儲存體
 
 您可能需要存取另一個資源群組中的現有磁碟資源。 指派下列一組角色權限：
 
-- 建立[自訂角色][rbac-custom-role]並定義下列角色權限：
+- 建立[自訂角色][rbac-custom-role]，並定義下列角色許可權：
   - *Microsoft.Compute/disks/read*
   - *Microsoft.Compute/disks/write*
-- 或者，您也可以指派[儲存體帳戶參與者][rbac-storage-contributor]資源群組上的內建角色
+- 或者，在資源群組上指派[儲存體帳戶參與者][rbac-storage-contributor]內建角色
 
 ### <a name="azure-container-instances"></a>Azure Container Instances
 
-如果您使用 Virtual Kubelet 來與 AKS 整合，並選擇在與 AKS 叢集不同的資源群組中執行「Azure 容器執行個體」(ACI)，就必須將 ACI 資源群組的「參與者」  權限授與 AKS 服務主體。
+如果您使用 Virtual Kubelet 來與 AKS 整合，並選擇在與 AKS 叢集不同的資源群組中執行「Azure 容器執行個體」(ACI)，就必須將 ACI 資源群組的「參與者」權限授與 AKS 服務主體。
 
 ## <a name="additional-considerations"></a>其他考量
 
 當使用 AKS 與 Azure AD 服務主體時，請記住下列考量。
 
 - Kubernetes 的服務主體是叢集組態的一部分。 不過，請勿使用身分識別來部署叢集。
-- 根據預設，服務主體認證的有效期為一年。 您可以[更新或替換服務主體認證][update-credentials]在任何時間。
+- 根據預設，服務主體認證的有效期限為一年。 您可以隨時[更新或輪替服務主體認證][update-credentials]。
 - 每個服務主體都會與 Azure AD 應用程式相關聯。 Kubernetes 叢集的服務主體可與任何有效的 Azure AD 應用程式名稱相關聯 (例如： *https://www.contoso.org/example* )。 應用程式的 URL 不一定是實際端點。
 - 當您指定服務主體**用戶端識別碼**時，請使用 `appId` 的值。
-- 在 Kubernetes 叢集中的代理程式節點 Vm，服務主體認證會儲存在檔案中 `/etc/kubernetes/azure.json`
-- 當您使用[az aks 建立][az-aks-create]服務主體認證會寫入檔案的命令自動產生服務主體`~/.azure/aksServicePrincipal.json`用來執行命令之電腦上。
-- 當您刪除所建立的 AKS 叢集[az aks 建立][az-aks-create]，不會刪除自動建立服務主體。
-    - 若要刪除的服務主體，請查詢您的叢集*servicePrincipalProfile.clientId* ，然後再刪除具有[az ad app delete][az-ad-app-delete]。 請將下列資源群組和叢集名稱更換為您自己的值：
+- 在 Kubernetes 叢集中的代理程式節點 Vm 上，服務主體認證會儲存在檔案 `/etc/kubernetes/azure.json`
+- 當您使用[az aks create][az-aks-create]命令自動產生服務主體時，服務主體認證會寫入至用來執行命令之電腦上 `~/.azure/aksServicePrincipal.json` 的檔案中。
+- 當您刪除[az AKS create][az-aks-create]所建立的 AKS 叢集時，不會刪除自動建立的服務主體。
+    - 若要刪除服務主體，請查詢您的叢集*servicePrincipalProfile* ，然後使用[az ad app delete][az-ad-app-delete]進行刪除。 請將下列資源群組和叢集名稱更換為您自己的值：
 
         ```azurecli
         az ad sp delete --id $(az aks show -g myResourceGroup -n myAKSCluster --query servicePrincipalProfile.clientId -o tsv)
@@ -140,7 +140,7 @@ az role assignment create --assignee <appId> --scope <resourceScope> --role Cont
 
 ## <a name="troubleshoot"></a>疑難排解
 
-Azure CLI，AKS 叢集中的服務主體認證會快取。 如果這些認證已過期，您會遇到部署 AKS 叢集時發生錯誤。 下列的錯誤訊息時執行[az aks 建立][az-aks-create]可能表示發生問題的快取的服務主體認證：
+Azure CLI 會快取 AKS 叢集的服務主體認證。 如果這些認證已過期，您就會遇到部署 AKS 叢集時所發生的錯誤。 執行[az aks create][az-aks-create]時，出現下列錯誤訊息可能表示快取的服務主體認證發生問題：
 
 ```console
 Operation failed with status: 'Bad Request'.
@@ -148,19 +148,19 @@ Details: The credentials in ServicePrincipalProfile were invalid. Please see htt
 (Details: adal: Refresh request failed. Status Code = '401'.
 ```
 
-請使用下列命令的認證檔案的存在時間：
+使用下列命令檢查認證檔案的存在時間：
 
 ```console
 ls -la $HOME/.azure/aksServicePrincipal.json
 ```
 
-服務主體認證的預設到期時間是一年。 如果您*aksServicePrincipal.json*檔案已超過一年中，刪除檔案，然後嘗試再次部署 AKS 叢集。
+服務主體認證的預設到期時間為一年。 如果您的*aksServicePrincipal*檔案超過一年，請刪除該檔案，然後再次嘗試部署 AKS 叢集。
 
 ## <a name="next-steps"></a>後續步驟
 
-如需有關 Azure Active Directory 服務主體的詳細資訊，請參閱 <<c0> [ 應用程式和服務主體物件][service-principal]。
+如需 Azure Active Directory 服務主體的詳細資訊，請參閱[應用程式和服務主體物件][service-principal]。
 
-如需如何更新的認證資訊，請參閱[更新或替換為 AKS 中的服務主體的認證][update-credentials]。
+如需如何更新認證的相關資訊，請參閱[在 AKS 中更新或輪替服務主體的認證][update-credentials]。
 
 <!-- LINKS - internal -->
 [aad-service-principal]:../active-directory/develop/app-objects-and-service-principals.md
@@ -177,6 +177,6 @@ ls -la $HOME/.azure/aksServicePrincipal.json
 [rbac-custom-role]: ../role-based-access-control/custom-roles.md
 [rbac-storage-contributor]: ../role-based-access-control/built-in-roles.md#storage-account-contributor
 [az-role-assignment-create]: /cli/azure/role/assignment#az-role-assignment-create
-[aks-to-acr]: ../container-registry/container-registry-auth-aks.md?toc=%2fazure%2faks%2ftoc.json#grant-aks-access-to-acr
+[aks-to-acr]: cluster-container-registry-integration.md
 [update-credentials]: update-credentials.md
 [azure-ad-permissions]: ../active-directory/fundamentals/users-default-permissions.md

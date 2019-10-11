@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: MladjoA
 ms.author: mlandzic
 ms.reviewer: sstein
-ms.date: 12/18/2018
-ms.openlocfilehash: cc59d7cb1ce09aad834130818e5af533719e04c1
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.date: 10/10/2019
+ms.openlocfilehash: 4e896fae0d8459629c58dfd0bbdfbb32b90b1cac
+ms.sourcegitcommit: b4665f444dcafccd74415fb6cc3d3b65746a1a31
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68568608"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72264227"
 ---
 # <a name="report-across-scaled-out-cloud-databases-preview"></a>跨相應放大雲端資料庫報告 (預覽)
 
@@ -33,7 +33,7 @@ ms.locfileid: "68568608"
 ## <a name="create-a-shard-map-manager-using-the-sample-app"></a>使用範例應用程式建立分區對應管理員
 在這裡，您將建立分區對應管理員以及數個分區，接著插入資料至分區。 若您的分區設定中已有分區資料，則可以略過下列步驟並移至下一節。
 
-1. 建置並執行 **彈性資料庫工具入門** 範例應用程式。 遵循步驟，直到[下載及執行範例應用程式](sql-database-elastic-scale-get-started.md#download-and-run-the-sample-app)小節的步驟 7。 在步驟 7 結束時，您會看到下列的命令提示字元：
+1. 遵循[下載並執行範例應用](sql-database-elastic-scale-get-started.md#download-and-run-the-sample-app-1)程式一節中的步驟，建立並執行**開始使用彈性資料庫工具**範例應用程式。 完成所有步驟之後，您會看到下列命令提示字元：
 
     ![命令提示字元][1]
 2. 在命令視窗中，輸入 "1"，然後按 **Enter**。 這會建立分區對應管理員，並加入兩個分區到伺服器。 然後輸入 "3"，然後按 **Enter**；重複此動作四次。 這會在您的分區中插入範例資料列。
@@ -62,13 +62,13 @@ ms.locfileid: "68568608"
 1. 在 Visual Studio 中開啟 SQL Server Management Studio 或 SQL Server Data Tools
 2. 連接至 ElasticDBQuery 資料庫，並執行下列 T-SQL 命令：
 
-        CREATE MASTER KEY ENCRYPTION BY PASSWORD = '<password>';
+        CREATE MASTER KEY ENCRYPTION BY PASSWORD = '<master_key_password>';
 
         CREATE DATABASE SCOPED CREDENTIAL ElasticDBQueryCred
         WITH IDENTITY = '<username>',
         SECRET = '<password>';
 
-    "username" 和 "password" 應該與[彈性資料庫工具入門](sql-database-elastic-scale-get-started.md)中[下載及執行範例應用程式](sql-database-elastic-scale-get-started.md#download-and-run-the-sample-app)的步驟 6 中所使用的登入資訊相同。
+    「使用者名稱」和「密碼」應該與在**開始使用彈性資料庫工具**一文中[下載及執行範例應用程式](sql-database-elastic-scale-get-started.md#download-and-run-the-sample-app)一節的步驟3中所使用的登入資訊相同。
 
 ### <a name="external-data-sources"></a>外部資料來源
 若要建立外部資料來源，請在 ElasticDBQuery 資料庫上執行下列命令：

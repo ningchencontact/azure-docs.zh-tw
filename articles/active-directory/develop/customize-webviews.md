@@ -17,16 +17,16 @@ ms.author: twhitney
 ms.reviewer: ''
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c1b7417de8de6fb063de18fe670ef474a3b486d0
-ms.sourcegitcommit: 263a69b70949099457620037c988dc590d7c7854
+ms.openlocfilehash: 0dd5be3944bdff459f6d920b358ae08efedcc431
+ms.sourcegitcommit: b4665f444dcafccd74415fb6cc3d3b65746a1a31
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71269073"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72264194"
 ---
-# <a name="how-to-customize-browsers-and-webviews-for-iosmacos"></a>HOW TO：自訂適用于 iOS/macOS 的瀏覽器和網站
+# <a name="how-to-customize-browsers-and-webviews-for-iosmacos"></a>作法：自訂適用于 iOS/macOS 的瀏覽器和網站
 
-互動式驗證需要 web 瀏覽器。 在 iOS 上，Microsoft 驗證程式庫（MSAL）預設會使用系統網頁瀏覽器（可能會出現在您的應用程式頂端），以進行互動式驗證以登入使用者。 使用 [系統瀏覽器] 具有將單一登入（SSO）狀態與其他應用程式和 web 應用程式共用的重大優點。
+互動式驗證需要 web 瀏覽器。 在 iOS 上，Microsoft 驗證程式庫（MSAL）預設會使用系統 web 瀏覽器（可能會出現在您的應用程式頂端），以進行互動式驗證以登入使用者。 使用 [系統瀏覽器] 的優點是可以與其他應用程式和 web 應用程式共用單一登入（SSO）狀態。
 
 您可以將設定自訂為其他顯示 web 內容的選項來變更體驗，例如：
 
@@ -40,13 +40,13 @@ ms.locfileid: "71269073"
 
 - [WKWebView](https://developer.apple.com/documentation/webkit/wkwebview?language=objc)。
 
-MSAL for macOS 僅支援`WKWebView`。
+MSAL for macOS 僅支援 `WKWebView`。
 
 ## <a name="system-browsers"></a>系統瀏覽器
 
-若是 iOS， `ASWebAuthenticationSession`、 `SFAuthenticationSession`和`SFSafariViewController`會被視為系統瀏覽器。 一般而言，系統瀏覽器會與 Safari 瀏覽器應用程式共用 cookie 和其他網站資料。
+若是 iOS，`ASWebAuthenticationSession`，`SFAuthenticationSession`，而 `SFSafariViewController` 則視為系統瀏覽器。 一般而言，系統瀏覽器會與 Safari 瀏覽器應用程式共用 cookie 和其他網站資料。
 
-根據預設，MSAL 會動態偵測 iOS 版本，並選取該版本上所提供的建議系統瀏覽器。 在 iOS 12 上，它會`ASWebAuthenticationSession`是。 
+根據預設，MSAL 會動態偵測 iOS 版本，並選取該版本上所提供的建議系統瀏覽器。 在 iOS 12 上，它會 `ASWebAuthenticationSession`。 
 
 | Version | Web 瀏覽器 |
 |:-------------:|:-------------:|
@@ -56,8 +56,8 @@ MSAL for macOS 僅支援`WKWebView`。
 
 開發人員也可以針對 MSAL 應用程式選取不同的系統瀏覽器：
 
-- `SFAuthenticationSession`是的 iOS 11 版本`ASWebAuthenticationSession`。
-- `SFSafariViewController`較一般用途，並提供用於流覽 web 的介面，也可用於登入目的。 在 iOS 9 和10中，cookie 和其他網站資料會與 Safari 共用，但不會在 iOS 11 和更新版本中。
+- `SFAuthenticationSession` 是 `ASWebAuthenticationSession` 的 iOS 11 版本。
+- `SFSafariViewController` 是較一般的用途，並提供用於流覽 web 的介面，也可用於登入目的。 在 iOS 9 和10中，cookie 和其他網站資料會與 Safari 共用，但不會在 iOS 11 和更新版本中。
 
 ## <a name="in-app-browser"></a>應用程式內瀏覽器
 
@@ -67,7 +67,7 @@ MSAL for macOS 僅支援`WKWebView`。
 
 您使用的瀏覽器會影響 SSO 體驗，因為它們共用 cookie 的方式。 下表摘要說明每個瀏覽器的 SSO 體驗。
 
-| 技術    | 瀏覽器類型  | iOS 可用性 | macOS 可用性 | 共用 cookie 和其他資料  | MSAL 可用性 | SSO |
+| Technology    | 瀏覽器類型  | iOS 可用性 | macOS 可用性 | 共用 cookie 和其他資料  | MSAL 可用性 | SSO |
 |:-------------:|:-------------:|:-------------:|:-------------:|:-------------:|:-------------:|-------------:|
 | [ASWebAuthenticationSession](https://developer.apple.com/documentation/authenticationservices/aswebauthenticationsession) | 系統 | iOS12 和 up | macOS 10.15 及更新的 | 是 | 僅限 iOS | w/Safari 實例
 | [SFAuthenticationSession](https://developer.apple.com/documentation/safariservices/sfauthenticationsession) | 系統 | iOS11 和 up | N/A | 是 | 僅限 iOS |  w/Safari 實例
@@ -79,7 +79,7 @@ MSAL for macOS 僅支援`WKWebView`。
 
 ## <a name="change-the-default-browser-for-the-request"></a>變更要求的預設瀏覽器
 
-您可以藉由變更中`MSALWebviewParameters`的下列屬性，使用應用程式內的瀏覽器或特定的系統瀏覽器，視您的 UX 需求而定：
+您可以根據您的 UX 需求，使用應用程式內瀏覽器或特定的系統瀏覽器，方法是在 `MSALWebviewParameters` 中變更下列屬性：
 
 ```objc
 @property (nonatomic) MSALWebviewType webviewType;
@@ -87,9 +87,9 @@ MSAL for macOS 僅支援`WKWebView`。
 
 ## <a name="change-per-interactive-request"></a>變更每個互動式要求
 
-您可以設定每個要求來覆寫預設瀏覽器， `MSALInteractiveTokenParameters.webviewParameters.webviewType`方法是先變更屬性， `acquireTokenWithParameters:completionBlock:`再將它傳遞給 API。
+您可以設定每個要求，藉由變更 `MSALInteractiveTokenParameters.webviewParameters.webviewType` 屬性來覆寫預設瀏覽器，然後再將它傳遞給 `acquireTokenWithParameters:completionBlock:` API。
 
-此外，MSAL 支援藉由`WKWebView` `MSALInteractiveTokenParameters.webviewParameters.customWebView`設定屬性來傳入自訂的。
+此外，MSAL 支援藉由設定 `MSALInteractiveTokenParameters.webviewParameters.customWebView` 屬性來傳入自訂 `WKWebView`。
 
 例如:
 
@@ -163,4 +163,4 @@ typedef NS_ENUM(NSInteger, MSALWebviewType)
 
 ## <a name="next-steps"></a>後續步驟
 
-深入瞭解[驗證流程和應用程式案例](authentication-flows-app-scenarios.md)
+深入了解[驗證流程和應用程式案例](authentication-flows-app-scenarios.md)

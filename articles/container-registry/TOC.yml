@@ -98,7 +98,7 @@
             - name: 從 Azure 容器執行個體進行驗證
               href: container-registry-auth-aci.md
             - name: 從 Azure Kubernetes Service (AKS) 進行驗證
-              href: container-registry-auth-aks.md
+              href: ../aks/cluster-container-registry-integration.md
         - name: 角色和權限
           href: container-registry-roles.md
         - name: 內容信任

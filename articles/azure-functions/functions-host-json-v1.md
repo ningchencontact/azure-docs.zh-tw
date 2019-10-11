@@ -7,12 +7,12 @@ ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 10/19/2018
 ms.author: glenga
-ms.openlocfilehash: b373afc9b5a60abee7a587fc405320fe3c583369
-ms.sourcegitcommit: 97605f3e7ff9b6f74e81f327edd19aefe79135d2
+ms.openlocfilehash: 3d6a28c8cdcf13dc805d70832ed65732911138cd
+ms.sourcegitcommit: b4665f444dcafccd74415fb6cc3d3b65746a1a31
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70735161"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72263358"
 ---
 # <a name="hostjson-reference-for-azure-functions-1x"></a>適用於 Azure Functions 1.x 的 host.json 參考
 
@@ -156,7 +156,7 @@ ms.locfileid: "70735161"
 
 [!INCLUDE [functions-host-json-event-hubs](../../includes/functions-host-json-event-hubs.md)]
 
-## <a name="functions"></a>函數
+## <a name="functions"></a>functions
 
 工作主機所執行的函式清單。 空陣列表示已執行所有函式。 預定只能在[本機執行](functions-run-local.md)時使用。 在 Azure 的函數應用程式中，您應該改為依照[如何停用 Azure Functions 中的函式](disable-function.md)中的步驟來停用特定函式，而不是使用此設定。
 
@@ -203,6 +203,17 @@ ms.locfileid: "70735161"
 ## <a name="http"></a>http
 
 [HTTP 觸發程序和繫結](functions-bindings-http-webhook.md)的組態設定。
+
+```json
+{
+    "http": {
+        "routePrefix": "api",
+        "maxOutstandingRequests": 200,
+        "maxConcurrentRequests": 100,
+        "dynamicThrottlesEnabled": true
+    }
+}
+```
 
 [!INCLUDE [functions-host-json-http](../../includes/functions-host-json-http.md)]
 
@@ -282,7 +293,7 @@ ms.locfileid: "70735161"
 
 |屬性  |預設 | 描述 |
 |---------|---------|---------| 
-|寄件者|n/a|所有函式的寄件者電子郵件地址。| 
+|from|n/a|所有函式的寄件者電子郵件地址。| 
 
 ## <a name="servicebus"></a>serviceBus
 
@@ -345,7 +356,7 @@ Singleton 鎖定行為的組態設定。 如需詳細資訊，請參閱[單一�
 
 |屬性  |預設 | 描述 |
 |---------|---------|---------| 
-|consoleLevel|資訊|主控台記錄的追蹤層級。 選項為：`off`、`error`、`warning`、`info` 和 `verbose`。|
+|consoleLevel|info|主控台記錄的追蹤層級。 選項為：`off`、`error`、`warning`、`info` 和 `verbose`。|
 |fileLoggingMode|debugOnly|檔案記錄的追蹤層級。 選項為 `never`、`always`、`debugOnly`。| 
 
 ## <a name="watchdirectories"></a>watchDirectories

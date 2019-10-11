@@ -15,23 +15,23 @@ ms.date: 09/30/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8fd66dcd6e3845aad79ebffb3cad656d0a14c1a6
-ms.sourcegitcommit: a19f4b35a0123256e76f2789cd5083921ac73daf
+ms.openlocfilehash: f30194592989b74aca96a5a483e9128cd3a86eb5
+ms.sourcegitcommit: f272ba8ecdbc126d22a596863d49e55bc7b22d37
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71720227"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72274481"
 ---
 # <a name="web-app-that-calls-web-apis---acquire-a-token-for-the-app"></a>呼叫 web Api 的 web 應用程式-取得應用程式的權杖
 
 現在您已建立用戶端應用程式物件，您將使用它來取得權杖以呼叫 Web API。 在 ASP.NET 或 ASP.NET Core 中，呼叫 Web API 就會在控制器中完成。 其相關資訊如下：
 
-- 使用權杖快取取得 Web API 的權杖。 若要取得此權杖，請`AcquireTokenSilent`呼叫。
+- 使用權杖快取取得 Web API 的權杖。 若要取得此權杖，您必須呼叫 `AcquireTokenSilent`。
 - 使用存取權杖呼叫受保護的 API。
 
 # <a name="aspnet-coretabaspnetcore"></a>[ASP.NET Core](#tab/aspnetcore)
 
-控制器方法會受到強制驗證使用者`[Authorize]`使用 Web 應用程式的屬性所保護。 以下是呼叫 Microsoft Graph 的程式碼。
+控制器方法會受到 @no__t 0 屬性的保護，強制使用者進行驗證以使用 Web 應用程式。 以下是呼叫 Microsoft Graph 的程式碼。
 
 ```CSharp
 [Authorize]
@@ -61,10 +61,10 @@ public async Task<IActionResult> Profile()
  string[] scopes = new string[]{"user.read"};
  string accessToken = await tokenAcquisition.GetAccessTokenOnBehalfOfUserAsync(scopes);
 
-// use the access token to call a protected web API
-HttpClient client = new HttpClient();
-client.DefaultRequestHeaders.Add("Authorization", result.CreateAuthorizationHeader());
-string json = await client.GetStringAsync(url);
+ // use the access token to call a protected web API
+ HttpClient client = new HttpClient();
+ client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", accessToken);
+ string json = await client.GetStringAsync(url);
 }
 ```
 
@@ -81,9 +81,9 @@ string json = await client.GetStringAsync(url);
 
 ASP.NET 中的專案很類似：
 
-- 受 [授權] 屬性保護的控制器動作會解壓縮該控制器的 @no__t 0 成員的租使用者識別碼和使用者識別碼。 （ASP.NET 會`HttpContext.User`使用）。
+- 受 [授權] 屬性保護的控制器動作會解壓縮該控制器的 @no__t 0 成員的租使用者識別碼和使用者識別碼。 （ASP.NET 使用 `HttpContext.User`。）
 - 它會建立一個 MSAL.NET `IConfidentialClientApplication`。
-- 最後，它會呼叫`AcquireTokenSilent`機密用戶端應用程式的方法。
+- 最後，它會呼叫機密用戶端應用程式的 `AcquireTokenSilent` 方法。
 
 此程式碼類似于 ASP.NET Core 顯示的程式碼。
 

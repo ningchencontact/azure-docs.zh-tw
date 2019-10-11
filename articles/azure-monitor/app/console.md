@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/30/2019
 ms.reviewer: lmolkova
 ms.author: mbullwin
-ms.openlocfilehash: b6ecf1e9cece51635afc0bf0f8025b6e117438ee
-ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
+ms.openlocfilehash: 53a765cd2e71b5b1eb1ac2c70506fd55aec6736e
+ms.sourcegitcommit: f272ba8ecdbc126d22a596863d49e55bc7b22d37
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71169448"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72274139"
 ---
 # <a name="application-insights-for-net-console-applications"></a>適用於 .NET 主控台應用程式的 Application Insights
 
@@ -27,7 +27,7 @@ ms.locfileid: "71169448"
 您需要 [Microsoft Azure](https://azure.com) 的訂用帳戶。 使用 Microsoft 帳戶登入，此帳戶可能是您針對 Windows、Xbox Live 或其他 Microsoft 雲端服務所擁有的帳戶。 您的小組可能已有 Azuare 組織訂用帳戶：請洽詢擁有者將您的 Microsoft 帳戶新增至其中。
 
 > [!NOTE]
-> 有一個新的搶鮮版（Beta） Application Insights SDK，稱為[WorkerService](https://www.nuget.org/packages/Microsoft.ApplicationInsights.WorkerService) ，可用來為任何主控台應用程式啟用 Application Insights。 建議您在[這裡](../../azure-monitor/app/worker-service.md)使用此封裝和相關聯的指示。 此套件的[`NetStandard2.0`](https://docs.microsoft.com/dotnet/standard/net-standard)目標是，因此可在 .net Core 2.0 或更高版本中使用，並 .NET Framework 4.7.2 或更高版本。
+> 有一個新的搶鮮版（Beta） Application Insights SDK，稱為[WorkerService](https://www.nuget.org/packages/Microsoft.ApplicationInsights.WorkerService) ，可用來為任何主控台應用程式啟用 Application Insights。 建議您在[這裡](../../azure-monitor/app/worker-service.md)使用此封裝和相關聯的指示。 此套件[的目標為 `NetStandard2.0`](https://docs.microsoft.com/dotnet/standard/net-standard)，因此可在 .net Core 2.0 或更高版本中使用，並 .NET Framework 4.7.2 或更高版本。
 這個新封裝的穩定版本發行後，此檔將會被取代。
 
 ## <a name="getting-started"></a>使用者入門
@@ -130,7 +130,7 @@ module.Initialize(configuration);
 configuration.TelemetryInitializers.Add(new HttpDependenciesParsingTelemetryInitializer());
 ```
 
-如果您使用一般`TelemetryConfiguration()`的函式建立了設定，則需要另外啟用相互關聯支援。 如果您從檔案讀取設定（使用`TelemetryConfiguration.CreateDefault()`或`TelemetryConfiguration.Active`），則**不需要此**設定。
+如果您使用純 `TelemetryConfiguration()` 的函式建立設定，則需要另外啟用相互關聯支援。 如果您從檔案讀取設定，使用 `TelemetryConfiguration.CreateDefault()` 或 `TelemetryConfiguration.Active`，則**不需要此**設定。
 
 ```csharp
 configuration.TelemetryInitializers.Add(new OperationCorrelationTelemetryInitializer());
@@ -159,7 +159,7 @@ namespace ConsoleApp
             configuration.InstrumentationKey = "removed";
             configuration.TelemetryInitializers.Add(new HttpDependenciesParsingTelemetryInitializer());
 
-            var telemetryClient = new TelemetryClient();
+            var telemetryClient = new TelemetryClient(configuration);
             using (InitializeDependencyTracking(configuration))
             {
                 // run app...

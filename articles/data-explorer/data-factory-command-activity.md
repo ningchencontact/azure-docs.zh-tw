@@ -8,16 +8,16 @@ ms.reviewer: tzgitlin
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 09/15/2019
-ms.openlocfilehash: 316ddbf662a5418e54f37cb335475a86c50118c7
-ms.sourcegitcommit: 2ed6e731ffc614f1691f1578ed26a67de46ed9c2
+ms.openlocfilehash: 20da2d54ea54674656b2c1006d094c63133baf79
+ms.sourcegitcommit: b4665f444dcafccd74415fb6cc3d3b65746a1a31
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71131437"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72264483"
 ---
 # <a name="use-azure-data-factory-command-activity-to-run-azure-data-explorer-control-commands"></a>使用 Azure Data Factory 命令活動來執行 Azure 資料總管 control 命令
 
-[Azure Data Factory](/azure/data-factory/)（ADF）是雲端式資料整合服務，可讓您對資料執行一組活動的組合。 使用 ADF 來建立資料導向的工作流程，以協調和自動化資料移動和資料轉換。 Azure Data Factory 中的**azure 資料總管命令**活動可讓您在 ADF 工作流程內執行[azure 資料總管控制命令](/azure/kusto/concepts/#control-commands)。 本文會教您如何使用查閱活動和包含 Azure 資料總管命令活動的 ForEach 活動來建立管線。
+[Azure Data Factory](/azure/data-factory/) （ADF）是雲端式資料整合服務，可讓您對資料執行一組活動的組合。 使用 ADF 來建立資料導向的工作流程，以協調和自動化資料移動和資料轉換。 Azure Data Factory 中的**azure 資料總管命令**活動可讓您在 ADF 工作流程內執行[azure 資料總管控制命令](/azure/kusto/concepts/#control-commands)。 本文會教您如何使用查閱活動和包含 Azure 資料總管命令活動的 ForEach 活動來建立管線。
 
 ## <a name="prerequisites"></a>必要條件
 
@@ -29,11 +29,13 @@ ms.locfileid: "71131437"
 ## <a name="create-a-new-pipeline"></a>建立新的管線
 
 1. 選取 [**撰寫**鉛筆] 工具。 
-1. 選取 **+** ，然後從下拉式選單選取 [**管線**]，以建立新的管線。
+1. 選取 [ **+** ]，然後從下拉式選單選取 [**管線**]，以建立新的管線。
 
    ![建立新管線](media/data-factory-command-activity/create-pipeline.png)
 
 ## <a name="create-a-lookup-activity"></a>建立查閱活動
+
+[查閱活動](/azure/data-factory/control-flow-lookup-activity)可以從任何支援 Azure Data Factory 的資料來源抓取資料集。 查閱活動的輸出可用於 ForEach 或其他活動中。
 
 1. 在 [**活動**] 窗格的 **[一般**] 底下，選取 [**查閱**] 活動。 將它拖放到右側的主畫布中。
  
@@ -83,13 +85,13 @@ ms.locfileid: "71131437"
     * 選取 [**測試連接**] 來測試您所建立的連結服務連接。 如果您可以連接到您的設定，則會出現綠色的核取記號連線**成功**。
     * 選取 **[完成]** 以完成已連結的服務建立。
 
-1. 設定連結服務之後，請在**AzureDataExplorerTable**  > **連接**中新增**資料表**名稱。 選取 [**預覽資料**]，確認資料已正確呈現。
+1. 設定連結服務之後，請在**AzureDataExplorerTable** > **連接**中新增**資料表**名稱。 選取 [**預覽資料**]，確認資料已正確呈現。
 
    您的資料集現在已準備就緒，您可以繼續編輯您的管線。
 
 ### <a name="add-a-query-to-your-lookup-activity"></a>將查詢新增至查閱活動
 
-1. 在 [**管線-4-**  > 檔**設定**] 中，在 [**查詢**] 文字方塊中加入查詢，例如：
+1. 在 [**管線-4-** 檔  > **設定**] 中，在 [**查詢**] 文字方塊中加入查詢，例如：
 
     ```kusto
     ClusterQueries
@@ -103,7 +105,9 @@ ms.locfileid: "71131437"
 
 ## <a name="create-a-for-each-activity"></a>建立每個活動的 
 
-1. 接下來，您要將 For Each 活動新增至管線。 此活動會處理從查閱活動傳回的資料。 
+每個活動都是用來[逐一查看](/azure/data-factory/control-flow-for-each-activity)集合，並在迴圈中執行指定的活動。 
+
+1. 現在您要將每個活動新增至管線。 此活動會處理從查閱活動傳回的資料。 
     * 在 [**活動**] 窗格的 [**反復專案 & 條件**] 底下，選取 [ **ForEach** ] 活動，並將它拖放到畫布中。
     * 在查閱活動的輸出和畫布中的 ForEach 活動輸入之間繪製一條線來連接它們。
 
@@ -112,7 +116,7 @@ ms.locfileid: "71131437"
 1.  選取畫布中的 [ForEach] 活動。 在下方的 [**設定**] 索引標籤中：
     * 核取 [**連續**] 核取方塊以進行查閱結果的連續處理，或保持未核取狀態以建立平行處理。
     * 設定**批次計數**。
-    * 在 [**專案**] 中，提供下列輸出值的參考：  *@activity（' Lookup1 '）。輸出。值*
+    * 在 [**專案**] 中，提供下列輸出值的參考： *@activity （' Lookup1 '）。輸出。值*
 
        ![ForEach 活動設定](media/data-factory-command-activity/for-each-activity-settings.png)
 
@@ -166,7 +170,7 @@ ms.locfileid: "71131437"
 
 ### <a name="returned-value-of-a-non-async-control-command"></a>非 async control 命令的傳回值
 
-在非非同步控制命令中，傳回值的結構與查閱活動結果的結構類似。 `count`欄位會指出傳回的記錄數目。 固定陣列欄位`value`包含記錄清單。 
+在非非同步控制命令中，傳回值的結構與查閱活動結果的結構類似。 [@No__t-0] 欄位表示傳回的記錄數目。 固定陣列欄位 `value` 包含記錄清單。 
 
 ```json
 { 
@@ -188,7 +192,7 @@ ms.locfileid: "71131437"
  
 ### <a name="returned-value-of-an-async-control-command"></a>非同步控制命令的傳回值
 
-在 async control 命令中，活動會在幕後輪詢作業資料表，直到非同步作業完成或超時為止。因此，傳回的值將包含給定**OperationId**屬性`.show operations OperationId`的結果。 檢查 [**狀態**] 和 [**狀態**] 屬性的值，以確認作業已成功完成。
+在 async control 命令中，活動會在幕後輪詢作業資料表，直到非同步作業完成或超時為止。因此，傳回的值將包含指定的**OperationId**屬性的 `.show operations OperationId` 的結果。 檢查 [**狀態**] 和 [**狀態**] 屬性的值，以確認作業已成功完成。
 
 ```json
 { 

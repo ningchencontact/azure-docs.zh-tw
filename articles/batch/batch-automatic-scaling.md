@@ -13,13 +13,13 @@ ms.tgt_pltfrm: ''
 ms.workload: multiple
 ms.date: 10/08/2019
 ms.author: lahugh
-ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: bdea67d682bab335de02e55f5864460e3daefb95
-ms.sourcegitcommit: 1c2659ab26619658799442a6e7604f3c66307a89
+ms.custom: H1Hack27Feb2017,fasttrack-edit
+ms.openlocfilehash: 9c02db01d7b95f3178d73602089b30029fb0db9f
+ms.sourcegitcommit: f272ba8ecdbc126d22a596863d49e55bc7b22d37
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72254938"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72274837"
 ---
 # <a name="create-an-automatic-formula-for-scaling-compute-nodes-in-a-batch-pool"></a>建立自動公式以調整 Batch 集區中的計算節點
 
@@ -107,6 +107,11 @@ $NodeDeallocationOption = taskcompletion;
 | $TargetDedicatedNodes |集區之專用計算節點的目標數目。 專用節點數目被指定作為目標，因為集區不一定會達到想要的節點數目。 例如，如果在集區達到初始目標之前，自動調整評估修改目標專用節點數目，則集區可能未達到目標。 <br /><br /> 如果目標超過 Batch 帳戶節點或核心配額，以 Batch 服務設定建立之帳戶中的集區可能未達到其目標。 如果目標超過訂用帳戶的共用核心配額，以使用者訂用帳戶設定建立之帳戶中的集區可能未達到其目標。|
 | $TargetLowPriorityNodes |集區之低優先順序計算節點的目標數目。 低優先順序節點數目被指定作為目標，因為集區不一定會達到想要的節點數目。 例如，如果在集區達到初始目標之前，自動調整評估修改目標低優先順序節點數目，則集區可能未達到目標。 如果目標超過 Batch 帳戶節點或核心配額，則集區也可能未達到其目標。 <br /><br /> 如需有關低優先順序計算節點的詳細資訊，請參閱[搭配 Batch 使用低優先順序 VM (預覽)](batch-low-pri-vms.md)。 |
 | $NodeDeallocationOption |計算節點從集區移除時所發生的動作。 可能的值為：<ul><li>**requeue**--預設值。 立即終止工作，並將它們放回作業佇列，使其重新排程。 此動作可確保節點的目標數目儘快達到，但可能較不有效率，因為任何執行中的工作將會中斷，而且必須重新開機，因而浪費已完成的任何工作。 <li>**terminate**：立即終止工作，並從作業佇列移除這些工作。<li>**taskcompletion**：等待目前執行中的工作完成，然後再從集區中移除該節點。 使用此選項可避免工作中斷和重新排入佇列，並浪費工作已完成的任何工作。 <li>**retaineddata**：等待所有本機工作保留在節點上的資料先清除，再從集區移除節點。</ul> |
+
+> [!NOTE]
+> @No__t-0 變數也可以使用別名 `$TargetDedicated` 來指定。 同樣地，您可以使用別名 `$TargetLowPriority` 來指定 `$TargetLowPriorityNodes` 變數。 如果完整命名的變數及其別名都是由公式所設定，則指派給完整命名變數的值將會優先。
+>
+>
 
 您可以取得這些服務定義的變數值，以根據 Batch 服務提供的計量進行調整：
 

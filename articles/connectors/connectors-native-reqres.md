@@ -9,15 +9,15 @@ ms.author: estfan
 ms.reviewers: klam, LADocs
 manager: carmonm
 ms.assetid: 566924a4-0988-4d86-9ecd-ad22507858c0
-ms.topic: article
-ms.date: 09/06/2019
+ms.topic: conceptual
+ms.date: 10/11/2019
 tags: connectors
-ms.openlocfilehash: 668e815f1dc1ead0ad38264bdc71fc3c315b751c
-ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
+ms.openlocfilehash: 6062ca1ce09eb243825b1fb9ae4ecb3d5ac95d1a
+ms.sourcegitcommit: b4665f444dcafccd74415fb6cc3d3b65746a1a31
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71122719"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72264362"
 ---
 # <a name="receive-and-respond-to-incoming-https-calls-by-using-azure-logic-apps"></a>使用 Azure Logic Apps 接收和回應連入的 HTTPS 呼叫
 
@@ -27,7 +27,8 @@ ms.locfileid: "71122719"
 * 在發生外部 webhook 事件時觸發工作流程。
 * 接收並回應來自另一個邏輯應用程式的 HTTPS 呼叫。
 
-要求觸發程式*僅*支援 HTTPS。 若要改為發出傳出 HTTP 或 HTTPS 呼叫，請使用內建的[HTTP 觸發程式或動作](../connectors/connectors-native-http.md)。
+> [!NOTE]
+> 要求觸發程式*僅*支援連入呼叫的傳輸層安全性（TLS）1.2。 撥出電話會繼續支援 TLS 1.0、1.1 和1.2。 如果您看到 SSL 交握錯誤，請確定您使用的是 TLS 1.2。
 
 ## <a name="prerequisites"></a>必要條件
 
@@ -107,7 +108,7 @@ ms.locfileid: "71122719"
    }
    ```
 
-   當您輸入 JSON 架構時，設計工具會顯示提醒您在要求`Content-Type`中包含標頭，並將該標頭`application/json`值設定為。 如需詳細資訊，請參閱[處理內容類型](../logic-apps/logic-apps-content-type.md)。
+   當您輸入 JSON 架構時，設計工具會顯示提醒，在您的要求中包含 @no__t 0 標頭，並將該標頭值設為 `application/json`。 如需詳細資訊，請參閱[處理內容類型](../logic-apps/logic-apps-content-type.md)。
 
    ![要包含 "Content-type" 標頭的提醒](./media/connectors-native-reqres/include-content-type.png)
 
@@ -168,7 +169,7 @@ ms.locfileid: "71122719"
 
    例如，您可以藉由[新增回應動作](#add-response)來回應要求，讓您可以用來傳回自訂的回應，並在本主題稍後加以說明。
 
-   您的邏輯應用程式只會將傳入要求保持開啟一分鐘。 假設您的邏輯應用程式工作流程包含回應動作，如果邏輯應用程式在這段時間過後不會傳迴響應，則邏輯應用`504 GATEWAY TIMEOUT`程式會將傳回給呼叫者。 否則，如果邏輯應用程式未包含回應動作，則邏輯應用程式會立即`202 ACCEPTED`將回應傳回給呼叫者。
+   您的邏輯應用程式只會將傳入要求保持開啟一分鐘。 假設您的邏輯應用程式工作流程包含回應動作，如果邏輯應用程式在這段時間過後不會傳迴響應，則邏輯應用程式會將 `504 GATEWAY TIMEOUT` 傳回給呼叫者。 否則，如果邏輯應用程式未包含回應動作，則邏輯應用程式會立即將 @no__t 0 回應傳回給呼叫者。
 
 1. 完成後，儲存邏輯應用程式。 在設計工具的工具列上，選取 [儲存]。 
 
@@ -194,7 +195,7 @@ ms.locfileid: "71122719"
 
 您可以使用 [回應] 動作，以將承載（資料）回應到傳入的 HTTPS 要求，但僅限於由 HTTPS 要求觸發的邏輯應用程式。 您可以在工作流程中的任何時間點新增回應動作。 如需此觸發程式之基礎 JSON 定義的詳細資訊，請參閱[回應動作類型](../logic-apps/logic-apps-workflow-actions-triggers.md#response-action)。
 
-您的邏輯應用程式只會將傳入要求保持開啟一分鐘。 假設您的邏輯應用程式工作流程包含回應動作，如果邏輯應用程式在這段時間過後不會傳迴響應，則邏輯應用`504 GATEWAY TIMEOUT`程式會將傳回給呼叫者。 否則，如果邏輯應用程式未包含回應動作，則邏輯應用程式會立即`202 ACCEPTED`將回應傳回給呼叫者。
+您的邏輯應用程式只會將傳入要求保持開啟一分鐘。 假設您的邏輯應用程式工作流程包含回應動作，如果邏輯應用程式在這段時間過後不會傳迴響應，則邏輯應用程式會將 `504 GATEWAY TIMEOUT` 傳回給呼叫者。 否則，如果邏輯應用程式未包含回應動作，則邏輯應用程式會立即將 @no__t 0 回應傳回給呼叫者。
 
 1. 在邏輯應用程式設計工具中，于您要新增回應動作的步驟底下，選取 [**新增步驟**]。
 
@@ -202,7 +203,7 @@ ms.locfileid: "71122719"
 
    ![新增步驟](./media/connectors-native-reqres/add-response.png)
 
-   若要在步驟之間新增動作，請將指標移到這些步驟之間的箭號上。 選取顯示的加號 ( **+** ), 然後選取 [**新增動作**]。
+   若要在步驟之間新增動作，請將指標移到這些步驟之間的箭號上。 選取顯示的加號（ **+** ），然後選取 [**新增動作**]。
 
 1. 在 [**選擇動作**] 下的 [搜尋] 方塊中，輸入「回應」作為篩選準則，然後選取 [**回應**] 動作。
 
@@ -214,7 +215,7 @@ ms.locfileid: "71122719"
 
    在某些欄位中，按一下其方塊內會開啟動態內容清單。 然後，您可以從工作流程中的先前步驟選取代表可用輸出的權杖。 在先前範例中指定的架構屬性現在會出現在動態內容清單中。
 
-   例如，針對 [**標頭**] 方塊， `Content-Type`將包含做為索引鍵名稱，並將金鑰`application/json`值設為，如本主題稍早所述。 針對 [**本文**] 方塊，您可以從動態內容清單中選取觸發程式主體輸出。
+   例如，針對 [**標頭**] 方塊，將 `Content-Type` 納入索引鍵名稱，並將金鑰值設為 `application/json`，如本主題稍早所述。 針對 [**本文**] 方塊，您可以從動態內容清單中選取觸發程式主體輸出。
 
    ![回應動作詳細資料](./media/connectors-native-reqres/response-details.png)
 

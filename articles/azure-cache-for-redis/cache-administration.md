@@ -14,12 +14,12 @@ ms.tgt_pltfrm: cache
 ms.workload: tbd
 ms.date: 07/05/2017
 ms.author: yegu
-ms.openlocfilehash: eb6773d1547499fcd3a73aebf8f17ec61b6dc06a
-ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
+ms.openlocfilehash: bb7b9a41523ab1b1addbf37cb7b463f12a72a814
+ms.sourcegitcommit: b4665f444dcafccd74415fb6cc3d3b65746a1a31
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71827591"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72263675"
 ---
 # <a name="how-to-administer-azure-cache-for-redis"></a>如何管理 Azure Cache for Redis
 本主題說明如何執行管理工作，例如為 Azure Cache for Redis 執行個體進行[重新啟動](#reboot)和[排程更新](#schedule-updates)。
@@ -48,17 +48,11 @@ ms.locfileid: "71827591"
 * **主要和從屬** - 重新啟動這兩個快取節點時，在主要節點恢復上線之前，將會遺失快取中的所有資料且無法連接快取。 如果您已設定[資料持續性](cache-how-to-premium-persistence.md)，則當快取恢復連線時，將會還原最近一次備份，但在此備份後發生的任何快取寫入將會遺失。
 * **已啟用叢集的進階快取節點** - 當您重新啟動一或多個已啟用叢集的進階快取節點時，所選節點的行為與您重新啟動回應節點或非叢集快取的節點時相同。
 
-> [!IMPORTANT]
-> 重新啟動現在適用於所有定價層。
-> 
-> 
-
 ## <a name="reboot-faq"></a>重新啟動常見問題集
 * [若要測試我的應用程式，我應該重新啟動哪一個節點？](#which-node-should-i-reboot-to-test-my-application)
 * [我可以重新啟動快取來清除用戶端連線嗎？](#can-i-reboot-the-cache-to-clear-client-connections)
 * [如果我重新啟動，將會遺失快取中的資料嗎？](#will-i-lose-data-from-my-cache-if-i-do-a-reboot)
 * [我可以使用 PowerShell、CLI 或其他管理工具重新啟動我的快取嗎？](#can-i-reboot-my-cache-using-powershell-cli-or-other-management-tools)
-* [哪些定價層可以使用重新啟動功能？](#what-pricing-tiers-can-use-the-reboot-functionality)
 
 ### <a name="which-node-should-i-reboot-to-test-my-application"></a>若要測試我的應用程式，我應該重新啟動哪一個節點？
 若要針對快取的主要節點失敗測試應用程式復原功能，重新啟動 **主要** 節點。 若要針對次要節點失敗測試應用程式復原功能，重新啟動 **從屬** 節點。 若要針對整體快取失敗測試應用程式復原功能，重新啟動 **這兩個** 節點。
@@ -79,23 +73,18 @@ ms.locfileid: "71827591"
 ### <a name="can-i-reboot-my-cache-using-powershell-cli-or-other-management-tools"></a>我可以使用 PowerShell、CLI 或其他管理工具重新啟動我的快取嗎？
 是，如需 PowerShell 指示，請參閱[重新啟動 Azure Cache for Redis](cache-howto-manage-redis-cache-powershell.md#to-reboot-an-azure-cache-for-redis)。
 
-### <a name="what-pricing-tiers-can-use-the-reboot-functionality"></a>哪些定價層可以使用重新啟動功能？
-重新啟動適用於所有定價層。
-
-## <a name="schedule-updates"></a>排程更新
+## <a name="schedule-updates"></a>更新排程
 [**排程更新**] 分頁可讓您指定快取實例的維護視窗。 若指定了維護期間，即會在此期間進行任何 Redis 伺服器更新。 
 
 > [!NOTE] 
 > 維護期間僅適用於 Redis 伺服器更新，不適用於任何 Azure 更新，或是在裝載快取的 VM 上更新作業系統。
-> 
-> 
+>
 
-![排程更新](./media/cache-administration/redis-schedule-updates.png)
+![更新排程](./media/cache-administration/redis-schedule-updates.png)
 
 若要指定維護期間，請檢查所需的天數，並指定每一天的維護期間開始小時，然後按一下 [確定]。 請注意，維護期間時間是 UTC。 
 
 更新的預設、最短維護期間是 5 小時。 這個值不可以從 Azure 入口網站設定，但您可以在 PowerShell 中使用 [New-AzRedisCacheScheduleEntry](/powershell/module/az.rediscache/new-azrediscachescheduleentry) Cmdlet 的 `MaintenanceWindow` 參數來設定。 如需詳細資訊，請參閱我可以使用 PowerShell、CLI 或其他管理工具管理排程更新嗎？
-
 
 ## <a name="schedule-updates-faq"></a>排程更新常見問題集
 * [如果我未使用排程更新功能，更新會在何時發生？](#when-do-updates-occur-if-i-dont-use-the-schedule-updates-feature)

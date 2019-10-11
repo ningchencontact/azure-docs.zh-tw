@@ -7,12 +7,12 @@ ms.author: dacoulte
 ms.date: 10/09/2019
 ms.topic: conceptual
 ms.service: resource-graph
-ms.openlocfilehash: 13e2a848f9d178fc6554062c324c951102e1343b
-ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
+ms.openlocfilehash: 4858d803b4fccdc6ae4d5a790721bad60d218313
+ms.sourcegitcommit: f272ba8ecdbc126d22a596863d49e55bc7b22d37
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72244105"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72274194"
 ---
 # <a name="get-resource-changes"></a>取得資源變更
 
@@ -30,6 +30,7 @@ ms.locfileid: "72244105"
 - 瞭解當資源變更合規性狀態時，其他哪些屬性可能已變更。 評估這些額外的屬性可提供其他可能需要透過 Azure 原則定義來管理的屬性的深入解析。
 
 本文說明如何透過 Resource Graph 的 SDK 收集這項資訊。 若要在 Azure 入口網站中查看這項資訊，請參閱 Azure 原則的[變更歷程記錄](../../policy/how-to/determine-non-compliance.md#change-history-preview)或 Azure 活動記錄[變更歷程記錄](../../../azure-monitor/platform/activity-log-view.md#azure-portal)。
+如需將應用程式從基礎結構層變更為應用程式部署的詳細資訊，請參閱在 Azure 監視器中[使用應用程式變更分析（預覽）](../../../azure-monitor/app/change-analysis.md) 。
 
 > [!NOTE]
 > Resource Graph 中的變更詳細資料適用于 Resource Manager 屬性。 如需追蹤虛擬機器內部的變更，請參閱 Azure 自動化的[變更追蹤](../../../automation/automation-change-tracking.md)或 Azure 原則的[vm 來賓](../../policy/concepts/guest-configuration.md)設定。

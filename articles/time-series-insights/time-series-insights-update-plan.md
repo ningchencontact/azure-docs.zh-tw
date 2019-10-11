@@ -10,12 +10,12 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 09/24/2019
 ms.custom: seodec18
-ms.openlocfilehash: 6141f898a33b4b37c2a1f16e115b184e21163a5a
-ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
+ms.openlocfilehash: 780e639ad6e1ee721820749da2df9ea6efa07bd6
+ms.sourcegitcommit: f272ba8ecdbc126d22a596863d49e55bc7b22d37
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71300705"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72273734"
 ---
 # <a name="plan-your-azure-time-series-insights-preview-environment"></a>規劃您的 Azure 時間序列深入解析預覽版環境
 
@@ -82,7 +82,7 @@ Azure 時間序列深入解析採用隨用隨付商務模型。 如需費用和�
 * 將中繼資料儲存在時間序列模型中。
 * 時間序列模式、實例欄位和事件只包含必要的資訊，例如時間序列識別碼或時間戳記。
 
-如需詳細資訊，請參閱[塑形事件](./time-series-insights-send-events.md#json)。
+如需詳細資訊，請參閱[塑形事件](./time-series-insights-send-events.md#supported-json-shapes)。
 
 [!INCLUDE [business-disaster-recover](../../includes/time-series-insights-business-recovery.md)]
 

@@ -8,20 +8,20 @@ editor: ''
 ms.service: app-service
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 09/03/2019
+ms.date: 10/09/2019
 ms.author: mahender
 ms.custom: seodec18
-ms.openlocfilehash: 311a9fc887db399cb16d6cbb2bcec665a7ddfce7
-ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
+ms.openlocfilehash: 49bf7984efe74edd2a19909509e0c6b9564fc2e9
+ms.sourcegitcommit: f272ba8ecdbc126d22a596863d49e55bc7b22d37
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72240110"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72274424"
 ---
-# <a name="use-key-vault-references-for-app-service-and-azure-functions-preview"></a>使用 App Service 和 Azure Functions 的 Key Vault 參考 (預覽)
+# <a name="use-key-vault-references-for-app-service-and-azure-functions"></a>使用 App Service 和 Azure Functions 的 Key Vault 參考
 
 > [!NOTE] 
-> 目前，Key Vault 的參考處於預覽狀態，且 Linux 取用方案目前不支援。
+> 目前無法在 Linux 耗用量方案中使用 Key Vault 參考。
 
 本主題示範如何在 App Service 或 Azure Functions 應用程式中使用來自 Azure Key Vault 的祕密，而不需要變更任何程式碼。 [Azure Key Vault](../key-vault/key-vault-overview.md) 是提供集中式祕密管理的服務，可完整控制存取原則和稽核歷程記錄。
 
@@ -52,7 +52,7 @@ Key Vault 參考格式為 `@Microsoft.KeyVault({referenceString})`，其中 `{re
 > | VaultName=_vaultName_;SecretName=_secretName_;SecretVersion=_secretVersion_ | **VaultName** 應該是您 Key Vault 資源的名稱。 **SecretName** 應該是目標祕密的名稱。 **SecretVersion** 應該是要使用的祕密版本。 |
 
 > [!NOTE] 
-> 在目前的預覽中，版本為必要項目。 輪替祕密時，您必須在應用程式設定中更新版本。
+> 目前需要版本。 輪替祕密時，您必須在應用程式設定中更新版本。
 
 例如，完整的參考可能看起來如下：
 
@@ -192,7 +192,9 @@ Key Vault 參考可用來作為[應用程式設定](configure-common.md#configur
 
 最常見的原因是[Key Vault 存取原則](#granting-your-app-access-to-key-vault)的設定不正確。 不過，它也可能是因為秘密已不存在或參考本身的語法錯誤所導致。
 
-如果語法正確，您可以使用內建的偵測器來檢查目前的解決狀態，以查看其他錯誤原因。
+如果語法正確，您可以藉由在入口網站中檢查目前的解決狀態來查看其他錯誤原因。 流覽至 [應用程式設定]，然後選取 [編輯] 以取得問題中的參考。 在設定設定底下，您應該會看到狀態資訊，包括任何錯誤。 缺少這些表示參考語法是不正確。
+
+您也可以使用其中一個內建偵測器來取得其他資訊。
 
 ### <a name="using-the-detector-for-app-service"></a>使用 App Service 的偵測器
 

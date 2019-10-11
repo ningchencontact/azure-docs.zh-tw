@@ -9,14 +9,14 @@ manager: cshankar
 ms.reviewer: v-mamcge, jasonh, kfile
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 08/06/2019
+ms.date: 10/10/2019
 ms.custom: seodec18
-ms.openlocfilehash: 4455d499ab4c52a27a7d9cf878e8130ff38b1c62
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: 670615980b7fd78441a08ba987073dc139b3792a
+ms.sourcegitcommit: f272ba8ecdbc126d22a596863d49e55bc7b22d37
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68846958"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72274448"
 ---
 # <a name="grant-data-access-to-an-environment"></a>授與環境的資料存取權
 
@@ -34,11 +34,11 @@ ms.locfileid: "68846958"
 
 1. 選取 [資料存取原則]，然後選取 [+新增]。
 
-    [![資料存取-一](media/data-access/data-access-one.png)](media/data-access/data-access-one.png#lightbox)
+    [![Data-存取-一](media/data-access/data-access-one.png)](media/data-access/data-access-one.png#lightbox)
 
 1. 選擇 [選取使用者]。 搜尋使用者名稱或電子郵件地址，以找出您想要新增的使用者。 選取 [**選取**] 以確認選取專案。
 
-    [![資料存取-二](media/data-access/data-access-two.png)](media/data-access/data-access-two.png#lightbox)
+    [![Data-存取-2](media/data-access/data-access-two.png)](media/data-access/data-access-two.png#lightbox)
 
 1. 選擇 [選取角色]。 為使用者選擇適當的存取角色：
 
@@ -48,15 +48,15 @@ ms.locfileid: "68846958"
 
    選取 [確定] 以確認角色選擇。
 
-    [![資料存取-三](media/data-access/data-access-three.png)](media/data-access/data-access-three.png#lightbox)
+    [![Data-存取-三](media/data-access/data-access-three.png)](media/data-access/data-access-three.png#lightbox)
 
 1. 在 [選取使用者角色] 頁面中選取 [確定]。
 
-    [![資料存取-四](media/data-access/data-access-four.png)](media/data-access/data-access-four.png#lightbox)
+    [![Data-存取-四](media/data-access/data-access-four.png)](media/data-access/data-access-four.png#lightbox)
 
 1. 確認 [資料存取原則] 頁面列出的使用者和每個使用者的角色。
 
-    [![資料存取-五](media/data-access/data-access-five.png)](media/data-access/data-access-five.png#lightbox)
+    [![Data-存取-五](media/data-access/data-access-five.png)](media/data-access/data-access-five.png#lightbox)
 
 ## <a name="provide-guest-access-from-another-aad-tenant"></a>提供來自另一個 AAD 租使用者的來賓存取權
 
@@ -66,19 +66,19 @@ ms.locfileid: "68846958"
 
 1. 選取 [資料存取原則]，然後選取 [+ 邀請]。
 
-    [![資料存取-六](media/data-access/data-access-six.png)](media/data-access/data-access-six.png#lightbox)
+    [![Data-存取-六](media/data-access/data-access-six.png)](media/data-access/data-access-six.png#lightbox)
 
 1. 輸入您要邀請之使用者的電子郵件地址。 此電子郵件地址必須與 Azure AD 相關聯。 (選擇性) 您可以在邀請中包括個人訊息。
 
-    [![資料存取-七](media/data-access/data-access-seven.png)](media/data-access/data-access-seven.png#lightbox)
+    [![Data-存取-七](media/data-access/data-access-seven.png)](media/data-access/data-access-seven.png#lightbox)
 
 1. 尋找顯示在畫面上的確認泡泡訊息。
 
-    [![資料存取-八](media/data-access/data-access-eight.png)](media/data-access/data-access-eight.png#lightbox)
+    [![Data-存取-八](media/data-access/data-access-eight.png)](media/data-access/data-access-eight.png#lightbox)
 
-1. 選擇 [選取使用者]。 搜尋您邀請之來賓使用者的電子郵件地址，以尋找您要新增的使用者。 然後,**選取**以確認選取專案。
+1. 選擇 [選取使用者]。 搜尋您邀請之來賓使用者的電子郵件地址，以尋找您要新增的使用者。 然後，**選取**以確認選取專案。
 
-    [![資料存取-九](media/data-access/data-access-nine.png)](media/data-access/data-access-nine.png#lightbox)
+    [![Data-存取-9](media/data-access/data-access-nine.png)](media/data-access/data-access-nine.png#lightbox)
 
 1. 選擇 [選取角色]。 為來賓使用者選擇適當的存取角色：
 
@@ -88,29 +88,29 @@ ms.locfileid: "68846958"
 
    選取 [確定] 以確認角色選擇。
 
-    [![資料存取-十](media/data-access/data-access-ten.png)](media/data-access/data-access-ten.png#lightbox)
+    [![Data-存取-十](media/data-access/data-access-ten.png)](media/data-access/data-access-ten.png#lightbox)
 
 1. 在 [選取使用者角色] 頁面中選取 [確定]。
 
 1. 確認 [資料存取原則] 頁面列出的來賓使用者與每個來賓使用者的角色。
 
-    [![資料存取-11](media/data-access/data-access-eleven.png)](media/data-access/data-access-eleven.png#lightbox)
+    [![Data-存取-11](media/data-access/data-access-eleven.png)](media/data-access/data-access-eleven.png#lightbox)
 
 1. 現在，來賓使用者必須遵循步驟，以存取位於您將其邀請到其中之 Azure 租用戶的環境。 首先，他們接受您傳送給他們的邀請。 此邀請是透過電子郵件傳送到您在步驟 5 使用的電子郵件地址。 他們選取 [開始使用] 以接受。
 
-    [![資料存取-12](media/data-access/data-access-twelve.png)](media/data-access/data-access-twelve.png#lightbox)
+    [![Data-存取-12](media/data-access/data-access-twelve.png)](media/data-access/data-access-twelve.png#lightbox)
 
 1. 接著，來賓使用者接受與系統管理員組織關聯的權限。
 
-    [![資料存取-十三](media/data-access/data-access-thirteen.png)](media/data-access/data-access-thirteen.png#lightbox)
+    [@no__t 1Data-存取-十三](media/data-access/data-access-thirteen.png)](media/data-access/data-access-thirteen.png#lightbox)
 
 1. 在來賓使用者登入您用來邀請他們的電子郵件地址，並接受邀請之後，他們將會移至 insights.azure.com。 到達該處之後，他們要選取畫面右上角其電子郵件地址旁的頭像。
 
-    [![資料存取-十四](media/data-access/data-access-fourteen.png)](media/data-access/data-access-fourteen.png#lightbox)
+    [@no__t 1Data-存取-十四](media/data-access/data-access-fourteen.png)](media/data-access/data-access-fourteen.png#lightbox)
 
 1. 接著，來賓使用者必須從目錄下拉式清單功能表選取您的 Azure 租用戶。 此租用戶即為您邀請他們的租用戶。
 
-    [![資料存取-十五](media/data-access/data-access-fifteen.png)](media/data-access/data-access-fifteen.png#lightbox)
+    [![Data-存取-十五](media/data-access/data-access-fifteen.png)](media/data-access/data-access-fifteen.png#lightbox)
 
 當來賓使用者選取您的租用戶之後，他們會看到您為其提供存取權的時間序列深入解析環境。 他們現在擁有與您在**步驟 5**中提供的角色相關聯的所有功能。
 

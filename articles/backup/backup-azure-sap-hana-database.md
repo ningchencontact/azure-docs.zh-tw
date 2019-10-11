@@ -7,12 +7,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 08/27/2019
 ms.author: dacurwin
-ms.openlocfilehash: 9f16a00bd8bc8e61aecbf6d6bd7f31e90f50140a
-ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
+ms.openlocfilehash: 50fbd0a2169fb120424d76e786a6269243eeb3e1
+ms.sourcegitcommit: f272ba8ecdbc126d22a596863d49e55bc7b22d37
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71067109"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72273945"
 ---
 # <a name="back-up-an-sap-hana-database-to-azure"></a>將 SAP Hana 資料庫備份至 Azure
 
@@ -27,7 +27,7 @@ ms.locfileid: "71067109"
 --- | ---
 **支援的地區** | 澳大利亞東部、澳大利亞東部 <br> 巴西南部 <br> 加拿大中部，加拿大東部 <br> 南部東亞，東亞 <br> 美國東部、美國東部2、美國中西部、美國西部、美國西部2、美國中北部、美國中部、美國中南部<br> 印度中部、印度南部 <br> 日本東部、日本西部<br> 南韓中部、南韓南部 <br> 北歐、西歐 <br> 英國南部，英國西部
 **支援的 VM 作業系統** | SLES 12 SP2、SP3 或 SP4。
-**支援的 HANA 版本** | Hana 1.x 上的 SDC、HANA 2. x 上的 MDC < = SPS04 Rev 42
+**支援的 HANA 版本** | Hana 1.x 上的 SDC、HANA 2. x 上的 MDC < = SPS04 Rev 43
 
 ### <a name="current-limitations"></a>目前的限制
 
@@ -40,7 +40,7 @@ ms.locfileid: "71067109"
 - 您可以每隔15分鐘備份一次資料庫記錄。 記錄備份只會在資料庫的成功完整備份完成後開始流動。
 - 您可以進行完整和差異備份。 目前不支援增量備份。
 - 將備份原則套用至 SAP Hana 備份之後，即無法修改。 如果您想要使用不同的設定進行備份，請建立新的原則，或指派不同的原則。
-  - 若要建立新原則，請在保存庫中按一下 [**原則** > ] [**備份原則** > ] **+**  > [**在 Azure VM 中新增 SAP Hana**]，然後指定原則設定。
+  - 若要建立新原則，請在保存庫中按一下 [**原則**]  >  個 [**備份原則**]  >  **+** **在 Azure VM 中**新增  >  SAP Hana，然後指定 [原則設定]。
   - 若要指派不同的原則，請在執行資料庫之 VM 的屬性中，按一下目前的原則名稱。 然後在 [**備份原則**] 頁面上，您可以選取要用於備份的不同原則。
 
 ## <a name="prerequisites"></a>必要條件
@@ -101,7 +101,7 @@ ms.locfileid: "71067109"
 
 1. 在步驟2中，按一下 [**設定備份**]。
 2. 在 [**選取要備份的專案**] 中，選取您想要保護的所有資料庫，> **[確定]** 。
-3. 在 [**備份原則** > ] 中，**選擇 [備份原則**]，並根據下列指示建立資料庫的新備份原則。
+3. 在 [**備份原則**]  > **選擇 [備份原則**]，並根據下列指示建立資料庫的新備份原則。
 4. 建立原則之後，請在 [**備份**] 功能表上，按一下 [**啟用備份**]。
 5. 在入口網站的 [**通知**] 區域中，追蹤備份設定的進度。
 
@@ -167,7 +167,7 @@ ms.locfileid: "71067109"
 
 1. 等待資料庫的完整或記錄備份完成。 檢查 SAP Hana Studio 中的狀態。
 2. 停用記錄備份，並將備份類別目錄設定為相關資料庫的檔案系統。
-3. 若要這麼做 **，請按兩下** > [ **systemdb**  > 設定] [**選取資料庫** > **篩選（記錄）** ]。
+3. 若要這麼做，請按兩下 [ **systemdb**] @no__t **-1 設定** > **選取 [資料庫** > **篩選（記錄）** ]。
 4. 將 [ **enable_auto_log_backup** ] 設定為 [**否**]。
 5. 將**log_backup_using_backint**設定為**False**。
 6. 進行資料庫的臨機操作完整備份。

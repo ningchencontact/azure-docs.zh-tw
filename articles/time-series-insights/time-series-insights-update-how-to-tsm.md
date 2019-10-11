@@ -10,12 +10,12 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 09/04/2019
 ms.custom: seodec18
-ms.openlocfilehash: 245a69f5e5834e68bbbd17a96859a93bc16eacbe
-ms.sourcegitcommit: 86d49daccdab383331fc4072b2b761876b73510e
+ms.openlocfilehash: 64f892f344780d4af58c70935b9b7b68bad9550d
+ms.sourcegitcommit: f272ba8ecdbc126d22a596863d49e55bc7b22d37
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70744141"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72273736"
 ---
 # <a name="data-modeling-in-azure-time-series-insights-preview"></a>Azure 時間序列深入解析預覽版中的資料模型
 
@@ -29,12 +29,12 @@ ms.locfileid: "70744141"
 
 1. 移至時間序列模型選取器面板，然後從功能表選取 [Types] \(類型\)。 摺疊面板以將焦點放在時間序列模型類型。
 
-    [![建立單一類型](media/v2-update-how-to-tsm/portal-one.png)](media/v2-update-how-to-tsm/portal-one.png#lightbox)
+    [@no__t 1Create 單一類型](media/v2-update-how-to-tsm/portal-one.png)](media/v2-update-how-to-tsm/portal-one.png#lightbox)
 
 1. 選取  **+ 新增**。
 1. 輸入與類型有關的所有詳細資料，並選取 [建立]。 此動作會在環境中建立類型。
 
-    [![新增類型](media/v2-update-how-to-tsm/portal-two.png)](media/v2-update-how-to-tsm/portal-two.png#lightbox)
+    [@no__t 1Add 類型](media/v2-update-how-to-tsm/portal-two.png)](media/v2-update-how-to-tsm/portal-two.png#lightbox)
 
 ### <a name="bulk-upload-one-or-more-types"></a>大量上傳一或多個類型
 
@@ -42,21 +42,21 @@ ms.locfileid: "70744141"
 1. 選取包含類型承載的檔案。
 1. 選取 [上傳]。
 
-    [![上傳 JSON](media/v2-update-how-to-tsm/portal-three.png)](media/v2-update-how-to-tsm/portal-three.png#lightbox)
+    [@no__t 1Upload JSON](media/v2-update-how-to-tsm/portal-three.png)](media/v2-update-how-to-tsm/portal-three.png#lightbox)
 
 ### <a name="edit-a-single-type"></a>編輯單一類型
 
 1. 選取類型，然後選取 [編輯]。 
 1. 進行必要的變更，然後選取 [儲存]。
 
-    [![編輯類型](media/v2-update-how-to-tsm/portal-four.png)](media/v2-update-how-to-tsm/portal-four.png#lightbox)
+    [@no__t 1Edit 類型](media/v2-update-how-to-tsm/portal-four.png)](media/v2-update-how-to-tsm/portal-four.png#lightbox)
 
 ### <a name="delete-a-type"></a>刪除類型
 
 1. 選取類型，然後選取 [刪除]。
 1. 如果沒有執行個體與該類型相關聯，系統就會刪除它。
 
-    [![刪除類型](media/v2-update-how-to-tsm/portal-five.png)](media/v2-update-how-to-tsm/portal-five.png#lightbox)
+    [@no__t 1Delete 類型](media/v2-update-how-to-tsm/portal-five.png)](media/v2-update-how-to-tsm/portal-five.png#lightbox)
 
 ## <a name="hierarchies"></a>階層
 
@@ -64,19 +64,19 @@ ms.locfileid: "70744141"
 
 1. 移至時間序列模型選取器面板，然後從功能表選取 [Hierarchies] \(階層\)。 摺疊面板以將焦點放在時間序列模型階層。
 
-    [![選取階層](media/v2-update-how-to-tsm/portal-six.png)](media/v2-update-how-to-tsm/portal-six.png#lightbox)
+    [@no__t 1Select 階層](media/v2-update-how-to-tsm/portal-six.png)](media/v2-update-how-to-tsm/portal-six.png#lightbox)
 
 1. 選取  **+ 新增**。
 
-    [![新增階層](media/v2-update-how-to-tsm/portal-seven.png)](media/v2-update-how-to-tsm/portal-seven.png#lightbox)
+    [@no__t 1Add 階層](media/v2-update-how-to-tsm/portal-seven.png)](media/v2-update-how-to-tsm/portal-seven.png#lightbox)
 
 1. 在右窗格中選取 [ **+ 新增層級**]。
 
-    [![新增層級](media/v2-update-how-to-tsm/portal-eight.png)](media/v2-update-how-to-tsm/portal-eight.png#lightbox)
+    [@no__t 1Add 層級](media/v2-update-how-to-tsm/portal-eight.png)](media/v2-update-how-to-tsm/portal-eight.png#lightbox)
 
 1. 請輸入階層的詳細資訊，並選取 [建立]。
 
-    [![建立層級](media/v2-update-how-to-tsm/portal-nine.png)](media/v2-update-how-to-tsm/portal-nine.png#lightbox)
+    [@no__t 1Create 層級](media/v2-update-how-to-tsm/portal-nine.png)](media/v2-update-how-to-tsm/portal-nine.png#lightbox)
 
 ### <a name="bulk-upload-one-or-more-hierarchies"></a>大量上傳一或多個階層
 
@@ -84,21 +84,21 @@ ms.locfileid: "70744141"
 1. 選取包含階層承載的檔案。
 1. 選取 [上傳]。
 
-    [![大量上傳階層](media/v2-update-how-to-tsm/portal-ten.png)](media/v2-update-how-to-tsm/portal-ten.png#lightbox)
+    [@no__t 1Bulk 上傳階層](media/v2-update-how-to-tsm/portal-ten.png)](media/v2-update-how-to-tsm/portal-ten.png#lightbox)
 
 ### <a name="edit-a-single-hierarchy"></a>編輯單一階層
 
 1. 選取階層，然後選取 [編輯]。
 1. 進行必要的變更，然後選取 [儲存]。
 
-    [![編輯單一階層](media/v2-update-how-to-tsm/portal-eleven.png)](media/v2-update-how-to-tsm/portal-eleven.png#lightbox)
+    [@no__t 1Edit 單一階層](media/v2-update-how-to-tsm/portal-eleven.png)](media/v2-update-how-to-tsm/portal-eleven.png#lightbox)
 
 ### <a name="delete-a-hierarchy"></a>刪除階層
 
 1. 選取階層，然後選取 [刪除]。 
 1. 如果沒有執行個體與該階層相關聯，系統就會刪除它。
 
-    [![刪除階層](media/v2-update-how-to-tsm/portal-twelve.png)](media/v2-update-how-to-tsm/portal-twelve.png#lightbox)
+    [@no__t 1Delete 階層](media/v2-update-how-to-tsm/portal-twelve.png)](media/v2-update-how-to-tsm/portal-twelve.png#lightbox)
 
 ## <a name="instances"></a>執行個體
 
@@ -106,11 +106,11 @@ ms.locfileid: "70744141"
 
 1. 移至時間序列模型選取器面板，然後從功能表選取 [Instances] \(執行個體\)。 摺疊面板以將焦點放在時間序列模型執行個體。
 
-    [![建立單一實例](media/v2-update-how-to-tsm/portal-thirteen.png)](media/v2-update-how-to-tsm/portal-thirteen.png#lightbox)
+    [@no__t 1Create 單一實例](media/v2-update-how-to-tsm/portal-thirteen.png)](media/v2-update-how-to-tsm/portal-thirteen.png#lightbox)
 
 1. 選取 [新增]。
 
-    [![新增實例](media/v2-update-how-to-tsm/portal-fourteen.png)](media/v2-update-how-to-tsm/portal-fourteen.png#lightbox)
+    [@no__t 1Add 實例](media/v2-update-how-to-tsm/portal-fourteen.png)](media/v2-update-how-to-tsm/portal-fourteen.png#lightbox)
 
 1. 輸入執行個體詳細資料，選取類型和階層關聯，然後選取 [建立]。
 
@@ -119,7 +119,7 @@ ms.locfileid: "70744141"
 1. 選取 [上傳 JSON]。
 1. 選取包含執行個體承載的檔案。
 
-    [![大量上傳一或多個實例](media/v2-update-how-to-tsm/portal-fifteen.png)](media/v2-update-how-to-tsm/portal-fifteen.png#lightbox)
+    [@no__t 1Bulk 上傳一個或多個實例](media/v2-update-how-to-tsm/portal-fifteen.png)](media/v2-update-how-to-tsm/portal-fifteen.png#lightbox)
 
 1. 選取 [上傳]。
 
@@ -128,7 +128,7 @@ ms.locfileid: "70744141"
 1. 選取執行個體，然後選取 [編輯]。 
 1. 進行必要的變更，然後選取 [儲存]。
 
-    [![編輯單一實例](media/v2-update-how-to-tsm/portal-sixteen.png)](media/v2-update-how-to-tsm/portal-sixteen.png#lightbox)
+    [@no__t 1Edit 單一實例](media/v2-update-how-to-tsm/portal-sixteen.png)](media/v2-update-how-to-tsm/portal-sixteen.png#lightbox)
 
 ## <a name="next-steps"></a>後續步驟
 
@@ -136,4 +136,4 @@ ms.locfileid: "70744141"
 
 - 若要深入了解預覽版，請參閱[在 Azure 時間序列深入解析預覽版總管中將資料視覺化](./time-series-insights-update-explorer.md)。
 
-- 若要了解支援的 JSON 塑形，請參閱[支援的 JSON 塑形](./time-series-insights-send-events.md#json)。
+- 若要了解支援的 JSON 塑形，請參閱[支援的 JSON 塑形](./time-series-insights-send-events.md#supported-json-shapes)。

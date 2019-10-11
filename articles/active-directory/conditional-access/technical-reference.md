@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: spunukol
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2d56b1f800c71a5bbef7ffb1155d05e096113e2c
-ms.sourcegitcommit: a7a9d7f366adab2cfca13c8d9cbcf5b40d57e63a
+ms.openlocfilehash: 834b13c512bca1b7c43c3c8e93a72383a82db198
+ms.sourcegitcommit: f272ba8ecdbc126d22a596863d49e55bc7b22d37
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71162423"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72274179"
 ---
 # <a name="azure-active-directory-conditional-access-settings-reference"></a>Azure Active Directory 條件式存取設定參考
 
@@ -71,8 +71,7 @@ ms.locfileid: "71162423"
 - Power BI 服務
 - Project Online
 - 商務用 Skype Online
-- 虛擬私人網路 (VPN)
-- Visual Studio App Center
+- 虛擬私人網路（VPN）
 - Windows Defender ATP
 
 ### <a name="other-applications"></a>其他應用程式
@@ -146,7 +145,7 @@ ms.locfileid: "71162423"
 | `Path` | HKEY_LOCAL_MACHINE\Software\Policies\Google\Chrome\ExtensionInstallForcelist |
 | Name | 1 |
 | Type | REG_SZ (字串) |
-| Data | ppnbnpeolgkicgegkbkbjmhlideopiji; HTTPs\://clients2.google.com/service/update2/crx |
+| Data | ppnbnpeolgkicgegkbkbjmhlideopiji; HTTPs @ no__t-0//clients2. google .com/service/update2/crx users |
 
 如需 **Windows 8.1 和 7** 中的 Chrome 支援，請建立下列登錄機碼：
 
@@ -171,7 +170,7 @@ ms.locfileid: "71162423"
 | --- | --- | --- |
 | Dynamics CRM 應用程式 | Dynamics CRM | Windows 10、Windows 8.1、iOS 和 Android |
 | [電子郵件]/[行事曆]/[人員] 應用程式、Outlook 2016、Outlook 2013 (使用新式驗證)| Office 365 Exchange Online | Windows 10 |
-| 應用程式的 MFA 和位置原則。 不支援裝置型原則。| 任何 My Apps 應用程式服務| Android 及 iOS |
+| 應用程式的 MFA 和位置原則。 不支援裝置型原則。| 任何 My Apps 應用程式服務| Android 和 iOS |
 | Microsoft Teams Services - 這會控制支援 Microsoft Teams 及其所有用戶端應用程式的所有服務 - Windows 桌面、iOS、Android、WP 和 Web 用戶端 | Microsoft Teams | Windows 10、Windows 8.1、Windows 7、iOS、Android 及 macOS |
 | Office 2016 應用程式、Office 2013 (具備新式驗證)、OneDrive 同步處理用戶端 (請參閱[附註](https://support.office.com/en-US/article/Azure-Active-Directory-conditional-access-with-the-OneDrive-sync-client-on-Windows-028d73d7-4b86-4ee0-8fb7-9a209434b04e)) | Office 365 SharePoint Online | Windows 8.1、Windows 7 |
 | Office 2016 應用程式、通用 Office 應用程式、Office 2013 (具備新式驗證)、OneDrive 同步處理用戶端 (請參閱[附註](https://support.office.com/en-US/article/Azure-Active-Directory-conditional-access-with-the-OneDrive-sync-client-on-Windows-028d73d7-4b86-4ee0-8fb7-9a209434b04e))、預計未來提供的 Office Groups 支援、預計未來提供的 SharePoint 應用程式支援 | Office 365 SharePoint Online | Windows 10 |

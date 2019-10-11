@@ -1,6 +1,6 @@
 ---
-title: 與 Azure AD 搭配使用的 SaaS 應用程式整合教學課程 | Microsoft Docs
-description: 設定以各種第三方軟體即服務的應用程式來進行的 Azure Active Directory 單一登入整合。
+title: SSO 和 SCIM 布建 SaaS 應用程式整合教學課程，可與 Azure AD 搭配使用 |Microsoft Docs
+description: 設定 Azure Active Directory 單一登入（SSO）和 SCIM 布建與各種協力廠商軟體即服務應用程式的整合。
 services: active-directory
 documentationcenter: ''
 author: jeevansd
@@ -17,18 +17,18 @@ ms.author: jeedes
 ms.custom: it-pro
 ms.reviewer: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4594d54f245c8fb96e62d7f193816e1031138ec0
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.openlocfilehash: 267efd103c3cfdca1aa6d3db10977bac9739f641
+ms.sourcegitcommit: f272ba8ecdbc126d22a596863d49e55bc7b22d37
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72026144"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72274451"
 ---
 # <a name="tutorials-for-integrating-saas-applications-with-azure-active-directory"></a>整合 SaaS 應用程式與 Azure Active Directory 的教學課程
 
 為了協助您整合 Azure Active Directory 與已啟用雲端功能的[軟體即服務 (SaaS)](https://azure.microsoft.com/overview/what-is-saas/) 應用程式，我們開發出一套教學課程，以逐步引導您完成設定。
 
-如需已預先整合到 Azure AD 的所有 SaaS 應用程式清單，請參閱 [Active Directory Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/category/azure-active-directory-apps)。
+如需已預先整合到 Azure AD 的所有 SaaS 應用程式清單，請參閱 [Active Directory Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/category/azure-active-directory-apps)。 按一下[這裡](https://docs.microsoft.com/azure/active-directory/develop/howto-app-gallery-listing)以要求將應用程式新增至應用程式庫。 
 
 ## <a name="quick-links"></a>快速連結
 

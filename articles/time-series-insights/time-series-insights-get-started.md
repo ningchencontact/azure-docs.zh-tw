@@ -9,14 +9,14 @@ manager: cshankar
 ms.reviewer: v-mamcge, jasonh, kfile
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 08/27/2019
+ms.date: 10/10/2019
 ms.custom: seodec18
-ms.openlocfilehash: 584172a9b248a9d151ba9a980bf4e52ed1e1b926
-ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.openlocfilehash: 1956fd9eaaa537d7ffa992070fc5cffd567954ce
+ms.sourcegitcommit: f272ba8ecdbc126d22a596863d49e55bc7b22d37
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70141958"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72274811"
 ---
 # <a name="create-a-new-time-series-insights-environment-in-the-azure-portal"></a>在 Azure 入口網站中建立新的 Time Series Insights 環境
 
@@ -34,13 +34,13 @@ ms.locfileid: "70141958"
 
 1. 選取 [物聯網] 類別，然後選取 [時間序列深入解析]。
 
-   建立時間序列深入解析環境) [ ![ ](media/time-series-insights-get-started/1-new-tsi.png)](media/time-series-insights-get-started/1-new-tsi.png#lightbox)
+   [@no__t 1Create 時間序列深入解析環境](media/time-series-insights-get-started/1-new-tsi.png)](media/time-series-insights-get-started/1-new-tsi.png#lightbox)）
 
 1. 在 [時間序列深入解析] 分頁上，選取 [建立]。
 
 1. 填入必要參數。 下表說明每個參數：
    
-   [![建立時間序列深入解析資源群組](media/time-series-insights-get-started/2-create-tsi.png)](media/time-series-insights-get-started/2-create-tsi.png#lightbox)
+   [![Create 時間序列深入解析資源群組](media/time-series-insights-get-started/2-create-tsi.png)](media/time-series-insights-get-started/2-create-tsi.png#lightbox)
    
    設定|建議值|描述
    ---|---|---
@@ -49,19 +49,19 @@ ms.locfileid: "70141958"
    資源群組 | 建立新的或使用現有的 | 資源群組是一起使用之 Azure 資源的集合。 您可以選擇現有的資源群組，例如包含事件中樞或 IoT 中樞的資源群組。 或者，如果此資源與其他資源不相關，您可以製作新的群組。
    Location | 最接近您的事件來源 | 最好是選擇包含事件來源資料的相同資料中心位置，以避免跨區域和跨地區頻寬成本，以及在將資料移出區域時增加延遲。
    定價層 | S1 | 選擇所需的輸送量。 如需最低成本和入門容量，選取 S1。
-   容量 | 1 | 容量是套用至輸入速率、儲存體容量以及與選取之 SKU 相關聯成本的乘數。  您可以在環境建立後變更其容量。 如需最低成本，選取 1 作為容量。 
+   Capacity | 1 | 容量是套用至輸入速率、儲存體容量以及與選取之 SKU 相關聯成本的乘數。  您可以在環境建立後變更其容量。 如需最低成本，選取 1 作為容量。 
   
 1. 選取 [建立] 以開始佈建程序。 這需要幾分鐘的時間。
 
 1. 若要監視部署程序，選取 [通知] 符號 (鈴鐺圖示)。
 
-   [![觀賞通知](media/time-series-insights-get-started/3-notifications.png)](media/time-series-insights-get-started/3-notifications.png#lightbox)
+   [![Watch 通知](media/time-series-insights-get-started/3-notifications.png)](media/time-series-insights-get-started/3-notifications.png#lightbox)
 
     當部署成功時，您可以選取 [移至資源] 以設定其他屬性、以資料存取原則設定安全性、新增事件來源和其他動作。
 
-1. 在 [資源**總覽**] 中, 選取右上角的**釘選圖示**, 以便日後輕鬆地存取您的時間序列深入解析環境。
+1. 在 [資源**總覽**] 中，選取右上角的**釘選圖示**，以便日後輕鬆地存取您的時間序列深入解析環境。
 
-   [![建立時間序列深入解析釘選到儀表板](media/time-series-insights-get-started/4-pin-create.png)](media/time-series-insights-get-started/4-pin-create.png#lightbox)
+   [![Create 時間序列深入解析釘選到儀表板](media/time-series-insights-get-started/4-pin-create.png)](media/time-series-insights-get-started/4-pin-create.png#lightbox)
 
 ## <a name="next-steps"></a>後續步驟
 

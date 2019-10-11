@@ -8,12 +8,12 @@ ms.service: azure-resource-manager
 ms.topic: troubleshooting
 ms.date: 10/04/2019
 ms.author: tomfitz
-ms.openlocfilehash: 185570992ad0308b500da30bca212a0495bcb0fa
-ms.sourcegitcommit: be344deef6b37661e2c496f75a6cf14f805d7381
+ms.openlocfilehash: bba59d024e253c8d05aa75123be5e3f13699f72e
+ms.sourcegitcommit: b4665f444dcafccd74415fb6cc3d3b65746a1a31
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/07/2019
-ms.locfileid: "72001629"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72263032"
 ---
 # <a name="troubleshoot-common-azure-deployment-errors-with-azure-resource-manager"></a>使用 Azure Resource Manager 針對常見的 Azure 部署錯誤進行疑難排解
 
@@ -25,7 +25,7 @@ ms.locfileid: "72001629"
 
 ## <a name="error-codes"></a>錯誤碼
 
-| 錯誤碼 | 風險降低 | 詳細資訊 |
+| 錯誤碼 | 緩和 | 詳細資訊 |
 | ---------- | ---------- | ---------------- |
 | AccountNameInvalid | 遵循儲存體帳戶的命名限制。 | [解析儲存體帳戶名稱](resource-manager-storage-account-name-errors.md) |
 | AccountPropertyCannotBeSet | 檢查可用儲存體帳戶屬性。 | [storageAccounts](/azure/templates/microsoft.storage/storageaccounts) |
@@ -35,6 +35,7 @@ ms.locfileid: "72001629"
 | BadRequest | 您傳送的部署值不符合資源管理員的預期。 請查看內部狀態訊息，以取得疑難排解的說明。 | [範本參考](/azure/templates/)和[支援位置](resource-location.md) |
 | 衝突 | 您要求的作業在資源的目前狀態下不允許。 例如，只有在建立 VM 時或解除配置 VM 之後，才可調整磁碟大小。 | |
 | DeploymentActiveAndUneditable | 等候此資源群組的並行部署完成。 | |
+| DeploymentFailedCleanUp | 當您以完整模式部署時，不在範本中的任何資源都會被刪除。 當您沒有足夠的許可權可刪除不在範本中的所有資源時，就會出現此錯誤。 若要避免此錯誤，請將部署模式變更為 [增量]。 | [Azure Resource Manager 部署模式](deployment-modes.md) |
 | DeploymentNameInvalidCharacters | 部署名稱只能包含字母、數位、'-'、'. ' 或 ' _ '。 | |
 | DeploymentNameLengthLimitExceeded | 部署名稱限制為64個字元。  | |
 | DeploymentFailed | DeploymentFailed 錯誤是一般錯誤，不會提供您解決錯誤所需的詳細資料。 尋找錯誤碼的錯誤詳細資料，以提供更多資訊。 | [尋找錯誤碼](#find-error-code) |
@@ -61,7 +62,7 @@ ms.locfileid: "72001629"
 | MissingRegistrationForLocation | 檢查資源提供者註冊狀態和支援的位置。 | [解析註冊](resource-manager-register-provider-errors.md) |
 | MissingSubscriptionRegistration | 向資源提供者註冊訂用帳戶。 | [解析註冊](resource-manager-register-provider-errors.md) |
 | NoRegisteredProviderFound | 檢查資源提供者註冊狀態。 | [解析註冊](resource-manager-register-provider-errors.md) |
-| 找不到 | 您可能嘗試以與父資源平行的方式部署相依資源。 檢查是否需要新增相依性。 | [解析相依性](resource-manager-not-found-errors.md) |
+| NotFound | 您可能嘗試以與父資源平行的方式部署相依資源。 檢查是否需要新增相依性。 | [解析相依性](resource-manager-not-found-errors.md) |
 | OperationNotAllowed | 部署嘗試進行超過訂用帳戶、資源群組或區域配額的作業。 可能的話，請修改您的部署，以維持在配額內。 否則，請考慮要求變更您的配額。 | [解析配額](resource-manager-quota-errors.md) |
 | ParentResourceNotFound | 請確定父代資源在建立子系資源之前即已存在。 | [解析父代資源](resource-manager-parent-resource-errors.md) |
 | PasswordTooLong | 您可能選取了字元過多的密碼，或將密碼值轉換為安全字串，然後才將它當做參數傳遞。 如果範本包含**安全字串**參數，則不需要將值轉換為安全字串。 提供密碼值作為文字。 |  |
@@ -72,7 +73,7 @@ ms.locfileid: "72001629"
 | ReservedResourceName | 提供不包含保留名稱的資源名稱。 | [唯一的資源名稱](resource-manager-reserved-resource-name.md) |
 | ResourceGroupBeingDeleted | 等候刪除完成。 | |
 | ResourceGroupNotFound | 檢查部署的目標資源群組名稱。 目標資源群組必須已存在於您的訂用帳戶中。 檢查訂用帳戶內容。 | [Azure CLI](/cli/azure/account?#az-account-set) [PowerShell](/powershell/module/Az.Accounts/Set-AzContext) |
-| 資源找不到 | 您的部署會參考無法解析的資源。 確認您使用 **reference** 函式包括案例的必要參數。 | [解析參考](resource-manager-not-found-errors.md) |
+| ResourceNotFound | 您的部署會參考無法解析的資源。 確認您使用 **reference** 函式包括案例的必要參數。 | [解析參考](resource-manager-not-found-errors.md) |
 | ResourceQuotaExceeded | 部署嘗試建立資源，這些資源超過訂用帳戶、資源群組或區域的配額。 可能的話，請修改您的基礎結構，以維持在配額內。 否則，請考慮要求變更您的配額。 | [解析配額](resource-manager-quota-errors.md) |
 | SkuNotAvailable | 選取可供您選取之位置使用的 SKU (例如 VM 大小)。 | [解析 SKU](resource-manager-sku-not-available-errors.md) |
 | StorageAccountAlreadyExists | 提供儲存體帳戶的唯一名稱。 | [解析儲存體帳戶名稱](resource-manager-storage-account-name-errors.md)  |
@@ -246,7 +247,7 @@ az group deployment operation list \
 }
 ```
 
-或者，假設您遇到您認為與未正確設定之相依性有關的部署錯誤。 將其細分為簡化範本以測試您的範本。 首先，建立可部署單一資源 (例如 SQL Server) 的範本。 當您確定已正確定義該資源時，加入依存該資源的資源 (例如 SQL Database)。 當您正確定義這兩個資源時，加入其他相依的資源 (例如稽核原則)。 在每個測試部署之間，刪除資源群組以確保您充分測試相依性。
+或者，假設您所收到的部署錯誤與不正確設定的相依性相關。 將其細分為簡化範本以測試您的範本。 首先，建立可部署單一資源 (例如 SQL Server) 的範本。 當您確定已正確定義該資源時，請新增相依于它的資源（例如 SQL Database）。 當您正確定義這兩個資源時，加入其他相依的資源 (例如稽核原則)。 在每個測試部署之間，刪除資源群組以確保您充分測試相依性。
 
 
 ## <a name="next-steps"></a>後續步驟

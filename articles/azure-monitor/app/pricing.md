@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.reviewer: mbullwin
 ms.date: 10/03/2019
 ms.author: dalek
-ms.openlocfilehash: 3e0bdd42ea19b7029d3f3df4ff9a5a275aec0271
-ms.sourcegitcommit: f2d9d5133ec616857fb5adfb223df01ff0c96d0a
+ms.openlocfilehash: 51caf34d0030fd404cd7f7c1868a0e2945c75b35
+ms.sourcegitcommit: b4665f444dcafccd74415fb6cc3d3b65746a1a31
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/03/2019
-ms.locfileid: "71936688"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72264418"
 ---
 # <a name="manage-usage-and-costs-for-application-insights"></a>管理 Application Insights 的使用量和成本
 
@@ -56,7 +56,7 @@ ms.locfileid: "71936688"
 
 透過 ASP.NET SDK 的調適型[取樣](https://docs.microsoft.com/azure/azure-monitor/app/sampling#adaptive-sampling-in-your-aspnetaspnet-core-web-applications)，資料磁片區會自動調整，以保持在預設 Application Insights 監視的指定最大傳輸速率。 如果應用程式產生較少的遙測資料（例如，在進行調試時或由於低使用量的緣故），取樣處理器就不會卸載專案，只要磁片區低於每秒設定的事件數層級即可。 針對高容量的應用程式，預設臨界值為每秒5個事件，調適型取樣會將每日事件數限制為432000。 使用一般的平均事件大小 1 KB，這會對應13.4 到每個節點每31天的遙測資料，每個月裝載您的應用程式（因為取樣是在每個節點的本機執行）。 
 
-針對不支援調適型取樣的 Sdk，您可以使用 [內建取樣） [https://docs.microsoft.com/azure/azure-monitor/app/sampling#ingestion-sampling ]，根據要保留的資料百分比來 Application Insights receved 資料，或針對[ASP.NET、ASP.NET Core 和 JAVA 設定固定速率取樣](https://docs.microsoft.com/azure/azure-monitor/app/sampling#fixed-rate-sampling-for-aspnet-aspnet-core-and-java-websites)用來減少從 web 伺服器和網頁瀏覽器傳送流量的網站
+針對不支援調適型取樣的 Sdk，您可以使用內嵌[取樣](https://docs.microsoft.com/azure/azure-monitor/app/sampling#ingestion-sampling)，其中會根據要保留的資料百分比來 Application Insights 資料 receved，或[ASP.NET、ASP.NET Core 和 JAVA 的固定速率取樣](https://docs.microsoft.com/azure/azure-monitor/app/sampling#fixed-rate-sampling-for-aspnet-aspnet-core-and-java-websites)用來減少從 web 伺服器和網頁瀏覽器傳送流量的網站
 
 ### <a name="learn-from-what-similar-customers-collect"></a>瞭解類似客戶所收集的內容
 
@@ -92,7 +92,7 @@ Azure 在[Azure 成本管理 + 計費](https://docs.microsoft.com/azure/cost-man
 
 * 開啟 [使用量和估計成本] 窗格以查看每日資料量圖表。 
 * 在 [計量瀏覽器] 中，新增圖表。 針對圖表計量，選取 [資料點量]。 開啟 [群組]，然後依 [資料類型] 分組。
-* `systemEvents`使用資料類型。 比方說，若要查看過去一天的資料量內嵌，查詢會是：
+* 使用 [`systemEvents`] 資料類型。 比方說，若要查看過去一天的資料量內嵌，查詢會是：
 
 ```kusto
 systemEvents 
@@ -147,7 +147,7 @@ systemEvents
 
 ![調整每日遙測資料量上限](./media/pricing/pricing-003.png)
 
-若要透過[Azure Resource Manager 變更每日上限](../../azure-monitor/app/powershell.md)，要變更的屬性為`dailyQuota`。  透過 Azure Resource Manager 您也可以設定`dailyQuotaResetTime`和每日`warningThreshold`上限。 
+若要透過[Azure Resource Manager 變更每日上限](../../azure-monitor/app/powershell.md)，要變更的屬性會是 `dailyQuota`。  透過 Azure Resource Manager 您也可以設定 `dailyQuotaResetTime` 和每日上限的 `warningThreshold`。 
 
 ## <a name="sampling"></a>取樣
 [取樣](../../azure-monitor/app/sampling.md)是一種方法，可降低將遙測傳送到您應用程式時的速率，同時仍保留在診斷搜尋期間尋找相關事件的功能。 此外，也保留正確的事件計數。
@@ -183,7 +183,7 @@ Application Insights 資源的預設保留期為90天。 可以為每個 Applica
 
 ![調整每日遙測資料量上限](./media/pricing/pricing-005.png)
 
-您也可以使用 `retentionInDays` 參數，透過[ARM 來設定](https://docs.microsoft.com/azure/azure-monitor/app/powershell)保留期。 此外，如果您將資料保留期設定為30天，您可以使用 `immediatePurgeDataOn30Days` 參數來觸發立即清除較舊的資料，這可能適用于合規性相關案例。 此功能只會透過 ARM 公開。 
+您也可以使用[Powershell 以程式設計](https://docs.microsoft.com/azure/azure-monitor/app/powershell/set-the-data-retention)方式使用 `retentionInDays` 參數來設定保留期。 此外，如果您將資料保留期設定為30天，您可以使用 `immediatePurgeDataOn30Days` 參數來觸發立即清除較舊的資料，這可能適用于合規性相關案例。 這種清除功能只會透過 ARM 公開，而且應該小心使用。 
 
 在2019年12月開始針對較長的保留期計費時，保留超過90天的資料會以目前針對 Azure Log Analytics 資料保留期計費的費率來計費。 若要深入瞭解，請[Azure 監視器定價頁面](https://azure.microsoft.com/pricing/details/monitor/)。 藉由[投票此建議](https://feedback.azure.com/forums/357324-azure-monitor-application-insights/suggestions/17454031)，隨時掌握最新的可變保留進度。 
 

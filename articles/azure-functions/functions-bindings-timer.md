@@ -12,12 +12,12 @@ ms.topic: reference
 ms.date: 09/08/2018
 ms.author: cshoe
 ms.custom: ''
-ms.openlocfilehash: 57b4f018cd044b4f516266dcf9776e82252f7f22
-ms.sourcegitcommit: f2d9d5133ec616857fb5adfb223df01ff0c96d0a
+ms.openlocfilehash: 6ac83a054b146b9d515386332779c4fe94cde7c3
+ms.sourcegitcommit: b4665f444dcafccd74415fb6cc3d3b65746a1a31
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/03/2019
-ms.locfileid: "71937118"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72263444"
 ---
 # <a name="timer-trigger-for-azure-functions"></a>Azure Functions 的計時器觸發程序 
 
@@ -213,7 +213,7 @@ public static void Run([TimerTrigger("0 */5 * * * *")]TimerInfo myTimer, ILogger
     }
     log.LogInformation($"C# Timer trigger function executed at: {DateTime.Now}");
 }
- ```
+```
 
 ## <a name="configuration"></a>組態
 
@@ -264,7 +264,7 @@ Azure Functions 使用[NCronTab](https://github.com/atifaziz/NCrontab)程式庫�
 |---------|---------|---------|
 |特定值 |<nobr>"0 5 * * * *"</nobr>|於 hh:05:00，其中 hh 是每小時 (一小時一次)|
 |所有值 (`*`)|<nobr>"0 * 5 * * *"</nobr>|於每天 5:mm:00，其中 mm 是小時中的每一分鐘 (一天 60 次)|
-|範圍 (`-` 運算子)|<nobr>"5-7 * * * * *"</nobr>|於 hh:mm:05、hh:mm:06 和 hh:mm:07，其中 hh: mm 是每小時的每一分鐘 (一分鐘 3 次)|  
+|範圍 (`-` 運算子)|<nobr>"5-7 * * * * *"</nobr>|於 hh:mm:05、hh:mm:06 和 hh:mm:07，其中 hh: mm 是每小時的每一分鐘 (一分鐘 3 次)|
 |一組值 (`,` 運算子)|<nobr>"5,8,10 * * * * *"</nobr>|於 hh:mm:05、hh:mm:08 和 hh:mm:10，其中 hh: mm 是每小時的每一分鐘 (一分鐘 3 次)|
 |間隔值 (`/` 運算子)|<nobr>"0 */5 * * * *"</nobr>|於 hh:05:00、hh:10:00、hh:15:00 以此類推，直到 hh:55:00，其中 hh 是每小時 (一小時 12 次)|
 
@@ -326,7 +326,16 @@ CRON 運算式使用的預設時區是國際標準時間 (UTC)。 若要讓 CRON
 
 ## <a name="function-apps-sharing-storage"></a>共用儲存體的函式應用程式
 
-如果您在多個函式應用程式中共用儲存體帳戶，請確定每個函式應用程式在 host.json 中具有不同的 `id`。 您可以省略 `id` 屬性或將每個函式應用程式的 `id` 手動設定為不同的值。 計時器觸發程序會使用儲存體鎖定，以確保當函數應用程式相應放大至多個執行個體時，只會有一個計時器執行個體。 如果兩個函式應用程式共用相同的 `id`，且每一個都是使用計時器觸發程序，則只有一個計時器會執行。
+如果您在未部署至 app service 的函式應用程式之間共用儲存體帳戶，您可能需要明確地將主機識別碼指派給每個應用程式。
+
+| Functions 版本 | 設定                                              |
+| ----------------- | ---------------------------------------------------- |
+| 2.x               | `AzureFunctionsWebHost__hostid` 環境變數 |
+| 1.x               | *host. json*中的 `id`                                  |
+
+您可以省略識別值，或手動將每個函數應用程式的識別設定設為不同的值。
+
+計時器觸發程式會使用儲存體鎖定，確保當函數應用程式相應放大至多個實例時，只有一個計時器實例。 如果兩個函式應用程式共用相同的識別設定，而且每個都使用計時器觸發程式，則只會執行一個計時器。
 
 ## <a name="retry-behavior"></a>重試行為
 

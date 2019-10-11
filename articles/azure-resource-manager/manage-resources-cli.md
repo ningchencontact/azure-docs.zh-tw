@@ -8,12 +8,12 @@ ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 02/11/2019
 ms.author: jgao
-ms.openlocfilehash: 78dd51c023bc46ed09219acc3df7e4ee7006ac2b
-ms.sourcegitcommit: be344deef6b37661e2c496f75a6cf14f805d7381
+ms.openlocfilehash: 6b8adad033aeeb334c57970035e65bf706beef5a
+ms.sourcegitcommit: f272ba8ecdbc126d22a596863d49e55bc7b22d37
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/07/2019
-ms.locfileid: "72001560"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72274250"
 ---
 # <a name="manage-azure-resources-by-using-azure-cli"></a>使用 Azure CLI 來管理 Azure 資源
 
@@ -26,7 +26,7 @@ ms.locfileid: "72001560"
 
 ## <a name="deploy-resources-to-an-existing-resource-group"></a>將資源部署至現有的資源群組
 
-您可以使用 Azure PowerShell 直接部署 Azure 資源，或部署 Resource Manager 範本來建立 Azure 資源。
+您可以使用 Azure CLI 直接部署 Azure 資源，或部署 Resource Manager 範本來建立 Azure 資源。
 
 ### <a name="deploy-a-resource"></a>部署資源
 
