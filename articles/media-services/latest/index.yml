@@ -33,7 +33,7 @@ landingContent:
       url: media-services-account-concept.md
     - text: 儲存體帳戶
       url: storage-account-concept.md
-    - text: 包裝中
+    - text: 包裝
       url: dynamic-packaging-overview.md
     - text: 監視
       url: reacting-to-media-services-events.md

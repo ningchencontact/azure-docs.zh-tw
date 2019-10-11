@@ -1,5 +1,5 @@
 - name: SQL 資料倉儲文件
-  href: index.md
+  href: index.yml
 - name: 概觀
   items:
     - name: 什麼是 SQL 資料倉儲？
@@ -193,7 +193,7 @@
               href: sql-data-warehouse-develop-user-defined-schemas.md
             - name: 變數指派
               href: sql-data-warehouse-develop-variable-assignment.md
-            - name: Views
+            - name: 檢視
               href: sql-data-warehouse-develop-views.md
     - name: 查詢
       items:

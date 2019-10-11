@@ -8,7 +8,7 @@
       href: terminology.md
 - name: 快速入門
   items:
-    - name: '[應用程式]'
+    - name: 應用程式
       items:
         - name: .NET 應用程式
           href: learn/quick-monitor-portal.md
@@ -158,7 +158,7 @@
               href: platform/manage-cost-storage.md
     - name: 監視資源
       items:
-        - name: '[應用程式]'
+        - name: 應用程式
           items:
             - name: Application Insights 概觀
               href: app/app-insights-overview.md
@@ -312,7 +312,7 @@
                   href: platform/app-insights-metrics.md
                 - name: 傳統計量瀏覽器
                   href: app/metrics-explorer.md
-            - name: Search
+            - name: 搜尋
               href: app/diagnostic-search.md
             - name: 分析工具
               items:
@@ -861,9 +861,9 @@
           href: platform/rest-api-walkthrough.md
     - name: 顯現資料
       items:
-        - name: Views
+        - name: 檢視
           items:
-            - name: '[檢視設計工具]'
+            - name: 檢視設計工具
               href: platform/view-designer.md
             - name: 圖格參考
               href: platform/view-designer-tiles.md
@@ -1017,7 +1017,7 @@
               href: platform/powershell-quickstart-samples.md
             - name: PowerShell Cmdlet
               href: platform/powershell-workspace-configuration.md
-            - name: '[應用程式]'
+            - name: 應用程式
               items:
                 - name: 建立 Application Insights 資源
                   href: app/powershell.md
@@ -1043,7 +1043,7 @@
               href: insights/solutions-resources-automation.md
             - name: 記錄搜尋與警示
               href: insights/solutions-resources-searches-alerts.md
-            - name: Views
+            - name: 檢視
               href: insights/solutions-resources-views.md
             - name: 最佳作法
               href: insights/solutions-best-practices.md
@@ -1075,7 +1075,7 @@
               href: app/data-model-exception-telemetry.md
             - name: 追蹤
               href: app/data-model-trace-telemetry.md
-            - name: Event
+            - name: 事件
               href: app/data-model-event-telemetry.md
             - name: 計量
               href: app/data-model-metric-telemetry.md
