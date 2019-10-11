@@ -105,6 +105,8 @@
               href: map-add-line-layer.md
             - name: 新增多邊形圖層
               href: map-add-shape.md
+            - name: 新增立體化多邊形圖層
+              href: map-extruded-polygon.md
             - name: 新增熱度圖層
               href: map-add-heat-map-layer.md
             - name: 新增快顯

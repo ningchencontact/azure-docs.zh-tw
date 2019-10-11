@@ -432,6 +432,8 @@
           href: control-flow-get-metadata-activity.md
         - name: If 條件活動
           href: control-flow-if-condition-activity.md
+        - name: Switch 活動
+          href: control-flow-switch-activity.md
         - name: 查閱活動
           href: control-flow-lookup-activity.md
         - name: 設定變數活動
@@ -598,6 +600,8 @@
           href: ssis-integration-runtime-management-troubleshoot.md
         - name: 針對 Azure-SSIS IR 中的封裝執行問題進行疑難排解
           href: ssis-integration-runtime-ssis-activity-faq.md
+        - name: 針對資料流程進行疑難排解
+          href: data-flow-troubleshoot-guide.md
 - name: 案例
   items:
     - name: 資料湖和 EDW 的資料移轉

@@ -1,0 +1,97 @@
+### YamlMime:Landing
+title: Azure SQL 資料倉儲
+summary: 了解如何使用 Azure SQL 資料倉儲，它結合了 SQL 關聯式資料庫與大量平行處理 (MPP)。 教學課程和其他文件將示範如何設計、載入、管理及使用資料倉儲分析資料。
+metadata:
+  title: Azure SQL 資料倉儲
+  description: description
+  services: sql-data-warehouse
+  ms.service: sql-data-warehouse
+  ms.subservice: design
+  ms.topic: landing-page
+  ms.collection: collection
+  author: julieMSFT
+  ms.author: jrasnick
+  ms.date: 10/03/2019
+  ms.openlocfilehash: ffb90d5d15b83570511c3f70b39f9f83f000ab35
+  ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
+  ms.translationtype: HT
+  ms.contentlocale: zh-TW
+  ms.lasthandoff: 10/10/2019
+  ms.locfileid: "72245842"
+landingContent:
+- title: 關於 Azure SQL 資料倉儲
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: 什麼是 SQL 資料倉儲？
+      url: sql-data-warehouse-overview-what-is.md
+  - linkListType: architecture
+    links:
+    - text: SQL 資料倉儲架構 - MPP 架構
+      url: massively-parallel-processing-mpp-architecture.md
+    - text: 資料倉儲祕訣與最佳做法
+      url: cheat-sheet.md
+- title: 開始使用
+  linkLists:
+  - linkListType: deploy
+    links:
+    - text: 建立 SQL 資料倉儲
+      url: create-data-warehouse-portal.md
+- title: 載入資料
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: 設計 PolyBase 資料載入策略
+      url: design-elt-data-loading.md
+    - text: 資料載入最佳做法
+      url: guidance-for-loading-data.md
+  - linkListType: how-to-guide
+    links:
+    - text: 從 Azure Data Lake Storage 載入資料
+      url: sql-data-warehouse-load-from-azure-data-lake-store.md
+  - linkListType: tutorial
+    links:
+    - text: 從 Azure Blob 儲存體載入資料
+      url: load-data-from-azure-blob-storage-using-polybase.md
+- title: 效能微調
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: SQL 資料倉儲最佳做法
+      url: sql-data-warehouse-best-practices.md
+    - text: 已排序的叢集資料行存放區索引調整
+      url: performance-tuning-ordered-cci.md
+    - text: 使用具體化檢視來進行工作負載調整
+      url: performance-tuning-materialized-views.md
+  - linkListType: how-to-guide
+    links:
+    - text: 分析工作負載
+      url: analyze-your-workload.md
+- title: 管理及監視您的 SQL 資料倉儲
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: 了解如何管理及監視您的 SQL 資料倉儲
+      url: sql-data-warehouse-overview-manageability-monitoring.md
+  - linkListType: how-to-guide
+    links:
+    - text: 使用 DMV 監視工作負載
+      url: sql-data-warehouse-manage-monitor.md
+    - text: 管理及監視工作負載的重要性
+      url: sql-data-warehouse-how-to-manage-and-monitor-workload-importance.md
+- title: 保護您的 SQL 資料倉儲
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: 了解有關保護您 SQL 資料倉儲的基本概念
+      url: sql-data-warehouse-overview-manage-security.md
+  - linkListType: how-to-guide
+    links:
+    - text: 設定 Azure Active Directory 驗證
+      url: /azure/sql-database/sql-database-aad-authentication-configure?toc=/azure/sql-data-warehouse/toc.json&bc=/azure/sql-data-warehouse/breadcrumb/toc.json
+- title: 資源
+  linkLists:
+  - linkListType: video
+    links:
+    - text: 觀看最新的 Azure SQL 資料倉儲影片
+      url: sql-data-warehouse-videos.md

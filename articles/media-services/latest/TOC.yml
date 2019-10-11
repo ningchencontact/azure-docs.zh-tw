@@ -4,6 +4,8 @@
   items:
     - name: 關於媒體服務
       href: media-services-overview.md
+    - name: 媒體服務中有哪些新功能
+      href: release-notes.md
 - name: 教學課程
   expanded: true
   items:
@@ -343,8 +345,6 @@
           href: 'https://aka.ms/ams-v3-ruby-sdk'
     - name: Azure 媒體服務總管
       href: 'https://github.com/Azure/Azure-Media-Services-Explorer'
-    - name: 版本資訊
-      href: release-notes.md
     - name: 配額和限制
       href: limits-quotas-constraints.md
     - name: 常見問題集

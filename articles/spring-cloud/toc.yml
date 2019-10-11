@@ -2,7 +2,9 @@
   href: index.yml
   displayName: Azure Spring Cloud
 - name: 概觀
-  href: spring-cloud-overview.md
+  items:
+    - name: 什麼是 Azure Spring Cloud？
+      href: spring-cloud-overview.md
 - name: 快速入門
   expanded: true
   items:
@@ -12,7 +14,7 @@
       href: spring-cloud-quickstart-launch-app-cli.md
     - name: 從來源啟動您的 Spring Cloud 應用程式
       href: spring-cloud-launch-from-source.md
-    - name: 使用 Maven 啟動 Java Spring 應用程式
+    - name: 使用 Maven 啟動您的 Spring Cloud 應用程式
       href: spring-cloud-quickstart-launch-app-maven.md
 - name: 教學課程
   items:

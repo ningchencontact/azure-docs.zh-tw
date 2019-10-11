@@ -119,6 +119,10 @@
           href: app/troubleshoot-faq.md
 - name: 使用說明指南
   items:
+    - name: 監視案例
+      items:
+        - name: 監視 Azure 服務
+          href: insights/monitor-azure-resource.md
     - name: 管理 Azure 監視器
       items:
         - name: 設計工作區部署

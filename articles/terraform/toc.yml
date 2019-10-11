@@ -25,7 +25,7 @@
       items:
         - name: 使用 AKS 建立 Kubernetes 叢集
           href: terraform-create-k8s-cluster-with-tf-and-aks.md
-        - name: 使用 AKS 建立 Kubernetes 叢集並以應用程式閘道作為輸入控制器
+        - name: 在 AKS 中建立應用程式閘道輸入控制器
           href: terraform-create-k8s-cluster-with-aks-applicationgateway-ingress.md
     - name: 基礎結構
       items:

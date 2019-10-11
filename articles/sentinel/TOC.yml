@@ -46,6 +46,8 @@
               href: connect-azure-ad-identity-protection.md
             - name: 連線 Azure 資訊保護
               href: connect-azure-information-protection.md
+            - name: 連線 Microsoft Defender ATP
+              href: connect-microsoft-defender-advanced-threat-protection.md
             - name: 連線 Azure ATP
               href: connect-azure-atp.md
             - name: 連線 Azure 資訊安全中心
