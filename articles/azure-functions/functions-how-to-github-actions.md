@@ -7,12 +7,12 @@ ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 09/16/2019
 ms.author: aelnably
-ms.openlocfilehash: 8e9e1189c3eb9de273926645ad0d4cfde5ba1c49
-ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.openlocfilehash: 483ac9380fa8d58f294112cb6c80e0393fa01589
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71260048"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72028989"
 ---
 # <a name="continuous-delivery-by-using-github-action"></a>使用 GitHub 動作進行持續傳遞
 
@@ -23,15 +23,15 @@ ms.locfileid: "71260048"
 
 在 GitHub 動作中，[工作流程](https://help.github.com/articles/about-github-actions#workflow)是您在 github 存放庫中定義的自動化進程。 此程式會告訴 GitHub 如何在 GitHub 上建立及部署函式應用程式專案。 
 
-工作流程是由存放庫中`/.github/workflows/`路徑內的 YAML （. yml）檔案所定義。 此定義包含組成工作流程的各種步驟和參數。 
+工作流程是由存放庫中 `/.github/workflows/` 路徑中的 YAML （. yml）檔案所定義。 此定義包含組成工作流程的各種步驟和參數。 
 
 若為 Azure Functions 工作流程，檔案有三個區段： 
 
 | Section | 工作 |
 | ------- | ----- |
-| **驗證** | <ol><li>定義服務主體。</li><li>建立 GitHub 秘密。</li></ol>|  
+| **驗證** | <ol><li>定義服務主體。</li><li>下載發行設定檔。</li><li>建立 GitHub 秘密。</li></ol>|
 | **建置** | <ol><li>設定環境。</li><li>建置函式應用程式。</li></ol> |
-| **部署** | <ol><li>部署函數應用程式。</li></ol>| 
+| **部署** | <ol><li>部署函數應用程式。</li></ol>|
 
 ## <a name="create-a-service-principal"></a>建立服務主體
 
@@ -43,16 +43,27 @@ az ad sp create-for-rbac --name "myApp" --role contributor --scopes /subscriptio
 
 在此範例中，將資源中的預留位置取代為您的訂用帳戶識別碼、資源群組和函數應用程式名稱。 輸出是可提供函數應用程式存取權的角色指派認證。 複製這個 JSON 物件，您可以使用它從 GitHub 進行驗證。
 
+> [!NOTE]
+> 如果您決定使用發行設定檔進行驗證，則不需要建立服務主體。
+
 > [!IMPORTANT]
 > 授與最小存取權一律是最佳作法。 這就是為什麼上述範例中的範圍僅限於特定的函式應用程式，而非整個資源群組。
 
+## <a name="download-the-publishing-profile"></a>下載發行設定檔
+
+您可以前往應用程式的 [**總覽**] 頁面，然後按一下 [**取得發行設定檔**]，以下載 functionapp 的發行設定檔。
+
+   ![Download publish profile](media/functions-how-to-github-actions/get-publish-profile.png)
+
+複製檔案的內容。
+
 ## <a name="configure-the-github-secret"></a>設定 GitHub 秘密
 
-1. 在[GitHub](https://github.com)中，流覽您的存放庫，選取 [**設定** > ] [**秘密** > ] [新增**密碼**]。
+1. 在[GitHub](https://github.com)中，流覽您的存放庫，選取 [**設定**] [ > ] [**密碼**]  >  新增**密碼**。
 
-    ![新增秘密](media/functions-how-to-github-actions/add-secret.png)
+   ![新增秘密](media/functions-how-to-github-actions/add-secret.png)
 
-1. 使用`AZURE_CREDENTIALS`做為 [**名稱**] 和複製的 [**值**] 命令輸出，然後選取 [**新增密碼**]。 
+1. 如果您選取 [**新增密碼**]，請使用 `AZURE_CREDENTIALS` 作為 [**名稱**] 和複製的 [**值**] 命令輸出。 如果您使用發行設定檔，請使用 `SCM_CREDENTIALS` 做為**名稱**和檔案內容，以取得**值**。
 
 GitHub 現在可以在 Azure 中向您的函數應用程式進行驗證。
 
@@ -187,7 +198,7 @@ GitHub 現在可以在 Azure 中向您的函數應用程式進行驗證。
 
 ## <a name="deploy-the-function-app"></a>部署函式應用程式
 
-若要將程式碼部署至函式應用程式，您必須使用`Azure/functions-action`動作。 此動作有兩個參數：
+若要將程式碼部署至函式應用程式，您必須使用 `Azure/functions-action` 動作。 此動作有兩個參數：
 
 |參數 |說明  |
 |---------|---------|
@@ -195,7 +206,7 @@ GitHub 現在可以在 Azure 中向您的函數應用程式進行驗證。
 |_**位置名稱**_ | 選擇性您想要部署的[部署](functions-deployment-slots.md)位置名稱。 位置必須已在您的函式應用程式中定義。 |
 
 
-下列範例會使用的`functions-action`第1版：
+下列範例會使用第1版的 `functions-action`：
 
 ```yaml
     - name: 'Run Azure Functions Action'
@@ -207,7 +218,7 @@ GitHub 現在可以在 Azure 中向您的函數應用程式進行驗證。
 
 ## <a name="next-steps"></a>後續步驟
 
-若要 yaml 完整的工作流程，請參閱[Azure GitHub 動作工作流程](https://github.com/Azure/actions-workflow-samples)中的其中一個檔案，其中包含`functionapp`名稱中的範例存放庫。 您可以使用這些範例做為工作流程的起點。
+若要查看完整的 yaml，請參閱[Azure GitHub 動作工作流程範例](https://github.com/Azure/actions-workflow-samples)存放庫中的其中一個檔案，其名稱中有 `functionapp`。 您可以使用這些範例做為工作流程的起點。
 
 > [!div class="nextstepaction"]
 > [深入瞭解 GitHub 動作](https://help.github.com/en/articles/about-github-actions)

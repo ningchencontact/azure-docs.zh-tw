@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/30/2019
 ms.author: Zhchia
-ms.openlocfilehash: abf2a752eaf0f1d0a9a8b07072dfc0b4c1ae45b7
-ms.sourcegitcommit: 80da36d4df7991628fd5a3df4b3aa92d55cc5ade
+ms.openlocfilehash: 97ecf3ea324f43753030f415c8a5e254b87595e5
+ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71812712"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72170079"
 ---
 # <a name="tutorial-configure-foodee-for-automatic-user-provisioning"></a>教學課程：設定 Foodee 來自動布建使用者
 
@@ -100,7 +100,7 @@ Azure AD 使用稱為「*指派*」的概念，來判斷哪些使用者應接收
 
 執行下列動作，在 Azure AD 中設定自動使用者布建 Foodee：
 
-1. 在  [Azure 入口網站](https://portal.azure.com)中，選取 **企業應用程式** > ] [**所有應用程式**]。
+1. 在 [Azure 入口網站](https://portal.azure.com)中，選取 [**企業應用程式** > ] [**所有應用程式**]。
 
     ![企業應用程式窗格](common/enterprise-applications.png)
 
@@ -118,7 +118,7 @@ Azure AD 使用稱為「*指派*」的概念，來判斷哪些使用者應接收
 
 1. 在 [**管理員認證**] 下，執行下列動作：
 
-   a. 在 [**租使用者 URL** ] 方塊中，輸入您先前抓取的 **https://concierge.food.ee/scim/v2** 值。
+   a. 在 [**租使用者 URL** ] 方塊中，輸入您稍早取得的**HTTPs： \//指引/scim/v2**值。
 
    b. 在 [**秘密權杖**] 方塊中，輸入您稍早取得的**API 權杖**值。
    

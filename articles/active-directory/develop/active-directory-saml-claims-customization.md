@@ -18,14 +18,14 @@ ms.author: ryanwi
 ms.reviewer: luleon, paulgarn, jeedes
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fd752540d078ef57c8b6150edbf9b124bc445fe0
-ms.sourcegitcommit: 4f7dce56b6e3e3c901ce91115e0c8b7aab26fb72
+ms.openlocfilehash: f4f26c82d4cda6ce3d8bf01c7fd52fa579e86dcf
+ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71949380"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72240237"
 ---
-# <a name="how-to-customize-claims-issued-in-the-saml-token-for-enterprise-applications"></a>HOW TO：針對 Azure AD 中的企業應用程式，自訂 SAML 權杖中發出的宣告
+# <a name="how-to-customize-claims-issued-in-the-saml-token-for-enterprise-applications"></a>作法：針對 Azure AD 中的企業應用程式，自訂 SAML 權杖中發出的宣告
 
 現今，Azure Active Directory （Azure AD）支援大部分企業應用程式的單一登入（SSO），包括 Azure AD 應用程式資源庫中預先整合的應用程式，以及自訂應用程式。 當使用者利用 SAML 2.0 通訊協定來透過 Azure AD 向應用程式驗證時，Azure AD 會將權杖傳送給應用程式 (透過 HTTP POST)。 然後，應用程式會驗證並使用權杖將使用者登入，而不會提示輸入使用者名稱和密碼。 這些 SAML 權杖包含使用者的相關資訊，稱為*宣告*。
 
@@ -66,7 +66,7 @@ ms.locfileid: "71949380"
 | **EmailAddress** | Azure AD 會使用 EmailAddress 作為 NameID 格式。 |
 | **識別** | Azure AD 將使用 [未指定] 做為 NameID 格式。 |
 
-若要深入瞭解 NameIDPolicy 屬性，請參閱[單一登入 SAML 通訊協定](single-sign-on-saml-protocol.md)。
+此外也支援暫時性 NameID，但無法在下拉式清單中進行設定，也無法在 Azure 端進行設定。 若要深入瞭解 NameIDPolicy 屬性，請參閱[單一登入 SAML 通訊協定](single-sign-on-saml-protocol.md)。
 
 ### <a name="attributes"></a>屬性
 
@@ -86,7 +86,7 @@ ms.locfileid: "71949380"
 
 您也可以將任何常數（靜態）值指派給您在 Azure AD 中定義的任何宣告。 請遵循下列步驟來指派常數值：
 
-1. 在  [Azure 入口網站](https://portal.azure.com/)的 **使用者屬性 & 宣告**] 區段上，按一下 [**編輯**] 圖示來編輯宣告。
+1. 在 [Azure 入口網站](https://portal.azure.com/)的 [**使用者屬性 & 宣告**] 區段上，按一下 [**編輯**] 圖示來編輯宣告。
 
 1. 按一下您要修改的必要宣告。
 

@@ -8,13 +8,13 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
-ms.date: 06/06/2019
-ms.openlocfilehash: ea8f14a7013a937ddd77baf0f50b8dca09cabad6
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.date: 10/04/2019
+ms.openlocfilehash: aa3e3b63bdfda7aa6d875055dee4c69b9840db25
+ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67076320"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72167358"
 ---
 # <a name="what-is-apache-hive-and-hiveql-on-azure-hdinsight"></a>Azure HDInsight 上的 Apache Hive 和 HiveQL 是什麼？
 
@@ -45,10 +45,9 @@ HDInsight 提供數種已針對特定工作負載進行微調的叢集類型。 
 | [REST API](../hadoop/apache-hadoop-use-hive-curl.md) |&nbsp; |✔ |Linux、Unix、Mac OS X 或 Windows |
 | [Windows PowerShell](../hadoop/apache-hadoop-use-hive-powershell.md) |&nbsp; |✔ |Windows |
 
-
 ## <a name="hiveql-language-reference"></a>HiveQL 語言參考
 
-HiveQL 語言參考位於[語言手冊](https://cwiki.apache.org/confluence/display/Hive/LanguageManual)。
+HiveQL 語言參考可在[語言手冊](https://cwiki.apache.org/confluence/display/Hive/LanguageManual)中取得。
 
 ## <a name="hive-and-data-structure"></a>Hive 和資料結構
 
@@ -91,7 +90,7 @@ Hive 也支援自訂複雜或不規則結構化資料的 **序列化/反序列�
     * 您需要自訂位置，例如非預設儲存體帳戶。
     * Hive 以外的程式管理資料格式、位置等等。
 
-如需詳細資訊，請參閱 < [Hive 內部和外部資料表簡介](https://blogs.msdn.microsoft.com/cindygross/2013/02/05/hdinsight-hive-internal-and-external-tables-intro/)部落格文章。
+如需詳細資訊，請參閱[Hive 內部和外部資料表簡介](https://blogs.msdn.microsoft.com/cindygross/2013/02/05/hdinsight-hive-internal-and-external-tables-intro/)blog 文章。
 
 ## <a name="user-defined-functions-udf"></a>使用者定義函數 (UDF)
 
@@ -127,13 +126,12 @@ CREATE EXTERNAL TABLE log4jLogs (
     t7 string)
 ROW FORMAT DELIMITED FIELDS TERMINATED BY ' '
 STORED AS TEXTFILE LOCATION '/example/data/';
-SELECT t4 AS sev, COUNT(*) AS count FROM log4jLogs 
-    WHERE t4 = '[ERROR]' AND INPUT__FILE__NAME LIKE '%.log' 
+SELECT t4 AS sev, COUNT(*) AS count FROM log4jLogs
+    WHERE t4 = '[ERROR]' AND INPUT__FILE__NAME LIKE '%.log'
     GROUP BY t4;
 ```
 
 在上一個範例中，HiveQL 陳述式會執行下列動作：
-
 
 * `DROP TABLE`:如果資料表已存在，請刪除資料表。
 
@@ -141,11 +139,11 @@ SELECT t4 AS sev, COUNT(*) AS count FROM log4jLogs
 
 * `ROW FORMAT`:告訴 Hive 如何設定資料格式。 在此情況下，每個記錄中的欄位會以空格隔開。
 
-* `STORED AS TEXTFILE LOCATION`:將資料的儲存位置告訴 Hive (`example/data` 目錄)，且資料會儲存為文字。 資料可以在目錄的一個檔案中，也可以分散在多個檔案中。
+* `STORED AS TEXTFILE LOCATION`:告訴 Hive 儲存資料的位置（`example/data` 目錄），並將其儲存為文字。 資料可以在目錄的一個檔案中，也可以分散在多個檔案中。
 
 * `SELECT`:選取資料行 **t4** 包含 **[ERROR]** 值的所有資料列計數。 這個陳述式會傳回值 **3**，因為有三個資料列包含此值。
 
-* `INPUT__FILE__NAME LIKE '%.log'` - Hive 嘗試將結構描述套用至目錄中的所有檔案。 在此情況下，目錄包含不符合結構描述的檔案。 若要防止結果中出現亂碼資料，此陳述式會告訴 Hive 我們只應該從檔名以 log 結尾的檔案傳回資料。
+* `INPUT__FILE__NAME LIKE '%.log'` - Hive 嘗試將結構描述套用至目錄中的所有檔案。 在此情況下，目錄包含不符合架構的檔案。 若要防止結果中出現亂碼資料，此陳述式會告訴 Hive 我們只應該從檔名以 log 結尾的檔案傳回資料。
 
 > [!NOTE]  
 > 當您預期會由外部來源來更新基礎資料時，請使用外部資料表。 例如，自動化的資料上傳程序，或 MapReduce 作業。
@@ -171,7 +169,7 @@ SELECT t1, t2, t3, t4, t5, t6, t7
 
 這些陳述式會執行下列動作：
 
-* `CREATE TABLE IF NOT EXISTS`:如果資料表不存在，請建立資料表。 因為未使用 **EXTERNAL** 關鍵字，這個陳述式會建立內部資料表。 資料表會儲存在 Hive 資料倉儲中，並完全受到 Hive 所管理。
+* `CREATE TABLE IF NOT EXISTS`:如果資料表不存在，請建立資料表。 因為未使用**EXTERNAL**關鍵字，所以這個語句會建立內部資料表。 資料表會儲存在 Hive 資料倉儲中，並完全受到 Hive 所管理。
 
 * `STORED AS ORC`:以最佳化資料列單欄式 (Optimized Row Columnar, ORC) 格式儲存資料。 ORC 是高度最佳化且有效率的 Hive 資料儲存格式。
 
@@ -208,7 +206,7 @@ Azure Data Factory 可讓您使用 HDInsight 作為 Data Factory 管線的一部
 
 * [Azure 訂用帳戶連線管理員](https://docs.microsoft.com/sql/integration-services/connection-manager/azure-subscription-connection-manager)
 
-如需詳細資訊，請參閱 < [Azure Feature Pack](https://docs.microsoft.com/sql/integration-services/azure-feature-pack-for-integration-services-ssis)文件。
+如需詳細資訊，請參閱[Azure Feature Pack](https://docs.microsoft.com/sql/integration-services/azure-feature-pack-for-integration-services-ssis)檔。
 
 ### <a name="apache-oozie"></a>Apache Oozie
 
