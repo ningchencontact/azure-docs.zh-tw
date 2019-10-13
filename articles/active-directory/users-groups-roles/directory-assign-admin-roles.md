@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d70a2aa6ad0e092fc6df9f5792029dc759345321
-ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
+ms.openlocfilehash: bb424866a681316af23e9d2bba28a8da8c3a6f78
+ms.sourcegitcommit: e0a1a9e4a5c92d57deb168580e8aa1306bd94723
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72169783"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72286793"
 ---
 # <a name="administrator-role-permissions-in-azure-active-directory"></a>Azure Active Directory 中的系統管理員角色權限
 
@@ -1603,6 +1603,7 @@ Windows Defender ATP 和 EDR | 查看和調查警示。 當您在 Windows Defend
 應用程式系統管理員 | 應用程式管理員 | 9B895D92-2CD3-44C7-9D02-A6AC2D5EA5C3
 應用程式開發人員 | 應用程式開發人員 | CF1C38E5-3621-4004-A7CB-879624DCED7C
 驗證系統管理員 | 驗證管理員 | c4e39bd9-1100-46d3-8c65-fb160da0071f
+Azure DevOps 系統管理員 | Azure DevOps 系統管理員 | e3973bdf-4987-49ae-837a-ba8e231c7286
 Azure 資訊保護系統管理員 | Azure 資訊保護系統管理員 | 7495fdc4-34c4-4d15-a289-98788ce399fd
 B2C 使用者流程管理員 | B2C 使用者流程管理員 | 6e591065-9bad-43ed-90f3-e9424366d2f0
 B2C 使用者流程屬性管理員 | B2C 使用者流程屬性管理員 | 0f971eea-41eb-4569-a71e-57bb8a3eff1e

@@ -9,12 +9,12 @@ ms.service: application-insights
 ms.topic: conceptual
 ms.date: 10/04/2019
 ms.author: mbullwin
-ms.openlocfilehash: 1a00a487713458e4221f1832b2a4840ebd0d0375
-ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
+ms.openlocfilehash: ec741c0051ccd8020b7d7ab689e15add3ad716bd
+ms.sourcegitcommit: e0a1a9e4a5c92d57deb168580e8aa1306bd94723
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/05/2019
-ms.locfileid: "71972967"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72286167"
 ---
 # <a name="monitor-azure-app-service-performance"></a>監視 Azure App Service 效能
 
@@ -37,7 +37,7 @@ ms.locfileid: "71972967"
     * 如果您需要進行自訂 API 呼叫來追蹤預設不是以代理程式為基礎所捕捉的事件/相依性，則必須使用此方法。 若要深入瞭解，請參閱[自訂事件和計量的 API 一文](https://docs.microsoft.com/azure/azure-monitor/app/api-custom-events-metrics)。
 
 > [!NOTE]
-> 如果偵測到以代理程式為基礎的監視和以手動 SDK 為基礎的檢測，則只會接受手動檢測設定。 這是為了防止傳送重複的資料。 若要深入瞭解，請參閱下面的[疑難排解一節](https://docs.microsoft.com/azure/azure-monitor/app/azure-web-apps#troubleshooting)。
+> 如果偵測到以代理程式為基礎的監視和手動以 SDK 為基礎的檢測，則只會接受手動檢測設定。 這是為了防止傳送重複的資料。 若要深入瞭解，請參閱下面的[疑難排解一節](https://docs.microsoft.com/azure/azure-monitor/app/azure-web-apps#troubleshooting)。
 
 ## <a name="enable-agent-based-monitoring-for-net-applications"></a>為 .NET 應用程式啟用以代理程式為基礎的監視
 

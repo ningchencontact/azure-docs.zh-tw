@@ -8,12 +8,12 @@ ms.service: container-registry
 ms.topic: article
 ms.date: 07/02/2019
 ms.author: sajaya
-ms.openlocfilehash: cbdf4f203204df2d26eb7c908167c1e1ca10d0ab
-ms.sourcegitcommit: b4665f444dcafccd74415fb6cc3d3b65746a1a31
+ms.openlocfilehash: cfa8efe0b73811474b1e50a7d2fb1e9abe9045c6
+ms.sourcegitcommit: e0a1a9e4a5c92d57deb168580e8aa1306bd94723
 ms.translationtype: MT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 10/11/2019
-ms.locfileid: "72264327"
+ms.locfileid: "72286505"
 ---
 # <a name="frequently-asked-questions-about-azure-container-registry"></a>關於 Azure Container Registry 的常見問題
 
@@ -420,7 +420,7 @@ curl $redirect_url
 * Ad 封鎖器
 * DNS 錯誤
 
-請洽詢您的網路系統管理員，或檢查您的網路設定和連線能力。 此外，您也可以在瀏覽器中嘗試 incognito 或私用會話，以避免任何過時的瀏覽器快取或 cookie。
+請洽詢您的網路系統管理員，或檢查您的網路設定和連線能力。 請嘗試使用您的 Azure CLI 執行 `az acr check-health -n yourRegistry`，以檢查您的環境是否能夠連線至容器登錄。 此外，您也可以在瀏覽器中嘗試 incognito 或私用會話，以避免任何過時的瀏覽器快取或 cookie。
 
 ### <a name="how-do-i-collect-http-traces-on-windows"></a>如何? 在 Windows 上收集 HTTP 追蹤？
 

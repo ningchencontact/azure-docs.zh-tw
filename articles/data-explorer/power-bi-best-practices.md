@@ -7,12 +7,12 @@ ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 09/26/2019
-ms.openlocfilehash: e6767c1e03b074f43993e449ca81af951c579090
-ms.sourcegitcommit: f2d9d5133ec616857fb5adfb223df01ff0c96d0a
+ms.openlocfilehash: 39fab02ebc3a80e0aae34a86a1a6b7f3f46c96f3
+ms.sourcegitcommit: e0a1a9e4a5c92d57deb168580e8aa1306bd94723
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/03/2019
-ms.locfileid: "71937312"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72286744"
 ---
 # <a name="best-practices-for-using-power-bi-to-query-and-visualize-azure-data-explorer-data"></a>使用 Power BI 來查詢 Azure 資料總管資料並將其視覺化的最佳做法
 
@@ -48,7 +48,7 @@ Azure 資料總管是一項快速又可高度調整的資料探索服務，可�
 
 複雜的查詢在 Kusto 中的表示方式比 Power Query 更輕鬆。 它們應該實作為[Kusto](/azure/kusto/query/functions)函式，並在 Power BI 中叫用。 在 Kusto 查詢中使用**DirectQuery**搭配 @no__t 1 語句時，這是必要的方法。 因為 Power BI 聯結兩個查詢，而且 `let` 語句不能與 `join` 運算子一起使用，所以可能會發生語法錯誤。 因此，請將聯結的每個部分儲存為 Kusto 函式，並允許 Power BI 同時聯結這兩個函數。
 
-### <a name="how-to-simulate-a-relative-data-time-operator"></a>如何模擬相對的資料時間運算子
+### <a name="how-to-simulate-a-relative-date-time-operator"></a>如何模擬相對的日期時間運算子
 
 Power BI 不包含*相對*的日期時間運算子，例如 `ago()`。
 若要模擬 `ago()`，請使用 `DateTime.FixedLocalNow()` 和 @no__t 2 Power BI 函數的組合。
@@ -74,7 +74,7 @@ in
 
 根據預設，Kusto 查詢會傳回最多500000個數據列或 64 MB，如[查詢限制](/azure/kusto/concepts/querylimits)中所述。 您可以使用 [ **Azure 資料總管（Kusto）** 連接] 視窗中的 [ **Advanced options** ] 來覆寫這些預設值：
 
-![Advanced 選項](media/power-bi-best-practices/advanced-options.png)
+![advanced 選項](media/power-bi-best-practices/advanced-options.png)
 
 這些選項會使用您的查詢發出[set 語句](/azure/kusto/query/setstatement)，以變更預設查詢限制：
 
@@ -106,7 +106,7 @@ in
 
 1. 以您的參數取代查詢的相關部分。 將查詢分割為多個部分，並使用連字號（&）和參數將其串連回來。
 
-   例如，在上述查詢中，我們`State == 'ALABAMA'`將會取得部分，並將其分割為： `State == '`和`'` ，而我們會在`State`它們之間放置參數：
+   例如，在上述查詢中，我們將 @no__t 0 部分，並將它分割成： `State == '` 並 `'`，而我們會在它們之間放置 `State` 參數：
    
     ```kusto
     "StormEvents | where State == '" & State & "' | take 100"
@@ -142,7 +142,7 @@ Power BI 包括可定期針對資料來源發出查詢的資料重新整理排�
 
 ### <a name="power-bi-can-send-only-short-lt2000-characters-queries-to-kusto"></a>Power BI 只能將簡短（&lt;2000 個字元）查詢傳送至 Kusto
 
-如果在 Power BI 中執行查詢，會產生下列錯誤： _「資料來源。錯誤：Web。無法從取得內容 ... "_ 查詢長度可能超過2000個字元。 Power BI 使用**PowerQuery**來查詢 Kusto，方法是發出 HTTP GET 要求，將查詢編碼為所抓取 URI 的一部分。 因此，Power BI 所發出的 Kusto 查詢會限制為要求 URI 的最大長度（2000個字元，減去小位移）。 因應措施是，您可以在 Kusto 中定義[預存](/azure/kusto/query/schema-entities/stored-functions)函式，並讓 Power BI 在查詢中使用該函數。
+如果在 Power BI 中執行查詢，會產生下列錯誤： _"資料來源。錯誤：Web。無法從取得內容 ... "_ 查詢長度可能超過2000個字元。 Power BI 使用**PowerQuery**來查詢 Kusto，方法是發出 HTTP GET 要求，將查詢編碼為所抓取 URI 的一部分。 因此，Power BI 所發出的 Kusto 查詢會限制為要求 URI 的最大長度（2000個字元，減去小位移）。 因應措施是，您可以在 Kusto 中定義[預存](/azure/kusto/query/schema-entities/stored-functions)函式，並讓 Power BI 在查詢中使用該函數。
 
 ## <a name="next-steps"></a>後續步驟
 

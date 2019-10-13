@@ -13,17 +13,17 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: azurecli
 ms.topic: article
-ms.date: 08/20/2019
+ms.date: 10/11/2019
 ms.author: danis
-ms.openlocfilehash: 7e22aaf2ead4dd618c2907f8659455e1862110a5
-ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
+ms.openlocfilehash: b0300dd91876b651015ae78c53dbc1e72bf8dd68
+ms.sourcegitcommit: e0a1a9e4a5c92d57deb168580e8aa1306bd94723
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69650093"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72285703"
 ---
 # <a name="cloud-init-support-for-virtual-machines-in-azure"></a>Azure 中虛擬機器的 Cloud-init 支援
-本文說明在 Azure 中布建時, [cloud init](https://cloudinit.readthedocs.io)用來設定虛擬機器 (VM) 或虛擬機器擴展集的支援。 一旦 Azure 佈建資源，這些 cloud-init 指令碼就會在初次開機時執行。  
+本文說明在 Azure 中布建時， [cloud init](https://cloudinit.readthedocs.io)用來設定虛擬機器（VM）或虛擬機器擴展集的支援。 一旦 Azure 佈建資源，這些 cloud-init 指令碼就會在初次開機時執行。  
 
 ## <a name="cloud-init-overview"></a>Cloud-Init 概觀
 [Cloud-init (英文)](https://cloudinit.readthedocs.io) 是在 Linux VM 初次開機時，廣泛用來自訂它們的方法。 您可以使用 cloud-init 來安裝封裝和寫入檔案，或者設定使用者和安全性。 因為在初次開機程序期間時會呼叫 Cloud-init，因此不需要使用任何額外的步驟或必要的代理程式，就可以套用您的設定。  如需如何正確地設定 `#cloud-config` 檔案格式的詳細資訊，請參閱 [cloud-init 文件網站](https://cloudinit.readthedocs.io/en/latest/topics/format.html#cloud-config-data) \(英文\)。  `#cloud-config` 檔案是以 base64 編碼的文字檔。
@@ -34,18 +34,19 @@ Cloud-init 也適用於散發套件。 例如，您不使用 **apt-get install**
 
 | 發行者 | 供應項目 | SKU | Version | cloud-init 就緒 |
 |:--- |:--- |:--- |:--- |:--- |
-|Canonical |UbuntuServer |18.04-LTS |最新 |是 | 
-|Canonical |UbuntuServer |16.04-LTS |最新 |是 | 
-|Canonical |UbuntuServer |14.04.5-LTS |最新 |是 |
-|CoreOS |CoreOS |Stable |最新 |是 |
-|OpenLogic 7。6 |CentOS |7-CI |最新 |預覽 |
-|RedHat 7。6 |RHEL |7-RAW-CI |7.6.2019072418 |是 |
-|RedHat 7。7 |RHEL |7-RAW-CI |7.7.2019081601 |預覽 |
+|Canonical |UbuntuServer |18.04-LTS |latest |是 | 
+|Canonical |UbuntuServer |16.04-LTS |latest |是 | 
+|Canonical |UbuntuServer |14.04.5-LTS |latest |是 |
+|CoreOS |CoreOS |Stable |latest |是 |
+|OpenLogic 7。7 |CentOS |7-CI |7.7.20190920 |preview |
+|RedHat 7.6 |RHEL |7-RAW-CI |7.6.2019072418 |是 |
+|RedHat 7.7 |RHEL |7-RAW-CI |7.7.2019081601 |preview |
     
 目前 Azure Stack 不支援使用雲端 init 來布建 RHEL 7. x 和 CentOS 7.x。
 
-* 對於 RHEL 7.6, 雲端 init 封裝, 支援的套件為:*18.2-1. el7 _ 6。2* 
-* 針對 RHEL 7.7 (預覽), 雲端 init 封裝, 支援的套件為:*18.5-3.el7*
+* 對於 RHEL 7.6，雲端 init 封裝，支援的套件為：*18.2-1. el7 _ 6。2* 
+* 若為 RHEL 7.7 （預覽），則為雲端 init 套件，預覽套件為：*18.5-3.el7*
+* 針對 CentOS 7.7 （預覽），雲端 init 封裝，預覽套件為：*18.5-3. el7. centos*
 
 ## <a name="what-is-the-difference-between-cloud-init-and-the-linux-agent-wala"></a>cloud-init 和 Linux 代理程式 (WALA) 之間有哪些差異？
 WALA 是 Azure 平台專屬的代理程式，用於佈建及設定 VM，並處理 Azure 擴充功能。 我們一直在加強設定 VM 使用 cloud-init 代替 Linux 代理程式的工作，以讓現有的 cloud-init 客戶使用其目前的 cloud-init 指令碼。  如果您已經對設定 Linux 系統所使用的 cloud-init 指令碼有所投入，則**不需要其他任何設定**，就可以將其啟用。 

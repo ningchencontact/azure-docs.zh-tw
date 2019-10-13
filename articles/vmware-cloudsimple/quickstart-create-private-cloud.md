@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 1bd84a40236b54d799efcf04eae707aea9c6c945
-ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
+ms.openlocfilehash: b38779681dfe612369fefb9d752389395965e7b4
+ms.sourcegitcommit: e0a1a9e4a5c92d57deb168580e8aa1306bd94723
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71828936"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72285779"
 ---
 # <a name="quickstart---configure-a-private-cloud-environment"></a>快速入門-設定私人雲端環境
 
@@ -47,7 +47,7 @@ ms.locfileid: "71828936"
 
     ![建立私用雲端-基本資訊](media/create-private-cloud-basic-info.png)
 
-9. 按一下 **下一步Advanced 選項**。
+9. 按一下 **下一步Advanced options @ no__t-0。
 10. 輸入 vSphere/vSAN 子網的 CIDR 範圍。 請確定 CIDR 範圍不會與您的任何內部部署或其他 Azure 子網（虛擬網路）或閘道子網重迭。
 
     **CIDR 範圍選項：** /24、/23、/22 或/21。 A/24 CIDR 範圍最多支援26個節點，/23 CIDR 範圍最多支援58個節點，而/22 和/21 CIDR 範圍支援64個節點（私人雲端中的節點數目上限）。  若要深入瞭解 Vlan 和子網，請參閱[vlan 和子網總覽](cloudsimple-vlans-subnets.md)。
@@ -55,7 +55,7 @@ ms.locfileid: "71828936"
       > [!IMPORTANT]
       > VSphere/vSAN CIDR 範圍中的 IP 位址會保留供私人雲端基礎結構使用。  請勿在任何虛擬機器上使用此範圍內的 IP 位址。
 
-11. 按一下 **下一步審查和建立**。
+11. 按一下 **下一步請參閱並建立 @ no__t-0。
 12. 檢查設定。 如果您需要變更任何設定，請按一下 [**上一步**]。
 13. 按一下 [建立]。
 
@@ -116,7 +116,7 @@ ms.locfileid: "71828936"
 4. 選取 [使用者]。
 5. 按一下 [**下載我的 VPN**設定]。
 
-    ![下載 VPN 設定](media/download-p2s-vpn-configuration.png)
+    ![下載 VPN 組態](media/download-p2s-vpn-configuration.png)
 
 6. 在您的 VPN 用戶端上匯入設定。
 
@@ -183,9 +183,9 @@ CloudSimple 建議您在第一次登入 vCenter 時變更密碼。
 * 如果您使用 vSphere Flash 用戶端，它會報告錯誤
 * 如果您使用 HTML5 用戶端，則不會報告錯誤。 用戶端不接受變更，舊密碼仍可繼續運作。
 
-## <a name="change-nsx-administrator-password"></a>變更 NSX 系統管理員密碼
+## <a name="access-nsx-manager"></a>存取 NSX manager
 
-使用預設密碼部署了「NSX 管理員」。  建議您在建立私人雲端之後變更密碼。
+使用預設密碼部署了「NSX 管理員」。 
 
 * 使用者名稱： **admin**
 * 密碼：**CloudSimple123!**
@@ -198,8 +198,6 @@ CloudSimple 建議您在第一次登入 vCenter 時變更密碼。
 4. 使用「 **NSX 管理員**」的 FQDN 或 IP 位址，並使用網頁瀏覽器進行連接。
 
     ![尋找 NSX Manager FQDN](media/private-cloud-nsx-manager-fqdn.png)
-
-若要變更密碼，請遵循「[安裝](https://docs.vmware.com/en/VMware-NSX-T-Data-Center/2.2/com.vmware.nsxt.install.doc/GUID-A65FE3DD-C4F1-47EC-B952-DEDF1A3DD0CF.html)」中的指示。
 
 ## <a name="create-a-port-group"></a>建立通訊埠群組
 

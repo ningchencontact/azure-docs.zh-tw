@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 08/09/2019
 ms.custom: seodec18
-ms.openlocfilehash: 8fbb09ecf09008c25c84a11c7b43dfb26450e30a
-ms.sourcegitcommit: e1b6a40a9c9341b33df384aa607ae359e4ab0f53
+ms.openlocfilehash: ee7bbff8ab501a1159030a8ee9c57f1c5a64ea22
+ms.sourcegitcommit: e0a1a9e4a5c92d57deb168580e8aa1306bd94723
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71338761"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72286542"
 ---
 # <a name="known-issues-and-troubleshooting-azure-machine-learning"></a>已知問題和疑難排解 Azure Machine Learning
 
@@ -37,7 +37,7 @@ ms.locfileid: "71338761"
  
 在修正之前，您可以將資料集連接到任何資料轉換模組（選取資料集中的資料行、編輯中繼資料、分割資料等）並執行實驗。 然後您可以將資料集視覺化。 
 
-下圖顯示如何： ![visulize-資料](./media/resource-known-issues/aml-visualize-data.png)
+下圖顯示如何： @no__t 0visulize-data @ no__t-1
 
 ## <a name="sdk-installation-issues"></a>SDK 安裝問題
 
@@ -101,7 +101,7 @@ psutil cryptography==1.5 pyopenssl==16.0.0 ipython==2.2.0
 
 ### <a name="10-iterations-for-automated-machine-learning"></a>> 自動化機器學習服務的10次反復專案
 
-在自動化機器學習設定中，如果您有10個以上的反復`show_output`專案`False` ，當您提交執行時，請將設定為。
+在自動化機器學習設定中，如果您有10個以上的反復專案，請在提交執行時，將 `show_output` 設定為 `False`。
 
 ### <a name="widget-for-the-azure-machine-learning-sdkautomated-machine-learning"></a>Azure Machine Learning SDK/自動化機器學習的 Widget
 
@@ -128,11 +128,11 @@ displayHTML("<a href={} target='_blank'>Azure Portal: {}</a>".format(local_run.g
 
 ### <a name="failtosendfeather"></a>FailToSendFeather
 
-如果您在 Azure Databricks `FailToSendFeather`叢集上讀取資料時看到錯誤，請參閱下列解決方案：
+如果您在 Azure Databricks 叢集上讀取資料時看到 `FailToSendFeather` 錯誤，請參閱下列解決方案：
 
-* 將`azureml-sdk[automl_databricks]`套件升級至最新版本。
-* 新增`azure-dataprep` 1.1.8 或更新版本。
-* 新增`pyarrow` 0.11 版或更新版本。
+* 將 `azureml-sdk[automl_databricks]` 套件升級至最新版本。
+* 新增 `azure-dataprep` 1.1.8 或更新版本。
+* 新增 `pyarrow` 0.11 版或更新版本。
 
 ## <a name="azure-portal"></a>Azure 入口網站
 
@@ -171,13 +171,13 @@ Azure Machine Learning 工作區中的某些動作並不會將資訊記錄到__�
 
 ## <a name="overloaded-azurefile-storage"></a>多載的 AzureFile 儲存體
 
-如果您收到錯誤`Unable to upload project files to working directory in AzureFile because the storage is overloaded`，請套用下列因應措施。
+如果您收到錯誤 `Unable to upload project files to working directory in AzureFile because the storage is overloaded`，請套用下列因應措施。
 
 如果您使用檔案共用來進行其他工作負載（例如資料傳輸），建議使用 blob，讓檔案共用可免費用於提交執行。 您也可以在兩個不同的工作區之間分割工作負載。
 
 ## <a name="webservices-in-azure-kubernetes-service-failures"></a>Azure Kubernetes Service 失敗中的 Webservices 
 
-Azure Kubernetes Service 中的許多 webservice 失敗，都可以使用`kubectl`連接到叢集來進行調試。 您可以藉由`kubeconfig.json`執行來取得 Azure Kubernetes Service 叢集的
+Azure Kubernetes Service 可以使用 `kubectl` 來連接到叢集，藉以進行許多 webservice 失敗的調試。 您可以藉由執行來取得 Azure Kubernetes Service 叢集的 `kubeconfig.json`
 
 ```bash
 az aks get-credentials -g <rg> -n <aks cluster name>
@@ -185,7 +185,12 @@ az aks get-credentials -g <rg> -n <aks cluster name>
 
 ## <a name="updating-azure-machine-learning-components-in-aks-cluster"></a>在 AKS 叢集中更新 Azure Machine Learning 元件
 
-Azure Kubernetes Service 叢集中安裝的 Azure Machine Learning 元件更新必須手動套用。 您可以從 [Azure Machine Learning] 工作區卸離叢集，然後將叢集重新附加至工作區，以套用這些更新。 如果叢集中已啟用 SSL，則在重新附加叢集時，您將需要提供 SSL 憑證和私密金鑰。 
+Azure Kubernetes Service 叢集中安裝的 Azure Machine Learning 元件更新必須手動套用。 
+
+> [!WARNING]
+> 執行下列動作之前，請檢查 Azure Kubernetes Service 叢集的版本。 如果叢集版本等於或大於1.14，您將無法將叢集重新連接到 Azure Machine Learning 工作區。
+
+您可以從 [Azure Machine Learning] 工作區卸離叢集，然後將叢集重新附加至工作區，以套用這些更新。 如果叢集中已啟用 SSL，則在重新附加叢集時，您將需要提供 SSL 憑證和私密金鑰。 
 
 ```python
 compute_target = ComputeTarget(workspace=ws, name=clusterWorkspaceName)
@@ -206,14 +211,14 @@ compute_target = ComputeTarget.attach(workspace=ws, name=args.clusterWorkspaceNa
 compute_target.wait_for_completion(show_output=True)
 ```
 
-如果您不再擁有 SSL 憑證和私密金鑰，或您使用 Azure Machine Learning 所產生的憑證，您可以使用`kubectl`連線到叢集並抓取密碼，在卸離叢集之前先取出檔案`azuremlfessl`.
+如果您不再擁有 SSL 憑證和私密金鑰，或使用 Azure Machine Learning 所產生的憑證，您可以使用 `kubectl` 連接到叢集，並將密碼 `azuremlfessl`，藉以卸離叢集之前先抓取檔案。
 
 ```bash
 kubectl get secret/azuremlfessl -o yaml
 ```
 
 >[!Note]
->Kubernetes 會以64編碼的格式儲存秘密。 在將密碼提供給`cert.pem` `attach_config.enable_ssl`之前，您必須先`key.pem`將它的和元件解碼為64。 
+>Kubernetes 會以64編碼的格式儲存秘密。 在提供給 `attach_config.enable_ssl` 之前，您必須先64將密碼的 @no__t 0 和 @no__t 1 元件解碼。 
 
 ## <a name="recommendations-for-error-fix"></a>修正錯誤的建議
 根據一般觀察，以下是 Azure ML 建議，用以修正 Azure ML 中的一些常見錯誤。

@@ -11,12 +11,12 @@ ms.date: 06/18/2019
 author: nabhishek
 ms.author: abnarain
 manager: craigg
-ms.openlocfilehash: be59f5fd34c52397b54146a8aeaf51f4d594452f
-ms.sourcegitcommit: 49c4b9c797c09c92632d7cedfec0ac1cf783631b
+ms.openlocfilehash: 8ea6a365b0c7bc6c254c1313445bb54231e161ae
+ms.sourcegitcommit: e0a1a9e4a5c92d57deb168580e8aa1306bd94723
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/05/2019
-ms.locfileid: "70383360"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72285638"
 ---
 # <a name="create-and-configure-a-self-hosted-integration-runtime"></a>建立和設定自我裝載整合執行階段
 整合執行階段 (IR) 是 Azure Data Factory 所使用的計算基礎結構，可提供跨不同網路環境的資料整合功能。 如需 IR 的詳細資訊，請參閱[整合執行階段概觀](concepts-integration-runtime.md)。
@@ -82,7 +82,7 @@ ms.locfileid: "70383360"
 - 複製活動流程會在特定頻率下出現。 電腦上的資源使用方式 (CPU、記憶體) 會與尖峰和閒置時間的模式相同。 資源使用率也仰賴要移動的資料量。 如果有多個複製作業正在進行，您會看到資源使用量在尖峰時段增加。
 - 如果以 Parquet、ORC 或 Avro 格式解壓縮資料，工作可能會失敗。 檔案建立會在自我裝載整合機器上執行，而且需要下列必要條件才能如預期般運作（請參閱[Azure Data Factory 中的 Parquet 格式](https://docs.microsoft.com/azure/data-factory/format-parquet#using-self-hosted-integration-runtime)）。
     - [Visual C++ 2010](https://download.microsoft.com/download/3/2/2/3224B87F-CFA0-4E70-BDA3-3DE650EFEBA5/vcredist_x64.exe)可轉散發套件（x64）
-    - 來自 JRE 提供者的 JAVA Runtime （jre）第8版，例如[採用 OpenJDK](https://adoptopenjdk.net/)，確保`JAVA_HOME`已設定環境變數。
+    - 來自 JRE 提供者的 JAVA Runtime （JRE）第8版，例如[採用 OpenJDK](https://adoptopenjdk.net/)，確保已設定 @no__t 1 環境變數。
 
 ## <a name="installation-best-practices"></a>安裝最佳做法
 您可以從 [Microsoft 下載中心](https://www.microsoft.com/download/details.aspx?id=39717)下載 MSI 安裝套件來安裝自我裝載整合執行階段。 如需逐步指示，請參閱[在內部部署與雲端之間移動資料一文](tutorial-hybrid-copy-powershell.md)。
@@ -138,18 +138,18 @@ dmgcmd [ -RegisterNewNode "<AuthenticationKey>" -EnableRemoteAccess "<port>" ["<
 | EnableRemoteAccess "`<port>`" ["`<thumbprint>`"]            | 啟用目前節點上的遠端存取，以設定高可用性叢集，以及（或）直接對自我裝載 IR （不需要透過 ADF 服務）設定認證，使用從相同網路中的遠端電腦 AzDataFactoryV2LinkedServiceEncryptedCredential Cmdlet。 | 否       |
 | EnableRemoteAccessInContainer "`<port>`" ["`<thumbprint>`"] | 當節點在容器中執行時，啟用對目前節點的遠端存取 | 否       |
 | DisableRemoteAccess                                         | 停用對目前節點的遠端存取。 需要遠端存取，才能進行多節點設定。 **AzDataFactoryV2LinkedServiceEncryptedCredential** PowerShell Cmdlet 仍然可以運作，即使已停用遠端存取，只要它是在與自我裝載 IR 節點相同的電腦上執行即可。 | 否       |
-| 機碼`<AuthenticationKey>`""                                 | 覆寫/更新先前的驗證金鑰。 請小心，因為如果金鑰是新的整合執行時間，則會導致您先前的自我裝載 IR 節點離線。 | 否       |
-| GenerateBackupFile "`<filePath>` `<password>`" ""            | 產生目前節點的備份檔案，備份檔案會包含節點金鑰和資料存放區認證 | 否       |
-| ImportBackupFile "`<filePath>` `<password>`" ""              | 從備份檔案還原節點                          | 否       |
+| 機碼 "`<AuthenticationKey>`"                                 | 覆寫/更新先前的驗證金鑰。 請小心，因為如果金鑰是新的整合執行時間，則會導致您先前的自我裝載 IR 節點離線。 | 否       |
+| GenerateBackupFile "`<filePath>`" "`<password>`"            | 產生目前節點的備份檔案，備份檔案會包含節點金鑰和資料存放區認證 | 否       |
+| ImportBackupFile "`<filePath>`" "`<password>`"              | 從備份檔案還原節點                          | 否       |
 | 重新啟動                                                     | 重新開機 Integration Runtime （自我裝載）主機服務   | 否       |
-| 開始                                                       | 啟動 Integration Runtime （自我裝載）主機服務     | 否       |
-| 停止                                                        | 停止 Integration Runtime （自我裝載）更新服務        | 否       |
+| Start                                                       | 啟動 Integration Runtime （自我裝載）主機服務     | 否       |
+| Stop                                                        | 停止 Integration Runtime （自我裝載）更新服務        | 否       |
 | StartUpgradeService                                         | 啟動 Integration Runtime （自我裝載）更新服務       | 否       |
 | StopUpgradeService                                          | 停止 Integration Runtime （自我裝載）更新服務        | 否       |
 | TurnOnAutoUpdate                                            | 開啟 Integration Runtime （自我裝載）自動更新        | 否       |
 | TurnOffAutoUpdate                                           | 關閉 Integration Runtime （自我裝載）自動更新       | 否       |
 | SwitchServiceAccount "<domain\user>" ["password"]           | 將 DIAHostService 設定為以新帳戶的身分執行。 針對系統帳戶或虛擬帳戶使用空白密碼（""） | 否       |
-| Loglevel`<logLevel>`                                       | 設定 ETW 記錄層級（關閉、錯誤、詳細資訊或全部）。 在進行偵錯工具時，通常是由 Microsoft 支援服務所使用。 | 否       |
+| Loglevel `<logLevel>`                                       | 設定 ETW 記錄層級（關閉、錯誤、詳細資訊或全部）。 在進行偵錯工具時，通常是由 Microsoft 支援服務所使用。 | 否       |
 
    
 
@@ -267,19 +267,15 @@ dmgcmd [ -RegisterNewNode "<AuthenticationKey>" -EnableRemoteAccess "<port>" ["<
 
 在*公司防火牆*層級，您需要設定下列網域和輸出連接埠：
 
-網域名稱 | 連接埠 | 描述
------------- | ----- | ------------
-*.servicebus.windows.net | 443 | 用於與後端資料移動服務進行通訊
-*.core.windows.net | 443 | 用於透過 Azure Blob 儲存體進行的分段複製 (若已設定)
-*.frontend.clouddatahub.net | 443 | 用於與後端資料移動服務進行通訊
-download.microsoft.com | 443 | 用於下載更新
+[!INCLUDE [domain-and-outbound-port-requirements](../../includes/domain-and-outbound-port-requirements.md)]
+
 
 *Windows 防火牆*層級 (電腦層級) 通常會啟用這些輸出連接埠。 如果沒有，您可以在自我裝載整合執行階段的電腦上相應地設定網域和連接埠。
 
 > [!NOTE]
-> 視您的來源和接收器而定，您可能需要將額外的網域和輸出連接埠加到您公司或 Windows 防火牆的白名單中。
+> 根據您的來源和接收器，您可能必須在公司防火牆或 Windows 防火牆中允許額外的網域和輸出埠。
 >
-> 對於某些雲端資料庫 (例如：Azure SQL Database 和 Azure Data Lake)，您可能需要將自我裝載整合執行階段電腦的 IP 位址加到其防火牆設定的允許清單中。
+> 對於某些雲端資料庫（例如，Azure SQL Database 和 Azure Data Lake），您可能需要允許自我裝載整合執行時間電腦的 IP 位址在其防火牆設定上。
 
 ### <a name="copy-data-from-a-source-to-a-sink"></a>將資料從來源複製到接收器
 請確定在公司防火牆、自我裝載整合執行階段電腦上的 Windows 防火牆，及資料存放區本身都已正確啟用防火牆規則。 啟用這些規則可讓自我裝載整合執行階段成功連線到來源和接收器。 請為複製作業所涉及的每個資料存放區啟用規則。
@@ -360,7 +356,7 @@ download.microsoft.com | 443 | 用於下載更新
 > [!IMPORTANT]
 > 別忘了同時更新 diahost.exe.config 和 diawp.exe.config。
 
-您也必須確定 Microsoft Azure 包含在公司的白名單中。 如需有效的 Microsoft Azure IP 位址清單，可從 [Microsoft 下載中心](https://www.microsoft.com/download/details.aspx?id=41653)下載。
+您也必須確定 Microsoft Azure 在公司的允許清單中。 如需有效的 Microsoft Azure IP 位址清單，可從 [Microsoft 下載中心](https://www.microsoft.com/download/details.aspx?id=41653)下載。
 
 ### <a name="possible-symptoms-for-firewall-and-proxy-server-related-issues"></a>防火牆和 Proxy 伺服器相關問題的可能徵兆
 如果發生如下錯誤，有可能是因為防火牆或 Proxy 伺服器的設定不正確，使得自我裝載整合執行階段無法連線到 Data Factory 來進行自我驗證。 請參閱上一節，以確保您的防火牆和 Proxy 伺服器的設定皆正確。

@@ -12,30 +12,30 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 09/16/2019
 ms.author: tilee
-ms.openlocfilehash: 3060659c5f870be60f1ac02e432dd0a8333f0900
-ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
+ms.openlocfilehash: 7f045a95bcc9d5a61b26036e14e050a597347d1a
+ms.sourcegitcommit: e0a1a9e4a5c92d57deb168580e8aa1306bd94723
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71057841"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72286437"
 ---
 # <a name="status-monitor-v2"></a>狀態監視器 v2
 
 狀態監視器 v2 是發佈至[PowerShell 資源庫](https://www.powershellgallery.com/packages/Az.ApplicationMonitor)的 PowerShell 模組。
 它會取代[狀態監視器](https://docs.microsoft.com/azure/azure-monitor/app/monitor-performance-live-website-now)。
 此模組提供裝載于 IIS 之 .NET web 應用程式的無程式碼檢測。
-遙測會傳送至 Azure 入口網站, 您可以在其中[監視](https://docs.microsoft.com/azure/azure-monitor/app/app-insights-overview)您的應用程式。
+遙測會傳送至 Azure 入口網站，您可以在其中[監視](https://docs.microsoft.com/azure/azure-monitor/app/app-insights-overview)您的應用程式。
 
 ## <a name="powershell-gallery"></a>PowerShell 資源庫
 
-狀態監視器 v2 位於此處: https://www.powershellgallery.com/packages/Az.ApplicationMonitor 。
+狀態監視器 v2 位於此處： https://www.powershellgallery.com/packages/Az.ApplicationMonitor 。
 
 ![PowerShell 資源庫](https://img.shields.io/powershellgallery/v/Az.ApplicationMonitor.svg?color=Blue&label=Current%20Version&logo=PowerShell&style=for-the-badge)
 
 
 ## <a name="instructions"></a>指示
-- 請參閱開始使用的[指示](status-monitor-v2-get-started.md), 以取得簡單的程式碼範例。
-- 如需深入瞭解如何開始使用, 請參閱[詳細指示](status-monitor-v2-detailed-instructions.md)。
+- 請參閱開始使用的[指示](status-monitor-v2-get-started.md)，以取得簡單的程式碼範例。
+- 如需深入瞭解如何開始使用，請參閱[詳細指示](status-monitor-v2-detailed-instructions.md)。
 
 ## <a name="powershell-api-reference"></a>PowerShell API 參考
 - [Disable-ApplicationInsightsMonitoring](status-monitor-v2-api-disable-monitoring.md)
@@ -56,24 +56,20 @@ ms.locfileid: "71057841"
 
 - 狀態監視器 v2 是否支援 proxy 安裝？
 
-  *是*。 有多種方式可以下載狀態監視器 v2。 如果您的電腦可存取網際網路, 您可以使用`-Proxy`參數上架到 PowerShell 資源庫。
-您也可以手動下載模組, 並將它安裝在您的電腦上, 或直接使用它。
+  *是*。 有多種方式可以下載狀態監視器 v2。 如果您的電腦可存取網際網路，您可以使用 `-Proxy` 參數來上架到 PowerShell 資源庫。
+您也可以手動下載模組，並將它安裝在您的電腦上，或直接使用它。
 每個選項都會在[詳細指示](status-monitor-v2-detailed-instructions.md)中加以說明。
 
 - 狀態監視器 v2 是否支援 ASP.NET Core 應用程式？
 
   *否*。 如需啟用 ASP.NET Core 應用程式監視的指示，請參閱[ASP.NET Core 應用程式的 Application Insights](https://docs.microsoft.com/azure/azure-monitor/app/asp-net-core)。 ASP.NET Core 應用程式不需要安裝 StatusMonitor。 即使 ASP.NET Core 應用程式裝載于 IIS 中，也是如此。
-  
-狀態監視器 v2 是否支援 ASP.NET Core 應用程式？ 
-
-  *否*。 請遵循[這些](https://docs.microsoft.com/azure/azure-monitor/app/asp-net-core)指示來啟用 ASP.NET Core 應用程式的監視。 ASP.NET Core 應用程式不需要安裝 StatusMonitor。 即使 ASP.NET Core 應用程式裝載于 IIS 中，也是如此。
 
 - 如何? 確認啟用成功嗎？
 
   - [ApplicationInsightsMonitoringStatus](status-monitor-v2-api-get-status.md)指令程式可以用來驗證啟用是否成功。
   - 建議您使用[即時計量](https://docs.microsoft.com/azure/azure-monitor/app/live-stream)來快速判斷您的應用程式是否正在傳送遙測。
 
-  - 您也可以使用[Log Analytics](../log-query/get-started-portal.md)來列出目前正在傳送遙測的所有雲端角色:
+  - 您也可以使用[Log Analytics](../log-query/get-started-portal.md)來列出目前正在傳送遙測的所有雲端角色：
       ```Kusto
       union * | summarize count() by cloud_RoleName, cloud_RoleInstance
       ```
@@ -89,7 +85,7 @@ ms.locfileid: "71057841"
 
 新增更多遙測：
 
-* [建立 web 測試](monitor-web-app-availability.md), 以確保您的網站保持上線。
-* [新增 web 用戶端遙測](../../azure-monitor/app/javascript.md), 以查看來自網頁程式碼的例外狀況, 並啟用追蹤呼叫。
-* [將 APPLICATION INSIGHTS SDK 新增至您的程式碼](../../azure-monitor/app/asp-net.md), 讓您可以插入追蹤和記錄呼叫。
+* [建立 web 測試](monitor-web-app-availability.md)，以確保您的網站保持上線。
+* [新增 web 用戶端遙測](../../azure-monitor/app/javascript.md)，以查看來自網頁程式碼的例外狀況，並啟用追蹤呼叫。
+* [將 APPLICATION INSIGHTS SDK 新增至您的程式碼](../../azure-monitor/app/asp-net.md)，讓您可以插入追蹤和記錄呼叫。
 

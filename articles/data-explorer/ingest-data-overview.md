@@ -7,12 +7,12 @@ ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 02/18/2019
-ms.openlocfilehash: be77ae932ec72239bea04fce298d7f1b84e5e4d8
-ms.sourcegitcommit: 6794fb51b58d2a7eb6475c9456d55eb1267f8d40
+ms.openlocfilehash: 35d3451327a0ce7bcaf567f93c48d532842b4f25
+ms.sourcegitcommit: e0a1a9e4a5c92d57deb168580e8aa1306bd94723
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70240641"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72285925"
 ---
 # <a name="azure-data-explorer-data-ingestion"></a>Azure 資料總管資料擷取
 
@@ -52,7 +52,7 @@ Azure 資料總管目前支援：
 
 ### <a name="ingestion-using-integration-services"></a>使用整合服務進行擷取
 
-* Azure Data Factory (ADF) 是完全受控的資料整合服務, 適用于 Azure 中的分析工作負載, 可使用[支援的資料存放區和格式](/azure/data-factory/copy-activity-overview#supported-data-stores-and-formats), 將資料複製到 azure 資料總管, 或從其中複製資料。 如需詳細資訊, 請參閱[將資料從 Azure Data Factory 複製到 Azure 資料總管](/azure/data-explorer/data-factory-load-data)。
+* Azure Data Factory （ADF）是完全受控的資料整合服務，適用于 Azure 中的分析工作負載，可使用[支援的資料存放區和格式](/azure/data-factory/copy-activity-overview#supported-data-stores-and-formats)，將資料複製到 azure 資料總管，或從其中複製資料。 如需詳細資訊，請參閱[將資料從 Azure Data Factory 複製到 Azure 資料總管](/azure/data-explorer/data-factory-load-data)。
 
 ### <a name="programmatic-ingestion"></a>程式設計擷取
 
@@ -80,7 +80,7 @@ Kusto 提供的用戶端 SDK 可用來搭配下列項目內嵌及查詢資料：
 
 * 將資料直接擷取到 Azure 資料總管引擎 (最適合探索和原型設計)：
 
-  * **內嵌**內建: 包含內含式資料的 control 命令 (內嵌式內嵌) 適用于特定測試用途。
+  * **內嵌**內建：包含內含式資料的 control 命令（內嵌式內嵌）適用于特定測試用途。
 
   * **從查詢擷取**：指向查詢結果的控制命令 (.set、.set-or-append、.set-or-replace)，用來產生報表或小型暫存資料表。
 
@@ -113,13 +113,13 @@ Kusto 提供的用戶端 SDK 可用來搭配下列項目內嵌及查詢資料：
 * 延遲需求為何？ 
 * 可以使用其中一個現有的受控擷取管線嗎？ 
 
-針對具有現有基礎結構 (根據事件中樞和 IoT 中樞等訊息服務) 的組織, 使用連接器可能是最適當的解決方案。 已排入佇列的擷取適合大量資料。
+針對具有現有基礎結構（根據事件中樞和 IoT 中樞等訊息服務）的組織，使用連接器可能是最適當的解決方案。 已排入佇列的擷取適合大量資料。
 
 ## <a name="supported-data-formats"></a>支援的資料格式
 
 對於從查詢內嵌以外的所有擷取方法，請設定資料格式，Azure 資料總管才能剖析它。 支援的資料格式如下：
 
-* CSV、TSV、TSVE、PSV、SCSV、SOH
+* TXT、CSV、TSV、TSVE、PSV、SCSV、SOH
 * JSON (以行分隔、多行)、Avro
 * ZIP 和 GZIP 
 

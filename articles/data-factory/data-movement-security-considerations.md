@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 06/15/2018
 ms.author: abnarain
-ms.openlocfilehash: b571ba8d259a5e3b3b049ad66d4718e9e85d488b
-ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
+ms.openlocfilehash: ca5a98fb4fd0fd07cd0e2557840a2e0aed6901e5
+ms.sourcegitcommit: e0a1a9e4a5c92d57deb168580e8aa1306bd94723
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70931260"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72285595"
 ---
 #  <a name="security-considerations-for-data-movement-in-azure-data-factory"></a>在 Azure Data Factory 中資料移動的安全性考量
 > [!div class="op_single_selector" title1="選取您目前使用的 Data Factory 服務版本："]
@@ -110,7 +110,7 @@ Salesforce 支援「Shield 平台加密」，可加密所有檔案、附件和�
 ### <a name="on-premises-data-store-credentials"></a>內部部署資料存放區認證
 認證可以儲存在 data factory 中，或[由 data factory](store-credentials-in-key-vault.md)在執行時間從 Azure Key Vault 加以參考。 如果將認證儲存在 data factory 中，它一律會以加密方式儲存在自我裝載整合執行時間上。 
  
-- **在本機儲存認證**。 如果您直接使用**set-azdatafactoryv2linkedservice**指令，搭配 JSON 中的連接字串和認證內嵌，則會將連結的服務加密並儲存在自我裝載整合執行時間上。  在此情況下，認證會透過 azure 後端服務（extremly 安全）流動至自我裝載整合機器，最後 encrpted 並儲存它。 自我裝載整合執行階段會使用 Windows [DPAPI](https://msdn.microsoft.com/library/ms995355.aspx) 加密機密資料和認證資訊。
+- **在本機儲存認證**。 如果您直接使用**set-azdatafactoryv2linkedservice**指令，搭配 JSON 中的連接字串和認證內嵌，則會將連結的服務加密並儲存在自我裝載整合執行時間上。  在此情況下，認證會透過 azure 後端服務流動，這是非常安全的自我裝載整合機器，其最後會進行加密和儲存。 自我裝載整合執行階段會使用 Windows [DPAPI](https://msdn.microsoft.com/library/ms995355.aspx) 加密機密資料和認證資訊。
 
 - **在 Azure Key Vault 中儲存認證**。 您也可以在 [Azure Key Vault](https://azure.microsoft.com/services/key-vault/) 中儲存資料存放區的認證。 Data Factory 會在活動執行期間擷取認證。 如需詳細資訊，請參閱 [在 Azure Key Vault 中儲存認證](store-credentials-in-key-vault.md)。
 
@@ -136,7 +136,7 @@ Azure 虛擬網路是您網路在雲端的邏輯呈現方式。 您可以透過�
 
 下表根據混合式資料移動的不同來源和目的地位置組合，摘要說明網路和自我裝載整合執行階段組態的建議事項。
 
-| Source      | 目的地                              | 網路組態                    | 整合執行階段設定                |
+| Source      | Destination                              | 網路組態                    | 整合執行階段設定                |
 | ----------- | ---------------------------------------- | ---------------------------------------- | ---------------------------------------- |
 | 內部部署 | 部署在虛擬網路中的虛擬機器和雲端服務 | IPSec VPN (點對站或站台對站台) | 自我裝載整合執行時間應該安裝在虛擬網路中的 Azure 虛擬機器上。  |
 | 內部部署 | 部署在虛擬網路中的虛擬機器和雲端服務 | ExpressRoute (私用對等互連)           | 自我裝載整合執行時間應該安裝在虛擬網路中的 Azure 虛擬機器上。  |
@@ -152,24 +152,17 @@ Azure 虛擬網路是您網路在雲端的邏輯呈現方式。 您可以透過�
 
 ![IPSec VPN 搭配閘道](media/data-movement-security-considerations/ipsec-vpn-for-gateway.png)
 
-### <a name="firewall-configurations-and-whitelisting-ip-address-of-gateway"></a>防火牆組態及將 IP 位址加入允許清單
+### <a name="firewall-configurations-and-allow-list-setting-up-for-ip-address-of-gateway"></a>IP 位址的防火牆設定和允許清單設定
 
 #### <a name="firewall-requirements-for-on-premisesprivate-network"></a>內部部署/私人網路的防火牆需求  
 在企業中，公司防火牆會在組織的中央路由器上執行。 Windows 防火牆則是在安裝自我裝載整合執行階段的本機電腦上以精靈的形式執行。 
 
 下表提供公司防火牆的輸出連接埠和網域需求：
 
-| 網域名稱                  | 輸出連接埠 | 描述                              |
-| ----------------------------- | -------------- | ---------------------------------------- |
-| `*.servicebus.windows.net`    | 443            | 必須提供此資訊，自我裝載整合執行階段才能連線到 Data Factory 中的資料移動服務。 |
-| `*.frontend.clouddatahub.net` | 443            | 必須提供此資訊，自我裝載整合執行階段才能連線到 Data Factory 服務。 |
-| `download.microsoft.com`    | 443            | 自我裝載整合執行階段所需，以用於下載更新。 如果您已停用自動更新，則可以省略此步驟。 |
-| `*.core.windows.net`          | 443            | 當您使用[分段複製](copy-activity-performance.md#staged-copy)功能時，可供自我裝載整合執行階段用來連線到 Azure 儲存體帳戶。 |
-| `*.database.windows.net`      | 1433           | (選擇性) 當您在 Azure SQL Database 或 Azure SQL 資料倉儲來回複製時，需要提供此資訊。 若要在不開啟連接埠 1433 的情況下，將資料複製到 Azure SQL Database 或 Azure SQL 資料倉儲，請使用分段複製功能。 |
-| `*.azuredatalakestore.net`<br>`login.microsoftonline.com/<tenant>/oauth2/token`    | 443            | (選擇性) 當您在 Azure Data Lake Store 來回複製時，需要提供此資訊。 |
+[!INCLUDE [domain-and-outbound-port-requirements](../../includes/domain-and-outbound-port-requirements.md)]
 
 > [!NOTE] 
-> 您可能需要依個別資料來源所需，在公司防火牆層級管理連接埠或將網域加入白名單。 此表格僅使用 Azure SQL Database、Azure SQL 資料倉儲和 Azure Data Lake Store 作為範例。   
+> 您可能必須根據個別資料來源的需求，在公司防火牆層級管理埠或設定網域的允許清單。 此表格僅使用 Azure SQL Database、Azure SQL 資料倉儲和 Azure Data Lake Store 作為範例。   
 
 下表提供 Windows 防火牆的輸入連接埠需求：
 
@@ -179,10 +172,10 @@ Azure 虛擬網路是您網路在雲端的邏輯呈現方式。 您可以透過�
 
 ![閘道連接埠需求](media/data-movement-security-considerations/gateway-port-requirements.png) 
 
-#### <a name="ip-configurations-and-whitelisting-in-data-stores"></a>資料存放區中的 IP 組態/允許清單設定
-有些雲端資料存放區也會要求必須將存取存放區的電腦 IP 位址加入允許清單。 請確定在防火牆中已將自我裝載整合執行階段電腦的 IP 位址正確地加入允許清單並進行設定。
+#### <a name="ip-configurations-and-allow-list-setting-up-in-data-stores"></a>資料存放區中的 IP 設定和允許清單設定
+雲端中的某些資料存放區也會要求您允許存取存放區之電腦的 IP 位址。 請確定已在防火牆中適當地允許或設定自我裝載整合執行時間電腦的 IP 位址。
 
-下列雲端資料存放區會要求必須將自我裝載整合執行階段電腦的 IP 位址加入允許清單。 在這些資料存放區中，有些可能預設不會要求將 IP 位址加入允許清單。 
+下列雲端資料存放區會要求您允許自我裝載整合執行時間電腦的 IP 位址。 根據預設，部分資料存放區可能不需要允許清單。 
 
 - [Azure SQL Database](../sql-database/sql-database-firewall-configure.md) 
 - [Azure SQL 資料倉儲](../sql-data-warehouse/sql-data-warehouse-get-started-provision.md)
@@ -198,7 +191,7 @@ Azure 虛擬網路是您網路在雲端的邏輯呈現方式。 您可以透過�
 
 **自我裝載整合執行階段需要什麼連接埠才能運作？**
 
-自我裝載整合執行階段會建立 HTTP 型連線來存取網際網路。 必須開啟輸出連接埠 443，自我裝載整合執行階段才能建立此連線。 僅在認證管理員應用程式的電腦層級（而非公司防火牆層級）開啟輸入埠8060。 如果使用 Azure SQL Database 或 Azure SQL 資料倉儲作為來源或目的地，則也需要開啟連接埠 1433。 如需詳細資訊，請參閱[防火牆組態及將 IP 位址加入允許清單](#firewall-configurations-and-whitelisting-ip-address-of-gateway)一節。 
+自我裝載整合執行階段會建立 HTTP 型連線來存取網際網路。 必須開啟輸出連接埠 443，自我裝載整合執行階段才能建立此連線。 僅在認證管理員應用程式的電腦層級（而非公司防火牆層級）開啟輸入埠8060。 如果使用 Azure SQL Database 或 Azure SQL 資料倉儲作為來源或目的地，則也需要開啟連接埠 1433。 如需詳細資訊，請參閱[IP 位址的防火牆設定和允許清單設定](#firewall-configurations-and-allow-list-setting-up-for-ip-address-of-gateway)一節。 
 
 
 ## <a name="next-steps"></a>後續步驟

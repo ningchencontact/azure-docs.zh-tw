@@ -5,32 +5,32 @@ services: azure-blockchain
 keywords: ''
 author: PatAltimore
 ms.author: patricka
-ms.date: 05/10/2019
+ms.date: 10/10/2019
 ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: zeyadr
 manager: femila
-ms.openlocfilehash: 9f76597a91c0e22f57d1ba66ff1a16eea9002af0
-ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
+ms.openlocfilehash: 3e149a4a8e5ce7c82f0c9bf951bf9625763b30af
+ms.sourcegitcommit: e0a1a9e4a5c92d57deb168580e8aa1306bd94723
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68250080"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72286009"
 ---
 # <a name="manage-consortium-members-in-azure-blockchain-service-by-using-powershell"></a>使用 PowerShell 管理 Azure 區塊鏈 Service 中的聯盟成員
 
-您可以使用 PowerShell 來管理 Azure 區塊鏈服務的區塊鏈聯盟成員。 具有系統管理員許可權的成員可以邀請、新增、移除及變更區塊鏈聯盟中所有參與者的角色。 具有使用者權限的成員可以查看區塊鏈聯盟中的所有參與者, 並變更其成員的顯示名稱。
+您可以使用 PowerShell 來管理 Azure 區塊鏈服務的區塊鏈聯盟成員。 具有系統管理員許可權的成員可以邀請、新增、移除及變更區塊鏈聯盟中所有參與者的角色。 具有使用者權限的成員可以查看區塊鏈聯盟中的所有參與者，並變更其成員的顯示名稱。
 
 ## <a name="prerequisites"></a>必要條件
 
 * 使用[Azure 入口網站](create-member.md)建立區塊鏈成員。
-* 如需有關聯盟、成員和節點的詳細資訊, 請參閱[Azure 區塊鏈 Service 聯盟](consortium.md)。
+* 如需有關聯盟、成員和節點的詳細資訊，請參閱[Azure 區塊鏈 Service 聯盟](consortium.md)。
 
 ## <a name="open-azure-cloud-shell"></a>開啟 Azure Cloud Shell
 
 Azure Cloud Shell 是免費的互動式 Shell，可讓您用來執行本文中的步驟。 它具有預先安裝和設定的共用 Azure 工具，可與您的帳戶搭配使用。
 
-您也可以前往 [ [shell.azure.com/powershell](https://shell.azure.com/powershell)], 在另一個瀏覽器索引標籤中開啟 Cloud Shell。 選取 [**複製**] 以複製程式碼區塊, 並將其貼到 Cloud Shell 中, 然後選取**Enter**加以執行。
+您也可以前往 [ [shell.azure.com/powershell](https://shell.azure.com/powershell)]，在另一個瀏覽器索引標籤中開啟 Cloud Shell。 選取 [**複製**] 以複製程式碼區塊，並將其貼到 Cloud Shell 中，然後選取**Enter**加以執行。
 
 ## <a name="install-the-powershell-module"></a>安裝 PowerShell 模組
 
@@ -43,9 +43,9 @@ Import-Module Microsoft.AzureBlockchainService.ConsortiumManagement.PS
 
 ## <a name="set-the-information-preference"></a>設定資訊喜好設定
 
-您可以藉由設定資訊喜好設定變數來取得執行 Cmdlet 時的詳細資訊。 根據預設, *$InformationPreference*會設定為*SilentlyContinue*。
+您可以藉由設定資訊喜好設定變數來取得執行 Cmdlet 時的詳細資訊。 根據預設， *$InformationPreference*會設定為*SilentlyContinue*。
 
-如需 Cmdlet 的詳細資訊, 請在 PowerShell 中設定喜好設定, 如下所示:
+如需 Cmdlet 的詳細資訊，請在 PowerShell 中設定喜好設定，如下所示：
 
 ```powershell-interactive
 $InformationPreference = 'Continue'
@@ -53,7 +53,7 @@ $InformationPreference = 'Continue'
 
 ## <a name="establish-a-web3-connection"></a>建立 Web3 連接
 
-若要管理聯盟成員, 請建立區塊鏈服務成員端點的 Web3 連接。 您可以使用此腳本來設定用於呼叫聯盟管理 Cmdlet 的全域變數。
+若要管理聯盟成員，請建立區塊鏈服務成員端點的 Web3 連接。 您可以使用此腳本來設定用於呼叫聯盟管理 Cmdlet 的全域變數。
 
 ```powershell-interactive
 $Connection = New-Web3Connection -RemoteRPCEndpoint '<Endpoint address>'
@@ -61,27 +61,27 @@ $MemberAccount = Import-Web3Account -ManagedAccountAddress '<Member account addr
 $ContractConnection = Import-ConsortiumManagementContracts -RootContractAddress '<RootContract address>' -Web3Client $Connection
 ```
 
-將 [  *\<成員帳戶\>密碼*] 取代為您在建立成員時使用的成員帳戶密碼。
+以您建立成員時使用的成員帳戶密碼取代 *@no__t 1Member 帳戶密碼 @ no__t-2* 。
 
-在 Azure 入口網站中尋找其他值:
+在 Azure 入口網站中尋找其他值：
 
 1. 登入 [Azure 入口網站](https://portal.azure.com)。
 1. 移至您的預設區塊鏈服務成員**總覽**頁面。
 
     ![成員總覽](./media/manage-consortium-powershell/member-overview.png)
 
-    以入口網站中的值取代 *\<[成員帳戶\>* ] 和 *\<[RootContract 位址\>* ]。
+    以入口網站中的值取代 *\<Member 帳戶 @ no__t-2*和 *\<RootContract 位址 @ no__t-5* 。
 
-1. 針對 [端點位址], 選取 [**交易節點**], 然後選取 [**預設交易] 節點**。 預設節點的名稱與區塊鏈成員相同。
-1. 選取 [連接字串]  。
+1. 針對 [端點位址]，選取 [**交易節點**]，然後選取 [**預設交易] 節點**。 預設節點的名稱與區塊鏈成員相同。
+1. 選取 [連接字串]。
 
     ![連接字串](./media/manage-consortium-powershell/connection-strings.png)
 
-    以**HTTPs (存取金鑰 1)** 或**HTTPs (存取金鑰 2)** 的值取代 *\<端點位址\>* 。
+    以**HTTPs （存取金鑰1）** 或**HTTPs （存取金鑰2）** 的值取代 *\<Endpoint address @ no__t-2* 。
 
 ## <a name="manage-the-network-and-smart-contracts"></a>管理網路和智慧合約
 
-使用網路和智慧合約 Cmdlet, 建立負責聯盟管理的區塊鏈端點智慧合約連接。
+使用網路和智慧合約 Cmdlet，建立負責聯盟管理的區塊鏈端點智慧合約連接。
 
 ### <a name="import-consortiummanagementcontracts"></a>Import-ConsortiumManagementContracts
 
@@ -102,7 +102,7 @@ Import-ConsortiumManagementContracts -RootContractAddress '<RootContract address
 
 ### <a name="import-web3account"></a>Import-Web3Account
 
-使用此 Cmdlet 建立物件, 以保存遠端節點管理帳戶的資訊。
+使用此 Cmdlet 建立物件，以保存遠端節點管理帳戶的資訊。
 
 `Import-Web3Account -ManagedAccountAddress <String> -ManagedAccountPassword <String>`
 
@@ -139,17 +139,19 @@ New-Web3Connection -RemoteRPCEndpoint '<Endpoint address>'
 
 ### <a name="get-blockchainmember"></a>Get-BlockchainMember
 
-使用此 Cmdlet 取得成員詳細資料, 或列出聯盟的成員。
+使用此 Cmdlet 取得成員詳細資料，或列出聯盟的成員。
 
 `Get-BlockchainMember [[-Name] <String>] -Members <IContract> -Web3Client <IClient>`
 
 | 參數 | 描述 | 必要項 |
 |-----------|-------------|:--------:|
-| Name | 您想要取得詳細資料的區塊鏈服務成員名稱。 輸入名稱時, 會傳回成員的詳細資料。 當省略名稱時, 它會傳回所有聯盟成員的清單。 | 否 |
+| Name | 您想要取得詳細資料的區塊鏈服務成員名稱。 輸入名稱時，會傳回成員的詳細資料。 當省略名稱時，它會傳回所有聯盟成員的清單。 | 否 |
 | Members | 從匯入-ConsortiumManagementContracts 取得的成員物件 | 是 |
 | Web3Client | 從 Web3Connection 取得的 Web3Client 物件 | 是 |
 
 #### <a name="example"></a>範例
+
+[建立 Web3 連接](#establish-a-web3-connection)以設定 $ContractConnection 變數。
 
 ```powershell-interactive
 $ContractConnection | Get-BlockchainMember -Name <Member Name>
@@ -181,13 +183,15 @@ Role           : ADMIN
 
 #### <a name="example"></a>範例
 
+[建立 Web3 連接](#establish-a-web3-connection)，以設定 $ContractConnection 和 $MemberAccount 變數。
+
 ```powershell-interactive
 $ContractConnection | Remove-BlockchainMember -Name <Member Name> -Web3Account $MemberAccount
 ```
 
 ### <a name="set-blockchainmember"></a>Set-BlockchainMember
 
-使用此 Cmdlet 來設定區塊鏈成員屬性, 包括顯示名稱和聯盟角色。
+使用此 Cmdlet 來設定區塊鏈成員屬性，包括顯示名稱和聯盟角色。
 
 聯盟系統管理員可以設定所有成員的**DisplayName**和**Role** 。 具有使用者角色的聯盟成員只能變更自己成員的顯示名稱。
 
@@ -206,6 +210,8 @@ Set-BlockchainMember -Name <String> [-DisplayName <String>] [-AccountAddress <St
 | Web3Client |  從 Web3Connection 取得的 Web3Client 物件| 是 |
 
 #### <a name="example"></a>範例
+
+[建立 Web3 連接](#establish-a-web3-connection)，以設定 $ContractConnection 和 $MemberAccount 變數。
 
 ```powershell-interactive
 $ContractConnection | Set-BlockchainMember -Name <Member Name> -DisplayName <Display name> -Web3Account $MemberAccount
@@ -234,6 +240,8 @@ New-BlockchainMemberInvitation -SubscriptionId <String> -Role <String> -Members 
 
 #### <a name="example"></a>範例
 
+[建立 Web3 連接](#establish-a-web3-connection)，以設定 $ContractConnection 和 $MemberAccount 變數。
+
 ```powershell-interactive
 $ContractConnection | New-BlockchainMemberInvitation -SubscriptionId <Azure Subscription ID> -Role USER -Web3Account $MemberAccount
 ```
@@ -246,11 +254,13 @@ $ContractConnection | New-BlockchainMemberInvitation -SubscriptionId <Azure Subs
 
 | 參數 | 描述 | 必要項 |
 |-----------|-------------|:--------:|
-| SubscriptionId | 要邀請之成員的 Azure 訂用帳戶識別碼。 如果提供訂用帳戶識別碼, 它會傳回訂用帳戶識別碼的邀請詳細資料。 如果省略了訂用帳戶識別碼, 它會傳回所有成員邀請的清單。 | 否 |
+| SubscriptionId | 要邀請之成員的 Azure 訂用帳戶識別碼。 如果提供訂用帳戶識別碼，它會傳回訂用帳戶識別碼的邀請詳細資料。 如果省略了訂用帳戶識別碼，它會傳回所有成員邀請的清單。 | 否 |
 | Members | 從匯入-ConsortiumManagementContracts 取得的成員物件 | 是 |
 | Web3Client | 從 Web3Connection 取得的 Web3Client 物件 | 是 |
 
 #### <a name="example"></a>範例
+
+[建立 Web3 連接](#establish-a-web3-connection)以設定 $ContractConnection 變數。
 
 ```powershell-interactive
 $ContractConnection | Get-BlockchainMemberInvitation – SubscriptionId <Azure subscription ID>
@@ -282,6 +292,8 @@ Remove-BlockchainMemberInvitation -SubscriptionId <String> -Members <IContract> 
 
 #### <a name="example"></a>範例
 
+[建立 Web3 連接](#establish-a-web3-connection)，以設定 $ContractConnection 和 $MemberAccount 變數。
+
 ```powershell-interactive
 $ContractConnection | Remove-BlockchainMemberInvitation -SubscriptionId <Subscription ID> -Web3Account $MemberAccount
 ```
@@ -305,13 +317,15 @@ Set-BlockchainMemberInvitation -SubscriptionId <String> -Role <String> -Members 
 
 #### <a name="example"></a>範例
 
+[建立 Web3 連接](#establish-a-web3-connection)，以設定 $ContractConnection 和 $MemberAccount 變數。
+
 ```powershell-interactive
 $ContractConnection | Set-BlockchainMemberInvitation -SubscriptionId <Azure subscription ID> -Role USER -Web3Account $MemberAccount
 ```
 
 ## <a name="next-steps"></a>後續步驟
 
-如需有關聯盟、成員和節點的詳細資訊, 請參閱:
+如需有關聯盟、成員和節點的詳細資訊，請參閱：
 
 > [!div class="nextstepaction"]
 > [Azure 區塊鏈 Service 聯盟](consortium.md)

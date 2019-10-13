@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 4/8/2019
 ms.author: victorh
-ms.openlocfilehash: d7b909bf88fde2277aa2a285bbf36916191db1f3
-ms.sourcegitcommit: 6b41522dae07961f141b0a6a5d46fd1a0c43e6b2
+ms.openlocfilehash: 7ba273cddb6cf41872c4db1c34560c104b992787
+ms.sourcegitcommit: e0a1a9e4a5c92d57deb168580e8aa1306bd94723
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "67973400"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72286462"
 ---
 # <a name="configure-end-to-end-ssl-by-using-application-gateway-with-powershell"></a>使用 PowerShell 以應用程式閘道設定端對端 SSL
 
@@ -44,7 +44,7 @@ Azure 應用程式閘道支援為流量進行端對端加密。 應用程式閘�
 
 若要對應用程式閘道設定端對端 SSL，則需要閘道憑證和後端伺服器憑證。 閘道憑證用來根據 SSL 通訊協定規格衍生對稱金鑰。 接下來，對稱金鑰可以用來加密和解密傳送至閘道的流量。 閘道憑證必須採用「個人資訊交換」(PFX) 格式。 此檔案格式可允許將私密金鑰匯出，而應用程式閘道需要這個匯出的金鑰來執行流量的加密和解密。
 
-對於端對端 SSL 加密, 應用程式閘道必須明確允許後端。 將後端伺服器的公開憑證上傳至應用程式閘道。 新增憑證可確保應用程式閘道只會與已知的後端執行個體通訊。 這會進而保護端對端通訊。
+對於端對端 SSL 加密，應用程式閘道必須明確允許後端。 將後端伺服器的公開憑證上傳至應用程式閘道。 新增憑證可確保應用程式閘道只會與已知的後端執行個體通訊。 這會進而保護端對端通訊。
 
 下列各節將說明設定程序。
 
@@ -227,19 +227,19 @@ $publicip = New-AzPublicIpAddress -ResourceGroupName appgw-rg -Name 'publicIP01'
 
 使用上述所有步驟建立應用程式閘道。 建立閘道的執行過程需要很長一段時間。
 
-針對 V1 SKU, 請使用下列命令
+針對 V1 SKU，請使用下列命令
 ```powershell
-$appgw = New-AzApplicationGateway -Name appgateway -SSLCertificates $cert -ResourceGroupName "appgw-rg" -Location "West US" -BackendAddressPools $pool -BackendHttpSettingsCollection $poolSetting01 -FrontendIpConfigurations $fipconfig -GatewayIpConfigurations $gipconfig -FrontendPorts $fp -HttpListeners $listener -RequestRoutingRules $rule -Sku $sku -SSLPolicy $SSLPolicy -AuthenticationCertificates $authcert -Verbose
+$appgw = New-AzApplicationGateway -Name appgateway -SSLCertificates $cert -ResourceGroupName "appgw-rg" -Location "West US" -BackendAddressPools $pool -BackendHttpSettingsCollection $poolSetting -FrontendIpConfigurations $fipconfig -GatewayIpConfigurations $gipconfig -FrontendPorts $fp -HttpListeners $listener -RequestRoutingRules $rule -Sku $sku -SSLPolicy $SSLPolicy -AuthenticationCertificates $authcert -Verbose
 ```
 
-針對 V2 SKU, 請使用下列命令
+針對 V2 SKU，請使用下列命令
 ```powershell
 $appgw = New-AzApplicationGateway -Name appgateway -SSLCertificates $cert -ResourceGroupName "appgw-rg" -Location "West US" -BackendAddressPools $pool -BackendHttpSettingsCollection $poolSetting01 -FrontendIpConfigurations $fipconfig -GatewayIpConfigurations $gipconfig -FrontendPorts $fp -HttpListeners $listener -RequestRoutingRules $rule -Sku $sku -SSLPolicy $SSLPolicy -TrustedRootCertificate $trustedRootCert01 -Verbose
 ```
 
-## <a name="apply-a-new-certificate-if-the-back-end-certificate-is-expired"></a>如果後端憑證已過期, 則套用新的憑證
+## <a name="apply-a-new-certificate-if-the-back-end-certificate-is-expired"></a>如果後端憑證已過期，則套用新的憑證
 
-如果後端憑證已過期, 請使用此程式來套用新的憑證。
+如果後端憑證已過期，請使用此程式來套用新的憑證。
 
 1. 擷取要更新的應用程式閘道。
 
@@ -247,25 +247,25 @@ $appgw = New-AzApplicationGateway -Name appgateway -SSLCertificates $cert -Resou
    $gw = Get-AzApplicationGateway -Name AdatumAppGateway -ResourceGroupName AdatumAppGatewayRG
    ```
    
-2. 從 .cer 檔案加入新的憑證資源, 其中包含憑證的公開金鑰, 而且也可以是新增至接聽程式的憑證, 以在應用程式閘道上進行 SSL 終止。
+2. 從 .cer 檔案加入新的憑證資源，其中包含憑證的公開金鑰，而且也可以是新增至接聽程式的憑證，以在應用程式閘道上進行 SSL 終止。
 
    ```powershell
    Add-AzApplicationGatewayAuthenticationCertificate -ApplicationGateway $gw -Name 'NewCert' -CertificateFile "appgw_NewCert.cer" 
    ```
     
-3. 將新的驗證憑證物件取得至變數 (TypeName:PSApplicationGatewayAuthenticationCertificate):)。
+3. 將新的驗證憑證物件取得至變數（TypeName：PSApplicationGatewayAuthenticationCertificate）：）。
 
    ```powershell
    $AuthCert = Get-AzApplicationGatewayAuthenticationCertificate -ApplicationGateway $gw -Name NewCert
    ```
  
- 4. 將新憑證指派至**BackendHttp**設定, 並將它與 $AuthCert 變數一併參考。 (指定您想要變更的 HTTP 設定名稱)。
+ 4. 將新憑證指派至**BackendHttp**設定，並將它與 $AuthCert 變數一併參考。 （指定您想要變更的 HTTP 設定名稱）。
  
    ```powershell
    $out= Set-AzApplicationGatewayBackendHttpSetting -ApplicationGateway $gw -Name "HTTP1" -Port 443 -Protocol "Https" -CookieBasedAffinity Disabled -AuthenticationCertificates $Authcert
    ```
     
- 5. 將變更認可到應用程式閘道, 並傳遞包含在 $out 變數中的新設定。
+ 5. 將變更認可到應用程式閘道，並傳遞包含在 $out 變數中的新設定。
  
    ```powershell
    Set-AzApplicationGateway -ApplicationGateway $gw  

@@ -8,39 +8,48 @@ ms.service: container-service
 ms.topic: article
 ms.date: 09/17/2018
 ms.author: mlearned
-ms.openlocfilehash: d9d432c073872e7bb7f3562979e78989faea65eb
-ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
+ms.openlocfilehash: bbd08e49256886a1df334cbf36e6e468bb8f3895
+ms.sourcegitcommit: e0a1a9e4a5c92d57deb168580e8aa1306bd94723
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72241102"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72286777"
 ---
 # <a name="authenticate-with-azure-container-registry-from-azure-kubernetes-service"></a>從 Azure Kubernetes Service 對 Azure Container Registry 進行驗證
 
-當您搭配使用 Azure Container Service (AKS) 與 Azure Kubernetes Registry (ACR) 時，必須建立驗證機制。 本文詳細說明在這兩個 Azure 服務之間進行驗證所建議的組態。
+當您搭配使用 Azure Container Service (AKS) 與 Azure Kubernetes Registry (ACR) 時，必須建立驗證機制。 本文提供在這兩個 Azure 服務之間設定驗證的範例。
 
 您可以使用 Azure CLI 的幾個簡單命令來設定 ACR 整合的 AKS。
 
 ## <a name="before-you-begin"></a>開始之前
 
-您必須滿足以下條件：
+這些範例需要：
 
 * **Azure 訂**用帳戶的**擁有**者或**azure 帳戶管理員**角色
-* 您也需要 Azure CLI 版2.0.73 或更新版本
-* 您需要在用戶端上[安裝 docker](https://docs.docker.com/install/) ，而且需要[docker hub](https://hub.docker.com/)的存取權
+* Azure CLI 2.0.73 或更新版本
 
 ## <a name="create-a-new-aks-cluster-with-acr-integration"></a>使用 ACR 整合建立新的 AKS 叢集
 
 您可以在初始建立 AKS 叢集期間，設定 AKS 和 ACR 整合。  為了讓 AKS 叢集與 ACR 互動，會使用 Azure Active Directory**服務主體**。 下列 CLI 命令可讓您授權訂用帳戶中現有的 ACR，並為服務主體設定適當的**ACRPull**角色。 請為您的參數提供有效的值。  方括弧中的參數是選擇性的。
 ```azurecli
-az login
-az acr create -n myContainerRegistry -g myContainerRegistryResourceGroup --sku basic [in case you do not have an existing ACR]
-az aks create -n myAKSCluster -g myResourceGroup --attach-acr <acr-name-or-resource-id>
+# set this to the name of your Azure Container Registry.  It must be globally unique
+MYACR=myContainerRegistry
+
+# Run the following line to create an Azure Container Registry if you do not already have one
+az acr create -n $MYACR -g myContainerRegistryResourceGroup --sku basic
+
+# Create an AKS cluster with ACR integration
+az aks create -n myAKSCluster -g myResourceGroup --attach-acr $MYACR
+
 ```
-**ACR 資源識別碼的格式如下：** 
+或者，您可以使用 ACR 資源識別碼指定 ACR 名稱，其格式如下：
 
 /subscriptions/\<subscription-id @ no__t-1/resourceGroups/\<resource-group-name @ no__t-3/provider/Microsoft. ContainerRegistry/registry/\<name @ no__t-5 
-  
+ 
+```azurecli
+az aks create -n myAKSCluster -g myResourceGroup --attach-acr /subscriptions/<subscription-id>/resourceGroups/myContainerRegistryResourceGroup/providers/Microsoft.ContainerRegistry/registries/myContainerRegistry
+```
+
 此步驟可能需要幾分鐘的時間才能完成。
 
 ## <a name="configure-acr-integration-for-existing-aks-clusters"></a>為現有的 AKS 叢集設定 ACR 整合
@@ -49,57 +58,43 @@ az aks create -n myAKSCluster -g myResourceGroup --attach-acr <acr-name-or-resou
 
 ```azurecli
 az aks update -n myAKSCluster -g myResourceGroup --attach-acr <acrName>
+```
+或者，
+```
 az aks update -n myAKSCluster -g myResourceGroup --attach-acr <acr-resource-id>
 ```
 
 您也可以使用下列程式來移除 ACR 與 AKS 叢集之間的整合
 ```azurecli
 az aks update -n myAKSCluster -g myResourceGroup --detach-acr <acrName>
+```
+或
+```
 az aks update -n myAKSCluster -g myResourceGroup --detach-acr <acr-resource-id>
 ```
 
+## <a name="working-with-acr--aks"></a>使用 ACR & AKS
 
-## <a name="log-in-to-your-acr"></a>登入您的 ACR
+### <a name="import-an-image-into-your-acr"></a>將映射匯入到您的 ACR
 
-使用下列命令登入您的 ACR。  將 <acrname> 參數取代為您的 ACR 名稱。  例如，預設值為**aks < 您的資源群組 > acr**。
+執行下列程式，將映射從 docker hub 匯入到您的 ACR：
+
 
 ```azurecli
-az acr login -n <acrName>
+az acr import  -n <myContainerRegistry> --source docker.io/library/nginx:latest --image nginx:v1
 ```
 
-## <a name="pull-an-image-from-docker-hub-and-push-to-your-acr"></a>從 docker hub 提取映射並推送至您的 ACR
+### <a name="deploy-the-sample-image-from-acr-to-aks"></a>將範例映射從 ACR 部署至 AKS
 
-從 docker hub 提取映射、標記映射，然後推送至您的 ACR。
-
-```console
-acrloginservername=$(az acr show -n <acrname> -g <myResourceGroup> --query loginServer -o tsv)
-docker pull nginx
-```
-
-```
-$ docker tag nginx $acrloginservername/nginx:v1
-$ docker push $acrloginservername/nginx:v1
-
-The push refers to repository [someacr1.azurecr.io/nginx]
-fe6a7a3b3f27: Pushed
-d0673244f7d4: Pushed
-d8a33133e477: Pushed
-v1: digest: sha256:dc85890ba9763fe38b178b337d4ccc802874afe3c02e6c98c304f65b08af958f size: 948
-```
-
-## <a name="update-the-state-and-verify-pods"></a>更新狀態並確認 pod
-
-請執行下列步驟來驗證您的部署。
+確定您有適當的 AKS 認證
 
 ```azurecli
 az aks get-credentials -g myResourceGroup -n myAKSCluster
 ```
 
-查看 yaml 檔案，並以您的 ACR 登入伺服器、映射和標籤取代值來編輯 image 屬性。
+建立名為**acr-nginx. yaml**的檔案，其中包含下列內容：
 
 ```
-$ cat acr-nginx.yaml
-
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -121,12 +116,19 @@ spec:
         image: <replace this image property with you acr login server, image and tag>
         ports:
         - containerPort: 80
+```
 
-$ kubectl apply -f acr-nginx.yaml
-$ kubectl get pods
+接下來，在您的 AKS 叢集中執行此部署：
+```
+kubectl apply -f acr-nginx.yaml
+```
 
-You should have two running pods.
-
+您可以執行下列程式來監視部署：
+```
+kubectl get pods
+```
+您應該有兩個執行中的 pod。
+```
 NAME                                 READY   STATUS    RESTARTS   AGE
 nginx0-deployment-669dfc4d4b-x74kr   1/1     Running   0          20s
 nginx0-deployment-669dfc4d4b-xdpd6   1/1     Running   0          20s

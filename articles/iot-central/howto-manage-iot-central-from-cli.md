@@ -8,12 +8,12 @@ ms.author: dobett
 ms.date: 08/23/2019
 ms.topic: conceptual
 manager: philmea
-ms.openlocfilehash: 1ec83541c62d93eee91348531797ecdeb8c9fc6e
-ms.sourcegitcommit: 23389df08a9f4cab1f3bb0f474c0e5ba31923f12
+ms.openlocfilehash: 42a2b2d7962f3efd71639f65e9e6f6f5d6783afb
+ms.sourcegitcommit: e0a1a9e4a5c92d57deb168580e8aa1306bd94723
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70873469"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72286435"
 ---
 # <a name="manage-iot-central-from-azure-cli"></a>從 Azure CLI 管理 IoT Central
 
@@ -53,11 +53,11 @@ az iotcentral app create \
 | 參數         | 描述 |
 | ----------------- | ----------- |
 | resource-group    | 包含應用程式的資源群組。 此資源群組必須已經存在於您的訂用帳戶中。 |
-| 位置          | 根據預設，此命令會使用來自資源群組的位置。 目前，您可以在「**美國東部**」、「**美國西部**」、「**北歐**」或「**西歐」區域或**「**澳大利亞**地理位置」中建立 IoT Central 應用程式。 |
+| location          | 根據預設，此命令會使用來自資源群組的位置。 目前，您可以在「**美國東部**」、「**美國西部** **」、「北歐」** 或「**西歐」區域中**，或在「**澳大利亞**」或「**亞太地區**地理位置」中建立 IoT Central 應用程式。 |
 | name              | 應用程式在 Azure 入口網站中的名稱。 |
 | 子域         | 應用程式 URL 中的子網域。 在範例中，應用程式 URL 是 https://mysubdomain.azureiotcentral.com 。 |
-| SKU               | 目前唯一的值是 **S1** (標準層)。 請參閱 [Azure IoT Central 價格](https://azure.microsoft.com/pricing/details/iot-central/)。 |
-| 樣板          | 要使用的應用程式範本。 如需詳細資訊，請參閱下列表格： |
+| sku               | 目前唯一的值是 **S1** (標準層)。 請參閱 [Azure IoT Central 價格](https://azure.microsoft.com/pricing/details/iot-central/)。 |
+| template          | 要使用的應用程式範本。 如需詳細資訊，請參閱下列表格： |
 | display-name      | 在 UI 中顯示的應用程式名稱。 |
 
 **應用程式範本**
