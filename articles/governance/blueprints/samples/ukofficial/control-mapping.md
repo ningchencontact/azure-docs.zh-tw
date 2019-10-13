@@ -1,5 +1,5 @@
 ---
-title: 範例-英國官方和英國 NHS 藍圖-控制項對應
+title: 英國官方 & 英國 NHS 藍圖範例-控制項對應
 description: 英國官方和英國 NHS 藍圖範例的控制項對應。 每個控制項都會對應至一或多個可協助評量的 Azure 原則。
 services: blueprints
 author: DCtheGeek
@@ -7,12 +7,12 @@ ms.author: dacoulte
 ms.date: 06/26/2019
 ms.topic: conceptual
 ms.service: blueprints
-ms.openlocfilehash: 9001e752c9b0f79d7c688e0b13fd7133004ff4ad
-ms.sourcegitcommit: 961468fa0cfe650dc1bec87e032e648486f67651
+ms.openlocfilehash: 72b7b370158f228d725e9c6970dfcffb09e7986b
+ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72248793"
+ms.lasthandoff: 10/13/2019
+ms.locfileid: "72297110"
 ---
 # <a name="control-mapping-of-the-uk-official-and-uk-nhs-blueprint-samples"></a>英國官方和英國 NHS 藍圖範例的控制項對應
 

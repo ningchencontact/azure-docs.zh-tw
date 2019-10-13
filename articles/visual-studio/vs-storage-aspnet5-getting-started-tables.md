@@ -1,5 +1,5 @@
 ---
-title: 如何開始使用資料表儲存體和 Visual Studio 已連接服務 (ASP.NET Core) | Microsoft Docs
+title: 使用 Visual Studio （ASP.NET Core）開始使用資料表儲存體
 description: 在使用 Visual Studio 已連接服務連接到儲存體帳戶之後，如何在 Visual Studio 的 ASP.NET Core 專案中開始使用 Azure 資料表儲存體
 services: storage
 author: ghogen
@@ -12,12 +12,13 @@ ms.workload: azure-vs
 ms.topic: conceptual
 ms.date: 11/14/2017
 ms.author: ghogen
-ms.openlocfilehash: 7ac610e96d84568b7973f288623730ea1677ceac
-ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
+ROBOTS: NOINDEX,NOFOLLOW
+ms.openlocfilehash: d209f8117b1e061877daf2f8d316bd01ed4f84cd
+ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69510930"
+ms.lasthandoff: 10/13/2019
+ms.locfileid: "72298825"
 ---
 # <a name="how-to-get-started-with-azure-table-storage-and-visual-studio-connected-services"></a>開始使用 Azure 資料表儲存體和 Visual Studio 連線的服務
 

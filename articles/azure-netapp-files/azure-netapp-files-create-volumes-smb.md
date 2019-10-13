@@ -12,18 +12,18 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 10/02/2019
+ms.date: 10/12/2019
 ms.author: b-juche
-ms.openlocfilehash: bd00c04ecfc211ae4ed410e886c0fe6553bea241
-ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
+ms.openlocfilehash: 94fc4906478e44365d03e9c8eeadd7cb1946a43a
+ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71827516"
+ms.lasthandoff: 10/13/2019
+ms.locfileid: "72300538"
 ---
 # <a name="create-an-smb-volume-for-azure-netapp-files"></a>建立適用於 Azure NetApp Files 的 SMB 磁碟區
 
-Azure NetApp Files 支援 NFS 和 SMBv3 磁片區。 磁碟區的容量耗用量是根據其集區的佈建容量進行計算。 本文說明如何建立 SMBv3 磁片區。 如果您想要建立 NFS 磁片區, 請參閱[建立適用于 Azure NetApp Files 的 nfs 磁片](azure-netapp-files-create-volumes.md)區。 
+Azure NetApp Files 支援 NFS 和 SMBv3 磁片區。 磁碟區的容量耗用量是根據其集區的佈建容量進行計算。 本文說明如何建立 SMBv3 磁片區。 如果您想要建立 NFS 磁片區，請參閱[建立適用于 Azure NetApp Files 的 nfs 磁片](azure-netapp-files-create-volumes.md)區。 
 
 ## <a name="before-you-begin"></a>開始之前 
 您必須已經設定容量集區。   
@@ -33,14 +33,14 @@ Azure NetApp Files 支援 NFS 和 SMBv3 磁片區。 磁碟區的容量耗用量
 
 ## <a name="requirements-for-active-directory-connections"></a>Active Directory 連接的需求
 
- 您必須先建立 Active Directory 連線, 才能建立 SMB 磁片區。 Active Directory 連接的需求如下所示: 
+ 您必須先建立 Active Directory 連線，才能建立 SMB 磁片區。 Active Directory 連接的需求如下所示： 
 
-* 您使用的系統管理員帳戶必須能夠在您將指定的組織單位 (OU) 路徑中建立電腦帳戶。  
+* 您使用的系統管理員帳戶必須能夠在您將指定的組織單位（OU）路徑中建立電腦帳戶。  
 
-* 適當的埠必須在適用的 Windows Active Directory (AD) 伺服器上開啟。  
-    必要的埠如下所示: 
+* 適當的埠必須在適用的 Windows Active Directory （AD）伺服器上開啟。  
+    必要的埠如下所示： 
 
-    |     服務           |     連接埠     |     Protocol     |
+    |     服務           |     Port     |     Protocol     |
     |-----------------------|--------------|------------------|
     |    AD Web 服務    |    9389      |    TCP           |
     |    DNS                |    53        |    TCP           |
@@ -56,8 +56,8 @@ Azure NetApp Files 支援 NFS 和 SMBv3 磁片區。 磁碟區的容量耗用量
     |    NetBIOS 名稱       |    138       |    UDP           |
     |    SAM/LSA            |    445       |    TCP           |
     |    SAM/LSA            |    445       |    UDP           |
-    |    安全 LDAP        |    636       |    TCP           |
-    |    安全 LDAP        |    3269      |    TCP           |
+    |    安全的 LDAP        |    636       |    TCP           |
+    |    安全的 LDAP        |    3269      |    TCP           |
     |    w32time            |    123       |    UDP           |
 
 * 目標 Active Directory Domain Services 的網站拓朴必須遵守最佳作法，特別是部署 Azure NetApp Files 的 Azure VNet。  
@@ -78,11 +78,11 @@ Azure NetApp Files 支援 NFS 和 SMBv3 磁片區。 磁碟區的容量耗用量
 
 ## <a name="create-an-active-directory-connection"></a>建立 Active Directory 連線
 
-1. 從您的 NetApp 帳戶中, 按一下 [ **Active Directory**連線], 然後按一下 [**加入**]。  
+1. 從您的 NetApp 帳戶中，按一下 [ **Active Directory**連線]，然後按一下 [**加入**]。  
 
     ![Active Directory 連接](../media/azure-netapp-files/azure-netapp-files-active-directory-connections.png)
 
-2. 在 [加入 Active Directory] 視窗中, 提供下列資訊:
+2. 在 [加入 Active Directory] 視窗中，提供下列資訊：
 
     * **主要 DNS**  
         這是 Active Directory 網域加入和 SMB 驗證作業所需的 DNS。 
@@ -90,19 +90,19 @@ Azure NetApp Files 支援 NFS 和 SMBv3 磁片區。 磁碟區的容量耗用量
         這是用來確保重複名稱服務的次要 DNS 伺服器。 
     * **網域**  
         這是您想要加入之 Active Directory Domain Services 的功能變數名稱。
-    * **SMB 伺服器 (電腦帳戶) 首碼**  
-        這是 Active Directory 中, Azure NetApp Files 將用來建立新帳戶之電腦帳戶的命名前置詞。
+    * **SMB 伺服器（電腦帳戶）首碼**  
+        這是 Active Directory 中，Azure NetApp Files 將用來建立新帳戶之電腦帳戶的命名前置詞。
 
-        例如, 如果您的組織用於檔案伺服器的命名標準是 NAS-01、nas-02 ...、NAS-045, 則您會輸入 "NAS" 做為前置詞。 
+        例如，如果您的組織用於檔案伺服器的命名標準是 NAS-01、nas-02 ...、NAS-045，則您會輸入 "NAS" 做為前置詞。 
 
         服務會視需要在 Active Directory 中建立額外的電腦帳戶。
 
     * **組織單位路徑**  
-        這是將在其中建立 SMB 伺服器電腦帳戶的組織單位 (OU) 的 LDAP 路徑。 也就是 OU = 第二層, OU = 第一層。 
+        這是將在其中建立 SMB 伺服器電腦帳戶的組織單位（OU）的 LDAP 路徑。 也就是 OU = 第二層，OU = 第一層。 
 
-        如果您使用具有 Azure Active Directory Domain Services 的 Azure NetApp Files，則當您設定 NetApp `OU=AADDC Computers`帳戶的 Active Directory 時，組織單位路徑就會是。
+        如果您使用具有 Azure Active Directory Domain Services 的 Azure NetApp Files，則當您設定 NetApp 帳戶的 Active Directory 時，組織單位路徑會 `OU=AADDC Computers`。
         
-    * 認證, 包括您的使用者**名稱**和**密碼**
+    * 認證，包括您的使用者**名稱**和**密碼**
 
     ![加入 Active Directory](../media/azure-netapp-files/azure-netapp-files-join-active-directory.png)
 
@@ -111,6 +111,9 @@ Azure NetApp Files 支援 NFS 和 SMBv3 磁片區。 磁碟區的容量耗用量
     您建立的 Active Directory 連接隨即出現。
 
     ![Active Directory 連接](../media/azure-netapp-files/azure-netapp-files-active-directory-connections-created.png)
+
+> [!NOTE] 
+> 儲存 Active Directory 連接之後，您可以編輯 [使用者名稱] 和 [密碼] 欄位。 儲存連接之後，就無法編輯其他值。 如果您需要變更任何其他值，您必須先刪除任何已部署的 SMB 磁片區，然後刪除並重新建立 Active Directory 連接。
 
 ## <a name="add-an-smb-volume"></a>新增 SMB 磁片區
 
@@ -121,13 +124,13 @@ Azure NetApp Files 支援 NFS 和 SMBv3 磁片區。 磁碟區的容量耗用量
 2. 按一下 [+ 新增磁碟區] 以建立磁碟區。  
     [建立磁片區] 視窗隨即出現。
 
-3. 在 [建立磁片區] 視窗中, 按一下 [**建立**], 並提供下欄欄位的資訊:   
+3. 在 [建立磁片區] 視窗中，按一下 [**建立**]，並提供下欄欄位的資訊：   
     * **磁片區名稱**      
         為您要建立的磁碟區指定名稱。   
 
-        在每個容量集區中, 磁片區名稱都必須是唯一的。 長度至少必須有三個字元。 您可以使用任何英數位元。   
+        在每個容量集區中，磁片區名稱都必須是唯一的。 長度至少必須有三個字元。 您可以使用任何英數位元。   
 
-        您不能`default`使用做為磁片區名稱。
+        您不能使用 `default` 作為磁片區名稱。
 
     * **容量集區**  
         指定您想要在其中建立磁片區的容量集區。
@@ -148,14 +151,14 @@ Azure NetApp Files 支援 NFS 和 SMBv3 磁片區。 磁碟區的容量耗用量
         
         如果您尚未委派子網路，您可以按一下 [建立磁碟區] 頁面上的 [新建]。 在 [建立子網路] 頁面上指定子網路資訊，然後選取 [Microsoft.NetApp/volumes] 以委派 Azure NetApp Files 的子網路。 在每個 VNet 中，只有一個子網可委派給 Azure NetApp Files。   
  
-        ![建立磁碟區](../media/azure-netapp-files/azure-netapp-files-new-volume.png)
+        ![建立磁片區](../media/azure-netapp-files/azure-netapp-files-new-volume.png)
     
         ![建立子網路](../media/azure-netapp-files/azure-netapp-files-create-subnet.png)
 
-4. 按一下 [**通訊協定**] 並完成下列資訊:  
+4. 按一下 [**通訊協定**] 並完成下列資訊：  
     * 選取 [ **SMB** ] 作為磁片區的通訊協定類型。 
     * 從下拉式清單中選取您的**Active Directory**連接。
-    * 在 [**共用名稱**] 中, 指定共用磁片區的名稱。
+    * 在 [**共用名稱**] 中，指定共用磁片區的名稱。
 
     ![指定 SMB 通訊協定](../media/azure-netapp-files/azure-netapp-files-protocol-smb.png)
 

@@ -4,14 +4,14 @@ description: 使用 Azure 入口網站從您的訂用帳戶中的資源匯出 Az
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: conceptual
-ms.date: 06/19/2019
+ms.date: 10/11/2019
 ms.author: tomfitz
-ms.openlocfilehash: 15f527dfe517dcb3329b8b61243d7c5054eedb56
-ms.sourcegitcommit: 4d177e6d273bba8af03a00e8bb9fe51a447196d0
+ms.openlocfilehash: 6b37b61bea63ec626bfd709a40f177f43d1dfe03
+ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71959708"
+ms.lasthandoff: 10/13/2019
+ms.locfileid: "72300434"
 ---
 # <a name="single-and-multi-resource-export-to-a-template-in-azure-portal"></a>單一和多重資源匯出至 Azure 入口網站中的範本
 
@@ -48,39 +48,36 @@ Resource Manager 可讓您挑選一或多個要匯出至範本的資源。 您�
 * 您想要一個容易重複使用的範本。
 * 您不需要包含在原始部署之後所做的變更。
 
-## <a name="export-template-from-resource-group"></a>從資源群組匯出範本
+## <a name="export-template-from-a-resource-group"></a>從資源群組匯出範本
 
 若要從資源群組匯出一或多個資源：
 
 1. 選取包含您要匯出之資源的資源群組。
 
-1. 若要匯出資源群組中的所有資源，請選取 [全部]，然後按一下 [**匯出範本**]。 只有在您選取至少一個資源之後，[**匯出範本**] 選項才會變成 [已啟用]。
+1. 選取核取方塊來選取一或多個資源。  若要選取 [全部]，請選取 [**名稱**] 左邊的核取方塊。 只有在您選取至少一個資源之後，[**匯出範本**] 功能表項目才會變成啟用狀態。
 
    ![匯出所有資源](./media/export-template-portal/select-all-resources.png)
 
-1. 若要選擇要匯出的特定資源，請選取這些資源旁的核取方塊。 然後，選取 [**匯出範本**]。
+    在螢幕擷取畫面上，只會選取儲存體帳戶。
+1. 選取 [**匯出範本**]。
 
-   ![選取要匯出的資源](./media/export-template-portal/select-resources.png)
-
-1. 已匯出的範本隨即顯示，並可供下載。
+1. 匯出的範本隨即顯示，並可供下載和部署。
 
    ![顯示範本](./media/export-template-portal/show-template.png)
 
-## <a name="export-template-from-resource"></a>從資源匯出範本
+## <a name="export-template-from-a-resource"></a>從資源匯出範本
 
 若要匯出一項資源：
 
 1. 選取包含您要匯出之資源的資源群組。
 
-1. 選取要匯出的資源。
-
-   ![選取資源](./media/export-template-portal/select-link-resource.png)
+1. 選取您想要匯出的資源以開啟資源。
 
 1. 針對該資源，請在左窗格中選取 [**匯出範本**]。
 
    ![匯出資源](./media/export-template-portal/export-single-resource.png)
 
-1. 已匯出的範本隨即顯示，並可供下載。 範本只包含單一資源。
+1. 匯出的範本隨即顯示，並可供下載和部署。 範本只包含單一資源。
 
 ## <a name="export-template-before-deployment"></a>部署前匯出範本
 
@@ -92,9 +89,8 @@ Resource Manager 可讓您挑選一或多個要匯出至範本的資源。 您�
 
    ![下載範本](./media/export-template-portal/download-before-deployment.png)
 
-1. 範本隨即顯示，並可供下載。
+1. 範本隨即顯示，並可供下載和部署。
 
-   ![顯示範本](./media/export-template-portal/show-template-before-deployment.png)
 
 ## <a name="export-template-after-deployment"></a>部署後匯出範本
 

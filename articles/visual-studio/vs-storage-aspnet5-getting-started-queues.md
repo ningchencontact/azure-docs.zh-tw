@@ -1,5 +1,5 @@
 ---
-title: 開始使用佇列儲存體和 Visual Studio 已連接服務 (ASP.NET Core) | Microsoft Docs
+title: 使用 Visual Studio （ASP.NET Core）開始使用佇列儲存體
 description: 如何開始在 Visual Studio 的 ASP.NET Core 專案中使用 Azure 佇列儲存體
 services: storage
 author: ghogen
@@ -12,12 +12,13 @@ ms.workload: azure-vs
 ms.topic: article
 ms.date: 11/14/2017
 ms.author: ghogen
-ms.openlocfilehash: d8e370c6f7c59da8522bb4fb1403b6107a9c9c41
-ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
+ROBOTS: NOINDEX,NOFOLLOW
+ms.openlocfilehash: 5cdf6f2644788674df91b533c9444fc88ab30b09
+ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69510991"
+ms.lasthandoff: 10/13/2019
+ms.locfileid: "72300017"
 ---
 # <a name="get-started-with-queue-storage-and-visual-studio-connected-services-aspnet-core"></a>開始使用佇列儲存體和 Visual Studio 已連接服務 (ASP.NET Core)
 
@@ -66,7 +67,7 @@ Azure 佇列儲存體是一項儲存大量訊息的服務，全球任何地方�
 
 ### <a name="create-a-queue-in-code"></a>在程式碼中建立佇列
 
-若要在程式碼中建立 Azure 佇列`CreateIfNotExistsAsync`, 請呼叫:
+若要在程式碼中建立 Azure 佇列，請呼叫 `CreateIfNotExistsAsync`：
 
 ```cs
 // Create the CloudQueue if it does not exist.

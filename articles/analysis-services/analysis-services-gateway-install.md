@@ -2,26 +2,25 @@
 title: 安裝適用于 Azure Analysis Services 的內部部署資料閘道 |Microsoft Docs
 description: 了解如何安裝及設定內部部署資料閘道。
 author: minewiskan
-manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
 ms.date: 07/30/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: e87a8221a4db4dfab132a91a31a9ba5b5602a3db
-ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
+ms.openlocfilehash: 6f182976ac655692f8c50d4e7560aa21444ce848
+ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68678421"
+ms.lasthandoff: 10/13/2019
+ms.locfileid: "72298640"
 ---
 # <a name="install-and-configure-an-on-premises-data-gateway"></a>安裝及設定內部部署資料閘道
 
-如果相同區域中有一或多部 Analysis Services 伺服器連線到內部部署資料來源，則需要一個內部部署閘道。  雖然您安裝的閘道與其他服務 (例如 Power BI、Power Apps 和 Logic Apps) 所使用的相同, 但在安裝 for Azure Analysis Services 時, 還有一些額外的步驟需要完成。 本安裝文章專屬於**Azure Analysis Services**。
+如果相同區域中有一或多部 Analysis Services 伺服器連線到內部部署資料來源，則需要一個內部部署閘道。  雖然您安裝的閘道與其他服務（例如 Power BI、Power Apps 和 Logic Apps）所使用的相同，但在安裝 for Azure Analysis Services 時，還有一些額外的步驟需要完成。 本安裝文章專屬於**Azure Analysis Services**。
 
-若要深入瞭解閘道, 以及 Azure Analysis Services 如何使用它, 請參閱連線[至內部部署資料來源](analysis-services-gateway.md)。
+若要深入瞭解閘道，以及 Azure Analysis Services 如何使用它，請參閱連線[至內部部署資料來源](analysis-services-gateway.md)。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 **最低需求：**
 
@@ -90,7 +89,7 @@ ms.locfileid: "68678421"
 
 在您安裝並註冊閘道之後，您需要在您的 Azure 訂用帳戶中建立閘道資源。 使用您用於註冊閘道的相同帳戶登入 Azure。
 
-1. 在 Azure 入口網站中, 按一下 [**建立資源**], 然後搜尋 [**內部部署資料閘道**], 再按一下 [**建立**]。
+1. 在 Azure 入口網站中，按一下 [**建立資源**]，然後搜尋 [**內部部署資料閘道**]，再按一下 [**建立**]。
 
    ![建立閘道資源](media/analysis-services-gateway-install/aas-gateway-new-azure-resource.png)
 
@@ -106,7 +105,7 @@ ms.locfileid: "68678421"
 
    * **位置**：選取您註冊閘道的區域。
 
-   * **安裝名稱**︰如果您的閘道安裝尚未選取, 請選取您安裝在電腦上並註冊的閘道。 
+   * **安裝名稱**︰如果您的閘道安裝尚未選取，請選取您安裝在電腦上並註冊的閘道。 
 
      完成之後，請按一下 [建立]。
 
@@ -123,7 +122,7 @@ ms.locfileid: "68678421"
     > [!NOTE]
     > 如果您的閘道並未出現在清單中，您的伺服器可能不在註冊閘道時所指定的相同區域中。
 
-    當您的伺服器和閘道資源之間的連線成功時, 狀態將會顯示 [**已連接**]。
+    當您的伺服器和閘道資源之間的連線成功時，狀態將會顯示 [**已連接**]。
 
 
     ![將伺服器連線至閘道資源成功](media/analysis-services-gateway-install/aas-gateway-connect-success.png)

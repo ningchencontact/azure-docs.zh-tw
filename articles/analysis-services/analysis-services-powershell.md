@@ -2,24 +2,23 @@
 title: 使用 PowerShell 管理 Azure Analysis Services | Microsoft Docs
 description: 使用 PowerShell 的 Azure Analysis Services 管理。
 author: minewiskan
-manager: kfile
 ms.service: azure-analysis-services
 ms.topic: reference
 ms.date: 07/01/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 38ce44f486616e4ab94e8332884005a187e31008
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: bfe1bfc2828347e34fa92564c26d005998e14ece
+ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68932408"
+ms.lasthandoff: 10/13/2019
+ms.locfileid: "72294744"
 ---
 # <a name="manage-azure-analysis-services-with-powershell"></a>使用 PowerShell 管理 Azure Analysis Services
 
 本文說明用來執行 Azure Analysis Services 伺服器和資料庫管理工作的 PowerShell Cmdlet。 
 
-伺服器資源管理工作, 例如建立或刪除伺服器、暫停或繼續伺服器作業, 或是變更服務等級 (層級), 會使用 Azure Analysis Services Cmdlet。 其他資料庫管理工作 (例如新增或移除角色成員、處理或資料分割) 會使用與 SQL Server Analysis Services 相同之 SqlServer 模組內含的 Cmdlet。
+伺服器資源管理工作，例如建立或刪除伺服器、暫停或繼續伺服器作業，或是變更服務等級（層級），會使用 Azure Analysis Services Cmdlet。 其他資料庫管理工作 (例如新增或移除角色成員、處理或資料分割) 會使用與 SQL Server Analysis Services 相同之 SqlServer 模組內含的 Cmdlet。
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -27,7 +26,7 @@ ms.locfileid: "68932408"
 
 大部分的 PowerShell 工作需要您在您管理的 Analysis Services 伺服器上具備系統管理員權限。 排定的 PowerShell 工作都是自動的作業。 執行排程器的帳戶和服務主體必須具有 Analysis Services 伺服器上的管理員權限。 
 
-針對使用 Azure PowerShell Cmdlet 的伺服器作業, 您的帳戶或執行排程器的帳戶也必須屬於[Azure 角色型存取控制 (RBAC)](../role-based-access-control/overview.md)中資源的擁有者角色。 
+針對使用 Azure PowerShell Cmdlet 的伺服器作業，您的帳戶或執行排程器的帳戶也必須屬於[Azure 角色型存取控制（RBAC）](../role-based-access-control/overview.md)中資源的擁有者角色。 
 
 ## <a name="resource-and-server-operations"></a>資源和伺服器作業 
 

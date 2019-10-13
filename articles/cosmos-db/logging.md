@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 05/23/2019
 ms.author: sngun
 ms.custom: seodec18
-ms.openlocfilehash: e43bc4b8eb1db91493f279f5c46681483e4b18c4
-ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.openlocfilehash: 1e9f852d01d60ead9979b6b1190e285b35d5c312
+ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71261403"
+ms.lasthandoff: 10/13/2019
+ms.locfileid: "72294034"
 ---
 # <a name="diagnostic-logging-in-azure-cosmos-db"></a>Azure Cosmos DB 中的診斷記錄 
 
@@ -108,6 +108,12 @@ Azure 診斷記錄是由資源所發出，提供關於該資源之作業的豐�
        { "time": "2019-04-14T19:08:11.6353239Z", "resourceId": "/SUBSCRIPTIONS/<your_subscription_ID>/RESOURCEGROUPS/<your_resource_group>/PROVIDERS/MICROSOFT.DOCUMENTDB/DATABASEACCOUNTS/<your_database_account>", "category": "QueryRuntimeStatistics", "properties": {"activityId": "278b0661-7452-4df3-b992-8aa0864142cf","databasename": "Tasks","collectionname": "Items","partitionkeyrangeid": "0","querytext": "{"query":"SELECT *\nFROM c\nWHERE (c.p1__10 != true)","parameters":[]}"}}
        ```
 
+      * **PartitionKeyStatistics**：此記錄會報告分割區索引鍵的統計資料。 目前，統計資料是以分割區索引鍵的儲存體大小（KB）來表示。 記錄會針對佔用大部分資料儲存體的前三個分割區索引鍵來發出。
+
+       ```
+       { "time": "2019-10-11T02:33:24.2018744Z", "resourceId": "/SUBSCRIPTIONS/<your_subscription_ID>/RESOURCEGROUPS/<your_resource_group>/PROVIDERS/MICROSOFT.DOCUMENTDB/DATABASEACCOUNTS/<your_database_account>", "category": "PartitionKeyStatistics", "properties": {"subscriptionId": "<your_subscription_ID>","regionName": "West US 2","databaseName": "KustoQueryResults","collectionname": "CapacityMetrics","partitionkey": "["CapacityMetricsPartition.136"]","sizeKb": "2048270"}}
+       ```
+
       * **計量要求**：選取此選項可儲存 [Azure 計量](../azure-monitor/platform/metrics-supported.md)中的詳細資料。 如果您要封存至儲存體帳戶，您可以為診斷記錄選取保留期限。 保留期限過後，就會自動刪除記錄。
 
 3. 選取 [儲存]。
@@ -126,7 +132,7 @@ Azure 診斷記錄是由資源所發出，提供關於該資源之作業的豐�
    az monitor diagnostic-settings create --name DiagStorage --resource <resourceId> --storage-account <storageAccountName> --logs '[{"category": "QueryRuntimeStatistics", "enabled": true, "retentionPolicy": {"enabled": true, "days": 0}}]'
    ```
 
-   `resource` 是 Azure Cosmos DB 帳戶的名稱。 資源的格式為 "/subscriptions/`<subscriptionId>`/resourceGroups/`<resource_group_name>`/providers/Microsoft.DocumentDB/databaseAccounts/< Azure_Cosmos_account_name >"， `storage-account`這是您要在其中的儲存體帳戶名稱。想要傳送記錄檔。 您可以將類別目錄參數值更新為 "MongoRequests" 或 "DataPlaneRequests"，以記錄其他記錄。 
+   `resource` 是 Azure Cosmos DB 帳戶的名稱。 資源的格式為 "/subscriptions/`<subscriptionId>`/resourceGroups/`<resource_group_name>`/providers/databaseAccounts/< Azure_Cosmos_account_name >"。 `storage-account` 是您要傳送記錄的目標儲存體帳戶名稱。 您可以將類別目錄參數值更新為 "MongoRequests" 或 "DataPlaneRequests"，以記錄其他記錄。 
 
 - 若要啟用將診斷記錄串流至事件中樞，使用下列命令︰
 
@@ -134,7 +140,7 @@ Azure 診斷記錄是由資源所發出，提供關於該資源之作業的豐�
    az monitor diagnostic-settings create --name cdbdiagsett --resourceId <resourceId> --event-hub-rule <eventHubRuleID> --logs '[{"category":"QueryRuntimeStatistics","enabled":true,"retentionPolicy":{"days":6,"enabled":true}}]'
    ```
 
-   `resource` 是 Azure Cosmos DB 帳戶的名稱。 `event-hub-rule`是事件中樞規則識別碼。 
+   `resource` 是 Azure Cosmos DB 帳戶的名稱。 @No__t-0 是事件中樞規則識別碼。 
 
 - 若要啟用將診斷記錄傳送至 Log Analytics 工作區的功能，請使用下列命令：
 

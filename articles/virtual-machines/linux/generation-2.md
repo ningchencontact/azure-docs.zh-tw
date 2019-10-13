@@ -11,21 +11,21 @@ ms.service: virtual-machines-linux
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.topic: article
-ms.date: 09/20/2019
+ms.date: 10/11/2019
 ms.author: lahugh
-ms.openlocfilehash: 6bd74fa299385acb1abe4b32db5d35366249eaa6
-ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
+ms.openlocfilehash: 3c6a054229ab7a16fb48dff5ec2e8681c3c5345e
+ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71173904"
+ms.lasthandoff: 10/13/2019
+ms.locfileid: "72299506"
 ---
 # <a name="support-for-generation-2-vms-preview-on-azure"></a>在 Azure 上支援第2代 Vm （預覽）
 
 > [!IMPORTANT]
 > 第2代 Vm 的 Azure 支援目前為預覽狀態。
 > 此預覽版本是在沒有服務等級協定的情況下提供，不建議用於生產工作負載。 可能不支援特定功能，或可能已經限制功能。
-> 如需詳細資訊, 請參閱[Microsoft Azure 預覽的補充使用](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)規定。
+> 如需詳細資訊，請參閱[Microsoft Azure 預覽的補充使用](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)規定。
 
 第2代虛擬機器（Vm）的支援現已在 Azure 中提供預覽。 建立虛擬機器之後，您就無法變更其層代，因此請先參閱此頁面上的考慮，再選擇世代。
 
@@ -93,7 +93,7 @@ Azure 目前不支援內部部署 Hyper-v 針對第2代 Vm 所支援的部分功
 | 虛擬機器擴展集支援 | :heavy_check_mark: | :heavy_check_mark: |
 | Azure Site Recovery               | :heavy_check_mark: | :x:                |
 | 備份/還原                    | :heavy_check_mark: | :heavy_check_mark: |
-| 共用映像資源庫              | :heavy_check_mark: | :x:                |
+| 共用映射資源庫              | :heavy_check_mark: | :heavy_check_mark: |
 | Azure 磁碟加密             | :heavy_check_mark: | :x:                |
 
 ## <a name="creating-a-generation-2-vm"></a>建立第2代 VM
@@ -121,7 +121,7 @@ Windows 和 SLES 的第2代映射包含在與 Gen1 映射相同的伺服器供�
 
 您也可以使用 PowerShell 直接參考第1代或第2代 SKU 來建立 VM。
 
-例如，使用下列 PowerShell Cmdlet 來取得`WindowsServer`供應專案中的 sku 清單。
+例如，使用下列 PowerShell Cmdlet 取得 `WindowsServer` 供應專案中的 Sku 清單。
 
 ```powershell
 Get-AzVMImageSku -Location westus2 -PublisherName MicrosoftWindowsServer -Offer WindowsServer
@@ -152,7 +152,7 @@ Get-AzVMImageSku -Location westus2 -PublisherName MicrosoftWindowsServer -Offer 
 * **第1代和第2代 Vm 之間是否有價格差異？**  
     資料分割
 
-* **我有來自內部部署第2代 VM 的 .vhd 檔案。我可以在 Azure 中使用該 .vhd 檔案來建立第2代 VM 嗎？**
+* @no__t 0 I 有來自我的內部部署第2代 VM 的 .vhd 檔案。我可以使用該 .vhd 檔案在 Azure 中建立第2代 VM 嗎？ **
   是，您可以將第2代 .vhd 檔案帶入 Azure，並使用它來建立第2代 VM。 請使用下列步驟來執行這項操作：
     1. 將 .vhd 上傳至您要在其中建立 VM 的相同區域中的儲存體帳戶。
     1. 從 .vhd 檔案建立受控磁片。 將 [Hyper-v 產生] 屬性設為 V2。 下列 PowerShell 命令會在建立受控磁片時設定 Hyper-v 產生屬性。

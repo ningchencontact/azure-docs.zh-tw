@@ -13,18 +13,18 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 08/19/2019
+ms.date: 10/10/2019
 ms.author: ryanwi
 ms.reviewer: tomfitz
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fe0a3c8cbee92be85fe415a4d44d5493940bb45a
-ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
+ms.openlocfilehash: f7c75a567dbefc71b4b0fea595dae56a03def5ed
+ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69638628"
+ms.lasthandoff: 10/13/2019
+ms.locfileid: "72295454"
 ---
-# <a name="how-to-use-azure-powershell-to-create-a-service-principal-with-a-certificate"></a>HOW TO：使用 Azure PowerShell 建立具有憑證的服務主體
+# <a name="how-to-use-azure-powershell-to-create-a-service-principal-with-a-certificate"></a>作法：使用 Azure PowerShell 建立具有憑證的服務主體
 
 當您有 App 或指令碼需要存取資源時，可以設定 App 的身分識別，並使用 App 自己的認證進行驗證。 此身分識別就是所謂的服務主體。 這種方法可讓您︰
 
@@ -40,15 +40,20 @@ ms.locfileid: "69638628"
 
 [!INCLUDE [az-powershell-update](../../../includes/updated-for-az.md)]
 
-## <a name="required-permissions"></a>必要權限
+## <a name="required-permissions"></a>所需的權限
 
 若要完成本文，您必須在 Azure AD 和 Azure 訂用帳戶中有足夠的權限。 具體來說，您必須能夠在 Azure AD 中建立應用程式，並將服務主體指派給角色。
 
 檢查您的帳戶是否具有足夠的權限，最簡單的方式是透過入口網站。 請參閱[檢查必要的權限](howto-create-service-principal-portal.md#required-permissions)。
 
+## <a name="assign-the-application-to-a-role"></a>指派角色給應用程式
+若要存取您的訂用帳戶中的資源，您必須將應用程式指派給角色。 決定哪個角色可提供應用程式的適當權限。 若要深入了解可用的角色，請參閱 [RBAC：內建角色](/azure/role-based-access-control/built-in-roles)。
+
+您可以針對訂用帳戶、資源群組或資源的層級設定範圍。 較低的範圍層級會繼承較高層級的權限。 例如，將應用程式新增至資源群組的*讀取*者角色，表示它可以讀取資源群組及其包含的任何資源。 若要允許應用程式執行如 [重新開機]、[啟動和停止實例] 等動作，請選取 [*參與者*] 角色。
+
 ## <a name="create-service-principal-with-self-signed-certificate"></a>使用自我簽署憑證建立服務主體
 
-下列範例涵蓋簡單的案例。 其使用 [New-AzADServicePrincipal](/powershell/module/az.resources/new-azadserviceprincipal) 建立具有自我簽署憑證的服務主體，並使用 [New-AzureRmRoleAssignment](/powershell/module/az.resources/new-azroleassignment) 將[參與者](../../role-based-access-control/built-in-roles.md#contributor)角色指派給服務主體。 角色指派的範圍僅限於您目前所選的 Azure 訂用帳戶。 若要選取不同的訂用帳戶，請使用 [Set-AzContext](/powershell/module/Az.Accounts/Set-AzContext)。
+下列範例涵蓋簡單的案例。 它會使用[new-azadserviceprincipal](/powershell/module/az.resources/new-azadserviceprincipal)來建立具有自我簽署憑證的服務主體，並使用[New-azurermroleassignment](/powershell/module/az.resources/new-azroleassignment)將「[讀取](/azure/role-based-access-control/built-in-roles#reader)者」角色指派給服務主體。 角色指派的範圍僅限於您目前所選的 Azure 訂用帳戶。 若要選取不同的訂用帳戶，請使用 [Set-AzContext](/powershell/module/Az.Accounts/Set-AzContext)。
 
 > [!NOTE]
 > PowerShell Core 目前不支援 SelfSignedCertificate Cmdlet 和 PKI 模組。 
@@ -64,7 +69,7 @@ $sp = New-AzADServicePrincipal -DisplayName exampleapp `
   -EndDate $cert.NotAfter `
   -StartDate $cert.NotBefore
 Sleep 20
-New-AzRoleAssignment -RoleDefinitionName Contributor -ServicePrincipalName $sp.ApplicationId
+New-AzRoleAssignment -RoleDefinitionName Reader -ServicePrincipalName $sp.ApplicationId
 ```
 
 範例會休眠 20 秒，留一些時間讓新的服務主體在整個 Azure AD 中傳播。 如果您的指令碼等得不夠久，您會看到錯誤，其指出：「目錄 {DIR-ID} 中不存在主體 {ID}。」 若要解決這個錯誤，請稍待片刻後，再次執行 **New-AzRoleAssignment** 命令。
@@ -105,7 +110,7 @@ $ApplicationId = (Get-AzADApplication -DisplayNameStartWith exampleapp).Applicat
 
 ## <a name="create-service-principal-with-certificate-from-certificate-authority"></a>使用憑證授權中心的憑證來建立服務主體
 
-下列範例使用憑證授權中心所發行的憑證來建立服務主體。 指派範圍僅限於指定的 Azure 訂用帳戶。 這會將服務主體新增至[參與者角色](../../role-based-access-control/built-in-roles.md#contributor)。 如果角色指派期間發生錯誤，則指派會重試。
+下列範例使用憑證授權中心所發行的憑證來建立服務主體。 指派範圍僅限於指定的 Azure 訂用帳戶。 它會將服務主體新增至 [[讀取](../../role-based-access-control/built-in-roles.md#reader)者] 角色。 如果角色指派期間發生錯誤，則指派會重試。
 
 ```powershell
 Param (
@@ -141,7 +146,7 @@ Param (
  {
     # Sleep here for a few seconds to allow the service principal application to become active (should only take a couple of seconds normally)
     Sleep 15
-    New-AzRoleAssignment -RoleDefinitionName Contributor -ServicePrincipalName $ServicePrincipal.ApplicationId | Write-Verbose -ErrorAction SilentlyContinue
+    New-AzRoleAssignment -RoleDefinitionName Reader -ServicePrincipalName $ServicePrincipal.ApplicationId | Write-Verbose -ErrorAction SilentlyContinue
     $NewRole = Get-AzRoleAssignment -ObjectId $ServicePrincipal.Id -ErrorAction SilentlyContinue
     $Retries++;
  }
@@ -222,6 +227,5 @@ Get-AzADApplication -DisplayName exampleapp | New-AzADAppCredential `
 ## <a name="next-steps"></a>後續步驟
 
 * 若要使用密碼設定服務主體，請參閱[使用 Azure PowerShell 建立 Azure 服務主體](/powershell/azure/create-azure-service-principal-azureps)。
-* 如需有關將應用程式整合至 Azure 來管理資源的詳細步驟，請參閱 [利用 Azure Resource Manager API 進行授權的開發人員指南](../../azure-resource-manager/resource-manager-api-authentication.md)。
 * 如需應用程式和服務主體的詳細說明，請參閱[應用程式物件和服務主體物件](app-objects-and-service-principals.md)。
 * 如需 Azure AD 驗證的詳細資訊，請參閱 [Azure AD 的驗證案例](authentication-scenarios.md)。

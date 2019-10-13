@@ -1,5 +1,5 @@
 ---
-title: 檢查 v2 API 所產生的 Azure 媒體服務影片索引器輸出
+title: 檢查 v2 API 所產生的 Azure 媒體服務影片索引子輸出
 titlesuffix: Azure Media Services
 description: 本主題將檢查 v2 API 所產生的影片索引子輸出。
 services: media-services
@@ -8,20 +8,20 @@ manager: femila
 ms.service: media-services
 ms.subservice: video-indexer
 ms.topic: article
-ms.date: 05/15/2019
+ms.date: 10/11/2019
 ms.author: juliako
-ms.openlocfilehash: 205dc7d9e69788ea29a48ff342844a4b74e143bd
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 20a973e5386cd9cad7d090236f021ced9a64cafc
+ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65799073"
+ms.lasthandoff: 10/13/2019
+ms.locfileid: "72300920"
 ---
-# <a name="examine-the-video-indexer-output-produced-by-api"></a>檢查影片索引器輸出所產生的 API
+# <a name="examine-the-video-indexer-output-produced-by-api"></a>檢查 API 所產生的影片索引子輸出
 
-當您呼叫**取得影片索引** API 時，若回應狀態為「確定」，您取得的回應內容會是詳細的 JSON 輸出。 JSON 內容包含指定影片深入解析的詳細資料。 深入解析包含類似的維度： 轉譯、 Ocr，面臨主題、 區塊、 等等。這些維度具有會在影片中出現各個維度時顯示的時間範圍執行個體。  
+當您呼叫**取得影片索引** API 時，若回應狀態為「確定」，您取得的回應內容會是詳細的 JSON 輸出。 JSON 內容包含指定影片深入解析的詳細資料。 深入解析包括如下的維度：文字記錄、Ocr、臉部、主題、區塊等等。這些維度具有會在影片中出現各個維度時顯示的時間範圍執行個體。  
 
-您也可以透過視覺化方式檢查影片的摘要深入解析，只要在[影片索引子](https://www.videoindexer.ai/)網站上按影片的 [播放]  按鈕即可。 如需詳細資訊，請參閱[檢視和編輯影片的深入解析](video-indexer-view-edit.md)。
+您也可以透過視覺化方式檢查影片的摘要深入解析，只要在[影片索引子](https://www.videoindexer.ai/)網站上按影片的 [播放] 按鈕即可。 如需詳細資訊，請參閱[檢視和編輯影片的深入解析](video-indexer-view-edit.md)。
 
 ![深入解析](./media/video-indexer-output-json/video-indexer-summarized-insights.png)
 
@@ -33,7 +33,7 @@ ms.locfileid: "65799073"
 
 ## <a name="root-elements"></a>根元素
 
-|名稱|描述|
+|Name|描述|
 |---|---|
 |accountId|播放清單的 VI 帳戶識別碼。|
 |id|播放清單的識別碼。|
@@ -80,7 +80,7 @@ ms.locfileid: "65799073"
 |privacyMode|您的明細可具有下列其中一個模式：**私人**、**公用**。 **公用** - 您帳戶中的所有人和具有影片連結的任何人都可看到影片。 **私人** - 只有您帳戶中的所有人可看到影片。|
 |duration|包含一個持續時間，用以說明深入解析發生的時間。 持續時間以秒為單位。|
 |thumbnailVideoId|從中取得縮圖的影片識別碼。
-|thumbnailId|影片的縮圖識別碼。 若要取得實際的縮圖，請呼叫[取得縮圖](https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-Video-Thumbnail)將 thumbnailVideoId 和 thumbnailId 傳遞。|
+|thumbnailId|影片的縮圖識別碼。 若要取得實際的縮圖，請呼叫[get-縮圖](https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-Video-Thumbnail)，並將它傳遞給 ThumbnailVideoId 和 thumbnailId。|
 |臉部|可包含零個或多個臉部。 如需詳細資訊，請參閱[臉部](#faces)。|
 |關鍵字|可包含零個或多個關鍵字。 如需詳細資訊，請參閱[關鍵字](#keywords)。|
 |人氣|可包含零個或多個情緒。 如需詳細資訊，請參閱[情緒](#sentiments)。|
@@ -93,7 +93,7 @@ ms.locfileid: "65799073"
 
 ## <a name="videos"></a>videos
 
-|名稱|描述|
+|Name|描述|
 |---|---|
 |accountId|影片的 VI 帳戶識別碼。|
 |id|影片的識別碼。|
@@ -107,7 +107,7 @@ ms.locfileid: "65799073"
 |中繼資料|影片的外部中繼資料 (如果使用者已指定)。|
 |isAdult|指出是否已手動檢閱影片並識別為成人影片。|
 |insights|深入解析物件。 如需詳細資訊，請參閱[深入解析](#insights)。|
-|thumbnailId|影片的縮圖識別碼。 若要取得實際的縮圖呼叫[取得縮圖](https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-Video-Thumbnail)並將它傳遞視訊的識別碼和 thumbnailId。|
+|thumbnailId|影片的縮圖識別碼。 若要取得實際的縮圖，請呼叫[取得縮圖](https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-Video-Thumbnail)，並將影片識別碼和 thumbnailId 傳遞給它。|
 |publishedUrl|串流影片的 URL。|
 |publishedUrlProxy|影片串流來源的 URL (適用於 Apple 裝置)。|
 |viewToken|用來串流影片的短期檢視權杖。|
@@ -198,7 +198,7 @@ id|區塊的識別碼。|
 
 #### <a name="transcript"></a>文字記錄
 
-|名稱|描述|
+|Name|描述|
 |---|---|
 |id|行識別碼。|
 |text|文字記錄本身。|
@@ -236,7 +236,7 @@ id|區塊的識別碼。|
 
 #### <a name="ocr"></a>ocr
 
-|名稱|描述|
+|Name|描述|
 |---|---|
 |id|OCR 行識別碼。|
 |text|OCR 文字。|
@@ -244,8 +244,8 @@ id|區塊的識別碼。|
 |language|OCR 語言。|
 |執行個體|此 OCR 曾出現的時間範圍清單 (相同的 OCR 可以出現多次)。|
 |height|OCR 矩形的高度|
-|top|在像素的最上層位置|
-|left| 在像素的左邊的位置|
+|top|Px 中的最上層位置|
+|left| Px 中的左邊位置|
 |width|OCR 矩形的寬度|
 
 ```json
@@ -271,7 +271,7 @@ id|區塊的識別碼。|
 
 #### <a name="keywords"></a>關鍵字
 
-|名稱|描述|
+|Name|描述|
 |---|---|
 |id|關鍵字識別碼。|
 |text|關鍵字。|
@@ -302,7 +302,7 @@ id|區塊的識別碼。|
 
 #### <a name="faces"></a>臉部
 
-|名稱|描述|
+|Name|描述|
 |---|---|
 |id|臉部識別碼。|
 |name|臉部的名稱。 這可以是 'Unknown #0、已識別的名人或客戶培訓人員。|
@@ -347,7 +347,7 @@ id|區塊的識別碼。|
 
 #### <a name="labels"></a>標籤
 
-|名稱|描述|
+|Name|描述|
 |---|---|
 |id|標籤識別碼。|
 |name|標籤名稱 (例如，電腦、電視)。|
@@ -404,12 +404,12 @@ id|區塊的識別碼。|
   ] 
 ```
 
-#### <a name="scenes"></a>場景
+#### <a name="scenes"></a>主題
 
-|名稱|描述|
+|Name|描述|
 |---|---|
-|id|場景的識別碼。|
-|執行個體|時間範圍 （場景只能有 1 個執行個體） 此場景的清單。|
+|id|場景識別碼。|
+|執行個體|此場景的時間範圍清單（場景只能有1個實例）。|
 
 ```json
 "scenes":[  
@@ -439,11 +439,11 @@ id|區塊的識別碼。|
 
 #### <a name="shots"></a>擷取畫面
 
-|名稱|描述|
+|Name|描述|
 |---|---|
 |id|擷取畫面識別碼。|
-|keyFrames|螢幕擷取 （每個具有識別碼和執行個體的時間範圍的清單） 內的主要畫面格的清單。 每個主要畫面格執行個體已保存的主要畫面格的縮圖的 thumbnailId 欄位識別碼。|
-|執行個體|此擷取畫面 （擷取只能有 1 個執行個體） 的時間範圍的清單。|
+|keyFrames|一段期間內的主要畫面格清單（每個都有一個識別碼和實例時間範圍的清單）。 每個主要畫面格實例都有一個 thumbnailId 欄位，其中包含主要畫面格的縮圖識別碼。|
+|執行個體|這個快照的時間範圍清單（一次只能有1個實例）。|
 
 ```json
 "shots":[  
@@ -489,7 +489,7 @@ id|區塊的識別碼。|
 
 在語音轉換文字的文字記錄和/或影片 OCR 中偵測到的商務和產品品牌名稱。 這不包括品牌或標誌的影像辨識偵測。
 
-|名稱|描述|
+|Name|描述|
 |---|---|
 |id|品牌識別碼。|
 |name|品牌名稱。|
@@ -548,7 +548,7 @@ id|區塊的識別碼。|
 
 #### <a name="statistics"></a>統計資料
 
-|名稱|描述|
+|Name|描述|
 |---|---|
 |CorrespondenceCount|影片中的對應數目。|
 |SpeakerWordCount|每個說話者的字數。|
@@ -558,10 +558,10 @@ id|區塊的識別碼。|
 
 #### <a name="a-idaudioeffectsaudioeffects"></a><a id="audioEffects"/>audioEffects
 
-|名稱|描述|
+|Name|描述|
 |---|---|
 |id|音訊效果識別碼。|
-|type|音訊效果類型 (例如，拍手聲、說話、無聲)。|
+|型別|音訊效果類型 (例如，拍手聲、說話、無聲)。|
 |執行個體|此音訊效果曾出現的時間範圍清單。|
 
 ```json
@@ -587,7 +587,7 @@ id|區塊的識別碼。|
 
 人氣會依據其 sentimentType 欄位 (Positive/Neutral/Negative) 加以彙總。 例如：0-0.1、0.1-0.2。
 
-|名稱|描述|
+|Name|描述|
 |---|---|
 |id|人氣識別碼。|
 |averageScore |所有該人氣類型執行個體的總分平均值 - Positive/Neutral/Negative|
@@ -626,7 +626,7 @@ visualContentModeration 區塊包含影片索引器偵測到可能含有成人�
 
 經發現含有成人或猥褻內容的影片，只能供私人檢視。 使用者可以要求人工審核影片內容，在此情況下，IsAdult 屬性將包含人工審核的結果。
 
-|名稱|描述|
+|Name|描述|
 |---|---|
 |id|視覺內容仲裁識別碼。|
 |adultScore|成人分數 (由內容仲裁提供)。|
@@ -662,7 +662,7 @@ visualContentModeration 區塊包含影片索引器偵測到可能含有成人�
 
 #### <a name="textualcontentmoderation"></a>textualContentModeration 
 
-|名稱|描述|
+|Name|描述|
 |---|---|
 |id|文字內容仲裁識別碼。|
 |bannedWordsCount |禁用文字數目。|
@@ -672,10 +672,10 @@ visualContentModeration 區塊包含影片索引器偵測到可能含有成人�
 
 影片索引子會根據語音和音訊提示來識別表情。可能的表情為：快樂、悲傷、憤怒或恐懼。
 
-|名稱|描述|
+|Name|描述|
 |---|---|
 |id|表情識別碼。|
-|type|系統會根據語音和音訊提示來識別感性時刻。表情包括：快樂、悲傷、憤怒或恐懼。|
+|型別|系統會根據語音和音訊提示來識別感性時刻。表情包括：快樂、悲傷、憤怒或恐懼。|
 |執行個體|這一個表情出現的時間範圍清單。|
 
 ```json
@@ -760,9 +760,9 @@ visualContentModeration 區塊包含影片索引器偵測到可能含有成人�
 
 #### <a name="topics"></a>topics
 
-影片索引子會從文字記錄中推斷主要主題。 如果可能，會包含第 1 層級的 [IPTC](https://iptc.org/standards/media-topics/) 分類。 
+影片索引子會從文字記錄中推斷主要主題。 可能的話，會包含第二層級的[IPTC](https://iptc.org/standards/media-topics/)分類。 
 
-|名稱|描述|
+|Name|描述|
 |---|---|
 |id|主題識別碼。|
 |name|主題名稱，例如："Pharmaceuticals"。|

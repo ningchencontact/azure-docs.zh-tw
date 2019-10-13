@@ -10,12 +10,12 @@ ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
 ms.date: 07/08/2019
-ms.openlocfilehash: c32560f7bb182ac347e9e5a71b53b57cf80fac38
-ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
+ms.openlocfilehash: dfaa39b33839406ffdf484299cb520aebf011c7d
+ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71034617"
+ms.lasthandoff: 10/13/2019
+ms.locfileid: "72299677"
 ---
 # <a name="deploy-a-model-to-an-azure-kubernetes-service-cluster"></a>將模型部署到 Azure Kubernetes Service 叢集
 
@@ -42,7 +42,7 @@ ms.locfileid: "71034617"
 
 - 在您的工作區中註冊的機器學習模型。 如果您沒有已註冊的模型，請參閱[部署模型的方式和位置](how-to-deploy-and-where.md)。
 
-- [Machine Learning 服務的 Azure CLI 延伸](reference-azure-machine-learning-cli.md)模組, [Azure Machine Learning Python SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py), 或[Azure Machine Learning Visual Studio Code 延伸](how-to-vscode-tools.md)模組。
+- [Machine Learning 服務的 Azure CLI 延伸](reference-azure-machine-learning-cli.md)模組， [Azure Machine Learning Python SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py)，或[Azure Machine Learning Visual Studio Code 延伸](how-to-vscode-tools.md)模組。
 
 - 本文中的__Python__程式碼片段假設已設定下列變數：
 
@@ -52,13 +52,13 @@ ms.locfileid: "71034617"
 
     如需有關設定這些變數的詳細資訊，請參閱[如何和在何處部署模型](how-to-deploy-and-where.md)。
 
-- 本文中的__CLI__程式碼片段假設您已建立`inferenceconfig.json`檔。 如需有關建立此檔的詳細資訊，請參閱[如何和部署模型的位置](how-to-deploy-and-where.md)。
+- 本文中的__CLI__程式碼片段假設您已建立 @no__t 1 檔。 如需有關建立此檔的詳細資訊，請參閱[如何和部署模型的位置](how-to-deploy-and-where.md)。
 
 ## <a name="create-a-new-aks-cluster"></a>建立新的 AKS 叢集
 
 **估計時間**：約 20 分鐘。
 
-建立或附加 AKS 叢集是工作區的一次性程式。 您可以重複使用此叢集進行多個部署。 如果您刪除叢集或包含該叢集的資源群組, 則必須在下次需要部署時建立新的叢集。 您可以將多個 AKS 叢集附加至您的工作區。
+建立或附加 AKS 叢集是工作區的一次性程式。 您可以重複使用此叢集進行多個部署。 如果您刪除叢集或包含該叢集的資源群組，則必須在下次需要部署時建立新的叢集。 您可以將多個 AKS 叢集附加至您的工作區。
 
 > [!TIP]
 > 如果您想要使用 Azure 虛擬網路保護您的 AKS 叢集，您必須先建立虛擬網路。 如需詳細資訊，請參閱[使用 Azure 虛擬網路保護實驗和推斷](how-to-enable-virtual-network.md#aksvnet)。
@@ -66,7 +66,7 @@ ms.locfileid: "71034617"
 如果您想要建立用於__開發__、__驗證__和__測試__的 AKS 叢集，而不是生產環境，您可以指定叢集__目的__來進行開發__測試__。
 
 > [!WARNING]
-> 如果您設定`cluster_purpose = AksCompute.ClusterPurpose.DEV_TEST`，則建立的叢集不適合用于生產層級的流量，而且可能會增加推斷時間。 開發/測試叢集也不保證容錯。 針對開發/測試叢集，我們建議至少有2個虛擬 Cpu。
+> 如果您設定 `cluster_purpose = AksCompute.ClusterPurpose.DEV_TEST`，則建立的叢集不適合用于生產層級的流量，而且可能會增加推斷時間。 開發/測試叢集也不保證容錯。 針對開發/測試叢集，我們建議至少有2個虛擬 Cpu。
 
 下列範例示範如何使用 SDK 和 CLI 來建立新的 AKS 叢集：
 
@@ -91,9 +91,9 @@ aks_target.wait_for_completion(show_output = True)
 ```
 
 > [!IMPORTANT]
-> 針對[`provisioning_configuration()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.akscompute?view=azure-ml-py)，如果您挑選`agent_count`和`vm_size`的自訂值， `cluster_purpose`而不`DEV_TEST` `vm_size`是，則您需要確定`agent_count`乘以大於或等於12個虛擬 cpu。 例如，如果您使用`vm_size` "Standard_D3_v2" 的，其具有4個虛擬 cpu，則您應該`agent_count`挑選3或更高的。
+> 若為[`provisioning_configuration()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.akscompute?view=azure-ml-py)，如果您挑選 `agent_count` 和 `vm_size` 的自訂值，而且 `cluster_purpose` 不 `DEV_TEST`，則您必須確定 `vm_size` 乘以  大於或等於12個虛擬 cpu。 例如，如果您使用具有4個虛擬 Cpu 的 "Standard_D3_v2" `vm_size`，則應挑選3或以上的 `agent_count`。
 >
-> Azure Machine Learning SDK 不提供調整 AKS 叢集的支援。 若要調整叢集中的節點, 請在 Azure 入口網站中使用適用于 AKS 叢集的 UI。 您只能變更節點計數, 而不是叢集的 VM 大小。
+> Azure Machine Learning SDK 不提供調整 AKS 叢集的支援。 若要調整叢集中的節點，請在 Azure 入口網站中使用適用于 AKS 叢集的 UI。 您只能變更節點計數，而不是叢集的 VM 大小。
 
 如需此範例中使用之類別、方法和參數的詳細資訊，請參閱下列參考檔：
 
@@ -112,9 +112,9 @@ az ml computetarget create aks -n myaks
 
 ## <a name="attach-an-existing-aks-cluster"></a>附加現有的 AKS 叢集
 
-**估計時間:** 大約5分鐘。
+**估計時間：** 大約5分鐘。
 
-如果您的 Azure 訂用帳戶中已經有 AKS 叢集, 而且它是1.12 版。 # #, 您可以使用它來部署您的映射。
+如果您的 Azure 訂用帳戶中已經有 AKS 叢集，且其低於1.14 版，您可以使用它來部署您的映射。
 
 > [!TIP]
 > 現有的 AKS 叢集可以在 Azure 區域中，而不是您的 Azure Machine Learning 工作區。
@@ -122,18 +122,18 @@ az ml computetarget create aks -n myaks
 > 如果您想要使用 Azure 虛擬網路保護您的 AKS 叢集，您必須先建立虛擬網路。 如需詳細資訊，請參閱[使用 Azure 虛擬網路保護實驗和推斷](how-to-enable-virtual-network.md#aksvnet)。
 
 > [!WARNING]
-> 將 AKS 叢集附加至工作區時, 您可以藉由設定`cluster_purpose`參數來定義使用叢集的方式。
+> 將 AKS 叢集附加至工作區時，您可以藉由設定 `cluster_purpose` 參數來定義使用叢集的方式。
 >
-> 如果您未設定`cluster_purpose`參數或設定`cluster_purpose = AksCompute.ClusterPurpose.FAST_PROD`, 則叢集必須至少有12個可用的虛擬 cpu。
+> 如果您未設定 `cluster_purpose` 參數，或設定 `cluster_purpose = AksCompute.ClusterPurpose.FAST_PROD`，則叢集必須至少有12個可用的虛擬 Cpu。
 >
-> 如果您設定`cluster_purpose = AksCompute.ClusterPurpose.DEV_TEST`了, 叢集就不需要有12個虛擬 cpu。 針對開發/測試，我們建議至少要有2個虛擬 Cpu。 不過，針對「開發/測試」設定的叢集不適合用于生產層級的流量，而且可能會增加推斷時間。 開發/測試叢集也不保證容錯。
+> 如果您設定 `cluster_purpose = AksCompute.ClusterPurpose.DEV_TEST`，則叢集不需要有12個虛擬 Cpu。 針對開發/測試，我們建議至少要有2個虛擬 Cpu。 不過，針對「開發/測試」設定的叢集不適合用于生產層級的流量，而且可能會增加推斷時間。 開發/測試叢集也不保證容錯。
 
 如需使用 Azure CLI 或入口網站建立 AKS 叢集的詳細資訊，請參閱下列文章：
 
 * [建立 AKS 叢集（CLI）](https://docs.microsoft.com/cli/azure/aks?toc=%2Fazure%2Faks%2FTOC.json&bc=%2Fazure%2Fbread%2Ftoc.json&view=azure-cli-latest#az-aks-create)
-* [建立 AKS 叢集 (入口網站)](https://docs.microsoft.com/azure/aks/kubernetes-walkthrough-portal?view=azure-cli-latest)
+* [建立 AKS 叢集（入口網站）](https://docs.microsoft.com/azure/aks/kubernetes-walkthrough-portal?view=azure-cli-latest)
 
-下列範例示範如何將現有的 AKS 1.12. # # 叢集附加至您的工作區：
+下列範例示範如何將現有的 AKS 叢集附加至您的工作區：
 
 **使用 SDK**
 
@@ -160,7 +160,7 @@ aks_target = ComputeTarget.attach(ws, 'myaks', attach_config)
 
 **使用 CLI**
 
-若要使用 CLI 附加現有的叢集，您需要取得現有叢集的資源識別碼。 若要取得此值，請使用下列命令。 將`myexistingcluster`取代為您的 AKS 叢集名稱。 將`myresourcegroup`取代為包含叢集的資源群組：
+若要使用 CLI 附加現有的叢集，您需要取得現有叢集的資源識別碼。 若要取得此值，請使用下列命令。 以 AKS 叢集的名稱取代 `myexistingcluster`。 將 `myresourcegroup` 取代為包含叢集的資源群組：
 
 ```azurecli
 az aks show -n myexistingcluster -g myresourcegroup --query id
@@ -172,7 +172,7 @@ az aks show -n myexistingcluster -g myresourcegroup --query id
 /subscriptions/{GUID}/resourcegroups/{myresourcegroup}/providers/Microsoft.ContainerService/managedClusters/{myexistingcluster}
 ```
 
-若要將現有的叢集附加至您的工作區，請使用下列命令。 將`aksresourceid`取代為前一個命令所傳回的值。 將`myresourcegroup`取代為包含您工作區的資源群組。 將`myworkspace`取代為您的工作區名稱。
+若要將現有的叢集附加至您的工作區，請使用下列命令。 以上一個命令所傳回的值取代 `aksresourceid`。 以包含您工作區的資源群組取代 `myresourcegroup`。 以您的工作區名稱取代 `myworkspace`。
 
 ```azurecli
 az ml computetarget attach aks -n myaks -i aksresourceid -g myresourcegroup -w myworkspace
@@ -210,7 +210,7 @@ print(service.get_logs())
 
 ### <a name="using-the-cli"></a>使用 CLI
 
-若要使用 CLI 進行部署, 請使用下列命令。 將`myaks`取代為 AKS 計算目標的名稱。 將`mymodel:1`取代為已註冊模型的名稱和版本。 以`myservice`要提供此服務的名稱取代:
+若要使用 CLI 進行部署，請使用下列命令。 以 AKS 計算目標的名稱取代 `myaks`。 以已註冊模型的名稱和版本取代 `mymodel:1`。 以提供此服務的名稱取代 `myservice`：
 
 ```azurecli-interactive
 az ml model deploy -ct myaks -m mymodel:1 -n myservice -ic inferenceconfig.json -dc deploymentconfig.json
@@ -231,7 +231,7 @@ az ml model deploy -ct myaks -m mymodel:1 -n myservice -ic inferenceconfig.json 
 
 部署到 Azure Kubernetes Service 時，預設會啟用__金鑰型__驗證。 您也可以啟用__權杖型__驗證。 以權杖為基礎的驗證需要用戶端使用 Azure Active Directory 帳戶來要求驗證權杖，以用來對已部署的服務提出要求。
 
-若要__停__用驗證， `auth_enabled=False`請在建立部署設定時設定參數。 下列範例會使用 SDK 來停用驗證：
+若要__停__用驗證，請在建立部署設定時設定 `auth_enabled=False` 參數。 下列範例會使用 SDK 來停用驗證：
 
 ```python
 deployment_config = AksWebservice.deploy_configuration(cpu_cores=1, memory_gb=1, auth_enabled=False)
@@ -241,7 +241,7 @@ deployment_config = AksWebservice.deploy_configuration(cpu_cores=1, memory_gb=1,
 
 ### <a name="authentication-with-keys"></a>使用金鑰進行驗證
 
-如果已啟用金鑰驗證，您可以使用`get_keys`方法來取出主要和次要驗證金鑰：
+如果已啟用金鑰驗證，您可以使用 `get_keys` 方法來取得主要和次要驗證金鑰：
 
 ```python
 primary, secondary = service.get_keys()
@@ -253,13 +253,13 @@ print(primary)
 
 ### <a name="authentication-with-tokens"></a>使用權杖進行驗證
 
-若要啟用權杖驗證，請`token_auth_enabled=True`在建立或更新部署時設定參數。 下列範例會使用 SDK 來啟用權杖驗證：
+若要啟用權杖驗證，請在建立或更新部署時設定 `token_auth_enabled=True` 參數。 下列範例會使用 SDK 來啟用權杖驗證：
 
 ```python
 deployment_config = AksWebservice.deploy_configuration(cpu_cores=1, memory_gb=1, token_auth_enabled=True)
 ```
 
-如果已啟用權杖驗證，您可以使用`get_token`方法來取出 JWT 權杖和該權杖的到期時間：
+如果已啟用權杖驗證，您可以使用 `get_token` 方法來取出 JWT 權杖和該權杖的到期時間：
 
 ```python
 token, refresh_by = service.get_token()
@@ -267,7 +267,7 @@ print(token)
 ```
 
 > [!IMPORTANT]
-> 您將需要在權杖的`refresh_by`時間之後要求新的權杖。
+> 您必須在權杖的 `refresh_by` 時間之後，要求新的權杖。
 >
 > Microsoft 強烈建議您在與 Azure Kubernetes Service 叢集相同的區域中建立您的 Azure Machine Learning 工作區。 若要使用權杖進行驗證，web 服務會呼叫您的 Azure Machine Learning 工作區建立所在的區域。 如果您的工作區區域無法使用，則即使您的叢集與工作區位於不同的區域，您也無法提取 web 服務的權杖。 這可有效地導致以權杖為基礎的驗證無法使用，直到您的工作區區域再次可用為止。 此外，您的叢集區域和工作區區域之間的距離愈大，提取權杖所需的時間就越長。
 

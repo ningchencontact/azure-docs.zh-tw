@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 07/10/2019
 ms.author: helohr
-ms.openlocfilehash: 485aad245df7feae4ca4ee2c68a29ff20afb3ece
-ms.sourcegitcommit: f2d9d5133ec616857fb5adfb223df01ff0c96d0a
+ms.openlocfilehash: f4eeecccb3815ebfef9cdf79ac14f3dd3bd5e77a
+ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/03/2019
-ms.locfileid: "71937511"
+ms.lasthandoff: 10/13/2019
+ms.locfileid: "72300211"
 ---
 # <a name="windows-virtual-desktop-partner-integrations"></a>Windows 虛擬桌面合作夥伴整合
 
@@ -29,7 +29,7 @@ Citrix 利用強大的企業工具擴充 Windows 虛擬桌面的價值，以提�
 - [前往合作夥伴網站](https://more.citrix.com/wvd)。
 
 
-## <a name="vmware"></a>VMWare
+## <a name="vmware"></a>VMware
 
 ![VMware 標誌](./media/partners/vmware.png)
 
@@ -62,6 +62,16 @@ ControlUp 是一個 Windows 虛擬桌面增值的服務提供者，可讓 IT 小
 - [請參閱加入解決方案簡介](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE3PUit)。
 - [前往合作夥伴網站](https://www.controlup.com/solutions/ms_wvd/)。
 
+## <a name="devicetrust"></a>deviceTRUST
+
+![deviceTRUST 標誌](./media/partners/devicetrust.png)
+
+deviceTRUST 是一種 Windows 虛擬桌面增值的服務提供者，可就公司企業，讓使用者能夠自由地從任何位置、任何裝置上的任何地點存取其 Windows 虛擬桌面，同時提供系所需要的資訊和控制，以符合其治理需求。 
+
+deviceTRUST 利用其內容相關的安全性技術來擴充 Windows 虛擬桌面的價值。 deviceTRUST 可讓您進行條件式存取以進行安全的 Windows 虛擬桌面存取、Windows 虛擬桌面內的條件式應用程式存取，以及套用條件式 Windows 虛擬桌面原則，而不需要任何其他基礎 使用 deviceTRUST 可提供符合所有安全性、合規性和法規需求的行動裝置彈性工作區。 
+
+- [前往合作夥伴網站](https://devicetrust.com/wvd)。
+
 ## <a name="lakeside-software"></a>Lakeside 軟體
 
 ![Lakeside 軟體標誌](./media/partners/lakeside.png)
@@ -84,6 +94,14 @@ Liquidware Essentials 藉由有效率地搜集使用者設定檔並收集重要�
 - [請參閱聯合解決方案簡介](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE3oSY1)。
 - [前往合作夥伴網站](https://www.liquidware.com/solutions/solutions-platform/microsoft)。
 
+## <a name="login-vsi"></a>登入 .VSI
+
+![登入 .VSI 標誌](./media/partners/loginvsi.png)
+
+登入 .VSI 是 Windows 虛擬桌面增值服務提供者和 Microsoft 合作夥伴提供軟體，以在 Windows 虛擬桌面環境中進行應用程式效能測試。 客戶將其內部部署商務服務移至 Windows 虛擬桌面使用登入 .VSI Enterprise Edition 來評估和維護 Windows 10 企業版多會話、Windows 10 企業版和的最佳效能、擴充性和可用性Windows 7 已啟用其業務關鍵應用程式。
+
+- [前往合作夥伴網站](https://www.loginvsi.com)。
+
 ## <a name="nerdio"></a>Nerdio
 
 ![Nerdio 標誌](./media/partners/nerdio.png)
@@ -94,6 +112,26 @@ Nerdio 藉由輕鬆布建 Azure 資源並簡化部署，來擴充 Windows 虛擬
 
 - [請參閱聯合解決方案簡介](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE3p0Mh)。
 - [前往合作夥伴網站](https://getnerdio.com/windows-virtual-desktop/)。
+
+## <a name="policypak"></a>PolicyPak
+
+![PolicyPak 標誌](./media/partners/policypak.png)
+
+PolicyPak Software 是一個 Windows 虛擬桌面合作夥伴，可執行應用程式、桌上型電腦、瀏覽器、JAVA 和安全性設定的整體設定管理。 PolicyPak 可讓您的桌面、系統及安全性設定維持合規性。 PolicyPak 藉由新增元件套件來增強 Windows 虛擬桌面的價值，以加強 Windows 的內建系統管理。 使用您現有的 Active Directory 群組原則和/或 Windows Intune 來傳遞 PolicyPak 的設定，並提高系統管理員管理其 Windows 10 電腦的能力。 
+
+PolicyPak 的首要使用案例是移除本機系統管理員許可權，並克服 UAC 提示、封鎖勒索軟體、管理多個瀏覽器、管理 Internet Explorer 的企業和相容性模式、減少 Gpo 的數目、管理 Windows 10 檔案關聯、管理 Windows 10 [開始] 功能表和工作列，以及管理 Windows 10 功能和選用功能。  
+
+- [前往合作夥伴網站](https://www.policypak.com/integration/policypak-windows-virtual-desktop.html)。
+
+## <a name="printerlogic"></a>PrinterLogic
+
+![PrinterLogic 標誌](./media/partners/printerlogic.png)
+
+PrinterLogic 是 Windows 虛擬桌面的增值服務提供者平臺，可讓 IT 專業人員排除所有列印伺服器，並提供高可用性的無伺服器列印基礎結構。 PrinterLogic 擴充了 Windows 虛擬桌面和 Azure 的價值，讓您可以輕鬆地集中管理印表機物件，並將其部署至任何印表機或端點作業系統。   
+
+PrinterLogic 平臺可在您自己的私人雲端中以 SaaS 或 web 堆疊的形式提供，以根據使用者識別碼、裝置名稱或位置，確保使用者在其虛擬會話中一律擁有所需的適當印表機。 這項功能是透過一組完整的企業列印管理功能（例如列印追蹤和報告、行動列印，以及安全徽章版本列印）來獲得補充。 
+
+- [前往合作夥伴網站](https://www.printerlogic.com)。
 
 ## <a name="thinprint"></a>ThinPrint
 

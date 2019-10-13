@@ -1,6 +1,6 @@
 ---
-title: 我的 ASP.NET 專案發生什麼情形？ | Microsoft Docs
-description: 說明使用 Visual Studio 已聯機服務將 Azure 儲存體新增至 ASP.NET 專案之後, 會發生什麼事
+title: 我的 ASP.NET 專案發生什麼情形？
+description: 說明使用 Visual Studio 已聯機服務將 Azure 儲存體新增至 ASP.NET 專案之後，會發生什麼事
 services: storage
 author: ghogen
 manager: jillfra
@@ -12,12 +12,13 @@ ms.workload: azure-vs
 ms.topic: conceptual
 ms.date: 12/02/2016
 ms.author: ghogen
-ms.openlocfilehash: 74db2e1e15c282f4393715c67561b2ed61bbcdfb
-ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
+ROBOTS: NOINDEX,NOFOLLOW
+ms.openlocfilehash: 4374955d6d51c1ae44c211aaa93d0b5e8930fe5b
+ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69512077"
+ms.lasthandoff: 10/13/2019
+ms.locfileid: "72300050"
 ---
 # <a name="what-happened-to-my-aspnet-project-visual-studio-azure-storage-connected-service"></a>我的 ASP.NET 專案 (Visual Studio Azure 儲存體連接的服務) 發生什麼狀況？
 ## <a name="references-added"></a>加入參考

@@ -9,12 +9,12 @@ ms.service: key-vault
 ms.topic: conceptual
 ms.date: 01/07/2019
 ms.author: ambapat
-ms.openlocfilehash: 4857cda7c3387e72be8837422469888adc5504d1
-ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
+ms.openlocfilehash: 04f4a71e6b54100e5a133958845cf732c2286b32
+ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70883102"
+ms.lasthandoff: 10/13/2019
+ms.locfileid: "72301055"
 ---
 # <a name="secure-access-to-a-key-vault"></a>針對金鑰保存庫的存取進行保護
 
@@ -37,7 +37,7 @@ Azure Key Vault 是用來保護加密金鑰和祕密 (例如憑證、連接字�
 - **使用者加上應用程式的存取**：應用程式會代表登入的使用者存取 Key Vault。 舉例來說，這類存取包括 Azure PowerShell 和 Azure 入口網站。 使用者存取的授與則是透過兩種方式來完成。 使用者可以從任何應用程式存取 Key Vault，或者必須使用特定應用程式來進行 (稱為「複合身分識別」)。
 - **只有應用程式的存取**：應用程式會以精靈服務或背景作業的形式來執行。 系統會將金鑰保存庫的存取權授與給該應用程式識別碼。
 
-對於這兩種類型的存取權，應用程式都會向 Azure AD 進行驗證。 應用程式會根據應用程式類型使用任何[支援的驗證方法](../active-directory/develop/authentication-scenarios.md)。 應用程式會取得平面中資源的權杖以便授與存取權。 視 Azure 環境而定，資源會是管理或資料平面中的端點。 應用程式會使用此權杖，對 Key Vault 傳送 REST API 要求。 若要深入了解，請參閱[整個驗證流程](../active-directory/develop/v1-protocols-oauth-code.md)。
+對於這兩種類型的存取權，應用程式都會向 Azure AD 進行驗證。 應用程式會根據應用程式類型使用任何[支援的驗證方法](../active-directory/develop/authentication-scenarios.md)。 應用程式會取得平面中資源的權杖以便授與存取權。 視 Azure 環境而定，資源會是管理或資料平面中的端點。 應用程式會使用此權杖，對 Key Vault 傳送 REST API 要求。 若要深入了解，請參閱[整個驗證流程](../active-directory/develop/v2-oauth2-auth-code-flow.md)。
 
 這兩個平面的單一驗證機制模型有幾個優點：
 
@@ -208,7 +208,7 @@ Set-AzKeyVaultAccessPolicy -VaultName ContosoKeyVault -ObjectId (Get-AzADGroup -
 
     這個 2015 Microsoft Ignite 大會影片討論 Azure 中的存取管理和報告功能。 此外，也會探討使用 Azure AD 保護 Azure 訂用帳戶存取權的最佳做法。
 
-* [使用 OAuth 2.0 和 Azure AD 授權存取 Web 應用程式](../active-directory/develop/v1-protocols-oauth-code.md)
+* [使用 OAuth 2.0 和 Azure AD 授權存取 Web 應用程式](../active-directory/develop/v2-oauth2-auth-code-flow.md)
 
 * [Key Vault 管理 REST API](https://msdn.microsoft.com/library/azure/mt620024.aspx)
 

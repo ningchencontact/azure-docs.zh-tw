@@ -2,18 +2,17 @@
 title: Azure Analysis Services 的診斷記錄 | Microsoft Docs
 description: 深入了解設定 Azure Analysis Services 的診斷記錄。
 author: minewiskan
-manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
 ms.date: 09/12/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: b158545390dafa36e7dad285953c78243f891f28
-ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.openlocfilehash: a9684042a76c9c906a75334c319b4ca8ee0b727b
+ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71259420"
+ms.lasthandoff: 10/13/2019
+ms.locfileid: "72298617"
 ---
 # <a name="setup-diagnostic-logging"></a>設定診斷記錄
 
@@ -44,10 +43,10 @@ ms.locfileid: "71259420"
 |命令     |  命令開始       |
 |命令     |  命令結束       |
 |錯誤與警告     |   Error      |
-|發現     |   探索結束      |
+|探索     |   探索結束      |
 |通知     |    通知     |
 |工作階段     |  工作階段初始化       |
-|鎖定    |  死結       |
+|鎖定    |  鎖死       |
 |查詢處理     |   VertiPaq SE 查詢開始      |
 |查詢處理     |   VertiPaq SE 查詢結束      |
 |查詢處理     |   VertiPaq SE 查詢快取比對      |

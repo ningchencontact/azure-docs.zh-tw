@@ -2,18 +2,17 @@
 title: 管理 Azure Analysis Services | Microsoft Docs
 description: 瞭解如何以 Azure 管理 Analysis Services 伺服器。
 author: minewiskan
-manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 0bae06d46c2c96ba9dd058e9c2d380379523811c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 63591da8d7661f7f3a29b321c20a2e05351c71fd
+ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61065154"
+ms.lasthandoff: 10/13/2019
+ms.locfileid: "72298603"
 ---
 # <a name="manage-analysis-services"></a>Azure Analysis Services
 在 Azure 中建立 Analysis Services 伺服器之後，會有一些您必須立即或稍後執行的管理工作。 例如：執行資料重新整理處理作業、控制誰能夠存取您伺服器上的模型，或監視伺服器的健康狀態。 有些管理工作只能在 Azure 入口網站中執行，有些只能在 SQL Server Management Studio (SSMS) 中執行，也有些工作可以在這兩個位置中執行。
@@ -37,20 +36,20 @@ ms.locfileid: "61065154"
 ### <a name="to-connect-with-ssms"></a>以 SSMS 連線
  使用 SSMS 時，請在第一次連線到您伺服器之前，先確定您的使用者名稱包含在「Analysis Services 管理員」群組中。 若要深入了解，請參閱本文稍後的[伺服器管理員與資料庫使用者](#server-administrators-and-database-users)。
 
-1. 連線之前，您必須先取得伺服器名稱。 在 [Azure 入口網站]  > 伺服器 > [概觀]   >  [伺服器名稱]  中，複製伺服器名稱。
+1. 連線之前，您必須先取得伺服器名稱。 在 [Azure 入口網站] > 伺服器 > [概觀] >  [伺服器名稱] 中，複製伺服器名稱。
    
     ![在 Azure 中取得伺服器名稱](./media/analysis-services-deploy/aas-deploy-get-server-name.png)
-2. 在 SSMS > [物件總管]  中，按一下 [連線]   > [分析服務]  。
-3. 在 [連線至伺服器]  對話方塊中，貼上伺服器名稱，然後在 [驗證]  中，選擇下列其中一種驗證類型：   
+2. 在 SSMS > [物件總管]中，按一下 [連線] > [分析服務]。
+3. 在 [連線至伺服器] 對話方塊中，貼上伺服器名稱，然後在 [驗證] 中，選擇下列其中一種驗證類型：   
     > [!NOTE]
-    > [驗證] 類型建議使用 [具 MFA 支援的 Active Directory - 通用]  。
+    > [驗證] 類型建議使用 [具 MFA 支援的 Active Directory - 通用]。
 
     > [!NOTE]
     > 如果您使用 Microsoft 帳戶、Live ID、Yahoo、Gmail 等來登入，請將密碼欄位保留空白。 您按 [連線] 之後系統會提示您輸入密碼。
 
-    [Windows 驗證]  以使用您的 Windows 網域\使用者名稱和密碼認證。
+    [Windows 驗證] 以使用您的 Windows 網域\使用者名稱和密碼認證。
 
-    [Active Directory 密碼驗證]  以使用組織帳戶。 例如，當從未加入網域的電腦連線時。
+    [Active Directory 密碼驗證] 以使用組織帳戶。 例如，當從未加入網域的電腦連線時。
 
     **具 MFA 支援的 Active Directory - 通用** 請使用 [非互動式或多重要素驗證](../sql-database/sql-database-ssms-mfa-authentication.md)。 
    

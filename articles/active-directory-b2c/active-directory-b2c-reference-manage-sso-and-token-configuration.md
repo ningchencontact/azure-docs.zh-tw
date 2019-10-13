@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 10/09/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 966386bfed5f94556f145afab1c665eb3c90546a
-ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
+ms.openlocfilehash: 36a95b502c13ccf360ba4ac56b4837d41ee487c8
+ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71065564"
+ms.lasthandoff: 10/13/2019
+ms.locfileid: "72296406"
 ---
 # <a name="manage-sso-and-token-customization-using-custom-policies-in-azure-active-directory-b2c"></a>在 Azure Active Directory B2C 中使用自訂原則來管理 SSO 和權杖自訂
 
@@ -102,5 +102,5 @@ ms.locfileid: "71065564"
 以下是在上述範例中設定的值：
 
 - **單一登入 (SSO)** - 單一登入會透過 **SingleSignOn** 來設定。 適用的值為 `Tenant`、`Application`、`Policy`和 `Suppressed`。
-- **Web 應用程式工作階段存留期 (分鐘)** - Web 應用程式工作階段存留期會透過 **SessionExpiryInSeconds** 元素來設定。 預設值為 86400 秒 (1440 分鐘)。
 - **Web 應用程式工作階段逾時** - Web 應用程式工作階段逾時會透過 **SessionExpiryType** 元素來設定。 適用的值為 `Absolute` 和 `Rolling`。
+- **Web 應用程式會話存留期**-web 應用程式會話存留期會使用**SessionExpiryInSeconds**元素來設定。 預設值為 86400 秒 (1440 分鐘)。

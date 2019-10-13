@@ -2,24 +2,23 @@
 title: 管理 Azure Analysis Services 中的伺服器管理員 | Microsoft Docs
 description: 了解如何在 Azure 中管理 Analysis Services 伺服器的伺服器管理員。
 author: minewiskan
-manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
 ms.date: 07/29/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: eb5248d374fa6212398ad652b4db1496833473ae
-ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
+ms.openlocfilehash: fbb7d339c5c3c12990a49d6ebd53760e101f4eb7
+ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68696314"
+ms.lasthandoff: 10/13/2019
+ms.locfileid: "72301088"
 ---
 # <a name="manage-server-administrators"></a>管理伺服器管理員
 
 對於伺服器所在的租用戶，伺服器管理員必須是 Azure Active Directory (Azure AD) 中有效的使用者或安全性群組。 在 Azure 入口網站、SSMS 的 [伺服器屬性]、PowerShell 或 REST API 中，您可以使用伺服器的 **Analysis Services 管理員**來管理伺服器管理員。 
 
-**安全性群組**必須[啟用郵件](https://docs.microsoft.com/exchange/recipients-in-exchange-online/manage-mail-enabled-security-groups), 並`MailEnabled`將屬性設定為。 `True` 當您透過電子郵件地址指定群組`obj:groupid@tenantid`時, 請使用。
+**安全性群組**必須[啟用郵件](https://docs.microsoft.com/exchange/recipients-in-exchange-online/manage-mail-enabled-security-groups)，並將 `MailEnabled` 屬性設定為 `True`。 以電子郵件地址指定群組時，請使用 `obj:groupid@tenantid`。
 
 ## <a name="to-add-server-administrators-by-using-azure-portal"></a>使用 Azure 入口網站來新增伺服器管理員
 
@@ -41,7 +40,7 @@ ms.locfileid: "68696314"
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-建立新的伺服器時, 請使用[AzAnalysisServicesServer](https://docs.microsoft.com/powershell/module/az.analysisservices/new-azanalysisservicesserver) Cmdlet 來指定 Administrator 參數。 <br>
+建立新的伺服器時，請使用[AzAnalysisServicesServer](https://docs.microsoft.com/powershell/module/az.analysisservices/new-azanalysisservicesserver) Cmdlet 來指定 Administrator 參數。 <br>
 使用[AzAnalysisServicesServer](https://docs.microsoft.com/powershell/module/az.analysisservices/set-azanalysisservicesserver)指令程式來修改現有伺服器的系統管理員參數。
 
 ## <a name="rest-api"></a>REST API

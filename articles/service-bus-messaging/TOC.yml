@@ -91,6 +91,8 @@
       href: service-bus-async-messaging.md
     - name: 處理中斷與災害
       href: service-bus-outages-disasters.md
+    - name: 節流
+      href: service-bus-throttling.md
     - name: 安全性
       items:
         - name: 驗證和授權

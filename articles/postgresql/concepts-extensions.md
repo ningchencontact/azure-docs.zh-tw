@@ -5,13 +5,13 @@ author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 09/26/2019
-ms.openlocfilehash: 467a8b1de3f6c234d9dfdfaf6132025688757997
-ms.sourcegitcommit: e9936171586b8d04b67457789ae7d530ec8deebe
+ms.date: 10/11/2019
+ms.openlocfilehash: 4f81b23378427faa522071f4a20e07485f5c3387
+ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71327121"
+ms.lasthandoff: 10/13/2019
+ms.locfileid: "72296428"
 ---
 # <a name="postgresql-extensions-in-azure-database-for-postgresql---single-server"></a>適用於 PostgreSQL 的 Azure 資料庫中的于 postgresql 擴充功能-單一伺服器
 PostgreSQL 提供下列功能：使用擴充功能來擴充您的資料庫功能。 延伸模組會將多個相關的 SQL 物件組合在單一封裝中，您可以使用單一命令從您的資料庫中載入或移除它們。 載入資料庫之後，擴充功能就像內建功能一樣。
@@ -44,7 +44,7 @@ PostgreSQL 提供下列功能：使用擴充功能來擴充您的資料庫功能
 > |[isn](https://www.postgresql.org/docs/11/isn.html)                          | 1.2             | 國際產品編號標準的資料類型|
 > |[ltree](https://www.postgresql.org/docs/11/ltree.html)                        | 1.1             | 階層式樹狀結構的資料類型|
 > |[orafce](https://github.com/orafce/orafce)                       | 3.7             | 模擬商業 RDBMS 的函式和封裝子集的函數和運算子|
-> |[pgaudit](https://www.pgaudit.org/)                     | 1.3             | 提供審核功能|
+> |[pgaudit](https://www.pgaudit.org/)                     | 1.3.1             | 提供審核功能|
 > |[pgcrypto](https://www.postgresql.org/docs/11/pgcrypto.html)                     | 1.3             | 密碼編譯功能|
 > |[pgrouting](https://pgrouting.org/)                    | 2.6.2           | pgRouting 延伸模組|
 > |[pgrowlocks](https://www.postgresql.org/docs/11/pgrowlocks.html)                   | 1.2             | 顯示資料列層級的鎖定資訊|
@@ -90,7 +90,7 @@ PostgreSQL 提供下列功能：使用擴充功能來擴充您的資料庫功能
 > |[isn](https://www.postgresql.org/docs/10/isn.html)                          | 1.1             | 國際產品編號標準的資料類型|
 > |[ltree](https://www.postgresql.org/docs/10/ltree.html)                        | 1.1             | 階層式樹狀結構的資料類型|
 > |[orafce](https://github.com/orafce/orafce)                       | 3.7             | 模擬商業 RDBMS 的函式和封裝子集的函數和運算子|
-> |[pgaudit](https://www.pgaudit.org/)                     | 1.3             | 提供審核功能|
+> |[pgaudit](https://www.pgaudit.org/)                     | 1.2             | 提供審核功能|
 > |[pgcrypto](https://www.postgresql.org/docs/10/pgcrypto.html)                     | 1.3             | 密碼編譯功能|
 > |[pgrouting](https://pgrouting.org/)                    | 2.5.2           | pgRouting 延伸模組|
 > |[pgrowlocks](https://www.postgresql.org/docs/10/pgrowlocks.html)                   | 1.2             | 顯示資料列層級的鎖定資訊|
@@ -136,7 +136,7 @@ PostgreSQL 提供下列功能：使用擴充功能來擴充您的資料庫功能
 > |[isn](https://www.postgresql.org/docs/9.6/isn.html)                          | 1.1             | 國際產品編號標準的資料類型|
 > |[ltree](https://www.postgresql.org/docs/9.6/ltree.html)                        | 1.1             | 階層式樹狀結構的資料類型|
 > |[orafce](https://github.com/orafce/orafce)                       | 3.7             | 模擬商業 RDBMS 的函式和封裝子集的函數和運算子|
-> |[pgaudit](https://www.pgaudit.org/)                     | 1.3             | 提供審核功能|
+> |[pgaudit](https://www.pgaudit.org/)                     | 1.1.2             | 提供審核功能|
 > |[pgcrypto](https://www.postgresql.org/docs/9.6/pgcrypto.html)                     | 1.3             | 密碼編譯功能|
 > |[pgrouting](https://pgrouting.org/)                    | 2.3.2           | pgRouting 延伸模組|
 > |[pgrowlocks](https://www.postgresql.org/docs/9.6/pgrowlocks.html)                   | 1.2             | 顯示資料列層級的鎖定資訊|
@@ -182,7 +182,7 @@ PostgreSQL 提供下列功能：使用擴充功能來擴充您的資料庫功能
 > |[isn](https://www.postgresql.org/docs/9.5/isn.html)                          | 1.0             | 國際產品編號標準的資料類型|
 > |[ltree](https://www.postgresql.org/docs/9.5/ltree.html)                        | 1.0             | 階層式樹狀結構的資料類型|
 > |[orafce](https://github.com/orafce/orafce)                       | 3.7             | 模擬商業 RDBMS 的函式和封裝子集的函數和運算子|
-> |[pgaudit](https://www.pgaudit.org/)                     | 1.3             | 提供審核功能|
+> |[pgaudit](https://www.pgaudit.org/)                     | 1.0.7             | 提供審核功能|
 > |[pgcrypto](https://www.postgresql.org/docs/9.5/pgcrypto.html)                     | 1.2             | 密碼編譯功能|
 > |[pgrouting](https://pgrouting.org/)                    | 2.3.0           | pgRouting 延伸模組|
 > |[pgrowlocks](https://www.postgresql.org/docs/9.5/pgrowlocks.html)                   | 1.1             | 顯示資料列層級的鎖定資訊|
@@ -215,7 +215,7 @@ dblink 和 postgres_fdw 可讓您從一個 PostgreSQL 伺服器連線至另一�
 目前不支援來自適用於 PostgreSQL 的 Azure 資料庫的輸出連線，但與其他適用於 PostgreSQL 的 Azure 資料庫伺服器的連接除外。
 
 ## <a name="uuid"></a>uuid
-如果您打算從 uuid- `uuid_generate_v4()` ossp 擴充功能中使用，請考慮與`gen_random_uuid()` pgcrypto 延伸模組的比較，以取得效能優勢。
+如果您打算從 ossp 擴充功能使用 `uuid_generate_v4()`，請考慮從 pgcrypto 擴充功能與 `gen_random_uuid()` 進行比較，以獲得效能優勢。
 
 
 ## <a name="pgaudit"></a>pgAudit
@@ -227,7 +227,7 @@ TimescaleDB 是一種時間序列資料庫，封裝為于 postgresql 的延伸�
 [深入瞭解 TimescaleDB](https://docs.timescale.com/latest)，這是一份已註冊的[時間刻度，inc.](https://www.timescale.com/)的商標
 
 ### <a name="installing-timescaledb"></a>安裝 TimescaleDB
-若要安裝 TimescaleDB，您必須將它包含在伺服器的共用預先載入程式庫中。 變更 Postgres 的`shared_preload_libraries`參數需要**伺服器重新開機**才會生效。 您可以使用[Azure 入口網站](howto-configure-server-parameters-using-portal.md)或[Azure CLI](howto-configure-server-parameters-using-cli.md)來變更參數。
+若要安裝 TimescaleDB，您必須將它包含在伺服器的共用預先載入程式庫中。 變更 Postgres 的 `shared_preload_libraries` 參數需要**重新開機伺服器**才會生效。 您可以使用[Azure 入口網站](howto-configure-server-parameters-using-portal.md)或[Azure CLI](howto-configure-server-parameters-using-cli.md)來變更參數。
 
 使用[Azure 入口網站](https://portal.azure.com/)：
 

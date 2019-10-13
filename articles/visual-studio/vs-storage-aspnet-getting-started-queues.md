@@ -1,5 +1,5 @@
 ---
-title: 開始使用 Azure 佇列儲存體和 Visual Studio 已連線的服務 (ASP.NET) | Microsoft Docs
+title: 使用 Visual Studio （ASP.NET）開始使用 Azure 佇列儲存體
 description: 在使用 Visual Studio 已連接服務連接到儲存體帳戶之後，如何在 Visual Studio ASP.NET 專案中開始使用 Azure 佇列儲存體
 services: storage
 author: ghogen
@@ -12,12 +12,13 @@ ms.workload: azure-vs
 ms.topic: conceptual
 ms.date: 12/23/2016
 ms.author: ghogen
-ms.openlocfilehash: 19cf2dd912968d0a5df8743c1e720776b8a949f0
-ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
+ROBOTS: NOINDEX,NOFOLLOW
+ms.openlocfilehash: 5b57f171a9407acea8231d796a80c3a1cc1d9474
+ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69515978"
+ms.lasthandoff: 10/13/2019
+ms.locfileid: "72300105"
 ---
 # <a name="get-started-with-azure-queue-storage-and-visual-studio-connected-services-aspnet"></a>開始使用 Azure 佇列儲存體和 Visual Studio 已連線的服務 (ASP.NET)
 
@@ -137,7 +138,7 @@ Azure 佇列儲存體可提供應用程式元件之間的雲端傳訊。 設計�
     <li>@Html.ActionLink("Create queue", "CreateQueue", "Queues")</li>
     ```
 
-1. 執行應用程式, 然後選取 [**建立佇列**], 以查看類似下列螢幕擷取畫面的結果:
+1. 執行應用程式，然後選取 [**建立佇列**]，以查看類似下列螢幕擷取畫面的結果：
   
     ![建立佇列](./media/vs-storage-aspnet-getting-started-queues/create-queue-results.png)
 
@@ -226,7 +227,7 @@ Azure 佇列儲存體可提供應用程式元件之間的雲端傳訊。 設計�
     <li>@Html.ActionLink("Add message", "AddMessage", "Queues")</li>
     ```
 
-1. 執行應用程式, 然後選取 [**新增訊息**], 以查看類似下列螢幕擷取畫面的結果:
+1. 執行應用程式，然後選取 [**新增訊息**]，以查看類似下列螢幕擷取畫面的結果：
   
     ![新增訊息](./media/vs-storage-aspnet-getting-started-queues/add-message-results.png)
 
@@ -278,7 +279,7 @@ Azure 佇列儲存體可提供應用程式元件之間的雲端傳訊。 設計�
     CloudQueueMessage message = queue.PeekMessage();
     ```
 
-1. 以下列兩個值更新 **ViewBag**︰佇列名稱和已讀取的訊息。 **CloudQueueMessage**物件會公開兩個屬性來取得物件的值:**CloudQueueMessage. cloudqueuemessage.asbytes**和**CloudQueueMessage. AsString**。 **AsString** (在此範例中使用) 會傳回字串，而 **AsBytes** 會傳回位元組陣列。
+1. 以下列兩個值更新 **ViewBag**︰佇列名稱和已讀取的訊息。 **CloudQueueMessage**物件會公開兩個屬性來取得物件的值：**CloudQueueMessage. cloudqueuemessage.asbytes**和**CloudQueueMessage. AsString**。 **AsString** (在此範例中使用) 會傳回字串，而 **AsBytes** 會傳回位元組陣列。
 
     ```csharp
     ViewBag.QueueName = queue.Name; 
@@ -312,7 +313,7 @@ Azure 佇列儲存體可提供應用程式元件之間的雲端傳訊。 設計�
     <li>@Html.ActionLink("Peek message", "PeekMessage", "Queues")</li>
     ```
 
-1. 執行應用程式, 並選取 [**查看訊息**], 以查看類似下列螢幕擷取畫面的結果:
+1. 執行應用程式，並選取 [**查看訊息**]，以查看類似下列螢幕擷取畫面的結果：
   
     ![查看訊息](./media/vs-storage-aspnet-getting-started-queues/peek-message-results.png)
 
@@ -403,7 +404,7 @@ Azure 佇列儲存體可提供應用程式元件之間的雲端傳訊。 設計�
     <li>@Html.ActionLink("Read/Delete message", "ReadMessage", "Queues")</li>
     ```
 
-1. 執行應用程式, 然後選取 [**讀取/刪除訊息**] 來查看類似下列螢幕擷取畫面的結果:
+1. 執行應用程式，然後選取 [**讀取/刪除訊息**] 來查看類似下列螢幕擷取畫面的結果：
   
     ![讀取和刪除訊息](./media/vs-storage-aspnet-getting-started-queues/read-message-results.png)
 
@@ -490,7 +491,7 @@ Azure 佇列儲存體可提供應用程式元件之間的雲端傳訊。 設計�
     <li>@Html.ActionLink("Get queue length", "GetQueueLength", "Queues")</li>
     ```
 
-1. 執行應用程式, 然後選取 [**取得佇列長度**], 以查看類似下列螢幕擷取畫面的結果:
+1. 執行應用程式，然後選取 [**取得佇列長度**]，以查看類似下列螢幕擷取畫面的結果：
   
     ![取得佇列長度](./media/vs-storage-aspnet-getting-started-queues/get-queue-length-results.png)
 
@@ -570,7 +571,7 @@ Azure 佇列儲存體可提供應用程式元件之間的雲端傳訊。 設計�
     <li>@Html.ActionLink("Delete queue", "DeleteQueue", "Queues")</li>
     ```
 
-1. 執行應用程式, 然後選取 [**取得佇列長度**], 以查看類似下列螢幕擷取畫面的結果:
+1. 執行應用程式，然後選取 [**取得佇列長度**]，以查看類似下列螢幕擷取畫面的結果：
   
     ![刪除佇列](./media/vs-storage-aspnet-getting-started-queues/delete-queue-results.png)
 

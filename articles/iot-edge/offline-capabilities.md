@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: 80a38767121f5c54afe51a7d4d788716fe9547e2
-ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
+ms.openlocfilehash: 3fc90e685a3c6a077250028bae5602e95f114c03
+ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71091352"
+ms.lasthandoff: 10/13/2019
+ms.locfileid: "72293451"
 ---
 # <a name="understand-extended-offline-capabilities-for-iot-edge-devices-modules-and-child-devices"></a>瞭解 IoT Edge 裝置、模組及子裝置的擴充離線功能
 
@@ -69,7 +69,7 @@ IoT Edge 裝置及其受指派的子裝置可在一開始的首次同步處理�
    ![從 IoT Edge 裝置詳細資料頁面管理子裝置](./media/offline-capabilities/manage-child-devices.png)
 
 
-#### <a name="option-2-use-the-az-command-line-tool"></a>選項 2：`az`使用命令列工具
+#### <a name="option-2-use-the-az-command-line-tool"></a>選項 2：使用 `az` 命令列工具
 
 使用[Azure 命令列介面](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest)搭配[IoT 擴充](https://github.com/azure/azure-iot-cli-extension)功能（v 0.7.0 或更新版本），您可以使用[裝置身分識別](https://docs.microsoft.com/cli/azure/ext/azure-cli-iot-ext/iot/hub/device-identity?view=azure-cli-latest)子命令來管理父子關聯性。 下列範例會使用查詢，將中樞內的所有非 IoT Edge 裝置指派為 IoT Edge 裝置的子裝置。 
 
@@ -138,69 +138,7 @@ az iot hub device-identity add-children \
 
 ### <a name="host-storage-for-system-modules"></a>系統模組的主機存放裝置
 
-根據預設，訊息和模組狀態資訊會儲存在 IoT Edge 中樞的本機容器檔案系統中。 為了改善可靠性，特別是在離線操作時，您也可以將存放裝置專用於主機 IoT Edge 裝置上。
-
-若要在主機系統上設定存放裝置，請為 IoT Edge 中樞建立環境變數，並 IoT Edge 代理程式指向容器中的儲存體資料夾。 然後，使用建立選項，將該儲存體資料夾與主機電腦上的資料夾繫結。 
-
-您可以在 Azure 入口網站內的 [設定進階 Edge 執行階段設定] 區段設定環境變數及建立 IoT Edge 中樞模組的選項。 
-
-1. 針對 IoT Edge hub 和 IoT Edge 代理程式，新增名為**storageFolder**的環境變數，以指向模組中的目錄。
-1. 針對 IoT Edge hub 和 IoT Edge 代理程式，新增系結以將主機電腦上的本機目錄連接到模組中的目錄。 例如: 
-
-   ![新增本機儲存體的建立選項和環境變數](./media/offline-capabilities/offline-storage.png)
-
-或者，您可以直接在部署資訊清單中設定本機儲存體。 例如: 
-
-```json
-"systemModules": {
-    "edgeAgent": {
-        "settings": {
-            "image": "mcr.microsoft.com/azureiotedge-agent:1.0",
-            "createOptions": {
-                "HostConfig": {
-                    "Binds":["<HostStoragePath>:<ModuleStoragePath>"]
-                }
-            }
-        },
-        "type": "docker",
-        "env": {
-            "storageFolder": {
-                "value": "<ModuleStoragePath>"
-            }
-        }
-    },
-    "edgeHub": {
-        "settings": {
-            "image": "mcr.microsoft.com/azureiotedge-hub:1.0",
-            "createOptions": {
-                "HostConfig": {
-                    "Binds":["<HostStoragePath>:<ModuleStoragePath>"],
-                    "PortBindings":{"5671/tcp":[{"HostPort":"5671"}],"8883/tcp":[{"HostPort":"8883"}],"443/tcp":[{"HostPort":"443"}]}}}
-        },
-        "type": "docker",
-        "env": {
-            "storageFolder": {
-                "value": "<ModuleStoragePath>"
-            }
-        },
-        "status": "running",
-        "restartPolicy": "always"
-    }
-}
-```
-
-將`<HostStoragePath>`和`<ModuleStoragePath>`取代為您的主機和模組儲存體路徑，這兩個值都必須是絕對路徑。 
-
-例如，`"Binds":["/etc/iotedge/storage/:/iotedge/storage/"]` 表示您主機系統上的 **/etc/iotedge/storage** 目錄會對應至容器上的 **/iotedge/storage/** 目錄。 或是再以 Windows 系統舉一個例子，`"Binds":["C:\\temp:C:\\contemp"]` 表示您主機系統上的 **C:\\temp** 目錄會對應至容器上的 **C:\\contemp** 目錄。 
-
-在 Linux 裝置上，請確定 IoT Edge 中樞的使用者設定檔（UID 1000）具有主機系統目錄的讀取、寫入和執行許可權。 這些許可權是必要的，因此 IoT Edge 中樞可以將訊息儲存在目錄中，並于稍後加以取出。 （IoT Edge 代理程式以 root 身分運作，因此不需要額外的許可權）。有數種方式可以管理 Linux 系統上的目錄許可權，包括`chown`使用變更目錄擁有者，然後`chmod`變更許可權。 例如:
-
-```bash
-sudo chown 1000 <HostStoragePath>
-sudo chmod 700 <HostStoragePath>
-```
-
-您可以從[docker](https://docs.docker.com/engine/api/v1.32/#operation/ContainerCreate)檔中找到更多有關建立選項的詳細資料。
+根據預設，訊息和模組狀態資訊會儲存在 IoT Edge 中樞的本機容器檔案系統中。 為了改善可靠性，特別是在離線操作時，您也可以將存放裝置專用於主機 IoT Edge 裝置上。 如需詳細資訊，請參閱將[模組存取權提供給裝置的本機儲存體](how-to-access-host-storage-from-module.md)
 
 ## <a name="next-steps"></a>後續步驟
 

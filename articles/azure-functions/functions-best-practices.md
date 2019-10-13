@@ -1,23 +1,20 @@
 ---
 title: Azure Functions 的最佳作法 | Microsoft Docs
 description: 了解 Azure Functions 的最佳作法與模式。
-services: functions
-documentationcenter: na
-author: wesmc7777
-manager: jeconnoc
-keywords: azure functions, 模式, 最佳作法, 函數, 事件處理, webhook, 動態計算, 無伺服器架構
+author: ggailey777
+manager: gwallace
 ms.assetid: 9058fb2f-8a93-4036-a921-97a0772f503c
 ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 10/16/2017
 ms.author: glenga
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 2782781fdfd560c0c8f322e362fcf74c796664bd
-ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
+ms.openlocfilehash: ad2f56388b49692d799202d06ed3dc0123f272e5
+ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70933046"
+ms.lasthandoff: 10/13/2019
+ms.locfileid: "72294370"
 ---
 # <a name="optimize-the-performance-and-reliability-of-azure-functions"></a>將 Azure Functions 效能和可靠性最佳化
 
@@ -29,7 +26,9 @@ ms.locfileid: "70933046"
 
 ### <a name="avoid-long-running-functions"></a>避免長時間執行的函式
 
-大型長時間執行的函式可能會造成非預期的逾時問題。 函式可能會因為許多 Node.js 相依性而變大。 匯入相依性也可能會造成載入時間增加，而導致未預期的逾時。 系統會以明確和隱含方式載入相依性。 您的程式碼載入的單一模組可能會載入其本身的其他模組。  
+大型長時間執行的函式可能會造成非預期的逾時問題。 若要深入瞭解特定主控方案的超時時間，請參閱[函數應用程式超時期間](functions-scale.md#timeout)。 
+
+函式可能會因為許多 Node.js 相依性而變大。 匯入相依性也可能會造成載入時間增加，而導致未預期的逾時。 系統會以明確和隱含方式載入相依性。 您的程式碼載入的單一模組可能會載入其本身的其他模組。 
 
 在可能時，將大型函式重構為較小的函式集，共用運作並快速傳回回應。 例如，Webhook 或 HTTP 觸發程序函式可能要求在特定時間限制內的通知回應；Webhook 通常需要立即的回應。 您可以將 HTTP 觸發程序承載傳遞到要由佇列觸發程序函式處理的佇列中。 此方法可讓您延後實際工作，並傳回立即回應。
 

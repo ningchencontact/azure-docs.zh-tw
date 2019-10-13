@@ -1,5 +1,5 @@
 ---
-title: 開始使用佇列儲存體和 Visual Studio 已連接服務 (雲端服務) | Microsoft Docs
+title: 使用 Visual Studio （雲端服務）開始使用佇列儲存體
 description: 在使用 Visual Studio 已連接服務連接到儲存體帳戶之後，如何在 Visual Studio 雲端服務專案中開始使用 Azure 佇列儲存體
 services: storage
 author: ghogen
@@ -12,12 +12,13 @@ ms.workload: azure-vs
 ms.topic: conceptual
 ms.date: 12/02/2016
 ms.author: ghogen
-ms.openlocfilehash: 5ea0af23ef8cf41b20de033d38e4d8652f9f8310
-ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
+ROBOTS: NOINDEX,NOFOLLOW
+ms.openlocfilehash: 603bb2b9a862ad4ed2cbde63e2d82b9a82fbeaa1
+ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69510684"
+ms.lasthandoff: 10/13/2019
+ms.locfileid: "72298788"
 ---
 # <a name="getting-started-with-azure-queue-storage-and-visual-studio-connected-services-cloud-services-projects"></a>開始使用 Azure 佇列儲存體和 Visual Studio 已連接服務 (雲端服務專案)
 [!INCLUDE [storage-try-azure-tools-queues](../../includes/storage-try-azure-tools-queues.md)]

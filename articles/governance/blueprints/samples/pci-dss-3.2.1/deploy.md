@@ -1,5 +1,5 @@
 ---
-title: 範例-PCI-DSS v 3.2.1 藍圖-部署步驟
+title: PCI-DSS 3.2.1 藍圖範例-部署步驟
 description: 適用于付款卡產業資料安全標準 v2.0 藍圖範例的部署步驟，包括藍圖成品參數詳細資訊。
 services: blueprints
 author: DCtheGeek
@@ -7,12 +7,12 @@ ms.author: dacoulte
 ms.date: 06/24/2019
 ms.topic: conceptual
 ms.service: blueprints
-ms.openlocfilehash: fa409b873ea1dd0c0970ebc694ad68673df4d033
-ms.sourcegitcommit: 961468fa0cfe650dc1bec87e032e648486f67651
+ms.openlocfilehash: 85f9eab29411ac896f73eed7aba607c733e4b95e
+ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72248850"
+ms.lasthandoff: 10/13/2019
+ms.locfileid: "72299040"
 ---
 # <a name="deploy-the-pci-dss-v321-blueprint-sample"></a>部署 PCI-DSS 3.2.1 藍圖範例
 
@@ -100,7 +100,7 @@ ms.locfileid: "72248850"
 |\[Preview @ no__t-1 Audit PCI v 3.2.1：2018控制及部署特定的 VM 擴充功能以支援 Audit 需求|原則指派|資源類型的清單 | 已選取資源類型的 Audit 診斷設定。 預設值為選取所有資源| 
 |允許的位置|原則指派|允許的位置清單|允許部署到任何資源的資料中心位置清單。 這份清單可自訂為全球所需的 Azure 位置。 選取您想要允許的位置。| 
 |允許的資源群組位置|原則指派 |允許的位置 |此原則可讓您限制組織可在其中建立資源群組的位置。 它可用來強制執行地理合規性需求。| 
-|在 SQL 伺服器上部署稽核|原則指派|保留天數|資料保留（以天為單位）。 預設值為180，但 PCI 需要365。| 
+|在 SQL 伺服器上部署稽核|原則指派|保留天數|資料保留期（以天為單位）。 預設值為180，但 PCI 需要365。| 
 |在 SQL 伺服器上部署稽核|原則指派|儲存體帳戶的資源組名|稽核會將資料庫事件寫入您 Azure 儲存體帳戶的稽核記錄中 (儲存體帳戶會建立於 SQL Server 建立所在的每個區域中，且將由該區域中的所有伺服器共用)。| 
 
 ## <a name="next-steps"></a>後續步驟

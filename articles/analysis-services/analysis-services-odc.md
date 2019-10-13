@@ -2,18 +2,17 @@
 title: 建立 .odc 檔案以連線至 Azure Analysis Services 伺服器 | Microsoft Docs
 description: 了解如何建立 Office 資料連線檔案 ，以在 Azure 連線至 Analysis Services 伺服器並從該伺服器中取得資料。
 author: minewiskan
-manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
 ms.date: 01/09/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 37f068be544f964f3aec63d85702098c8f382ab8
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e12717b37171df55c7559bb1b05c467f332236bc
+ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60785705"
+ms.lasthandoff: 10/13/2019
+ms.locfileid: "72294830"
 ---
 # <a name="create-an-office-data-connection-file"></a>建立 Office 資料連線檔案
 
@@ -32,7 +31,7 @@ ms.locfileid: "60785705"
 
 4. 以 `.odc` 副檔名將檔案儲存到 C:\Users\\*username*\Documents\My Data Sources 資料夾。
 
-5. 在檔案上按一下滑鼠右鍵，然後按一下 [在 Excel 中開啟]  。 或在 Excel 的 [資料]  功能區上，按一下 [現有連線]  ，選取您的檔案，然後按一下 [開啟]  。
+5. 在檔案上按一下滑鼠右鍵，然後按一下 [在 Excel 中開啟]。 或在 Excel 的 [資料] 功能區上，按一下 [現有連線]，選取您的檔案，然後按一下 [開啟]。
 
 
 

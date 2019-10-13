@@ -7,16 +7,16 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 01/15/2019
+ms.date: 10/10/2019
 author: nabhishek
 ms.author: abnarain
 manager: craigg
-ms.openlocfilehash: 2daae1637c568b72d548330abbcb73da21b12683
-ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
+ms.openlocfilehash: ae3350b14ca1073a5fbb1a353b9301c57e7f1ea4
+ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72176859"
+ms.lasthandoff: 10/13/2019
+ms.locfileid: "72298317"
 ---
 # <a name="compute-environments-supported-by-azure-data-factory"></a>Azure Data Factory 支援的計算環境
 本文說明您可用來處理或轉換資料的各種計算環境。 其中還提供在設定將這些計算環境連結至 Azure Data Factory 的連結服務時，Data Factory 所支援的不同組態 (隨選與自備) 的詳細資料。
@@ -27,7 +27,8 @@ ms.locfileid: "72176859"
 | ------------------------------------------------------------ | ------------------------------------------------------------ |
 | [隨選 HDInsight 叢集](#azure-hdinsight-on-demand-linked-service)或[您自己的 HDInsight 叢集](#azure-hdinsight-linked-service) | [Hive](transform-data-using-hadoop-hive.md)、[Pig](transform-data-using-hadoop-pig.md)、[Spark](transform-data-using-spark.md)、[MapReduce](transform-data-using-hadoop-map-reduce.md)、[Hadoop 串流](transform-data-using-hadoop-streaming.md) |
 | [Azure Batch](#azure-batch-linked-service)                   | [自訂](transform-data-using-dotnet-custom-activity.md)     |
-| [Azure Machine Learning](#azure-machine-learning-linked-service) | [Machine Learning 活動︰批次執行和更新資源](transform-data-using-machine-learning.md) |
+| [Azure Machine Learning Studio](#azure-machine-learning-studio-linked-service) | [Machine Learning 活動︰批次執行和更新資源](transform-data-using-machine-learning.md) |
+| [Azure Machine Learning Service](#azure-machine-learning-service-linked-service) | [Azure Machine Learning 執行管線](transform-data-machine-learning-service.md) |
 | [Azure Data Lake Analytics](#azure-data-lake-analytics-linked-service) | [Data Lake Analytics U-SQL](transform-data-using-data-lake-analytics.md) |
 | [Azure SQL](#azure-sql-database-linked-service)、[Azure SQL 資料倉儲](#azure-sql-data-warehouse-linked-service)、[SQL Server](#sql-server-linked-service) | [預存程序](transform-data-using-stored-procedure.md) |
 | [Azure Databricks](#azure-databricks-linked-service)         | [Notebook](transform-data-databricks-notebook.md)、[Jar](transform-data-databricks-jar.md)、[Python](transform-data-databricks-python.md) |
@@ -354,8 +355,8 @@ Azure Data Factory 服務可自動建立隨選 HDInsight 叢集來處理資料�
 | linkedServiceName | 與此 Azure Batch 連結服務相關聯的 Azure 儲存體服務連結名稱。 此連結服務用於執行活動所需的暫存檔案。 | 是      |
 | connectVia        | 將活動分派到此連結服務所用的整合執行階段。 您可以使用 Azure 整合執行階段或自我裝載整合執行階段。 如果未指定，就會使用預設的 Azure Integration Runtime。 | 否       |
 
-## <a name="azure-machine-learning-linked-service"></a>Azure Machine Learning 連結服務
-您可建立 Azure Machine Learning 連結服務，以向 Data Factory 註冊 Machine Learning 批次評分端點。
+## <a name="azure-machine-learning-studio-linked-service"></a>Azure Machine Learning Studio 連結服務
+您會建立 Azure Machine Learning Studio 連結服務，以向資料處理站註冊 Machine Learning 的批次評分端點。
 
 ### <a name="example"></a>範例
 
@@ -385,11 +386,55 @@ Azure Data Factory 服務可自動建立隨選 HDInsight 叢集來處理資料�
 | Type                   | type 屬性應設為：**AzureML**。 | 是                                      |
 | mlEndpoint             | 批次評分 URL。                   | 是                                      |
 | apiKey                 | 已發佈的工作區模型的 API。     | 是                                      |
-| updateResourceEndpoint | Azure ML Web 服務端點 (用以藉由定型模型檔案更新預測性 Web 服務) 的更新資源 URL | 否                                       |
+| updateResourceEndpoint | Azure Machine Learning Web 服務端點的更新資源 URL，用來更新具有定型模型檔案的預測性 Web 服務 | 否                                       |
 | servicePrincipalId     | 指定應用程式的用戶端識別碼。     | 如果指定 updateResourceEndpoint 則需要 |
 | servicePrincipalKey    | 指定應用程式的金鑰。           | 如果指定 updateResourceEndpoint 則需要 |
 | tenant                 | 指定您的應用程式所在租用戶的資訊 (網域名稱或租用戶識別碼)。 將滑鼠游標暫留在 Azure 入口網站右上角，即可擷取它。 | 如果指定 updateResourceEndpoint 則需要 |
 | connectVia             | 將活動分派到此連結服務所用的整合執行階段。 您可以使用 Azure 整合執行階段或自我裝載整合執行階段。 如果未指定，就會使用預設的 Azure Integration Runtime。 | 否                                       |
+
+## <a name="azure-machine-learning-service-linked-service"></a>Azure Machine Learning 服務連結服務
+您會建立 Azure Machine Learning 服務連結服務，以將 Azure Machine Learning 服務工作區連接到 data factory。
+
+> [!NOTE]
+> 目前僅支援 Azure Machine Learning 服務連結服務的服務主體驗證。
+
+### <a name="example"></a>範例
+
+```json
+{
+    "name": "AzureMLServiceLinkedService",
+    "properties": {
+        "type": "AzureMLService",
+        "typeProperties": {
+            "subscriptionId": "subscriptionId",
+            "resourceGroupName": "resourceGroupName",
+            "mlWorkspaceName": "mlWorkspaceName",
+            "servicePrincipalId": "service principal id",
+            "servicePrincipalKey": {
+                "value": "service principal key",
+                "type": "SecureString"
+            },
+            "tenant": "tenant ID"
+        },
+        "connectVia": {
+            "referenceName": "<name of Integration Runtime?",
+            "type": "IntegrationRuntimeReference"
+        }
+    }
+}
+```
+
+### <a name="properties"></a>屬性
+| 屬性               | 描述                              | 必要項                                 |
+| ---------------------- | ---------------------------------------- | ---------------------------------------- |
+| Type                   | type 屬性應設為：**AzureMLService**。 | 是                                      |
+| subscriptionId         | Azure 訂用帳戶識別碼              | 是                                      |
+| resourceGroupName      | name | 是                                      |
+| mlWorkspaceName        | Azure Machine Learning 服務工作區名稱 | 是  |
+| servicePrincipalId     | 指定應用程式的用戶端識別碼。     | 否 |
+| servicePrincipalKey    | 指定應用程式的金鑰。           | 否 |
+| tenant                 | 指定您的應用程式所在租用戶的資訊 (網域名稱或租用戶識別碼)。 將滑鼠游標暫留在 Azure 入口網站右上角，即可擷取它。 | 如果指定 updateResourceEndpoint 則需要 | 否 |
+| connectVia             | 將活動分派到此連結服務所用的整合執行階段。 您可以使用 Azure 整合執行階段或自我裝載整合執行階段。 如果未指定，就會使用預設的 Azure Integration Runtime。 | 否 |    
 
 ## <a name="azure-data-lake-analytics-linked-service"></a>Azure Data Lake Analytics 已連結的服務
 您需建立 **Azure Data Lake Analytics** 連結服務，來將 Azure Data Lake Analytics 計算服務連結到 Azure Data Factory。 管線中的 Data Lake Analytics U-SQL 活動會參考此連結服務。 
@@ -410,7 +455,7 @@ Azure Data Factory 服務可自動建立隨選 HDInsight 叢集來處理資料�
                 "type": "SecureString"
             },
             "tenant": "tenant ID",
-            "subscriptionId": "<optional, subscription id of ADLA>",
+            "subscriptionId": "<optional, subscription ID of ADLA>",
             "resourceGroupName": "<optional, resource group name of ADLA>"
         },
         "connectVia": {

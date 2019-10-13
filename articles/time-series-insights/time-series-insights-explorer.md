@@ -12,12 +12,12 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 10/03/2019
 ms.custom: seodec18
-ms.openlocfilehash: 3a6bebfa11294821ff717f221e3e0ddfd68cd65c
-ms.sourcegitcommit: 4f7dce56b6e3e3c901ce91115e0c8b7aab26fb72
+ms.openlocfilehash: aa04b2508f89b9658d904624e884bf9133caf3b7
+ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71948216"
+ms.lasthandoff: 10/13/2019
+ms.locfileid: "72299513"
 ---
 # <a name="azure-time-series-insights-explorer"></a>Azure 時間序列深入解析總管
 
@@ -76,7 +76,7 @@ Azure 時間序列深入解析是完全受控的分析、儲存體及視覺效�
          |`<`, `>`, `<=`, `>=`     |  Double、DateTime、TimeSpan       |         |
          |`=`, `!=`, `<>`     | String、Bool、Double、DateTime、TimeSpan、NULL        |         |
          |IN     | String、Bool、Double、DateTime、TimeSpan、NULL        |  所有的運算元都應該是相同的類型或是 NULL 常數。        |
-         |HAS     | String        |  右側只允許常數位串常值。 不允許空字串和 Null。       |
+         |HAS     | 字串        |  右側只允許常數位串常值。 不允許空字串和 Null。       |
 
       - **查詢的範例**
 
@@ -126,4 +126,5 @@ Azure 時間序列深入解析是完全受控的分析、儲存體及視覺效�
 ## <a name="next-steps"></a>後續步驟
 
 - 瞭解如何在您的時間序列深入解析環境中[診斷並解決問題](time-series-insights-diagnose-and-solve-problems.md)。
+
 - 進行引導式[Azure 時間序列深入解析快速入門](time-series-quickstart.md)導覽。

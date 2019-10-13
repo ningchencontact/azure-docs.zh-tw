@@ -9,24 +9,24 @@ ms.date: 03/21/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: 548f37d6a0d4390fb98ceaee7b59314400debb38
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
+ms.openlocfilehash: 2847a25411ed0125f4af0a84f30cd3d9d630eb84
+ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68986558"
+ms.lasthandoff: 10/13/2019
+ms.locfileid: "72299612"
 ---
 # <a name="azure-storage-security-guide"></a>Azure 儲存體安全性指南
 
 「Azure 儲存體」提供一組完整的安全性功能，這些功能一起可讓開發人員建置安全的應用程式：
 
-- 寫入 Azure 儲存體的所有資料 (包括中繼資料) 都會使用[儲存體服務加密 (SSE)](storage-service-encryption.md)自動加密。 如需詳細資訊，請參閱[宣佈 Azure Blob、檔案、資料表及佇列儲存體的預設加密](https://azure.microsoft.com/blog/announcing-default-encryption-for-azure-blobs-files-table-and-queue-storage/) \(英文\)。
+- 寫入 Azure 儲存體的所有資料（包括中繼資料）都會使用[儲存體服務加密（SSE）](storage-service-encryption.md)自動加密。 如需詳細資訊，請參閱[宣佈 Azure Blob、檔案、資料表及佇列儲存體的預設加密](https://azure.microsoft.com/blog/announcing-default-encryption-for-azure-blobs-files-table-and-queue-storage/) \(英文\)。
 - Azure Active Directory (Azure AD) 和角色型存取控制 (RBAC) 可支援 Azure 儲存體，以便進行資源管理作業和資料作業，如下所示：   
     - 您可以將儲存體帳戶範圍內的 RBAC 角色指派給安全性主體，以及使用 Azure AD 來授權資源管理作業，例如金鑰管理。
     - Blob 和佇列資料作業支援 Azure AD 整合。 您可以將訂用帳戶、資源群組、儲存體帳戶或個別的容器或佇列範圍內的 RBAC 角色，指派給安全性主體或 Azure 資源的受控識別。 如需詳細資訊，請參閱[使用 Azure Active Directory 來驗證 Azure 儲存體的存取權](storage-auth-aad.md)。   
 - 您可以使用[用戶端加密](../storage-client-side-encryption.md)、HTTPS 或 SMB 3.0，在應用程式和 Azure 之間進行傳輸時保護資料的安全。  
 - 您可以使用 [Azure 磁碟加密](../../security/azure-security-disk-encryption.md)來加密 Azure 虛擬機器所使用的 OS 和資料磁碟。
-- 您可以使用共用存取簽章來授與 Azure 儲存體中資料物件的委派存取權。 如需詳細資訊, 請參閱[使用共用存取簽章 (SAS) 授與 Azure 儲存體資源的有限存取權](storage-sas-overview.md)。
+- 您可以使用共用存取簽章來授與 Azure 儲存體中資料物件的委派存取權。 如需詳細資訊，請參閱[使用共用存取簽章（SAS）授與 Azure 儲存體資源的有限存取權](storage-sas-overview.md)。
 
 本文簡要說明這些安全性功能當中，可與「Azure 儲存體」搭配使用的每個安全性功能。 所提供的文章連結將提供每個功能的詳細資料，讓您能夠輕鬆地進一步調查每個主題。
 
@@ -102,9 +102,7 @@ ms.locfileid: "68986558"
 * [Azure 儲存體資源提供者 REST API 參考](https://msdn.microsoft.com/library/azure/mt163683.aspx)
 
   此 API 參考說明您可用來以程式設計方式管理儲存體帳戶的 API。
-* [使用 Resource Manager 驗證 API 來存取訂用帳戶](../../azure-resource-manager/resource-manager-api-authentication.md)
 
-  本文示範如何使用 Resource Manager API 進行驗證。
 * [來自Ignite 且適用於 Microsoft Azure 的角色型存取控制](https://channel9.msdn.com/events/Ignite/2015/BRK2707)
 
   這個連結會連到 2015 MS Ignite 會議的 Channel 9 上的視訊。 在這個研討會中，他們討論 Azure 中的存取管理和報告功能，並探索使用 Azure Active Directory 安全存取 Azure 訂用帳戶的最佳做法。
@@ -427,7 +425,7 @@ SSE 是由 Azure 儲存體所管理。 SSE 並不針對傳輸中資料提供安�
 
   本文是 Microsoft Message Analyzer 的參考，並包含教學課程、快速入門及功能摘要的連結。
 
-## <a name="cross-origin-resource-sharing-cors"></a>跨原始資源共用 (CORS)
+## <a name="cross-origin-resource-sharing-cors"></a>跨原始來源資源分享 (CORS)
 ### <a name="cross-domain-access-of-resources"></a>跨網域存取資源
 在某一個網域中執行的 Web 瀏覽器對來自不同網域的資源提出 HTTP 要求時，這稱為跨原始來源的 HTTP 要求。 例如，來自 contoso.com 的 HTML 網頁會對裝載於 fabrikam.blob.core.windows.net 上的 jpeg 提出要求。 基於安全性理由，瀏覽器會限制從指令碼 (例如 JavaScript) 內初始化的跨原始來源 HTTP 要求。 這表示當 contoso.com 的網頁上有一些 JavaScript 程式碼要求 fabrikam.blob.core.windows.net 上的該 jpeg 時，瀏覽器將不允許該要求。
 

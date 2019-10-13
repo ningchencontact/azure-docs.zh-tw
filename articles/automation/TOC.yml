@@ -123,6 +123,8 @@
               href: automation-scenario-source-control-integration-with-VSTS.md
     - name: 疑難排解
       items:
+        - name: 當您開啟 Microsoft Azure 自動化案例時要收集的資料
+          href: troubleshoot/collect-data-microsoft-azure-automation-case.md
         - name: 混合式 Runbook 背景工作的疑難排解
           href: troubleshoot/hybrid-runbook-worker.md
           displayName: 'troubleshoot, HRW, hybrid worker'

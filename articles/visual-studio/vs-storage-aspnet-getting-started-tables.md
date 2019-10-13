@@ -1,5 +1,5 @@
 ---
-title: 開始使用 Azure 資料表儲存體和 Visual Studio 已連線的服務 (ASP.NET) | Microsoft Docs
+title: 使用 Visual Studio （ASP.NET）開始使用 Azure 資料表儲存體
 description: 在使用 Visual Studio 已連線的服務連接到儲存體帳戶之後，如何在 Visual Studio ASP.NET 專案中開始使用 Azure 資料表儲存體
 services: storage
 author: ghogen
@@ -12,12 +12,13 @@ ms.workload: azure-vs
 ms.topic: conceptual
 ms.date: 12/21/2016
 ms.author: ghogen
-ms.openlocfilehash: 6f0858d3c2e3f79dda58710031c105e83418058e
-ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
+ROBOTS: NOINDEX,NOFOLLOW
+ms.openlocfilehash: ec391db0e18128ad85d3bacb79fa51770aa70ea1
+ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69511176"
+ms.lasthandoff: 10/13/2019
+ms.locfileid: "72298888"
 ---
 # <a name="get-started-with-azure-table-storage-and-visual-studio-connected-services-aspnet"></a>開始使用 Azure 資料表儲存體和 Visual Studio 已連線的服務 (ASP.NET)
 [!INCLUDE [storage-try-azure-tools-tables](../../includes/storage-try-azure-tools-tables.md)]
@@ -169,7 +170,7 @@ Azure 資料表儲存體可讓您儲存大量的結構化資料。 此服務是�
     <li>@Html.ActionLink("Create table", "CreateTable", "Tables")</li>
     ```
 
-1. 執行應用程式, 然後選取 [**建立資料表**] 來查看類似下列螢幕擷取畫面的結果:
+1. 執行應用程式，然後選取 [**建立資料表**] 來查看類似下列螢幕擷取畫面的結果：
   
     ![建立資料表](./media/vs-storage-aspnet-getting-started-tables/create-table-results.png)
 
@@ -271,7 +272,7 @@ Azure 資料表儲存體可讓您儲存大量的結構化資料。 此服務是�
     <li>@Html.ActionLink("Add entity", "AddEntity", "Tables")</li>
     ```
 
-1. 執行應用程式, 然後選取 [**新增實體**], 以查看類似下列螢幕擷取畫面的結果:
+1. 執行應用程式，然後選取 [**新增實體**]，以查看類似下列螢幕擷取畫面的結果：
   
     ![新增實體](./media/vs-storage-aspnet-getting-started-tables/add-entity-results.png)
 
@@ -391,7 +392,7 @@ Azure 資料表儲存體可讓您儲存大量的結構化資料。 此服務是�
     <li>@Html.ActionLink("Add entities", "AddEntities", "Tables")</li>
     ```
 
-1. 執行應用程式, 然後選取 [**新增實體**], 以查看類似下列螢幕擷取畫面的結果:
+1. 執行應用程式，然後選取 [**新增實體**]，以查看類似下列螢幕擷取畫面的結果：
   
     ![新增實體](./media/vs-storage-aspnet-getting-started-tables/add-entities-results.png)
 
@@ -493,7 +494,7 @@ Azure 資料表儲存體可讓您儲存大量的結構化資料。 此服務是�
     <li>@Html.ActionLink("Get single", "GetSingle", "Tables")</li>
     ```
 
-1. 執行應用程式, 然後選取 [**取得單一**], 以查看類似下列螢幕擷取畫面的結果:
+1. 執行應用程式，然後選取 [**取得單一**]，以查看類似下列螢幕擷取畫面的結果：
   
     ![取得單一](./media/vs-storage-aspnet-getting-started-tables/get-single-results.png)
 
@@ -537,7 +538,7 @@ Azure 資料表儲存體可讓您儲存大量的結構化資料。 此服務是�
     CloudTable table = tableClient.GetTableReference("TestTable");
     ```
 
-1. 具現化 **TableQuery** 物件，以在 **Where** 子句中指定查詢。 使用將[一批實體新增至資料表](#add-a-batch-of-entities-to-a-table)一節中顯示的**CustomerEntity**類別和資料, 下列程式碼片段會查詢資料表中的所有實體, 其中**PartitionKey** (客戶的姓氏) 的值為 "Smith":
+1. 具現化 **TableQuery** 物件，以在 **Where** 子句中指定查詢。 使用將[一批實體新增至資料表](#add-a-batch-of-entities-to-a-table)一節中顯示的**CustomerEntity**類別和資料，下列程式碼片段會查詢資料表中的所有實體，其中**PartitionKey** （客戶的姓氏）的值為 "Smith"：
 
     ```csharp
     TableQuery<CustomerEntity> query = 
@@ -603,7 +604,7 @@ Azure 資料表儲存體可讓您儲存大量的結構化資料。 此服務是�
     <li>@Html.ActionLink("Get partition", "GetPartition", "Tables")</li>
     ```
 
-1. 執行應用程式, 然後選取 [**取得分割**區], 以查看類似下列螢幕擷取畫面的結果:
+1. 執行應用程式，然後選取 [**取得分割**區]，以查看類似下列螢幕擷取畫面的結果：
   
     ![取得資料分割](./media/vs-storage-aspnet-getting-started-tables/get-partition-results.png)
 
@@ -703,7 +704,7 @@ Azure 資料表儲存體可讓您儲存大量的結構化資料。 此服務是�
     <li>@Html.ActionLink("Delete entity", "DeleteEntity", "Tables")</li>
     ```
 
-1. 執行應用程式, 然後選取 [**刪除實體**], 以查看類似下列螢幕擷取畫面的結果:
+1. 執行應用程式，然後選取 [**刪除實體**]，以查看類似下列螢幕擷取畫面的結果：
   
     ![取得單一](./media/vs-storage-aspnet-getting-started-tables/delete-entity-results.png)
 

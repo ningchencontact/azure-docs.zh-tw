@@ -4,14 +4,14 @@ description: 了解 Azure Cosmos DB 中編製索引的運作方式。
 author: ThomasWeiss
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 09/10/2019
+ms.date: 10/11/2019
 ms.author: thweiss
-ms.openlocfilehash: 4d961f8635a52a09011543b793ce8a87eaa4ea9e
-ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
+ms.openlocfilehash: d679208914eb7d1f74bfaec77fbcff196909a2f4
+ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70914202"
+ms.lasthandoff: 10/13/2019
+ms.locfileid: "72299793"
 ---
 # <a name="indexing-in-azure-cosmos-db---overview"></a>Azure Cosmos DB 中編制索引-總覽
 
@@ -64,9 +64,11 @@ Azure Cosmos DB 將專案轉換成樹狀結構的原因，是因為它允許這�
 
 ## <a name="index-kinds"></a>索引種類
 
-Azure Cosmos DB 目前支援三種類型的索引：
+Azure Cosmos DB 目前支援三種索引。
 
-**範圍**索引種類用於：
+### <a name="range-index"></a>範圍索引
+
+**範圍**索引是以已排序的樹狀結構（例如）為基礎。 範圍索引種類用於：
 
 - 相等查詢：
 
@@ -74,20 +76,41 @@ Azure Cosmos DB 目前支援三種類型的索引：
    SELECT * FROM container c WHERE c.property = 'value'
    ```
 
+   ```sql
+   SELECT * FROM c WHERE c.property IN ("value1", "value2", "value3")
+   ```
+
+   陣列元素的相等相符專案
+   ```sql
+    SELECT * FROM c WHERE ARRAY_CONTAINS(c.tags, "tag1”)
+    ```
+
 - 範圍查詢：
 
    ```sql
    SELECT * FROM container c WHERE c.property > 'value'
    ```
-  （適用于`>`、 `<`、 `>=`、 `<=`、 ）`!=`
+  （適用于 `>`，`<`，`>=`，`<=`，`!=`）
 
-- `ORDER BY`查詢
+- 檢查屬性是否存在：
 
-   ```sql 
+   ```sql
+   SELECT * FROM c WHERE IS_DEFINED(c.property)
+   ```
+
+- 字串前置詞相符（CONTAINS 關鍵字將不會利用範圍索引）：
+
+   ```sql
+   SELECT * FROM c WHERE STARTSWITH(c.property, "value")
+   ```
+
+- `ORDER BY` 個查詢：
+
+   ```sql
    SELECT * FROM container c ORDER BY c.property
    ```
 
-- `JOIN`查詢
+- `JOIN` 個查詢：
 
    ```sql
    SELECT child FROM container c JOIN child IN c.properties WHERE child = 'value'
@@ -95,31 +118,41 @@ Azure Cosmos DB 目前支援三種類型的索引：
 
 範圍索引可以用於純量值（字串或數位）。
 
-**空間**索引種類用於：
+### <a name="spatial-index"></a>空間索引
 
-- 地理空間距離查詢： 
+**空間**索引可讓您有效率地查詢地理空間物件，例如點、線條、多邊形和 multipolygon。 這些查詢會使用 ST_DISTANCE、ST_WITHIN、ST_INTERSECTS 關鍵字。 以下是一些使用空間索引種類的範例：
+
+- 地理空間距離查詢：
 
    ```sql
    SELECT * FROM container c WHERE ST_DISTANCE(c.property, { "type": "Point", "coordinates": [0.0, 10.0] }) < 40
    ```
 
-- 查詢中的地理空間： 
+- 查詢中的地理空間：
 
    ```sql
    SELECT * FROM container c WHERE ST_WITHIN(c.property, {"type": "Point", "coordinates": [0.0, 10.0] } })
    ```
 
+- 地理空間交集查詢：
+
+   ```sql
+   SELECT * FROM c WHERE ST_INTERSECTS(c.property, { 'type':'Polygon', 'coordinates': [[ [31.8, -5], [32, -5], [31.8, -5] ]]  })  
+   ```
+
 空間索引可用於格式正確的[GeoJSON](geospatial.md)物件。 目前支援點、Linestring、多邊形和 MultiPolygons。
 
-**複合**索引種類用於：
+### <a name="composite-indexes"></a>複合索引
 
-- `ORDER BY`多個屬性的查詢：
+當您在多個欄位上執行作業時，**複合**索引會增加效率。 複合索引種類用於：
+
+- 對多個屬性的 `ORDER BY` 查詢：
 
 ```sql
  SELECT * FROM container c ORDER BY c.property1, c.property2
 ```
 
-- 具有篩選和`ORDER BY`的查詢。 如果 filter 屬性加入至`ORDER BY`子句，這些查詢可以利用複合索引。
+- 具有篩選準則和 `ORDER BY` 的查詢。 如果 filter 屬性加入至 `ORDER BY` 子句，這些查詢可以利用複合索引。
 
 ```sql
  SELECT * FROM container c WHERE c.property1 = 'value' ORDER BY c.property1, c.property2
@@ -131,16 +164,23 @@ Azure Cosmos DB 目前支援三種類型的索引：
  SELECT * FROM container c WHERE c.property1 = 'value' AND c.property2 > 'value'
 ```
 
+只要一個篩選述詞在索引種類上使用，查詢引擎就會先評估它，再掃描其餘部分。 例如，如果您有 SQL 查詢，例如 `SELECT * FROM c WHERE c.firstName = "Andrew" and CONTAINS(c.lastName, "Liu")`
+
+* 上述查詢會先使用索引來篩選 firstName = "Andrew" 的專案。 接著，它會透過後續管線傳遞所有 firstName = "Andrew" 專案，以評估 CONTAINS 篩選器述詞。
+
+* 藉由新增其他會使用索引的篩選器述詞，您可以加速查詢，並避免在使用未使用索引的函式時進行完整的容器掃描（例如包含）。 篩選子句的順序並不重要。 查詢引擎會找出哪些述詞更具選擇性，並據以執行查詢。
+
+
 ## <a name="querying-with-indexes"></a>使用索引進行查詢
 
-編制資料索引時所解壓縮的路徑，可讓您在處理查詢時輕鬆地查閱索引。 藉由將`WHERE`查詢的子句與已編制索引的路徑清單進行比對，可以非常快速地識別符合查詢述詞的專案。
+編制資料索引時所解壓縮的路徑，可讓您在處理查詢時輕鬆地查閱索引。 藉由將查詢的 `WHERE` 子句與已編制索引的路徑清單進行比對，可以非常快速地識別符合查詢述詞的專案。
 
 例如，請考慮下列查詢： `SELECT location FROM location IN company.locations WHERE location.country = 'France'`。 查詢述詞（篩選項目，其中任何位置都有 "法國" 作為其國家/地區）會符合下列紅色反白顯示的路徑：
 
 ![符合樹狀結構內的特定路徑](./media/index-overview/matching-path.png)
 
 > [!NOTE]
-> 依單一屬性排序的 子句一律需要範圍索引，如果它所參考的路徑沒有一個，將會`ORDER BY`失敗。 同樣地， `ORDER BY`依多個屬性排序的查詢，*一律*需要複合索引。
+> 依單一屬性排序的 `ORDER BY` 子句，*一律*需要範圍索引，如果它所參考的路徑沒有一個，將會失敗。 同樣地，`ORDER BY` 查詢依多個屬性排序時，*一律*需要複合索引。
 
 ## <a name="next-steps"></a>後續步驟
 

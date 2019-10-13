@@ -1,5 +1,5 @@
 ---
-title: 使用 PowerShell 啟用 Azure 雲端服務中角色的遠端桌面連線
+title: 使用 PowerShell，啟用角色的遠端桌面（Azure 雲端服務）
 description: 如何使用 PowerShell 設定的 Azure 雲端服務應用程式以允許遠端桌面連線
 services: cloud-services
 documentationcenter: ''
@@ -8,12 +8,12 @@ ms.service: cloud-services
 ms.topic: article
 ms.date: 07/18/2017
 ms.author: gwallace
-ms.openlocfilehash: b466cb866889edcdc2bd02373a5567a7b53ae18d
-ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
+ms.openlocfilehash: cd36188cba91ad8a97e3f97896cf215a5f0220c2
+ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68358983"
+ms.lasthandoff: 10/13/2019
+ms.locfileid: "72298416"
 ---
 # <a name="enable-remote-desktop-connection-for-a-role-in-azure-cloud-services-using-powershell"></a>使用 PowerShell 啟用 Azure 雲端服務中角色的遠端桌面連線
 
@@ -62,7 +62,7 @@ $expiry = $(Get-Date).AddDays(1)
 $credential = New-Object System.Management.Automation.PSCredential $username,$securepassword
 Set-AzureServiceRemoteDesktopExtension -ServiceName $servicename -Credential $credential -Expiration $expiry
 ```
-您可以選擇性地指定部署位置和您想要啟用遠端桌面的角色。 如果未指定這些參數，此 Cmdlet 會在「生產」  部署位置中的所有角色上啟用遠端桌面。
+您可以選擇性地指定部署位置和您想要啟用遠端桌面的角色。 如果未指定這些參數，此 Cmdlet 會在「生產」 部署位置中的所有角色上啟用遠端桌面。
 
 遠端桌面延伸模組與部署相關聯。 如果您為服務建立新的部署，您必須啟用該部署上的遠端桌面。 如果您想一律啟用遠端桌面，則您應該考慮將 PowerShell 指令碼整合到您的部署工作流程中。
 

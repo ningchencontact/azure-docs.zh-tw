@@ -1,5 +1,5 @@
 ---
-title: 開始使用 Azure Blob 儲存體和 Visual Studio 已連線服務 (ASP.NET) | Microsoft Docs
+title: 開始使用 Visual Studio 的 Azure Blob 儲存體（ASP.NET）
 description: 在使用 Visual Studio 已連線服務連線到儲存體帳戶之後，如何於 Visual Studio 的 ASP.NET 專案中開始使用 Azure Blob 儲存體
 services: storage
 author: ghogen
@@ -11,12 +11,13 @@ ms.workload: azure-vs
 ms.topic: conceptual
 ms.date: 12/07/2017
 ms.author: ghogen
-ms.openlocfilehash: 7fede4a554fc2fd97b5b786a483f6da4f4336248
-ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
+ROBOTS: NOINDEX,NOFOLLOW
+ms.openlocfilehash: d6591cdb8f19484c87bb05f9007521adc34778f9
+ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69512374"
+ms.lasthandoff: 10/13/2019
+ms.locfileid: "72298862"
 ---
 # <a name="get-started-with-azure-blob-storage-and-visual-studio-connected-services-aspnet"></a>開始使用 Azure Blob 儲存體和 Visual Studio 已連線服務 (ASP.NET)
 

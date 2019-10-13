@@ -10,12 +10,12 @@ ms.subservice: video-indexer
 ms.topic: article
 ms.date: 09/23/2019
 ms.author: juliako
-ms.openlocfilehash: 3c8d0d3ec0f11592610363e9150be47112995853
-ms.sourcegitcommit: 3fa4384af35c64f6674f40e0d4128e1274083487
+ms.openlocfilehash: 2afc3a859ddb5378b6313c43d693842fdb5fce14
+ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71219868"
+ms.lasthandoff: 10/13/2019
+ms.locfileid: "72296445"
 ---
 # <a name="what-is-video-indexer"></a>什麼是影片索引子？
 
@@ -81,7 +81,7 @@ ms.locfileid: "71219868"
 
 * **關鍵字擷取**：擷取語音和視覺文字中的關鍵字。
 * **命名實體的解壓縮**：透過自然語言處理（NLP），從語音和視覺文字中解壓縮品牌、位置和人員。
-* **主題推斷**：從文字記錄中推斷主要主題。 包含第 1 層級的 IPTC 分類法。
+* **主題推斷**：從文字記錄中推斷主要主題。 包含第二層級的 IPTC 分類。
 * **成品**：為每個模型擷取一組豐富的「下一個詳細資料層級」成品。
 * **情感分析**：識別語音和視覺文字中的正面、負面及中性情緒。
 

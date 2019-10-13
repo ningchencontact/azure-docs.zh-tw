@@ -2,18 +2,17 @@
 title: Azure Analysis Services 中支援的資料來源 | Microsoft Docs
 description: 說明 Azure Analysis Services 中資料模型支援的資料來源。
 author: minewiskan
-manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
 ms.date: 09/13/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 81fc73ffd61a49eae1c4f107733b6f9f53efbb4f
-ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
+ms.openlocfilehash: 79346f0bf80386fb83f55daccda8790652ff8541
+ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/14/2019
-ms.locfileid: "70993378"
+ms.lasthandoff: 10/13/2019
+ms.locfileid: "72298632"
 ---
 # <a name="data-sources-supported-in-azure-analysis-services"></a>Azure Analysis Services 中支援的資料來源
 
@@ -72,7 +71,7 @@ ms.locfileid: "70993378"
 |IBM Informix<sup>[1](#tab1400b)</sup> (搶鮮版 (Beta)) |
 |JSON 文件<sup>[1](#tab1400b)</sup>     |  
 |二進位檔中的程式行<sup>[1](#tab1400b)</sup>     | 
-|MySQL 資料庫     | 
+|MySQL Database     | 
 |OData 摘要<sup>[1](#tab1400b)</sup>     |  
 |ODBC 查詢     | 
 |OLE DB     |   

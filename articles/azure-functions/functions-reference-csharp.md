@@ -1,22 +1,19 @@
 ---
 title: Azure Functions C# 指令碼開發人員參考
 description: 了解如何使用 C# 指令碼開發 Azure Functions。
-services: functions
-documentationcenter: na
-author: ggailey777
-manager: jeconnoc
+author: craigshoemaker
+manager: gwallace
 keywords: azure functions, 函式, 事件處理, webhook, 動態計算, 無伺服器架構
 ms.service: azure-functions
-ms.devlang: dotnet
 ms.topic: reference
 ms.date: 12/12/2017
-ms.author: glenga
-ms.openlocfilehash: e4460dd7131e35ee8b3f3112977099276da2d4ce
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.author: cshoe
+ms.openlocfilehash: c055e1e94d6bc636292fef5da63e7a8c8eb7fa07
+ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68849428"
+ms.lasthandoff: 10/13/2019
+ms.locfileid: "72299848"
 ---
 # <a name="azure-functions-c-script-csx-developer-reference"></a>Azure Functions C# 指令碼 (.csx) 開發人員參考
 
@@ -376,7 +373,7 @@ simple-name 可能會參考下列組件 (例如，`#r "AssemblyName"`)：
 系統會自動監看包含函式指令碼檔案之目錄中的組件變更。 若要監看其他目錄中的組件變更，請將它們新增至 [host.json](functions-host-json.md) 中的 `watchDirectories` 清單。
 
 ## <a name="using-nuget-packages"></a>使用 NuGet 套件
-若要在2.x 函式中C#使用 NuGet 套件, 請將*函數 proj*檔案上傳至函式應用程式檔案系統中的函式資料夾。 以下是範例 *function.proj* 檔案，該檔案會加入對 *Microsoft.ProjectOxford.Face* *1.1.0* 版的參考：
+若要在2.x 函式中C#使用 NuGet 套件，請將*函數 proj*檔案上傳至函式應用程式檔案系統中的函式資料夾。 以下是範例 *function.proj* 檔案，該檔案會加入對 *Microsoft.ProjectOxford.Face* *1.1.0* 版的參考：
 
 ```xml
 <Project Sdk="Microsoft.NET.Sdk">
@@ -393,9 +390,9 @@ simple-name 可能會參考下列組件 (例如，`#r "AssemblyName"`)：
 若要使用自訂 NuGet 摘要，請在函式應用程式根目錄的 *Nuget.Config* 檔案中指定摘要。 如需詳細資訊，請參閱[設定 NuGet 行為](/nuget/consume-packages/configuring-nuget-behavior)。
 
 > [!NOTE]
-> C#在1.x 函式中, NuGet 套件是以*專案 json*檔案來參考, 而不是以函式*proj*檔案來參考。
+> C#在1.x 函式中，NuGet 套件是以*專案 json*檔案來參考，而不是以函式*proj*檔案來參考。
 
-針對1.x 函式, 請改用*專案 json*檔案。 以下是範例*專案. json*檔案:
+針對1.x 函式，請改用*專案 json*檔案。 以下是範例*專案. json*檔案：
 
 ```json
 {
@@ -412,8 +409,8 @@ simple-name 可能會參考下列組件 (例如，`#r "AssemblyName"`)：
 ### <a name="using-a-functionproj-file"></a>使用函數 proj 檔案
 
 1. 在 Azure 入口網站中開啟函式。 [記錄] 索引標籤會顯示套件安裝輸出。
-2. 若要上傳*函數 proj*檔案, 請使用 Azure Functions 開發人員參考主題中[如何更新函數應用程式檔](functions-reference.md#fileupdate)中所述的其中一種方法。
-3. 上傳*函數 proj*檔案之後, 您會在函式的串流記錄中看到如下列範例所示的輸出:
+2. 若要上傳*函數 proj*檔案，請使用 Azure Functions 開發人員參考主題中[如何更新函數應用程式檔](functions-reference.md#fileupdate)中所述的其中一種方法。
+3. 上傳*函數 proj*檔案之後，您會在函式的串流記錄中看到如下列範例所示的輸出：
 
 ```
 2018-12-14T22:00:48.658 [Information] Restoring packages.
@@ -465,7 +462,7 @@ using (var output = await binder.BindAsync<T>(new BindingTypeAttribute(...)))
 }
 ```
 
-`BindingTypeAttribute` 是可定義繫結的.NET 屬性，而 `T` 是該繫結類型所支援的輸入或輸出類型。 `T` 不能是 `out` 參數類型 (例如 `out JObject`)。 例如, Mobile Apps 資料表輸出系結支援[六種輸出類型](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.MobileApps/MobileTableAttribute.cs#L17-L22), 但您只能使用[ICollector\<T >](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/ICollector.cs)或[`IAsyncCollector<T>`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/IAsyncCollector.cs)的`T`。
+`BindingTypeAttribute` 是可定義繫結的.NET 屬性，而 `T` 是該繫結類型所支援的輸入或輸出類型。 `T` 不能是 `out` 參數類型 (例如 `out JObject`)。 例如，Mobile Apps 資料表輸出系結支援[六種輸出類型](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.MobileApps/MobileTableAttribute.cs#L17-L22)，但您只能使用[ICollector @ no__t-2T >](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/ICollector.cs)或[`IAsyncCollector<T>`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/IAsyncCollector.cs)來進行 `T`。
 
 ### <a name="single-attribute-example"></a>單一屬性範例
 

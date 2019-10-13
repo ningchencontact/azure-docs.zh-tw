@@ -2,18 +2,17 @@
 title: 將服務主體新增至 Azure Analysis Services 伺服器管理員角色 | Microsoft Docs
 description: 了解如何將自動化服務主體新增至伺服器管理員角色
 author: minewiskan
-manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
 ms.date: 07/29/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: a8fbbdbd647aa3d733a26ceaf72629058ae3a274
-ms.sourcegitcommit: 08d3a5827065d04a2dc62371e605d4d89cf6564f
+ms.openlocfilehash: 5e4650d3be5ce21a49b419577eaf83225b1c0d4d
+ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68619266"
+ms.lasthandoff: 10/13/2019
+ms.locfileid: "72298711"
 ---
 # <a name="add-a-service-principal-to-the-server-administrator-role"></a>將服務主體新增至伺服器管理員角色 
 
@@ -25,7 +24,7 @@ ms.locfileid: "68619266"
 [建立服務主體 - Azure 入口網站](../active-directory/develop/howto-create-service-principal-portal.md)   
 [建立服務主體 - PowerShell](../active-directory/develop/howto-authenticate-service-principal-powershell.md)
 
-## <a name="required-permissions"></a>必要權限
+## <a name="required-permissions"></a>所需的權限
 若要完成這項工作，您必須擁有 Azure AS 伺服器的[伺服器管理員](analysis-services-server-admins.md)權限。 
 
 ## <a name="add-service-principal-to-server-administrators-role"></a>將服務主體加入至伺服器管理員角色
@@ -42,7 +41,7 @@ ms.locfileid: "68619266"
 
 
 > [!NOTE]
-> 針對使用 Azure PowerShell Cmdlet 的伺服器作業, 執行排程器的服務主體也必須屬於[Azure 角色型存取控制 (RBAC)](../role-based-access-control/overview.md)中資源的**擁有**者角色。 
+> 針對使用 Azure PowerShell Cmdlet 的伺服器作業，執行排程器的服務主體也必須屬於[Azure 角色型存取控制（RBAC）](../role-based-access-control/overview.md)中資源的**擁有**者角色。 
 
 ## <a name="related-information"></a>相關資訊
 

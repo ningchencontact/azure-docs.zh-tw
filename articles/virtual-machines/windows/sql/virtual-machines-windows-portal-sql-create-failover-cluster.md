@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/11/2018
 ms.author: mikeray
-ms.openlocfilehash: b30ccbcba0b2126d1fe1abce9ae67a55ce25f601
-ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
+ms.openlocfilehash: 92623377daa80efe08b260745fa1d9443366cb8a
+ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72170260"
+ms.lasthandoff: 10/13/2019
+ms.locfileid: "72300627"
 ---
 # <a name="configure-sql-server-failover-cluster-instance-on-azure-virtual-machines"></a>在 Azure 虛擬機器上設定 SQL Server 容錯移轉叢集執行個體
 
@@ -375,14 +375,15 @@ S2D 的磁碟需為空白且不含分割區或其他資料。 若要清理磁碟
 
 1. 使用下列項目設定負載平衡器：
 
-   - **名稱**：能識別負載平衡器的名稱。
-   - **類型**：負載平衡器分為公開或私人兩種類型。 私人負載平衡器可從相同的 VNET 內存取。 大部分的 Azure 應用程式都能使用私人負載平衡器。 若您的應用程式需要直接透過網際網路存取 SQL Server，請使用公開負載平衡器。
-   - **虛擬網路**：與虛擬機器相同的網路。
-   - **子網路**：與虛擬機器相同的子網路。
-   - **私人 IP 位址**：與您指派至 SQL Server FCI 叢集網路資源相同的 IP 位址。
-   - **訂用帳戶**：您的 Azure 訂用帳戶。
+   - 訂用帳戶：您的 Azure 訂用帳戶。
    - **資源群組**：使用與虛擬機器相同的資源群組。
-   - **位置**：使用與虛擬機器相同的 Azure 位置。
+   - **名稱**：能識別負載平衡器的名稱。
+   - **區域**：使用與虛擬機器相同的 Azure 位置。
+   - **類型**：負載平衡器分為公開或私人兩種類型。 私人負載平衡器可從相同的 VNET 內存取。 大部分的 Azure 應用程式都能使用私人負載平衡器。 若您的應用程式需要直接透過網際網路存取 SQL Server，請使用公開負載平衡器。
+   - **SKU**：負載平衡器的 SKU 應該是標準。 
+   - **虛擬網路**：與虛擬機器相同的網路。
+   - **IP 位址指派**：IP 位址指派應為靜態。 
+   - **私人 IP 位址**：與您指派至 SQL Server FCI 叢集網路資源相同的 IP 位址。
    請參閱下圖︰
 
    ![CreateLoadBalancer](./media/virtual-machines-windows-portal-sql-create-failover-cluster/30-load-balancer-create.png)

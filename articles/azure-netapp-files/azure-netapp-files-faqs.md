@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 09/25/2019
+ms.date: 10/12/2019
 ms.author: b-juche
-ms.openlocfilehash: ec0fa0ba7c7cad698cda0f7b440415c3dbb0236a
-ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
+ms.openlocfilehash: eefa54806d9f5ec9ef3a0c02e4abbaf6b4bf22e2
+ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71299624"
+ms.lasthandoff: 10/13/2019
+ms.locfileid: "72298481"
 ---
 # <a name="faqs-about-azure-netapp-files"></a>關於 Azure NetApp Files 的常見問題
 
@@ -50,7 +50,7 @@ ms.locfileid: "71299624"
 
 ### <a name="can-the-network-traffic-between-the-azure-vm-and-the-storage-be-encrypted"></a>Azure VM 與儲存體之間的網路流量是否可以加密？
 
-資料流量（從 NFSv3 或 SMBv3 用戶端到 Azure NetApp Files 磁片區的流量）不會加密。 不過，從 Azure VM （執行 NFS 或 SMB 用戶端）到 Azure NetApp Files 的流量，與任何其他 Azure VM 到 VM 的流量一樣安全。 這是 Azure 資料中心網路的本機流量。 
+資料流量（從 NFSv3、NFSv 4.1 或 SMBv3 用戶端到 Azure NetApp Files 磁片區的流量）不會加密。 不過，從 Azure VM （執行 NFS 或 SMB 用戶端）到 Azure NetApp Files 的流量，與任何其他 Azure VM 到 VM 的流量一樣安全。 這是 Azure 資料中心網路的本機流量。 
 
 ### <a name="can-the-storage-be-encrypted-at-rest"></a>儲存體可以在待用時加密嗎？
 
@@ -103,7 +103,7 @@ Azure NetApp Files 提供磁片區效能計量。 您也可以使用 Azure 監�
 
 ### <a name="i-want-to-have-a-volume-mounted-automatically-when-an-azure-vm-is-started-or-rebooted--how-do-i-configure-my-host-for-persistent-nfs-volumes"></a>我想要在 Azure VM 啟動或重新開機時，自動裝載磁片區。  如何? 為持續性 NFS 磁片區設定我的主機嗎？
 
-若要讓 NFS 磁片區在 VM 啟動或重新開機時自動掛接，請將`/etc/fstab`專案新增至主機上的檔案。 
+若要讓 NFS 磁片區在 VM 啟動或重新開機時自動掛接，請將專案新增至主機上的 `/etc/fstab` 檔案。 
 
 例如：`$ANFIP:/$FILEPATH      /$MOUNTPOINT    nfs bg,rw,hard,noatime,nolock,rsize=65536,wsize=65536,vers=3,tcp,_netdev 0 0`
 
@@ -120,7 +120,11 @@ DF 報告的磁片區大小是 Azure NetApp Files 磁片區可以成長的大小
 
 ### <a name="what-nfs-version-does-azure-netapp-files-support"></a>Azure NetApp Files 支援哪些 NFS 版本？
 
-Azure NetApp Files 目前支援 NFSv3。
+Azure NetApp Files 支援 NFSv3 和 NFSv 4.1。 您可以使用任何一個 NFS 版本來建立磁片區。 
+
+> [!IMPORTANT] 
+> NFSv 4.1 功能的存取權需要允許清單。  若要要求允許清單，請將要求提交給 <anffeedback@microsoft.com>。 
+
 
 ### <a name="how-do-i-enable-root-squashing"></a>如何? 啟用根抓？
 
@@ -140,7 +144,7 @@ Azure NetApp Files 目前支援每個訂用帳戶有一個 Active Directory 連�
 
 同時支援[Azure Active Directory （AD）網域服務](https://docs.microsoft.com/azure/active-directory-domain-services/overview)和[Active Directory Domain Services （AD DS）](https://docs.microsoft.com/windows-server/identity/ad-ds/get-started/virtual-dc/active-directory-domain-services-overview) 。 您可以使用現有的 Active Directory 網域控制站搭配 Azure NetApp Files。 網域控制站可位於 Azure 中做為虛擬機器，或透過 ExpressRoute 或 S2S VPN 在內部部署。 Azure NetApp Files 目前不支援[Azure Active Directory](https://azure.microsoft.com/resources/videos/azure-active-directory-overview/)的 AD 聯結。
 
-如果您使用具有 Azure Active Directory Domain Services 的 Azure NetApp Files，則當您設定 NetApp `OU=AADDC Computers`帳戶的 Active Directory 時，組織單位路徑就會是。
+如果您使用具有 Azure Active Directory Domain Services 的 Azure NetApp Files，則當您設定 NetApp 帳戶的 Active Directory 時，組織單位路徑會 `OU=AADDC Computers`。
 
 ### <a name="what-versions-of-windows-server-active-directory-are-supported"></a>支援哪些版本的 Windows Server Active Directory？
 

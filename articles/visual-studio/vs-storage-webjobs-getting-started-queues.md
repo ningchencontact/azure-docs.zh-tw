@@ -1,5 +1,5 @@
 ---
-title: 開始使用佇列儲存體和 Visual Studio 已連接服務 (WebJob 專案) | Microsoft Docs
+title: 開始使用 Visual Studio 的佇列儲存體（WebJob 專案）
 description: 在使用 Visual Studio 已連接服務連接至儲存體帳戶之後，如何於 WebJob 專案中開始使用 Azure 佇列儲存體。
 services: storage
 author: ghogen
@@ -12,12 +12,13 @@ ms.workload: azure-vs
 ms.topic: article
 ms.date: 12/02/2016
 ms.author: ghogen
-ms.openlocfilehash: 0afed158f5a19f3d82a3953f828f2b5566a6d5ff
-ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
+ROBOTS: NOINDEX,NOFOLLOW
+ms.openlocfilehash: ffba203bafaf3837cd2d7fc1a6fd962a6926b186
+ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69510799"
+ms.lasthandoff: 10/13/2019
+ms.locfileid: "72298742"
 ---
 # <a name="getting-started-with-azure-queue-storage-and-visual-studio-connected-services-webjob-projects"></a>開始使用 Azure 佇列儲存體和 Visual Studio 已連接服務 (WebJob 專案)
 [!INCLUDE [storage-try-azure-tools-queues](../../includes/storage-try-azure-tools-queues.md)]
@@ -190,7 +191,7 @@ public static void GracefulShutdownDemo(
 若要編寫會建立新佇列訊息的函數，請使用 **Queue** 屬性。 如同 **QueueTrigger**，您可透過字串傳入佇列名稱，或可以 [動態設定的佇列名稱](#how-to-set-configuration-options)。
 
 ### <a name="string-queue-messages"></a>字串佇列訊息
-下面的非同步程式碼範例會在名稱為 "outputqueue" 的佇列中建立一個新的佇列訊息，其內容與名為 "inputqueue" 的佇列中收到的佇列訊息相同。 (如需非同步函式, 請使用 **\<IAsyncCollector T >** , 如本節稍後所示)。
+下面的非同步程式碼範例會在名稱為 "outputqueue" 的佇列中建立一個新的佇列訊息，其內容與名為 "inputqueue" 的佇列中收到的佇列訊息相同。 （如需非同步函式，請使用**IAsyncCollector @ no__t-1T >** ，如本節稍後所示）。
 
 ```csharp
 public static void CreateQueueMessage(
@@ -216,7 +217,7 @@ public static void CreateQueueMessage(
 SDK 會自動將物件序列化為 JSON。 即使物件是空值，也一律會建立佇列訊息。
 
 ### <a name="create-multiple-messages-or-in-async-functions"></a>建立多個訊息或使用非同步函式
-若要建立多個訊息, 請將輸出佇列的參數**類型\<ICollector t >** 或 **\<IAsyncCollector t >** , 如下列範例所示。
+若要建立多個訊息，請將輸出佇列的參數類型**ICollector @ no__t-1T >** 或**IAsyncCollector @ no__t-3T >** ，如下列範例所示。
 
 ```csharp
 public static void CreateQueueMessages(

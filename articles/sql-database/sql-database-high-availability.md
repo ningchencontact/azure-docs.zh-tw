@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: jovanpop-msft
 ms.author: sashan
 ms.reviewer: carlrab, sashan
-ms.date: 06/10/2019
-ms.openlocfilehash: 54994dd626df23694ea372d4a662d2b4fb051fc8
-ms.sourcegitcommit: e0a1a9e4a5c92d57deb168580e8aa1306bd94723
-ms.translationtype: HT
+ms.date: 10/11/2019
+ms.openlocfilehash: 0307a905c1d3d7d9bc707fbda87fb8f3fd6d2aee
+ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72285771"
+ms.lasthandoff: 10/13/2019
+ms.locfileid: "72299704"
 ---
 # <a name="high-availability-and-azure-sql-database"></a>高可用性和 Azure SQL Database
 
@@ -39,7 +39,7 @@ Azure SQL Database 會在 SQL Server 資料庫引擎和 Windows OS 的最新穩�
 
 標準可用性模型包含兩個層級：
 
-- 無狀態計算層，會執行 `sqlserver.exe` 進程，而且只包含連接的 SSD 上的暫時性和快取資料，例如 TempDB、模型資料庫、計畫快取、緩衝集區和資料行存放區集區。 此無狀態節點是由 Azure Service Fabric 所操作，會初始化 @no__t 0、控制節點的健全狀況，並在必要時執行容錯移轉至另一個節點。
+- 無狀態計算層，會執行 @no__t 0 的進程，並僅包含暫時性和快取的資料，例如 TempDB、附加 SSD 上的模型資料庫，以及記憶體中的計畫快取、緩衝集區和資料行存放區集區。 此無狀態節點是由 Azure Service Fabric 所操作，會初始化 @no__t 0、控制節點的健全狀況，並在必要時執行容錯移轉至另一個節點。
 - 具狀態資料層，其中包含儲存在 Azure Blob 儲存體中的資料庫檔案（.mdf/.ldf）。 Azure blob 儲存體具有內建的資料可用性和冗余功能。 它保證即使 SQL Server 進程損毀，也會保留資料檔案中記錄檔或頁面中的每筆記錄。
 
 每當資料庫引擎或作業系統升級，或偵測到失敗時，Azure Service Fabric 會將無狀態 SQL Server 進程移至具有足夠可用容量的另一個無狀態計算節點。 移動時不會影響 Azure Blob 儲存體中的資料，而且資料/記錄檔會附加到新初始化的 SQL Server 進程。 此程式保證 99.99% 的可用性，但繁重的工作負載可能會在轉換期間遇到效能降低的情況，因為新的 SQL Server 實例是以冷快取開始。
@@ -54,7 +54,24 @@ Azure SQL Database 會在 SQL Server 資料庫引擎和 Windows OS 的最新穩�
 
 額外的好處是，premium 可用性模型包含將唯讀 SQL 連線重新導向至其中一個次要複本的能力。 這項功能稱為[讀取相應](sql-database-read-scale-out.md)放大。它提供 100% 額外的計算容量，不需要額外費用即可從主要複本關閉載入唯讀作業，例如分析工作負載。
 
-### <a name="zone-redundant-configuration"></a>區域備援設定
+## <a name="hyperscale-service-tier-availability"></a>超大規模資料庫服務層級可用性
+
+超大規模資料庫服務層架構會在[分散式函數架構](https://docs.microsoft.com/azure/sql-database/sql-database-service-tier-hyperscale#distributed-functions-architecture)中說明。 
+
+![超大規模資料庫功能架構](./media/sql-database-hyperscale/hyperscale-architecture.png)
+
+超大規模資料庫中的可用性模型包含四個層級：
+
+- 無狀態計算層，會執行 @no__t 0 的進程，並僅包含暫時性和快取的資料，例如在連接的 SSD 上的非涵蓋 RBPEX 快取、TempDB、模型資料庫等，以及在記憶體中規劃快取、緩衝集區和資料行存放區集區。 此無狀態層包含主要計算複本，以及選擇性的一些次要計算複本，可作為容錯移轉目標。
+- 頁面伺服器所組成的無狀態儲存層。 這一層是在計算複本上執行之 @no__t 0 進程的分散式儲存引擎。 每個頁面伺服器僅包含暫時性和快取的資料，例如在連接的 SSD 上涵蓋 RBPEX 快取，以及在記憶體中快取的資料頁。 每一頁伺服器在主動-主動設定中都有配對的頁面伺服器，以提供負載平衡、冗余和高可用性。
+- 執行記錄服務處理常式、交易記錄登陸區域和交易記錄長期儲存的計算節點所形成的具狀態交易記錄儲存層。 登陸區域和長期儲存空間使用 Azure 儲存體，為交易記錄提供可用性和[冗余](https://docs.microsoft.com/azure/storage/common/storage-redundancy)，確保認可交易的資料持久性。
+- 具有資料庫檔案（.mdf/. ndf）的具狀態資料儲存層，儲存在 Azure 儲存體中，並由頁面伺服器更新。 這一層會使用 Azure 儲存體的資料可用性和[冗余](https://docs.microsoft.com/azure/storage/common/storage-redundancy)功能。 它保證即使超大規模資料庫架構的其他層級中的進程損毀，或計算節點失敗，資料檔中的每個頁面仍會保留。
+
+所有超大規模資料庫層中的計算節點都會在 Azure Service Fabric 上執行，以控制每個節點的健全狀況，並視需要執行容錯移轉至可用的狀況良好節點。
+
+如需超大規模資料庫中高可用性的詳細資訊，請參閱[超大規模資料庫中的資料庫高可用性](https://docs.microsoft.com/azure/sql-database/sql-database-service-tier-hyperscale#database-high-availability-in-hyperscale)。
+
+## <a name="zone-redundant-configuration"></a>區域備援設定
 
 根據預設，premium 可用性模型的節點叢集會建立在相同的資料中心內。 隨著[Azure 可用性區域](../availability-zones/az-overview.md)的引進，SQL Database 可以將商務關鍵性資料庫的不同複本放到相同區域中的不同可用性區域。 為了避免發生單點失敗，系統也會跨多個區域將控制環複寫成三個閘道環 (GW)。 [Azure 流量管理員](../traffic-manager/traffic-manager-overview.md) (ATM) 會控制特定閘道的路由。 由於 Premium 或業務關鍵服務層級中的區域冗余設定並不會建立額外的資料庫冗余，因此您可以不需要額外成本來加以啟用。 藉由選取區域多餘的設定，您可以讓 Premium 或業務關鍵資料庫彈性地復原到較大的一組失敗，包括嚴重的資料中心中斷，而不需要變更應用程式邏輯。 您也可以將任何現有的進階或業務關鍵資料庫或彈性集區轉換成區域備援組態。
 

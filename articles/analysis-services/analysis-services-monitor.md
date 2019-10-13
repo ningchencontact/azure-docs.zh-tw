@@ -2,18 +2,17 @@
 title: 監視 Azure Analysis Services 伺服器計量 | Microsoft Docs
 description: 了解如何在 Azure 入口網站中監視 Analysis Services 伺服器計量。
 author: minewiskan
-manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
 ms.date: 09/12/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 7c7aaf911930f83775f66c47377bc68edb059519
-ms.sourcegitcommit: dd69b3cda2d722b7aecce5b9bd3eb9b7fbf9dc0a
+ms.openlocfilehash: a66089d01ed9eabdb78975eb1738b87c99fbf311
+ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70958975"
+ms.lasthandoff: 10/13/2019
+ms.locfileid: "72294864"
 ---
 # <a name="monitor-server-metrics"></a>監視伺服器計量
 
@@ -59,17 +58,17 @@ Analysis Services 提供 Azure 計量瀏覽器中的計量，這是入口網站�
 |virtual_bytes_metric|虛擬位元組 |位元組|Average|Analysis Services 引擎進程和混合使用容器進程的虛擬位址空間目前大小。|
 |mashup_engine_private_bytes_metric|M 引擎私用位元組 |位元組|Average|已配置的記憶體混合容器進程總數，不包含與其他進程共用的記憶體。|
 |mashup_engine_virtual_bytes_metric|M 引擎虛擬位元組 |位元組|Average|混合容器進程的目前虛擬位址空間大小是使用。|
-|配額|記憶體：配額|位元組|Average|目前的記憶體配額，以位元組為單位。 記憶體配額也就是指授與使用的記憶體，或是保留的記憶體。|
+|Quota|記憶體：Quota|位元組|Average|目前的記憶體配額，以位元組為單位。 記憶體配額也就是指授與使用的記憶體，或是保留的記憶體。|
 |QuotaBlocked|記憶體：封鎖的配額|Count|Average|在釋放其他記憶體配額之前，目前已封鎖的配額要求數目。|
 |VertiPaqNonpaged|記憶體：未分頁的 VertiPaq|位元組|Average|工作集中已封鎖來供記憶體內部引擎使用的記憶體位元組。|
 |VertiPaqPaged|記憶體：分頁的 VertiPaq|位元組|Average|可供記憶體內部資料使用的分頁記憶體位元組。|
 |ProcessingPoolJobQueueLength|處理集區作業佇列長度|Count|Average|處理執行緒集區佇列中的非 I/O 作業數目。|
-|RowsConvertedPerSec|處理：每秒轉換的資料列|CountPerSecond|Average|處理期間資料列轉換的速率。|
-|RowsReadPerSec|處理：每秒讀取的資料列|CountPerSecond|Average|從所有關聯式資料庫讀取資料列的速率。|
-|RowsWrittenPerSec|處理：每秒寫入的資料列|CountPerSecond|Average|處理期間資料列寫入的速率。|
+|RowsConvertedPerSec|處理：每秒轉換的資料列|每秒計數|Average|處理期間資料列轉換的速率。|
+|RowsReadPerSec|處理：每秒讀取的資料列|每秒計數|Average|從所有關聯式資料庫讀取資料列的速率。|
+|RowsWrittenPerSec|處理：每秒寫入的資料列|每秒計數|Average|處理期間資料列寫入的速率。|
 |qpu_metric|QPU|Count|Average|QPU。 範圍 0-100 (S1)、0-200 (S2) 和 0-400 (S4)|
 |QueryPoolBusyThreads|查詢集區忙碌執行緒|Count|Average|查詢執行緒集區中的忙碌執行緒數目。|
-|SuccessfullConnectionsPerSec|每秒連線成功的次數|CountPerSecond|Average|成功完成連線的速率。|
+|SuccessfullConnectionsPerSec|每秒連線成功的次數|每秒計數|Average|成功完成連線的速率。|
 |CommandPoolBusyThreads|執行緒：命令集區的忙碌執行緒數|Count|Average|命令執行緒集區中的忙碌執行緒數。|
 |CommandPoolIdleThreads|執行緒：命令集區的閒置執行緒數|Count|Average|命令執行緒集區中的閒置執行緒數。|
 |LongParsingBusyThreads|執行緒：完整剖析的忙碌執行緒數|Count|Average|完整剖析執行緒集區中的忙碌執行緒數目。|

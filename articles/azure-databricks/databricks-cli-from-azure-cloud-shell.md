@@ -1,6 +1,6 @@
 ---
 title: '在 Azure Cloud Shell 中使用 Databricks CLI '
-description: 了解如何從 Azure Cloud Shell 使用 Databricks CLI。
+description: 瞭解如何從 Azure Cloud Shell 使用 Databricks CLI 來執行 Azure Databricks 的作業。
 services: azure-databricks
 author: mamccrea
 ms.reviewer: jasonh
@@ -9,14 +9,14 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: mamccrea
-ms.openlocfilehash: dae481fb477223f149404c6a09cad024bc15cd90
-ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
+ms.openlocfilehash: b327403b29f26f6c1f43f9dfe7aabd5c3c7e0a68
+ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67204947"
+ms.lasthandoff: 10/13/2019
+ms.locfileid: "72299902"
 ---
-# <a name="use-databricks-cli-from-azure-cloud-shell"></a>從 Azure Cloud Shell 使用 Databricks CLI
+# <a name="use-databricks-cli-from-azure-cloud-shell"></a>在 Azure Cloud Shell 中使用 Databricks CLI
 
 了解如何從 Azure Cloud Shell 使用 Databricks CLI，進而在 Databricks 上執行作業。
 
@@ -30,7 +30,7 @@ ms.locfileid: "67204947"
 
 1. 登入 [Azure 入口網站](https://portal.azure.com)。
  
-2. 從右上角，按一下 [Cloud Shell]  圖示。
+2. 從右上角，按一下 [Cloud Shell] 圖示。
 
    ![啟動 Cloud Shell](./media/databricks-cli-from-azure-cloud-shell/launch-azure-cloud-shell.png "啟動 Azure Cloud Shell")
 

@@ -1,5 +1,5 @@
 ---
-title: 啟用 Azure 雲端服務中角色的遠端桌面連線
+title: 使用 Visual Studio，啟用角色的遠端桌面（Azure 雲端服務）
 description: 如何設定 Azure 雲端服務應用程式以允許遠端桌面連線
 services: cloud-services
 author: ghogen
@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.workload: azure-vs
 ms.date: 03/06/2018
 ms.author: ghogen
-ms.openlocfilehash: 6a6d045513e3e91c5a8b2004e47378a097be8963
-ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
+ms.openlocfilehash: 96f71306c060a6a533a3ab1c0c54b49d74e5cd82
+ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69515912"
+ms.lasthandoff: 10/13/2019
+ms.locfileid: "72298398"
 ---
 # <a name="enable-remote-desktop-connection-for-a-role-in-azure-cloud-services-using-visual-studio"></a>使用 Visual Studio 啟用 Azure 雲端服務中角色的遠端桌面連線
 
@@ -95,7 +95,7 @@ Certificate with thumbprint [thumbprint] doesn't exist.
 
 1. 在建置步驟完成後，請新增 **Azure 雲端服務部署**步驟，並設定其屬性。
 
-1. 在部署步驟之後, 新增**Azure Powershell**步驟, 並將其 **顯示名稱** 屬性設定為 Azure 部署:啟用 RDP 擴充功能 (或其他適用的名稱), 然後選取適當的 Azure 訂用帳戶。
+1. 在部署步驟之後，新增**Azure Powershell**步驟，並將其 **顯示名稱** 屬性設定為 Azure 部署：啟用 RDP 擴充功能 （或其他適用的名稱），然後選取適當的 Azure 訂用帳戶。
 
 1. 將 [指令碼類型] 設定為 [內嵌]，並將下列程式碼貼到 [內嵌指令碼] 欄位中 (您也可以在您的專案中使用此指令碼建立 `.ps1` 檔案，將 [指令碼類型] 設定為 [指令碼檔案路徑]，並將 [指令碼路徑] 設定為指向該檔案)。
 

@@ -7,19 +7,19 @@ ms.topic: conceptual
 ms.date: 05/22/2018
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 802b4deb91f1df784ac0aed2952d3f915b54ce73
-ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
+ms.openlocfilehash: 3ce754a67643f4506fa825f0780969dc4a06f826
+ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68699709"
+ms.lasthandoff: 10/13/2019
+ms.locfileid: "72299575"
 ---
 # <a name="how-to-deploy-azure-files"></a>如何部署 Azure 檔案服務
 [Azure 檔案服務](storage-files-introduction.md)可提供在雲端中完全受控的檔案共用，可透過業界標準 SMB 通訊協定加以存取。 本文將說明如何在組織中實際部署 Azure 檔案服務。
 
 強烈建議您先閱讀[規劃 Azure 檔案服務部署](storage-files-planning.md)，再遵循這篇文章中的步驟。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 本文假設您已完成下列步驟：
 
 - 在所要區域中，建立 Azure 儲存體帳戶，並設定所需的復原和加密選項。 如需如何建立儲存體帳戶的逐步指示，請參閱[建立儲存體帳戶](../common/storage-create-storage-account.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json)。
@@ -63,7 +63,7 @@ Azure 檔案同步可讓您將組織的檔案共用集中在「Azure 檔案服�
     "F:\shares\scratch\","MyAzureFileShare/",file,rename,"None",None
     ```
 
-    一個儲存體帳戶可以指定多個共用。 如需詳細資訊，請參閱[準備資料集 CSV 檔案](../common/storage-import-export-tool-preparing-hard-drives-import.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json#prepare-the-dataset-csv-file)。
+    一個儲存體帳戶可以指定多個共用。 如需詳細資訊，請參閱[準備資料集 CSV 檔案](../common/storage-import-export-tool-preparing-hard-drives-import.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json)。
 
 5. 建立磁碟機集 CSV 檔案。 磁碟機集 CSV 檔案會列出內部部署匯出代理程式可用的磁碟。 例如，下列磁碟機集 CSV 檔案會列出 `X:`、`Y:` 和 `Z:` 磁碟以用於內部部署匯出工作：
 
@@ -74,7 +74,7 @@ Azure 檔案同步可讓您將組織的檔案共用集中在「Azure 檔案服�
     Z,Format,SilentMode,Encrypt,
     ```
     
-    如需詳細資訊，請參閱[準備磁碟機集 CSV 檔案](../common/storage-import-export-tool-preparing-hard-drives-import.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json#prepare-initialdriveset-or-additionaldriveset-csv-file)。
+    如需詳細資訊，請參閱[準備磁碟機集 CSV 檔案](../common/storage-import-export-tool-preparing-hard-drives-import.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json)。
 
 6. 使用 [WAImportExport 工具](https://www.microsoft.com/download/details.aspx?id=55280)將資料複製到一或多個硬碟。
 

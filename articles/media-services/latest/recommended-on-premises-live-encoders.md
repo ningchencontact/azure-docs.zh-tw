@@ -6,15 +6,15 @@ keywords: encoding;encoders;media;編碼;編碼器;媒體
 author: johndeu
 manager: johndeu
 ms.author: johndeu
-ms.date: 08/08/2019
+ms.date: 10/10/2019
 ms.topic: article
 ms.service: media-services
-ms.openlocfilehash: 6b9cb325f2bb7419e32efd5bde4705786c5dbeb5
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: aa5eae3e40b8578f826b1b275995bbb3d346e586
+ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68934936"
+ms.lasthandoff: 10/13/2019
+ms.locfileid: "72300938"
 ---
 # <a name="recommended-live-streaming-encoders"></a>建議使用即時串流編碼器
 
@@ -37,6 +37,7 @@ ms.locfileid: "68934936"
 > 透過 RTMP 串流處理時，請檢查防火牆和/或 Proxy 設定，確認輸出 TCP 連接埠 1935 和 1936 已開啟。
 
 - Adobe Flash Media Live Encoder 3.2
+- [Cambria Live 4。3](https://www.capellasystems.net/products/cambria-live/)
 - Haivision KB
 - Haivision Makito X HEVC
 - OBS Studio
@@ -61,7 +62,7 @@ ms.locfileid: "68934936"
 - Media Excel Hero Live 和 Hero 4K (UHD/HEVC)
 
 > [!TIP]
->  如果您要以多種語言 (例如, 一個英文音訊軌和一個西班牙文音訊播放軌) 串流處理實況活動, 您可以使用已設定的 Media Excel live 編碼器來完成這項工作, 以將即時摘要傳送至傳遞實況活動。
+>  如果您要以多種語言（例如，一個英文音訊軌和一個西班牙文音訊播放軌）串流處理實況活動，您可以使用已設定的 Media Excel live 編碼器來完成這項工作，以將即時摘要傳送至傳遞實況活動。
 
 ## <a name="configuring-on-premises-live-encoder-settings"></a>設定內部部署即時編碼器設定
 

@@ -4,14 +4,14 @@ description: 描述 Azure Resource Manager 處理跨租用戶驗證要求的方�
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: conceptual
-ms.date: 01/07/2019
+ms.date: 10/11/2019
 ms.author: tomfitz
-ms.openlocfilehash: 625a17156eaf199af0d51151c6fd37769b8f7b4a
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: b85ed32ac333402caeca4901e4d91bbe4d1d112c
+ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68848757"
+ms.lasthandoff: 10/13/2019
+ms.locfileid: "72300341"
 ---
 # <a name="authenticate-requests-across-tenants"></a>跨租用戶驗證要求
 
@@ -24,7 +24,7 @@ ms.locfileid: "68848757"
 | 標頭名稱 | 描述 | 範例值 |
 | ----------- | ----------- | ------------ |
 | Authorization | 主要權杖 | Bearer &lt;primary-token&gt; |
-| x-ms-authorization-auxiliary | 輔助權杖 | 持有&lt;人輔助 token1&gt;、EncryptedBearer &lt;輔助 token2&gt;、持有&lt;人輔助 token3&gt; |
+| x-ms-authorization-auxiliary | 輔助權杖 | 持有人 &lt;auxiliary-token1 @ no__t-1，EncryptedBearer &lt;auxiliary-token2 @ no__t-3，持有人 &lt;auxiliary-token3 @ no__t-5 |
 
 輔助標頭最多可以持有三個輔助權杖。 
 
@@ -37,5 +37,6 @@ ms.locfileid: "68848757"
 當要求參考來自其他租用戶的資源時，Resource Manager 會檢查輔助權杖，以判斷是否能處理該要求。 標頭中的所有輔助權杖必須都是有效且未到期的。 如果任何權杖是過期的，則 Resource Manager 會傳回 401 回應碼。 回應包含的用戶端識別碼和租用戶識別碼不是來自有效權杖。 如果輔助標頭包含租用戶的有效權杖，則會處理跨租用戶的要求。
 
 ## <a name="next-steps"></a>後續步驟
-* 若要了解如何使用 Azure Resource Manager API 傳送驗證要求，請參閱[使用 Resource Manager 驗證 API 來存取訂用帳戶](resource-manager-api-authentication.md)。
-* 如需權杖的詳細資訊，請參閱 [Azure Active Directory 存取權杖](/azure/active-directory/develop/access-tokens)。
+
+* 若要瞭解驗證要求，請參閱[驗證流程和應用程式案例](../active-directory/develop/authentication-flows-app-scenarios.md)。
+* 如需權杖的詳細資訊，請參閱 [Azure Active Directory 存取權杖](../active-directory/develop/access-tokens.md)。

@@ -16,19 +16,19 @@ ms.author: ryanwi
 ms.reviewer: tomfitz
 ms.custom: aaddev, seoapril2019, identityplatformtop40
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a28354f54978e8ba776d8b0da294652ff462a05f
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: 14c3f90918d246a63d50af7b3542e8e74d5fbcf1
+ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68853444"
+ms.lasthandoff: 10/13/2019
+ms.locfileid: "72295515"
 ---
-# <a name="how-to-use-the-portal-to-create-an-azure-ad-application-and-service-principal-that-can-access-resources"></a>HOW TO：使用入口網站來建立可存取資源的 Azure AD 應用程式和服務主體
+# <a name="how-to-use-the-portal-to-create-an-azure-ad-application-and-service-principal-that-can-access-resources"></a>作法：使用入口網站來建立可存取資源的 Azure AD 應用程式和服務主體
 
-本文說明如何建立可與角色型存取控制搭配使用的新 Azure Active Directory (Azure AD) 應用程式和服務主體。 如果您擁有需要存取或修改資源的程式碼，則可以建立應用程式的身分識別。 此身分識別就是所謂的服務主體。 然後，您可以將必要的權限指派給服務主體。 本文說明如何使用入口網站來建立服務主體。 其中著重在說明單一租用戶應用程式，此應用程式的目的是只在一個組織內執行。 您通常會將單一租用戶應用程式用在組織內執行的企業營運系統應用程式。
+本文說明如何建立可與角色型存取控制搭配使用的新 Azure Active Directory （Azure AD）應用程式和服務主體。 如果您擁有需要存取或修改資源的程式碼，則可以建立應用程式的身分識別。 此身分識別就是所謂的服務主體。 然後，您可以將必要的權限指派給服務主體。 本文說明如何使用入口網站來建立服務主體。 其中著重在說明單一租用戶應用程式，此應用程式的目的是只在一個組織內執行。 您通常會將單一租用戶應用程式用在組織內執行的企業營運系統應用程式。
 
 > [!IMPORTANT]
-> 若不要建立服務主體，可考慮使用 Azure 資源的受控識別作為應用程式識別碼。 如果您的程式碼在支援受控識別的服務上執行, 並存取支援 Azure AD authentication 的資源, 則受控識別會是較好的選項。 若要深入了解 Azure 資源的受控識別，包含目前哪些服務支援該功能，請參閱[什麼是適用於 Azure 資源的受控識別？](../managed-identities-azure-resources/overview.md)。
+> 若不要建立服務主體，可考慮使用 Azure 資源的受控識別作為應用程式識別碼。 如果您的程式碼在支援受控識別的服務上執行，並存取支援 Azure AD authentication 的資源，則受控識別會是較好的選項。 若要深入了解 Azure 資源的受控識別，包含目前哪些服務支援該功能，請參閱[什麼是適用於 Azure 資源的受控識別？](../managed-identities-azure-resources/overview.md)。
 
 ## <a name="create-an-azure-active-directory-application"></a>建立 Azure Active Directory 應用程式
 
@@ -38,7 +38,7 @@ ms.locfileid: "68853444"
 1. 選取 **Azure Active Directory**。
 1. 選取 [應用程式註冊]。
 1. 選取 [新增註冊]。
-1. 為應用程式命名。 選取支援的帳戶類型, 以決定可以使用應用程式的人員。 在 [重新**導向 URI**] 下, 針對您想要建立的應用程式類型選取 [ **Web** ]。 輸入要在其中傳送存取權杖的 URI。 您無法建立[原生應用程式](../manage-apps/application-proxy-configure-native-client-application.md)的認證。 您無法將該類型使用於自動化應用程式。 設定值之後，選取 [註冊]。
+1. 為應用程式命名。 選取支援的帳戶類型，以決定可以使用應用程式的人員。 在 [重新**導向 URI**] 下，針對您想要建立的應用程式類型選取 [ **Web** ]。 輸入要在其中傳送存取權杖的 URI。 您無法建立[原生應用程式](../manage-apps/application-proxy-configure-native-client-application.md)的認證。 您無法將該類型使用於自動化應用程式。 設定值之後，選取 [註冊]。
 
    ![輸入應用程式的名稱](./media/howto-create-service-principal-portal/create-app.png)
 
@@ -52,7 +52,7 @@ ms.locfileid: "68853444"
 
 1. 瀏覽至您想要讓應用程式指派至的範圍層級。 例如，若要在訂用帳戶範圍指派角色，請選取 [所有服務] 和 [訂用帳戶]。
 
-   ![例如, 在訂用帳戶範圍指派角色](./media/howto-create-service-principal-portal/select-subscription.png)
+   ![例如，在訂用帳戶範圍指派角色](./media/howto-create-service-principal-portal/select-subscription.png)
 
 1. 選取指派應用程式時作為對象的特定訂用帳戶。
 
@@ -76,7 +76,7 @@ ms.locfileid: "68853444"
 
 1. 選取 **Azure Active Directory**。
 1. 在 Azure AD 中，從 [應用程式註冊] 選取您的應用程式。
-1. 複製目錄 (租使用者) 識別碼, 並將它儲存在您的應用程式代碼中。
+1. 複製目錄（租使用者）識別碼，並將它儲存在您的應用程式代碼中。
 
     ![複製目錄 (租用戶) 識別碼並將它儲存在您的應用程式程式碼中。](./media/howto-create-service-principal-portal/copy-tenant-id.png)
 
@@ -85,26 +85,26 @@ ms.locfileid: "68853444"
    ![複製應用程式 (用戶端) 識別碼](./media/howto-create-service-principal-portal/copy-app-id.png)
 
 ## <a name="certificates-and-secrets"></a>憑證和秘密
-Daemon 應用程式可以使用兩種形式的認證來驗證 Azure AD: 憑證和應用程式秘密。  我們建議使用憑證, 但您也可以建立新的應用程式密碼。
+Daemon 應用程式可以使用兩種形式的認證來驗證 Azure AD：憑證和應用程式秘密。  我們建議使用憑證，但您也可以建立新的應用程式密碼。
 
 ### <a name="upload-a-certificate"></a>上傳憑證
 
-您可以使用現有的憑證 (如果有的話)。  (選擇性) 您可以建立自我簽署憑證以供測試之用。 開啟 PowerShell 並使用下列參數執行[SelfSignedCertificate](/powershell/module/pkiclient/new-selfsignedcertificate) , 以在您電腦的使用者憑證存放區中建立自我簽署憑證: `$cert=New-SelfSignedCertificate -Subject "CN=DaemonConsoleCert" -CertStoreLocation "Cert:\CurrentUser\My"  -KeyExportPolicy Exportable -KeySpec Signature`。  使用 [[管理使用者憑證](/dotnet/framework/wcf/feature-details/how-to-view-certificates-with-the-mmc-snap-in)] mmc 嵌入式管理單元, 從 Windows [控制台] 中匯出此憑證。
+您可以使用現有的憑證（如果有的話）。  （選擇性）您可以建立自我簽署憑證以供測試之用。 開啟 PowerShell 並使用下列參數執行[SelfSignedCertificate](/powershell/module/pkiclient/new-selfsignedcertificate) ，以在您電腦的使用者憑證存放區中建立自我簽署憑證： `$cert=New-SelfSignedCertificate -Subject "CN=DaemonConsoleCert" -CertStoreLocation "Cert:\CurrentUser\My"  -KeyExportPolicy Exportable -KeySpec Signature`。  使用 [[管理使用者憑證](/dotnet/framework/wcf/feature-details/how-to-view-certificates-with-the-mmc-snap-in)] mmc 嵌入式管理單元，從 Windows [控制台] 中匯出此憑證。
 
-若要上傳憑證:
+若要上傳憑證：
 
 1. 選取 [憑證和秘密]。
-1. 選取 [**上傳憑證**], 然後選取憑證 (現有的憑證或您匯出的自我簽署憑證)。
+1. 選取 [**上傳憑證**]，然後選取憑證（現有的憑證或您匯出的自我簽署憑證）。
 
-    ![選取 [上傳憑證], 然後選取您想要新增的憑證](./media/howto-create-service-principal-portal/upload-cert.png)
+    ![選取 [上傳憑證]，然後選取您想要新增的憑證](./media/howto-create-service-principal-portal/upload-cert.png)
 
 1. 選取 [新增]。
 
-在應用程式註冊入口網站中向應用程式註冊憑證之後, 您必須啟用用戶端應用程式程式碼以使用憑證。
+在應用程式註冊入口網站中向應用程式註冊憑證之後，您必須啟用用戶端應用程式程式碼以使用憑證。
 
 ### <a name="create-a-new-application-secret"></a>建立新的應用程式祕密
 
-如果您選擇不使用憑證, 您可以建立新的應用程式密碼。
+如果您選擇不使用憑證，您可以建立新的應用程式密碼。
 
 1. 選取 [憑證和秘密]。
 1. 選取 [用戶端秘密] -> [新增用戶端密碼]。
@@ -114,7 +114,7 @@ Daemon 應用程式可以使用兩種形式的認證來驗證 Azure AD: 憑證�
 
    ![複製秘密值，因為您之後無法取得此值](./media/howto-create-service-principal-portal/copy-secret.png)
 
-## <a name="required-permissions"></a>必要權限
+## <a name="required-permissions"></a>所需的權限
 
 您必須有足夠權限向 Azure AD 租用戶註冊應用程式，並將應用程式指派給 Azure 訂用帳戶中的角色。
 
@@ -123,7 +123,7 @@ Daemon 應用程式可以使用兩種形式的認證來驗證 Azure AD: 憑證�
 1. 選取 **Azure Active Directory**。
 1. 記下您的角色。 如果您具有 [使用者] 角色，則必須確定非系統管理員可以註冊應用程式。
 
-   ![尋找您的角色。 如果您是使用者, 請確定非系統管理員可以註冊應用程式](./media/howto-create-service-principal-portal/view-user-info.png)
+   ![尋找您的角色。 如果您是使用者，請確定非系統管理員可以註冊應用程式](./media/howto-create-service-principal-portal/view-user-info.png)
 
 1. 選取 [使用者設定]。
 1. 檢查 [應用程式註冊] 設定。 此值只能由系統管理員設定。 若設定為 [是]，則 Azure AD 租用戶中的任何使用者都可以註冊應用程式。
@@ -136,7 +136,7 @@ Daemon 應用程式可以使用兩種形式的認證來驗證 Azure AD: 憑證�
 
 若要檢查訂用帳戶權限：
 
-1. 在右上角選取您的帳戶, 然後選取 [ **...]-> [我的許可權**]。
+1. 在右上角選取您的帳戶，然後選取 [ **...]-> [我的許可權**]。
 
    ![選取您的帳戶和您的使用者權限](./media/howto-create-service-principal-portal/select-my-permissions.png)
 
@@ -144,12 +144,11 @@ Daemon 應用程式可以使用兩種形式的認證來驗證 Azure AD: 憑證�
 
    ![選取您想要在其中建立服務主體的訂用帳戶](./media/howto-create-service-principal-portal/view-details.png)
 
-1. 選取 [**角色指派**] 以查看您指派的角色, 並判斷您是否有足夠的許可權可將 AD 應用程式指派給角色。 如果沒有，請洽詢訂用帳戶管理員，將您新增至「使用者存取系統管理員」角色。 在下圖中，使用者已指派給「擁有者」角色，這表示該使用者具有足夠的權限。
+1. 選取 [**角色指派**] 以查看您指派的角色，並判斷您是否有足夠的許可權可將 AD 應用程式指派給角色。 如果沒有，請洽詢訂用帳戶管理員，將您新增至「使用者存取系統管理員」角色。 在下圖中，使用者已指派給「擁有者」角色，這表示該使用者具有足夠的權限。
 
    ![此範例顯示將使用者指派給擁有者角色](./media/howto-create-service-principal-portal/view-user-role.png)
 
 ## <a name="next-steps"></a>後續步驟
 
-* 若要設定多租用戶應用程式，請參閱 [利用 Azure Resource Manager API 進行授權的開發人員指南](../../azure-resource-manager/resource-manager-api-authentication.md)。
 * 若要了解如何指定安全性原則，請參閱 [Azure 角色型存取控制](../../role-based-access-control/role-assignments-portal.md)。  
 * 如需可授與或拒絕使用者的可用動作清單，請參閱 [Azure Resource Manager 資源提供者作業](../../role-based-access-control/resource-provider-operations.md)。

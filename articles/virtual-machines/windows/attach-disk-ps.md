@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/16/2018
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: 81d0469645281f63527db5cf600f157d8d6b29d7
-ms.sourcegitcommit: fbea2708aab06c19524583f7fbdf35e73274f657
+ms.openlocfilehash: ebdaa9aafa884a266ef8cf8d75d1d5fb326c690e
+ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/13/2019
-ms.locfileid: "70968367"
+ms.lasthandoff: 10/13/2019
+ms.locfileid: "72300647"
 ---
 # <a name="attach-a-data-disk-to-a-windows-vm-with-powershell"></a>使用 PowerShell 將資料磁碟連結至 Windows VM
 
@@ -23,9 +23,7 @@ ms.locfileid: "70968367"
 * 虛擬機器的大小會控制您可以連接的資料磁碟數目。 如需相關資訊，請參閱[虛擬機器的大小](sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)。
 * 若要使用進階 SSD，您將需要[已啟用進階儲存體的 VM 類型](sizes-memory.md)，例如 DS 系列或 GS 系列的虛擬機器。
 
-[!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
-
-[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
+本文會在[Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview)內使用 PowerShell，這會持續更新為最新版本。 若要開啟 Cloud Shell，請選取任何程式碼區塊頂端的 [**試用**]。
 
 ## <a name="add-an-empty-data-disk-to-a-virtual-machine"></a>將空的資料磁碟新增至虛擬機器
 

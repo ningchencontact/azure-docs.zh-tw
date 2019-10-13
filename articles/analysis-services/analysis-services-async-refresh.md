@@ -2,18 +2,17 @@
 title: 非同步重新整理 Azure Analysis Services 模型 | Microsoft Docs
 description: 了解如何使用 REST API 撰寫非同步重新整理的程式碼。
 author: minewiskan
-manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
 ms.date: 05/09/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 82e40f756e0d8e0b5627b7c8856bd25fa98adbcb
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: daa25ecd12cb4c3b6ba72164c36cef01001448cf
+ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68932304"
+ms.lasthandoff: 10/13/2019
+ms.locfileid: "72301171"
 ---
 # <a name="asynchronous-refresh-with-the-rest-api"></a>使用 REST API 進行非同步重新整理
 
@@ -98,7 +97,7 @@ https://westus.asazure.windows.net/servers/myserver/models/AdventureWorks/refres
 
 不一定要指定參數。 會套用預設值。
 
-| 名稱             | Type  | 描述  |預設  |
+| Name             | Type  | 描述  |預設  |
 |------------------|-------|--------------|---------|
 | `Type`           | Enum  | 要執行的處理類型。 Type 對應於 TMSL 的 [refresh 命令](https://docs.microsoft.com/bi-reference/tmsl/refresh-command-tmsl)類型：full、clearValues、calculate、dataOnly、automatic 和 defragment。 不支援 Add 類型。      |   automatic      |
 | `CommitMode`     | Enum  | 決定物件要批次認可或只在完成時認可。 CommitMode 包括：default、transactional、partialBatch。  |  transactional       |

@@ -2,18 +2,17 @@
 title: 管理 Azure Analysis Services 中的使用者角色和使用者 | Microsoft Docs
 description: 了解如何在 Azure 中管理 Analysis Services 伺服器上的資料庫角色和使用者。
 author: minewiskan
-manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
 ms.date: 07/29/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 2a6c63c4ae58079c79a9d344f1e2550e4768088f
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: 426b69173994fc94a52ef0fcccb0dbc6315de14a
+ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68932249"
+ms.lasthandoff: 10/13/2019
+ms.locfileid: "72301145"
 ---
 # <a name="manage-database-roles-and-users"></a>管理資料庫角色和使用者
 
@@ -26,9 +25,9 @@ ms.locfileid: "68932249"
 *  **處理** - 使用者可以連線到資料庫並對其執行處理作業，以及分析模型資料庫的資料。
 *  **讀取** - 使用者可以使用用戶端應用程式來連接和分析模型資料庫的資料。
 
-建立表格式模型專案時, 您可以使用 SQL Server Data Tools (SSDT) 中的角色管理員, 建立角色, 並將使用者或群組新增至這些角色。 部署到伺服器時, 您可以使用 SQL Server Management Studio (SSMS)、 [Analysis Services PowerShell Cmdlet](https://docs.microsoft.com/analysis-services/powershell/analysis-services-powershell-reference)或[表格式模型指令碼語言](https://docs.microsoft.com/bi-reference/tmsl/tabular-model-scripting-language-tmsl-reference)(TMSL) 來新增或移除角色和使用者成員。
+建立表格式模型專案時，您可以使用 SQL Server Data Tools （SSDT）中的角色管理員，建立角色，並將使用者或群組新增至這些角色。 部署到伺服器時，您可以使用 SQL Server Management Studio （SSMS）、 [Analysis Services PowerShell Cmdlet](https://docs.microsoft.com/analysis-services/powershell/analysis-services-powershell-reference)或[表格式模型指令碼語言](https://docs.microsoft.com/bi-reference/tmsl/tabular-model-scripting-language-tmsl-reference)（TMSL）來新增或移除角色和使用者成員。
 
-**安全性群組**必須[啟用郵件](https://docs.microsoft.com/exchange/recipients-in-exchange-online/manage-mail-enabled-security-groups), 並`MailEnabled`將屬性設定為。 `True` 當您透過電子郵件地址指定群組`obj:groupid@tenantid`時, 請使用。
+**安全性群組**必須[啟用郵件](https://docs.microsoft.com/exchange/recipients-in-exchange-online/manage-mail-enabled-security-groups)，並將 `MailEnabled` 屬性設定為 `True`。 以電子郵件地址指定群組時，請使用 `obj:groupid@tenantid`。
 
 
 ## <a name="to-add-or-manage-roles-and-users-in-ssdt"></a>在 SSDT 中新增或管理角色和使用者  
@@ -43,7 +42,7 @@ ms.locfileid: "68932249"
   
 4.  選取下列其中一個權限：  
   
-    |使用權限|描述|  
+    |權限|描述|  
     |----------------|-----------------|  
     |**None**|成員無法修改模型結構描述，也無法查詢資料。|  
     |**讀取**|成員可以查詢資料 (根據資料列篩選條件)，但無法修改模型結構描述。|  
@@ -72,7 +71,7 @@ ms.locfileid: "68932249"
 
 3. 選取權限。
 
-   |使用權限|描述|  
+   |權限|描述|  
    |----------------|-----------------|  
    |**完全控制 (系統管理員)**|成員可以修改模型結構描述、程序，以及查詢所有資料。| 
    |**處理資料庫**|成員可以執行「處理」和「全部處理」作業。 無法修改模型結構描述，也無法查詢資料。|  
@@ -142,7 +141,7 @@ ms.locfileid: "68932249"
 |-----------|--------------------|  
 |區域|=Region[Country]="USA"|  
 |ProductCategory|=ProductCategory[Name]="Bicycles"|  
-|交易|=Transactions[Year]=2016|  
+|異動|=Transactions[Year]=2016|  
   
  淨效應是成員可以查詢客戶位於美國、產品類別為自行車且 2016 年之資料的資料列。 使用者無法查詢美國以外的交易、非自行車的交易或不在 2016 年的交易，除非他們是授與這些權限之另一個角色的成員。
   

@@ -9,12 +9,12 @@ ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 09/04/2019
 ms.author: azfuncdf
-ms.openlocfilehash: f297c89d2c3ba5692a44fab631c0d46c75f48692
-ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
+ms.openlocfilehash: 1b056ce8afe86fcd6629aff23ac95acae02ed9ba
+ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71033591"
+ms.lasthandoff: 10/13/2019
+ms.locfileid: "72299873"
 ---
 # <a name="bindings-for-durable-functions-azure-functions"></a>長期函式中的繫結 (Azure Functions)
 
@@ -90,7 +90,7 @@ module.exports = df.orchestrator(function*(context) {
 ```
 
 > [!NOTE]
-> JavaScript `context`中的物件不代表 DurableOrchestrationCoNtext，而是整個函式[內容](../functions-reference-node.md#context-object)。 您可以透過 `context` 物件的 `df` 屬性來存取協調流程方法。
+> JavaScript 中的 `context` 物件不代表 DurableOrchestrationCoNtext，而是整個函式[內容](../functions-reference-node.md#context-object)。 您可以透過 `context` 物件的 `df` 屬性來存取協調流程方法。
 
 > [!NOTE]
 > JavaScript 協調器應使用 `return`。 `durable-functions` 程式庫會負責呼叫 `context.done` 方法。
@@ -244,9 +244,9 @@ module.exports = async function (context) {
 * 在它們執行時傳送事件給它們。
 * 清除執行個體記錄。
 
-如果您使用 Visual Studio，您可以使用 Durable Functions 1.0 的[OrchestrationClientAttribute](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.OrchestrationClientAttribute.html) .net 屬性來系結至協調流程用戶端。 從 Durable Functions 2.0 preview 開始，您可以使用`DurableClientAttribute` .net 屬性系結至協調流程用戶端。
+如果您使用 Visual Studio，您可以使用 Durable Functions 1.0 的[OrchestrationClientAttribute](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.OrchestrationClientAttribute.html) .net 屬性來系結至協調流程用戶端。 從 Durable Functions 2.0 preview 開始，您可以使用 `DurableClientAttribute` .NET 屬性來系結至協調流程用戶端。
 
-如果您使用指令碼語言（例如， *.csx*或 *.js*檔案）進行開發，協調流程觸發程式是由函`bindings`式的陣列中的下列 JSON 物件所定義：
+如果您使用指令碼語言（例如， *.csx*或 *.js*檔案）進行開發，協調流程觸發程式是由函式的 @no__t 2 陣列中的下列 JSON 物件所*定義：*
 
 ```json
 {
@@ -266,7 +266,7 @@ module.exports = async function (context) {
 
 ### <a name="client-usage"></a>用戶端使用方式
 
-在 .NET 函式中，您通常會繫結至 `DurableOrchestrationClient`，這可讓您具有 Durable Functions 所支援之所有用戶端 API 的完整存取權。 從 Durable Functions 2.0 開始，您會改為系`IDurableOrchestrationClient`結至介面。 在 JavaScript 中，相同的 Api 是由從`getClient`傳回的物件所公開。 用戶端物件上的 API 包括：
+在 .NET 函式中，您通常會繫結至 `DurableOrchestrationClient`，這可讓您具有 Durable Functions 所支援之所有用戶端 API 的完整存取權。 從 Durable Functions 2.0 開始，您會改為系結至 @no__t 0 介面。 在 JavaScript 中，相同的 Api 是由 `getClient` 傳回的物件所公開。 用戶端物件上的 API 包括：
 
 * [StartNewAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_StartNewAsync_)
 * [GetStatusAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_GetStatusAsync_)
@@ -351,7 +351,7 @@ module.exports = async function (context) {
 
 實體觸發程式可讓您撰寫[實體](durable-functions-entities.md)函式。 此觸發程式支援處理特定實體實例的事件。
 
-當您使用適用于 Azure Functions 的 Visual Studio 工具時，會使用`EntityTriggerAttribute` .net 屬性來設定實體觸發程式。
+當您使用適用于 Azure Functions 的 Visual Studio 工具時，會使用 `EntityTriggerAttribute` .NET 屬性來設定實體觸發程式。
 
 > [!NOTE]
 > 實體觸發程式可在 Durable Functions 2.0 和更新版本中取得。 JavaScript 尚無法使用實體觸發程式。
@@ -371,64 +371,64 @@ module.exports = async function (context) {
 
 ### <a name="trigger-usage-net"></a>觸發程序使用方式 (.NET)
 
-每個實體函式的參數類型`IDurableEntityContext`為，其具有下列成員：
+每個實體函式的參數類型為 `IDurableEntityContext`，其具有下列成員：
 
-* **EntityName**：取得目前正在執行之實體的名稱。
-* **EntityKey**：取得目前正在執行之實體的索引鍵。
-* **EntityId**：取得目前正在執行之實體的識別碼。
-* **OperationName**：取得目前作業的名稱。
-* **IsNewlyConstructed**: `true`如果實體在作業之前不存在, 則傳回。
-* **GetState\<TState > （）** ：取得實體的目前狀態。 `TState`參數必須是基本型別或 JSON 型別（可序列化 type）。
-* **SetState （object）** ：更新實體的狀態。 `object`參數必須是基本或 JSON 可序列化物件。
-* **Getinputt>\<TInput > （）** ：取得目前作業的輸入。 `TInput`型別參數必須代表基本或 JSON 可序列化型別。
-* **Return （object）** ：將值傳回至呼叫作業的協調流程。 `object`參數必須是基本或 JSON 可序列化物件。
-* **DestructOnExit （）** ：在完成目前作業之後刪除實體。
-* **SignalEntity （EntityId，string，object）** ：將單向訊息傳送至實體。 `object`參數必須是基本或 JSON 可序列化物件。
+* **EntityName**：目前正在執行之實體的名稱。
+* **EntityKey**：目前正在執行之實體的索引鍵。
+* **EntityId**：目前正在執行之實體的識別碼。
+* **OperationName**：目前作業的名稱。
+* **HasState**：實體是否存在，也就是具有某種狀態。 
+* **GetState @ no__t-1TState > （）** ：取得實體的目前狀態。 如果它不存在，則會建立並初始化為 `default<TState>`。 @No__t-0 參數必須是基本型別或 JSON 型別（可序列化 type）。 
+* **GetState @ no__t-1TState > （initfunction）** ：取得實體的目前狀態。 如果它不存在，則會藉由呼叫提供的 `initfunction` 參數來建立。 @No__t-0 參數必須是基本型別或 JSON 型別（可序列化 type）。 
+* **SetState （arg）** ：建立或更新實體的狀態。 @No__t-0 參數必須是可序列化物件或基本類型。
+* **DeleteState （）** ：刪除實體的狀態。 
+* **Getinput t> @ no__t-1TInput > （）** ：取得目前作業的輸入。 @No__t-0 型別參數必須是基本型別或 JSON 型別（可序列化 type）。
+* **Return （arg）** ：將值傳回至呼叫作業的協調流程。 @No__t-0 參數必須是基本或 JSON 可序列化物件。
+* **SignalEntity （EntityId，operation，input）** ：傳送單向訊息給實體。 @No__t-0 參數必須是非 null 字串，且 @no__t 1 參數必須是基本或可序列化的物件。
+* **CreateNewOrchestration （orchestratorFunctionName，input）** ：啟動新的協調流程。 @No__t-0 參數必須是基本或 JSON 可序列化物件。
 
-使用以類別為基礎的實體程式設計模式時`IDurableEntityContext` ，可以`Entity.Current`使用執行緒靜態屬性來參考物件。
+傳遞至實體函式的 @no__t 0 物件可以使用 `Entity.Current` 個非同步區域屬性來存取。 當使用以類別為基礎的程式設計模型時，這個方法會很方便。
 
-### <a name="trigger-sample---entity-function"></a>觸發程式範例-entity 函數
+### <a name="trigger-sample-function-based-syntax"></a>觸發程式範例（以函式為基礎的語法）
 
-下列程式碼是實作為標準函數的簡單*計數器*實體範例。 此函式會定義三`add`個`reset`*作業*: `get`、和, 其中`currentValue`每一個都是以整數狀態值來運作。
+下列程式碼是實作為長期函數的簡單*計數器*實體範例。 此函式會定義三個作業，`add`，`reset`，而 `get`，其中每一個都是以整數狀態運作。
 
 ```csharp
-[FunctionName(nameof(Counter))]
+[FunctionName("Counter")]
 public static void Counter([EntityTrigger] IDurableEntityContext ctx)
 {
-    int currentValue = ctx.GetState<int>();
-
     switch (ctx.OperationName.ToLowerInvariant())
     {
         case "add":
-            int amount = ctx.GetInput<int>();
-            currentValue += operand;
+            ctx.SetState(ctx.GetState<int>() + ctx.GetInput<int>());
             break;
         case "reset":
-            currentValue = 0;
+            ctx.SetState(0);
             break;
         case "get":
-            ctx.Return(currentValue);
+            ctx.Return(ctx.GetState<int>()));
             break;
     }
-
-    ctx.SetState(currentValue);
 }
 ```
 
-### <a name="trigger-sample---entity-class"></a>觸發程式範例-實體類別
+如需以函式為基礎的語法和其使用方式的詳細資訊，請參閱以函[式為基礎的語法](durable-functions-dotnet-entities.md#function-based-syntax)。
 
-下列範例是使用 .net 類別和方法的先前`Counter`實體的對等執行。
+### <a name="trigger-sample-class-based-syntax"></a>觸發程式範例（以類別為基礎的語法）
+
+下列範例等同於使用類別和方法來實作 `Counter` 實體。
 
 ```csharp
+[JsonObject(MemberSerialization.OptIn)]
 public class Counter
 {
     [JsonProperty("value")]
     public int CurrentValue { get; set; }
 
     public void Add(int amount) => this.CurrentValue += amount;
-    
+
     public void Reset() => this.CurrentValue = 0;
-    
+
     public int Get() => this.CurrentValue;
 
     [FunctionName(nameof(Counter))]
@@ -437,21 +437,25 @@ public class Counter
 }
 ```
 
-> [!NOTE]
-> 使用實體類別`static`時，*必須*宣告`[FunctionName]`具有屬性的函式進入點方法。 非靜態的進入點方法可能會導致多個物件初始化，以及可能的其他未定義行為。
+這個實體的狀態是 `Counter` 類型的物件，其中包含的欄位會儲存計數器的目前值。 為了將此物件保存在儲存體中，它會由[Json.NET](https://www.newtonsoft.com/json)程式庫進行序列化和還原序列化。 
 
-實體類別具有與系結和 .NET 相依性插入互動的特殊機制。 如需詳細資訊，請參閱[耐用實體](durable-functions-entities.md)一文。
+如需以類別為基礎的語法和其使用方式的詳細資訊，請參閱[定義實體類別](durable-functions-dotnet-entities.md#defining-entity-classes)。
+
+> [!NOTE]
+> 使用實體類別時，具有 `[FunctionName]` 屬性的函式進入點方法「必須」 宣告為 `static`。 非靜態的進入點方法可能會導致初始化多個物件，並可能導致其他未定義的行為。
+
+實體類別具有與系結和 .NET 相依性插入互動的特殊機制。 如需詳細資訊，請參閱[實體結構](durable-functions-dotnet-entities.md#entity-construction)。
 
 ## <a name="entity-client"></a>實體用戶端
 
 實體用戶端系結可讓您以非同步方式觸發[實體](#entity-trigger)函式。 這些函數有時稱為[用戶端](durable-functions-types-features-overview.md#client-functions)函式。
 
-如果您使用 Visual Studio，您可以使用`DurableClientAttribute` .net 屬性系結至 entity client。
+如果您使用 Visual Studio，您可以使用 `DurableClientAttribute` .NET 屬性來系結至 entity client。
 
 > [!NOTE]
-> 也可以用來系結至[協調流程用戶端。](#orchestration-client) `[DurableClientAttribute]`
+> @No__t-0 也可以用來系結至[協調流程用戶端](#orchestration-client)。
 
-如果您使用指令碼語言（例如， *.csx*或 *.js*檔案）進行開發，則實體觸發程式是由函`bindings`式的陣列中的下列 JSON 物件所定義：
+如果您使用指令碼語言（例如， *.csx*或 *.js*檔案）進行開發，則實體觸發程式是由函式的 @no__t 2 陣列中的下列 JSON 物件所*定義：*
 
 ```json
 {
@@ -471,19 +475,17 @@ public class Counter
 
 ### <a name="entity-client-usage"></a>實體用戶端使用方式
 
-在 .net 函式中，您通常`IDurableEntityClient`會系結至，這可讓您完整存取持久實體所支援的所有用戶端 api。 您也可以系結至`IDurableClient`介面，以提供實體和協調流程的用戶端 api 存取權。 用戶端物件上的 API 包括：
+在 .NET 函式中，您通常會系結至 `IDurableEntityClient`，這可讓您完整存取持久實體所支援的所有用戶端 Api。 您也可以系結至 `IDurableClient` 介面，這可讓您存取實體和協調流程的用戶端 Api。 用戶端物件上的 API 包括：
 
-* **ReadEntityStateAsync\<T >** : 讀取實體的狀態。
-* **SignalEntityAsync**: 將單向訊息傳送至實體, 並等候它排入佇列。
-* **SignalEntityAsync\<TEntityInterface >** ：與相同`SignalEntityAsync` ，但會使用所產生之類型`TEntityInterface`的 proxy 物件。
-* **CreateEntityProxy\<TEntityInterface >** ：以動態方式產生類型`TEntityInterface`的動態 proxy，以對實體進行型別安全的呼叫。
+* **ReadEntityStateAsync @ no__t-1T >** ：讀取實體的狀態。 它會傳迴響應，指出目標實體是否存在，如果有的話，它的狀態為何。
+* **SignalEntityAsync**：將單向訊息傳送至實體，並等候它排入佇列。
+
+在傳送信號之前，不需要建立目標實體-可以從處理信號的實體函式內建立實體狀態。
 
 > [!NOTE]
-> 請務必瞭解先前的「信號」作業都是非同步。 不可能叫用實體函式，並從用戶端取回傳回值。 同樣地， `SignalEntityAsync`可能會在實體開始執行作業之前傳回。 只有協調器函式可以同步叫用實體函式，並處理傳回值。
+> 請務必瞭解，從用戶端傳送的「信號」只會排入佇列，以便在稍後以非同步方式處理。 特別是，`SignalEntityAsync` 通常會在實體甚至啟動作業之前傳回，而且不可能取得傳回值或觀察例外狀況。 如果需要更強的保證（例如，針對工作流程），應該使用*協調*器函式，這可以等候實體作業完成，而且可以處理傳回值並觀察例外狀況。
 
-Api 需要將實體的唯一識別碼指定`EntityId`為。 `SignalEntityAsync` 這些 api 也會選擇性地採用實體`string`作業的名稱做為，並將作業的承載當做 JSON 可序列化。 `object` 如果目標實體不存在，則會使用指定的實體識別碼自動建立。
-
-### <a name="client-sample-untyped"></a>用戶端範例（不具類型）
+### <a name="example-client-signals-entity-directly"></a>範例：用戶端直接通知實體
 
 以下是叫用「計數器」實體的範例佇列觸發函式。
 
@@ -500,16 +502,16 @@ public static Task Run(
 }
 ```
 
-### <a name="client-sample-typed"></a>用戶端範例（具類型）
+### <a name="example-client-signals-entity-via-interface"></a>範例：透過介面的用戶端信號實體
 
-您可以針對實體作業的型別安全存取產生 proxy 物件。 若要產生型別安全 proxy, 實體型別必須執行介面。 例如, 假設先前`Counter` `ICounter`所述的實體實作為介面, 定義如下:
+可能的話，我們建議您[透過介面存取實體](durable-functions-dotnet-entities.md#accessing-entities-through-interfaces)，因為它提供更多的型別檢查。 例如，假設先前所述的 @no__t 0 實體實作為 @no__t 1 介面，定義如下：
 
 ```csharp
 public interface ICounter
 {
     void Add(int amount);
     void Reset();
-    int Get();
+    Task<int> Get();
 }
 
 public class Counter : ICounter
@@ -518,7 +520,7 @@ public class Counter : ICounter
 }
 ```
 
-接著, 用戶端程式`SignalEntityAsync<TEntityInterface>`代碼可以使用`ICounter` , 並將介面指定為型別參數, 以產生型別安全 proxy。 下列程式碼範例示範如何使用型別安全 proxy:
+接著，用戶端程式代碼可以使用 `SignalEntityAsync<ICounter>` 來產生型別安全的 proxy：
 
 ```csharp
 [FunctionName("UserDeleteAvailable")]
@@ -532,23 +534,14 @@ public static async Task AddValueClient(
 }
 ```
 
-在上述`proxy`範例中, 參數是動態產生的`ICounter`實例, 它會`Add`在內部將的呼叫轉譯為對等的 (不具類型`SignalEntityAsync`) 呼叫。
-
-定義實體介面的規則有幾個：
-
-* `TEntityInterface` 中`SignalEntityAsync<TEntityInterface>`的型別參數必須是介面。
-* 實體介面必須僅定義方法。
-* 實體介面方法不得定義一個以上的參數。
-* 實體`void`介面方法必須傳回、 `Task`或`Task<T>` ，其中`T`是某些傳回值。
-* 實體介面在同一個元件（也就是實體類別）中必須只有一個具體的實類別。
-
-如果違反上述任何一項規則， `InvalidOperationException`則會在執行時間擲回。 例外狀況訊息會說明哪一個規則已中斷。
+@No__t-0 參數是動態產生的 `ICounter` 實例，它會在內部將對 `Add` 的呼叫轉譯為 `SignalEntityAsync` 的對等（不具類型）呼叫。
 
 > [!NOTE]
-> `SignalEntityAsync` Api 代表單向作業。 如果實體介面`Task<T>`傳回， `T`參數的值一律會是 null 或`default`。
+> @No__t-0 Api 代表單向作業。 如果實體介面傳回 `Task<T>`，則 @no__t 1 參數的值一律會是 null 或 `default`。
+
+特別的是，對 `Get` 作業發出信號是沒有意義的，因為不會傳回任何值。 相反地，用戶端可以使用 `ReadStateAsync` 直接存取計數器狀態，也可以啟動呼叫 `Get` 作業的協調器函式。 
 
 <a name="host-json"></a>
-
 ## <a name="hostjson-settings"></a>host.json 設定
 
 [!INCLUDE [durabletask](../../../includes/functions-host-json-durabletask.md)]
