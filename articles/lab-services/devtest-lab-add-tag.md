@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/17/2018
+ms.date: 10/13/2019
 ms.author: spelluru
-ms.openlocfilehash: e4d9aeb527461cc7292235fef1de0abdfa4242bd
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 1d7175d000eebd3f68665e7f097bbe3f68025bc8
+ms.sourcegitcommit: bd4198a3f2a028f0ce0a63e5f479242f6a98cc04
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60311344"
+ms.lasthandoff: 10/14/2019
+ms.locfileid: "72302792"
 ---
 # <a name="add-tags-to-a-lab-in-azure-devtest-labs"></a>在 Azure DevTest Labs 中將標記新增到實驗室
 
@@ -41,16 +41,19 @@ ms.locfileid: "60311344"
 ## <a name="steps-to-manage-tags-in-an-existing-lab"></a>在現有實驗室中管理標記的步驟
 
 1. 登入 [Azure 入口網站](https://go.microsoft.com/fwlink/p/?LinkID=525040)。
-1. 視需要選取 [所有服務]  ，然後從清單中選取 [DevTest Labs]  。 您的實驗室可能已顯示在 [所有資源]  下方的儀表板上。
+1. 視需要選取 [所有服務]，然後從清單中選取 [DevTest Labs]。 您的實驗室可能已顯示在 [所有資源] 下方的儀表板上。
 1. 從實驗室清單中，選取您想要新增或管理標記的實驗室。
-1. 在實驗室的 [概觀]  區域中選取 [組態和原則]  。
+1. 在實驗室的 [概觀] 區域中選取 [組態和原則]。
 
     ![組態和原則按鈕](./media/devtest-lab-add-tag/devtestlab-config-and-policies.png)
 
-1. 在左側的 [管理] 下方  選取 [標記]  。
-1. 若要為這個實驗室建立新標記，請輸入**名稱**/**值**組，然後選取 [儲存]  。 您也可以從清單選取現有標記，以便檢視或管理與該標記相關的資源。
+1. 在左側的 [管理] 下方選取 [標記]。
+1. 若要為這個實驗室建立新標記，請輸入**名稱**/**值**組，然後選取 [儲存]。 您也可以從清單選取現有標記，以便檢視或管理與該標記相關的資源。
 
     ![管理標記](./media/devtest-lab-add-tag/devtestlab-manage-tags.png)
+
+> [!NOTE]
+> 在實驗室層級建立的標記會流經實驗室在您的訂用帳戶中啟動的所有可計費資源。 例如，實驗室層級標記會流向實驗室 Vm 的基礎計算 Vm。您可以在成本管理的內容中使用標記。 實驗室層級標記會顯示在成本管理的標記篩選中。
 
 ## <a name="understanding-limitations-to-tags"></a>了解標記的限制
 
@@ -66,4 +69,4 @@ ms.locfileid: "60311344"
 
 ## <a name="next-steps"></a>後續步驟
 * 您可以使用自訂原則，在訂用帳戶內套用限制和慣例。 您所定義的原則可能需要所有資源都具有特定標籤的值。 如需詳細資訊，請參閱[設定原則和排程](devtest-lab-set-lab-policy.md)。
-* 瀏覽 [DevTest Labs Azure Resource Manager 快速入門範本資源庫 (英文)](https://github.com/Azure/azure-devtestlab/tree/master/samples/DevTestLabs/QuickStartTemplates)。
+* 探索[DevTest Labs Azure Resource Manager 快速入門範本資源庫](https://github.com/Azure/azure-devtestlab/tree/master/samples/DevTestLabs/QuickStartTemplates)。

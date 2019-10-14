@@ -1,33 +1,31 @@
 ---
 title: 使用 WebJob 執行背景工作 - Azure App Service
 description: 了解如何在 Azure App Service Web 應用程式、API 應用程式或行動裝置應用程式中，使用 WebJobs 執行背景工作。
-services: app-service
 author: ggailey777
-manager: jeconnoc
-editor: jimbe
-ms.assetid: af01771e-54eb-4aea-af5f-f883ff39572b
+manager: wgallace
+s.assetid: af01771e-54eb-4aea-af5f-f883ff39572b
 ms.service: app-service
-ms.topic: article
+ms.topic: conceptual
 ms.date: 10/16/2018
 ms.author: glenga
 ms.reviewer: msangapu;david.ebbo;suwatch;pbatum;naren.soni
 ms.custom: seodec18
-ms.openlocfilehash: 53f808570a298c8e576b6df7b4654196ffc56813
-ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
+ms.openlocfilehash: 2d97f826f4288d13589a2fb9da8148d58a2c5e1e
+ms.sourcegitcommit: 9858ab651a520c26f0ed18215e650efbf1fc5de9
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72177497"
+ms.lasthandoff: 10/14/2019
+ms.locfileid: "72303576"
 ---
 # <a name="run-background-tasks-with-webjobs-in-azure-app-service"></a>在 Azure App Service 中使用 WebJob 執行背景工作
 
+本文說明如何使用 [Azure 入口網站](https://portal.azure.com)來部署 WebJob，以便上傳可執行檔或指令碼。 如需如何使用 Visual Studio 開發和部署 WebJobs 的詳細資訊，請參閱[使用 Visual Studio 部署 WebJobs](webjobs-dotnet-deploy-vs.md)。
+
 ## <a name="overview"></a>總覽
-WebJobs 是一項 [Azure App Service](https://docs.microsoft.com/azure/app-service/) 功能，可讓您在與 Web 應用程式、API 應用程式或行動應用程式相同的內容中執行程式或指令碼。 使用 WebJob 不會產生額外的費用。
+WebJobs 是一項 [Azure App Service](index.yml) 功能，可讓您在與 Web 應用程式、API 應用程式或行動應用程式相同的內容中執行程式或指令碼。 使用 WebJob 不會產生額外的費用。
 
 > [!IMPORTANT]
 > Linux 上的 App Service 尚不支援 WebJob。
-
-本文說明如何使用 [Azure 入口網站](https://portal.azure.com)來部署 WebJob，以便上傳可執行檔或指令碼。 如需如何使用 Visual Studio 開發和部署 WebJobs 的詳細資訊，請參閱[使用 Visual Studio 部署 WebJobs](webjobs-dotnet-deploy-vs.md)。
 
 Azure WebJobs SDK 可以搭配 WebJobs 使用，以簡化許多程式設計工作。 如需詳細資訊，請參閱 [什麼是 WebJobs SDK](https://github.com/Azure/azure-webjobs-sdk/wiki)。
 
@@ -180,6 +178,8 @@ when making changes in one don't forget the other two.
 ```
 
 若要深入瞭解，請參閱[排程已觸發的 WebJob](webjobs-dotnet-deploy-vs.md#scheduling-a-triggered-webjob)。
+
+[!INCLUDE [webjobs-cron-timezone-note](../../includes/webjobs-cron-timezone-note.md)]
 
 ## <a name="ViewJobHistory"></a>檢視作業記錄
 

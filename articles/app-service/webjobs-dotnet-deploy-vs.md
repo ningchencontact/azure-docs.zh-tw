@@ -1,26 +1,21 @@
 ---
 title: 使用 Visual Studio 開發和部署 WebJob - Azure
 description: 了解如何使用 Visual Studio 開發 Azure WebJob，並將其部署至 Azure App Service。
-services: app-service
-documentationcenter: ''
 author: ggailey777
-manager: jeconnoc
+manager: gwallace
 ms.assetid: a3a9d320-1201-4ac8-9398-b4c9535ba755
 ms.service: app-service
-ms.devlang: dotnet
-ms.topic: article
-ms.tgt_pltfrm: na
+ms.topic: conceptual
 ms.custom: vs-azure
-ms.workload: azure-vs
 ms.date: 02/18/2019
 ms.author: glenga
 ms.reviewer: david.ebbo;suwatch;pbatum;naren.soni
-ms.openlocfilehash: 58d03d80c82fbf58803f7fefa8ef60c19f99bced
-ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+ms.openlocfilehash: ac458b01135be8628fbf939e310f8bda02b8d290
+ms.sourcegitcommit: 9858ab651a520c26f0ed18215e650efbf1fc5de9
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69876877"
+ms.lasthandoff: 10/14/2019
+ms.locfileid: "72303561"
 ---
 # <a name="develop-and-deploy-webjobs-using-visual-studio---azure-app-service"></a>使用 Visual Studio 開發和部署 WebJob - Azure App Service
 
@@ -28,14 +23,14 @@ ms.locfileid: "69876877"
 
 您可以將多個 Webjob 發佈至單一 web 應用程式。 請確定 web 應用程式中的每個 WebJob 都有唯一的名稱。
 
-2\.x 版的[AZURE WEBJOBS SDK](webjobs-sdk-how-to.md)可讓您開發以 .net Core 應用程式或 .NET Framework 應用程式的形式執行的 webjob, 而2.x 版只支援 .NET Framework。 針對 .NET Core 專案與 .NET Framework, 您部署 Webjob 專案的方式不同。
+2\.x 版的[AZURE WEBJOBS SDK](webjobs-sdk-how-to.md)可讓您開發以 .net Core 應用程式或 .NET Framework 應用程式的形式執行的 webjob，而2.x 版只支援 .NET Framework。 針對 .NET Core 專案與 .NET Framework，您部署 Webjob 專案的方式不同。
 
 ## <a name="webjobs-as-net-core-console-apps"></a>Webjob 做為 .NET Core 主控台應用程式
 
-使用2.x 版的 Webjob 時, 您可以建立 Web 工作, 並將其發佈為 .NET Core 主控台應用程式。 如需建立 .NET Core 主控台應用程式並將其發佈至 Azure 作為 WebJob 的逐步指示, 請參閱[開始使用 AZURE WEBJOBS SDK 進行事件驅動的背景處理](webjobs-sdk-get-started.md)。
+使用2.x 版的 Webjob 時，您可以建立 Web 工作，並將其發佈為 .NET Core 主控台應用程式。 如需建立 .NET Core 主控台應用程式並將其發佈至 Azure 作為 WebJob 的逐步指示，請參閱[開始使用 AZURE WEBJOBS SDK 進行事件驅動的背景處理](webjobs-sdk-get-started.md)。
 
 > [!NOTE]
-> .NET Core Webjob 無法與 Web 專案連結。 如果您需要使用 web 應用程式部署 WebJob, 您應該將[webjob 建立為 .NET Framework 主控台應用程式](#webjobs-as-net-framework-console-apps)。  
+> .NET Core Webjob 無法與 Web 專案連結。 如果您需要使用 web 應用程式部署 WebJob，您應該將[webjob 建立為 .NET Framework 主控台應用程式](#webjobs-as-net-framework-console-apps)。  
 
 ### <a name="deploy-to-azure-app-service"></a>部署到 Azure App Service
 
@@ -45,33 +40,33 @@ ms.locfileid: "69876877"
 
 ### <a name="webjob-types"></a>WebJob 類型
 
-根據預設, 從 .NET Core 主控台專案發佈的 WebJob 只會在觸發或視需要時執行。 您也可以將專案更新為依[排程執行](#scheduled-execution)或連續執行。
+根據預設，從 .NET Core 主控台專案發佈的 WebJob 只會在觸發或視需要時執行。 您也可以將專案更新為依[排程執行](#scheduled-execution)或連續執行。
 
 [!INCLUDE [webjobs-alwayson-note](../../includes/webjobs-always-on-note.md)]
 
 #### <a name="scheduled-execution"></a>排定的執行
 
-當您將 .NET Core 主控台應用程式發行至 Azure 時, 新的*設定作業*檔案會新增至專案。 使用此檔案來設定 WebJob 的執行排程。 如需詳細資訊, 請參閱[排程觸發的 WebJob](#scheduling-a-triggered-webjob)。
+當您將 .NET Core 主控台應用程式發行至 Azure 時，新的*設定作業*檔案會新增至專案。 使用此檔案來設定 WebJob 的執行排程。 如需詳細資訊，請參閱[排程觸發的 WebJob](#scheduling-a-triggered-webjob)。
 
 #### <a name="continuous-execution"></a>連續執行
 
-您可以使用 Visual Studio, 在 Azure 中啟用 Always On 時, 將 WebJob 變更為持續執行。
+您可以使用 Visual Studio，在 Azure 中啟用 Always On 時，將 WebJob 變更為持續執行。
 
-1. 如果您尚未這麼做, 請將[專案發佈至 Azure](#deploy-to-azure-app-service)。
+1. 如果您尚未這麼做，請將[專案發佈至 Azure](#deploy-to-azure-app-service)。
 
 1. 在 [方案總管] 中，以滑鼠右鍵按一下專案並選取 [發佈]。
 
-1. 在 [**發佈**] 索引標籤中, 選擇 [**設定**]。 
+1. 在 [**發佈**] 索引標籤中，選擇 [**設定**]。 
 
-1. 在 [**設定檔設定**] 對話方塊中, 針對 [ **WebJob 類型**] 選擇 [**連續**], 然後選擇 [**儲存**]。
+1. 在 [**設定檔設定**] 對話方塊中，針對 [ **WebJob 類型**] 選擇 [**連續**]，然後選擇 [**儲存**]。
 
     ![WebJob 的 [發行設定] 對話方塊](./media/webjobs-dotnet-deploy-vs/publish-settings.png)
 
-1. 選取 [**發佈**], 以更新的設定重新發佈 WebJob。
+1. 選取 [**發佈**]，以更新的設定重新發佈 WebJob。
 
 ## <a name="webjobs-as-net-framework-console-apps"></a>Webjob 做為 .NET Framework 主控台應用程式  
 
-當 Visual Studio 部署啟用 Webjob 的 .NET Framework 主控台應用程式專案時, 它會將執行時間檔案複製到 web 應用程式中的適當資料夾 ([*app_data/jobs/連續*] 用於連續 webjob 和 [ *app_data/jobs]/* [已觸發]已排程或隨選 Webjob)。
+當 Visual Studio 部署啟用 Webjob 的 .NET Framework 主控台應用程式專案時，它會將執行時間檔案複製到 web 應用程式中的適當資料夾（[*app_data/jobs/連續*] 用於連續 webjob 和 [ *app_data/jobs]/* [已觸發]已排程或隨選 Webjob）。
 
 具有 WebJobs 功能的專案會新增下列項目：
 
@@ -212,7 +207,7 @@ ms.locfileid: "69876877"
 
 ## <a name="scheduling-a-triggered-webjob"></a>排程觸發的 WebJob
 
-Webjob 會使用*設定作業*檔案來判斷 WebJob 的執行時間。 使用此檔案來設定 WebJob 的執行排程。 下列範例會每小時從上午9點到下午5點執行:
+Webjob 會使用*設定作業*檔案來判斷 WebJob 的執行時間。 使用此檔案來設定 WebJob 的執行排程。 下列範例會每小時從上午9點到下午5點執行：
 
 ```json
 {
@@ -220,26 +215,28 @@ Webjob 會使用*設定作業*檔案來判斷 WebJob 的執行時間。 使用�
 }
 ```
 
-此檔案必須位於 webjob 資料夾的根目錄, 以及您的 WebJob 腳本, 例如`wwwroot\app_data\jobs\triggered\{job name}`或。 `wwwroot\app_data\jobs\continuous\{job name}` 當您從 Visual Studio 部署 WebJob 時，請將您的 `settings.job` 檔案屬性標示為 [有更新時才複製]。 
+此檔案必須位於 webjob 資料夾的根目錄，以及您的 WebJob 腳本，例如 `wwwroot\app_data\jobs\triggered\{job name}` 或 `wwwroot\app_data\jobs\continuous\{job name}`。 當您從 Visual Studio 部署 WebJob 時，請將您的 `settings.job` 檔案屬性標示為 [有更新時才複製]。 
 
-當您[從 Azure 入口網站建立 WebJob](webjobs-create.md)時, 會為您建立設定作業檔案。
+當您[從 Azure 入口網站建立 WebJob](webjobs-create.md)時，會為您建立設定作業檔案。
 
 [!INCLUDE [webjobs-alwayson-note](../../includes/webjobs-always-on-note.md)]
 
 ### <a name="cron-expressions"></a>CRON 運算式
 
-Webjob 會使用與 Azure Functions 中的計時器觸發程式相同的 CRON 運算式進行排程。 若要深入瞭解 CRON 支援, 請參閱[計時器觸發程式參考文章](../azure-functions/functions-bindings-timer.md#ncrontab-expressions)。
+Webjob 會使用與 Azure Functions 中的計時器觸發程式相同的 CRON 運算式進行排程。 若要深入瞭解 CRON 支援，請參閱[計時器觸發程式參考文章](../azure-functions/functions-bindings-timer.md#ncrontab-expressions)。
+
+[!INCLUDE [webjobs-cron-timezone-note](../../includes/webjobs-cron-timezone-note.md)]
 
 ### <a name="settingjob-reference"></a>設定。作業參考
 
-Webjob 支援下列設定:
+Webjob 支援下列設定：
 
 | **設定** | **型別**  | **描述** |
 | ----------- | --------- | --------------- |
-| `is_in_place` | 全部 | 允許作業就地執行, 而不會先將其複製到暫存資料夾。 若要深入瞭解, 請參閱[webjob 工作目錄](https://github.com/projectkudu/kudu/wiki/WebJobs#webjob-working-directory)。 |
-| `is_singleton` | 連續 | 只有在相應放大時, 才在單一實例上執行 Webjob。若要深入瞭解, 請參閱[將連續作業設定為 singleton](https://github.com/projectkudu/kudu/wiki/WebJobs-API#set-a-continuous-job-as-singleton)。 |
-| `schedule` | 觸發式 | 在以 CRON 為基礎的排程上執行 WebJob。 若要深入瞭解, 請參閱[計時器觸發程式參考文章](../azure-functions/functions-bindings-timer.md#ncrontab-expressions)。 |
-| `stopping_wait_time`| 全部 | 允許控制關閉行為。 若要深入瞭解, 請參閱[正常關機](https://github.com/projectkudu/kudu/wiki/WebJobs#graceful-shutdown)。 |
+| `is_in_place` | 全部 | 允許作業就地執行，而不會先將其複製到暫存資料夾。 若要深入瞭解，請參閱[webjob 工作目錄](https://github.com/projectkudu/kudu/wiki/WebJobs#webjob-working-directory)。 |
+| `is_singleton` | 連續 | 只有在相應放大時，才在單一實例上執行 Webjob。若要深入瞭解，請參閱[將連續作業設定為 singleton](https://github.com/projectkudu/kudu/wiki/WebJobs-API#set-a-continuous-job-as-singleton)。 |
+| `schedule` | 觸發 | 在以 CRON 為基礎的排程上執行 WebJob。 若要深入瞭解，請參閱[計時器觸發程式參考文章](../azure-functions/functions-bindings-timer.md#ncrontab-expressions)。 |
+| `stopping_wait_time`| 全部 | 允許控制關閉行為。 若要深入瞭解，請參閱[正常關機](https://github.com/projectkudu/kudu/wiki/WebJobs#graceful-shutdown)。 |
 
 ## <a name="next-steps"></a>後續步驟
 

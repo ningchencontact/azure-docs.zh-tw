@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 06/05/2018
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: d242b2815d59676432beb878bbc955a9f39de0f1
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: ca55d49721f9c22f35ba79e819efa354a660d92a
+ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67173976"
+ms.lasthandoff: 10/13/2019
+ms.locfileid: "72302291"
 ---
 # <a name="backup-and-disaster-recovery-for-azure-iaas-disks"></a>Azure IaaS 磁碟的備份和災害復原
 
@@ -35,7 +35,7 @@ Azure 平台的設計可從這些失敗中復原。 重大災害可能會導致�
 
 ### <a name="azure-iaas-resiliency"></a>Azure IaaS 復原
 
-「復原」  是指硬體元件中所發生之一般失敗的容錯。 復原是從失敗中復原並繼續運作的能力。 它不是避免失敗，而是以避免停機或資料遺失的方式來回應失敗。 復原的目標是讓應用程式在失敗後完全回到正常運作的狀態。 Azure 虛擬機器和磁碟設計成可從常見的硬體故障中復原。 讓我們看看 Azure IaaS 平台如何提供這項復原功能。
+「復原」是指硬體元件中所發生之一般失敗的容錯。 復原是從失敗中復原並繼續運作的能力。 它不是避免失敗，而是以避免停機或資料遺失的方式來回應失敗。 復原的目標是讓應用程式在失敗後完全回到正常運作的狀態。 Azure 虛擬機器和磁碟設計成可從常見的硬體故障中復原。 讓我們看看 Azure IaaS 平台如何提供這項復原功能。
 
 虛擬機器主要包含兩部分：計算伺服器和永續性磁碟。 這兩者都會影響虛擬機器的容錯。
 
@@ -63,7 +63,7 @@ Azure 平台對當地語系化失敗的內建保護，在發生導致大規模�
 
 您的 DR 考量可能包括下列層面：
 
-- 高可用性：可讓應用程式繼續在狀況良好的狀態下執行，而不需要長期停機。 「狀況良好狀態」  這個狀態是指應用程式有回應，而且使用者可以連線到應用程式並與其互動。 某些任務關鍵性應用程式和資料庫可能必須永遠可供使用，即使平台發生失敗也一樣。 針對這些工作負載，您可能需要規劃應用程式及資料的備援。
+- 高可用性：可讓應用程式繼續在狀況良好的狀態下執行，而不需要長期停機。 「狀況良好狀態」這個狀態是指應用程式有回應，而且使用者可以連線到應用程式並與其互動。 某些任務關鍵性應用程式和資料庫可能必須永遠可供使用，即使平台發生失敗也一樣。 針對這些工作負載，您可能需要規劃應用程式及資料的備援。
 
 - 資料耐久性：在某些情況下，主要考量是確保發生災害時會保留資料。 因此，您可能需要在不同的網站上有資料備份。 針對這類工作負載，您可能不需要對應用程式進行完整備援，而只要定期備份磁碟。
 
@@ -109,7 +109,7 @@ IaaS 應用程式資料問題是另一種可能性。 請考慮一個可計算�
 
  下表是 DR 可用解決方案的摘要。
 
-| 案例 | 自動複寫 | DR 解決方案 |
+| 狀況 | 自動複寫 | DR 解決方案 |
 | --- | --- | --- |
 | 進階 SSD 磁碟 | 本機 ([本地備援儲存體](../articles/storage/common/storage-redundancy-lrs.md)) | [Azure 備份](https://azure.microsoft.com/services/backup/) |
 | 受控磁碟 | 本機 ([本地備援儲存體](../articles/storage/common/storage-redundancy-lrs.md)) | [Azure 備份](https://azure.microsoft.com/services/backup/) |
@@ -121,16 +121,16 @@ IaaS 應用程式資料問題是另一種可能性。 請考慮一個可計算�
 
 應用程式或基礎結構層級的高可用性、備份和 DR 選項如下所示：
 
-| Level |   高可用性   | 備份或 DR |
+| 層級 |   高可用性   | 備份或 DR |
 | --- | --- | --- |
-| Application | SQL Server AlwaysOn | Azure 備份 |
+| 應用程式 | SQL Server AlwaysOn | Azure 備份 |
 | 基礎結構    | 可用性設定組  | 使用一致性快照的異地備援儲存體 |
 
 ### <a name="using-azure-backup"></a>使用 Azure 備份 
 
 [Azure 備份](../articles/backup/backup-azure-vms-introduction.md)可將執行 Windows 或 Linux 的 VM 備份至 Azure 復原服務保存庫。 備份與還原業務重要資料之所以複雜，原因在於資料必須在產生資料的應用程式執行時進行備份。 
 
-為了解決此問題，Azure 備份會對 Microsoft 工作負載提供應用程式一致備份。 它會使用磁碟區陰影服務來確保資料正確地寫入至儲存體。 Linux VM 則只能進行檔案一致備份，因為 Linux 沒有相當於磁碟區陰影服務的功能。
+為了解決此問題，Azure 備份會對 Microsoft 工作負載提供應用程式一致備份。 它會使用磁碟區陰影服務來確保資料正確地寫入至儲存體。 針對 Linux Vm，預設的備份一致性模式是檔案一致備份，因為 Linux 沒有相當於磁片區陰影服務的功能，如同 Windows 的情況。 針對 Linux 電腦，請參閱[Azure Linux vm 的應用程式一致備份](https://docs.microsoft.com/azure/backup/backup-azure-linux-app-consistent)。
 
 ![Azure 備份流程][1]
 
@@ -144,11 +144,11 @@ Azure 備份在排定的時間起始備份工作時，會觸發 VM 中所安裝�
 
 1.  建立 VM 的復原服務保存庫：
 
-    a. 在 [Azure 入口網站](https://portal.azure.com/)中，瀏覽 [所有資源]  並尋找 [復原服務保存庫]  。
+    a. 在 [Azure 入口網站](https://portal.azure.com/)中，瀏覽 [所有資源] 並尋找 [復原服務保存庫]。
 
-    b. 在 [復原服務保存庫]  功能表上，按一下 [新增]  ，然後遵循步驟以在與 VM 相同的區域中建立新的保存庫。 例如，如果您的 VM 位於美國西部地區，請選取美國西部作為保存庫。
+    b. 在 [復原服務保存庫] 功能表上，按一下 [新增]，然後遵循步驟以在與 VM 相同的區域中建立新的保存庫。 例如，如果您的 VM 位於美國西部地區，請選取美國西部作為保存庫。
 
-1.  確認新建立保存庫的儲存體複寫。 在保存庫的存取**復原服務保存庫**並移至**屬性** > **備份設定** > **更新**. 確定預設已選取 [異地備援儲存體]  選項。 此選項可確保您的保存庫會自動複寫至次要資料中心。 例如，您在美國西部的保存庫會自動複寫至美國東部。
+1.  確認新建立保存庫的儲存體複寫。 存取復原服務保存**庫**底下的保存庫，然後移至 [內容 **] @no__t-** 2**備份**設定  > **更新**。 確定預設已選取 [異地備援儲存體] 選項。 此選項可確保您的保存庫會自動複寫至次要資料中心。 例如，您在美國西部的保存庫會自動複寫至美國東部。
 
 1.  設定備份原則，然後從相同的 UI 中選取 VM。
 
@@ -192,7 +192,7 @@ Azure 備份在排定的時間起始備份工作時，會觸發 VM 中所安裝�
 
 1.  為所有磁碟[建立 Blob 快照集](../articles/storage/blobs/storage-blob-snapshots.md)。
 
-某些 Windows 應用程式 (例如 SQL Server) 會透過磁碟區陰影服務提供一致備份機制，以建立應用程式一致備份。 在 Linux 上，您可以使用 fsfreeze  之類的工具來一致處理磁碟。 此工具會提供檔案一致備份，但不提供應用程式一致性快照集。 此程序很複雜，因此您應該考慮使用 [Azure 備份](../articles/backup/backup-azure-vms-introduction.md)，或是已實作此程序的第三方備份解決方案。
+某些 Windows 應用程式 (例如 SQL Server) 會透過磁碟區陰影服務提供一致備份機制，以建立應用程式一致備份。 在 Linux 上，您可以使用 fsfreeze 之類的工具來一致處理磁碟。 此工具會提供檔案一致備份，但不提供應用程式一致性快照集。 此程序很複雜，因此您應該考慮使用 [Azure 備份](../articles/backup/backup-azure-vms-introduction.md)，或是已實作此程序的第三方備份解決方案。
 
 上述程序會產生所有 VM 磁碟的一致性快照集合，代表 VM 的特定時間點檢視。 這是 VM 的備份還原點。 您可以在排程的間隔重複此程序，以建立定期備份。 請參閱[將備份複製到另一個區域](#copy-the-snapshots-to-another-region)中將快照集複製到另一個區域以進行 DR 的步驟。
 
@@ -233,7 +233,7 @@ Azure 備份在排定的時間起始備份工作時，會觸發 VM 中所安裝�
 
 ## <a name="other-options"></a>其他選項
 
-### <a name="sql-server"></a>SQL Server
+### <a name="sql-server"></a>[SQL Server]
 
 在 VM 中執行的 SQL Server 有其本身內建的功能，可將您的 SQL Server 資料庫備份至 Azure Blob 儲存體或檔案共用。 如果儲存體帳戶是異地備援儲存體或存取權限異地備援儲存體，您可以在發生災害時，存取儲存體帳戶之次要資料中心內的備份，其限制如先前所述。 如需詳細資訊，請參閱 [Azure 虛擬機器中 SQL Server 的備份與還原](../articles/virtual-machines/windows/sql/virtual-machines-windows-sql-backup-recovery.md)。 除了備份和還原之外，[SQL Server Always On 可用性群組](../articles/virtual-machines/windows/sql/virtual-machines-windows-sql-high-availability-dr.md)可以維護資料庫的次要複本。 這項功能可大幅縮短災害復原時間。
 

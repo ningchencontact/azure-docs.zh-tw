@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 08/31/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: d852b786c1cc1c1eb9d39b931f9b8a142f969815
-ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
+ms.openlocfilehash: 91f07b8da2cbc9beaa24730f2ec9f2ddb4639f37
+ms.sourcegitcommit: bd4198a3f2a028f0ce0a63e5f479242f6a98cc04
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71065877"
+ms.lasthandoff: 10/14/2019
+ms.locfileid: "72302535"
 ---
 # <a name="azure-ad-b2c-frequently-asked-questions-faq"></a>Azure AD B2C：常見問題集 (FAQ)
 
@@ -27,7 +27,7 @@ Azure AD 擴充功能無法運作有兩個常見原因。 Azure AD B2C 要求您
 
 ### <a name="can-i-use-azure-ad-b2c-features-in-my-existing-employee-based-azure-ad-tenant"></a>我可以在以員工為主的現有 Azure AD 租用戶中使用 Azure AD B2C 功能嗎？
 
-Azure AD 和 Azure AD B2C 為個別的產品供應項目，無法共存於同一個租用戶。 一個 Azure AD 租用戶代表一個組織。 一個 Azure AD B2C 租用戶代表一組要用於信賴憑證者應用程式的身分識別。 透過自訂原則 (處於公開預覽狀態)，Azure AD B2C 可以與 Azure AD 結成同盟，所以能夠驗證組織中的員工。
+Azure AD 和 Azure AD B2C 為個別的產品供應項目，無法共存於同一個租用戶。 一個 Azure AD 租用戶代表一個組織。 一個 Azure AD B2C 租用戶代表一組要用於信賴憑證者應用程式的身分識別。 使用自訂原則，Azure AD B2C 可以與 Azure AD 允許組織中的員工驗證。
 
 ### <a name="can-i-use-azure-ad-b2c-to-provide-social-login-facebook-and-google-into-office-365"></a>我可以使用 Azure AD B2C 來提供 Office 365 的社交登入 (Facebook 和 Google+) 嗎？
 
@@ -122,7 +122,7 @@ Azure AD B2C 不適用於 SharePoint 外部夥伴共用的情節。請改以參�
 
 ### <a name="can-i-localize-the-ui-of-pages-served-by-azure-ad-b2c-what-languages-are-supported"></a>我可以將 Azure AD B2C 所提供的頁面 UI 當地語系化嗎？ 支援哪些語言？
 
-是！  請參閱[語言自訂](active-directory-b2c-reference-language-customization.md) (處於公開預覽狀態)。 我們提供 36 種語言的翻譯，您可以覆寫任何字串以符合您的需求。
+是，請參閱[語言自訂](active-directory-b2c-reference-language-customization.md)。 我們提供 36 種語言的翻譯，您可以覆寫任何字串以符合您的需求。
 
 ### <a name="can-i-use-my-own-urls-on-my-sign-up-and-sign-in-pages-that-are-served-by-azure-ad-b2c-for-instance-can-i-change-the-url-from-contosob2clogincom-to-logincontosocom"></a>我可以在 Azure AD B2C 提供的註冊與登入頁面上使用自己的 URL 嗎？ 例如，我可以將 URL 從 contoso.b2clogin.com 變更為 login.contoso.com 嗎？
 

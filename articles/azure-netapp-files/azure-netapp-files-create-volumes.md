@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/12/2019
 ms.author: b-juche
-ms.openlocfilehash: b7474ca8e8489edb37b3ac9b7c8b5be52867363c
-ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
+ms.openlocfilehash: 1a479b4928631f27d5453d462a59fe7fed09a88c
+ms.sourcegitcommit: bd4198a3f2a028f0ce0a63e5f479242f6a98cc04
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/13/2019
-ms.locfileid: "72298517"
+ms.lasthandoff: 10/14/2019
+ms.locfileid: "72302755"
 ---
 # <a name="create-an-nfs-volume-for-azure-netapp-files"></a>建立適用於 Azure NetApp Files 的 NFS 磁碟區
 
@@ -33,11 +33,11 @@ Azure NetApp Files 支援 NFS （NFSv3 和 NFSv 4.1）和 SMBv3 磁片區。 磁
 
 ## <a name="considerations"></a>考量 
 
-* 決定要使用的 NFS 版本  
-  NFSv3 可以處理各種不同的使用案例，而且通常會部署在大部分的企業應用程式中。 您應該驗證應用程式所需的版本（NFSv3 或 NFSv 4.1），並使用適當的版本來建立磁片區。 例如，如果您使用[Apache ActiveMQ](https://activemq.apache.org/shared-file-system-master-slave)，建議使用 nfsv 4.1 的檔案鎖定，而不是 NFSv3。 
-
 > [!IMPORTANT] 
 > NFSv 4.1 功能的存取權需要允許清單。  若要要求允許清單，請將要求提交給 <anffeedback@microsoft.com>。 
+
+* 決定要使用的 NFS 版本  
+  NFSv3 可以處理各種不同的使用案例，而且通常會部署在大部分的企業應用程式中。 您應該驗證應用程式所需的版本（NFSv3 或 NFSv 4.1），並使用適當的版本來建立磁片區。 例如，如果您使用[Apache ActiveMQ](https://activemq.apache.org/shared-file-system-master-slave)，建議使用 nfsv 4.1 的檔案鎖定，而不是 NFSv3。 
 
 * 安全性  
   支援 UNIX 模式位（讀取、寫入和執行）適用于 NFSv3 和 NFSv 4.1。 NFS 用戶端上必須有根層級的存取權，才能掛接 NFS 磁片區。

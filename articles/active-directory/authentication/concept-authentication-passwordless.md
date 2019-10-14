@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: librown
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ab48579c6eda085d77e2a6ab080b0a4a1ce806bd
-ms.sourcegitcommit: be344deef6b37661e2c496f75a6cf14f805d7381
+ms.openlocfilehash: dfcd46f06035e356f6528a79b749350627541121
+ms.sourcegitcommit: 9858ab651a520c26f0ed18215e650efbf1fc5de9
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/07/2019
-ms.locfileid: "72000324"
+ms.lasthandoff: 10/14/2019
+ms.locfileid: "72303521"
 ---
 # <a name="what-is-passwordless"></a>什麼是無密碼？
 
@@ -55,7 +55,7 @@ FIDO2 安全性金鑰是一種以 unphishable 標準為基礎的無密碼驗證�
 | 3 | hmac-secret | 此延伸模組可確保您可以在裝置離線或在飛機模式時，登入您的裝置。 |
 | 4 | 每個 RP 的多個帳戶 | 這項功能可確保您可以在多個服務（例如 Microsoft 帳戶和 Azure Active Directory）上使用相同的安全性金鑰。 |
 
-下列提供者提供 FIDO2 的安全性金鑰，這些是已知與 paswordless 體驗相容的不同外型規格。 Microsoft 鼓勵客戶透過聯繫廠商以及 FIDO 聯盟，來評估這些金鑰的安全性屬性。
+下列提供者提供 FIDO2 的安全性金鑰，這些是已知與無密碼體驗相容的不同外型規格。 Microsoft 鼓勵客戶透過聯繫廠商以及 FIDO 聯盟，來評估這些金鑰的安全性屬性。
 
 | 提供者 | 連絡人 |
 | --- | --- |

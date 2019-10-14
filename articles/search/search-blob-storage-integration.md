@@ -1,22 +1,21 @@
 ---
-title: 將全文檢索搜尋新增至 Azure Blob 儲存體 - Azure 搜尋服務
-description: 以使用 HTTP REST API 的程式碼，搜耙 Azure Blob 儲存體中的文字內容，以供 Azure 搜尋服務編製索引。
-services: search
+title: 將全文檢索搜尋新增至 Azure Blob 儲存體
+titleSuffix: Azure Search
+description: 在 Azure 搜尋服務中建立全文檢索搜尋索引時，將內容解壓縮並將結構新增至 Azure blob。
+manager: nitinme
+author: HeidiSteen
+ms.author: heidist
 ms.service: search
 ms.topic: conceptual
-ms.date: 03/01/2019
-author: mgottein
-manager: nitinme
-ms.author: magottei
-ms.custom: seodec2018
-ms.openlocfilehash: f0801931b57302ae1d627dab783a40d2407c19ac
-ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
+ms.date: 10/09/2019
+ms.openlocfilehash: 7e5eb73cc6abc72689bbc674b29f4d288dd66b6f
+ms.sourcegitcommit: bd4198a3f2a028f0ce0a63e5f479242f6a98cc04
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69650077"
+ms.lasthandoff: 10/14/2019
+ms.locfileid: "72302902"
 ---
-# <a name="searching-blob-storage-with-azure-search"></a>使用 Azure 搜尋服務搜尋 Blob 儲存體
+# <a name="add-full-text-search-to-azure-blob-data-using-azure-search"></a>使用 Azure 搜尋服務將全文檢索搜尋新增至 Azure blob 資料
 
 搜尋 Azure Blob 儲存體中儲存的各種內容類型可能是難以解決的問題。 不過，使用 Azure 搜尋服務，您只要按幾下，即可編製索引並搜尋 Blob 內容。 在 Blob 儲存體上搜尋需要佈建 Azure 搜尋服務。 在[價格頁面](https://aka.ms/azspricing)可以找到 Azure 搜尋服務的各種服務限制和定價層。
 
@@ -38,14 +37,14 @@ ms.locfileid: "69650077"
 ## <a name="image-search"></a>影像搜尋
 Azure 搜尋服務的全文檢索搜尋、多面向導覽和排序功能現在可套用至 Blob 中儲存的影像中繼資料。
 
-認知搜尋包括影像處理技能 (例如[光學字元辨識 (OCR))](cognitive-search-skill-ocr.md)和[視覺功能](cognitive-search-skill-image-analysis.md)的識別, 讓您可以為每個影像中找到的視覺內容編制索引。
+認知搜尋包括影像處理技能（例如[光學字元辨識（OCR））](cognitive-search-skill-ocr.md)和[視覺功能](cognitive-search-skill-image-analysis.md)的識別，讓您可以為每個影像中找到的視覺內容編制索引。
 
 ## <a name="index-and-search-through-json-blobs"></a>檢索和搜尋 JSON Blob
 可以將 Azure 搜尋服務設定為擷取在包含 JSON 的 Blob 中找到的結構化內容。 Azure 搜尋服務可以讀取 JSON Blob，並將結構化內容剖析成 Azure 搜尋服務文件的適當欄位。 Azure 搜尋服務也會採用包含 JSON 物件陣列的 Blob，並將每個元素對應至不同的 Azure 搜尋服務文件。
 
 JSON 剖析目前無法透過入口網站設定。 [深入了解 Azure 搜尋服務中的 JSON 剖析。](https://aka.ms/azsjsonblobindexing)
 
-## <a name="quick-start"></a>快速入門
+## <a name="quickstart"></a>快速入門
 您可以直接從 Blob 儲存體入口網站頁面將 Azure 搜尋服務新增至 Blob。
 
 ![](./media/search-blob-storage-integration/blob-blade.png)

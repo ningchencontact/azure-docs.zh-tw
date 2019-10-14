@@ -12,12 +12,12 @@ ms.workload: infrastructure-services
 ms.date: 06/10/2019
 ms.author: kumud
 ms.reviewer: tyao
-ms.openlocfilehash: f7d205920704ce8aedf3b2e3c07bd429b3c64964
-ms.sourcegitcommit: aebe5a10fa828733bbfb95296d400f4bc579533c
+ms.openlocfilehash: f6e0ea7ca5b9b131a8d7d7c2c6546130a7d020b3
+ms.sourcegitcommit: bd4198a3f2a028f0ce0a63e5f479242f6a98cc04
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/05/2019
-ms.locfileid: "70375335"
+ms.lasthandoff: 10/14/2019
+ms.locfileid: "72302840"
 ---
 # <a name="frequently-asked-questions-for-azure-web-application-firewall"></a>Azure web 應用程式防火牆的常見問題
 
@@ -31,7 +31,7 @@ Azure WAF 原則可以套用至裝載于應用程式閘道或 Azure Front 門板
 
 ## <a name="what-is-waf-for-azure-front-door-service"></a>什麼是適用于 Azure Front 服務的 WAF？ 
 
-Azure Front 大門是可高度擴充、全域散發的應用程式和內容傳遞網路。 Azure WAF 與前門整合時，會在 Azure 網路邊緣停止拒絕服務和目標應用程式的攻擊，並在進入您的虛擬網路之前，接近攻擊來源，提供保護而不犧牲效能。
+Azure Front 大門是可高度擴充、全域散發的應用程式和內容傳遞網路。 當 Azure WAF 與 Azure Front 門板整合時，拒絕服務和目標應用程式的攻擊會在 Azure 網路的邊緣停止。 這項保護會出現在攻擊來源附近，才有機會進入您的 vitrual 網路。 適用于 Azure Front 服務的 WAF 提供保護，而不會犧牲效能。
 
 ## <a name="does-azure-waf-support-https"></a>Azure WAF 是否支援 HTTPS？
 

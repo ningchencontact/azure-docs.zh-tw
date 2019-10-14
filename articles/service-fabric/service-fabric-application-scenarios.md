@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 4/24/2019
 ms.author: atsenthi
-ms.openlocfilehash: 91e85f762e05c836fe32f5743cc48afed30ae983
-ms.sourcegitcommit: e9936171586b8d04b67457789ae7d530ec8deebe
+ms.openlocfilehash: d72e124248887690ca26c2676e8036cb1b5c4339
+ms.sourcegitcommit: 9858ab651a520c26f0ed18215e650efbf1fc5de9
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71327303"
+ms.lasthandoff: 10/14/2019
+ms.locfileid: "72303512"
 ---
 # <a name="service-fabric-application-scenarios"></a>Service Fabric 應用程式案例
 Azure Service Fabric 提供可靠且彈性的平臺，可讓您撰寫及執行許多類型的商務應用程式和服務。 這些應用程式和微服務可以是無狀態或具狀態的，而且它們會在虛擬機器之間進行資源平衡，以達到最高效率。 
@@ -70,7 +70,7 @@ Service Fabric 的獨特架構可讓您在應用程式中執行接近即時的�
 
 以下是使用無狀態服務的範例應用程式：使用無狀態服務 @ no__t-1 的 @no__t 0Application
 
-以下是使用具狀態服務的範例應用程式：使用無狀態服務 @ no__t-1 的 @no__t 0Application
+以下是使用具狀態服務的範例應用程式：使用具狀態服務 @ no__t-1 的 @no__t 0Application
 
 ## <a name="next-steps"></a>後續步驟
 
