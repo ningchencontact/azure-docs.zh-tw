@@ -116,7 +116,7 @@
           displayName: 'isTest, test, route, request, http, post, body, header, json, metadata, top, strictFilters, GenerateAnswer, API, answer, RankerType, id, text, question, context, 200, 2xx, 400, 401, 403, 404'
         - name: 使用 QnA Maker 和 LUIS 建立 Bot
           href: Tutorials/integrate-qnamaker-luis.md
-        - name: 以不同語言建立知識庫
+        - name: 語言選擇
           href: How-To/language-knowledge-base.md
         - name: 移轉知識庫
           href: Tutorials/migrate-knowledge-base.md
@@ -141,6 +141,12 @@
           href: How-To/business-continuity-plan.md
 - name: 參考
   items:
+    - name: Languages
+      href: Overview/language-support.md
+    - name: 限制
+      href: limits.md
+    - name: 疑難排解
+      href: troubleshooting.md
     - name: REST API 參考
       items:
         - name: 編寫 API
@@ -150,10 +156,6 @@
         - name: 將 API 定型
           href: 'https://docs.microsoft.com/rest/api/cognitiveservices/qnamakerruntime/runtime/train'
       href: 'https://go.microsoft.com/fwlink/?linkid=2092179'
-    - name: 疑難排解
-      href: troubleshooting.md
-    - name: 限制
-      href: limits.md
     - name: 範例
       items:
         - name: QnA Maker 的說明機器人
@@ -206,13 +208,11 @@
       href: 'https://azure.microsoft.com/roadmap/'
     - name: 價格和限制
       href: 'https://aka.ms/qnamaker-pricing'
-    - name: 語言支援
-      href: Overview/language-support.md
     - name: 堆疊溢位
       href: 'https://stackoverflow.com/questions/tagged/QnAMaker'
     - name: UserVoice
       href: 'https://cognitive.uservoice.com/forums/578689-qna-maker-api'
-    - name: Search
+    - name: 搜尋
       href: 'https://docs.microsoft.com/search/index?search=QnAMaker'
     - name: 部落格
       href: 'https://blog.botframework.com/category/QnAMaker/'

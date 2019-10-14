@@ -177,6 +177,8 @@
       href: how-to-configure-proxy-support.md
     - name: 在 Edge 中儲存資料
       items:
+        - name: 提供模組存取裝置本機儲存體的權限
+          href: how-to-access-host-storage-from-module.md
         - name: IoT Edge 上的 Azure Blob 儲存體
           href: how-to-store-data-blob.md
         - name: 部署 Blob 儲存體模組

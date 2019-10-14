@@ -74,6 +74,8 @@
       href: host-pool-load-balancing.md
     - name: FSLogix 設定檔容器和 Azure 檔案
       href: fslogix-containers-azure-files.md
+    - name: 適用於 FSLogix 設定檔容器的儲存體
+      href: store-fslogix-profile.md
     - name: 合作夥伴整合
       href: partners.md
     - name: Windows 10 企業版的多重工作階段常見問題集

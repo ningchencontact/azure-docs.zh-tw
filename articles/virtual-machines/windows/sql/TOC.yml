@@ -100,8 +100,10 @@
                   href: virtual-machines-windows-portal-sql-ps-alwayson-int-listener.md
         - name: 容錯移轉叢集執行個體
           items:
-            - name: 設定
+            - name: 使用儲存空間直接存取
               href: virtual-machines-windows-portal-sql-create-failover-cluster.md
+            - name: 使用進階檔案儲存體
+              href: virtual-machines-windows-portal-sql-create-failover-cluster-premium-file-storage.md
 - name: 參考
   items:
     - name: Azure PowerShell
