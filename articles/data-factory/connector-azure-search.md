@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 09/13/2019
 ms.author: jingwang
-ms.openlocfilehash: c2165d0ff16233766918f9e274324b02d1bf1ac8
-ms.sourcegitcommit: dd69b3cda2d722b7aecce5b9bd3eb9b7fbf9dc0a
+ms.openlocfilehash: 703dcb5fee0c31328eee91c9673e62653d7aa698
+ms.sourcegitcommit: e0a1a9e4a5c92d57deb168580e8aa1306bd94723
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70962105"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72286335"
 ---
 # <a name="copy-data-to-an-azure-search-index-using-azure-data-factory"></a>使用 Azure Data Factory 將資料複製到 Azure 搜尋服務索引
 
@@ -43,7 +43,7 @@ ms.locfileid: "70962105"
 
 | 屬性 | 描述 | 必要項 |
 |:--- |:--- |:--- |
-| Type | 類型屬性必須設定為：**AzureSearch** | 是 |
+| 型別 | 類型屬性必須設定為：**AzureSearch** | 是 |
 | url | Azure 搜尋服務的 URL。 | 是 |
 | key | Azure 搜尋服務的系統管理金鑰。 將此欄位標記為 SecureString，將它安全地儲存在 Data Factory 中，或[參考 Azure Key Vault 中儲存的祕密](store-credentials-in-key-vault.md)。 | 是 |
 | connectVia | 用來連線到資料存放區的 [Integration Runtime](concepts-integration-runtime.md)。 您可以使用 Azure Integration Runtime 或「自我裝載 Integration Runtime」(如果您的資料存放區位於私人網路中)。 如果未指定，就會使用預設的 Azure Integration Runtime。 |否 |
@@ -81,7 +81,7 @@ ms.locfileid: "70962105"
 
 | 屬性 | 描述 | 必要項 |
 |:--- |:--- |:--- |
-| Type | 資料集的類型屬性必須設定為：**AzureSearchIndex** | 是 |
+| 型別 | 資料集的類型屬性必須設定為：**AzureSearchIndex** | 是 |
 | IndexName | Azure 搜尋服務索引的名稱。 Data Factory 不會建立索引。 索引必須存在於 Azure 搜尋服務中。 | 是 |
 
 **範例:**
@@ -113,7 +113,7 @@ ms.locfileid: "70962105"
 
 | 屬性 | 描述 | 必要項 |
 |:--- |:--- |:--- |
-| Type | 複製活動來源的類型屬性必須設定為：**AzureSearchIndexSink** | 是 |
+| 型別 | 複製活動來源的類型屬性必須設定為：**AzureSearchIndexSink** | 是 |
 | writeBehavior | 指定若文件已經存在於索引中，是否要合併或取代。 請參閱 [WriteBehavior 屬性](#writebehavior-property)。<br/><br/>允許的值包括：**Merge** (預設值) 和 **Upload**。 | 否 |
 | writeBatchSize | 當緩衝區大小達到 writeBatchSize 時，將資料上傳至 Azure 搜尋服務中。 如需詳細資訊，請參閱 [WriteBatchSize 屬性](#writebatchsize-property)。<br/><br/>允許的值為：整數 1 到 1,000；預設值為 1000。 | 否 |
 
@@ -179,7 +179,7 @@ Azure 搜尋服務支援批次寫入文件。 一個批次可包含 1 到 1,000 
 | String Array | N |
 | GeographyPoint | N |
 
-目前不支援其他資料類型（例如 ComplexType）。 如需 Azure 搜尋支援的資料類型完整清單，請參閱[支援的資料類型（Azure 搜尋服務）](https://docs.microsoft.com/rest/api/searchservice/supported-data-types)。
+目前不支援其他資料類型（例如 ComplexType）。 如需 Azure 搜尋服務支援之資料類型的完整清單，請參閱[支援的資料類型（Azure 搜尋服務）](https://docs.microsoft.com/rest/api/searchservice/supported-data-types)。
 
 ## <a name="next-steps"></a>後續步驟
 如需 Azure Data Factory 中的複製活動所支援作為來源和接收器的資料存放區清單，請參閱[支援的資料存放區](copy-activity-overview.md##supported-data-stores-and-formats)。

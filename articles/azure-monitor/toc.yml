@@ -606,6 +606,8 @@
                   href: insights/vminsights-overview.md
                 - name: 已知問題
                   href: insights/vminsights-known-issues.md
+                - name: 正式運作常見問題集
+                  href: insights/vminsights-ga-release-faq.md
                 - name: 常見問題集
                   href: insights/vminsights-faq.md
                 - name: 啟用監視

@@ -135,6 +135,8 @@
               href: /sql/t-sql/statements/create-materialized-view-as-select-transact-sql
             - name: 變更
               href: /sql/t-sql/statements/alter-materialized-view-transact-sql
+            - name: 檢查檢視負荷
+              href: 'https://docs.microsoft.com/en-us/sql/t-sql/database-console-commands/dbcc-pdw-showmaterializedviewoverhead-transact-sql?view=azure-sqldw-latest'
         - name: 已排序的叢集資料行存放區索引
           items:
             - name: 效能微調指導方針
