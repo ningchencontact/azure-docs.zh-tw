@@ -11,12 +11,12 @@ ms.reviewer: klam, LADocs
 ms.topic: tutorial
 ms.custom: mvc
 ms.date: 09/12/2019
-ms.openlocfilehash: 809d76791522fa135932baaf6e237570ab0af35a
-ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
+ms.openlocfilehash: eae2319e8d1c162969a04f8dafa18eec671ee1d0
+ms.sourcegitcommit: f9e81b39693206b824e40d7657d0466246aadd6e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71172172"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72034637"
 ---
 # <a name="tutorial-create-automated-schedule-based-recurring-workflows-by-using-azure-logic-apps"></a>教學課程：使用 Azure Logic Apps 建立以排程為基礎的週期性自動化工作流程
 
@@ -34,7 +34,7 @@ ms.locfileid: "71172172"
 
 當您完成時，邏輯應用程式大致如下列工作流程所示︰
 
-![邏輯應用程式概觀](./media/tutorial-build-scheduled-recurring-logic-app-workflow/check-travel-time-overview.png)
+![高階邏輯應用程式工作流程總覽](./media/tutorial-build-scheduled-recurring-logic-app-workflow/check-travel-time-overview.png)
 
 ## <a name="prerequisites"></a>必要條件
 
@@ -52,11 +52,11 @@ ms.locfileid: "71172172"
 
 1. 在主要 Azure 功能表中，選取 [建立資源]   > [整合]   > [邏輯應用程式]  。
 
-   ![建立邏輯應用程式](./media/tutorial-build-scheduled-recurring-logic-app-workflow/create-logic-app.png)
+   ![建立邏輯應用程式資源](./media/tutorial-build-scheduled-recurring-logic-app-workflow/create-new-logic-app-resource.png)
 
 1. 在 [建立邏輯應用程式]  下，提供有關於邏輯應用程式的這項資訊，如下所示和描述。 當您完成時，選取 [建立]  。
 
-   ![提供邏輯應用程式資訊](./media/tutorial-build-scheduled-recurring-logic-app-workflow/create-logic-app-settings.png)
+   ![提供邏輯應用程式的相關資訊](./media/tutorial-build-scheduled-recurring-logic-app-workflow/create-logic-app-settings.png)
 
    | 屬性 | 值 | 說明 |
    |----------|-------|-------------|
@@ -69,7 +69,7 @@ ms.locfileid: "71172172"
 
 1. 在 Azure 部署您的應用程式之後，請在 Azure 工具列上針對您部署的邏輯應用程式選取 [通知]   > [移至資源]  。
 
-   ![前往資源](./media/tutorial-build-scheduled-recurring-logic-app-workflow/go-to-logic-app.png)
+   ![移至您的新邏輯應用程式資源](./media/tutorial-build-scheduled-recurring-logic-app-workflow/go-to-new-logic-app-resource.png)
 
    或者，您可以在搜尋方塊中輸入名稱，以尋找並選取您的邏輯應用程式。
 
@@ -87,11 +87,11 @@ ms.locfileid: "71172172"
 
 1. 在 [週期]  圖形中，選取**省略符號** ( **...** ) 按鈕，然後選取 [重新命名]  。 以下列描述為觸發程序重新命名：`Check travel time every weekday morning`
 
-   ![為觸發程序重新命名](./media/tutorial-build-scheduled-recurring-logic-app-workflow/rename-recurrence-schedule-trigger.png)
+   ![重新命名循環觸發程序描述](./media/tutorial-build-scheduled-recurring-logic-app-workflow/rename-recurrence-schedule-trigger.png)
 
 1. 在觸發程序內，變更這些屬性。
 
-   ![變更間隔和頻率](./media/tutorial-build-scheduled-recurring-logic-app-workflow/change-interval-frequency.png)
+   ![變更循環觸發程序的間隔和頻率](./media/tutorial-build-scheduled-recurring-logic-app-workflow/change-interval-frequency.png)
 
    | 屬性 | 必要 | Value | 說明 |
    |----------|----------|-------|-------------|
@@ -105,7 +105,7 @@ ms.locfileid: "71172172"
    * **在這幾小時內**
    * **在這幾分鐘內**
 
-   ![新增觸發程序屬性](./media/tutorial-build-scheduled-recurring-logic-app-workflow/add-trigger-properties.png)
+   ![新增循環觸發程序的屬性](./media/tutorial-build-scheduled-recurring-logic-app-workflow/add-trigger-properties.png)
 
 1. 現在設定其他屬性的值，如下所示及說明。
 
@@ -140,7 +140,7 @@ ms.locfileid: "71172172"
 
 1. 如果您沒有 Bing 地圖服務連線，系統會要求您建立連線。 提供以下連線詳細資料，然後選取 [建立]  。
 
-   ![建立 Bing 地圖服務連線](./media/tutorial-build-scheduled-recurring-logic-app-workflow/create-maps-connection.png)
+   ![建立與 Bing 地圖服務 API 的連線](./media/tutorial-build-scheduled-recurring-logic-app-workflow/create-maps-connection.png)
 
    | 屬性 | 必要 | Value | 說明 |
    |----------|----------|-------|-------------|
@@ -221,11 +221,11 @@ ms.locfileid: "71172172"
 
    1. 在運算式內解析此屬性值之後，請選取 [確定]  。
 
-      ![選取 [確定]](./media/tutorial-build-scheduled-recurring-logic-app-workflow/initialize-variable-action-settings-5.png)
+      ![若要完成運算式的建置，請選取 [確定]](./media/tutorial-build-scheduled-recurring-logic-app-workflow/initialize-variable-action-settings-5.png)
 
       [值]  屬性隨即出現，如下所示：
 
-      ![包含已解析運算式的 [值] 屬性](./media/tutorial-build-scheduled-recurring-logic-app-workflow/initialize-variable-action-settings-6.png)
+      ![[值] 屬性會與已解析的運算式一起出現](./media/tutorial-build-scheduled-recurring-logic-app-workflow/initialize-variable-action-settings-6.png)
 
 1. 儲存您的邏輯應用程式。
 
@@ -247,7 +247,7 @@ ms.locfileid: "71172172"
 
    1. 從顯示的動態內容清單中，選取 [變數]  底下的 [travelTime]  屬性。
 
-      ![建置條件左側](./media/tutorial-build-scheduled-recurring-logic-app-workflow/build-condition-left-side.png)
+      ![建置條件的左側](./media/tutorial-build-scheduled-recurring-logic-app-workflow/build-condition-left-side.png)
 
    1. 在中間的比較方塊中，選取 [大於]  運算子。
 
@@ -255,7 +255,7 @@ ms.locfileid: "71172172"
 
       當您完成時，條件看起來就像下面這個範例︰
 
-      ![已完成的條件](./media/tutorial-build-scheduled-recurring-logic-app-workflow/build-condition-check-travel-time.png)
+      ![完成的檢查移動時間條件](./media/tutorial-build-scheduled-recurring-logic-app-workflow/build-condition-check-travel-time.png)
 
 1. 儲存您的邏輯應用程式。
 
@@ -269,7 +269,7 @@ ms.locfileid: "71172172"
 
 1. 在 [選擇動作]  底下，選取 [標準]  。 在搜尋方塊中，輸入「傳送電子郵件」。 此清單會傳回許多結果，因此請先選取您想要的電子郵件連接器，例如：
 
-   ![選取電子郵件連接器](./media/tutorial-build-scheduled-recurring-logic-app-workflow/add-action-send-email.png)
+   ![選取您想要使用的電子郵件連接器](./media/tutorial-build-scheduled-recurring-logic-app-workflow/add-action-send-email.png)
 
    * 對於 Azure 工作或學校帳戶，選取 [Office 365 Outlook]  。
    * 對於個人 Microsoft 帳戶，選取 [Outlook.com]  。
@@ -320,17 +320,17 @@ ms.locfileid: "71172172"
 
    1. 在運算式內解析此屬性之後，請選取 [確定]  。
 
-      ![包含已解析運算式的 "Body" 屬性](./media/tutorial-build-scheduled-recurring-logic-app-workflow/send-email-body-settings-5.png)
+      ![在 [Body] 屬性解析之後，請選取 [確定]](./media/tutorial-build-scheduled-recurring-logic-app-workflow/send-email-body-settings-5.png)
 
       [Body]  屬性隨即出現，如下所示：
 
-      ![包含已解析運算式的 "Body" 屬性](./media/tutorial-build-scheduled-recurring-logic-app-workflow/send-email-body-settings-6.png)
+      ![運算式中已解析的 [Body] 屬性](./media/tutorial-build-scheduled-recurring-logic-app-workflow/send-email-body-settings-6.png)
 
 1. 儲存您的邏輯應用程式。
 
 接著請測試您的邏輯應用程式，此時它看起來類似下列範例：
 
-![完成的邏輯應用程式](./media/tutorial-build-scheduled-recurring-logic-app-workflow/check-travel-time-finished.png)
+![完成的範例邏輯應用程式工作流程](./media/tutorial-build-scheduled-recurring-logic-app-workflow/check-travel-time-finished.png)
 
 ## <a name="run-your-logic-app"></a>執行邏輯應用程式
 
@@ -340,7 +340,7 @@ ms.locfileid: "71172172"
 
 * 如果目前行進時間超過您的限制，您會收到一封電子郵件，其中包含目前行進時間和超過限制的分鐘數。 以下是邏輯應用程式傳送的範例電子郵件：
 
-![包含行進時間的已傳送電子郵件](./media/tutorial-build-scheduled-recurring-logic-app-workflow/email-notification.png)
+![顯示移動時間的已傳送電子郵件範例](./media/tutorial-build-scheduled-recurring-logic-app-workflow/received-example-email-notification.png)
 
 若未收到任何電子郵件，請檢查電子郵件的垃圾郵件資料夾。 您的垃圾電子郵件篩選器可能會重新導向這類郵件。 或者，如果您不確定邏輯應用程式是否正確執行，請參閱[針對邏輯應用程式進行疑難排解](../logic-apps/logic-apps-diagnosing-failures.md)。
 

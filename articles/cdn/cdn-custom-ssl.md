@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 10/1/2019
 ms.author: magattus
 ms.custom: mvc
-ms.openlocfilehash: b6ac528d0d2916f513be4e2a72bff061bdad8e58
-ms.sourcegitcommit: a19f4b35a0123256e76f2789cd5083921ac73daf
+ms.openlocfilehash: bacd26cdba24e7ad503a3ae58d5c77d5a3311537
+ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71718656"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72177753"
 ---
 # <a name="tutorial-configure-https-on-an-azure-cdn-custom-domain"></a>教學課程：在 Azure CDN 自訂網域上設定 HTTPS
 
@@ -132,7 +132,9 @@ Azure CDN 預設支援 CDN 端點主機名稱上的 HTTPS。 舉例來說，當�
 
 3. 選取 [憑證權限]  ，然後選取 [取得]  和 [列出]  的核取方塊，允許 CDN 執行這些權限來取得和列出憑證。
 
-4. 選取 [確定]  。 
+4. 選取 [祕密權限]  ，然後選取 [取得]  和 [列出]  的核取方塊，以允許 CDN 執行這些權限來取得和列出祕密。
+
+5. 選取 [確定]  。 
 
     Azure CDN 現在可以存取此金鑰保存庫和此金鑰保存庫中儲存的憑證 (祕密)。
  
@@ -190,7 +192,7 @@ Azure CDN 預設支援 CDN 端點主機名稱上的 HTTPS。 舉例來說，當�
 ### <a name="custom-domain-is-not-mapped-to-your-cdn-endpoint"></a>自訂網域未對應至您的 CDN 端點
 
 >[!NOTE]
->如果您使用 **Akamai 中的 Azure CDN**，則應該設定下列 CNAME 以啟用自動網域驗證。 "_acme-challenge.<custom domain hostname> -> CNAME -> <custom domain hostname>.ak-acme-challenge.azureedge.net"
+>如果您使用 **Akamai 中的 Azure CDN**，則應該設定下列 CNAME 以啟用自動網域驗證。 "_acme-challenge.&lt;自訂網域主機名稱&gt; -> CNAME -> &lt;自訂網域主機名稱&gt;.ak-acme-challenge.azureedge.net"
 
 如果 CNAME 記錄項目包含 cdnverify 子網域，請依照此步驟中的其餘指示進行操作。
 

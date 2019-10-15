@@ -6,16 +6,16 @@ ms.service: azure-resource-manager
 ms.topic: quickstart
 ms.date: 06/20/2019
 ms.author: tomfitz
-ms.openlocfilehash: 8677d906375853bdde5c192c86dacc7479f2e31e
-ms.sourcegitcommit: 5cb0b6645bd5dff9c1a4324793df3fdd776225e4
+ms.openlocfilehash: c7f71dbadf24244756cf65f68ceea24547190737
+ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/21/2019
-ms.locfileid: "67310989"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72170247"
 ---
 # <a name="creating-and-deploying-azure-resource-groups-through-visual-studio"></a>透過 Visual Studio 建立與部署 Azure 資源群組
 
-使用 Visual Studio，您可以建立專案，將您的基礎結構和程式碼部署至 Azure。 例如，您可以部署 Web 主機、網站和網站的程式碼。 Visual Studio 針對部署常見案例提供許多不同的入門範本。 在此文章中，您將會部署 Web 應用程式。  
+使用 Visual Studio，您可以建立專案，將您的基礎結構和程式碼部署至 Azure。 例如，您可以部署 Web 主機、網站和網站的程式碼。 Visual Studio 針對部署常見案例提供許多不同的入門範本。 在此文章中，您將會部署 Web 應用程式。
 
 此文章說明如何使用[已安裝 Azure 部署和 ASP.NET 工作負載的 Visual Studio 2019 和更新版本](/visualstudio/install/install-visual-studio?view=vs-2019)。 如果您使用 Visual Studio 2017，您的體驗大致相同。
 
@@ -127,7 +127,7 @@ ms.locfileid: "67310989"
 
 不過，如果您已移轉至新的 [Az 模組](/powershell/azure/new-azureps-module-az)，就需要將新的指令碼新增至您的專案。 若要新增使用 Az 模組的指令碼，請複製 [Deploy-AzTemplate.ps1](https://github.com/Azure/azure-quickstart-templates/blob/master/Deploy-AzTemplate.ps1) 指令碼，並將它新增至您的專案。 若要將此指令碼用於部署，您必須從 PowerShell 主控台中執行它，而不是使用 Visual Studio 部署介面來執行。
 
-此文章中會展示這兩種方法。 此文章將預設指令碼稱為 AzureRM 模組指令碼，將新的指令碼稱為 Az 模組指令碼。
+本文中會展示這兩種方法。 此文章將預設指令碼稱為 AzureRM 模組指令碼，將新的指令碼稱為 Az 模組指令碼。
 
 ### <a name="az-module-script"></a>Az 模組指令碼
 
@@ -205,13 +205,13 @@ ms.locfileid: "67310989"
 
     ![新增資源](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/add-resource-2.png)
 
-1. 這次請選取 [Web Deploy for Web Apps]  。 
+1. 這次請選取 [Web Deploy for Web Apps]  。
 
     ![加入 Web 部署](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/add-web-deploy.png)
 
    儲存您的範本。
 
-1. 您的範本中就會有一些新的參數。 它們是在上一個步驟中新增的。 您不需要提供 **_artifactsLocation** 或 **_artifactsLocationSasToken** 的值，因為系統會自動產生這些值。 不過，您必須將資料夾和檔案名稱設定為包含部署套件的路徑。 這些參數的名稱結尾是 **PackageFolder** 和 **PackageFileName**。 名稱的第一個部分是您所新增 Web Deploy 資源的名稱。 在此文章中，它們名為 **ExampleAppPackageFolder** 和 **ExampleAppPackageFileName**。 
+1. 您的範本中就會有一些新的參數。 它們是在上一個步驟中新增的。 您不需要提供 **_artifactsLocation** 或 **_artifactsLocationSasToken** 的值，因為系統會自動產生這些值。 不過，您必須將資料夾和檔案名稱設定為包含部署套件的路徑。 這些參數的名稱結尾是 **PackageFolder** 和 **PackageFileName**。 名稱的第一個部分是您所新增 Web Deploy 資源的名稱。 在此文章中，它們名為 **ExampleAppPackageFolder** 和 **ExampleAppPackageFileName**。
 
    開啟 **Website.parameters.json** 並將這些參數設定為您在參考屬性中看到的值。 將資料夾名稱設為 **ExampleAppPackageFolder**。 將 zip 檔案的名稱設為 **ExampleAppPackageFileName**。
 
@@ -386,7 +386,7 @@ ms.locfileid: "67310989"
 
 ## <a name="next-steps"></a>後續步驟
 
-在本快速入門中，您已了解如何使用 Visual Studio 來建立及部署範本。 下一個教學課程將說明如何從範本參考中尋找相關資訊，用以建立加密的 Azure 儲存體帳戶。
+在本快速入門中，您已了解如何使用 Visual Studio 來建立及部署範本。 若要深入了解範本開發，請參閱我們的新初學者教學課程系列：
 
 > [!div class="nextstepaction"]
-> [建立加密的儲存體帳戶](./resource-manager-tutorial-create-encrypted-storage-accounts.md)
+> [初學者教學課程](./template-tutorial-create-first-template.md)

@@ -9,12 +9,12 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: peterpr
-ms.openlocfilehash: 72d02cecf37c631e6f8097b220848425c5e1fe9c
-ms.sourcegitcommit: a19f4b35a0123256e76f2789cd5083921ac73daf
+ms.openlocfilehash: 3d5dfe824d95506fa3f83f1fbbdca1e29e02d566
+ms.sourcegitcommit: be344deef6b37661e2c496f75a6cf14f805d7381
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71719130"
+ms.lasthandoff: 10/07/2019
+ms.locfileid: "72001289"
 ---
 # <a name="create-an-azure-iot-central-application-preview-features"></a>建立 Azure IoT Central 應用程式 (預覽功能)
 

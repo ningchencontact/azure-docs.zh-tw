@@ -9,18 +9,18 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: peterpr
-ms.openlocfilehash: 192374971e92bae282c5092dd8c5e7261fce0c5f
-ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
+ms.openlocfilehash: 2673d0d2c1cb174316e99a79a10a67347e2bc031
+ms.sourcegitcommit: be344deef6b37661e2c496f75a6cf14f805d7381
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71066377"
+ms.lasthandoff: 10/07/2019
+ms.locfileid: "72001345"
 ---
 # <a name="tutorial-add-a-real-device-to-your-azure-iot-central-application"></a>教學課程：將實際裝置新增至 Azure IoT Central 應用程式
 
 [!INCLUDE [iot-central-original-pnp](../../includes/iot-central-original-pnp-note.md)]
 
-本教學課程將說明如何在 Microsoft Azure IoT Central 應用程式中新增和設定實際裝置。
+此教學課程將說明如何在 Microsoft Azure IoT Central 應用程式中新增和設定*實際裝置*。 在此教學課程中，您會使用 Node.js 來撰寫實際裝置的程式碼，並在桌上型電腦上執行程式碼。 您不需要個別的 IoT 裝置 (例如 Raspberry Pi 或 MXChip IoT DevKit 裝置)，就可以完成此教學課程。
 
 本教學課程由兩個部分所組成：
 
@@ -52,11 +52,11 @@ ms.locfileid: "71066377"
 
    [裝置總管]  示範 [連線的空調]  裝置範本及模擬裝置。 當您建立模擬裝置時，IoT Central 會自動建立模擬裝置。
 
-2. 若要開始連接實際的連線空調裝置，請選取 **+** ，然後選取 [實際]  ：
+2. 請注意，[連線的空調]  裝置範本是在 [裝置總管]  中選擇的範本。 若要開始連線使用此範本的實際空調裝置，請選取 **+** ，然後選取 [實際]  ：
 
    ![開始新增，實際的連線空調裝置：](media/tutorial-add-device/newreal.png)
 
-3. 輸入裝置識別碼 (應為小寫)，或使用建議的裝置識別碼。 您也可以輸入新裝置的名稱，然後選擇 [建立]  。
+3. 輸入您自己的 [裝置識別碼]  (應為小寫)，或使用建議的值。 您也可以輸入新裝置的 [裝置名稱]  ，然後選擇 [建立]  。
 
    ![將裝置重新命名](media/tutorial-add-device/rename.png)
 
@@ -76,9 +76,9 @@ ms.locfileid: "71066377"
 
 ## <a name="prepare-the-client-code"></a>準備用戶端程式碼
 
-本文中的範例程式碼是以 [Node.js](https://nodejs.org/) 撰寫的，並顯示足以執行下列作業的程式碼：
+此文章中的範例程式碼是以 [Node.js](https://nodejs.org/) 撰寫的，並為裝置顯示足以執行下列作業的程式碼：
 
-* 以裝置連線至 Azure IoT Central 應用程式。
+* 連線至 Azure IoT Central 應用程式。
 * 以連線的空調裝置傳送溫度遙測資料。
 * 將裝置屬性傳送至 Azure IoT Central 應用程式。
 * 回應使用 [設定溫度]  設定的操作員。
@@ -96,7 +96,7 @@ ms.locfileid: "71066377"
 
    ![顯示檢視連線資訊連結的裝置頁面](media/tutorial-add-device/connectionlink.png)
 
-1. 在 [裝置連線] 頁面上，記下 [範圍識別碼]  、[裝置識別碼]  和 [主要金鑰]  值。 您在本教學課程後續的內容中，會用到這些值。
+1. 在 [裝置連線]  頁面上，記下 [範圍識別碼]  、[裝置識別碼]  和 [主索引鍵]  值。 您在本教學課程後續的內容中，會用到這些值。
 
    ![連線詳細資料](media/tutorial-add-device/device-connect.png)
 
@@ -139,7 +139,7 @@ ms.locfileid: "71066377"
     var provisioningHost = 'global.azure-devices-provisioning.net';
     var idScope = '{your Scope ID}';
     var registrationId = '{your Device ID}';
-    var symmetricKey = '{your Primary Key};
+    var symmetricKey = '{your Primary Key}';
     var provisioningSecurityClient = new SymmetricKeySecurityClient(registrationId, symmetricKey);
     var provisioningClient = ProvisioningDeviceClient.create(provisioningHost, idScope, new ProvisioningTransport(), provisioningSecurityClient);
     var hubClient;
@@ -150,7 +150,7 @@ ms.locfileid: "71066377"
 
 ## <a name="review-client-code"></a>檢閱用戶端程式碼
 
-在上一節中，您為連線至 Azure IoT Central 應用程式的應用程式建立了基本架構 Node.js 專案。 下一個步驟是將程式碼新增至：
+在上一節中，您為連線至 Azure IoT Central 應用程式的裝置應用程式建立了基本架構 Node.js 專案。 下一個步驟是將程式碼新增至：
 
 * 連線至 Azure IoT Central 應用程式。
 * 將遙測資料傳送至 Azure IoT Central 應用程式。

@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 04/10/2019
 ms.author: wesmc
-ms.openlocfilehash: 842efca1b40827f63ab23581aeac7e5226d04349
-ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
+ms.openlocfilehash: 4ccfa45c56a7e59024ce0639f218861054e32395
+ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69900272"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72166949"
 ---
 # <a name="quickstart-send-telemetry-from-a-device-to-an-iot-hub-and-read-it-with-a-back-end-application-c"></a>快速入門：將遙測從裝置傳送至 IoT 中樞，並使用後端應用程式讀取遙測 (C)
 
@@ -29,7 +29,7 @@ IoT 中樞是一項 Azure 服務，可讓您從 IoT 裝置將大量的遙測擷�
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-如果您沒有 Azure 訂用帳戶，請在開始前先建立一個[免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)。
+如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 。
 
 ## <a name="prerequisites"></a>必要條件
 
@@ -45,7 +45,7 @@ IoT 中樞是一項 Azure 服務，可讓您從 IoT 裝置將大量的遙測擷�
 
 針對此快速入門，您將使用[適用於 C 的 Azure IoT 裝置 SDK](iot-hub-device-sdk-c-intro.md)。 
 
-您可以透過針對下列環境安裝套件與程式庫，來使用該 SDK：
+針對下列環境，您可以透過安裝這些套件與程式庫來使用該 SDK：
 
 * **Linux**：Ubuntu 16.04 與 18.04 可使用 apt-get 套件，適用的 CPU 架構如下：amd64、arm64、armhf 與 i386。 如需詳細資訊，請參閱[在Ubuntu 上使用 apt-get 來建立 C 裝置用戶端專案](https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/ubuntu_apt-get_sample_setup.md) \(英文\)。
 
@@ -113,25 +113,25 @@ IoT 中樞是一項 Azure 服務，可讓您從 IoT 裝置將大量的遙測擷�
 
    **YourIoTHubName**：以您為 IoT 中樞選擇的名稱取代此預留位置。
 
-   **MyCDevice**：這是為已註冊裝置指定的名稱。 使用所示的 MyCDevice。 如果您為裝置選擇不同的名稱，則也必須在本文中使用該名稱，並先在範例應用程式中更新該裝置名稱，再執行應用程式。
+   **MyCDevice**：這是您要註冊之裝置的名稱。 建議您使用 **MyCDevice**，如下所示。 如果您為裝置選擇不同的名稱，則也必須在本文中使用該名稱，並先在範例應用程式中更新該裝置名稱，再執行應用程式。
 
     ```azurecli-interactive
-    az iot hub device-identity create --hub-name YourIoTHubName --device-id MyCDevice
+    az iot hub device-identity create --hub-name {YourIoTHubName} --device-id MyCDevice
     ```
 
-2. 在 Azure Cloud Shell 中執行下列命令，以取得您所註冊裝置的「裝置連接字串」  ：
+2. 在 Azure Cloud Shell 中執行下列命令，以針對您剛註冊的裝置取得「裝置連接字串」  ：
 
    **YourIoTHubName**：以您為 IoT 中樞選擇的名稱取代此預留位置。
 
     ```azurecli-interactive
-    az iot hub device-identity show-connection-string --hub-name YourIoTHubName --device-id MyCDevice --output table
+    az iot hub device-identity show-connection-string --hub-name {YourIoTHubName} --device-id MyCDevice --output table
     ```
 
     記下裝置連接字串，它看起來如下：
 
-   `HostName={YourIoTHubName}.azure-devices.net;DeviceId=MyNodeDevice;SharedAccessKey={YourSharedAccessKey}`
+   `HostName={YourIoTHubName}.azure-devices.net;DeviceId=MyCDevice;SharedAccessKey={YourSharedAccessKey}`
 
-    您稍後會在快速入門中使用此值。
+    您稍後將會在快速入門中使用此值。
 
 ## <a name="send-simulated-telemetry"></a>傳送模擬的遙測
 
@@ -150,7 +150,7 @@ IoT 中樞是一項 Azure 服務，可讓您從 IoT 裝置將大量的遙測擷�
     static const char* connectionString = "[device connection string]";
     ```
 
-    使用先前所記錄的裝置連接字串來取代 `connectionString` 常數的值。 接著，將您的變更儲存到 **iothub_convenience_sample.c**。
+    使用稍早所記錄的裝置連接字串來取代 `connectionString` 常數的值。 接著，將您的變更儲存到 **iothub_convenience_sample.c**。
 
 3. 在本機終端機視窗中，瀏覽到您在 Azure IoT SDK 中建立之 CMake 目錄中的 *iothub_convenience_sample* 專案目錄。 從工作目錄輸入下列命令：
 
@@ -183,7 +183,7 @@ IoT 中樞是一項 Azure 服務，可讓您從 IoT 裝置將大量的遙測擷�
    **YourIoTHubName**：以您為 IoT 中樞選擇的名稱取代此預留位置。
 
     ```azurecli-interactive
-    az iot hub monitor-events --hub-name YourIoTHubName --output table
+    az iot hub monitor-events --hub-name {YourIoTHubName} --output table
     ```
 
     ![使用 Azure CLI 來閱讀裝置訊息](media/quickstart-send-telemetry-c/read-device-to-cloud-messages-app.png)
@@ -194,7 +194,7 @@ IoT 中樞是一項 Azure 服務，可讓您從 IoT 裝置將大量的遙測擷�
 
 ## <a name="next-steps"></a>後續步驟
 
-在此快速入門中，您已經設定 IoT 中樞、註冊裝置、使用 C 應用程式將模擬的遙測傳送到中樞，並使用 Azure Cloud Shell 從中樞讀取遙測。
+在此快速入門中，您已設定 IoT 中樞、註冊裝置、使用 C 應用程式將模擬遙測資料傳送至中樞，並使用 Azure Cloud Shell 從中樞讀取遙測資料。
 
 若要深入了解如何搭配 Azure IoT Hub C SDK 進行開發，請繼續閱讀下列操作指南：
 

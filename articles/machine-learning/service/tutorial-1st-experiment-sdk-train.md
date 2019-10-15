@@ -1,5 +1,5 @@
 ---
-title: 教學課程：定型第一個 ML 模型
+title: 教學課程：在 Python 中將您的第一個 Azure ML 模型定型
 titleSuffix: Azure Machine Learning
 description: 在本教學課程中，您將了解 Azure Machine Learning 中的基本設計模式，並根據糖尿病資料集來定型簡單的 Scikit-learn 模型。
 services: machine-learning
@@ -10,12 +10,12 @@ author: trevorbye
 ms.author: trbye
 ms.reviewer: trbye
 ms.date: 09/03/2019
-ms.openlocfilehash: c775b16eaa15ccd7115f4770bf197545a9de2500
-ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
+ms.openlocfilehash: c78a45cedbeb5cfa0f0cc7c5c976fceb36f1da2a
+ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71828023"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72173299"
 ---
 # <a name="tutorial-train-your-first-ml-model"></a>教學課程：定型第一個 ML 模型
 

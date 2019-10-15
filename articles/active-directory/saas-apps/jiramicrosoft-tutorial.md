@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 09/11/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d69d5ffcae77e7144f97cb423d5bee93cb88fb27
-ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
+ms.openlocfilehash: 713b43f720e3bccae3b9c6457a3317427fb3fc1a
+ms.sourcegitcommit: 4d177e6d273bba8af03a00e8bb9fe51a447196d0
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71121606"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71960035"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-jira-saml-sso-by-microsoft"></a>教學課程：Azure Active Directory 單一登入 (SSO) 與 JIRA SAML SSO by Microsoft 整合
 
@@ -60,8 +60,8 @@ ms.locfileid: "71121606"
 
 ## <a name="supported-versions-of-jira"></a>支援的 JIRA 版本
 
-* JIRA 核心和軟體：6.4 到 8.0
-* JIRA Service Desk 3.0.0 到 3.5.0
+* JIRA 核心和軟體：6.4 到 8.2.4
+* JIRA Service Desk 3.0.0 到 4.2.1
 * JIRA 也支援 5.2。 如需詳細資訊，請按一下[適用於 JIRA 5.2 的 Microsoft Azure Active Directory 單一登入](jira52microsoft-tutorial.md)
 
 > [!NOTE]
@@ -181,11 +181,11 @@ ms.locfileid: "71121606"
 
 5. 安裝外掛程式之後，它會出現在 [管理附加元件]  區段的 [使用者安裝的附加元件]  區段中。 按一下 [設定]  來設定新的外掛程式。
 
-    ![設定單一登入](./media/jiramicrosoft-tutorial/addon13.png)
+    ![設定單一登入](./media/jiramicrosoft-tutorial/addon14.png)
 
 6. 在設定頁面上執行下列步驟：
 
-    ![設定單一登入](./media/jiramicrosoft-tutorial/addon53.png)
+    ![設定單一登入](./media/jiramicrosoft-tutorial/addon54.png)
 
     > [!TIP]
     > 請確定只有一個對應至應用程式的憑證，解析中繼資料時就不會發生錯誤。 如果有多個憑證，則解析中繼資料時，管理員會遇到錯誤。
@@ -195,6 +195,8 @@ ms.locfileid: "71121606"
     1. 複製 [識別碼]、[回覆 URL] 和 [登入 URL]  值，然後在 Azure 入口網站的 [JIRA SAML SSO by Microsoft 網域及 URL]  中，分別貼到 [識別碼]、[回覆 URL] 和 [登入 URL]  文字方塊。
 
     1. 在 [登入按鈕名稱]  中，輸入您的組織要讓使用者在登入畫面上看到的按鈕名稱。
+    
+    1. 在 [登入按鈕描述]  中，輸入組織要讓使用者在登入畫面上看到的按鈕描述。
 
     1. 在 [SAML 使用者識別碼位置]  中，選取 [使用者識別碼在 Subject 陳述式的 NameIdentifier 元素中]  或 [使用者識別碼在 Attribute 元素中]  。  此識別碼必須為 JIRA 使用者識別碼。 如果使用者識別碼不相符，系統就不會允許使用者登入。
 
@@ -212,7 +214,7 @@ ms.locfileid: "71121606"
     1. 如果您只要透過 Azure AD 認證登入，請啟用 [強制執行 Azure 登入]  核取方塊。
     
        > [!Note]
-       > 若要在啟用強制執行 Azure 登入時，於登入頁面上啟用系統管理員登入的預設登入表單，請在瀏覽器 URL 中加入查詢參數。
+       >若要在啟用強制執行 Azure 登入時，於登入頁面上啟用系統管理員登入的預設登入表單，請在瀏覽器 URL 中加入查詢參數。
        > `https://<domain:port>/login.action?force_azure_login=false`
 
     1. 按一下 [儲存]  按鈕以儲存設定。

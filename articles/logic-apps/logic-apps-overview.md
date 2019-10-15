@@ -1,6 +1,6 @@
 ---
-title: 利用 Azure Logic Apps 進行企業整合
-description: 概述如何透過自動化及協調跨企業和組織整合應用程式、資料、服務和系統的工作、工作流程和商務程序，建置企業整合解決方案。 建立資料整合、系統整合、企業應用程式整合 (EAI) 和協調流程案例的解決方案。
+title: 針對企業整合將工作自動化 - Azure Logic Apps
+description: 了解使用 Azure Logic Apps 針對企業整合在搭配最少程式碼的情況下，將整合應用程式、資料、服務及系統的工作流程自動化。
 services: logic-apps
 ms.service: logic-apps
 ms.suite: integration
@@ -10,26 +10,29 @@ manager: carmonm
 ms.reviewer: klam, LADocs
 ms.topic: overview
 ms.custom: mvc
-ms.date: 6/29/2018
-ms.openlocfilehash: f25ade0e984c98b9cbc8c4efa93f300c3ed93b14
-ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
+ms.date: 06/29/2018
+ms.openlocfilehash: 85e2216e39658fde42f298dabc38c737621d6be4
+ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68385477"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72178031"
 ---
-# <a name="what-is-azure-logic-apps"></a>什麼是 Azure Logic Apps？
+# <a name="overview---what-is-azure-logic-apps"></a>概觀 - 什麼是 Azure Logic Apps？
 
 [Azure Logic Apps](https://azure.microsoft.com/services/logic-apps) 是一項雲端服務，可在您需要跨企業或組織整合應用程式、資料、系統和服務時，協助您排程、自動化及協調工作、商務程序和[工作流程](#logic-app-concepts)。 Logic Apps 會簡化設計和建立可調整解決方案的方式，以便在雲端、內部部署環境或兩者中進行應用程式[整合](https://azure.microsoft.com/product-categories/integration/)、資料整合、系統整合、企業應用程式整合 (EAI) 和企業對企業 (B2B) 通訊。
 
 例如，以下是可利用邏輯應用程式自動執行的幾項工作負載：
 
 * 處理並路由傳送跨內部部署系統與雲端服務的訂單。
+
 * 在各種系統、應用程式和服務中發生事件時，透過 Office 365 傳送電子郵件通知。
-* 將上傳的檔案從 FTP 或 FTP 伺服器移到 Azure 儲存體。 
+
+* 將上傳的檔案從 FTP 或 FTP 伺服器移到 Azure 儲存體。
+
 * 監視特定主旨的推文、分析情緒，以及針對需要檢閱的項目建立警示或工作。
 
-若要使用 Azure Logic Apps 來建置企業整合解決方案，您可以從具有[數百個現成可用的連接器](../connectors/apis-list.md)且持續成長的資源庫中選擇，其中包括 Azure 服務匯流排、Functions 和儲存體等服務，以及 SQL、Office 365、Dynamics、Salesforce、BizTalk、SAP、Oracle DB、檔案共用等等。 [連接器](#logic-app-concepts)會提供[觸發程序](#logic-app-concepts)、[動作](#logic-app-concepts)或兩者，以便建立可即時安全地存取及處理資料的邏輯應用程式。
+若要使用 Azure Logic Apps 來建置企業整合解決方案，您可以從具有[數百個現成可用的連接器](../connectors/apis-list.md)且持續成長的資源庫中選擇，其中包括 Azure 服務匯流排、Azure Functions、Azure 儲存體、SQL Server、Office 365、Dynamics、Salesforce、BizTalk、SAP、Oracle DB、檔案共用等服務。 [連接器](#logic-app-concepts)會提供[觸發程序](#logic-app-concepts)、[動作](#logic-app-concepts)或兩者，以便建立可即時安全地存取及處理資料的邏輯應用程式。
 
 > [!VIDEO https://channel9.msdn.com/Blogs/Azure/Introducing-Azure-Logic-Apps/player]
 
@@ -39,17 +42,17 @@ ms.locfileid: "68385477"
 
 每次引發觸發程序時，Logic Apps 引擎就會建立可執行工作流程動作的邏輯應用程式執行個體。 這些動作也可以包含資料轉換和流程控制，例如條件陳述式、切換陳述式、迴圈和分支。 例如，此邏輯應用程式會使用具有「在記錄更新時」內建準則的 Dynamics 365 觸發程序啟動。 如果觸發程序偵測到符合此準則的事件，則觸發程序會引發並執行工作流程的動作。 這些動作包括 XML 轉換、資料更新、決策分支和電子郵件通知。
 
-![Logic Apps 設計工具 - 範例邏輯應用程式](./media/logic-apps-overview/overview.png)
+![Logic Apps 設計工具 - 範例邏輯應用程式](./media/logic-apps-overview/azure-logic-apps-overview.png)
 
 您可以使用 Logic Apps 設計工具 (可透過瀏覽器在 Azure 入口網站中和在 Visual Studio 中取得)，以視覺化方式建立邏輯應用程式。 如需更多自訂邏輯應用程式，您可以在「程式碼檢視」編輯器中，以 JavaScript 物件標記法 (JSON) 建立或編輯邏輯應用程式定義。 您也可以對精選工作使用 Azure PowerShell 和 Azure Resource Manager 範本。 Azure 上的邏輯應用程式會在雲端部署並執行。 如需更詳細的簡介，請觀看以下影片：[使用 Azure Enterprise Integration Services 來執行大規模的雲端應用程式](https://channel9.msdn.com/Events/Connect/2017/T119/)
 
 ## <a name="why-use-logic-apps"></a>為何使用 Logic Apps？
 
-隨著企業邁向數位化，邏輯應用程式可藉由提供預先建置的 API 作為 Microsoft 管理的連接器，協助您更輕鬆快速地與舊有、新式和尖端系統連線。 如此一來，您即可專注於應用程式的商務邏輯與功能。 您不必擔心建置、裝載、調整、管理、維護和監視您的應用程式。 Logic Apps 會為您處理這些疑慮。 再者，根據取用[定價模式](../logic-apps/logic-apps-pricing.md)，您只需針對使用的部分付費。 
+隨著企業邁向數位化，邏輯應用程式可藉由提供預先建置的 API 作為 Microsoft 管理的連接器，協助您更輕鬆快速地與舊有、新式和尖端系統連線。 如此一來，您即可專注於應用程式的商務邏輯與功能。 您不必擔心建置、裝載、調整、管理、維護和監視您的應用程式。 Logic Apps 會為您處理這些疑慮。 再者，根據取用[定價模式](../logic-apps/logic-apps-pricing.md)，您只需針對使用的部分付費。
 
 在許多情況下，您不需要撰寫程式碼。 但如果您必須撰寫一些程式碼，您可以使用 [Azure Functions](../azure-functions/functions-overview.md) 建立程式碼片段，並依照需求從邏輯應用程式執行該程式碼。 此外，如果您的邏輯應用程式需要與來自 Azure 服務、自訂應用程式或其他解決方案的事件互動，您可以使用 [Azure 事件格線](../event-grid/overview.md)搭配邏輯應用程式來監視、路由傳送及發佈事件。
 
-Logic Apps、Functions 和 Event Grid 都是由 Microsoft Azure 完全管理，您不必擔心建置、裝載、調整、管理、監視和維護您的解決方案。 利用這項功能來建立[「無伺服器」應用程式和解決方案](../logic-apps/logic-apps-serverless-overview.md)，您就可以專注於商務邏輯。 這些服務會自動進行調整，以符合您的需求、加快整合，以及協助您使用最少的程式碼來建置強大的雲端應用程式。 再者，根據取用[定價模式](../logic-apps/logic-apps-pricing.md)，您只需針對使用的部分付費。 
+Logic Apps、Functions 和 Event Grid 都是由 Microsoft Azure 完全管理，您不必擔心建置、裝載、調整、管理、監視和維護您的解決方案。 利用這項功能來建立[「無伺服器」應用程式和解決方案](../logic-apps/logic-apps-serverless-overview.md)，您就可以專注於商務邏輯。 這些服務會自動進行調整，以符合您的需求、加快整合，以及協助您使用最少的程式碼來建置強大的雲端應用程式。 再者，根據取用[定價模式](../logic-apps/logic-apps-pricing.md)，您只需針對使用的部分付費。
 
 若要了解公司結合 Logic Apps 與其他 Azure 服務和 Microsoft 產品時，如何提升其靈活度及更加著重其核心業務，請參閱這些[客戶案例](https://aka.ms/logic-apps-customer-stories)。
 
@@ -81,16 +84,19 @@ Logic Apps、Functions 和 Event Grid 都是由 Microsoft Azure 完全管理，�
   * [Azure API 管理](../api-management/api-management-key-concepts.md)
 
 * 處理 [XML 訊息](../logic-apps/logic-apps-enterprise-integration-xml.md)
+
 * 處理[一般檔案](../logic-apps/logic-apps-enterprise-integration-flatfile.md)
+
 * 透過 [EDIFACT](../logic-apps/logic-apps-enterprise-integration-edifact.md)、[AS2](../logic-apps/logic-apps-enterprise-integration-as2.md) 和 [X12](../logic-apps/logic-apps-enterprise-integration-x12.md) 通訊協定交換訊息
+
 * 使用[整合帳戶](../logic-apps/logic-apps-enterprise-integration-accounts.md)集中儲存和管理這些 B2B 成品等：
 
   * [合作夥伴](../logic-apps/logic-apps-enterprise-integration-partners.md)
   * [合約](../logic-apps/logic-apps-enterprise-integration-agreements.md) 
   * [XML 轉換對應](../logic-apps/logic-apps-enterprise-integration-maps.md)
   * [XML 驗證結構描述](../logic-apps/logic-apps-enterprise-integration-schemas.md)
-   
-例如，如果您使用 Microsoft BizTalk Server，則邏輯應用程式可以使用 [BizTalk Server 連接器](../connectors/apis-list.md#on-premises-connectors)與您的 BizTalk Server 連線並通訊。 您可以接著在邏輯應用程式中包含[整合帳戶連接器](../connectors/apis-list.md#integration-account-connectors) (可透過企業整合套件取得)，以便擴充或執行類似 BizTalk 的作業。 
+
+例如，如果您使用 Microsoft BizTalk Server，則邏輯應用程式可以使用 [BizTalk Server 連接器](../connectors/apis-list.md#on-premises-connectors)與您的 BizTalk Server 連線並通訊。 您可以接著在邏輯應用程式中包含[整合帳戶連接器](../connectors/apis-list.md#integration-account-connectors) (可透過企業整合套件取得)，以便擴充或執行類似 BizTalk 的作業。
 
 BizTalk Server 可以透過另一種方式，使用[適用於 Logic Apps 的 Microsoft BizTalk Server 配接器](https://www.microsoft.com/download/details.aspx?id=54287)連線到邏輯應用程式並且進行通訊。 了解如何在 BizTalk Server 中[設定和使用 BizTalk Server 配接器](https://docs.microsoft.com/biztalk/core/logic-app-adapter)。
 
@@ -100,7 +106,7 @@ BizTalk Server 可以透過另一種方式，使用[適用於 Logic Apps 的 Mic
 
 ### <a name="built-in-extensibility"></a>內建擴充性
 
-如果找不到您想要或執行自訂程式碼所需的連接器，您可以透過 [Azure Functions](../azure-functions/functions-overview.md) 建立自己的程式碼片段並依照需求進行呼叫，以擴充邏輯應用程式。 建立您可以從邏輯應用程式呼叫的自有 [API](../logic-apps/logic-apps-create-api-app.md) 和[自訂連接器](../logic-apps/custom-connector-overview.md)。
+如果找不到您想要用來執行自訂程式碼的連接器，您可以透過 [Azure Functions](../azure-functions/functions-overview.md) 建立自己的程式碼片段並依照需求進行呼叫，以擴充邏輯應用程式。 建立您可以從邏輯應用程式呼叫的自有 [API](../logic-apps/logic-apps-create-api-app.md) 和[自訂連接器](../logic-apps/custom-connector-overview.md)。
 
 ### <a name="pay-only-for-what-you-use"></a>用多少付多少
   
@@ -118,7 +124,7 @@ BizTalk Server 可以透過另一種方式，使用[適用於 Logic Apps 的 Mic
 
 * **工作流程**：視覺化、設計、建立、自動執行商務程序，以及將其部署為一系列的步驟。
 
-* **受控連接器**：邏輯應用程式需要資料、服務和服務的存取權。 您可以使用預先建置並由 Microsoft 管理的連接器，其設計用來連線、存取及使用您的資料。 請參閱[適用於 Azure Logic Apps 的連接器](../connectors/apis-list.md)
+* **受控連接器**：邏輯應用程式需要資料、服務和服務的存取權。 您可以使用預先建置並由 Microsoft 管理的連接器，其設計用來連線、存取及使用您的資料。 請參閱[適用於 Azure Logic Apps 的連接器](../connectors/apis-list.md)。
 
 * **觸發程序**：由 Microsoft 管理的許多連接器會提供可在事件或新資料符合指定的條件時引發的觸發程序。 比方說，事件可能是收到一封電子郵件，或偵測到您的 Azure 儲存體帳戶有變更。 每次引發觸發程序時，Logic Apps 引擎就會建立可執行工作流程的新邏輯應用程式執行個體。
 
@@ -130,9 +136,9 @@ BizTalk Server 可以透過另一種方式，使用[適用於 Logic Apps 的 Mic
 
 上述這些服務都可協助您一起「黏附」及連線不同的系統。 每個服務都各有其優點，因此把這些服務的功能結合在一起，是快速建置可調式、全功能整合系統的最佳方式。 如需詳細資訊，請參閱[在 Flow、Logic Apps、Functions 和 WebJobs 之間做選擇](../azure-functions/functions-compare-logic-apps-ms-flow-webjobs.md)。
 
-## <a name="get-started"></a>開始使用 
+## <a name="get-started"></a>開始使用
 
-Logic Apps 是裝載於 Microsoft Azure 的許多服務之一。 因此開始使用前，您需要有 Azure 訂用帳戶。 如果您沒有訂用帳戶，請[註冊一個免費的 Azure 帳戶](https://azure.microsoft.com/free/)。 
+Logic Apps 是裝載於 Microsoft Azure 的許多服務之一。 因此開始使用前，您需要有 Azure 訂用帳戶。 如果您沒有訂用帳戶，請[註冊一個免費的 Azure 帳戶](https://azure.microsoft.com/free/)。
 
 如果您有 Azure 訂用帳戶，請嘗試此[快速入門以建立第一個邏輯應用程式](../logic-apps/quickstart-create-first-logic-app-workflow.md)，該邏輯應用程式會透過 RSS 摘要監視網站上的新內容，以及在新內容出現時傳送電子郵件。
 

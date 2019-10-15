@@ -5,20 +5,20 @@ services: time-series-insights
 author: ashannon7
 ms.service: time-series-insights
 ms.topic: tutorial
-ms.date: 07/29/2019
+ms.date: 10/02/2019
 ms.author: dpalled
 manager: cshankar
 ms.custom: seodec18
-ms.openlocfilehash: 4c81daa1f55167fa868c69f3bff388dbaa4887cd
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.openlocfilehash: a6f2b2875ea58ff89d59f577f7cb27d97e07b28e
+ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68725748"
+ms.lasthandoff: 10/06/2019
+ms.locfileid: "71981226"
 ---
 # <a name="tutorial-create-an-azure-time-series-insights-environment"></a>教學課程：建立 Azure 時間序列深入解析環境
 
-本教學課程將逐步引導您建立已從模擬裝置填入資料的 Azure 時間序列深入解析環境。 在本教學課程中，您了解如何：
+本教學課程將逐步引導您建立已從模擬裝置填入資料的 Azure 時間序列深入解析環境。 在本教學課程中，您會了解如何：
 
 > [!div class="checklist"]
 > * 建立時間序列深入解析環境。
@@ -196,4 +196,4 @@ Azure IoT 中樞是教學課程中所有裝置 (模擬或實體) 用來安全地
 您現在已了解如何建立您自己的時間序列深入解析環境，並了解如何建置從時間序列深入解析環境中取用資料的 Web 應用程式：
 
 > [!div class="nextstepaction"]
-> [建立 Azure 時間序列深入解析單一頁面 Web 應用程式](tutorial-create-tsi-sample-spa.md)
+> [查看裝載的用戶端 SDK 虛擬化範例](https://tsiclientsample.azurewebsites.net/) \(英文\)

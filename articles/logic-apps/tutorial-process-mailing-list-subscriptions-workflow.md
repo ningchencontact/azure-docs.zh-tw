@@ -11,12 +11,12 @@ ms.reviewer: klam, LADocs
 ms.topic: tutorial
 ms.custom: mvc
 ms.date: 09/20/2019
-ms.openlocfilehash: 734a6be81a8052b2894f4c27b165bb8dc4f14caf
-ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
+ms.openlocfilehash: fb92e882607575e99ae800bd9c6d7c36b5d89d8e
+ms.sourcegitcommit: f9e81b39693206b824e40d7657d0466246aadd6e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71171729"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72034464"
 ---
 # <a name="tutorial-create-automated-approval-based-workflows-by-using-azure-logic-apps"></a>教學課程：使用 Azure Logic Apps 建立以核准為基礎的自動化工作流程
 
@@ -35,7 +35,7 @@ ms.locfileid: "71171729"
 
 當您完成時，邏輯應用程式大致如下列工作流程所示︰
 
-![完成的邏輯應用程式概觀](./media/tutorial-process-mailing-list-subscriptions-workflow/tutorial-overview.png)
+![完成的高階邏輯應用程式概觀](./media/tutorial-process-mailing-list-subscriptions-workflow/tutorial-high-level-overview.png)
 
 ## <a name="prerequisites"></a>必要條件
 
@@ -53,11 +53,11 @@ ms.locfileid: "71171729"
 
 1. 在主要 Azure 功能表中，選取 [建立資源]   > [整合]   > [邏輯應用程式]  。
 
-   ![建立邏輯應用程式](./media/tutorial-process-mailing-list-subscriptions-workflow/create-logic-app.png)
+   ![建立您的新邏輯應用程式資源](./media/tutorial-process-mailing-list-subscriptions-workflow/create-new-logic-app-resource.png)
 
 1. 在 [建立邏輯應用程式]  下，提供有關於邏輯應用程式的這項資訊，如下所示和描述。 當您完成時，選取 [建立]  。
 
-   ![提供邏輯應用程式資訊](./media/tutorial-process-mailing-list-subscriptions-workflow/create-logic-app-settings.png)
+   ![提供邏輯應用程式的相關資訊](./media/tutorial-process-mailing-list-subscriptions-workflow/create-logic-app-settings.png)
 
    | 屬性 | 值 | 說明 |
    |----------|-------|-------------|
@@ -70,7 +70,7 @@ ms.locfileid: "71171729"
 
 1. 在 Azure 部署您的應用程式之後，請在 Azure 工具列上針對您部署的邏輯應用程式選取 [通知]   > [移至資源]  。
 
-   ![前往資源](./media/tutorial-process-mailing-list-subscriptions-workflow/go-to-logic-app.png)
+   ![移至您的新邏輯應用程式資源](./media/tutorial-process-mailing-list-subscriptions-workflow/go-to-logic-app-resource.png)
 
    或者，您可以在搜尋方塊中輸入名稱，以尋找並選取您的邏輯應用程式。
 
@@ -108,13 +108,13 @@ ms.locfileid: "71171729"
 
    1. 現在，將另一個屬性新增至觸發程序，以便您篩選電子郵件主旨行。 開啟 [新增參數清單]  ，然後選取 [主旨篩選]  屬性。
 
-      ![新增參數](./media/tutorial-process-mailing-list-subscriptions-workflow/add-trigger-add-properties.png)
+      ![將 [主旨篩選] 屬性加入至觸發程序](./media/tutorial-process-mailing-list-subscriptions-workflow/add-trigger-add-properties.png)
 
       如需此觸發程序屬性的詳細資訊，請參閱 [Office 365 Outlook 連接器參考](https://docs.microsoft.com/connectors/office365/)或 [Outlook.com 連接器參考](https://docs.microsoft.com/connectors/outlook/)。
 
    1. 當屬性出現在觸發程序之後，請輸入下列文字：`subscribe-test-members-ML`
 
-      ![輸入新增參數的主旨篩選文字](./media/tutorial-process-mailing-list-subscriptions-workflow/add-trigger-subject-filter-property.png)
+      ![輸入 [主旨篩選] 屬性的文字](./media/tutorial-process-mailing-list-subscriptions-workflow/add-trigger-subject-filter-property.png)
 
 1. 若要立即隱藏觸發程序的詳細資料，請按一下觸發程序的標題列。
 
@@ -161,13 +161,13 @@ ms.locfileid: "71171729"
 
 1. 在 [選擇動作]  底下，選取 [內建]  。 在搜尋方塊中，輸入 `condition` 作為篩選條件。 從動作清單中，選取 [條件]  動作。
 
-   ![選取 [條件]](./media/tutorial-process-mailing-list-subscriptions-workflow/select-condition.png)
+   ![尋找並選取 [條件] 動作](./media/tutorial-process-mailing-list-subscriptions-workflow/select-condition-action.png)
 
 1. 以更適當的描述為條件重新命名。
 
    1. 在條件的標題列上，選取 **省略符號** ( **...** ) 按鈕 > [重新命名]  。
 
-      ![重新命名條件](./media/tutorial-process-mailing-list-subscriptions-workflow/rename-condition.png)
+      ![重新命名條件的描述](./media/tutorial-process-mailing-list-subscriptions-workflow/rename-condition-description.png)
 
    1. 以下列描述為條件重新命名：`If request approved`
 
@@ -177,7 +177,7 @@ ms.locfileid: "71171729"
 
    1. 從顯示的動態內容清單中，選取 [傳送核准電子郵件]  底下的 [SelectedOption]  屬性。
 
-      ![在 [傳送核准電子郵件] 下選取 [SelectedOption]](./media/tutorial-process-mailing-list-subscriptions-workflow/build-condition-check-approval-response.png)
+      ![從動態內容清單中，選取 [SelectedOption]](./media/tutorial-process-mailing-list-subscriptions-workflow/build-condition-check-approval-response.png)
 
    1. 在中間的比較方塊中，選取 [等於]  運算子。
 
@@ -185,7 +185,7 @@ ms.locfileid: "71171729"
 
       當您完成時，條件看起來就像下面這個範例︰
 
-      ![已完成的條件](./media/tutorial-process-mailing-list-subscriptions-workflow/build-condition-check-approval-response-2.png)
+      ![完成的已核准條件範例](./media/tutorial-process-mailing-list-subscriptions-workflow/build-condition-check-approval-response-2.png)
 
 1. 儲存您的邏輯應用程式。
 
@@ -242,7 +242,7 @@ ms.locfileid: "71171729"
 
       當您完成時，條件看起來就像下面這個範例︰
 
-      ![已完成的條件](./media/tutorial-process-mailing-list-subscriptions-workflow/build-condition-check-added-member-2.png)
+      ![完成的已訂閱條件範例](./media/tutorial-process-mailing-list-subscriptions-workflow/build-condition-check-added-member-2.png)
 
 接下來，設定要在已核准的成員加入郵寄清單成功或失敗時傳送的電子郵件。
 
@@ -250,7 +250,7 @@ ms.locfileid: "71171729"
 
 1. 在 [如果新增成員成功]  條件下方的 [若為 true]  分支中，選擇 [新增動作]  。
 
-   ![在條件的 [若為 true] 分支中，選取 [新增動作]](./media/tutorial-process-mailing-list-subscriptions-workflow/add-action-email-success.png)
+   ![在 [若為 true] 分支中，選取 [新增動作]](./media/tutorial-process-mailing-list-subscriptions-workflow/add-action-email-success.png)
 
 1. 在 [選擇動作]  底下的搜尋方塊中，輸入 `outlook send email` 作為篩選條件，然後選取 [傳送電子郵件]  動作。
 
@@ -275,7 +275,7 @@ ms.locfileid: "71171729"
 
 1. 在 [如果新增成員成功]  條件下方的 [若為 false]  分支中，選擇 [新增動作]  。
 
-   ![在條件的 [若為 false] 分支中，選取 [新增動作]](./media/tutorial-process-mailing-list-subscriptions-workflow/add-action-email-failed.png)
+   ![在 [若為 false] 分支中，選取 [新增動作]](./media/tutorial-process-mailing-list-subscriptions-workflow/add-action-email-failed.png)
 
 1. 在 [選擇動作]  底下的搜尋方塊中，輸入 `outlook send email` 作為篩選條件，然後選取 [傳送電子郵件]  動作。
 
@@ -298,7 +298,7 @@ ms.locfileid: "71171729"
 
 接著請測試您的邏輯應用程式，此時它看起來類似下列範例：
 
-![完成的邏輯應用程式](./media/tutorial-process-mailing-list-subscriptions-workflow/tutorial-complete.png)
+![完成的邏輯應用程式工作流程範例](./media/tutorial-process-mailing-list-subscriptions-workflow/tutorial-high-level-completed.png)
 
 ## <a name="run-your-logic-app"></a>執行邏輯應用程式
 
@@ -312,11 +312,11 @@ ms.locfileid: "71171729"
 
 1. 如果訂閱者的電子郵件地址不存在於郵寄清單，則邏輯應用程式會新增該人員的電子郵件地址，並將如下面範例所示的電子郵件傳送給您：
 
-   ![成功電子郵件](./media/tutorial-process-mailing-list-subscriptions-workflow/add-member-success.png)
+   ![範例電子郵件 - 訂閱成功](./media/tutorial-process-mailing-list-subscriptions-workflow/add-member-mailing-list-success.png)
 
    如果您的邏輯應用程式無法新增訂閱者，您會收到如下面範例所示的電子郵件：
 
-   ![失敗電子郵件](./media/tutorial-process-mailing-list-subscriptions-workflow/add-member-failed.png)
+   ![範例電子郵件 - 訂閱失敗](./media/tutorial-process-mailing-list-subscriptions-workflow/add-member-mailing-list-failed.png)
 
    若未收到任何電子郵件，請檢查電子郵件的垃圾郵件資料夾。 您的垃圾電子郵件篩選器可能會重新導向這類郵件。 或者，如果您不確定邏輯應用程式是否正確執行，請參閱[針對邏輯應用程式進行疑難排解](../logic-apps/logic-apps-diagnosing-failures.md)。
 

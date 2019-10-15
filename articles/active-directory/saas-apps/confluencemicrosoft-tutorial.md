@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 09/05/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1384a8c9cfc4da9e8757c26bdb3e92defdb73708
-ms.sourcegitcommit: 86d49daccdab383331fc4072b2b761876b73510e
+ms.openlocfilehash: d54580d395b17d80742ed95aefa479f4bc104484
+ms.sourcegitcommit: 4d177e6d273bba8af03a00e8bb9fe51a447196d0
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70743684"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71960092"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-confluence-saml-sso-by-microsoft"></a>教學課程：Azure Active Directory 單一登入 (SSO) 與 Confluence SAML SSO by Microsoft 整合
 
@@ -51,7 +51,7 @@ ms.locfileid: "70743684"
 - Confluence 伺服器應用程式中建立的測試使用者
 
 > [!NOTE]
-> 若要測試此教學課程中的步驟，我們不建議使用 Confluence 的生產環境。 先在應用程式的開發或預備環境中測試整合，然後使用生產環境。
+> 若要測試本教學課程中的步驟，我們不建議使用 Confluence 的生產環境。 先在應用程式的開發或預備環境中測試整合，然後使用生產環境。
 
 若要開始，您需要下列項目：
 
@@ -75,16 +75,20 @@ ms.locfileid: "70743684"
 - Confluence：6.8.1
 - Confluence：6.9.0
 - Confluence：6.10.0
+- Confluence：6.10.3
 - Confluence：6.11.0
 - Confluence：6.12.0
+- Confluence：6.13.5
 - Confluence：6.15.3
+- Confluence：6.15.4
+- Confluence：6.15.8
 
 > [!NOTE]
 > 請注意，我們的 Confluence 外掛程式也適用於 Ubuntu 16.04 版
 
 ## <a name="scenario-description"></a>案例描述
 
-在此教學課程中，您會在測試環境中設定和測試 Azure AD SSO。
+在本教學課程中，您會在測試環境中設定和測試 Azure AD SSO。
 
 * Confluence SAML SSO by Microsoft 支援由 **SP** 起始的 SSO
 
@@ -131,7 +135,7 @@ ms.locfileid: "70743684"
     c. 在 [回覆 URL]  文字方塊中，使用下列模式來輸入 URL：`https://<domain:port>/plugins/servlet/saml/auth`
 
     > [!NOTE]
-    > 這些都不是真正的值。 使用實際的識別碼、回覆 URL 和登入 URL 來更新這些值。 如果連接埠是具名 URL，則為選擇性。 在設定 Confluence 外掛程式 (此教學課程稍後會說明) 期間會收到這些值。
+    > 這些都不是真正的值。 使用實際的識別碼、回覆 URL 和登入 URL 來更新這些值。 如果連接埠是具名 URL，則為選擇性。 在設定 Confluence 外掛程式 (本教學課程稍後會說明) 期間會收到這些值。
 
 1. 在 [以 SAML 設定單一登入]  頁面的 [SAML 簽署憑證]  區段中，按一下 [複製] 按鈕以複製 [應用程式同盟中繼資料 URL]  ，並將資料儲存在您的電腦上。
 
@@ -196,11 +200,11 @@ ms.locfileid: "70743684"
 
 1. 安裝外掛程式之後，它會出現在 [管理附加元件]  區段的 [使用者安裝的附加元件]  區段中。 按一下 [設定]  來設定新的外掛程式。
 
-    ![設定單一登入](./media/confluencemicrosoft-tutorial/addon13.png)
+    ![設定單一登入](./media/confluencemicrosoft-tutorial/addon15.png)
 
 1. 在設定頁面上執行下列步驟：
 
-    ![設定單一登入](./media/confluencemicrosoft-tutorial/addon53.png)
+    ![設定單一登入](./media/confluencemicrosoft-tutorial/addon54.png)
 
     > [!TIP]
     > 請確定只有一個對應至應用程式的憑證，解析中繼資料時就不會發生錯誤。 如果有多個憑證，則在解析中繼資料時，管理員會收到錯誤。
@@ -210,6 +214,8 @@ ms.locfileid: "70743684"
     1. 複製 [識別碼]、[回覆 URL] 和 [登入 URL]  值，然後在 Azure 入口網站的 [基本 SAML 組態]  區段中，分別貼到 [識別碼]、[回覆 URL] 和 [登入 URL]  文字方塊中。
 
     1. 在 [登入按鈕名稱]  中，輸入您的組織要讓使用者在登入畫面上看到的按鈕名稱。
+    
+    1. 在 [登入按鈕描述]  中，輸入組織要讓使用者在登入畫面上看到的按鈕描述。
 
     1. 在 [SAML 使用者識別碼位置]  中，選取 [使用者識別碼在 Subject 陳述式的 NameIdentifier 元素中]  或 [使用者識別碼在 Attribute 元素中]  。  此識別碼必須為 Confluence 使用者識別碼。 如果使用者識別碼不相符，系統就不會允許使用者登入。 
 

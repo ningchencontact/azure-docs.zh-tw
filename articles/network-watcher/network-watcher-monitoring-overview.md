@@ -16,16 +16,16 @@ ms.workload: infrastructure-services
 ms.date: 04/24/2018
 ms.author: kumud
 ms.custom: mvc
-ms.openlocfilehash: ddc577af945c01b94dae5a75725082e4e6689fd9
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: e6ff3e6798fadca89455790efa28891c02e9e459
+ms.sourcegitcommit: 9f330c3393a283faedaf9aa75b9fcfc06118b124
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64697147"
+ms.lasthandoff: 10/07/2019
+ms.locfileid: "71996967"
 ---
 # <a name="what-is-azure-network-watcher"></a>什麼是 Azure 網路監看員？
 
-Azure 網路監看員提供了相關工具，可對 Azure 虛擬網路中的資源進行監視、診斷、檢視計量，以及啟用或停用記錄。
+Azure 網路監看員提供了相關工具，可對 Azure 虛擬網路中的資源進行監視、診斷、檢視計量，以及啟用或停用記錄。 網路監看員是設計來監視及修復 IaaS (基礎結構即服務) 產品的網路健康情況，這包括虛擬機器、虛擬網路、應用程式閘道、負載平衡器等等。注意：它並不適用也無法搭配 PaaS 監視或 Web 分析運作。 
 
 ## <a name="monitoring"></a>監視
 

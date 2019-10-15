@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 10/10/2019
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: 84707c72e62bed7621d94dbd1ec65607cfcfd2d6
-ms.sourcegitcommit: bd4198a3f2a028f0ce0a63e5f479242f6a98cc04
+ms.openlocfilehash: 56bb5a1ac3c4003eca6ebe8392fc5b97f36a3317
+ms.sourcegitcommit: 9dec0358e5da3ceb0d0e9e234615456c850550f6
 ms.translationtype: MT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 10/14/2019
-ms.locfileid: "72303037"
+ms.locfileid: "72311143"
 ---
 # <a name="performance-and-scalability-checklist-for-blob-storage"></a>Blob 儲存體的效能和擴充性檢查清單
 
@@ -27,8 +27,8 @@ Azure 儲存體具有容量、交易速率和頻寬的擴充性和效能目標�
 
 | 完成 | Category | 設計考慮 |
 | --- | --- | --- |
-| &nbsp; |延展性目標 |[您是否可以將應用程式設計成使用的儲存體帳戶數目不超過上限？](#maximum-number-of-storage-accounts) |
-| &nbsp; |延展性目標 |[您是否要避免接近的容量和交易限制？](#capacity-and-transaction-targets) |
+| &nbsp; |擴充性目標 |[您是否可以將應用程式設計成使用的儲存體帳戶數目不超過上限？](#maximum-number-of-storage-accounts) |
+| &nbsp; |擴充性目標 |[您是否要避免接近的容量和交易限制？](#capacity-and-transaction-targets) |
 | &nbsp; |擴充性目標 |[有大量的用戶端同時存取單一 blob 嗎？](#multiple-clients-accessing-a-single-blob-concurrently) |
 | &nbsp; |擴充性目標 |[您的應用程式是否會在單一 blob 的擴充性目標內保持不動？](#bandwidth-and-operations-per-blob) |
 | &nbsp; |資料分割 |[您的命名慣例設計能因應更好的負載平衡嗎？](#partitioning) |
@@ -38,13 +38,16 @@ Azure 儲存體具有容量、交易速率和頻寬的擴充性和效能目標�
 | &nbsp; |直接用戶端存取 |[您使用共用存取簽章（SAS）和跨原始資源分享（CORS）來啟用 Azure 儲存體的直接存取？](#sas-and-cors) |
 | &nbsp; |快取 |[您的應用程式快取經常存取且極少變更的資料嗎？](#reading-data) |
 | &nbsp; |快取 |[您的應用程式是否會藉由在用戶端上快取更新，然後在較大的集合中上傳來進行批次處理](#uploading-data-in-batches) |
-| &nbsp; |.NET 組態 |[您使用的是 .NET Core 2.1 或更新版本以獲得最佳效能嗎？](#use-net-core) |
-| &nbsp; |.NET 組態 |[您是否已設定用戶端使用足夠數量的並行連線？](#increase-default-connection-limit) |
-| &nbsp; |.NET 組態 |[針對 .NET 應用程式，您是否已設定 .NET 使用足夠數量的執行緒？](#increase-minimum-number-of-threads) |
+| &nbsp; |.NET 設定 |[您使用的是 .NET Core 2.1 或更新版本以獲得最佳效能嗎？](#use-net-core) |
+| &nbsp; |.NET 設定 |[您是否已設定用戶端使用足夠數量的並行連線？](#increase-default-connection-limit) |
+| &nbsp; |.NET 設定 |[針對 .NET 應用程式，您是否已設定 .NET 使用足夠數量的執行緒？](#increase-minimum-number-of-threads) |
 | &nbsp; |平行處理原則 |[您是否已確保平行處理原則會適當地限定，讓您不會多載用戶端的功能或擴充性目標的方法？](#unbounded-parallelism) |
 | &nbsp; |工具 |[您是否使用 Microsoft 提供的最新用戶端程式庫和工具版本？](#client-libraries-and-tools) |
 | &nbsp; |重試 |[您是否針對節流錯誤和超時使用具有指數輪詢的重試原則？](#timeout-and-server-busy-errors) |
 | &nbsp; |重試 |[您的應用程式是否避免重試不能再嘗試的錯誤？](#non-retryable-errors) |
+| &nbsp; |複製 blob |[您是以最有效率的方式複製 blob 嗎？](#blob-copy-apis) |
+| &nbsp; |複製 blob |[您是否使用最新版的 AzCopy 進行大量複製作業？](#use-azcopy) |
+| &nbsp; |複製 blob |[您是否使用 Azure 資料箱系列來匯入大量資料？](#use-azure-data-box) |
 | &nbsp; |內容發佈 |[您是否會使用 CDN 進行內容發佈？](#content-distribution) |
 | &nbsp; |使用中繼資料 |[您是否將 Blob 相關的常用中繼資料儲存在它的中繼資料內？](#use-metadata) |
 | &nbsp; |快速上傳 |[嘗試快速上傳一個 Blob 時，您是否平行上傳區塊？](#upload-one-large-blob-quickly) |
@@ -183,7 +186,7 @@ SAS 和 CORS 都可以協助您避免 web 應用程式上不必要的負載。
 
 ### <a name="increase-default-connection-limit"></a>增加預設連接限制
 
-在 .NET 中，下列程式碼可將預設的連線限制 (此值在用戶端環境中通常為 2，或在伺服器環境中通常為 10) 提高到 100。 一般而言，您應將此值大約設為應用程式所使用的執行緒數量。 在開啟任何連接之前，請先設定連接限制。
+在 .NET 中，下列程式碼會增加預設連接限制（這通常是用戶端環境中的兩個或伺服器環境中的十個）到100。 一般而言，您應將此值大約設為應用程式所使用的執行緒數量。 在開啟任何連接之前，請先設定連接限制。
 
 ```csharp
 ServicePointManager.DefaultConnectionLimit = 100; //(Or More)  
@@ -227,9 +230,23 @@ ThreadPool.SetMinThreads(100,100); //(Determine the right number for your applic
 
 如需 Azure 儲存體錯誤碼的詳細資訊，請參閱[狀態和錯誤碼](/rest/api/storageservices/status-and-error-codes2)。
 
-## <a name="transfer-data"></a>傳送資料
+## <a name="copying-and-moving-blobs"></a>複製和移動 blob
 
-如需有效率地將資料傳輸至 Blob 儲存體或儲存體帳戶之間的詳細資訊，請參閱[選擇用於資料傳輸的 Azure 解決方案](../common/storage-choose-data-transfer-solution.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
+Azure 儲存體提供一些解決方案，可讓您在儲存體帳戶內、在儲存體帳戶之間，以及在內部部署系統與雲端之間複製和移動 blob。 本節說明這些選項在效能方面的影響。 如需有效率地將資料傳輸至 Blob 儲存體或從中傳送資料的詳細資訊，請參閱[選擇用於資料傳輸的 Azure 解決方案](../common/storage-choose-data-transfer-solution.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)。
+
+### <a name="blob-copy-apis"></a>Blob 複製 Api
+
+若要在儲存體帳戶之間複製 blob，請使用[Put Block FROM URL](/rest/api/storageservices/put-block-from-url)作業。 此作業會以同步方式將資料從任何 URL 來源複製到區塊 blob。 當您跨儲存體帳戶遷移資料時，使用 `Put Block from URL` 作業可以大幅降低所需的頻寬。 因為複製作業會在服務端進行，所以您不需要下載並重新上傳資料。
+
+若要在相同的儲存體帳戶中複製資料，請使用[複製 Blob](/rest/api/storageservices/Copy-Blob)作業。 在相同的儲存體帳戶內複製資料通常會快速完成。  
+
+### <a name="use-azcopy"></a>使用 AzCopy
+
+AzCopy 命令列公用程式是一個簡單且有效率的選項，可讓您在儲存體帳戶之間大量傳送 blob。 AzCopy 已針對此案例進行優化，並可達到高傳輸率。 AzCopy 第10版會使用 `Put Block From URL` 作業，在儲存體帳戶之間複製 blob 資料。 如需詳細資訊，請參閱[使用 AzCopy V10 將資料複製或移動到 Azure 儲存體](/azure/storage/common/storage-use-azcopy-v10)。  
+
+### <a name="use-azure-data-box"></a>使用 Azure 資料箱
+
+若要將大量資料匯入 Blob 儲存體，請考慮使用 Azure 資料箱系列進行離線傳輸。 當您受限於時間、網路可用性或成本時，Microsoft 提供的資料箱裝置是將大量資料移至 Azure 的絕佳選擇。 如需詳細資訊，請參閱[Azure DataBox 檔](/azure/databox/)。
 
 ## <a name="content-distribution"></a>內容發佈
 
@@ -239,7 +256,7 @@ ThreadPool.SetMinThreads(100,100); //(Determine the right number for your applic
 
 ## <a name="use-metadata"></a>使用中繼資料
 
-Blob 服務支援 HEAD 要求，其中可以包含 Blob 屬性或中繼資料。 例如，如果您的應用程式需要相片的 Exif （exchangable 影像格式）資料，它可以抓取相片並將它解壓縮。 為了節省頻寬並改善效能，您的應用程式可以在應用程式上傳相片時，將 Exif 資料儲存在 blob 的中繼資料中。 然後，您就可以只使用 HEAD 要求來取出中繼資料中的 Exif 資料。 僅抓取中繼資料，而不是 blob 的完整內容可節省大量頻寬，並減少解壓縮 Exif 資料所需的處理時間。 請記住，每個 blob 只能儲存 8 KB 的中繼資料。  
+Blob 服務支援 HEAD 要求，其中可以包含 Blob 屬性或中繼資料。 例如，如果您的應用程式需要相片的 Exif （exchangable 影像格式）資料，它可以抓取相片並將它解壓縮。 為了節省頻寬並改善效能，您的應用程式可以在應用程式上傳相片時，將 Exif 資料儲存在 blob 的中繼資料中。 然後，您就可以只使用 HEAD 要求來取出中繼資料中的 Exif 資料。 僅抓取中繼資料，而不是 blob 的完整內容可節省大量頻寬，並減少解壓縮 Exif 資料所需的處理時間。 請記住，每個 blob 可以儲存 8 KiB 的中繼資料。  
 
 ## <a name="upload-blobs-quickly"></a>快速上傳 blob
 

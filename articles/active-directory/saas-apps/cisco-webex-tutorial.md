@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 08/21/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 141d3062f231e198b3587efcdf4ae6e9a1c97ed6
-ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
+ms.openlocfilehash: d4e497c556bde1be4e498cd85a68282a0e3b2666
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70162669"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72026260"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-cisco-webex-meetings"></a>教學課程：Azure Active Directory 單一登入 (SSO) 與 Cisco Webex Meetings 整合
 
@@ -78,7 +78,7 @@ ms.locfileid: "70162669"
 
 1. 在 [Azure 入口網站](https://portal.azure.com/)的 [Cisco Webex Meetings]  應用程式整合頁面上，尋找 [管理]  區段並選取 [單一登入]  。
 1. 在 [選取單一登入方法]  頁面上，選取 [SAML]  。
-1. 在 [以 SAML 設定單一登入]  頁面上，您可以藉由上傳**服務提供者中繼資料**檔案，在  **IDP**  起始模式中設定應用程式，如下所示：
+1. 在 [以 SAML 設定單一登入]  頁面上，您可以藉由上傳**服務提供者中繼資料**檔案，在 **IDP** 起始模式中設定應用程式，如下所示：
 
     a. 按一下 [上傳中繼資料檔案]  。
 
@@ -97,13 +97,13 @@ ms.locfileid: "70162669"
     
     b. 在 [登入 URL]  文字方塊中，以下列模式輸入 URL：` https://<customername>.my.webex.com`
 
-5. Cisco Webex Meetings 應用程式會預期要有特定格式的 SAML 判斷提示，因此您必須將自訂屬性對應新增至 SAML 權杖屬性設定。 以下螢幕擷取畫面顯示預設屬性清單。 按一下 [編輯] ****  圖示以開啟 [使用者屬性] 對話方塊。
+5. Cisco Webex Meetings 應用程式會預期要有特定格式的 SAML 判斷提示，因此您必須將自訂屬性對應新增至 SAML 權杖屬性設定。 以下螢幕擷取畫面顯示預設屬性清單。 按一下 [編輯]  圖示，以開啟 [使用者屬性] 對話方塊。
 
     ![image](common/edit-attribute.png)
 
 6. 除了以上屬性外，Cisco Webex Meetings 應用程式還需要在 SAML 回應中傳回更多屬性。 在 [使用者屬性] 對話方塊的 [使用者宣告] 區段中，執行下列步驟以設定 SAML 權杖屬性，如下表所示： 
 
-    | Name | 來源屬性|
+    | 名稱 | 來源屬性|
     | ---------------|  --------- |
     |   firstname    | user.givenname |
     |   lastname    | user.surname |

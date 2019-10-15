@@ -11,18 +11,18 @@ ms.reviewer: klam, LADocs
 ms.topic: quickstart
 ms.custom: mvc
 ms.date: 08/20/2019
-ms.openlocfilehash: d6c7f04d35a91e30a98ec403b6811a2be0aaee20
-ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
+ms.openlocfilehash: c85b3e3ced661eb36d9cb1eb0ae443a5ab21a913
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/27/2019
-ms.locfileid: "70051673"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72029497"
 ---
 # <a name="quickstart-create-your-first-automated-workflow-with-azure-logic-apps---azure-portal"></a>快速入門：使用 Azure Logic Apps 建立第一個自動化工作流程 - Azure 入口網站
 
 本快速入門介紹如何使用 [Azure Logic Apps](../logic-apps/logic-apps-overview.md) 建立第一個自動化工作流程。 在本文中，您會建立一個邏輯應用程式，以定期檢查網站的 RSS 摘要中是否有新項目。 如果存在新的項目，邏輯應用程式會針對每個項目傳送電子郵件。 當您完成時，邏輯應用程式大致如下列工作流程所示︰
 
-![概觀 - 邏輯應用程式範例](./media/quickstart-create-first-logic-app-workflow/overview.png)
+![高階範例邏輯應用程式工作流程](./media/quickstart-create-first-logic-app-workflow/quickstart-workflow-overview.png)
 
 若要依照本快速入門執行，您需有一個電子郵件帳戶，而該電子郵件帳戶來自 Logic Apps 所支援的提供者 (例如 Office 365 Outlook、Outlook.com 或 Gmail)。 對於其他提供者，請[檢閱這裡的連接器清單](https://docs.microsoft.com/connectors/)。 本邏輯應用程式會使用 Office 365 Outlook 帳戶。 如果您使用另一個電子郵件帳戶，則整體步驟相同，但您的 UI 可能稍有不同。
 
@@ -36,11 +36,11 @@ ms.locfileid: "70051673"
 
 1. 在主要 Azure 功能表中，選取 [建立資源]   > [整合]   > [邏輯應用程式]  。
 
-   ![建立邏輯應用程式](./media/quickstart-create-first-logic-app-workflow/create-logic-app.png)
+   ![建立邏輯應用程式 - Azure 入口網站](./media/quickstart-create-first-logic-app-workflow/create-new-logic-app.png)
 
 1. 在 [建立邏輯應用程式]  底下，提供有關邏輯應用程式的詳細資訊，如下所示。 在完成作業後，選取 [建立]  。
 
-   ![提供邏輯應用程式詳細資料](./media/quickstart-create-first-logic-app-workflow/create-logic-app-settings.png)
+   ![提供新邏輯應用程式的詳細資料](./media/quickstart-create-first-logic-app-workflow/create-logic-app-settings.png)
 
    | 屬性 | 值 | 說明 |
    |----------|-------|-------------|
@@ -53,13 +53,13 @@ ms.locfileid: "70051673"
 
 1. 在 Azure 部署您的應用程式之後，請在 Azure 工具列上針對您部署的邏輯應用程式選取 [通知]   > [移至資源]  。
 
-   ![前往資源](./media/quickstart-create-first-logic-app-workflow/go-to-logic-app.png)
+   ![移至新建立的邏輯應用程式資源](./media/quickstart-create-first-logic-app-workflow/go-to-new-logic-app-resource.png)
 
    或者，您可以在搜尋方塊中輸入名稱，以尋找並選取您的邏輯應用程式。
 
    Logic Apps 設計工具會開啟並顯示含有簡介影片和常用觸發程序的頁面。 在 [範本]  底下，選取 [空白邏輯應用程式]  。
 
-   ![選取空白邏輯應用程式範本](./media/quickstart-create-first-logic-app-workflow/choose-logic-app-template.png)
+   ![選取邏輯應用程式的空白範本](./media/quickstart-create-first-logic-app-workflow/choose-logic-app-template.png)
 
 接下來，新增可在新的 RSS 摘要項目出現時引發的[觸發程序](../logic-apps/logic-apps-overview.md#logic-app-concepts)。 每個邏輯應用程式都必須使用觸發程序啟動，而該觸發程序會在特定事件發生或符合特定條件時引發。 每次引發觸發程序時，Logic Apps 引擎會建立邏輯應用程式執行個體，啟動並執行您的工作流程。
 
@@ -71,15 +71,15 @@ ms.locfileid: "70051673"
 
 1. 在搜尋方塊中，輸入 "rss"。 從觸發程序清單中，選取此觸發程序：**摘要項目發佈時 - RSS**
 
-   ![選取觸發程序：「RSS - 摘要項目發佈時」](./media/quickstart-create-first-logic-app-workflow/add-trigger-rss.png)
+   ![選取 [摘要項目發佈時] 觸發程序](./media/quickstart-create-first-logic-app-workflow/add-rss-trigger-new-feed-item.png)
 
 1. 為您的觸發程序提供這項資訊，如下所說明：
 
-   ![使用 RSS 摘要、頻率和間隔設定觸發程序](./media/quickstart-create-first-logic-app-workflow/add-trigger-rss-settings.png)
+   ![使用 RSS 摘要、頻率和間隔設定觸發程序](./media/quickstart-create-first-logic-app-workflow/add-rss-trigger-settings.png)
 
    | 屬性 | 值 | 說明 |
    |----------|-------|-------------|
-   | **RSS 摘要 URL** | ```http://feeds.reuters.com/reuters/topNews``` | 您想要監視的 RSS 摘要連結 |
+   | **RSS 摘要 URL** | `http://feeds.reuters.com/reuters/topNews` | 您想要監視的 RSS 摘要連結 |
    | **間隔** | 1 | 在檢查之間所要等待的間隔數目 |
    | **頻率** | 分鐘 | 在檢查之間每個間隔的時間單位  |
    ||||
@@ -88,7 +88,7 @@ ms.locfileid: "70051673"
 
 1. 若要立即隱藏觸發程序的詳細資料，按一下觸發程序的標題列內部。
 
-   ![摺疊圖形以隱藏詳細資料](./media/quickstart-create-first-logic-app-workflow/collapse-trigger-shape.png)
+   ![摺疊邏輯應用程式圖形以隱藏詳細資料](./media/quickstart-create-first-logic-app-workflow/collapse-trigger-shape.png)
 
 1. 儲存您的邏輯應用程式。 在設計工具的工具列上，選取 [儲存]  。
 
@@ -100,13 +100,13 @@ ms.locfileid: "70051673"
 
 1. 在 [摘要項目發佈時]  觸發程序下方，選取 [新增步驟]  。
 
-   ![新增動作](./media/quickstart-create-first-logic-app-workflow/add-new-action.png)
+   ![在觸發程序下方，選取 [新增步驟]](./media/quickstart-create-first-logic-app-workflow/add-new-step-under-trigger.png)
 
 1. 在 [選擇動作]  和搜尋方塊中，選取 [全部]  。
 
 1. 在搜尋方塊中，輸入「傳送電子郵件」。 在動作清單中，為您想要的電子郵件提供者選取 [傳送電子郵件] 動作。
 
-   ![選取此動作：「Office 365 Outlook - 傳送電子郵件」](./media/quickstart-create-first-logic-app-workflow/add-action-send-email.png)
+   ![選取適用於 Office 365 Outlook 的 [傳送電子郵件] 動作](./media/quickstart-create-first-logic-app-workflow/add-action-send-email.png)
 
    若要篩選特定應用程式或服務的動作清單，您可以先選取該應用程式或服務：
 
@@ -123,21 +123,21 @@ ms.locfileid: "70051673"
 
    1. 在 [主旨]  方塊中，輸入以下文字且尾端加上一個空格：```New RSS item:```
 
-      ![輸入電子郵件主旨](./media/quickstart-create-first-logic-app-workflow/add-action-send-email-subject.png)
+      ![在 [主旨] 屬性中，輸入您的電子郵件主旨](./media/quickstart-create-first-logic-app-workflow/add-action-send-email-subject.png)
 
    1. 從 [新增動態內容]  清單中，選取 [摘要標題]  以包含 RSS 項目標題。
 
-      ![動態內容清單 - "摘要標題"](./media/quickstart-create-first-logic-app-workflow/add-action-send-email-subject-dynamic-content.png)
+      ![從動態內容清單中，選取 [摘要標題] 屬性](./media/quickstart-create-first-logic-app-workflow/add-action-send-email-subject-dynamic-content.png)
 
       當您完成時，電子郵件主旨看起來如下列範例：
 
-      ![新增的摘要標題](./media/quickstart-create-first-logic-app-workflow/add-action-send-email-feed-title.png)
+      ![已完成的新增摘要標題電子郵件主旨範例](./media/quickstart-create-first-logic-app-workflow/add-action-send-email-feed-title.png)
 
       如果 "For each" 迴圈出現在設計工具上，表示您選取了陣列的權杖，例如 **categories-item** 權杖。 對於這類權杖，設計工具會自動對參考該權杖的動作新增此迴圈。 如此一來，邏輯應用程式會在每個陣列項目上執行相同動作。 若要移除迴圈，請選取迴圈標題列上的**省略符號** ( **...** )，然後選取 [刪除]  。
 
    1. 在 [內文]  方塊中輸入此文字，然後為電子郵件內文選取這些權杖。 若要在編輯方塊中新增空白的行，請按 Shift + Enter。
 
-      ![新增電子郵件內文的內容](./media/quickstart-create-first-logic-app-workflow/add-action-send-email-body.png)
+      ![選取適用於電子郵件內文內容的屬性](./media/quickstart-create-first-logic-app-workflow/add-action-send-email-body.png)
 
       | 屬性 | 說明 |
       |----------|-------------|
@@ -156,7 +156,7 @@ ms.locfileid: "70051673"
 
 例如，以下是此邏輯應用程式傳送的範例電子郵件。
 
-![針對新 RSS 摘要項目傳送的電子郵件](./media/quickstart-create-first-logic-app-workflow/monitor-rss-feed-email.png)
+![新 RSS 摘要出現時所傳送的範例電子郵件](./media/quickstart-create-first-logic-app-workflow/monitor-rss-feed-email.png)
 
 技術上，當觸發程序檢查 RSS 摘要並尋找新項目時，觸發程序會引發，而 Logic Apps 引擎會建立邏輯應用程式工作流程的執行個體，以在工作流程中執行動作。 如果觸發程序找不到新項目，觸發程序並不會引發，而且會「略過」具現化工作流程。
 
@@ -168,11 +168,11 @@ ms.locfileid: "70051673"
 
 1. 在主要 Azure 功能表上，選取 [資源群組]  ，然後選取邏輯應用程式的資源群組。 在 [概觀]  窗格上，選取 [刪除資源群組]  。
 
-   ![[資源群組] > [概觀] > [刪除資源群組]](./media/quickstart-create-first-logic-app-workflow/delete-resource-group.png)
+   ![尋找、選取及刪除資源群組](./media/quickstart-create-first-logic-app-workflow/delete-resource-group.png)
 
 1. 輸入資源群組名稱進行確認，然後選取 [刪除]  。
 
-   ![確認刪除](./media/quickstart-create-first-logic-app-workflow/delete-resource-group-2.png)
+   ![若要確認篩除，請選取 [刪除]](./media/quickstart-create-first-logic-app-workflow/delete-resource-group-2.png)
 
 > [!NOTE]
 > 當您刪除邏輯應用程式後，就不會具現化新的執行。 所有進行中和擱置的執行都會取消。 如果您有數千個執行，加以取消可能需要很長的時間。

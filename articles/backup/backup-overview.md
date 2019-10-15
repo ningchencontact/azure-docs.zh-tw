@@ -8,17 +8,16 @@ ms.topic: overview
 ms.date: 04/24/2019
 ms.author: dacurwin
 ms.custom: mvc
-ms.openlocfilehash: 526c60916854d4918607a1fd1b887ac9d27cd1c7
-ms.sourcegitcommit: 78ebf29ee6be84b415c558f43d34cbe1bcc0b38a
+ms.openlocfilehash: 29e0b05ee9cb8f7dc67f90b54081bca4db0691b6
+ms.sourcegitcommit: f9e81b39693206b824e40d7657d0466246aadd6e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68950018"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72035235"
 ---
 # <a name="what-is-the-azure-backup-service"></a>什麼是 Azure 備份服務？
 
 Azure 備份服務會將資料備份至 Microsoft Azure 雲端。 您可以備份內部部署機器和工作負載，以及 Azure 虛擬機器 (VM)。
-
 
 ## <a name="why-use-azure-backup"></a>為何使用 Azure 備份？
 
@@ -28,16 +27,15 @@ Azure 備份可提供下列主要優點：
 - **備份 Azure IaaS VM**：Azure 備份提供獨立且隔離的備份，可防止原始資料意外毀損。 備份會儲存在復原服務保存庫中，且具有內建的受控復原點。 設定和調整都十分容易，且備份會最佳化，可在必要時輕易還原。
 - **輕鬆調整** - Azure 備份使用 Azure 雲端的基礎功能及無限制調整來提供高可用性，沒有維護或監視的額外負荷。
 - **取得無限制的資料傳輸**：Azure 備份不會限制輸入或輸出資料的傳輸，或對傳輸的資料收費。
-    - 輸出資料是指還原作業期間傳輸自復原服務保存庫的資料。
-    - 如果您使用 Azure 匯入/匯出服務執行離線初始備份以匯出大量資料，則會有輸入資料的相關費用。  [深入了解](backup-azure-backup-import-export.md)。
+  - 輸出資料是指還原作業期間傳輸自復原服務保存庫的資料。
+  - 如果您使用 Azure 匯入/匯出服務執行離線初始備份以匯出大量資料，則會有輸入資料的相關費用。  [深入了解](backup-azure-backup-import-export.md)。
 - **確保資料安全性**：Azure 備份提供解決方案來保護傳輸中和待用的資料。
 - **取得應用程式一致備份**：應用程式一致備份表示復原點具有還原備份複本所需的所有資料。 Azure 備份提供應用程式一致備份，確保資料還原不需要其他修正程式。 還原應用程式一致的資料會減少還原時間，讓您能夠快速回到執行狀態。
-- **保留短期和長期資料**：您可以使用復原服務保存庫進行短期和長期資料保留。 Azure 不會限制您可在復原服務保存庫中保留資料的時間長度。 您可以無限期保留資料。 Azure 備份的每個受保護執行個體上限為 9999 個復原點。 
+- **保留短期和長期資料**：您可以使用復原服務保存庫進行短期和長期資料保留。 Azure 不會限制您可在復原服務保存庫中保留資料的時間長度。 您可以無限期保留資料。 Azure 備份的每個受保護執行個體上限為 9999 個復原點。
 - **自動儲存管理** - 混合式環境通常需要異質性儲存體 - 部份在內部部署，部份在雲端。 使用 Azure 備份，使用內部部署儲存體裝置無需成本。 Azure 備份會自動配置和管理備份儲存體，且採用隨用隨付模式，因此您只需為已使用的儲存體付費。 [深入了解](https://azure.microsoft.com/pricing/details/backup)定價。
 - **多個儲存體選項** - Azure 備份提供兩種類型的複寫，讓您的儲存體/資料保有高可用性。
-    - [本地備援儲存體 (LRS)](../storage/common/storage-redundancy-lrs.md) 會將資料複寫至資料中心的儲存體縮放單位三次 (建立三個資料複本)。 此資料的所有複本都存在於相同的區域內。 LRS 是保護資料免於本機硬體失敗的低成本選項。
-    - [異地備援儲存體 (GRS)](../storage/common/storage-redundancy-grs.md) 是預設且建議使用的複寫選項。 GRS 會將資料複寫到次要地區 (與來源資料主要位置距離數百英哩)。 GRS 的價格高於 LRS，但它為您的資料提供更高層級的持久性，即使遭受區域性停電也不影響。
-
+  - [本地備援儲存體 (LRS)](../storage/common/storage-redundancy-lrs.md) 會將資料複寫至資料中心的儲存體縮放單位三次 (建立三個資料複本)。 此資料的所有複本都存在於相同的區域內。 LRS 是保護資料免於本機硬體失敗的低成本選項。
+  - [異地備援儲存體 (GRS)](../storage/common/storage-redundancy-grs.md) 是預設且建議使用的複寫選項。 GRS 會將資料複寫到次要地區 (與來源資料主要位置距離數百英哩)。 GRS 的價格高於 LRS，但它為您的資料提供更高層級的持久性，即使遭受區域性停電也不影響。
 
 ## <a name="whats-the-difference-between-azure-backup-and-azure-site-recovery"></a>Azure 備份與 Azure Site Recovery 之間有何差異？
 
@@ -66,16 +64,16 @@ Azure 備份可備份內部部署機器和 Azure VM。
 **機器** | **備份案例**
 --- | ---
 **內部部署備份** |  1) 在內部部署 Windows 機器上執行 Azure 備份 Microsoft Azure 復原服務 (MARS) 代理程式，以備份個別檔案和系統狀態。 <br/><br/>2) 將內部部署機器備份至備份伺服器 (System Center Data Protection Manager (DPM) 或 Microsoft Azure 備份伺服器 (MABS))，然後設定備份伺服器，以備份至 Azure 中的 Azure 備份復原服務保存庫。
-**Azure VM** | 1) 啟用個別 Azure VM 的備份。 當您啟用備份時，Azure 備份會將擴充功能安裝至執行於 VM 上的 Azure VM 代理程式。 代理程式會備份整個 VM。<br/><br/> 2) 在 Azure VM 上執行 MARS 代理程式。 如果您要備份 VM 上的個別檔案和資料夾，這將有其效益。<br/><br/> 
-
+**Azure VM** | 1) 啟用個別 Azure VM 的備份。 當您啟用備份時，Azure 備份會將擴充功能安裝至執行於 VM 上的 Azure VM 代理程式。 代理程式會備份整個 VM。<br/><br/> 2) 在 Azure VM 上執行 MARS 代理程式。 如果您要備份 VM 上的個別檔案和資料夾，這將有其效益。<br/><br/>
 
 ## <a name="why-use-a-backup-server"></a>為何要使用備份伺服器？
+
 先將機器和應用程式備份至 MABS/DPM 儲存體，再將 DPM/MABS 儲存體備份至保存庫，可提供下列的優點：
 
 - 備份至 MABS/DPM，可讓您在檔案/資料夾/磁碟區備份和機器狀態備份 (裸機、系統狀態) 以外，額外取得適用於常見應用程式 (例如 SQL Server、Exchange 及 SharePoint) 的應用程式感知備份。
 - 對於內部部署機器，您不需要在要備份的每個機器上安裝 MARS 代理程式。 每個機器都會執行 DPM/MABS 保護代理程式，而 MARS 代理程式則只會在 MABS/DPM 上執行。
 - 您有更高的彈性和更精細的排程選項可執行備份。
-- 您可以在單一主控台中，為多個納入保護群組中的機器進行備份管理。 如果您的應用程式分層於多個機器，而您想要一併加以備份，前述功能尤有效用。
+- 您可以在單一主控台中，為多個納入保護群組中的機器進行備份管理。 如果您的應用程式分層於多部機器，而且您想要一起備份它們，此功能很實用。
 
 深入了解使用備份伺服器時的[備份運作方式](backup-architecture.md#architecture-back-up-to-dpmmabs)，和備份伺服器的[支援需求](backup-support-matrix-mabs-dpm.md)。
 
@@ -102,7 +100,7 @@ Azure 備份可備份內部部署機器和 Azure VM。
 
 **備份** | **方案** | **限制**
 --- | --- | ---
-**我想要備份整個 Azure VM** | 啟用 VM 的備份。 備份擴充功能會在 Windows 或 Linux Azure VM 上自動設定。 | 整個 VM 都會備份 <br/><br/> Windows VM 的備份具應用程式一致性。 Linux 的備份則具檔案一致性。 如果需要 Linux VM 的應用程式感知能力，必須使用自訂指令碼加以設定。
+**我想要備份整個 Azure VM** | 啟用 VM 的備份。 備份擴充功能會在 Windows 或 Linux Azure VM 上自動設定。 | 整個 VM 都會備份 <br/><br/> 針對 Windows VM，備份具有應用程式一致性。 Linux 的備份則具檔案一致性。 如果需要 Linux VM 的應用程式感知能力，必須使用自訂指令碼加以設定。
 **我想要備份 Azure VM 上的特定檔案/資料夾** | 在 VM 上部署 MARS 代理程式。
 **我想要直接備份內部部署 Windows 機器** | 在機器上安裝 MARS 代理程式。 | 您可以將檔案、資料夾和系統狀態備份到 Azure。 備份不是應用程式感知的。
 **我想要直接備份內部部署 Linux 機器** | 您必須部署 DPM 或 MABS，以備份至 Azure。 | 不支援 Linux 主機的備份，您只能備份 Hyper-V 或 VMWare 上裝載的 Linux 客體機器。
@@ -118,7 +116,7 @@ Azure 備份每個*受保護的執行個體*上限為 9999 個復原點 (也稱�
 
 下表顯示每個元件的最大備份頻率。 備份原則設定決定您多快會用完復原點。 比方說，如果您每天建立復原點，則在用完之前可以保留復原點 27 年。如果您採取每月建立復原點，則在用完之前可以保留復原點 833 年。備份服務不會對復原點設定到期時間限制。
 
-|  | Azure 備份代理程式 | System Center DPM | Azure 備份伺服器 | Azure IaaS VM 備份 |
+|  | Azure 備份 (MARS) 代理程式| System Center DPM | Azure 備份伺服器 | Azure IaaS VM 備份 |
 | --- | --- | --- | --- | --- |
 | 備份頻率<br/> (到復原服務保存庫) |每天備份 3 次 |每天備份 2 次 |每天備份 2 次 |每天備份 1 次 |
 | 備份頻率<br/> (至磁碟) |不適用 |每隔 15 分鐘 (SQL Server)<br/><br/> 每隔 1 小時 (其他工作負載) |每隔 15 分鐘 (SQL Server)<br/><br/> 每隔 1 小時 (其他工作負載) |不適用 |

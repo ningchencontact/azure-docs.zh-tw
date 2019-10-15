@@ -10,15 +10,15 @@ ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.date: 02/25/2019
+ms.date: 10/08/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: bf004f07558ae1f252a6bd26b4fd59ea9e4eea6e
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: bcf64d98f53d85937ee7960ec3938280814267d8
+ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67069261"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72170199"
 ---
 # <a name="tutorial-secure-artifacts-in-azure-resource-manager-template-deployments"></a>教學課程：保護 Azure Resource Manager 範本部署中的成品
 
@@ -64,7 +64,7 @@ ms.locfileid: "67069261"
 
 ### <a name="download-the-bacpac-file"></a>下載 BACPAC 檔案
 
-下載 [BACPAC 檔案](https://armtutorials.blob.core.windows.net/sqlextensionbacpac/SQLDatabaseExtension.bacpac)，並使用相同名稱 **SQLDatabaseExtension.bacpac**，將此檔案儲存到本機電腦。
+下載 [BACPAC 檔案](https://github.com/Azure/azure-docs-json-samples/raw/master/tutorial-sql-extension/SQLDatabaseExtension.bacpac)，並使用相同名稱 **SQLDatabaseExtension.bacpac**，將此檔案儲存到本機電腦。
 
 ### <a name="create-a-storage-account"></a>建立儲存體帳戶
 
@@ -134,13 +134,13 @@ ms.locfileid: "67069261"
 
 ## <a name="open-an-existing-template"></a>開啟現有範本
 
-在這個課程中，您會修改在[教學課程：使用 Azure Resource Manager 範本匯入 SQL BACPAC 檔案](./resource-manager-tutorial-deploy-sql-extensions-bacpac.md)中建立的範本，以呼叫具有 SAS 權杖的 BACPAC 檔案。  在 SQL 擴充功能教學課程中開發的範本會在 [https://armtutorials.blob.core.windows.net/sqlextensionbacpac/azuredeploy.json](https://armtutorials.blob.core.windows.net/sqlextensionbacpac/azuredeploy.json) 共用。
+在這個課程中，您會修改在[教學課程：使用 Azure Resource Manager 範本匯入 SQL BACPAC 檔案](./resource-manager-tutorial-deploy-sql-extensions-bacpac.md)中建立的範本，以呼叫具有 SAS 權杖的 BACPAC 檔案。  在 SQL 擴充功能教學課程中開發的範本會在 [GitHub](https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/tutorial-sql-extension/azuredeploy.json) 中共用。
 
 1. 在 Visual Studio Code 中，選取 [檔案]  >[開啟檔案]  。
 2. 在 [檔案名稱]  中，貼上下列 URL：
 
     ```url
-    https://armtutorials.blob.core.windows.net/sqlextensionbacpac/azuredeploy.json
+    https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/tutorial-sql-extension/azuredeploy.json
     ```
 3. 選取 [開啟]  以開啟檔案。
 

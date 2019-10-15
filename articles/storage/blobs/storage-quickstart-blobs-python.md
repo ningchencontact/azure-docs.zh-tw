@@ -7,12 +7,12 @@ ms.date: 09/11/2019
 ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
-ms.openlocfilehash: 4d371026b932a0870798a32b3102102836962b78
-ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
+ms.openlocfilehash: a6c0ae8c63739d37ad8417d1dff2d0f7181e6ae9
+ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71203957"
+ms.lasthandoff: 10/06/2019
+ms.locfileid: "71981215"
 ---
 # <a name="quickstart-upload-download-and-list-blobs-with-python"></a>快速入門：使用 Python 上傳、下載及列出 Blob
 
@@ -183,7 +183,7 @@ for blob in generator:
 
 
 使用 `get_blob_to_path` 方法將 Blob 下載至本機磁碟。
-下列程式碼會下載先前上傳的 Blob。 系統會將 *_DOWNLOADED*附加至 Blob 名稱，讓您可在本機磁碟上看到這兩個檔案。
+下列程式碼會下載先前上傳的 Blob。 系統會將 *_DOWNLOADED* 附加至 Blob 名稱，讓您可在本機磁碟上看到這兩個檔案。
 
 ```python
 # Download the blob(s).

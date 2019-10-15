@@ -7,16 +7,16 @@ ms.service: dns
 ms.topic: tutorial
 ms.date: 06/18/2019
 ms.author: rohink
-ms.openlocfilehash: e7ebbf35cd572601f02a69930b58811686a92c86
-ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
+ms.openlocfilehash: 870f8f43fb37f3f58fc19f2fd544e77b1a3a3967
+ms.sourcegitcommit: 4d177e6d273bba8af03a00e8bb9fe51a447196d0
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67276316"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71960559"
 ---
 # <a name="migrating-legacy-azure-dns-private-zones-to-new-resource-model"></a>將舊版 Azure DNS 私人區域移轉至新的資源模型
 
-我們為 Azure DNS 私人區域提供了新的 API/資源模型，作為預覽版重新整理的一部分。 預覽重新整理提供新功能，並移除初始公開預覽的數個限制和約束。 不過，使用舊版 API 建立的 DNS 私人區域無法使用這些優點。 若要取得新版本的優點，必須將舊版 DNS 私人區域資源移轉至新的資源模型。 移轉程序很簡單，我們提供了一個 PowerShell 指令碼來自動化此程序。 本指南提供有關將 Azure DNS 私人區域移轉至新的資源模型的逐步指示。
+目前的 Azure DNS 私人區域版本會提供新功能，並移除初始公開預覽的數個限制和約束。 不過，使用預覽 API 建立的私人 DNS 區域上無法使用這些優點。 若要取得新版本的優點，必須將舊版私人 DNS 區域資源移轉至新的資源模型。 移轉程序很簡單，我們提供了一個 PowerShell 指令碼來自動化此程序。 本指南提供將 Azure DNS 私人區域移轉至新資源模型的逐步指示。
 
 ## <a name="prerequisites"></a>必要條件
 

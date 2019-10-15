@@ -1,5 +1,5 @@
 ---
-title: 什麼是 Azure 自訂視覺服務？
+title: 什麼是自訂視覺服務？
 titleSuffix: Azure Cognitive Services
 description: 了解如何使用自訂視覺服務在 Azure 雲端中建置自訂影像分類器。
 services: cognitive-services
@@ -10,16 +10,16 @@ ms.subservice: custom-vision
 ms.topic: overview
 ms.date: 07/03/2019
 ms.author: pafarley
-ms.openlocfilehash: 033b0317b1738e24e4ac9c9ae2150b015cc5a8e5
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 9e455a42945ba4d6ce334d557b7390c3c50e7ff9
+ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68560961"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72177818"
 ---
-# <a name="what-is-azure-custom-vision"></a>什麼是 Azure 自訂視覺服務？
+# <a name="what-is-custom-vision"></a>什麼是自訂視覺服務？
 
-Azure 自訂視覺是一項認知服務，可讓您建置、部署和改善自己的影像分類器。 影像分類器是一項 AI 服務，可根據影像的視覺特性對影像套用標籤 (代表_類別_)。 不同於[電腦視覺](https://docs.microsoft.com/azure/cognitive-services/computer-vision/home)服務，自訂視覺可讓您決定所要套用的標籤。
+自訂視覺是一個認知服務，可讓您建置、部署和改善自己的影像分類器。 影像分類器是一項 AI 服務，可根據影像的視覺特性對影像套用標籤 (代表_類別_)。 不同於[電腦視覺](https://docs.microsoft.com/azure/cognitive-services/computer-vision/home)服務，自訂視覺可讓您決定所要套用的標籤。
 
 ## <a name="what-it-does"></a>作用
 

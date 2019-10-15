@@ -7,19 +7,14 @@ ms.service: dns
 ms.topic: overview
 ms.date: 6/12/2019
 ms.author: victorh
-ms.openlocfilehash: 0921a1ac7aa1192fae78f168c2eb51ee3e74e24a
-ms.sourcegitcommit: 4b5dcdcd80860764e291f18de081a41753946ec9
+ms.openlocfilehash: 152087ab3dc20dfc95cfeaa0353d961917d362d6
+ms.sourcegitcommit: 4d177e6d273bba8af03a00e8bb9fe51a447196d0
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/03/2019
-ms.locfileid: "68774612"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71959342"
 ---
 # <a name="what-is-azure-private-dns"></a>什麼是 Azure Private DNS？
-
-> [!IMPORTANT]
-> Azure Private DNS 目前為公開預覽狀態。
-> 此預覽版本是在沒有服務等級協定的情況下提供，不建議用於生產工作負載。 可能不支援特定功能，或可能已經限制功能。
-> 如需詳細資訊，請參閱 [Microsoft Azure 預覽版增補使用條款](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)。
 
 「網域名稱系統」(DNS) 會負責將服務名稱轉譯 (或解析) 為其 IP 位址。  Azure DNS 是 DNS 網域的主機服務，採用 Microsoft Azure 基礎結構來提供名稱解析。 除了支援網際網路對向 DNS 網域之外，Azure DNS 也支援私人 DNS 區域。
 
@@ -60,22 +55,14 @@ Azure DNS 提供以下功能：
 
 * **在虛擬網路範圍內支援反向 DNS 查閱**。 針對指派到私人區域的虛擬網路內私人 IP 位址的反向 DNS 查閱，將會傳回包含主機/記錄名稱以及用區域名稱作為尾碼的 FQDN。
 
-## <a name="known-issues"></a>已知問題
-下列項目是預覽版本的已知錯誤 (bug) 和問題：
-* 如果您刪除連結至私人 DNS 區域的虛擬網路，並不會刪除私人 DNS 區域的連結。 如果您重新建立具有相同名稱和資源群組的虛擬網路，然後再次嘗試連結至任何私人 DNS 區域，該連結會失敗。 若要解決此問題，請在不同的資源群組，或在同一資源群組中使用不同名稱來建立虛擬網路。
-* 如果您將虛擬網路移到其他資源群組或訂用帳戶，並不會更新私人 DNS 區域的連結。 已移動的虛擬網路名稱解析會繼續運作，不過在檢視私人 DNS 區域的虛擬網路連結時，您會看到虛擬網路的舊 ARM 識別碼。
-* 目前，裝載在阿拉伯聯合大公國北部、阿拉伯聯合大公國中部、南非西部、南非北部、加拿大東部、法國南部的連結虛擬網路可能會失敗，且您可能會間歇性看到 DNS 解析問題。 
-
-
 ## <a name="other-considerations"></a>其他考量
 
 Azure DNS 有下列限制：
 
 * 如果已啟用 VM DNS 記錄的自動註冊，則特定虛擬網路只能連結到一個私人區域。 不過您可以將多個虛擬網路連結至單一 DNS 區域。
 * 反向 DNS 只適用於已連結虛擬網路中的私人 IP 空間
-* 已連結虛擬網路的私人 IP 反向 DNS 會傳回 "internal.cloudapp.net" 作為虛擬機器的預設尾碼。 若虛擬網路連結至已啟用自動註冊的私人區域，私人 IP 的反向 DNS 會傳回 2 個 FQDN，一個具有預設尾碼 internal.cloudapp.net  ，另一個則有私人區域的尾碼。
-* 目前無法原生支援條件式轉送。 若要啟用 Azure 和內部部署網路之間的解析，請參閱 [VM 與角色執行個體的名稱解析](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md)。
-
+* 已連結虛擬網路的私人 IP 位址反向 DNS 會傳回 *internal.cloudapp.net* 作為虛擬機器的預設尾碼。 若虛擬網路連結至已啟用自動註冊的私人區域，私人 IP 位址的反向 DNS 會傳回兩個 FQDN，一個具有預設尾碼 *internal.cloudapp.net*，另一個則具有私人區域的尾碼。
+* 目前無法原生支援條件式轉送。 啟用 Azure 和內部部署網路之間的解析。 請參閱 [VM 與角色執行個體的名稱解析](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md)
  
 ## <a name="pricing"></a>價格
 

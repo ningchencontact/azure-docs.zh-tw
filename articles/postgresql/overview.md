@@ -7,12 +7,12 @@ ms.custom: mvc
 ms.service: postgresql
 ms.topic: overview
 ms.date: 05/06/2019
-ms.openlocfilehash: f4023fa84215a0319669de0d812d8306b62278e3
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: 5194cf51fd7f1debeba76edb48e8377919ae448a
+ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "65073276"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72177956"
 ---
 # <a name="what-is-azure-database-for-postgresql"></a>什麼是 Azure Database for PostgreSQL？
 適用於 PostgreSQL 的 Azure 資料庫是 Microsoft 雲端中專為開發人員建置的關聯式資料庫服務。 此服務是以開放原始碼 [PostgreSQL](https://www.postgresql.org/) 資料庫引擎的社群版本作為基礎，可供用於兩種部署選項：單一伺服器和超大規模 (Citus) (預覽)。
@@ -48,7 +48,7 @@ ms.locfileid: "65073276"
 ## <a name="data-security"></a>資料安全性
 適用於 PostgreSQL 的 Azure 資料庫承襲 Azure 資料庫服務的資料安全性傳統。 其功能可限制存取、保護待用和移動中資料，並協助您監視活動。 如需 Azure 平台安全性的相關資訊，請造訪 [Azure 信任中心](https://azure.microsoft.com/overview/trusted-cloud/) \(英文\)。
 
-適用於 PostgreSQL 的 Azure 資料庫服務針對待用資料會使用儲存體加密，並且符合 FIPS 140-2 規範。 磁碟上的資料 (包括備份) 都會加密。 該服務使用包含在 Azure 儲存體加密中的 AES 256 位元加密，且金鑰是由系統進行管理。 儲存體加密會一律啟用，且無法停用。 根據預設，適用於 PostgreSQL 的 Azure 資料庫服務要求跨網路以及資料庫與用戶端應用程式之間的動態資料必須有安全連線。
+適用於 PostgreSQL 的 Azure 資料庫服務，針對待用資料儲存體加密是使用符合 FIPS 140-2 的加密模組。 資料 (包含備份) 會在磁碟上加密，但不包括執行查詢時所建立的暫存檔案。 該服務使用包含在 Azure 儲存體加密中的 AES 256 位元加密，且金鑰是由系統進行管理。 儲存體加密會一律啟用，且無法停用。 根據預設，適用於 PostgreSQL 的 Azure 資料庫服務要求跨網路以及資料庫與用戶端應用程式之間的動態資料必須有安全連線。
 
 ## <a name="contacts"></a>連絡人
 若您對適用於 PostgreSQL 的 Azure 資料庫有任何疑問或建議，請傳送電子郵件給適用於 PostgreSQL 的 Azure 資料庫小組 ([@Ask Azure DB for PostgreSQL](mailto:AskAzureDBforPostgreSQL@service.microsoft.com))。 此地址僅供提問一般問題，不可用來傳送支援票證。

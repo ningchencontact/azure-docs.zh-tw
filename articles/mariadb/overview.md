@@ -1,18 +1,18 @@
 ---
 title: 「適用於 MariaDB 的 Azure 資料庫」關聯式資料庫服務的概觀
-description: 「適用於 MariaDB 的 Azure 資料庫」關聯式資料庫服務的概觀。
+description: 了解適用於 MariaDB 的 Azure 資料庫服務，這是 Microsoft 雲端中以 MySQL Community Edition 為基礎的關聯式資料庫服務。
 author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: overview
 ms.custom: mvc
 ms.date: 08/13/2019
-ms.openlocfilehash: 20f6ff518daae71856446415099ae4cb095ff728
-ms.sourcegitcommit: fe50db9c686d14eec75819f52a8e8d30d8ea725b
+ms.openlocfilehash: 46ba972c489326157cbdea19a1363a30e18f72b8
+ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/14/2019
-ms.locfileid: "69013617"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72177967"
 ---
 # <a name="what-is-azure-database-for-mariadb"></a>什麼是適用於 MariaDB 的 Azure 資料庫？
 
@@ -55,7 +55,7 @@ Azure 領先業界的 99.99% 可用性 SLA，並由受 Microsoft 管理之資料
 
 Azure 資料庫服務具有「適用於 MariaDB 的 Azure 資料庫」所秉承的資料安全性信念。 「適用於 MariaDB 的 Azure 資料庫」所提供的功能可限制存取、保護待用和移動中資料，並協助您監視活動。 如需 Azure 平台安全性的相關資訊，請造訪 [Azure 信任中心](https://www.microsoft.com/en-us/trustcenter/security) \(英文\)。
 
-適用於 MariaDB 的 Azure 資料庫服務針對待用資料會使用儲存體加密，並且符合 FIPS 140-2 規範。 磁碟上的資料 (包括備份資料) 都會加密。 (磁碟上由引擎在執行查詢時所建立的暫存檔不會加密)。該服務使用包含在 Azure 儲存體加密中的 AES 256 位元加密。 金鑰則由系統管理。 儲存體加密會一律啟用，且無法停用。
+適用於 MariaDB 的 Azure 資料庫服務針對待用資料儲存體加密是使用符合 FIPS 140-2 的加密模組。 資料 (包含備份) 會在磁碟上加密，但不包括執行查詢時所建立的暫存檔案。 該服務使用包含在 Azure 儲存體加密中的 AES 256 位元加密。 金鑰則由系統管理。 儲存體加密會一律啟用，且無法停用。
 
 「適用於 MariaDB 的 Azure 資料庫」服務預設針對所有動態資料需要 [SSL 安全連線](./concepts-ssl-connection-security.md)。 在您的資料庫伺服器和用戶端應用程式之間強制使用 SSL 連線，可將兩者之間的資料流加密，有助於抵禦「中間人」攻擊。 如果用戶端應用程式不支援 SSL 連線能力，您可以選擇停用您資料庫服務的 SSL 連線要求。
 

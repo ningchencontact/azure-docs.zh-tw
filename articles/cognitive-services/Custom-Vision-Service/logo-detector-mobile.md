@@ -1,7 +1,7 @@
 ---
 title: 教學課程：使用自訂標誌偵測器辨識 Azure 服務 - 自訂視覺
 titleSuffix: Azure Cognitive Services
-description: 在本教學課程中，您將在標誌偵測案例中逐步執行使用 Azure 自訂視覺的範例應用程式。 了解如何將自訂視覺與其他元件搭配使用以提供端對端應用程式。
+description: 在此教學課程中，您將在標誌偵測案例中逐步執行使用自訂視覺的範例應用程式。 了解如何將自訂視覺與其他元件搭配使用以提供端對端應用程式。
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
@@ -10,16 +10,16 @@ ms.subservice: custom-vision
 ms.topic: tutorial
 ms.date: 07/03/2019
 ms.author: pafarley
-ms.openlocfilehash: bdcf8a0d63b880075cd22c73305afa8cf09a2e3b
-ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.openlocfilehash: b48d82354a8e733db5ddd0c86e34bab1fa9caa8d
+ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71261980"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72177781"
 ---
 # <a name="tutorial-recognize-azure-service-logos-in-camera-pictures"></a>教學課程：辨識相機圖片中的 Azure 服務標誌
 
-在本教學課程中，您將探索在較大的案例中使用 Azure 自訂視覺的範例應用程式。 AI Visual Provision 應用程式是適用於行動平台的 Xamarin.Forms 應用程式，它可分析 Azure 服務標誌的相機相片，然後將實際的服務部署至使用者的 Azure 帳戶。 在此您將了解此應用程式如何搭配使用自訂視覺與其他元件來提供有用的端對端應用程式。 您可以自行執行整個應用程式案例，也可以僅完成設定的自訂視覺部分，並大致了解應用程式如何加以運用。
+在此教學課程中，您將探索在較大的案例中使用自訂視覺的範例應用程式。 AI Visual Provision 應用程式是適用於行動平台的 Xamarin.Forms 應用程式，它可分析 Azure 服務標誌的相機相片，然後將實際的服務部署至使用者的 Azure 帳戶。 在此您將了解此應用程式如何搭配使用自訂視覺與其他元件來提供有用的端對端應用程式。 您可以自行執行整個應用程式案例，也可以僅完成設定的自訂視覺部分，並大致了解應用程式如何加以運用。
 
 此教學課程將為您示範如何：
 

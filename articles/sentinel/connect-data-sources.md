@@ -1,5 +1,5 @@
 ---
-title: 將資料來源連線至 Azure Sentinel？| Microsoft Docs
+title: 將資料來源連線至 Azure Sentinel | Microsoft Docs
 description: 了解如何將資料來源連線至 Azure Sentinel。
 services: sentinel
 documentationcenter: na
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/23/2019
 ms.author: rkarlin
-ms.openlocfilehash: d8d3e52882a5cde9b00bf07ded933ae4d45b454b
-ms.sourcegitcommit: 992e070a9f10bf43333c66a608428fcf9bddc130
+ms.openlocfilehash: d4605ad448916d788fd0a7089835a9ad3828697e
+ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71240173"
+ms.lasthandoff: 10/06/2019
+ms.locfileid: "71980413"
 ---
 # <a name="connect-data-sources"></a>連線資料來源
 

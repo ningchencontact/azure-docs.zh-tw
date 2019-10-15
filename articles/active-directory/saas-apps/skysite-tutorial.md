@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 08/27/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: adbf57e0446820959113ba4f27cc2f93fd20fdd5
-ms.sourcegitcommit: ee61ec9b09c8c87e7dfc72ef47175d934e6019cc
+ms.openlocfilehash: 93ef7f4201e9613cc6fa4391bc28d257272fa1c7
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70174294"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72026124"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-skysite"></a>教學課程：Azure Active Directory 單一登入 (SSO) 與 SKYSITE 整合
 
@@ -89,13 +89,13 @@ ms.locfileid: "70174294"
 
    ![編輯基本 SAML 組態](common/edit-urls.png)
 
-1. 在 [基本 SAML 組態] ****   區段上，已預先以  **IDP**  起始的模式設定好應用程式，並已經為 Azure 預先填入必要的 URL。 使用者必須按一下 [儲存] ****   按鈕，才能儲存組態。
+1. 在 [基本 SAML 組態]  區段上，已預先以 **IDP** 起始的模式設定好應用程式，並已經為 Azure 預先填入必要的 URL。 使用者必須按一下 [儲存]  按鈕，才能儲存設定。
 
-1. SKYSITE 應用程式需要特定格式的 SAML 判斷提示，因此您需要將自訂屬性對應新增至 SAML 權杖屬性設定。 以下螢幕擷取畫面顯示預設屬性清單。 按一下 [編輯] ****  圖示以開啟 [使用者屬性] 對話方塊。
+1. SKYSITE 應用程式需要特定格式的 SAML 判斷提示，因此您需要將自訂屬性對應新增至 SAML 權杖屬性設定。 以下螢幕擷取畫面顯示預設屬性清單。 按一下 [編輯]  圖示，以開啟 [使用者屬性] 對話方塊。
 
     ![image](common/edit-attribute.png)
 
-1. 除了以上屬性外，SKYSITE 應用程式還需要在 SAML 回應中傳回更多屬性。 在 [群組宣告 (預覽)] ****   對話方塊的 [使用者屬性與宣告] ****   區段中，執行下列步驟：
+1. 除了以上屬性外，SKYSITE 應用程式還需要在 SAML 回應中傳回更多屬性。 在 [群組宣告 (預覽)]  對話方塊的 [使用者屬性與宣告]  區段中，執行下列步驟：
 
     a. 按一下 [宣告中傳回的群組]  旁的**筆**。
 

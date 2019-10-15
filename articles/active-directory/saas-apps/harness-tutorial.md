@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 09/02/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 709bf2e413ddb40ae1ed84672cea0c0b71be2ce6
-ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
+ms.openlocfilehash: 21409eb056743d92db42e0787af24f8cec07db1b
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70305947"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72026953"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-harness"></a>教學課程：Azure Active Directory 單一登入 (SSO) 與 Harness 整合
 
@@ -141,11 +141,11 @@ ms.locfileid: "70305947"
 
 3. 如果您想要手動設定 Harness，請開啟新的網頁瀏覽器視窗，並以系統管理員身分登入 Harness 公司網站，然後執行下列步驟：
 
-4. 在頁面右上方，按一下 [持續安全性] ****  >[存取管理] ****  > [驗證設定]  。
+4. 在頁面右上方，按一下 [持續安全性]   > [存取管理]   > [驗證設定]  。
 
     ![Harness 組態](./media/harness-tutorial/configure01.png)
 
-5. 在 [SSO 提供者]  區段上，按一下 [+ 新增 SSO 提供者] ****  >[SAML] **** 。
+5. 在 [SSO 提供者]  區段上，按一下 [+ 新增 SSO 提供者]   > [SAML]  。
 
     ![Harness 組態](./media/harness-tutorial/configure03.png)
 
@@ -169,11 +169,11 @@ ms.locfileid: "70305947"
 
 1. 以系統管理員身分登入 Harness。
 
-1. 在頁面右上方，按一下 [持續安全性] ****  >[存取管理] ****  > [使用者]  。
+1. 在頁面右上方，按一下 [持續安全性]   > [存取管理]   > [使用者]  。
 
     ![Harness 組態](./media/harness-tutorial/configure04.png)
 
-1. 在頁面右側按一下 [+ 新增使用者] **** 。
+1. 在頁面右側，按一下 [+ 新增使用者]  。
 
     ![Harness 組態](./media/harness-tutorial/configure05.png)
 

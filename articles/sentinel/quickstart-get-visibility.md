@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/23/2019
 ms.author: rkarlin
-ms.openlocfilehash: c81f4cacd4c93d681122f3c8cd692ca8645288af
-ms.sourcegitcommit: 992e070a9f10bf43333c66a608428fcf9bddc130
+ms.openlocfilehash: 676a41b64b79be6b11c3ef22b34d3de0e37e2a92
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71240094"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72023802"
 ---
 # <a name="quickstart-get-started-with-azure-sentinel"></a>快速入門：開始使用 Azure Sentinel
 
@@ -122,7 +122,7 @@ ms.locfileid: "71240094"
 
 當您建立新的偵測時，利用 Microsoft 安全性研究人員鎖建立的內建偵測，其已針對您連線的資料來源量身訂製。
 
-若要檢視所有現成的偵測，請依序移至 [分析]  和 [規則範本] **** 。 此索引標籤包含所有 Azure Sentinel 內建規則。
+若要檢視所有現成的偵測，請依序移至 [分析]  和 [規則範本]  。 此索引標籤包含所有 Azure Sentinel 內建規則。
 
    ![使用內建偵測來尋找 Azure Sentinel 的威脅](media/tutorial-detect-built-in/view-oob-detections.png)
 

@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 12/27/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: eded8eb446d36a321acf46231eee3e764ba41504
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: dcf9c8ea62610b6e4eb4ad642107df81ae712054
+ms.sourcegitcommit: 4f7dce56b6e3e3c901ce91115e0c8b7aab26fb72
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67088455"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71950393"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-topdesk---secure"></a>教學課程：Azure Active Directory 與 TOPdesk - Secure 整合
 
@@ -107,9 +107,9 @@ ms.locfileid: "67088455"
 
     a. 在 [登入 URL]  文字方塊中，以下列模式輸入 URL︰`https://<companyname>.topdesk.net`
 
-    b. 在 [識別碼]  方塊中，使用下列模式輸入 URL：`https://<companyname>.topdesk.net/tas/secure/login/verify`
+    b. 在 [識別碼 URL]  方塊中，填入您可以從 TOPdesk 設定中擷取的 TOPdesk 中繼資料 URL。 它應該使用下列模式：`https://<companyname>.topdesk.net/saml-metadata/<identifier>`
 
-    c. 在 [回覆 URL]  文字方塊中，使用下列模式來輸入 URL：`https://<companyname>.topdesk.net/tas/public/login/saml`
+    c. 在 [回覆 URL]  文字方塊中，使用下列模式來輸入 URL：`https://<companyname>.topdesk.net/tas/secure/login/verify`
 
     > [!NOTE]
     > 這些都不是真正的值。 使用實際的「單一登入 URL」、「識別碼」及「回覆 URL」來更新這些值。 請連絡 [TOPdesk - Secure 用戶端支援小組](https://www.topdesk.com/us/support/) \(英文\) 以取得這些值。 您也可以參考 Azure 入口網站中**基本 SAML 組態**區段所示的模式。

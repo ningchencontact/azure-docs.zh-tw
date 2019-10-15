@@ -10,12 +10,12 @@ ms.subservice: qna-maker
 ms.topic: overview
 ms.date: 08/01/2019
 ms.author: diberry
-ms.openlocfilehash: f56798359cdc8739a363bed3bfddadd584617adf
-ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
+ms.openlocfilehash: d647875895e33254b51fb8c3d11aa40c6c1ed71f
+ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68815460"
+ms.lasthandoff: 10/05/2019
+ms.locfileid: "71973795"
 ---
 # <a name="what-is-the-qna-maker-service"></a>什麼是 QnA Maker 服務？
 
@@ -38,7 +38,7 @@ QnA Maker 的用戶端應用程式是任何可透過自然語言與使用者溝�
 
 |步驟|動作|
 |:--|:--|
-|1|用戶端應用程式傳送使用者的問題  (以自己的話語表達的文字)「如何以程式設計方式更新知識庫？」到知識庫端點。 to your knowledge base endpoint.|
+|1|用戶端應用程式傳送使用者的問題  (以自己的話語表達的文字)「如何以程式設計方式更新知識庫？」 到知識庫端點。|
 |2|QnA Maker 使用訓練好的知識庫來提供正確解答，以及任何可用來精簡搜尋以獲得最佳解答的後續提示。 QnA Maker 會傳回 JSON 格式的回應。|
 |3|用戶端應用程式使用 JSON 回應來決定如何繼續對話。 這些決定可能包括顯示最佳解答或呈現更多選擇來精簡搜尋以獲得最佳解答。 |
 |||
@@ -85,21 +85,8 @@ QnA Maker 提供撰寫、定型及發佈功能以及共同作業權限來整合�
 
 **步驟 4**：從用戶端應用程式以程式設計方式呼叫知識庫的端點，並讀取 JSON 回應以顯示最適合使用者的答案。  
 
-## <a name="news-and-updates"></a>新功能和更新
-
-了解 QnA Maker 的新功能。
-
-* 2019 年 6 月
-    * 已改善法文、義大利文、德文、西班牙文、葡萄牙文的順位排定程式模型
-* 2019 年 4 月
-    * 支援網站內容擷取
-    * Sharepoint 文件支援
-* 2019 年 3 月
-    * 主動學習 
-    * 已改善英文版的 NLP 順位排定程式模型 
-
 ## <a name="next-steps"></a>後續步驟
 QnA Maker 可提供建置、管理和部署自訂知識庫所需的所有項目。 
 
 > [!div class="nextstepaction"]
-> [建立 QnA Maker 服務](../how-to/set-up-qnamaker-service-azure.md)
+> [檢閱最新的變更](../whats-new.md)

@@ -11,12 +11,12 @@ ms.devlang: na
 ms.date: 11/13/2018
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: a6d0c3e9daba6f4f37778fabde161751944e174a
-ms.sourcegitcommit: 4b5dcdcd80860764e291f18de081a41753946ec9
+ms.openlocfilehash: 338054aadbf04c6c6e2b496677476c2c5634b6ba
+ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/03/2019
-ms.locfileid: "68774868"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72169292"
 ---
 # <a name="tutorial-deploy-virtual-machine-extensions-with-azure-resource-manager-templates"></a>教學課程：使用 Azure Resource Manager 範本部署虛擬機器擴充功能
 
@@ -48,7 +48,7 @@ ms.locfileid: "68774868"
 
 ## <a name="prepare-a-powershell-script"></a>準備 PowerShell 指令碼
 
-具有下列內容的 PowerShell 指令碼可從[具有公用存取權的 Azure 儲存體帳戶](https://armtutorials.blob.core.windows.net/usescriptextensions/installWebServer.ps1)共用：
+已在 [Github](https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/tutorial-vm-extension/installWebServer.ps1) 中分享含下列內容的 PowerShell 指令碼：
 
 ```azurepowershell
 Install-WindowsFeature -name Web-Server -IncludeManagementTools
@@ -63,7 +63,7 @@ Azure 快速入門範本是 Resource Manager 範本的存放庫。 您可以尋�
 1. 在 Visual Studio Code 中，選取 [檔案]   > [開啟檔案]  。
 1. 在 [檔案名稱]  方塊中，貼上下列 URL： https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-vm-simple-windows/azuredeploy.json
 
-1. 若要開啟檔案，請選取 [開啟]  。  
+1. 若要開啟檔案，請選取 [開啟]  。
     範本會定義五個資源：
 
    * **Microsoft.Storage/storageAccounts**。 請參閱[範本參考](https://docs.microsoft.com/azure/templates/Microsoft.Storage/storageAccounts)。
@@ -96,7 +96,7 @@ Azure 快速入門範本是 Resource Manager 範本的存放庫。 您可以尋�
         "autoUpgradeMinorVersion":true,
         "settings": {
             "fileUris": [
-                "https://armtutorials.blob.core.windows.net/usescriptextensions/installWebServer.ps1"
+                "https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/tutorial-vm-extension/installWebServer.ps1"
             ],
             "commandToExecute": "powershell.exe -ExecutionPolicy Unrestricted -File installWebServer.ps1"
         }
@@ -109,7 +109,7 @@ Azure 快速入門範本是 Resource Manager 範本的存放庫。 您可以尋�
 * **名稱**：由於擴充功能資源是虛擬機器物件的子資源，因此名稱必須有虛擬機器名稱前置詞。 請參閱[設定子資源的名稱和類型](child-resource-name-type.md)。
 * **dependsOn**：會在建立了虛擬機器後建立擴充功能資源。
 * **fileUris**：指令碼檔案儲存所在的位置。 如果您選擇不使用提供的位置，則必須更新值。
-* **commandToExecute**：此命令會叫用指令碼。  
+* **commandToExecute**：此命令會叫用指令碼。
 
 ## <a name="deploy-the-template"></a>部署範本
 
@@ -118,8 +118,7 @@ Azure 快速入門範本是 Resource Manager 範本的存放庫。 您可以尋�
 ## <a name="verify-the-deployment"></a>驗證部署
 
 1. 在 Azure 入口網站中，選取 VM。
-1. 在 VM 概觀中，藉由選取 [按一下以複製]  來複製 IP 位址，然後將其貼到瀏覽器的索引標籤中。  
-   預設的 Internet Information Services (IIS) 歡迎使用頁面隨即開啟：
+1. 在 VM 概觀中，藉由選取 [按一下以複製]  來複製 IP 位址，然後將其貼到瀏覽器的索引標籤中。預設的 Internet Information Services (IIS) 歡迎使用頁面隨即開啟：
 
 ![Internet Information Services 歡迎使用頁面](./media/resource-manager-tutorial-deploy-vm-extensions/resource-manager-template-deploy-extensions-customer-script-web-server.png)
 
@@ -129,7 +128,7 @@ Azure 快速入門範本是 Resource Manager 範本的存放庫。 您可以尋�
 
 1. 在 Azure 入口網站的左側窗格中，選取 [資源群組]  。
 2. 在 [依名稱篩選]  方塊中，輸入資源群組名稱。
-3. 選取資源群組名稱。  
+3. 選取資源群組名稱。
     資源群組中顯示了六個資源。
 4. 在頂端功能表中，選取 [刪除資源群組]  。
 

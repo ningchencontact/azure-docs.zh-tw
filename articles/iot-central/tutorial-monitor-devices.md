@@ -9,12 +9,12 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: philmea
-ms.openlocfilehash: d716eb761ab406b65f10898b29775327a801ac45
-ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+ms.openlocfilehash: f68bc211be3cffb61b3381390ae2eeacaffa4213
+ms.sourcegitcommit: 4d177e6d273bba8af03a00e8bb9fe51a447196d0
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69875474"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71960413"
 ---
 # <a name="tutorial-use-azure-iot-central-to-monitor-your-devices"></a>教學課程：使用 Azure IoT Central 監視您的裝置
 
@@ -22,7 +22,7 @@ ms.locfileid: "69875474"
 
 本教學課程將為操作員說明如何使用 Microsoft Azure IoT Central 應用程式監視您的裝置和變更設定。
 
-在本教學課程中，您了解如何：
+在本教學課程中，您會了解如何：
 
 > [!div class="checklist"]
 > * 接收通知
@@ -41,7 +41,7 @@ ms.locfileid: "69875474"
 
 Azure IoT Central 會以電子郵件訊息傳送關於裝置的通知。 建置者已新增會在連線的空調裝置溫度超出閾值時傳送通知的規則。 請查看傳送至建置者選擇要接收通知之帳戶的電子郵件。
 
-開啟您在[為您的裝置設定規則和動作](tutorial-configure-rules.md)教學課程末尾收到的電子郵件訊息。 在電子郵件中，選擇 [按一下這裡以開啟您的裝置]  ：
+開啟您在[為您的裝置設定規則和動作](tutorial-configure-rules.md)教學課程末尾收到的電子郵件訊息。 在電子郵件的 [詳細資料]  區段中，選取 [裝置名稱]  旁的裝置連結：
 
 ![警示通知電子郵件](media/tutorial-monitor-devices/email.png)
 

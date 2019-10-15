@@ -13,12 +13,12 @@ ms.devlang: na
 ms.date: 04/08/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 08befabfbd14651475fa56dec95bdf4c2fe54c9c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 239bb77d486e8cb845ec439d84def5e34cf64348
+ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60390260"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72170220"
 ---
 # <a name="tutorial-import-sql-bacpac-files-with-azure-resource-manager-templates"></a>教學課程：使用 Azure Resource Manager 範本匯入 SQL BACPAC 檔案
 
@@ -49,19 +49,19 @@ ms.locfileid: "60390260"
 
 ## <a name="prepare-a-bacpac-file"></a>準備 BACPAC 檔案
 
-BACPAC 檔案可在[具有公用存取權的 Azure 儲存體帳戶](https://armtutorials.blob.core.windows.net/sqlextensionbacpac/SQLDatabaseExtension.bacpac)上共用。 若要自行建立，請參閱[將 Azure SQL 資料庫匯出到 BACPAC 檔案](../sql-database/sql-database-export.md)。 如果您選擇將檔案發佈到自己的位置，您稍後必須在本教學課程中更新範本。
+已在 [Github](https://github.com/Azure/azure-docs-json-samples/raw/master/tutorial-sql-extension/SQLDatabaseExtension.bacpac) 中分享 BACPAC 檔案。 若要自行建立，請參閱[將 Azure SQL 資料庫匯出到 BACPAC 檔案](../sql-database/sql-database-export.md)。 如果您選擇將檔案發佈到自己的位置，您稍後必須在本教學課程中更新範本。
 
 ## <a name="open-a-quickstart-template"></a>開啟快速入門範本
 
-本教學課程中使用的範本會儲存在 [Azure 儲存體帳戶](https://armtutorials.blob.core.windows.net/createsql/azuredeploy.json)中。 
+此教學課程中使用的範本會儲存在 [Github](https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/tutorial-sql-extension/azuredeploy.json) 中。
 
-1. 在 Visual Studio Code 中，選取 [檔案]>[開啟檔案]。
-2. 在 [檔案名稱] 中，貼上下列 URL：
+1. 在 Visual Studio Code 中，選取 [檔案]  >[開啟檔案]  。
+2. 在 [檔案名稱]  中，貼上下列 URL：
 
     ```url
-    https://armtutorials.blob.core.windows.net/createsql/azuredeploy.json
+    https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/tutorial-sql-extension/azuredeploy.json
     ```
-3. 選取 [開啟] 以開啟檔案。
+3. 選取 [開啟]  以開啟檔案。
 
     範本中定義了三項資源：
 
@@ -70,7 +70,7 @@ BACPAC 檔案可在[具有公用存取權的 Azure 儲存體帳戶](https://armt
    * `Microsoft.SQL.servers/databases` 。  請參閱[範本參考](https://docs.microsoft.com/azure/templates/microsoft.sql/servers/databases)。
 
      自訂範本之前，最好能初步了解範本。
-4. 選取 [檔案]>[另存新檔]，以名稱 **azuredeploy.json** 將檔案的複本儲存至您的本機電腦。
+4. 選取 [檔案]  >[另存新檔]  ，以名稱 **azuredeploy.json** 將檔案的複本儲存至您的本機電腦。
 
 ## <a name="edit-the-template"></a>編輯範本
 
@@ -112,7 +112,7 @@ BACPAC 檔案可在[具有公用存取權的 Azure 儲存體帳戶](https://armt
             "properties": {
                 "storageKeyType": "SharedAccessKey",
                 "storageKey": "?",
-                "storageUri": "https://armtutorials.blob.core.windows.net/sqlextensionbacpac/SQLDatabaseExtension.bacpac",
+                "storageUri": "https://github.com/Azure/azure-docs-json-samples/raw/master/tutorial-sql-extension/SQLDatabaseExtension.bacpac",
                 "administratorLogin": "[variables('databaseServerAdminLogin')]",
                 "administratorLoginPassword": "[variables('databaseServerAdminLoginPassword')]",
                 "operationMode": "Import",
@@ -157,7 +157,7 @@ New-AzResourceGroupDeployment `
 
 ## <a name="verify-the-deployment"></a>驗證部署
 
-在入口網站中，請從新部署的資源群組中選取 SQL 資料庫。 選取 [查詢編輯器 (預覽)]，然後輸入系統管理員認證。 您應該會看到兩個已匯入資料庫中的資料表：
+在入口網站中，請從新部署的資源群組中選取 SQL 資料庫。 選取 [查詢編輯器 (預覽)]  ，然後輸入系統管理員認證。 您應該會看到兩個已匯入資料庫中的資料表：
 
 ![Azure Resource Manager 部署 SQL 擴充功能 BACPAC](./media/resource-manager-tutorial-deploy-sql-extensions-bacpac/resource-manager-tutorial-deploy-sql-extensions-bacpac-query-editor.png)
 
@@ -165,10 +165,10 @@ New-AzResourceGroupDeployment `
 
 不再需要 Azure 資源時，可藉由刪除資源群組來清除您所部署的資源。
 
-1. 在 Azure 入口網站中，選取左側功能表中的 [資源群組]。
-2. 在 [依名稱篩選] 欄位中輸入資源群組名稱。
+1. 在 Azure 入口網站中，選取左側功能表中的 [資源群組]  。
+2. 在 [依名稱篩選]  欄位中輸入資源群組名稱。
 3. 選取資源群組名稱。  您在資源群組中應該會看到共計六個資源。
-4. 從頂端功能表中選取 [刪除資源群組]。
+4. 從頂端功能表中選取 [刪除資源群組]  。
 
 ## <a name="next-steps"></a>後續步驟
 

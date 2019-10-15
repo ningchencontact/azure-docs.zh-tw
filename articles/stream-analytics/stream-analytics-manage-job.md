@@ -9,18 +9,18 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.custom: mvc
 ms.date: 06/03/2019
-ms.openlocfilehash: d09ed0585250d078f728aa4e7272cca147a40c38
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.openlocfilehash: 540cd0e136dc602848c34edbd3914d69ca725758
+ms.sourcegitcommit: be344deef6b37661e2c496f75a6cf14f805d7381
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67612372"
+ms.lasthandoff: 10/07/2019
+ms.locfileid: "72000545"
 ---
 # <a name="analyze-phone-call-data-with-stream-analytics-and-visualize-results-in-power-bi-dashboard"></a>使用串流分析分析通話資料並在 Power BI 儀表板中以視覺方式呈現結果
 
 本教學課程將指示如何使用 Azure 串流分析來分析通話資料。 用戶端應用程式所產生的通話資料包含某些詐騙電話，而我們將以串流分析作業來篩選這類電話。
 
-在本教學課程中，您了解如何：
+在本教學課程中，您會了解如何：
 
 > [!div class="checklist"]
 > * 產生範例通話資料並將其傳送至 Azure 事件中樞
@@ -53,7 +53,7 @@ ms.locfileid: "67612372"
 
    |**設定**  |**建議的值** |**說明**  |
    |---------|---------|---------|
-   |Name     | myEventHubsNS        |  用以識別事件中樞命名空間的唯一名稱。       |
+   |名稱     | myEventHubsNS        |  用以識別事件中樞命名空間的唯一名稱。       |
    |訂用帳戶     |   \<您的訂用帳戶\>      |   選取您要在其中建立事件中樞的 Azure 訂用帳戶。      |
    |資源群組     |   MyASADemoRG      |  選取 [新建]  ，然後為您的帳戶輸入新的資源群組名稱。       |
    |位置     |   美國西部 2      |    可以部署事件中樞命名空間的位置。     |
@@ -266,7 +266,7 @@ ms.locfileid: "67612372"
 
 在這部分的教學課程中，您將使用 Power BI 團隊所建立的範例 [ASP.NET](https://asp.net/) Web 應用程式來內嵌您的儀表板。 如需內嵌儀表板的詳細資訊，請參閱[內嵌 Power BI](https://docs.microsoft.com/power-bi/developer/embedding) 一文。
 
-若要設定應用程式，請移至 [PowerBI-Developer-Samples](https://github.com/Microsoft/PowerBI-Developer-Samples) GitHub 存放庫，並遵循**使用者擁有資料**一節之下的指示 (使用 **integrate-dashboard-web-app** 小節之下的重新導向和首頁 URL)。 因為我們使用儀表板範例，所以使用位於 [GitHub 存放庫](https://github.com/Microsoft/PowerBI-Developer-Samples/tree/master/User%20Owns%20Data/integrate-dashboard-web-app)中的 **integrate-dashboard-web-app** 範例程式碼。
+若要設定應用程式，請移至 [PowerBI-Developer-Samples](https://github.com/Microsoft/PowerBI-Developer-Samples) GitHub 存放庫，並遵循**使用者擁有資料**一節之下的指示進行 (使用 **integrate-web-app** 小節之下的重新導向和首頁 URL)。 因為我們使用儀表板範例，所以使用位於 [GitHub 存放庫](https://github.com/Microsoft/PowerBI-Developer-Samples/tree/master/User%20Owns%20Data/integrate-web-app)中的 **integrate-web-app** 範例程式碼。
 一旦在瀏覽器中執行應用程式，請遵循下列步驟將先前建立的儀表板內嵌到網頁中：
 
 1. 選取 [登入 Power BI]  ，以將您的 Power BI 帳戶中儀表板的存取權授與應用程式。

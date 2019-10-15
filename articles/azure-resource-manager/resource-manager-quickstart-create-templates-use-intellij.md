@@ -13,12 +13,12 @@ ms.devlang: java
 ms.date: 08/01/2019
 ms.topic: quickstart
 ms.author: yucwan
-ms.openlocfilehash: cbeaccf4cdea87d6f34d5ee77e6a08b32abd76b5
-ms.sourcegitcommit: 6ad03fa28a0f60cb6dce6144f728c2ceb56ff6e2
+ms.openlocfilehash: d25a5720e3aaa8ad6306a72d2db8d3ca2e89861b
+ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68708191"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72169453"
 ---
 # <a name="quickstart-create-and-deploy-azure-resource-manager-templates-by-using-the-intellij-idea"></a>快速入門：使用 IntelliJ IDEA 建立及部署 Azure Resource Manager 範本
 
@@ -40,7 +40,7 @@ ms.locfileid: "68708191"
 
 ## <a name="deploy-a-quickstart-template"></a>部署快速入門範本
 
-您可以從 [Azure 快速入門範本](https://azure.microsoft.com/resources/templates/)開啟範本，而無須從頭建立範本。 Azure 快速入門範本是 Resource Manager 範本的存放庫。 本快速入門中使用的範本名為[建立標準儲存體帳戶](https://github.com/Azure/azure-quickstart-templates/tree/master/101-storage-account-create/)。 此範本會定義 Azure 儲存體帳戶資源。 
+您可以從 [Azure 快速入門範本](https://azure.microsoft.com/resources/templates/)開啟範本，而無須從頭建立範本。 Azure 快速入門範本是 Resource Manager 範本的存放庫。 本快速入門中使用的範本名為[建立標準儲存體帳戶](https://github.com/Azure/azure-quickstart-templates/tree/master/101-storage-account-create/)。 此範本會定義 Azure 儲存體帳戶資源。
 
 1. 以滑鼠右鍵按一下 [`azuredeploy.json`](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-storage-account-create/azuredeploy.json) 和 [`azuredeploy.parameters.json`](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-storage-account-create/azuredeploy.parameters.json)，然後將其儲存到本機電腦。
 
@@ -89,10 +89,10 @@ ms.locfileid: "68708191"
 
 ## <a name="next-steps"></a>後續步驟
 
-本快速入門的重點是說明如何使用 IntelliJ IDEA 來部署 Azure 快速入門範本中的現有範本。 您也已經了解如何在 Azure 上檢視和更新現有部署。 Azure 快速入門範本中的範本可能無法提供您所需的一切。 下一個教學課程將說明如何從範本參考中尋找相關資訊，用以建立加密的 Azure 儲存體帳戶。
+本快速入門的重點是說明如何使用 IntelliJ IDEA 來部署 Azure 快速入門範本中的現有範本。 您也已經了解如何在 Azure 上檢視和更新現有部署。 Azure 快速入門範本中的範本可能無法提供您所需的一切。 若要深入了解範本開發，請參閱我們的新初學者教學課程系列：
 
 > [!div class="nextstepaction"]
-> [建立加密的儲存體帳戶](./resource-manager-tutorial-create-encrypted-storage-accounts.md)
+> [初學者教學課程](./template-tutorial-create-first-template.md)
 
 > [!div class="nextstepaction"]
 > [造訪 Azure 上的 Java 開發人員中心](https://docs.microsoft.com/azure/java)

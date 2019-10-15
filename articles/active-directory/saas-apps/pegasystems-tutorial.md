@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/26/2019
 ms.author: jeedes
-ms.openlocfilehash: 013e477b66d2772698ce5c9cc61a59f8a5a04a5a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: bd54466e054055ff84cd5bb2b28c5cc074ac0017
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67094889"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72026814"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-pega-systems"></a>教學課程：Azure Active Directory 與 Pega Systems 整合
 
@@ -124,7 +124,7 @@ ms.locfileid: "67094889"
     > [!NOTE]
     > 此處提供的值是預留位置。 您需要使用實際的「識別碼」、「回覆 URL」、「登入 URL」及「轉送狀態 URL」。 您可以從本教學課程稍後所述的 Pega 應用程式取得「識別碼」和「回覆 URL」的值。 若要取得轉送狀態的值，請連絡 [Pega Systems 支援小組](https://www.pega.com/contact-us)。 您也可以參考 Azure 入口網站中**基本 SAML 組態**區段所示的模式。
 
-6. Pega Systems 應用程式需要特定格式的 SAML 判斷提示。 若要取得正確的格式，您需要將自訂屬性對應新增至您的 SAML 權杖屬性組態。 以下螢幕擷取畫面顯示預設屬性。 選取 [編輯]   圖示以開啟 [使用者屬性]   對話方塊：
+6. Pega Systems 應用程式需要特定格式的 SAML 判斷提示。 若要取得正確的格式，您需要將自訂屬性對應新增至您的 SAML 權杖屬性組態。 以下螢幕擷取畫面顯示預設屬性。 選取 [編輯]  圖示，以開啟 [使用者屬性]  對話方塊：
 
     ![使用者屬性](common/edit-attribute.png)
 
@@ -160,7 +160,7 @@ ms.locfileid: "67094889"
 
     1. 選取 [確定]  。
 
-    1. 選取 [ **儲存**]。
+    1. 選取 [儲存]  。
 
 8. 在 [以 SAML 設定單一登入]  頁面的 [SAML 簽署憑證]  區段中，依據您的需求選取 [同盟中繼資料 XML]  旁邊的 [下載]  連結，並將憑證儲存在您的電腦上：
 
@@ -214,7 +214,7 @@ ms.locfileid: "67094889"
 
     1. 選取 [停用要求簽署]  。
 
-7. 選取 [ **儲存**]。
+7. 選取 [儲存]  。
 
 ### <a name="create-an-azure-ad-test-user"></a>建立 Azure AD 測試使用者
 

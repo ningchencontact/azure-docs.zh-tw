@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 05/02/2019
 ms.author: jeedes
-ms.openlocfilehash: a2a0ffd670a03aeaaa262b83127a385be9efc978
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e5575a2e8f776e87fcd4e6f4a7a9244752ebfd9a
+ms.sourcegitcommit: 4f7dce56b6e3e3c901ce91115e0c8b7aab26fb72
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67088484"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71950414"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-topdesk---public"></a>教學課程：Azure Active Directory 與 TOPdesk - Public 整合
 
@@ -120,8 +120,10 @@ TOPdesk - Public 與 Azure AD 整合提供下列優點：
 
     d. 在 [登入 URL]  文字方塊中，以下列模式輸入 URL︰`https://<companyname>.topdesk.net`
 
-    e. 在 [識別碼]  文字方塊中，使用下列模式輸入 URL： `https://<companyname>.topdesk.net/tas/public/login/verify`
-
+    e. 在 [識別碼 URL]  文字方塊中，填入您可以從 TOPdesk 設定中擷取的 TOPdesk 中繼資料 URL。 它應該使用下列模式：`https://<companyname>.topdesk.net/saml-metadata/<identifier>`
+    
+    f. 在 **[回覆 URL]** 文字方塊中，以下列模式輸入 URL：`https://<companyname>.topdesk.net/tas/public/login/verify`
+    
     > [!NOTE] 
     > 如果未自動填入 [識別碼]  和 [回覆 URL]  值，您需要手動填入這些值。 對於 [識別碼]，請遵循上述的模式並從 [設定 TOPdesk - Public 單一登入]  區段取得 [回覆 URL] 值，本教學課程稍後會予以說明。 [登入 URL]  值並非實際值，因此您必須將該值更新為實際的登入 URL。 請連絡 [TOPdesk - Public 用戶端支援小組](https://help.topdesk.com/saas/enterprise/user/)以取得此值。 您也可以參考 Azure 入口網站中**基本 SAML 組態**區段所示的模式。
 

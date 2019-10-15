@@ -7,13 +7,13 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive,mvc
 ms.topic: tutorial
-ms.date: 05/16/2019
-ms.openlocfilehash: bb803861fa64beb0b4afe2202230209493f42a1d
-ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
+ms.date: 10/03/2019
+ms.openlocfilehash: fe7560f68690233d7a333724274a259d693123d0
+ms.sourcegitcommit: f9e81b39693206b824e40d7657d0466246aadd6e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/15/2019
-ms.locfileid: "71003656"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72035685"
 ---
 # <a name="tutorial-analyze-apache-spark-data-using-power-bi-in-hdinsight"></a>教學課程：在 HDInsight 中使用 Power BI 來分析 Apache Spark 資料
 
@@ -124,7 +124,7 @@ ms.locfileid: "71003656"
 
 ### <a name="publish-the-report-to-the-power-bi-service-optional"></a>將報告發佈至 Power BI 服務 (選用)
 
-Power BI 服務可讓您跨組織共用報表和儀表板。 在本節中，您會首次發佈資料集和報表。 然後，您會將報表釘選到儀表板。 儀表板通常用於強調報告中的資料子集；您的報告中只有一個視覺效果，但逐步了解下列步驟仍很有幫助。
+Power BI 服務可讓您跨組織共用報表和儀表板。 在本節中，您會首次發佈資料集和報表。 然後，您會將報表釘選到儀表板。 儀表板通常用來專注於報表中的資料子集。 您的報表中只有一個視覺效果，但逐步執行這些步驟仍然很有用。
 
 1. 開啟 Power BI Desktop。
 
@@ -174,7 +174,7 @@ Power BI 服務可讓您跨組織共用報表和儀表板。 在本節中，您�
 
 ## <a name="clean-up-resources"></a>清除資源
 
-完成本教學課程之後，您可以刪除叢集。 利用 HDInsight，您的資料會儲存在 Azure 儲存體中，以便您在未使用叢集時安全地進行刪除。 您也需支付 HDInsight 叢集的費用 (即使未使用)。 由於叢集費用是儲存體費用的許多倍，所以刪除未使用的叢集符合經濟效益。
+完成本教學課程之後，您可以刪除叢集。 利用 HDInsight，您的資料會儲存在 Azure 儲存體中，以便您在未使用叢集時安全地刪除該叢集。 您也需支付 HDInsight 叢集的費用 (即使未使用該叢集)。 由於叢集費用是儲存體費用的許多倍，所以刪除未使用的叢集符合經濟效益。
 
 若要刪除叢集，請參閱[使用您的瀏覽器、PowerShell 或 Azure CLI 刪除 HDInsight 叢集](../hdinsight-delete-cluster.md)。
 

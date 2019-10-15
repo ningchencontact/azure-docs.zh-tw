@@ -4,16 +4,16 @@ description: 本文將說明系統管理員在 Azure EA 入口網站中完成的
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 09/25/2019
+ms.date: 10/07/2019
 ms.topic: conceptual
 ms.service: billing
 manager: boalcsva
-ms.openlocfilehash: 87947fb29d8fa7dd86818caef139e776c04c7650
-ms.sourcegitcommit: 0486aba120c284157dfebbdaf6e23e038c8a5a15
+ms.openlocfilehash: 21e9d4af783ed5d9eb3ace1c8b5189163b89f8b0
+ms.sourcegitcommit: f9e81b39693206b824e40d7657d0466246aadd6e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71308095"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72035215"
 ---
 # <a name="azure-ea-portal-administration"></a>Azure EA 入口網站系統管理員
 
@@ -87,10 +87,11 @@ Azure EA 帳戶是 Azure EA 入口網站中用來管理訂用帳戶的組織單�
 - 目標和來源註冊都需要 EA 系統管理員的核准
   - 在某些情況下，Microsoft 可能會向來源註冊的 EA 系統管理員要求額外核准
 - 如果帳戶轉移不符合您的需求，請考慮註冊轉移。
-- 帳戶轉移會轉移所有服務、訂用帳戶、帳戶、部門和整個註冊結構，包括所有 EA 部門系統管理員。
-- 帳戶轉移會將來源註冊狀態設定為 [已轉移]  。 已轉移的帳戶僅限用於報告使用量記錄。
-- 您無法將角色或訂用帳戶新增至狀態為已轉移的註冊。 該狀態可防止以該註冊產生其他使用量。
-- 來源合約中任何剩餘的預付金餘額都會遺失，其中也包括未來的期限。
+- 帳戶移轉會移轉與特定帳戶相關的所有服務和訂閱。
+- 移轉完成之後，已移轉帳戶在來源註冊下會顯示為非使用中。
+- 帳戶轉移可回溯日期至目標註冊開始日期內的任何日期。
+- 帳戶會顯示與來源註冊上的有效移轉日期對應的結束日期，並作為目標註冊的開始日期。
+- 在有效傳輸日期之前，帳戶所發生的任何使用狀況，都會保留在來源註冊之下。
 
 
 ## <a name="transfer-enterprise-enrollment-to-a-new-one"></a>將企業註冊轉移至新的註冊

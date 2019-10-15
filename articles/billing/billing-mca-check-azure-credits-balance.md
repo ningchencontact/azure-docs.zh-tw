@@ -11,18 +11,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/01/2019
 ms.author: banders
-ms.openlocfilehash: b8faf3801a2217e6ef7040a7c2b67c7e6fad8e60
-ms.sourcegitcommit: d4c9821b31f5a12ab4cc60036fde00e7d8dc4421
+ms.openlocfilehash: ea3fc21891f1e4d4e744449032a4b2cfcdfbb2f0
+ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/01/2019
-ms.locfileid: "71709592"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72177541"
 ---
 # <a name="track-microsoft-customer-agreement-azure-credit-balance"></a>追蹤 Microsoft 客戶合約的 Azure 點數餘額
 
 您可以在 Azure 入口網站中查看 Microsoft 客戶合約的 Azure 點數餘額。 您可以使用點數支付可由點數涵蓋的費用。
 
-若您使用的產品並未以點數涵蓋，或您的使用量超過點數餘額，您就必須支付費用。 如需詳細資訊，請參閱「Azure 點數未涵蓋的產品」(#products-that-arent-covered-by-azure-credits)。
+若您使用的產品並未以點數涵蓋，或您的使用量超過點數餘額，您就必須支付費用。 如需詳細資訊，請參閱 [Azure 點數未涵蓋的產品](#products-that-arent-covered-by-azure-credits)。
 
 本文適用於 Microsoft 客戶合約的計費帳戶。 [請確認您是否有 Microsoft 客戶合約的存取權](#check-access-to-a-microsoft-customer-agreement)。
 

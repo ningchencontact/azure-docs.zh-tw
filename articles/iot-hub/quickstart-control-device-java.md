@@ -10,12 +10,12 @@ ms.devlang: java
 ms.topic: quickstart
 ms.custom: mvc, seo-java-august2019, seo-java-september2019
 ms.date: 06/21/2019
-ms.openlocfilehash: 9fb110eff1d498b2b20952048759c76a2dac39f2
-ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
+ms.openlocfilehash: f59a3409d508c63f232294d8d66ade5669815b3c
+ms.sourcegitcommit: 15e3bfbde9d0d7ad00b5d186867ec933c60cebe6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70306475"
+ms.lasthandoff: 10/03/2019
+ms.locfileid: "71843370"
 ---
 # <a name="quickstart-control-a-device-connected-to-an-azure-iot-hub-with-java"></a>快速入門：使用 Java 來控制連線到 Azure IoT 中樞的裝置
 
@@ -141,7 +141,7 @@ az iot hub show-connection-string --name YourIoTHubName --policy-name service --
 
     下列螢幕擷取畫面顯示模擬裝置應用程式將遙測傳送到 IoT 中樞時的輸出：
 
-    ![執行模擬的裝置](./media/quickstart-control-device-java/SimulatedDevice-1.png)
+    ![由裝置傳送到您 IoT 中樞的遙測輸出](./media/quickstart-control-device-java/iot-hub-application-send-telemetry-output.png)
 
 ## <a name="call-the-direct-method"></a>呼叫直接方法
 
@@ -167,11 +167,11 @@ az iot hub show-connection-string --name YourIoTHubName --policy-name service --
 
     下列螢幕擷取畫面顯示應用程式對裝置進行直接方法呼叫並接收通知時的輸出：
 
-    ![執行後端應用程式](./media/quickstart-control-device-java/BackEndApplication.png)
+    ![應用程式透過您的 IoT 中樞做出直接方法呼叫的輸出](./media/quickstart-control-device-java/iot-hub-direct-method-call-output.png)
 
     執行後端應用程式之後，在執行模擬裝置的主控台視窗中將會出現一則訊息，且它傳送訊息的速率也會變更：
 
-    ![模擬用戶端的變更](./media/quickstart-control-device-java/SimulatedDevice-2.png)
+    ![來自裝置的主控台訊息顯示其變更的速率](./media/quickstart-control-device-java/iot-hub-sent-message-change-rate.png)
 
 ## <a name="clean-up-resources"></a>清除資源
 
