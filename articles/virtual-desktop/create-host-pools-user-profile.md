@@ -7,18 +7,21 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 08/20/2019
 ms.author: helohr
-ms.openlocfilehash: 9b187696524e96bc13254a24fd8f39d5aeb89e7d
-ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
+ms.openlocfilehash: 0e7516fc4874e4cbc387f2f494efc6ef745d64f7
+ms.sourcegitcommit: 9dec0358e5da3ceb0d0e9e234615456c850550f6
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/30/2019
-ms.locfileid: "71676691"
+ms.lasthandoff: 10/14/2019
+ms.locfileid: "72311602"
 ---
 # <a name="create-a-profile-container-for-a-host-pool-using-a-file-share"></a>使用檔案共用建立主機集區的設定檔容器
 
 Windows 虛擬桌面服務提供 FSLogix 設定檔容器作為建議的使用者設定檔解決方案。 我們不建議使用使用者設定檔磁片（UPD）解決方案，這會在未來的 Windows 虛擬桌上出版本中被取代。
 
 本文將告訴您如何使用以虛擬機器為基礎的檔案共用，為主機集區設定 FSLogix 設定檔容器共用。 如需更 FSLogix 的檔，請參閱[FSLogix 網站](https://docs.fslogix.com/)。
+
+>[!NOTE]
+>如果您要尋找 Azure 上不同 FSLogix 設定檔容器儲存體選項的比較資料，請參閱[FSLogix 設定檔容器的儲存體選項](store-fslogix-profile.md)。
 
 ## <a name="create-a-new-virtual-machine-that-will-act-as-a-file-share"></a>建立將作為檔案共用的新虛擬機器
 
@@ -68,4 +71,4 @@ Windows 虛擬桌面服務提供 FSLogix 設定檔容器作為建議的使用者
 | VHDLocations        | 多字串值 | 「檔案共用的網路路徑」     |
 
 >[!IMPORTANT]
->為了保護您在 Azure 中的 Windows 虛擬桌面環境，建議您不要在 VM 上開啟輸入連接埠 3389。 Windows 虛擬桌面不需要開啟輸入連接埠 3389 讓使用者存取主機集區的 VM。 如果您為了要進行疑難排解而必須開啟連接埠 3389，建議您使用 [Just-In-Time VM 存取](https://docs.microsoft.com/azure/security-center/security-center-just-in-time)。
+>為了保護您在 Azure 中的 Windows 虛擬桌面環境，建議您不要在 VM 上開啟輸入連接埠 3389。 Windows 虛擬桌面不需要開啟輸入連接埠 3389 讓使用者存取主機集區的 VM。 如果您為了要進行疑難排解而必須開啟連接埠 3389，建議您使用 [Just-In-Time VM 存取](../security-center/security-center-just-in-time.md)。

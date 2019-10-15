@@ -7,13 +7,13 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 05/23/2019
-ms.openlocfilehash: 2f46f90edcdd1c4cdf7583c7e628aee205b312e1
-ms.sourcegitcommit: cd70273f0845cd39b435bd5978ca0df4ac4d7b2c
+ms.date: 10/11/2019
+ms.openlocfilehash: 81b57191a02dd3214928ac90e2761f5f8dfb2cfc
+ms.sourcegitcommit: 9dec0358e5da3ceb0d0e9e234615456c850550f6
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71098649"
+ms.lasthandoff: 10/14/2019
+ms.locfileid: "72311669"
 ---
 # <a name="manage-hdinsight-clusters-by-using-the-apache-ambari-web-ui"></a>使用 Apache Ambari Web UI 管理 HDInsight 叢集
 
@@ -29,27 +29,27 @@ Apache Ambari 提供容易使用的 Web UI 和 REST API，可簡化 Apache Hadoo
 
 ## <a name="connectivity"></a>連線能力
 
-Ambari Web UI 可在您的 HDInsight `https://CLUSTERNAME.azurehdinsight.net`叢集上使用，其中`CLUSTERNAME`是您的叢集名稱。
+您的 HDInsight 叢集上有 Ambari Web UI，位於 `https://CLUSTERNAME.azurehdinsight.net`，其中 `CLUSTERNAME` 是叢集的名稱。
 
 > [!IMPORTANT]  
 > 連線到 HDInsight 上的 Ambari 需要 HTTPS。 當系統提示要驗證時，請使用您在叢集建立時所提供的系統管理帳戶名稱和密碼。
 
 ## <a name="ssh-tunnel-proxy"></a>SSH 通道 (Proxy)
 
-雖然您可直接透過網際網路存取叢集適用的 Ambari，但 Ambari Web UI 中的一些連結 (例如 JobTracker 的連結) 並不會在網際網路上公開。 若要存取這些服務，您必須建立 SSH 通道。 如需詳細資訊，請參閱[搭配 HDInsight 使用 SSH 通道](hdinsight-linux-ambari-ssh-tunnel.md)。
+雖然您叢集的 Ambari 可透過網際網路直接存取，但 Ambari Web UI （例如 JobTracker）的某些連結並不會在網際網路上公開。 若要存取這些服務，您必須建立 SSH 通道。 如需詳細資訊，請參閱[搭配 HDInsight 使用 SSH 通道](hdinsight-linux-ambari-ssh-tunnel.md)。
 
 ## <a name="ambari-web-ui"></a>Ambari Web UI
 
 > [!WARNING]  
 > 並非所有 Ambari Web UI 功能在 HDInsight 上都受到支援。 如需詳細資訊，請參閱本文件的 [不支援的作業](#unsupported-operations)一節。
 
-連線到 Ambari Web UI 時，系統會提示您通過頁面驗證。 使用您在叢集建立期間使用的叢集管理使用者 (預設值是 Admin) 和密碼。
+當連接到 Ambari Web UI 時，系統會提示您向頁面進行驗證。 使用您在叢集建立期間使用的叢集管理使用者 (預設值是 Admin) 和密碼。
 
 當頁面開啟時，請注意頂端的資訊列。 此列包含下列資訊和控制項：
 
 ![Apache Ambari 儀表板總覽](./media/hdinsight-hadoop-manage-ambari/apache-ambari-dashboard.png)
 
-|項目 |描述 |
+|Item |描述 |
 |---|---|
 |Ambari 標誌|開啟 [儀表板]，可以用來監視叢集。|
 |叢集名稱 # ops|顯示進行中的 Ambari 作業數目。 選取叢集名稱或 [# 項作業] 會顯示背景作業清單。|
@@ -58,7 +58,7 @@ Ambari Web UI 可在您的 HDInsight `https://CLUSTERNAME.azurehdinsight.net`叢
 |服務|叢集中服務的資訊和設定。|
 |主機|叢集中節點的資訊和設定。|
 |警示|資訊、警告和重要警示的記錄。|
-|行政區|安裝在叢集上的軟體堆疊/服務、服務帳戶資訊及 Kerberos 安全性。|
+|Admin|安裝在叢集上的軟體堆疊/服務、服務帳戶資訊及 Kerberos 安全性。|
 |[系統管理] 按鈕|Ambari 管理、使用者設定和登出。|
 
 ## <a name="monitoring"></a>監視
@@ -82,7 +82,7 @@ Ambari Web UI 可在您的 HDInsight `https://CLUSTERNAME.azurehdinsight.net`叢
 
 ![Apache Ambari 管理警示群組](./media/hdinsight-hadoop-manage-ambari/ambari-manage-alerts.png)
 
-您也可以管理警示方法，並從 [動作] 功能表中選取 [管理警示通知] 來建立警示通知。 系統會顯示任何目前的通知。 您也可以從這裡建立通知。 在發生特定警示/嚴重性組合時，便可透過**電子郵件**或 **SNMP** 傳送通知。 例如，您可以在 [YARN 預設] 群組中的任何警示設為 [重要] 時傳送電子郵件訊息。
+您也可以透過選取 [__管理通知__] 來管理警示方法，並從 [**動作**] 功能表建立警示通知。 系統會顯示任何目前的通知。 您也可以從這裡建立通知。 在發生特定警示/嚴重性組合時，便可透過**電子郵件**或 **SNMP** 傳送通知。 例如，您可以在 [YARN 預設] 群組中的任何警示設為 [重要] 時傳送電子郵件訊息。
 
 ![Apache Ambari 建立警示通知](./media/hdinsight-hadoop-manage-ambari/create-alert-notification.png)
 
@@ -129,7 +129,7 @@ Ambari Web UI 可在您的 HDInsight `https://CLUSTERNAME.azurehdinsight.net`叢
 > [!NOTE]  
 > 對服務選取 [快速連結] 項目可能會傳回「找不到伺服器」的錯誤。 如果您遇到這個錯誤，在對此服務使用 [快速連結] 項目時，您必須使用 SSH 通道。 如需相關資訊，請參閱[搭配 HDInsight 使用 SSH 通道](hdinsight-linux-ambari-ssh-tunnel.md)。
 
-## <a name="management"></a>管理
+## <a name="management"></a>管理性
 
 ### <a name="ambari-users-groups-and-permissions"></a>Ambari 使用者、群組和權限
 
@@ -151,17 +151,17 @@ Ambari Web UI 可在您的 HDInsight `https://CLUSTERNAME.azurehdinsight.net`叢
 
 2. 使用 [ **動作** ] 功能表，選擇您想要執行的動作：
 
-    |項目 |描述 |
+    |Item |描述 |
     |---|---|
     |啟動所有元件|啟動主機上的所有元件。|
     |停止所有元件|停止主機上的所有元件。|
     |重新開機所有元件|停止並啟動主機上的所有元件。|
     |開啟維護模式|抑制主機的警示。 如果您執行的動作會產生警示，則應該啟用此模式。 例如，停止和啟動服務。|
     |關閉維護模式|將主機恢復正常警示。|
-    |停止|停止主機上的 DataNode 或 NodeManagers。|
-    |開始|在主機上啟動 DataNode 或 NodeManagers。|
+    |Stop|停止主機上的 DataNode 或 NodeManagers。|
+    |Start|在主機上啟動 DataNode 或 NodeManagers。|
     |重新啟動|在主機上停止並啟動 DataNode 或 NodeManagers。|
-    |解除任務|從叢集中移除主機。 **請勿在 HDInsight 叢集上使用此動作。**|
+    |停|從叢集中移除主機。 **請勿在 HDInsight 叢集上使用此動作。**|
     |重新委任|將先前已解除委任的主機新增至叢集。 **請勿在 HDInsight 叢集上使用此動作。**|
 
 ### <a id="service"></a>服務

@@ -8,36 +8,29 @@ ms.author: heidist
 ms.service: search
 ms.topic: conceptual
 ms.date: 10/09/2019
-ms.openlocfilehash: 7e5eb73cc6abc72689bbc674b29f4d288dd66b6f
-ms.sourcegitcommit: bd4198a3f2a028f0ce0a63e5f479242f6a98cc04
+ms.openlocfilehash: 1aec65ab08cd1c0711e51a222a8e674ef56ef508
+ms.sourcegitcommit: 9dec0358e5da3ceb0d0e9e234615456c850550f6
 ms.translationtype: MT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 10/14/2019
-ms.locfileid: "72302902"
+ms.locfileid: "72312192"
 ---
 # <a name="add-full-text-search-to-azure-blob-data-using-azure-search"></a>使用 Azure 搜尋服務將全文檢索搜尋新增至 Azure blob 資料
 
-搜尋 Azure Blob 儲存體中儲存的各種內容類型可能是難以解決的問題。 不過，使用 Azure 搜尋服務，您只要按幾下，即可編製索引並搜尋 Blob 內容。 在 Blob 儲存體上搜尋需要佈建 Azure 搜尋服務。 在[價格頁面](https://aka.ms/azspricing)可以找到 Azure 搜尋服務的各種服務限制和定價層。
+搜尋 Azure Blob 儲存體中儲存的各種內容類型可能是難以解決的問題。 不過，只要按幾下滑鼠，就可以使用[Azure 搜尋服務](search-what-is-azure-search.md)來編制索引並搜尋 blob 的內容。 Azure 搜尋服務具有內建的整合，可透過[*blob 索引子*](search-howto-indexing-azure-blob-storage.md)從 blob 儲存體編制索引，以新增資料來源感知功能來編制索引。
 
-## <a name="what-is-azure-search"></a>何謂 Azure 搜尋服務？
-[Azure 搜尋服務](https://aka.ms/whatisazsearch)是一個搜尋服務，可讓開發人員輕鬆新增 Web 和行動應用程式的強大全文檢索搜尋體驗。 Azure 搜尋服務不需要管理任何搜尋基礎結構，同時可提供 [99.9% 的運作時間 SLA](https://aka.ms/azuresearchsla)。
+## <a name="supported-content-types"></a>支援的內容類型
 
-## <a name="index-and-search-enterprise-document-formats"></a>索引和搜尋企業文件格式
-透過 Azure Blob 儲存體中的[文件擷取](https://aka.ms/azsblobindexer)支援，您可以索引下列內容︰
+藉由在容器上執行 Blob 索引子，您可以使用單一查詢從下列內容類型中提取文字和中繼資料：
 
 [!INCLUDE [search-blob-data-sources](../../includes/search-blob-data-sources.md)]
 
-擷取這些檔案類型中的文字和中繼資料，您可利用單一查詢搜尋多個檔案格式。 
+（選擇性）您可以使用*技能集*的形式附加[AI 擴充](search-blob-ai-integration.md)，以從 blob 建立新的資訊和結構，包括影像檔案的文字標記法。 新增 AI 擴充會展開內容類型清單，以包含 JPEG 和 PNG。 它新增了影像處理技能（例如[光學字元辨識（OCR））](cognitive-search-skill-ocr.md)和[視覺功能](cognitive-search-skill-image-analysis.md)的識別，讓您可以為每個影像中找到的視覺內容編制索引。
 
 ## <a name="search-through-your-blob-metadata"></a>搜尋您的 Blob 中繼資料
 若要簡化任何內容類型的 Blob 排序，常見案例是為每個 Blob 的自訂中繼資料和系統屬性編製索引。 如此一來，不論是什麼文件類型，所有 Blob 的資訊都會編製成索引。 然後便可以跨所有 Blob 儲存體的內容，進行排序、篩選、facet。
 
 [深入了解如何編製 Blob 中繼資料的索引。](https://aka.ms/azsblobmetadataindexing)
-
-## <a name="image-search"></a>影像搜尋
-Azure 搜尋服務的全文檢索搜尋、多面向導覽和排序功能現在可套用至 Blob 中儲存的影像中繼資料。
-
-認知搜尋包括影像處理技能（例如[光學字元辨識（OCR））](cognitive-search-skill-ocr.md)和[視覺功能](cognitive-search-skill-image-analysis.md)的識別，讓您可以為每個影像中找到的視覺內容編制索引。
 
 ## <a name="index-and-search-through-json-blobs"></a>檢索和搜尋 JSON Blob
 可以將 Azure 搜尋服務設定為擷取在包含 JSON 的 Blob 中找到的結構化內容。 Azure 搜尋服務可以讀取 JSON Blob，並將結構化內容剖析成 Azure 搜尋服務文件的適當欄位。 Azure 搜尋服務也會採用包含 JSON 物件陣列的 Blob，並將每個元素對應至不同的 Azure 搜尋服務文件。

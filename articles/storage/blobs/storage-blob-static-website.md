@@ -8,12 +8,12 @@ ms.author: normesta
 ms.reviewer: dineshm
 ms.date: 05/29/2019
 ms.subservice: blobs
-ms.openlocfilehash: 85f7ea11638278a010b2a94d9c6472857f51b687
-ms.sourcegitcommit: d4c9821b31f5a12ab4cc60036fde00e7d8dc4421
+ms.openlocfilehash: 8de36ea9f7bb77443b22e038172ee69bb8435b29
+ms.sourcegitcommit: 9dec0358e5da3ceb0d0e9e234615456c850550f6
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/01/2019
-ms.locfileid: "71710162"
+ms.lasthandoff: 10/14/2019
+ms.locfileid: "72311212"
 ---
 # <a name="static-website-hosting-in-azure-storage"></a>Azure 儲存體中的靜態網站代管
 
@@ -50,7 +50,7 @@ ms.locfileid: "71710162"
 
 使用者可以使用網站的公用 URL，從瀏覽器中查看網站內容。 您可以使用 Azure 入口網站、Azure CLI 或 PowerShell 來尋找 URL。 請使用下表作為指南。
 
-|Tool| 指引 |
+|工具| 指引 |
 |----|----|
 |**Azure 入口網站** | [使用 Azure 入口網站來尋找網站 URL](storage-blob-static-website-how-to.md#portal-find-url) |
 |**Azure CLI** | [使用 Azure CLI 來尋找網站 URL](storage-blob-static-website-how-to.md#cli-find-url) |
@@ -58,7 +58,7 @@ ms.locfileid: "71710162"
 
 網站的 URL 包含地區代碼。 例如，URL `https://contosoblobaccount.z22.web.core.windows.net/` 包含地區代碼 `z22`。
 
-雖然該程式碼必須保留 URL，但它僅供內部使用，而且您不需要以任何其他方式使用該程式碼。
+雖然該程式碼必須留在 URL 中，但僅供內部使用，而且您不需要以任何其他方式使用該程式碼。
 
 當您啟用靜態網站裝載時所指定的索引檔，會在使用者開啟網站但未指定特定檔案（例如： `https://contosoblobaccount.z22.web.core.windows.net`）時出現。  
 

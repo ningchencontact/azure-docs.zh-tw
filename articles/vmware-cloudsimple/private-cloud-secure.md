@@ -8,51 +8,51 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 39f451e94f2a825e69425f71aceda5f34de7eeb5
-ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
+ms.openlocfilehash: c9d3b2858ea3d80836b280b795025f2ce2eb85c7
+ms.sourcegitcommit: 9dec0358e5da3ceb0d0e9e234615456c850550f6
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69642639"
+ms.lasthandoff: 10/14/2019
+ms.locfileid: "72311766"
 ---
 # <a name="how-to-secure-your-private-cloud-environment"></a>如何保護您的私用雲端環境
 
-從 Azure 定義 CloudSimple 服務、CloudSimple 入口網站和私人雲端的角色型存取控制 (RBAC)。  存取私人雲端 vCenter 的使用者、群組和角色是使用 VMware SSO 指定的。  
+從 Azure 定義 CloudSimple 服務、CloudSimple 入口網站和私人雲端的角色型存取控制（RBAC）。  存取私人雲端 vCenter 的使用者、群組和角色是使用 VMware SSO 指定的。  
 
 ## <a name="rbac-for-cloudsimple-service"></a>CloudSimple 服務的 RBAC
 
-建立 CloudSimple 服務需要 Azure 訂用帳戶的**擁有**者或**參與者**角色。  根據預設, 所有擁有者和參與者都可以建立 CloudSimple 服務, 並存取 CloudSimple 入口網站來建立和管理私人雲端。  每個區域只能建立一個 CloudSimple 服務。  若要限制對特定系統管理員的存取, 請遵循下列程式。
+建立 CloudSimple 服務需要 Azure 訂用帳戶的**擁有**者或**參與者**角色。  根據預設，所有擁有者和參與者都可以建立 CloudSimple 服務，並存取 CloudSimple 入口網站來建立和管理私人雲端。  每個區域只能建立一個 CloudSimple 服務。  若要限制對特定系統管理員的存取，請遵循下列程式。
 
 1. 在 Azure 入口網站上的新**資源群組**中建立 CloudSimple 服務
 2. 指定資源群組的 RBAC。
 3. 購買節點並使用與 CloudSimple 服務相同的資源群組
 
-只有在資源群組上擁有「擁有者」或「**參與者**」許可權的使用者, 才會看到 CloudSimple 服務和啟動 CloudSimple 入口網站。
+只有在資源群組上擁有 **「擁有者」或「** **參與者**」許可權的使用者，才會看到 CloudSimple 服務和啟動 CloudSimple 入口網站。
 
-如需 RBAC 的詳細資訊, 請參閱[什麼是適用于 Azure 資源的角色型存取控制 (RBAC)](../role-based-access-control/overview.md)。
+如需 RBAC 的詳細資訊，請參閱[什麼是適用于 Azure 資源的角色型存取控制（RBAC）](../role-based-access-control/overview.md)。
 
 ## <a name="rbac-for-private-cloud-vcenter"></a>私用雲端 vCenter 的 RBAC
 
-建立私人雲端`CloudOwner@cloudsimple.local`時, 會在 vCenter SSO 網域中建立預設使用者。  CloudOwner 使用者有管理 vCenter 的許可權。   其他身分識別來源會新增至 vCenter SSO, 以提供存取權給不同的使用者。  已在 vCenter 上設定預先定義的角色和群組, 可用來新增其他使用者。
+建立私人雲端時，會在 vCenter SSO 網域中建立預設使用者 `CloudOwner@cloudsimple.local`。  CloudOwner 使用者有管理 vCenter 的許可權。 其他身分識別來源會新增至 vCenter SSO，以提供存取權給不同的使用者。  已在 vCenter 上設定預先定義的角色和群組，可用來新增其他使用者。
 
 ### <a name="add-new-users-to-vcenter"></a>將新的使用者新增至 vCenter
 
-1. *為CloudOwner@cloudsimple.local* 私人雲端上的使用者[提升許可權](escalate-private-cloud-privileges.md)。
-2. 使用登入 vCenter *CloudOwner@cloudsimple.local*
+1. [提升](escalate-private-cloud-privileges.md)私人雲端上 **@no__t 2**使用者的許可權。
+2. 使用 **CloudOwner@cloudsimple.local** 登入 vCenter
 3. [新增 VCenter 單一登入使用者](https://docs.vmware.com/en/VMware-vSphere/5.5/com.vmware.vsphere.security.doc/GUID-72BFF98C-C530-4C50-BF31-B5779D2A4BBB.html)。
 4. 將使用者新增至[vCenter 單一登入群組](https://docs.vmware.com/en/VMware-vSphere/5.5/com.vmware.vsphere.security.doc/GUID-CDEA6F32-7581-4615-8572-E0B44C11D80D.html)。
 
-如需預先定義的角色和群組的詳細資訊, 請參閱[VMware vCenter 的 CloudSimple 私用雲端許可權模型一](learn-private-cloud-permissions.md)文。
+如需預先定義的角色和群組的詳細資訊，請參閱[VMware vCenter 的 CloudSimple 私用雲端許可權模型一](learn-private-cloud-permissions.md)文。
 
 ### <a name="add-new-identity-sources"></a>加入新的身分識別來源
 
-您可以為私人雲端的 vCenter SSO 網域新增其他身分識別提供者。  識別提供者提供驗證, 而 vCenter SSO 群組則提供使用者的授權。
+您可以為私人雲端的 vCenter SSO 網域新增其他身分識別提供者。  識別提供者提供驗證，而 vCenter SSO 群組則提供使用者的授權。
 
 * [使用 Active Directory 做為](set-vcenter-identity.md)私人雲端 vCenter 上的身分識別提供者。
 * [使用 Azure AD 做為](azure-ad.md)私人雲端 vCenter 上的身分識別提供者
 
-1. *為CloudOwner@cloudsimple.local* 私人雲端上的使用者[提升許可權](escalate-private-cloud-privileges.md)。
-2. 使用登入 vCenter *CloudOwner@cloudsimple.local*
+1. [提升](escalate-private-cloud-privileges.md)私人雲端上 **@no__t 2**使用者的許可權。
+2. 使用 **CloudOwner@cloudsimple.local** 登入 vCenter
 3. 將使用者從識別提供者新增至[vCenter 單一登入群組](https://docs.vmware.com/en/VMware-vSphere/5.5/com.vmware.vsphere.security.doc/GUID-CDEA6F32-7581-4615-8572-E0B44C11D80D.html)。
 
 ## <a name="secure-network-on-your-private-cloud-environment"></a>保護私人雲端環境中的網路
@@ -61,16 +61,16 @@ ms.locfileid: "69642639"
 
 ### <a name="access-to-private-cloud-resources"></a>存取私用雲端資源
 
-私用雲端 vCenter 和資源存取是透過安全的網路連線:
+私用雲端 vCenter 和資源存取是透過安全的網路連線：
 
 * **[ExpressRoute 連接](on-premises-connection.md)** 。 ExpressRoute 提供來自內部部署環境的安全、高頻寬、低延遲的連線。  使用此連線可讓您的內部部署服務、網路和使用者存取您的私人雲端 vCenter。
-* **[站對站 VPN 閘道](vpn-gateway.md)** 。 站對站 VPN 可讓您透過安全通道, 從內部部署存取私人雲端資源。  您可以指定哪些內部部署網路可以傳送和接收私人雲端的網路流量。
-* **[點對站 VPN 閘道](vpn-gateway.md#set-up-a-site-to-site-vpn-gateway)** 。 使用點對站 VPN 連線, 以快速從遠端存取您的私用雲端 vCenter。
+* **[站對站 VPN 閘道](vpn-gateway.md)** 。 站對站 VPN 可讓您透過安全通道，從內部部署存取私人雲端資源。  您可以指定哪些內部部署網路可以傳送和接收私人雲端的網路流量。
+* **[點對站 VPN 閘道](vpn-gateway.md#set-up-a-site-to-site-vpn-gateway)** 。 使用點對站 VPN 連線，以快速從遠端存取您的私用雲端 vCenter。
 
 ### <a name="control-network-traffic-in-private-cloud"></a>控制私人雲端中的網路流量
 
-防火牆資料表和規則會控制私人雲端中的網路流量。  [防火牆] 資料表可讓您根據資料表中定義的規則組合, 控制來源網路或 IP 位址與目的地網路或 IP 位址之間的網路流量。
+防火牆資料表和規則會控制私人雲端中的網路流量。  [防火牆] 資料表可讓您根據資料表中定義的規則組合，控制來源網路或 IP 位址與目的地網路或 IP 位址之間的網路流量。
 
 1. 建立[防火牆資料表](firewall.md#add-a-new-firewall-table)。
 2. [將規則新增](firewall.md#create-a-firewall-rule)至防火牆資料表。
-3. [將防火牆資料表附加至 VLAN/子網](防火牆。 md # attach-vlanssubnet。
+3. [將防火牆資料表附加至 VLAN/子網]（防火牆。 md # attach-vlanssubnet。

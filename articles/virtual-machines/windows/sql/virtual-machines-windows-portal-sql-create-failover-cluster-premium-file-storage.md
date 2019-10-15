@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 10/09/2019
 ms.author: mathoma
-ms.openlocfilehash: 839faa4cf2455ee2b0de38046a464ce824f007cd
-ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
+ms.openlocfilehash: f51263a91ca174a6c8108ed4414ff0f8b9745aff
+ms.sourcegitcommit: 9dec0358e5da3ceb0d0e9e234615456c850550f6
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/13/2019
-ms.locfileid: "72301863"
+ms.lasthandoff: 10/14/2019
+ms.locfileid: "72311860"
 ---
 # <a name="configure-sql-server-failover-cluster-instance-with-premium-file-share-on-azure-virtual-machines"></a>使用 Azure 上的 premium 檔案共用設定 SQL Server 容錯移轉叢集實例虛擬機器
 
@@ -37,7 +37,7 @@ ms.locfileid: "72301863"
 - [Windows 叢集技術](/windows-server/failover-clustering/failover-clustering-overview)
 - [SQL Server 容錯移轉叢集執行個體](/sql/sql-server/failover-clusters/windows/always-on-failover-cluster-instances-sql-server)。
 
-其中一個重要的差異是，在 Azure IaaS VM 容錯移轉叢集上，我們建議每個伺服器（叢集節點）和單一子網都有一個 NIC。 Azure 網路有實體備援，因此 Azure IaaS VM 客體叢集上不需要額外的 NIC 和子網路。 雖然叢集驗證報告將會發出警告，指出節點只能在單一網路上連線，但您可以放心地在 Azure IaaS VM 容錯移轉叢集上忽略此警告。 
+其中一個重要的差異是，在 Azure IaaS VM 容錯移轉叢集上，我們建議每個伺服器（叢集節點）和單一子網都有一個 NIC。 Azure 網路有實體冗余，讓 Azure IaaS VM 來賓叢集上不需要額外的 Nic 和子網。 雖然叢集驗證報告將會發出警告，指出節點只能在單一網路上連線，但您可以放心地在 Azure IaaS VM 容錯移轉叢集上忽略此警告。 
 
 此外，您也應對下列技術有大概了解：
 
@@ -165,34 +165,20 @@ ms.locfileid: "72301863"
 1. 登入[Azure 入口網站](https://portal.azure.com)並移至您的儲存體帳戶。
 1. 移至 [檔案**服務**] 底下的 [檔案**共用**]，然後選取您想要用於 SQL 儲存體的 premium 檔案共用。 
 1. 選取 **[連線]** ，以顯示您檔案共用的連接字串。 
-1. 從下拉式選單選取您想要使用的磁碟機號，然後從兩個 PowerShell 命令區塊複製兩個 PowerShell 命令。  將它們貼到文字編輯器，例如 [記事本]。 
+1. 從下拉式方塊中選取您想要使用的磁碟機號，然後將這兩個程式碼區塊複製到「記事本」。
 
    :::image type="content" source="media/virtual-machines-windows-portal-sql-create-failover-cluster-premium-file-storage/premium-file-storage-commands.png" alt-text="從檔案共用 connect 入口網站複製這兩個 PowerShell 命令":::
 
 1. 使用您的 SQL Server FCI 將用於服務帳戶的帳戶，透過 RDP 連線到 SQL Server VM。 
 1. 啟動系統管理 PowerShell 命令主控台。 
-1. 執行 `Test-NetConnection` 命令，以測試對儲存體帳戶的連線能力。 請勿從第一個程式碼區塊執行 `cmdkey` 命令。 
+1. 從您稍早儲存的入口網站執行命令。 
+1. 使用 [檔案瀏覽器] 或 [**執行**] 對話方塊（Windows 鍵 + r），流覽至共用，並使用網路路徑 `\\storageaccountname.file.core.windows.net\filesharename`。 範例： `\\sqlvmstorageaccount.file.core.windows.net\sqlpremiumfileshare`
 
-   ```console
-   example: Test-NetConnection -ComputerName  sqlvmstorageaccount.file.core.windows.net -Port 445
-   ```
-
-1. 執行*第二個*程式碼區塊中的 `cmdkey` 命令，將檔案共用掛接為磁片磁碟機，並將它保存。 
-
-   ```console
-   example: cmdkey /add:sqlvmstorageaccount.file.core.windows.net /user:Azure\sqlvmstorageaccount /pass:+Kal01QAPK79I7fY/E2Umw==
-   net use M: \\sqlvmstorageaccount.file.core.windows.net\sqlpremiumfileshare /persistent:Yes
-   ```
-
-1. 開啟 [檔案**瀏覽器**]，然後流覽至 [這部**電腦**]。 檔案共用會顯示在 [網路位置] 底下： 
-
-   :::image type="content" source="media/virtual-machines-windows-portal-sql-create-failover-cluster-premium-file-storage/file-share-as-storage.png" alt-text="檔案共用在檔案瀏覽器中顯示為儲存體":::
-
-1. 開啟新對應的磁片磁碟機，並在此建立至少一個資料夾，以便將您的 SQL 資料檔案放入。 
+1. 在新連接的檔案共用上，至少建立一個資料夾，以便將您的 SQL 資料檔案放入其中。 
 1. 在要參與叢集的每個 SQL Server VM 上重複這些步驟。 
 
   > [!IMPORTANT]
-  > 請勿將相同的檔案共用用於資料檔案和備份。 如果您想要將資料庫備份至檔案共用，請使用相同的步驟來設定備份的次要檔案共用。 
+  > 請考慮針對備份檔案使用個別的檔案共用，以儲存此共用資料和記錄檔的 IOPS 和大小。 您可以針對備份檔案使用 Premium 或 Standard 檔案共用
 
 ## <a name="step-3-configure-failover-cluster-with-file-share"></a>步驟 3：使用檔案共用設定容錯移轉叢集 
 

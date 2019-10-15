@@ -9,15 +9,15 @@ ms.service: application-insights
 ms.workload: TBD
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 04/25/2017
+ms.date: 10/14/2019
 ms.reviewer: sergkanz
 ms.author: mbullwin
-ms.openlocfilehash: 749b4077b457eff836ec515f21d97e892e663156
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 50109d7ba4688606a5a4f1b813d15d78636b7817
+ms.sourcegitcommit: 9dec0358e5da3ceb0d0e9e234615456c850550f6
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60899177"
+ms.lasthandoff: 10/14/2019
+ms.locfileid: "72311789"
 ---
 # <a name="application-insights-telemetry-data-model"></a>Application Insights 遙測資料模型
 
@@ -49,7 +49,7 @@ Application Insights 遙測模型會定義將遙測與其所屬作業[相互關�
 
 Application Insights 資料模型是簡單且基本但功能強大的方式，可建立您應用程式遙測的模型。 我們盡量保持模型可簡單且輕鬆地支援重要的案例，並擴充結構描述以供進階使用。
 
-若要報告資料模型或結構描述的問題及建議，請使用 GitHub [ApplicationInsights-Home](https://github.com/Microsoft/ApplicationInsights-Home/labels/schema) 存放庫。
+若要報告資料模型或結構描述的問題及建議，請使用 GitHub [ApplicationInsights-Home](https://github.com/Microsoft/ApplicationInsights-Home/issues) 存放庫。
 
 ## <a name="next-steps"></a>後續步驟
 

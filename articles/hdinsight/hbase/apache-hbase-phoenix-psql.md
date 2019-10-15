@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/10/2017
 ms.author: ashishth
-ms.openlocfilehash: 43465a1c31b953620c45dfe759de7b6e1b4dc3c9
-ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
+ms.openlocfilehash: f00f6bcf07cbdc5aeaeb04aeccf7e88cf4822dbf
+ms.sourcegitcommit: 9dec0358e5da3ceb0d0e9e234615456c850550f6
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70917259"
+ms.lasthandoff: 10/14/2019
+ms.locfileid: "72311720"
 ---
 # <a name="bulk-load-data-into-apache-phoenix-using-psql"></a>使用 psql 將資料大量載入至 Apache Phoenix
 
@@ -141,6 +141,6 @@ ms.locfileid: "70917259"
 ## <a name="next-steps"></a>後續步驟
 
 * [使用 Apache Phoenix 來進行大量資料載入](https://phoenix.apache.org/bulk_dataload.html) \(英文\)
-* [在 HDInsight 中搭配 Linux 型 Apache HBase 叢集使用 Apache Phoenix](../hbase/apache-hbase-phoenix-squirrel-linux.md)
+* [在 HDInsight 中搭配 Linux 型 Apache HBase 叢集使用 Apache Phoenix](../hbase/apache-hbase-query-with-phoenix.md)
 * [以 Salt 處理的資料表](https://phoenix.apache.org/salted.html) \(英文\)
 * [Apache Phoenix 文法](https://phoenix.apache.org/language/index.html) \(英文\)
