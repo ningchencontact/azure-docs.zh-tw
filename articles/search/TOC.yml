@@ -169,7 +169,7 @@
           href: search-howto-complex-data-types.md
         - name: 模型關聯式資料
           href: index-sql-relational-data.md
-    - name: 載入資料
+    - name: 為任何資料編製索引
       items:
         - name: 資料匯入概觀
           href: search-what-is-data-import.md
@@ -181,7 +181,21 @@
           href: search-howto-large-index.md
         - name: 處理並行更新
           href: search-howto-concurrency.md
-    - name: 使用索引器載入資料
+    - name: 為 Azure Blob 資料編製索引
+      items:
+        - name: 搭配使用 AI 與 Blob 資料
+          href: search-blob-ai-integration.md
+        - name: 新增全文檢索搜尋
+          href: search-blob-storage-integration.md
+        - name: 設定 Blob 索引器
+          href: search-howto-indexing-azure-blob-storage.md
+        - name: 針對一對多個 Bolb 編製索引
+          href: search-howto-index-one-to-many-blobs.md
+        - name: 索引 CSV Blob
+          href: search-howto-index-csv-blobs.md
+        - name: 索引 JSON Blob
+          href: search-howto-index-json-blobs.md
+    - name: 使用「索引子」編製索引
       items:
         - name: 索引器概觀
           href: search-indexer-overview.md
@@ -191,16 +205,6 @@
           href: search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md
         - name: Azure Cosmos DB 索引子
           href: search-howto-index-cosmosdb.md
-        - name: Azure Blob 儲存體索引器
-          items:
-            - name: 設定 Blob 索引器
-              href: search-howto-indexing-azure-blob-storage.md
-            - name: 針對一對多個 Bolb 編製索引
-              href: search-howto-index-one-to-many-blobs.md
-            - name: 索引 CSV Blob
-              href: search-howto-index-csv-blobs.md
-            - name: 索引 JSON Blob
-              href: search-howto-index-json-blobs.md
         - name: 排程索引器
           href: search-howto-schedule-indexers.md
         - name: 對應欄位
