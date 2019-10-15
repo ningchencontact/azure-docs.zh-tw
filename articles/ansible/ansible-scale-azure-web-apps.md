@@ -1,5 +1,5 @@
 ---
-title: 教學課程 - 使用 Ansible 調整 Azure App Service 中的應用程式 | Microsoft Docs
+title: 教學課程 - 使用 Ansible 調整 Azure App Service 中的應用程式
 description: 了解如何相應增加 Azure App Service 中的應用程式
 keywords: ansible, azure, devops, bash, 劇本, Azure App Service, Web App, 調整規模, Java
 ms.topic: tutorial
@@ -8,12 +8,12 @@ author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
 ms.date: 04/30/2019
-ms.openlocfilehash: d63708cd87afa426f2712da6d0fcb11c84590798
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.openlocfilehash: 0adcddb8afa4f0e3d0b9288f351dae7d77922612
+ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65230955"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72241481"
 ---
 # <a name="tutorial-scale-apps-in-azure-app-service-using-ansible"></a>教學課程：使用 Ansible 調整 Azure App Service 中的應用程式
 

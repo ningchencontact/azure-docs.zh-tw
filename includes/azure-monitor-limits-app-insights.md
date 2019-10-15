@@ -20,7 +20,7 @@ ms.locfileid: "71975284"
 | Resource | 預設限制 | 注意
 | --- | --- | --- |
 | 每日資料總量 | 100 GB | 您可以設定上限來減少資料。 如果您需要更多資料，可以從入口網站將限制增加到最多 1,000 GB。 對於大於 1000 GB 的容量，傳送電子郵件給 AIDataCap@microsoft.com。
-| 正在節流 | 每秒32000個事件 | 此限制會測量超過一分鐘。
+| 正在節流 | 每秒 32000 個事件 | 此限制會測量超過一分鐘。
 | 資料保留 | 90 天 | 此資源適用於[搜尋](../articles/azure-monitor/app/diagnostic-search.md)、[分析](../articles/azure-monitor/app/analytics.md)和[計量瀏覽器](../articles/azure-monitor/app/metrics-explorer.md)。
 | [可用性多步驟測試](../articles/azure-monitor/app/availability-multistep.md)詳述的結果保留期 | 90 天 | 此資源會提供每個步驟的詳細結果。
 | 事件大小上限 | 64,000 |

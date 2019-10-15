@@ -1,5 +1,5 @@
 ---
-title: 教學課程 - 使用 Ansible 在 Azure HDInsight 中設定叢集 | Microsoft Docs
+title: 教學課程 - 使用 Ansible 在 Azure HDInsight 中設定叢集
 description: 了解如何使用 Ansible 建立 Azure HDInsight 及調整其大小
 keywords: ansible, azure, devops, bash, 劇本, apache hadoop, hdinsight
 ms.topic: tutorial
@@ -8,12 +8,12 @@ author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
 ms.date: 04/30/2019
-ms.openlocfilehash: ff135473443589650d90bfb7f3e5aa248f72e821
-ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
+ms.openlocfilehash: ad17e6ff4cbf5b583e3a4be410847c1349c9edce
+ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70861268"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72241958"
 ---
 # <a name="tutorial-configure-a-cluster-in-azure-hdinsight-using-ansible"></a>教學課程：使用 Ansible 在 Azure HDInsight 中設定叢集
 

@@ -26,14 +26,14 @@ Azure Databricks 的預設部署是 Azure 上完全受控的服務：所有資�
 * 設定網路安全性群組（NSG）規則，以指定輸出流量限制。
 * 在現有的虛擬網路中部署 Azure Databricks 叢集。
 
-將 Azure Databricks 資源部署到您自己的虛擬網路也可讓您利用彈性的 CIDR 範圍（虛擬網路的/16-/24 之間的任何位置，以及子網之間的/18-/26）。
+將 Azure Databricks 資源部署到您自己的虛擬網路也可讓您利用彈性的 CIDR 範圍 (虛擬網路的/16-/24 之間的任何位置，以及子網路之間的/18-/26) 。
 
   > [!NOTE]
   > 您無法取代現有工作區的虛擬網路。 如果您目前的工作區無法容納所需的作用中叢集節點數目，請在較大的虛擬網路中建立另一個工作區。 請遵循[下列詳細的遷移步驟](howto-regional-disaster-recovery.md#detailed-migration-steps)，將資源（筆記本、叢集設定、作業）從舊的工作區複製到新的工作區。
 
 ## <a name="virtual-network-requirements"></a>虛擬網路需求
 
-您可以使用 Azure 入口網站中的 Azure Databricks 工作區部署介面，自動以必要的子網、網路安全性群組和允許清單設定來設定現有的虛擬網路，也可以使用 Azure Resource Manager用來設定虛擬網路和部署工作區的範本。
+您可以使用 Azure 入口網站中的 Azure Databricks 工作區部署介面，自動以必要的子網路、網路安全性群組和允許清單設定來設定現有的虛擬網路，也可以使用 Azure Resource Manager 用來設定虛擬網路和部署工作區的範本。
 
 您要將 Azure Databricks 工作區部署到其中的虛擬網路必須符合下列需求：
 
@@ -43,32 +43,32 @@ Azure Databricks 的預設部署是 Azure 上完全受控的服務：所有資�
 
 ### <a name="subnets"></a>子網路
 
-虛擬網路必須包含兩個子網，專門用於 Azure Databricks：
+虛擬網路必須包含兩個子網路，專門用於 Azure Databricks：
 
-   1. 已設定網路安全性群組以允許叢集內部通訊的私人子網
+   1. 已設定網路安全性群組以允許叢集內部通訊的私人子網路
 
-   2. 具有已設定網路安全性群組的公用子網，允許與 Azure Databricks 控制平面進行通訊。
+   2. 具有已設定網路安全性群組的公用子網路，允許與 Azure Databricks 控制平面進行通訊。
 
 ### <a name="address-space"></a>位址空間
 
-虛擬網路的/16-/24 與私人和公用子網之間的 cidr 區塊介於/18-/26 之間。
+虛擬網路的/16-/24 與私人和公用子網路之間的 cidr 區塊介於 /18-/26 之間。
 
 ### <a name="whitelisting"></a>加入允許清單
 
-子網與 Azure Databricks 控制平面之間的所有輸出和輸入流量都必須列入允許清單。
+子網路與 Azure Databricks 控制平面之間的所有輸出和輸入流量都必須列入允許清單。
 
 ## <a name="create-an-azure-databricks-workspace"></a>建立 Azure Databricks 工作區
 
-本節說明如何在 Azure 入口網站中建立 Azure Databricks 工作區，並將它部署在您自己現有的虛擬網路中。 Azure Databricks 使用您所提供的 CIDR 範圍，以兩個新的子網和網路安全性群組更新虛擬網路、將輸入和輸出子網流量列入允許清單，並將工作區部署到更新的虛擬網路。
+本節說明如何在 Azure 入口網站中建立 Azure Databricks 工作區，並將它部署在您自己現有的虛擬網路中。 Azure Databricks 使用您所提供的 CIDR 範圍，以兩個新的子網路和網路安全性群組更新虛擬網路、將輸入和輸出子網路流量列入允許清單，並將工作區部署到更新的虛擬網路。
 
 ## <a name="prerequisites"></a>必要條件
 
 您必須要有一個虛擬網路，您將在其中部署 Azure Databricks 工作區。 您可以使用現有的虛擬網路或建立一個新的，但是虛擬網路必須與您打算建立的 Azure Databricks 工作區位於相同的區域。 虛擬網路需要/16-/24 之間的 CIDR 範圍。
 
   > [!Warning]
-  > 如果工作區具有較小的虛擬網路（也就是 CIDR 範圍較低），則可以比具有較大虛擬網路的工作區更快地使用 IP 位址（網路空間）。 例如，具有/24 個虛擬網路和/26 子網的工作區一次最多可以有64節點，而具有/20 個虛擬網路和/22 子網的工作區最多可以容納1024個節點。
+  > 如果工作區具有較小的虛擬網路 (也就是 CIDR 範圍較低)，則可以比具有較大虛擬網路的工作區更快地使用 IP 位址 (網路空間)。 例如，具有 /24 個虛擬網路和 /26 個子網路的工作區一次最多可以有 64 個節點，而具有 /20 個虛擬網路和 /22 個子網路的工作區最多可以容納 1024 個節點。
 
-  當您設定工作區時，將會自動建立您的子網，而且您將有機會在設定期間提供子網的 CIDR 範圍。
+  當您設定工作區時，將會自動建立子網路，而且您將有機會在設定期間提供子網路的 CIDR 範圍。
 
 ## <a name="configure-the-virtual-network"></a>設定虛擬網路
 
@@ -82,28 +82,28 @@ Azure Databricks 的預設部署是 Azure 上完全受控的服務：所有資�
 
    ![虛擬網路選項](./media/vnet-injection/select-vnet.png)
 
-4. 針對兩個子網，在/18-/26 之間的區塊中提供 CIDR 範圍，專門用於 Azure Databricks：
+4. 針對兩個子網路，在 /18-/26 之間的區塊中提供 CIDR 範圍，專門用於 Azure Databricks：
 
-   * 系統會使用關聯的網路安全性群組建立公用子網，以允許與 Azure Databricks 控制平面進行通訊。
-   * 將會使用與允許叢集內部通訊的相關聯網絡安全性群組來建立私人子網。
+   * 系統會使用關聯的網路安全性群組建立公用子網路，以允許與 Azure Databricks 控制平面進行通訊。
+   * 將會使用與允許叢集內部通訊的相關聯網絡安全性群組來建立私人子網路。
 
 5. 按一下 [**建立**]，將 Azure Databricks 工作區部署到虛擬網路。
 
 ## <a name="advanced-resource-manager-configurations"></a>Advanced resource manager 設定
 
-如果您想要更充分掌控虛擬網路的設定–例如，您想要使用現有的子網、使用現有的網路安全性群組，或建立您自己的安全性規則–您可以使用下列 Azure Resource Manager 範本，而不是入口網站虛擬網路設定和工作區部署。
+如果您想要更充分掌控虛擬網路的設定–例如，您想要使用現有的子網路、使用現有的網路安全性群組，或建立您自己的安全性規則–您可以使用下列 Azure Resource Manager 範本，而不是入口網站虛擬網路設定和工作區部署。
 
 ### <a name="all-in-one"></a>全部在一
 
 若要建立虛擬網路、網路安全性群組和 Azure Databricks 的工作區，請使用[全功能範本來 Databricks VNet 插入的工作區](https://azure.microsoft.com/resources/templates/101-databricks-all-in-one-template-for-vnet-injection/)。
 
-當您使用此範本時，您不需要執行任何手動允許清單的子網流量。
+當您使用此範本時，您不需要執行任何手動允許清單的子網路流量。
 
 ### <a name="network-security-groups"></a>網路安全性群組
 
 若要使用現有虛擬網路的必要規則來建立網路安全性群組，請使用「[網路安全性群組」範本來進行 Databricks VNet 插入](https://azure.microsoft.com/resources/templates/101-databricks-nsg-for-vnet-injection)。
 
-當您使用此範本時，您不需要執行任何手動允許清單的子網流量。
+當您使用此範本時，您不需要執行任何手動允許清單的子網路流量。
 
 ### <a name="virtual-network"></a>虛擬網路
 
@@ -135,7 +135,7 @@ Azure Databricks 的預設部署是 Azure 上完全受控的服務：所有資�
 
 |Azure Databricks 區域|服務|公用 IP|
 |-----------------------|-------|---------|
-|East US|控制平面 NAT </br></br>Webapp|23.101.152.95/32 </br></br>40.70.58.221/32|
+|美國東部|控制平面 NAT </br></br>Webapp|23.101.152.95/32 </br></br>40.70.58.221/32|
 |美國東部 2|控制平面 NAT </br></br>Webapp|23.101.152.95/32 </br></br>40.70.58.221/32|
 |美國中北部|控制平面 NAT </br></br>Webapp|23.101.152.95/32 </br></br>40.70.58.221/32|
 |美國中部|控制平面 NAT </br></br>Webapp|23.101.152.95/32 </br></br>40.70.58.221/32|
@@ -180,7 +180,7 @@ Azure Databricks 的預設部署是 Azure 上完全受控的服務：所有資�
 
 @no__t 0Cloud 提供者啟動失敗：設定叢集時發生雲端提供者錯誤。如需詳細資訊，請參閱 Azure Databricks 指南。Azure 錯誤代碼：AuthorizationFailed/InvalidResourceReference。 **
 
-可能的原因：虛擬網路或子網不再存在。 請確定虛擬網路和子網都存在。
+可能的原因：虛擬網路或子網路不再存在。 請確定虛擬網路和子網路都存在。
 
 @no__t 0Cluster 終止。原因：Spark 啟動失敗：Spark 無法及時啟動。發生此問題的原因可能是故障的 Hive 中繼存放區、不正確 Spark 設定或初始化腳本無法運作。請參閱 Spark 驅動程式記錄檔以對此問題進行疑難排解，如果問題持續發生，請洽詢 Databricks。內部錯誤訊息：Spark 無法啟動：驅動程式無法及時啟動。 **
 

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: billing
 ms.date: 10/01/2019
 ms.author: banders
-ms.openlocfilehash: 8ff402299b26637473f3fb762a3320255ea4df64
-ms.sourcegitcommit: a19f4b35a0123256e76f2789cd5083921ac73daf
+ms.openlocfilehash: bc35ba74acb2ce807597230fee0685606a93a775
+ms.sourcegitcommit: 7868d1c40f6feb1abcafbffcddca952438a3472d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71719920"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71958372"
 ---
 # <a name="manage-costs-with-azure-budgets"></a>使用 Azure 預算來管理成本
 
@@ -272,7 +272,7 @@ ms.locfileid: "71719920"
 當您建立動作群組時，您會指向您稍早於本教學課程中建立的邏輯應用程式。
 
 1.  如果您尚未登入 [Azure 入口網站](https://portal.azure.com/)，請登入並選取 [所有服務]   > [監視]  。
-2.  從 [設定]  區段中，選取 [動作群組]  。
+2.  選取 [警示]  ，然後選取 [管理動作]  。
 3.  從 [動作群組]  刀鋒視窗中，選取 [新增動作群組]  。
 4.  新增並確認下列項目：
     - 動作群組名稱

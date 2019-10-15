@@ -1,5 +1,5 @@
 ---
-title: 教學課程 - 使用 Ansible 自動調整 Azure 中的虛擬機器擴展集 | Microsoft Docs
+title: 教學課程 - 使用 Ansible 自動調整 Azure 中的虛擬機器擴展集
 description: 了解如何使用 Ansible 與自動調整來調整 Azure 中的虛擬機器擴展集
 keywords: ansible, azure, devops, bash, 劇本, 調整, 自動調整, 虛擬機器, 虛擬機器擴展集, vmss
 ms.topic: tutorial
@@ -8,12 +8,12 @@ author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
 ms.date: 04/30/2019
-ms.openlocfilehash: 4f2cd66b7460fc6fe48cb55f45bf4bc309ae054c
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.openlocfilehash: 784cb532c11b16c820336ceeaf8d38f0225c832f
+ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65231275"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72242100"
 ---
 # <a name="tutorial-autoscale-virtual-machine-scale-sets-in-azure-using-ansible"></a>教學課程：使用 Ansible 自動調整 Azure 中的虛擬機器擴展集
 

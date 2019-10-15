@@ -9,12 +9,12 @@ ms.service: search
 ms.topic: quickstart
 ms.date: 09/10/2019
 ms.author: laobri
-ms.openlocfilehash: 44f370829b972840ac4266a760fefb4aa317be30
-ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
+ms.openlocfilehash: a4a25b8504d873b624e1f6822807c9c08ebd2e4f
+ms.sourcegitcommit: f2d9d5133ec616857fb5adfb223df01ff0c96d0a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70884556"
+ms.lasthandoff: 10/03/2019
+ms.locfileid: "71936973"
 ---
 # <a name="quickstart-create-an-azure-search-index-using-the-azure-portal"></a>快速入門：使用 Azure 入口網站建立 Azure 搜尋服務索引
 > [!div class="op_single_selector"]
@@ -24,7 +24,7 @@ ms.locfileid: "70884556"
 > * [Python](search-get-started-python.md)
 > * [C#](search-get-started-dotnet.md)
 
-若要快速掌握 Azure 搜尋服務的概念，請嘗試使用 Azure 入口網站中的內建工具。 精靈和編輯器並不會提供 .NET 和 REST API 的相同功能，但您可以透過無程式碼的簡介快速開始使用，在幾分鐘內即可使用範例資料撰寫有趣的查詢。
+若要快速掌握 Azure 搜尋服務的概念，請嘗試使用 Azure 入口網站中的內建工具。 精靈和編輯器並不會提供 .NET 和 REST API 的相同功能，但您可以透過無程式碼的簡介快速開始使用，在幾分鐘內即可對索引撰寫有趣的查詢。
 
 > [!div class="checklist"]
 > * 以裝載於 Azure 上免費公開範例資料集開始使用
@@ -33,9 +33,9 @@ ms.locfileid: "70884556"
 > * 檢視現有的索引和加以修改的選項
 > * 使用**搜尋總管**探索全文檢索搜尋、篩選器、Facet、模糊搜尋和地理搜尋功能
 
-如果這些工具限制過多，建議您參考[使用 .NET 進行 Azure 搜尋服務程式設計的程式碼型簡介](search-howto-dotnet-sdk.md)，或使用[發出 REST API 呼叫的 Postman](search-get-started-postman.md)。 您也可以觀看此教學課程中 6 分鐘的步驟示範，大約在此 [Azure 搜尋服務概觀影片](https://channel9.msdn.com/Events/Connect/2016/138)中的第三分鐘處開始。
+如果這些工具限制過多，建議您參考[使用 .NET 進行 Azure 搜尋服務程式設計的程式碼型簡介](search-howto-dotnet-sdk.md)，或使用[發出 REST API 呼叫的 Postman](search-get-started-postman.md)。 您也可以觀看本教學課程中 6 分鐘的步驟示範，大約在此 [Azure 搜尋服務概觀影片](https://channel9.msdn.com/Events/Connect/2016/138)中的第三分鐘處開始。
 
-如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 。 
+如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)。 
 
 ## <a name="prerequisites"></a>必要條件
 
@@ -43,7 +43,7 @@ ms.locfileid: "70884556"
 
 ### <a name="check-for-space"></a>檢查空間
 
-許多客戶開始使用此免費服務。 此版本的限制為三個索引、三個資料來源，以及三個索引子。 開始之前，請先確定您有空間可容納額外的項目。 此教學課程會建立各一個物件。
+許多客戶開始使用此免費服務。 此版本的限制為三個索引、三個資料來源，以及三個索引子。 開始之前，請先確定您有空間可容納額外的項目。 本教學課程會建立各一個物件。
 
 服務儀表板上的區段會顯示您已有多少個索引、索引子和資料來源。 
 
@@ -53,7 +53,7 @@ ms.locfileid: "70884556"
 
 搜尋查詢會逐一查看[索引  ](search-what-is-an-index.md)，其中包含會將特定搜尋行為最佳化的可搜尋資料、中繼資料及其他建構。
 
-在此教學課程中，我們使用可以透過 [匯入資料]  精靈使用[索引子  ](search-indexer-overview.md)編目的內建資料集範例。 索引子是來源特定的編目程式，可以從支援的 Azure 資料來源讀取中繼資料和內容。 使用索引子時通常會採用程式設計方式，但在入口網站中，您也可以存取透過**匯入資料**精靈存取索引子。 
+在此教學課程中，我們使用可以透過[**匯入資料精靈**](search-import-data-portal.md)使用[索引子  ](search-indexer-overview.md)搜耙的內建範例資料集。 索引子是來源特定的編目程式，可以從支援的 Azure 資料來源讀取中繼資料和內容。 使用索引子時通常會採用程式設計方式，但在入口網站中，您也可以存取透過**匯入資料**精靈存取索引子。 
 
 ### <a name="step-1---start-the-import-data-wizard-and-create-a-data-source"></a>步驟 1 - 啟動匯入資料精靈並建立資料來源
 
@@ -82,7 +82,7 @@ ms.locfileid: "70884556"
 
 ### <a name="step-3---configure-index"></a>步驟 3 - 設定索引
 
-索引建立通常是以程式碼為基礎的作業，完成後才會載入資料。 但如此教學課程所指出的，精靈可以為它可搜耙的任何資料來源產生基本索引。 索引至少需要有名稱和欄位的集合；其中一個欄位應標示為文件索引鍵，以便唯一識別每份文件。 此外，如果您需要自動完成或建議查詢，您可以指定語言分析器或建議工具。
+索引建立通常是以程式碼為基礎的作業，完成後才會載入資料。 但如本教學課程所指出的，精靈可以為它可搜耙的任何資料來源產生基本索引。 索引至少需要有名稱和欄位的集合；其中一個欄位應標示為文件索引鍵，以便唯一識別每份文件。 此外，如果您需要自動完成或建議查詢，您可以指定語言分析器或建議工具。
 
 欄位具有資料類型和屬性。 上方的核取方塊為「索引屬性」  ，可控制欄位的使用方式。
 
@@ -257,7 +257,7 @@ Facet 篩選器會包含在搜尋要求中。 您可以使用 facet 參數，傳
 
 ## <a name="takeaways"></a>重要心得
 
-此教學課程提供了使用 Azure 入口網站執行 Azure 搜尋服務的快速簡介。
+本教學課程提供了使用 Azure 入口網站執行 Azure 搜尋服務的快速簡介。
 
 您已了解如何使用**匯入資料**精靈建立搜尋索引。 您已了解[索引子](search-indexer-overview.md)，以及索引設計的基本工作流程，包括[對已發佈索引支援的修改](https://docs.microsoft.com/rest/api/searchservice/update-index)。
 

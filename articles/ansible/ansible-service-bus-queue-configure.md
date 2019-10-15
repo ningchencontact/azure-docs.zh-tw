@@ -1,5 +1,5 @@
 ---
-title: 教學課程 - 使用 Ansible 在 Azure 服務匯流排中設定佇列 | Microsoft Docs
+title: 教學課程 - 使用 Ansible 在 Azure 服務匯流排中設定佇列
 description: 了解如何使用 Ansible 建立 Azure 服務匯流排佇列
 keywords: ansible, azure, devops, bash, 劇本, 服務匯流排, 佇列
 ms.topic: tutorial
@@ -8,12 +8,12 @@ author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
 ms.date: 04/30/2019
-ms.openlocfilehash: 6efc11106fae18beac43ab1896733ab6bfc64dad
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.openlocfilehash: a48796c2177a8b5b818553bf8aa0ff36f712d4e0
+ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65230780"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72241387"
 ---
 # <a name="tutorial-configure-queues-in-azure-service-bus-using-ansible"></a>教學課程：使用 Ansible 在 Azure 服務匯流排中設定佇列
 

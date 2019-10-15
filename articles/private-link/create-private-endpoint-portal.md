@@ -7,12 +7,12 @@ ms.service: private-link
 ms.topic: quickstart
 ms.date: 09/16/2019
 ms.author: kumud
-ms.openlocfilehash: d7c2aee3ad73552a57776af5ce6585b36518d169
-ms.sourcegitcommit: 6013bacd83a4ac8a464de34ab3d1c976077425c7
+ms.openlocfilehash: 95dbe2b9ccfdc0a900ba53668869e3872b6e51d5
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/30/2019
-ms.locfileid: "71687059"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72030316"
 ---
 # <a name="create-a-private-endpoint-using-azure-portal"></a>使用 Azure 入口網站建立私人端點
 
@@ -135,7 +135,7 @@ ms.locfileid: "71687059"
 在本節中，您將建立 SQL 伺服器，並在其中新增私人端點。 
 
 1. 在 Azure 入口網站的畫面左上角，選取 [建立資源]   > [網路]   > [Private Link 中心 (預覽)]  。
-2. 在 [Private Link 中心 - 概觀] **** 的 [與服務建立私人連線] **** 選項中，選取 [啟動] **** 。
+2. 在 [私人連結中心 - 概觀]  中，選取 [與服務建立私人連線]  選項上的 [開始]  。
 1. 在 [建立私人端點 (預覽) - 基本]  中，輸入或選取這項資訊：
 
     | 設定 | 值 |

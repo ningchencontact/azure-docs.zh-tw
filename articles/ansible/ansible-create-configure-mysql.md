@@ -1,5 +1,5 @@
 ---
-title: 教學課程 - 使用 Ansible 在適用於 MySQL 的 Azure 資料庫中設定資料庫 | Microsoft Docs
+title: 教學課程 - 使用 Ansible 在適用於 MySQL 的 Azure 資料庫中設定資料庫
 description: 深入了解如何使用 Ansible 來建立及設定適用於 MySQL 的 Azure 資料庫伺服器
 keywords: ansible, azure, devops, bash, 劇本, mysql, 資料庫
 ms.topic: tutorial
@@ -8,12 +8,12 @@ author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
 ms.date: 04/30/2019
-ms.openlocfilehash: 1170ae9d609a07dbdaebf50e145de65faefa60ec
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.openlocfilehash: 1b6c9a9aa3abbda7ffd72db0ecb137b3c9da1a6c
+ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65230925"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72241830"
 ---
 # <a name="tutorial-configure-databases-in-azure-database-for-mysql-using-ansible"></a>教學課程：使用 Ansible 在適用於 MySQL 的 Azure 資料庫中設定資料庫
 
@@ -161,7 +161,7 @@ ansible-playbook mysql_firewall.yml
 
 本節中，您會使用 Azure Cloud Shell 連線至您先前建立的伺服器。
 
-1. 在下列程式碼中選取 [試試看] 按鈕：
+1. 在下列程式碼中選取 [試試看]  按鈕：
 
     ```azurecli-interactive
     mysql -h mysqlserveransible.mysql.database.azure.com -u mysqladmin@mysqlserveransible -p

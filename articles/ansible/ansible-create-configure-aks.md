@@ -1,5 +1,5 @@
 ---
-title: 教學課程 - 使用 Ansible 在 Azure 中設定 Azure Kubernetes Service (AKS) 叢集 | Microsoft Docs
+title: 教學課程 - 使用 Ansible 在 Azure 中設定 Azure Kubernetes Service (AKS) 叢集
 description: 了解如何使用 Ansible 在 Azure 中建立並管理 Azure Kubernetes Service 叢集
 keywords: ansible, azure, devops, bash, cloudshell, 劇本, aks, 容器, aks, kubernetes
 ms.topic: tutorial
@@ -8,12 +8,12 @@ author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
 ms.date: 04/30/2019
-ms.openlocfilehash: 1467afce60038e086daace72947c1ab21569865a
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.openlocfilehash: 9b70a9c364768322a3eae6ef5b92c87b6839c540
+ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65231322"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72242078"
 ---
 # <a name="tutorial-configure-azure-kubernetes-service-aks-clusters-in-azure-using-ansible"></a>教學課程：使用 Ansible 在 Azure 中設定 Azure Kubernetes Service (AKS) 叢集
 

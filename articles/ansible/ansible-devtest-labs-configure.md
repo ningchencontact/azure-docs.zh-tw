@@ -1,5 +1,5 @@
 ---
-title: 教學課程 - 使用 Ansible 在 Azure DevTest Labs 中設定實驗室 | Microsoft Docs
+title: 教學課程 - 使用 Ansible 在 Azure DevTest Labs 中設定實驗室
 description: 瞭解如何使用 Ansible 在 Azure DevTest Labs 中設定實驗室
 ms.service: ansible
 keywords: ansible, azure, devops, bash, 劇本, devtest lab
@@ -8,12 +8,12 @@ manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
 ms.date: 04/30/2019
-ms.openlocfilehash: c6bc4d50e4db52f772a137495658492018ee5360
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.openlocfilehash: d035c76a811df45af5ed8183b86e14a2ee6218b7
+ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65230969"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72241665"
 ---
 # <a name="tutorial-configure-labs-in-azure-devtest-labs-using-ansible"></a>教學課程：使用 Ansible 在 Azure DevTest Labs 中設定實驗室
 

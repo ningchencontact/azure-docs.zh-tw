@@ -1,5 +1,5 @@
 ---
-title: 建立您的第一個自動化機器學習實驗
+title: 建立您的第一個自動化機器學習分類實驗
 titleSuffix: Azure Machine Learning
 description: 了解如何在 Azure Machine Learning 的工作區登陸頁面 (預覽) 中，使用自動化機器學習來定型及部署分類模型。
 services: machine-learning
@@ -10,12 +10,12 @@ ms.author: tzvikei
 author: tsikiksr
 ms.reviewer: nibaccam
 ms.date: 09/26/2019
-ms.openlocfilehash: 3ddd228488d8ba4adc6780db1f65fdb634291d3b
-ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
+ms.openlocfilehash: dcd6f2ea6f5c79664af0c2431da07549e71c26bc
+ms.sourcegitcommit: f9e81b39693206b824e40d7657d0466246aadd6e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71350511"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72035676"
 ---
 # <a name="tutorial-create-your-first-classification-model-with-automated-machine-learning"></a>教學課程：使用自動化機器學習建立第一個分類模型
 

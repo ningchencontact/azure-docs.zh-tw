@@ -2,18 +2,18 @@
 title: 什麼是 Apache Spark - Azure HDInsight
 description: 本文提供 HDInsight 中的 Spark 簡介，以及您可以在 HDInsight 中使用 Spark 叢集的各種案例。
 author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive,mvc
 ms.topic: overview
-ms.date: 05/28/2019
-ms.author: hrasheed
-ms.openlocfilehash: e325618ed1cdec6149ac31771c8bd67ecea7d559
-ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
+ms.date: 10/01/2019
+ms.openlocfilehash: 923e5a961ee9b7bdea94cf7a3e6fc833f596fafd
+ms.sourcegitcommit: f2d9d5133ec616857fb5adfb223df01ff0c96d0a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/14/2019
-ms.locfileid: "70993826"
+ms.lasthandoff: 10/03/2019
+ms.locfileid: "71937612"
 ---
 # <a name="what-is-apache-spark-in-azure-hdinsight"></a>什麼是 Azure HDInsight 中的 Apache Spark
 
@@ -73,20 +73,20 @@ SparkContext 會連線到 Spark 主節點，並負責將應用程式轉換為個
 
 HDInsight 中的 Spark 叢集適用於下列重要案例：
 
-- 互動式資料分析和 BI
+* 互動式資料分析和 BI
 
     HDInsight 中的 Apache Spark 會將資料儲存在 Azure 儲存體或 Azure Data Lake Storage 中。 商務專家和重要決策者可以利用這些資料來進行分析及建立報告，並使用 Microsoft Power BI 來根據分析資料建置互動式報告。 分析師可以從叢集儲存體中的非結構化/半結構化資料著手、使用 Notebook 來定義資料的結構描述，然後再使用 Microsoft Power BI 來建置資料模型。 HDInsight 中的 Spark 叢集也支援 Tableau 等多種第三方 BI 工具，以方便資料分析師、商務專家及重要決策者使用。
 
     [教學課程：使用 Power BI 將 Spark 資料視覺化](apache-spark-use-bi-tools.md)
 
-- Spark 機器學習服務
+* Spark 機器學習服務
 
-    Apache Spark 隨附 [MLlib](https://spark.apache.org/mllib/)，這是以 Spark 為基礎的機器學習程式庫，您可以從 HDInsight 中的 Spark 叢集使用。 HDInsight 中的 Spark 叢集也包含 Anaconda，這是提供各種機器學習套件的 Python 發行版本。 搭配內建的 Jupyter 和 Zeppelin Notebook 支援，就能擁有適用於建立機器學習應用程式的環境。
+    Apache Spark 隨附 [MLlib](https://spark.apache.org/mllib/)，這是以 Spark 為基礎的機器學習程式庫，您可以從 HDInsight 中的 Spark 叢集使用。 HDInsight 中的 Spark 叢集也包含 Anaconda，這是提供不同機器學習套件的 Python 發行版本。 搭配內建的 Jupyter 和 Zeppelin Notebook 支援，就能擁有適用於建立機器學習應用程式的環境。
 
     [教學課程：利用 HVAC 資料來預測建築物的溫度](apache-spark-ipython-notebook-machine-learning.md)  
     [教學課程：預測食品檢查結果](apache-spark-machine-learning-mllib-ipython.md)
 
-- Spark 串流和即時資料分析
+* Spark 串流和即時資料分析
 
     HDInsight 上的 Spark 叢集提供豐富的支援供您建置即時分析解決方案。 雖然 Spark 已附有從 Kafka、Flume、Twitter、ZeroMQ 或 TCP 通訊端等眾多來源擷取資料的連接器，不過 HDInsight 中的 Spark 仍加入首屈一指的支援，供您從 Azure 事件中樞擷取資料。 事件中樞是 Azure 上最廣泛使用的佇列服務。 擁有立即可用的事件中樞支援，讓 HDInsight 中的 Spark 叢集成為建置即時分析管線的理想平台。
 
@@ -94,14 +94,14 @@ HDInsight 中的 Spark 叢集適用於下列重要案例：
 
 您可以使用下列文章來深入了解 HDInsight 中的 Apache Spark：
 
-- [快速入門：在 HDInsight 中建立 Apache Spark 叢集並利用 Jupyter 執行互動式查詢](./apache-spark-jupyter-spark-sql-use-portal.md)
-- [教學課程：使用 Jupyter 執行 Apache Spark 作業](./apache-spark-load-data-run-query.md)
-- [教學課程：使用 BI 工具分析資料](./apache-spark-use-bi-tools.md)
-- [教學課程：使用 Apache Spark 進行機器學習](./apache-spark-ipython-notebook-machine-learning.md)
-- [教學課程：使用 IntelliJ 建立 Scala Maven 應用程式](./apache-spark-create-standalone-application.md)
+* [快速入門：在 HDInsight 中建立 Apache Spark 叢集並利用 Jupyter 執行互動式查詢](./apache-spark-jupyter-spark-sql-use-portal.md)
+* [教學課程：使用 Jupyter 執行 Apache Spark 作業](./apache-spark-load-data-run-query.md)
+* [教學課程：使用 BI 工具分析資料](./apache-spark-use-bi-tools.md)
+* [教學課程：使用 Apache Spark 進行機器學習](./apache-spark-ipython-notebook-machine-learning.md)
+* [教學課程：使用 IntelliJ 建立 Scala Maven 應用程式](./apache-spark-create-standalone-application.md)
 
 ## <a name="next-steps"></a>後續步驟
 
 在本概觀中，您已對 Azure HDInsight 中的 Apache Spark 有了一些基本了解。 請前往下一篇文章，以了解如何建立 HDInsight Spark 叢集以及執行某些 Spark SQL 查詢：
 
-- [在 HDInsight 中建立 Apache Spark 叢集](./apache-spark-jupyter-spark-sql-use-portal.md)
+* [在 HDInsight 中建立 Apache Spark 叢集](./apache-spark-jupyter-spark-sql-use-portal.md)

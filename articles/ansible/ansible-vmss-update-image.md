@@ -1,5 +1,5 @@
 ---
-title: 教學課程 - 使用 Ansible 更新 Azure 虛擬機器擴展集的自訂映像 | Microsoft Docs
+title: 教學課程 - 使用 Ansible 更新 Azure 虛擬機器擴展集的自訂映像
 description: 了解如何使用 Ansible 在 Azure 中更新虛擬機器擴展集的自訂映像
 keywords: ansible, azure, devops, bash, 腳本, 虛擬機器, 虛擬機器擴展集, vmss
 ms.topic: tutorial
@@ -8,12 +8,12 @@ author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
 ms.date: 04/30/2019
-ms.openlocfilehash: d3eedc5b83190af46669b9b5df8643f3c80e9bb1
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.openlocfilehash: 3b7baffe6ce0fadbac2dd56b9c8296c80546fa72
+ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65230843"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72241336"
 ---
 # <a name="tutorial-update-the-custom-image-of-azure-virtual-machine-scale-sets-using-ansible"></a>教學課程：使用 Ansible 更新 Azure 虛擬機器擴展集的自訂映像
 

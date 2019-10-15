@@ -1,5 +1,5 @@
 ---
-title: 教學課程 - 使用 Ansible 在 Azure 中設定虛擬機器擴展集 | Microsoft Docs
+title: 教學課程 - 使用 Ansible 在 Azure 中設定虛擬機器擴展集
 description: 了解如何使用 Ansible 在 Azure 中建立及設定虛擬機器擴展集
 keywords: ansible, azure, devops, bash, 腳本, 虛擬機器, 虛擬機器擴展集, vmss
 ms.topic: tutorial
@@ -8,12 +8,12 @@ author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
 ms.date: 04/30/2019
-ms.openlocfilehash: 41ef6103a899970142df1a6beee0ad428419f3df
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.openlocfilehash: 1d9b8cd207596aefa01af852627f11cb9b4ce5dc
+ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65230737"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72241738"
 ---
 # <a name="tutorial-configure-virtual-machine-scale-sets-in-azure-using-ansible"></a>教學課程：使用 Ansible 在 Azure 中設定虛擬機器擴展集
 

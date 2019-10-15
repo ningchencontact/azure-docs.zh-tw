@@ -1,5 +1,5 @@
 ---
-title: 教學課程 - 使用 Ansible 設定 Azure 資源的動態清查 | Microsoft Docs
+title: 教學課程 - 使用 Ansible 設定 Azure 資源的動態清查
 description: 了解如何使用 Ansible 來管理 Azure 動態清查
 keywords: ansible, azure, devops, bash, cloudshell, 動態清查
 ms.topic: tutorial
@@ -8,16 +8,16 @@ author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
 ms.date: 04/30/2019
-ms.openlocfilehash: 46b13fae437a555edf0bdd0b0d4c1496d7596e0f
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.openlocfilehash: d89150f43205a4b38612008033ab5649acd9af5b
+ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65230682"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72241585"
 ---
 # <a name="tutorial-configure-dynamic-inventories-of-your-azure-resources-using-ansible"></a>教學課程：使用 Ansible 設定 Azure 資源的動態清查
 
-您可以使用 Ansible 從各種來源 (包括如 Azure 等雲端來源) 將清查資訊提取至動態清查。 
+您可以使用 Ansible 從各種來源 (包括如 Azure 等雲端來源) 將清查資訊提取至動態清查  。 
 
 [!INCLUDE [ansible-tutorial-goals.md](../../includes/ansible-tutorial-goals.md)]
 

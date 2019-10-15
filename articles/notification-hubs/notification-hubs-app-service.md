@@ -17,19 +17,21 @@ ms.date: 01/04/2019
 ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 01/04/2019
-ms.openlocfilehash: d6747193b8c82119e45a24e3e4bffc065db14e51
-ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
+ms.openlocfilehash: 8c3bc90b282092ede0e924d32b50b67e5c4e22b8
+ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71212170"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72244492"
 ---
 # <a name="integration-with-app-service-mobile-apps"></a>與 App Service Mobile Apps 整合
 
-> [!NOTE]
-> Microsoft 致力於完全支援 Azure App Service Mobile Apps，包括最新的 OS 版本、錯誤修正、文件改善，以及社群 PR 檢閱。 請注意，產品小組目前並未投入製作任何 Azure Mobile Apps 的新功能。 我們非常感謝社群在 Azure Mobile Apps 所有領域的貢獻。
-
 為了在 Azure 服務間促進完美且統一的體驗， [App Service Mobile Apps](../app-service-mobile/app-service-mobile-value-prop.md) 具備使用通知中樞提供推播通知的內建支援。 [App Service Mobile Apps](../app-service-mobile/app-service-mobile-value-prop.md) 具有高擴充性且可供全球使用，是專為企業開發人員與系統整合人員設計的行動應用程式開發平台，能提供一組豐富的功能給行動應用程式開發人員。
+
+Visual Studio App Center 為現今的開發人員提供了更現代的行動解決方案。 它支援使用端對端及整合服務中心來開發行動應用程式。 開發人員可以使用**建置**、**測試**和**散發**服務來設定持續整合及傳遞管線。 部署應用程式之後，開發人員可以使用**分析**和**診斷**服務來監視其應用程式的狀態和使用情況，並使用**推送**服務與使用者互動。 開發人員也可以利用**驗證**來驗證其使用者，並使用**資料**來保存及同步雲端中的應用程式資料。
+
+> [!NOTE]
+> 如果您想要在行動應用程式中整合雲端服務，請立即註冊 [App Center](https://appcenter.ms/signup?utm_source=NotificationHubs&utm_medium=Azure&utm_campaign=docs) \(英文\)。
 
 Mobile Apps 開發人員可以使用下列流程來利用通知中樞：
 

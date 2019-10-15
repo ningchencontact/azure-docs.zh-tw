@@ -1,5 +1,5 @@
 ---
-title: 教學課程 - 使用 Ansible 在 Azure Cache for Redis 中設定快取 | Microsoft Docs
+title: 教學課程 - 使用 Ansible 在 Azure Cache for Redis 中設定快取
 description: 了解如何使用 Ansible 建立、調整及重新啟動 Azure Cache for Redis
 keywords: ansible, azure, devops, bash, 劇本, 快取, redis
 ms.topic: tutorial
@@ -8,12 +8,12 @@ author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
 ms.date: 04/30/2019
-ms.openlocfilehash: 693b042f631044352eaae708905fefca02f38415
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.openlocfilehash: 92592dffb3a9094ae74328e8819cafc9469c2ac7
+ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65231011"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72241801"
 ---
 # <a name="tutorial-configure-caches-in-azure-cache-for-redis-using-ansible"></a>教學課程：使用 Ansible 在 Azure Cache for Redis 中設定快取
 
@@ -88,7 +88,7 @@ ok: [localhost]
 
 根據您的應用程式需求，Azure Cache for Redis 有不同的快取供應項目。 這些快取選項可讓您有彈性地選擇快取大小和功能。 如果您的應用程式需求在建立快取之後有所變更，您可以視需要調整快取。 如需關於調整的詳細資訊，請參閱[如何調整 Azure Cache for Redis](/azure/azure-cache-for-redis/cache-how-to-scale)。
 
-下列範例程式碼會將快取調整為 [標準]：
+下列範例程式碼會將快取調整為 [標準]  ：
 
 ```yml
 - name: Scale up Azure Cache for Redis
