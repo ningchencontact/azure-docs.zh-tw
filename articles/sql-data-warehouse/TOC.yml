@@ -149,6 +149,8 @@
               href: 'https://docs.microsoft.com/en-us/sql/t-sql/statements/create-index-transact-sql?view=sql-server-2017#examples--and-'
         - name: 結果集設定快取
           items:
+            - name: 概觀
+              href: sql-data-warehouse-result-set-caching-overview.md
             - name: 設定資料庫
               href: 'https://docs.microsoft.com/en-us/sql/t-sql/statements/alter-database-transact-sql-set-options?view=azure-sqldw-latest'
             - name: 設定工作階段

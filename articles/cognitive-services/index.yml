@@ -11,12 +11,12 @@ metadata:
   ms.author: nitinme
   manager: nitinme
   ms.date: 09/16/2019
-  ms.openlocfilehash: 9071de52e97a041c9769f6c93fa36f39aff4e4fe
-  ms.sourcegitcommit: 9fba13cdfce9d03d202ada4a764e574a51691dcd
+  ms.openlocfilehash: 2d310832d8d1f1aca2823ffd3be9c4636d60f4fa
+  ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
   ms.translationtype: HT
   ms.contentlocale: zh-TW
-  ms.lasthandoff: 09/26/2019
-  ms.locfileid: "71316424"
+  ms.lasthandoff: 10/15/2019
+  ms.locfileid: "72374990"
 highlightedContent:
   items:
   - title: 認知服務是什麼？
@@ -90,9 +90,6 @@ conceptualContent:
     - url: ./speech/home.md
       itemType: overview
       text: Bing 語音 (即將淘汰)
-    - url: ./translator-speech/overview.md
-      itemType: overview
-      text: 翻譯工具語音 (即將淘汰)
   - title: 決策
     summary: 建置應用程式，以顯示有助於做出明智與高效決策的建議。
     links:
@@ -105,7 +102,7 @@ conceptualContent:
     - url: ./personalizer/index.yml
       itemType: overview
       text: 個人化工具 (預覽)
-  - title: Search
+  - title: 搜尋
     summary: 將 Bing 搜尋 API 新增至您的應用程式，並充分利用以單一 API 呼叫合併數十億個網頁、影像、影片和新聞的能力。
     links:
     - url: ./Bing-Autosuggest/index.yml
