@@ -204,7 +204,7 @@ WHERE userID=:id < - session var
 | **適用的技術** | 泛型 |
 | **屬性**              | N/A  |
 | **參考**              | [事件中樞驗證和安全性模型概觀](https://azure.microsoft.com/documentation/articles/event-hubs-authentication-and-security-model-overview/) |
-| **步驟** | 應不會將授與事件中樞直接存取權的權杖提供給裝置。 使用裝置的最低權限權杖 (僅可供存取發佈者)，有助於識別惡意或遭到入侵的裝置，並將它列入黑名單。|
+| **步驟** | 應不會將授與事件中樞直接存取權的權杖提供給裝置。 使用裝置的最低權限權杖 (僅可供存取發佈者)，有助於識別惡意或遭到入侵的裝置，並將它列入封鎖清單。|
 
 ## <a id="sas-minimum-permissions"></a>使用具有所需最低權限的 SAS 金鑰來連線到事件中樞
 

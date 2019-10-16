@@ -76,7 +76,7 @@ Azure 事件中樞的標準層提供比基本層更多的功能。 標準層包�
 | Kafka | 9093 | 請參閱[使用來自 Kafka 應用程式的事件中樞](event-hubs-for-kafka-ecosystem-overview.md)
 
 ### <a name="what-ip-addresses-do-i-need-to-whitelist"></a>我需要列入允許清單的 IP 位址為何？
-若要針對您的連線尋找適當的 IP 位址給白名單, 請遵循下列步驟:
+若要針對您的連線尋找適當的 IP 位址給允許清單, 請遵循下列步驟:
 
 1. 從命令提示字元執行下列命令: 
 

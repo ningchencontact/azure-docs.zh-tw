@@ -58,7 +58,7 @@ multipath.conf 有五個區段：
 
 - **系統層級的預設值** *（預設）* :您可以覆寫系統層級的預設值。
 - **列封鎖清單中的裝置** *(blacklist)* :您可以指定不受裝置對應程式的裝置清單。
-- **列入封鎖清單例外狀況** *(blacklist_exceptions)* :您可以識別即使列入黑名單，被視為多重路徑裝置的特定裝置。
+- **列入封鎖清單例外狀況** *(blacklist_exceptions)* :您可以識別即使列入封鎖清單，被視為多重路徑裝置的特定裝置。
 - **設定特定的儲存體控制器** *（裝置）* :您可以指定將套用至具有廠商和產品資訊的裝置的組態設定。
 - **裝置特定的設定** *(multipaths)* :您可以使用本節來微調個別 Lun 的組態設定。
 
@@ -142,15 +142,15 @@ multipath.conf 有五個區段：
 * 至少有兩個介面已啟用 iSCSI。 若要確認這兩個介面已在 StorSimple 裝置上啟用 iSCSI，請在 StorSimple 裝置的 Azure 傳統入口網站中執行下列步驟︰
   
   1. 登入 StorSimple 裝置的傳統入口網站。
-  1. 選取 StorSimple Manager 服務，按一下 [裝置]  ，然後選擇該特定 StorSimple 裝置。 按一下 [設定]  並驗證網路介面設定。 下面顯示的螢幕擷取畫面包含已啟用 iSCSI 的兩個網路介面。 以下 DATA 2 和 DATA 3 兩個 10 GbE 介面都已啟用 iSCSI。
+  1. 選取 StorSimple Manager 服務，按一下 [裝置] ，然後選擇該特定 StorSimple 裝置。 按一下 [設定] 並驗證網路介面設定。 下面顯示的螢幕擷取畫面包含已啟用 iSCSI 的兩個網路介面。 以下 DATA 2 和 DATA 3 兩個 10 GbE 介面都已啟用 iSCSI。
      
       ![MPIO StorSimple DATA 2 設定](./media/storsimple-configure-mpio-on-linux/IC761347.png)
      
       ![MPIO StorSimple DATA 3 設定](./media/storsimple-configure-mpio-on-linux/IC761348.png)
      
-      在 [設定]  頁面中
+      在 [設定] 頁面中
      
-     1. 確定這兩個網路介面都已啟用 iSCSI。 [啟用 iSCSI]  欄位應設定為 [是]  。
+     1. 確定這兩個網路介面都已啟用 iSCSI。 [啟用 iSCSI] 欄位應設定為 [是]。
      1. 確定網路介面的速度相同，兩者都應該是 1 GbE 或 10 GbE。
      1. 請記下已啟用 iSCSI 的介面的 IPv4 位址，並加以儲存供稍後用於主機上。
 * 應可從 CentOS 伺服器存取 StorSimple 裝置上的 iSCSI 介面。

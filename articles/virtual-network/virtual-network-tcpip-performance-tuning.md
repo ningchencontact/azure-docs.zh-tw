@@ -130,7 +130,7 @@ PMTUD 程式沒有效率, 而且會影響網路效能。 傳送封包超過網�
 |**路由**|**長途電話**|**單向時間**|**RTT**|
 |紐約至三藩市|4148公里|21毫秒|42毫秒|
 |紐約到倫敦|5585公里|28毫秒|56毫秒|
-|紐約至悉尼|15993公里|80毫秒|160毫秒|
+|紐約至雪梨|15993公里|80毫秒|160毫秒|
 
 下表顯示兩個位置之間的直線距離。 在網路中, 距離通常比直線距離長。 以下是一個簡單的公式, 可根據光線的速度來計算最小 RTT:
 
@@ -265,7 +265,7 @@ Set-NetTCPSetting
 
 若要在 VM 上啟用加速網路時獲得最佳效能, 您必須啟用 RSS。 RSS 也可以在不使用加速網路的 Vm 上提供權益。 如需如何判斷是否已啟用 RSS 和如何加以啟用的總覽, 請參閱將[Azure 虛擬機器的網路輸送量優化](https://aka.ms/FastVM)。
 
-### <a name="tcp-timewait-and-timewait-assassination"></a>TCP TIME_WAIT 和 TIME_WAIT assassination
+### <a name="tcp-time_wait-and-time_wait-assassination"></a>TCP TIME_WAIT 和 TIME_WAIT assassination
 
 TCP TIME_WAIT 是另一個會影響網路和應用程式效能的常見設定。 在一般作業 TCP 期間, 開啟和關閉許多通訊端的忙碌 Vm (以用戶端或伺服器 (來源 IP: 來源埠 + 目的地 IP: 目的地埠) 為單位), 指定的通訊端可能會以 TIME_WAIT 狀態長時間結束。 TIME_WAIT 狀態的目的是要在關閉通訊端之前, 先將任何額外的資料傳遞給它。 因此, TCP/IP 堆疊通常會藉由以無訊息方式卸載用戶端的 TCP SYN 封包, 來避免重複使用通訊端。
 

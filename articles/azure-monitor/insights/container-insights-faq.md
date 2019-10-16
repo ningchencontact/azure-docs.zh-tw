@@ -81,7 +81,7 @@ LogEntry : ({“Hello": "This example has multiple lines:","Docker/Moby": "will 
 
 如果您在啟用 AKS 叢集的容器 Azure 監視器之後, 刪除叢集傳送其資料的 Log Analytics 工作區, 當嘗試升級叢集時, 將會失敗。 若要解決此情況, 您必須停用監視, 然後重新啟用它參考您訂用帳戶中不同的有效工作區。 當您嘗試再次執行叢集升級時, 應該會處理並順利完成。  
 
-## <a name="which-ports-and-domains-do-i-need-to-openwhitelist-for-the-agent"></a>我需要針對代理程式開啟/列入白名單的埠和網域為何？
+## <a name="which-ports-and-domains-do-i-need-to-openwhitelist-for-the-agent"></a>我需要針對代理程式開啟/列入允許清單的埠和網域為何？
 - *.ods.opinsights.azure.com   443
 - *.oms.opinsights.azure.com   443
 - *.blob.core.windows.net      443

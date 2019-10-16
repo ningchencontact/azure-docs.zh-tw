@@ -12,33 +12,33 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 11/23/2016
 ms.author: mbullwin
-ms.openlocfilehash: d1c4005651518eb27eebde0005bd70b4adad6432
-ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
-ms.translationtype: MT
+ms.openlocfilehash: 095d539404412d34c66201646f6134ff740f86b7
+ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67798357"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71299265"
 ---
 # <a name="filtering-and-preprocessing-telemetry-in-the-application-insights-sdk"></a>在 Application Insights SDK 中篩選及前置處理遙測
 
+您可以撰寫和設定 Application Insights SDK 的外掛程式，以自訂如何擴充和處理遙測，然後再將它傳送至 Application Insights 服務。
 
-您可以針對 Application Insights SDK 撰寫與設定外掛程式，以自訂在遙測傳送至 Application Insights 服務之前，擷取與處理它的方式。
-
-* [取樣](../../azure-monitor/app/sampling.md) 可減少遙測的量而不會影響統計資料。 它可將相關資料點寶持放在一起，因此您診斷問題時，能夠在資料點之間瀏覽。 在入口網站中將乘以總計數，以補償取樣。
-* 使用 [ASP.NET](#filtering) 或 [Java](../../azure-monitor/app/java-filter-telemetry.md) 適用的遙測處理器進行篩選，可讓您先在 SDK 中選取或修改遙測，再將遙測傳送到伺服器。 例如，您可以從傀儡程式中排除要求來減少遙測量。 但和取樣相比，篩選是減少流量更基本的方法。 它可讓您更充分掌握傳輸內容，但是您必須注意，它會影響統計資料 (例如，若您要篩選所有成功的要求)。
-* [遙測初始設定式會新增屬性](#add-properties) 至任何從應用程式傳送出來的遙測，包括從標準模組傳送出來的遙測。 例如，您可以新增計算好的值，或是用來在入口網站中篩選資料的版本號碼。
+* [取樣](sampling.md) 可減少遙測的量而不會影響統計資料。 它可將相關資料點寶持放在一起，因此您診斷問題時，能夠在資料點之間瀏覽。 在入口網站中將乘以總計數，以補償取樣。
+* 使用遙測處理器進行篩選，可讓您在 SDK 傳送至伺服器之前，先篩選出其中的遙測。 例如，您可以從傀儡程式中排除要求來減少遙測量。 篩選是比取樣更能減少流量的基本方法。 它可讓您更充分掌握傳輸內容，但是您必須注意，它會影響統計資料 (例如，若您要篩選所有成功的要求)。
+* 遙測初始化運算式會在從您的應用程式傳送的任何遙測中[新增或修改屬性](#add-properties)，包括來自標準模組的遙測。 例如，您可以新增計算好的值，或是用來在入口網站中篩選資料的版本號碼。
 * [SDK API](../../azure-monitor/app/api-custom-events-metrics.md) 可用來傳送自訂事件和計量。
 
 開始之前：
 
-* 在應用程式中安裝 Application Insights [SDK for ASP.NET](../../azure-monitor/app/asp-net.md) 或 [SDK for Java](../../azure-monitor/app/java-get-started.md)。
+* 為您的應用程式安裝適當的 SDK。 在您的應用程式中[ASP.NET](asp-net.md)或[ASP.NET CORE](asp-net-core.md) .Net/.Net CORE 或 [JAVA](../../azure-monitor/app/java-get-started.md) 的[非 HTTP/背景工作](worker-service.md)。
 
 <a name="filtering"></a>
 
 ## <a name="filtering-itelemetryprocessor"></a>篩選：ITelemetryProcessor
-這項技術可讓您更直接地控制包含在遙測串流中或排除於遙測串流外的內容。 您可以將它與取樣搭配使用或分開使用。
 
-若要篩選遙測，請撰寫遙測處理器，並將它向 SDK 註冊。 所有遙測都會通過處理器，您可以選擇從串流中卸除或加入屬性。 這包括來自標準模組 (例如 HTTP 要求收集器和相依性收集器) 的遙測，以及您自己撰寫的遙測。 比方說，您可以篩選出有關來自傀儡程式要求或成功的相依性呼叫的遙測。
+這項技術可讓您直接控制遙測串流中包含或排除的內容。 篩選可用來卸載要傳送至 Application Insights 的遙測專案。 您可以將它與取樣搭配使用或分開使用。
+
+若要篩選遙測，請撰寫遙測處理器，並向註冊它`TelemetryConfiguration`。 所有遙測會通過您的處理器，您可以選擇將它從串流中卸載，或將它提供給鏈中的下一個處理器。 這包括來自標準模組的遙測，例如 HTTP 要求收集器和相依性收集器，以及您自行追蹤的遙測。 比方說，您可以篩選出有關來自傀儡程式要求或成功的相依性呼叫的遙測。
 
 > [!WARNING]
 > 篩選傳送自使用處理器的 SDK 的遙測可能會曲解您在入口網站中看到的統計資料，並且難以追蹤相關的項目。
@@ -48,58 +48,47 @@ ms.locfileid: "67798357"
 >
 
 ### <a name="create-a-telemetry-processor-c"></a>建立遙測處理器 (C#)
-1. 確認專案中的 Application Insights SDK 為 2.0.0 版或更新版本。 在 Visual Studio 方案總管中以滑鼠右鍵按一下專案，然後選擇 [管理 NuGet 封裝]。 檢查 NuGet 封裝管理員中的 Microsoft.ApplicationInsights.Web。
-2. 若要建立篩選器，請實作 ITelemetryProcessor。 這是遙測模組、遙測初始設定式和遙測通道之類的另一個擴充點。
 
-    請注意，遙測處理器建構一連串的處理。 當您具現化遙測處理器時，您會傳遞連結至鏈結中的下一個處理器。 遙測資料點傳遞至處理序方法時，它會完成其工作並接著呼叫鏈結中的下一個遙測處理器。
+1. 若要建立篩選準則， `ITelemetryProcessor`請執行。
 
-```csharp
-using Microsoft.ApplicationInsights.Channel;
-using Microsoft.ApplicationInsights.Extensibility;
+    請注意，遙測處理器建構一連串的處理。 當您具現化遙測處理器時，您會獲得鏈中下一個處理器的參考。 當遙測資料點傳遞至處理方法時，它會執行其工作，然後呼叫（或不會呼叫）鏈中的下一個遙測處理器。
 
-public class SuccessfulDependencyFilter : ITelemetryProcessor
-{
+    ```csharp
+    using Microsoft.ApplicationInsights.Channel;
+    using Microsoft.ApplicationInsights.Extensibility;
 
-    private ITelemetryProcessor Next { get; set; }
-
-    // You can pass values from .config
-    public string MyParamFromConfigFile { get; set; }
-
-    // Link processors to each other in a chain.
-    public SuccessfulDependencyFilter(ITelemetryProcessor next)
+    public class SuccessfulDependencyFilter : ITelemetryProcessor
     {
-        this.Next = next;
+        private ITelemetryProcessor Next { get; set; }
+
+        // next will point to the next TelemetryProcessor in the chain.
+        public SuccessfulDependencyFilter(ITelemetryProcessor next)
+        {
+            this.Next = next;
+        }
+
+        public void Process(ITelemetry item)
+        {
+            // To filter out an item, return without calling the next processor.
+            if (!OKtoSend(item)) { return; }
+
+            this.Next.Process(item);
+        }
+
+        // Example: replace with your own criteria.
+        private bool OKtoSend (ITelemetry item)
+        {
+            var dependency = item as DependencyTelemetry;
+            if (dependency == null) return true;
+
+            return dependency.Success != true;
+        }
     }
-    public void Process(ITelemetry item)
-    {
-        // To filter out an item, just return
-        if (!OKtoSend(item)) { return; }
-        // Modify the item if required
-        ModifyItem(item);
+    ```
 
-        this.Next.Process(item);
-    }
+2. 新增您的處理器。
 
-    // Example: replace with your own criteria.
-    private bool OKtoSend (ITelemetry item)
-    {
-        var dependency = item as DependencyTelemetry;
-        if (dependency == null) return true;
-
-        return dependency.Success != true;
-    }
-
-    // Example: replace with your own modifiers.
-    private void ModifyItem (ITelemetry item)
-    {
-        item.Context.Properties.Add("app-version", "1." + MyParamFromConfigFile);
-    }
-}
-```
-
-3. 新增您的處理器
-
-**ASP.NET 應用程式**插入 ApplicationInsights.config 中：
+**ASP.NET 應用程式**在 ApplicationInsights 中插入此程式碼片段：
 
 ```xml
 <TelemetryProcessors>
@@ -110,19 +99,16 @@ public class SuccessfulDependencyFilter : ITelemetryProcessor
 </TelemetryProcessors>
 ```
 
-(這是您用來初始化取樣篩選器的相同區段)。
-
 您可以在類別中提供公開具名屬性，以從 .config 檔案傳遞字串值。
 
 > [!WARNING]
 > 仔細地將 .config 檔案中的類型名稱和任何屬性名稱與程式碼中的類別和屬性名稱做比對。 如果 .config 檔案參考不存在的類型或屬性，SDK 可能無法傳送任何遙測，而且不會產生任何訊息。
 >
->
 
- ，您也可以在程式碼中初始化篩選。 在適當的初始化類別中 - 例如在 Global.asax.cs 中的 AppStart - 插入您的處理器至鏈結：
+或者， 您也可以在程式碼中初始化篩選。 在適當的初始化類別中（例如 AppStart） `Global.asax.cs` ，將您的處理器插入鏈中：
 
 ```csharp
-var builder = TelemetryConfiguration.Active.TelemetryProcessorChainBuilder;
+var builder = TelemetryConfiguration.Active.DefaultTelemetrySink.TelemetryProcessorChainBuilder;
 builder.Use((next) => new SuccessfulDependencyFilter(next));
 
 // If you have more processors:
@@ -133,13 +119,12 @@ builder.Build();
 
 在這個點之後建立的 TelemetryClients 會使用您的處理器。
 
-**ASP.NET Core 應用程式**
+**ASP.NET Core/背景工作服務應用程式**
 
 > [!NOTE]
-> 將使用的初始設定式`ApplicationInsights.config`或使用`TelemetryConfiguration.Active`不適用於 ASP.NET Core 應用程式。 
+> 使用`ApplicationInsights.config`或使用`TelemetryConfiguration.Active`來新增處理器對 ASP.NET Core 應用程式而言是不正確，或者，如果您使用 ApplicationInsights. WorkerService SDK。
 
-
-針對[ASP.NET Core](asp-net-core.md#adding-telemetry-processors)應用程式，加入新`TelemetryInitializer`，即可將它新增至相依性插入容器，如下所示。 這在完成`ConfigureServices`方法的程式`Startup.cs`類別。
+針對使用[ASP.NET Core](asp-net-core.md#adding-telemetry-processors)或[WorkerService](worker-service.md#adding-telemetry-processors)所撰寫的應用程式， `TelemetryProcessor`使用`AddApplicationInsightsTelemetryProcessor`上`IServiceCollection`的擴充方法來加入新的，如下所示。 這個方法是在`ConfigureServices` `Startup.cs`類別的方法中呼叫。
 
 ```csharp
     public void ConfigureServices(IServiceCollection services)
@@ -154,8 +139,10 @@ builder.Build();
 ```
 
 ### <a name="example-filters"></a>範例篩選器
+
 #### <a name="synthetic-requests"></a>綜合要求
-篩選出 bot 和 Web 測試。 雖然計量瀏覽器可讓您篩選出綜合來源，此選項會藉由在 SDK 篩選它們以降低流量。
+
+篩選出 bot 和 Web 測試。 雖然計量瀏覽器可讓您選擇篩選出綜合來源，但此選項會藉由在 SDK 本身進行篩選來減少流量和內嵌大小。
 
 ```csharp
 public void Process(ITelemetry item)
@@ -168,6 +155,7 @@ public void Process(ITelemetry item)
 ```
 
 #### <a name="failed-authentication"></a>驗證失敗
+
 篩選出具有 "401" 回應的要求。
 
 ```csharp
@@ -178,19 +166,21 @@ public void Process(ITelemetry item)
     if (request != null &&
     request.ResponseCode.Equals("401", StringComparison.OrdinalIgnoreCase))
     {
-        // To filter out an item, just terminate the chain:
+        // To filter out an item, return without calling the next processor.
         return;
     }
-    // Send everything else:
+
+    // Send everything else
     this.Next.Process(item);
 }
 ```
 
 #### <a name="filter-out-fast-remote-dependency-calls"></a>篩選出快速遠端相依性呼叫
+
 如果您只想要診斷速度很慢的呼叫，請篩選出快的項目。
 
 > [!NOTE]
-> 這樣會曲解您在入口網站上看到的統計資料。 相依性圖表將看起來好像相依性呼叫均失敗。
+> 這樣會曲解您在入口網站上看到的統計資料。
 >
 >
 
@@ -208,17 +198,18 @@ public void Process(ITelemetry item)
 ```
 
 #### <a name="diagnose-dependency-issues"></a>診斷相依性問題
-[這篇部落格文章](https://azure.microsoft.com/blog/implement-an-application-insights-telemetry-processor/) 描述可自動傳送定期的 Ping 給相依項目，藉以診斷相依性問題的專案。
 
+[這篇部落格文章](https://azure.microsoft.com/blog/implement-an-application-insights-telemetry-processor/) 描述可自動傳送定期的 Ping 給相依項目，藉以診斷相依性問題的專案。
 
 <a name="add-properties"></a>
 
 ## <a name="add-properties-itelemetryinitializer"></a>新增屬性：ITelemetryInitializer
-使用遙測初始設定式來定義與所有遙測一起傳送的全域屬性；並覆寫選取的標準遙測模組行為。
 
-例如，Web 封裝的 Application Insights 會收集有關 HTTP 要求的遙測。 根據預設，它會將所有含 >= 400 回應碼的要求標記為失敗。 但如果您想將 400 視為成功，您可以提供設定 Success 屬性的遙測初始設定式。
+使用遙測初始化運算式，以額外資訊和/或覆寫標準遙測模組所設定的遙測屬性來充實遙測。
 
-如果您提供遙測初始設定式，則會在呼叫任何的 Track*() 方法時呼叫它。 這包括由標準遙測模組呼叫的方法。 依照慣例，這些模組不會設定任何已由初始設定式設定的屬性。
+例如，Web 套件的 Application Insights 會收集關於 HTTP 要求的遙測。 根據預設，它會將所有含 >= 400 回應碼的要求標記為失敗。 但如果您想將 400 視為成功，您可以提供設定 Success 屬性的遙測初始設定式。
+
+如果您提供遙測初始設定式，則會在呼叫任何的 Track*() 方法時呼叫它。 這包括`Track()`標準遙測模組呼叫的方法。 依照慣例，這些模組不會設定任何已由初始設定式設定的屬性。 在呼叫遙測處理器之前，會呼叫遙測初始化運算式。 因此，對處理器而言，初始化運算式所完成的任何擴充都是可見的。
 
 **定義您的初始設定式**
 
@@ -251,16 +242,17 @@ namespace MvcWebRole.Telemetry
         {
             // If we set the Success property, the SDK won't change it:
             requestTelemetry.Success = true;
+
             // Allow us to filter these requests in the portal:
-            requestTelemetry.Context.Properties["Overridden400s"] = "true";
+            requestTelemetry.Properties["Overridden400s"] = "true";
         }
-        // else leave the SDK to set the Success property      
+        // else leave the SDK to set the Success property
     }
   }
 }
 ```
 
-**ASP.NET 應用程式：載入您的初始設定式**
+**ASP.NET apps:載入您的初始化運算式**
 
 在 ApplicationInsights.config 中：
 
@@ -286,12 +278,12 @@ protected void Application_Start()
 
 [詳細查看此範例。](https://github.com/Microsoft/ApplicationInsights-Home/tree/master/Samples/AzureEmailService/MvcWebRole)
 
-**ASP.NET Core 應用程式：載入您的初始設定式**
+**ASP.NET Core/背景工作服務應用程式：載入您的初始化運算式**
 
 > [!NOTE]
-> 將使用的初始設定式`ApplicationInsights.config`或使用`TelemetryConfiguration.Active`不適用於 ASP.NET Core 應用程式。 
+> 使用`ApplicationInsights.config`或使用`TelemetryConfiguration.Active`來加入初始化運算式對 ASP.NET Core 應用程式而言是不正確，或如果您使用 ApplicationInsights. WorkerService SDK。
 
-針對[ASP.NET Core](asp-net-core.md#adding-telemetryinitializers)應用程式，加入新`TelemetryInitializer`，即可將它新增至相依性插入容器，如下所示。 這在完成`ConfigureServices`方法的程式`Startup.cs`類別。
+針對使用[ASP.NET Core](asp-net-core.md#adding-telemetryinitializers)或[WorkerService](worker-service.md#adding-telemetryinitializers)所撰寫的應用程式， `TelemetryInitializer`加入新的是藉由將它新增至相依性插入容器來完成，如下所示。 這是在方法`Startup.ConfigureServices`中完成。
 
 ```csharp
  using Microsoft.ApplicationInsights.Extensibility;
@@ -367,25 +359,62 @@ void initialize(Telemetry telemetry); }
 
 如需 telemetryItem 上可用的非自訂屬性摘要，請參閱 [Application Insights 匯出資料模型](../../azure-monitor/app/export-data-model.md)。
 
-您可以依需要加入多個初始設定式。
+您可以視需要新增多個初始化運算式，並依加入的順序來呼叫它們。
+
+### <a name="example-telemetryinitializers"></a>範例 TelemetryInitializers
+
+#### <a name="add-custom-property"></a>新增自訂屬性
+
+下列範例初始化運算式會將自訂屬性新增至每個追蹤的遙測。
+
+```csharp
+public void Initialize(ITelemetry item)
+{
+  var itemProperties = item as ISupportProperties;
+  if(itemProperties != null && !itemProperties.ContainsKey("customProp"))
+    {
+        itemProperties.Properties["customProp"] = "customValue";
+    }
+}
+```
+
+#### <a name="add-cloud-role-name"></a>新增雲端角色名稱
+
+下列範例初始化運算式會將雲端角色名稱設定為每個追蹤的遙測。
+
+```csharp
+public void Initialize(ITelemetry telemetry)
+{
+    if(string.IsNullOrEmpty(telemetry.Context.Cloud.RoleName))
+    {
+        telemetry.Context.Cloud.RoleName = "MyCloudRoleName";
+    }
+}
+```
 
 ## <a name="itelemetryprocessor-and-itelemetryinitializer"></a>ITelemetryProcessor 和 ITelemetryInitializer
+
 遙測處理器與遙測初始設定式之間有何差異？
 
-* 它們的用途有部分重疊︰兩者都可以用來在遙測中新增屬性。
+* 您可以對它們執行的動作有一些重迭：兩者都可以用來新增或修改遙測的屬性，但建議針對該目的使用初始化運算式。
 * TelemetryInitializers 一律會在 TelemetryProcessors 之前執行。
+* 可能會呼叫 TelemetryInitializers 一次以上。 依照慣例，它們不會設定任何已設定的屬性。
 * TelemetryProcessors 可讓您完全取代或捨棄遙測項目。
-* TelemetryProcessors 不會處理效能計數器遙測。
+* 保證會針對每個遙測專案呼叫所有已註冊的 TelemetryInitializers。 對於遙測處理器，SDK 會保證呼叫第一部遙測處理器。 是否呼叫其餘的處理器，是由先前的遙測處理器決定。
+* 使用 TelemetryInitializers 以其他屬性擴充遙測，或覆寫現有的內容。 使用 TelemetryProcessor 來篩選出遙測。
 
 ## <a name="troubleshooting-applicationinsightsconfig"></a>為 ApplicationInsights.config 疑難排解
+
 * 確認完整格式的類型名稱和組件名稱均正確。
 * 確認 applicationinsights.config 檔案在您的輸出目錄中，並且包含任何最近的變更。
 
 ## <a name="reference-docs"></a>參考文件
+
 * [API 概觀](../../azure-monitor/app/api-custom-events-metrics.md)
 * [ASP.NET 參考](https://msdn.microsoft.com/library/dn817570.aspx)
 
 ## <a name="sdk-code"></a>SDK 程式碼
+
 * [ASP.NET Core SDK](https://github.com/Microsoft/ApplicationInsights-aspnetcore)
 * [ASP.NET SDK](https://github.com/Microsoft/ApplicationInsights-dotnet)
 * [JavaScript SDK](https://github.com/Microsoft/ApplicationInsights-JS)

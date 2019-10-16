@@ -56,7 +56,7 @@ ms.locfileid: "60623168"
    
    | 工作 | 您學到什麼 |
    | --- | --- |
-   | [設定 Azure Marketplace 映像](devtest-lab-configure-marketplace-images.md) |了解如何將 Azure Marketplace 映像加入白名單；只開放選取您想讓測試人員使用的映像。|
+   | [設定 Azure Marketplace 映像](devtest-lab-configure-marketplace-images.md) |了解如何將 Azure Marketplace 映像加入允許清單；只開放選取您想讓測試人員使用的映像。|
    | [建立自訂映像](devtest-lab-create-template.md) |預先安裝所需軟體以建立自訂映像，讓測試人員可以使用自訂映像快速建立 VM。|
    | [了解映像處理站](https://blogs.msdn.microsoft.com/devtestlab/2017/04/17/video-custom-image-factory-with-azure-devtest-labs/) |觀看如何設定及使用映像處理站的說明影片。|
 

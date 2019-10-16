@@ -41,7 +41,7 @@ ms.locfileid: "66244725"
     - 您想要強制所有網路流量流入和流出通過安全性/法務遵循方面的內部部署防火牆的雲端環境。
 - **網路安全性群組**：雲端環境 （或在雲端環境中） 來限制流量的常見方式是根據來源和目的地 IP 位址是使用[網路安全性群組](../virtual-network/security-overview.md)。 例如，您會想要允許來自公司網路，到實驗室的網路的流量。
 - **遠端桌面閘道**:企業通常會封鎖在公司防火牆的連出遠端桌面連線。 有數個選項，才能連接至雲端架構的環境，在 DevTest Labs 中，包括：
-  - 使用[遠端桌面閘道](/windows-server/remote/remote-desktop-services/desktop-hosting-logical-architecture)、 及白名單閘道的靜態 IP 位址的負載平衡器。
+  - 使用[遠端桌面閘道](/windows-server/remote/remote-desktop-services/desktop-hosting-logical-architecture)、 及允許清單閘道的靜態 IP 位址的負載平衡器。
   - [所有的連入 RDP 流量導向](../vpn-gateway/vpn-gateway-forced-tunneling-rm.md)透過 ExpressRoute/站台間 VPN 連線。 當企業計劃研發/測試實驗室部署，這項功能會是常見的考量。
 - **網路服務 （虛擬網路、 子網路）** :[Azure 網路](../networking/networking-overview.md)拓樸是在研發/測試實驗室架構中的另一個關鍵要素。 它可控制實驗室的資源可以進行通訊並能夠存取內部部署和網際網路。 我們的架構圖包含最常見方法，讓客戶使用 DevTest Labs:透過連線的所有實驗室[虛擬網路對等互連](../virtual-network/virtual-network-peering-overview.md)利用[中樞支點模型](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke)到內部部署 ExpressRoute/站台間 VPN 連接。 但是，DevTest Labs 會使用 Azure 虛擬網路的直接管理，因此沒有任何限制，在您設定網路基礎結構的方式。
 - **DevTest Labs**:DevTest Labs 是整體架構的重要部分。 若要了解服務的相關資訊，請參閱[解 DevTest Labs](devtest-lab-overview.md)。

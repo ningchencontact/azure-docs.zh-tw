@@ -26,7 +26,7 @@ ms.locfileid: "72294609"
 ## <a name="design-the-logic-app"></a>設計邏輯應用程式
 
 > [!IMPORTANT]
-> 下列範例假設 Azure Analysis Services 防火牆已停用。  如果已啟用防火牆，則要求啟動器的公用 IP 位址必須在 Azure Analysis Services 防火牆的白名單中。 若要深入瞭解每個區域的邏輯應用程式 IP 範圍，請參閱[Azure Logic Apps 的限制和設定資訊](../logic-apps/logic-apps-limits-and-config.md#firewall-configuration-ip-addresses)。
+> 下列範例假設 Azure Analysis Services 防火牆已停用。  如果已啟用防火牆，則要求啟動器的公用 IP 位址必須在 Azure Analysis Services 防火牆的允許清單中。 若要深入瞭解每個區域的邏輯應用程式 IP 範圍，請參閱[Azure Logic Apps 的限制和設定資訊](../logic-apps/logic-apps-limits-and-config.md#firewall-configuration-ip-addresses)。
 
 ### <a name="prerequisites"></a>必要條件
 

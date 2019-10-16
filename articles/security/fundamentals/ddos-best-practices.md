@@ -88,7 +88,7 @@ Azure 客戶可藉由檢閱 Microsoft 的最佳做法，以及全域建置針對
 
 深層防禦背後的概念是使用各種不同的防禦策略來管理風險。 將應用程式中的安全性防禦分層，可降低成功攻擊的機會。 建議您使用 Azure 平台的內建功能，為您的應用程式實作安全設計。
 
-例如，攻擊的風險會隨著應用程式大小 (*介面區*) 而提高。 您可以使用白名單來關閉負載平衡器 ([Azure Load Balancer](/azure/load-balancer/load-balancer-get-started-internet-portal) 和 [Azure 應用程式閘道](/azure/application-gateway/application-gateway-create-probe-portal)) 上不需要的公開 IP 位址空間和接聽連接埠，來減少介面區。 [網路安全性群組 (NSG)](/azure/virtual-network/security-overview) 是減少攻擊面的另一種方法。
+例如，攻擊的風險會隨著應用程式大小 (*介面區*) 而提高。 您可以使用允許清單來關閉負載平衡器 ([Azure Load Balancer](/azure/load-balancer/load-balancer-get-started-internet-portal) 和 [Azure 應用程式閘道](/azure/application-gateway/application-gateway-create-probe-portal)) 上不需要的公開 IP 位址空間和接聽連接埠，來減少介面區。 [網路安全性群組 (NSG)](/azure/virtual-network/security-overview) 是減少攻擊面的另一種方法。
 您可以使用[服務標記](/azure/virtual-network/security-overview#service-tags)和[應用程式安全性群組](/azure/virtual-network/security-overview#application-security-groups)，將建立安全性規則與設定網路安全性的複雜性近可能降低，直到成為應用程式結構的自然延伸。
 
 應盡可能將 Azure 服務部署於[虛擬網路](/azure/virtual-network/virtual-networks-overview)上。 此種做法可讓服務資源透過私人 IP 位址進行通訊。 根據預設，來自虛擬網路的 Azure 服務流量會使用公用 IP 位址作為來源 IP 位址。 使用[服務端點](/azure/virtual-network/virtual-network-service-endpoints-overview)，會在從虛擬網路存取 Azure 服務時，將服務流量切換為使用虛擬網路私人位址作為來源 IP 位址。

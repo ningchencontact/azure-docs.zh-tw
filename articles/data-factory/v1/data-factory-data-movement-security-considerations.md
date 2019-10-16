@@ -159,7 +159,7 @@ Salesforce 支援「Shield 平台加密」，可加密所有檔案、附件、�
 | `*.azuredatalakestore.net` | 443 | (選擇性) 當您的目的地是 Azure Data Lake Store 時，需要提供此資訊。 | 
 
 > [!NOTE] 
-> 您可能需要依個別資料來源所需，在公司防火牆層級管理連接埠/將網域加入白名單。 此表格僅使用 Azure SQL Database、「Azure SQL 資料倉儲」、Azure Data Lake Store 作為範例。   
+> 您可能需要依個別資料來源所需，在公司防火牆層級管理連接埠/將網域加入允許清單。 此表格僅使用 Azure SQL Database、「Azure SQL 資料倉儲」、Azure Data Lake Store 作為範例。   
 
 下表提供「Windows 防火牆」的「輸入連接埠」需求。
 
@@ -169,10 +169,10 @@ Salesforce 支援「Shield 平台加密」，可加密所有檔案、附件、�
 
 ![閘道連接埠需求](media/data-factory-data-movement-security-considerations/gateway-port-requirements.png)
 
-#### <a name="ip-configurations-whitelisting-in-data-store"></a>資料存放區中的 IP 組態/白名單設定
+#### <a name="ip-configurations-whitelisting-in-data-store"></a>資料存放區中的 IP 組態/允許清單設定
 有些雲端資料存放區也會要求必須將存取它們的電腦之 IP 位址加入允許清單。 請確定在防火牆中已將閘道電腦的 IP 位址正確地加入允許清單並進行設定。
 
-下列雲端資料存放區會要求必須將閘道電腦的 IP 位址加入允許清單。 在這些資料存放區中，有些可能預設不會要求將 IP 位址加入白名單。 
+下列雲端資料存放區會要求必須將閘道電腦的 IP 位址加入允許清單。 在這些資料存放區中，有些可能預設不會要求將 IP 位址加入允許清單。 
 
 - [Azure SQL Database](../../sql-database/sql-database-firewall-configure.md) 
 - [Azure SQL 資料倉儲](../../sql-data-warehouse/sql-data-warehouse-get-started-provision.md)
