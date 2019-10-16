@@ -103,7 +103,7 @@
           items:
             - name: 監視與微調
               href: concepts-monitoring.md
-            - name: 伺服器記錄
+            - name: 記錄
               href: concepts-server-logs.md
             - name: 稽核記錄
               href: concepts-audit.md
@@ -207,7 +207,7 @@
               href: howto-auto-grow-storage-portal.md
             - name: Azure CLI
               href: howto-auto-grow-storage-cli.md
-        - name: 存取伺服器記錄
+        - name: 存取記錄
           items:
             - name: Azure 入口網站
               href: howto-configure-server-logs-in-portal.md

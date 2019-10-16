@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 07/10/2019
 ms.custom: seodec18
-ms.openlocfilehash: 4d4a3eae9ea3931ceb720785bbf458f54689be6e
-ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
-ms.translationtype: MT
+ms.openlocfilehash: 5a0f2922763f8fccb9f3eec8bab4d6eddee7e446
+ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71213516"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71350603"
 ---
 # <a name="configure-automated-ml-experiments-in-python"></a>在 Python 中設定自動化 ML 實驗
 
@@ -69,8 +69,10 @@ automl_config = AutoMLConfig(task="classification")
 ```
 
 ## <a name="data-source-and-format"></a>資料來源和格式
+
 自動化機器學習支援位於本機桌面或雲端中 (例如 Azure Blob 儲存體) 所包含的資料。 資料可讀取到支援 scikit-learn 的資料格式中。 您可以將資料讀取到：
-* Numpy 陣列 X (特徵) 和 y (目標變數，或者也稱為標籤)
+
+* Numpy 陣列 X （特徵）和 y （目標變數，也稱為標籤）
 * Pandas 資料框架
 
 >[!Important]
@@ -93,55 +95,25 @@ automl_config = AutoMLConfig(task="classification")
     ```python
     import pandas as pd
     from sklearn.model_selection import train_test_split
+
     df = pd.read_csv("https://automldemods.blob.core.windows.net/datasets/PlayaEvents2016,_1.6MB,_3.4k-rows.cleaned.2.tsv", delimiter="\t", quotechar='"')
-    # get integer labels
-    y = df["Label"]
-    df = df.drop(["Label"], axis=1)
-    df_train, _, y_train, _ = train_test_split(df, y, test_size=0.1, random_state=42)
+    y_df = df["Label"]
+    x_df = df.drop(["Label"], axis=1)
+    x_train, x_test, y_train, y_test = train_test_split(x_df, y_df, test_size=0.1, random_state=42)
     ```
 
 ## <a name="fetch-data-for-running-experiment-on-remote-compute"></a>擷取用來對遠端計算執行實驗的資料
 
-針對遠端執行，您需要讓資料可從遠端計算存取。 將資料上傳至資料存放區，即可完成此作業。
+針對遠端執行，必須可從遠端計算存取訓練資料。 SDK 中[`Datasets`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset.dataset?view=azure-ml-py)的類別會公開功能給：
 
-以下是使用`datastore`的範例：
+* 輕鬆地將靜態檔案或 URL 來源中的資料傳輸至您的工作區
+* 在雲端計算資源上執行時，將您的資料提供給訓練腳本
 
-```python
-    import pandas as pd
-    from sklearn import datasets
-
-    data_train = datasets.load_digits()
-
-    pd.DataFrame(data_train.data[100:,:]).to_csv("data/X_train.csv", index=False)
-    pd.DataFrame(data_train.target[100:]).to_csv("data/y_train.csv", index=False)
-
-    ds = ws.get_default_datastore()
-    ds.upload(src_dir='./data', target_path='digitsdata', overwrite=True, show_progress=True)
-```
-
-### <a name="define-dprep-references"></a>定義 iris.dprep 參考
-
-將 X 和 y 定義為 iris.dprep 參考，這會傳遞至自動化機器學習`AutoMLConfig`物件，如下所示：
-
-```python
-
-    X = dprep.auto_read_file(path=ds.path('digitsdata/X_train.csv'))
-    y = dprep.auto_read_file(path=ds.path('digitsdata/y_train.csv'))
-
-
-    automl_config = AutoMLConfig(task = 'classification',
-                                 debug_log = 'automl_errors.log',
-                                 path = project_folder,
-                                 run_configuration=conda_run_config,
-                                 X = X,
-                                 y = y,
-                                 **automl_settings
-                                )
-```
+如需使用`Dataset`類別將資料掛接至計算目標的範例，請參閱 [how to](how-to-train-with-datasets.md#option-2--mount-files-to-a-remote-compute-target)。
 
 ## <a name="train-and-validation-data"></a>訓練和驗證資料
 
-您可以直接在`AutoMLConfig`方法中指定個別的定型和驗證集。
+您可以直接在此函式中指定個別的`AutoMLConfig`定型和驗證集。
 
 ### <a name="k-folds-cross-validation"></a>k 疊交叉驗證
 
@@ -175,7 +147,7 @@ automl_config = AutoMLConfig(task="classification")
 
 部分範例包括：
 
-1.  使用加權的 AUC 作為主要計量的分類實驗，每次反覆運算的時間上限為 12,000 秒，並且在 50 次反覆運算和 2 疊的交叉驗證之後結束實驗。
+1.  使用 AUC 加權作為主要度量的分類實驗，每個反復專案的最大時間為12000秒，實驗會在50次反覆運算和2個交叉驗證折迭之後結束。
 
     ```python
     automl_classifier = AutoMLConfig(
@@ -202,12 +174,10 @@ automl_config = AutoMLConfig(task="classification")
         n_cross_validations=5)
     ```
 
-三個不同`task`的參數值會決定要套用的模型清單。  `whitelist`使用或`blacklist`參數來進一步修改反復專案，以及要包含或排除的可用模型。 您可以在[SupportedModels 類別](https://docs.microsoft.com/en-us/python/api/azureml-train-automl/azureml.train.automl.constants.supportedmodels?view=azure-ml-py)上找到支援的模型清單。
+三個不同`task`的參數值（第三個工作類型`forecasting`為，並使用與`regression`工作相同的演算法集區）來決定要套用的模型清單。 `whitelist`使用或`blacklist`參數來進一步修改反復專案，以及要包含或排除的可用模型。 您可以在[SupportedModels 類別](https://docs.microsoft.com/en-us/python/api/azureml-train-automl/azureml.train.automl.constants.supportedmodels?view=azure-ml-py)上找到支援的模型清單。
 
 ### <a name="primary-metric"></a>主要計量
-主要度量;如上述範例所示，會決定要在模型定型期間用來進行優化的度量。 您可以選取的主要度量取決於您選擇的工作類型。 以下是可用計量的清單。
-
-瞭解[自動化機器學習結果](how-to-understand-automated-ml.md)中的特定定義。
+主要度量會決定要在模型定型期間使用的計量，以進行優化。 您可以選取的可用計量取決於您選擇的工作類型，下表顯示每種工作類型的有效主要度量。
 
 |分類 | 迴歸 | 時間序列預測
 |-- |-- |--
@@ -217,9 +187,11 @@ automl_config = AutoMLConfig(task="classification")
 |norm_macro_recall | normalized_mean_absolute_error | normalized_mean_absolute_error
 |precision_score_weighted |
 
+瞭解[自動化機器學習結果](how-to-understand-automated-ml.md)中的特定定義。
+
 ### <a name="data-preprocessing--featurization"></a>& 特徵化的資料前置處理
 
-在每個自動化機器學習實驗中，您的資料都會[自動調整並正規化](concept-automated-ml.md#preprocess)，以協助演算法執行得很好。  不過，您也可以啟用其他前置處理/特徵化，例如遺漏值插補、編碼和轉換。 [深入瞭解包含的特徵化](how-to-create-portal-experiments.md#preprocess)。
+在每個自動化的機器學習實驗中，您的資料都會[自動調整並正規化](concept-automated-ml.md#preprocess)，以協助*特定*的演算法，而這些演算法會受到不同規模的功能所影響。  不過，您也可以啟用其他前置處理/特徵化，例如遺漏值插補、編碼和轉換。 [深入瞭解包含的特徵化](how-to-create-portal-experiments.md#preprocess)。
 
 若要啟用此特徵化， `"preprocess": True`請[ `AutoMLConfig`為類別](https://docs.microsoft.com/python/api/azureml-train-automl/azureml.train.automl.automlconfig?view=azure-ml-py)指定。
 
@@ -227,12 +199,13 @@ automl_config = AutoMLConfig(task="classification")
 > 自動化機器學習前置處理步驟 (功能正規化、處理遺漏的資料、將文字轉換成數值等等) 會成為基礎模型的一部分。 使用模型進行預測時，定型期間所套用的相同前置處理步驟會自動套用至您的輸入資料。
 
 ### <a name="time-series-forecasting"></a>時間序列預測
-針對時間序列預測工作類型，您有額外的參數可供定義。
-1. time_column_name-這是必要的參數，它會定義包含日期/時間序列之定型資料中的資料行名稱。
-1. max_horizon-這會根據定型資料的週期性，定義您想要預測的時間長度。 例如，如果您有每日時間粒紋的定型資料，您就會定義要將模型定型的天數。
-1. grain_column_names-這會定義資料行的名稱，其中包含定型資料中的個別時間序列資料。 例如，如果您是依商店預測特定品牌的銷售量，您會將商店和品牌資料行定義為您的資料行。
+時間序列`forecasting`工作需要 configuration 物件中的其他參數：
 
-請參閱這裡所使用的下列設定範例，[這裡](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/forecasting-orange-juice-sales/auto-ml-forecasting-orange-juice-sales.ipynb)提供了筆記本範例。
+1. `time_column_name`:必要參數，定義包含有效時間序列之定型資料中的資料行名稱。
+1. `max_horizon`:根據定型資料的週期性，定義您想要預測的時間長度。 例如，如果您有每日時間粒紋的定型資料，您就會定義要將模型定型的天數。
+1. `grain_column_names`:定義資料行的名稱，其中包含定型資料中的個別時間序列資料。 例如，如果您是依商店預測特定品牌的銷售量，您會將商店和品牌資料行定義為您的資料行。 系統會針對每個細微性/群組建立個別的時間序列和預測。 
+
+如需以下使用之設定的範例，請參閱[範例筆記本](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/forecasting-orange-juice-sales/auto-ml-forecasting-orange-juice-sales.ipynb)。
 
 ```python
 # Setting Store and Brand as grains for training.
@@ -341,11 +314,11 @@ run = experiment.submit(automl_config, show_output=True)
 >將 `show_output` 設定為 `True`，會使輸出顯示在主控台上。
 
 ### <a name="exit-criteria"></a>結束準則
-您可以定義幾個選項來完成您的實驗。
-1. 無準則-如果您未定義任何結束參數，實驗會繼續進行，直到您的主要計量沒有進一步的進度為止。
-1. 反覆運算次數-您可以定義要執行之實驗的反覆運算次數。 您可以選擇性地新增 iteration_timeout_minutes，以定義每個反復專案的時間限制（以分鐘為單位）。
-1. 在您的設定中，于一段時間後結束-使用 experiment_timeout_minutes，您可以定義實驗繼續執行的時間長度（以分鐘為單位）。
-1. 達到分數後結束-使用 experiment_exit_score 您可以選擇在達到主要度量的分數之後，完成實驗。
+您可以定義幾個選項來結束實驗。
+1. 無準則：如果您未定義任何結束參數，實驗會繼續進行，直到您的主要計量沒有進一步的進度為止。
+1. 反覆運算次數：您可以定義要執行之實驗的反覆運算次數。 您可以選擇性地`iteration_timeout_minutes`新增來定義每個反復專案的時間限制（以分鐘為單位）。
+1. 在一段時間後結束：在`experiment_timeout_minutes`您的設定中使用，可讓您定義實驗繼續執行的時間長度（以分鐘為單位）。
+1. 達到分數後結束：使用`experiment_exit_score`將會在達到主要度量分數後完成實驗。
 
 ### <a name="explore-model-metrics"></a>探索模型計量
 
@@ -355,7 +328,7 @@ run = experiment.submit(automl_config, show_output=True)
 
 任何使用自動化 ML 所產生的模型都包含下列步驟：
 + 自動化功能工程（如果前置處理 = True）
-+ 具有 hypermeter 值的縮放/正規化和演算法
++ 具有超參數值的縮放/正規化和演算法
 
 我們會將其透明化，以從自動化 ML 的 fitted_model 輸出取得此資訊。
 
@@ -437,7 +410,7 @@ best_run, fitted_model = automl_run.get_output()
    |EngineeringFeatureCount|透過自動化功能工程轉換所產生的功能數目。|
    |轉換|套用至輸入功能以產生工程功能的轉換清單。|
 
-### <a name="scalingnormalization-and-algorithm-with-hypermeter-values"></a>具有 hypermeter 值的縮放/正規化和演算法：
+### <a name="scalingnormalization-and-algorithm-with-hyperparameter-values"></a>具有超參數值的縮放/正規化和演算法：
 
 若要瞭解管線的縮放/正規化和演算法/超參數值，請使用 fitted_model。 [深入瞭解調整/](concept-automated-ml.md#preprocess)正規化。 以下是範例輸出：
 

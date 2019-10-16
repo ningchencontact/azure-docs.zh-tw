@@ -96,22 +96,22 @@
           items:
             - name: 建立和管理教室實驗室
               href: classroom-labs/how-to-manage-classroom-labs.md
-            - name: 設定與發行範本
+            - name: 設定、自訂和發行範本
               href: classroom-labs/how-to-create-manage-template.md
-            - name: 設定與控制使用量
+            - name: 設定和管理虛擬機器集區
+              href: classroom-labs/how-to-set-virtual-machine-passwords.md
+            - name: 新增和管理實驗室使用者
               href: classroom-labs/how-to-configure-student-usage.md
             - name: 建立和管理排程
               href: classroom-labs/how-to-create-schedules.md
-            - name: 使用範本 VM 內的多個 VM 建立環境
-              href: classroom-labs/how-to-enable-multi-vm-environment.md
             - name: 使用共用映像資源庫
               href: classroom-labs/how-to-use-shared-image-gallery.md
             - name: 啟用 Linux 遠端桌面連線檔案
               href: classroom-labs/how-to-enable-remote-desktop-linux.md
-            - name: 設定或重設適用於虛擬機器的密碼
-              href: classroom-labs/how-to-set-virtual-machine-passwords.md
             - name: 在範本 VM 上啟用巢狀虛擬化
               href: classroom-labs/how-to-enable-nested-virtualization-template-vm.md
+            - name: 使用範本 VM 內的多個 VM 建立環境
+              href: classroom-labs/how-to-enable-multi-vm-environment.md
         - name: 在教室實驗室中連線至 VM (學生)
           items:
             - name: 存取教室實驗室

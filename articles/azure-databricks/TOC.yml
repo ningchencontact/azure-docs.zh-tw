@@ -26,7 +26,7 @@
     - name: 使用事件中樞串流資料
       href: databricks-stream-from-eventhubs.md
     - name: 使用認知服務進行情感分析
-  href: databricks-sentiment-analysis-cognitive-services.md
+      href: databricks-sentiment-analysis-cognitive-services.md
 - name: 使用說明指南
   items:
     - name: 開始使用
@@ -543,7 +543,7 @@
         - name: Delta Lake 簡介
           href: /azure/databricks/delta/delta-intro
           maintainContext: true
-        - name: 開始使用 Delta
+        - name: 開始使用 Delta Lake
           href: /azure/databricks/delta/quick-start
           maintainContext: true
         - name: 筆記本簡介
@@ -617,6 +617,9 @@
               maintainContext: true
         - name: 常見問題集
           href: /azure/databricks/delta/delta-faq
+          maintainContext: true
+        - name: 其他差異資源 Delta 資源
+          href: /azure/databricks/delta/delta-resources
           maintainContext: true
     - name: DataFrame 和資料集
       items:
@@ -699,7 +702,7 @@
             - name: 決策樹範例
               href: /azure/databricks/applications/machine-learning/mllib/decision-trees
               maintainContext: true
-            - name: MLib 管線與結構化串流
+            - name: MLib 管線和結構化串流
               href: /azure/databricks/applications/machine-learning/mllib/mllib-pipelines-and-stuctured-streaming
               maintainContext: true
             - name: 進階 MLib 範例
@@ -771,9 +774,6 @@
               maintainContext: true
             - name: PyTorch
               href: /azure/databricks/applications/deep-learning/single-node-training/pytorch
-              maintainContext: true
-            - name: JCuda
-              href: /azure/databricks/applications/deep-learning/single-node-training/jcuda
               maintainContext: true
             - name: 分散式 DL 的單一節點 PyTorch
               href: /azure/databricks/applications/deep-learning/distributed-training/mnist-pytorch
@@ -852,35 +852,28 @@
           maintainContext: true
     - name: 圖表分析
       items:
-        - name: 搭配 GraphFrames 的圖表分析教學課程
-          href: /azure/databricks/spark/latest/graph-analysis/graphframes/graph-analysis-tutorial
-          maintainContext: true
-        - name: GraphFrames - Python
-          href: /azure/databricks/spark/latest/graph-analysis/graphframes/user-guide-python
-          maintainContext: true
-        - name: GraphFrames - Scala
-          href: /azure/databricks/spark/latest/graph-analysis/graphframes/user-guide-scala
-          maintainContext: true
-        - name: 使用 GraphX 的圖表分析 (舊版)
-          href: /azure/databricks/spark/latest/graph-analysis/graph-analysis-graphx-tutorial
-          maintainContext: true
         - name: 圖表分析概觀
           href: /azure/databricks/spark/latest/graph-analysis/index
           maintainContext: true
-        - name: 圖表分析教學課程
-          href: /azure/databricks/spark/latest/graph-analysis/graphframes/graph-analysis-tutorial
-          maintainContext: true
-        - name: GraphFrames 概觀
-          href: /azure/databricks/spark/latest/graph-analysis/graphframes/index
-          maintainContext: true
-        - name: GraphFrames - Python
-          href: /azure/databricks/spark/latest/graph-analysis/graphframes/user-guide-python
-          maintainContext: true
-        - name: GraphFrames - Scala
-          href: /azure/databricks/spark/latest/graph-analysis/graphframes/user-guide-scala
+        - name: GraphFrames
+          items:
+            - name: 搭配 GraphFrames 的圖表分析教學課程
+              href: /azure/databricks/spark/latest/graph-analysis/graphframes/graph-analysis-tutorial
+              maintainContext: true
+            - name: GraphFrames - Python
+              href: /azure/databricks/spark/latest/graph-analysis/graphframes/user-guide-python
+              maintainContext: true
+            - name: GraphFrames - Scala
+              href: /azure/databricks/spark/latest/graph-analysis/graphframes/user-guide-scala
+              maintainContext: true
+        - name: 使用 GraphX 的圖表分析 (舊版)
+          href: /azure/databricks/spark/latest/graph-analysis/graph-analysis-graphx-tutorial
           maintainContext: true
     - name: Genomics
       items:
+        - name: Genomics 概觀
+          href: /azure/databricks/applications/genomics/index
+          maintainContext: true
         - name: Genomics ETL 概觀
           href: /azure/databricks/applications/genomics/etl/index
           maintainContext: true
@@ -921,6 +914,9 @@
             - name: 樣本品質控制
               href: /azure/databricks/applications/genomics/etl/sample-qc
               maintainContext: true
+            - name: 抬升
+              href: /azure/databricks/applications/genomics/etl/lift-over
+              maintainContext: true
         - name: 三級分析
           items:
             - name: 三級分析概觀
@@ -937,9 +933,6 @@
               maintainContext: true
             - name: 迴歸測試
               href: /azure/databricks/applications/genomics/tertiary/regression-tests
-              maintainContext: true
-            - name: SAIGE 和 SAIGE-GENE
-              href: /azure/databricks/applications/genomics/tertiary/saige
               maintainContext: true
             - name: Python 統計資料庫
               href: /azure/databricks/applications/genomics/tertiary/pandas-udf
@@ -1072,6 +1065,9 @@
               maintainContext: true
             - name: 對等互連虛擬網路
               href: /azure/databricks/administration-guide/cloud-configurations/azure/vnet-peering
+              maintainContext: true
+            - name: 將您的預覽工作區升級至 GA
+              href: /azure/databricks/administration-guide/cloud-configurations/azure/vnet-inject-upgrade
               maintainContext: true
             - name: 在 VNet 中部署 Azure Databricks
               href: /azure/databricks/administration-guide/cloud-configurations/azure/vnet-inject
@@ -1282,6 +1278,9 @@
               maintainContext: true
             - name: 由於自訂 UDF 的緣故，Spark 作業停止回應
               href: /azure/databricks/kb/jobs/spark-udf-performance
+              maintainContext: true
+            - name: 作業失敗 maxresultsize
+              href: /azure/databricks/kb/jobs/job-fails-maxresultsize-exception
               maintainContext: true
         - name: 程式庫
           items:
@@ -1587,8 +1586,17 @@
                 - name: 支援的執行階段版本
                   href: /azure/databricks/release-notes/runtime/supported
                   maintainContext: true
+                - name: Databricks Runtime 6.1
+                  href: /azure/databricks/release-notes/runtime/6.1
+                  maintainContext: true
+                - name: Databricks Runtime 6.1 ML
+                  href: /azure/databricks/release-notes/runtime/6.1ml
+                  maintainContext: true
                 - name: Databricks Runtime 6.0
                   href: /azure/databricks/release-notes/runtime/6.0
+                  maintainContext: true
+                - name: 搭配 Conda 的 Databricks Runtime 6.0
+                  href: /azure/databricks/release-notes/runtime/6.0conda
                   maintainContext: true
                 - name: Databricks Runtime 6.0 ML
                   href: /azure/databricks/release-notes/runtime/6.0ml

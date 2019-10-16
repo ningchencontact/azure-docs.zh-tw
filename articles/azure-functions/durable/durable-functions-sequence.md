@@ -9,16 +9,16 @@ ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 1168963c0698c6bdafe20babe2e5143585bf90a8
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: ee5b18ddc734335ddac2a7d3352de0e4388f445d
+ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70087112"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70933263"
 ---
 # <a name="function-chaining-in-durable-functions---hello-sequence-sample"></a>Durable Functions 中的函式鏈結- Hello 序列範例
 
-函式鏈結是指以特定順序執行一連串函式的模式。 通常，一個函式的輸出必須套用至另一個函式的輸入。 此文章說明當您完成 Durable Functions 快速入門 ([C#](durable-functions-create-first-csharp.md) 或 [JavaScript](quickstart-js-vscode.md)) 時所建立的鏈結序列。 如需有關 Durable Functions 的詳細資訊，請參閱 [Durable Functions 模式和技術概念](durable-functions-concepts.md)。
+函式鏈結是指以特定順序執行一連串函式的模式。 通常，一個函式的輸出必須套用至另一個函式的輸入。 此文章說明當您完成 Durable Functions 快速入門 ([C#](durable-functions-create-first-csharp.md) 或 [JavaScript](quickstart-js-vscode.md)) 時所建立的鏈結序列。 如需 Durable Functions 的詳細資訊，請參閱 [Durable Functions 概觀](durable-functions-overview.md)。
 
 [!INCLUDE [durable-functions-prerequisites](../../../includes/durable-functions-prerequisites.md)]
 
@@ -141,7 +141,7 @@ Content-Type: application/json; charset=utf-8
 > [!NOTE]
 > 在範例應用程式中，啟動協調器函式的 HTTP POST 端點是以名為 "HttpStart" 的 HTTP 觸發程序函式實作。 您可以對其他觸發程序類型實作類似的起始邏輯，例如 `queueTrigger`、`eventHubTrigger` 或 `timerTrigger`。
 
-查看函式執行記錄。 由於[概觀](durable-functions-concepts.md)中所述的重新執行行為，`E1_HelloSequence` 函式會啟動並完成多次。 相反地，`E1_SayHello` 只執行三次，因為這幾次函式執行不會再來一次。
+查看函式執行記錄。 因為[協調流程可靠性](durable-functions-orchestrations.md#reliability)主題中所述的重新執行行為，所以函式已啟動並完成多次。`E1_HelloSequence` 相反地，`E1_SayHello` 只執行三次，因為這幾次函式執行不會再來一次。
 
 ## <a name="visual-studio-sample-code"></a>Visual Studio 範例程式碼
 

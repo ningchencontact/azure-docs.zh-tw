@@ -7,28 +7,34 @@
       href: billing-understand-your-bill.md
     - name: 了解您的 EA 帳單
       href: billing-understand-your-bill-ea.md
-    - name: 了解您的帳單 - 僅限 Microsoft 客戶合約
+    - name: 了解您的帳單 - Microsoft 客戶合約
       href: billing-mca-understand-your-bill.md
+    - name: 了解您的帳單 - Microsoft 合作夥伴合約
+      href: billing-mpa-understand-your-bill.md
     - name: 檢視及下載您 Microsoft Azure 發票
       href: billing-download-azure-invoice.md
     - name: 檢視及下載您 Microsoft Azure 使用量和費用
       href: billing-download-azure-daily-usage.md
-    - name: 檢視及下載 Microsoft 客戶合約的稅務文件
+    - name: 檢視及下載稅務文件
       href: billing-mca-download-tax-document.md
     - name: 第三方服務費用
       href: billing-understand-your-azure-marketplace-charges.md
     - name: 使用量條款說明
       href: billing-understand-your-usage.md
-    - name: 使用量條款說明 - 僅限 Microsoft 客戶合約
+    - name: 使用量條款說明 - Microsoft 客戶合約
       href: billing-mca-understand-your-usage.md
     - name: 發票條款說明
       href: billing-understand-your-invoice.md
-    - name: 發票條款說明 - 僅限 Microsoft 客戶合約
+    - name: 發票條款說明 - Microsoft 客戶合約
       href: billing-mca-understand-your-invoice.md
-    - name: 如何支付帳單 - 僅限 Microsoft 客戶合約
+    - name: 發票條款說明 - Microsoft 合作夥伴合約
+      href: billing-mpa-invoice-terms-explained.md
+    - name: 如何支付帳單 - Microsoft 客戶合約
       href: billing-how-to-pay-bill.md
     - name: Microsoft 客戶合約的帳單帳戶
       href: billing-mca-overview.md
+    - name: Microsoft 合作夥伴合約的計費帳戶
+      href: mpa-overview.md
 - name: 管理成本
   items:
     - name: 避免非預期成本
@@ -115,10 +121,8 @@
           href: billing-avoid-charges-free-account.md
         - name: 檢查使用量
           href: billing-check-free-service-usage.md
-        - name: 升級訂用帳戶
+        - name: 升級帳戶
           href: billing-upgrade-azure-subscription.md
-        - name: 了解計量對應
-          href: billing-understand-free-service-meter-mapping.md
     - name: 編輯設定檔
       href: billing-how-to-change-azure-account-profile.md
     - name: 開啟銀行和強式客戶驗證
@@ -158,7 +162,7 @@
         - name: Microsoft 客戶合約中的 EA 工作
           href: billing-mca-enterprise-operations.md
     - name: 設定 Microsoft 客戶合約的帳單帳戶
-      href: billing-mca-setup-account.md
+      href: mca-setup-account.md
     - name: 使用 Office 365 帳戶註冊
       href: billing-use-existing-office-365-account-azure-subscription.md
     - name: 以 Azure 帳戶註冊 Office 365
@@ -173,6 +177,8 @@
       href: billing-subscription-transfer.md
     - name: 要求擁有權 - Microsoft 客戶合約
       href: billing-mca-request-billing-ownership.md
+    - name: 要求擁有權 - Microsoft 合作夥伴合約
+      href: mpa-request-ownership.md
     - name: 取消訂用帳戶
       href: billing-how-to-cancel-azure-subscription.md
     - name: 變更信用卡

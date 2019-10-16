@@ -15,7 +15,7 @@
   items:
     - name: '建立函式 - C#'
       href: functions-create-your-first-function-visual-studio.md
-    - name: 建立函式 - Java/Maven
+    - name: 建立函式 - Java
       href: functions-create-first-java-maven.md
     - name: 建立函式 - JavaScript
       href: functions-create-first-function-vs-code.md
@@ -27,6 +27,8 @@
       items:
         - name: '儲存體 - C#'
           href: functions-add-output-binding-storage-queue-vs.md
+        - name: 儲存體 - Java
+          href: functions-add-output-binding-storage-queue-java.md
         - name: 儲存體 - JavaScript
           href: functions-add-output-binding-storage-queue-vs-code.md
         - name: 儲存體 - Python

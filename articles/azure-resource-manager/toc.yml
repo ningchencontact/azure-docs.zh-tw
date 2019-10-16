@@ -228,7 +228,9 @@
           href: resource-group-delete.md
         - name: 鎖定資源
           href: resource-group-lock-resources.md
-        - name: 建立 EA 訂用帳戶
+        - name: 驗證 API 以存取訂用帳戶
+          href: resource-manager-api-authentication.md
+        - name: 建立其他訂用帳戶
           href: programmatically-create-subscription.md
         - name: 授與存取權以建立 EA 訂用帳戶
           href: grant-access-to-create-subscription.md
