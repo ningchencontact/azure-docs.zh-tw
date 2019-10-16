@@ -53,7 +53,7 @@ ClientSecret => Azure AD Application Service Principal password
 Subdomain    => Immersive Reader resource subdomain (resource 'Name' if the resource was created in the Azure portal, or 'CustomSubDomain' option if the resource was created with Azure CLI Powershell. Check the Azure portal for the subdomain on the Endpoint in the resource Overview page, for example, 'https://[SUBDOMAIN].cognitiveservices.azure.com/')
 ````
 
-擁有這些值之後，請建立名為 _.env_ 的新檔案，然後將下列程式碼貼入其中，並提供上述的自訂屬性值。 將範例應用程式中的 _.env_。 檔案取代為新建立的檔案。
+擁有這些值之後，請建立名為 _.env_ 的新檔案，然後將下列程式碼貼入其中，並提供上述的自訂屬性值。 將範例應用程式中的 _.env_ 檔案取代為新建立的檔案。
 
 ```text
 TENANT_ID={YOUR_TENANT_ID}
@@ -224,7 +224,7 @@ sudo nano /etc/paths
 
 - 在系統提示時輸入您的密碼。
 - 將 pip 的安裝路徑新增至 PATH 變數。
-- 移至檔案底部，然後輸入要新增為清單中最後一個項目的路徑，例如 `PATH=$PATH:/usr/local/bin`。
+- 移至檔案底部，然後在清單的最後輸入要新增的路徑，例如 `PATH=$PATH:/usr/local/bin`。
 - 點擊 control-x 結束作業。
 - 輸入 `Y` 以儲存修改過的緩衝區。
 - 就這麼簡單！ 若要加以測試，請在新的終端機視窗中輸入︰`echo $PATH`。
