@@ -1774,7 +1774,7 @@ Hive 的錯誤訊息通常會回報在錯誤記錄檔中, 讓您可以根據特�
 ## <a name="error-0126"></a>錯誤0126  
  如果使用者指定的 SQL 網域在 Azure ML 中不受支援, 就會發生例外狀況。  
   
- 當使用者指定 Azure Machine Learning 中不支援的 SQL 網域時, 就會產生此錯誤。 如果您嘗試連接到未列入白名單的網域中的資料庫伺服器, 就會收到這個錯誤。 目前允許的 SQL 網域為: ". database.windows.net"、"cloudapp.net" 或 "database.secure.windows.net"。 也就是, 伺服器必須是 Azure SQL 伺服器或 Azure 上虛擬機器中的伺服器。  
+ 當使用者指定 Azure Machine Learning 中不支援的 SQL 網域時, 就會產生此錯誤。 如果您嘗試連接到未列入允許清單的網域中的資料庫伺服器, 就會收到這個錯誤。 目前允許的 SQL 網域為: ". database.windows.net"、"cloudapp.net" 或 "database.secure.windows.net"。 也就是, 伺服器必須是 Azure SQL 伺服器或 Azure 上虛擬機器中的伺服器。  
   
 **解決方案：** 重新流覽模組。 確認 SQL 資料庫伺服器屬於其中一個已接受的網域:  
   

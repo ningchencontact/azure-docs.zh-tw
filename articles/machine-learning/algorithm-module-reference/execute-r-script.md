@@ -292,7 +292,7 @@ azureml_main <- function(dataframe1, dataframe2){
 | fansi        | 0.4.0      | 
 | forcats      | 0.3.0      | 
 | foreach      | 1.4.4      | 
-| 國家      | 0.8-71     | 
+| 國家/地區      | 0.8-71     | 
 | fs           | 1.3.1      | 
 | gdata        | 2.18.0     | 
 | 泛型     | 0.0.2      | 

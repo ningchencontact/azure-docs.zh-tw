@@ -111,7 +111,9 @@
   items:
     - name: 時間序列深入解析
       items:
-        - name: Azure 時間序列深入解析 GA
+        - name: Azure Time Series Insights
+          href: /rest/api/time-series-insights/index
+        - name: 資料存取 GA
           href: /rest/api/time-series-insights/ga
           items:
             - name: 查詢
@@ -123,17 +125,8 @@
                   href: /rest/api/time-series-insights/ga-query-syntax
             - name: 參考資料 API
               href: /rest/api/time-series-insights/ga-reference-data-api
-        - name: Azure 時間序列深入解析預覽
+        - name: 資料存取概念預覽
           href: /rest/api/time-series-insights/preview
-          items:
-            - name: 時間序列查詢
-              href: /rest/api/time-series-insights/preview-query
-            - name: 時間序列模型
-              href: /rest/api/time-series-insights/preview-model
-            - name: 時間序列環境 API
-              href: /rest/api/time-series-insights/preview-env
-            - name: 時間序列運算式和語法
-              href: /rest/api/time-series-insights/preview-tsx
     - name: 用戶端 SDK
       items:
         - name: JavaScript 用戶端 SDK

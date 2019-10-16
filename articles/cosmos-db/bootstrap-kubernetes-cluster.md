@@ -33,7 +33,7 @@ Azure Cosmos DB 中的 etcd API 可讓您使用 Azure Cosmos DB 作為 Azure Kub
 
    Azure Kubernetes 引擎 (**aks-engine**) 會針對 Azure 上的 Kubernetes 叢集產生 Azure Resource Manager 範本。 aks-engine 的輸入是叢集定義檔，其中描述所需的叢集，包括協調器、功能和代理程式。 輸入檔案的結構類似於 Azure Kubernetes Service 的公用 API。
 
-1. Azure Cosmos DB 中的 etcd API 目前為預覽狀態。 若要使用預覽版本，請在此註冊： https://aka.ms/cosmosetcdapi-signup 。 提交表單之後，您的訂用帳戶會列入使用 Azure Cosmos etcd API 的白名單。 
+1. Azure Cosmos DB 中的 etcd API 目前為預覽狀態。 若要使用預覽版本，請在此註冊： https://aka.ms/cosmosetcdapi-signup 。 提交表單之後，您的訂用帳戶會列入使用 Azure Cosmos etcd API 的允許清單。 
 
 ## <a name="deploy-the-cluster-with-azure-cosmos-db"></a>使用 Azure Cosmos DB 部署叢集
 
@@ -43,7 +43,7 @@ Azure Cosmos DB 中的 etcd API 可讓您使用 Azure Cosmos DB 作為 Azure Kub
    az login 
    ```
 
-1. 如果您有多個訂用帳戶，請切換至已列入 Azure Cosmos DB etcd API 白名單的訂用帳戶。 您可以使用下列命令切換至所需的訂用帳戶：
+1. 如果您有多個訂用帳戶，請切換至已列入 Azure Cosmos DB etcd API 允許清單的訂用帳戶。 您可以使用下列命令切換至所需的訂用帳戶：
 
    ```azurecli-interactive
    az account set --subscription "<Name of your subscription>"
