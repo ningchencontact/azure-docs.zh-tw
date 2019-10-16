@@ -73,6 +73,8 @@
           items:
             - name: 防火牆規則
               href: ../sql-database/sql-database-firewall-configure.md?toc=/azure/sql-data-warehouse/toc.json&bc=/azure/sql-data-warehouse/breadcrumb/toc.json
+            - name: 私人連結
+              href: ../sql-database/sql-database-private-endpoint-overview.md?toc=/azure/sql-data-warehouse/toc.json&bc=/azure/sql-data-warehouse/breadcrumb/toc.json
             - name: 虛擬網路服務端點
               href: ../sql-database/sql-database-vnet-service-endpoint-rule-overview.md?toc=/azure/sql-data-warehouse/toc.json&bc=/azure/sql-data-warehouse/breadcrumb/toc.json
         - name: Authentication
@@ -95,6 +97,8 @@
               href: /sql/relational-databases/security/row-level-security?toc=/azure/sql-data-warehouse/toc.json&bc=/azure/sql-data-warehouse/breadcrumb/toc.json
         - name: 資料保護
           items:
+            - name: 動態資料遮罩
+              href: ../sql-database/sql-database-dynamic-data-masking-get-started.md?toc=/azure/sql-data-warehouse/toc.json&bc=/azure/sql-data-warehouse/breadcrumb/toc.json
             - name: 透明資料加密 (TDE) 概觀
               href: ../sql-database/transparent-data-encryption-azure-sql.md?toc=/azure/sql-data-warehouse/toc.json&bc=/azure/sql-data-warehouse/breadcrumb/toc.json
             - name: 具有 BYOK 的 TDE
@@ -116,49 +120,49 @@
         - name: JSON
           items:
             - name: JSON
-              href: /sql/t-sql/functions/json-functions-transact-sql?view=azure-sqldw-latest
+              href: /sql/t-sql/functions/json-functions-transact-sql?toc=/azure/sql-data-warehouse/toc.json&bc=/azure/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest
             - name: ISJSON
-              href: /sql/t-sql/functions/isjson-transact-sql?view=azure-sqldw-latest
+              href: /sql/t-sql/functions/isjson-transact-sql?toc=/azure/sql-data-warehouse/toc.json&bc=/azure/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest
             - name: JSON_VALUE
-              href: /sql/t-sql/functions/json-value-transact-sql?view=azure-sqldw-latest
+              href: /sql/t-sql/functions/json-value-transact-sql?toc=/azure/sql-data-warehouse/toc.json&bc=/azure/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest
             - name: JSON_QUERY
-              href: /sql/t-sql/functions/json-query-transact-sql?view=azure-sqldw-latest
+              href: /sql/t-sql/functions/json-query-transact-sql?toc=/azure/sql-data-warehouse/toc.json&bc=/azure/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest
             - name: JSON_MODIFY
-              href: /sql/t-sql/functions/json-modify-transact-sql?view=azure-sqldw-latest
+              href: /sql/t-sql/functions/json-modify-transact-sql?toc=/azure/sql-data-warehouse/toc.json&bc=/azure/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest
             - name: OPENJSON
-              href: /sql/t-sql/functions/openjson-transact-sql?view=azure-sqldw-latest
+              href: /sql/t-sql/functions/openjson-transact-sql?toc=/azure/sql-data-warehouse/toc.json&bc=/azure/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest
         - name: 具體化檢視
           items:
             - name: 效能微調指導方針
               href: performance-tuning-materialized-views.md
             - name: 建立
-              href: /sql/t-sql/statements/create-materialized-view-as-select-transact-sql
+              href: /sql/t-sql/statements/create-materialized-view-as-select-transact-sql?toc=/azure/sql-data-warehouse/toc.json&bc=/azure/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest
             - name: 變更
-              href: /sql/t-sql/statements/alter-materialized-view-transact-sql
+              href: /sql/t-sql/statements/alter-materialized-view-transact-sql?toc=/azure/sql-data-warehouse/toc.json&bc=/azure/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest
             - name: 檢查檢視負荷
-              href: 'https://docs.microsoft.com/en-us/sql/t-sql/database-console-commands/dbcc-pdw-showmaterializedviewoverhead-transact-sql?view=azure-sqldw-latest'
+              href: /sql/t-sql/database-console-commands/dbcc-pdw-showmaterializedviewoverhead-transact-sql?toc=/azure/sql-data-warehouse/toc.json&bc=/azure/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest
         - name: 已排序的叢集資料行存放區索引
           items:
             - name: 效能微調指導方針
               href: performance-tuning-ordered-CCI.md
             - name: 建立資料表
-              href: 'https://docs.microsoft.com/en-us/sql/t-sql/statements/create-table-azure-sql-data-warehouse?view=aps-pdw-2016-au7'
+              href: /sql/t-sql/statements/create-table-azure-sql-data-warehouse?toc=/azure/sql-data-warehouse/toc.json&bc=/azure/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest
             - name: CTAS
-              href: 'https://docs.microsoft.com/en-us/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?view=aps-pdw-2016-au7'
+              href: /sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?toc=/azure/sql-data-warehouse/toc.json&bc=/azure/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest
             - name: 建立和變更索引
-              href: 'https://docs.microsoft.com/en-us/sql/t-sql/statements/create-index-transact-sql?view=sql-server-2017#examples--and-'
+              href: '/sql/t-sql/statements/create-index-transact-sql?toc=/azure/sql-data-warehouse/toc.json&bc=/azure/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest#examples--and-'
         - name: 結果集設定快取
           items:
-            - name: 概觀
-              href: sql-data-warehouse-result-set-caching-overview.md
+            - name: 效能微調指導方針
+              href: performance-tuning-result-set-caching.md
             - name: 設定資料庫
-              href: 'https://docs.microsoft.com/en-us/sql/t-sql/statements/alter-database-transact-sql-set-options?view=azure-sqldw-latest'
+              href: /sql/t-sql/statements/alter-database-transact-sql-set-options?toc=/azure/sql-data-warehouse/toc.json&bc=/azure/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest
             - name: 設定工作階段
-              href: /sql/t-sql/statements/set-result-set-caching-transact-sql
+              href: /sql/t-sql/statements/set-result-set-caching-transact-sql?toc=/azure/sql-data-warehouse/toc.json&bc=/azure/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest
             - name: 檢查快取大小
-              href: 'https://docs.microsoft.com/en-us/sql/t-sql/database-console-commands/dbcc-showresultcachespaceused-transact-sql?view=azure-sqldw-latest'
+              href: /sql/t-sql/database-console-commands/dbcc-showresultcachespaceused-transact-sql?toc=/azure/sql-data-warehouse/toc.json&bc=/azure/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest
             - name: 清除快取
-              href: 'https://docs.microsoft.com/en-us/sql/t-sql/database-console-commands/dbcc-dropresultsetcache-transact-sql?view=azure-sqldw-latest'
+              href: /sql/t-sql/database-console-commands/dbcc-dropresultsetcache-transact-sql?toc=/azure/sql-data-warehouse/toc.json&bc=/azure/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest
         - name: 資料表
           items:
             - name: 概觀
@@ -232,13 +236,7 @@
         - name: 疑難排解
           href: sql-data-warehouse-troubleshoot.md
     - name: 維護排程
-      items:
-        - name: 概觀
-          href: maintenance-scheduling.md
-        - name: 檢視維護排程
-          href: viewing-maintenance-schedule.md
-        - name: 變更維護排程
-          href: changing-maintenance-schedule.md
+      href: maintenance-scheduling.md
     - name: 整合
       items:
         - name: 概觀
@@ -352,7 +350,7 @@
     - name: T-SQL
       items:
         - name: 完整參考
-          href: /sql/t-sql/language-reference?toc=/azure/sql-data-warehouse/toc.json&bc=/azure/sql-data-warehouse/breadcrumb/toc.json
+          href: /sql/t-sql/language-reference?toc=/azure/sql-data-warehouse/toc.json&bc=/azure/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest
         - name: SQL DW 語言元素
           href: sql-data-warehouse-reference-tsql-language-elements.md
         - name: SQL DW 陳述式

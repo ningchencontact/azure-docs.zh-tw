@@ -195,8 +195,6 @@
       href: ../azure-resource-manager/resource-group-move-resources.md?toc=/azure/billing/TOC.json
     - name: 建立其他訂用帳戶
       href: billing-create-subscription.md
-    - name: 建立額外的訂用帳戶 - Microsoft 客戶合約
-      href: billing-mca-create-subscription.md
     - name: 以程式設計方式建立 Enterprise 訂用帳戶
       href: ../azure-resource-manager/programmatically-create-subscription.md?toc=/azure/billing/TOC.json
     - name: 匯出訂用帳戶資訊

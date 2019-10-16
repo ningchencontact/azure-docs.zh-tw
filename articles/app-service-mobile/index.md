@@ -9,18 +9,19 @@ ms.service: app-service-mobile
 ms.topic: landing-page
 ms.date: 05/25/2018
 ms.author: gwallace
-ms.openlocfilehash: 38b1acad5e8eb869d1ed2a8d218a2416bd3b8098
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.openlocfilehash: a43ef0a527b8533940023b6457f9b0a5a4b22e79
+ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72024747"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72388318"
 ---
 # <a name="mobile-apps-documentation"></a>Mobile Apps 文件
 
 > [!NOTE]
 > Visual Studio App Center 支援使用端對端及整合服務中心來開發行動應用程式。 開發人員可以使用**建置**、**測試**和**散發**服務來設定持續整合及傳遞管線。 部署應用程式之後，開發人員可以使用**分析**和**診斷**服務來監視其應用程式的狀態和使用情況，並使用**推送**服務與使用者互動。 開發人員也可以利用**驗證**來驗證其使用者，並使用**資料**來保存及同步雲端中的應用程式資料。
-> 如果您想要在行動應用程式中整合雲端服務，請立即註冊 [App Center](https://appcenter.ms/signup?utm_source=zumo&utm_medium=Azure&utm_campaign=zumo%20doc)。
+>
+> 如果您想要在行動應用程式中整合雲端服務，請立即註冊 [App Center](https://appcenter.ms/signup?utm_source=zumo&utm_medium=Azure&utm_campaign=zumo%20doc) \(英文\)。
 
 了解如何使用 Azure App Service 中的 Mobile Apps，透過 Xamarin 或 Cordova 建置原生 iOS、Android 或 Windows 應用程式，或是跨平台的應用程式。 教學課程、影片、用戶端 SDK 文件等會示範如何為任何行動應用程式建置及裝載後端。
 
