@@ -9,11 +9,11 @@ ms.topic: article
 ms.service: security
 ms.subservice: security-fundamentals
 ms.workload: identity
-ms.openlocfilehash: ba9cda5aeebaf0764068a463cdb55f3ef5542ea3
-ms.sourcegitcommit: 4b8a69b920ade815d095236c16175124a6a34996
+ms.openlocfilehash: 22a5a2e157c0b2095673e75e7a3bc9ccb80f8ffd
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/23/2019
+ms.lasthandoff: 10/15/2019
 ms.locfileid: "69997808"
 ---
 # <a name="choose-the-right-authentication-method-for-your-azure-active-directory-hybrid-identity-solution"></a>針對 Azure Active Directory 混合式身分識別解決方案選擇正確的驗證方法 
@@ -49,7 +49,7 @@ Azure AD 針對混合式身分識別解決方案支援下列驗證方法。
 ### <a name="cloud-authentication"></a>雲端驗證
 當您選擇此驗證方法時，Azure AD 會處理使用者的登入程序。 搭配無縫單一登入 (SSO)，使用者不必重新輸入認證，就能登入雲端應用程式。 若使用雲端驗證，有兩個選項可供您選擇： 
 
-**Azure AD 密碼雜湊同步處理**。 這是在 Azure AD 中啟用內部部署目錄物件驗證的最簡單方式。 使用者可以使用他們在內部部署中所使用的相同使用者名稱和密碼，而不需部署任何其他基礎結構。 無論您選擇哪一種驗證方法, Azure AD 的一些高階功能 (例如身分識別保護和[Azure AD Domain Services](../../active-directory-domain-services/active-directory-ds-getting-started-password-sync.md)) 都需要密碼雜湊同步處理。
+**Azure AD 密碼雜湊同步處理**。 這是在 Azure AD 中啟用內部部署目錄物件驗證的最簡單方式。 使用者可以使用他們在內部部署中所使用的相同使用者名稱和密碼，而不需部署任何其他基礎結構。 無論您選擇哪一種驗證方法，Azure AD 的一些高階功能（例如身分識別保護和[Azure AD Domain Services](../../active-directory-domain-services/active-directory-ds-getting-started-password-sync.md)）都需要密碼雜湊同步處理。
 
 > [!NOTE] 
 > 密碼永遠都不會以純文字儲存，或在 Azure AD 中使用可回復的演算法進行加密。 如需密碼雜湊同步處理實際程序的詳細資訊，請參閱[使用 Azure AD Connect 同步來實作密碼雜湊同步處理](../../active-directory/hybrid/how-to-connect-password-hash-synchronization.md)。 
@@ -66,9 +66,6 @@ Azure AD 針對混合式身分識別解決方案支援下列驗證方法。
 下一節將使用決策樹，協助您判斷何種驗證方法最適合您。 它會協助您針對 Azure AD 混合式身分識別解決方案部署雲端，判斷要部署雲端還是同盟驗證。
 
 ## <a name="decision-tree"></a>決策樹
-
-> [!NOTE]
-> 當 UserPrincipalName 選擇為替代識別碼時, PTA 只適用于替代識別碼。 只有, 才會將內部部署 UserPrincipalName 從 AD 同步處理到 AAD。 如需詳細資訊, 請參閱[傳遞驗證是否支援「替代識別碼」做為使用者名稱, 而不是 "userPrincipalName"？](https://docs.microsoft.com/en-us/azure/active-directory/hybrid/how-to-connect-pta-faq#does-pass-through-authentication-support-alternate-id-as-the-username-instead-of-userprincipalname)。
 
 ![Azure AD 驗證決策樹](./media/choose-ad-authn/azure-ad-authn-image1.png)
 
@@ -95,9 +92,9 @@ Azure AD 針對混合式身分識別解決方案支援下列驗證方法。
 
 * **使用者體驗**。 若要改善使用者的登入體驗，請部署具有密碼雜湊同步處理的無縫 SSO。 當使用者登入時，無縫 SSO 會排除不必要的提示。
 
-* **進階案例**。 如果組織選擇此選項，就能透過 Azure AD Premium P2，搭配 Azure AD Identity Protection 報表來使用身分識別的見解。 例如認證外洩的報表。 [當您使用密碼雜湊同步處理時,](https://docs.microsoft.com/windows/access-protection/hello-for-business/hello-identity-verification)Windows Hello 企業版具有特定的需求。 [Azure AD Domain Services](../../active-directory-domain-services/active-directory-ds-getting-started-password-sync.md)需要密碼雜湊同步處理, 才能在受控網域中使用其公司認證來布建使用者。
+* **進階案例**。 如果組織選擇此選項，就能透過 Azure AD Premium P2，搭配 Azure AD Identity Protection 報表來使用身分識別的見解。 例如認證外洩的報表。 [當您使用密碼雜湊同步處理時，](https://docs.microsoft.com/windows/access-protection/hello-for-business/hello-identity-verification)Windows Hello 企業版具有特定的需求。 [Azure AD Domain Services](../../active-directory-domain-services/active-directory-ds-getting-started-password-sync.md)需要密碼雜湊同步處理，才能在受控網域中使用其公司認證來布建使用者。
 
-    需要多重要素驗證與密碼雜湊同步處理的組織, 必須使用 Azure AD 多重要素驗證或[條件式存取自訂控制項](../../active-directory/conditional-access/controls.md#custom-controls-preview)。 這些組織無法使用依賴同盟的協力廠商或內部部署多重要素驗證方法。
+    需要多重要素驗證與密碼雜湊同步處理的組織，必須使用 Azure AD 多重要素驗證或[條件式存取自訂控制項](../../active-directory/conditional-access/controls.md#custom-controls-preview)。 這些組織無法使用依賴同盟的協力廠商或內部部署多重要素驗證方法。
 
 > [!NOTE]
 > Azure AD 條件式存取需要[Azure AD Premium P1](https://azure.microsoft.com/pricing/details/active-directory/)授權。
@@ -107,7 +104,7 @@ Azure AD 針對混合式身分識別解決方案支援下列驗證方法。
 * **考量**。 目前密碼雜湊同步處理不會立即強制執行內部部署帳戶狀態中的變更。 在此情況下，使用者可以存取雲端應用程式，直到使用者帳戶狀態同步到 Azure AD 為止。 組織可能想要克服這項限制，可以在系統管理員對內部部署使用者帳戶狀態執行大量更新之後，執行新的同步處理循環。 例如停用帳戶。
 
 > [!NOTE]
-> 目前系統不會使用 Azure AD Connect，將密碼過期和帳戶鎖定狀態同步到 Azure AD。 當您變更使用者的密碼, 並設定 [*使用者必須在下次登入時變更密碼]* 旗標時, 密碼雜湊不會同步到具有 Azure AD Connect 的 Azure AD, 直到使用者變更其密碼為止。
+> 目前系統不會使用 Azure AD Connect，將密碼過期和帳戶鎖定狀態同步到 Azure AD。 當您變更使用者的密碼，並設定 [*使用者必須在下次登入時變更密碼]* 旗標時，密碼雜湊不會同步到具有 Azure AD Connect 的 Azure AD，直到使用者變更其密碼為止。
 
 如需部署步驟，請參閱[實作密碼雜湊同步處理](../../active-directory/hybrid/how-to-connect-password-hash-synchronization.md)。
 
@@ -121,7 +118,7 @@ Azure AD 針對混合式身分識別解決方案支援下列驗證方法。
 
 * **進階案例**。 傳遞驗證會在登入時強制執行內部部署帳戶原則。 例如，當內部部署使用者帳戶狀態為停用、遭到鎖定、[密碼過期](../../active-directory/hybrid/how-to-connect-pta-faq.md#what-happens-if-my-users-password-has-expired-and-they-try-to-sign-in-by-using-pass-through-authentication)或是在允許使用者登入的時間之外登入時，系統會拒絕您的存取。 
 
-    需要多重要素驗證與傳遞驗證的組織, 必須使用 Azure 多重要素驗證 (MFA) 或[條件式存取自訂控制項](../../active-directory/conditional-access/controls.md#custom-controls-preview)。 這些組織無法使用依賴同盟的協力廠商或內部部署多重要素驗證方法。 無論您是否選擇了傳遞驗證，都需要部署密碼雜湊同步處理，才能使用進階功能。 例如 Identity Protection 的認證外洩報表。
+    需要多重要素驗證與傳遞驗證的組織，必須使用 Azure 多重要素驗證（MFA）或[條件式存取自訂控制項](../../active-directory/conditional-access/controls.md#custom-controls-preview)。 這些組織無法使用依賴同盟的協力廠商或內部部署多重要素驗證方法。 無論您是否選擇了傳遞驗證，都需要部署密碼雜湊同步處理，才能使用進階功能。 例如 Identity Protection 的認證外洩報表。
 
 * **商務持續性**。 我們建議您部署兩個額外的傳遞驗證代理程式。 它們是 Azure AD Connect 伺服器上第一個代理程式以外的額外項目。 這種額外部署可確保驗證要求的高可用性。 當您部署三個代理程式時，其中一個代理程式仍可在另一個代理程式關閉以進行維護時失敗。 
 
@@ -167,7 +164,7 @@ Azure AD 針對混合式身分識別解決方案支援下列驗證方法。
 
     ![Azure AD 混合式身分識別與密碼雜湊同步處理](./media/choose-ad-authn/azure-ad-authn-image2.png)
 
-* 傳遞驗證的代理程式需求, 使用兩個代理程式來進行冗余:
+* 傳遞驗證的代理程式需求，使用兩個代理程式來進行冗余：
 
     ![Azure AD 混合式身分識別與傳遞驗證](./media/choose-ad-authn/azure-ad-authn-image3.png)
 
@@ -210,7 +207,7 @@ Azure AD 針對混合式身分識別解決方案支援下列驗證方法。
 
    * 先前開啟密碼雜湊同步處理的組織，會將其驗證方法變更為使用密碼雜湊同步處理。 這些組織只花了幾個小時就回到線上。 他們透過使用 Office 365 來存取電子郵件，不但解決了問題，還能存取其他雲端型工作負載。
 
-   * 先前未啟用密碼雜湊同步處理的組織, 必須利用不受信任的外部取用者電子郵件系統進行通訊, 以解決問題。 在這些情況下, 需要幾周的時間才能還原其內部部署身分識別基礎結構, 使用者才能夠再次登入雲端應用程式。
+   * 先前未啟用密碼雜湊同步處理的組織，必須利用不受信任的外部取用者電子郵件系統進行通訊，以解決問題。 在這些情況下，需要幾周的時間才能還原其內部部署身分識別基礎結構，使用者才能夠再次登入雲端應用程式。
 
 3. **身分識別保護**。 保護雲端使用者的最佳方式之一是使用 Azure AD Premium P2 進行 Azure AD Identity Protection。 Microsoft 會針對使用者和密碼清單持續掃描網際網路，以防範有心人士在暗網上進行銷售和提供。 Azure AD 可以使用此資訊來驗證組織內的任何使用者名稱和密碼是否遭到洩漏。 因此，無論您使用的是何種驗證方法 (同盟或傳遞驗證)，請務必啟用密碼雜湊同步處理。 系統會以報表方式呈現認證外洩。 請使用此資訊，在使用者嘗試使用外洩的密碼登入時，封鎖或強制使用者變更其密碼。
 

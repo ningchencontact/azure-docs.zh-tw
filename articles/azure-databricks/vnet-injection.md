@@ -1,6 +1,6 @@
 ---
 title: 在虛擬網路中部署 Azure Databricks
-description: 本文說明如何將 Azure Databricks 部署至您的虛擬網路，也稱為 VNet 插入。
+description: 本文說明如何將 Azure Databricks 部署至您的虛擬網路，也稱為 VNet Injection。
 services: azure-databricks
 author: mamccrea
 ms.author: mamccrea
@@ -17,7 +17,7 @@ ms.locfileid: "72263461"
 ---
 # <a name="deploy-azure-databricks-in-your-virtual-network"></a>在虛擬網路中部署 Azure Databricks
 
-Azure Databricks 的預設部署是 Azure 上完全受控的服務：所有資料平面資源（包括虛擬網路（VNet））都會部署至已鎖定的資源群組。 不過，如果您需要網路自訂，則可以在您自己的虛擬網路（也稱為 VNet 插入）中部署 Azure Databricks 資源，以讓您：
+Azure Databricks 的預設部署是 Azure 上完全受控的服務：所有資料平面資源 (包括虛擬網路 (VNet)) 都會部署至已鎖定的資源群組。 不過，如果您需要網路自訂，則可以在自己的虛擬網路 (也稱為 VNet Inection) 中部署 Azure Databricks 資源，以讓您：
 
 * 使用服務端點，以更安全的方式將 Azure Databricks 連接到其他 Azure 服務（例如 Azure 儲存體）。
 * 連接到內部部署資料來源以與 Azure Databricks 搭配使用，利用使用者定義的路由。
@@ -95,25 +95,25 @@ Azure Databricks 的預設部署是 Azure 上完全受控的服務：所有資�
 
 ### <a name="all-in-one"></a>全部在一
 
-若要建立虛擬網路、網路安全性群組和 Azure Databricks 的工作區，請使用[全功能範本來 Databricks VNet 插入的工作區](https://azure.microsoft.com/resources/templates/101-databricks-all-in-one-template-for-vnet-injection/)。
+若要建立虛擬網路、網路安全性群組和 Azure Databricks 的工作區，請使用[適用於 Databricks VNet Injection 的工作區範本](https://azure.microsoft.com/resources/templates/101-databricks-all-in-one-template-for-vnet-injection/)。
 
 當您使用此範本時，您不需要執行任何手動允許清單的子網路流量。
 
 ### <a name="network-security-groups"></a>網路安全性群組
 
-若要使用現有虛擬網路的必要規則來建立網路安全性群組，請使用「[網路安全性群組」範本來進行 Databricks VNet 插入](https://azure.microsoft.com/resources/templates/101-databricks-nsg-for-vnet-injection)。
+若要使用現有虛擬網路的必要規則來建立網路安全性群組，請使用[適用於 Databricks VNet Injection 的網路全性群組範本](https://azure.microsoft.com/resources/templates/101-databricks-nsg-for-vnet-injection)。
 
 當您使用此範本時，您不需要執行任何手動允許清單的子網路流量。
 
 ### <a name="virtual-network"></a>虛擬網路
 
-若要建立具有適當公用和私人子網的虛擬網路，請使用[虛擬網路範本來進行 Databricks VNet 插入](https://azure.microsoft.com/resources/templates/101-databricks-vnet-for-vnet-injection)。
+若要建立具有適當公用和私人子網路的虛擬網路，請使用 [虛擬網路範本來進行 Databricks VNet Injection](https://azure.microsoft.com/resources/templates/101-databricks-vnet-for-vnet-injection)。
 
 如果您不使用 [網路安全性群組] 範本也使用此範本，則必須手動將允許清單規則新增至您用於虛擬網路的網路安全性群組。
 
 ### <a name="azure-databricks-workspace"></a>Azure Databricks 工作區
 
-若要將 Azure Databricks 工作區部署到具有公用和私人子網的現有虛擬網路，以及已設定的正確設定網路安全性群組，請使用[Databricks VNet 插入的工作區範本](https://azure.microsoft.com/resources/templates/101-databricks-workspace-with-vnet-injection)。
+若要將 Azure Databricks 工作區部署到具有公用和私人子網路的現有虛擬網路，以及已設定的正確設定網路安全性群組，請使用 [Databricks VNet Injection的工作區範本](https://azure.microsoft.com/resources/templates/101-databricks-workspace-with-vnet-injection)。
 
 如果您不使用 [網路安全性群組] 範本也使用此範本，則必須手動將允許清單規則新增至您用於虛擬網路的網路安全性群組。
 
