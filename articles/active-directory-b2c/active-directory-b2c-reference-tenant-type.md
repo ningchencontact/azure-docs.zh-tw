@@ -1,5 +1,5 @@
 ---
-title: Azure Active Directory B2C 中的區域可用性和資料落地 | Microsoft Docs
+title: 區域可用性 & Azure Active Directory B2C 中的資料常駐
 description: 有關 Azure Active Directory B2C 租用戶類型的主題。
 services: active-directory-b2c
 author: mmacy
@@ -7,55 +7,64 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 04/10/2017
+ms.date: 09/26/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 30f13a3b85e68babcaef62b9200a296105b3ce83
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 0bb7a7ef2aabd7f93531d9afa662d7e582e05550
+ms.sourcegitcommit: a6718e2b0251b50f1228b1e13a42bb65e7bf7ee2
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66508995"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71273572"
 ---
 # <a name="azure-active-directory-b2c-region-availability--data-residency"></a>Azure Active Directory B2C：區域可用性與資料落地
-區域可用性和資料存留處是兩個非常不同的概念，這些概念套用到 Azure AD B2C 的方式與套用到其餘 Azure 的方式不同。 本文將說明這兩個概念之間的差異，並比較它們如何套用在 Azure 與 Azure AD B2C。
 
-## <a name="summary"></a>總結
-Azure AD B2C 是**在全球正式運作**，具有**資料存留處在美國或歐洲**的選項。
+區域可用性和資料存留處是兩個非常不同的概念，這些概念套用到 Azure AD B2C 的方式與套用到其餘 Azure 的方式不同。 本文說明這兩個概念之間的差異，並比較它們如何套用至 Azure 與 Azure AD B2C。
 
-## <a name="concepts"></a>概念
-* 「區域可用性」  係指一項服務是否可供使用。
-* 「資料存留處」  係指使用者資料的儲存位置。
+Azure AD B2C 在**全球各地**都有提供，其中包含適用于**美國、歐洲或亞太地區**的**資料常駐**選項。
+
+[「區域可用性」](#region-availability)係指一項服務是否可供使用。
+
+[「資料存留處」](#data-residency)係指使用者資料的儲存位置。
 
 ## <a name="region-availability"></a>區域可用性
-Azure AD B2C 是透過 Azure 公用雲端在全球提供使用。 
 
-這與大多數其他 Azure 服務所依循的模型不同，該模型是將可用性與資料存留處結合。 您可以在 Azure 的[依區域提供的產品](https://azure.microsoft.com/regions/services/)頁面和 [Azure Active Directory B2C 定價計算機](https://azure.microsoft.com/pricing/details/active-directory-b2c/)中看到這個的相關範例。
+Azure AD B2C 是透過 Azure 公用雲端在全球提供使用。
+
+這不同于模型後面的其他大部分 Azure 服務，通常會有*資料*存留處的*可用性*。 您可以在 Azure 的[依區域提供的產品](https://azure.microsoft.com/regions/services/)頁面和 [Azure Active Directory B2C 定價計算機](https://azure.microsoft.com/pricing/details/active-directory-b2c/)中看到這個的相關範例。
 
 ## <a name="data-residency"></a>資料存留處
-Azure AD B2C 會將使用者資料儲存在美國或歐洲。
 
-資料存留處是根據[建立 Azure AD B2C 租用戶](active-directory-b2c-get-started.md)時所選取的國家/地區來決定。
+Azure AD B2C 會將使用者資料儲存在美國、歐洲或亞太地區地區。
 
-![預覽租用戶的螢幕擷取畫面](./media/active-directory-b2c-reference-tenant-type/data-residency-b2c-tenant.png)
+資料常駐取決於您在[建立 Azure AD B2C 租](active-directory-b2c-get-started.md)使用者時選取的國家/地區：
 
-針對下列國家/地區，資料會位於美國：
+![預覽租使用者的螢幕擷取畫面](./media/active-directory-b2c-reference-tenant-type/data-residency-b2c-tenant.png)
+
+下列國家/地區的資料位於**美國**：
 
 > 美國、加拿大、哥斯大黎加、多明尼加共和國、薩爾瓦多、瓜地馬拉、墨西哥、巴拿馬、波多黎各和千里達及托巴哥
 
-針對下列國家/地區，資料會位於歐洲：
+下列國家/地區的資料位於**歐洲**：
 
-> 阿爾及利亞、 奧地利、 亞塞拜然、 巴林、 白俄羅斯、 比利時、 保加利亞、 克羅埃西亞、 賽普勒斯、 捷克共和國、 丹麥、 埃及、 愛沙尼亞、 芬蘭、 法國、 德國、 希臘、 匈牙利、 冰島、 愛爾蘭、 以色列、 義大利、 約旦、 哈薩克、 肯亞、 科威特、 Lativa，黎巴嫩，列支敦斯登、 立陶宛、 盧森堡、 北歐馬其頓、 馬爾他、 蒙特內哥羅、 摩洛哥、 荷蘭、 奈及利亞、 挪威、 阿曼、 巴基斯坦、 波蘭、 葡萄牙、 卡達、 羅馬尼亞、 俄羅斯、 沙烏地阿拉伯、 塞爾維亞、 斯洛伐克、 斯洛維尼亞、 南非、 西班牙、 瑞典瑞士、 突尼西亞、 土耳其、 烏克蘭、 阿拉伯聯合大公國和英國。
+> 阿爾及利亞、奧地利、亞塞拜然、巴林、白俄羅斯、比利時、保加利亞、克羅地亞、賽普勒斯、捷克共和國、丹麥、埃及、愛沙尼亞、芬蘭、法國、德國、希臘、匈牙利、冰島、愛爾蘭、以色列、義大利、約旦、哈薩克、肯雅、科威特、拉脫維亞、黎巴嫩、列支敦斯登，立陶宛，盧森堡，北馬其頓，馬爾他，黑山，摩洛哥，荷蘭，奈及利亞，挪威，阿曼，巴基斯坦，波蘭，葡萄牙，卡塔爾，，羅馬尼亞，俄羅斯，沙烏地阿拉伯，塞爾維亞，斯洛伐克，斯洛維尼亞，南非，西班牙，瑞典，瑞士、突尼斯、土耳其、烏克蘭、阿拉伯的酋長國和英國。
 
-其餘國家/地區正在新增到清單。  目前，您仍可透過挑選上述任何國家/地區來使用 Azure AD B2C。
+資料位於下列國家/地區的**亞太地區**：
 
-> 阿富汗、阿根廷、澳洲、巴西、智利、哥倫比亞、厄瓜多、香港特別行政區、印度、印尼、伊拉克、日本、南韓、馬來西亞、紐西蘭、巴拉圭、祕魯、菲律賓、新加坡、斯里蘭卡、台灣、泰國、烏拉圭和委內瑞拉。
+> 阿富汗、香港特別行政區、印度、印尼、日本、韓國、馬來西亞、菲律賓、新加坡、斯里蘭卡、臺灣和泰國。
+
+下列國家/地區正在新增至清單中。 目前，您仍可透過挑選上述任何國家/地區來使用 Azure AD B2C。
+
+> 阿根廷、澳大利亞、巴西、智利、哥倫比亞、厄瓜多爾、伊拉克、紐西蘭、巴拉圭、秘魯、烏拉圭和委內瑞拉。
 
 ## <a name="preview-tenant"></a>預覽租用戶
-如果您已在 Azure AD B2C 的預覽期間建立 B2C 租用戶，您的 [租用戶類型]  可能會顯示為 [預覽租用戶]  。 如果情況如此，您只能將租用戶用於開發和測試用途，而不能用於生產應用程式。
 
-> [!IMPORTANT]
-> 預覽 B2C 租用戶沒有任何途徑可以移轉到生產級別 B2C 租用戶。 請注意，當您刪除預覽 B2C 租用戶並使用相同的網域名稱重建生產級別 B2C 租用戶時，會發生已知的問題。 您必須使用不同的網域名稱建立生產級別 B2C 租用戶。
+如果您在 Azure AD B2c 預覽期間建立 B2C 租使用者，則您的**租使用者類型**可能會顯示為 [**預覽租**使用者]。
 
+如果是這種情況，您必須僅針對開發和測試目的使用您的租使用者。 請勿將預覽租使用者用於生產應用程式。
 
-![預覽租用戶的螢幕擷取畫面](./media/active-directory-b2c-reference-tenant-type/preview-b2c-tenant.png)
+沒有從預覽 B2C 租使用者到生產級別 B2C 租使用者的**遷移路徑**。 您必須為您的生產環境應用程式建立新的 B2C 租使用者。
+
+當您刪除預覽 B2C 租使用者，並使用相同的功能變數名稱建立生產級別 B2C 租使用者時，會發生已知的問題。 *您必須使用不同的功能變數名稱建立生產級別 B2C 租使用者*。
+
+![預覽租使用者的螢幕擷取畫面](./media/active-directory-b2c-reference-tenant-type/preview-b2c-tenant.png)

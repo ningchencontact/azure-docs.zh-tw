@@ -157,7 +157,7 @@ Success sending oms.syslog.authpriv.info x 1 in 0.91s
 
 ### <a name="probable-causes"></a>可能的原因
 * 上架期間指定的 Proxy 不正確
-* Azure 監視器和 Azure 自動化服務端點不在您的資料中心的白名單中 
+* Azure 監視器和 Azure 自動化服務端點不在您的資料中心的允許清單中 
 
 ### <a name="resolution"></a>解析度
 1. 使用下列命令搭配已啟用的選項`-v` ，以重新上架與適用于 Linux 的 Log Analytics 代理程式 Azure 監視器。 它可讓代理程式透過 proxy 連接到 Azure 監視器的詳細資訊輸出。 

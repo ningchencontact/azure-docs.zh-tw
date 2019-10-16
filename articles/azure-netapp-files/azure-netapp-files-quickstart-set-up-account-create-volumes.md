@@ -59,7 +59,7 @@ ms.locfileid: "71212210"
 
 本操作說明文章需要 Azure PowerShell 模組 Az 2.6.0 版或更新版本。 執行 `Get-Module -ListAvailable Az` 來尋找您目前的版本。 如果您需要安裝或升級，請參閱[安裝 Azure PowerShell 模組](/powershell/azure/install-Az-ps)。 如果您想要，也可以改為在 PowerShell 工作階段中使用 Cloud Shell 主控台。
 
-1. 在 PowerShell 命令提示字元 (或 PowerShell Cloud Shell 工作階段) 中，指定已列入 Azure NetApp Files 白名單中的訂用帳戶：
+1. 在 PowerShell 命令提示字元 (或 PowerShell Cloud Shell 工作階段) 中，指定已列入 Azure NetApp Files 允許清單中的訂用帳戶：
     ```powershell-interactive
     Select-AzSubscription -Subscription <subscriptionId>
     ```
