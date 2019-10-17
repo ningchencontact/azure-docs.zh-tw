@@ -10,12 +10,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 09/27/2019
 ms.author: diberry
-ms.openlocfilehash: 0707ed3dfee9af27b7cab66c7952d1e7c1d57cb8
-ms.sourcegitcommit: 6fe40d080bd1561286093b488609590ba355c261
+ms.openlocfilehash: 8accac7fe6068007180403fdab27013da161b28c
+ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/01/2019
-ms.locfileid: "71703206"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72437184"
 ---
 # <a name="developer-resources-for-language-understanding"></a>Language Understanding 的開發人員資源
 
@@ -46,13 +46,13 @@ Language Understanding 服務會從您需要建立的 Azure 資源進行存取�
 
 ### <a name="language-based-sdks"></a>以語言為基礎的 Sdk
 
-|語言 |參考文件|套件|範例|快速入門|
+|語言 |參考文件|Package|範例|快速入門|
 |--|--|--|--|--|
 |C#|[編寫](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.language.luis.authoring?view=azure-dotnet)</br>[預測](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.language.luis.runtime?view=azure-dotnet)|[NuGet 製作](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Language.LUIS.Authoring/)<br>[NuGet 預測](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Language.LUIS.Runtime/)|[.Net SDK 範例](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/LUIS)|[建立和管理應用程式](sdk-csharp-quickstart-authoring-app.md)<br>[查詢預測端點](sdk-csharp-quickstart-query-prediction-endpoint.md)|
 |Go|[撰寫和預測](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v2.0/luis)|[SDK](https://github.com/Azure/azure-sdk-for-go/tree/master/services/cognitiveservices/v2.0/luis)|[編寫](https://github.com/Azure-Samples/cognitive-services-language-understanding/tree/master/documentation-samples/quickstarts/change-model/go)<br>[預測](https://github.com/Azure-Samples/cognitive-services-language-understanding/tree/master/documentation-samples/quickstarts/analyze-text/go)|[使用 REST 撰寫](luis-get-started-go-add-utterance.md)<br>[使用 REST 進行預測](luis-get-started-go-get-intent.md)|
 |Java|[撰寫和預測](https://docs.microsoft.com/java/api/overview/azure/cognitiveservices/client/languageunderstanding?view=azure-java-stable)|[Maven 撰寫](https://search.maven.org/artifact/com.microsoft.azure.cognitiveservices/azure-cognitiveservices-luis-authoring)<br>[Maven 預測](https://search.maven.org/artifact/com.microsoft.azure.cognitiveservices/azure-cognitiveservices-luis-runtime)|[編寫](https://github.com/Azure-Samples/cognitive-services-language-understanding/tree/master/documentation-samples/quickstarts/change-model/java)<br>[預測](https://github.com/Azure-Samples/cognitive-services-language-understanding/tree/master/documentation-samples/quickstarts/analyze-text/java)|[編寫](luis-get-started-java-add-utterance.md)<br>[預測](luis-get-started-java-get-intent.md)
 |Node.js|[編寫](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-luis-authoring/?view=azure-node-latest)<br>[預測](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-luis-runtime/?view=azure-node-latest)|[NPM 撰寫](https://www.npmjs.com/package/azure-cognitiveservices-luis-authoring)<br>[NPM 預測](https://www.npmjs.com/package/azure-cognitiveservices-luis-runtime)|[編寫](https://github.com/Azure-Samples/cognitive-services-language-understanding/tree/master/documentation-samples/quickstarts/change-model/node)<br>[預測](https://github.com/Azure-Samples/cognitive-services-language-understanding/tree/master/documentation-samples/quickstarts/analyze-text/node)|[使用 REST 撰寫](https://docs.microsoft.com/azure/cognitive-services/luis/luis-get-started-node-get-intent)<br>[使用 REST 進行預測](https://docs.microsoft.com/azure/cognitive-services/luis/luis-get-started-node-add-utterance)|
-|Python|[撰寫和預測](https://docs.microsoft.com/python/api/azure-cognitiveservices-language-luis/?view=azure-python)|[Pip](https://pypi.org/project/azure-cognitiveservices-language-luis/)|[編寫](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/LUIS/application_quickstart.py)|[編寫](sdk-python-quickstart-authoring-app.md)<br>[使用 REST 進行預測](luis-get-started-python-get-intent.md)
+|Python|[撰寫和預測](sdk-python-quickstart-authoring-app.md)|[Pip](https://pypi.org/project/azure-cognitiveservices-language-luis/)|[編寫](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/LUIS/application_quickstart.py)|[編寫](sdk-python-quickstart-authoring-app.md)<br>[使用 REST 進行預測](luis-get-started-python-get-intent.md)
 
 ## <a name="other-tools-and-sdks"></a>其他工具和 Sdk
 

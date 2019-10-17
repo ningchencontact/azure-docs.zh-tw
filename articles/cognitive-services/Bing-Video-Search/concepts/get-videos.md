@@ -1,5 +1,5 @@
 ---
-title: 將搜尋要求傳送至 Bing 影片搜尋 API
+title: 使用 Bing 影片搜尋 API 搜尋影片
 titleSuffix: Azure Cognitive Services
 description: 了解如何將搜尋查詢傳送至 Bing 影片搜尋 API。
 services: cognitive-services
@@ -10,12 +10,12 @@ ms.subservice: bing-video-search
 ms.topic: conceptual
 ms.date: 06/24/2019
 ms.author: aahi
-ms.openlocfilehash: b565ad8be1d8529d3650ec36fe7c4d61f6c5dc8f
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: e3314efe0ea0367eb852fd17aadece17026ff4bb
+ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68879098"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72512411"
 ---
 # <a name="search-for-videos-with-the-bing-video-search-api"></a>使用 Bing 影片搜尋 API 來搜尋影片
 
@@ -144,7 +144,7 @@ Host: api.cognitive.microsoft.com
 
 ## <a name="expanding-the-query"></a>擴展查詢
 
-如果 Bing 可以擴展查詢來縮小原始搜尋範圍，則 [Videos](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference#videos) 物件會包含 `queryExpansions` 欄位。 例如，如果查詢為 *Cleaning Gutters*，擴展後的查詢可能會是：Gutter Cleaning **Tools**、Cleaning Gutters **From the Ground**、Gutter Cleaning **Machine** 和 **Easy** Gutter Cleaning。
+如果 Bing 可以擴展查詢來縮小原始搜尋範圍，則 [Videos](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference#videos) 物件會包含 `queryExpansions` 欄位。 例如，如果原本的查詢是 *Cleaning Gutters*，擴展的查詢可能是：Gutter Cleaning **Tools**、Cleaning Gutters **From the Ground**、Gutter Cleaning **Machine** 和 **Easy** Gutter Cleaning。
 
 下列範例說明 *Cleaning Gutters* 的擴展查詢。
 

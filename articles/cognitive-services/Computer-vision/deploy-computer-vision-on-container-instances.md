@@ -1,7 +1,7 @@
 ---
-title: 執行 Azure 容器執行個體
+title: 在 Azure 容器實例中執行電腦視覺容器
 titleSuffix: Azure Cognitive Services
-description: 電腦視覺容器部署到 Azure 容器執行個體，並在網頁瀏覽器中進行測試。
+description: 將電腦視覺容器部署至 Azure 容器實例，並在網頁瀏覽器中進行測試。
 services: cognitive-services
 author: IEvangelist
 manager: nitinme
@@ -10,16 +10,16 @@ ms.subservice: computer-vision
 ms.topic: conceptual
 ms.date: 7/5/2019
 ms.author: dapine
-ms.openlocfilehash: 859147d23ea78abac2da4a4c2f1fa26a8d976d02
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: 2de879d271ab001e62725424ea72e0604176efb4
+ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67711914"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72516869"
 ---
-# <a name="deploy-the-computer-vision-container-to-azure-container-instances"></a>電腦視覺容器部署到 Azure 容器執行個體
+# <a name="deploy-the-computer-vision-container-to-azure-container-instances"></a>將電腦視覺容器部署至 Azure 容器實例
 
-了解如何部署認知服務[Computer Vision](computer-vision-how-to-install-containers.md)至 Azure 的容器[Container Instances](https://docs.microsoft.com/azure/container-instances/)。 此程序示範如何建立電腦視覺資源。 然後我們會討論提取相關聯的容器映像。 最後，我們反白顯示能夠練習從瀏覽器兩個協調流程。 使用容器可以轉移遠離管理基礎結構，以改為專注於應用程式開發的開發人員的注意。
+瞭解如何將認知服務[電腦視覺](computer-vision-how-to-install-containers.md)容器部署至 Azure[容器實例](https://docs.microsoft.com/azure/container-instances/)。 此程式示範如何建立電腦視覺資源。 然後，我們會討論如何提取相關聯的容器映射。 最後，我們強調了從瀏覽器執行這兩個協調流程的能力。 使用容器可以將開發人員的注意力轉移到管理基礎結構之外，改為專注于應用程式開發。
 
 [!INCLUDE [Prerequisites](../containers/includes/container-preview-prerequisites.md)]
 

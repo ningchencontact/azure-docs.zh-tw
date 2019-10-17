@@ -1,5 +1,5 @@
 ---
-title: 執行 Kubernetes 服務
+title: 在 Kubernetes 服務中執行語言偵測容器
 titleSuffix: Text Analytics -  Azure Cognitive Services
 description: 將語言偵測容器以及執行範例部署到 Azure Kubernetes Service，並在網頁瀏覽器中進行測試。
 services: cognitive-services
@@ -10,14 +10,14 @@ ms.subservice: text-analytics
 ms.topic: conceptual
 ms.date: 06/26/2019
 ms.author: dapine
-ms.openlocfilehash: 852530910f7a8c6c815493d0dbcc57f67695d6de
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: e33aa98939eeb5b5394f1f5cc05e28ae8f6ae4f2
+ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70066113"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72515247"
 ---
-# <a name="deploy-the-language-detection-container-to-azure-kubernetes-service"></a>將語言偵測容器部署到 Azure Kubernetes 服務
+# <a name="deploy-the-text-analytics-language-detection-container-to-azure-kubernetes-service"></a>將文字分析語言偵測容器部署至 Azure Kubernetes Service
 
 了解如何部署語言偵測容器。 此程序示範如何建立本機的 Docker 容器、將容器推送至私人容器登錄、在 Kubernetes 叢集中執行容器，並在網頁瀏覽器中進行測試。
 
@@ -25,7 +25,7 @@ ms.locfileid: "70066113"
 
 此程序需要必須安裝並在本機執行的多個工具。 請勿使用 Azure Cloud Shell。
 
-* 使用 Azure 訂用帳戶。 如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/) 。
+* 使用 Azure 訂用帳戶。 如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶](https://azure.microsoft.com/free/)。
 * [Git](https://git-scm.com/downloads) 適用於您的作業系統，因此您可以複製此程序中使用的[範例](https://github.com/Azure-Samples/cognitive-services-containers-samples)。
 * [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)。
 * [Docker 引擎](https://www.docker.com/products/docker-engine)，並驗證 Docker CLI 可在主控台視窗中運作。
@@ -313,14 +313,14 @@ ms.locfileid: "70066113"
 
 1. 根據下表變更 `language.yml` 的語言前端部署行，以便新增您自己的容器登錄映像名稱、用戶端密碼和文字分析設定。
 
-    語言前端部署設定|用途|
+    語言前端部署設定|目的|
     |--|--|
     |行 32<br> `image` 屬性|容器登錄中的前端映像所在的映像位置<br>`<container-registry-name>.azurecr.io/language-frontend:v1`|
     |行 44<br> `name` 屬性|上一個區段之中映像的容器登錄密碼，稱為 `<client-secret>`。|
 
 1. 根據下表變更 `language.yml` 的語言部署行，以便新增您自己的容器登錄映像名稱、用戶端密碼和文字分析設定。
 
-    |語言部署設定|用途|
+    |語言部署設定|目的|
     |--|--|
     |行 78<br> `image` 屬性|容器登錄中的語言映像所在的映像位置<br>`<container-registry-name>.azurecr.io/language:1.1.006770001-amd64-preview`|
     |行 95<br> `name` 屬性|上一個區段之中映像的容器登錄密碼，稱為 `<client-secret>`。|

@@ -1,5 +1,5 @@
 ---
-title: 離線評估 - 個人化工具
+title: 使用離線評估方法-個人化工具
 titleSuffix: Azure Cognitive Services
 description: 使用個人化工具服務在此 C# 快速入門中建立意見反應迴圈。
 services: cognitive-services
@@ -10,12 +10,12 @@ ms.subservice: personalizer
 ms.topic: conceptual
 ms.date: 05/07/2019
 ms.author: diberry
-ms.openlocfilehash: 5e9e745d73623e03e2530e1712a50e6670ee7ed3
-ms.sourcegitcommit: e3b0fb00b27e6d2696acf0b73c6ba05b74efcd85
+ms.openlocfilehash: f382c07dea75cb534632061c986dd8044c4aafa9
+ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68662856"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72515578"
 ---
 # <a name="offline-evaluation"></a>離線評估
 
@@ -48,11 +48,11 @@ ms.locfileid: "68662856"
 
 個人化工具可使用離線評估程序來自動探索更好的學習原則。
 
-執行離線評估之後，您可以看到新原則與目前線上原則相比之下，個人化工具所具有的比較成效。 接著, 您可以套用該學習原則, 讓它在個人化工具中立即生效, 方法是下載它, 然後在 [模型和原則] 面板中上傳它。 您也可以下載它以供日後分析或使用。
+執行離線評估之後，您可以看到新原則與目前線上原則相比之下，個人化工具所具有的比較成效。 接著，您可以套用該學習原則，讓它在個人化工具中立即生效，方法是下載它，然後在 [模型和原則] 面板中上傳它。 您也可以下載它以供日後分析或使用。
 
 ## <a name="understanding-the-relevance-of-offline-evaluation-results"></a>了解離線評估結果的相關性
 
-當您執行離線評估時，務必要分析結果的「信賴界限」  。 如果界限很寬，表示您的應用程式未收到足夠的資料，無法準確或有效地預估獎勵。 由於系統會累積更多資料，而且您會對更長的期間執行離線評估，因此信賴區間會變得愈來愈窄。
+當您執行離線評估時，務必要分析結果的「信賴界限」。 如果界限很寬，表示您的應用程式未收到足夠的資料，無法準確或有效地預估獎勵。 由於系統會累積更多資料，而且您會對更長的期間執行離線評估，因此信賴區間會變得愈來愈窄。
 
 ## <a name="how-offline-evaluations-are-done"></a>離線評估的運作方式
 
@@ -91,7 +91,7 @@ ms.locfileid: "68662856"
 我們建議您查看特性評估並詢問：
 
 * 您的應用程式或系統可提供什麼其他更有效果的額外特性？
-* 可以移除哪些效果低的特性？ 效果低的特性會加重機器學習中的「干擾」  。
+* 可以移除哪些效果低的特性？ 效果低的特性會加重機器學習中的「干擾」。
 * 是否有任何意外加入的特性？ 範例如下：個人識別資訊 (PII) 或重複識別碼等等。
 * 是否有任何不可用的特性，也就是因為法規或責任考量而不應該用來個人化的特性？ 是否有可以取代不可用特性的特性 (也就是即近似或相關的特性)？
 

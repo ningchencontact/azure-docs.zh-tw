@@ -10,12 +10,12 @@ ms.subservice: bing-video-search
 ms.topic: conceptual
 ms.date: 06/27/2019
 ms.author: aahill
-ms.openlocfilehash: ba2036c58ae54cc665623e63129ecea6c530b27d
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: 96f92f0dc1e9e0c6c409fe17680fc57412e2b7d3
+ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68878996"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72512523"
 ---
 # <a name="sending-search-requests-to-the-bing-video-search-api"></a>將搜尋要求傳送至 Bing 影片搜尋 API
 
@@ -39,7 +39,7 @@ https://api.cognitive.microsoft.com/bing/v7.0/videos/search
    
 要求必須使用 HTTPS 通訊協定。
 
-我們建議所有要求均應來自伺服器。 隨著用戶端應用程式散佈金鑰，會讓惡意的第三方有更多機會存取該應用程式。 從伺服器進行呼叫，API 未來也就能以同個升級點更新版本。
+建議讓所有要求來自伺服器。 隨著用戶端應用程式散佈金鑰，會讓惡意的第三方有更多機會存取該應用程式。 從伺服器進行呼叫，API 未來也就能以同個升級點更新版本。
 
   
 要求必須指定 [q](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference#query) 查詢參數，其中含有使用者的搜尋字詞。 雖是選擇性，但請在要求中指定 [mkt](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference#mkt) 查詢參數，其可識別您希望從哪個市場取得結果。 如需選用查詢參數 (例如 `pricing`) 的清單，請參閱[查詢參數](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference#query-parameters)。 所有查詢參數值均須為 URL 編碼。  

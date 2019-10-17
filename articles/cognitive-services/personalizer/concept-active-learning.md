@@ -1,5 +1,5 @@
 ---
-title: 主動式學習 - 個人化工具
+title: 作用中和非作用中的事件-個人化工具
 titleSuffix: Azure Cognitive Services
 description: ''
 services: cognitive-services
@@ -10,47 +10,36 @@ ms.subservice: personalizer
 ms.topic: conceptual
 ms.date: 05/30/2019
 ms.author: diberry
-ms.openlocfilehash: 8c1579be3d11ae14ca45ee861de2d4f705e5d62c
-ms.sourcegitcommit: e3b0fb00b27e6d2696acf0b73c6ba05b74efcd85
+ms.openlocfilehash: aa6f53901f21dcb0726454d641a4a2a66007f9e0
+ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68663717"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72429047"
 ---
-# <a name="active-learning-and-learning-policies"></a>主動式學習及學習原則 
+# <a name="active-and-inactive-events"></a>作用中和非作用中的事件
 
-當您的應用程式呼叫排名 API 時，您會收到內容的排名。 商務邏輯會使用此排名來判斷是否要向使用者顯示內容。 若您顯示排名的內容，這就是「作用中」  排名事件。 若您的應用程式沒有顯示排名的內容，這就是「非作用中」  排名事件。 
+當您的應用程式呼叫排名 API 時，您會收到應用程式應該在 [rewardActionId] 欄位中顯示的動作。  從那時起，個人化工具會預期具有相同 eventId 的報酬呼叫。 報酬分數將用來定型將用於未來排名呼叫的模型。 如果沒有收到 eventId 的報酬電話，則會套用預設報酬。 預設報酬會在 Azure 入口網站中建立。
 
-作用中排名事件資訊會傳回給個人化工具。 這項資訊會用在繼續以目前學習原則定型模型。
-
-## <a name="active-events"></a>作用中事件
-
-作用中事件應一律顯示給使用者，並傳回獎勵呼叫，以關閉學習迴圈。 
-
-### <a name="inactive-events"></a>非作用中事件 
-
-非作用中事件不應該變更基礎模型，因為使用者未獲得可從排名內容中做選擇的機會。
-
-## <a name="dont-train-with-inactive-rank-events"></a>請勿以非作用中排名事件來進行定型 
-
-對於某些應用程式，您可能需要在不知道應用程式是否會向使用者顯示結果的情況下，呼叫排名 API。 
-
-發生這種情況的時機：
+在某些情況下，應用程式可能需要呼叫排名鏜孔，甚至知道結果將使用或 displayedn 給使用者。 例如，當升級內容的頁面轉譯被行銷活動覆寫時，可能會發生這種情況。 如果順位呼叫的結果從未用過，而且使用者也看不到它，就不正確地使用任何報酬來定型，零或其他。
+這通常發生在下列情況：
 
 * 您可能預先轉譯了使用者可能會或可能不會看到的某些 UI。 
 * 您的應用程式可能進行了預測性的個人化，其中排名呼叫是以較不即時的內容來進行，而且其輸出可能會或可能不會由應用程式使用。 
 
-### <a name="disable-active-learning-for-inactive-rank-events-during-rank-call"></a>在排名呼叫期間，對非作用中排名事件停用主動式學習
+在這些情況下，使用個人化工具的正確方式是呼叫 Rank 要求事件為_非_使用中。 個人化工具不會預期此事件的報酬，而且也不會套用預設報酬。 在您的商務邏輯中 Letr，如果應用程式使用排名呼叫中的資訊，您只需要_啟用_事件即可。 從活動開始，個人化工具會預期該事件的報酬，或在沒有對獎勵 API 進行明確呼叫時套用預設報酬。
 
-若要停用自動學習，請以 `learningEnabled = False` 呼叫排名。
+## <a name="get-inactive-events"></a>取得非作用中事件
 
-如果您傳送排名的獎勵，則非作用中事件的學習會隱含地啟用。
+若要停用事件的定型，請使用 `learningEnabled = False` 來呼叫 Rank。
 
-## <a name="learning-policies"></a>學習原則
+如果您傳送 eventId 的報酬，或為該 eventId 呼叫 `activate` API，則會隱含地學習非作用中的事件。
 
-學習原則會決定模型定型的特定「超參數」  。 資料相同的兩個模型，若在不同的學習原則上進行定型，則兩個模型會有不同的行為。
+## <a name="learning-settings"></a>學習設定
 
-### <a name="importing-and-exporting-learning-policies"></a>匯入和匯出學習原則
+學習設定會決定模型定型的特定*超參數*。 相同資料的兩種模型（在不同的學習設定上定型）最後會不同。
+
+### <a name="import-and-export-learning-policies"></a>匯入和匯出學習原則
 
 您可以在 Azure 入口網站中匯入和匯出學習原則檔案。 這可讓您儲存現有原則，並測試及取代這些原則，以及在原始程式碼控制中將這些原則封存為成品，以便未來加以參考和稽核。
 

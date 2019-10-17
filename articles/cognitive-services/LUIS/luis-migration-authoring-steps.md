@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 09/12/2019
 ms.author: diberry
-ms.openlocfilehash: 7e79d3119f5d2d0fe1894de0ab9535dd988706f8
-ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
+ms.openlocfilehash: e1e89612ee48aaf5ee9bda51f954add426bf6720
+ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70935208"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72516791"
 ---
 # <a name="steps-to-migrate-to-the-azure-authoring-resource"></a>遷移至 Azure 撰寫資源的步驟
 
@@ -98,7 +98,7 @@ ms.locfileid: "70935208"
 
 ## <a name="app-contributor-begins-the-migration-process"></a>應用程式參與者開始進行遷移流程
 
-遵循與應用程式擁有者相同的步驟來進行遷移。 此程式會建立種類`LUIS.Authoring`的新撰寫資源。 
+遵循與應用程式擁有者相同的步驟來進行遷移。 此程式會建立 `LUIS.Authoring` 類型的新撰寫資源。 
 
 您必須遷移您的帳戶，才能將其新增為其他人所擁有之已遷移應用程式的參與者。  
 
@@ -110,7 +110,7 @@ ms.locfileid: "70935208"
 
 ## <a name="troubleshooting-errors-with-the-migration-process"></a>針對遷移程式的錯誤進行疑難排解
 
-如果您在 LUIS `MissingSubscriptionRegistration`入口網站中于遷移程式期間收到含有紅色通知列的錯誤，請在[Azure 入口網站](luis-how-to-azure-subscription.md#create-resources-in-the-azure-portal)或[Azure CLI](luis-how-to-azure-subscription.md#create-resources-in-azure-cli)中建立認知服務資源。 深入瞭解[此錯誤的原因](../../azure-resource-manager/resource-manager-register-provider-errors.md#cause)。
+如果您在 LUIS 入口網站中，于遷移程式期間收到紅色通知列的 `MissingSubscriptionRegistration` 錯誤，請在[Azure 入口網站](luis-how-to-azure-subscription.md#create-resources-in-the-azure-portal)或[Azure CLI](luis-how-to-azure-subscription.md#create-resources-in-azure-cli)中建立認知服務資源。 深入瞭解[此錯誤的原因](../../azure-resource-manager/resource-manager-register-provider-errors.md#cause)。
 
 ## <a name="next-steps"></a>後續步驟
 
