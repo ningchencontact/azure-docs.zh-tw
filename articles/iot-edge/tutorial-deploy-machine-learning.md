@@ -4,17 +4,17 @@ description: 在本教學課程中，您將建立一個 Azure Machine Learning �
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 03/07/2019
+ms.date: 10/16/2019
 ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc, seodec18
-ms.openlocfilehash: 6c48aaf404803c45122ed3fad0d6af1345406f7b
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: 04c09c60a8b633c9ddb51fbe97ac02a319472448
+ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66239672"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72434691"
 ---
 # <a name="tutorial-deploy-azure-machine-learning-as-an-iot-edge-module-preview"></a>教學課程：將 Azure Machine Learning 部署為 IoT Edge 模組 (預覽)
 
@@ -24,7 +24,7 @@ ms.locfileid: "66239672"
 
 您在本教學課程中建立的 Azure Machine Learning 模組會讀取裝置所產生的環境資料，並將訊息標示為異常或非異常。
 
-在本教學課程中，您了解如何：
+在本教學課程中，您會了解如何：
 
 > [!div class="checklist"]
 > * 建立 Azure Machine Learning 模組

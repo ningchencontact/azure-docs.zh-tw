@@ -131,6 +131,8 @@
       href: howto-password-smart-lockout.md
     - name: 無密碼
       items:
+        - name: 無密碼部署
+          href: howto-authentication-passwordless-deployment.md
         - name: 無密碼安全性金鑰
           href: howto-authentication-passwordless-security-key.md
         - name: 手機無密碼登入

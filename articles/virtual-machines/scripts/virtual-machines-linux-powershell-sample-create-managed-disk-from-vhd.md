@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 06/05/2017
 ms.author: ramankum
-ms.openlocfilehash: 05bc4fe23c0bea58e62db0ceab3fbfdc70660dd9
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 77d68763bac37a35b070bb7c95e2c16df7f67a27
+ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70091172"
+ms.lasthandoff: 10/13/2019
+ms.locfileid: "72299347"
 ---
 # <a name="create-a-managed-disk-from-a-vhd-file-in-a-storage-account-in-same-or-different-subscription-with-powershell"></a>使用 PowerShell 從相同或不同訂用帳戶的儲存體帳戶的 VHD 檔案建立受控磁碟
 
@@ -28,8 +28,6 @@ ms.locfileid: "70091172"
 請勿在短時間內從 VHD 檔案建立多個相同的受控磁碟。 若要從 VHD 檔案建立受控磁碟，會建立 VHD 檔案的 Blob 快照集，然後將它用於建立受控磁碟。 一分鐘內只能建立一個 Blob 快照集，這會導致磁碟建立因節流而失敗。 若要避免進行此節流，請[從 VHD 檔案建立受控快照集](virtual-machines-linux-powershell-sample-create-snapshot-from-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)，然後使用受控快照集在短時間內建立多個受控磁碟。
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
-
-[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
 [!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
 

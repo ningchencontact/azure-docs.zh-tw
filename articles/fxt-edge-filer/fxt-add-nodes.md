@@ -5,13 +5,13 @@ author: ekpgh
 ms.service: fxt-edge-filer
 ms.topic: tutorial
 ms.date: 06/20/2019
-ms.author: v-erkell
-ms.openlocfilehash: d84b98b4ab936bbb6978144eb2e89b5e19df7069
-ms.sourcegitcommit: 5bdd50e769a4d50ccb89e135cfd38b788ade594d
+ms.author: rohogue
+ms.openlocfilehash: 85ab9aaa3e184af7aa71a31eb3d8de1a20639c2a
+ms.sourcegitcommit: 1c2659ab26619658799442a6e7604f3c66307a89
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/03/2019
-ms.locfileid: "67543248"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72254936"
 ---
 # <a name="tutorial-add-cluster-nodes"></a>教學課程：新增叢集節點 
 
@@ -19,7 +19,7 @@ ms.locfileid: "67543248"
 
 此教學課程說明如何新增叢集節點，並啟用高可用性 (HA) 功能。 
 
-在此教學課程中，您將了解： 
+在本教學課程中，您將了解： 
 
 > [!div class="checklist"]
 > * 如何將節點新增至 FXT 叢集

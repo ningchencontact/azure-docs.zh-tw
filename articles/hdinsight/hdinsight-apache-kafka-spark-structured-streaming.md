@@ -2,18 +2,18 @@
 title: 將 Apache Spark 結構化串流用於 Apache Kafka 的教學課程 - Azure HDInsight
 description: 了解如何使用 Apache Spark 串流將資料傳入或傳出 Apache Kafka。 在此教學課程中，您會使用 Jupyter Notebook 從 HDInsight 上的 Spark 串流處理資料。
 author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive,seodec18
 ms.topic: tutorial
-ms.date: 05/22/2019
-ms.author: hrasheed
-ms.openlocfilehash: bcf1b967cf8eeab7aae4b720683785309689858e
-ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
+ms.date: 10/08/2019
+ms.openlocfilehash: db2174451f01ef38dc69e4e14561175203e075c3
+ms.sourcegitcommit: b4665f444dcafccd74415fb6cc3d3b65746a1a31
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71204240"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72264246"
 ---
 # <a name="tutorial-use-apache-spark-structured-streaming-with-apache-kafka-on-hdinsight"></a>教學課程：將 Apache Spark 結構化串流用於 HDInsight 上的 Apache Kafka
 
@@ -41,8 +41,8 @@ Spark 結構化串流是建置在 Spark SQL 上的串流處理引擎。 它允�
 
 > [!IMPORTANT]  
 > 在本文件的步驟中，Azure 資源群組必須包含 HDInsight 上的 Spark 和 HDInsight 叢集上的 Kafka。 這兩個叢集都位於 Azure 虛擬網路中，可讓 Spark 叢集直接與 Kafka 叢集通訊。
-> 
-> 為了方便您使用，本文件會連結至可建立所有必要 Azure 資源的範本。 
+>
+> 為了方便您使用，本文件會連結至可建立所有必要 Azure 資源的範本。
 >
 > 如需在虛擬網路中使用 HDInsight 的詳細資訊，請參閱[規劃 HDInsight 的虛擬網路](hdinsight-plan-virtual-network-deployment.md)文件。
 
@@ -94,7 +94,7 @@ kafkaStreamDF.select(from_json(col("value").cast("string"), schema) as "trip")
 | `write` | `writeStream` |
 | `save` | `start` |
 
-串流作業也會使用 `awaitTermination(30000)`，而會在 30,000 毫秒之後停止串流。 
+串流作業也會使用 `awaitTermination(30000)`，而會在 30,000 毫秒之後停止串流。
 
 若要搭配使用結構化串流和 Kafka，您的專案必須具有對 `org.apache.spark : spark-sql-kafka-0-10_2.11` 套件的相依性。 此套件的版本應與 HDInsight 上的 Spark 版本相符。 對於 Spark 2.2.0 (適用於 HDInsight 3.6)，您可以在 [https://search.maven.org/#artifactdetails%7Corg.apache.spark%7Cspark-sql-kafka-0-10_2.11%7C2.2.0%7Cjar](https://search.maven.org/#artifactdetails%7Corg.apache.spark%7Cspark-sql-kafka-0-10_2.11%7C2.2.0%7Cjar) 上找到不同專案類型的相依性資訊。
 
@@ -112,7 +112,7 @@ kafkaStreamDF.select(from_json(col("value").cast("string"), schema) as "trip")
 
 ## <a name="create-the-clusters"></a>建立叢集
 
-Apache Kafka on HDInsight 不提供透過公用網際網路存取 Kafka 訊息代理程式。 任何使用 Kafka 的項目都必須位於相同的 Azure 虛擬網路中。 在本教學課程中，Kafka 和 Spark 叢集位於相同的 Azure 虛擬網路中。 
+Apache Kafka on HDInsight 不提供透過公用網際網路存取 Kafka 訊息代理程式。 任何使用 Kafka 的項目都必須位於相同的 Azure 虛擬網路中。 在本教學課程中，Kafka 和 Spark 叢集位於相同的 Azure 虛擬網路中。
 
 下圖顯示 Spark 與 Kafka 之間的通訊流程︰
 
@@ -151,12 +151,12 @@ Apache Kafka on HDInsight 不提供透過公用網際網路存取 Kafka 訊息�
     | 叢集登入密碼 | 叢集的管理員使用者密碼。 |
     | SSH 使用者名稱 | 要為叢集建立的 SSH 使用者。 |
     | SSH 密碼 | SSH 使用者的密碼。 |
-   
+
     ![自訂範本的螢幕擷取畫面](./media/hdinsight-apache-kafka-spark-structured-streaming/spark-kafka-template.png)
 
-3. 讀取**條款及條件**，然後選取 [我同意上方所述的條款及條件] 
+3. 讀取**條款及條件**，然後選取 [我同意上方所述的條款及條件]  。
 
-4. 最後，核取 [釘選到儀表板]  ，然後選取 [購買]  。 
+4. 選取 [購買]  。
 
 > [!NOTE]  
 > 建立叢集可能需要 20 分鐘的時間。
@@ -184,11 +184,11 @@ Apache Kafka on HDInsight 不提供透過公用網際網路存取 Kafka 訊息�
 
 3. 選取 [新增] > [Spark]  來建立 Notebook。
 
-4. 在 Notebook 資料格中輸入下列資訊，即可載入 Notebook 使用的套件。 使用 **CTRL + ENTER** 執行命令。
+4. Spark 串流具有微批次處理，這表示資料會以批次方式提供，而執行程式會在資料批次上執行。 如果執行程式的閒置逾時小於處理批次所需的時間，則會不斷加入及移除執行程式。 如果執行程式的閒置逾時大於批次持續時間，則永遠不會移除執行程式。 因此，**我們建議您在執行串流應用程式時，將 spark.dynamicAllocation.enabled 設定為 false，以停用動態配置。**
 
-Spark 串流具有微批次處理，這表示資料會以批次方式提供，而執行程式會在資料批次上執行。 如果執行程式的閒置逾時小於處理批次所需的時間，則會不斷加入及移除執行程式。 如果執行程式的閒置逾時大於批次持續時間，則永遠不會移除執行程式。 因此，**我們建議您在執行串流應用程式時，將 spark.dynamicAllocation.enabled 設定為 false，以停用動態配置。**
+    在 Notebook 資料格中輸入下列資訊，即可載入 Notebook 使用的套件。 使用 **CTRL + ENTER** 執行命令。
 
-    ```
+    ```configuration
     %%configure -f
     {
         "conf": {
@@ -216,10 +216,10 @@ Spark 串流具有微批次處理，這表示資料會以批次方式提供，�
     // Load the data from the New York City Taxi data REST API for 2016 Green Taxi Trip Data
     val url="https://data.cityofnewyork.us/resource/pqfs-mqru.json"
     val result = scala.io.Source.fromURL(url).mkString
-    
+
     // Create a dataframe from the JSON data
     val taxiDF = spark.read.json(Seq(result).toDS)
-    
+
     // Display the dataframe containing trip data
     taxiDF.show()
     ```
@@ -230,7 +230,7 @@ Spark 串流具有微批次處理，這表示資料會以批次方式提供，�
     // The Kafka broker hosts and topic used to write to Kafka
     val kafkaBrokers="YOUR_KAFKA_BROKER_HOSTS"
     val kafkaTopic="tripdata"
-    
+
     println("Finished setting Kafka broker and topic configuration.")
     ```
 
@@ -250,7 +250,7 @@ Spark 串流具有微批次處理，這表示資料會以批次方式提供，�
     import org.apache.spark.sql._
     import org.apache.spark.sql.types._
     import org.apache.spark.sql.functions._
-    
+
     // Define a schema for the data
     val schema = (new StructType).add("dropoff_latitude", StringType).add("dropoff_longitude", StringType).add("extra", StringType).add("fare_amount", StringType).add("improvement_surcharge", StringType).add("lpep_dropoff_datetime", StringType).add("lpep_pickup_datetime", StringType).add("mta_tax", StringType).add("passenger_count", StringType).add("payment_type", StringType).add("pickup_latitude", StringType).add("pickup_longitude", StringType).add("ratecodeid", StringType).add("store_and_fwd_flag", StringType).add("tip_amount", StringType).add("tolls_amount", StringType).add("total_amount", StringType).add("trip_distance", StringType).add("trip_type", StringType).add("vendorid", StringType)
     // Reproduced here for readability
@@ -275,7 +275,7 @@ Spark 串流具有微批次處理，這表示資料會以批次方式提供，�
     //   .add("trip_distance", StringType)
     //   .add("trip_type", StringType)
     //   .add("vendorid", StringType)
-    
+
     println("Schema declared")
     ```
 
@@ -284,10 +284,10 @@ Spark 串流具有微批次處理，這表示資料會以批次方式提供，�
     ```scala
     // Read a batch from Kafka
     val kafkaDF = spark.read.format("kafka").option("kafka.bootstrap.servers", kafkaBrokers).option("subscribe", kafkaTopic).option("startingOffsets", "earliest").load()
-    
+
     // Select data and write to file
     val query = kafkaDF.select(from_json(col("value").cast("string"), schema) as "trip").write.format("parquet").option("path","/example/batchtripdata").option("checkpointLocation", "/batchcheckpoint").save()
-    
+
     println("Wrote data to file")
     ```
 
@@ -303,7 +303,7 @@ Spark 串流具有微批次處理，這表示資料會以批次方式提供，�
     ```scala
     // Stream from Kafka
     val kafkaStreamDF = spark.readStream.format("kafka").option("kafka.bootstrap.servers", kafkaBrokers).option("subscribe", kafkaTopic).option("startingOffsets", "earliest").load()
-    
+
     // Select data from the stream and write to file
     kafkaStreamDF.select(from_json(col("value").cast("string"), schema) as "trip").writeStream.format("parquet").option("path","/example/streamingtripdata").option("checkpointLocation", "/streamcheckpoint").start.awaitTermination(30000)
     println("Wrote data to file")
@@ -328,7 +328,7 @@ Spark 串流具有微批次處理，這表示資料會以批次方式提供，�
 
 > [!WARNING]  
 > HDInsight 叢集的計費起自叢集建立時，終至叢集刪除時。 計費是以每分鐘按比例計算，因此不再使用時，請一律刪除您的叢集。
-> 
+>
 > 刪除 HDInsight 叢集上的 Kafka，也會刪除 Kafka 中儲存的任何資料。
 
 ## <a name="next-steps"></a>後續步驟

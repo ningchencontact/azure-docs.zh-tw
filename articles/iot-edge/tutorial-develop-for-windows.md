@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 0c7d88d76a3fea87b3cfe4032186140f38c263d3
-ms.sourcegitcommit: 8bae7afb0011a98e82cbd76c50bc9f08be9ebe06
+ms.openlocfilehash: 755290997cb6aab328cd38ce81a21c598c737b5f
+ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/01/2019
-ms.locfileid: "71693396"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72429017"
 ---
 # <a name="tutorial-develop-iot-edge-modules-for-windows-devices"></a>教學課程：開發適用於 Windows 裝置的 IoT Edge 模組
 
@@ -206,7 +206,7 @@ IoT Edge 執行階段需要登錄認證才能將容器映像提取到 IoT Edge �
 
 7. 尋找 $edgeHub 所需屬性的 **routes** 屬性。 
 
-   IoT Edge 中樞模組的其中一個功能是在部署中的所有模組之間傳送訊息。 檢閱 routes 屬性中的值。 第一個路由 **IotEdgeModule1ToIoTHub** 會使用萬用字元 ( **\*** ) 來包含任何來自 IotEdgeModule1 模組中任何輸出佇列的訊息。 這些訊息會進入 $upstream  ，這是會指出 IoT 中樞的保留名稱。 第二個路由 **sensorToIotEdgeModule1** 會取得來自 SimulatedTemperatureSensor 模組的訊息，並將它們路由傳送至 IotEdgeModule1 模組的 *input1* 輸入佇列。 
+   IoT Edge 中樞模組的其中一個函式會在部署中的所有模組之間路由傳送訊息。 檢閱 routes 屬性中的值。 第一個路由 **IotEdgeModule1ToIoTHub** 會使用萬用字元 ( **\*** ) 來包含任何來自 IotEdgeModule1 模組中任何輸出佇列的訊息。 這些訊息會進入 $upstream  ，這是會指出 IoT 中樞的保留名稱。 第二個路由 **sensorToIotEdgeModule1** 會取得來自 SimulatedTemperatureSensor 模組的訊息，並將它們路由傳送至 IotEdgeModule1 模組的 *input1* 輸入佇列。 
 
    ![檢閱 deployment.template.json 中的路由](./media/tutorial-develop-for-windows/deployment-routes.png)
 

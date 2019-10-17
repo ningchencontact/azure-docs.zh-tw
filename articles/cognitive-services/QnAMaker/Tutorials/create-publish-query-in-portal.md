@@ -9,20 +9,20 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: tutorial
-ms.date: 09/03/2019
+ms.date: 10/14/2019
 ms.author: diberry
-ms.openlocfilehash: 6cc509b9f9a9087fbe832dbd35b3dfd8d60a6577
-ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
+ms.openlocfilehash: 51d051fee1da1f9bb0c89ea9123748b512f84007
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70308072"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72327969"
 ---
 # <a name="tutorial-from-the-qna-maker-portal-create-a-knowledge-base"></a>教學課程：在 QnA Maker 入口網站中建立知識庫
 
 從網頁型常見問題集建立具有問題與答案的新知識庫。 儲存、訓練和發佈知識庫。 發佈知識庫之後，使用 cURL 命令來傳送問題和接收答案。 接著建立 Bot，並以相同問題測試 Bot。 
 
-在本教學課程中，您了解如何： 
+在本教學課程中，您會了解如何： 
 
 > [!div class="checklist"]
 > * 在 QnA Maker 入口網站中建立知識庫。

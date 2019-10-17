@@ -21,6 +21,8 @@
   items:
     - name: 一般條件式存取原則
       href: concept-conditional-access-policy-common.md
+    - name: 安全性預設值
+      href: concept-conditional-access-security-defaults.md
     - name: 條件式存取原則元件
       href: concept-conditional-access-policies.md
     - name: 條件
@@ -76,16 +78,6 @@
       href: howto-conditional-access-session-lifetime.md
     - name: 遷移傳統原則
       href: policy-migration.md
-    - name: 基準原則
-      items:
-        - name: 管理員需要進行 MFA
-          href: howto-baseline-protect-administrators.md
-        - name: 使用者保護
-          href: howto-baseline-protect-end-users.md
-        - name: 封鎖舊式驗證
-          href: howto-baseline-protect-legacy-auth.md
-        - name: 需要 MFA 以管理服務
-          href: howto-baseline-protect-azure.md
     - name: 採用條件式存取
       href: howto-conditional-access-adoption-kit.md
     - name: 疑難排解

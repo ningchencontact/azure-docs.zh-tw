@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 03/11/2019
 ms.author: normesta
 ms.reviewer: dineshm
-ms.openlocfilehash: 66394600963cf154b3cb1fe661968f4ded2ec225
-ms.sourcegitcommit: 007ee4ac1c64810632754d9db2277663a138f9c4
+ms.openlocfilehash: 0607c2b848a486e24654081bd7937cb734394e58
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69992271"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72331819"
 ---
 # <a name="tutorial-access-data-lake-storage-gen2-data-with-azure-databricks-using-spark"></a>教學課程：使用 Spark 以 Azure DataBricks 存取 Data Lake Storage Gen2 資料
 
@@ -97,15 +97,13 @@ ms.locfileid: "69992271"
 
     ![在 Azure 上建立 Databricks Spark 叢集](./media/data-lake-storage-use-databricks-spark/create-databricks-spark-cluster.png "在 Azure 上建立 Databricks Spark 叢集")
 
-4. 填寫下列欄位的值，然後接受其他欄位的預設值：
+    填寫下列欄位的值，然後接受其他欄位的預設值：
 
-    * 輸入叢集的名稱。
+    - 輸入叢集的名稱。
+     
+    - 務必要選取 [在停止活動 120 分鐘後終止]  核取方塊。 請提供用來終止叢集的叢集未使用持續時間 (以分鐘為單位)。
 
-    * 在本文中，請使用 **5.1** 執行階段建立叢集。
-
-    * 確定您已選取 [在停止活動\_\_分鐘後終止]  核取方塊。 若未使用叢集，請提供據以終止叢集的持續時間 (以分鐘為單位)。
-
-    * 選取 [建立叢集]  。 叢集執行後，您就可以將 Notebook 連結至叢集，並執行 Spark 作業。
+4. 選取 [建立叢集]  。 叢集執行後，您就可以將 Notebook 連結至叢集，並執行 Spark 作業。
 
 ## <a name="ingest-data"></a>擷取資料
 
