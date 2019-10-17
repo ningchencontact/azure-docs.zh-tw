@@ -15,31 +15,31 @@ ms.topic: tutorial
 ms.date: 11/21/2018
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 137b569820ea7394b6a3beb24129c905a2efd123
-ms.sourcegitcommit: 86d49daccdab383331fc4072b2b761876b73510e
+ms.openlocfilehash: f13b390047ea4d8280b106f3b02a8f18944a6f99
+ms.sourcegitcommit: 1c2659ab26619658799442a6e7604f3c66307a89
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70743868"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72255133"
 ---
 # <a name="tutorial-host-a-restful-api-with-cors-in-azure-app-service"></a>教學課程：在 Azure App Service 中裝載具有 CORS 支援的 RESTful API
 
-[Azure App Service](overview.md) 可提供可高度擴充、自我修復的 Web 主控服務。 此外，App Service 有 RESTful API 的內建[跨原始資源共用 (CORS)](https://wikipedia.org/wiki/Cross-Origin_Resource_Sharing) 支援。 此教學課程示範如何將 ASP.NET Core API 應用程式部署至具有 CORS 支援的 App Service。 您可使用命令列工具來設定應用程式，以及使用 Git 部署應用程式。 
+[Azure App Service](overview.md) 可提供可高度擴充、自我修復的 Web 主控服務。 此外，App Service 有 RESTful API 的內建[跨原始資源共用 (CORS)](https://wikipedia.org/wiki/Cross-Origin_Resource_Sharing) 支援。 本教學課程示範如何將 ASP.NET Core API 應用程式部署至具有 CORS 支援的 App Service。 您可使用命令列工具來設定應用程式，以及使用 Git 部署應用程式。 
 
-在此教學課程中，您了解如何：
+在本教學課程中，您會了解如何：
 
 > [!div class="checklist"]
 > * 使用 Azure CLI 建立 App Service 資源
 > * 使用 Git 將 RESTful API 部署到 Azure
 > * 啟用 App Service CORS 支援
 
-您可以在 macOS、Linux、Windows 上依照此教學課程中的步驟進行。
+您可以在 macOS、Linux、Windows 上依照本教學課程中的步驟進行。
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 ## <a name="prerequisites"></a>必要條件
 
-若要完成此教學課程：
+若要完成本教學課程：
 
 * [安裝 Git](https://git-scm.com/)。
 * [安裝 .NET Core](https://www.microsoft.com/net/core/)。
@@ -72,7 +72,7 @@ dotnet run
 
 在瀏覽器中瀏覽至 `http://localhost:5000/swagger` 以使用 Swagger UI 播放。
 
-![在本機執行的 ASP.NET Core API](./media/app-service-web-tutorial-rest-api/local-run.png)
+![在本機執行的 ASP.NET Core API](./media/app-service-web-tutorial-rest-api/azure-app-service-local-swagger-ui.png)
 
 瀏覽至 `http://localhost:5000/api/todo` 並查看 ToDo JSON 項目清單。
 
@@ -136,7 +136,7 @@ To https://<app_name>.scm.azurewebsites.net/<app_name>.git
 
 在瀏覽器中瀏覽至 `http://<app_name>.azurewebsites.net/swagger` 並使用 Swagger UI 播放。
 
-![在 Azure App Service 中執行的 ASP.NET Core API](./media/app-service-web-tutorial-rest-api/azure-run.png)
+![在 Azure App Service 中執行的 ASP.NET Core API](./media/app-service-web-tutorial-rest-api/azure-app-service-browse-app.png)
 
 瀏覽至 `http://<app_name>.azurewebsites.net/swagger/v1/swagger.json` 以查看您已部署 API 的 swagger.json  。
 
@@ -160,7 +160,7 @@ dotnet run
 
 瀏覽至位於 `http://localhost:5000` 的瀏覽器應用程式。 在瀏覽器中開啟 [開發人員工具] 視窗 (在適用於 Windows 的 Chrome 中按 `Ctrl`+`Shift`+`i`)，並檢查 [主控台]  索引標籤。您現在會看到錯誤訊息：`No 'Access-Control-Allow-Origin' header is present on the requested resource`。
 
-![瀏覽器用戶端中的 CORS 錯誤](./media/app-service-web-tutorial-rest-api/cors-error.png)
+![瀏覽器用戶端中的 CORS 錯誤](./media/app-service-web-tutorial-rest-api/azure-app-service-cors-error.png)
 
 因為瀏覽器應用程式 (`http://localhost:5000`) 與遠端資源 (`http://<app_name>.azurewebsites.net`) 之間的網域不相符，加上 App Service 中您的 API 並未傳送 `Access-Control-Allow-Origin` 標頭的這個事實，以致瀏覽器無法將跨網域內容載入瀏覽器應用程式中。
 
@@ -183,7 +183,7 @@ az resource update --name web --resource-group myResourceGroup --namespace Micro
 
 重新整理位於 `http://localhost:5000` 的瀏覽器應用程式。 [主控台]  視窗中的錯誤訊息現已消失，而且您可看到來自已部署 API 的資料並與其互動。 您的遠端 API 現在對在本機執行的瀏覽器應用程式支援 CORS。 
 
-![瀏覽器用戶端中的 CORS 成功](./media/app-service-web-tutorial-rest-api/cors-success.png)
+![瀏覽器用戶端中的 CORS 成功](./media/app-service-web-tutorial-rest-api/azure-app-service-cors-success.png)
 
 恭喜，您正在 Azure App Service 中執行具有 CORS 支援的 API。
 

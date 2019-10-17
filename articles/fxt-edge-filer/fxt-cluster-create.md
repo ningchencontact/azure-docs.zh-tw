@@ -5,13 +5,13 @@ author: ekpgh
 ms.service: fxt-edge-filer
 ms.topic: tutorial
 ms.date: 07/01/2019
-ms.author: v-erkell
-ms.openlocfilehash: 94ec2b088940f4f1f683a4f88ae312879d909bc1
-ms.sourcegitcommit: 5bdd50e769a4d50ccb89e135cfd38b788ade594d
+ms.author: rohogue
+ms.openlocfilehash: 54d70f60d4b7290b60c864817c756648fef1f481
+ms.sourcegitcommit: 1c2659ab26619658799442a6e7604f3c66307a89
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/03/2019
-ms.locfileid: "67543566"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72256079"
 ---
 # <a name="tutorial-create-the-azure-fxt-edge-filer-cluster"></a>教學課程：建立 Azure FXT Edge Filer 叢集
 
@@ -19,7 +19,7 @@ ms.locfileid: "67543566"
 
 此教學課程會逐步引導您將硬體節點設定為叢集。 
 
-在此教學課程中，您將了解： 
+在本教學課程中，您將了解： 
 
 > [!div class="checklist"]
 > * 開始建立叢集之前需要哪些資訊
@@ -30,7 +30,7 @@ ms.locfileid: "67543566"
 
 此程序需要 15 至 45 分鐘的時間，根據您識別 IP 位址和網路資源所需的研究時間長短而定。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 開始進行此教學課程之前，請完成下列先決條件：
 
@@ -180,7 +180,7 @@ Azure FXT Edge Filer 混合式儲存體快取叢集使用三種類別的 IP 位�
 
 <!-- to do: update "legacy" URLs when docs are ported to Microsoft site -->
 
-### <a name="network-configuration"></a>網路設定
+### <a name="network-configuration"></a>網路組態
 
 [網路]  區段會提示您指定叢集將使用的網路基礎結構。 
 

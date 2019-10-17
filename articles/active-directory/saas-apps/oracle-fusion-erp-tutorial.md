@@ -13,15 +13,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 08/13/2019
+ms.date: 09/10/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7ba929ab13864664a823ba969ecb472812d946a9
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
+ms.openlocfilehash: 5cd7ea1a20eb82d030e9bdabe76ff7d14a619d1e
+ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68989555"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72373083"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-oracle-fusion-erp"></a>教學課程：Azure Active Directory 單一登入 (SSO) 與 Oracle Fusion ERP 整合
 
@@ -87,7 +87,7 @@ ms.locfileid: "68989555"
     b. 在 [識別碼 (實體識別碼)]  文字方塊中，使用下列模式輸入 URL：`https://<SUBDOMAIN>.login.em2.oraclecloud.com:443/oam/fed`
 
     > [!NOTE]
-    > 這些都不是真正的值。 請使用實際的「登入 URL」及「識別碼」來更新這些值。 請連絡 [Oracle Fusion ERP 用戶端支援小組](mailto:jinshu.peethambaran@oracle.com)以取得這些值。 您也可以參考 Azure 入口網站中**基本 SAML 組態**區段所示的模式。
+    > 這些都不是真正的值。 請使用實際的「登入 URL」及「識別碼」來更新這些值。 請連絡 [Oracle Fusion ERP 用戶端支援小組](https://www.oracle.com/applications/erp/)以取得這些值。 您也可以參考 Azure 入口網站中**基本 SAML 組態**區段所示的模式。
 
 1. 在 [以 SAML 設定單一登入]  頁面上的 [SAML 簽署憑證]  區段中，尋找 [同盟中繼資料 XML]  ，然後選取 [下載]  以下載憑證，並將其儲存在電腦上。
 
@@ -129,11 +129,11 @@ ms.locfileid: "68989555"
 
 ## <a name="configure-oracle-fusion-erp-sso"></a>設定 Oracle Fusion ERP SSO
 
-若要在 **Oracle Fusion ERP** 端設定單一登入，您必須將從 Azure 入口網站下載的 [同盟中繼資料 XML]  和複製的適當 URL 傳送給 [Oracle Fusion ERP 支援小組](mailto:jinshu.peethambaran@oracle.com)。 他們會進行此設定，讓兩端的 SAML SSO 連線都設定正確。
+若要在 **Oracle Fusion ERP** 端設定單一登入，您必須將從 Azure 入口網站下載的 [同盟中繼資料 XML]  和複製的適當 URL 傳送給 [Oracle Fusion ERP 支援小組](https://www.oracle.com/applications/erp/)。 他們會進行此設定，讓兩端的 SAML SSO 連線都設定正確。
 
 ### <a name="create-oracle-fusion-erp-test-user"></a>建立 Oracle Fusion ERP 測試使用者
 
-在本節中，您會在 Oracle Fusion ERP 中建立名為 Britta Simon 的使用者。 請與 [Oracle Fusion ERP 支援小組](mailto:jinshu.peethambaran@oracle.com)合作，在 Oracle Fusion ERP 平台中新增使用者。 您必須先建立和啟動使用者，然後才能使用單一登入。
+在本節中，您會在 Oracle Fusion ERP 中建立名為 Britta Simon 的使用者。 請與 [Oracle Fusion ERP 支援小組](https://www.oracle.com/applications/erp/)合作，在 Oracle Fusion ERP 平台中新增使用者。 您必須先建立和啟動使用者，然後才能使用單一登入。
 
 ## <a name="test-sso"></a>測試 SSO 
 

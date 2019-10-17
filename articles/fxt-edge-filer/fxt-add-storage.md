@@ -5,13 +5,13 @@ author: ekpgh
 ms.service: fxt-edge-filer
 ms.topic: tutorial
 ms.date: 06/20/2019
-ms.author: v-erkell
-ms.openlocfilehash: 4a69aa7838e08c83b47c5f0248e821edf86b3990
-ms.sourcegitcommit: 5bdd50e769a4d50ccb89e135cfd38b788ade594d
+ms.author: rohogue
+ms.openlocfilehash: ecc246368cae74440ada782940931b3588193975
+ms.sourcegitcommit: 1c2659ab26619658799442a6e7604f3c66307a89
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/03/2019
-ms.locfileid: "67543255"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72256075"
 ---
 # <a name="tutorial-add-back-end-storage-and-configure-the-virtual-namespace"></a>教學課程：新增後端儲存體並設定虛擬命名空間 
 
@@ -21,7 +21,7 @@ ms.locfileid: "67543255"
 
 命名空間是面向用戶端的虛擬檔案系統，允許您在不變更用戶端工作流程的情況下交換後端儲存體。 
 
-在此教學課程中，您將了解： 
+在本教學課程中，您將了解： 
 
 > [!div class="checklist"]
 > * 如何將後端儲存體新增至 Azure FXT Edge Filer 叢集 

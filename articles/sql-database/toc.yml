@@ -271,6 +271,8 @@
                   href: sql-database-xevent-code-event-file.md
                 - name: 擴充事件 - 信號緩衝區
                   href: sql-database-xevent-code-ring-buffer.md
+        - name: 超大規模資料庫效能診斷
+          href: sql-database-hyperscale-performance-diagnostics.md
     - name: 延展性
       items:
         - name: 延展性文件

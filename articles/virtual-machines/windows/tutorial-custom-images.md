@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 11/30/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 1c216e5a572a36d2306326dd0dd6e1b7ed586de8
-ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
+ms.openlocfilehash: 58f7e530008303f16f2d015e29e60e95480cab2c
+ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71350845"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72390560"
 ---
 # <a name="tutorial-create-a-custom-image-of-an-azure-vm-with-azure-powershell"></a>教學課程：使用 Azure PowerShell 建立 Azure VM 的自訂映像
 
@@ -134,6 +134,7 @@ New-AzVm `
 ```
 
 我們建議您將來自單一映像的並行部署數目限制為 20 部 VM。 如果您打算從相同的自訂映像大規模、並行部署超過 20 部 VM，則應使用具有多個映像複本的[共用映像庫](shared-image-galleries.md)。 
+
 
 ## <a name="image-management"></a>映像管理 
 

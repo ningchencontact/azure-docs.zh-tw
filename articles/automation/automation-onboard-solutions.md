@@ -9,12 +9,12 @@ manager: carmonm
 ms.topic: tutorial
 ms.date: 05/10/2018
 ms.custom: mvc
-ms.openlocfilehash: d247369647106cf1671a8770a6dce21f1a34a4b9
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: cacd9206eb0213d410a11ee3a2dcf5c0e28989c6
+ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58082189"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72372821"
 ---
 # <a name="onboard-update-and-change-tracking-solutions-to-azure-automation"></a>將更新與變更追蹤解決方案上線至 Azure 自動化
 
@@ -43,45 +43,45 @@ ms.locfileid: "58082189"
 
 變更追蹤和清查解決方案可讓您在虛擬機器上[追蹤變更](automation-vm-change-tracking.md)和[進行清查](automation-vm-inventory.md)。 在此步驟中，您會在虛擬機器上啟用解決方案。
 
-1. 從左側功能表中，選取 [自動化帳戶]，然後在清單中選取您的自動化帳戶。
-1. 在 [組態管理] 下選取 [清查]。
-1. 選取現有的 Log Analytics 工作區，或建立新的工作區。 按一下 [啟用] 按鈕。
+1. 從左側功能表中，選取 [自動化帳戶]  ，然後在清單中選取您的自動化帳戶。
+1. 在 [組態管理]  下選取 [清查]  。
+1. 選取現有的 Log Analytics 工作區，或建立新的工作區。 按一下 [啟用]  按鈕。
 
 ![使更新解決方案上線](media/automation-onboard-solutions/inventory-onboard.png)
 
-當變更追蹤與清查解決方案上線通知完成時，按一下 [組態管理] 下的 [更新管理]。
+當變更追蹤與清查解決方案上線通知完成時，按一下 [組態管理]  下的 [更新管理]  。
 
 ### <a name="enable-update-management"></a>啟用更新管理
 
 更新管理解決方案可讓您管理 Azure Windows 虛擬機器的更新和修補程式。 您可以評估可用更新的狀態、排定何時安裝必要的更新，並檢閱部署結果來確認更新已成功套用至虛擬機器。 在此步驟中，您會為您的虛擬機器啟用解決方案。
 
-1. 從您的自動化帳戶中，選取 [更新管理] 下的 [更新管理]。
-1. 選取的 Log Analytics 工作區與上一個步驟中使用的工作區相同。 按一下 [啟用]，讓更新管理解決方案上線。
+1. 從您的自動化帳戶中，選取 [更新管理]  下的 [更新管理]  。
+1. 選取的 Log Analytics 工作區與上一個步驟中使用的工作區相同。 按一下 [啟用]  ，讓更新管理解決方案上線。
 
 ![使更新解決方案上線](media/automation-onboard-solutions/update-onboard.png)
 
-更新管理解決方案正在安裝時，您會看到藍色橫幅。 解決方案啟用後，請選取 [組態管理] 下的 [變更追蹤] 前往下一個步驟。
+更新管理解決方案正在安裝時，您會看到藍色橫幅。 解決方案啟用後，請選取 [組態管理]  下的 [變更追蹤]  前往下一個步驟。
 
 ### <a name="select-azure-vm-to-be-managed"></a>選取要管理的 Azure 虛擬機器
 
 現在解決方案已啟用，您可以新增要上線至這些解決方案的 Azure 虛擬機器。
 
-1. 從您的自動化帳戶中，在 [變更追蹤] 頁面上選取 [+ 新增 Azure 虛擬機器] 來新增您的虛擬機器。
+1. 從您的自動化帳戶中，在 [變更追蹤]  頁面上選取 [+ 新增 Azure 虛擬機器]  來新增您的虛擬機器。
 
-1. 從清單中選取您的虛擬機器，並選取 [啟用]。 此動作會啟用虛擬機器的變更追蹤和清查解決方案。
+1. 從清單中選取您的虛擬機器，並選取 [啟用]  。 此動作會啟用虛擬機器的變更追蹤和清查解決方案。
 
    ![啟用虛擬機器的更新解決方案](media/automation-onboard-solutions/enable-change-tracking.png)
 
-1. 完成虛擬機器上線通知後，從您的自動化帳戶中選取 [更新管理] 下的 [更新管理]。
+1. 完成虛擬機器上線通知後，從您的自動化帳戶中選取 [更新管理]  下的 [更新管理]  。
 
-1. 選取 [+ 新增 Azure 虛擬機器] 來新增您的虛擬機器。
+1. 選取 [+ 新增 Azure 虛擬機器]  來新增您的虛擬機器。
 
-1. 從清單中選取您的虛擬機器，並選取 [啟用]。 此動作會啟用虛擬機器的更新管理解決方案。
+1. 從清單中選取您的虛擬機器，並選取 [啟用]  。 此動作會啟用虛擬機器的更新管理解決方案。
 
    ![啟用虛擬機器的更新解決方案](media/automation-onboard-solutions/enable-update.png)
 
 > [!NOTE]
-> 如果您沒有等待另一個解決方案完成，則在啟用下一個解決方案時，就會收到內容如下的訊息：*另一個解決方案正於這部或其他虛擬機器上安裝。當該安裝完成時，就能使用 [啟用] 按鈕，屆時您可以要求將解決方案安裝在此虛擬機器上。*
+> 如果您沒有等待另一個解決方案完成，則在啟用下一個解決方案時，就會收到內容如下的訊息：*另一個解決方案正於這部或其他虛擬機器上安裝。安裝完成時，即可使用 [啟用] 按鈕，然後您就可以要求在這部虛擬機器上安裝解決方案。*
 
 ## <a name="install-and-update-modules"></a>安裝和更新模組
 
@@ -89,25 +89,25 @@ ms.locfileid: "58082189"
 
 ## <a name="update-azure-modules"></a>更新 Azure 模組
 
-從您的自動化帳戶中，選取 [共用資源] 下的 [模組]。 選取 [更新 Azure 模組]，可將 Azure 模組更新為最新版本。 在提示中選取 [是]，可將所有現有的 Azure 模組更新為最新版本。
+從您的自動化帳戶中，選取 [共用資源]  下的 [模組]  。 選取 [更新 Azure 模組]  ，可將 Azure 模組更新為最新版本。 在提示中選取 [是]  ，可將所有現有的 Azure 模組更新為最新版本。
 
 ![更新模組](media/automation-onboard-solutions/update-modules.png)
 
 ### <a name="install-azurermoperationalinsights-module"></a>安裝 AzureRM.OperationalInsights 模組
 
-從 [模組] 頁面上，選取 [瀏覽資源庫] 以開啟模組資源庫。 搜尋 AzureRM.OperationalInsights，並將此模組匯入至自動化帳戶。
+從 [模組]  頁面上，選取 [瀏覽資源庫]  以開啟模組資源庫。 搜尋 AzureRM.OperationalInsights，並將此模組匯入至自動化帳戶。
 
 ![匯入 OperationalInsights 模組](media/automation-onboard-solutions/import-operational-insights-module.png)
 
 ## <a name="import-the-onboarding-runbook"></a>匯入上線 Runbook
 
-1. 從您的自動化帳戶中，選取 [程序自動化] 下的 [Runbook]。
-1. 選取 [瀏覽資源庫]。
-1. 搜尋 [更新與變更追蹤]，按一下 [Runbook] 並在 [檢視來源] 頁面上選取 [匯入]。 選取 [確定]，然後將 Runbook 匯入至自動化帳戶。
+1. 從您的自動化帳戶中，選取 [程序自動化]  下的 [Runbook]  。
+1. 選取 [瀏覽資源庫]  。
+1. 搜尋 [更新與變更追蹤]  ，按一下 [Runbook] 並在 [檢視來源]  頁面上選取 [匯入]  。 選取 [確定]  ，然後將 Runbook 匯入至自動化帳戶。
 
    ![匯入上線 Runbook](media/automation-onboard-solutions/import-from-gallery.png)
 
-1. 在 [Runbook] 頁面上，選取 [編輯]，然後選取 [發佈]。 在 [發佈 Runbook] 對話方塊中，選取 [是] 以發佈 Runbook。
+1. 在 [Runbook]  頁面上，選取 [編輯]  ，然後選取 [發佈]  。 在 [發佈 Runbook]  對話方塊中，選取 [是]  以發佈 Runbook。
 
 ## <a name="start-the-runbook"></a>啟動 Runbook
 
@@ -128,8 +128,15 @@ ms.locfileid: "58082189"
 
    ![Enable-MultipleSolution Runbook 參數。](media/automation-onboard-solutions/runbook-parameters.png)
 
-1. 選取 [確定] 以啟動 Runbook 作業。
+1. 選取 [確定]  以啟動 Runbook 作業。
 1. 在 Runbook 作業頁面上監視進度和任何錯誤。
+
+## <a name="clean-up-resources"></a>清除資源
+
+從「更新管理」中移除 VM：
+
+* 在您的 Log Analytics 工作區中，從 `MicrosoftDefaultScopeConfig-Updates` 「範圍設定」的已儲存搜尋中移除 VM。 您可以在工作區中的 [一般]  底下找到儲存的搜尋。
+* 移除 [Microsoft Monitoring Agent](../azure-monitor/learn/quick-collect-windows-computer.md#clean-up-resources) 或 [Linux 的 Log Analytics 代理程式](../azure-monitor/learn/quick-collect-linux-computer.md#clean-up-resources)。
 
 ## <a name="next-steps"></a>後續步驟
 
