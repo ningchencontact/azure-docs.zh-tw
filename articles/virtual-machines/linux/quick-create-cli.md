@@ -14,17 +14,23 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 10/09/2018
 ms.author: cynthn
-ms.custom: mvc, seo-javascript-september2019, seo-javascript-october2019
-ms.openlocfilehash: 0208e72263991daceed52073bcce8b3e01f8e8c2
-ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
+ms.custom:
+- mvc
+- seo-javascript-september2019
+- seo-javascript-october2019
+- seo-python-october2019
+ms.openlocfilehash: 7732320e987e6397dde2aff0f6c4328d551d99b1
+ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72174289"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72427944"
 ---
 # <a name="quickstart-create-a-linux-virtual-machine-with-the-azure-cli"></a>快速入門：使用 Azure CLI 建立 Linux 虛擬機器
 
-本快速入門示範如何使用 Azure 命令列介面 (CLI) 在 Azure 中部署 Linux 虛擬機器 (VM)。 Azure CLI 可用來從命令列或在指令碼中建立和管理 Azure 資源。 在本教學課程中，我們將安裝 Ubuntu 16.04 LTS。 若要顯示作用中的 VM，您將使用 SSH 來與之連線，並安裝 NGINX Web 伺服器。
+本快速入門示範如何使用 Azure 命令列介面 (CLI) 在 Azure 中部署 Linux 虛擬機器 (VM)。 Azure CLI 可用來從命令列或在指令碼中建立和管理 Azure 資源。
+
+在本教學課程中，我們將安裝 Ubuntu 16.04 LTS。 若要顯示作用中的 VM，您將使用 SSH 來與之連線，並安裝 NGINX Web 伺服器。
 
 如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)。
 
@@ -107,7 +113,7 @@ sudo apt-get -y install nginx
 
 使用所選的網頁瀏覽器來查看預設 NGINX 歡迎使用頁面。 使用您 VM 的公用 IP 位址作為網址。 下列範例示範預設的 NGINX 網站：
 
-![預設 NGINX 網站](./media/quick-create-cli/nginx.png)
+![檢視 NGINX 歡迎使用頁面](./media/quick-create-cli/view-the-nginx-welcome-page.png)
 
 ## <a name="clean-up-resources"></a>清除資源
 

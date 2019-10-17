@@ -3,15 +3,15 @@ title: 使用 Azure Resource Graph Explorer 執行您的第一個查詢
 description: 本文會逐步引導您完成相關步驟，以便使用 Azure Resource Graph Explorer 從 Azure 入口網站執行您的第一個查詢。
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 08/29/2019
+ms.date: 10/18/2019
 ms.topic: quickstart
 ms.service: resource-graph
-ms.openlocfilehash: d533d24f9bfe133955c0f503e2458c8fcb0bf1de
-ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
+ms.openlocfilehash: 755556b9ba049da7542494ee580215d29c1eb5f4
+ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/06/2019
-ms.locfileid: "71981255"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72387611"
 ---
 # <a name="quickstart-run-your-first-resource-graph-query-using-azure-resource-graph-explorer"></a>快速入門：使用 Azure Resource Graph Explorer 執行您的第一個 Resource Graph 查詢
 
@@ -27,19 +27,19 @@ Azure Resource Graph 的功能可直接透過 Azure Resource Graph Explorer 在 
 
 1. 在左側窗格中選取 [所有服務]  。 搜尋並選取 [Resource Graph Explorer]  。
 
-1. 在視窗的 [查詢 1]  部分，輸入查詢 `project name, type | limit 5`，然後選取 [執行查詢]  。
+1. 在視窗的 [查詢 1]  部分，輸入查詢 `Resources | project name, type | limit 5`，然後選取 [執行查詢]  。
 
    > [!NOTE]
    > 由於此查詢範例並未提供排序修飾詞 (例如 `order by`)，因此執行此查詢多次將可能會對每個要求產生一組不同的資源。
 
 1. 在 [結果]  索引標籤中檢閱查詢回應。選取 [訊息]  索引標籤以查看查詢的詳細資料，包括結果計數和查詢的持續時間。 此索引標籤下會顯示錯誤 (如果有的話)。
 
-1. 將查詢更新為依**名稱**屬性排序 (`order by` name)：`project name, type | limit 5 | order by name asc`。 然後，選取 [執行查詢]  。
+1. 將查詢更新為依**名稱**屬性排序 (`order by` name)：`Resources | project name, type | limit 5 | order by name asc`。 然後，選取 [執行查詢]  。
 
    > [!NOTE]
    > 如同第一個查詢一樣，多次執行此查詢可能會為每個要求產生不同的資源集。 查詢命令的順序很重要。 在此範例中，`order by` 會出現在 `limit` 之後。 這會先限制查詢結果，然後將結果進行排序。
 
-1. 將查詢更新為第一個依**名稱**屬性排序 (`order by`)，然後限制 (`limit`) 為只顯示前五個結果：`project name, type | order by name asc | limit 5`。 然後，選取 [執行查詢]  。
+1. 將查詢更新為第一個依**名稱**屬性排序 (`order by`)，然後限制 (`limit`) 為只顯示前五個結果：`Resources | project name, type | order by name asc | limit 5`。 然後，選取 [執行查詢]  。
 
 執行最終查詢數次後，假設您的環境中未變更任何內容，傳回的結果將會一致且符合預期 - 依**名稱**屬性排序，但仍限制為只顯示前五個結果。
 
@@ -54,7 +54,8 @@ Azure Resource Graph 的功能可直接透過 Azure Resource Graph Explorer 在 
 1. 在視窗的 [查詢 1]  部分輸入下列查詢，然後選取 [執行查詢]  。
 
    ```kusto
-   where type =~ 'Microsoft.Compute/virtualMachines'
+   Resources
+   | where type =~ 'Microsoft.Compute/virtualMachines'
    | summarize count() by tostring(properties.storageProfile.osDisk.osType)
    ```
 

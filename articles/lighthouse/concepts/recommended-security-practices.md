@@ -1,18 +1,18 @@
 ---
-title: 適用於 Azure Lighthouse 的建議安全性作法
-description: 使用 Azure 委派的資源管理時，請務必考慮安全性和存取控制。
+title: 建議的安全性作法
+description: 在使用 Azure 委派的資源管理時，請務必考慮安全性與存取控制。
 author: JnHs
 ms.service: lighthouse
 ms.author: jenhayes
 ms.date: 07/11/2019
 ms.topic: overview
 manager: carmonm
-ms.openlocfilehash: 843b965e6ea74a7c11dc11459ff5d30ddbe5c987
-ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
+ms.openlocfilehash: 08a54313885c7d38117c242f01c2780796f38a08
+ms.sourcegitcommit: e0a1a9e4a5c92d57deb168580e8aa1306bd94723
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67810862"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72286191"
 ---
 # <a name="recommended-security-practices"></a>建議的安全性作法
 
