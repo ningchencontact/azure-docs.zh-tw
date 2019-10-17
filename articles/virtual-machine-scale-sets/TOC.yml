@@ -150,8 +150,14 @@
     - name: 基礎結構自動化
       href: ../virtual-machines/windows/infrastructure-automation.md
       maintainContext: true
-    - name: 安全性與原則
-      href: ../virtual-machines/windows/security-policy.md
+    - name: 安全性
+      items:
+        - name: 安全性與原則
+          href: ../virtual-machines/windows/security-policy.md
+        - name: Azure 磁碟加密
+          href: disk-encryption-overview.md
+        - name: 內建安全性控制
+          href: virtual-machine-scale-sets-security-controls.md
       maintainContext: true
     - name: 監視
       href: ../virtual-machines/windows/monitor.md
@@ -163,8 +169,6 @@
           maintainContext: true
     - name: 擴展集常見問題
       href: virtual-machine-scale-sets-faq.md
-    - name: 內建安全性控制
-      href: virtual-machine-scale-sets-security-controls.md
 - name: 作法
   items:
     - name: 規劃和設計
@@ -212,12 +216,15 @@
         - name: 在擴展集中加密磁碟
           items:
             - name: 使用 PowerShell
-              href: virtual-machine-scale-sets-encrypt-disks-ps.md
+              href: disk-encryption-powershell.md
             - name: 使用 Azure CLI
-              href: virtual-machine-scale-sets-encrypt-disks-cli.md
+              href: disk-encryption-cli.md
+            - name: 使用 Azure 資源管理員範本
+              href: disk-encryption-azure-resource-manager.md
             - name: 擴充功能排序
-              href: ../security/azure-security-disk-encryption-extension-sequencing.md
-              maintainContext: true
+              href: disk-encryption-extension-sequencing.md
+            - name: 適用於 Azure 磁碟加密的金鑰保存庫
+              href: disk-encryption-key-vault.md
         - name: 使用大型擴展集
           href: virtual-machine-scale-sets-placement-groups.md
         - name: 將擴展集範本轉換為使用受控磁碟

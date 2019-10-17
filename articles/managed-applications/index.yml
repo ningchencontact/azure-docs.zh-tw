@@ -2,7 +2,7 @@
 documentType: LandingData
 title: Azure 受控應用程式文件
 metadata:
-  title: Azure 受控應用程式文件 - 教學課程和 API 參考
+  title: Azure 受控應用程式文件
   description: 使用 Azure 受控應用程式來發佈雲端解決方案，讓客戶更容易進行維護。
   services: managed-applications
   author: tfitzmac
