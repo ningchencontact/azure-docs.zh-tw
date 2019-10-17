@@ -9,20 +9,20 @@ ms.topic: conceptual
 ms.service: service-fabric
 hide_comments: true
 hideEdit: true
-ms.openlocfilehash: 984e7ed82ba81d8c40688efd0a0a06e095be7c06
-ms.sourcegitcommit: 3f78a6ffee0b83788d554959db7efc5d00130376
+ms.openlocfilehash: 4a681b3a09def3a7b27b603cf5201aebdbf2e4bf
+ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/26/2019
-ms.locfileid: "70018990"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72386219"
 ---
 # <a name="service-fabric-releases"></a>Service Fabric 版本
 
 | <a href="https://github.com/Azure/Service-Fabric-Troubleshooting-Guides" target="blank">疑難排解指南</a> 
 | <a href="https://github.com/Azure/service-fabric-issues" target="blank">問題追蹤</a> 
-| <a href="https://docs.microsoft.com/azure/service-fabric/service-fabric-support" target="blank">支持的選項</a> 
-| <a href="https://docs.microsoft.com/azure/service-fabric/service-fabric-versions" target="blank">支持的版本</a> 
-| <a href="https://azure.microsoft.com/resources/samples/?service=service-fabric&sort=0" target="blank">代碼示例</a>
+| <a href="https://docs.microsoft.com/azure/service-fabric/service-fabric-support" target="blank">支援選項</a> 
+| <a href="https://docs.microsoft.com/azure/service-fabric/service-fabric-versions" target="blank">支援的版本</a> 
+|  程式<a href="https://azure.microsoft.com/resources/samples/?service=service-fabric&sort=0" target="blank">代碼範例</a>
 
 本文提供 Service Fabric 執行時間和 Sdk 最新版本和更新的詳細資訊。
 
@@ -30,47 +30,49 @@ ms.locfileid: "70018990"
 
 ### <a name="service-fabric-65"></a>Service Fabric 6。5
 
-最新的 Service Fabric 版本包括可支援性、可靠性和效能改良功能、新功能、bug 修正, 以及簡化叢集和應用程式生命週期管理的增強功能。
+最新的 Service Fabric 版本包括可支援性、可靠性和效能改良功能、新功能、bug 修正，以及簡化叢集和應用程式生命週期管理的增強功能。
 
 > [!IMPORTANT]
 > Service Fabric 6.5 是 Visual Studio 2015 中具有 Service Fabric 工具支援的最終版本。 我們建議客戶繼續[Visual Studio 2019](https://visualstudio.microsoft.com/vs/) 。
 
-以下是 Service Fabric 6.5 的新這是什麼:
+以下是 Service Fabric 6.5 的新這是什麼：
 
-- Service Fabric Explorer 包含[映射存放區檢視器](service-fabric-visualizing-your-cluster.md#image-store-viewer), 可檢查您已上傳至映射存放區的應用程式。
+- Service Fabric Explorer 包含[映射存放區檢視器](service-fabric-visualizing-your-cluster.md#image-store-viewer)，可檢查您已上傳至映射存放區的應用程式。
 
-- [修補程式協調流程應用程式 (POA)](service-fabric-patch-orchestration-application.md)版本[1.4.0](https://github.com/microsoft/Service-Fabric-POA/releases/tag/v1.4.0)包含許多自我診斷改良功能。 建議將 POA 的客戶移至此版本。
+- [修補程式協調流程應用程式（POA）](service-fabric-patch-orchestration-application.md)版本[1.4.0](https://github.com/microsoft/Service-Fabric-POA/releases/tag/v1.4.0)包含許多自我診斷改良功能。 建議將 POA 的客戶移至此版本。
 
-- 除非您退出宣告, 否則 Service Fabric 6.5 叢集的[EventStore 服務預設為啟用](service-fabric-visualizing-your-cluster.md#event-store)。
+- 除非您退出宣告，否則 Service Fabric 6.5 叢集的[EventStore 服務預設為啟用](service-fabric-visualizing-your-cluster.md#event-store)。
 
 - 已新增具狀態服務的[複本生命週期事件](service-fabric-diagnostics-event-generation-operational.md#replica-events)。
 
-- [較佳的種子節點狀態可見度](service-fabric-understand-and-troubleshoot-with-system-health-reports.md#seed-node-status), 包括當種子節點狀況不良 (*關閉*、*移除*或*不明*) 時的叢集層級警告。
+- [較佳的種子節點狀態可見度](service-fabric-understand-and-troubleshoot-with-system-health-reports.md#seed-node-status)，包括當種子節點狀況不良（*關閉*、*移除*或*不明*）時的叢集層級警告。
 
-- [Service Fabric 應用程式嚴重損壞修復工具](https://github.com/Microsoft/Service-Fabric-AppDRTool)可讓 Service Fabric 具狀態服務在主要叢集發生嚴重損壞時快速復原。 主要叢集的資料會使用定期備份和還原, 持續在次要待命應用程式上進行同步處理。
+- [Service Fabric 應用程式嚴重損壞修復工具](https://github.com/Microsoft/Service-Fabric-AppDRTool)可讓 Service Fabric 具狀態服務在主要叢集發生嚴重損壞時快速復原。 主要叢集的資料會使用定期備份和還原，持續在次要待命應用程式上進行同步處理。
 
 - Visual Studio 支援[將 .Net Core 應用程式發佈到以 Linux 為基礎](service-fabric-how-to-publish-linux-app-vs.md)的叢集。
 
-- 當您在 Azure 上升級或建立新的 Linux 叢集時, 將會自動安裝適用于 Service Fabric 6.5 (和更新版本) 的[azure SERVICE FABRIC CLI (SFCTL)](https://docs.microsoft.com/azure/service-fabric/service-fabric-cli) 。
+- 當您在 Azure 上升級或建立新的 Linux 叢集時，將會自動安裝適用于 Service Fabric 6.5 （和更新版本）的[azure SERVICE FABRIC CLI （SFCTL）](https://docs.microsoft.com/azure/service-fabric/service-fabric-cli) 。
 
 - [SFCTL](https://docs.microsoft.com/azure/service-fabric/service-fabric-cli)預設會安裝在 MacOS/Linux OneBox 叢集上。
 
-如需進一步的詳細資料, 請參閱[Service Fabric 6.5 版本](https://github.com/Azure/service-fabric/blob/master/release_notes/Service_Fabric_ReleaseNotes_65.pdf)資訊。
+如需進一步的詳細資料，請參閱[Service Fabric 6.5 版本](https://github.com/Azure/service-fabric/blob/master/release_notes/Service_Fabric_ReleaseNotes_65.pdf)資訊。
 
 ### <a name="service-fabric-65-releases"></a>Service Fabric 6.5 版本
 
-| 發行日期 | 版本 | 其他資訊 |
+| 發行日期 | 發行 | 詳細資訊 |
 |---|---|---|
 | 2019年6月11日 | [Azure Service Fabric 6。5](https://blogs.msdn.microsoft.com/azureservicefabric/2019/06/11/azure-service-fabric-6-5-release/)  | [版本資訊](https://github.com/Azure/service-fabric/blob/master/release_notes/Service_Fabric_ReleaseNotes_65.pdf)|
 | 2019 年 7 月 2 日 | [Azure Service Fabric 6.5 更新版本](https://blogs.msdn.microsoft.com/azureservicefabric/2019/07/04/azure-service-fabric-6-5-refresh-release/)  | [版本資訊](https://github.com/Azure/service-fabric/blob/master/release_notes/Service_Fabric_ReleaseNotes_65CU1.pdf)  |
 | 2019年7月29日 | [Azure Service Fabric 6.5 更新版本](https://techcommunity.microsoft.com/t5/Azure-Service-Fabric/Azure-Service-Fabric-6-5-Second-Refresh-Release/ba-p/800523)  | [版本資訊](https://github.com/Azure/service-fabric/blob/master/release_notes/Service_Fabric_ReleaseNotes_65CU2.pdf)  |
 | 2019年8月23日 | [Azure Service Fabric 6.5 更新版本](https://techcommunity.microsoft.com/t5/Azure-Service-Fabric/Azure-Service-Fabric-6-5-Third-Refresh-Release/ba-p/818599)  | [版本資訊](https://github.com/Azure/service-fabric/blob/master/release_notes/Service_Fabric_ReleaseNotes_65CU3.pdf)  |
+| 2019年10月14日 | [Azure Service Fabric 6.5 更新版本](https://techcommunity.microsoft.com/t5/Azure-Service-Fabric/Azure-Service-Fabric-6-5-Fifth-Refresh-Release/ba-p/913296)  | [版本資訊](https://github.com/Azure/service-fabric/blob/master/release_notes/Service_Fabric_ReleaseNotes_65CU5.md)  |
+
 
 ## <a name="previous-versions"></a>舊版
 
 ### <a name="service-fabric-64-releases"></a>Service Fabric 6.4 版本
 
-| 發行日期 | 版本 | 其他資訊 |
+| 發行日期 | 發行 | 詳細資訊 |
 |---|---|---|
 | 2018年11月30日 | [Azure Service Fabric 6。4](https://blogs.msdn.microsoft.com/azureservicefabric/2018/11/30/azure-service-fabric-6-4-release/)  | [版本資訊](https://msdnshared.blob.core.windows.net/media/2018/12/Service-Fabric-6.4-Release.pdf)|
 | 2018 年 12 月 12 日 | [適用于 Windows 叢集的 Azure Service Fabric 6.4 重新整理版本](https://blogs.msdn.microsoft.com/azureservicefabric/2018/12/12/azure-service-fabric-6-4-refresh-for-windows-clusters/)  | [版本資訊](https://msdnshared.blob.core.windows.net/media/2018/12/Links.pdf)  |

@@ -1,5 +1,5 @@
 ---
-title: 使用 Azure 通知中樞將通知推送至特定使用者 | Microsoft Docs
+title: 使用 Azure 通知中樞將推播通知傳送給特定使用者 |Microsoft Docs
 description: 了解如何使用 Azure 通知中樞將推播通知傳送至特定的使用者。
 documentationcenter: ios
 author: sethm
@@ -16,18 +16,18 @@ ms.date: 01/04/2019
 ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 01/04/2019
-ms.openlocfilehash: 85461f72d4385805e2aa13691a574a2161036ca5
-ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
+ms.openlocfilehash: 48135ea614bbab4ca6649a83895ae5f632918c61
+ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71212231"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72387464"
 ---
-# <a name="tutorial-push-notifications-to-specific-users-using-azure-notification-hubs"></a>教學課程：使用 Azure 通知中樞將通知推送至特定使用者
+# <a name="tutorial-send-push-notifications-to-specific-users-using-azure-notification-hubs"></a>教學課程：使用 Azure 通知中樞將推播通知傳送給特定使用者
 
 [!INCLUDE [notification-hubs-selector-aspnet-backend-notify-users](../../includes/notification-hubs-selector-aspnet-backend-notify-users.md)]
 
-本教學課程將示範如何使用 Azure 通知中心，來將推播通知傳送到特定裝置上的特定應用程式使用者。 ASP.NET WebAPI 後端可用來驗證用戶端並產生通知，如指引主題[從您的應用程式後端註冊](notification-hubs-push-notification-registration-management.md#registration-management-from-a-backend)中所示。
+本教學課程將向您說明如何使用 Azure 通知中樞將推播通知傳送至特定裝置上的特定應用程式使用者。 ASP.NET WebAPI 後端可用來驗證用戶端並產生通知，如指引主題[從您的應用程式後端註冊](notification-hubs-push-notification-registration-management.md#registration-management-from-a-backend)中所示。
 
 在本教學課程中，您會執行下列步驟：
 
@@ -60,9 +60,9 @@ ms.locfileid: "71212231"
 
    * **使用者名稱**：含有預留位置文字 ( *輸入使用者名稱*) 的 UITextField，位於傳送結果標籤正下方且受到左右邊界限制並位於傳送結果標籤正下方。
    * **密碼**：含有預留位置文字 ( *輸入密碼*) 的 UITextField，位於使用者名稱文字欄位正下方且受到左右邊界限制並位於使用者文字欄位正下方。 勾選 [ **傳回金鑰** ] 底下屬性偵測器中的 [ *安全文字輸入*] 選項。
-   * **登入**：密碼文字欄位正下方標記的 UIButton，並取消勾選 [控制項內容] 底下屬性偵測器中的 [啟用] 選項
+   * **登入**：密碼文字欄位正下方標記的 UIButton，並取消勾選 [控制項內容] 底下屬性偵測器中的 [啟用] 選項。
    * **WNS**：當中樞中已設定 Windows 通知服務時，用來啟用傳送通知至該服務的標籤與開關。 請參閱 [Windows 入門](notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md)教學課程。
-   * **GCM**：當中樞中已設定 Google 雲端通訊時，用來啟用傳送通知至該服務的標籤與開關。 請參閱 [Android 入門](notification-hubs-android-push-notification-google-gcm-get-started.md) 教學課程。
+   * **GCM**：當中樞中已設定 Google Cloud Messaging 時，用來啟用傳送通知至該服務的標籤與開關。 請參閱 [Android 入門](notification-hubs-android-push-notification-google-gcm-get-started.md) 教學課程。
    * **APNS**：啟用傳送通知給 Apple 平台通知服務之功能的標籤與開關。
    * **收件者使用者名稱：** 含有預留位置文字 (*收件者使用者名稱標記*) 的 UITextField，位於 GCM 標籤正下方，且受到左右邊界與 GCM 正下方的限制。
 
@@ -496,7 +496,7 @@ ms.locfileid: "71212231"
 
 ## <a name="next-steps"></a>後續步驟
 
-在本教學課程中，您已學會如何針對具有與其註冊相關聯標記的使用者，將通知推送至這些特定使用者。 若要了解如何推送以位置為基礎的通知，請繼續進行下列教學課程： 
+在本教學課程中，您已了解如何將通知推送至具有與其註冊相關聯之標記的特定使用者。 若要了解如何推送以位置為基礎的通知，請繼續進行下列教學課程： 
 
 > [!div class="nextstepaction"]
 >[推送以位置為基礎的通知](notification-hubs-push-bing-spatial-data-geofencing-notification.md)

@@ -14,17 +14,18 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 10/01/2016
 ms.author: crdun
-ms.openlocfilehash: 87c64a98d783d2604c985017fbce586ed51e5c9d
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.openlocfilehash: 5be72a4125b276d85174a7a056cbbc2c23053e89
+ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72025435"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72388890"
 ---
 # <a name="client-and-server-versioning-in-mobile-apps-and-mobile-services"></a>Mobile Apps 和行動服務中的用戶端和伺服器版本控制
 > [!NOTE]
 > Visual Studio App Center 支援行動應用程式開發的端對端和整合式服務中心。 開發人員可以使用**組建**、**測試**和**散發**服務來設定持續整合和傳遞管線。 部署應用程式之後，開發人員可以使用**分析**和**診斷**服務來監視其應用程式的狀態和使用，並與使用**推**播服務的使用者互動。 開發人員也可以利用**驗證**來驗證其使用者和**資料**服務，以保存及同步雲端中的應用程式資料。
-> 如果您想要在您的行動應用程式中整合雲端服務，請立即註冊 App Center [App center](https://appcenter.ms/?utm_source=zumo&utm_medium=Azure&utm_campaign=zumo%20doc) 。
+>
+> 如果您想要在您的行動應用程式中整合雲端服務，請立即註冊[App Center](https://appcenter.ms/?utm_source=zumo&utm_medium=Azure&utm_campaign=zumo%20doc) 。
 
 Azure 行動服務的最新版本是 Azure App Service 的 **Mobile Apps** 功能。
 
@@ -36,11 +37,11 @@ Mobile Apps 用戶端和伺服器 SDK 最初是以行動服務中的 SDK 為基�
 ## <a name="header-specification"></a>標頭規格
 鍵值 `ZUMO-API-VERSION` 可以在 HTTP 標頭或查詢字串中指定。 值是版本字串，格式為 **x.y.z**。
 
-例如:
+例如：
 
 GET https://service.azurewebsites.net/tables/TodoItem
 
-標頭：ZUMO-API-VERSION：2.0.0
+HEADERS: ZUMO-API-VERSION: 2.0.0
 
 POST https://service.azurewebsites.net/tables/TodoItem?ZUMO-API-VERSION=2.0.0
 
@@ -54,7 +55,7 @@ POST https://service.azurewebsites.net/tables/TodoItem?ZUMO-API-VERSION=2.0.0
 ### <a name="MobileAppsClients"></a> Mobile Apps 用戶端 SDK
 版本檢查是從 **Azure Mobile Apps**下列版本的用戶端 SDK 開始引進：
 
-| 用戶端平台 | Version | 版本標頭值 |
+| 用戶端平台 | 版本 | 版本標頭值 |
 | --- | --- | --- |
 | 受控用戶端 (Windows、Xamarin) |[2.0.0](https://www.nuget.org/packages/Microsoft.Azure.Mobile.Client/2.0.0) |2.0.0 |
 | iOS |[3.0.0](https://go.microsoft.com/fwlink/?LinkID=529823) |2.0.0 |

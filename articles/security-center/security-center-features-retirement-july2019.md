@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: article
 ms.date: 09/10/2019
 ms.author: memildin
-ms.openlocfilehash: 6e7263dfa0faf0bf2fd7e8b7d6e050ca6bc95e2a
-ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
+ms.openlocfilehash: c4fe185f5d203b1b0eba306c80cded14ad82bc98
+ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71202202"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72438623"
 ---
 # <a name="retirement-of-security-center-features-july-2019"></a>淘汰資訊安全中心功能（2019年7月）
 
@@ -53,7 +53,7 @@ ms.locfileid: "71202202"
 
 我們鼓勵您使用 Azure Log Analytics 的原生功能來查看您工作區上的值得注意事件。
 
-如果您已在資訊安全中心中建立自訂值得注意的事件，則可加以存取。 在 Log Analytics 中，移至 [**選取工作區** > ] [**已儲存的搜尋**]。 您的資料不會遺失或修改。 您也可以從 Log Analytics 中的相同畫面取得原生值得注意的事件。
+如果您已在資訊安全中心中建立自訂值得注意的事件，則可加以存取。 在 Log Analytics 中，移至 [**選取工作區**] [ >  個**儲存的搜尋**]。 您的資料不會遺失或修改。 您也可以從 Log Analytics 中的相同畫面取得原生值得注意的事件。
 
 ![工作區儲存的搜尋][3]
 
@@ -115,7 +115,7 @@ Log Analytics 儀表板已在單一工作區上顯示深入解析。 不過，�
 
 ### <a name="security-events-map---the-new-experience"></a>安全性事件對應-新體驗
 
-我們鼓勵您使用內建于資訊安全中心的警示對應功能：**安全性警示對應（預覽）** 。 此功能可提供優化的體驗，並在所有訂用帳戶和相關聯的工作區中運作。 它可讓您在整個環境中擁有高階觀點，而不是專注于單一工作區。
+我們鼓勵您使用內建在資訊安全中心：**安全性警示對應（預覽）** 中的警示對應功能。 此功能可提供優化的體驗，並在所有訂用帳戶和相關聯的工作區中運作。 它可讓您在整個環境中擁有高階觀點，而不是專注于單一工作區。
 
 ## 自訂警示規則（預覽）<a name="menu_customalerts"></a>
 
@@ -169,7 +169,7 @@ Log Analytics 儀表板已在單一工作區上顯示深入解析。 不過，�
 
 Azure 資訊安全中心會套用一組[具有超過 150 個建議規則的集合](https://gallery.technet.microsoft.com/Azure-Security-Center-a789e335) (英文)，以此方式監視安全性設定以強化作業系統。 這些規則與防火牆、審核、密碼原則等相關。 如果發現電腦設定有弱點，資訊安全中心會產生安全性建議。 [[編輯安全性](https://docs.microsoft.com/azure/security-center/security-center-customize-os-security-config)設定] 畫面可讓客戶自訂資訊安全中心中的預設 OS 安全性設定。
 
-我們已淘汰此預覽功能。 若要在停用日期之後將安全性設定重設回其預設值，請使用[下列指示](https://aka.ms/ascresetsecurityconfigurations)透過 API 或 Powershell 執行此動作
+我們已淘汰此預覽功能。 若要在停用日期之後將安全性設定重設回其預設值，請使用[下列指示](https://github.com/Azure/Azure-Security-Center/tree/master/Powershell%20samples/Reset%20security%20configurations%20customization)透過 API 或 Powershell 執行此動作
 
 ![編輯安全性設定][17]
 

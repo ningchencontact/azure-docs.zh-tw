@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 05/29/2019
-ms.openlocfilehash: 4d801ada8fd8a8b35c71601d3ca274f26afb24f6
-ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.openlocfilehash: 90f3e80c92cd4409a77d4661462ae027c535eaf7
+ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71262285"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72434294"
 ---
 # <a name="slow-query-logs-in-azure-database-for-mysql"></a>適用於 MySQL 的 Azure 資料庫中的緩慢查詢記錄
 在適用於 MySQL 的 Azure 資料庫中，使用者可以使用慢速查詢記錄。 不支援存取交易記錄。 慢速查詢記錄檔可以用來找出效能瓶頸，以進行疑難排解。
@@ -40,6 +40,9 @@ ms.locfileid: "71262285"
 - **log_queries_not_using_indexes**：決定是否將未使用索引的查詢記錄至 slow_query_log
 - **log_throttle_queries_not_using_indexes**：這個參數會限制可寫入至慢速查詢記錄的非索引查詢次數。 log_queries_not_using_indexes 設為 ON 時，這個參數會生效。
 
+> [!Note]
+> 若為 `sql_text`，如果記錄檔超過2048個字元，則會被截斷。
+
 如需慢速查詢記錄參數的完整描述，請參閱 MySQL [慢速查詢記錄文件](https://dev.mysql.com/doc/refman/5.7/en/slow-query-log.html)。
 
 ## <a name="diagnostic-logs"></a>診斷記錄
@@ -50,11 +53,11 @@ ms.locfileid: "71262285"
 
 下表描述每個記錄的內容。 視輸出方法而定，包含的欄位及其出現的順序可能有所不同。
 
-| **屬性** | **描述** |
+| **屬性** | **說明** |
 |---|---|
 | `TenantId` | 您的租用戶識別碼 |
 | `SourceSystem` | `Azure` |
-| `TimeGenerated`UTC | 以 UTC 記錄記錄時的時間戳記 |
+| `TimeGenerated` [UTC] | 以 UTC 記錄記錄時的時間戳記 |
 | `Type` | 記錄的類型。 一律為 `AzureDiagnostics` |
 | `SubscriptionId` | 伺服器所屬訂用帳戶的 GUID |
 | `ResourceGroup` | 伺服器所屬資源群組的名稱 |
@@ -65,9 +68,9 @@ ms.locfileid: "71262285"
 | `Category` | `MySqlSlowLogs` |
 | `OperationName` | `LogEvent` |
 | `Logical_server_name_s` | 伺服器的名稱 |
-| `start_time_t`UTC | 查詢開始時間 |
-| `query_time_s` | 執行查詢所花費的總時間 |
-| `lock_time_s` | 查詢遭到鎖定的總時間 |
+| `start_time_t` [UTC] | 查詢開始時間 |
+| `query_time_s` | 執行查詢所花費的總時間（以秒為單位） |
+| `lock_time_s` | 查詢鎖定的總時間（以秒為單位） |
 | `user_host_s` | 使用者名稱 |
 | `rows_sent_s` | 傳送的資料列數目 |
 | `rows_examined_s` | 檢查的資料列數目 |
@@ -75,7 +78,7 @@ ms.locfileid: "71262285"
 | `insert_id_s` | 插入識別碼 |
 | `sql_text_s` | 完整查詢 |
 | `server_id_s` | 伺服器的識別碼 |
-| `thread_id_s` | 執行緒 ID |
+| `thread_id_s` | 執行緒識別碼 |
 | `\_ResourceId` | 資源 URI |
 
 ## <a name="next-steps"></a>後續步驟

@@ -6,12 +6,12 @@ ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 03/12/2019
-ms.openlocfilehash: fc497837792075501bcd92f6ee07ad9ee4fe2dfa
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.openlocfilehash: fff08b3e046161fbedefdc55f4e6a39a7f965f80
+ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72027016"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72387276"
 ---
 # <a name="azure-data-factory-alter-row-transformation"></a>Azure Data Factory Alter Row 轉換
 
@@ -28,7 +28,7 @@ ms.locfileid: "72027016"
 
 建立 Alter Row 轉換，並指定條件為 `true()` 的資料列原則。 不符合任何先前定義之運算式的每個資料列都會標示為指定的資料列原則。 根據預設，不符合任何條件運算式的每個資料列都會標示為 `Insert`。
 
-![改變數據列一個原則](media/data-flow/alter-row4.png "改變數據列一項原則")
+![改變數據列一個原則](media/data-flow/alter-row4.png "改變數據列一個原則")
 
 > [!NOTE]
 > 若要使用一個原則標記所有資料列，您可以建立該原則的條件，並將條件指定為 `true()`。

@@ -9,12 +9,12 @@ ms.author: robreed
 manager: carmonm
 ms.topic: conceptual
 ms.date: 08/08/2018
-ms.openlocfilehash: 09ba4bc9e5ac496a7d1d65ff145d56818e53116e
-ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
+ms.openlocfilehash: b44bcf7edeaad07fbe0b3093ba3c7100cb0c24c4
+ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72243343"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72432073"
 ---
 # <a name="configure-servers-to-a-desired-state-and-manage-drift"></a>將伺服器設定為預期狀態並管理漂移
 
@@ -33,8 +33,8 @@ Azure Automation State Configuration 可讓您指定伺服器的組態，並且�
 
 - Azure 自動化帳戶。 如需建立 Azure 自動化執行身分帳戶的指示，請參閱 [Azure 執行身分帳戶](automation-sec-configure-azure-runas-account.md)。
 - 執行 Windows Server 2008 R2 或更新版本的 Azure Resource Manager VM (不是傳統)。 如需建立 VM 的指示，請參閱 [在 Azure 入口網站中建立第一個 Windows 虛擬機器](../virtual-machines/virtual-machines-windows-hero-tutorial.md)
-- Azure PowerShell 模組 3.6 版或更新版本。 執行 `Get-Module -ListAvailable AzureRM` 以尋找版本。 如果您需要升級，請參閱[安裝 Azure PowerShell 模組](/powershell/azure/azurerm/install-azurerm-ps)。
-- 熟悉 Desired State Configuration (DSC)。 如需 DSC 的詳細資訊，請參閱 [Windows PowerShell 預期狀態設定概觀](/powershell/scripting/dsc/overview/overviews)
+- Azure PowerShell 模組 3.6 版或更新版本。 執行 `Get-Module -ListAvailable AzureRM` 找出版本。 如果您需要升級，請參閱[安裝 Azure PowerShell 模組](/powershell/azure/azurerm/install-azurerm-ps)。
+- 熟悉 Desired State Configuration (DSC)。 如需 DSC 的詳細資訊，請參閱 [Windows PowerShell 預期狀態設定概觀](/powershell/scripting/dsc/overview/overview)
 
 ## <a name="log-in-to-azure"></a>登入 Azure
 
@@ -170,7 +170,7 @@ $reports[0]
 > 這不會影響目前套用至節點的設定。
 > 若要移除目前的設定，請使用[PowerShell](https://docs.microsoft.com/powershell/module/psdesiredstateconfiguration/remove-dscconfigurationdocument?view=powershell-5.1)或刪除本機設定檔案（這是 Linux 節點的唯一選項）。
 
-### <a name="azure-portal"></a>Azure 入口網站
+### <a name="azure-portal"></a>Azure Portal
 
 從 Azure 自動化按一下目錄中的 [**狀態設定（DSC）** ]。
 接下來按一下 [**節點**]，以查看已向服務註冊的節點清單。

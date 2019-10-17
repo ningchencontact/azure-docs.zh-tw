@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 09/20/2019
 ms.author: mbullwin
-ms.openlocfilehash: 9b2cb9b16a91220db6fcc193fe64ea674b7103ab
-ms.sourcegitcommit: f2d9d5133ec616857fb5adfb223df01ff0c96d0a
+ms.openlocfilehash: b49206c677e2f1b20c154ae0c9e358e8b2b0bbd8
+ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/03/2019
-ms.locfileid: "71937080"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72430204"
 ---
 # <a name="application-insights-for-web-pages"></a>適用於網頁的 Application Insights
 
@@ -30,13 +30,13 @@ Application Insights 可以使用於任何網頁 - 您剛剛新增 JavaScript �
 1. 首先，您需要 Application Insights 資源。 如果您還沒有資源和檢測金鑰，請遵循[建立新的資源指示](create-new-resource.md)。
 2. 從您想要傳送 JavaScript 遙測的資源複製檢測金鑰。
 3. 透過下列兩個選項的其中一個，將 Application Insights JavaScript SDK 新增至您的網頁或應用程式：
-    * [NPM 設定](#npm-based-setup)
+    * [npm 設定](#npm-based-setup)
     * [JavaScript 程式碼片段](#snippet-based-setup)
 
 > [!IMPORTANT]
-> 您只需要使用下列其中一種方法，即可將 Application Insights JavaScript SDK 新增至您的應用程式。 如果您使用以 NPM 為基礎的安裝程式，請勿使用以程式碼片段為基礎的安裝程式。 使用以程式碼片段為基礎的方法時，反向案例也不會使用以 NPM 為基礎的安裝程式。 
+> 您只需要使用下列其中一種方法，即可將 Application Insights JavaScript SDK 新增至您的應用程式。 如果您使用以 npm 為基礎的安裝程式，請勿使用以程式碼片段為基礎的安裝程式。 使用以程式碼片段為基礎的方法時，反向案例也不會使用以 npm 為基礎的安裝程式。 
 
-### <a name="npm-based-setup"></a>以 NPM 為基礎的設定
+### <a name="npm-based-setup"></a>以 npm 為基礎的設定
 
 ```js
 import { ApplicationInsights } from '@microsoft/applicationinsights-web'
@@ -50,7 +50,7 @@ appInsights.loadAppInsights();
 
 ### <a name="snippet-based-setup"></a>以程式碼片段為基礎的設定
 
-如果您的應用程式不使用 NPM，您可以在每個頁面的頂端貼上此程式碼片段，直接使用 Application Insights 檢測您的網頁。 最好是`<head>`區段中的第一個腳本，如此一來，它就可以監視所有相依性的潛在問題。 如果您使用 Blazor 伺服器應用程式，請在 `<head>` 區段中的 `_Host.cshtml` 的檔案頂端新增程式碼片段。
+如果您的應用程式不使用 npm，您可以在每個頁面的頂端貼上此程式碼片段，直接使用 Application Insights 檢測您的網頁。 最好是 @no__t 0 區段中的第一個腳本，讓它可以監視所有相依性的任何潛在問題。 如果您使用 Blazor 伺服器應用程式，請在 `<head>` 區段中的 `_Host.cshtml` 的檔案頂端新增程式碼片段。
 
 ```html
 <script type="text/javascript">
@@ -64,7 +64,7 @@ var sdkInstance="appInsightsSDK";window[sdkInstance]="appInsights";var aiName=wi
 
 ### <a name="sending-telemetry-to-the-azure-portal"></a>將遙測傳送至 Azure 入口網站
 
-根據預設，Application Insights JavaScript SDK 會 autocollects 一些遙測專案，這有助於判斷應用程式的健康情況和基礎使用者體驗。 它們包括：
+根據預設，Application Insights JavaScript SDK 會 autocollects 一些遙測專案，這有助於判斷應用程式的健康情況和基礎使用者體驗。 這些區域包括：
 
 - 應用程式中未攔截到的**例外**狀況，包括的相關資訊
     - 堆疊追蹤
@@ -78,14 +78,14 @@ var sdkInstance="appInsightsSDK";window[sdkInstance]="appInsights";var aiName=wi
     - 要求的結果碼和成功狀態
     - 提出要求之使用者的識別碼（如果有的話）
     - 提出要求的相互關聯內容（如果有的話）
-- **使用者資訊**（例如 [位置]、[網路]、[IP]）
-- **裝置資訊**（例如，瀏覽器、OS、版本、語言、解析度、模型）
+- **使用者資訊**（例如，位置、網路、IP）
+- **裝置資訊**（例如瀏覽器、OS、版本、語言、解析度、模型）
 - **會話資訊**
 
 ### <a name="telemetry-initializers"></a>遙測初始化運算式
-遙測初始化運算式是用來在從使用者的瀏覽器傳送之前，修改所收集遙測的內容。 您也可以藉由`false`傳回，使用它們來防止傳送特定遙測。 您可以將多個遙測初始化運算式新增至您的 Application Insights 實例，並依加入它們的循序執行。
+遙測初始化運算式是用來在從使用者的瀏覽器傳送之前，修改所收集遙測的內容。 它們也可以用來防止傳送特定遙測，方法是傳回 `false`。 您可以將多個遙測初始化運算式新增至您的 Application Insights 實例，並依加入它們的循序執行。
 
-的輸入引數`addTelemetryInitializer`是回呼，其[`ITelemetryItem`](https://github.com/microsoft/ApplicationInsights-JS/blob/master/API.md#addTelemetryInitializer)接受做為引數，並`boolean`傳回或`void`。 如果傳回`false`，則不會傳送遙測專案，否則會繼續進行下一個遙測初始化運算式（如果有的話），或傳送至遙測集合端點。
+@No__t-0 的輸入引數是回呼，其接受[`ITelemetryItem`](https://github.com/microsoft/ApplicationInsights-JS/blob/master/API.md#addTelemetryInitializer)做為引數，並傳回 `boolean` 或 `void`。 如果傳回 `false`，則不會傳送遙測專案，否則會繼續進行下一個遙測初始化運算式（如果有的話），或傳送至遙測集合端點。
 
 使用遙測初始化運算式的範例：
 ```ts
@@ -99,21 +99,21 @@ appInsights.addTelemetryInitializer(() => false); // Nothing is sent after this 
 appInsights.trackTrace({message: 'this message will not be sent'}); // Not sent
 ```
 ## <a name="configuration"></a>組態
-大部分設定欄位的名稱都是，讓它們可以預設為 false。 除了以外，所有欄位都`instrumentationKey`是選擇性的。
+大部分設定欄位的名稱都是，讓它們可以預設為 false。 除了 `instrumentationKey` 以外，所有欄位都是選擇性的。
 
-| Name | 預設 | 描述 |
+| Name | 預設值 | 描述 |
 |------|---------|-------------|
-| InstrumentationKey | Null | **必要**<br>從 Azure 入口網站取得的檢測金鑰。 |
-| accountId | Null | 選擇性的帳戶識別碼，如果您的應用程式將使用者群組為帳戶。 不含空格、逗號、分號、等於或分隔號 |
+| instrumentationKey | null | **必要**<br>從 Azure 入口網站取得的檢測金鑰。 |
+| accountId | null | 選擇性的帳戶識別碼，如果您的應用程式將使用者群組為帳戶。 不含空格、逗號、分號、等於或分隔號 |
 | sessionRenewalMs | 1800000 | 如果使用者處於非使用中狀態的時間（以毫秒為單位），則會記錄會話。 預設值為30分鐘 |
 | sessionExpirationMs | 86400000 | 如果會話已繼續此時間量（以毫秒為單位），則會記錄會話。 預設值為24小時 |
 | maxBatchSizeInBytes | 10000 | 遙測批次的大小上限。 如果批次超過此限制，則會立即傳送並啟動新的批次 |
 | maxBatchInterval | 15000 | 在傳送之前，批次遙測的時間長度（毫秒） |
 | disableExceptionTracking | false | 若為 true，則不會實驗自動收集例外狀況。 預設值為 false。 |
 | disableTelemetry | false | 若為 true，則不會收集或傳送遙測。 預設值為 false。 |
-| enableDebug | false | 若為 true，則不論 SDK 記錄設定為何，**內部**的偵錯工具資料都會擲回為例外狀況，**而不**是記錄。 預設值為 false。 <br>***注意：*** 啟用此設定將會在發生內部錯誤時產生已捨棄的遙測。 這有助於快速找出您的設定或使用 SDK 的問題。 如果您不想在進行調試時遺失遙測，請考慮`consoleLoggingLevel`使用`telemetryLoggingLevel`或， `enableDebug`而不是。 |
-| loggingLevelConsole | 0 | 將**內部**Application Insights 錯誤記錄到主控台。 <br>0：關閉， <br>1:僅重大錯誤， <br>2：所有專案（錯誤 & 警告） |
-| loggingLevelTelemetry | 1 | 將**內部**Application Insights 錯誤當做遙測傳送。 <br>0：關閉， <br>1:僅重大錯誤， <br>2：所有專案（錯誤 & 警告） |
+| enableDebug | false | 若為 true，則不論 SDK 記錄設定為何，**內部**的偵錯工具資料都會擲回為例外狀況，**而不**是記錄。 預設值為 false。 <br>***注意：*** 啟用此設定將會在發生內部錯誤時產生已捨棄的遙測。 這有助於快速找出您的設定或使用 SDK 的問題。 如果您不想在進行調試時遺失遙測，請考慮使用 `consoleLoggingLevel` 或 `telemetryLoggingLevel`，而不是 `enableDebug`。 |
+| loggingLevelConsole | 0 | 將**內部**Application Insights 錯誤記錄到主控台。 <br>0：關閉， <br>1：只有嚴重錯誤， <br>2：所有專案（錯誤 & 警告） |
+| loggingLevelTelemetry | 1 | 將**內部**Application Insights 錯誤當做遙測傳送。 <br>0：關閉， <br>1：只有嚴重錯誤， <br>2：所有專案（錯誤 & 警告） |
 | diagnosticLogInterval | 10000 | 內部內部記錄佇列的輪詢間隔（以毫秒為單位） |
 | samplingPercentage | 100 | 將傳送的事件百分比。 預設值為100，表示傳送所有事件。 如果您想要保留大型應用程式的資料上限，請設定此設定。 |
 | autoTrackPageVisitTime | false | 若為 true，則在 pageview 上，會追蹤先前檢測的頁面的視圖時間並以遙測的形式傳送，並針對目前的 pageview 啟動新的計時器。 預設值為 false。 |
@@ -128,30 +128,30 @@ appInsights.trackTrace({message: 'this message will not be sent'}); // Not sent
 | disableFlushOnBeforeUnload | false | 預設值為 false。 若為 true，onBeforeUnload 事件觸發程式時將不會呼叫 flush 方法 |
 | enableSessionStorageBuffer | true | 預設值為 true。 若為 true，則包含所有未傳送遙測的緩衝區都會儲存在會話儲存體中。 在頁面載入時還原緩衝區 |
 | isCookieUseDisabled | false | 預設值為 false。 若為 true，則 SDK 不會儲存或讀取 cookie 中的任何資料。|
-| cookieDomain | Null | 自訂 cookie 網域。 如果您想要跨子域共用 Application Insights 的 cookie，這會很有説明。 |
+| cookieDomain | null | 自訂 cookie 網域。 如果您想要跨子域共用 Application Insights 的 cookie，這會很有説明。 |
 | isRetryDisabled | false | 預設值為 false。 若為 false，則重試206（部分成功）、408（超時）、429（太多要求）、500（內部伺服器錯誤）、503（服務無法使用）和0（只有在偵測到時才會離線） |
 | isStorageUseDisabled | false | 若為 true，則 SDK 不會儲存或讀取本機和會話儲存體中的任何資料。 預設值為 false。 |
 | isBeaconApiDisabled | true | 若為 false，SDK 會使用指標[API](https://www.w3.org/TR/beacon)傳送所有遙測 |
 | onunloadDisableBeacon | false | 預設值為 false。 當索引標籤關閉時，SDK 會使用指標[API](https://www.w3.org/TR/beacon)傳送所有剩餘的遙測 |
-| sdkExtension | Null | 設定 sdk 延伸模組名稱。 只允許字母字元。 擴充功能名稱會新增為 ' sdkVersion ' 標記的前置詞（例如 ' ext_javascript： 2.0.0 '）。 預設值為 null。 |
+| sdkExtension | null | 設定 sdk 延伸模組名稱。 只允許字母字元。 擴充功能名稱會新增為 ' sdkVersion ' 標記的前置詞（例如 ' ext_javascript： 2.0.0 '）。 預設值為 null。 |
 | isBrowserLinkTrackingEnabled | false | 預設值為 false。 若為 true，SDK 將會追蹤所有[瀏覽器連結](https://docs.microsoft.com/aspnet/core/client-side/using-browserlink)要求。 |
-| appId | Null | AppId 會用於用戶端上發生的 AJAX 相依性與伺服器端要求之間的相互關聯。 啟用「指標 API」時，無法自動使用它，但可在設定中手動設定。 預設值為 null |
+| appId | null | AppId 會用於用戶端上發生的 AJAX 相依性與伺服器端要求之間的相互關聯。 啟用「指標 API」時，無法自動使用它，但可在設定中手動設定。 預設值為 null |
 | enableCorsCorrelation | false | 若為 true，SDK 會將兩個標頭（「要求識別碼」和「要求-內容」）新增至所有 CORS 要求，以將外寄 AJAX 相依性與伺服器端上的對應要求相互關聯。 預設值為 false |
-| namePrefix | 未定義 | 選擇性值，將會作為 localStorage 和 cookie 名稱的名稱後置詞使用。
-| enableAutoRouteTracking | false | 自動追蹤單一頁面應用程式（SPA）中的路由變更。 若為 true，則每個路由變更都會將新的 Pageview 傳送至 Application Insights。 雜湊路由變更`example.com/foo#bar`（）也會記錄為新的頁面流覽。
+| namePrefix | useraccountcontrol | 選擇性值，將會作為 localStorage 和 cookie 名稱的名稱後置詞使用。
+| enableAutoRouteTracking | false | 自動追蹤單一頁面應用程式（SPA）中的路由變更。 若為 true，則每個路由變更都會將新的 Pageview 傳送至 Application Insights。 雜湊路由變更（`example.com/foo#bar`）也會記錄為新的頁面流覽。
 | enableRequestHeaderTracking | false | 若為 true，則會追蹤 AJAX & 提取要求標頭，預設值為 false。
 | enableResponseHeaderTracking | false | 若為 true，則會追蹤 AJAX & 提取要求的回應標頭，預設值為 false。
 | distributedTracingMode | `DistributedTracingModes.AI` | 設定分散式追蹤模式。 如果已設定 AI_AND_W3C 模式或 W3C 模式，則會產生 W3C 追蹤內容標頭（traceparent/tracestate），並將其包含在所有傳出的要求中。 AI_AND_W3C 是為了與任何舊版 Application Insights 檢測服務的回溯相容性而提供。
 
 ## <a name="single-page-applications"></a>單一頁面應用程式
 
-根據預設，此 SDK**不**會處理在單一頁面應用程式中發生的狀態型路由變更。 若要為您的單一頁面應用程式啟用自動路由變更追蹤， `enableAutoRouteTracking: true`您可以將新增到您的安裝程式設定。
+根據預設，此 SDK**不**會處理在單一頁面應用程式中發生的狀態型路由變更。 若要為您的單一頁面應用程式啟用自動路由變更追蹤，您可以將 `enableAutoRouteTracking: true` 新增至您的安裝設定。
 
 目前，我們提供了個別的[回應外掛程式](#react-extensions)，您可以使用這個 SDK 來初始化。 它也會為您完成路由變更追蹤，並收集[其他回應特定的遙測](https://github.com/microsoft/ApplicationInsights-JS/blob/17ef50442f73fd02a758fbd74134933d92607ecf/extensions/applicationinsights-react-js/README.md)。
 
 ## <a name="react-extensions"></a>回應延伸模組
 
-| 延伸模組 |
+| 擴充功能 |
 |---------------|
 | [反應](https://github.com/microsoft/ApplicationInsights-JS/blob/17ef50442f73fd02a758fbd74134933d92607ecf/extensions/applicationinsights-react-js/README.md)|
 | [React Native](https://github.com/microsoft/ApplicationInsights-JS/blob/17ef50442f73fd02a758fbd74134933d92607ecf/extensions/applicationinsights-react-native/README.md) \(英文\)|
@@ -172,13 +172,13 @@ appInsights.trackTrace({message: 'this message will not be sent'}); // Not sent
 
 ![](./media/javascript/performance-operations.png)
 
-### <a name="dependencies"></a>相依性
+### <a name="dependencies"></a>相依項目
 
 ![](./media/javascript/performance-dependencies.png)
 
 ### <a name="analytics"></a>分析 
 
-若要查詢 JavaScript SDK 所收集的遙測資料，請選取 [**記錄（分析）** ] 按鈕中的 [查看]。 藉由新增`where`的`client_Type == "Browser"`語句，您只會看到來自 JavaScript SDK 的資料，而其他 sdk 所收集的任何伺服器端遙測也會被排除。
+若要查詢 JavaScript SDK 所收集的遙測資料，請選取 [**記錄（分析）** ] 按鈕中的 [查看]。 藉由新增 `where` 的語句 `client_Type == "Browser"`，您只會看到來自 JavaScript SDK 的資料，而其他 Sdk 所收集的任何伺服器端遙測也會被排除。
  
 ```kusto
 // average pageView duration by name
@@ -199,8 +199,8 @@ dataset
 
 您可以在 Azure 入口網站中 unminified 例外狀況遙測的縮減呼叫堆疊。 [例外狀況詳細資料] 面板上的所有現有整合都會使用新 unminified 的呼叫堆疊。 拖放來源對應 unminifying 支援所有現有和未來的 JS Sdk （+ node.js），因此您不需要升級 SDK 版本。 若要查看您的 unminified 呼叫堆疊，
 1. 在 Azure 入口網站中選取例外狀況遙測專案，以查看其「端對端交易詳細資料」
-2. 識別與此呼叫堆疊對應的來源對應。 來源對應必須符合堆疊框架的原始程式檔，但尾碼為`.map`
-3. 將來源對應拖放到呼叫堆疊的 Azure 入口網站![](https://i.imgur.com/Efue9nU.gif)
+2. 識別與此呼叫堆疊對應的來源對應。 來源對應必須符合堆疊框架的原始程式檔，但尾碼為 `.map`
+3. 將來源對應拖放到 Azure 入口網站 @no__t 中的呼叫堆疊-0
 
 ### <a name="application-insights-web-basic"></a>Application Insights Web 基本
 
@@ -208,7 +208,7 @@ dataset
 ```
 npm i --save @microsoft/applicationinsights-web-basic
 ```
-此版本隨附最少的特性和功能，並視您的需要建立它。 例如，它不會執行任何 autocollection （未攔截的例外狀況、AJAX 等等）。 此版本不包含傳送特定遙測類型的`trackTrace`api `trackException`，例如、等等，因此您必須提供自己的包裝函式。 唯一可用的 API 是`track`。 [範例](https://github.com/Azure-Samples/applicationinsights-web-sample1/blob/master/testlightsku.html)位於此處。
+此版本隨附最少的特性和功能，並視您的需要建立它。 例如，它不會執行任何 autocollection （未攔截的例外狀況、AJAX 等等）。 傳送特定遙測類型的 Api （例如 `trackTrace`、`trackException` 等等）並未包含在此版本中，因此您必須提供自己的包裝函式。 唯一可用的 API 是 `track`。 [範例](https://github.com/Azure-Samples/applicationinsights-web-sample1/blob/master/testlightsku.html)位於此處。
 
 ## <a name="examples"></a>範例
 
@@ -219,8 +219,8 @@ npm i --save @microsoft/applicationinsights-web-basic
 SDK V2 版本中的重大變更：
 - 為了讓 API 簽章變得更好，某些 API 呼叫（例如 trackPageView）已更新。 不支援在 IE8 或較低版本的瀏覽器中執行。
 - 遙測信封因數據架構更新而有欄位名稱和結構變更。
-- 已`context.operation`移`context.telemetryTrace`至。 某些欄位也已變更（`operation.id`）  -->  `telemetryTrace.traceID`
-  - 如果您想要手動重新整理目前的 pageview 識別碼（例如，在 SPA 應用程式中），可以透過下列方式來完成：`appInsights.properties.context.telemetryTrace.traceID = Util.newId()`
+- 已將 `context.operation` 移至 `context.telemetryTrace`。 某些欄位也已變更（`operation.id` @ no__t-1 @ no__t-2）
+  - 如果您想要手動重新整理目前的 pageview 識別碼（例如，在 SPA 應用程式中），可以使用 `appInsights.properties.context.telemetryTrace.traceID = Util.newId()` 來完成此作業
 
 如果您使用目前的 application insights 生產 SDK （1.0.20），而且想要查看新的 SDK 是否在執行時間中運作，請根據您目前的 SDK 載入案例更新 URL。
 
@@ -229,7 +229,7 @@ SDK V2 版本中的重大變更：
    "https://az416426.vo.msecnd.net/scripts/b/ai.2.min.js"
    ```
 
-- NPM 案例：呼叫`downloadAndSetup`以從 CDN 下載完整的 ApplicationInsights 腳本，並使用檢測金鑰將它初始化：
+- npm 案例：呼叫 `downloadAndSetup` 以從 CDN 下載完整的 ApplicationInsights 腳本，並使用檢測金鑰將它初始化：
 
    ```ts
    appInsights.downloadAndSetup({

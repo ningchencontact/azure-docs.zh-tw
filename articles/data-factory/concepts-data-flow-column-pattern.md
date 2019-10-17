@@ -1,17 +1,17 @@
 ---
-title: Azure Data Factory 對應資料流程資料行模式
+title: Azure Data Factory 對應資料流程中的資料行模式
 description: 使用對應資料流程中的 Azure Data Factory 資料行模式來建立一般化資料轉換模式
 author: kromerm
 ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 01/30/2019
-ms.openlocfilehash: 535656f315f65ffb7aa241618fe9e73b8246b71f
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.openlocfilehash: a95bbb726f8c391270d3f60ed769d9475004b1e4
+ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72027857"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72388012"
 ---
 # <a name="mapping-data-flows-column-patterns"></a>對應資料流程資料行模式
 
@@ -35,16 +35,16 @@ ms.locfileid: "72027857"
 資料行模式案例的範例是使用 SUM 搭配一系列的輸入欄位。 彙總 SUM 計算是在「彙總」轉換中。 接著，您可以在符合 "integer" 的欄位類型的每個相符項上使用 SUM，然後使用 $ $ 來參考運算式中的每個相符項。
 
 ## <a name="match-columns"></a>符合資料行
-資料![行模式類型](media/data-flow/pattern2.png "模式類型")
+![資料行模式類型](media/data-flow/pattern2.png "模式類型")
 
 若要根據資料行建立模式，您可以比對資料行名稱、類型、資料流程或位置，並搭配運算式函數和正則運算式使用任何組合。
 
-資料![行位置](media/data-flow/position.png "資料 行位置")
+![資料行位置](media/data-flow/position.png "資料行位置")
 
 ## <a name="rule-based-mapping"></a>以規則為基礎的對應
 對應來源中的資料行並選取轉換時，您可以選擇 [固定對應] 或 [規則型對應]。 當您知道資料的架構，而且預期源資料集的特定資料行永遠符合特定的靜態名稱時，您可以使用固定對應。 但是當您使用彈性的架構時，請使用以規則為基礎的對應。 您將能夠使用上述規則來建立模式比對。
 
-以![規則為基礎的對應](media/data-flow/rule2.png "以 規則為基礎的對應")
+![以規則為基礎的對應](media/data-flow/rule2.png "以規則為基礎的對應")
 
 使用運算式產生器建立您的規則。 您的運算式會傳回布林值，使其符合資料行（true）或排除資料行（false）。
 

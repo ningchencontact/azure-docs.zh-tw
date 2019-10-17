@@ -5,16 +5,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 08/12/2019
+ms.date: 10/14/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: 0410da26a2ea5811c5a107ce233f2442b60fd9ca
-ms.sourcegitcommit: 2d9a9079dd0a701b4bbe7289e8126a167cfcb450
+ms.openlocfilehash: 9623152bdea5cc56e6b9bcb7d9911a730fd7a4a4
+ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/29/2019
-ms.locfileid: "71670837"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72382002"
 ---
 # <a name="grant-limited-access-to-azure-storage-resources-using-shared-access-signatures-sas"></a>使用共用存取簽章（SAS）授與 Azure 儲存體資源的有限存取權
 
@@ -24,16 +24,24 @@ ms.locfileid: "71670837"
 
 Azure 儲存體支援三種類型的共用存取簽章：
 
-- **使用者委派 SAS （預覽）。** 使用者委派 SAS 會使用 Azure Active Directory （Azure AD）認證以及針對 SAS 指定的許可權來加以保護。 使用者委派 SAS 僅適用于 Blob 儲存體。 若要建立使用者委派 SAS，您必須先要求用來簽署 SAS 的使用者委派金鑰。 如需使用者委派 SAS 的詳細資訊，請參閱[建立使用者委派 sas （REST API）](/rest/api/storageservices/create-user-delegation-sas)。
-- **服務 SAS。** 服務 SAS 會使用儲存體帳戶金鑰來保護。 服務 SAS 只會將存取權委派給其中一個 Azure 儲存體服務中的資源：Blob 儲存體、佇列儲存體、資料表儲存體或 Azure 檔案儲存體。 如需服務 SAS 的詳細資訊，請參閱[建立服務 sas （REST API）](/rest/api/storageservices/create-service-sas)。
-- **帳戶 SAS。** 帳戶 SAS 會使用儲存體帳戶金鑰來保護。 帳戶 SAS 則將存取權限委派給一或多個儲存體服務的資源。 透過服務或使用者委派 SAS 所提供的所有作業，也可透過帳戶 SAS 取得。 此外，透過帳戶 SAS，您可以將存取權委派給套用於服務層級的作業，例如**取得/設定服務屬性**和**取得服務統計**資料作業。 您也可以將 Blob 容器、資料表、佇列和檔案共用的讀取、寫入和刪除作業的存取權限，委派給本無權限的服務 SAS。 如需帳戶 SAS 的詳細資訊，請[建立帳戶 sas （REST API）](/rest/api/storageservices/create-account-sas)。
+- **使用者委派 SAS （預覽）。** 使用者委派 SAS 會使用 Azure Active Directory （Azure AD）認證以及針對 SAS 指定的許可權來加以保護。 使用者委派 SAS 僅適用于 Blob 儲存體。
+
+    如需使用者委派 SAS 的詳細資訊，請參閱[建立使用者委派 sas （REST API）](/rest/api/storageservices/create-user-delegation-sas)。
+
+- **服務 SAS。** 服務 SAS 會使用儲存體帳戶金鑰來保護。 服務 SAS 只會將存取權委派給其中一個 Azure 儲存體服務： Blob 儲存體、佇列儲存體、資料表儲存體或 Azure 檔案儲存體中的資源。 
+
+    如需服務 SAS 的詳細資訊，請參閱[建立服務 sas （REST API）](/rest/api/storageservices/create-service-sas)。
+
+- **帳戶 SAS。** 帳戶 SAS 會使用儲存體帳戶金鑰來保護。 帳戶 SAS 則將存取權限委派給一或多個儲存體服務的資源。 透過服務或使用者委派 SAS 所提供的所有作業，也可透過帳戶 SAS 取得。 此外，透過帳戶 SAS，您可以將存取權委派給套用於服務層級的作業，例如**取得/設定服務屬性**和**取得服務統計**資料作業。 您也可以將 Blob 容器、資料表、佇列和檔案共用的讀取、寫入和刪除作業的存取權限，委派給本無權限的服務 SAS。 
+
+    如需帳戶 SAS 的詳細資訊，請[建立帳戶 sas （REST API）](/rest/api/storageservices/create-account-sas)。
 
 > [!NOTE]
 > Microsoft 建議您盡可能使用 Azure AD 認證做為安全性最佳作法，而不是使用帳戶金鑰，這樣會更容易遭到入侵。 當您的應用程式設計需要共用存取簽章以存取 Blob 儲存體時，請使用 Azure AD 認證來建立使用者委派 SAS （如果可能的話）以獲得較佳的安全性。
 
 共用存取簽章可以接受以下兩種格式其中之一：
 
-- **臨機操作 SAS：** 當您建立臨機操作 SAS 時，SAS 的開始時間、到期時間和許可權都會在 SAS URI 中指定（如果省略開始時間，則會隱含）。 任何類型的 SAS 都可以是臨機操作 SAS。
+- 臨機**操作 SAS：** 當您建立臨機操作 SAS 時，SAS 的開始時間、到期時間和許可權都會在 SAS URI 中指定（如果省略開始時間，則會隱含）。 任何類型的 SAS 都可以是臨機操作 SAS。
 - **具有預存存取原則的服務 SAS：** 預存存取原則是在資源容器上定義，可以是 blob 容器、資料表、佇列或檔案共用。 預存的存取原則可用來管理一或多個服務共用存取簽章的條件約束。 當您將服務 SAS 與預存存取原則產生關聯時，SAS 會針對儲存的存取原則，繼承 @ no__t-0the 開始時間、到期時間和許可權 @ no__t-1defined 的條件約束。
 
 > [!NOTE]
@@ -47,7 +55,7 @@ Azure 儲存體支援三種類型的共用存取簽章：
 
 您可以使用下列兩種方式的其中一種來簽署 SAS：
 
-- 使用以 Azure Active Directory （Azure AD）認證建立的使用者委派金鑰。 使用者委派 SAS 會使用使用者委派金鑰進行簽署。
+- 使用以 Azure Active Directory （Azure AD）認證建立的*使用者委派金鑰*。 使用者委派 SAS 會使用使用者委派金鑰進行簽署。
 
     若要取得使用者委派金鑰並建立 SAS，必須將包含**storageAccounts/blobServices/generateUserDelegationKey**動作的角色型存取控制（RBAC）角色指派給 Azure AD 的安全性主體。 如需具有取得使用者委派金鑰許可權之 RBAC 角色的詳細資訊，請參閱[建立使用者委派 SAS （REST API）](/rest/api/storageservices/create-user-delegation-sas)。
 
@@ -71,11 +79,11 @@ SAS 權杖是您在用戶端上產生的字串，例如，使用其中一個 Azu
 
 1. 用戶端通過前端 Proxy 服務 (執行驗證) 來上傳與下載資料。 此前端 Proxy 服務有個好處，那就是允許商務規則的驗證，但在大量資料或大量交易的情況下，建立可調整以符合需求的服務可能十分昂貴或困難。
 
-   ![案例圖表：前端 Proxy 服務](./media/storage-sas-overview/sas-storage-fe-proxy-service.png)
+   ![案例圖表︰前端 Proxy 服務](./media/storage-sas-overview/sas-storage-fe-proxy-service.png)
 
 1. 輕量型服務可視需要驗證用戶端，然後產生 SAS。 一旦用戶端應用程式收到 SAS，他們就可以直接使用 SAS 所定義的許可權以及 SAS 允許的間隔來存取儲存體帳戶資源。 SAS 可減輕透過前端 Proxy 服務路由所有資料的需求。
 
-   ![案例圖表：SAS 提供者服務](./media/storage-sas-overview/sas-storage-provider-service.png)
+   ![案例圖表︰SAS 提供者服務](./media/storage-sas-overview/sas-storage-provider-service.png)
 
 許多實際服務可能會混合運用這兩種方法。 例如，某些資料可能會透過前端 Proxy 處理和驗證，其他資料則會直接使用 SAS 來儲存和/或讀取。
 

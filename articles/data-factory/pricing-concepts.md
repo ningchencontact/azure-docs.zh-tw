@@ -10,19 +10,19 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 09/25/2018
-ms.openlocfilehash: f08dea90e7700082b6eeb708b576451060f81255
-ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.openlocfilehash: 168d977b9dc0ea6117796cf98a8562f168258d28
+ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70140951"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72387463"
 ---
 # <a name="understanding-data-factory-pricing-through-examples"></a>透過範例了解 Data Factory 定價
 
 此文章透過詳細範例說明及示範 Azure Data Factory 的定價模型。
 
 > [!NOTE]
-> 下列範例中使用的價格是假設性的, 並不是用來表示實際的定價。
+> 下列範例中使用的價格是假設性的，並不是用來表示實際的定價。
 
 ## <a name="copy-data-from-aws-s3-to-azure-blob-storage-hourly"></a>每小時將資料從 AWS S3 複製到 Azure Blob 儲存體
 
@@ -38,7 +38,7 @@ ms.locfileid: "70140951"
 
    ![案例 1](media/pricing-concepts/scenario1.png)
 
-| **操作** | **類型與單位** |
+| **作業** | **類型與單位** |
 | --- | --- |
 | 建立連結的服務 | 2 個讀取/寫入實體  |
 | 建立資料集 | 4 個讀取/寫入實體 (2 個用於建立資料集，2 個用於連結的服務參考) |
@@ -69,7 +69,7 @@ ms.locfileid: "70140951"
 
 ![案例 2](media/pricing-concepts/scenario2.png)
 
-| **操作** | **類型與單位** |
+| **作業** | **類型與單位** |
 | --- | --- |
 | 建立連結的服務 | 3 個讀取/寫入實體  |
 | 建立資料集 | 4 個讀取/寫入實體 (2 個用於建立資料集，2 個用於連結的服務參考) |
@@ -103,7 +103,7 @@ ms.locfileid: "70140951"
 
 ![案例 3](media/pricing-concepts/scenario3.png)
 
-| **操作** | **類型與單位** |
+| **作業** | **類型與單位** |
 | --- | --- |
 | 建立連結的服務 | 3 個讀取/寫入實體  |
 | 建立資料集 | 4 個讀取/寫入實體 (2 個用於建立資料集，2 個用於連結的服務參考) |
@@ -126,15 +126,15 @@ ms.locfileid: "70140951"
   - 管線活動 = $0.00003 (依比例分配 1 分鐘的執行時間。 Azure 整合執行階段上每小時 $0.002 美元)
   - 外部管線活動 = $0.000041 (依比例分配 10 分鐘的執行時間。 Azure 整合執行階段上每小時 0.00025 美元)
 
-## <a name="using-mapping-data-flow-debug-for-a-normal-workday-preview-pricing"></a>針對一般 workday 使用對應資料流程 debug (預覽定價)
+## <a name="using-mapping-data-flow-debug-for-a-normal-workday-preview-pricing"></a>針對一般 workday 使用對應資料流程 debug （預覽定價）
 
-身為數據工程師, 您必須負責每天設計、建立和測試對應的資料流程。 您會在早上登入 ADF UI, 並啟用資料流程的「偵錯工具」模式。 Debug 會話的預設 TTL 為60分鐘。 您每天工作10小時, 讓您的 Debug 會話永不過期。 因此, 您當天的費用將會是:
+身為數據工程師，您必須負責每天設計、建立和測試對應的資料流程。 您會在早上登入 ADF UI，並啟用資料流程的「偵錯工具」模式。 Debug 會話的預設 TTL 為60分鐘。 您每天工作10小時，讓您的 Debug 會話永不過期。 因此，您當天的費用將會是：
 
-**10 (小時) x 8 (核心) x $0.112 = $8.96**
+**10（小時） x 8 （核心） x $0.112 = $8.96**
 
-## <a name="transform-data-in-blob-store-with-mapping-data-flows-preview-pricing"></a>使用對應的資料流程轉換 blob 存放區中的資料 (預覽定價)
+## <a name="transform-data-in-blob-store-with-mapping-data-flows-preview-pricing"></a>使用對應的資料流程轉換 blob 存放區中的資料（預覽定價）
 
-在此案例中, 您想要以每小時的排程, 以視覺化方式在 ADF 對應資料流程中轉換 Blob 存放區中的資料。
+在此案例中，您想要以每小時的排程，以視覺化方式在 ADF 對應資料流程中轉換 Blob 存放區中的資料。
 
 若要完成案例，您需要使用下列項目建立管線：
 
@@ -146,24 +146,24 @@ ms.locfileid: "70140951"
 
 4. 每小時執行管線的排程觸發程序。
 
-| **操作** | **類型與單位** |
+| **作業** | **類型與單位** |
 | --- | --- |
 | 建立連結的服務 | 2 個讀取/寫入實體  |
 | 建立資料集 | 4 個讀取/寫入實體 (2 個用於建立資料集，2 個用於連結的服務參考) |
 | 建立管線 | 3 個讀取/寫入實體 (1 個用於建立管線，2 個用於資料集參考) |
 | 取得管線 | 1 個讀取/寫入實體 |
 | 執行管線 | 2 個活動執行 (1 個用於觸發程序執行，1 個用於活動執行) |
-| 資料流程假設: 執行時間 = 10 分鐘 + 10 最小 TTL | 一般\*計算的10個8個核心, TTL 為10 |
+| 資料流程假設：執行時間 = 10 分鐘 + 10 最小 TTL | 10 \* 8 的一般計算核心，TTL 為10 |
 | 監視管線假設：僅發生 1 次執行 | 2 個重試的監視執行記錄 (1 個用於管線執行，1 個用於活動執行) |
 
-**總案例定價: $0.3011**
+**總案例定價： $0.3011**
 
 - Data Factory 作業 = **$0.0001**
   - 讀取/寫入 = 10\*00001 = $0.0001 [1 讀取/寫入 = $0.50/50000 = 0.00001]
   - 監視 = 2\*000005 = $0.00001 [1 監視 = $0.25/50000 = 0.000005]
-- 管線協調&amp;流程執行 = **$0.301**
+- 管線協調流程 &amp; 執行 = **$0.301**
   - 活動執行 = 001\*2 = 0.002 [1 執行 = $1/1000 = 0.001]
-  - 資料流程活動 = $0.299 已按比例計費20分鐘 (執行時間為10分鐘, TTL 為10分鐘)。 8核心一般計算的 Azure Integration Runtime $ 0.112/小時
+  - 資料流程活動 = $0.299 已按比例計費20分鐘（執行時間為10分鐘，TTL 為10分鐘）。 8核心一般計算的 Azure Integration Runtime $ 0.112/小時
 
 ## <a name="next-steps"></a>後續步驟
 

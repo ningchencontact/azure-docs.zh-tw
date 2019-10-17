@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 09/16/2019
 ms.author: jingwang
-ms.openlocfilehash: 78b74c1db5f331e7b74a730148d52b1ff7694ec0
-ms.sourcegitcommit: cd70273f0845cd39b435bd5978ca0df4ac4d7b2c
+ms.openlocfilehash: 5351f7f01bbe99b1e3ebc3c94a0805f0419cc1cf
+ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71058988"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72387921"
 ---
 # <a name="copy-data-to-or-from-azure-sql-data-warehouse-by-using-azure-data-factory"></a>使用 Azure Data Factory 將資料複製到 Azure SQL 資料倉儲或從該處複製資料 
 > [!div class="op_single_selector" title1="選取您要使用的 Data Factory 服務版本："]
@@ -60,18 +60,18 @@ ms.locfileid: "71058988"
 
 | 屬性            | 描述                                                  | 必要項                                                     |
 | :------------------ | :----------------------------------------------------------- | :----------------------------------------------------------- |
-| 型別                | 類型屬性必須設為 **AzureSqlDW**。             | 是                                                          |
+| 類型                | 類型屬性必須設為 **AzureSqlDW**。             | 是                                                          |
 | connectionString    | 針對 **connectionString** 屬性指定連線到 Azure SQL 資料倉儲執行個體所需的資訊。 <br/>將此欄位標記為 SecureString，將它安全地儲存在 Data Factory 中。 您也可以將密碼/服務主體金鑰放在 Azure Key Vault 中，而且，如果這是 SQL 驗證，則會從連接字串中提取 `password` 組態。 請參閱表格下方的 JSON 範例和[在 Azure Key Vault 中儲存認證](store-credentials-in-key-vault.md)一文深入了解詳細資料。 | 是                                                          |
 | servicePrincipalId  | 指定應用程式的用戶端識別碼。                         | 當您搭配服務主體使用 Azure AD 驗證時為是。 |
 | servicePrincipalKey | 指定應用程式的金鑰。 將此欄位標記為 SecureString，將它安全地儲存在 Data Factory 中，或[參考 Azure Key Vault 中儲存的祕密](store-credentials-in-key-vault.md)。 | 當您搭配服務主體使用 Azure AD 驗證時為是。 |
-| 租用戶              | 指定您的應用程式所在租用戶的資訊 (網域名稱或租用戶識別碼)。 將滑鼠游標暫留在 Azure 入口網站右上角，即可擷取它。 | 當您搭配服務主體使用 Azure AD 驗證時為是。 |
+| tenant              | 指定您的應用程式所在租用戶的資訊 (網域名稱或租用戶識別碼)。 將滑鼠游標暫留在 Azure 入口網站右上角，即可擷取它。 | 當您搭配服務主體使用 Azure AD 驗證時為是。 |
 | connectVia          | 用來連線到資料存放區的[整合執行階段](concepts-integration-runtime.md)。 您可以使用 Azure Integration Runtime 或自我裝載整合執行階段 (如果您的資料存放區位於私人網路中)。 如果未指定，就會使用預設的 Azure Integration Runtime。 | 否                                                           |
 
 針對不同的驗證類型，請分別參閱下列有關先決條件和 JSON 範例的章節：
 
 - [SQL 驗證](#sql-authentication)
 - Azure AD 應用程式權杖驗證：[服務主體](#service-principal-authentication)
-- Azure AD 應用程式權杖驗證：[適用於 Azure 資源的受控識別](#managed-identity)
+- Azure AD 應用程式權杖驗證：[Azure 資源的受控識別](#managed-identity)
 
 >[!TIP]
 >如果您遇到錯誤，其錯誤碼為 "UserErrorFailedToConnectToSqlServer"，以及「資料庫的工作階段限制為 XXX 並已達到。」訊息，請將 `Pooling=false` 新增至您的連接字串並再試一次。
@@ -146,7 +146,7 @@ ms.locfileid: "71058988"
     CREATE USER [your application name] FROM EXTERNAL PROVIDER;
     ```
 
-4. 如同您一般對 SQL 使用者或其他人所做的一樣，**將所需的權限授與服務主體**。 執行下列程式碼，或參閱[這裡](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-addrolemember-transact-sql?view=sql-server-2017)的更多選項。 如果您想要使用 PolyBase 來載入資料，請瞭解[必要的資料庫許可權](#required-database-permission)。
+4. 像您一般對 SQL 使用者或其他人所做的一樣，**授與服務主體所需的權限**。 執行下列程式碼，或參閱[這裡](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-addrolemember-transact-sql?view=sql-server-2017)的更多選項。 如果您想要使用 PolyBase 來載入資料，請瞭解[必要的資料庫許可權](#required-database-permission)。
 
     ```sql
     EXEC sp_addrolemember db_owner, [your application name];
@@ -204,7 +204,7 @@ ms.locfileid: "71058988"
 
 5. 在 Azure Data Factory 中，**設定 Azure SQL 資料倉儲連結服務**。
 
-**範例:**
+**範例：**
 
 ```json
 {
@@ -233,10 +233,10 @@ ms.locfileid: "71058988"
 
 | 屬性  | 描述                                                  | 必要項                    |
 | :-------- | :----------------------------------------------------------- | :-------------------------- |
-| 型別      | 資料集的**type**屬性必須設定為 **AzureSqlDWTable**。 | 是                         |
-| schema | 架構的名稱。 |否 (來源)；是 (接收)  |
-| table | 資料表/視圖的名稱。 |否 (來源)；是 (接收)  |
-| tableName | 具有架構的資料表/視圖名稱。 此屬性支援回溯相容性。 針對新的工作負載`schema` ， `table`請使用和。 | 否 (來源)；是 (接收) |
+| 類型      | 資料集的**類型**屬性必須設定為 **AzureSqlDWTable**。 | 是                         |
+| 結構描述 | 架構的名稱。 |否 (來源)；是 (接收)  |
+| 資料表 | 資料表/視圖的名稱。 |否 (來源)；是 (接收)  |
+| tableName | 具有架構的資料表/視圖名稱。 此屬性支援回溯相容性。 針對新的工作負載，請使用 `schema` 並 `table`。 | 否 (來源)；是 (接收) |
 
 #### <a name="dataset-properties-example"></a>資料集屬性範例
 
@@ -261,7 +261,7 @@ ms.locfileid: "71058988"
 
 ## <a name="copy-activity-properties"></a>複製活動屬性
 
-如需可用來定義活動的區段和屬性完整清單，請參閱[Pipelines](concepts-pipelines-activities.md)一文。 本節提供「Azure SQL 資料倉儲」來源和接收所支援的屬性清單。
+如需可用來定義活動的區段和屬性完整清單，請參閱[管線](concepts-pipelines-activities.md)一文。 本節提供「Azure SQL 資料倉儲」來源和接收所支援的屬性清單。
 
 ### <a name="azure-sql-data-warehouse-as-the-source"></a>Azure SQL 資料倉儲作為來源
 
@@ -269,8 +269,8 @@ ms.locfileid: "71058988"
 
 | 屬性                     | 描述                                                  | 必要項 |
 | :--------------------------- | :----------------------------------------------------------- | :------- |
-| 型別                         | 複製活動來源的**類型**屬性必須設定為 **SqlDWSource**。 | 是      |
-| sqlReaderQuery               | 使用自訂 SQL 查詢來讀取資料。 範例： `select * from MyTable`. | 否       |
+| 類型                         | 複製活動來源的**類型**屬性必須設定為 **SqlDWSource**。 | 是      |
+| sqlReaderQuery               | 使用自訂 SQL 查詢來讀取資料。 範例：`select * from MyTable`. | 否       |
 | sqlReaderStoredProcedureName | 從來源資料表讀取資料的預存程序名稱。 最後一個 SQL 陳述式必須是預存程序中的 SELECT 陳述式。 | 否       |
 | storedProcedureParameters    | 預存程序的參數。<br/>允許的值為名稱或值組。 參數的名稱和大小寫必須符合預存程序參數的名稱和大小寫。 | 否       |
 
@@ -372,7 +372,7 @@ GO
 
 | 屬性          | 描述                                                  | 必要項                                      |
 | :---------------- | :----------------------------------------------------------- | :-------------------------------------------- |
-| 型別              | 複製活動接收端的**type**屬性必須設定為 **SqlDWSink**。 | 是                                           |
+| 類型              | 複製活動接收端的**類型**屬性必須設定為 **SqlDWSink**。 | 是                                           |
 | allowPolyBase     | 指出是否使用 PolyBase (適用的話) 而不是使用 BULKINSERT 機制。 <br/><br/> 建議使用 PolyBase 將資料載入 SQL 資料倉儲。 請參閱[使用 PolyBase 將資料載入 Azure SQL 資料倉儲](#use-polybase-to-load-data-into-azure-sql-data-warehouse)一節中的條件約束和詳細資料。<br/><br/>允許的值為 **True** 和 **False** (預設值)。 | 否                                            |
 | polyBaseSettings  | 可以在 **allowPolybase** 屬性設定為 **true** 時指定的一組屬性。 | 否                                            |
 | rejectValue       | 指定在查詢失敗前可以拒絕的資料列數目或百分比。<br/><br/>在 [CREATE EXTERNAL TABLE (Transact-SQL)](https://msdn.microsoft.com/library/dn935021.aspx)的＜引數＞一節中，深入了解 PolyBase 的拒絕選項。 <br/><br/>允許的值為 0 (預設值)、1、2 等其他值。 | 否                                            |
@@ -380,10 +380,10 @@ GO
 | rejectSampleValue | 決定在 PolyBase 重新計算已拒絕的資料列百分比之前，所要擷取的資料列數目。<br/><br/>允許的值為 1、2 等其他值。 | 是，如果 **rejectType** 是**百分比**。 |
 | useTypeDefault    | 指定當 PolyBase 從文字檔擷取資料時，如何處理分隔符號文字檔中的遺漏值。<br/><br/>從 [CREATE EXTERNAL FILE FORMAT (Transact-SQL)](https://msdn.microsoft.com/library/dn935026.aspx) 的＜引數＞一節深入了解這個屬性。<br/><br/>允許的值為 **True** 和 **False** (預設值)。<br><br> | 否                                            |
 | writeBatchSize    | 要插入 SQL 資料表中**每個批次**的資料列數目。 只有在未使用 PolyBase 時才適用。<br/><br/>允許的值為**整數** (資料列數目)。 根據預設，Data Factory 會依據資料列大小，以動態方式決定適當的批次大小。 | 否                                            |
-| writeBatchTimeout | 在逾時前等待批次插入作業完成的時間。只有在未使用 PolyBase 時才適用。<br/><br/>允許的值為**時間範圍**。 範例：“00:30:00” (30 分鐘)。 | 否                                            |
+| writeBatchTimeout | 批次插入作業在超時之前完成的等候時間。只有在未使用 PolyBase 時才適用。<br/><br/>允許的值為**時間範圍**。 範例：“00:30:00” (30 分鐘)。 | 否                                            |
 | preCopyScript     | 指定一個供「複製活動」在每次執行時將資料寫入到「Azure SQL 資料倉儲」前執行的 SQL 查詢。 使用此屬性來清除預先載入的資料。 | 否                                            |
-| tableOption | 指定是否要根據來源架構，自動建立接收資料表（如果不存在）。 在複製活動中設定分段複製時，不支援自動建立資料表。 允許的值為`none` ：（預設值`autoCreate`）、。 |否 |
-| disableMetricsCollection | Data Factory 會收集計量，例如複製效能優化和建議的 SQL 資料倉儲 Dwu。 如果您擔心此行為，請指定`true`將它關閉。 | 否 (預設值為 `false`) |
+| tableOption | 指定是否要根據來源架構，自動建立接收資料表（如果不存在）。 在複製活動中設定分段複製時，不支援自動建立資料表。 允許的值為： `none` （預設值），`autoCreate`。 |否 |
+| disableMetricsCollection | Data Factory 會收集計量，例如複製效能優化和建議的 SQL 資料倉儲 Dwu。 如果您擔心這種行為，請指定 `true` 來將它關閉。 | 否 (預設值為 `false`) |
 
 #### <a name="sql-data-warehouse-sink-example"></a>SQL 資料倉儲接收範例
 
@@ -436,14 +436,14 @@ SQL 資料倉儲 PolyBase 直接支援 Azure Blob、Azure Data Lake Storage Gen1
 2. **源資料格式**為**Parquet**、 **ORC**或分隔的**文字**，具有下列設定：
 
    1. 資料夾路徑不包含萬用字元篩選準則。
-   2. 檔案名是空的，或指向單一檔案。 如果您在複製活動中指定萬用字元檔案名，它只能是`*`或。 `*.*`
-   3. `rowDelimiter`是**預設值**、 **\n**、 **\r\n**或 **\r**。
-   4. `nullValue`會保留為預設值或設為**空字串**（""）， `treatEmptyAsNull`而且會保留為預設值或設為 true。
-   5. `encodingName`會保留為預設值或設定為**utf-8**。
-   6. `quoteChar`未`escapeChar`指定、 `skipLineCount`和。 PolyBase 支援略過標頭資料列，可以在`firstRowAsHeader` ADF 中設定為。
+   2. 檔案名是空的，或指向單一檔案。 如果您在複製活動中指定萬用字元檔案名，它只能 `*` 或 `*.*`。
+   3. `rowDelimiter` 是**預設值**、 **\n**、 **\r\n**或 **\r**。
+   4. `nullValue` 會保留為預設值或設為**空字串**（""），而 `treatEmptyAsNull` 會保留為預設值或設為 true。
+   5. `encodingName` 會保留為預設值或設定為**utf-8**。
+   6. `quoteChar`，`escapeChar`，但未指定 `skipLineCount`。 PolyBase 支援略過標頭資料列，可以在 ADF 中設定為 `firstRowAsHeader`。
    7. `compression` 可以是「無壓縮」、**GZip** 或 **Deflate**。
 
-3. 如果您的來源是資料夾， `recursive`則複製活動中的必須設定為 true。
+3. 如果您的來源是資料夾，則複製活動中的 `recursive` 必須設定為 true。
 
 >[!NOTE]
 >如果您的來源是資料夾，請注意 PolyBase 會從資料夾和其所有子資料夾抓取檔案，而且不會從檔案名開頭為底線（_）或句號（.）的檔案中抓取資料，如這裡所記載[的位置引數](https://docs.microsoft.com/sql/t-sql/statements/create-external-table-transact-sql?view=azure-sqldw-latest#arguments-2)。
@@ -486,7 +486,7 @@ SQL 資料倉儲 PolyBase 直接支援 Azure Blob、Azure Data Lake Storage Gen1
 
 當來源資料不符合上一節中的準則時，請啟用透過過渡暫存 Azure Blob 儲存體執行個體複製資料。 這不可以是 Azure 進階儲存體。 在此情況下，Azure Data Factory 會自動執行資料轉換，以符合 PolyBase 的資料格式需求。 然後，它會使用 PolyBase 將資料載入 SQL 資料倉儲。 最後，它會清除 Blob 儲存體中的暫存資料。 如需透過暫存 Azure Blob 儲存體執行個體複製資料的詳細資訊，請參閱[分段複製](copy-activity-performance.md#staged-copy)。
 
-若要使用這項功能，請建立一個[Azure Blob 儲存體連結服務](connector-azure-blob-storage.md#linked-service-properties)，其參考具有過渡 Blob 儲存體的 Azure 儲存體帳戶。 然後指定複製`enableStaging`活動`stagingSettings`的和屬性，如下列程式碼所示。
+若要使用這項功能，請建立一個[Azure Blob 儲存體連結服務](connector-azure-blob-storage.md#linked-service-properties)，其參考具有過渡 Blob 儲存體的 Azure 儲存體帳戶。 然後指定複製活動的 `enableStaging` 和 @no__t 1 屬性，如下列程式碼所示。
 
 >[!IMPORTANT]
 >如果您的預備 Azure 儲存體已設定 VNet 服務端點，您必須使用受控識別驗證-請參閱[使用 Vnet 服務端點搭配 Azure 儲存體的影響](../sql-database/sql-database-vnet-service-endpoint-rule-overview.md#impact-of-using-vnet-service-endpoints-with-azure-storage)。 瞭解[Azure Blob 受控識別驗證](connector-azure-blob-storage.md#managed-identity)Data Factory 中的必要設定。
@@ -558,10 +558,10 @@ PolyBase 負載的限制為小於 1 MB 的資料列。 它不能用來載入至 
 ErrorCode=FailedDbOperation, ......HadoopSqlException: Error converting data type VARCHAR to DECIMAL.....Detailed Message=Empty string can't be converted to DECIMAL.....
 ```
 
-解決方法是在複製活動接收中取消選取 [**使用類型預設值**] 選項（如 false）-> PolyBase 設定。 "[ USE_TYPE_DEFAULT](https://docs.microsoft.com/sql/t-sql/statements/create-external-file-format-transact-sql?view=azure-sqldw-latest#arguments
+解決方法是在複製活動接收中取消選取 [**使用類型預設值**] 選項（如 false）-> PolyBase 設定。 "[USE_TYPE_DEFAULT](https://docs.microsoft.com/sql/t-sql/statements/create-external-file-format-transact-sql?view=azure-sqldw-latest#arguments
 )" 是 polybase 原生設定，指定當 PolyBase 從文字檔抓取資料時，如何處理分隔符號文字檔中遺漏的值。 
 
-**`tableName`在 Azure SQL 資料倉儲**
+**Azure SQL 資料倉儲中的 `tableName`**
 
 下表是如何在 JSON 資料集中指定 **tableName** 屬性的範例。 其中會顯示數個結構描述和資料表名稱的組合。
 
@@ -601,18 +601,18 @@ NULL 值是一種特殊形式的預設值。 如果資料欄可以是 Null，Blo
 
 | Azure SQL 資料倉儲資料類型    | Data Factory 過渡期資料類型 |
 | :------------------------------------ | :----------------------------- |
-| Bigint                                | Int64                          |
+| bigint                                | Int64                          |
 | binary                                | Byte[]                         |
 | bit                                   | Boolean                        |
 | char                                  | String, Char[]                 |
-| date                                  | Datetime                       |
-| Datetime                              | Datetime                       |
-| datetime2                             | Datetime                       |
+| date                                  | 日期時間                       |
+| DateTime                              | 日期時間                       |
+| datetime2                             | 日期時間                       |
 | Datetimeoffset                        | DateTimeOffset                 |
 | Decimal                               | Decimal                        |
 | FILESTREAM attribute (varbinary(max)) | Byte[]                         |
-| 浮點數                                 | Double                         |
-| image                                 | Byte[]                         |
+| Float                                 | DOUBLE                         |
+| 映像                                 | Byte[]                         |
 | int                                   | Int32                          |
 | money                                 | Decimal                        |
 | nchar                                 | String, Char[]                 |
@@ -620,12 +620,12 @@ NULL 值是一種特殊形式的預設值。 如果資料欄可以是 Null，Blo
 | nvarchar                              | String, Char[]                 |
 | real                                  | Single                         |
 | rowversion                            | Byte[]                         |
-| smalldatetime                         | Datetime                       |
+| smalldatetime                         | 日期時間                       |
 | smallint                              | Int16                          |
 | smallmoney                            | Decimal                        |
-| time                                  | TimeSpan                       |
+| time                                  | 時間範圍                       |
 | tinyint                               | Byte                           |
-| uniqueidentifier                      | Guid                           |
+| uniqueidentifier                      | GUID                           |
 | varbinary                             | Byte[]                         |
 | varchar                               | String, Char[]                 |
 

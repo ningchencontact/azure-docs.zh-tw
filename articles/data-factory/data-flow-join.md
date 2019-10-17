@@ -7,12 +7,12 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 02/07/2019
-ms.openlocfilehash: 48cf9d58c8acd85e545a5bcb5104d7069670e349
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.openlocfilehash: da6c3c90ebbeffcf468aad3809da097976d8ef0d
+ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72029317"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72387231"
 ---
 # <a name="mapping-data-flow-join-transformation"></a>對應資料流程聯結轉換
 
@@ -54,9 +54,9 @@ Full Outer 會從兩端產生具有 Null 值的所有資料行和資料列，而
 
 ## <a name="join-performance-optimizations"></a>聯結效能最佳化
 
-不同於 SSIS 之類的工具中的合併聯結，ADF 資料流程不是必要的合併聯結作業。 因此，聯結索引鍵不需要先排序。 聯結作業會根據 Spark 中的最佳聯結作業進行：廣播 / 對應端聯結：
+不同於 SSIS 之類的工具中的合併聯結，ADF 資料流程不是必要的合併聯結作業。 因此，聯結索引鍵不需要先排序。 聯結作業會根據 Spark 中的最佳聯結作業進行：廣播/對應端聯結：
 
-![聯結轉換最佳化](media/data-flow/joinoptimize.png "聯結最佳化")
+![聯結轉換優化](media/data-flow/joinoptimize.png "聯結優化")
 
 如果您的資料集可以放入背景工作節點記憶體中，我們可以將您的聯結效能優化。 您也可以對於聯結作業指定資料分割，以建立更適合每個背景工作記憶體的資料集。
 

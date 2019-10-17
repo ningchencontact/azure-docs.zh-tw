@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 07/08/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: ca7136f6e1c24d32ff5d6e3e53878c11fb5f1edb
-ms.sourcegitcommit: 7868d1c40f6feb1abcafbffcddca952438a3472d
+ms.openlocfilehash: 961f4595d60e85677d2c7c4a1abd97736d0180ec
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71975281"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72391578"
 ---
 ## <a name="application-performance-indicators"></a>應用程式效能指標
 
@@ -65,7 +65,7 @@ IOPS，亦即 Input/output Operations Per Second (每秒鐘輸入/輸出作業�
 
 | **效能需求** | **50 百分位數** | **90 百分位數** | **99 百分位數** |
 | --- | --- | --- | --- |
-| 最大 每秒交易 | | | |
+| 最大 每秒交易數 | | | |
 | % 讀取作業 | | | |
 | % 寫入作業 | | | |
 | % 隨機作業 | | | |
@@ -156,7 +156,7 @@ IO 大小是其中一個很重要的因素。 IO 大小是指應用程式所產�
 
 | 應用程式需求 | I/O 大小 | IOPS | 輸送量/頻寬 |
 | --- | --- | --- | --- |
-| IOPS 上限 |8 KB |5,000 |每秒 40 MB |
+| 最大 IOPS |8 KB |5,000 |每秒 40 MB |
 | 最大輸送量 |1024 KB |200 |每秒 200 MB |
 | 最大輸送量 + 高 IOPS |64 KB |3,200 |每秒 200 MB |
 | 最大 IOPS + 高輸送量 |32 KB |5,000 |每秒 160 MB |
@@ -174,7 +174,7 @@ IO 大小是其中一個很重要的因素。 IO 大小是指應用程式所產�
 
 大規模的 Vm 有不同的大小，具有不同數目的 CPU 核心、記憶體、OS 和暫存磁片大小。 每個 VM 大小也規定您可連接至 VM 的資料磁碟數目上限。 因此，選擇的 VM 大小會影響應用程式可用的處理、記憶體和儲存體容量。 也會影響計算和儲存體成本。 例如，以下為 DS 系列、DSv2 系列和 GS 系列中最大 VM 大小的規格：
 
-| VM 大小 | CPU 核心 | 記憶體 | VM 磁碟大小 | 最大 資料磁碟 | 快取大小 | IOPS | 頻寬快取 IO 限制 |
+| VM 大小 | CPU 核心數 | 記憶體 | VM 磁碟大小 | 最大 資料磁碟 | 快取大小 | IOPS | 頻寬快取 IO 限制 |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | Standard_DS14 |16 |112 GB |作業系統 = 1023 GB <br> 本機 SSD = 224 GB |32 |576 GB |50,000 IOPS <br> 每秒 512 MB |4,000 IOPS 和每秒 33 MB |
 | Standard_GS5 |32 |448 GB |作業系統 = 1023 GB <br> 本機 SSD = 896 GB |64 |4224 GB |80,000 IOPS <br> 每秒 2,000 MB |5,000 IOPS 和每秒 50 MB |
@@ -245,7 +245,7 @@ Azure 進階儲存體提供各種規模，讓您可以選擇最符合您需求�
 
 | **磁碟類型** | **預設快取設定** |
 | --- | --- |
-| OS 磁碟 |ReadWrite |
+| 作業系統磁碟 |讀寫 |
 | 資料磁碟 |ReadOnly |
 
 以下是針對資料磁碟建議的磁碟快取設定，
@@ -253,7 +253,7 @@ Azure 進階儲存體提供各種規模，讓您可以選擇最符合您需求�
 | **磁碟快取設定** | **使用這項設定的建議時機** |
 | --- | --- |
 | None |針對唯寫和大量寫入的磁碟，將主機快取設定為「無」。 |
-| 唯讀 |針對唯讀和讀寫的磁碟，將主機快取設定為「唯讀」。 |
+| ReadOnly |針對唯讀和讀寫的磁碟，將主機快取設定為「唯讀」。 |
 | 讀寫 |只有當應用程式在必要時可適當地將快取的資料寫入永續性磁碟時，才將主機快取設定為「讀寫」。 |
 
 *唯讀*  
@@ -265,14 +265,14 @@ Azure 進階儲存體提供各種規模，讓您可以選擇最符合您需求�
 *讀寫*  
 根據預設，作業系統磁碟會啟用「讀寫」快取。 我們最近也已在資料磁碟上增加支援「讀寫」快取。 如果您使用「讀寫」快取，您必須有適當的方法將快取中的資料寫入永續性磁碟。 例如，SQL Server 會自行負責將快取的資料寫入永續性儲存體磁碟。 對於不負責保存必要資料的應用程式，如果使用「讀寫」快取，一旦 VM 損毀，可能會導致資料遺失。
 
-*無*  
+*None*  
 目前只有資料磁片才支援**None** 。 作業系統磁片不支援此操作。 如果您在 OS 磁片上設定為 [**無**]，它會在內部覆寫此設定，並將它設為**ReadOnly**。
 
 舉例來說，您可以執行下列動作，將這些指導方針運用在進階儲存體上執行的 SQL Server，
 
 1. 在裝載資料檔的進階儲存體磁碟上設定「唯讀」快取。  
    a.  從快取中快速讀取可縮短 SQL Server 查詢時間，因為從快取擷取資料頁，速度遠快於直接從資料磁碟擷取。  
-   b.  由快取來服務讀取，表示高階資料磁碟會有額外的輸送量可用。 SQL Server 可以使用這個額外的輸送量來擷取更多資料頁和執行其他作業，例如備份/還原、批次載入和索引重建。  
+   b.這是另一個 C# 主控台應用程式。  由快取來服務讀取，表示高階資料磁碟會有額外的輸送量可用。 SQL Server 可以使用這個額外的輸送量來擷取更多資料頁和執行其他作業，例如備份/還原、批次載入和索引重建。  
 1. 在裝載記錄檔的進階儲存體磁碟上設定「無」快取。  
    a.  記錄檔以大量寫入的作業為主。 因此，無法從「唯讀」快取中受惠。
 
@@ -286,24 +286,24 @@ Azure 進階儲存體提供各種規模，讓您可以選擇最符合您需求�
 * 對於快取設定為 **ReadWrite** 的進階儲存體，請啟用寫入持續性的障礙。
 * 對於要在 VM 重新開機後保存的磁碟機標籤，您必須以參考磁碟的通用唯一識別碼 (UUID) 更新 /etc/fstab。 如需詳細資訊，請參閱[將受控磁碟新增至 Linux VM](../articles/virtual-machines/linux/add-disk.md)。
 
-下列 Linux 散發套件經過驗證，可使用進階 SSD。 如需透過進階 SSD 提升效能與穩定性，建議您將虛擬機器升級成這些版本之一或更新的版本。 
+下列 Linux 散發套件經過驗證，可使用進階 SSD。 為了讓 premium Ssd 達到更佳的效能和穩定性，建議您將 Vm 升級為這些版本或更新版本的其中一個。 
 
 部分版本需要適用於 Azure 的最新 Linux Integration Services 4.0 版。 若要下載並安裝散發套件，請遵循下表所列的連結。 完成驗證時，我們會將映像新增至清單中。 驗證結果顯示每個映像的效能各有差異。 效能取決於工作負載特性和映像上的設定。 不同的映像已針對不同種類的工作負載進行調整。
 
-| 發佈 | Version | 支援的核心 | 詳細資料 |
+| 通路業 | 版本 | 支援的核心 | 詳細資料 |
 | --- | --- | --- | --- |
-| Ubuntu | 12.04 | 3.2.0-75.110+ | Ubuntu-12_04_5-LTS-amd64-server-20150119-en-us-30GB |
-| Ubuntu | 14.04 | 3.13.0-44.73+ | Ubuntu-14_04_1-LTS-amd64-server-20150123-en-us-30GB |
-| Debian | 7.x、8.x | 3.16.7-ckt4-1+ | &nbsp; |
-| SUSE | SLES 12| 3.12.36-38.1+| suse-sles-12-priority-v20150213 <br> suse-sles-12-v20150213 |
-| SUSE | SLES 11 SP4 | 3.0.101-0.63.1+ | &nbsp; |
-| CoreOS | 584.0.0+| 3.18.4+ | CoreOS 584.0.0 |
-| CentOS | 6.5、6.6、6.7、7.0 | &nbsp; | [LIS4 (必要)](https://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409) <br> *請參閱下一節中的附註* |
-| CentOS | 7.1+ | 3.10.0-229.1.2.el7+ | [LIS4 (建議使用) ](https://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409) <br> *請參閱下一節中的附註* |
-| Red Hat Enterprise Linux (RHEL) | 6.8+、7.2+ | &nbsp; | &nbsp; |
-| Oracle | 6.0+, 7.2+ | &nbsp; | UEK4 或 RHCK |
-| Oracle | 7.0-7.1 | &nbsp; | UEK4 或 RHCK w/[LIS 4.1+](https://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409) |
-| Oracle | 6.4-6.7 | &nbsp; | UEK4 或 RHCK w/[LIS 4.1+](https://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409) |
+| Ubuntu | 12.04 或更新版本| 3.2.0-75.110+ | Ubuntu-12_04_5-LTS-amd64-server-20150119-en-us-30GB |
+| Ubuntu | 14.04 或更新版本| 3.13.0-44.73+  | Ubuntu-14_04_1-LTS-amd64-server-20150123-en-us-30GB |
+| Debian | 7.x、8.x 或更新版本| 3.16.7-ckt4-1+ | &nbsp; |
+| SUSE | SLES 12 或更新版本| 3.12.36-38.1+ | suse-sles-12-priority-v20150213 <br> suse-sles-12-v20150213 |
+| SUSE | SLES 11 SP4 或更新版本| 3.0.101-0.63.1+ | &nbsp; |
+| CoreOS | 584.0.0 + 或更新版本| 3.18.4+ | CoreOS 584.0.0 |
+| CentOS | 6.5、6.6、6.7、7.0 或更新版本| &nbsp; | [LIS4 (必要)](https://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409) <br> *請參閱下一節中的附註* |
+| CentOS | 7.1 + 或更新版本| 3.10.0-229.1.2.el7+ | [LIS4 (建議使用) ](https://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409) <br> *請參閱下一節中的附註* |
+| Red Hat Enterprise Linux (RHEL) | 6.8 +、7.2 + 或更新版本 | &nbsp; | &nbsp; |
+| Oracle | 6.0 +、7.2 + 或更新版本 | &nbsp; | UEK4 或 RHCK |
+| Oracle | 7.0-7.1 或更新版本 | &nbsp; | UEK4 或 RHCK w/[LIS 4.1+](https://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409) |
+| Oracle | 6.4-6.7 或更新版本 | &nbsp; | UEK4 或 RHCK w/[LIS 4.1+](https://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409) |
 
 ### <a name="lis-drivers-for-openlogic-centos"></a>Openlogic CentOS 的 LIS 驅動程式
 
@@ -322,7 +322,7 @@ sudo yum install microsoft-hyper-v
 
 在 Windows 中，您可以使用「儲存空間」將磁碟串接在一起。 您必須為集區中的每個磁碟設定一欄。 否則，由於磁碟之間的流量分配不平均，等量磁碟區的整體效能可能會低於預期。
 
-重要：您可以使用伺服器管理員 UI，將一個等量磁碟區的總欄數最多設定為 8 個。 連接8個以上的磁片時，請使用 PowerShell 來建立磁片區。 您可以使用 PowerShell 將欄數設定為等於磁碟數量。 例如，如果單一等量磁碟區中有 16 個磁碟，請在 *New-VirtualDisk* PowerShell Cmdlet 的 *NumberOfColumns* 參數中指定 16 欄。
+重要事項：您可以使用伺服器管理員 UI，將一個等量磁碟區的總欄數最多設定為 8 個。 連接8個以上的磁片時，請使用 PowerShell 來建立磁片區。 您可以使用 PowerShell 將欄數設定為等於磁碟數量。 例如，如果單一等量磁碟區中有 16 個磁碟，請在 *New-VirtualDisk* PowerShell Cmdlet 的 *NumberOfColumns* 參數中指定 16 欄。
 
 在 Linux 上，請使用 MDADM 公用程式將磁碟串接在一起。 如需有關在 Linux 上等量分割磁碟的詳細步驟，請參閱 [在 Linux 上設定軟體 RAID](../articles/virtual-machines/linux/configure-raid.md)。
 
@@ -377,7 +377,7 @@ Azure 已將進階儲存體平台設計為大規模平行。 因此，多執行�
 對於等量磁碟區，應該維持夠高的佇列深度，讓每個磁碟有各自的尖峰佇列深度。 例如，假設有一個應用程式會推送佇列深度為2，而 stripe 中有四個磁片。 兩個 IO 要求會流向兩個磁碟，而剩餘的兩個磁碟會處於閒置狀態。 因此，請將佇列深度設定為讓所有磁碟都有工作執行。 下列公式顯示如何決定等量磁碟區的佇列深度。  
     ![](media/premium-storage-performance/image7.png)
 
-## <a name="throttling"></a>正在節流
+## <a name="throttling"></a>節流
 
 Azure 進階儲存體會根據您選擇的 VM 大小和磁碟大小，佈建指定數目的 IOPS 和輸送量。 每當應用程式嘗試推動的 IOPS 或輸送量超過 VM 或磁碟可處理的這些限制時，進階儲存體便會進行節流。 這會造成應用程式的效能降低。 這可能表示較高的延遲、較低的輸送量或較低的 IOPS。 如果進階儲存體不會節流，應用程式可能會超出其資源的能力負荷而完全失敗。 因此，為了避免因為節流而造成效能問題，一定要為應用程式佈建足夠的資源。 請考量先前在 VM 大小和磁碟大小各節已討論過的因素。 為了駕馭應用程式，效能評定是找出所需資源的最佳方式。
 

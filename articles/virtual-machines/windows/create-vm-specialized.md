@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: article
 ms.date: 10/10/2018
 ms.author: cynthn
-ms.openlocfilehash: 5dde098277b16c7ec5339aa6b963b04dd608c8ac
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 6adeae69a4ef9e6f2d77588f8071498fd25beb3e
+ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70079674"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72390597"
 ---
 # <a name="create-a-windows-vm-from-a-specialized-disk-by-using-powershell"></a>使用 PowerShell 從特製化磁碟建立 Windows VM
 
@@ -36,9 +36,9 @@ ms.locfileid: "70079674"
 
 本文說明如何使用受控磁碟。 如果您有需要使用儲存體帳戶的舊版部署，請參閱[從儲存體帳戶中的特製化 VHD 建立 VM](sa-create-vm-specialized.md)。
 
-[!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
+我們建議您從單一 VHD 或快照集，將並行部署數目限制為20個 Vm。 
 
-## <a name="option-1-use-an-existing-disk"></a>選項 1：使用現有的磁碟
+## <a name="option-1-use-an-existing-disk"></a>選項 1. 使用現有磁碟
 
 如果您已刪除虛擬機器，而想要重複使用 OS 磁碟建立新的虛擬機器，請使用 [Get-AzDisk](https://docs.microsoft.com/powershell/module/az.compute/get-azdisk)。
 
@@ -153,7 +153,7 @@ $osDisk = New-AzDisk -DiskName $osDiskName -Disk `
     -ResourceGroupName $destinationResourceGroup
 ```
 
-## <a name="option-3-copy-an-existing-azure-vm"></a>選項 3：複製現有的 Azure VM
+## <a name="option-3-copy-an-existing-azure-vm"></a>選項 3：複製現有的 Azure 虛擬機器
 
 您可以藉由建立 VM 的快照集，然後使用該快照集來建立新的受控磁碟和新的 VM，建立使用受控磁碟的 VM 複本。
 
@@ -204,7 +204,7 @@ $snapShot = New-AzSnapshot `
 ```
 
 
-若要使用此快照集來建立需要執行高效能的 VM, 請將參數`-AccountType Premium_LRS`新增至 AzSnapshotConfig 命令。 此參數建立的快照集會儲存為「進階受控磁碟」。 「進階受控磁碟」比「標準磁碟」費用高，因此請先確定您需要「進階磁碟」，再使用此參數。
+若要使用此快照集來建立需要執行高效能的 VM，請將參數 `-AccountType Premium_LRS` 新增至 AzSnapshotConfig 命令。 此參數建立的快照集會儲存為「進階受控磁碟」。 「進階受控磁碟」比「標準磁碟」費用高，因此請先確定您需要「進階磁碟」，再使用此參數。
 
 ### <a name="create-a-new-disk-from-the-snapshot"></a>從快照集建立新的磁碟
 

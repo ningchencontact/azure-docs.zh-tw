@@ -1,6 +1,6 @@
 ---
-title: Azure 狀態監視器 v2 API 參考:停用檢測引擎 |Microsoft Docs
-description: 狀態監視器 v2 API 參考。 停用-InstrumentationEngine。 在不重新部署網站的情況下監視網站效能。 適用于內部部署、Vm 或 Azure 上裝載的 ASP.NET web 應用程式。
+title: Azure 應用程式 Insights 代理程式 API 參考：停用檢測引擎 |Microsoft Docs
+description: Application Insights 代理程式 API 參考。 停用-InstrumentationEngine。 在不重新部署網站的情況下監視網站效能。 適用于內部部署、Vm 或 Azure 上裝載的 ASP.NET web 應用程式。
 services: application-insights
 documentationcenter: .net
 author: TimothyMothra
@@ -12,20 +12,20 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: tilee
-ms.openlocfilehash: 98f70a457b1e09f755a854a28cfd31a8fc9ee9f2
-ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
+ms.openlocfilehash: aaf493b5f2075ead62087824773f21643a1246e4
+ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71033181"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72388298"
 ---
-# <a name="status-monitor-v2-api-disable-instrumentationengine"></a>狀態監視器 v2 API:停用-InstrumentationEngine
+# <a name="application-insights-agent-api-disable-instrumentationengine"></a>Application Insights 代理程式 API：停用-InstrumentationEngine
 
 本文說明的 Cmdlet 是[ApplicationMonitor PowerShell 模組](https://www.powershellgallery.com/packages/Az.ApplicationMonitor/)的成員。
 
 ## <a name="description"></a>描述
 藉由移除一些登錄機碼來停用檢測引擎。
-重新開機 IIS, 變更才會生效。
+重新開機 IIS，變更才會生效。
 
 > [!IMPORTANT] 
 > 此 Cmdlet 需要具有系統管理員許可權的 PowerShell 會話。
@@ -41,7 +41,7 @@ PS C:\> Disable-InstrumentationEngine
 ### <a name="-verbose"></a>-Verbose
 **一般參數。** 使用此參數來輸出詳細記錄。
 
-## <a name="output"></a>Output
+## <a name="output"></a>輸出
 
 
 #### <a name="example-output-from-successfully-disabling-the-instrumentation-engine"></a>成功停用檢測引擎的範例輸出
@@ -57,5 +57,5 @@ Configuring registry for instrumentation engine...
 
 ## <a name="next-steps"></a>後續步驟
 
- 使用狀態監視器 v2 來執行更多動作:
- - 使用我們的指南進行狀態監視器 v2 的[疑難排解](status-monitor-v2-troubleshoot.md)。
+ 使用 Application Insights 代理程式執行更多工具：
+ - 使用我們的指南來[疑難排解](status-monitor-v2-troubleshoot.md)Application Insights 代理程式。

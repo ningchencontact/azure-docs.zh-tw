@@ -10,17 +10,64 @@ ms.service: cloud-services
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 10/7/2019
+ms.date: 10/15/2019
 ms.author: raiye
-ms.openlocfilehash: 736cb30942646788ee6f365f67244d27f1aa0316
-ms.sourcegitcommit: f9e81b39693206b824e40d7657d0466246aadd6e
+ms.openlocfilehash: b4150858986f204723dc258b23daf22de5d39842
+ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72035173"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72430159"
 ---
 # <a name="azure-guest-os"></a>Azure 客體作業系統
 下表為適用於 Azure 客體作業系統的 Microsoft Security Response Center (MSRC) 更新。 請搜尋本文章以判斷特定更新是否適用於您使用的客體作業系統。 針對在中引進的特定[系列][family-explain]，一律會繼續進行更新。
+
+## <a name="october-2019-guest-os"></a>2019年10月的客體作業系統
+
+>[!NOTE]
+>我們目前正在將 10 月客體 OS 推展到已設定要自動更新的雲端服務 VM。 推展完成時，我們會透過 Azure 入口網站和組態檔來提供此版本，以便您可以手動更新。 下列修補程式會包含在 10 月客體 OS 中。 此清單會隨時變動。
+
+| 產品類別 | 上層知識庫文章 | 弱點說明 | 客體作業系統 | 首次引進日期 |
+| --- | --- | --- | --- | --- |
+|  Rel 19-10   |  [4520003]  |  Windows 安全性   |  2.91  |  2019年10月8日  |
+|  Rel 19-10   |  [4519985]  |  Windows 安全性   |  3.78  |  2019年10月8日  |
+|  Rel 19-10   |  [4519990]  |  Windows 安全性   |  4.71  |  2019年10月8日  |
+|  Rel 19-10   |  [4519998]  |  最新累計更新   |  5.36  |  2019年10月8日  |
+|  Rel 19-10   |  [4519338]  |  最新累計更新   |  6.12  |  2019年10月8日  |
+|  Rel 19-10   |  [4519974]  |  Internet Explorer   |  2.91、3.78、4.71  |  2019年10月8日  |
+|  Rel 19-10   |  [4516065]  |  非安全性   |  2.91  |  2019年9月10日  |
+|  Rel 19-10   |  [4516655]  |  SSU   |  2.91  |  2019年9月10日  |
+|  Rel 19-10   |  [4516055]  |  非安全性   |  3.78  |  2019年9月10日  |
+|  Rel 19-10   |  [4512939]  |  SSU   |  3.78  |  2019年9月10日  |
+|  Rel 19-10   |  [4514370]  |  .Net Framework 3。5   |  3.78  |  2019年9月10日  |
+|  Rel 19-10   |  [4514368]  |  .Net Framework 4.5。2   |  3.78  |  2019年9月10日  |
+|  Rel 19-10   |  [4516067]  |  非安全性   |  4.71  |  2019年9月10日  |
+|  Rel 19-10   |  [4512938]  |  SSU   |  4.71  |  2019年9月10日  |
+|  Rel 19-10   |  [4514371]  |  .Net Framework 3。5   |  4.71  |  2019年9月10日  |
+|  Rel 19-10   |  [4514367]  |  .Net Framework 4.5。2   |  4.71  |  2019年9月10日  |
+|  Rel 19-10   |  [4512574]  |  SSU   |  5.36  |  2019年9月10日  |
+|  Rel 19-10   |  [4512577]  |  SSU   |  6.12  |  2019年9月10日  |
+
+[4520003]: https://support.microsoft.com/kb/4520003
+[4519985]: https://support.microsoft.com/kb/4519985
+[4519990]: https://support.microsoft.com/kb/4519990
+[4519998]: https://support.microsoft.com/kb/4519998
+[4519338]: https://support.microsoft.com/kb/4519338
+[4519974]: https://support.microsoft.com/kb/4519974
+[4516065]: https://support.microsoft.com/kb/4516065
+[4516655]: https://support.microsoft.com/kb/4516655
+[4516055]: https://support.microsoft.com/kb/4516055
+[4512939]: https://support.microsoft.com/kb/4512939
+[4514370]: https://support.microsoft.com/kb/4514370
+[4514368]: https://support.microsoft.com/kb/4514368
+[4516067]: https://support.microsoft.com/kb/4516067
+[4512938]: https://support.microsoft.com/kb/4512938
+[4514371]: https://support.microsoft.com/kb/4514371
+[4514367]: https://support.microsoft.com/kb/4514367
+[4512574]: https://support.microsoft.com/kb/4512574
+[4512577]: https://support.microsoft.com/kb/4512577
+
+
 
 ## <a name="september-2019-guest-os"></a>2019年9月的客體作業系統
 
@@ -189,7 +236,7 @@ ms.locfileid: "72035173"
 |  N/A  |  [4495592]  |  5月 19 .NET 4.5.2 非安全性  |  4.67  |  2019 年 5 月 14 日  |
 |  N/A  |  [4495610]  |  5月 19 .NET 4.8 累計  |  6.8  |  2019 年 5 月 14 日  |
 |  N/A  |  [4495618]  |  5月 19 .NET 4.8 累計  |  6.8  |  2019 年 5 月 14 日  |
-|  N/A  |  [4501226]  |  摩洛哥和巴勒斯坦民族權力機構的 DST 時區更新  |  2.87、3.74、4.67  |  2019 5 月23日  |
+|  N/A  |  [4501226]  |  摩洛哥和巴勒斯坦民族機關的 DST 時區更新  |  2.87、3.74、4.67  |  2019 5 月23日  |
 |  N/A  |  [4490128]  |  聖多美、普林西比和 Qyzylorda 的 DST 時區更新  |  2.87、3.74、4.67  |  2019年4月17日  |
 
 [4503327]: https://support.microsoft.com/kb/4503327
@@ -756,7 +803,7 @@ ms.locfileid: "72035173"
 | Rel 17-09 | [4038779], [4038786], [4038793] |只有 Windows 安全性 |2.66, 3.53, 4.46 |2017 年 9 月 12 日 |
 | Rel 17-09 | [4040966], [4040960], [4040965], [4040959], [4033988], [4040955], [4040967], [4040958]|九月份 .NET 更新 |2.66, 3.53, 4.46 |2017 年 9 月 12 日 |
 | Rel 17-09 | [4036586] |Internet explorer |2.66, 3.53, 4.46 |2017 年 9 月 12 日 |
-| CVE-2017-8704 | [4038782] |阻斷服務 |5.11 |2017 年 9 月 12 日 |
+| CVE-2017-8704 | [4038782] |拒絕服務 |5.11 |2017 年 9 月 12 日 |
 | N/A | [4034664] |八月份非安全性彙總套件  |2.66 |2017 年 8 月 8 日 |
 | N/A | [4034665] |八月份非安全性彙總套件 |5.11 |2017 年 8 月 8 日 |
 | N/A | [4034681] |八月份非安全性彙總套件 |4.46 |2017 年 8 月 8 日 |
@@ -873,7 +920,7 @@ ms.locfileid: "72035173"
 | Rel 17-03 |  [4012213] |適用於 Windows 8.1 和 Windows Server 2012 R2 的 2017 年 3 月僅安全性品質更新 |4.40 |2017 年 3 月 14 日 |
 | Rel 17-03 |  [4012214] |適用於 Windows Server 2012 的 2017 年 3 月僅安全性品質更新|3.47 |2017 年 3 月 14 日 |
 | Rel 17-03 |  [4012204] |Internet Explorer 的安全性更新 |2.60, 3.47, 4.40, 5.5 |2017 年 3 月 14 日 |
-| N/A |  [4012864] |對於賽普勒斯、蒙古與俄羅斯薩拉托夫區域，Windows 中的 DST 已變更 |2.60, 3.47, 4.40 |2017 年 3 月 14 日 |
+| N/A |  [4012864] |對於北賽普勒斯、蒙古與俄羅斯薩拉托夫區域，Windows 中的 DST 已變更 |2.60, 3.47, 4.40 |2017 年 3 月 14 日 |
 | N/A |  [3212646] |適用於 Windows 7 SP1 和 Windows Server 2008 R2 SP1 的 2017 年 1 月安全性每月品質彙總套件 |2.60 |2017 年 3 月 14 日 |
 | N/A |  [3205409] |適用於 Windows Server 2012 的 2016 年 12 月安全性每月品質彙總套件 |3.47 |2017 年 3 月 14 日 |
 | N/A |  [3205401] |適用於 Windows 8.1 和 Windows Server 2012 R2 的 2016 年 12 月安全性每月品質彙總套件 |4.40 |2017 年 3 月 14 日 |
@@ -924,7 +971,7 @@ ms.locfileid: "72035173"
 | N/A |[3185331] |適用於 Windows 8.1 和 Windows Server 2012 R2 的 2016 年 10 月安全性每月品質彙總套件 |4.38 |2016 年 11 月 8 日 |
 | N/A |[3192404] |適用於 Windows 8.1 和 Windows Server 2012 R2 的 2016 年 10 月每月品質彙總套件預覽 |4.38 |2016 年 11 月 8 日 |
 | N/A |[3199986] |適用於 Windows 10 版本 1607 的服務堆疊更新：2016 年 10 月 27 日 |5.3 |2016 年 11 月 8 日 |
-| N/A |[3197954] |Windows 10 版本 1607 和 Windows Server 2016 的累積更新：2016 年 10 月 27 日 |5.3 |2016 年 11 月 8 日 |
+| N/A |[3197954] |適用於 Windows 10 版本 1607 和 Windows Server 2016 的累積更新：2016 年 10 月 27 日 |5.3 |2016 年 11 月 8 日 |
 
 ## <a name="october-2016-guest-os"></a>2016 年 10 月客體 OS
 | 公告識別碼 | 上層知識庫文章 | 弱點說明 | 客體作業系統 | 首次引進日期 |
@@ -1031,7 +1078,7 @@ ms.locfileid: "72035173"
 | N/A |[3133977] |BitLocker 無法加密磁碟機，原因是 Windows 7 或 Windows Server 2008 R2 中 svchost.exe 程序中的服務損毀  |2.51 |2016 年 5 月 10 日 |
 | N/A |[3133681] |虛擬機器並未回應您在 Windows Server 2012 R2 中 SCVMM 中的作業  |4.32 |2016 年 5 月 10 日 |
 | N/A |[3123245] |更新可改善 Windows Server 2012 R2 中的連接埠耗盡識別  |4.32 |2016 年 5 月 10 日 |
-| N/A |[停用 RC4] | Microsoft Security Advisory：可供停用 RC4 的更新  |4.32, 3.39, 2.51 |2016 年 5 月 10 日 |
+| N/A |[停用 RC4] | Microsoft 安全性諮詢︰停用 RC4 的更新  |4.32, 3.39, 2.51 |2016 年 5 月 10 日 |
 
 ## <a name="april-2016-guest-os"></a>2016 年 4 月客體 OS
 | 公告識別碼 | 上層知識庫文章 | 弱點說明 | 客體作業系統 | 首次引進日期 |

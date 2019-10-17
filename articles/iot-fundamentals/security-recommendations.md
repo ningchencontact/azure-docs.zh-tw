@@ -9,16 +9,16 @@ ms.topic: article
 ms.date: 09/25/2019
 ms.author: dkshir
 ms.custom: security-recommendations
-ms.openlocfilehash: 51abfd086391d1bed53646d22d93ac1348e566a5
-ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
+ms.openlocfilehash: 2bb81324301ac1f5f4fd4a472942b137a76e9d3c
+ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71299800"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72434415"
 ---
 # <a name="security-recommendations-for-azure-internet-of-things-iot-deployment"></a>Azure 物聯網（IoT）部署的安全性建議
 
-本文包含 IoT 的安全性建議。 依照我們的共同責任模型所述，執行這些建議可協助您履行安全性義務。 如需 Microsoft 如何履行服務提供者責任的詳細資訊，請參閱[雲端運算的共同責任](https://gallery.technet.microsoft.com/Shared-Responsibilities-81d0ff91/file/153019/1/Shared%20responsibilities%20for%20cloud%20computing.pdf)。
+本文包含 IoT 的安全性建議。 依照我們的共同責任模型所述，執行這些建議可協助您履行安全性義務。 如需 Microsoft 如何履行服務提供者責任的詳細資訊，請參閱[雲端運算的共同責任](https://gallery.technet.microsoft.com/Shared-Responsibilities-81d0ff91/file/225237/1/Shared%20Responsibilities%20for%20Cloud%20Computing%20(2017-04-03).pdf)。
 
 本文中包含的一些建議可由 Azure 資訊安全中心自動監視。 Azure 資訊安全中心是保護 Azure 中資源的第一道防線。 它會定期分析 Azure 資源的安全性狀態，以找出潛在的安全性弱點。 接著，它會為您提供如何解決這些問題的建議。
 
@@ -27,13 +27,13 @@ ms.locfileid: "71299800"
 
 ## <a name="recommendations"></a>建議
 
-| Category | 建議 | 註解 | 支援 ASC |
+| 類別 | 建議 | 註解 | 支援 ASC |
 |-|-|----|--|
 | 一般 | 隨時保持最新狀態 | 使用支援的平臺、程式設計語言、通訊協定和架構的最新版本。 | - |
 | 一般 | 保持驗證金鑰安全 | 部署之後，請讓裝置識別碼和其驗證金鑰實際安全。 這可避免惡意裝置偽裝成已註冊的裝置。 | - |
 | 一般 | 盡可能使用裝置 Sdk | 裝置 Sdk 會執行各種不同的安全性功能，例如加密、驗證等等，以協助您開發健全且安全的裝置應用程式。 如需詳細資訊，請參閱[瞭解及使用 Azure IoT 中樞 sdk](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-sdks) 。 | - |
-| 身分識別和存取管理 | 定義中樞的存取控制 | 根據功能，瞭解並定義每個元件在您的 IoT 中樞解決方案中將擁有[的存取類型](iot-security-deployment.md#securing-the-cloud)。 允許的許可權包括*Registry Read*、 *RegistryReadWrite*、 *ServiceConnect*和*DeviceConnect*。 [IoT 中樞內的預設共用存取原則](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-security#access-control-and-permissions)也可以協助根據每個元件的角色定義其許可權。 | - |
-| 身分識別和存取管理 | 定義後端服務的存取控制 | IoT 中樞解決方案所內嵌的資料可供其他 Azure 服務使用，例如[Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/)、[串流分析](https://docs.microsoft.com/azure/stream-analytics/)、 [App Service](https://docs.microsoft.com/azure/app-service/)、 [Logic Apps](https://docs.microsoft.com/azure/logic-apps/)和[Blob 儲存體](https://docs.microsoft.com/azure/storage/blobs/storage-blobs-introduction)。 請務必瞭解並允許這些服務所記載的適當存取權限。 | - |
+| 身分識別與存取管理 | 定義中樞的存取控制 | 根據功能，瞭解並定義每個元件在您的 IoT 中樞解決方案中將擁有[的存取類型](iot-security-deployment.md#securing-the-cloud)。 允許的許可權包括*Registry Read*、 *RegistryReadWrite*、 *ServiceConnect*和*DeviceConnect*。 [IoT 中樞內的預設共用存取原則](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-security#access-control-and-permissions)也可以協助根據每個元件的角色定義其許可權。 | - |
+| 身分識別與存取管理 | 定義後端服務的存取控制 | IoT 中樞解決方案所內嵌的資料可供其他 Azure 服務使用，例如[Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/)、[串流分析](https://docs.microsoft.com/azure/stream-analytics/)、 [App Service](https://docs.microsoft.com/azure/app-service/)、 [Logic Apps](https://docs.microsoft.com/azure/logic-apps/)和[Blob 儲存體](https://docs.microsoft.com/azure/storage/blobs/storage-blobs-introduction)。 請務必瞭解並允許這些服務所記載的適當存取權限。 | - |
 | 資料保護 | 安全裝置驗證 | 使用唯一的身分[識別金鑰或安全性權杖](iot-security-deployment.md#iot-hub-security-tokens)，或每個裝置的[裝置 x.509 憑證](iot-security-deployment.md#x509-certificate-based-device-authentication)，確保您的裝置與 IoT 中樞之間的通訊安全。 使用適當的方法，[根據所選的通訊協定（MQTT、AMQP 或 HTTPS）來使用安全性權杖](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-security)。 | - |
 | 資料保護 | 保護裝置通訊 | IoT 中樞使用傳輸層安全性（TLS）標準保護裝置的連線，支援1.2 和1.0 版。 使用[TLS 1.2](https://tools.ietf.org/html/rfc5246)以確保最高的安全性。 | - |
 | 資料保護 | 保護服務通訊 | IoT 中樞提供端點來連接到後端服務（例如[Azure 儲存體](/azure/storage/)或[事件中樞](/azure/event-hubs)僅使用 TLS 通訊協定），而且未在未加密的通道上公開任何端點。 一旦此資料抵達這些後端服務進行儲存或分析，請務必為該服務採用適當的安全性和加密方法，並在後端保護機密資訊。 | - |

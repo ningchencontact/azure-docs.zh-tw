@@ -1,23 +1,23 @@
 ---
 title: Azure Data Factory 對應資料流程運算式產生器
-description: 適用於 Azure Data Factory 應資料流程的運算式產生器
+description: Azure Data Factory 對應資料流程的運算式產生器
 author: kromerm
 ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 09/30/2019
-ms.openlocfilehash: 9862866d5cddb227d9417ac15db6b8ea851507e6
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.openlocfilehash: 872c7ce6a0c39ab19165a5f16ea3e4f6ef8bd6a5
+ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72030285"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72388057"
 ---
 # <a name="mapping-data-flow-expression-builder"></a>對應資料流程運算式產生器
 
 
 
-在 Azure Data Factory 對應資料流程中，您將能找到可針對資料轉換輸入運算式的運算式方塊。 請在這些方塊中使用來自您資料流程的資料行、欄位、變數、參數、函數。 若要建置運算式，請使用運算式產生器，其可透過按一下轉換內的運算式文字方塊來啟動。 針對轉換選取資料行時，您有時候也會看見 [計算資料行] 選項。 如果您按一下它，便會啟動運算式產生器。
+在 Azure Data Factory 的對應資料流程中，您會找到運算式方塊，您可以在其中輸入運算式來進行資料轉換。 請在這些方塊中使用來自您資料流程的資料行、欄位、變數、參數、函數。 若要建置運算式，請使用運算式產生器，其可透過按一下轉換內的運算式文字方塊來啟動。 針對轉換選取資料行時，您有時候也會看見 [計算資料行] 選項。 如果您按一下它，便會啟動運算式產生器。
 
 ![運算式產生器](media/data-flow/xpb1.png "運算式產生器")
 
@@ -31,19 +31,19 @@ ms.locfileid: "72030285"
 
 在左側的 [輸出架構] 窗格中，您會看到您要修改的資料行，並將其新增至您的架構。 您可以在這裡以互動方式建立簡單和複雜的資料結構。 使用「新增資料行」來新增其他欄位，並使用「新增 subcolumn」來建立階層。
 
-![新增 subcolumn](media/data-flow/addsubcolumn.png "新增 subcolumn")
+![新增 subcolumn](media/data-flow/addsubcolumn.png "新增 Subcolumn")
 
 ## <a name="data-preview-in-debug-mode"></a>在 debug 模式中的資料預覽
 
-![運算式產生器](media/data-flow/exp4b.png "運算式 [資料預覽]")
+![運算式產生器](media/data-flow/exp4b.png "運算式資料預覽")
 
 當您處理資料流程運算式時，請從 Azure Data Factory 的資料流程設計介面切換到 [Debug] 模式，從您所建立的運算式，啟用資料結果的即時進行中預覽。 已針對您的運算式啟用即時偵錯。
 
-![偵錯模式](media/data-flow/debugbutton.png "[偵錯] 按鈕")
+![Debug 模式](media/data-flow/debugbutton.png "[調試] 按鈕")
 
 按一下 [重新整理] 按鈕，即可即時更新您的來源即時範例的運算式結果。
 
-![運算式產生器](media/data-flow/exp5.png "運算式 [資料預覽]")
+![運算式產生器](media/data-flow/exp5.png "運算式資料預覽")
 
 ## <a name="comments"></a>註解
 
@@ -71,7 +71,7 @@ regex_replace('100 and 200', '(\\d+)', 'digits')
 
 針對會傳回陣列的運算式函數，請使用方括號 [] 來處理內部會傳回陣列物件的特定索引。 陣列是以一為基礎。
 
-![運算式產生器陣列](media/data-flow/expb2.png "運算式 [資料預覽]")
+![運算式產生器陣列](media/data-flow/expb2.png "運算式資料預覽")
 
 ## <a name="handling-names-with-special-characters"></a>處理具有特殊字元的名稱
 

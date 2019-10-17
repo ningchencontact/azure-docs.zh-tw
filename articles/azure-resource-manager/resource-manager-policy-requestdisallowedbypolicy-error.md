@@ -1,6 +1,6 @@
 ---
 title: Azure 資源原則產生的 RequestDisallowedByPolicy 錯誤 | Microsoft Docs
-description: 描述 RequestDisallowedByPolicy 錯誤的原因。
+description: 描述使用 Azure Resource Manager 部署資源時，RequestDisallowedByPolicy 錯誤的原因。
 services: azure-resource-manager
 documentationcenter: ''
 author: genlin
@@ -13,18 +13,18 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: e862637c688fd473b112fdfc0ee197da0444d02f
-ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
+ms.openlocfilehash: c791342bf68f84f6893e549d8528d1a861aa9040
+ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71121242"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72390291"
 ---
 # <a name="requestdisallowedbypolicy-error-with-azure-resource-policy"></a>Azure 資源原則產生的 RequestDisallowedByPolicy 錯誤
 
 本文說明 RequestDisallowedByPolicy 錯誤的原因，其中也會提供此錯誤的解決方案。
 
-## <a name="symptom"></a>徵兆
+## <a name="symptom"></a>徵狀
 
 部署期間，您可能會收到 **RequestDisallowedByPolicy** 錯誤，阻止您建立資源。 下列範例顯示錯誤：
 
@@ -64,7 +64,7 @@ az policy definition show --name regionPolicyAssignment
 對於安全性或合規性，您的訂用帳戶管理員可能會指派原則來限制資源的部署方式。 例如，您的訂用帳戶可能有一個原則，會阻止建立公用 IP 位址、網路安全性群組、使用者定義的路由或路由表。 **徵狀**一節中的錯誤訊息會顯示原則的名稱。
 若要解決這個問題，請檢閱資源原則，並決定如何部署符合那些原則的資源。
 
-如需詳細資訊，請參閱下列文章：
+如需詳細資訊，請參閱下列文章。
 
 - [什麼是 Azure 原則？](../governance/policy/overview.md)
 - [建立和管理原則來強制執行合規性](../governance/policy/tutorials/create-and-manage.md)

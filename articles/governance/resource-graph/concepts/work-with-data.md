@@ -3,15 +3,15 @@ title: 使用大型資料集
 description: 了解如何在使用 Azure Resource Graph 期間取得並控制大型資料集。
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 10/10/2019
+ms.date: 10/18/2019
 ms.topic: conceptual
 ms.service: resource-graph
-ms.openlocfilehash: 0ecd0ea997520947b766912f834de2a0c2e64429
-ms.sourcegitcommit: f272ba8ecdbc126d22a596863d49e55bc7b22d37
+ms.openlocfilehash: c78f2e37fa29fa1cdcb9acc6a4600688750b6d74
+ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72274229"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72387583"
 ---
 # <a name="working-with-large-azure-resource-data-sets"></a>使用大型 Azure 資源資料集
 
@@ -29,11 +29,11 @@ Azure Resource Graph 是設計來使用和取得 Azure 環境中資源的相關�
 預設限制可以透過與 Resource Graph 互動的所有方法來覆寫。 下列範例示範如何將資料集大小限制變更為 _200_：
 
 ```azurecli-interactive
-az graph query -q "project name | order by name asc" --first 200 --output table
+az graph query -q "Resources | project name | order by name asc" --first 200 --output table
 ```
 
 ```azurepowershell-interactive
-Search-AzGraph -Query "project name | order by name asc" -First 200
+Search-AzGraph -Query "Resources | project name | order by name asc" -First 200
 ```
 
 在 [REST API](/rest/api/azureresourcegraph/resources/resources) 中，此控制項為 **$top** 且屬於 **QueryRequestOptions**。
@@ -52,11 +52,11 @@ Search-AzGraph -Query "project name | order by name asc" -First 200
 下列範例示範如何略過查詢所產生的前 _10_ 筆記錄，改為從所傳回結果集的第 11 筆記錄開始：
 
 ```azurecli-interactive
-az graph query -q "project name | order by name asc" --skip 10 --output table
+az graph query -q "Resources | project name | order by name asc" --skip 10 --output table
 ```
 
 ```azurepowershell-interactive
-Search-AzGraph -Query "project name | order by name asc" -Skip 10
+Search-AzGraph -Query "Resources | project name | order by name asc" -Skip 10
 ```
 
 在 [REST API](/rest/api/azureresourcegraph/resources/resources) 中，此控制項為 **$skip** 且屬於 **QueryRequestOptions**。
@@ -71,11 +71,11 @@ Search-AzGraph -Query "project name | order by name asc" -Skip 10
 下列範例示範如何**略過**前3000筆記錄，並在 Azure CLI 和 Azure PowerShell 略過那些記錄之後傳回**前**1000 筆記錄：
 
 ```azurecli-interactive
-az graph query -q "project id, name | order by id asc" --first 1000 --skip 3000
+az graph query -q "Resources | project id, name | order by id asc" --first 1000 --skip 3000
 ```
 
 ```azurepowershell-interactive
-Search-AzGraph -Query "project id, name | order by id asc" -First 1000 -Skip 3000
+Search-AzGraph -Query "Resources | project id, name | order by id asc" -First 1000 -Skip 3000
 ```
 
 > [!IMPORTANT]
@@ -156,14 +156,14 @@ _ObjectArray_格式也會以 JSON 格式傳回結果。 不過，這項設計會
 
 ```csharp
 var requestOptions = new QueryRequestOptions( resultFormat: ResultFormat.ObjectArray);
-var request = new QueryRequest(subscriptions, "limit 1", options: requestOptions);
+var request = new QueryRequest(subscriptions, "Resources | limit 1", options: requestOptions);
 ```
 
 ```python
 request_options = QueryRequestOptions(
     result_format=ResultFormat.object_array
 )
-request = QueryRequest(query="limit 1", subscriptions=subs_list, options=request_options)
+request = QueryRequest(query="Resources | limit 1", subscriptions=subs_list, options=request_options)
 response = client.resources(request)
 ```
 

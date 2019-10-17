@@ -14,12 +14,12 @@ ms.devlang: javascript
 ms.topic: article
 ms.date: 06/25/2019
 ms.author: emalani
-ms.openlocfilehash: 8fe8485926e2c10b7fe58836196132f2881699a4
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.openlocfilehash: 7a7e64b32a084075fe96cbd4ab7a0d28fc0f8e19
+ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72025713"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72388859"
 ---
 # <a name="add-push-notifications-to-your-apache-cordova-app"></a>新增推播通知至您的 Apache Cordova 應用程式
 
@@ -27,9 +27,10 @@ ms.locfileid: "72025713"
 
 > [!NOTE]
 > Visual Studio App Center 支援行動應用程式開發的端對端和整合式服務中心。 開發人員可以使用**組建**、**測試**和**散發**服務來設定持續整合和傳遞管線。 部署應用程式之後，開發人員可以使用**分析**和**診斷**服務來監視其應用程式的狀態和使用，並與使用**推**播服務的使用者互動。 開發人員也可以利用**驗證**來驗證其使用者和**資料**服務，以保存及同步雲端中的應用程式資料。
-> 如果您想要在您的行動應用程式中整合雲端服務，請立即註冊 App Center [App center](https://appcenter.ms/?utm_source=zumo&utm_medium=Azure&utm_campaign=zumo%20doc) 。
+>
+> 如果您想要在您的行動應用程式中整合雲端服務，請立即註冊[App Center](https://appcenter.ms/?utm_source=zumo&utm_medium=Azure&utm_campaign=zumo%20doc) 。
 
-## <a name="overview"></a>總覽
+## <a name="overview"></a>概觀
 
 在本教學課程中，您會將推播通知新增至[Apache Cordova 快速入門][5]專案，以便在每次插入一筆記錄時，將推播通知傳送至裝置。
 
@@ -80,7 +81,7 @@ Apache Cordova 應用程式原本就不會處理裝置或網路功能。  這些
 
 **從命令提示：**
 
-執行下列命令：
+執行以下命令：
 
     cordova plugin add phonegap-plugin-push
 
@@ -105,7 +106,7 @@ Apache Cordova 應用程式原本就不會處理裝置或網路功能。  這些
 
 #### <a name="install-the-device-plugin"></a>安裝裝置外掛程式
 
-遵循您安裝推播外掛程式時的相同程序。 從核心外掛程式清單中新增裝置外掛程式。 (選取 [外掛程式] > [核心] 以尋找它。)您需要此外掛程式才能取得平台名稱。
+遵循您安裝推播外掛程式時的相同程序。 從核心外掛程式清單中新增裝置外掛程式。 （若要尋找，請選取 [**外掛程式**] [ > **核心**]）。您需要此外掛程式才能取得平臺名稱。
 
 #### <a name="register-your-device-when-the-application-starts"></a>在應用程式啟動時註冊您的裝置 
 
@@ -244,11 +245,11 @@ pushRegistration = PushNotification.init({
 
 您現在可以執行應用程式，在 TodoItem 資料表中插入項目，以測試推播通知。 只要是使用相同的後端，您可以從相同的裝置或第二部裝置來測試。 以下列方法之一在 Android 平台上測試 Cordova 應用程式︰
 
-* *實體裝置︰* 使用 USB 纜線將 Android 裝置連接到開發電腦。  請選取 [裝置]，不要選取 [Google Android 模擬器]。 Visual Studio 會將應用程式部署至裝置，並執行應用程式。 您接著可以在裝置上與應用程式互動。
+* *在實體裝置上︰* 使用 USB 纜線將 Android 裝置連接至開發電腦。  請選取 [裝置]，不要選取 [Google Android 模擬器]。 Visual Studio 會將應用程式部署至裝置，並執行應用程式。 您接著可以在裝置上與應用程式互動。
 
   [Mobizen)][20]之類的螢幕共用應用程式可協助您開發 Android 應用程式。 Mobizen 會將您的 Android 畫面投射至電腦上的網頁瀏覽器。
 
-* *在 Android 模擬器上：* 使用模擬器時，還需要其他設定步驟。
+* *在 Android 模擬器上︰* 使用模擬器時，還需要其他設定步驟。
 
     請確定您是部署至已將 Google API 設為目標的虛擬裝置，如 Android 虛擬裝置 (AVD) 管理員中所示。
 
@@ -381,7 +382,7 @@ pushRegistration = PushNotification.init({
 
 確認在加入項目時收到通知。
 
-## <a name="next-steps"></a>接續步驟
+## <a name="next-steps"></a>後續步驟
 
 * 請閱讀 [通知中樞][17] ，了解推播通知的相關資訊。
 * 如果您尚未這麼做，請[將驗證新增][14]至您的 Apache Cordova 應用程式，以繼續進行本教學課程。

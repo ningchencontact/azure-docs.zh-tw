@@ -7,12 +7,12 @@ ms.reviewer: daperlov
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 09/12/2019
-ms.openlocfilehash: 5eff92352251febca1d4e7033618372dc929d987
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.openlocfilehash: 1d6560613294584c77f002e2380065d64ea143f7
+ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72029400"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72387957"
 ---
 # <a name="schema-drift-in-mapping-data-flow"></a>對應資料流程中的架構漂移
 

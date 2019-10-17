@@ -10,25 +10,25 @@ ms.topic: conceptual
 ms.date: 07/04/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 612d2e3a9a5a324f7d6d8e1b63b6b7e297047239
-ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
+ms.openlocfilehash: 108d86e35422e1dc1d10aeb6b2c9488f5067232e
+ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71063848"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72389676"
 ---
 # <a name="select-a-page-layout-in-azure-active-directory-b2c-using-custom-policies"></a>使用自訂原則在 Azure Active Directory B2C 中選取頁面配置
 
 [!INCLUDE [active-directory-b2c-public-preview](../../includes/active-directory-b2c-public-preview.md)]
 
-無論您使用的是使用者流程或自訂原則，您都可以在 Azure Active Directory B2C （Azure AD B2C）原則中啟用 JavaScript 用戶端程式代碼。 若要為您的應用程式啟用 JavaScript, 您必須將元素新增至您的[自訂原則](active-directory-b2c-overview-custom.md)、選取頁面配置, 然後在您的要求中使用[b2clogin.com](b2clogin.md) 。
+無論您使用的是使用者流程或自訂原則，您都可以在 Azure Active Directory B2C （Azure AD B2C）原則中啟用 JavaScript 用戶端程式代碼。 若要為您的應用程式啟用 JavaScript，您必須將元素新增至您的[自訂原則](active-directory-b2c-overview-custom.md)、選取頁面配置，然後在您的要求中使用[b2clogin.com](b2clogin.md) 。
 
 頁面配置是 Azure AD B2C 提供的專案與您提供的內容的關聯。
 
-本文討論如何藉由在自訂原則中設定頁面配置, 在 Azure AD B2C 中選取該版面配置。
+本文討論如何藉由在自訂原則中設定頁面配置，在 Azure AD B2C 中選取該版面配置。
 
 > [!NOTE]
-> 如果您想要為使用者流程啟用 JavaScript, 請參閱[Azure Active Directory B2C 中的 javascript 和頁面配置版本](user-flow-javascript-overview.md)。
+> 如果您想要為使用者流程啟用 JavaScript，請參閱[Azure Active Directory B2C 中的 javascript 和頁面配置版本](user-flow-javascript-overview.md)。
 
 ## <a name="replace-datauri-values"></a>取代 DataUri 值
 
@@ -46,9 +46,9 @@ ms.locfileid: "71063848"
 </ContentDefinition>
 ```
 
-若要選取頁面配置, 您可以在原則中變更[ContentDefinitions](contentdefinitions.md)中的**DataUri**值。 藉由從舊的 **DataUri** 值切換到新的值，您將會選取不可變的套件。 使用此套件的優點，在於您知道它不會變更，並在您的頁面上造成未預期的行為。
+若要選取頁面配置，您可以在原則中變更[ContentDefinitions](contentdefinitions.md)中的**DataUri**值。 藉由從舊的 **DataUri** 值切換到新的值，您將會選取不可變的套件。 使用此套件的優點，在於您知道它不會變更，並在您的頁面上造成未預期的行為。
 
-若要設定頁面配置, 請使用下表來尋找**DataUri**值。
+若要設定頁面配置，請使用下表來尋找**DataUri**值。
 
 | 舊的 DataUri 值 | 新的 DataUri 值 |
 | ----------------- | ----------------- |
@@ -66,29 +66,40 @@ ms.locfileid: "71063848"
 
 ## <a name="version-change-log"></a>版本變更記錄檔
 
-頁面配置套件會定期更新, 以在其頁面元素中包含修正和改善。 下列變更記錄檔指定每個版本中引進的變更。
+頁面配置套件會定期更新，以在其頁面元素中包含修正和改善。 下列變更記錄檔指定每個版本中引進的變更。
 
+### <a name="120"></a>1.2.0 
+- 所有頁面
+  - 協助工具修正程式
+  - 您現在可以在 HTML 標籤中加入 `data-preload="true"` 屬性，以控制 CSS 和 JavaScript 的載入順序。 案例包括：
+      - 在您的 CSS 連結上使用這種方式，同時載入 CSS 與 HTML，使其不會在載入檔案時「閃爍」
+      - 這個屬性可讓您控制在頁面載入之前提取和執行腳本標記的順序
+  - [電子郵件] 欄位現在 @no__t 0，而行動電話鍵盤會提供正確的建議
+  - 支援 Chrome 轉譯
+- 統一且自我判斷的頁面
+  - [使用者名稱/電子郵件] 和 [密碼] 欄位現在會使用表單 HTML 元素。  這現在會允許 Edge 和 IE 適當地儲存此資訊
+  
 ### <a name="110"></a>1.1.0
 
-- 例外狀況頁面 (globalexception)
+- 例外狀況頁面（globalexception）
   - 協助工具修正
-  - 當原則沒有任何連絡人時, 移除預設訊息
+  - 當原則沒有任何連絡人時，移除預設訊息
   - 已移除預設 CSS
-- MFA 頁面 (多重要素)
+- MFA 頁面（多重要素）
   - 已移除 [確認碼] 按鈕
-  - 程式碼的輸入欄位現在只接受最多6個字元的輸入 (6)
-  - 當輸入6位數代碼時, 網頁會自動嘗試驗證輸入的程式碼, 而不需要按一下任何按鈕
-  - 如果程式碼錯誤, 則會自動清除輸入欄位
-  - 在三 (3) 次嘗試使用不正確的程式碼之後, B2C 會將錯誤傳回給信賴憑證者
+  - 程式碼的輸入欄位現在只接受最多6個字元的輸入（6）
+  - 當輸入6位數代碼時，網頁會自動嘗試驗證輸入的程式碼，而不需要按一下任何按鈕
+  - 如果程式碼錯誤，則會自動清除輸入欄位
+  - 在三（3）次嘗試使用不正確的程式碼之後，B2C 會將錯誤傳回給信賴憑證者
   - 協助工具修正程式
   - 已移除預設 CSS
-- 自我判斷頁 (selfasserted)
+- 自我判斷頁（selfasserted）
   - 已移除取消警示
   - Error 元素的 CSS 類別
   - 顯示/隱藏已改善的錯誤邏輯
   - 已移除預設 CSS
-- 統一的 SSP (unifiedssp)
-  - 新增 [讓我保持登入 (KMSI)] 控制項
+- 統一的 SSP （unifiedssp）
+  - 新增 [讓我保持登入（KMSI）] 控制項
 
 ### <a name="100"></a>1.0.0
 

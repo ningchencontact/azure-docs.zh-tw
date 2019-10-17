@@ -7,16 +7,16 @@ ms.subservice: high-availability
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
-author: jovanpop-msft
+author: sashan
 ms.author: sashan
 ms.reviewer: carlrab, sashan
-ms.date: 10/11/2019
-ms.openlocfilehash: 0307a905c1d3d7d9bc707fbda87fb8f3fd6d2aee
-ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
+ms.date: 10/14/2019
+ms.openlocfilehash: 28b702192b41d3b4a8151e3127a4297c28712fa2
+ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/13/2019
-ms.locfileid: "72299704"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72390705"
 ---
 # <a name="high-availability-and-azure-sql-database"></a>高可用性和 Azure SQL Database
 
@@ -88,6 +88,13 @@ Azure SQL Database 會在 SQL Server 資料庫引擎和 Windows OS 的最新穩�
 ## <a name="accelerated-database-recovery-adr"></a>加速資料庫復原 (ADR)
 
 [加速資料庫復原（ADR）](sql-database-accelerated-database-recovery.md)是新的 SQL Database 引擎功能，可大幅提升資料庫的可用性，特別是在有長時間執行的交易存在時。 ADR 目前適用於單一資料庫、彈性集區和 Azure SQL 資料倉儲。
+
+## <a name="testing-database-fault-resiliency"></a>測試資料庫錯誤復原
+
+高可用性是 Azure SQL Database 平臺的 fundamenental 部分，可讓您的資料庫應用程式以透明的方式運作。 不過，我們認為您可能想要測試在規劃或未計畫的事件期間起始的自動容錯移轉作業如何影響應用程式，然後再部署它以用於生產環境。 您可以呼叫特殊的 API 來重新開機資料庫或彈性集區，這樣會接著觸發容錯移轉。 在區域冗余資料庫或彈性集區的情況下，API 呼叫會導致將用戶端連接重新導向至不同 AZ 中的新主要複本。 因此，除了測試容錯移轉如何影響現有的資料庫會話，您也可以確認它是否會影響端對端的效能。 因為重新開機作業是侵入式的，而且有大量的使用者可能會對平臺造成壓力，每個資料庫或彈性集區只允許一個容錯移轉呼叫每30分鐘一次。 如需詳細資訊，請參閱[資料庫容錯移轉](https://docs.microsoft.com/rest/api/sql/databases(failover)/failover)和[彈性集區容錯移轉](https://docs.microsoft.com/rest/api/sql/elasticpools(failover)/failover)。       
+
+> [!IMPORTANT]
+> 容錯移轉命令目前無法供 Hypescale 資料庫和受控 instancses 使用。  
 
 ## <a name="conclusion"></a>結論
 

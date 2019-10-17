@@ -12,18 +12,19 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 10/01/2016
 ms.author: mahender
-ms.openlocfilehash: 3c7329638bd8a5d9e466864d780b7784304fa874
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.openlocfilehash: 6017d9bc8b9a791e46fd1562660c9049ca0f72e5
+ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72027484"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72388899"
 ---
 # <a name="authentication-and-authorization-in-azure-app-service-for-mobile-apps"></a>Azure App Service 中行動裝置應用程式的驗證和授權
 
 > [!NOTE]
 > Visual Studio App Center 支援行動應用程式開發的端對端和整合式服務中心。 開發人員可以使用**組建**、**測試**和**散發**服務來設定持續整合和傳遞管線。 部署應用程式之後，開發人員可以使用**分析**和**診斷**服務來監視其應用程式的狀態和使用，並與使用**推**播服務的使用者互動。 開發人員也可以利用**驗證**來驗證其使用者和**資料**服務，以保存及同步雲端中的應用程式資料。
-> 如果您想要在您的行動應用程式中整合雲端服務，請立即註冊 App Center [App center](https://appcenter.ms/?utm_source=zumo&utm_medium=Azure&utm_campaign=zumo%20doc) 。
+>
+> 如果您想要在您的行動應用程式中整合雲端服務，請立即註冊[App Center](https://appcenter.ms/?utm_source=zumo&utm_medium=Azure&utm_campaign=zumo%20doc) 。
 
 本文說明使用 App Service 後端開發原生行動裝置應用程式時，驗證和授權的運作方式。 App Service 會提供整合式驗證和授權，讓您的行動裝置應用程式可以將使用者登入，而不需要在 App Service 中變更任何程式碼。 它提供簡單的方法來保護您的應用程式，以及使用每位使用者的資料。 
 
@@ -56,7 +57,7 @@ ms.locfileid: "72027484"
 每個平台的驗證教學課程都包含啟動此流程的程式碼。 在流程結束時，用戶端 SDK 會擁有 App Service 權杖，而該權杖會自動附加至對應用程式後端的所有要求。
 
 如需驗證流程的詳細資訊，請參閱 [App Service 驗證流程](../app-service/overview-authentication-authorization.md#authentication-flow)。 
-## <a name="more-resources"></a>其他資源
+## <a name="more-resources"></a>更多資源
 
 下列教學課程示範如何使用[伺服器導向流程](../app-service/overview-authentication-authorization.md#authentication-flow)，將驗證新增至您的行動用戶端︰
 
@@ -65,7 +66,7 @@ ms.locfileid: "72027484"
 * [將驗證新增至您的 Windows App][Windows]
 * [將驗證新增至 Xamarin.iOS 應用程式][Xamarin.iOS]
 * [將驗證新增至 Xamarin.Android 應用程式][Xamarin.Android]
-* [將驗證新增至 Xamarin.Forms 應用程式][Xamarin.Forms]
+* [將驗證新增至您的 Xamarin. Forms 應用程式][Xamarin.Forms]
 * [將驗證新增至您的 Cordova 應用程式][Cordova]
 
 如果您想要使用適用於 Azure Active Directory 的[用戶端導向流程](../app-service/overview-authentication-authorization.md#authentication-flow)，請使用下列資源︰

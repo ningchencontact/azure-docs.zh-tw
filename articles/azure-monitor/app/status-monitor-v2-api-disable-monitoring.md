@@ -1,6 +1,6 @@
 ---
-title: Azure 狀態監視器 v2 API 參考:停用監視 |Microsoft Docs
-description: 狀態監視器 v2 API 參考。 停用-ApplicationInsightsMonitoring。 在不重新部署網站的情況下監視網站效能。 適用于內部部署、Vm 或 Azure 上裝載的 ASP.NET web 應用程式。
+title: Azure 應用程式 Insights 代理程式 API 參考：停用監視 |Microsoft Docs
+description: Application Insights 代理程式 API 參考。 停用-ApplicationInsightsMonitoring。 在不重新部署網站的情況下監視網站效能。 適用于內部部署、Vm 或 Azure 上裝載的 ASP.NET web 應用程式。
 services: application-insights
 documentationcenter: .net
 author: TimothyMothra
@@ -12,21 +12,21 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: tilee
-ms.openlocfilehash: af105a6a819ced475f490d3c99fc1e63d8eee5c8
-ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
+ms.openlocfilehash: d305e664c68af34027510a4e27d293bb24abc021
+ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71203428"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72389907"
 ---
-# <a name="status-monitor-v2-api-disable-applicationinsightsmonitoring"></a>狀態監視器 v2 API:停用-ApplicationInsightsMonitoring
+# <a name="application-insights-agent-api-disable-applicationinsightsmonitoring"></a>Application Insights 代理程式 API：停用-ApplicationInsightsMonitoring
 
 本文說明的 Cmdlet 是[ApplicationMonitor PowerShell 模組](https://www.powershellgallery.com/packages/Az.ApplicationMonitor/)的成員。
 
 ## <a name="description"></a>描述
 
 停用目的電腦上的監視。
-此 Cmdlet 會移除對 IIS Applicationhost.config 的編輯, 並移除登錄機碼。
+此 Cmdlet 會移除對 IIS Applicationhost.config 的編輯，並移除登錄機碼。
 
 > [!IMPORTANT] 
 > 此 Cmdlet 需要具有系統管理員許可權的 PowerShell 會話。
@@ -42,7 +42,7 @@ PS C:\> Disable-ApplicationInsightsMonitoring
 ### <a name="-verbose"></a>-Verbose
 **一般參數。** 使用此參數來顯示詳細記錄。
 
-## <a name="output"></a>Output
+## <a name="output"></a>輸出
 
 
 #### <a name="example-output-from-successfully-disabling-monitoring"></a>成功停用監視的輸出範例
@@ -71,5 +71,5 @@ Successfully disabled Application Insights Status Monitor
 
 ## <a name="next-steps"></a>後續步驟
 
- 使用狀態監視器 v2 來執行更多動作:
- - 使用我們的指南進行狀態監視器 v2 的[疑難排解](status-monitor-v2-troubleshoot.md)。
+ 使用 Application Insights 代理程式執行更多工具：
+ - 使用我們的指南來[疑難排解](status-monitor-v2-troubleshoot.md)Application Insights 代理程式。

@@ -1,18 +1,18 @@
 ---
-title: Azure Data Factory 對應資料流程新增分支轉換
-description: Azure Data Factory 對應資料流程新增分支轉換
+title: Azure Data Factory 對應的資料流程新增分支轉換
+description: Azure Data Factory 對應的資料流程新增分支轉換
 author: kromerm
 ms.author: makromer
 ms.reviewer: douglasl
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 02/12/2019
-ms.openlocfilehash: 35d5b2250cb5f2f5bd5b3a0073dc2e3c655ceccb
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.openlocfilehash: 4832cd2036f615d1e90d5e7a21c1a9832c2fa837
+ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72029911"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72387125"
 ---
 # <a name="mapping-data-flow-union-transformation"></a>對應資料流程聯集轉換
 
@@ -22,19 +22,19 @@ ms.locfileid: "72029911"
 
 您可以在 [設定] 資料表中結合 n 個數據流，方法是選取每個已設定資料列旁的 [+] 圖示，包括來源資料，以及資料流程中現有轉換的資料流程。
 
-聯![集轉換]聯(media/data-flow/union.png "集")
+![聯集轉換](media/data-flow/union.png "Union")
 
 在此情況下，您可以結合多個來源的不同中繼資料（在此範例中，三個不同的來源檔案），並將它們結合成單一資料流程：
 
-聯![集轉換總覽]聯(media/data-flow/union111.png "集 1")
+![聯集轉換總覽](media/data-flow/union111.png "聯集1")
 
 若要達成此目的，請加入您想要加入的所有來源，以在聯集設定中加入其他資料列。 不需要常見的查閱或聯結索引鍵：
 
-聯![集轉換設定]聯(media/data-flow/unionsettings.png "集設定")
+![聯集轉換設定](media/data-flow/unionsettings.png "聯集設定")
 
 如果您在聯集後設定選取轉換，您將能夠重新命名不是從 headerless 來源命名的重迭欄位或欄位。 按一下 [檢查] 以查看此範例中三個不同來源的 [結合中繼資料與132總計] 資料行：
 
-聯![集轉換最終]聯(media/data-flow/union333.png "集 3")
+![聯集轉換最終](media/data-flow/union333.png "聯集3")
 
 ## <a name="name-and-position"></a>名稱和位置
 
@@ -42,7 +42,7 @@ ms.locfileid: "72029911"
 
 如果您選擇「依位置的聯集」，每個資料行值都會從每個對應來源的原始位置中卸載，因而產生新的結合資料串流，其中每個來源的資料會加入至相同的資料流程：
 
-聯![集輸出]聯(media/data-flow/unionoutput.png "集輸出")
+![聯集輸出](media/data-flow/unionoutput.png "聯集輸出")
 
 ## <a name="next-steps"></a>後續步驟
 

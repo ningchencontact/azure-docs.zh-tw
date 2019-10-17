@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 06/25/2019
 ms.author: emalani
-ms.openlocfilehash: 8a7c9672db0a7cc12e78846bf82c54e3ee383c66
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.openlocfilehash: e27f85a4653b43f2ade77a57ddd5c9471e0a424b
+ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72025109"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72388517"
 ---
 # <a name="enable-offline-sync-for-your-xamarinandroid-mobile-app"></a>啟用您 Xamarin.Android 行動應用程式的離線同步處理
 
@@ -27,9 +27,10 @@ ms.locfileid: "72025109"
 
 > [!NOTE]
 > Visual Studio App Center 支援行動應用程式開發的端對端和整合式服務中心。 開發人員可以使用**組建**、**測試**和**散發**服務來設定持續整合和傳遞管線。 部署應用程式之後，開發人員可以使用**分析**和**診斷**服務來監視其應用程式的狀態和使用，並與使用**推**播服務的使用者互動。 開發人員也可以利用**驗證**來驗證其使用者和**資料**服務，以保存及同步雲端中的應用程式資料。
-> 如果您想要在您的行動應用程式中整合雲端服務，請立即註冊 App Center [App center](https://appcenter.ms/?utm_source=zumo&utm_medium=Azure&utm_campaign=zumo%20doc) 。
+>
+> 如果您想要在您的行動應用程式中整合雲端服務，請立即註冊[App Center](https://appcenter.ms/?utm_source=zumo&utm_medium=Azure&utm_campaign=zumo%20doc) 。
 
-## <a name="overview"></a>總覽
+## <a name="overview"></a>概觀
 
 此教學課程介紹適用於 Xamarin.Android 之Azure 行動應用程式的離線同步處理功能。 離線同步處理可讓使用者與行動應用程式進行互動--檢視、新增或修改資料--即使沒有網路連線進也可行。 變更會儲存在本機資料庫中。
 裝置恢復上線後，這些變更就會與遠端服務進行同步處理。
@@ -44,7 +45,7 @@ Azure 行動應用程式的離線功能可讓您在離線狀態時，仍可與�
 
 1. 在 Visual Studio 中，在您於[建立 Xamarin Android 應用程式]教學課程中完成的專案中開啟 NuGet 封裝管理員。  搜尋並安裝 **Microsoft.Azure.Mobile.Client.SQLiteStore** NuGet 套件。
 2. 開啟 ToDoActivity.cs 檔案，並取消註解 `#define OFFLINE_SYNC_ENABLED` 定義。
-3. 在 Visual Studio 中按 **F5** 鍵，以重新建置並執行用戶端應用程式。 應用程式的運作方式和啟用離線同步處理之前的方式相同。不過，本機資料庫現在會填入可在離線案例下使用的資料。
+3. 在 Visual Studio 中按 **F5** 鍵，以重新建置並執行用戶端應用程式。 應用程式的運作方式與啟用離線同步處理之前相同。不過，本機資料庫現在已填入可在離線案例中使用的資料。
 
 ## <a name="update-sync"></a>更新應用程式以使其與後端中斷連線
 

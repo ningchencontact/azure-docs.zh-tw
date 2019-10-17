@@ -7,12 +7,12 @@ ms.topic: article
 ms.author: mbaldwin
 ms.date: 10/05/2019
 ms.custom: seodec18
-ms.openlocfilehash: e38a58d076f6a8b7b2b07e468c61835ed06f55a4
-ms.sourcegitcommit: 1c2659ab26619658799442a6e7604f3c66307a89
+ms.openlocfilehash: 05db717f5d3adc2429431503f588f2cc7f79aef6
+ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72255600"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72435744"
 ---
 # <a name="azure-disk-encryption-for-windows-vms"></a>適用于 Windows Vm 的 Azure 磁碟加密 
 
@@ -32,14 +32,14 @@ Azure 磁碟加密有助於保護和保護您的資料，以符合組織的安�
 
 ### <a name="supported-vm-sizes"></a>支援的 VM 大小
 
-Windows Vm 有[各種大小的](sizes-general.md)提供。 [基本、A 系列 vm](/pricing/details/virtual-machines/series/)或虛擬機器上的 Azure 磁碟加密無法使用低於 2 GB 的記憶體。
+Windows Vm 有[各種大小的](sizes-general.md)提供。 [基本、A 系列 vm](https://azure.microsoft.com/pricing/details/virtual-machines/series/)或虛擬機器上的 Azure 磁碟加密無法使用低於 2 GB 的記憶體。
 
 Azure 磁碟加密也適用于具有 premium 儲存體的 Vm。
 
 ### <a name="supported-operating-systems"></a>受支援的作業系統
 
-- Windows 用戶端：Windows 8 和更新版本。
-- Windows Server：Windows Server 2008 R2 和更新版本。  
+- Windows 用戶端： Windows 8 和更新版本。
+- Windows Server： Windows Server 2008 R2 和更新版本。  
  
 > [!NOTE]
 > Windows Server 2008 R2 需要安裝 .NET Framework 4.5 以進行加密;使用適用于 Windows Server 2008 R2 x64 型系統（[KB2901983](https://www.catalog.update.microsoft.com/Search.aspx?q=KB2901983)）的選擇性更新 Microsoft .NET Framework 4.5.2，從 Windows Update 進行安裝。  
@@ -59,7 +59,7 @@ Azure 磁碟加密也適用于具有 premium 儲存體的 Vm。
 
 Azure 磁碟加密使用適用于 Windows Vm 的 BitLocker 外部金鑰保護裝置。 對於加入網域的 VM，請勿推送任何會強制使用 TPM 保護裝置的群組原則。 如需關於「在不含相容 TPM 的情形下允許使用 BitLocker」的群組原則相關資訊，請參閱 [BitLocker 群組原則參考文件](/windows/security/information-protection/bitlocker/bitlocker-group-policy-settings#bkmk-unlockpol1)。
 
-具有自訂群組原則之已加入網域虛擬機器上的 BitLocker 原則必須包含下列設定：[設定 BitLocker 修復資訊的使用者儲存體-> 允許256位的修復金鑰](/windows/security/information-protection/bitlocker/bitlocker-group-policy-settings)。 當 BitLocker 的自訂群組原則設定不相容時，Azure 磁碟加密將會失敗。 在沒有正確原則設定的電腦上，您可能必須套用新的原則、強制新的原則進行更新 (gpupdate.exe /force)，然後重新啟動。
+已加入網域的虛擬機器上具有自訂群組策略的 BitLocker 原則必須包含下列設定：設定[BitLocker 修復資訊的使用者儲存體-> 允許256位的修復金鑰](/windows/security/information-protection/bitlocker/bitlocker-group-policy-settings)。 當 BitLocker 的自訂群組原則設定不相容時，Azure 磁碟加密將會失敗。 在沒有正確原則設定的電腦上，您可能必須套用新的原則、強制新的原則進行更新 (gpupdate.exe /force)，然後重新啟動。
 
 如果網域層級的群組原則封鎖 BitLocker 所使用的 AES CBC 演算法，Azure 磁碟加密將會失敗。
 
@@ -69,10 +69,10 @@ Azure 磁碟加密需要 Azure Key Vault 來控制及管理磁片加密金鑰和
 
 如需詳細資訊，請參閱[建立和設定 Azure 磁碟加密的金鑰保存庫](disk-encryption-key-vault.md)。
 
-## <a name="terminology"></a>術語
+## <a name="terminology"></a>詞彙
 下表定義 Azure 磁片加密檔中所使用的一些常見詞彙：
 
-| 術語 | 定義 |
+| 詞彙 | 定義 |
 | --- | --- |
 | Azure 金鑰保存庫 | Key Vault 是一個密碼編譯金鑰管理服務，以「美國聯邦資訊處理標準」(FIPS) 已驗證的硬體安全性模組為基礎。 這些標準可協助您保護密碼編譯金鑰和敏感性祕密。 如需詳細資訊，請參閱[Azure Key Vault](https://azure.microsoft.com/services/key-vault/)檔，以及[建立和設定 Azure 磁碟加密的金鑰保存庫](disk-encryption-key-vault.md)。 |
 | Azure CLI | [Azure CLI](/cli/azure/install-azure-cli) 已針對從命令列管理 Azure 資源進行最佳化。|

@@ -11,14 +11,14 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a5d89c0784c2125f5a7810ff134686645e8314a6
-ms.sourcegitcommit: 4d177e6d273bba8af03a00e8bb9fe51a447196d0
+ms.openlocfilehash: 3e1024b529bd099c70b870fe8b059d4982f04e40
+ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71960214"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72389567"
 ---
-# <a name="how-to-plan-your-hybrid-azure-active-directory-join-implementation"></a>如何：規劃混合式 Azure Active Directory Join 實作
+# <a name="how-to-plan-your-hybrid-azure-active-directory-join-implementation"></a>如何：規劃混合式 Azure Active Directory 聯結執行
 
 以類似的使用方式，裝置是您想要保護的另一個核心身分識別，可用來隨時隨地保護您的資源。 您可以使用下列其中一種方法，將裝置身分識別導入 Azure AD 中進行管理，以達到此目標：
 
@@ -43,11 +43,11 @@ ms.locfileid: "71960214"
 
 |   |   |
 | --- | --- |
-| ![檢查][1] | 檢閱支援的裝置 |
-| ![檢查][1] | 檢閱您應該知道的事情 |
-| ![檢查][1] | 審查混合式 Azure AD 聯結的受控制驗證 |
-| ![檢查][1] | 根據您的身分識別基礎結構來選取您的案例 |
-| ![檢查][1] | 檢查混合式 Azure AD 聯結的內部部署 AD UPN 支援 |
+| ![勾選][1] | 檢閱支援的裝置 |
+| ![勾選][1] | 檢閱您應該知道的事情 |
+| ![勾選][1] | 審查混合式 Azure AD 聯結的受控制驗證 |
+| ![勾選][1] | 根據您的身分識別基礎結構來選取您的案例 |
+| ![勾選][1] | 檢查混合式 Azure AD 聯結的內部部署 AD UPN 支援 |
 
 ## <a name="review-supported-devices"></a>檢閱支援的裝置
 
@@ -97,7 +97,7 @@ ms.locfileid: "71960214"
 
 ## <a name="review-controlled-validation-of-hybrid-azure-ad-join"></a>審查混合式 Azure AD 聯結的受控制驗證
 
-當所有必要條件都已就緒時，Windows 裝置會自動在您的 Azure AD 租使用者中註冊為裝置。 這些裝置身分識別在 Azure AD 中的狀態稱為混合式 Azure AD 聯結。 如需本文中所涵蓋概念的詳細資訊，請參閱[Azure Active Directory 中的裝置身分識別管理簡介](overview.md)和[規劃混合式 Azure Active Directory 聯結執行](hybrid-azuread-join-plan.md)。
+當所有必要條件都已就緒時，Windows 裝置會自動在您的 Azure AD 租使用者中註冊為裝置。 這些裝置身分識別在 Azure AD 中的狀態稱為混合式 Azure AD 聯結。 如需本文所涵蓋概念的詳細資訊，請參閱[Azure Active Directory 中的裝置身分識別管理簡介](overview.md)一文。
 
 組織可能會想要對混合式 Azure AD 聯結進行受控制的驗證，然後一次在整個組織中啟用它。 請參閱[受控制的混合式 Azure AD 聯結驗證一](hybrid-azuread-join-control.md)文，以瞭解如何完成。
 
@@ -115,8 +115,8 @@ ms.locfileid: "71960214"
 
 同盟環境應具有支援下列需求的識別提供者。 如果您的同盟環境使用 Active Directory 同盟服務 (AD FS)，則已支援下列需求。
 
-- **WIAORMULTIAUTHN 宣告：** 必須有此宣告才能對舊版 Windows 裝置進行混合式 Azure AD Join。
-- **WS-Trust 通訊協定：** 必須有此通訊協定才能向 Azure AD 驗證 Windows 目前的混合式 Azure AD 加入裝置。 當您使用 AD FS 時，您必須啟用下列 WS-Trust 端點：`/adfs/services/trust/2005/windowstransport`  
+- **WIAORMULTIAUTHN 宣告：** 需要此宣告，才能執行適用于舊版 Windows 裝置的混合式 Azure AD 聯結。
+- **Ws-trust 通訊協定：** 必須使用此通訊協定，才能向 Azure AD 驗證已加入 Windows 的混合式 Azure AD 裝置。 當您使用 AD FS 時，您必須啟用下列 WS-Trust 端點：`/adfs/services/trust/2005/windowstransport`  
 `/adfs/services/trust/13/windowstransport`  
   `/adfs/services/trust/2005/usernamemixed` 
   `/adfs/services/trust/13/usernamemixed`
@@ -140,8 +140,8 @@ ms.locfileid: "71960214"
 
 有時候，您的內部部署 AD UPN 可能與 Azure AD UPN 不同。 在此情況下，Windows 10 混合式 Azure AD Join 會根據[驗證方法](https://docs.microsoft.com/azure/security/fundamentals/choose-ad-authn)、網域類型和 Windows 10 版本，提供有限的內部部署 AD UPN 支援。 您的環境中可以有兩種類型的內部部署 AD UPN：
 
-- 可路由的 UPN：可路由的 UPN 具有有效的已驗證網域，該網域已向網域註冊機構註冊。 例如，如果 Azure AD 中的主要網域為 contoso.com，則 contoso.org 在 Contoso 所擁有且[已在 Azure AD 中驗證](https://docs.microsoft.com/azure/active-directory/fundamentals/add-custom-domain)的內部部署 AD 中是主要網域
-- 不可路由的 UPN：不可路由的 UPN 沒有已驗證的網域。 它僅適用於組織的私人網路內。 例如，如果 Azure AD 中的主要網域為 contoso.com，則 contoso.local 是內部部署 AD 中的主要網域，但不是網際網路中可驗證的網域，而且只能在 Contoso 的網路內使用。
+- 可路由的 UPN：可路由的 UPN 具有有效的已驗證網域，並已向網域註冊機構註冊。 例如，如果 Azure AD 中的主要網域為 contoso.com，則 contoso.org 在 Contoso 所擁有且[已在 Azure AD 中驗證](https://docs.microsoft.com/azure/active-directory/fundamentals/add-custom-domain)的內部部署 AD 中是主要網域
+- 不可路由傳送的 UPN：不可路由的 UPN 沒有已驗證的網域。 它僅適用於組織的私人網路內。 例如，如果 Azure AD 中的主要網域為 contoso.com，則 contoso.local 是內部部署 AD 中的主要網域，但不是網際網路中可驗證的網域，而且只能在 Contoso 的網路內使用。
 
 下表提供有關在 Windows 10 混合式 Azure AD Join 中支援這些內部部署 AD UPN 的詳細資料
 

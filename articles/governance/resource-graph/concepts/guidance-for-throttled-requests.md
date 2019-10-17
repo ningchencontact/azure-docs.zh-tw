@@ -3,15 +3,15 @@ title: 節流要求指引
 description: 瞭解如何建立更好的查詢，以避免要求受到節流處理 Azure Resource Graph。
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 06/19/2019
+ms.date: 10/18/2019
 ms.topic: conceptual
 ms.service: resource-graph
-ms.openlocfilehash: 85d68beb27ab27a2ada9acbf9482d35dec438c06
-ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
+ms.openlocfilehash: 1bbfd2a64de0b42da19d0a978874d564f1755c59
+ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/06/2019
-ms.locfileid: "71980319"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72387617"
 ---
 # <a name="guidance-for-throttled-requests-in-azure-resource-graph"></a>Azure Resource Graph 中的節流要求指引
 
@@ -30,8 +30,8 @@ Azure Resource Graph 會根據時間範圍，為每個使用者配置配額編�
 
 在每個查詢回應中，Azure Resource Graph 都會加入兩個節流標頭：
 
-- `x-ms-user-quota-remaining` (int)：使用者的剩餘資源配額。 此值會對應至查詢計數。
-- `x-ms-user-quota-resets-after` (hh:mm:ss)：重設使用者的配額耗用量前的持續時間。
+- `x-ms-user-quota-remaining` （int）：使用者的剩餘資源配額。 此值會對應至查詢計數。
+- `x-ms-user-quota-resets-after` （hh： mm： ss）：重設使用者的配額耗用量前的持續時間。
 
 為了說明標頭的作用，讓我們來看一個具有標頭和值 `x-ms-user-quota-remaining: 10` 並 `x-ms-user-quota-resets-after: 00:00:03` 的查詢回應。
 
@@ -55,7 +55,7 @@ Azure Resource Graph 會根據時間範圍，為每個使用者配置配額編�
   {
       var userQueryRequest = new QueryRequest(
           subscriptions: new[] { subscriptionId },
-          query: "project name, type");
+          query: "Resoures | project name, type");
 
       var azureOperationResponse = await this.resourceGraphClient
           .ResourcesWithHttpMessagesAsync(userQueryRequest, header)
@@ -78,7 +78,7 @@ Azure Resource Graph 會根據時間範圍，為每個使用者配置配額編�
       var currSubscriptionBatch = subscriptionIds.Skip(i * batchSize).Take(batchSize).ToList();
       var userQueryRequest = new QueryRequest(
           subscriptions: currSubscriptionBatch,
-          query: "project name, type");
+          query: "Resources | project name, type");
 
       var azureOperationResponse = await this.resourceGraphClient
           .ResourcesWithHttpMessagesAsync(userQueryRequest, header)
@@ -102,7 +102,7 @@ Azure Resource Graph 會根據時間範圍，為每個使用者配置配額編�
           resourceIds.Skip(i * batchSize).Take(batchSize).Select(id => string.Format("'{0}'", id)));
       var userQueryRequest = new QueryRequest(
           subscriptions: subscriptionList,
-          query: $"where id in~ ({resourceIds}) | project name, type");
+          query: $"Resources | where id in~ ({resourceIds}) | project name, type");
 
       var azureOperationResponse = await this.resourceGraphClient
           .ResourcesWithHttpMessagesAsync(userQueryRequest, header)
@@ -184,7 +184,7 @@ async Task ExecuteQueries(IEnumerable<string> queries)
 }
 ```
 
-## <a name="pagination"></a>分頁
+## <a name="pagination"></a>頁數
 
 因為 Azure Resource Graph 在單一查詢回應中最多傳回1000個專案，所以您可能需要將查詢[分頁](./work-with-data.md#paging-results)，以取得您要尋找的完整資料集。 不過，某些 Azure Resource Graph 的用戶端處理分頁的方式與其他不同。
 
@@ -196,7 +196,7 @@ async Task ExecuteQueries(IEnumerable<string> queries)
   var results = new List<object>();
   var queryRequest = new QueryRequest(
       subscriptions: new[] { mySubscriptionId },
-      query: "project id, name, type | top 5000");
+      query: "Resources | project id, name, type | top 5000");
   var azureOperationResponse = await this.resourceGraphClient
       .ResourcesWithHttpMessagesAsync(queryRequest, header)
       .ConfigureAwait(false);
@@ -218,11 +218,11 @@ async Task ExecuteQueries(IEnumerable<string> queries)
   當您使用 Azure CLI 或 Azure PowerShell 時，Azure Resource Graph 的查詢會自動編頁以提取最多5000個專案。 查詢結果會從所有分頁呼叫傳回結合的專案清單。 在此情況下，視查詢結果中的專案數而定，單一分頁查詢可能會耗用一個以上的查詢配額。 例如，在下列範例中，查詢的單一執行可能會耗用最多五個查詢配額：
 
   ```azurecli-interactive
-  az graph query -q 'project id, name, type' -top 5000
+  az graph query -q 'Resources | project id, name, type' -top 5000
   ```
 
   ```azurepowershell-interactive
-  Search-AzGraph -Query 'project id, name, type' -Top 5000
+  Search-AzGraph -Query 'Resources | project id, name, type' -Top 5000
   ```
 
 ## <a name="still-get-throttled"></a>仍會受到節流？

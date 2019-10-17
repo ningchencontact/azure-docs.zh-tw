@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 05/23/2019
 ms.author: dharmas
 ms.reviewer: sngun
-ms.openlocfilehash: 35c8841220c116cc34ba670eaa9ac7b36dc4cd7a
-ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
+ms.openlocfilehash: 3c77cc1baa07b0ee0e9f0141d81c623259ea57c4
+ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69615525"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72387515"
 ---
 # <a name="compliance-in-azure-cosmos-db"></a>Azure Cosmos DB 中的合規性 
 
@@ -20,7 +20,7 @@ ms.locfileid: "69615525"
 
 * **Azure 公用**雲端，全球皆有提供。
 
-* 您可以透過 Microsoft 和世紀間的獨特合作關係來取得**Azure 中國的世紀**, 其中一個國家/地區的最大網際網路提供者。
+* 您可以透過 Microsoft 和世紀間的獨特合作關係來取得**Azure 中國的世紀**，其中一個國家/地區的最大網際網路提供者。
 
 * **Azure Germany** 在資料信任者模型下提供服務，以確保 Deutsche Telecom 子公司 T-Systems International GmbH 以德國資料信任者的形式，掌管留在德國的客戶資料。
 
@@ -36,8 +36,8 @@ Azure Cosmos DB 會持續擴展其認證涵蓋範圍。 目前，Azure Cosmos DB
 
 | **全球適用** | **美國政府** | **業界專屬** | **區域或國家/地區專屬** |
 | --- | --- | --- | --- |
-| CSA STAR Certification | DoD SRG Level 2 | HIPAA BAA | Australia IRAP Unclassified |
-| CSA STAR Attestation | FedRAMP Moderate | HITRUST | Germany C5|
+| CSA STAR 認證 | DoD SRG Level 2 | HIPAA BAA | Australia IRAP |
+| CSA STAR Attestation | FedRAMP 中 | HITRUST | Germany C5|
 | ISO 20000-1:2011 | GxP (FDA 21 CFR Part 11) | PCI DSS | Singapore MTCS Level 3 |
 | ISO 22301:2012 | | | Spain ENS High|
 | ISO 27001:2013| | | |
@@ -52,11 +52,11 @@ Azure Cosmos DB 會持續擴展其認證涵蓋範圍。 目前，Azure Cosmos DB
 
 | **全球適用** | **美國政府** | **業界專屬** | 
 | --- | --- | --- | --- |
-| CSA STAR Certification | CJIS| HIPAA BAA | 
+| CSA STAR 認證 | CJIS| HIPAA BAA | 
 | CSA STAR Attestation| DoD SRG Level 2| HITRUST  | 
 | ISO 20000-1:2011 | DoD SRG 層級4 | PCI DSS | 
 | ISO 9001:2012 | DoD SRG Level 5 | | 
-| ISO 27001:2013 | FedRAMP High | |
+| ISO 27001:2013 | FedRAMP 高 | |
 | ISO 9001:2015 | IRS 1075|  |
 | ISO 27017:2014 | NIST CSF | |
 | ISO 27018:2015 | NIST SP 800-171 | |
@@ -69,6 +69,6 @@ Azure Cosmos DB 會持續擴展其認證涵蓋範圍。 目前，Azure Cosmos DB
 
 * 若要了解 Azure Cosmos DB 最新的合規性認證，請參閱 [Azure 合規性概觀](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942)。  
 
-* 如需 Azure Cosmos DB 安全性和最新改進功能的總覽, 請參閱[Azure Cosmos 資料庫安全性](database-security.md)一文。
+* 如需 Azure Cosmos DB 安全性和最新改進功能的總覽，請參閱[Azure Cosmos 資料庫安全性](database-security.md)一文。
 
 * 如需 Microsoft 認證的詳細資訊，請參閱 [Azure 信任中心](https://azure.microsoft.com/support/trust-center/)。

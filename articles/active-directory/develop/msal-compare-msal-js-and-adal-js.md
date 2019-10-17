@@ -17,12 +17,12 @@ ms.author: nacanuma
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c8c19b874e79e70349437c5d44a6eb946aeeefb5
-ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
+ms.openlocfilehash: 7149b9d871c43af083774ffb799255e0d1144113
+ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68835038"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72429938"
 ---
 # <a name="differences-between-msal-js-and-adal-js"></a>MSAL JS 與 ADAL JS 之間的差異
 
@@ -65,7 +65,7 @@ ms.locfileid: "68835038"
 
     您可以使用以下格式之 API 的 URI，要求任何資源 API 的範圍：appidURI/scope，例如：https:\//mytenant.onmicrosoft.com/myapi/api.read
 
-    僅適用於 MS Graph API，範圍值 `user.read` 會對應至 https://graph.microsoft.com/User.Read ，而且可以交換使用。
+    僅針對 MS 圖形 API，範圍值 `user.read` 會對應至 HTTPs： \//Graph。 microsoft .com/User. Read 和可以交換使用。
 
     ```javascript
     var request = {
@@ -77,7 +77,7 @@ ms.locfileid: "68835038"
 
 * 累加式同意的動態範圍。
 
-    使用 v1.0 建置應用程式時，您必須註冊應用程式所需的一組完整權限 (靜態範圍)，讓使用者在登入時同意。 在 v2.0 中，您可以使用範圍參數，在您需要時要求權限。 這些稱為動態範圍。 這可讓使用者對範圍提供累加式同意。 因此，如果一開始您只是希望使用者登入您的應用程式，而且您不需要任何一種存取，就可以這麼做。 之後，如果您需要能夠讀取使用者的行事曆，您可以在取得權杖方法中要求行事曆範圍，並取得使用者的同意。 例如︰
+    使用 v1.0 建置應用程式時，您必須註冊應用程式所需的一組完整權限 (靜態範圍)，讓使用者在登入時同意。 在 v2.0 中，您可以使用範圍參數，在您需要時要求權限。 這些稱為動態範圍。 這可讓使用者對範圍提供累加式同意。 因此，如果一開始您只是希望使用者登入您的應用程式，而且您不需要任何一種存取，就可以這麼做。 之後，如果您需要能夠讀取使用者的行事曆，您可以在取得權杖方法中要求行事曆範圍，並取得使用者的同意。 例如：
 
     ```javascript
     var request = {
@@ -89,7 +89,7 @@ ms.locfileid: "68835038"
 
 * V1.0 API 的範圍
 
-    使用 MSAL.js 取得 V1.0 API 的權杖時，您可以將 `.default` 附加到 API 的應用程式識別碼 URI 作為範圍，以要求在 API 上註冊的所有靜態範圍。 例如︰
+    使用 MSAL.js 取得 V1.0 API 的權杖時，您可以將 `.default` 附加到 API 的應用程式識別碼 URI 作為範圍，以要求在 API 上註冊的所有靜態範圍。 例如：
 
     ```javascript
     var request = {

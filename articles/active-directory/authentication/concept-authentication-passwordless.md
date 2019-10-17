@@ -5,28 +5,40 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 08/05/2019
+ms.date: 10/08/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: librown
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: dfcd46f06035e356f6528a79b749350627541121
-ms.sourcegitcommit: 9858ab651a520c26f0ed18215e650efbf1fc5de9
+ms.openlocfilehash: 89b52f356b112cff51105ed44c79788ee4542c6e
+ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/14/2019
-ms.locfileid: "72303521"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72430511"
 ---
-# <a name="what-is-passwordless"></a>什麼是無密碼？
+# <a name="passwordless-authentication-options"></a>無密碼驗證選項
 
 多重要素驗證（MFA）是保護組織安全的絕佳方式，但使用者在需要記住其密碼的同時，也能讓您感到沮喪。 無密碼的驗證方法更方便，因為密碼會被移除，並以您所擁有的東西和您知道的東西取代。
 
 |   | 您擁有的內容 | 您或知道的東西 |
 | --- | --- | --- |
-| 無密碼 | 電話或安全性金鑰 | 生物識別或 PIN |
+| 無密碼 | Windows 10 裝置、電話或安全性金鑰 | 生物識別或 PIN |
 
-在驗證方面，每個組織都有不同的需求。 Microsoft 目前為我們的 Windows 電腦提供 Windows Hello。 我們會將 Microsoft Authenticator 應用程式和 FIDO2 安全性金鑰新增至無密碼系列。
+在驗證方面，每個組織都有不同的需求。 Microsoft 提供三種無密碼的驗證選項：
+
+- Windows Hello 企業版 
+- Microsoft Authenticator 應用程式 
+- FIDO2 安全性金鑰
+
+![驗證：安全性與便利性](./media/concept-authentication-passwordless/passwordless-convenience-security.png)
+
+## <a name="windows-hello-for-business"></a>Windows Hello 企業版 
+
+Windows Hello 企業版適用于擁有自己指定 Windows 電腦的資訊工作者。 生物識別和 PIN 會直接系結至使用者的電腦，以防止擁有者以外的任何人進行存取。 透過 PKI 整合和單一登入（SSO）的內建支援，Windows Hello 企業版提供簡單且便利的方法，讓您無縫存取內部部署和雲端中的公司資源。
+
+Windows Hello 企業版[規劃指南](https://docs.microsoft.com/windows/security/identity-protection/hello-for-business/hello-planning-guide)可用來協助您決定要使用的 Windows Hello 企業版部署類型，以及您需要考慮的選項。
 
 ## <a name="microsoft-authenticator-app"></a>Microsoft Authenticator 應用程式
 
@@ -44,7 +56,7 @@ FIDO2 安全性金鑰是一種以 unphishable 標準為基礎的無密碼驗證�
 
 ![使用安全性金鑰登入 Microsoft Edge](./media/concept-authentication-passwordless/concept-web-sign-in-security-key.png)
 
-雖然 FIDO 聯盟有許多 FIDO2 認證的金鑰，但 Microsoft 還是需要由廠商實行一些選擇性的 FIDO2 CTAP 規格延伸模組，以確保最高的安全性和最佳體驗。
+雖然 FIDO 聯盟有許多 FIDO2 認證的金鑰，但 Microsoft 還是需要由廠商實行的 FIDO2 用戶端對驗證器通訊協定（CTAP）規格的一些選用延伸模組，以確保最高的安全性和最佳遇到.
 
 安全性金鑰**必須**將下列功能和延伸模組從 FIDO2 CTAP 通訊協定實作為 Microsoft 相容：
 
@@ -52,7 +64,7 @@ FIDO2 安全性金鑰是一種以 unphishable 標準為基礎的無密碼驗證�
 | --- | --- | --- |
 | 1 | 常駐金鑰 | 這項功能可讓安全性金鑰成為可移植的，您的認證會儲存在安全性金鑰上。 |
 | 2 | 用戶端 pin | 這項功能可讓您使用第二個因素來保護您的認證，並套用至沒有使用者介面的安全性金鑰。 |
-| 3 | hmac-secret | 此延伸模組可確保您可以在裝置離線或在飛機模式時，登入您的裝置。 |
+| 3 | hmac-秘密 | 此延伸模組可確保您可以在裝置離線或在飛機模式時，登入您的裝置。 |
 | 4 | 每個 RP 的多個帳戶 | 這項功能可確保您可以在多個服務（例如 Microsoft 帳戶和 Azure Active Directory）上使用相同的安全性金鑰。 |
 
 下列提供者提供 FIDO2 的安全性金鑰，這些是已知與無密碼體驗相容的不同外型規格。 Microsoft 鼓勵客戶透過聯繫廠商以及 FIDO 聯盟，來評估這些金鑰的安全性屬性。
@@ -76,7 +88,7 @@ FIDO2 安全性金鑰是一種以 unphishable 標準為基礎的無密碼驗證�
 - 使用者可以在其帳戶入口網站中註冊和管理這些無密碼驗證方法
 - 終端使用者可以使用這些無密碼的驗證方法登入
    - Microsoft Authenticator 應用程式：適用于使用 Azure AD 驗證的案例，包括跨所有瀏覽器、在 Windows 10 全新（OOBE）安裝期間，以及任何作業系統上的整合式行動應用程式。
-   - 安全性金鑰：適用于 Windows 10 1809 版或更高版本的鎖定畫面，以及支援的瀏覽器（例如 Microsoft Edge）中的 web。
+   - 安全性金鑰：適用于 Windows 10 1809 版或更新版本的鎖定畫面，以及 Microsoft Edge 等支援的瀏覽器中的 web。
 
 ## <a name="next-steps"></a>後續步驟
 

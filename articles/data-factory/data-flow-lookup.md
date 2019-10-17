@@ -1,19 +1,19 @@
 ---
-title: Azure Data Factory 對應資料流程查閱轉換
-description: Azure Data Factory 對應資料流程查閱轉換
+title: Azure Data Factory 對應的資料流程查閱轉換
+description: Azure Data Factory 對應的資料流程查閱轉換
 author: kromerm
 ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 10/03/2019
-ms.openlocfilehash: d762bddbe098e30cbf9e9c02da3c06073a358b12
-ms.sourcegitcommit: 961468fa0cfe650dc1bec87e032e648486f67651
+ms.openlocfilehash: 25d8588f8e2c968dc2516938263aaa7d6ddcff13
+ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72249242"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72387862"
 ---
-# <a name="azure-data-factory-mapping-data-flow-lookup-transformation"></a>Azure Data Factory 對應資料流程查閱轉換
+# <a name="azure-data-factory-mapping-data-flow-lookup-transformation"></a>Azure Data Factory 對應的資料流程查閱轉換
 
 使用查閱以將另一個來源的參考資料新增至資料流程。 查閱轉換需要定義的來源，其指向您的參考資料表且會比對索引鍵欄位。
 

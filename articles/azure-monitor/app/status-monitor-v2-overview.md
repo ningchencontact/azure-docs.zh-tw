@@ -1,6 +1,6 @@
 ---
-title: Azure 狀態監視器 v2 總覽 |Microsoft Docs
-description: 狀態監視器 v2 的總覽。 在不重新部署網站的情況下監視網站效能。 適用于內部部署、Vm 或 Azure 上裝載的 ASP.NET web 應用程式。
+title: Azure 應用程式 Insights 代理程式總覽 |Microsoft Docs
+description: Application Insights 代理程式的總覽。 在不重新部署網站的情況下監視網站效能。 適用于內部部署、Vm 或 Azure 上裝載的 ASP.NET web 應用程式。
 services: application-insights
 documentationcenter: .net
 author: TimothyMothra
@@ -12,39 +12,44 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 09/16/2019
 ms.author: tilee
-ms.openlocfilehash: 7f045a95bcc9d5a61b26036e14e050a597347d1a
-ms.sourcegitcommit: e0a1a9e4a5c92d57deb168580e8aa1306bd94723
+ms.openlocfilehash: 294b0d2d91650f33f0b92179a069a8c7cd845525
+ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72286437"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72389841"
 ---
-# <a name="status-monitor-v2"></a>狀態監視器 v2
+# <a name="deploy-azure-monitor-application-insights-agent-for-on-premises-servers"></a>為內部部署伺服器部署 Azure 監視器 Application Insights 代理程式
 
-狀態監視器 v2 是發佈至[PowerShell 資源庫](https://www.powershellgallery.com/packages/Az.ApplicationMonitor)的 PowerShell 模組。
+> [!IMPORTANT]
+> 針對 Application Insights 代理程式的內部部署和非 Azure 雲端部署，建議使用本指引。 以下是[Azure 虛擬機器和虛擬機器擴展集部署](https://docs.microsoft.com/azure/azure-monitor/app/azure-vm-vmss-apps)的建議方法。
+
+Application Insights 代理程式（先前稱為狀態監視器 V2）是發佈至[PowerShell 資源庫](https://www.powershellgallery.com/packages/Az.ApplicationMonitor)的 PowerShell 模組。
 它會取代[狀態監視器](https://docs.microsoft.com/azure/azure-monitor/app/monitor-performance-live-website-now)。
-此模組提供裝載于 IIS 之 .NET web 應用程式的無程式碼檢測。
 遙測會傳送至 Azure 入口網站，您可以在其中[監視](https://docs.microsoft.com/azure/azure-monitor/app/app-insights-overview)您的應用程式。
+
+> [!NOTE]
+> 此模組目前僅支援以 IIS 裝載之 .NET web 應用程式的無程式碼檢測。 使用 SDK 來檢測 ASP.NET Core、JAVA 和 node.js 應用程式。
 
 ## <a name="powershell-gallery"></a>PowerShell 資源庫
 
-狀態監視器 v2 位於此處： https://www.powershellgallery.com/packages/Az.ApplicationMonitor 。
+Application Insights 代理程式位於此處： https://www.powershellgallery.com/packages/Az.ApplicationMonitor 。
 
 ![PowerShell 資源庫](https://img.shields.io/powershellgallery/v/Az.ApplicationMonitor.svg?color=Blue&label=Current%20Version&logo=PowerShell&style=for-the-badge)
 
 
-## <a name="instructions"></a>指示
+## <a name="instructions"></a>範例的指示
 - 請參閱開始使用的[指示](status-monitor-v2-get-started.md)，以取得簡單的程式碼範例。
 - 如需深入瞭解如何開始使用，請參閱[詳細指示](status-monitor-v2-detailed-instructions.md)。
 
 ## <a name="powershell-api-reference"></a>PowerShell API 參考
-- [Disable-ApplicationInsightsMonitoring](status-monitor-v2-api-disable-monitoring.md)
-- [Disable-InstrumentationEngine](status-monitor-v2-api-disable-instrumentation-engine.md)
-- [Enable-ApplicationInsightsMonitoring](status-monitor-v2-api-enable-monitoring.md)
-- [Enable-InstrumentationEngine](status-monitor-v2-api-enable-instrumentation-engine.md)
-- [Get-ApplicationInsightsMonitoringConfig](status-monitor-v2-api-get-config.md)
-- [Get-ApplicationInsightsMonitoringStatus](status-monitor-v2-api-get-status.md)
-- [Set-ApplicationInsightsMonitoringConfig](status-monitor-v2-api-set-config.md)
+- [停用-ApplicationInsightsMonitoring](status-monitor-v2-api-disable-monitoring.md)
+- [停用-InstrumentationEngine](status-monitor-v2-api-disable-instrumentation-engine.md)
+- [啟用-ApplicationInsightsMonitoring](status-monitor-v2-api-enable-monitoring.md)
+- [啟用-InstrumentationEngine](status-monitor-v2-api-enable-instrumentation-engine.md)
+- [ApplicationInsightsMonitoringConfig](status-monitor-v2-api-get-config.md)
+- [ApplicationInsightsMonitoringStatus](status-monitor-v2-api-get-status.md)
+- [設定-ApplicationInsightsMonitoringConfig](status-monitor-v2-api-set-config.md)
 - [開始-ApplicationInsightsMonitoringTrace](status-monitor-v2-api-start-trace.md)
 
 ## <a name="troubleshooting"></a>疑難排解
@@ -54,9 +59,9 @@ ms.locfileid: "72286437"
 
 ## <a name="faq"></a>常見問題集
 
-- 狀態監視器 v2 是否支援 proxy 安裝？
+- Application Insights 代理程式是否支援 proxy 安裝？
 
-  *是*。 有多種方式可以下載狀態監視器 v2。 如果您的電腦可存取網際網路，您可以使用 `-Proxy` 參數來上架到 PowerShell 資源庫。
+  *是*。 有多種方式可以下載 Application Insights 代理程式。 如果您的電腦可存取網際網路，您可以使用 `-Proxy` 參數來上架到 PowerShell 資源庫。
 您也可以手動下載模組，並將它安裝在您的電腦上，或直接使用它。
 每個選項都會在[詳細指示](status-monitor-v2-detailed-instructions.md)中加以說明。
 

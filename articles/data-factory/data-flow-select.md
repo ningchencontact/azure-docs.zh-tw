@@ -6,12 +6,12 @@ ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 02/12/2019
-ms.openlocfilehash: 289f98fdc2f39449cdeede9ee46fb39847ae2cb5
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.openlocfilehash: 6ef9712dd2fd6b8d53fd4ad2c3e07e1d6c8f1aec
+ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72029279"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72387208"
 ---
 # <a name="mapping-data-flow-select-transformation"></a>對應資料流程選取轉換
 
@@ -29,14 +29,14 @@ ms.locfileid: "72029279"
 
 ![選取轉換](media/data-flow/newselect1.png "選取別名")
 
-## <a name="options"></a>選項。
+## <a name="options"></a>選項
 * 「選取」的預設設定是包含所有內送的資料行，並保留這些原始名稱。 您可以設定 Select 轉換的名稱，為資料流設定別名。
 * 若要設定個別資料行的別名，請取消選取「全部選取」並使用下方的資料行對應。
 * 選擇 [略過重複專案]，以排除輸入或輸出中繼資料的重復資料行。
 
-![略過重複項](media/data-flow/select-skip-dup.png "略過重複")專案
+![略過重複專案](media/data-flow/select-skip-dup.png "略過重複專案")
 
-* 當您選擇略過重複專案時，結果會顯示在 [檢查] 索引標籤中。ADF 會保留第一次出現的資料行，您會看到該相同資料行後續出現的每個專案都已從您的流程中移除。
+* 當您選擇略過重複專案時，結果會顯示在 [檢查] 索引標籤中。 ADF 會保留第一次出現的資料行，而您會看到該相同資料行後續出現的每一次都已從您的流程中移除。
 
 > [!NOTE]
 > 若要清除對應規則，請按 [**重設**] 按鈕。
@@ -44,14 +44,14 @@ ms.locfileid: "72029279"
 ## <a name="mapping"></a>對應
 根據預設，[選取] 轉換會自動對應所有資料行，而這些資料行會在輸出上傳遞所有傳入的資料行到相同的名稱。 在 [選取設定] 中設定的輸出資料流程名稱會定義資料流程的新別名名稱。 如果您保留選取 [自動對應] 的集合，則可以使用相同的所有資料行來為整個資料流程加上別名。
 
-![選取轉換規則]以(media/data-flow/rule2.png "規則為基礎的對應")
+![選取轉換規則](media/data-flow/rule2.png "以規則為基礎的對應")
 
 如果您想要別名、移除、重新命名或重新排序資料行，您必須先關閉「自動對應」。 根據預設，您會看到為您輸入的預設規則，稱為「所有輸入資料行」。 如果您想要一律允許所有傳入的資料行對應到其輸出上的相同名稱，您可以將此規則保留在原處。
 
 不過，如果您想要新增自訂規則，您將按一下 [新增對應]。 欄位對應會為您提供要對應和別名的傳入和傳出資料行名稱清單。 選擇 [以規則為基礎的對應] 來建立模式比對規則。
 
 ## <a name="rule-based-mapping"></a>以規則為基礎的對應
-當您選擇以規則為基礎的對應時，您會指示 ADF 評估相符的運算式，以符合傳入模式規則並定義外寄功能變數名稱。 您可以新增欄位和以規則為基礎之對應的任意組合。 然後，ADF 會根據來源的傳入中繼資料，在執行時間產生功能變數名稱。 您可以在 debug 和使用 [資料預覽] 窗格期間, 查看所產生欄位的名稱。
+當您選擇以規則為基礎的對應時，您會指示 ADF 評估相符的運算式，以符合傳入模式規則並定義外寄功能變數名稱。 您可以新增欄位和以規則為基礎之對應的任意組合。 然後，ADF 會根據來源的傳入中繼資料，在執行時間產生功能變數名稱。 您可以在 debug 和使用 [資料預覽] 窗格期間，查看所產生欄位的名稱。
 
 如需模式比對的詳細資訊，請[參閱資料行模式檔](concepts-data-flow-column-pattern.md)。
 

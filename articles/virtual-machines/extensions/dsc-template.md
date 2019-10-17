@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: na
 ms.date: 10/05/2018
 ms.author: robreed
-ms.openlocfilehash: 59f8035aa69f21196a2134bf6bc1b12f3e5b34c4
-ms.sourcegitcommit: 80da36d4df7991628fd5a3df4b3aa92d55cc5ade
+ms.openlocfilehash: ef781653332984a7fb6d71ef91d53cbf77e6c91c
+ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71815701"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72437947"
 ---
 # <a name="desired-state-configuration-extension-with-azure-resource-manager-templates"></a>採用 Azure Resource Manager 範本的預期狀態設定延伸模組
 
@@ -183,17 +183,17 @@ DSC 延伸模組會繼承預設的延伸模組屬性。
 | settings.configuration.url |string |指定要從中下載 DSC 設定 .zip 檔案的 URL 位置。 如果所提供的 URL 需要 SAS 權杖才能存取，請將 **protectedSettings.configurationUrlSasToken** 屬性設定為您 SAS 權杖的值。 如果已定義 **settings.configuration.script** 或 **settings.configuration.function**，就需要這個屬性。 如果沒有為這些屬性指定值，延伸模組就會呼叫預設設定指令碼來設定「位置設定管理員」(LCM) 中繼資料，而應該提供引數。 |
 | settings.configuration.script |string |指定指令碼的檔案名稱，其中包含 DSC 組態的定義。 此指令碼必須位於從 **settings.configuration.url** 屬性所指定 URL 下載之 zip 檔案的根資料夾中。 如果已定義 **settings.configuration.url** 或 **settings.configuration.script**，就需要這個屬性。 如果沒有為這些屬性指定值，延伸模組就會呼叫預設設定指令碼來設定 LCM 中繼資料，而應該提供引數。 |
 | settings.configuration.function |string |指定 DSC 組態的名稱。 所命名的設定必須包含在 **settings.onfiguration.script** 所定義的指令碼中。 如果已定義 **settings.configuration.url** 或 **settings.configuration.function**，就需要這個屬性。 如果沒有為這些屬性指定值，延伸模組就會呼叫預設設定指令碼來設定 LCM 中繼資料，而應該提供引數。 |
-| settings.configurationArguments |Collection |定義任何您想要傳遞給 DSC 設定的參數。 這個屬性並未加密。 |
+| settings.configurationArguments |集合 |定義任何您想要傳遞給 DSC 設定的參數。 這個屬性並未加密。 |
 | settings.configurationData.url |string |指定 URL，從中下載您的組態資料 (.psd1) 檔案以做為 DSC 組態的輸入。 如果所提供的 URL 需要 SAS 權杖才能存取，請將 **protectedSettings.configurationDataUrlSasToken** 屬性設定為您 SAS 權杖的值。 |
 | settings.privacy.dataCollection |string |啟用或停用遙測收集。 此屬性只有下列可能值：**Enable** **Disable** **''** 或 **$null**。 將此屬性保持空白或 null 即可啟用遙測。 預設值為 **''** 。 如需詳細資訊，請參閱 [Azure DSC 延伸模組集合](https://blogs.msdn.microsoft.com/powershell/2016/02/02/azure-dsc-extension-data-collection-2/) \(英文\)。 |
-| settings.advancedOptions.downloadMappings |Collection |定義要從中下載 WMF 的替代位置。 如需詳細資訊，請參閱 [Azure DSC 延伸模組 2.8 及如何將延伸模組相依性的下載對應至您自己的位置](https://blogs.msdn.com/b/powershell/archive/2015/10/21/azure-dsc-extension-2-2-amp-how-to-map-downloads-of-the-extension-dependencies-to-your-own-location.aspx)(英文\)。 |
-| protectedSettings.configurationArguments |Collection |定義任何您想要傳遞給 DSC 設定的參數。 這個屬性已加密。 |
+| settings.advancedOptions.downloadMappings |集合 |定義要從中下載 WMF 的替代位置。 如需詳細資訊，請參閱 [Azure DSC 延伸模組 2.8 及如何將延伸模組相依性的下載對應至您自己的位置](https://blogs.msdn.com/b/powershell/archive/2015/10/21/azure-dsc-extension-2-2-amp-how-to-map-downloads-of-the-extension-dependencies-to-your-own-location.aspx)(英文\)。 |
+| protectedSettings.configurationArguments |集合 |定義任何您想要傳遞給 DSC 設定的參數。 這個屬性已加密。 |
 | protectedSettings.configurationUrlSasToken |string |指定用來存取 **settings.onfiguration.url** 所定義 URL 的 SAS 權杖。 這個屬性已加密。 |
 | protectedSettings.configurationDataUrlSasToken |string |指定用來存取 **settings.onfigurationData.url** 所定義 URL 的 SAS 權杖。 這個屬性已加密。 |
 
 ## <a name="default-configuration-script"></a>預設設定指令碼
 
-如需有關下列值的詳細資訊，請參閱[本機設定管理員基本設定](/powershell/dsc/metaconfig#basic-settings)。
+如需有關下列值的詳細資訊，請參閱[本機設定管理員基本設定](/powershell/scripting/dsc/managing-nodes/metaConfig#basic-settings)。
 您可以使用 DSC 延伸模組預設設定指令碼來設定的 LCM 屬性僅限下表所列的屬性。
 
 | 屬性名稱 | Type | 描述 |
@@ -204,9 +204,9 @@ DSC 延伸模組會繼承預設的延伸模組屬性。
 | settings.configurationArguments.ConfigurationMode |string |指定 LCM 的模式。 有效的選項包括 **ApplyOnly** **ApplyandMonitor**, 及 **ApplyandAutoCorrect**。  預設值為 **ApplyandMonitor**。 |
 | settings.configurationArguments.RefreshFrequencyMins | uint32 | 指定 LCM 嘗試檢查「自動化」帳戶是否有更新的頻率。  預設值為 **30**。  最小值為 **15**。 |
 | settings.configurationArguments.ConfigurationModeFrequencyMins | uint32 | 指定 LCM 驗證目前設定的頻率。 預設值為 **15**。 最小值為 **15**。 |
-| settings.configurationArguments.RebootNodeIfNeeded | boolean | 指定節點是否能在 DSC 作業要求時自動重新開機。 預設值為 **false**。 |
+| settings.configurationArguments.RebootNodeIfNeeded | 布林值 | 指定節點是否能在 DSC 作業要求時自動重新開機。 預設值為 **false**。 |
 | settings.configurationArguments.ActionAfterReboot | string | 指定套用設定時，在重新開機後會發生什麼事。 有效的選項為 **ContinueConfiguration** 和 **StopConfiguration**。 預設值為 **ContinueConfiguration**。 |
-| settings.configurationArguments.AllowModuleOverwrite | boolean | 指定 LCM 是否會覆寫節點上現有的模組。 預設值為 **false**。 |
+| settings.configurationArguments.AllowModuleOverwrite | 布林值 | 指定 LCM 是否會覆寫節點上現有的模組。 預設值為 **false**。 |
 
 ## <a name="settings-vs-protectedsettings"></a>settings 與 protectedSettings 的比較
 
@@ -356,27 +356,27 @@ DSC 延伸模組會繼承預設的延伸模組屬性。
 「WmfVersion 為 '{0}'。
 可能的值為 … 和 'latest'"。
 
-**問題**：不允許提供的值。
+**問題**︰所提供的值不是允許的值。
 
-**解決方案**：將不正確值變更為有效的值。
+**解決方式**︰將無效的值變更為有效的值。
 如需詳細資訊，請參閱[詳細資料](#details)中的表格。
 
-### <a name="invalid-url"></a>URL 無效
+### <a name="invalid-url"></a>無效的 URL
 
 「ConfigurationData.url 為 '{0}'。 這不是有效的 URL」「DataBlobUri 為 '{0}'。 這不是有效的 URL」「Configuration.url 為 '{0}'。 這不是有效的 URL」
 
-**問題**：提供的 URL 無效。
+**問題**︰所提供的 URL 無效。
 
-**解決方案**：檢查您提供的所有 Url。
+**解決方式**︰檢查您提供的所有 URL。
 請確定所有 URL 都會解析成延伸模組可在遠端電腦上存取的有效位置。
 
 ### <a name="invalid-registrationkey-type"></a>無效的 RegistrationKey 類型
 
 "參數 RegistrationKey (類型為 PSCredential) 的類型無效。"
 
-**問題**：ProtectedSettings. configurationArguments 中的*RegistrationKey*值不能當做 PSCredential 以外的任何類型提供。
+**問題**：protectedSettings.configurationArguments 中的 *RegistrationKey* 值無法提供為 PSCredential 以外的任何類型。
 
-**解決方案**：使用下列格式，將 RegistrationKey 的 protectedSettings configurationArguments 專案變更為 PSCredential 類型：
+**解決方式**：使用下列格式將 RegistrationKey 的 protectedSettings.configurationArguments 項目變更為 PSCredential 類型：
 
 ```json
 "configurationArguments": {
@@ -391,18 +391,18 @@ DSC 延伸模組會繼承預設的延伸模組屬性。
 
 「無效的 configurationArguments 類型 {0}」
 
-**問題**：*ConfigurationArguments*屬性無法解析成**雜湊表**物件。
+**問題**：*ConfigurationArguments* 屬性無法解析為**雜湊表**物件。
 
-**解決方案**：將您的*ConfigurationArguments*屬性設為**雜湊表**。
+**解決方式**：將您的 *ConfigurationArguments* 屬性設定為**雜湊表**。
 請依照上述範例中提供的格式。 請留意引號、逗號及大括號。
 
 ### <a name="duplicate-configurationarguments"></a>重複的 ConfigurationArguments
 
 「在公用和受保護的 configurationArguments 中找到重複的引數 '{0}'」
 
-**問題**：[公用設定] 中的*ConfigurationArguments*和 [受保護設定] 中的*ConfigurationArguments*具有相同名稱的屬性。
+**問題**︰公用設定中的 *ConfigurationArguments* 和受保護設定中的 *ConfigurationArguments* 具有相同名稱的屬性。
 
-**解決方案**：請移除其中一個重複的屬性。
+**解決方式**︰移除其中一個重複的屬性。
 
 ### <a name="missing-properties"></a>遺漏屬性
 
@@ -418,7 +418,7 @@ DSC 延伸模組會繼承預設的延伸模組屬性。
 
 「protectedSettings.ConfigurationDataUrlSasToken 要求指定 settings.configurationData.url」
 
-**問題**：已定義的屬性需要另一個遺漏的屬性。
+**問題**︰已定義的屬性需要另一個屬性，但遺漏該屬性。
 
 **解決方式**：
 
@@ -430,4 +430,4 @@ DSC 延伸模組會繼承預設的延伸模組屬性。
 - 了解[搭配 Azure DSC 延伸模組使用虛擬機器擴展集](../../virtual-machine-scale-sets/virtual-machine-scale-sets-dsc.md)。
 - 深入了解 [DSC 的安全認證管理](dsc-credentials.md)。
 - 取得 [Azure DSC 延伸模組處理常式簡介](dsc-overview.md)。
-- 如需有關 PowerShell DSC 的詳細資訊，請移至 [PowerShell 文件中心](/powershell/dsc/overview)。
+- 如需有關 PowerShell DSC 的詳細資訊，請移至 [PowerShell 文件中心](/powershell/scripting/dsc/overview/overview)。

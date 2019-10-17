@@ -14,28 +14,29 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 06/25/2019
 ms.author: emalani
-ms.openlocfilehash: 2ffd80f60543c3136eff2d5774a850347eb68427
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.openlocfilehash: 1f15bd86debd98104a408c00650f5acfab94c526
+ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72027104"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72388580"
 ---
 # <a name="enable-offline-sync-for-your-windows-app"></a>啟用 Windows 應用程式離線同步處理
 [!INCLUDE [app-service-mobile-selector-offline](../../includes/app-service-mobile-selector-offline.md)]
 
 > [!NOTE]
 > Visual Studio App Center 支援行動應用程式開發的端對端和整合式服務中心。 開發人員可以使用**組建**、**測試**和**散發**服務來設定持續整合和傳遞管線。 部署應用程式之後，開發人員可以使用**分析**和**診斷**服務來監視其應用程式的狀態和使用，並與使用**推**播服務的使用者互動。 開發人員也可以利用**驗證**來驗證其使用者和**資料**服務，以保存及同步雲端中的應用程式資料。
-> 如果您想要在您的行動應用程式中整合雲端服務，請立即註冊 App Center [App center](https://appcenter.ms/?utm_source=zumo&utm_medium=Azure&utm_campaign=zumo%20doc) 。
+>
+> 如果您想要在您的行動應用程式中整合雲端服務，請立即註冊[App Center](https://appcenter.ms/?utm_source=zumo&utm_medium=Azure&utm_campaign=zumo%20doc) 。
 
-## <a name="overview"></a>總覽
+## <a name="overview"></a>概觀
 本教學課程說明如何使用 Azure 行動應用程式後端在通用 Windows 平台 (UWP) 應用程式中新增離線支援。 離線同步處理可讓使用者與行動應用程式進行互動 (檢視、新增或修改資料)，即使沒有網路連接也可以。 變更會儲存在本機資料庫中。 裝置恢復上線後，這些變更就會與遠端後端進行同步處理。
 
 在本教學課程中，您將會更新[建立 Windows 應用程式]教學課程中的 UWP 應用程式專案，以支援 Azure Mobile Apps 的離線功能。 如果您不要使用下載的快速入門伺服器專案，必須將資料存取擴充套件新增至您的專案。 如需伺服器擴充套件的詳細資訊，請參閱 [使用 Azure Mobile Apps 的 .NET 後端伺服器 SDK](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md)。
 
 若要深入了解離線同步處理功能，請參閱 [Azure Mobile Apps 中的離線資料同步處理]主題。
 
-## <a name="requirements"></a>需求  
+## <a name="requirements"></a>要求  
 本教學課程需要下列必要條件：
 
 * 執行於 Windows 8.1 或更新版本的 Visual Studio 2013。
@@ -49,11 +50,11 @@ Azure 行動應用程式的離線功能可讓您在離線狀態時，仍可與�
 1. 安裝 [適用於通用 Windows 平台的 SQLite 執行階段](https://sqlite.org/2016/sqlite-uwp-3120200.vsix)。
 2. 在 Visual Studio 中，針對您在[建立 Windows 應用程式]教學課程中完成的專案，開啟 NuGet 封裝管理員。
     搜尋並安裝 **Microsoft.Azure.Mobile.Client.SQLiteStore** NuGet 套件。
-3. 在 [方案總管] 中，以滑鼠右鍵按一下 [參考] > [新增參考...]> [通用 Windows] >[擴充功能]，然後啟用 [適用於通用 Windows 平台的 SQLite] 和 [適用於通用 Windows 平台應用程式的 Visual C++ 2015 執行階段]。
+3. 在方案總管中，以滑鼠右鍵按一下 [**參考**] > [**新增參考 ...** ] @no__t 3**通用 Windows** >**延伸**模組，然後啟用**SQLite for 通用 Windows 平臺**和 **C++ Visual 2015通用 Windows 平臺應用程式的運行**時間。
 
     ![新增 SQLite UWP 參考][1]
 4. 開啟 MainPage.xaml.cs 檔案，並取消註解 `#define OFFLINE_SYNC_ENABLED` 定義。
-5. 在 Visual Studio 中按 **F5** 鍵，以重新建置並執行用戶端應用程式。 應用程式的運作方式和啟用離線同步處理之前的方式相同。不過，本機資料庫現在會填入可在離線案例下使用的資料。
+5. 在 Visual Studio 中按 **F5** 鍵，以重新建置並執行用戶端應用程式。 應用程式的運作方式與啟用離線同步處理之前相同。不過，本機資料庫現在已填入可在離線案例中使用的資料。
 
 ## <a name="update-sync"></a>更新應用程式以使其與後端中斷連線
 在本節中，您將中斷與行動應用程式後端的連線，以模擬離線狀態。 當您新增資料項目時，您的例外狀況處理常式會指出應用程式處於離線模式。 處於此狀態時，新項目會新增到本機存放區，並且會在推送接下來於連線狀態執行時，同步處理至行動應用程式後端。
@@ -85,12 +86,12 @@ Azure 行動應用程式的離線功能可讓您在離線狀態時，仍可與�
 為了支援行動服務的離線功能，我們使用了[IMobileServiceSyncTable]介面，並使用本機 SQLite 資料庫來初始化[MobileServiceClient。][synccontext] 離線時，Mobile Apps 的一般 CRUD 作業運作方式，就如同應用程式仍處於連線狀態，而作業會對本機存放區執行。 下列方法可用來同步處理本機存放區與伺服器︰
 
 * **[PushAsync]** 因為這個方法是 [IMobileServicesSyncContext] 的成員，因此所有資料表的變更都會推送至後端。 只有具有本機變更的記錄會傳送到伺服器。
-* **[PullAsync]** 從 [IMobileServiceSyncTable] 開始提取。 當資料表中有追蹤的變更時，便會執行隱含推送，以確定本機存放區中的所有資料表和關聯性都維持一致。 pushOtherTables 參數會控制是否在隱含推送中推送內容中的其他資料表。 *查詢*參數會採用[IMobileServiceTableQuery @ no__t-2T >][IMobileServiceTableQuery]或 OData 查詢字串來篩選傳回的資料。 queryId 參數可用來定義增量同步處理。如需詳細資訊，請參閱 [Azure Mobile Apps 中的離線資料同步處理](app-service-mobile-offline-data-sync.md#how-sync-works)。
+* **[PullAsync]** 從 [IMobileServiceSyncTable] 開始提取。 當資料表中有追蹤的變更時，便會執行隱含推送，以確定本機存放區中的所有資料表和關聯性都維持一致。 pushOtherTables 參數會控制是否在隱含推送中推送內容中的其他資料表。 *查詢*參數會採用[IMobileServiceTableQuery @ no__t-2T >][IMobileServiceTableQuery]或 OData 查詢字串來篩選傳回的資料。 *QueryId*參數是用來定義增量同步處理。如需詳細資訊，請參閱[Azure Mobile Apps 中的離線資料同步](app-service-mobile-offline-data-sync.md#how-sync-works)。
 * **[PurgeAsync]** 您的應用程式應定期呼叫這個方法，以清除本機存放區中的過時資料。 當您需要清除任何尚未同步處理的變更時，請使用 force 參數。
 
 如需這些概念的詳細資訊，請參閱 [Azure Mobile Apps 中的離線資料同步處理](app-service-mobile-offline-data-sync.md#how-sync-works)。
 
-## <a name="more-info"></a>其他資訊
+## <a name="more-info"></a>詳細資訊
 下列主題提供其他關於 Mobile Apps 離線同步處理功能的背景資訊︰
 
 * [Azure Mobile Apps 中的離線資料同步處理]

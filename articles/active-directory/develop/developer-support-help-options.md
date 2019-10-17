@@ -17,12 +17,12 @@ ms.author: ryanwi
 ms.reviewer: jmprieur, saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: efa14e88eeb8ab43f998a32aaa0c14220acab03a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a160f78f69ed559c576147e9758c837d5ae9b77e
+ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66235327"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72429975"
 ---
 # <a name="support-and-help-options-for-developers"></a>開發人員的支援和協助選項
 
@@ -31,8 +31,8 @@ ms.locfileid: "66235327"
 > [!div class="checklist"]
 > * 如何搜尋社群是否尚未回答您的問題，或您嘗試實作的功能是否已有現存文件
 > * 在某些情況下，您只想使用我們的支援工具來協助您進行特定問題的偵錯
-> * 如果您找不到所需的解答，就可以在「Stack Overflow」  上發問
-> * 如果您發現我們的驗證程式庫有問題，請提出 GitHub  問題
+> * 如果您找不到所需的解答，就可以在「Stack Overflow」上發問
+> * 如果您發現我們的驗證程式庫有問題，請提出 GitHub 問題
 > * 最後，如果您需要與人對談，您可以開啟支援要求
 
 ## <a name="search"></a>Search
@@ -81,10 +81,10 @@ Stack Overflow 的下列貼文包含如何提出問題以及如何新增原始�
 
 如果您發現與我們的程式庫有關的錯誤或問題，請在我們的 GitHub 存放庫上提出問題。 我們的程式庫屬於開放原始碼，因此您也可以提交提取要求。
 
-程式庫及其 GitHub 存放庫的清單，請參閱下列各項：
+如需程式庫及其 GitHub 存放庫的清單，請參閱下列各項：
 
 * [ADAL](active-directory-authentication-libraries.md) 程式庫以及 GitHub 存放庫
-* [MSAL.NET](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet) [MSAL.js](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-angularjs/README.md)， [MSAL。Android](https://github.com/AzureAD/microsoft-authentication-library-for-android)，並[MSAL.obj_c](https://github.com/AzureAD/microsoft-authentication-library-for-objc)程式庫以及 GitHub 存放庫
+* [MSAL.NET](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet) [MSAL](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-angularjs/README.md)、 [MSAL。Android](https://github.com/AzureAD/microsoft-authentication-library-for-android)和[MSAL .obj _c](https://github.com/AzureAD/microsoft-authentication-library-for-objc)程式庫和 GitHub 存放庫
 
 ## <a name="open-a-support-request"></a>開啟支援要求
 
@@ -95,9 +95,3 @@ Stack Overflow 的下列貼文包含如何提出問題以及如何新增原始�
 * 如果您不是 Azure 的客戶，您也可以透過[我們的商業支援](https://support.microsoft.com/en-us/gp/contactus81?Audience=Commercial)，向 Microsoft 開啟支援要求。
 
 您也可以嘗試[虛擬專員](https://support.microsoft.com/contactus/?ws=support)，以取得支援或提出問題。
-
-### <a name="free-chat-support-for-a-limited-time"></a>限時的免費交談支援
-
-您也可以使用我們的交談支援，Microsoft 合作夥伴可於有限時間內免費使用。 如果貴公司不是 Microsoft 合作夥伴，您可以在[這裡](https://partners.microsoft.com/PartnerProgram/simplifiedenrollment.aspx)免費註冊此功能，並獲得其他好處。
-
-為貴公司註冊後，您就可以在[這裡](https://aka.ms/devchat)啟動交談要求。

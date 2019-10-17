@@ -16,12 +16,12 @@ ms.date: 10/07/2019
 ms.author: ajburnle
 ms.reviewer: hanki
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a1a6d7901368d19cf5ca8221bc00f426980e6f48
-ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
+ms.openlocfilehash: 85479abfd19110703d5ce9f59f545830e84feadb
+ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72169897"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72429600"
 ---
 # <a name="create-and-manage-a-catalog-of-resources-in-azure-ad-entitlement-management-preview"></a>在 Azure AD 權利管理（預覽）中建立及管理資原始目錄
 
@@ -34,7 +34,7 @@ ms.locfileid: "72169897"
 
 目錄是資源和存取封裝的容器。 當您想要將相關的資源和存取封裝分組時，請建立類別目錄。 建立類別目錄的人員會成為第一個目錄擁有者。 目錄擁有者可以新增其他目錄擁有者。
 
-**必要角色：** 全域管理員、使用者系統管理員或目錄建立者
+**先決條件角色：** 全域管理員、使用者系統管理員或目錄建立者
 
 1. 在 Azure 入口網站中按一下 [Azure Active Directory]，然後按一下 [身分識別治理]。
 
@@ -52,7 +52,7 @@ ms.locfileid: "72169897"
 
 1. 如果您想要允許選取的外部目錄中的使用者能夠要求此目錄中的存取封裝，請將 [**為外部使用者啟用**] 設為 **[是]** 。
 
-    ![新增目錄窗格](./media/entitlement-management-catalog-create/new-catalog.png)
+    ![新增目錄窗格](./media/entitlement-management-shared/new-catalog.png)
 
 1. 按一下 [**建立**] 以建立類別目錄。
 
@@ -60,7 +60,7 @@ ms.locfileid: "72169897"
 
 若要在存取封裝中包含資源，資源必須存在於目錄中。 您可以新增的資源類型包括 [群組]、[應用程式] 和 [SharePoint Online 網站]。 這些群組可以是雲端建立的 Office 365 群組或雲端建立的 Azure AD 安全性群組。 應用程式可以 Azure AD 企業應用程式，包括 SaaS 應用程式和您自己的應用程式（與 Azure AD 聯盟）。 網站可以是 SharePoint Online 網站或 SharePoint Online 網站集合。
 
-**必要角色：** 請參閱[將資源新增至目錄的必要角色](entitlement-management-delegate.md#required-roles-to-add-resources-to-a-catalog)
+**先決條件角色：** 請參閱[將資源新增至目錄的必要角色](entitlement-management-delegate.md#required-roles-to-add-resources-to-a-catalog)
 
 1. 在 Azure 入口網站中按一下 [Azure Active Directory]，然後按一下 [身分識別治理]。
 
@@ -70,7 +70,7 @@ ms.locfileid: "72169897"
 
 1. 按一下 [**新增資源**]。
 
-1. 按一下 [資源類型]：**群組和小組**、**應用程式**或**SharePoint 網站**。
+1. 按一下 [資源類型]： [**群組和小組**]、[**應用程式**] 或 [ **SharePoint 網站**]。
 
     如果您沒有看到想要新增的資源，或無法新增資源，請確定您擁有必要的 Azure AD directory 角色和權利管理角色。 您可能需要具有必要角色的人員，才能將資源新增至您的目錄。 如需詳細資訊，請參閱[將資源新增至目錄的必要角色](entitlement-management-delegate.md#required-roles-to-add-resources-to-a-catalog)。
 
@@ -86,7 +86,7 @@ ms.locfileid: "72169897"
 
 您可以從目錄中移除資源。 只有當資源未在目錄的任何存取套件中使用時，才可以從目錄中移除它。
 
-**必要角色：** 請參閱[將資源新增至目錄的必要角色](entitlement-management-delegate.md#required-roles-to-add-resources-to-a-catalog)
+**先決條件角色：** 請參閱[將資源新增至目錄的必要角色](entitlement-management-delegate.md#required-roles-to-add-resources-to-a-catalog)
 
 1. 在 Azure 入口網站中按一下 [Azure Active Directory]，然後按一下 [身分識別治理]。
 
@@ -104,7 +104,7 @@ ms.locfileid: "72169897"
 
 請遵循下列步驟，將使用者指派給目錄擁有者角色：
 
-**必要角色：** 全域管理員、使用者系統管理員或目錄擁有者
+**先決條件角色：** 全域管理員、使用者系統管理員或目錄擁有者
 
 1. 在 Azure 入口網站中按一下 [Azure Active Directory]，然後按一下 [身分識別治理]。
 
@@ -122,7 +122,7 @@ ms.locfileid: "72169897"
 
 您可以編輯目錄的名稱和描述。 使用者會在存取套件的詳細資料中看到這項資訊。
 
-**必要角色：** 全域管理員、使用者系統管理員或目錄擁有者
+**先決條件角色：** 全域管理員、使用者系統管理員或目錄擁有者
 
 1. 在 Azure 入口網站中按一下 [Azure Active Directory]，然後按一下 [身分識別治理]。
 
@@ -130,7 +130,9 @@ ms.locfileid: "72169897"
 
 1. 在目錄的 **[總覽**] 頁面上，按一下 [**編輯**]。
 
-1. 編輯目錄的 [名稱] 或 [描述]。
+1. 編輯目錄的 [名稱]、[描述] 或 [已啟用] 設定。
+
+    ![編輯目錄設定](./media/entitlement-management-shared/catalog-edit.png)
 
 1. 按一下 [儲存]。
 
@@ -138,7 +140,7 @@ ms.locfileid: "72169897"
 
 您可以刪除類別目錄，但只有在它沒有任何存取套件時才可刪除。
 
-**必要角色：** 全域管理員、使用者系統管理員或目錄擁有者
+**先決條件角色：** 全域管理員、使用者系統管理員或目錄擁有者
 
 1. 在 Azure 入口網站中按一下 [Azure Active Directory]，然後按一下 [身分識別治理]。
 

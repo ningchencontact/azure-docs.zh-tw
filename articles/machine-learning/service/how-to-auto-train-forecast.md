@@ -10,19 +10,19 @@ ms.subservice: core
 ms.reviewer: trbye
 ms.topic: conceptual
 ms.date: 06/20/2019
-ms.openlocfilehash: 03c5d46221dc385a390e840381270c01c40bdc6d
-ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
+ms.openlocfilehash: eb13e6d279ffd8efc0cdb5ce675b77aac5be9c18
+ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71170399"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72436625"
 ---
 # <a name="auto-train-a-time-series-forecast-model"></a>自動定型時間序列預測模型
 
 在本文中，您將瞭解如何使用 Azure Machine Learning 中的自動化機器學習來定型時間序列預測回歸模型。 設定預測模型類似于使用自動化機器學習來設定標準回歸模型，但有一些特定的設定選項和前置處理步驟可用於處理時間序列資料。 下列範例示範如何：
 
 * 準備資料以進行時間序列模型化
-* 在[`AutoMLConfig`](/python/api/azureml-train-automl/azureml.train.automl.automlconfig)物件中設定特定的時間序列參數
+* 在[@no__t 1](/python/api/azureml-train-automl/azureml.train.automl.automlconfig)物件中設定特定的時間序列參數
 * 使用時間序列資料執行預測
 
 > [!VIDEO https://www.microsoft.com/videoplayer/embed/RE2X1GW]
@@ -42,7 +42,7 @@ ms.locfileid: "71170399"
 
 ## <a name="preparing-data"></a>準備資料
 
-自動化機器學習服務中的預測回歸工作類型和回歸工作類型之間最重要的差異，包括資料中代表有效時間序列的功能。 一般時間序列具有定義完善且一致的頻率，而且在連續時間範圍內的每個取樣點都有一個值。 請考慮下列檔案的快照`sample.csv`集。
+自動化機器學習服務中的預測回歸工作類型和回歸工作類型之間最重要的差異，包括資料中代表有效時間序列的功能。 一般時間序列具有定義完善且一致的頻率，而且在連續時間範圍內的每個取樣點都有一個值。 請考慮下列檔案的快照集 `sample.csv`。
 
     day_datetime,store,sales_quantity,week_of_year
     9/3/2018,A,2000,36
@@ -56,7 +56,7 @@ ms.locfileid: "71170399"
     9/7/2018,A,2450,36
     9/7/2018,B,650,36
 
-此資料集是公司每日銷售資料的簡單範例，其中有兩個不同的商店 a 和 B。此外，還有一項功能`week_of_year`可讓模型偵測每週季節性。 欄位`day_datetime`代表具有每日頻率的清除時間序列，而欄位`sales_quantity`則是執行預測的目標資料行。 將資料讀取至 Pandas 資料框架，然後使用`to_datetime`函數來確保時間序列是一`datetime`種類型。
+此資料集是公司每日銷售資料的簡單範例，其中有兩個不同的商店 A 和 B。此外，還有一個 `week_of_year` 的功能，可讓模型偵測每週季節性。 欄位 `day_datetime` 代表具有每日頻率的清除時間序列，而欄位 `sales_quantity` 是執行預測的目標資料行。 將資料讀取至 Pandas 資料框架，然後使用 `to_datetime` 函數來確保時間序列是 `datetime` 類型。
 
 ```python
 import pandas as pd
@@ -64,14 +64,15 @@ data = pd.read_csv("sample.csv")
 data["day_datetime"] = pd.to_datetime(data["day_datetime"])
 ```
 
-在此情況下，資料已依時間欄位`day_datetime`遞增排序。 不過，在設定實驗時，請確定所需的時間資料行是以遞增順序排序，以建立有效的時間序列。 假設資料包含1000記錄，並在資料中進行具決定性的分割，以建立定型和測試資料集。 然後分隔 [目標] `sales_quantity`欄位，以建立預測訓練和測試集。
+在此情況下，資料已依時間欄位遞增排序 `day_datetime`。 不過，在設定實驗時，請確定所需的時間資料行是以遞增順序排序，以建立有效的時間序列。 假設資料包含1000記錄，並在資料中進行具決定性的分割，以建立定型和測試資料集。 識別 [標籤] 資料行名稱，並將它設定為 [標籤]。 在此範例中，標籤會 `sales_quantity`。 然後，將標籤欄位從 `test_data` 區隔，以形成 `test_target` 組。
 
 ```python
-X_train = data.iloc[:950]
-X_test = data.iloc[-50:]
+train_data = data.iloc[:950]
+test_data = data.iloc[-50:]
 
-y_train = X_train.pop("sales_quantity").values
-y_test = X_test.pop("sales_quantity").values
+label =  "sales_quantity"
+ 
+test_labels = test_data.pop(label).values
 ```
 
 > [!NOTE]
@@ -88,7 +89,7 @@ y_test = X_test.pop("sales_quantity").values
 * 建立以時間為基礎的功能，以協助學習季節性模式
 * 將類別變數編碼為數值數量
 
-`AutoMLConfig`物件會定義自動化機器學習工作所需的設定和資料。 類似于回歸問題，您可以定義標準訓練參數，例如工作類型、反復專案數目、定型資料，以及交叉驗證的數目。 針對預測工作，還有一些必須設定的參數會影響實驗。 下表說明每個參數和其使用方式。
+@No__t 0 物件會定義自動化機器學習工作所需的設定和資料。 類似于回歸問題，您可以定義標準訓練參數，例如工作類型、反復專案數目、定型資料，以及交叉驗證的數目。 針對預測工作，還有一些必須設定的參數會影響實驗。 下表說明每個參數和其使用方式。
 
 | 參數 | 描述 | 必要項 |
 |-------|-------|-------|
@@ -100,7 +101,7 @@ y_test = X_test.pop("sales_quantity").values
 
 如需詳細資訊，請參閱[參考檔](https://docs.microsoft.com/python/api/azureml-train-automl/azureml.train.automl.automlconfig?view=azure-ml-py)。
 
-將時間序列設定建立為 dictionary 物件。 將設定`day_datetime`為資料集內的欄位。 `time_column_name` 定義參數以確保針對資料建立**兩個不同的時間序列群組**，一個用於儲存 A 和 B。 `max_horizon`最後，將設定為50，以便預測整個測試集。 `grain_column_names` 使用`target_rolling_window_size`將 [預測] 視窗設定為10個週期，並在 [目標值] 上指定 [前2個`target_lags`期間的單一延遲] 參數。
+將時間序列設定建立為 dictionary 物件。 將 `time_column_name` 設定為資料集內的 `day_datetime` 欄位。 定義 `grain_column_names` 參數，確保針對資料建立**兩個不同的時間序列群組**;一個用於儲存 A 和 B。最後，將 `max_horizon` 設定為50，以便預測整個測試集。 將 [預測] 視窗設定為10個週期，並 `target_rolling_window_size`，並在 [`target_lags`] 參數前的2個週期中，指定目標值的單一 lag。
 
 ```python
 time_series_settings = {
@@ -113,16 +114,12 @@ time_series_settings = {
 }
 ```
 
-
-
 > [!NOTE]
 > 自動化機器學習前置處理步驟 (功能正規化、處理遺漏的資料、將文字轉換成數值等等) 會成為基礎模型的一部分。 使用模型進行預測時，定型期間所套用的相同前置處理步驟會自動套用至您的輸入資料。
 
-藉由定義`grain_column_names`上述程式碼片段中的，AutoML 會建立兩個不同的時間序列群組，又稱為多個時間序列。 如果未定義任何細微性，則 AutoML 會假設資料集為單一時間序列。 若要深入瞭解單一時間序列，請參閱[energy_demand_notebook](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/automated-machine-learning/forecasting-energy-demand)。
+藉由在上述程式碼片段中定義 `grain_column_names`，AutoML 會建立兩個不同的時間序列群組，又稱為多個時間序列。 如果未定義任何細微性，則 AutoML 會假設資料集為單一時間序列。 若要深入瞭解單一時間序列，請參閱[energy_demand_notebook](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/automated-machine-learning/forecasting-energy-demand)。
 
-
-
-現在，請建立`AutoMLConfig`標準物件，並`forecasting`指定工作類型並提交實驗。 在模型完成之後，請抓取最佳的執行反復專案。
+現在建立標準 `AutoMLConfig` 物件，指定 [@no__t 1] 工作類型，然後提交實驗。 在模型完成之後，請抓取最佳的執行反復專案。
 
 ```python
 from azureml.core.workspace import Workspace
@@ -133,8 +130,8 @@ import logging
 automl_config = AutoMLConfig(task='forecasting',
                              primary_metric='normalized_root_mean_squared_error',
                              iterations=10,
-                             X=X_train,
-                             y=y_train,
+                             training_data=train_data,
+                             label_column_name=label,
                              n_cross_validations=5,
                              enable_ensembling=False,
                              verbosity=logging.INFO,
@@ -172,41 +169,41 @@ fitted_model.named_steps['timeseriestransformer'].get_featurization_summary()
 使用最佳模型反復專案來預測測試資料集的值。
 
 ```python
-y_predict = fitted_model.predict(X_test)
-y_actual = y_test.flatten()
+predict_labels = fitted_model.predict(test_data)
+actual_labels = test_labels.flatten()
 ```
 
-或者，您可以使用`forecast()`函式， `predict()`而不是，這將會允許預測應開始時的規格。 在下列範例中，您會先將中`y_pred`的所有值取代為。 `NaN` 在此情況下，預測來源會在定型資料的結尾，如同在使用`predict()`時一般的情況。 不過，如果您只`y_pred`使用`NaN`來取代的後半個，則函式會保留前一半未`NaN`修改的數值，但會在後半個中預測值。 函式會傳回預測的值和對齊的功能。
+或者，您可以使用 `forecast()` 函式，而不是 `predict()`，這將會允許預測應開始時的規格。 在下列範例中，您會先將 `y_pred` 中的所有值取代為 `NaN`。 在此情況下，預測來源會在定型資料的結尾，這通常是使用 `predict()` 時。 不過，如果您只以 `NaN` 取代後半的 `y_pred`，則函式會保留前一半未修改的數值，但會在後半部中預測 `NaN` 的值。 函式會傳回預測的值和對齊的功能。
 
-您也可以在函`forecast_destination`式`forecast()`中使用參數來預測值，直到指定的日期為止。
+您也可以使用 `forecast()` 函數中的 `forecast_destination` 參數，在指定的日期之前預測值。
 
 ```python
-y_query = y_test.copy().astype(np.float)
-y_query.fill(np.nan)
-y_fcst, X_trans = fitted_pipeline.forecast(
-    X_test, y_query, forecast_destination=pd.Timestamp(2019, 1, 8))
+label_query = test_labels.copy().astype(np.float)
+label_query.fill(np.nan)
+label_fcst, data_trans = fitted_pipeline.forecast(
+    test_data, label_query, forecast_destination=pd.Timestamp(2019, 1, 8))
 ```
 
-計算`y_test`實際值與中`y_pred`預測值之間的 RMSE （方根誤差）。
+計算 `actual_labels` 實際值和 `predict_labels` 中預測值之間的 RMSE （根 mean 平方誤差）。
 
 ```python
 from sklearn.metrics import mean_squared_error
 from math import sqrt
 
-rmse = sqrt(mean_squared_error(y_actual, y_predict))
+rmse = sqrt(mean_squared_error(actual_lables, predict_labels))
 rmse
 ```
 
-現在已決定整體模型精確度，最實際的下一個步驟是使用模型來預測未知的未來值。 只要以與測試集`X_test`相同的格式提供資料集，但使用未來的日期時間，所產生的預測集就是每個時間序列步驟的預測值。 假設資料集內的最後一個時間序列記錄是12/31/2018。 若要預測下一天的需求（或需要預測的期間數，請 < = `max_horizon`），為01/01/2019 的每個商店建立單一時間序列記錄。
+現在已決定整體模型精確度，最實際的下一個步驟是使用模型來預測未知的未來值。 只要以與測試集相同的格式提供資料集 `test_data`，但在未來日期時間，結果預測集就是每個時間序列步驟的預測值。 假設資料集內的最後一個時間序列記錄是12/31/2018。 若要預測下一天的需求（或需要預測的期間數，< = `max_horizon`），請為每個商店建立單一時間序列記錄01/01/2019。
 
     day_datetime,store,week_of_year
     01/01/2019,A,1
     01/01/2019,A,1
 
-重複必要的步驟，將未來的資料載入至資料框架，然後執行`best_run.predict(X_test)`以預測未來的值。
+重複必要的步驟，將未來的資料載入至資料框架，然後執行 `best_run.predict(test_data)` 以預測未來的值。
 
 > [!NOTE]
-> 無法預測大於的`max_horizon`期間數的值。 模型必須以較大的範圍重新定型，以預測目前範圍以外的未來值。
+> 無法預測大於 `max_horizon` 的期間數的值。 模型必須以較大的範圍重新定型，以預測目前範圍以外的未來值。
 
 ## <a name="next-steps"></a>後續步驟
 

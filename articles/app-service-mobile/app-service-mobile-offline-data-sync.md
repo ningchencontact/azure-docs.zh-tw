@@ -14,18 +14,19 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 10/30/2016
 ms.author: crdun
-ms.openlocfilehash: 7f5b24915ddb9fd12085583844770dd7587f2394
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.openlocfilehash: dcab966aed125e43fff49299a46a2e8bbb938d66
+ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72025212"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72388601"
 ---
-# <a name="offline-data-sync-in-azure-mobile-apps"></a>Azure 行動應用程式中的離線資料同步處理
+# <a name="offline-data-sync-in-azure-mobile-apps"></a>Azure Mobile Apps 中的離線資料同步
 
 > [!NOTE]
 > Visual Studio App Center 支援行動應用程式開發的端對端和整合式服務中心。 開發人員可以使用**組建**、**測試**和**散發**服務來設定持續整合和傳遞管線。 部署應用程式之後，開發人員可以使用**分析**和**診斷**服務來監視其應用程式的狀態和使用，並與使用**推**播服務的使用者互動。 開發人員也可以利用**驗證**來驗證其使用者和**資料**服務，以保存及同步雲端中的應用程式資料。
-> 如果您想要在您的行動應用程式中整合雲端服務，請立即註冊 App Center [App center](https://appcenter.ms/?utm_source=zumo&utm_medium=Azure&utm_campaign=zumo%20doc) 。
+>
+> 如果您想要在您的行動應用程式中整合雲端服務，請立即註冊[App Center](https://appcenter.ms/?utm_source=zumo&utm_medium=Azure&utm_campaign=zumo%20doc) 。
 
 ## <a name="what-is-offline-data-sync"></a>什麼是離線資料同步處理？
 離線資料同步處理是 Azure 行動應用程式的用戶端和伺服器 SDK 功能，可讓開發人員建立不需要網路連線就能運作的應用程式。
@@ -42,13 +43,13 @@ ms.locfileid: "72025212"
 
 下列教學課程說明如何使用 Azure 行動應用程式將離線同步處理新增至您的行動用戶端：
 
-* [Android：啟用離線同步處理 @ no__t-0
-* @no__t 0Apache Cordova：啟用離線同步處理 @ no__t-0
-* [iOS：啟用離線同步處理 @ no__t-0
-* @no__t 0Xamarin iOS：啟用離線同步處理 @ no__t-0
-* @no__t 0Xamarin Android：啟用離線同步處理 @ no__t-0
-* @no__t 0Xamarin：啟用離線同步處理 @ no__t-0
-* @no__t 0Universal 的 Windows 平臺：啟用離線同步處理 @ no__t-0
+* [Android：啟用離線同步處理]
+* [Apache Cordova︰啟用離線同步處理](app-service-mobile-cordova-get-started-offline-data.md)
+* [iOS：啟用離線同步處理]
+* [Xamarin iOS：啟用離線同步處理]
+* [Xamarin Android：啟用離線同步處理]
+* [Xamarin.Forms：啟用離線同步處理](app-service-mobile-xamarin-forms-get-started-offline-data.md)
+* [通用 Windows 平台︰啟用離線同步處理]
 
 ## <a name="what-is-a-sync-table"></a>什麼是同步處理資料表？
 若要存取 "/tables" 端點，Azure 行動用戶端 SDK 提供 `IMobileServiceTable` (.NET 用戶端 SDK) 或 `MSTable` (iOS 用戶端) 等介面。 這些 API 直接連接至 Azure 行動應用程式後端，如果用戶端裝置沒有網路連接，則會失敗。
@@ -58,7 +59,7 @@ ms.locfileid: "72025212"
 ## <a name="what-is-a-local-store"></a>什麼是本機存放區？
 本機存放區是用戶端裝置上的資料持續層。 Azure 行動應用程式用戶端 SDK 提供預設的本機存放區實作。 在 Windows、Xamarin 和 Android 上，它是以 SQLite 為基礎。 在 iOS 上，它是以 Core Data 為基礎。
 
-若要在 Windows Phone 或 Microsoft Store 上使用 SQLite 為基礎的實作，您需要安裝 SQLite 擴充。 如需詳細資訊，請參閱 @no__t 0Universal Windows 平臺：啟用離線同步處理 @ no__t-0。Android 與 iOS 裝置的作業系統本身即包含 SQLite 版本，因此您不需要再參考自己的 SQLite 版本。
+若要在 Windows Phone 或 Microsoft Store 上使用 SQLite 為基礎的實作，您需要安裝 SQLite 擴充。 如需詳細資訊，請參閱[通用 Windows 平台︰啟用離線同步處理]處理。Android 和 iOS 隨附裝置作業系統本身的 SQLite 版本，因此不需要參考您自己的 SQLite 版本。
 
 開發人員也可以實作自己的本機存放區。 例如，如果您希望將資料以加密格式儲存在行動用戶端上，則您可以定義使用 SQLCipher 進行加密的本機存放區。
 
@@ -70,10 +71,10 @@ ms.locfileid: "72025212"
 ## <a name="how-sync-works"></a>離線同步處理如何運作
 使用同步處理資料表時，您的用戶端程式碼需要控制本機變更與 Azure 行動應用程式後端同步處理的時機。 在有呼叫要「推送」( *push* ) 變更之前不會傳送任何項目到後端。 同樣地，只當有呼叫要「提取」( *pull* ) 時才會將新資料填入本機存放區。
 
-* **推送**：Push 是同步處理內容上的作業，並會在上次推送之後傳送所有 CUD 變更。 請注意，您無法只傳送個別資料表的變更，因為這樣作業傳送順序可能會發生錯誤。 推送會對 Azure 行動應用程式後端執行一系列的 REST 呼叫，再由後端修改伺服器資料庫。
-* **提取**：提取是以每個資料表為基礎執行，而且可以使用查詢自訂，只抓取伺服器資料的子集。 然後 Azure 行動用戶端 SDK 會將該結果資料插入本機存放區。
-* **隱含推送**：如果針對具有暫止本機更新的資料表執行提取，提取會先在同步處理內容上執行 `push()`。 此推送有助於將已排入佇列的變更與來自伺服器的新資料之間的衝突降到最低。
-* **增量同步處理**：提取作業的第一個參數是「查詢名稱」，此參數只在用戶端使用。 如果您使用非 null 的查詢名稱，Azure 行動 SDK 會執行「增量同步處理」。每當提取作業傳回結果集，該結果集中最新的 `updatedAt` 時間戳記就會儲存在 SDK 本機系統資料表。 後續的提取作業只會擷取該時間戳記之後的記錄。
+* **推送**：推送是同步處理內容的作業，會傳送自上一次推送之後的所有 CUD 變更。 請注意，您無法只傳送個別資料表的變更，因為這樣作業傳送順序可能會發生錯誤。 推送會對 Azure 行動應用程式後端執行一系列的 REST 呼叫，再由後端修改伺服器資料庫。
+* **提取**：提取會以各資料表為基礎執行，並且可以使用佇列來自訂，以抓取伺服器資料的特定子集。 然後 Azure 行動用戶端 SDK 會將該結果資料插入本機存放區。
+* **隱含推送**：如果對有擱置中本機更新的資料表執行提取，則提取會先在同步處理內容上執行 `push()`。 此推送有助於將已排入佇列的變更與來自伺服器的新資料之間的衝突降到最低。
+* **增量同步處理**：提取作業的第一個參數是「查詢名稱」，此參數只在用戶端使用。 如果您使用非 null 的查詢名稱，Azure Mobile SDK 會執行*增量同步*處理。每次提取作業傳回一組結果時，該結果集最新的 `updatedAt` 時間戳記會儲存在 SDK 本機系統資料表中。 後續的提取作業只會擷取該時間戳記之後的記錄。
 
   若要使用增量同步處理，您的伺服器必須傳回有意義的 `updatedAt` 值，也必須支援依據此欄位排序。 不過，由於 SDK 會在 updatedAt 欄位上加入自己的排序，所以您不能使用本身具備 `orderBy` 子句的提取查詢。
 
@@ -95,15 +96,15 @@ ms.locfileid: "72025212"
   舉例說明用戶端上過時資料，假設在 "todo list" 範例中，Device1 只會提取未完成的項目。 有其他裝置在伺服器上將 "Buy milk" todoitem 標記為已完成。 不過，Device1 在本機存放區仍有 "Buy milk" todoitem，因為它只提取未標記為已完成的項目。 清除作業會清除這個過時項目。
 
 ## <a name="next-steps"></a>後續步驟
-* [iOS：啟用離線同步處理 @ no__t-0
-* @no__t 0Xamarin iOS：啟用離線同步處理 @ no__t-0
-* @no__t 0Xamarin Android：啟用離線同步處理 @ no__t-0
-* @no__t 0Universal 的 Windows 平臺：啟用離線同步處理 @ no__t-0
+* [iOS：啟用離線同步處理]
+* [Xamarin iOS：啟用離線同步處理]
+* [Xamarin Android：啟用離線同步處理]
+* [通用 Windows 平台︰啟用離線同步處理]
 
 <!-- Links -->
 [.NET 用戶端 SDK]: app-service-mobile-dotnet-how-to-use-client-library.md
-[Android：啟用離線同步處理 @ no__t-0
-[iOS：啟用離線同步處理 @ no__t-0
-@no__t 0Xamarin iOS：啟用離線同步處理 @ no__t-0
-@no__t 0Xamarin Android：啟用離線同步處理 @ no__t-0
-@no__t 0Universal 的 Windows 平臺：啟用離線同步處理 @ no__t-0
+[Android：啟用離線同步處理]: app-service-mobile-android-get-started-offline-data.md
+[iOS：啟用離線同步處理]: app-service-mobile-ios-get-started-offline-data.md
+[Xamarin iOS：啟用離線同步處理]: app-service-mobile-xamarin-ios-get-started-offline-data.md
+[Xamarin Android：啟用離線同步處理]: app-service-mobile-xamarin-android-get-started-offline-data.md
+[通用 Windows 平台︰啟用離線同步處理]: app-service-mobile-windows-store-dotnet-get-started-offline-data.md

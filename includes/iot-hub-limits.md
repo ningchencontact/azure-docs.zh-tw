@@ -4,16 +4,16 @@ ms.author: robinsh
 ms.service: iot-hub
 ms.topic: include
 ms.date: 10/26/2018
-ms.openlocfilehash: f0de7aedc3883978582da1950e95aaabac9a1695
-ms.sourcegitcommit: b4665f444dcafccd74415fb6cc3d3b65746a1a31
+ms.openlocfilehash: b8d4c2691af8429e7b3a6c1916d12f1af609e744
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72272972"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72391576"
 ---
 下表列出與不同服務層級 S1、S2、S3 和 F1 相關聯的限制。 如需每一層中每個*單位*成本的相關資訊，請參閱[Azure IoT 中樞定價](https://azure.microsoft.com/pricing/details/iot-hub/)。
 
-| Resource | S1 標準 | S2 標準 | S3 標準 | F1 免費 |
+| 資源 | S1 標準 | S2 標準 | S3 標準 | F1 免費 |
 | --- | --- | --- | --- | --- |
 | 訊息/天 |400,000 |6,000,000 |300,000,000 |8,000 |
 | 單位上限 |200 |200 |10 |1 |
@@ -25,7 +25,7 @@ ms.locfileid: "72272972"
 
 下表列出適用于 IoT 中樞資源的限制。
 
-| Resource | 限制 |
+| 資源 | 限制 |
 | --- | --- |
 | 每個 Azure 訂用帳戶的付費 IoT 中樞上限 |50 |
 | 每個 Azure 訂用帳戶的免費 IoT 中樞上限 |1 |
@@ -37,7 +37,7 @@ ms.locfileid: "72272972"
 | 裝置到雲端批次的訊息上限 |500 |
 | 雲端到裝置訊息的大小上限 |64 KB |
 | 雲端到裝置訊息的 TTL 上限 |2 天 |
-| 雲端到裝置訊息的傳遞計數 <br/> messages |100 |
+| 雲端到裝置訊息的傳遞計數 <br/> 上限 |100 |
 | 每一裝置的雲端到裝置佇列深度上限 |50 |
 | 回應雲端到裝置訊息之反應訊息的 <br/> 傳遞計數上限 |100 |
 | 回應雲端到裝置訊息之反應訊息的 <br/> TTL 上限 |2 天 |
@@ -56,7 +56,7 @@ ms.locfileid: "72272972"
 > 如果您在 Azure 訂用帳戶中需要超過50的付費 IoT 中樞，請聯絡 Microsoft 支援服務。
 
 > [!NOTE]
-> 您目前可以連線到單一 IoT 中樞的裝置數目上限為 1,000,000 個。 如果您想要上調此限制，請連絡 [Microsoft 支援服務](https://azure.microsoft.com/support/options/)。
+> 目前，裝置總數加上可向單一 IoT 中樞註冊的模組，其上限為1000000。 如果您想要上調此限制，請連絡 [Microsoft 支援服務](https://azure.microsoft.com/support/options/)。
 
 當超過下列配額時，IoT 中樞節流要求。
 

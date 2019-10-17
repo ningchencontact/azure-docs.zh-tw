@@ -1,6 +1,6 @@
 ---
-title: Azure 狀態監視器 v2 API 參考:啟動追蹤 |Microsoft Docs
-description: 狀態監視器 v2 API 參考。 開始追蹤。 從狀態監視器和 Application Insights SDK 收集 ETW 記錄檔。
+title: Azure 應用程式 Insights 代理程式 API 參考：啟動追蹤 |Microsoft Docs
+description: Application Insights 代理程式 API 參考。 開始追蹤。 從狀態監視器和 Application Insights SDK 收集 ETW 記錄檔。
 services: application-insights
 documentationcenter: .net
 author: TimothyMothra
@@ -12,14 +12,14 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: tilee
-ms.openlocfilehash: f4c43e6bdb70687606041c2f0859ab072db2b587
-ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
+ms.openlocfilehash: b1c5aa34c46a20631b328abfb061dc2477150c72
+ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71200365"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72389856"
 ---
-# <a name="status-monitor-v2-api-start-applicationinsightsmonitoringtrace"></a>狀態監視器 v2 API:開始-ApplicationInsightsMonitoringTrace
+# <a name="application-insights-agent-api-start-applicationinsightsmonitoringtrace"></a>Application Insights 代理程式 API：開始-ApplicationInsightsMonitoringTrace
 
 本文說明的 Cmdlet 是[ApplicationMonitor PowerShell 模組](https://www.powershellgallery.com/packages/Az.ApplicationMonitor/)的成員。
 
@@ -27,9 +27,9 @@ ms.locfileid: "71200365"
 
 從無程式碼附加執行時間收集[ETW 事件](https://docs.microsoft.com/windows/desktop/etw/event-tracing-portal)。 此 Cmdlet 是執行[PerfView](https://github.com/microsoft/perfview)的替代方法。
 
-收集的事件會即時列印到主控台, 並儲存至 ETL 檔案。 [PerfView](https://github.com/microsoft/perfview)可以開啟輸出 ETL 檔案以供進一步調查。
+收集的事件會即時列印到主控台，並儲存至 ETL 檔案。 [PerfView](https://github.com/microsoft/perfview)可以開啟輸出 ETL 檔案以供進一步調查。
 
-此 Cmdlet 將會執行, 直到達到超時持續時間 (預設為5分鐘), 或以`Ctrl + C`手動方式停止 ()。
+此 Cmdlet 將會執行，直到達到超時持續時間（預設為5分鐘），或以手動方式停止（`Ctrl + C`）。
 
 > [!IMPORTANT] 
 > 此 Cmdlet 需要具有系統管理員許可權的 PowerShell 會話。
@@ -38,24 +38,24 @@ ms.locfileid: "71200365"
 
 ### <a name="how-to-collect-events"></a>如何收集事件
 
-一般來說, 我們會要求您收集事件, 以調查您的應用程式未被檢測的原因。
+一般來說，我們會要求您收集事件，以調查您的應用程式未被檢測的原因。
 
 無程式碼附加執行時間會在 IIS 啟動時以及應用程式啟動時發出 ETW 事件。
 
-若要收集這些事件:
-1. 在具有系統管理員許可權的 cmd 主控台中`iisreset /stop` , 執行以關閉 IIS 和所有 web 應用程式。
+若要收集這些事件：
+1. 在具有系統管理員許可權的 cmd 主控台中，執行 `iisreset /stop`，以關閉 IIS 和所有 web 應用程式。
 2. 執行此 Cmdlet
-3. 在具有系統管理員許可權的 cmd 主控台中`iisreset /start` , 執行以啟動 IIS。
+3. 在具有系統管理員許可權的 cmd 主控台中，執行 `iisreset /start` 來啟動 IIS。
 4. 嘗試流覽至您的應用程式。
-5. 在您的應用程式完成載入之後, 您可以手動`Ctrl + C`停止它 (), 或等候超時。
+5. 在您的應用程式完成載入之後，您可以手動將它停止（`Ctrl + C`）或等候超時。
 
 ### <a name="what-events-to-collect"></a>要收集的事件
 
-收集事件時, 您有三個選項:
-1. 使用參數`-CollectSdkEvents`來收集從 Application Insights SDK 發出的事件。
-2. 使用參數`-CollectRedfieldEvents`來收集狀態監視器和 Redfield 執行時間發出的事件。 當診斷 IIS 和應用程式啟動時, 這些記錄會很有説明。
+收集事件時，您有三個選項：
+1. 使用參數 `-CollectSdkEvents` 來收集從 Application Insights SDK 發出的事件。
+2. 使用參數 `-CollectRedfieldEvents` 來收集狀態監視器和 Redfield 執行時間發出的事件。 當診斷 IIS 和應用程式啟動時，這些記錄會很有説明。
 3. 同時使用這兩個參數來收集這兩個事件種類。
-4. 根據預設, 如果未指定任何參數, 則會收集這兩個事件種類。
+4. 根據預設，如果未指定任何參數，則會收集這兩個事件種類。
 
 
 ## <a name="parameters"></a>參數
@@ -64,7 +64,7 @@ ms.locfileid: "71200365"
 **選用。** 使用此參數來設定此腳本應該收集事件的時間長度。 預設值為 5 分鐘。
 
 ### <a name="-logdirectory"></a>-LogDirectory
-**選用。** 使用此參數來設定 ETL 檔案的輸出目錄。 根據預設, 會在 PowerShell 模組目錄中建立此檔案。 腳本執行期間會顯示完整路徑。
+**選用。** 使用此參數來設定 ETL 檔案的輸出目錄。 根據預設，會在 PowerShell 模組目錄中建立此檔案。 腳本執行期間會顯示完整路徑。
 
 
 ### <a name="-collectsdkevents"></a>-CollectSdkEvents
@@ -78,7 +78,7 @@ ms.locfileid: "71200365"
 
 
 
-## <a name="output"></a>Output
+## <a name="output"></a>輸出
 
 
 ### <a name="example-of-application-startup-logs"></a>應用程式開機記錄的範例
@@ -113,15 +113,15 @@ Timeout Reached. Stopping...
 
 ## <a name="next-steps"></a>後續步驟
 
-其他疑難排解:
+其他疑難排解：
 
-- 請在這裡查看其他疑難排解步驟: https://docs.microsoft.com/azure/azure-monitor/app/status-monitor-v2-troubleshoot
-- 請參閱[API 參考](status-monitor-v2-overview.md#powershell-api-reference), 以瞭解您可能遺漏的參數。
-- 如果您需要其他協助, 您可以在[GitHub](https://github.com/Microsoft/ApplicationInsights-Home/issues)上與我們聯繫。
+- 在此查看其他疑難排解步驟： https://docs.microsoft.com/azure/azure-monitor/app/status-monitor-v2-troubleshoot
+- 請參閱[API 參考](status-monitor-v2-overview.md#powershell-api-reference)，以瞭解您可能遺漏的參數。
+- 如果您需要其他協助，您可以在[GitHub](https://github.com/Microsoft/ApplicationInsights-Home/issues)上與我們聯繫。
 
 
 
- 使用狀態監視器 v2 來執行更多動作:
- - 使用我們的指南進行狀態監視器 v2 的[疑難排解](status-monitor-v2-troubleshoot.md)。
- - [取得](status-monitor-v2-api-get-config.md)設定, 以確認已正確記錄您的設定。
+ 使用 Application Insights 代理程式執行更多工具：
+ - 使用我們的指南來[疑難排解](status-monitor-v2-troubleshoot.md)Application Insights 代理程式。
+ - [取得](status-monitor-v2-api-get-config.md)設定，以確認已正確記錄您的設定。
  - [取得狀態](status-monitor-v2-api-get-status.md)以檢查監視。

@@ -15,18 +15,18 @@ ms.workload: infrastructure-services
 ms.date: 03/30/2018
 ms.author: akjosh
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: a8027a1290b4b771c17a1e748c06f3b86fa0bf95
-ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
+ms.openlocfilehash: 4e8543f1f6ef2cdf1695340b07dcbc51365a01a5
+ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72244594"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72438147"
 ---
 # <a name="virtual-machine-extensions-and-features-for-windows"></a>適用於 Windows 的虛擬機器擴充功能和功能
 
-Azure 虛擬機器 (VM) 擴充功能是小型的應用程式，可在 Azure 虛擬機器上提供部署後設定及自動化工作。 例如，如果虛擬機器要求安裝軟體、防毒保護，或要求執行其中的指令碼，便可使用虛擬機器擴充功能。 您可以使用 Azure CLI、PowerShell、Azure Resource Manager 範本及 Azure 入口網站來執行 Azure 虛擬機器擴充功能。 擴充功能可以與新的虛擬機器部署搭配，或是在任何現有的系統上執行。
+Azure 虛擬機器 (VM) 擴充功能是小型的應用程式，可在 Azure VM 上提供部署後設定及自動化工作。 例如，如果虛擬機器要求安裝軟體、防毒保護，或要求執行其中的指令碼，便可使用虛擬機器擴充功能。 您可以使用 Azure CLI、PowerShell、Azure Resource Manager 範本及 Azure 入口網站來執行 Azure 虛擬機器擴充功能。 擴充功能可以與新的虛擬機器部署搭配，或是在任何現有的系統上執行。
 
-本文提供虛擬機器擴充功能概觀、使用 Azure 虛擬機器擴充功能的必要條件，以及如何偵測、管理和移除虛擬機器擴充功能的指引。 因為有許多可用的虛擬機器擴充功能，且每項功能的設定可能都盡不相同，因此本文所提供的是通用資訊。 可以在每份個別擴充功能專用的文件中找到擴充功能特定的詳細資料。
+本文提供虛擬機器擴充功能概觀、使用 Azure 虛擬機器擴充功能的必要條件，以及如何偵測、管理和移除虛擬機器擴充功能的指引。 本文提供通用的資訊，因為有許多可用的 VM 擴充功能，每個都有唯一可能的組態。 可以在每份個別擴充功能專用的文件中找到擴充功能特定的詳細資料。
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
@@ -56,7 +56,7 @@ Azure 虛擬機器代理程式可管理 Azure 虛擬機器與 Azure 網狀架構
 
 為了提供最佳使用體驗，代理程式的版本數量盡可能精簡。 如需詳細資訊，請參閱 [本篇文章](https://support.microsoft.com/en-us/help/4049215/extensions-and-virtual-machine-agent-minimum-version-support)。
 
-#### <a name="supported-oses"></a>支援的作業系統
+#### <a name="supported-oses"></a>支援的 OS
 
 Windows 客體代理程式可在多種 OS 上執行，但具有擴充功能的 OS 在擴充功能方面有所限制。 如需詳細資訊，請參閱 [本篇文章](https://support.microsoft.com/en-us/help/4078134/azure-extension-supported-operating-systems
 )。
@@ -65,7 +65,7 @@ Windows 客體代理程式可在多種 OS 上執行，但具有擴充功能的 O
 
 #### <a name="network-access"></a>網路存取
 
-擴充功能套件可從 Azure 儲存體擴充功能存放庫下載，且擴充功能狀態上傳會發佈至 Azure 儲存體。 如果您使用[支援](https://support.microsoft.com/en-us/help/4049215/extensions-and-virtual-machine-agent-minimum-version-support)的代理程式版本，則不需要允許存取 VM 區域中的 Azure 儲存體，因為可以使用代理程式將通訊重新導向至 Azure 網狀架構控制器以進行代理程式通訊（HostGAPlugin 功能透過私人 IP 168.63.129.16 上的特殊許可權通道）。 如果您使用不受支援的代理程式版本，則必須允許從虛擬機器對該區域中的 Azure 儲存體進行存取。
+擴充功能套件可從 Azure 儲存體擴充功能存放庫下載，且擴充功能狀態上傳會發佈至 Azure 儲存體。 如果您使用[支援](https://support.microsoft.com/en-us/help/4049215/extensions-and-virtual-machine-agent-minimum-version-support)的代理程式版本，則不需要允許存取 VM 區域中的 Azure 儲存體，因為可以使用代理程式將通訊重新導向至 Azure 網狀架構控制器以進行代理程式通訊（HostGAPlugin 功能透過私人 IP [168.63.129.16](https://docs.microsoft.com/en-us/azure/virtual-network/what-is-ip-address-168-63-129-16)上的特殊許可權通道）。 如果您使用不受支援的代理程式版本，則必須允許從虛擬機器對該區域中的 Azure 儲存體進行存取。
 
 > [!IMPORTANT]
 > 如果您已使用來賓防火牆或 proxy 來封鎖對*168.63.129.16*的存取，則無論上述情況，延伸模組都會失敗。 需要端口80、443和32526。
@@ -76,7 +76,7 @@ Windows 來賓代理程式沒有 proxy 伺服器支援，可讓您透過重新�
 
 ## <a name="discover-vm-extensions"></a>探索 VM 擴充功能
 
-有許多不同的虛擬機器擴充功能可與 Azure 虛擬機器搭配使用。 若要查看完整清單，請使用 [Get-AzVMExtensionImage](https://docs.microsoft.com/powershell/module/az.compute/get-azvmextensionimage)。 下列範例列出 *WestUS* 位置中所有可用的擴充功能：
+有許多不同的 VM 擴充功能可與 Azure VM 搭配使用。 若要查看完整清單，請使用 [Get-AzVMExtensionImage](https://docs.microsoft.com/powershell/module/az.compute/get-azvmextensionimage)。 下列範例列出 *WestUS* 位置中所有可用的擴充功能：
 
 ```powershell
 Get-AzVmImagePublisher -Location "WestUS" | `
@@ -86,9 +86,9 @@ Get-AzVMExtensionImage | Select Type, Version
 
 ## <a name="run-vm-extensions"></a>執行 VM 延伸模組
 
-Azure 虛擬機器擴充功能可以在現有的虛擬機器上執行，這在需要進行組態變更或復原已部署虛擬機器上的連線時很有用。 VM 擴充功能也可以搭配 Azure Resource Manager 範本部署。 使用具有 Resource Manager 範本的擴充功能，就可以部署及設定 Azure 虛擬機器而不需要在部署後介入。
+Azure VM 擴充功能可以在現有的 VM 上執行，這在需要進行組態變更或復原已部署之 VM 上的連線時很有用。 VM 擴充功能也可以搭配 Azure Resource Manager 範本部署。 使用具有 Resource Manager 範本的擴充功能，就可以部署及設定 Azure 虛擬機器而不需要在部署後介入。
 
-下列方法可用來針對現有的虛擬機器執行擴充功能。
+下列方法可用來針對現有的 VM 執行擴充功能。
 
 ### <a name="powershell"></a>PowerShell
 
@@ -140,15 +140,15 @@ Set-AzVMAccessExtension -ResourceGroupName "myResourceGroup" -VMName "myVM" -Nam
 `Set-AzVMExtension` 命令可用來啟動任何 VM 擴充功能。 如需詳細資訊，請參閱 [Set-AzVMExtension 參考資料](https://docs.microsoft.com/powershell/module/az.compute/set-azvmextension)。
 
 
-### <a name="azure-portal"></a>Azure 入口網站
+### <a name="azure-portal"></a>Azure Portal
 
-虛擬機器擴充功能可以透過 Azure 入口網站套用至現有的虛擬機器。 請在入口網站選取虛擬機器，選擇 [擴充功能]，然後選取 [新增]。 從可用擴充功能清單選擇您想要的擴充功能，並遵循精靈中的指示。
+VM 擴充功能可以透過 Azure 入口網站套用至現有的 VM。 請在入口網站選取虛擬機器，選擇 [擴充功能]，然後選取 [新增]。 從可用擴充功能清單選擇您想要的擴充功能，並遵循精靈中的指示。
 
 下列範例顯示從 Azure 入口網站安裝 Microsoft 反惡意程式碼擴充功能：
 
 ![安裝反惡意程式碼延伸模組](./media/features-windows/installantimalwareextension.png)
 
-### <a name="azure-resource-manager-templates"></a>Azure 資源管理員範本
+### <a name="azure-resource-manager-templates"></a>Azure Resource Manager 範本
 
 VM 擴充功能可以新增至 Azure Resource Manager 範本，並使用範本的部署執行。 當您使用範本部署擴充功能時，可以建立完全設定的 Azure 部署。 例如，下列 JSON 是取自部署一組負載平衡 VM 和 Azure SQL 資料庫的 Resource Manager 範本，並在每個 VM 上安裝 .NET 核心應用程式。 VM 擴充功能會處理軟體安裝。
 
@@ -188,7 +188,7 @@ VM 擴充功能可以新增至 Azure Resource Manager 範本，並使用範本�
 
 ## <a name="secure-vm-extension-data"></a>安全的 VM 擴充功能資料
 
-在執行虛擬機器擴充功能時，可能需要包含機密資訊，例如認證、儲存體帳戶名稱和儲存體帳戶存取金鑰。 許多虛擬機器擴充功能包含受保護的組態，其會加密資料並只在目標虛擬機器內加以解密。 每個擴充功能有特定受保護的組態結構描述，並每個都會在擴充功能特定文件中詳細說明。
+在執行 VM 擴充功能時，可能需要包含機密資訊，例如認證、儲存體帳戶名稱和儲存體帳戶存取金鑰。 許多虛擬機器擴充功能包含受保護的組態，其會加密資料並只在目標虛擬機器內加以解密。 每個擴充功能有特定受保護的組態結構描述，並每個都會在擴充功能特定文件中詳細說明。
 
 下列範例會顯示適用於 Windows 的自訂指令碼擴充功能執行個體。 要執行的命令包含一組認證。 在此範例中，要執行的命令不會加密：
 
@@ -259,7 +259,7 @@ VM 擴充功能可以新增至 Azure Resource Manager 範本，並使用範本�
 有可用的更新時，只有在擴充功能有所變更和其他虛擬機器模型已變更時，才會在虛擬機器上安裝更新：
 
 - 資料磁碟
-- 延伸模組
+- 擴充功能
 - 開機診斷容器
 - 客體作業系統祕密
 - VM 大小
@@ -311,14 +311,14 @@ Windows 客體代理程式僅包含*擴充功能處理程式碼*，*Windows 佈�
 
 #### <a name="identifying-if-the-extension-is-set-with-autoupgrademinorversion-on-a-vm"></a>識別是否已在虛擬機器上使用 autoUpgradeMinorVersion 設定擴充功能
 
-如果已使用 'autoUpgradeMinorVersion' 佈建擴充功能，您應可從虛擬機器模型看出。 若要確認，請使用 [Get-AzVm](https://docs.microsoft.com/powershell/module/az.compute/get-azvm)，並提供資源群組和 VM 名稱，如下所示：
+如果已使用 'autoUpgradeMinorVersion' 佈建擴充功能，您應可從 VM 模型看出。 若要確認，請使用 [Get-AzVm](https://docs.microsoft.com/powershell/module/az.compute/get-azvm)，並提供資源群組和 VM 名稱，如下所示：
 
 ```powerShell
  $vm = Get-AzVm -ResourceGroupName "myResourceGroup" -VMName "myVM"
  $vm.Extensions
 ```
 
-下列範例輸出顯示 *autoUpgradeMinorVersion* 已設定為 *true*：
+下列範例輸出顯示 *autoUpgradeMinorVersion* 設定為 *true*：
 
 ```powershell
 ForceUpdateTag              :
@@ -345,9 +345,9 @@ AutoUpgradeMinorVersion     : True
 
 ## <a name="troubleshoot-vm-extensions"></a>針對 VM 擴充功能進行疑難排解
 
-每個 VM 擴充功能可能會有擴充功能特定的疑難排解步驟。 例如，當您使用「自訂指令碼」擴充功能時，指令碼執行詳細資料可以在執行擴充功能的虛擬機器本機上找到。 所有擴充功能特定疑難排解步驟都會在擴充功能特定文件中詳述。
+每個 VM 擴充功能可能會有擴充功能特定的疑難排解步驟。 例如，當您使用自訂指令碼擴充功能時，指令碼執行詳細資料可以在擴充功能執行所在的 VM 本機上找到。 所有擴充功能特定疑難排解步驟都會在擴充功能特定文件中詳述。
 
-下列疑難排解步驟適用於所有虛擬機器擴充功能。
+下列疑難排解步驟適用於所有 VM 擴充功能。
 
 1. 若要查看 Windows 客體代理程式記錄，請在 *C:\WindowsAzure\Logs\WaAppAgent.txt* 中檢視您佈建擴充功能時所執行的活動
 
@@ -363,7 +363,7 @@ AutoUpgradeMinorVersion     : True
 
 2. 不符合先決條件。 某些擴充功能具有對虛擬機器 SKU 的相依性，例如 HPC 映像。 擴充功能可能會有特定的網路存取需求，例如，須與 Azure 儲存體或公用服務進行通訊。 其他範例可能包括對套件存放庫的存取、磁碟空間不足或安全性限制等。
 
-3. 獨佔套件管理員存取。 在某些情況下，可能會出現長時間執行的虛擬機器組態和擴充功能安裝相衝突的情形，因為兩者都需要以獨佔方式存取套件管理員。
+3. 獨佔套件管理員存取。 在某些情況下，可能會出現長時間執行的 VM 設定和擴充功能安裝相衝突的情形，因為兩者都需要以獨佔方式存取套件管理員。
 
 ### <a name="view-extension-status"></a>檢視擴充功能狀態
 
@@ -373,7 +373,7 @@ AutoUpgradeMinorVersion     : True
 Get-AzVM -ResourceGroupName "myResourceGroup" -VMName "myVM" -Status
 ```
 
-輸出會類似下列範例：
+其輸出類似於下列範例輸出：
 
 ```powershell
 Extensions[0]           :
@@ -403,7 +403,7 @@ Extensions[0]           :
 
 ### <a name="rerun-vm-extensions"></a>執行 VM 擴充功能
 
-可能會發生必須重新執行虛擬機器擴充功能的情況。 您可以藉由移除延伸模組，然後使用您所選的執行方法重新執行延伸模組，來重新執行延伸模組。 若要移除擴充功能，請使用 [Remove-AzVMExtension](https://docs.microsoft.com/powershell/module/az.compute/Remove-AzVMExtension)，如下所示：
+可能會發生必須重新執行 VM 擴充功能的情況。 您可以藉由移除延伸模組，然後使用您所選的執行方法重新執行延伸模組，來重新執行延伸模組。 若要移除擴充功能，請使用 [Remove-AzVMExtension](https://docs.microsoft.com/powershell/module/az.compute/Remove-AzVMExtension)，如下所示：
 
 ```powershell
 Remove-AzVMExtension -ResourceGroupName "myResourceGroup" -VMName "myVM" -Name "myExtensionName"
@@ -426,4 +426,4 @@ Remove-AzVMExtension -ResourceGroupName "myResourceGroup" -VMName "myVM" -Name "
 
 ## <a name="next-steps"></a>後續步驟
 
-如需關於虛擬機器擴充功能的詳細資訊，請參閱 [Azure 虛擬機器擴充功能和功能概觀](overview.md)。
+如需有關 VM 擴充功能的詳細資訊，請參閱 [Azure 虛擬機器擴充功能和功能概觀](overview.md)。

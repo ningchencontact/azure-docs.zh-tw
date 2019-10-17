@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: search
 ms.topic: conceptual
 ms.date: 10/09/2019
-ms.openlocfilehash: 2513825fcb275aeb3c4f0ca49ff5f2a6bd9441f0
-ms.sourcegitcommit: bd4198a3f2a028f0ce0a63e5f479242f6a98cc04
+ms.openlocfilehash: 192d1a7b3bb10395aa662a4b915fe0189b1306b5
+ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/14/2019
-ms.locfileid: "72303011"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72434044"
 ---
 # <a name="use-ai-to-understand-blob-data"></a>使用 AI 來瞭解 Blob 資料
 
@@ -30,7 +30,7 @@ AI 擴充會建立儲存在欄位中的新資訊，以文字形式加以捕捉�
 
 在本文中，我們會透過寬型鏡頭來觀看 AI 擴充，讓您可以快速瞭解整個程式，從將 blob 中的原始資料轉換成搜尋索引或知識存放區中的可查詢資訊。
 
-## <a name="what-it-means-to-enrich-blob-data"></a>「擴充」 blob 資料的意義
+## <a name="what-it-means-to-enrich-blob-data-with-ai"></a>使用 AI 「充實」 blob 資料的意義
 
 *AI 擴充*是 Azure 搜尋服務的編制索引架構的一部分，可整合 Microsoft 的內建 ai 或您提供的自訂 ai。 它可協助您執行端對端案例，您必須在其中處理 blob （現有的和新的 blob，或更新時）、破解開啟的所有檔案格式以解壓縮影像和文字、使用各種 AI 功能來解壓縮所需的資訊，以及在 Azure 搜尋服務索引中編制索引，以便快速搜尋、抓取和探索。 
 
@@ -40,33 +40,37 @@ AI 擴充會建立儲存在欄位中的新資訊，以文字形式加以捕捉�
 
 在中，是管線架構本身。 管線是以*索引子*功能為基礎，您可以在其中指派*技能集*，這是由提供 AI 的一或多項*技術*所組成。 管線的目的是要產生擴充的*檔*，以輸入為原始內容，但在透過管線移動時，會挑選額外的結構、內容和資訊。 在編制索引期間會耗用擴充的檔，以建立反向索引和其他用於全文檢索搜尋或探索和分析的結構。
 
-## <a name="how-to-get-started"></a>如何開始使用
+## <a name="start-with-services-and-data"></a>開始使用服務和資料
 
-您可以直接在儲存體帳戶入口網站頁面中啟動。 按一下 [新增**Azure 搜尋服務**]，然後建立新的 Azure 搜尋服務服務，或選取現有的服務。 如果您在相同的訂用帳戶中已經有現有的搜尋服務，按一下 [**新增] Azure 搜尋服務**會開啟 [匯入資料] 嚮導，讓您可以立即逐步執行編制索引、擴充和索引定義。
+您需要 Azure 搜尋服務和 Azure Blob 儲存體。 在 Blob 儲存體中，您需要提供來源內容的容器。
 
-將 Azure 搜尋服務新增至您的儲存體帳戶之後，您可以遵循標準程式來擴充任何 Azure 資料來源中的資料。 假設您已經有 blob 內容，您可以使用 Azure 搜尋服務中的 [匯入資料]，以取得 AI 擴充的簡單初始簡介。 本快速入門說明下列步驟：[在入口網站中建立 AI 擴充管線](cognitive-search-quickstart-blob.md)。 
+您可以直接在儲存體帳戶入口網站頁面中啟動。 在左側導覽頁面的  **Blob 服務**按一下 **新增 Azure 搜尋服務** 以建立新的服務，或選取現有的服務。 
+
+將 Azure 搜尋服務新增至您的儲存體帳戶之後，您可以遵循標準程式來擴充任何 Azure 資料來源中的資料。 我們建議 Azure 搜尋服務的匯**入資料**wizard，以取得 AI 擴充的簡單初始簡介。 本快速入門會逐步引導您進行步驟：[在入口網站中建立 AI 擴充管線](cognitive-search-quickstart-blob.md)。 
 
 在下列各節中，我們將探索更多元件和概念。
 
-## <a name="use-blob-indexers"></a>使用 Blob 索引子
+## <a name="use-a-blob-indexer"></a>使用 Blob 索引子
 
-AI 擴充是索引管線的附加元件，而在 Azure 搜尋服務中，這些管線會建立在*索引子*之上。 索引子是一種資料來源感知的子服務，具備用來取樣資料、讀取中繼資料、抓取資料，以及將資料從原生格式序列化為 JSON 檔以供後續匯入的內部邏輯。 索引子通常會用於匯入，與 AI 分開，但如果您想要建立 AI 擴充管線，則需要索引子和技能集來與它搭配使用。 在本節中，我們會將焦點放在索引子本身。
+AI 擴充是索引管線的附加元件，而在 Azure 搜尋服務中，這些管線會建立在*索引子*之上。 索引子是一種資料來源感知的子服務，具備用來取樣資料、讀取中繼資料、抓取資料，以及將資料從原生格式序列化為 JSON 檔以供後續匯入的內部邏輯。 索引子通常會用於匯入，與 AI 分開，但如果您想要建立 AI 擴充管線，則需要索引子和技能集來與它搭配使用。 本節將重點放在索引子;下一節著重于技能集。
 
-Azure 儲存體中的 blob 會使用[Azure 搜尋服務 Blob 儲存體索引子](search-howto-indexing-azure-blob-storage.md)來編制索引。 您可以藉由設定型別，以及提供包含 Azure 儲存體帳戶和 blob 容器的連線資訊來叫用此索引子。 除非您先前已將 blob 組織成虛擬目錄，然後再以參數的形式傳遞，否則 Blob 索引子會從整個容器中提取。
+Azure 儲存體中的 blob 會使用[Azure 搜尋服務 Blob 儲存體索引子](search-howto-indexing-azure-blob-storage.md)來編制索引。 您可以使用 [匯**入資料**]、[REST API] 或 [.net SDK] 來叫用此索引子。 在程式碼中，您可以藉由設定型別，以及提供包含 Azure 儲存體帳戶和 blob 容器的連接資訊，來使用此索引子。 您可以藉由建立虛擬目錄來將 blob 子集化，然後將它當做參數傳遞，或藉由篩選檔案類型副檔名來進行。
 
-索引子會執行「檔破解」，而在連接到資料來源之後，這就是管線中的第一個步驟。 若是 blob 資料，則會偵測到 PDF、office 檔、影像和其他內容類型。 使用文字解壓縮的檔破解是免費的。 使用影像解壓縮的檔破解是以您可以在 Azure 搜尋服務[定價頁面](https://azure.microsoft.com/pricing/details/search/)上找到的費率收費。
+索引子會執行「檔破解」，開啟 blob 以檢查內容。 連接到資料來源之後，就是管線中的第一個步驟。 若是 blob 資料，則會偵測到 PDF、office 檔、影像和其他內容類型。 使用文字解壓縮的檔破解是免費的。 使用影像解壓縮的檔破解是以您可以在 Azure 搜尋服務[定價頁面](https://azure.microsoft.com/pricing/details/search/)上找到的費率收費。
 
-雖然所有檔都會被破解，但只有在您明確提供技能來執行此動作時，才會發生擴充。 例如，如果您的管線只包含文字分析，則會忽略容器或檔中的任何影像。
+雖然所有檔都會被破解，但只有在您明確提供技能來執行此動作時，才會發生擴充。 例如，如果您的管線僅包含影像分析，則會忽略容器或檔中的文字。
 
 Blob 索引子隨附設定參數，如果基礎資料提供足夠的資訊，則支援變更追蹤。 您可以在[Azure 搜尋服務 Blob 儲存體索引子](search-howto-indexing-azure-blob-storage.md)中深入瞭解核心功能。
 
-## <a name="add-ai"></a>新增 AI
+## <a name="add-ai-components"></a>新增 AI 元件
 
-*技能*是 AI 處理的個別元件，您可以單獨使用或搭配其他技能進行連續處理。 
+AI 擴充指的是可尋找模式或特性的模組，然後據以執行操作。 相片中的臉部辨識、相片的文字描述、偵測檔中的主要片語，以及 OCR （或辨識二進位檔案中的列印或手寫文字）都是說明範例。
 
-+ 內建技能的支援認知服務、以電腦視覺為基礎的影像分析，以及以文字分析為基礎的自然語言處理。 其中一些範例包括[OCR](cognitive-search-skill-ocr.md)、[實體](cognitive-search-skill-entity-recognition.md)辨識和[影像分析](cognitive-search-skill-image-analysis.md)。 您可以在[content 擴充的預先定義技能](cognitive-search-predefined-skills.md)中，查看內建技能的完整清單。
+在 Azure 搜尋服務中，*技能*是 AI 處理的個別元件，您可以單獨使用或與其他技能結合。 
 
-+ 自訂技能是包裝在介面定義中的自訂程式碼，可讓您整合到管線中。 在客戶解決方案中，常見的作法是使用這兩種方式，搭配提供開放原始碼、協力廠商或第一方 AI 模組的自訂技能。
++ 內建技能的支援認知服務、以電腦視覺為基礎的影像分析，以及以文字分析為基礎的自然語言處理。 您可以在[content 擴充的預先定義技能](cognitive-search-predefined-skills.md)中，查看內建技能的完整清單。
+
++ 自訂技能是包裝在[介面定義](cognitive-search-custom-skill-interface.md)中的自訂程式碼，可讓您整合到管線中。 在客戶解決方案中，常見的作法是使用這兩種方式，搭配提供開放原始碼、協力廠商或第一方 AI 模組的自訂技能。
 
 *技能集*是管線中使用的技能集合，它是在檔破解階段讓內容可供使用時叫用。 索引子只能取用一個技能集，但該技能集獨立于索引子，因此您可以在其他案例中重複使用它。
 
@@ -76,30 +80,33 @@ Blob 索引子隨附設定參數，如果基礎資料提供足夠的資訊，則
 
 如果您僅使用自訂技能和內建的公用程式技能，則沒有與認知服務相關的相依性或成本。
 
-## <a name="order-of-operations"></a>作業順序
+<!-- ## Order of operations
 
-現在我們已討論過索引子、內容的解壓縮和技能，我們可以進一步探討管線機制和作業的順序。
+Now we've covered indexers, content extraction, and skills, we can take a closer look at pipeline mechanisms and order of operations.
 
-技能集是一或多項技能的組合。 當牽涉到多個技能時，技能集會以順序管線的方式運作，產生相依性圖形，其中一項技能的輸出會變成另一個技能的輸入。 
+A skillset is a composition of one or more skills. When multiple skills are involved, the skillset operates as sequential pipeline, producing dependency graphs, where output from one skill becomes input to another. 
 
-例如，假設有一個大型的非結構化文字 blob，文字分析的作業範例順序可能如下所示：
+For example, given a large blob of unstructured text, a sample order of operations for text analytics might be as follows:
 
-1. 使用文字分隔器將 blob 分解成較小的部分。
-1. 使用語言偵測來判斷內容是英文或其他語言。
-1. 使用文字翻譯工具將所有文字都放入通用語言。
-1. 在文字區塊上執行實體辨識、關鍵片語擷取或情感分析。 在此步驟中，會建立並填入新的欄位。 實體可能是位置、人員、組織、日期。 關鍵字組是顯示在一起的簡短單字組合。 情感分數是從負（0）到正面（1）情感的連續評等。
-1. 使用文字合併，從較小的區塊中重新構成檔。
+1. Use Text Splitter to break the blob into smaller parts.
+1. Use Language Detection to determine if content is English or another language.
+1. Use Text Translator to get all text into a common language.
+1. Run Entity Recognition, Key Phrase Extraction, or Sentiment Analysis on chunks of text. In this step, new fields are created and populated. Entities might be location, people, organization, dates. Key phrases are short combinations of words that appear to belong together. Sentiment score is a rating on continuum of negative (0) to positive (1) sentiment.
+1. Use Text Merger to reconstitute the document from the smaller chunks. -->
 
+## <a name="consume-ai-enriched-output-in-downstream-solutions"></a>在下游解決方案中使用 AI 擴充的輸出
 
-## <a name="outputs-and-use-cases"></a>輸出和使用案例
+AI 擴充的輸出可以是 Azure 搜尋服務上的搜尋索引，或 Azure 儲存體中的[知識存放區](knowledge-store-concept-intro.md)。
 
-管線結尾的擴充檔與原始輸入版本不同，因為有其他欄位包含擴充期間所解壓縮或產生的新資訊。 因此，您可以透過數種方式來使用原始和已建立值的組合。
+在 Azure 搜尋服務中，搜尋索引是用來在用戶端應用程式中使用自由文字和篩選查詢進行互動式探索。 透過 AI 建立的擴充檔會以 JSON 格式格式化，並以 Azure 搜尋服務中的所有檔編制索引的相同方式來編制索引，並利用索引子提供的所有優點。 例如，在編制索引期間，blob 索引子會參照設定參數和設定，以利用任何欄位對應或變更偵測邏輯。 這類設定完全適用于一般索引和 AI 擴充的工作負載。 索引編制後，當內容儲存在 Azure 搜尋服務上時，您可以建立豐富的查詢和篩選運算式，以瞭解您的內容。
 
-輸出構成物是 Azure 搜尋服務上的搜尋索引，或 Azure 儲存體中的知識存放區。
+在 Azure 儲存體中，知識存放區有兩個形式分門別類： blob 容器或資料表儲存體中的資料表。 
 
-在 Azure 搜尋服務中，擴充的檔會以 JSON 格式格式化，而且可以使用索引子所提供的優點，以所有檔編制索引的相同方式來編制索引。 擴充檔中的欄位會對應至索引架構。 在編制索引期間，blob 索引子會參照設定參數和設定，以使用您所指定的任何欄位對應或變更偵測邏輯。 索引編制後，當內容儲存在 Azure 搜尋服務上時，您可以建立豐富的查詢和篩選運算式，以瞭解您的內容。
++ Blob 容器會全面捕捉擴充的檔，如果您想要送入其他進程，這會很有用。 
 
-在 Azure 儲存體中，知識存放區有兩個形式分門別類： blob 容器或資料表儲存體中的資料表。 Blob 容器會全面捕捉擴充的檔，如果您想要送入其他進程，這會很有用。 相反地，資料表儲存體可以容納擴充檔的實際預測。 您可以建立包含或排除特定元件之擴充檔的配量或圖層。 針對 Power BI 中的分析，Azure 資料表儲存體中的資料表會成為資料來源，以供進一步的視覺效果和探索。
++ 相反地，資料表儲存體可以容納擴充檔的實際預測。 您可以建立包含或排除特定元件之擴充檔的配量或圖層。 針對 Power BI 中的分析，Azure 資料表儲存體中的資料表會成為資料來源，以供進一步的視覺效果和探索。
+
+管線結尾的擴充檔與原始輸入版本不同，因為有其他欄位包含擴充期間所解壓縮或產生的新資訊。 因此，不論您使用何種輸出結構，都可以使用原始和建立內容的組合。
 
 ## <a name="next-steps"></a>後續步驟
 

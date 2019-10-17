@@ -4,12 +4,12 @@ ms.author: banders
 ms.service: virtual-machines-windows
 ms.topic: include
 ms.date: 08/29/2019
-ms.openlocfilehash: 99263b7c7efee54381c9a7f624429b343dba49d0
-ms.sourcegitcommit: b8578b14c8629c4e4dea4c2e90164e42393e8064
+ms.openlocfilehash: 75eebdf1e7628bc9c38305b7f11d4fc69af031b9
+ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70806089"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72391587"
 ---
 # <a name="save-costs-with-azure-reserved-vm-instances"></a>利用 Azure 保留的 VM 執行個體節省成本
 
@@ -26,26 +26,26 @@ ms.locfileid: "70806089"
 - 當您在 Azure 入口網站中購買 VM 保留實例時，會顯示購買建議和建議數量。
 - Azure Advisor 提供個別訂閱的購買建議。  
 - 您可以使用 Api 來取得共用範圍和單一訂用帳戶範圍的購買建議。 如需詳細資訊，請參閱[適用于企業客戶的保留實例購買建議 api](/rest/api/billing/enterprise/billing-enterprise-api-reserved-instance-recommendation)。
-- 針對 Enterprise 合約（EA）客戶， [Azure 使用量見解 Power BI 內容套件](/power-bi/service-connect-to-azure-consumption-insights)提供了適用于共用和單一訂用帳戶範圍的購買建議。
+- 針對 Enterprise 合約（EA）和 Microsoft 客戶合約（MCA）客戶， [Azure 使用量見解 Power BI 內容套件](/power-bi/service-connect-to-azure-consumption-insights)提供了適用于共用和單一訂用帳戶範圍的購買建議。
 
 ### <a name="services-that-get-vm-reservation-discounts"></a>取得 VM 保留折扣的服務
 
-您的 VM 保留可以套用至從多個服務發出的 VM 使用量，而不只是針對您的 VM 部署。 取得保留折扣的資源會根據實例大小彈性設定而變更。
+您的 VM 保留可套用至從多個服務發出的 VM 使用量，而不只是針對您的 VM 部署。 取得保留折扣的資源會根據執行個體大小彈性設定而變更。
 
-#### <a name="instance-size-flexibility-setting"></a>實例大小彈性設定
+#### <a name="instance-size-flexibility-setting"></a>執行個體大小彈性設定
 
-[實例大小彈性] 設定會決定哪些服務會取得保留實例折扣。
+執行個體大小彈性設定會決定哪些服務可取得保留執行個體折扣。
 
-無論是開啟或關閉設定，保留折扣都會在*ConsumedService*為`Microsoft.Compute`時，自動套用至任何相符的 VM 使用量。 因此，請檢查您的使用量資料是否有*ConsumedService*值。 部分範例包括：
+無論是開啟或關閉設定，保留折扣都會在 *ConsumedService* 為 `Microsoft.Compute` 時，自動套用至任何相符的 VM 使用量。 因此，請檢查您的使用量資料是否有 ConsumedService 值。 部分範例包括：
 
 - 虛擬機器
 - 虛擬機器擴展集
 - 容器服務
-- Azure Batch 部署（在使用者訂用帳戶模式中）
+- Azure Batch 部署 (在使用者訂用帳戶模式中)
 - Azure Kubernetes Service (AKS)
 - Service Fabric
 
-當設定為 [開啟] 時，保留折扣會在*ConsumedService*為下列任何專案時，自動套用至相符的 VM 使用量：
+若設為開啟，保留折扣會在 *ConsumedService* 為下列任何項目時，自動套用至相符的 VM 使用量：
 
 - Microsoft.Compute
 - Microsoft.ClassicCompute
@@ -53,16 +53,16 @@ ms.locfileid: "70806089"
 - Microsoft.MachineLearningServices
 - Microsoft.Kusto
 
-檢查使用量資料中的*ConsumedService*值，以判斷使用量是否符合保留折扣的資格。
+檢查使用量資料中的 ConsumedService 值，以判斷使用量是否符合保留折扣的資格。
 
-如需實例大小彈性的詳細資訊，請參閱[使用保留的 VM 實例的虛擬機器大小彈性](../articles/virtual-machines/windows/reserved-vm-instance-size-flexibility.md)。
+如需執行個體大小彈性的詳細資訊，請參閱[利用保留的 VM 執行個體獲得虛擬機器大小彈性](../articles/virtual-machines/windows/reserved-vm-instance-size-flexibility.md)。
 
 ### <a name="analyze-your-usage-information"></a>分析您的使用量資訊
 分析您的使用量資訊，以協助判斷您應該購買的保留。
 
 使用量資料可在使用方式檔案和 Api 中取得。 一起使用以判斷要購買的保留。 檢查每日有高使用量的 VM 實例，以判斷要購買的保留數量。
 
-避免使用`Meter`方式資料`Product`中的子類別目錄和欄位。 它們不會區分使用 premium 儲存體的 VM 大小。 如果您使用這些欄位來決定保留購買的 VM 大小，可能會購買錯誤的大小。 如此一來，您就不會得到預期的保留折扣。 相反地，請參閱`AdditionalInfo`使用量檔案或使用量 API 中的欄位，以判斷正確的 VM 大小。
+避免使用方式資料中的 `Meter` 子類別和 @no__t 1 欄位。 它們不會區分使用 premium 儲存體的 VM 大小。 如果您使用這些欄位來決定保留購買的 VM 大小，可能會購買錯誤的大小。 如此一來，您就不會得到預期的保留折扣。 相反地，請參閱使用量檔案或使用量 API 中的 `AdditionalInfo` 欄位，以判斷正確的 VM 大小。
 
 ### <a name="purchase-restriction-considerations"></a>購買限制考慮
 
@@ -80,7 +80,7 @@ ms.locfileid: "70806089"
 
 ## <a name="buy-a-reserved-vm-instance"></a>購買保留 VM 執行個體
 
-您可以在[Azure 入口網站](https://portal.azure.com/#blade/Microsoft_Azure_Reservations/CreateBlade/referrer/documentation/filters/%7B%22reservedResourceType%22%3A%22VirtualMachines%22%7D)中購買保留的 VM 實例。 預先支付保留期，[或按月付款](../articles/billing/billing-monthly-payments-reservations.md)。
+您可以在[Azure 入口網站](https://portal.azure.com/#blade/Microsoft_Azure_Reservations/CreateBlade/referrer/documentation/filters/%7B%22reservedResourceType%22%3A%22VirtualMachines%22%7D)中購買保留的 VM 實例。 保留的付款方式可為[預先付款或每月付款](../articles/billing/billing-monthly-payments-reservations.md)。
 
 這些需求適用于購買保留的 VM 實例：
 
@@ -97,19 +97,19 @@ ms.locfileid: "70806089"
 
 | 欄位      | 描述|
 |------------|--------------|
-|訂閱|用來支付保留項目的訂用帳戶。 訂用帳戶的付款方法會收取保留的費用。 訂用帳戶類型必須是 Enterprise 合約 (供應項目號碼：MS-AZR-0017P-Ms-azr-0017p 或 MS-AZR-0017P-Ms-azr-0148p）或以隨用隨付費率計費的個別訂用帳戶（供應專案號碼：MS-AZR-0003P 或 MS-AZR-0023P)。 針對企業訂用帳戶，費用會從註冊的承諾用量金額餘額扣除或作為超額部分收費。 對於隨用隨付費率的訂用帳戶，費用會依訂用帳戶的信用卡或發票付款方法計費。|    
-|`Scope`       |保留項目範圍可以涵蓋一個訂用帳戶或多個訂用帳戶 (共用範圍)。 如果您選取： <ul><li>**單一資源群組範圍**—只會將保留折扣套用至所選資源群組中的相符資源。</li><li>**單一訂**用帳戶範圍-將保留折扣套用至所選訂用帳戶中的相符資源。</li><li>**共用範圍**-將保留折扣套用至帳單內容中合格訂用帳戶的相符資源。 對於 EA 客戶，計費內容為註冊。 針對使用隨用隨付費率的個別訂用帳戶，計費範圍是由帳戶管理員所建立的所有合格訂用帳戶。</li></ul>|
-|區域    |保留項目所涵蓋的 Azure 區域。|    
+|Subscription|用來支付保留項目的訂用帳戶。 訂用帳戶的付款方法會收取保留的費用。 訂用帳戶類型必須是 enterprise 合約（供應專案號碼： MS-AZR-0017P-Ms-azr-0017p 或 MS-AZR-0017P-Ms-azr-0148p）或 Microsoft 客戶合約或以隨用隨付費率計費的個別訂用帳戶（供應專案號碼： MS-MS-AZR-0017P-Ms-azr-0003p 或 MS-MS-AZR-0017P-Ms-azr-0023p）。 費用會從承諾用量餘額（如果有的話）扣除，或以超額部分收費。 對於隨用隨付費率的訂用帳戶，費用會依訂用帳戶的信用卡或發票付款方法計費。|    
+|Scope       |保留項目範圍可以涵蓋一個訂用帳戶或多個訂用帳戶 (共用範圍)。 如果您選取： <ul><li>**單一資源群組範圍** - 只會將保留折扣套用至所選資源群組中的相符資源。</li><li>**單一訂用帳戶範圍** — 會將保留折扣套用至所選訂用帳戶中的相符資源。</li><li>**共用範圍** — 會將保留折扣套用至計費內容中合格訂用帳戶的相符資源。 對於 EA 客戶，計費內容為註冊。 針對使用隨用隨付費率的個別訂用帳戶，計費範圍是帳戶管理員所建立的所有合格訂用帳戶。</li></ul>|
+|地區    |保留項目所涵蓋的 Azure 區域。|    
 |VM 大小     |VM 執行個體的大小。|
 |已針對下列項目最佳化     |預設會選取 VM 實例大小彈性。 按一下 [**高級設定**] 來變更 [實例大小彈性] 值，以將保留折扣套用至相同[VM 大小群組](../articles/virtual-machines/windows/reserved-vm-instance-size-flexibility.md)中的其他 vm。 容量優先順序會讓資料中心容量供您的部署優先使用。 它讓您在需要時能夠更安心地啟動 VM 實例。 保留項目範圍是單一訂用帳戶時，才可使用容量優先順序。 |
-|詞彙        |一年或三年。|
+|條款        |一年或三年。|
 |數量    |保留項目內所購買的執行個體數目。 數量是可以取得帳單折扣之執行中 VM 執行個體的數目。 例如，如果您在美國東部執行10個 Standard_D2 Vm，則您會將數量指定為10，以最大化所有執行中 Vm 的權益。 |
 
 > [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE2PjmT]
 
 ## <a name="usage-data-and-reservation-utilization"></a>使用量資料和保留使用量
 
-使用方式資料的有效價格為零，可取得保留折扣。 您可以查看哪個 VM 實例收到每個保留的保留折扣。
+對於獲得保留折扣的使用量，您的使用量資料有效價格會是零。 您可以查看哪個 VM 實例收到每個保留的保留折扣。
 
 如需保留折扣如何出現在使用量資料的詳細資訊，請參閱瞭解您的[Enterprise 註冊的 Azure 保留使用量](../articles/billing/billing-understand-reserved-instance-usage-ea.md)（如果您是 EA 客戶）。 如果您有個別的訂用帳戶，請參閱[瞭解隨用隨付訂用帳戶的 Azure 保留使用量](../articles/billing/billing-understand-reserved-instance-usage.md)。
 
@@ -128,26 +128,26 @@ ms.locfileid: "70806089"
 - 現有保留區的區域
 - SKU
 - 數量
-- Duration
+- 課程時間
 
 不過，如果您想要進行變更，您可以*交換*保留。
 
-## <a name="cancel-exchange-or-refund-reservations"></a>取消、交換或退款保留
+## <a name="cancel-exchange-or-refund-reservations"></a>取消、交換保留或進行退款
 
-您可以取消、交換或退款保留，但有某些限制。 如需詳細資訊，請參閱[Azure 保留的自助交換和退款](../articles/billing/billing-azure-reservations-self-service-exchange-and-refund.md)。
+您可以取消、交換保留或進行退費，但有某些限制。 如需詳細資訊，請參閱 [Azure 保留的自助式交換和退款](../articles/billing/billing-azure-reservations-self-service-exchange-and-refund.md)。
 
-## <a name="need-help-contact-us"></a>需要協助嗎？ 與我們連絡。
+## <a name="need-help-contact-us"></a>需要協助嗎？ 連絡我們。
 
 如果您有問題或需要協助，請[建立支援要求](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest)。
 
 ## <a name="next-steps"></a>後續步驟
 
 - 若要了解如何管理保留項目，請參閱[管理 Azure 保留項目](../articles/billing/billing-manage-reserved-vm-instance.md)。
-- 若要深入了解 Azure 保留項目，請參閱下列文章：
-    - [什麼是 Azure 保留項目？](../articles/billing/billing-save-compute-costs-reservations.md)
+- 若要深入了解 Azure 保留，請參閱下列文章：
+    - [什麼是 Azure Reservations？](../articles/billing/billing-save-compute-costs-reservations.md)
     - [管理 Azure 中的保留](../articles/billing/billing-manage-reserved-vm-instance.md)
     - [了解保留項目折扣的套用方式](../articles/billing/billing-understand-vm-reservation-charges.md)
-    - [瞭解使用隨用隨付費率之訂用帳戶的保留使用量](../articles/billing/billing-understand-reserved-instance-usage.md)
+    - [了解採用隨用隨付費率的訂用帳戶的保留使用量](../articles/billing/billing-understand-reserved-instance-usage.md)
     - [了解 Enterprise 註冊的保留項目使用量](../articles/billing/billing-understand-reserved-instance-usage-ea.md)
-    - [Windows 軟體的成本不包括在保留項目內](../articles/billing/billing-reserved-instance-windows-software-costs.md)
+    - [Windows 軟體的成本不包括在保留內](../articles/billing/billing-reserved-instance-windows-software-costs.md)
     - [合作夥伴中心雲端解決方案提供者 (CSP) 計畫中的 Azure 保留項目](https://docs.microsoft.com/partner-center/azure-reservations)

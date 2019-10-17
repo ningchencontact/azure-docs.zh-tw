@@ -8,14 +8,14 @@ ms.topic: include
 ms.date: 07/26/2019
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: d27b3613acb2980ff4116825197d018f9c183baa
-ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
+ms.openlocfilehash: 31fdd85fdcc40b38738d33e2c0c13797db7b1d42
+ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71266852"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72390551"
 ---
-## <a name="benefits"></a>優點 
+## <a name="benefits"></a>優勢 
 
 保留整個主機可提供下列優點：
 
@@ -83,7 +83,9 @@ ms.locfileid: "71266852"
 
 如需詳細資訊，請參閱[虛擬機器 vCPU 配額](/azure/virtual-machines/windows/quotas)。
 
-## <a name="pricing"></a>定價
+免費試用和 MSDN 訂用帳戶沒有 Azure 專用主機的配額。
+
+## <a name="pricing"></a>價格
 
 無論部署多少個 Vm，都會以專用主機為使用者付費。 在您的每月語句中，您會看到新的可計費資源類型為 [主機]。 專用主機上的 Vm 仍會顯示在您的語句中，但其價格會是0。
 
@@ -97,11 +99,11 @@ ms.locfileid: "71266852"
 
 SKU 是針對主機定義的，它代表 VM 大小數列和類型。 您可以在單一主機內混合使用多個不同大小的 Vm，只要它們屬於相同的大小系列即可。 類型是目前在區域中可用的硬體世代。
 
-相同`types` VM 系列的不同會來自不同的 cpu 廠商，而且有不同的 cpu 世代和核心數目。
+相同 VM 系列的不同 `types` 將來自不同的 CPU 廠商，而且有不同的 CPU 世代和核心數目。
 
 若要深入瞭解，請參閱主機[定價頁面](https://aka.ms/ADHPricing)。
 
-在預覽期間，我們將支援下列主機 SKU\types：DSv3_Type1 和 ESv3_Type1
+在預覽期間，我們將支援下列主機 SKU\types： DSv3_Type1 和 ESv3_Type1
 
  
 ## <a name="host-life-cycle"></a>主機生命週期
@@ -113,6 +115,6 @@ Azure 會監視並管理您主機的健全狀況狀態。 當您查詢主機時�
 |----------|----------------|
 | 主機可供使用     | 您的主機沒有已知的問題。   |
 | 調查中的主機  | 我們正在尋找的主機有一些問題。 這是 Azure 嘗試和識別所識別問題的範圍和根本原因所需的過渡狀態。 在主機上執行的虛擬機器可能會受到影響。 |
-| 主機暫止解除配置   | Azure 無法將主機還原為狀況良好的狀態，並要求您將虛擬機器從這個主機重新部署。 如果`autoReplaceOnFailure`已啟用，則您的虛擬機器將會*修復*至狀況良好的硬體。 否則，您的虛擬機器可能正在即將失敗的主機上執行。|
+| 主機暫止解除配置   | Azure 無法將主機還原為狀況良好的狀態，並要求您將虛擬機器從這個主機重新部署。 如果已啟用 `autoReplaceOnFailure`，則您的虛擬機器將會*修復*至狀況良好的硬體。 否則，您的虛擬機器可能正在即將失敗的主機上執行。|
 | 主機已解除配置  | 已從主機移除所有虛擬機器。 因為硬體已離開輪替，所以您不再需要為此主機支付費用。   |
 

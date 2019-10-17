@@ -14,27 +14,28 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 06/25/2019
 ms.author: emalani
-ms.openlocfilehash: 643539fb569cdefba8e04d1ac08e73055624d3ae
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.openlocfilehash: d9bd698535b09ecb5c484eefcbe31228eb99e04f
+ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72025048"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72388415"
 ---
 # <a name="add-authentication-to-your-xamarin-forms-app"></a>將驗證新增至 Xamarin Forms 應用程式
 [!INCLUDE [app-service-mobile-selector-get-started-users](../../includes/app-service-mobile-selector-get-started-users.md)]
 
 > [!NOTE]
 > Visual Studio App Center 支援行動應用程式開發的端對端和整合式服務中心。 開發人員可以使用**組建**、**測試**和**散發**服務來設定持續整合和傳遞管線。 部署應用程式之後，開發人員可以使用**分析**和**診斷**服務來監視其應用程式的狀態和使用，並與使用**推**播服務的使用者互動。 開發人員也可以利用**驗證**來驗證其使用者和**資料**服務，以保存及同步雲端中的應用程式資料。
-> 如果您想要在您的行動應用程式中整合雲端服務，請立即註冊 App Center [App center](https://appcenter.ms/?utm_source=zumo&utm_medium=Azure&utm_campaign=zumo%20doc) 。
+>
+> 如果您想要在您的行動應用程式中整合雲端服務，請立即註冊[App Center](https://appcenter.ms/?utm_source=zumo&utm_medium=Azure&utm_campaign=zumo%20doc) 。
 
-## <a name="overview"></a>總覽
+## <a name="overview"></a>概觀
 本主題說明如何從用戶端應用程式驗證 App Service 行動應用程式的使用者。 在本教學課程中，您將使用 App Service 支援的識別提供者，將驗證新增至 Xamarin.Forms 快速入門專案。 由行動應用程式成功驗證並授權之後，就會顯示使用者識別碼值，而您也將可以存取受限制的資料庫資料。
 
 ## <a name="prerequisites"></a>必要條件
 如需本教學課程的最佳結果，建議您先完成[建立 Xamarin Forms 應用程式][1]教學課程。 完成本教學課程之後，您將會有一個多平台 TodoList 應用程式的 Xamarin.Forms 專案。
 
-如果您不要使用下載的快速入門伺服器專案，必須將驗證擴充套件新增至您的專案。 如需伺服器擴充套件的詳細資訊，請參閱 [使用 Azure 行動應用程式的 .NET 後端伺服器 SDK][2]。
+如果您不要使用下載的快速入門伺服器專案，必須將驗證擴充套件新增至您的專案。 如需伺服器擴充套件的詳細資訊，請參閱 [使用 Azure Mobile Apps 的 .NET 後端伺服器 SDK][2]。
 
 ## <a name="register-your-app-for-authentication-and-configure-app-services"></a>註冊應用程式進行驗證，並設定應用程式服務
 [!INCLUDE [app-service-mobile-register-authentication](../../includes/app-service-mobile-register-authentication.md)]
@@ -196,7 +197,7 @@ Mobile Apps 使用[MobileServiceClient][4]上的[LoginAsync][3]擴充方法來�
 
 **應用程式因 `Java.Lang.NoSuchMethodError: No static method startActivity` 而當機**
 
-在某些情況下，支援套件中的衝突在 Visual studio 中僅顯示為警告，但應用程式在執行階段會因此例外狀況而當機。 在此情況下，您必須確定您專案中所參考的所有支援套件都具有相同版本。 [Azure Mobile Apps NuGet 套件](https://www.nuget.org/packages/Microsoft.Azure.Mobile.Client/) 具有 Android 平台的 `Xamarin.Android.Support.CustomTabs` 相依性，因此若您的專案使用較新的支援套件，您必須直接安裝具有必要版本的此套件以避免發生衝突。
+在某些情況下，支援套件中的衝突在 Visual studio 中僅顯示為警告，但應用程式在執行階段會因此例外狀況而當機。 在此情況下，您必須確定您專案中所參考的所有支援套件都具有相同版本。 [Azure Mobile Apps NuGet 套件](https://www.nuget.org/packages/Microsoft.Azure.Mobile.Client/) 有 Android 平台的 `Xamarin.Android.Support.CustomTabs` 相依性，因此若您的專案使用較新的支援套件，您必須直接安裝具有必要版本的此套件以避免衝突。
 
 ## <a name="add-authentication-to-the-ios-app"></a>將驗證加入 iOS 應用程式中
 本節說明如何在 iOS 應用程式專案中實作 **IAuthenticate** 介面。 如果您不要支援 iOS 裝置，請略過這一節。
@@ -347,7 +348,7 @@ Mobile Apps 使用[MobileServiceClient][4]上的[LoginAsync][3]擴充方法來�
 ## <a name="next-steps"></a>後續步驟
 現在您已經完成了這個基本驗證的教學課程，可以考慮繼續進行下列其中一個教學課程：
 
-* [將推播通知新增至應用程式](app-service-mobile-xamarin-forms-get-started-push.md)
+* [將推播通知新增至應用程式中](app-service-mobile-xamarin-forms-get-started-push.md)
 
   了解如何將推播通知支援新增至應用程式，並設定行動應用程式後端以使用 Azure 通知中樞傳送推播通知。
 * [啟用應用程式的離線同步處理](app-service-mobile-xamarin-forms-get-started-offline-data.md)

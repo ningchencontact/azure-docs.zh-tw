@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: article
 ms.date: 01/18/2019
 ms.author: cynthn
-ms.openlocfilehash: ab5af0e5971b91f45cbb12b4d0583caafa5ad504
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: d79cefa9adec403ebbb5105351d2909eac9d02a4
+ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70079649"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72390493"
 ---
 # <a name="create-a-vm-from-a-vhd-by-using-the-azure-portal"></a>使用 Azure 入口網站從 VHD 建立 VM
 
@@ -34,6 +34,7 @@ ms.locfileid: "70079649"
 
 如果您想要建立多部 VM，請勿使用特製化磁碟。 然而，對於較大型的部署，請[建立映像](capture-image-resource.md)，然後[使用該映像來建立多個 VM](create-vm-generalized-managed.md)。
 
+我們建議您從單一快照集或 VHD 將並行部署數目限制為20個 Vm。 
 
 ## <a name="copy-a-disk"></a>複製磁碟
 
@@ -74,6 +75,7 @@ ms.locfileid: "70079649"
 10. 在 [客體組態] 頁面上，視需要新增任何擴充功能。
 11. 當您完成時，選取 [檢閱 + 建立]。 
 12. 如果 VM 組態通過驗證，請選取 [建立] 開始部署。
+
 
 ## <a name="next-steps"></a>後續步驟
 

@@ -7,12 +7,12 @@ ms.service: data-factory
 ms.topic: troubleshooting
 ms.date: 10/08/2019
 ms.author: makromer
-ms.openlocfilehash: b5895b061426066d265d3ff68dc948014e641322
-ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
+ms.openlocfilehash: 5cf4773ac781ae51a60ef7d987c3dc324c125d95
+ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72242276"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72387719"
 ---
 # <a name="troubleshoot-azure-data-factory-data-flows"></a>針對 Azure Data Factory 資料流程進行疑難排解
 
@@ -20,53 +20,53 @@ ms.locfileid: "72242276"
 
 ## <a name="common-errors-and-messages"></a>常見的錯誤和訊息
 
-### <a name="error-message-df-sys-01-shadeddatabricksorgapachehadoopfsazureazureexception-commicrosoftazurestoragestorageexception-the-specified-container-does-not-exist"></a>錯誤訊息：DF-SYS-01： databricks. AzureException： StorageException 中的 azure.：/..：指定的容器不存在。
+### <a name="error-message-df-sys-01-shadeddatabricksorgapachehadoopfsazureazureexception-commicrosoftazurestoragestorageexception-the-specified-container-does-not-exist"></a>錯誤訊息： DF-SYS-01： databricks. AzureException： StorageException：指定的容器不存在，請執行此動作中的工作區。
 
 - **徵兆**：資料預覽、debug 和管線資料流程執行失敗，因為容器不存在
 
-- **原因**︰當資料集包含不存在於儲存體中的容器時
+- **原因**：資料集包含不存在於儲存體中的容器
 
-- **解決方案**︰請確定您在資料集中參考的容器存在
+- **解決方案**：請確定您在資料集中參考的容器存在
 
-### <a name="error-message-df-sys-01-javalangassertionerror-assertion-failed-conflicting-directory-structures-detected-suspicious-paths"></a>錯誤訊息：DF-SYS-01： AssertionError：判斷提示失敗：偵測到衝突的目錄結構。 可疑的路徑
+### <a name="error-message-df-sys-01-javalangassertionerror-assertion-failed-conflicting-directory-structures-detected-suspicious-paths"></a>錯誤訊息： DF-SYS-01： AssertionError：判斷提示失敗：偵測到衝突的目錄結構。 可疑的路徑
 
 - **徵兆**：在來源轉換中搭配 Parquet 檔案使用萬用字元時
 
-- **原因**︰萬用字元語法不正確或無效
+- **原因**：萬用字元語法不正確或無效
 
-- **解決方案**︰檢查您在來源轉換選項中所使用的萬用字元語法
+- **解決**方式：在來源轉換選項中檢查您所使用的萬用字元語法
 
-### <a name="error-message-df-src-002-container-container-name-is-required"></a>錯誤訊息：DF-SRC-002：必須有 ' container ' （容器名稱）
-
-- **徵兆**：資料預覽、debug 和管線資料流程執行失敗，因為容器不存在
-
-- **原因**︰當資料集包含不存在於儲存體中的容器時
-
-- **解決方案**︰請確定您在資料集中參考的容器存在
-
-### <a name="error-message-df-uni-001-primarykeyvalue-has-incompatible-types-integertype-and-stringtype"></a>錯誤訊息：DF-一對一-001：PrimaryKeyValue 具有不相容的類型 IntegerType 和 StringType
+### <a name="error-message-df-src-002-container-container-name-is-required"></a>錯誤訊息： DF-SRC-002： ' container ' （容器名稱）是必要的
 
 - **徵兆**：資料預覽、debug 和管線資料流程執行失敗，因為容器不存在
 
-- **原因**︰嘗試在資料庫接收中插入不正確的 primary key 類型時發生
+- **原因**：資料集包含不存在於儲存體中的容器
 
-- **解決方案**︰使用衍生的資料行，將您在資料流程中用來作為主要金鑰的資料行轉換成符合目標資料庫的資料類型
+- **解決方案**：請確定您在資料集中參考的容器存在
 
-### <a name="error-message-df-sys-01-commicrosoftsqlserverjdbcsqlserverexception-the-tcpip-connection-to-the-host-xxxxxdatabasewindowsnet-port-1433-has-failed-error-xxxxdatabasewindowsnet-verify-the-connection-properties-make-sure-that-an-instance-of-sql-server-is-running-on-the-host-and-accepting-tcpip-connections-at-the-port-make-sure-that-tcp-connections-to-the-port-are-not-blocked-by-a-firewall"></a>錯誤訊息：DF-SYS-01： .com. SQLServerException：與主機 xxxxx.database.windows.net 通訊埠1433的 TCP/IP 連線失敗。 錯誤：「xxxx.database.windows.net。 驗證連接屬性。 請確定 SQL Server 的實例正在主機上執行，並接受埠上的 TCP/IP 連接。 請確定埠的 TCP 連線不會遭到防火牆封鎖。」
+### <a name="error-message-df-uni-001-primarykeyvalue-has-incompatible-types-integertype-and-stringtype"></a>錯誤訊息： DF-單一-001： PrimaryKeyValue 具有不相容的類型 IntegerType 和 StringType
+
+- **徵兆**：資料預覽、debug 和管線資料流程執行失敗，因為容器不存在
+
+- **原因**：嘗試在資料庫接收中插入不正確的 primary key 類型時發生
+
+- **解決**方式：使用衍生的資料行，將您在資料流程中用來作為主要金鑰的資料行轉換為符合目標資料庫的資料類型
+
+### <a name="error-message-df-sys-01-commicrosoftsqlserverjdbcsqlserverexception-the-tcpip-connection-to-the-host-xxxxxdatabasewindowsnet-port-1433-has-failed-error-xxxxdatabasewindowsnet-verify-the-connection-properties-make-sure-that-an-instance-of-sql-server-is-running-on-the-host-and-accepting-tcpip-connections-at-the-port-make-sure-that-tcp-connections-to-the-port-are-not-blocked-by-a-firewall"></a>錯誤訊息： DF-SYS-01： SQLServerException：與主機 xxxxx.database.windows.net 通訊埠1433的 TCP/IP 連線失敗。 錯誤：「xxxx.database.windows.net。 驗證連接屬性。 請確定 SQL Server 的實例正在主機上執行，並接受埠上的 TCP/IP 連接。 請確定埠的 TCP 連線不會遭到防火牆封鎖。」
 
 - **徵兆**：無法使用資料庫來源或接收來預覽資料或執行管線
 
-- **原因**︰資料庫受到防火牆保護
+- **原因**：資料庫受到防火牆保護
 
-- **解決方案**︰開啟對資料庫的防火牆存取
+- **解決**方式：開啟對資料庫的防火牆存取
 
-### <a name="error-message-df-sys-01-commicrosoftsqlserverjdbcsqlserverexception-there-is-already-an-object-named-xxxxxx-in-the-database"></a>錯誤訊息：DF-SYS-01： .com. SQLServerException：資料庫中已經有名為 ' xxxxxx ' 的物件。
+### <a name="error-message-df-sys-01-commicrosoftsqlserverjdbcsqlserverexception-there-is-already-an-object-named-xxxxxx-in-the-database"></a>錯誤訊息： DF-SYS-01： .com. SQLServerException：資料庫中已經有名為 ' xxxxxx ' 的物件。
 
 - **徵兆**：接收無法建立資料表
 
-- **原因**︰目標資料庫中已有現有的資料表名稱，其名稱定義在您的來源或資料集中
+- **原因**：目標資料庫中已有現有的資料表名稱，但在來源或資料集中定義了相同的名稱
 
-- **解決方案**︰變更您嘗試建立之資料表的名稱
+- **解決**方式：變更您嘗試建立之資料表的名稱
 
 ## <a name="general-troubleshooting-guidance"></a>一般疑難排解指引
 

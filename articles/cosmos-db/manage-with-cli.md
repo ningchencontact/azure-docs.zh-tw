@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/28/2019
 ms.author: mjbrown
-ms.openlocfilehash: 59f1a678b7a2edc64a2079eff0e819e206c2e509
-ms.sourcegitcommit: 80da36d4df7991628fd5a3df4b3aa92d55cc5ade
+ms.openlocfilehash: 06df85c73b6060bf166df37679457715522f80d8
+ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71811692"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72385776"
 ---
 # <a name="manage-azure-cosmos-resources-using-azure-cli"></a>使用 Azure CLI 管理 Azure Cosmos 資源
 
@@ -19,7 +19,7 @@ ms.locfileid: "71811692"
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-如果您選擇在本機安裝和使用 CLI，本主題會要求您執行 Azure CLI 2.0 版或更新版本。 執行 `az --version` 以尋找版本。 如果您需要安裝或升級，請參閱[安裝 Azure CLI](/cli/azure/install-azure-cli)。
+如果您選擇在本機安裝和使用 CLI，本主題會要求您執行 Azure CLI 2.0 版或更新版本。 執行 `az --version` 找出版本。 如果您需要安裝或升級，請參閱[安裝 Azure CLI](/cli/azure/install-azure-cli)。
 
 ## <a name="create-an-azure-cosmos-db-account"></a>建立 Azure Cosmos DB 帳戶
 
@@ -156,9 +156,10 @@ az cosmosdb keys list \
 resourceGroupName='MyResourceGroup'
 accountName='mycosmosaccount'
 
-az cosmosdb list-read-only-keys \
-   -n $accountName \
-   -g $resourceGroupName
+az cosmosdb keys list \
+    -n $accountName \
+    -g $resourceGroupName \
+    --type read-only-keys
 ```
 
 ## <a name="list-connection-strings"></a>列出連接字串
@@ -170,9 +171,10 @@ az cosmosdb list-read-only-keys \
 resourceGroupName='MyResourceGroup'
 accountName='mycosmosaccount'
 
-az cosmosdb list-connection-strings \
+az cosmosdb keys list \
     -n $accountName \
-    -g $resourceGroupName
+    -g $resourceGroupName \
+    --type connection-strings
 ```
 
 ## <a name="regenerate-account-key"></a>重新產生帳戶金鑰
@@ -182,7 +184,7 @@ az cosmosdb list-connection-strings \
 ```azurecli-interactive
 # Regenerate secondary account keys
 # key-kind values: primary, primaryReadonly, secondary, secondaryReadonly
-az cosmosdb regenerate-key \
+az cosmosdb keys regenerate \
     -n $accountName \
     -g $resourceGroupName \
     --key-kind secondary
