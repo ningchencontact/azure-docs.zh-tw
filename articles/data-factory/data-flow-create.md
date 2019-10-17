@@ -6,12 +6,12 @@ ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 02/12/2019
-ms.openlocfilehash: d8ebc026add9dfd85d7cbe312a8cfffd3e365f82
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.openlocfilehash: 31528c0ac7796aafbde74a3814d971138ec4ba2e
+ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72026872"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72387249"
 ---
 # <a name="create-azure-data-factory-data-flow"></a>建立 Azure Data Factory 資料流程
 
@@ -29,7 +29,7 @@ ms.locfileid: "72026872"
 
 系統會提示您輸入 Azure Blob 儲存體帳戶資訊。
 
-![資料流程選項](media/data-flow/template2.png "資料流程建立 2")
+![資料流程選項](media/data-flow/template2.png "資料流程建立2")
 
 [這些範例所使用的資料可以在這裡找到](https://github.com/kromerm/adfdataflowdocs/tree/master/sampledata)。 下載範例資料，並將檔案儲存在您的 Azure Blob 儲存體帳戶上，以便您執行範例。
 
@@ -37,7 +37,7 @@ ms.locfileid: "72026872"
 
 使用 ADF UI 中的 [建立資源] [加號] 按鈕來建立資料流程。
 
-![資料流程選項](media/data-flow/newresource.png "新資源")
+![資料流程選項](media/data-flow/newresource.png "新增資源")
 
 ## <a name="next-steps"></a>後續步驟
 

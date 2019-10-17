@@ -7,12 +7,12 @@ ms.reviewer: daperlov
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 02/15/2019
-ms.openlocfilehash: c062a75516a1b865c1ff6c35f00d4fbf7c4881c6
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.openlocfilehash: 27d968aa5202fbeb38be9a2416514d2185c1d8b9
+ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72029367"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72436750"
 ---
 # <a name="data-transformation-expressions-in-mapping-data-flow"></a>對應資料流程中的資料轉換運算式 
 
@@ -41,7 +41,7 @@ ___
 傳回平面的正 X 軸與座標所指定的點之間的角度（以弧度為單位），* ``atan2(0, 0) -> 0.0`` @ no__t-1 @ no__t-2<br/><br/>
 取得資料行的平均值 * ``avg(sales)`` @ no__t-1 @ no__t-2<br/><br/>
 根據條件取得資料行的平均值 * ``avgIf(region == 'West', sales)`` @ no__t-1 @ no__t-2<br/><br/>
-依名稱選取資料流程中的資料行值。 您可以傳遞選擇性的資料流程名稱作為第二個引數。 如果有多個相符專案，則會傳回第一個相符專案。 如果不符合，則會傳回 Null 值。 傳回的值必須是由其中一個類型轉換函式（TO_DATE，TO_STRING ...）轉換的類型。在設計階段已知的資料行名稱，應該只依據其名稱來定址。 不支援計算的輸入，但是您可以使用參數替代 * ``toString(byName('parent'))`` @ no__t-1 @ no__t-2 @ no__t-3 @ no__t-4 @ no__t-5 @ no__t-6 @ no__t-7<br/><br/>
+依名稱選取資料流程中的資料行值。 您可以傳遞選擇性的資料流程名稱作為第二個引數。 如果有多個相符專案，則會傳回第一個相符專案。 如果不符合，則會傳回 Null 值。 傳回的值必須是由其中一個類型轉換函式（TO_DATE，TO_STRING ...）轉換的類型。 在設計階段已知的資料行名稱，應該只依據其名稱來定址。 不支援計算的輸入，但是您可以使用參數替代 * ``toString(byName('parent'))`` @ no__t-1 @ no__t-2 @ no__t-3 @ no__t-4 @ no__t-5 @ no__t-6 @ no__t-7<br/><br/>
 依據資料流程中的相對位置（以1為基礎）來選取資料行值。 如果位置超出範圍，則會傳回 Null 值。 傳回的值必須是由其中一個類型轉換函式（TO_DATE，TO_STRING ...）轉換的類型不支援計算的輸入，但是您可以使用參數替代 * ``toString(byPosition(1))`` @ no__t-1 @ no__t-2 @ no__t-3 @ no__t-4 @ no__t-5 @ no__t-6<br/><br/>
 根據替代條件套用一個值或另一個值。 如果輸入的數目為偶數，則會針對最後一個條件預設為 Null，* ``case(10 + 20 == 30, 'dumbo', 'gumbo') -> 'dumbo'`` @ no__t-1 @ no__t-2 @ no__t-3 @ no__t-4 @ no__t-5<br/><br/>
 計算數位的 cube 根 * ``cbrt(8) -> 2.0`` @ no__t-1 @ no__t-2<br/><br/>
@@ -71,14 +71,15 @@ CumeDist 函式會計算某個值與分割區中所有值的相對位置。 依�
 ___
 ### <code>currentDate</code>
 <code><b>currentDate([<i>&lt;value1&gt;</i> : string]) => date</b></code><br/><br/>
-在此作業開始執行時取得目前的日期。 您可以用 'GMT'、'PST'、'UTC'、'America/Cayman' 的格式傳遞選擇性的時區。 本機時區會當做預設值使用。如需可用的格式，請參閱 JAVA 的 SimpleDateFormat。 https://docs.oracle.com/javase/8/docs/api/java/text/SimpleDateFormat.html * ``currentDate() == toDate('2250-12-31') -> false``
-* ``currentDate('PST')  == toDate('2250-12-31') -> false``
-* ``currentDate('America/New_York')  == toDate('2250-12-31') -> false``
-___
-### <code>currentTimestamp</code>
-<code><b>currentTimestamp() => timestamp</b></code><br/><br/>
+在此作業開始執行時取得目前的日期。 您可以用 'GMT'、'PST'、'UTC'、'America/Cayman' 的格式傳遞選擇性的時區。 本機時區會當做預設值使用。如需可用的格式，請參閱 JAVA 的 SimpleDateFormat。 https://docs.oracle.com/javase/8/docs/api/java/text/SimpleDateFormat.html * ``currentDate() == toDate('2250-12-31') -> false`` @ no__t-2 @ no__t-3 @ no__t-4 @ no__t-5<br/><br/>
 取得工作開始以當地時區執行時的目前時間戳記 * ``currentTimestamp() == toTimestamp('2250-12-31 12:12:12') -> false`` @ no__t-1 @ no__t-2<br/><br/>
-取得目前的時間戳記（UTC）。 如果您想要將目前時間轉譯成與您的叢集時區不同的時區，您可以用 ' GMT '、' PST '、' UTC '、' 北美洲/開曼 ' 的格式傳遞選擇性的時區。 預設為目前的時區。 如需可用的格式，請參閱 JAVA 的 SimpleDateFormat。 https://docs.oracle.com/javase/8/docs/api/java/text/SimpleDateFormat.htmlTo 將 UTC 時間轉換成不同的時區，請使用 fromUTC （） * ``currentUTC() == toTimestamp('2050-12-12 19:18:12') -> false`` @ no__t-2 @ no__t-3 @ no__t-4 @ no__t-5<br/><br/>
+取得目前的時間戳記（UTC）。 如果您想要將目前時間轉譯成與您的叢集時區不同的時區，您可以用 ' GMT '、' PST '、' UTC '、' 北美洲/開曼 ' 的格式傳遞選擇性的時區。 預設為目前的時區。 如需可用的格式，請參閱 JAVA 的 SimpleDateFormat。 使用[SimpleDateFormat](https://docs.oracle.com/javase/8/docs/api/java/text/SimpleDateFormat.html)將 UTC 時間轉換成不同的時區使用 fromUTC （）。
+* ``currentUTC() == toTimestamp('2050-12-12 19:18:12') -> false``
+* ``currentUTC() != toTimestamp('2050-12-12 19:18:12') -> true``
+* ``fromUTC(currentUTC(), 'Asia/Seoul') != toTimestamp('2050-12-12 19:18:12') -> true``
+___
+### <code>dayOfMonth</code>
+<code><b>dayOfMonth(<i>&lt;value1&gt;</i> : datetime) => integer</b></code><br/><br/>
 取得給定日期 * ``dayOfMonth(toDate('2018-06-08')) -> 8`` @ no__t-1 @ no__t-2 的月份日<br/><br/>
 取得指定日期的星期日期。 1-星期日，2-星期一 ...，7-星期六 * ``dayOfWeek(toDate('2018-06-08')) -> 6`` @ no__t-1 @ no__t-2<br/><br/>
 取得給定日期 * ``dayOfYear(toDate('2016-04-09')) -> 100`` @ no__t-1 @ no__t-2 的一年中的第幾天<br/><br/>
@@ -179,7 +180,7 @@ ___
 ### <code>multiply</code>
 <code><b>multiply(<i>&lt;value1&gt;</i> : any, <i>&lt;value2&gt;</i> : any) => any</b></code><br/><br/>
 將數字配對相乘。 與 * 運算子相同 * ``multiply(20, 10) -> 200`` @ no__t-1 @ no__t-2 @ no__t-3<br/><br/>
-NTile 函式會將每個視窗分割區中的資料列分成從 1 到 `n` 的 `n` 個貯體。 貯體值的最大差異為 1。 如果分割區中的資料列數目無法平均分成貯體數，其餘值將會逐一均分給各個貯體，從第一個貯體開始。 NTile 函數適用于計算 tertiles、分量、十分位數和其他常見的摘要統計資料。 此函式會在初始化期間計算兩個變數：一般值區的大小會新增一個額外的資料列。 這兩個變數都是以目前分割區的大小為基礎。 在計算過程中，此函式會追蹤目前的資料列數目、目前的貯體數目，和貯體將有所變更的資料列號碼 (bucketThreshold)。 當目前的資料列數目達到貯體閾值時，貯體值將會加一，而閾值會依貯體大小增加 (如果目前的貯體已填補，則額外再加一)。
+NTile 函式會將每個視窗分割區中的資料列分成從 1 到 `n` 的 `n` 個貯體。 貯體值的最大差異為 1。 如果分割區中的資料列數目無法平均分成貯體數，其餘值將會逐一均分給各個貯體，從第一個貯體開始。 NTile 函數適用于計算 tertiles、分量、十分位數和其他常見的摘要統計資料。 函式會在初始化期間計算兩個變數：一般值區的大小會新增一個額外的資料列。 這兩個變數都是以目前分割區的大小為基礎。 在計算過程中，此函式會追蹤目前的資料列數目、目前的貯體數目，和貯體將有所變更的資料列號碼 (bucketThreshold)。 當目前的資料列數目達到貯體閾值時，貯體值將會加一，而閾值會依貯體大小增加 (如果目前的貯體已填補，則額外再加一)。
 * ``nTile()``
 * ``nTile(numOfBuckets)``
 ___

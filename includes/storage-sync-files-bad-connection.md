@@ -2,20 +2,20 @@
 title: 包含檔案
 description: 包含檔案
 services: storage
-author: wmgries
+author: roygara
 ms.service: storage
 ms.topic: include
 ms.date: 07/08/2018
-ms.author: wgries
+ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 359347e41264711a6ac0fa4d2dd0c3633590e917
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: 07cae1cee9810646de5bf9610a29991376736373
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67174052"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72391582"
 ---
-無法從伺服器存取 Azure 檔案同步服務時，可能會發生此錯誤。 您可以透過下列步驟，針對此錯誤進行疑難排解：
+無法從伺服器存取 Azure 檔案同步服務時，可能會發生此錯誤。 您可以透過下列步驟，對此錯誤進行疑難排解：
 
 1. 確認 Windows 服務 `FileSyncSvc.exe` 未遭到防火牆封鎖。
 2. 確認連接埠 443 已開放給 Azure 檔案同步服務的傳出連線。 您可以透過 `Test-NetConnection` Cmdlet 完成這項作業。 下列 `<azure-file-sync-endpoint>` 預留位置的 URL 可以在 [Azure 檔案同步 Proxy 和防火牆設定](../articles/storage/files/storage-sync-files-firewall-and-proxy.md#firewall)文件中找到。 

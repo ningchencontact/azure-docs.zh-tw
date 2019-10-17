@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/06/2018
 ms.author: terrylan
-ms.openlocfilehash: 3da9fef8c7de248f30100f94724cd5dcdb7db8e3
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.openlocfilehash: a17d98d49d2c653e2498a663829d26e8a171fd74
+ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68727067"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72433504"
 ---
 # <a name="azure-infrastructure-security"></a>Azure 基礎結構安全性
 Microsoft Azure 是在 Microsoft 管理並操作的資料中心執行。 這些分散各地的資料中心在安全性與可靠性方面皆符合主要的業界標準，例如 ISO/IEC 27001:2013 和 NIST SP 800-53。 這些資料中心是由 Microsoft 作業人員管理、監視及進行系統管理。 這些作業人員在全天候持續提供世界上最大型線上服務方面擁有多年的經驗。
@@ -33,7 +33,7 @@ Microsoft Azure 是在 Microsoft 管理並操作的資料中心執行。 這些�
 - [網路架構](infrastructure-network.md)
 - [生產網路](production-network.md)
 - [SQL Database](infrastructure-sql.md)
-- [操作](infrastructure-operations.md)
+- [作業](infrastructure-operations.md)
 - [監視](infrastructure-monitoring.md)
 - [完整性](infrastructure-integrity.md)
 - [資料保護](protection-customer-data.md)
@@ -45,12 +45,12 @@ Microsoft Azure 是在 Microsoft 管理並操作的資料中心執行。 這些�
 
 下列項目一律由您負責 (不論部署類型)：
 
-- Data
+- 資料
 - 端點
 - 帳戶
 - 存取管理
 
-請務必了解您與 Microsoft 之間就 SaaS、PaaS 及 IaaS 部署方面的職責劃分。 如需詳細資訊，請參閱[雲端運算的共同責任](https://gallery.technet.microsoft.com/Shared-Responsibilities-81d0ff91/file/153019/1/Shared%20responsibilities%20for%20cloud%20computing.pdf)。
+請務必了解您與 Microsoft 之間就 SaaS、PaaS 及 IaaS 部署方面的職責劃分。 如需詳細資訊，請參閱[雲端運算的共同責任](https://gallery.technet.microsoft.com/Shared-Responsibilities-81d0ff91/file/225237/1/Shared%20Responsibilities%20for%20Cloud%20Computing%20(2017-04-03).pdf)。
 
 ## <a name="next-steps"></a>後續步驟
 若要深入了解 Microsoft 為協助保護 Azure 基礎結構執行了哪些動作，請參閱：

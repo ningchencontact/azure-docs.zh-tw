@@ -7,23 +7,23 @@ ms.service: service-fabric
 ms.topic: conceptual
 ms.date: 08/07/2019
 ms.author: atsenthi
-ms.openlocfilehash: 36c0f02202c738ac96d26b748b741cd8eee27380
-ms.sourcegitcommit: 6794fb51b58d2a7eb6475c9456d55eb1267f8d40
+ms.openlocfilehash: dcffc1ba783b49343bf3380b62c3d4085f5aa347
+ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70241829"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72390087"
 ---
 # <a name="what-is-the-service-fabric-application-resource-model"></a>什麼是 Service Fabric 應用程式資源模型？
-建議您透過 Azure Resource Manager, 將 Service Fabric 應用程式部署到您的 Service Fabric 叢集。 這個方法可讓您以 JSON 描述應用程式和服務, 並將它們部署在與叢集相同的 Resource Manager 範本中。 相對於透過 PowerShell 或 Azure CLI 來部署和管理應用程式, 不需要等待叢集準備就緒。 應用程式註冊、佈建和部署程序全都可以透過一個步驟完成。 這是在叢集中管理應用程式生命週期的最佳做法。 如需詳細資訊, 請參閱[最佳做法](https://docs.microsoft.com/azure/service-fabric/service-fabric-best-practices-infrastructure-as-code#azure-service-fabric-resources)。
+建議您透過 Azure Resource Manager，將 Service Fabric 應用程式部署到您的 Service Fabric 叢集。 這個方法可讓您以 JSON 描述應用程式和服務，並將它們部署在與叢集相同的 Resource Manager 範本中。 相對於透過 PowerShell 或 Azure CLI 來部署和管理應用程式，不需要等待叢集準備就緒。 應用程式註冊、佈建和部署程序全都可以透過一個步驟完成。 這是在叢集中管理應用程式生命週期的最佳做法。 如需詳細資訊，請參閱[最佳做法](https://docs.microsoft.com/azure/service-fabric/service-fabric-best-practices-infrastructure-as-code#azure-service-fabric-resources)。
 
 當可行時，將應用程式視為 Resource Manager 資源來管理有助於改善：
-* 審核記錄:Resource Manager 會針對每個作業進行審核, 並保留詳細的*活動記錄*, 協助您追蹤對這些應用程式和叢集所做的任何變更。
-* 以角色為基礎的存取控制:管理叢集的存取權, 以及部署在叢集上的應用程式, 都可以透過相同的 Resource Manager 範本來完成。
-* Azure Resource Manager (透過 Azure 入口網站) 會成為管理叢集和重要應用程式部署的一站。
+* 稽核記錄：Resource Manager 會稽核每一項作業並保留詳細的*活動記錄*，協助您追蹤這些應用程式和叢集的變更。
+* 角色型存取控制：管理叢集的存取權，以及部署在叢集上的應用程式，都可以透過相同的 Resource Manager 範本來完成。
+* Azure Resource Manager （透過 Azure 入口網站）會成為管理叢集和重要應用程式部署的一站。
 
 ## <a name="service-fabric-application-life-cycle-with-azure-resource-manager"></a>使用 Azure Resource Manager Service Fabric 應用程式生命週期 
-在本檔中, 您將瞭解如何:
+在本檔中，您將瞭解如何：
 
 > [!div class="checklist"]
 > * 使用 Azure Resource Manager 部署應用程式資源 
@@ -31,30 +31,30 @@ ms.locfileid: "70241829"
 > * 刪除應用程式資源
 
 ## <a name="deploy-application-resources-using-azure-resource-manager"></a>使用 Azure Resource Manager 部署應用程式資源  
-若要使用 Azure Resource Manager 的應用程式資源模型來部署應用程式及其服務, 您需要封裝應用程式程式碼、上傳套件, 然後在 Azure Resource Manager 範本中以應用程式的形式參考套件的位置resource. 如需詳細資訊, 請參閱[封裝應用程式](https://docs.microsoft.com/azure/service-fabric/service-fabric-package-apps#create-an-sfpkg)。
+若要使用 Azure Resource Manager 的應用程式資源模型來部署應用程式及其服務，您需要封裝應用程式程式碼、上傳套件，然後在 Azure Resource Manager 範本中以應用程式的形式參考套件的位置resource. 如需詳細資訊，請參閱[封裝應用程式](https://docs.microsoft.com/azure/service-fabric/service-fabric-package-apps#create-an-sfpkg)。
           
-然後, 建立 Azure Resource Manager 範本、使用應用程式詳細資料更新參數檔案, 然後將它部署在 Service Fabric 叢集上。 請參閱[這裡](https://github.com/Azure-Samples/service-fabric-dotnet-quickstart/tree/master/ARM)的範例。
+然後，建立 Azure Resource Manager 範本、使用應用程式詳細資料更新參數檔案，然後將它部署在 Service Fabric 叢集上。 請參閱[這裡](https://github.com/Azure-Samples/service-fabric-dotnet-quickstart/tree/master/ARM)的範例。
 
 ### <a name="create-a-storage-account"></a>建立儲存體帳戶 
-從 Resource Manager 範本部署應用程式時, 需要有儲存體帳戶才能暫存應用程式映射。 您可以重複使用現有的儲存體帳戶, 或建立新的儲存體帳戶來暫存您的應用程式。 如果您想要使用現有的儲存體帳戶, 您可以略過此步驟。 
+從 Resource Manager 範本部署應用程式時，需要有儲存體帳戶才能暫存應用程式映射。 您可以重複使用現有的儲存體帳戶，或建立新的儲存體帳戶來暫存您的應用程式。 如果您想要使用現有的儲存體帳戶，您可以略過此步驟。 
 
 ![建立儲存體帳戶][CreateStorageAccount]
 
 ### <a name="configure-storage-account"></a>設定儲存體帳戶 
-建立儲存體帳戶之後, 您必須建立可暫存應用程式的 blob 容器。 在 Azure 入口網站中, 流覽至您想要儲存應用程式的儲存體帳戶。 選取 [ **blob** ] 分頁, 然後按一下 [**新增容器**] 按鈕。 新增具有 Blob 公用存取層級的新容器。
+建立儲存體帳戶之後，您必須建立可暫存應用程式的 blob 容器。 在 Azure 入口網站中，流覽至您想要儲存應用程式的儲存體帳戶。 選取 [ **blob** ] 分頁，然後按一下 [**新增容器**] 按鈕。 新增具有 Blob 公用存取層級的新容器。
    
-![建立 Blob][CreateBlob]
+![建立 blob][CreateBlob]
 
 ### <a name="stage-application-in-a-storage-account"></a>在儲存體帳戶中暫存應用程式
-在部署應用程式之前, 必須先暫存在 blob 儲存體中。 在本教學課程中, 我們將手動建立應用程式封裝, 但此步驟可以自動化。  如需詳細資訊, 請參閱[封裝應用程式](https://docs.microsoft.com/azure/service-fabric/service-fabric-package-apps#create-an-sfpkg)。 在下列步驟中, 會使用[投票範例應用程式](https://github.com/Azure-Samples/service-fabric-dotnet-quickstart)。
+在部署應用程式之前，必須先暫存在 blob 儲存體中。 在本教學課程中，我們將手動建立應用程式封裝，但此步驟可以自動化。  如需詳細資訊，請參閱[封裝應用程式](https://docs.microsoft.com/azure/service-fabric/service-fabric-package-apps#create-an-sfpkg)。 在下列步驟中，會使用[投票範例應用程式](https://github.com/Azure-Samples/service-fabric-dotnet-quickstart)。
 
-1. 在 Visual Studio 以滑鼠右鍵按一下投票專案, 然後選取 [封裝]。   
+1. 在 Visual Studio 以滑鼠右鍵按一下投票專案，然後選取 [封裝]。   
 ![封裝應用程式][PackageApplication]  
-2. 開啟剛建立的 **.\service-fabric-dotnet-quickstart\Voting\pkg\Debug**目錄, 並將內容壓縮成一個名為**表決**的檔案, 讓 ApplicationManifest 位於 zip 檔案的根目錄。  
-![Zip 應用程式][ZipApplication]  
+2. 開啟剛建立的 **.\service-fabric-dotnet-quickstart\Voting\pkg\Debug**目錄，並將內容壓縮成一個名為**表決**的檔案，讓 ApplicationManifest 位於 zip 檔案的根目錄。  
+@no__t 0Zip 應用程式 @ no__t-1  
 3. 將檔案的副檔名從 .zip 重新命名為 **. sfpkg**。
-4. 在 Azure 入口網站的儲存體帳戶的 **應用程式** 容器中, 按一下 **上傳** 和 上傳**sfpkg**。  
-![上傳應用程式套件][UploadAppPkg]
+4. 在 Azure 入口網站的儲存體帳戶的 **應用程式** 容器中，按一下 **上傳** 和 上傳**sfpkg**。  
+@no__t 0Upload 應用程式封裝 @ no__t-1
 
 現在會暫存應用程式。 我們現在已準備好建立 Azure Resource Manager 範本來部署應用程式。      
    
@@ -66,15 +66,15 @@ ms.locfileid: "70241829"
 >
 >
 
-| 參數              | 說明                                 | 範例                                                      | 註解                                                     |
+| 參數              | 描述                                 | 範例                                                      | 註解                                                     |
 | ---------------------- | ------------------------------------------- | ------------------------------------------------------------ | ------------------------------------------------------------ |
 | clusterName            | 您正在部署的叢集名稱 | sf-cluster123                                                |                                                              |
 | 應用程式            | 應用程式的名稱                 | 投票                                                       |
 | applicationTypeName    | 應用程式的類型名稱           | VotingType                                                   | 必須符合 ApplicationManifest 中的內容                 |
-| applicationTypeVersion | 應用程式類型的版本         | 1.0.0                                                        | 必須符合 ApplicationManifest 中的內容                 |
+| ApplicationTypeVersion | 應用程式類型的版本         | 1.0.0                                                        | 必須符合 ApplicationManifest 中的內容                 |
 | serviceName            | 服務的服務名稱         | 投票 ~ VotingWeb                                             | 的格式必須為 ApplicationName ~ ServiceType            |
 | serviceTypeName        | 服務的類型名稱                | VotingWeb                                                    | 必須符合 ServiceManifest 中的內容                 |
-| appPackageUrl          | 應用程式的 blob 儲存體 URL     | https://servicefabricapps.blob.core.windows.net/apps/Voting.sfpkg | Blob 儲存體中應用程式封裝的 URL (設定此項的程式如下所述) |
+| appPackageUrl          | 應用程式的 blob 儲存體 URL     | https://servicefabricapps.blob.core.windows.net/apps/Voting.sfpkg | Blob 儲存體中應用程式封裝的 URL （設定此項的程式如下所述） |
        
 ```json
 {
@@ -104,15 +104,15 @@ ms.locfileid: "70241829"
 ```
 
 ### <a name="deploy-the-application"></a>部署應用程式 
-若要部署應用程式, 請執行 New-azresourcegroupdeployment 以部署至包含您叢集的資源群組。
+若要部署應用程式，請執行 New-azresourcegroupdeployment 以部署至包含您叢集的資源群組。
 ```powershell
 New-AzResourceGroupDeployment -ResourceGroupName "sf-cluster-rg" -TemplateParameterFile ".\UserApp.Parameters.json" -TemplateFile ".\UserApp.json" -Verbose
 ```
 
 ## <a name="upgrade-service-fabric-application-using-azure-resource-manager"></a>使用 Azure Resource Manager 升級 Service Fabric 應用程式
-已部署到 Service Fabric 叢集的應用程式將會升級, 原因如下:
+已部署到 Service Fabric 叢集的應用程式將會升級，原因如下：
 
-1. 新的服務會新增至應用程式。 服務定義必須加入至 service-manifest 和 application-manifest。 然後, 若要反映應用程式的新版本, 您必須將應用程式類型版本從1.0.0 更新為 1.0.1 [UserApp](https://github.com/Azure-Samples/service-fabric-dotnet-quickstart/blob/master/ARM/UserApp.Parameters.json)。
+1. 新的服務會新增至應用程式。 服務定義必須加入至 service-manifest 和 application-manifest。 然後，若要反映應用程式的新版本，您必須將應用程式類型版本從1.0.0 更新為 1.0.1 [UserApp](https://github.com/Azure-Samples/service-fabric-dotnet-quickstart/blob/master/ARM/UserApp.Parameters.json)。
 
     ```
     "applicationTypeVersion": {
@@ -125,7 +125,7 @@ New-AzResourceGroupDeployment -ResourceGroupName "sf-cluster-rg" -TemplateParame
         "value": "VotingDataType"
     }
     ```
-2. 現有服務的新版本會新增至應用程式。 這牽涉到應用程式程式碼的變更, 以及應用程式類型版本和名稱的更新。
+2. 現有服務的新版本會新增至應用程式。 這牽涉到應用程式程式碼的變更，以及應用程式類型版本和名稱的更新。
 
     ```
      "applicationTypeVersion": {
@@ -134,7 +134,7 @@ New-AzResourceGroupDeployment -ResourceGroupName "sf-cluster-rg" -TemplateParame
     ```
 
 ## <a name="delete-application-resources"></a>刪除應用程式資源
-使用 Azure Resource Manager 中的應用程式資源模型所部署的應用程式, 可以使用下列步驟從叢集刪除
+使用 Azure Resource Manager 中的應用程式資源模型所部署的應用程式，可以使用下列步驟從叢集刪除
 
 1) 使用[get-azresource](https://docs.microsoft.com/powershell/module/az.resources/get-azresource?view=azps-2.5.0)命令取得應用程式的資源識別碼  
 
@@ -150,14 +150,14 @@ New-AzResourceGroupDeployment -ResourceGroupName "sf-cluster-rg" -TemplateParame
     ```
 
 ## <a name="next-steps"></a>後續步驟
-取得應用程式資源模型的相關資訊:
+取得應用程式資源模型的相關資訊：
 
 * [在 Service Fabric 中模型化應用程式](https://docs.microsoft.com/azure/service-fabric/service-fabric-application-model)
 * [Service Fabric 應用程式和服務資訊清單](https://docs.microsoft.com/azure/service-fabric/service-fabric-application-and-service-manifests)
 
 ## <a name="see-also"></a>另請參閱
-* [最佳作法](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-best-practices-infrastructure-as-code)
-* [將應用程式和服務當作 Azure 資源來管理](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-best-practices-infrastructure-as-code)
+* [最佳做法](https://docs.microsoft.com/azure/service-fabric/service-fabric-best-practices-infrastructure-as-code)
+* [將應用程式和服務當作 Azure 資源來管理](https://docs.microsoft.com/azure/service-fabric/service-fabric-best-practices-infrastructure-as-code)
 
 <!--Image references-->
 [CreateStorageAccount]: ./media/service-fabric-application-model/create-storage-account.png

@@ -4,13 +4,13 @@ ms.author: cynthn
 ms.date: 04/30/2019
 ms.topic: include
 ms.service: virtual-machines-linux
-manager: jeconnoc
-ms.openlocfilehash: c881c95fb860befbc978aba5a6c73375dce235fe
-ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
+manager: gwallace
+ms.openlocfilehash: 2bd40db51d82bd2278bd716615636968adf8277b
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70919652"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72391579"
 ---
 標準化的虛擬機器（VM）映射可讓組織遷移至雲端，並確保部署的一致性。 映射通常包含預先定義的安全性和設定，以及必要的軟體。 設定您自己的映射處理管線需要時間、基礎結構和設定，但使用 Azure VM 映射產生器時，只需提供簡單的設定來描述您的映射、將它提交至服務，然後建立映射並加以散發。
  
@@ -20,7 +20,7 @@ Azure VM 映射產生器（Azure 映射產生器）可讓您從以 Windows 或 L
 > Azure 映射產生器目前為公開預覽版。
 > 此預覽版本是在沒有服務等級協定的情況下提供，不建議用於生產工作負載。 可能不支援特定功能，或可能已經限制功能。 如需詳細資訊，請參閱 [Microsoft Azure 預覽版增補使用條款](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)。
 
-## <a name="preview-features"></a>Preview 功能
+## <a name="preview-features"></a>預覽功能
 
 針對預覽版本，支援下列功能：
 
@@ -33,9 +33,9 @@ Azure VM 映射產生器（Azure 映射產生器）可讓您從以 Windows 或 L
 - 以 VHD 格式建立映射。
  
 
-## <a name="regions"></a>Regions
+## <a name="regions"></a>地區
 Azure 映射產生器服務會在這些區域中提供預覽。 映射可以散佈在這些區域之外。
-- East US
+- 美國東部
 - 美國東部 2
 - 美國中西部
 - 美國西部
@@ -45,7 +45,7 @@ Azure 映射產生器服務會在這些區域中提供預覽。 映射可以散�
 AIB 將支援 Azure Marketplace 基本 OS 映射：
 - Ubuntu 18.04
 - Ubuntu 16.04
-- RHEL 7.6
+- RHEL 7。6
 - CentOS 7。6
 - 適用于虛擬桌面的 Windows 10 RS5 Enterprise/Professional/Enterprise （EVD） 
 - Windows 2016
@@ -72,12 +72,12 @@ Azure 映射產生器是完全受控的 Azure 服務，可供 Azure 資源提供
 ![Azure 映射產生器進程的概念繪圖](./media/virtual-machines-image-builder-overview/image-builder-process.png)
 
 1. 建立映射範本作為 json 檔案。 此 json 檔案包含映射來源、自訂和散發的相關資訊。 [Azure 映射](https://github.com/danielsollondon/azvmimagebuilder/tree/master/quickquickstarts)產生器 GitHub 存放庫中有多個範例。
-1. 將它提交給服務，這會在您指定的資源群組中建立映射範本成品。 在背景中，映射產生器會視需要下載來源映射或 ISO 和腳本。 這些會儲存在您的訂用帳戶中自動建立的個別資源群組中，格式如下：IT_\<DestinationResourceGroup > _\<TemplateName >。 
-1. 建立映射範本之後，您就可以建立映射。 在背景影像產生器中，會使用範本和來源檔案，在 IT_\<DestinationResourceGroup > _\<TemplateName > 資源群組中建立 VM （D1v2）、網路、公用 IP 和儲存體。
-1. 作為映射建立的一部分，映射產生器會根據範本散發映射，然後刪除 IT_\<DestinationResourceGroup > _\<TemplateName > 資源群組中為建立的其他資源進程。
+1. 將它提交給服務，這會在您指定的資源群組中建立映射範本成品。 在背景中，映射產生器會視需要下載來源映射或 ISO 和腳本。 這些會儲存在您的訂用帳戶中自動建立的個別資源群組中，格式為： IT_ @ no__t-0DestinationResourceGroup > _ @ no__t-1TemplateName >。 
+1. 建立映射範本之後，您就可以建立映射。 在背景影像產生器中，會使用範本和來源檔案，在 IT_ @ no__t-0DestinationResourceGroup > _ @ no__t-1TemplateName > 資源群組中建立 VM （D1v2）、網路、公用 IP 和儲存體。
+1. 作為映射建立的一部分，映射產生器會根據範本散發映射，然後刪除 IT_ @ no__t-0DestinationResourceGroup 中的其他資源 > _ @ no__t-1TemplateName > 資源群組（已針對該進程建立）。
 
 
-## <a name="permissions"></a>Permissions
+## <a name="permissions"></a>使用權限
 
 若要允許 Azure VM 映射產生器將映射發佈至受控映射或共用映射資源庫，您必須為服務「Azure 虛擬機器映射產生器」提供「參與者」許可權（應用程式識別碼： cf32a0cc-373c-47c9-9156-0db11f6a6dfc）的資源群組。 
 
@@ -98,7 +98,7 @@ az role assignment create \
 ## <a name="costs"></a>費用
 建立、建立和儲存映射時，您將會產生一些計算、網路和儲存體成本。 這些成本類似于手動建立自訂映射所產生的成本。 對於資源，您將以 Azure 費率向您收費。 
 
-在映射建立過程中，會下載檔案並將其儲存`IT_<DestinationResourceGroup>_<TemplateName>`在資源群組中，這將會產生少量的儲存成本。 f 您不想要保留這些，請在映射組建之後刪除映射範本。
+在映射建立過程中，會下載檔案，並將檔案儲存在 `IT_<DestinationResourceGroup>_<TemplateName>` 資源群組中，這將會產生少量的儲存成本。 如果您不想要保留這些，請在映射組建之後刪除**映射範本**。
  
 映射產生器會使用 D1v2 VM 大小、儲存體，以及 VM 所需的網路功能，來建立 VM。 這些資源會在建立程式期間持續，而且一旦影像產生器完成影像的建立後，就會刪除。 
  

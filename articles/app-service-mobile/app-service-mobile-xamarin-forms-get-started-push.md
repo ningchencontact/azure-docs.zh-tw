@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 06/25/2019
 ms.author: emalani
-ms.openlocfilehash: 8ce307df954575b3204f7a4b3f46af1f4a9c3089
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.openlocfilehash: ce5750a5071ee0dfc257498f83f41b6d59c99a8b
+ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72027455"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72388524"
 ---
 # <a name="add-push-notifications-to-your-xamarinforms-app"></a>將推播通知新增至 Xamarin.Forms 應用程式
 
@@ -27,9 +27,10 @@ ms.locfileid: "72027455"
 
 > [!NOTE]
 > Visual Studio App Center 支援行動應用程式開發的端對端和整合式服務中心。 開發人員可以使用**組建**、**測試**和**散發**服務來設定持續整合和傳遞管線。 部署應用程式之後，開發人員可以使用**分析**和**診斷**服務來監視其應用程式的狀態和使用，並與使用**推**播服務的使用者互動。 開發人員也可以利用**驗證**來驗證其使用者和**資料**服務，以保存及同步雲端中的應用程式資料。
-> 如果您想要在您的行動應用程式中整合雲端服務，請立即註冊 App Center [App center](https://appcenter.ms/?utm_source=zumo&utm_medium=Azure&utm_campaign=zumo%20doc) 。
+>
+> 如果您想要在您的行動應用程式中整合雲端服務，請立即註冊[App Center](https://appcenter.ms/?utm_source=zumo&utm_medium=Azure&utm_campaign=zumo%20doc) 。
 
-## <a name="overview"></a>總覽
+## <a name="overview"></a>概觀
 
 在本教學課程中，您會將推播通知新增至 [Xamarin.Forms 快速入門](app-service-mobile-xamarin-forms-get-started.md)所產生的所有專案。 這表示每次插入記錄時，就會將推播通知傳送到所有跨平台用戶端。
 
@@ -122,9 +123,9 @@ ms.locfileid: "72027455"
     }
     ```
 
-    `FirebaseRegistrationService` 類別負責產生安全性權杖，以授與應用程式存取 FCM 的權限。 應用程式從 FCM 收到註冊權杖時會叫用 `OnTokenRefresh` 方法。 方法會擷取來自權杖`FirebaseInstanceId.Instance.Token`FCM 會以非同步方式更新的屬性。 `OnTokenRefresh`不常叫用方法，因為應用程式是安裝或解除安裝，當使用者在應用程式清除執行個體識別碼，刪除應用程式資料時，才會更新權杖或權杖的安全性時外洩。 此外，FCM 執行個體識別碼服務會要求，應用程式定期重新整理其權杖，通常每隔 6 個月一次。
+    `FirebaseRegistrationService` 類別負責產生安全性權杖，以授與應用程式存取 FCM 的權限。 應用程式從 FCM 收到註冊權杖時會叫用 `OnTokenRefresh` 方法。 此方法會從 `FirebaseInstanceId.Instance.Token` 屬性取出權杖，而 FCM 會以非同步方式更新該屬性。 `OnTokenRefresh` 方法並不常受到叫用，因為只有在安裝或解除安裝應用程式、使用者刪除應用程式資料、應用程式清除執行個體識別碼，或權杖的安全性遭到洩露時，才會更新權杖。 此外，FCM 執行個體識別碼服務會要求應用程式定期重新整理其權杖，通常是每 6 個月一次。
 
-    `OnTokenRefresh`方法也會叫用`SendRegistrationTokenToAzureNotificationHub`方法，用來將使用者的註冊權杖與 Azure 通知中樞產生關聯。
+    `OnTokenRefresh` 方法也會叫用 `SendRegistrationTokenToAzureNotificationHub` 方法，用來讓使用者的註冊權杖與 Azure 通知中樞產生關聯。
 
 #### <a name="registering-with-the-azure-notification-hub"></a>向 Azure 通知中樞進行註冊
 
@@ -224,7 +225,7 @@ ms.locfileid: "72027455"
     }
     ```
 
-    應用程式從 FCM 收到通知時所叫用的 `OnMessageReceived` 方法會擷取訊息內容，並呼叫 `SendNotification` 方法。 這個方法會將訊息內容轉換成執行應用程式時，與通知不會出現在通知區域啟動的本機通知。
+    應用程式從 FCM 收到通知時所叫用的 `OnMessageReceived` 方法會擷取訊息內容，並呼叫 `SendNotification` 方法。 此方法會將訊息內容轉換成應用程式執行時所啟動的本機通知，並在通知區域中顯示通知。
 
 現在，您已經準備好在 Android 裝置或模擬器上執行的應用程式中測試推播通知。
 
@@ -418,7 +419,7 @@ ms.locfileid: "72027455"
 您也可以繼續進行下列其中一個教學課程：
 
 * [將驗證新增至應用程式中](app-service-mobile-xamarin-forms-get-started-users.md)  
-  ：了解如何使用識別提供者來驗證應用程式的使用者。
+  了解如何利用識別提供者來驗證應用程式的使用者。
 * [啟用應用程式的離線同步處理](app-service-mobile-xamarin-forms-get-started-offline-data.md)  
   了解如何使用 Mobile Apps 後端，為應用程式新增離線支援。 使用離線同步處理時，使用者可與行動應用程式進行互動&mdash;檢視、新增或修改資料&mdash;即使沒有網路連線進也可行。
 

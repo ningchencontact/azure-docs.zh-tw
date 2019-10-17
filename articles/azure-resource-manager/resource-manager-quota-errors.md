@@ -1,6 +1,6 @@
 ---
 title: Azure 配額錯誤 |Microsoft Docs
-description: 描述如何解決資源配額錯誤。
+description: 說明使用 Azure Resource Manager 部署資源時，如何解決資源配額錯誤。
 services: azure-resource-manager
 documentationcenter: ''
 author: tfitzmac
@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 03/09/2018
 ms.author: tomfitz
-ms.openlocfilehash: 7938f2c47e4af8d8804191fbb9e55b379f9554ef
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 201ddf69f9c28b5b3a4197f91768f749152094de
+ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60390147"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72390317"
 ---
 # <a name="resolve-errors-for-resource-quotas"></a>解決資源配額的錯誤
 
@@ -26,7 +26,7 @@ ms.locfileid: "60390147"
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="symptom"></a>徵兆
+## <a name="symptom"></a>徵狀
 
 如果您部署的範本會建立超過 Azure 配額的資源，您會看到類似以下的部署錯誤：
 
@@ -105,17 +105,17 @@ Virtual Machines                             0 10000 Count
 
 1. 選取 **訂用帳戶** 。
 
-   ![Subscriptions](./media/resource-manager-quota-errors/subscriptions.png)
+   ![訂閱](./media/resource-manager-quota-errors/subscriptions.png)
 
 2. 選取需要增加配額的訂用帳戶。
 
    ![選取訂用帳戶](./media/resource-manager-quota-errors/select-subscription.png)
 
-3. 選取 [使用量 + 配額] 
+3. 選取 [使用量 + 配額]
 
    ![選取使用量和配額](./media/resource-manager-quota-errors/select-usage-quotas.png)
 
-4. 在右上角，選取 [要求增加配額]  。
+4. 在右上角，選取 [要求增加配額]。
 
    ![要求增加配額](./media/resource-manager-quota-errors/request-increase.png)
 

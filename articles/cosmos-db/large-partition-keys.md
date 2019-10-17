@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/28/2019
 ms.author: mjbrown
-ms.openlocfilehash: 5b0d182e09a4978a4d9c1184f085e140e5c698bc
-ms.sourcegitcommit: 80da36d4df7991628fd5a3df4b3aa92d55cc5ade
+ms.openlocfilehash: be639a67f70ab40f8d7dcc0f3793cbbd4a2ec4a3
+ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71811720"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72436802"
 ---
 # <a name="create-containers-with-large-partition-key"></a>建立具有大型分割區索引鍵的容器
 
@@ -21,7 +21,7 @@ Azure Cosmos DB 使用以雜湊為基礎的資料分割配置來達到水準的�
 
 ## <a name="create-a-large-partition-key-azure-portal"></a>建立大型分割區索引鍵（Azure 入口網站）
 
-若要建立大型分割區索引鍵，當您使用 Azure 入口網站建立新的容器時，請核取 [我的分割區索引**鍵大於 100-位元組**] 選項。 根據預設，所有的新容器都會使用大型分割區索引鍵來加入宣告。 如果您不需要大型分割區索引鍵，或如果您的應用程式在1.18 之前的 Sdk 版本上執行，請取消選取此核取方塊。
+若要建立大型分割區索引鍵，當您使用 Azure 入口網站建立新的容器時，請核取 [我的分割區索引**鍵大於 100-位元組**] 選項。 如果您不需要大型分割區索引鍵，或如果您的應用程式在1.18 之前的 Sdk 版本上執行，請取消選取此核取方塊。
 
 ![使用 Azure 入口網站建立大型分割區索引鍵](./media/large-partition-keys/large-partition-key-with-portal.png)
 
@@ -33,7 +33,7 @@ Azure Cosmos DB 使用以雜湊為基礎的資料分割配置來達到水準的�
 
 ## <a name="create-a-large-partition-key-net-sdk"></a>建立大型分割區索引鍵（.Net SDK）
 
-若要使用 .net SDK 建立具有大型分割區索引鍵的容器，請`PartitionKeyDefinitionVersion.V2`指定屬性。 下列範例顯示如何指定 PartitionKeyDefinition 物件內的 Version 屬性，並將它設定為 PartitionKeyDefinitionVersion。
+若要使用 .NET SDK 建立具有大型分割區索引鍵的容器，請指定 `PartitionKeyDefinitionVersion.V2` 屬性。 下列範例顯示如何指定 PartitionKeyDefinition 物件內的 Version 屬性，並將它設定為 PartitionKeyDefinitionVersion。
 
 ### <a name="v3-net-sdk"></a>v3 .NET SDK
 
@@ -68,10 +68,10 @@ database,
 
 |SDK 類型  | 最低版本   |
 |---------|---------|
-|.Net     |    1.18     |
+|.NET     |    1.18     |
 |JAVA 同步處理     |   2.4.0      |
 |JAVA 非同步   |  2.5.0        |
-| REST API | 版本高於， `x-ms-version`使用要求標頭。 `2017-05-03`|
+| REST API | 版本高於 `2017-05-03`，方法是使用 `x-ms-version` 要求標頭。|
 
 目前，您無法在 Power BI 和 Azure Logic Apps 中使用具有大型分割區索引鍵的容器。 您可以從這些應用程式使用沒有大型分割區索引鍵的容器。
 

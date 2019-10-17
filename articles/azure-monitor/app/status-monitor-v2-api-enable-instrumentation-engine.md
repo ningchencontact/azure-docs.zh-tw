@@ -1,6 +1,6 @@
 ---
-title: Azure 狀態監視器 v2 API 參考:啟用檢測引擎 |Microsoft Docs
-description: 狀態監視器 v2 API 參考。 啟用-InstrumentationEngine。 在不重新部署網站的情況下監視網站效能。 適用于內部部署、Vm 或 Azure 上裝載的 ASP.NET web 應用程式。
+title: Azure 應用程式 Insights 代理程式 API 參考：啟用檢測引擎 |Microsoft Docs
+description: Application Insights 代理程式 API 參考。 啟用-InstrumentationEngine。 在不重新部署網站的情況下監視網站效能。 適用于內部部署、Vm 或 Azure 上裝載的 ASP.NET web 應用程式。
 services: application-insights
 documentationcenter: .net
 author: TimothyMothra
@@ -12,35 +12,35 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: tilee
-ms.openlocfilehash: 3c0f4e015d3e01e86daaf101c15e16857540a520
-ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
+ms.openlocfilehash: 9958121c38b96dc9cfa4dda2812fa9ce2b18d785
+ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71033156"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72388291"
 ---
-# <a name="status-monitor-v2-api-enable-instrumentationengine"></a>狀態監視器 v2 API:啟用-InstrumentationEngine
+# <a name="application-insights-agent-api-enable-instrumentationengine"></a>Application Insights 代理程式 API：啟用-InstrumentationEngine
 
 本文說明的 Cmdlet 是[ApplicationMonitor PowerShell 模組](https://www.powershellgallery.com/packages/Az.ApplicationMonitor/)的成員。
 
 ## <a name="description"></a>描述
 
 藉由設定一些登錄機碼來啟用檢測引擎。
-重新開機 IIS, 變更才會生效。
+重新開機 IIS，變更才會生效。
 
 檢測引擎可以補充 .NET Sdk 所收集的資料。
 它會收集描述 managed 進程執行的事件和訊息。 這些事件和訊息包括相依性結果碼、HTTP 指令動詞和[SQL 命令文字](asp-net-dependencies.md#advanced-sql-tracking-to-get-full-sql-query)。
 
-啟用檢測引擎:
-- 您已經使用 Enable Cmdlet 啟用監視功能, 但未啟用檢測引擎。
-- 您已使用 .NET Sdk 手動檢測應用程式, 並想要收集其他遙測。
+啟用檢測引擎：
+- 您已經使用 Enable Cmdlet 啟用監視功能，但未啟用檢測引擎。
+- 您已使用 .NET Sdk 手動檢測應用程式，並想要收集其他遙測。
 
 > [!IMPORTANT] 
 > 此 Cmdlet 需要具有系統管理員許可權的 PowerShell 會話。
 
 > [!NOTE] 
 > - 此 Cmdlet 會要求您審查並接受我們的授權及隱私權聲明。
-> - 檢測引擎會增加額外的負荷, 並預設為關閉。
+> - 檢測引擎會增加額外的負荷，並預設為關閉。
 
 ## <a name="examples"></a>範例
 
@@ -56,7 +56,7 @@ PS C:\> Enable-InstrumentationEngine
 ### <a name="-verbose"></a>-Verbose
 **一般參數。** 使用此參數來輸出詳細記錄。
 
-## <a name="output"></a>Output
+## <a name="output"></a>輸出
 
 
 #### <a name="example-output-from-successfully-enabling-the-instrumentation-engine"></a>成功啟用檢測引擎的範例輸出
@@ -75,11 +75,11 @@ Configuring registry for instrumentation engine...
 - [建立儀表板](../../azure-monitor/app/overview-dashboard.md)。
  
  新增更多遙測：
- - [建立 web 測試](monitor-web-app-availability.md), 以確保您的網站保持上線。
-- [新增 web 用戶端遙測](../../azure-monitor/app/javascript.md), 以查看來自網頁程式碼的例外狀況, 並啟用追蹤呼叫。
-- [將 APPLICATION INSIGHTS SDK 新增至您的程式碼](../../azure-monitor/app/asp-net.md), 讓您可以插入追蹤和記錄呼叫。
+ - [建立 web 測試](monitor-web-app-availability.md)，以確保您的網站保持上線。
+- [新增 web 用戶端遙測](../../azure-monitor/app/javascript.md)，以查看來自網頁程式碼的例外狀況，並啟用追蹤呼叫。
+- [將 APPLICATION INSIGHTS SDK 新增至您的程式碼](../../azure-monitor/app/asp-net.md)，讓您可以插入追蹤和記錄呼叫。
  
- 使用狀態監視器 v2 來執行更多動作:
- - 使用我們的指南進行狀態監視器 v2 的[疑難排解](status-monitor-v2-troubleshoot.md)。
- - [取得](status-monitor-v2-api-get-config.md)設定, 以確認已正確記錄您的設定。
+ 使用 Application Insights 代理程式執行更多工具：
+ - 使用我們的指南來[疑難排解](status-monitor-v2-troubleshoot.md)Application Insights 代理程式。
+ - [取得](status-monitor-v2-api-get-config.md)設定，以確認已正確記錄您的設定。
  - [取得狀態](status-monitor-v2-api-get-status.md)以檢查監視。

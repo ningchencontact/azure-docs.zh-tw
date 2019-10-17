@@ -12,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.subservice: compliance
-ms.date: 09/24/2019
+ms.date: 10/15/2019
 ms.author: ajburnle
 ms.reviewer: ''
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a99aa766ed4e6cacbe22933db226b2037d3e736d
-ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
+ms.openlocfilehash: 10a278fdd194b841cbb8620999fe79c3affb4e0b
+ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72170003"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72389202"
 ---
 # <a name="create-a-new-access-package-in-azure-ad-entitlement-management-preview"></a>在 Azure AD 權利管理（預覽）中建立新的存取套件
 
@@ -32,19 +32,35 @@ ms.locfileid: "72170003"
 
 存取封裝可讓您進行一次性的資源和原則設定，以自動管理存取套件的存取權。 本文說明如何建立新的存取封裝。
 
-## <a name="overview"></a>總覽
+## <a name="overview"></a>概觀
 
 所有存取封裝都必須放在稱為「目錄」的容器中。 目錄會定義您可以新增至存取套件的資源。 如果您未指定目錄，則會將存取套件放入一般目錄。 目前，您無法將現有的存取套件移至不同的目錄。
 
-所有存取套件都必須至少有一個原則。 原則會指定誰可以要求存取套件，以及核准和到期設定。 當您建立新的存取套件時，您可以為目錄中的使用者建立初始原則，針對不在您目錄中的使用者，僅供系統管理員直接指派，或者您可以選擇稍後再建立原則。
+如果您是存取套件管理員，就無法將您擁有的資源新增至目錄。 您只能使用目錄中的可用資源。 如果您需要將資源新增至目錄，您可以詢問類別目錄擁有者。
 
-下圖顯示建立新存取套件的高階程式。
+所有存取套件都必須至少有一個原則。 原則會指定誰可以要求存取套件，以及核准和生命週期設定。 當您建立新的存取套件時，您可以為目錄中的使用者建立初始原則，針對不在您目錄中的使用者，僅供系統管理員直接指派，或者您可以選擇稍後再建立原則。
 
-![建立存取封裝進程](./media/entitlement-management-access-package-create/access-package-process.png)
+![建立存取套件](./media/entitlement-management-access-package-create/access-package-create.png)
+
+以下是建立新存取套件的高階步驟。
+
+1. 在身分識別管理中，啟動建立新存取套件的程式。
+
+1. 選取您想要在其中建立存取套件的目錄。
+
+1. 從目錄將資源新增至您的存取封裝。
+
+1. 指派每個資源的資源角色。
+
+1. 指定可以要求存取權的使用者。
+
+1. 指定任何核准設定。
+
+1. 指定生命週期設定。
 
 ## <a name="start-new-access-package"></a>啟動新的存取套件
 
-**必要角色：** 全域管理員、使用者系統管理員或目錄擁有者
+**先決條件角色：** 全域管理員、使用者系統管理員、目錄擁有者或存取套件管理員
 
 1. 登入 [Azure 入口網站](https://portal.azure.com)。
 
@@ -56,7 +72,7 @@ ms.locfileid: "72170003"
 
 1. 按一下 [新增存取套件]。
 
-## <a name="basics"></a>基本知識
+## <a name="basics"></a>基本概念
 
 在 [**基本**] 索引標籤上，您會提供存取封裝的名稱，並指定要在哪一個目錄中建立存取封裝。
 
@@ -64,20 +80,19 @@ ms.locfileid: "72170003"
 
 1. 在 [**類別目錄**] 下拉式清單中，選取您想要在其中建立存取封裝的目錄。 例如，您的目錄擁有者可能會管理所有可要求的行銷資源。 在此情況下，您可以選取 [行銷目錄]。
 
-    您只會看到您有權在中建立存取套件的目錄。 若要在現有的目錄中建立存取封裝，您必須至少是全域管理員、使用者系統管理員、該目錄中的目錄擁有者，或存取該目錄中的封裝管理員。
+    您只會看到您有權在中建立存取套件的目錄。 若要在現有的目錄中建立存取封裝，您必須是全域管理員或使用者系統管理員，或者您必須是該目錄中的目錄擁有者或存取封裝管理員。
 
     ![存取套件-基本概念](./media/entitlement-management-access-package-create/basics.png)
 
-    如果您是全域管理員或使用者系統管理員，而且想要在未列出的新類別目錄中建立存取套件，**請按一下 [新建]** 。 輸入 [目錄名稱] 和 [描述]，然後按一下 [**建立**]。
+    如果您是全域管理員、使用者系統管理員或目錄建立者，而且想要在未列出的新目錄中建立存取套件，請按一下 [**建立新的目錄**]。 輸入 [目錄名稱] 和 [描述]，然後按一下 [**建立**]。
 
     您所建立的存取套件和其中包含的任何資源都會新增至新的目錄。 您也可以稍後再新增其他目錄擁有者。
-
 
 1. 按一下 [下一步]。
 
 ## <a name="resource-roles"></a>資源角色
 
-在 [**資源角色**] 索引標籤上，您可以選取要包含在存取套件中的資源。  要求和接收存取套件的使用者將會收到存取套件中的所有資源角色。
+在 [**資源角色**] 索引標籤上，您可以選取要包含在存取套件中的資源。 要求和接收存取套件的使用者將會收到存取套件中的所有資源角色。
 
 1. 按一下您要新增的資源類型（**群組和小組**、**應用程式**或**SharePoint 網站**）。
 
@@ -97,19 +112,17 @@ ms.locfileid: "72170003"
 
 1. 按一下 [下一步]。
 
-## <a name="policy"></a>原則
+## <a name="requests"></a>Requests
 
-在 [**原則**] 索引標籤上，您可以建立第一個原則來指定誰可以要求存取套件，以及核准和到期設定。 之後，您可以建立更多原則，讓其他使用者群組使用自己的核准和到期設定來要求存取封裝。 您也可以選擇稍後再建立原則。
+在 [**要求**] 索引標籤上，您可以建立第一個原則來指定可以要求存取套件的人員，以及核准設定。 之後，您可以建立更多要求原則，以允許其他使用者群組使用自己的核准設定來要求存取封裝。
 
-1. 將 [**建立第一個原則**] 切換為 [**立即**] 或 [**稍後**]。
+![[存取封裝-要求] 索引標籤](./media/entitlement-management-access-package-create/requests.png)
 
-    ![存取套件-原則](./media/entitlement-management-access-package-create/policy.png)
+執行下列其中一節中的步驟。
 
-1. 如果您選取 [**稍後**]，請跳至 [審核] 和 [[建立](#review--create)] 區段，以建立您的存取封裝。
+[!INCLUDE [Entitlement management request policy](../../../includes/active-directory-entitlement-management-request-policy.md)]
 
-1. 如果您選取 [**現在**]，請執行下列其中一個原則區段中的步驟。
-
-[!INCLUDE [Entitlement management policy](../../../includes/active-directory-entitlement-management-policy.md)]
+[!INCLUDE [Entitlement management lifecycle policy](../../../includes/active-directory-entitlement-management-lifecycle-policy.md)]
 
 ## <a name="review--create"></a>檢閱 + 建立
 
@@ -125,4 +138,5 @@ ms.locfileid: "72170003"
 
 ## <a name="next-steps"></a>後續步驟
 
-- [編輯和管理現有的存取套件](entitlement-management-access-package-edit.md)
+- [共用連結以要求存取套件](entitlement-management-access-package-settings.md)
+- [變更存取套件的資源角色](entitlement-management-access-package-resources.md)

@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 6/1/2019
 ms.author: absha
-ms.openlocfilehash: f69348f1a56845716d8d862f2926774cbc537cf0
-ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
+ms.openlocfilehash: d67a14b1cbd3fb352ee1c4b271945ab347ee7fed
+ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72177428"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72389963"
 ---
 # <a name="application-gateway-configuration-overview"></a>應用程式閘道設定總覽
 
@@ -38,9 +38,9 @@ Azure 應用程式閘道是由數個元件所組成，您可以在不同的案�
 
 應用程式閘道會針對每個實例取用1個私人 IP 位址，再加上另一個私人 IP 位址（如果已設定私人前端 IP）。
 
-Azure 也會在每個子網中保留5個 IP 位址供內部使用：前4個和最後一個 IP 位址。 例如，請考慮15個沒有私人前端 IP 的應用程式閘道實例。 此子網需要至少20個 IP 位址：5供內部使用，而15用於應用程式閘道實例。 因此，您需要/27 子網大小或更大。
+Azure 也會在每個子網中保留5個 IP 位址供內部使用：前4個和最後一個 IP 位址。 例如，請考慮15個沒有私人前端 IP 的應用程式閘道實例。 此子網需要至少20個 IP 位址：5供內部使用，而15個用於應用程式閘道實例。 因此，您需要/27 子網大小或更大。
 
-請考慮有27個應用程式閘道實例的子網，以及私人前端 IP 的 IP 位址。 在此情況下，您需要33個 IP 位址：27代表應用程式閘道實例，1代表私人前端，而5供內部使用。 因此，您需要/26 個子網大小或更大。
+請考慮有27個應用程式閘道實例的子網，以及私人前端 IP 的 IP 位址。 在此情況下，您需要33個 IP 位址：27個用於應用程式閘道實例，1個用於私人前端，而5個供內部使用。 因此，您需要/26 個子網大小或更大。
 
 我們建議使用至少為/28 的子網大小。 此大小會提供您11個可用的 IP 位址。 如果您的應用程式負載需要超過10個 IP 位址，請考慮使用/27 或/26 子網大小。
 
@@ -48,7 +48,7 @@ Azure 也會在每個子網中保留5個 IP 位址供內部使用：前4個和�
 
 應用程式閘道支援網路安全性群組（Nsg）。 但有幾項限制：
 
-- 您必須在埠65503-65534 上包含適用于應用程式閘道 v1 SKU 的連入流量例外，以及 v2 SKU 的埠65200-65535。 Azure 基礎結構通訊需要此連接埠範圍。 這些埠會受到 Azure 憑證的保護（鎖定）。 外部實體（包括這些閘道的客戶）無法在沒有適當憑證的情況下，對這些端點起始變更。
+- 您必須允許應用程式閘道 v1 SKU 的 TCP 埠65503-65534 上的連入網際網路流量，並在目的地子網為 [*任何*] 的 tcp 埠65200-65535。 Azure 基礎結構通訊需要此連接埠範圍。 這些埠會受到 Azure 憑證的保護（鎖定）。 外部實體（包括這些閘道的客戶）無法在沒有適當憑證的情況下，對這些端點起始變更。
 
 - 無法封鎖輸出網際網路連線。 NSG 中的預設輸出規則允許網際網路連線能力。 建議您：
 
@@ -121,7 +121,7 @@ Azure 也會在每個子網中保留5個 IP 位址供內部使用：前4個和�
 
 選擇前端埠。 選取現有的埠，或建立一個新的。 選擇[允許的埠範圍](https://docs.microsoft.com/azure/application-gateway/application-gateway-components#ports)中的任何值。 您不只可以使用已知的埠，例如80和443，而是適用的任何允許的自訂埠。 埠可用於對外公開的接聽程式或私用的接聽程式。
 
-### <a name="protocol"></a>Protocol
+### <a name="protocol"></a>通訊協定
 
 選擇 [HTTP] 或 [HTTPS]：
 
@@ -218,7 +218,7 @@ Set-AzApplicationGateway -ApplicationGateway $gw
 
 #### <a name="redirection-type"></a>重新導向類型
 
-選擇所需的重新導向類型：*永久（301）* 、*暫存（307）* 、*找到（302）* 或*參閱其他（303）* 。
+選擇所需的重新導向類型： [*永久（301）* ]、[*暫存（307）* ]、 *[找到（302）* ] 或 [*查看其他（303）* ]。
 
 #### <a name="redirection-target"></a>重新導向目標
 
@@ -245,7 +245,7 @@ Set-AzApplicationGateway -ApplicationGateway $gw
 
 #### <a name="rewrite-the-http-header-setting"></a>重寫 HTTP 標頭設定
 
-此設定會在要求和回應封包于用戶端與後端集區之間移動時，新增、移除或更新 HTTP 要求和回應標頭。 您只能透過 PowerShell 設定此功能。 Azure 入口網站和 CLI 支援尚無法使用。 如需詳細資訊，請參閱：
+此設定會在要求和回應封包于用戶端與後端集區之間移動時，新增、移除或更新 HTTP 要求和回應標頭。 您只能透過 PowerShell 設定此功能。 Azure 入口網站和 CLI 支援尚無法使用。 如需詳細資訊，請參閱
 
  - [重寫 HTTP 標頭總覽](https://docs.microsoft.com/azure/application-gateway/rewrite-http-headers)
  - [設定 HTTP 標頭重寫](https://docs.microsoft.com/azure/application-gateway/add-http-header-rewrite-rule-powershell#specify-the-http-header-rewrite-rule-configuration)
@@ -262,13 +262,13 @@ Set-AzApplicationGateway -ApplicationGateway $gw
 
 清空連線可協助您在規劃的服務更新期間，正常地移除後端集區成員。 您可以在建立規則時，將此設定套用至後端集區的所有成員。 它可確保後端集區的所有取消註冊實例都不會收到任何新的要求。 同時，可以在設定的時間限制內完成現有的要求。 連線清空會套用至透過 API 呼叫從後端集區明確移除的後端實例。 它也適用于健康情況探查回報為狀況*不良*的後端實例。
 
-### <a name="protocol"></a>Protocol
+### <a name="protocol"></a>通訊協定
 
 應用程式閘道支援 HTTP 和 HTTPS，以將要求路由傳送至後端伺服器。 如果您選擇 HTTP，則會加密對後端伺服器的流量。 如果無法接受未加密的通訊，請選擇 [HTTPS]。
 
 這項設定與接聽程式中的 HTTPS 結合，[可支援端對端 SSL](https://docs.microsoft.com/azure/application-gateway/ssl-overview)。 這可讓您安全地將加密的機密資料傳輸至後端。 後端集區中已啟用端對端 SSL 的每部後端伺服器，都必須使用憑證來設定，以允許安全通訊。
 
-### <a name="port"></a>Port
+### <a name="port"></a>連接埠
 
 此設定會指定後端伺服器用來接聽來自應用程式閘道之流量的埠。 您可以設定範圍從1到65535的埠。
 

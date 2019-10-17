@@ -3,15 +3,15 @@ title: 常見問題疑難排解
 description: 瞭解如何針對使用 Azure Resource Graph 查詢 Azure 資源的問題進行疑難排解。
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 08/21/2019
+ms.date: 10/18/2019
 ms.topic: troubleshooting
 ms.service: resource-graph
-ms.openlocfilehash: abf6d22f2010db9bff97c7a93354c1cf8e1e1644
-ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
+ms.openlocfilehash: 030fe26a0aa8fc4ed855fb7744e576366f4fd2e2
+ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/06/2019
-ms.locfileid: "71976612"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72389694"
 ---
 # <a name="troubleshoot-errors-using-azure-resource-graph"></a>使用 Azure Resource Graph 疑難排解錯誤
 
@@ -39,7 +39,7 @@ Azure CLI 和 PowerShell 只轉送前1000個訂用帳戶，以 Azure Resource Gr
 
 ```azurepowershell-interactive
 # Replace this query with your own
-$query = 'project type'
+$query = 'Resources | project type'
 
 # Fetch the full array of subscription IDs
 $subscriptions = Get-AzSubscription
@@ -73,6 +73,7 @@ Azure Resource Graph REST API 僅支援**application/json**`Content-Type`。 某
 #### <a name="resolution"></a>解析度
 
 驗證您用來查詢 Azure Resource Graph 的工具或代理程式是否已為**application/json**設定 REST API 標頭 @no__t 0。
+
 ### <a name="rest-403"></a>案例：沒有清單中所有訂用帳戶的讀取權限
 
 #### <a name="issue"></a>問題

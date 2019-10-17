@@ -9,16 +9,16 @@ ms.topic: article
 ms.date: 09/30/2019
 ms.author: barclayn
 ms.custom: security-recommendations
-ms.openlocfilehash: deefbf049d5f8daa004db942f60ff5e31bda0fe8
-ms.sourcegitcommit: 8bae7afb0011a98e82cbd76c50bc9f08be9ebe06
+ms.openlocfilehash: 09ccfd6e344f2776cfedfc56976f2a5c34f79d5c
+ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/01/2019
-ms.locfileid: "71695420"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72428173"
 ---
 # <a name="security-recommendations-for-azure-key-vault"></a>Azure Key Vault 的安全性建議
 
-本文包含 Azure Key Vault 的安全性建議。 依照我們的共同責任模型所述，執行這些建議可協助您履行安全性義務。 如需 Microsoft 如何履行服務提供者責任的詳細資訊，請參閱[雲端運算的共同責任](https://gallery.technet.microsoft.com/Shared-Responsibilities-81d0ff91/file/153019/1/Shared%20responsibilities%20for%20cloud%20computing.pdf)。
+本文包含 Azure Key Vault 的安全性建議。 依照我們的共同責任模型所述，執行這些建議可協助您履行安全性義務。 如需 Microsoft 如何履行服務提供者責任的詳細資訊，請參閱[雲端運算的共同責任](https://gallery.technet.microsoft.com/Shared-Responsibilities-81d0ff91/file/225237/1/Shared%20Responsibilities%20for%20Cloud%20Computing%20(2017-04-03).pdf)。
 
 本文中包含的一些建議可由 Azure 資訊安全中心自動監視。 Azure 資訊安全中心是保護 Azure 中資源的第一道防線。 它會定期分析 Azure 資源的安全性狀態，以找出潛在的安全性弱點。 接著，它會為您提供如何解決這些問題的建議。
 
@@ -32,7 +32,7 @@ ms.locfileid: "71695420"
 |啟用虛刪除 | 虛[刪除](key-vault-ovw-soft-delete.md)可讓您復原已刪除的保存庫和保存庫物件 |  - |
 | 限制對保存庫資料的存取  | 遵循最低許可權的原則，並限制組織中有哪些成員可以存取保存庫資料 |  - |
 
-## <a name="identity-and-access-management"></a>身分識別和存取管理
+## <a name="identity-and-access-management"></a>身分識別與存取管理
 
 | 建議 | 註解 | 資訊安全中心 |
 |-|----|--|

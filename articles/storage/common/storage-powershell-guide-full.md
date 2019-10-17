@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 08/16/2018
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: ac210a03f8b1a0a5f7fff07cbc68b4cd6bc98632
-ms.sourcegitcommit: df7942ba1f28903ff7bef640ecef894e95f7f335
+ms.openlocfilehash: 40fb44857126c3562e01585c3131afec87f01e42
+ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/14/2019
-ms.locfileid: "69016354"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72430072"
 ---
 # <a name="using-azure-powershell-with-azure-storage"></a>搭配使用 Azure PowerShell 與 Azure 儲存體
 
@@ -32,11 +32,11 @@ Azure PowerShell 用來從 PowerShell 命令列或在指令碼中建立和管理
 
 本文提供關於儲存體之數個其他 PowerShell 文章的連結，例如如何啟用及存取儲存體分析、如何使用資料層 Cmdlet，以及如何存取 Azure 獨立雲端 (例如中國雲端、德國雲端和政府雲端)。
 
-如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 。
+如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)。
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-這個練習需要 Azure PowerShell 模組 Az 0.7 版或更新版本。 執行 `Get-Module -ListAvailable Az` 以尋找版本。 如果您需要安裝或升級，請參閱[安裝 Azure PowerShell 模組](/powershell/azure/install-Az-ps)。
+這個練習需要 Azure PowerShell 模組 Az 0.7 版或更新版本。 執行 `Get-Module -ListAvailable Az` 找出版本。 如果您需要安裝或升級，請參閱[安裝 Azure PowerShell 模組](/powershell/azure/install-Az-ps)。
 
 在此練習中，您可以將命令鍵入一般 PowerShell 視窗中，或者使用 [Windows PowerShell 整合指令碼環境 (ISE)](/powershell/scripting/getting-started/fundamental/windows-powershell-integrated-scripting-environment--ise-)，並在編輯器中鍵入命令，然後在您瀏覽範例時一次測試一或多個命令。 您可以反白顯示您要執行的資料列，然後按一下 [執行選取項目] 只執行這些命令。
 
@@ -131,7 +131,7 @@ SKU 名稱指出儲存體帳戶的複寫類型，例如 LRS (本地備援儲存�
 
 * 指派給儲存體帳戶的**標記**。 標記通常用來分類資源以進行計費。
 
-* **SKU** 是儲存體帳戶的複寫設定，例如 LRS 代表「本地備援儲存體」。 例如，您可能會從標準\_LRS 變更為標準\_GRS 或標準\_RAGRS。 請注意, 您無法將\_標準 ZRS、\_標準切換、\_標準 RAGZRS 或 Premium\_LRS 變更為其他 sku, 或將其他 sku 變更為這些。
+* **SKU** 是儲存體帳戶的複寫設定，例如 LRS 代表「本地備援儲存體」。 例如，您可能會從標準\_LRS 變更為標準\_GRS 或標準\_RAGRS。 請注意，您無法將標準 @ no__t-0ZRS、standard @ no__t-1GZRS、Standard @ no__t-2RAGZRS 或 Premium @ no__t-3LRS 變更為其他 Sku，或將其他 Sku 變更為這些。
 
 * Blob 儲存體帳戶的**存取層**。 存取層的值設為**經常性**或**非經常性**，並可讓您選取符合您如何使用儲存體帳戶的存取層來減少成本。 如需詳細資訊，請參閱[經常性、非經常性和封存儲存層](../blobs/storage-blob-storage-tiers.md)。
 
@@ -199,7 +199,7 @@ Remove-AzStorageAccount -ResourceGroup $resourceGroup -AccountName $storageAccou
 > 您可以使用 PowerShell 啟用分鐘分析。 這項功能無法使用於入口網站。
 >
 
-* 若要瞭解如何使用 PowerShell 來啟用及查看儲存體計量資料, 請參閱[儲存體分析度量](storage-analytics-metrics.md)。
+* 若要瞭解如何使用 PowerShell 來啟用及查看儲存體計量資料，請參閱[儲存體分析度量](storage-analytics-metrics.md)。
 
 * 若要了解如何使用 PowerShell 啟用和擷取儲存體記錄的資料，請參閱[如何使用 PowerShell 啟用儲存體記錄](/rest/api/storageservices/Enabling-Storage-Logging-and-Accessing-Log-Data)和[尋找儲存體記錄的記錄資料](/rest/api/storageservices/Enabling-Storage-Logging-and-Accessing-Log-Data)。
 
@@ -214,7 +214,7 @@ Remove-AzStorageAccount -ResourceGroup $resourceGroup -AccountName $storageAccou
 * [如何使用 PowerShell 管理佇列](../queues/storage-powershell-how-to-use-queues.md)
 * [使用 PowerShell 執行 Azure 資料表儲存體作業](../../storage/tables/table-storage-how-to-use-powershell.md)
 
-Azure Cosmos DB 資料表 API 提供資料表儲存體的高階功能，例如通行全域發佈、低延遲讀取和寫入、自動次要索引，以及專用的輸送量。
+Azure Cosmos DB 資料表 API 提供資料表儲存體的高階功能，例如周全的全域發佈、低延遲讀取和寫入、自動次要索引，以及專用的輸送量。
 
 * 如需詳細資訊，請參閱 [Azure Cosmos DB 資料表 API](../../cosmos-db/table-introduction.md)。
 
@@ -252,4 +252,4 @@ Remove-AzResourceGroup -Name $resourceGroup
 
 * [Azure 儲存體控制層 PowerShell Cmdlet](/powershell/module/az.storage/)
 * [Azure 儲存體資料層 PowerShell Cmdlet](/powershell/module/azure.storage/)
-* [Windows PowerShell 參考](https://msdn.microsoft.com/library/ms714469.aspx)
+* [Windows PowerShell 參考](/powershell/scripting/developer/windows-powershell)

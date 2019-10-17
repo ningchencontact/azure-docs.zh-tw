@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 10/10/2019
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: 56bb5a1ac3c4003eca6ebe8392fc5b97f36a3317
-ms.sourcegitcommit: 9dec0358e5da3ceb0d0e9e234615456c850550f6
+ms.openlocfilehash: 24d601dc2116b7daf315bb3c6f20c4dc0b6f6ce5
+ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/14/2019
-ms.locfileid: "72311143"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72382050"
 ---
 # <a name="performance-and-scalability-checklist-for-blob-storage"></a>Blob 儲存體的效能和擴充性檢查清單
 
@@ -25,13 +25,13 @@ Azure 儲存體具有容量、交易速率和頻寬的擴充性和效能目標�
 
 這篇文章將效能經過證實的作法，整理成在開發 Blob 儲存體應用程式時可遵循的檢查清單。
 
-| 完成 | Category | 設計考慮 |
+| 完成 | 類別 | 設計考慮 |
 | --- | --- | --- |
 | &nbsp; |擴充性目標 |[您是否可以將應用程式設計成使用的儲存體帳戶數目不超過上限？](#maximum-number-of-storage-accounts) |
 | &nbsp; |擴充性目標 |[您是否要避免接近的容量和交易限制？](#capacity-and-transaction-targets) |
 | &nbsp; |擴充性目標 |[有大量的用戶端同時存取單一 blob 嗎？](#multiple-clients-accessing-a-single-blob-concurrently) |
 | &nbsp; |擴充性目標 |[您的應用程式是否會在單一 blob 的擴充性目標內保持不動？](#bandwidth-and-operations-per-blob) |
-| &nbsp; |資料分割 |[您的命名慣例設計能因應更好的負載平衡嗎？](#partitioning) |
+| &nbsp; |分割 |[您的命名慣例設計能因應更好的負載平衡嗎？](#partitioning) |
 | &nbsp; |網路功能 |[用戶端裝置是否有足夠高的頻寬和低延遲，才能達到所需的效能？](#throughput) |
 | &nbsp; |網路功能 |[用戶端裝置具有高品質的網路連結嗎？](#link-quality) |
 | &nbsp; |網路功能 |[用戶端應用程式與儲存體帳戶位於相同的區域嗎？](#location) |
@@ -66,7 +66,7 @@ Azure 儲存體具有容量、交易速率和頻寬的擴充性和效能目標�
 
 - 您是否使用儲存體帳戶來儲存非受控磁片，並將這些磁片新增至您的虛擬機器（Vm）？ 在此案例中，Microsoft 建議使用受控磁片。 受控磁片會自動為您調整規模，而不需要建立及管理個別的儲存體帳戶。 如需詳細資訊，請參閱[Azure 受控磁片簡介](../../virtual-machines/windows/managed-disks-overview.md)
 - 您是否為每位客戶使用一個儲存體帳戶，以進行資料隔離？ 針對此案例，Microsoft 建議為每個客戶使用 blob 容器，而不是整個儲存體帳戶。 Azure 儲存體現在可讓您以每個容器為基礎來指派角色型存取控制（RBAC）角色。 如需詳細資訊，請參閱在[Azure 入口網站中使用 RBAC 授與 Azure blob 和佇列資料的存取權](../common/storage-auth-aad-rbac-portal.md)。
-- 您是否使用多個儲存體帳戶來分區，以增加每秒的輸入、輸出、i/o 作業（IOPS）或容量？ 在此案例中，Microsoft 建議您利用較高的標準儲存體帳戶限制，以減少您的工作負載所需的儲存體帳戶數目（如果可能的話）。 請聯絡[Azure 支援](https://azure.microsoft.com/support/options/)以要求增加儲存體帳戶的限制。 如需詳細資訊，請參閱[宣佈較大型、較大規模的儲存體帳戶](https://azure.microsoft.com/blog/announcing-larger-higher-scale-storage-accounts/)。
+- 您是否使用多個儲存體帳戶來分區，以增加每秒的輸入、輸出、i/o 作業（IOPS）或容量？ 在此案例中，Microsoft 建議您利用增加的儲存體帳戶限制，盡可能減少工作負載所需的儲存體帳戶數目。 請聯絡[Azure 支援](https://azure.microsoft.com/support/options/)以要求增加儲存體帳戶的限制。 如需詳細資訊，請參閱[宣佈較大型、較大規模的儲存體帳戶](https://azure.microsoft.com/blog/announcing-larger-higher-scale-storage-accounts/)。
 
 ### <a name="capacity-and-transaction-targets"></a>容量和交易目標
 
@@ -93,7 +93,7 @@ Azure 儲存體具有容量、交易速率和頻寬的擴充性和效能目標�
 
 您也可以使用內容傳遞網路（CDN）（例如 Azure CDN）在 blob 上散發作業。 如需 Azure CDN 的詳細資訊，請參閱[AZURE cdn 總覽](../../cdn/cdn-overview.md)。  
 
-## <a name="partitioning"></a>資料分割
+## <a name="partitioning"></a>分割
 
 瞭解 Azure 儲存體分割 blob 資料的方式有助於提升效能。 Azure 儲存體可以更快速地在單一分割區中提供資料，而不是跨越多個資料分割的資料。 藉由適當地命名 blob，您可以改善讀取要求的效率。
 
@@ -113,7 +113,7 @@ Blob 儲存體會使用以範圍為基礎的資料分割配置來進行調整和
 
     例如，如果您有每日作業使用具有時間戳記的 blob，例如*yyyymmdd*，則該每日作業的所有流量都會導向至單一分割區伺服器所服務的單一 blob。 請考慮每個 blob 的限制和每個分割區的限制是否符合您的需求，並視需要將此作業分解成多個 blob。 同樣地，如果您在資料表中儲存時間序列資料，則所有流量可能會導向至金鑰命名空間的最後一個部分。 如果您使用數值識別碼，請在識別碼前面加上三位數的雜湊。 如果您使用時間戳，請在時間戳記前面加上秒數值，例如*ssyyyymmdd*。 如果您的應用程式會定期執行清單和查詢作業，請選擇將會限制查詢數目的雜湊函數。 在某些情況下，隨機前置詞可能就已足夠。
   
-- 如需 Azure 儲存體中使用之資料分割配置的詳細資訊，請參閱 @no__t 0Azure 儲存體：具有高度一致性的高可用性雲端儲存體服務](https://sigops.org/sosp/sosp11/current/2011-Cascais/printable/11-calder.pdf) \(英文\)。
+- 如需 Azure 儲存體中使用之資料分割配置的詳細資訊，請參閱[Azure 儲存體：具有強式一致性的高可用性雲端儲存體服務](https://sigops.org/sosp/sosp11/current/2011-Cascais/printable/11-calder.pdf)。
 
 ## <a name="networking"></a>網路功能
 
@@ -123,7 +123,7 @@ Blob 儲存體會使用以範圍為基礎的資料分割配置來進行調整和
 
 頻寬和網路連結的品質會在應用程式效能中扮演重要角色，如下列各節所述。
 
-#### <a name="throughput"></a>Throughput
+#### <a name="throughput"></a>輸送量
 
 頻寬的問題經常是用戶端的功能。 較大型的 Azure 執行個體擁有較大容量的 NIC，因此，如果您需要單一機器的較高網路限制，您應考慮使用較大型的執行個體或更多的 VM。 如果您要從內部部署應用程式存取 Azure 儲存體，則適用相同的規則：瞭解用戶端裝置的網路功能和 Azure 儲存體位置的網路連線能力，並視需要加以改善或設計您的應用程式可在其功能內工作。
 
@@ -194,7 +194,7 @@ ServicePointManager.DefaultConnectionLimit = 100; //(Or More)
 
 如需其他程式設計語言，請參閱檔，以判斷如何設定連接限制。  
 
-如需詳細資訊，請參閱部落格文章 [Web 服務：並行連線](https://blogs.msdn.microsoft.com/darrenj/2005/03/07/web-services-concurrent-connections/)。  
+如需詳細資訊，請參閱 blog 文章[Web 服務：並行](https://blogs.msdn.microsoft.com/darrenj/2005/03/07/web-services-concurrent-connections/)連線。  
 
 ### <a name="increase-minimum-number-of-threads"></a>增加執行緒的最小數目
 
@@ -286,6 +286,4 @@ Azure 儲存體支援區塊 blob、附加 blob 和分頁 blob。 在指定使用
 ## <a name="next-steps"></a>後續步驟
 
 - [儲存體帳戶的 Azure 儲存體延展性和效能目標](../common/storage-scalability-targets.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
-- [佇列儲存體的效能和擴充性檢查清單](../queues/storage-performance-checklist.md)
-- [資料表儲存體的效能和擴充性檢查清單](../tables/storage-performance-checklist.md)
 - [狀態和錯誤碼](/rest/api/storageservices/Status-and-Error-Codes2)

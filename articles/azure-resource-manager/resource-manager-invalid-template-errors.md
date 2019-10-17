@@ -1,17 +1,17 @@
 ---
 title: Azure 無效範本錯誤 | Microsoft Docs
-description: 描述如何解決無效範本錯誤。
+description: 描述在部署 Azure Resource Manager 範本時，如何解決不正確範本錯誤。
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: troubleshooting
 ms.date: 03/08/2018
 ms.author: tomfitz
-ms.openlocfilehash: 0417a975ffbbe0acd94ceac6c0f8e1de27a27aa6
-ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
+ms.openlocfilehash: bdf1d66ab345cc0d86206413db6617e9568b4d22
+ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67206269"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72390332"
 ---
 # <a name="resolve-errors-for-invalid-template"></a>解決無效範本的錯誤
 
@@ -133,7 +133,7 @@ part of the allowed values
 
 ## <a name="solution-4---too-many-target-resource-groups"></a>解決方案 4 - 太多目標資源群組
 
-如果您在單一部署中指定五個以上的目標資源群組，就會收到此錯誤。 請考慮合併部署中的資源群組數目，或將一些範本部署為個別部署。 如需詳細資訊，請參閱[將 Azure 資源部署至多個訂用帳戶和資源群組](resource-manager-cross-resource-group-deployment.md)。
+如果您在單一部署中指定五個以上的目標資源群組，就會收到此錯誤。 請考慮合併部署中的資源群組數目，或將一些範本部署為個別部署。 如需詳細資訊，請參閱[將 Azure 資源部署至多個訂用帳戶或資源群組](resource-manager-cross-resource-group-deployment.md)。
 
 <a id="circular-dependency" />
 

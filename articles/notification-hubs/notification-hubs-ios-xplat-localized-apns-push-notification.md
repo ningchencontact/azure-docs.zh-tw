@@ -1,5 +1,5 @@
 ---
-title: 使用 Azure 通知中樞將當地語系化通知推送至 iOS 裝置| Microsoft Docs
+title: 使用 Azure 通知中樞將當地語系化的推播通知傳送至 iOS |Microsoft Docs
 description: 了解如何使用 Azure 通知中樞將當地語系化的通知推送至 iOS 裝置。
 services: notification-hubs
 documentationcenter: ios
@@ -16,14 +16,14 @@ ms.date: 01/04/2019
 ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 01/04/2019
-ms.openlocfilehash: 8eb4cf5e12c16c3c164ecce41a84a9cd32fd85ee
-ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
+ms.openlocfilehash: a8614156be5d516d16aff698b604cf0e661d7311
+ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71211886"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72385649"
 ---
-# <a name="tutorial-push-localized-notifications-to-ios-devices-using-azure-notification-hubs"></a>教學課程：了解如何使用 Azure 通知中樞將當地語系化通知推播至 iOS 裝置
+# <a name="tutorial-send-localized-push-notifications-to-ios-using-azure-notification-hubs"></a>教學課程：使用 Azure 通知中樞將當地語系化的推播通知傳送至 iOS
 
 > [!div class="op_single_selector"]
 > * [Windows 市集 C#](notification-hubs-windows-store-dotnet-xplat-localized-wns-push-notification.md)
@@ -44,7 +44,7 @@ ms.locfileid: "71211886"
 > * 從 .NET 主控台應用程式傳送當地語系化的範本通知
 > * 從裝置傳送當地語系化的範本通知
 
-## <a name="overview"></a>總覽
+## <a name="overview"></a>概觀
 
 在[使用通知中樞傳送即時新聞]中，您已建置使用**標記**來訂閱不同即時新聞類別通知的應用程式。 但有許多應用程式是以多個市場為目標的，因此需要當地語系化。 這表示通知本身的內容必須進行當地語系化，並傳遞至正確的裝置集。 本教學課程會說明如何使用通知中樞的**範本**功能，輕鬆地傳遞已當地語系化的即時新聞通知。
 
@@ -82,7 +82,7 @@ ms.locfileid: "71211886"
 
 在本節中，您會修改在[使用通知中樞傳送即時新聞]主題中所建立的即時新聞應用程式，以使用範本來傳送當地語系化的即時新聞。
 
-在您的 `MainStoryboard_iPhone.storyboard` 中，新增三種語言的分段控制：英文、法文和中文。
+在您的 `MainStoryboard_iPhone.storyboard` 中，新增具有三種語言的分段控制：英文、法文和普通話。
 
 ![建立 iOS UI 分鏡腳本][13]
 
@@ -92,7 +92,7 @@ ms.locfileid: "71211886"
 
 ## <a name="build-the-ios-app"></a>建置 iOS 應用程式
 
-1. 在您`Notification.h`的中， `retrieveLocale`新增方法，並修改 store 和訂閱者法，如下列程式碼所示：
+1. 在您的 `Notification.h` 中，新增 `retrieveLocale` 方法，並修改 store 和訂閱者法，如下列程式碼所示：
 
     ```objc
     - (void) storeCategoriesAndSubscribeWithLocale:(int) locale categories:(NSSet*) categories completion: (void (^)(NSError* error))completion;

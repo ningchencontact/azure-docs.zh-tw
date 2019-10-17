@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.author: makromer
 ms.service: data-factory
 ms.date: 10/07/2019
-ms.openlocfilehash: 9db1b96cb495fd0de452091da79ab61f7ae59118
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.openlocfilehash: 24b0deb60f1047228dc3ff6000d423e7cb6939ca
+ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72030687"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72387311"
 ---
 # <a name="mapping-data-flows-performance-and-tuning-guide"></a>對應資料流程效能和微調指南
 
@@ -23,11 +23,11 @@ ms.locfileid: "72030687"
 
 設計對應資料流程時，您可以按一下 [設定] 面板中的 [資料預覽] 索引標籤，對每個轉換進行單元測試。 驗證邏輯之後，請以管線中的活動的端對端測試資料流程。 加入「執行資料流程」活動，並使用 [偵錯工具] 按鈕來測試資料流程的效能。 若要開啟資料流程的執行計畫和效能設定檔，請在管線的 [輸出] 索引標籤中，按一下 [動作] 底下的 [眼鏡] 圖示。
 
-![資料流程監視器](media/data-flow/mon002.png "資料流程監視 2")
+![資料流程監視](media/data-flow/mon002.png "資料流程監視器2")
 
  您可以使用這項資訊，針對不同大小的資料來源來估計資料流程的效能。 如需詳細資訊，請參閱[監視對應資料流程](concepts-data-flow-monitoring.md)。
 
-![資料流程監視](media/data-flow/mon003.png "資料流程監視 3")
+![資料流程監視](media/data-flow/mon003.png "資料流程監視器3")
 
  針對「管線」 debug 執行，熱叢集需要大約一分鐘的整體效能計算中的叢集設定時間。 如果您要初始化預設 Azure Integration Runtime，加速時間可能需要大約5分鐘。
 
@@ -37,7 +37,7 @@ ms.locfileid: "72030687"
 * 如果您想要處理速率高於輸入速率，請嘗試**計算優化**叢集
 * 如果您想要在記憶體中快取更多資料，請嘗試使用**記憶體優化**的叢集。
 
-![新的 ir](media/data-flow/ir-new.png "新 ir")
+![新增 IR](media/data-flow/ir-new.png "新增 IR")
 
 如需如何建立 Integration Runtime 的詳細資訊，請參閱[Azure Data Factory 中的 Integration Runtime](concepts-integration-runtime.md)。
 
@@ -101,7 +101,7 @@ ms.locfileid: "72030687"
 在資料預覽和管線偵錯工具中進行偵錯工具時，檔案型源資料集的限制和取樣大小只會套用至傳回的資料列數目，而不會套用至讀取的資料列數目。 這可能會影響您的偵錯工具執行效能，而且可能會導致流程失敗。
 * Debug 叢集預設為小型單一節點叢集，建議使用範例小型檔案進行偵錯工具。 移至 [偵錯工具] [設定]，並使用暫存檔案指向資料的小型子集。
 
-    [![調試設定]](media/data-flow/debugsettings3.png "調試設定")
+    ![Debug 設定](media/data-flow/debugsettings3.png "偵錯設定")
 
 ### <a name="file-naming-options"></a>檔案命名選項
 

@@ -9,33 +9,33 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 04/29/2019
 ms.author: jingwang
-ms.openlocfilehash: 572547f4e22a4fcb63a030e64ca95a0b9d3eff00
-ms.sourcegitcommit: c662440cf854139b72c998f854a0b9adcd7158bb
+ms.openlocfilehash: 92950a79be43bc656d50e2ced106a2fdb47f53bf
+ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/02/2019
-ms.locfileid: "68734491"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72387713"
 ---
 # <a name="parquet-format-in-azure-data-factory"></a>Azure Data Factory 中的 Parquet 格式
 
-當您想要**剖析 Parquet 檔案, 或將資料寫入 Parquet 格式**時, 請遵循這篇文章。 
+當您想要**剖析 Parquet 檔案，或將資料寫入 Parquet 格式**時，請遵循這篇文章。 
 
-下列連接器支援 Parquet 格式:[Amazon S3](connector-amazon-simple-storage-service.md)、 [azure Blob](connector-azure-blob-storage.md)、 [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md)、 [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md)、 [azure 檔案儲存體](connector-azure-file-storage.md)、[檔案系統](connector-file-system.md)、 [FTP](connector-ftp.md)、 [Google 雲端儲存體](connector-google-cloud-storage.md)、 [HDFS](connector-hdfs.md)、 [HTTP](connector-http.md)和[SFTP](connector-sftp.md)。
+下列連接器支援 Parquet 格式： [Amazon S3](connector-amazon-simple-storage-service.md)、 [azure Blob](connector-azure-blob-storage.md)、 [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md)、 [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md)、 [Azure 檔案儲存體](connector-azure-file-storage.md)、[檔案系統](connector-file-system.md)、 [FTP](connector-ftp.md)、 [Google雲端儲存體](connector-google-cloud-storage.md)、 [HDFS](connector-hdfs.md)、 [HTTP](connector-http.md)和[SFTP](connector-sftp.md)。
 
 ## <a name="dataset-properties"></a>資料集屬性
 
 如需可用來定義資料集的區段和屬性完整清單，請參閱[資料集](concepts-datasets-linked-services.md)一文。 本節提供 Parquet 資料集所支援的屬性清單。
 
-| 內容         | 描述                                                  | 必要項 |
+| 屬性         | 描述                                                  | 必要項 |
 | ---------------- | ------------------------------------------------------------ | -------- |
-| type             | 資料集的類型屬性必須設定為**Parquet**。 | 是      |
-| 位置         | 檔案的位置設定。 每個以檔案為基礎的連接器在下`location`都有自己的位置類型和支援的屬性。 **請參閱連接器文章-> 資料集屬性一節中的詳細資訊**。 | 是      |
-| compressionCodec | 寫入 Parquet 檔案時要使用的壓縮編解碼器。 從 Parquet 檔案讀取時, Data Factory 會根據檔案中繼資料自動決定壓縮編解碼器。<br>支援的類型為 "**none**"、"**gzip**"、"**snappy**" (預設值) 和 "**lzo**"。 注意: 目前的複製活動不支援 LZO。 | 否       |
+| 類型             | 資料集的類型屬性必須設定為**Parquet**。 | 是      |
+| location         | 檔案的位置設定。 每個以檔案為基礎的連接器都有自己的位置類型，且支援的屬性 `location`。 **請參閱連接器文章-> 資料集屬性一節中的詳細資訊**。 | 是      |
+| compressionCodec | 寫入 Parquet 檔案時要使用的壓縮編解碼器。 從 Parquet 檔案讀取時，Data Factory 會根據檔案中繼資料自動決定壓縮編解碼器。<br>支援的類型為 "**none**"、"**gzip**"、"**snappy**" （預設值）和 "**lzo**"。 注意：目前的複製活動不支援 LZO。 | 否       |
 
 > [!NOTE]
 > Parquet 檔不支援資料行名稱中的空白字元。
 
-以下是 Azure Blob 儲存體上的 Parquet 資料集範例:
+以下是 Azure Blob 儲存體上的 Parquet 資料集範例：
 
 ```json
 {
@@ -65,21 +65,21 @@ ms.locfileid: "68734491"
 
 ### <a name="parquet-as-source"></a>Parquet 作為來源
 
-以下支援的屬性將複製活動中 ***\*來源\**** 一節。
-
-| 內容      | 描述                                                  | 必要項 |
-| ------------- | ------------------------------------------------------------ | -------- |
-| type          | 複製活動來源的類型屬性必須設定為**ParquetSource**。 | 是      |
-| storeSettings | 一組屬性, 說明如何從資料存放區讀取資料。 每個以檔案為基礎的連接器在下`storeSettings`都有自己支援的讀取設定。 **請參閱連接器中的詳細資料文章-> 複製活動屬性一節**。 | 否       |
-
-### <a name="parquet-as-sink"></a>Parquet 作為接收
-
-以下支援的屬性將複製活動中 ***\*接收器\**** 一節。
+複製活動***\*source @ no__t-2***一節支援下列屬性。
 
 | 屬性      | 描述                                                  | 必要項 |
 | ------------- | ------------------------------------------------------------ | -------- |
-| type          | 複製活動來源的類型屬性必須設定為**ParquetSink**。 | 是      |
-| storeSettings | 一組屬性, 說明如何將資料寫入資料存放區。 每個以檔案為基礎的連接器在下`storeSettings`都有它自己的支援寫入設定。 **請參閱連接器中的詳細資料文章-> 複製活動屬性一節**。 | 否       |
+| 類型          | 複製活動來源的類型屬性必須設定為**ParquetSource**。 | 是      |
+| storeSettings | 一組屬性，說明如何從資料存放區讀取資料。 每個以檔案為基礎的連接器在 `storeSettings` 之下都有自己支援的讀取設定。 **請參閱連接器中的詳細資料文章-> 複製活動屬性一節**。 | 否       |
+
+### <a name="parquet-as-sink"></a>Parquet 作為接收
+
+複製活動***\*sink @ no__t-2***一節支援下列屬性。
+
+| 屬性      | 描述                                                  | 必要項 |
+| ------------- | ------------------------------------------------------------ | -------- |
+| 類型          | 複製活動來源的類型屬性必須設定為**ParquetSink**。 | 是      |
+| storeSettings | 一組屬性，說明如何將資料寫入資料存放區。 每個以檔案為基礎的連接器在 `storeSettings` 之下都有自己的支援寫入設定。 **請參閱連接器中的詳細資料文章-> 複製活動屬性一節**。 | 否       |
 
 ## <a name="mapping-data-flow-properties"></a>對應資料流程屬性
 
@@ -87,7 +87,7 @@ ms.locfileid: "68734491"
 
 ## <a name="data-type-support"></a>資料類型支援
 
-目前不支援 Parquet 複雜的資料類型 (例如 MAP、LIST、STRUCT)。
+目前不支援 Parquet 複雜的資料類型（例如 MAP、LIST、STRUCT）。
 
 ## <a name="using-self-hosted-integration-runtime"></a>使用自我裝載的 Integration Runtime
 
@@ -96,7 +96,7 @@ ms.locfileid: "68734491"
 
 針對在自我裝載 IR 上搭配 Parquet 檔案序列化/還原序列化來執行的複製，ADF 會找出 Java 執行階段，方法是先檢查登錄 *`(SOFTWARE\JavaSoft\Java Runtime Environment\{Current Version}\JavaHome)`* 是否有 JRE，如果找不到，就接著檢查系統變數 *`JAVA_HOME`* 是否有 OpenJDK。
 
-- **使用 JRE**：64 位元 IR 需要 64 位元 JRE。 您可以從[這裡](https://go.microsoft.com/fwlink/?LinkId=808605)找到該程式。
+- **若要使用 JRE**：64位 IR 需要64位 JRE。 您可以從[這裡](https://go.microsoft.com/fwlink/?LinkId=808605)找到該程式。
 - **使用 OpenJDK**：自 IR 3.13 版開始便可支援。 請將 jvm.dll 與所有其他必要的 OpenJDK 組件一起封裝至自我裝載 IR 機器，然後相應地設定 JAVA_HOME 系統環境變數。
 
 > [!TIP]

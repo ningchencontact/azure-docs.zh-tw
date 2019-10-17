@@ -14,21 +14,22 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 06/25/2019
 ms.author: emalani
-ms.openlocfilehash: 53d65d5577f8905d66da80e99cab6647f0a4dc4c
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.openlocfilehash: 65bd619a95b102c4ad4be57f1661a89fbae43e22
+ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72025026"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72388418"
 ---
-# <a name="enable-offline-sync-for-your-xamarinforms-mobile-app"></a>啟用 Xamarin.Forms 行動應用程式的離線同步處理
+# <a name="enable-offline-sync-for-your-xamarinforms-mobile-app"></a>為您的 Xamarin.Forms 行動裝置 App 啟用離線同步處理
 [!INCLUDE [app-service-mobile-selector-offline](../../includes/app-service-mobile-selector-offline.md)]
 
 > [!NOTE]
 > Visual Studio App Center 支援行動應用程式開發的端對端和整合式服務中心。 開發人員可以使用**組建**、**測試**和**散發**服務來設定持續整合和傳遞管線。 部署應用程式之後，開發人員可以使用**分析**和**診斷**服務來監視其應用程式的狀態和使用，並與使用**推**播服務的使用者互動。 開發人員也可以利用**驗證**來驗證其使用者和**資料**服務，以保存及同步雲端中的應用程式資料。
-> 如果您想要在您的行動應用程式中整合雲端服務，請立即註冊 App Center [App center](https://appcenter.ms/?utm_source=zumo&utm_medium=Azure&utm_campaign=zumo%20doc) 。
+>
+> 如果您想要在您的行動應用程式中整合雲端服務，請立即註冊[App Center](https://appcenter.ms/?utm_source=zumo&utm_medium=Azure&utm_campaign=zumo%20doc) 。
 
-## <a name="overview"></a>總覽
+## <a name="overview"></a>概觀
 此教學課程介紹適用於 Xamarin.Forms 之 Azure 行Mobile Apps 的離線同步處理功能。 離線同步處理可讓使用者與行動應用程式進行互動--檢視、新增或修改資料--即使沒有網路連線進也可行。 變更會儲存在本機資料庫中。 裝置恢復上線後，這些變更就會與遠端服務進行同步處理。
 
 本教學課程是根據您完成教學課程 [建立 Xamarin iOS 應用程式] 時所建立之 Mobile Apps 的 Xamarin.Forms 快速入門方案。 Xamarin.Forms 的快速入門方案包含程式碼來支援離線同步處理，只需要啟用即可。 在本教學課程中，您將會更新快速入門方案來開啟 Azure Mobile Apps 的離線功能。 我們也會在應用程式中反白顯示離線特有的程式碼。 如果您不要使用下載的快速入門方案，則必須將資料存取擴充套件新增至您的專案。 如需伺服器擴充套件的詳細資訊，請參閱 [使用 Azure Mobile Apps 的 .NET 後端伺服器 SDK][1]。
@@ -44,8 +45,8 @@ ms.locfileid: "72025026"
         #define OFFLINE_SYNC_ENABLED
 3. (選擇性) 若要支援 Windows 裝置，請安裝下列其中一個 SQLite 執行階段封裝︰
 
-   * **Windows 8.1 執行階段：** 安裝[SQLite for Windows 8.1][3]。
-   * **Windows Phone 8.1：** 安裝[SQLite for Windows Phone 8.1][4]。
+   * **Windows 8.1 執行階段：** 安裝 [SQLite for Windows 8.1][3]。
+   * **Windows Phone 8.1：** 安裝 [SQLite for Windows Phone 8.1][4]。
    * **通用 Windows 平台：** 安裝 [適用於通用 Windows 平台的 SQLite][5]。
 
      雖然快速入門中未包含通用 Windows 專案，使用 Xamarin Forms 可支援通用 Windows 平台。

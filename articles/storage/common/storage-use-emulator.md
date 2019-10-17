@@ -7,22 +7,22 @@ ms.date: 08/21/2019
 ms.service: storage
 ms.subservice: common
 ms.topic: conceptual
-ms.openlocfilehash: 575f23aef9534696566080257e61b2fa84de5d0f
-ms.sourcegitcommit: dcf3e03ef228fcbdaf0c83ae1ec2ba996a4b1892
+ms.openlocfilehash: 1f13efeb5c2ebcb8b23dea6f9ae997039972f089
+ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "70013547"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72428310"
 ---
 # <a name="use-the-azure-storage-emulator-for-development-and-testing"></a>使用 Azure 儲存體模擬器進行開發和測試
 
-Microsoft Azure 儲存體模擬器是模擬 Azure Blob、佇列和表格服務的工具, 以供本機開發之用。 您可以在本機針對儲存體服務測試應用程式, 而不需要建立 Azure 訂用帳戶或產生任何成本。 當您滿意應用程式在模擬器中的運作方式時, 請切換至使用雲端中的 Azure 儲存體帳戶。
+Microsoft Azure 儲存體模擬器是模擬 Azure Blob、佇列和表格服務的工具，以供本機開發之用。 您可以在本機針對儲存體服務測試應用程式，而不需要建立 Azure 訂用帳戶或產生任何成本。 當您滿意應用程式在模擬器中的運作方式時，請切換至使用雲端中的 Azure 儲存體帳戶。
 
 ## <a name="get-the-storage-emulator"></a>取得儲存體模擬器
 
 儲存體模擬器隨 [Microsoft Azure SDK](https://azure.microsoft.com/downloads/)提供。 您也可以使用[獨立安裝程式](https://go.microsoft.com/fwlink/?linkid=717179&clcid=0x409) (直接下載) 來安裝儲存體模擬器。 若要安裝儲存體模擬器，您必須具有電腦上的系統管理權限。
 
-儲存體模擬器目前只能在 Windows 上執行。 如果您需要適用于 Linux 的儲存體模擬器, 其中一個選項是 [已維護的社區]、[開放原始碼儲存體模擬器[Azurite](https://github.com/azure/azurite)]。
+儲存體模擬器目前只能在 Windows 上執行。 如果您需要適用于 Linux 的儲存體模擬器，其中一個選項是 [已維護的社區]、[開放原始碼儲存體模擬器[Azurite](https://github.com/azure/azurite)]。
 
 > [!NOTE]
 > 在某個儲存體模擬器版本中建立的資料不保證可在使用不同版本時加以存取。 如果您需要長期保存資料，建議您將該資料儲存於 Azure 儲存體帳戶中 (而不是儲存體模擬器中)。
@@ -31,7 +31,7 @@ Microsoft Azure 儲存體模擬器是模擬 Azure Blob、佇列和表格服務�
 
 ## <a name="how-the-storage-emulator-works"></a>儲存體模擬器的運作方式
 
-儲存體模擬器會使用本機 Microsoft SQL Server 2012 Express LocalDB 實例來模擬 Azure 儲存體服務。 您可以選擇設定儲存體模擬器存取 SQL Server 本機執行個體，而非 LocalDB 執行個體。 若要深入瞭解, 請參閱本文稍後的[啟動及初始化儲存體模擬器](#start-and-initialize-the-storage-emulator)一節。
+儲存體模擬器會使用本機 Microsoft SQL Server 2012 Express LocalDB 實例來模擬 Azure 儲存體服務。 您可以選擇設定儲存體模擬器存取 SQL Server 本機執行個體，而非 LocalDB 執行個體。 若要深入瞭解，請參閱本文稍後的[啟動及初始化儲存體模擬器](#start-and-initialize-the-storage-emulator)一節。
 
 儲存體模擬器會使用 Windows 驗證，連接到 SQL Server 或 LocalDB。
 
@@ -45,10 +45,10 @@ Microsoft Azure 儲存體模擬器是模擬 Azure Blob、佇列和表格服務�
 2. 開始輸入 `Azure Storage Emulator`。
 3. 從顯示的應用程式清單中選取模擬器。
 
-當儲存體模擬器啟動時，將會出現 [命令列提示字元] 視窗。 您可以使用此主控台視窗來啟動和停止儲存體模擬器。 您也可以從命令提示字元中清除資料、取得狀態, 以及初始化模擬器。 如需詳細資訊，請參閱本文稍後的[儲存體模擬器命令列工具參考](#storage-emulator-command-line-tool-reference)一節。
+當儲存體模擬器啟動時，將會出現 [命令列提示字元] 視窗。 您可以使用此主控台視窗來啟動和停止儲存體模擬器。 您也可以從命令提示字元中清除資料、取得狀態，以及初始化模擬器。 如需詳細資訊，請參閱本文稍後的[儲存體模擬器命令列工具參考](#storage-emulator-command-line-tool-reference)一節。
 
 > [!NOTE]
-> 如果系統上正在執行另一個儲存體模擬器 (例如 Azurite), Azure 儲存體模擬器可能無法正確啟動。
+> 如果系統上正在執行另一個儲存體模擬器（例如 Azurite），Azure 儲存體模擬器可能無法正確啟動。
 
 如果模擬器正在執行，您就會在 Windows 工作列通知區域看到圖示。
 
@@ -59,7 +59,7 @@ Microsoft Azure 儲存體模擬器是模擬 Azure Blob、佇列和表格服務�
 預設會將儲存體模擬器安裝至 `C:\Program Files (x86)\Microsoft SDKs\Azure\Storage Emulator`。
 
 > [!TIP]
-> 您可以使用 [Microsoft Azure 儲存體總管](https://storageexplorer.com)來使用本機儲存體模擬器資源。 當您安裝並啟動儲存體模擬器之後，在 [儲存體總管] 資源樹狀目錄中的 [儲存體帳戶] 下方尋找 [(開發)]。
+> 您可以使用 [Microsoft Azure 儲存體總管](https://storageexplorer.com)來使用本機儲存體模擬器資源。 在您安裝並啟動儲存體模擬器之後，請在 [儲存體總管資源] 樹狀結構中，尋找 [本機 & 連接] 底下的 [（模擬器-預設埠）（金鑰）]。
 >
 
 ### <a name="initialize-the-storage-emulator-to-use-a-different-sql-database"></a>初始化儲存體模擬器以使用不同的 SQL 資料庫
@@ -86,7 +86,7 @@ Microsoft Azure 儲存體模擬器是模擬 Azure Blob、佇列和表格服務�
 
 ## <a name="authenticating-requests-against-the-storage-emulator"></a>對儲存體模擬器的驗證要求
 
-一旦您安裝並啟動儲存體模擬器之後，就可以針對它測試您的程式碼。 除非是匿名要求, 否則您對儲存體模擬器所提出的每個要求都必須經過授權。 您可以使用共用金鑰驗證或共用存取簽章 (SAS)，授權傳送給儲存體模擬器的要求。
+一旦您安裝並啟動儲存體模擬器之後，就可以針對它測試您的程式碼。 除非是匿名要求，否則您對儲存體模擬器所提出的每個要求都必須經過授權。 您可以使用共用金鑰驗證或共用存取簽章 (SAS)，授權傳送給儲存體模擬器的要求。
 
 ### <a name="authorize-with-shared-key-credentials"></a>使用共用金鑰認證進行授權
 
@@ -123,11 +123,11 @@ http://127.0.0.1:10000/devstoreaccount1/sascontainer?sv=2012-02-12&se=2015-07-08
 
 使用此範例建立的共用存取簽章的效期為一天。 簽章會將完整存取權限 (讀取、寫入、刪除、列出) 授與容器內的 Blob。
 
-如需共用存取簽章的詳細資訊, 請參閱[使用共用存取簽章 (SAS) 授與 Azure 儲存體資源的有限存取權](storage-sas-overview.md)。
+如需共用存取簽章的詳細資訊，請參閱[使用共用存取簽章（SAS）授與 Azure 儲存體資源的有限存取權](storage-sas-overview.md)。
 
 ## <a name="addressing-resources-in-the-storage-emulator"></a>在儲存體模擬器中為資源定址
 
-儲存體模擬器的服務端點與 Azure 儲存體帳戶的端點不同。 本機電腦不會執行功能變數名稱解析, 要求儲存體模擬器端點必須是本機位址。
+儲存體模擬器的服務端點與 Azure 儲存體帳戶的端點不同。 本機電腦不會執行功能變數名稱解析，要求儲存體模擬器端點必須是本機位址。
 
 當您在 Azure 儲存體帳戶中定址資源時，可使用下列配置。 帳戶名稱是 URI 主機名稱的一部分，而要定址的資源是 URI 路徑的一部分：
 
@@ -137,7 +137,7 @@ http://127.0.0.1:10000/devstoreaccount1/sascontainer?sv=2012-02-12&se=2015-07-08
 
 `https://myaccount.blob.core.windows.net/mycontainer/myblob.txt`
 
-因為本機電腦不會執行功能變數名稱解析, 所以帳戶名稱是 URI 路徑的一部分, 而不是主機名稱。 針對儲存體模擬器中的資源使用下列 URI 格式：
+因為本機電腦不會執行功能變數名稱解析，所以帳戶名稱是 URI 路徑的一部分，而不是主機名稱。 針對儲存體模擬器中的資源使用下列 URI 格式：
 
 `http://<local-machine-address>:<port>/<account-name>/<resource-path>`
 
@@ -175,28 +175,28 @@ http://127.0.0.1:10000/devstoreaccount1/sascontainer?sv=2012-02-12&se=2015-07-08
 
 `AzureStorageEmulator.exe [start] [stop] [status] [clear] [init] [help]`
 
-### <a name="options"></a>選項。
+### <a name="options"></a>選項
 
 若要檢視選項清單，請在命令提示字元輸入 `/help` 。
 
 | 選項 | 描述 | 命令 | 引數 |
 | --- | --- | --- | --- |
-| **啟動** |啟動儲存體模擬器。 |`AzureStorageEmulator.exe start [-inprocess]` |*-* 重新處理:在目前的處理序中啟動模擬器，而不是建立新的處理序。 |
+| **啟動** |啟動儲存體模擬器。 |`AzureStorageEmulator.exe start [-inprocess]` |*-* 重新處理：在目前的進程中啟動模擬器，而不是建立新的進程。 |
 | **停止** |停止儲存體模擬器。 |`AzureStorageEmulator.exe stop` | |
 | **狀態** |列印儲存體模擬器的狀態。 |`AzureStorageEmulator.exe status` | |
 | **Clear** |清除命令列上指定的所有服務中的資料。 |`AzureStorageEmulator.exe clear [blob] [table] [queue] [all]` |*blob*：清除 blob 資料。 <br/>*queue*：清除佇列資料。 <br/>*table*：清除資料表資料。 <br/>*all*：清除所有服務中的所有資料。 |
-| **Init** |執行一次性初始化來設定模擬器。 |<code>AzureStorageEmulator.exe init [-server serverName] [-sqlinstance instanceName] [-forcecreate&#124;-skipcreate] [-reserveports&#124;-unreserveports] [-inprocess]</code> |*-server serverName\instanceName*：指定裝載 SQL 執行個體的伺服器。 <br/>*-sqlinstance instanceName*：指定在預設伺服器執行個體中使用之 SQL 執行個體的名稱。 <br/>*-forcecreate*：強制建立 SQL 資料庫，即使它已經存在。 <br/>*-skipcreate*：略過建立 SQL 資料庫。 其優先順序高於 -forcecreate。<br/>*-reserveports*：嘗試保留與服務建立關聯的 HTTP 連接埠。<br/>*-unreserveports*：嘗試移除與服務建立關聯之 HTTP 連接埠的保留。 其優先順序高於 -reserveports。<br/>*-inprocess*：在目前的處理序中執行初始化，而不是繁衍新的處理序。 如果變更連接埠保留，必須以提高權限啟動目前的處理程序。 |
+| **Init** |執行一次性初始化來設定模擬器。 |<code>AzureStorageEmulator.exe init [-server serverName] [-sqlinstance instanceName] [-forcecreate&#124;-skipcreate] [-reserveports&#124;-unreserveports] [-inprocess]</code> |*-server serverName\instanceName*︰指定裝載 SQL 執行個體的伺服器。 <br/>*-sqlinstance instanceName*：指定在預設伺服器執行個體中使用之 SQL 執行個體的名稱。 <br/>*-forcecreate*：強制建立 SQL 資料庫，即使它已經存在。 <br/>*-skipcreate*︰略過建立 SQL 資料庫。 其優先順序高於 -forcecreate。<br/>*-reserveports*︰嘗試保留與服務相關聯的 HTTP 連接埠。<br/>*-unreserveports*︰嘗試移除服務相關聯 HTTP 連接埠的保留。 其優先順序高於 -reserveports。<br/>*-inprocess*：在目前的處理序中執行初始化，而不是繁衍新的處理序。 如果變更連接埠保留，必須以提高權限啟動目前的處理程序。 |
 
 ## <a name="differences-between-the-storage-emulator-and-azure-storage"></a>儲存體模擬器和 Azure 儲存體之間的差異
 
-因為儲存體模擬器是本機模擬環境, 所以在雲端中使用模擬器和 Azure 儲存體帳戶之間會有一些差異:
+因為儲存體模擬器是本機模擬環境，所以在雲端中使用模擬器和 Azure 儲存體帳戶之間會有一些差異：
 
 * 儲存體模擬器僅支援單一固定帳戶及已知的驗證金鑰。
-* 儲存體模擬器不是可擴充的儲存體服務, 也不支援大量的並行用戶端。
-* 如 [在儲存體模擬器中定址資源](#addressing-resources-in-the-storage-emulator)中所述，資源在儲存體模擬器與在 Azure 儲存體帳戶中的定址方式不同。 差別在於, 功能變數名稱解析可在雲端中使用, 而不是在本機電腦上。
-* 從 3.1 版開始，儲存體模擬器帳戶就支援讀取存取地理備援複寫 (RA-GRS)。 在模擬器中, 所有帳戶都已啟用 GRS, 而且主要和次要複本之間絕對不會有任何延遲。 次要帳戶支援 Get Blob Service Stats、Get Queue Service Stats 和 Get Table Service Stats 作業，且這些作業一律會根據基礎 SQL 資料庫傳回 `LastSyncTime` 回應元素的值當成目前的時間。
+* 儲存體模擬器不是可擴充的儲存體服務，也不支援大量的並行用戶端。
+* 如 [在儲存體模擬器中定址資源](#addressing-resources-in-the-storage-emulator)中所述，資源在儲存體模擬器與在 Azure 儲存體帳戶中的定址方式不同。 差別在於，功能變數名稱解析可在雲端中使用，而不是在本機電腦上。
+* 從 3.1 版開始，儲存體模擬器帳戶就支援讀取存取地理備援複寫 (RA-GRS)。 在模擬器中，所有帳戶都已啟用 GRS，而且主要和次要複本之間絕對不會有任何延遲。 次要帳戶支援 Get Blob Service Stats、Get Queue Service Stats 和 Get Table Service Stats 作業，且這些作業一律會根據基礎 SQL 資料庫傳回 `LastSyncTime` 回應元素的值當成目前的時間。
 * 儲存體模擬器目前不支援檔案服務和 SMB 通訊協定服務端點。
-* 如果您使用模擬器不支援的儲存體服務版本, 模擬器會傳回 VersionNotSupportedByEmulator 錯誤 (HTTP 狀態碼 400-不正確的要求)。
+* 如果您使用模擬器不支援的儲存體服務版本，模擬器會傳回 VersionNotSupportedByEmulator 錯誤（HTTP 狀態碼 400-不正確的要求）。
 
 ### <a name="differences-for-blob-storage"></a>Blob 儲存體的差異
 
@@ -206,14 +206,14 @@ http://127.0.0.1:10000/devstoreaccount1/sascontainer?sv=2012-02-12&se=2015-07-08
 * 儲存體模擬器中的 Blob 名稱長度上限是 256 個字元，而 Azure 儲存體中的 Blob 名稱長度上限是 1024 個字元。
 * 增量複本會讓來自覆寫 blob 的快照進行複製，其會在服務時傳回失敗。
 * 取得頁面範圍差異在使用累加複製 Blob 複製的快照之間無法正常執行。
-* 即使未在要求中指定租用識別碼, Put Blob 作業仍可針對存在於具有作用中租用的儲存體模擬器中的 blob 進行成功。
+* 即使未在要求中指定租用識別碼，Put Blob 作業仍可針對存在於具有作用中租用的儲存體模擬器中的 blob 進行成功。
 * 模擬器不支援附加 Blob 作業。 在附加 Blob 上嘗試作業會傳回 FeatureNotSupportedByEmulator 錯誤 (HTTP 狀態碼 400-不正確的要求)。
 
 ### <a name="differences-for-table-storage"></a>資料表儲存體的差異
 
 下列差異適用於模擬器中的資料表儲存體：
 
-* 儲存體模擬器中表格服務的日期屬性只支援 SQL Server 2005 支援的範圍 (必須晚于1753年1月1日)。 1753 年 1 月 1 日之前的所有日期都會變成此值。 日期的精確度受限於 SQL Server 2005 的精確度，也就是會精確度達到 1/300 秒。
+* 儲存體模擬器中表格服務的日期屬性只支援 SQL Server 2005 支援的範圍（必須晚于1753年1月1日）。 1753 年 1 月 1 日之前的所有日期都會變成此值。 日期的精確度受限於 SQL Server 2005 的精確度，也就是會精確度達到 1/300 秒。
 * 儲存體模擬器支援屬性值小於 512 個位元組的資料分割索引鍵與資料列索引鍵。 帳戶名稱、資料表名稱和索引鍵屬性名稱的總大小不能超過900個位元組。
 * 在儲存體模擬器中，資料表的資料列大小總計限制為小於 1 MB。
 * 在儲存體模擬器中，資料類型 `Edm.Guid` 或 `Edm.Binary` 的屬性只支援查詢篩選字串中的 `Equal (eq)` 與 `NotEqual (ne)` 比較運算子。
@@ -251,7 +251,7 @@ http://127.0.0.1:10000/devstoreaccount1/sascontainer?sv=2012-02-12&se=2015-07-08
 
 ### <a name="version-54"></a>版本 5.4
 
-* 若要改善安裝穩定性，模擬器不會嘗試在安裝時保留連接埠。 如果您想要保留埠, 請使用**init**命令的 *-reserveports*選項來指定它們。
+* 若要改善安裝穩定性，模擬器不會嘗試在安裝時保留連接埠。 如果您想要保留埠，請使用**init**命令的 *-reserveports*選項來指定它們。
 
 ### <a name="version-53"></a>版本 5.3
 
@@ -282,7 +282,7 @@ http://127.0.0.1:10000/devstoreaccount1/sascontainer?sv=2012-02-12&se=2015-07-08
 
 ### <a name="version-45"></a>版本 4.5
 
-* 已修正當重新命名備份資料庫時, 導致安裝和初始化失敗的錯誤 (bug)。
+* 已修正當重新命名備份資料庫時，導致安裝和初始化失敗的錯誤（bug）。
 
 ### <a name="version-44"></a>4\.4 版
 
@@ -302,7 +302,7 @@ http://127.0.0.1:10000/devstoreaccount1/sascontainer?sv=2012-02-12&se=2015-07-08
 ### <a name="version-41"></a>4\.1 版
 
 * 儲存體模擬器現在支援 Blob、佇列和表格服務端點上的2015-02-21 版的儲存體服務。 它不支援新的附加 Blob 功能。
-* 模擬器現在會針對不支援的儲存體服務版本傳回有意義的錯誤訊息。 我們建議使用最新版本的模擬器。 如果您收到 VersionNotSupportedByEmulator 錯誤 (HTTP 狀態碼 400-不正確的要求), 請下載最新版本的模擬器。
+* 模擬器現在會針對不支援的儲存體服務版本傳回有意義的錯誤訊息。 我們建議使用最新版本的模擬器。 如果您收到 VersionNotSupportedByEmulator 錯誤（HTTP 狀態碼 400-不正確的要求），請下載最新版本的模擬器。
 * 修正競爭情形造成資料表實體資料在並行合併作業期間會不正確的 bug。
 
 ### <a name="version-40"></a>4\.0 版
@@ -315,7 +315,7 @@ http://127.0.0.1:10000/devstoreaccount1/sascontainer?sv=2012-02-12&se=2015-07-08
 
 ### <a name="version-31"></a>3\.1 版
 
-* 儲存體模擬器現在支援讀取權限異地備援儲存體 (RA-GRS)。 `Get Blob Service Stats` 、`Get Queue Service Stats`和api支援次要帳戶,並且一律會根據基礎SQL資料庫,將LastSyncTime回應元素的值傳回為目前時間。`Get Table Service Stats` 如需以程式設計方式使用儲存體模擬器來存取次要位置，請使用 Storage Client Library for.NET 3.2 版或更新版本。 如需詳細資訊，請參閱「Microsoft Azure Storage Client Library for .NET」。
+* 儲存體模擬器現在支援讀取權限異地備援儲存體 (RA-GRS)。 第二個帳戶支援 `Get Blob Service Stats`、`Get Queue Service Stats` 和 @no__t 2 Api，而且一律會根據基礎 SQL 資料庫，將 LastSyncTime 回應元素的值傳回為目前時間。 如需以程式設計方式使用儲存體模擬器來存取次要位置，請使用 Storage Client Library for.NET 3.2 版或更新版本。 如需詳細資訊，請參閱「Microsoft Azure Storage Client Library for .NET」。
 
 ### <a name="version-30"></a>3\.0 版
 

@@ -4,24 +4,26 @@ description: 使用 Azure Resource Manager 將虛擬網路和其他網路資源�
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: conceptual
-ms.date: 08/19/2019
+ms.date: 10/16/2019
 ms.author: tomfitz
-ms.openlocfilehash: 6ad7f32704d8cb73999a6e3cf60cb2a238268242
-ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
+ms.openlocfilehash: 14a7cb326a3017b1bdbcad21c8483eaaacd54674
+ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/26/2019
-ms.locfileid: "70034555"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72437815"
 ---
 # <a name="move-guidance-for-networking-resources"></a>移動網路資源的指導方針
 
 本文說明如何在特定案例中移動虛擬網路和其他網路資源。
 
-## <a name="dependent-resources"></a>相依的資源
+## <a name="dependent-resources"></a>相依資源
 
 當您移動虛擬網路時，也必須移動其相依資源。 針對 VPN 閘道，您必須移動 IP 位址、虛擬網路閘道和所有相關聯的連線資源。 區域網路閘道可位於不同的資源群組。
 
-若要移動具有網路介面卡的虛擬機器, 您必須移動所有相依資源。 移動網路介面卡的虛擬網路、虛擬網路的所有其他網路介面卡, 以及 VPN 閘道。
+若要將具有網路介面卡的虛擬機器移至新的訂用帳戶，您必須移動所有相依資源。 移動網路介面卡的虛擬網路、虛擬網路的所有其他網路介面卡，以及 VPN 閘道。
+
+如需詳細資訊，請參閱跨訂用帳戶[移動的案例](../resource-group-move-resources.md#scenario-for-move-across-subscriptions)。
 
 ## <a name="peered-virtual-network"></a>對等互連虛擬網路
 

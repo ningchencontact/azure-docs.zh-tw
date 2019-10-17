@@ -1,6 +1,6 @@
 ---
 title: Azure SKU 無法使用錯誤 | Microsoft Docs
-description: 描述如何針對部署期間 SKU 無法使用錯誤進行疑難排解。
+description: 描述如何在使用 Azure Resource Manager 部署資源時，針對 [無法使用 SKU] 錯誤進行疑難排解。
 services: azure-resource-manager
 documentationcenter: ''
 author: tfitzmac
@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 10/19/2018
 ms.author: tomfitz
-ms.openlocfilehash: 1dd0532452c3558e53f0236998953d2055ed328c
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: fca028412052a9a1520e1178f5d182a9987a9a85
+ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60390733"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72390224"
 ---
 # <a name="resolve-errors-for-sku-not-available"></a>解決 SKU 無法使用的錯誤
 
@@ -26,7 +26,7 @@ ms.locfileid: "60390733"
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="symptom"></a>徵兆
+## <a name="symptom"></a>徵狀
 
 在部署資源 (通常是虛擬機器) 時，您可能會收到下列錯誤碼和錯誤訊息︰
 
@@ -82,7 +82,7 @@ virtualMachines  southcentralus  Standard_F4                ...             None
 
 若要判斷區域中可以使用哪些 SKU，請使用[入口網站](https://portal.azure.com)。 登入入口網站，然後透過介面新增資源。 當您設定值時，您會看到該資源可用的 SKU。 您不需要完成部署。
 
-例如，請開始建立虛擬機器的程序。 若要查看其他可用的大小，請選取 [變更大小]  。
+例如，請開始建立虛擬機器的程序。 若要查看其他可用的大小，請選取 [變更大小]。
 
 ![建立 VM](./media/resource-manager-sku-not-available-errors/create-vm.png)
 

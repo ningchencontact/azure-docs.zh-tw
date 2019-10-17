@@ -1,6 +1,6 @@
 ---
 title: 使用 Azure PowerShell 管理 Azure Resource Manager 群組 |Microsoft Docs
-description: 使用 Azure PowerShell 來管理您的 Azure Resource Manager 群組。
+description: 使用 Azure PowerShell 透過 Azure Resource Manager 管理您的資源群組。 說明如何建立、列出和刪除資源群組。
 services: azure-resource-manager
 documentationcenter: ''
 author: mumian
@@ -8,12 +8,12 @@ ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 02/11/2019
 ms.author: jgao
-ms.openlocfilehash: 59c83cb1becf8869d0e8710121816d1bb75e621e
-ms.sourcegitcommit: be344deef6b37661e2c496f75a6cf14f805d7381
+ms.openlocfilehash: 1e057bc484a0b526927654fafa8f88ae4a5b4deb
+ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/07/2019
-ms.locfileid: "72001576"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72390420"
 ---
 # <a name="manage-azure-resource-manager-resource-groups-by-using-azure-powershell"></a>使用 Azure PowerShell 管理 Azure Resource Manager 資源群組
 
@@ -24,7 +24,7 @@ ms.locfileid: "72001576"
 - [使用 Azure 入口網站來管理 Azure 資源群組](./manage-resources-portal.md)
 - [使用 Azure CLI 來管理 Azure 資源群組](./manage-resources-cli.md)
 
-## <a name="what-is-a-resource-group"></a>何謂資源群組
+## <a name="what-is-a-resource-group"></a>什麼是資源群組
 
 資源群組是存放 Azure 方案相關資源的容器。 資源群組可以包含方案的所有資源，或只包含您要以群組方式管理的資源。 您可決定如何根據對組織最有利的方式，將資源配置到資源群組。 一般而言，會新增共用相同生命週期的資源到相同資源群組，因此您可以以群組為單位輕鬆地部署、更新、刪除它們。
 
@@ -216,7 +216,7 @@ Export-AzResourceGroup `
 
 ## <a name="manage-access-to-resource-groups"></a>管理資源群組的存取權
 
-[角色型存取控制 (RBAC)](../role-based-access-control/overview.md) 是您對 Azure 中的資源存取進行管理的機制。 如需詳細資訊，請參閱[使用 RBAC 和 Azure PowerShell 來管理存取權](../role-based-access-control/role-assignments-powershell.md)。
+[角色型存取控制 (RBAC)](../role-based-access-control/overview.md) 是您管理 Azure 資源存取權的手段。 如需詳細資訊，請參閱[使用 RBAC 和 Azure PowerShell 來管理存取權](../role-based-access-control/role-assignments-powershell.md)。
 
 ## <a name="next-steps"></a>後續步驟
 

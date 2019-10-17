@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: azurecli
 ms.date: 10/09/2019
 ms.author: v-six
-ms.openlocfilehash: 298fd336e87d07f9e65221d5e5f539e255c94993
-ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
+ms.openlocfilehash: a47dc1032115f8bcae0c7bdc37c84ab3b68ec4a8
+ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72245327"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72432302"
 ---
 # <a name="troubleshoot-linux-vm-starting-issues-due-to-file-system-errors"></a>針對因檔案系統錯誤而啟動的 Linux VM 問題進行疑難排解
 
@@ -71,7 +71,7 @@ Checking all file systems.
 
 如果檔案系統未完全關閉或儲存相關的問題，可能會發生此問題。 這些問題包括硬體或軟體錯誤、驅動程式或程式的問題、寫入錯誤等等。備份重要資料一定要有重要性。 本文中描述的工具可能有助於復原檔案系統，但仍可能發生資料遺失。
 
-Linux 有數個可用的檔案系統檢查程式。 在 Azure 中，散發套件最常見的是：[FSCK](https://access.redhat.com/documentation/red_hat_enterprise_linux/6/html/storage_administration_guide/fsck-fs-specific)、 [E2FSCK](https://access.redhat.com/documentation/red_hat_enterprise_linux/7/html/storage_administration_guide/fsck-fs-specific)和[Xfs_repair](https://access.redhat.com/documentation/red_hat_enterprise_linux/7/html/storage_administration_guide/xfsrepair)。
+Linux 有數個可用的檔案系統檢查程式。 在 Azure 中，散發套件最常見的是： [FSCK](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/6/html/storage_administration_guide/fsck-fs-specific)、 [E2FSCK](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/storage_administration_guide/fsck-fs-specific)和[Xfs_repair](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/storage_administration_guide/xfsrepair)。
 
 ## <a name="resolution"></a>解析度
 
@@ -106,7 +106,7 @@ Linux 有數個可用的檔案系統檢查程式。 在 Azure 中，散發套件
    xfs_repair /dev/sda1
    ```
 
-7. 如果您收到錯誤訊息「錯誤：檔案系統在需要重新執行的記錄檔中有重要的中繼資料變更，請建立臨時目錄並掛接檔案系統：
+7. 如果您收到錯誤訊息「錯誤：檔案系統在需要重新執行的記錄檔中有重要的中繼資料變更」，請建立臨時目錄並掛接檔案系統：
 
    ```
    mkdir /temp
@@ -150,7 +150,7 @@ Linux 有數個可用的檔案系統檢查程式。 在 Azure 中，散發套件
    xfs_repair /dev/sdc1
    ```
 
-5. 如果您收到錯誤訊息「錯誤：檔案系統在需要重新執行的記錄檔中有重要的中繼資料變更，請建立臨時目錄並掛接檔案系統：
+5. 如果您收到錯誤訊息「錯誤：檔案系統在需要重新執行的記錄檔中有重要的中繼資料變更」，請建立臨時目錄並掛接檔案系統：
 
    ```
    mkdir /temp

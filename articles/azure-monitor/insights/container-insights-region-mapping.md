@@ -1,6 +1,6 @@
 ---
-title: Azure 監視器容器區域對應
-description: 本文說明 Azure 監視器容器、 Log Analytics 工作區，與自訂計量之間支援的區域對應。
+title: 容器區域對應的 Azure 監視器
+description: 本文說明容器、Log Analytics 工作區和自訂計量的 Azure 監視器之間支援的區域對應。
 services: azure-monitor
 ms.service: azure-monitor
 ms.workload: infrastructure-services
@@ -9,20 +9,20 @@ ms.author: magoedte
 ms.date: 06/26/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 481a2a400be4e983e0a2337a200324061494efa1
-ms.sourcegitcommit: 6cb4dd784dd5a6c72edaff56cf6bcdcd8c579ee7
+ms.openlocfilehash: ca77277c8d8d405b8fe81f612a8d7600d3c937ab
+ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/02/2019
-ms.locfileid: "67518075"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72388192"
 ---
-# <a name="region-mappings-supported-by-azure-monitor-for-containers"></a>由 Azure 監視器容器支援的區域對應
+# <a name="region-mappings-supported-by-azure-monitor-for-containers"></a>容器的 Azure 監視器支援的區域對應
 
- 只有特定區域時啟用適用於容器的 Azure 監視器，支援連結的 Log Analytics 工作區與 AKS 叢集，並收集自訂計量提交至 Azure 監視器。
+ 啟用容器的 Azure 監視器時，只有特定區域支援連結 Log Analytics 工作區和 AKS 叢集，以及收集提交至 Azure 監視器的自訂計量。
 
 ## <a name="log-analytics-workspace-supported-mappings"></a>Log Analytics 工作區支援的對應
 
-AKS 叢集資源或 Log Analytics 工作區可位於其他區域，以及下表顯示我們的對應。
+AKS 叢集資源或 Log Analytics 工作區可位於其他區域，下表顯示我們的對應。
 
 |**AKS 叢集區域** | **Log Analytics 工作區區域** |
 |-----------------------|------------------------------------|
@@ -39,7 +39,7 @@ AKS 叢集資源或 Log Analytics 工作區可位於其他區域，以及下表�
 |SoutheastAsia |SoutheastAsia |
 |**巴西** | |
 |BrazilSouth | SouthCentralUS |
-|**Canada** ||
+|**加拿大** ||
 |CanadaCentral |CanadaCentral |
 |CanadaEast |CanadaCentral |
 |**歐洲** | |
@@ -66,13 +66,14 @@ AKS 叢集資源或 Log Analytics 工作區可位於其他區域，以及下表�
 |WestUS |WestUS |
 |WestUS2 |WestUS2 |
 |WestCentralUS<sup>1</sup>|EastUS<sup>1</sup>|
+|美國政府機構維吉尼亞州 |美國政府機構維吉尼亞州 |
 
-<sup>1</sup>容量限制，因為區域無法使用時建立新的資源。 這包括 Log Analytics 工作區。 不過，在區域中預先存在連結的資源應該繼續運作。
+<sup>1</sup>由於容量限制，建立新資源時無法使用區域。 這包括 Log Analytics 工作區。 不過，區域中預先存在的連結資源應該會繼續工作。
 
 ## <a name="custom-metrics-supported-regions"></a>自訂計量支援的區域
 
-收集計量的 Azure Kubernetes Service (AKS) 叢集節點，並發佈為自訂的度量，只能在下列支援 pod [Azure 區域](../platform/metrics-custom-overview.md#supported-regions)。
+僅支援從 Azure Kubernetes Services （AKS）叢集節點和 pod 收集計量，以便在下列[Azure 區域](../platform/metrics-custom-overview.md#supported-regions)中發佈為自訂計量。
 
 ## <a name="next-steps"></a>後續步驟
 
-若要開始監視您的 AKS 叢集，請檢閱[如何啟用適用於容器的 Azure 監視器](container-insights-onboard.md)了解需求和可用的方法，若要啟用監視。  
+若要開始監視您的 AKS 叢集，請參閱[如何啟用容器的 Azure 監視器](container-insights-onboard.md)，以瞭解啟用監視的需求和可用方法。  

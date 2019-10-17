@@ -2,28 +2,25 @@
 title: 使用 Azure 自動化管理 Azure 雲端服務 | Microsoft Docs
 description: 了解如何使用 Azure 自動化服務大規模地管理 Azure 雲端服務。
 services: cloud-services, automation
-documentationcenter: ''
 author: jodoglevy
 manager: timlt
 editor: ''
 ms.assetid: 3789810a-2892-4eef-bf29-c781c1b5af48
 ms.service: cloud-services
-ms.workload: tbd
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 06/20/2016
 ms.author: timlt
-ms.openlocfilehash: 1fc1ac9668454578ee137a2ddd1b85319fea0a28
-ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
+ms.openlocfilehash: 482fcf7d100a90d9527f510382c5dafb4f67adfa
+ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/10/2019
-ms.locfileid: "68945506"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72439066"
 ---
 # <a name="managing-azure-cloud-services-using-azure-automation"></a>使用 Azure 自動化管理 Azure 雲端服務
 本指南將為您介紹 Azure 自動化服務，以及如何使用它來簡化您的 Azure 雲端服務管理。
 
-## <a name="what-is-azure-automation"></a>什麼是 Azure 自動化？
+## <a name="what-is-azure-automation"></a>何謂 Azure 自動化？
 [Azure 自動化](https://azure.microsoft.com/services/automation/) 是一項 Azure 服務，可經由程序自動化簡化雲端管理。 透過 Azure 自動化，長時間執行、手動、容易發生錯誤和經常重複的工作都可以自動化，以提高可靠性、效率，並為您的組織縮短創造價值時程。
 
 Azure 自動化提供非常可靠且高度可用的工作流程執行引擎，可隨著組織的成長根據您的需求進行調整。 在 Azure 自動化中，程序可透過手動方式、經由協力廠商系統，或依照排程的間隔啟動，讓工作精準地在需要時執行。
@@ -43,4 +40,3 @@ Azure 雲端服務可透過 [Azure PowerShell 工具](/powershell/)中提供的 
 
 * [Azure 自動化概觀](../automation/automation-intro.md)
 * [我的第一個 Runbook](../automation/automation-first-runbook-graphical.md)
-* [Azure 自動化的學習地圖](https://azure.microsoft.com/documentation/learning-paths/automation/)

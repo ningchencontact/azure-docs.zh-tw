@@ -13,18 +13,19 @@ ms.devlang: java
 ms.topic: article
 ms.date: 06/25/2019
 ms.author: emalani
-ms.openlocfilehash: b67e0eaabe63707455eaa6cd4b235ec828dddff3
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.openlocfilehash: 991f3c8939c0f9e270423ff30282b02f110eb39e
+ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72025454"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72388925"
 ---
 # <a name="how-to-use-the-azure-mobile-apps-sdk-for-android"></a>如何使用 Android 版 Azure Mobile Apps SDK
 
 > [!NOTE]
 > Visual Studio App Center 支援行動應用程式開發的端對端和整合式服務中心。 開發人員可以使用**組建**、**測試**和**散發**服務來設定持續整合和傳遞管線。 部署應用程式之後，開發人員可以使用**分析**和**診斷**服務來監視其應用程式的狀態和使用，並與使用**推**播服務的使用者互動。 開發人員也可以利用**驗證**來驗證其使用者和**資料**服務，以保存及同步雲端中的應用程式資料。
-> 如果您想要在您的行動應用程式中整合雲端服務，請立即註冊 App Center [App center](https://appcenter.ms/signup?utm_source=zumo&utm_medium=Azure&utm_campaign=zumo%20doc) 。
+>
+> 如果您想要在您的行動應用程式中整合雲端服務，請立即註冊[App Center](https://appcenter.ms/signup?utm_source=zumo&utm_medium=Azure&utm_campaign=zumo%20doc) 。
 
 本指南說明如何使用適用於 Mobile Apps 的 Android 用戶端 SDK 來實作常見案例，例如：
 
@@ -112,7 +113,7 @@ MobileServiceClient mClient = new MobileServiceClient(
 
 用戶端也需要存取活動或內容 - 本範例中為 `this` 參數。  MobileServiceClient 建構應該發生在 `AndroidManifest.xml` 檔案中所參考的 `onCreate()` 活動方法。
 
-最佳做法是，您應該將伺服器通訊擷取到它自己的 (單一模式) 類別。  在此情況下，您應該傳遞建構函式內的活動，以適當地設定服務。  例如:
+最佳做法是，您應該將伺服器通訊擷取到它自己的 (單一模式) 類別。  在此情況下，您應該傳遞建構函式內的活動，以適當地設定服務。  例如：
 
 ```java
 package com.example.appname.services;
@@ -201,17 +202,17 @@ public final void setPriority(Integer priority) {
 }
 ```
 
-若要了解如何在 Mobile Apps 後端中建立資料表，請參閱[做法：定義資料表控制器 @ no__t-0 （.NET 後端）或[使用動態架構定義資料表][16]（node.js 後端）。
+若要瞭解如何在 Mobile Apps 後端中建立其他資料表，請參閱[如何：定義資料表控制器][15]（.net 後端）或[使用動態架構定義資料表][16]（node.js 後端）。
 
 Azure Mobile Apps 後端資料表定義了五個特殊欄位，其中四個可供用戶端使用︰
 
-* `String id`:記錄的全域唯一識別碼。  最佳做法是將識別碼設為[UUID][17]物件的字串表示。
-* `DateTimeOffset updatedAt`:上次更新的日期/時間。  UpdatedAt 欄位由伺服器設定，且不得由用戶端程式碼設定。
-* `DateTimeOffset createdAt`:建立物件的日期/時間。  CreatedAt 欄位由伺服器設定，且不得由用戶端程式碼設定。
-* `byte[] version`:通常會以字串表示，版本也是由伺服器設定。
-* `boolean deleted`:表示記錄已刪除，但尚未清除。  請勿使用 `deleted` 作為您類別中的屬性。
+* `String id`︰記錄的全域唯一識別碼。  最佳做法是將識別碼設為[UUID][17]物件的字串表示。
+* `DateTimeOffset updatedAt`︰上次更新的日期/時間。  UpdatedAt 欄位由伺服器設定，且不得由用戶端程式碼設定。
+* `DateTimeOffset createdAt`：建立物件的日期/時間。  CreatedAt 欄位由伺服器設定，且不得由用戶端程式碼設定。
+* `byte[] version`︰通常會以字串表示，版本也是由伺服器設定。
+* `boolean deleted`︰表示記錄已刪除，但尚未清除。  請勿使用 `deleted` 作為您類別中的屬性。
 
-`id` 是必填欄位。  `updatedAt` 欄位和 `version` 欄位是用於離線同步處理 (分別適用於增量同步處理和衝突解決)。  `createdAt` 欄位是參考欄位，且用戶端不可使用。  名稱為屬性的 "across-the-wire" 名稱，且不可調整。  不過，您可以使用[gson][3]程式庫，在您的物件和「跨網路」名稱之間建立對應。  例如:
+`id` 是必填欄位。  `updatedAt` 欄位和 `version` 欄位是用於離線同步處理 (分別適用於增量同步處理和衝突解決)。  `createdAt` 欄位是參考欄位，且用戶端不可使用。  名稱為屬性的 "across-the-wire" 名稱，且不可調整。  不過，您可以使用[gson][3]程式庫，在您的物件和「跨網路」名稱之間建立對應。  例如：
 
 ```java
 package com.example.zumoappname;
@@ -458,9 +459,9 @@ do {
 > [!TIP]
 > 選擇正確的頁面大小是在要求過程中的記憶體使用量、頻寬使用量和完全接收資料的延遲時間之間取得平衡。  預設值 (50 筆記錄) 適用於所有裝置。  如果您在較大記憶體裝置上獨立操作，則最多增加至 500。  我們發現，將頁面大小增加至超過 500 筆記錄，會導致無法接受的延遲和大量記憶體問題。
 
-### <a name="chaining"></a>操作說明：串連查詢方法
+### <a name="chaining"></a>作法：串連查詢方法
 
-用來查詢後端資料表的方法是可以串連的。 鏈結查詢方法可讓您從排序和分頁的篩選資料列中選取特定資料行。 您可以建立複雜的邏輯篩選器。  每個查詢方法都會傳回 Query 物件。 若要結束這一系列的方法並實際執行查詢，請呼叫 **execute** 方法。 例如:
+用來查詢後端資料表的方法是可以串連的。 鏈結查詢方法可讓您從排序和分頁的篩選資料列中選取特定資料行。 您可以建立複雜的邏輯篩選器。  每個查詢方法都會傳回 Query 物件。 若要結束這一系列的方法並實際執行查詢，請呼叫 **execute** 方法。 例如：
 
 ```java
 List<ToDoItem> results = mToDoTable
@@ -530,7 +531,7 @@ public class ToDoItemAdapter extends ArrayAdapter<ToDoItem> {
 }
 ```
 
-覆寫配接器的 **getView** 方法。 例如:
+覆寫配接器的 **getView** 方法。 例如：
 
 ```java
     @Override
@@ -635,7 +636,7 @@ ToDoItem entity = mToDoTable
 
 傳回的實體會符合插入後端資料表的資料，包括識別碼和後端上設定的任何其他值 (例如 `createdAt`、`updatedAt` 和 `version` 欄位)。
 
-Mobile Apps 資料表需要名為 **識別碼**的主索引鍵資料行。此資料行必須是字串。 識別碼資料行的預設值是 GUID。  您可以提供其他的唯一值，例如電子郵件地址或使用者名稱。 未針對插入的記錄提供字串識別碼值時，後端會產生新的 GUID。
+Mobile Apps 資料表需要名為**識別碼**的主鍵資料行。此資料行必須是字串。 識別碼資料行的預設值是 GUID。  您可以提供其他的唯一值，例如電子郵件地址或使用者名稱。 未針對插入的記錄提供字串識別碼值時，後端會產生新的 GUID。
 
 字串識別碼值提供下列優點：
 
@@ -684,7 +685,7 @@ ToDoItem result = mToDoTable
     .get();
 ```
 
-## <a name="untyped"></a>操作說明：使用不具類型的資料
+## <a name="untyped"></a>作法：使用不具類型的資料
 
 不具型別的程式設計模型可讓您精確掌控 JSON 序列化。  在某些常見情況下，您可能會想使用不具型別的程式設計模型。 例如，如果您的後端資料表包含許多資料行，但您只需要參考其中幾個資料行時。  使用具型別的模型時，您必須在資料類別中將 Mobile Apps 後端所定義的所有資料行進行定義。  用來存取資料的 API 呼叫大多會與型別程式設計呼叫相類似。 主要的差別在於，在不具型別的模型中，您會叫用 **MobileServiceJsonTable** 物件的方法，而不是 **MobileServiceTable** 物件。
 
@@ -779,10 +780,10 @@ public void showAllUntyped(View view) {
 
 Azure Mobile Apps 用戶端 SDK 也會使用 SQL Database 在本機儲存伺服器資料的副本，來實作離線資料同步處理。  離線資料表上執行的作業不需要行動連線能力。  離線同步處理可協助復原能力和效能，但代價是更複雜的衝突解決邏輯。  Mobile Apps 用戶端 SDK 會實作下列功能︰
 
-* 增量同步處理：只會下載更新和新的記錄，可節省頻寬和記憶體耗用量。
-* 開放式並行存取：作業會假設為成功。  會延後衝突解決，直到伺服器上執行更新為止。
-* 衝突解決：SDK 會偵測到伺服器上已進行的衝突變更，並提供攔截程序來警示使用者。
-* 虛刪除：已刪除的記錄會標示為已刪除，使其他裝置可更新其離線快取。
+* 增量同步處理︰只會下載更新和新的記錄，可節省頻寬和記憶體耗用量。
+* 開放式並行存取︰作業會假設為成功。  會延後衝突解決，直到伺服器上執行更新為止。
+* 衝突解決︰SDK 會偵測到伺服器上已進行的衝突變更，並提供攔截程序來警示使用者。
+* 虛刪除︰已刪除的記錄會標示為已刪除，使其他裝置可更新其離線快取。
 
 ### <a name="initialize-offline-sync"></a>將離線同步處理初始化
 
@@ -904,7 +905,7 @@ public void completeItem(View view) {
 
 教學課程已詳細說明如何新增這些功能。
 
-App Service 支援使用各種外部識別提供者[驗證應用程式使用者](app-service-mobile-android-get-started-users.md)：Facebook、Google、Microsoft 帳戶、Twitter 和 Azure Active Directory。 您可以在資料表上設定權限，以限制僅有通過驗證使用者可以存取特定操作。 您也可以使用經驗證使用者的身分識別，以在後端實作授權規則。
+App Service 支援使用各種外部識別提供者 (Facebook、Google、Microsoft 帳戶、Twitter 以及 Azure Active Directory) 來 [驗證應用程式使用者](app-service-mobile-android-get-started-users.md)。 您可以在資料表上設定權限，以限制僅有通過驗證使用者可以存取特定操作。 您也可以使用經驗證使用者的身分識別，以在後端實作授權規則。
 
 支援兩個驗證流程：**伺服器**流程和**用戶端**流程。 由於伺服器流程採用識別提供者的 Web 介面，因此所提供的驗證體驗也最為簡單。  不需要其他 SDK 就能實作伺服器流程驗證。 伺服器流程驗證不會與行動裝置密切整合，因此只建議用於概念證明案例。
 
@@ -917,9 +918,9 @@ App Service 支援使用各種外部識別提供者[驗證應用程式使用者]
 * 限制只有 App Service 後端上經驗證的使用者會具有資料表權限。
 * 將驗證碼新增至您的應用程式。
 
-您可以在資料表上設定權限，以限制僅有通過驗證使用者可以存取特定操作。 您也可以使用已驗證的使用者 SID 來修改要求。  如需詳細資訊，請檢閱 [開始使用驗證] 和伺服器 SDK 做法文件。
+您可以在資料表上設定權限，以限制僅有通過驗證使用者可以存取特定操作。 您也可以使用已驗證的使用者 SID 來修改要求。  如需詳細資訊，請檢閱 [Get started with authentication] 和伺服器 SDK 做法文件。
 
-### <a name="caching"></a>驗證：伺服器流程
+### <a name="caching"></a>驗證︰伺服器流程
 
 下列程式碼會使用 Google 提供者來啟動伺服器流程登入程序。  由於 Google 提供者的安全性需求，需要其他設定︰
 
@@ -1000,7 +1001,7 @@ dependencies {
 }
 ```
 
-使用 **getUserId** 方法從 **MobileServiceUser** 取得已登入使用者的識別碼。 如需如何使用 Futures 來呼叫非同步登入 API 的範例，請參閱 [開始使用驗證]。
+使用 **getUserId** 方法從 **MobileServiceUser** 取得已登入使用者的識別碼。 如需如何使用 Futures 來呼叫非同步登入 API 的範例，請參閱 [Get started with authentication]。
 
 > [!WARNING]
 > 所述的 URL 配置會區分大小寫。  確認所有出現的 `{url_scheme_of_you_app}` 大小寫相符。
@@ -1304,7 +1305,7 @@ client.setGsonBuilder(
 [ASCII control codes C0 and C1]: https://en.wikipedia.org/wiki/Data_link_escape_character#C1_set
 [Mobile Services SDK for Android]: https://go.microsoft.com/fwlink/p/?LinkID=717033
 [Azure portal]: https://portal.azure.com
-[開始使用驗證]: app-service-mobile-android-get-started-users.md
+[Get started with authentication]: app-service-mobile-android-get-started-users.md
 [1]: https://static.javadoc.io/com.google.code.gson/gson/2.8.5/com/google/gson/JsonObject.html
 [2]: https://hashtagfail.com/post/44606137082/mobile-services-android-serialization-gson
 [3]: https://www.javadoc.io/doc/com.google.code.gson/gson/2.8.5

@@ -4,14 +4,14 @@ description: 了解如何在 Azure Cosmos DB 中管理衝突
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 08/05/2019
+ms.date: 10/15/2019
 ms.author: mjbrown
-ms.openlocfilehash: c58828fd8ed0de73c03e9e741d14705ad88b1333
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 4c62fcc81eb3b045d3b4233e1bb3770ecb9865b3
+ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70093220"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72388092"
 ---
 # <a name="manage-conflict-resolution-policies-in-azure-cosmos-db"></a>在 Azure Cosmos DB 中管理衝突解決原則
 
@@ -107,10 +107,10 @@ udp_collection = self.try_create_document_collection(
 
 您必須使用如下所示的函式簽章來實作自訂衝突解決預存程序。 函式名稱不需要符合向容器註冊預存程序時所使用的名稱，但符合的話可簡化命名程序。 下面會說明必須為此預存程序實作的參數。
 
-- **incomingItem**：在產生衝突的認可中，所要插入或更新的項目。 若為刪除作業，此參數為 null。
-- **existingItem**：目前已認可的項目。 在更新中，此值為非 Null，若為插入或刪除作業，則為 Null。
-- **isTombstone**：布林值，會指出 incomingItem 是否與先前刪除的項目衝突。 若為 true，則 existingItem 也是 null。
-- **conflictingItems**：容器中所有項目的認可版本所構成的陣列，這些項目與 incomingItem 的識別碼或任何其他唯一的索引屬性有所衝突。
+- **incomingItem**：要在產生衝突的認可中插入或更新的專案。 若為刪除作業，此參數為 null。
+- **existingItem**：目前已認可的專案。 在更新中，此值為非 Null，若為插入或刪除作業，則為 Null。
+- **isTombstone**：布林值，指出 incomingItem 是否與先前刪除的專案衝突。 若為 true，則 existingItem 也是 null。
+- **conflictingItems**：容器中所有專案的認可版本陣列，與識別碼或任何其他唯一索引屬性上的 incomingItem 衝突。
 
 > [!IMPORTANT]
 > 和任何預存程序一樣，自訂衝突解決程序可以存取任何具有相同分割索引鍵的資料，並可執行任何插入、更新或刪除作業來解決衝突。
@@ -363,7 +363,7 @@ FeedResponse<Conflict> conflicts = await delClient.ReadConflictFeedAsync(this.co
 ### <a id="read-from-conflict-feed-dotnet-v3"></a>.NET SDK V3
 
 ```csharp
-FeedIterator<ConflictProperties> conflictFeed = container.Conflicts.GetConflictIterator();
+FeedIterator<ConflictProperties> conflictFeed = container.Conflicts.GetConflictQueryIterator();
 while (conflictFeed.HasMoreResults)
 {
     FeedResponse<ConflictProperties> conflicts = await conflictFeed.ReadNextAsync();

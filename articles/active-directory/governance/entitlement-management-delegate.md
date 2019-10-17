@@ -16,12 +16,12 @@ ms.date: 10/07/2019
 ms.author: ajburnle
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 89cdab09e3ae03ddea6259eda657908f900f982e
-ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
+ms.openlocfilehash: 6d44a4265c3729bff3d983395a37a6cb64a463d4
+ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72169863"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72389126"
 ---
 # <a name="delegation-and-roles-in-azure-ad-entitlement-management-preview"></a>Azure AD 權利管理（預覽）中的委派和角色
 
@@ -70,12 +70,12 @@ ms.locfileid: "72169863"
 
 委派之後，行銷部門可能會有類似下表的角色。
 
-| 使用者 | 工作角色 | Azure AD 角色 | 權利管理角色 |
+| User | 工作角色 | Azure AD 角色 | 權利管理角色 |
 | --- | --- | --- | --- |
 | Hana | IT 系統管理員 | 全域管理員或使用者管理員 |  |
-| Mamta | 行銷經理 | 使用者 | 目錄建立者和目錄擁有者 |
-| Bob | 行銷組長 | 使用者 | 目錄擁有者 |
-| Jessica | 行銷專案經理 | 使用者 | 存取套件管理員 |
+| Mamta | 行銷經理 | User | 目錄建立者和目錄擁有者 |
+| Bob | 行銷組長 | User | 目錄擁有者 |
+| Jessica | 行銷專案經理 | User | 存取套件管理員 |
 
 ## <a name="entitlement-management-roles"></a>權利管理角色
 
@@ -96,7 +96,7 @@ ms.locfileid: "72169863"
 
 下表列出權利管理角色可以執行的工作。
 
-| 工作 | Admin | 目錄建立者 | 目錄擁有者 | 存取套件管理員 |
+| Task | Admin | 目錄建立者 | 目錄擁有者 | 存取套件管理員 |
 | --- | :---: | :---: | :---: | :---: |
 | [委派給目錄建立者](entitlement-management-delegate-catalog.md) | :heavy_check_mark: |  |  |  |
 | [建立新的目錄](entitlement-management-catalog-create.md) | :heavy_check_mark: | :heavy_check_mark: |  |  |
@@ -107,15 +107,15 @@ ms.locfileid: "72169863"
 | [委派給存取套件管理員](entitlement-management-delegate-managers.md) | :heavy_check_mark: |  | :heavy_check_mark: |  |
 | [移除存取套件管理員](entitlement-management-delegate-managers.md#remove-an-access-package-manager) | :heavy_check_mark: |  | :heavy_check_mark: |  |
 | [在目錄中建立新的存取套件](entitlement-management-access-package-create.md) | :heavy_check_mark: |  | :heavy_check_mark:  | :heavy_check_mark:  |
-| [管理存取套件中的資源角色](entitlement-management-access-package-edit.md) | :heavy_check_mark: |  | :heavy_check_mark: | :heavy_check_mark: |
-| [建立和編輯原則](entitlement-management-access-package-edit.md#add-a-new-policy) | :heavy_check_mark: |  | :heavy_check_mark: | :heavy_check_mark: |
-| [直接將使用者指派給存取套件](entitlement-management-access-package-edit.md#directly-assign-a-user) | :heavy_check_mark: |  | :heavy_check_mark: | :heavy_check_mark: |
-| [查看誰具有存取套件的指派](entitlement-management-access-package-edit.md#view-who-has-an-assignment) | :heavy_check_mark: |  | :heavy_check_mark: | :heavy_check_mark: |
-| [查看存取套件的要求](entitlement-management-access-package-edit.md#view-requests) | :heavy_check_mark: |  | :heavy_check_mark: | :heavy_check_mark: |
-| [查看要求的傳遞錯誤](entitlement-management-access-package-edit.md#view-a-requests-delivery-errors) | :heavy_check_mark: |  | :heavy_check_mark: | :heavy_check_mark: |
-| [解除擱置中的要求](entitlement-management-access-package-edit.md#cancel-a-pending-request) | :heavy_check_mark: |  | :heavy_check_mark: | :heavy_check_mark: |
+| [變更存取套件中的資源角色](entitlement-management-access-package-resources.md) | :heavy_check_mark: |  | :heavy_check_mark: | :heavy_check_mark: |
+| [建立和編輯原則](entitlement-management-access-package-request-policy.md) | :heavy_check_mark: |  | :heavy_check_mark: | :heavy_check_mark: |
+| [直接將使用者指派給存取套件](entitlement-management-access-package-assignments.md#directly-assign-a-user) | :heavy_check_mark: |  | :heavy_check_mark: | :heavy_check_mark: |
+| [查看誰具有存取套件的指派](entitlement-management-access-package-assignments.md#view-who-has-an-assignment) | :heavy_check_mark: |  | :heavy_check_mark: | :heavy_check_mark: |
+| [查看存取套件的要求](entitlement-management-access-package-requests.md#view-requests) | :heavy_check_mark: |  | :heavy_check_mark: | :heavy_check_mark: |
+| [查看要求的傳遞錯誤](entitlement-management-access-package-requests.md#view-a-requests-delivery-errors) | :heavy_check_mark: |  | :heavy_check_mark: | :heavy_check_mark: |
+| [解除擱置中的要求](entitlement-management-access-package-requests.md#cancel-a-pending-request) | :heavy_check_mark: |  | :heavy_check_mark: | :heavy_check_mark: |
 | [隱藏存取套件](entitlement-management-access-package-edit.md#change-the-hidden-setting) | :heavy_check_mark: |  | :heavy_check_mark: | :heavy_check_mark: |
-| [刪除存取套件](entitlement-management-access-package-edit.md#delete) | :heavy_check_mark: |  | :heavy_check_mark: | :heavy_check_mark: |
+| [刪除存取套件](entitlement-management-access-package-edit.md#delete-an-access-package) | :heavy_check_mark: |  | :heavy_check_mark: | :heavy_check_mark: |
 
 ## <a name="required-roles-to-add-resources-to-a-catalog"></a>將資源新增至目錄的必要角色
 
@@ -133,7 +133,7 @@ ms.locfileid: "72169863"
 | [SharePoint 管理員](../users-groups-roles/directory-assign-admin-roles.md) | 目錄擁有者 |  | :heavy_check_mark: |  | :heavy_check_mark: |
 | [應用程式系統管理員](../users-groups-roles/directory-assign-admin-roles.md) | 目錄擁有者 |  |  | :heavy_check_mark: |  |
 | [雲端應用程式系統管理員](../users-groups-roles/directory-assign-admin-roles.md) | 目錄擁有者 |  |  | :heavy_check_mark: |  |
-| 使用者 | 目錄擁有者 | 只有在群組擁有者 | 只有在群組擁有者 | 只有應用程式擁有者 |  |
+| User | 目錄擁有者 | 只有在群組擁有者 | 只有在群組擁有者 | 只有應用程式擁有者 |  |
 
 若要判斷工作的最低特殊許可權角色，您也可以[在 Azure Active Directory 中，依管理工作參考系統管理員角色](../users-groups-roles/roles-delegate-by-task.md#entitlement-management)。
 

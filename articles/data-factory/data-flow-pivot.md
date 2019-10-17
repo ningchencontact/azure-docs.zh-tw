@@ -1,48 +1,48 @@
 ---
-title: Azure Data Factory 對應資料流程樞紐轉換
+title: Azure Data Factory 對應的資料流程樞紐分析表轉換
 description: 使用 Azure Data Factory 對應資料流程樞紐分析表轉換，從資料列到資料行的樞紐分析表
 author: kromerm
 ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 01/30/2019
-ms.openlocfilehash: 1412f7d822d83a8712d27dd4e86311567d6ac714
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.openlocfilehash: e59f0623b898fedada63e51fabbaf88d8b17f59d
+ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72029308"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72387802"
 ---
 # <a name="azure-data-factory-pivot-transformation"></a>Azure data factory 資料透視轉換
 
 
 使用 ADF 資料流程中的樞紐做為彙總，其中一個或多個群組資料行都有個別的資料行值會轉換成相異資料列。 基本上，您可以將資料列值樞紐處理為新的資料行 (將資料轉換成中繼資料)。
 
-![樞紐選項](media/data-flow/pivot1.png "樞紐 1")
+![Pivot 選項](media/data-flow/pivot1.png "pivot 1")
 
 ## <a name="group-by"></a>分組依據
 
-![樞紐選項](media/data-flow/pivot2.png "樞紐 2")
+![Pivot 選項](media/data-flow/pivot2.png "pivot 2")
 
 首先，設定您想要對於樞紐彙總分組所依據的資料行。 您可以在這裡使用資料行清單旁邊的 + 號設定 1 個以上資料行。
 
 ## <a name="pivot-key"></a>Pivot 索引鍵
 
-![樞紐選項](media/data-flow/pivot3.png "樞紐 3")
+![Pivot 選項](media/data-flow/pivot3.png "pivot 3")
 
 樞紐索引鍵是 ADF 從資料列樞紐處理為資料行的資料行。 根據預設，此欄位的資料集之內的每個唯一值都會樞紐處理為資料行。 不過，您可以選擇從資料集輸入您想要樞紐處理為資料行值的數值。 這是將會決定要建立之新資料行的資料行。
 
 ## <a name="pivoted-columns"></a>透視資料行
 
-![樞紐選項](media/data-flow/pivot4.png "樞紐 4")
+![Pivot 選項](media/data-flow/pivot4.png "樞紐分析表4")
 
 最後，選擇您想要對已樞紐的值所使用的彙總，以及您要如何在轉換的新輸出投影中顯示資料行。
 
-(選擇性) 您可以設定對於每個新資料行名稱從資料列新增前置詞、中置詞及後置詞的命名模式。
+(選擇性) 您可以設定對於每個新資料行名稱從資料列值新增前置詞、中置詞及後置詞的命名模式。
 
-例如，依「區域」樞紐處理「銷售」會從每個銷售值產生新的資料行值，也就是"25"、"50"、"1000" 等等。不過，如果您設定「銷售-」的前置詞值，每個資料行值都會在值的開頭加上「Sales-」。
+比方說，依據「區域」旋轉「銷售」會導致每個銷售值的新資料行值，也就是 "25"、"50"、"1000" 等等。不過，如果您設定「銷售-」的前置詞值，每個資料行值都會在值的開頭加上「Sales-」。
 
-![樞紐選項](media/data-flow/pivot5.png "樞紐 5")
+![Pivot 選項](media/data-flow/pivot5.png "pivot 5")
 
 設定為「一般」資料行的排列方式，會使用彙總值將已樞紐的資料行分組在一起。 將資料行排列方式設定為「橫向」會在資料行和值之間交替。
 
@@ -60,7 +60,7 @@ ms.locfileid: "72029308"
 
 Pivot 會根據資料列值動態產生新的資料行名稱。 您可以將這些新的資料行轉換成中繼資料，稍後可在資料流程中加以參考。 若要這麼做，請按一下 [資料預覽] 索引標籤。您的 Pivot 轉換所產生的所有新資料行都會顯示在資料表標頭中具有 "漂移" 圖示。 按一下 [地圖漂移] 按鈕，將新的資料行轉換成中繼資料，使其成為資料流程模型的一部分。
 
-![Pivot 資料行](media/data-flow/newpivot1.png "對應漂移 pivot 資料行")
+![Pivot 資料行](media/data-flow/newpivot1.png "Map 漂移 Pivot 資料行")
 
 ### <a name="landing-new-columns-in-sink"></a>登陸接收器中的新資料行
 

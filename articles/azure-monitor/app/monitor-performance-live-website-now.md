@@ -10,36 +10,39 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 05/24/2019
+ms.date: 08/26/2019
 ms.author: mbullwin
-ms.openlocfilehash: ea324d616928b0d517c00dc9cab3e282f1e3415e
-ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
+ms.openlocfilehash: e7d69e2258036318b736f245f9e3aec3cf5f54de
+ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "67876427"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72389933"
 ---
 # <a name="instrument-web-apps-at-runtime-with-application-insights-codeless-attach"></a>在執行時間使用 Application Insights 無程式碼 Attach 檢測 web 應用程式
+
+> [!IMPORTANT]
+> 不再建議使用狀態監視器。 它已由 Azure 監視器 Application Insights 代理程式（先前名為狀態監視器 v2）取代。 請參閱我們的檔，以瞭解[內部部署伺服器部署](https://docs.microsoft.com/azure/azure-monitor/app/status-monitor-v2-overview)或[Azure 虛擬機器和虛擬機器擴展集部署](https://docs.microsoft.com/azure/azure-monitor/app/azure-vm-vmss-apps)。
 
 您可以使用 Azure Application Insights 檢測即時 Web 應用程式，而不需修改或重新部署您的程式碼。 您需要 [Microsoft Azure](https://azure.com) 訂用帳戶。
 
 狀態監視器用於檢測 IIS 內部或 VM 中裝載的 .NET 應用程式。
 
-- 如果您的應用程式已部署至 Azure VM 或 Azure 虛擬機器擴展集, 請遵循[這些指示](azure-vm-vmss-apps.md)。
+- 如果您的應用程式已部署至 Azure VM 或 Azure 虛擬機器擴展集，請遵循[這些指示](azure-vm-vmss-apps.md)。
 - 如果您的應用程式已部署到 Azure 應用程式服務中，請遵循[這些指示](azure-web-apps.md)。
 - 如果您的應用程式部署在 Azure VM 中，您可以從 Azure 控制台切換為 Application Insights 監視。
-- (另外還有關于檢測[Azure 雲端服務](../../azure-monitor/app/cloudservices.md)的個別文章)。
+- （另外還有關于檢測[Azure 雲端服務](../../azure-monitor/app/cloudservices.md)的個別文章）。
 
 
 ![App Insights 概觀圖表的螢幕擷取畫面，包含失敗的要求、伺服器回應時間和伺服器要求的相關資訊](./media/monitor-performance-live-website-now/overview-graphs.png)
 
 下列兩種途徑可讓您將 Application Insights 套用至 .NET Web 應用程式：
 
-* **建置階段：** [將 APPLICATION INSIGHTS SDK 新增][greenbrown]至您的 web 應用程式程式碼。
-* **執行階段：** 如下所述，檢測伺服器上的 Web 應用程式，而不需重建並重新部署程式碼。
+* **建立時間：** [將 Application Insights SDK 新增][greenbrown]至您的 web 應用程式程式碼。
+* **執行階段︰** 如下所述，檢測伺服器上的 Web 應用程式，而不需重建並重新部署程式碼。
 
 > [!NOTE]
-> 如果您使用建置階段檢測，執行階段檢測將無法運作，即使已開啟它也一樣。
+> 如果您使用組建時間檢測，則即使執行時間檢測已開啟，也無法運作。
 
 以下是您可在每種途徑中取得的優勢摘要︰
 
@@ -64,7 +67,7 @@ ms.locfileid: "67876427"
 2. 如果尚未安裝 Application Insights 狀態監視器，請[下載並執行安裝程式](#download)
 3. 在狀態監視器中，選取您想要監視的已安裝 Web 應用程式或網站。 利用您的 Azure 認證登入。
 
-    在 Application Insights 入口網站中設定您要在其中檢視結果的資源。 (通常最好建立新的資源。 如果您已經有此應用程式的[web 測試][availability]或[用戶端監視][client], 請選取現有的資源)。 
+    在 Application Insights 入口網站中設定您要在其中檢視結果的資源。 (通常最好建立新的資源。 如果您已經有此應用程式的[web 測試][availability]或[用戶端監視][client]，請選取現有的資源）。 
 
     ![選擇應用程式和資源。](./media/monitor-performance-live-website-now/appinsights-036-configAIC.png)
 
@@ -80,7 +83,7 @@ ms.locfileid: "67876427"
 
 ## <a name="when-you-re-publish-your-app-re-enable-application-insights"></a>當您重新發佈您的應用程式時，請重新啟用 Application Insights。
 
-重新發佈您的應用程式之前, 請考慮[將 Application Insights 新增至 Visual Studio 中的程式碼][greenbrown]。 您將取得更詳細的遙測，並且能夠撰寫自訂遙測。
+重新發佈您的應用程式之前，請考慮[將 Application Insights 新增至 Visual Studio 中的程式碼][greenbrown]。 您將取得更詳細的遙測，並且能夠撰寫自訂遙測。
 
 如果您想要重新發行，但不將 Application Insights 新增至程式碼，請留意部署程序可能會從已發佈的網站中刪除 DLL 和 ApplicationInsights.config。 因此：
 
@@ -150,7 +153,7 @@ Start-ApplicationInsightsMonitoring -Name appName -InstrumentationKey 00000000-0
 * 若要輸出詳細資訊記錄，請修改組態檔 `C:\Program Files\Microsoft Application Insights\Status Monitor\Microsoft.Diagnostics.Agent.StatusMonitor.exe.config` 並將 `<add key="TraceLevel" value="All" />` 新增至 `appsettings`。
 然後重新啟動狀態監視器。
 
-* 當狀態監視器是 .NET 應用程式時, 您也可以藉[由將適當的診斷新增至設定檔來啟用 .net 追蹤](https://docs.microsoft.com/dotnet/framework/configure-apps/file-schema/trace-debug/system-diagnostics-element)。 例如, 在某些情況下, 藉由設定[網路追蹤](https://docs.microsoft.com/dotnet/framework/network-programming/how-to-configure-network-tracing)來查看網路層級發生的狀況, 會很有説明
+* 當狀態監視器是 .NET 應用程式時，您也可以藉[由將適當的診斷新增至設定檔來啟用 .net 追蹤](https://docs.microsoft.com/dotnet/framework/configure-apps/file-schema/trace-debug/system-diagnostics-element)。 例如，在某些情況下，藉由設定[網路追蹤](https://docs.microsoft.com/dotnet/framework/network-programming/how-to-configure-network-tracing)來查看網路層級發生的狀況，會很有説明
 
 ### <a name="insufficient-permissions"></a>權限不足
   
@@ -187,11 +190,11 @@ Start-ApplicationInsightsMonitoring -Name appName -InstrumentationKey 00000000-0
 * Windows Server 2012 R2
 * Windows Server 2016
 
-使用最新的 SP 和 .NET Framework 4.5 (狀態監視器是以這個版本的架構為基礎)
+使用最新的 SP 和 .NET Framework 4.5 （狀態監視器是以這個版本的架構為基礎）
 
-在用戶端：Windows 7、8、8.1 和 10，一樣需含有 .NET Framework 4.5
+在用戶端 Windows 7、8、8.1 和 10 上，一樣需含有 .NET Framework 4.5
 
-IIS 支援為：IIS 7、7.5、8、8.5 (IIS 為必要項)
+IIS 支援：IIS 7、7.5、8、8.5 (需要有 IIS)
 
 ## <a name="automation-with-powershell"></a>使用 PowerShell 進行自動化
 您可以在 IIS 伺服器上使用 PowerShell 啟動和停止監視。
@@ -208,9 +211,9 @@ IIS 支援為：IIS 7、7.5、8、8.5 (IIS 為必要項)
 * 顯示此 IIS 伺服器中每個 Web 應用程式 (或具名應用程式) 的 Application Insights 監視狀態。
 * 傳回每個應用程式的 `ApplicationInsightsApplication`︰
 
-  * `SdkState==EnabledAfterDeployment`:應用程式正受到監視，並已在執行階段透過「狀態監視器」工具或 `Start-ApplicationInsightsMonitoring` 進行檢測。
-  * `SdkState==Disabled`:不會針對 Application insights 檢測應用程式。 應用程式從未接受檢測，或「狀態監視器」工具或 `Stop-ApplicationInsightsMonitoring`已停用執行階段監視。
-  * `SdkState==EnabledByCodeInstrumentation`:已透過將 SDK 新增至原始程式碼來檢測應用程式。 其 SDK 無法更新或停止。
+  * `SdkState==EnabledAfterDeployment`︰應用程式正受到監視，並已在執行階段透過「狀態監視器」工具或 `Start-ApplicationInsightsMonitoring` 進行檢測。
+  * `SdkState==Disabled`︰不會針對 Application insights 檢測應用程式。 應用程式從未接受檢測，或「狀態監視器」工具或 `Stop-ApplicationInsightsMonitoring`已停用執行階段監視。
+  * `SdkState==EnabledByCodeInstrumentation`︰已透過將 SDK 加入至原始程式碼來檢測應用程式。 其 SDK 無法更新或停止。
   * `SdkVersion` 會顯示正用來監視此應用程式的版本。
   * `LatestAvailableSdkVersion`會顯示 NuGet 資源庫上目前可用的版本。 若要將應用程式升級至此版本，請使用 `Update-ApplicationInsightsMonitoring`。
 
@@ -243,8 +246,8 @@ IIS 支援為：IIS 7、7.5、8、8.5 (IIS 為必要項)
 
 `Update-ApplicationInsightsMonitoring -Name appName [-InstrumentationKey "0000000-0000-000-000-0000"`]
 
-* `-Name`:Web 應用程式在 IIS 中的名稱。
-* `-InstrumentationKey` (選擇性)。使用此參數可變更應用程式的遙測所要傳送至的資源。
+* `-Name`：Web 應用程式在 IIS 中的名稱。
+* `-InstrumentationKey` （選擇性）。使用此來變更要傳送應用程式遙測的資源。
 * 此 Cmdlet：
   * 將具名應用程式升級至最近下載到這台電腦之 SDK 的版本。 (僅適用於 `SdkState==EnabledAfterDeployment`時)
   * 如果您提供檢測金鑰，具名應用程式會重新設定為將遙測傳送至具有該索引鍵的資源。 (適用於 `SdkState != Disabled`時)
@@ -266,7 +269,7 @@ IIS 支援為：IIS 7、7.5、8、8.5 (IIS 為必要項)
 
 ### <a name="can-i-close-it-after-it-runs"></a>是否可以在執行之後將它關閉？
 
-是的。 檢測您選取的網站之後，您可以將它關閉。
+可以。 檢測您選取的網站之後，您可以將它關閉。
 
 它本身不會收集遙測資料。 它只會設定 Web 應用程式和設定一些權限。
 
@@ -281,7 +284,7 @@ IIS 支援為：IIS 7、7.5、8、8.5 (IIS 為必要項)
 
 目前，狀態監視器只能安裝 Application Insights SDK 版本 2.3 或 2.4。 
 
-Application Insights SDK 2.4 版是[支援 .net 4.0 的最後一個版本](https://github.com/microsoft/ApplicationInsights-dotnet/releases/tag/v2.5.0-beta1), 也就是第[1 月的 2016](https://devblogs.microsoft.com/dotnet/support-ending-for-the-net-framework-4-4-5-and-4-5-1/)。 因此, 從現在開始狀態監視器可以用來檢測 .NET 4.0 應用程式。 
+Application Insights SDK 2.4 版是[支援 .net 4.0 的最後一個版本](https://github.com/microsoft/ApplicationInsights-dotnet/releases/tag/v2.5.0-beta1)，也就是第[1 月的 2016](https://devblogs.microsoft.com/dotnet/support-ending-for-the-net-framework-4-4-5-and-4-5-1/)。 因此，從現在開始狀態監視器可以用來檢測 .NET 4.0 應用程式。 
 
 ### <a name="do-i-need-to-run-status-monitor-whenever-i-update-the-app"></a>每次更新應用程式時，是否需要執行狀態監視器？
 
@@ -306,7 +309,7 @@ Application Insights SDK 2.4 版是[支援 .net 4.0 的最後一個版本](https
 
 [深入了解](https://apmtips.com/blog/2016/11/18/how-application-insights-status-monitor-not-monitors-dependencies/)
 
-## <a name="video"></a>視訊
+## <a name="video"></a>影片
 
 > [!VIDEO https://channel9.msdn.com/events/Connect/2016/100/player]
 
@@ -316,7 +319,7 @@ Application Insights SDK 2.4 版是[支援 .net 4.0 的最後一個版本](https
 - 下載並執行[狀態監視器安裝程式](https://go.microsoft.com/fwlink/?LinkId=506648)
 - 或執行 [Web Platform Installer](https://www.microsoft.com/web/downloads/platform.aspx) 並在其中搜尋 Application Insights 狀態監視器。
 
-## <a name="next"></a>接續步驟
+## <a name="next"></a>後續步驟
 
 檢視遙測：
 
@@ -326,9 +329,9 @@ Application Insights SDK 2.4 版是[支援 .net 4.0 的最後一個版本](https
 
 新增更多遙測：
 
-* [建立 web 測試][availability], 以確保您的網站保持上線。
-* [新增 web 用戶端遙測][usage], 以查看來自網頁程式碼的例外狀況, 並讓您插入追蹤呼叫。
-* [將 APPLICATION INSIGHTS SDK 新增至您的程式碼][greenbrown], 讓您可以插入追蹤和記錄呼叫
+* [建立 web 測試][availability]，以確保您的網站保持上線。
+* [新增 web 用戶端遙測][usage]，以查看來自網頁程式碼的例外狀況，並讓您插入追蹤呼叫。
+* [將 APPLICATION INSIGHTS SDK 新增至您的程式碼][greenbrown]，讓您可以插入追蹤和記錄呼叫
 
 <!--Link references-->
 
