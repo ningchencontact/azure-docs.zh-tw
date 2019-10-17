@@ -1,26 +1,26 @@
 ---
 title: Azure 受控應用程式部署範本成品參考
-description: 本文是部署範本成品的參考。
+description: 提供 Azure 受控應用程式部署範本成品的範例。
 services: managed-applications
 ms.service: managed-applications
 ms.topic: conceptual
 ms.author: lazinnat
 author: lazinnat
 ms.date: 07/11/2019
-ms.openlocfilehash: fe2517a8cc2ddee6623f88b2ae5e46c9e5319567
-ms.sourcegitcommit: e9c866e9dad4588f3a361ca6e2888aeef208fc35
-ms.translationtype: MT
+ms.openlocfilehash: ec59c9cde4f23b4a9d641d286e152ea737576534
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68336487"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72330179"
 ---
 # <a name="reference-deployment-template-artifact"></a>參考：部署範本成品
 
-本文是 Azure 受控應用程式中*mainTemplate*的參考。 如需有關撰寫部署範本的詳細資訊, 請參閱[Azure Resource Manager 範本](../azure-resource-manager/resource-group-authoring-templates.md)。
+本文是 Azure 受控應用程式中*mainTemplate*的參考。 如需有關撰寫部署範本的詳細資訊，請參閱[Azure Resource Manager 範本](../azure-resource-manager/resource-group-authoring-templates.md)。
 
 ## <a name="deployment-template"></a>部署範本
 
-下列 JSON 顯示 Azure 受控應用程式的*mainTemplate json*檔案範例:
+下列 JSON 顯示 Azure 受控應用程式的*mainTemplate json*檔案範例：
 
 ```json
 {
@@ -191,6 +191,6 @@ ms.locfileid: "68336487"
 
 ## <a name="next-steps"></a>後續步驟
 
-- [教學課程：建立具有自訂動作和資源的受控應用程式](tutorial-create-managed-app-with-custom-provider.md)
+- [教學課程：使用自訂動作和資源建立受控應用程式](tutorial-create-managed-app-with-custom-provider.md)
 - [參考：使用者介面專案成品](reference-createuidefinition-artifact.md)
 - [參考：視圖定義成品](reference-view-definition-artifact.md)

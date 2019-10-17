@@ -7,18 +7,18 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 08/08/2019
-ms.openlocfilehash: 4941e7af000e97e4ace0a9e90a187ed92409942d
-ms.sourcegitcommit: b4665f444dcafccd74415fb6cc3d3b65746a1a31
+ms.openlocfilehash: 1ed1b105f64d109284de441af1bcaee5f0827d75
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72264651"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72331369"
 ---
 # <a name="reference---iot-hub-quotas-and-throttling"></a>參考 - IoT 中樞配額和節流
 
 本文說明 IoT 中樞的配額，並提供資訊來協助您瞭解節流的運作方式。
 
-## <a name="quotas-and-throttling"></a>配額和節流
+## <a name="quotas-and-throttling"></a>配額及節流
 
 每個 Azure 訂用帳戶最多可以有 50 個 IoT 中樞，以及最多 1 個可用中樞。
 
@@ -26,7 +26,7 @@ ms.locfileid: "72264651"
 
 層級也會決定「IoT 中樞」在所有作業上強制執行的節流限制。
 
-### <a name="iot-plug-and-play"></a>IoT 隨插即用
+### <a name="iot-plug-and-play"></a>IoT Plug and Play
 
 在公開預覽期間，IoT 隨插即用裝置會針對每個介面傳送個別的訊息，這可能會增加計入訊息配額的訊息數目。
 
@@ -93,9 +93,9 @@ ms.locfileid: "72264651"
 
 IoT 中樞會強制執行其他操作限制：
 
-| 運算 | 限制 |
+| 作業 | 限制 |
 | --------- | ----- |
-| 裝置 | 您可以連接到單一 IoT 中樞的裝置數目上限為1000000。 增加此限制的唯一方式是聯絡[Microsoft 支援服務](https://azure.microsoft.com/support/options/)。|
+| 裝置 | 裝置總數加上可向單一 IoT 中樞註冊的模組，其上限為1000000。 增加此限制的唯一方式是聯絡[Microsoft 支援服務](https://azure.microsoft.com/support/options/)。|
 | 檔案上傳 | 每個裝置10個並行檔案上傳。 |
 | 作業<sup>1</sup> | 並行作業的最大值為1（免費和 S1）、5（適用于 S2）和10（適用于 S3）。 不過，所有層的並行[裝置匯入/匯出作業](iot-hub-bulk-identity-mgmt.md)數上限為1。 <br/>作業歷程記錄會保留最多30天。 |
 | 額外端點 | 付費 SKU 中樞包含 10 個額外端點。 免費 SKU 中樞包含 1 個額外端點。 |

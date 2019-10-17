@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: troubleshooting
 ms.date: 10/02/2019
 ms.author: helohr
-ms.openlocfilehash: 167d880f82314fc3b5ade299442f04d62b5dacb9
-ms.sourcegitcommit: f272ba8ecdbc126d22a596863d49e55bc7b22d37
+ms.openlocfilehash: a847ba7d782b332d9cae7f83bc1278fea58b8811
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72274483"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72330828"
 ---
 # <a name="session-host-virtual-machine-configuration"></a>設定工作階段主機虛擬機器
 
@@ -30,41 +30,41 @@ ms.locfileid: "72274483"
 - 嘗試從 VM 上的命令列 ping 功能變數名稱。
 - 請參閱[疑難排解網域加入錯誤訊息](https://social.technet.microsoft.com/wiki/contents/articles/1935.troubleshooting-domain-join-error-messages.aspx)中的網域聯結錯誤訊息清單。
 
-### <a name="error-incorrect-credentials"></a>Error:認證不正確
+### <a name="error-incorrect-credentials"></a>錯誤：認證不正確
 
 **原因：** 在 Azure Resource Manager 範本介面修正程式中輸入認證時，發生了錯誤的錯誤。
 
-**補丁**請採取下列其中一個動作來解決。
+**修正：** 請採取下列其中一個動作來解決。
 
 - 手動將 Vm 新增至網域。
 - 確認認證之後，重新部署範本。 請參閱[使用 PowerShell 建立主機集](https://docs.microsoft.com/azure/virtual-desktop/create-host-pools-powershell)區。
 - 使用範本將 Vm 加入網域，並將[現有的 WINDOWS VM 加入 AD 網域](https://azure.microsoft.com/resources/templates/201-vm-domain-join-existing/)。
 
-### <a name="error-timeout-waiting-for-user-input"></a>Error:等候使用者輸入時發生超時
+### <a name="error-timeout-waiting-for-user-input"></a>錯誤：等候使用者輸入時發生超時
 
 **原因：** 用來完成加入網域的帳戶可能會有多重要素驗證（MFA）。
 
-**補丁**請採取下列其中一個動作來解決。
+**修正：** 請採取下列其中一個動作來解決。
 
 - 暫時移除帳戶的 MFA。
 - 使用服務帳戶。
 
-### <a name="error-the-account-used-during-provisioning-doesnt-have-permissions-to-complete-the-operation"></a>Error:布建期間使用的帳戶沒有完成作業的許可權
+### <a name="error-the-account-used-during-provisioning-doesnt-have-permissions-to-complete-the-operation"></a>錯誤：布建期間使用的帳戶沒有完成作業的許可權
 
 **原因：** 所使用的帳戶沒有將 Vm 加入網域的許可權，因為合規性與法規。
 
-**補丁**請採取下列其中一個動作來解決。
+**修正：** 請採取下列其中一個動作來解決。
 
 - 使用屬於系統管理員群組成員的帳戶。
 - 將所需的許可權授與所使用的帳戶。
 
-### <a name="error-domain-name-doesnt-resolve"></a>Error:功能變數名稱無法解析
+### <a name="error-domain-name-doesnt-resolve"></a>錯誤：功能變數名稱無法解析
 
-**原因 1：** Vm 位於與網域所在的虛擬網路（VNET）沒有關聯的虛擬網路上。
+**原因1：** Vm 位於與網域所在的虛擬網路（VNET）沒有關聯的虛擬網路上。
 
 **修正1：** 在布建 Vm 的 VNET 和執行網域控制站（DC）的 VNET 之間，建立 VNET 對等互連。 請參閱[建立虛擬網路對等互連-Resource Manager、不同的](https://docs.microsoft.com/azure/virtual-network/create-peering-different-subscriptions)訂用帳戶。
 
-**原因 2：** 使用 Azure Active Directory Domain Services （Azure AD DS）時，虛擬網路不會更新其 DNS 伺服器設定，以指向受管理的網域控制站。
+**原因2：** 使用 Azure Active Directory Domain Services （Azure AD DS）時，虛擬網路不會更新其 DNS 伺服器設定，以指向受管理的網域控制站。
 
 **修正2：** 若要更新包含 Azure AD DS 之虛擬網路的 DNS 設定，請參閱[更新 Azure 虛擬網路的 dns 設定](https://docs.microsoft.com/azure/active-directory-domain-services/tutorial-create-instance#update-dns-settings-for-the-azure-virtual-network)。
 
@@ -84,13 +84,13 @@ ms.locfileid: "72274483"
 2. 開啟 [檔案**瀏覽器**] 並流覽至**C:\Windows\Temp\scriptlogs.log**。 如果檔案遺失，則表示安裝這兩個元件的 PowerShell DSC 無法在提供的安全性內容中執行。
 3. 如果檔案**C:\Windows\Temp\scriptlogs.log**存在，請將它開啟，並檢查是否有錯誤訊息。
 
-### <a name="error-windows-virtual-desktop-agent-and-windows-virtual-desktop-agent-boot-loader-are-missing-cwindowstempscriptlogslog-is-also-missing"></a>Error:缺少 Windows 虛擬桌面代理程式和 Windows 虛擬桌面代理程式啟動載入器。 C:\Windows\Temp\scriptlogs.log 也遺失
+### <a name="error-windows-virtual-desktop-agent-and-windows-virtual-desktop-agent-boot-loader-are-missing-cwindowstempscriptlogslog-is-also-missing"></a>錯誤： Windows 虛擬桌面代理程式和 Windows 虛擬桌面代理程式開機載入器已遺失。 C:\Windows\Temp\scriptlogs.log 也遺失
 
-**原因 1：** 在 Azure Resource Manager 範本的輸入期間提供的認證不正確或許可權不足。
+**原因1：** 在 Azure Resource Manager 範本的輸入期間提供的認證不正確或許可權不足。
 
 **修正1：** 使用 [使用[PowerShell 建立主機集](https://docs.microsoft.com/azure/virtual-desktop/create-host-pools-powershell)區]，手動將遺失的元件新增至 vm。
 
-**原因 2：** PowerShell DSC 能夠啟動並執行，但無法完成，因為它無法登入 Windows 虛擬桌面並取得所需的資訊。
+**原因2：** PowerShell DSC 能夠啟動並執行，但無法完成，因為它無法登入 Windows 虛擬桌面並取得所需的資訊。
 
 **修正2：** 確認下列清單中的專案。
 
@@ -98,11 +98,11 @@ ms.locfileid: "72274483"
 - 請確認租使用者名稱正確，且租使用者存在於 Windows 虛擬桌面中。
 - 確認帳戶至少具有 RDS 參與者許可權。
 
-### <a name="error-authentication-failed-error-in-cwindowstempscriptlogslog"></a>Error:驗證失敗，C:\Windows\Temp\scriptlogs.log 發生錯誤
+### <a name="error-authentication-failed-error-in-cwindowstempscriptlogslog"></a>錯誤：驗證失敗，C:\Windows\Temp\scriptlogs.log 發生錯誤
 
 **原因：** PowerShell DSC 能夠執行，但無法連接到 Windows 虛擬桌面。
 
-**補丁**確認下列清單中的專案。
+**修正：** 確認下列清單中的專案。
 
 - 手動向 Windows 虛擬桌面服務註冊 Vm。
 - 確認用來連線到 Windows 虛擬桌面的帳戶在租使用者上具有建立主機集區的許可權。
@@ -112,13 +112,13 @@ ms.locfileid: "72274483"
 
 第一次在工作階段主機 Vm 上安裝 Windows 虛擬桌面代理程式（手動或透過 Azure Resource Manager 範本和 PowerShell DSC）時，它會提供註冊權杖。 下一節涵蓋適用于 Windows 虛擬桌面代理程式和權杖的疑難排解問題。
 
-### <a name="error-the-status-filed-in-get-rdssessionhost-cmdlet-shows-status-as-unavailable"></a>Error:RdsSessionHost Cmdlet 中的狀態會顯示為 [無法使用] 狀態
+### <a name="error-the-status-filed-in-get-rdssessionhost-cmdlet-shows-status-as-unavailable"></a>錯誤： RdsSessionHost Cmdlet 中的狀態會顯示為 [無法使用] 狀態
 
 ![RdsSessionHost Cmdlet 會將狀態顯示為 [無法使用]。](media/23b8e5f525bb4e24494ab7f159fa6b62.png)
 
 **原因：** 代理程式無法將自己更新為新的版本。
 
-**補丁**請遵循這些指示以手動更新代理程式。
+**修正：** 請遵循這些指示以手動更新代理程式。
 
 1. 在工作階段主機 VM 上下載新版本的代理程式。
 2. 啟動 [工作管理員]，然後在 [服務] 索引標籤中，停止 RDAgentBootLoader 服務。
@@ -127,23 +127,23 @@ ms.locfileid: "72274483"
 5. 完成安裝精靈。
 6. 開啟 [工作管理員]，然後啟動 RDAgentBootLoader 服務。
 
-## <a name="error--windows-virtual-desktop-agent-registry-entry-isregistered-shows-a-value-of-0"></a>Error:Windows 虛擬桌面 Agent 登錄專案 IsRegistered 顯示0的值
+## <a name="error--windows-virtual-desktop-agent-registry-entry-isregistered-shows-a-value-of-0"></a>錯誤： Windows 虛擬桌面 Agent 登錄專案 IsRegistered 顯示0的值
 
 **原因：** 註冊權杖已過期，或已產生，其到期值為999999。
 
-**補丁**請遵循這些指示來修正代理程式登錄錯誤。
+**修正：** 請遵循這些指示來修正代理程式登錄錯誤。
 
 1. 如果已經有註冊權杖，請移除 RDSRegistrationInfo。
 2. 使用 Rds-NewRegistrationInfo 產生新的 token。
 3. 確認-ExpriationHours 參數設定為72（最大值為99999）。
 
-### <a name="error-windows-virtual-desktop-agent-isnt-reporting-a-heartbeat-when-running-get-rdssessionhost"></a>Error:Windows 虛擬桌面代理程式在執行 RdsSessionHost 時未回報心跳
+### <a name="error-windows-virtual-desktop-agent-isnt-reporting-a-heartbeat-when-running-get-rdssessionhost"></a>錯誤： Windows 虛擬桌面代理程式在執行 RdsSessionHost 時未回報心跳
 
-**原因 1：** RDAgentBootLoader 服務已停止。
+**原因1：** RDAgentBootLoader 服務已停止。
 
 **修正1：** 啟動 [工作管理員]，如果 [服務] 索引標籤報告 RDAgentBootLoader 服務的 [已停止] 狀態，請啟動服務。
 
-**原因 2：** 埠443可能已關閉。
+**原因2：** 埠443可能已關閉。
 
 **修正2：** 請遵循這些指示來開啟埠443。
 
@@ -199,13 +199,13 @@ Windows 虛擬桌面並存堆疊會隨著 Windows Server 2019 自動安裝。 �
     Server\ClusterSettings\"SessionDirectoryListener":rdp-sxs
 ```
 
-### <a name="error-o_reverse_connect_stack_failure"></a>Error:O_REVERSE_CONNECT_STACK_FAILURE
+### <a name="error-o_reverse_connect_stack_failure"></a>錯誤： O_REVERSE_CONNECT_STACK_FAILURE
 
 ![O_REVERSE_CONNECT_STACK_FAILURE 錯誤碼。](media/23b8e5f525bb4e24494ab7f159fa6b62.png)
 
 **原因：** 並存堆疊不會安裝在工作階段主機 VM 上。
 
-**補丁**請遵循這些指示，在工作階段主機 VM 上安裝並存堆疊。
+**修正：** 請遵循這些指示，在工作階段主機 VM 上安裝並存堆疊。
 
 1. 使用遠端桌面通訊協定（RDP）以本機系統管理員身分直接進入工作階段主機 VM。
 2. 下載並匯入[Windows 虛擬桌面 powershell 模組](https://docs.microsoft.com/powershell/windows-virtual-desktop/overview)以用於您的 powershell 會話（如果您尚未這麼做），然後執行此 Cmdlet 來登入您的帳戶：
@@ -302,10 +302,17 @@ Windows 虛擬桌面並存堆疊會隨著 Windows Server 2019 自動安裝。 �
 
 如果時間限制過期，就會出現一則錯誤訊息，指出「遠端會話已中斷連線，因為這部電腦沒有可用的遠端桌面用戶端存取使用權」。
 
-如果您看到其中一個訊息，這表示映射並未安裝最新的 Windows 更新，或您正在將遠端桌面授權模式設定為 [**每位使用者**]。 移除設定此原則的任何設定，然後遵循步驟來識別 Windows 10 企業版多會話的版本，並安裝對應的更新。  
+如果您看到其中一個訊息，這表示映射並未安裝最新的 Windows 更新，或您要透過群組原則設定遠端桌面授權模式。 依照下一節中的步驟來檢查群組原則設定、識別 Windows 10 企業版多會話的版本，並安裝對應的更新。  
 
 >[!NOTE]
 >Windows 虛擬桌面只有在您的主機集區包含 Windows Server 工作階段主機時，才需要 RDS 用戶端存取許可證（CAL）。 若要瞭解如何設定 RDS CAL，請參閱[使用用戶端存取許可證來授權您的 RDS 部署](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/rds-client-access-license)。
+
+### <a name="disable-the-remote-desktop-licensing-mode-group-policy-setting"></a>停用遠端桌面授權模式群組原則設定
+
+在 VM 中開啟群組原則編輯器，然後流覽至**系統管理範本** > **Windows 元件** > **遠端桌面服務** > **遠端桌面工作階段主機**@no，檢查群組原則設定。__t-7**授權** > **設定遠端桌面授權模式**。 如果已**啟用**群組原則設定，請將它變更為 [**停用**]。 如果已停用，請將它保持原狀。
+
+>[!NOTE]
+>如果您透過網域設定群組原則，請在以這些 Windows 10 企業版多會話 Vm 為目標的原則上停用此設定。
 
 ### <a name="identify-which-version-of-windows-10-enterprise-multi-session-youre-using"></a>找出您所使用的 Windows 10 企業版多會話版本
 
@@ -336,6 +343,6 @@ Windows 虛擬桌面並存堆疊會隨著 Windows Server 2019 自動安裝。 �
 - 若要疑難排解 Windows 虛擬桌面用戶端連線的問題，請參閱[遠端桌面用戶端連接](troubleshoot-client-connection.md)。
 - 若要針對搭配 Windows 虛擬桌面使用 PowerShell 時的問題進行疑難排解，請參閱[Windows 虛擬桌面 PowerShell](troubleshoot-powershell.md)。
 - 若要深入瞭解此服務，請參閱[Windows 虛擬桌面環境](https://docs.microsoft.com/azure/virtual-desktop/environment-setup)。
-- 若要進行疑難排解教學課程，請參閱[教學課程：針對 Resource Manager 範本部署 @ no__t-0 進行疑難排解。
+- 若要進行疑難排解教學課程，請參閱[教學課程：針對 Resource Manager 範本部署進行疑難排解](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-tutorial-troubleshoot)。
 - 若要了解稽核動作，請參閱 [使用 Resource Manager 來稽核作業](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-audit)。
 - 若要了解部署期間可採取哪些動作來判斷錯誤，請參閱 [檢視部署作業](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-deployment-operations)。

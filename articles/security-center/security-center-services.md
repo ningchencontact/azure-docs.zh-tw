@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/24/2019
 ms.author: memildin
-ms.openlocfilehash: ed231bc05d58a40c93cea74081c027e5b49f5306
-ms.sourcegitcommit: 1c2659ab26619658799442a6e7604f3c66307a89
-ms.translationtype: MT
+ms.openlocfilehash: b6de3a520150a95316371c4454fd2537f2beab5d
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72254502"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72331152"
 ---
 # <a name="supported-features-available-in-azure-security-center"></a>Azure 資訊安全中心提供支援的功能
 
@@ -35,28 +35,28 @@ ms.locfileid: "72254502"
 
 > [!div class="mx-tableFixed"]
 
-|伺服器|Windows|||Linux|||定價|
+|伺服器|Windows|||Linux|||價格|
 |----|----|----|----|----|----|----|----|
-|**環境**|**Azure**||**Non-Azure**|**Azure**||**Non-Azure**||
+|**環境**|**Azure**||**非 Azure**|**Azure**||**非 Azure**||
 ||**虛擬機器**|**虛擬機器擴展集**||**虛擬機器**|**虛擬機器擴展集**|
-|[Microsoft Defender ATP 整合](https://docs.microsoft.com/azure/security-center/security-center-wdatp)|✔ (在支援的版本上)|✔ (在支援的版本上)|✔|X|X|X|標準|
+|[Microsoft Defender ATP 整合](https://docs.microsoft.com/azure/security-center/security-center-wdatp)|✔ (在支援的版本上)|✔ (在支援的版本上)|✔|X|X|X|Standard|
 |[虛擬機器行為分析威脅偵測警示](https://docs.microsoft.com/azure/security-center/security-center-alerts-iaas)|✔|✔|✔|✔ (在支援的版本上)|✔ (在支援的版本上)|✔|建議（免費）威脅偵測（標準）|
-|[Fileless 威脅偵測警示](https://docs.microsoft.com/azure/security-center/security-center-alerts-iaas#fileless-attack-detection-)|✔|✔|✔|X|X|X|標準|
-|[以網路為基礎的威脅偵測警示](https://docs.microsoft.com/azure/security-center/security-center-alerts-service-layer#azure-network-layer)|✔|✔|X|✔|✔|X|標準|
-|[即時 VM 存取](https://docs.microsoft.com/azure/security-center/security-center-just-in-time)|✔|X|X|✔|X|X|標準|
-|[檔案完整性監視](https://docs.microsoft.com/azure/security-center/security-center-file-integrity-monitoring)|✔|✔|✔|✔|✔|✔|標準|
-|[自動調整應用程式控制項](https://docs.microsoft.com/azure/security-center/security-center-adaptive-application)|✔|X|✔|✔|X|✔|標準|
-|[網路地圖](https://docs.microsoft.com/azure/security-center/security-center-network-recommendations#network-map)|✔|✔|X|✔|✔|X|標準|
-|[彈性網路強化](https://docs.microsoft.com/azure/security-center/security-center-adaptive-network-hardening)|✔|X|X|✔|X|X|標準|
-|自適性網路控制措施|✔|✔|X|✔|✔|X|標準|
-|[法規合規性儀表板 & 報告](https://docs.microsoft.com/azure/security-center/security-center-compliance-dashboard)|✔|✔|✔|✔|✔|✔|標準|
-|Docker 託管 IaaS 容器上的建議和威脅偵測|X|X|X|✔|✔|✔|標準|
+|[Fileless 威脅偵測警示](https://docs.microsoft.com/azure/security-center/security-center-alerts-iaas#fileless-attack-detection-)|✔|✔|✔|X|X|X|Standard|
+|[以網路為基礎的威脅偵測警示](https://docs.microsoft.com/azure/security-center/security-center-alerts-service-layer#azure-network-layer)|✔|✔|X|✔|✔|X|Standard|
+|[即時 VM 存取](https://docs.microsoft.com/azure/security-center/security-center-just-in-time)|✔|X|X|✔|X|X|Standard|
+|[檔案完整性監視](https://docs.microsoft.com/azure/security-center/security-center-file-integrity-monitoring)|✔|✔|✔|✔|✔|✔|Standard|
+|[自動調整應用程式控制項](https://docs.microsoft.com/azure/security-center/security-center-adaptive-application)|✔|X|✔|✔|X|✔|Standard|
+|[網路地圖](https://docs.microsoft.com/azure/security-center/security-center-network-recommendations#network-map)|✔|✔|X|✔|✔|X|Standard|
+|[彈性網路強化](https://docs.microsoft.com/azure/security-center/security-center-adaptive-network-hardening)|✔|X|X|✔|X|X|Standard|
+|自適性網路控制措施|✔|✔|X|✔|✔|X|Standard|
+|[法規合規性儀表板 & 報告](https://docs.microsoft.com/azure/security-center/security-center-compliance-dashboard)|✔|✔|✔|✔|✔|✔|Standard|
+|Docker 託管 IaaS 容器上的建議和威脅偵測|X|X|X|✔|✔|✔|Standard|
 |缺少 OS 修補程式評估|✔|✔|✔|✔|✔|✔|免費|
 |安全性錯誤的評估|✔|✔|✔|✔|✔|✔|免費|
 |[Endpoint protection 評估](https://docs.microsoft.com/azure/security-center/security-center-services#supported-endpoint-protection-solutions-)|✔|✔|✔|X|X|X|免費|
 |磁片加密評估|✔|✔|X|✔|✔|X|免費|
 |協力廠商的弱點評估|✔|X|X|✔|X|X|免費|
-|[網路安全性評量]()|✔|✔|X|✔|✔|X|免費|
+|[網路安全性評量](https://docs.microsoft.com/azure/security-center/security-center-network-recommendations)|✔|✔|X|✔|✔|X|免費|
 
 ### 支援的端點保護解決方案<a name="endpoint-supported"></a>
 
@@ -67,7 +67,7 @@ ms.locfileid: "72254502"
 
 如需每一項保護何時產生建議的相關資訊，請參閱[Endpoint Protection 評估和建議](security-center-endpoint-protection.md)。
 
-| 端點保護| 平台 | 資訊安全中心安裝 | 資訊安全中心探索 |
+| Endpoint Protection| 平台 | 資訊安全中心安裝 | 資訊安全中心探索 |
 |------|------|-----|-----|
 | Windows Defender (Microsoft 反惡意程式碼軟體)| Windows Server 2016| 否，內建於 OS| 是 |
 | System Center Endpoint Protection (Microsoft 反惡意程式碼軟體) | Windows Server 2012 R2、2012、2008 R2 (請參閱下列附註) | 透過延伸模組 | 是 |
@@ -98,13 +98,13 @@ Azure 資訊安全中心支援下列 PaaS 資源：
 |Blob 儲存體|✔| ✔|
 |儲存體帳戶|✔| NA|
 |App Service|✔| ✔|
-|函數|✔| X|
-|服務雲端|✔| X|
+|函式|✔| X|
+|雲端服務|✔| X|
 |VNet|✔| NA|
-|Subnet|✔| NA|
+|子網路|✔| NA|
 |NIC|✔| NA|
 |NSG|✔| NA|
-|訂閱|✔ **| ✔|
+|Subscription|✔ * *| ✔|
 |批次帳戶|✔| X|
 |Service fabric 帳戶|✔| X|
 |自動化帳戶|✔| X|

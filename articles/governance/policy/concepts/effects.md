@@ -6,12 +6,12 @@ ms.author: dacoulte
 ms.date: 09/17/2019
 ms.topic: conceptual
 ms.service: azure-policy
-ms.openlocfilehash: eb15aa3c6dbe0f4db62a2029a3c97b4475ab53a2
-ms.sourcegitcommit: 1c2659ab26619658799442a6e7604f3c66307a89
+ms.openlocfilehash: 78a5b180d6e1531ca3ea15fbd6ec040a90d75e5c
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72255876"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72330775"
 ---
 # <a name="understand-azure-policy-effects"></a>了解 Azure 原則效果
 
@@ -24,7 +24,7 @@ ms.locfileid: "72255876"
 - [AuditIfNotExists](#auditifnotexists)
 - [拒絕](#deny)
 - [DeployIfNotExists](#deployifnotexists)
-- [Disabled](#disabled)
+- [已停用](#disabled)
 - [EnforceRegoPolicy](#enforceregopolicy) （預覽）
 - [編輯](#modify)
 
@@ -67,7 +67,7 @@ Append 效果只有一個 **details** 陣列且為必要。 由於 **details** �
 
 ### <a name="append-examples"></a>Append 範例
 
-範例 1：使用非 **[\*]** [別名](definition-structure.md#aliases)搭配具有陣列**值**的單一**欄位/值**組，以在儲存體帳戶上設定 IP 規則。 當非 **[\*]** 別名是陣列時，效果會將 **value** 當做整個陣列來附加。 如果陣列已經存在，就會因為衝突而發生拒絕事件。
+範例1：使用非 **[\*]** [別名](definition-structure.md#aliases)搭配陣列**值**來設定儲存體帳戶上 IP 規則的單一**欄位/值**組。 當非 **[\*]** 別名是陣列時，效果會將 **value** 當做整個陣列來附加。 如果陣列已經存在，就會因為衝突而發生拒絕事件。
 
 ```json
 "then": {
@@ -82,7 +82,7 @@ Append 效果只有一個 **details** 陣列且為必要。 由於 **details** �
 }
 ```
 
-範例 2：使用 **[\*]** [別名](definition-structure.md#aliases)搭配 **value** 陣列以設定儲存體帳戶相關 IP 規則的單一 **field/value** 配對。 藉由使用 **[\*]** 別名，效果會將 **value** 附加至可能預先存在的陣列。 如果陣列尚不存在，則會建立它。
+範例2：使用 **[\*]** [別名](definition-structure.md#aliases)搭配陣列**值**來設定儲存體帳戶 IP 規則的單一**欄位/值**組。 藉由使用 **[\*]** 別名，效果會將 **value** 附加至可能預先存在的陣列。 如果陣列尚不存在，則會建立它。
 
 ```json
 "then": {
@@ -99,8 +99,7 @@ Append 效果只有一個 **details** 陣列且為必要。 由於 **details** �
 
 ## <a name="modify"></a>修改
 
-在建立或更新期間，會使用 Modify 來新增、更新或移除資源上的標記。 常見的範例是在資源（例如 costCenter）上更新標記。 修改原則應一律將 `mode` 設定為 [_索引_]。 您可以使用[補救](../how-to/remediate-resources.md)工作來補救現有不符合規範的資源。
-單一修改規則可以有任意數目的作業。
+在建立或更新期間，會使用 Modify 來新增、更新或移除資源上的標記。 常見的範例是在資源（例如 costCenter）上更新標記。 除非目標資源是資源群組，否則修改原則應一律將 `mode` 設定為 [_索引_]。 您可以使用[補救](../how-to/remediate-resources.md)工作來補救現有不符合規範的資源。 單一修改規則可以有任意數目的作業。
 
 > [!IMPORTANT]
 > Modify 目前僅供與標記搭配使用。 如果您要管理標記，建議使用 [修改] 而非 [附加] 做為 [修改]，提供額外的作業類型以及補救現有資源的能力。 不過，如果您無法建立受控識別，則建議使用 [附加]。
@@ -161,15 +160,15 @@ Append 效果只有一個 **details** 陣列且為必要。 由於 **details** �
 
 **Operation**屬性具有下列選項：
 
-|運算 |描述 |
+|作業 |描述 |
 |-|-|
 |addOrReplace |將已定義的標籤和值新增至資源，即使標記已經存在且具有不同的值。 |
-|加 |將已定義的標記和值加入至資源。 |
+|新增 |將已定義的標記和值加入至資源。 |
 |移除 |從資源中移除已定義的標記。 |
 
 ### <a name="modify-examples"></a>修改範例
 
-範例 1：新增 `environment` 標記，並將現有的 @no__t 1 標記取代為 "Test"：
+範例1：新增 `environment` 標記，並將現有的 @no__t 1 標記取代為 "Test"：
 
 ```json
 "then": {
@@ -189,7 +188,7 @@ Append 效果只有一個 **details** 陣列且為必要。 由於 **details** �
 }
 ```
 
-範例 2：移除 `env` 標記，並加入 `environment` 標記，或使用參數化的值取代現有的 @no__t 2 標記：
+範例2：移除 `env` 標記，並加入 `environment` 標記，或以參數化的值取代現有的 @no__t 2 標記：
 
 ```json
 "then": {
@@ -297,7 +296,7 @@ AuditIfNotExists 效果的 **details** 屬性含有定義所要比對相關資�
 
 ### <a name="auditifnotexists-example"></a>AuditIfNotExists 範例
 
-範例：評估「虛擬機器」以判斷「反惡意程式碼軟體」延伸模組是否存在，然後在遺漏該軟體時進行稽核。
+範例：評估虛擬機器以判斷「反惡意程式碼軟體」延伸模組是否存在，然後在遺漏該軟體時進行稽核。
 
 ```json
 {
@@ -457,7 +456,7 @@ EnforceRegoPolicy 效果的**details**屬性具有描述 Rego 許可控制規則
 
 ### <a name="enforceregopolicy-example"></a>EnforceRegoPolicy 範例
 
-範例：Rego 許可控制規則，以只允許 AKS 中指定的容器映射。
+範例： Rego 許可控制規則，只允許 AKS 中指定的容器映射。
 
 ```json
 "if": {
@@ -486,7 +485,7 @@ EnforceRegoPolicy 效果的**details**屬性具有描述 Rego 許可控制規則
 
 ## <a name="layering-policies"></a>分層原則
 
-一個資源可能會受到數個指派影響。 這些指派可能屬於相同範圍，也可能屬於不同範圍。 這些指派中的每項指派也可能定義了不同的效果。 針對每個原則的條件和效果，都會以獨立方式進行評估。 例如:
+一個資源可能會受到數個指派影響。 這些指派可能屬於相同範圍，也可能屬於不同範圍。 這些指派中的每項指派也可能定義了不同的效果。 針對每個原則的條件和效果，都會以獨立方式進行評估。 例如：
 
 - 原則 1
   - 將資源位置限制為 'westus'

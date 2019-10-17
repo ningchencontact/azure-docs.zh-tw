@@ -18,12 +18,12 @@ ms.author: ryanwi
 ms.reviewer: elisol, bryanla
 ms.custom: aaddev, seoapril2019
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bd20928816a30ad2843ce6c876bd77152dcd69e1
-ms.sourcegitcommit: be344deef6b37661e2c496f75a6cf14f805d7381
+ms.openlocfilehash: c77657101f5cd8a117b2163386f6d551b7985458
+ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/07/2019
-ms.locfileid: "72001746"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72374079"
 ---
 # <a name="list-your-application-in-the-azure-active-directory-application-gallery"></a>在 Azure Active Directory 應用程式庫中列出您的應用程式
 
@@ -71,14 +71,14 @@ ms.locfileid: "72001746"
 
 若要在 Azure AD 應用程式庫中列出某個應用程式，您必須先實作 Azure AD 所支援的下列其中一種同盟通訊協定。 您也必須同意 Azure AD 應用程式庫條款及條件。 閱讀[此網站](https://azure.microsoft.com/support/legal/active-directory-app-gallery-terms/)上 Azure AD 應用程式資源庫的條款及條件。
 
-- **OpenID Connect**：若要使用 Open ID Connect 通訊協定將您的應用程式與 Azure AD 整合，請遵循[開發人員的指示](authentication-scenarios.md)。
+- **OpenID connect**：若要使用 Open ID Connect 通訊協定將您的應用程式與 Azure AD 整合，請遵循[開發人員的指示](v1-authentication-scenarios.md)。
 
     ![在資源庫中列出 OpenID Connect 應用程式](./media/howto-app-gallery-listing/openid.png)
 
     * 如果您想要使用 OpenID Connect 將應用程式新增至資源庫中的清單，請選取 **[Openid connect & OAuth 2.0]** ，如下所示。
     * 如果您有任何存取的問題，請洽詢[AZURE AD SSO 整合小組](<mailto:SaaSApplicationIntegrations@service.microsoft.com>)。
 
-- **SAML 2.0** 或 **WS-Fed**：如果您的應用程式支援 SAML 2.0，您可以遵循[新增自訂應用程式的指示](../active-directory-saas-custom-apps.md)，將它與 Azure AD 租使用者直接整合。
+- **Saml 2.0**或**WS-送**出：如果您的應用程式支援 SAML 2.0，您可以遵循[新增自訂應用程式的指示](../active-directory-saas-custom-apps.md)，將它與 Azure AD 租使用者直接整合。
 
   ![在資源庫中列出 SAML 2.0 或 WS-送出應用程式](./media/howto-app-gallery-listing/saml.png)
 

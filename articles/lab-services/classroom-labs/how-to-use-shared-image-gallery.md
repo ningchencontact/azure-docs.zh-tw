@@ -11,14 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/05/2019
+ms.date: 10/12/2019
 ms.author: spelluru
-ms.openlocfilehash: 65cc2d9ac2b96822f2c1b740f3180ba1d9eaf98c
-ms.sourcegitcommit: 88ae4396fec7ea56011f896a7c7c79af867c90a1
+ms.openlocfilehash: e9073e7cba97c4f5e2d550e5e49a6655ec76abbe
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70389990"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72332013"
 ---
 # <a name="use-a-shared-image-gallery-in-azure-lab-services"></a>使用 Azure 實驗室服務中的共用映射資源庫
 本文說明老師/lab 管理員如何儲存範本虛擬機器映射，供其他人重複使用。 這些映射會儲存在 Azure[共用映射資源庫](../../virtual-machines/windows/shared-image-galleries.md)中。 第一個步驟是，實驗室系統管理員將現有的共用映射資源庫附加至實驗室帳戶。 連結共用映射資源庫之後，在實驗室帳戶中建立的實驗室可以將影像儲存到共用映射資源庫。 其他老師可以從共用映射庫中選取此映射，以建立其類別的範本。 
@@ -31,18 +31,18 @@ ms.locfileid: "70389990"
 ## <a name="save-an-image-to-the-shared-image-gallery"></a>將影像儲存到共用映射資源庫
 連結共用映射庫之後，實驗室帳戶管理員或老師可以將影像儲存到共用映射資源庫，讓其他老師可以重複使用該映射。 
 
-1. 在實驗室的首頁上，選取 [**範本**] 區段中磚上的 [**儲存影像**]。
+1. 在實驗室的 [**範本**] 頁面上，選取工具列上的 [**匯出至共用映射資源庫**]。
 
-    ![[儲存影像] 按鈕](../media/how-to-use-shared-image-gallery/save-image-button.png)
-2.  在 [**儲存虛擬機器映射**] 視窗中，輸入影像的名稱，然後選取 [**儲存**]。 
+    ![[儲存影像] 按鈕](../media/how-to-use-shared-image-gallery/export-to-shared-image-gallery-button.png)
+2. 在 [**匯出至共用映射資源庫**] 對話方塊中，輸入**影像的名稱**，然後選取 [**匯出**]。 
 
-    ![儲存虛擬機器映射視窗](../media/how-to-use-shared-image-gallery/save-virtual-machine-image.png)
-3. 檢查 [實驗室] 磚上的 [狀態]。 
+    ![[匯出至共用映射資源庫] 對話方塊](../media/how-to-use-shared-image-gallery/export-to-shared-image-gallery-dialog.png)
+3. 您可以在 [**範本**] 頁面上查看這項作業的進度。 此作業可能需要一些時間。 
 
-    ![儲存映射作業的狀態](../media/how-to-use-shared-image-gallery/save-image-status.png)
-4. 確認操作成功。
+    ![匯出進行中](../media/how-to-use-shared-image-gallery/exporting-image-in-progress.png)
+4. 當匯出作業成功時，您會看到下列訊息：
 
-    ![儲存映射操作成功](../media/how-to-use-shared-image-gallery/save-image-successful.png)
+    ![匯出已完成](../media/how-to-use-shared-image-gallery/exporting-image-completed.png)
 
 您也可以將影像上傳至實驗室內容外的共用映射資源庫。 如需詳細資訊，請參閱[共用映射資源庫總覽](../../virtual-machines/windows/shared-images.md)。 
 

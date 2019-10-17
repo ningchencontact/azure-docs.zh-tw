@@ -9,13 +9,13 @@ ms.subservice: data-science-vm
 author: gvashishtha
 ms.author: gopalv
 ms.topic: conceptual
-ms.date: 10/3/2019
-ms.openlocfilehash: 47a701cce348e86359947376b3d6a9915dfb2264
-ms.sourcegitcommit: 4f7dce56b6e3e3c901ce91115e0c8b7aab26fb72
+ms.date: 10/11/2019
+ms.openlocfilehash: 72a881a2ab508caa2274f3b9299157921cb8ceff
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71950163"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72330684"
 ---
 # <a name="data-science-virtual-machine-data-ingestion-tools"></a>資料科學虛擬機器資料擷取工具
 
@@ -62,12 +62,22 @@ ms.locfileid: "71950163"
 
 |    |           |
 | ------------- | ------------- |
-| 這是什麼？   | 將各種來源的資料匯入 Azure Cosmos DB 的工具。 這些來源包括 JSON 檔案、CSV 檔案、SQL、MongoDB、Azure 資料表儲存體、Amazon DynamoDB，以及 Azure Cosmos DB SQL API 集合。      |
+| 這是什麼？   | 此工具可將各種來源的資料匯入至 Azure Cosmos DB，這是雲端中的 NoSQL 資料庫。 這些來源包括 JSON 檔案、CSV 檔案、SQL、MongoDB、Azure 資料表儲存體、Amazon DynamoDB，以及 Azure Cosmos DB SQL API 集合。      |
 | 支援的 DSVM 版本      | Windows      |
 | 典型的使用案例      | 從 VM 將檔案匯入到 CosmosDB、將資料從 Azure 資料表儲存體匯入至 CosmosDB，以及將資料從 Microsoft SQL Server 資料庫匯入至 CosmosDB。     |
 |  如何使用/執行它？    |   若要使用命令列版本，請開啟命令提示字元，然後輸入 `dt`。 若要使用 GUI 工具，請開啟命令提示字元，然後輸入 `dtui`。    |
 | 範例的連結      | [CosmosDB 匯入資料](https://docs.microsoft.com/azure/cosmos-db/import-data)      |
 | DSVM 上的相關工具      | AzCopy、AdlCopy      |
+
+## <a name="azure-storage-explorer"></a>Azure 儲存體總管
+
+|    |           |
+| ------------- | ------------- |
+| 這是什麼？   | 用來與 Azure 雲端中儲存之檔案互動的圖形化使用者介面。 |
+| 支援的 DSVM 版本      | Windows      |
+| 典型的使用案例      | 從 DSVM 匯入和匯出資料。    |
+|  如何使用/執行它？    | 搜尋 [開始] 功能表中的 [Azure 儲存體總管]。 |
+| 範例的連結      | [Azure 儲存體總管](vm-do-ten-things.md#access-azure-data-and-analytics-services)      |
 
 
 ## <a name="bcp"></a>bcp

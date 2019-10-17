@@ -12,14 +12,14 @@ ms.devlang: dotNet
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 08/22/2019
+ms.date: 10/03/2019
 ms.author: atsenthi
-ms.openlocfilehash: 0bc8a5bbecc4e7d58265e9c10c2c8a3351fcc312
-ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
+ms.openlocfilehash: cc77995e12d756c5878ee62ef6dd0f0229506d4c
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/26/2019
-ms.locfileid: "70036004"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72333081"
 ---
 # <a name="prepare-your-development-environment-on-windows"></a>在 Windows 上準備您的開發環境
 > [!div class="op_single_selector"]
@@ -29,7 +29,7 @@ ms.locfileid: "70036004"
 > 
 > 
 
-若要在您的 Windows 開發電腦上建立並執行[Azure Service Fabric 應用程式][1], 請安裝 Service Fabric 執行時間、SDK 和工具。 您也必須[執行 SDK 中包含的 Windows PowerShell 指令碼](#enable-powershell-script-execution)。
+若要在您的 Windows 開發電腦上建立並執行[Azure Service Fabric 應用程式][1]，請安裝 Service Fabric 執行時間、SDK 和工具。 您也必須[執行 SDK 中包含的 Windows PowerShell 指令碼](#enable-powershell-script-execution)。
 
 ## <a name="prerequisites"></a>必要條件
 ### <a name="supported-operating-system-versions"></a>支援的作業系統版本
@@ -69,8 +69,8 @@ Service Fabric 工具是 Visual Studio 2017 和2019中的 Azure 開發工作負�
 * [安裝 Microsoft Azure Service Fabric SDK][core-sdk]
 
 目前的版本如下︰
-* Service Fabric SDK 和工具3.4.664
-* Service Fabric 執行時間6.5.664
+* Service Fabric SDK 和工具3.4.676
+* Service Fabric 執行時間6.5.676
 * Visual Studio 2015 2.5.20615.1 的 Service Fabric 工具
 * Visual Studio 2017 15.9 包含 Service Fabric Tools for Visual Studio 2.4.11024.1 
 * Visual Studio 2019 16.1 包含 Visual Studio 2.5.20423.3 的 Service Fabric 工具
@@ -93,7 +93,7 @@ Set-ExecutionPolicy -ExecutionPolicy Unrestricted -Force -Scope CurrentUser
 現在您的開發環境已完成設定，您可以開始建置和執行應用程式。
 
 * [了解如何建立、部署及管理應用程式](service-fabric-tutorial-create-dotnet-app.md)
-* [了解程式設計模型：Reliable Services 和 Reliable Actors](service-fabric-choose-framework.md)
+* [深入了解程式設計模型：Reliable Services 和 Reliable Actors](service-fabric-choose-framework.md)
 * [請查看 GitHub 上的 Service Fabric 程式碼範例](https://aka.ms/servicefabricsamples)
 * [使用 Service Fabric 總管將叢集視覺化](service-fabric-visualizing-your-cluster.md)
 * 了解 [Service Fabric 支援選項](service-fabric-support.md)

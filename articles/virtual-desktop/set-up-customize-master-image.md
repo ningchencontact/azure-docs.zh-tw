@@ -5,18 +5,18 @@ services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: conceptual
-ms.date: 04/03/2019
+ms.date: 10/14/2019
 ms.author: helohr
-ms.openlocfilehash: 57070b297446badb92ae1df4c435dd54cfe26823
-ms.sourcegitcommit: d4c9821b31f5a12ab4cc60036fde00e7d8dc4421
+ms.openlocfilehash: 622b4e53be68025ad9553ce604041d14885bb2b2
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/01/2019
-ms.locfileid: "71710187"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72330838"
 ---
 # <a name="prepare-and-customize-a-master-vhd-image"></a>準備和自訂主要 VHD 映像
 
-本文說明如何準備要上傳至 Azure 的主要虛擬硬碟（VHD）映射，包括如何建立虛擬機器（Vm）並在其上安裝軟體。 這些指示適用于可以與貴組織現有的程式搭配使用的 Windows 虛擬桌面特定設定。
+本文說明如何準備要上傳至 Azure 的主要虛擬硬碟（VHD）映射，包括如何建立虛擬機器（Vm）並在其上安裝軟體。 這些指示適用於可搭配您組織現有程序使用的 Windows 虛擬桌面特定設定。
 
 ## <a name="create-a-vm"></a>建立 VM
 
@@ -62,11 +62,25 @@ Convert-VHD –Path c:\\test\\MY-VM.vhdx –DestinationPath c:\\test\\MY-NEW-VM.
 
 ## <a name="software-preparation-and-installation"></a>軟體準備和安裝
 
-本節涵蓋如何準備和安裝 FSLogix、Windows Defender 和其他常見的應用程式。 
+本節涵蓋如何準備和安裝 FSLogix 和 Windows Defender，以及應用程式和映射登錄的一些基本設定選項。 
 
-如果您要在您的 VM 上安裝 Office 365 ProPlus 和 OneDrive，請參閱[在主要 VHD 映射上安裝 office](install-office-on-wvd-master-image.md)。 請遵循該文章後續步驟中的連結，以返回本文並完成主要 VHD 程式。
+如果您要在您的 VM 上安裝 Office 365 ProPlus 和 OneDrive，請移至在[主要 VHD 映射上安裝 office](install-office-on-wvd-master-image.md) ，並依照該處的指示來安裝應用程式。 完成之後，請返回此文章。
 
 如果您的使用者需要存取特定 LOB 應用程式，建議您在完成本節的指示之後加以安裝。
+
+### <a name="set-up-user-profile-container-fslogix"></a>設定使用者設定檔容器（FSLogix）
+
+若要包含 FSLogix 容器作為映射的一部分，請遵循[使用檔案共用建立主機集區的設定檔容器](create-host-pools-user-profile.md#configure-the-fslogix-profile-container)中的指示。 您可以使用[本快速入門](https://docs.microsoft.com/en-us/fslogix/configure-cloud-cache-tutorial)來測試 FSLogix 容器的功能。
+
+### <a name="configure-windows-defender"></a>設定 Windows Defender
+
+如果 VM 中已設定 Windows Defender，請確定它已設定為不會在附件期間掃描 VHD 和 VHDX 檔案的完整內容。
+
+此設定只會在附件期間移除 VHD 和 VHDX 檔案的掃描，但不會影響即時掃描。
+
+如需如何在 Windows Server 上設定 Windows Defender 的詳細指示，請參閱[在 Windows server 上設定 Windows Defender 防毒軟體排除](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-antivirus/configure-server-exclusions-windows-defender-antivirus)。
+
+若要深入瞭解如何設定 Windows Defender 以排除掃描的特定檔案，請參閱[根據副檔名和資料夾位置設定和驗證排除](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-antivirus/configure-extension-file-exclusions-windows-defender-antivirus)專案。
 
 ### <a name="disable-automatic-updates"></a>停用自動更新
 
@@ -88,20 +102,6 @@ reg add "HKLM\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate\AU" /v NoAutoUpd
 ```batch
 reg add "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer" /v SpecialRoamingOverrideAllowed /t REG_DWORD /d 1 /f
 ```
-
-### <a name="set-up-user-profile-container-fslogix"></a>設定使用者設定檔容器（FSLogix）
-
-若要包含 FSLogix 容器作為映射的一部分，請遵循[使用檔案共用建立主機集區的設定檔容器](create-host-pools-user-profile.md#configure-the-fslogix-profile-container)中的指示。 您可以使用[本快速入門](https://docs.microsoft.com/en-us/fslogix/configure-cloud-cache-tutorial)來測試 FSLogix 容器的功能。
-
-### <a name="configure-windows-defender"></a>設定 Windows Defender
-
-如果 VM 中已設定 Windows Defender，請確定它已設定為不會在附件期間掃描 VHD 和 VHDX 檔案的完整內容。
-
-此設定只會在附件期間移除 VHD 和 VHDX 檔案的掃描，但不會影響即時掃描。
-
-如需如何在 Windows Server 上設定 Windows Defender 的詳細指示，請參閱[在 Windows server 上設定 Windows Defender 防毒軟體排除](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-antivirus/configure-server-exclusions-windows-defender-antivirus)。
-
-若要深入瞭解如何設定 Windows Defender 以排除掃描的特定檔案，請參閱[根據副檔名和資料夾位置設定和驗證排除](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-antivirus/configure-extension-file-exclusions-windows-defender-antivirus)專案。
 
 ### <a name="configure-session-timeout-policies"></a>設定會話超時原則
 
@@ -157,7 +157,7 @@ reg add "HKCU\Software\Microsoft\Windows\CurrentVersion\StorageSense\Parameters\
 
 ### <a name="include-additional-language-support"></a>包含其他語言支援
 
-本文並未涵蓋如何設定語言和區域支援。 如需詳細資訊，請參閱下列文章：
+本文並未涵蓋如何設定語言和區域支援。 如需詳細資訊，請參閱下列文章。
 
 - [將語言新增至 Windows 映像](https://docs.microsoft.com/windows-hardware/manufacture/desktop/add-language-packs-to-windows)
 - [功能隨選安裝](https://docs.microsoft.com/windows-hardware/manufacture/desktop/features-on-demand-v2--capabilities)
@@ -225,7 +225,7 @@ reg add "HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server\WinStations\rdp-s
 現在您已有映射，您可以建立或更新主機集區。 若要深入瞭解如何建立和更新主機集區，請參閱下列文章：
 
 - [使用 Azure Resource Manager 範本建立主機集區](create-host-pools-arm-template.md)
-- [教學課程：透過 Azure Marketplace 建立主機集區](create-host-pools-azure-marketplace.md)
+- [教學課程：使用 Azure Marketplace 建立主機集區](create-host-pools-azure-marketplace.md)
 - [使用 PowerShell 建立主機集區](create-host-pools-powershell.md)
 - [使用檔案共用建立主機集區的設定檔容器](create-host-pools-user-profile.md)
 - [設定 Windows 虛擬桌面負載平衡方法](configure-host-pool-load-balancing.md)

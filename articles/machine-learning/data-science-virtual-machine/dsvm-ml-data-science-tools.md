@@ -5,16 +5,16 @@ keywords: 資料科學工具、資料科學虛擬機器、資料科學工具、l
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: data-science-vm
-author: vijetajo
-ms.author: vijetaj
+author: gvashishtha
+ms.author: gopalv
 ms.topic: conceptual
-ms.date: 03/16/2018
-ms.openlocfilehash: dec1589898cf6cc239dbe737519e078f1c4bc7b1
-ms.sourcegitcommit: 86d49daccdab383331fc4072b2b761876b73510e
+ms.date: 10/11/2019
+ms.openlocfilehash: 8eae1501973d24dc468056229e8a762910f2f181
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70744929"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72330746"
 ---
 # <a name="machine-learning-and-data-science-tools-on-azure-data-science-virtual-machines"></a>Azure 資料科學上的機器學習和資料科學工具虛擬機器
 Azure 資料科學虛擬機器（Dsvm）具有一組豐富的工具和程式庫，適用于以熱門語言（例如 Python、R 和 Julia）提供的機器學習服務。
@@ -22,6 +22,7 @@ Azure 資料科學虛擬機器（Dsvm）具有一組豐富的工具和程式庫�
 以下是一些 Dsvm 上的機器學習工具和程式庫。
 
 ## <a name="azure-machine-learning-sdk-for-python"></a>適用於 Python 的 Azure Machine Learning SDK
+
 請參閱適用于 Python 的[AZURE MACHINE LEARNING SDK](https://docs.microsoft.com/azure/machine-learning/service/overview-what-is-azure-ml)的完整參考。
 
 |    |           |
@@ -34,18 +35,40 @@ Azure 資料科學虛擬機器（Dsvm）具有一組豐富的工具和程式庫�
 | 範例的連結      | 範例 Jupyter Notebook 包含在 `AzureML` 目錄中的 Notebook 底下。  |
 | 相關工具      | Visual Studio Code、Jupyter   |
 
-## <a name="xgboost"></a>XGBoost 
+## <a name="h2o"></a>H2O
+
 |    |           |
 | ------------- | ------------- |
-| 這是什麼？   |   適用于 Python、R、JAVA、Scala C++等的快速、可攜且分散式漸層提升（GBDT、GBRT 或 GBM）程式庫。 它會在單一電腦上，以及在 Apache Hadoop 和 Spark 上執行。    |
+| 這是什麼？   | 一種開放原始碼 AI 平臺，支援記憶體內部、分散式、快速且可調整的機器學習服務。  |
+| 支援的版本      | Linux   |
+| 典型的使用案例      | 一般用途的分散式、可擴充機器學習服務   |
+| 如何設定或安裝它？      | H2O 是安裝在 `/dsvm/tools/h2o` 中。      |
+| 如何使用或執行它      | 使用 X2Go 來連線至 VM。 啟動新的終端機，然後執行 `java -jar /dsvm/tools/h2o/current/h2o.jar`。 然後啟動網頁瀏覽器，並連線至 `http://localhost:54321`。      |
+| 範例的連結      | VM 上 Jupyter 中的 `h2o` 目錄底下有提供範例。      |
+| 相關工具      | Apache Spark、MXNet、XGBoost、Sparkling Water、Deep Water    |
+
+Dsvm 上有數個其他的機器學習程式庫，例如 Dsvm 的 Anaconda Python 散發套件中的熱門 @no__t 0 封裝。 若要查看以 Python、R 及 Julia 提供的套件清單，請執行個別的套件管理員。
+
+## <a name="lightgbm"></a>LightGBM
+
+|    |           |
+| ------------- | ------------- |
+| 這是什麼？   | 以決策樹演算法為基礎的快速、分散式、高效能漸層提升（GBDT、GBRT、GBM 或超市）架構。 它用於排名、分類及許多其他機器學習工作。    |
+| 支援的版本      | Windows、Linux    |
+| 典型的使用案例      | 一般用途的漸層提升架構      |
+| 如何設定或安裝它？      | 在 Windows 上，LightGBM 是以 Python 套件的形式安裝。 在 Linux 上，命令列可執行檔位於 `/opt/LightGBM/lightgbm`，R 套件和 Python 套件皆已安裝。     |
+| 範例的連結      | [LightGBM 指南](https://github.com/Microsoft/LightGBM/tree/master/examples/python-guide)   |
+| 相關工具      | MXNet、XgBoost  |
+
+## <a name="rattle"></a>Rattle
+|    |           |
+| ------------- | ------------- |
+| 這是什麼？   |   使用 R 進行資料採礦的圖形化使用者介面。   |
 | 支援的版本     | Windows、Linux     |
-| 典型的使用案例      | 一般機器學習程式庫      |
-| 如何設定或安裝它？      |  搭配 GPU 支援安裝   |
-| 如何使用或執行它      | 作為 Python 程式庫（2.7 和3.5）、R 套件及路徑上命令列工具（`C:\dsvm\tools\xgboost\bin\xgboost.exe`適用于 Windows 和`/dsvm/tools/xgboost/xgboost` Linux）    |
-| 範例的連結      | 範例包含在 VM 的 `/dsvm/tools/xgboost/demo`(適用於 Linux) 中，以及 `C:\dsvm\tools\xgboost\demo` (適用於 Windows) 中。   |
-| 相關工具      | LightGBM、MXNet   |
-
-
+| 典型的使用案例      | 適用于 R 的一般 UI 資料-挖掘工具    |
+| 如何使用或執行它      | 作為 UI 工具。 在 Windows 上，啟動命令提示字元，執行 R，然後在 R 內執行 `rattle()`。 在 Linux 上，使用 X2Go 連接、啟動終端機、執行 R，然後在 R 內執行 `rattle()`。 |
+| 範例的連結      | [Rattle](https://togaware.com/onepager/) \(英文\) |
+| 相關工具      |LightGBM、Weka、XGBoost   |
 
 ## <a name="vowpal-wabbit"></a>Vowpal Wabbit
 |    |           |
@@ -69,35 +92,15 @@ Azure 資料科學虛擬機器（Dsvm）具有一組豐富的工具和程式庫�
 | 範例的連結      | [Weka 範例](https://www.cs.waikato.ac.nz/ml/weka/documentation.html) \(英文\) |
 | 相關工具      |LightGBM、Rattle、XGBoost   |
 
-## <a name="rattle"></a>Rattle
+## <a name="xgboost"></a>XGBoost 
 |    |           |
 | ------------- | ------------- |
-| 這是什麼？   |   使用 R 進行資料採礦的圖形化使用者介面。   |
+| 這是什麼？   |   適用于 Python、R、JAVA、Scala C++等的快速、可攜且分散式漸層提升（GBDT、GBRT 或 GBM）程式庫。 它會在單一電腦上，以及在 Apache Hadoop 和 Spark 上執行。    |
 | 支援的版本     | Windows、Linux     |
-| 典型的使用案例      | 適用于 R 的一般 UI 資料-挖掘工具    |
-| 如何使用或執行它      | 作為 UI 工具。 在 Windows 上，啟動命令提示字元，執行 R，然後在 R 內執行`rattle()`。 在 Linux 上，使用 X2Go 連接、啟動終端機、執行 R，然後在 R 內執行`rattle()`。 |
-| 範例的連結      | [Rattle](https://togaware.com/onepager/) \(英文\) |
-| 相關工具      |LightGBM、Weka、XGBoost   |
+| 典型的使用案例      | 一般機器學習程式庫      |
+| 如何設定或安裝它？      |  搭配 GPU 支援安裝   |
+| 如何使用或執行它      | 作為 Python 程式庫（2.7 和3.5）、R 套件及路徑上命令列工具（適用于 Windows 的 @no__t 0 和 Linux `/dsvm/tools/xgboost/xgboost`）    |
+| 範例的連結      | 範例包含在 VM 的 `/dsvm/tools/xgboost/demo`(適用於 Linux) 中，以及 `C:\dsvm\tools\xgboost\demo` (適用於 Windows) 中。   |
+| 相關工具      | LightGBM、MXNet   |
 
-## <a name="lightgbm"></a>LightGBM
-|    |           |
-| ------------- | ------------- |
-| 這是什麼？   | 以決策樹演算法為基礎的快速、分散式、高效能漸層提升（GBDT、GBRT、GBM 或超市）架構。 它用於排名、分類及許多其他機器學習工作。    |
-| 支援的版本      | Windows、Linux    |
-| 典型的使用案例      | 一般用途的漸層提升架構      |
-| 如何設定或安裝它？      | 在 Windows 上，LightGBM 是以 Python 套件的形式安裝。 在 Linux 上，命令列可執行檔位於 `/opt/LightGBM/lightgbm`，R 套件和 Python 套件皆已安裝。     |
-| 範例的連結      | [LightGBM 指南](https://github.com/Microsoft/LightGBM/tree/master/examples/python-guide)   |
-| 相關工具      | MXNet、XgBoost  |
 
-## <a name="h2o"></a>H2O
-|    |           |
-| ------------- | ------------- |
-| 這是什麼？   | 一種開放原始碼 AI 平臺，支援記憶體內部、分散式、快速且可調整的機器學習服務。  |
-| 支援的版本      | Linux   |
-| 典型的使用案例      | 一般用途的分散式、可擴充機器學習服務   |
-| 如何設定或安裝它？      | H2O 是安裝在 `/dsvm/tools/h2o` 中。      |
-| 如何使用或執行它      | 使用 X2Go 來連線至 VM。 啟動新的終端機，然後執行 `java -jar /dsvm/tools/h2o/current/h2o.jar`。 然後啟動網頁瀏覽器，並連線至 `http://localhost:54321`。      |
-| 範例的連結      | VM 上 Jupyter 中的 `h2o` 目錄底下有提供範例。      |
-| 相關工具      | Apache Spark、MXNet、XGBoost、Sparkling Water、Deep Water    |
-
-Dsvm 上有數個其他的機器學習程式庫，例如 dsvm 的`scikit-learn` Anaconda Python 散發套件中的熱門封裝。 若要查看以 Python、R 及 Julia 提供的套件清單，請執行個別的套件管理員。

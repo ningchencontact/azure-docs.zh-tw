@@ -7,14 +7,14 @@ ms.service: virtual-desktop
 ms.topic: troubleshooting
 ms.date: 09/23/2019
 ms.author: helohr
-ms.openlocfilehash: 7fdb46ac7cffc4eb6a791304c7a6b58378806296
-ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
+ms.openlocfilehash: 282a4d166e48a41015cb2f08496fe39419bdcaf7
+ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/30/2019
-ms.locfileid: "71679889"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72374270"
 ---
-# <a name="troubleshoot-windows-7-virtual-machines-in-windows-virtual-desktop"></a>Windows 虛擬桌面中的 Windows 7 虛擬機器進行疑難排解
+# <a name="troubleshoot-windows-7-virtual-machines-in-windows-virtual-desktop"></a>Windows 虛擬桌面的 Windows 7 虛擬機器問題疑難排解
 
 使用本文來針對設定 Windows 虛擬桌面工作階段主機虛擬機器（Vm）時所發生的問題進行疑難排解。
 
@@ -30,7 +30,7 @@ Windows 虛擬桌面只能虛擬化 Windows 7 的完整桌上型電腦。
 
 雖然不支援自動 DPI 縮放比例，但您可以在遠端桌面用戶端的圖示上按一下滑鼠右鍵，然後選取 [**解決**]，以手動方式變更虛擬機器上的解析度。
 
-## <a name="error-cant-access-the-remote-desktop-user-group"></a>Error:無法存取遠端桌面使用者群組
+## <a name="error-cant-access-the-remote-desktop-user-group"></a>錯誤：無法存取遠端桌面使用者群組
 
 如果 Windows 虛擬桌面在遠端桌面使用者群組中找不到您或您的使用者認證，您可能會看到下列其中一個錯誤訊息：
 
@@ -45,5 +45,5 @@ Windows 虛擬桌面只能虛擬化 Windows 7 的完整桌上型電腦。
 4. 以您要新增的使用者名稱取代 `<username>` 來執行下列命令：
    
    ```cmd
-   localgroup "Remote Desktop Users" <username> /add
+   net localgroup "Remote Desktop Users" <username> /add
    ```

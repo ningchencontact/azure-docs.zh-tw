@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 10/09/2019
 ms.author: mathoma
-ms.openlocfilehash: f51263a91ca174a6c8108ed4414ff0f8b9745aff
-ms.sourcegitcommit: 9dec0358e5da3ceb0d0e9e234615456c850550f6
-ms.translationtype: MT
+ms.openlocfilehash: 39f04005776f3b451ad7c64c76f9aa5d8c4a7768
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/14/2019
-ms.locfileid: "72311860"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72330098"
 ---
 # <a name="configure-sql-server-failover-cluster-instance-with-premium-file-share-on-azure-virtual-machines"></a>使用 Azure 上的 premium 檔案共用設定 SQL Server 容錯移轉叢集實例虛擬機器
 
@@ -52,6 +52,8 @@ ms.locfileid: "72311860"
 高階檔案共用可提供 IOPS 和整個容量，以符合許多工作負載的需求。 不過，對於需要大量 IO 的工作負載，請考慮使用以受控 premium 磁片或 ultra 磁片為基礎的[儲存空間直接存取 SQL SERVER FCI](virtual-machines-windows-portal-sql-create-failover-cluster.md) 。  
 
 檢查您目前環境的 IOPS 活動，並確認高階檔案在開始部署或遷移之前，會提供您所需的 IOPS。 使用 Windows 效能監視器磁片計數器，並監視 SQL Server 資料、記錄檔和暫存資料庫檔案所需的總 IOPS （磁片傳輸/秒）和輸送量（磁片位元組/秒）。 許多工作負載都有高載 IO，因此最好在大量使用期間進行檢查，並記下最大 IOPS 和平均 IOPS。 Premium 檔案共用會根據共用大小來提供 IOPS。 高階檔案也提供免費的高載，讓您可以將 IO 高載到最多三個小時的基準量。 
+
+如需 premium 檔案共用效能的詳細資訊，請參閱檔案[共用效能層級](https://docs.microsoft.com/en-us/azure/storage/files/storage-files-planning#file-share-performance-tiers)。 
 
 ### <a name="licensing-and-pricing"></a>授權和價格
 
@@ -86,7 +88,7 @@ ms.locfileid: "72311860"
 
 備妥這些先決條件後，便可繼續建置您的容錯移轉叢集。 第一步是建立虛擬機器。
 
-## <a name="step-1-create-virtual-machines"></a>步驟 1:建立虛擬機器
+## <a name="step-1-create-virtual-machines"></a>步驟 1：建立虛擬機器
 
 1. 使用您的訂用帳戶登入 [Azure 入口網站](https://portal.azure.com)。
 
@@ -101,11 +103,11 @@ ms.locfileid: "72311860"
    - 按一下 [建立]。
    - 在 [建立可用性設定組]刀鋒視窗中，設定下列值︰
       - **名稱**：可用性設定組的名稱。
-      - 訂用帳戶：您的 Azure 訂用帳戶。
-      - **资源组**：若您想要使用現有的群組，請按一下 [使用現有的] 並從下拉式清單中選取該群組。 否則，選擇 [建立新的]並輸入群組名稱。
-      - **位置**：設定您計劃建立虛擬機器的位置。
-      - **容錯網域**：使用預設值 (3)。
-      - **更新網域**：使用預設值 (5)。
+      - **訂用帳戶**：您的 Azure 訂用帳戶。
+      - **資源群組**︰若您想要使用現有的群組，請按一下 [使用現有的群組]並從下拉式清單中選取群組。 否則，選擇 [建立新的]並輸入群組名稱。
+      - **位置**︰設定您計劃建立虛擬機器的位置。
+      - **容錯網域**︰使用預設值 (3)。
+      - **更新網域**︰使用預設值 (5)。
    - 按一下 [建立]來建立可用性設定組。
 
 1. 在可用性設定組中建立虛擬機器。
@@ -133,7 +135,7 @@ ms.locfileid: "72311860"
 
 1. Azure 建立虛擬機器後，請透過 RDP 連接至每部虛擬機器。
 
-   首次透過 RDP 連接至虛擬機器時，電腦會詢問您是否允許此電腦在網路上可供搜尋。 按一下 [ **是**]。
+   首次透過 RDP 連接至虛擬機器時，電腦會詢問您是否允許此電腦在網路上可供搜尋。 按一下 [是]。
 
 1. 若您正在使用其中一個 SQL Server 型虛擬機器映像，請移除 SQL Server 執行個體。
 
@@ -150,9 +152,9 @@ ms.locfileid: "72311860"
 
    在每部虛擬機器上，開啟 Windows 防火牆上的下列連接埠。
 
-   | 用途 | TCP 連接埠 | 注意
+   | 目的 | TCP 連接埠 | 注意
    | ------ | ------ | ------
-   | [SQL Server] | 1433 | 適用於 SDL Server 預設執行個體的一般連接埠。 若您曾使用來自資源庫的映像，此連接埠會自動開啟。
+   | SQL Server | 1433 | 適用於 SDL Server 預設執行個體的一般連接埠。 若您曾使用來自資源庫的映像，此連接埠會自動開啟。
    | 健全狀況探查 | 59999 | 任何開啟的 TCP 連接埠。 在接下來的步驟中，設定負載平衝器[健全狀況探查](#probe)和要使用此連接埠的叢集。   
    | 檔案共用 | 445 | 檔案共用服務所使用的埠。 
 
@@ -160,7 +162,7 @@ ms.locfileid: "72311860"
 
 建立並設定虛擬機器之後，您可以設定 premium 檔案共用。
 
-## <a name="step-2-mount-premium-file-share"></a>步驟 2:裝載 premium 檔案共用
+## <a name="step-2-mount-premium-file-share"></a>步驟2：掛接 premium 檔案共用
 
 1. 登入[Azure 入口網站](https://portal.azure.com)並移至您的儲存體帳戶。
 1. 移至 [檔案**服務**] 底下的 [檔案**共用**]，然後選取您想要用於 SQL 儲存體的 premium 檔案共用。 
@@ -172,7 +174,7 @@ ms.locfileid: "72311860"
 1. 使用您的 SQL Server FCI 將用於服務帳戶的帳戶，透過 RDP 連線到 SQL Server VM。 
 1. 啟動系統管理 PowerShell 命令主控台。 
 1. 從您稍早儲存的入口網站執行命令。 
-1. 使用 [檔案瀏覽器] 或 [**執行**] 對話方塊（Windows 鍵 + r），流覽至共用，並使用網路路徑 `\\storageaccountname.file.core.windows.net\filesharename`。 範例： `\\sqlvmstorageaccount.file.core.windows.net\sqlpremiumfileshare`
+1. 使用 [檔案瀏覽器] 或 [**執行**] 對話方塊（Windows 鍵 + r），流覽至共用，並使用網路路徑 `\\storageaccountname.file.core.windows.net\filesharename`。 範例：`\\sqlvmstorageaccount.file.core.windows.net\sqlpremiumfileshare`
 
 1. 在新連接的檔案共用上，至少建立一個資料夾，以便將您的 SQL 資料檔案放入其中。 
 1. 在要參與叢集的每個 SQL Server VM 上重複這些步驟。 
@@ -180,7 +182,7 @@ ms.locfileid: "72311860"
   > [!IMPORTANT]
   > 請考慮針對備份檔案使用個別的檔案共用，以儲存此共用資料和記錄檔的 IOPS 和大小。 您可以針對備份檔案使用 Premium 或 Standard 檔案共用
 
-## <a name="step-3-configure-failover-cluster-with-file-share"></a>步驟 3：使用檔案共用設定容錯移轉叢集 
+## <a name="step-3-configure-failover-cluster-with-file-share"></a>步驟3：使用檔案共用設定容錯移轉叢集 
 
 下一個步驟是設定容錯移轉叢集。 在此步驟中，您將執行下列子步驟：
 
@@ -257,7 +259,7 @@ New-Cluster -Name <FailoverCluster-Name> -Node ("<node1>","<node2>") –StaticAd
 
 #### <a name="windows-server-2019"></a>Windows Server 2019
 
-下列 PowerShell 會建立適用于 Windows Server 2019 的容錯移轉叢集。  如需詳細資訊，請參閱 @no__t 0Failover 叢集的 blog：叢集網路物件 @ no__t-0。  使用節點名稱 (虛擬機器名稱) 和 Azure VNET 中可用的 IP 位址來更新指令碼：
+下列 PowerShell 會建立適用于 Windows Server 2019 的容錯移轉叢集。  如需詳細資訊，請參閱 blog[容錯移轉叢集：叢集網路物件](https://blogs.windows.com/windowsexperience/2018/08/14/announcing-windows-server-2019-insider-preview-build-17733/#W0YAxO8BfwBRbkzG.97)。  使用節點名稱 (虛擬機器名稱) 和 Azure VNET 中可用的 IP 位址來更新指令碼：
 
 ```powershell
 New-Cluster -Name <FailoverCluster-Name> -Node ("<node1>","<node2>") –StaticAddress <n.n.n.n> -NoStorage -ManagementPointNetworkType Singleton 
@@ -277,13 +279,13 @@ New-Cluster -Name <FailoverCluster-Name> -Node ("<node1>","<node2>") –StaticAd
 1. 設定容錯移轉叢集的叢集仲裁見證。 請參閱使用者介面中的[在使用者介面中設定仲裁見證](https://technet.microsoft.com/windows-server-docs/failover-clustering/deploy-cloud-witness#to-configure-cloud-witness-as-a-quorum-witness)。
 
 
-## <a name="step-4-test-cluster-failover"></a>步驟 4：測試叢集容錯移轉
+## <a name="step-4-test-cluster-failover"></a>步驟4：測試叢集容錯移轉
 
 測試叢集的容錯移轉。 在容錯移轉叢集管理員中，以滑鼠右鍵按一下您的叢集 >**其他動作** > **將核心叢集資源移** > **選取節點**，然後選取叢集的其他節點。 將核心叢集資源移到叢集的每個節點，然後將它移回主要節點。 如果您能夠成功地將叢集移至每個節點，則可以準備安裝 SQL Server。  
 
 :::image type="content" source="media/virtual-machines-windows-portal-sql-create-failover-cluster-premium-file-storage/test-cluster-failover.png" alt-text="藉由將核心資源移至其他節點來測試叢集容錯移轉":::
 
-## <a name="step-5-create-sql-server-fci"></a>步驟 5：建立 SDL Server FCI
+## <a name="step-5-create-sql-server-fci"></a>步驟5：建立 SQL Server FCI
 
 設定容錯移轉叢集之後，您可以建立 SQL Server FCI。
 
@@ -312,7 +314,7 @@ New-Cluster -Name <FailoverCluster-Name> -Node ("<node1>","<node2>") –StaticAd
    >[!NOTE]
    >若您曾透過 SQL Server 使用 Azure Marketplace 資源庫映像，映像會包含 SQL Server 工具。 若您沒有用過此映像，請另外安裝 SQL Server 工具。 請參閱[下載 Server Management Studio (SSMS)](https://msdn.microsoft.com/library/mt238290.aspx)。
 
-## <a name="step-6-create-azure-load-balancer"></a>步驟 6：建立 Azure Load Balancer
+## <a name="step-6-create-azure-load-balancer"></a>步驟6：建立 Azure 負載平衡器
 
 在 Azure 虛擬機器上，叢集會使用負載平衡器來保留每次均需在一個節點上的 IP 位址。 在此解決方案中，負載平衡器會保留 SQL Server FCI 的 IP 位址。
 
@@ -330,15 +332,15 @@ New-Cluster -Name <FailoverCluster-Name> -Node ("<node1>","<node2>") –StaticAd
 
 1. 使用下列項目設定負載平衡器：
 
-   - 訂用帳戶：您的 Azure 訂用帳戶。
-   - **資源群組**：使用與虛擬機器相同的資源群組。
-   - **名稱**：能識別負載平衡器的名稱。
+   - **訂用帳戶**：您的 Azure 訂用帳戶。
+   - **資源群組**︰使用與虛擬機器相同的資源群組。
+   - **名稱**︰用以識別負載平衡器的名稱。
    - **區域**：使用與虛擬機器相同的 Azure 位置。
-   - **類型**：負載平衡器分為公開或私人兩種類型。 私人負載平衡器可從相同的 VNET 內存取。 大部分的 Azure 應用程式都能使用私人負載平衡器。 若您的應用程式需要直接透過網際網路存取 SQL Server，請使用公開負載平衡器。
-   - **SKU**：負載平衡器的 SKU 應該是標準。 
-   - **虛擬網路**：與虛擬機器相同的網路。
-   - **IP 位址指派**：IP 位址指派應為靜態。 
-   - **私人 IP 位址**：與您指派至 SQL Server FCI 叢集網路資源相同的 IP 位址。
+   - **類型**︰負載平衡器分為公開或私人兩種類型。 私人負載平衡器可從相同的 VNET 內存取。 大部分的 Azure 應用程式都能使用私人負載平衡器。 若您的應用程式需要直接透過網際網路存取 SQL Server，請使用公開負載平衡器。
+   - **Sku**：負載平衡器的 sku 應該是標準。 
+   - **虛擬網路**︰與虛擬機器相同的網路。
+   - **Ip 位址指派**： ip 位址指派應為靜態。 
+   - **私人 IP 位址**︰與您指派至 SQL Server FCI 叢集網路資源相同的 IP 位址。
    請參閱下圖︰
 
    ![CreateLoadBalancer](./media/virtual-machines-windows-portal-sql-create-failover-cluster/30-load-balancer-create.png)
@@ -365,11 +367,11 @@ New-Cluster -Name <FailoverCluster-Name> -Node ("<node1>","<node2>") –StaticAd
 
 1. 在 [新增健全狀況探查]刀鋒視窗中，<a name="probe"></a>設定健全狀況探查參數︰
 
-   - **名稱**：健康情況探查的名稱。
+   - **名稱**：健全狀況探查的名稱。
    - **通訊協定**：TCP。
-   - **連接埠**：將設定為您在防火牆中為[此步驟](#ports)中的健康狀態探查所建立的埠。 在本文中，範例使用 TCP 埠 `59999`。
+   - **埠**：將設定為您在[此步驟](#ports)中為健康情況探查在防火牆中建立的埠。 在本文中，範例使用 TCP 埠 `59999`。
    - **間隔**：5 秒。
-   - **狀況不良閾值**：2 次連續失敗。
+   - **狀況不良臨界值**：2 次連續失敗。
 
 1. 按一下 [確定]。
 
@@ -382,18 +384,18 @@ New-Cluster -Name <FailoverCluster-Name> -Node ("<node1>","<node2>") –StaticAd
 1. 設定負載平衡規則參數：
 
    - **名稱**：負載平衡規則的名稱。
-   - **前端 IP 位址**：使用 SQL Server FCI 叢集網路資源的 IP 位址。
+   - **前端 IP 位址**︰使用 SQL Server FCI 叢集網路資源的 IP 位址。
    - **連接埠**：設定為 SQL Server FCI TCP 連接埠。 預設執行個體連接埠為 1433。
-   - **後端連接埠**：此值所使用的連接埠，與您啟用 [浮動 IP (伺服器直接回傳)] 時的 [連接埠] 值相同。
-   - **後端集區**：使用您稍早設定的後端集區名稱。
-   - **健康情況探查**：使用您稍早設定的健康情況探查。
+   - **後端連接埠**：此值使用的連接埠與您啟用**浮動 IP (伺服器直接回傳)** 時的**連接埠**值相同。
+   - **後端集區**︰使用您稍早設定的後端集區名稱。
+   - **健全狀況探查**：使用您稍早設定的健全狀況探查。
    - **工作階段持續性**：無。
-   - **閒置逾時 (分鐘)** ：4.
-   - **浮動 IP (伺服器直接回傳)** ：Enabled
+   - **閒置逾時 (分鐘)** ：4。
+   - **浮動 IP (伺服器直接回傳)** ：已啟用。
 
 1. 按一下 [確定]。
 
-## <a name="step-7-configure-cluster-for-probe"></a>步驟 7：設定探查叢集
+## <a name="step-7-configure-cluster-for-probe"></a>步驟7：設定探查的叢集
 
 設定 PowerShell 中的叢集探查連接埠參數。
 
@@ -412,13 +414,13 @@ New-Cluster -Name <FailoverCluster-Name> -Node ("<node1>","<node2>") –StaticAd
 
 在上述指令碼中，設定您環境的值。 下列清單說明這些值：
 
-   - `<Cluster Network Name>`:網路的 Windows Server 容錯移轉叢集名稱。 在 **[容錯移轉叢集管理員]**  >  **[網路]** 中，以滑鼠右鍵按一下網路，然後按一下 [內容]。 正確的值在 [一般] 索引標籤的 [名稱] 底下。 
+   - `<Cluster Network Name>`：Windows Server 容錯移轉叢集網路名稱。 在 **[容錯移轉叢集管理員]**  >  **[網路]** 中，以滑鼠右鍵按一下網路，然後按一下 [內容]。 正確的值在 [一般] 索引標籤的 [名稱] 底下。 
 
-   - `<SQL Server FCI IP Address Resource Name>`:SQL Server FCI IP 位址資源名稱。 在**容錯移轉叢集管理員** > **角色**SQL Server 的 伺服器名稱 下，以**滑鼠右鍵按一下** **伺服器名稱** 底下的 IP 位址 資源，然後按一下 內容。 正確的值在 [一般] 索引標籤的 [名稱] 底下。 
+   - `<SQL Server FCI IP Address Resource Name>`：SQL Server FCI IP 位址資源名稱。 在**容錯移轉叢集管理員** > **角色**SQL Server 的 伺服器名稱 下，以**滑鼠右鍵按一下** **伺服器名稱** 底下的 IP 位址 資源，然後按一下 內容。 正確的值在 [一般] 索引標籤的 [名稱] 底下。 
 
-   - `<ILBIP>`:ILB IP 位址。 此位址在 Azure 入口網站中會設定為 ILB 前端位址。 這也是 SQL Server FCI IP 位址。 您可以在 [容錯移轉叢集管理員] 中，您找到 `<SQL Server FCI IP Address Resource Name>` 所在位置的相同內容頁面上找到該位址。  
+   - `<ILBIP>`：ILB IP 位址。 此位址在 Azure 入口網站中會設定為 ILB 前端位址。 這也是 SQL Server FCI IP 位址。 您可以在 [容錯移轉叢集管理員] 中，您找到 `<SQL Server FCI IP Address Resource Name>` 所在位置的相同內容頁面上找到該位址。  
 
-   - `<nnnnn>`:您在負載平衡器健康情況探查中設定的探查連接埠。 任何未使用的 TCP 連接埠都有效。 
+   - `<nnnnn>`：您在負載平衡器健全狀況探查中設定的探查連接埠。 任何未使用的 TCP 連接埠都有效。 
 
 >[!IMPORTANT]
 >叢集參數的子網路遮罩必須是 TCP IP 廣播位址：`255.255.255.255`。
@@ -429,7 +431,7 @@ New-Cluster -Name <FailoverCluster-Name> -Node ("<node1>","<node2>") –StaticAd
    Get-ClusterResource $IPResourceName | Get-ClusterParameter 
   ```
 
-## <a name="step-8-test-fci-failover"></a>步驟 8：測試 FCI 容錯移轉
+## <a name="step-8-test-fci-failover"></a>步驟8：測試 FCI 容錯移轉
 
 測試 FCI 的容錯移轉來驗證叢集功能。 請執行下列步驟：
 

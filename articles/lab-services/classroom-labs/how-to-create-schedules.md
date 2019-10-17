@@ -11,14 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/30/2019
+ms.date: 10/12/2019
 ms.author: spelluru
-ms.openlocfilehash: f607ba68563aa92797f45cf77db0575ae6802fee
-ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
+ms.openlocfilehash: 4e3cf302437c3e4954ac977ac3f4ff6b2021a760
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68385595"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72330604"
 ---
 # <a name="create-and-manage-schedules-for-classroom-labs-in-azure-lab-services"></a>在 Azure 實驗室服務中建立和管理教室實驗室的排程 
 排程可讓您設定教室實驗室，使實驗室中的 VM 可在指定的時間自動啟動和關閉。 您可以定義一次性排程或週期性排程。 下列程序將為您提供建立和管理教室實驗室排程的步驟： 
@@ -26,61 +26,52 @@ ms.locfileid: "68385595"
 > [!IMPORTANT]
 > VM 的排程執行時間不會計入[分配給使用者的配額](how-to-configure-student-usage.md#set-quotas-for-users)中。 該配額用於學生在排程時間以外花費於 VM 上的時間。 
 
-## <a name="add-a-schedule-once"></a>新增排程 (一次)
+## <a name="set-a-schedule-for-the-lab"></a>設定實驗室的排程
+建立實驗室的排程事件，讓實驗室中的 Vm 在特定時間自動啟動/停止。 您稍早指定的使用者配額是在此排程時間以外，指派給每位使用者的額外時間。 
 
-1. 切換至 [排程] 頁面，然後選取工具列上的 [新增排程]。 
-
-    ![[排程] 頁面上的 [新增排程] 按鈕](../media/how-to-create-schedules/add-schedule-button.png)
-2. 在 [新增排程] 頁面上，確認已選取頂端的 [一次] 選項。 若尚未選取 [一次]，請加以選取。 
-3. 針對 [排程日期 (必要)]，請輸入日期，或透過行事曆圖示選取日期。 
-4. 針對 [開始時間]，選取您要啟動 VM 的時間。 若未設定停止時間，則必須要有開始時間。 如果您只要指定停止時間，請選取 [移除開始事件]。 如果 [開始時間] 停用，請選取下拉式清單旁的 [新增開始事件] 加以啟用。 
-5. 針對 [停止時間]，選取您要關閉 VM 的時間。 若未設定開始時間，則必須要有停止時間。 如果您只要指定開始時間，請選取 [移除停止事件]。 如果 [停止時間] 停用，請選取下拉式清單旁的 [新增停止事件] 加以啟用。
-6. 針對 [時區 (必要)]，為您指定的開始和停止時間選取時區。 
-7. 針對 [記事]，輸入排程的任何描述或記事。 
-8. 選取 [ **儲存**]。 
-
-    ![一次性排程](../media/how-to-create-schedules/add-schedule-page.png)
-
-## <a name="add-a-recurring-schedule-weekly"></a>新增週期性排程 (每週)
-
-1. 切換至 [排程] 頁面，然後選取工具列上的 [新增排程]。 
+1. 切換至 [排程 **] 頁面，** 然後選取工具列上的 [**新增排定的事件**]。 
 
     ![[排程] 頁面上的 [新增排程] 按鈕](../media/how-to-create-schedules/add-schedule-button.png)
-2. 在 [新增排程] 頁面上，切換至頂端的 [每週]。 
-3. 針對 [排程日期 (必要)]，選取您要讓排程生效的日期。 下列範例中選取了星期一至星期五。 
-4. 針對 [開始] 欄位，請輸入 [排程開始日期]，或選取 [行事曆] 按鈕以挑選日期。 這是必要欄位。 
-5. 針對 [排程結束日期]，輸入或選取要關閉 VM 的結束日期。 
-6. 針對 [開始時間]，選取您要啟動 VM 的時間。 若未設定停止時間，則必須要有開始時間。 如果您只要指定停止時間，請選取 [移除開始事件]。 如果 [開始時間] 停用，請選取下拉式清單旁的 [新增開始事件] 加以啟用。 
-7. 針對 [停止時間]，選取您要關閉 VM 的時間。 若未設定開始時間，則必須要有停止時間。 如果您只要指定開始時間，請選取 [移除停止事件]。 如果 [停止時間] 停用，請選取下拉式清單旁的 [新增停止事件] 加以啟用。
-8. 針對 [時區 (必要)]，為您指定的開始和停止時間選取時區。  
-9. 針對 [記事]，輸入排程的任何描述或記事。 
-10. 選取 [ **儲存**]。 
+2. 確認 [**標準**] 已選取 [**事件種類**]。 您選取 [**僅啟動**]，只指定 vm 的開始時間。 您可以選取 [**僅停止**]，只指定 vm 的停止時間。 
+7. 在 [**重複**] 區段中，選取目前的排程。 
+
+    ![[排程] 頁面上的 [新增排程] 按鈕](../media/how-to-create-schedules/select-current-schedule.png)
+5. 在 [**重複**] 對話方塊中，執行下列步驟：
+    1. 確認 [**重複**] 欄位已設定**每週**。 
+    3. 指定**開始日期**。
+    4. 指定您想要啟動 Vm 的**開始時間**。
+    5. 指定要關閉 Vm 的**停止時間**。 
+    6. 指定您指定的開始和停止時間的**時區**。 
+    2. 選取您想要讓排程生效的日期。 在下列範例中，已選取 [星期一-星期四]。 
+    8. 選取 [儲存]。 
+
+        ![設定重複排程](../media/how-to-create-schedules/set-repeat-schedule.png)
+
+3. 現在，在 [**新增已排程的事件**] 頁面上，針對 [**附注（選擇性）** ] 輸入排程的任何描述或附注。 
+4. 在 [**新增已排程的事件**] 頁面上，選取 [**儲存**]。 
 
     ![每週排程](../media/how-to-create-schedules/add-schedule-page-weekly.png)
 
 ## <a name="view-schedules-in-calendar"></a>檢視行事曆中的排程
 您可以看到，排程的日期和時間在行事曆檢視中均醒目提示，如下圖所示：
 
-![行事曆檢視中的排程](../media/how-to-create-schedules/schedules-in-calendar.png)
+![行事曆檢視中的排程](../media/how-to-create-schedules/schedules-calendar.png)
 
 選取右上角的 [今天] 按鈕，可在行事曆中切換至目前的日期。 選取 [向左箭號] 可在行事曆中切換至上一週，[向右箭號] 則會切換至下一週。 
 
 ## <a name="edit-a-schedule"></a>編輯排程
-當您在行事曆中按兩下醒目提示的排程，或選取工具列上的 [鉛筆] 按鈕時，您會看到 [編輯排程] 頁面。 更新此頁面上的設定與更新 [新增排程] 頁面中的設定相同，如[新增週期性排程](#add-a-recurring-schedule-weekly)一節所說明。 
+當您在行事曆中選取反白顯示的排程時，您會看到**編輯**或**刪除**排程的按鈕。 
 
-![編輯排程頁面](../media/how-to-create-schedules/edit-schedule-page.png)
+![編輯排程頁面](../media/how-to-create-schedules/schedule-edit-button.png)
+
+在 [**編輯排程的事件**] 頁面上，您可以更新排程，然後選取 [**儲存**]。 
 
 ## <a name="delete-a-schedule"></a>刪除排程
 
-1. 若要刪除排程，請選取工具列上的垃圾桶 (刪除) 按鈕，如下圖所示：
+1. 若要刪除排程，請在行事曆中選取反白顯示的排程，然後選取垃圾桶圖示（刪除）按鈕：
 
-    ![工具列上的刪除按鈕](../media/how-to-create-schedules/delete-schedule-button.png)
-
-    您可以對行事曆中任何排程的日期和時間使用刪除按鈕，然後選取 [刪除]。 
-2. 在 [刪除排程] 頁面上，選取 [是]。
-
-    ![刪除排程確認](../media/how-to-create-schedules/delete-schedules-confirmation.png)
-
+    ![工具列上的刪除按鈕](../media/how-to-create-schedules/schedule-delete-button.png)
+2. 在 [**刪除排程事件**] 對話方塊中，選取 [**是]** 以確認刪除。 
 
 
 

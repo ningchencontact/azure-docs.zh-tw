@@ -1,6 +1,6 @@
 ---
 title: Azure Section UI 元素 | Microsoft Docs
-description: 描述 Azure 入口網站的 Microsoft.Common.Section UI 元素。
+description: 描述 Azure 入口網站的 Microsoft.Common.Section UI 元素。 用來將入口網站中的元素群組在一起，以部署受控應用程式。
 services: managed-applications
 documentationcenter: na
 author: tfitzmac
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/27/2018
 ms.author: tomfitz
-ms.openlocfilehash: c89b45dd4d8e6c2964f3d2bcbb6c3cef445c79e6
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a48c89785e0a448609026aab53364f6cf704e948
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64698903"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72331661"
 ---
 # <a name="microsoftcommonsection-ui-element"></a>Microsoft.Common.Section UI 元素
 將標題下方一個或多個元素進行群組的控制項。

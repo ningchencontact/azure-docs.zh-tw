@@ -6,14 +6,14 @@ manager: carmonm
 services: site-recovery
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 09/09/2019
+ms.date: 10/15/2019
 ms.author: raynew
-ms.openlocfilehash: 8502e08db48700aefe51a6e4f0e79d1b08f6ca79
-ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
+ms.openlocfilehash: 9e45787e7ae39b62605f5d8a54afd4ad95c9cca7
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70814436"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72331906"
 ---
 # <a name="about-recovery-plans"></a>關於復原方案
 
@@ -33,6 +33,9 @@ ms.locfileid: "70814436"
 
 
 ## <a name="model-apps"></a>建立應用程式模型
+
+> [!NOTE]
+> 可以將最多100個受保護的實例新增到一個復原方案。
 
 您可以計劃並建立復原群組，以擷取應用程式特有的屬性。 例如，我們來看一個包含 SQL Server 後端、中介軟體及 Web 前端的一般三層式應用程式。 一般而言，您要自訂復原方案，讓每一層的機器在容錯移轉之後，會以正確的順序啟動。
 
@@ -60,11 +63,11 @@ ms.locfileid: "70814436"
 
 復原大型應用程式可能是相當複雜的工作。 手動步驟會讓程序容易發生錯誤，且執行容錯移轉的人員可能不會察覺所有應用程式的複雜性。 您可以使用復原方案強制加上順序，並使用 Azure 自動化 Runbook 容錯移轉至 Azure 或使用指令碼，自動執行每個步驟所需的動作。 對於無法自動化的工作，您可以將手動動作的暫停插入復原方案中。 有幾個工作類型可供您設定：
 
-* **容錯移轉後在 Azure VM 上的工作**：當您要容錯移轉至 Azure 時，通常必須執行動作，以便您可在容錯移轉之後連線至 VM。 例如: 
+* **容錯移轉後在 Azure VM 上的工作**：當您要容錯移轉至 Azure 時，通常必須執行動作，以便您可在容錯移轉之後連線至 VM。 例如： 
     * 在 Azure VM 上建立公用 IP 位址。
     * 將網路安全性群組指派給 Azure VM 的網路介面卡。
     * 將負載平衡器新增至可用性設定組。
-* **容錯移轉後 VM 內的工作**：這些工作通常會重新設定機器上執行的應用程式，以便讓應用程式在新環境中繼續正常運作。 例如:
+* **容錯移轉後 VM 內的工作**：這些工作通常會重新設定機器上執行的應用程式，以便讓應用程式在新環境中繼續正常運作。 例如：
     * 修改機器內的資料庫連接字串。
     * 變更 Web 伺服器組態或規則。
 

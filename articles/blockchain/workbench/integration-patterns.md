@@ -1,21 +1,21 @@
 ---
-title: Azure Blockchain Workbench Preview 中的智慧合約整合模式
+title: Azure Blockchain Workbench 中的智慧合約整合模式
 description: Azure Blockchain Workbench Preview 中的智慧合約整合模式總覽。
 services: azure-blockchain
 keywords: ''
 author: PatAltimore
 ms.author: patricka
-ms.date: 09/05/2019
+ms.date: 10/14/2019
 ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: mmercuri
 manager: femila
-ms.openlocfilehash: 80c4f2683efacf575be853b6268ee958f1567440
-ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
+ms.openlocfilehash: b3e7ff18dddeaeb1a42d69b9ed57d163410fbfa1
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70845167"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72329215"
 ---
 # <a name="smart-contract-integration-patterns"></a>智慧合約整合模式
 

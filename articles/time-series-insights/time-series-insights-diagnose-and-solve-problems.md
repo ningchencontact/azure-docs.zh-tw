@@ -9,52 +9,52 @@ manager: cshankar
 ms.reviewer: v-mamcge, jasonh, kfile
 ms.workload: big-data
 ms.topic: troubleshooting
-ms.date: 08/27/2019
+ms.date: 10/10/2019
 ms.custom: seodec18
-ms.openlocfilehash: e7c5786f4510e11d431f9e80dd52d1ffc3adb410
-ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
+ms.openlocfilehash: 78a991fb310c635648513e6472543b9f5c01119d
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70129147"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72330855"
 ---
 # <a name="diagnose-and-solve-issues-in-your-time-series-insights-environment"></a>在時間序列深入解析環境中診斷與解決問題
 
 本文描述您在 Azure 時間序列深入解析環境中可能遇到的一些問題。 文章中提供可能的原因和解決方案以便排除問題。
 
-## <a name="video"></a>視訊
+## <a name="video"></a>影片
 
 ### <a name="learn-about-common-time-series-insights-customer-challenges-and-mitigationsbr"></a>瞭解常見的時間序列深入解析客戶挑戰和緩和措施。</br>
 
 > [!VIDEO https://www.youtube.com/embed/7U0SwxAVSKw]
 
-## <a name="problem-no-data-is-shown"></a>問題: 沒有顯示任何資料
+## <a name="problem-no-data-is-shown"></a>問題：沒有顯示任何資料
 
 有幾個常見原因可能造成 [Azure 時間序列深入解析總管](https://insights.timeseries.azure.com)中沒有資料：
 
-### <a name="cause-a-event-source-data-isnt-in-json-format"></a>原因: 事件來源資料不是 JSON 格式
+### <a name="cause-a-event-source-data-isnt-in-json-format"></a>原因：事件來源資料不是 JSON 格式
 
 Azure 時間序列深入解析只支援 JSON 資料。 如需 JSON 範例，請參閱[支援的 JSON 樣貌](./how-to-shape-query-json.md)。
 
-### <a name="cause-b-the-event-source-key-is-missing-a-required-permission"></a>原因 B: 事件來源索引鍵遺漏必要的許可權
+### <a name="cause-b-the-event-source-key-is-missing-a-required-permission"></a>原因 B：事件來源索引鍵遺漏必要的許可權
 
 * 針對 Azure IoT 中樞的 IoT 中樞，您必須提供有**服務連線**權限的機碼。 **iothubowner** 或 **service** 原則都可以，因為它們都有**服務連線**權限。
 
-   [![IoT 中樞服務連接許可權](media/diagnose-and-solve-problems/iothub-serviceconnect-permissions.png)](media/diagnose-and-solve-problems/iothub-serviceconnect-permissions.png#lightbox)
+   [@no__t 1IoT Hub service connect 許可權](media/diagnose-and-solve-problems/iothub-serviceconnect-permissions.png)](media/diagnose-and-solve-problems/iothub-serviceconnect-permissions.png#lightbox)
 
 * 針對 Azure 事件中樞中的事件中樞，您必須提供有**接聽**權限的機碼。 **read** 或 **manage** 原則都可以，因為它們都有**接聽**權限。
 
-   [![事件中樞接聽許可權](media/diagnose-and-solve-problems/eventhub-listen-permissions.png)](media/diagnose-and-solve-problems/eventhub-listen-permissions.png#lightbox)
+   [@no__t 1Event hub 接聽許可權](media/diagnose-and-solve-problems/eventhub-listen-permissions.png)](media/diagnose-and-solve-problems/eventhub-listen-permissions.png#lightbox)
 
-### <a name="cause-c-the-consumer-group-provided-isnt-exclusive-to-time-series-insights"></a>原因 C: 提供的取用者群組不是專用於時間序列深入解析
+### <a name="cause-c-the-consumer-group-provided-isnt-exclusive-to-time-series-insights"></a>原因 C：提供的取用者群組不是專用於時間序列深入解析
 
 當您註冊 IoT 中樞或事件中樞時，請務必設定您想要用來讀取資料的取用者群組。 此取用者群組「不可是共用的」。 如果取用者群組是共用的，基礎 IoT 中樞或事件中樞會自動且隨機地將其中一個讀者中斷連線。 提供唯一的取用者群組讓時間序列深入解析讀取。
 
-## <a name="problem-some-data-is-shown-but-data-is-missing"></a>問題: 顯示部分資料, 但遺失資料
+## <a name="problem-some-data-is-shown-but-data-is-missing"></a>問題：顯示部分資料，但遺失資料
 
 當資料僅部分出現，且資料似乎有延遲的情況，您應該考慮幾個可能性。
 
-### <a name="cause-a-your-environment-is-being-throttled"></a>原因: 您的環境正在進行節流
+### <a name="cause-a-your-environment-is-being-throttled"></a>原因：您的環境正在進行節流
 
 建立有資料的事件來源之後，在佈建環境時，節流是常見的問題。 Azure IoT 中樞和 Azure 事件中樞會將資料儲存長達七天。 時間序列深入解析一律會從事件來源中最舊的事件 (「先進先出」或 *FIFO*) 開始讀取。
 
@@ -69,9 +69,9 @@ Azure 時間序列深入解析只支援 JSON 資料。 如需 JSON 範例，請�
 
 下圖顯示有 S1 SKU 且容量為 3 的時間序列深入解析環境。 該環境可以每日輸入 3 百萬個事件。
 
-[![環境 SKU 目前容量](media/diagnose-and-solve-problems/environment-sku-current-capacity.png)](media/diagnose-and-solve-problems/environment-sku-current-capacity.png#lightbox)
+[@no__t 1Environment SKU 目前容量](media/diagnose-and-solve-problems/environment-sku-current-capacity.png)](media/diagnose-and-solve-problems/environment-sku-current-capacity.png#lightbox)
 
-例如, 假設環境從事件中樞內嵌訊息。 每日輸入速率為 ~67,000 個訊息。 此速率可轉譯為大約每分鐘 46 個訊息。 
+例如，假設環境從事件中樞內嵌訊息。 每日輸入速率為 ~67,000 個訊息。 此速率可轉譯為大約每分鐘 46 個訊息。 
 
 * 如果將每個事件中樞訊息壓平合併為單一時間序列深入解析事件，則不會發生節流。 
 * 如果每個事件中樞訊息被壓平合併為 100 個時間序列深入解析事件，則每分鐘應內嵌 4,600 個事件。 
@@ -84,7 +84,7 @@ Azure 時間序列深入解析只支援 JSON 資料。 如需 JSON 範例，請�
 
 若要修正延遲情形，請增加您環境的 SKU 容量。 如需詳細資訊，請參閱[調整您的時間序列深入解析環境規模](time-series-insights-how-to-scale-your-environment.md)。
 
-### <a name="cause-b-initial-ingestion-of-historical-data-slows-ingress"></a>原因 B: 歷程記錄資料的初始內嵌變慢輸入
+### <a name="cause-b-initial-ingestion-of-historical-data-slows-ingress"></a>原因 B：歷程記錄資料的初始內嵌變慢輸入
 
 如果您連線至現有的事件來源，則您的 IoT 中樞可能已經包含資料。 環境會從事件來源訊息保留期間開始時開始提取資料。 無法覆寫這個預設處理。 您可以進行節流。 節流可能需要一些時間才會趕上，因為它要內嵌歷史資料。
 
@@ -96,7 +96,7 @@ Azure 時間序列深入解析只支援 JSON 資料。 如需 JSON 範例，請�
 
 2. 趕上延遲時間之後，即可將 SKU 容量降到正常的輸入速率。
 
-## <a name="problem-my-event-sources-timestamp-property-name-setting-doesnt-work"></a>問題: 我的事件來源的時間戳記屬性名稱設定沒有作用
+## <a name="problem-my-event-sources-timestamp-property-name-setting-doesnt-work"></a>問題：我的事件來源的時間戳記屬性名稱設定沒有作用
 
 請確保時間戳記屬性名稱和值符合下列規則：
 
@@ -109,12 +109,12 @@ Azure 時間序列深入解析只支援 JSON 資料。 如需 JSON 範例，請�
 
 您應該不會看到下列值：
 
-- *(abc)* ：表示時間序列深入解析將資料值讀取為字串。
-- *行事曆圖示*：表示時間序列深入解析將資料值讀取為「日期時間」。
+- *（abc）* ：表示時間序列深入解析以字串的形式讀取資料值。
+- 行事*曆圖示*：表示時間序列深入解析正在將資料值讀取為*datetime*。
 - *#* ：表示時間序列深入解析將資料值讀取為整數。
 
 ## <a name="next-steps"></a>後續步驟
 
-- 如需協助，請在 [MSDN 論壇](https://social.msdn.microsoft.com/Forums/home?forum=AzureTimeSeriesInsights)或 [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-timeseries-insights) \(英文\) 中開始交談。
+- 瞭解[如何在 Azure 時間序列深入解析中降低延遲](time-series-insights-environment-mitigate-latency.md)。
 
-- 如需輔助支援選項，請使用 [Azure 支援](https://azure.microsoft.com/support/options/)。
+- 瞭解[如何調整您的時間序列深入解析環境](time-series-insights-how-to-scale-your-environment.md)。

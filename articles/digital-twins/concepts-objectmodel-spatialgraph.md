@@ -8,12 +8,12 @@ ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
 ms.date: 09/17/2019
-ms.openlocfilehash: 67a4aceb157ee3fe1b1d1553efd587a0f2838d88
-ms.sourcegitcommit: 4f7dce56b6e3e3c901ce91115e0c8b7aab26fb72
+ms.openlocfilehash: 1186fec8d50d7e986d1c613cd96f741c34ca181a
+ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71950018"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72372605"
 ---
 # <a name="understand-digital-twins-object-models-and-spatial-intelligence-graph"></a>了解 Digital Twins 物件模型和空間智慧圖形
 
@@ -85,7 +85,7 @@ https://YOUR_INSTANCE_NAME.YOUR_LOCATION.azuresmartspaces.net/management/swagger
 
  完整的 URL 格式顯示在下列影像中。
 
-(![Digital Twins 入口網站管理 API](media/concepts/digital-twins-spatial-graph-management-api-url.png)] （media/概念/digital-twins-spatial-graph-management-api-url .png # lightbox）
+[@no__t 1Digital Twins 入口網站管理 API](media/concepts/digital-twins-spatial-graph-management-api-url.png)](media/concepts/digital-twins-spatial-graph-management-api-url.png#lightbox)
 
 如需如何使用空間智慧圖形的詳細資料，請瀏覽「Azure Digital Twins 管理 API 搶先預覽」。
 

@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 03/08/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 9a73b4664e363e80c514ba4c01f754de3a2eed24
-ms.sourcegitcommit: a19f4b35a0123256e76f2789cd5083921ac73daf
+ms.openlocfilehash: 31b005bd76591d8098f119c7aa9b87a68841658c
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71719872"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72331261"
 ---
 # <a name="service-administration-for-azure-search-in-the-azure-portal"></a>Azure 入口網站中 Azure 搜尋服務的服務管理
 > [!div class="op_single_selector"]
@@ -34,8 +34,7 @@ Azure 搜尋服務是完全受控、以雲端為基礎的搜尋服務，用來�
 
 請注意，「升級」不是管理工作。 因為資源是在佈建服務時進行配置，所以移動到其他層需要新的服務。 如需詳細資料，請參閱[建立 Azure 搜尋服務](search-create-service-portal.md)。
 
-> [!Tip]
-> 尋找有關如何分析搜尋流量或查詢效能的說明嗎？ 您可以監視查詢磁碟區、使用者搜尋哪些字詞，以及搜尋結果將客戶引導至索引中特定文件的成功率。 如需詳細資訊，請參閱 [Azure 搜尋服務的搜尋流量分析](search-traffic-analytics.md)、[監視使用量和查詢度量](search-monitor-usage.md)、[效能和最佳化](search-performance-optimization.md)。
+您可以監視查詢量和其他計量，並使用這些深入解析來調整您的服務，以獲得更快的回應時間。 如需詳細資訊，請參閱[監視使用量和查詢度量](search-monitor-usage.md)和[效能和最佳化](search-performance-optimization.md)。
 
 <a id="admin-rights"></a>
 
@@ -55,7 +54,7 @@ Azure 搜尋服務不會透過入口網站或程式設計介面公開個別服�
 
 * 在入口網站中、在服務儀表板上、透過通知、屬性和狀態訊息。
 * 使用 [PowerShell](search-manage-powershell.md) 或 [Management REST API](https://docs.microsoft.com/rest/api/searchmanagement/) 來[取得服務屬性](https://docs.microsoft.com/rest/api/searchmanagement/services)，或索引資源使用狀況的狀態。
-* 如先前所述，透過[搜尋流量分析](search-traffic-analytics.md)。
+
 
 <a id="sub-5"></a>
 
@@ -77,7 +76,7 @@ Azure 搜尋服務不會透過入口網站或程式設計介面公開個別服�
 
 若不使用索引子，您可以使用應用程式程式碼將物件和資料平行推送到不同的搜尋服務。 如需詳細資訊，請參閱 [Azure 搜尋服務中的效能和最佳化](search-performance-optimization.md)。
 
-## <a name="backup-and-restore"></a>備份與還原
+## <a name="backup-and-restore"></a>備份及還原
 
 因為 Azure 搜尋服務不是主要的資料儲存體解決方案，所以我們不提供自助備份及還原的正式機制。 不過，您可以使用此[Azure 搜尋服務 .net 範例](https://github.com/Azure-Samples/azure-search-dotnet-samples)存放庫中的**索引備份-還原範例程式**代碼，將您的索引定義和快照集備份至一系列 JSON 檔案，然後視需要使用這些檔案來還原索引。 此工具也可以在服務層之間移動索引。
 
@@ -85,7 +84,7 @@ Azure 搜尋服務不會透過入口網站或程式設計介面公開個別服�
 
 <a id="scale"></a>
 
-## <a name="scale-up-or-down"></a>擴大或縮小規模
+## <a name="scale-up-or-down"></a>向上或向下擴充
 每個搜尋服務都會以一個複本和一個資料分割的最小值開始執行。 如果您註冊的[層提供專用資源](search-limits-quotas-capacity.md)，請按一下服務儀表板中的 [級別] 圖格來調整資源使用量。
 
 當您透過任何資源加入處理能力時，服務即會自動使用這些資源。 您無須再執行其他動作，但在新資源產生作用前，會有些許的延遲。 佈建其他資源需要 15 分鐘或更久的時間。
@@ -117,7 +116,7 @@ Azure 搜尋服務不會透過入口網站或程式設計介面公開個別服�
 <a id="advanced-deployment"></a>
 
 ## <a name="best-practices-on-scale-and-deployment"></a>調整和部署的最佳作法
-在這段 30 分鐘的影片中，會檢閱進階部署案例的最佳作法，包括地理位置分散工作負載。 您也可以查看 [Azure 搜尋服務中的效能和最佳化](search-performance-optimization.md) ，以取得涵蓋相同要點的說明頁面。
+在這段 30 分鐘的影片中，會檢閱進階部署案例的最佳作法，包括地理位置分散工作負載。 您也可以查看 [Azure 搜尋服務中的效能和最佳化](search-performance-optimization.md)，以取得涵蓋相同要點的說明頁面。
 
 > [!VIDEO https://channel9.msdn.com/Events/Microsoft-Azure/AzureCon-2015/ACON319/player]
 > 

@@ -12,20 +12,20 @@ ms.devlang: dotnet
 ms.topic: troubleshooting
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 08/21/2019
+ms.date: 10/03/2019
 ms.author: atsenthi
-ms.openlocfilehash: ca7a3cfe62520ed82dcf494a33f3bd188dbebe76
-ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
+ms.openlocfilehash: 6b29eb31f5d425fc063c8c42e7911272e63167c8
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70279990"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72331090"
 ---
 # <a name="supported-service-fabric-versions"></a>支援的 Service Fabric 版本
 
-請確定您的叢集一律執行支援的 Azure Service Fabric 版本。 在我們宣佈發行新版本的 Service Fabric 之後, 最少60天, 對舊版的支援結束。 您會在[Service Fabric 小組的 blog](https://azure.microsoft.com/updates/?product=service-fabric)中找到新版本的公告。
+請確定您的叢集一律執行支援的 Azure Service Fabric 版本。 在我們宣佈發行新版本的 Service Fabric 之後，最少60天，對舊版的支援結束。 您會在[Service Fabric 小組的 blog](https://azure.microsoft.com/updates/?product=service-fabric)中找到新版本的公告。
 
-如需如何讓叢集執行支援的 Service Fabric 版本的詳細資訊, 請參閱下列檔:
+如需如何讓叢集執行支援的 Service Fabric 版本的詳細資訊，請參閱下列檔：
 
 - [升級 Azure Service Fabric 叢集](service-fabric-cluster-upgrade.md)
 - [升級在獨立 Windows Server 叢集上執行的 Service Fabric 版本](service-fabric-cluster-upgrade-windows-server.md)
@@ -47,7 +47,7 @@ ms.locfileid: "70279990"
 | 6.2.* | 6.0.232.* |小於或等於 3.1 版 |2018年10月26日   |
 | 6.3.* | 6.1.480.* |小於或等於 3.2 版 |2019年3月31日  |
 | 6.4.* | 6.2.301.* |小於或等於 3.3 版 |2019年9月15日 |
-| 6.5.* | 6.4.617.* |小於或等於版本3。4 |目前的版本, 因此沒有結束日期 |
+| 6.5. * | 6.4.617.* |小於或等於版本3。4 |目前的版本，因此沒有結束日期 |
 
 ## <a name="supported-operating-systems"></a>受支援的作業系統
 
@@ -78,7 +78,7 @@ ms.locfileid: "70279990"
 | 5.5 CU2 | 5.5.219.0    | NA |
 | 5.5 CU3 | 5.5.227.0    | NA |
 | 5.5 CU4 | 5.5.232.0    | NA |
-| 5.6 RTO | 5.6.204.9494 | NA |
+| 5.6 RTO | 5.6.204.9494 以上 | NA |
 | 5.6 CU2 | 5.6.210.9494 | NA |
 | 5.6 CU3 | 5.6.220.9494 | NA |
 | 5.7 RTO | 5.7.198.9494 | NA |
@@ -109,3 +109,4 @@ ms.locfileid: "70279990"
 | 6.5 CU1 | 6.5.641.9590 | 6.5.454.1 |
 | 6.5 CU2 | 6.5.658.9590 | 6.5.460.1 |
 | 6.5 CU3 | 6.5.664.9590 | 6.5.466.1 |
+| 6.5 CU5 | 6.5.676.9590 | 6.5.467.1 |

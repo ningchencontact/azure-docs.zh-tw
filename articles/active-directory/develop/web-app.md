@@ -17,14 +17,14 @@ ms.author: ryanwi
 ms.reviewer: saeeda, jmprieur, andret
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d15d76f4c16fa89b41ebfc10c9617c4709203d38
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 3d41cd23d551e4834bf6b94f513e36ff46c1cd45
+ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65544714"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72373653"
 ---
-# <a name="web-apps"></a>Web 應用程式
+# <a name="web-apps"></a>Web apps
 
 Web 應用程式是向 Web 應用程式驗證 Web 瀏覽器中使用者的應用程式。 在此案例中，Web 應用程式會引導使用者的瀏覽器，將他們登入 Azure AD。 Azure AD 會透過使用者的瀏覽器傳回登入回應，其中包含關於安全性權杖中的使用者宣告。 此案例支援使用 OpenID Connect、SAML 2.0 和 WS-Federation 通訊協定來登入。
 
@@ -57,4 +57,4 @@ Web 應用程式是向 Web 應用程式驗證 Web 瀏覽器中使用者的應用
 ## <a name="next-steps"></a>後續步驟
 
 * 深入了解其他[應用程式類型和案例](app-types.md)
-* 了解 Azure AD [驗證基本概念](authentication-scenarios.md)
+* 了解 Azure AD [驗證基本概念](v1-authentication-scenarios.md)

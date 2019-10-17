@@ -11,22 +11,22 @@ ms.author: marthalc
 author: marthalc
 ms.date: 07/15/2019
 ms.custom: seodec18
-ms.openlocfilehash: 3c747f25b92d9f165bfeb4468a0e263f102976f9
-ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
+ms.openlocfilehash: 109db23976f6332b24bcfa565812bd9491062691
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71350565"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72330739"
 ---
 # <a name="collect-data-for-models-in-production"></a>在生產環境中收集模型資料
 
 >[!IMPORTANT]
-> 此 SDK 即將淘汰，並以 Application Insights 簡化的[資料監視](https://docs.microsoft.com/azure/machine-learning/service/how-to-enable-app-insights)來取代。 
+> 此 SDK 即將淘汰。 此 SDK 仍適用于監視模型中資料漂移的開發人員，但大部分的開發人員應該使用簡化的[資料監視與 Application Insights](https://docs.microsoft.com/azure/machine-learning/service/how-to-enable-app-insights)。 
 
 在本文中，您可以瞭解如何從已部署至 Azure Kubernetes Cluster （AKS）的 Azure Machine Learning，將輸入模型資料收集到 Azure Blob 儲存體中。 
 
 啟用之後，您收集的此資料可協助您：
-* 隨著生產資料進入您的模型,[監視資料偏離](how-to-monitor-data-drift.md)
+* 隨著生產資料進入您的模型，[監視資料偏離](how-to-monitor-data-drift.md)
 
 * 制定何時重新訓練或最佳化您模型的更佳決策
 
@@ -53,11 +53,11 @@ Blob 中輸出資料的路徑遵循此語法：
 
 ## <a name="prerequisites"></a>必要條件
 
-- 如果您沒有 Azure 訂用帳戶，請在開始前先建立一個免費帳戶。 立即試用[免費或付費版本的 Azure Machine Learning](https://aka.ms/AMLFree)。
+- 如果您沒有 Azure 訂用帳戶，請在開始前建立一個免費帳戶。 立即試用[免費或付費版本的 Azure Machine Learning](https://aka.ms/AMLFree)。
 
 - 已安裝 Azure Machine Learning 工作區、包含您指令碼的本機目錄，以及適用於 Python 的 Azure Machine Learning SDK。 了解如何使用[如何設定開發環境](how-to-configure-environment.md)文件來取得這些必要條件。
 
-- 要部署至 Azure Kubernetes Service (AKS) 的訓練過機器學習模型。 如果您沒有模型，請參閱[將影像分類模型定型](tutorial-train-models-with-aml.md)教學課程。
+- 要部署至 Azure Kubernetes Service (AKS) 的訓練過機器學習模型。 如果您沒有該模型，請參閱[訓練影像分類模型](tutorial-train-models-with-aml.md)教學課程。
 
 - Azure Kubernetes Service 叢集。 如需了解如何建立一個叢集並部署至該叢集，請參閱[部署方式及位置](how-to-deploy-and-where.md)文件。
 
@@ -84,7 +84,7 @@ Blob 中輸出資料的路徑遵循此語法：
     prediction_dc = ModelDataCollector("best_model", identifier="predictions", feature_names=["prediction1", "prediction2"])
     ```
 
-    CorrelationId 是選用參數，如果您的模型不需要它，則不需要設定。 備妥 correlationId 可協助您更輕鬆地對應其他資料 (範例包括：LoanNumber、CustomerId 等)。
+    CorrelationId 是選用參數，如果您的模型不需要它，則不需要設定。 備妥 correlationId 可協助您更輕鬆地對應其他資料 (範例包含：LoanNumber、CustomerId 等等)。
     
     Identifier 稍後用於建置 Blob 中的資料夾結構，可用來劃分「原始」資料與「已處理」。
 
@@ -192,7 +192,7 @@ Blob 中輸出資料的路徑遵循此語法：
 
 1. 在查詢編輯器中，在 [名稱] 資料行下方按一下，新增您的儲存體帳戶 1。 塑造篩選條件的路徑。 注意：如果您只想查看特定年份或月份的檔案，只要展開篩選路徑即可。 例如，只查看年 3 月份的資料：/modeldata/subscriptionid>/resourcegroupname>/workspacename>/webservicename>/modelname>/modelversion>/identifier>/year>/3
 
-1. 根據 [名稱] 篩選與您相關的資料。 如果您儲存了**預測**和**輸入**，則必須建立每一項的查詢。
+1. 根據 [名稱] 篩選與您相關的資料。 如果您儲存了**預測**和**輸入**，您必須為每個建立查詢。
 
 1. 按一下 [內容] 資料行旁邊的雙箭頭來合併檔案。 
 
@@ -204,7 +204,7 @@ Blob 中輸出資料的路徑遵循此語法：
 
 1. 您現在可以按一下 [關閉並套用]。
 
-1.  如果您新增了輸入和預測，您的資料表就會自動以 **RequestId** 相互關聯。
+1.  如果您已新增輸入和預測，則您的資料表會自動與**RequestId**相互關聯。
 
 1. 開始建置模型資料的自訂報告。
 
@@ -215,7 +215,7 @@ Blob 中輸出資料的路徑遵循此語法：
 
 1. 移至 Databricks 工作區。 
 
-1. 在 Databricks 工作區中，選取 [上傳資料]。
+1. 在您的 databricks 工作區中，選取 **[上傳資料**]。
 
     [![BD 上傳](media/how-to-enable-data-collection/dbupload.png)](./media/how-to-enable-data-collection/dbupload.png#lightbox)
 
@@ -223,7 +223,7 @@ Blob 中輸出資料的路徑遵循此語法：
 
     [![DB 資料表](media/how-to-enable-data-collection/dbtable.PNG)](./media/how-to-enable-data-collection/dbtable.PNG#lightbox)
 
-1. 更新您的資料位置。 請看以下範例：
+1. 更新您的資料位置。 範例如下：
 
     ```
     file_location = "wasbs://mycontainer@storageaccountname.blob.core.windows.net/modeldata/1a2b3c4d-5e6f-7g8h-9i10-j11k12l13m14/myresourcegrp/myWorkspace/aks-w-collv9/best_model/10/inputs/2018/*/*/data.csv" 

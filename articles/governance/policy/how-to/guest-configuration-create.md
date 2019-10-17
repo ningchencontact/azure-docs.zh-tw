@@ -6,16 +6,16 @@ ms.author: dacoulte
 ms.date: 09/20/2019
 ms.topic: conceptual
 ms.service: azure-policy
-ms.openlocfilehash: fcb65e75de730178901742dc36c72776e39b044b
-ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
+ms.openlocfilehash: 0be6afc2d4d7f97717200b86d5e5b3bc2194afee
+ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/06/2019
-ms.locfileid: "71977963"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72376175"
 ---
 # <a name="how-to-create-guest-configuration-policies"></a>如何建立來賓設定原則
 
-「來賓設定」會使用[Desired State Configuration](/powershell/dsc) （DSC）資源模組來建立 Azure 機器的審核設定。 DSC 設定會定義機器應處於的條件。 如果設定的評估失敗，則會觸發原則效果**auditIfNotExists** ，並將機器視為**不相容**。
+「來賓設定」會使用[Desired State Configuration](/powershell/scripting/dsc/overview/overview) （DSC）資源模組來建立 Azure 機器的審核設定。 DSC 設定會定義機器應處於的條件。 如果設定的評估失敗，則會觸發原則效果**auditIfNotExists** ，並將機器視為**不相容**。
 
 [Azure 原則來賓](/azure/governance/policy/concepts/guest-configuration)設定只能用來審查電腦內的設定。 尚未提供機器內設定的補救功能。
 
@@ -55,7 +55,7 @@ ms.locfileid: "71977963"
 
 ## <a name="create-custom-guest-configuration-configuration-and-resources"></a>建立自訂來賓設定設定和資源
 
-建立來賓設定之自訂原則的第一個步驟是建立 DSC 設定。 如需 DSC 概念和術語的總覽，請參閱[POWERSHELL Dsc 總覽](/powershell/dsc/overview/overview)。
+建立來賓設定之自訂原則的第一個步驟是建立 DSC 設定。 如需 DSC 概念和術語的總覽，請參閱[POWERSHELL Dsc 總覽](/powershell/scripting/dsc/overview/overview)。
 
 如果您的設定只需要安裝來賓設定代理程式內建的資源，則您只需要撰寫設定 MOF 檔案。 如果您需要執行其他腳本，則需要撰寫自訂資源模組。
 
@@ -73,9 +73,9 @@ ms.locfileid: "71977963"
 
 服務應該會有屬性**代碼**和**片語**。 撰寫自訂資源時，請將您想要顯示的文字（通常是 stdout）設定為資源不符合 [**片語**] 值的原因。 程式**代碼**有特定的格式需求，因此報告可以清楚顯示用來執行 audit 的資源相關資訊。 此解決方案可讓來賓設定可擴充。 只要輸出可以被捕捉並當做 [**片語**] 屬性的字串值傳回，即可執行任何命令來審核電腦。
 
-- 程式**代碼**（字串）：資源的名稱，重複，再加上不含空格的簡短名稱作為原因的識別碼。 這三個值應該以冒號分隔，且不含空格。
+- **Code** （字串）：資源的名稱，重複，再加上不含空格的簡短名稱作為原因的識別碼。 這三個值應該以冒號分隔，且不含空格。
   - 範例會 `registry:registry:keynotpresent`
-- **片語**（字串）：人們可讀取的文字，以說明為何設定不符合規範。
+- **片語**（字串）：人們看得懂的文字，以說明設定不符合規範的原因。
   - 範例會 `The registry key $key is not present on the machine.`
 
 ```powershell
@@ -115,7 +115,7 @@ Configuration baseline
 baseline
 ```
 
-如需詳細資訊，請參閱[撰寫、編譯及](/powershell/dsc/configurations/write-compile-apply-configuration)套用設定。
+如需詳細資訊，請參閱[撰寫、編譯及](/powershell/scripting/dsc/configurations/write-compile-apply-configuration)套用設定。
 
 ### <a name="custom-guest-configuration-configuration-on-windows"></a>Windows 上的自訂來賓設定設定
 
@@ -141,7 +141,7 @@ Configuration AuditBitLocker
 AuditBitLocker
 ```
 
-如需詳細資訊，請參閱[撰寫、編譯及](/powershell/dsc/configurations/write-compile-apply-configuration)套用設定。
+如需詳細資訊，請參閱[撰寫、編譯及](/powershell/scripting/dsc/configurations/write-compile-apply-configuration)套用設定。
 
 ## <a name="create-guest-configuration-custom-policy-package"></a>建立來賓設定自訂原則封裝
 
@@ -163,10 +163,10 @@ New-GuestConfigurationPackage -Name '{PackageName}' -Configuration '{PathToMOF}'
 
 @No__t-0 Cmdlet 的參數：
 
-- **名稱**：來賓設定套件名稱。
-- **設定**：已編譯的 DSC 設定檔完整路徑。
-- **路徑**：輸出檔案夾路徑。 這個參數是選擇性的。 如果未指定，則會在目前的目錄中建立封裝。
-- **ChefProfilePath**：InSpec 設定檔的完整路徑。 只有在建立內容以 audit Linux 時，才支援此參數。
+- **名稱**：來賓設定封裝名稱。
+- 設定 **：已**編譯的 DSC 設定檔完整路徑。
+- **路徑**：輸出檔案夾路徑。 這是選擇性參數。 如果未指定，則會在目前的目錄中建立封裝。
+- **ChefProfilePath**： InSpec 設定檔的完整路徑。 只有在建立內容以 audit Linux 時，才支援此參數。
 
 完成的封裝必須儲存在受管理的虛擬機器可存取的位置。 範例包括 GitHub 存放庫、Azure 儲存機制或 Azure 儲存體。 如果您不想讓套件公開，您可以在 URL 中包含[SAS 權杖](../../../storage/common/storage-dotnet-shared-access-signature-part-1.md)。 雖然這項設定只適用于存取封裝，而不是與服務通訊，但您也可以在私人網路中執行機器的[服務端點](../../../storage/common/storage-network-security.md#grant-access-from-a-virtual-network)。
 
@@ -190,7 +190,7 @@ New-GuestConfigurationPackage -Name '{PackageName}' -Configuration '{PathToMOF}'
 
 1. 最後，在您的自訂資源內使用上述產生的用戶端識別碼，以使用機器提供的權杖來存取 Key Vault。
 
-   Key Vault 實例的 `client_id` 和 url 可以當做[屬性](/powershell/dsc/resources/authoringresourcemof#creating-the-mof-schema)傳遞至資源，因此不需要更新多個環境的資源，或需要變更這些值。
+   Key Vault 實例的 `client_id` 和 url 可以當做[屬性](/powershell/scripting/dsc/resources/authoringresourcemof#creating-the-mof-schema)傳遞至資源，因此不需要更新多個環境的資源，或需要變更這些值。
 
 下列程式碼範例可用於自訂資源，以使用使用者指派的身分識別從 Key Vault 取出秘密。 從要求傳回到 Key Vault 的值是純文字。 最佳做法是將它儲存在 credential 物件中。
 
@@ -218,7 +218,7 @@ Test-GuestConfigurationPackage -Path .\package\AuditWindowsService\AuditWindowsS
 
 - **名稱**：來賓設定原則名稱。
 - **參數**：以 hashtable 格式提供的原則參數。
-- **路徑**：來賓設定套件的完整路徑。
+- **Path**：來賓設定封裝的完整路徑。
 
 此 Cmdlet 也支援來自 PowerShell 管線的輸入。 透過管道將 `New-GuestConfigurationPackage` Cmdlet 的輸出傳送至 `Test-GuestConfigurationPackage` Cmdlet。
 
@@ -226,7 +226,7 @@ Test-GuestConfigurationPackage -Path .\package\AuditWindowsService\AuditWindowsS
 New-GuestConfigurationPackage -Name AuditWindowsService -Configuration .\DSCConfig\localhost.mof -Path .\package -Verbose | Test-GuestConfigurationPackage -Verbose
 ```
 
-如需如何使用參數進行測試的詳細資訊，請參閱下面的[使用自訂來賓設定原則中的參數](/azure/governance/policy/how-to/guest-configuration-create#using-parameters-in-custom-guest-configuration-policies)一節。
+如需如何使用參數進行測試的詳細資訊，請參閱下面的[使用自訂來賓設定原則中的參數](#using-parameters-in-custom-guest-configuration-policies)一節。
 
 ## <a name="create-the-azure-policy-definition-and-initiative-deployment-files"></a>建立 Azure 原則定義和計畫部署檔案
 
@@ -252,8 +252,8 @@ New-GuestConfigurationPolicy
 - **描述**：原則描述。
 - **參數**：以 hashtable 格式提供的原則參數。
 - **版本**：原則版本。
-- **路徑**：建立原則定義的目的地路徑。
-- **平臺**：適用于來賓設定原則和內容套件的目標平臺（Windows/Linux）。
+- **路徑**：原則定義建立所在的目的地路徑。
+- **平臺**：來賓設定原則和內容套件的目標平臺（Windows/Linux）。
 
 下列檔案是由 `New-GuestConfigurationPolicy` 所建立：
 
@@ -298,7 +298,7 @@ New-GuestConfigurationPolicy
     -Verbose
 ```
 
-針對 Linux 原則，請在您的設定中包含屬性**AttributesYmlContent** ，並據以覆寫這些值。 來賓設定代理程式會自動建立 InSpec 用來儲存屬性的 YaML 檔案。 請參閱下方的範例。
+針對 Linux 原則，請在您的設定中包含屬性**AttributesYmlContent** ，並據以覆寫這些值。 來賓設定代理程式會自動建立 InSpec 用來儲存屬性的 YaML 檔案。 請看下方範例。
 
 ```azurepowershell-interactive
 Configuration FirewalldEnabled {
@@ -361,13 +361,13 @@ New-GuestConfigurationPolicy -ContentUri 'https://storageaccountname.blob.core.w
 當您使用自訂內容套件發佈自訂 Azure 原則之後，如果您想要發佈新的版本，則必須更新兩個欄位。
 
 - **版本**：當您執行 `New-GuestConfigurationPolicy` Cmdlet 時，您必須指定大於目前發行的版本號碼。 屬性會更新新原則檔案中的來賓設定指派版本，讓擴充功能能夠辨識封裝已更新。
-- **contentHash**：這個屬性會由 `New-GuestConfigurationPolicy` Cmdlet 自動更新。 它是 `New-GuestConfigurationPackage` 所建立之封裝的雜湊值。 屬性對於您發行的 `.zip` 檔案必須是正確的。 如果只更新**contentUri**屬性（例如，在有人可以從入口網站手動變更原則定義的情況下），延伸模組就不會接受內容套件。
+- **contentHash**：此屬性會由 `New-GuestConfigurationPolicy` Cmdlet 自動更新。 它是 `New-GuestConfigurationPackage` 所建立之封裝的雜湊值。 屬性對於您發行的 `.zip` 檔案必須是正確的。 如果只更新**contentUri**屬性（例如，在有人可以從入口網站手動變更原則定義的情況下），延伸模組就不會接受內容套件。
 
 釋放更新套件的最簡單方式是重複本文中所述的程式，並提供更新的版本號碼。 該進程可確保所有屬性都已正確更新。
 
 ## <a name="converting-windows-group-policy-content-to-azure-policy-guest-configuration"></a>將 Windows 群組原則內容轉換成 Azure 原則來賓設定
 
-「來賓設定」在「Windows 機器」執行時，是 PowerShell Desired State Configuration 語法的實施。 DSC 社區已發佈工具，可將匯出的群組原則範本轉換成 DSC 格式。 將此工具與上述的來賓設定 Cmdlet 搭配使用，您就可以轉換 Windows 群組原則內容，並將其封裝/發佈以供 Azure 原則進行審核。 如需使用此工具的詳細資訊，請參閱 [Quickstart：將群組原則轉換為 DSC @ no__t-0。
+「來賓設定」在「Windows 機器」執行時，是 PowerShell Desired State Configuration 語法的實施。 DSC 社區已發佈工具，可將匯出的群組原則範本轉換成 DSC 格式。 將此工具與上述的來賓設定 Cmdlet 搭配使用，您就可以轉換 Windows 群組原則內容，並將其封裝/發佈以供 Azure 原則進行審核。 如需使用此工具的詳細資訊，請參閱[快速入門：將群組原則轉換成 DSC](/powershell/scripting/dsc/quickstarts/gpo-quickstart)一文。
 內容轉換後，上述步驟會建立套件，並將其發佈為 Azure 原則將與任何 DSC 內容相同。
 
 ## <a name="optional-signing-guest-configuration-packages"></a>選擇性：簽署來賓設定套件
@@ -386,9 +386,9 @@ Protect-GuestConfigurationPackage -Path .\package\AuditWindowsService\AuditWindo
 
 @No__t-0 Cmdlet 的參數：
 
-- **路徑**：來賓設定套件的完整路徑。
+- **Path**：來賓設定封裝的完整路徑。
 - **憑證**：用來簽署封裝的程式碼簽署憑證。 只有在簽署 Windows 的內容時，才支援這個參數。
-- **PrivateGpgKeyPath**：私用 GPG 機碼路徑。 只有在簽署適用于 Linux 的內容時，才支援此參數。
+- **PrivateGpgKeyPath**：私用 GPG 金鑰路徑。 只有在簽署適用于 Linux 的內容時，才支援此參數。
 - **PublicGpgKeyPath**：公用 GPG 金鑰路徑。 只有在簽署適用于 Linux 的內容時，才支援此參數。
 
 GuestConfiguration 代理程式預期憑證公開金鑰會出現在 Windows 電腦上的「受信任的根憑證授權」中，以及 Linux 電腦上 `/usr/local/share/ca-certificates/extra` 的路徑中。 若要讓節點驗證已簽署的內容，請先在電腦上安裝憑證公開金鑰，再套用自訂原則。 此程式可以使用 VM 內的任何技術來完成，或使用 Azure 原則。 [這裡提供](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-push-certificate-windows)範例範本。

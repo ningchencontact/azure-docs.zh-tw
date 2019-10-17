@@ -1,5 +1,5 @@
 ---
-title: 使用點對站 VPN 和原生 Azure 憑證驗證從電腦連線至 Azure 虛擬網路：Azure 入口網站 |Microsoft Docs
+title: 使用點對站 VPN 和原生 Azure 憑證驗證從電腦連接到 Azure 虛擬網路： Azure 入口網站 |Microsoft Docs
 description: 使用 P2S 和自我簽署或 CA 核發的憑證，將 Windows、Mac OS X 和 Linux 用戶端安全地連線至 Azure 虛擬網路。 本文使用 Azure 入口網站。
 services: vpn-gateway
 author: cherylmc
@@ -7,14 +7,14 @@ ms.service: vpn-gateway
 ms.topic: conceptual
 ms.date: 09/24/2019
 ms.author: cherylmc
-ms.openlocfilehash: ea80fda927d293d743f1fdc69f9a7f5fa29838fa
-ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
+ms.openlocfilehash: 7d6941c347f1121654084c8d71ba7c0a293bf558
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71266584"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72333243"
 ---
-# <a name="configure-a-point-to-site-vpn-connection-to-a-vnet-using-native-azure-certificate-authentication-azure-portal"></a>使用原生 Azure 憑證驗證設定 VNet 的點對站 VPN 連線：Azure 入口網站
+# <a name="configure-a-point-to-site-vpn-connection-to-a-vnet-using-native-azure-certificate-authentication-azure-portal"></a>使用原生 Azure 憑證驗證設定 VNet 的點對站 VPN 連線： Azure 入口網站
 
 本文可協助您將執行 Windows、Linux 或 Mac OS X 的個別用戶端安全地連線至 Azure VNet。 當您想要從遠端位置 (例如當您從住家或會議進行遠距工作) 連線到您的 VNet 時，點對站 VPN 連線很實用。 如果您只有少數用戶端必須連線至 VNet，您也可以使用 P2S，而不使用站對站 VPN。 點對站連線不需要 VPN 裝置或公眾對應 IP 位址。 P2S 會建立透過 SSTP (安全通訊端通道通訊協定) 或 IKEv2 的 VPN 連線。 如需點對站 VPN 的詳細資訊，請參閱[關於點對站 VPN](point-to-site-about.md)。
 
@@ -33,27 +33,27 @@ ms.locfileid: "71266584"
 
 您可以使用下列值來建立測試環境，或參考這些值來進一步了解本文中的範例：
 
-* **VNet 名稱：** VNet1
-* **位址空間︰** 192.168.0.0/16<br>在此範例中，我們只使用一個位址空間。 您可以針對 VNet 使用一個以上的位址空間。
-* **子網路名稱：** 前端
-* **子網路位址範圍︰** 192.168.1.0/24
-* **訂用帳戶︰** 如果您有一個以上的訂用帳戶，請確認您使用正確的訂用帳戶。
+* **VNet 名稱︰** VNet1
+* **位址空間：** 192.168.0.0/16<br>在此範例中，我們只使用一個位址空間。 您可以針對 VNet 使用一個以上的位址空間。
+* **子網路名稱：** FrontEnd
+* **子網路位址範圍：** 192.168.1.0/24
+* **訂用帳戶：** 如果您有一個以上的訂用帳戶，請確認您使用正確的訂用帳戶。
 * **資源群組：** TestRG
-* **位置：** East US
+* **位置：** 美國東部
 * **GatewaySubnet：** 192.168.200.0/24<br>
 * **虛擬網路閘道名稱：** VNet1GW
 * **閘道類型：** VPN
-* **VPN 類型：** 以路由為基礎
+* **VPN 類型：** 路由式
 * **公用 IP 位址名稱：** VNet1GWpip
 * **連線類型：** 點對站
 * **用戶端位址集區：** 172.16.201.0/24<br>使用這個點對站連線來連線到 VNet 的 VPN 用戶端，會收到來自用戶端位址集區的 IP 位址。
 
-## <a name="createvnet"></a>1.建立虛擬網路
+## <a name="createvnet"></a>1. 建立虛擬網路
 
 在開始之前，請確認您有 Azure 訂用帳戶。 如果您還沒有 Azure 訂用帳戶，則可以啟用 [MSDN 訂戶權益](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details)或註冊[免費帳戶](https://azure.microsoft.com/pricing/free-trial)。
 [!INCLUDE [Basic Point-to-Site VNet](../../includes/vpn-gateway-basic-p2s-vnet-rm-portal-include.md)]
 
-## <a name="creategw"></a>2.建立虛擬網路閘道
+## <a name="creategw"></a>2. 建立虛擬網路閘道
 
 此步驟將帶您建立 VNet 的虛擬網路閘道。 建立閘道通常可能需要 45 分鐘或更久，視選取的閘道 SKU 而定。
 
@@ -65,21 +65,21 @@ ms.locfileid: "71266584"
 >基本閘道 SKU 不支援 IKEv2 或 RADIUS 驗證。 如果您打算讓 Mac 用戶端連線到您的虛擬網路，請勿使用基本 SKU。
 >
 
-## <a name="generatecert"></a>3.產生憑證
+## <a name="generatecert"></a>3. 產生憑證
 
 憑證是 Azure 用於驗證透過點對站 VPN 連線來連線至 VNet 的用戶端。 一旦您取得根憑證，您可將公開金鑰資訊[上傳](#uploadfile)至 Azure。 根憑證則會被視為 Azure「信任的」，可供透過 P2S 連線至虛擬網路。 您也可以從受信任的根憑證產生用戶端憑證，然後將它們安裝在每部用戶端電腦上。 在用戶端初始 VNet 連線時，用戶端憑證用來驗證用戶端。 
 
-### <a name="getcer"></a>1.取得根憑證的 .cer 檔案
+### <a name="getcer"></a>1. 取得根憑證的 .cer 檔案
 
 [!INCLUDE [root-certificate](../../includes/vpn-gateway-p2s-rootcert-include.md)]
 
-### <a name="generateclientcert"></a>2.產生用戶端憑證
+### <a name="generateclientcert"></a>2. 產生用戶端憑證
 
 [!INCLUDE [generate-client-cert](../../includes/vpn-gateway-p2s-clientcert-include.md)]
 
-## <a name="addresspool"></a>4.新增用戶端位址集區
+## <a name="addresspool"></a>4. 新增用戶端位址集區
 
-用戶端位址集區是您指定的私人 IP 位址範圍。 透過點對站 VPN 連線的用戶端會動態收到這個範圍內的 IP 位址。 使用不會重疊的私人 IP 位址範圍搭配您從其連線的內部部署位置，或搭配您要連線至的 VNet。
+用戶端位址集區是您指定的私人 IP 位址範圍。 透過點對站 VPN 連線的用戶端會動態收到這個範圍內的 IP 位址。 使用不會重疊的私人 IP 位址範圍搭配您從其連線的內部部署位置，或搭配您要連線至的 VNet。 如果您設定多個通訊協定，而且 SSTP 是其中一個通訊協定，則設定的位址集區會平均分割成已設定的通訊協定。
 
 1. 一旦建立虛擬網路閘道，請瀏覽至虛擬網路閘道頁面的 [設定] 區段。 在 [設定] 區段中，按一下 [點對站組態]。
 
@@ -95,19 +95,19 @@ ms.locfileid: "71266584"
    >如果您在入口網站的這個頁面上沒看到 [通道] 類型或 [驗證] 類型，則您的閘道是使用基本 SKU。 基本 SKU 不支援 IKEv2 或 RADIUS 驗證。
    >
 
-## <a name="tunneltype"></a>5.設定通道類型
+## <a name="tunneltype"></a>5. 設定通道類型
 
 您可以選取通道類型。 通道選項為 OpenVPN、SSTP 和 IKEv2。 Android 和 Linux 上的 strongSwan 用戶端以及 iOS 和 OSX 上的原生 IKEv2 VPN 用戶端只會使用 IKEv2 通道來進行連線。 Windows 用戶端會先嘗試 IKEv2，如果無法連線，就會切換回使用 SSTP。 您可以使用 OpenVPN 用戶端連接到 OpenVPN 通道類型。
 
 ![通道類型](./media/vpn-gateway-howto-point-to-site-resource-manager-portal/tunneltype.png)
 
-## <a name="authenticationtype"></a>6.設定驗證類型
+## <a name="authenticationtype"></a>6. 設定驗證類型
 
 選取 [Azure 憑證]。
 
   ![通道類型](./media/vpn-gateway-howto-point-to-site-resource-manager-portal/authenticationtype.png)
 
-## <a name="uploadfile"></a>7.上傳根憑證公開憑證資料
+## <a name="uploadfile"></a>7. 上傳根憑證公開憑證資料
 
 您可以上傳其他受信任的根憑證檔案 (最多總計 20 個憑證)。 一旦上傳公開憑證資料，Azure 就可以使用它來驗證已安裝從受信任根憑證產生之用戶端憑證的用戶端。 將根憑證的公開金鑰資訊上傳至 Azure。
 
@@ -123,7 +123,7 @@ ms.locfileid: "71266584"
 
    ![儲存](./media/vpn-gateway-howto-point-to-site-resource-manager-portal/save.png)
 
-## <a name="installclientcert"></a>8.安裝匯出的用戶端憑證
+## <a name="installclientcert"></a>8. 安裝匯出的用戶端憑證
 
 如果您想要從不同於用來產生用戶端憑證的用戶端電腦建立 P2S 連線，您需要安裝用戶端憑證。 安裝用戶端憑證時，您需要匯出用戶端憑證時所建立的密碼。
 
@@ -131,11 +131,11 @@ ms.locfileid: "71266584"
 
 如需安裝步驟，請參閱[安裝用戶端憑證](point-to-site-how-to-vpn-client-install-azure-cert.md)。
 
-## <a name="clientconfig"></a>9.產生和安裝 VPN 用戶端組態套件
+## <a name="clientconfig"></a>9. 產生和安裝 VPN 用戶端設定套件
 
 VPN 用戶端組態檔所包含的設定，可用來將裝置設定為透過 P2S 連線來連線至 VNet。 如需產生和安裝 VPN 用戶端組態檔的指示，請參閱[建立和安裝適用於原生 Azure 憑證驗證 P2S 組態的 VPN 用戶端組態檔](point-to-site-vpn-client-configuration-azure-cert.md)。
 
-## <a name="connect"></a>10.連線至 Azure
+## <a name="connect"></a>10. 連接到 Azure
 
 ### <a name="to-connect-from-a-windows-vpn-client"></a>從 Windows VPN 用戶端連線
 
@@ -144,7 +144,7 @@ VPN 用戶端組態檔所包含的設定，可用來將裝置設定為透過 P2S
 >
 >
 
-1. 若要連接至您的 VNet，在用戶端電腦上瀏覽到 VPN 連線，然後找出所建立的 VPN 連線。 其名稱會與虛擬網路相同。 按一下 **[連接]** 。 可能會出現與使用憑證有關的快顯訊息。 按一下 [繼續] 以使用較高的權限。
+1. 若要連接至您的 VNet，在用戶端電腦上瀏覽到 VPN 連線，然後找出所建立的 VPN 連線。 其名稱會與虛擬網路相同。 按一下 [ **連接**]。 可能會出現與使用憑證有關的快顯訊息。 按一下 [繼續] 以使用較高的權限。
 
 2. 在 [連線] 狀態頁面上，按一下 [連線] 以便開始連線。 如果出現 [選取憑證] 畫面，請確認顯示的用戶端憑證是要用來連接的憑證。 如果沒有，請使用下拉箭頭來選取正確的憑證，然後按一下 [確定]。
 

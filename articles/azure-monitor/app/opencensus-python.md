@@ -1,5 +1,5 @@
 ---
-title: 使用 Azure 監視器監視 Python 應用程式 |Microsoft Docs
+title: 使用 Azure 監視器（預覽）監視 Python 應用程式 |Microsoft Docs
 description: 提供將 OpenCensus Python 與 Azure 監視器連線的指示
 services: application-insights
 keywords: ''
@@ -10,14 +10,14 @@ ms.service: application-insights
 ms.topic: conceptual
 ms.reviewer: mbullwin
 manager: carmonm
-ms.openlocfilehash: 1316cf6808f6ccfc4165ad162c51421638b130be
-ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
+ms.openlocfilehash: ed61cb1bc88c48fe89c4a9390f04747749bd48c5
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/13/2019
-ms.locfileid: "72293995"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72329471"
 ---
-# <a name="set-up-azure-monitor-for-your-python-application"></a>設定 Python 應用程式的 Azure 監視器
+# <a name="set-up-azure-monitor-for-your-python-application-preview"></a>設定 Python 應用程式的 Azure 監視器（預覽）
 
 Azure 監視器透過與[OpenCensus](https://opencensus.io)的整合，支援 Python 應用程式的分散式追蹤、度量收集和記錄。 本文將逐步引導您逐步完成設定 Python OpenCensus 的程式，並讓您的監視資料 Azure 監視器。
 
@@ -42,11 +42,11 @@ Azure 監視器透過與[OpenCensus](https://opencensus.io)的整合，支援 Py
 
    設定方塊隨即出現，請使用下表來填寫輸入欄位。
 
-    | 設定        | 值           | 描述  |
+    | 設定        | Value           | 描述  |
    | ------------- |:-------------|:-----|
    | **名稱**      | 通用唯一值 | 此名稱可識別您要監視的應用程式 |
    | **資源群組**     | myResourceGroup      | 用於裝載 App Insights 資料之新資源群組的名稱 |
-   | **位置** | East US | 選擇您附近或接近應用程式裝載位置的地點 |
+   | **位置** | 美國東部 | 選擇您附近或接近應用程式裝載位置的地點 |
 
 2. 按一下 [建立]。
 
@@ -349,4 +349,4 @@ Azure 監視器透過與[OpenCensus](https://opencensus.io)的整合，支援 Py
 
 * [可用性測試](../../azure-monitor/app/monitor-web-app-availability.md)：建立測試，以確保網路上看得見您的網站。
 * [智慧型診斷](../../azure-monitor/app/proactive-diagnostics.md)︰這些測試會自動執行，您不需要採取任何動作來設定它們。 它們會讓您知道應用程式是否有不尋常的失敗要求率。
-* [計量警示](../../azure-monitor/app/alerts.md)：設定警示，在計量超出臨界值時警告您。 您可以在撰寫於程式碼中的自訂度量上設定它們。
+* 計量[警示](../../azure-monitor/app/alerts.md)：設定警示，在計量超出臨界值時警告您。 您可以在撰寫於程式碼中的自訂度量上設定它們。

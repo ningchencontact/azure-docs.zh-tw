@@ -1,21 +1,21 @@
 ---
-title: Azure Blockchain Workbench 預覽疑難排解
+title: Azure Blockchain Workbench 疑難排解
 description: 如何針對 Azure Blockchain Workbench Preview 應用程式進行疑難排解。
 services: azure-blockchain
 keywords: ''
 author: PatAltimore
 ms.author: patricka
-ms.date: 09/05/2019
+ms.date: 10/14/2019
 ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: zeyadr
 manager: femila
-ms.openlocfilehash: 8fec065b629f2f2b93e78a63521ea0ce4669dd4e
-ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
+ms.openlocfilehash: 3032a81a4411cb162a335189ca65b845f8d6305f
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70844038"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72329090"
 ---
 # <a name="azure-blockchain-workbench-preview-troubleshooting"></a>Azure Blockchain Workbench 預覽疑難排解
 
@@ -41,7 +41,7 @@ git clone https://github.com/Azure-Samples/blockchain.git
 ## <a name="run-the-script"></a>執行指令碼
 [!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install.md)]
 
-執行 `collectBlockchainWorkbenchTroubleshooting.ps1` 指令碼來收集記錄，並建立包含疑難排解資訊資料夾的 ZIP 檔案。 例如:
+執行 `collectBlockchainWorkbenchTroubleshooting.ps1` 指令碼來收集記錄，並建立包含疑難排解資訊資料夾的 ZIP 檔案。 例如：
 
 ``` powershell
 collectBlockchainWorkbenchTroubleshooting.ps1 -SubscriptionID "<subscription_id>" -ResourceGroupName "workbench-resource-group-name"
@@ -51,7 +51,7 @@ collectBlockchainWorkbenchTroubleshooting.ps1 -SubscriptionID "<subscription_id>
 | 參數  | 描述 | 必要項 |
 |---------|---------|----|
 | SubscriptionID | 用來建立或找到所有資源的 SubscriptionID。 | 是 |
-| ResourceGroupName | Blockchain Workbench 部署所在 Azure 資源群組的名稱。 | 是 |
+| resourceGroupName | Blockchain Workbench 部署所在 Azure 資源群組的名稱。 | 是 |
 | OutputDirectory | 用來建立輸出 .ZIP 檔案的路徑。 如果未指定，則會預設為目前的目錄。 | 否 |
 | LookbackHours | 提取遙測資料時要使用的小時數。 預設值為 24 小時。 最大值為 90 小時 | 否 |
 | OmsSubscriptionId | 部署 Azure 監視器記錄的訂用帳戶識別碼。 只有在區塊鏈網路的 Azure 監視器記錄部署在 Blockchain Workbench 的資源群組之外時，才傳遞此參數。| 否 |

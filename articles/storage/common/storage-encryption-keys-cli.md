@@ -5,16 +5,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 09/17/2019
+ms.date: 10/15/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: 036322e73470ad4aa25de03e95c506e9f04496d8
-ms.sourcegitcommit: 2d9a9079dd0a701b4bbe7289e8126a167cfcb450
+ms.openlocfilehash: 18209816b5b73f58a8112efca0363b31dd47bd91
+ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/29/2019
-ms.locfileid: "71670989"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72374277"
 ---
 # <a name="configure-customer-managed-keys-for-azure-storage-encryption-from-azure-cli"></a>設定客戶管理的金鑰，以從 Azure CLI Azure 儲存體加密
 
@@ -23,7 +23,7 @@ ms.locfileid: "71670989"
 本文說明如何使用 Azure CLI 以客戶管理的金鑰來設定金鑰保存庫。
 
 > [!IMPORTANT]
-> 使用客戶管理的金鑰搭配 Azure 儲存體加密時，金鑰保存庫必須設定兩個必要屬性，即虛**刪除**和「不要**清除**」。 當您在 Azure 入口網站中建立新的金鑰保存庫時，預設會啟用這些屬性。 不過，如果您需要在現有的金鑰保存庫上啟用這些屬性，則必須使用 PowerShell 或 Azure CLI。
+> 若要使用客戶管理的金鑰搭配 Azure 儲存體加密，需要在金鑰保存庫上設定兩個屬性： [虛**刪除**] 和 [**不要清除**]。 預設不會啟用這些屬性。 若要啟用這些屬性，請使用 PowerShell 或 Azure CLI。
 > 僅支援 RSA 金鑰和金鑰大小2048。
 
 ## <a name="assign-an-identity-to-the-storage-account"></a>將身分識別指派給儲存體帳戶
@@ -77,7 +77,7 @@ az keyvault set-policy \
     --key-permissions get recover unwrapKey wrapKey
 ```
 
-## <a name="create-a-new-key"></a>建立新金鑰
+## <a name="create-a-new-key"></a>建立新的金鑰
 
 接下來，在金鑰保存庫中建立金鑰。 若要建立金鑰，請呼叫[az keyvault key create](/cli/azure/keyvault/key#az-keyvault-key-create)。 請記得以您自己的值取代括弧中的預留位置值。
 

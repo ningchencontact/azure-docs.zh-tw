@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 01/17/2018
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: f3cbf740016a4c162c63343be4cb9cd577f85935
-ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
+ms.openlocfilehash: c05b79d2f1da8076b507ca9ee7a06504de21d5ea
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68699360"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72333186"
 ---
 # <a name="overview-of-share-snapshots-for-azure-files"></a>Azure 檔案的共用快照集概觀 
 Azure 檔案提供為檔案共用拍攝共用快照集的功能。 共用快照集能擷取該時間點的共用狀態。 在本文中，我們說明共用快照集提供哪些功能，以及如何在您的自訂使用案例中運用這些功能。
@@ -28,7 +28,7 @@ Azure 檔案提供為檔案共用拍攝共用快照集的功能。 共用快照�
 ### <a name="general-backup-purposes"></a>一般備份用途
 建立檔案共用之後，您可以定期建立檔案共用的共用快照集，以供資料備份之用。 定期建立的共用快照集，有助於維護先前版本的檔案，因應未來的稽核需求或災害復原之需。
 
-## <a name="capabilities"></a>功能
+## <a name="capabilities"></a>容量
 共用快照集是某個時間點的唯讀資料複本。 您可以使用 REST API 來建立、刪除及管理快照集。 用戶端程式庫、Azure CLI 和 Azure 入口網站亦提供相同的功能。 
 
 您可以使用 REST API 和 SMB 兩者來檢視共用的快照集。 您可以擷取目錄或檔案的版本清單，也可以將特定版本當作磁碟機直接掛接 (僅適用於 Windows - 請參閱[限制](#limits))。 
@@ -57,7 +57,7 @@ http://storagesample.core.file.windows.net/myshare?snapshot=2011-03-09T01:42:34.
 
 快照集不計入 5 TB 的共用限制。 共用快照集佔用的空間總數沒有限制。 但儲存體帳戶限制依然有效。
 
-## <a name="limits"></a>限制
+## <a name="limits"></a>Limits
 Azure 檔案服務目前允許的共用快照集最大數目為 200。 保留 200 個共用快照集之後，必須先刪除舊的共用快照集，才能建立新的共用快照集。 
 
 建立共用快照集的同時呼叫數目沒有限制。 特定檔案共用之共用快照集耗用的空間數量沒有限制。 
@@ -71,7 +71,7 @@ Azure 檔案服務目前允許的共用快照集最大數目為 200。 保留 20
 
 複製過後共用快照集會保持不變，不過系統會將先前共用快照集提供的資料複本覆寫到基底檔案共用。 所有還原的檔案都算是「變更內容」。
 
-您可以將共用快照集內的檔案複製到不同名稱的目的地。 產生的目的地檔案會是一個可寫入的檔案，而不是共用快照集。
+您可以使用不同的名稱，將共用快照集內的檔案複製到不同的目的地。 產生的目的地檔案會是一個可寫入的檔案，而不是共用快照集。 在此情況下，您的基底檔案共用會保持不變。
 
 使用某個複本覆寫目的地檔案時，與原始目的地檔案相關聯的所有共用快照集都會保持不變。
 

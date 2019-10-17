@@ -8,12 +8,12 @@ ms.service: search
 ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: heidist
-ms.openlocfilehash: e50d88181a27dcc46da858f220404eb09ad9b4bd
-ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
+ms.openlocfilehash: 55a9e06ad09c4c3635a2925956cac75c24b2c3c6
+ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70308976"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72376391"
 ---
 # <a name="indexers-in-azure-search"></a>Azure 搜尋服務中的索引子
 
@@ -35,7 +35,7 @@ Azure 搜尋服務中的 *索引子* 是一種編目程式，其可從外部 Azu
 
 一開始，會宣布新的索引子作為預覽功能。 預覽功能會在 API (REST 和 .NET) 中引進，然後在准許正式推出之後整合到入口網站中。 如果您正在評估新的索引子，您應該計劃撰寫程式碼。
 
-## <a name="permissions"></a>Permissions
+## <a name="permissions"></a>使用權限
 
 與索引子相關的所有作業（包括狀態或定義的 GET 要求）都需要系統[管理員 api 金鑰](search-security-api-keys.md)。 
 
@@ -45,10 +45,12 @@ Azure 搜尋服務中的 *索引子* 是一種編目程式，其可從外部 Azu
 
 索引子會搜耙 Azure 上的資料存放區。
 
-* [Azure SQL](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md)
-* [Azure Cosmos DB](search-howto-index-cosmosdb.md)
 * [Azure Blob 儲存體](search-howto-indexing-azure-blob-storage.md)
 * [Azure 資料表儲存體](search-howto-indexing-azure-tables.md)
+* [Azure Cosmos DB](search-howto-index-cosmosdb.md)
+* [Azure SQL Database](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md)
+* [Azure 虛擬機器上的 SQL Server](search-howto-connecting-azure-sql-iaas-to-azure-search-using-indexers.md)
+* [Azure 上的 SQL 受控實例](search-howto-connecting-azure-sql-mi-to-azure-search-using-indexers.md)
 
 ## <a name="basic-configuration-steps"></a>基本組態步驟
 索引子可以提供資料來源特有的功能。 在這方面，索引子或資料來源組態的某些層面會因索引子類型而所有不同。 不過，所有索引子都有共用的的基本組成和需求。 下文涵蓋所有的索引子的通用步驟。

@@ -1,21 +1,21 @@
 ---
-title: 使用 Azure Blockchain Workbench Preview REST API
+title: 使用 Azure Blockchain Workbench REST API
 description: 如何使用 Azure Blockchain Workbench 預覽 REST API 的案例
 services: azure-blockchain
 keywords: ''
 author: PatAltimore
 ms.author: patricka
-ms.date: 09/05/2019
+ms.date: 10/14/2019
 ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: zeyadr
 manager: femila
-ms.openlocfilehash: 412b78363be70918969734cd8890a8ee940df431
-ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
+ms.openlocfilehash: 2f751cc4f0037b8d60034636a0c512989113e441
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70843822"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72328864"
 ---
 # <a name="using-the-azure-blockchain-workbench-preview-rest-api"></a>使用 Azure Blockchain Workbench 預覽 REST API
 
@@ -210,8 +210,8 @@ Content-type: application/json
 
 一旦使用者決定深入了解某個合約之後，區塊鏈用戶端接著就會根據合約狀態顯示可用的使用者動作。 在此範例中，使用者正在查看其所建立新智慧合約的所有可用動作：
 
-* 編輯可讓使用者修改資產的描述和價格。
-* 終止允許使用者結束資產的合約。
+* 修改：允許使用者資產的描述和價格。
+* 終止：允許使用者結束資產的合約。
 
 使用[合約動作 GET API](/rest/api/azure-blockchain-workbench/contractsv2/contractactionget)：
 
@@ -277,7 +277,7 @@ Content-type: application/json
 
 接著使用者可決定為指定的智慧合約執行個體採取動作. 在此情況下，假定情節為使用者想要將資產的描述與價格修改為下列動作：
 
-* Description:「我的更新車」
+* 描述：「我的已更新汽車」
 * 價格：54321
 
 使用[合約動作 POST API](/rest/api/azure-blockchain-workbench/contractsv2/contractactionpost)：

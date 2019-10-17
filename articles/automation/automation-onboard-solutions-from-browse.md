@@ -9,12 +9,12 @@ ms.date: 04/11/2019
 ms.topic: article
 manager: carmonm
 ms.custom: mvc
-ms.openlocfilehash: 5be247e8bb999ee5306d10e67c46c7273953dc71
-ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
+ms.openlocfilehash: 3e56b44988dc6dbfed99f339795fee6d15c7dd57
+ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69534696"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72372793"
 ---
 # <a name="enable-update-management-change-tracking-and-inventory-solutions-on-multiple-vms"></a>在多個 VM 上啟用更新管理、變更追蹤和清查解決方案
 
@@ -28,7 +28,7 @@ Azure 自動化提供的解決方案可管理作業系統安全性更新、追�
 
 在 Azure 入口網站中，瀏覽至 [虛擬機器]。
 
-使用核取方塊來選取虛擬機器，也就是您想要讓其與「變更追蹤」和「清查」或「更新管理」一起上架的虛擬機器。 上架一次可包含三個不同的資源群組。 無論您的自動化帳戶位置為何, Azure Vm 都可以存在於任何區域中。
+使用核取方塊來選取虛擬機器，也就是您想要讓其與「變更追蹤」和「清查」或「更新管理」一起上架的虛擬機器。 上架一次可包含三個不同的資源群組。 無論您的自動化帳戶位置為何，Azure Vm 都可以存在於任何區域中。
 
 ![VM 清單](media/automation-onboard-solutions-from-browse/vmlist.png)
 > [!TIP]
@@ -45,9 +45,9 @@ Azure 自動化提供的解決方案可管理作業系統安全性更新、追�
 
 ### <a name="resource-group-limit"></a> 上線限制
 
-您可用於上線的資源群組數目受限於 [Resource Manager 部署限制](../azure-resource-manager/resource-manager-cross-resource-group-deployment.md)。 Resource Manager 部署, 而不會與更新部署混淆, 每個部署的資源群組限制為5個。 為了確保上線的完整性，系統會保留其中 2 個資源群組來設定 Log Analytics 工作區、自動化帳戶和相關資源。 這讓您有 3 個資源群組可選取以供部署。 此限制僅適用于同時上線, 而不是可由自動化解決方案管理的資源群組數目。
+您可用於上線的資源群組數目受限於 [Resource Manager 部署限制](../azure-resource-manager/resource-manager-cross-resource-group-deployment.md)。 Resource Manager 部署，而不會與更新部署混淆，每個部署的資源群組限制為5個。 為了確保上線的完整性，系統會保留其中 2 個資源群組來設定 Log Analytics 工作區、自動化帳戶和相關資源。 這讓您有 3 個資源群組可選取以供部署。 此限制僅適用于同時上線，而不是可由自動化解決方案管理的資源群組數目。
 
-您也可以使用 runbook 來進行上架。如需詳細資訊, 請參閱將[更新與變更追蹤解決方案上架到 Azure 自動化](automation-onboard-solutions.md)。
+您也可以使用 runbook 來進行上架。如需詳細資訊，請參閱將[更新與變更追蹤解決方案上架到 Azure 自動化](automation-onboard-solutions.md)。
 
 使用篩選控制項從不同訂用帳戶、位置和資源群組中選取虛擬機器。
 
@@ -64,7 +64,7 @@ Azure 自動化提供的解決方案可管理作業系統安全性更新、追�
 > [!NOTE]
 > 啟用解決方案時，只有特定區域支援連結 Log Analytics 工作區和自動化帳戶。
 >
-> 如需支援的對應配對清單, 請參閱[自動化帳戶和 Log Analytics 工作區的區域對應](how-to/region-mappings.md)。
+> 如需支援的對應配對清單，請參閱[自動化帳戶和 Log Analytics 工作區的區域對應](how-to/region-mappings.md)。
 
 針對您不想啟用的虛擬機器，取消選取它旁邊的核取方塊。 無法啟用的虛擬機器已取消選取。
 
@@ -78,7 +78,7 @@ Azure 自動化提供的解決方案可管理作業系統安全性更新、追�
 * [變更追蹤](automation-change-tracking.md)
 * [於下班時間啟動/停止 VM](automation-solution-vm-management.md)
 
-如果您決定不想再整合您的自動化帳戶與 Log Analytics 工作區, 您可以直接從 Azure 入口網站取消連結您的帳戶。 繼續之前，您必須先移除稍早所述的解決方案，否則無法進行此程序。 檢閱已匯入特定解決方案的相關文章，以了解移除解決方案所需的步驟。
+如果您決定不想再整合您的自動化帳戶與 Log Analytics 工作區，您可以直接從 Azure 入口網站取消連結您的帳戶。 繼續之前，您必須先移除稍早所述的解決方案，否則無法進行此程序。 檢閱已匯入特定解決方案的相關文章，以了解移除解決方案所需的步驟。
 
 移除這些解決方案之後，您可以執行下列步驟以將您的自動化帳戶取消連結。
 
@@ -89,7 +89,7 @@ Azure 自動化提供的解決方案可管理作業系統安全性更新、追�
 
 2. 在 [取消連結工作區] 頁面上，按一下 [取消連結工作區]。
 
-   ![取消連結工作區頁面](media/automation-onboard-solutions-from-browse/automation-unlink-workspace-blade.png).
+   ![取消連結工作區頁面](media/automation-onboard-solutions-from-browse/automation-unlink-workspace-blade.png)。
 
    您會收到提示，確認您想要繼續。
 
@@ -107,7 +107,7 @@ Azure 自動化提供的解決方案可管理作業系統安全性更新、追�
 * 啟動及停止 VM Runbook
 * 變數
 
-或者, 您也可以從 Log Analytics 工作區, 將您的工作區從您的自動化帳戶取消連結。 在您的工作區中, 選取 [**相關資源**] 下的 [**自動化帳戶**]。 在 [自動化帳戶] 頁面上, 選取 [**取消連結帳戶**]。
+或者，您也可以從 Log Analytics 工作區，將您的工作區從您的自動化帳戶取消連結。 在您的工作區中，選取 [**相關資源**] 下的 [**自動化帳戶**]。 在 [自動化帳戶] 頁面上，選取 [**取消連結帳戶**]。
 
 ## <a name="troubleshooting"></a>疑難排解
 
@@ -115,13 +115,13 @@ Azure 自動化提供的解決方案可管理作業系統安全性更新、追�
 
 ### <a name="vm-reports-to-a-different-workspace-workspacename--change-configuration-to-use-it-for-enabling"></a>VM 向不同的工作區報告：'\<workspaceName\>'。  將組態變更為啟用所需的組態
 
-**原因**︰此錯誤表示您嘗試上架的 VM 是向另一個工作區報告。
+**原因**：此錯誤表示您嘗試上架的 VM 是向另一個工作區報告。
 
 **解決方案**：按一下 [作為組態使用]，變更目標自動化帳戶和 Log Analytics 工作區。
 
 ### <a name="vm-reports-to-a-workspace-that-is-not-available-in-this-subscription"></a>VM 向此訂用帳戶中無法使用的工作區報告
 
-**原因**︰虛擬機器報告的目標工作區：
+**原因**：虛擬機器報告的目標工作區：
 
 * 位於不同訂用帳戶，或
 * 已不存在，或
@@ -137,22 +137,29 @@ Azure 自動化提供的解決方案可管理作業系統安全性更新、追�
 
 ### <a name="classic-vms-cannot-be-enabled"></a>無法啟用傳統 VM
 
-**原因**︰不支援使用傳統部署模型的 VM。
+**原因**：不支援使用傳統部署模型的 VM。
 
 **解決方案**：將虛擬機器遷移至 Resource Manager 部署模型。 若要了解如何執行這項操作，請參閱[遷移傳統部署模型資源](../virtual-machines/windows/migration-classic-resource-manager-overview.md)。
 
 ### <a name="vm-is-stopped-deallocated"></a>VM 已停止。 (已解除配置)
 
-**原因**︰虛擬機器的狀態不是 [執行中]。
+**原因**：虛擬機器的狀態不是 [執行中]。
 
 **解決方案**：VM 必須是執行中的狀態，才能將該 VM 上架到解決方案。 按一下 [啟動 VM] 的內嵌連結來啟動 VM (不用離開此頁面)。
 
+## <a name="clean-up-resources"></a>清除資源
+
+從「更新管理」中移除 VM：
+
+* 在您的 Log Analytics 工作區中，從 `MicrosoftDefaultScopeConfig-Updates` 「範圍設定」的已儲存搜尋中移除 VM。 您可以在工作區中的 [一般] 底下找到儲存的搜尋。
+* 移除 [Microsoft Monitoring Agent](../azure-monitor/learn/quick-collect-windows-computer.md#clean-up-resources) 或 [Linux 的 Log Analytics 代理程式](../azure-monitor/learn/quick-collect-linux-computer.md#clean-up-resources)。
+
 ## <a name="next-steps"></a>後續步驟
 
-現在，適用您虛擬機器的解決方案已啟用，請瀏覽更新管理的概觀文章，了解如何檢視機器的更新評估。
+現在已針對您的虛擬機器啟用解決方案，請造訪更新管理總覽一文，以瞭解如何為您的機器建立**更新部署**。
 
 > [!div class="nextstepaction"]
-> [更新管理 - 檢視更新評估](./automation-update-management.md#viewing-update-assessments)
+> [更新管理-管理 Azure Vm 的更新和修補程式](./automation-tutorial-update-management.md)
 
 有關解決方案和其使用方式的教學課程：
 

@@ -8,14 +8,14 @@ manager: femila
 ms.service: media-services
 ms.subservice: video-indexer
 ms.topic: article
-ms.date: 05/15/2019
+ms.date: 09/10/2019
 ms.author: juliako
-ms.openlocfilehash: 7233bea4a030b814a5332284a80f07a71f288dba
-ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
+ms.openlocfilehash: d6338f3840b6f8afe21f8115304ba00bba90c6ea
+ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70128208"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72372382"
 ---
 # <a name="upload-and-index-your-videos"></a>上傳影片及編製影片索引  
 
@@ -23,20 +23,21 @@ ms.locfileid: "70128208"
 
 * 從 URL 上傳您的影片 (首選)、
 * 將影片檔案當作要求本文中的位元組陣列傳送、
-* 藉由提供[資產識別碼](https://docs.microsoft.com/azure/media-services/latest/assets-concept)(僅在付費帳戶中支援) 來使用現有的 Azure 媒體服務資產。
+* 藉由提供[資產識別碼](https://docs.microsoft.com/azure/media-services/latest/assets-concept)（僅在付費帳戶中支援）來使用現有的 Azure 媒體服務資產。
 
 本文將示範如何根據 URL 使用[上傳影片](https://api-portal.videoindexer.ai/docs/services/operations/operations/Upload-video?) API 來上傳影片及編製影片索引。 文章中的程式碼範例包含加上註解的程式碼，用來說明如何上傳位元組陣列。 <br/>本文也會探討一些可以在 API 上設定的參數，以變更 API 的程序和輸出。
 
 上傳您的視訊之後，影片索引器會選擇性地對視訊進行編碼 (如文章中所討論)。 建立影片索引器帳戶時，您可以選擇免費試用帳戶 (您可取得特定的免費編製索引分鐘數) 或付費選項 (您不會受限於配額)。 使用免費試用時，影片索引器最多可為網站使用者提供 600 分鐘的免費編製索引，以及為 API 使用者提供 2400 分鐘的免費索引編製。 使用付費選項時，您建立的影片索引器帳戶會[連線到您的 Azure 訂用帳戶和 Azure 媒體服務帳戶](connect-to-azure.md)。 您需支付已編製索引的分鐘數，以及媒體帳戶相關費用。 
 
-## <a name="uploading-considerations"></a>上傳考量
+## <a name="uploading-considerations-and-limitations"></a>上傳考慮和限制
  
-- 根據 URL 上傳您的影片時 (慣用), 端點必須使用 TLS 1.2 (或更高版本) 來保護。
+- 影片的名稱不能超過80個字元。
+- 根據 URL 上傳您的影片時（慣用），端點必須使用 TLS 1.2 （或更高版本）來保護。
 - [使用 URL 的上傳大小] 選項限制為 [30GB]。
-- 要求 URL 長度限制為6144個字元, 其中查詢字串 URL 長度限制為4096個字元。
+- 要求 URL 長度限制為6144個字元，其中查詢字串 URL 長度限制為4096個字元。
 - 使用位元組陣列選項的上傳大小限制為 2 GB。
 - 位元組陣列選項在30分鐘後就會超時。
-- `videoURL`參數中提供的 URL 必須進行編碼。
+- @No__t-0 參數中提供的 URL 必須進行編碼。
 - 編制索引媒體服務資產與從 URL 編制索引的限制相同。
 - 影片索引子的最大持續時間限制為單一檔案4小時。
 
@@ -62,20 +63,20 @@ ms.locfileid: "70128208"
     
         |Name|描述|
         |---|---|
-        |ID|影片識別碼|
-        |狀態|影片狀態|  
-    - 範例: HTTPs:\//test.com/notifyme?projectName=MyProject&id=1234abcd&state=Processed
+        |id|影片識別碼|
+        |state|影片狀態|  
+    - 範例： HTTPs： \//test .com/notifyme？專案名稱 = MyProject & 識別碼 = 1234abcd & 狀態 = 已處理
 - 在影片中識別到的人員：
   - 屬性
     
       |Name|描述|
       |---|---|
-      |ID| 影片識別碼|
+      |id| 影片識別碼|
       |faceId|影片索引中出現的臉部識別碼|
       |knownPersonId|臉部模型中唯一的個人識別碼|
       |personName|人員名稱|
         
-    - 範例: HTTPs:\//test.com/notifyme?projectName=MyProject&id=1234abcd&faceid=12&knownPersonId=CCA84350-89B7-4262-861C-3CAC796542A5&personName=Inigo_Montoya 
+    - 範例： HTTPs： \//test .com/notifyme？專案名稱 = MyProject & id = 1234abcd & faceid = 12 & knownPersonId = CCA84350-89B7-4262-861C-3CAC796542A5 & personName = Inigo_Montoya 
 
 #### <a name="notes"></a>注意
 
@@ -92,9 +93,9 @@ ms.locfileid: "70128208"
 
 價格取決於選取的索引編製選項。  
 
-### <a name="priority"></a>priority
+### <a name="priority"></a>優先順序
 
-影片索引器會根據影片的優先順序來為其編製索引。 請使用 **priority** 參數來指定索引的優先順序。 下列是有效值：**Low**、**Normal** (預設值) 和 **High**。
+影片索引器會根據影片的優先順序來為其編製索引。 請使用 **priority** 參數來指定索引的優先順序。 下列是有效值：**Low (低)** 、**Normal** (一般，預設值) 和 **High (高)** 。
 
 僅有付費帳戶可支援 **Priority** 參數。
 
@@ -284,7 +285,7 @@ public class AccountContractSlim
 
 下表列出上傳作業可能會傳回的狀態碼。
 
-|status code|ErrorType (在回應本文中)|描述|
+|狀態碼|ErrorType (在回應本文中)|描述|
 |---|---|---|
 |400|VIDEO_ALREADY_IN_PROGRESS|指定帳戶中已有正在處理的相同影片。|
 |400|VIDEO_ALREADY_FAILED|不到 2 小時前，指定帳戶中有相同的影片處理失敗。 API 用戶端應該等待至少 2 小時，才能重新上傳影片。|

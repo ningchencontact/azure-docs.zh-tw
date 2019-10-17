@@ -15,12 +15,12 @@ ms.author: billmath
 search.appverid:
 - MET150
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0ce0ac4f40f3dd1bd7252689618459769d0aeb56
-ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
+ms.openlocfilehash: fcc704e7027903a1ede14c787a64c35d6b5fd9c0
+ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71203076"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72373469"
 ---
 # <a name="implement-password-hash-synchronization-with-azure-ad-connect-sync"></a>使用 Azure AD Connect 同步來實作密碼雜湊同步處理
 本文提供您所需資訊，以讓您將使用者密碼從內部部署 Active Directory 執行個體同步處理至雲端式 Azure Active Directory (Azure AD) 執行個體。
@@ -93,7 +93,7 @@ Active Directory 網域服務是以使用者實際密碼的雜湊值表示法格
 
 如果有同步處理的使用者只與 Azure AD 整合式服務互動，而且也必須符合密碼到期原則，您 Azure AD 可以藉由啟用*EnforceCloudPasswordPolicyForPasswordSyncedUsers*功能。
 
-停用 *EnforceCloudPasswordPolicyForPasswordSyncedUsers*  時（這是預設設定），Azure AD Connect 將同步處理使用者的 PasswordPolicies 屬性設定為 "DisablePasswordExpiration"。 這會在每次同步處理使用者的密碼時完成，並指示 Azure AD 忽略該使用者的雲端密碼到期原則。 您可以使用 Azure AD PowerShell 模組搭配下列命令來檢查屬性的值：
+停用*EnforceCloudPasswordPolicyForPasswordSyncedUsers*時（這是預設設定），Azure AD Connect 將同步處理使用者的 PasswordPolicies 屬性設定為 "DisablePasswordExpiration"。 這會在每次同步處理使用者的密碼時完成，並指示 Azure AD 忽略該使用者的雲端密碼到期原則。 您可以使用 Azure AD PowerShell 模組搭配下列命令來檢查屬性的值：
 
 `(Get-AzureADUser -objectID <User Object ID>).passwordpolicies`
 
@@ -102,15 +102,15 @@ Active Directory 網域服務是以使用者實際密碼的雜湊值表示法格
 
 `Set-MsolDirSyncFeature -Feature EnforceCloudPasswordPolicyForPasswordSyncedUsers  $true`
 
-啟用之後，Azure AD 不會移至每個已同步處理的`DisablePasswordExpiration`使用者，以從 PasswordPolicies 屬性中移除值。 相反地，當每位使用者`None`下次在內部部署 AD 中變更其密碼時，其值會設定為。  
+啟用之後，Azure AD 不會移至每個已同步處理的使用者，從 PasswordPolicies 屬性中移除 `DisablePasswordExpiration` 值。 相反地，當每位使用者下次在內部部署 AD 中變更其密碼時，其值會設定為 `None`。  
 
-建議您先啟用 EnforceCloudPasswordPolicyForPasswordSyncedUsers，再啟用密碼雜湊同步處理，讓密碼雜湊的初始同步處理不會將`DisablePasswordExpiration`值新增至使用者的 PasswordPolicies 屬性。
+建議您先啟用 EnforceCloudPasswordPolicyForPasswordSyncedUsers，再啟用密碼雜湊同步處理，讓密碼雜湊的初始同步處理不會在使用者的 PasswordPolicies 屬性中加上 `DisablePasswordExpiration` 的值。
 
 預設 Azure AD 密碼原則會要求使用者每90天變更密碼一次。 如果您在 AD 中的原則也是90天，則這兩個原則應相符。 不過，如果 AD 原則不是90天，您可以使用 Set-msolpasswordpolicy PowerShell 命令，將 Azure AD 密碼原則更新為相符。
 
 Azure AD 針對每個已註冊的網域支援不同的密碼到期原則。
 
-一點如果已同步處理的帳戶在 Azure AD 中需要有未過期的密碼，您必須在 Azure AD 中`DisablePasswordExpiration`明確地將此值新增至使用者物件的 PasswordPolicies 屬性。  您可以藉由執行下列命令來完成此動作。
+警告：如果已同步處理的帳戶在 Azure AD 中需要有未過期的密碼，您必須明確地將 `DisablePasswordExpiration` 值新增至 Azure AD 中 user 物件的 PasswordPolicies 屬性。  您可以藉由執行下列命令來完成此動作。
 
 `Set-AzureADUser -ObjectID <User Object ID> -PasswordPolicies "DisablePasswordExpiration"`
 
@@ -123,7 +123,7 @@ Azure AD 針對每個已註冊的網域支援不同的密碼到期原則。
   
 暫時密碼功能有助於確保認證的擁有權轉移會在第一次使用時完成，以將多個個人知道該認證的持續時間減到最短。
 
-若要支援同步處理使用者 Azure AD 中的暫時密碼，您可以啟用*ForcePasswordResetOnLogonFeature*功能，方法是在 Azure AD Connect 伺服器上執行下列命令， <AAD Connector Name>並以連接器名稱取代適用于您的環境：
+若要支援同步處理使用者 Azure AD 中的暫時密碼，您可以啟用*ForcePasswordResetOnLogonFeature*功能，方法是在 Azure AD Connect 伺服器上執行下列命令，以特定的連接器名稱取代 <AAD Connector Name>您的環境：
 
 `Set-ADSyncAADCompanyFeature -ConnectorName "<AAD Connector name>" -ForcePasswordResetOnLogonFeature $true`
 
@@ -131,7 +131,7 @@ Azure AD 針對每個已註冊的網域支援不同的密碼到期原則。
 
 `(Get-ADSyncConnector | where{$_.ListName -eq "Windows Azure Active Directory (Microsoft)"}).Name`
 
-一點強制使用者在下次登入時變更其密碼時，需要同時變更密碼。  AD Connect 不會單獨收取「強制密碼變更」旗標，它是在密碼雜湊同步處理期間偵測到的密碼變更補充。
+警告：強制使用者在下次登入時變更其密碼時，需要同時變更密碼。  AD Connect 不會單獨收取「強制密碼變更」旗標，它是在密碼雜湊同步處理期間偵測到的密碼變更補充。
 
 > [!CAUTION]
 > 如果您未在 Azure AD 中啟用自助式密碼重設（SSPR），使用者在 Azure AD 重設其密碼時將會有令人混淆的體驗，然後嘗試使用新密碼登入 Active Directory，因為新密碼在中無效 Active Directory. 只有在租使用者上啟用 SSPR 和密碼回寫時，您才應該使用這項功能。
@@ -229,6 +229,6 @@ Azure AD 針對每個已註冊的網域支援不同的密碼到期原則。
 如果您在進行密碼雜湊同步處理時發生問題，請參閱[針對密碼雜湊同步處理進行疑難排解](tshoot-connect-password-hash-synchronization.md)。
 
 ## <a name="next-steps"></a>後續步驟
-* [Azure AD Connect 同步：自訂同步處理選項](how-to-connect-sync-whatis.md)
+* [Azure AD Connect 同步處理：自訂同步處理選項](how-to-connect-sync-whatis.md)
 * [整合內部部署身分識別與 Azure Active Directory](whatis-hybrid-identity.md)
 * [取得從 ADFS 遷移至密碼雜湊同步處理的逐步部署方案](https://aka.ms/authenticationDeploymentPlan)

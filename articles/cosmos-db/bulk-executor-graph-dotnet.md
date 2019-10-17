@@ -4,16 +4,16 @@ description: 了解如何使用大量執行程式程式庫將圖形資料大量�
 author: luisbosquez
 ms.service: cosmos-db
 ms.subservice: cosmosdb-graph
-ms.topic: tutorial
+ms.topic: conceptual
 ms.date: 05/28/2019
 ms.author: lbosq
 ms.reviewer: sngun
-ms.openlocfilehash: 51bd14c536e46291c8720e6c22e2e03a30243ddf
-ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
-ms.translationtype: HT
+ms.openlocfilehash: 35f42f3e222767d9d201d9948581151ae3cb5127
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71827279"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72327184"
 ---
 # <a name="using-the-graph-bulk-executor-net-library-to-perform-bulk-operations-in-azure-cosmos-db-gremlin-api"></a>在 Azure Cosmos DB Gremlin API 中使用圖形大量執行程式 .NET 程式庫執行大量作業
 
@@ -128,7 +128,7 @@ git clone https://github.com/Azure-Samples/azure-cosmosdb-graph-bulkexecutor-dot
 
 此存放庫包含使用下列檔案的 GraphBulkExecutor 範例：
 
-檔案|說明
+檔案|描述
 ---|---
 `App.config`|應用程式和資料庫特有的參數指定於此處。 此檔案應先修改為連線至目的地資料庫和集合。
 `Program.cs`| 此檔案包含建立 `DocumentClient` 集合、處理清除項目和傳送大量執行程式要求時所依據的邏輯。
@@ -136,11 +136,11 @@ git clone https://github.com/Azure-Samples/azure-cosmosdb-graph-bulkexecutor-dot
 
 在 `App.config` 檔案中，可提供的組態值如下：
 
-設定|說明
+設定|描述
 ---|---
 `EndPointUrl`|這是 **您的 .NET SDK 端點** (位於您 Azure Cosmos DB Gremlin API 資料庫帳戶中的 [概觀] 刀鋒視窗中)。 其格式為 `https://your-graph-database-account.documents.azure.com:443/`
 `AuthorizationKey`|這是您的 Azure Cosmos DB 帳戶下所列的主要或次要金鑰。 請深入了解[保護 Azure Cosmos DB 資料的存取](https://docs.microsoft.com/azure/cosmos-db/secure-access-to-data#master-keys)
-`DatabaseName`、`CollectionName`|這些是**目標資料庫和集合名稱**。 當 `ShouldCleanupOnStart` 設定為 `true` 時，這些值將連同 `CollectionThroughput` 用來卸除資料庫和集合，並建立新的資料庫和集合。 同樣地，如果 `ShouldCleanupOnFinish` 設定為 `true`，則會在擷取結束時用這些值來刪除資料庫。 請注意，目標集合必須是**無限制集合**。
+`DatabaseName`，`CollectionName`|這些是**目標資料庫和集合名稱**。 當 `ShouldCleanupOnStart` 設定為 `true` 時，這些值將連同 `CollectionThroughput` 用來卸除資料庫和集合，並建立新的資料庫和集合。 同樣地，如果 `ShouldCleanupOnFinish` 設定為 `true`，則會在擷取結束時用這些值來刪除資料庫。 請注意，目標集合必須是**無限制集合**。
 `CollectionThroughput`|如果 `ShouldCleanupOnStart` 選項設定為 `true`，則會使用此值建立新的集合。
 `ShouldCleanupOnStart`|這將會在程式執行前卸除資料庫帳戶和集合，然後使用 `DatabaseName`、`CollectionName` 和 `CollectionThroughput` 值建立新的帳戶和集合。
 `ShouldCleanupOnFinish`|這將會在程式執行後，卸除具有指定 `DatabaseName` 和 `CollectionName` 的資料庫帳戶和集合。

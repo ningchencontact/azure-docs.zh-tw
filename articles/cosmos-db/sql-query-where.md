@@ -6,16 +6,16 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 06/10/2019
 ms.author: mjbrown
-ms.openlocfilehash: 362024868de269ed64a440a25e8c19c5b68bef80
-ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
+ms.openlocfilehash: cd5643d8be06afcd43c5bfe38d6f5e9caa6f906e
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/15/2019
-ms.locfileid: "71003472"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72326631"
 ---
-# <a name="where-clause"></a>WHERE 子句
+# <a name="where-clause-in-azure-cosmos-db"></a>Azure Cosmos DB 中的 WHERE 子句
 
-選擇性的 WHERE 子句（`WHERE <filter_condition>`）指定來源 JSON 專案必須滿足的條件，查詢才能將其包含在結果中。 JSON 專案必須評估要視為結果的指定`true`條件。 索引層使用 WHERE 子句來判斷可為結果一部分之來源專案的最小子集。
+選擇性的 WHERE 子句（`WHERE <filter_condition>`）指定來源 JSON 專案必須滿足的條件，查詢才能將其包含在結果中。 JSON 專案必須將指定的條件評估為 `true`，才能視為結果。 索引層使用 WHERE 子句來判斷可為結果一部分之來源專案的最小子集。
   
 ## <a name="syntax"></a>語法
   
@@ -42,7 +42,7 @@ WHERE <filter_condition>
 
 ## <a name="examples"></a>範例
 
-下列查詢會要求包含`id`屬性的專案，其值為。 `AndersenFamily` 它會排除沒有`id`屬性或值不相符`AndersenFamily`的任何專案。
+下列查詢會要求包含 @no__t 0 屬性的專案，其值為 `AndersenFamily`。 它會排除沒有 @no__t 0 屬性或其值不符合 `AndersenFamily` 的任何專案。
 
 ```sql
     SELECT f.address
@@ -104,7 +104,7 @@ WHERE <filter_condition>
     WHERE (-c.grade = -5)  -- matching grades == 5
 ```
 
-您也可以在查詢中使用屬性參考。 例如， `SELECT * FROM Families f WHERE f.isRegistered`會傳回包含屬性`isRegistered`且值等於`true`的 JSON 專案。 任何其他`false`值（例如、 `null`、 `Undefined`、 `<number>` `<string>`、、或`<array>`）都會將專案從結果中排除。 `<object>` 
+您也可以在查詢中使用屬性參考。 例如，`SELECT * FROM Families f WHERE f.isRegistered` 會傳回包含屬性 `isRegistered` 的 JSON 專案，其值等於 `true`。 任何其他值（例如 `false`、`null`、`Undefined`、`<number>`、`<string>`、`<object>` 或 `<array>`）都會將專案從結果中排除。 
 
 ## <a name="next-steps"></a>後續步驟
 

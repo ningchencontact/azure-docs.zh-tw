@@ -11,14 +11,14 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 07/11/2019
+ms.date: 10/15/2019
 ms.author: magoedte
-ms.openlocfilehash: 810ecbd4421eec8e8e809b429270601a0c94d623
-ms.sourcegitcommit: 15e3bfbde9d0d7ad00b5d186867ec933c60cebe6
+ms.openlocfilehash: 9c5fb38e66cb783b02d314d55cf0d0510523b6a7
+ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/03/2019
-ms.locfileid: "71840906"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72375987"
 ---
 # <a name="manage-log-analytics-workspace-using-azure-resource-manager-templates"></a>使用 Azure Resource Manager 範本管理 Log Analytics 工作區
 
@@ -44,12 +44,12 @@ ms.locfileid: "71840906"
 
 下表列出此範例中使用的資源 API 版本。
 
-| Resource | 資源類型 | API 版本 |
+| 資源 | 資源類型 | API 版本 |
 |:---|:---|:---|
-| 工作區   | 工作區    | 2017-03-15-preview |
-| 搜尋      | savedSearches | 2015-03-20 |
+| 工作區   | workspaces    | 2017-03-15-preview |
+| Search      | savedSearches | 2015-03-20 |
 | 資料來源 | datasources   | 2015-11-01-preview |
-| 方案    | 解決方案     | 2015-11-01-preview |
+| 方案    | solutions     | 2015-11-01-preview |
 
 ## <a name="create-a-log-analytics-workspace"></a>建立 Log Analytics 工作區
 
@@ -243,7 +243,7 @@ ms.locfileid: "71840906"
     "customlogName": {
     "type": "string",
     "metadata": {
-      "description": "custom log name"
+      "description": "The custom log name"
       }
     },
     "variables": {
@@ -419,7 +419,7 @@ ms.locfileid: "71840906"
           "type": "dataSources",
           "name": "[concat(parameters('workspaceName'), parameters('customlogName'))]",
           "dependsOn": [
-            "[concat('Microsoft.OperationalInsights/workspaces/', parameters('workspaceName'))]"
+            "[concat('Microsoft.OperationalInsights/workspaces/', '/', parameters('workspaceName'))]"
           ],
           "kind": "CustomLog",
           "properties": {
@@ -462,7 +462,7 @@ ms.locfileid: "71840906"
               }
             ]
           }
-        }
+        },
         {
           "apiVersion": "2015-11-01-preview",
           "type": "datasources",
@@ -592,6 +592,7 @@ ms.locfileid: "71840906"
 }
 
 ```
+
 ### <a name="deploying-the-sample-template"></a>部署範例範本
 
 部署範例範本：

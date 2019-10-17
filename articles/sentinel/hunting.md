@@ -16,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/10/2019
 ms.author: rkarlin
-ms.openlocfilehash: b00f60394a24008ca39f3ac7b378b1936c46ef76
-ms.sourcegitcommit: 992e070a9f10bf43333c66a608428fcf9bddc130
+ms.openlocfilehash: eca3a969d56d9b016afbf2d104aaf951cdbf6360
+ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71240604"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72372415"
 ---
 # <a name="hunt-for-threats-with-in-azure-sentinel"></a>在 Azure Sentinel 中尋找威脅
 
@@ -35,20 +35,20 @@ ms.locfileid: "71240604"
 
 有了 Azure Sentinel 搜尋，您就可以利用下列功能：
 
-- 內建查詢：為了協助您開始，起始頁提供預先載入的查詢範例，旨在協助您開始使用，並讓您熟悉資料表和查詢語言。 這些內建的搜尋查詢是由 Microsoft 資訊安全研究人員連續開發，加入新的查詢，並微調現有的查詢，以提供您尋找新偵測的進入點，並找出開始搜尋的位置。新攻擊的開端。 
+- 內建查詢：為了讓您開始使用，起始頁會提供預先載入的查詢範例，旨在協助您開始使用，並熟悉資料表和查詢語言。 這些內建的搜尋查詢是由 Microsoft 資訊安全研究人員連續開發，加入新的查詢，並微調現有的查詢，以提供您尋找新偵測的進入點，並找出開始搜尋的位置。新攻擊的開端。 
 
-- 使用 IntelliSense 的強大查詢語言：以查詢語言為基礎，可讓您更有彈性地進入下一個層級。
+- IntelliSense 的強大查詢語言：建置於查詢語言之上，讓您有彈性地進入下一個層級。
 
-- 建立您自己的書簽：在搜尋過程中，您可能會遇到看起來不尋常或可疑的相符或發現、儀表板或活動。 若要標記這些專案，讓您在未來可以返回它們，請使用書簽功能。 書簽可讓您儲存專案，以供稍後用來建立調查的事件。 如需書簽的詳細資訊，請參閱[在搜尋中使用書簽](hunting.md)。
+- 建立您自己的書簽：在搜尋過程中，您可能會遇到看起來不尋常或可疑的相符專案或發現、儀表板或活動。 若要標記這些專案，讓您在未來可以返回它們，請使用書簽功能。 書簽可讓您儲存專案，以供稍後用來建立調查的事件。 如需書簽的詳細資訊，請參閱[在搜尋中使用書簽](hunting.md)。
 - 使用筆記本自動進行調查：筆記本是您可以建立的逐步操作手冊，可讓您逐步完成調查和搜尋的步驟。  筆記本會將所有搜尋步驟封裝在可重複使用的腳本中，以與組織中的其他人共用。 
 - 查詢已儲存的資料：您可以在資料表中存取資料，以供您查詢。 例如，您可以查詢進程建立、DNS 事件和許多其他事件種類。
 
-- 連結至 [社區]：利用更大的社區功能來尋找其他查詢和資料來源。
+- 社區連結：利用更大的社區功能來尋找額外的查詢和資料來源。
  
 ## <a name="get-started-hunting"></a>開始搜尋
 
 1. 在 Azure Sentinel 入口網站中，按一下 [**搜尋**]。
-  ![Azure Sentinel 開始搜尋](media/tutorial-hunting/hunting-start.png)
+  @no__t 0Azure Sentinel 開始搜尋 @ no__t-1
 
 2. 當您開啟 [**搜尋**] 頁面時，所有的搜尋查詢都會顯示在單一資料表中。 此表格列出由 Microsoft 的安全性分析師和您所建立或修改的任何額外查詢所撰寫的所有查詢。 每個查詢都會提供其 digger 的描述，以及其執行的資料種類。 這些範本會依其各種策略分組-右邊的圖示會將威脅類型分類，例如初始存取、持續性和外泄。 您可以使用任何欄位來篩選這些搜尋查詢範本。 您可以將任何查詢儲存至我的最愛。 藉由將查詢儲存至 [我的最愛]，每次存取**搜尋**頁面時，查詢就會自動執行。 您可以建立自己的搜尋查詢，或複製和自訂現有的搜尋查詢範本。 
  
@@ -68,7 +68,7 @@ ms.locfileid: "71240604"
 
 ## <a name="query-language"></a>查詢語言 
 
-Azure Sentinel 中的搜尋是以 Azure Log Analytics 查詢語言為基礎。 如需查詢語言和支援之運算子的詳細資訊，請參閱[查詢語言參考](https://docs.loganalytics.io/docs/Language-Reference/)。
+Azure Sentinel 中的搜尋是以 Kusto 查詢語言為基礎。 如需查詢語言和支援之運算子的詳細資訊，請參閱[查詢語言參考](https://docs.loganalytics.io/docs/Language-Reference/)。
 
 ## <a name="public-hunting-query-github-repository"></a>公開搜尋查詢 GitHub 存放庫
 
@@ -78,7 +78,7 @@ Azure Sentinel 中的搜尋是以 Azure Log Analytics 查詢語言為基礎。 �
 
 ## <a name="sample-query"></a>範例查詢
 
-一般查詢會以資料表名稱開頭，後面接著一系列以分隔\|的運算子。
+一般查詢會以資料表名稱開頭，後面接著一系列以 \| 分隔的運算子。
 
 在上述範例中，請從 [資料表名稱] SecurityEvent 開始，並視需要新增管線元素。
 

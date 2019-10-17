@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 10/01/2019
 ms.author: magoedte
 ms.subservice: ''
-ms.openlocfilehash: e1875ebdb62cfc6d606465b863215513aaa47c02
-ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
+ms.openlocfilehash: 5b6ec913226f44a47bfa5c734e0c20ef3a87ca67
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/05/2019
-ms.locfileid: "71972911"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72329419"
 ---
 # <a name="manage-usage-and-costs-with-azure-monitor-logs"></a>使用 Azure 監視器記錄來管理使用量和成本
 
@@ -30,9 +30,9 @@ Azure 監視器記錄是設計用來調整和支援每天從企業中的任何�
 
 在本文中，我們將探討如何主動監視內嵌資料量和儲存體成長，並定義限制以控制這些相關成本。 
 
-## <a name="pricing-model"></a>定價模式
+## <a name="pricing-model"></a>計價模式
 
-Log Analytics 的預設定價是以資料量內嵌為基礎的隨**用隨付**模型，並選擇性地保留較長的資料保留。 每個 Log Analytics 工作區都是以個別服務的方式計費，並會提供給您的 Azure 訂用帳戶帳單。 視下列因素而定，資料內嵌量可能會相當可觀： 
+Log Analytics 的預設定價是以資料量內嵌為基礎的隨**用隨付**模型，並選擇性地保留較長的資料保留。 資料量會以要儲存的資料大小來測量。 每個 Log Analytics 工作區都是以個別服務的方式計費，並會提供給您的 Azure 訂用帳戶帳單。 視下列因素而定，資料內嵌量可能會相當可觀： 
 
   - 已啟用的管理解決方案數目及其設定（例如 
   - 受監視的 Vm 數目
@@ -50,7 +50,7 @@ Log Analytics 的預設定價是以資料量內嵌為基礎的隨**用隨付**�
 
 如果您目前使用 Azure 監視器記錄，很容易就能根據最近的使用模式來瞭解可能的成本。 若要這麼做，請使用**Log Analytics 使用量和估計成本**來審查和分析資料使用量。 這能顯示每個解決方案所收集的資料量、所保留的資料量，以及根據所擷取的資料量及超出所包含量之任何額外保留資料量所進行的成本評估。
 
-![使用方式和估計成本](media/manage-cost-storage/usage-estimated-cost-dashboard-01.png)
+![使用量和估計成本](media/manage-cost-storage/usage-estimated-cost-dashboard-01.png)
 
 若要更詳細地探索您的資料，請在 [使用量和估計成本] 頁面上，按一下位於任一圖表右上方的圖示。 現在您可以使用此查詢來探索更詳細的使用量。  
 
@@ -95,17 +95,17 @@ Azure 在[Azure 成本管理 + 計費](https://docs.microsoft.com/azure/cost-man
 
 為協助您開始使用，以下是警示的建議設定：
 
-- 目標:選取您的 Log Analytics 資源
+- 目標：選取您的 Log Analytics 資源
 - 準則： 
    - 訊號名稱：自訂記錄搜尋
    - 搜尋查詢：Operation | where Detail has 'OverQuota'
    - 依據：結果數目
    - 條件：大於
    - 閾值：0
-   - 期間：5 (分鐘)
-   - 頻率：5 (分鐘)
+   - 週期：5 (分鐘)
+   - 頻率︰5 (分鐘)
 - 警示規則名稱：已達到每日資料限制
-- 嚴重性：警告 (嚴重性 1)
+- 嚴重性：警告 (Sev 1)
 
 一旦定義警示且達到限制後，警示就會觸發，並執行動作群組中定義的回應。 其可以透過電子郵件和文字簡訊通知您的小組，或使用 Webhook、自動化 Runbook 或[與外部 ITSM 方案整合](itsmc-overview.md#create-itsm-work-items-from-azure-alerts)來自動採取動作。 
 
@@ -123,13 +123,13 @@ Azure 在[Azure 成本管理 + 計費](https://docs.microsoft.com/azure/cost-man
 
     ![變更工作區資料保留設定](media/manage-cost-storage/manage-cost-change-retention-01.png)
     
-您也可以使用 `retentionInDays` 參數，透過[ARM 來設定](https://docs.microsoft.com/azure/azure-monitor/platform/template-workspace-configuration#configure-a-log-analytics-workspace)保留期。 此外，如果您將資料保留期設定為30天，您可以使用 `immediatePurgeDataOn30Days` 參數來觸發立即清除較舊的資料，這可能適用于合規性相關案例。 此功能只會透過 ARM 公開。 
+您也可以使用 `retentionInDays` 參數，透過[Azure Resource Manager 來設定](https://docs.microsoft.com/azure/azure-monitor/platform/template-workspace-configuration#configure-a-log-analytics-workspace)保留期。 此外，如果您將資料保留期設定為30天，您可以使用 `immediatePurgeDataOn30Days` 參數來觸發立即清除較舊的資料，這可能適用于合規性相關案例。 此功能只會透過 Azure Resource Manager 公開。 
 
 這兩種資料類型--`Usage` 和 @no__t--預設會保留90天，而此90日保留期則免費。 這些資料類型也是資料內嵌費用的免費。 
 
 ### <a name="retention-by-data-type"></a>依資料類型的保留期
 
-您也可以為個別資料類型指定不同的保留設定。 每種資料類型都是工作區的子資源。 例如，SecurityEvent 資料表可以在[Azure Resource Manager （ARM）](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview)中定址，如下所示：
+您也可以為個別資料類型指定不同的保留設定。 每種資料類型都是工作區的子資源。 例如，SecurityEvent 資料表可以在[Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview)中定址，如下所示：
 
 ```
 /subscriptions/00000000-0000-0000-0000-00000000000/resourceGroups/MyResourceGroupName/providers/Microsoft.OperationalInsights/workspaces/MyWorkspaceName/Tables/SecurityEvent
@@ -161,7 +161,7 @@ Azure 在[Azure 成本管理 + 計費](https://docs.microsoft.com/azure/cost-man
 
 @No__t-0 和 @no__t 1 資料類型無法使用自訂保留來設定。 它們會採用預設工作區保留期或90天的最大值。 
 
-OSS 工具[ARMclient](https://github.com/projectkudu/ARMClient)是直接連接到 ARM 以設定保留資料類型的絕佳工具。  深入瞭解[David Ebbo](http://blog.davidebbo.com/2015/01/azure-resource-manager-client.html)和[Daniel Bowbyes](https://blog.bowbyes.co.nz/2016/11/02/using-armclient-to-directly-access-azure-arm-rest-apis-and-list-arm-policy-details/)的文章 ARMclient。  以下是使用 ARMClient 的範例，將 SecurityEvent 資料設定為730天保留期：
+[OSS] 工具[ARMclient](https://github.com/projectkudu/ARMClient)是直接連接到 Azure Resource Manager 以根據資料類型來設定保留的絕佳工具。  深入瞭解[David Ebbo](http://blog.davidebbo.com/2015/01/azure-resource-manager-client.html)和[Daniel Bowbyes](https://blog.bowbyes.co.nz/2016/11/02/using-armclient-to-directly-access-azure-arm-rest-apis-and-list-arm-policy-details/)的文章 ARMclient。  以下是使用 ARMClient 的範例，將 SecurityEvent 資料設定為730天保留期：
 
 ```
 armclient PUT /subscriptions/00000000-0000-0000-0000-00000000000/resourceGroups/MyResourceGroupName/providers/Microsoft.OperationalInsights/workspaces/MyWorkspaceName/Tables/SecurityEvent?api-version=2017-04-26-preview "{properties: {retentionInDays: 730}}"
@@ -172,7 +172,7 @@ armclient PUT /subscriptions/00000000-0000-0000-0000-00000000000/resourceGroups/
 
 ## <a name="legacy-pricing-tiers"></a>舊版定價層
 
-在2018年4月2日之前擁有 Log Analytics 工作區或 Application Insights 資源的訂用帳戶，或連結到在2019年2月1日之前啟動的 Enterprise 合約，將可繼續擁有使用舊版定價層的存取權：**免費**、**獨立（每 GB）** 和**每個節點（OMS）** 。  免費定價層中的工作區會將每日資料內嵌限制為 500 MB （但 Azure 資訊安全中心所收集的安全性資料類型除外），而且資料保留期僅限7天。 免費定價層僅供評估之用。 獨立或每個節點定價層中的工作區，具有最多2年的使用者可設定保留期。 
+在2018年4月2日之前擁有 Log Analytics 工作區或 Application Insights 資源的訂用帳戶，或連結到在2019年2月1日之前啟動的 Enterprise 合約，將可繼續存取使用舊版定價層：**免費**、**獨立（每 GB）** 和**每個節點（OMS）** 。  免費定價層中的工作區會將每日資料內嵌限制為 500 MB （但 Azure 資訊安全中心所收集的安全性資料類型除外），而且資料保留期僅限7天。 免費定價層僅供評估之用。 獨立或每個節點定價層中的工作區，具有最多2年的使用者可設定保留期。 
 
 在2016年4月之前建立的工作區也可以存取原始**標準**和**Premium**定價層，分別保留30和365天的固定資料。 無法在**標準** **或高階**定價層中建立新的工作區，而且如果工作區移出這些層級，就無法將其移回。 
 
@@ -193,7 +193,7 @@ armclient PUT /subscriptions/00000000-0000-0000-0000-00000000000/resourceGroups/
 3. 在 [定價層] 下方選取定價層，然後按一下 [選取]。  
     ![選取的定價方案](media/manage-cost-storage/workspace-pricing-tier-info.png)
 
-您也可以使用 `sku` 參數（ARM 範本中的 `pricingTier`），透過[ARM 設定定價層](https://docs.microsoft.com/azure/azure-monitor/platform/template-workspace-configuration#configure-a-log-analytics-workspace)。 
+您也可以使用 `sku` 參數（ARM 範本中的 `pricingTier`），透過[Azure Resource Manager 來設定定價層](https://docs.microsoft.com/azure/azure-monitor/platform/template-workspace-configuration#configure-a-log-analytics-workspace)。 
 
 ## <a name="troubleshooting-why-log-analytics-is-no-longer-collecting-data"></a>針對 Log Analytics 為什麼不再收集資料的問題進行疑難排解
 
@@ -281,7 +281,7 @@ Usage | where TimeGenerated > startofday(ago(31d))| where IsBillable == true
 | summarize TotalVolumeGB = sum(Quantity) / 1024 by bin(TimeGenerated, 1d), Solution| render barchart
 ```
 
-### <a name="data-volume-by-computer"></a>資料量 (依電腦)
+### <a name="data-volume-by-computer"></a>資料量（依電腦）
 
 若要查看每部電腦所內嵌之可計費事件的**大小**，請使用 `_BilledSize`[屬性](log-standard-properties.md#_billedsize)，它會提供以位元組為單位的大小：
 
@@ -292,7 +292,7 @@ union withsource = tt *
 | summarize Bytes=sum(_BilledSize) by  computerName | sort by Bytes nulls last
 ```
 
-[屬性](log-standard-properties.md#_isbillable)會指定內嵌資料是否會產生費用。`_IsBillable`
+@No__t-0[屬性](log-standard-properties.md#_isbillable)會指定內嵌資料是否會產生費用。
 
 若要查看每部電腦內嵌的可**計費**事件計數，請使用 
 
@@ -367,7 +367,7 @@ union withsource = tt *
 | 安全性事件            | 選取[一般或最小安全性事件](https://docs.microsoft.com/azure/security-center/security-center-enable-data-collection#data-collection-tier) <br> 變更安全性稽核原則為只收集所需事件。 特別檢閱下列原則是否需要收集事件： <br> - [a稽核篩選平台](https://technet.microsoft.com/library/dd772749(WS.10).aspx) <br> - [稽核登錄](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd941614(v%3dws.10))<br> - [稽核檔案系統](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd772661(v%3dws.10))<br> - [稽核核心物件](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd941615(v%3dws.10))<br> - [稽核控制代碼操作](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd772626(v%3dws.10))<br> - 稽核抽取式存放裝置 |
 | 效能計數器       | 變更[效能計數器組態](data-sources-performance-counters.md)以： <br> - 減少收集頻率 <br> - 減少效能計數器的數目 |
 | 事件記錄                 | 變更[事件記錄組態](data-sources-windows-events.md)以： <br> - 減少所收集的事件記錄數目 <br> - 只收集必要的事件層級。 例如，不要收集「資訊」層級事件 |
-| Syslog                     | 變更 [Syslog 組態](data-sources-syslog.md)以： <br> - 減少所收集的設施數目 <br> - 只收集必要的事件層級。 例如，不要收集「資訊」和「偵錯」層級事件 |
+| syslog                     | 變更 [Syslog 組態](data-sources-syslog.md)以： <br> - 減少所收集的設施數目 <br> - 只收集必要的事件層級。 例如，不要收集「資訊」和「偵錯」層級事件 |
 | AzureDiagnostics           | 變更資源記錄集合： <br> - 減少會將記錄傳送至 Log Analytics 的資源數目 <br> - 只收集必要的記錄 |
 | 電腦中不需要解決方案的方案資料 | 使用[方案目標](../insights/solution-targeting.md)，只從必要的電腦群組收集資料。 |
 

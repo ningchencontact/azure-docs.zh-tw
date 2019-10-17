@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: automation
 ms.custom: mvc
 manager: carmonm
-ms.openlocfilehash: 6b8693768e08f7ed80765015efa5af1a73b850c7
-ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
+ms.openlocfilehash: 0069d2e8ccd3b4f65ced8b6e18ce568689f81e14
+ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/29/2019
-ms.locfileid: "67476612"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72374414"
 ---
 # <a name="onboard-update-management-change-tracking-and-inventory-solutions-from-an-azure-virtual-machine"></a>從 Azure 虛擬機器讓更新管理、變更追蹤和清查解決方案上線
 
@@ -26,22 +26,22 @@ Azure 自動化提供的解決方案可協助您管理作業系統安全性更�
 
 ## <a name="enable-the-solutions"></a>啟用解決方案
 
-移至現有的虛擬機器。 在 [作業]  底下，選取 [更新管理]  、[清查]  或 [變更追蹤]  。 虛擬機器可以位於任何區域，無論您的自動化帳戶的位置。 當上架的解決方案，從 VM 必須`Microsoft.OperationalInsights/workspaces/read`來判斷 VM 是否已上的架到工作區的權限。 若要深入了解一般情況下所需的其他權限，請參閱[讓機器上線所需的權限](automation-role-based-access-control.md#onboarding)。
+移至現有的虛擬機器。 在 [作業] 底下，選取 [更新管理]、[清查] 或 [變更追蹤]。 無論您的自動化帳戶位置為何，虛擬機器都可以存在於任何區域中。 當您從 VM 上架解決方案時，您必須具有 `Microsoft.OperationalInsights/workspaces/read` 許可權，才能判斷 VM 是否上架至工作區。 若要瞭解一般所需的其他許可權，請參閱將[機器上架所需的許可權](automation-role-based-access-control.md#onboarding)。
 
-若只要啟用 VM 的解決方案，請確定您已選取 [對此 VM 啟用]  。 若要在解決方案中將多部機器上線，請選取 [對此訂用帳戶中的 VM 啟用]  ，然後選取 [按一下以選取要啟用的機器]  。 若要了解如何讓多部機器一次上線，請參閱[讓更新管理、變更追蹤和清查解決方案上線](automation-onboard-solutions-from-automation-account.md)。
+若只要啟用 VM 的解決方案，請確定您已選取 [對此 VM 啟用]。 若要在解決方案中將多部機器上線，請選取 [對此訂用帳戶中的 VM 啟用]，然後選取 [按一下以選取要啟用的機器]。 若要了解如何讓多部機器一次上線，請參閱[讓更新管理、變更追蹤和清查解決方案上線](automation-onboard-solutions-from-automation-account.md)。
 
-選取 Azure Log Analytics 工作區與自動化帳戶，然後選取 [啟用]  來啟用解決方案。 啟用解決方案最多需要 15 分鐘。
+選取 Azure Log Analytics 工作區與自動化帳戶，然後選取 [啟用] 來啟用解決方案。 啟用解決方案最多需要 15 分鐘。
 
 ![讓更新管理解決方案上線](media/automation-onboard-solutions-from-vm/onboard-solution.png)
 
-移至其他解決方案，然後選取 [啟用]  。 因為這些解決方案會使用相同的工作區和自動化帳戶先前啟用的解決方案，就會停用的 Log Analytics 工作區和自動化帳戶下拉式清單。
+移至其他解決方案，然後選取 [啟用]。 [Log Analytics 工作區] 和 [自動化帳戶] 下拉式清單已停用，因為這些解決方案使用的工作區和自動化帳戶與先前啟用的解決方案相同。
 
 > [!NOTE]
-> [變更追蹤]  和 [清查]  使用相同的解決方案。 當其中的某個解決方案啟用時，另一個也會啟用。
+> [變更追蹤] 和 [清查] 使用相同的解決方案。 當其中的某個解決方案啟用時，另一個也會啟用。
 
 ## <a name="scope-configuration"></a>範圍設定
 
-每個解決方案都會使用工作區中的範圍設定，來鎖定會取得解決方案的電腦。 範圍設定是一或多個已儲存搜尋的群組，用以將解決方案的範圍限定於特定電腦。 若要存取自動化帳戶中的範圍設定，請在 [相關資源]  之下，選取 [工作區]  。 在工作區的 [工作區資料來源]  底下，選取 [範圍設定]  。
+每個解決方案都會使用工作區中的範圍設定，來鎖定會取得解決方案的電腦。 範圍設定是一或多個已儲存搜尋的群組，用以將解決方案的範圍限定於特定電腦。 若要存取自動化帳戶中的範圍設定，請在 [相關資源] 之下，選取 [工作區]。 在工作區的 [工作區資料來源] 底下，選取 [範圍設定]。
 
 如果選取的工作區還沒有 [更新管理] 或 [變更追蹤] 解決方案，則系統會建立以下範圍設定：
 
@@ -51,15 +51,15 @@ Azure 自動化提供的解決方案可協助您管理作業系統安全性更�
 
 如果選取的工作區已有解決方案，則不會重新部署解決方案，也不會新增範圍設定。
 
-選取任何設定上的省略符號 ( **...** )，然後選取 [編輯]  。 在 [編輯範圍設定]  窗格中選取 [選取電腦群組]  。 [電腦群組]  窗格會顯示用來建立範圍設定的已儲存搜尋。
+選取任何設定上的省略符號 ( **...** )，然後選取 [編輯]。 在 [編輯範圍設定] 窗格中選取 [選取電腦群組]。 [電腦群組] 窗格會顯示用來建立範圍設定的已儲存搜尋。
 
 ## <a name="saved-searches"></a>已儲存的搜尋
 
 當電腦新增至「更新管理」、「變更追蹤」或「清查」解決方案時，系統會將電腦新增至工作區中兩個已儲存搜尋的其中一個。 這兩個已儲存的搜尋是包含這些解決方案所鎖定電腦的查詢。
 
-移至工作區。 在 [一般]  下，選取 [已儲存的搜尋]  。 下表會顯示這些解決方案所使用的兩個已儲存搜尋：
+移至工作區。 在 [一般] 下，選取 [已儲存的搜尋]。 下表會顯示這些解決方案所使用的兩個已儲存搜尋：
 
-|名稱     |Category  |Alias  |
+|Name     |類別  |Alias  |
 |---------|---------|---------|
 |MicrosoftDefaultComputerGroup     |  ChangeTracking       | ChangeTracking__MicrosoftDefaultComputerGroup        |
 |MicrosoftDefaultComputerGroup     | 更新        | Updates__MicrosoftDefaultComputerGroup         |
@@ -76,22 +76,22 @@ Azure 自動化提供的解決方案可協助您管理作業系統安全性更�
 * [變更追蹤](automation-change-tracking.md)
 * [於下班時間啟動/停止 VM](automation-solution-vm-management.md)
 
-如果您決定您不再想要整合您的自動化帳戶與 Log Analytics 工作區，您可以取消連結您的帳戶，直接從 Azure 入口網站。  繼續之前，您必須先移除稍早所述的解決方案，否則無法進行此程序。 檢閱已匯入特定解決方案的相關文章，以了解移除解決方案所需的步驟。
+如果您決定不想再整合您的自動化帳戶與 Log Analytics 工作區，您可以直接從 Azure 入口網站取消連結您的帳戶。  繼續之前，您必須先移除稍早所述的解決方案，否則無法進行此程序。 檢閱已匯入特定解決方案的相關文章，以了解移除解決方案所需的步驟。
 
 移除這些解決方案之後，您可以執行下列步驟以將您的自動化帳戶取消連結。
 
 > [!NOTE]
 > 某些包含舊版 Azure SQL 監視解決方案的解決方案可能已建立自動化資產，在取消連結工作區之前，可能也需要先加以移除。
 
-1. 從 Azure 入口網站開啟您的自動化帳戶，然後在 [自動化帳戶] 頁面上，在左側的 [相關資源]  區段下選取 [已取消連結的工作區]  。
+1. 從 Azure 入口網站開啟您的自動化帳戶，然後在 [自動化帳戶] 頁面上，在左側的 [相關資源] 區段下選取 [已取消連結的工作區]。
 
-2. 在 [取消連結工作區] 頁面上，按一下 [取消連結工作區]  。
+2. 在 [取消連結工作區] 頁面上，按一下 [取消連結工作區]。
 
-   ![取消連結工作區頁面](media/automation-onboard-solutions-from-vm/automation-unlink-workspace-blade.png)上也提供本文中使用的原始碼。
+   ![取消連結工作區頁面](media/automation-onboard-solutions-from-vm/automation-unlink-workspace-blade.png)。
 
    您會收到提示，確認您想要繼續。
 
-3. 當 Azure 自動化嘗試將您的帳戶從 Log Analytics 工作區取消連結時，您可以從功能表在 [通知]  下追蹤進度。
+3. 當 Azure 自動化嘗試將您的帳戶從 Log Analytics 工作區取消連結時，您可以從功能表在 [通知] 下追蹤進度。
 
 若使用「更新管理」解決方案，您可以在移除解決方案之後選擇移除已不再需要的下列項目。
 
@@ -105,7 +105,14 @@ Azure 自動化提供的解決方案可協助您管理作業系統安全性更�
 * 啟動及停止 VM Runbook
 * 變數
 
-或者您也可以取消連結您的工作區從您的自動化帳戶從您的 Log Analytics 工作區。 在您的工作區中，選取**自動化帳戶**下方**相關資源**。 在 [自動化帳戶] 頁面上選取**取消連結帳戶**。
+或者，您也可以從 Log Analytics 工作區，將您的工作區從您的自動化帳戶取消連結。 在您的工作區中，選取 [**相關資源**] 下的 [**自動化帳戶**]。 在 [自動化帳戶] 頁面上，選取 [**取消連結帳戶**]。
+
+## <a name="clean-up-resources"></a>清除資源
+
+從「更新管理」中移除 VM：
+
+* 在您的 Log Analytics 工作區中，從 `MicrosoftDefaultScopeConfig-Updates` 「範圍設定」的已儲存搜尋中移除 VM。 您可以在工作區中的 [一般] 底下找到儲存的搜尋。
+* 移除 [Microsoft Monitoring Agent](../azure-monitor/learn/quick-collect-windows-computer.md#clean-up-resources) 或 [Linux 的 Log Analytics 代理程式](../azure-monitor/learn/quick-collect-linux-computer.md#clean-up-resources)。
 
 ## <a name="next-steps"></a>後續步驟
 

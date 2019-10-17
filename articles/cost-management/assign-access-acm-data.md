@@ -1,21 +1,21 @@
 ---
-title: 指派對 Azure 成本管理資料的存取權 | Microsoft Docs
+title: 將存取權指派給 Azure 成本管理資料
 description: 本文逐步引導您針對不同存取範圍，指派對 Azure 成本管理資料的權限。
 services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 09/30/2019
+ms.date: 10/14/2019
 ms.topic: conceptual
 ms.service: cost-management
 manager: vitavor
 ms.custom: secdec18
-ms.openlocfilehash: f9db07f648956130bb5bdebb23321b0eb14679c7
-ms.sourcegitcommit: 8bae7afb0011a98e82cbd76c50bc9f08be9ebe06
+ms.openlocfilehash: ebc56d27b7adc8f1fea9eafabe1b211f3f0ad560
+ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/01/2019
-ms.locfileid: "71695404"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72375137"
 ---
 # <a name="assign-access-to-cost-management-data"></a>指派成本管理資料的存取權
 
@@ -37,12 +37,12 @@ ms.locfileid: "71695404"
 
 | **範圍** | **定義於** | **檢視資料所需的存取權** | **事先的 EA 設定** | **資料彙總至** |
 | --- | --- | --- | --- | --- |
-| 計費帳戶<sup>1</sup> | [https://ea.azure.com](https://ea.azure.com/) | 企業系統管理員 | None | Enterprise 合約中的所有訂用帳戶 |
+| 計費帳戶<sup>1</sup> | [https://ea.azure.com](https://ea.azure.com/) | 企業管理員 | None | Enterprise 合約中的所有訂用帳戶 |
 | 部門 | [https://ea.azure.com](https://ea.azure.com/) | 部門管理員 | 啟用 **DA 檢視費用** | 連結至部門的註冊帳戶所含的所有訂用帳戶 |
 | 註冊帳戶<sup>2</sup> | [https://ea.azure.com](https://ea.azure.com/) | 帳戶擁有者 | 啟用 **AO 檢視費用** | 註冊帳戶中的所有訂用帳戶 |
 | 管理群組 | [https://portal.azure.com](https://portal.azure.com/) | 成本管理讀者 (或讀者) | 啟用 **AO 檢視費用** | 管理群組下的所有訂用帳戶 |
-| 訂閱 | [https://portal.azure.com](https://portal.azure.com/) | 成本管理讀者 (或讀者) | 啟用 **AO 檢視費用** | 訂用帳戶中的所有資源/資源群組 |
-| 資源群組 | [https://portal.azure.com](https://portal.azure.com/) | 成本管理讀者 (或讀者) | 啟用 **AO 檢視費用** | 資源群組中的所有資源 |
+| Subscription | [https://portal.azure.com](https://portal.azure.com/) | 成本管理讀者 (或讀者) | 啟用 **AO 檢視費用** | 訂用帳戶中的所有資源/資源群組 |
+| Resource group | [https://portal.azure.com](https://portal.azure.com/) | 成本管理讀者 (或讀者) | 啟用 **AO 檢視費用** | 資源群組中的所有資源 |
 
 <sup>1</sup> 帳單帳戶也稱為「Enterprise 合約」或「註冊」。
 
@@ -62,7 +62,9 @@ ms.locfileid: "71695404"
 
 - Azure 帳戶
 - 管理群組
-- 資源群組
+- Resource group
+
+在合作夥伴將客戶上線至 Microsoft 客戶合約之後，就可以使用各種範圍。 然後，CSP 客戶可以在其 CSP 合作夥伴啟用時，使用成本管理功能。 如需詳細資訊，請參閱[開始使用 Azure 成本管理取得合作夥伴](get-started-partners.md)。
 
 ## <a name="enable-access-to-costs-in-the-ea-portal"></a>在 EA 入口網站中啟用對成本的存取權
 
@@ -131,7 +133,7 @@ ms.locfileid: "71695404"
 
 查看管理群組範圍的存取權至少需要成本管理的讀者（或讀者）許可權。 您可以在 Azure 入口網站中設定對管理群組的權限。 您必須至少有管理群組的使用者存取系統管理員 (或擁有者) 權限，才能為其他人啟用存取權。 而且針對 Azure EA 帳戶，您也必須啟用 EA 入口網站中的 [AO 檢視費用] 設定。
 
-1. 在 [https://portal.azure.com](https://portal.azure.com) 登入 Azure 入口網站。
+1. 登入 Azure 入口網站：[https://portal.azure.com](https://portal.azure.com)。
 2. 在側邊欄中選取 [所有服務]，再搜尋「管理群組」，然後選取 [管理群組]。
 3. 您可以選取階層中的管理群組。
 4. 在您管理群組的旁邊，按一下 [詳細資料]。
@@ -147,7 +149,7 @@ ms.locfileid: "71695404"
 
 對訂用帳戶的存取權至少需要成本管理讀者 (或讀者) 權限。 您可以在 Azure 入口網站中設定對訂用帳戶的權限。 您必須至少有訂用帳戶的使用者存取系統管理員 (或擁有者) 權限，才能為其他人啟用存取權。 而且針對 Azure EA 帳戶，您也必須啟用 EA 入口網站中的 [AO 檢視費用] 設定。
 
-1. 在 [https://portal.azure.com](https://portal.azure.com) 登入 Azure 入口網站。
+1. 登入 Azure 入口網站：[https://portal.azure.com](https://portal.azure.com)。
 2. 在側邊欄中選取 [所有服務]，再搜尋「訂用帳戶」，然後選取 [訂用帳戶]。
 3. 選取您的訂用帳戶。
 4. 從左窗格中選取 [存取控制 (IAM)]。
@@ -161,7 +163,7 @@ ms.locfileid: "71695404"
 
 對資源群組的存取權至少需要成本管理讀者 (或讀者) 權限。 您可以在 Azure 入口網站中設定對資源群組的權限。 您必須至少有資源群組的使用者存取系統管理員 (或擁有者) 權限，才能為其他人啟用存取權。 而且針對 Azure EA 帳戶，您也必須啟用 EA 入口網站中的 [AO 檢視費用] 設定。
 
-1. 在 [https://portal.azure.com](https://portal.azure.com) 登入 Azure 入口網站。
+1. 登入 Azure 入口網站：[https://portal.azure.com](https://portal.azure.com)。
 2. 在側邊欄中選取 [所有服務]，再搜尋「資源群組」，然後選取 [資源群組]。
 3. 選取您的資源群組。
 4. 從左窗格中選取 [存取控制 (IAM)]。

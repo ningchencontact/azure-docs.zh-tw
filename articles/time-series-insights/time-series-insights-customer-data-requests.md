@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: time-series-insights
 services: time-series-insights
 ms.custom: seodec18
-ms.openlocfilehash: 3437634ff70371f9679423149b6996a099c044b5
-ms.sourcegitcommit: 78ebf29ee6be84b415c558f43d34cbe1bcc0b38a
+ms.openlocfilehash: fb464d2c75e271bf2f7f1684ed991d01691d70e4
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68950739"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72330948"
 ---
 # <a name="summary-of-customer-data-request-features"></a>客戶資料要求功能的摘要
 
@@ -68,7 +68,7 @@ Azure 時間序列深入解析會將個人資料視為與時間序列深入解�
 
 ## <a name="next-steps"></a>後續步驟
 
-* 深入瞭解[將資料存取權授與 TSI 環境](./time-series-insights-data-access.md)。
+* 深入瞭解[將資料存取權授與您的 Azure 時間序列深入解析環境](./time-series-insights-data-access.md)。
 
 * 查看 [ [Azure 時間序列深入解析 explorer](time-series-insights-explorer.md)]。
 

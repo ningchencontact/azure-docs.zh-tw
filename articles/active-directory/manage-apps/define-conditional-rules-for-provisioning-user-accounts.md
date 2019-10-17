@@ -16,10 +16,10 @@ ms.author: mimart
 ms.custom: H1Hack27Feb2017
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 4bb1ed48d501ca3166e0b906c622507b59ef059a
-ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/09/2019
+ms.lasthandoff: 10/15/2019
 ms.locfileid: "70812680"
 ---
 # <a name="attribute-based-application-provisioning-with-scoping-filters"></a>含範圍篩選器的屬性型應用程式佈建
@@ -81,7 +81,7 @@ Azure AD 佈建服務所處理的每個使用者或群組，一律會根據每�
 
    a. **EQUALS**。 如果評估的屬性完全符合輸入字串值 (區分大小寫)，子句會傳回 "true"。
 
-   b. **NOT EQUALS**。 如果評估的屬性不符合輸入字串值 (區分大小寫)，子句會傳回 "true"。
+   b.這是另一個 C# 主控台應用程式。 **NOT EQUALS**。 如果評估的屬性不符合輸入字串值 (區分大小寫)，子句會傳回 "true"。
 
    c. **IS TRUE**。 如果評估的屬性包含布林值 true，子句會傳回 "true"。
 

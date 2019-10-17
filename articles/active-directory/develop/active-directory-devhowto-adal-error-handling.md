@@ -1,5 +1,5 @@
 ---
-title: Azure AD 驗證程式庫 (ADAL) 用戶端的錯誤處理最佳做法
+title: Azure AD 驗證程式庫（ADAL）用戶端的錯誤處理最佳做法
 description: 提供適用於 ADAL 用戶端應用程式的錯誤處理指引和最佳做法。
 services: active-directory
 documentationcenter: ''
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 02/27/2017
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c0c1bbbdf9b42dfe2b507f533ad1806e06991f33
-ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
+ms.openlocfilehash: e7008a5909d8f530920628125fec1b826be3f984
+ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68835426"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72374197"
 ---
 # <a name="error-handling-best-practices-for-azure-active-directory-authentication-library-adal-clients"></a>Azure Active Directory 驗證程式庫 (ADAL) 用戶端的錯誤處理最佳做法
 
@@ -52,10 +52,10 @@ AcquireTokenSilent 會嘗試取得可保證終端使用者不會看到使用者�
 
 基本上，AcquireTokenSilent 錯誤有兩種情況：
 
-| Case | 描述 |
+| 案例 | 描述 |
 |------|-------------|
 | **案例 1**：可透過互動式登入解決錯誤 | 若為缺少有效權杖所造成的錯誤，則必須有互動式要求。 具體而言，快取查閱及無效/過期的重新整理權杖需要 AcquireToken 呼叫才能解決。<br><br>在這些案例中，終端使用者必須在提示下登入。 應用程式可選擇在終端使用者互動之後 (例如點擊登入按鈕)，立即執行互動式要求，或是稍後再執行。 這項選擇取決於應用程式所需的行為。<br><br>請參閱下節中的程式碼，了解此特定案例和其診斷錯誤。|
-| **案例 2**：無法透過互動式登入解決錯誤 | 對於網路和暫時性/暫存錯誤或其他失敗，執行互動式 AcquireToken 要求並無法解決問題。 不必要的互動式登入提示也可能讓終端使用者不耐煩。 對於大部分有關 AcquireTokenSilent 失敗的錯誤，ADAL 會自動嘗試一次重試。<br><br>用戶端應用程式也可以稍後嘗試重試，但何時及如何操作，則取決於應用程式行為和所需的使用者體驗。 例如，應用程式可以在幾分鐘後或回應某些終端使用者動作之後，執行 AcquireTokenSilent 重試。 立即重試將會導致應用程式進行節流處理，不該嘗試這麼做。<br><br>後續具有相同錯誤的重試失敗並不表示用戶端應使用 AcquireToken 執行互動式要求，因為這無法解決錯誤。<br><br>請參閱下節中的程式碼，了解此特定案例和其診斷錯誤。 |
+| **案例 2**：無法透過互動式登入解決錯誤 | 對於網路和暫時性/暫存錯誤或其他失敗，執行互動式 AcquireToken 要求並無法解決問題。 不必要的互動式登入提示也可能讓終端使用者不耐煩。 對於大部分有關 AcquireTokenSilent 失敗的錯誤，ADAL 會自動嘗試一次重試。<br><br>用戶端應用程式也可以在稍後的某個時間點嘗試重試，但何時和如何依賴應用程式行為和所需的終端使用者體驗。 例如，應用程式可以在幾分鐘後或回應某些終端使用者動作之後，執行 AcquireTokenSilent 重試。 立即重試將會導致應用程式進行節流處理，不該嘗試這麼做。<br><br>後續具有相同錯誤的重試失敗並不表示用戶端應使用 AcquireToken 執行互動式要求，因為這無法解決錯誤。<br><br>請參閱下節中的程式碼，了解此特定案例和其診斷錯誤。 |
 
 ### <a name="net"></a>.NET
 
@@ -200,8 +200,8 @@ AcquireToken 是用來取得權杖的預設 ADAL 方法。 在需要使用者身
 
 |  |  |
 |------|-------------|
-| **案例 1**：<br>無法重試的錯誤 (大部分的案例) | 1.請勿嘗試立即重試。 根據可叫用重試的特定錯誤顯示終端使用者 UI ([請嘗試重新登入]、[請下載 Azure AD 訊息代理程式的應用程式] 等)。 |
-| **案例 2**：<br>可重試的錯誤 | 1.執行一次重試，因為終端使用者可能已進入可招致成功的狀態。<br><br>2.如果重試失敗，請根據可叫用重試的特定錯誤顯示終端使用者 UI ([請嘗試重新登入]、[請下載 Azure AD 訊息代理程式的應用程式] 等)。 |
+| **案例 1**：<br>無法重試的錯誤 (大部分的案例) | 1. 不要嘗試立即重試。 根據叫用重試的特定錯誤（例如，[嘗試重新登入] 或 [下載 Azure AD broker 應用程式]）來呈現終端使用者 UI。 |
+| **案例 2**：<br>可重試的錯誤 | 1. 執行單一重試，因為終端使用者可能已進入成功的狀態。<br><br>2. 如果重試失敗，請根據叫用重試的特定錯誤來呈現使用者 UI （[請嘗試重新登入]、[下載 Azure AD broker 應用程式] 等）。 |
 
 > [!IMPORTANT]
 > 如果使用者帳戶透過無訊息呼叫傳遞給 ADAL，但失敗了，則後續的互動式要求可讓終端使用者使用不同帳戶進行登入。 透過使用者帳戶成功執行 AcquireToken 後，應用程式必須確認登入的使用者與應用程式的本機使用者物件相符。 不相符並不會產生例外狀況 (Objective C 除外)，但如果在驗證要求之前，本機已知某個使用者 (例如失敗的無訊息呼叫)，則應考量不相符的情況。
@@ -212,9 +212,9 @@ AcquireToken 是用來取得權杖的預設 ADAL 方法。 在需要使用者身
 下列指引提供搭配所有有訊息 AcquireToken(…) ADAL 方法的錯誤處理範例，但以下除外： 
 
 - AcquireTokenAsync(…, IClientAssertionCertification, …)
-- AcquireTokenAsync(…,ClientCredential, …)
-- AcquireTokenAsync(…,ClientAssertion, …)
-- AcquireTokenAsync(…,UserAssertion,…)   
+- AcquireTokenAsync （...，ClientCredential，...）
+- AcquireTokenAsync （...，ClientAssertion，...）
+- AcquireTokenAsync （...，UserAssertion,...）   
 
 您的程式碼實作方式如下所示：
 
@@ -374,9 +374,9 @@ catch (AdalException e) {
 
 |  |  |
 |------|-------------|
-| **案例 1**：<br>可透過互動式要求解決 | 1.如果 login() 失敗，請勿執行立即重試。 只在使用者動作提示重試之後重試。|
-| **案例 2**：<br>無法透過互動式要求解決。 錯誤可重試。 | 1.執行一次重試，因為終端使用者可能已進入可招致成功的狀態。<br><br>2.如果重試失敗，請根據可叫用重試的特定錯誤，向終端使用者顯示動作 ([請嘗試重新登入])。 |
-| **案例 3**：<br>無法透過互動式要求解決。 錯誤不可重試。 | 1.請勿嘗試立即重試。 請根據可叫用重試的特定錯誤，向終端使用者顯示動作 ([請嘗試重新登入])。 |
+| **案例 1**：<br>可透過互動式要求解決 | 1. 如果 login （）失敗，請勿執行立即重試。 只在使用者動作提示重試之後重試。|
+| **案例 2**：<br>無法透過互動式要求解決。 錯誤可重試。 | 1. 執行單一重試，因為終端使用者主要已進入成功的狀態。<br><br>2. 如果重試失敗，請根據可叫用重試的特定錯誤，向終端使用者顯示動作（[請嘗試重新登入]）。 |
+| **案例 3**：<br>無法透過互動式要求解決。 錯誤不可重試。 | 1. 不要嘗試立即重試。 請根據可叫用重試的特定錯誤，向終端使用者顯示動作 ([請嘗試重新登入])。 |
 
 您的程式碼實作方式如下所示：
 
@@ -482,8 +482,8 @@ catch (AdalException e) {
 
 ## <a name="error-and-logging-reference"></a>錯誤和記錄參考
 
-### <a name="logging-personal-identifiable-information-pii--organizational-identifiable-information-oii"></a>記錄個人識別資訊 (PII) 與組織識別資訊 (OII)
-根據預設，ADAL 記錄不會擷取或記錄任何 PII 或 OII。 文件庫可讓應用程式開發人員透過記錄器類別的 setter 來開啟此選項。 藉由開啟 PII 或 OII，應用程式會負責安全無虞地處理高敏感性資料，並遵守所有法規需求。
+### <a name="logging-personal-identifiable-information--organizational-identifiable-information"></a>記錄個人識別資訊 & 組織的識別資訊 
+根據預設，ADAL 記錄不會捕捉或記錄任何個人識別資訊或組織識別資訊。 文件庫可讓應用程式開發人員透過記錄器類別的 setter 來開啟此選項。 藉由記錄個人識別資訊或組織識別資訊，應用程式會負責安全地處理高度敏感的資料，並遵守任何法規需求。
 
 ### <a name="net"></a>.NET
 
@@ -586,11 +586,11 @@ window.Logging = {
 
 使用下方的註解區段來提供意見反應，並協助我們改善及設計我們的內容。
 
-[![顯示 [使用 Microsoft 帳戶登入] 按鈕][AAD-Sign-In]][AAD-Sign-In]
+[![Shows [使用 Microsoft 帳戶登入] 按鈕][AAD-Sign-In]][AAD-Sign-In]
 <!--Reference style links -->
 
 [AAD-Auth-Libraries]: ./active-directory-authentication-libraries.md
-[AAD-Auth-Scenarios]:authentication-scenarios.md
+[AAD-Auth-Scenarios]:v1-authentication-scenarios.md
 [AAD-Dev-Guide]:azure-ad-developers-guide.md
 [AAD-Integrating-Apps]:quickstart-v1-integrate-apps-with-azure-ad.md
 [AZURE-portal]: https://portal.azure.com

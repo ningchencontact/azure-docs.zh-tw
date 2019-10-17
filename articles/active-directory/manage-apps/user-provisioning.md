@@ -15,12 +15,12 @@ ms.date: 06/12/2019
 ms.author: mimart
 ms.reviewer: arvinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3ef652b05f62218ee1d0e72543bfa546f0c14abe
-ms.sourcegitcommit: be344deef6b37661e2c496f75a6cf14f805d7381
+ms.openlocfilehash: 5ff6d9e33e15aa04adfa03705172166492f87e30
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/07/2019
-ms.locfileid: "72001705"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72330015"
 ---
 # <a name="automate-user-provisioning-and-deprovisioning-to-saas-applications-with-azure-active-directory"></a>自動化使用 Azure Active Directory 對於 SaaS 應用程式的使用者佈建和取消佈建
 
@@ -56,11 +56,11 @@ Azure Active Directory （Azure AD）可讓您自動化在雲端（[SaaS](https:
 
 Azure AD 布建**服務**會藉由連接到每個應用程式廠商所提供的使用者管理 API 端點，將使用者布建到 SaaS 應用程式和其他系統。 這些使用者管理 API 端點可以讓 Azure AD 以程式設計方式建立、更新和移除使用者。 對於選取的應用程式，布建服務也可以建立、更新和移除其他身分識別相關物件，例如群組和角色。
 
-@no__t 0Azure AD 布建服務 @ no__t-1 @ no__t-2Figure 1：Azure AD 佈建服務*
+@no__t 0Azure AD 布建服務 @ no__t-1*圖1： Azure AD*布建服務
 
-@no__t 0Outbound 使用者布建工作流程 @ no__t-1 @ no__t-2Figure 2：從 Azure AD 至熱門 SaaS 應用程式的「輸出」使用者佈建工作流程*
+@no__t 0Outbound 使用者布建工作流程 @ no__t-1*圖2：從 Azure AD 到熱門 SaaS 應用程式的「輸出」使用者布建工作流程*
 
-@no__t 0Inbound 使用者布建工作流程 @ no__t-1 @ no__t-2Figure 3：從熱門人力資本管理 (HCM) 應用程式至 Azure Active Directory 和 Windows Server Active Directory 的「輸入」使用者佈建工作流程*
+@no__t 0Inbound 使用者布建工作流程 @ no__t-1*圖3：從熱門人力資本管理（HCM）應用程式到 Azure Active Directory 和 Windows Server 的「輸入」使用者布建工作流程 Active Directory*
 
 ## <a name="what-applications-and-systems-can-i-use-with-azure-ad-automatic-user-provisioning"></a>哪些應用程式和系統可以搭配使用 Azure AD 自動使用者佈建？
 
@@ -99,7 +99,7 @@ Azure AD 為許多熱門的 SaaS 應用程式和人力資源系統提供預先�
 
 1. 選取 [自動] 選項，讓布建**模式**指定系統管理員認證、對應、啟動和停止，以及同步處理的設定。
 
-   - 展開 [系統**管理員認證**]，以輸入 Azure AD 連線到應用程式的使用者管理 API 所需的認證。 此區段也可讓您在認證失敗或布建作業進入[隔離](#quarantine)時，啟用電子郵件通知。
+   - 展開 [系統**管理員認證**]，以輸入 Azure AD 連線到應用程式的使用者管理 API 所需的認證。 此區段也可讓您在認證失敗或布建作業進入[隔離](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-quarantine-status)時，啟用電子郵件通知。
    - 在布建或更新使用者帳戶時 **，展開 [** 對應] 以查看和編輯在 Azure AD 與目標應用程式之間流動的使用者屬性。 如果目標應用程式支援它，則此區段可讓您選擇性地設定群組和使用者帳戶的布建。 選取資料表中的對應，即可開啟右側的對應編輯器，您可以在其中查看和自訂使用者屬性。
 
      **範圍篩選器**會告訴布建服務，來源系統中的哪些使用者和群組應該布建或取消布建到目標系統。 在 [**屬性對應**] 窗格中，選取 [**來源物件範圍**] 來篩選特定屬性值。 例如，您可以指定只有「部門」屬性為「銷售」的使用者應在佈建範圍中。 如需詳細資訊，請參閱 [使用範圍設定篩選](define-conditional-rules-for-provisioning-user-accounts.md)。
@@ -149,7 +149,7 @@ Azure AD 為許多熱門的 SaaS 應用程式和人力資源系統提供預先�
 1. 在累加迴圈結束時保存新的浮水印，以提供稍後增量迴圈的起點。
 
 > [!NOTE]
-> 您可以使用 [對應[區段中的](customize-application-attributes.md) **目標物件動作**] 核取方塊，選擇性地停用**建立**、**更新**或**刪除**作業。 在更新期間停用使用者的邏輯也是透過來自 "accountEnabled" 這類欄位的屬性對應來控制。
+> 您可以使用 [對應[] 區段中的 [](customize-application-attributes.md) **目標物件動作**] 核取方塊，選擇性地停用**建立**、**更新**或**刪除**作業。 在更新期間停用使用者的邏輯也是透過來自 "accountEnabled" 這類欄位的屬性對應來控制。
 
 布建服務會依[每個應用程式特定教學](../saas-apps/tutorial-list.md)課程中定義的間隔，無限期地繼續執行回到後增量迴圈，直到發生下列其中一個事件為止：
 
@@ -173,7 +173,7 @@ Azure AD 為許多熱門的 SaaS 應用程式和人力資源系統提供預先�
 
 在隔離時，增量迴圈的頻率會逐漸縮減為每天一次。
 
-當所有違規錯誤都已修正，且下一個同步處理週期開始時，將會從隔離中移除布建作業。 如果佈建作業處於隔離狀態超過四週，系統就會將它停用。
+當所有違規錯誤都已修正，且下一個同步處理週期開始時，將會從隔離中移除布建作業。 如果佈建作業處於隔離狀態超過四週，系統就會將它停用。 在這裡深入瞭解[隔離狀態。](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-quarantine-status)
 
 ## <a name="how-long-will-it-take-to-provision-users"></a>佈建使用者需要多久時間？
 
@@ -205,7 +205,7 @@ Azure AD 為許多熱門的 SaaS 應用程式和人力資源系統提供預先�
 
 ### <a name="does-automatic-user-provisioning-to-saas-apps-work-with-dynamic-groups-in-azure-ad"></a>對 SaaS 應用程式的自動使用者佈建是否適用於 Azure AD 中的動態群組？
 
-是的。 當設定為 [僅同步指派的使用者和群組] 時，Azure AD 的使用者布建服務可以根據其是否為[動態群組](../users-groups-roles/groups-create-rule.md)的成員，在 SaaS 應用程式中布建或取消布建使用者。 動態群組也適用於 [同步所有使用者與群組] 選項。
+可以。 當設定為 [僅同步指派的使用者和群組] 時，Azure AD 的使用者布建服務可以根據其是否為[動態群組](../users-groups-roles/groups-create-rule.md)的成員，在 SaaS 應用程式中布建或取消布建使用者。 動態群組也適用於 [同步所有使用者與群組] 選項。
 
 不過，使用動態群組可能會影響到從 Azure AD 到 SaaS 應用程式進行端對端使用者佈建的整體效能。 使用動態群組時，請記住下列注意事項和建議：
 
@@ -215,7 +215,7 @@ Azure AD 為許多熱門的 SaaS 應用程式和人力資源系統提供預先�
 
 ### <a name="does-automatic-user-provisioning-to-saas-apps-work-with-nested-groups-in-azure-ad"></a>對 SaaS 應用程式的自動使用者佈建是否適用於 Azure AD 中的巢狀群組？
 
-資料分割 當設定為 [僅同步已指派的使用者和群組] 時，Azure AD 的使用者布建服務無法讀取或布建位於嵌套群組中的使用者。 它只能讀取和布建已明確指派群組之直屬成員的使用者。
+不會。 當設定為 [僅同步已指派的使用者和群組] 時，Azure AD 的使用者布建服務無法讀取或布建位於嵌套群組中的使用者。 它只能讀取和布建已明確指派群組之直屬成員的使用者。
 
 這是「應用程式的群組型指派」所受到的限制，對單一登入也會產生影響，相關說明請見[使用群組管理 SaaS 應用程式的存取權](https://docs.microsoft.com/azure/active-directory/users-groups-roles/groups-saasapps )。
 
@@ -223,7 +223,7 @@ Azure AD 為許多熱門的 SaaS 應用程式和人力資源系統提供預先�
 
 ### <a name="is-provisioning-between-azure-ad-and-a-target-application-using-an-encrypted-channel"></a>Azure AD 與使用加密通道的目標應用程式之間的布建嗎？
 
-是的。 我們會針對伺服器目標使用 HTTPS SSL 加密。
+可以。 我們會針對伺服器目標使用 HTTPS SSL 加密。
 
 ## <a name="related-articles"></a>相關文章
 

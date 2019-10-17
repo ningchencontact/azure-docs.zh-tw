@@ -17,12 +17,12 @@ ms.author: ryanwi
 ms.reviewer: saeeda, jmprieur, andret
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: efed9e35aed729c9efa39b0772b681d8c53ba7b8
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 72fab8a51f1ea1b9c7bda14d825dad538f96cde6
+ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65540651"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72374055"
 ---
 # <a name="application-types-in-v10"></a>v1.0 中的應用程式類型
 
@@ -38,7 +38,7 @@ Azure Active Directory (Azure AD) 支援各種新型應用程式架構的驗證�
 - **[網頁瀏覽器到 Web 應用程式](web-app.md)** ：使用者必須登入 Azure AD 所保護的 Web 應用程式。
 - **[原生應用程式到 Web API](native-app.md)** ：在手機、平板電腦或電腦上執行的原生應用程式必須驗證使用者，才能從 Azure AD 所保護的 Web API 取得資源。
 - **[Web 應用程式到 Web API](web-api.md)** ：Web 應用程式必須從 Azure AD 所保護的 Web API 取得資源。
-- **[精靈或伺服器應用程式到 Web API](service-to-service.md)** ：無 Web 使用者介面的精靈應用程式或伺服器應用程式必須從 Azure AD 所保護的 Web API 取得資源。
+- **[精靈或伺服器應用程式到 Web API](service-to-service.md)** ：無 Web 使用者介面的精靈應用程式或伺服器應用程式，必須從 Azure AD 所保護的 Web API 取得資源。
 
 在開始使用程式碼之前，請參考相關連結以深入了解各種類型的應用程式，並了解概要的案例。 您也可以了解在撰寫與 v1.0 端點或 v2.0 端點搭配運作的特定應用程式時所需了解的差異。
 
@@ -82,4 +82,4 @@ Azure Active Directory (Azure AD) 支援各種新型應用程式架構的驗證�
 
 ## <a name="next-steps"></a>後續步驟
 
-- 深入了解其他 Azure AD [驗證基本概念](authentication-scenarios.md)
+- 深入了解其他 Azure AD [驗證基本概念](v1-authentication-scenarios.md)

@@ -13,26 +13,26 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/04/2019
 ms.author: spelluru
-ms.openlocfilehash: df24f846f1600685803fdd485f1810d66e32ae37
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.openlocfilehash: 9c11d4648635e62ebc2e68734e14dd2bdc028a7c
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72028684"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72330675"
 ---
 # <a name="set-up-a-lab-to-teach-ethical-hacking-class"></a>設定實驗室來教道德的駭客課程 
-本文說明如何設定一個著重于道德入侵辯論的類別。 滲透測試是指當有人嘗試取得系統或網路的存取權，以示範惡意攻擊者可能會利用的弱點時，所使用的一種實務攻擊。 
+本文說明如何設定一個著重于道德入侵辯論的類別。 滲透測試 (由道德入侵社群所使用的作法) 會在有人嘗試取得系統或網路的存取權，以示範惡意攻擊者可能會利用的弱點時發生。 
 
-在道德入侵課程中，學生可以學習防禦弱點的現代化技術。 每個學生都會取得一個 Windows Server 主機虛擬機器，其中包含兩個嵌套的虛擬機器–一部具有**Metaspoiltable**映射的虛擬機器，以及另一部具有[Kali Linux](https://www.kali.org/)映射的電腦。 Metasploitable 虛擬機器是用於利用用途，而 Kali 虛擬機器可讓您存取執行法庭工作所需的工具。
+在道德入侵課程中，學生可以學習防禦弱點的現代化技術。 每個學生都會有 Windows Server 主機虛擬機器，該虛擬機器會有兩部巢狀虛擬機器，其中一部具有 **Metaspoiltable** 映像，另一部則具有 [Kali Linux](https://www.kali.org/) \(英文\) 映像。 Metasploitable 虛擬機器會用於盜用目的，而 Kali 虛擬機器則提供執行鑑識調查工作所需之工具的存取。
 
 本文有兩個主要區段。 第一節涵蓋如何建立教室實驗室。 第二節涵蓋如何使用已啟用的嵌套虛擬化和所需的工具和映射來建立範本機器。 在此情況下，電腦上的 Metasploitable 映射和 Kali Linux 映射已啟用 Hyper-v 來裝載映射。
 
 ## <a name="lab-configuration"></a>實驗室組態
-若要設定此實驗室，您需要 Azure 訂用帳戶才能開始使用。 如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/) 。 取得 Azure 訂用帳戶之後，您可以在 Azure 實驗室服務中建立新的實驗室帳戶，或使用現有的帳戶。 請參閱下列教學課程，以建立新的實驗室帳戶：[設定實驗室帳戶的教學](tutorial-setup-lab-account.md)課程。
+若要設定此實驗室，您需要 Azure 訂用帳戶才能開始使用。 如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶](https://azure.microsoft.com/free/)。 取得 Azure 訂用帳戶之後，您可以在 Azure 實驗室服務中建立新的實驗室帳戶，或使用現有的帳戶。 請參閱下列教學課程，以建立新的實驗室帳戶：[設定實驗室帳戶的教學](tutorial-setup-lab-account.md)課程。
 
 遵循[此教學](tutorial-setup-classroom-lab.md)課程來建立新的實驗室，然後套用下列設定：
 
-| 虛擬機器大小 | Image |
+| 虛擬機器大小 | 映像 |
 | -------------------- | ----- | 
 | 中（嵌套虛擬化） | Windows Server 2019 Datacenter |
 
@@ -141,7 +141,7 @@ Rapid7 Metasploitable 映射是刻意設定了安全性弱點的映射。 您將
 下一步是設定任何實驗室的一般步驟：
 
 - [新增使用者](tutorial-setup-classroom-lab.md#add-users-to-the-lab)
-- [設定配額](tutorial-setup-classroom-lab.md#set-quotas-for-users)
+- [設定配額](how-to-configure-student-usage.md#set-quotas-for-users)
 - [設定排程](tutorial-setup-classroom-lab.md#set-a-schedule-for-the-lab) 
-- [學生的電子郵件註冊連結](tutorial-setup-classroom-lab.md#send-an-email-with-the-registration-link)。 
+- [學生的電子郵件註冊連結](how-to-configure-student-usage.md#send-invitations-to-users)。 
 

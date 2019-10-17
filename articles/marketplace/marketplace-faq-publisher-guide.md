@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.topic: article
 ms.date: 10/4/2019
 ms.author: ellacroi
-ms.openlocfilehash: 1c6e381f5f05bc285b50521c9a57e8b5189a7478
-ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
+ms.openlocfilehash: c24f956a7aeb68fe6b0325705a9e7dab8e70b063
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/05/2019
-ms.locfileid: "71969572"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72330245"
 ---
 # <a name="microsoft-commercial-marketplace-faqs"></a>Microsoft 商業 Marketplace 常見問題
 
@@ -24,26 +24,23 @@ Azure Marketplace 和 Microsoft AppSource 的常見問題解答。
 
 **什麼是 Azure Marketplace？**
 
-[Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace) 提供來自 Microsoft 和合作夥伴的解決方案與服務的存取權和資訊。 客戶（IT 專業人員和開發人員）可以探索、嘗試購買建置於或建立于 Azure 的雲端軟體解決方案。 我們的目錄陳列了 8,000 餘種品項，提供各種 Azure 建置組塊，例如虛擬機器 (VM)、API、Azure 應用程式、解決方案範本與受控應用程式、SaaS 應用程式、容器和諮詢服務等。 
+[Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace) 提供來自 Microsoft 和合作夥伴的解決方案與服務的存取權和資訊。 客戶可以探索、試用或購買建置於或適用于 Azure 的雲端軟體解決方案。 我們的目錄陳列了 8,000 餘種品項，提供各種 Azure 建置組塊，例如虛擬機器 (VM)、API、Azure 應用程式、解決方案範本與受控應用程式、SaaS 應用程式、容器和諮詢服務等。
 
 **誰是 Azure Marketplace 的客戶？**
 
-Azure Marketplace 適用於對商業 IT 軟體和服務感興趣的 IT 專業人員和雲端開發人員。
+Azure Marketplace 是針對對商業 IT 軟體和服務感興趣的 IT 專業人員和雲端開發人員所設計。
 
 **Azure Marketplace 目前提供哪些產品類型？**
 
-Azure Marketplace 提供來自 Microsoft 與合作夥伴的技術解決方案和服務，其建置目的是為了擴充 Azure 產品和服務。 此解決方案目錄跨越數個類別，包括 (但不限於)：
+Azure Marketplace 提供來自 Microsoft 與合作夥伴的技術解決方案和服務，其建置目的是為了擴充 Azure 產品和服務。 解決方案目錄橫跨數個類別，包括：
 
 * 基本作業系統
 * databases
 * 安全性
 * 身分識別
-* 網路功能
+* 網路
 * 區塊鏈
 * 開發人員工具
-* 還有更多
-
-Azure Marketplace 提供 SaaS 應用程式、虛擬機器、解決方案範本、Azure 受控應用程式和諮詢服務。
 
 ### <a name="azure-marketplace-for-customers"></a>適用於客戶的 Azure Marketplace
 
@@ -80,7 +77,7 @@ Azure Marketplace 提供 SaaS 應用程式、虛擬機器、解決方案範本�
 
 **如果我的 Azure Marketplace 購買項目相依於其他資產 (例如 Azure 網站)，我必須管理這些相依性嗎？**
 
-Azure Marketplace 供應項目的相依性不會自動受到管理。 在使用 Azure Marketplace 購買之前請先仔細檢閱其描述，以確認在部署之前是否有任何必要的相依性。
+並不會為 Azure 市集的供應項目自動管理相依性。 在使用 Azure Marketplace 購買之前請先仔細檢閱其描述，以確認在部署之前是否有任何必要的相依性。
 
 **我可以向 Azure 雲端解決方案提供者購買 Azure Marketplace 解決方案嗎？**
 
@@ -92,15 +89,15 @@ Azure Marketplace 供應項目的相依性不會自動受到管理。 在使用 
 
 **Azure Marketplace 支援哪些貨幣？**
 
-交易可以用下列17種貨幣來進行：AUD、BRL、CAD、CHF、丹麥幣、EUR、GBP、INR、JPY、KRW、NOK、紐西蘭幣、難處在於、克朗、新臺幣、USD、RMB。
+交易可以下列17種貨幣進行： AUD、BRL、CAD、CHF、丹麥幣、EUR、GBP、INR、JPY、KRW、NOK、紐西蘭幣、難處在於、克朗、新臺幣、USD、RMB。
 
 ### <a name="deploying-a-solution-from-azure-marketplace"></a>從 Azure Marketplace 部署解決方案
 
-**我已將 Azure Marketplace 虛擬機器 (VM) 部署至訂用帳戶，而現在想要將此訂用帳戶從一個 Azure 帳戶移轉至另一個 Azure 帳戶。目前支援此做法嗎？**
+**我已將 Azure Marketplace 虛擬機器（VM）部署至訂用帳戶，而我現在想要將訂用帳戶從一個 Azure 帳戶遷移至另一個帳戶。目前支援此功能嗎？**
 
 若要移轉 Azure 訂用帳戶 (包括 Azure Marketplace VM 和服務)，請先刪除或取消任何既有的 Azure 訂用帳戶，再關聯至新的 Azure 帳戶。 完成遷移之後，會使用新註冊帳戶的付款方法來計費產生的使用費用。
 
-**我想要將 Azure Marketplace 虛擬機器 (VM) 訂用帳戶移轉到 Enterprise 合約。目前支援此做法嗎？**
+**我想要將 Azure Marketplace 虛擬機器（VM）訂用帳戶遷移至我的 Enterprise 合約。目前支援此功能嗎？**
 
 若要將 Azure Marketplace 虛擬機器 (VM) 訂用帳戶移轉到 Enterprise 合約，請先停止或取消任何既有的訂用帳戶，再進行移轉。 一旦 Azure 帳戶和相關聯的訂用帳戶的遷移完成，您就可以重新購買 Azure Marketplace 的 VM 或服務。  產生的使用費用將會根據 Enterprise 合約按季計費。
 
@@ -108,11 +105,11 @@ Azure Marketplace 供應項目的相依性不會自動受到管理。 在使用 
 
 **Azure Marketplace 訂用帳戶如何計價？**
 
-定價會因產品類型和發行者規格而有所不同。 軟體授權費用和 Azure 使用成本會透過 Azure 訂用帳戶分開收費。
+定價會因產品類型和發行者規格而有所不同。 軟體授權費用和 Azure 使用成本是透過 Azure 訂用帳戶分開收費。
 
 *解除捆搭：*
 
-+ 自備*授權（BYOL）模型*：直接向發行者或轉銷商取得軟體授權時，不會有額外的軟體相關費用。
++ 自備*授權（BYOL）模型*：直接從發行者或轉銷商取得軟體授權時，不會有額外的軟體相關費用或費用。
 
 *配套：*
 
@@ -122,9 +119,9 @@ Azure 訂用帳戶隨附于發行者的獨立軟體廠商（ISV）解決方案�
 
 + *免費：* 免費 SKU。 不收取軟體授權費用或使用供應項目的費用。
 
-+ *免費軟體試用：* 在限定期間內免費的供應項目。 發行者在試用期間使用的軟體授權費用不收費。 到期後，則會根據發行者核定的標準費率自動轉換為付費供應項目。
++ *免費軟體試用：* 在有限期間內免費的供應專案。 發行者在試用期間使用的軟體授權費用不收費。 到期後，則會根據發行者核定的標準費率自動轉換為付費供應項目。
 
-+ *依使用量：* 根據供應項目的使用程度收費或計費。 虛擬機器映像會以每小時為基準收費。 對於開發人員服務和 API，則會按照供應項目定義的測量單位收費。
++ *基於使用方式：* 費率是根據供應專案的範圍使用量收費或計費。 虛擬機器映像會以每小時為基準收費。 對於開發人員服務和 API，則會按照供應項目定義的測量單位收費。
 
 + *固定費用：* SaaS 訂用帳戶可以定價為每月或每年計費的固定費用。 這也可以包含根據耗用量收費的額外計費維度（例如，頻寬、電子郵件或票證）。 
 
@@ -143,15 +140,15 @@ Azure 訂用帳戶隨附于發行者的獨立軟體廠商（ISV）解決方案�
 
 *虛擬機器供應項目：*
 
-+ *選項 1：* 在應用程式啟動之後，通常會在發行者的應用程式中取得授權金鑰。
++ *選項1：* 在應用程式啟動之後，通常會在發行者的應用程式中取得授權金鑰。
 
-+ *選項 2：* 在選取的訂用帳戶中部署 VM 供應項目之後，由使用者透過命令列或供應項目提供的 Web 介面輸入授權金鑰。 此授權可以是金鑰和/或檔案，由發行者決定。
++ *選項2：* 在選取的訂用帳戶中部署 VM 供應專案之後，使用者會輸入授權金鑰（透過供應專案所提供的命令列/web 介面）。 此授權可以是金鑰和/或檔案，由發行者決定。
 
 *Azure 應用程式 (解決方案範本和受控應用程式)：*
 
-+ *選項 1：* 您可以設定 Resource Manager 範本來提示輸入範圍，包括授權認證。 此作業可在部署供應項目之前，在使用者訂用帳戶中藉由授權檔案 (檔案上傳) 或金鑰 (文字方塊輸入) 來完成。
++ *選項1：* 您可以設定 Resource Manager 範本來提示輸入範圍，包括授權認證。 此作業可在部署供應項目之前，在使用者訂用帳戶中藉由授權檔案 (檔案上傳) 或金鑰 (文字方塊輸入) 來完成。
 
-+ *選項 2：* 您可以透過命令列/供應項目提供的 Web 介面來輸入授權金鑰。  在選取的訂用帳戶中部署 Azure 應用程式供應項目之後，即可執行此作業。 此授權可以是金鑰和/或檔案，由發行者決定。
++ *選項2：* 您可以透過供應專案提供的命令列/web 介面來輸入授權金鑰。  在選取的訂用帳戶中部署 Azure 應用程式供應項目之後，即可執行此作業。 此授權可以是金鑰和/或檔案，由發行者決定。
 
 **支援的試用種類為何？**
 
@@ -159,7 +156,7 @@ Azure 訂用帳戶隨附于發行者的獨立軟體廠商（ISV）解決方案�
 
 **我需要登記付款方式 (例如信用卡) 才能部署免費層或自備授權 (BYOL) 供應項目嗎？**
 
-資料分割 部署免費層或 BYOL 供應項目無需付款方式。 不過，免費試用供應項目則需要付款方式。 包含**立即取得**或是**免費試用軟體**按鈕的清單項目會部署到選取的 Azure 訂用帳戶中。  這些清單會使用所選帳戶已註冊的付款方法來計費。 Azure 使用費用會與軟體授權費用分開計費。
+不會。 部署免費層或 BYOL 供應項目無需付款方式。 不過，免費試用供應項目則需要付款方式。 包含**立即取得**或是**免費試用軟體**按鈕的清單項目會部署到選取的 Azure 訂用帳戶中。  這些清單會使用所選帳戶已註冊的付款方法來計費。 Azure 使用費用會與軟體授權費用分開計費。
 
 **如果間接 Enterprise 合約 (EA) 客戶對於在 Azure Marketplace 上販售的供應項目有定價方面的問題，該與誰連絡？**
 
@@ -179,13 +176,13 @@ Azure 訂用帳戶隨附于發行者的獨立軟體廠商（ISV）解決方案�
 
 **大量授權折扣適用於 Azure Marketplace 購買嗎？**
 
-資料分割 擁有 Azure Marketplace 所列解決方案的發行者可以設定價格。  標準 Microsoft 大量授權合約折扣不適用於 Azure Marketplace 購買。
+不會。 擁有 Azure Marketplace 所列解決方案的發行者可以設定價格。  標準 Microsoft 大量授權合約折扣不適用於 Azure Marketplace 購買。
 
 **我可以在哪裡檢視 Azure Marketplace 訂閱詳細資料和帳單資訊？**
 
 MOSP- [Microsoft 線上訂閱者案](https://azure.microsoft.com/support/legal/subscription-agreement/?country=us&language=en)（web direct）客戶可以在[Azure 入口網站]的 [成本管理 + 帳單] 區段的 [發票] 索引標籤中，查看 Marketplace 購買詳細資料。
 
-Enterprise 合約（EA）客戶可以在 [Azure 入口網站] [成本管理 + 帳單] 區段的 [發票] 索引標籤中，查看 Marketplace 購買詳細資料。
+Enterprise 合約（EA）客戶可以在[Azure 入口網站][成本管理 + 帳單] 區段的 [發票] 索引標籤中，查看 Marketplace 購買詳細資料。
 
 雲端解決方案提供者（CSP）合作夥伴可以在 [訂單歷程記錄] 索引標籤中的每個客戶，于 [客戶] 視圖中選取公司之後，查看 Marketplace 購買詳細資料。
 
@@ -338,7 +335,7 @@ Microsoft 會使用 AAD 來驗證所有 Marketplace 使用者。  您可以直�
 
 **可以在哪裡取得設定我潛在客戶目的地的說明？**
 
-經由 [Cloud Partner 入口網站 - 獲得潛在客戶](./cloud-partner-portal-orig/cloud-partner-portal-get-customer-leads.md)了解詳細資訊，或選取供應項目類型及潛在客戶管理，以透過 [https://aka.ms/marketplacepublishersupport](https://aka.ms/marketplacepublishersupport) 提交支援票證。
+在[合作夥伴中心深入瞭解-取得客戶領導的](./cloud-partner-portal-orig/cloud-partner-portal-get-customer-leads.md)檔，或選取您的供應專案類型和潛在客戶管理，透過[https://aka.ms/marketplacepublishersupport](https://aka.ms/marketplacepublishersupport)提交支援票證。
 
 **我是否必須設定潛在客戶目的地，才能在 Marketplace 上發佈供應項目？**
 
@@ -346,17 +343,17 @@ Microsoft 會使用 AAD 來驗證所有 Marketplace 使用者。  您可以直�
 
 **如何確認潛在客戶設定是否正確？**
 
-完成供應項目並設定潛在客戶目的地之後，即可將陳列商品適當地發佈在 [Cloud Partner 入口網站](https://cloudpartner.azure.com/)中。 陳列商品上架之前，您可以驗證潛在客戶組態設定是否正確運作。  請將測試潛在客戶傳送至您在供應項目中設定的潛在客戶目的地。
+完成供應專案並設定潛在客戶目的地之後，清單可以正確地在[合作夥伴中心](https://cloudpartner.azure.com/)發佈。 陳列商品上架之前，您可以驗證潛在客戶組態設定是否正確運作。  請將測試潛在客戶傳送至您在供應項目中設定的潛在客戶目的地。
 
 **Azure Marketplace 中有哪些國家/地區可讓發行者銷售產品？**
 
-以下列國家/地區為基礎的發行者目前可在 Azure Marketplace 中銷售：阿富汗、阿爾巴尼亞、阿爾及利亞、安哥拉、安地卡及巴布達、阿根廷、亞美尼亞、澳洲、奧地利、亞塞拜然、巴林、孟加拉、白俄羅斯、比利時、貝南、玻利維亞、波士尼亞與赫塞哥維納、波札那、巴西、保加利亞、布吉納法索、蒲隆地、柬埔寨、喀麥隆、加拿大、中非共和國、查德、智利、哥倫比亞、葛摩、剛果共和國、剛果民主共和國、哥斯大黎加、科特迪瓦 (象牙海岸)、克羅埃西亞、賽普勒斯、捷克共和國、丹麥、多米尼克、多明尼加、厄瓜多、埃及、薩爾瓦多、厄利垂亞、愛沙尼亞、衣索比亞、斐濟、芬蘭、法國、喬治亞、德國、迦納、希臘、瓜地馬拉、幾內亞、海地、宏都拉斯、香港特別行政區、匈牙利、冰島、印度、印尼、伊拉克、愛爾蘭、以色列、義大利、牙買加、日本、約旦、哈薩克、肯亞、南韓、科威特、寮國、拉脫維亞、黎巴嫩、賴比瑞亞、列支敦斯登、立陶宛、盧森堡、馬達加斯加、馬拉威、馬來西亞、馬利、馬爾他、模里西斯、墨西哥、摩納哥、蒙古、蒙特內哥羅、摩洛哥、莫三比克、尼泊爾、荷蘭、紐西蘭、尼加拉瓜、尼日、奈及利亞、挪威、阿曼、巴基斯坦、巴拿馬、巴拉圭、秘魯、菲律賓、波蘭、葡萄牙、卡達、羅馬尼亞、俄羅斯、盧安達、沙烏地阿拉伯、塞內加爾、塞爾維亞、獅子山、新加坡、斯洛伐克、斯洛維尼亞、索馬利亞、南非、西班牙、斯里蘭卡、瑞典、瑞士、塔吉克、坦尚尼亞、泰國、東帝汶、多哥、東加、千里達及托巴哥、突尼西亞、土耳其、土庫曼、烏干達、烏克蘭、阿拉伯聯合大公國、英國、美國、烏拉圭、烏茲別克、委內瑞拉、越南、尚比亞、辛巴威。
+以下列國家/地區為基礎的發行者目前可在 Azure Marketplace 中銷售：阿富汗、阿爾巴尼亞、阿爾及利亞、安哥拉、安提瓜和巴布貝南、阿根廷、亞美尼亞、澳大利亞、奧地利、亞塞拜然、巴林、孟加拉國、白俄羅斯、比利時、、玻利維亞、波士尼亞和黑塞哥維那、博茨瓦納、巴西、保加利亞、布吉納法索、蒲隆地、柬埔寨、喀麥隆、加拿大、中北部、Chad、智利、哥倫比亞、科摩羅、剛果民主共和國、剛果（剛果民主共和國）、哥斯大黎加、象牙海岸象牙海岸、克羅地亞、賽普勒斯、捷克共和國、丹麥，多米尼克，多明尼加共和國，厄瓜多爾，埃及，薩爾瓦多，厄立特里亞，愛沙尼亞，埃塞俄比亞，斐濟群島，芬蘭，法國，格魯吉亞，德國，加納，希臘，瓜地馬拉，幾內亞，海地，宏都拉斯，香港特別行政區，匈牙利，冰島，印度，印尼，伊拉克，愛爾蘭，以色列，義大利，牙買加，日本，約旦，哈薩克斯坦，肯雅，韓國（南部），科威特，老撾，拉脫維亞，黎巴嫩，賴比瑞亞，列支敦斯登，立陶宛，盧森堡，馬達加斯加，馬拉威，馬來西亞，馬里，馬爾他，模里西斯，墨西哥，摩納哥，蒙古，黑山，摩洛哥、莫三比克、尼泊爾、荷蘭、紐西蘭、尼加拉瓜、尼日爾、奈及利亞、挪威、阿曼、巴基斯坦、巴拿馬、巴拉圭、秘魯、菲律賓、波蘭、葡萄牙、卡塔爾、羅馬尼亞、俄羅斯、盧安達、沙烏地阿拉伯、塞內加爾、塞爾維亞、塞拉里昂、新加坡、斯洛伐克，斯洛維尼亞，索馬里，南非，西班牙，斯里蘭卡，瑞典，瑞士，塔吉克斯坦，坦尚尼亞，泰國，東帝汶民主共和國-東帝汶民主共和國，多哥，湯加，特立尼達和多巴哥，突尼斯，土耳其，土庫曼斯坦，烏干達，烏克蘭，阿拉伯，英國，英國州、烏拉圭、烏茲別克、委內瑞拉、越南、尚比亞和辛巴威。
 
 **如何從 Azure Marketplace 刪除陳列的商品？**
 
 *虛擬機器 & Azure 應用程式：*
 
-1. 登入 [Cloud Partner 入口網站](https://cloudpartner.azure.com/)。
+1. 登入[合作夥伴中心](https://cloudpartner.azure.com/)。
 1. 從 [**所有**供應專案] 索引標籤中選取供應專案。
 1. 在畫面的左側窗格中，選取 [SKU] 索引標籤。
 1. 選取要刪除的 SKU，然後按一下該 SKU 的 [**刪除**] 按鈕。
@@ -366,7 +363,7 @@ Microsoft 會使用 AAD 來驗證所有 Marketplace 使用者。  您可以直�
 
 *Web Apps （SaaS 應用程式、附加元件） & 諮詢服務：*
 
-1. 在 Cloud Partner 入口網站中，選取問號圖示，然後按一下 **支援**。
+1. 在 [合作夥伴中心] 中，選取問號圖示，然後按一下 [**支援**]。
 1. 移至 <https://go.microsoft.com/fwlink/?linkid=844975>。
 1. 在支援頁面上，選取供應項目類型。
 1. 選取 [**移除**已發佈的供應專案]。
@@ -419,19 +416,19 @@ Azure Marketplace 目前不支援按虛擬機器節點計費。 發行者仍可�
 
 **如有 Azure Marketplace 的一般支援問題，該與誰連絡？**
 
-如需與使用或疑難排解方面的一般應用程式支援，請連絡 [Cloud Partner 入口網站支援服務](https://support.microsoft.com/getsupport?wf=0&tenant=ClassicCommercial&oaspworkflow=start_1.0.0.0&locale=en-us&supportregion=en-us&pesid=16230&ccsid=636565784998876007)。
+如需有關使用性或疑難排解的一般應用程式支援，請聯絡[合作夥伴中心支援](https://support.microsoft.com/getsupport?wf=0&tenant=ClassicCommercial&oaspworkflow=start_1.0.0.0&locale=en-us&supportregion=en-us&pesid=16230&ccsid=636565784998876007)。
 
 如有關於 Azure Marketplace 購買的計費和訂用帳戶問題，請連絡 [Azure 支援](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview)。
 
 **如有發佈或供應項目管理的問題，該與誰連絡？**
 
-如需常見問題集的最新資源和文件，請瀏覽 [Azure Marketplace 發行者指南](marketplace-publishers-guide.md)。 此外，您可以在 [Cloud Partner 入口網站](https://support.microsoft.com/getsupport?oaspworkflow=start_1.0.0.0&wf=0&wfname=productselection&prid=16230&forceorigin=esmc&ccsid=636694515623707953)中向 Microsoft 支援服務登錄票證。
+如需常見問題集的最新資源和文件，請瀏覽 [Azure Marketplace 發行者指南](marketplace-publishers-guide.md)。 此外，您可以使用[合作夥伴中心的 Microsoft 支援服務](https://support.microsoft.com/getsupport?oaspworkflow=start_1.0.0.0&wf=0&wfname=productselection&prid=16230&forceorigin=esmc&ccsid=636694515623707953)來記錄票證。
 
 ### <a name="azure-marketplace-for-publishers"></a>發行者的 Azure Marketplace
 
 **如何? 定義我的地理位置，以便在不同的國家/地區銷售嗎？**
 
-1.  在 Cloud Partner 入口網站中，流覽至您要新增新國家/地區的 SKU。  在**SKU 詳細資料**中，流覽至 [**國家/區域可用性**]，然後按一下 [**選取區域**]。
+1.  在合作夥伴中心，流覽至您要新增新國家/地區的 SKU。  在**SKU 詳細資料**中，流覽至 [**國家/區域可用性**]，然後按一下 [**選取區域**]。
 
     ![選取區域](media/marketplace-publishers-guide/FAQ-choose-geo.png)
 
@@ -456,7 +453,7 @@ Azure Marketplace 支援從地理位置購買141，如客戶的帳單位址所�
 
 **Azure Marketplace 支援哪些貨幣？**
 
-交易可以用下列17種貨幣來進行：AUD、BRL、CAD、CHF、丹麥幣、EUR、GBP、INR、JPY、KRW、NOK、紐西蘭幣、難處在於、克朗、新臺幣和美元。
+交易可以採用下列17種貨幣來進行： AUD、BRL、CAD、CHF、丹麥幣、EUR、GBP、INR、JPY、KRW、NOK、紐西蘭幣、難處在於、克朗、新臺幣和美元。
 
 ### <a name="pricing-and-payment"></a>定價及付款
 

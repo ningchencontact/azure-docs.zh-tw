@@ -17,19 +17,19 @@ ms.author: ryanwi
 ms.reviewer: saeeda, jmprieur, andret
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 484e6b4c5f0e064254c957b07b8ba15ef98f2634
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f4babb7e869f4fc83bcdb530a580a29dda234293
+ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65545219"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72373784"
 ---
 # <a name="web-api"></a>Web API
 
 Web API 應用程式是必須從 Web API 取得資源的 Web 應用程式。 在此案例中，有兩個識別類型可供 Web 應用程式用來驗證和呼叫 Web API：
 
 - **應用程式識別** - 此案例使用 OAuth 2.0 用戶端認證授與來驗證應用程式和存取 Web API。 使用應用程式識別時，Web API 只能偵測到 Web 應用程式正在呼叫它，因為 Web API 沒有收到關於使用者的任何資訊。 如果應用程式收到使用者的相關資訊，此資訊會透過應用程式通訊協定傳送，但未經過 Azure AD 簽署。 Web API 信任 Web 應用程式已驗證使用者。 基於這個理由，這種模式稱為受信任子系統。
-- **委派的使用者識別** - 此案例可以透過兩種方式完成：具有機密用戶端的 OpenID Connect 和 OAuth 2.0 授權碼授與。 Web 應用程式會為使用者取得存取權杖，向 Web API 證明使用者已順利通過 Web 應用程式的驗證，而且 Web 應用程式能夠取得委派的使用者識別來呼叫 Web API。 此存取權杖隨著要求傳送至 Web API，Web API 再授權使用者並傳回所需的資源。
+- **委派的使用者識別** - 有兩種方式可實現此案例：OpenID Connect 和搭配機密用戶端的 OAuth 2.0 授權碼授與。 Web 應用程式會為使用者取得存取權杖，向 Web API 證明使用者已順利通過 Web 應用程式的驗證，而且 Web 應用程式能夠取得委派的使用者識別來呼叫 Web API。 此存取權杖隨著要求傳送至 Web API，Web API 再授權使用者並傳回所需的資源。
 
 下列流程中討論應用程式識別和委派的使用者識別類型。 它們之間的主要差異是委派的使用者識別必須先取得授權碼，使用者才能登入並存取 Web API。
 
@@ -69,9 +69,9 @@ Web API 應用程式是必須從 Web API 取得資源的 Web 應用程式。 在
 
 ## <a name="app-registration"></a>應用程式註冊
 
-若要註冊應用程式與 Azure AD v1.0 端點，請參閱[註冊應用程式](quickstart-register-app.md)。
+若要向 Azure AD v1.0 端點註冊應用程式，請參閱[註冊應用](quickstart-register-app.md)程式。
 
-* 單一租用戶 - 無論是應用程式識別或委派的使用者識別的情況，Web 應用程式和 Web API 都必須註冊在 Azure AD 的相同目錄中。 Web API 可以設定為公開一組權限，用以限制 Web 應用程式對其資源的存取權。 如果使用委派的使用者識別類型，Web 應用程式需要從 Azure 入口網站的 [其他應用程式的權限]  下拉式功能表中，選取所需的權限。 如果使用應用程式識別類型，則不需要此步驟。
+* 單一租用戶 - 無論是應用程式識別或委派的使用者識別的情況，Web 應用程式和 Web API 都必須註冊在 Azure AD 的相同目錄中。 Web API 可以設定為公開一組權限，用以限制 Web 應用程式對其資源的存取權。 如果使用委派的使用者識別類型，Web 應用程式需要從 Azure 入口網站的 [其他應用程式的權限] 下拉式功能表中，選取所需的權限。 如果使用應用程式識別類型，則不需要此步驟。
 * 多租用戶 - 首先，設定 Web 應用程式來指出它運作所需的權限。 當目的地目錄中的使用者或系統管理員同意應用程式時 (使得應用程式可供組織使用)，這份必要權限清單會顯示在對話方塊中。 有些應用程式只需要使用者層級權限，亦即組織中的任何使用者都可以同意應用程式。 其他應用程式需要系統管理員層級權限，亦即組織中的使用者無法同意應用程式。 只有目錄管理員才能對需要此權限層級的應用程式表示同意。 當使用者或系統管理員同意時，Web 應用程式和 Web API 都會註冊在他們的目錄中。
 
 ## <a name="token-expiration"></a>權杖到期
@@ -81,4 +81,4 @@ Web API 應用程式是必須從 Web API 取得資源的 Web 應用程式。 在
 ## <a name="next-steps"></a>後續步驟
 
 - 深入了解其他[應用程式類型和案例](app-types.md)
-- 了解 Azure AD [驗證基本概念](authentication-scenarios.md)
+- 了解 Azure AD [驗證基本概念](v1-authentication-scenarios.md)

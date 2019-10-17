@@ -8,18 +8,18 @@ ms.author: robreed
 ms.date: 04/26/2019
 ms.topic: article
 manager: carmonm
-ms.openlocfilehash: abf0f69ea70bae4102806214f0ef0fcfc25aad3a
-ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
+ms.openlocfilehash: 6550b6e3f59ff7e6bac39dfc1abcf829256122d4
+ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/29/2019
-ms.locfileid: "67477052"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72376346"
 ---
 # <a name="run-shell-scripts-in-your-linux-vm-with-run-command"></a>使用執行命令在 Linux VM 中執行殼層指令碼
 
 執行命令會使用 VM 代理程式在 Azure Linux VM 中執行殼層指令碼。 這些指令碼可用於一般機器或應用程式管理，且可用來快速診斷和修復虛擬機器存取和網路問題，並使虛擬機器恢復正常狀態。
 
-## <a name="benefits"></a>優點
+## <a name="benefits"></a>優勢
 
 有多個選項可以用來存取您的虛擬機器。 執行命令可以使用虛擬機器代理程式，從遠端在虛擬機器上執行指令碼。 可以透過 Azure 入口網站、[REST API](/rest/api/compute/virtual%20machines%20run%20commands/runcommand) 或適用於 Linux VM 的 [Azure CLI](/cli/azure/vm/run-command?view=azure-cli-latest#az-vm-run-command-invoke) 來執行命令。
 
@@ -41,6 +41,19 @@ ms.locfileid: "67477052"
 > [!NOTE]
 > Run 命令需要連線 (連接埠 443) 到 Azure 公用 IP 位址，才能正確運作。 如果擴充功能無法存取這些端點，指令碼可能會執行成功，但不會傳回結果。 如果您要封鎖虛擬機器上的流量，可以使用[服務標籤](../../virtual-network/security-overview.md#service-tags)，以便利用 `AzureCloud` 標籤來允許送至 Azure 公用 IP 位址的流量。
 
+## <a name="available-commands"></a>可用的命令
+
+下表顯示 Linux VM 的可用命令清單。 **RunShellScript** 命令可用來執行您想要的任何自訂指令碼。 當您使用 Azure CLI 或 PowerShell 來執行命令時，您為 `--command-id` 或 @no__t 1 參數提供的值必須是以下所列的其中一個值。 當您指定的值不是可用的命令時，您會收到錯誤。
+
+```error
+The entity was not found in this Azure location
+```
+
+|**名稱**|**說明**|
+|---|---|
+|**RunShellScript**|執行 Linux 殼層指令碼。|
+|**ifconfig**| 取得所有網路介面的組態。|
+
 ## <a name="azure-cli"></a>Azure CLI
 
 以下是使用 [az vm run-command](/cli/azure/vm/run-command?view=azure-cli-latest#az-vm-run-command-invoke) 命令在 Azure Linux VM 上執行殼層指令碼的範例。
@@ -52,35 +65,34 @@ az vm run-command invoke -g myResourceGroup -n myVm --command-id RunShellScript 
 > [!NOTE]
 > 若要以不同的使用者身分執行命令，您可以使用 `sudo -u` 指定要使用的使用者帳戶。
 
-## <a name="azure-portal"></a>Azure 入口網站
+## <a name="azure-portal"></a>Azure Portal
 
-瀏覽至 [Azure](https://portal.azure.com) 中的 VM，並選取 [作業]  下的 [執行命令]  。 您會看到將可在虛擬機器上執行之命令的清單。
+瀏覽至 [Azure](https://portal.azure.com) 中的虛擬機器，並選取 [作業] 下的 [執行命令]。 您會看到將可在虛擬機器上執行之命令的清單。
 
 ![執行命令清單](./media/run-command/run-command-list.png)
 
-選擇要執行的命令。 有些命令可能會有選擇性或必要的輸入參數。 對於這些命令，參數會顯示為可讓您提供輸入值的文字欄位。 對於每個命令，您可以展開 [檢視指令碼]  檢視執行中的指令碼。 **RunShellScript** 不同於其他命令，因為它可讓您提供您自己的自訂指令碼。
+選擇要執行的命令。 有些命令可能會有選擇性或必要的輸入參數。 對於這些命令，參數會顯示為可讓您提供輸入值的文字欄位。 對於每個命令，您可以展開 [檢視指令碼] 檢視執行中的指令碼。 **RunShellScript** 不同於其他命令，因為它可讓您提供您自己的自訂指令碼。
 
 > [!NOTE]
-> 內建命令是無法編輯的。
+> 無法編輯內建命令。
 
-選擇命令之後，按一下 [執行]  執行指令碼。 指令碼隨即執行，完成時將在輸出視窗中傳回任何錯誤。 下列螢幕擷取畫面顯示執行 **ifconfig** 命令的範例輸出。
+選擇命令之後，按一下 [執行] 執行指令碼。 指令碼隨即執行，完成時將在輸出視窗中傳回任何錯誤。 下列螢幕擷取畫面顯示執行 **ifconfig** 命令的範例輸出。
 
 ![執行命令指令碼輸出](./media/run-command/run-command-script-output.png)
 
-## <a name="available-commands"></a>可用的命令
+### <a name="powershell"></a>PowerShell
 
-下表顯示 Linux VM 的可用命令清單。 **RunShellScript** 命令可用來執行您想要的任何自訂指令碼。
+下列範例會使用 [Invoke-AzVMRunCommand](https://docs.microsoft.com/powershell/module/az.compute/invoke-azvmruncommand) \(英文\) Cmdlet，在 Azure VM 上執行 PowerShell 指令碼。 此 Cmdlet 預期 `-ScriptPath` 參數中所參考的指令碼，位於 Cmdlet 執行所在位置的本機環境。
 
-|**名稱**|**說明**|
-|---|---|
-|**RunShellScript**|執行 Linux 殼層指令碼。|
-|**ifconfig**| 取得所有網路介面的組態。|
+```powershell-interactive
+Invoke-AzVMRunCommand -ResourceGroupName '<myResourceGroup>' -Name '<myVMName>' -CommandId 'RunPowerShellScript' -ScriptPath '<pathToScript>' -Parameter @{"arg1" = "var1";"arg2" = "var2"}
+```
 
-## <a name="limiting-access-to-run-command"></a>限制於執行命令的存取
+## <a name="limiting-access-to-run-command"></a>限制對於執行命令的存取
 
-列出執行的命令，或顯示命令的詳細資料需要`Microsoft.Compute/locations/runCommands/read`訂用帳戶層級的權限的內建[讀取器](../../role-based-access-control/built-in-roles.md#reader)角色還有更高版本。
+列出執行命令或顯示命令的詳細資料，需要訂用帳戶層級的 `Microsoft.Compute/locations/runCommands/read` 許可權，而內建[讀取](../../role-based-access-control/built-in-roles.md#reader)者角色和更新版本。
 
-執行命令需要`Microsoft.Compute/virtualMachines/runCommand/action`訂用帳戶層級的權限這[虛擬機器參與者](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor)角色還有更高版本。
+執行命令需要訂用帳戶層級的 `Microsoft.Compute/virtualMachines/runCommand/action` 許可權，[虛擬機器參與者](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor)角色和更新版本才有。
 
 您可以使用其中一個[內建](../../role-based-access-control/built-in-roles.md)角色或建立[自訂](../../role-based-access-control/custom-roles.md)角色使用執行命令。
 

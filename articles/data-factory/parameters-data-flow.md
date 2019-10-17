@@ -6,12 +6,12 @@ ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 06/10/2019
-ms.openlocfilehash: 733d3f9c4079193107f22178bdbde3a3ecf0e7ca
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.openlocfilehash: 0a1051d67bf45e96f82833ef8190008204cdc90b
+ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72028220"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72387544"
 ---
 # <a name="mapping-data-flow-parameters"></a>對應資料流程參數
 
@@ -36,13 +36,13 @@ ms.locfileid: "72028220"
 
 可以在任何資料流程運算式中使用參數。 參數是以 $ 開頭，而且是不可變的。 您會在 [參數] 索引標籤底下的 [運算式產生器] 中找到可用參數的清單。
 
-資料流程![參數運算式](media/data-flow/parameter-expression.png "資料流程 參數運算式")
+![資料流程參數運算式](media/data-flow/parameter-expression.png "資料流程參數運算式")
 
 ## <a name="use-parameters-in-your-data-flow"></a>在資料流程中使用參數
 
-* 您可以在轉換運算式內使用參數值。 您會在 [運算式產生器] 中的 [參數] 索引標籤下找到參數清單。 ![使用資料流程參數](media/data-flow/params9.png "使用資料流程參數")
+* 您可以在轉換運算式內使用參數值。 您會在 [運算式產生器] 中的 [參數] 索引標籤下找到參數清單。 ![使用資料流程參數](media/data-flow/params9.png "Use 資料流程參數」)
 
-* 參數也會用來設定來源和接收轉換設定的動態值。 當您按一下可設定的欄位內部時，您會看到 [新增動態內容] 連結出現。 按一下會帶您前往運算式產生器，您可以在其中使用參數來使用動態值。 資料流程![動態內容](media/data-flow/params6.png "資料流程 動態內容")
+* 參數也會用來設定來源和接收轉換設定的動態值。 當您按一下可設定的欄位內部時，您會看到 [新增動態內容] 連結出現。 按一下會帶您前往運算式產生器，您可以在其中使用參數來使用動態值。 ![資料流程動態內容](media/data-flow/params6.png "Data 流量動態內容」)
 
 ## <a name="set-mapping-data-flow-parameters-from-pipeline"></a>從管線設定對應的資料流程參數
 
@@ -61,7 +61,7 @@ ms.locfileid: "72028220"
 
 每個對應資料流程可以有管線和資料流程運算式參數的任意組合。 
 
-資料流程![參數範例](media/data-flow/parameter-example.png "資料流程 參數範例")
+![資料流程參數範例](media/data-flow/parameter-example.png "資料流程參數範例")
 
 
 

@@ -1,6 +1,6 @@
 ---
 title: Azure InfoBox UI 元素 | Microsoft Docs
-description: 描述 Azure 入口網站的 Microsoft.Common.TextBlock UI 元素。
+description: 描述 Azure 入口網站的 InfoBox UI 元素。 用來在部署受控應用程式時加入文字或警告。
 services: managed-applications
 documentationcenter: na
 author: tfitzmac
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/15/2018
 ms.author: tomfitz
-ms.openlocfilehash: 2330197b4512dfdd72de3529145103b644594e25
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 67ae05c2ec7b36d76e49f26d5765bbc68b952292
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64711201"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72331694"
 ---
 # <a name="microsoftcommoninfobox-ui-element"></a>Microsoft.Common.InfoBox UI 元素
 可新增資訊方塊的控制項。 此方塊包含重要的文字或警告，可協助使用者了解他們所要提供的值。 它也可以連結至 URI 來提供更多資訊。

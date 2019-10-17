@@ -1,5 +1,5 @@
 ---
-title: 取得您的 Microsoft Azure 為基礎的 VM 映像的共用的存取簽章 URI |Azure Marketplace
+title: 取得以 Microsoft Azure 為基礎的 VM 映射的共用存取簽章 URI |Azure Marketplace
 description: 說明如何取得 VM 映像的共用存取簽章 (SAS) URI。
 services: Azure, Marketplace, Cloud Partner Portal,
 author: pbutlerm
@@ -7,16 +7,16 @@ ms.service: marketplace
 ms.topic: article
 ms.date: 10/19/2018
 ms.author: pabutler
-ms.openlocfilehash: 4da82b2f6aaa3fc664d2e91b80722329533b0cd0
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c242fbcd19187abb608ca80a49d04dae195bd7c6
+ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64938672"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72374379"
 ---
 # <a name="get-shared-access-signature-uri-for-your-vm-image"></a>取得 VM 映像的共用存取簽章 URI
 
-在發行過程中，您必須為每個與 SKU 相關聯的虛擬硬碟 (VHD) 提供統一資源識別項 (URI)。 Microsoft 需要在認證程序期間存取這些 VHD。 本文說明如何為每個 VHD 產生共用存取簽章 (SAS) URI。 請在 Cloud Partner 入口網站的 [SKU]  索引標籤中，輸入此 URI。 
+在發行過程中，您必須為每個與 SKU 相關聯的虛擬硬碟 (VHD) 提供統一資源識別項 (URI)。 Microsoft 需要在認證程序期間存取這些 VHD。 本文說明如何為每個 VHD 產生共用存取簽章 (SAS) URI。 請在 Cloud Partner 入口網站的 [SKU] 索引標籤中，輸入此 URI。 
 
 產生 VHD 的 SAS URI 時，請遵守下列需求：
 
@@ -44,7 +44,7 @@ ms.locfileid: "64938672"
    az storage container generate-sas --connection-string 'DefaultEndpointsProtocol=https;AccountName=<account-name>;AccountKey=<account-key>;EndpointSuffix=core.windows.net' --name <vhd-name> --permissions rl --start '<start-date>' --expiry '<expiry-date>'
    ```
     
-3. 編輯檔案，以提供下列參數值。  應該以 UTC 日期時間格式提供日期，例如 `10-25-2016T00:00:00Z`。
+3. 編輯檔案，以提供下列參數值。  應該以 UTC 日期時間格式提供日期，例如 `2016-10-25T00:00:00Z`。
    - `<account-name>` - Azure 儲存體帳戶名稱
    - `<account-key>` - Azure 儲存體帳戶金鑰
    - `<vhd-name>` - VHD 名稱
@@ -87,21 +87,21 @@ ms.locfileid: "64938672"
 請使用下列步驟，以 Microsoft Azure 儲存體總管來產生 SAS URI。
 
 1. 下載並安裝 [Microsoft Azure 儲存體總管](https://azure.microsoft.com/features/storage-explorer/)。
-2. 開啟 [Explorer]，並在左側的功能表列中，按一下 [新增帳戶]  圖示。  隨即顯示 [連線至 Azure 儲存體]  對話方塊。
-3. 選取 [新增 Azure 帳戶]  ，然後按一下 [登入]  。  繼續執行所需的步驟以登入 Azure 帳戶。
-4. 在左側 [Explorer]  窗格中，瀏覽至您的 [儲存體帳戶]  ，並展開此節點。
-5. 以滑鼠右鍵按一下 VHD，然後從快顯功能表選取 [取得共用存取簽章]  。 
+2. 開啟 [Explorer]，並在左側的功能表列中，按一下 [新增帳戶] 圖示。  隨即顯示 [連線至 Azure 儲存體] 對話方塊。
+3. 選取 [新增 Azure 帳戶]，然後按一下 [登入]。  繼續執行所需的步驟以登入 Azure 帳戶。
+4. 在左側 [Explorer] 窗格中，瀏覽至您的 [儲存體帳戶]，並展開此節點。
+5. 以滑鼠右鍵按一下 VHD，然後從快顯功能表選取 [取得共用存取簽章]。 
 
     ![在 [Azure 總管] 中取得 SAS 項目](./media/publishvm_034.png)
 
-6. 隨即顯示 [共用存取簽章]  對話方塊。 為下列欄位輸入值︰
+6. 隨即顯示 [共用存取簽章] 對話方塊。 為下列欄位輸入值︰
    - **開始時間** - VHD 存取的權限開始時間。 提供目前日期前一天的日期。
    - **到期時間** - VHD 存取的權限到期日。  提供至少超過目前日期三週的日期。
    - **權限** - 選取 `Read` 和 `List` 權限。 
 
      ![Azure 總管中的 SAS 對話方塊](./media/publishvm_035.png)
 
-7. 按一下 [建立]  ，以建立此 VHD 相關聯的 SAS URI。  對話方塊會立即顯示此作業的相關詳細資料。 
+7. 按一下 [建立]，以建立此 VHD 相關聯的 SAS URI。  對話方塊會立即顯示此作業的相關詳細資料。 
 8. 複製 **URL** 值，並將該值儲存到安全位置的文字檔中。 
 
     ![在 [Azure 總管] 中建立 SAS URI](./media/publishvm_036.png)

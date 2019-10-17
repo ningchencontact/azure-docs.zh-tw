@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 9e0afd26b46fc6249b697c38983b9c219c42b1a0
-ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
+ms.openlocfilehash: 34b26dd1b9b8990da9e84c8d7cfc993d8bbe85a7
+ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70845482"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72376298"
 ---
 # <a name="migrate-workloads-using-layer-2-stretched-networks"></a>使用第 2 層延伸網路遷移工作負載
 
@@ -57,10 +57,10 @@ ms.locfileid: "70845482"
 
 | vSphere 版本 | 來源 vSwitch 類型 | 虛擬 NIC 驅動程式 | 目標 vSwitch 類型 | 支援? |
 ------------ | ------------- | ------------ | ------------- | ------------- 
-| 全部 | DVS | 全部 | DVS | 是 |
+| 所有 | DVS | 所有 | DVS | 是 |
 | vSphere 6.7 UI 或更高版本、6.5 P03 或更高版本 | DVS | VMXNET3 | N-VDS | 是 |
 | vSphere 6.7 UI 或更高版本、6.5 P03 或更高版本 | DVS | E1000 | N-VDS | [每個 VWware 不支援](https://kb.vmware.com/s/article/56991) |
-| vSphere 6.7 UI 或 6.5 P03、NSX-V 或版本低於 NSX-T 2.2、6.5 P03 或更高版本 | 全部 | 全部 | N-VDS | [每個 VWware 不支援](https://kb.vmware.com/s/article/56991) |
+| vSphere 6.7 UI 或 6.5 P03、NSX-V 或版本低於 NSX-T 2.2、6.5 P03 或更高版本 | 所有 | 所有 | N-VDS | [每個 VWware 不支援](https://kb.vmware.com/s/article/56991) |
 
 從 VMware NSX-T 2.3 版本：
 
@@ -108,15 +108,15 @@ ms.locfileid: "70845482"
 
 下列步驟顯示如何針對 IPsec 和 L2VPN 服務，提取 Tier0 DR 邏輯路由器實例的邏輯路由器識別碼。 稍後在執行 L2VPN 時，需要邏輯路由器識別碼。
 
-1. 登入 nsx *-t manager HTTPs://，* 並選取**網路** > **路由器** > **提供者-LR**  > **總覽**。 針對 [**高可用性模式]** ，選取 [作用中 **-待命**]。 此動作會開啟一個快顯視窗，其中顯示 Tier0 路由器目前作用中的邊緣 VM。
+1. 登入 NSX *-t manager HTTPs://，* 然後選取 [**網路** > **路由器** > **提供者-LR** > **總覽**]。 針對 [**高可用性模式]** ，選取 [作用中 **-待命**]。 此動作會開啟一個快顯視窗，其中顯示 Tier0 路由器目前作用中的邊緣 VM。
 
     ![選取作用中-待命](media/l2vpn-fetch01.png)
 
-2. 選取 [網狀**架構** > **節點** > **邊緣**]。 記下上一個步驟中所識別之作用中邊緣 VM （Edge VM1）的管理 IP 位址。
+2. 選取 [網狀**架構** > ]**節點** >  個**邊緣**。 記下上一個步驟中所識別之作用中邊緣 VM （Edge VM1）的管理 IP 位址。
 
     ![注意管理 IP](media/l2vpn-fetch02.png)
 
-3. 開啟邊緣 VM 管理 IP 位址的 SSH 會話。 以使用者名稱**admin**和密碼**CloudSimple 123！** 執行命令。```get logical-router```
+3. 開啟邊緣 VM 管理 IP 位址的 SSH 會話。 以使用者名稱**admin**和密碼**CloudSimple 123！** 執行 ```get logical-router``` 命令。
 
     ![取得邏輯路由器輸出](media/l2vpn-fetch03.png)
 
@@ -130,14 +130,14 @@ ms.locfileid: "70845482"
 
     ![附加虛擬交換器](media/l2vpn-fetch05.png)
 
-7. 在 Edge VM 的 SSH 會話上再次執行命令。`get logical-router` 隨即顯示「DR-提供者-LR」邏輯路由器的 UUID。 記下 UUID，這是設定 L2VPN 時的必要項。
+7. 在 Edge VM 的 SSH 會話上，再次執行 `get logical-router` 命令。 隨即顯示「DR-提供者-LR」邏輯路由器的 UUID。 記下 UUID，這是設定 L2VPN 時的必要項。
 
     ![取得邏輯路由器輸出](media/l2vpn-fetch06.png)
 
 ## <a name="fetch-the-logical-switch-id-needed-for-l2vpn"></a>提取 L2VPN 所需的邏輯交換器識別碼
 
 1. 登入 [ [NSX-T 管理員](https://nsx-t-manager-ip-address)]。
-2. 選取 [**網路** > **切換** > **交換器**] > * * < \Logical 交換器 > \ * * >**總覽**。
+2. 選取**網路** > **切換** > **交換器**> * * < \Logical 交換器 @ No__t-5 * * >**總覽**。
 3. 記下延展邏輯交換器的 UUID，這是設定 L2VPN 時的必要項。
 
     ![取得邏輯路由器輸出](media/l2vpn-fetch-switch01.png)
@@ -154,20 +154,20 @@ ms.locfileid: "70845482"
 
 ### <a name="advertise-the-loopback-interface-ip-to-the-underlay-network"></a>將回送介面 IP 公告至 underlay 網路
 
-1. 為回送介面網路建立 null 路由。 登入 [NSX-T 管理員]，然後選取 [**網路** > **路由** > **路由器** > **提供者-LR**  > **路由** > **靜態路由**]。 按一下 [新增]。 針對 [**網路**]，輸入回送介面的 IP 位址。 針對 [**下一個躍點]** ，按一下 [**新增**]，為下一個躍點指定 [Null]，並保留預設值1來管理距離。
+1. 為回送介面網路建立 null 路由。 登入 NSX-T Manager，並選取**網路** > **路由** >  個**路由器** >  個**提供者-LR** > **路由** >  個**靜態路由**。 按一下 [新增]。 針對 [**網路**]，輸入回送介面的 IP 位址。 針對 [**下一個躍點]** ，按一下 [**新增**]，為下一個躍點指定 [Null]，並保留預設值1來管理距離。
 
     ![新增靜態路由](media/l2vpn-routing-security01.png)
 
-2. 建立 IP 首碼清單。 登入 [NSX-T 管理員]，然後選取 [**網路** > **路由** > **路由器** > **提供者-LR**  > **路由** >  **IP 首碼清單**]。 按一下 [新增]。 輸入名稱以識別清單。 針對**前置詞，請按一下**[**新增**兩次]。 在第一行中，輸入「0.0.0.0/0」作為 [**網路**] 和 [拒絕] 以進行**動作**。 在第二行中，為 [**網路**] 選取 [**任何**]，並**允許**[**動作**]。
+2. 建立 IP 首碼清單。 登入 NSX-T Manager 並選取**網路** > **路由** >  個**路由器** >  個**提供者-LR** > **路由** >  個**IP 首碼清單**。 按一下 [新增]。 輸入名稱以識別清單。 針對**前置詞，請按一下**[**新增**兩次]。 在第一行中，輸入「0.0.0.0/0」作為 [**網路**] 和 [拒絕] 以進行**動作**。 在第二行中，為 [**網路**] 選取 [**任何**]，並**允許**[**動作**]。
 3. 將 IP 首碼清單附加至這兩個 BGP 鄰近專案（TOR）。 將 IP 首碼清單附加至 BGP 鄰居，可防止在 BGP 中將預設路由公告至 TOR 交換器。 不過，任何包含 null 路由的其他路由都會向 TOR 交換器通告回送介面的 IP 位址。
 
     ![建立 IP 首碼清單](media/l2vpn-routing-security02.png)
 
-4. 登入 NSX-T Manager，並選取**網路** > **路由** > **路由器** > **提供者-LR**  > **路由** >  **BGP**  > **相鄰**。 選取第一個鄰近的節點。 按一下 [**編輯** > **位址系列**]。 針對 IPv4 系列，編輯**輸出篩選器**資料行，然後選取您所建立的 IP 首碼清單。 按一下 [儲存]。 針對第二個鄰近節點重複此步驟。
+4. 登入 NSX-T Manager 並選取**網路** > **路由** > **路由器** > **提供者-LR** > **路由** > **BGP**1**鄰居**。 選取第一個鄰近的節點。 按一下 [**編輯** >  個**位址系列**]。 針對 IPv4 系列，編輯**輸出篩選器**資料行，然後選取您所建立的 IP 首碼清單。 按一下 [儲存]。 針對第二個鄰近節點重複此步驟。
 
-    ![附加 ip 首碼清單 1](media/l2vpn-routing-security03.png) ![附加 ip 首碼清單2](media/l2vpn-routing-security04.png)
+    @no__t 0Attach IP 首碼清單 1 @ no__t-1 ![Attach IP 首碼清單 2 @ no__t-3
 
-5. 將 null 靜態路由轉散發至 BGP。 若要將回送介面路由公告至 underlay，您必須將 null 靜態路由轉散發至 BGP。 登入 NSX-T Manager，並選取**網路** > **路由** > **路由器** > **提供者-LR**  > **路由** > **路由**轉散發 > **相鄰**。 選取 [**提供者-LR-Route_Redistribution** ]，然後按一下 [**編輯**]。 選取 [**靜態**] 核取方塊，然後按一下 [**儲存**]。
+5. 將 null 靜態路由轉散發至 BGP。 若要將回送介面路由公告至 underlay，您必須將 null 靜態路由轉散發至 BGP。 登入 NSX-T Manager 並選取**網路** > **路由** >  個**路由器** > **提供者-LR** > **路由** >  個**路由**轉散發 1 個**鄰近**專案。 選取 [**提供者-LR-Route_Redistribution** ]，然後按一下 [**編輯**]。 選取 [**靜態**] 核取方塊，然後按一下 [**儲存**]。
 
     ![將 null 靜態路由轉散發至 BGP](media/l2vpn-routing-security05.png)
 
@@ -195,7 +195,7 @@ Logical-Port ID :
 Peer Code :
 ```
 
-針對下列所有的 API 呼叫，將 IP 位址取代為您的 NSX-T 管理員 IP 位址。 您可以從 POSTMAN 用戶端或使用`curl`命令來執行所有的 API 呼叫。
+針對下列所有的 API 呼叫，將 IP 位址取代為您的 NSX-T 管理員 IP 位址。 您可以從 POSTMAN 用戶端或使用 `curl` 命令來執行所有的 API 呼叫。
 
 ### <a name="enable-the-ipsec-vpn-service-on-the-logical-router"></a>在邏輯路由器上啟用 IPSec VPN 服務
 
@@ -211,7 +211,7 @@ POST   https://192.168.110.201/api/v1/vpn/ipsec/services/
 }
 ```
 
-### <a name="create-profiles-ike"></a>建立設定檔：IKE
+### <a name="create-profiles-ike"></a>建立設定檔： IKE
 
 ```
 POST https://192.168.110.201/api/v1/vpn/ipsec/ike-profiles
@@ -228,7 +228,7 @@ POST https://192.168.110.201/api/v1/vpn/ipsec/ike-profiles
 }
 ```
 
-### <a name="create-profiles-dpd"></a>建立設定檔：DPD
+### <a name="create-profiles-dpd"></a>建立設定檔： DPD
 
 ```
 POST  https://192.168.110.201/api/v1/vpn/ipsec/dpd-profiles  
@@ -430,7 +430,7 @@ GET https://192.168.110.201/api/v1/vpn/l2vpn/sessions/<session-id>/peer-codes
 
 2. 移至含有所有已解壓縮檔案的資料夾。 針對大型設備大小或 NSX-l2t-NSX-l2t-client-large-m3.xlarge-ovf 和 NSX-l2t-client-Xlarge. ovf，選取所有的 vmdk （l2t-client-大型. mf 和）。 按一下 [下一步]。
 
-    ![選取範本](media/l2vpn-deploy-client02.png) ![選取範本](media/l2vpn-deploy-client03.png)
+    @no__t 0Select template @ no__t-1 ![Select template @ no__t-3
 
 3. 輸入 NSX-T 獨立用戶端的名稱，然後按 **[下一步]** 。
 
@@ -460,8 +460,7 @@ GET https://192.168.110.201/api/v1/vpn/l2vpn/sessions/<session-id>/peer-codes
     * **前置長度**。 輸入上行 VLAN/子網的前置長度。
     * **CLI 系統管理員/啟用/根使用者密碼**。 設定 admin/enable/root 帳戶的密碼。
 
-      ![自訂](media/l2vpn-deploy-client08.png)
-      範本![自訂範本-其他](media/l2vpn-deploy-client09.png)
+      @no__t 0Customize template @ no__t-1 @ no__t-2Customize template-更多 @ no__t-3
 
 7. 檢查設定，然後按一下 **[完成]** 。
 

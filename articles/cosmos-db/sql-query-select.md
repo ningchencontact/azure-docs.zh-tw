@@ -6,14 +6,14 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 06/10/2019
 ms.author: girobins
-ms.openlocfilehash: d34b1c39d9789409dc365cd4cf07fdc3d5a780fd
-ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
+ms.openlocfilehash: b90fc6f1f50ec2ea75619188cca36f78061f28df
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/15/2019
-ms.locfileid: "71003521"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72326796"
 ---
-# <a name="select-clause"></a>SELECT 子句
+# <a name="select-clause-in-azure-cosmos-db"></a>Azure Cosmos DB 中的 SELECT 子句
 
 每個查詢都包含 SELECT 子句，以及每個 ANSI SQL 標準的選擇性[from](sql-query-from.md)和[WHERE](sql-query-where.md)子句。 通常會列舉 FROM 子句中的來源，而 WHERE 子句會在來源上套用篩選，以抓取 JSON 專案的子集。 然後，SELECT 子句會在選取清單中投射要求的 JSON 值。
 
@@ -78,7 +78,7 @@ SELECT <select_specification>
   
 ## <a name="examples"></a>範例
 
-下列`address` SELECT 查詢範例會從`Families`符合`AndersenFamily`的`id`傳回：
+下列 SELECT 查詢範例會從 `Families` 傳回 `address`，其 `id` 符合 `AndersenFamily`：
 
 ```sql
     SELECT f.address
@@ -109,7 +109,7 @@ SELECT <select_specification>
 
 ### <a name="nested-properties"></a>巢狀屬性
 
-下列範例會投射兩個嵌套的`f.address.state`屬性`f.address.city`：和。
+下列範例會投射兩個嵌套的屬性，`f.address.state` 和 `f.address.city`。
 
 ```sql
     SELECT f.address.state, f.address.city
@@ -147,7 +147,7 @@ SELECT <select_specification>
     }]
 ```
 
-在上述範例中，SELECT 子句需要建立 JSON 物件，而且由於此範例不提供索引鍵，因此子句會使用隱含引數變數名稱`$1`。 下列查詢會傳回兩個隱含引數`$1`變數`$2`：和。
+在上述範例中，SELECT 子句需要建立 JSON 物件，而且由於此範例不會提供索引鍵，因此子句會使用隱含引數變數名稱 `$1`。 下列查詢會傳回兩個隱含引數變數： `$1` 和 `$2`。
 
 ```sql
     SELECT { "state": f.address.state, "city": f.address.city },

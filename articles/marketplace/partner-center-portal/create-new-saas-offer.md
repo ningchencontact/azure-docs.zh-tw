@@ -7,12 +7,12 @@ ms.author: v-qiwe
 ms.service: marketplace
 ms.topic: conceptual
 ms.date: 10/04/2019
-ms.openlocfilehash: d035f26e4b550eb1e5d2cca161f14880814a15f6
-ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
+ms.openlocfilehash: 578904d40b1354dde99644cb2fc73e0a56223b34
+ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72244184"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72376277"
 ---
 # <a name="create-a-new-saas-offer"></a>建立新的 SaaS 供應專案
 
@@ -36,7 +36,7 @@ ms.locfileid: "72244184"
 
 ## <a name="offer-id-and-alias"></a>供應專案識別碼和別名
 
-- **供應項目識別碼**：您帳戶中每個供應專案的唯一識別碼。 在 marketplace 供應專案的 URL 位址中，客戶會看到此識別碼，而 Azure Resource Manager 範本（如果適用）。 供應專案識別碼必須是小寫、英數位元（包括連字號和底線，但不能有空格）。 這限制為50個字元，且在您選取 [*建立*] 之後無法變更。  
+- **供應專案 ID**：您帳戶中每個供應專案的唯一識別碼。 在 marketplace 供應專案的 URL 位址中，客戶會看到此識別碼，而 Azure Resource Manager 範本（如果適用）。 供應專案識別碼必須是小寫、英數位元（包括連字號和底線，但不能有空格）。 這限制為50個字元，且在您選取 [*建立*] 之後無法變更。  
 範例：測試-供應專案-1
 <br>產生 URL： `https://azuremarketplace.microsoft.com/marketplace/../test-offer-1`
 
@@ -102,7 +102,7 @@ SaaS 提供了以一般費用、每位使用者或使用計量付費服務的消
 - 已符合**Marketplace 服務費用**的合作夥伴，將會在2019年 6 2020 月30日前的 SaaS 供應專案上看到較少的交易費用。 在此案例中，Microsoft 會為您的軟體授權帳單 $100.00，並向發行者收取 $90.00。
 
 > [!NOTE]
-> **減少 Marketplace 服務費用**：對於您在我們的商業 Marketplace 上發佈的特定 SaaS 供應專案，Microsoft 會將其 Marketplace 服務費用從 20% （如 Microsoft 發行者合約中所述）降到 10%。 為了讓您的供應專案符合資格，至少必須將您的其中一個供應專案指定為 IP 共同銷售就緒或 IP 共同銷售優先。  至少必須符合每個行事曆月份結束前五（5）個工作天的資格，才能收到該月份的縮減 Marketplace 服務費用。  降低的 Marketplace 服務費用不適用於 Vm、受管理的應用程式，或透過我們的商業 Marketplace 提供的任何其他產品。  優惠的 Marketplace 服務費用僅適用于 Microsoft 在2019年5月1日到2020日之間所收集之授權費用的合格供應專案。  在這段時間之後，Marketplace 服務費用會回到其一般金額。 
+> **減少 Marketplace 服務費用**：針對您在我們的商業 Marketplace 上發佈的特定 SaaS 供應專案，microsoft 會將其 Marketplace 服務費用從 20% （如 Microsoft 發行者合約中所述）降至 10%。 為了讓您的供應專案符合資格，至少必須將您的其中一個供應專案指定為 IP 共同銷售就緒或 IP 共同銷售優先。  至少必須符合每個行事曆月份結束前五（5）個工作天的資格，才能收到該月份的縮減 Marketplace 服務費用。  降低的 Marketplace 服務費用不適用於 Vm、受管理的應用程式，或透過我們的商業 Marketplace 提供的任何其他產品。  優惠的 Marketplace 服務費用僅適用于 Microsoft 在2019年5月1日到2020日之間所收集之授權費用的合格供應專案。  在這段時間之後，Marketplace 服務費用會回到其一般金額。 
 
 
 
@@ -110,7 +110,7 @@ SaaS 提供了以一般費用、每位使用者或使用計量付費服務的消
 #### <a name="csp-program-opt-in"></a>CSP 方案加入宣告
 [雲端解決方案提供者（CSP）](https://docs.microsoft.com/azure/marketplace/cloud-solution-providers)方案可讓軟體供應專案透過最少的行銷和銷售投資，觸及數百萬位合格的 Microsoft 客戶。
 
-- **Channels：將我的供應專案提供給 CSP 計畫 @ no__t-0 （核取方塊）
+- **頻道：在 CSP 方案中提供我的供應專案**（核取方塊）
 
 選取在 CSP 方案中提供您的供應專案，可讓雲端解決方案提供者銷售您的產品，做為其客戶配套解決方案的一部分。 
 
@@ -146,10 +146,10 @@ SaaS 提供了以一般費用、每位使用者或使用計量付費服務的消
 
 ### <a name="type-of-test-drive"></a>試用產品的類型
 
-- **[Azure Resource Manager](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/test-drive/azure-resource-manager-test-drive)** ：部署範本，其中包含組成您解決方案的所有 Azure 資源。 符合此案例的產品只會使用 Azure 資源。
-- **[Dynamics 365 For Business Central](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cpp-business-central-offer)** ：Microsoft 會裝載並維護商業中央企業資源規劃系統（財務、營運、供應鏈、CRM 等）的試用產品服務（包括布建和部署）。  
-- **[Dynamics 365 For Customer Engagement](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/dyn365ce/cpp-customer-engagement-offer)** ：Microsoft 會裝載並維護客戶參與系統（銷售、服務、專案服務、現場服務等）的試用產品服務（包括布建和部署）。  
-- **[適用于作業的 Dynamics 365](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cpp-dynamics-365-operations-offer)** ：Microsoft 會託管並維護財務和營運企業資源規劃系統（財務、營運、製造、供應鏈等）的試用產品服務（包括布建和部署）。 
+- **[Azure Resource Manager](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/test-drive/azure-resource-manager-test-drive)** ：部署範本，其中包含構成解決方案的所有 Azure 資源。 符合此案例的產品只會使用 Azure 資源。
+- **[Dynamics 365 For Business central](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cpp-business-central-offer)** ： Microsoft 主控並維護 business central 企業資源規劃系統（財務、營運、供應鏈、CRM 等）的試用產品服務（包括布建和部署）。  
+- **[Dynamics 365 For Customer engagement](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/dyn365ce/cpp-customer-engagement-offer)** ： Microsoft 會託管並維護客戶參與系統（銷售、服務、專案服務、現場服務等）的試用產品服務（包括布建和部署）。  
+- **[適用于作業的 Dynamics 365](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cpp-dynamics-365-operations-offer)** ： Microsoft 會主控並維護財務和營運企業資源規劃系統（財務、營運、製造、供應鏈等）的試用產品服務（包括布建和部署）。 
 - **[邏輯應用程式](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/test-drive/logic-app-test-drive)** ：包含所有複雜解決方案架構的部署範本。 任何自訂產品都應該使用這種類型的試用產品。
 - **[Power BI](https://docs.microsoft.com/power-bi/service-template-apps-overview)** ：自訂建立儀表板的內嵌連結。 想要示範互動式 Power BI 視覺效果的產品應該使用這種類型的試用產品。 您只需要上傳內嵌的 Power BI URL。
 
@@ -174,10 +174,10 @@ SaaS 提供了以一般費用、每位使用者或使用計量付費服務的消
 
 完成這些欄位之後，請選取 [**儲存**]。 
 
-### <a name="category"></a>Category
+### <a name="category"></a>類別
 選取最少一個（1）和最多三個（3）分類，用來將您的供應專案分組至適當的 marketplace 搜尋區域。 請在供應專案描述中，打電話給您的供應專案如何支援這些類別。 
 
-### <a name="industry"></a>業界
+### <a name="industry"></a>產業
 選取最多兩個（2）用來將您的供應專案分組至適當 marketplace 搜尋區域的產業。 如果您的供應專案並非產業專屬，請不要選取其中一個。 請在供應專案描述中，打電話給您的供應專案如何支援選取的產業。 
 
 ### <a name="app-version"></a>應用程式版本
@@ -212,14 +212,14 @@ Azure Marketplace 發行者可以選擇在標準合約下提供其軟體，而�
 
 提供要顯示在 marketplace 中的詳細資料，包括供應專案和行銷資產的說明。
 
-- **名稱**（必要）：此處定義的名稱會顯示為您所選 marketplace 上的供應專案清單標題。 系統會根據您先前的**新供應**專案，預先填入名稱。  這可能是商標的。  這不能包含 emoji （除非它們是商標和著作權符號），而且必須限制為50個字元。
-- **摘要**（必要）：提供供應專案的簡短描述，以用於 marketplace 清單搜尋結果。 最多可以在此欄位中輸入100個字元的文字。
+- **名稱**（必要）：此處定義的名稱會顯示為您所選 marketplace 上您供應專案清單的標題。 系統會根據您先前的**新供應**專案，預先填入名稱。  這可能是商標的。  這不能包含 emoji （除非它們是商標和著作權符號），而且必須限制為50個字元。
+- **摘要**（必要）：提供您供應專案的簡短描述，以用於 marketplace 清單搜尋結果。 最多可以在此欄位中輸入100個字元的文字。
 - **描述**（必要）：提供您供應專案的描述，以顯示在 marketplace 清單總覽中。 請考慮包含價值主張、主要優點、任何類別或產業關聯、應用程式內購買機會、任何必要的公開，以及深入瞭解的連結。
 最多可以在此欄位中輸入3000個字元的文字。 如需其他秘訣，請參閱[撰寫絕佳的應用程式描述](https://docs.microsoft.com/windows/uwp/publish/write-a-great-app-description)一文。
 - **搜尋關鍵字**：輸入最多三個搜尋關鍵字，客戶可以用來在 marketplace 中尋找您的供應專案。
-- **快速入門指示**（必要）：說明如何設定並開始使用您的應用程式來提供潛在客戶。  本快速入門可以包含更詳細的線上檔連結。 最多可以在此欄位中輸入3000個字元的文字。 
+- **快速入門指示**（必要）：說明如何設定及開始使用您的應用程式來取得潛在客戶。  本快速入門可以包含更詳細的線上檔連結。 最多可以在此欄位中輸入3000個字元的文字。 
 
-#### <a name="description"></a>**描述**
+#### <a name="description"></a>**說明**
 
 這是必要欄位。 要包含在描述中的專案： 
 
@@ -269,7 +269,7 @@ Azure Marketplace 發行者可以選擇在標準合約下提供其軟體，而�
 
 1. 若要以**粗體顯示**內容，請在您要以粗體顯示的文字開頭加入 `<b>`，然後在您要以粗體顯示的文字結尾處新增 `</b>`。 
 
-    **範例**：`<b>` 免費試用 `</b>`
+    **範例**： `<b>` 免費試用 `</b>`
     
     上述專案會導致店面中的供應專案描述中的「免費試用」字樣為粗體。 
 
@@ -303,25 +303,25 @@ Azure Marketplace 發行者可以選擇在標準合約下提供其軟體，而�
 #### <a name="links"></a>連結
 
 - **隱私權原則**（必要）：連結至貴組織的隱私權原則。 貴使用者必須負責確保您的應用程式符合隱私權法律和法規，以及提供有效的隱私權原則
-- **CSP 計畫行銷材料**（選擇性）：如果您選擇將您的供應專案延伸至[雲端解決方案提供者（CSP）](https://docs.microsoft.com/azure/marketplace/cloud-solution-providers)方案，則必須提供行銷資料的連結。 CSP 藉由讓 CSP 合作夥伴組合、行銷及轉售您的供應專案，來將您的供應專案延伸至更廣泛的合格客戶。 這些轉銷商將需要存取行銷您供應專案的素材。 如需詳細資訊，請參閱[進入市場服務](https://partner.microsoft.com/reach-customers/gtm)。
-- **有用的連結**（選擇性）：有關您的應用程式的選擇性補充線上檔，或提供**標題**和**URL**所列出的相關服務。 按一下 [ **+ 新增 URL**] 來新增其他有用的連結。
+- **CSP 計畫行銷**資料（選擇性）：如果您選擇將您的供應專案延伸至[雲端解決方案提供者（CSP）](https://docs.microsoft.com/azure/marketplace/cloud-solution-providers)方案，您必須提供行銷資料的連結。 CSP 藉由讓 CSP 合作夥伴組合、行銷及轉售您的供應專案，來將您的供應專案延伸至更廣泛的合格客戶。 這些轉銷商將需要存取行銷您供應專案的素材。 如需詳細資訊，請參閱[進入市場服務](https://partner.microsoft.com/reach-customers/gtm)。
+- **有用的連結**（選用）：提供**標題**和**URL**來列出您的應用程式或相關服務的選擇性補充線上檔。 按一下 [ **+ 新增 URL**] 來新增其他有用的連結。
 
 #### <a name="contact-information"></a>連絡人資訊
 
 - **連絡人**：針對每個客戶連絡人，提供員工**姓名**、**電話號碼**和**電子郵件**位址。  （這些*不會*公開顯示）。 **支援連絡人**群組也需要**支援 URL** 。  （此資訊*將*會公開顯示）。
 
-**支援連絡人**（必要）：以取得一般支援問題。
+**支援連絡人**（必要）：針對一般支援問題。
 
-**工程連絡人**（必要）：技術問題。
+**工程連絡人**（必要）：針對技術問題。
 
 **通道管理員連絡人**（必要）：適用于與 CSP 計畫相關的轉售商問題。
 
 #### <a name="files-and-images"></a>檔案和影像
 
 - **檔**（必要）：為您的供應專案新增相關的行銷檔（PDF 格式），每個供應專案最少可提供一（1）個或最多三（3）份檔。
-- **映射**（選擇性）：您的供應專案標誌影像可能會出現在 marketplace 的多個位置，需要下列大小--小型：48 x 48 圖元 _（必要）、_ 中：90 x 90 圖元，大型：216 x 216 圖元 _（必要），_ 寬：255 x 115 圖元和主圖：815 x 290 圖元。 所有映射都必須在中。PNG 格式。
+- **影像**（選用）：您供應專案標誌影像可能會出現在整個 marketplace 中的多個位置，需要下列大小--小型： 48 x 48 圖元 _（必要）、_ 中型： 90 x 90 圖元、大型： 216 x 216 圖元 _（必要）、_ 寬： 255 x 115 圖元和主圖： 815 x 290 圖元。 所有映射都必須在中。PNG 格式。
 - **螢幕擷取畫面**（必要）：新增示範您供應專案的螢幕擷取畫面。 最多可新增五個（5）個螢幕擷取畫面，且應以 1280 x 720 圖元大小。 所有映射都必須在中。PNG 格式。
-- 影片 **（選用**）：新增示範您供應專案之影片的連結。 您可以使用 YouTube 和/或 Vimeo 影片的連結，這會隨著您的供應項目顯示給客戶。 您也需要輸入影片的縮圖影像，並將其大小調整為 1280 x 720 圖元（PNG 格式）。 每個供應專案最多可以顯示四個影片。
+- 影片 **（選用**）：新增示範您供應專案的影片連結。 您可以使用 YouTube 和/或 Vimeo 影片的連結，這會隨著您的供應項目顯示給客戶。 您也需要輸入影片的縮圖影像，並將其大小調整為 1280 x 720 圖元（PNG 格式）。 每個供應專案最多可以顯示四個影片。
 
 繼續進行下一節之前，請記得先**儲存**！
 
@@ -337,7 +337,7 @@ Azure Marketplace 發行者可以選擇在標準合約下提供其軟體，而�
 > [!IMPORTANT]
 > 您必須先**選取 [上線]** ，供應專案才會在預覽中核取您的供應專案之後，即時發佈給 marketplace 公用物件。
 
-- @no__t 0Define 預覽物件：每行新增一個 AAD/MSA 帳戶電子郵件，以及選擇性的描述。 **
+- **定義預覽物件：每行新增一個 AAD/MSA 帳戶電子郵件，以及選擇性的描述。**
 
 手動新增最多十（10）個電子郵件地址，或在上傳 CSV 檔案時，針對現有的 Microsoft 帳戶（MSA）或 Azure Active Directory 帳戶進行二十（20），以協助驗證您的供應專案，然後再即時發佈。 藉由新增這些帳戶，您就可以在將供應專案發佈至 marketplace 之前，定義允許預覽存取權的物件。 如果您的供應專案已上線，您仍然可以定義預覽物件，以測試您的供應專案是否有任何變更或更新。
 
@@ -348,9 +348,9 @@ Azure Marketplace 發行者可以選擇在標準合約下提供其軟體，而�
 
 [**技術**設定] 索引標籤會定義用來連接到您的供應專案的技術詳細資料（URL 路徑、webhook、租使用者識別碼和應用程式識別碼）。 此連線可讓我們為終端客戶布建您的供應專案（如果他們選擇取得）。 在[SaaS 履行 api](https://docs.microsoft.com/azure/marketplace/partner-center-portal/pc-saas-fulfillment-api-v2)的檔中可取得說明所收集欄位使用方式的圖表。
 
-- **登陸頁面 URL** （必要）：定義客戶從 marketplace 取得您的供應專案後將居住的網站 URL。 此 URL 會是當客戶路由傳送至頁面時，接收權杖的端點。 您可以在履行 Api 中使用 resolve，交換該權杖以提供布建詳細資料。 您所收集的這些詳細資料和任何其他專案，都可以用來作為您的經驗，以完成註冊並啟用其購買的客戶互動網頁的一部分。
+- **登陸頁面 URL** （必要）：定義從 marketplace 取得您的供應專案之後，客戶將居住的網站 URL。 此 URL 會是當客戶路由傳送至頁面時，接收權杖的端點。 您可以在履行 Api 中使用 resolve，交換該權杖以提供布建詳細資料。 您所收集的這些詳細資料和任何其他專案，都可以用來作為您的經驗，以完成註冊並啟用其購買的客戶互動網頁的一部分。
 
-- **連接 webhook** （必要）：針對 Microsoft 代表客戶傳送給您所需的所有非同步事件 (範例：SaaS 訂用帳戶已失效），我們要求您提供連接 webhook。 如果您還沒有 webhook 系統，最簡單的設定就是讓 HTTP 端點邏輯應用程式接聽其張貼的任何事件，然後適當地處理（例如，HTTPs： \//1westus/生產環境。). 如需詳細資訊，請參閱[在邏輯應用程式中透過 HTTP 端點呼叫、觸發或巢狀處理工作流程](https://docs.microsoft.com/azure/logic-apps/logic-apps-http-endpoint)。
+- **連接 webhook** （必要）：針對 Microsoft 需要代表客戶傳送給您的所有非同步事件（例如： SaaS 訂用帳戶已失效），我們會要求您提供連線 webhook。 如果您還沒有 webhook 系統，最簡單的設定就是讓 HTTP 端點邏輯應用程式接聽其張貼的任何事件，然後適當地處理（例如，HTTPs： \//1westus/生產環境。). 如需詳細資訊，請參閱[在邏輯應用程式中透過 HTTP 端點呼叫、觸發或巢狀處理工作流程](https://docs.microsoft.com/azure/logic-apps/logic-apps-http-endpoint)。
 
 - **Azure AD 租使用者識別碼**（必要）：在 Azure 入口網站內，我們會要求您[建立 Azure Active Directory （AD）應用程式](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal)，以便驗證這兩個服務之間的連線是在驗證通訊之後。 若要尋找[租使用者識別碼](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in)，請移至您的 Azure Active Directory 並選取 [**屬性**]，然後尋找列出的**目錄識別碼**（例如50c464d3-4930-494c-963c-1e951d15360e）。
 
@@ -372,7 +372,7 @@ Azure Marketplace 發行者可以選擇在標準合約下提供其軟體，而�
 **建立新方案**（選取要透過 Microsoft 銷售的人員的最少一個方案）
 
 - **方案識別碼：** 為此供應專案中的每個方案建立唯一的方案識別碼。 [產品 URL] 和 [Azure Resource Manager 範本] （如果適用）中的客戶會看到此識別碼。 僅使用小寫、英數位元、虛線或底線。 此方案識別碼最多可以有50個字元。 請注意，在選取 [建立] 之後，就無法修改識別碼。
-- **方案名稱：** 當決定要在您的供應專案內選取哪一個方案時，客戶會看到此名稱。 為此供應專案中的每個方案建立唯一的供應專案名稱。 方案名稱是用來區分可能屬於相同供應專案一部分的軟體方案（例如 供應項目名稱：Windows Server;計畫Windows Server 2016、Windows Server 2019）。
+- **方案名稱：** 當決定要在您的供應專案內選取哪一個方案時，客戶會看到此名稱。 為此供應專案中的每個方案建立唯一的供應專案名稱。 方案名稱是用來區分可能屬於相同供應專案一部分的軟體方案（例如 供應專案名稱： Windows Server;方案： Windows Server 2016、Windows Server 2019）。
 
 ### <a name="plan-listing"></a>計畫清單
 
@@ -382,8 +382,8 @@ Azure Marketplace 發行者可以選擇在標準合約下提供其軟體，而�
 
 選取其中一個方案語言會顯示**計畫清單**資訊，包括**名稱**和**描述。**
 
-- **名稱**：會根據您的 [預覽]**新方案**專案預先填入，並顯示為您供應專案「軟體方案」的標題，並顯示在 marketplace 中。
-- **說明：** 此描述可讓您瞭解此軟體方案的獨特之處，以及與您的供應專案內其他軟體方案有何差異。 最多可包含500個字元。
+- **名稱**：根據您的 [預覽]**新方案**專案預先填入，並會顯示為您供應專案「軟體方案」的標題，顯示在 marketplace 中。
+- **描述：** 此描述可讓您瞭解此軟體方案的獨特之處，以及與您的供應專案內其他軟體方案有何差異。 最多可包含500個字元。
 
 完成這些欄位之後，請選取 [**儲存**]。
 
@@ -419,11 +419,11 @@ Azure Marketplace 發行者可以選擇在標準合約下提供其軟體，而�
 
 如果您已經在美國美元（USD）中設定方案的價格，並新增另一個市場位置，新市場的價格將會根據目前的匯率計算。 在發佈之前，您應該一律檢查每個市場的價格。 儲存變更之後，您可以使用 [匯出價格（.xlsx）] 連結來檢查定價。
 
-#### <a name="pricing"></a>定價
+#### <a name="pricing"></a>價格
 
-- **定價模式**：以一般費率或基座為基礎
+- **計價模式**：以一般費率或基座為基礎
 
-**一般費率：** 以單一每月或全年價格的原價價格，來存取您的供應專案。 這有時稱為以網站為基礎的定價。 使用此計價模式時，您可以選擇性地定義使用 marketplace 計量服務 API 的計量付費方案，以根據非標準單位向客戶收費。  如需計量付費計費的詳細資訊，請參閱[使用 marketplace 計量服務的計量付費](./saas-metered-billing.md)。
+一般**費率：** 以單一每月或全年價格的原價價格，來存取您的供應專案。 這有時稱為以網站為基礎的定價。 使用此計價模式時，您可以選擇性地定義使用 marketplace 計量服務 API 的計量付費方案，以根據非標準單位向客戶收費。  如需計量付費計費的詳細資訊，請參閱[使用 marketplace 計量服務的計量付費](./saas-metered-billing.md)。
 
 **每位使用者：** 依據存取供應專案或佔用基座的使用者人數，使用價格來存取您的供應專案。 此以使用者為基礎的模型可讓您設定根據價格允許的最小和最大使用者數目。 如此一來，您可以設定多個方案，根據使用者數目來設定不同的價格點。  這些欄位為選擇性。 如果未選取此項，則會將使用者數目視為沒有限制（最小值為1，最多可支援系統）。 這些欄位可能會在您的方案更新中編輯。
 
@@ -436,7 +436,7 @@ Azure Marketplace 發行者可以選擇在標準合約下提供其軟體，而�
 - **價格**：每月美元或每年美元
 
 以當地貨幣（美元 = 美國貨幣）設定的價格，會使用安裝期間目前可用的匯率，轉換為所有選定市場的本地貨幣。 在發佈之前，請先匯出定價試算表，並查看每個市場的價格，以驗證這些價格。 如果您想要在個別市場中設定自訂價格，請修改並匯入定價試算表。 您必須負責驗證此定價並擁有這些設定。
-* *您必須先儲存定價變更, 以啟用匯出定價資料。*
+*@no__t 1You 必須先儲存您的定價變更，以啟用匯出定價資料。*
 
 發行之前，請先仔細檢查您的價格，因為在計畫發行後可能會變更的部分有一些限制：
 
@@ -448,7 +448,7 @@ Azure Marketplace 發行者可以選擇在標準合約下提供其軟體，而�
 
 您可以選擇將每個方案設定為每個人都可看見，或僅供您選擇的特定物件使用。 您可以使用 Azure AD 的租使用者識別碼，為此限制的物件指派成員資格。
 
-#### <a name="privacy"></a>隱私權聲明
+#### <a name="privacy"></a>隱私權
 
 - **這是私用計畫**（選擇性核取方塊）
 

@@ -1,6 +1,6 @@
 ---
 title: 如何與 Azure Active Directory 整合 |Microsoft Docs
-description: 瞭解整合應用程式與 Azure Active Directory 的優點, 並取得功能的資源, 例如簡化的登入、身分識別管理、多重要素驗證和存取控制。
+description: 瞭解整合應用程式與 Azure Active Directory 的優點，並取得功能的資源，例如簡化的登入、身分識別管理、多重要素驗證和存取控制。
 services: active-directory
 documentationcenter: dev-center-name
 author: rwike77
@@ -18,18 +18,18 @@ ms.author: ryanwi
 ms.reviewer: bryanla
 ms.custom: aaddev, seoapril2019
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: da694dd77186ce22bd7080540bd3b08e14f205b0
-ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
+ms.openlocfilehash: 48be16827da21643af485d1fb94b9a7b76728325
+ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68835375"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72374041"
 ---
 # <a name="integrating-with-azure-active-directory"></a>與 Azure Active Directory 整合
 
 [!INCLUDE [active-directory-devguide](../../../includes/active-directory-devguide.md)]
 
-在本文中, 您將瞭解整合應用程式與 Azure Active Directory (Azure AD) 並取得整合資源的優點。 Azure AD 為組織提供雲端應用程式的企業級身分識別管理。 Azure AD 整合提供使用者簡化的登入程序，並可協助您的應用程式符合 IT 原則。
+在本文中，您將瞭解整合應用程式與 Azure Active Directory （Azure AD）並取得整合資源的優點。 Azure AD 為組織提供雲端應用程式的企業級身分識別管理。 Azure AD 整合提供使用者簡化的登入程序，並可協助您的應用程式符合 IT 原則。
 
 ## <a name="how-to-integrate"></a>如何整合
 
@@ -37,15 +37,15 @@ ms.locfileid: "68835375"
 
 ### <a name="support-azure-ad-as-a-way-to-sign-in-to-your-application"></a>支援 Azure AD 做為登入應用程式的方式
 
-**減少登入的不便，並降低支援成本。** 透過使用 Azure AD 來登入您的應用程式，您的使用者會少一個要記住的名稱和密碼。 身為開發人員，您會少一個要儲存及保護的密碼。 單單無需處理忘記密碼重設就可以省下大量時間與金錢。 Azure AD 支援部分世界上最受歡迎雲端應用程式 (包括 Office 365 和 Microsoft Azure) 的登入。 有來自數百萬個組織的數百萬名使用者，可能是您的使用者已經登入 Azure AD。 深入了解[新增 Azure AD 登入支援](authentication-scenarios.md)。
+**減少登入的不便，並降低支援成本。** 透過使用 Azure AD 來登入您的應用程式，您的使用者會少一個要記住的名稱和密碼。 身為開發人員，您會少一個要儲存及保護的密碼。 單單無需處理忘記密碼重設就可以省下大量時間與金錢。 Azure AD 支援部分世界上最受歡迎雲端應用程式 (包括 Office 365 和 Microsoft Azure) 的登入。 有來自數百萬個組織的數百萬名使用者，可能是您的使用者已經登入 Azure AD。 深入了解[新增 Azure AD 登入支援](v1-authentication-scenarios.md)。
 
 **簡化應用程式的註冊程序。**  註冊應用程式的過程中，Azure AD 會寄出使用者的基本資訊，讓您可以預先填入註冊表單，或者完全不需要用到。 使用者可以透過類似社交媒體和行動應用程式所使用的常見同意程序，使用其 Azure AD 帳戶來註冊應用程式。 任何使用者都可以註冊並登入已與 Azure AD 整合的應用程式，而無需 IT 人員的介入。 深入了解[註冊應用程式以進行 Azure AD 帳戶登入](../../app-service/configure-authentication-provider-aad.md)。
 
-### <a name="browse-for-users-manage-user-provisioning-and-control-access-to-your-application"></a>流覽使用者、管理使用者布建, 以及控制應用程式的存取權
+### <a name="browse-for-users-manage-user-provisioning-and-control-access-to-your-application"></a>流覽使用者、管理使用者布建，以及控制應用程式的存取權
 
 **瀏覽以尋找目錄中的使用者。**  邀請他人或授與存取權限時，與其要求使用者輸入電子郵件位址，您可以使用 Graph API 來協助使用者搜尋及瀏覽以尋找組織中的其他人。 使用者可以使用常見的通訊錄樣式介面進行瀏覽，包括檢視組織階層的詳細資料。 深入了解[圖形 API](active-directory-graph-api.md)。
 
-**重複使用您的客戶已經在管理的 Active Directory 群組與通訊群組清單。**  Azure AD 包含您的客戶已經用於電子郵件通訊群組和管理存取的群組。 使用 Graph API，與其要求您的客戶在應用程式中建立和管理一組個別的群組，您可以重複使用這些群組。 群組資訊也可以透過登入權杖傳送至您的應用程式。 深入了解 [Graph API](active-directory-graph-api.md)。
+**重複使用您的客戶已經在管理的 Active Directory 群組與通訊群組清單。**  Azure AD 包含您的客戶已經用於電子郵件通訊群組和管理存取的群組。 使用 Graph API，與其要求您的客戶在應用程式中建立和管理一組個別的群組，您可以重複使用這些群組。 群組資訊也可以透過登入權杖傳送至您的應用程式。 深入了解[圖形 API](active-directory-graph-api.md)。
 
 **使用 Azure AD 來控制有權存取應用程式的人員。**  系統管理員和 Azure AD 中的應用程式擁有者可以將應用程式的存取權限指派給特定使用者和群組。 使用 Graph API，您可以讀取這份清單並用它來控制資源的佈建和取消佈建，以及應用程式內的存取。
 
@@ -87,7 +87,7 @@ ms.locfileid: "68835375"
 
 **業界標準通訊協定。**  Microsoft 致力於支援業界標準。 Microsoft 身分識別平臺支援業界標準的 OAuth 2.0 和 OpenID Connect 1.0 通訊協定。 深入瞭解[Microsoft 身分識別平臺驗證通訊協定](active-directory-v2-protocols.md)。
 
-**開放原始碼程式庫。**  Microsoft 針對常用的語言和平台提供完整支援的開放原始碼程式庫，進而加快開發速度。 原始碼採用 Apache 2.0 授權，您可以任何分岔以及貢獻回饋給專案。 深入瞭解[Microsoft 驗證程式庫 (MSAL)](reference-v2-libraries.md)。
+**開放原始碼程式庫。**  Microsoft 針對常用的語言和平台提供完整支援的開放原始碼程式庫，進而加快開發速度。 原始碼採用 Apache 2.0 授權，您可以任何分岔以及貢獻回饋給專案。 深入瞭解[Microsoft 驗證程式庫（MSAL）](reference-v2-libraries.md)。
 
 ### <a name="worldwide-presence-and-high-availability"></a>全球目前狀態和高可用性
 
@@ -97,5 +97,5 @@ ms.locfileid: "68835375"
 
 [開始撰寫程式碼](v2-overview.md#getting-started)
 
-[使用 Microsoft 身分識別平臺將使用者登入](authentication-scenarios.md)
+[使用 Microsoft 身分識別平臺將使用者登入](v1-authentication-scenarios.md)
 

@@ -15,10 +15,10 @@ ms.devlang: azurecli
 ms.date: 09/10/2019
 ms.author: v-miegge
 ms.openlocfilehash: 56e420f9641638bfa79ff077be73132b00b934ab
-ms.sourcegitcommit: 2ed6e731ffc614f1691f1578ed26a67de46ed9c2
+ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/19/2019
+ms.lasthandoff: 10/15/2019
 ms.locfileid: "71132087"
 ---
 # <a name="repair-a-linux-vm-by-using-the-azure-virtual-machine-repair-commands"></a>使用 Azure 虛擬機器修復命令修復 Linux VM
@@ -52,15 +52,15 @@ ms.locfileid: "71132087"
 
    選取 [**複製**] 以複製程式碼區塊，然後將程式碼貼入 Cloud Shell 中，然後選取**Enter**加以執行。
 
-   如果您偏好在本機安裝和使用 CLI，本快速入門需要有 Azure CLI 2.0.30 版或更新版本。 執行 ``az --version`` 以尋找版本。 如果您需要安裝或升級您的 Azure CLI，請參閱[安裝 Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli)。
+   如果您偏好在本機安裝和使用 CLI，本快速入門需要有 Azure CLI 2.0.30 版或更新版本。 執行 ``az --version`` 找出版本。 如果您需要安裝或升級您的 Azure CLI，請參閱[安裝 Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli)。
 
-2. 如果這是您第一次使用這些`az vm repair`命令，請新增 vm-修復 CLI 擴充功能。
+2. 如果這是您第一次使用 `az vm repair` 命令，請新增 vm-修復 CLI 擴充功能。
 
    ```azurecli-interactive
    az extension add -n vm-repair
    ```
 
-   如果您先前已使用這些`az vm repair`命令，請將任何更新套用至 vm-修復延伸模組。
+   如果您先前使用了 `az vm repair` 命令，請將任何更新套用至 vm-修復延伸模組。
 
    ```azurecli-interactive
    az extension update -n vm-repair

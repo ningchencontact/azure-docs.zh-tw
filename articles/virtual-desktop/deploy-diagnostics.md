@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 10/02/2019
 ms.author: helohr
-ms.openlocfilehash: 1bb23e3330f2350572175733445c8ef2c5ea79bb
-ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
+ms.openlocfilehash: 4718ee7943b4130bb977d5eefeb82bb385c71835
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72177776"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72332842"
 ---
 # <a name="deploy-the-diagnostics-tool"></a>部署診斷工具
 
@@ -108,8 +108,8 @@ ms.locfileid: "72177776"
 3. 在 [**設定**] 區段中，選取 [ **Advanced Settings**]。
 4. 之後，流覽至 [ **Data** > **Windows 效能計數器**]，然後新增下列計數器：
 
-    -   LogicalDisk （\*） \|% 可用空間
-    -   LogicalDisk （C：） \\Avg。磁碟佇列長度
+    -   LogicalDisk （\*） \%Free Space
+    -   LogicalDisk （C：） \\Avg。磁片佇列長度
     -   記憶體（\*） \\Available Mb
     -   處理器資訊（\*） \\Processor 時間
     -   每個會話的使用者輸入延遲（\*） \\Max 輸入延遲
@@ -142,9 +142,9 @@ ms.locfileid: "72177776"
 3. 之後，請移至 [**資料** > ] [**Windows 效能計數器**]。
 4. 請確定已預先設定下列計數器：
 
-   - LogicalDisk （\*） \|% 可用空間：顯示磁片上可用空間總計的可用空間量（以百分比表示）。
+   - LogicalDisk （\*） \%Free Space：顯示磁片上可用空間總計的可用空間量（以百分比表示）。
    - LogicalDisk （C：） \\Avg。磁片佇列長度：您的 C 磁片磁碟機的磁片傳輸要求長度。 此值不應超過2個長時間。
-   - 記憶體（\*） \\Available Mb：系統的可用記憶體（以 mb 為單位）。
+   - 記憶體（\*） \\Available Mb：系統可用的記憶體（以 mb 為單位）。
    - 處理器資訊（\*） @no__t 1Processor 時間：處理器花費在執行非閒置執行緒所經過時間的百分比。
    - 每個會話的使用者輸入延遲（\*） \\Max 輸入延遲
 
@@ -237,7 +237,7 @@ ms.locfileid: "72177776"
 - LogicalDisk （\*） \|% 可用空間：
 
     - 顯示邏輯磁片上可用的總可用空間百分比。
-    - 閾值：小於 20% 會標示為狀況不良。
+    - 閾值：小於 20% 標記為狀況不良。
 
 - LogicalDisk （C：） \\Avg。磁片佇列長度：
 

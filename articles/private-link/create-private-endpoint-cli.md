@@ -7,12 +7,12 @@ ms.service: private-link
 ms.topic: article
 ms.date: 09/16/2019
 ms.author: kumud
-ms.openlocfilehash: 30994133b19c4f59ae9e8be26caffe14348638f6
-ms.sourcegitcommit: 3fa4384af35c64f6674f40e0d4128e1274083487
+ms.openlocfilehash: 30394ba7b71d7dcb4233e5dca341dda47fd9ffa7
+ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71219377"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72376323"
 ---
 # <a name="create-a-private-endpoint-using-azure-cli"></a>使用 Azure CLI 建立私人端點
 私人端點是 Azure 中私用連結的基本建立區塊。 它可讓 Azure 資源（例如虛擬機器（Vm））私下與私人連結資源進行通訊。 在本快速入門中，您將瞭解如何使用 Azure CLI，在虛擬網路、具有私人端點的 SQL Database 伺服器上建立 VM。 然後，您可以存取 VM，並安全地存取私人連結資源（在此範例中為私用 Azure SQL Database 伺服器）。 
@@ -39,7 +39,7 @@ az network vnet create \
  --subnet-name mySubnet
 ```
 ## <a name="disable-subnet-private-endpoint-policies"></a>停用子網私人端點原則 
-Azure 會將資源部署到虛擬網路內的子網，因此您必須建立或更新子網，以停用私人端點網路原則。 使用[az network vnet subnet update](https://docs.microsoft.com/cli/azure/network/vnet/subnet?view=azure-cli-latest#az-network-vnet-subnet-update)來更新名為 * mySubnet * * 的子網設定：
+Azure 會將資源部署到虛擬網路內的子網，因此您必須建立或更新子網，以停用私人端點網路原則。 更新名為 *mySubnet*的子網設定  with [az network vnet subnet update](https://docs.microsoft.com/cli/azure/network/vnet/subnet?view=azure-cli-latest#az-network-vnet-subnet-update)：
 
 ```azurecli-interactive
 az network vnet subnet update \
@@ -81,7 +81,7 @@ az sql db create \
     --capacity 1 
 ```
 
-請注意，SQL Server 識別碼類似 ```/subscriptions/subscriptionId/resourceGroups/myResourceGroup/providers/Microsoft.Sql/servers/myserver.```于您將在下一個步驟中使用 SQL Server 識別碼。 
+請注意，SQL Server 識別碼類似 @ no__t-0，您將會在下一個步驟中使用 SQL Server 識別碼。 
 
 ## <a name="create-the-private-endpoint"></a>建立私用端點 
 在您的虛擬網路中建立 SQL Database 伺服器的私用端點： 
@@ -149,7 +149,7 @@ az network private-dns record-set a add-record --record-set-name myserver --zone
 在本節中，您會使用私人端點從 VM 連接到 SQL Database 伺服器。
 
  1. 在 myVM ** 的遠端桌面中，開啟 PowerShell。
- 2. 輸入 nslookup myserver.database.windows.net  ，您會收到類似下面的訊息： 
+ 2. 輸入 nslookup myserver. net @ no__t-0 您會收到類似下面的訊息： 
 
 ```
       Server:  UnKnown 
@@ -160,12 +160,12 @@ az network private-dns record-set a add-record --record-set-name myserver --zone
       Aliases:  myserver.database.windows.net 
 ```
  3. 安裝 SQL Server Management Studio 
- 4. 在 [連線到伺服器] 中，輸入或選取這項資訊：伺服器類型：選取 [資料庫引擎]。
- 伺服器名稱：選取 [myserver.database.windows.net 使用者名稱]：輸入在建立期間提供的使用者名稱。
- 密碼：輸入建立期間所提供的密碼。
+ 4. 在 [連線到伺服器] 中，輸入或選取下列資訊：伺服器類型：選取 [資料庫引擎]。
+ 伺服器名稱：選取 [myserver.database.windows.net Username]：輸入在建立期間提供的使用者名稱。
+ 密碼：輸入在建立期間所提供的密碼。
  記住密碼：選取 [是]。
  
- 5. 選取 **[連線]** 。
+ 5. 選取 [連線] **** 。
  6. 流覽左側功能表中的 [**資料庫**]。
  7. 也從*mydatabase*建立或查詢資訊
  8. 關閉對*myVm*的遠端桌面連線。

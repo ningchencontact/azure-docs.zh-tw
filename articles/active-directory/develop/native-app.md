@@ -17,12 +17,12 @@ ms.author: ryanwi
 ms.reviewer: saeeda, jmprieur, andret
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a6bf24124c4b072a64ef59500b2f723ff6abbb0e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 0034668231d97e64602bdbdd0836bded97bb733d
+ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65545849"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72373877"
 ---
 # <a name="native-apps"></a>原生應用程式
 
@@ -52,7 +52,7 @@ ms.locfileid: "65545849"
 
 ## <a name="app-registration"></a>應用程式註冊
 
-若要註冊應用程式與 Azure AD v1.0 端點，請參閱[註冊應用程式](quickstart-register-app.md)。
+若要向 Azure AD v1.0 端點註冊應用程式，請參閱[註冊應用](quickstart-register-app.md)程式。
 
 * 單一租用戶 - 原生應用程式和 Web API 必須註冊在 Azure AD 的相同目錄中。 Web API 可以設定為公開一組權限，用以限制原生應用程式對其資源的存取權。 用戶端應用程式即可從 Azure 入口網站的 [其他應用程式的權限] 下拉式功能表中，選取所需的權限。
 * 多租用戶 - 首先，原生應用程式僅註冊在開發人員或發行者的目錄中。 第二，設定原生應用程式來指出它運作所需的權限。 當目的地目錄中的使用者或系統管理員同意應用程式時 (使得應用程式可供組織使用)，這份必要權限清單會顯示在對話方塊中。 有些應用程式只需要使用者層級權限，亦即組織中的任何使用者都可以同意應用程式。 其他應用程式需要系統管理員層級權限，亦即組織中的使用者無法同意應用程式。 只有目錄管理員才能對需要此權限層級的應用程式表示同意。 當使用者或系統管理員同意時，只有 Web API 會註冊在他們的目錄中。 
@@ -64,4 +64,4 @@ ms.locfileid: "65545849"
 ## <a name="next-steps"></a>後續步驟
 
 - 深入了解其他[應用程式類型和案例](app-types.md)
-- 了解 Azure AD [驗證基本概念](authentication-scenarios.md)
+- 了解 Azure AD [驗證基本概念](v1-authentication-scenarios.md)

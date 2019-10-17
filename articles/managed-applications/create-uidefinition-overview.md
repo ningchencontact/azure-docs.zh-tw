@@ -1,6 +1,6 @@
 ---
 title: 適用于 Azure 受控應用程式建立體驗的 CreateUiDefinition |Microsoft Docs
-description: 描述如何建立 Azure 受控應用程式的 UI 定義
+description: 描述如何建立 Azure 入口網站的使用者介面定義。 定義 Azure 受控應用程式時使用。
 services: managed-applications
 documentationcenter: na
 author: tfitzmac
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/06/2019
 ms.author: tomfitz
-ms.openlocfilehash: 013e861bb93d76454f2f0fd9c36259197dd671b9
-ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
-ms.translationtype: MT
+ms.openlocfilehash: 7177b9513a1e51bc24672a69935a0e9430292537
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70308669"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72332694"
 ---
 # <a name="createuidefinitionjson-for-azure-managed-applications-create-experience"></a>適用于 Azure 受控應用程式建立體驗的 CreateUiDefinition
 
@@ -43,10 +43,10 @@ ms.locfileid: "70308669"
 CreateUiDefinition 一律會包含三個屬性︰ 
 
 * 處理常式
-* 版本
+* version
 * 參數
 
-處理常式應該一律是`Microsoft.Azure.CreateUIDef`，而最新支援的版本`0.1.2-preview`是。
+處理常式應該一律為 `Microsoft.Azure.CreateUIDef`，而最新支援的版本為 `0.1.2-preview`。
 
 parameters 屬性的結構描述取決於指定的處理常式和版本之組合。 針對受控應用程式，支援的屬性為 `basics`、`steps` 和 `outputs`。 basics 和 steps屬性包含要在 Azure 入口網站中顯示的[元素](create-uidefinition-elements.md) - 如同文字方塊和下拉式清單。 outputs 屬性可用來將指定元素的輸出值對應至 Azure Resource Manager 部署範本的參數。
 
@@ -54,7 +54,7 @@ parameters 屬性的結構描述取決於指定的處理常式和版本之組合
 
 您可以使用 JSON 編輯器來建立 createUiDefinition，然後在[CreateUiDefinition 沙箱](https://portal.azure.com/?feature.customPortal=false&#blade/Microsoft_Azure_CreateUIDef/SandboxBlade)中進行測試以進行預覽。 如需有關沙箱的詳細資訊，請參閱[測試入口網站介面的 Azure 受控應用程式](test-createuidefinition.md)。
 
-## <a name="basics"></a>基本知識
+## <a name="basics"></a>基本概念
 
 基本概念是 Azure 入口網站剖析檔案時所產生的第一個步驟。 除了顯示 `basics` 中指定的元素之外，入口網站會插入元素，以供使用者選擇部署的訂用帳戶、資源群組和位置。 可能的話，查詢整個部署的參數（例如叢集名稱或系統管理員認證）的元素應該會在此步驟中執行。
 
@@ -62,7 +62,7 @@ parameters 屬性的結構描述取決於指定的處理常式和版本之組合
 
 steps 屬性可以包含零個或多個要在 basics 之後顯示的額外步驟，其中都各包含一個或多個元素。 請考慮針對每個角色或要進行部署的應用程式層新增步驟。 例如，新增主要節點輸入的步驟，以及叢集中背景工作節點的步驟。
 
-## <a name="outputs"></a>outputs
+## <a name="outputs"></a>輸出
 
 Azure 入口網站會使用 `outputs` 屬性，將 `basics` 和 `steps` 的屬性對應至 Azure Resource Manager 部署範本的參數。 這個字典的金鑰是範本參數的名稱，而值則是所參照元素的輸出物件之屬性。
 
@@ -95,7 +95,7 @@ Azure 入口網站會使用 `outputs` 屬性，將 `basics` 和 `steps` 的屬�
 
 ## <a name="functions"></a>Functions
 
-CreateUiDefinition 提供[函式](create-uidefinition-functions.md)來處理元素的輸入和輸出, 以及條件之類的功能。 這些函式在 Azure Resource Manager 範本函式的語法和功能上都很類似。
+CreateUiDefinition 提供函式來處理[元素的輸入](create-uidefinition-functions.md)和輸出，以及條件之類的功能。 這些函式在 Azure Resource Manager 範本函式的語法和功能上都很類似。
 
 ## <a name="next-steps"></a>後續步驟
 

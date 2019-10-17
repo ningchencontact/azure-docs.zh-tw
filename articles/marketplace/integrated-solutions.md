@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 02/27/2019
 ms.author: ellacroi
 ms.openlocfilehash: b6015ce2d52c140a966636b887d021e76e92990d
-ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
+ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/14/2019
+ms.lasthandoff: 10/15/2019
 ms.locfileid: "70993633"
 ---
 # <a name="integrated-solutions-in-azure-marketplace-and-appsource"></a>Azure Marketplace 和 AppSource 中的整合式解決方案
@@ -24,8 +24,8 @@ ms.locfileid: "70993633"
 
 整合式方法的優點如下：
 
-* *產業專業知識*：提供產業特定解決方案和知識的系統整合者
-* *時間值*：可協助您實現立即優勢的整合式部署方法
+* *業界專長*：提供業界專屬解決方案和知識的系統整合者
+* *時間值*：整合部署方法，可協助您實現立即的優勢
 * *最佳解決方案*：探索輕鬆的整合式購買與執行體驗
 
 ## <a name="next-steps"></a>後續步驟

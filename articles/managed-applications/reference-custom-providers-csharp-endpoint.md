@@ -1,22 +1,22 @@
 ---
 title: 自訂C#提供者 RESTful 端點參考-Azure
-description: 本文是自訂提供者C# RESTful 端點的基本參考。
+description: 提供 Azure 自訂提供者C# RESTful 端點的基本參考。 端點是透過 Azure 函數應用程式提供。
 services: managed-applications
 ms.service: managed-applications
 ms.topic: conceptual
 ms.author: jobreen
 author: jjbfour
 ms.date: 06/20/2019
-ms.openlocfilehash: 8007c92c832ab7621d0192f924b15abf8bda9262
-ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
+ms.openlocfilehash: 37b7997bc029942a84c9be5743f6ef3c6195fd27
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71172905"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72332656"
 ---
 # <a name="custom-provider-c-restful-endpoint-reference"></a>自訂C#提供者 RESTful 端點參考
 
-本文是自訂提供者C# RESTful 端點的基本參考。 如果您不熟悉 Azure 自訂提供者，請參閱[自訂資源提供者的總覽](./custom-providers-overview.md)。
+本文是自訂提供者C# RESTful 端點的基本參考。 如果您不熟悉 Azure 自訂提供者，請參閱[自訂資源提供者概觀](./custom-providers-overview.md)。
 
 ## <a name="azure-function-app-restful-endpoint"></a>Azure 函數應用程式 RESTful 端點
 

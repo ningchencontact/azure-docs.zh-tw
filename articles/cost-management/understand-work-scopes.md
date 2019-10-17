@@ -1,21 +1,21 @@
 ---
-title: 瞭解及使用 Azure 成本管理範圍 |Microsoft Docs
+title: 瞭解及使用 Azure 成本管理範圍
 description: 本文可協助您瞭解 Azure 中可用的計費和資源管理範圍，以及如何使用成本管理和 Api 中的範圍。
 services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 07/01/2019
+ms.date: 10/14/2019
 ms.topic: conceptual
 ms.service: cost-management
 manager: micflan
 ms.custom: ''
-ms.openlocfilehash: 41d83d4a6c5aad4c3b575513c6b3e2e25a425829
-ms.sourcegitcommit: e1b6a40a9c9341b33df384aa607ae359e4ab0f53
+ms.openlocfilehash: 664307b64d5a2869130df9ab123119d869f36e21
+ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71338643"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72374489"
 ---
 # <a name="understand-and-work-with-scopes"></a>了解並使用範圍
 
@@ -39,15 +39,15 @@ Azure 支援三個範圍來管理資源。 每個範圍都支援管理存取和�
 
 - [**管理群組**](../governance/management-groups/overview.md)-最多八個層級的階層式容器，用來組織 Azure 訂用帳戶。
 
-    資源類型：[Microsoft.Management/managementGroups](/rest/api/resources/managementgroups)
+    資源類型： [Microsoft. Management/managementGroups](/rest/api/resources/managementgroups)
 
 - 訂用帳戶-適用于 Azure**資源的主要**容器。
 
-    資源類型：[Microsoft.Resources/subscriptions](/rest/api/resources/subscriptions)
+    資源類型： [Microsoft .resources/](/rest/api/resources/subscriptions)訂用帳戶
 
 - [**資源群組**](../azure-resource-manager/resource-group-overview.md#resource-groups)-適用于共用相同生命週期的 Azure 解決方案相關資源的邏輯分組。 例如，一起部署和刪除的資源。
 
-    資源類型：[Microsoft.Resources/subscriptions/resourceGroups](/rest/api/resources/resourcegroups)
+    資源類型： [Microsoft .resources/](/rest/api/resources/resourcegroups)訂用帳戶/resourceGroups
 
 管理群組可讓您將訂用帳戶組織成階層。 例如，您可以使用管理群組建立邏輯組織階層。 然後，提供生產環境和開發/測試工作負載的小組訂閱。 然後在訂用帳戶中建立資源群組，以管理每個子系統或元件。
 
@@ -128,7 +128,10 @@ Microsoft 客戶合約帳單帳戶具有下列範圍：
 
     資源類型： `Microsoft.Billing/billingAccounts/invoiceSections`
 
+- **客戶**代表一組訂用帳戶，這些訂用帳戶與由合作夥伴上架至 Microsoft 客戶合約的特定客戶相關聯。 此範圍是 CSP 特有的。
+
 與 EA 計費範圍不同的是，客戶合約帳單帳戶_會_系結至單一目錄，而且不能有多個 Azure AD 目錄的訂閱。
+
 
 客戶合約計費範圍支援下列角色：
 
@@ -149,7 +152,7 @@ Azure 訂用帳戶會在 [發票] 區段下加以嵌套，如同其在 EA 註冊
 - **外部帳單帳戶**-代表與協力廠商廠商簽訂的客戶合約。 這類似于 EA 帳單帳戶。
 
     資源類型： `Microsoft.CostManagement/externalBillingAccounts`
-    
+
 - **外部訂**用帳戶-代表具有協力廠商廠商的客戶動作帳戶。 這類似于 Azure 訂用帳戶。
 
     資源類型： `Microsoft.CostManagement/externalSubscriptions`
@@ -166,7 +169,7 @@ Azure 入口網站中的所有成本管理檢視都包含視圖左上方的**範
 
 使用成本管理 Api 時，瞭解範圍是很重要的。 使用下列資訊來建立成本管理 Api 的適當範圍 URI。
 
-### <a name="billing-accounts"></a>計費帳戶
+### <a name="billing-accounts"></a>帳單帳戶
 
 1. 開啟 Azure 入口網站，然後在服務清單中流覽至 [**成本管理 + 帳單**]。
 2. 在 [帳單帳戶] 功能表中選取 [**屬性**]。
@@ -216,7 +219,7 @@ Azure 入口網站中的所有成本管理檢視都包含視圖左上方的**範
 3. 複製資料表中的管理群組識別碼。
 4. 您的範圍為： `"/providers/Microsoft.Management/managementGroups/{id}"`
 
-### <a name="subscription"></a>訂閱
+### <a name="subscription"></a>Subscription
 
 1. 開啟 Azure 入口網站，然後流覽至服務清單中的 [**訂閱**]。
 2. 複製資料表中的訂用帳戶識別碼。

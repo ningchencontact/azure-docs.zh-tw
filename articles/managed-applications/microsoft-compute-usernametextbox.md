@@ -1,6 +1,6 @@
 ---
 title: Azure UserNameTextBox UI 元素 | Microsoft Docs
-description: 描述 Azure 入口網站的 Microsoft.Compute.UserNameTextBox UI 元素。
+description: 描述 Azure 入口網站的 Microsoft.Compute.UserNameTextBox UI 元素。 可讓使用者提供 Windows 或 Linux 使用者名稱。
 services: managed-applications
 documentationcenter: na
 author: tfitzmac
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/27/2018
 ms.author: tomfitz
-ms.openlocfilehash: 88ab13329a719ba1e1b8a7b5fba2f7a2d381eca2
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 875c73c546fa52642959e2593d41f9af82c13797
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64700850"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72331585"
 ---
 # <a name="microsoftcomputeusernametextbox-ui-element"></a>Microsoft.Compute.UserNameTextBox UI 元素
 使用 Windows 和 Linux 使用者名稱內建驗證的文字方塊控制項。

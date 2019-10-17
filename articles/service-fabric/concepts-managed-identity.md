@@ -7,12 +7,12 @@ ms.service: service-fabric
 ms.topic: conceptual
 ms.date: 07/25/2019
 ms.author: atsenthi
-ms.openlocfilehash: d63fd3d1b778c691d053f13fbf0fbb2ed5ccb3e3
-ms.sourcegitcommit: fbea2708aab06c19524583f7fbdf35e73274f657
+ms.openlocfilehash: edce98e6babb676ee72f1d254b929e557332dd75
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/13/2019
-ms.locfileid: "70968272"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72333128"
 ---
 # <a name="managed-identity-for-service-fabric-application-preview"></a>Service Fabric 應用程式的受控識別（預覽）
 
@@ -23,7 +23,7 @@ ms.locfileid: "70968272"
 > [!NOTE]
 > 適用于 Azure 資源的受控識別是先前稱為受控服務識別（MSI）之服務的新名稱。
 
-## <a name="terminology"></a>術語
+## <a name="terminology"></a>詞彙
 
 下列詞彙適用于 Azure 資源的受控識別檔集：
 
@@ -63,6 +63,8 @@ ms.locfileid: "70968272"
 下列案例不受支援或不建議使用;請注意，這些動作可能不會被封鎖，但可能會導致您的應用程式中斷：
 
    - 移除或變更指派給應用程式的身分識別;如果您必須進行變更，請先提交個別的部署，以加入新的身分識別指派，然後再移除先前指派的身分。 從現有的應用程式移除身分識別可能會產生不想要的效果，包括讓應用程式處於無法升級的狀態。 如果需要移除身分識別，則可以放心地刪除應用程式;請注意，這會刪除與應用程式相關聯的系統指派身分識別（如果有定義的話），並會移除指派給應用程式之使用者指派身分識別的任何關聯。
+
+   - 受控識別的 SF 支援目前未整合到[azureservicetokenprovider 會](../key-vault/service-to-service-authentication.md);受控識別功能的預覽期間結束時，將會達成此整合。
 
 >
 > [!NOTE]

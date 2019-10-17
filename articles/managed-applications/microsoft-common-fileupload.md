@@ -1,6 +1,6 @@
 ---
 title: Azure FileUpload UI 元素 | Microsoft Docs
-description: 描述 Azure 入口網站的 Microsoft.Common.FileUpload UI 元素。
+description: 描述 Azure 入口網站的 Microsoft.Common.FileUpload UI 元素。 可讓使用者在部署受控應用程式時，必須上傳檔案。
 services: managed-applications
 documentationcenter: na
 author: tfitzmac
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/05/2018
 ms.author: tomfitz
-ms.openlocfilehash: b06134c6694e54cf246f9527d10147c573b95ad9
-ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
+ms.openlocfilehash: b7f73dcfe3e0e2827083feba906e2efcd0265305
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71828007"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72331704"
 ---
 # <a name="microsoftcommonfileupload-ui-element"></a>Microsoft.Common.FileUpload UI 元素
 控制項可讓使用者指定要上傳的一個或多個檔案。
@@ -26,7 +26,7 @@ ms.locfileid: "71828007"
 ## <a name="ui-sample"></a>UI 範例
 ![Microsoft.Common.FileUpload](./media/managed-application-elements/microsoft.common.fileupload.png)
 
-## <a name="schema"></a>架構
+## <a name="schema"></a>結構描述
 ```json
 {
   "name": "element1",
