@@ -8,14 +8,14 @@ services: cognitive-services
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
-ms.date: 09/26/2019
+ms.date: 10/14/2019
 ms.author: diberry
-ms.openlocfilehash: e605f2ab0e79fa3d7d3ee3735f47776654566cb6
-ms.sourcegitcommit: 4f3f502447ca8ea9b932b8b7402ce557f21ebe5a
+ms.openlocfilehash: 83d60487922e3355aab8e34f6a8409c529901d14
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71802337"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72328019"
 ---
 # <a name="use-active-learning-to-improve-your-knowledge-base"></a>使用主動式學習來改善知識庫
 
@@ -71,7 +71,7 @@ QnA Maker 的隱含意見反應會使用演算法來判斷分數鄰近性，然�
 
 1. 尋找 QnA Maker 服務，然後切換**主動式學習**。 
 
-    [![在 [服務設定] 頁面上，開啟 [主動式學習] 功能。如果您無法切換此功能，您可能需要升級您的服務。](../media/improve-knowledge-base/turn-active-learning-on-at-service-setting.png)](../media/improve-knowledge-base/turn-active-learning-on-at-service-setting.png#lightbox)
+    [![On [服務設定] 頁面，切換 [主動式學習] 功能。如果您無法切換此功能，您可能需要升級您的服務。](../media/improve-knowledge-base/turn-active-learning-on-at-service-setting.png)](../media/improve-knowledge-base/turn-active-learning-on-at-service-setting.png#lightbox)
 
     > [!Note]
     > 上述影像上的確切版本只會顯示為範例。 您的版本可能不同。 
@@ -84,15 +84,15 @@ QnA Maker 的隱含意見反應會使用演算法來判斷分數鄰近性，然�
 
 1. 若要查看建議的問題，請在 [**編輯**知識庫] 頁面上，選取 [**視圖選項**]，然後選取 [**顯示主動式學習建議**]。 
 
-    [![在入口網站的 [編輯] 區段上，選取 [顯示建議]，以查看主動式學習的新問題替代方案。](../media/improve-knowledge-base/show-suggestions-button.png)](../media/improve-knowledge-base/show-suggestions-button.png#lightbox)
+    [@no__t 1On 入口網站的 [編輯] 區段中，選取 [顯示建議]，以查看主動式學習的新問題替代方案。](../media/improve-knowledge-base/show-suggestions-button.png)(../media/improve-knowledge-base/show-suggestions-button.png#lightbox)
 
 1. 藉由選取 [**依建議篩選**]，篩選具有問題和答案配對的知識庫，僅顯示建議。
 
-    [![使用 [依建議篩選] 切換，即可只查看主動式學習的建議問題替代方案。](../media/improve-knowledge-base/filter-by-suggestions.png)](../media/improve-knowledge-base/filter-by-suggestions.png#lightbox)
+    [![Use [依建議篩選] 切換，以只查看主動式學習的建議問題替代方案。](../media/improve-knowledge-base/filter-by-suggestions.png)](../media/improve-knowledge-base/filter-by-suggestions.png#lightbox)
 
-1. 每個 QnA 組都會以核取記號來建議新的問題`✔`替代專案，以接受問題`x`或拒絕建議。 選取核取記號可新增問題。 
+1. 每個 QnA 組都會以核取記號（`✔`）建議新的問題替代專案，以接受問題或 `x` 來拒絕建議。 選取核取記號可新增問題。 
 
-    [![選取或拒絕主動式學習的建議問題，方法是選取綠色核取記號或紅色刪除標記。](../media/improve-knowledge-base/accept-active-learning-suggestions.png)](../media/improve-knowledge-base/accept-active-learning-suggestions.png#lightbox)
+    [藉由選取綠色核取記號或紅色刪除標記，@no__t 1Select 或拒絕主動式學習的建議問題替代專案。](../media/improve-knowledge-base/accept-active-learning-suggestions.png)](../media/improve-knowledge-base/accept-active-learning-suggestions.png#lightbox)
 
     您可以在內容相關工具列中選取 [全部**新增**] 或 [**全部拒絕**]，來新增或刪除_所有建議_。
 
@@ -109,7 +109,7 @@ QnA Maker 的隱含意見反應會使用演算法來判斷分數鄰近性，然�
 
 Bot 或其他用戶端應用程式應該使用下列架構流程來使用主動式學習：
 
-* Bot 會透過 GenerateAnswer API[從知識庫取得答案](#use-the-top-property-in-the-generateanswer-request-to-get-several-matching-answers)，並使用`top`屬性來取得一些答案。
+* Bot 會透過 GenerateAnswer API[從知識庫取得答案](#use-the-top-property-in-the-generateanswer-request-to-get-several-matching-answers)，並使用 `top` 屬性取得一些答案。
 * Bot 會決定明確的意見反應：
     * 使用您自己的[自訂商務邏輯](#use-the-score-property-along-with-business-logic-to-get-list-of-answers-to-show-user)，篩選出低分數。
     * 在 bot 或用戶端應用程式中，顯示使用者可能的解答清單，並取得使用者選取的答案。
@@ -118,7 +118,7 @@ Bot 或其他用戶端應用程式應該使用下列架構流程來使用主動�
 
 ### <a name="use-the-top-property-in-the-generateanswer-request-to-get-several-matching-answers"></a>使用 GenerateAnswer 要求中的 top 屬性來取得數個相符的答案
 
-提交問題給 QnA Maker 以取得解答時，JSON 主體`top`的屬性會設定要傳回的答案數目。 
+提交問題給 QnA Maker 以取得解答時，JSON 主體的 `top` 屬性會設定要傳回的答案數目。 
 
 ```json
 {
@@ -130,7 +130,7 @@ Bot 或其他用戶端應用程式應該使用下列架構流程來使用主動�
 
 ### <a name="use-the-score-property-along-with-business-logic-to-get-list-of-answers-to-show-user"></a>使用分數屬性和商務邏輯來取得顯示使用者的答案清單
 
-當用戶端應用程式（例如聊天機器人）收到回應時，就會傳回前3個問題。 `score`使用屬性來分析分數之間的近距離。 這個鄰近範圍是由您自己的商務邏輯所決定。 
+當用戶端應用程式（例如聊天機器人）收到回應時，就會傳回前3個問題。 使用 [`score`] 屬性可分析分數之間的鄰近性。 這個鄰近範圍是由您自己的商務邏輯所決定。 
 
 ```json
 {
@@ -186,20 +186,20 @@ Content-Type: application/json
 {"feedbackRecords": [{"userId": "1","userQuestion": "<question-text>","qnaId": 1}]}
 ```
 
-|HTTP 要求屬性|Name|Type|用途|
+|HTTP 要求屬性|Name|Type|目的|
 |--|--|--|--|
 |URL 路由參數|知識庫識別碼|string|測試您知識庫的 GUID。|
 |自訂子域|QnAMaker 資源名稱|string|資源名稱會用來做為 QnA Maker 的自訂子域。 這會在您發佈知識庫之後的 [設定] 頁面上提供。 它會列為 `host`。|
-|標頭|Content-Type|string|傳送至 API 的本文媒體類型。 預設值為：`application/json`|
+|標頭|Content-Type|string|傳送至 API 的本文媒體類型。 預設值為： `application/json`|
 |標頭|Authorization|string|您的端點金鑰 (EndpointKey xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx)。|
 |張貼本文|JSON 物件|JSON|訓練意見反應|
 
 JSON 主體有數個設定：
 
-|JSON 主體屬性|Type|用途|
+|JSON 主體屬性|Type|目的|
 |--|--|--|--|
 |`feedbackRecords`|array|意見反應清單。|
-|`userId`|string|接受建議問題之人員的使用者識別碼。 使用者識別碼格式是由您負責。 例如，電子郵件地址可以是您架構中的有效使用者識別碼。 選擇性。|
+|`userId`|string|接受建議問題之人員的使用者識別碼。 使用者識別碼格式是由您負責。 例如，電子郵件地址可以是您架構中的有效使用者識別碼。 選用。|
 |`userQuestion`|string|使用者查詢的確切文字。 必要。|
 |`qnaID`|number|問題的識別碼，可在[GenerateAnswer 回應](metadata-generateanswer-usage.md#generateanswer-response-properties)中找到。 |
 
@@ -221,7 +221,7 @@ JSON 主體有數個設定：
 
 ### <a name="batch-many-feedback-records-into-a-single-call"></a>將許多意見反應記錄批次成單一呼叫
 
-在用戶端應用程式（例如 bot）中，您可以儲存資料，然後在`feedbackRecords`陣列中的單一 JSON 主體中傳送許多記錄。 
+在用戶端應用程式（例如 bot）中，您可以儲存資料，然後在 `feedbackRecords` 陣列的單一 JSON 主體中傳送許多記錄。 
 
 範例 JSON 主體如下所示：
 
@@ -368,9 +368,9 @@ async callTrain(stepContext){
 
 ## <a name="active-learning-is-saved-in-the-exported-knowledge-base"></a>主動式學習會儲存在匯出的知識庫中
 
-當您的應用程式啟用主動式學習，並匯出應用程式時， `SuggestedQuestions` tsv 檔案中的資料行會保留使用中的學習資料。 
+當您的應用程式啟用主動式學習，並匯出應用程式時，tsv 檔案中的 @no__t 0 資料行會保留使用中的學習資料。 
 
-資料行是隱含、 `autosuggested`和明確`usersuggested`的意見反應之資訊的 JSON 物件。 `SuggestedQuestions` 針對單一使用者提交的問題`help` ，此 JSON 物件的範例為：
+@No__t 0 資料行是隱含、`autosuggested` 和明確、@no__t 2 意見反應資訊的 JSON 物件。 @No__t-0 的單一使用者提交問題的這個 JSON 物件範例為：
 
 ```JSON
 [
