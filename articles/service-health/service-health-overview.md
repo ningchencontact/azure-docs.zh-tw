@@ -7,14 +7,14 @@ services: service-health
 ms.service: service-health
 ms.topic: article
 ms.date: 05/10/2019
-ms.openlocfilehash: a6f6288aebe599db794a7f15fc733563d26c66cc
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 3e3c83b7233ad4da263dec31c6012209ebaca0fe
+ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67067105"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72515859"
 ---
-# <a name="service-health-overview"></a>服務健康狀態概觀
+# <a name="service-health-overview"></a>服務健康狀態總覽
 
 服務健康狀態為您提供可自訂的儀表板，可追蹤您使用這些服務之所在區域中的 Azure 服務健康狀態。 在此儀表板中，您可以追蹤作用中的事件，例如，進行中的服務問題、近期預定的維修，或相關的健康狀態諮詢。 當事件變成非作用中時，它們會放置在健康狀態歷程記錄中最多 90 天。 最後，您可以使用服務健康狀態儀表板建立和管理服務健康狀態警示，當服務問題對您產生影響時，會主動予以通知。
 
@@ -27,7 +27,7 @@ ms.locfileid: "67067105"
 3. **健康情況摘要報告** - 需要注意的 Azure 服務變更。 範例包括取代 Azure 功能，或超過使用量配額。
 
 > [!NOTE]
-> 若要檢視服務健康狀態事件，使用者必須具有訂用帳戶的「讀者」角色。
+> 若要查看服務健康狀態事件，使用者必須被[授與](../role-based-access-control/role-assignments-portal.md)訂用帳戶的「讀者」角色。
 
 ## <a name="get-started-with-service-health"></a>開始使用服務健康情況
 
@@ -41,7 +41,7 @@ ms.locfileid: "67067105"
 
 ![管理服務問題](./media/service-health-overview/azure-service-health-overview-2.png)
 
-選擇 [潛在影響]  索引標籤，查看將受問題影響而且您擁有的資源列出的特定清單。 您可以下載這些資源的 CSV 清單，以便與小組共用。
+選擇 [潛在影響] 索引標籤，查看將受問題影響而且您擁有的資源列出的特定清單。 您可以下載這些資源的 CSV 清單，以便與小組共用。
 
 ![管理服務問題 - 影響](./media/service-health-overview/azure-service-health-overview-4.png)
 
@@ -71,4 +71,4 @@ ms.locfileid: "67067105"
 
 ## <a name="next-steps"></a>後續步驟
 
-設定警示，如此就能收到健康情況問題的通知。 如需詳細資訊，請參閱 <<c0> [ 最佳做法來設定 Azure 服務健康情況警示](https://www.youtube.com/watch?v=k5d5ca8K6tc&list=PLLasX02E8BPBBSqygdRvlTnHfp1POwE8K&index=6&t=0s)。 
+設定警示，如此就能收到健康狀態問題的通知。 如需詳細資訊，請參閱[設定 Azure 服務健康狀態警示的最佳做法](https://www.youtube.com/watch?v=k5d5ca8K6tc&list=PLLasX02E8BPBBSqygdRvlTnHfp1POwE8K&index=6&t=0s)。 

@@ -1,5 +1,5 @@
 ---
-title: 針對 Azure 備份失敗進行疑難排解：無法使用客體代理程式狀態
+title: 針對 Azure 備份失敗：無法使用客體代理程式狀態進行疑難排解
 description: 與代理程式、延伸模組及磁碟相關之 Azure 備份失敗的徵狀、原因和解決方案。
 ms.reviewer: saurse
 author: dcurwin
@@ -9,14 +9,14 @@ ms.service: backup
 ms.topic: troubleshooting
 ms.date: 07/05/2019
 ms.author: dacurwin
-ms.openlocfilehash: ab03056557c7c67c5b75d701c9995c9ad500caae
-ms.sourcegitcommit: 263a69b70949099457620037c988dc590d7c7854
+ms.openlocfilehash: 9d76dfa338a697825868c31cfe6fc11e5235730b
+ms.sourcegitcommit: 6eecb9a71f8d69851bc962e2751971fccf29557f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71268766"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72533714"
 ---
-# <a name="troubleshoot-azure-backup-failure-issues-with-the-agent-or-extension"></a>針對 Azure 備份失敗進行疑難排解：與代理程式或擴充功能相關的問題
+# <a name="troubleshoot-azure-backup-failure-issues-with-the-agent-or-extension"></a>針對 Azure 備份失敗進行疑難排解：與代理程式或延伸模組相關的問題
 
 本文提供疑難排解步驟，協助您解決與 VM 代理程式和延伸模組通訊相關的 Azure 備份錯誤。
 
@@ -39,13 +39,13 @@ Azure VM 代理程式可能已停止、過期、處於不一致的狀態，或�
 
 在註冊及排程 Azure 備份服務的 VM 之後，備份就會藉由與 VM 備份擴充功能通訊以取得時間點快照，來起始作業。 下列任一種狀況都可能會阻止觸發快照集。 如果未觸發快照集，可能會發生備份失敗。 請依照列出的順序完成下列疑難排解步驟，然後重試作業：  
 
-**原因 1：[代理程式已安裝在 VM 中，但沒有回應 (適用於 Windows VM)](#the-agent-installed-in-the-vm-but-unresponsive-for-windows-vms)**  
+**原因 1：[代理程式已安裝到 VM 中，但沒有回應 (適用於 Windows VM)](#the-agent-installed-in-the-vm-but-unresponsive-for-windows-vms)**  
 
-**原因 2：[VM 中安裝的代理程式已過時 (適用於 Linux VM)](#the-agent-installed-in-the-vm-is-out-of-date-for-linux-vms)**
+**原因 2︰[VM 中安裝的代理程式已過時 (適用於 Linux VM)](#the-agent-installed-in-the-vm-is-out-of-date-for-linux-vms)**
 
-**原因 3：[無法擷取快照集狀態或無法取得快照集](#the-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-taken)**
+**原因 3︰[無法擷取快照集狀態或無法取得快照集](#the-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-taken)**
 
-**原因 4︰[備份擴充功能無法更新或載入](#the-backup-extension-fails-to-update-or-load)**
+**原因 4︰[備份延伸模組無法更新或載入](#the-backup-extension-fails-to-update-or-load)**
 
 ## <a name="usererrorrpcollectionlimitreached---the-restore-point-collection-max-limit-has-reached"></a>UserErrorRpCollectionLimitReached - 已達到還原點集合上限
 
@@ -77,19 +77,19 @@ Azure VM 代理程式可能已停止、過期、處於不一致的狀態，或�
 
 在註冊及排程 Azure 備份服務的 VM 之後，備份就會藉由與 VM 備份擴充功能通訊以取得時間點快照，來起始作業。 下列任一種狀況都可能會阻止觸發快照集。 如果未觸發快照集，可能會發生備份失敗。 請依照列出的順序完成下列疑難排解步驟，然後重試作業：
 
-**原因 1：[無法擷取快照集狀態或無法取得快照集](#the-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-taken)**  
-**原因 2：[備份擴充功能無法更新或載入](#the-backup-extension-fails-to-update-or-load)**  
+**原因 1︰[無法擷取快照集狀態或無法取得快照集](#the-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-taken)**  
+**原因 2︰[備份延伸模組無法更新或載入](#the-backup-extension-fails-to-update-or-load)**  
 **原因 3：[VM 沒有網際網路存取](#the-vm-has-no-internet-access)**
 
 ## <a name="ExtensionOperationFailed-vmsnapshot-extension-operation-failed"></a>ExtensionOperationFailedForManagedDisks-VMSnapshot 延伸模組作業失敗
 
-**錯誤碼**：ExtensionOperationFailedForManagedDisks <br>
-**錯誤訊息**：VMSnapshot 擴充作業失敗<br>
+**錯誤碼**： ExtensionOperationFailedForManagedDisks <br>
+**錯誤訊息**：VMSnapshot 延伸模組作業失敗<br>
 
 在註冊及排程 Azure 備份服務的 VM 之後，備份就會藉由與 VM 備份擴充功能通訊以取得時間點快照，來起始作業。 下列任一種狀況都可能會阻止觸發快照集。 如果未觸發快照集，可能會發生備份失敗。 請依照列出的順序完成下列疑難排解步驟，然後重試作業：  
-**原因 1：[無法擷取快照集狀態或無法取得快照集](#the-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-taken)**  
-**原因 2：[備份擴充功能無法更新或載入](#the-backup-extension-fails-to-update-or-load)**  
-**原因 3：[代理程式已安裝在 VM 中，但沒有回應 (適用於 Windows VM)](#the-agent-installed-in-the-vm-but-unresponsive-for-windows-vms)**  
+**原因 1︰[無法擷取快照集狀態或無法取得快照集](#the-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-taken)**  
+**原因 2︰[備份延伸模組無法更新或載入](#the-backup-extension-fails-to-update-or-load)**  
+**原因 3：[代理程式已安裝到 VM 中，但沒有回應 (適用於 Windows VM)](#the-agent-installed-in-the-vm-but-unresponsive-for-windows-vms)**  
 **原因 4︰[VM 中安裝的代理程式已過時 (適用於 Linux VM)](#the-agent-installed-in-the-vm-is-out-of-date-for-linux-vms)**
 
 ## <a name="backupoperationfailed--backupoperationfailedv2---backup-fails-with-an-internal-error"></a>BackUpOperationFailed / BackUpOperationFailedV2 - 備份失敗，發生內部錯誤
@@ -99,23 +99,23 @@ Azure VM 代理程式可能已停止、過期、處於不一致的狀態，或�
 
 在註冊及排程 Azure 備份服務的 VM 之後，備份就會藉由與 VM 備份擴充功能通訊以取得時間點快照，來起始作業。 下列任一種狀況都可能會阻止觸發快照集。 如果未觸發快照集，可能會發生備份失敗。 請依照列出的順序完成下列疑難排解步驟，然後重試作業：  
 **原因 1：[代理程式已安裝到 VM 中，但沒有回應 (適用於 Windows VM)](#the-agent-installed-in-the-vm-but-unresponsive-for-windows-vms)**  
-**原因 2：[VM 中安裝的代理程式已過時 (適用於 Linux VM)](#the-agent-installed-in-the-vm-is-out-of-date-for-linux-vms)**  
-**原因 3：[無法擷取快照集狀態或無法取得快照集](#the-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-taken)**  
-**原因 4︰[備份擴充功能無法更新或載入](#the-backup-extension-fails-to-update-or-load)**  
-**原因 5：備份服務因資源群組鎖定而沒有刪除舊還原點的權限** <br>
+**原因 2︰[VM 中安裝的代理程式已過時 (適用於 Linux VM)](#the-agent-installed-in-the-vm-is-out-of-date-for-linux-vms)**  
+**原因 3︰[無法擷取快照集狀態或無法取得快照集](#the-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-taken)**  
+**原因 4︰[備份延伸模組無法更新或載入](#the-backup-extension-fails-to-update-or-load)**  
+**原因5：備份服務因為資源群組鎖定而沒有刪除舊還原點的許可權** <br>
 **原因 6：[VM 沒有網際網路存取](#the-vm-has-no-internet-access)**
 
 ## <a name="usererrorunsupporteddisksize---the-configured-disk-sizes-is-currently-not-supported-by-azure-backup"></a>UserErrorUnsupportedDiskSize-Azure 備份目前不支援設定的磁片大小。
 
 **錯誤碼**：UserErrorUnsupportedDiskSize <br>
-**錯誤訊息**：Azure 備份目前不支援已設定的磁片大小。 <br>
+**錯誤訊息**： Azure 備份目前不支援已設定的磁片大小。 <br>
 
-當備份磁片大小大於 30 TB 的 VM 時，您的備份操作可能會失敗。 此外，目前不支援備份大小大於 4 TB 的加密磁片。 藉由分割磁片，確定磁片大小小於或等於支援的限制值。
+當備份磁片大小大於 32 TB 的 VM 時，您的備份操作可能會失敗。 此外，目前不支援備份大小大於 4 TB 的加密磁片。 藉由分割磁片，確定磁片大小小於或等於支援的限制值。
 
 ## <a name="usererrorbackupoperationinprogress---unable-to-initiate-backup-as-another-backup-operation-is-currently-in-progress"></a>UserErrorBackupOperationInProgress - 無法起始備份，因為另一個備份作業正在進行中
 
-**錯誤碼**：UserErrorBackupOperationInProgress <br>
-**錯誤訊息**：無法起始備份，因為另一個備份作業正在進行中<br>
+**錯誤碼**： UserErrorBackupOperationInProgress <br>
+**錯誤訊息**：無法起始備份，因為另一個備份作業目前正在進行中<br>
 
 您最近的備份作業失敗，因為現有備份作業正在進行中。 必須等到目前的作業完成，才能啟動新的備份作業。 請確定目前正在進行的備份作業已完成，再觸發或排定其他備份作業。 若要檢查備份作業狀態，請執行下列步驟：
 

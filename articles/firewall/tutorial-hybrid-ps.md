@@ -1,19 +1,19 @@
 ---
 title: 使用 Azure PowerShell 在混合式網路中部署及設定 Azure 防火牆
-description: 在本文中, 您將瞭解如何使用 Azure PowerShell 來部署和設定 Azure 防火牆。
+description: 在本文中，您將瞭解如何使用 Azure PowerShell 來部署和設定 Azure 防火牆。
 services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: article
-ms.date: 5/3/2019
+ms.date: 10/18/2019
 ms.author: victorh
 customer intent: As an administrator, I want to control network access from an on-premises network to an Azure virtual network.
-ms.openlocfilehash: a9987808feb895276f3f9e62fe66c1b353b52e72
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: ecc46f9ce4ec953d481bf8110326630053938524
+ms.sourcegitcommit: 6eecb9a71f8d69851bc962e2751971fccf29557f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70073069"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72533332"
 ---
 # <a name="deploy-and-configure-azure-firewall-in-a-hybrid-network-using-azure-powershell"></a>使用 Azure PowerShell 在混合式網路中部署及設定 Azure 防火牆
 
@@ -21,11 +21,11 @@ ms.locfileid: "70073069"
 
 您可以使用定義允許和拒絕網路流量的規則，在混合式網路中使用 Azure 防火牆來控制網路存取。
 
-在本文中, 您會建立三個虛擬網路:
+在本文中，您會建立三個虛擬網路：
 
 - **VNet-Hub** - 防火牆位於此虛擬網路中。
 - **VNet-Spoke** - 輪輻虛擬網路代表位於 Azure 的工作負載。
-- **VNet-Onprem** - 內部部署虛擬網路代表內部部署網路。 在實際部署中，它可經由 VPN 或 ExpressRoute 連線來連線。 為了簡單起見, 本文使用 VPN 閘道連線, 而 Azure 位置的虛擬網路則用來代表內部部署網路。
+- **VNet-Onprem** - 內部部署虛擬網路代表內部部署網路。 在實際部署中，它可經由 VPN 或 ExpressRoute 連線來連線。 為了簡單起見，本文使用 VPN 閘道連線，而 Azure 位置的虛擬網路則用來代表內部部署網路。
 
 ![混合式網路中的防火牆](media/tutorial-hybrid-ps/hybrid-network-firewall.png)
 
@@ -43,13 +43,13 @@ ms.locfileid: "70073069"
 > * 建立虛擬機器
 > * 測試防火牆
 
-如果您想要改為使用 Azure 入口網站來完成本教學課程[, 請參閱教學課程:使用 Azure 入口網站](tutorial-hybrid-portal.md), 在混合式網路中部署及設定 Azure 防火牆。
+如果您想要改為使用 Azure 入口網站來完成本教學課程，請參閱[教學課程：使用 Azure 入口網站在混合式網路中部署和設定 Azure 防火牆](tutorial-hybrid-portal.md)。
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="prerequisites"></a>必要條件
 
-本文會要求您在本機執行 PowerShell。 您必須已安裝 Azure PowerShell 模組。 執行 `Get-Module -ListAvailable Az` 以尋找版本。 如果您需要升級，請參閱[安裝 Azure PowerShell 模組](https://docs.microsoft.com/powershell/azure/install-Az-ps)。 驗證 PowerShell 版本之後，請執行 `Login-AzAccount` 以建立與 Azure 的連線。
+本文會要求您在本機執行 PowerShell。 您必須已安裝 Azure PowerShell 模組。 執行 `Get-Module -ListAvailable Az` 找出版本。 如果您需要升級，請參閱[安裝 Azure PowerShell 模組](https://docs.microsoft.com/powershell/azure/install-Az-ps)。 驗證 PowerShell 版本之後，請執行 `Login-AzAccount` 以建立與 Azure 的連線。
 
 要讓此案例正常運作有三項重要需求：
 
@@ -59,19 +59,19 @@ ms.locfileid: "70073069"
    Azure 防火牆子網路不需要任何 UDR，因為可從 BGP 得知路由。
 - 請務必在將 VNet-Hub 對等互連至 VNet-Spoke 時設定 **AllowGatewayTransit**，以及在將 VNet-Spoke 對等互連至 VNet-Hub 時設定 **UseRemoteGateways**。
 
-請參閱本文中的[建立路由](#create-the-routes)一節, 以瞭解如何建立這些路由。
+請參閱本文中的[建立路由](#create-the-routes)一節，以瞭解如何建立這些路由。
 
 >[!NOTE]
->「Azure 防火牆」必須能夠直接連線到網際網路。 如果您的 AzureFirewallSubnet 學習到透過 BGP 連至您內部部署網路的預設路由，您必須將其覆寫為 0.0.0.0/0 UDR，且 **NextHopType** 值必須設為 [網際網路]，以保有直接網際網路連線。 根據預設，Azure 防火牆不支援對內部部署網路的強制通道。
+>「Azure 防火牆」必須能夠直接連線到網際網路。 如果您的 AzureFirewallSubnet 學習到透過 BGP 連至您內部部署網路的預設路由，您必須將其覆寫為 0.0.0.0/0 UDR，且 **NextHopType** 值必須設為 [網際網路]，以保有直接網際網路連線。
 >
->不過，如果您的設定需要對內部部署網路的強制通道，Microsoft 將以個別案例為原則提供支援。 連絡支援人員，以便我們檢閱您的案例。 受理後，我們會將您的訂用帳戶列入允許清單，並確實維持必要的防火牆網際網路連線。
+>Azure 防火牆目前不支援強制通道。 如果您的設定需要對內部部署網路使用強制通道，而且您可以決定網際網路目的地的目標 IP 首碼，則您可以透過 AzureFirewallSubnet 上的使用者定義路由，將使用內部部署網路的這些範圍設定為下一個躍點。 或者，您可以使用 BGP 來定義這些路由。
 
 >[!NOTE]
 >即使 UDR 指向「Azure 防火牆」作為預設閘道，系統仍會直接路由直接對等互連之 VNet 間的流量。 在此案例中若要將子網路對子網路流量傳送到防火牆，UDR 必須在這兩個子網路上同時明確包含目標子網路網路首碼。
 
 若要檢閱相關的 Azure PowerShell 參考文件，請參閱 [Azure PowerShell 參考](https://docs.microsoft.com/powershell/module/az.network/new-azfirewall)。
 
-如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 。
+如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)。
 
 ## <a name="declare-the-variables"></a>宣告變數
 
@@ -119,7 +119,7 @@ $SNnameGW = "GatewaySubnet"
 
 ## <a name="create-the-firewall-hub-virtual-network"></a>建立防火牆中樞虛擬網路
 
-首先, 建立資源群組以包含本文的資源:
+首先，建立資源群組以包含本文的資源：
 
 ```azurepowershell
   New-AzResourceGroup -Name $RG1 -Location $Location1

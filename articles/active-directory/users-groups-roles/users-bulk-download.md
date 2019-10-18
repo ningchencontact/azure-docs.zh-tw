@@ -13,12 +13,12 @@ ms.workload: identity
 ms.custom: it-pro
 ms.reviewer: jeffsta
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c59a0b40065be1554e79186227cd2e90d68e7222
-ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
+ms.openlocfilehash: fd0829afca05058892d3a0ceeb50c9955d792dc3
+ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72174199"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72517071"
 ---
 # <a name="download-a-list-of-users-preview-in-azure-active-directory-portal"></a>在 Azure Active Directory 入口網站中下載使用者清單（預覽）
 
@@ -31,10 +31,42 @@ Azure Active Directory （Azure AD）支援大量使用者匯入（建立）作�
 ## <a name="to-download-a-list-of-users"></a>下載使用者清單
 
 1. 使用組織中的使用者系統管理員帳戶登[入您的 Azure AD 組織](https://aad.portal.azure.com)。
-1. 在 Azure AD 中，選取 [**使用者**] [ > ] [**下載使用者**]。
+1. 在 Azure AD 中，選取 **使用者**  > **下載使用者**。
 1. 在 [**下載使用者**] 頁面上，選取 [**啟動**] 以接收列出使用者設定檔內容的 CSV 檔案。 如果發生錯誤，您可以在 [大量作業結果] 頁面上下載並查看結果檔案。 檔案包含每個錯誤的原因。
 
    ![選取您想要下載之使用者清單的位置](./media/users-bulk-download/bulk-download.png)
+
+   下載檔案將包含篩選過的使用者清單。
+
+   將包含下列使用者屬性： 
+
+   - userPrincipalName
+   - displayName
+   - surname
+   - mail
+   - givenName
+   - objectId
+   - userType
+   - jobTitle
+   - department
+   - manager
+   - accountEnabled
+   - usageLocation
+   - streetAddress
+   - state
+   - country
+   - physicalDeliveryOfficeName
+   - city
+   - postalCode
+   - telephoneNumber
+   - mobile
+   - authenticationPhoneNumber
+   - authenticationAlternativePhoneNumber
+   - authenticationEmail
+   - alternateEmailAddress
+   - ageGroup
+   - consentProvidedForMinor
+   - legalAgeGroupClassification
 
 ## <a name="check-status"></a>檢查狀態
 

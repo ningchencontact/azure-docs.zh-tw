@@ -1,6 +1,6 @@
 ---
 title: 在 Azure 監視器中管理 Log Analytics 工作區 | Microsoft Docs
-description: 您可以使用資源、工作區或資料表層級許可權，管理 Azure 監視器中儲存在 Log Analytics 工作區中之資料的存取權。 本文詳細說明如何完成這些專案。
+description: 您可以使用資源、工作區或資料表層級許可權，管理 Azure 監視器中儲存在 Log Analytics 工作區中之資料的存取權。 本文詳細說明如何完成。
 services: log-analytics
 documentationcenter: ''
 author: mgoedtel
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 09/30/2019
 ms.author: magoedte
-ms.openlocfilehash: 010f7bb2f19eed757da3f62011b69e1f09ddadf0
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.openlocfilehash: 2f9c50053fca73aeee0ed9a286b4c286486bac86
+ms.sourcegitcommit: 6eecb9a71f8d69851bc962e2751971fccf29557f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72329417"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72532321"
 ---
 # <a name="manage-access-to-log-data-and-workspaces-in-azure-monitor"></a>管理 Azure 監視器中記錄資料和工作區的存取
 
@@ -148,7 +148,7 @@ Log Analytics 讀者角色包含下列 Azure 動作：
 
 *Log Analytics 參與者*角色的成員可以：
 
-* 讀取 Log Analytics 讀取器可以進行的所有監視資料
+* 包含*Log Analytics 讀取者角色*的擁有權限，讓使用者可以讀取所有監視資料
 * 建立及設定自動化帳戶
 * 新增及移除管理解決方案
 
@@ -187,7 +187,7 @@ Log Analytics 參與者角色包含下列 Azure 動作：
 * 資源群組 - 存取資源群組中的所有工作區
 * 資源 - 僅存取指定的工作區
 
-您應在資源層級（工作區）執行指派，以確保存取控制正確。  使用[自訂角色](../../role-based-access-control/custom-roles.md)建立具備所需特定權限的角色。
+建議您在資源層級（工作區）執行指派，以確保存取控制正確。 使用[自訂角色](../../role-based-access-control/custom-roles.md)建立具備所需特定權限的角色。
 
 ### <a name="resource-permissions"></a>資源許可權
 
@@ -198,7 +198,7 @@ Log Analytics 參與者角色包含下列 Azure 動作：
 | `Microsoft.Insights/logs/<tableName>/read`<br><br>範例：<br>`Microsoft.Insights/logs/*/read`<br>`Microsoft.Insights/logs/Heartbeat/read` | 能夠查看資源的所有記錄資料。  |
 | `Microsoft.Insights/diagnosticSettings/write` | 能夠設定診斷設定，以允許此資源的記錄檔。 |
 
-`/read` 許可權通常是從包含 _\*/讀取或_ _@no__t 4_許可權（例如內建[讀取器](../../role-based-access-control/built-in-roles.md#reader)和[參與者](../../role-based-access-control/built-in-roles.md#contributor)角色）的角色授與。 請注意，包含特定動作或專屬內建角色的自訂角色可能不包含此許可權。
+`/read` 許可權通常是從包含 _\*/read 或_ _\*_ 許可權（例如內建[讀取器](../../role-based-access-control/built-in-roles.md#reader)和[參與者](../../role-based-access-control/built-in-roles.md#contributor)角色）的角色授與。 包含特定動作或專屬內建角色的自訂角色可能不包含此許可權。
 
 如果您想要為不同的資料表建立不同的存取控制，請參閱以下[的定義每個資料表的存取控制](#table-level-rbac)。
 
@@ -208,7 +208,7 @@ Log Analytics 參與者角色包含下列 Azure 動作：
 
     * 將工作區存取控制模式設定為**使用工作區或資源許可權**
 
-    * 授與使用者 `*/read` 或 @no__t 1 的許可權給其資源。 如果已在工作區上將「 [Log Analytics 讀者](../../role-based-access-control/built-in-roles.md#reader)」角色指派給他們，就已足夠。
+    * 授與使用者對其資源的 `*/read` 或 `Microsoft.Insights/logs/*/read` 許可權。 如果已在工作區上將「 [Log Analytics 讀者](../../role-based-access-control/built-in-roles.md#reader)」角色指派給他們，就已足夠。
 
 2. 若要授與使用者從其資源存取記錄資料的許可權，並設定其資源以將記錄傳送至工作區，請執行下列動作：
 
@@ -224,7 +224,7 @@ Log Analytics 參與者角色包含下列 Azure 動作：
 
     * 授與使用者其資源的下列許可權： `Microsoft.Insights/logs/*/read`。
 
-    * 新增下列請以 nonaction，以禁止使用者讀取 SecurityEvent 類型： `Microsoft.Insights/logs/SecurityEvent/read`。 請以 nonaction 應該與提供讀取權限的動作（`Microsoft.Insights/logs/*/read`）位於相同的自訂角色。 如果使用者從另一個已指派給此資源或訂用帳戶或資源群組的角色繼承讀取動作，他們就能夠讀取所有記錄類型。 如果它們繼承存在的 `*/read` （例如，具有「讀取者」或「參與者」角色），也是如此。
+    * 新增下列請以 nonaction，以禁止使用者讀取 SecurityEvent 類型： `Microsoft.Insights/logs/SecurityEvent/read`。 請以 nonaction 應該與提供讀取權限的動作（`Microsoft.Insights/logs/*/read`）位於相同的自訂角色。 如果使用者從另一個已指派給此資源或訂用帳戶或資源群組的角色繼承讀取動作，他們就能夠讀取所有記錄類型。 如果它們繼承 `*/read` （例如，具有讀取器或參與者角色），這也會是 true。
 
 4. 若要授與使用者從其資源存取記錄資料的許可權，並讀取所有 Azure AD 登入，並從工作區讀取更新管理解決方案記錄資料，請執行下列動作：
 
@@ -293,7 +293,7 @@ Log Analytics 參與者角色包含下列 Azure 動作：
 * 如果使用者被授與每個資料表的存取權，但沒有其他許可權，他們就能夠從 API 存取記錄資料，而不是從 Azure 入口網站。 若要提供 Azure 入口網站的存取權，請使用 Log Analytics 讀取器作為其基底角色。
 * 不論任何其他許可權設定為何，訂用帳戶的系統管理員都可以存取所有資料類型。
 * 工作區擁有者會被視為每個資料表存取控制的任何其他使用者。
-* 您應該將角色指派給安全性群組，而不是個別使用者，以減少指派的數目。 這也可協助您使用現有的群組管理工具來設定和驗證存取權。
+* 建議您將角色指派給安全性群組，而不是個別使用者，以減少指派的數目。 這也可協助您使用現有的群組管理工具來設定和驗證存取權。
 
 ## <a name="next-steps"></a>後續步驟
 

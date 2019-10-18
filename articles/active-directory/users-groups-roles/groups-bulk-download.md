@@ -13,24 +13,21 @@ ms.workload: identity
 ms.custom: it-pro
 ms.reviewer: jeffsta
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 76aafa978732b3f4bae82f8ad3c09e67caf297ae
-ms.sourcegitcommit: b03516d245c90bca8ffac59eb1db522a098fb5e4
+ms.openlocfilehash: 4b08e807e179270b63ca81d3777c230c3e129c3a
+ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71146293"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72517146"
 ---
 # <a name="bulk-download-a-list-of-groups-preview-in-azure-active-directory"></a>大量下載 Azure Active Directory 中的群組清單（預覽）
 
 使用 Azure Active Directory （Azure AD）入口網站，您可以將組織中所有群組的清單大量下載到逗號分隔值（CSV）檔案。
 
-> [!NOTE]
-> Azure AD 大量作業是 Azure AD 的公開預覽功能，適用于任何付費 Azure AD 授權方案。 如需預覽使用詞彙的詳細資訊，請參閱[Microsoft Azure 預覽的補充使用](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)規定。
-
 ## <a name="to-download-a-list-of-groups"></a>下載群組清單
 
 1. 使用組織中的系統管理員帳戶登入[Azure 入口網站](https://portal.azure.com)。
-1. 在 Azure AD 中，選取 [**群組** > ] [**下載群組**]。
+1. 在 Azure AD 中，選取 **群組**  > **下載群組**。
 1. 在 [**群組下載**] 頁面上，選取 [**啟動**] 以接收列出群組的 CSV 檔案。
 
    ![[下載群組] 命令位於 [所有群組] 頁面](./media/groups-bulk-download/bulk-download.png)

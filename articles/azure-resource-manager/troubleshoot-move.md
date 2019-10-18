@@ -1,17 +1,17 @@
 ---
-title: 針對將 Azure 資源移至新的訂用帳戶或資源群組時發生的錯誤進行疑難排解
+title: 移動錯誤疑難排解-Azure Resource Manager
 description: 使用 Azure Resource Manager 將資源移到新的資源群組或訂用帳戶。
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 08/27/2019
 ms.author: tomfitz
-ms.openlocfilehash: d56f6a5ffe01540b9ce1e5a20ec628a90da594c6
-ms.sourcegitcommit: 388c8f24434cc96c990f3819d2f38f46ee72c4d8
+ms.openlocfilehash: 383098ab227013119bca668b42035c93334c8464
+ms.sourcegitcommit: 6eecb9a71f8d69851bc962e2751971fccf29557f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/27/2019
-ms.locfileid: "70061771"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72533348"
 ---
 # <a name="troubleshoot-moving-azure-resources-to-new-resource-group-or-subscription"></a>針對將 Azure 資源移至新的資源群組或訂用帳戶進行疑難排解
 
@@ -28,7 +28,7 @@ ms.locfileid: "70061771"
 
 ## <a name="service-limitations"></a>服務限制
 
-在移動資源時, 某些服務需要額外的考慮。 如果您要移動下列服務, 請務必檢查指引和限制。
+在移動資源時，某些服務需要額外的考慮。 如果您要移動下列服務，請務必檢查指引和限制。
 
 * [應用程式服務](./move-limitations/app-service-move-limitations.md)
 * [Azure DevOps Services](/azure/devops/organizations/billing/change-azure-subscription?toc=/azure/azure-resource-manager/toc.json)
@@ -43,11 +43,11 @@ ms.locfileid: "70061771"
 
 ## <a name="resource-not-in-succeeded-state"></a>資源不是處於成功狀態
 
-當您收到錯誤訊息, 指出無法移動資源, 因為它不是處於成功狀態, 實際上可能是封鎖移動的相依資源。 通常, 錯誤碼是**MoveCannotProceedWithResourcesNotInSucceededState**。
+當您收到錯誤訊息，指出無法移動資源，因為它不是處於成功狀態，實際上可能是封鎖移動的相依資源。 通常，錯誤碼是**MoveCannotProceedWithResourcesNotInSucceededState**。
 
-如果來源或目標資源群組包含虛擬網路, 則會在移動期間檢查虛擬網路的所有相依資源的狀態。 此檢查包含直接且間接相依于虛擬網路的這些資源。 如果其中任何一項資源處於失敗狀態, 則會封鎖移動。 例如, 如果使用虛擬網路的虛擬機器失敗, 則移動會遭到封鎖。 即使虛擬機器不是其中一項要移動的資源, 而且不在移動的其中一個資源群組中, 移動也會遭到封鎖。
+如果來源或目標資源群組包含虛擬網路，則會在移動期間檢查虛擬網路的所有相依資源的狀態。 此檢查包含直接且間接相依于虛擬網路的這些資源。 如果其中任何一項資源處於失敗狀態，則會封鎖移動。 例如，如果使用虛擬網路的虛擬機器失敗，則移動會遭到封鎖。 即使虛擬機器不是其中一項要移動的資源，而且不在移動的其中一個資源群組中，移動也會遭到封鎖。
 
-當您收到此錯誤時, 您有兩個選項。 請將您的資源移至沒有虛擬網路的資源群組, 或[聯絡支援](../azure-supportability/how-to-create-azure-support-request.md)人員。
+當您收到此錯誤時，您有兩個選項。 請將您的資源移至沒有虛擬網路的資源群組，或[聯絡支援](../azure-supportability/how-to-create-azure-support-request.md)人員。
 
 ## <a name="next-steps"></a>後續步驟
 

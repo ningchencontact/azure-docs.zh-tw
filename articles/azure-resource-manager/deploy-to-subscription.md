@@ -1,17 +1,17 @@
 ---
-title: 在訂用帳戶 Azure Resource Manager 範本建立資源群組和資源
+title: 部署訂用帳戶層級-Azure Resource Manager 範本
 description: 描述如何在 Azure Resource Manager 範本中建立資源群組。 此外也會說明如何將資源部署到 Azure 訂用帳戶範圍。
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 10/07/2019
 ms.author: tomfitz
-ms.openlocfilehash: 913014a9b7e24345cd21979ba20ea1a1a938d022
-ms.sourcegitcommit: be344deef6b37661e2c496f75a6cf14f805d7381
+ms.openlocfilehash: d8b1be1d79ae0426d73c45408dd3c4f4f4660afb
+ms.sourcegitcommit: 6eecb9a71f8d69851bc962e2751971fccf29557f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/07/2019
-ms.locfileid: "72001596"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72532186"
 ---
 # <a name="create-resource-groups-and-resources-at-the-subscription-level"></a>在訂用帳戶層級建立資源群組和資源
 
@@ -32,7 +32,7 @@ ms.locfileid: "72001596"
 * [roleAssignments](/azure/templates/microsoft.authorization/roleassignments)
 * [roleDefinitions](/azure/templates/microsoft.authorization/roledefinitions)
 
-### <a name="schema"></a>架構
+### <a name="schema"></a>結構描述
 
 您用於訂用帳戶層級部署的架構與資源群組部署的架構不同。
 
@@ -153,7 +153,7 @@ New-AzDeployment `
 }
 ```
 
-如需資源反覆項目的相關資訊，請參閱[在 Azure Resource Manager 範本中部署資源或屬性的多個執行個體](./resource-group-create-multiple.md)和[教學課程：使用 Resource Manager 範本建立多個資源執行個體](./resource-manager-tutorial-create-multiple-instances.md)。
+如需資源反復專案的相關資訊，請參閱[在 Azure Resource Manager 範本中部署資源或屬性的多個實例](./resource-group-create-multiple.md)和[教學課程：使用 Resource Manager 範本建立多個資源實例](./resource-manager-tutorial-create-multiple-instances.md)。
 
 ## <a name="resource-group-and-resources"></a>資源群組和資源
 

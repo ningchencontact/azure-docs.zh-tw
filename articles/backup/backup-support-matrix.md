@@ -7,12 +7,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 02/17/2019
 ms.author: dacurwin
-ms.openlocfilehash: 9671ddcf98ae97c0a3df49cce008faf403f5dcd2
-ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
+ms.openlocfilehash: 5adcf252fed4ac94ae4261886b24eb087424bdbe
+ms.sourcegitcommit: 6eecb9a71f8d69851bc962e2751971fccf29557f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/06/2019
-ms.locfileid: "71981100"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72533139"
 ---
 # <a name="support-matrix-for-azure-backup"></a>Azure 備份的支援矩陣
 
@@ -35,7 +35,7 @@ Azure 備份使用復原服務保存庫來協調和管理備份。 它也會使�
 **訂用帳戶中的保存庫** | 一個訂用帳戶中最多可以有 500 個復原服務保存庫。
 **保存庫中的機器** | 單一保存庫中最多1000個 Azure Vm。<br/><br/> 可在單一保存庫中註冊最多 50 個 MABS 伺服器。
 **保存庫儲存體中的資料來源** | 最大 54400 GB。 Azure VM 備份沒有限制。
-**備份至保存庫** | **Azure Vm：** 一天一次。<br/><br/>**受 DPM/MABS 保護的機器：** 一天兩次。<br/><br/> **使用 MARS 代理程式直接備份的機器：** 一天三次。
+**備份至保存庫** | **Azure vm：** 一天一次。<br/><br/>**受 DPM/MABS 保護的機器：** 一天兩次。<br/><br/> **使用 MARS 代理程式直接備份的機器：** 一天三次。
 **保存庫之間的備份** | 在區域內備份。<br/><br/> 您在每個 Azure 區域中都必須有一個保存庫包含您想要備份的 VM。 您無法備份至不同的區域。
 **移動保存庫** | 您可以跨訂用帳戶或相同訂用帳戶中的資源群組之間[移動保存庫](https://review.docs.microsoft.com/azure/backup/backup-azure-move-recovery-services-vault)。
 **在保存庫之間移動資料** | 不支援在保存庫之間移動備份的資料。
@@ -45,7 +45,7 @@ Azure 備份使用復原服務保存庫來協調和管理備份。 它也會使�
 
 如果您想要備份內部部署機器，以下是支援的這是什麼：
 
-**機器** | **備份的內容** | **位置** | **特性**
+**機器** | **備份的內容** | **位置** | **功能**
 --- | --- | --- | ---
 **透過 MARS 代理程式直接備份 Windows 機器** | 檔案、資料夾、系統狀態 | 備份至復原服務保存庫。 | 一天備份三次<br/><br/> 無應用程式感知備份<br/><br/> 還原檔案、資料夾、磁片區
 **透過 MARS 代理程式直接備份 Linux 機器** | 不支援備份
@@ -59,13 +59,13 @@ Azure 備份使用復原服務保存庫來協調和管理備份。 它也會使�
 **限制** | **詳細資料**
 --- | ---
 **Azure VM 資料磁片** | 16的限制
-**Azure VM 資料磁片大小** | 支援虛擬機器的備份，其每個磁片大小最多為 30 TB，而 VM 中的所有磁片最多可結合 256 TB。
+**Azure VM 資料磁片大小** | 針對 VM 中的所有磁片，個別磁片大小最高可達 32 TB，最大為 256 TB。
 
 ### <a name="azure-vm-backup-options"></a>Azure VM 備份選項
 
 如果您想要備份 Azure Vm，以下是支援的這是什麼：
 
-**機器** | **備份的內容** | **位置** | **特性**
+**機器** | **備份的內容** | **位置** | **功能**
 --- | --- | --- | ---
 **使用 VM 擴充功能的 Azure VM 備份** | 整個 VM | 備份至保存庫。 | 當您為 VM 啟用備份時安裝的延伸模組。<br/><br/> 一天備份一次。<br/><br/> 適用于 Windows Vm 的應用程式感知備份;Linux Vm 的檔案一致備份。 您可以使用自訂腳本來設定 Linux 機器的應用程式一致性。<br/><br/> 還原 VM 或磁片。<br/><br/> 無法將 Azure VM 備份至內部部署位置。
 **使用 MARS 代理程式的 Azure VM 備份** | 檔案、資料夾、系統狀態 | 備份至保存庫。 | 一天備份三次。<br/><br/> 如果您想要備份特定的檔案或資料夾，而不是整個 VM，則 MARS 代理程式可以與 VM 擴充功能一起執行。
@@ -141,7 +141,7 @@ Azure 備份支援傳輸中和待用資料的加密。
 **每個受保護的實例（機器或工作負載）的最大復原點** | 9999
 **復原點的最大到期時間** | 無限制
 **DPM/MABS 的備份頻率上限** | 每隔 15 分鐘 (SQL Server)<br/><br/> 針對其他工作負載一小時一次
-**備份至保存庫的頻率上限** | **內部部署 Windows 機器或執行 MARS 的 Azure Vm：** 每天三個<br/><br/> **DPM/MABS：** 每天兩次<br/><br/> **Azure VM 備份：** 一天一次
+**備份至保存庫的頻率上限** | 內部**部署 Windows 機器或執行 MARS 的 Azure vm：** 每天三個<br/><br/> **DPM/MABS：** 每天兩個<br/><br/> **AZURE VM 備份：** 一天一次
 **復原點保留期** | 每日、每週、每月、每年
 **最大保留期限** | 依照備份頻率而定
 **DPM/MABS 磁片上的復原點** | 64（適用于檔案伺服器）;448適用于應用程式伺服器 <br/><br/>內部部署 DPM 的磁帶復原點不受限制

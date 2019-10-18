@@ -10,24 +10,22 @@ ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
 ms.custom: seodec2018
-ms.openlocfilehash: d266f5edb85dd732cc39cfe98a64bee8019cdbd1
-ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
+ms.openlocfilehash: 147a2b690139aff546d82fc89a2fbcdefed03e01
+ms.sourcegitcommit: 6eecb9a71f8d69851bc962e2751971fccf29557f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69656669"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72533759"
 ---
 # <a name="how-to-index-json-blobs-using-azure-search-blob-indexer"></a>如何使用 Azure 搜尋服務 Blob 索引子編制 JSON blob 的索引
-本文說明如何設定 Azure 搜尋服務 blob[索引子](search-indexer-overview.md), 以從 Azure blob 儲存體中的 JSON 檔解壓縮結構化的內容, 並讓它可在 Azure 搜尋服務中進行搜尋。 此工作流程會建立 Azure 搜尋服務索引, 並使用從 JSON blob 解壓縮的現有文字來載入它。 
+本文說明如何設定 Azure 搜尋服務 blob[索引子](search-indexer-overview.md)，以從 Azure blob 儲存體中的 JSON 檔解壓縮結構化的內容，並讓它可在 Azure 搜尋服務中進行搜尋。 此工作流程會建立 Azure 搜尋服務索引，並使用從 JSON blob 解壓縮的現有文字來載入它。 
 
-您可以使用[入口網站](#json-indexer-portal)、[REST API](#json-indexer-rest) 或 [.NET SDK](#json-indexer-dotnet) 為 JSON 內容編製索引。 所有方法的常見情況是, JSON 檔位於 Azure 儲存體帳戶的 blob 容器中。 如需如何從其他非 Azure 平台推送 JSON 文件的指引，請參閱 [Azure 搜尋服務中的資料匯入](search-what-is-data-import.md)。
+您可以使用[入口網站](#json-indexer-portal)、[REST API](#json-indexer-rest) 或 [.NET SDK](#json-indexer-dotnet) 為 JSON 內容編製索引。 所有方法的常見情況是，JSON 檔位於 Azure 儲存體帳戶的 blob 容器中。 如需如何從其他非 Azure 平台推送 JSON 文件的指引，請參閱 [Azure 搜尋服務中的資料匯入](search-what-is-data-import.md)。
 
-Azure Blob 儲存體中的 JSON blob 通常是單一 JSON 檔或 JSON 實體的集合。 若為 JSON 集合, blob 可能會有格式正確的 JSON 元素**陣列**。 Blob 也可以由多個個別的 JSON 實體組成, 並以分行符號分隔。 Azure 搜尋服務中的 blob 索引子可以剖析任何這類的結構, 視您在要求上設定**parsingMode**參數的方式而定。
-
-所有 JSON 剖析模式 (`json`、 `jsonArray`、 `jsonLines`) 現已正式推出。 
+Azure Blob 儲存體中的 JSON blob 通常是單一 JSON 檔（剖析模式是 `json`）或 JSON 實體的集合。 針對集合，blob 可能會有格式**正確的 JSON**元素（剖析模式為 `jsonArray`）。 Blob 也可以由以分行符號分隔的多個個別 JSON 實體組成（剖析模式為 `jsonLines`）。 要求上的**parsingMode**參數會決定輸出結構。
 
 > [!NOTE]
-> 依照[一對多索引](search-howto-index-one-to-many-blobs.md)中的索引子設定建議, 從一個 Azure blob 輸出多個搜尋檔。
+> 如需有關從單一 blob 對多個搜尋檔編制索引的詳細資訊，請參閱[一對多索引](search-howto-index-one-to-many-blobs.md)。
 
 <a name="json-indexer-portal"></a>
 
@@ -35,21 +33,19 @@ Azure Blob 儲存體中的 JSON blob 通常是單一 JSON 檔或 JSON 實體的�
 
 為 JSON 文件索引編製時，最簡單的方法是使用 [Azure 入口網站](https://portal.azure.com/)中的精靈。 藉由剖析 Azure Blob 容器中的中繼資料，[**匯入資料**](search-import-data-portal.md)精靈可以建立預設索引、將來源欄位對應至目標索引欄位，並在單一作業中載入索引。 根據來源資料的大小和複雜度，只需要幾分鐘的時間，您就可以擁有正常運作的全文檢索搜尋索引。
 
-建議 Azure 搜尋服務和 Azure 儲存體使用相同的 Azure 訂用帳戶, 最好是在相同的區域中。
+建議 Azure 搜尋服務和 Azure 儲存體使用相同的 Azure 訂用帳戶，最好是在相同的區域中。
 
 ### <a name="1---prepare-source-data"></a>1 - 準備來源資料
 
-1. [登入 Azure 入口網站](https://portal.azure.com/)。
+登[入 Azure 入口網站](https://portal.azure.com/)並[建立 Blob 容器](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-portal)，以包含您的資料。 公用存取層級可以設定為任何有效的值。
 
-1. [建立 Blob 容器](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-portal)以包含您的資料。 公用存取層級可以設定為任何有效的值。
-
-您將需要儲存體帳戶名稱、容器名稱和存取金鑰, 才能在 [匯**入資料**] 嚮導中取出您的資料。
+您將需要儲存體帳戶名稱、容器名稱和存取金鑰，才能在 [匯**入資料**] 嚮導中取出您的資料。
 
 ### <a name="2---start-import-data-wizard"></a>2 - 啟動匯入資料精靈
 
-在 Azure 搜尋服務服務的 [總覽] 頁面中, 您可以從命令列[啟動精靈](search-import-data-portal.md), 或在儲存體帳戶左側流覽窗格的 [ **Blob 服務**] 區段中按一下 [**新增 Azure 搜尋服務**]。
+在 Azure 搜尋服務服務的 [總覽] 頁面中，您可以從命令列[啟動精靈](search-import-data-portal.md)。
 
-   ![在入口網站匯入資料命令](./media/search-import-data-portal/import-data-cmd2.png "啟動匯入資料精靈")
+   ![入口網站中的匯入資料命令](./media/search-import-data-portal/import-data-cmd2.png "啟動匯入資料精靈")
 
 ### <a name="3---set-the-data-source"></a>3 - 設定資料來源
 
@@ -61,9 +57,9 @@ Azure Blob 儲存體中的 JSON blob 通常是單一 JSON 檔或 JSON 實體的�
 
   [JSON] 會將每個 Blob 清楚表達為單一搜尋文件，而在搜尋結果中顯示為獨立項目。 
 
-  *Json 陣列*適用于包含格式正確之 json 資料的 blob-格式正確的 json 會對應至物件的陣列, 或具有屬性, 這是物件的陣列, 而且您希望每個元素都以獨立的獨立搜尋檔的形式來表示。 如果 Blob 很複雜，而且您未選擇 [JSON 陣列]，則整個 Blob 會擷取為單一文件。
+  *Json 陣列*適用于包含格式正確之 json 資料的 blob-格式正確的 json 會對應至物件的陣列，或具有屬性，這是物件的陣列，而且您希望每個元素都以獨立的獨立搜尋檔的形式來表示。 如果 Blob 很複雜，而且您未選擇 [JSON 陣列]，則整個 Blob 會擷取為單一文件。
 
-  *Json 行*適用于由多個 JSON 實體 (以新行分隔) 組成的 blob, 您希望每個實體以獨立的獨立搜尋檔的形式來表達。 如果 blob 很複雜, 而您未選擇*JSON 行*剖析模式, 則整個 blob 會內嵌為單一檔。
+  *Json 行*適用于由多個 JSON 實體（以新行分隔）組成的 blob，您希望每個實體以獨立的獨立搜尋檔的形式來表達。 如果 blob 很複雜，而您未選擇*JSON 行*剖析模式，則整個 blob 會內嵌為單一檔。
    
 + [儲存體容器] 必須指定儲存體帳戶和容器，或是會解析為容器的連接字串。 您可以在 Blob 服務的入口網站頁面上取得連接字串。
 
@@ -73,7 +69,7 @@ Azure Blob 儲存體中的 JSON blob 通常是單一 JSON 檔或 JSON 實體的�
 
 您並不需要新增認知技術就能匯入 JSON 文件。 除非您有特殊需要，而必須將[認知服務 API 和轉換納入](cognitive-search-concept-intro.md)編製索引管線，否則請略過此步驟。
 
-若要略過此步驟, 請先移至下一個頁面。
+若要略過此步驟，請先移至下一個頁面。
 
    ![認知搜尋的下一頁按鈕](media/search-get-started-portal/next-button-add-cog-search.png)
 
@@ -85,9 +81,9 @@ Azure Blob 儲存體中的 JSON blob 通常是單一 JSON 檔或 JSON 實體的�
 
 在 [索引] 頁面上，您應該會看到欄位清單，其中有資料類型以及一系列用於設定索引屬性的核取方塊。 此 wizard 可以根據中繼資料和取樣來源資料來產生欄位清單。 
 
-您可以按一下屬性資料行頂端的核取方塊, 以大量選取屬性。 針對應傳回給用戶端應用程式並受全文檢索搜尋處理的每個欄位, 選擇 [可取得] 和 [可搜尋]。 您會發現整數不是全文檢索或模糊搜尋 (數位會逐字評估, 而且通常適用于篩選)。
+您可以按一下屬性資料行頂端的核取方塊，以大量選取屬性。 針對應傳回給用戶端應用程式並受全文檢索搜尋**處理的每**個欄位 **，選擇 [** 可取得] 和 [可搜尋]。 您會發現整數不是全文檢索或模糊搜尋（數位會逐字評估，而且通常適用于篩選）。
 
-如需詳細資訊, 請參閱[索引屬性](https://docs.microsoft.com/rest/api/searchservice/create-index#bkmk_indexAttrib)和[語言分析器](https://docs.microsoft.com/rest/api/searchservice/language-support)的描述。 
+如需詳細資訊，請參閱[索引屬性](https://docs.microsoft.com/rest/api/searchservice/create-index#bkmk_indexAttrib)和[語言分析器](https://docs.microsoft.com/rest/api/searchservice/language-support)的描述。 
 
 請花一點時間檢閱您的選擇。 一旦執行精靈，就會建立實體的資料結構，而且除非您捨棄並重新建立所有物件，否則將無法編輯這些欄位。
 
@@ -108,23 +104,23 @@ Azure Blob 儲存體中的 JSON blob 通常是單一 JSON 檔或 JSON 實體的�
 編製索引的程序完成後，您可以使用[搜尋總管](search-explorer.md)來查詢索引。
 
 > [!NOTE]
-> 如果您看不到預期的資料, 可能需要在更多欄位上設定更多屬性。 刪除您剛建立的索引和索引子, 然後再次逐步執行嚮導, 修改您在步驟5中索引屬性的選取專案。 
+> 如果您看不到預期的資料，可能需要在更多欄位上設定更多屬性。 刪除您剛建立的索引和索引子，然後再次逐步執行嚮導，修改您在步驟5中索引屬性的選取專案。 
 
 <a name="json-indexer-rest"></a>
 
 ## <a name="use-rest-apis"></a>使用 REST API
 
-您可以使用 REST API 來編制 JSON blob 的索引, 請遵循 Azure 搜尋服務中所有索引子通用的三部分工作流程: 建立資料來源、建立索引、建立索引子。 當您提交建立索引子要求時, 會發生從 blob 儲存體進行的資料提取。 完成此要求之後, 您將會有可查詢的索引。 
+您可以使用 REST API 來編制 JSON blob 的索引，請遵循 Azure 搜尋服務中所有索引子通用的三部分工作流程：建立資料來源、建立索引、建立索引子。 當您提交建立索引子要求時，會發生從 blob 儲存體進行的資料提取。 完成此要求之後，您將會有可查詢的索引。 
 
-您可以參閱本節結尾的[REST 範例程式碼](#rest-example), 以瞭解如何建立這三個物件。 本節也包含[json 剖析模式](#parsing-modes)、[單一 blob](#parsing-single-blobs)、 [JSON 陣列](#parsing-arrays)和[嵌套陣列](#nested-json-arrays)的詳細資料。
+您可以參閱本節結尾的[REST 範例程式碼](#rest-example)，以瞭解如何建立這三個物件。 本節也包含[json 剖析模式](#parsing-modes)、[單一 blob](#parsing-single-blobs)、 [JSON 陣列](#parsing-arrays)和[嵌套陣列](#nested-json-arrays)的詳細資料。
 
-針對以程式碼為基礎的 JSON 索引編制, 請使用[Postman](search-get-started-postman.md)和 REST API 來建立這些物件:
+針對以程式碼為基礎的 JSON 索引編制，請使用[Postman](search-get-started-postman.md)和 REST API 來建立這些物件：
 
-+ [index](https://docs.microsoft.com/rest/api/searchservice/create-index)
++ [指數](https://docs.microsoft.com/rest/api/searchservice/create-index)
 + [資料來源](https://docs.microsoft.com/rest/api/searchservice/create-data-source)
-+ [indexer](https://docs.microsoft.com/rest/api/searchservice/create-indexer)
++ [器](https://docs.microsoft.com/rest/api/searchservice/create-indexer)
 
-作業順序需要您依此順序建立和呼叫物件。 與入口網站工作流程相較之下, 程式碼方法需要有可用的索引, 以接受透過**建立索引子**要求傳送的 JSON 檔。
+作業順序需要您依此順序建立和呼叫物件。 與入口網站工作流程相較之下，程式碼方法需要有可用的索引，以接受透過**建立索引子**要求傳送的 JSON 檔。
 
 Azure Blob 儲存體中的 JSON blob 通常是單一 JSON 檔或 JSON 「陣列」。 Azure 搜尋服務中的 Blob 索引子可以剖析其中一種結構，取決於您如何設定在要求上的 **parsingMode** 參數。
 
@@ -132,30 +128,30 @@ Azure Blob 儲存體中的 JSON blob 通常是單一 JSON 檔或 JSON 「陣列�
 |--------------|-------------|--------------|--------------|
 | 一個 blob 一個 | `json` | 將 JSON blob 當作單一文字區塊來剖析。 每一個 JSON blob 會變成單一 Azure 搜尋服務文件。 | 已在[REST](https://docs.microsoft.com/rest/api/searchservice/indexer-operations) API 和[.net](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.indexer) SDK 中正式推出。 |
 | 一個 blob 多個 | `jsonArray` | 剖析 blob 中的 JSON 陣列，陣列的每個元素會變成不同的 Azure 搜尋服務文件。  | 已在[REST](https://docs.microsoft.com/rest/api/searchservice/indexer-operations) API 和[.net](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.indexer) SDK 中正式推出。 |
-| 一個 blob 多個 | `jsonLines` | 剖析 blob, 其中包含多個以分行符號分隔的 JSON 實體 (「陣列」), 其中每個實體都會變成個別的 Azure 搜尋服務檔。 | 已在[REST](https://docs.microsoft.com/rest/api/searchservice/indexer-operations) API 和[.net](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.indexer) SDK 中正式推出。 |
+| 一個 blob 多個 | `jsonLines` | 剖析 blob，其中包含多個以分行符號分隔的 JSON 實體（「陣列」），其中每個實體都會變成個別的 Azure 搜尋服務檔。 | 已在[REST](https://docs.microsoft.com/rest/api/searchservice/indexer-operations) API 和[.net](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.indexer) SDK 中正式推出。 |
 
 ### <a name="1---assemble-inputs-for-the-request"></a>1-組合要求的輸入
 
-針對每個要求, 您必須提供 Azure 搜尋服務的服務名稱和管理金鑰 (在 POST 標頭中), 以及 blob 儲存體的儲存體帳戶名稱和金鑰。 您可以使用[Postman](search-get-started-postman.md)將 HTTP 要求傳送至 Azure 搜尋服務。
+針對每個要求，您必須提供 Azure 搜尋服務的服務名稱和管理金鑰（在 POST 標頭中），以及 blob 儲存體的儲存體帳戶名稱和金鑰。 您可以使用[Postman](search-get-started-postman.md)將 HTTP 要求傳送至 Azure 搜尋服務。
 
-將下列四個值複製到 [記事本], 讓您可以將其貼入要求中:
+將下列四個值複製到 [記事本]，讓您可以將其貼入要求中：
 
 + Azure 搜尋服務服務名稱
 + Azure 搜尋服務管理金鑰
 + Azure 儲存體帳戶名稱
 + Azure 儲存體帳戶金鑰
 
-您可以在入口網站中找到這些值:
+您可以在入口網站中找到這些值：
 
-1. 在 Azure 搜尋服務的入口網站頁面中, 從 [總覽] 頁面複製 [搜尋服務 URL]。
+1. 在 Azure 搜尋服務的入口網站頁面中，從 [總覽] 頁面複製 [搜尋服務 URL]。
 
-2. 在左側導覽窗格中, 按一下 [**金鑰**], 然後複製主要或次要金鑰 (它們是相等的)。
+2. 在左側導覽窗格中，按一下 [**金鑰**]，然後複製主要或次要金鑰（它們是相等的）。
 
-3. 切換至您儲存體帳戶的入口網站頁面。 在左側流覽窗格的 [**設定**] 底下, 按一下 [**存取金鑰**]。 此頁面同時提供帳戶名稱和金鑰。 將 [儲存體帳戶名稱] 和其中一個金鑰複製到 [記事本]。
+3. 切換至您儲存體帳戶的入口網站頁面。 在左側流覽窗格的 [**設定**] 底下，按一下 [**存取金鑰**]。 此頁面同時提供帳戶名稱和金鑰。 將 [儲存體帳戶名稱] 和其中一個金鑰複製到 [記事本]。
 
 ### <a name="2---create-a-data-source"></a>2-建立資料來源
 
-此步驟提供索引子所使用的資料來源連接資訊。 在 Azure 搜尋服務中, 資料來源是一個名為的物件, 可保存連接資訊。 資料來源類型`azureblob`會決定索引子叫用哪些資料提取行為。 
+此步驟提供索引子所使用的資料來源連接資訊。 在 Azure 搜尋服務中，資料來源是一個名為的物件，可保存連接資訊。 「資料來源類型」（`azureblob`）會決定索引子叫用哪些資料提取行為。 
 
 以有效的值取代 [服務名稱]、[管理金鑰]、[儲存體帳戶] 和 [帳戶金鑰] 預留位置。
 
@@ -193,7 +189,7 @@ Azure Blob 儲存體中的 JSON blob 通常是單一 JSON 檔或 JSON 「陣列�
 
 ### <a name="4---configure-and-run-the-indexer"></a>4-設定和執行索引子
 
-就像索引和資料來源一樣, 和索引子也是您在 Azure 搜尋服務服務上建立及重複使用的命名物件。 建立索引子的完整指定要求看起來可能如下所示:
+就像索引和資料來源一樣，和索引子也是您在 Azure 搜尋服務服務上建立及重複使用的命名物件。 建立索引子的完整指定要求看起來可能如下所示：
 
     POST https://[service name].search.windows.net/indexers?api-version=2019-05-06
     Content-Type: application/json
@@ -209,14 +205,14 @@ Azure Blob 儲存體中的 JSON blob 通常是單一 JSON 檔或 JSON 「陣列�
 
 索引子設定是在要求的主體中。 它需要 Azure 搜尋服務中已存在的資料來源和空的目標索引。 
 
-排程和參數是選擇性的。 如果您省略它們, 則會使用`json`做為剖析模式, 立即執行索引子。
+排程和參數是選擇性的。 如果您省略它們，索引子會立即執行，並使用 `json` 做為剖析模式。
 
-這個特定的索引子不包含欄位對應。 在索引子定義中, 如果來源 JSON 檔的屬性符合目標搜尋索引的欄位, 您就可以省略**欄位**對應。 
+這個特定的索引子不包含欄位對應。 在索引子定義中，如果來源 JSON 檔的屬性符合目標搜尋索引的欄位，您就可以省略**欄位**對應。 
 
 
 ### <a name="rest-example"></a>REST 範例
 
-本節將概述用來建立物件的所有要求。 如需元件部分的討論, 請參閱本文中的先前章節。
+本節將概述用來建立物件的所有要求。 如需元件部分的討論，請參閱本文中的先前章節。
 
 ### <a name="data-source-request"></a>資料來源要求
 
@@ -236,7 +232,7 @@ Azure Blob 儲存體中的 JSON blob 通常是單一 JSON 檔或 JSON 「陣列�
 
 ### <a name="index-request"></a>索引要求
 
-所有索引子都需要接收資料的目標索引。 要求的主體會定義索引架構 (由欄位所組成), 其屬性化是支援可搜尋索引中所需的行為。 當您執行索引子時, 此索引應該是空的。 
+所有索引子都需要接收資料的目標索引。 要求的主體會定義索引架構（由欄位所組成），其屬性化是支援可搜尋索引中所需的行為。 當您執行索引子時，此索引應該是空的。 
 
     POST https://[service name].search.windows.net/indexes?api-version=2019-05-06
     Content-Type: application/json
@@ -253,9 +249,9 @@ Azure Blob 儲存體中的 JSON blob 通常是單一 JSON 檔或 JSON 「陣列�
 
 ### <a name="indexer-request"></a>索引子要求
 
-此要求會顯示完整指定的索引子。 其中包含先前範例中省略的欄位對應。 回想一下, 只要有可用的預設值, 「排程」、「參數」和「fieldMappings」都是選擇性的。 省略「排程」會導致索引子立即執行。 省略 "parsingMode" 會導致索引使用 "json" 預設值。
+此要求會顯示完整指定的索引子。 其中包含先前範例中省略的欄位對應。 回想一下，只要有可用的預設值，「排程」、「參數」和「fieldMappings」都是選擇性的。 省略「排程」會導致索引子立即執行。 省略 "parsingMode" 會導致索引使用 "json" 預設值。
 
-在 Azure 搜尋服務觸發資料匯入建立索引子。 它會立即執行, 如果您提供了一個排程, 則會在之後進行。
+在 Azure 搜尋服務觸發資料匯入建立索引子。 它會立即執行，如果您提供了一個排程，則會在之後進行。
 
     POST https://[service name].search.windows.net/indexers?api-version=2019-05-06
     Content-Type: application/json
@@ -290,20 +286,20 @@ Azure Blob 儲存體中的 JSON blob 通常是單一 JSON 檔或 JSON 「陣列�
 
 ## <a name="parsing-modes"></a>剖析模式
 
-JSON blob 可以採用多個表單。 JSON 索引子上的**parsingMode**參數會決定 json blob 內容在 Azure 搜尋服務索引中的剖析與結構化方式:
+JSON blob 可以採用多個表單。 JSON 索引子上的**parsingMode**參數會決定 json blob 內容在 Azure 搜尋服務索引中的剖析與結構化方式：
 
 | parsingMode | 描述 |
 |-------------|-------------|
 | `json`  | 將每個 blob 編制索引為單一檔。 這是預設值。 |
-| `jsonArray` | 如果您的 blob 包含 JSON 陣列, 而且您需要陣列的每個元素成為 Azure 搜尋服務中的個別檔, 請選擇這個模式。 |
-|`jsonLines` | 如果您的 blob 包含多個以新行分隔的 JSON 實體, 而且您需要每個實體成為 Azure 搜尋服務中的個別檔, 請選擇這個模式。 |
+| `jsonArray` | 如果您的 blob 包含 JSON 陣列，而且您需要陣列的每個元素成為 Azure 搜尋服務中的個別檔，請選擇這個模式。 |
+|`jsonLines` | 如果您的 blob 包含多個以新行分隔的 JSON 實體，而且您需要每個實體成為 Azure 搜尋服務中的個別檔，請選擇這個模式。 |
 
-您可以將文件視為搜尋結果中的單一項目。 如果您想要陣列中的每個元素在搜尋結果中顯示為獨立專案, 請適當地`jsonArray`使用`jsonLines`或選項。
+您可以將文件視為搜尋結果中的單一項目。 如果您想要陣列中的每個元素以獨立專案的形式顯示在搜尋結果中，請視需要使用 [`jsonArray`] 或 [`jsonLines`] 選項。
 
-在索引子定義中，您可以選擇性地使用[欄位對應](search-indexer-field-mappings.md)，以選擇用來填入目標搜尋索引的來源 JSON 文件屬性。 針對`jsonArray`剖析模式, 如果陣列以較低層級的屬性存在, 您可以設定檔根目錄, 指出陣列放在 blob 中的位置。
+在索引子定義中，您可以選擇性地使用[欄位對應](search-indexer-field-mappings.md)，以選擇用來填入目標搜尋索引的來源 JSON 文件屬性。 針對 `jsonArray` 剖析模式，如果陣列以較低層級的屬性存在，您可以設定檔根目錄，指出陣列放在 blob 中的位置。
 
 > [!IMPORTANT]
-> 當您使用`json` `jsonArray` 或`jsonLines`剖析模式時, Azure 搜尋服務會假設您資料來源中的所有 blob 都包含 JSON。 如果您需要支援在相同的資料來源中混用 JSON 和非 JSON Blob，請在 [UserVoice 網站](https://feedback.azure.com/forums/263029-azure-search)上讓我們知道。
+> 當您使用 `json`、`jsonArray` 或 `jsonLines` 剖析模式時，Azure 搜尋服務會假設您資料來源中的所有 blob 都包含 JSON。 如果您需要支援在相同的資料來源中混用 JSON 和非 JSON Blob，請在 [UserVoice 網站](https://feedback.azure.com/forums/263029-azure-search)上讓我們知道。
 
 
 <a name="parsing-single-blobs"></a>
@@ -328,7 +324,7 @@ Blob 索引子會將 JSON 文件剖析成單一的 Azure 搜尋服務文件。 �
 
 ## <a name="parse-json-arrays"></a>剖析 JSON 陣列
 
-或者, 您可以使用 JSON 陣列選項。 當 blob 包含格式*正確之 JSON 物件的陣列*, 而且您想要讓每個元素成為個別的 Azure 搜尋服務檔時, 這個選項非常有用。 以下列 JSON blob 為例，您可以將 Azure 搜尋服務索引填入三個不同的文件，每個都具有 "id" 和 "text" 欄位。  
+或者，您可以使用 JSON 陣列選項。 當 blob 包含格式*正確之 JSON 物件的陣列*，而且您想要讓每個元素成為個別的 Azure 搜尋服務檔時，這個選項非常有用。 以下列 JSON blob 為例，您可以將 Azure 搜尋服務索引填入三個不同的文件，每個都具有 "id" 和 "text" 欄位。  
 
     [
         { "id" : "1", "text" : "example 1" },
@@ -336,7 +332,7 @@ Blob 索引子會將 JSON 文件剖析成單一的 Azure 搜尋服務文件。 �
         { "id" : "3", "text" : "example 3" }
     ]
 
-若為 JSON 陣列，索引子定義看起來應該像下列範例。 請注意，parsingMode 參數會指定 `jsonArray` 剖析器。 指定正確的剖析器並擁有正確的資料輸入, 是索引 JSON blob 唯一的兩個數組特有的需求。
+若為 JSON 陣列，索引子定義看起來應該像下列範例。 請注意，parsingMode 參數會指定 `jsonArray` 剖析器。 指定正確的剖析器並擁有正確的資料輸入，是索引 JSON blob 唯一的兩個數組特有的需求。
 
     POST https://[service name].search.windows.net/indexers?api-version=2019-05-06
     Content-Type: application/json
@@ -355,7 +351,7 @@ Blob 索引子會將 JSON 文件剖析成單一的 Azure 搜尋服務文件。 �
 <a name="nested-json-arrays"></a>
 
 ## <a name="parse-nested-arrays"></a>剖析嵌套陣列
-針對具有嵌套元素的 JSON 陣列, 您可以指定`documentRoot`來表示多層結構。 例如，如果您的 Blob 看起來像這樣︰
+針對具有嵌套元素的 JSON 陣列，您可以指定 `documentRoot` 來表示多層結構。 例如，如果您的 Blob 看起來像這樣︰
 
     {
         "level1" : {
@@ -377,13 +373,13 @@ Blob 索引子會將 JSON 文件剖析成單一的 Azure 搜尋服務文件。 �
 
 ## <a name="parse-blobs-separated-by-newlines"></a>剖析以分行符號分隔的 blob
 
-如果您的 blob 包含多個以分行符號分隔的 JSON 實體, 而您想要讓每個元素成為個別的 Azure 搜尋服務檔, 您可以選擇 [JSON 行] 選項。 例如, 假設有下列 blob (其中有三個不同的 JSON 實體), 您可以使用三個個別的檔填入您的 Azure 搜尋服務索引, 每個都有「識別碼」和「文字」欄位。
+如果您的 blob 包含多個以分行符號分隔的 JSON 實體，而您想要讓每個元素成為個別的 Azure 搜尋服務檔，您可以選擇 [JSON 行] 選項。 例如，假設有下列 blob （其中有三個不同的 JSON 實體），您可以使用三個個別的檔填入您的 Azure 搜尋服務索引，每個都有「識別碼」和「文字」欄位。
 
     { "id" : "1", "text" : "example 1" }
     { "id" : "2", "text" : "example 2" }
     { "id" : "3", "text" : "example 3" }
 
-針對 JSON 行, 索引子定義看起來應該類似下列範例。 請注意，parsingMode 參數會指定 `jsonLines` 剖析器。 
+針對 JSON 行，索引子定義看起來應該類似下列範例。 請注意，parsingMode 參數會指定 `jsonLines` 剖析器。 
 
     POST https://[service name].search.windows.net/indexers?api-version=2019-05-06
     Content-Type: application/json
@@ -397,13 +393,13 @@ Blob 索引子會將 JSON 文件剖析成單一的 Azure 搜尋服務文件。 �
       "parameters" : { "configuration" : { "parsingMode" : "jsonLines" } }
     }
 
-同樣地`jsonArray` , 請注意, 欄位對應可能會省略, 類似于剖析模式。
+同樣地，請注意，欄位對應可以省略，類似于 `jsonArray` 剖析模式。
 
 ## <a name="add-field-mappings"></a>新增欄位對應
 
 當來源和目標的欄位不能完全對齊時，您可以在要求主體中定義欄位對應區段，明確指定欄位對欄位的關聯。
 
-目前, Azure 搜尋服務無法直接為任意的 JSON 檔編制索引, 因為它只支援基本資料類型、字串陣列和 GeoJSON 點。 不過，您可以使用 **欄位對應** 挑選 JSON 文件的幾個部分，並將它們「上移」到搜尋文件的最上層欄位。 如需了解欄位對應的基本知識，請參閱 [Azure 搜尋服務索引子中的欄位對應](search-indexer-field-mappings.md)。
+目前，Azure 搜尋服務無法直接為任意的 JSON 檔編制索引，因為它只支援基本資料類型、字串陣列和 GeoJSON 點。 不過，您可以使用 **欄位對應** 挑選 JSON 文件的幾個部分，並將它們「上移」到搜尋文件的最上層欄位。 如需了解欄位對應的基本知識，請參閱 [Azure 搜尋服務索引子中的欄位對應](search-indexer-field-mappings.md)。
 
 回到我們的範例 JSON 文件︰
 
@@ -434,9 +430,9 @@ Blob 索引子會將 JSON 文件剖析成單一的 Azure 搜尋服務文件。 �
 >
 >
 
-## <a name="see-also"></a>另請參閱
+## <a name="see-also"></a>請參閱
 
 + [Azure 搜尋服務中的索引子](search-indexer-overview.md)
 + [使用 Azure 搜尋服務編製 Azure Blob 儲存體的索引](search-howto-index-json-blobs.md)
 + [使用 Azure 搜尋服務 blob 索引子編製 CSV blob 的索引](search-howto-index-csv-blobs.md)
-+ [教學課程：搜尋 Azure Blob 儲存體中的半結構化資料](search-semi-structured-data.md)
++ [教學課程：從 Azure Blob 儲存體搜尋半結構化資料](search-semi-structured-data.md)

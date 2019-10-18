@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 08/09/2019
 ms.custom: seodec18
-ms.openlocfilehash: ee7bbff8ab501a1159030a8ee9c57f1c5a64ea22
-ms.sourcegitcommit: e0a1a9e4a5c92d57deb168580e8aa1306bd94723
+ms.openlocfilehash: b69eda59c9c8032510df036d3aa0d160105fbc16
+ms.sourcegitcommit: 6eecb9a71f8d69851bc962e2751971fccf29557f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72286542"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72533185"
 ---
 # <a name="known-issues-and-troubleshooting-azure-machine-learning"></a>已知問題和疑難排解 Azure Machine Learning
 
@@ -37,13 +37,13 @@ ms.locfileid: "72286542"
  
 在修正之前，您可以將資料集連接到任何資料轉換模組（選取資料集中的資料行、編輯中繼資料、分割資料等）並執行實驗。 然後您可以將資料集視覺化。 
 
-下圖顯示如何： @no__t 0visulize-data @ no__t-1
+下圖顯示如何： ![visulize 資料 ](./media/resource-known-issues/aml-visualize-data.png)
 
 ## <a name="sdk-installation-issues"></a>SDK 安裝問題
 
 **錯誤訊息：無法解除安裝 'PyYAML'**
 
-適用於 Python 的 Azure Machine Learning SDK：PyYAML 是已安裝 distutils 的專案。 因此，在有部分解決安裝的情況下，我們無法精確判斷哪些檔案屬於它。 若要繼續安裝 SDK，但略過此錯誤，請使用：
+適用于 Python 的 Azure Machine Learning SDK： PyYAML 是 distutils 安裝的專案。 因此，在有部分解決安裝的情況下，我們無法精確判斷哪些檔案屬於它。 若要繼續安裝 SDK，但略過此錯誤，請使用：
 
 ```Python
 pip install --upgrade azureml-sdk[notebooks,automl] --ignore-installed PyYAML
@@ -73,7 +73,7 @@ conda create -n <env-name> python=3.7.3
 
 您將無法在 FPGA 上部署模型，直到您已針對 FPGA 配額提出要求並已獲得核准。 若要要求存取權，請填妥配額要求表單： https://aka.ms/aml-real-time-ai
 
-## <a name="automated-machine-learning"></a>自動化機器學習
+## <a name="automated-machine-learning"></a>自動化的機器學習
 
 張量 Flow 自動化機器學習目前不支援張量流程版本1.13。 安裝此版本將導致封裝相依性停止運作。 我們正致力於在未來的版本中修正此問題。 
 
@@ -101,7 +101,7 @@ psutil cryptography==1.5 pyopenssl==16.0.0 ipython==2.2.0
 
 ### <a name="10-iterations-for-automated-machine-learning"></a>> 自動化機器學習服務的10次反復專案
 
-在自動化機器學習設定中，如果您有10個以上的反復專案，請在提交執行時，將 `show_output` 設定為 `False`。
+在自動化機器學習設定中，如果您有10個以上的反復專案，請將 `show_output` 設定為在提交執行時 `False`。
 
 ### <a name="widget-for-the-azure-machine-learning-sdkautomated-machine-learning"></a>Azure Machine Learning SDK/自動化機器學習的 Widget
 
@@ -130,11 +130,11 @@ displayHTML("<a href={} target='_blank'>Azure Portal: {}</a>".format(local_run.g
 
 如果您在 Azure Databricks 叢集上讀取資料時看到 `FailToSendFeather` 錯誤，請參閱下列解決方案：
 
-* 將 `azureml-sdk[automl_databricks]` 套件升級至最新版本。
+* 將 `azureml-sdk[automl]` 套件升級至最新版本。
 * 新增 `azure-dataprep` 1.1.8 或更新版本。
 * 新增 `pyarrow` 0.11 版或更新版本。
 
-## <a name="azure-portal"></a>Azure 入口網站
+## <a name="azure-portal"></a>Azure Portal
 
 如果您從 SDK 或入口網站的共用連結直接檢視工作區，將無法在延伸模組中檢視包含訂用帳戶資訊的一般 [概觀] 頁面。 您也無法切換至另一個工作區。 如果要檢視另一個工作區，因應措施是直接前往 [Azure 入口網站](https://portal.azure.com)並搜尋工作區名稱。
 
@@ -177,7 +177,7 @@ Azure Machine Learning 工作區中的某些動作並不會將資訊記錄到__�
 
 ## <a name="webservices-in-azure-kubernetes-service-failures"></a>Azure Kubernetes Service 失敗中的 Webservices 
 
-Azure Kubernetes Service 可以使用 `kubectl` 來連接到叢集，藉以進行許多 webservice 失敗的調試。 您可以藉由執行來取得 Azure Kubernetes Service 叢集的 `kubeconfig.json`
+Azure Kubernetes Service 中的許多 webservice 失敗都可以藉由使用 `kubectl` 連接到叢集來進行調試。 您可以執行來取得 Azure Kubernetes Service 叢集的 `kubeconfig.json`
 
 ```bash
 az aks get-credentials -g <rg> -n <aks cluster name>
@@ -211,14 +211,14 @@ compute_target = ComputeTarget.attach(workspace=ws, name=args.clusterWorkspaceNa
 compute_target.wait_for_completion(show_output=True)
 ```
 
-如果您不再擁有 SSL 憑證和私密金鑰，或使用 Azure Machine Learning 所產生的憑證，您可以使用 `kubectl` 連接到叢集，並將密碼 `azuremlfessl`，藉以卸離叢集之前先抓取檔案。
+如果您不再擁有 SSL 憑證和私密金鑰，或您使用 Azure Machine Learning 所產生的憑證，您可以使用 `kubectl` 連線到叢集並抓取密碼 `azuremlfessl`，在卸離叢集之前先取出檔案。
 
 ```bash
 kubectl get secret/azuremlfessl -o yaml
 ```
 
 >[!Note]
->Kubernetes 會以64編碼的格式儲存秘密。 在提供給 `attach_config.enable_ssl` 之前，您必須先64將密碼的 @no__t 0 和 @no__t 1 元件解碼。 
+>Kubernetes 會以64編碼的格式儲存秘密。 在提供 `attach_config.enable_ssl` 之前，您必須先64將密碼的 `cert.pem` 和 `key.pem` 元件解碼。 
 
 ## <a name="recommendations-for-error-fix"></a>修正錯誤的建議
 根據一般觀察，以下是 Azure ML 建議，用以修正 Azure ML 中的一些常見錯誤。
@@ -226,7 +226,7 @@ kubectl get secret/azuremlfessl -o yaml
 ### <a name="moduleerrors-no-module-named"></a>ModuleErrors （沒有名為的模組）
 如果您在 Azure ML 中提交實驗時遇到 ModuleErrors，這表示訓練腳本預期會安裝套件，但不會新增。 一旦您提供套件名稱，Azure ML 會在用於定型的環境中安裝套件。 
 
-如果您使用[估算器](https://docs.microsoft.com/en-us/azure/machine-learning/service/concept-azure-machine-learning-architecture#estimators)來提交實驗，您可以根據要安裝封裝的來源，在估計工具中透過 `pip_packages` 或 `conda_packages` 參數指定封裝名稱。 您也可以使用 `conda_dependencies_file`or 在 txt 檔案中使用 `pip_requirements_file` 參數，指定具有所有相依性的 yml 檔案。
+如果您使用[估算器](https://docs.microsoft.com/en-us/azure/machine-learning/service/concept-azure-machine-learning-architecture#estimators)來提交實驗，您可以根據要安裝封裝的來源，在估計工具中透過 `pip_packages` 或 `conda_packages` 參數指定封裝名稱。 您也可以使用 `conda_dependencies_file`or 列出所有相依性的 yml 檔案，並使用 `pip_requirements_file` 參數在 txt 檔案中列出所有 pip 需求。
 
 Azure ML 也提供適用于 Tensorflow、PyTorch、Chainer 和 SKLearn 的架構專屬估算器。 使用這些估算器可確保在用於定型的環境中，代表您安裝架構相依性。 如先前所述，您可以選擇指定額外的相依性。 
  
@@ -239,4 +239,4 @@ Azure ML 也提供適用于 Tensorflow、PyTorch、Chainer 和 SKLearn 的架構
 這個例外狀況應該來自您的訓練腳本。 您可以從 Azure 入口網站查看記錄檔，以取得有關未定義的特定名稱或屬性錯誤的詳細資訊。 從 SDK 中，您可以使用 `run.get_details()` 來查看錯誤訊息。 這也會列出針對您的執行所產生的所有記錄檔。 請務必查看您的訓練腳本，並修正錯誤後再重試。 
 
 ### <a name="horovod-is-shutdown"></a>Horovod 已關閉
-在大部分情況下，此例外狀況表示導致 horovod 關閉的其中一個處理常式發生基礎例外狀況。 MPI 作業中的每個排名都會在 Azure ML 中取得專屬的專用記錄檔。 這些記錄檔的名稱為 `70_driver_logs`。 如果是分散式訓練，記錄檔名稱的後面會加上 `_rank`，讓您輕鬆區分記錄檔。 若要找出造成 horovod 關閉的確切錯誤，請流覽所有的記錄檔，並在 driver_log 檔案的結尾尋找 `Traceback`。 其中一個檔案會提供您實際的基礎例外狀況。 
+在大部分情況下，此例外狀況表示導致 horovod 關閉的其中一個處理常式發生基礎例外狀況。 MPI 作業中的每個排名都會在 Azure ML 中取得專屬的專用記錄檔。 這些記錄檔的名稱為 `70_driver_logs`。 在分散式訓練的情況下，記錄檔名稱會加上 `_rank`，讓您輕鬆區分記錄。 若要找出造成 horovod 關閉的確切錯誤，請流覽所有的記錄檔，並尋找 driver_log 檔案結尾處的 `Traceback`。 其中一個檔案會提供您實際的基礎例外狀況。 

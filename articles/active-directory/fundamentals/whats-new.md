@@ -11,21 +11,21 @@ ms.service: active-directory
 ms.subservice: fundamentals
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 10/15/2019
+ms.date: 10/17/2019
 ms.author: lizross
 ms.reviewer: dhanyahk
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 096c5f06c53f1e93a0c661f856ab112236c0ec60
-ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
+ms.openlocfilehash: c475bfc6179f3604ed6b83cafc75d34f4359513f
+ms.sourcegitcommit: 6eecb9a71f8d69851bc962e2751971fccf29557f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72373553"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72532845"
 ---
 # <a name="whats-new-in-azure-active-directory"></a>Azure Active Directory 的新增功能？
 
->藉由複製並貼上此 URL，取得何時要重新流覽此頁面以進行更新的通知： `https://docs.microsoft.com/api/search/rss?search=%22release+notes+for+azure+AD%22&locale=en-us` 放入您的 @no__t 1RSS 摘要讀取器圖示 @ no__t-2 摘要讀取器。
+>藉由複製並貼上此 URL，取得何時要重新流覽此頁面以取得更新的通知： `https://docs.microsoft.com/api/search/rss?search=%22release+notes+for+azure+AD%22&locale=en-us` 放入 ![RSS 摘要讀取器圖示 ](./media/whats-new/feed-icon-16x16.png) 摘要讀取器。
 
 Azure AD 會持續不斷進行改進。 為了讓您隨時掌握最新的開發訊息，本文提供下列相關資訊：
 
@@ -36,6 +36,20 @@ Azure AD 會持續不斷進行改進。 為了讓您隨時掌握最新的開發�
 - 方案變更
 
 此頁面會每月更新，因此請定期瀏覽。 如果想要尋找超過 6 個月的項目，請至 [Azure Active Directory 的新增功能封存](whats-new-archive.md) (英文)。
+
+---
+
+## <a name="october-2019"></a>2019年10月
+
+### <a name="deprecation-of-the-identityriskevent-api-for-azure-ad-identity-protection-risk-detections"></a>Azure AD Identity Protection 風險偵測的 identityRiskEvent API 已淘汰  
+
+**類型：** 方案變更  
+**服務類別：** 身分識別保護  
+**產品功能：** 身分識別安全性與保護
+
+為回應開發人員的意見反應，Azure AD Premium P2 訂閱者現在可以使用適用于 Microsoft Graph 的新 riskDetection API，對 Azure AD Identity Protection 的風險偵測資料執行複雜的查詢。 現有的[identityRiskEvent](https://docs.microsoft.com/en-us/graph/api/resources/identityriskevent?view=graph-rest-beta) API 搶鮮版（Beta）版本將會停止傳回**2020 年1月10日**附近的資料。 如果您的組織使用 identityRiskEvent API，您應該轉換至新的 riskDetection API。
+
+如需有關新 riskDetection API 的詳細資訊，請參閱[風險偵測 API 參考檔](https://aka.ms/RiskDetectionsAPI)。
 
 ---
 
@@ -50,6 +64,8 @@ Azure AD 會持續不斷進行改進。 為了讓您隨時掌握最新的開發�
 Power BI 是從其存放區淘汰內容套件，而從**2019 年10月 1**日起，我們不再支援 Azure AD Power BI 內容套件。 目前使用內容套件的客戶可以繼續使用它，即使基礎 Api 是較舊的版本也一樣。 除了此內容套件之外，您還可以使用 Azure AD 活頁簿（建基於 Log Analytics）來深入瞭解您的 Azure AD 相關服務。
 
 如需活頁簿的詳細資訊，請參閱[如何使用 Azure Active Directory 報表的 Azure 監視器活頁簿](https://docs.microsoft.com/azure/active-directory/reports-monitoring/howto-use-azure-monitor-workbooks)。 如需有關取代內容套件的詳細資訊，請參閱[宣佈 Power BI 範本應用程式正式](https://powerbi.microsoft.com/blog/announcing-power-bi-template-apps-general-availability/)運作的 blog 文章。
+
+---
 
 ### <a name="my-profile-is-re-naming-and-integrating-with-the-microsoft-office-account-page"></a>我的設定檔正在重新命名，並與 Microsoft Office 帳戶頁面整合
 
@@ -444,7 +460,7 @@ AzureAD 和 AzureAD Preview PowerShell 模組的新更新可供使用：
 
 在2019年7月26日，我們變更了透過[用戶端認證授](https://docs.microsoft.com/azure/active-directory/develop/v1-oauth2-client-creds-grant-flow)與提供僅限應用程式權杖的方式。 先前，應用程式可以取得權杖來呼叫其他應用程式，而不論用戶端應用程式是否在租使用者中。 我們已更新此行為，因此只有存在於資源租使用者中的用戶端應用程式，才能呼叫單一租使用者資源（有時稱為 Web Api）。
 
-如果您的應用程式不在資源租使用者中，您會收到錯誤訊息，指出，`The service principal named <app_name> was not found in the tenant named <tenant_name>. This can happen if the application has not been installed by the administrator of the tenant.` 若要修正此問題，您必須使用系統[管理員同意端點](https://docs.microsoft.com/azure/active-directory/develop/v2-permissions-and-consent#using-the-admin-consent-endpoint)或[透過 PowerShell](https://docs.microsoft.com/azure/active-directory/develop/howto-authenticate-service-principal-powershell)，在租使用者中建立用戶端應用程式服務主體。這可確保您的租使用者已提供應用程式許可權，以在租使用者內操作。
+如果您的應用程式不在資源租使用者中，您將會收到錯誤訊息，指出，`The service principal named <app_name> was not found in the tenant named <tenant_name>. This can happen if the application has not been installed by the administrator of the tenant.` 若要修正此問題，您必須使用系統[管理員同意端點](https://docs.microsoft.com/azure/active-directory/develop/v2-permissions-and-consent#using-the-admin-consent-endpoint)或[透過 PowerShell](https://docs.microsoft.com/azure/active-directory/develop/howto-authenticate-service-principal-powershell)，在租使用者中建立用戶端應用程式服務主體。這可確保您的租使用者已提供應用程式許可權，以在租使用者內操作。
 
 如需詳細資訊，請參閱[驗證的新功能](https://docs.microsoft.com/azure/active-directory/develop/reference-breaking-changes#app-only-tokens-for-single-tenant-applications-are-only-issued-if-the-client-app-exists-in-the-resource-tenant)。
 
