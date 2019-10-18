@@ -35,20 +35,6 @@
       href: policy-samples.md
 - name: 概念
   items:
-    - name: NAT 閘道
-      items:
-        - name: 概觀
-          items:
-            - name: 關於 NAT 閘道
-              href: nat-service-overview.md
-        - name: 快速入門
-          items:
-            - name: 建立 NAT 閘道 - Azure CLI
-              href: quickstart-create-nat-gateway-cli.md
-        - name: 教學課程
-          items:
-            - name: 建立和驗證 NAT 閘道 - Azure CLI
-              href: tutorial-create-validate-nat-gateway-cli.md
     - name: 安全性群組
       href: security-overview.md
     - name: 路由
@@ -75,6 +61,8 @@
       href: public-ip-address-prefix.md
     - name: 適用於 Azure VNet 的 IPv6
       href: ipv6-overview.md
+    - name: 公用 IPv6 位址首碼
+      href: ipv6-public-ip-address-prefix.md
     - name: DDoS 保護
       href: ddos-protection-overview.md
     - name: 後端連線能力互通性
@@ -248,6 +236,8 @@
           items:
             - name: 子網路
               href: virtual-network-manage-subnet.md
+            - name: 子網路委派
+              href: manage-subnet-delegation.md
             - name: 對等互連
               href: virtual-network-manage-peering.md
             - name: DDoS 保護
@@ -271,6 +261,8 @@
           href: virtual-network-public-ip-address.md
         - name: 公用 IP 首碼
           href: manage-public-ip-address-prefix.md
+        - name: 公用 IPv6 位址首碼
+          href: ipv6-reserve-public-ip-address-prefix.md
     - name: 跨區域移動
       items:
         - name: 網路安全性群組 - 入口網站

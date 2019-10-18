@@ -87,6 +87,8 @@
       items:
         - name: 建立標準檔案共用
           href: storage-how-to-create-file-share.md
+        - name: 啟用大型檔案共用
+          href: storage-files-how-to-create-large-file-share.md
         - name: 建立進階檔案共用
           href: storage-how-to-create-premium-fileshare.md
     - name: 部署
@@ -212,33 +214,39 @@
     - name: AzCopy v10
       items:
         - name: azcopy
-          href: ../common/storage-ref-azcopy.md
+          href: ../common/storage-ref-azcopy.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
+        - name: azcopy 工作台
+          href: ../common/storage-ref-azcopy-bench.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
         - name: azcopy 複製
-          href: ../common/storage-ref-azcopy-copy.md
+          href: ../common/storage-ref-azcopy-copy.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
         - name: azcopy 文件
-          href: ../common/storage-ref-azcopy-doc.md
+          href: ../common/storage-ref-azcopy-doc.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
         - name: azcopy 環境
-          href: ../common/storage-ref-azcopy-env.md
+          href: ../common/storage-ref-azcopy-env.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
         - name: azcopy 作業
-          href: ../common/storage-ref-azcopy-jobs.md
+          href: ../common/storage-ref-azcopy-jobs.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
+        - name: azcopy 作業清除
+          href: ../common/storage-ref-azcopy-jobs-clean.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
         - name: azcopy 作業清單
-          href: ../common/storage-ref-azcopy-jobs-list.md
+          href: ../common/storage-ref-azcopy-jobs-list.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
+        - name: azcopy 作業移除
+          href: ../common/storage-ref-azcopy-jobs-remove.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
         - name: azcopy 作業繼續
-          href: ../common/storage-ref-azcopy-jobs-resume.md
+          href: ../common/storage-ref-azcopy-jobs-resume.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
         - name: azcopy 作業顯示
-          href: ../common/storage-ref-azcopy-jobs-show.md
+          href: ../common/storage-ref-azcopy-jobs-show.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
         - name: azcopy 清單
-          href: ../common/storage-ref-azcopy-list.md
+          href: ../common/storage-ref-azcopy-list.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
         - name: azcopy 登入
-          href: ../common/storage-ref-azcopy-login.md
+          href: ../common/storage-ref-azcopy-login.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
         - name: azcopy 登出
-          href: ../common/storage-ref-azcopy-logout.md
+          href: ../common/storage-ref-azcopy-logout.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
         - name: azcopy 製作
-          href: ../common/storage-ref-azcopy-make.md
+          href: ../common/storage-ref-azcopy-make.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
         - name: azcopy 移除
-          href: ../common/storage-ref-azcopy-remove.md
+          href: ../common/storage-ref-azcopy-remove.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
         - name: azcopy 同步
-          href: ../common/storage-ref-azcopy-sync.md
+          href: ../common/storage-ref-azcopy-sync.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
     - name: Resource Manager 範本
       displayName: arm
       href: /azure/templates/microsoft.storage/allversions

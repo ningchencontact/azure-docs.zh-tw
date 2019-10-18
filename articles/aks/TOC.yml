@@ -304,19 +304,33 @@
           href: spark-job.md
         - name: 使用 GPU
           href: gpu-cluster.md
-        - name: 使用 Istio
-          items:
-            - name: 安裝及設定
-              href: istio-install.md
-            - name: 智慧型路由和 Canary 版本
-              href: istio-scenario-routing.md
-        - name: 使用 Hashicorp Consul Connect
-          items:
-            - name: 安裝及設定
-              href: consul-install.md
         - name: 使用 適用於 PostgreSQL 的 Azure 資料庫
           href: ../postgresql/concepts-aks.md
           maintainContext: true
+    - name: 選取和部署服務網格
+      items:
+        - name: 關於服務網格
+          href: servicemesh-about.md
+        - name: 使用 Istio
+          items:
+            - name: 關於 Istio
+              href: servicemesh-istio-about.md
+            - name: 安裝及設定
+              href: servicemesh-istio-install.md
+            - name: 案例 - 智慧型路由和 Canary 版本
+              href: servicemesh-istio-scenario-routing.md
+        - name: 使用 Linkerd
+          items:
+            - name: 關於 Linkerd
+              href: servicemesh-linkerd-about.md
+            - name: 安裝及設定
+              href: servicemesh-linkerd-install.md
+        - name: 使用 Consul
+          items:
+            - name: 關於 Consul
+              href: servicemesh-consul-about.md
+            - name: 安裝及設定
+              href: servicemesh-consul-install.md
     - name: DevOps
       items:
         - name: 使用 Ansible 建立 AKS 叢集
