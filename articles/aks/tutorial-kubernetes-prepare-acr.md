@@ -43,7 +43,7 @@ Azure Container Registry (ACR) 是適用於容器映像的私人登錄。 私人
 az group create --name myResourceGroup --location eastus
 ```
 
-使用 [az acr create][az-acr-create] 命令建立 Azure Container Registry 執行個體，並提供您自己的登錄名稱。 登錄名稱在 Azure 內必須是唯一的，且包含 5-50 個英數字元。 本教學課程的其餘部分，會使用 `<acrName>` 作為容器登錄名稱的預留位置。 提供您自己唯一的登錄名稱。 *基本* SKU 對開發用途而言是最符合成本效益的進入點，可在儲存體和輸送量之間取得平衡。
+使用 [az acr create][az-acr-create] 命令建立 Azure Container Registry 執行個體，並提供您自己的登錄名稱。 登錄名稱在 Azure 內必須是唯一的，且包含 5-50 個英數字元。 在本教程的后续部分，會使用 `<acrName>` 作為容器登錄名稱的預留位置。 提供您自己唯一的登錄名稱。 *基本* SKU 對開發用途而言是最符合成本效益的進入點，可在儲存體和輸送量之間取得平衡。
 
 ```azurecli
 az acr create --resource-group myResourceGroup --name <acrName> --sku Basic

@@ -26,7 +26,7 @@ Azure 虛擬網路 (VNet) 是私人網路在 Azure 中的基本建置組塊。 V
 
 ## <a name="vnet-concepts"></a>VNet 概念
 
-- **位址空間︰** 在建立 VNet 時，您必須使用公用和私人 (RFC 1918) 位址指定自訂私人 IP 位址空間。 Azure 會從您指派的位址空間，將私人 IP 位址指派給虛擬網路中的資源。 例如，如果您在位址空間為 10.0.0.0/16 的 VNet 中部署 VM，系統就會對 VM 指派 10.0.0.4 等私人 IP。
+- **位址空間︰** 在建立 VNet 時，您必須使用公用和私人 (RFC 1918) 位址指定自訂私人 IP 位址空間。 Azure 會從您指派的位址空間，將私人 IP 位址指派給虛擬網路中的資源。 例如，如果您在位址空間為 10.0.0.0/16 的 VNet 中部署 VM，系統就會對 VM 指派像是 10.0.0.4 等的私人 IP。
 - **子網路：** 子網路可讓您將虛擬網路分成一或多個次網路，並將虛擬網路位址空間的一部分配置給每個子網路。 然後，您便可以在特定子網路中部署 Azure 資源。 和傳統網路一樣，子網路也可讓您將 VNet 位址空間分成多個區段，以便適合組織的內部網路使用。 這也會改善位址的配置效率。 您可以使用網路安全性群組來保護子網路內的資源。 如需詳細資訊，請參閱[安全性群組](security-overview.md)。
 - **區域**：VNet 的範圍為單一區域/位置；不過，您可以使用虛擬網路對等互連將不同區域的多個虛擬網路連在一起。
 - **訂用帳戶︰** VNet 的範圍為訂用帳戶。 您可以在每個 Azure [訂用帳戶](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#subscription)和 Azure [區域](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#region)內實作多個虛擬網路。
@@ -36,7 +36,7 @@ Azure 虛擬網路 (VNet) 是私人網路在 Azure 中的基本建置組塊。 V
 當您 Azure 中建置網路時，請務必記住下列通用設計原則：
 
 - 確保沒有重疊的位址空間。 確定 VNet 位址空間 (CIDR 區塊) 不會與組織的其他網路範圍重疊。
-- 子網路不應涵蓋 VNet 的整個位址空間。 預先規劃，保留部分位址空間供日後使用。
+- 子網路不應涵蓋 VNet 的整個位址空間。 預先規劃並保留部分位址空間供日後使用。
 - 建議您擁有少量大型 VNet 而非多個小型 VNet。 這可避免造成管理負荷。
 - 使用網路安全性群組 (NSG) 保障您 VNet 的安全。
 
@@ -74,7 +74,7 @@ Azure 資源可透過下列其中一種方式安全地相互通訊：
 
 Azure 依預設會路由子網路、連線的虛擬網路、內部部署網路和網際網路之間的流量。 您可以實作下列一個或兩個選項，覆寫 Azure 所建立的預設路由︰
 
-- **路由資料表︰** 您可以建立自訂路由表，其中的路由可控制每個子網路的流量會路由傳送至的位置。 深入了解[路由表](virtual-networks-udr-overview.md#user-defined)。
+- **路由資料表︰** 你可以自訂路由表，設定傳送路線用來控制傳送到每個子網路的流量 深入了解[路由表](virtual-networks-udr-overview.md#user-defined)。
 - **邊界閘道協定 (BGP) 路由：** 如果您使用 Azure VPN 閘道或 ExpressRoute 連線將虛擬網路連線至內部部署網路，則可將您的內部部署 BGP 路由傳播至虛擬網路。 深入了解如何透過 [Azure VPN 閘道](../vpn-gateway/vpn-gateway-bgp-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)和 [ExpressRoute](../expressroute/expressroute-routing.md?toc=%2fazure%2fvirtual-network%2ftoc.json#dynamic-route-exchange) 使用 BGP。
 
 ## <a name="azure-vnet-limits"></a>Azure VNet 的限制

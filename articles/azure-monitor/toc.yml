@@ -205,7 +205,11 @@
                 - name: Node.js
                   href: app/nodejs.md
                 - name: Python
-                  href: app/opencensus-python.md
+                  items:
+                    - name: 概觀
+                      href: app/opencensus-python.md
+                    - name: 相依性
+                      href: app/opencensus-python-dependency.md
                 - name: 網頁
                   items:
                     - name: 用戶端 JavaScript

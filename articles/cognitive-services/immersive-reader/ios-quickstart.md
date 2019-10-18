@@ -55,7 +55,7 @@ ms.locfileid: "69899538"
 ```
 4. 在終端機中，於 Xcode 專案的目錄中執行命令 `pod install`，以安裝沈浸式閱讀程式 SDK Pod。
 5. 將 `import immersive_reader_sdk` 新增至所有需要參考 SDK 的檔案。
-6. 確實以開啟 `.xcworkspace` 檔案 (而非 `.xcodeproj` 檔案) 的方式開啟專案。
+6. 確定是以開啟 `.xcworkspace` 檔案 (而非 `.xcodeproj` 檔案) 的方式開啟專案。
 
 ## <a name="acquire-an-azure-ad-authentication-token"></a>取得 Azure AD 驗證權杖
 

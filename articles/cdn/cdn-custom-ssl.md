@@ -97,7 +97,7 @@ Azure CDN 預設支援 CDN 端點主機名稱上的 HTTPS。 舉例來說，當�
 > 此選項僅適用於**來自 Microsoft 的 Azure CDN** 和**來自 Verizon 的 Azure CDN** 設定檔。 
 >
  
-您可以使用自己的憑證啟用 HTTPS 功能。 此程序會透過與 Azure Key Vault 的整合來進行，因為此一整合可讓您安全地儲存憑證。 Azure CDN 使用此安全機制來取得您的憑證，為此您需要執行一些額外的步驟。 當您建立 SSL 憑證時，您必須使用允許的憑證授權單位 (CA) 來加以建立。 否則，如果您使用非允許的 CA，系統會拒絕您的要求。 如需允許 CA 的清單，請參閱[可在 Azure CDN 上啟用自訂 HTTPS 的允許憑證授權單位](cdn-troubleshoot-allowed-ca.md)。若為**來自 Verizon 的 Azure CDN**，則可接受任何有效的 CA。 
+您可以使用自己的憑證啟用 HTTPS 功能。 此程序會透過與 Azure Key Vault 的整合來進行，而讓您可以安全地儲存您的憑證。 Azure CDN 使用此安全機制來取得您的憑證，為此您需要執行一些額外的步驟。 當您建立 SSL 憑證時，您必須使用允許的憑證授權單位 (CA) 來加以建立。 否則，如果您使用非允許的 CA，系統會拒絕您的要求。 如需允許 CA 的清單，請參閱[可在 Azure CDN 上啟用自訂 HTTPS 的允許憑證授權單位](cdn-troubleshoot-allowed-ca.md)。若為**來自 Verizon 的 Azure CDN**，則可接受任何有效的 CA。 
 
 ### <a name="prepare-your-azure-key-vault-account-and-certificate"></a>準備您的 Azure Key Vault 帳戶和憑證
  
@@ -204,7 +204,7 @@ webmaster@&lt;your-domain-name.com&gt;
 hostmaster@&lt;your-domain-name.com&gt;  
 postmaster@&lt;your-domain-name.com&gt;  
 
-您應該會在幾分鐘之內收到邀請您核准要求的電子郵件，如以下範例所示。 如果您使用垃圾郵件篩選器，請將 verification@digicert.com 加入白名單。 如果您未在 24 小時內收到驗證電子郵件，請連絡 Microsoft 支援服務。
+您應該會在幾分鐘之內收到請求您核准要求的電子郵件，如以下範例所示。 如果您使用垃圾郵件篩選器，請將 verification@digicert.com 加入白名單。 如果您未在 24 小時內收到驗證電子郵件，請連絡 Microsoft 支援服務。
     
 ![網域驗證電子郵件](./media/cdn-custom-ssl/domain-validation-email.png)
 
@@ -228,7 +228,7 @@ postmaster@&lt;your-domain-name.com&gt;
 
 ### <a name="operation-progress"></a>作業進度
 
-下表指出啟用 HTTPS 時的作業進度。 啟用 HTTPS 之後，四個作業步驟會出現在 [自訂網域] 對話方塊中。 隨著每個步驟變成作用中狀態，其他子步驟詳細資料會在步驟進行時顯示於下方。 並非所有這些子步驟都會發生。 各個步驟完成時，旁邊都會出現一個綠色的核取記號。 
+下表列出停用 HTTPS 時的作業進度。 啟用 HTTPS 之後，四個作業步驟會出現在 [自訂網域] 對話方塊中。 隨著每個步驟變成作用中狀態，其他子步驟詳細資料會在步驟進行時顯示於下方。 並非所有這些子步驟都會發生。 各個步驟完成時，旁邊都會出現一個綠色的核取記號。 
 
 | 作業步驟 | 作業子步驟詳細資料 | 
 | --- | --- |

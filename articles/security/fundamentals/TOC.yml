@@ -49,16 +49,6 @@
             - name: 有關 Azure 磁碟加密
               displayName: 'BitLocker, bek'
               href: 'https://docs.microsoft.com/azure/security/azure-security-disk-encryption-overview'
-            - name: 快速入門
-              items:
-                - name: 使用 Azure CLI 加密 Linux 虛擬機器
-                  href: 'https://docs.microsoft.com/azure/security/azure-disk-encryption-linux-cli-quickstart'
-                - name: 使用 Azure PowerShell 加密 Linux 虛擬機器
-                  href: 'https://docs.microsoft.com/azure/security/azure-disk-encryption-linux-powershell-quickstart'
-                - name: 使用 Azure CLI 加密 Windows 虛擬機器
-                  href: 'https://docs.microsoft.com/azure/security/azure-disk-encryption-windows-cli-quickstart'
-                - name: 使用 Azure PowerShell 加密 Windows 虛擬機器
-                  href: 'https://docs.microsoft.com/azure/security/azure-disk-encryption-windows-powershell-quickstart'
             - name: Azure 磁碟加密
               items:
                 - name: 磁碟加密必要條件
@@ -151,8 +141,6 @@
           href: network-best-practices.md
         - name: DDoS保護
           href: ddos-best-practices.md
-        - name: 邊界安全性
-          href: network-best-practices.md
 - name: Application
   items:
     - name: PaaS
@@ -185,9 +173,6 @@
   items:
     - name: 稽核和記錄
       items:
-        - name: 安全性管理
-          displayName: 'vulnerability, incident, virus,'
-          href: 'https://docs.microsoft.com/azure/security-center/security-center-intro?toc=/azure/security/toc.json&bc=/azure/security/breadcrumb/toc.json'
         - name: 遠端管理安全性
           href: management.md
         - name: Azure 記錄整合
@@ -199,9 +184,6 @@
             - name: 整合 Azure AD 稽核記錄
               displayName: active directory
               href: azure-log-integration-ad.md
-            - name: 整合資訊安全中心警示
-              displayName: splunk
-              href: 'https://docs.microsoft.com/azure/security-center/security-center-export-data-to-siem?toc=/azure/security/toc.json&bc=/azure/security/breadcrumb/toc.json'
             - name: 整合 Key Vault 中的記錄
               displayName: keyvault
               href: azure-log-integration-keyvault-eventhub.md
