@@ -8,14 +8,14 @@ ms.topic: include
 ms.date: 10/06/2019
 ms.author: mbaldwin
 ms.custom: include file
-ms.openlocfilehash: b1da7b69db20b036b69add5604f80896e5d35587
-ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
+ms.openlocfilehash: 05794a046fdcb15a91145a75717a6a454d15a8da
+ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72245028"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72511454"
 ---
-Azure 磁碟加密可以透過[Azure CLI](/cli/azure)和[Azure PowerShell](/azure/new-azureps-module-az)來啟用及管理。 若要這麼做，您必須在本機安裝這些工具，並聯機到您的 Azure 訂用帳戶。
+Azure 磁碟加密可以透過[Azure CLI](/cli/azure)和[Azure PowerShell](/powershell/azure/new-azureps-module-az)來啟用及管理。 若要這麼做，您必須在本機安裝這些工具，並聯機到您的 Azure 訂用帳戶。
 
 ### <a name="azure-cli"></a>Azure CLI
 
@@ -43,7 +43,7 @@ az account set --subscription "<subscription name or ID>"
 如需詳細資訊，請參閱[開始使用 Azure CLI 2.0](/cli/azure/get-started-with-azure-cli)。 
 
 ### <a name="azure-powershell"></a>Azure PowerShell
-[Azure PowerShell az 模組](/azure/new-azureps-module-az)提供了一組 Cmdlet，可使用[Azure Resource Manager](/azure/azure-resource-manager/resource-group-overview)模型來管理您的 Azure 資源。 您可以在瀏覽器中使用[Azure Cloud Shell](/azure/cloud-shell/overview)，也可以使用[安裝 Azure PowerShell 模組](/powershell/azure/install-az-ps)中的指示，將它安裝在本機電腦上。 
+[Azure PowerShell az 模組](/powershell/azure/new-azureps-module-az)提供了一組 Cmdlet，可使用[Azure Resource Manager](/azure/azure-resource-manager/resource-group-overview)模型來管理您的 Azure 資源。 您可以在瀏覽器中使用[Azure Cloud Shell](/azure/cloud-shell/overview)，也可以使用[安裝 Azure PowerShell 模組](/powershell/azure/install-az-ps)中的指示，將它安裝在本機電腦上。 
 
 如果您已將它安裝在本機上，請確定您是使用最新版的 Azure PowerShell SDK 版本來設定 Azure 磁碟加密。 下載最新版的 [Azure PowerShell 版本](https://github.com/Azure/azure-powershell/releases)。
 

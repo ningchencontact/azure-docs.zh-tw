@@ -9,10 +9,10 @@ ms.date: 07/31/2019
 ms.author: bwren
 ms.subservice: ''
 ms.openlocfilehash: f65e3c4f9582fcc5c28412d44e513fa6bcb9e870
-ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.sourcegitcommit: 6eecb9a71f8d69851bc962e2751971fccf29557f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/25/2019
+ms.lasthandoff: 10/17/2019
 ms.locfileid: "71262332"
 ---
 # <a name="create-diagnostic-setting-in-azure-using-a-resource-manager-template"></a>使用 Resource Manager 範本在 Azure 中建立診斷設定
@@ -59,7 +59,7 @@ Resource Manager 範本有兩個區段，您必須進行編輯以建立診斷設
 ```
 
 ### <a name="resources"></a>資源
-在您要建立診斷設定之資源的資源陣列中，新增類型`[resource namespace]/providers/diagnosticSettings`為的資源。 [屬性] 區段會遵循 [[診斷設定-建立或更新](https://docs.microsoft.com/rest/api/monitor/diagnosticsettings/createorupdate)] 中所述的格式。 新增屬性，以在[資源支援計量](metrics-supported.md)時，將資源計量收集到相同的目的地。 `metrics`
+在您要建立診斷設定之資源的資源陣列中，新增 `[resource namespace]/providers/diagnosticSettings` 類型的資源。 [屬性] 區段會遵循 [[診斷設定-建立或更新](https://docs.microsoft.com/rest/api/monitor/diagnosticsettings/createorupdate)] 中所述的格式。 新增 `metrics` 屬性，以在[資源支援計量](metrics-supported.md)時，將資源計量收集到相同的目的地。
    
 ```json
 "resources": [

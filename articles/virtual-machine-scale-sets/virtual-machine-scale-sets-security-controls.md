@@ -9,12 +9,12 @@ manager: rkarlin
 ms.topic: conceptual
 ms.date: 09/05/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 7d7e69e8ad0c5b14ac7ed8b941a7949f4f675812
-ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
+ms.openlocfilehash: 6aee9edaf3c594a2e7083416726da8e57bbf5c6b
+ms.sourcegitcommit: f29fec8ec945921cc3a89a6e7086127cc1bc1759
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72176761"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72529148"
 ---
 # <a name="security-controls-for-azure-virtual-machine-scale-sets"></a>Azure 虛擬機器擴展集的安全性控制
 
@@ -43,16 +43,16 @@ ms.locfileid: "72176761"
 
 | 安全性控制 | 是/否 | 注意|
 |---|---|--|
-| 驗證| 是 |  |
+| Authentication| 是 |  |
 | Authorization| 是 |  |
 
 ## <a name="data-protection"></a>資料保護
 
 | 安全性控制 | 是/否 | 注意 |
 |---|---|--|
-| 待用的伺服器端加密：Microsoft 管理的金鑰 | 是 | 瞭解[如何在 Azure 中將 Linux 虛擬機器加密](/azure/virtual-machines/linux/disk-encryption-linux)，以及如何[加密 Windows VM 上的虛擬磁片](/azure/virtual-machines/windows/encrypt-disks)。 |
+| 待用的伺服器端加密： Microsoft 管理的金鑰 | 是 | 請參閱[虛擬機器擴展集的 Azure 磁碟加密](disk-encryption-overview.md)。 |
 | 傳輸中的加密（例如 ExpressRoute 加密、VNet 加密中和 VNet VNet 加密）| 是 | Azure 虛擬機器支援[ExpressRoute](/azure/expressroute)和 VNet 加密。 請參閱[Vm 中的傳輸中加密](/azure/security/security-azure-encryption-overview#in-transit-encryption-in-vms)。 |
-| 待用的伺服器端加密：客戶管理的金鑰（BYOK） | 是 | 客戶管理的金鑰是支援的 Azure 加密案例;請參閱[Azure 加密總覽](/azure/security/security-azure-encryption-overview#in-transit-encryption-in-vms)。|
+| 待用的伺服器端加密：客戶管理的金鑰（BYOK） | 是 | 客戶管理的金鑰是支援的 Azure 加密案例;請參閱[虛擬機器擴展集的 Azure 磁碟加密](disk-encryption-overview.md)|
 | 資料行層級加密（Azure 資料服務）| N/A | |
 | API 呼叫加密| 是 | 透過 HTTPS 和 SSL。 |
 

@@ -1,5 +1,5 @@
 ---
-title: 適用于 Azure 受控應用程式建立體驗的 CreateUiDefinition |Microsoft Docs
+title: CreateUiDefinition. json-Azure 受控應用程式
 description: 描述如何建立 Azure 入口網站的使用者介面定義。 定義 Azure 受控應用程式時使用。
 services: managed-applications
 documentationcenter: na
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/06/2019
 ms.author: tomfitz
-ms.openlocfilehash: 7177b9513a1e51bc24672a69935a0e9430292537
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
-ms.translationtype: HT
+ms.openlocfilehash: 9009d6a54c27617dd0d1d53369405555becde59d
+ms.sourcegitcommit: f29fec8ec945921cc3a89a6e7086127cc1bc1759
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72332694"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72529326"
 ---
 # <a name="createuidefinitionjson-for-azure-managed-applications-create-experience"></a>適用于 Azure 受控應用程式建立體驗的 CreateUiDefinition
 

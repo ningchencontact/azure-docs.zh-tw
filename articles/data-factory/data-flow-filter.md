@@ -1,37 +1,58 @@
 ---
-title: Azure Data Factory 對應資料流程篩選準則轉換
-description: Azure Data Factory 對應資料流程篩選準則轉換
+title: Azure Data Factory 對應資料流程中的篩選轉換 |Microsoft Docs
+description: 使用 Azure Data Factory 對應資料流程中的篩選準則轉換來篩選出資料列
 author: kromerm
 ms.author: makromer
-ms.reviewer: douglasl
+ms.reviewer: daperlov
 ms.service: data-factory
 ms.topic: conceptual
-ms.date: 02/03/2019
-ms.openlocfilehash: 2afe079c346a15ec212664ce022ac5e2926b12d4
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.date: 10/16/2019
+ms.openlocfilehash: a4dd53f37a8a963d05a3ad9c49769528e945f6a1
+ms.sourcegitcommit: f29fec8ec945921cc3a89a6e7086127cc1bc1759
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72387816"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72527391"
 ---
-# <a name="azure-data-factory-filter-transformation"></a>Azure data factory 篩選器轉換
+# <a name="filter-transformation-in-mapping-data-flow"></a>對應資料流程中的篩選轉換
 
+篩選轉換可讓您根據條件來進行資料列篩選。 輸出資料流程包含符合篩選準則的所有資料列。 篩選器轉換類似于 SQL 中的 WHERE 子句。
 
+## <a name="configuration"></a>組態
 
-篩選條件轉換會提供資料列篩選。 建置一個定義篩選條件的運算式。 在文字方塊中按一下，以啟動運算式建立器。 在運算式建立器中，建置一個篩選條件運算式，以控制允許目前資料流中的哪些資料列可以通過 (篩選) 到下一步的轉換。 請將篩選準則轉換視為 SQL 語句的 WHERE 子句。
+使用資料流程運算式產生器，為篩選準則輸入運算式。 若要開啟 [運算式產生器]，請按一下藍色方塊。 篩選準則的類型必須是布林值。 如需如何建立運算式的詳細資訊，請參閱[expression builder](concepts-data-flow-expression-builder.md)檔。
 
-## <a name="filter-on-loan_status-column"></a>篩選 loan_status 資料行：
+![篩選轉換](media/data-flow/filter1.png "篩選轉換")
+
+## <a name="data-flow-script"></a>資料流程腳本
+
+### <a name="syntax"></a>語法
 
 ```
-in([‘Default’, ‘Charged Off’, ‘Fully Paid’], loan_status).
+<incomingStream>
+    filter(
+        <conditionalExpression>
+    ) ~> <filterTransformationName>
 ```
 
-影片示範中 [年] 資料行的篩選條件：
+### <a name="example"></a>範例
+
+下列範例是一個名為 `FilterBefore1960` 的條件式分割轉換，它會接受傳入的資料流程 `CleanData`。 篩選準則是運算式 `year <= 1960`。
+
+在 Data Factory UX 中，這項轉換看起來如下圖所示：
+
+![篩選轉換](media/data-flow/filter1.png "篩選轉換")
+
+此轉換的資料流程腳本位於下列程式碼片段中：
 
 ```
-year > 1980
+CleanData
+    filter(
+        year <= 1960
+    ) ~> FilterBefore1960
+
 ```
 
 ## <a name="next-steps"></a>後續步驟
 
-嘗試「資料行篩選」轉換，也就是「[選取」轉換](data-flow-select.md)
+使用[select 轉換](data-flow-select.md)來篩選出資料行

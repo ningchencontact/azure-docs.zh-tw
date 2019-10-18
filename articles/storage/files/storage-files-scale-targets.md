@@ -4,15 +4,15 @@ description: 了解 Azure 檔案服務的延展性和效能目標，包括容量
 author: roygara
 ms.service: storage
 ms.topic: conceptual
-ms.date: 5/5/2019
+ms.date: 10/16/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: ed4aa832c4ec7ccda760d535aa920be8d5c4e2e3
-ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
+ms.openlocfilehash: 766dacb69a3f1857197684f552d05a1376e94509
+ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68699632"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72514860"
 ---
 # <a name="azure-files-scalability-and-performance-targets"></a>Azure 檔案服務延展性和效能目標
 
@@ -33,26 +33,26 @@ Azure 檔案共用的父資源是 Azure 儲存體帳戶。 儲存體帳戶代表
 
 ## <a name="azure-files-scale-targets"></a>Azure 檔案擴展目標
 
-Azure 檔案儲存體需要考慮的限制有三個類別: 儲存體帳戶、共用和檔案。
+Azure 檔案儲存體需要考慮的限制有三個類別：儲存體帳戶、共用和檔案。
 
-例如: 使用 premium 檔案共用, 單一共用可以達到 100000 IOPS, 而單一檔案可相應增加至 5000 IOPS。 因此, 如果您在一個共用中有三個檔案, 則可以從該共用取得的最大 IOPS 為15000。
+例如：使用 premium 檔案共用時，單一共用可以達到 100000 IOPS，而單一檔案可以相應增加至 5000 IOPS。 因此，如果您在一個共用中有三個檔案，則可以從該共用取得的最大 IOPS 為15000。
 
 ### <a name="standard-storage-account-limits"></a>標準儲存體帳戶限制
 
-如需這些限制, 請參閱[Azure 儲存體帳戶調整目標](#azure-storage-account-scale-targets)一節。
+如需這些限制，請參閱[Azure 儲存體帳戶調整目標](#azure-storage-account-scale-targets)一節。
 
 ### <a name="premium-filestorage-account-limits"></a>Premium FileStorage 帳戶限制
 
 [!INCLUDE [azure-storage-limits-filestorage](../../../includes/azure-storage-limits-filestorage.md)]
 
 > [!IMPORTANT]
-> 儲存體帳戶限制適用于所有共用。 只有在每個 FileStorage 帳戶只有一個共用時, 相應增加至 FileStorage 帳戶的最大值才可達到上限。
+> 儲存體帳戶限制適用于所有共用。 只有在每個 FileStorage 帳戶只有一個共用時，相應增加至 FileStorage 帳戶的最大值才可達到上限。
 
 ### <a name="file-share-and-file-scale-targets"></a>檔案共用和檔案調整目標
 
 > [!NOTE]
-> 超過 5 TiB 的標準檔案共用處於預覽狀態, 且有特定限制。
-> 如需限制清單, 以及在這些較大檔案共用大小的預覽上架, 請參閱規劃指南的[標準檔案共用](storage-files-planning.md#standard-file-shares)一節。
+> 大於 5 TiB 的標準檔案共用具有某些限制和區域限制。
+> 如需啟用這些較大檔案共用大小的限制、區域資訊和指示清單，請參閱規劃指南中的上[架至較大](storage-files-planning.md#onboard-to-larger-file-shares-standard-tier)的檔案共用一節。
 
 [!INCLUDE [storage-files-scale-targets](../../../includes/storage-files-scale-targets.md)]
 
@@ -66,7 +66,7 @@ Azure 檔案同步的設計目標是無限制的使用方式，但無限制的�
 
 ### <a name="azure-file-sync-performance-metrics"></a>Azure 檔案同步效能計量
 
-由於 Azure 檔案同步代理程式在連線到 Azure 檔案共用的 Windows Server 電腦上執行，有效的同步處理效能取決於基礎結構中的許多因素：Windows Server 和基礎結構磁碟設定、伺服器與 Azure 儲存體之間的網路頻寬、檔案大小、總資料集大小和資料集上的活動。 由於 Azure 檔案同步會在檔案層級上運作，因此 Azure 檔案同步解決方案的效能特性應以每秒處理的物件 (檔案和目錄) 數來測量，以獲得較精準的結果。
+由於 Azure 檔案同步代理程式會在連線至 Azure 檔案共用的 Windows Server 機器上執行，因此有效的同步效能將取決於基礎結構中的許多因素：Windows Server 和基礎磁碟組態、伺服器與 Azure 儲存體之間的網路頻寬、檔案大小、資料集大小總計，以及資料集的活動。 由於 Azure 檔案同步會在檔案層級上運作，因此 Azure 檔案同步解決方案的效能特性應以每秒處理的物件 (檔案和目錄) 數來測量，以獲得較精準的結果。
 
 在下列兩個階段中，Azure 檔案同步必須達到高效能：
 
@@ -75,7 +75,7 @@ Azure 檔案同步的設計目標是無限制的使用方式，但無限制的�
 
 為了協助您規劃每個階段的部署，以下提供在採用某種組態的系統上進行內部測試期間所觀察到的結果
 
-| 系統設定 |  |
+| 系統組態 |  |
 |-|-|
 | CPU | 具有 64 MiB L3 快取的 64 個虛擬核心 |
 | 記憶體 | 128 GB |
@@ -87,7 +87,7 @@ Azure 檔案同步的設計目標是無限制的使用方式，但無限制的�
 |-|-|
 | 物件數目 | 2500 萬個物件 |
 | 資料集大小| ~ 4.7 TiB |
-| 平均檔案大小 | ~ 200 KiB (最大檔案:100 GiB) |
+| 平均檔案大小 | ~ 200 KiB （最大檔案： 100 GiB） |
 | 上傳輸送量 | 每秒 20 個物件 |
 | 命名空間下載輸送量* | 每秒 400 個物件 |
 
@@ -111,7 +111,7 @@ Azure 檔案同步的設計目標是無限制的使用方式，但無限制的�
 - 物件輸送量的消長大致上會與伺服器上的同步群組數目成正比。 在伺服器上將資料分割到多個同步群組時，會產生較佳的輸送量，但仍受限於伺服器和網路。
 - 物件輸送量與每秒 MiB 輸送量成反比。 檔案較小時，在每秒處理的物件數方面會呈現較高的輸送量，但每秒的 MiB 輸送量則會降低。 相反地，若檔案較大，每秒處理的物件數將會降低，但每秒的 MiB 輸送量則會提高。 每秒的 MiB 輸送量會受限於 Azure 檔案擴展目標。
 
-## <a name="see-also"></a>另請參閱
+## <a name="see-also"></a>請參閱
 
 - [規劃 Azure 檔案部署](storage-files-planning.md)
 - [規劃 Azure 檔案同步部署](storage-sync-files-planning.md)

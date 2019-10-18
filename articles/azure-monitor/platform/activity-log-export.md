@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 05/20/2019
 ms.author: bwren
 ms.subservice: logs
-ms.openlocfilehash: 925fed320359edc04ad6c91fe7a7d9bde5370254
-ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.openlocfilehash: 68bf455bbdfb6d2d45c5eccc60c3ad8ce40d3247
+ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71258478"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72515777"
 ---
 # <a name="export-azure-activity-log-to-storage-or-azure-event-hubs"></a>將 Azure 活動記錄匯出至儲存體或 Azure 事件中樞
 [Azure 活動記錄](activity-logs-overview.md)可讓您深入瞭解 azure 訂用帳戶中所發生的訂用帳戶層級事件。 除了在 Azure 入口網站中查看活動記錄，或將它複製到 Log Analytics 工作區，您可以使用 Azure 監視器收集的其他資料進行分析，您可以建立記錄設定檔，將活動記錄封存至 Azure 儲存體帳戶，或將其串流至 事件中樞。
@@ -23,8 +23,8 @@ ms.locfileid: "71258478"
 
 ## <a name="stream-activity-log-to-event-hub"></a>將活動記錄串流至事件中樞
 [Azure 事件中樞](/azure/event-hubs/)是一種資料串流平臺和事件內嵌服務，每秒可接收和處理數百萬個事件。 傳送至事件中樞的資料可以透過任何即時分析提供者或批次/儲存體配接器來轉換和儲存。 有兩種方式可以使用活動記錄的串流處理功能：
-* **串流至協力廠商記錄與遙測系統**：隨著時間進展，「Azure 事件中樞」串流會成為將「活動記錄」輸送到協力廠商 SIEM 與記錄分析解決方案的機制。
-* **建置自訂遙測及記錄平台**：如果您已經有自訂建置的遙測平台或正考慮建置一個，「事件中樞」所具備的高度可調整發佈訂閱特質將可讓您靈活擷取活動記錄。 
+* **串流至協力廠商記錄與遙測系統** – 隨著時間進展，「Azure 事件中樞」串流會成為將「活動記錄」輸送到協力廠商 SIEM 與記錄分析解決方案的機制。
+* **建置自訂遙測與記錄平台** – 如果您已經有自訂建置的遙測平台或正考慮建置一個，「事件中樞」所具備的高度可調整發佈訂閱特質將可讓您靈活擷取活動記錄。 
 
 ## <a name="prerequisites"></a>必要條件
 
@@ -111,10 +111,10 @@ ms.locfileid: "71258478"
     | --- | --- | --- |
     | Name |是 |記錄檔設定檔的名稱。 |
     | StorageAccountId |否 |應儲存活動記錄之儲存體帳戶的資源識別碼。 |
-    | serviceBusRuleId |否 |服務匯流排規則識別碼，您想要在其中建立事件中樞的服務匯流排命名空間。 這是格式為的字串： `{service bus resource ID}/authorizationrules/{key name}`。 |
+    | serviceBusRuleId |否 |服務匯流排規則識別碼，您想要在其中建立事件中樞的服務匯流排命名空間。 這是具有下列格式的字串： `{service bus resource ID}/authorizationrules/{key name}`。 |
     | Location |是 |以逗號分隔的區域清單，其中列出您要收集的活動記錄檔事件的區域。 |
     | RetentionInDays |是 |在儲存體帳戶中應保留事件的天數，介於1到365之間。 值為 0 會無限期地儲存記錄。 |
-    | Category |否 |以逗號分隔的類別清單，其中列出應該收集的事件類別。 可能的值為_Write_、 _Delete_和_Action_。 |
+    | 類別 |否 |以逗號分隔的類別清單，其中列出應該收集的事件類別。 可能的值為_Write_、 _Delete_和_Action_。 |
 
 ### <a name="example-script"></a>範例指令碼
 以下是範例 PowerShell 腳本，用來建立記錄檔設定檔，以將活動記錄寫入至儲存體帳戶和事件中樞。
@@ -152,11 +152,11 @@ ms.locfileid: "71258478"
 
     | 屬性 | 必要項 | 描述 |
     | --- | --- | --- |
-    | name |是 |記錄檔設定檔的名稱。 |
+    | 名稱 |是 |記錄檔設定檔的名稱。 |
     | storage-account-id |是 |資源識別碼，活動記錄應該要儲存至此儲存體帳戶。 |
-    | locations |是 |以空格分隔的區域清單，其中列出您要收集的活動記錄事件的區域。 您可以使用 `az account list-locations --query [].name` 來檢視您訂用帳戶的所有區域清單。 |
-    | 天 |是 |應保留事件的天數，介於1到365之間。 值為 0 會無限期地 (永遠) 儲存記錄。  如果是零，則啟用的參數應設為 true。 |
-    |enabled | 是 |True 或 False。  用來啟用或停用保留原則。  如果為 True，則 days 參數必須是大於 0 的值。
+    | 位置 |是 |以空格分隔的區域清單，其中列出您要收集的活動記錄事件的區域。 您可以使用 `az account list-locations --query [].name` 來檢視您訂用帳戶的所有區域清單。 |
+    | days |是 |應保留事件的天數，介於1到365之間。 值為 0 會無限期地 (永遠) 儲存記錄。  如果為零，則已啟用的參數應該設定為 false。 |
+    |啟用 | 是 |True 或 False。  用來啟用或停用保留原則。  如果為 True，則 days 參數必須是大於 0 的值。
     | categories |是 |以空格分隔的類別清單，其中列出應收集的事件類別。 可能的值有 Write、Delete、Action。 |
 
 
@@ -227,7 +227,7 @@ ms.locfileid: "71258478"
 | 元素名稱 | 描述 |
 | --- | --- |
 | time |處理與事件對應之要求的Azure 服務產生事件時的時間戳記。 |
-| resourceId |受影響資源的資源識別碼。 |
+| ResourceId |受影響資源的資源識別碼。 |
 | operationName |作業名稱。 |
 | category |事件的類別，例如 寫入、讀取、動作。 |
 | resultType |結果的類型，例如 成功、失敗、開始 |
@@ -236,9 +236,9 @@ ms.locfileid: "71258478"
 | callerIpAddress |已執行作業的使用者的 IP 地址，根據可用性的 UPN 宣告或 SPN 宣告。 |
 | correlationId |通常是字串格式的 GUID。 具有相同 correlationId、屬於同一 uber 動作的事件。 |
 | 身分識別 |描述授權和宣告的 JSON blob。 |
-| authorization |事件的 RBAC 屬性的 blob。 通常包括 action、role 和 scope 屬性。 |
-| level |事件的層級。 下列其中一個值：_重大_、_錯誤_、_警告_、_資訊_和_詳細_資訊 |
-| 位置 |在 location 發生 (或全球) 的區域。 |
+| 授權 |事件的 RBAC 屬性的 blob。 通常包括 action、role 和 scope 屬性。 |
+| 層級 |事件的層級。 下列其中一個值：「_重大_」、「_錯誤_」、「_警告_」、「資訊」和「_詳細_ _資訊_」 |
+| location |在 location 發生 (或全球) 的區域。 |
 | properties |描述事件詳細資料的一組 `<Key, Value>` 配對 (也就是字典)。 |
 
 > [!NOTE]

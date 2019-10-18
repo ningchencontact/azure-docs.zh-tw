@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 09/30/2019
 ms.author: bwren
-ms.openlocfilehash: affefa96d6e38a88c994938115ddf44bcf8bd36d
-ms.sourcegitcommit: 8bae7afb0011a98e82cbd76c50bc9f08be9ebe06
+ms.openlocfilehash: c9fdd0c530ca34305aa3a9197c3bb938d4fb9f1f
+ms.sourcegitcommit: f29fec8ec945921cc3a89a6e7086127cc1bc1759
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/01/2019
-ms.locfileid: "71695057"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72528693"
 ---
 # <a name="collect-and-analyze-azure-activity-logs-in-log-analytics-workspace-in-azure-monitor"></a>在 Azure 監視器的 Log Analytics 工作區中收集並分析 Azure 活動記錄
 [Azure 活動記錄](activity-logs-overview.md)可讓您深入瞭解 azure 訂用帳戶中所發生的訂用帳戶層級事件。 本文說明如何將活動記錄檔收集到 Log Analytics 工作區，以及如何使用活動記錄分析[監視解決方案](../insights/solutions.md)，以提供記錄查詢和用於分析此資料的視圖。 
@@ -31,7 +31,7 @@ ms.locfileid: "71695057"
 - 使用[記錄查詢](../log-query/log-query-overview.md)來執行複雜的分析，並取得活動記錄專案的深入見解。
 
 ## <a name="connect-to-log-analytics-workspace"></a>連接到 Log Analytics 工作區
-活動記錄只能連線到一個工作區，但單一工作區可以連接到相同 Azure 租使用者中多個訂用帳戶的活動記錄。 針對跨多個租使用者的集合，請參閱[將 Azure 活動記錄收集到不同 Azure Active Directory 租使用者中訂用帳戶之間的 Log Analytics 工作區](activity-log-collect-tenants.md)。
+單一工作區可以連接到相同 Azure 租使用者中多個訂用帳戶的活動記錄。 針對跨多個租使用者的集合，請參閱[將 Azure 活動記錄收集到不同 Azure Active Directory 租使用者中訂用帳戶之間的 Log Analytics 工作區](activity-log-collect-tenants.md)。
 
 > [!IMPORTANT]
 > 如果未針對您的訂用帳戶註冊 Microsoft.operationalinsights 和 Microsoft.operationsmanagement 資源提供者，您可能會收到下列程式的錯誤。 若要註冊這些提供者，請參閱[Azure 資源提供者和類型](../../azure-resource-manager/resource-manager-supported-services.md)。

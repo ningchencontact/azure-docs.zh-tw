@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: 599b5b075f32294f9e68c776c4a7744283e9c269
-ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
+ms.openlocfilehash: d227a0b43a641ae8f5333a62d4c55f4bbb6c781c
+ms.sourcegitcommit: f29fec8ec945921cc3a89a6e7086127cc1bc1759
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72244034"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72529020"
 ---
 # <a name="prepare-to-deploy-your-iot-edge-solution-in-production"></a>準備在生產環境中部署 IoT Edge 解決方案
 
@@ -73,7 +73,7 @@ IoT Edge 裝置可以是任何項目，包括 Raspberry Pi、膝上型電腦或�
 
 一旦您的 IoT Edge 裝置連線，請務必在未來的部署中繼續設定這兩個執行階段模組的 UpstreamProtocol 變數。 [設定 IoT Edge 裝置以透過 Proxy 伺服器進行通訊](how-to-configure-proxy-support.md)中提供此程序的範例。
 
-## <a name="deployment"></a>部署
+## <a name="deployment"></a>Deployment
 
 * **實用**
     * 與上游的通訊協定一致
@@ -93,7 +93,7 @@ IoT Edge 裝置可以是任何項目，包括 Raspberry Pi、膝上型電腦或�
 
 IoT Edge 的中樞和代理程式模組會使用本機儲存體來維護狀態，並啟用模組、裝置和雲端之間的訊息傳遞。 為獲得更好的可靠性和效能，請將系統模組設定為使用主機檔案系統上的存放裝置。
 
-如需詳細資訊，請參閱[系統模組的主機存放裝置](offline-capabilities.md#host-storage-for-system-modules)。
+如需詳細資訊，請參閱[系統模組的主機存放裝置](how-to-access-host-storage-from-module.md)。
 
 ### <a name="reduce-memory-space-used-by-iot-edge-hub"></a>減少 IoT Edge 中樞所使用的記憶體空間
 
@@ -172,7 +172,7 @@ Azure IoT 中樞和 IoT Edge 之間的通訊通道一律會設定為輸出。 �
 
 此檢查清單是防火牆規則的起始點：
 
-   | URL (\* = 萬用字元) | 輸出 TCP 連接埠 | 使用量 |
+   | URL (\* = 萬用字元) | 輸出 TCP 連接埠 | 用量 |
    | ----- | ----- | ----- |
    | mcr.microsoft.com  | 443 | Microsoft 容器登錄 |
    | global.azure-devices-provisioning.net  | 443 | DPS 存取 (選用) |
@@ -207,9 +207,9 @@ Azure IoT 中樞和 IoT Edge 之間的通訊通道一律會設定為輸出。 �
 
 根據預設，Moby 容器引擎不會設定容器記錄大小限制。 經過一段時間，這可能會導致裝置填滿記錄檔並耗盡磁碟空間。 請考慮下列選項來避免這種情況：
 
-**Option：設定適用于所有容器模組的全域限制 @ no__t-0
+**選項：設定適用于所有容器模組的全域限制**
 
-您可以限制容器引擎記錄檔選項中所有容器日誌的大小。 下列範例會將記錄驅動程式設定為 `json-file` （建議），並限制檔案的大小和數目：
+您可以限制容器引擎記錄檔選項中所有容器日誌的大小。 下列範例會將記錄驅動程式設定為 `json-file` （建議），並限制檔案大小和數目：
 
 ```JSON
 {
@@ -230,9 +230,9 @@ Azure IoT 中樞和 IoT Edge 之間的通訊通道一律會設定為輸出。 �
 
 容器引擎必須重新開機，變更才會生效。
 
-**Option：調整每個容器模組的記錄檔設定 @ no__t-0
+**選項：調整每個容器模組的記錄檔設定**
 
-您可以在每個模組的**createOptions**中執行此動作。 例如:
+您可以在每個模組的**createOptions**中執行此動作。 例如：
 
 ```yml
 "createOptions": {
@@ -250,7 +250,7 @@ Azure IoT 中樞和 IoT Edge 之間的通訊通道一律會設定為輸出。 �
 
 **Linux 系統上的其他選項**
 
-* 設定 [`journald`] 做為預設記錄驅動程式，將容器引擎設定為將記錄檔傳送至 @no__t 0[日誌](https://docs.docker.com/config/containers/logging/journald/)。 
+* 設定 [`journald`] 做為預設記錄驅動程式，將容器引擎設定為將記錄檔傳送至 `systemd`[日誌](https://docs.docker.com/config/containers/logging/journald/)。 
 
 * 藉由安裝 logrotate 工具，定期從您的裝置移除舊的記錄檔。 使用下列檔案規格： 
 

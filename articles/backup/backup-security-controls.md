@@ -8,16 +8,16 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 09/23/2019
 ms.author: dacurwin
-ms.openlocfilehash: f44be7556b6d741df93faeeab1dbdfc15bc8ebfd
-ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
+ms.openlocfilehash: 8170022a3ee4b4b65e8da0d9e5a2f8464675d08f
+ms.sourcegitcommit: f29fec8ec945921cc3a89a6e7086127cc1bc1759
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71211811"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72528103"
 ---
 # <a name="security-controls-for-azure-backup"></a>Azure 備份的安全性控制項
 
-本文記載內建在 Azure 備份中的安全性控制項。 
+本文記載內建在 Azure 備份中的安全性控制項。
 
 [!INCLUDE [Security controls Header](../../includes/security-controls-header.md)]
 
@@ -34,7 +34,7 @@ ms.locfileid: "71211811"
 
 | 安全性控制 | 是/否 | 注意| | 文件
 |---|---|--|
-| Azure 監視支援 (Log analytics、App insights 等)| 是 | 透過診斷記錄支援 Log Analytics。 如需詳細資訊, 請參閱[使用 Log Analytics 監視 Azure 備份受保護的工作負載](https://azure.microsoft.com/blog/monitor-all-azure-backup-protected-workloads-using-log-analytics/)。 |  |
+| Azure 監視支援（Log analytics、App insights 等）| 是 | Log Analytics 可透過資源記錄來支援。 如需詳細資訊，請參閱[使用 Log Analytics 監視 Azure 備份受保護的工作負載](https://azure.microsoft.com/blog/monitor-all-azure-backup-protected-workloads-using-log-analytics/)。 |  |
 | 控制和管理平面記錄和審核| 是 | Azure 入口網站中所有由客戶觸發的動作都會都記錄到活動記錄。 |  |
 | 資料平面記錄和審核| 否 | 無法直接存取 Azure 備份資料平面。  |  |
 
@@ -42,16 +42,16 @@ ms.locfileid: "71211811"
 
 | 安全性控制 | 是/否 | 注意| | 文件
 |---|---|--|
-| 驗證| 是 | 驗證會透過 Azure Active Directory 進行。 |  |
-| Authorization| 是 | 會使用建立客戶和內建的 RBAC 角色。 如需詳細資訊, 請參閱[使用以角色為基礎的存取控制來管理 Azure 備份復原點](/azure/backup/backup-rbac-rs-vault)。 |  |
+| Authentication| 是 | 驗證會透過 Azure Active Directory 進行。 |  |
+| Authorization| 是 | 會使用建立客戶和內建的 RBAC 角色。 如需詳細資訊，請參閱[使用以角色為基礎的存取控制來管理 Azure 備份復原點](/azure/backup/backup-rbac-rs-vault)。 |  |
 
 ## <a name="data-protection"></a>資料保護
 
 | 安全性控制 | 是/否 | 注意 | | 文件
 |---|---|--|
-| 待用的伺服器端加密：Microsoft 管理的金鑰 | 是 | 對儲存體帳戶使用儲存體服務加密。 |  |
+| 待用的伺服器端加密： Microsoft 管理的金鑰 | 是 | 對儲存體帳戶使用儲存體服務加密。 |  |
 | 待用的伺服器端加密：客戶管理的金鑰（BYOK） | 否 |  |  |
-| 資料行層級加密 (Azure 資料服務)| 否 |  |  |
+| 資料行層級加密（Azure 資料服務）| 否 |  |  |
 | 傳輸中的加密（例如 ExpressRoute 加密、VNet 加密中和 VNet VNet 加密）| 否 | 使用 HTTPS。 |  |
 | API 呼叫加密| 是 |  |  |
 
@@ -59,7 +59,7 @@ ms.locfileid: "71211811"
 
 | 安全性控制 | 是/否 | 注意| | 文件
 |---|---|--|
-| 設定管理支援 (設定的版本設定等)| 是|  |  |
+| 設定管理支援（設定的版本設定等）| 是|  |  |
 
 ## <a name="next-steps"></a>後續步驟
 

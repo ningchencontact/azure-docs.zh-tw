@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: virtual-machines-linux
 ms.tgt_pltfrm: linux
 ms.subservice: disks
-ms.openlocfilehash: 88b5cacf432e467c893dac6fc5839c468b2eafbd
-ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
+ms.openlocfilehash: d193dcd0c0539c2daa7220d915fdc3e02c8ea798
+ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71828666"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72512433"
 ---
 # <a name="upload-a-vhd-to-azure-using-azure-powershell"></a>使用 Azure PowerShell 將 vhd 上傳至 Azure
 
@@ -27,7 +27,7 @@ ms.locfileid: "71828666"
 
 - 下載最新[版本的 AzCopy v10](../../storage/common/storage-use-azcopy-v10.md#download-and-install-azcopy)。
 - [安裝 Azure PowerShell 模組](/powershell/azure/install-Az-ps)。
-- 如果您想要從-pem 上傳 vhd：已[針對 Azure 備](prepare-for-upload-vhd-image.md)妥並儲存在本機的 vhd。
+- 如果您想要從 on pem 上傳 vhd：已[針對 Azure 準備](prepare-for-upload-vhd-image.md)的 vhd，儲存在本機上。
 - 或者，如果您想要執行複製動作，則是 Azure 中的受控磁片。
 
 ## <a name="create-an-empty-managed-disk"></a>建立空的受控磁片
@@ -39,7 +39,7 @@ ms.locfileid: "71828666"
 - ReadToUpload，這表示磁片已準備好接收上傳，但未產生任何[安全存取](https://docs.microsoft.com/azure/storage/common/storage-dotnet-shared-access-signature-part-1)簽章（SAS）。
 - ActiveUpload，這表示磁片已準備好接收上傳，並已產生 SAS。
 
-在上述任一種狀態中，不論實際的磁片類型為何，受控磁片都會以[標準 HDD 定價](https://azure.microsoft.com/pricing/details/managed-disks/)計費。 例如，P10 會以 S10 計費。 在對受控磁片呼叫`revoke-access`之前，這會是 true，這是將磁片連結至 VM 所需的值。
+在上述任一種狀態中，不論實際的磁片類型為何，受控磁片都會以[標準 HDD 定價](https://azure.microsoft.com/pricing/details/managed-disks/)計費。 例如，P10 會以 S10 計費。 這會是 true，直到在受控磁片上呼叫 `revoke-access` 為止，若要將磁片連結至 VM，這是必要的。
 
 建立空的標準 HDD 以進行上傳之前，您需要您想要上傳之 vhd 的檔案大小（以位元組為單位）。 範例程式碼會為您取得，但是您也可以使用： `$vhdSizeBytes = (Get-Item "<fullFilePathHere>").length`。 指定 **-UploadSizeInBytes**參數時，會使用這個值。
 
@@ -77,7 +77,7 @@ $disk = Get-AzDisk -ResourceGroupName 'myResourceGroup' -DiskName 'myDiskName'
 AzCopy.exe copy "c:\somewhere\mydisk.vhd" $diskSas.AccessSAS --blob-type PageBlob
 ```
 
-如果您的 sas 在上傳期間過期，而且您尚未`revoke-access`呼叫，您可以使用`grant-access`，再次取得新的 sas 以繼續上傳。
+如果您的 SAS 在上傳期間過期，而且您尚未呼叫 `revoke-access`，您可以使用 `grant-access` 再次取得新的 SAS 來繼續上傳。
 
 上傳完成之後，而且您不再需要將任何其他資料寫入磁片，請撤銷 SAS。 撤銷 SAS 將會變更受控磁片的狀態，並可讓您將磁片連結至 VM。
 
@@ -94,7 +94,7 @@ Revoke-AzDiskAccess -ResourceGroupName 'myResourceGroup' -DiskName 'myDiskName'
 > [!IMPORTANT]
 > 當您從 Azure 提供受控磁片的磁片大小（以位元組為單位）時，您需要新增512的位移。 這是因為在傳回磁片大小時，Azure 會省略頁尾。 如果您不這麼做，複製將會失敗。 下列腳本已經為您執行這項工作。
 
-以您的值取代 `<sourceResourceGroupHere>`、`<sourceDiskNameHere>`、`<targetDiskNameHere>`、`<targetResourceGroupHere>`、`<yourOSTypeHere>` 和 `<yourTargetLocationHere>` （uswest2 位置值的範例），然後執行下列腳本以複製受控磁片。
+使用您的值取代 `<sourceResourceGroupHere>`、`<sourceDiskNameHere>`、`<targetDiskNameHere>`、`<targetResourceGroupHere>`、`<yourOSTypeHere>` 和 `<yourTargetLocationHere>` （位置值的範例），然後執行下列腳本以複製受控磁片。
 
 ```powershell
 
@@ -128,4 +128,4 @@ Revoke-AzDiskAccess -ResourceGroupName $targetRG -DiskName $targetDiskName
 
 既然您已成功將 vhd 上傳至受控磁片，您可以將磁片連結至 VM 並開始使用它。
 
-若要瞭解如何將磁片連接至 VM，請參閱主題中的文章：[使用 PowerShell 將資料磁片連結至 WINDOWS VM](attach-disk-ps.md)。
+若要瞭解如何將資料磁片連結至 VM，請參閱主旨：[使用 PowerShell 將資料磁片連結至 WINDOWS VM](attach-disk-ps.md)中的文章。 若要使用磁片做為 OS 磁片，請參閱[從特製化磁片建立 WINDOWS VM](create-vm-specialized.md#create-the-new-vm)。

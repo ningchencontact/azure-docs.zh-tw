@@ -4,15 +4,15 @@ description: 說明 Azure Analysis Services 中資料模型支援的資料來源
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 09/13/2019
+ms.date: 10/16/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 79346f0bf80386fb83f55daccda8790652ff8541
-ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
+ms.openlocfilehash: c6043d9e18c364073ad1ea46e26335577e0ec3b2
+ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/13/2019
-ms.locfileid: "72298632"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72512452"
 ---
 # <a name="data-sources-supported-in-azure-analysis-services"></a>Azure Analysis Services 中支援的資料來源
 
@@ -49,7 +49,7 @@ ms.locfileid: "72298632"
 
 |資料來源 | 記憶體內部提供者 | DirectQuery 提供者 |
 |  --- | --- | --- |
-| [SQL Server] |SQL Server Native Client 11.0、Microsoft OLE DB Provider for SQL Server、.NET Framework Data Provider for SQL Server | .NET Framework Data Provider for SQL Server |
+| SQL Server |SQL Server Native Client 11.0、Microsoft OLE DB Provider for SQL Server、.NET Framework Data Provider for SQL Server | .NET Framework Data Provider for SQL Server |
 | SQL Server 資料倉儲 |SQL Server Native Client 11.0、Microsoft OLE DB Provider for SQL Server、.NET Framework Data Provider for SQL Server | .NET Framework Data Provider for SQL Server |
 | Oracle | 適用于 Oracle、Oracle Data Provider for .NET 的 OLE DB 提供者 |Oracle Data Provider for .NET |
 | Teradata |OLE DB Provider for Teradata、Teradata Data Provider for .NET |Teradata Data Provider for .NET |
@@ -71,7 +71,7 @@ ms.locfileid: "72298632"
 |IBM Informix<sup>[1](#tab1400b)</sup> (搶鮮版 (Beta)) |
 |JSON 文件<sup>[1](#tab1400b)</sup>     |  
 |二進位檔中的程式行<sup>[1](#tab1400b)</sup>     | 
-|MySQL Database     | 
+|MySQL 資料庫     | 
 |OData 摘要<sup>[1](#tab1400b)</sup>     |  
 |ODBC 查詢     | 
 |OLE DB     |   
@@ -91,7 +91,7 @@ ms.locfileid: "72298632"
 
 ## <a name="specifying-a-different-provider"></a>指定不同提供者
 
-Azure Analysis Services 中的資料模型連線至某些資料來源時，可能需要不同的資料提供者。 在某些情況下，使用原生提供者 (例如 SQL Server Native Client (SQLNCLI11)) 連接到資料來源的表格式模型可能會傳回錯誤。 如果使用 SQLOLEDB 以外的原生提供者，您可能會看到錯誤訊息：**未註冊 'SQLNCLI11.1' 提供者**。 或者，如果您的 DirectQuery 模型已與內部部署資料來源連線，而您使用了原生提供者，則可能會看見錯誤訊息：**Error creating OLE DB row set.Incorrect syntax near 'LIMIT'”** (建立 OLE DB 列集時發生錯誤。'LIMIT' 附近的語法錯誤)。
+Azure Analysis Services 中的資料模型連線至某些資料來源時，可能需要不同的資料提供者。 在某些情況下，使用原生提供者 (例如 SQL Server Native Client (SQLNCLI11)) 連接到資料來源的表格式模型可能會傳回錯誤。 如果使用 SQLOLEDB 以外的原生提供者，您可能會看到錯誤訊息：**未註冊 'SQLNCLI11.1' 提供者**。 或者，如果您有連接到內部部署資料來源的 DirectQuery 模型，而且您使用原生提供者，您可能會看到錯誤訊息：**建立 OLE DB 資料列集時發生錯誤。接近 ' LIMIT ' 的語法不正確**。
 
 將內部部署 SQL Server Analysis Services 表格式模型移轉至 Azure Analysis Services 時，可能需要變更提供者。
 

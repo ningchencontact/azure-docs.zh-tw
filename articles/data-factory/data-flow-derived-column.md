@@ -1,17 +1,17 @@
 ---
-title: 對應資料流程中的衍生資料行轉換-Azure Data Factory |Microsoft Docs
+title: Azure Data Factory 對應資料流程中的衍生資料行轉換 |Microsoft Docs
 description: 瞭解如何使用對應的資料流程衍生的資料行轉換，在 Azure Data Factory 中大規模轉換資料。
 author: kromerm
 ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 10/15/2019
-ms.openlocfilehash: 5a4ee90717d46fe593d9e10083b349e069216dac
-ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
+ms.openlocfilehash: 60451fa6152590ed0fde51be436c867f39906acf
+ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72436753"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72514807"
 ---
 # <a name="derived-column-transformation-in-mapping-data-flow"></a>對應資料流程中的衍生資料行轉換
 
@@ -46,7 +46,9 @@ ms.locfileid: "72436753"
 
 ### <a name="example"></a>範例
 
-下列範例是名為 `CleanData` 的衍生資料行，其接受傳入串流 `MoviesYear`，並建立兩個衍生的資料行。 第一個衍生的資料行會將資料行 `Rating` 取代為整數類型的評等值。 第二個衍生的資料行是一種模式，它會比對名稱開頭為 ' 電影 ' 的每個資料行。 針對每個相符的資料行，它會建立一個 `movie` 的資料行，它等於前面加上 ' movie_ ' 的相符資料行的值。 在 Data Factory UX 中，這項轉換看起來如下圖所示：
+下列範例是名為 `CleanData` 的衍生資料行，其接受傳入串流 `MoviesYear`，並建立兩個衍生的資料行。 第一個衍生的資料行會將資料行 `Rating` 取代為整數類型的評等值。 第二個衍生的資料行是一種模式，它會比對名稱開頭為 ' 電影 ' 的每個資料行。 它會針對每個相符的資料行建立一個資料行 `movie`，其等於前面加上 ' movie_ ' 的相符資料行的值。 
+
+在 Data Factory UX 中，這項轉換看起來如下圖所示：
 
 ![衍生範例](media/data-flow/derive-script1.png "衍生範例")
 

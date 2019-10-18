@@ -1,5 +1,5 @@
 ---
-title: Azure 受控應用程式部署範本成品參考
+title: Azure 受控應用程式範本成品參考
 description: 提供 Azure 受控應用程式部署範本成品的範例。
 services: managed-applications
 ms.service: managed-applications
@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.author: lazinnat
 author: lazinnat
 ms.date: 07/11/2019
-ms.openlocfilehash: ec59c9cde4f23b4a9d641d286e152ea737576534
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
-ms.translationtype: HT
+ms.openlocfilehash: b260524c7e23e68bf6cd57a88356568faf724605
+ms.sourcegitcommit: f29fec8ec945921cc3a89a6e7086127cc1bc1759
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72330179"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72528932"
 ---
 # <a name="reference-deployment-template-artifact"></a>參考：部署範本成品
 

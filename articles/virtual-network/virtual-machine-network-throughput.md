@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 4/26/2019
 ms.author: steveesp
 ms.reviewer: kumud, mareat
-ms.openlocfilehash: f5694e18d5743118e2b6e73708dd3acb17151198
-ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
+ms.openlocfilehash: 68fe50c75fc25106a0f47af8bf6cfc0db562fbe5
+ms.sourcegitcommit: f29fec8ec945921cc3a89a6e7086127cc1bc1759
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "67874933"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72529111"
 ---
 # <a name="virtual-machine-network-bandwidth"></a>虛擬機器網路頻寬
 
@@ -39,34 +39,34 @@ Azure 虛擬機器必須連結一個 (但可以有數個) 網路介面。 配置
 預期的輸出輸送量和每個虛擬機器大小支援的網路介面數目，皆詳細列在 Azure [Windows](../virtual-machines/windows/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json) 和 [Linux](../virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json) 虛擬機器大小中。 選取類型，例如一般用途，然後在產生的頁面上選取大小的系列，例如 Dv2 系列。 每個數列都有資料表，且最後一個資料行包含網路規格，標題為**最大 NIC 數 / 預期的網路效能 (Mbps)** 。 
 
 輸送量限制會套用至虛擬機器。 輸送量不會受到下列因素影響：
-- **網路介面數目**:頻寬限制是來自虛擬機器的所有輸出流量累計。
-- **加速網路**:雖然此功能有助於達到已發佈的限制, 但並不會變更限制。
-- **流量目的地**:所有目的地均計入輸出限制。
-- **通訊協定**：所有通訊協定的所有輸出流量都會計入此限制。
+- **網路介面數目**：頻寬限制是虛擬機器所有輸出流量的累計。
+- **加速網路**：雖然此功能有助於達到已發佈的限制，但不會變更限制。
+- **流量目的地**：所有目的地都會計入輸出限制。
+- **通訊協定**：通過所有通訊協定的所有輸出流量都會計入限制。
 
 ## <a name="network-flow-limits"></a>網路流量限制
 
-除了頻寬, VM 上的網路連線數目會在任何指定的時間內出現, 可能會影響其網路效能。 Azure 網路堆疊會針對稱為「流程」的資料結構中的每個方向, 維護 TCP/UDP 連線的狀態。 一般的 TCP/UDP 連接會建立2個流程, 一個用於輸入, 另一個用於輸出方向。 
+除了頻寬，VM 上的網路連線數目會在任何指定的時間內出現，可能會影響其網路效能。 Azure 網路堆疊會針對稱為「流程」的資料結構中的每個方向，維護 TCP/UDP 連線的狀態。 一般的 TCP/UDP 連接會建立2個流程，一個用於輸入，另一個用於輸出方向。 
 
-端點之間的資料傳輸除了執行資料傳輸的流程之外, 還需要建立數個流量。 某些範例是針對 DNS 解析建立的流程, 以及針對負載平衡器健康情況探查所建立的流程。 另請注意, 網路虛擬裝置 (Nva) (例如閘道、proxy、防火牆) 將會看到針對在設備上終止的連線所建立的流程, 並由設備產生。 
+端點之間的資料傳輸除了執行資料傳輸的流程之外，還需要建立數個流量。 某些範例是針對 DNS 解析建立的流程，以及針對負載平衡器健康情況探查所建立的流程。 另請注意，網路虛擬裝置（Nva）（例如閘道、proxy、防火牆）將會看到針對在設備上終止的連線所建立的流程，並由設備產生。 
 
 ![透過轉送設備的 TCP 交談流量計數](media/virtual-machine-network-throughput/flow-count-through-network-virtual-appliance.png)
 
 ## <a name="flow-limits-and-recommendations"></a>流程限制與建議
 
-目前, Azure 網路堆疊針對具有8個以上 CPU 核心和100k 流量總計的 Vm, 支援250K 的總網路流量, 並在 CPU 核心少於8個的 Vm 上提供良好的效能。 超過此限制時, 網路效能會正常地降低, 而其他流量則會以固定的百分比表示, 500K 輸入和500K 輸出, 在這之後會捨棄額外的流程。
+目前，Azure 網路堆疊針對具有8個以上 CPU 核心和100k 流量總計的 Vm，支援250K 的總網路流量，並在 CPU 核心少於8個的 Vm 上提供良好的效能。 超過此限制時，網路效能會正常地降低，而其他流量則會以固定的百分比表示，500K 輸入和500K 輸出，在這之後會捨棄額外的流程。
 
 ||具有 < 8 個 CPU 核心的 Vm|具有8個以上 CPU 核心的 Vm|
 |---|---|---|
 |<b>良好的效能</b>|100K 流量 |250K 流程|
 |<b>效能降低</b>|超過100k 流量|上述250K 流程|
-|<b>流程限制</b>|1百萬流程|1百萬流程|
+|<b>流程限制</b>|500K 流程|500K 流程|
 
-[Azure 監視器](../azure-monitor/platform/metrics-supported.md#microsoftcomputevirtualmachines)中提供計量, 可追蹤 VM 或 VMSS 實例上的網路流量和流量建立速率。
+[Azure 監視器](../azure-monitor/platform/metrics-supported.md#microsoftcomputevirtualmachines)中提供計量，可追蹤 VM 或 VMSS 實例上的網路流量和流量建立速率。
 
-![azure-monitor-flow-metrics.png](media/virtual-machine-network-throughput/azure-monitor-flow-metrics.png)
+![azure-monitor-flow-metrics .png](media/virtual-machine-network-throughput/azure-monitor-flow-metrics.png)
 
-連接建立和終止速率也會影響網路效能, 因為連線建立和終止共用 CPU 與封包處理常式。 建議您根據預期的流量模式來基準工作負載, 並適當地相應放大工作負載, 以符合您的效能需求。 
+連接建立和終止速率也會影響網路效能，因為連線建立和終止共用 CPU 與封包處理常式。 建議您根據預期的流量模式來基準工作負載，並適當地相應放大工作負載，以符合您的效能需求。 
 
 ## <a name="next-steps"></a>後續步驟
 

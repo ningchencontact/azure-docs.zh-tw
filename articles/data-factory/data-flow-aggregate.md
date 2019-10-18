@@ -1,5 +1,5 @@
 ---
-title: 對應資料流程中的匯總轉換-Azure Data Factory |Microsoft Docs
+title: Azure Data Factory 對應資料流程中的匯總轉換 |Microsoft Docs
 description: 瞭解如何使用對應資料流程匯總轉換，在 Azure Data Factory 中大規模匯總資料。
 author: kromerm
 ms.author: makromer
@@ -7,12 +7,12 @@ ms.reviewer: daperlov
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 10/15/2019
-ms.openlocfilehash: 3f2a3219a731133ecaedf30fec1854f1a128caa3
-ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
+ms.openlocfilehash: add548a184440c408b8b74e131f2249b4f616ddc
+ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72431599"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72514838"
 ---
 # <a name="aggregate-transformation-in-mapping-data-flow"></a>對應資料流程中的匯總轉換 
 
@@ -68,7 +68,9 @@ Group by 子句在匯總轉換中是選擇性的。
 
 ### <a name="example"></a>範例
 
-下列範例會將傳入的資料流程 `MoviesYear`，並依資料行 `year` 將資料列分組。 轉換會建立 `avgrating` 的匯總資料行，評估為數據行 `Rating` 的平均值。 這個匯總轉換會命名為 `AvgComedyRatingsByYear`。 在 Data Factory UX 中，這項轉換看起來如下圖所示：
+下列範例會將傳入的資料流程 `MoviesYear`，並依資料行 `year` 將資料列分組。 轉換會建立 `avgrating` 的匯總資料行，評估為數據行 `Rating` 的平均值。 這個匯總轉換會命名為 `AvgComedyRatingsByYear`。
+
+在 Data Factory UX 中，這項轉換看起來如下圖所示：
 
 ![依範例分組](media/data-flow/agg-script1.png "依範例分組")
 

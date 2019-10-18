@@ -2,22 +2,22 @@
 title: Azure HDInsight 中的叢集容量規劃
 description: 識別 Azure HDInsight 叢集的容量和效能規劃的重要問題。
 author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 05/23/2019
-ms.author: hrasheed
-ms.openlocfilehash: 64de4078fb529140859f1d4ff2e973fd081a5400
-ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
+ms.date: 10/15/2019
+ms.openlocfilehash: 17b68de4766aa8f995a88bd583a7a84e646b9325
+ms.sourcegitcommit: f29fec8ec945921cc3a89a6e7086127cc1bc1759
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70916567"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72529162"
 ---
 # <a name="capacity-planning-for-hdinsight-clusters"></a>HDInsight 叢集的容量規劃
 
-在部署 HDInsight 叢集之前，請規劃所需的叢集容量，方法為判斷所需的效能和縮放比例。 此計劃可協助將可用性和成本最佳化。 部署之後，就無法變更某些叢集容量決策。 如果效能參數變更，就可以拆卸並重新建立叢集，而不會遺失預存的資料。
+在部署 HDInsight 叢集之前，請規劃所需的叢集容量，方法為判斷所需的效能和縮放比例。 此計劃可協助將可用性和成本最佳化。 無法在部署之後變更某些叢集容量決策。 如果效能參數變更，就可以拆卸並重新建立叢集，而不會遺失預存的資料。
 
 容量規劃的主要問題是：
 
@@ -31,13 +31,13 @@ ms.locfileid: "70916567"
 
 Azure 地區決定您叢集實際佈建的位置。 若要將讀取和寫入的延遲降至最低，叢集就應該接近您的資料。
 
-HDInsight 可在多個 Azure 區域中使用。 若要尋找最接近的區域，請參閱[依區域提供的產品](https://azure.microsoft.com/regions/services/)中 *Analytics* 下的 *HDInsight* 項目。
+HDInsight 可在多個 Azure 區域中使用。 若要尋找最接近的區域，請參閱[依區域提供的產品](https://azure.microsoft.com/en-us/global-infrastructure/services/?products=hdinsight/)。
 
 ## <a name="choose-storage-location-and-size"></a>選擇存放位置和大小
 
 ### <a name="location-of-default-storage"></a>預設儲存體的位置
 
-預設儲存體 (無論是 Azure 儲存體帳戶或 Azure Data Lake Storage) 必須與您的叢集在相同的位置。 Azure 儲存體可在所有位置使用。 Data Lake Storage Gen1 可在某些區域中使用 - 請在[依區域提供的 Azure 產品](https://azure.microsoft.com/regions/services/)中的儲存體下參閱目前的 Data Lake Storage 可用性。
+預設儲存體 (無論是 Azure 儲存體帳戶或 Azure Data Lake Storage) 必須與您的叢集在相同的位置。 Azure 儲存體可在所有位置使用。 Data Lake Storage Gen1 可在某些區域中使用-請參閱目前的[Data Lake Storage 可用性](https://azure.microsoft.com/en-us/global-infrastructure/services/?products=storage)。
 
 ### <a name="location-of-existing-data"></a>現有資料的位置
 
@@ -53,7 +53,7 @@ Azure 儲存體有某些[容量限制](../azure-subscription-service-limits.md#s
 
 * 當資料量很可能超過單一 blob 儲存體容器的儲存體容量。
 * 當 blob 容器的存取速率可能會超過節流發生的閾值。
-* 當您需要製作資料時，已上傳到可供叢集使用的 blob 容器。
+* 當您想要建立資料時，您已上傳至可供叢集使用的 blob 容器。
 * 當您基於安全性的原因或要簡化系統管理而需要將儲存體的不同部分進行隔離。
 
 針對 48 節點叢集，建議使用 4 到 8 個儲存體帳戶。 雖然可能已經有足夠的儲存體總計，每個儲存體帳戶都會提供額外的網路頻寬供計算節點使用。 當您有多個儲存體帳戶時，請對每個儲存體帳戶使用隨機名稱，不含前置詞。 隨機命名的目的在於減少儲存體瓶頸 (節流) 或所有帳戶發生一般模式失敗的機會。 為提升效能，每個儲存體帳戶僅使用一個容器。
@@ -66,7 +66,7 @@ Azure 儲存體有某些[容量限制](../azure-subscription-service-limits.md#s
 
 每個叢集類型都具有一組節點類型，且每個節點類型都有其 VM 大小和類型的特定選項。
 
-若要判斷您應用程式的最佳叢集大小，您可以效能評定叢集容量，並依指示增加大小。 例如，您可以使用模擬的工作負載或 Canary 查詢。 使用模擬工作負載時，您要在不同大小的叢集上執行您預期的工作負載，逐漸增加大小直到觸達所需的效能為止。 可以在其他生產查詢之間定期插入 Canary 查詢，以說明叢集是否有足夠的資源。
+若要判斷您應用程式的最佳叢集大小，您可以效能評定叢集容量，並依指示增加大小。 例如，您可以使用模擬的工作負載或 Canary 查詢。 使用模擬工作負載時，您要在不同大小的叢集上執行您預期的工作負載，逐漸增加大小直到觸達所需的效能為止。 未分類的查詢可以在其他生產查詢中定期插入，以顯示叢集是否有足夠的資源。
 
 VM 大小與類型是由 CPU 處理能力、RAM 大小和網路延遲所決定：
 
@@ -74,11 +74,11 @@ VM 大小與類型是由 CPU 處理能力、RAM 大小和網路延遲所決定�
 
 * RAM：VM 大小也會決定 VM 可用的 RAM 數量。 針對將資料儲存在記憶體以進行處理的工作負載，並非從磁碟讀取，請確保背景工作節點有足夠的記憶體來容納資料。
 
-* 網路：對於大部分的叢集類型而言，由叢集處理的資料不是在本機磁碟上，而是在諸如 Data Lake Storage 或 Azure 儲存體等外部儲存體服務中。 請考慮節點 VM 與儲存體服務之間的網路頻寬和輸送量。 可供 VM 使用的網路頻寬通常會隨著較大的大小而增加。 如需詳細資訊，請參閱 [VM 大小概觀](https://docs.microsoft.com/azure/virtual-machines/linux/sizes)。
+* 網路：對於大部分的叢集類型而言，由叢集處理的資料不在本機磁片上，而是在外部儲存體服務中，例如 Data Lake Storage 或 Azure 儲存體。 請考慮節點 VM 與儲存體服務之間的網路頻寬和輸送量。 可供 VM 使用的網路頻寬通常會隨著較大的大小而增加。 如需詳細資訊，請參閱 [VM 大小概觀](https://docs.microsoft.com/azure/virtual-machines/linux/sizes)。
 
 ## <a name="choose-the-cluster-scale"></a>選擇叢集縮放比例
 
-叢集的縮放比例取決於其 VM 節點的數量。 針對所有的叢集類型，有些叢集類型具有特定的縮放比例，以及支援相應放大的節點類型。例如，叢集可能需要正好三個 [Apache ZooKeeper](https://zookeeper.apache.org/) 節點或兩個前端節點。 以分散式方式進行資料處理的背景工作節點可受益於相應放大，方法是新增其他背景工作節點。
+叢集的縮放比例取決於其 VM 節點的數量。 所有叢集類型的節點類型都有特定的規模，以及支援相應放大的節點類型。例如，叢集可能只需要三個[Apache ZooKeeper](https://zookeeper.apache.org/)節點或兩個前端節點。 以分散式方式進行資料處理的背景工作節點可受益於相應放大，方法是新增其他背景工作節點。
 
 根據您的叢集類型，增加背景工作節點數可新增額外的計算容量 (例如更多核心)，但也可以新增至整個叢集所需的記憶體總數，以支援記憶體內正在進行處理的資料儲存體。 如同 VM 大小和類型的選擇，通常會使用模擬的工作負載或 Canary 查詢，以實證方式達到選取正確的叢集縮放比例。
 
@@ -96,24 +96,23 @@ VM 大小與類型是由 CPU 處理能力、RAM 大小和網路延遲所決定�
 
 有時會因多個對應平行執行而發生錯誤，從而減少多節點叢集上的元件。 若要協助找出問題，請在單一背景工作節點叢集上執行並行多個作業來嘗試進行分散式測試，然後展開此方法，在包含多個節點的叢集上同時執行多個作業。 若要在 Azure 中建立單一節點的 HDInsight 叢集，請使用 [*自訂（大小、設定、應用程式）* ] 選項，並在入口網站中布建新叢集時，針對 [叢集**大小**] 區段中的背景*工作節點數目*使用1的值。
 
-
 ## <a name="quotas"></a>配額
 
 決定您的目標叢集 VM 大小、縮放比例和類型之後，請檢查您訂用帳戶的目前配額容量限制。 當您觸達配額限制時，可能無法部署新的叢集，或新增更多背景工作節點來將現有的叢集相應放大。 唯一的配額限制是 CPU 核心配額，其存在於每個訂用帳戶區域層級。 例如，您的訂用帳戶在美國東部區域可能有 30 個核心限制。 如果您需要要求增加配額，請執行下列步驟：
 
 1. 登入 [Azure 入口網站](https://portal.azure.com/)。
 1. 選取頁面左下方的 [說明 **+ 支援**]。
-1. 選取 [**新增支援要求**]。
+1. 選取 [新增支援要求]。
 1. 在 [新增支援要求] 頁面的 [基本] 索引標籤上，選取下列選項：
-   - **問題類型**：**服務與訂用帳戶限制 (配額)**
+   - **問題類型**：**服務和訂用帳戶限制（配額）**
    - **訂用帳戶**：您需要修改的訂用帳戶
-   - **配額類型**：**HDInsight**
+   - **配額類型**： **HDInsight**
     
      ![建立支援要求以提高 HDInsight 核心配額](./media/hdinsight-capacity-planning/hdinsight-quota-support-request.png)
 
-1. 完成時，選取 下一步:**解決方案 > >** 。
+1. 選取 **[下一步]：方案 > >** 。
 1. 在 [**詳細資料**] 頁面上，輸入問題的描述、選取問題的嚴重性、您偏好的連絡人方法，以及其他必要的欄位。
-1. 完成時，選取 下一步:**審查 + 建立 > >** 。
+1. 選取 **[下一步]： [檢查 + 建立 > >]** 。
 1. 在 [**審查 + 建立**] 索引標籤上，選取 [**建立**]。
 
 > [!NOTE]  
@@ -125,5 +124,5 @@ VM 大小與類型是由 CPU 處理能力、RAM 大小和網路延遲所決定�
 
 ## <a name="next-steps"></a>後續步驟
 
-* [使用 Apache Hadoop、Spark、Kafka 及其他工具在 HDInsight 中設定叢集](hdinsight-hadoop-provision-linux-clusters.md)：了解如何在 HDInsight 中使用 Apache Hadoop、Spark、Kafka、Interactive Hive、HBase、ML 服務或 Storm 安裝並設定叢集。
+* [使用 Apache Hadoop、Spark 及 Kafka 等在 HDInsight 中設定叢集](hdinsight-hadoop-provision-linux-clusters.md)：了解如何在 HDInsight 中使用 Apache Hadoop、Spark、Kafka、Interactive Hive、HBase、ML 服務或 Storm 安裝並設定叢集。
 * [監視叢集效能](hdinsight-key-scenarios-to-monitor.md)：了解重要情節，以監視可能會影響叢集容量的 HDInsight 叢集。

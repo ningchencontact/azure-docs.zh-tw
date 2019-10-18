@@ -16,12 +16,12 @@ ms.date: 10/15/2019
 ms.author: ajburnle
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bcf4a0272e21a1fba3cf9adbd9158492e4318578
-ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
+ms.openlocfilehash: 419970985b9531ffab348491730aaf6c00e143b1
+ms.sourcegitcommit: f29fec8ec945921cc3a89a6e7086127cc1bc1759
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72452987"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72527107"
 ---
 # <a name="govern-access-for-external-users-in-azure-ad-entitlement-management-preview"></a>在 Azure AD 權利管理（預覽）中管理外部使用者的存取權
 
@@ -90,12 +90,15 @@ Azure AD 權利管理利用[Azure AD 的企業對企業（B2B）](../b2b/what-is
 
 1. 一旦外部使用者失去對任何存取套件的最後一次指派，如果您想要封鎖他們登入此目錄，請將 [**封鎖外部使用者登入此目錄**] 設定為 **[是]** 。
 
-1. 一旦外部使用者失去對任何存取套件的最後一次指派，如果您想要移除其在目錄中的來賓使用者帳戶，請將 [**移除外部使用者**] 設定為 **[是]** 。
+    > [!NOTE]
+    > 如果使用者遭到封鎖而無法登入此目錄，則使用者將無法在此目錄中重新要求存取套件或要求其他存取權。 如果後續需要要求存取其他存取套件，請勿設定封鎖它們進行登入。
+
+1. 一旦外部使用者失去對任何存取套件的最後一次指派，如果您想要移除其在此目錄中的來賓使用者帳戶，請將 [**移除外部使用者**] 設定為 **[是]** 。
 
     > [!NOTE]
-    > 權利管理只會移除透過權利管理所邀請的帳戶。 此外，請注意，即使該使用者已新增至您目錄中未存取套件指派的資源，使用者也會遭到封鎖而無法登入並從您的目錄移除。 如果在接收存取套件指派之前，您的目錄中已有來賓，則會保留它們。 不過，如果來賓是透過存取套件指派進行邀請，而且受到邀請之後也已指派給商務用 OneDrive 或 SharePoint Online 網站，他們仍然會被移除。
+    > 權利管理只會移除透過權利管理所邀請的帳戶。 此外，請注意，即使該使用者已新增至此目錄中未存取套件指派的資源，也會封鎖該使用者，使其無法登入並從這個目錄移除。 如果在接收存取套件指派之前，此目錄中已有來賓，則會保留它們。 不過，如果來賓是透過存取套件指派進行邀請，而且受到邀請之後也已指派給商務用 OneDrive 或 SharePoint Online 網站，他們仍然會被移除。
 
-1. 如果您想要移除目錄中的來賓使用者帳戶，可以設定移除之前的天數。 如果您想要在來賓使用者帳戶失去對任何存取套件的最後一次指派時將其移除，請設定 [**從這個目錄移除外部使用者到0之前的天數**]。
+1. 如果您想要移除此目錄中的來賓使用者帳戶，您可以設定移除之前的天數。 如果您想要在來賓使用者帳戶失去對任何存取套件的最後一次指派時將其移除，請設定 [**從這個目錄移除外部使用者到0之前的天數**]。
 
 1. 按一下 [儲存]。
 
@@ -113,6 +116,6 @@ Azure AD 權利管理利用[Azure AD 的企業對企業（B2B）](../b2b/what-is
 
 ## <a name="next-steps"></a>後續步驟
 
-- [針對不在您目錄中的使用者](entitlement-management-access-package-create.md#for-users-not-in-your-directory)
+- [針對不在您目錄中的使用者](entitlement-management-access-package-request-policy.md#for-users-not-in-your-directory)
 - [建立和管理資原始目錄](entitlement-management-catalog-create.md)
 - [委派和角色](entitlement-management-delegate.md)

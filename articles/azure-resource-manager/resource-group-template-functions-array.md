@@ -1,17 +1,17 @@
 ---
-title: Azure Resource Manager 範本函式 - 陣列和物件 | Microsoft Docs
+title: Azure Resource Manager 範本函式-陣列和物件
 description: 描述 Azure Resource Manager 範本中用來使用陣列和物件的函式。
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 07/31/2019
 ms.author: tomfitz
-ms.openlocfilehash: cd4a74a9e9e9bb1c91a0a7a103a1cfb861fa7770
-ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
+ms.openlocfilehash: 3366a1be88043c792de8efa3b0d0ab735e558e2a
+ms.sourcegitcommit: f29fec8ec945921cc3a89a6e7086127cc1bc1759
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70194420"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72528496"
 ---
 # <a name="array-and-object-functions-for-azure-resource-manager-templates"></a>Azure Resource Manager 範本的陣列和物件函式
 
@@ -35,13 +35,13 @@ Resource Manager 提供了幾個用來使用陣列和物件的函式。
 * [take](#take)
 * [union](#union)
 
-若要取得以值分隔的字串值陣列，請參閱 [split](resource-group-template-functions-string.md#split)。
+若要取得以值分隔的字串值陣列，請參閱 [分割](resource-group-template-functions-string.md#split)。
 
 <a id="array" />
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="array"></a>陣列
+## <a name="array"></a>array
 `array(convertToArray)`
 
 將值轉換為陣列。
@@ -50,7 +50,7 @@ Resource Manager 提供了幾個用來使用陣列和物件的函式。
 
 | 參數 | 必要項 | Type | 描述 |
 |:--- |:--- |:--- |:--- |
-| convertToArray |是 |int、string、array 或 object |要轉換為陣列的值。 |
+| convertToArray |是 |整數、字串、陣列或物件 |要轉換為陣列的值。 |
 
 ### <a name="return-value"></a>傳回值
 
@@ -97,13 +97,13 @@ Resource Manager 提供了幾個用來使用陣列和物件的函式。
 }
 ```
 
-上述範例中具有預設值的輸出如下：
+先前範例中具有預設值的輸出如下：
 
-| Name | 類型 | 值 |
+| Name | Type | Value |
 | ---- | ---- | ----- |
-| intOutput | Array | [1] |
-| stringOutput | Array | ["efgh"] |
-| objectOutput | Array | [{"a": "b", "c": "d"}] |
+| intOutput | 陣列 | [1] |
+| stringOutput | 陣列 | ["efgh"] |
+| objectOutput | 陣列 | [{"a": "b", "c": "d"}] |
 
 若要使用 Azure CLI 部署此範例範本，請使用：
 
@@ -128,8 +128,8 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 
 | 參數 | 必要項 | Type | 描述 |
 |:--- |:--- |:--- |:--- |
-| arg1 |是 |int、string、array 或 object |要測試是否為 null 的第一個值。 |
-| 其他引數 |否 |int、string、array 或 object |要測試是否為 null 的其他值。 |
+| arg1 |是 |整數、字串、陣列或物件 |要測試是否為 null 的第一個值。 |
+| 其他引數 |否 |整數、字串、陣列或物件 |要測試是否為 null 的其他值。 |
 
 ### <a name="return-value"></a>傳回值
 
@@ -183,15 +183,15 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 }
 ```
 
-上述範例中具有預設值的輸出如下：
+先前範例中具有預設值的輸出如下：
 
-| Name | 類型 | 值 |
+| Name | Type | Value |
 | ---- | ---- | ----- |
 | stringOutput | String | 預設值 |
 | intOutput | Int | 1 |
-| objectOutput | 物件 | {"first": "default"} |
-| arrayOutput | Array | [1] |
-| emptyOutput | Bool | 真 |
+| objectOutput | Object | {"first": "default"} |
+| arrayOutput | 陣列 | [1] |
+| emptyOutput | Bool | True |
 
 若要使用 Azure CLI 部署此範例範本，請使用：
 
@@ -261,11 +261,11 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 }
 ```
 
-上述範例中具有預設值的輸出如下：
+先前範例中具有預設值的輸出如下：
 
-| Name | 類型 | 值 |
+| Name | Type | Value |
 | ---- | ---- | ----- |
-| return | Array | ["1-1", "1-2", "1-3", "2-1", "2-2", "2-3"] |
+| 傳回 | 陣列 | ["1-1", "1-2", "1-3", "2-1", "2-2", "2-3"] |
 
 若要使用 Azure CLI 部署此範例範本，請使用：
 
@@ -301,9 +301,9 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 }
 ```
 
-上述範例中具有預設值的輸出如下：
+先前範例中具有預設值的輸出如下：
 
-| Name | 類型 | 值 |
+| Name | Type | Value |
 | ---- | ---- | ----- |
 | concatOutput | String | prefix-5yj4yjf5mbg72 |
 
@@ -321,7 +321,7 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 
 <a id="contains" />
 
-## <a name="contains"></a>包含
+## <a name="contains"></a>contains
 `contains(container, itemToFind)`
 
 檢查陣列中是否包含值、物件中是否包含索引鍵，或字串中是否包含子字串。 字串比較會區分大小寫。 不過，測試時，如果物件包含索引鍵，比較便不區分大小寫。
@@ -335,7 +335,7 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 
 ### <a name="return-value"></a>傳回值
 
-找到項目則傳回 **True**，否則會傳回 **False**。
+找到項目則傳回 **True**，否則傳回 **False**。
 
 ### <a name="example"></a>範例
 
@@ -390,16 +390,16 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 }
 ```
 
-上述範例中具有預設值的輸出如下：
+先前範例中具有預設值的輸出如下：
 
-| Name | 類型 | 值 |
+| Name | Type | Value |
 | ---- | ---- | ----- |
-| stringTrue | Bool | 真 |
-| stringFalse | Bool | 偽 |
-| objectTrue | Bool | 真 |
-| objectFalse | Bool | 偽 |
-| arrayTrue | Bool | 真 |
-| arrayFalse | Bool | 偽 |
+| stringTrue | Bool | True |
+| stringFalse | Bool | false |
+| objectTrue | Bool | True |
+| objectFalse | Bool | false |
+| arrayTrue | Bool | True |
+| arrayFalse | Bool | false |
 
 若要使用 Azure CLI 部署此範例範本，請使用：
 
@@ -472,14 +472,14 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 }
 ```
 
-上述範例中具有預設值的輸出如下：
+先前範例中具有預設值的輸出如下：
 
-| Name | 類型 | 值 |
+| Name | Type | Value |
 | ---- | ---- | ----- |
-| stringArray | Array | ["a", "b", "c"] |
-| intArray | Array | [1, 2, 3] |
-| objectArray | Array | [{"one": "a", "two": "b", "three": "c"}] |
-| arrayArray | Array | [["one", "two", "three"]] |
+| stringArray | 陣列 | ["a", "b", "c"] |
+| intArray | 陣列 | [1, 2, 3] |
+| objectArray | 陣列 | [{"one": "a", "two": "b", "three": "c"}] |
+| arrayArray | 陣列 | [["one", "two", "three"]] |
 
 若要使用 Azure CLI 部署此範例範本，請使用：
 
@@ -495,7 +495,7 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 
 <a id="empty" />
 
-## <a name="empty"></a>空的
+## <a name="empty"></a>empty
 
 `empty(itemToTest)`
 
@@ -552,13 +552,13 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 }
 ```
 
-上述範例中具有預設值的輸出如下：
+先前範例中具有預設值的輸出如下：
 
-| Name | 類型 | 值 |
+| Name | Type | Value |
 | ---- | ---- | ----- |
-| arrayEmpty | Bool | 真 |
-| objectEmpty | Bool | 真 |
-| stringEmpty | Bool | 真 |
+| arrayEmpty | Bool | True |
+| objectEmpty | Bool | True |
+| stringEmpty | Bool | True |
 
 若要使用 Azure CLI 部署此範例範本，請使用：
 
@@ -618,11 +618,11 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 }
 ```
 
-上述範例中具有預設值的輸出如下：
+先前範例中具有預設值的輸出如下：
 
-| Name | 類型 | 值 |
+| Name | Type | Value |
 | ---- | ---- | ----- |
-| arrayOutput | String | one |
+| arrayOutput | String | 一 |
 | stringOutput | String | O |
 
 若要使用 Azure CLI 部署此範例範本，請使用：
@@ -697,12 +697,12 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 }
 ```
 
-上述範例中具有預設值的輸出如下：
+先前範例中具有預設值的輸出如下：
 
-| Name | 類型 | 值 |
+| Name | Type | Value |
 | ---- | ---- | ----- |
-| objectOutput | 物件 | {"one": "a", "three": "c"} |
-| arrayOutput | Array | ["two", "three"] |
+| objectOutput | Object | {"one": "a", "three": "c"} |
+| arrayOutput | 陣列 | ["two", "three"] |
 
 若要使用 Azure CLI 部署此範例範本，請使用：
 
@@ -716,7 +716,7 @@ az group deployment create -g functionexamplegroup --template-uri https://raw.gi
 New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/intersection.json
 ```
 
-## <a name="json"></a>JSON
+## <a name="json"></a>json
 `json(arg1)`
 
 傳回 JSON 物件。
@@ -725,7 +725,7 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 
 | 參數 | 必要項 | Type | 描述 |
 |:--- |:--- |:--- |:--- |
-| arg1 |是 |String |要轉換成 JSON 的值。 |
+| arg1 |是 |string |要轉換成 JSON 的值。 |
 
 
 ### <a name="return-value"></a>傳回值
@@ -769,13 +769,13 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 }
 ```
 
-上述範例中具有預設值的輸出如下：
+先前範例中具有預設值的輸出如下：
 
-| Name | 類型 | 值 |
+| Name | Type | Value |
 | ---- | ---- | ----- |
-| jsonOutput | 物件 | {"a": "b"} |
-| nullOutput | Boolean | 真 |
-| paramOutput | 物件 | {"a": "示範值"}
+| jsonOutput | Object | {"a": "b"} |
+| nullOutput | Boolean | True |
+| paramOutput | Object | {"a": "示範值"}
 
 若要使用 Azure CLI 部署此範例範本，請使用：
 
@@ -835,11 +835,11 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 }
 ```
 
-上述範例中具有預設值的輸出如下：
+先前範例中具有預設值的輸出如下：
 
-| Name | 類型 | 值 |
+| Name | Type | Value |
 | ---- | ---- | ----- |
-| arrayOutput | String | three |
+| arrayOutput | String | 三 |
 | stringOutput | String | e |
 
 若要使用 Azure CLI 部署此範例範本，請使用：
@@ -859,13 +859,13 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 ## <a name="length"></a>length
 `length(arg1)`
 
-傳回陣列中的元素數目、字串中的字元, 或物件中的根層級屬性。
+傳回陣列中的元素數目、字串中的字元，或物件中的根層級屬性。
 
 ### <a name="parameters"></a>參數
 
 | 參數 | 必要項 | Type | 描述 |
 |:--- |:--- |:--- |:--- |
-| arg1 |是 |陣列、字串或物件 |要用來取得元素數目的陣列、用來取得字元數的字串, 或用來取得根層級屬性數目的物件。 |
+| arg1 |是 |陣列、字串或物件 |要用來取得元素數目的陣列、用來取得字元數的字串，或用來取得根層級屬性數目的物件。 |
 
 ### <a name="return-value"></a>傳回值
 
@@ -923,9 +923,9 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 }
 ```
 
-上述範例中具有預設值的輸出如下：
+先前範例中具有預設值的輸出如下：
 
-| Name | 類型 | 值 |
+| Name | Type | Value |
 | ---- | ---- | ----- |
 | arrayLength | Int | 3 |
 | stringLength | Int | 13 |
@@ -956,7 +956,7 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 
 <a id="max" />
 
-## <a name="max"></a>上限
+## <a name="max"></a>max
 `max(arg1)`
 
 傳回整數陣列的最大值，或以逗號分隔的整數清單。
@@ -999,9 +999,9 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 }
 ```
 
-上述範例中具有預設值的輸出如下：
+先前範例中具有預設值的輸出如下：
 
-| Name | 類型 | 值 |
+| Name | Type | Value |
 | ---- | ---- | ----- |
 | arrayOutput | Int | 5 |
 | intOutput | Int | 5 |
@@ -1020,7 +1020,7 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 
 <a id="min" />
 
-## <a name="min"></a>分鐘
+## <a name="min"></a>分
 `min(arg1)`
 
 傳回整數陣列的最小值，或以逗號分隔的整數清單。
@@ -1063,9 +1063,9 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 }
 ```
 
-上述範例中具有預設值的輸出如下：
+先前範例中具有預設值的輸出如下：
 
-| Name | 類型 | 值 |
+| Name | Type | Value |
 | ---- | ---- | ----- |
 | arrayOutput | Int | 0 |
 | intOutput | Int | 0 |
@@ -1128,11 +1128,11 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 }
 ```
 
-上述範例中具有預設值的輸出如下：
+先前範例中具有預設值的輸出如下：
 
-| Name | 類型 | 值 |
+| Name | Type | Value |
 | ---- | ---- | ----- |
-| rangeOutput | Array | [5, 6, 7] |
+| rangeOutput | 陣列 | [5, 6, 7] |
 
 若要使用 Azure CLI 部署此範例範本，請使用：
 
@@ -1148,7 +1148,7 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 
 <a id="skip" />
 
-## <a name="skip"></a>略過
+## <a name="skip"></a>skip
 `skip(originalValue, numberToSkip)`
 
 傳回陣列中位於指定數字之後的所有元素所形成的陣列，或傳回字串中位於指定數字之後的所有字元所組成的字串。
@@ -1208,11 +1208,11 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 }
 ```
 
-上述範例中具有預設值的輸出如下：
+先前範例中具有預設值的輸出如下：
 
-| Name | 類型 | 值 |
+| Name | Type | Value |
 | ---- | ---- | ----- |
-| arrayOutput | Array | ["three"] |
+| arrayOutput | 陣列 | ["three"] |
 | stringOutput | String | two three |
 
 若要使用 Azure CLI 部署此範例範本，請使用：
@@ -1289,12 +1289,12 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 }
 ```
 
-上述範例中具有預設值的輸出如下：
+先前範例中具有預設值的輸出如下：
 
-| Name | 類型 | 值 |
+| Name | Type | Value |
 | ---- | ---- | ----- |
-| arrayOutput | Array | ["one", "two"] |
-| stringOutput | String | 於 |
+| arrayOutput | 陣列 | ["one", "two"] |
+| stringOutput | String | on |
 
 若要使用 Azure CLI 部署此範例範本，請使用：
 
@@ -1368,12 +1368,12 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 }
 ```
 
-上述範例中具有預設值的輸出如下：
+先前範例中具有預設值的輸出如下：
 
-| Name | 類型 | 值 |
+| Name | Type | Value |
 | ---- | ---- | ----- |
-| objectOutput | 物件 | {"one": "a", "two": "b", "three": "c2", "four": "d", "five": "e"} |
-| arrayOutput | Array | ["one", "two", "three", "four"] |
+| objectOutput | Object | {"one": "a", "two": "b", "three": "c2", "four": "d", "five": "e"} |
+| arrayOutput | 陣列 | ["one", "two", "three", "four"] |
 
 若要使用 Azure CLI 部署此範例範本，請使用：
 

@@ -1,17 +1,17 @@
 ---
-title: 將 Azure 資源部署至多個訂用帳戶和資源群組 | Microsoft Docs
+title: 部署 Azure 資源跨訂用帳戶 & 資源群組
 description: 示範如何在部署期間將目標放在多個 Azure 訂用帳戶和資源群組。
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 06/02/2018
 ms.author: tomfitz
-ms.openlocfilehash: 33b0a998206b68f1807f5bfa3c3f39164798842c
-ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
+ms.openlocfilehash: c90096043f54eb8db5834fbe83ed1d6ae710d371
+ms.sourcegitcommit: f29fec8ec945921cc3a89a6e7086127cc1bc1759
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67205476"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72528320"
 ---
 # <a name="deploy-azure-resources-to-more-than-one-subscription-or-resource-group"></a>將 Azure 資源部署至多個訂用帳戶和資源群組
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 10/09/2019
 ms.author: mathoma
-ms.openlocfilehash: 39f04005776f3b451ad7c64c76f9aa5d8c4a7768
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
-ms.translationtype: HT
+ms.openlocfilehash: b281344084cb558ab490e9e3c24774311ede7866
+ms.sourcegitcommit: f29fec8ec945921cc3a89a6e7086127cc1bc1759
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72330098"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72529428"
 ---
 # <a name="configure-sql-server-failover-cluster-instance-with-premium-file-share-on-azure-virtual-machines"></a>使用 Azure 上的 premium 檔案共用設定 SQL Server 容錯移轉叢集實例虛擬機器
 
@@ -45,7 +45,7 @@ ms.locfileid: "72330098"
 - [Azure 資源群組](../../../azure-resource-manager/manage-resource-groups-portal.md)
 
 > [!IMPORTANT]
-> 目前，只有[SQL Server IaaS 代理程式擴充](virtual-machines-windows-sql-server-agent-extension.md)功能的[輕量](virtual-machines-windows-sql-register-with-resource-provider.md#register-with-sql-vm-resource-provider)管理模式才支援 Azure 虛擬機器上的 SQL Server 容錯移轉叢集實例。 從參與容錯移轉叢集的 Vm 卸載完整延伸模組，然後以 `lightweight` 模式向 SQL VM 資源提供者註冊。 完整延伸模組支援自動備份、修補和先進入口網站管理等功能。 在輕量管理模式中重新安裝代理程式之後，這些功能將無法在 SQL Vm 上使用。
+> 目前，只有[SQL Server IaaS 代理程式擴充](virtual-machines-windows-sql-server-agent-extension.md)功能的[輕量](virtual-machines-windows-sql-register-with-resource-provider.md#register-with-sql-vm-resource-provider)管理模式才支援 Azure 虛擬機器上的 SQL Server 容錯移轉叢集實例。 若要從完整延伸模式變更為輕量，請刪除 correspinding Vm 的「SQL 虛擬機器」資源，然後在 `lightweight` 模式中向 SQL VM 資源提供者註冊。 使用 Azure 入口網站刪除「SQL 虛擬機器」資源時，請務必取消選取實際的虛擬機器。 完整延伸模組支援自動備份、修補和先進入口網站管理等功能。 在輕量管理模式中重新安裝代理程式之後，這些功能將無法在 SQL Vm 上使用。
 
 ### <a name="workload-consideration"></a>工作負載考慮
 
@@ -344,8 +344,7 @@ New-Cluster -Name <FailoverCluster-Name> -Node ("<node1>","<node2>") –StaticAd
    請參閱下圖︰
 
    ![CreateLoadBalancer](./media/virtual-machines-windows-portal-sql-create-failover-cluster/30-load-balancer-create.png)
-
-   ![CreateLoadBalancer](./media/virtual-machines-windows-portal-sql-create-failover-cluster/30-load-balancer-create.png)
+   
 
 ### <a name="configure-the-load-balancer-backend-pool"></a>設定負載平衡器後端集區
 

@@ -11,10 +11,10 @@ ms.topic: article
 ms.date: 07/29/2019
 ms.author: juliako
 ms.openlocfilehash: fc0b447630b5e1ac360b1d84869cea02186672fc
-ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
+ms.sourcegitcommit: 6eecb9a71f8d69851bc962e2751971fccf29557f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/17/2019
+ms.lasthandoff: 10/17/2019
 ms.locfileid: "71036634"
 ---
 # <a name="embed-video-indexer-widgets-in-your-applications"></a>在您的應用程式中內嵌影片索引子小工具
@@ -31,9 +31,9 @@ ms.locfileid: "71036634"
 
 |Name|定義|描述|
 |---|---|---|
-|`widgets`|以逗號分隔的字串|可讓您控制要呈現的見解。 <br/> 範例： `https://www.videoindexer.ai/embed/insights/<accountId>/<videoId>/?widgets=people,search`只呈現人員和品牌 UI 深入解析。<br/>可用的選項：人員、關鍵字、註解、品牌、情緒、文字記錄、搜尋。<br/>請注意， `widgets`在第2版中不支援 URL 參數。<br/>|
-|`locale`|簡短的語言代碼|控制 insights 語言。 預設值為 `en`。 <br/> 範例： `locale=de`.|
-|`tab`|預設選取的索引標籤|控制預設呈現的 [**深入**解析] 索引標籤。 <br/> 範例： `tab=timeline`使用已選取的 [**時間軸**] 索引標籤呈現見解。|
+|`widgets`|以逗號分隔的字串|可讓您控制要呈現的見解。 <br/> 範例： `https://www.videoindexer.ai/embed/insights/<accountId>/<videoId>/?widgets=people,search` 只轉譯人員和品牌 UI 深入解析。<br/>可用的選項：人員、關鍵字、註解、品牌、情緒、文字記錄、搜尋。<br/>請注意，在第2版中不支援 `widgets` URL 參數。<br/>|
+|`locale`|簡短的語言代碼|控制 insights 語言。 預設值為 `en`。 <br/> 範例：`locale=de`.|
+|`tab`|預設選取的索引標籤|控制預設呈現的 [**深入**解析] 索引標籤。 <br/> 範例： `tab=timeline` 呈現已選取 [**時間軸**] 索引標籤的見解。|
 
 ### <a name="player-widget"></a>播放器小工具
 
@@ -41,12 +41,12 @@ ms.locfileid: "71036634"
 
 |Name|定義|描述|
 |---|---|---|
-|`t`|開始的秒數|讓玩家從指定的時間點開始播放。<br/> 範例： `t=60`.|
-|`captions`|語言代碼|在 widget 載入時，以指定的語言提取標題，以供 [**標題**] 功能表使用。<br/> 範例： `captions=en-US`.|
-|`showCaptions`|布林值|可讓播放器載入已啟用的標題。<br/> 範例： `showCaptions=true`.|
-|`type`||啟動音訊播放機面板（影片部分已移除）。<br/> 範例： `type=audio`.|
-|`autoplay`|布林值|表示播放者是否應該在載入時開始播放影片。 預設值為 `true`。<br/> 範例： `autoplay=false`.|
-|`language`|語言代碼|控制播放機語言。 預設值為 `en-US`。<br/>範例： `language=de-DE`.|
+|`t`|開始的秒數|讓玩家從指定的時間點開始播放。<br/> 範例：`t=60`.|
+|`captions`|語言代碼|在 widget 載入時，以指定的語言提取標題，以供 [**標題**] 功能表使用。<br/> 範例：`captions=en-US`.|
+|`showCaptions`|布林值|可讓播放器載入已啟用的標題。<br/> 範例：`showCaptions=true`.|
+|`type`||啟動音訊播放機面板（影片部分已移除）。<br/> 範例：`type=audio`.|
+|`autoplay`|布林值|表示播放者是否應該在載入時開始播放影片。 預設值為 `true`。<br/> 範例：`autoplay=false`.|
+|`language`|語言代碼|控制播放機語言。 預設值為 `en-US`。<br/>範例：`language=de-DE`.|
 
 ### <a name="editor-widget"></a>編輯器 widget
 
@@ -54,11 +54,11 @@ ms.locfileid: "71036634"
 
 |Name|定義|描述|
 |---|---|---|
-|`accessToken`<sup>*</sup>|String|提供只在用來內嵌 widget 之帳戶中的影片存取。<br> 編輯器 widget 需要`accessToken`參數。|
-|`language`|語言代碼|控制播放機語言。 預設值為 `en-US`。<br/>範例： `language=de-DE`.|
-|`locale`|簡短的語言代碼|控制 insights 語言。 預設值為 `en`。<br/>範例： `language=de`.|
+|`accessToken`<sup>*</sup>|String|提供只在用來內嵌 widget 之帳戶中的影片存取。<br> 編輯器 widget 需要 `accessToken` 參數。|
+|`language`|語言代碼|控制播放機語言。 預設值為 `en-US`。<br/>範例：`language=de-DE`.|
+|`locale`|簡短的語言代碼|控制 insights 語言。 預設值為 `en`。<br/>範例：`language=de`.|
 
-<sup>*</sup>擁有者應該小心`accessToken`提供。
+<sup>*</sup>擁有者應謹慎提供 `accessToken`。
 
 ## <a name="embedding-public-content"></a>內嵌公用內容
 
@@ -76,7 +76,7 @@ ms.locfileid: "71036634"
     ![小工具](./media/video-indexer-embed-widgets/video-indexer-widget02.png)
 
 > [!NOTE]
-> 如果您在共用影片 url 時遇到問題，請`location`將參數新增至連結。 參數應該設定為[影片索引子所在的 Azure 區域](regions.md)。 例如： `https://www.videoindexer.ai/accounts/00000000-0000-0000-0000-000000000000/videos/b2b2c74b8e/?location=trial` 。
+> 如果您在共用影片 Url 時發生問題，請將 `location` 參數新增至連結。 參數應該設定為[影片索引子所在的 Azure 區域](regions.md)。 例如： `https://www.videoindexer.ai/accounts/00000000-0000-0000-0000-000000000000/videos/b2b2c74b8e/?location=trial` 。
 
 ## <a name="embedding-private-content"></a>內嵌私人內容
 
@@ -88,7 +88,7 @@ ms.locfileid: "71036634"
 - [取得深入解析 Widget](https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-Video-Insights-Widget?&pattern=widget) API。<br/>
 - [取得影片存取權杖](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Video-Access-Token?)。 將它當做查詢參數新增至 URL。 將此 URL 指定為 iframe 的**src**值，如先前所示。
 
-若要在內嵌 widget 中提供編輯見解功能，您必須傳遞包含編輯許可權的存取權杖。 使用[取得深入解析 Widget](https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-Video-Insights-Widget?&pattern=widget)或[取得影片存取](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Video-Access-Token?) `&allowEdit=true`權杖。 
+若要在內嵌 widget 中提供編輯見解功能，您必須傳遞包含編輯許可權的存取權杖。 使用 [[取得深入解析 Widget](https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-Video-Insights-Widget?&pattern=widget) ] 或 [使用 `&allowEdit=true`[取得影片存取權杖](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Video-Access-Token?)]。 
 
 ## <a name="widgets-interaction"></a>小工具互動
 
@@ -186,7 +186,7 @@ ms.locfileid: "71036634"
         </video>    
 
 2. 內嵌認知深入解析小工具。
-3. 接聽「訊息」事件，以實作播放器的通訊。 例如:
+3. 接聽「訊息」事件，以實作播放器的通訊。 例如：
 
         <script>
     
@@ -227,7 +227,7 @@ ms.locfileid: "71036634"
 
 ### <a name="cognitive-insights-widget"></a>認知深入解析小工具
 
-您可以選擇您想要的深入解析類型。 若要執行這項操作，請將其指定為下列 URL 參數的值，此參數會新增至您取得的內嵌程式碼（從 API 或 web 應用`&widgets=<list of wanted widgets>`程式）：。
+您可以選擇您想要的深入解析類型。 若要執行這項操作，請將它們指定為下列 URL 參數的值，這會新增至您取得的內嵌程式碼（從 API 或 web 應用程式）： `&widgets=<list of wanted widgets>`。
 
 可能的值為：**人員**、**關鍵字**、**情緒**、文字**記錄**和**搜尋**。
 
@@ -235,7 +235,7 @@ ms.locfileid: "71036634"
 
 `https://www.videoindexer.ai/embed/insights/<accountId>/<videoId>/?widgets=people,search`
 
-iframe 視窗的標題也可透過將 `&title=<YourTitle>` 提供給 iframe URL 來自訂。 （它會自訂\<HTML 標題 > 值）。
+iframe 視窗的標題也可透過將 `&title=<YourTitle>` 提供給 iframe URL 來自訂。 （它會自訂 HTML \<title > 值）。
     
 例如，若您想要為您的 iframe 視窗指定標題 "MyInsights"，URL w看起來會像這樣：
 
@@ -247,22 +247,22 @@ iframe 視窗的標題也可透過將 `&title=<YourTitle>` 提供給 iframe URL 
 
 在內嵌影片索引子播放器時，您可以藉由指定 iframe 的大小來選擇播放器的大小。
 
-例如:
+例如：
 
 `<iframe width="640" height="360" src="https://www.videoindexer.ai/embed/player/<accountId>/<videoId>/" frameborder="0" allowfullscreen />`
 
 根據預設，影片索引子播放程式會根據影片的文字記錄，自動產生隱藏式輔助字幕。 文字記錄是從影片中，使用影片上傳時所選取的來源語言進行解壓縮。
 
-如果您想要使用不同的語言來內嵌，可以將`&captions=< Language | ”all” | “false” >`新增至內嵌播放機 URL。 如果您想要所有可用語言的標題中的標題，請`all`使用值。 如果您想要依預設顯示標題，您可以傳入 `&showCaptions=true`。
+如果您想要使用不同的語言來內嵌，可以將 `&captions=< Language | ”all” | “false” >` 新增至 [內嵌播放機 URL]。 如果您想要所有可用語言的標題中的標題，請使用 `all` 的值。 如果您想要依預設顯示標題，您可以傳入 `&showCaptions=true`。
 
 內嵌 URL 將顯示如下︰ 
 
 `https://www.videoindexer.ai/embed/player/<accountId>/<videoId>/?captions=italian`
 
-如果您想要停用標題，您可以將`captions`參數值傳遞`false`為。
+如果您想要停用標題，您可以將 `captions` 參數值當做 `false` 傳遞。
 
 #### <a name="autoplay"></a>播放
-根據預設，播放程式會開始播放影片。 您可以將傳遞`&autoplay=false`至先前的內嵌 URL，以選擇不進行。
+根據預設，播放程式會開始播放影片。 您可以將 `&autoplay=false` 傳遞至先前的內嵌 URL，以選擇不進行。
 
 ## <a name="next-steps"></a>後續步驟
 

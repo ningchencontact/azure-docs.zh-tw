@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/19/2017
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 000dacb7530b52784a68663d295fde9784d50e29
-ms.sourcegitcommit: dcf3e03ef228fcbdaf0c83ae1ec2ba996a4b1892
+ms.openlocfilehash: 3b30df7410f56c203eb600089cce130a8de23d1b
+ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "70013568"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72514615"
 ---
 # <a name="create-a-file-share-in-azure-files"></a>在 Azure 檔案服務中建立檔案共用
 您可以使用  [Azure 入口網站](https://portal.azure.com/)、Azure 儲存體 PowerShell Cmdlet、Azure 儲存體用戶端程式庫或 Azure 儲存體 REST API 來建立 Azure 檔案共用。 在本教學課程中，您將了解：
@@ -23,6 +23,9 @@ ms.locfileid: "70013568"
 ## <a name="prerequisites"></a>必要條件
 若要建立 Azure 檔案共用，您可以使用已經存在的儲存體帳戶，或[建立新的 Azure 儲存體帳戶](../common/storage-create-storage-account.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json)。 若要使用 PowerShell 建立 Azure 檔案共用，您需要儲存體帳戶的名稱與帳戶金鑰。 如果您打算使用 Powershell 或 CLI，您將需要儲存體帳戶金鑰。
 
+> [!NOTE]
+> 如果您想要建立大於 5 TiB 的檔案共用，請參閱我們的文章[啟用大型檔案共用](storage-files-how-to-create-large-file-share.md)。
+
 ## <a name="create-a-file-share-through-the-azure-portal"></a>透過 Azure 入口網站建立檔案共用
 1. **前往 Azure 入口網站上的儲存體帳戶刀鋒視窗**：    
     ![儲存體帳戶刀鋒視窗](./media/storage-how-to-create-file-share/create-file-share-portal1.png)
@@ -30,12 +33,12 @@ ms.locfileid: "70013568"
 2. **按一下 [新增檔案共用] 按鈕**：    
     ![按一下 [新增檔案共用] 按鈕](./media/storage-how-to-create-file-share/create-file-share-portal2.png)
 
-3. **提供名稱和配額。目前的配額最大值是 5 TiB**：    
+3. **提供名稱和配額**：    
     ![提供新檔案共用的名稱和所需的配額](./media/storage-how-to-create-file-share/create-file-share-portal3.png)
 
 4. **檢視新的檔案共用**：![檢視新的檔案共用](./media/storage-how-to-create-file-share/create-file-share-portal4.png)
 
-5. **上傳檔案**：![上傳檔案](./media/storage-how-to-create-file-share/create-file-share-portal5.png)
+5. **上傳檔案**![上傳檔案](./media/storage-how-to-create-file-share/create-file-share-portal5.png)
 
 6. **瀏覽至檔案共用並管理您的目錄和檔案**：![瀏覽檔案共用](./media/storage-how-to-create-file-share/create-file-share-portal6.png)
 
@@ -46,7 +49,7 @@ ms.locfileid: "70013568"
 > [!Note]  
 > 建議您下載和安裝或升級至最新的 Azure PowerShell 模組。
 
-1. **建立新的儲存體帳戶:** 儲存體帳戶是共用的儲存體集區, 您可以在其中部署 Azure 檔案共用和其他儲存體資源 (例如 blob 或佇列)。
+1. **建立新的儲存體帳戶：** 儲存體帳戶是共用的儲存體集區，您可以在其中部署 Azure 檔案共用和其他儲存體資源（例如 blob 或佇列）。
 
     ```PowerShell
     $resourceGroup = "myresourcegroup"

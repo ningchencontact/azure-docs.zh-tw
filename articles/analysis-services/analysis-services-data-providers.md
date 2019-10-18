@@ -4,15 +4,15 @@ description: 說明用戶端應用程式和工具連接到 Azure Analysis Servic
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 10/11/2019
+ms.date: 10/16/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 1ea14f141ed4fa698a21da8030878b04a81f1d08
-ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
+ms.openlocfilehash: 89f8ffc58458ce75d1acd897f224f61bab9158b4
+ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/13/2019
-ms.locfileid: "72298670"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72512781"
 ---
 # <a name="client-libraries-for-connecting-to-azure-analysis-services"></a>可供連接到 Azure Analysis Services 的用戶端程式庫
 
@@ -29,14 +29,14 @@ ms.locfileid: "72298670"
 
 ## <a name="amo-and-adomd-nuget-packages"></a>AMO 和 ADOMD (NuGet 套件)
 
-Analysis Services 管理物件 (AMO) 和 ADOMD 用戶端文件庫可從 [NuGet.org](https://www.nuget.org/)作為可安裝套件使用。建議您移轉至 NuGet 參考，而不是使用 Windows Installer。 
+Analysis Services 管理物件（AMO）和 ADOMD 用戶端程式庫可從[NuGet.org](https://www.nuget.org/)取得安裝的套件。建議您遷移至 NuGet 參考，而不是使用 Windows Installer。 
 
-|套件  | 產品版本  | 
+|Package  | 產品版本  | 
 |---------|---------|
 |[AMO](https://www.nuget.org/packages/Microsoft.AnalysisServices.retail.amd64/)    |    18.0.9     |
 |[ADOMD](https://www.nuget.org/packages/Microsoft.AnalysisServices.AdomdClient.retail.amd64/)     |   18.0.9      |
 
-NuGet 套件組件 AssemblyVersion 會遵循語意化版本控制系統：MAJOR.MINOR.PATCH。 NuGet 參考會載入預期的版本，即使是 GAC (產生自 MSI 安裝) 中的不同版本也一樣。 PATCH 會針對每個版本遞增。 AMO 和 ADOMD 版本會保持同步。
+Nuget 套件組件 AssemblyVersion 會遵循語意化版本控制系統：MAJOR.MINOR.PATCH。 NuGet 參考會載入預期的版本，即使是 GAC (產生自 MSI 安裝) 中的不同版本也一樣。 PATCH 會針對每個版本遞增。 AMO 和 ADOMD 版本會保持同步。
 
 ## <a name="understanding-client-libraries"></a>了解用戶端程式庫
 
@@ -44,7 +44,7 @@ Analysis Services 會利用三個用戶端程式庫，也稱為資料提供者�
 
 Microsoft 用戶端應用程式 (像是 Power BI Desktop 和 Excel) 會安裝這三個用戶端程式庫，並在新版本可用時加以更新。 部分用戶端程式庫可能不是 Azure Analysis Services 所需的最新版本，需依更新的版本或頻率而定。 同樣適用於自訂應用程式或其他介面，例如 AsCmd、TOM、ADOMD.NET。 這些應用程式需要手動或以程式設計方式安裝程式庫。 手動安裝的用戶端程式庫會以可散發的套件形式包含在 SQL Server 功能套件中。 不過，這些會用戶端程式庫與 SQL Server 版本繫結，而可能不是最新版本。  
 
-用於用戶端連線的用戶端程式庫，與從 Azure Analysis Services 伺服器連接到資料來源所需的資料提供者不同。 若要深入了解資料來源連接，請參閱[資料來源連接](analysis-services-datasource.md)。
+用於用戶端連線的用戶端程式庫，與從 Azure Analysis Services 伺服器連接到資料來源所需的資料提供者不同。 若要深入瞭解資料來源連接，請參閱[資料來源連接](analysis-services-datasource.md)。
 
 ## <a name="client-library-types"></a>用戶端程式庫類型
 

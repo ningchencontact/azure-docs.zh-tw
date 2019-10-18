@@ -1,17 +1,17 @@
 ---
-title: Azure Resource Manager 依資源類型的完整模式刪除
+title: Azure Resource Manager 完成模式刪除
 description: 顯示資源類型如何處理 Azure Resource Manager 範本中的完整模式刪除。
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 10/03/2019
 ms.author: tomfitz
-ms.openlocfilehash: cdc00ccc61e20865e993a18c72b930d9570896f2
-ms.sourcegitcommit: f2d9d5133ec616857fb5adfb223df01ff0c96d0a
+ms.openlocfilehash: de1b5080e72f79626ca0c749efe4122721f14922
+ms.sourcegitcommit: f29fec8ec945921cc3a89a6e7086127cc1bc1759
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/03/2019
-ms.locfileid: "71937041"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72528580"
 ---
 # <a name="deletion-of-azure-resources-for-complete-mode-deployments"></a>完整模式部署的 Azure 資源刪除
 
@@ -21,126 +21,126 @@ ms.locfileid: "71937041"
 
 當不在範本中時，標記為 [**否**] 的資源類型不會自動刪除;不過，如果刪除父資源，則會刪除它們。 如需行為的完整描述，請參閱 [Azure Resource Manager 部署模式](deployment-modes.md)。
 
-跳至資源提供者命名空間:
+跳至資源提供者命名空間：
 > [!div class="op_single_selector"]
-> - [Microsoft.AAD](#microsoftaad)
+> - [Microsoft AAD](#microsoftaad)
 > - [附加元件](#microsoftaddons)
 > - [ADHybridHealthService](#microsoftadhybridhealthservice)
 > - [Microsoft Advisor](#microsoftadvisor)
-> - [Microsoft.AlertsManagement](#microsoftalertsmanagement)
-> - [Microsoft.AnalysisServices](#microsoftanalysisservices)
+> - [Microsoft.alertsmanagement](#microsoftalertsmanagement)
+> - [Microsoft.analysisservices](#microsoftanalysisservices)
 > - [Microsoft.ApiManagement](#microsoftapimanagement)
-> - [Microsoft.AppConfiguration](#microsoftappconfiguration)
+> - [AppConfiguration](#microsoftappconfiguration)
 > - [AppPlatform](#microsoftappplatform)
 > - [Microsoft 證明](#microsoftattestation)
 > - [Microsoft.Authorization](#microsoftauthorization)
 > - [Microsoft.Automation](#microsoftautomation)
 > - [Azconfig](#microsoftazconfig)
 > - [Geneva](#microsoftazuregeneva)
-> - [Microsoft.AzureActiveDirectory](#microsoftazureactivedirectory)
+> - [AzureActiveDirectory](#microsoftazureactivedirectory)
 > - [AzureData](#microsoftazuredata)
-> - [Microsoft.AzureStack](#microsoftazurestack)
-> - [Microsoft.Batch](#microsoftbatch)
+> - [AzureStack](#microsoftazurestack)
+> - [Microsoft。 Batch](#microsoftbatch)
 > - [Microsoft 帳單](#microsoftbilling)
-> - [Microsoft.BingMaps](#microsoftbingmaps)
-> - [Microsoft.Blockchain](#microsoftblockchain)
-> - [Microsoft.Blueprint](#microsoftblueprint)
-> - [Microsoft.BotService](#microsoftbotservice)
+> - [BingMaps](#microsoftbingmaps)
+> - [區塊鏈](#microsoftblockchain)
+> - [Microsoft 藍圖](#microsoftblueprint)
+> - [BotService](#microsoftbotservice)
 > - [Microsoft.Cache](#microsoftcache)
 > - [Microsoft。容量](#microsoftcapacity)
 > - [Microsoft.Cdn](#microsoftcdn)
-> - [Microsoft.CertificateRegistration](#microsoftcertificateregistration)
-> - [Microsoft.ClassicCompute](#microsoftclassiccompute)
+> - [CertificateRegistration](#microsoftcertificateregistration)
+> - [Microsoft.classiccompute](#microsoftclassiccompute)
 > - [ClassicInfrastructureMigrate](#microsoftclassicinfrastructuremigrate)
-> - [Microsoft.ClassicNetwork](#microsoftclassicnetwork)
-> - [Microsoft.ClassicStorage](#microsoftclassicstorage)
-> - [Microsoft.CognitiveServices](#microsoftcognitiveservices)
+> - [Microsoft.classicnetwork](#microsoftclassicnetwork)
+> - [Microsoft.classicstorage](#microsoftclassicstorage)
+> - [CognitiveServices](#microsoftcognitiveservices)
 > - [Microsoft Commerce](#microsoftcommerce)
-> - [Microsoft.Compute](#microsoftcompute)
+> - [Microsoft。計算](#microsoftcompute)
 > - [Microsoft。耗用量](#microsoftconsumption)
-> - [Microsoft.ContainerInstance](#microsoftcontainerinstance)
+> - [Microsoft.containerinstance](#microsoftcontainerinstance)
 > - [Microsoft.ContainerRegistry](#microsoftcontainerregistry)
 > - [Microsoft.ContainerService](#microsoftcontainerservice)
-> - [Microsoft.ContentModerator](#microsoftcontentmoderator)
-> - [Microsoft.CortanaAnalytics](#microsoftcortanaanalytics)
-> - [Microsoft.CostManagement](#microsoftcostmanagement)
+> - [ContentModerator](#microsoftcontentmoderator)
+> - [CortanaAnalytics](#microsoftcortanaanalytics)
+> - [CostManagement](#microsoftcostmanagement)
 > - [CustomerLockbox](#microsoftcustomerlockbox)
 > - [CustomProviders](#microsoftcustomproviders)
-> - [Microsoft.DataBox](#microsoftdatabox)
-> - [Microsoft.DataBoxEdge](#microsoftdataboxedge)
-> - [Microsoft.Databricks](#microsoftdatabricks)
-> - [Microsoft.DataCatalog](#microsoftdatacatalog)
+> - [DataBox](#microsoftdatabox)
+> - [DataBoxEdge](#microsoftdataboxedge)
+> - [Databricks](#microsoftdatabricks)
+> - [Microsoft.datacatalog](#microsoftdatacatalog)
 > - [Microsoft.DataFactory](#microsoftdatafactory)
 > - [Microsoft.DataLakeAnalytics](#microsoftdatalakeanalytics)
 > - [Microsoft.DataLakeStore](#microsoftdatalakestore)
-> - [Microsoft.DataMigration](#microsoftdatamigration)
+> - [Microsoft.datamigration](#microsoftdatamigration)
 > - [DataShare](#microsoftdatashare)
-> - [Microsoft.DBforMariaDB](#microsoftdbformariadb)
-> - [Microsoft.DBforMySQL](#microsoftdbformysql)
-> - [Microsoft.DBforPostgreSQL](#microsoftdbforpostgresql)
-> - [Microsoft.DeploymentManager](#microsoftdeploymentmanager)
+> - [DBforMariaDB](#microsoftdbformariadb)
+> - [Microsoft.dbformysql](#microsoftdbformysql)
+> - [DBforPostgreSQL](#microsoftdbforpostgresql)
+> - [DeploymentManager](#microsoftdeploymentmanager)
 > - [DesktopVirtualization](#microsoftdesktopvirtualization)
 > - [Microsoft.Devices](#microsoftdevices)
 > - [DevOps](#microsoftdevops)
-> - [Microsoft.DevSpaces](#microsoftdevspaces)
+> - [DevSpaces](#microsoftdevspaces)
 > - [Microsoft.DevTestLab](#microsoftdevtestlab)
 > - [Microsoft.DocumentDB](#microsoftdocumentdb)
-> - [Microsoft.DomainRegistration](#microsoftdomainregistration)
+> - [DomainRegistration](#microsoftdomainregistration)
 > - [DynamicsLcs](#microsoftdynamicslcs)
-> - [Microsoft.EnterpriseKnowledgeGraph](#microsoftenterpriseknowledgegraph)
-> - [Microsoft.EventGrid](#microsofteventgrid)
+> - [EnterpriseKnowledgeGraph](#microsoftenterpriseknowledgegraph)
+> - [EventGrid](#microsofteventgrid)
 > - [Microsoft.EventHub](#microsofteventhub)
 > - [Microsoft. 功能](#microsoftfeatures)
 > - [Microsoft. 圖庫](#microsoftgallery)
-> - [Microsoft.Genomics](#microsoftgenomics)
+> - [Genomics](#microsoftgenomics)
 > - [GuestConfiguration](#microsoftguestconfiguration)
-> - [Microsoft.HanaOnAzure](#microsofthanaonazure)
+> - [HanaOnAzure](#microsofthanaonazure)
 > - [Microsoft.hardwaresecuritymodules](#microsofthardwaresecuritymodules)
 > - [Microsoft.HDInsight](#microsofthdinsight)
-> - [Microsoft.HealthcareApis](#microsofthealthcareapis)
-> - [Microsoft.HybridCompute](#microsofthybridcompute)
-> - [Microsoft.HybridData](#microsofthybriddata)
+> - [HealthcareApis](#microsofthealthcareapis)
+> - [HybridCompute](#microsofthybridcompute)
+> - [HybridData](#microsofthybriddata)
 > - [Hydra 等](#microsofthydra)
-> - [Microsoft.ImportExport](#microsoftimportexport)
+> - [ImportExport](#microsoftimportexport)
 > - [Microsoft Intune](#microsoftintune)
-> - [Microsoft.IoTCentral](#microsoftiotcentral)
-> - [Microsoft.IoTSpaces](#microsoftiotspaces)
+> - [IoTCentral](#microsoftiotcentral)
+> - [Microsoft.iotspaces](#microsoftiotspaces)
 > - [Microsoft.KeyVault](#microsoftkeyvault)
-> - [Microsoft.Kusto](#microsoftkusto)
-> - [Microsoft.LabServices](#microsoftlabservices)
+> - [Kusto](#microsoftkusto)
+> - [LabServices](#microsoftlabservices)
 > - [Microsoft.Logic](#microsoftlogic)
-> - [Microsoft.MachineLearning](#microsoftmachinelearning)
-> - [Microsoft.MachineLearningServices](#microsoftmachinelearningservices)
-> - [Microsoft.ManagedIdentity](#microsoftmanagedidentity)
+> - [MachineLearning](#microsoftmachinelearning)
+> - [Microsoft.machinelearningservices](#microsoftmachinelearningservices)
+> - [Microsoft.managedidentity](#microsoftmanagedidentity)
 > - [ManagedServices](#microsoftmanagedservices)
 > - [Microsoft 管理](#microsoftmanagement)
-> - [Microsoft.Maps](#microsoftmaps)
+> - [Microsoft Maps](#microsoftmaps)
 > - [Microsoft Marketplace](#microsoftmarketplace)
-> - [Microsoft.MarketplaceApps](#microsoftmarketplaceapps)
+> - [MarketplaceApps](#microsoftmarketplaceapps)
 > - [MarketplaceOrdering](#microsoftmarketplaceordering)
 > - [Microsoft.Media](#microsoftmedia)
 > - [Microservices4Spring](#microsoftmicroservices4spring)
-> - [Microsoft.Migrate](#microsoftmigrate)
+> - [Microsoft。遷移](#microsoftmigrate)
 > - [MixedReality](#microsoftmixedreality)
-> - [Microsoft.NetApp](#microsoftnetapp)
-> - [Microsoft.Network](#microsoftnetwork)
+> - [Microsoft NetApp](#microsoftnetapp)
+> - [Microsoft 網路](#microsoftnetwork)
 > - [Microsoft.NotificationHubs](#microsoftnotificationhubs)
 > - [Objectstore 會](#microsoftobjectstore)
 > - [OffAzure](#microsoftoffazure)
-> - [Microsoft.OperationalInsights](#microsoftoperationalinsights)
-> - [Microsoft.OperationsManagement](#microsoftoperationsmanagement)
-> - [Microsoft.Peering](#microsoftpeering)
+> - [Microsoft.operationalinsights](#microsoftoperationalinsights)
+> - [Microsoft.operationsmanagement](#microsoftoperationsmanagement)
+> - [Microsoft 對等互連](#microsoftpeering)
 > - [Microsoft.PolicyInsights](#microsoftpolicyinsights)
-> - [Microsoft.Portal](#microsoftportal)
-> - [Microsoft.PowerBI](#microsoftpowerbi)
-> - [Microsoft.PowerBIDedicated](#microsoftpowerbidedicated)
+> - [Microsoft 入口網站](#microsoftportal)
+> - [Microsoft PowerBI](#microsoftpowerbi)
+> - [PowerBIDedicated](#microsoftpowerbidedicated)
 > - [Microsoft.RecoveryServices](#microsoftrecoveryservices)
-> - [Microsoft.Relay](#microsoftrelay)
+> - [Microsoft 轉送](#microsoftrelay)
 > - [Microsoft RemoteApp](#microsoftremoteapp)
 > - [Az.resourcegraph](#microsoftresourcegraph)
 > - [ResourceHealth](#microsoftresourcehealth)
 > - [Microsoft.Resources](#microsoftresources)
-> - [Microsoft.SaaS](#microsoftsaas)
+> - [Microsoft SaaS](#microsoftsaas)
 > - [Microsoft.Scheduler](#microsoftscheduler)
 > - [Microsoft.Search](#microsoftsearch)
 > - [Microsoft.Security](#microsoftsecurity)
@@ -148,28 +148,28 @@ ms.locfileid: "71937041"
 > - [SecurityInsights](#microsoftsecurityinsights)
 > - [Microsoft.ServiceBus](#microsoftservicebus)
 > - [Microsoft.ServiceFabric](#microsoftservicefabric)
-> - [Microsoft.ServiceFabricMesh](#microsoftservicefabricmesh)
+> - [ServiceFabricMesh](#microsoftservicefabricmesh)
 > - [Microsoft 服務](#microsoftservices)
-> - [Microsoft.SignalRService](#microsoftsignalrservice)
-> - [Microsoft.SiteRecovery](#microsoftsiterecovery)
+> - [Microsoft.signalrservice](#microsoftsignalrservice)
+> - [Azurerm.siterecovery](#microsoftsiterecovery)
 > - [SoftwarePlan](#microsoftsoftwareplan)
-> - [Microsoft.Solutions](#microsoftsolutions)
+> - [Microsoft 解決方案](#microsoftsolutions)
 > - [Microsoft .SQL](#microsoftsql)
-> - [Microsoft.SqlVirtualMachine](#microsoftsqlvirtualmachine)
+> - [Microsoft.sqlvirtualmachine](#microsoftsqlvirtualmachine)
 > - [Microsoft.Storage](#microsoftstorage)
-> - [Microsoft.StorageCache](#microsoftstoragecache)
+> - [StorageCache](#microsoftstoragecache)
 > - [StorageReplication](#microsoftstoragereplication)
-> - [Microsoft.StorageSync](#microsoftstoragesync)
-> - [Microsoft.StorageSyncDev](#microsoftstoragesyncdev)
-> - [Microsoft.StorageSyncInt](#microsoftstoragesyncint)
-> - [Microsoft.StorSimple](#microsoftstorsimple)
-> - [Microsoft.StreamAnalytics](#microsoftstreamanalytics)
+> - [Microsoft.storagesync](#microsoftstoragesync)
+> - [StorageSyncDev](#microsoftstoragesyncdev)
+> - [StorageSyncInt](#microsoftstoragesyncint)
+> - [Microsoft StorSimple](#microsoftstorsimple)
+> - [Mslearn-streamanalytics](#microsoftstreamanalytics)
 > - [Microsoft 訂用帳戶](#microsoftsubscription)
-> - [Microsoft.TimeSeriesInsights](#microsofttimeseriesinsights)
-> - [Microsoft.VMwareCloudSimple](#microsoftvmwarecloudsimple)
+> - [Timeseriesinsights-environment-with-eventhub](#microsofttimeseriesinsights)
+> - [VMwareCloudSimple](#microsoftvmwarecloudsimple)
 > - [Microsoft.Web](#microsoftweb)
 > - [WindowsDefenderATP](#microsoftwindowsdefenderatp)
-> - [Microsoft.WindowsIoT](#microsoftwindowsiot)
+> - [WindowsIoT](#microsoftwindowsiot)
 > - [WorkloadMonitor](#microsoftworkloadmonitor)
 
 ## <a name="microsoftaad"></a>Microsoft.AAD
@@ -198,8 +198,8 @@ ms.locfileid: "71937041"
 > | agents | 否 |
 > | anonymousapiusers | 否 |
 > | 組態 | 否 |
-> | logs | 否 |
-> | 報告 | 否 |
+> | 記錄 | 否 |
+> | reports | 否 |
 > | servicehealthmetrics | 否 |
 > | 服務 | 否 |
 
@@ -211,7 +211,7 @@ ms.locfileid: "71937041"
 > | 組態 | 否 |
 > | generateRecommendations | 否 |
 > | 中繼資料 | 否 |
-> | 建議 | 否 |
+> | Mahout | 否 |
 > | suppressions | 否 |
 
 ## <a name="microsoftalertsmanagement"></a>Microsoft.AlertsManagement
@@ -220,7 +220,7 @@ ms.locfileid: "71937041"
 > | 資源類型 | 完整模式刪除 |
 > | ------------- | ----------- |
 > | actionRules | 是 |
-> | 警示 | 否 |
+> | alerts | 否 |
 > | alertsList | 否 |
 > | alertsMetaData | 否 |
 > | alertsSummary | 否 |
@@ -243,10 +243,10 @@ ms.locfileid: "71937041"
 > | 資源類型 | 完整模式刪除 |
 > | ------------- | ----------- |
 > | reportFeedback | 否 |
-> | 服務 | 是 |
+> | service | 是 |
 > | validateServiceName | 否 |
 
-## <a name="microsoftappconfiguration"></a>Microsoft.AppConfiguration
+## <a name="microsoftappconfiguration"></a>AppConfiguration
 
 > [!div class="mx-tableFixed"]
 > | 資源類型 | 完整模式刪除 |
@@ -259,7 +259,7 @@ ms.locfileid: "71937041"
 > [!div class="mx-tableFixed"]
 > | 資源類型 | 完整模式刪除 |
 > | ------------- | ----------- |
-> | 春天 | 是 |
+> | Spring | 是 |
 
 ## <a name="microsoftattestation"></a>Microsoft.Attestation
 
@@ -422,11 +422,11 @@ ms.locfileid: "71937041"
 > | billingAccounts/products | 否 |
 > | billingAccounts/transactions | 否 |
 > | billingPeriods | 否 |
-> | BillingPermissions | 否 |
+> | billingPermissions | 否 |
 > | billingProperty | 否 |
-> | BillingRoleAssignments | 否 |
-> | BillingRoleDefinitions | 否 |
-> | CreateBillingRoleAssignment | 否 |
+> | billingRoleAssignments | 否 |
+> | billingRoleDefinitions | 否 |
+> | createBillingRoleAssignment | 否 |
 > | departments | 否 |
 > | enrollmentAccounts | 否 |
 > | invoices | 否 |
@@ -496,7 +496,7 @@ ms.locfileid: "71937041"
 > | calculatePurchasePrice | 否 |
 > | catalogs | 否 |
 > | commercialReservationOrders | 否 |
-> | 兌換 | 否 |
+> | exchange | 否 |
 > | placePurchaseOrder | 否 |
 > | reservationOrders | 否 |
 > | reservationOrders/calculateRefund | 否 |
@@ -507,7 +507,7 @@ ms.locfileid: "71937041"
 > | reservationOrders/split | 否 |
 > | reservationOrders/swap | 否 |
 > | reservations | 否 |
-> | 資源 | 否 |
+> | resources | 否 |
 > | validateReservationOrder | 否 |
 
 ## <a name="microsoftcdn"></a>Microsoft.Cdn
@@ -518,7 +518,7 @@ ms.locfileid: "71937041"
 > | CdnWebApplicationFirewallManagedRuleSets | 否 |
 > | CdnWebApplicationFirewallPolicies | 是 |
 > | edgenodes | 否 |
-> | profiles | 是 |
+> | 設定檔 | 是 |
 > | profiles/endpoints | 是 |
 > | profiles/endpoints/customdomains | 否 |
 > | profiles/endpoints/origins | 否 |
@@ -588,7 +588,7 @@ ms.locfileid: "71937041"
 > | ------------- | ----------- |
 > | capabilities | 否 |
 > | 磁碟 | 否 |
-> | 映像 | 否 |
+> | images | 否 |
 > | osImages | 否 |
 > | osPlatformImages | 否 |
 > | publicImages | 否 |
@@ -612,7 +612,7 @@ ms.locfileid: "71937041"
 > [!div class="mx-tableFixed"]
 > | 資源類型 | 完整模式刪除 |
 > | ------------- | ----------- |
-> | 帳戶 | 是 |
+> | accounts | 是 |
 
 ## <a name="microsoftcommerce"></a>Microsoft.Commerce
 
@@ -637,13 +637,13 @@ ms.locfileid: "71937041"
 > | galleries/images/versions | 否 |
 > | hostGroups | 是 |
 > | hostGroups/主機 | 是 |
-> | 映像 | 是 |
+> | images | 是 |
 > | proximityPlacementGroups | 是 |
 > | restorePointCollections | 是 |
 > | restorePointCollections/restorePoints | 否 |
 > | sharedVMImages | 是 |
 > | sharedVMImages/versions | 否 |
-> | 快照集 | 是 |
+> | snapshots | 是 |
 > | virtualMachines | 是 |
 > | virtualMachines/extensions | 是 |
 > | virtualMachines/metricDefinitions | 否 |
@@ -665,7 +665,7 @@ ms.locfileid: "71937041"
 > | Charges | 否 |
 > | CostTags | 否 |
 > | credits | 否 |
-> | 事件 | 否 |
+> | 活動 | 否 |
 > | 預測 | 否 |
 > | lots | 否 |
 > | Marketplace | 否 |
@@ -677,7 +677,7 @@ ms.locfileid: "71937041"
 > | ReservationTransactions | 否 |
 > | Tags | 否 |
 > | tenants | 否 |
-> | 使用規定 | 否 |
+> | 詞彙 | 否 |
 > | UsageDetails | 否 |
 
 ## <a name="microsoftcontainerinstance"></a>Microsoft.ContainerInstance
@@ -738,7 +738,7 @@ ms.locfileid: "71937041"
 > [!div class="mx-tableFixed"]
 > | 資源類型 | 完整模式刪除 |
 > | ------------- | ----------- |
-> | 帳戶 | 是 |
+> | accounts | 是 |
 
 ## <a name="microsoftcostmanagement"></a>Microsoft.CostManagement
 
@@ -753,7 +753,7 @@ ms.locfileid: "71937041"
 > | 部門 | 否 |
 > | 維度 | 否 |
 > | EnrollmentAccounts | 否 |
-> | 匯出 | 否 |
+> | 多餘 | 否 |
 > | ExternalBillingAccounts | 否 |
 > | ExternalBillingAccounts/警示 | 否 |
 > | ExternalBillingAccounts/維度 | 否 |
@@ -764,7 +764,7 @@ ms.locfileid: "71937041"
 > | ExternalSubscriptions/維度 | 否 |
 > | ExternalSubscriptions/預測 | 否 |
 > | ExternalSubscriptions/查詢 | 否 |
-> | 趨勢預測 | 否 |
+> | 預見性 | 否 |
 > | 查詢 | 否 |
 > | 註冊 | 否 |
 > | Reportconfigs | 否 |
@@ -773,14 +773,14 @@ ms.locfileid: "71937041"
 > | showbackRules | 否 |
 > | 檢視 | 否 |
 
-## <a name="microsoftcustomerlockbox"></a>Microsoft.CustomerLockbox
+## <a name="microsoftcustomerlockbox"></a>CustomerLockbox
 
 > [!div class="mx-tableFixed"]
 > | 資源類型 | 完整模式刪除 |
 > | ------------- | ----------- |
-> | 要求 | 否 |
+> | requests | 否 |
 
-## <a name="microsoftcustomproviders"></a>Microsoft.CustomProviders
+## <a name="microsoftcustomproviders"></a>CustomProviders
 
 > [!div class="mx-tableFixed"]
 > | 資源類型 | 完整模式刪除 |
@@ -793,7 +793,7 @@ ms.locfileid: "71937041"
 > [!div class="mx-tableFixed"]
 > | 資源類型 | 完整模式刪除 |
 > | ------------- | ----------- |
-> | 工作 | 是 |
+> | jobs | 是 |
 
 ## <a name="microsoftdataboxedge"></a>Microsoft.DataBoxEdge
 
@@ -807,7 +807,7 @@ ms.locfileid: "71937041"
 > [!div class="mx-tableFixed"]
 > | 資源類型 | 完整模式刪除 |
 > | ------------- | ----------- |
-> | 工作區 | 是 |
+> | workspaces | 是 |
 > | workspaces/virtualNetworkPeerings | 否 |
 
 ## <a name="microsoftdatacatalog"></a>Microsoft.DataCatalog
@@ -841,7 +841,7 @@ ms.locfileid: "71937041"
 > [!div class="mx-tableFixed"]
 > | 資源類型 | 完整模式刪除 |
 > | ------------- | ----------- |
-> | 帳戶 | 是 |
+> | accounts | 是 |
 > | accounts/dataLakeStoreAccounts | 否 |
 > | accounts/storageAccounts | 否 |
 > | accounts/storageAccounts/containers | 否 |
@@ -852,7 +852,7 @@ ms.locfileid: "71937041"
 > [!div class="mx-tableFixed"]
 > | 資源類型 | 完整模式刪除 |
 > | ------------- | ----------- |
-> | 帳戶 | 是 |
+> | accounts | 是 |
 > | accounts/eventGridFilters | 否 |
 > | accounts/firewallRules | 否 |
 
@@ -869,7 +869,7 @@ ms.locfileid: "71937041"
 > [!div class="mx-tableFixed"]
 > | 資源類型 | 完整模式刪除 |
 > | ------------- | ----------- |
-> | 帳戶 | 是 |
+> | accounts | 是 |
 > | 帳戶/共用 | 否 |
 > | 帳戶/共用/資料集 | 否 |
 > | 帳戶/共用/邀請 | 否 |
@@ -948,14 +948,14 @@ ms.locfileid: "71937041"
 > | hostpools/sessionhosts | 否 |
 > | hostpools/sessionhosts/usersessions | 否 |
 > | hostpools/usersessions | 否 |
-> | 工作區 | 是 |
+> | workspaces | 是 |
 
 ## <a name="microsoftdevices"></a>Microsoft.Devices
 
 > [!div class="mx-tableFixed"]
 > | 資源類型 | 完整模式刪除 |
 > | ------------- | ----------- |
-> | elasticPools | 是 |
+> | ElasticPools | 是 |
 > | ElasticPools/IotHubTenants | 是 |
 > | IotHubs | 是 |
 > | IotHubs/eventGridFilters | 否 |
@@ -967,7 +967,7 @@ ms.locfileid: "71937041"
 > [!div class="mx-tableFixed"]
 > | 資源類型 | 完整模式刪除 |
 > | ------------- | ----------- |
-> | 管線 | 是 |
+> | 段 | 是 |
 
 ## <a name="microsoftdevspaces"></a>Microsoft.DevSpaces
 
@@ -1016,7 +1016,7 @@ ms.locfileid: "71937041"
 > | lcsprojects/clouddeployments | 否 |
 > | lcsprojects/connectors | 否 |
 
-## <a name="microsoftenterpriseknowledgegraph"></a>Microsoft.EnterpriseKnowledgeGraph
+## <a name="microsoftenterpriseknowledgegraph"></a>EnterpriseKnowledgeGraph
 
 > [!div class="mx-tableFixed"]
 > | 資源類型 | 完整模式刪除 |
@@ -1041,7 +1041,7 @@ ms.locfileid: "71937041"
 > | 資源類型 | 完整模式刪除 |
 > | ------------- | ----------- |
 > | clusters | 是 |
-> | 命名空間 | 是 |
+> | namespaces | 是 |
 > | namespaces/authorizationrules | 否 |
 > | namespaces/disasterrecoveryconfigs | 否 |
 > | namespaces/eventhubs | 否 |
@@ -1054,7 +1054,7 @@ ms.locfileid: "71937041"
 > [!div class="mx-tableFixed"]
 > | 資源類型 | 完整模式刪除 |
 > | ------------- | ----------- |
-> | 特性 | 否 |
+> | 功能 | 否 |
 > | 提供者 | 否 |
 
 ## <a name="microsoftgallery"></a>Microsoft.Gallery
@@ -1072,7 +1072,7 @@ ms.locfileid: "71937041"
 > | myareas/areas/galleryitems | 否 |
 > | myareas/galleryitems | 否 |
 > | 註冊 | 否 |
-> | 資源 | 否 |
+> | resources | 否 |
 > | retrieveresourcesbyid | 否 |
 
 ## <a name="microsoftgenomics"></a>Microsoft.Genomics
@@ -1080,7 +1080,7 @@ ms.locfileid: "71937041"
 > [!div class="mx-tableFixed"]
 > | 資源類型 | 完整模式刪除 |
 > | ------------- | ----------- |
-> | 帳戶 | 是 |
+> | accounts | 是 |
 
 ## <a name="microsoftguestconfiguration"></a>Microsoft.GuestConfiguration
 
@@ -1116,19 +1116,19 @@ ms.locfileid: "71937041"
 > | clusters | 是 |
 > | clusters/applications | 否 |
 
-## <a name="microsofthealthcareapis"></a>Microsoft.HealthcareApis
+## <a name="microsofthealthcareapis"></a>HealthcareApis
 
 > [!div class="mx-tableFixed"]
 > | 資源類型 | 完整模式刪除 |
 > | ------------- | ----------- |
 > | 服務 | 是 |
 
-## <a name="microsofthybridcompute"></a>Microsoft.HybridCompute
+## <a name="microsofthybridcompute"></a>HybridCompute
 
 > [!div class="mx-tableFixed"]
 > | 資源類型 | 完整模式刪除 |
 > | ------------- | ----------- |
-> | 電腦 | 是 |
+> | 機時 | 是 |
 
 ## <a name="microsofthybriddata"></a>Microsoft.HybridData
 
@@ -1150,7 +1150,7 @@ ms.locfileid: "71937041"
 > [!div class="mx-tableFixed"]
 > | 資源類型 | 完整模式刪除 |
 > | ------------- | ----------- |
-> | 工作 | 是 |
+> | jobs | 是 |
 
 ## <a name="microsoftintune"></a>Microsoft.Intune
 
@@ -1173,7 +1173,7 @@ ms.locfileid: "71937041"
 > [!div class="mx-tableFixed"]
 > | 資源類型 | 完整模式刪除 |
 > | ------------- | ----------- |
-> | 圖形 | 是 |
+> | 圖表 | 是 |
 
 ## <a name="microsoftkeyvault"></a>Microsoft.KeyVault
 
@@ -1205,7 +1205,7 @@ ms.locfileid: "71937041"
 > | 資源類型 | 完整模式刪除 |
 > | ------------- | ----------- |
 > | labaccounts | 是 |
-> | 使用者 | 否 |
+> | 使用者人數 | 否 |
 
 ## <a name="microsoftlogic"></a>Microsoft.Logic
 
@@ -1233,7 +1233,7 @@ ms.locfileid: "71937041"
 > [!div class="mx-tableFixed"]
 > | 資源類型 | 完整模式刪除 |
 > | ------------- | ----------- |
-> | 工作區 | 是 |
+> | workspaces | 是 |
 > | workspaces/computes | 否 |
 
 ## <a name="microsoftmanagedidentity"></a>Microsoft.ManagedIdentity
@@ -1241,7 +1241,7 @@ ms.locfileid: "71937041"
 > [!div class="mx-tableFixed"]
 > | 資源類型 | 完整模式刪除 |
 > | ------------- | ----------- |
-> | 識別身分 | 否 |
+> | Identities | 否 |
 > | userAssignedIdentities | 是 |
 
 ## <a name="microsoftmanagedservices"></a>ManagedServices
@@ -1260,7 +1260,7 @@ ms.locfileid: "71937041"
 > | ------------- | ----------- |
 > | getEntities | 否 |
 > | managementGroups | 否 |
-> | 資源 | 否 |
+> | resources | 否 |
 > | startTenantBackfill | 否 |
 > | tenantBackfillStatus | 否 |
 
@@ -1269,7 +1269,7 @@ ms.locfileid: "71937041"
 > [!div class="mx-tableFixed"]
 > | 資源類型 | 完整模式刪除 |
 > | ------------- | ----------- |
-> | 帳戶 | 是 |
+> | accounts | 是 |
 > | accounts/eventGridFilters | 否 |
 
 ## <a name="microsoftmarketplace"></a>Microsoft.Marketplace
@@ -1381,7 +1381,7 @@ ms.locfileid: "71937041"
 > | azureFirewalls | 是 |
 > | bastionHosts | 是 |
 > | bgpServiceCommunities | 否 |
-> | 連接 | 是 |
+> | connections | 是 |
 > | ddosCustomPolicies | 是 |
 > | ddosProtectionPlans | 是 |
 > | dnsOperationStatuses | 否 |
@@ -1404,7 +1404,7 @@ ms.locfileid: "71937041"
 > | expressRoutePorts | 是 |
 > | expressRouteServiceProviders | 否 |
 > | firewallPolicies | 是 |
-> | 前門 | 是 |
+> | frontdoors | 是 |
 > | frontdoorWebApplicationFirewallManagedRuleSets | 否 |
 > | frontdoorWebApplicationFirewallPolicies | 是 |
 > | getDnsResourceReference | 否 |
@@ -1459,7 +1459,7 @@ ms.locfileid: "71937041"
 > [!div class="mx-tableFixed"]
 > | 資源類型 | 完整模式刪除 |
 > | ------------- | ----------- |
-> | 命名空間 | 是 |
+> | namespaces | 是 |
 > | namespaces/notificationHubs | 是 |
 
 ## <a name="microsoftobjectstore"></a>Objectstore 會
@@ -1485,10 +1485,10 @@ ms.locfileid: "71937041"
 > | 資源類型 | 完整模式刪除 |
 > | ------------- | ----------- |
 > | clusters | 是 |
-> | 裝置 | 否 |
+> | devices | 否 |
 > | linkTargets | 否 |
 > | storageInsightConfigs | 否 |
-> | 工作區 | 是 |
+> | workspaces | 是 |
 > | workspaces/dataSources | 否 |
 > | workspaces/linkedServices | 否 |
 > | workspaces/query | 否 |
@@ -1500,17 +1500,17 @@ ms.locfileid: "71937041"
 > | ------------- | ----------- |
 > | managementassociations | 否 |
 > | managementconfigurations | 是 |
-> | 解決方案 | 是 |
+> | solutions | 是 |
 > | 檢視 | 是 |
 
-## <a name="microsoftpeering"></a>Microsoft.Peering
+## <a name="microsoftpeering"></a>Microsoft 對等互連
 
 > [!div class="mx-tableFixed"]
 > | 資源類型 | 完整模式刪除 |
 > | ------------- | ----------- |
 > | legacyPeerings | 否 |
 > | peerAsns | 否 |
-> | 對等 | 是 |
+> | 對等互連 | 是 |
 > | peeringServiceProviders | 否 |
 > | peeringServices | 是 |
 
@@ -1560,7 +1560,7 @@ ms.locfileid: "71937041"
 > [!div class="mx-tableFixed"]
 > | 資源類型 | 完整模式刪除 |
 > | ------------- | ----------- |
-> | 命名空間 | 是 |
+> | namespaces | 是 |
 > | namespaces/authorizationrules | 否 |
 > | namespaces/hybridconnections | 否 |
 > | namespaces/hybridconnections/authorizationrules | 否 |
@@ -1572,7 +1572,7 @@ ms.locfileid: "71937041"
 > [!div class="mx-tableFixed"]
 > | 資源類型 | 完整模式刪除 |
 > | ------------- | ----------- |
-> | 帳戶 | 否 |
+> | accounts | 否 |
 > | 收藏 | 是 |
 > | 集合/應用程式 | 否 |
 > | 集合/securityprincipalsgetresponse | 否 |
@@ -1583,10 +1583,10 @@ ms.locfileid: "71937041"
 > [!div class="mx-tableFixed"]
 > | 資源類型 | 完整模式刪除 |
 > | ------------- | ----------- |
-> | 查詢 | 是 |
+> | 筆查詢 | 是 |
 > | resourceChangeDetails | 否 |
 > | resourceChanges | 否 |
-> | 資源 | 否 |
+> | resources | 否 |
 > | resourcesHistory | 否 |
 > | subscriptionsStatus | 否 |
 
@@ -1598,7 +1598,7 @@ ms.locfileid: "71937041"
 > | availabilityStatuses | 否 |
 > | childAvailabilityStatuses | 否 |
 > | childResources | 否 |
-> | 事件 | 否 |
+> | 活動 | 否 |
 > | impactedResources | 否 |
 > | 中繼資料 | 否 |
 > | 通知 | 否 |
@@ -1608,14 +1608,14 @@ ms.locfileid: "71937041"
 > [!div class="mx-tableFixed"]
 > | 資源類型 | 完整模式刪除 |
 > | ------------- | ----------- |
-> | 部署 | 否 |
+> | deployments | 否 |
 > | deployments/operations | 否 |
 > | 連結 | 否 |
 > | notifyResourceJobs | 否 |
 > | 提供者 | 否 |
 > | resourceGroups | 否 |
-> | 資源 | 否 |
-> | 訂用帳戶 | 否 |
+> | resources | 否 |
+> | subscriptions | 否 |
 > | subscriptions/providers | 否 |
 > | subscriptions/resourceGroups | 否 |
 > | subscriptions/resourcegroups/resources | 否 |
@@ -1654,7 +1654,7 @@ ms.locfileid: "71937041"
 > | ------------- | ----------- |
 > | adaptiveNetworkHardenings | 否 |
 > | advancedThreatProtectionSettings | 否 |
-> | 警示 | 否 |
+> | alerts | 否 |
 > | allowedConnections | 否 |
 > | applicationWhitelistings | 否 |
 > | assessmentMetadata | 否 |
@@ -1684,7 +1684,7 @@ ms.locfileid: "71937041"
 > | securityStatuses | 否 |
 > | securityStatusesSummaries | 否 |
 > | serverVulnerabilityAssessments | 否 |
-> | 設定 | 否 |
+> | settings | 否 |
 > | subAssessments | 否 |
 > | 工作 | 否 |
 > | topologies | 否 |
@@ -1703,7 +1703,7 @@ ms.locfileid: "71937041"
 > [!div class="mx-tableFixed"]
 > | 資源類型 | 完整模式刪除 |
 > | ------------- | ----------- |
-> | 彙總 | 否 |
+> | 聚合 | 否 |
 > | alertRules | 否 |
 > | alertRuleTemplates | 否 |
 > | 標籤 | 否 |
@@ -1712,14 +1712,14 @@ ms.locfileid: "71937041"
 > | 實體 | 否 |
 > | entityQueries | 否 |
 > | officeConsents | 否 |
-> | 設定 | 否 |
+> | settings | 否 |
 
 ## <a name="microsoftservicebus"></a>Microsoft.ServiceBus
 
 > [!div class="mx-tableFixed"]
 > | 資源類型 | 完整模式刪除 |
 > | ------------- | ----------- |
-> | 命名空間 | 是 |
+> | namespaces | 是 |
 > | namespaces/authorizationrules | 否 |
 > | namespaces/disasterrecoveryconfigs | 否 |
 > | namespaces/eventgridfilters | 否 |
@@ -1744,7 +1744,7 @@ ms.locfileid: "71937041"
 > | containerGroupSets | 是 |
 > | edgeclusters | 是 |
 > | edgeclusters/應用程式 | 否 |
-> | 網路 | 是 |
+> | networks | 是 |
 > | secretstores | 是 |
 > | secretstores/憑證 | 否 |
 > | secretstores/秘密 | 否 |
@@ -1758,8 +1758,8 @@ ms.locfileid: "71937041"
 > | 應用程式 | 是 |
 > | containerGroups | 是 |
 > | gateways | 是 |
-> | 網路 | 是 |
-> | 祕密 | 是 |
+> | networks | 是 |
+> | 密碼 | 是 |
 > | 磁碟區 | 是 |
 
 ## <a name="microsoftservices"></a>Microsoft 服務
@@ -1852,7 +1852,7 @@ ms.locfileid: "71937041"
 > | storageAccounts/tableServices | 否 |
 > | usages | 否 |
 
-## <a name="microsoftstoragecache"></a>Microsoft.StorageCache
+## <a name="microsoftstoragecache"></a>StorageCache
 
 > [!div class="mx-tableFixed"]
 > | 資源類型 | 完整模式刪除 |
@@ -1925,8 +1925,8 @@ ms.locfileid: "71937041"
 > | ------------- | ----------- |
 > | 取消 | 否 |
 > | CreateSubscription | 否 |
-> | 啟用 | 否 |
-> | 重新命名 | 否 |
+> | enable | 否 |
+> | Rename | 否 |
 > | SubscriptionDefinitions | 否 |
 > | SubscriptionOperations | 否 |
 
@@ -1940,7 +1940,7 @@ ms.locfileid: "71937041"
 > | environments/eventsources | 是 |
 > | environments/referenceDataSets | 是 |
 
-## <a name="microsoftvmwarecloudsimple"></a>Microsoft.VMwareCloudSimple
+## <a name="microsoftvmwarecloudsimple"></a>VMwareCloudSimple
 
 > [!div class="mx-tableFixed"]
 > | 資源類型 | 完整模式刪除 |
@@ -1965,22 +1965,22 @@ ms.locfileid: "71937041"
 > | apiManagementAccounts/connectionAcls | 否 |
 > | apiManagementAccounts/connections | 否 |
 > | billingMeters | 否 |
-> | 憑證 | 是 |
+> | certificates | 是 |
 > | connectionGateways | 是 |
-> | 連接 | 是 |
+> | connections | 是 |
 > | customApis | 是 |
 > | deletedSites | 否 |
-> | 函數 | 否 |
+> | functions | 否 |
 > | hostingEnvironments | 是 |
 > | hostingEnvironments/multiRolePools | 否 |
 > | hostingEnvironments/workerPools | 否 |
 > | publishingUsers | 否 |
-> | 建議 | 否 |
+> | Mahout | 否 |
 > | resourceHealthMetadata | 否 |
 > | runtimes | 否 |
 > | serverFarms | 是 |
 > | serverFarms/eventGridFilters | 否 |
-> | 網站 | 是 |
+> | sites | 是 |
 > | sites/config  | 否 |
 > | sites/eventGridFilters | 否 |
 > | sites/hostNameBindings | 否 |

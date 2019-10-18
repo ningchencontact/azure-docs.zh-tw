@@ -8,14 +8,14 @@ ms.topic: include
 ms.date: 09/19/2019
 ms.author: barclayn
 ms.custom: include file
-ms.openlocfilehash: 795b9beedabd119df98487a0bc00160bcf21507f
-ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
+ms.openlocfilehash: d43860d71b14bdac275df51695c9206539529171
+ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72174160"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72511452"
 ---
-本文包含 Azure 虛擬機器的安全性建議。 請遵循這些建議，以協助滿足我們的共同責任模型中所述的安全性義務。 這些建議也會協助您改善 web 應用程式解決方案的整體安全性。 如需 Microsoft 如何履行服務提供者責任的詳細資訊，請參閱[雲端運算的共同責任](https://gallery.technet.microsoft.com/Shared-Responsibilities-81d0ff91/file/153019/1/Shared%20responsibilities%20for%20cloud%20computing.pdf)。
+本文包含 Azure 虛擬機器的安全性建議。 請遵循這些建議，以協助滿足我們的共同責任模型中所述的安全性義務。 這些建議也會協助您改善 web 應用程式解決方案的整體安全性。 如需 Microsoft 如何履行服務提供者責任的詳細資訊，請參閱[雲端運算的共同責任](https://gallery.technet.microsoft.com/Shared-Responsibilities-81d0ff91/file/225237/1/Shared%20Responsibilities%20for%20Cloud%20Computing%20(2017-04-03).pdf)。
 
 這篇文章的建議可由 Azure 資訊安全中心自動解決。 Azure 資訊安全中心是您的資源在 Azure 中的第一道防線。 它會定期分析 Azure 資源的安全性狀態，以找出潛在的安全性弱點。 接著，它會建議如何解決這些弱點。 如需詳細資訊，請參閱[Azure 資訊安全中心中的安全性建議](../articles/security-center/security-center-recommendations.md)。
 
@@ -23,14 +23,14 @@ ms.locfileid: "72174160"
 
 ## <a name="recommendations"></a>建議
 
-| Category | 建議 | 註解 | 資訊安全中心 |
+| 類別 | 建議 | 註解 | 資訊安全中心 |
 |-|-|----|--|
 | 一般 | 當您建立自訂的 VM 映射時，請套用最新的更新。 | 建立映射之前，請先針對將成為映射一部分的所有應用程式，安裝最新的作業系統更新。  | - |
 | 一般 | 讓 VM 保持最新狀態。 | 您可以使用 Azure 自動化中的[更新管理](../articles/automation/automation-update-management.md)解決方案，在 Azure 中管理 Windows 和 Linux 電腦的作業系統更新。 | [是](../articles/security-center/security-center-apply-system-updates.md) |
 | 一般 | 備份您的 Vm。 | [Azure 備份](../articles/backup/backup-overview.md)可協助保護您的應用程式資料，並具有最低的營運成本。 應用程式錯誤可能導致資料損毀，而人為錯誤可能會將 Bug 導入應用程式中。 Azure 備份保護執行 Windows 和 Linux 的 Vm。 | - |
 | 一般 | 使用多個 Vm 以獲得更高的復原能力和可用性。 | 如果您的 VM 執行必須具有高度可用性的應用程式，請使用多個 Vm 或[可用性設定組](../articles/virtual-machines/windows/manage-availability.md)。 | - |
 | 一般 | 採用商務持續性和嚴重損壞修復（BCDR）策略。 | Azure Site Recovery 可讓您從專為支援商務持續性而設計的不同選項中進行選擇。 它支援不同的複寫和容錯移轉案例。 如需詳細資訊，請參閱[關於 Site Recovery](../articles/site-recovery/site-recovery-overview.md)。 | - |
-| 身分識別和存取管理 | 集中化 VM 驗證。 | 您可以使用[Azure Active Directory authentication](../articles/active-directory/develop/authentication-scenarios.md)來集中化 Windows 和 Linux vm 的驗證。 | - |
+| 身分識別與存取管理 | 集中化 VM 驗證。 | 您可以使用[Azure Active Directory authentication](../articles/active-directory/develop/authentication-scenarios.md)來集中化 Windows 和 Linux vm 的驗證。 | - |
 | 資料安全性 | 加密作業系統磁片。 | [Azure 磁碟加密](../articles/security/azure-security-disk-encryption-overview.md)可協助您加密 Windows 和 LINUX IaaS VM 磁片。 若沒有必要的金鑰，加密磁片的內容將無法讀取。 磁片加密會保護儲存的資料免于未經授權的存取，如果磁片已複製，則可能會發生這種情況。| [是](../articles/security-center/security-center-apply-disk-encryption.md) |
 | 資料安全性 | 加密資料磁片。 | [Azure 磁碟加密](../articles/security/azure-security-disk-encryption-overview.md)可協助您加密 Windows 和 LINUX IaaS VM 磁片。 若沒有必要的金鑰，加密磁片的內容將無法讀取。 磁片加密會保護儲存的資料免于未經授權的存取，如果磁片已複製，則可能會發生這種情況。| -  |
 | 資料安全性 | 限制已安裝的軟體。 | 將已安裝的軟體限制為成功套用您的解決方案所需的軟體。 此指導方針可協助減少您解決方案的受攻擊面。 | - |

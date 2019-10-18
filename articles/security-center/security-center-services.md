@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/24/2019
 ms.author: memildin
-ms.openlocfilehash: b6de3a520150a95316371c4454fd2537f2beab5d
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
-ms.translationtype: HT
+ms.openlocfilehash: 275598aa50c252512348f4a04543e1beaf538626
+ms.sourcegitcommit: f29fec8ec945921cc3a89a6e7086127cc1bc1759
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72331152"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72529475"
 ---
 # <a name="supported-features-available-in-azure-security-center"></a>Azure 資訊安全中心提供支援的功能
 
@@ -96,14 +96,14 @@ Azure 資訊安全中心支援下列 PaaS 資源：
 |MySQL*|✔| ✔|
 |CosmosDB|X| ✔|
 |Blob 儲存體|✔| ✔|
-|儲存體帳戶|✔| NA|
+|儲存體帳戶|✔| X|
 |App Service|✔| ✔|
 |函式|✔| X|
 |雲端服務|✔| X|
-|VNet|✔| NA|
-|子網路|✔| NA|
-|NIC|✔| NA|
-|NSG|✔| NA|
+|VNet|✔| X|
+|子網路|✔| X|
+|NIC|✔| X|
+|NSG|✔| X|
 |Subscription|✔ * *| ✔|
 |批次帳戶|✔| X|
 |Service fabric 帳戶|✔| X|
@@ -114,14 +114,14 @@ Azure 資訊安全中心支援下列 PaaS 資源：
 |串流分析|✔| X|
 |事件中樞命名空間|✔| X|
 |邏輯應用程式|✔| X|
-|Redis|✔| NA|
+|Redis|✔| X|
 |Data Lake Analytics|✔| X|
 |Data Lake Store|✔| X|
 |金鑰保存庫|✔| X|
 
 \* 這些功能目前以公開預覽形式支援。
 
-\* @ no__t-1 Azure Active Directory （Azure AD）建議僅適用于標準訂閱。
+\* \* Azure Active Directory （Azure AD）建議僅適用于標準訂閱。
 
 ## <a name="next-steps"></a>後續步驟
 

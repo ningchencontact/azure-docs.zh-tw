@@ -1,17 +1,17 @@
 ---
-title: 將 Azure 虛擬機器移至新的訂用帳戶或資源群組 |Microsoft Docs
+title: 將 Azure Vm 移至新的訂用帳戶或資源群組
 description: 使用 Azure Resource Manager 將虛擬機器移至新的資源群組或訂用帳戶。
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 10/10/2019
 ms.author: tomfitz
-ms.openlocfilehash: 443d6f2bcbb61d9106b079a4e63c48bb433d19c6
-ms.sourcegitcommit: e0a1a9e4a5c92d57deb168580e8aa1306bd94723
+ms.openlocfilehash: faeba1c0d7342a4c00f19d4cee8d67b8dbde8e6a
+ms.sourcegitcommit: f29fec8ec945921cc3a89a6e7086127cc1bc1759
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72286729"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72528437"
 ---
 # <a name="move-guidance-for-virtual-machines"></a>適用于虛擬機器的移動指引
 

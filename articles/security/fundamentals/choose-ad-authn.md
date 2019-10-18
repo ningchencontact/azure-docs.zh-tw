@@ -9,18 +9,14 @@ ms.topic: article
 ms.service: security
 ms.subservice: security-fundamentals
 ms.workload: identity
-ms.openlocfilehash: 22a5a2e157c0b2095673e75e7a3bc9ccb80f8ffd
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.openlocfilehash: 4de4da63abea1c4f6ab006ffd65a58ea0e34c015
+ms.sourcegitcommit: f29fec8ec945921cc3a89a6e7086127cc1bc1759
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "69997808"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72529405"
 ---
 # <a name="choose-the-right-authentication-method-for-your-azure-active-directory-hybrid-identity-solution"></a>針對 Azure Active Directory 混合式身分識別解決方案選擇正確的驗證方法 
-
-本文是一系列文章中的開端，可協助組織實作完整的 Azure Active Directory (Azure AD) 混合式身分識別解決方案。 此解決方案可概述為[混合式身分識別數位轉換架構](https://aka.ms/aadframework) \(英文\)。 它涵蓋組織可以著重的業務成果和目標，以便實作強固且安全的混合式身分識別解決方案。 
-
-架構的第一個商務結果會列出組織的需求，以便在使用者存取雲端應用程式時保護驗證程序。 驗證安全業務成果的第一個商務目標是，讓使用者能夠使用其內部部署使用者名稱和密碼登入雲端應用程式。 此登入和驗證程式可讓雲端中的所有專案都能順利進行。
 
 選擇正確的驗證方法是組織想要將自己的應用程式移至雲端的第一個考量。 基於下列因素，請勿輕易做出此決策：
 
@@ -180,7 +176,7 @@ Azure AD 針對混合式身分識別解決方案支援下列驗證方法。
 |高於佈建系統的內部部署伺服器需求是什麼：Azure AD Connect？|None|每個額外的驗證代理程式需要 1 部伺服器|2 部以上的 AD FS 伺服器<br><br>周邊/DMZ 網路中需要 2 部以上的 WAP 伺服器|
 |內部部署網際網路和網路功能除了佈建系統以外，還有哪些需求？|None|來自執行驗證代理程式之伺服器的[輸出網際網路存取](../../active-directory/hybrid/how-to-connect-pta-quick-start.md)|對周邊 WAP 伺服器的[輸入網際網路存取](https://docs.microsoft.com/windows-server/identity/ad-fs/overview/ad-fs-requirements)<br><br>來自周邊 WAP 伺服器對 AD FS 伺服器的輸入網際網路存取<br><br>網路負載平衡|
 |是否有 SSL 憑證需求？|否|否|是|
-|是否有健康情況監視解決方案？|不需要|[Azure Active Directory 系統管理中心](../../active-directory/hybrid/tshoot-connect-pass-through-authentication.md)提供的代理程式狀態|[Azure AD Connect Health](../../active-directory/hybrid/how-to-connect-health-adfs.md)|
+|是否有健康情況監視解決方案？|非必要|[Azure Active Directory 系統管理中心](../../active-directory/hybrid/tshoot-connect-pass-through-authentication.md)提供的代理程式狀態|[Azure AD Connect Health](../../active-directory/hybrid/how-to-connect-health-adfs.md)|
 |使用者是否可以從公司網路中已加入網域的裝置中取得雲端資源的單一登入？|是，使用[無縫 SSO](../../active-directory/hybrid/how-to-connect-sso.md)|是，使用[無縫 SSO](../../active-directory/hybrid/how-to-connect-sso.md)|是|
 |支援何種登入類型？|UserPrincipalName + 密碼<br><br>使用[無縫 SSO](../../active-directory/hybrid/how-to-connect-sso.md) 的 Windows 整合式驗證<br><br>[替代登入識別碼](../../active-directory/hybrid/how-to-connect-install-custom.md)|UserPrincipalName + 密碼<br><br>使用[無縫 SSO](../../active-directory/hybrid/how-to-connect-sso.md) 的 Windows 整合式驗證<br><br>[替代登入識別碼](../../active-directory/hybrid/how-to-connect-pta-faq.md)|UserPrincipalName + 密碼<br><br>sAMAccountName + 密碼<br><br>Windows 整合式驗證<br><br>[憑證和智慧卡驗證](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configure-user-certificate-authentication)<br><br>[替代登入識別碼](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configuring-alternate-login-id)|
 |是否支援 Windows Hello 企業版？|[金鑰信任模型](https://docs.microsoft.com/windows/security/identity-protection/hello-for-business/hello-identity-verification)|[金鑰信任模型](https://docs.microsoft.com/windows/security/identity-protection/hello-for-business/hello-identity-verification)<br>*需要 Windows Server 2016 網域功能層級*|[金鑰信任模型](https://docs.microsoft.com/windows/security/identity-protection/hello-for-business/hello-identity-verification)<br><br>[憑證信任模型](https://docs.microsoft.com/windows/security/identity-protection/hello-for-business/hello-key-trust-adfs)|

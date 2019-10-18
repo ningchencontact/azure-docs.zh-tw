@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: search
 ms.topic: conceptual
 ms.date: 10/09/2019
-ms.openlocfilehash: 192d1a7b3bb10395aa662a4b915fe0189b1306b5
-ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
+ms.openlocfilehash: f7e264be9a02514972f9c9702adec8fa55a157bd
+ms.sourcegitcommit: f29fec8ec945921cc3a89a6e7086127cc1bc1759
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72434044"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72529388"
 ---
 # <a name="use-ai-to-understand-blob-data"></a>使用 AI 來瞭解 Blob 資料
 
@@ -40,7 +40,7 @@ AI 擴充會建立儲存在欄位中的新資訊，以文字形式加以捕捉�
 
 在中，是管線架構本身。 管線是以*索引子*功能為基礎，您可以在其中指派*技能集*，這是由提供 AI 的一或多項*技術*所組成。 管線的目的是要產生擴充的*檔*，以輸入為原始內容，但在透過管線移動時，會挑選額外的結構、內容和資訊。 在編制索引期間會耗用擴充的檔，以建立反向索引和其他用於全文檢索搜尋或探索和分析的結構。
 
-## <a name="start-with-services-and-data"></a>開始使用服務和資料
+## <a name="start-with-services"></a>開始使用服務
 
 您需要 Azure 搜尋服務和 Azure Blob 儲存體。 在 Blob 儲存體中，您需要提供來源內容的容器。
 
