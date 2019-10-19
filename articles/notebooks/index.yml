@@ -2,7 +2,7 @@
 documentType: LandingData
 title: Azure Notebooks 文件
 metadata:
-  title: Azure Notebooks 文件 - 快速入門、教學課程和指南 | Microsoft Docs
+  title: Azure Notebooks 文件
   description: 了解如何透過裝載的 Azure Notebooks 服務來建立、執行和共用 Jupyter Notebooks。
   services: notebooks
   author: kraigb

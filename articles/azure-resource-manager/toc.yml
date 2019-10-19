@@ -170,6 +170,7 @@
       items:
         - name: 具有管線的 VS 專案
           href: vs-resource-groups-project-devops-pipelines.md
+          displayName: DevOps
     - name: 匯出範本
       href: export-template-portal.md
     - name: 移動
