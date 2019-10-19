@@ -1,24 +1,18 @@
 ---
 title: 使用 Azure 監視器活頁簿建立互動式報表 |Microsoft Docs
 description: 使用適用於 VM 的 Azure 監視器的預先定義和自訂參數化活頁簿來簡化複雜的報表。
-services: azure-monitor
-documentationcenter: ''
-author: mgoedtel
-manager: carmonm
-editor: ''
-ms.assetid: ''
 ms.service: azure-monitor
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 10/15/2019
+ms.subservice: ''
+ms.topic: conceptual
+author: mgoedtel
 ms.author: magoedte
-ms.openlocfilehash: 9e1427ce8cd83b49f4b9b39fa82eff1e8a32cd10
-ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
-ms.translationtype: HT
+ms.date: 10/15/2019
+ms.openlocfilehash: 47e2e5d80241ac093d136b45c853d94a9dd43cbe
+ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
+ms.translationtype: MT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 10/17/2019
-ms.locfileid: "72515415"
+ms.locfileid: "72553724"
 ---
 # <a name="create-interactive-reports-with-azure-monitor-workbooks"></a>使用 Azure 監視器活頁簿建立互動式報表
 

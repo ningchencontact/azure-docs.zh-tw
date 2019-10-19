@@ -1,20 +1,18 @@
 ---
 title: Azure 診斷延伸模組的設定結構描述版本歷程記錄
 description: 與收集 Azure 虛擬機器、VM 擴展集、Service Fabric 和雲端服務中的效能計數器有關。
-services: azure-monitor
-author: rboucher
 ms.service: azure-monitor
-ms.devlang: dotnet
-ms.topic: reference
-ms.date: 09/04/2019
-ms.author: robb
 ms.subservice: diagnostic-extension
-ms.openlocfilehash: e8ea8ea749243821e5382fc285e3c38f05d4c6b5
-ms.sourcegitcommit: 97605f3e7ff9b6f74e81f327edd19aefe79135d2
+ms.topic: reference
+author: rboucher
+ms.author: robb
+ms.date: 09/04/2019
+ms.openlocfilehash: fe07c93ada2e8635d0f64caf8451ccdf530f6a22
+ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70735079"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72552129"
 ---
 # <a name="azure-diagnostics-extension-configuration-schema-versions-and-history"></a>Azure 診斷延伸模組的設定結構描述版本和歷程記錄
 針對隨附於 Microsoft Azure SDK 的 Azure 診斷擴充功能組態結構描述版本，此頁面會建立其索引。  
@@ -33,7 +31,7 @@ Azure 診斷延伸模組會與其他 Microsoft 診斷產品搭配使用，例如
 
 ## <a name="azure-sdk-and-diagnostics-versions-shipping-chart"></a>Azure SDK 和診斷版本推出方式圖表  
 
-|Azure SDK 版本 | 診斷擴充功能版本 | 模型|  
+|Azure SDK 版本 | 診斷擴充功能版本 | 型號|  
 |------------------|-------------------------------|------|  
 |1.x               |1.0                            |外掛程式|  
 |2.0 - 2.4         |1.0                            |外掛程式|  
@@ -113,7 +111,7 @@ Azure 診斷延伸模組會與其他 Microsoft 診斷產品搭配使用，例如
 
 
 ### <a name="diagnostics-extension-181"></a>診斷擴充功能 1.8.1 版
-可以在私用組態中指定 SAS 權杖 (而不是儲存體帳戶金鑰)。如果提供 SAS 權杖，系統會忽略儲存體帳戶金鑰。
+可以在私人設定中指定 SAS 權杖，而不是儲存體帳戶金鑰。如果提供 SAS 權杖，則會忽略儲存體帳戶金鑰。
 
 
 ```json
@@ -181,8 +179,8 @@ Azure 診斷延伸模組會與其他 Microsoft 診斷產品搭配使用，例如
 
 * 在 Azure SDK 2.4 及更舊版本中，診斷外掛程式會在執行階段使用連接字串，來取得用於傳輸診斷記錄的儲存體帳戶資訊。
 * 在 Azure SDK 2.6 及更新版本中，Visual Studio 會在發佈期間，使用診斷連接字串為診斷延伸模組設定適當的儲存體帳戶資訊。 連接字串可讓您為 Visual Studio 在發佈時將使用的不同服務組態定義不同的儲存體帳戶。 不過，因為診斷外掛程式 (在 Azure SDK 2.5 之後) 不再提供使用，所以 .cscfg 檔案本身無法啟用診斷延伸模組。 您必須個別透過 Visual Studio 或 PowerShell 等工具啟用延伸模組。
-* 為了使用 PowerShell 簡化診斷延伸模組的設定程序，從 Visual Studio 的封裝輸出也包含每個角色之診斷延伸模組的公用組態 XML。 Visual Studio 使用診斷連接字串填入出現在公用組態的儲存體帳戶資訊。 公用設定檔會建立在 Extensions 資料夾中，並遵循模式`PaaSDiagnostics.<RoleName>.PubConfig.xml`。 任何以 PowerShell 為基礎的部署都可以使用此模式將每個組態對應至角色。
-* Azure 入口網站也會使用 .cscfg 檔案中的連接字串來存取診斷資料，所以它也可以出現在 [監視] 索引標籤中。若要在入口網站中顯示詳細監視資料，必須要有連接字串。
+* 為了使用 PowerShell 簡化診斷延伸模組的設定程序，從 Visual Studio 的封裝輸出也包含每個角色之診斷延伸模組的公用組態 XML。 Visual Studio 使用診斷連接字串填入出現在公用組態的儲存體帳戶資訊。 公用設定檔會建立在 Extensions 資料夾中，並遵循模式 `PaaSDiagnostics.<RoleName>.PubConfig.xml`。 任何以 PowerShell 為基礎的部署都可以使用此模式將每個組態對應至角色。
+* Azure 入口網站也會使用 .cscfg 檔案中的連接字串來存取診斷資料，讓它可以出現在 [**監視**] 索引標籤中。需要有連接字串，才能設定服務以在入口網站中顯示詳細的監視資料。
 
 #### <a name="migrating-projects-to-azure-sdk-26-and-later"></a>將專案移轉至 Azure SDK 2.6 及、更新版本
 從 Azure SDK 2.5 移轉至 Azure SDK 2.6 或更新版本時，如果您在 .wadcfgx 檔案中指定診斷儲存體帳戶，它就會留在那裡。 若要針對不同儲存體組態充分利用不同儲存體帳戶的靈活性，您必須手動將連接字串加入專案。 如果您將專案從 Azure SDK 2.4 或更早版本移轉至 Azure SDK 2.6，系統會保留診斷連接字串。 不過，請注意，在 Azure SDK 2.6 中連接字串的處理方式有所變更，如上一節中所述。

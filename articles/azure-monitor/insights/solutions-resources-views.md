@@ -1,24 +1,18 @@
 ---
 title: 管理解決方案中的檢視 | Microsoft Docs
 description: '管理解決方案通常包含一或多個檢視，以將資料視覺化。  本文說明如何匯出檢視設計工具所建立的檢視並將它納入管理解決方案中。 '
-services: monitoring
-documentationcenter: ''
-author: bwren
-manager: jwhit
-editor: tysonn
-ms.assetid: 570b278c-2d47-4e5a-9828-7f01f31ddf8c
 ms.service: azure-monitor
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 01/16/2018
+ms.subservice: ''
+ms.topic: conceptual
+author: bwren
 ms.author: bwren
-ms.openlocfilehash: cefb83d5336bb99fd09001b5ea369a0b8fc4b942
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.date: 01/16/2018
+ms.openlocfilehash: 473d10bbec6ca056554f7223800a32e9ca93578e
+ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60596637"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72553893"
 ---
 # <a name="views-in-management-solutions-preview"></a>管理解決方案中的檢視 (預覽)
 > [!NOTE]
@@ -35,7 +29,7 @@ ms.locfileid: "60596637"
 ## <a name="prerequisites"></a>必要條件
 本文假設您已經熟悉如何[建立管理解決方案](solutions-creating.md)和方案檔的結構。
 
-## <a name="overview"></a>總覽
+## <a name="overview"></a>概觀
 若要在管理解決方案中納入檢視，您可在[方案檔](solutions-creating.md)中建立其**資源**。  說明檢視詳細組態的 JSON 通常很複雜，典型方案作者無法以手動方式建立。  最常見的方法是使用[檢視設計工具](../../azure-monitor/platform/view-designer.md)建立檢視、加以匯出，然後將其詳細組態新增至方案。
 
 將檢視新增至方案的基本步驟如下所示。  下列各節會進一步詳細說明每個步驟。
@@ -96,7 +90,7 @@ Resource Manager 範本中所定義的所有 Log Analytics 資源都會有 **api
 | 工作區版本 | API 版本 | 查詢 |
 |:---|:---|:---|
 | v1 (舊版)   | 2015-11-01-preview | 舊版格式。<br> 範例：Type=Event EventLevelName = Error  |
-| v2 (已升級) | 2015-11-01-preview | 舊版格式。  安裝時已轉換成已升級的格式。<br> 範例：Type=Event EventLevelName = Error<br>已轉換至：Event &#124; where EventLevelName == "Error"  |
+| v2 (已升級) | 2015-11-01-preview | 舊版格式。  安裝時已轉換成已升級的格式。<br> 範例：Type=Event EventLevelName = Error<br>已轉換成：Event &#124; where EventLevelName == "Error"  |
 | v2 (已升級) | 2017-03-03-preview | 已升級的格式。 <br>範例：Event &#124; where EventLevelName == "Error"  |
 
 

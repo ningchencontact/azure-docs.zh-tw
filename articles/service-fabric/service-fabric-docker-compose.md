@@ -14,18 +14,18 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 2/23/2018
 ms.author: atsenthi
-ms.openlocfilehash: 726d04cdfbc21c21a52945f11d3b5097978c5d1d
-ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
+ms.openlocfilehash: d9d135136efea72017399b5888bc6591582ffe67
+ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72168841"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72553568"
 ---
 # <a name="docker-compose-deployment-support-in-azure-service-fabric-preview"></a>Azure Service Fabric 中 Docker Compose 的部署支援 (預覽)
 
 Docker 使用 [docker-compose.yml](https://docs.docker.com/compose) 檔案定義多容器應用程式。 為了讓客戶能夠輕鬆地熟悉 Docker 以協調 Azure Service Fabric 上的現有容器應用程式，因此我們在平台中原生提供 Docker Compose 部署的預覽支援。 Service Fabric 可接受版本 3 以上的 `docker-compose.yml` 檔案。 
 
-此支援目前只能預覽，因此僅支援 Compose 指示詞子集。 例如，不支援應用程式升級。 但是，您一律能夠移除與部署應用程式，而非升級。
+此支援目前只能預覽，因此僅支援 Compose 指示詞子集。
 
 若要使用此預覽，請透過 Azure 入口網站和對應的 SDK，以 Service Fabric 執行階段 5.7 版或更新版本建立您的叢集。 
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: article
 ms.date: 09/25/2018
 ms.author: cynthn
-ms.openlocfilehash: be3ccfd0c562763d0968398ddb042dc5f07dbdcf
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 6382a39e67805eb9bddb356a7b76205a82f3f7c2
+ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70101570"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72553461"
 ---
 # <a name="upload-a-generalized-vhd-and-use-it-to-create-new-vms-in-azure"></a>將一般化 VHD 上傳，並使用它在 Azure 中建立新的 VM
 
@@ -56,67 +56,14 @@ Sysprep 會移除您的所有個人帳戶資訊以及其他項目，並準備電
 6. Sysprep 完成時，會關閉虛擬機器。 不要重新啟動 VM。
 
 
-## <a name="get-a-storage-account"></a>取得儲存體帳戶
-
-您需要一個 Azure 中的儲存體帳戶來裝載上傳的 VM 映像。 您可以使用現有的儲存體帳戶或建立新帳戶。 
-
-如果您要使用 VHD 為 VM 建立受控磁碟，儲存體帳戶位置與您將建立 VM 的位置必須相同。
-
-若要顯示可用的儲存體帳戶，請輸入︰
-
-```azurepowershell
-Get-AzStorageAccount | Format-Table
-```
-
 ## <a name="upload-the-vhd-to-your-storage-account"></a>將 VHD 上傳至儲存體帳戶
 
-使用 [Add-AzVhd](https://docs.microsoft.com/powershell/module/az.compute/add-azvhd) Cmdlet，將 VHD 上傳至儲存體帳戶中的容器。 這個範例會將 myVHD.vhd 檔案從 *C:\Users\Public\Documents\Virtual hard disks\\* 上傳至 myResourceGroup 資源群組中名為 mystorageaccount 的儲存體帳戶。 檔案會放入名為 *mycontainer* 的容器，新的檔案名稱會是 *myUploadedVHD.vhd*。
-
-```powershell
-$rgName = "myResourceGroup"
-$urlOfUploadedImageVhd = "https://mystorageaccount.blob.core.windows.net/mycontainer/myUploadedVHD.vhd"
-Add-AzVhd -ResourceGroupName $rgName -Destination $urlOfUploadedImageVhd `
-    -LocalFilePath "C:\Users\Public\Documents\Virtual hard disks\myVHD.vhd"
-```
-
-
-如果成功，您會得到看起來如以下的回應：
-
-```powershell
-MD5 hash is being calculated for the file C:\Users\Public\Documents\Virtual hard disks\myVHD.vhd.
-MD5 hash calculation is completed.
-Elapsed time for the operation: 00:03:35
-Creating new page blob of size 53687091712...
-Elapsed time for upload: 01:12:49
-
-LocalFilePath           DestinationUri
--------------           --------------
-C:\Users\Public\Doc...  https://mystorageaccount.blob.core.windows.net/mycontainer/myUploadedVHD.vhd
-```
-
-視您的網路連線和 VHD 檔案大小而定，此命令可能需要一些時間才能完成。
-
-### <a name="other-options-for-uploading-a-vhd"></a>上傳 VHD 的其他選項
- 
-您也可以使用下列其中一種方法將 VHD 上傳至儲存體帳戶：
-
-- [AzCopy](https://aka.ms/downloadazcopy)
-- [Azure 儲存體複製 Blob API](https://msdn.microsoft.com/library/azure/dd894037.aspx)
-- [Azure 儲存體總管上傳 Blob](https://azurestorageexplorer.codeplex.com/)
-- [儲存體匯入/匯出服務 REST API 參考](https://msdn.microsoft.com/library/dn529096.aspx)
--   如果預估的上傳時間長度超過 7 天，我們建議使用匯入/匯出服務。 您可以使用 [DataTransferSpeedCalculator](https://github.com/Azure-Samples/storage-dotnet-import-export-job-management/blob/master/DataTransferSpeedCalculator.html) 從資料大小和傳輸單位來評估時間。 
-    匯入/匯出可用來複製到標準儲存體帳戶。 您必須使用 AzCopy 之類的工具，從 Standard 儲存體帳戶複製到進階儲存體帳戶。
-
-> [!IMPORTANT]
-> 如果您是使用 AzCopy 來將 VHD 上傳至 Azure，請確定您在執行上傳指令碼之前已設定 [ **/BlobType:page**](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-blobs#upload-a-file)。 如果目的地是 Blob 且未指定此選項，則 AzCopy 預設會建立區塊 Blob。
-> 
-> 
-
+您現在可以將 VHD 直接上傳至受控磁片。 如需指示，請參閱[使用 Azure PowerShell 將 VHD 上傳至 Azure](disks-upload-vhd-to-managed-disk-powershell.md)。
 
 
 ## <a name="create-a-managed-image-from-the-uploaded-vhd"></a>從上傳的 VHD 建立受控映像 
 
-從一般化 OS VHD 建立受控映像。 使用您自己的資訊取代下列值。
+從一般化 OS 受控磁片建立受控映射。 使用您自己的資訊取代下列值。
 
 
 首先，設定部分參數：

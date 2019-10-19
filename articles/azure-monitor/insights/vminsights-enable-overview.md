@@ -1,24 +1,18 @@
 ---
 title: 啟用適用於 VM 的 Azure 監視器（預覽）總覽 |Microsoft Docs
 description: 瞭解如何部署和設定適用於 VM 的 Azure 監視器。 瞭解系統需求。
-services: azure-monitor
-documentationcenter: ''
-author: mgoedtel
-manager: carmonm
-editor: ''
-ms.assetid: ''
 ms.service: azure-monitor
+ms.subservice: ''
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 09/24/2019
+author: mgoedtel
 ms.author: magoedte
-ms.openlocfilehash: 477343e188bece55f72a59debbab8c9a3f3e2905
-ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
+ms.date: 09/24/2019
+ms.openlocfilehash: 9d132faf0b4d1de232e2b7e6e5ab6730978e27a8
+ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71265002"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72555233"
 ---
 # <a name="enable-azure-monitor-for-vms-preview-overview"></a>啟用適用於 VM 的 Azure 監視器（預覽）總覽
 
@@ -44,7 +38,7 @@ ms.locfileid: "71265002"
 
 - 美國中西部
 - 美國西部 2<sup>1</sup>
-- East US
+- 美國東部
 - 東部美國 2<sup>1</sup>
 - 加拿大中部
 - 英國南部
@@ -83,7 +77,7 @@ ms.locfileid: "71265002"
 
 下表列出適用於 VM 的 Azure 監視器支援的 Windows 和 Linux 作業系統。 在本節稍後，您會看到完整的清單，詳述主要和次要 Linux OS 版本，以及支援的核心版本。
 
-|OS 版本 |效能 |地圖 |健康 |
+|作業系統版本 |效能 |地圖 |醫療業 |
 |-----------|------------|-----|-------|
 |Windows Server 2019 | X | X | X |
 |Windows Server 2016 1803 | X | X | X |
@@ -117,7 +111,7 @@ ms.locfileid: "71265002"
 
 #### <a name="red-hat-linux-7"></a>Red Hat Linux 7
 
-| OS 版本 | 核心版本 |
+| 作業系統版本 | 核心版本 |
 |:--|:--|
 | 7.6 | 3.10.0-957 |
 | 7.5 | 3.10.0-862 |
@@ -125,29 +119,29 @@ ms.locfileid: "71265002"
 
 #### <a name="red-hat-linux-6"></a>Red Hat Linux 6
 
-| OS 版本 | 核心版本 |
+| 作業系統版本 | 核心版本 |
 |:--|:--|
 | 6.10 | 2.6.32-754 |
 | 6.9 | 2.6.32-696 |
 
 #### <a name="centosplus"></a>CentOSPlus
 
-| OS 版本 | 核心版本 |
+| 作業系統版本 | 核心版本 |
 |:--|:--|
-| 6.10 | 2.6.32-754.3.5<br>2.6.32-696.30.1 |
-| 6.9 | 2.6.32-696.30.1<br>2.6.32-696.18.7 |
+| 6.10 | 2.6.32-754.3。5<br>2.6.32-696.30。1 |
+| 6.9 | 2.6.32-696.30。1<br>2.6.32-696.18。7 |
 
 #### <a name="ubuntu-server"></a>Ubuntu Server
 
-| OS 版本 | 核心版本 |
+| 作業系統版本 | 核心版本 |
 |:--|:--|
-| 18.04 | 5.0 （包含 Azure 微調的核心）<br>4.18 *<br>4.15* |
+| 18.04 | 5.0 （包含 Azure 微調的核心）<br>4.18 *<br>4. 15* |
 | 16.04.3 | 4.15. * |
 | 16.04 | 4.13.\*<br>4.11.\*<br>4.10.\*<br>4.8.\*<br>4.4.\* |
 
 #### <a name="suse-linux-12-enterprise-server"></a>SUSE Linux 12 Enterprise Server
 
-| OS 版本 | 核心版本 |
+| 作業系統版本 | 核心版本 |
 |:--|:--|
 |12 SP4 | 4.12. * （包含 Azure 微調的核心） |
 |12 SP3 | 4.4.* |
@@ -155,7 +149,7 @@ ms.locfileid: "71265002"
 
 #### <a name="debian"></a>Debian 
 
-| OS 版本 | 核心版本 |
+| 作業系統版本 | 核心版本 |
 |:--|:--|
 | 9 | 4.9 | 
 
@@ -172,7 +166,7 @@ ms.locfileid: "71265002"
 
 下表說明對應功能在混合式環境中支援的連線來源。
 
-| 連線的來源 | 支援 | 描述 |
+| 連線的來源 | 支援的 | 描述 |
 |:--|:--|:--|
 | Windows 代理程式 | 是 | 除了[適用于 windows 的 Log Analytics 代理程式](../../azure-monitor/platform/log-analytics-agent.md)，windows 代理程式還需要 Dependency agent。 如需詳細資訊，請參閱[支援的作業系統](#supported-operating-systems)。 |
 | Linux 代理程式 | 是 | 除了適用于[linux 的 Log Analytics 代理程式](../../azure-monitor/platform/log-analytics-agent.md)，linux 代理程式還需要 Dependency agent。 如需詳細資訊，請參閱[支援的作業系統](#supported-operating-systems)。 |
@@ -180,7 +174,7 @@ ms.locfileid: "71265002"
 
 您可以從下列位置下載 Dependency agent：
 
-| 檔案 | OS | Version | SHA-256 |
+| 檔案 | OS | 版本 | SHA-256 |
 |:--|:--|:--|:--|
 | [InstallDependencyAgent-Windows.exe](https://aka.ms/dependencyagentwindows) | Windows | 9.9.2 | 6DFF19B9690E42CA190E3B69137C77904B657FA02895033EAA4C3A6A41DA5C6A |
 | [InstallDependencyAgent-Linux64.bin](https://aka.ms/dependencyagentlinux) | Linux | 9.9.1 | 1CB447EF30FC042FE7499A686638F3F9B4F449692FB9D80096820F8024BE4D7C |
@@ -200,7 +194,7 @@ ms.locfileid: "71265002"
 | 單一 Azure VM 或虛擬機器擴展集 | [從 VM 啟用](vminsights-enable-single-vm.md) | 您可以直接從 VM 或虛擬機器擴展集選取 [ **Insights （預覽）** ] 來啟用單一 Azure VM。 |
 | 多個 Azure Vm 或虛擬機器擴展集 | [透過 Azure 原則啟用](vminsights-enable-at-scale-policy.md) | 您可以使用 Azure 原則和可用的原則定義來啟用多個 Azure Vm。 |
 | 多個 Azure Vm 或虛擬機器擴展集 | [透過 Azure PowerShell 或 Azure Resource Manager 範本啟用](vminsights-enable-at-scale-powershell.md) | 您可以使用 Azure PowerShell 或 Azure Resource Manager 範本，在指定的訂用帳戶或資源群組上啟用多個 Azure Vm 或虛擬機器擴展集。 |
-| 混合式雲端 | [針對混合式環境啟用](vminsights-enable-hybrid-cloud.md) | 您可以部署至您的資料中心或其他雲端環境中裝載的 Vm 或實體電腦。 |
+| 混合雲 | [針對混合式環境啟用](vminsights-enable-hybrid-cloud.md) | 您可以部署至您的資料中心或其他雲端環境中裝載的 Vm 或實體電腦。 |
 
 ## <a name="performance-counters-enabled"></a>已啟用效能計數器 
 
@@ -211,9 +205,9 @@ ms.locfileid: "71265002"
 |物件名稱 |計數器名稱 |
 |------------|-------------|
 |LogicalDisk |% Free Space |
-|LogicalDisk |Avg.Disk sec/Read |
-|LogicalDisk |Avg.Disk sec/Transfer |
-|LogicalDisk |Avg.Disk sec/Write |
+|LogicalDisk |Avg. Disk sec/Read |
+|LogicalDisk |Avg. Disk sec/Transfer |
+|LogicalDisk |Avg. Disk sec/Write |
 |LogicalDisk |Disk Bytes/sec |
 |LogicalDisk |Disk Read Bytes/sec |
 |LogicalDisk |Disk Reads/sec |
@@ -221,7 +215,7 @@ ms.locfileid: "71265002"
 |LogicalDisk |Disk Write Bytes/sec |
 |LogicalDisk |Disk Writes/sec |
 |LogicalDisk |Free Megabytes |
-|記憶體 |可用的 MB 數 |
+|記憶體 |可用的 MB |
 |網路介面卡 |Bytes Received/sec |
 |網路介面卡 |Bytes Sent/sec |
 |處理器 |% Processor Time |
@@ -247,9 +241,9 @@ ms.locfileid: "71265002"
 
 當適用於 VM 的 Azure 監視器啟用並設定 Log Analytics 工作區時，會將管理元件轉送到向該工作區報告的所有 Windows 電腦。 如果您已將[System Center Operations Manager 管理群組](../../azure-monitor/platform/om-agents.md)與 Log Analytics 工作區整合，則服務對應管理元件會從管理群組部署到向管理群組報告的 Windows 電腦。  
 
-此管理元件名為*microsoft.intelligencepacks.applicationdependencymonitor. microsoft.intelligencepacks.applicationdependencymonitor*。 其寫入`%Programfiles%\Microsoft Monitoring Agent\Agent\Health Service State\Management Packs\`資料夾。 管理元件使用的資料來源是`%Program files%\Microsoft Monitoring Agent\Agent\Health Service State\Resources\<AutoGeneratedID>\Microsoft.EnterpriseManagement.Advisor.ApplicationDependencyMonitorDataSource.dll`。
+此管理元件名為*microsoft.intelligencepacks.applicationdependencymonitor. microsoft.intelligencepacks.applicationdependencymonitor*。 其寫入 `%Programfiles%\Microsoft Monitoring Agent\Agent\Health Service State\Management Packs\` 資料夾。 管理元件使用的資料來源是 `%Program files%\Microsoft Monitoring Agent\Agent\Health Service State\Resources\<AutoGeneratedID>\Microsoft.EnterpriseManagement.Advisor.ApplicationDependencyMonitorDataSource.dll`。
 
-## <a name="diagnostic-and-usage-data"></a>診斷及使用方式資料
+## <a name="diagnostic-and-usage-data"></a>診斷和使用量資料
 
 當您使用 Azure 監視器服務時，Microsoft 會自動收集使用量和效能資料。 Microsoft 會使用此資料來改善服務的品質、安全性和完整性。 
 

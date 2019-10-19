@@ -10,12 +10,12 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 09/24/2019
 ms.custom: seodec18
-ms.openlocfilehash: 906cff017c3f80cb1bdd369453b18564d19eb492
-ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
+ms.openlocfilehash: 437f93e35040a93fb0c3098d6ec53883c3f856a7
+ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/06/2019
-ms.locfileid: "71981163"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72553253"
 ---
 # <a name="azure-time-series-insights-preview-use-cases"></a>Azure 時間序列深入解析預覽版使用案例
 
@@ -38,7 +38,7 @@ Azure 時間序列深入解析是端對端的平臺即服務供應專案。 它�
 
 立即探索與分析數十億個事件，並找出異常行為及發掘資料背後隱藏的趨勢。 時間序列深入解析能為您的 IoT 和 DevOps 分析工作負載提供近乎即時的效能。
 
-[@no__t 1Data explorer](media/v2-update-use-cases/data-explorer.svg)](media/v2-update-use-cases/data-explorer.svg#lightbox)
+[![Data explorer](media/v2-update-use-cases/data-explorer.png)](media/v2-update-use-cases/data-explorer.png#lightbox)
 
 大部分的客戶都同意取得深入解析所需的最短時間量是時間序列深入解析的最顯著功能之一：
 
@@ -62,11 +62,11 @@ Azure 時間序列深入解析是端對端的平臺即服務供應專案。 它�
 
 - 第三個方式是使用強大的 API 來查詢儲存在時間序列深入解析中的資料。 時間序列深入解析具有時態性運算子，例如 `from`、`to`、`first` 和 `last`。 它具有匯總和轉換，例如 `average`、`min`、`max`、`split by`、`order by` 和 `DateHistogram`。 它也有篩選運算子，例如 `has`、`in`、`and`、`or`、`greater than` 和 `REGEX`。 所有這些運算子使下游應用程式能夠快速尋找資料中的有趣趨勢和模式。 您可以使用它們來填入自產的視覺效果，以找出異常狀況。
 
-## <a name="operational-analysis-and-driving-process-efficiency"></a>營運分析與推動流程效率
+## <a name="operational-analysis-and-driving-process-efficiency"></a>維運分析與推動流程效率
 
 使用時間序列深入解析可大規模監視設備的健康情況、使用方式和效能。 時間序列深入解析提供了一種衡量營運效率的簡單方法。 時間序列深入解析可協助您管理各式各樣無法預測的 IoT 工作負載，而且您不必犧牲內嵌或查詢的效能。
 
-[![概觀](media/v2-update-use-cases/overview.svg)](media/v2-update-use-cases/overview.svg#lightbox)
+[![概觀](media/v2-update-use-cases/overview.png)](media/v2-update-use-cases/overview.png#lightbox)
 
 如果與正確的技術或解決方案相結合，來自營運流程之資料的串流和連續處理，可以成功地轉換任何業務。 通常這些解決方案是多個系統的組合。 它們可以探索和分析不斷改變的資料，特別是在 IoT 領域，並且共用一個常見的模式。
 
@@ -86,7 +86,7 @@ Azure 時間序列深入解析是端對端的平臺即服務供應專案。 它�
 
 與 Machine Learning 和 Azure Databricks 這類進階分析服務整合。 時間序列深入解析會輸入來自數百萬個裝置的未經處理資料。 它會加入可由 Azure 分析服務套件順暢使用的內容相關資料。
 
-[![Analytics](media/v2-update-use-cases/advanced-analytics.svg)](media/v2-update-use-cases/advanced-analytics.svg#lightbox)
+[![Analytics](media/v2-update-use-cases/advanced-analytics.png)](media/v2-update-use-cases/advanced-analytics.png#lightbox)
 
 進階分析和機器學習服務會取用並處理大量的資料。 這項資料用來制定資料導向決策，並執行預測性分析。 在 IoT 使用案例中，進階分析演算法會從來自數百萬個裝置所收集的資料中學習。 這些裝置每秒會傳輸多次資料。 從 IoT 裝置所收集的資料是未經處理的。 它缺少了內容相關資訊，例如裝置的位置和感應器讀取的單位。 因此，未經處理的資料很難直接供進階分析使用。
 
@@ -96,7 +96,7 @@ Azure 時間序列深入解析是端對端的平臺即服務供應專案。 它�
 
     時間序列深入解析可以作為整個組織中所有資料的真實來源。 它為下游分析工作負載建立了一個中央儲存機制。 因為時間序列深入解析是近乎即時的儲存體服務，因此進階分析模型可以從內送的 IoT 遙測資料中不斷學習。 如此一來，模型可以進行更精確的預測。
 
-- 第二，時間序列深入解析可以輸入機器學習和預測模型的輸出，將其結果視覺化並儲存。 此程序可協助組織最佳化並調整其模型。 時間序列深入解析可讓在與定型模型輸出相同的平面上視覺化串流遙測資料變得簡單。 如此一來，它可以協助資料科學小組找出異常狀況並識別模式。  
+- 其次，機器學習和預測模型的輸出可以送到時間序列深入解析，以視覺化和儲存其結果。 此程序可協助組織最佳化並調整其模型。 時間序列深入解析可讓在與定型模型輸出相同的平面上視覺化串流遙測資料變得簡單。 如此一來，它可以協助資料科學小組找出異常狀況並識別模式。  
 
 ## <a name="next-steps"></a>後續步驟
 

@@ -1,5 +1,5 @@
 ---
-title: 教學課程：以 Azure Active Directory 設定 G Suite 來自動佈建使用者 | Microsoft Docs
+title: 教學課程︰以 Azure Active Directory 設定 G Suite 來自動佈建使用者 | Microsoft Docs
 description: 了解如何將使用者帳戶從 Azure AD 針對 G Suite 進行自動佈建和取消佈建。
 services: active-directory
 documentationCenter: na
@@ -15,170 +15,200 @@ ms.topic: article
 ms.date: 03/27/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ea1f4d4a6b60961515826a1ba7409bf149b318e8
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 0187d17f8210800aef1c68def0614ce26913e09a
+ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60277058"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72555018"
 ---
-# <a name="tutorial-configure-g-suite-for-automatic-user-provisioning"></a>教學課程：設定 G Suite 來自動佈建使用者
+# <a name="tutorial-configure-g-suite-for-automatic-user-provisioning"></a>教學課程︰設定 G Suite 來自動佈建使用者
 
-本教學課程旨在說明如何將使用者帳戶從 Azure Active Directory (Azure AD) 針對 G Suite 進行自動佈建和取消佈建。
+本教學課程的目的是要示範在 G Suite 中執行的步驟，並 Azure Active Directory （Azure AD）將 Azure AD 設定為自動布建和取消布建使用者和/或群組至 G Suite。
 
 > [!NOTE]
 > 本教學課程會說明建置在 Azure AD 使用者佈建服務之上的連接器。 如需此服務的用途、運作方式和常見問題等重要詳細資訊，請參閱[使用 Azure Active Directory 對 SaaS 應用程式自動佈建和取消佈建使用者](../manage-apps/user-provisioning.md)。
 
-## <a name="prerequisites"></a>先決條件
+> [!NOTE]
+> G Suite 連接器最近已于2019年10月更新。 對 G Suite 連接器所做的變更包括：
+- 已新增對其他 G Suite 使用者和群組屬性的支援。 
+- 已更新 G Suite 目標屬性名稱，以符合[這裡]()定義的內容。
+- 已更新預設屬性對應。
+
+## <a name="prerequisites"></a>必要條件
 
 若要設定 Azure AD 與 G Suite 整合，您需要下列項目：
 
-- Azure AD 訂用帳戶
-- 已啟用 G Suite 單一登入的訂用帳戶
-- Google Apps 訂用帳戶或 Google Cloud Platform 訂用帳戶。
-
-> [!NOTE]
-> 若要測試本教學課程中的步驟，我們不建議使用生產環境。
-
-若要測試本教學課程中的步驟，您應該遵循這些建議：
-
-- 除非必要，否則請勿使用生產環境。
-- 如果您沒有 Azure AD 試用環境，您可以[取得一個月試用](https://azure.microsoft.com/pricing/free-trial/)。
+- Azure AD 租用戶
+- [G Suite 租使用者](https://gsuite.google.com/pricing.html)
+- G Suite 上具有系統管理員許可權的使用者帳戶。
 
 ## <a name="assign-users-to-g-suite"></a>將使用者指派給 G Suite
 
-Azure Active Directory 會使用稱為「指派」的概念，來判斷哪些使用者應接收對指定應用程式的存取權。 在自動使用者帳戶佈建的內容中，只有「已指派」至 Azure AD 中的應用程式之使用者和群組會進行同步處理。
+Azure Active Directory 使用稱為「指派」的概念，來判斷哪些使用者應接收所選應用程式的存取權。 在自動使用者布建的內容中，只有已指派給 Azure AD 中應用程式的使用者和/或群組會進行同步處理。
 
-在您設定並啟用佈建服務之前，必須決定 Azure AD 中的哪些使用者或群組需要存取應用程式。 做好決定之後，即可依照[將使用者或群組指派給企業應用程式](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-assign-user-azure-portal)中的指示，將這些使用者指派給應用程式。
+在設定並啟用自動使用者布建之前，您應該決定 Azure AD 中的哪些使用者和/或群組需要存取 G Suite。 一旦決定後，您可以遵循此處的指示，將這些使用者和/或群組指派給 G Suite：
 
-> [!IMPORTANT]
-> 建議先將單一 Azure AD 使用者指派給 G Suite 以測試佈建設定。 可以稍後再指派額外的使用者和群組。
-> 
-> 將使用者指派給 G Suite 時，請在指派對話方塊中選取 [使用者]  或 [群組]  角色。 「**預設存取**」角色不適用於佈建。
+* [將使用者或群組指派給企業應用程式](../manage-apps/assign-user-or-group-access-portal.md)
 
-## <a name="enable-automated-user-provisioning"></a>啟用自動使用者佈建
+### <a name="important-tips-for-assigning-users-to-g-suite"></a>將使用者指派給 G Suite 的重要秘訣
 
-本節會引導您將 Azure AD 連線至 G Suite 的使用者帳戶佈建 API。 它也會協助您設定佈建服務，以根據 Azure AD 中的使用者和群組指派來建立、更新和停用 G Suite 中指派的使用者帳戶。
+* 建議將單一 Azure AD 使用者指派給 G Suite，以測試自動使用者布建設定。 其他使用者及/或群組可能會稍後再指派。
 
->[!TIP]
->您也可以遵循 [Azure 入口網站](https://portal.azure.com)中的指示，選擇啟用適用於 G Suite 的 SAML 型單一登入。 可以獨立設定自動佈建的單一登入，雖然這兩個功能彼此補充。
+* 將使用者指派給 G Suite 時，您必須在 [指派] 對話方塊中選取任何有效的應用程式特定角色（如果有的話）。 具有**預設存取**角色的使用者會從佈建中排除。
 
-### <a name="configure-automatic-user-account-provisioning"></a>設定使用者帳戶自動佈建
+## <a name="setup-g-suite-for-provisioning"></a>設定 G Suite 以提供布建
 
-> [!NOTE]
-> 將使用者自動佈建至 G Suite 的另一個可行選項是使用 [Google Apps Directory Sync (GADS)](https://support.google.com/a/answer/106368?hl=en)。 GADS 會將您的內部部署 Active Directory 身分識別佈建至 G Suite。 相反地，本教學課程中的解決方案會將您的 Azure Active Directory (雲端) 使用者和已啟用電子郵件功能的群組佈建至 G Suite。 
+將 G Suite 設定為使用 Azure AD 自動布建使用者之前，您必須啟用 G Suite 的 SCIM 布建。
 
-1. 使用您的系統管理員帳戶登入 [Google Apps 管理主控台](https://admin.google.com/)，然後選取 [安全性]  。 如果您沒有看到連結，它可能隱藏在畫面底部的 [其他控制項]  功能表之下。
+1. 使用您的系統管理員帳戶登入[G Suite 管理主控台](https://admin.google.com/)，然後選取 [**安全性**]。 如果您沒有看到連結，它可能隱藏在畫面底部的 [其他控制項] 功能表之下。
 
     ![選取安全性。][10]
 
-1. 在 [安全性]  頁面上，選取 [API 參考]  。
+2. 在 [安全性] 頁面上，選取 [API 參考]。
 
     ![選取 API 參考。][15]
 
-1. 選取 [啟用 API 存取]  。
+3. 選取 [啟用 API 存取]。
 
     ![選取 API 參考。][16]
 
    > [!IMPORTANT]
-   > 針對您想要佈建至 G Suite 的每個使用者，其使用者名稱在 Azure Active Directory 中*必須*繫結至自訂網域。 例如，G Suite 不會接受類似 bob@contoso.onmicrosoft.com 的使用者名稱。 另一方面，則接受 bob@contoso.com。 您可以在 Azure AD 中編輯現有使用者的內容，來變更其網域。 下列步驟包含如何為 Azure Active Directory 與 G Suite 設定自訂網域的指示。
+   > 對於您想要布建至 G Suite 的每位使用者，他們在 Azure AD 中的使用者名稱**必須**系結至自訂網域。 例如，G Suite 不會接受類似 bob@contoso.onmicrosoft.com 的使用者名稱。 另一方面，則接受 bob@contoso.com。 您可以遵循[這裡](https://docs.microsoft.com/azure/active-directory/fundamentals/add-custom-domain)的指示來變更現有使用者的網域。
 
-1. 如果您尚未將自訂網域名稱新增至 Azure Active Directory，請按照下列步驟執行：
-  
-    a. 在 [Azure 入口網站](https://portal.azure.com) 的左方瀏覽窗格中，選取 [Active Directory]  。 在目錄清單中，選取您的目錄。
+4.  當您使用 Azure AD 新增並驗證所需的自訂網域之後，您必須使用 G Suite 再次進行驗證。 若要驗證 G Suite 中的網域，請參閱下列步驟：
 
-    b. 在左方瀏覽窗格上，選取 [網域名稱]  ，然後選取 [新增]  。
-
-    ![Domain](./media/google-apps-provisioning-tutorial/domain_1.png)
-
-    ![新增網域](./media/google-apps-provisioning-tutorial/domain_2.png)
-
-    c. 在 [網域名稱]  欄位中輸入您的網域名稱。 這個網域名稱應該與您要用於 G Suite 的網域名稱相同。 然後選取 [新增網域]  按鈕。
-
-    ![網域名稱](./media/google-apps-provisioning-tutorial/domain_3.png)
-
-    d. 選取 [下一步]  移至驗證頁面。 若要確認您擁有此網域，請根據此頁面提供的值，編輯網域的 DNS 記錄。 您可以選擇使用 [MX 記錄]  或 [TXT 記錄]  進行確認，視您選取的 [記錄類型]  選項而定。
-
-    如需有關如何向 Azure AD 驗證網域名稱的更完整指示，請參閱「[將您自己的網域名稱新增至 Azure AD](https://go.microsoft.com/fwLink/?LinkID=278919&clcid=0x409)」。
-
-    ![Domain](./media/google-apps-provisioning-tutorial/domain_4.png)
-
-    e. 對於所有您想要新增至目錄的網域，重複上述步驟。
-
-    > [!NOTE]
-    > 針對使用者佈建，自訂網域必須符合來源 Azure AD 的網域名稱。 如果不相符，您可以藉由實作屬性對應的自訂來解決問題。
-
-1. 您已經向 Azure AD 驗證所有網域，但是您還必須向 Google Apps 再驗證一次。 對於尚未向 Google 註冊的每個網域，請採取下列步驟：
-
-    a. 在 [Google Apps 管理主控台](https://admin.google.com/)中，選取 [網域]  。
+    a. 在 [ [G Suite] 管理主控台](https://admin.google.com/)中，選取 [**網域**]。
 
     ![選取網域][20]
 
-    b. 選取 [新增網域或網域別名]  。
+    b.這是另一個 C# 主控台應用程式。 選取 [新增網域或網域別名]。
 
     ![新增網域][21]
 
-    c. 選取 [新增另一個網域]  ，然後輸入您想要新增的網域名稱。
+    c. 選取 [新增另一個網域]，然後輸入您想要新增的網域名稱。
 
     ![輸入您的網域名稱][22]
 
-    d. 選取 [繼續並驗證網域擁有權]  。 然後依照步驟以驗證您擁有網域名稱。 如需如何向 Google 驗證您網域的完整指示，請參閱[向 Google Apps 驗證網站擁有權](https://support.google.com/webmasters/answer/35179)。
+    d. 選取 [繼續並驗證網域擁有權]。 然後依照步驟以驗證您擁有網域名稱。 如需有關如何向 Google 驗證您的網域的完整指示，請參閱[驗證您的網站擁有權](https://support.google.com/webmasters/answer/35179)。
 
-    e. 對於您想要新增至 Google Apps 的任何其他網域，重複上述步驟。
+    e. 針對您想要新增至 G Suite 的任何其他網域重複上述步驟。
 
-    > [!WARNING]
-    > 如果您變更 G Suite 租用戶的主要網域，且已經搭配 Azure AD 設定單一登入，則必須重複執行步驟 2：啟用單一登入下的步驟 #3。
-
-1. 在 [Google Apps 管理主控台](https://admin.google.com/)中，選取 [管理角色]  。
+5. 接下來，判斷您想要使用哪一個系統管理員帳戶來管理 G Suite 中的使用者布建。 流覽至 [**管理員角色**]。
 
     ![選取 Google Apps][26]
-
-1. 決定您想要用來管理使用者佈建的管理帳戶。 對於該帳戶的 [管理角色]  ，編輯該角色的 [權限]  。 務必啟用所有 [管理 API 權限]  ，以便讓此帳戶可以用來佈建。
+    
+6. 針對該帳戶的系統**管理員角色**，編輯該角色的**許可權**。 務必啟用所有 [管理 API 權限]，以便讓此帳戶可以用來佈建。
 
     ![選取 Google Apps][27]
 
-    > [!NOTE]
-    > 如果您要設定生產環境，最佳做法是特別針對此步驟在 G Suite 中建立系統管理員帳戶。 這些帳戶必須有相關聯的管理角色，該角色還要具備必要的 API 權限。
+## <a name="add-g-suite-from-the-gallery"></a>從資源庫新增 G Suite
 
-1. 在 [Azure 入口網站](https://portal.azure.com)中，瀏覽至 [Azure Active Directory]   > [企業應用程式]   > [所有應用程式]  區段。
+若要使用 Azure AD 來設定 G Suite 來自動布建使用者，您必須從 Azure AD 應用程式資源庫將 G Suite 新增至受控 SaaS 應用程式清單。 
 
-1. 如果您已針對 G Suite 設定單一登入，請使用搜尋欄位搜尋您的 G Suite 執行個體。 否則，請選取 [新增]  ，然後在應用程式庫中搜尋 **G Suite** 或 **Google Apps**。 從搜尋結果中選取應用程式，然後將它新增至您的應用程式清單。
+1. 在 **[Azure 入口網站](https://portal.azure.com)** 的左側導覽窗格中，選取 [ **Azure Active Directory**]。
 
-1. 選取您的 G Suite 執行個體，然後選取 [佈建]  索引標籤。
+    ![Azure Active Directory 按鈕](common/select-azuread.png)
 
-1. 將 [佈建模式]  設定為 [自動]  。 
+2. 移至 [企業應用程式]，然後選取 [所有應用程式]。
 
-    ![佈建](./media/google-apps-provisioning-tutorial/provisioning.png)
+    ![企業應用程式刀鋒視窗](common/enterprise-applications.png)
 
-1. 在 [系統管理員認證]  區段下，選取 [授權]  。 這會在新的瀏覽器視窗中開啟 Google 授權對話方塊。
+3. 若要新增新的應用程式，請選取窗格頂端的 [**新增應用程式**] 按鈕。
 
-1. 確認您想要授與 Azure Active Directory 權限來變更您的 G Suite 租用戶。 選取 [接受]  。
+    ![新增應用程式按鈕](common/add-new-app.png)
+
+4. 在搜尋方塊中，輸入**G suite**，在結果面板中選取 [ **g suite** ]，然後按一下 [**新增**] 按鈕以新增應用程式。
+
+    ![結果清單中的 G Suite](common/search-new-app.png)
+
+## <a name="configuring-automatic-user-provisioning-to-g-suite"></a>設定自動使用者布建至 G Suite 
+
+本節將引導您逐步設定 Azure AD 布建服務，以根據 Azure AD 中的使用者和/或群組指派，在 G Suite 中建立、更新和停用使用者和/或群組。
+
+> [!TIP]
+> 您也可以選擇啟用 G Suite 的 SAML 型單一登入，請遵循[g Suite 單一登入教學](https://docs.microsoft.com/azure/active-directory/saas-apps/google-apps-tutorial)課程中提供的指示。 雖然自動使用者佈建和單一登入這兩個功能彼此補充，您可以分開設定它們。
+
+### <a name="to-configure-automatic-user-provisioning-for-g-suite-in-azure-ad"></a>若要在 Azure AD 中設定 G Suite 的自動使用者布建：
+
+1. 登入 [Azure 入口網站](https://portal.azure.com)。 選取 [**企業應用程式**]，然後選取 [**所有應用程式**]。
+
+    ![企業應用程式刀鋒視窗](common/enterprise-applications.png)
+
+2. 在應用程式清單中，選取 [G Suite]。
+
+    ![應用程式清單中的 G Suite 連結](common/all-applications.png)
+
+3. 選取 [佈建] 索引標籤。
+
+    ![布建索引標籤](common/provisioning.png)
+
+4. 將 [佈建模式] 設定為 [自動]。
+
+    ![布建索引標籤](common/provisioning-automatic.png)
+
+5. 在 [系統管理員認證] 區段下，選取 [授權]。 這會在新的瀏覽器視窗中開啟 Google 授權對話方塊。
+
+    ![G Suite 授權](media/google-apps-provisioning-tutorial/authorize.png)
+
+6. 確認您想要授與 Azure AD 許可權，以便對您的 G Suite 租使用者進行變更。 選取 [接受]。
 
     ![確認權限。][28]
 
-1. 在 Azure 入口網站中，選取 [測試連線]  以確保 Azure AD 可以連線至您的應用程式。 如果連線失敗，請確定您的 G Suite 帳戶具有小組系統管理員權限。 然後再試一次**授權**步驟。
+7. 在 Azure 入口網站中，選取 [測試連線] 以確保 Azure AD 可以連線至您的應用程式。 如果連線失敗，請確定您的 G Suite 帳戶具有小組系統管理員權限。 然後再試一次**授權**步驟。
 
-1. 在 [通知電子郵件]  欄位中，輸入應收到佈建錯誤通知的個人或群組之電子郵件地址。 然後選取核取方塊。
+8. 在 [通知電子郵件] 欄位中，輸入應收到佈建錯誤通知的個人或群組之電子郵件地址，然後勾選 [發生失敗時傳送電子郵件通知] 核取方塊。
 
-1. 選取 [儲存]  。
+    ![通知電子郵件](common/provisioning-notification-email.png)
 
-1. 在 [對應]  區段下，選取 [同步處理 Azure Active Directory 使用者至 Google Apps]  。
+8. 按一下 [儲存]。
 
-1. 在 [屬性對應]  區段中，檢閱從 Azure AD 同步至 G Suite 的使用者屬性。 作為 [比對]  屬性 (Property) 的屬性 (Attribute) 會用來比對 G Suite 中的使用者帳戶，以進行更新作業。 選取 [儲存]  認可任何變更。
+9. **在 [對應**] 區段下，選取 [**同步處理 Azure Active Directory 使用者到 G Suite**]。
 
-1. 若要對 G Suite 啟用 Azure AD 佈建服務，請在 [設定]  中，將 [佈建狀態]  變更為 [開啟]  。
+    ![G Suite 使用者對應](media/google-apps-provisioning-tutorial/usermappings.png)
 
-1. 選取 [ **儲存**]。
+10. 在 [**屬性對應**] 區段中，檢查從 Azure AD 同步至 G Suite 的使用者屬性。 選取為 [比對] 屬性**的屬性會**用來比對 G Suite 中的使用者帳戶，以進行更新作業。 選取 [儲存] 按鈕以認可所有變更。
 
-此流程會對在 [使用者和群組] 區段中指派給 G Suite 的任何使用者和群組啟動首次同步處理。 初始同步處理會比後續同步處理花費更多時間執行，在服務正在執行時，這大約每 40 分鐘便會發生一次。 您可以使用 [同步處理詳細資料]  區段來監視進度，並依循連結前往佈建活動記錄。 這些記錄會描述由您應用程式上的佈建服務所執行的所有動作。
+    ![G Suite 使用者屬性](media/google-apps-provisioning-tutorial/userattributes.png)
+
+11. **在 [對應**] 區段下，選取 [**同步處理 Azure Active Directory 群組至 G Suite**]。
+
+    ![G Suite 群組對應](media/google-apps-provisioning-tutorial/groupmappings.png)
+
+12. 在 [**屬性對應**] 區段中，檢查從 Azure AD 同步至 G Suite 的群組屬性。 選取為 [比對] 屬性**的屬性會**用來比對 G Suite 中的群組以進行更新作業。 選取 [儲存] 按鈕以認可所有變更。
+
+    ![G Suite 群組屬性](media/google-apps-provisioning-tutorial/groupattributes.png)
+
+13. 若要設定範圍篩選，請參閱[範圍篩選教學課程](../manage-apps/define-conditional-rules-for-provisioning-user-accounts.md)中提供的下列指示。
+
+14. 若要啟用 G Suite 的 Azure AD 布建服務，請在 [**設定**] 區段中，將 [布建**狀態**] 變更為 [**開啟**]。
+
+    ![布建狀態已切換為開啟](common/provisioning-toggle-on.png)
+
+15. 在 [**設定**] 區段的 [**範圍**] 中選擇所需的值，以定義您想要布建至 G Suite 的使用者和/或群組。
+
+    ![布建範圍](common/provisioning-scope.png)
+
+16. 當您準備好要佈建時，按一下 [儲存]。
+
+    ![正在儲存布建設定](common/provisioning-configuration-save.png)
+
+此作業會對在 [設定] 區段的 [範圍] 中定義的所有使用者和/或群組，啟動首次同步處理。 初始同步處理會比後續同步處理花費更多時間執行，只要 Azure AD 佈建服務正在執行，這大約每 40 分鐘便會發生一次。 您可以使用 [**同步處理詳細資料**] 區段來監視進度，並遵循連結來布建活動報告，其中描述 G Suite 上的 Azure AD 布建服務所執行的所有動作。
 
 如需如何讀取 Azure AD 佈建記錄的詳細資訊，請參閱[關於使用者帳戶自動佈建的報告](../manage-apps/check-status-user-account-provisioning.md)。
 
+> [!NOTE]
+> 自動化使用者布建至 G Suite 的另一個可行選項是使用[Google Cloud Directory Sync](https://support.google.com/a/answer/106368?hl=en)。此選項會將您的內部部署 Active Directory 身分識別布建至 G Suite。
+
 ## <a name="additional-resources"></a>其他資源
 
-* [管理企業應用程式的使用者帳戶佈建](tutorial-list.md)
+* [管理企業應用程式的使用者帳戶佈建](../manage-apps/configure-automatic-user-provisioning-portal.md)
 * [什麼是搭配 Azure Active Directory 的應用程式存取和單一登入？](../manage-apps/what-is-single-sign-on.md)
-* [設定單一登入](google-apps-tutorial.md)
+
+## <a name="next-steps"></a>後續步驟
+
+* [瞭解如何針對佈建活動檢閱記錄和取得報告](../manage-apps/check-status-user-account-provisioning.md)
+
 
 <!--Image references-->
 

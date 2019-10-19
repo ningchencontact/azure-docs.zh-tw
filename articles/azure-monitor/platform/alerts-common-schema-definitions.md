@@ -1,26 +1,25 @@
 ---
 title: Azure 監視器的一般警示架構定義
 description: 瞭解 Azure 監視器的一般警示架構定義
-author: anantr
-services: azure-monitor
 ms.service: azure-monitor
-ms.topic: conceptual
-ms.date: 03/14/2019
-ms.author: robb
 ms.subservice: alerts
-ms.openlocfilehash: 9e2c3849cca392539b96f47d8d7c32815851cf78
-ms.sourcegitcommit: 6fe40d080bd1561286093b488609590ba355c261
+ms.topic: conceptual
+author: anantr
+ms.author: robb
+ms.date: 03/14/2019
+ms.openlocfilehash: d1d822a5e7dadffd6be841e51ac407995adba2ea
+ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/01/2019
-ms.locfileid: "71702891"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72552565"
 ---
 # <a name="common-alert-schema-definitions"></a>常見的警示結構描述定義
 
 本文說明 Azure 監視器的[常見警示架構定義](https://aka.ms/commonAlertSchemaDocs)，包括適用于 webhook、Azure Logic Apps、Azure Functions 和 Azure 自動化 runbook 的。 
 
 任何警示實例都會描述受影響的資源，以及警示的原因。 這些實例會在下列各節的一般架構中說明：
-* **基本**概念：一組標準化的欄位，通用於所有警示類型，其中描述警示所在的資源，以及其他常見的警示中繼資料（例如，嚴重性或描述）。 
+* **基本**資訊：一組標準化的欄位，通用於所有警示類型，其中描述警示所在的資源，以及其他常見的警示中繼資料（例如，嚴重性或描述）。 
 * **警示內容**：描述警示原因的一組欄位，其中的欄位會根據警示類型而有所不同。 例如，計量警示會在警示內容中包含類似計量名稱和計量值的欄位，而活動記錄警示則包含產生警示之事件的相關資訊。 
 
 **範例警示承載**
@@ -72,23 +71,23 @@ ms.locfileid: "71702891"
 }
 ```
 
-## <a name="essentials"></a>程式集
+## <a name="essentials"></a>Essentials
 
 | 欄位 | 描述|
 |:---|:---|
 | alertId | 唯一識別警示實例的 GUID。 |
 | alertRule | 產生警示實例之警示規則的名稱。 |
-| Severity | 警示的嚴重性。 可能的值：Sev0、Sev1、Sev2、Sev3 或 Sev4。 |
-| signalType | 識別已定義警示規則的信號。 可能的值：度量、記錄或活動記錄。 |
+| 嚴重性 | 警示的嚴重性。 可能的值： Sev0、Sev1、Sev2、Sev3 或 Sev4。 |
+| signalType | 識別已定義警示規則的信號。 可能的值： [計量]、[記錄] 或 [活動記錄]。 |
 | monitorCondition | 當警示引發時，警示的監視條件會設定為 [已**引發**]。 當引發警示的基礎條件清除時，監視條件會設定為 [**已解決**]。   |
 | monitoringService | 產生警示的監視服務或解決方案。 警示內容的欄位是由監視服務所決定。 |
 | alertTargetIds | 受影響警示目標之 Azure Resource Manager 識別碼的清單。 針對 Log Analytics 工作區或 Application Insights 實例上定義的記錄警示，這是各自的工作區或應用程式。 |
 | originAlertId | 警示實例的識別碼，由產生它的監視服務所產生。 |
 | firedDateTime | 在國際標準時間（UTC）中引發警示實例的日期和時間。 |
 | resolvedDateTime | 警示實例的監視條件設定為 [以 UTC**解決**] 的日期和時間。 目前僅適用于計量警示。|
-| description | [描述]，如警示規則中所定義。 |
+| 說明 | [描述]，如警示規則中所定義。 |
 |essentialsVersion| [基本] 區段的版本號碼。|
-|alertContextVersion | `alertContext`區段的版本號碼。 |
+|alertCoNtextVersion | @No__t_0 區段的版本號碼。 |
 
 **範例值**
 ```json
@@ -152,7 +151,7 @@ ms.locfileid: "71702891"
 ### <a name="log-alerts"></a>記錄警示
 
 > [!NOTE]
-> 針對已定義自訂 JSON 承載的記錄警示，啟用通用架構會將裝載架構還原為描述的內容，如下所述。 啟用通用架構的警示，其大小上限為每個警示 256 KB。 如果搜尋結果導致警示大小超過此閾值，則不會內嵌在記錄警示承載中。 您可以藉由檢查旗`IncludedSearchResults`標來判斷這一點。 如果未包含搜尋結果，您應該搭配使用搜尋查詢與[Log ANALYTICS API](https://docs.microsoft.com/rest/api/loganalytics/query/get)。 
+> 針對已定義自訂 JSON 承載的記錄警示，啟用通用架構會將裝載架構還原為描述的內容，如下所述。 啟用通用架構的警示，其大小上限為每個警示 256 KB。 如果搜尋結果導致警示大小超過此閾值，則不會內嵌在記錄警示承載中。 您可以藉由檢查旗標 `IncludedSearchResults` 來判斷這一點。 如果未包含搜尋結果，您應該搭配使用搜尋查詢與[Log ANALYTICS API](https://docs.microsoft.com/rest/api/loganalytics/query/get)。 
 
 #### <a name="monitoringservice--log-analytics"></a>`monitoringService` = `Log Analytics`
 

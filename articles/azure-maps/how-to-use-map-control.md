@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: fa6a3af7893830eba2f4a5c43184991bff68d8a8
-ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
+ms.openlocfilehash: 4fd213a6550d045fe4bea280449ed228ba9eda35
+ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69898213"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72550283"
 ---
 # <a name="use-the-azure-maps-map-control"></a>使用 Azure 地圖服務地圖控制項
 
@@ -34,15 +34,15 @@ ms.locfileid: "69898213"
     <script src="https://atlas.microsoft.com/sdk/javascript/mapcontrol/2/atlas.min.js"></script>
     ```
 
-    b. 或者，使用 [azure-maps-control](https://www.npmjs.com/package/azure-maps-control) \(英文\) NPM 套件於本機載入 Azure 地圖服務 Web SDK，並搭配您的應用程式裝載它。 此套件也包含 TypeScript 定義。
+    b.這是另一個 C# 主控台應用程式。 或者，使用 [azure-maps-control](https://www.npmjs.com/package/azure-maps-control) \(英文\) NPM 套件於本機載入 Azure 地圖服務 Web SDK，並搭配您的應用程式裝載它。 此套件也包含 TypeScript 定義。
 
     > npm 安裝 azure-maps-control
 
     然後將參考新增到 Azure 地圖服務樣式表，並將指令碼來源參考新增到檔案的 `<head>` 元素：
 
     ```HTML
-    <link rel="stylesheet" href="node_modules/azure-maps-control/dist/css/atlas.min.css" type="text/css">
-    <script src="node_modules/azure-maps-control/dist/js/atlas.min.js"></script>
+    <link rel="stylesheet" href="node_modules/azure-maps-control/dist/atlas.min.css" type="text/css"> 
+    <script src="node_modules/azure-maps-control/dist/atlas.min.js"></script>
     ```
 
 3. 若要轉譯地圖來使它填滿頁面的完整主體，請將下列 `<style>` 元素新增到 `<head>` 元素。
@@ -68,7 +68,7 @@ ms.locfileid: "69898213"
     </body>
     ```
 
-5. 若要初始化地圖控制項，請在 html 主體中定義新的區段，並建立指令碼。 `Map` `document.getElementById('myMap')` `<div>`建立類別的實例時, 傳入對應`HTMLElement`或的 (例如,) 作為第一個參數。 `id` 使用您自己的 Azure 地圖服務帳戶金鑰或 Azure Active Directory (AAD) 認證來使用[驗證選項](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.authenticationoptions)驗證地圖。 如果您需要建立帳戶或尋找金鑰，請參閱[如何管理 Azure 地圖服務帳戶與金鑰](how-to-manage-account-keys.md)。 [語言] 選項會指定要用於地圖標籤和控制項的語言。 如需有關支援語言的資訊，請參閱[支援的語言](supported-languages.md)。 如果使用訂用帳戶金鑰進行驗證。
+5. 若要初始化地圖控制項，請在 html 主體中定義新的區段，並建立指令碼。 在建立 `Map` 類別的實例時，傳入地圖 `<div>` 的 `id` 或 `HTMLElement` （例如 `document.getElementById('myMap')`）做為第一個參數。 使用您自己的 Azure 地圖服務帳戶金鑰或 Azure Active Directory (AAD) 認證來使用[驗證選項](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.authenticationoptions)驗證地圖。 如果您需要建立帳戶或尋找金鑰，請參閱[如何管理 Azure 地圖服務帳戶與金鑰](how-to-manage-account-keys.md)。 [語言] 選項會指定要用於地圖標籤和控制項的語言。 如需有關支援語言的資訊，請參閱[支援的語言](supported-languages.md)。 如果使用訂用帳戶金鑰進行驗證。
 
     ```HTML
     <script type="text/javascript">
@@ -102,7 +102,7 @@ ms.locfileid: "69898213"
     </script>
     ```
 
-    如需詳細資訊, 請參閱[使用 Azure 地圖服務的驗證](azure-maps-authentication.md)檔。
+    如需詳細資訊，請參閱[使用 Azure 地圖服務的驗證](azure-maps-authentication.md)檔。
 
 6. 除此之外，將下列中繼標籤元素新增到頁面的標頭可能會對您很有幫助：
 
@@ -114,7 +114,7 @@ ms.locfileid: "69898213"
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     ```
 
-7. 將它全部放在您的 HTML 檔案中看起來應該像下面這段程式碼:
+7. 將它全部放在您的 HTML 檔案中看起來應該像下面這段程式碼：
 
     ```HTML
     <!DOCTYPE html>
@@ -164,21 +164,21 @@ ms.locfileid: "69898213"
     </html>
     ```
 
-8. 在網頁瀏覽器中開啟此檔案，並檢視轉譯的地圖。 看起來應該類似下列程式碼:
+8. 在網頁瀏覽器中開啟此檔案，並檢視轉譯的地圖。 看起來應該類似下列程式碼：
 
-    <iframe height="700" style="width: 100%;" scrolling="no" title="如何使用地圖控制項" src="//codepen.io/azuremaps/embed/yZpEYL/?height=557&theme-id=0&default-tab=html,result" frameborder="no" allowtransparency="true" allowfullscreen="true">請參閱<a href='https://codepen.io'>CodePen</a>上的 <<c0>如何使用地圖控制項Azure 地圖服務 (<a href='https://codepen.io/azuremaps'>@azuremaps</a>)。
+    <iframe height="700" style="width: 100%;" scrolling="no" title="如何使用地圖控制項" src="//codepen.io/azuremaps/embed/yZpEYL/?height=557&theme-id=0&default-tab=html,result" frameborder="no" allowtransparency="true" allowfullscreen="true">請參閱<a href='https://codepen.io'>CodePen</a>上的
     </iframe>
 
 ## <a name="localizing-the-map"></a>當地語系化對應
 
-Azure 地圖服務提供兩種不同的方式來設定地圖的語言和地區視圖。 第一個選項是將這項資訊新增至全域`atlas`命名空間, 這會導致應用程式中的所有地圖控制項實例預設為這些設定。 以下會將語言設定為法文 ("fr-fr"), 並將地區視圖設為「自動」:
+Azure 地圖服務提供兩種不同的方式來設定地圖的語言和地區視圖。 第一個選項是將這項資訊新增至全域 `atlas` 命名空間，這會導致應用程式中的所有地圖控制項實例預設為這些設定。 以下會將語言設定為法文（"fr-fr"），並將地區視圖設為「自動」：
 
 ```javascript
 atlas.setLanguage('fr-FR');
 atlas.setView('auto');
 ```
 
-第二個選項是在載入對應時, 將此資訊傳入對應選項, 如下所示:
+第二個選項是在載入對應時，將此資訊傳入對應選項，如下所示：
 
 ```javascript
 map = new atlas.Map('myMap', {
@@ -195,7 +195,7 @@ map = new atlas.Map('myMap', {
 ```
 
 > [!Note]
-> 使用 Web SDK, 可以使用不同的語言和區域設定, 在相同的頁面上載入多個對應實例。 此外, 您可以在使用對應的`setStyle`函式載入對應之後, 更新這些設定。 
+> 使用 Web SDK，可以使用不同的語言和區域設定，在相同的頁面上載入多個對應實例。 此外，您可以在使用對應的 [`setStyle`] 功能載入對應之後，更新這些設定。 
 
 以下是語言設為 "fr-fr" 且地區視圖設為 "auto" 的 Azure 地圖服務範例。
 
@@ -215,7 +215,7 @@ map = new atlas.Map('myMap', {
 > [!div class="nextstepaction"]
 > [選擇地圖樣式](choose-map-style.md)
 
-若要將更多資料新增至您的對應:
+若要將更多資料新增至您的對應：
 
 > [!div class="nextstepaction"]
 > [建立地圖](map-create.md)

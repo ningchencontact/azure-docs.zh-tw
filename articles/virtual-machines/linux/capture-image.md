@@ -15,12 +15,12 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 10/08/2018
 ms.author: cynthn
-ms.openlocfilehash: 328748b9dd81834b9c69f81bc0bda60c9ad12cb0
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: 0767031ff6eee59de6cf447464328f66c50ef71a
+ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68879962"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72552804"
 ---
 # <a name="how-to-create-an-image-of-a-virtual-machine-or-vhd"></a>如何建立虛擬機器或 VHD 的映像
 
@@ -30,9 +30,7 @@ ms.locfileid: "68879962"
 
 若要建立一份現有 Linux VM 的副本以進行備份或偵錯，或是從內部部署 VM 上傳特定的 Linux VHD，請參閱[從自訂的磁碟映像上傳及建立 Linux VM](upload-vhd.md)。  
 
-您可以使用**AZURE VM 映射產生器 (公開預覽)** 服務來建立自訂映射, 而不需要學習任何工具或設定組建管線, 只要提供映射設定, 映射產生器就會建立映射。 如需詳細資訊, 請參閱[使用 AZURE VM 映射](https://docs.microsoft.com/azure/virtual-machines/linux/image-builder-overview)產生器消費者入門。
-
-此外, 使用**Packer**來建立您的自訂設定。 如需詳細資訊，請參閱[如何在 Azure 中使用 Packer 來建立 Linux 虛擬機器映像](build-image-with-packer.md)。
+您可以使用**AZURE VM 映射產生器（公開預覽）** 服務來建立自訂映射，而不需要學習任何工具或設定組建管線，只要提供映射設定，映射產生器就會建立映射。 如需詳細資訊，請參閱[使用 AZURE VM 映射](https://docs.microsoft.com/azure/virtual-machines/linux/image-builder-overview)產生器消費者入門。
 
 建立映像之前，您需要下列項目：
 
@@ -42,10 +40,10 @@ ms.locfileid: "68879962"
 
 ## <a name="prefer-a-tutorial-instead"></a>偏好使用教學課程嗎？
 
-如需本文的簡化版本，以進行測試、評估或深入了解 Azure 中的 VM，請參閱[使用 CLI 建立 Azure VM 的自訂映像](tutorial-custom-images.md)。  否則, 請繼續閱讀這裡以取得完整的圖片。
+如需本文的簡化版本，以進行測試、評估或深入了解 Azure 中的 VM，請參閱[使用 CLI 建立 Azure VM 的自訂映像](tutorial-custom-images.md)。  否則，請繼續閱讀這裡以取得完整的圖片。
 
 
-## <a name="step-1-deprovision-the-vm"></a>步驟 1:取消佈建 VM
+## <a name="step-1-deprovision-the-vm"></a>步驟 1：取消佈建 VM
 首先使用 Azure VM 代理程式來取消佈建 VM，以將電腦特定的檔案和資料刪除。 在來源 Linux VM 上使用 `waagent` 命令搭配 `-deprovision+user` 參數。 如需詳細資訊，請參閱 [Azure Linux 代理程式使用者指南](../extensions/agent-linux.md)。
 
 1. 使用 SSH 用戶端連線到 Linux VM。
@@ -60,7 +58,7 @@ ms.locfileid: "68879962"
 3. 輸入 **y** 繼續。 您可以新增 `-force` 參數，便不用進行此確認步驟。
 4. 在命令完成之後，請輸入**exit** 關閉 SSH 用戶端。  此時 VM 仍會在執行中。
 
-## <a name="step-2-create-vm-image"></a>步驟 2:建立 VM 映像
+## <a name="step-2-create-vm-image"></a>步驟 2：建立 VM 映像
 使用 Azure CLI 將 VM 標記為一般化，並擷取映像。 在下列範例中，請以您自己的值取代範例參數名稱。 範例參數名稱包含 *myResourceGroup*、*myVnet* 和 *myVM*。
 
 1. 使用 [az vm deallocate](/cli/azure/vm) 解除配置已取消佈建的 VM。 下列範例會解除配置名為 myResourceGroup 資源群組中名為 myVM 的 VM。  
@@ -71,7 +69,7 @@ ms.locfileid: "68879962"
       --name myVM
     ```
     
-    等到 VM 完全解除配置, 再繼續進行。 這可能需要幾分鐘才能完成。  VM 會在解除配置期間關閉。
+    等到 VM 完全解除配置，再繼續進行。 這可能需要幾分鐘才能完成。  VM 會在解除配置期間關閉。
 
 2. 使用 [az vm generalize](/cli/azure/vm)，將 VM 標記為一般化。 下列範例會將名為 myResourceGroup 的資源群組中名為 myVM 的 VM 標記為一般化。
    

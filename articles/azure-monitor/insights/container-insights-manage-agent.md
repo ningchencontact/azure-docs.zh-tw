@@ -1,24 +1,18 @@
 ---
 title: 如何管理適用於容器的 Azure 監視器代理程式 | Microsoft Docs
 description: 本文說明如何利用適用於容器的 Azure 監視器所使用的容器化 Log Analytics 代理程式來管理最常見的維護工作。
-services: azure-monitor
-documentationcenter: ''
-author: mgoedtel
-manager: carmonm
-editor: ''
-ms.assetid: ''
 ms.service: azure-monitor
+ms.subservice: ''
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 12/06/2018
+author: mgoedtel
 ms.author: magoedte
-ms.openlocfilehash: e1d47be159d4721aed4b055a51acf675688b855e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 12/06/2018
+ms.openlocfilehash: bfedd7989e71bcb8cf58cef7ad7122749350ae26
+ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65071790"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72554047"
 ---
 # <a name="how-to-manage-the-azure-monitor-for-containers-agent"></a>如何管理適用於容器的 Azure 監視器代理程式
 適用於容器的 Azure 監視器會使用適用於 Linux 的 Log Analytics 代理程式容器化版本。 初始部署之後，您可能需要在其生命週期期間執行一些例行性或選擇性工作。 本文將詳細說明如何手動升級代理程式，並停用從特定容器收集環境變數。 
@@ -35,7 +29,7 @@ ms.locfileid: "65071790"
 >當您執行這項維護活動時，叢集中的節點將不會轉送收集的資料，且在您移除代理程式到安裝新版本的這段時間內，效能檢視不會顯示資料。 
 >
 
-若要安裝新版的代理程式，請依照下列所述的步驟[使用 Azure CLI 啟用監視](container-insights-enable-new-cluster.md#enable-using-azure-cli)、 完成此程序。  
+若要安裝新版的代理程式，請遵循[使用 Azure CLI 啟用監視](container-insights-enable-new-cluster.md#enable-using-azure-cli)中所述的步驟來完成此流程。  
 
 啟用監視之後，可能需要約 15 分鐘的時間才能檢視叢集的更新健康情況計量。 若要確認代理程式已順利升級，請執行下列命令：`kubectl logs omsagent-484hw --namespace=kube-system`
 
@@ -61,7 +55,7 @@ ms.locfileid: "65071790"
     docker-cimprov 1.0.0.31
 
 ## <a name="how-to-disable-environment-variable-collection-on-a-container"></a>如何在容器上停用收集環境變數
-適用於容器的 Azure 監視器會從在 Pod 中執行的容器收集環境變數，並在 [容器]  檢視內所選取容器的屬性窗格中顯示它們。 您可以藉由在 AKS 叢集部署期間，或在設定環境變數 *AZMON_COLLECT_ENV* 之後，停用對特定容器進行收集。 此功能可從代理程式版本 (ciprod11292018 和更新版本) 中取得。  
+適用於容器的 Azure 監視器會從在 Pod 中執行的容器收集環境變數，並在 [容器] 檢視內所選取容器的屬性窗格中顯示它們。 您可以藉由在 AKS 叢集部署期間，或在設定環境變數 *AZMON_COLLECT_ENV* 之後，停用對特定容器進行收集。 此功能可從代理程式版本 (ciprod11292018 和更新版本) 中取得。  
 
 若要在新的或現有容器上停用收集環境變數，請在您的 Kubernetes 部署 yaml 設定檔中，將變數 **AZMON_COLLECT_ENV** 的值設定為 **False**。   
 
@@ -72,7 +66,7 @@ ms.locfileid: "65071790"
 
 執行下列命令，以將變更套用至您的 AKS 容器：`kubectl apply -f  <path to yaml file>`。
 
-若要確認設定變更已生效，在適用於容器的 Azure 監視器中選取 [容器]  檢視中的容器，並在 [屬性] 面板中展開 [環境變數]  。  此區段應該只會顯示稍早建立的變數 **AZMON_COLLECT_ENV=FALSE**。 對於所有其他容器，[環境變數] 區段應該會列出探索到的所有環境變數。   
+若要確認設定變更已生效，在適用於容器的 Azure 監視器中選取 [容器] 檢視中的容器，並在 [屬性] 面板中展開 [環境變數]。  此區段應該只會顯示稍早建立的變數 **AZMON_COLLECT_ENV=FALSE**。 對於所有其他容器，[環境變數] 區段應該會列出探索到的所有環境變數。   
 
 若要重新啟用環境變數的探索，請套用稍早的相同程序，並將值從 **False** 變更為 **True**，然後重新執行 `kubectl` 命令來更新容器。  
 

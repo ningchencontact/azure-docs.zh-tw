@@ -1,22 +1,22 @@
 ---
 title: 建立啟用 Apache Kafka 的事件中樞 - Azure 事件中樞 | Microsoft Docs
-description: 本文章提供建立 Apache Kafka 的逐步解說使用 Azure 入口網站中啟用 Azure 事件中樞命名空間。
+description: 本文提供逐步解說，說明如何使用 Azure 入口網站建立已啟用 Azure 事件中樞命名空間的 Apache Kafka。
 services: event-hubs
 documentationcenter: .net
-author: basilhariri
+author: ShubhaVijayasarathy
 manager: timlt
 ms.service: event-hubs
 ms.devlang: dotnet
 ms.topic: article
 ms.custom: seodec18
 ms.date: 12/06/2018
-ms.author: bahariri
-ms.openlocfilehash: 125da95349fce0e75b44b5619baba28d34a74be1
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: shvija
+ms.openlocfilehash: 9ce0f74ec6d4e536bfb3fe827ae6f8ae143b640e
+ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60822490"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72555809"
 ---
 # <a name="create-apache-kafka-enabled-event-hubs"></a>建立已啟用 Apache kafka 的事件中樞
 
@@ -26,23 +26,23 @@ Azure 事件中樞為您提供 Kafka 端點。 此端點可讓您的事件中樞
 
 本文說明如何建立事件中樞命名空間，以及取得將 Kafka 應用程式連線至已啟用 Kafka 之事件中樞所需的連接字串。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)。
 
 ## <a name="create-a-kafka-enabled-event-hubs-namespace"></a>建立已啟用 Kafka 的事件中樞命名空間
 
-1. 登入 [Azure 入口網站][Azure portal]，然後按一下畫面左上方的 [建立資源]  。
+1. 登入 [Azure 入口網站][Azure portal]，然後按一下畫面左上方的 [建立資源]。
 
 2. 搜尋事件中樞，並選取選項，如下所示：
     
     ![在入口網站中搜尋事件中樞](./media/event-hubs-create-kafka-enabled/event-hubs-create-event-hubs.png)
  
-3. 提供唯一名稱並在命名空間上啟用 Kafka。 按一下 [建立]  。
+3. 提供唯一名稱並在命名空間上啟用 Kafka。 按一下 [建立]。
     
     ![建立命名空間](./media/event-hubs-create-kafka-enabled/create-kafka-namespace.jpg)
  
-4. 建立命名空間後，在 [設定]  索引標籤上，按一下 [共用存取原則]  以取得連接字串。
+4. 建立命名空間後，在 [設定] 索引標籤上，按一下 [共用存取原則] 以取得連接字串。
 
     ![按一下 [共用存取原則]](./media/event-hubs-create/create-event-hub7.png)
 

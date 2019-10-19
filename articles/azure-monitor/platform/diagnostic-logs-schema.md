@@ -1,19 +1,18 @@
 ---
 title: Azure 診斷記錄支援的服務和結構描述
 description: 了解 Azure 診斷記錄支援的服務和事件結構描述。
-author: rboucher
-services: azure-monitor
 ms.service: azure-monitor
-ms.topic: reference
-ms.date: 10/11/2018
-ms.author: robb
 ms.subservice: logs
-ms.openlocfilehash: 70dd4af16746ecf54310dffcb854c3c0857283ba
-ms.sourcegitcommit: f9e81b39693206b824e40d7657d0466246aadd6e
+ms.topic: reference
+author: rboucher
+ms.author: robb
+ms.date: 10/11/2018
+ms.openlocfilehash: f2d71972fa8acc930800a70193f688246ee7415c
+ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72033864"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72555571"
 ---
 # <a name="supported-services-schemas-and-categories-for-azure-diagnostic-logs"></a>Azure 診斷記錄支援的服務、結構描述和類別
 
@@ -26,21 +25,21 @@ ms.locfileid: "72033864"
 | Name | 必要/選用 | 描述 |
 |---|---|---|
 | time | 必要項 | 事件的時間戳記 (UTC)。 |
-| resourceId | 必要項 | 發出事件之資源的資源識別碼。 對於租用戶服務，這是 /tenants/tenant-id/providers/provider-name 的格式。 |
+| ResourceId | 必要項 | 發出事件之資源的資源識別碼。 對於租用戶服務，這是 /tenants/tenant-id/providers/provider-name 的格式。 |
 | tenantId | 租用戶記錄所需的 | 此事件所繫結 Active Directory 租用戶的租用戶識別碼。 這個屬性只能用於租用戶層級記錄，並不會出現在資源層級記錄中。 |
 | operationName | 必要項 | 此事件所代表的作業名稱。 如果事件代表 RBAC 作業，則這是 RBAC 作業名稱 (例如 Microsoft.Storage/storageAccounts/BlobServices/Blobs/Read)。 通常以 Resource Manager 作業形式建模，即使它們不是實際記載的 Resource Manager 作業也是一樣 (`Microsoft.<providerName>/<resourceType>/<subtype>/<Write/Read/Delete/Action>`) |
-| operationVersion | 選擇性 | 與作業建立關聯的 api-version，如果使用 API 執行 operationName (例如 `http://myservice.windowsazure.net/object?api-version=2016-06-01`). 如果沒有對應至此作業的 API，則版本代表該作業的版本，以防與作業建立關聯的屬性在未來變更。 |
+| operationVersion | 選用 | 與作業建立關聯的 api-version，如果使用 API 執行 operationName (例如 `http://myservice.windowsazure.net/object?api-version=2016-06-01`)。 如果沒有對應至此作業的 API，則版本代表該作業的版本，以防與作業建立關聯的屬性在未來變更。 |
 | category | 必要項 | 事件的記錄類別。 類別是您可在特定資源上啟用或停用記錄的資料粒度。 事件之屬性 Blob 內顯示的屬性，會與特定記錄類別和資源類型內的屬性相同。 典型記錄類別是「稽核」、「作業」、「執行」和「要求」。 |
-| resultType | 選擇性 | 事件的狀態。 一般值包括︰「已啟動」、「進行中」、「成功」、「失敗」、「作用中」和「已解決」。 |
-| resultSignature | 選擇性 | 事件的子狀態。 如果此作業對應至 REST API 呼叫，則這是對應 REST 呼叫的 HTTP 狀態碼。 |
-| resultDescription | 選擇性 | 此作業的靜態文字描述，例如 “Get storage file.” |
-| durationMs | 選擇性 | 作業的持續時間 (以毫秒為單位)。 |
-| callerIpAddress | 選擇性 | 呼叫端 IP 位址，如果作業對應至來自具有公開可用 IP 位址之實體的 API 呼叫。 |
-| correlationId | 選擇性 | 用來將一組相關事件群組在一起的 GUID。 一般而言，如果兩個事件具有相同 operationName 但具有兩個不同狀態 (例如 "Started" 和 "Succeeded")，則會共用相同的相互關聯識別碼。 這也可能代表事件之間的其他關聯性。 |
-| 身分識別 | 選擇性 | JSON Blob，描述已執行作業之使用者或應用程式的身分識別。 這通常包括來自 Active Directory 的授權和宣告/JWT 權杖。 |
-| 層級 | 選擇性 | 事件的嚴重性層級。 必須是「資訊」、「警告」、「錯誤」或「嚴重」中的其中一個。 |
-| location | 選擇性 | 發出事件之資源的區域，例如 「美國東部」或「法國南部」 |
-| properties | 選擇性 | 任何與此特定事件類別相關的擴充屬性。 所有自訂/唯一屬性都必須放在結構描述的這個「部分 B」內。 |
+| resultType | 選用 | 事件的狀態。 一般值包括︰「已啟動」、「進行中」、「成功」、「失敗」、「作用中」和「已解決」。 |
+| resultSignature | 選用 | 事件的子狀態。 如果此作業對應至 REST API 呼叫，則這是對應 REST 呼叫的 HTTP 狀態碼。 |
+| resultDescription | 選用 | 此作業的靜態文字描述，例如 “Get storage file.” |
+| durationMs | 選用 | 作業的持續時間 (以毫秒為單位)。 |
+| callerIpAddress | 選用 | 呼叫端 IP 位址，如果作業對應至來自具有公開可用 IP 位址之實體的 API 呼叫。 |
+| correlationId | 選用 | 用來將一組相關事件群組在一起的 GUID。 一般而言，如果兩個事件具有相同 operationName 但具有兩個不同狀態 (例如 "Started" 和 "Succeeded")，則會共用相同的相互關聯識別碼。 這也可能代表事件之間的其他關聯性。 |
+| 身分識別 | 選用 | JSON Blob，描述已執行作業之使用者或應用程式的身分識別。 這通常包括來自 Active Directory 的授權和宣告/JWT 權杖。 |
+| 層級 | 選用 | 事件的嚴重性層級。 必須是「資訊」、「警告」、「錯誤」或「嚴重」中的其中一個。 |
+| location | 選用 | 發出事件之資源的區域，例如 「美國東部」或「法國南部」 |
+| properties | 選用 | 任何與此特定事件類別相關的擴充屬性。 所有自訂/唯一屬性都必須放在結構描述的這個「部分 B」內。 |
 
 ## <a name="service-specific-schemas-for-resource-diagnostic-logs"></a>資源診斷記錄的服務特定結構描述
 資源診斷記錄的結構描述會根據資源和記錄類別而有所不同。 此清單顯示的所有服務都可以製作服務和類別特定結構描述 (如果可用) 的可用診斷記錄和連結。
@@ -56,16 +55,16 @@ ms.locfileid: "72033864"
 | 適用於 MySQL 的 Azure 資料庫 | [適用於 MySQL 的 Azure 資料庫診斷記錄](../../mysql/concepts-server-logs.md#diagnostic-logs) |
 | 適用於 PostgreSQL 的 Azure 資料庫 | [適用於 PostgreSQL 的 Azure 資料庫診斷記錄](../../postgresql/concepts-server-logs.md#diagnostic-logs) |
 | Azure 資料總管 | [Azure 資料總管診斷記錄](../../data-explorer/using-diagnostic-logs.md) |
-| 認知服務 | [Azure 認知服務的診斷記錄](../../cognitive-services/diagnostic-logging.md) |
-| 內容傳遞網路 | [CDN 的 Azure 診斷記錄](../../cdn/cdn-azure-diagnostic-logs.md) |
+| 辨識服務 | [Azure 認知服務的診斷記錄](../../cognitive-services/diagnostic-logging.md) |
+| Content Delivery Network | [CDN 的 Azure 診斷記錄](../../cdn/cdn-azure-diagnostic-logs.md) |
 | CosmosDB | [Azure Cosmos DB 記錄](../../cosmos-db/logging.md) |
 | Data Factory | [使用 Azure 監視器來監視 Data Factory](../../data-factory/monitor-using-azure-monitor.md) |
 | Data Lake Analytics |[存取 Azure Data Lake Analytics 的診斷記錄](../../data-lake-analytics/data-lake-analytics-diagnostic-logs.md) |
 | Data Lake Store |[存取 Azure Data Lake Store 的診斷記錄](../../data-lake-store/data-lake-store-diagnostic-logs.md) |
 | 事件中樞 |[Azure 事件中樞診斷記錄](../../event-hubs/event-hubs-diagnostic-logs.md) |
-| ExpressRoute | 無法使用結構描述。 |
+| 快速路由 | 無法使用結構描述。 |
 | Azure 防火牆 | 無法使用結構描述。 |
-| IoT 中樞 | [IoT 中樞作業](../../iot-hub/iot-hub-monitor-resource-health.md#use-azure-monitor) |
+| IoT Hub | [IoT 中樞作業](../../iot-hub/iot-hub-monitor-resource-health.md#use-azure-monitor) |
 | Key Vault |[Azure 金鑰保存庫記錄](../../key-vault/key-vault-logging.md) |
 | Kubernetes 服務 |[Azure Kubernetes 記錄](../../aks/view-master-logs.md#log-event-schema) |
 | 負載平衡器 |[Azure 負載平衡器的 Log Analytics](../../load-balancer/load-balancer-monitor-log.md) |
@@ -73,17 +72,17 @@ ms.locfileid: "72033864"
 | 網路安全性群組 |[網路安全性群組 (NSG) 的記錄檔分析](../../virtual-network/virtual-network-nsg-manage-log.md) |
 | DDOS 保護 | [管理 Azure DDoS Protection Standard](../../virtual-network/manage-ddos-protection.md) |
 | Power BI 專用 | [Azure 中 Power BI Embedded 的診斷記錄](https://docs.microsoft.com/power-bi/developer/azure-pbie-diag-logs) |
-| [復原服務] | [Azure 備份的資料模型](../../backup/backup-azure-reports-data-model.md)|
+| 復原服務 | [Azure 備份的資料模型](../../backup/backup-azure-reports-data-model.md)|
 | Search |[啟用和使用搜尋流量分析](../../search/search-traffic-analytics.md) |
 | 服務匯流排 |[Azure 服務匯流排診斷記錄](../../service-bus-messaging/service-bus-diagnostic-logs.md) |
 | SQL Database | [Azure SQL Database 診斷記錄](../../sql-database/sql-database-metrics-diag-logging.md) |
-| 串流分析 |[作業診斷記錄](../../stream-analytics/stream-analytics-job-diagnostic-logs.md) |
+| Stream Analytics |[作業診斷記錄](../../stream-analytics/stream-analytics-job-diagnostic-logs.md) |
 | 流量管理員 | [流量管理員記錄結構描述](../../traffic-manager/traffic-manager-diagnostic-logs.md) |
 | 虛擬網路 | 無法使用結構描述。 |
 | 虛擬網路閘道 | 無法使用結構描述。 |
 
 ## <a name="supported-log-categories-per-resource-type"></a>每個資源類型支援的記錄檔類別
-|資源類型|Category|類別顯示名稱|
+|資源類型|類別|類別顯示名稱|
 |---|---|---|
 |Microsoft.AnalysisServices/servers|引擎|引擎|
 |Microsoft.AnalysisServices/servers|服務|服務|
@@ -106,12 +105,12 @@ ms.locfileid: "72033864"
 |Microsoft.DataFactory/factories|PipelineRuns|管線執行記錄|
 |Microsoft.DataFactory/factories|TriggerRuns|觸發程序執行記錄|
 |Microsoft.DataLakeAnalytics/accounts|稽核|稽核記錄|
-|Microsoft.DataLakeAnalytics/accounts|要求|要求記錄|
+|Microsoft.DataLakeAnalytics/accounts|Requests|要求記錄|
 |Microsoft.DataLakeStore/accounts|稽核|稽核記錄|
 |Microsoft.DataLakeStore/accounts|Requests|要求記錄|
 |Microsoft.DBforMySQL/servers|MySqlSlowLogs|MySQL 伺服器記錄|
 |Microsoft.DBforPostgreSQL/servers|PostgreSQLLogs|PostgreSQL 伺服器記錄|
-|Microsoft.Devices/IotHubs|連接|連接|
+|Microsoft.Devices/IotHubs|連線|連線|
 |Microsoft.Devices/IotHubs|DeviceTelemetry|裝置遙測|
 |Microsoft.Devices/IotHubs|C2DCommands|C2D 命令|
 |Microsoft.Devices/IotHubs|DeviceIdentityOperations|裝置身分識別作業|
@@ -185,7 +184,7 @@ ms.locfileid: "72033864"
 |Microsoft.Sql/servers/databases|Errors|Errors|
 |Microsoft.Sql/servers/databases|DatabaseWaitStatistics|資料庫等候統計資料|
 |Microsoft.Sql/servers/databases|逾時|逾時|
-|Microsoft.Sql/servers/databases|區塊|區塊|
+|Microsoft.Sql/servers/databases|Blocks|Blocks|
 |Microsoft.Sql/servers/databases|死結|死結|
 |Microsoft.Sql/servers/databases|稽核|稽核記錄|
 |Microsoft.Sql/servers/databases|SQLSecurityAuditEvents|SQL 安全性稽核事件|
@@ -193,7 +192,7 @@ ms.locfileid: "72033864"
 |Microsoft.Sql/servers/databases|ExecRequests|執行要求|
 |Microsoft.Sql/servers/databases|RequestSteps|要求步驟|
 |Microsoft.Sql/servers/databases|SqlRequests|Sql 要求|
-|Microsoft.Sql/servers/databases|Waits|等候|
+|Microsoft.Sql/servers/databases|等候|等候|
 |Microsoft.Sql/managedInstances|ResourceUsageStats|資源使用量統計資料|
 |Microsoft.Sql/managedInstances|SQLSecurityAuditEvents|SQL 安全性稽核事件|
 |Microsoft.Sql/managedInstances/databases|SQLInsights|SQL Insights|

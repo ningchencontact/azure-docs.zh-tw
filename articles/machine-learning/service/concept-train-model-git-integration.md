@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: jordane
 author: jpe316
 ms.date: 10/11/2019
-ms.openlocfilehash: db96663ef3d901546e1b32362a9eb9c9ae09dd21
-ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
+ms.openlocfilehash: 1ef9f3f847cb74aca0cae66dc8354838d28a645f
+ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72377508"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72553671"
 ---
 # <a name="git-integration-for-azure-machine-learning"></a>Azure Machine Learning 的 Git 整合
 
@@ -26,15 +26,15 @@ ms.locfileid: "72377508"
 
 當您從 Python SDK 或 Machine Learning CLI 提交定型回合時，定型模型所需的檔案會上傳至您的工作區。 如果您的開發環境可以使用 `git` 命令，則上傳程式會使用它來檢查檔案是否儲存在 git 存放庫中。 若是如此，則您 git 存放庫中的資訊也會上傳做為定型執行的一部分。 這項資訊會儲存在定型回合的下列屬性中：
 
-| 屬性 | 描述 |
-| ----- | ----- |
-| `azureml.git.repository_uri` | 您的存放庫複製來源的 URI。 |
-| `mlflow.source.git.repoURL` | 您的存放庫複製來源的 URI。 |
-| `azureml.git.branch` | 提交執行時的作用中分支。 |
-| `mlflow.source.git.branch` | 提交執行時的作用中分支。 |
-| `azureml.git.commit` | 針對執行所提交之程式碼的認可雜湊。 |
-| `mlflow.source.git.commit` | 針對執行所提交之程式碼的認可雜湊。 |
-| `azureml.git.dirty` | `True`，如果認可已變更，則為，否則，`false`。 |
+| 屬性 | 用來取得值的 Git 命令 | 描述 |
+| ----- | ----- | ----- |
+| `azureml.git.repository_uri` | `git ls-remote --get-url` | 您的存放庫複製來源的 URI。 |
+| `mlflow.source.git.repoURL` | `git ls-remote --get-url` | 您的存放庫複製來源的 URI。 |
+| `azureml.git.branch` | `git symbolic-ref --short HEAD` | 提交執行時的作用中分支。 |
+| `mlflow.source.git.branch` | `git symbolic-ref --short HEAD` | 提交執行時的作用中分支。 |
+| `azureml.git.commit` | `git rev-parse HEAD` | 針對執行所提交之程式碼的認可雜湊。 |
+| `mlflow.source.git.commit` | `git rev-parse HEAD` | 針對執行所提交之程式碼的認可雜湊。 |
+| `azureml.git.dirty` | `git status --porcelain .` | `True`，如果分支/認可已變更，否則，`false`。 |
 
 此資訊會針對使用估計工具、機器學習管線或腳本執行的執行進行傳送。
 
@@ -49,7 +49,9 @@ Git 資訊儲存在定型執行的屬性中。 您可以使用 Azure 入口網�
 1. 從  [Azure 入口網站](https://portal.azure.com)中，選取您的工作區。
 1. 選取 [__實驗__]，然後選取其中一個實驗。
 1. 從 [__執行編號__] 資料行中選取其中一個執行。
-1. 選取 [__記錄__]，然後展開 [__記錄__] 和 [ __azureml__ ] 專案。 選取以 __### @ no__t-2azure__開頭的連結。
+1. 選取 [__記錄__]，然後展開 [__記錄__] 和 [ __azureml__ ] 專案。 選取以 __### \_azure__開頭的連結。
+
+    ![入口網站中的 # # #_azure 專案](./media/concept-train-model-git-integration/azure-machine-learning-logs.png)
 
 記錄的資訊包含類似下列 JSON 的文字：
 

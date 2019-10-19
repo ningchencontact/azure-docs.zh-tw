@@ -1,24 +1,18 @@
 ---
 title: Azure 最佳做法中的管理解決方案 | Microsoft Docs
 description: ''
-services: operations-management-suite
-documentationcenter: ''
-author: bwren
-manager: carmonm
-editor: tysonn
-ms.assetid: 1915e204-ba7e-431b-9718-9eb6b4213ad8
 ms.service: azure-monitor
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 04/27/2017
+ms.subservice: ''
+ms.topic: conceptual
+author: bwren
 ms.author: bwren
-ms.openlocfilehash: a4f982f6265d1c8cab2ae666b9d6e2e33beb5064
-ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
+ms.date: 04/27/2017
+ms.openlocfilehash: 28ae01fe28b1b2d6af95567e529c7c9ae17920e4
+ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67672930"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72553943"
 ---
 # <a name="best-practices-for-creating-management-solutions-in-azure-preview"></a>在 Azure 中建立管理解決方案的最佳做法 (預覽)
 > [!NOTE]

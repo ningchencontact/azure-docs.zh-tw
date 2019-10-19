@@ -1,23 +1,18 @@
 ---
 title: Azure 中的 Office 365 管理解決方案 | Microsoft Docs
 description: 本文提供在 Azure 中設定和使用 Office 365 解決方案的相關詳細資料。  它包含在 Azure 監視器中所建立之 Office 365 記錄的詳細描述。
-services: operations-management-suite
-documentationcenter: ''
-author: bwren
-manager: carmonm
-editor: ''
 ms.service: azure-monitor
-ms.workload: tbd
-ms.tgt_pltfrm: na
-ms.topic: article
-ms.date: 08/13/2019
+ms.subservice: ''
+ms.topic: conceptual
+author: bwren
 ms.author: bwren
-ms.openlocfilehash: 3818547eee05a1d6f8cf84ccb0f5f4ecb44a9ab3
-ms.sourcegitcommit: 388c8f24434cc96c990f3819d2f38f46ee72c4d8
+ms.date: 08/13/2019
+ms.openlocfilehash: 032d52961b4867cad94d06802adb0a1f3eb00f5f
+ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/27/2019
-ms.locfileid: "70061656"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72553947"
 ---
 # <a name="office-365-management-solution-in-azure-preview"></a>Azure 中的 Office 365 管理解決方案 (預覽)
 
@@ -25,11 +20,11 @@ ms.locfileid: "70061656"
 
 
 > [!NOTE]
-> 安裝和設定 Office 365 解決方案的建議方法是在[Azure Sentinel](../../sentinel/overview.md)中啟用[Office 365 連接器](../../sentinel/connect-office-365.md), 而不是使用本文中的步驟。 這是 Office 365 解決方案的更新版本, 具有改良的設定體驗。 若要連接 Azure AD 記錄, 您可以使用 [ [Azure Sentinel Azure AD 連接器](../../sentinel/connect-azure-active-directory.md)] 或 [[設定 Azure AD 診斷設定](../../active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md)], 以提供比 Office 365 記錄管理更豐富的記錄資料。 
+> 安裝和設定 Office 365 解決方案的建議方法是在[Azure Sentinel](../../sentinel/overview.md)中啟用[Office 365 連接器](../../sentinel/connect-office-365.md)，而不是使用本文中的步驟。 這是 Office 365 解決方案的更新版本，具有改良的設定體驗。 若要連接 Azure AD 記錄，您可以使用 [ [Azure Sentinel Azure AD 連接器](../../sentinel/connect-azure-active-directory.md)] 或 [[設定 Azure AD 診斷設定](../../active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md)]，以提供比 Office 365 記錄管理更豐富的記錄資料。 
 >
-> 當您上[架 Azure Sentinel](../../sentinel/quickstart-onboard.md)時, 請指定您想要安裝 Office 365 解決方案的 Log Analytics 工作區。 一旦您啟用連接器, 解決方案就可以在工作區中使用, 而且會與您已安裝的任何其他監視解決方案完全相同。
+> 當您上[架 Azure Sentinel](../../sentinel/quickstart-onboard.md)時，請指定您想要安裝 Office 365 解決方案的 Log Analytics 工作區。 一旦您啟用連接器，解決方案就可以在工作區中使用，而且會與您已安裝的任何其他監視解決方案完全相同。
 >
-> Azure 政府機構雲端的使用者必須使用這篇文章中的步驟來安裝 Office 365, 因為政府雲端尚未提供 Azure Sentinel。
+> Azure 政府機構雲端的使用者必須使用這篇文章中的步驟來安裝 Office 365，因為政府雲端尚未提供 Azure Sentinel。
 
 Office 365 管理解決方案可讓您監視 Azure 監視器中的 Office 365 環境。
 
@@ -56,7 +51,7 @@ Office 365 管理解決方案可讓您監視 Azure 監視器中的 Office 365 �
 此解決方案不會在[已連線的管理群組](../platform/om-agents.md)中安裝任何管理組件。
   
 
-## <a name="install-and-configure"></a>安裝並設定
+## <a name="install-and-configure"></a>安裝及設定
 
 一開始先新增 [Office 365 解決方案到您的訂用帳戶](solutions.md#install-a-monitoring-solution)。 新增之後，您必須執行本節中的設定步驟，讓解決方案存取您的 Office 365 訂用帳戶。
 
@@ -86,7 +81,7 @@ Office 365 管理解決方案可讓您監視 Azure 監視器中的 Office 365 �
 1. 按一下 [**新增註冊**]。
 
     ![新增應用程式註冊](media/solution-office-365/add-app-registration.png)
-1. 輸入應用程式**名稱**。 針對**支援的帳戶類型**, 選取**任何組織目錄 (任何 Azure AD 目錄-** 多租使用者) 中的帳戶。
+1. 輸入應用程式**名稱**。 針對**支援的帳戶類型**，選取**任何組織目錄（任何 Azure AD 目錄-** 多租使用者）中的帳戶。
     
     ![建立應用程式](media/solution-office-365/create-application.png)
 1. 按一下 [**註冊**並驗證應用程式資訊]。
@@ -95,36 +90,36 @@ Office 365 管理解決方案可讓您監視 Azure 監視器中的 Office 365 �
 
 ### <a name="configure-application-for-office-365"></a>設定 Office 365 的應用程式
 
-1. 選取 [**驗證**], 並確認已在 [**支援的帳戶類型**] 下選取**任何組織目錄 (任何 Azure AD 目錄-** 多租使用者) 中的帳戶。
+1. 選取 [**驗證**]，並確認已在 [**支援的帳戶類型**] 下選取**任何組織目錄（任何 Azure AD 目錄-** 多租使用者）中的帳戶。
 
     ![設定多租用戶](media/solution-office-365/settings-multitenant.png)
 
-1. 選取 [ **API 許可權**], 然後按一下 [**新增許可權**]。
+1. 選取 [ **API 許可權**]，然後按一下 [**新增許可權**]。
 1. 按一下 [ **Office 365 管理 api**]。 
 
-    ![選取 API](media/solution-office-365/select-api.png)
+    ![精選 API](media/solution-office-365/select-api.png)
 
-1. 在**您的應用程式需要何種許可權類型的情況**下, 請針對**應用程式許可權**和**委派的許可權**選取下列選項:
+1. 在**您的應用程式需要何種許可權類型的情況**下，請針對**應用程式許可權**和**委派的許可權**選取下列選項：
    - 讀取您組織的服務健康情況資訊
    - 讀取您組織的活動資料
    - 讀取您組織的活動報告
 
-     ![選取 API](media/solution-office-365/select-permissions-01.png)![選取 API](media/solution-office-365/select-permissions-02.png)
+     ![精選 API](media/solution-office-365/select-permissions-01.png)![精選 API](media/solution-office-365/select-permissions-02.png)
 
 1. 按一下 [新增權限]。
-1. 按一下 **[授與管理員同意**], 然後在系統要求驗證時按一下 **[是]** 。
+1. 按一下 **[授與管理員同意**]，然後在系統要求驗證時按一下 **[是]** 。
 
 
 ### <a name="add-a-secret-for-the-application"></a>為應用程式新增秘密
 
-1. 選取 [**憑證 & 密碼**], 然後選取 [**新增用戶端密碼**]。
+1. 選取 [**憑證 & 密碼**]，然後選取 [**新增用戶端密碼**]。
 
-    ![按鍵](media/solution-office-365/secret.png)
+    ![金鑰](media/solution-office-365/secret.png)
  
 1. 輸入新金鑰的 [描述] 和 [持續時間]。
-1. 按一下 [**新增**], 然後複製所產生的**值**。
+1. 按一下 [**新增**]，然後複製所產生的**值**。
 
-    ![按鍵](media/solution-office-365/keys.png)
+    ![金鑰](media/solution-office-365/keys.png)
 
 ### <a name="add-admin-consent"></a>新增管理員同意
 
@@ -522,9 +517,9 @@ Office 365 解決方案不會從任何 [Log Analytics 代理程式](../platform/
 
 此儀表板包含下表中的資料行。 每個資料行依計數列出前十個警示，這幾個警示符合該資料行中指定範圍和時間範圍的準則。 您可以按一下資料行底部的 [查看全部]，或按一下資料行標頭，以執行記錄搜尋來提供完整清單。
 
-| 「資料行」 | 描述 |
+| Column | 描述 |
 |:--|:--|
-| 作業 | 提供所有受監視 Office 365 訂閱中之作用中使用者的相關資訊。 您也可以查看一段時間內發生的活動數。
+| Dynamics 365 | 提供所有受監視 Office 365 訂閱中之作用中使用者的相關資訊。 您也可以查看一段時間內發生的活動數。
 | Exchange | 顯示 Exchange Server 活動細目，例如 Add-Mailbox 權限或 Set-Mailbox。 |
 | SharePoint | 顯示使用者最常對 SharePoint 文件執行的活動。 當您從此圖格向下鑽研時，搜尋頁面會顯示這些活動的詳細資料，例如此活動的目標文件與位置。 例如，針對「已存取檔案」事件，您可以查看所存取的文件、其相關帳戶名稱，以及 IP 位址。 |
 | Azure Active Directory | 包含熱門使用者活動，例如「重設使用者密碼」和「登入嘗試」。 向下鑽研時，您可以像「結果狀態」一般地查看這些活動的詳細資料。 如果您想要監視 Azure Active Directory 上的可疑活動，這會很有幫助。 |
@@ -545,13 +540,13 @@ Office 365 解決方案不會從任何 [Log Analytics 代理程式](../platform/
 | Type | *OfficeActivity* |
 | ClientIP | 記錄活動時所使用之裝置的 IP 位址。 IP 位址會以 IPv4 或 IPv6 位址格式顯示。 |
 | OfficeWorkload | 記錄所指的 Office 365 服務。<br><br>AzureActiveDirectory<br>Exchange<br>SharePoint|
-| 運算 | 使用者或管理員活動的名稱。  |
+| 作業 | 使用者或管理員活動的名稱。  |
 | OrganizationId | 貴組織的 Office 365 租用戶 GUID。 無論此值是在哪一個 Office 365 服務中發生，對於貴組織而言它將會一律相同。 |
 | RecordType | 執行的作業類型。 |
 | ResultStatus | 指出 (Operation 屬性中指定的) 動作是否成功。 可能的值為 Succeeded、PartiallySucceeded 或 Failed。 對於 Exchange 管理員活動，這個值將會是 True 或 False。 |
 | UserId | 執行動作導致記下該記錄之使用者的 UPN (使用者主體名稱)，例如 my_name@my_domain_name。 請注意，由系統帳戶 (例如 SHAREPOINT\system 或 NTAUTHORITY\SYSTEM) 所執行之活動的記錄也會包含在內。 | 
 | UserKey | UserId 屬性所識別之使用者的替代識別碼。  例如，針對由使用者在 SharePoint、商務用 OneDrive 及 Exchange 中所執行的事件，此屬性都會填入 Passport 唯一識別碼 (PUID)。 針對在其他服務中所發生的事件，以及由系統帳戶所執行的事件，此屬性也可能會將相同的值指定為 UserID 屬性|
-| UserType | 執行作業的使用者類型。<br><br>行政區<br>Application<br>DcAdmin<br>Regular<br>Reserved<br>ServicePrincipal<br>System |
+| UserType | 執行作業的使用者類型。<br><br>Admin<br>Application<br>DcAdmin<br>Regular<br>保留<br>ServicePrincipal<br>System |
 
 
 ### <a name="azure-active-directory-base"></a>Azure Active Directory 基底
@@ -737,14 +732,14 @@ Office 365 解決方案不會從任何 [Log Analytics 代理程式](../platform/
 
 
 
-## <a name="sample-log-searches"></a>記錄搜尋範例
+## <a name="sample-log-searches"></a>記錄檔搜尋範例
 
 下表提供此方案所收集之更新記錄的記錄搜尋範例。
 
 | 查詢 | 描述 |
 | --- | --- |
 |Office 365 訂閱上所有作業的計數 |OfficeActivity &#124; summarize count() by Operation |
-|SharePoint 網站的使用情況|OfficeActivity &#124; where OfficeWorkload = ~ "sharepoint" &#124;摘要 count () by SiteUrl \| sort by count asc|
+|SharePoint 網站的使用情況|OfficeActivity &#124; where OfficeWorkload = ~ "sharepoint" &#124;摘要 Count （） by SiteUrl \| 排序依據計數 asc|
 |依使用者類型分類的檔案存取作業|search in (OfficeActivity) OfficeWorkload =~ "azureactivedirectory" and "MyTest"|
 |使用特定關鍵字進行搜尋|Type=OfficeActivity OfficeWorkload=azureactivedirectory "MyTest"|
 |監視 Exchange 上的外部動作|OfficeActivity &#124; where OfficeWorkload =~ "exchange" and ExternalAccess == true|

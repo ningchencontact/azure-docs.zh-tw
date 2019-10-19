@@ -1,20 +1,18 @@
 ---
 title: 使用 Grafana 監視 Azure 服務與應用程式
 description: 路由 Azure 監視器與 Application Insights 資料，以便使用 Grafana 檢視它們。
-services: azure-monitor
-keywords: ''
+ms.service: azure-monitor
+ms.subservice: ''
+ms.topic: conceptual
 author: rboucher
 ms.author: robb
 ms.date: 11/06/2017
-ms.topic: conceptual
-ms.service: azure-monitor
-ms.subservice: ''
-ms.openlocfilehash: b9a9d0a16a31d06d0d4edc1b6f0617a5771b179e
-ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+ms.openlocfilehash: f5464710d5c7908eeec5dd917bfeff4756ff4e80
+ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69872833"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72552092"
 ---
 # <a name="monitor-your-azure-services-in-grafana"></a>在 Grafana 中監視 Azure 服務
 您現在可以從使用 [Azure 監視器資料來源外掛程式](https://grafana.com/plugins/grafana-azure-monitor-datasource)的 [Grafana](https://grafana.com/)，監視 Azure 服務和應用程式。 外掛程式會蒐集 Azure 監視器所收集的應用程式效能資料，包括各種記錄和計量。 然後，您就可以在 Grafana 儀表板上顯示此資料。
@@ -24,7 +22,7 @@ ms.locfileid: "69872833"
 ## <a name="set-up-a-grafana-server"></a>設定 Grafana 伺服器
 
 ### <a name="set-up-grafana-locally"></a>在本機設定 Grafana
-若要設定本機的 Grafana 伺服器，請[在您的本機環境中下載並安裝 Grafana](https://grafana.com/grafana/download)。 若要使用外掛程式的 Azure 監視器整合, 請安裝 Grafana 5.3 版或更高版本。
+若要設定本機的 Grafana 伺服器，請[在您的本機環境中下載並安裝 Grafana](https://grafana.com/grafana/download)。 若要使用外掛程式的 Azure 監視器整合，請安裝 Grafana 5.3 版或更高版本。
 
 ### <a name="set-up-grafana-on-azure-through-the-azure-marketplace"></a>透過 Azure Marketplace 在 Azure 上設定 Grafana
 1. 移至 Azure Marketplace，並依 Grafana 實驗室挑選 Grafana。
@@ -69,7 +67,7 @@ ms.locfileid: "69872833"
     Log Analytics API需要 [Log Analytics 讀者角色](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#log-analytics-reader)，其中包含「讀者」角色的權限並加入到其中。
 
 4. 提供您想要使用的 API 的連線詳細資料。 您可以連接到所有或其中一部分。 
-    * 如果您連接到 Azure 監視器中的計量和記錄, 您可以選取與**AZURE 監視器 API 相同的詳細資料**, 以重複使用相同的認證。
+    * 如果您連接到 Azure 監視器中的計量和記錄，您可以選取與**AZURE 監視器 API 相同的詳細資料**，以重複使用相同的認證。
     * 設定外掛程式時，您可以指示外掛程式要監視哪個 Azure 雲端 (公用、Azure 美國政府、Azure 德國或 Azure 中國)。
     * 如果您使用 Application Insights，您也可以包含 Application Insights API 和應用程式識別碼，收集 Application Insights 的基礎計量。 如需詳細資訊，請參閱 [Getting your API key and Application ID](https://dev.applicationinsights.io/documentation/Authorization/API-key-and-App-ID) (取得 API 金鑰和應用程式識別碼)。
 
@@ -96,7 +94,7 @@ ms.locfileid: "69872833"
 4. 選取已設定的 Azure 監視器資料來源。
    * 收集 Azure 監視器計量 - 在服務下拉式清單中選取 [Azure 監視器]。 這會顯示一個選取器清單，您可以在其中選取要在此圖表中監視的資源和計量。 若要從 VM 收集計量，請使用命名空間 **Microsoft.Compute/VirtualMachines**。 一旦您選取 VM 和計量後，您就可以開始在儀表板中檢視其資料。
      ![Azure 監視器的 Grafana 圖表設定](./media/grafana-plugin/grafana-graph-config-for-azure-monitor-dark.png)
-   * 收集 Azure 監視器記錄資料-在服務下拉式清單中選取 [ **Azure Log Analytics** ]。 選取您想要查詢的工作區並設定查詢文字。 您可以在此複製已有的任何記錄檔查詢, 或建立一個新的。 當您輸入查詢時，IntelliSense 將顯示並建議自動完成選項。 選取視覺效果類型 **時間序列** **資料表**，然後執行查詢。
+   * 收集 Azure 監視器記錄資料-在服務下拉式清單中選取 [ **Azure Log Analytics** ]。 選取您想要查詢的工作區並設定查詢文字。 您可以在此複製已有的任何記錄檔查詢，或建立一個新的。 當您輸入查詢時，IntelliSense 將顯示並建議自動完成選項。 選取視覺效果類型 **時間序列** **資料表**，然後執行查詢。
     
      > [!NOTE]
      >

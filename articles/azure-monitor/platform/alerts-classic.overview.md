@@ -1,18 +1,18 @@
 ---
 title: Microsoft Azure 和 Azure 監視器中的傳統警示概觀
 description: 傳統警示即將淘汰。 警示可讓您監視 Azure 資源度量、事件或記錄，並在您所指定條件符合時收到通知。
-author: rboucher
-services: azure-monitor
 ms.service: azure-monitor
+ms.subservice: ''
 ms.topic: conceptual
-ms.date: 05/19/2018
+author: rboucher
 ms.author: robb
-ms.openlocfilehash: 96183e22f0aeafc681a782e7d3d8bd29a6ec9617
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 05/19/2018
+ms.openlocfilehash: 3ad0bdc2ec5db2f34a3bb6a1b8fda54cf9037483
+ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65914716"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72555692"
 ---
 # <a name="what-are-classic-alerts-in-microsoft-azure"></a>什麼是 Microsoft Azure 中的傳統警示？
 
@@ -26,12 +26,12 @@ ms.locfileid: "65914716"
 
 在舊的 Azure 監視器中，Application Insights、Log Analytics 和服務健康狀態具有個別的警示功能。 隨著時間進展，Azure 改善並結合使用者介面與不同的警示方法。 這樣的整併仍在持續進行中。
 
-您只能在 Azure 入口網站的傳統警示使用者畫面中檢視傳統警示。 您可以從警示畫面上的 [檢視傳統警示]  按鈕取得此畫面。 
+您只能在 Azure 入口網站的傳統警示使用者畫面中檢視傳統警示。 您可以從警示畫面上的 [檢視傳統警示] 按鈕取得此畫面。 
 
  ![Azure 入口網站中的警示選擇](media/alerts-classic.overview/monitor-alert-screen2.png)
 
 新的警示使用者體驗比傳統警示體驗多了下列優點：
--   **更好的通知系統**- 所有新版警示都使用動作群組，這些是可在多個警示中重複使用的具名通知及動作群組。 傳統計量警示及舊版 Log Analytics 警示並不使用動作群組。
+-   **更好的通知系統**- 所有新版警示都使用動作群組，這些是可在多個警示中重複使用的具名通知及動作群組。 警示計量警示及舊版 Log Analytics 警示並不使用動作群組。
 -   **統一的撰寫體驗** - Azure 監視器、Log Analytics 及 Application Insights 之計量、記錄和活動記錄的所有警示建立作業都在一個地方完成。
 -   **在 Azure 入口網站中檢視引發的 Log Analytics 警示** - 您現在也能在訂用帳戶中查看引發的 Log Analytics 警示。 先前這些警示是在個別的入口網站中。
 -   **分隔引發的警示和警示規則** - 區分警示規則 (定義觸發警示的條件) 和引發的警示 (警示規則引發的執行個體)，因此將操作與設定檢視分開。
@@ -43,7 +43,7 @@ ms.locfileid: "65914716"
 -   **支援多維度計量**：您可以針對維度計量發出警示，以便監視計量中某個您感興趣的區段。
 -   **對計量條件有更多的控制**：您可以定義更豐富的警示規則。 新版警示支援監視計量的最大值、最小值、平均及總計值。
 -   **可合併監視多個計量**：您可以使用單一規則來監視多個計量 (目前最多兩個計量)。 若兩個計量在指定的期間內都超出其個別閾值，就會觸發警示。
--   **更好的通知系統**：所有新版警示都使用[動作群組](../../azure-monitor/platform/action-groups.md)，這些是可在多個警示中重複使用的具名通知及動作群組。  傳統計量警示及舊版 Log Analytics 警示並不使用動作群組。 
+-   **更好的通知系統**：所有新版警示都使用[動作群組](../../azure-monitor/platform/action-groups.md)，這些是可在多個警示中重複使用的具名通知及動作群組。  警示計量警示及舊版 Log Analytics 警示並不使用動作群組。 
 -   **來自記錄的計量** (公開預覽)：現在可將進入 Log Analytics 的記錄資料擷取並轉換成「Azure 監視器」計量，然後針對這些計量發出警示，就像任何其他計量一樣。 如需傳統警示專用的術語，請參閱[警示 (傳統)](alerts-classic.overview.md)。 
 
 

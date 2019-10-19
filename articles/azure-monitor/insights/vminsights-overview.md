@@ -1,24 +1,18 @@
 ---
 title: 什麼是適用於 VM 的 Azure 監視器 (預覽)？ | Microsoft Docs
 description: 適用於 VM 的 Azure 監視器是結合了 Azure VM 作業系統健康情況與效能監控的 Azure 監視器功能，其會自動探索應用程式元件和與其他資源的相依性，並且會對應它們之間的通訊。 本文提供概觀。
-services: azure-monitor
-documentationcenter: ''
-author: mgoedtel
-manager: carmonm
-editor: tysonn
-ms.assetid: ''
 ms.service: azure-monitor
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 10/15/2019
+ms.subservice: ''
+ms.topic: conceptual
+author: mgoedtel
 ms.author: magoedte
-ms.openlocfilehash: 3569247ad560f985c041eeb11a7d274e15bfeb4c
-ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
-ms.translationtype: HT
+ms.date: 10/15/2019
+ms.openlocfilehash: 2364218a9ccbde1cbfc276e3354cb93e42e5ce0b
+ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
+ms.translationtype: MT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 10/17/2019
-ms.locfileid: "72515383"
+ms.locfileid: "72553746"
 ---
 # <a name="what-is-azure-monitor-for-vms-preview"></a>什麼是適用於 VM 的 Azure 監視器 (預覽)？
 

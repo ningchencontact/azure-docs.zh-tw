@@ -2,7 +2,6 @@
 title: 從 Azure 中的特製化 VHD 建立 Windows VM | Microsoft Docs
 description: 使用 Resource Manager 部署模型，藉由連結特製化受控磁碟作為 OS 磁碟，建立新的 Windows VM。
 services: virtual-machines-windows
-documentationcenter: ''
 author: cynthn
 manager: gwallace
 editor: ''
@@ -12,14 +11,14 @@ ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.topic: article
-ms.date: 10/10/2018
+ms.date: 10/10/2019
 ms.author: cynthn
-ms.openlocfilehash: 6adeae69a4ef9e6f2d77588f8071498fd25beb3e
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.openlocfilehash: be773779b25a32a5904012ae31950b18c33341dc
+ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72390597"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72553424"
 ---
 # <a name="create-a-windows-vm-from-a-specialized-disk-by-using-powershell"></a>使用 PowerShell 從特製化磁碟建立 Windows VM
 
@@ -63,100 +62,15 @@ $osDisk = Get-AzDisk `
   * 確認已將 VM 設定成從 DHCP 取得 IP 位址和 DNS 設定。 這可確保伺服器在啟動時取得虛擬網路內的 IP 位址。 
 
 
-### <a name="get-the-storage-account"></a>取得儲存體帳戶
-您將需要一個 Azure 中的儲存體帳戶來儲存所上傳的 VHD。 您可以使用現有的儲存體帳戶或建立新帳戶。 
+### <a name="upload-the-vhd"></a>上傳 VHD
 
-顯示可用的儲存體帳戶。
-
-```powershell
-Get-AzStorageAccount
-```
-
-若要使用現有的儲存體帳戶，請移至[上傳 VHD](#upload-the-vhd-to-your-storage-account) 一節。
-
-建立儲存體帳戶。
-
-1. 您將需要將在其中建立儲存體帳戶的資源群組名稱。 請使用 Get-AzResourceGroup 來查看您訂用帳戶中的所有資源群組。
-   
-    ```powershell
-    Get-AzResourceGroup
-    ```
-
-    在 *West US* 區域中建立名為 *myResourceGroup* 的資源群組。
-
-    ```powershell
-    New-AzResourceGroup `
-       -Name myResourceGroup `
-       -Location "West US"
-    ```
-
-2. 使用 [New-AzStorageAccount](https://docs.microsoft.com/powershell/module/az.storage/new-azstorageaccount) Cmdlet，在新資源群組中建立名為 *mystorageaccount* 的儲存體帳戶。
-   
-    ```powershell
-    New-AzStorageAccount `
-       -ResourceGroupName myResourceGroup `
-       -Name mystorageaccount `
-       -Location "West US" `
-       -SkuName "Standard_LRS" `
-       -Kind "Storage"
-    ```
-
-### <a name="upload-the-vhd-to-your-storage-account"></a>將 VHD 上傳至儲存體帳戶 
-使用 [Add-AzVhd](https://docs.microsoft.com/powershell/module/az.compute/add-azvhd) Cmdlet，將 VHD 上傳至儲存體帳戶中的容器。 這個範例會將 *myVHD.vhd*檔案從 "C:\Users\Public\Documents\Virtual hard disks\" 上傳到 *myResourceGroup* 資源群組中名為 *mystorageaccount* 的儲存體帳戶。 此檔案會儲存在名為 *mycontainer* 的容器中，而新的檔案名稱會是 *myUploadedVHD.vhd*。
-
-```powershell
-$resourceGroupName = "myResourceGroup"
-$urlOfUploadedVhd = "https://mystorageaccount.blob.core.windows.net/mycontainer/myUploadedVHD.vhd"
-Add-AzVhd -ResourceGroupName $resourceGroupName `
-   -Destination $urlOfUploadedVhd `
-   -LocalFilePath "C:\Users\Public\Documents\Virtual hard disks\myVHD.vhd"
-```
-
-
-如果命令成功，您將得到類似以下的回應：
-
-```powershell
-MD5 hash is being calculated for the file C:\Users\Public\Documents\Virtual hard disks\myVHD.vhd.
-MD5 hash calculation is completed.
-Elapsed time for the operation: 00:03:35
-Creating new page blob of size 53687091712...
-Elapsed time for upload: 01:12:49
-
-LocalFilePath           DestinationUri
--------------           --------------
-C:\Users\Public\Doc...  https://mystorageaccount.blob.core.windows.net/mycontainer/myUploadedVHD.vhd
-```
-
-視您的網路連線和 VHD 檔案大小而定，此命令可能需要一些時間才能完成。
-
-### <a name="create-a-managed-disk-from-the-vhd"></a>從 VHD 建立受控磁碟
-
-請使用 [New-AzDisk](https://docs.microsoft.com/powershell/module/az.compute/new-azdisk)，從儲存體帳戶中的特製化 VHD 建立受控磁碟。 此範例會使用 *myOSDisk1* 作為磁碟名稱，將磁碟 *Standard_LRS* 放入儲存體，並使用 *https://storageaccount.blob.core.windows.net/vhdcontainer/osdisk.vhd* 作為來源 VHD 的 URI。
-
-建立新 VM 的新資源群組。
-
-```powershell
-$destinationResourceGroup = 'myDestinationResourceGroup'
-New-AzResourceGroup -Location $location `
-   -Name $destinationResourceGroup
-```
-
-從已上傳的 VHD 建立新的 OS 磁碟。 
-
-```powershell
-$sourceUri = 'https://storageaccount.blob.core.windows.net/vhdcontainer/osdisk.vhd'
-$osDiskName = 'myOsDisk'
-$osDisk = New-AzDisk -DiskName $osDiskName -Disk `
-    (New-AzDiskConfig -AccountType Standard_LRS  `
-    -Location $location -CreateOption Import `
-    -SourceUri $sourceUri) `
-    -ResourceGroupName $destinationResourceGroup
-```
+您現在可以將 VHD 直接上傳至受控磁片。 如需指示，請參閱[使用 Azure PowerShell 將 VHD 上傳至 Azure](disks-upload-vhd-to-managed-disk-powershell.md)。
 
 ## <a name="option-3-copy-an-existing-azure-vm"></a>選項 3：複製現有的 Azure 虛擬機器
 
 您可以藉由建立 VM 的快照集，然後使用該快照集來建立新的受控磁碟和新的 VM，建立使用受控磁碟的 VM 複本。
 
+如果您想要將現有的 VM 複製到另一個區域，您可能會想要使用 azcopy 來[建立另一個區域中的磁片複本](disks-upload-vhd-to-managed-disk-powershell.md#copy-a-managed-disk)。 
 
 ### <a name="take-a-snapshot-of-the-os-disk"></a>製作 OS 磁碟的快照集
 

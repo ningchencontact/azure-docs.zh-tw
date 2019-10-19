@@ -10,12 +10,12 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 10/07/2019
 ms.custom: seodec18
-ms.openlocfilehash: 7b7d041b678ccf2a476afc6d0744f6971349677e
-ms.sourcegitcommit: f9e81b39693206b824e40d7657d0466246aadd6e
+ms.openlocfilehash: 0b2f89a846747eaf78c60077372b48802506731e
+ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72034876"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72553376"
 ---
 # <a name="data-querying"></a>資料查詢
 
@@ -23,11 +23,11 @@ Azure 時間序列深入解析預覽版允許透過公用介面 API，針對事�
 
 時間序列深入解析中提供了三個主要 API 類別：
 
-* **環境 API**：啟用時間序列深入解析環境本身的查詢。 查詢範例是呼叫端可以存取的環境清單以及環境中繼資料。
+* **環境 api**：可讓您查詢時間序列深入解析環境本身。 查詢範例是呼叫端可以存取的環境清單以及環境中繼資料。
 
-* **時間序列模型查詢 (TSM-Q) API**：對儲存在時間序列模型之環境部分中的中繼資料啟用建立、讀取、更新和刪除作業。 範例包括執行個體、類型和階層。
+* **時間序列模型查詢（TSM-Q） api**：針對儲存在時間序列模型環境中的中繼資料，啟用建立、讀取、更新和刪除（CRUD）作業。 範例包括執行個體、類型和階層。
 
-* **時間序列查詢 (TSQ) API**：允許擷取從來源提供者記錄的事件資料。 這些 API 可以執行轉換、合併，以及對時間序列資料執行計算的作業。
+* **時間序列查詢（TSQ） api**：可讓您在從來源提供者記錄事件資料時進行抓取。 這些 API 可以執行轉換、合併，以及對時間序列資料執行計算的作業。
 
 [時間序列運算式 (TSX) 語言](https://docs.microsoft.com/rest/api/time-series-insights/preview-tsx)是功能強大的第四個類別。 它會使用時間序列模型來實現進階計算的組合。
 
@@ -35,39 +35,39 @@ Azure 時間序列深入解析預覽版允許透過公用介面 API，針對事�
 
 支援下列核心 API。
 
-[@no__t 1Time 系列查詢總覽](media/v2-update-tsq/tsq.png)](media/v2-update-tsq/tsq.png#lightbox)
+[![Time Series 查詢總覽](media/v2-update-tsq/tsq.png)](media/v2-update-tsq/tsq.png#lightbox)
 
 ## <a name="environment-apis"></a>環境 API
 
 下列環境 API 可以使用：
 
-* [取得環境 API](https://docs.microsoft.com/rest/api/time-series-insights/preview-env#get-environments-api)：傳回呼叫端有權存取的環境清單。
-* [取得環境可用性 API](https://docs.microsoft.com/rest/api/time-series-insights/preview-env#get-environment-availability-api)：傳回事件時間戳記 `$ts` 上的事件計數分佈。 此 API 藉由傳回事件計數 (如果有的話) 來協助判斷時間戳記中是否存在任何事件。
-* [取得事件結構描述 API](https://docs.microsoft.com/rest/api/time-series-insights/preview-env#get-event-schema-api)：傳回指定搜尋範圍的事件結構描述中繼資料。 此 API 可協助擷取指定搜尋範圍的結構描述中可用的所有中繼資料和屬性。
+* [取得環境 API](https://docs.microsoft.com/rest/api/time-series-insights/preview-env#get-environments-api)：傳回呼叫者有權存取的環境清單。
+* [取得環境可用性 API](https://docs.microsoft.com/rest/api/time-series-insights/preview-env#get-environment-availability-api)：傳回事件時間戳記 `$ts` 的事件計數分佈。 此 API 藉由傳回事件計數 (如果有的話) 來協助判斷時間戳記中是否存在任何事件。
+* [取得事件架構 API](https://docs.microsoft.com/rest/api/time-series-insights/preview-env#get-event-schema-api)：傳回指定搜尋範圍的事件架構中繼資料。 此 API 可協助擷取指定搜尋範圍的結構描述中可用的所有中繼資料和屬性。
 
 ## <a name="time-series-model-query-tsm-q-apis"></a>時間序列模型查詢 (TSM-Q) API
 
 下列的時間序列模型查詢 API 可以使用：
 
-* [模型設定 API](https://docs.microsoft.com/rest/api/time-series-insights/preview-model#model-settings-api)：啟用對環境的預設類型和模型名稱的 get 和 patch。
-* [類型 API](https://docs.microsoft.com/rest/api/time-series-insights/preview-model#types-api)：在時間序列類型及其相關聯的變數上啟用 CRUD。
-* [階層 API](https://docs.microsoft.com/rest/api/time-series-insights/preview-model#hierarchies-api)：在時間序列階層及其相關聯的欄位路徑上啟用 CRUD。
-* [執行個體 API](https://docs.microsoft.com/rest/api/time-series-insights/preview-model#instances-api)：在時間序列執行個體及其相關聯的執行個體欄位上啟用 CRUD。
+* [模型設定 API](https://docs.microsoft.com/rest/api/time-series-insights/preview-model#model-settings-api)：啟用 [預設類型] 和 [環境的模型名稱] 的 get 和 patch。
+* [類型 API](https://docs.microsoft.com/rest/api/time-series-insights/preview-model#types-api)：啟用時間序列類型及其相關聯變數的 CRUD。
+* 階層[API](https://docs.microsoft.com/rest/api/time-series-insights/preview-model#hierarchies-api)：啟用時間序列階層和其相關聯欄位路徑上的 CRUD。
+* [實例 API](https://docs.microsoft.com/rest/api/time-series-insights/preview-model#instances-api)：在時間序列實例和其相關聯的實例欄位上啟用 CRUD。
 
 ## <a name="time-series-query-tsq-apis"></a>時間序列查詢 (TSQ) API
 
 下列時間序列查詢 API 可以使用：
 
-* [取得事件 API](https://docs.microsoft.com/rest/api/time-series-insights/preview-query#get-events-api)：啟用從事件中查詢和擷取時間序列深入解析資料，因為它們是從來源提供者記錄在時間序列深入解析中。
+* [取得事件 API](https://docs.microsoft.com/rest/api/time-series-insights/preview-query#get-events-api)：當事件從來源提供者的時間序列深入解析記錄時，可讓您查詢和抓取時間序列深入解析資料。
 
-* [取得數列 API](https://docs.microsoft.com/rest/api/time-series-insights/preview-query#get-series-api)：藉由使用線路上記錄的資料，可以從擷取的事件中查詢和擷取時間序列深入解析資料。 傳回的值是以模型或提供的內嵌中定義的變數為基礎。
+* [取得數列 API](https://docs.microsoft.com/rest/api/time-series-insights/preview-query#get-series-api)：使用網路上記錄的資料，從已捕捉的事件中查詢和抓取時間序列深入解析資料。 傳回的值是以模型或提供的內嵌中定義的變數為基礎。
 
     >[!NOTE]
     > 即使已在模型或提供的內嵌中指定彙總子句，也會忽略它。
 
   取得數列 API 會為每個間隔傳回每個變數的時間序列值。 時間序列值是時間序列深入解析針對來自查詢的輸出 JSON 所使用的格式。 傳回的值是以時間序列識別碼和一組所提供的變數為基礎。
 
-* [彙總數列 API](https://docs.microsoft.com/rest/api/time-series-insights/preview-query#aggregate-series-api)：藉由取樣和彙總記錄的資料，可以從擷取的事件中查詢和擷取時間序列深入解析資料。
+* [匯總數列 API](https://docs.microsoft.com/rest/api/time-series-insights/preview-query#aggregate-series-api)：藉由取樣和匯總已記錄的資料，啟用從已捕捉事件查詢和抓取時間序列深入解析資料的功能。
 
   彙總數列 API 會為每個間隔傳回每個變數的時間序列值。 值是以時間序列識別碼和一組所提供的變數為基礎。 彙總數列 API 透過使用儲存在時間序列模型或提供的內嵌中的變量來彙總或取樣資料，以達到降低的目的。
 

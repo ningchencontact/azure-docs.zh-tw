@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: article
 ms.date: 10/16/2019
 ms.author: lahugh
-ms.openlocfilehash: 6f787760c1224172982e0818d8592ce0d36b5e2c
-ms.sourcegitcommit: f29fec8ec945921cc3a89a6e7086127cc1bc1759
-ms.translationtype: HT
+ms.openlocfilehash: 3d4585e032d92049a4f087cd510bdef963025250
+ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
+ms.translationtype: MT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 10/17/2019
-ms.locfileid: "72527283"
+ms.locfileid: "72550140"
 ---
 # <a name="support-for-generation-2-vms-preview-on-azure"></a>在 Azure 上支援第2代 Vm （預覽）
 
@@ -52,8 +52,8 @@ Azure 中的所有 VM 大小都支援第1代 Vm。 Azure 現在為下列選取�
 * [NVv3 系列](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-gpu#nvv3-series--1)
 
 
->[!NOTE]
->適用于 Mv2 系列的第2代 VM 映射使用已正式運作，因為 Mv2 系列僅適用于第2代 VM 映射。 第1代 VM 映射無法與 Mv2 系列搭配使用。 
+> [!NOTE]
+> 適用于 Mv2 系列 Vm 的第2代 VM 映射使用已正式運作，因為 Mv2 系列僅適用于第2代 VM 映射。 Mv2 系列 Vm 上不支援第1代 VM 映射。 
 
 ## <a name="generation-2-vm-images-in-azure-marketplace"></a>Azure Marketplace 中的第2代 VM 映射
 

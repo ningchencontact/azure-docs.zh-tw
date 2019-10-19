@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 10/08/2019
-ms.openlocfilehash: 8ba50e5b55e31c6542e81879068bf231918ce1b0
-ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
+ms.openlocfilehash: 1ec241e261a7710b7a5b92d88f147ce8d148602b
+ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72244885"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72554036"
 ---
 # <a name="monitoring-azure-resources-with-azure-monitor"></a>使用 Azure 監視器監視 Azure 資源
 當您的重要應用程式和商務程式依賴 Azure 資源時，您會想要監視這些資源的可用性、效能和操作。 本文說明 Azure 資源所產生的監視資料，以及您可以如何使用 Azure 監視器的功能來分析此資料併發出警示。
@@ -52,7 +52,7 @@ Azure 監視器是 Azure 中的完整堆疊監視服務，除了其他雲端和�
 ## <a name="monitoring-data"></a>監視資料
 Azure 中的資源會產生[記錄](../platform/data-platform-logs.md)和[計量](../platform/data-platform-metrics.md)，如下圖所示。 請參閱每個 Azure 服務的檔，以取得其所產生的特定資料，以及所提供的任何其他解決方案或深入解析。
 
-![總覽](media/monitor-azure-resource/logs-metrics.png)
+![概觀](media/monitor-azure-resource/logs-metrics.png)
 
 
 
@@ -97,13 +97,13 @@ Azure 中的資源會產生[記錄](../platform/data-platform-logs.md)和[計量
 
 ## <a name="analyzing-logs"></a>分析記錄
 
-### <a name="activity-log"></a>活動記錄檔 
+### <a name="activity-log"></a>活動記錄 
 在 Azure 入口網站中，以初始篩選設定為目前資源的方式，查看活動記錄中的專案。 將活動記錄複製到 Log Analytics 工作區以存取它，以便在記錄查詢和活頁簿中使用。 
 
 - 如需有關使用各種方法來查看活動記錄和取得專案的詳細資訊，請參閱[查看和抓取 Azure 活動記錄事件](../platform/activity-log-view.md)。
 - 請參閱 Azure 服務的檔，以取得所記錄的特定事件。
 
-![活動記錄檔](media/monitor-azure-resource/activity-log.png)
+![活動記錄](media/monitor-azure-resource/activity-log.png)
 
 ### <a name="azure-monitor-logs"></a>Azure 監視器記錄
 Azure 監視器記錄會合並來自多個服務和其他資料來源的記錄和計量，以利用強大的查詢工具進行分析。 如上所述，建立診斷設定，以將平臺計量、活動記錄和資源記錄收集到 Azure 監視器中的 Log Analytics 工作區。
@@ -140,7 +140,7 @@ Azure 監視器記錄會合並來自多個服務和其他資料來源的記錄�
 
 - 請參閱每個服務的監視檔，以判斷是否有可用的見解或解決方案。
 
-![深入解析](media/monitor-azure-resource/insights.png)
+![深入資訊](media/monitor-azure-resource/insights.png)
 
 ## <a name="next-steps"></a>後續步驟
 

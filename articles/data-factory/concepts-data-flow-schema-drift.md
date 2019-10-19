@@ -7,16 +7,14 @@ ms.reviewer: daperlov
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 09/12/2019
-ms.openlocfilehash: 1d6560613294584c77f002e2380065d64ea143f7
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.openlocfilehash: 8c2764535515d0aeb1eb65a1621148fa58317cac
+ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72387957"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72553690"
 ---
 # <a name="schema-drift-in-mapping-data-flow"></a>對應資料流程中的架構漂移
-
-
 
 架構漂移是您的來源通常會變更中繼資料的情況。 欄位、資料行和、類型可以即時加入、移除或變更。 如果沒有處理架構漂移的情況，您的資料流程就會變得容易受到上游資料來源變更的影響。 當傳入的資料行和欄位變更時，一般 ETL 模式會失敗，因為它們通常會系結至這些來源名稱。
 
@@ -31,6 +29,8 @@ Azure Data Factory 原本就支援從執行變更為執行的彈性架構，讓�
 您需要在資料流程中做出架構決策，才能接受整個流程的結構描述漂移。 當您這樣做時，您可以抵抗來自來源的結構描述變更。 不過，您將會失去整個資料流程中的資料行和類型的早期繫結。 Azure Data Factory 會將架構漂移流程視為晚期繫結流程，因此當您建立轉換時，在整個流程的架構視圖中，不會提供漂移的資料行名稱。
 
 ## <a name="schema-drift-in-source"></a>來源中的架構漂移
+
+從來源定義傳入資料流程的資料行會定義為 "漂移"，但不存在於您的來源投射中。 您可以從來源轉換中的 [投射] 索引標籤，查看您的來源投射。 當您選取來源的資料集時，ADF 會自動從資料集取得架構，並從該資料集架構定義建立專案。
 
 在來源轉換中，架構漂移定義為讀取未定義資料集架構的資料行。 若要啟用架構漂移，請選取 [允許來源轉換中的**架構漂移**]。
 
@@ -52,7 +52,7 @@ Azure Data Factory 原本就支援從執行變更為執行的彈性架構，讓�
 
 當您的資料流程具有漂移資料行時，您可以使用下列方法在轉換中存取它們：
 
-* 使用 `byPosition` 和 @no__t 1 運算式，依名稱或位置號碼明確參考資料行。
+* 使用 `byPosition` 和 `byName` 運算式，依名稱或位置號碼明確參考資料行。
 * 在衍生的資料行或匯總轉換中加入資料行模式，以符合名稱、資料流程、位置或類型的任何組合
 * 在 Select 或 Sink 轉換中新增以規則為基礎的對應，以透過模式將漂移的資料行與資料行的別名進行比對
 

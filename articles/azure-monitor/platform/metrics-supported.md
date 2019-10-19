@@ -8,12 +8,12 @@ ms.topic: reference
 ms.date: 05/20/2019
 ms.author: ancav
 ms.subservice: metrics
-ms.openlocfilehash: 4e2cd3b66385d37815d0fc51a70ca31aba25db29
-ms.sourcegitcommit: f29fec8ec945921cc3a89a6e7086127cc1bc1759
-ms.translationtype: HT
+ms.openlocfilehash: aab5d9a4cb7527e8a2085f826febc64bbd74854c
+ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
+ms.translationtype: MT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 10/17/2019
-ms.locfileid: "72528621"
+ms.locfileid: "72551957"
 ---
 # <a name="supported-metrics-with-azure-monitor"></a>支援 Azure 監視器的計量
 
@@ -1437,68 +1437,78 @@ Azure 監視器提供數種與計量進行互動的方式，包括在入口網�
 
 |計量|計量顯示名稱|單位|彙總類型|描述|維度|
 |---|---|---|---|---|---|
-|cpu_percent|CPU 百分比|百分比|平均值|CPU 百分比|無維度|
-|physical_data_read_percent|資料 IO 百分比|百分比|平均值|資料 IO 百分比|無維度|
-|log_write_percent|記錄 IO 百分比|百分比|平均值|記錄 IO 百分比。 不適用於資料倉儲。|無維度|
-|dtu_consumption_percent|DTU 百分比|百分比|平均值|DTU 百分比。 適用于以 DTU 為基礎的資料庫。|無維度|
-|storage|使用的資料空間|位元組|最大值|資料庫大小總計。 不適用於資料倉儲。|無維度|
-|connection_successful|成功的連線|計數|總計|成功的連線|無維度|
-|connection_failed|失敗的連線|計數|總計|失敗的連線|無維度|
-|blocked_by_firewall|遭到防火牆封鎖|計數|總計|遭到防火牆封鎖|無維度|
-|deadlock|死結|計數|總計|發生. 不適用於資料倉儲。|無維度|
-|storage_percent|使用的資料空間百分比|百分比|最大值|資料庫大小百分比。 不適用於資料倉儲或超大規模資料庫資料庫。|無維度|
-|xtp_storage_percent|記憶體內部 OLTP 儲存體百分比|百分比|平均值|記憶體內部 OLTP 儲存體百分比。 不適用於資料倉儲。|無維度|
-|workers_percent|背景工作角色百分比|百分比|平均值|背景工作百分比。 不適用於資料倉儲。|無維度|
-|sessions_percent|工作階段百分比|百分比|平均值|會話百分比。 不適用於資料倉儲。|無維度|
-|dtu_limit|DTU 限制|計數|平均值|DTU 限制。 適用于以 DTU 為基礎的資料庫。|無維度|
-|dtu_used|已使用 DTU|計數|平均值|使用的 DTU。 適用于以 DTU 為基礎的資料庫。|無維度|
-|cpu_limit|CPU 限制|計數|平均值|CPU 限制。 適用于以 vCore 為基礎的資料庫。|無維度|
-|cpu_used|使用的 CPU|計數|平均值|使用的 CPU。 適用于以 vCore 為基礎的資料庫。|無維度|
-|dwu_limit|DWU 限制|計數|最大值|DWU 限制。 僅適用于資料倉儲。|無維度|
-|dwu_consumption_percent|DWU 百分比|百分比|最大值|DWU 百分比。 僅適用于資料倉儲。|無維度|
-|dwu_used|已使用 DWU|計數|最大值|已使用 DWU。 僅適用于資料倉儲。|無維度|
-|dw_cpu_percent|DW 節點層級 CPU 百分比|百分比|平均值|DW 節點層級 CPU 百分比|DwLogicalNodeId|
-|dw_physical_data_read_percent|DW 節點層級資料 IO 百分比|百分比|平均值|DW 節點層級資料 IO 百分比|DwLogicalNodeId|
-|cache_hit_percent|快取命中的百分比|百分比|最大值|快取命中百分比。 僅適用于資料倉儲。|無維度|
-|cache_used_percent|已用快取的百分比|百分比|最大值|快取已使用百分比。 僅適用于資料倉儲。|無維度|
-|local_tempdb_usage_percent|本機 tempdb 百分比|百分比|平均值|本機 tempdb 百分比。 僅適用于資料倉儲。|無維度|
+|allocated_data_storage|已配置的資料空間|位元組|平均值|已配置的資料空間。 不適用於資料倉儲。|無維度|
 |app_cpu_billed|應用程式 CPU 計費|計數|總計|應用程式 CPU 計費。 適用于無伺服器資料庫。|無維度|
 |app_cpu_percent|應用程式 CPU 百分比|百分比|平均值|應用程式 CPU 百分比。 適用于無伺服器資料庫。|無維度|
 |app_memory_percent|應用程式記憶體使用百分比|百分比|平均值|應用程式記憶體使用百分比。 適用于無伺服器資料庫。|無維度|
-|allocated_data_storage|已配置的資料空間|位元組|平均值|已配置的資料空間。 不適用於資料倉儲。|無維度|
+|blocked_by_firewall|遭到防火牆封鎖|計數|總計|遭到防火牆封鎖|無維度|
+|cache_hit_percent|快取命中的百分比|百分比|最大值|快取命中百分比。 僅適用于資料倉儲。|無維度|
+|cache_used_percent|已用快取的百分比|百分比|最大值|快取已使用百分比。 僅適用于資料倉儲。|無維度|
+|connection_failed|失敗的連線|計數|總計|失敗的連線|無維度|
+|connection_successful|成功的連線|計數|總計|成功的連線|無維度|
+|cpu_percent|CPU 百分比|百分比|平均值|CPU 百分比|無維度|
+|cpu_limit|CPU 限制|計數|平均值|CPU 限制。 適用于以 vCore 為基礎的資料庫。|無維度|
+|cpu_used|使用的 CPU|計數|平均值|使用的 CPU。 適用于以 vCore 為基礎的資料庫。|無維度|
+|deadlock|死結|計數|總計|發生. 不適用於資料倉儲。|無維度|
+|dtu_limit|DTU 限制|計數|平均值|DTU 限制。 適用于以 DTU 為基礎的資料庫。|無維度|
+|dtu_consumption_percent|DTU 百分比|百分比|平均值|DTU 百分比。 適用于以 DTU 為基礎的資料庫。|無維度|
+|dtu_used|已使用 DTU|計數|平均值|使用的 DTU。 適用于以 DTU 為基礎的資料庫。|無維度|
+|dw_cpu_percent|DW 節點層級 CPU 百分比|百分比|平均值|DW 節點層級 CPU 百分比|DwLogicalNodeId|
+|dw_physical_data_read_percent|DW 節點層級資料 IO 百分比|百分比|平均值|DW 節點層級資料 IO 百分比|DwLogicalNodeId|
+|dwu_consumption_percent|DWU 百分比|百分比|最大值|DWU 百分比。 僅適用于資料倉儲。|無維度|
+|dwu_limit|DWU 限制|計數|最大值|DWU 限制。 僅適用于資料倉儲。|無維度|
+|dwu_used|已使用 DWU|計數|最大值|已使用 DWU。 僅適用于資料倉儲。|無維度|
+|local_tempdb_usage_percent|本機 tempdb 百分比|百分比|平均值|本機 tempdb 百分比。 僅適用于資料倉儲。|無維度|
+|log_write_percent|記錄 IO 百分比|百分比|平均值|記錄 IO 百分比。 不適用於資料倉儲。|無維度|
+|physical_data_read_percent|資料 IO 百分比|百分比|平均值|資料 IO 百分比|無維度|
+|sessions_percent|工作階段百分比|百分比|平均值|會話百分比。 不適用於資料倉儲。|無維度|
+|sqlserver_process_core_percent|SQL Server 處理常式核心百分比|百分比|最大值|此計量是預留位置，此時不會填入。|無維度|
+|sqlserver_process_memory_percent|SQL Server 處理常式記憶體百分比|百分比|最大值|此計量是預留位置，此時不會填入。|無維度|
+|storage|使用的資料空間|位元組|最大值|資料庫大小總計。 不適用於資料倉儲。|無維度|
+|storage_percent|使用的資料空間百分比|百分比|最大值|資料庫大小百分比。 不適用於資料倉儲或超大規模資料庫資料庫。|無維度|
+|tempdb_data_size|Tempdb 資料檔案大小 Kb|計數|最大值|Tempdb 資料檔案大小（Kb）。 不適用於資料倉儲。 針對以 DTU 為基礎的購買模型，使用 vCore 購買模型或 100 DTU 和更新版本的資料庫，將可使用此計量。|無維度|
+|tempdb_log_size|Tempdb 記錄檔大小 Kb|計數|最大值|Tempdb 記錄檔大小（Kb）。 不適用於資料倉儲。 針對以 DTU 為基礎的購買模型，使用 vCore 購買模型或 100 DTU 和更新版本的資料庫，將可使用此計量。|無維度|
+|tempdb_log_used_percent|使用的 Tempdb 百分比記錄|百分比|最大值|使用的 Tempdb 百分比記錄。 不適用於資料倉儲。 針對以 DTU 為基礎的購買模型，使用 vCore 購買模型或 100 DTU 和更新版本的資料庫，將可使用此計量。|無維度|
+|workers_percent|背景工作角色百分比|百分比|平均值|背景工作百分比。 不適用於資料倉儲。|無維度|
+|xtp_storage_percent|記憶體內部 OLTP 儲存體百分比|百分比|平均值|記憶體內部 OLTP 儲存體百分比。 不適用於資料倉儲。|無維度|
 
 ## <a name="microsoftsqlserverselasticpools"></a>Microsoft.Sql/servers/elasticPools
 
 |計量|計量顯示名稱|單位|彙總類型|描述|維度|
 |---|---|---|---|---|---|
-|cpu_percent|CPU 百分比|百分比|平均值|CPU 百分比|無維度|
-|physical_data_read_percent|資料 IO 百分比|百分比|平均值|資料 IO 百分比|無維度|
-|log_write_percent|記錄 IO 百分比|百分比|平均值|記錄 IO 百分比|無維度|
-|dtu_consumption_percent|DTU 百分比|百分比|平均值|DTU 百分比。 適用于以 DTU 為基礎的彈性集區。|無維度|
-|storage_percent|使用的資料空間百分比||百分比|平均值|儲存體百分比|無維度|
-|workers_percent|背景工作角色百分比|百分比|平均值|背景工作角色百分比|無維度|
-|sessions_percent|工作階段百分比|百分比|平均值|工作階段百分比|無維度|
-|eDTU_limit|eDTU 限制|計數|平均值|eDTU 限制。 適用于以 DTU 為基礎的彈性集區。|無維度|
-|storage_limit|資料大小上限|位元組|平均值|儲存體限制|無維度|
-|eDTU_used|已使用 eDTU|計數|平均值|使用的 eDTU。 適用于以 DTU 為基礎的彈性集區。|無維度|
-|storage_used|使用的資料空間|位元組|平均值|使用的儲存空間|無維度|
-|xtp_storage_percent|記憶體內部 OLTP 儲存體百分比|百分比|平均值|記憶體內部 OLTP 儲存體百分比|無維度|
-|cpu_limit|CPU 限制|計數|平均值|CPU 限制。 適用于以 vCore 為基礎的彈性集區。|無維度|
-|cpu_used|使用的 CPU|計數|平均值|使用的 CPU。 適用于以 vCore 為基礎的彈性集區。|無維度|
 |allocated_data_storage|已配置的資料空間|位元組|平均值|已配置的資料空間|無維度|
 |allocated_data_storage_percent|已配置的資料空間百分比|百分比|最大值|已配置的資料空間百分比|無維度|
+|cpu_limit|CPU 限制|計數|平均值|CPU 限制。 適用于以 vCore 為基礎的彈性集區。|無維度|
+|cpu_percent|CPU 百分比|百分比|平均值|CPU 百分比|無維度|
+|cpu_used|使用的 CPU|計數|平均值|使用的 CPU。 適用于以 vCore 為基礎的彈性集區。|無維度|
+|dtu_consumption_percent|DTU 百分比|百分比|平均值|DTU 百分比。 適用于以 DTU 為基礎的彈性集區。|無維度|
+|eDTU_limit|eDTU 限制|計數|平均值|eDTU 限制。 適用于以 DTU 為基礎的彈性集區。|無維度|
+|eDTU_used|已使用 eDTU|計數|平均值|使用的 eDTU。 適用于以 DTU 為基礎的彈性集區。|無維度|
+|log_write_percent|記錄 IO 百分比|百分比|平均值|記錄 IO 百分比|無維度|
+|physical_data_read_percent|資料 IO 百分比|百分比|平均值|資料 IO 百分比|無維度|
+|sessions_percent|工作階段百分比|百分比|平均值|工作階段百分比|無維度|
+|storage_limit|資料大小上限|位元組|平均值|儲存體限制|無維度|
+|storage_percent|使用的資料空間百分比||百分比|平均值|儲存體百分比|無維度|
+|storage_used|使用的資料空間|位元組|平均值|使用的儲存空間|無維度|
+|sqlserver_process_core_percent|SQL Server 處理常式核心百分比|百分比|最大值|此計量是預留位置，此時不會填入。|無維度|
+|sqlserver_process_memory_percent|SQL Server 處理常式記憶體百分比|百分比|最大值|此計量是預留位置，此時不會填入。|無維度|
+|tempdb_data_size|Tempdb 資料檔案大小 Kb|計數|最大值|Tempdb 資料檔案大小（Kb）。 不適用於資料倉儲。 針對以 DTU 為基礎的購買模型，使用 vCore 購買模型或 100 DTU 和更新版本的資料庫，將可使用此計量。|無維度|
+|tempdb_log_size|Tempdb 記錄檔大小 Kb|計數|最大值|Tempdb 記錄檔大小（Kb）。 不適用於資料倉儲。 針對以 DTU 為基礎的購買模型，使用 vCore 購買模型或 100 DTU 和更新版本的資料庫，將可使用此計量。|無維度|
+|tempdb_log_used_percent|使用的 Tempdb 百分比記錄|百分比|最大值|使用的 Tempdb 百分比記錄。 不適用於資料倉儲。 針對以 DTU 為基礎的購買模型，使用 vCore 購買模型或 100 DTU 和更新版本的資料庫，將可使用此計量。|無維度|
+|workers_percent|背景工作角色百分比|百分比|平均值|背景工作角色百分比|無維度|
+|xtp_storage_percent|記憶體內部 OLTP 儲存體百分比|百分比|平均值|記憶體內部 OLTP 儲存體百分比|無維度|
 
 ## <a name="microsoftsqlmanagedinstances"></a>Microsoft.Sql/managedInstances
 
 |計量|計量顯示名稱|單位|彙總類型|描述|維度|
 |---|---|---|---|---|---|
-|virtual_core_count|虛擬核心計數|計數|平均值|虛擬核心計數|無維度|
 |avg_cpu_percent|CPU 百分比平均|百分比|平均值|CPU 百分比平均|無維度|
+|io_bytes_read|讀取的 IO 位元組|位元組|平均值|讀取的 IO 位元組|無維度|
+|io_requests|IO 要求計數|計數|平均值|IO 要求計數|無維度|
+|io_bytes_written|寫入的 IO 位元組|位元組|平均值|寫入的 IO 位元組|無維度|
 |reserved_storage_mb|保留的儲存體空間|計數|平均值|保留的儲存體空間|無維度|
 |storage_space_used_mb|使用的儲存體空間|計數|平均值|使用的儲存體空間|無維度|
-|io_requests|IO 要求計數|計數|平均值|IO 要求計數|無維度|
-|io_bytes_read|讀取的 IO 位元組|位元組|平均值|讀取的 IO 位元組|無維度|
-|io_bytes_written|寫入的 IO 位元組|位元組|平均值|寫入的 IO 位元組|無維度|
+|virtual_core_count|虛擬核心計數|計數|平均值|虛擬核心計數|無維度|
 
 ## <a name="microsoftstoragestorageaccounts"></a>Microsoft.Storage/storageAccounts
 

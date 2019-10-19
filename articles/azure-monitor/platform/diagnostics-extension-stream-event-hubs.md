@@ -1,20 +1,18 @@
 ---
 title: 將 Azure 診斷資料串流至事件中樞
 description: 使用事件中樞設定 Azure 診斷的完整步驟，包括常見案例的指引。
-services: azure-monitor
-author: rboucher
 ms.service: azure-monitor
-ms.devlang: dotnet
-ms.topic: conceptual
-ms.date: 07/13/2017
-ms.author: robb
 ms.subservice: diagnostic-extension
-ms.openlocfilehash: c5fc2199de8623dd3a9f2bc5faf23c7c40d67d75
-ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
+ms.topic: conceptual
+author: rboucher
+ms.author: robb
+ms.date: 07/13/2017
+ms.openlocfilehash: 2b24618e4d7c12366db5e72226c6f94924d4d3a5
+ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "64922812"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72555541"
 ---
 # <a name="streaming-azure-diagnostics-data-in-the-hot-path-by-using-event-hubs"></a>使用事件中樞串流最忙碌路徑中的 Azure 診斷資料
 Azure 診斷會提供彈性的方法，用來收集來自雲端服務虛擬機器 (VM) 的度量和記錄，再將結果傳輸至 Azure 儲存體。 從 2016 年 3 月 (SDK 2.9) 的時間範圍開始，您可以使用 [Azure 事件中樞](https://azure.microsoft.com/services/event-hubs/)，將 Azure 診斷傳送至自訂的資料來源，並立即傳輸最忙碌路徑資料。
@@ -34,18 +32,18 @@ Azure 診斷會提供彈性的方法，用來收集來自雲端服務虛擬機�
 * 如何檢視事件中樞串流資料
 * 如何針對連線問題進行疑難排解  
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 雲端服務、VM、虛擬機器擴展集，以及 Azure SDK 2.9 開始的 Service Fabric 和對應的 Azure Tools for Visual Studio，皆支援從 Azure 診斷接收資料的事件中樞。
 
 * Azure 診斷擴充 1.6 ([Azure SDK for. NET 2.9 或更新版本](https://azure.microsoft.com/downloads/) 預設以此為目標)
 * [Visual Studio 2013 或更新版本](https://www.visualstudio.com/downloads/download-visual-studio-vs.aspx)
 * 在應用程式中使用 *.wadcfgx* 檔案和以下任一方法的 Azure 診斷現有組態：
-  * Visual Studio：[為 Azure 雲端服務和虛擬機器設定診斷功能](/visualstudio/azure/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines)
-  * Windows PowerShell：[使用 PowerShell 在 Azure 雲端服務中啟用診斷](../../cloud-services/cloud-services-diagnostics-powershell.md)
+  * Visual Studio： [為 Azure 雲端服務和虛擬機器設定診斷功能](/visualstudio/azure/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines)
+  * Windows PowerShell： [使用 PowerShell 在 Azure 雲端服務中啟用診斷](../../cloud-services/cloud-services-diagnostics-powershell.md)
 * 文章中佈建的事件中樞命名空間，[開始使用事件中樞](../../event-hubs/event-hubs-dotnet-standard-getstarted-send.md)
 
 ## <a name="connect-azure-diagnostics-to-event-hubs-sink"></a>將 Azure 診斷連接至事件中樞接收
-根據預設，Azure 診斷一律會將記錄和計量傳送至 Azure 儲存體帳戶。 應用程式可能會將資料傳送至事件中樞，方法是將新的 [接收]  區段新增至 *.wadcfgx* 檔案的 **PublicConfig** / **WadCfg** 元素底下。 在 Visual Studio 中， *.wadcfgx* 檔案會儲存在下列路徑：[雲端服務專案]   > [角色]   > (RoleName)   > **diagnostics.wadcfgx** 檔案。
+根據預設，Azure 診斷一律會將記錄和計量傳送至 Azure 儲存體帳戶。 應用程式可能會將資料傳送至事件中樞，方法是將新的 [接收] 區段新增至 *.wadcfgx* 檔案的 **PublicConfig** / **WadCfg** 元素底下。 在 Visual Studio 中， *.wadcfgx* 檔案會儲存在以下路徑：[雲端服務專案] > [角色] >  **(RoleName)**  > **diagnostics.wadcfgx** 檔案。
 
 ```xml
 <SinksConfig>
@@ -68,7 +66,7 @@ Azure 診斷會提供彈性的方法，用來收集來自雲端服務虛擬機�
 }
 ```
 
-在此範例中，事件中樞 URL 設定為事件中樞的完整命名空間：事件中樞命名空間  + "/" + 事件中樞名稱。  
+在此範例中，事件中樞 URL 設定為事件中樞的完整命名空間：事件中樞命名空間 + "/" + 事件中樞名稱。  
 
 事件中樞 URL 會在 [Azure 入口網站](https://go.microsoft.com/fwlink/?LinkID=213885) 中的 [事件中樞] 儀表板上顯示。  
 
@@ -100,7 +98,7 @@ Azure 診斷會提供彈性的方法，用來收集來自雲端服務虛擬機�
 }
 ```
 
-`SharedAccessKeyName` 值必須符合共用存取簽章 (SAS) 金鑰，以及**事件中樞**命名空間中已定義的原則。 在 [Azure 入口網站](https://portal.azure.com)中瀏覽至 [事件中樞] 儀表板，按一下 [設定]  索引標籤，然後設定具有*傳送*權限的具名原則 (如 "SendRule")。 **StorageAccount** 也已經在 **PrivateConfig** 中宣告。 如果這裡的值可以運作，就不需要變更。 在此範例中，我們保留空白的值，這代表下游資產將會設定值。 例如，*ServiceConfiguration.Cloud.cscfg* 環境組態檔會設定適合環境的名稱和金鑰。  
+`SharedAccessKeyName` 值必須符合共用存取簽章 (SAS) 金鑰，以及**事件中樞**命名空間中已定義的原則。 在 [Azure 入口網站](https://portal.azure.com)中瀏覽至 [事件中樞] 儀表板，按一下 [設定] 索引標籤，然後設定具有*傳送*權限的具名原則 (如 "SendRule")。 **StorageAccount** 也已經在 **PrivateConfig** 中宣告。 如果這裡的值可以運作，就不需要變更。 在此範例中，我們保留空白的值，這代表下游資產將會設定值。 例如，*ServiceConfiguration.Cloud.cscfg* 環境組態檔會設定適合環境的名稱和金鑰。  
 
 > [!WARNING]
 > 事件中樞 SAS 金鑰會以純文字儲存在 *.wadcfgx* 檔案中。 有時候，系統會將該金鑰簽入原始程式碼控制，或做為組建伺服器中的資產提供，因此您應該適當地保護它。 建議您在這裡使用具有「僅限傳送」 權限的 SAS 金鑰，讓惡意使用者只能寫入事件中樞，而無法接聽或加以管理。
@@ -202,7 +200,7 @@ Azure 診斷會提供彈性的方法，用來收集來自雲端服務虛擬機�
 在此範例中，接收會套用至記錄，並且只篩選為「錯誤」層級追蹤。
 
 ## <a name="deploy-and-update-a-cloud-services-application-and-diagnostics-config"></a>部署和更新雲端服務應用程式和診斷設定
-Visual Studio 提供最簡單的路徑供您部署應用程式和事件中樞接收組態。 若要檢視及編輯檔案，請在 Visual Studio 中開啟 *.wadcfgx* 檔案，然後再加以編輯和儲存。 其路徑為 [雲端服務專案]   > [角色]   > (RoleName)   > diagnostics.wadcfgx  。  
+Visual Studio 提供最簡單的路徑供您部署應用程式和事件中樞接收組態。 若要檢視及編輯檔案，請在 Visual Studio 中開啟 *.wadcfgx* 檔案，然後再加以編輯和儲存。 其路徑為 [雲端服務專案] > [角色] > (RoleName) > diagnostics.wadcfgx。  
 
 此時，Visual Studio、Visual Studio Team System 中的所有部署和部署更新動作，以及所有根據 MSBuild 和使用 **/t:publish** 目標的命令或指令碼，都會在封裝程序中納入 *.wadcfgx* 。 此外，部署和更新會使用 VM 上適當的 Azure 診斷代理程式擴充功能將檔案部署到 Azure。
 
@@ -316,7 +314,7 @@ namespace EventHubListener
     首先，請確定事件中樞和組態資訊正確，如先前所述。 有時候，系統會在部署更新時重設 **PrivateConfig** 。 建議的修正方式是對專案中的 *.wadcfgx* 進行所有變更，然後再推送完整的應用程式更新。 如果不可行，請確定診斷更新推送完整的 **PrivateConfig** ，包括 SAS 金鑰。  
 * 我試過上述建議，不過事件中樞仍然無法運作。
 
-    請嘗試查看 Azure 儲存體資料表，其中包含記錄和 Azure 診斷本身的錯誤︰**WADDiagnosticInfrastructureLogsTable**。 其中一個選項是使用類似 [Azure 儲存體總管](https://www.storageexplorer.com) 的工具連接到此儲存體帳戶、檢視此資料表，並且新增過去 24 小時內時間戳記的查詢。 您可以使用此工具來匯出 .csv 檔案，並在 Microsoft Excel 之類的應用程式中開啟。 Excel 能輕鬆地搜尋電話卡字串 (如 **EventHubs**)，以便查看系統回報了哪些錯誤。  
+    請嘗試查看 Azure 儲存體資料表，其中包含記錄和 Azure 診斷本身的錯誤︰ **WADDiagnosticInfrastructureLogsTable**。 其中一個選項是使用類似 [Azure 儲存體總管](https://www.storageexplorer.com) 的工具連接到此儲存體帳戶、檢視此資料表，並且新增過去 24 小時內時間戳記的查詢。 您可以使用此工具來匯出 .csv 檔案，並在 Microsoft Excel 之類的應用程式中開啟。 Excel 能輕鬆地搜尋電話卡字串 (如 **EventHubs**)，以便查看系統回報了哪些錯誤。  
 
 ## <a name="next-steps"></a>後續步驟
 •    [深入了解事件中樞](https://azure.microsoft.com/services/event-hubs/)

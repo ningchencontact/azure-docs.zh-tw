@@ -1,56 +1,50 @@
 ---
-title: 如何更新 Azure 監視器度量的容器 |Microsoft Docs
-description: 本文說明如何更新適用於容器的 Azure 監視器，以啟用自訂計量功能可支援 彙總的計量中的 瀏覽及警示。
-services: azure-monitor
-documentationcenter: ''
-author: mgoedtel
-manager: carmonm
-editor: ''
-ms.assetid: ''
+title: 如何更新計量容器的 Azure 監視器 |Microsoft Docs
+description: 本文說明如何更新容器的 Azure 監視器，以啟用支援對匯總計量進行探索和警示的自訂計量功能。
 ms.service: azure-monitor
+ms.subservice: ''
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 05/06/2019
+author: mgoedtel
 ms.author: magoedte
-ms.openlocfilehash: f4e15c4fc7bd7b786c5204153fe64f010e5ffe85
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 05/06/2019
+ms.openlocfilehash: dd1618151b97ab4f958bfd5d50333b9551014f0f
+ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65148860"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72554078"
 ---
-# <a name="how-to-update-azure-monitor-for-containers-to-enable-metrics"></a>如何更新適用於容器的 Azure 監視器，若要啟用度量
-適用於容器的 azure 監視器引進了從 Azure Kubernetes Service (AKS) 叢集節點和 pod 收集計量並將它們寫入至 Azure 監視器計量存放區的支援。 這項變更被要呈現在效能圖表，支援釘選在 Azure 入口網站儀表板中的效能圖表中的彙總計算 （Avg、 Count、 最大、 最小值、 總和） 時提供改良的時效性和支援的計量警示。
+# <a name="how-to-update-azure-monitor-for-containers-to-enable-metrics"></a>如何更新容器的 Azure 監視器以啟用計量
+適用于容器的 Azure 監視器引進了從 Azure Kubernetes Services （AKS）叢集節點和 pod 收集計量，並將其寫入 Azure 監視器計量存放區的支援。 這項變更的目的是在呈現效能圖表中的匯總計算（Avg、Count、Max、Min、Sum）時傳遞改良的時效性，支援在 Azure 入口網站儀表板中釘選效能圖表，以及支援計量警示。
 
-這項功能的一部分，會啟用下列度量：
+下列計量會在這項功能中啟用：
 
 | 計量命名空間 | 計量 | 描述 |
 |------------------|--------|-------------|
-| insights.container/nodes | cpuUsageMillicores, cpuUsagePercentage, memoryRssBytes, memoryRssPercentage, memoryWorkingSetBytes, memoryWorkingSetPercentage, nodesCount | 這些是*節點*計量，而且包含*主機*維度，而且它們也包含<br> 節點的名稱，做為值*主機*維度。 |
-| insights.container/pods | podCount | 這些是*pod*計量，並包含下列維度-ControllerName，Kubernetes 命名空間、 名稱、 階段。 |
+| 深入解析。容器/節點 | cpuUsageMillicores、cpuUsagePercentage、memoryRssBytes、memoryRssPercentage、memoryWorkingSetBytes、memoryWorkingSetPercentage、nodesCount | 這些是*節點*計量和包含*主機*作為維度，而且也包括<br> 節點的名稱，做為*主機*維度的值。 |
+| 深入解析。容器/pod | podCount | 這些是*pod*計量，其中包含下列維度： ControllerName、Kubernetes 命名空間、名稱、階段。 |
 
-從 Azure 入口網站中，Azure PowerShell，或使用 Azure CLI，可以執行更新的叢集，以支援這些新功能。 使用 Azure PowerShell 和 CLI，您可以啟用這個每個叢集或您的訂用帳戶中的所有叢集。 此組態變更和功能，就會自動包含新的 AKS 部署。
+更新叢集以支援這些新功能，可以從 Azure 入口網站、Azure PowerShell 或 Azure CLI 執行。 使用 Azure PowerShell 和 CLI，您可以針對訂用帳戶中的每個叢集或所有叢集啟用此功能。 AKS 的新部署將會自動包含此設定變更和功能。
 
-其中一個處理指派**監視計量發行者**叢集的服務主體的角色，讓代理程式所收集的資料可以發行至您的叢集資源。 監視計量的 「 發行者 」 的權限只推播至資源的計量，它無法改變任何狀態、 更新的資源，或讀取的任何資料。 如需角色的進一步資訊，請參閱[監視計量發行者角色](../../role-based-access-control/built-in-roles.md#monitoring-metrics-publisher)。
+任一進程都會將**監視計量發行者**角色指派給叢集的服務主體，讓代理程式所收集的資料可以發佈到您的叢集資源。 監視計量發行者只有將計量推送至資源的許可權，它無法改變任何狀態、更新資源或讀取任何資料。 如需角色的進一步資訊，請參閱[監視計量發行者角色](../../role-based-access-control/built-in-roles.md#monitoring-metrics-publisher)。
 
 ## <a name="prerequisites"></a>必要條件 
-在開始之前，請確定您所隸屬 **[擁有者](../../role-based-access-control/built-in-roles.md#owner)** 角色上啟用節點的集合和 pod 自訂效能度量的 AKS 叢集資源。 
+開始之前，請確定您是 AKS 叢集資源上 **[擁有](../../role-based-access-control/built-in-roles.md#owner)** 者角色的成員，才能啟用節點和 pod 自訂效能計量的集合。 
 
-如果您選擇使用 Azure CLI，必須先在本機安裝並使用 CLI。 您必須執行 Azure CLI 2.0.59 版或更新版本。 若要知道您使用的版本，請執行 `az --version`。 如果您需要安裝或升級 Azure CLI，請參閱[安裝 Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli)。 
+如果您選擇使用 Azure CLI，必須先在本機安裝並使用 CLI。 您必須執行 Azure CLI 版2.0.59 或更新版本。 若要知道您使用的版本，請執行 `az --version`。 如果您需要安裝或升級 Azure CLI，請參閱[安裝 Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli)。 
 
-## <a name="upgrade-a-cluster-from-the-azure-portal"></a>從 Azure 入口網站中升級叢集
+## <a name="upgrade-a-cluster-from-the-azure-portal"></a>從 Azure 入口網站升級叢集
 
-對於由 Azure 監視器監視適用於容器的現有 AKS 叢集，之後選取來選取以檢視其健全狀況，從 Azure 監視器中的多重叢集檢視，或直接從叢集的叢集**Insights**從左邊窗格中，您應該會看到入口網站頂端的橫幅。
+針對容器 Azure 監視器監視的現有 AKS 叢集，在選取叢集以從 Azure 監視器的多重叢集，或從左側窗格中選取 [**深入**解析] 直接從叢集查看其健康情況時，您應該會看到入口網站頂端的橫幅。
 
-![升級 AKS 叢集橫幅，在 Azure 入口網站](./media/container-insights-update-metrics/portal-banner-enable-01.png)
+![升級 Azure 入口網站中的 AKS 叢集橫幅](./media/container-insights-update-metrics/portal-banner-enable-01.png)
 
-按一下 **啟用**會起始將叢集升級程序。 此程序可能需要幾秒鐘才能完成，而且您可以追蹤其進度通知下的從功能表。
+按一下 [**啟用**] 將會起始升級叢集的程式。 此程式可能需要幾秒鐘的時間才能完成，您可以在功能表的 [通知] 底下追蹤其進度。
 
-## <a name="upgrade-all-clusters-using-bash-in-azure-command-shell"></a>升級所有的叢集使用 Azure 命令殼層中使用 Bash
-執行下列步驟來更新您的訂用帳戶使用 Azure 命令殼層中的 Bash 中的所有叢集。
+## <a name="upgrade-all-clusters-using-bash-in-azure-command-shell"></a>使用 Azure 命令 Shell 中的 Bash 升級所有叢集
+執行下列步驟，以使用 Azure 命令 Shell 中的 Bash 來更新訂用帳戶中的所有叢集。
 
-1. 使用 Azure CLI，執行下列命令。  編輯的值**subscriptionId**使用中的值**AKS 概觀**AKS 叢集中的頁面。
+1. 使用 Azure CLI 執行下列命令。  使用 AKS 叢集的 [ **AKS 總覽**] 頁面中的值來編輯**subscriptionId**的值。
 
     ```azurecli
     az login
@@ -58,16 +52,16 @@ ms.locfileid: "65148860"
     curl -sL https://aka.ms/ci-md-onboard-atscale | bash -s subscriptionId   
     ```
 
-    組態變更可能需要幾秒鐘即可完成。 完成之後，將會顯示如下訊息並包含結果：
+    設定變更可能需要幾秒鐘的時間才能完成。 完成之後，將會顯示如下訊息並包含結果：
 
     ```azurecli
     completed role assignments for all AKS clusters in subscription: <subscriptionId>
     ```
 
-## <a name="upgrade-per-cluster-using-azure-cli"></a>每個叢集使用 Azure CLI 升級
-執行下列步驟來更新您的訂用帳戶使用 Azure CLI 中的特定叢集。
+## <a name="upgrade-per-cluster-using-azure-cli"></a>使用 Azure CLI 升級每個叢集
+請執行下列步驟，使用 Azure CLI 來更新您訂用帳戶中的特定叢集。
 
-1. 使用 Azure CLI，執行下列命令。 編輯的值**subscriptionId**， **resourceGroupName**，並**clusterName**上使用值**AKS 概觀**頁面AKS 叢集。  若要取得的值**clientIdOfSPN**，執行命令時，它會傳回`az aks show`如下列範例所示。
+1. 使用 Azure CLI 執行下列命令。 使用 AKS 叢集的**AKS [總覽**] 頁面上的值，編輯**subscriptionId**、 **resourceGroupName**和**clusterName**的值。  若要取得**clientIdOfSPN**的值，當您執行命令時，就會傳回它 `az aks show` 如下列範例所示。
 
     ```azurecli
     az login
@@ -76,10 +70,10 @@ ms.locfileid: "65148860"
     az role assignment create --assignee <clientIdOfSPN> --scope <clusterResourceId> --role "Monitoring Metrics Publisher" 
     ``` 
 
-## <a name="upgrade-all-clusters-using-azure-powershell"></a>升級所有的叢集使用 Azure PowerShell
-執行下列步驟來更新您的訂用帳戶使用 Azure PowerShell 中的所有叢集。
+## <a name="upgrade-all-clusters-using-azure-powershell"></a>使用 Azure PowerShell 升級所有叢集
+請執行下列步驟，使用 Azure PowerShell 來更新您訂用帳戶中的所有叢集。
 
-1. 複製並貼上下列指令碼到您的檔案：
+1. 複製下列腳本並貼到您的檔案中：
 
     ```powershell
     <# 
@@ -319,22 +313,22 @@ ms.locfileid: "65148860"
     Write-Host("Completed adding role assignment for the aks clusters in subscriptionId :$SubscriptionId")   
     ```
 
-2. 此檔案儲存為**onboard_metrics_atscale.ps1**至本機資料夾。
-3. 使用 Azure PowerShell 中執行下列命令。  編輯的值**subscriptionId**使用中的值**AKS 概觀**AKS 叢集中的頁面。
+2. 將此檔案儲存為**onboard_metrics_atscale**到本機資料夾。
+3. 使用 Azure PowerShell 執行下列命令。  使用 AKS 叢集的 [ **AKS 總覽**] 頁面中的值來編輯**subscriptionId**的值。
 
     ```powershell
     .\onboard_metrics_atscale.ps1 subscriptionId
     ```
-    組態變更可能需要幾秒鐘即可完成。 完成之後，將會顯示如下訊息並包含結果：
+    設定變更可能需要幾秒鐘的時間才能完成。 完成之後，將會顯示如下訊息並包含結果：
 
     ```powershell
     Completed adding role assignment for the aks clusters in subscriptionId :<subscriptionId>
     ```
 
-## <a name="upgrade-per-cluster-using-azure-powershell"></a>每個叢集使用 Azure PowerShell 升級
-執行下列步驟來更新指定的叢集使用 Azure PowerShell。
+## <a name="upgrade-per-cluster-using-azure-powershell"></a>使用 Azure PowerShell 升級每個叢集
+請執行下列步驟，使用 Azure PowerShell 來更新特定叢集。
 
-1. 複製並貼上下列指令碼到您的檔案：
+1. 複製下列腳本並貼到您的檔案中：
 
     ```powershell
     <# 
@@ -568,18 +562,18 @@ ms.locfileid: "65148860"
     }
     ```
 
-2. 此檔案儲存為**onboard_metrics.ps1**至本機資料夾。
-3. 使用 Azure PowerShell 中執行下列命令。 編輯的值**subscriptionId**， **resourceGroupName**，並**clusterName**上使用值**AKS 概觀**頁面AKS 叢集。
+2. 將此檔案儲存為**onboard_metrics**到本機資料夾。
+3. 使用 Azure PowerShell 執行下列命令。 使用 AKS 叢集的**AKS [總覽**] 頁面上的值，編輯**subscriptionId**、 **resourceGroupName**和**clusterName**的值。
 
     ```powershell
     .\onboard_metrics.ps1 subscriptionId <subscriptionId> resourceGroupName <resourceGroupName> clusterName <clusterName>
     ```
 
-    組態變更可能需要幾秒鐘即可完成。 完成之後，將會顯示如下訊息並包含結果：
+    設定變更可能需要幾秒鐘的時間才能完成。 完成之後，將會顯示如下訊息並包含結果：
 
     ```powershell
     Successfully added Monitoring Metrics Publisher role assignment to cluster : <clusterName>
     ```
 
-## <a name="verify-update"></a>請確認更新 
-起始使用其中一種方法稍早所述的更新後, 可以使用 Azure 監視器計量瀏覽器中，然後確認從**度量命名空間**可**insights**列。 如果是，這表示您可以繼續並開始設定[計量警示](../platform/alerts-metric.md)或您將圖表固定至[儀表板](../../azure-portal/azure-portal-dashboards.md)。  
+## <a name="verify-update"></a>驗證更新 
+使用稍早所述的其中一個方法來起始更新之後，您可以使用 Azure 監視器計量瀏覽器，並從列出**見解**的**度量命名空間**進行驗證。 如果是，這表示您可以繼續設定計量[警示](../platform/alerts-metric.md)，或將圖表釘選到[儀表板](../../azure-portal/azure-portal-dashboards.md)。  

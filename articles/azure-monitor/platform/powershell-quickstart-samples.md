@@ -1,19 +1,18 @@
 ---
 title: Azure 監視器 PowerShell 快速入門範例
 description: 使用 PowerShell 存取 Azure 監視器的功能，例如自動調整、警示、webhook 和搜尋活動記錄。
-author: rboucher
-services: azure-monitor
 ms.service: azure-monitor
-ms.topic: conceptual
-ms.date: 2/14/2018
-ms.author: robb
 ms.subservice: ''
-ms.openlocfilehash: 886eb8578e004eba3b6fabc1deb42db0fb7fac70
-ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
+ms.topic: conceptual
+author: rboucher
+ms.author: robb
+ms.date: 2/14/2018
+ms.openlocfilehash: d1aa4b4e2d72f10ca73616bc7e69b0d02f13a501
+ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71350256"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72551847"
 ---
 # <a name="azure-monitor-powershell-quick-start-samples"></a>Azure 監視器 PowerShell 快速入門範例
 本文說明可協助您存取 Azure 監視器 功能的範例 PowerShell 命令。
@@ -153,14 +152,14 @@ Get-AzAlertRule -ResourceGroup montest -TargetResourceId /subscriptions/s1/resou
 | 參數 | value |
 | --- | --- |
 | Name |simpletestdiskwrite |
-| 此警示規則的位置 |East US |
+| 此警示規則的位置 |美國東部 |
 | ResourceGroup |montest |
 | TargetResourceId |/subscriptions/s1/resourceGroups/montest/providers/Microsoft.Compute/virtualMachines/testconfig |
-| 所建立警示的 MetricName |\PhysicalDisk(_Total)\Disk Writes/sec. See the `Get-MetricDefinitions` cmdlet about how to retrieve the exact metric names |
-| 運算子 |GreaterThan |
+| 所建立警示的 MetricName |\PhysicalDisk(_Total)\Disk Writes/sec。請參閱 `Get-MetricDefinitions` Cmdlet 以了解如何擷取確切的計量名稱 |
+| operator |GreaterThan |
 | 臨界值 (此計量的計數/秒） |1 |
 | WindowSize (hh:mm:ss 格式) |00:05:00 |
-| 彙總工具 (在此情況為計量的統計資料，其使用平均計數) |Average |
+| 彙總工具 (在此情況為計量的統計資料，其使用平均計數) |平均值 |
 | 自訂電子郵件 (字串陣列) |'foo@example.com','bar@example.com' |
 | 傳送電子郵件給擁有者、參與者和讀者 |-SendToServiceOwners |
 
@@ -229,7 +228,7 @@ Web 應用程式、VM、雲端服務或虛擬機器擴展集之類的資源只�
 
 1. 建立規則。
 2. 建立將您先前所建立的規則對應到設定檔的設定檔。
-3. 選擇性：設定 Webhook 和電子郵件的屬性，以建立自動調整的通知。
+3. 選擇性︰設定 Webhook 和電子郵件的屬性，以建立自動調整的通知。
 4. 藉由對應您在先前步驟中建立的設定檔和通知，使用目標資源上的名稱建立自動調整設定。
 
 下列範例將示範如何使用 CPU 使用率計量，為 Windows 作業系統的虛擬機器擴展集建立自動調整設定。

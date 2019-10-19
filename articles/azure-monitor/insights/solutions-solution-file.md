@@ -1,25 +1,19 @@
 ---
 title: 在 Azure 中建立管理解決方案檔 | Microsoft Docs
 description: 管理解決方案提供客戶可新增至其 Azure 環境的已封裝管理案例。  這篇文章提供詳細資料，說明如何建立要用於自己的環境中或可供客戶使用的管理解決方案。
-services: monitoring
-documentationcenter: ''
-author: bwren
-manager: carmonm
-editor: tysonn
-ms.assetid: 1915e204-ba7e-431b-9718-9eb6b4213ad8
 ms.service: azure-monitor
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 01/09/2018
+ms.subservice: ''
+ms.topic: conceptual
+author: bwren
 ms.author: bwren
+ms.date: 01/09/2018
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 4e5c27911fe86a6916235014f8602327df929e20
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 47ee691186da7f915ca8fcf87415784ab12ef1e0
+ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60595774"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72553854"
 ---
 # <a name="creating-a-management-solution-file-in-azure-preview"></a>在 Azure 中建立管理解決方案檔 (預覽)
 > [!NOTE]
@@ -70,10 +64,10 @@ Azure 中的管理解決方案會實作為 [Resource Manager 範本](../../azure
 
 | 屬性 | 描述 |
 |:--- |:--- |
-| type |變數的資料類型。 針對使用者顯示的輸入控制項視資料類型而定。<br><br>bool - 下拉式方塊<br>string - 文字方塊<br>int - 文字方塊<br>securestring - 密碼欄位<br> |
+| 類型 |變數的資料類型。 針對使用者顯示的輸入控制項視資料類型而定。<br><br>bool - 下拉式方塊<br>string - 文字方塊<br>int - 文字方塊<br>securestring - 密碼欄位<br> |
 | category |參數的選擇性類別。  相同類別中的參數會群組在一起。 |
 | control |string 參數的其他功能。<br><br>datetime - Datetime 控制項隨即顯示。<br>guid - 會自動產生 Guid 值，但未顯示此參數。 |
-| description |參數的選擇性說明。  顯示於參數旁邊的資訊球形文字說明。 |
+| 說明 |參數的選擇性說明。  顯示於參數旁邊的資訊球形文字說明。 |
 
 ### <a name="standard-parameters"></a>標準參數
 下表列出所有管理解決方案的標準參數。  系統會為使用者填入這些值，而不會在他們從 Azure Marketplace 或快速入門範本安裝解決方案時提示他們輸入這些值。  如果以其他方法安裝解決方案，使用者必須提供這些值。
@@ -83,7 +77,7 @@ Azure 中的管理解決方案會實作為 [Resource Manager 範本](../../azure
 >
 >
 
-| 參數 | type | 描述 |
+| 參數 | Type | 描述 |
 |:--- |:--- |:--- |
 | accountName |string |Azure 自動化帳戶名稱。 |
 | pricingTier |string |Log Analytics 工作區和 Azure 自動化帳戶的定價層。 |
@@ -164,7 +158,7 @@ Azure 中的管理解決方案會實作為 [Resource Manager 範本](../../azure
 [資源](../../azure-resource-manager/resource-group-authoring-templates.md#resources)會定義您的管理解決方案將會安裝並設定的不同資源。  這是範本最大且最複雜的部分。  您可以在[編寫 Azure Resource Manager 範本](../../azure-resource-manager/resource-group-authoring-templates.md#resources)中取得 resource 元素的架構和完整描述。  本文件中的其他文章會詳述您經常定義的其他資源。 
 
 
-### <a name="dependencies"></a>相依性
+### <a name="dependencies"></a>相依項目
 **dependsOn** 元素指定對另一個資源的[相依性](../../azure-resource-manager/resource-group-define-dependencies.md)。  安裝解決方案時，直到所有相依性建立後才會建立資源。  例如，解決方案可能會在使用[作業資源](solutions-resources-automation.md#automation-jobs)安裝時[啟動 Runbook](solutions-resources-automation.md#runbooks)。  作業資源會相依於 Runbook 資源，以確保在建立作業前建立 Runbook。
 
 ### <a name="log-analytics-workspace-and-automation-account"></a>Log Analytics 工作區和自動化帳戶
@@ -205,7 +199,7 @@ Azure 中的管理解決方案會實作為 [Resource Manager 範本](../../azure
 
 
 
-### <a name="dependencies"></a>相依性
+### <a name="dependencies"></a>相依項目
 解決方案資源在解決方案中的每隔一個資源上須有[相依性](../../azure-resource-manager/resource-group-define-dependencies.md)，因為必須先存在相依性，才能建立解決方案。  您可以在 **dependsOn** 項目中針對每個資源新增一個項目。
 
 ### <a name="properties"></a>屬性
@@ -213,18 +207,18 @@ Azure 中的管理解決方案會實作為 [Resource Manager 範本](../../azure
 
 | 屬性 | 描述 |
 |:--- |:--- |
-| workspaceResourceId |在表單中的 Log Analytics 工作區識別碼 *\<資源群組識別碼 > /providers/Microsoft.OperationalInsights/workspaces/\<工作區名稱\>* 。 |
+| workspaceResourceId |Log Analytics 工作區的識別碼，格式為 *\<Resource 群組識別碼 >:/providers/microsoft.operationalinsights/workspaces/\<Workspace 名稱 \>* 。 |
 | referencedResources |解決方案移除時不應移除的解決方案資源清單。 |
 | containedResources |解決方案移除時應移除的解決方案資源清單。 |
 
-上述範例適用於具有 Runbook、排程和檢視的解決方案。  **properties** 元素會「參考」  排程和 Runbook，因此在移除解決方案時不會移除它們。  會*包含*檢視，因此當移除解決方案時會移除它。
+上述範例適用於具有 Runbook、排程和檢視的解決方案。  **properties** 元素會「參考」排程和 Runbook，因此在移除解決方案時不會移除它們。  會*包含*檢視，因此當移除解決方案時會移除它。
 
-### <a name="plan"></a>規劃
+### <a name="plan"></a>方案
 解決方案資源的**計劃**實體具有下表中的屬性。
 
 | 屬性 | 描述 |
 |:--- |:--- |
-| name |解決方案的名稱。 |
+| 名稱 |解決方案的名稱。 |
 | version |作者所決定的解決方案版本。 |
 | product |識別解決方案的唯一字串。 |
 | publisher |解決方案的發佈者。 |

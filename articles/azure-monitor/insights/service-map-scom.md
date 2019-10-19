@@ -1,42 +1,36 @@
 ---
 title: 適用於 VM 的 Azure 監視器與 System Center Operations Manager 整合 |Microsoft Docs
-description: 適用於 VM 的 Azure 監視器會自動探索 Windows 和 Linux 系統上的應用程式元件, 並對應服務之間的通訊。 本文討論如何使用 [對應] 功能, 在 Operations Manager 中自動建立分散式應用程式圖表。
-services: azure-monitor
-documentationcenter: ''
-author: mgoedtel
-manager: carmonm
-editor: tysonn
-ms.assetid: e8614a5a-9cf8-4c81-8931-896d358ad2cb
+description: 適用於 VM 的 Azure 監視器會自動探索 Windows 和 Linux 系統上的應用程式元件，並對應服務之間的通訊。 本文討論如何使用 [對應] 功能，在 Operations Manager 中自動建立分散式應用程式圖表。
 ms.service: azure-monitor
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 07/12/2019
+ms.subservice: ''
+ms.topic: conceptual
+author: mgoedtel
 ms.author: magoedte
-ms.openlocfilehash: b16505eb2c12819532b8675472cf0e6f4177f7bf
-ms.sourcegitcommit: bafb70af41ad1326adf3b7f8db50493e20a64926
+ms.date: 07/12/2019
+ms.openlocfilehash: 3523756e89506e90407090db105fdced5853d9d9
+ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68489712"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72553969"
 ---
 # <a name="system-center-operations-manager-integration-with-azure-monitor-for-vms-map-feature"></a>System Center Operations Manager 與適用於 VM 的 Azure 監視器對應功能整合
 
-在適用於 VM 的 Azure 監視器中, 您可以在 Azure 或您的環境中執行的 Windows 和 Linux 虛擬機器 (Vm) 上, 查看探索到的應用程式元件。 透過對應功能與 System Center Operations Manager 之間的這項整合, 您可以根據適用於 VM 的 Azure 監視器中的動態相依性對應, 在 Operations Manager 中自動建立分散式應用程式圖表。 
+在適用於 VM 的 Azure 監視器中，您可以在 Azure 或您的環境中執行的 Windows 和 Linux 虛擬機器（Vm）上，查看探索到的應用程式元件。 透過對應功能與 System Center Operations Manager 之間的這項整合，您可以根據適用於 VM 的 Azure 監視器中的動態相依性對應，在 Operations Manager 中自動建立分散式應用程式圖表。 
 
 >[!NOTE]
->如果您已部署服務對應, 您可以在適用於 VM 的 Azure 監視器中查看對應, 其中包含可監視 VM 健全狀況和效能的其他功能。 適用於 VM 的 Azure 監視器的對應功能主要是用來取代獨立的服務對應解決方案。 若要深入了解，請參閱[適用於 VM 的 Azure 監視器概觀](vminsights-overview.md)。
+>如果您已部署服務對應，您可以在適用於 VM 的 Azure 監視器中查看對應，其中包含可監視 VM 健全狀況和效能的其他功能。 適用於 VM 的 Azure 監視器的對應功能主要是用來取代獨立的服務對應解決方案。 若要深入了解，請參閱[適用於 VM 的 Azure 監視器概觀](vminsights-overview.md)。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
-* System Center Operations Manager 管理群組 (2012 R2 或更新版本)。
+* System Center Operations Manager 管理群組（2012 R2 或更新版本）。
 * 設定為支援適用於 VM 的 Azure 監視器的 Log Analytics 工作區。
-* 一部或多部 Windows 和 Linux 虛擬機器或實體電腦, 受 Operations Manager, 並將資料傳送至 Log Analytics 工作區。 向 Operations Manager 管理群組回報的 Linux 伺服器必須設定為直接連接到 Azure 監視器。 如需詳細資訊, 請參閱[使用 Log Analytics 代理程式收集記錄資料](../platform/log-analytics-agent.md)中的總覽。
+* 一部或多部 Windows 和 Linux 虛擬機器或實體電腦，受 Operations Manager，並將資料傳送至 Log Analytics 工作區。 向 Operations Manager 管理群組回報的 Linux 伺服器必須設定為直接連接到 Azure 監視器。 如需詳細資訊，請參閱[使用 Log Analytics 代理程式收集記錄資料](../platform/log-analytics-agent.md)中的總覽。
 * 可存取與 Log Analytics 工作區相關聯之 Azure 訂用帳戶的服務主體。 如需詳細資訊，請移至[建立服務主體](#create-a-service-principal)。
 
 ## <a name="install-the-service-map-management-pack"></a>安裝服務對應管理組件
 
-您可以藉由匯入 SystemCenter. ServiceMap 管理元件配套 (SystemCenter. ServiceMap. .mpb) 來啟用 Operations Manager 與對應功能之間的整合。 您可以從 [Microsoft 下載中心](https://www.microsoft.com/download/details.aspx?id=55763)下載管理組件配套。 此配套包含下列管理組件︰
+您可以藉由匯入 SystemCenter. ServiceMap 管理元件配套（SystemCenter. ServiceMap. .mpb）來啟用 Operations Manager 與對應功能之間的整合。 您可以從 [Microsoft 下載中心](https://www.microsoft.com/download/details.aspx?id=55763)下載管理組件配套。 此配套包含下列管理組件︰
 
 * Microsoft Service Map Application Views
 * Microsoft System Center Service Map Internal
@@ -45,12 +39,12 @@ ms.locfileid: "68489712"
 
 ## <a name="configure-integration"></a>設定整合
 
-安裝服務對應管理元件之後, Operations Manager Operations 主控台的 [**管理**] 窗格中的 [ **Operations management Suite** ] 底下會顯示新的節點 [**服務對應**]。
+安裝服務對應管理元件之後，Operations Manager Operations 主控台的 [**管理**] 窗格中的 [ **Operations management Suite** ] 底下會顯示新的節點 [**服務對應**]。
 
 >[!NOTE]
->[Operations Management Suite](../terminology.md#april-2018---retirement-of-operations-management-suite-brand)是包含 Log Analytics 的服務集合, 現在是[Azure 監視器](../overview.md)的一部分。
+>[Operations Management Suite](../terminology.md#april-2018---retirement-of-operations-management-suite-brand)是包含 Log Analytics 的服務集合，現在是[Azure 監視器](../overview.md)的一部分。
 
-若要設定適用於 VM 的 Azure 監視器對應整合, 請執行下列動作:
+若要設定適用於 VM 的 Azure 監視器對應整合，請執行下列動作：
 
 1. 若要開啟設定精靈，在 [服務對應概觀] 窗格中，按一下 [新增工作區]。  
 
@@ -68,7 +62,7 @@ ms.locfileid: "68489712"
 
     ![Operations Manager 設定機器群組](media/service-map-scom/scom-config-machine-groups.png)
 
-5. 在 [**伺服器選擇**] 視窗中, 您可以使用要在 Operations Manager 與對應功能之間同步的伺服器來設定 [服務對應伺服器] 群組。 按一下 [新增/移除伺服器]。
+5. 在 [**伺服器選擇**] 視窗中，您可以使用要在 Operations Manager 與對應功能之間同步的伺服器來設定 [服務對應伺服器] 群組。 按一下 [新增/移除伺服器]。
 
     若要讓整合針對伺服器建立分散式應用程式圖表，該伺服器必須是︰
 
@@ -78,36 +72,36 @@ ms.locfileid: "68489712"
 
      ![Operations Manager 設定群組](media/service-map-scom/scom-config-group.png)
 
-6. 選用：選取 [所有管理伺服器資源集區] 以與 Log Analytics 通訊, 然後按一下 [**新增工作區**]。
+6. 選擇性：選取 [所有管理伺服器資源集區] 以與 Log Analytics 通訊，然後按一下 [**新增工作區**]。
 
     ![Operations Manager 設定資源集區](media/service-map-scom/scom-config-pool.png)
 
-    設定和註冊 Log Analytics 工作區可能需要一分鐘的時間。 設定之後, Operations Manager 起始第一個對應同步處理。
+    設定和註冊 Log Analytics 工作區可能需要一分鐘的時間。 設定之後，Operations Manager 起始第一個對應同步處理。
 
     ![Operations Manager 設定資源集區](media/service-map-scom/scom-config-success.png)
 
 ## <a name="monitor-integration"></a>監視整合
 
-在連接 Log Analytics 工作區之後, Operations Manager Operations 主控台的 [**監視**] 窗格中會顯示新的資料夾服務對應。
+在連接 Log Analytics 工作區之後，Operations Manager Operations 主控台的 [**監視**] 窗格中會顯示新的資料夾服務對應。
 
 ![Operations Manager [監視] 窗格](media/service-map-scom/scom-monitoring.png)
 
 服務對應資料夾有四個節點︰
 
-* **作用中警示**：列出有關 Operations Manager 和 Azure 監視器之間通訊的所有作用中警示。  
+* 作用中**警示**：列出有關 Operations Manager 和 Azure 監視器之間通訊的所有作用中警示。  
 
   >[!NOTE]
-  >這些警示不是與 Operations Manager 同步處理的 Log Analytics 警示, 而是以服務對應管理元件中定義的工作流程為基礎, 在管理群組中產生。
+  >這些警示不是與 Operations Manager 同步處理的 Log Analytics 警示，而是以服務對應管理元件中定義的工作流程為基礎，在管理群組中產生。
 
-* **伺服器**：列出已設定為從適用於 VM 的 Azure 監視器對應 功能同步處理的受監視伺服器。
+* **伺服器**：列出已設定為從適用於 VM 的 Azure 監視器對應功能同步處理的受監視伺服器。
 
     ![Operations Manager [監視伺服器] 窗格](media/service-map-scom/scom-monitoring-servers.png)
 
-* **機器群組相依性檢視**：列出所有從對應功能同步處理的電腦群組。 您可以按一下任何群組，以檢視其分散式應用程式圖表。
+* **電腦群組**相依性視圖：列出所有從對應功能同步處理的電腦群組。 您可以按一下任何群組，以檢視其分散式應用程式圖表。
 
     ![Operations Manager 分散式應用程式圖表](media/service-map-scom/scom-group-dad.png)
 
-* **伺服器相依性檢視**：列出從對應功能同步處理的所有伺服器。 您可以按一下任何伺服器，以檢視其分散式應用程式圖表。
+* **伺服器**相依性視圖：列出從對應功能同步處理的所有伺服器。 您可以按一下任何伺服器，以檢視其分散式應用程式圖表。
 
     ![Operations Manager 分散式應用程式圖表](media/service-map-scom/scom-dad.png)
 
@@ -118,28 +112,28 @@ ms.locfileid: "68489712"
 >[!NOTE]
 >[Operations Management Suite 為包含 Log Analytics 的一系列服務](https://github.com/MicrosoftDocs/azure-docs-pr/pull/azure-monitor/azure-monitor-rebrand.md#retirement-of-operations-management-suite-brand)，現在已納入 [Azure 監視器](https://github.com/MicrosoftDocs/azure-docs-pr/pull/azure-monitor/overview.md)。
 
-在此目前的版本中, 您只能設定一個 Log Analytics 工作區。
+在此目前的版本中，您只能設定一個 Log Analytics 工作區。
 
 ![Operations Manager [編輯工作區] 窗格](media/service-map-scom/scom-edit-workspace.png)
 
 ## <a name="configure-rules-and-overrides"></a>設定規則和覆寫
 
-*SystemCenter*規則會定期從適用於 VM 的 Azure 監視器對應 功能提取資訊。 若要修改同步處理間隔, 您可以覆寫規則, 並修改參數**IntervalMinutes**的值。
+*SystemCenter*規則會定期從適用於 VM 的 Azure 監視器對應 功能提取資訊。 若要修改同步處理間隔，您可以覆寫規則，並修改參數**IntervalMinutes**的值。
 
 ![Operations Manager [覆寫內容] 視窗](media/service-map-scom/scom-overrides.png)
 
 * **Enabled**：啟用或停用自動更新。
-* **IntervalMinutes**：指定更新之間的時間。 預設間隔是一小時。 如果您想要更頻繁地同步處理對應, 可以變更此值。
+* **IntervalMinutes**：指定更新之間的時間。 預設間隔是一小時。 如果您想要更頻繁地同步處理對應，可以變更此值。
 * **TimeoutSeconds**：指定要求超時前的時間長度。
-* **TimeWindowMinutes**：指定查詢資料的時間範圍。 預設值是60分鐘, 這是允許的最大間隔。
+* **TimeWindowMinutes**：指定用來查詢資料的時間範圍。 預設值是60分鐘，這是允許的最大間隔。
 
 ## <a name="known-issues-and-limitations"></a>已知問題與限制
 
 目前的設計有以下問題和限制︰
 
 * 您只能連線到單一 Log Analytics 工作區。
-* 雖然您可以透過 [撰寫] 窗格將伺服器手動新增至服務對應伺服器群組，但這些伺服器的對應不會立即進行同步。 系統會在下一個同步週期期間, 從適用於 VM 的 Azure 監視器對應功能同步處理它們。
-* 如果您對管理元件所建立的分散式應用程式圖表進行任何變更, 這些變更可能會在下一次與適用於 VM 的 Azure 監視器同步時遭到覆寫。
+* 雖然您可以透過 [撰寫] 窗格將伺服器手動新增至服務對應伺服器群組，但這些伺服器的對應不會立即進行同步。 系統會在下一個同步週期期間，從適用於 VM 的 Azure 監視器對應功能同步處理它們。
+* 如果您對管理元件所建立的分散式應用程式圖表進行任何變更，這些變更可能會在下一次與適用於 VM 的 Azure 監視器同步時遭到覆寫。
 
 ## <a name="create-a-service-principal"></a>建立服務主體
 
@@ -149,5 +143,5 @@ ms.locfileid: "68489712"
 * [使用 Azure CLI 建立服務主體](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-authenticate-service-principal-cli)
 * [使用 Azure 入口網站建立服務主體](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-create-service-principal-portal)
 
-### <a name="feedback"></a>意見
+### <a name="feedback"></a>意見反應
 您是否有關于與適用於 VM 的 Azure 監視器對應功能或本檔整合的任何意見反應？ 請瀏覽我們的 [User Voice 頁面 (英文)](https://feedback.azure.com/forums/267889-log-analytics/category/184492-service-map)，您可以在此頁面提出功能建議或對現有的建議進行投票。

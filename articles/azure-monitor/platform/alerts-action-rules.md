@@ -1,19 +1,18 @@
 ---
 title: Azure 監視器警示的動作規則
 description: 瞭解 Azure 監視器中的動作規則，以及如何設定和管理它們。
-author: anantr
-services: azure-monitor
 ms.service: azure-monitor
-ms.topic: conceptual
-ms.date: 04/25/2019
-ms.author: robb
 ms.subservice: alerts
-ms.openlocfilehash: 19f17aff4f915f8a16ccf9d69b12a845d9493e96
-ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
+ms.topic: conceptual
+author: anantr
+ms.author: robb
+ms.date: 04/25/2019
+ms.openlocfilehash: a858388a11cfdf36bacb1e5840f00fc6ef097867
+ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/13/2019
-ms.locfileid: "72299296"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72555696"
 ---
 # <a name="action-rules-preview"></a>動作規則（預覽）
 
@@ -55,7 +54,7 @@ ms.locfileid: "72299296"
 
 ![新增動作規則建立流程](media/alerts-action-rules/action-rules-new-rule-creation-flow.png)
 
-### <a name="scope"></a>`Scope`
+### <a name="scope"></a>Scope
 
 首先選擇範圍（Azure 訂用帳戶、資源群組或目標資源）。 您也可以在單一訂用帳戶內多重選取範圍的組合。
 
@@ -70,10 +69,10 @@ ms.locfileid: "72299296"
 * **嚴重性**：選取一或多個警示嚴重性的選項。 **嚴重性 = Sev1**表示動作規則適用于設定為 Sev1 的所有警示。
 * **監視服務**：以原始監視服務為基礎的篩選準則。 此篩選也是多重選取。 例如， **Monitor Service = "Application Insights"** 表示動作規則適用于所有以 Application Insights 為基礎的警示。
 * **資源類型**：以特定資源類型為基礎的篩選準則。 此篩選也是多重選取。 例如，**資源類型 = "虛擬機器"** 表示動作規則適用于所有虛擬機器。
-* **警示規則識別碼**：使用警示規則的 [Resource Manager 識別碼] 來篩選特定警示規則的選項。
+* **警示規則識別碼**：用來篩選特定警示規則的選項，方法是使用警示規則的 Resource Manager 識別碼。
 * **監視條件**：警示實例的篩選，其中會**引發**或**解析**為監視條件。
-* **描述**：一個 RegEx （正則運算式）符合，其會根據描述定義字串比對，並定義為警示規則的一部分。 例如，「**描述」包含「生產**」將會比對在其描述中包含「生產」字串的所有警示。
-* **警示內容（承載）** ：針對警示的承載，定義字串比對的 RegEx 相符項。 例如，**警示內容（承載）包含 ' computer-01 '** ，將會比對其裝載包含字串 "computer-01" 的所有警示。
+* **描述**：根據描述定義字串比對的 RegEx （正則運算式）比對，定義為警示規則的一部分。 例如，「**描述」包含「生產**」將會比對在其描述中包含「生產」字串的所有警示。
+* **警示內容（承載）** ：根據警示承載的警示內容欄位，定義字串相符的 RegEx 比對。 例如，**警示內容（承載）包含 ' computer-01 '** ，將會比對其裝載包含字串 "computer-01" 的所有警示。
 
 這些篩選器會彼此搭配使用。 例如，如果您將**資源類型 ' = 虛擬機器**和**嚴重性 ' = Sev0**，則只會針對您的 vm 篩選所有**Sev0**警示。 
 
@@ -86,9 +85,9 @@ ms.locfileid: "72299296"
 #### <a name="suppression"></a>消除
 
 如果您選取 [**隱藏**]，請設定隱藏動作和通知的持續時間。 選擇下列其中一個選項：
-* **從現在（一律）** ：會無限期地隱藏所有通知。
+* **從現在（一律）** ：無限期地隱藏所有通知。
 * **在排程的時間**：抑制限定期間內的通知。
-* **具有週期**：抑制每日、每週或每月排程的通知。
+* **有週期**：每日、每週或每月排程抑制通知。
 
 ![動作規則隱藏專案](media/alerts-action-rules/action-rules-new-rule-creation-flow-suppression.png)
 
@@ -110,29 +109,29 @@ ms.locfileid: "72299296"
 
 ## <a name="example-scenarios"></a>範例案例
 
-### <a name="scenario-1-suppression-of-alerts-based-on-severity"></a>案例 1：根據嚴重性隱藏警示
+### <a name="scenario-1-suppression-of-alerts-based-on-severity"></a>案例1：根據嚴重性隱藏警示
 
 Contoso 想要在每個週末，針對訂用帳戶**ContosoSub**內所有 vm 的所有 Sev4 警示隱藏通知。
 
 **解決方案：** 使用下列方式建立動作規則：
 * 範圍 = **ContosoSub**
-* 篩選器
+* 篩選
     * 嚴重性 = **Sev4**
     * 資源類型 =**虛擬機器**
 * [週期] 設為 [每週]，並核取 [**星期六**] 和 [**星期日**]
 
-### <a name="scenario-2-suppression-of-alerts-based-on-alert-context-payload"></a>案例 2：根據警示內容（承載）隱藏警示
+### <a name="scenario-2-suppression-of-alerts-based-on-alert-context-payload"></a>案例2：根據警示內容來隱藏警示（承載）
 
 Contoso 想要在**ContosoSub**中，無限期地隱藏針對**電腦 01**所產生的所有記錄警示通知，因為它正在進行維護。
 
 **解決方案：** 使用下列方式建立動作規則：
 * 範圍 = **ContosoSub**
-* 篩選器
+* 篩選
     * 監視服務 = **Log Analytics**
     * 警示內容（承載）包含**Computer-01**
 * 隱藏專案設定為**從現在（一律）**
 
-### <a name="scenario-3-action-group-defined-at-a-resource-group"></a>案例 3：在資源群組中定義的動作群組
+### <a name="scenario-3-action-group-defined-at-a-resource-group"></a>案例3：在資源群組中定義的動作群組
 
 Contoso 已[在訂用帳戶層級定義度量警示](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-metric-overview#monitoring-at-scale-using-metric-alerts-in-azure-monitor)。 但它想要針對從資源群組**ContosoRG**產生的警示定義特別觸發的動作。
 
@@ -170,7 +169,7 @@ Contoso 已[在訂用帳戶層級定義度量警示](https://docs.microsoft.com/
 
 * 完全相符：例如，您所定義的動作規則和重迭的動作規則都位於相同的訂用帳戶上。
 * 子集：例如，您所定義的動作規則是在訂用帳戶上，而重迭的動作規則則是在訂用帳戶內的資源群組上。
-* 超集：例如，您所定義的動作規則是在資源群組上，而重迭的動作規則則是在包含資源群組的訂用帳戶上。
+* 超集合：例如，您所定義的動作規則是在資源群組上，而重迭的動作規則則是在包含資源群組的訂用帳戶上。
 * 交集：例如，您所定義的動作規則是在**VM1**和**VM2**上，而重迭的動作規則是在**VM2**和**VM3**上。
 
 ![重迭動作規則](media/alerts-action-rules/action-rules-overlapping.png)
@@ -181,7 +180,7 @@ Contoso 已[在訂用帳戶層級定義度量警示](https://docs.microsoft.com/
 
 * 完全相符：例如，您所定義的警示規則和動作規則都位於相同的訂用帳戶上。
 * 子集：例如，您所定義的警示規則是在訂用帳戶上，而動作規則則是在訂用帳戶內的資源群組上。
-* 超集：例如，您所定義的警示規則是在資源群組上，而動作規則則是在包含資源群組的訂用帳戶上。
+* 超集合：例如，您所定義的警示規則是在資源群組上，而動作規則則是在包含資源群組的訂用帳戶上。
 * 交集：例如，您所定義的警示規則是在**VM1**和**VM2**上，而動作規則是在**VM2**和**VM3**上。
     
 ![重迭動作規則](media/alerts-action-rules/action-rules-alert-rule-overlapping.png)

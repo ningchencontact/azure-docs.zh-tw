@@ -3,19 +3,19 @@ title: 從 Apache Kafka 應用程式使用事件中樞 - Azure 事件中樞 | Mi
 description: 本文提供與 Azure 事件中樞所支援的 Apache Kafka 有關的資訊。
 services: event-hubs
 documentationcenter: .net
-author: shvija
+author: ShubhaVijayasarathy
 manager: timlt
 ms.service: event-hubs
 ms.topic: article
 ms.custom: seodec18
 ms.date: 12/06/2018
-ms.author: bahariri
-ms.openlocfilehash: 8bf381e7c66e06bbaa140ed865f0f7c9b4f001af
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: shvija
+ms.openlocfilehash: d3271d6e8cb7d423e1dccd235b244688e7ab5683
+ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60821706"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72555786"
 ---
 # <a name="use-azure-event-hubs-from-apache-kafka-applications"></a>從 Apache Kafka 應用程式使用 Azure 事件中樞
 事件中樞提供的 Kafka 端點可讓您現有的 Kafka 型應用程式使用，作為執行您本身的 Kafka 叢集以外的另一項選擇。 事件中樞支援 [Apache Kafka 通訊協定 1.0 和更新版本](https://kafka.apache.org/documentation/)，並且可與您現有的 Kafka 應用程式搭配使用，包括 MirrorMaker。  
@@ -31,7 +31,7 @@ Kafka 和事件中樞在概念上幾乎是相同的：兩者都具有為了串�
 | Kafka 概念 | 事件中樞概念|
 | --- | --- |
 | 叢集 | 命名空間 |
-| 主題 | 事件中樞 |
+| 話題 | Event Hub |
 | 資料分割 | 資料分割|
 | 取用者群組 | 取用者群組 |
 | Offset | Offset|
@@ -55,7 +55,7 @@ Azure 事件中樞的所有通訊都需要 SSL 或 TLS，且會使用共用存�
 以下是尚不支援的 Kafka 功能清單：
 
 *   等冪產生者
-*   Transaction
+*   交易
 *   壓縮
 *   以大小為基礎的保留期
 *   記錄壓縮

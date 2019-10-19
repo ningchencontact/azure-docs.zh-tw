@@ -1,24 +1,18 @@
 ---
 title: 監視已部署的 Azure Kubernetes Service （AKS）叢集 |Microsoft Docs
 description: 瞭解如何針對已部署在訂用帳戶中的容器，使用 Azure 監視器來啟用 Azure Kubernetes Service （AKS）叢集的監視。
-services: azure-monitor
-documentationcenter: ''
-author: mgoedtel
-manager: carmonm
-editor: ''
-ms.assetid: ''
 ms.service: azure-monitor
+ms.subservice: ''
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 09/12/2019
+author: mgoedtel
 ms.author: magoedte
-ms.openlocfilehash: 0153d39e1307458baa920d8e9107c8931242014e
-ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
+ms.date: 09/12/2019
+ms.openlocfilehash: e9837aaf538648fe24a762f83a2e855f432df2a5
+ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/14/2019
-ms.locfileid: "70996274"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72555468"
 ---
 # <a name="enable-monitoring-of-azure-kubernetes-service-aks-cluster-already-deployed"></a>啟用已部署 Azure Kubernetes Service （AKS）叢集的監視
 
@@ -29,7 +23,7 @@ ms.locfileid: "70996274"
 * Azure CLI
 * Terraform
 * [從 Azure 監視器](#enable-from-azure-monitor-in-the-portal)或[直接從 AZURE 入口網站中的 AKS](#enable-directly-from-aks-cluster-in-the-portal)叢集 
-* 使用 Azure PowerShell Cmdlet `New-AzResourceGroupDeployment`或 Azure CLI[提供的 Azure Resource Manager 範本](#enable-using-an-azure-resource-manager-template)。 
+* 搭配[提供的 Azure Resource Manager 範本](#enable-using-an-azure-resource-manager-template)使用 Azure PowerShell Cmdlet `New-AzResourceGroupDeployment` 或與 Azure CLI。 
 
 ## <a name="sign-in-to-the-azure-portal"></a>登入 Azure 入口網站
 
@@ -51,7 +45,7 @@ provisioningState       : Succeeded
 
 ### <a name="integrate-with-an-existing-workspace"></a>與現有的工作區整合
 
-如果您想要與現有的工作區整合，請執行下列步驟，先找出`--workspace-resource-id`參數所需之 Log Analytics 工作區的完整資源識別碼，然後執行命令以啟用對的監視附加元件。指定的工作區。  
+如果您想要與現有的工作區整合，請執行下列步驟，先找出 `--workspace-resource-id` 參數所需之 Log Analytics 工作區的完整資源識別碼，然後執行命令以對執行的監視附加元件指定的工作區。  
 
 1. 使用下列命令，列出您有權存取的所有訂用帳戶：
 
@@ -83,7 +77,7 @@ provisioningState       : Succeeded
 
     在輸出中，尋找工作區名稱，然後將該 Log Analytics 工作區的完整資源識別碼複製到欄位**識別碼**之下。
  
-4. 執行下列命令來啟用監視附加元件，並取代`--workspace-resource-id`參數的值。 字串值必須在雙引號內：
+4. 執行下列命令來啟用監視附加元件，並取代 `--workspace-resource-id` 參數的值。 字串值必須在雙引號內：
 
     ```azurecli
     az aks enable-addons -a monitoring -n ExistingManagedCluster -g ExistingManagedClusterRG --workspace-resource-id  “/subscriptions/<SubscriptionId>/resourceGroups/<ResourceGroupName>/providers/Microsoft.OperationalInsights/workspaces/<WorkspaceName>”

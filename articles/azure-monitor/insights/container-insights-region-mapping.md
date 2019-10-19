@@ -1,20 +1,18 @@
 ---
 title: 容器區域對應的 Azure 監視器
 description: 本文說明容器、Log Analytics 工作區和自訂計量的 Azure 監視器之間支援的區域對應。
-services: azure-monitor
 ms.service: azure-monitor
-ms.workload: infrastructure-services
+ms.subservice: ''
+ms.topic: conceptual
 author: mgoedtel
 ms.author: magoedte
 ms.date: 06/26/2019
-ms.topic: conceptual
-manager: carmonm
-ms.openlocfilehash: ca77277c8d8d405b8fe81f612a8d7600d3c937ab
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.openlocfilehash: f22c62dddf2e38fa2c9471ce98b49a8aa32390b3
+ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72388192"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72554012"
 ---
 # <a name="region-mappings-supported-by-azure-monitor-for-containers"></a>容器的 Azure 監視器支援的區域對應
 
@@ -66,7 +64,7 @@ AKS 叢集資源或 Log Analytics 工作區可位於其他區域，下表顯示�
 |WestUS |WestUS |
 |WestUS2 |WestUS2 |
 |WestCentralUS<sup>1</sup>|EastUS<sup>1</sup>|
-|美國政府機構維吉尼亞州 |美國政府機構維吉尼亞州 |
+|US Gov 維吉尼亞州 |US Gov 維吉尼亞州 |
 
 <sup>1</sup>由於容量限制，建立新資源時無法使用區域。 這包括 Log Analytics 工作區。 不過，區域中預先存在的連結資源應該會繼續工作。
 

@@ -1,19 +1,18 @@
 ---
 title: 智慧群組
 description: 智慧群組是警示的彙總，可協助您減少警示干擾
-author: anantr
-services: azure-monitor
 ms.service: azure-monitor
-ms.topic: conceptual
-ms.date: 05/15/2018
-ms.author: robb
 ms.subservice: alerts
-ms.openlocfilehash: 08657163eb170b8d3185ce15bd724f1f55bbe2bd
-ms.sourcegitcommit: 6fe40d080bd1561286093b488609590ba355c261
+ms.topic: conceptual
+author: anantr
+ms.author: robb
+ms.date: 05/15/2018
+ms.openlocfilehash: 83ea68ad92a6c78ccf56483e1f0c2cbcbcd7d22a
+ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/01/2019
-ms.locfileid: "71702865"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72552358"
 ---
 # <a name="smart-groups"></a>智慧群組
 處理警示時所面臨的一個常見挑戰是篩選干擾以找出真正重要的事情 - 智慧群組的目的就是在解決該問題。  
@@ -29,11 +28,11 @@ ms.locfileid: "71702865"
 
 支援下列智慧群組狀態。
 
-| State | 描述 |
+| 狀況 | 描述 |
 |:---|:---|
-| 新增 | 已經偵測到問題，但尚未檢閱。 |
+| 新功能 | 已經偵測到問題，但尚未檢閱。 |
 | 已認可 | 系統管理員已檢閱智慧群組，並已開始處理。 |
-| 已關閉 | 已解決問題。 關閉智慧群組之後，您可以將警示變更為另一個狀態以重新開啟它。 |
+| 關閉 | 已解決問題。 關閉智慧群組之後，您可以將警示變更為另一個狀態以重新開啟它。 |
 
 [了解如何變更智慧群組的狀態。](https://aka.ms/managing-alert-smart-group-states)
 
@@ -49,7 +48,7 @@ ms.locfileid: "71702865"
 
 [智慧群組詳細資料] 頁面包含下列區段。
 
-| Section | 描述 |
+| 區段 | 描述 |
 |:---|:---|
 | 警示 | 列出智慧群組中包含的個別警示。 選取警示以開啟其 [警示詳細資料] 頁面。 |
 | 歷程記錄 | 列出智慧群組採取的每個動作，以及對智慧群組所做的任何變更。 這目前僅限於狀態變更和警示成員資格變更。 |

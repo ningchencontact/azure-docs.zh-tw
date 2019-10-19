@@ -1,25 +1,24 @@
 ---
 title: 如何整合一般警示架構與 Logic Apps
 description: 瞭解如何建立邏輯應用程式，利用通用的警示架構來處理您的所有警示。
-author: ananthradhakrishnan
-services: azure-monitor
 ms.service: azure-monitor
-ms.topic: conceptual
-ms.date: 05/27/2019
-ms.author: robb
 ms.subservice: alerts
-ms.openlocfilehash: 569b97ecc24306741c3323ce5bc526f88645c1dd
-ms.sourcegitcommit: 6fe40d080bd1561286093b488609590ba355c261
+ms.topic: conceptual
+author: ananthradhakrishnan
+ms.author: robb
+ms.date: 05/27/2019
+ms.openlocfilehash: 50a6067d271ad824f17df1ece36c3dd919c7b55b
+ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/01/2019
-ms.locfileid: "71702958"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72555659"
 ---
 # <a name="how-to-integrate-the-common-alert-schema-with-logic-apps"></a>如何整合一般警示架構與 Logic Apps
 
 本文說明如何建立邏輯應用程式，利用通用的警示架構來處理您的所有警示。
 
-## <a name="overview"></a>總覽
+## <a name="overview"></a>概觀
 
 [一般警示架構](https://aka.ms/commonAlertSchemaDocs)會在您所有不同的警示類型之間提供標準化且可擴充的 JSON 架構。 當以程式設計方式運用時，常見的警示架構會是最有用的（透過 webhook、runbook 和邏輯應用程式）。 在本文中，我們會示範如何撰寫單一邏輯應用程式來處理您的所有警示。 相同的原則也適用于其他程式設計方法。 本文中所述的邏輯應用程式會針對「[基本」欄位](alerts-common-schema-definitions.md#essentials)建立妥善定義的變數，同時說明如何處理[警示類型](alerts-common-schema-definitions.md#alert-context)特定的邏輯。
 
@@ -35,13 +34,13 @@ ms.locfileid: "71702958"
 
 1. 請遵循[概述的步驟來建立邏輯應用程式](https://docs.microsoft.com/azure/azure-monitor/platform/action-groups-logic-app)。 
 
-1.  選取觸發程序：**收到 HTTP 要求時**。
+1.  選取觸發程序：[收到 HTTP 要求時]。
 
-    ![邏輯應用程式觸發程序](media/action-groups-logic-app/logic-app-triggers.png "邏輯應用程式觸發程序")
+    ![邏輯應用程式觸發程式](media/action-groups-logic-app/logic-app-triggers.png "邏輯應用程式觸發程序")
 
 1.  選取 [編輯] 以變更 HTTP 要求觸發程序。
 
-    ![HTTP 要求觸發程序](media/action-groups-logic-app/http-request-trigger-shape.png "HTTP 要求觸發程序")
+    ![HTTP 要求觸發程式](media/action-groups-logic-app/http-request-trigger-shape.png "HTTP 要求觸發程式")
 
 
 1.  複製並貼上下列架構：

@@ -1,24 +1,18 @@
 ---
 title: 如何從容器的 Azure 監視器查詢記錄 |Microsoft Docs
 description: 適用于容器的 Azure 監視器會收集計量和記錄資料，而本文會描述記錄並包含範例查詢。
-services: azure-monitor
-documentationcenter: ''
-author: mgoedtel
-manager: carmonm
-editor: tysonn
-ms.assetid: ''
 ms.service: azure-monitor
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 07/12/2019
+ms.subservice: ''
+ms.topic: conceptual
+author: mgoedtel
 ms.author: magoedte
-ms.openlocfilehash: ae8dd4cccb6795faa02e6705404644f6ccc24864
-ms.sourcegitcommit: 4f7dce56b6e3e3c901ce91115e0c8b7aab26fb72
+ms.date: 07/12/2019
+ms.openlocfilehash: c3a034776b32db57f70ddee960c1cd5fc96b170b
+ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71948055"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72555421"
 ---
 # <a name="how-to-query-logs-from-azure-monitor-for-containers"></a>如何從容器的 Azure 監視器查詢記錄
 
@@ -28,7 +22,7 @@ ms.locfileid: "71948055"
 
 下表顯示適用於容器的 Azure 監視器所收集的記錄範例，以及記錄搜尋結果中所顯示的資料類型：
 
-| 資料類型 | 記錄檔搜尋中的資料類型 | 欄位 |
+| Data type | 記錄檔搜尋中的資料類型 | 欄位 |
 | --- | --- | --- |
 | 主機和容器的效能 | `Perf` | Computer、ObjectName、CounterName &#40;%Processor Time、Disk Reads MB、Disk Writes MB、Memory Usage MB、Network Receive Bytes、Network Send Bytes、Processor Usage sec、Network&#41;、CounterValue、TimeGenerated、CounterPath、SourceSystem |
 | 容器清查 | `ContainerInventory` | TimeGenerated、Computer、container name、ContainerHostname、Image、ImageTag、ContainerState、ExitCode、EnvironmentVar、Command、CreatedTime、StartedTime、FinishedTime、SourceSystem、ContainerID、ImageID |
@@ -67,8 +61,8 @@ Azure 監視器記錄可協助您尋找趨勢、診斷瓶頸、預測或相互�
 | ContainerInventory<br> &#124; project Computer, Name, Image, ImageTag, ContainerState, CreatedTime, StartedTime, FinishedTime<br> &#124; render table | 列出所有容器的生命週期資訊| 
 | KubeEvents_CL<br> &#124; where not(isempty(Namespace_s))<br> &#124; sort by TimeGenerated desc<br> &#124; render table | Kubernetes 事件|
 | ContainerImageInventory<br> &#124; summarize AggregatedValue = count() by Image, ImageTag, Running | 映像清查 | 
-| **選取折線圖顯示選項**：<br> 效能<br> &#124; where ObjectName == "K8SContainer" and CounterName == "cpuUsageNanoCores" &#124; summarize AvgCPUUsageNanoCores = avg(CounterValue) by bin(TimeGenerated, 30m), InstanceName | 容器 CPU | 
-| **選取折線圖顯示選項**：<br> 效能<br> &#124; where ObjectName == "K8SContainer" and CounterName == "memoryRssBytes" &#124; summarize AvgUsedRssMemoryBytes = avg(CounterValue) by bin(TimeGenerated, 30m), InstanceName | 容器記憶體 |
+| **選取折線圖顯示選項**：<br> Perf<br> &#124; where ObjectName == "K8SContainer" and CounterName == "cpuUsageNanoCores" &#124; summarize AvgCPUUsageNanoCores = avg(CounterValue) by bin(TimeGenerated, 30m), InstanceName | 容器 CPU | 
+| **選取折線圖顯示選項**：<br> Perf<br> &#124; where ObjectName == "K8SContainer" and CounterName == "memoryRssBytes" &#124; summarize AvgUsedRssMemoryBytes = avg(CounterValue) by bin(TimeGenerated, 30m), InstanceName | 容器記憶體 |
 | InsightsMetrics<br> &#124;其中 Name = = "requests_count"<br> &#124;摘要 Val = any （Val） by TimeGenerated = bin （TimeGenerated，1m）<br> &#124;排序依據 TimeGenerated asc<br> &#124;專案 RequestsPerMinute = Val-上一個（Val），TimeGenerated <br> &#124;轉譯 barchart  | 使用自訂計量的每分鐘要求數 |
 
 下列範例是 Prometheus 計量查詢。 收集的計量會計算，而為了判斷在特定時段內發生多少錯誤，我們必須從計數中減去。 資料集會依*partitionKey*分割，這表示每一組唯一的*名稱*、*主機名稱*和*OperationType*，我們都會在該集合上執行子查詢，藉由*TimeGenerated*排序記錄，讓它能夠找出先前的*TimeGenerated*和記錄的時間計數，以判斷速率。

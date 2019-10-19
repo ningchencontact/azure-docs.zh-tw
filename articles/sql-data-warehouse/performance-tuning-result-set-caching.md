@@ -10,12 +10,12 @@ ms.subservice: development
 ms.date: 10/10/2019
 ms.author: xiaoyul
 ms.reviewer: nidejaco;
-ms.openlocfilehash: f6323501fc0078677c4c0e2cd0e43a15583df29b
-ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
-ms.translationtype: HT
+ms.openlocfilehash: 3e6af57840cf60516aba994a6b5728bfb7b35f09
+ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
+ms.translationtype: MT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 10/17/2019
-ms.locfileid: "72513976"
+ms.locfileid: "72553521"
 ---
 # <a name="performance-tuning-with-result-set-caching"></a>使用結果集快取進行效能微調  
 啟用結果集快取時，Azure SQL 資料倉儲會自動快取使用者資料庫中的查詢結果，以供重複使用。  這可讓後續的查詢執行直接從持續性快取取得結果，因此不需要重新計算。   結果集快取可改善查詢效能並減少計算資源使用量。  此外，使用快取結果集的查詢不會使用任何平行存取插槽，因此不會計算現有的並行限制。 基於安全性，如果使用者與建立快取結果的使用者具有相同的資料存取權限，則只能存取快取的結果。  
@@ -34,11 +34,10 @@ ms.locfileid: "72513976"
 一旦開啟資料庫的結果集快取，就會快取所有查詢的結果，直到快取填滿為止（這些查詢除外）：
 - 使用不具決定性的函數（例如 DateTime）進行查詢。 Now （）
 - 使用使用者定義函數的查詢
+- 使用已啟用資料列層級安全性或資料行層級安全性之資料表的查詢
 - 傳回資料列大小大於64KB 的查詢
 
 當建立結果快取時，具有大型結果集（例如 > 1000000 資料列）的查詢可能會在第一次執行期間遇到較低的效能。
-
-結果集快取不支援資料列層級安全性。  
 
 ## <a name="when-cached-results-are-used"></a>使用快取的結果時
 

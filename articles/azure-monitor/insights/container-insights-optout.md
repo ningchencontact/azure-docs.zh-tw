@@ -1,24 +1,18 @@
 ---
 title: 如何停止監視 Azure Kubernetes Service 叢集 | Microsoft Docs
 description: 本文說明如何停止使用容器的 Azure 監視器來監視 Azure AKS 叢集。
-services: azure-monitor
-documentationcenter: ''
-author: mgoedtel
-manager: carmonm
-editor: ''
-ms.assetid: ''
 ms.service: azure-monitor
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 08/19/2019
+ms.subservice: ''
+ms.topic: conceptual
+author: mgoedtel
 ms.author: magoedte
-ms.openlocfilehash: 376259686d1668d62cc79f340e2161ef11be5e12
-ms.sourcegitcommit: 55e0c33b84f2579b7aad48a420a21141854bc9e3
+ms.date: 08/19/2019
+ms.openlocfilehash: 508bfa9cf7bff0084e7f0644ee5e053e683cb9cf
+ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69624375"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72554109"
 ---
 # <a name="how-to-stop-monitoring-your-azure-kubernetes-service-aks-with-azure-monitor-for-containers"></a>如何停止使用容器的 Azure 監視器來監視 Azure Kubernetes Service (AKS)
 
@@ -27,7 +21,7 @@ ms.locfileid: "69624375"
 
 ## <a name="azure-cli"></a>Azure CLI
 
-使用 [az aks disable-addons](https://docs.microsoft.com/cli/azure/aks?view=azure-cli-latest#az-aks-disable-addons) 命令可停用容器的 Azure 監視。 此命令會從叢集節點移除代理程式, 但不會移除解決方案或已收集並儲存在您的 Azure 監視器資源中的資料。  
+使用 [az aks disable-addons](https://docs.microsoft.com/cli/azure/aks?view=azure-cli-latest#az-aks-disable-addons) 命令可停用容器的 Azure 監視。 此命令會從叢集節點移除代理程式，但不會移除解決方案或已收集並儲存在您的 Azure 監視器資源中的資料。  
 
 ```azurecli
 az aks disable-addons -a monitoring -n MyExistingManagedCluster -g MyExistingManagedClusterRG
@@ -44,7 +38,7 @@ az aks disable-addons -a monitoring -n MyExistingManagedCluster -g MyExistingMan
 * [使用 Resource Manager 範本與 Azure CLI 部署資源](../../azure-resource-manager/resource-group-template-deploy-cli.md)
 
 >[!NOTE]
->範本必須部署在叢集的相同資源群組中。 使用此範本時，如果您省略其他任何屬性或附加元件，可能會導致從叢集移除這些屬性或附加元件。 例如, *enableRBAC*用於在您的叢集中執行的 RBAC 原則, 或如果已針對 AKS 叢集指定標記, 則為*aksResourceTagValues* 。  
+>範本必須部署在叢集的相同資源群組中。 使用此範本時，如果您省略其他任何屬性或附加元件，可能會導致從叢集移除這些屬性或附加元件。 例如， *enableRBAC*用於在您的叢集中執行的 RBAC 原則，或如果已針對 AKS 叢集指定標記，則為*aksResourceTagValues* 。  
 >
 
 如果您選擇使用 Azure CLI，必須先在本機安裝並使用 CLI。 您必須執行 Azure CLI 2.0.27 版或更新版本。 若要知道您使用的版本，請執行 `az --version`。 如果您需要安裝或升級 Azure CLI，請參閱[安裝 Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli)。 
@@ -131,7 +125,7 @@ az aks disable-addons -a monitoring -n MyExistingManagedCluster -g MyExistingMan
 
     當您在 [屬性] 頁面上時，亦請複製 [工作區資源識別碼]。 如果您稍後決定要刪除 Log Analytics 工作區，必須要有這個值。 這部分的程序並不會刪除 Log Analytics 工作區。 
 
-    編輯**aksResourceTagValues**的值, 以符合針對 AKS 叢集指定的現有標記值。
+    編輯**aksResourceTagValues**的值，以符合針對 AKS 叢集指定的現有標記值。
 
 5. 將此檔案儲存為本機資料夾的 **OptOutParam.json**。
 

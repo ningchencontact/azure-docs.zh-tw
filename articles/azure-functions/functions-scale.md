@@ -10,16 +10,16 @@ ms.topic: conceptual
 ms.date: 03/27/2019
 ms.author: glenga
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 2fcace82eed81b85571ba88243a3de991ae01aa0
-ms.sourcegitcommit: a19bee057c57cd2c2cd23126ac862bd8f89f50f5
+ms.openlocfilehash: ce91d53bec3c74a8a55d46fd53bc3cf0ccd7e28a
+ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71180114"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72550633"
 ---
 # <a name="azure-functions-scale-and-hosting"></a>Azure Functions 的規模調整和主控
 
-當您在 Azure 中建立函數應用程式時，您必須為應用程式選擇主控方案。 Azure Functions 有三個可用的主控方案：取用[方案](#consumption-plan)、 [Premium 方案](#premium-plan)和[App Service 方案](#app-service-plan)。
+當您在 Azure 中建立函數應用程式時，您必須為應用程式選擇主控方案。 有三個適用于 Azure Functions 的主控方案：取用[方案](#consumption-plan)、 [Premium 方案](#premium-plan)和[App Service 方案](#app-service-plan)。
 
 您選擇的主控方案會指示下列行為：
 
@@ -45,12 +45,12 @@ App Service 方案可讓您利用您所管理的專用基礎結構。 您的函�
 
 下表指出在 Windows 或 Linux 上執行時，三個主控方案目前的支援層級：
 
-| | 取用方案 | 進階方案 | 專用方案 |
+| | 使用量方案 | Premium 方案 | 專用方案 |
 |-|:----------------:|:------------:|:----------------:|
-| Windows | GA | 預覽 | GA |
-| Linux | GA | 預覽 | GA |
+| Windows | 正式上市 | 預覽 | 正式上市 |
+| Linux | 正式上市 | 預覽 | 正式上市 |
 
-## <a name="consumption-plan"></a>取用方案
+## <a name="consumption-plan"></a>使用量方案
 
 當您使用取用方案時，會根據傳入事件的數目，動態新增和移除 Azure Functions 主機的實例。 此無伺服器方案會自動調整，您只需支付函式執行時使用的計算資源。 在取用方案中，函式執行會在一段可設定的時間之後逾時。
 
@@ -78,11 +78,12 @@ App Service 方案可讓您利用您所管理的專用基礎結構。 您的函�
 
 如需如何設定這些選項的資訊，請參閱[Azure Functions premium 方案檔](functions-premium-plan.md)。
 
-高階方案的計費是根據所需和保留實例所使用的核心秒數、執行時間和記憶體，而不是每次執行計費和耗用記憶體。  至少一個實例必須隨時為暖。 這表示每個使用中的方案都有固定的每月成本，而不論執行次數為何。
+高階方案的計費是根據所需和預先準備就緒的實例所使用的核心秒數和記憶體，而不是每次執行計費和耗用記憶體。 在每個計畫中，至少有一個實例必須為暖。 這表示每個使用中的計畫每月最低成本，不論執行次數為何。 請記住，Premium 方案中的所有函式應用程式會共用預先準備就緒和作用中的實例。
 
 在下列情況下，請考慮 Azure Functions premium 方案：
 
 * 您的函式應用程式會連續執行或接近連續執行。
+* 您有很多的小型執行，而且在取用方案中具有高用量計費但低 GB 的第二個帳單。
 * 您需要的 CPU 或記憶體選項比取用方案所提供的更多。
 * 您的程式碼所需的執行時間超過取用方案允許的運行[時間上限](#timeout)。
 * 您需要的功能僅適用于高階方案，例如 VNET/VPN 連線能力。
@@ -127,9 +128,9 @@ appServicePlanId=$(az functionapp show --name <my_function_app_name> --resource-
 az appservice plan list --query "[?id=='$appServicePlanId'].sku.tier" --output tsv
 ```  
 
-如果此命令的輸出是 `dynamic`，表示函式應用程式在取用方案中。 當此命令的輸出是`ElasticPremium`時，您的函數應用程式會在高階方案中。 所有其他值表示 App Service 方案的不同層級。
+如果此命令的輸出是 `dynamic`，表示函式應用程式在取用方案中。 當此命令的輸出是 `ElasticPremium` 時，您的函數應用程式會在 Premium 方案中。 所有其他值表示 App Service 方案的不同層級。
 
-## <a name="storage-account-requirements"></a>儲存體帳戶的需求
+## <a name="storage-account-requirements"></a>儲存體帳戶需求
 
 在任何方案上，函數應用程式都需要一般 Azure 儲存體帳戶，其支援 Azure Blob、佇列、檔案和表格儲存體。 這是因為函式依賴 Azure 儲存體來執行作業，例如管理觸發程序和記錄函式執行等，但有些儲存體帳戶不支援佇列和表格。 這些帳戶 (包括僅限 Blob 的儲存體帳戶 (包含進階儲存體) 和搭配區域備援儲存體複寫的一般用途儲存體帳戶) 會在您建立函式應用程式時，從現有**儲存體帳戶**選項中篩選出來。
 
@@ -169,7 +170,7 @@ Azure Functions 的尺規單位是函式應用程式。 當函式應用程式相
 
 函數應用程式中有多個面向會影響其調整規模的效果，包括主機設定、執行階段耗用量和資源效率。  如需詳細資訊，請參閱[效能考量文章中的延展性一節](functions-best-practices.md#scalability-best-practices)。 您也應了解在縮放函式應用程式後，連線會如何運作。 如需詳細資訊，請參閱[如何管理 Azure Functions 中的連線](manage-connections.md)。
 
-### <a name="billing-model"></a>計費模型
+### <a name="billing-model"></a>計費模式
 
 [Azure Functions 定價頁面](https://azure.microsoft.com/pricing/details/functions/)會詳細說明不同方案的計費方式。 使用量是在函式應用程式層級彙總，且只會計算函式程式碼執行的時間。 計費單位如下︰
 

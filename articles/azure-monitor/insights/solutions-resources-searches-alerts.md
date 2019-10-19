@@ -1,24 +1,19 @@
 ---
 title: 管理解決方案中儲存的搜尋 |Microsoft Docs
 description: 管理解決方案通常會包含 Log Analytics 中儲存的搜尋，來分析解決方案所收集的資料。 它們可能也會定義警示來通知使用者，或自動採取動作以回應重大的問題。 本文說明如何在 Resource Manager 範本中定義 Log Analytics 儲存的搜尋，使其可以包含在管理解決方案中。
-services: monitoring
-documentationcenter: ''
-author: bwren
-manager: carmonm
-editor: tysonn
 ms.service: azure-monitor
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 07/29/2019
+ms.subservice: ''
+ms.topic: conceptual
+author: bwren
 ms.author: bwren
+ms.date: 07/29/2019
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: d5372ac8b31db91aaac018b203ee8868fa313fd8
-ms.sourcegitcommit: a4b5d31b113f520fcd43624dd57be677d10fc1c0
+ms.openlocfilehash: ce4f3dcbc28668f786c706e7029061e541a76ce9
+ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70772994"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72553919"
 ---
 # <a name="adding-log-analytics-saved-searches-and-alerts-to-management-solution-preview"></a>將 Log Analytics 儲存的搜尋和警示新增到管理解決方案 (預覽)
 
@@ -54,7 +49,7 @@ Resource Manager 範本中所定義的所有 Log Analytics 資源都會有 **api
 | savedSearches | 2017-03-15-preview | Event &#124; where EventLevelName == "Error"  |
 
 
-## <a name="saved-searches"></a>已儲存搜尋
+## <a name="saved-searches"></a>儲存的搜尋
 在解決方案中包含[儲存的搜尋](../../azure-monitor/log-query/log-query-overview.md)，可讓使用者查詢您解決方案所收集的資料。 儲存的搜尋會出現在 Azure 入口網站的 [儲存的搜尋] 下方。 每個警示也會需要儲存的搜尋。
 
 [Log Analytics 儲存的搜尋](../../azure-monitor/log-query/log-query-overview.md)資源都具有 `Microsoft.OperationalInsights/workspaces/savedSearches` 類型，並具備下列結構。 這包括一般變數和參數，因此您可以將此程式碼片段複製並貼到您的解決方案檔，然後變更參數名稱。
@@ -76,10 +71,10 @@ Resource Manager 範本中所定義的所有 Log Analytics 資源都會有 **api
 
 下表說明儲存的搜尋的每個屬性。
 
-| 屬性 | Description |
+| 屬性 | 描述 |
 |:--- |:--- |
 | category | 儲存的搜尋的類別。  同一個解決方案中所有儲存的搜尋通常都會共用單一類別，因此它們會在主控台中群組在一起。 |
-| displayName | 要在入口網站中顯示之儲存的搜尋名稱。 |
+| displayname | 要在入口網站中顯示之儲存的搜尋名稱。 |
 | query | 要執行的查詢。 |
 
 > [!NOTE]
@@ -117,17 +112,17 @@ Resource Manager 範本中所定義的所有 Log Analytics 資源都會有 **api
     }
 下表會說明排程資源的屬性。
 
-| 元素名稱 | 必要項 | Description |
+| 元素名稱 | 必要項 | 描述 |
 |:--|:--|:--|
-| enabled       | 是 | 指定在建立警示時是否要加以啟用。 |
-| 間隔      | 是 | 查詢的執行頻率，以分鐘為單位。 |
+| 啟用       | 是 | 指定在建立警示時是否要加以啟用。 |
+| interval      | 是 | 查詢的執行頻率，以分鐘為單位。 |
 | queryTimeSpan | 是 | 評估結果的時間長度，以分鐘為單位。 |
 
 排程資源應該相依於儲存的搜尋，如此就會在排程之前建立該資源。
 > [!NOTE]
 > 排程名稱在指定工作區中必須是唯一的；兩個排程即使已儲存的相關聯搜尋不同，也不能有相同的識別碼。 此外，使用 Log Analytics API 建立並儲存的所有搜尋、排程和動作，都必須使用小寫名稱。
 
-### <a name="actions"></a>個動作
+### <a name="actions"></a>動作
 一個排程可以有多個動作。 一個動作可能定義一或多個處理序來執行，例如傳送郵件或啟動 Runbook，或也可能定義臨界值來判斷搜尋結果是否符合某些準則。 某些動作會同時定義這兩者，以便符合臨界值時執行處理序。
 動作可以使用 [動作群組] 資源或動作資源來定義。
 
@@ -194,10 +189,10 @@ Resource Manager 範本中所定義的所有 Log Analytics 資源都會有 **api
 | `Value` | 是 | 必須符合準則以觸發警示的次數。 |
 
 
-#### <a name="throttling"></a>正在節流
+#### <a name="throttling"></a>節流
 此為選擇性區段。 如果您想要在建立警示之後的某一段時間內隱藏相同規則所產生的警示，請加入此區段。
 
-| 元素名稱 | 必要項 | Description |
+| 元素名稱 | 必要項 | 描述 |
 |:--|:--|:--|
 | DurationInMinutes | 如果包含 Throttling 元素，即為 Yes | 從同一個警示規則中建立一個警示之後隱藏警示的分鐘數。 |
 
@@ -206,13 +201,13 @@ Azure 中的所有警示都使用「動作群組」作為處理動作的預設�
 
 針對將警示延伸至 Azure 的使用者 - 排程的「動作群組」詳細資料現在應該與閾值一起傳遞，才能建立警示。 必須先在動作群組內定義電子郵件詳細資料、Webhook URL、Runbook 自動化詳細資料及其他動作，才能建立警示；使用者可以在入口網站中[從 Azure 監視器建立動作群組](../../azure-monitor/platform/action-groups.md)，或使用[動作群組 - 資源範本](../../azure-monitor/platform/action-groups-create-resource-manager-template.md)來建立動作群組。
 
-| 元素名稱 | 必要項 | Description |
+| 元素名稱 | 必要項 | 描述 |
 |:--|:--|:--|
 | AzNsNotification | 是 | Azure 動作群組的資源識別碼，其會與警示相關聯，以便在符合警示準則時採取必要動作。 |
 | CustomEmailSubject | 否 | 電子郵件的自訂主旨列，該電子郵件會傳送到相關聯動作群組中指定的所有地址。 |
 | CustomWebhookPayload | 否 | 針對相關動作群組中定義的所有 Webhook 端點，要傳送到端點的自訂酬載。 格式取決於 Webhook 所預期的內容，而且必須是已序列化的有效 JSON。 |
 
-## <a name="sample"></a>樣本
+## <a name="sample"></a>範例
 
 以下是解決方案的範例，其中包含下列資源：
 

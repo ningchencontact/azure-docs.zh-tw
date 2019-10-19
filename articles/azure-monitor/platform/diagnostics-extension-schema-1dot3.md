@@ -1,20 +1,18 @@
 ---
 title: Azure 診斷擴充功能 1.3 版和更新版本的組態結構描述
 description: 適用於 Azure 診斷的結構描述 1.3 版和更新版本隨附於 Microsoft Azure SDK 2.4 版和更新版本中。
-services: azure-monitor
-author: rboucher
 ms.service: azure-monitor
-ms.devlang: dotnet
-ms.topic: reference
-ms.date: 09/20/2018
-ms.author: robb
 ms.subservice: diagnostic-extension
-ms.openlocfilehash: e303fe5ca1869249d57373aab9c60a5f92b7ea9c
-ms.sourcegitcommit: 97605f3e7ff9b6f74e81f327edd19aefe79135d2
+ms.topic: reference
+author: rboucher
+ms.author: robb
+ms.date: 09/20/2018
+ms.openlocfilehash: 1d378571a02f30c223338eef5c7d142ed02ff4c8
+ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70735106"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72555543"
 ---
 # <a name="azure-diagnostics-13-and-later-configuration-schema"></a>Azure 診斷 1.3 版和更新版本的組態結構描述
 > [!NOTE]
@@ -406,7 +404,7 @@ ms.locfileid: "70735106"
 
 
 ## <a name="diagnosticsconfiguration-element"></a>DiagnosticsConfiguration 元素  
- *樹狀結構：根目錄 - DiagnosticsConfiguration*
+ 樹狀結構︰根目錄 - DiagnosticsConfiguration
 
 已在 1.3 版中新增。  
 
@@ -419,11 +417,11 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 |子元素|描述|  
 |--------------------|-----------------|  
 |**PublicConfig**|必要。 請參閱本頁面上其他部分的說明。|  
-|**PrivateConfig**|選擇性。 請參閱本頁面上其他部分的說明。|  
+|**PrivateConfig**|選用。 請參閱本頁面上其他部分的說明。|  
 |**IsEnabled**|布林值。 請參閱本頁面上其他部分的說明。|  
 
 ## <a name="publicconfig-element"></a>PublicConfig 元素  
- *樹狀結構：根目錄 - DiagnosticsConfiguration - PublicConfig*
+ 樹狀結構︰根目錄 - DiagnosticsConfiguration - PublicConfig
 
  說明公用診斷組態。  
 
@@ -435,13 +433,13 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 |**LocalResourceDirectory**|虛擬機器上監視代理程式儲存事件資料的目錄。 如果沒有，請設定，否則會使用預設的目錄：<br /><br /> 針對背景工作/web 角色：`C:\Resources\<guid>\directory\<guid>.<RoleName.DiagnosticStore\`<br /><br /> 針對虛擬機器：`C:\WindowsAzure\Logs\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics\<WADVersion>\WAD<WADVersion>`<br /><br /> 必要屬性包括：<br /><br /> - **path** - 系統上 Azure 診斷所使用的目錄。<br /><br /> - **expandEnvironment** - 控制是否要展開路徑名稱中的環境變數。|  
 
 ## <a name="wadcfg-element"></a>WadCFG 元素  
- *樹狀結構：根目錄 - DiagnosticsConfiguration - PublicConfig - WadCFG*
+ 樹狀結構︰根目錄 - DiagnosticsConfiguration - PublicConfig - WadCFG
 
  識別並設定要收集的遙測資料。  
 
 
 ## <a name="diagnosticmonitorconfiguration-element"></a>DiagnosticMonitorConfiguration 元素
- *樹狀結構：根目錄 - DiagnosticsConfiguration - PublicConfig - WadCFG - DiagnosticMonitorConfiguration*
+ 樹狀結構︰根目錄 - DiagnosticsConfiguration - PublicConfig - WadCFG - DiagnosticMonitorConfiguration
 
  必要項
 
@@ -449,7 +447,7 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 |----------------|-----------------|  
 | **overallQuotaInMB** | 可供 Azure 診斷所收集的各種類型診斷資料取用的本機磁碟空間量上限。 預設設定為 4096 MB。<br />
 |**useProxyServer** | 設定 Azure 診斷來使用 Proxy 伺服器設定，如 IE 設定中所設定。|
-|**sinks** | 在 1.5 中新增。 選擇性。 針對支援接收的所有子元素，同時要傳送診斷資料的接收位置指標。 接收範例為 Application Insights 或事件中樞。|  
+|**sinks** | 在 1.5 中新增。 選用。 針對支援接收的所有子元素，同時要傳送診斷資料的接收位置指標。 接收範例為 Application Insights 或事件中樞。|  
 
 
 <br /> <br />
@@ -468,22 +466,22 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 
 
 ## <a name="crashdumps-element"></a>CrashDumps 元素  
- *樹狀結構：根目錄 - DiagnosticsConfiguration - PublicConfig - WadCFG - DiagnosticMonitorConfiguration - CrashDumps*
+ 樹狀結構︰根目錄 - DiagnosticsConfiguration - PublicConfig - WadCFG - DiagnosticMonitorConfiguration - CrashDumps
 
  啟用收集損毀傾印。  
 
 |屬性|描述|  
 |----------------|-----------------|  
-|**containerName**|選擇性。 在您的 Azure 儲存體帳戶中用來儲存損毀傾印的 Blob 容器名稱。|  
-|**crashDumpType**|選擇性。  設定 Azure 診斷來收集迷你或完整的損毀傾印。|  
-|**directoryQuotaPercentage**|選擇性。  設定要在 VM 上保留以供損毀傾印使用的 **overallQuotaInMB** 百分比。|  
+|**containerName**|選用。 在您的 Azure 儲存體帳戶中用來儲存損毀傾印的 Blob 容器名稱。|  
+|**crashDumpType**|選用。  設定 Azure 診斷來收集迷你或完整的損毀傾印。|  
+|**directoryQuotaPercentage**|選用。  設定要在 VM 上保留以供損毀傾印使用的 **overallQuotaInMB** 百分比。|  
 
 |子元素|描述|  
 |--------------------|-----------------|  
 |**CrashDumpConfiguration**|必要。 定義每個處理序的組態值。<br /><br /> 以下也是必要屬性：<br /><br /> **processName** - 您希望 Azure 診斷收集損毀傾印的處理序名稱。|  
 
 ## <a name="directories-element"></a>Directories 元素
- *樹狀結構：根目錄 - DiagnosticsConfiguration - PublicConfig - WadCFG - DiagnosticMonitorConfiguration - Directories*
+ 樹狀結構︰根目錄 - DiagnosticsConfiguration - PublicConfig - WadCFG - DiagnosticMonitorConfiguration - Directories
 
  啟用收集目錄、IIS 失敗的存取要求記錄和/或 IIS 記錄的內容。  
 
@@ -499,7 +497,7 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 
 
 ## <a name="datasources-element"></a>DataSources 元素  
- *樹狀結構：根目錄 - DiagnosticsConfiguration - PublicConfig - WadCFG - DiagnosticMonitorConfiguration - Directories - DataSources*
+ 樹狀結構︰根目錄 - DiagnosticsConfiguration - PublicConfig - WadCFG - DiagnosticMonitorConfiguration - Directories - DataSources
 
  要監視的目錄清單。  
 
@@ -512,7 +510,7 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 
 
 ## <a name="directoryconfiguration-element"></a>DirectoryConfiguration 元素  
- *樹狀結構：根目錄 - DiagnosticsConfiguration - PublicConfig - WadCFG - DiagnosticMonitorConfiguration - Directories - DataSources - DirectoryConfiguration*
+ 樹狀結構︰根目錄 - DiagnosticsConfiguration - PublicConfig - WadCFG - DiagnosticMonitorConfiguration - Directories - DataSources - DirectoryConfiguration
 
  可能包括 **Absolute** 或 **LocalResource** 元素，但非兩者。  
 
@@ -524,7 +522,7 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 
 
 ## <a name="etwproviders-element"></a>EtwProviders 元素  
- *樹狀結構：根目錄 - DiagnosticsConfiguration - PublicConfig - WadCFG - DiagnosticMonitorConfiguration - EtwProviders*
+ 樹狀結構︰根目錄 - DiagnosticsConfiguration - PublicConfig - WadCFG - DiagnosticMonitorConfiguration - EtwProviders
 
  設定要收集來自 EventSource 和/或以 ETW 資訊清單為基礎之提供者的 ETW 事件。  
 
@@ -536,7 +534,7 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 
 
 ## <a name="etweventsourceproviderconfiguration-element"></a>EtwEventSourceProviderConfiguration 元素  
- *樹狀結構：根目錄 - DiagnosticsConfiguration - PublicConfig - WadCFG - DiagnosticMonitorConfiguration - EtwProviders- EtwEventSourceProviderConfiguration*
+ 樹狀結構︰根目錄 - DiagnosticsConfiguration - PublicConfig - WadCFG - DiagnosticMonitorConfiguration - EtwProviders- EtwEventSourceProviderConfiguration
 
  設定要收集從 [EventSource 類別](https://msdn.microsoft.com/library/system.diagnostics.tracing.eventsource\(v=vs.110\).aspx)產生的事件。  
 
@@ -548,7 +546,7 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 
 
 ## <a name="etwmanifestproviderconfiguration-element"></a>EtwManifestProviderConfiguration 元素  
- *樹狀結構：根目錄 - DiagnosticsConfiguration - PublicConfig - WadCFG - DiagnosticMonitorConfiguration - EtwProviders - EtwManifestProviderConfiguration*
+ 樹狀結構︰根目錄 - DiagnosticsConfiguration - PublicConfig - WadCFG - DiagnosticMonitorConfiguration - EtwProviders - EtwManifestProviderConfiguration
 
 |子元素|描述|  
 |--------------------|-----------------|  
@@ -558,7 +556,7 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 
 
 ## <a name="metrics-element"></a>Metrics 元素  
- *樹狀結構：根目錄 - DiagnosticsConfiguration - PublicConfig - WadCFG - DiagnosticMonitorConfiguration - Metrics*
+ 樹狀結構︰根目錄 - DiagnosticsConfiguration - PublicConfig - WadCFG - DiagnosticMonitorConfiguration - Metrics
 
  讓您能夠產生已最佳化的效能計數器資料表來進行快速查詢。 除了效能計數器資料表之外，**PerformanceCounters** 元素中所定義的每個效能計數器都會儲存於 Metrics 資料表中。  
 
@@ -571,7 +569,7 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 
 
 ## <a name="performancecounters-element"></a>PerformanceCounters 元素  
- *樹狀結構：根目錄 - DiagnosticsConfiguration - PublicConfig - WadCFG - DiagnosticMonitorConfiguration - PerformanceCounters*
+ 樹狀結構︰根目錄 - DiagnosticsConfiguration - PublicConfig - WadCFG - DiagnosticMonitorConfiguration - PerformanceCounters
 
  啟用收集效能計數器。  
 
@@ -582,13 +580,13 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 |子元素|描述|  
 |-------------------|-----------------|  
 |**PerformanceCounterConfiguration**|以下為必要屬性：<br /><br /> - **counterSpecifier** - 效能計數器的名稱。 例如： `\Processor(_Total)\% Processor Time` 。 若要在主機上取得效能計數器清單，請執行 `typeperf` 命令。<br /><br /> - **sampleRate** - 應針對計數器進行取樣的頻率。<br /><br /> 選用屬性：<br /><br /> **unit** - 計數器的測量單位。|
-|**sinks** | 在 1.5 中新增。 選擇性。 同時要傳送診斷資料的接收位置指標。 例如，Azure 監視器或事件中樞。|    
+|**sinks** | 在 1.5 中新增。 選用。 同時要傳送診斷資料的接收位置指標。 例如，Azure 監視器或事件中樞。|    
 
 
 
 
 ## <a name="windowseventlog-element"></a>WindowsEventLog 元素
- *樹狀結構：根目錄 - DiagnosticsConfiguration - PublicConfig - WadCFG - DiagnosticMonitorConfiguration - WindowsEventLog*
+ 樹狀結構︰根目錄 - DiagnosticsConfiguration - PublicConfig - WadCFG - DiagnosticMonitorConfiguration - WindowsEventLog
 
  啟用收集 Windows 事件記錄。  
 
@@ -596,13 +594,13 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 
 |子元素|描述|  
 |-------------------|-----------------|  
-|**DataSource**|要收集的 Windows 事件記錄。 必要屬性：<br /><br /> **name** - 說明要收集之 Windows 事件的 XPath 查詢。 例如:<br /><br /> `Application!*[System[(Level <=3)]], System!*[System[(Level <=3)]], System!*[System[Provider[@Name='Microsoft Antimalware']]], Security!*[System[(Level <= 3)]`<br /><br /> 若要收集所有事件，請指定 "*"|  
+|**DataSource**|要收集的 Windows 事件記錄。 必要屬性：<br /><br /> **name** - 說明要收集之 Windows 事件的 XPath 查詢。 例如：<br /><br /> `Application!*[System[(Level <=3)]], System!*[System[(Level <=3)]], System!*[System[Provider[@Name='Microsoft Antimalware']]], Security!*[System[(Level <= 3)]`<br /><br /> 若要收集所有事件，請指定 "*"|  
 
 
 
 
 ## <a name="logs-element"></a>Logs 元素  
- *樹狀結構：根目錄 - DiagnosticsConfiguration - PublicConfig - WadCFG - DiagnosticMonitorConfiguration - Logs*
+ 樹狀結構︰根目錄 - DiagnosticsConfiguration - PublicConfig - WadCFG - DiagnosticMonitorConfiguration - Logs
 
  出現在 1.0 和 1.1 版中。 在 1.2 中消失。 再度新增於 1.3 中。  
 
@@ -610,13 +608,13 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 
 |屬性|Type|描述|  
 |---------------|----------|-----------------|  
-|**bufferQuotaInMB**|**unsignedInt**|選擇性。 指定適用於所指定資料的檔案系統儲存體數量上限。<br /><br /> 預設值為 0。|  
-|**scheduledTransferLogLevelFilter**|**string**|選擇性。 指定所傳輸記錄項目的最低嚴重性層級。 預設值為 **Undefined**，會傳輸所有記錄。 其他可能的值 (按照從大到小的順序排列) 為 **Verbose**、**Information**、**Warning**、**Error** 及 **Critical**。|  
-|**scheduledTransferPeriod**|**duration**|選擇性。 指定排程傳輸資料之間的間隔，無條件進位到最接近的分鐘數。<br /><br /> 預設值為 PT0S。|  
-|**sinks** |**string**| 在 1.5 中新增。 選擇性。 同時要傳送診斷資料的接收位置指標。 例如，Application Insights 或事件中樞。|  
+|**bufferQuotaInMB**|**unsignedInt**|選用。 指定適用於所指定資料的檔案系統儲存體數量上限。<br /><br /> 預設值為 0。|  
+|**scheduledTransferLogLevelFilter**|**字串**|選用。 指定所傳輸記錄項目的最低嚴重性層級。 預設值為 **Undefined**，會傳輸所有記錄。 其他可能的值 (按照從大到小的順序排列) 為 **Verbose**、**Information**、**Warning**、**Error** 及 **Critical**。|  
+|**scheduledTransferPeriod**|**duration**|選用。 指定排程傳輸資料之間的間隔，無條件進位到最接近的分鐘數。<br /><br /> 預設值為 PT0S。|  
+|**sinks** |**字串**| 在 1.5 中新增。 選用。 同時要傳送診斷資料的接收位置指標。 例如，Application Insights 或事件中樞。|  
 
 ## <a name="dockersources"></a>DockerSources
- *樹狀結構：根目錄 - DiagnosticsConfiguration - PublicConfig - WadCFG - DiagnosticMonitorConfiguration - DockerSources*
+ 樹狀結構︰根目錄 - DiagnosticsConfiguration - PublicConfig - WadCFG - DiagnosticMonitorConfiguration - DockerSources
 
  已在 1.9 版中新增。
 
@@ -625,7 +623,7 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 |**Stats**|會請系統收集 Docker 容器的統計資料|  
 
 ## <a name="sinksconfig-element"></a>SinksConfig 元素  
- *樹狀結構：根目錄 - DiagnosticsConfiguration - PublicConfig - WadCFG - SinksConfig*
+ 樹狀結構︰根目錄 - DiagnosticsConfiguration - PublicConfig - WadCFG - SinksConfig
 
  傳送診斷資料的位置清單，以及與這些位置相關聯的組態。  
 
@@ -634,7 +632,7 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 |**接收**|請參閱本頁面上其他部分的說明。|  
 
 ## <a name="sink-element"></a>Sink 元素
- *樹狀結構：根目錄 - DiagnosticsConfiguration - PublicConfig - WadCFG - SinksConfig - Sink*
+ 樹狀結構︰根目錄 - DiagnosticsConfiguration - PublicConfig - WadCFG - SinksConfig - Sink
 
  已在 1.5 版中新增。  
 
@@ -650,7 +648,7 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 |**Channels**|string|每個可額外篩選該資料流的其中一個|  
 
 ## <a name="channels-element"></a>Channels 元素  
- *樹狀結構：根目錄 - DiagnosticsConfiguration - PublicConfig - WadCFG - SinksConfig - Sink - Channels*
+ 樹狀結構︰根目錄 - DiagnosticsConfiguration - PublicConfig - WadCFG - SinksConfig - Sink - Channels
 
  已在 1.5 版中新增。  
 
@@ -661,7 +659,7 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 |**Channel**|string|請參閱本頁面上其他部分的說明。|  
 
 ## <a name="channel-element"></a>Channel 元素
- *樹狀結構：根目錄 - DiagnosticsConfiguration - PublicConfig - WadCFG - SinksConfig - Sink - Channels - Channel*
+ 樹狀結構︰根目錄 - DiagnosticsConfiguration - PublicConfig - WadCFG - SinksConfig - Sink - Channels - Channel
 
  已在 1.5 版中新增。  
 
@@ -669,26 +667,26 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 
 |屬性|Type|描述|  
 |----------------|----------|-----------------|  
-|**logLevel**|**string**|指定所傳輸記錄項目的最低嚴重性層級。 預設值為 **Undefined**，會傳輸所有記錄。 其他可能的值 (按照從大到小的順序排列) 為 **Verbose**、**Information**、**Warning**、**Error** 及 **Critical**。|  
-|**name**|**string**|要參考之通道的唯一名稱|  
+|**logLevel**|**字串**|指定所傳輸記錄項目的最低嚴重性層級。 預設值為 **Undefined**，會傳輸所有記錄。 其他可能的值 (按照從大到小的順序排列) 為 **Verbose**、**Information**、**Warning**、**Error** 及 **Critical**。|  
+|**name**|**字串**|要參考之通道的唯一名稱|  
 
 
 ## <a name="privateconfig-element"></a>PrivateConfig 元素
- *樹狀結構：根目錄 - DiagnosticsConfiguration - PrivateConfig*
+ 樹狀結構︰根目錄 - DiagnosticsConfiguration - PrivateConfig
 
  已在 1.3 版中新增。  
 
- 選擇性  
+ 選用  
 
  存放儲存體帳戶的私用詳細資料 (名稱、金鑰和端點)。 此資訊會傳送至虛擬機器，但無法從中擷取。  
 
 |子元素|描述|  
 |--------------------|-----------------|  
-|**StorageAccount**|要使用的儲存體帳戶。 以下為必要屬性<br /><br /> - **name** - 儲存體帳戶的名稱。<br /><br /> - **key** - 儲存體帳戶的金鑰。<br /><br /> - **endpoint** - 要存取儲存體帳戶的端點。 <br /><br /> -**sasToken** (已在 1.8.1 版中新增) - 您可以在私用組態中指定 SAS 權杖 (而不是儲存體帳戶金鑰)。如果提供此屬性，系統會忽略儲存體帳戶金鑰。 <br />SAS 權杖的需求︰ <br />- 僅支援帳戶 SAS 權杖 <br />- 需要 b、t 服務類型。 <br /> - 需要 a、c、u、w 權限。 <br /> - 需要 c、o 資源類型。 <br /> - 僅支援 HTTPS 通訊協定 <br /> - 開始和到期時間必須是有效的。|  
+|**StorageAccount**|要使用的儲存體帳戶。 以下為必要屬性<br /><br /> - **name** - 儲存體帳戶的名稱。<br /><br /> - **key** - 儲存體帳戶的金鑰。<br /><br /> - **endpoint** - 要存取儲存體帳戶的端點。 <br /><br /> -**sasToken** （新增1.8.1）-您可以在私人設定中指定 SAS 權杖，而不是儲存體帳戶金鑰。如果有提供，則會忽略儲存體帳戶金鑰。 <br />SAS 權杖的需求︰ <br />- 僅支援帳戶 SAS 權杖 <br />- 需要 b、t 服務類型。 <br /> - 需要 a、c、u、w 權限。 <br /> - 需要 c、o 資源類型。 <br /> - 僅支援 HTTPS 通訊協定 <br /> - 開始和到期時間必須是有效的。|  
 
 
 ## <a name="isenabled-element"></a>IsEnabled 元素  
- *樹狀結構：根目錄 - DiagnosticsConfiguration - IsEnabled*
+ 樹狀結構︰根目錄 - DiagnosticsConfiguration - IsEnabled
 
  布林值。 使用 `true` 來啟用診斷或 `false` 來停用診斷。
 

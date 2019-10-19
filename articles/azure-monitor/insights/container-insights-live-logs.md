@@ -1,24 +1,18 @@
 ---
 title: 即時檢視適用於容器的 Azure 監視器記錄 | Microsoft Docs
 description: 本文說明容器記錄（stdout/stderr）和事件的即時觀點，而不需使用 kubectl 與容器的 Azure 監視器。
-services: azure-monitor
-documentationcenter: ''
-author: mgoedtel
-manager: carmonm
-editor: ''
-ms.assetid: ''
 ms.service: azure-monitor
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 07/12/2019
+ms.subservice: ''
+ms.topic: conceptual
+author: mgoedtel
 ms.author: magoedte
-ms.openlocfilehash: d947b44177e9aa5777d759286d982e974e378497
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.date: 07/12/2019
+ms.openlocfilehash: 25cfe10ec192f874d050bca22ce1b85c2d1afbb4
+ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72389776"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72554096"
 ---
 # <a name="how-to-view-logs-and-events-in-real-time-preview"></a>如何即時查看記錄和事件（預覽）
 適用于容器的 Azure 監視器包含功能（目前處於預覽狀態），可提供您 Azure Kubernetes Service （AKS）容器記錄（stdout/stderr）和事件的即時視圖，而不需要執行 kubectl 命令。 當您選取其中一個選項時，新的窗格會出現在 [**節點**]、[**控制器**] 和 [**容器**] 視圖的 [效能] 資料表下方。 它會顯示容器引擎所產生的即時記錄和事件，以進一步協助針對問題進行即時疑難排解。

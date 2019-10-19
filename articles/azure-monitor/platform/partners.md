@@ -1,19 +1,18 @@
 ---
 title: 與 Azure 監視器整合的合作夥伴
 description: 了解 Azure Monitor 的監視合作夥伴以及如何存取與合作夥伴進行整合的文件。
-author: rboucher
-services: azure-monitor
 ms.service: azure-monitor
-ms.topic: conceptual
-ms.date: 03/14/2019
-ms.author: robb
 ms.subservice: ''
-ms.openlocfilehash: c642fe4a4453d72303470b5149d6d94436cdfa46
-ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.topic: conceptual
+author: rboucher
+ms.author: robb
+ms.date: 03/14/2019
+ms.openlocfilehash: d4a16fc3d4c29b1e270fa088af75d287a81180c0
+ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71262305"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72552058"
 ---
 # <a name="azure-monitor-partner-integrations"></a>Azure 監視器合作夥伴整合
 

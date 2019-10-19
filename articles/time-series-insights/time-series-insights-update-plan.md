@@ -10,12 +10,12 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 09/24/2019
 ms.custom: seodec18
-ms.openlocfilehash: 780e639ad6e1ee721820749da2df9ea6efa07bd6
-ms.sourcegitcommit: f272ba8ecdbc126d22a596863d49e55bc7b22d37
+ms.openlocfilehash: b97db5fcebeea67cc593a4d2c1fd677a55ad8559
+ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72273734"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72550186"
 ---
 # <a name="plan-your-azure-time-series-insights-preview-environment"></a>規劃您的 Azure 時間序列深入解析預覽版環境
 
@@ -54,7 +54,7 @@ Azure 時間序列深入解析採用隨用隨付商務模型。 如需費用和�
 若要建立新的時間序列深入解析環境，請選取一個時間序列識別碼。 此動作會當作您資料的邏輯分割。 如上述事項，請務必備妥您的時間序列識別碼。
 
 > [!IMPORTANT]
-> 時間序列識別碼「不可變」且「事後無法變更」。 在最終選取前及第一次使用前，請確認每個識別碼。
+> 時間序列識別碼*之後無法變更*。 在最終選取前及第一次使用前，請確認每個識別碼。
 
 您最多可以選取三個金鑰，以唯一區分您的資源。 如需詳細資訊，請參閱[選擇時間序列識別碼的最佳做法](./time-series-insights-update-how-to-id.md)和[儲存體與輸入](./time-series-insights-update-storage-ingress.md)。
 
