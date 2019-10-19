@@ -1,24 +1,18 @@
 ---
 title: 使用 Azure PowerShell 或 Resource Manager 範本來啟用適用於 VM 的 Azure 監視器（預覽） |Microsoft Docs
 description: 本文說明如何使用 Azure PowerShell 或 Azure Resource Manager 範本來啟用一或多個 Azure 虛擬機器或虛擬機器擴展集的適用於 VM 的 Azure 監視器。
-services: azure-monitor
-documentationcenter: ''
-author: mgoedtel
-manager: carmonm
-editor: ''
-ms.assetid: ''
 ms.service: azure-monitor
+ms.subservice: ''
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 10/14/2019
+author: mgoedtel
 ms.author: magoedte
-ms.openlocfilehash: 78fe9eec757274e4262857ac0441af61c47a992b
-ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
-ms.translationtype: HT
+ms.date: 10/14/2019
+ms.openlocfilehash: 24b40e5dfdef7bde65d326cb0d054365f730477e
+ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
+ms.translationtype: MT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 10/17/2019
-ms.locfileid: "72515551"
+ms.locfileid: "72555271"
 ---
 # <a name="enable-azure-monitor-for-vms-preview-using-azure-powershell-or-resource-manager-templates"></a>使用 Azure PowerShell 或 Resource Manager 範本啟用適用於 VM 的 Azure 監視器（預覽）
 

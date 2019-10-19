@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 05/01/2019
 ms.author: juliako
 ms.custom: include file
-ms.openlocfilehash: feec6a695ad867d26d32904d020648b029f9da35
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: da27f818bf368108568287f1ed1bbdae4c3902d4
+ms.sourcegitcommit: f29fec8ec945921cc3a89a6e7086127cc1bc1759
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67174069"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72560266"
 ---
 ## <a name="create-a-media-services-account"></a>建立媒體服務帳戶
 
@@ -23,7 +23,7 @@ ms.locfileid: "67174069"
 
 使用下列命令建立資源群組。 Azure 資源群組是一個邏輯容器，在其中可部署及管理 Azure 媒體服務和相關聯的儲存體帳戶等資源。
 
-您可以使用替代`amsResourceGroup`使用您的值。
+您可以用您的值取代 `amsResourceGroup`。
 
 ```azurecli
 az group create --name amsResourceGroup --location westus2
@@ -37,7 +37,7 @@ az group create --name amsResourceGroup --location westus2
 
 在此範例中，我們將建立一般用途 v2 的標準 LRS 帳戶。 如果您想要以儲存體帳戶進行試驗，請使用 `--sku Standard_LRS`。 不過，在選擇用於生產環境的 SKU 時應考慮使用 `--sku Standard_RAGRS`，以提供地理複寫功能而確保商務持續性。 如需詳細資訊，請參閱[儲存體帳戶](https://docs.microsoft.com/cli/azure/storage/account?view=azure-cli-latest)。
  
-以下命令會建立即將與媒體服務帳戶相關聯的儲存體帳戶。 在下列指令碼中，您可將 `storageaccountforams` 替換為您的值。 `amsResourceGroup` 必須符合您為上一個步驟中的資源群組的值。 儲存體帳戶名稱必須小於 24 的長度。
+以下命令會建立即將與媒體服務帳戶相關聯的儲存體帳戶。 在下列指令碼中，您可將 `storageaccountforams` 替換為您的值。 `amsResourceGroup` 必須符合您在上一個步驟中為資源群組提供的值。 儲存體帳戶名稱的長度必須小於24。
 
 ```azurecli
 az storage account create --name storageaccountforams \  
@@ -53,6 +53,6 @@ az storage account create --name storageaccountforams \
 
 ```azurecli
 az ams account create --name amsaccount \
-  -l westus2 \
-  -g amsResourceGroup --storage-account storageaccountforams
+   -g amsResourceGroup --storage-account storageaccountforams \
+   -l westus2 
 ```

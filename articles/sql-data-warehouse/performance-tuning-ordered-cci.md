@@ -10,12 +10,12 @@ ms.subservice: development
 ms.date: 09/05/2019
 ms.author: xiaoyul
 ms.reviewer: nibruno; jrasnick
-ms.openlocfilehash: 0aecb2309743ffecc2fb68435192224c6c690aee
-ms.sourcegitcommit: f9e81b39693206b824e40d7657d0466246aadd6e
-ms.translationtype: MT
+ms.openlocfilehash: 0acdf1496151df57d4097ce5bc71d782dc465873
+ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72035089"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72554543"
 ---
 # <a name="performance-tuning-with-ordered-clustered-columnstore-index"></a>使用已排序叢集資料行存放區索引的效能微調  
 
@@ -119,16 +119,20 @@ OPTION (MAXDOP 1);
 ## <a name="create-ordered-cci-on-large-tables"></a>在大型資料表上建立已排序的 CCI
 建立已排序的 CCI 是一種離線作業。  對於沒有分割區的資料表，使用者必須等到排序的 CCI 建立程式完成之後，才能存取資料。   針對資料分割資料表，由於引擎會依資料分割建立已排序的 CCI 分割區，因此，使用者仍可存取已排序的 CCI 建立不在處理中的資料。   您可以使用此選項，將在大型資料表上排序的 CCI 建立期間的停機時間降至最低： 
 
-1.  在目標大型資料表上建立資料分割（稱為資料表 A）。
-2.  使用與資料表 A 相同的資料表和資料分割架構，建立空的已排序 CCI 資料表（稱為資料表 B）。
+1.  在目標大型資料表上建立資料分割（稱為 Table_A）。
+2.  使用與資料表 A 相同的資料表和資料分割架構，建立空的已排序 CCI 資料表（稱為 Table_B）。
 3.  將一個資料分割從資料表 A 切換到資料表 B。
-4.  在資料表 B 上執行 ALTER INDEX < Ordered_CCI_Index > REBUILD PARTITION = < Partition_ID >，以重建已切換的資料分割。  
-5.  針對資料表 A 中的每個資料分割，重複步驟3和4。
-6.  當所有分割區從資料表 A 切換至 B 資料表並已重建之後，請卸載資料表 A，並將資料表 B 重新命名為數據表 A。 
+4.  在 < Table_B 上執行 ALTER INDEX < Ordered_CCI_Index > > 在資料表 B 上重建 PARTITION = < Partition_ID > 以重建切換的資料分割。  
+5.  針對 Table_A 中的每個資料分割，重複步驟3和4。
+6.  當所有分割區從 Table_A 切換到 Table_B 並已重建之後，請卸載 Table_A，並將 Table_B 重新命名為 Table_A。 
+
+>[!NOTE]
+>在 Azure SQL 資料倉儲的已排序叢集資料行存放區索引（CCI）預覽期間，如果透過在分割區資料表上建立叢集資料行存放區索引來建立或重建已排序的 CCI，則可能會產生重複的資料。 不涉及資料遺失。 此問題的修正即將推出。 如需因應措施，使用者可以使用 CTAS 命令，在資料分割資料表上建立已排序的 CCI
+
 
 ## <a name="examples"></a>範例
 
-**A.若要檢查已排序的資料行和訂單序數：**
+**答：若要檢查已排序的資料行和訂單序數。**
 ```sql
 SELECT object_name(c.object_id) table_name, c.name column_name, i.column_store_order_ordinal 
 FROM sys.index_columns i 
@@ -136,7 +140,7 @@ JOIN sys.columns c ON i.object_id = c.object_id AND c.column_id = i.column_id
 WHERE column_store_order_ordinal <>0
 ```
 
-**B.若要變更資料行序數，請在訂單清單中新增或移除資料行，或從 CCI 變更為已排序的 CCI：**
+**B. 若要變更資料行序數、新增或移除訂單清單中的資料行，或從 CCI 變更為已排序的 CCI：**
 ```sql
 CREATE CLUSTERED COLUMNSTORE INDEX InternetSales ON  InternetSales
 ORDER (ProductKey, SalesAmount)

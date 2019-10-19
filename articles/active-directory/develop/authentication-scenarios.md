@@ -18,12 +18,12 @@ ms.author: ryanwi
 ms.reviewer: jmprieur, saeeda, sureshja, hirsin
 ms.custom: aaddev, identityplatformtop40
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2201b7701dae90b43a01a6fb45decd94e45bab74
-ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
+ms.openlocfilehash: 40d0cd29452b5473d16851451a88c93e78ef3f36
+ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72430000"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72554436"
 ---
 # <a name="authentication-basics"></a>驗證基本概念
 
@@ -35,7 +35,7 @@ ms.locfileid: "72430000"
 
 **授權**是指授與已驗證的合作物件使用權限來執行某個作業的動作。 它會指定您可存取的資料，以及您可以對該資料執行的動作。 授權 (Authorization) 有時會被簡稱為 AuthZ。
 
-應用程式不會建立各自維護自己的使用者名稱和密碼資訊的應用程式，而是在您有多個應用程式，且需要在其上新增或移除使用者時，會產生高管理負擔，而應用程式可以將該責任委派給集中式識別提供者。
+應用程式不會建立每個應用程式來維護自己的使用者名稱和密碼資訊，而是在您需要跨多個應用程式新增或移除使用者時，產生高系統管理負擔，而應用程式可以將該責任委派給集中式身分識別提供者。
 
 Azure Active Directory （Azure AD）是雲端中的集中式識別提供者。 將驗證和授權委派給它可啟用條件式存取原則，例如要求使用者位於特定位置、使用多重要素驗證，以及讓使用者登入一次，然後自動進行已登入所有共用相同集中式目錄的 web 應用程式。 這項功能稱為「單一登入」（SSO）。
 
@@ -43,7 +43,7 @@ Azure Active Directory （Azure AD）是雲端中的集中式識別提供者。 
 
 Microsoft 身分識別平臺藉由提供身分識別即服務來簡化應用程式開發人員的驗證，並支援業界標準的通訊協定（例如 OAuth 2.0 和 OpenID Connect），以及適用于不同的開放原始碼程式庫可協助您快速開始撰寫程式碼的平臺。 它可讓開發人員建置應用程式以登入所有 Microsoft 身分識別、取得權杖以呼叫 Microsoft Graph、其他 Microsoft API 或開發人員所建置的 API。 如需詳細資訊，請參閱[Microsoft 身分識別平臺的演進](about-microsoft-identity-platform.md)。
 
-## <a name="tenants"></a>租用戶
+### <a name="tenants"></a>租用戶
 
 雲端身分識別提供者可服務許多組織。 為了讓不同組織的使用者分開，Azure AD 會分割成租使用者，每個組織有一個租使用者。
 
@@ -76,7 +76,7 @@ Azure AD 也提供 Azure Active Directory B2C，讓組織可以使用像是 Goog
 
 存取權杖會傳遞至 Web API，做為 `Authenticate` 標頭中的持有人權杖。 應用程式可以為 STS 提供重新整理權杖，如果使用者存取應用程式時未撤銷，則會取得新的存取權杖和新的重新整理權杖。 這就是處理離開企業之人員案例的方式。 當 STS 收到重新整理權杖時，如果使用者不再獲得授權，就不會發出另一個有效的存取權杖。
 
-### <a name="applications"></a>應用程式
+## <a name="application-model"></a>應用程式模型
 
 應用程式可以登入使用者本身，或將登入委派給身分識別提供者。 若要瞭解 Azure AD 支援的登入案例，請參閱[驗證流程和應用程式案例](authentication-flows-app-scenarios.md)。
 
@@ -90,18 +90,16 @@ Azure AD 也提供 Azure Active Directory B2C，讓組織可以使用像是 Goog
 
 註冊之後，應用程式將會獲得一個 GUID，應用程式會在要求權杖時，與 Azure AD 共用。 如果應用程式是機密用戶端應用程式，它也會共用密碼或公開金鑰，視憑證或密碼是否使用而定。
 
-### <a name="application-model"></a>應用程式模型
-
 Microsoft 身分識別平臺會使用可滿足兩個主要功能的模型來表示應用程式：
 
-**依照支援的驗證通訊協定識別應用程式，並提供驗證所需的所有識別碼、Url、秘密和相關資訊。**
+依照支援的驗證通訊協定識別應用程式，並提供驗證所需的所有識別碼、Url、秘密和相關資訊。
 Microsoft 身分識別平臺：
 
 * 保留在執行時間支援驗證所需的所有資料。
 * 保留所有資料，以決定應用程式可能需要存取哪些資源，以及在何種情況下應滿足指定的要求。
 * 提供基礎結構，以在應用程式開發人員的租使用者內和任何其他 Azure AD 租使用者中執行應用程式布建。
 
-**在權杖要求期間處理使用者同意，並協助跨租使用者動態布建應用程式**同意是資源擁有者授與授權給用戶端應用程式，以代表資源擁有者存取受保護資源的許可權。 Microsoft 身分識別平臺：
+在權杖要求期間處理使用者同意，並協助跨租使用者同意動態布建應用程式。資源擁有者會授與授權給用戶端應用程式，以存取受保護的資源（在特定許可權底下）。代表資源擁有者。 Microsoft 身分識別平臺：
 
 * 讓使用者與系統管理員能夠針對應用程式是否能代表他們存取資源，動態地授與或拒絕同意。
 * 授與管理員決定允許應用程式執行哪些作業、有哪些使用者可以使用特定應用程式，以及目錄資源之存取方式的最終決定權。
@@ -142,7 +140,7 @@ Microsoft 身分識別平臺：
 
 ### <a name="how-a-web-app-determines-if-the-user-is-authenticated"></a>Web 應用程式如何判斷使用者是否已通過驗證
 
-Web 應用程式開發人員可以指出所有或只是特定頁面都需要驗證。 例如，在 ASP.NET/ASP.NET Core 中，將 `[Authorize]` 屬性新增至控制器動作，即可完成此作業。 
+Web 應用程式開發人員可以指出所有或只是特定頁面都需要驗證。 例如，在 ASP.NET/ASP.NET Core 中，這是藉由將 `[Authorize]` 屬性新增至控制器動作來完成。 
 
 這個屬性會讓 ASP.NET 檢查會話 cookie 是否存在，其中包含使用者的身分識別。 如果 cookie 不存在，ASP.NET 會將驗證重新導向至指定的識別提供者。 如果 Azure AD 識別提供者，web 應用程式會將驗證重新導向至 https://login.microsoftonline.com ，這會顯示登入對話方塊。
 
@@ -154,7 +152,7 @@ Web 應用程式開發人員可以指出所有或只是特定頁面都需要驗�
 - 重新導向是由 web 應用程式以重新導向 URI 的形式提供。 此重新導向 URI 會向 Azure AD 應用程式物件註冊。 可能會有數個重新導向 Uri，因為應用程式可以部署在數個 Url 上。 因此，web 應用程式也需要指定要使用的重新導向 URi。
 - Azure AD 確認 web 應用程式所傳送的重新導向 URI 是應用程式的其中一個已註冊的重新導向 uri。
 
-## <a name="generalization-to-desktop-and-mobile-apps"></a>對桌面和行動應用程式進行一般化
+## <a name="desktop-and-mobile-app-sign-in-flow-with-azure-ad"></a>使用 Azure AD 的桌面和行動應用程式登入流程
 
 上述流程適用于桌上型電腦和行動應用程式，並稍微不同。
 

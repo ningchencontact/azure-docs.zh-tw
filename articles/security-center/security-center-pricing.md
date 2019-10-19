@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/17/2019
 ms.author: memildin
-ms.openlocfilehash: cce57053e265446a6307554509c34c5f802ed07f
-ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
+ms.openlocfilehash: c5e457a6478fce070070ba7d0d610cbfe4f55024
+ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72372601"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72554686"
 ---
 # <a name="upgrade-to-security-centers-standard-tier-for-enhanced-security"></a>升級為 Azure 資訊安全中心標準層以增強安全性
 Azure 資訊安全中心提供統一的安全性管理和進階的威脅防護，保護 Azure、內部部署和其他雲端中執行的工作負載。 其提供了針對混合式雲端工作負載的可見性和控制能力、可降低威脅曝露度的主動防禦措施、還有智慧型偵測可幫助您跟上網路攻擊快速發展的腳步。
@@ -26,9 +26,10 @@ Azure 資訊安全中心提供統一的安全性管理和進階的威脅防護�
 ## <a name="pricing-tiers"></a>定價層
 資訊安全中心提供兩個層級：
 
-- 當您第一次造訪 Azure 入口網站中的 [Azure 資訊安全中心] 儀表板，或透過 API 啟用 progremmaticaly 時，就會在您所有的 Azure 訂用帳戶上啟用**免費**層。 免費層提供安全性原則、持續的安全性評估和可採取動作的安全性建議，以協助您保護 Azure 資源。
+- 當您第一次造訪 Azure 入口網站中的 [Azure 資訊安全中心] 儀表板，或透過 API 啟用 progremmaticaly 時，就會在您所有的 Azure 訂用帳戶上啟用**免費**層。 如果您新增其他訂閱 aftewards，新的訂用帳戶預設不會啟用資訊安全中心，但您只需要啟動資訊安全中心入口網站，新的訂用帳戶就會註冊並套用免費層。 免費層提供安全性原則、持續的安全性評估和可採取動作的安全性建議，以協助您保護 Azure 資源。
 - **標準**層將免費層的功能擴展到在私人雲端和其他公用雲端中執行的工作負載，為您的混合式雲端工作負載提供統一的安全性管理和威脅防護。 標準層也加入了進階威脅偵測功能，可使用內建的行為分析和機器學習來識別攻擊和零時差惡意探索、存取和應用程式控制，以減少曝露在網路攻擊和惡意軟體之下的程度等。 您可以免費試用標準層。 資訊安全中心 Standard 支援 Azure 資源，包括 Vm、虛擬機器擴展集、App Service、SQL server 和儲存體帳戶。 如果您有 Azure 資訊安全中心標準，則可以根據資源類型選擇退出支援。 
 
+大部分的 Vm 免費層安全性評定，以及許多標準層安全性警示，都需要安裝 Microsoft Monitoring Agent （MMA）功能。 您可以在資訊安全中心上啟用自動布建，自動為您的 Azure Vm 部署代理程式。
 
 如需詳細資訊，請參閱資訊安全中心[價格頁面](https://azure.microsoft.com/pricing/details/security-center/)。
 
@@ -45,7 +46,7 @@ Azure 資訊安全中心提供統一的安全性管理和進階的威脅防護�
 4. 選取 [標準版] 以進行升級。
 5. 按一下 [儲存]。
 
-（映射中的價格僅供範例之用）。![Security Center 定價 @ no__t-1
+（映射中的價格僅供範例之用）。 ![Security Center 定價 ](./media/security-center-pricing/get-standard.png)
 
 > [!NOTE]
 > 若要啟用資訊安全中心的所有功能，您必須將標準版定價層套用至包含適用虛擬機器的訂用帳戶。 設定工作區的定價並不會啟用 Azure 資源的即時 VM 存取、彈性應用程式控制和網路偵測。

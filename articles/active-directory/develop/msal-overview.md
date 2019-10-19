@@ -17,12 +17,12 @@ ms.author: twhitney
 ms.reviewer: saeeda
 ms.custom: aaddev, identityplatformtop40
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a53de919960902fcc89a53293f31a07baa88cf32
-ms.sourcegitcommit: 263a69b70949099457620037c988dc590d7c7854
+ms.openlocfilehash: bec22381d1961c47ce257666177b5faf918cea56
+ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71268556"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72554417"
 ---
 # <a name="overview-of-microsoft-authentication-library-msal"></a>Microsoft 驗證程式庫 (MSAL) 概觀
 Microsoft 驗證程式庫 (MSAL) 可讓開發人員從 Microsoft 身分識別平台端點取得[權杖](developer-glossary.md#security-token)，以存取受保護的 Web API。 這些 Web API 可以是 Microsoft Graph、其他 Microsoft API、第三方 Web API 或您自己的 Web API。 MSAL 適用於 .NET、JavaScript、Android 和 iOS，可支援多種不同的應用程式架構和平台。
@@ -56,7 +56,7 @@ MSAL 可用於許多應用程式案例，包括：
 | --- | --- | 
 | [MSAL.NET](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet)| .NET Framework、.NET Core、Xamarin Android、Xamarin iOS、通用 Windows 平台|
 | [MSAL.js](https://github.com/AzureAD/microsoft-authentication-library-for-js)| JavaScript/TypeScript 架構，例如 AngularJS、Ember.js、Durandal.js|
-| [適用於 Android 的 MSAL (預覽)](https://github.com/AzureAD/microsoft-authentication-library-for-android)|Android|
+| [適用於 Android 的 MSAL](https://github.com/AzureAD/microsoft-authentication-library-for-android)|Android|
 | [適用于 iOS 和 macOS 的 MSAL](https://github.com/AzureAD/microsoft-authentication-library-for-objc)|iOS 和 macOS|
 | [MSAL4J 預覽](https://github.com/AzureAD/microsoft-authentication-library-for-java)|Java|
 

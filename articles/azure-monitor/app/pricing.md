@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.reviewer: mbullwin
 ms.date: 10/03/2019
 ms.author: dalek
-ms.openlocfilehash: 55ff134bfa76634250b7495120432d7310b07c06
-ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
+ms.openlocfilehash: 4674dede5912dc1dc64bd0e092e28461f30bebcd
+ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72431870"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72554232"
 ---
 # <a name="manage-usage-and-costs-for-application-insights"></a>管理 Application Insights 的使用量和成本
 
@@ -170,7 +170,7 @@ Application Insights 資源的預設保留期為90天。 可以為每個 Applica
 
 ![調整每日遙測資料量上限](./media/pricing/pricing-005.png)
 
-您也可以使用[Powershell 以程式設計](powershell.md)方式使用 `retentionInDays` 參數來設定保留期。 此外，如果您將資料保留期設定為30天，您可以使用 `immediatePurgeDataOn30Days` 參數來觸發立即清除較舊的資料，這可能適用于合規性相關案例。 這種清除功能只會透過 Azure Resource Manager 公開，而且應該小心使用。 
+您也可以使用[Powershell 以程式設計](powershell.md#set-the-data-retention)方式使用 `retentionInDays` 參數來設定保留期。 此外，如果您將資料保留期設定為30天，您可以使用 `immediatePurgeDataOn30Days` 參數來觸發立即清除較舊的資料，這可能適用于合規性相關案例。 這種清除功能只會透過 Azure Resource Manager 公開，而且應該小心使用。 
 
 在2019年12月開始針對較長的保留期計費時，保留超過90天的資料會以目前針對 Azure Log Analytics 資料保留期計費的費率來計費。 若要深入瞭解，請[Azure 監視器定價頁面](https://azure.microsoft.com/pricing/details/monitor/)。 藉由[投票此建議](https://feedback.azure.com/forums/357324-azure-monitor-application-insights/suggestions/17454031)，隨時掌握最新的可變保留進度。 
 
