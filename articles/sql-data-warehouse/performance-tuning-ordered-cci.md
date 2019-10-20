@@ -10,12 +10,12 @@ ms.subservice: development
 ms.date: 09/05/2019
 ms.author: xiaoyul
 ms.reviewer: nibruno; jrasnick
-ms.openlocfilehash: 0acdf1496151df57d4097ce5bc71d782dc465873
-ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
-ms.translationtype: HT
+ms.openlocfilehash: 37d8f17e825daa3a1c160509b1a38f8c70256d1c
+ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72554543"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72595377"
 ---
 # <a name="performance-tuning-with-ordered-clustered-columnstore-index"></a>使用已排序叢集資料行存放區索引的效能微調  
 
@@ -125,10 +125,6 @@ OPTION (MAXDOP 1);
 4.  在 < Table_B 上執行 ALTER INDEX < Ordered_CCI_Index > > 在資料表 B 上重建 PARTITION = < Partition_ID > 以重建切換的資料分割。  
 5.  針對 Table_A 中的每個資料分割，重複步驟3和4。
 6.  當所有分割區從 Table_A 切換到 Table_B 並已重建之後，請卸載 Table_A，並將 Table_B 重新命名為 Table_A。 
-
->[!NOTE]
->在 Azure SQL 資料倉儲的已排序叢集資料行存放區索引（CCI）預覽期間，如果透過在分割區資料表上建立叢集資料行存放區索引來建立或重建已排序的 CCI，則可能會產生重複的資料。 不涉及資料遺失。 此問題的修正即將推出。 如需因應措施，使用者可以使用 CTAS 命令，在資料分割資料表上建立已排序的 CCI
-
 
 ## <a name="examples"></a>範例
 

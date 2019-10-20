@@ -9,12 +9,12 @@ ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: conceptual
 ms.date: 07/26/2019
-ms.openlocfilehash: 9cb86d65c84f9a315541172f5d0efa77eee3e7ed
-ms.sourcegitcommit: f29fec8ec945921cc3a89a6e7086127cc1bc1759
+ms.openlocfilehash: d6530eb95dc26b9abe4bb27146b16eb2952e9f9b
+ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72529321"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72595682"
 ---
 # <a name="connect-to-azure-virtual-networks-from-azure-logic-apps-by-using-an-integration-service-environment-ise"></a>透過使用整合服務環境 (ISE) 從 Azure Logic Apps 連線至 Azure 虛擬網路
 
@@ -49,6 +49,8 @@ ISE 已增加執行持續時間、儲存體保留期、輸送量、HTTP 要求�
   * 您的虛擬網路必須有四個*空白*子網，才能在 ISE 中建立及部署資源。 您可以事先建立這些子網，也可以等到建立 ISE，讓您可以同時建立子網。 深入瞭解[子網需求](#create-subnet)。
 
   * 子網名稱的開頭必須是字母字元或底線，而且不能使用下列字元： `<`、`>`、`%`、`&`、`\\`、`?`、`/`。 
+  
+  * 如果您想要透過 Azure Resource Manager 範本部署 ISE，請先確定您將一個空白子網委派給 Microsoft. 邏輯/integrationServiceEnvironment。 當您透過 Azure 入口網站部署時，不需要執行此委派。
 
   * 請確定您的虛擬網路[可使用這些埠](#ports)，讓您的 ISE 能夠正常運作並保持可存取狀態。
 

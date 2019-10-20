@@ -3,19 +3,18 @@ layout: HubPage
 hide_bc: false
 title: Azure 監視器 Application Insights 文件 - 教學課程和 API 參考 | Microsoft Docs
 description: Azure Monitor Application Insights 提供深入的程式碼層級應用程式效能監視。
-services: application-insights
-author: mrbullwinkle
-manager: carmonm
 ms.service: application-insights
-ms.topic: landing-page
-ms.date: 01/15/2019
+ms.subservice: ''
+ms.topic: hub-page
+author: mrbullwinkle
 ms.author: mbullwin
-ms.openlocfilehash: 6f35bf82e1c3275772bc9f5ccdcaceed024bd7d9
-ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
+ms.date: 01/15/2019
+ms.openlocfilehash: 254cd4e67c0c64ba9b21133e957ae2cacfefe7a7
+ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68967778"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72596810"
 ---
 <div id="main" class="v2">
     <div class="container">
@@ -64,7 +63,7 @@ ms.locfileid: "68967778"
                                             <div class="cardPadding">
                                                 <div class="card">
                                                     <div class="cardText">
-                                                        <h3>新功能</h3>
+                                                        <h3>新增功能？</h3>
                                                         <p>
                                                             <a href="./app/azure-vm-vmss-apps.md">適用于 Azure VM 和 Azure 虛擬機器擴展集應用程式的無程式碼監視</a><br>
                                                             <a href="./app/kubernetes.md">監視 Kubernetes 應用程式</a><br>
@@ -110,7 +109,7 @@ ms.locfileid: "68967778"
                                                             <a href="./app/proactive-arm-config.md">運用範本管理智慧偵測</a>
                                                         </p>
                                                         <br><br>
-                                                        <h3>參考資料</h3>
+                                                        <h3>參考</h3>
                                                         <p>
                                                             <a href="./app/auto-collect-dependencies.md">相依性自動收集</a><br>
                                                             <a href="./app/correlation.md">遙測相互關聯</a><br>
@@ -184,7 +183,7 @@ ms.locfileid: "68967778"
                                                     <div class="cardText">
                                                         <h3>使用者行為分析</h3>
                                                         <p>
-                                                            <a href="./app/usage-overview.md">概觀</a><br>
+                                                            <a href="./app/usage-overview.md">Overview</a><br>
                                                             <a href="./app/usage-send-user-context.md">傳送使用者內容識別碼</a><br>
                                                             <a href="./app/usage-segmentation.md">使用者、工作階段和事件</a><br>
                                                             <a href="./app/usage-funnels.md">漏斗圖</a><br>
@@ -217,7 +216,7 @@ ms.locfileid: "68967778"
                                                         <br><br>
                                                         <h3>資料模型</h3>
                                                         <p>
-                                                            <a href="./app/data-model.md">概觀</a><br>
+                                                            <a href="./app/data-model.md">Overview</a><br>
                                                             <a href="./app/data-model-request-telemetry.md">要求</a><br>
                                                             <a href="./app/data-model-dependency-telemetry.md">相依性</a><br>
                                                             <a href="./app/data-model-exception-telemetry.md">例外狀況</a><br>

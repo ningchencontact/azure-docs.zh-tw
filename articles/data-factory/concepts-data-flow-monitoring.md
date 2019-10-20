@@ -7,12 +7,12 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 10/07/2019
-ms.openlocfilehash: 5d69e29c83bcbe433b800d6877ba1c7440eceedc
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.openlocfilehash: e92471bd467557f3ac8eb0404d672355ccab8449
+ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72387979"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72597095"
 ---
 # <a name="monitor-data-flows"></a>監視資料流程
 
@@ -47,6 +47,11 @@ ms.locfileid: "72387979"
   * 計算：您可以使用資料行進行條件式處理，或在資料流程中的運算式內，但不要將它放在接收中
   * 衍生：資料行是您在流程中產生的新資料行，亦即它不存在於來源中
   * 對應：資料行源自來源，而您正在將其對應至接收欄位
+  * 資料流程狀態：執行的目前狀態
+  * 叢集啟動時間：取得資料流程執行之 JIT Spark 計算環境的時間量
+  * 轉換數：在您的流程中執行的轉換步驟數目
+  
+![Acit 資料流程監視](media/data-flow/monitornew.png "資料流程監視新增")  
   
 ## <a name="monitor-icons"></a>監視器圖示
 

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3e1024b529bd099c70b870fe8b059d4982f04e40
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.openlocfilehash: 66e583a75f7103a7cccf560d537e440ba47cae5a
+ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72389567"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72596346"
 ---
 # <a name="how-to-plan-your-hybrid-azure-active-directory-join-implementation"></a>如何：規劃混合式 Azure Active Directory 聯結執行
 
@@ -75,7 +75,7 @@ ms.locfileid: "72389567"
 
 如果您的環境包含將識別資料同步處理至多個 Azure AD 租使用者的單一 AD 樹系，則目前不支援混合式 Azure AD 聯結。
 
-使用虛擬桌面基礎結構（VDI）時，目前不支援加入混合式 Azure AD。
+如果您的環境使用虛擬桌面基礎結構（VDI），請參閱[裝置身分識別和桌面虛擬化](https://docs.microsoft.com/en-us/azure/active-directory/devices/howto-device-identity-virtual-desktop-infrastructure)。
 
 符合 FIPS 規範的 TPM 2.0 支援混合式 Azure AD 聯結，TPM 1.2 則不支援。 如果您的裝置具有 FIPS 相容的 TPM 1.2，您必須先停用它們，再繼續進行混合式 Azure AD 聯結。 Microsoft 不會提供任何工具來停用 Tpm 的 FIPS 模式，因為它相依于 TPM 製造商。 請洽詢您的硬體 OEM 以取得支援。 從 WIndows 10 1903 版本開始，Tpm 1.2 不會用於混合式 Azure AD 聯結，而那些 Tpm 的裝置將會被視為沒有 TPM。
 

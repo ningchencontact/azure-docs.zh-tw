@@ -5,89 +5,58 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 08/12/2019
+ms.date: 10/17/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: blobs
-ms.openlocfilehash: 59de768e75a88d7cfa5b68fa306d0e83f1aa0ba3
-ms.sourcegitcommit: 2d9a9079dd0a701b4bbe7289e8126a167cfcb450
+ms.openlocfilehash: c75a13a20c1dbb222db69145e24838deb111fb66
+ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/29/2019
-ms.locfileid: "71671335"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72595220"
 ---
 # <a name="create-a-user-delegation-sas-for-a-container-or-blob-with-net-preview"></a>使用 .NET 建立容器或 blob 的使用者委派 SAS （預覽）
 
 [!INCLUDE [storage-auth-sas-intro-include](../../../includes/storage-auth-sas-intro-include.md)]
 
-本文說明如何使用 Azure Active Directory （Azure AD）認證，利用[適用于 .net 的 Azure 儲存體用戶端程式庫](https://www.nuget.org/packages/Azure.Storage.Blobs)來建立容器或 blob 的使用者委派 SAS。
+本文說明如何使用 Azure Active Directory （Azure AD）認證，利用適用于 .NET 的 Azure 儲存體用戶端程式庫來建立容器或 blob 的使用者委派 SAS。
 
 [!INCLUDE [storage-auth-user-delegation-include](../../../includes/storage-auth-user-delegation-include.md)]
 
+## <a name="authenticate-with-the-azure-identity-library-preview"></a>使用 Azure 身分識別程式庫（預覽）進行驗證
+
+適用于 .NET 的 Azure 身分識別用戶端程式庫（預覽）會驗證安全性主體。 當您的程式碼在 Azure 中執行時，安全性主體是適用于 Azure 資源的受控識別。
+
+當您的程式碼在開發環境中執行時，可能會自動處理驗證，或視您使用的工具而定，可能需要瀏覽器登入。 Microsoft Visual Studio 支援單一登入（SSO），讓作用中的 Azure AD 使用者帳戶自動用於驗證。 如需 SSO 的詳細資訊，請參閱[單一登入應用程式](../../active-directory/manage-apps/what-is-single-sign-on.md)。
+
+其他開發工具可能會提示您透過網頁瀏覽器登入。 您也可以使用服務主體，從開發環境進行驗證。 如需詳細資訊，請參閱[在入口網站中建立 Azure 應用程式](../../active-directory/develop/howto-create-service-principal-portal.md)的身分識別。
+
+驗證之後，Azure 身分識別用戶端程式庫會取得權杖認證。 然後，此權杖認證會封裝在您建立來對 Azure 儲存體執行作業的服務用戶端物件中。 程式庫會藉由取得適當的權杖認證，順暢地為您處理這項工作。
+
+如需 Azure 身分識別用戶端程式庫的詳細資訊，請參閱[適用于 .net 的 azure 身分識別用戶端程式庫](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/identity/Azure.Identity)。
+
+## <a name="assign-rbac-roles-for-access-to-data"></a>指派 RBAC 角色以存取資料
+
+當 Azure AD 安全性主體嘗試存取 blob 資料時，該安全性主體必須擁有該資源的許可權。 無論安全性主體是 Azure 中的受控識別，或是在開發環境中執行程式碼的 Azure AD 使用者帳戶，都必須將 RBAC 角色指派給安全性主體，以授與 Azure 儲存體中 blob 資料的存取權。 如需透過 RBAC 指派許可權的相關資訊，請參閱[使用 Azure Active Directory 授權存取 Azure blob 和佇列](../common/storage-auth-aad.md#assign-rbac-roles-for-access-rights)中的
+
 ## <a name="install-the-preview-packages"></a>安裝預覽套件
 
-本文中的範例會使用適用于 Blob 儲存體的 Azure 儲存體用戶端程式庫的最新預覽版本。 若要安裝預覽套件，請從 NuGet 套件管理員主控台執行下列命令：
+本文中的範例會使用[適用于 Blob 儲存體的 Azure 儲存體用戶端程式庫](https://www.nuget.org/packages/Azure.Storage.Blobs)的最新預覽版本。 若要安裝預覽套件，請從 NuGet 套件管理員主控台執行下列命令：
 
-```
+```powershell
 Install-Package Azure.Storage.Blobs -IncludePrerelease
 ```
 
-本文中的範例也會使用適用于 .NET 的 Azure 身分[識別用戶端程式庫](https://www.nuget.org/packages/Azure.Identity/)的最新預覽版本，以 Azure AD 認證進行驗證。 Azure 身分識別用戶端程式庫會驗證安全性主體。 然後，已驗證的安全性主體就可以建立使用者委派 SAS。 如需 Azure 身分識別用戶端程式庫的詳細資訊，請參閱[適用于 .net 的 azure 身分識別用戶端程式庫](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/identity/Azure.Identity)。
+本文中的範例也會使用適用于 .NET 的 Azure 身分[識別用戶端程式庫](https://www.nuget.org/packages/Azure.Identity/)的最新預覽版本，以 Azure AD 認證進行驗證。 若要安裝預覽套件，請從 NuGet 套件管理員主控台執行下列命令：
 
-```
+```powershell
 Install-Package Azure.Identity -IncludePrerelease
 ```
 
-## <a name="create-a-service-principal"></a>建立服務主體
-
-若要透過 Azure 身分識別用戶端程式庫使用 Azure AD 認證進行驗證，請根據您程式碼的執行位置，使用服務主體或受控識別做為安全性主體。 如果您的程式碼是在開發環境中執行，請將服務主體用於測試用途。 如果您的程式碼正在 Azure 中執行，請使用受控識別。 本文假設您是從開發環境執行程式碼，並顯示如何使用服務主體來建立使用者委派 SAS。
-
-若要使用 Azure CLI 建立服務主體並指派 RBAC 角色，請呼叫[az ad sp create for rbac](/cli/azure/ad/sp#az-ad-sp-create-for-rbac)命令。 提供 Azure 儲存體資料存取角色，以指派給新的服務主體。 角色必須包含**storageAccounts/blobServices/generateUserDelegationKey**動作。 如需有關 Azure 儲存體提供之內建角色的詳細資訊，請參閱[Azure 資源的內建角色](../../role-based-access-control/built-in-roles.md)。
-
-此外，請提供角色指派的範圍。 服務主體會建立使用者委派金鑰，這是在儲存體帳戶層級執行的作業，因此角色指派的範圍應設定為儲存體帳戶、資源群組或訂用帳戶的層級。 如需建立使用者委派 SAS 之 RBAC 許可權的詳細資訊，請參閱[建立使用者委派 sas （REST API）](/rest/api/storageservices/create-user-delegation-sas)中的**使用 rbac 指派許可權**一節。
-
-如果您沒有足夠的許可權可將角色指派給服務主體，您可能需要要求帳戶擁有者或系統管理員執行角色指派。
-
-下列範例會使用 Azure CLI 建立新的服務主體，並使用帳戶範圍將**儲存體 Blob 資料讀取器**角色指派給它
-
-```azurecli-interactive
-az ad sp create-for-rbac \
-    --name <service-principal> \
-    --role "Storage Blob Data Reader" \
-    --scopes /subscriptions/<subscription>/resourceGroups/<resource-group>/providers/Microsoft.Storage/storageAccounts/<storage-account>
-```
-
-@No__t-0 命令會以 JSON 格式傳回服務主體屬性的清單。 複製這些值，讓您可以在下一個步驟中使用它們來建立必要的環境變數。
-
-```json
-{
-    "appId": "generated-app-ID",
-    "displayName": "service-principal-name",
-    "name": "http://service-principal-uri",
-    "password": "generated-password",
-    "tenant": "tenant-ID"
-}
-```
-
-> [!IMPORTANT]
-> RBAC 角色指派可能需要幾分鐘的時間才能傳播。
-
-## <a name="set-environment-variables"></a>設定環境變數
-
-Azure 身分識別用戶端程式庫會在執行時間讀取來自三個環境變數的值，以驗證服務主體。 下表描述要針對每個環境變數設定的值。
-
-|環境變數|值
-|-|-
-|`AZURE_CLIENT_ID`|服務主體的應用程式識別碼
-|`AZURE_TENANT_ID`|服務主體的 Azure AD 租使用者識別碼
-|`AZURE_CLIENT_SECRET`|為服務主體產生的密碼
-
-> [!IMPORTANT]
-> 設定環境變數之後，請關閉並重新開啟主控台視窗。 如果您使用 Visual Studio 或其他開發環境，您可能需要重新開機開發環境，才能讓它註冊新的環境變數。
-
 ## <a name="add-using-directives"></a>新增 using 指示詞
 
-將下列 `using` 指示詞新增至您的程式碼，以使用 Azure 身分識別和 Azure 儲存體用戶端程式庫的預覽版本。
+將下列 `using` 指示詞新增至您的程式碼，以使用 Azure 身分識別的預覽版本和 Azure 儲存體用戶端程式庫。
 
 ```csharp
 using System;
@@ -100,11 +69,11 @@ using Azure.Storage.Blobs;
 using Azure.Storage.Blobs.Models;
 ```
 
-## <a name="authenticate-the-service-principal"></a>驗證服務主體
+## <a name="get-an-authenticated-token-credential"></a>取得已驗證的權杖認證
 
-若要驗證服務主體，請建立[DefaultAzureCredential](/dotnet/api/azure.identity.defaultazurecredential)類別的實例。 @No__t-0 的函數會讀取您先前建立的環境變數。
+若要取得權杖認證，讓您的程式碼可以用來授權 Azure 儲存體的要求，請建立[DefaultAzureCredential](/dotnet/api/azure.identity.defaultazurecredential)類別的實例。
 
-下列程式碼片段顯示如何取得已驗證的認證，並使用它來建立 Blob 儲存體的服務用戶端
+下列程式碼片段顯示如何取得已驗證的權杖認證，並使用它來建立 Blob 儲存體的服務用戶端：
 
 ```csharp
 string blobEndpoint = string.Format("https://{0}.blob.core.windows.net", accountName);
@@ -273,7 +242,7 @@ private static async Task ReadBlobWithSasAsync(Uri sasUri)
 
 [!INCLUDE [storage-blob-dotnet-resources-include](../../../includes/storage-blob-dotnet-resources-include.md)]
 
-## <a name="see-also"></a>另請參閱
+## <a name="see-also"></a>請參閱
 
 - [取得使用者委派金鑰作業](/rest/api/storageservices/get-user-delegation-key)
 - [建立使用者委派 SAS （REST API）](/rest/api/storageservices/create-user-delegation-sas)

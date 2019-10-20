@@ -9,12 +9,12 @@ ms.topic: article
 ms.service: virtual-machines-linux
 ms.tgt_pltfrm: linux
 ms.subservice: disks
-ms.openlocfilehash: d16e37849ce8ba043fdb1fddb13df2abe8732cda
-ms.sourcegitcommit: a19f4b35a0123256e76f2789cd5083921ac73daf
+ms.openlocfilehash: dfcf9ea61a1f0fb5fd2d3b613c2449480753b3a1
+ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71717179"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72595105"
 ---
 # <a name="upload-a-vhd-to-azure-using-azure-cli"></a>使用 Azure CLI 將 vhd 上傳至 Azure
 
@@ -29,7 +29,7 @@ ms.locfileid: "71717179"
 - 下載最新[版本的 AzCopy v10](../../storage/common/storage-use-azcopy-v10.md#download-and-install-azcopy)。
 - [安裝 Azure CLI](/cli/azure/install-azure-cli)。
 - 儲存在本機的 vhd 檔案
-- 如果您想要從-pem 上傳 vhd：已[針對 Azure 備](../windows/prepare-for-upload-vhd-image.md)妥並儲存在本機的 vhd。
+- 如果您想要從 on pem 上傳 vhd：已[針對 Azure 準備](../windows/prepare-for-upload-vhd-image.md)的 vhd，儲存在本機上。
 - 或者，如果您想要執行複製動作，則是 Azure 中的受控磁片。
 
 ## <a name="create-an-empty-managed-disk"></a>建立空的受控磁片
@@ -41,7 +41,7 @@ ms.locfileid: "71717179"
 - ReadToUpload，這表示磁片已準備好接收上傳，但未產生任何[安全存取](https://docs.microsoft.com/azure/storage/common/storage-dotnet-shared-access-signature-part-1)簽章（SAS）。
 - ActiveUpload，這表示磁片已準備好接收上傳，並已產生 SAS。
 
-在上述任一種狀態中，不論實際的磁片類型為何，受控磁片都會以[標準 HDD 定價](https://azure.microsoft.com/pricing/details/managed-disks/)計費。 例如，P10 會以 S10 計費。 在對受控磁片呼叫`revoke-access`之前，這會是 true，這是將磁片連結至 VM 所需的值。
+在上述任一種狀態中，不論實際的磁片類型為何，受控磁片都會以[標準 HDD 定價](https://azure.microsoft.com/pricing/details/managed-disks/)計費。 例如，P10 會以 S10 計費。 這會是 true，直到在受控磁片上呼叫 `revoke-access` 為止，若要將磁片連結至 VM，這是必要的。
 
 您必須要有您想要上傳之 vhd 的檔案大小（以位元組為單位），才可以建立空的標準 HDD 來進行上傳。 若要取得此項，您可以使用 `wc -c <yourFileName>.vhd` 或 `ls -al <yourFileName>.vhd`。 指定 **--upload-size-bytes**參數時，會使用這個值。
 
@@ -81,7 +81,7 @@ az disk grant-access -n mydiskname -g resourcegroupname --access-level Write --d
 AzCopy.exe copy "c:\somewhere\mydisk.vhd" "sas-URI" --blob-type PageBlob
 ```
 
-如果您的 sas 在上傳期間過期，而且`revoke-access`您尚未呼叫，您可以使用`grant-access`，再次取得新的 sas 以繼續上傳。
+如果您的 SAS 在上傳期間過期，而且您尚未呼叫 `revoke-access`，您可以使用 `grant-access` 再次取得新的 SAS 來繼續上傳。
 
 上傳完成之後，而且您不再需要將任何其他資料寫入磁片，請撤銷 SAS。 撤銷 SAS 將會變更受控磁片的狀態，並可讓您將磁片連結至 VM。
 
@@ -98,7 +98,7 @@ az disk revoke-access -n mydiskname -g resourcegroupname
 > [!IMPORTANT]
 > 當您從 Azure 提供受控磁片的磁片大小（以位元組為單位）時，您需要新增512的位移。 這是因為在傳回磁片大小時，Azure 會省略頁尾。 如果您不這麼做，複製將會失敗。 下列腳本已經為您執行這項工作。
 
-以您的值取代 `<sourceResourceGroupHere>`、`<sourceDiskNameHere>`、`<targetDiskNameHere>`、`<targetResourceGroupHere>` 和 `<yourTargetLocationHere>` （位置值的範例），然後執行下列腳本以複製受控磁片。
+使用您的值取代 `<sourceResourceGroupHere>`、`<sourceDiskNameHere>`、`<targetDiskNameHere>`、`<targetResourceGroupHere>` 和 `<yourTargetLocationHere>` （位置值的範例），然後執行下列腳本以複製受控磁片。
 
 ```bash
 sourceDiskName = <sourceDiskNameHere>
@@ -109,11 +109,11 @@ targetLocale = <yourTargetLocationHere>
 
 sourceDiskSizeBytes= $(az disk show -g $sourceRG -n $sourceDiskName --query '[uniqueId]' -o tsv)
 
-az disk create -n $targetRG -n $targetDiskName -l $targetLocale --for-upload --upload-size-bytes $(($sourceDiskSizeBytes+512)) --sku standard_lrs
+az disk create -g $targetRG -n $targetDiskName -l $targetLocale --for-upload --upload-size-bytes $(($sourceDiskSizeBytes+512)) --sku standard_lrs
 
 targetSASURI = $(az disk grant-access -n $targetDiskName -g $targetRG  --access-level Write --duration-in-seconds 86400 -o tsv)
 
-sourceSASURI=$(az disk grant-access -n <sourceDiskNameHere> -g $sourceRG --duration-in-seconds 86400 --query [acessSas] -o tsv)
+sourceSASURI=$(az disk grant-access -n $sourceDiskName -g $sourceRG --duration-in-seconds 86400 --query [accessSas] -o tsv)
 
 .\azcopy copy $sourceSASURI $targetSASURI --blob-type PageBlob
 
@@ -126,4 +126,4 @@ az disk revoke-access -n $targetDiskName -g $targetRG
 
 既然您已成功將 vhd 上傳至受控磁片，您可以將磁片連結至 VM 並開始使用它。
 
-若要瞭解如何將磁片連接至 VM，請參閱主題中的文章：[將磁片新增至 LINUX VM](add-disk.md)。
+若要瞭解如何將磁片連接至 VM，請參閱主題：[將磁片新增至 LINUX VM](add-disk.md)中的文章。

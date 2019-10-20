@@ -1,6 +1,6 @@
 ---
-title: 登入使用者的 Web 應用程式 (程式碼設定)-Microsoft 身分識別平臺
-description: 瞭解如何建立可登入使用者的 web 應用程式 (程式碼設定)
+title: 登入使用者的 Web 應用程式（程式碼設定）-Microsoft 身分識別平臺
+description: 瞭解如何建立可登入使用者的 web 應用程式（程式碼設定）
 services: active-directory
 documentationcenter: dev-center-name
 author: jmprieur
@@ -15,12 +15,12 @@ ms.date: 09/17/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1453821561ab7bb361fbb3e5d57634cf23a7be2c
-ms.sourcegitcommit: 0486aba120c284157dfebbdaf6e23e038c8a5a15
+ms.openlocfilehash: f558ecf583c96f36b8bbee19c7c9cbb2ee57aa31
+ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71310068"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72596737"
 ---
 # <a name="web-app-that-signs-in-users---code-configuration"></a>登入使用者的 Web 應用程式-程式碼設定
 
@@ -29,11 +29,11 @@ ms.locfileid: "71310068"
 ## <a name="libraries-used-to-protect-web-apps"></a>用來保護 Web Apps 的程式庫
 
 <!-- This section can be in an include for Web App and Web APIs -->
-用來保護 Web 應用程式 (和 Web API) 的程式庫包括:
+用來保護 Web 應用程式（和 Web API）的程式庫包括：
 
 | 平台 | 程式庫 | 描述 |
 |----------|---------|-------------|
-| ![.NET](media/sample-v2-code/logo_net.png) | [適用于 .NET 的識別模型延伸模組](https://github.com/AzureAD/azure-activedirectory-identitymodel-extensions-for-dotnet/wiki) | 適用于 .NET 的 Microsoft 身分識別延伸模組是由 ASP.NET 和 ASP.NET Core 直接使用, 它會建議一組在 .NET Framework 和 .NET Core 上執行的 Dll。 從 ASP.NET/ASP.NET 核心 Web 應用程式, 您可以使用**TokenValidationParameters**類別來控制權杖驗證 (尤其是在某些 ISV 案例中) |
+| ![.NET](media/sample-v2-code/logo_net.png) | [適用于 .NET 的識別模型延伸模組](https://github.com/AzureAD/azure-activedirectory-identitymodel-extensions-for-dotnet/wiki) | 適用于 .NET 的 Microsoft 身分識別延伸模組是由 ASP.NET 和 ASP.NET Core 直接使用，它會建議一組在 .NET Framework 和 .NET Core 上執行的 Dll。 從 ASP.NET/ASP.NET 核心 Web 應用程式，您可以使用**TokenValidationParameters**類別來控制權杖驗證（尤其是在某些 ISV 案例中） |
 | ![Java](media/sample-v2-code/small_logo_java.png) | [msal4j](https://github.com/AzureAD/microsoft-authentication-library-for-java/wiki) | 適用于 JAVA 的 MSAL-目前為公開預覽狀態 |
 | ![Python](media/sample-v2-code/small_logo_python.png) | [MSAL Python](https://github.com/AzureAD/microsoft-authentication-library-for-python/wiki) | 適用于 Python 的 MSAL-目前為公開預覽狀態 |
 
@@ -41,7 +41,7 @@ ms.locfileid: "71310068"
 
 # <a name="aspnet-coretabaspnetcore"></a>[ASP.NET Core](#tab/aspnetcore)
 
-本文中的程式碼片段和下列專案會從[ASP.NET Core Web 應用程式累加式教學課程 (第1章)](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/tree/master/1-WebApp-OIDC/1-1-MyOrg)中解壓縮。
+本文中的程式碼片段和下列專案會從[ASP.NET Core Web 應用程式累加式教學課程（第1章）](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/tree/master/1-WebApp-OIDC/1-1-MyOrg)中解壓縮。
 
 您可能想要參考此教學課程，以取得完整的執行詳細資料。
 
@@ -67,13 +67,13 @@ ms.locfileid: "71310068"
 
 ## <a name="configuration-files"></a>設定檔
 
-使用 Microsoft 身分識別平臺登入使用者的 Web 應用程式，通常是透過設定檔來設定。 您需要填寫的設定如下:
+使用 Microsoft 身分識別平臺登入使用者的 Web 應用程式，通常是透過設定檔來設定。 您需要填寫的設定如下：
 
-- 如果您`Instance`想要讓應用程式執行（例如在國家雲端中）
-- 中的物件`tenantId`
-- 從`clientId` Azure 入口網站複製的應用程式的。
+- 如果您想要讓應用程式執行（例如在國家雲端中），則會 `Instance` 雲端
+- `tenantId` 中的物件
+- 從 Azure 入口網站複製的應用程式 `clientId`。
 
-有時候，應用程式可以由`authority`參數化，這是`instance`和的串連。`tenantId`
+有時候，應用程式可以由 `authority` 參數化，也就是 `instance` 和 `tenantId` 的串連。
 
 # <a name="aspnet-coretabaspnetcore"></a>[ASP.NET Core](#tab/aspnetcore)
 
@@ -104,7 +104,7 @@ ms.locfileid: "71310068"
 }
 ```
 
-在 ASP.NET Core 中，還有另一個檔案[properties\launchSettings.json](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/blob/bc564d68179c36546770bf4d6264ce72009bc65a/1-WebApp-OIDC/1-1-MyOrg/Properties/launchSettings.json#L6-L7) ，其中包含您`applicationUrl`應用程式的 URL （）`sslPort`和 SSL 埠（），以及各種設定檔。
+在 ASP.NET Core 中，還有另一個檔案[properties\launchSettings.json](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/blob/bc564d68179c36546770bf4d6264ce72009bc65a/1-WebApp-OIDC/1-1-MyOrg/Properties/launchSettings.json#L6-L7) ，其中包含您應用程式的 URL （`applicationUrl`）和 SSL 埠（`sslPort`），以及各種設定檔。
 
 ```Json
 {
@@ -136,9 +136,9 @@ ms.locfileid: "71310068"
 }
 ```
 
-在 Azure 入口網站中, 您必須在應用程式的**驗證**頁面中註冊的回復 uri, 必須符合這些 url;也就是說, 在上述兩個配置`https://localhost:44321/signin-oidc`檔中, 它們會是`http://localhost:3110` applicationUrl, 但`sslPort`會指定 (44321) `appsettings.json`, 而`CallbackPath`則會`/signin-oidc`如中所定義。
+在 Azure 入口網站中，您必須在應用程式的**驗證**頁面中註冊的回復 uri，必須符合這些 url;也就是說，在上述兩個設定檔中，它們會在 applicationUrl `http://localhost:3110` 但指定 `sslPort` （44321）時 `https://localhost:44321/signin-oidc`，而且 `CallbackPath` 會 `/signin-oidc` 如 `appsettings.json` 中所定義。
   
-以同樣的方式，登出 URI 會設定為`https://localhost:44321/signout-callback-oidc`。
+以同樣的方式，登出 URI 會設定為 `https://localhost:44321/signout-callback-oidc`。
 
 # <a name="aspnettabaspnet"></a>[ASP.NET](#tab/aspnet)
 
@@ -164,11 +164,11 @@ ms.locfileid: "71310068"
   </appSettings>
 ```
 
-在 Azure 入口網站中，您必須在應用程式的**驗證**頁面中註冊的回復 uri，必須符合這些 url;也就`https://localhost:44326/`是。
+在 Azure 入口網站中，您必須在應用程式的**驗證**頁面中註冊的回復 uri，必須符合這些 url;這是 `https://localhost:44326/`。
 
 # <a name="javatabjava"></a>[Java](#tab/java)
 
-在 JAVA 中，設定位於位於的[應用程式. properties](https://github.com/Azure-Samples/ms-identity-java-webapp/blob/d55ee4ac0ce2c43378f2c99fd6e6856d41bdf144/src/main/resources/application.properties)檔案中`src/main/resources`
+在 JAVA 中，設定位於[應用程式. properties](https://github.com/Azure-Samples/ms-identity-java-webapp/blob/d55ee4ac0ce2c43378f2c99fd6e6856d41bdf144/src/main/resources/application.properties)檔案中，位於 `src/main/resources`
 
 ```Java
 aad.clientId=Enter_the_Application_Id_here
@@ -178,7 +178,7 @@ aad.redirectUriSignin=http://localhost:8080/msal4jsample/secure/aad
 aad.redirectUriGraphUsers=http://localhost:8080/msal4jsample/graph/users
 ```
 
-在 Azure 入口網站中，您必須在應用程式的**驗證**頁面中註冊的回復 uri，必須符合應用程式所定義的 redirectUris，也就是`http://localhost:8080/msal4jsample/secure/aad`和`http://localhost:8080/msal4jsample/graph/users`
+在 Azure 入口網站中，您必須在應用程式的**驗證**頁面中註冊的回復 uri，必須符合應用程式所定義的 redirectUris，也就是 `http://localhost:8080/msal4jsample/secure/aad` 和 `http://localhost:8080/msal4jsample/graph/users`
 
 # <a name="pythontabpython"></a>[Python](#tab/python)
 
@@ -194,7 +194,7 @@ SESSION_TYPE = "filesystem"  # So token cache will be stored in server-side sess
 ```
 
 > [!NOTE]
-> 本快速入門建議您將用戶端密碼儲存在設定檔中，以方便您進行。 在您的生產應用程式中，您會想要使用其他方式來儲存您的密碼，例如 KeyVault 或環境變數，如 Flask 的檔所述： https://flask.palletsprojects.com/en/1.1.x/config/#configuring-from-environment-variables
+> 本快速入門建議您將用戶端密碼儲存在設定檔中，以方便您進行。 在生產應用程式中，您會想要使用其他方式來儲存您的密碼（例如 KeyVault）或環境變數（如 Flask 的檔中所述）： https://flask.palletsprojects.com/en/1.1.x/config/#configuring-from-environment-variables
 >
 > ```python
 > CLIENT_SECRET = os.getenv("CLIENT_SECRET")
@@ -210,11 +210,11 @@ SESSION_TYPE = "filesystem"  # So token cache will be stored in server-side sess
 
 # <a name="aspnet-coretabaspnetcore"></a>[ASP.NET Core](#tab/aspnetcore)
 
-在 ASP.NET Core Web Apps （和 Web api）中，應用程式會受到保護，因為`[Authorize]`您在控制器或控制器動作上有一個屬性。 這個屬性會檢查使用者是否已驗證。 執行應用程式初始化的程式碼位於檔案中`Startup.cs` ，若要使用 Microsoft 身分識別平臺（先前為 Azure AD v2.0）新增驗證，您必須新增下列程式碼。 程式碼中的批註應該一目了然。
+在 ASP.NET Core Web Apps （和 Web Api）中，應用程式會受到保護，因為您在控制器或控制器動作上有 `[Authorize]` 屬性。 這個屬性會檢查使用者是否已驗證。 執行應用程式初始化的程式碼位於 `Startup.cs` 檔案中，若要使用 Microsoft 身分識別平臺（先前稱為 Azure AD v2.0）新增驗證，您需要新增下列程式碼。 程式碼中的批註應該一目了然。
 
   > [!NOTE]
-  > 如果您使用 Visual studio 內的預設 ASP.NET core Web 專案來啟動專案, `dotnet new mvc`或使用`AddAzureAD`方法, 則預設會提供, 因為相關的套件會自動載入。
-  > 不過, 如果您從頭開始建立專案, 並嘗試使用下面的程式碼, 建議您將 NuGet 套件 **"AspNetCore** " 新增至您的`AddAzureAD`專案, 讓方法可供使用。
+  > 如果您使用 Visual studio 中的預設 ASP.NET core Web 專案啟動專案，或使用 `dotnet new mvc` 則預設會提供方法 `AddAzureAD`，因為相關的封裝會自動載入。
+  > 不過，如果您從頭開始建立專案，並嘗試使用下面的程式碼，我們建議您將 NuGet 套件 **"AspNetCore** " 新增至您的專案，讓 `AddAzureAD` 方法可供使用。
   
 下列程式碼可從啟動中取得[。 cs # L33-L34](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/blob/faa94fd49c2da46b22d6694c4f5c5895795af26d/1-WebApp-OIDC/1-1-MyOrg/Startup.cs#L33-L34)
 
@@ -241,7 +241,7 @@ public class Startup
     }
 ```
 
-是在 WebAppServiceCollectionExtensions 中定義的擴充方法[（Identity](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/blob/faa94fd49c2da46b22d6694c4f5c5895795af26d/Microsoft.Identity.Web/WebAppServiceCollectionExtensions.cs#L23)）。 `AddMicrosoftIdentityPlatformAuthentication` 這樣
+@No__t_0 是在 WebAppServiceCollectionExtensions 中定義的擴充方法[（L23](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/blob/faa94fd49c2da46b22d6694c4f5c5895795af26d/Microsoft.Identity.Web/WebAppServiceCollectionExtensions.cs#L23)）。 這樣
 
 - 新增驗證服務
 - 設定讀取設定檔的選項
@@ -249,10 +249,10 @@ public class Startup
 - 已驗證權杖的簽發者
 - 對應至名稱的宣告會從識別碼權杖中的 "preferred_username" 宣告進行對應 
 
-除了設定之外，您還可以在呼叫`AddMicrosoftIdentityPlatformAuthentication`時指定：
+除了設定之外，您還可以在呼叫 `AddMicrosoftIdentityPlatformAuthentication` 時指定：
 
 - 設定區段的名稱（預設為 AzureAD）
-- 如果您想要追蹤 OpenIdConnect 中介軟體事件，這可協助您在驗證無法執行時疑難排解 Web 應用程式： `subscribeToOpenIdConnectMiddlewareDiagnosticsEvents`將`true`設定為會向您顯示資訊集的詳細資料，ASP.NET Core中介軟體，因為它從 HTTP 回應到中`HttpContext.User`的使用者身分識別。
+- 如果您想要追蹤 OpenIdConnect 中介軟體事件，以便在驗證無法使用時，協助您疑難排解 Web 應用程式：將 `subscribeToOpenIdConnectMiddlewareDiagnosticsEvents` 設定為 `true` 會向您顯示 ASP.NET Core 中介軟體的詳細資訊，從 HTTP 回應到 `HttpContext.User` 中的使用者身分識別。
 
 ```CSharp
 /// <summary>
@@ -313,7 +313,7 @@ public static IServiceCollection AddMicrosoftIdentityPlatformAuthentication(
   ...
 ```
 
-`AadIssuerValidator`類別可讓權杖的簽發者在許多情況下進行驗證（v1.0 或 v2.0 權杖、單一租使用者，或在 Azure 公用雲端中以其個人 Microsoft 帳戶登入使用者的多租使用者應用程式或應用程式，或國家/地區雲端）。 可從[Microsoft. Identity. Web/Resource/AadIssuerValidator 取得。](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/blob/master/Microsoft.Identity.Web/Resource/AadIssuerValidator.cs)
+@No__t_0 類別可讓權杖的簽發者在許多情況下進行驗證（v1.0 或 v2.0 權杖、單一租使用者或應用程式，以使用其個人 Microsoft 帳戶、Azure 公用雲端或國家（地區）登入使用者。雲端）。 可從[Microsoft. Identity. Web/Resource/AadIssuerValidator 取得。](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/blob/master/Microsoft.Identity.Web/Resource/AadIssuerValidator.cs)
 
 # <a name="aspnettabaspnet"></a>[ASP.NET](#tab/aspnet)
 
@@ -343,17 +343,17 @@ public static IServiceCollection AddMicrosoftIdentityPlatformAuthentication(
 
 # <a name="javatabjava"></a>[Java](#tab/java)
 
-JAVA 範例會使用春季架構。 應用程式會受到保護`Filter`，因為您會執行，它會攔截每個 HTTP 回應。 在 JAVA Web 應用程式快速入門中，此`AuthFilter`篩選`src/main/java/com/microsoft/azure/msalwebsample/AuthFilter.java`器是在中。 篩選器會處理 OAuth 2.0 授權碼流程，因此：
+JAVA 範例會使用春季架構。 應用程式會受到保護，因為您會執行會攔截每個 HTTP 回應的 `Filter`。 在 JAVA Web 應用程式快速入門中，此篩選準則會在 `src/main/java/com/microsoft/azure/msalwebsample/AuthFilter.java` 中 `AuthFilter`。 篩選器會處理 OAuth 2.0 授權碼流程，因此：
 
-- 驗證使用者是否已驗證（`isAuthenticated()`方法）
+- 驗證使用者是否已驗證（`isAuthenticated()` 方法）
 - 如果使用者未經過驗證，則會計算 Azure AD 授權端點的 url，並將瀏覽器重新導向至此 URI
 - 回應抵達時，如果包含驗證程式代碼流程，它會讓 msal4j 取得權杖。
 - 當它最後從權杖端點（在重新導向 URI 上）收到權杖時，使用者就已登入。
 
-如需詳細資訊`doFilter()` ，請參閱 AuthFilter 中的方法[。](https://github.com/Azure-Samples/ms-identity-java-webapp/blob/master/src/main/java/com/microsoft/azure/msalwebsample/AuthFilter.java)
+如需詳細資訊，請參閱[AuthFilter](https://github.com/Azure-Samples/ms-identity-java-webapp/blob/master/src/main/java/com/microsoft/azure/msalwebsample/AuthFilter.java)中的 `doFilter()` 方法
 
 > [!NOTE]
-> 的`doFilter()`程式碼會以稍有不同的順序撰寫，但是流程就是其中所述。
+> @No__t_0 的程式碼會以稍有不同的順序撰寫，但是流程就是其中所述。
 
 如需此方法所觸發之授權碼流程的詳細資訊，請參閱[Microsoft 身分識別平臺和 OAuth 2.0 授權碼流程](v2-oauth2-auth-code-flow.md)
 
@@ -381,5 +381,24 @@ Session(app)
 
 在下一篇文章中，您將瞭解如何觸發登入和登出。
 
+# <a name="aspnet-coretabaspnetcore"></a>[ASP.NET Core](#tab/aspnetcore)
+
 > [!div class="nextstepaction"]
-> [登入和登出](scenario-web-app-sign-user-sign-in.md)
+> [登入和登出](https://docs.microsoft.com/azure/active-directory/develop/scenario-web-app-sign-user-sign-in?tabs=aspnetcore)
+
+# <a name="aspnettabaspnet"></a>[ASP.NET](#tab/aspnet)
+
+> [!div class="nextstepaction"]
+> [登入和登出](https://docs.microsoft.com/azure/active-directory/develop/scenario-web-app-sign-user-sign-in?tabs=aspnet)
+
+# <a name="javatabjava"></a>[Java](#tab/java)
+
+> [!div class="nextstepaction"]
+> [登入和登出](https://docs.microsoft.com/azure/active-directory/develop/scenario-web-app-sign-user-sign-in?tabs=java)
+
+# <a name="pythontabpython"></a>[Python](#tab/python)
+
+> [!div class="nextstepaction"]
+> [登入和登出](https://docs.microsoft.com/azure/active-directory/develop/scenario-web-app-sign-user-sign-in?tabs=python)
+
+---

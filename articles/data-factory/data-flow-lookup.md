@@ -6,12 +6,12 @@ ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 10/03/2019
-ms.openlocfilehash: 25d8588f8e2c968dc2516938263aaa7d6ddcff13
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.openlocfilehash: 01a1dba18e21a38695146560bbf85cf1a042ba02
+ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72387862"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72596618"
 ---
 # <a name="azure-data-factory-mapping-data-flow-lookup-transformation"></a>Azure Data Factory 對應的資料流程查閱轉換
 
@@ -29,6 +29,20 @@ ms.locfileid: "72387862"
 
 在您的查閱轉換之後，您可以使用運算式函數 `isMatch()`，利用後續轉換來檢查每個相符資料列的結果，以根據查閱是否導致資料列相符而在邏輯中進行進一步的選擇。
 
+![查閱模式](media/data-flow/lookup111.png "查閱模式")
+
+使用查閱轉換之後，您可以在 ```isMatch()``` 函數上加入條件式分割轉換分割。 在上述範例中，比對資料列會通過最上方的資料流程，而不符合的資料列會流經 ```NoMatch``` 資料流程。
+
+## <a name="first-or-last-value"></a>第一個或最後一個值
+
+當您的查閱有多個相符專案時，您可能會想要藉由挑選第一個或最後一個相符專案來減少多個相符的資料列。 您可以在查閱之後使用「匯總」轉換來執行此動作。
+
+在此情況下，名為 ```PickFirst``` 的匯總轉換會用來從查閱相符專案中挑選第一個值。
+
+![查閱匯總](media/data-flow/lookup333.png "查閱匯總")
+
+![先查閱](media/data-flow/lookup444.png "先查閱")
+
 ## <a name="optimizations"></a>最佳化
 
 在 Data Factory 中，資料流程會在相應放大的 Spark 環境中執行。 如果您的資料集可以放入背景工作節點記憶體空間，我們可以優化您的查閱效能。
@@ -45,4 +59,5 @@ ms.locfileid: "72387862"
 
 ## <a name="next-steps"></a>後續步驟
 
-[聯結](data-flow-join.md)和[存在](data-flow-exists.md)轉換會在 ADF 對應資料流程中執行類似的工作。 接下來請看一下這些轉換。
+* [聯結](data-flow-join.md)和[存在](data-flow-exists.md)轉換會在 ADF 對應資料流程中執行類似的工作。 接下來請看一下這些轉換。
+* 使用具有 ```isMatch()``` 的[條件式分割](data-flow-conditional-split.md)來分割相符和不相符值的資料列

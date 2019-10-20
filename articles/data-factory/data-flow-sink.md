@@ -6,12 +6,12 @@ ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 02/03/2019
-ms.openlocfilehash: 5fc9262dd53f390dbc43646626cc324d8655f1de
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.openlocfilehash: 124b52d920ef36b373eef895187727499068f3eb
+ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72387784"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72596527"
 ---
 # <a name="sink-transformation-for-a-data-flow"></a>資料流程的接收轉換
 
@@ -61,6 +61,10 @@ ms.locfileid: "72387784"
 當您選擇以規則為基礎的對應時，您會指示 ADF 評估相符的運算式，以符合傳入模式規則並定義外寄功能變數名稱。 您可以新增欄位和以規則為基礎之對應的任意組合。 然後，ADF 會根據來源的傳入中繼資料，在執行時間產生功能變數名稱。 您可以在 debug 和使用 [資料預覽] 窗格期間，查看所產生欄位的名稱。
 
 模式比對的詳細資訊位於資料[行模式檔](concepts-data-flow-column-pattern.md)。
+
+您也可以在使用以規則為基礎的比對時輸入正則運算式模式，方法是展開資料列，然後在 [名稱符合：] 旁輸入正則運算式。
+
+![Regex 對應](media/data-flow/scdt1g4.png "Regex 對應")
 
 ## <a name="file-name-options"></a>檔案名稱選項
 

@@ -15,12 +15,12 @@ ms.date: 09/17/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1f9b6d4ce4048b31f17b50184f90aed4d2a8ba81
-ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
+ms.openlocfilehash: 68d47d4233aec62ec5f1955e52025b0d55221af8
+ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71086563"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72596707"
 ---
 # <a name="scenario-web-app-that-signs-in-users"></a>案例：登入使用者的 Web 應用程式
 
@@ -30,39 +30,39 @@ ms.locfileid: "71086563"
 
 [!INCLUDE [Pre-requisites](../../../includes/active-directory-develop-scenarios-prerequisites.md)]
 
-## <a name="getting-started"></a>使用者入門
+## <a name="getting-started"></a>開始使用
 
 # <a name="aspnet-coretabaspnetcore"></a>[ASP.NET Core](#tab/aspnetcore)
 
 如果您想要建立登入使用者的第一個可攜（ASP.NET Core） web 應用程式，請遵循此快速入門：
 
 > [!div class="nextstepaction"]
-> [快速入門：登入使用者 ASP.NET Core web 應用程式](quickstart-v2-aspnet-core-webapp.md)
+> [快速入門： ASP.NET Core 登入使用者的 web 應用程式](quickstart-v2-aspnet-core-webapp.md)
 
 # <a name="aspnettabaspnet"></a>[ASP.NET](#tab/aspnet)
 
 如果您想要瞭解如何將登入新增至舊版 ASP.NET web 應用程式，請嘗試下列教學課程：
 
 > [!div class="nextstepaction"]
-> [快速入門：登入使用者的 ASP.NET web 應用程式](quickstart-v2-aspnet-webapp.md)
+> [快速入門： ASP.NET 可登入使用者的 web 應用程式](quickstart-v2-aspnet-webapp.md)
 
 # <a name="javatabjava"></a>[Java](#tab/java)
 
 如果您是 JAVA 開發人員，請嘗試下列快速入門：
 
 > [!div class="nextstepaction"]
-> [快速入門：將使用 Microsoft 的登入新增至 JAVA web 應用程式](quickstart-v2-java-webapp.md)
+> [快速入門：使用 Microsoft 將登入新增至 JAVA web 應用程式](quickstart-v2-java-webapp.md)
 
 # <a name="pythontabpython"></a>[Python](#tab/python)
 
 如果您使用 Python 進行開發，請嘗試：
 
 > [!div class="nextstepaction"]
-> [快速入門：將使用 Microsoft 的登入新增至 Python web 應用程式](quickstart-v2-python-webapp.md)
+> [快速入門：使用 Microsoft 將登入新增至 Python web 應用程式](quickstart-v2-python-webapp.md)
 
 ---
 
-## <a name="overview"></a>總覽
+## <a name="overview"></a>概觀
 
 您會將驗證新增至您的 web 應用程式，讓它能夠登入使用者。 新增驗證可讓您的 web 應用程式存取有限的設定檔資訊，例如，自訂您提供給其使用者的體驗。 Web apps 會在網頁瀏覽器中驗證使用者。 在此案例中，Web 應用程式會引導使用者的瀏覽器，將他們登入 Azure AD。 Azure AD 會透過使用者的瀏覽器傳回登入回應，其中包含關於安全性權杖中的使用者宣告。 登入使用者利用中介軟體連結[庫](scenario-web-app-sign-user-app-configuration.md#libraries-used-to-protect-web-apps)，簡化了[Open ID Connect](./v2-protocols-oidc.md) standard 通訊協定的使用。
 
@@ -81,5 +81,24 @@ ms.locfileid: "71086563"
 
 ## <a name="next-steps"></a>後續步驟
 
+# <a name="aspnet-coretabaspnetcore"></a>[ASP.NET Core](#tab/aspnetcore)
+
 > [!div class="nextstepaction"]
-> [應用程式註冊](scenario-web-app-sign-user-app-registration.md)
+> [應用程式註冊](https://docs.microsoft.com/azure/active-directory/develop/scenario-web-app-sign-user-app-registration?tabs=aspnetcore?tabs=aspnetcore)
+
+# <a name="aspnettabaspnet"></a>[ASP.NET](#tab/aspnet)
+
+> [!div class="nextstepaction"]
+> [應用程式註冊](https://docs.microsoft.com/azure/active-directory/develop/scenario-web-app-sign-user-app-registration?tabs=aspnet)
+
+# <a name="javatabjava"></a>[Java](#tab/java)
+
+> [!div class="nextstepaction"]
+> [應用程式註冊](https://docs.microsoft.com/azure/active-directory/develop/scenario-web-app-sign-user-app-registration?tabs=java)
+
+# <a name="pythontabpython"></a>[Python](#tab/python)
+
+> [!div class="nextstepaction"]
+> [應用程式註冊](https://docs.microsoft.com/azure/active-directory/develop/scenario-web-app-sign-user-app-registration?tabs=python)
+
+---

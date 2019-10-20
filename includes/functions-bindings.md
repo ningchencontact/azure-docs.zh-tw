@@ -4,16 +4,16 @@ ms.service: azure-functions
 ms.topic: include
 ms.date: 09/04/2018
 ms.author: glenga
-ms.openlocfilehash: 87c438403934df34a02678c805d3622956654b4e
-ms.sourcegitcommit: a7a9d7f366adab2cfca13c8d9cbcf5b40d57e63a
+ms.openlocfilehash: 5d2608d1c374fadac18cebc093ce50ef93f9656a
+ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71172075"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72597409"
 ---
 下表顯示 Azure Functions 執行時間的兩個主要版本中支援的系結：
 
-| Type | 1.x | 2.x<sup>1</sup> | 觸發程序 | Input | Output |
+| Type | 1.x | 2.x<sup>1</sup> | 觸發程序 | 輸入 | 輸出 |
 | ---- | :-: | :-: | :------: | :---: | :----: |
 | [Blob 儲存體](../articles/azure-functions/functions-bindings-storage-blob.md)          |✔|✔|✔|✔|✔|
 | [Cosmos DB](../articles/azure-functions/functions-bindings-documentdb.md)               |✔|✔|✔|✔|✔|
@@ -24,7 +24,7 @@ ms.locfileid: "71172075"
 | [Microsoft Graph<br/>Excel 資料表](../articles/azure-functions/functions-bindings-microsoft-graph.md)   ||✔| |✔|✔|
 | [Microsoft Graph<br/>OneDrive 檔案](../articles/azure-functions/functions-bindings-microsoft-graph.md) ||✔| |✔|✔|
 | [Microsoft Graph<br/>Outlook 電子郵件](../articles/azure-functions/functions-bindings-microsoft-graph.md)  ||✔| | |✔|
-| [Microsoft Graph<br/>事件](../articles/azure-functions/functions-bindings-microsoft-graph.md)         ||✔|✔|✔|✔|
+| [Microsoft Graph <br/>events](../articles/azure-functions/functions-bindings-microsoft-graph.md)         ||✔|✔|✔|✔|
 | [Microsoft Graph<br/>驗證權杖](../articles/azure-functions/functions-bindings-microsoft-graph.md)    ||✔| |✔| |
 | [行動應用程式](../articles/azure-functions/functions-bindings-mobile-apps.md)             |✔| | |✔|✔|
 | [通知中樞](../articles/azure-functions/functions-bindings-notification-hubs.md) |✔|| | |✔|
@@ -36,4 +36,4 @@ ms.locfileid: "71172075"
 | [計時器](../articles/azure-functions/functions-bindings-timer.md)                         |✔|✔|✔| | |
 | [Twilio](../articles/azure-functions/functions-bindings-twilio.md)                       |✔|✔| | |✔|
 
-<sup>1</sup> 在 2.x 中，必須註冊 HTTP 和計時器以外的所有繫結。 請參閱[註冊繫結延伸模組](../articles/azure-functions/functions-bindings-register.md)。
+<sup>1</sup>在2.x 版執行時間中，必須註冊 HTTP 和計時器以外的所有系結。 請參閱[註冊繫結延伸模組](../articles/azure-functions/functions-bindings-register.md)。 版本3.x 也支援所有支援的2.x 系結，除非另有注明。   

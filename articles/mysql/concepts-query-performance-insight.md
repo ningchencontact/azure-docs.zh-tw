@@ -5,24 +5,24 @@ author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 06/27/2019
-ms.openlocfilehash: f6c74582760d77ae4318739c74f77d0bcd0501fe
-ms.sourcegitcommit: 78ebf29ee6be84b415c558f43d34cbe1bcc0b38a
+ms.date: 10/17/2019
+ms.openlocfilehash: b7395a8ab71e860c2e584339dcd581077a4f4020
+ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68950367"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72595463"
 ---
 # <a name="query-performance-insight-in-azure-database-for-mysql"></a>適用於 MySQL 的 Azure 資料庫中的查詢效能深入解析
 
-**適用範圍：** 適用於 MySQL 的 Azure 資料庫5。7
+**適用物件：** 適用於 MySQL 的 Azure 資料庫5。7
 
 > [!IMPORTANT]
 > 查詢效能深入解析處於預覽狀態。
 
 查詢效能深入解析可協助您快速找出執行時間最長的查詢、一段時間後的變化情形，以及受到哪些等候的影響。
 
-## <a name="common-scenarios"></a>常見案例
+## <a name="common-scenarios"></a>一般狀況
 
 ### <a name="long-running-queries"></a>長時間執行的查詢
 
@@ -32,13 +32,13 @@ ms.locfileid: "68950367"
 ### <a name="wait-statistics"></a>等候統計資料
 
 - 瞭解查詢的等候本質
-- 瞭解資源等候的趨勢, 以及資源爭用所在的位置
+- 瞭解資源等候的趨勢，以及資源爭用所在的位置
 
-## <a name="permissions"></a>Permissions
+## <a name="permissions"></a>使用權限
 
 需要**擁有者**或**參與者**權限，才能檢視查詢效能深入解析中的查詢文字。 **讀者**可以檢視圖表與資料表，但無法檢視查詢文字。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 資料必須存在於[查詢存放區](concepts-query-store.md)中，查詢效能深入解析才能運作。
 
@@ -46,20 +46,20 @@ ms.locfileid: "68950367"
 
 Azure 入口網站中的[查詢效能深入解析](concepts-query-performance-insight.md)檢視會以視覺效果呈現來自查詢存放區的重要資訊。
 
-在適用於 MySQL 的 Azure 資料庫伺服器的入口網站頁面中, 選取功能表列的 [**智慧效能**] 區段下的 [**查詢效能深入解析**]。
+在適用於 MySQL 的 Azure 資料庫伺服器的入口網站頁面中，選取功能表列的 [**智慧效能**] 區段下的 [**查詢效能深入解析**]。
 
 ### <a name="long-running-queries"></a>長時間執行的查詢
 
-[**長時間執行查詢**] 索引標籤會依每次執行的平均持續時間, 顯示前5項查詢, 以15分鐘的間隔匯總。 您可以從 [**查詢數目**] 下拉式選來查看更多查詢。 當您這樣做時，特定查詢識別碼的圖表色彩可能會有所變更。
+[**長時間執行查詢**] 索引標籤會依每次執行的平均持續時間，顯示前5項查詢，以15分鐘的間隔匯總。 您可以從 [**查詢數目**] 下拉式選來查看更多查詢。 當您這樣做時，特定查詢識別碼的圖表色彩可能會有所變更。
 
-您可以在圖表中按一下並拖曳來縮小到特定時間範圍。 或者, 使用 [放大] 和 [out] 圖示分別查看較小或較大的時間週期。
+您可以在圖表中按一下並拖曳來縮小到特定時間範圍。 或者，使用 [放大] 和 [out] 圖示分別查看較小或較大的時間週期。
 
 ![查詢效能深入解析長時間執行的查詢](./media/concepts-query-performance-insight/query-performance-insight-landing-page.png) 
 
 ### <a name="wait-statistics"></a>等候統計資料
 
 > [!NOTE]
-> 等候統計資料的目的是為了針對查詢效能問題進行疑難排解。 建議您只針對疑難排解目的開啟此功能。
+> 等候統計資料的目的是為了針對查詢效能問題進行疑難排解。 建議您只針對疑難排解目的開啟此功能。 <br>如果您收到 Azure 入口網站「*遇到 ' microsoft.dbformysql ' 時發生的問題」的錯誤訊息;無法完成要求。若此問題持續發生或未預期，請洽詢支援人員以取得此資訊。* 」 在查看等候統計資料時，請使用較短的時間週期。
 
 [等候統計資料] 會提供執行特定查詢期間所發生的等候事件的視圖。 深入瞭解[MySQL 引擎檔](https://go.microsoft.com/fwlink/?linkid=2098206)中的等候事件種類。
 

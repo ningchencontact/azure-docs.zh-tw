@@ -1,6 +1,6 @@
 ---
 title: 用於 Azure Notebooks 的使用者設定檔和識別碼
-description: 如何使用 Azure Notebooks 建立及管理您的使用者設定檔和使用者識別碼。
+description: 如何使用 Azure Notebooks 建立及管理您的使用者設定檔和使用者識別碼，這會成為共用筆記本 URL 的一部分。
 services: app-service
 documentationcenter: ''
 author: kraigb
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 02/25/2019
 ms.author: kraigb
-ms.openlocfilehash: 1fddefeb2a54ae775a9016799ffff1963eab247e
-ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
+ms.openlocfilehash: 3985e3d5fbe6e24014694665557f13bcc9a35a25
+ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/05/2019
-ms.locfileid: "71970154"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72598200"
 ---
 # <a name="your-profile-and-user-id-for-azure-notebooks"></a>您 Azure Notebooks 的設定檔和使用者識別碼
 
@@ -27,11 +27,11 @@ ms.locfileid: "71970154"
 
 您的使用者識別碼會包含在您用來共用專案和 Notebook 的 URL 中。 下列清單將說明不同的 URL 模式：
 
-- `https://notebooks.azure.com/<user_id>`:您的設定檔頁面。
-- `https://notebooks.azure.com/<user_id>/projects`:您的專案。 您會看到所有專案；其他使用者只會看到您的公用專案。
-- `https://notebooks.azure.com/<user_id>/projects/<project_id>`:專案檔。
-- `https://notebooks.azure.com/<user_id>/projects/<project_id>/clones`:特定專案的複製品。
-- `https://notebooks.azure.com/<user_id>/projects/<project_id>/html/<notebook>.ipynb`:特定 Notebook 或檔案的 HTML 預覽。
+- `https://notebooks.azure.com/<user_id>`：您的設定檔頁面面。
+- `https://notebooks.azure.com/<user_id>/projects`：您的專案。 您會看到所有專案；其他使用者只會看到您的公用專案。
+- `https://notebooks.azure.com/<user_id>/projects/<project_id>`：專案檔案。
+- `https://notebooks.azure.com/<user_id>/projects/<project_id>/clones`：特定專案的複製。
+- `https://notebooks.azure.com/<user_id>/projects/<project_id>/html/<notebook>.ipynb`：特定筆記本或檔案的 HTML 預覽。
 
 ## <a name="your-user-id"></a>您的使用者識別碼
 
@@ -56,14 +56,14 @@ ms.locfileid: "71970154"
 
 若要編輯您的設定檔，請在您的設定檔頁面上使用**編輯設定檔資訊**命令。 設定檔的各區段如下所示：
 
-| Section | 內容 |
+| 區段 | 內容 |
 | --- | --- |
 | 設定檔相片 | 您的設定檔頁面上顯示的影像。 |
 | 帳戶資訊 | 您的顯示名稱、使用者識別碼和公用電子郵件帳戶。 此處的電子郵件帳戶可提供其他使用者與您連絡的管道，且此帳戶可與您用來登入 Azure Notebook 本身的[帳戶](azure-notebooks-user-account.md)不同。 |
 | 設定檔資訊 | 您的所在位置、公司、工作職稱、網站和簡短描述。 |
 | 社交設定檔 | 您的 GItHub、Twitter 和 Facebook 識別碼 (如果您想要加以共用)。 |
-| 隱私權設定 | 提供兩個命令：<ul><li>**匯出我的設定檔**：建立及下載 *.zip* 檔案，其中包含 Azure Notebook 在您的設定檔中儲存的所有資訊，包括您的相片、設定檔資訊和安全性記錄。</li><li>**刪除我的帳戶**：永久刪除您儲存在 Azure Notebook 中的所有個人資訊。</li></ul> |
-| 啟用網站功能 | 可讓您控制 Azure Notebooks 各方面的行為：<ul><li>**Notebook 的整合前端**：可提升 Notebook 的啟動速度和持續性。</li><li>**依預設會以 JupyterLab 執行**：根據預設，Azure Notebook 會提供適用於多數使用者的簡易使用者介面。 JupyterLab 可提供更豐富、但也較複雜的介面，適用於有經驗的使用者。</li><li>**VNext 網站**：可啟用這份文件中顯示的現代化 Web 版面配置。</li></ul> |
+| 隱私權設定 | 提供兩個命令：<ul><li>**匯出我的設定檔**：建立及下載 *.zip* 檔案，其中包含 Azure Notebook 在您的設定檔中儲存的所有資訊，包括您的相片、設定檔資訊和安全性記錄。</li><li>**刪除我的帳戶**：永久刪除儲存在 Azure Notebooks 中的所有個人資訊。</li></ul> |
+| 啟用網站功能 | 可讓您控制 Azure Notebooks 各方面的行為：<ul><li>**Notebook 的整合前端**：可提升 Notebook 的啟動速度和持續性。</li><li>**預設會在 JupyterLab 中**執行：根據預設，Azure Notebooks 提供適用于大部分使用者的簡單使用者介面。 JupyterLab 可提供更豐富、但也較複雜的介面，適用於有經驗的使用者。</li><li>**VNext 網站**：可啟用這份文件中顯示的現代化 Web 版面配置。</li></ul> |
 
 ## <a name="next-steps"></a>後續步驟  
 

@@ -10,15 +10,15 @@ ms.service: active-directory
 ms.topic: conceptual
 ms.workload: identity
 ms.subservice: pim
-ms.date: 04/09/2019
+ms.date: 10/18/2019
 ms.author: curtand
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2b7fc3508f7f672e277577f92218ff1860b676cb
-ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
-ms.translationtype: HT
+ms.openlocfilehash: f54382d652c3fc59b8ff462d41ec8c0fbdbe8498
+ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72559472"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72596698"
 ---
 # <a name="troubleshoot-a-problem-with-privileged-identity-management"></a>疑難排解 Privileged Identity Management 的問題
 
@@ -28,7 +28,7 @@ ms.locfileid: "72559472"
 
 ### <a name="problem"></a>問題
 
-當您嘗試讓使用者符合 Azure AD 系統管理員角色的資格，而且您無法在 Privileged Identity Management 下存取 Azure 資源時，就會收到授權錯誤。 即使您是全域管理員和訂用帳戶的擁有者，您仍無法在 Privileged Identity Management 下存取 Azure 資源。
+身為 Azure 資源的「作用中擁有者」或「使用者存取系統管理員」，您可以在 Privileged Identity Management 中看到您的資源，但無法執行任何動作，例如進行合格指派，或從資源中查看角色指派清單。[總覽] 頁面。 其中任何一項動作都會導致授權錯誤。
 
 ### <a name="cause"></a>原因
 

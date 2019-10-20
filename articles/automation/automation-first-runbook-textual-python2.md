@@ -9,12 +9,12 @@ ms.author: robreed
 ms.date: 03/19/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 65cd59933fa31d870a507cbe80b454934c9008d0
-ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
+ms.openlocfilehash: 626f446c18acf1f07f458fb1b4238f182546e479
+ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71265092"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72596935"
 ---
 # <a name="my-first-python-runbook"></a>我的第一個 Python Runbook
 
@@ -205,6 +205,30 @@ async_vm_start.wait()
 ![輸入參數值](media/automation-first-runbook-textual-python/runbook-python-params.png)
 
 按一下 [確定] 啟動 Runbook。 隨即執行 Runbook，並開始您所指定的虛擬機器。
+
+## <a name="error-handling-in-python"></a>Python 中的錯誤處理
+
+您也可以使用下列慣例，從 Python runbook 取出各種串流，包括**警告**、**錯誤**和**調試**程式資料流程。
+
+```python
+print("Hello World output") 
+print("ERROR: - Hello world error")
+print("WARNING: - Hello world warning")
+print("DEBUG: - Hello world debug")
+print("VERBOSE: - Hello world verbose")
+```
+
+下列範例會顯示 `try...except` 區塊中使用的這個慣例。
+
+```python
+try:
+    raise Exception('one', 'two')
+except Exception as detail:
+    print 'ERROR: Handling run-time error:', detail
+```
+
+> [!NOTE]
+> Azure 自動化中不支援**sys.databases。**
 
 ## <a name="next-steps"></a>後續步驟
 

@@ -10,12 +10,12 @@ ms.service: service-bus-messaging
 ms.topic: article
 ms.date: 09/14/2018
 ms.author: aschhab
-ms.openlocfilehash: f5ce8a237bc2ba7fe15acfcd6afa0edcda7ef713
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 3d2d26e8cb8a3b1ee7720424aea701ca063ecc9f
+ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60589654"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72596450"
 ---
 # <a name="best-practices-for-performance-improvements-using-service-bus-messaging"></a>使用服務匯流排傳訊的效能改進最佳作法
 
@@ -31,7 +31,7 @@ ms.locfileid: "60589654"
 
 1. 進階訊息佇列通訊協定 (AMQP)
 2. 服務匯流排傳訊通訊協定 (SBMP)
-3. HTTP
+3. http
 
 AMQP 和 SBMP 會更有效率，因為只要傳訊處理站存在，它們就會維護服務匯流排連線。 它也會實作批次處理和預先擷取作業。 除非明確提到，否則本文中的所有內容都假設為使用 AMQP 和 SBMP。
 
@@ -72,7 +72,7 @@ AMQP 和 SBMP 會更有效率，因為只要傳訊處理站存在，它們就會
 
 ## <a name="receive-mode"></a>接收模式
 
-建立佇列或訂用帳戶用戶端時，您可以指定接收模式：「查看鎖定」  或「接收並刪除」  。 預設接收模式是 [PeekLock][PeekLock]。 以此模式操作時，用戶端會傳送要求，以接收來自服務匯流排的訊息。 用戶端收到訊息後，它會傳送要求以完成訊息。
+建立佇列或訂用帳戶用戶端時，您可以指定接收模式：「查看鎖定」或「接收與刪除」。 預設接收模式是 [PeekLock][PeekLock]。 以此模式操作時，用戶端會傳送要求，以接收來自服務匯流排的訊息。 用戶端收到訊息後，它會傳送要求以完成訊息。
 
 將接收模式設為 [ReceiveAndDelete][ReceiveAndDelete] 時，兩個步驟會在單一要求中結合。 這些步驟可減少整體的作業數目並可改善整體訊息輸送量。 此效能改善的風險為遺失訊息。
 
@@ -84,7 +84,7 @@ AMQP 和 SBMP 會更有效率，因為只要傳訊處理站存在，它們就會
 
 根據預設，用戶端使用的批次間隔為 20 毫秒。 您可以藉由在建立傳訊處理站之前設定 [BatchFlushInterval][BatchFlushInterval] 屬性來變更批次間隔。 這個設定會影響此處理站所建立的所有用戶端。
 
-若要停用批次處理，請將 [BatchFlushInterval][BatchFlushInterval] 屬性設為 **TimeSpan.Zero**。 例如:
+若要停用批次處理，請將 [BatchFlushInterval][BatchFlushInterval] 屬性設為 **TimeSpan.Zero**。 例如：
 
 ```csharp
 MessagingFactorySettings mfs = new MessagingFactorySettings();
@@ -96,13 +96,13 @@ MessagingFactory messagingFactory = MessagingFactory.Create(namespaceUri, mfs);
 批次處理並不會影響可計費的傳訊作業數目，而且僅適用於使用 [Microsoft.ServiceBus.Messaging](https://www.nuget.org/packages/WindowsAzure.ServiceBus/) 程式庫的服務匯流排用戶端通訊協定。 HTTP 通訊協定不支援批次處理。
 
 > [!NOTE]
-> 設定 BatchFlushInterval 可確保批次處理隱含從應用程式的觀點來看。 也就是應用程式呼叫 sendasync （） 和 CompleteAsync() 呼叫，並不會進行特定的批次呼叫。
+> 設定 BatchFlushInterval 可確保批次處理從應用程式的觀點來看。 亦即，應用程式會進行 SendAsync （）和 CompleteAsync （）呼叫，而不會進行特定的批次呼叫。
 >
-> 可以實作明確的用戶端端批次處理藉由使用方法呼叫-下方 
+> 明確的用戶端批次處理可以利用下列方法呼叫來執行- 
 > ```csharp
 > Task SendBatchAsync (IEnumerable<BrokeredMessage> messages);
 > ```
-> 這裡的訊息合併的大小必須小於一個定價層所支援的大小上限。
+> 這裡的訊息大小總和必須小於定價層支援的大小上限。
 
 ## <a name="batching-store-access"></a>批次處理存放區存取
 
@@ -113,7 +113,7 @@ MessagingFactory messagingFactory = MessagingFactory.Create(namespaceUri, mfs);
 
 在此間隔期間進行的其他存放區作業都會加入至批次。 批次處理的存放區存取只會影響**傳送**和**完成**作業；接收作業不會受到影響。 批次處理的存放區存取是實體上的屬性。 批次處理會在啟用批次處理存放區存取的所有實體進行。
 
-建立新佇列、主題或訂用帳戶時，預設會啟用批次處理的存放區存取。 若要停用批次處理的存放區存取，請在建立實體之前將 [EnableBatchedOperations][EnableBatchedOperations] 屬性設為 **false**。 例如:
+建立新佇列、主題或訂用帳戶時，預設會啟用批次處理的存放區存取。 若要停用批次處理的存放區存取，請在建立實體之前將 [EnableBatchedOperations][EnableBatchedOperations] 屬性設為 **false**。 例如：
 
 ```csharp
 QueueDescription qd = new QueueDescription();
@@ -129,7 +129,7 @@ Queue q = namespaceManager.CreateQueue(qd);
 
 預先擷取訊息時，服務會鎖定預先擷取的訊息。 藉由鎖定，其他接收者就無法接收預先擷取的訊息。 如果接收者無法在鎖定到期之前完成訊息，訊息就會變成可供其他接收者接收。 訊息的預先擷取副本會保留在快取中。 當取用過其快取複本的接收者嘗試完成該訊息時，他會收到例外狀況。 根據預設，訊息鎖定會在 60 秒之後到期。 此值可延長為 5 分鐘。 若要避免過期訊息遭到取用，快取大小應該一律小於用戶端在鎖定逾時間隔內可取用的訊息數目。
 
-使用 60 秒的預設鎖定到期時間時，[PrefetchCount][SubscriptionClient.PrefetchCount] 的良好值為處理站中所有接收者最高處理速率的 20 倍。 例如，處理站建立三個接收者，而每個接收者每秒可以處理最多 10 則訊息。 預先擷取計數不應該超過 20 X 3 X 10 = 600。 根據預設，[PrefetchCount][QueueClient.PrefetchCount] 設為 0，表示沒有其他訊息從服務擷取。
+使用60秒的預設鎖定到期時間時， [queueclient.prefetchcount][SubscriptionClient.PrefetchCount]的良好值為處理站中所有接收者最大處理速率的20倍。 例如，處理站建立三個接收者，而每個接收者每秒可以處理最多 10 則訊息。 預先擷取計數不應該超過 20 X 3 X 10 = 600。 根據預設， [queueclient.prefetchcount][QueueClient.PrefetchCount]會設定為0，這表示不會從服務提取任何額外的訊息。
 
 預先擷取訊息會增加佇列或訂用帳戶的整體輸送量，因為此舉可減少訊息作業的整體數目或來回次數。 然而，擷取第一個訊息需要較長的時間 (因為訊息大小增加)。 接收預先擷取的訊息比較快速，因為用戶端已經下載這些訊息。
 
@@ -137,26 +137,26 @@ Queue q = namespaceManager.CreateQueue(qd);
 
 預先擷取並不會影響可計費的傳訊作業數目，而且僅適用於服務匯流排用戶端通訊協定。 HTTP 通訊協定不支援預先擷取。 同步和非同步接收作業皆可使用預先擷取。
 
-## <a name="prefetching-and-receivebatch"></a>預先擷取，而且 ReceiveBatch
+## <a name="prefetching-and-receivebatch"></a>預先提取和 ReceiveBatch
 
-雖然在一起的預先提取多個訊息的概念都有類似的語意，以處理批次 (ReceiveBatch) 中的訊息，有必須務必記住，利用這些字典有些微的差異。
+雖然預先提取多個訊息的概念有類似的語義可以處理批次中的訊息（ReceiveBatch），但同時使用它們時，還有一些些許差異必須牢記在心。
 
-預先擷取會在用戶端 （QueueClient 和 SubscriptionClient） 是 「 組態 （或模式） 和 ReceiveBatch 是包含的運算 （要求-回應語意）。
+預先提取是用戶端（QueueClient 和 SubscriptionClient）上的設定（或模式），而 ReceiveBatch 是一種作業（具有要求-回應的語義）。
 
-同時使用這些字典，請考慮下列案例-
+同時使用這些案例時，請考慮下列情況：
 
-* 預先擷取應該大於或等於您預期從 ReceiveBatch 接收的訊息數目。
-* 預先擷取可達 n/3 其中 n 預設鎖定期間每秒所處理的訊息數目。
+* 預先提取應大於或等於您預期要從 ReceiveBatch 接收的訊息數目。
+* 預先提取最多可以是每秒處理的訊息數目的 n/3 倍，其中 n 是預設的鎖定持續時間。
 
-有一些挑戰，有 greedy （窮盡） 」 的方式 （也就維持不預先擷取計數相當高），因為這表示訊息已鎖定至特定的接收者。 建議是嘗試出預先擷取的值之間的前面所提到的臨界值，並依據經驗找出什麼適合。
+有一些因具有貪婪方法（也就是讓預先提取計數非常高）的挑戰，因為這表示訊息已鎖定至特定的接收者。 建議您在上面所述的閾值之間嘗試預先取值，並廣為人知且實證識別適合的值。
 
 ## <a name="multiple-queues"></a>多個佇列
 
-如果您無法由單一分割佇列或主題處理預期的負載，您必須使用多個傳訊實體。 使用多個實體時，請針對每個實體建立專屬用戶端，而不是讓所有實體使用相同的用戶端。
+如果預期的負載無法由單一佇列或主題處理，您必須使用多個訊息實體。 使用多個實體時，請針對每個實體建立專屬用戶端，而不是讓所有實體使用相同的用戶端。
 
 ## <a name="development-and-testing-features"></a>開發與測試功能
 
-服務匯流排有一個專門用於開發的功能，此功能**永遠不應該用在生產設定**：[TopicDescription.EnableFilteringMessagesBeforePublishing][]。
+服務匯流排有一項專門用於開發的功能，此功能**永遠不應該用在生產組態**：[TopicDescription.EnableFilteringMessagesBeforePublishing][]。
 
 當新的規則或篩選器新增至主題時，您可以使用 [TopicDescription.EnableFilteringMessagesBeforePublishing][] 來確認新的篩選運算式如預期般運作。
 
@@ -174,7 +174,6 @@ Queue q = namespaceManager.CreateQueue(qd);
 * 將批次處理間隔設為 50 毫秒，以減少服務匯流排用戶端通訊協定傳輸數目。 如果使用多個傳送者，批次處理間隔會增加到 100 毫秒。
 * 讓批次處理的存放區存取保持啟用。 此存取會增加訊息寫入至佇列的整體速率。
 * 將預先擷取計數設為 20 乘以處理站所有接收者的最高處理速率。 此計數會減少服務匯流排用戶端通訊協定傳輸數目。
-* 使用分割的佇列以改善效能和可用性。
 
 ### <a name="multiple-high-throughput-queues"></a>多個高輸送量佇列
 
@@ -190,7 +189,6 @@ Queue q = namespaceManager.CreateQueue(qd);
 * 停用批次處理的存放區存取。 服務會立即將訊息寫入至存放區中。
 * 如果使用單一用戶端，請將預先擷取計數設為 20 乘以接收者的處理速率。 如果多個訊息同時抵達佇列，服務匯流排用戶端通訊協定會同時將它們全部傳輸。 當用戶端收到下一個訊息時，該訊息已經在本機快取中。 快取應該很小。
 * 如果使用多個用戶端，請將預先擷取計數設為 0。 藉由設定該計數，第二個用戶端可以在第一個用戶端仍在處理第一個訊息時接收第二個訊息。
-* 使用分割的佇列以改善效能和可用性。
 
 ### <a name="queue-with-a-large-number-of-senders"></a>具有大量傳送者的佇列
 
@@ -205,7 +203,6 @@ Queue q = namespaceManager.CreateQueue(qd);
 * 使用預設的批次處理間隔 20 毫秒來減少服務匯流排用戶端通訊協定傳輸數目。
 * 讓批次處理的存放區存取保持啟用。 此存取會增加訊息寫入至佇列或主題的整體速率。
 * 將預先擷取計數設為 20 乘以處理站所有接收者的最高處理速率。 此計數會減少服務匯流排用戶端通訊協定傳輸數目。
-* 使用分割的佇列以改善效能和可用性。
 
 ### <a name="queue-with-a-large-number-of-receivers"></a>具有大量接收者的佇列
 
@@ -219,7 +216,6 @@ Queue q = namespaceManager.CreateQueue(qd);
 * 接收者可以使用同步或非同步作業。 若指定個別接收者的中等接收速率，完全要求的用戶端批次處理不會影響接收者輸送量。
 * 讓批次處理的存放區存取保持啟用。 此存取會減少實體的整體負載。 它也會減少訊息寫入至佇列或主題的整體速率。
 * 將預先擷取計數設為較小的值 (例如，PrefetchCount = 10)。 此計數可以避免接收者在其他接收者具有大量快取的訊息時閒置。
-* 使用分割的佇列以改善效能和可用性。
 
 ### <a name="topic-with-a-small-number-of-subscriptions"></a>具有少量訂用帳戶的主題
 
@@ -233,7 +229,6 @@ Queue q = namespaceManager.CreateQueue(qd);
 * 使用預設的批次處理間隔 20 毫秒來減少服務匯流排用戶端通訊協定傳輸數目。
 * 讓批次處理的存放區存取保持啟用。 此存取會增加訊息寫入至主題的整體速率。
 * 將預先擷取計數設為 20 乘以處理站所有接收者的最高處理速率。 此計數會減少服務匯流排用戶端通訊協定傳輸數目。
-* 使用分割的主題以改善效能和可用性。
 
 ### <a name="topic-with-a-large-number-of-subscriptions"></a>具有大量訂用帳戶的主題
 
@@ -247,11 +242,6 @@ Queue q = namespaceManager.CreateQueue(qd);
 * 使用預設的批次處理間隔 20 毫秒來減少服務匯流排用戶端通訊協定傳輸數目。
 * 讓批次處理的存放區存取保持啟用。 此存取會增加訊息寫入至主題的整體速率。
 * 將預先擷取設為 20 乘以預期的接收速率 (以秒為單位)。 此計數會減少服務匯流排用戶端通訊協定傳輸數目。
-* 使用分割的主題以改善效能和可用性。
-
-## <a name="next-steps"></a>後續步驟
-
-若要深入了解如何最佳化服務匯流排效能，請參閱[分割的傳訊實體][Partitioned messaging entities]。
 
 [QueueClient]: /dotnet/api/microsoft.azure.servicebus.queueclient
 [MessageSender]: /dotnet/api/microsoft.azure.servicebus.core.messagesender

@@ -1,23 +1,18 @@
 ---
 title: 使用 Azure 監視器持續監視 | Microsoft Docs
 description: 描述使用 Azure 監視器在整個工作流程中啟用持續監視的特定步驟。
-author: bwren
-manager: carmonm
-editor: ''
-services: azure-monitor
-documentationcenter: azure-monitor
 ms.service: azure-monitor
-ms.workload: na
-ms.tgt_pltfrm: na
+ms.subservice: ''
 ms.topic: conceptual
-ms.date: 10/12/2018
+author: bwren
 ms.author: bwren
-ms.openlocfilehash: f101a8885d9bf67e8bd589d7cf932b0d35cdfe32
-ms.sourcegitcommit: 86d49daccdab383331fc4072b2b761876b73510e
+ms.date: 10/12/2018
+ms.openlocfilehash: 88934d469ddcca50d7dfc3f35b18ab332d4bd172
+ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70744491"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72596789"
 ---
 # <a name="continuous-monitoring-with-azure-monitor"></a>使用 Azure 監視器持續監視
 
@@ -64,7 +59,7 @@ Azure 上的一般應用程式包含多個資源，例如 VM 和應用程式服�
 
 - 使用 [Azure 管線](/azure/devops/pipelines)來實作持續部署，並根據您的 CI/CD 測試，自動化從程式碼認可到生產環境的整個程序。
 - 使用[品質閘門](/azure/devops/pipelines/release/approvals/gates)將監視整合到部署前或部署後。 這可確保您在應用程式從開發階段移至生產環境時符合主要的健康情況/效能計量 (KPI)，並且基礎結構環境或規模中的任何差異都不會對您的 KPI 造成負面影響。
-- 在不同的部署環境 (如 Dev、Test，Canary 和 Prod) 之間[維護個別的監視執行個體](../azure-monitor/app/separate-resources.md)。這可確保收集的資料與相關聯的應用程式和基礎結構相關。 如果需要跨環境將資料相互關聯，可以[在計量瀏覽器中使用多資源圖表](../azure-monitor/platform/metrics-charts.md)，或[在 Azure 監視器中建立跨資源查詢](log-query/cross-workspace-query.md)。
+- 在不同的部署環境（例如開發、測試、上箱和生產）之間[維護個別的監視實例](../azure-monitor/app/separate-resources.md)。這可確保收集的資料在相關聯的應用程式和基礎結構之間是相關的。 如果需要跨環境將資料相互關聯，可以[在計量瀏覽器中使用多資源圖表](../azure-monitor/platform/metrics-charts.md)，或[在 Azure 監視器中建立跨資源查詢](log-query/cross-workspace-query.md)。
 
 
 ## <a name="create-actionable-alerts-with-actions"></a>使用動作建立可採取動作的警示

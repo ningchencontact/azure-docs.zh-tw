@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/10/2019
 ms.author: damendo
-ms.openlocfilehash: ef46c1a631a79dd1c50b2bf7d263538298de233f
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.openlocfilehash: 3305590f2d8abf0d894bc1df42b84edcc96a2b2d
+ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72333309"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72598230"
 ---
 # <a name="frequently-asked-questions-faq-about-azure-network-watcher"></a>關於 Azure 網路監看員的常見問題（FAQ）
 [Azure 網路監看員](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview)服務提供一套工具，可用來監視、診斷、查看計量，以及啟用或停用 Azure 虛擬網路中的資源記錄。 本文會回答有關此服務的常見問題。
@@ -54,16 +54,26 @@ ms.locfileid: "72333309"
 ### <a name="which-regions-is-network-watcher-available-in"></a>網路監看員提供哪些區域？
 您可以在[Azure 服務可用性頁面](https://azure.microsoft.com/global-infrastructure/services/?products=network-watcher)上查看最新的區域可用性
 
+### <a name="what-are-resource-limits-on-network-watcher"></a>網路監看員上的資源限制為何？
+如需所有限制，請參閱[服務限制](https://docs.microsoft.com/azure/azure-subscription-service-limits#network-watcher-limits)頁面。  
+
+### <a name="why-is-only-one-instance-of-network-watcher-allowed-per-region"></a>為什麼每個區域只允許一個網路監看員實例？
+網路監看員只需要針對訂用帳戶啟用一次，它的功能才能正常執行，這不是服務的限制。
+
 ## <a name="nsg-flow-logs"></a>NSG 流量記錄
 
 ### <a name="what-does-nsg-flow-logs-do"></a>NSG 流量記錄有哪些功能？
 您可以透過[網路安全性群組（nsg）](https://docs.microsoft.com/azure/virtual-network/security-overview)結合和管理 Azure 網路資源。 NSG 流量記錄可讓您透過 Nsg 記錄所有流量的5個元組流量資訊。 未經處理的流量記錄會寫入 Azure 儲存體帳戶，讓您可以視需要進一步進行處理、分析、查詢或匯出。
 
-### <a name="are-there-caveats-for-using-nsg-flow-logs"></a>使用 NSG 流量記錄有任何注意事項嗎？
+### <a name="are-there-any-caveats-to-using-nsg-flow-logs"></a>使用 NSG 流量記錄是否有任何警告？
 使用 NSG 流量記錄沒有任何必要條件。 不過，有兩個限制
 - **服務端點不得存在於您的 VNET 上**： NSG 流量記錄是從 vm 上的代理程式發出至儲存體帳戶。 不過，目前您只能將記錄直接發出至儲存體帳戶，而且無法使用新增至 VNET 的服務端點。
 
-有兩種方式可以修正此問題：
+- **儲存體帳戶不得防火牆**：由於內部限制，必須可以透過公用網際網路存取儲存體帳戶，NSG 流量記錄才能使用它們。 流量仍會在內部透過 Azure 路由傳送，而且您不會面臨額外的輸出費用。
+
+如需有關如何解決這些問題的指示，請參閱接下來的兩個問題。 這兩項限制都預期會在2020年1月之前解決。
+
+### <a name="how-do-i-use-nsg-flow-logs-with-service-endpoints"></a>如何? 使用服務端點的 NSG 流量記錄嗎？
 
 *選項1：重新設定 NSG 流量記錄，以發出至沒有 VNET 端點的 Azure 儲存體帳戶*
 
@@ -88,8 +98,7 @@ ms.locfileid: "72333309"
 
 如果 Microsoft.Storage 服務端點是必須項目，您就必須停用 NSG 流量記錄。
 
-
-- **儲存體帳戶不得防火牆**：由於內部限制，必須可以透過公用網際網路存取儲存體帳戶，NSG 流量記錄才能使用它們。 流量仍會在內部透過 Azure 路由傳送，而且您不會面臨額外的輸出費用。
+### <a name="how-do-i-disable-the--firewall-on-my-storage-account"></a>如何? 在我的儲存體帳戶上停用防火牆？
 
 藉由啟用「所有網路」來存取儲存體帳戶，即可解決此問題：
 
@@ -97,8 +106,6 @@ ms.locfileid: "72333309"
 * 在入口網站的全域搜尋中輸入儲存體帳戶的名稱，以瀏覽至儲存體帳戶
 * 在 [設定] 區段下，選取 [防火牆和虛擬網路]
 * 選取 [所有網路] 並加以儲存。 如果早已選取，則不需要再變更。  
-
-這兩項限制都預期會在2020年1月之前解決。
 
 ### <a name="what-is-the-difference-between-flow-logs-versions-1--2"></a>流量記錄版本 1 & 2 之間的差異為何？
 流量記錄第2版引進了*流程狀態*的概念，& 儲存傳輸位元組和封包的相關資訊。 [閱讀更多](https://docs.microsoft.com/azure/network-watcher/network-watcher-nsg-flow-logging-overview#log-file)。

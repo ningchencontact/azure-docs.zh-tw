@@ -9,17 +9,17 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: article
-ms.date: 09/20/2019
+ms.date: 10/18/2019
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6f6e1ab2c2b02ab4279e95840135bdc87710cd66
-ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
-ms.translationtype: HT
+ms.openlocfilehash: 56e5fb986431ec47a34b81491bc61b4c38a24e31
+ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72551654"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72592894"
 ---
 # <a name="administrator-role-permissions-in-azure-active-directory"></a>Azure Active Directory 中的系統管理員角色權限
 
@@ -224,12 +224,14 @@ ms.locfileid: "72551654"
 > [!NOTE]
 > 全域讀取者角色現在有幾個限制：
 >
->* SharePoint 系統管理中心-SharePoint 系統管理中心不支援全域讀取者角色。 您不會在[Microsoft 365 系統管理中心](https://admin.microsoft.com/Adminportal/Home#/homepage)的 [系統管理中心] 底下的左窗格中看到 [SharePoint]，而且當您嘗試前往*HTTPs：//{Azure AD 組織名稱}-admin.sharepoint.com*時，您會收到拒絕存取的情況。
+>* SharePoint 系統管理中心-SharePoint 系統管理中心不支援全域讀取者角色。 在左窗格中，您不會在[Microsoft 365 系統管理中心](https://admin.microsoft.com/Adminportal/Home#/homepage)的 [系統管理中心] 下看到 [SharePoint]。
+>* [Onedrive 系統管理中心](https://admin.onedrive.com/)-onedrive 系統管理中心不支援全域讀取者角色。
 >* [Azure AD 入口網站](https://portal.azure.com/#blade/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/AllApps/menuId/)-全域讀取器無法讀取企業應用程式的布建模式。
 >* [M365 系統管理中心](https://admin.microsoft.com/Adminportal/Home#/homepage)-全域讀取者無法讀取客戶加密箱要求。 您在 M365 系統管理中心的左窗格中，找不到 [**支援**] 下的 [**客戶加密箱要求**] 索引標籤。
 >* [M365 安全性中心](https://security.microsoft.com/homepage)-全域讀取者無法讀取敏感度和保留標籤。 您在 M365 的 [安全性中心] 的左窗格中，找不到 [**敏感度卷**標]、[**保留標籤**] 和 [**標籤分析**]
 >* [小組系統管理中心](https://admin.teams.microsoft.com)-全域讀者無法讀取**小組生命週期**、**分析 & 報告**、 **IP 電話裝置管理**和**應用程式類別目錄**。
 >* [特殊許可權[存取管理（PAM）](https://docs.microsoft.com/en-us/office365/securitycompliance/privileged-access-management-overview) ] 不支援 [全域讀取者] 角色。
+>* [Azure 資訊保護](https://docs.microsoft.com/azure/information-protection/what-is-information-protection)-全域讀取器僅支援[集中報告](https://docs.microsoft.com/azure/information-protection/reports-aip)，以及當您的租使用者不在[統一標籤平臺](https://docs.microsoft.com/azure/information-protection/faqs#how-can-i-determine-if-my-tenant-is-on-the-unified-labeling-platform)上時。
 >
 > 這些功能目前正在開發中。
 >

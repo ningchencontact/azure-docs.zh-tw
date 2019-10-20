@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 10/14/2019
+ms.date: 10/17/2019
 ms.topic: conceptual
 ms.service: cost-management
 manager: micflan
 ms.custom: ''
-ms.openlocfilehash: 664307b64d5a2869130df9ab123119d869f36e21
-ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
+ms.openlocfilehash: 1f02cf3abaae7d67ba3d204dc9419d9fbfa4a86d
+ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72374489"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72597089"
 ---
 # <a name="understand-and-work-with-scopes"></a>了解並使用範圍
 
@@ -132,6 +132,7 @@ Microsoft 客戶合約帳單帳戶具有下列範圍：
 
 與 EA 計費範圍不同的是，客戶合約帳單帳戶_會_系結至單一目錄，而且不能有多個 Azure AD 目錄的訂閱。
 
+客戶合約計費範圍不適用於合作夥伴。 夥伴角色和許可權記載于[指派使用者角色和許可權](/partner-center/permissions-overview)。
 
 客戶合約計費範圍支援下列角色：
 
@@ -159,11 +160,25 @@ Azure 訂用帳戶會在 [發票] 區段下加以嵌套，如同其在 EA 註冊
 
 ## <a name="cloud-solution-provider-csp-scopes"></a>雲端解決方案提供者（CSP）範圍
 
-目前成本管理不支援雲端解決方案提供者（CSP）合作夥伴。 相反地，您可以使用[合作夥伴中心](https://docs.microsoft.com/azure/cloud-solution-provider/overview/partner-center-overview)。
+Microsoft 客戶合約上的客戶 Csp 支援下列範圍：
+
+- **帳單帳戶**-代表適用于多個 Microsoft 產品和服務的客戶合約。 客戶合約帳單帳戶的功能與 EA 註冊不相同。 EA 註冊會與帳單設定檔更緊密配合。
+
+    資源類型： `Microsoft.Billing/billingAccounts (accountType = Organization)`
+
+- **帳單設定檔**-定義發票中包含的訂閱。 計費設定檔是 EA 註冊的功能對等，因為這是發票產生的範圍。 同樣地，不以使用量為基礎（例如 Marketplace 和保留）的購買僅適用于此範圍。
+
+    資源類型： `Microsoft.Billing/billingAccounts/billingProfiles`
+
+- **客戶**代表一組訂用帳戶，這些訂用帳戶與由合作夥伴上架至 Microsoft 客戶合約的特定客戶相關聯。
+
+只有具備*全域管理員*和系統*管理員代理程式*角色的使用者，才能夠直接在合作夥伴的 Azure 租使用者中管理和查看帳單帳戶、帳單設定檔和客戶的成本。 如需合作夥伴中心角色的詳細資訊，請參閱[指派使用者角色和許可權](/partner-center/permissions-overview)。
+
+Azure 成本管理只有在客戶擁有 Microsoft 客戶合約時，才支援 CSP 合作夥伴客戶。 對於尚不是 Microsoft 客戶合約的 CSP 支援客戶，請參閱[合作夥伴中心](https://docs.microsoft.com/azure/cloud-solution-provider/overview/partner-center-overview)。
 
 ## <a name="switch-between-scopes-in-cost-management"></a>在成本管理的範圍之間切換
 
-Azure 入口網站中的所有成本管理檢視都包含視圖左上方的**範圍**選取膠囊按鈕。 使用它來快速變更範圍。 按一下 [**領域**] 膠囊按鈕，以開啟 [領域選擇器]。 它會顯示帳單帳戶、根管理群組，以及未在根管理群組下的任何訂用帳戶。 若要選取範圍，請按一下背景以反白顯示，然後按一下底部的 [**選取**]。 若要向內切入到嵌套的範圍（例如訂用帳戶中的資源群組），請按一下 [範圍名稱] 連結。 若要選取任何嵌套層級的父範圍，請按一下 [範圍] 選擇器頂端的 [**選取此 &lt;scope @ no__t-2** ]。
+Azure 入口網站中的所有成本管理檢視都包含視圖左上方的**範圍**選取膠囊按鈕。 使用它來快速變更範圍。 按一下 [**領域**] 膠囊按鈕，以開啟 [領域選擇器]。 它會顯示帳單帳戶、根管理群組，以及未在根管理群組下的任何訂用帳戶。 若要選取範圍，請按一下背景以反白顯示，然後按一下底部的 [**選取**]。 若要向內切入到嵌套的範圍（例如訂用帳戶中的資源群組），請按一下 [範圍名稱] 連結。 若要選取任何嵌套層級的父範圍，請按一下 [範圍] 選擇器頂端的 [**選取此 &lt;scope] &gt;** 。
 
 ## <a name="identify-the-resource-id-for-a-scope"></a>識別範圍的資源識別碼
 

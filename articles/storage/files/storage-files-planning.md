@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/16/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: fa3e3c6d89657d328182da667c153f14f70bbd7e
-ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
+ms.openlocfilehash: 6361814a30cc7d1bc9703dae8ddb14d955c1582d
+ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72514655"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72598034"
 ---
 # <a name="planning-for-an-azure-files-deployment"></a>規劃 Azure 檔案服務部署
 
@@ -219,13 +219,13 @@ GRS 會將您的資料複寫到次要區域中的另一個資料中心，但如�
 |美國西部 *        |LRS     |
 |美國西部 2      |LRS、ZRS|
 
-\* 新帳戶支援，並非所有現有的帳戶都已完成升級程式。
+\* 新帳戶支援，並非所有現有的帳戶都已完成升級程式。 您可以藉由嘗試[啟用大型檔案共用](storage-files-how-to-create-large-file-share.md)，檢查現有的儲存體帳戶是否已完成升級程式。
 
 為協助我們設定新區域和功能的優先順序，請填寫這[份問卷](https://aka.ms/azurefilesatscalesurvey)。
 
 ### <a name="enable-and-create-larger-file-shares"></a>啟用和建立較大的檔案共用
 
-若要開始使用較大的檔案共用，請參閱我們的文章[啟用大型檔案共用](storage-files-how-to-create-large-file-share.md)。
+若要開始使用較大的檔案共用，請參閱[如何啟用和建立大型檔案共用](storage-files-how-to-create-large-file-share.md)一文。
 
 ## <a name="data-growth-pattern"></a>資料成長模式
 

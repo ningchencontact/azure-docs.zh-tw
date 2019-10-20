@@ -6,12 +6,12 @@ ms.author: dacoulte
 ms.date: 09/17/2019
 ms.topic: conceptual
 ms.service: azure-policy
-ms.openlocfilehash: 78a5b180d6e1531ca3ea15fbd6ec040a90d75e5c
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.openlocfilehash: 9a21242cbb16466ed4c12746ff64bd7352925fed
+ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72330775"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72592805"
 ---
 # <a name="understand-azure-policy-effects"></a>了解 Azure 原則效果
 
@@ -67,7 +67,7 @@ Append 效果只有一個 **details** 陣列且為必要。 由於 **details** �
 
 ### <a name="append-examples"></a>Append 範例
 
-範例1：使用非 **[\*]** [別名](definition-structure.md#aliases)搭配陣列**值**來設定儲存體帳戶上 IP 規則的單一**欄位/值**組。 當非 **[\*]** 別名是陣列時，效果會將 **value** 當做整個陣列來附加。 如果陣列已經存在，就會因為衝突而發生拒絕事件。
+範例1：使用非 **[\*]** [別名](definition-structure.md#aliases)搭配陣列**值**來設定儲存體帳戶 IP 規則的單一**欄位/值**組。 當非 **[\*]** 別名是陣列時，效果會將 **value** 當做整個陣列來附加。 如果陣列已經存在，就會因為衝突而發生拒絕事件。
 
 ```json
 "then": {
@@ -152,7 +152,7 @@ Append 效果只有一個 **details** 陣列且為必要。 由於 **details** �
         {
             "operation": "addOrReplace",
             "field": "tags['Dept']",
-            "field": "[parameters('DeptName')]"
+            "value": "[parameters('DeptName')]"
         }
     ]
 }
@@ -168,7 +168,7 @@ Append 效果只有一個 **details** 陣列且為必要。 由於 **details** �
 
 ### <a name="modify-examples"></a>修改範例
 
-範例1：新增 `environment` 標記，並將現有的 @no__t 1 標記取代為 "Test"：
+範例1：加入 `environment` 標記，並將現有的 `environment` 標記取代為 "Test"：
 
 ```json
 "then": {
@@ -188,7 +188,7 @@ Append 效果只有一個 **details** 陣列且為必要。 由於 **details** �
 }
 ```
 
-範例2：移除 `env` 標記，並加入 `environment` 標記，或以參數化的值取代現有的 @no__t 2 標記：
+範例2：移除 `env` 標記，並加入 `environment` 標記，或將現有的 `environment` 標記取代為參數化值：
 
 ```json
 "then": {
@@ -275,7 +275,7 @@ AuditIfNotExists 效果的 **details** 屬性含有定義所要比對相關資�
   - 如果**details. type**是在**if**條件資源下的資源類型，原則就會在評估的資源範圍內查詢此**類型**的資源。 否則，原則查詢會在與評估資源相同的資源群組內。
 - **Name** (選擇性)
   - 指定要比對的資源確切名稱，然後使原則擷取一個特定資源，而不是所指定類型的所有資源。
-  - **如果 if. field. type**和 **. details.** 類型相符，則會變成_必要_**名稱**，而且必須 `[field('name')]`。 不過，應該改為考慮[審核](#audit)效果。
+  - **如果 if. field. type**和 **. details.** 類型相符，則**Name**會變成_必要_，而且必須 `[field('name')]`。 不過，應該改為考慮[審核](#audit)效果。
 - **ResourceGroupName** (選擇性)
   - 允許比對來自不同資源群組的相關資源。
   - 如果 **type** 是一個會在 **if** 條件資源下的資源，則不適用。
@@ -346,7 +346,7 @@ DeployIfNotExists 效果的**details**屬性具有所有子屬性，可定義要
   - 從嘗試在 **if** 條件資源下擷取資源開始著手，然後在與 **if** 條件資源相同的資源群組內進行查詢。
 - **Name** (選擇性)
   - 指定要比對的資源確切名稱，然後使原則擷取一個特定資源，而不是所指定類型的所有資源。
-  - **如果 if. field. type**和 **. details.** 類型相符，則會變成_必要_**名稱**，而且必須 `[field('name')]`。
+  - **如果 if. field. type**和 **. details.** 類型相符，則**Name**會變成_必要_，而且必須 `[field('name')]`。
 - **ResourceGroupName** (選擇性)
   - 允許比對來自不同資源群組的相關資源。
   - 如果 **type** 是一個會在 **if** 條件資源下的資源，則不適用。

@@ -9,16 +9,16 @@ ms.topic: conceptual
 ms.date: 10/16/2017
 ms.author: glenga
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ad2f56388b49692d799202d06ed3dc0123f272e5
-ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
+ms.openlocfilehash: ad7bdfd3abc4d3b4b672f5471ea826d4cef0f3fc
+ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/13/2019
-ms.locfileid: "72294370"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72596875"
 ---
 # <a name="optimize-the-performance-and-reliability-of-azure-functions"></a>將 Azure Functions 效能和可靠性最佳化
 
-本文提供指引來改善[無伺服器](https://azure.microsoft.com/solutions/serverless/)函式應用程式的效能和可靠性。 
+本文提供指引來改善[無伺服器](https://azure.microsoft.com/solutions/serverless/)函式應用程式的效能和可靠性。  
 
 ## <a name="general-best-practices"></a>一般最佳作法
 
@@ -60,7 +60,7 @@ ms.locfileid: "72294370"
 1. 查詢資料庫中的 10,000 個資料列。
 2. 對每個資料列建立佇列訊息，來進一步處理向下一行。
  
-根據系統的複雜程度，您可能會有︰相關的下游服務行為不當、網路中斷或到達配額限制等等。這所有方面都隨時會影響您的函式。 您必須設計您的函式，以對其做好準備。
+視系統的複雜程度而定，您可能會有：涉及下游服務的行為不正確、網路中斷或達到配額限制等等。所有這些功能都可能隨時影響您的函式。 您必須設計您的函式，以對其做好準備。
 
 如果在插入這些項目中的 5,000 個至佇列以進行處理之後發生失敗，您的程式碼如何因應？ 追蹤集合中您已完成的項目。 否則，您可能下一次又將它們插入。 這對您的工作流程會有嚴重影響。 
 

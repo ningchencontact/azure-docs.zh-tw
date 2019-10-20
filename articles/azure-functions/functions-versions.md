@@ -1,49 +1,55 @@
 ---
 title: Azure Functions 執行階段版本概觀
 description: Azure Functions 支援多個執行階段版本。 了解其間的差異以及如何選擇最適合您的版本。
-services: functions
-documentationcenter: ''
 author: ggailey777
-manager: jeconnoc
+manager: gwallace
 ms.service: azure-functions
 ms.topic: conceptual
-ms.date: 10/03/2018
+ms.date: 10/10/2019
 ms.author: glenga
-ms.openlocfilehash: 6988fb547b07f81891efea3caad8bf34f4c8a476
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 9ca7006bb842cbe235d2e982e611613e1fd74ed9
+ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61036219"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72597403"
 ---
 # <a name="azure-functions-runtime-versions-overview"></a>Azure Functions 執行階段版本概觀
 
- 有兩個主要的 Azure Functions 執行階段版本：1.x 和 2.x。 兩個版本都支援生產案例，但可用的新功能和改進功能都在目前的版本 2.x 推出。  下面詳述兩個版本間的差異、如何建立每個版本，以及如何從 1.x 升級到 2.x。
+Azure Functions 執行時間的主要版本與執行時間所依據的 .NET 版本相關。 下表指出執行時間的目前版本、發行層級，以及相關的 .NET 版本。 
 
-> [!NOTE]
-> 本文所介紹的是雲端服務 Azure Functions。 如需可讓您執行 Azure Functions 內部部署之預覽產品的詳細資訊，請參閱 [Azure Functions 執行階段概觀](functions-runtime-overview.md)。
+| 執行階段版本 | 發行層級<sup>1</sup> | .NET 版本 | 
+| --------------- | ------------- | ------------ |
+| 3.x  | 預覽 | .NET Core 3。x | 
+| 2.x | 正式上市 | .NET Core 2.2 |
+| 1.x | GA<sup>2</sup> | .NET Framework 4.6<sup>3</sup> |
 
-## <a name="cross-platform-development"></a>跨平台開發
+<sup>1</sup>GA 版本支援生產案例。   
+<sup>2</sup>1.x 版處於維護模式。 只有在較新的版本中才會提供增強功能。   
+<sup>3</sup>僅支援在 Azure 入口網站中或在 Windows 電腦本機上進行開發。
 
-2\.x 版執行階段會在 .NET Core 2 上執行，這會讓它能夠在 .NET Core 支援的所有平台上執行，包括 macOS 與 Linux。 在 .NET Core 上執行可支援跨平台開發和裝載案例。
+>[!NOTE]  
+> 2\.x 版的函式執行時間處於預覽階段，不支援生產環境。 如需有關嘗試3.x 版的詳細資訊，請參閱[此公告](https://dev.to/azure/develop-azure-functions-using-net-core-3-0-gcm)。
 
-相較之下，1.x 版執行階段則僅支援在 Azure 入口網站或 Windows 電腦上進行開發和裝載。
+本文會詳細說明各種版本之間的一些差異、如何建立每個版本，以及如何變更版本。
 
-## <a name="languages"></a>Languages
+## <a name="languages"></a>語言
 
-2\. x 版執行階段使用新的語言擴充性模型。 在 2.x 版中，函數應用程式中的所有函式都必須共用相同語言。 函數應用程式中的函式語言是在建立應用程式時所選擇的。
+從2.x 版開始，執行時間會使用語言擴充性模型，而且函數應用程式中的所有函式都必須共用相同的語言。 在建立應用程式時，會選擇函式應用程式中的函式語言，並在 \_RUNTIME 設定的函式中維護[\_WORKER](functions-app-settings.md#functions_worker_runtime) 。 
 
-Azure Functions 1.x 實驗語言不會更新成使用新模型，因此在 2.x 中並不支援這些語言。 下表指出每個執行階段版本目前支援的程式設計語言。
+Azure Functions 1.x 實驗語言無法使用新模型，因此在2.x 中不支援。 下表指出每個執行階段版本目前支援的程式設計語言。
 
 [!INCLUDE [functions-supported-languages](../../includes/functions-supported-languages.md)]
 
 如需詳細資訊，請參閱[支援的語言](supported-languages.md)。
 
-## <a name="creating-1x-apps"></a>在 1.x 版上執行
+## <a name="creating-1x-apps"></a>在特定版本上執行
 
-在 Azure 入口網站中建立的函數應用程式預設會設定為 2.x 版。 您應該儘可能在進行新功能投資時，使用此執行階段版本。 如有需要，您仍然可以在 1.x 版執行階段上執行函數應用程式。 您只能在建立函數應用程式之後，但在新增任何函式之前，變更執行階段版本。 若要了解如何將執行階段版本固定在 1.x，請參閱[檢視及更新目前的執行階段版本](set-runtime-version.md#view-and-update-the-current-runtime-version)。
+根據預設，在 Azure 入口網站和 Azure CLI 中建立的函數應用程式會設定為2.x 版。 可能的話，您應該使用這個執行階段版本。 如有需要，您仍然可以在 1.x 版執行階段上執行函數應用程式。 您只能在建立函數應用程式之後，但在新增任何函式之前，變更執行階段版本。 若要了解如何將執行階段版本固定在 1.x，請參閱[檢視及更新目前的執行階段版本](set-runtime-version.md#view-and-update-the-current-runtime-version)。
 
-## <a name="migrating-from-1x-to-2x"></a>從 1.x 移轉到 2.x
+您也可以升級至2.x 版的執行時間（預覽版）。 如果您需要能夠在 .NET Core 3.x 上執行函數，請執行此動作。 若要瞭解如何升級至3.x，請參閱[查看及更新目前的執行階段版本](set-runtime-version.md#view-and-update-the-current-runtime-version)。
+
+## <a name="migrating-from-1x-to-later-versions"></a>從1.x 遷移至更新版本
 
 您可以選擇將撰寫成使用 1.x 版執行階段的現有應用程式移轉成改用 2.x 版。 您所需進行的大多數變更都與語言執行階段有關，例如 .NET Framework 4.7 與 .NET Core 2 之間的 C# API 變更。 您也必須確認您的程式碼和程式庫與所選語言執行階段相容。 最後，請務必記下下面所強調觸發程序、繫結及功能方面的所有變更。 為獲得最佳移轉結果，您應該為 2.x 版建立新函數應用程式，然後將現有的 1.x 版函式程式碼移植到新應用程式。  
 
@@ -113,7 +119,7 @@ Azure Functions 1.x 實驗語言不會更新成使用新模型，因此在 2.x �
 
 ## <a name="bindings"></a>繫結
 
-2\.x 版執行階段使用新的[繫結擴充性模型](https://github.com/Azure/azure-webjobs-sdk-extensions/wiki/Binding-Extensions-Overview)，該模型提供下列優點：
+從2.x 版開始，執行時間會使用新的系結擴充性[模型](https://github.com/Azure/azure-webjobs-sdk-extensions/wiki/Binding-Extensions-Overview)，以提供下列優點：
 
 * 支援第三方繫結延伸模組。
 

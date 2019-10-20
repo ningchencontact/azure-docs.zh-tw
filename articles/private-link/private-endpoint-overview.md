@@ -7,12 +7,12 @@ ms.service: private-link
 ms.topic: conceptual
 ms.date: 09/16/2019
 ms.author: kumud
-ms.openlocfilehash: 1fff9c076349d98d7a72c4bf69edb0a2795ac88f
-ms.sourcegitcommit: f2d9d5133ec616857fb5adfb223df01ff0c96d0a
+ms.openlocfilehash: 75b8ea5e8dcaed533eac424bb8df1d1862889490
+ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/03/2019
-ms.locfileid: "71937366"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72592370"
 ---
 # <a name="what-is-azure-private-endpoint"></a>什麼是 Azure 私用端點？
 
@@ -22,15 +22,15 @@ Azure 私用端點是一種網路介面，可讓您私下且安全地連線到 A
  私用端點會指定下列屬性： 
 
 
-|屬性  |Description |
+|屬性  |描述 |
 |---------|---------|
 |Name    |    資源群組內的唯一名稱。      |
-|Subnet    |  要從虛擬網路部署和配置私人 IP 位址的子網。 如需子網需求，請參閱本文的限制一節。         |
+|子網路    |  要從虛擬網路部署和配置私人 IP 位址的子網。 如需子網需求，請參閱本文的限制一節。         |
 |私人連結資源    |   要使用資源識別碼或別名來連接的私用連結資源，從可用類型的清單中。 系統將會為傳送至此資源的所有流量產生唯一的網路識別碼。       |
 |目標 subresource   |      要連接的 subresource。 每個私人連結資源類型都有不同的選項，可根據喜好設定來選取。    |
 |連接核准方法    |  自動或手動。 根據角色型存取控制（RBAC）許可權，您的私用端點可以自動核准。 如果您嘗試連接到不具 RBAC 的私人連結資源，請使用手動方法，讓資源的擁有者核准連接。        |
 |要求訊息     |  您可以指定要以手動方式核准要求連接的訊息。 此訊息可用於識別特定的要求。        |
-|連線狀態   |   唯讀屬性，指定私用端點是否作用中。 只有處於核准狀態的私人端點可以用來傳送流量。 其他可用的狀態： <br>-**已核准**：連線已自動或手動核准，並已準備好可供使用。</br><br>-**暫**止：已手動建立連線，且正在等待私用連結資源擁有者核准。</br><br>-已**拒絕**：私人連結資源擁有者拒絕連線。</br><br>-已**中斷**連線：私人連結資源擁有者已移除連接。 私用端點會變成資訊，而且應該刪除以進行清除。 </br>|
+|連線狀態   |   唯讀屬性，指定私用端點是否作用中。 只有處於核准狀態的私人端點可以用來傳送流量。 其他可用的狀態： <br>**已核准**-：連線已自動或手動核准，並已準備好可供使用。</br><br>-**暫**止：已手動建立連線，且正在等待私用連結資源擁有者核准。</br><br>**拒絕**-：私人連結資源擁有者拒絕連線。</br><br>-**中斷**連接：私人連結資源擁有者已移除連線。 私用端點會變成資訊，而且應該刪除以進行清除。 </br>|
 
 以下是私人端點的一些重要詳細資料： 
 - 私人端點可讓相同 VNet、區域內對等互連 Vnet、全域對等互連 Vnet 和內部部署之間的取用者，使用[VPN](https://azure.microsoft.com/services/vpn-gateway/)或[Express Route](https://azure.microsoft.com/services/expressroute/) ，以及由私用連結提供技術支援的服務之間進行連線。
@@ -52,7 +52,7 @@ Azure 私用端點是一種網路介面，可讓您私下且安全地連線到 A
  
 |私人連結資源名稱  |資源類型   |子資源  |
 |---------|---------|---------|
-|**私人連結服務**（您自己的服務）   |  Microsoft 網路/privateLinkServices       | 空的 |
+|**私人連結服務**（您自己的服務）   |  Microsoft 網路/privateLinkServices       | empty |
 |**Azure SQL Database** | Microsoft.Sql/servers    |  Sql Server （sqlServer）        |
 |**Azure SQL 資料倉儲** | Microsoft.Sql/servers    |  Sql Server （sqlServer）        |
 |**Azure 儲存體**  | Microsoft.Storage/storageAccounts    |  Blob （blob、blob_secondary）<BR> Table （table，table_secondary）<BR> Queue （queue，queue_secondary）<BR> File （file，file_secondary）<BR> Web （web、web_secondary）        |
@@ -66,7 +66,7 @@ Azure 私用端點是一種網路介面，可讓您私下且安全地連線到 A
  
 ## <a name="access-to-a-private-link-resource-using-approval-workflow"></a>使用核准工作流程存取私人連結資源 
 您可以使用下列連接核准方法來連線到私人連結資源：
-- 當您擁有或具有特定私人連結資源的許可權時，**會自動**核准。 所需的許可權是以下列格式的私用連結資源類型為基礎：@No__t-0Provider >/< resource_type >/privateEndpointConnectionApproval/action
+- 當您擁有或具有特定私人連結資源的許可權時，**會自動**核准。 所需的許可權是以下列格式的私用連結資源類型為基礎： Microsoft。\<Provider >/< resource_type >/privateEndpointConnectionApproval/action
 - 當您沒有必要的許可權，而且想要要求存取權時，**手動**要求。 將會起始核准工作流程。 私用端點和後續的私用端點連線將會以「擱置」狀態建立。 私用連結資源擁有者負責核准連接。 核准後，私用端點會啟用以正常傳送流量，如下列核准工作流程圖表所示。  
 
 ![工作流程核准](media/private-endpoint-overview/private-link-paas-workflow.png)
@@ -119,9 +119,9 @@ Azure 會在公用 DNS 上建立正式名稱 DNS 記錄（CNAME），以將解�
 下表包含使用私用端點時的已知限制清單： 
 
 
-|限制 |描述 |風險降低  |
+|限制 |描述 |緩和  |
 |---------|---------|---------|
-|網路安全性群組（NSG）規則不適用於私人端點    |私用端點上不支援 NSG。 雖然包含私用端點的子網可以有相關聯的 NSG，但這些規則不會對私用端點所處理的流量生效。 您必須[停用網路原則強制執行](disable-private-endpoint-network-policy.md)，才能在子網中部署私人端點。 在相同子網上裝載的其他工作負載上仍會強制執行 NSG。   | 針對來源用戶端上的輸出流量使用 NSG 規則，以控制流量。        |
+|網路安全性群組（NSG）規則和使用者定義的路由不適用於私人端點    |私用端點上不支援 NSG。 雖然包含私用端點的子網可以有相關聯的 NSG，但這些規則不會對私用端點所處理的流量生效。 您必須[停用網路原則強制執行](disable-private-endpoint-network-policy.md)，才能在子網中部署私人端點。 在相同子網上裝載的其他工作負載上仍會強制執行 NSG。 任何用戶端子網上的路由都會使用/32 前置詞，變更預設路由行為需要類似的 UDR  | 針對來源用戶端上的輸出流量使用 NSG 規則，以控制流量。 部署具有/32 前置詞的個別路由，以覆寫私用端點路由        |
 |無法在已啟用服務端點或特定工作負載的子網中建立私人端點    |私人端點無法部署在啟用服務端點或子網的子網，以供委派至特定工作負載|  建立個別的子網以部署私人端點。        |
 |私人端點只能對應至相同區域中的私用連結服務（客戶擁有）    |   不支援從不同的區域連接到私人連結服務（您自己的）       |  在預覽期間，您必須在相同的區域中部署私用連結服務。        |
 |  不支援只有私人端點的對等互連虛擬網路   |   連接到對等互連上的私用端點時虛擬網路不支援任何其他工作負載       | 在對等互連虛擬網路上部署單一 VM 以啟用連線能力 |

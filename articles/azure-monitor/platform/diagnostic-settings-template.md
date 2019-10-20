@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 07/31/2019
 ms.author: bwren
 ms.subservice: ''
-ms.openlocfilehash: f65e3c4f9582fcc5c28412d44e513fa6bcb9e870
-ms.sourcegitcommit: 6eecb9a71f8d69851bc962e2751971fccf29557f
+ms.openlocfilehash: 303682a9d7b3c3fe8ba6c8dd6fe2a44741bcafce
+ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "71262332"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72597293"
 ---
 # <a name="create-diagnostic-setting-in-azure-using-a-resource-manager-template"></a>使用 Resource Manager 範本在 Azure 中建立診斷設定
 Azure 中的[平臺記錄](platform-logs-overview.md)會針對 azure 資源和它們所依賴的 azure 平臺，提供詳細的診斷和審核資訊。 本文詳細說明如何使用[Azure Resource Manager 範本](../../azure-resource-manager/resource-group-authoring-templates.md)來設定診斷設定，以將平臺記錄檔收集到不同的目的地。 這可讓您在建立資源時，自動開始收集平臺記錄。
@@ -53,7 +53,7 @@ Resource Manager 範本有兩個區段，您必須進行編輯以建立診斷設
 "workspaceId":{
   "type": "string",
   "metadata": {
-    "description": "Azure Resource ID of the Log Analytics workspace for the Log Analytics workspace to which logs will be sent."
+    "description": "Azure Resource ID of the Log Analytics workspace to which logs will be sent."
   }
 }
 ```

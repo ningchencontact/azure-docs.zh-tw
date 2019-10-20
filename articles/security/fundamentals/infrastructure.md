@@ -4,7 +4,7 @@ description: 本文描述 Microsoft 如何保護 Azure 資料中心的安全性�
 services: security
 documentationcenter: na
 author: TerryLanfear
-manager: barbkess
+manager: rkarlin
 editor: TomSh
 ms.assetid: 61e95a87-39c5-48f5-aee6-6f90ddcd336e
 ms.service: security
@@ -13,18 +13,19 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/06/2018
+ms.date: 10/18/2019
 ms.author: terrylan
-ms.openlocfilehash: a17d98d49d2c653e2498a663829d26e8a171fd74
-ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
+ms.openlocfilehash: 10aecff797effb5abebea16a18dd4e02f40de326
+ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72433504"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72595397"
 ---
 # <a name="azure-infrastructure-security"></a>Azure 基礎結構安全性
 Microsoft Azure 是在 Microsoft 管理並操作的資料中心執行。 這些分散各地的資料中心在安全性與可靠性方面皆符合主要的業界標準，例如 ISO/IEC 27001:2013 和 NIST SP 800-53。 這些資料中心是由 Microsoft 作業人員管理、監視及進行系統管理。 這些作業人員在全天候持續提供世界上最大型線上服務方面擁有多年的經驗。
 
+## <a name="securing-the-azure-infrastructure"></a>保護 Azure 基礎結構
 本系列文章提供 Microsoft 為保護 Azure 基礎結構所做措施的相關資訊。 這些文章說明：
 
 - [實體安全性](physical-security.md)
@@ -38,32 +39,8 @@ Microsoft Azure 是在 Microsoft 管理並操作的資料中心執行。 這些�
 - [完整性](infrastructure-integrity.md)
 - [資料保護](protection-customer-data.md)
 
-## <a name="shared-responsibility-model"></a>共同責任模式
-了解您與 Microsoft 之間的責任劃分相當重要。 在內部部署環境中，您擁有整個堆疊，但是當您移到雲端時，部分責任就會轉移給 Microsoft。 下圖說明依據堆疊部署類型 (軟體即服務 [SaaS]、平台即服務 [PaaS]、基礎結構即服務 [IaaS] 與內部部署) 區分的責任區域。
-
-![顯示責任的圖表](./media/infrastructure/responsibility-zones.png)
-
-下列項目一律由您負責 (不論部署類型)：
-
-- 資料
-- 端點
-- 帳戶
-- 存取管理
-
-請務必了解您與 Microsoft 之間就 SaaS、PaaS 及 IaaS 部署方面的職責劃分。 如需詳細資訊，請參閱[雲端運算的共同責任](https://gallery.technet.microsoft.com/Shared-Responsibilities-81d0ff91/file/225237/1/Shared%20Responsibilities%20for%20Cloud%20Computing%20(2017-04-03).pdf)。
-
 ## <a name="next-steps"></a>後續步驟
-若要深入了解 Microsoft 為協助保護 Azure 基礎結構執行了哪些動作，請參閱：
 
-- [Azure 設備、廠房以及實體安全性](physical-security.md)
-- [Azure 基礎結構可用性](infrastructure-availability.md)
-- [Azure 資訊系統元件和界限](infrastructure-components.md)
-- [Azure 網路架構](infrastructure-network.md)
-- [Azure 生產網路](production-network.md)
-- [Azure SQL Database 安全性功能](infrastructure-sql.md)
-- [Azure 生產環境運作與管理](infrastructure-operations.md)
-- [Azure 基礎結構監視](infrastructure-monitoring.md)
-- [Azure 基礎結構完整性](infrastructure-integrity.md)
-- [Azure 客戶資料保護](protection-customer-data.md)
+- 瞭解您[在雲端中的共同責任](shared-responsibility.md)。
 
-
+- 瞭解[Azure 資訊安全中心](https://azure.microsoft.com/services/security-center/)如何透過增加對 Azure 資源的可見度及安全性控制，協助您預防、偵測及回應威脅。

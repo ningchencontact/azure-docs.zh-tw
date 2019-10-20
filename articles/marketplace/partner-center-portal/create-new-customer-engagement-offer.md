@@ -7,12 +7,12 @@ ms.author: jenhayes
 ms.service: marketplace
 ms.topic: conceptual
 ms.date: 10/04/2019
-ms.openlocfilehash: 703b8b5732109faed1523c678af612e7fc8dab6d
-ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
+ms.openlocfilehash: 82a0d98b7a9bb29a69830f1d8bd9b1e7db977273
+ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72244091"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72598416"
 ---
 # <a name="create-a-new-dynamics-365-for-customer-engagement--powerapps-offer"></a>為客戶參與 & PowerApps 供應專案建立新的 Dynamics 365
 
@@ -31,9 +31,9 @@ ms.locfileid: "72244091"
 
 ### <a name="offer-id-and-alias"></a>供應專案識別碼和別名
 
-- **供應項目識別碼**：您帳戶中每個供應專案的唯一識別碼。 在 marketplace 供應專案的 URL 位址中，客戶會看到此識別碼，而 Azure Resource Manager 範本（如果適用）。 供應專案識別碼必須是小寫的英數位元（包括連字號和底線，但不能有空格）。 這限制為50個字元，且在您選取 [**建立**] 之後無法變更。  例如，如果您在這裡輸入 [*測試-供應專案-1* ]，則供應專案 URL 會 `https://azuremarketplace.microsoft.com/marketplace/../test-offer-1`。
+- **供應專案 ID**：您帳戶中每個供應專案的唯一識別碼。 在 marketplace 供應專案的 URL 位址中，客戶會看到此識別碼，而 Azure Resource Manager 範本（如果適用）。 供應專案識別碼必須是小寫的英數位元（包括連字號和底線，但不能有空格）。 這限制為50個字元，且在您選取 [**建立**] 之後無法變更。  例如，如果您在這裡輸入 [*測試-供應專案-1* ]，則會 `https://azuremarketplace.microsoft.com/marketplace/../test-offer-1` 供應專案 URL。
 
-- **供應專案別名**：用來參考合作夥伴中心內供應專案的名稱。 此名稱不會在 marketplace 中使用，而且與供應專案名稱和其他將向客戶顯示的值不同。 在您選取 [**建立**] 之後，就無法變更這個值。
+- **供應專案別名**：用來參照合作夥伴中心內供應專案的名稱。 此名稱不會在 marketplace 中使用，而且與供應專案名稱和其他將向客戶顯示的值不同。 在您選取 [**建立**] 之後，就無法變更這個值。
 
 輸入**供應專案識別碼**和供應專案**別名**之後，請選取 [**建立**]。 接著，您就能夠處理供應專案的所有不同部分。
 
@@ -70,10 +70,10 @@ ms.locfileid: "72244091"
 
 從下列選項中選取：
 
-- **[Azure Resource Manager](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/test-drive/azure-resource-manager-test-drive)** ：部署範本，其中包含組成您解決方案的所有 Azure 資源。 符合此案例的產品只會使用 Azure 資源。
-- **[Dynamics 365 For Business Central](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cpp-business-central-offer)** ：Microsoft 會裝載並維護商業中央企業資源規劃系統（財務、營運、供應鏈、CRM 等）的試用產品服務（包括布建和部署）。  
-- **[Dynamics 365 For Customer Engagement](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/dyn365ce/cpp-customer-engagement-offer)** ：Microsoft 會裝載並維護客戶參與系統（銷售、服務、專案服務、現場服務等）的試用產品服務（包括布建和部署）。  
-- **[適用于作業的 Dynamics 365](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cpp-dynamics-365-operations-offer)** ：Microsoft 會託管並維護財務和營運企業資源規劃系統（財務、營運、製造、供應鏈等）的試用產品服務（包括布建和部署）。 
+- **[Azure Resource Manager](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/test-drive/azure-resource-manager-test-drive)** ：部署範本，其中包含構成解決方案的所有 Azure 資源。 符合此案例的產品只會使用 Azure 資源。
+- **[Dynamics 365 For Business central](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cpp-business-central-offer)** ： Microsoft 主控並維護 business central 企業資源規劃系統（財務、營運、供應鏈、CRM 等）的試用產品服務（包括布建和部署）。  
+- **[Dynamics 365 For Customer engagement](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/dyn365ce/cpp-customer-engagement-offer)** ： Microsoft 會託管並維護客戶參與系統（銷售、服務、專案服務、現場服務等）的試用產品服務（包括布建和部署）。  
+- **[適用于作業的 Dynamics 365](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cpp-dynamics-365-operations-offer)** ： Microsoft 會主控並維護財務和營運企業資源規劃系統（財務、營運、製造、供應鏈等）的試用產品服務（包括布建和部署）。 
 - **[邏輯應用程式](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/test-drive/logic-app-test-drive)** ：包含所有複雜解決方案架構的部署範本。 任何自訂產品都應該使用這種類型的試用產品。
 - **[Power BI](https://docs.microsoft.com/power-bi/service-template-apps-overview)** ：自訂建立儀表板的內嵌連結。 想要示範互動式 Power BI 視覺效果的產品應該使用這種類型的試用產品。 您只需要上傳內嵌的 Power BI URL。
 
@@ -95,11 +95,11 @@ ms.locfileid: "72244091"
 
 [**屬性**] 頁面可讓您定義用來在 marketplace 上分組供應專案的類別和產業、應用程式版本，以及支援供應專案的法律合約。 完成此頁面後，選取 [**儲存**]。 
 
-### <a name="category"></a>Category
+### <a name="category"></a>類別
 
 選取最少1個，最多三個類別。 這些會用來將您的供應專案放入適當的 marketplace 搜尋區域。 請務必在供應專案描述中，呼叫您的供應專案如何支援這些類別。 
 
-### <a name="industry"></a>業界
+### <a name="industry"></a>產業
 
 您可以選擇性地選取最多兩個產業，以協助在 marketplace 中將您的供應專案分類。 如果您的供應專案不是特定產業，請將此區段保留空白。 請務必在供應專案描述中，呼叫您的供應專案如何支援選取的產業。 
 
@@ -193,7 +193,7 @@ ms.locfileid: "72244091"
 
 #### <a name="store-logos"></a>儲存標誌
 
-您可以提供三種大小的供應專案標誌：**小型（48 x 48）** 、**大型（216 x 216）** 和**寬（255 x 115）** 。 需要小型和大型大小。
+您可以提供下列三種大小的供應專案標誌：**小型（48 x 48）** 、**大型（216 x 216）** 和**寬（255 x 115）** 。 需要小型和大型大小。
 
 #### <a name="hero"></a>主圖
 
@@ -258,7 +258,7 @@ ms.locfileid: "72244091"
 
 ### <a name="crm-package-availability"></a>CRM 套件可用性
 
-在本節中，選取 [ **+ 新增區域**]，以指定可供客戶使用 CRM 套件的地理區域。 部署到下列主權區域需要在認證程式期間進行特殊許可權和驗證：[德國](https://docs.microsoft.com/azure/azure-government/documentation-government-welcome)、美國政府雲端和 TIP。
+在本節中，選取 [ **+ 新增區域**]，以指定可供客戶使用 CRM 套件的地理區域。 部署到下列主權區域需要在認證程式期間進行特殊許可權和驗證：[德國](https://docs.microsoft.com/azure/germany/)、[美國政府雲端](https://docs.microsoft.com/azure/azure-government/documentation-government-welcome)和秘訣。
 
 根據預設，您在上方輸入的**應用程式設定 URL**將會用於每個區域。 如果您想要的話，可以針對一或多個特定區域輸入個別的應用程式設定 URL。 
 
@@ -279,29 +279,29 @@ ms.locfileid: "72244091"
 
 部署範本，其中包含組成您解決方案的所有 Azure 資源。 符合此案例的產品只會使用 Azure 資源。 深入瞭解如何設定 Azure Resource Manager 的[試用](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/test-drive/azure-resource-manager-test-drive)產品。
 
-- **區域**（必要）：目前有26個 Azure 支援的區域，可讓您試用產品。 一般來說，您會想要讓試用產品在您預期最大客戶數目的區域中使用，以便他們可以選取最接近的區域，以獲得最佳效能。 您必須確定您的訂用帳戶可以在您所選取的每個區域中部署所需的所有資源。
+- **區域**（必要）：目前有26個 Azure 支援的區域，可供使用您的試用產品。 一般來說，您會想要讓試用產品在您預期最大客戶數目的區域中使用，以便他們可以選取最接近的區域，以獲得最佳效能。 您必須確定您的訂用帳戶可以在您所選取的每個區域中部署所需的所有資源。
 
-- **Instances**：選取類型（經常性存取或非經常性存取）和可用的實例數目，這會乘以供應專案可用的區域數目。
+- **實例**：選取類型（經常性存取或非經常性存取）和可用的實例數目，這會乘以供應專案可用的區域數目。
 
-經常性：這種類型的實例已部署，並會在每個選取的區域等待存取。 客戶可以立即存取試用產品的*熱*實例，而不必等待部署。 缺點是，這些執行個體一直在您的 Azure 訂用帳戶中執行，因此將會產生可觀的運作成本。 強烈建議至少有一個*熱*實例，因為大部分的客戶不想等候完整部署，因此如果沒有可用的*熱*實例，客戶使用量就會有下降。
+經常性 **：此**類型的實例已部署，並會在每個選取的區域等待存取。 客戶可以立即存取試用產品的*熱*實例，而不必等待部署。 缺點是，這些執行個體一直在您的 Azure 訂用帳戶中執行，因此將會產生可觀的運作成本。 強烈建議至少有一個*熱*實例，因為大部分的客戶不想等候完整部署，因此如果沒有可用的*熱*實例，客戶使用量就會有下降。
 
 **冷**：這種類型的實例代表每個區域可能部署的實例總數。 冷實例需要整個試用產品 Resource Manager 範本，以便在客戶要求試用產品時進行部署，因此*冷*實例的載入速度會比*熱*實例慢很多。 取捨是您只需要支付試用產品的持續時間，而*不*一定會在您的 Azure 訂用帳戶上執行，就像使用*熱*實例一樣。
 
-- **試用產品 Azure Resource Manager 範本**：上傳包含您 Azure Resource Manager 範本的 .zip。  若要深入瞭解如何建立 Azure Resource Manager 範本，請參閱[使用 Azure 入口網站建立和部署 Azure Resource Manager 範本](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-quickstart-create-templates-use-the-portal)的快速入門文章。
+- **試用產品 Azure Resource Manager 範本**：上傳包含 Azure Resource Manager 範本的 .zip。  若要深入瞭解如何建立 Azure Resource Manager 範本，請參閱[使用 Azure 入口網站建立和部署 Azure Resource Manager 範本](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-quickstart-create-templates-use-the-portal)的快速入門文章。
 
-- **試用產品持續時間**（必要）：輸入試用產品將維持作用中狀態的時間長度（以小時為單位）。 在此持續時間過後，試用產品將會自動終止。 這個持續時間可能只會以整數小時數來設定（例如"2" 小時，"1.5" 無效）。
+- **試用產品持續時間**（必要）：輸入試用產品將維持作用中狀態的時間長度（以小時為單位）。 在此持續時間過後，試用產品將會自動終止。 此持續時間可能只會由整數小時數來設定（例如 "2" 小時，"1.5" 無效）。
 
 ### <a name="technical-configuration-for-dynamics-365-test-drive"></a>Dynamics 365 試用產品的技術設定
 
 Microsoft 可以藉由使用這種類型的試用產品來裝載和維護服務布建和部署，藉此降低設定試用產品的複雜性。 無論試用產品是以商業中心、客戶參與或營運物件為目標，此類型的託管試用產品的設定都相同。
 
-- **並行試用產品的最大值**（必要）：設定一次可以使用試用產品的客戶數目上限。 當試用產品在使用中時，每個並行使用者都會取用 Dynamics 365 授權，因此您必須確保您有足夠的授權可支援所設定的上限。 建議值為 3-5 個。
+- **最大並行試用**產品（必要）：設定一次可以使用試用產品的客戶數目上限。 當試用產品在使用中時，每個並行使用者都會取用 Dynamics 365 授權，因此您必須確保您有足夠的授權可支援所設定的上限。 建議值為 3-5 個。
 
-- **試用產品持續時間**（必要）：藉由定義時數，輸入試用產品將維持作用中狀態的時間長度。 過了數小時之後，會話就會結束，而且不再使用您的其中一個授權。 我們建議的值為2-24 小時，視您的供應專案複雜度而定。 這個持續時間可能只會以整數小時數來設定（例如"2" 小時，"1.5" 無效）。  使用者可以要求新的會話（如果工作時間已用盡），並想要再次存取試用產品。
+- **試用產品持續時間**（必要）：藉由定義時數來輸入試用產品保持作用中狀態的時間長度。 過了數小時之後，會話就會結束，而且不再使用您的其中一個授權。 我們建議的值為2-24 小時，視您的供應專案複雜度而定。 此持續時間可能只會由整數小時數來設定（例如 "2" 小時，"1.5" 無效）。  使用者可以要求新的會話（如果工作時間已用盡），並想要再次存取試用產品。
 
-- **實例 URL** （必要）：客戶將開始其試用產品的 URL。 一般來說，您的 Dynamics 365 實例 URL 會在安裝範例資料的情況下執行應用程式（例如 https://testdrive.crm.dynamics.com) 。
+- **實例 url** （必要）：客戶將開始其試用產品的 URL。 通常是您的 Dynamics 365 實例 URL，執行您的應用程式並安裝範例資料（例如 https://testdrive.crm.dynamics.com) 。
 
-- **實例 WEB API URL** （必要）：藉由登入您的 Microsoft 365 帳戶並流覽至 [**設定**] \&gt; 來抓取 Dynamics 365 實例的 WEB API URL。**自訂**\&gt;**開發人員資源**\&gt;**實例 WEB API （服務根 URL）** ，複製此處找到的 URL （例如 https://testdrive.crm.dynamics.com/api/data/v9.0) 。
+- **實例 WEB API url** （必要）：藉由登入您的 Microsoft 365 帳戶並流覽至 [**設定**] \&gt，抓取 Dynamics 365 實例的 Web API url。**自訂**\&gt;**開發人員資源**\&gt;**實例 WEB API （服務根 URL）** ，複製此處找到的 URL （例如 https://testdrive.crm.dynamics.com/api/data/v9.0) 。
 
 - **角色名稱**（必要）：提供您在自訂 Dynamics 365 試用產品中定義的安全性角色名稱。 這會在其試用產品（例如，測試磁片磁碟機-角色）期間指派給使用者。
 
@@ -309,9 +309,9 @@ Microsoft 可以藉由使用這種類型的試用產品來裝載和維護服務�
 
 任何自訂產品都應該使用此類型的試用產品部署範本，其中包含各種複雜的解決方案架構。 如需設定邏輯應用程式試用產品的詳細資訊，請造訪 GitHub 上的[作業](https://github.com/Microsoft/AppSource/blob/master/Setup-your-Azure-subscription-for-Dynamics365-Operations-Test-Drives.md)和[客戶參與](https://github.com/Microsoft/AppSource/wiki/Setting-up-Test-Drives-for-Dynamics-365-app)。
 
-- **區域**（[必要]、[單一選取] 下拉式清單）：目前有26個 Azure 支援的區域，可讓您試用產品。 邏輯應用程式的資源將會部署在您選取的區域中。 如果您的邏輯應用程式有任何自訂資源儲存在特定區域中，請確定已在此處選取該區域。 若要這麼做，最佳方式是在入口網站中的 Azure 訂用帳戶本機上完整部署邏輯應用程式，並確認其正常運作，然後再進行此選取。
+- **區域**（必要，單一選取下拉式清單）：目前有26個 Azure 支援的區域可供使用您的試用產品。 邏輯應用程式的資源將會部署在您選取的區域中。 如果您的邏輯應用程式有任何自訂資源儲存在特定區域中，請確定已在此處選取該區域。 若要這麼做，最佳方式是在入口網站中的 Azure 訂用帳戶本機上完整部署邏輯應用程式，並確認其正常運作，然後再進行此選取。
 
-- **並行試用產品的最大值**（必要）：設定一次可以使用試用產品的客戶數目上限。 這些試用產品已部署，讓客戶可以立即存取它們，而不需要等候部署。
+- **最大並行試用**產品（必要）：設定一次可以使用試用產品的客戶數目上限。 這些試用產品已部署，讓客戶可以立即存取它們，而不需要等候部署。
 
 - **試用產品持續時間**（必要）：輸入試用產品將維持作用中狀態的時間長度（以小時為單位）。 試用產品會在此時間週期結束後自動終止。
 
@@ -319,7 +319,7 @@ Microsoft 可以藉由使用這種類型的試用產品來裝載和維護服務�
 
 - **Azure 邏輯應用程式名稱**（必要）：輸入將試用產品指派給使用者的邏輯應用程式名稱。 此邏輯應用程式必須儲存在上述的 Azure 資源群組中。
 
-- 取消布建**邏輯應用程式名稱**（必要）：輸入客戶完成後，取消布建試用產品的邏輯應用程式名稱。 此邏輯應用程式必須儲存在上述的 Azure 資源群組中。
+- 取消布建**邏輯應用程式名稱**（必要）：輸入在客戶完成後取消布建試用產品的邏輯應用程式名稱。 此邏輯應用程式必須儲存在上述的 Azure 資源群組中。
 
 ### <a name="technical-configuration-not-required-for-power-bi-test-drives"></a>不需要 Power BI 試用產品的技術設定
 
@@ -329,13 +329,13 @@ Microsoft 可以藉由使用這種類型的試用產品來裝載和維護服務�
 
 若要代表您部署試用產品，請建立並提供另一個唯一的 Azure 訂用帳戶。 （不需要用於 Power BI 試用產品）。
 
-- **Azure 訂**用帳戶識別碼（Azure Resource Manager 和邏輯應用程式所需）：輸入訂用帳戶識別碼，以授與存取權給您的 Azure 帳戶服務，以進行資源使用量報告和計費。 我們建議您考慮[建立個別的 Azure 訂](https://docs.microsoft.com/azure/billing/billing-create-subscription)用帳戶，以用於試用產品（如果您還沒有的話）。 您可以藉由登入[Azure 入口網站](https://portal.azure.com/)並流覽至左側功能表的 [**訂閱**] 索引標籤，來尋找您的 AZURE 訂用帳戶識別碼。 選取此索引標籤會顯示您的訂用帳戶識別碼（例如 "a83645ac-1234-5ab6-6789-1h234g764ghty"）。
+- **Azure 訂**用帳戶識別碼（Azure Resource Manager 和邏輯應用程式的必要）：輸入訂用帳戶識別碼，以授與存取權給您的 azure 帳戶服務，以進行資源使用量報告和計費。 我們建議您考慮[建立個別的 Azure 訂](https://docs.microsoft.com/azure/billing/billing-create-subscription)用帳戶，以用於試用產品（如果您還沒有的話）。 您可以藉由登入[Azure 入口網站](https://portal.azure.com/)並流覽至左側功能表的 [**訂閱**] 索引標籤，來尋找您的 AZURE 訂用帳戶識別碼。 選取此索引標籤會顯示您的訂用帳戶識別碼（例如 "a83645ac-1234-5ab6-6789-1h234g764ghty"）。
 
-- **Azure AD 租使用者識別碼**（必要）：輸入您的 Azure Active Directory （AD）[租使用者識別碼](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in)。 若要尋找此識別碼，請登入[Azure 入口網站](https://portal.azure.com/)，選取左側功能表中的 [Active Directory] 索引標籤，選取 [**屬性**]，然後尋找列出的**目錄識別碼**（例如50c464d3-4930-494c-963c-1e951d15360e）。 您也可以在下列位置使用您的功能變數名稱 URL 來查詢組織的租使用者識別碼： [https://www.whatismytenantid.com](https://www.whatismytenantid.com)。
+- **Azure AD 租使用者識別碼**（必要）：輸入您的 AZURE ACTIVE DIRECTORY （AD）[租使用者識別碼](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in)。 若要尋找此識別碼，請登入[Azure 入口網站](https://portal.azure.com/)，選取左側功能表中的 [Active Directory] 索引標籤，選取 [**屬性**]，然後尋找列出的**目錄識別碼**（例如50c464d3-4930-494c-963c-1e951d15360e）。 您也可以在下列位置使用您的功能變數名稱 URL 來查詢組織的租使用者識別碼： [https://www.whatismytenantid.com](https://www.whatismytenantid.com)。
 
-- **Azure AD 租使用者名稱**（動態365所需）：輸入您的 Azure Active Directory （AD）名稱。 若要尋找此名稱，請登入[Azure 入口網站](https://portal.azure.com/)，在右上角，您的租使用者名稱會列在 [您的帳戶名稱] 底下。
+- **Azure AD 租使用者名稱**（動態365所需）：輸入您的 AZURE ACTIVE DIRECTORY （AD）名稱。 若要尋找此名稱，請登入[Azure 入口網站](https://portal.azure.com/)，在右上角，您的租使用者名稱會列在 [您的帳戶名稱] 底下。
 
-- **Azure AD 應用程式識別碼**（必要）：輸入您的 Azure Active Directory （AD）[應用程式識別碼](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in)。 若要尋找此識別碼，請登入[Azure 入口網站](https://portal.azure.com/)，選取左側功能表中的 [Active Directory] 索引標籤，選取 [**應用程式註冊**]，然後尋找所列的**應用程式識別碼**編號（例如50c464d3-4930-494c-963c-1e951d15360e）。
+- **Azure AD 應用程式識別碼**（必要）：輸入您的 AZURE ACTIVE DIRECTORY （AD）[應用程式識別碼](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in)。 若要尋找此識別碼，請登入[Azure 入口網站](https://portal.azure.com/)，選取左側功能表中的 [Active Directory] 索引標籤，選取 [**應用程式註冊**]，然後尋找所列的**應用程式識別碼**編號（例如50c464d3-4930-494c-963c-1e951d15360e）。
 
 - **Azure AD 應用程式用戶端密碼**（必要）：輸入您的 Azure AD 應用程式[用戶端密碼](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#certificates-and-secrets)。 若要尋找此值，請登入[Azure 入口網站](https://portal.azure.com/)。 選取左側功能表中的 [ **Azure Active Directory** ] 索引標籤，選取 [**應用程式註冊**]，然後選取您的試用產品應用程式。 接下來，依序選取 [**憑證和秘密**]、[**新增用戶端密碼**]、[描述]、[**永不** **過期**]，然後選擇 [**新增**]。 請務必向下複製值。 （在執行此動作之前，請不要離開頁面，否則您將無法存取此值。）
 
@@ -345,11 +345,11 @@ Microsoft 可以藉由使用這種類型的試用產品來裝載和維護服務�
 
 - **描述**（必要）：描述您的試用產品、要示範的專案、要進行實驗的目標、探索的功能，以及可協助使用者決定是否要取得您供應專案的任何相關資訊。 最多可以在此欄位中輸入3000個字元的文字。 
 
-- **存取訊號**（Azure Resource Manager 和邏輯試用磁片磁碟機所需）：說明客戶必須知道才能存取和使用此試用產品的內容。 逐步解說使用您的供應專案的案例，以及客戶在整個試用產品中存取功能的確切方式。 最多可以在此欄位中輸入10000個字元的文字。
+- **存取訊號**（Azure Resource Manager 和邏輯試用產品所需）：說明客戶必須知道才能存取和使用此試用產品的內容。 逐步解說使用您的供應專案的案例，以及客戶在整個試用產品中存取功能的確切方式。 最多可以在此欄位中輸入10000個字元的文字。
 
-- **使用者手冊**（必要）：試用產品體驗的深入逐步解說。 使用者手冊應涵蓋您想要讓客戶從試用產品中取得的確切內容，並做為參考，以取得他們可能會遇到的任何問題。 檔案必須是 PDF 格式，並在上傳後命名為（最多255個字元）。
+- **使用者手冊**（必要）：您的試用產品體驗的深入逐步解說。 使用者手冊應涵蓋您想要讓客戶從試用產品中取得的確切內容，並做為參考，以取得他們可能會遇到的任何問題。 檔案必須是 PDF 格式，並在上傳後命名為（最多255個字元）。
 
-- **Videos：新增影片 @ no__t-0 （選擇性）：您可以將影片上傳至 YouTube 或 Vimeo，並在這裡參考連結和縮圖影像（533 x 324 圖元），讓客戶可以查看資訊的逐步解說，以協助他們更瞭解試用產品，包括如何成功使用您的提供並瞭解強調其優點的案例。
+- 影片 **：新增**影片（選擇性）：您可以將影片上傳到 YouTube 或 Vimeo，並在這裡參考連結和縮圖影像（533 x 324 圖元），讓客戶可以查看資訊的逐步解說，以協助他們更瞭解試用產品，包括如何成功使用供應專案的功能，並瞭解強調其優點的案例。
   - **名稱**（必要）
   - **URL （僅限 YouTube 或 Vimeo）** （必要）
   - **縮圖（533 x 324px）** ：影像檔案必須是 PNG 格式。

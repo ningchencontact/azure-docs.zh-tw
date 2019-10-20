@@ -4,15 +4,15 @@ description: AzCopy 是命令列公用程式，可讓您在儲存體帳戶之間
 author: normesta
 ms.service: storage
 ms.topic: conceptual
-ms.date: 08/08/2019
+ms.date: 10/16/2019
 ms.author: normesta
 ms.subservice: common
-ms.openlocfilehash: f4523b2aa580d0fd237c15e23b06b44593cbf055
-ms.sourcegitcommit: f272ba8ecdbc126d22a596863d49e55bc7b22d37
+ms.openlocfilehash: d26535d18233533d1d72c02ad997008cba536fce
+ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72274637"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72595158"
 ---
 # <a name="get-started-with-azcopy"></a>開始使用 AzCopy
 
@@ -55,7 +55,7 @@ tar -xf azcopy.tar.gz
 
 若要查看命令清單，請輸入 `azcopy -h`，然後按 ENTER 鍵。
 
-若要瞭解特定的命令，只需包含命令的名稱（例如： `azcopy list -h`）。
+若要瞭解特定的命令，請只包含命令的名稱（例如： `azcopy list -h`）。
 
 ![內嵌說明](media/storage-use-azcopy-v10/azcopy-inline-help.png)
 
@@ -74,7 +74,7 @@ tar -xf azcopy.tar.gz
 |**Blob 儲存體（階層命名空間）** | Azure AD & SAS |
 |**檔案儲存體** | 僅限 SAS |
 
-### <a name="option-1-use-azure-active-directory"></a>選項 1：使用 Azure Active Directory
+### <a name="option-1-use-azure-active-directory"></a>選項1：使用 Azure Active Directory
 
 藉由使用 Azure Active Directory，您可以只提供認證一次，而不需要將 SAS 權杖附加至每個命令。  
 
@@ -96,8 +96,8 @@ tar -xf azcopy.tar.gz
 
 - 容器（檔案系統）
 - 儲存體帳戶
-- 資源群組
-- 訂閱
+- Resource group
+- Subscription
 
 若要瞭解如何驗證和指派角色，請參閱[在 Azure 入口網站中使用 RBAC 授與 Azure blob 和佇列資料的存取權](https://docs.microsoft.com/azure/storage/common/storage-auth-aad-rbac-portal?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)。
 
@@ -122,7 +122,7 @@ azcopy login
 azcopy login --tenant-id=<tenant-id>
 ```
 
-以儲存體帳戶所屬組織的租使用者識別碼取代 `<tenant-id>` 預留位置。 若要尋找租使用者識別碼，請在 Azure 入口網站中選取 [ **Azure Active Directory > 屬性] > [目錄識別碼**]。
+將 `<tenant-id>` 預留位置取代為儲存體帳戶所屬組織的租使用者識別碼。 若要尋找租使用者識別碼，請在 Azure 入口網站中選取 [ **Azure Active Directory > 屬性] > [目錄識別碼**]。
 
 此命令傳回驗證碼和網站的 URL。 開啟網站，提供程式碼，然後選擇 [下一步] 按鈕。
 
@@ -140,7 +140,7 @@ azcopy login --tenant-id=<tenant-id>
 
 您可以使用用戶端密碼或與服務主體的應用程式註冊相關聯之憑證的密碼，來登入您的帳戶。
 
-若要深入瞭解如何建立服務主體，請參閱 [How to：使用入口網站來建立可存取資源的 Azure AD 應用程式和服務主體](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal)。
+若要深入瞭解如何建立服務主體，請參閱[如何：使用入口網站建立可存取資源的 Azure AD 應用程式和服務主體](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal)。
 
 若要深入瞭解服務主體的一般資訊，請參閱[Azure Active Directory 中的應用程式和服務主體物件](https://docs.microsoft.com/azure/active-directory/develop/app-objects-and-service-principals)
 
@@ -166,7 +166,7 @@ $env:AZCOPY_SPA_CLIENT_SECRET="$(Read-Host -prompt "Enter key")"
 azcopy login --service-principal --application-id <application-id> --tenant-id=<tenant-id>
 ```
 
-以服務主體的應用程式註冊應用程式識別碼取代 `<application-id>` 預留位置。 以儲存體帳戶所屬組織的租使用者識別碼取代 `<tenant-id>` 預留位置。 若要尋找租使用者識別碼，請在 Azure 入口網站中選取 [ **Azure Active Directory > 屬性] > [目錄識別碼**]。 
+以服務主體之應用程式註冊的應用程式識別碼取代 `<application-id>` 預留位置。 將 `<tenant-id>` 預留位置取代為儲存體帳戶所屬組織的租使用者識別碼。 若要尋找租使用者識別碼，請在 Azure 入口網站中選取 [ **Azure Active Directory > 屬性] > [目錄識別碼**]。 
 
 ##### <a name="using-a-certificate"></a>使用憑證
 
@@ -191,7 +191,7 @@ $env:AZCOPY_SPA_CERT_PASSWORD="$(Read-Host -prompt "Enter key")"
 azcopy login --service-principal --certificate-path <path-to-certificate-file> --tenant-id=<tenant-id>
 ```
 
-以憑證檔案的相對或完整路徑取代 `<path-to-certificate-file>` 預留位置。 AzCopy 會儲存此憑證的路徑，但不會儲存憑證的複本，因此請務必將該憑證保留在原處。 以儲存體帳戶所屬組織的租使用者識別碼取代 `<tenant-id>` 預留位置。 若要尋找租使用者識別碼，請在 Azure 入口網站中選取 [ **Azure Active Directory > 屬性] > [目錄識別碼**]。
+將 `<path-to-certificate-file>` 預留位置取代為憑證檔案的相對或完整路徑。 AzCopy 會儲存此憑證的路徑，但不會儲存憑證的複本，因此請務必將該憑證保留在原處。 將 `<tenant-id>` 預留位置取代為儲存體帳戶所屬組織的租使用者識別碼。 若要尋找租使用者識別碼，請在 Azure 入口網站中選取 [ **Azure Active Directory > 屬性] > [目錄識別碼**]。
 
 > [!NOTE]
 > 請考慮使用如下列範例所示的提示。 如此一來，您的密碼就不會出現在主控台的命令歷程記錄中。 
@@ -226,7 +226,7 @@ azcopy login --identity
 azcopy login --identity --identity-client-id "<client-id>"
 ```
 
-以使用者指派受控識別的用戶端識別碼取代 `<client-id>` 預留位置。
+以使用者指派的受控識別的用戶端識別碼取代 `<client-id>` 預留位置。
 
 ```azcopy
 azcopy login --identity --identity-object-id "<object-id>"
@@ -240,7 +240,7 @@ azcopy login --identity --identity-resource-id "<resource-id>"
 
 以使用者指派受控識別的資源識別碼取代 `<resource-id>` 預留位置。
 
-### <a name="option-2-use-a-sas-token"></a>選項 2：使用 SAS 權杖
+### <a name="option-2-use-a-sas-token"></a>選項2：使用 SAS 權杖
 
 您可以將 SAS 權杖附加至在 AzCopy 命令中使用的每個來源或目的地 URL。
 
@@ -282,7 +282,7 @@ azcopy copy "C:\local\path" "https://account.blob.core.windows.net/mycontainer1/
 | **Windows** | `(curl https://aka.ms/downloadazcopy-v10-windows -MaximumRedirection 0 -ErrorAction silentlycontinue).RawContent` |
 
 > [!NOTE]
-> 針對 Linux，`tar` 命令上的 `--strip-components=1` 會移除包含版本名稱的最上層資料夾，並改為直接將二進位檔解壓縮到目前的資料夾。 如此一來，只要更新 `wget` 的 URL，就可以將腳本更新為 `azcopy` 的新版本。
+> 針對 Linux，`tar` 命令上的 `--strip-components=1` 會移除包含版本名稱的最上層資料夾，並改為直接將二進位檔解壓縮至目前的資料夾。 如此一來，只要更新 `wget` URL，就可以使用新版本的 `azcopy` 來更新腳本。
 
 此 URL 會出現在此命令的輸出中。 接著，您的腳本就可以使用該 URL 來下載 AzCopy。
 
@@ -293,7 +293,7 @@ azcopy copy "C:\local\path" "https://account.blob.core.windows.net/mycontainer1/
 
 ### <a name="escape-special-characters-in-sas-tokens"></a>在 SAS 權杖中換用特殊字元
 
-在具有 @no__t 0 擴充功能的批次檔中，您必須將出現在 SAS 權杖中的 `%` 個字元加以轉義。 若要這麼做，您可以在 SAS 權杖字串的現有 `%` 個字元旁加上 `%` 字元。
+在具有 `.cmd` 延伸模組的批次檔中，您必須將出現在 SAS 權杖中的 `%` 字元加以轉義。 若要這麼做，您可以在 SAS 權杖字串中的現有 `%` 字元旁新增 `%` 字元。
 
 ## <a name="use-azcopy-in-storage-explorer"></a>在儲存體總管中使用 AzCopy
 

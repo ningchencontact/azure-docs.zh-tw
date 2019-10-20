@@ -8,12 +8,12 @@ ms.service: marketplace
 ms.topic: article
 ms.date: 11/1/2018
 ms.author: pabutler
-ms.openlocfilehash: 3d97fd167f0f946239d4de24bb180796ebb498d3
-ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
+ms.openlocfilehash: cd61a30ccc9de08c3f0950d811d0d10ec5cd842a
+ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70885867"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72598381"
 ---
 # <a name="private-offers"></a>私人供應項目
 
@@ -49,6 +49,9 @@ ms.locfileid: "70885867"
 ![[私人供應項目]](./media/marketplace-publishers-guide/private-offer.png)
 
 私人供應項目也會出現在搜尋結果中。 只尋找「私人」徽章。
+
+>[!Note]
+>透過雲端解決方案提供者方案（CSP）的轉銷商所建立的訂用帳戶，不支援私用供應專案。
 
 ## <a name="next-steps"></a>後續步驟
 

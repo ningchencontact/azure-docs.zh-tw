@@ -10,12 +10,12 @@ ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 03/25/2019
 ms.author: cshoe
-ms.openlocfilehash: ff3d7d1272f9067f6bf9791c7964f8bf5f71945b
-ms.sourcegitcommit: d4c9821b31f5a12ab4cc60036fde00e7d8dc4421
+ms.openlocfilehash: 9155df315a5afb9a0fa7722c955333a47a73085a
+ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/01/2019
-ms.locfileid: "71709346"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72596847"
 ---
 # <a name="strategies-for-testing-your-code-in-azure-functions"></a>在 Azure Functions 中測試程式碼的策略
 
@@ -35,7 +35,7 @@ ms.locfileid: "71709346"
 
 ![使用 Visual Studio 中的 C# 測試 Azure Functions](./media/functions-test-a-function/azure-functions-test-visual-studio-xunit.png)
 
-### <a name="setup"></a>安裝程式
+### <a name="setup"></a>設定
 
 若要設定您的環境，請建立函式並測試應用程式。 下列步驟協助您建立支援測試所需的應用程式和函式：
 
@@ -110,11 +110,11 @@ namespace Functions.Tests
 
 `ListLogger` 類別實作下列成員，如 `ILogger` 介面所縮減：
 
-- **BeginScope**：設定新增內容至記錄的範圍。 在此情況下，測試只會指向 @no__t 0 類別上的靜態實例，讓測試能夠運作。
+- **BeginScope**：範圍會將內容新增至您的記錄。 在此情況下，測試只會指向 `NullScope` 類別上的靜態實例，以允許測試運作。
 
-- **IsEnabled**：提供的預設值為 `false`。
+- **IsEnabled**：提供 `false` 的預設值。
 
-- **Log**：此方法使用提供的 `formatter` 函式來將訊息格式化，接著將產生的文字新增到 `Logs` 集合。
+- **Log**：這個方法會使用提供的 `formatter` 函式來格式化訊息，然後將產生的文字加入至 `Logs` 集合。
 
 `Logs` 集合是 `List<string>` 的執行個體，且在建構函式中初始化。
 
@@ -195,13 +195,13 @@ namespace Functions.Tests
 ```
 `TestFactory` 類別實作下列成員：
 
-- **Data**：此屬性會傳回範例資料的 [IEnumerable](https://docs.microsoft.com/dotnet/api/system.collections.ienumerable) 集合。 索引鍵值組代表傳入查詢字串的值。
+- **Data**：此屬性會傳回範例資料的[IEnumerable](https://docs.microsoft.com/dotnet/api/system.collections.ienumerable)集合。 索引鍵值組代表傳入查詢字串的值。
 
-- **CreateDictionary**：此方法接受索引鍵/值組作為引數，且會傳回新的 `Dictionary`，用來建立 `QueryCollection` 以代表查詢字串值。
+- **CreateDictionary**：這個方法會接受索引鍵/值組做為引數，並傳回新的 `Dictionary` 用來建立 `QueryCollection` 來表示查詢字串值。
 
-- **CreateHttpRequest**：這個方法會建立使用指定之查詢字串參數初始化的 HTTP 要求。
+- **CreateHttpRequest**：這個方法會建立以指定的查詢字串參數初始化的 HTTP 要求。
 
-- **CreateLogger**：根據記錄器類型，此方法會傳回用於測是的記錄器類別。 `ListLogger` 會保留已記錄訊息的追蹤以提供給測試的評估使用。
+- **CreateLogger**：根據記錄器類型，這個方法會傳回用於測試的記錄器類別。 `ListLogger` 會保留已記錄訊息的追蹤以提供給測試的評估使用。
 
 接下來，**以滑鼠右鍵按一下** *Functions.Test* 應用程式，並選取 [新增] > [類別]，將它命名為 **FunctionsTests.cs**，然後輸入下列程式碼：
 
@@ -246,11 +246,11 @@ namespace Functions.Tests
 ```
 成員在此案例中的實作為：
 
-- **Http_trigger_should_return_known_string**：這項測試會建立對 HTTP 函式的要求 (具有 `name=Bill` 的查詢字串值)，並檢查是否傳回預期的回應。
+- **Http_trigger_should_return_known_string**：這項測試會建立一個要求，其中包含 `name=Bill` 的查詢字串值至 Http 函數，並檢查是否傳回預期的回應。
 
-- **Http_trigger_should_return_string_from_member_data**：此測試使用 xUnit 屬性以提供範例資料給 HTTP 函式。
+- **Http_trigger_should_return_string_from_member_data**：此測試會使用 xUnit 屬性來提供範例資料給 Http 函式。
 
-- **Timer_should_log_message**：此測試會建立 `ListLogger` 的執行個體，並將它傳遞給計時器函式。 一旦函式執行之後，便會檢查記錄以確保是否存在預期的訊息。
+- **Timer_should_log_message**：此測試會建立 `ListLogger` 的實例，並將它傳遞至計時器函式。 一旦函式執行之後，便會檢查記錄以確保是否存在預期的訊息。
 
 如果您想要存取測試中的應用程式設定，您可以使用[GetEnvironmentVariable](./functions-dotnet-class-library.md#environment-variables)。
 
@@ -270,7 +270,7 @@ namespace Functions.Tests
 
 ![使用 VS Code 中的 JavaScript 測試 Azure Functions](./media/functions-test-a-function/azure-functions-test-vs-code-jest.png)
 
-### <a name="setup"></a>安裝程式
+### <a name="setup"></a>設定
 
 若要設定您的環境，請執行 `npm init`，在空資料夾中初始化新的 Node.js 應用程式。
 
@@ -363,7 +363,8 @@ npm test
   "type": "node",
   "request": "launch",
   "name": "Jest Tests",
-  "program": "${workspaceRoot}\\node_modules\\jest\\bin\\jest.js",
+  "disableOptimisticBPs": true,
+  "program": "${workspaceRoot}/node_modules/jest/bin/jest.js",
   "args": [
       "-i"
   ],

@@ -8,12 +8,12 @@ ms.service: azure-databricks
 ms.workload: big-data
 ms.topic: conceptual
 ms.date: 03/13/2019
-ms.openlocfilehash: 3718b79562ec05383b9881a1a97cc5bcc5e04258
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 06ab1783a6e0f4884ab46d3f00a26c47f28d02b0
+ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67075445"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72596906"
 ---
 # <a name="regional-disaster-recovery-for-azure-databricks-clusters"></a>Azure Databricks 叢集的區域性災害復原
 
@@ -21,7 +21,7 @@ ms.locfileid: "67075445"
 
 ## <a name="azure-databricks-architecture"></a>Azure Databricks 架構
 
-概括而言，當您從 Azure 入口網站建立 Azure Databricks 工作區時，[受控設備](../managed-applications/overview.md)會在所選的 Azure 區域 (例如，美國西部) 部署為您訂用帳戶中的 Azure 資源。 此設備會部署在具有[網路安全性群組](../virtual-network/manage-network-security-group.md)和 Azure 儲存體帳戶的 [Azure 虛擬網路](../virtual-network/virtual-networks-overview.md)中 (適用於的您訂用帳戶)。 虛擬網路會提供周邊層級安全性給 Databricks 工作區，而且透過網路安全性群組保護。 在工作區內，提供背景工作角色和驅動程式 VM 類型及 Databricks 執行階段版本，即可建立 Databricks 叢集。 在您的儲存體帳戶 (可以是 Azure Blob 儲存體或 Azure Data Lake Store) 中可取得保存的資料。 建立叢集之後，將 Notebook、REST API、ODBC/JDBC 端點附加到特定叢集，即可透過這些端點執行作業。
+概括而言，當您從 Azure 入口網站建立 Azure Databricks 工作區時，[受控設備](../managed-applications/overview.md)會在所選的 Azure 區域 (例如，美國西部) 部署為您訂用帳戶中的 Azure 資源。 此設備會部署在具有[網路安全性群組](../virtual-network/manage-network-security-group.md)和 Azure 儲存體帳戶的 [Azure 虛擬網路](../virtual-network/virtual-networks-overview.md)中 (適用於的您訂用帳戶)。 虛擬網路會提供周邊層級安全性給 Databricks 工作區，而且透過網路安全性群組保護。 在工作區內，提供背景工作角色和驅動程式 VM 類型及 Databricks 執行階段版本，即可建立 Databricks 叢集。 保存的資料可在您的儲存體帳戶中取得，而您可以 Azure Blob 儲存體或 Azure Data Lake Storage。 建立叢集之後，將 Notebook、REST API、ODBC/JDBC 端點附加到特定叢集，即可透過這些端點執行作業。
 
 Databricks 控制平面可管理和監視 Databricks 工作區環境。 從控制平面可起始任何管理作業，例如建立叢集。 所有中繼資料 (例如排定工作) 都會利用異地複寫儲存在 Azure 資料庫中，以便容錯移轉。
 
@@ -31,7 +31,7 @@ Databricks 控制平面可管理和監視 Databricks 工作區環境。 從控�
 
 ## <a name="how-to-create-a-regional-disaster-recovery-topology"></a>如何建立區域性災害復原拓撲
 
-您會注意到上述的結構描述中，有許多用來與 Azure Databricks 巨量資料管線的元件：Azure 儲存體、 Azure 資料庫和其他資料來源。 Azure Databricks 是適用於巨量資料管線的「計算」  。 其具有「暫時」  性質，也就是說，當您的資料仍可在 Azure 儲存體中取得時，可以終止「計算」  (Azure Databricks 叢集)，您就不必支付不需要的計算費用。 「計算」  (Azure Databricks) 和儲存體來源必須位於相同的區域中，作業才不會發生高延遲。  
+如您在先前的架構描述中所見，有許多元件使用於採用 Azure Databricks 的巨量資料管線：Azure 儲存體、Azure 資料庫和其他資料來源。 Azure Databricks 是適用於巨量資料管線的「計算」。 其具有「暫時」性質，也就是說，當您的資料仍可在 Azure 儲存體中取得時，可以終止「計算」 (Azure Databricks 叢集)，您就不必支付不需要的計算費用。 「計算」(Azure Databricks) 和儲存體來源必須位於相同的區域中，作業才不會發生高延遲。  
 
 若要建立您自己的區域性災害復原拓撲，請遵循下列需求：
 
@@ -284,9 +284,9 @@ Databricks 控制平面可管理和監視 Databricks 工作區環境。 從控�
 
    目前沒有任何直接的方法，可將程式庫從一個工作區遷移到另一個工作區。 反而是，將這些程式庫手動重新安裝到新的工作區中。 有可能自動使用 [DBFS CLI](https://github.com/databricks/databricks-cli#dbfs-cli-examples) 的組合，將自訂程式庫上傳至工作區和 [程式庫 CLI](https://github.com/databricks/databricks-cli#libraries-cli)。
 
-8. **遷移 Azure Blob 儲存體和 Azure Data Lake Store 掛接**
+8. **遷移 Azure blob 儲存體和 Azure Data Lake Storage 裝載**
 
-   以手動方式重新掛接所有[Azure Blob 儲存體](https://docs.azuredatabricks.net/spark/latest/data-sources/azure/azure-storage.html)並[Azure Data Lake Store (Gen 2)](https://docs.azuredatabricks.net/spark/latest/data-sources/azure/azure-datalake-gen2.html)掛接點使用 notebook 為基礎的解決方案。 儲存體資源會已掛接在主要工作區中，而且必須在次要工作區中重複。 沒有外部 API 可供掛接使用。
+   使用以筆記本為基礎的解決方案，手動重新掛接所有[Azure Blob 儲存體](https://docs.azuredatabricks.net/spark/latest/data-sources/azure/azure-storage.html)和[Azure Data Lake Storage （Gen 2）](https://docs.azuredatabricks.net/spark/latest/data-sources/azure/azure-datalake-gen2.html)掛接點。 儲存體資源會已掛接在主要工作區中，而且必須在次要工作區中重複。 沒有外部 API 可供掛接使用。
 
 9. **遷移叢集 init 指令碼**
 
@@ -306,9 +306,9 @@ Databricks 控制平面可管理和監視 Databricks 工作區環境。 從控�
 
     如果您使用存取控制功能，請將存取控制手動重新套用到資源 (Notebook、叢集、作業、資料表)。
 
-## <a name="disaster-recovery-for-your-azure-ecosystem"></a>您的 Azure 生態系統的災害復原
+## <a name="disaster-recovery-for-your-azure-ecosystem"></a>Azure 生態系統的嚴重損壞修復
 
-如果您使用其他 Azure 服務，請務必也實作這些服務的嚴重損壞修復最佳實務。 例如，如果您選擇使用外部 Hive 中繼存放區執行個體，您應該考慮的災害復原[Azure SQL Server](../sql-database/sql-database-disaster-recovery.md)， [Azure HDInsight](../hdinsight/hdinsight-high-availability-linux.md)，和/或[適用於 MySQL 的 Azure 資料庫](../mysql/concepts-business-continuity.md). 如需災害復原的一般資訊，請參閱[的 Azure 應用程式的災害復原](https://docs.microsoft.com/azure/architecture/resiliency/disaster-recovery-azure-applications)。
+如果您使用其他 Azure 服務，請務必針對這些服務執行嚴重損壞修復的最佳作法。 例如，如果您選擇使用外部 Hive 中繼存放區實例，您應該考慮[Azure SQL Server](../sql-database/sql-database-disaster-recovery.md)、 [Azure HDInsight](../hdinsight/hdinsight-high-availability-linux.md)和（或）[適用於 MySQL 的 Azure 資料庫](../mysql/concepts-business-continuity.md)的嚴重損壞修復。 如需嚴重損壞修復的一般資訊，請參閱[Azure 應用程式的](https://docs.microsoft.com/azure/architecture/resiliency/disaster-recovery-azure-applications)嚴重損壞修復。
 
 ## <a name="next-steps"></a>後續步驟
 

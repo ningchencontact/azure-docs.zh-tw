@@ -1,30 +1,30 @@
 ---
-title: 使用適用于 Azure 資源的 Azure Active Directory 和受控識別, 授權對 blob 和佇列的存取-Azure 儲存體
-description: Azure Blob 和佇列儲存體支援使用 Azure 資源的 Azure Active Directory 和受控識別來授權資源的存取權。 您可以使用 Azure 資源的受控識別, 從 Azure 虛擬機器中執行的應用程式、函式應用程式、虛擬機器擴展集和其他專案, 授權存取 blob 和佇列。
+title: 使用適用于 Azure 資源的 Azure Active Directory 和受控識別，授權對 blob 和佇列的存取-Azure 儲存體
+description: Azure Blob 和佇列儲存體支援使用 Azure 資源的 Azure Active Directory 和受控識別來授權資源的存取權。 您可以使用 Azure 資源的受控識別，從 Azure 虛擬機器中執行的應用程式、函式應用程式、虛擬機器擴展集和其他專案，授權存取 blob 和佇列。
 services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 07/18/2019
+ms.date: 10/17/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: bed661873b195694c2fd9b30b1d98a3ecf1fc8a4
-ms.sourcegitcommit: 2d9a9079dd0a701b4bbe7289e8126a167cfcb450
+ms.openlocfilehash: 833aa7dcce5c429b3005a378e93e2177df1eb0d4
+ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/29/2019
-ms.locfileid: "71671110"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72595189"
 ---
-# <a name="authorize-access-to-blobs-and-queues-with-azure-active-directory-and-managed-identities-for-azure-resources"></a>使用適用于 Azure 資源的 Azure Active Directory 和受控識別, 授權對 blob 和佇列的存取
+# <a name="authorize-access-to-blobs-and-queues-with-azure-active-directory-and-managed-identities-for-azure-resources"></a>使用適用于 Azure 資源的 Azure Active Directory 和受控識別，授權對 blob 和佇列的存取
 
-Azure Blob 和佇列儲存體支援使用 [Azure 資源的受控識別](../../active-directory/managed-identities-azure-resources/overview.md)來進行 Azure Active Directory (Azure AD) 驗證。 適用于 Azure 資源的受控識別可以使用 Azure 虛擬機器 (Vm) 中執行的應用程式、函式應用程式、虛擬機器擴展集和其他服務的 Azure AD 認證, 來授權 blob 和佇列資料的存取權。 藉由使用適用于 Azure 資源的受控識別搭配 Azure AD authentication, 您可以避免將認證儲存在雲端中執行的應用程式。  
+Azure Blob 和佇列儲存體支援使用 [Azure 資源的受控識別](../../active-directory/managed-identities-azure-resources/overview.md)來進行 Azure Active Directory (Azure AD) 驗證。 適用于 Azure 資源的受控識別可以使用 Azure 虛擬機器（Vm）中執行的應用程式、函式應用程式、虛擬機器擴展集和其他服務的 Azure AD 認證，來授權 blob 和佇列資料的存取權。 藉由使用適用于 Azure 資源的受控識別搭配 Azure AD authentication，您可以避免將認證儲存在雲端中執行的應用程式。  
 
-本文說明如何使用 Azure VM 的受控識別來授權 blob 或佇列資料的存取權。
+本文說明如何使用 Azure 資源的受控識別，來授權從 Azure VM 存取 blob 或佇列資料。 它也會說明如何在開發環境中測試您的程式碼。
 
 ## <a name="enable-managed-identities-on-a-vm"></a>在 VM 上啟用受控識別
 
-您必須先在 VM 上啟用 Azure 資源的受控識別, 才可以使用 Azure 資源的受控識別來授與 VM 的存取權。 若要了解如何啟用 Azure 資源的受控識別，請參閱下列其中一篇文章：
+您必須先在 VM 上啟用 Azure 資源的受控識別，才可以使用 Azure 資源的受控識別來授與 VM 的存取權。 若要了解如何啟用 Azure 資源的受控識別，請參閱下列其中一篇文章：
 
 - [Azure 入口網站](https://docs.microsoft.com/azure/active-directory/managed-service-identity/qs-configure-portal-windows-vm)
 - [Azure PowerShell](../../active-directory/managed-identities-azure-resources/qs-configure-powershell-windows-vm.md)
@@ -32,105 +32,95 @@ Azure Blob 和佇列儲存體支援使用 [Azure 資源的受控識別](../../ac
 - [Azure Resource Manager 範本](../../active-directory/managed-identities-azure-resources/qs-configure-template-windows-vm.md)
 - [Azure Resource Manager 用戶端程式庫](../../active-directory/managed-identities-azure-resources/qs-configure-sdk-windows-vm.md)
 
-## <a name="grant-permissions-to-an-azure-ad-managed-identity"></a>將許可權授與 Azure AD 受控識別
+如需受控識別的詳細資訊，請參閱[適用于 Azure 資源的受控](../../active-directory/managed-identities-azure-resources/overview.md)識別。
 
-若要從您的 Azure 儲存體應用程式中的受控識別授權對 Blob 或佇列服務的要求, 請先為該受控識別設定角色型存取控制 (RBAC) 設定。 Azure 儲存體會定義包含 blob 和佇列資料之許可權的 RBAC 角色。 當 RBAC 角色指派給受控識別時, 受控識別會被授與這些許可權給適當範圍的 blob 或佇列資料。
+## <a name="authenticate-with-the-azure-identity-library-preview"></a>使用 Azure 身分識別程式庫（預覽）進行驗證
 
-如需指派 RBAC 角色的詳細資訊, 請參閱下列其中一篇文章:
+適用于 .NET 的 Azure 身分識別用戶端程式庫（預覽）會驗證安全性主體。 當您的程式碼在 Azure 中執行時，安全性主體是適用于 Azure 資源的受控識別。
 
-- [在 Azure 入口網站中使用 RBAC 授與 Azure Blob 和佇列資料的存取權](storage-auth-aad-rbac-portal.md)
-- [透過 Azure CLI 使用 RBAC 授與 Azure Blob 和佇列資料的存取權](storage-auth-aad-rbac-cli.md)
-- [透過 PowerShell 使用 RBAC 授與 Azure Blob 和佇列資料的存取權](storage-auth-aad-rbac-powershell.md)
+當您的程式碼在開發環境中執行時，可能會自動處理驗證，或視您使用的工具而定，可能需要瀏覽器登入。 Microsoft Visual Studio 支援單一登入（SSO），讓作用中的 Azure AD 使用者帳戶自動用於驗證。 如需 SSO 的詳細資訊，請參閱[單一登入應用程式](../../active-directory/manage-apps/what-is-single-sign-on.md)。
 
-## <a name="azure-storage-resource-id"></a>Azure 儲存體資源識別碼
+其他開發工具可能會提示您透過網頁瀏覽器登入。 您也可以使用服務主體，從開發環境進行驗證。 如需詳細資訊，請參閱[在入口網站中建立 Azure 應用程式](../../active-directory/develop/howto-create-service-principal-portal.md)的身分識別。
 
-[!INCLUDE [storage-resource-id-include](../../../includes/storage-resource-id-include.md)]
+驗證之後，Azure 身分識別用戶端程式庫會取得權杖認證。 然後，此權杖認證會封裝在您建立來對 Azure 儲存體執行作業的服務用戶端物件中。 程式庫會藉由取得適當的權杖認證，順暢地為您處理這項工作。
+
+如需 Azure 身分識別用戶端程式庫的詳細資訊，請參閱[適用于 .net 的 azure 身分識別用戶端程式庫](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/identity/Azure.Identity)。
+
+## <a name="assign-rbac-roles-for-access-to-data"></a>指派 RBAC 角色以存取資料
+
+當 Azure AD 安全性主體嘗試存取 blob 或佇列資料時，該安全性主體必須擁有該資源的許可權。 無論安全性主體是 Azure 中的受控識別，或是在開發環境中執行程式碼的 Azure AD 使用者帳戶，都必須將 RBAC 角色指派給安全性主體，以授與 Azure 儲存體中 blob 或佇列資料的存取權。 如需透過 RBAC 指派許可權的相關資訊，請參閱[使用 Azure Active Directory 授權存取 Azure blob 和佇列](../common/storage-auth-aad.md#assign-rbac-roles-for-access-rights)中的
+
+## <a name="install-the-preview-packages"></a>安裝預覽套件
+
+本文中的範例會使用適用于 Blob 儲存體的 Azure 儲存體用戶端程式庫的最新預覽版本。 若要安裝預覽套件，請從 NuGet 套件管理員主控台執行下列命令：
+
+```powershell
+Install-Package Azure.Storage.Blobs -IncludePrerelease
+```
+
+本文中的範例也會使用適用于 .NET 的 Azure 身分[識別用戶端程式庫](https://www.nuget.org/packages/Azure.Identity/)的最新預覽版本，以 Azure AD 認證進行驗證。 若要安裝預覽套件，請從 NuGet 套件管理員主控台執行下列命令：
+
+```powershell
+Install-Package Azure.Identity -IncludePrerelease
+```
 
 ## <a name="net-code-example-create-a-block-blob"></a>.NET 程式碼範例：建立區塊 Blob
 
-此程式碼範例示範如何從 Azure AD 取得 OAuth 2.0 權杖, 並使用它來授權建立區塊 blob 的要求。 若要讓此範例運作, 請先遵循前面各節中所述的步驟。
-
-[!INCLUDE [storage-app-auth-lib-include](../../../includes/storage-app-auth-lib-include.md)]
-
-### <a name="add-the-callback-method"></a>新增回呼方法
-
-回呼方法會檢查權杖的到期時間, 並視需要進行更新:
+將下列 `using` 指示詞新增至您的程式碼，以使用 Azure 身分識別的預覽版本和 Azure 儲存體用戶端程式庫。
 
 ```csharp
-private static async Task<NewTokenAndFrequency> TokenRenewerAsync(Object state, CancellationToken cancellationToken)
+using System;
+using System.IO;
+using System.Threading.Tasks;
+using Azure.Identity;
+using Azure.Storage;
+using Azure.Storage.Sas;
+using Azure.Storage.Blobs;
+using Azure.Storage.Blobs.Models;
+```
+
+若要取得權杖認證，讓您的程式碼可以用來授權 Azure 儲存體的要求，請建立[DefaultAzureCredential](/dotnet/api/azure.identity.defaultazurecredential)類別的實例。 下列程式碼範例示範如何取得已驗證的權杖認證，並使用它來建立服務用戶端物件，然後使用服務用戶端來上傳新的 blob：
+
+```csharp
+async static Task CreateBlockBlobAsync(string accountName, string containerName, string blobName)
 {
-    // Specify the resource ID for requesting Azure AD tokens for Azure Storage.
-    // Note that you can also specify the root URI for your storage account as the resource ID.
-    const string StorageResource = "https://storage.azure.com/";  
+    // Construct the blob container endpoint from the arguments.
+    string containerEndpoint = string.Format("https://{0}.blob.core.windows.net/{1}",
+                                                accountName,
+                                                containerName);
 
-    // Use the same token provider to request a new token.
-    var authResult = await ((AzureServiceTokenProvider)state).GetAuthenticationResultAsync(StorageResource);
+    // Get a credential and create a client object for the blob container.
+    BlobContainerClient containerClient = new BlobContainerClient(new Uri(containerEndpoint),
+                                                                    new DefaultAzureCredential());
 
-    // Renew the token 5 minutes before it expires.
-    var next = (authResult.ExpiresOn - DateTimeOffset.UtcNow) - TimeSpan.FromMinutes(5);
-    if (next.Ticks < 0)
+    try
     {
-        next = default(TimeSpan);
-        Console.WriteLine("Renewing token...");
-    }
+        // Create the container if it does not exist.
+        await containerClient.CreateIfNotExistsAsync();
 
-    // Return the new token and the next refresh time.
-    return new NewTokenAndFrequency(authResult.AccessToken, next);
+        // Upload text to a new block blob.
+        string blobContents = "This is a block blob.";
+        byte[] byteArray = Encoding.ASCII.GetBytes(blobContents);
+
+        using (MemoryStream stream = new MemoryStream(byteArray))
+        {
+            await containerClient.UploadBlobAsync(blobName, stream);
+        }
+    }
+    catch (StorageRequestFailedException e)
+    {
+        Console.WriteLine(e.Message);
+        Console.ReadLine();
+        throw;
+    }
 }
 ```
 
-### <a name="get-a-token-and-create-a-block-blob"></a>取得權杖並建立區塊 blob
-
-應用程式驗證程式庫提供**azureservicetokenprovider 會**類別。 這個類別的實例可以傳遞至回呼, 以取得權杖, 然後在權杖到期之前更新它。
-
-下列範例會取得權杖, 並使用它來建立新的 blob, 然後使用相同的 token 來讀取 blob。
-
-```csharp
-const string blobName = "https://storagesamples.blob.core.windows.net/sample-container/blob1.txt";
-
-// Get the initial access token and the interval at which to refresh it.
-AzureServiceTokenProvider azureServiceTokenProvider = new AzureServiceTokenProvider();
-var tokenAndFrequency = await TokenRenewerAsync(azureServiceTokenProvider,CancellationToken.None);
-
-// Create storage credentials using the initial token, and connect the callback function
-// to renew the token just before it expires
-TokenCredential tokenCredential = new TokenCredential(tokenAndFrequency.Token,
-                                                        TokenRenewerAsync,
-                                                        azureServiceTokenProvider,
-                                                        tokenAndFrequency.Frequency.Value);
-
-StorageCredentials storageCredentials = new StorageCredentials(tokenCredential);
-
-// Create a blob using the storage credentials.
-CloudBlockBlob blob = new CloudBlockBlob(new Uri(blobName),
-                                            storageCredentials);
-
-// Upload text to the blob.
-await blob.UploadTextAsync(string.Format("This is a blob named {0}", blob.Name));
-
-// Continue to make requests against Azure Storage.
-// The token is automatically refreshed as needed in the background.
-do
-{
-    // Read blob contents
-    Console.WriteLine("Time accessed: {0} Blob Content: {1}",
-                        DateTimeOffset.UtcNow,
-                        await blob.DownloadTextAsync());
-
-    // Sleep for ten seconds, then read the contents of the blob again.
-    Thread.Sleep(TimeSpan.FromSeconds(10));
-} while (true);
-```
-
-如需有關應用程式驗證程式庫的詳細資訊, 請參閱[使用 .net Azure Key Vault 的服務對服務驗證](../../key-vault/service-to-service-authentication.md)。
-
-若要深入瞭解如何取得存取權杖, 請參閱[如何在 AZURE VM 上使用適用于 azure 資源的受控識別來取得存取權杖](../../active-directory/managed-identities-azure-resources/how-to-use-vm-token.md)。
-
 > [!NOTE]
-> 若要使用 Azure AD 來授權對 blob 或佇列資料的要求, 您必須針對這些要求使用 HTTPS。
+> 若要使用 Azure AD 來授權對 blob 或佇列資料的要求，您必須針對這些要求使用 HTTPS。
 
 ## <a name="next-steps"></a>後續步驟
 
-- 若要深入瞭解 Azure 儲存體的 RBAC 角色, 請參閱[使用 Rbac 管理儲存體資料的存取權限](storage-auth-aad-rbac.md)。
+- 若要深入瞭解 Azure 儲存體的 RBAC 角色，請參閱[使用 Rbac 管理儲存體資料的存取權限](storage-auth-aad-rbac.md)。
 - 若要深入了解如何從儲存體應用程式內授權容器和佇列的存取權，請參閱[使用 Azure AD 與儲存體應用程式](storage-auth-aad-app.md)。
-- 若要瞭解如何使用 Azure AD 認證來執行 Azure CLI 和 PowerShell 命令, 請參閱[使用 Azure AD 認證來執行 Azure CLI 或 powershell 命令, 以存取 blob 或佇列資料](storage-auth-aad-script.md)。
+- 若要瞭解如何使用 Azure AD 認證來執行 Azure CLI 和 PowerShell 命令，請參閱[使用 Azure AD 認證來執行 Azure CLI 或 powershell 命令，以存取 blob 或佇列資料](storage-auth-aad-script.md)。

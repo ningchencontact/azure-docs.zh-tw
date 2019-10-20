@@ -9,12 +9,12 @@ ms.date: 03/21/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: 2847a25411ed0125f4af0a84f30cd3d9d630eb84
-ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
+ms.openlocfilehash: 72e695762f2e45309787e6f62fa97aae4c959f34
+ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/13/2019
-ms.locfileid: "72299612"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72598096"
 ---
 # <a name="azure-storage-security-guide"></a>Azure 儲存體安全性指南
 
@@ -25,7 +25,7 @@ ms.locfileid: "72299612"
     - 您可以將儲存體帳戶範圍內的 RBAC 角色指派給安全性主體，以及使用 Azure AD 來授權資源管理作業，例如金鑰管理。
     - Blob 和佇列資料作業支援 Azure AD 整合。 您可以將訂用帳戶、資源群組、儲存體帳戶或個別的容器或佇列範圍內的 RBAC 角色，指派給安全性主體或 Azure 資源的受控識別。 如需詳細資訊，請參閱[使用 Azure Active Directory 來驗證 Azure 儲存體的存取權](storage-auth-aad.md)。   
 - 您可以使用[用戶端加密](../storage-client-side-encryption.md)、HTTPS 或 SMB 3.0，在應用程式和 Azure 之間進行傳輸時保護資料的安全。  
-- 您可以使用 [Azure 磁碟加密](../../security/azure-security-disk-encryption.md)來加密 Azure 虛擬機器所使用的 OS 和資料磁碟。
+- 您可以使用 [Azure 磁碟加密](../../security/fundamentals/encryption-overview.md)來加密 Azure 虛擬機器所使用的 OS 和資料磁碟。
 - 您可以使用共用存取簽章來授與 Azure 儲存體中資料物件的委派存取權。 如需詳細資訊，請參閱[使用共用存取簽章（SAS）授與 Azure 儲存體資源的有限存取權](storage-sas-overview.md)。
 
 本文簡要說明這些安全性功能當中，可與「Azure 儲存體」搭配使用的每個安全性功能。 所提供的文章連結將提供每個功能的詳細資料，讓您能夠輕鬆地進一步調查每個主題。
@@ -237,7 +237,7 @@ http://mystorage.blob.core.windows.net/mycontainer/myblob.txt (URL to the blob)
   * [建構服務 SAS](https://msdn.microsoft.com/library/dn140255.aspx)
   * [建構帳戶 SAS](https://msdn.microsoft.com/library/mt584140.aspx)
 
-* 驗證
+* Authentication
 
   * [Azure 儲存體服務的驗證](https://msdn.microsoft.com/library/azure/dd179428.aspx)
 * 共用存取簽章入門教學課程
@@ -273,7 +273,7 @@ SMB 3.0 (含加密) 可於[所有支援的 Windows 和 Windows Server 作業系�
 
 您可以使用 Microsoft 管理的金鑰，或自己的自訂金鑰。 Microsoft 會產生受控金鑰，然後除了依照內部 Microsoft 原則定義的方式處理金鑰的安全儲存體之外，也會處理其定期輪換。 如需有關使用自訂金鑰的詳細資訊，請參閱[使用 Azure Key Vault 中客戶管理的金鑰進行儲存體服務加密](storage-service-encryption-customer-managed-keys.md)。
 
-SSE 會自動將所有效能層 (標準和進階)、所有部署模型 (Azure Resource Manager 和傳統) 以及所有「Azure 儲存體」服務 (Blob、佇列、資料表和檔案) 中的資料加密。 
+SSE 會自動將所有效能層 (標準和進階)、所有部署模型 (Azure Resource Manager 和傳統) 以及所有 Azure 儲存體服務 (Blob、佇列、資料表和檔案) 中的資料加密。 
 
 ### <a name="client-side-encryption"></a>用戶端加密
 在討論傳輸中的資料加密時，我們曾提及用戶端加密。 此功能可讓您以程式設計方式加密用戶端應用程式中的資料，然後透過連線傳送資料以寫入 Azure 儲存體，並在從 Azure 儲存體擷取資料之後以程式設計方式解密資料。
@@ -328,7 +328,7 @@ Azure 磁碟加密可讓您加密 IaaS 虛擬機器所使用的 OS 磁片和資�
 此功能可確保虛擬機器磁碟上的所有待用資料都會在 Azure 儲存體中加密。
 
 #### <a name="resources"></a>資源
-* [Windows 和 Linux IaaS VM 適用的 Azure 磁碟加密](https://docs.microsoft.com/azure/security/azure-security-disk-encryption)
+* [Windows 和 Linux IaaS VM 適用的 Azure 磁碟加密](../../security/fundamentals/encryption-overview.md)
 
 ### <a name="comparison-of-azure-disk-encryption-sse-and-client-side-encryption"></a>Azure 磁碟加密、SSE 和用戶端加密的比較
 
@@ -353,7 +353,7 @@ Azure 磁碟加密可讓您加密 IaaS 虛擬機器所使用的 OS 磁片和資�
 
 #### <a name="storage-service-encryption-sse"></a>儲存體服務加密 (SSE)
 
-SSE 是由 Azure 儲存體所管理。 SSE 並不針對傳輸中資料提供安全性，但會在資料寫入至「Azure 儲存體」時加密資料。 SSE 不會影響「Azure 儲存體」效能。
+SSE 是由 Azure 儲存體所管理。 SSE 並不針對傳輸中資料提供安全性，但會在資料寫入至「Azure 儲存體」時加密資料。 SSE 不會影響 Azure 儲存體效能。
 
 您可以使用 SSE 來加密任何種類的儲存體帳戶資料 (區塊 Blob、附加 Blob、分頁 Blob、資料表資料、佇列資料及檔案)。
 
@@ -425,7 +425,7 @@ SSE 是由 Azure 儲存體所管理。 SSE 並不針對傳輸中資料提供安�
 
   本文是 Microsoft Message Analyzer 的參考，並包含教學課程、快速入門及功能摘要的連結。
 
-## <a name="cross-origin-resource-sharing-cors"></a>跨原始來源資源分享 (CORS)
+## <a name="cross-origin-resource-sharing-cors"></a>跨原始資源共用 (CORS)
 ### <a name="cross-domain-access-of-resources"></a>跨網域存取資源
 在某一個網域中執行的 Web 瀏覽器對來自不同網域的資源提出 HTTP 要求時，這稱為跨原始來源的 HTTP 要求。 例如，來自 contoso.com 的 HTML 網頁會對裝載於 fabrikam.blob.core.windows.net 上的 jpeg 提出要求。 基於安全性理由，瀏覽器會限制從指令碼 (例如 JavaScript) 內初始化的跨原始來源 HTTP 要求。 這表示當 contoso.com 的網頁上有一些 JavaScript 程式碼要求 fabrikam.blob.core.windows.net 上的該 jpeg 時，瀏覽器將不允許該要求。
 
@@ -472,7 +472,7 @@ Azure 儲存體可讓您啟用 CORS – 跨原始來源資源共用。 對於每
 * [在 MSDN 上 Azure 儲存體服務的跨原始資源共用 (CORS) 支援](https://msdn.microsoft.com/library/azure/dn535601.aspx)
 
   這是適用於 Azure 儲存體服務的 CORS 支援的參考文件。 其中提供適用於每個儲存體服務的文章連結，並示範範例且說明 CORS 檔案中的每個元素。
-* [Microsoft Azure 儲存體：CORS 簡介](https://blogs.msdn.com/b/windowsazurestorage/archive/2014/02/03/windows-azure-storage-introducing-cors.aspx)
+* [Microsoft Azure 儲存體︰CORS 簡介](https://blogs.msdn.com/b/windowsazurestorage/archive/2014/02/03/windows-azure-storage-introducing-cors.aspx)
 
   此為最初發表 CORS 並示範如何使用之部落格文章的連結。
 
@@ -497,6 +497,6 @@ Azure 儲存體可讓您啟用 CORS – 跨原始來源資源共用。 對於每
 * [FIPS 140 Validation (FIPS 140 驗證)](https://technet.microsoft.com/library/cc750357.aspx)
 
   本文提供 Microsoft 產品和密碼編譯模組如何符合美國美國聯邦政府的 FIPS 標準的相關資訊。
-* [「系統密碼編譯︰使用符合 FIPS 規範的演算法進行加密，雜湊，以及簽章」安全性設定的效果](https://support.microsoft.com/kb/811833)
+* [Windows XP 和 Windows 的更新版本中「系統密碼編譯︰使用符合 FIPS 規範的演算法進行加密，雜湊，以及簽章」安全性設定的效果](https://support.microsoft.com/kb/811833)
 
   本文討論如何在較舊的 Windows 電腦中使用 FIPS 模式。

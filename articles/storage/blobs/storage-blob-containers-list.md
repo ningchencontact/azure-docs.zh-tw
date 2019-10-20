@@ -1,6 +1,6 @@
 ---
 title: 使用 .NET 列出 blob 容器-Azure 儲存體
-description: 瞭解如何使用 .NET 用戶端程式庫, 列出 Azure 儲存體帳戶中的 blob 容器。
+description: 瞭解如何使用 .NET 用戶端程式庫，列出 Azure 儲存體帳戶中的 blob 容器。
 services: storage
 author: tamram
 ms.service: storage
@@ -8,20 +8,20 @@ ms.topic: conceptual
 ms.date: 10/01/2019
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: a76b83218a194c2b5cbf3ce582e8094014004123
-ms.sourcegitcommit: 4f3f502447ca8ea9b932b8b7402ce557f21ebe5a
+ms.openlocfilehash: b7e5b0725049fa5de95f435c848502c36a3a1726
+ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71803388"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72598129"
 ---
 # <a name="list-blob-containers-with-net"></a>使用 .NET 列出 blob 容器
 
-當您從程式碼列出 Azure 儲存體帳戶中的容器時, 您可以指定數個選項來管理從 Azure 儲存體傳回結果的方式。 本文說明如何使用[適用于 .net 的 Azure 儲存體用戶端程式庫](/dotnet/api/overview/azure/storage/client)來列出容器。  
+當您從程式碼列出 Azure 儲存體帳戶中的容器時，您可以指定數個選項來管理從 Azure 儲存體傳回結果的方式。 本文說明如何使用[適用于 .net 的 Azure 儲存體用戶端程式庫](/dotnet/api/overview/azure/storage/client)來列出容器。  
 
 ## <a name="understand-container-listing-options"></a>瞭解容器清單選項
 
-若要列出儲存體帳戶中的容器, 請呼叫下列其中一個方法:
+若要列出儲存體帳戶中的容器，請呼叫下列其中一個方法：
 
 - [ListContainersSegmented](/dotnet/api/microsoft.azure.storage.blob.cloudblobclient.listcontainerssegmented)
 - [ListContainersSegmentedAsync](/dotnet/api/microsoft.azure.storage.blob.cloudblobclient.listcontainerssegmentedasync)
@@ -30,23 +30,23 @@ ms.locfileid: "71803388"
 
 ### <a name="manage-how-many-results-are-returned"></a>管理傳回的結果數目
 
-根據預設, 清單作業一次最多會傳回5000個結果。 若要傳回較小的結果集, 請在呼叫其中一個`maxresults` **ListContainerSegmented**方法時, 為參數提供非零值。
+根據預設，清單作業一次最多會傳回5000個結果。 若要傳回較小的結果集，請在呼叫其中一個**ListContainerSegmented**方法時，為 `maxresults` 參數提供非零值。
 
-如果您的儲存體帳戶包含超過5000個容器, 或如果您已指定一個值`maxresults`讓清單作業傳回儲存體帳戶中的容器子集, 則 Azure 儲存體會傳回*接續權杖*, 其中包含容器清單。 接續 token 是不透明的值, 可讓您用來抓取 Azure 儲存體的下一組結果。
+如果您的儲存體帳戶包含超過5000個容器，或如果您已指定 `maxresults` 的值，讓清單作業傳回儲存體帳戶中的容器子集，則 Azure 儲存體會傳回*接續權杖*，其中清單為那裡. 接續 token 是不透明的值，可讓您用來抓取 Azure 儲存體的下一組結果。
 
-在您的程式碼中, 檢查接續 token 的值, 以判斷它是否為 null。 當接續 token 為 null 時, 結果集就會完成。 如果接續 token 不是 null, 則再次呼叫**ListContainersSegmented**或**ListContainersSegmentedAsync** , 傳入接續 token 來抓取下一組結果, 直到接續 token 為 null 為止。
+在您的程式碼中，檢查接續 token 的值，以判斷它是否為 null。 當接續 token 為 null 時，結果集就會完成。 如果接續 token 不是 null，則再次呼叫**ListContainersSegmented**或**ListContainersSegmentedAsync** ，傳入接續 token 來抓取下一組結果，直到接續 token 為 null 為止。
 
 ### <a name="filter-results-with-a-prefix"></a>使用前置詞篩選結果
 
-若要篩選容器清單, 請指定`prefix`參數的字串。 前置詞字串可以包含一或多個字元。 Azure 儲存體接著只會傳回名稱開頭為該前置詞的容器。
+若要篩選容器清單，請指定 `prefix` 參數的字串。 前置詞字串可以包含一或多個字元。 Azure 儲存體接著只會傳回名稱開頭為該前置詞的容器。
 
-### <a name="return-container-metadata"></a>傳回容器中繼資料
+### <a name="return-metadata"></a>傳回中繼資料
 
-若要傳回具有結果的容器中繼資料, 請指定[ContainerListDetails](/dotnet/api/microsoft.azure.storage.blob.containerlistingdetails)列舉的**中繼資料**值。 Azure 儲存體包含每個傳回的容器的中繼資料, 因此您也不需要呼叫其中一個**FetchAttributes**方法來取得容器中繼資料。
+若要傳回具有結果的容器中繼資料，請指定[ContainerListingDetails](/dotnet/api/microsoft.azure.storage.blob.containerlistingdetails)列舉的**中繼資料**值。 Azure 儲存體包含每個傳回的容器的中繼資料，因此您也不需要呼叫其中一個**FetchAttributes**方法來取得容器中繼資料。
 
 ## <a name="example-list-containers"></a>範例：列出容器
 
-下列範例會以非同步方式列出儲存體帳戶中以指定前置詞開頭的容器。 此範例會一次以5個結果的增量來列出容器, 並使用接續 token 來取得結果的下一個區段。 此範例也會傳回具有結果的容器中繼資料。
+下列範例會以非同步方式列出儲存體帳戶中以指定前置詞開頭的容器。 此範例會一次以5個結果的增量來列出容器，並使用接續 token 來取得結果的下一個區段。 此範例也會傳回具有結果的容器中繼資料。
 
 ```csharp
 private static async Task ListContainersWithPrefixAsync(CloudBlobClient blobClient, string prefix)
@@ -97,7 +97,7 @@ private static async Task ListContainersWithPrefixAsync(CloudBlobClient blobClie
 
 [!INCLUDE [storage-blob-dotnet-resources-include](../../../includes/storage-blob-dotnet-resources-include.md)]
 
-## <a name="see-also"></a>另請參閱
+## <a name="see-also"></a>請參閱
 
-[列出](/rest/api/storageservices/list-containers2)
-[列舉 Blob 資源](/rest/api/storageservices/enumerating-blob-resources)的容器
+[列出容器](/rest/api/storageservices/list-containers2)
+[列舉 Blob 資源](/rest/api/storageservices/enumerating-blob-resources)

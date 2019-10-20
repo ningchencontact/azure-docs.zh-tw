@@ -11,12 +11,12 @@ author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, carlrab
 ms.date: 05/21/2019
-ms.openlocfilehash: 208ebaa2e22f4cd0ee2138f3e49f78c1e56860cf
-ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.openlocfilehash: 235cdff1297b840bfd1a522e265633b47094c855
+ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71260324"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72597973"
 ---
 # <a name="azure-sql-database-metrics-and-diagnostics-logging"></a>Azure SQL Database 計量和診斷記錄
 
@@ -41,7 +41,7 @@ ms.locfileid: "71260324"
 
 您可以使用下列其中一種方法來啟用及管理計量和診斷遙測記錄功能︰
 
-- Azure 入口網站
+- Azure Portal
 - PowerShell
 - Azure CLI
 - Azure 監視器 REST API
@@ -63,14 +63,14 @@ ms.locfileid: "71260324"
 
 | 監視資料庫的遙測 | 單一資料庫和集區資料庫支援 | 實例資料庫支援 |
 | :------------------- | ----- | ----- |
-| [基本計量](#basic-metrics)：包含 DTU/CPU 百分比、DTU/CPU 限制、實體資料讀取百分比、記錄寫入百分比、成功/失敗/防火牆封鎖的連線、工作階段百分比、背景工作角色百分比、儲存體、儲存體百分比和 XTP 儲存體百分比。 | 是 | 否 |
-| [QueryStoreRuntimeStatistics](#query-store-runtime-statistics)：包含關於查詢執行階段統計資料的資訊，例如 CPU 使用率和查詢持續時間統計資料。 | 是 | 是 |
-| [QueryStoreWaitStatistics](#query-store-wait-statistics)：包含有關查詢等候統計資料的資訊（您的查詢等候的時間），例如 CPU、記錄和鎖定。 | 是 | 是 |
+| [基本計量](#basic-metrics)：包含 DTU/cpu 百分比、DTU/cpu 限制、實體資料讀取百分比、記錄寫入百分比、成功/失敗/防火牆連線、會話百分比、背景工作百分比、儲存體、儲存體百分比和 XTP儲存體百分比。 | 是 | 否 |
+| [QueryStoreRuntimeStatistics](#query-store-runtime-statistics)：包含查詢執行時間統計資料的相關資訊，例如 CPU 使用率和查詢持續時間統計資料。 | 是 | 是 |
+| [QueryStoreWaitStatistics](#query-store-wait-statistics)：包含查詢等候統計資料的相關資訊（您的查詢等候的時間），例如 CPU、記錄和鎖定。 | 是 | 是 |
 | [錯誤](#errors-dataset)：包含有關資料庫上 SQL 錯誤的資訊。 | 是 | 是 |
-| [DatabaseWaitStatistics](#database-wait-statistics-dataset)：包含資料庫花在不同等候類型的等候時間的相關資訊。 | 是 | 否 |
-| [逾時](#time-outs-dataset)：包含有關資料庫的超時資訊。 | 是 | 否 |
+| [DatabaseWaitStatistics](#database-wait-statistics-dataset)：包含和資料庫花費在不同等候類型的等候時間長度有關的資訊。 | 是 | 否 |
+| [超時](#time-outs-dataset)：包含資料庫上之超時的相關資訊。 | 是 | 否 |
 | [封鎖](#blockings-dataset)：包含有關資料庫上封鎖事件的資訊。 | 是 | 否 |
-| [鎖死](#deadlocks-dataset)：包含資料庫上之鎖死事件的相關資訊。 | 是 | 否 |
+| [鎖死](#deadlocks-dataset)：包含有關資料庫上之鎖死事件的資訊。 | 是 | 否 |
 | [AutomaticTuning](#automatic-tuning-dataset)：包含資料庫之自動調整建議的相關資訊。 | 是 | 否 |
 | [SQLInsights](#intelligent-insights-dataset)：包含資料庫的效能 Intelligent Insights。 若要深入了解，請參閱 [Intelligent Insights](sql-database-intelligent-insights.md)。 | 是 | 是 |
 
@@ -80,9 +80,9 @@ ms.locfileid: "71260324"
 > [!NOTE]
 > 無法從資料庫診斷設定（雖然顯示在畫面上）來啟用安全性 Audit 和 SQLSecurityAuditEvents 記錄。 若要啟用 audit 記錄串流，請參閱[設定資料庫的審核](sql-database-auditing.md#subheading-2)，以及[Azure 監視器記錄和 Azure 事件中樞中的審核記錄](https://techcommunity.microsoft.com/t5/Azure-SQL-Database/SQL-Audit-logs-in-Azure-Log-Analytics-and-Azure-Event-Hubs/ba-p/386242)。
 
-## <a name="azure-portal"></a>Azure 入口網站
+## <a name="azure-portal"></a>Azure Portal
 
-您可以在 Azure 入口網站中，針對每個單一、集區或實例資料庫使用 [**診斷設定**] 功能表，以設定診斷遙測的串流處理。 此外，也可以為資料庫容器分別設定診斷遙測：彈性集區和受控實例。 您可以設定下列目的地以串流診斷遙測：Azure 儲存體、Azure 事件中樞和 Azure 監視器記錄檔。
+您可以在 Azure 入口網站中，針對每個單一、集區或實例資料庫使用 [**診斷設定**] 功能表，以設定診斷遙測的串流處理。 此外，也可以為資料庫容器分別設定診斷遙測：彈性集區和受控實例。 您可以設定下列目的地以串流診斷遙測： Azure 儲存體、Azure 事件中樞和 Azure 監視器記錄檔。
 
 ### <a name="configure-streaming-of-diagnostics-telemetry-for-elastic-pools"></a>設定彈性集區診斷遙測的串流處理
 
@@ -90,7 +90,7 @@ ms.locfileid: "71260324"
 
 您可以設定彈性集區資源，以收集下列診斷遙測：
 
-| Resource | 監視遙測 |
+| 資源 | 監視遙測 |
 | :------------------- | ------------------- |
 | **彈性集區** | [基本計量](sql-database-metrics-diag-logging.md#basic-metrics)包含 EDTU/cpu 百分比、EDTU/cpu 限制、實體資料讀取百分比、記錄寫入百分比、會話百分比、背景工作百分比、儲存體、儲存體百分比、儲存體限制，以及 XTP 儲存體百分比。 |
 
@@ -110,10 +110,10 @@ ms.locfileid: "71260324"
    ![啟用彈性集區的診斷功能](./media/sql-database-metrics-diag-logging/diagnostics-settings-container-elasticpool-enable.png)
 
 1. 輸入供您自己參考的設定名稱。
-1. 選取串流診斷資料的目的地資源：**封存至儲存體帳戶**、**串流至事件中樞**，或**傳送至 Log Analytics**。
+1. 選取串流診斷資料的目的地資源： [封存**至儲存體帳戶**]、[**串流至事件中樞**] 或 [**傳送至 Log Analytics**]。
 1. 針對 log analytics，選取 [ **+ 建立新的工作區**]，或選取現有的工作區來**設定**並建立新的工作區。
-1. 選取彈性集區診斷遙測的核取方塊：**基本**計量。
-   ![設定彈性集區的診斷功能](./media/sql-database-metrics-diag-logging/diagnostics-settings-container-elasticpool-selection.png)
+1. 選取彈性集區診斷遙測的核取方塊： [**基本**計量]。
+   彈性集區的 ![Configure 診斷 ](./media/sql-database-metrics-diag-logging/diagnostics-settings-container-elasticpool-selection.png)
 1. 選取 [儲存]。
 1. 此外，請遵循下一節所述的步驟，為您想要監視的彈性集區中的每個資料庫設定診斷遙測的串流。
 
@@ -134,10 +134,10 @@ ms.locfileid: "71260324"
 
    ![啟用單一、集區式或執行個體資料庫的診斷](./media/sql-database-metrics-diag-logging/diagnostics-settings-database-sql-enable.png)
 1. 輸入供您自己參考的設定名稱。
-1. 選取串流診斷資料的目的地資源：**封存至儲存體帳戶**、**串流至事件中樞**，或**傳送至 Log Analytics**。
-1. 若為標準的事件型監視體驗，請勾選下列的資料庫診斷記錄遙測核取方塊：**SQLInsights**、**AutomaticTuning**、**QueryStoreRuntimeStatistics**、**QueryStoreWaitStatistics**、**錯誤**、**DatabaseWaitStatistics**、**逾時**、**區塊**和**死結**。
+1. 選取串流診斷資料的目的地資源： [封存**至儲存體帳戶**]、[**串流至事件中樞**] 或 [**傳送至 Log Analytics**]。
+1. 針對以事件為基礎的標準監視體驗，請選取下列資料庫診斷記錄遙測的核取方塊： **SQLInsights**、 **AutomaticTuning**、 **QueryStoreRuntimeStatistics**、 **QueryStoreWaitStatistics**、**錯誤**、 **DatabaseWaitStatistics**、**超時**、**區塊**和**鎖死**。
 1. 如需以一分鐘為基礎的先進監視體驗，請選取 [**基本**計量] 的核取方塊。
-   ![設定單一、集區式或實例資料庫的診斷](./media/sql-database-metrics-diag-logging/diagnostics-settings-database-sql-selection.png)
+   適用于單一、集區式或實例資料庫的 ![Configure 診斷 ](./media/sql-database-metrics-diag-logging/diagnostics-settings-database-sql-selection.png)
 1. 選取 [儲存]。
 1. 針對您想要監視的每個資料庫重複這些步驟。
 
@@ -152,7 +152,7 @@ ms.locfileid: "71260324"
 
 您可以設定受控執行個體，以收集下列診斷遙測：
 
-| Resource | 監視遙測 |
+| 資源 | 監視遙測 |
 | :------------------- | ------------------- |
 | **受控執行個體** | [ResourceUsageStats](#resource-usage-stats-for-managed-instance) 包含 V 核心計數、平均 CPU 百分比、IO 要求、讀取/寫入的位元組、保留的儲存空間，以及使用的儲存空間。 |
 
@@ -172,10 +172,10 @@ ms.locfileid: "71260324"
    ![啟用受控執行個體的診斷](./media/sql-database-metrics-diag-logging/diagnostics-settings-container-mi-enable.png)
 
 1. 輸入供您自己參考的設定名稱。
-1. 選取串流診斷資料的目的地資源：**封存至儲存體帳戶**、**串流至事件中樞**，或**傳送至 Log Analytics**。
+1. 選取串流診斷資料的目的地資源： [封存**至儲存體帳戶**]、[**串流至事件中樞**] 或 [**傳送至 Log Analytics**]。
 1. 針對 log analytics，選取 [ **+ 建立新的工作區**]，或使用現有的工作區，以選取 [**設定**並建立新的工作區]。
-1. 勾選執行個體診斷遙測的核取方塊：**ResourceUsageStats**。
-   ![設定受控實例的診斷](./media/sql-database-metrics-diag-logging/diagnostics-settings-container-mi-selection.png)
+1. 選取 [實例診斷遙測： **ResourceUsageStats**] 的核取方塊。
+   受控實例 ](./media/sql-database-metrics-diag-logging/diagnostics-settings-container-mi-selection.png) 的 ![Configure 診斷
 1. 選取 [儲存]。
 1. 此外，請遵循下一節所述的步驟，為您要監視的受控實例中的每個實例資料庫設定診斷遙測的串流。
 
@@ -197,9 +197,9 @@ ms.locfileid: "71260324"
    ![啟用執行個體資料庫的診斷](./media/sql-database-metrics-diag-logging/diagnostics-settings-database-mi-enable.png)
 
 1. 輸入供您自己參考的設定名稱。
-1. 選取串流診斷資料的目的地資源：**封存至儲存體帳戶**、**串流至事件中樞**，或**傳送至 Log Analytics**。
-1. 勾選資料庫診斷遙測的核取方塊：**SQLInsights**、**QueryStoreRuntimeStatistics**、**QueryStoreWaitStatistics**和**錯誤**。
-   ![設定實例資料庫的診斷](./media/sql-database-metrics-diag-logging/diagnostics-settings-database-mi-selection.png)
+1. 選取串流診斷資料的目的地資源： [封存**至儲存體帳戶**]、[**串流至事件中樞**] 或 [**傳送至 Log Analytics**]。
+1. 選取資料庫診斷遙測的核取方塊： [ **SQLInsights**]、[ **QueryStoreRuntimeStatistics**]、[ **QueryStoreWaitStatistics** ] 和 [**錯誤**]。
+   實例資料庫的 ![Configure 診斷 ](./media/sql-database-metrics-diag-logging/diagnostics-settings-database-mi-selection.png)
 1. 選取 [儲存]。
 1. 針對您想要監視的每個實例資料庫重複這些步驟。
 
@@ -210,7 +210,7 @@ ms.locfileid: "71260324"
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 > [!IMPORTANT]
-> Azure SQL Database 仍然支援 PowerShell Azure Resource Manager 模組, 但所有未來的開發都是針對 Az .Sql 模組。 如需這些 Cmdlet, 請參閱[AzureRM](https://docs.microsoft.com/powershell/module/AzureRM.Sql/)。 Az 模組和 AzureRm 模組中命令的引數本質上完全相同。
+> Azure SQL Database 仍然支援 PowerShell Azure Resource Manager 模組，但所有未來的開發都是針對 Az .Sql 模組。 如需這些 Cmdlet，請參閱[AzureRM](https://docs.microsoft.com/powershell/module/AzureRM.Sql/)。 Az 模組和 AzureRm 模組中命令的引數本質上完全相同。
 
 您可以使用 PowerShell 啟用計量和診斷記錄功能。
 
@@ -360,7 +360,7 @@ Azure SQL 分析是雲端解決方案，可以跨多個訂用帳戶大規模監�
 所選的資料串流到事件中樞之後，您很快就能啟用進階監視案例。 事件中樞是作為事件管線的大門。 資料收集到事件中樞之後，這些資料可以透過即時分析提供者或儲存體配接器來轉換和儲存。 事件中樞會讓事件串流的產生從這些事件的取用分離。 如此一來，事件消費者可以在自己的排程存取事件。 如需事件中樞的詳細資訊，請參閱：
 
 - [Azure 事件中樞是什麼？](../event-hubs/event-hubs-what-is-event-hubs.md)
-- [開始使用事件中心](../event-hubs/event-hubs-csharp-ephcs-getstarted.md)
+- [開始使用事件中樞](../event-hubs/event-hubs-csharp-ephcs-getstarted.md)
 
 您可以在事件中樞使用串流的計量：
 
@@ -427,7 +427,7 @@ insights-{metrics|logs}-{category name}/resourceId=/SUBSCRIPTIONS/{subscription 
 
 |**Resource**|**計量**|
 |---|---|
-|Azure SQL Database|DTU 百分比、使用的 DTU、DTU 限制、CPU 百分比、實體資料讀取百分比、記錄寫入百分比、成功/失敗/防火牆封鎖的連線、工作階段百分比、背景工作百分比、儲存體、儲存體百分比、XTP 儲存體百分比和死結 |
+|Azure SQL 資料庫|DTU 百分比、使用的 DTU、DTU 限制、CPU 百分比、實體資料讀取百分比、記錄寫入百分比、成功/失敗/防火牆封鎖的連線、工作階段百分比、背景工作百分比、儲存體、儲存體百分比、XTP 儲存體百分比和死結 |
 
 ## <a name="basic-logs"></a>基本記錄
 
@@ -442,8 +442,8 @@ insights-{metrics|logs}-{category name}/resourceId=/SUBSCRIPTIONS/{subscription 
 |TimeGenerated [UTC]|記錄檔記錄時的時間戳記 |
 |Type|一律：AzureDiagnostics |
 |ResourceProvider|資源提供者名稱。 一律：MICROSOFT.SQL |
-|Category|類別名稱。 一律：ResourceUsageStats |
-|Resource|資源的名稱 |
+|類別|類別名稱。 一律：ResourceUsageStats |
+|資源|資源名稱 |
 |ResourceType|資源類型名稱。 一律：MANAGEDINSTANCES |
 |SubscriptionId|資料庫的訂用帳戶 GUID |
 |ResourceGroup|資料庫的資源群組名稱 |
@@ -467,9 +467,9 @@ insights-{metrics|logs}-{category name}/resourceId=/SUBSCRIPTIONS/{subscription 
 |TimeGenerated [UTC]|記錄檔記錄時的時間戳記 |
 |Type|一律：AzureDiagnostics |
 |ResourceProvider|資源提供者名稱。 一律：MICROSOFT.SQL |
-|Category|類別名稱。 一律：QueryStoreRuntimeStatistics |
+|類別|類別名稱。 一律：QueryStoreRuntimeStatistics |
 |OperationName|作業名稱。 一律：QueryStoreRuntimeStatisticsEvent |
-|Resource|資源的名稱 |
+|資源|資源名稱 |
 |ResourceType|資源類型名稱。 一律：SERVERS/DATABASES |
 |SubscriptionId|資料庫的訂用帳戶 GUID |
 |ResourceGroup|資料庫的資源群組名稱 |
@@ -518,9 +518,9 @@ insights-{metrics|logs}-{category name}/resourceId=/SUBSCRIPTIONS/{subscription 
 |TimeGenerated [UTC]|記錄檔記錄時的時間戳記 |
 |Type|一律：AzureDiagnostics |
 |ResourceProvider|資源提供者名稱。 一律：MICROSOFT.SQL |
-|Category|類別名稱。 一律：QueryStoreWaitStatistics |
+|類別|類別名稱。 一律：QueryStoreWaitStatistics |
 |OperationName|作業名稱。 一律：QueryStoreWaitStatisticsEvent |
-|Resource|資源的名稱 |
+|資源|資源名稱 |
 |ResourceType|資源類型名稱。 一律：SERVERS/DATABASES |
 |SubscriptionId|資料庫的訂用帳戶 GUID |
 |ResourceGroup|資料庫的資源群組名稱 |
@@ -556,9 +556,9 @@ insights-{metrics|logs}-{category name}/resourceId=/SUBSCRIPTIONS/{subscription 
 |TimeGenerated [UTC]|記錄檔記錄時的時間戳記 |
 |Type|一律：AzureDiagnostics |
 |ResourceProvider|資源提供者名稱。 一律：MICROSOFT.SQL |
-|Category|類別名稱。 一律：錯誤 |
-|OperationName|作業名稱。 一律：錯誤事件 |
-|Resource|資源的名稱 |
+|類別|類別名稱。 一律：Errors |
+|OperationName|作業名稱。 一律：ErrorEvent |
+|資源|資源名稱 |
 |ResourceType|資源類型名稱。 一律：SERVERS/DATABASES |
 |SubscriptionId|資料庫的訂用帳戶 GUID |
 |ResourceGroup|資料庫的資源群組名稱 |
@@ -566,15 +566,15 @@ insights-{metrics|logs}-{category name}/resourceId=/SUBSCRIPTIONS/{subscription 
 |ElasticPoolName_s|資料庫的彈性集區名稱 (如果有) |
 |DatabaseName_s|資料庫名稱 |
 |ResourceId|資源 URI |
-|Message|純文字的錯誤訊息 |
+|訊息|純文字的錯誤訊息 |
 |user_defined_b|錯誤是否為使用者定義的位元 |
 |error_number_d|錯誤碼 |
-|Severity|錯誤的嚴重性 |
+|嚴重性|錯誤的嚴重性 |
 |state_d|錯誤的狀態 |
 |query_hash_s|失敗查詢的查詢雜湊 (如果有) |
 |query_plan_hash_s|失敗查詢的查詢計劃雜湊 (如果有) |
 
-深入了解 [SQL Server 錯誤訊息](https://msdn.microsoft.com/library/cc645603.aspx)。
+深入了解 [SQL Server 錯誤訊息](https://docs.microsoft.com/sql/relational-databases/errors-events/database-engine-events-and-errors?view=sql-server-ver15)。
 
 ### <a name="database-wait-statistics-dataset"></a>資料庫等候統計資料資料集
 
@@ -585,9 +585,9 @@ insights-{metrics|logs}-{category name}/resourceId=/SUBSCRIPTIONS/{subscription 
 |TimeGenerated [UTC]|記錄檔記錄時的時間戳記 |
 |Type|一律：AzureDiagnostics |
 |ResourceProvider|資源提供者名稱。 一律：MICROSOFT.SQL |
-|Category|類別名稱。 一律：DatabaseWaitStatistics |
+|類別|類別名稱。 一律：DatabaseWaitStatistics |
 |OperationName|作業名稱。 一律：DatabaseWaitStatisticsEvent |
-|Resource|資源的名稱 |
+|資源|資源名稱 |
 |ResourceType|資源類型名稱。 一律：SERVERS/DATABASES |
 |SubscriptionId|資料庫的訂用帳戶 GUID |
 |ResourceGroup|資料庫的資源群組名稱 |
@@ -614,9 +614,9 @@ insights-{metrics|logs}-{category name}/resourceId=/SUBSCRIPTIONS/{subscription 
 |TimeGenerated [UTC]|記錄檔記錄時的時間戳記 |
 |Type|一律：AzureDiagnostics |
 |ResourceProvider|資源提供者名稱。 一律：MICROSOFT.SQL |
-|Category|類別名稱。 一律：逾時 |
+|類別|類別名稱。 一律：Timeouts |
 |OperationName|作業名稱。 一律：TimeoutEvent |
-|Resource|資源的名稱 |
+|資源|資源名稱 |
 |ResourceType|資源類型名稱。 一律：SERVERS/DATABASES |
 |SubscriptionId|資料庫的訂用帳戶 GUID |
 |ResourceGroup|資料庫的資源群組名稱 |
@@ -637,9 +637,9 @@ insights-{metrics|logs}-{category name}/resourceId=/SUBSCRIPTIONS/{subscription 
 |TimeGenerated [UTC]|記錄檔記錄時的時間戳記 |
 |Type|一律：AzureDiagnostics |
 |ResourceProvider|資源提供者名稱。 一律：MICROSOFT.SQL |
-|Category|類別名稱。 一律：區塊 |
+|類別|類別名稱。 一律：Blocks |
 |OperationName|作業名稱。 一律：BlockEvent |
-|Resource|資源的名稱 |
+|資源|資源名稱 |
 |ResourceType|資源類型名稱。 一律：SERVERS/DATABASES |
 |SubscriptionId|資料庫的訂用帳戶 GUID |
 |ResourceGroup|資料庫的資源群組名稱 |
@@ -661,9 +661,9 @@ insights-{metrics|logs}-{category name}/resourceId=/SUBSCRIPTIONS/{subscription 
 |TimeGenerated [UTC] |記錄檔記錄時的時間戳記 |
 |Type|一律：AzureDiagnostics |
 |ResourceProvider|資源提供者名稱。 一律：MICROSOFT.SQL |
-|Category|類別名稱。 一律：死結 |
+|類別|類別名稱。 一律：Deadlocks |
 |OperationName|作業名稱。 一律：DeadlockEvent |
-|Resource|資源的名稱 |
+|資源|資源名稱 |
 |ResourceType|資源類型名稱。 一律：SERVERS/DATABASES |
 |SubscriptionId|資料庫的訂用帳戶 GUID |
 |ResourceGroup|資料庫的資源群組名稱 |
@@ -682,8 +682,8 @@ insights-{metrics|logs}-{category name}/resourceId=/SUBSCRIPTIONS/{subscription 
 |TimeGenerated [UTC]|記錄檔記錄時的時間戳記 |
 |Type|一律：AzureDiagnostics |
 |ResourceProvider|資源提供者名稱。 一律：MICROSOFT.SQL |
-|Category|類別名稱。 一律：AutomaticTuning |
-|Resource|資源的名稱 |
+|類別|類別名稱。 一律：AutomaticTuning |
+|資源|資源名稱 |
 |ResourceType|資源類型名稱。 一律：SERVERS/DATABASES |
 |SubscriptionId|資料庫的訂用帳戶 GUID |
 |ResourceGroup|資料庫的資源群組名稱 |
@@ -717,7 +717,7 @@ insights-{metrics|logs}-{category name}/resourceId=/SUBSCRIPTIONS/{subscription 
 若要了解事件中樞，請閱讀：
 
 - [Azure 事件中樞是什麼？](../event-hubs/event-hubs-what-is-event-hubs.md)
-- [開始使用事件中心](../event-hubs/event-hubs-csharp-ephcs-getstarted.md)
+- [開始使用事件中樞](../event-hubs/event-hubs-csharp-ephcs-getstarted.md)
 
 若要瞭解如何根據 log analytics 的遙測設定警示，請參閱：
 

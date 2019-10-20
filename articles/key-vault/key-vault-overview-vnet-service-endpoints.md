@@ -8,12 +8,12 @@ manager: rkarlin
 ms.date: 01/02/2019
 ms.service: key-vault
 ms.topic: conceptual
-ms.openlocfilehash: b39482f5c753fbfe6cc6663dda4f5381300c2c21
-ms.sourcegitcommit: 71db032bd5680c9287a7867b923bf6471ba8f6be
+ms.openlocfilehash: 7ccf6d93419b981203067e28f8c85ef8445ab0c2
+ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/16/2019
-ms.locfileid: "71017242"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72595290"
 ---
 # <a name="virtual-network-service-endpoints-for-azure-key-vault"></a>Azure Key Vault 的虛擬網路服務端點
 
@@ -21,7 +21,7 @@ Azure Key Vault 的虛擬網路服務端點可讓您將存取權限制為指定�
 
 此限制有一個重要例外狀況。 如果使用者已選擇要允許受信任的 Microsoft 服務，則來自這些服務的連線會通過防火牆。 例如，這些服務包括 Office 365 Exchange Online、Office 365 SharePoint Online、Azure Compute、Azure Resource Manager 和 Azure 備份。 這類使用者仍必須出示有效的 Azure Active Directory 權杖，而且必須具有權限 (如存取原則設定) 才能執行要求的作業。 如需詳細資訊，請參閱[虛擬網路服務端點](../virtual-network/virtual-network-service-endpoints-overview.md)。
 
-## <a name="usage-scenarios"></a>使用案例
+## <a name="usage-scenarios"></a>使用方法案例
 
 根據預設，您可以將 [Key Vault 防火牆和虛擬網路](key-vault-network-security.md)設定成拒絕存取所有網路流量 (包括網際網路流量)。 您可以授權存取特定 Azure 虛擬網路和公用網際網路 IP 位址範圍的流量，讓您為應用程式建置安全的網路界限。
 
@@ -53,7 +53,7 @@ Azure Key Vault 的虛擬網路服務端點可讓您將存取權限制為指定�
 > 請留意下列組態限制：
 > * 最多允許 127 條虛擬網路規則和 127 條 IPv4 規則。 
 > * 不支援使用 "/31" 或 "/32" 前置詞大小的小型位址範圍。 而是，使用個別 IP 位址規則設定這些範圍。
-> * 只有公用 IP 位址允許使用 IP 網路規則。 IP 規則中不允許保留私人網路的 IP 位址範圍 (如 RFC 1918 中所定義)。 私人網路包含位址開頭**10。** ， **172.16 31**，並**192.168**。 
+> * 只有公用 IP 位址允許使用 IP 網路規則。 IP 規則中不允許保留私人網路的 IP 位址範圍 (如 RFC 1918 中所定義)。 私人網路包括以**10.** 、 **172.16.-31**和**192.168**為開頭的位址。 
 > * 目前僅支援 IPv4 位址。
 
 ## <a name="trusted-services"></a>信任的服務
@@ -64,7 +64,7 @@ Azure Key Vault 的虛擬網路服務端點可讓您將存取權限制為指定�
 | --- | --- |
 |Azure 虛擬機器部署服務|[Deploy Certificates to VMs from customer-managed Key Vault (將憑證從客戶管理的 Key Vault 部署到 VM)](https://blogs.technet.microsoft.com/kv/2016/09/14/updated-deploy-certificates-to-vms-from-customer-managed-key-vault/)。|
 |Azure Resource Manager 範本部署服務|[在部署期間傳遞安全值](../azure-resource-manager/resource-manager-keyvault-parameter.md)。|
-|Azure Disk Encryption 磁碟區加密服務|允許在虛擬機器部署期間，存取 BitLocker 金鑰 (Windows VM) 或 DM 複雜密碼 (Linux VM) 和金鑰加密金鑰。 這可啟用 [Azure 磁碟加密](../security/azure-security-disk-encryption.md)。|
+|Azure Disk Encryption 磁碟區加密服務|允許在虛擬機器部署期間，存取 BitLocker 金鑰 (Windows VM) 或 DM 複雜密碼 (Linux VM) 和金鑰加密金鑰。 這可啟用 [Azure 磁碟加密](../security/fundamentals/encryption-overview.md)。|
 |Azure 備份|使用 [Azure 備份](../backup/backup-introduction-to-azure-backup.md)，在 Azure 虛擬機器備份期間，允許相關金鑰和祕密的備份和還原。|
 |Exchange Online 和 SharePoint Online|允許使用[客戶金鑰](https://support.office.com/article/Controlling-your-data-in-Office-365-using-Customer-Key-f2cd475a-e592-46cf-80a3-1bfb0fa17697)存取 Azure 儲存體服務加密的客戶金鑰。|
 |Azure 資訊保護|允許存取 [Azure 資訊保護](https://docs.microsoft.com/azure/information-protection/what-is-information-protection)的租用戶金鑰|

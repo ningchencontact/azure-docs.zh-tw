@@ -11,12 +11,12 @@ author: jpe316
 ms.reviewer: larryfr
 ms.date: 09/13/2019
 ms.custom: seoapril2019
-ms.openlocfilehash: 03fb21197b2e71603b8078945e16ccd69f151577
-ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
-ms.translationtype: HT
+ms.openlocfilehash: a5674658fa237e44c7caea45c8f6d587a471b981
+ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72555773"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72595646"
 ---
 # <a name="deploy-models-with-azure-machine-learning"></a>使用 Azure Machine Learning 部署模型
 
@@ -263,11 +263,18 @@ model_path = Model.get_model_path('sklearn_mnist')
 name: project_environment
 dependencies:
   - python=3.6.2
+  - scikit-learn=0.20.0
   - pip:
     - azureml-defaults
-    - scikit-learn==0.20.0
     - inference-schema[numpy-support]
 ```
+
+> [!IMPORTANT]
+> 如果您的相依性可透過 Conda 和 pip （來自 PyPi）取得，Microsoft 建議使用 Conda 版本，因為 Conda 套件通常會隨附預先建立的二進位檔，讓安裝更可靠。
+>
+> 如需詳細資訊，請參閱[瞭解 Conda 和 Pip](https://www.anaconda.com/understanding-conda-and-pip/)。
+>
+> 若要檢查您的相依性是否可透過 Conda 取得，請使用 `conda search <package-name>` 命令，或使用位於[https://anaconda.org/anaconda/repo](https://anaconda.org/anaconda/repo)和[https://anaconda.org/conda-forge/repo](https://anaconda.org/conda-forge/repo)的封裝索引。
 
 如果您想要使用自動產生架構，您的輸入腳本必須匯入 `inference-schema` 的封裝。
 

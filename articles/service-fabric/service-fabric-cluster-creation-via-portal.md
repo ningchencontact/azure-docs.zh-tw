@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 09/06/2018
 ms.author: atsenthi
 ms.openlocfilehash: 123795730e8468591bb02fa7c756ad48222dff82
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/29/2019
+ms.lasthandoff: 10/18/2019
 ms.locfileid: "68600011"
 ---
 # <a name="create-a-service-fabric-cluster-in-azure-using-the-azure-portal"></a>使用 Azure 入口網站在 Azure 中建立 Service Fabric 叢集
@@ -34,7 +34,7 @@ ms.locfileid: "68600011"
 * 使用憑證驗證系統管理員。
 
 > [!NOTE]
-> 如需更多的安全性選項, 例如使用 Azure Active Directory 的使用者驗證及設定應用程式安全性的憑證, 請[使用 Azure Resource Manager 建立您][create-cluster-arm]的叢集。
+> 如需更多的安全性選項，例如使用 Azure Active Directory 的使用者驗證及設定應用程式安全性的憑證，請[使用 Azure Resource Manager 建立您][create-cluster-arm]的叢集。
 > 
 > 
 
@@ -47,7 +47,7 @@ ms.locfileid: "68600011"
 需要此憑證來保護叢集安全及防止未經授權存取叢集。 它會透過幾種方式提供叢集安全性：
 
 * **叢集驗證：** 驗證叢集同盟的節點對節點通訊。 只有可使用此憑證提供其身分識別的節點可以加入叢集。
-* **伺服器驗證：** 向管理用戶端驗證叢集管理端點，讓管理用戶端知道它正在與真實叢集交談。 此憑證也會為 HTTPS 管理 API，以及為透過 HTTPS 使用的 Service Fabric Explorer 提供 SSL。
+* **伺服器驗證：** 向管理用戶端驗證叢集管理端點，管理用戶端就能知道它正在交談的對象是真正的叢集。 此憑證也會為 HTTPS 管理 API，以及為透過 HTTPS 使用的 Service Fabric Explorer 提供 SSL。
 
 為用於這些用途，憑證必須符合下列要求：
 
@@ -56,12 +56,12 @@ ms.locfileid: "68600011"
 * 憑證的**主體名稱必須符合**用來存取 Service Fabric 叢集的網域。 這是必要的，以便為叢集的 HTTPS 管理端點和 Service Fabric Explorer 提供 SSL。 您無法向憑證授權單位 (CA) 取得 `.cloudapp.azure.com` 網域的 SSL 憑證。 為您的叢集取得自訂網域名稱。 當您向 CA 要求憑證時，憑證的主體名稱必須符合用於您叢集的自訂網域名稱。
 
 #### <a name="client-authentication-certificates"></a>用戶端驗證憑證
-其他用戶端憑證會驗證系統管理員以執行叢集管理工作。 Service Fabric 有兩個存取層級：[系統管理員] 和 [唯讀使用者]。 您至少應使用一個單一憑證以用於進行系統管理存取。 若要進行其他使用者層級存取，則必須提供個別憑證。 如需存取角色的詳細資訊, 請參閱[Service Fabric 用戶端的角色型存取控制][service-fabric-cluster-security-roles]。
+其他用戶端憑證會驗證系統管理員以執行叢集管理工作。 Service Fabric 有兩個存取層級：[系統管理員] 和 [唯讀使用者]。 您至少應使用一個單一憑證以用於進行系統管理存取。 若要進行其他使用者層級存取，則必須提供個別憑證。 如需存取角色的詳細資訊，請參閱[Service Fabric 用戶端的角色型存取控制][service-fabric-cluster-security-roles]。
 
 若要使用 Service Fabric，您並不需要將用戶端驗證憑證上傳至金鑰保存庫。 這些憑證只需要提供給獲得授權來管理叢集的使用者。 
 
 > [!NOTE]
-> 建議使用 Azure Active Directory 驗證用戶端以執行叢集管理作業。 若要使用 Azure Active Directory, 您必須[使用 Azure Resource Manager 建立][create-cluster-arm]叢集。
+> 建議使用 Azure Active Directory 驗證用戶端以執行叢集管理作業。 若要使用 Azure Active Directory，您必須[使用 Azure Resource Manager 建立][create-cluster-arm]叢集。
 > 
 > 
 
@@ -71,11 +71,11 @@ ms.locfileid: "68600011"
 * 加密和解密應用程式組態值
 * 在複寫期間跨節點加密資料 
 
-[透過 Azure 入口網站建立叢集](https://github.com/MicrosoftDocs/azure-docs/blob/master/articles/service-fabric/service-fabric-cluster-creation-via-portal.md)時無法設定應用程式憑證。 若要在叢集設定時設定應用程式憑證, 您必須[使用 Azure Resource Manager 建立][create-cluster-arm]叢集。 您也可以在建立叢集之後將應用程式憑證新增到叢集。
+[透過 Azure 入口網站建立叢集](https://github.com/MicrosoftDocs/azure-docs/blob/master/articles/service-fabric/service-fabric-cluster-creation-via-portal.md)時無法設定應用程式憑證。 若要在叢集設定時設定應用程式憑證，您必須[使用 Azure Resource Manager 建立][create-cluster-arm]叢集。 您也可以在建立叢集之後將應用程式憑證新增到叢集。
 
 ## <a name="create-cluster-in-the-azure-portal"></a>在 Azure 入口網站中建立叢集
 
-建立生產叢集以符合您的應用程式需求需要進行一些規劃, 以協助您完成這方面的工作, 強烈建議您閱讀並瞭解[Service Fabric 叢集規劃考慮][service-fabric-cluster-capacity]檔。 
+建立生產叢集以符合您的應用程式需求需要進行一些規劃，以協助您完成這方面的工作，強烈建議您閱讀並瞭解[Service Fabric 叢集規劃考慮][service-fabric-cluster-capacity]檔。 
 
 ### <a name="search-for-the-service-fabric-cluster-resource"></a>搜尋 Service Fabric 叢集資源
 
@@ -89,7 +89,7 @@ ms.locfileid: "68600011"
 
 [建立 Service Fabric 叢集] 刀鋒視窗包含下列四個步驟：
 
-### <a name="1-basics"></a>1.基本知識
+### <a name="1-basics"></a>1. 基本概念
 ![建立新資源群組的螢幕擷取畫面。][CreateRG]
 
 您必須在 [基本] 刀鋒視窗中提供您叢集的基本詳細資料。
@@ -105,7 +105,7 @@ ms.locfileid: "68600011"
    > 
 5. 選取您要在其中建立叢集的 [位置]。 如果您打算使用您已上傳至金鑰保存庫的現有憑證，您必須使用與金鑰保存庫所在位置相同的區域。 
 
-### <a name="2-cluster-configuration"></a>2.叢集組態
+### <a name="2-cluster-configuration"></a>2. 叢集設定
 ![建立節點類型][CreateNodeType]
 
 設定您的叢集節點。 可用來定義定義 VM 的大小、VM 的數目，以及 VM 的屬性。 您的叢集可以有多個節點類型，但主要節點類型 (您在入口網站定義的第一個節點類型) 必須至少有 5 個 VM。這是 Service Fabric 系統服務放置所在的節點類型。 請勿設定 [放置屬性]，因為會自動新增 "NodeTypeName" 預設放置屬性。
@@ -115,21 +115,21 @@ ms.locfileid: "68600011"
 > 
 
 1. 選擇節點類型的名稱 (1 到 12 個字元，只能包含字母和數字)。
-2. 主要節點類型的 VM **大小**下限取決於您為叢集選擇的**持久性**層級。 持久性層級的預設值為 Bronze。 如需持久性的詳細資訊, 請參閱[如何選擇 Service Fabric 叢集耐久性][service-fabric-cluster-durability]。
-3. 選取**虛擬機器大小**。 D 系列 VM 擁有 SSD 磁碟機，且強烈建議用於具狀態應用程式。 請勿使用任何只有部分核心或可用磁碟容量少於 10 GB 的 VM SKU。 如需有關選取 VM 大小的說明, 請參閱[service fabric 叢集規劃考慮檔][service-fabric-cluster-capacity]。
+2. 主要節點類型的 VM **大小**下限取決於您為叢集選擇的**持久性**層級。 持久性層級的預設值為 Bronze。 如需持久性的詳細資訊，請參閱[如何選擇 Service Fabric 叢集耐久性][service-fabric-cluster-durability]。
+3. 選取**虛擬機器大小**。 D 系列 VM 擁有 SSD 磁碟機，且強烈建議用於具狀態應用程式。 請勿使用任何只有部分核心或可用磁碟容量少於 10 GB 的 VM SKU。 如需有關選取 VM 大小的說明，請參閱[service fabric 叢集規劃考慮檔][service-fabric-cluster-capacity]。
 4.  **單一節點叢集與三個節點叢集**僅供測試使用。 這些節點叢集不支援任何執行中的生產工作負載。
 5. 選擇節點類型的**初始 VM 擴展集容量**。 您可以在稍後將節點類型中的 VM 數目相應增加或相應減少，但在主要節點類型上，生產工作負載的數目下限是五個。 其他節點類型可以有 1 個 VM 的下限。 叢集的**可靠性**取決於主要節點類型的 VM **數目**下限。  
-6. 設定**自訂端點**。 此欄位可讓您輸入以逗號區隔的連接埠清單，您可以透過 Azure Load Balancer 針對您的應用程式向公用網際網路公開這些連接埠。 例如，如果您計劃對您的叢集部署 Web 應用程式，請在這裡輸入「80」來允許連接埠 80 的流量進入您的叢集。 如需有關端點的詳細資訊, 請參閱[與應用程式通訊][service-fabric-connect-and-communicate-with-services]
+6. 設定**自訂端點**。 此欄位可讓您輸入以逗號區隔的連接埠清單，您可以透過 Azure Load Balancer 針對您的應用程式向公用網際網路公開這些連接埠。 例如，如果您計劃對您的叢集部署 Web 應用程式，請在這裡輸入「80」來允許連接埠 80 的流量進入您的叢集。 如需有關端點的詳細資訊，請參閱[與應用程式通訊][service-fabric-connect-and-communicate-with-services]
 7. **啟用反向 Proxy**。  [Service Fabric 反向 Proxy](service-fabric-reverseproxy.md) 可協助在 Service Fabric 叢集中執行的微服務進行探索，並與其他擁有 http 端點的服務通訊。
 8. 回到 [叢集設定] 刀鋒視窗，在 [+ 顯示選用設定] 下，設定叢集**診斷**。 預設會在您的叢集上啟用診斷功能，以協助排解疑難問題。 如果您要停用診斷，請將其 [狀態] 切換至 [關閉]。 **不**建議將診斷關閉。 如果您已經建立了 Application Insights 專案，那麼請提供其密鑰，以便將應用程式追蹤透過路由方式傳送至該專案。
 9. **包含 DNS 服務**。  [DNS 服務](service-fabric-dnsservice.md)可讓您尋找使用 DNS 通訊協定的其他服務所用的選用服務。
-10. 選取您想要為叢集設定的 **Fabric 升級模式**。 如果您要讓系統自動挑選最新可用的版本，並嘗試將叢集升級到此版本，請選取 [自動]。 如果您想要選擇支援的版本，將模式設定為 [手動]。 如需網狀架構升級模式的詳細資訊, 請參閱[Service Fabric 叢集升級檔。][service-fabric-cluster-upgrade]
+10. 選取您想要為叢集設定的 **Fabric 升級模式**。 如果您要讓系統自動挑選最新可用的版本，並嘗試將叢集升級到此版本，請選取 [自動]。 如果您想要選擇支援的版本，將模式設定為 [手動]。 如需網狀架構升級模式的詳細資訊，請參閱[Service Fabric 叢集升級檔。][service-fabric-cluster-upgrade]
 
 > [!NOTE]
 > 我們支援的叢集限於執行支援的 Service Fabric 版本。 如果選取 [手動] 模式，您必須負責將叢集升級到支援的版本。
 > 
 
-### <a name="3-security"></a>3.安全性
+### <a name="3-security"></a>3. 安全性
 ![Azure 入口網站上安全性設定的螢幕擷取畫面。][BasicSecurityConfigs]
 
 為了讓您輕鬆設定安全的測試叢集，我們已提供 [基本] 選項。 如果您已擁有憑證，並且已將憑證上傳至[金鑰保存庫](/azure/key-vault/) (且已啟用金鑰保存庫以供部署)，則請使用 [自訂] 選項
@@ -178,7 +178,7 @@ ms.locfileid: "68600011"
 
 選取 [設定進階設定] 核取方塊來輸入**系統管理用戶端**和**唯讀用戶端**的用戶端憑證。 在這些欄位中，輸入系統管理用戶端憑證的指紋和唯讀使用者用戶端憑證的指紋 (如果適用)。 當系統管理員嘗試連線叢集時，只有在他們的憑證指紋和這裡輸入的指紋值相符時，才會被授與存取權。  
 
-### <a name="4-summary"></a>4.總結
+### <a name="4-summary"></a>4. 摘要
 
 現在您已經準備好部署叢集。 在進行作業前，請先下載憑證，並在大型藍色資訊方塊中查看連結。 請務必將憑證保存在安全的地方。 您需要將憑證連線到叢集。 由於您下載的憑證沒有密碼，建議您新增密碼。
 
@@ -186,7 +186,7 @@ ms.locfileid: "68600011"
 
 ![總結]
 
-您可以在通知功能中看到叢集的建立進度。 (請按一下畫面右上角狀態列附近的鈴噹圖示。)如果您在建立叢集時按了 [釘選到「開始面板」]，您會看到 [部署 Service Fabric 叢集] 已釘選到 [開始] 面板。 此程序需要一些時間。 
+您可以在通知功能中看到叢集的建立進度。 （按一下畫面右上方狀態列附近的「鐘」圖示）。如果您在建立叢集時按了 [**釘選到開始面板**]，您會看到將 Service Fabric 的叢集**部署**到**開始**面板。 此程序需要一些時間。 
 
 若要使用 Powershell 或 CLI 在您的叢集上執行管理作業，您需要連接至叢集，請參閱如何[連接至您的叢集](service-fabric-connect-to-secure-cluster.md)，了解更多資訊。
 
@@ -202,7 +202,7 @@ ms.locfileid: "68600011"
 叢集之儀表板刀鋒視窗上的 [節點監視器] 區段會指出健康狀態良好和不良的 VM 數目。 您可以在[Service Fabric 健全狀況模型簡介][service-fabric-health-introduction]中找到更多有關叢集健康狀態的詳細資料。
 
 > [!NOTE]
-> Service Fabric 叢集需要有一定數量的節點保持運作中，以維護可用性並維持狀態 - 稱為「維持仲裁」。 因此, 除非您已先執行[狀態的完整備份][service-fabric-reliable-services-backup-restore], 否則關閉叢集中的所有電腦通常並不安全。
+> Service Fabric 叢集需要有一定數量的節點保持運作中，以維護可用性並維持狀態 - 稱為「維持仲裁」。 因此，除非您已先執行[狀態的完整備份][service-fabric-reliable-services-backup-restore]，否則關閉叢集中的所有電腦通常並不安全。
 > 
 > 
 

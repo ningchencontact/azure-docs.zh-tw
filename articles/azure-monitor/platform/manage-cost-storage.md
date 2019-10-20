@@ -11,15 +11,15 @@ ms.service: azure-monitor
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 10/01/2019
+ms.date: 10/17/2019
 ms.author: magoedte
 ms.subservice: ''
-ms.openlocfilehash: 5b6ec913226f44a47bfa5c734e0c20ef3a87ca67
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.openlocfilehash: 1480418a70166887e7327452d407f78c2c992378
+ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72329419"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72597311"
 ---
 # <a name="manage-usage-and-costs-with-azure-monitor-logs"></a>使用 Azure 監視器記錄來管理使用量和成本
 
@@ -125,7 +125,7 @@ Azure 在[Azure 成本管理 + 計費](https://docs.microsoft.com/azure/cost-man
     
 您也可以使用 `retentionInDays` 參數，透過[Azure Resource Manager 來設定](https://docs.microsoft.com/azure/azure-monitor/platform/template-workspace-configuration#configure-a-log-analytics-workspace)保留期。 此外，如果您將資料保留期設定為30天，您可以使用 `immediatePurgeDataOn30Days` 參數來觸發立即清除較舊的資料，這可能適用于合規性相關案例。 此功能只會透過 Azure Resource Manager 公開。 
 
-這兩種資料類型--`Usage` 和 @no__t--預設會保留90天，而此90日保留期則免費。 這些資料類型也是資料內嵌費用的免費。 
+有兩種資料類型--`Usage` 和 `AzureActivity`--預設會保留90天，而此90日保留期則免費。 這些資料類型也是資料內嵌費用的免費。 
 
 ### <a name="retention-by-data-type"></a>依資料類型的保留期
 
@@ -159,7 +159,7 @@ Azure 在[Azure 成本管理 + 計費](https://docs.microsoft.com/azure/cost-man
     }
 ```
 
-@No__t-0 和 @no__t 1 資料類型無法使用自訂保留來設定。 它們會採用預設工作區保留期或90天的最大值。 
+不能使用自訂保留來設定 `Usage` 和 `AzureActivity` 資料類型。 它們會採用預設工作區保留期或90天的最大值。 
 
 [OSS] 工具[ARMclient](https://github.com/projectkudu/ARMClient)是直接連接到 Azure Resource Manager 以根據資料類型來設定保留的絕佳工具。  深入瞭解[David Ebbo](http://blog.davidebbo.com/2015/01/azure-resource-manager-client.html)和[Daniel Bowbyes](https://blog.bowbyes.co.nz/2016/11/02/using-armclient-to-directly-access-azure-arm-rest-apis-and-list-arm-policy-details/)的文章 ARMclient。  以下是使用 ARMClient 的範例，將 SecurityEvent 資料設定為730天保留期：
 
@@ -229,7 +229,7 @@ Heartbeat | where TimeGenerated > startofday(ago(31d))
 | render timechart
 ```
 
-若要取得將計費為節點的電腦清單（如果工作區在舊版的每個節點定價層中），請尋找傳送**計費資料類型**的節點（某些資料類型是免費的）。 若要這麼做，請使用 `_IsBillable`[屬性](log-standard-properties.md#_isbillable)，並使用完整功能變數名稱的最左邊欄位。 這會傳回具有計費資料的電腦清單：
+若要取得將計費為節點的電腦清單（如果工作區在舊版的每個節點定價層中），請尋找傳送**計費資料類型**的節點（某些資料類型是免費的）。 若要這麼做，請使用 [`_IsBillable`][屬性](log-standard-properties.md#_isbillable)，並使用完整功能變數名稱的最左邊欄位。 這會傳回具有計費資料的電腦清單：
 
 ```kusto
 union withsource = tt * 
@@ -268,7 +268,7 @@ union withsource = tt *
 
 ```kusto
 Usage | where TimeGenerated > startofday(ago(31d))| where IsBillable == true
-| summarize TotalVolumeGB = sum(Quantity) / 1024 by bin(TimeGenerated, 1d), Solution| render barchart
+| summarize TotalVolumeGB = sum(Quantity) / 1000. by bin(TimeGenerated, 1d), Solution| render barchart
 ```
 
 請注意，子句 "where IsBillable = true" 會篩選掉來自無擷取成本之特定解決方案的資料類型。 
@@ -278,12 +278,12 @@ Usage | where TimeGenerated > startofday(ago(31d))| where IsBillable == true
 ```kusto
 Usage | where TimeGenerated > startofday(ago(31d))| where IsBillable == true
 | where DataType == "W3CIISLog"
-| summarize TotalVolumeGB = sum(Quantity) / 1024 by bin(TimeGenerated, 1d), Solution| render barchart
+| summarize TotalVolumeGB = sum(Quantity) / 1000. by bin(TimeGenerated, 1d), Solution| render barchart
 ```
 
 ### <a name="data-volume-by-computer"></a>資料量（依電腦）
 
-若要查看每部電腦所內嵌之可計費事件的**大小**，請使用 `_BilledSize`[屬性](log-standard-properties.md#_billedsize)，它會提供以位元組為單位的大小：
+若要查看每部電腦內嵌的可計費事件**大小**，請使用 [`_BilledSize`][屬性](log-standard-properties.md#_billedsize)，它會提供以位元組為單位的大小：
 
 ```kusto
 union withsource = tt * 
@@ -292,7 +292,7 @@ union withsource = tt *
 | summarize Bytes=sum(_BilledSize) by  computerName | sort by Bytes nulls last
 ```
 
-@No__t-0[屬性](log-standard-properties.md#_isbillable)會指定內嵌資料是否會產生費用。
+@No__t_0[屬性](log-standard-properties.md#_isbillable)會指定內嵌資料是否會產生費用。
 
 若要查看每部電腦內嵌的可**計費**事件計數，請使用 
 
@@ -322,7 +322,7 @@ union withsource = tt *
 | summarize Bytes=sum(_BilledSize) by _ResourceId | sort by Bytes nulls last
 ```
 
-針對 Azure 中裝載之節點的資料，您可以取得__每個 azure 訂__用帳戶所內嵌的可計費事件**大小**，並將 @no__t 2 屬性剖析為：
+針對 Azure 中裝載之節點的資料，您可以取得__每個 azure 訂__用帳戶所內嵌的可計費事件**大小**，並將 `_ResourceId` 屬性剖析為：
 
 ```kusto
 union withsource = tt * 
@@ -428,7 +428,7 @@ Azure 警示支援使用搜尋查詢的[記錄警示](alerts-unified-log.md)。
 ```kusto
 union withsource = $table Usage 
 | where QuantityUnit == "MBytes" and iff(isnotnull(toint(IsBillable)), IsBillable == true, IsBillable == "true") == true 
-| extend Type = $table | summarize DataGB = sum((Quantity / 1024)) by Type 
+| extend Type = $table | summarize DataGB = sum((Quantity / 1000.)) by Type 
 | where DataGB > 100
 ```
 
@@ -438,7 +438,7 @@ union withsource = $table Usage
 union withsource = $table Usage 
 | where QuantityUnit == "MBytes" and iff(isnotnull(toint(IsBillable)), IsBillable == true, IsBillable == "true") == true 
 | extend Type = $table 
-| summarize EstimatedGB = sum(((Quantity * 8) / 1024)) by Type 
+| summarize EstimatedGB = sum(((Quantity * 8) / 1000.)) by Type 
 | where EstimatedGB > 100
 ```
 
@@ -451,7 +451,7 @@ union withsource = $table Usage
 - **定義警示條件**：將您的 Log Analytics 工作區指定為資源目標。
 - **警示準則**：指定下列項目：
    - **訊號名稱**：選取 [自訂記錄搜尋]
-   - 將 [搜尋查詢] 設定為 `union withsource = $table Usage | where QuantityUnit == "MBytes" and iff(isnotnull(toint(IsBillable)), IsBillable == true, IsBillable == "true") == true | extend Type = $table | summarize DataGB = sum((Quantity / 1024)) by Type | where DataGB > 100`
+   - 將 [搜尋查詢] 設定為 `union withsource = $table Usage | where QuantityUnit == "MBytes" and iff(isnotnull(toint(IsBillable)), IsBillable == true, IsBillable == "true") == true | extend Type = $table | summarize DataGB = sum((Quantity / 1000.)) by Type | where DataGB > 100`
    - [警示邏輯] 為 [根據結果數目]，而 [條件] 為 [大於臨界值 0]
    - [時間週期] 為 1440 分鐘，而 [警示頻率] 設定為 60 分鐘，因為使用量資料每小時只會更新一次。
 - **定義警示詳細資料**：指定下列項目：
@@ -465,7 +465,7 @@ union withsource = $table Usage
 - **定義警示條件**：將您的 Log Analytics 工作區指定為資源目標。
 - **警示準則**：指定下列項目：
    - **訊號名稱**：選取 [自訂記錄搜尋]
-   - 將 [搜尋查詢] 設定為 `union withsource = $table Usage | where QuantityUnit == "MBytes" and iff(isnotnull(toint(IsBillable)), IsBillable == true, IsBillable == "true") == true | extend Type = $table | summarize EstimatedGB = sum(((Quantity * 8) / 1024)) by Type | where EstimatedGB > 100`
+   - 將 [搜尋查詢] 設定為 `union withsource = $table Usage | where QuantityUnit == "MBytes" and iff(isnotnull(toint(IsBillable)), IsBillable == true, IsBillable == "true") == true | extend Type = $table | summarize EstimatedGB = sum(((Quantity * 8) / 1000.)) by Type | where EstimatedGB > 100`
    - [警示邏輯] 為 [根據結果數目]，而 [條件] 為 [大於臨界值 0]
    - [時間週期] 為 180 分鐘，而 [警示頻率] 設定為 60 分鐘，因為使用量資料每小時只會更新一次。
 - **定義警示詳細資料**：指定下列項目：

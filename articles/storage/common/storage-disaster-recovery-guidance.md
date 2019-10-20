@@ -9,12 +9,12 @@ ms.date: 02/25/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: 4a621f8976efe395014c073a6bd7c5d09d19d915
-ms.sourcegitcommit: 2d9a9079dd0a701b4bbe7289e8126a167cfcb450
+ms.openlocfilehash: 3717199d2fa342fff5996d97bc5cdaf6da6e9880
+ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/29/2019
-ms.locfileid: "71671069"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72595195"
 ---
 # <a name="disaster-recovery-and-storage-account-failover-preview-in-azure-storage"></a>Azure 儲存體中的災害復原和儲存體帳戶容錯移轉 (預覽)
 
@@ -47,16 +47,16 @@ Azure 儲存體針對異地備援儲存體帳戶支援帳戶容錯移轉 (預覽
 
 您應該從一開始便針對高可用性來設計您的應用程式。 請參考這些 Azure 資源來取得設計應用程式並針對災害復原進行規劃的指引：
 
-* [為 Azure 設計具復原能力的應用程式](https://docs.microsoft.com/azure/architecture/resiliency/)：在 Azure 中設計高可用性應用程式之重要概念的概觀。
-* [可用性檢查清單](https://docs.microsoft.com/azure/architecture/checklist/availability)：確認應用程式已針對高可用性實作最佳設計做法的檢查清單。
-* [使用 RA-GRS 設計高可用性應用程式](storage-designing-ha-apps-with-ragrs.md)：建置應用程式以利用 RA-GRS 的設計指引。
-* [教學課程：建置採用 Blob 儲存體的高可用性應用程式](../blobs/storage-create-geo-redundant-storage.md)：示範如何建置可在模擬失敗與復原的情況下，自動在端點之間切換之高可用性應用程式的教學課程。 
+* [設計適用于 azure 的復原應用程式](https://docs.microsoft.com/azure/architecture/resiliency/)：概述在 azure 中架構高可用性應用程式的重要概念。
+* [可用性檢查清單](https://docs.microsoft.com/azure/architecture/checklist/availability)：驗證您的應用程式是否會針對高可用性實行最佳設計做法的檢查清單。
+* [使用 Ra 設計高可用性應用程式-GRS](storage-designing-ha-apps-with-ragrs.md)：設計指引來建立應用程式，以利用 RA-GRS。
+* [教學課程：建立具有 Blob 儲存體的高可用性應用程式](../blobs/storage-create-geo-redundant-storage.md)：此教學課程示範如何建立高可用性應用程式，以在失敗時自動切換端點，並模擬復原。 
 
 此外，請記住這些適用於維護 Azure 儲存體資料之高可用性的最佳做法：
 
-* **磁碟：** 使用 [Azure 備份](https://azure.microsoft.com/services/backup/)來備份您 Azure 虛擬機器所使用的 VM 磁碟。 也請考慮使用 [Azure Site Recovery](https://azure.microsoft.com/services/site-recovery/) 來保護 VM 不受區域災害的影響。
-* **區塊 Blob：** 開啟[虛刪除](../blobs/storage-blob-soft-delete.md)來防止物件層級刪除和覆寫，或使用 [AzCopy](storage-use-azcopy.md)、[Azure PowerShell](storage-powershell-guide-full.md) 或 [Azure Data Movement 程式庫](https://azure.microsoft.com/blog/introducing-azure-storage-data-movement-library-preview-2/) \(英文\)，將區塊 Blob 複製到不同區域的其他儲存體帳戶。
-* **檔案：** 使用 [AzCopy](storage-use-azcopy.md) 或 [Azure PowerShell](storage-powershell-guide-full.md) 將您的檔案複製到位於不同區域的其他儲存體帳戶。
+* **磁片：** 使用[Azure 備份](https://azure.microsoft.com/services/backup/)來備份 Azure 虛擬機器所使用的 VM 磁片。 也請考慮使用 [Azure Site Recovery](https://azure.microsoft.com/services/site-recovery/) 來保護 VM 不受區域災害的影響。
+* **區塊 blob：** 開啟虛[刪除](../blobs/storage-blob-soft-delete.md)來防止物件層級的刪除和覆寫，或使用[AzCopy](storage-use-azcopy.md)、 [Azure PowerShell](storage-powershell-guide-full.md)或[Azure 資料手機連結庫](https://azure.microsoft.com/blog/introducing-azure-storage-data-movement-library-preview-2/)，將區塊 blob 複製到不同區域中的另一個儲存體帳戶。
+* 檔案 **：** 使用[AzCopy](storage-use-azcopy.md)或[Azure PowerShell](storage-powershell-guide-full.md) ，將您的檔案複製到不同區域中的另一個儲存體帳戶。
 * **資料表：** 使用 [AzCopy](storage-use-azcopy.md) 將資料表資料匯出到位於不同區域的其他儲存體帳戶。
 
 ## <a name="track-outages"></a>追蹤中斷
@@ -119,8 +119,14 @@ Microsoft 也建議您將應用程式設計成可以因應可能的寫入失敗�
 
 帳戶容錯移轉適用于使用 GRS 或 RA-GRS 搭配 Azure Resource Manager 部署的所有客戶。 支援一般用途 v1、一般用途 v2 及 Blob 儲存體帳戶類型。 帳戶容錯移轉目前已在以下區域推出：
 
-- 美國西部 2
+- 東亞
+- 東南亞
+- 澳大利亞東部
+- 澳大利亞東南部
+- 美國中部
+- 美國東部 2
 - 美國中西部
+- 美國西部 2
 
 預覽僅適用於非生產環境。 生產環境的服務等級協定 (SLA) 目前無法使用。
 
@@ -170,7 +176,7 @@ Azure 虛擬機器 (VM) 不會隨著帳戶容錯移轉一起容錯移轉。 如�
 - Azure 檔案同步不支援儲存體帳戶容錯移轉。 不應該容錯移轉包含在 Azure 檔案同步中作為雲端端點使用之 Azure 檔案共用的儲存體帳戶。 這麼做將導致同步停止運作，且可能會在新分層的檔案中產生未預期的資料遺失。  
 - 無法容錯移轉包含封存 Blob 的儲存體帳戶。 請在您不打算進行容錯移轉的個別儲存體帳戶中維護封存 Blob。
 - 無法容錯移轉包含進階區塊 Blob 的儲存體帳戶。 支援進階區塊 Blob 的儲存體帳戶目前不支援異地備援。
-- 在容錯移轉完成之後，如果原先啟用下列功能，將會停止運作：[事件訂閱](https://docs.microsoft.com/azure/storage/blobs/storage-blob-event-overview)、[生命週期原則](https://docs.microsoft.com/azure/storage/blobs/storage-lifecycle-management-concepts)、[儲存體分析記錄](https://docs.microsoft.com/rest/api/storageservices/about-storage-analytics-logging)。
+- 在容錯移轉完成之後，如果原本啟用下列功能，將會停止運作：[事件訂閱](https://docs.microsoft.com/azure/storage/blobs/storage-blob-event-overview)、[生命週期原則](https://docs.microsoft.com/azure/storage/blobs/storage-lifecycle-management-concepts)、[儲存體分析記錄](https://docs.microsoft.com/rest/api/storageservices/about-storage-analytics-logging)。
 
 ## <a name="copying-data-as-an-alternative-to-failover"></a>將複製資料作為容錯移轉的替代項目
 
@@ -180,8 +186,8 @@ Azure 虛擬機器 (VM) 不會隨著帳戶容錯移轉一起容錯移轉。 如�
 
 在區域因嚴重災害而遺失的極端情況下，Microsoft 可能會起始區域容錯移轉。 在此情況下，您不需要採取任何動作。 在 Microsoft 管理的容錯移轉完成之前，您將無法取得儲存體帳戶的寫入權限。 如果您的儲存體帳戶已針對 RA-GRS 進行設定，您的應用程式仍可從次要區域進行讀取。 
 
-## <a name="see-also"></a>另請參閱
+## <a name="see-also"></a>請參閱
 
 * [起始帳戶容錯移轉 (預覽)](storage-initiate-account-failover.md)
 * [使用 RA-GRS 設計高可用性應用程式](storage-designing-ha-apps-with-ragrs.md)
-* [教學課程：建置採用 Blob 儲存體的高可用性應用程式](../blobs/storage-create-geo-redundant-storage.md) 
+* [教學課程：建立具有 Blob 儲存體的高可用性應用程式](../blobs/storage-create-geo-redundant-storage.md) 

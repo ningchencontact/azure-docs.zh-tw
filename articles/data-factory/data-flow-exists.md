@@ -7,12 +7,12 @@ ms.reviewer: daperlov
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 10/16/2019
-ms.openlocfilehash: dfd304b0c15b325208daba104bb79863fcd3f53f
-ms.sourcegitcommit: f29fec8ec945921cc3a89a6e7086127cc1bc1759
+ms.openlocfilehash: 79bdfc84310686b2648e12d73d783de049e9d2fa
+ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72527439"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72596505"
 ---
 # <a name="exists-transformation-in-mapping-data-flow"></a>對應資料流程中的 Exists 轉換
 
@@ -20,11 +20,10 @@ Exists 轉換是一個資料列篩選轉換，它會檢查您的資料是否存�
 
 ## <a name="configuration"></a>組態
 
-在 [**正確資料流程**] 下拉式清單中，選擇您要檢查哪一個資料流程是否存在。
-
-指定您要尋找的資料是否存在，或不存在於 [**存在類型**] 設定中。
-
-選擇您想要比較哪一個索引鍵資料行做為現有的條件。 根據預設，資料流程會在每個資料流程中的一個資料行之間尋找是否相等。 若要透過計算值進行比較，請將滑鼠停留在資料行下拉式清單，然後選取 [**計算資料行**]。
+1. 在 [**正確資料流程**] 下拉式清單中，選擇您要檢查哪一個資料流程是否存在。
+1. 指定您要尋找的資料是否存在，或不存在於 [**存在類型**] 設定中。
+1. 選取您是否想要**自訂表格達式**。
+1. 選擇您想要比較哪一個索引鍵資料行做為現有的條件。 根據預設，資料流程會在每個資料流程中的一個資料行之間尋找是否相等。 若要透過計算值進行比較，請將滑鼠停留在資料行下拉式清單中，然後選取 [**計算資料行**]
 
 ![存在設定](media/data-flow/exists.png "存在1")
 

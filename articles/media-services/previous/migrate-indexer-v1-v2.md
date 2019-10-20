@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/20/2019
 ms.author: juliako
-ms.openlocfilehash: 329c7191482787f25cfddfd8c4d70074df9a7c1f
-ms.sourcegitcommit: a19f4b35a0123256e76f2789cd5083921ac73daf
+ms.openlocfilehash: 2b8553c4c4b27e70eb5e4aeff447da9526c4ed1e
+ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71719972"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72598286"
 ---
 # <a name="migrate-from-media-indexer-and-media-indexer-2-to-video-indexer"></a>從媒體索引子和媒體索引子2遷移到影片索引子
 
@@ -29,7 +29,7 @@ Azure 媒體服務影片索引子是以 Azure 媒體分析、Azure 搜尋服務�
 您可以使用[Azure 媒體服務 v3 分析器](../latest/analyzing-video-audio-files-concept.md)預設，或直接使用[影片索引子 api](https://api-portal.videoindexer.ai/)，從您的影片和音訊檔案中摘錄見解。 目前，影片索引子 Api 和媒體服務 v3 Api 所提供的功能有重迭。
 
 > [!NOTE]
-> 若要了解使用影片索引器以及媒體服務分析器預設的時機，請參閱[比較文件](../video-indexer/compare-video-indexer-with-media-services-presets.md)。 
+> 若要瞭解何時要使用影片索引子與媒體服務分析器預設值，請參閱[比較檔](../video-indexer/compare-video-indexer-with-media-services-presets.md)。 
 
 本文討論從 Azure 媒體索引子和 Azure 媒體索引子2遷移至 Azure 媒體服務影片索引子的步驟。  
 
@@ -37,7 +37,7 @@ Azure 媒體服務影片索引子是以 Azure 媒體分析、Azure 搜尋服務�
 
 |如果您需要  |然後在受影響的網域控制站上執行 |
 |---|---|
-|一種解決方案，針對隱藏式輔助字幕檔案格式的任何媒體檔案格式，提供語音轉換文字轉譯：VTT、SRT 或 TTML<br/>還有其他的音訊深入資訊，例如關鍵字、主題推斷、聲場活動、喇叭 diarization、實體的提取和轉譯。| 透過影片索引子 v2 REST API 或 Azure 媒體服務 v3 音訊分析器預設值，將您的應用程式更新為使用 Azure 影片索引子功能。|
+|針對隱藏式輔助字幕檔案格式的任何媒體檔案格式，提供語音轉換文字轉譯的解決方案： VTT、SRT 或 TTML<br/>還有其他的音訊深入資訊，例如關鍵字、主題推斷、聲場活動、喇叭 diarization、實體的提取和轉譯。| 透過影片索引子 v2 REST API 或 Azure 媒體服務 v3 音訊分析器預設值，將您的應用程式更新為使用 Azure 影片索引子功能。|
 |語音轉換文字功能| 直接使用認知服務語音 API。|  
 
 ## <a name="getting-started-with-video-indexer"></a>開始使用影片索引子
@@ -55,8 +55,8 @@ Azure 媒體服務 v3 API 可讓您透過[Azure 媒體服務 v3 分析器](../la
 若要開始使用，請參閱：
 
 * [教學課程](../latest/analyze-videos-tutorial-with-api.md)
-* AudioAnalyzerPreset 範例：[JAVA sdk](https://github.com/Azure-Samples/media-services-v3-java/tree/master/AudioAnalytics/AudioAnalyzer)或[.net sdk](https://github.com/Azure-Samples/media-services-v3-dotnet/tree/master/AudioAnalytics/AudioAnalyzer)
-* VideoAnalyzerPreset 範例：[JAVA sdk](https://github.com/Azure-Samples/media-services-v3-java/tree/master/VideoAnalytics/VideoAnalyzer)或[.net sdk](https://github.com/Azure-Samples/media-services-v3-dotnet/tree/master/VideoAnalytics/VideoAnalyzer)
+* AudioAnalyzerPreset 範例： [JAVA sdk](https://github.com/Azure-Samples/media-services-v3-java/tree/master/AudioAnalytics/AudioAnalyzer)或[.net sdk](https://github.com/Azure-Samples/media-services-v3-dotnet/tree/master/AudioAnalytics/AudioAnalyzer)
+* VideoAnalyzerPreset 範例： [JAVA sdk](https://github.com/Azure-Samples/media-services-v3-java/tree/master/VideoAnalytics/VideoAnalyzer)或[.net sdk](https://github.com/Azure-Samples/media-services-v3-dotnet/tree/master/VideoAnalytics/VideoAnalyzer)
 
 ## <a name="getting-started-with-cognitive-services-speech-services"></a>認知服務語音服務入門
 
@@ -77,9 +77,9 @@ Azure 媒體服務 v3 API 可讓您透過[Azure 媒體服務 v3 分析器](../la
 * 音訊索引 Blob （AIB）檔案將不再受到支援。 這項功能是索引子1技術所特有，不再提供。  
 * 認知服務語音服務不支援關鍵字解壓縮。 不過，影片索引子和媒體服務 v3 AudioAnalyzerPreset 都提供一組更健全的 JSON 檔案格式關鍵字。 
 
-## <a name="contact-us"></a>請與我們連絡 
+## <a name="need-help"></a>需要協助嗎？
 
-如果您有關于淘汰 Azure 媒體索引子1和 Azure 媒體索引子2或遷移至任何其他服務的問題，請透過下列方式與我們聯繫amshelp@microsoft.com 
+您可以流覽至 [[新增支援要求](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest)] 來開啟支援票證
 
 ## <a name="next-steps"></a>後續步驟
 

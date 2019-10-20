@@ -9,20 +9,20 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 10/11/2019
+ms.date: 10/17/2019
 ms.author: juliako
-ms.openlocfilehash: 819548d784e5cba9fcec6b2110137d91bf28e03d
-ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
+ms.openlocfilehash: 2a530d6a1a447ccde448259623da6faeaa6a4d72
+ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/13/2019
-ms.locfileid: "72296919"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72598354"
 ---
 # <a name="quotas-and-limitations-in-azure-media-services-v3"></a>Azure 媒體服務 v3 配額和限制
 
 本文描述 Azure 媒體服務 v3 的配額和限制。
 
-| Resource | 預設限制 | 
+| 資源 | 預設限制 | 
 | --- | --- | 
 | 每個 Azure 媒體服務帳戶的資產 | 1,000,000|
 | 動態資訊清單篩選條件|100|
@@ -34,11 +34,11 @@ ms.locfileid: "72296919"
 | 每個媒體服務帳戶的工作 | 500,000 <sup>(2)</sup> (固定)|
 | 每個媒體服務帳戶的即時事件 |5|
 | 單一訂用帳戶的媒體服務帳戶 | 25 (固定) |
-| 每個即時事件的即時輸出 |3 <sup>(3)</sup> |
+| 每個即時事件的即時輸出 |3 <sup>（3）</sup> |
 | 即時輸出持續時間上限 | 25小時 |
 | 儲存體帳戶 | 100<sup>(4)</sup> (固定) |
 | 每個媒體服務帳戶的串流端點 (已停止或執行中)|2（固定）|
-| 串流原則 | 100 <sup>(5)</sup> |
+| 串流原則 | 100 <sup>（5）</sup> |
 | 每個媒體服務帳戶的轉換 | 100 (固定)|
 | 一次與資產相關聯的唯一串流定位器 | 100<sup>（6）</sup> （固定） |
 | 每個內容金鑰原則的選項 |30 | 
@@ -46,7 +46,7 @@ ms.locfileid: "72296919"
 
 <sup>1</sup> 單一 blob 支援的大小上限目前在 Azure Blob 儲存體是最多 5 TB。 根據服務所使用的 VM 大小，媒體服務中會套用額外的限制。 大小限制適用于您上傳的檔案，以及因媒體服務處理（編碼或分析）而產生的檔案。 如果原始程式檔超過 260 GB，您的工作可能會失敗。 
 
-下表顯示媒體保留單元 S1、S2 和 S3 的限制。 如果您的原始程式檔大於資料表中所定義的限制，則編碼工作會失敗。 如果您編碼長時間的4K 解析來源，就必須使用 S3 媒體保留單元來達到所需的效能。 如果您的4K 內容大於 S3 媒體保留單元的 260 GB 限制，請在 amshelp@microsoft.com 聯絡以取得可支援您案例的潛在緩和措施。
+下表顯示媒體保留單元 S1、S2 和 S3 的限制。 如果您的原始程式檔大於資料表中所定義的限制，則編碼工作會失敗。 如果您編碼長時間的4K 解析來源，就必須使用 S3 媒體保留單元來達到所需的效能。 如果您的4K 內容大於 S3 媒體保留單元的 260 GB 限制，請開啟支援票證。
 
 |媒體保留單元類型   |輸入大小上限（GB）|
 |---|---|
@@ -72,4 +72,4 @@ ms.locfileid: "72296919"
 
 ## <a name="next-steps"></a>後續步驟
 
-[概觀](media-services-overview.md)
+[Overview](media-services-overview.md)
