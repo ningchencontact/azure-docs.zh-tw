@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/15/2019
 ms.author: kumud
-ms.openlocfilehash: 514248446798e8c806252707cc5b332a7d1a4f87
-ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
+ms.openlocfilehash: 2d00ccdeb89ba5d983e4a3e089e78a8d748e4092
+ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72518534"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72597946"
 ---
-# <a name="reserved-public-ipv6-address-prefix"></a>保留的公用 IPv6 位址首碼
+# <a name="reserved-public-ipv6-address-prefix-preview"></a>保留的公用 IPv6 位址首碼（預覽）
 
 在 Azure 中，雙重堆疊（IPv4 + IPv6）虛擬網路（VNet）和虛擬機器（Vm）預設是安全的，因為它們沒有網際網路連線能力。 您可以使用從 Azure 取得的公用 IPv6 位址，輕鬆地將 IPv6 網際網路連線新增至您的 Azure 負載平衡器和 Vm。
 
@@ -29,6 +29,9 @@ ms.locfileid: "72518534"
 > 請小心不要不小心刪除公用 IP 位址。 刪除公用 IP 會將它從您的訂用帳戶中移除，而且您將無法加以復原（即使是 Azure 支援的協助）。
 
 除了保留個別的 IPv6 位址，您還可以保留 Azure IPv6 位址的連續範圍（也稱為 IP 首碼）供您使用。  與個別的 IP 位址類似，保留的首碼會與您所選的 Azure 區域和您的 Azure 訂用帳戶相關聯。 保留可預測且連續的位址範圍有許多用途。 例如，您可以大幅簡化公司和客戶的 Azure 託管應用程式的 IP*允許清單*，因為您的靜態 IP 範圍可以輕易地程式化到內部部署防火牆。  您可以視需要從您的 IP 首碼建立個別的公用 Ip，而當您刪除這些個別的公用 Ip 時，它們會*傳回*至您的保留範圍，讓您可以在稍後重複使用它們。 在您刪除前置詞之前，您的 IP 首碼中的所有 IP 位址都會保留供您獨佔使用。
+
+> [!Important]
+> 適用于 Azure 虛擬網路的 IPv6 目前為公開預覽版。 此預覽版是在沒有服務等級協定的情況下提供，不建議用於生產工作負載。 可能不支援特定功能，或可能已經限制功能。 如需詳細資訊，請參閱 [Microsoft Azure 預覽專用的補充使用條款](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)。
 
 ## <a name="ipv6-prefix-sizes"></a>IPv6 首碼大小
 可用的公用 IP 首碼大小如下：

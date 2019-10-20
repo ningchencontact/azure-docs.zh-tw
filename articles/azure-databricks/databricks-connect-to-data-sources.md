@@ -9,12 +9,12 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 03/21/2018
 ms.author: mamccrea
-ms.openlocfilehash: c77d1d1a66d3ee92f5ad3f2016d2160831fa3ad9
-ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
+ms.openlocfilehash: 9b44db3e8ffc02d211f7f97404f0cdd8d319fe03
+ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/13/2019
-ms.locfileid: "72299304"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72597496"
 ---
 # <a name="connect-to-data-sources-from-azure-databricks"></a>從 Azure Databricks 連線到資料來源
 
@@ -31,9 +31,9 @@ ms.locfileid: "72299304"
 - [Azure SQL 資料庫](https://docs.azuredatabricks.net/spark/latest/data-sources/sql-databases.html)
 
     此連結提供使用 JDBC 連線到 SQL 資料庫的 DataFrame API，以及如何控制透過 JDBC 介面的讀取平行處理原則。 本主題提供使用 Scala API 的詳細範例，並於結尾提供簡短的 Python 和 Spark SQL 範例。
-- [Azure Data Lake Store](https://docs.azuredatabricks.net/spark/latest/data-sources/azure/azure-datalake-gen2.html)
+- [Azure Data Lake 儲存體](https://docs.azuredatabricks.net/spark/latest/data-sources/azure/azure-datalake-gen2.html)
 
-    此連結提供如何使用 Azure Active Directory 服務主體向 Data Lake Store 驗證的範例。 它也提供如何從 Azure Databricks 存取 Data Lake Store 中資料的指示。
+    此連結提供如何使用 Azure Active Directory 服務主體向 Azure Data Lake Storage 進行驗證的範例。 它也提供如何從 Azure Databricks 存取 Azure Data Lake Storage 中資料的指示。
 
 - [Azure Blob 儲存體](https://docs.azuredatabricks.net/spark/latest/data-sources/azure/azure-storage.html)
 

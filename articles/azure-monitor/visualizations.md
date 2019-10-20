@@ -1,23 +1,18 @@
 ---
 title: 將來自 Azure 監視器的資料視覺化 | Microsoft Docs
 description: 概要介紹用以將儲存在 Azure 監視器中的計量和記錄資料視覺化的可用方法。
-author: bwren
-manager: carmonm
-editor: ''
-services: azure-monitor
-documentationcenter: azure-monitor
 ms.service: azure-monitor
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.topic: article
-ms.date: 11/24/2018
+ms.subservice: ''
+ms.topic: conceptual
+author: bwren
 ms.author: bwren
-ms.openlocfilehash: 6390384220830d473b56f4082a98dfaa8aa686d1
-ms.sourcegitcommit: 909ca340773b7b6db87d3fb60d1978136d2a96b0
+ms.date: 11/24/2018
+ms.openlocfilehash: c350cb1f8e7343f6d8e7a416aa0bba71388eaa86
+ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/13/2019
-ms.locfileid: "70984178"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72597840"
 ---
 # <a name="visualizing-data-from-azure-monitor"></a>將來自 Azure 監視器的資料視覺化
 本文會概要介紹用以將儲存在 Azure 監視器中的記錄和計量資料視覺化的可用方法。
@@ -53,7 +48,7 @@ ms.locfileid: "70984178"
 ## <a name="azure-monitor-views"></a>Azure 監視器檢視
 [Azure 監視器中的檢視](platform/view-designer.md)可讓您使用記錄資料建立自訂視覺效果。 [監視解決方案](insights/solutions.md)會使用這些視覺效果呈現收集到的資料。
 
-![檢視表](media/visualizations/view.png)
+![檢視](media/visualizations/view.png)
 
 ### <a name="advantages"></a>優點
 - 豐富的記錄資料視覺效果。
