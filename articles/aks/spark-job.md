@@ -6,15 +6,15 @@ author: lenadroid
 manager: jeconnoc
 ms.service: container-service
 ms.topic: article
-ms.date: 03/15/2018
+ms.date: 10/18/2019
 ms.author: alehall
 ms.custom: mvc
-ms.openlocfilehash: 647cb0573922bb53232dbce3f3a7a2557553d47d
-ms.sourcegitcommit: b4665f444dcafccd74415fb6cc3d3b65746a1a31
+ms.openlocfilehash: c4fca9b8f4c8a01124074396985b1ec3f1c896c6
+ms.sourcegitcommit: 9a4296c56beca63430fcc8f92e453b2ab068cc62
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72263888"
+ms.lasthandoff: 10/20/2019
+ms.locfileid: "72675153"
 ---
 # <a name="running-apache-spark-jobs-on-aks"></a>在 AKS 上執行 Apache Spark 作業
 
@@ -43,10 +43,16 @@ Spark 會用於大規模的資料處理，而且需要將 Kubernetes 節點的�
 az group create --name mySparkCluster --location eastus
 ```
 
-以大小為 `Standard_D3_v2` 的節點建立 AKS 叢集。
+建立叢集的服務主體。 建立之後，您將需要服務主體 appId 和 password 來進行下一個命令。
 
 ```azurecli
-az aks create --resource-group mySparkCluster --name mySparkCluster --node-vm-size Standard_D3_v2
+az ad sp create-for-rbac --name SparkSP
+```
+
+建立 AKS 叢集，其中包含 `Standard_D3_v2` 大小的節點，以及做為服務主體和用戶端秘密參數傳遞的 appId 和密碼值。
+
+```azurecli
+az aks create --resource-group mySparkCluster --name mySparkCluster --node-vm-size Standard_D3_v2 --generate-ssh-keys --service-principal <APPID> --client-secret <PASSWORD>
 ```
 
 連線到 AKS 叢集。
@@ -64,7 +70,7 @@ az aks get-credentials --resource-group mySparkCluster --name mySparkCluster
 將 Spark 專案存放庫複製到您的開發系統。
 
 ```bash
-git clone -b branch-2.3 https://github.com/apache/spark
+git clone -b branch-2.4 https://github.com/apache/spark
 ```
 
 變更為已複製之存放庫的目錄，然後將 Spark 來源的路徑儲存為變數。
@@ -136,7 +142,7 @@ cd sparkpi
 
 ```bash
 touch project/assembly.sbt
-echo 'addSbtPlugin("com.eed3si9n" % "sbt-assembly" % "0.14.6")' >> project/assembly.sbt
+echo 'addSbtPlugin("com.eed3si9n" % "sbt-assembly" % "0.14.10")' >> project/assembly.sbt
 ```
 
 執行這些命令以將範例程式碼複製到新建立的專案，並新增所有必要的相依性。
@@ -151,7 +157,7 @@ cat <<EOT >> build.sbt
 libraryDependencies += "org.apache.spark" %% "spark-sql" % "2.3.0" % "provided"
 EOT
 
-sed -ie 's/scalaVersion.*/scalaVersion := "2.11.11",/' build.sbt
+sed -ie 's/scalaVersion.*/scalaVersion := "2.11.11"/' build.sbt
 sed -ie 's/name.*/name := "SparkPi",/' build.sbt
 ```
 
@@ -214,6 +220,13 @@ kubectl proxy
 cd $sparkdir
 ```
 
+建立具有足夠許可權可執行作業的服務帳戶。
+
+```bash
+kubectl create serviceaccount spark
+kubectl create clusterrolebinding spark-role --clusterrole=edit --serviceaccount=default:spark --namespace=default
+```
+
 使用 `spark-submit` 提交作業。
 
 ```bash
@@ -223,6 +236,7 @@ cd $sparkdir
   --name spark-pi \
   --class org.apache.spark.examples.SparkPi \
   --conf spark.executor.instances=3 \
+  --conf spark.kubernetes.authenticate.driver.serviceAccountName=spark \
   --conf spark.kubernetes.container.image=$REGISTRY_NAME/spark:$REGISTRY_TAG \
   $jarUrl
 ```

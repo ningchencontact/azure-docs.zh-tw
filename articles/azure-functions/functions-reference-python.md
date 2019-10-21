@@ -13,12 +13,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 04/16/2018
 ms.author: glenga
-ms.openlocfilehash: 4fd73f528ac823a8e794a880f87dd5f8872e1251
-ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
+ms.openlocfilehash: 97b954ee5e00c13211a3b2a2254b6d34bccb780c
+ms.sourcegitcommit: 9a4296c56beca63430fcc8f92e453b2ab068cc62
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72243268"
+ms.lasthandoff: 10/20/2019
+ms.locfileid: "72674951"
 ---
 # <a name="azure-functions-python-developer-guide"></a>Azure Functions Python 開發人員指南
 
@@ -28,9 +28,9 @@ ms.locfileid: "72243268"
 
 ## <a name="programming-model"></a>程式設計模型
 
-Azure Functions 預期函式在 Python 腳本中是可處理輸入並產生輸出的無狀態方法。 根據預設，執行時間會預期在 @no__t 1 檔案中，將方法實作為稱為 @no__t 0 的全域方法。 您也可以[指定替代的進入點](#alternate-entry-point)。
+Azure Functions 預期函式在 Python 腳本中是可處理輸入並產生輸出的無狀態方法。 根據預設，執行時間會預期方法會實作為在 `__init__.py` 檔案中稱為 `main()` 的全域方法。 您也可以[指定替代的進入點](#alternate-entry-point)。
 
-來自觸發程式和系結的資料，會使用函式*json*檔案中定義的 `name` 屬性，透過方法屬性系結至函數。 例如，下面的_函數. json_描述由名為 `req` 的 HTTP 要求所觸發的簡單函式：
+來自觸發程式和系結的資料，會使用函式*json*檔案中定義的 `name` 屬性，透過方法屬性系結至函式。 例如，下面的_函數. json_描述由名為 `req` 的 HTTP 要求所觸發的簡單函式：
 
 ```json
 {
@@ -73,7 +73,7 @@ def main(req: azure.functions.HttpRequest) -> str:
 
 ## <a name="alternate-entry-point"></a>替代進入點
 
-您可以選擇性地在*函數. json*檔案中指定 `scriptFile` 和 `entryPoint` 屬性，以變更函式的預設行為。 例如 _，下列函_式會指示執行時間在_main.py_檔案中使用 `customentry()` 方法，做為您的 Azure 函數的進入點。
+您可以選擇性地在*函數. json*檔案中指定 `scriptFile` 和 `entryPoint` 屬性，以變更函式的預設行為。 例如 _，下列函_式會指示執行時間在_main.py_檔案中使用 `customentry()` 方法，做為您的 Azure 函式的進入點。
 
 ```json
 {
@@ -123,7 +123,7 @@ from . import example
 
 ## <a name="triggers-and-inputs"></a>觸發程式和輸入
 
-在 Azure Functions 中輸入會分成兩個類別：觸發程序輸入和額外的輸入。 雖然它們在 @no__t 0 檔案中不同，但在 Python 程式碼中的使用方式是相同的。  在本機執行時，觸發程式和輸入來源的連接字串或密碼會對應至 @no__t 0 檔案中的值，以及在 Azure 中執行時的應用程式設定。 
+在 Azure Functions 中輸入會分成兩個類別：觸發程序輸入和額外的輸入。 雖然它們在 `function.json` 檔案中不同，但在 Python 程式碼中的使用方式是相同的。  在本機執行時，觸發程式和輸入來源的連接字串或密碼會對應至 `local.settings.json` 檔案中的值，以及在 Azure 中執行時的應用程式設定。 
 
 例如，下列程式碼示範兩者之間的差異：
 
@@ -176,7 +176,7 @@ def main(req: func.HttpRequest,
 叫用此函式時，HTTP 要求會以 `req` 形式傳遞至函式。 系統會根據路由 URL 中的_識別碼_從 Azure Blob 儲存體中抓取專案，並在函式主體中以 `obj` 的形式提供。  在這裡，指定的儲存體帳戶是在中找到的連接字串，這是函數應用程式所使用的相同儲存體帳戶。
 
 
-## <a name="outputs"></a>outputs
+## <a name="outputs"></a>輸出
 
 輸出可以使用傳回值和輸出參數來表示。 如果只有一個輸出，我們建議使用傳回的值。 若為多個輸出，您必須使用輸出參數。
 
@@ -278,7 +278,7 @@ def main(req: func.HttpRequest) -> func.HttpResponse:
         )
 ```
 
-在此函式中，會從[HttpRequest]物件的 `params` 參數中取得 `name` 查詢參數的值。 JSON 編碼的訊息本文會使用 `get_json` 方法來讀取。 
+在此函數中，會從[HttpRequest]物件的 `params` 參數取得 `name` 查詢參數的值。 JSON 編碼的訊息本文會使用 `get_json` 方法來讀取。 
 
 同樣地，您可以在傳回的[HttpResponse]物件中設定回應訊息的 `status_code` 和 `headers`。
 
@@ -294,7 +294,7 @@ def main(req: func.HttpRequest) -> func.HttpResponse:
 
 ### <a name="async"></a>非同步處理
 
-建議您使用 `async def` 語句，讓您的函式以非同步協同程式的方式執行。
+建議您使用 `async def` 語句，讓函式以非同步協同程式的方式執行。
 
 ```python
 # Runs with asyncio directly
@@ -303,7 +303,7 @@ async def main():
     await some_nonblocking_socket_io_op()
 ```
 
-當 `main()` 函數是同步的（沒有 `async` 限定詞）時，函式會自動在 @no__t 2 的執行緒集區中執行。
+當 `main()` 函式是同步的（沒有 `async` 限定詞）時，函數會自動在 `asyncio` 執行緒集區中執行。
 
 ```python
 # Runs in an asyncio thread-pool
@@ -320,7 +320,7 @@ def main():
 
 若要在執行期間取得函數的調用內容，請在其簽章中包含[`context`](/python/api/azure-functions/azure.functions.context?view=azure-python)引數。 
 
-例如:
+例如：
 
 ```python
 import azure.functions
@@ -360,9 +360,9 @@ def main(req):
 
 ## <a name="environment-variables"></a>環境變數
 
-在函數中，[應用程式設定](functions-app-settings.md)（例如服務連接字串）在執行期間會公開為環境變數。 您可以藉由宣告 `import os`，然後使用 `setting = os.environ["setting-name"]` 來存取這些設定。
+在函數中，[應用程式設定](functions-app-settings.md)（例如服務連接字串）在執行期間會公開為環境變數。 您可以藉由宣告 `import os`，然後使用 `setting = os.environ["setting-name"]`，來存取這些設定。
 
-下列範例會取得[應用程式設定](functions-how-to-use-azure-function-app-settings.md#settings)，其金鑰名為 `myAppSetting`：
+下列範例會取得[應用程式設定](functions-how-to-use-azure-function-app-settings.md#settings)，並將金鑰命名為 `myAppSetting`：
 
 ```python
 import logging
@@ -398,22 +398,15 @@ pip install -r requirements.txt
 
 當您準備好要發行時，請確定您的所有相依性都列在 [*需求 .txt* ] 檔案中，該檔案位於專案目錄的根目錄中。 Azure Functions 可以[從遠端建立](functions-deployment-technologies.md#remote-build)這些相依性。
 
-從發行排除的專案檔和資料夾（包括虛擬環境資料夾）會列在 funcignore 檔案中。  
+從發行排除的專案檔和資料夾（包括虛擬環境資料夾）會列在 funcignore 檔案中。 
 
-若要部署至 Azure 並執行遠端組建，請使用下列命令：
+[Azure Functions Core Tools](functions-run-local.md#v2)和[VS Code 的 Azure Functions 延伸](functions-create-first-function-vs-code.md#publish-the-project-to-azure)模組預設都會執行遠端組建。 例如，使用下列命令：
 
 ```bash
-func azure functionapp publish <app name> --build remote
+func azure functionapp publish <app name>
 ```
 
-如果您不是使用遠端組建，並使用需要編譯器的套件，且不支援從 PyPI 安裝許多 Linux 相容的輪，則發行至 Azure 而不在本機建立，將會因下列錯誤而失敗：
-
-```
-There was an error restoring dependencies.ERROR: cannot install <package name - version> dependency: binary dependencies without wheels are not supported.  
-The terminal process terminated with exit code: 1
-```
-
-若要在本機建立並設定必要的二進位檔，請在您的本機電腦上[安裝 Docker](https://docs.docker.com/install/) ，然後執行下列命令，使用[Azure Functions Core Tools](functions-run-local.md#v2) （func）進行發佈。 在 Azure 中，請記得以您的函式應用程式名稱取代 `<app name>`。 
+如果您想要在本機（而不是在 Azure）中建立應用程式，請在本機電腦上[安裝 Docker](https://docs.docker.com/install/) ，然後執行下列命令，使用[Azure Functions Core Tools](functions-run-local.md#v2) （func）進行發佈。 在 Azure 中，請記得以您的函式應用程式名稱取代 `<app name>`。 
 
 ```bash
 func azure functionapp publish <app name> --build-native-deps
@@ -425,7 +418,7 @@ func azure functionapp publish <app name> --build-native-deps
 
 ## <a name="unit-testing"></a>單元測試
 
-以 Python 撰寫的函式可以使用標準測試架構來測試，就像其他 Python 程式碼一樣。 對於大部分的系結，您可以從 `azure.functions` 封裝建立適當類別的實例，以建立模擬輸入物件。 因為[@no__t 1](https://pypi.org/project/azure-functions/)套件無法立即使用，請務必透過您的 @no__t 2 檔案加以安裝，如上面的[Python 版本和套件管理](#python-version-and-package-management)一節中所述。
+以 Python 撰寫的函式可以使用標準測試架構來測試，就像其他 Python 程式碼一樣。 對於大部分的系結，您可以從 `azure.functions` 封裝建立適當類別的實例，以建立模擬輸入物件。 因為[`azure.functions`](https://pypi.org/project/azure-functions/)套件無法立即使用，請務必透過您的 `requirements.txt` 檔案加以安裝，如上方的[Python 版本和套件管理](#python-version-and-package-management)一節中所述。
 
 例如，下列是 HTTP 觸發函式的模擬測試：
 
@@ -547,9 +540,9 @@ class TestFunction(unittest.TestCase):
 
 ### <a name="cross-origin-resource-sharing"></a>跨原始資源共用
 
-Azure Functions 支援跨原始來源資源分享（CORS）。 CORS 會[在入口網站中](functions-how-to-use-azure-function-app-settings.md#cors)以及透過[Azure CLI](/cli/azure/functionapp/cors)進行設定。 CORS 允許的原始來源清單適用于函數應用層級。 啟用 CORS 後，回應會包含 `Access-Control-Allow-Origin` 標頭。 如需詳細資訊，請參閱 [跨原始來源資源分享](functions-how-to-use-azure-function-app-settings.md#cors)(英文)。
+Azure Functions 支援跨原始來源資源分享（CORS）。 CORS 會[在入口網站中](functions-how-to-use-azure-function-app-settings.md#cors)以及透過[Azure CLI](/cli/azure/functionapp/cors)進行設定。 CORS 允許的原始來源清單適用于函數應用層級。 在啟用 CORS 的情況下，回應會包含 `Access-Control-Allow-Origin` 標頭。 如需詳細資訊，請參閱 [跨原始來源資源分享](functions-how-to-use-azure-function-app-settings.md#cors)(英文)。
 
-Python 函式應用程式[目前不支援](https://github.com/Azure/azure-functions-python-worker/issues/444)允許的原始來源清單。 由於這項限制，您必須在 HTTP 函式中明確設定 @no__t 0 標頭，如下列範例所示：
+Python 函式應用程式[目前不支援](https://github.com/Azure/azure-functions-python-worker/issues/444)允許的原始來源清單。 由於這項限制，您必須在 HTTP 函式中明確設定 `Access-Control-Allow-Origin` 標頭，如下列範例所示：
 
 ```python
 def main(req: func.HttpRequest) -> func.HttpResponse:

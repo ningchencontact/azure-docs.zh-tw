@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 06/20/2019
-ms.openlocfilehash: ca098eba8e0cbad0d0240bd7819a401c502a869d
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 5e0f3ccafa449cc431166d5b4bd4135a1d1ac97c
+ms.sourcegitcommit: 9a4296c56beca63430fcc8f92e453b2ab068cc62
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68568033"
+ms.lasthandoff: 10/20/2019
+ms.locfileid: "72675871"
 ---
 # <a name="quickstart-import-a-bacpac-file-to-a-database-in-azure-sql-database"></a>快速入門：在 Azure SQL Database 中將 BACPAC 檔案匯入資料庫
 
@@ -34,7 +34,7 @@ ms.locfileid: "68568033"
 目前不支援使用 Azure PowerShell 從 BACPAC 檔案將資料庫移轉至[受控實例](sql-database-managed-instance.md)。 請改用 SQL Server Management Studio 或 SQLPackage。
 
 > [!NOTE]
-> 處理透過 Azure 入口網站或 PowerShell 提交的匯入/匯出要求的機器, 必須儲存 BACPAC 檔案, 以及資料層應用程式架構 (DacFX) 所產生的暫存檔案。 所需的磁碟空間在大小相同的資料庫之間有很大的差異, 而且可能需要最多3倍資料庫大小的磁碟空間。 執行匯入/匯出要求的機器僅具有450GB 本機磁碟空間。 因此, 某些要求可能會因錯誤`There is not enough space on the disk`而失敗。 在此情況下, 因應措施是在具有足夠本機磁碟空間的電腦上執行 sqlpackage。 我們建議使用[SqlPackage](#import-from-a-bacpac-file-using-sqlpackage)來匯入/匯出大於150GB 的資料庫, 以避免發生此問題。
+> 處理透過 Azure 入口網站或 PowerShell 提交的匯入/匯出要求的機器，必須儲存 BACPAC 檔案，以及資料層應用程式架構（DacFX）所產生的暫存檔案。 所需的磁碟空間在大小相同的資料庫之間有很大的差異，而且可能需要最多3倍資料庫大小的磁碟空間。 執行匯入/匯出要求的機器僅具有450GB 本機磁碟空間。 因此，某些要求可能會失敗，並出現錯誤 `There is not enough space on the disk`。 在此情況下，因應措施是在具有足夠本機磁碟空間的電腦上執行 sqlpackage。 我們建議使用[SqlPackage](#import-from-a-bacpac-file-using-sqlpackage)來匯入/匯出大於150GB 的資料庫，以避免發生此問題。
  
 1. 若要使用 Azure 入口網站從 BACPAC 檔案匯入至單一資料庫，請開啟適當的資料庫伺服器頁面，然後在工具列上選取 [匯入資料庫]。  
 
@@ -59,8 +59,6 @@ ms.locfileid: "68568033"
 
 為了規模和效能，我們建議在大部分生產環境中使用 SqlPackage，而不使用 Azure 入口網站。 如需 SQL Server 客戶諮詢小組部落格中有關使用 `BACPAC` 檔案進行移轉的主題，請參閱[使用 BACPAC 檔案從 SQL Server 移轉至 Azure SQL Database](https://blogs.msdn.microsoft.com/sqlcat/2016/10/20/migrating-from-sql-server-to-azure-sql-database-using-bacpac-files/) \(英文\)。
 
-基於調整能力和效能，建議在大部分的生產環境中均應使用 SqlPackage。 如需 SQL Server 客戶諮詢小組部落格中有關使用 BACPAC 檔案進行移轉的主題，請參閱[使用 BACPAC 檔案從 SQL Server 移轉至 Azure SQL Database](https://blogs.msdn.microsoft.com/sqlcat/20../../migrating-from-sql-server-to-azure-sql-database-using-bacpac-files/)。
-
 下列 SqlPackage 命令會將 **AdventureWorks2008R2** 資料庫從本機儲存體匯入至名為 **mynewserver20170403** 的 Azure SQL Database 伺服器。 此命令會建立名為 **myMigratedDatabase**、且具有**進階**服務層級和 **P6** 服務目標的新資料庫。 請針對您的環境適當變更這些值。
 
 ```cmd
@@ -83,11 +81,11 @@ SqlPackage.exe /a:Import /sf:testExport.bacpac /tdn:NewDacFX /tsn:apptestserver.
 > [受控實例](sql-database-managed-instance.md)目前不支援使用 AZURE POWERSHELL 從 BACPAC 檔案將資料庫移轉至實例資料庫。 若要匯入至受控執行個體，請使用 SQL Server Management Studio 或 SQLPackage。
 
 > [!NOTE]
-> 處理透過入口網站或 Powershell 提交的匯入/匯出要求的機器, 必須儲存 bacpac 檔案, 以及資料層應用程式架構 (DacFX) 所產生的暫存檔案。 所需的磁碟空間在相同大小的資料庫之間有很大的差異, 而且最多可能需要3倍的資料庫大小。 執行匯入/匯出要求的機器僅具有450GB 本機磁碟空間。 因此, 某些要求可能會失敗, 並出現「磁碟空間不足」錯誤。 在此情況下, 因應措施是在具有足夠本機磁碟空間的電腦上執行 sqlpackage。 匯入/匯出大於150GB 的資料庫時, 請使用[SqlPackage](#import-from-a-bacpac-file-using-sqlpackage)來避免此問題。
+> 處理透過入口網站或 Powershell 提交的匯入/匯出要求的機器，必須儲存 bacpac 檔案，以及資料層應用程式架構（DacFX）所產生的暫存檔案。 所需的磁碟空間在相同大小的資料庫之間有很大的差異，而且最多可能需要3倍的資料庫大小。 執行匯入/匯出要求的機器僅具有450GB 本機磁碟空間。 因此，某些要求可能會失敗，並出現「磁碟空間不足」錯誤。 在此情況下，因應措施是在具有足夠本機磁碟空間的電腦上執行 sqlpackage。 匯入/匯出大於150GB 的資料庫時，請使用[SqlPackage](#import-from-a-bacpac-file-using-sqlpackage)來避免此問題。
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 > [!IMPORTANT]
-> Azure SQL Database 仍然支援 PowerShell Azure Resource Manager 模組, 但所有未來的開發都是針對 Az .Sql 模組。 如需這些 Cmdlet, 請參閱[AzureRM](https://docs.microsoft.com/powershell/module/AzureRM.Sql/)。 Az 模組和 AzureRm 模組中命令的引數本質上完全相同。
+> Azure SQL Database 仍然支援 PowerShell Azure Resource Manager 模組，但所有未來的開發都是針對 Az .Sql 模組。 如需這些 Cmdlet，請參閱[AzureRM](https://docs.microsoft.com/powershell/module/AzureRM.Sql/)。 Az 模組和 AzureRm 模組中命令的引數本質上完全相同。
 
 使用[AzSqlDatabaseImport](/powershell/module/az.sql/new-azsqldatabaseimport) Cmdlet 將匯入資料庫要求提交至 Azure SQL Database 服務。 匯入可能需要一些時間才能完成，視資料庫大小而定。
 
@@ -107,7 +105,7 @@ SqlPackage.exe /a:Import /sf:testExport.bacpac /tdn:NewDacFX /tsn:apptestserver.
 
  ```
 
- 您可以使用[AzSqlDatabaseImportExportStatus](/powershell/module/az.sql/get-azsqldatabaseimportexportstatus) Cmdlet 來檢查匯入的進度。 如果在要求後立即執行此 Cmdlet，通常會傳回 **Status:InProgress**。 當您看見 **Status:Succeeded** 時，即表示匯入已完成。
+ 您可以使用[AzSqlDatabaseImportExportStatus](/powershell/module/az.sql/get-azsqldatabaseimportexportstatus) Cmdlet 來檢查匯入的進度。 在要求之後立即執行 Cmdlet，通常會傳回**Status： InProgress**。 當您看到 [**狀態：成功**] 時，即會完成匯入。
 
 ```powershell
 $importStatus = Get-AzSqlDatabaseImportExportStatus -OperationStatusLink $importRequest.OperationStatusLink
@@ -138,7 +136,7 @@ $importStatus
 
 ## <a name="next-steps"></a>後續步驟
 
-- 若要了解如何連線及查詢已匯入的 SQL Database，請參閱[快速入門：Azure SQL Database：使用 SQL Server Management Studio 連線及查詢資料](sql-database-connect-query-ssms.md)。
+- 若要瞭解如何連接並查詢匯入的 SQL Database，請參閱[快速入門： Azure SQL Database：使用 SQL Server Management Studio 來連接及查詢資料](sql-database-connect-query-ssms.md)。
 - 如需 SQL Server 客戶諮詢小組部落格中有關使用 BACPAC 檔案進行移轉的主題，請參閱[使用 BACPAC 檔案從 SQL Server 移轉至 Azure SQL Database](https://techcommunity.microsoft.com/t5/DataCAT/Migrating-from-SQL-Server-to-Azure-SQL-Database-using-Bacpac/ba-p/305407)。
 - 如需有關整個 SQL Server 資料庫移轉程序的討論，包括效能建議，請參閱[將 SQL Server 資料庫移轉至 Azure SQL Database](sql-database-single-database-migrate.md)。
 - 若要了解如何管理和共用儲存體金鑰，以及安全地共用存取簽章，請參閱 [Azure 儲存體安全性指南](https://docs.microsoft.com/azure/storage/common/storage-security-guide)。

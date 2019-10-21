@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/29/2019
 ms.author: memildin
-ms.openlocfilehash: 1d13db922ae84e4032304a8865ba6fcdafa65748
-ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
+ms.openlocfilehash: bdb0322083f842922359f0c91da77f5df81613cb
+ms.sourcegitcommit: 9a4296c56beca63430fcc8f92e453b2ab068cc62
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71201626"
+ms.lasthandoff: 10/20/2019
+ms.locfileid: "72675802"
 ---
 # <a name="supported-platforms"></a>支援的平台 
 
@@ -41,15 +41,15 @@ ms.locfileid: "71201626"
 
 ### Windows server 作業系統<a name="os-windows"></a>
 
-* Windows Server 2019
-* Windows Server 2016
-* Windows Server 2012 R2
-* Windows Server 2012
-* Windows Server 2008 R2
-* Windows Server 2008
-
-> [!NOTE]
-> 與 Microsoft Defender ATP 的整合僅支援 Windows Server 2012 R2 和 Windows Server 2016。
+[!div class="mx-tableFixed"]
+|OS|支援 Azure 資訊安全中心|支援與 Microsoft Defender ATP 整合|
+|---|---|---|
+|Windows Server 2019|✔|X|
+|Windows Server 2016|✔|✔|
+|Windows Server 2012 R2|✔|✔|
+|Windows Server 2012|✔|✔|
+|Windows Server 2008 R2|✔|✔|
+|Windows Server 2008|✔|✔|
 
 若要深入瞭解上述 Windows 作業系統支援的功能，請參閱[虛擬機器/伺服器支援的功能](security-center-services.md##vm-server-features)。
 
@@ -73,7 +73,7 @@ ms.locfileid: "71201626"
 * Ubuntu Linux 14.04 LTS 和 16.04 LTS
 
 > [!NOTE]
-> 由於支援的 Linux 作業系統清單經常變更, 如果您想要的話, 請按一下[這裡](https://github.com/microsoft/OMS-Agent-for-Linux#supported-linux-operating-systems), 以查看最新的支援版本清單, 以防上次發行此主題之後已經發生變更。
+> 由於支援的 Linux 作業系統清單經常變更，如果您想要的話，請按一下[這裡](https://github.com/microsoft/OMS-Agent-for-Linux#supported-linux-operating-systems)，以查看最新的支援版本清單，以防上次發行此主題之後已經發生變更。
 
 若要深入瞭解 Linux 作業系統支援的功能，請參閱[虛擬機器/伺服器支援的功能](security-center-services.md##vm-server-features)。
 
@@ -95,21 +95,21 @@ Azure 資訊安全中心支援下列 Azure PaaS 資源：
 * CosmosDB
 * 儲存體帳戶
 * App Service
-* 函數
+* 函式
 * 雲端服務
 * VNet
-* Subnet
+* 子網路
 * NIC
 * NSG
-* Batch 帳戶
+* 批次帳戶
 * Service fabric 帳戶
 * 自動化帳戶
 * 負載平衡器
-* 搜尋
+* Search
 * 服務匯流排命名空間
 * 串流分析
 * 事件中樞命名空間
-* Logic Apps
+* 邏輯應用程式
 * Redis
 * Data Lake Analytics
 * Data Lake Store

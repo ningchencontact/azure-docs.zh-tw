@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 03/13/2019
 ms.author: glenga
 ms.custom: 80e4ff38-5174-43
-ms.openlocfilehash: 45bc55141c9f338ae2f69cf4ccefae3d2492b239
-ms.sourcegitcommit: e1b6a40a9c9341b33df384aa607ae359e4ab0f53
+ms.openlocfilehash: 28502c49c0eebce84ffd5aa376e7b20bd52213c0
+ms.sourcegitcommit: 9a4296c56beca63430fcc8f92e453b2ab068cc62
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71336941"
+ms.lasthandoff: 10/20/2019
+ms.locfileid: "72674976"
 ---
 # <a name="work-with-azure-functions-core-tools"></a>使用 Azure Functions Core Tools
 
@@ -111,9 +111,9 @@ Azure Functions Core Tools 有兩個版本。 您使用的版本取決於您的�
     sudo sh -c 'echo "deb [arch=amd64] https://packages.microsoft.com/debian/$(lsb_release -rs)/prod $(lsb_release -cs) main" > /etc/apt/sources.list.d/dotnetdev.list'
     ```
 
-1. 針對下列其中一個適當的 Linux 版本字串，檢查 `/etc/apt/sources.list.d/dotnetdev.list` 檔案：
+1. 查看下列其中一個適當 Linux 版本字串的 `/etc/apt/sources.list.d/dotnetdev.list` 檔案：
 
-    | Linux 散發套件 | Version |
+    | Linux 散發套件 | 版本 |
     | --------------- | ----------- |
     | Debian 10 | `buster` |
     | Debian 9 | `stretch` |
@@ -200,7 +200,7 @@ Initialized empty Git repository in C:/myfunctions/myMyFunctionProj/.git/
 * [Java](functions-reference-java.md#environment-variables)
 * [JavaScript](functions-reference-node.md#environment-variables)
 
-如果沒有為[`AzureWebJobsStorage`]設定有效的儲存體連接字串，且未使用模擬器，則會顯示下列錯誤訊息：
+未針對[`AzureWebJobsStorage`]設定有效的儲存體連接字串，且未使用模擬器時，會顯示下列錯誤訊息：
 
 > 在 local.settings.json 中遺失 AzureWebJobsStorage 的值。 這對 HTTP 以外的所有觸發程序是必要的。 您可以執行 'func azure functionapp fetch-app-settings \<functionAppName\>'，或指定 local.settings.json 中的連接字串。
 
@@ -300,7 +300,7 @@ func new --template "Queue Trigger" --name QueueTriggerJS
 func start --build
 ```
 
-#### <a name="javascript"></a>JavaScript
+#### <a name="javascript"></a>Javascript
 
 ```command
 func start
@@ -441,7 +441,7 @@ func run MyHttpTrigger -c '{\"name\": \"Azure\"}'
 func azure functionapp publish <FunctionAppName>
 ```
 
-此命令會發行至 Azure 中的現有函式應用程式。 如果您嘗試發佈至不存在於訂用帳戶中的 `<FunctionAppName>`，將會收到錯誤。 若要了解如何使用 Azure CLI 從命令提示字元或終端機視窗建立函式應用程式，請參閱[建立無伺服器也可執行的函式應用程式](./scripts/functions-cli-create-serverless.md)。 根據預設，此命令會將您的應用程式部署為[從部署套件執行](run-functions-from-deployment-package.md)。 若要停用這個建議的部署模式，請使用 `--nozip` 選項。
+此命令會發行至 Azure 中的現有函式應用程式。 如果您嘗試發佈的 `<FunctionAppName>` 不存在於您的訂用帳戶中，將會收到錯誤。 若要了解如何使用 Azure CLI 從命令提示字元或終端機視窗建立函式應用程式，請參閱[建立無伺服器也可執行的函式應用程式](./scripts/functions-cli-create-serverless.md)。 根據預設，此命令會使用[遠端組建](functions-deployment-technologies.md#remote-build)，並部署您的應用程式以[從部署套件執行](run-functions-from-deployment-package.md)。 若要停用這個建議的部署模式，請使用 [`--nozip`] 選項。
 
 >[!IMPORTANT]
 > 當您在 Azure 入口網站中建立函式應用程式時，依預設會使用 2.x 版的函式執行階段。 若要讓函式應用程式使用 1.x 版的執行階段，請依照[在 1.x 版上執行](functions-versions.md#creating-1x-apps)中的指示操作。
@@ -463,6 +463,7 @@ func azure functionapp publish <FunctionAppName>
 | **`--list-included-files`** | 顯示要發佈的檔案清單，以 .funcignore 檔案為準。 |
 | **`--nozip`** | 關閉預設 `Run-From-Package` 模式。 |
 | **`--build-native-deps`** | 發行 python 函式應用程式時，略過產生 .wheels 資料夾。 |
+| **`--build [-b]`** | 部署至 Linux 函式應用程式時執行組建動作。 （接受：遠端、本機） |
 | **`--additional-packages`** | 建置原生相依性時將安裝的套件清單。 例如： `python3-dev libevent-dev` 。 |
 | **`--force`** | 在設定情況下忽略發佈前驗證。 |
 | **`--csx`** | 發佈 C# 指令碼 (.csx) 專案。 |
@@ -520,5 +521,5 @@ Azure Functions Core Tools 是[開放原始碼且裝載於 GitHub 上](https://g
 [Azure 入口網站]: https://portal.azure.com 
 [Node.js]: https://docs.npmjs.com/getting-started/installing-node#osx-or-windows
 [`FUNCTIONS_WORKER_RUNTIME`]: functions-app-settings.md#functions_worker_runtime
-[`AzureWebJobsStorage`]: functions-app-settings.md#azurewebjobsstorage
+[AzureWebJobsStorage]: functions-app-settings.md#azurewebjobsstorage
 [延伸]: functions-bindings-register.md#extension-bundles

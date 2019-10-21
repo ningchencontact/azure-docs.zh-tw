@@ -10,12 +10,12 @@ ms.custom: vs-azure
 ms.topic: conceptual
 ms.date: 04/25/2019
 ms.author: cotresne
-ms.openlocfilehash: f468b2afce1609de126859546a72544ba403424e
-ms.sourcegitcommit: 15e3bfbde9d0d7ad00b5d186867ec933c60cebe6
+ms.openlocfilehash: 4d32a652219d48a2cc101259ea6b76fbfa910821
+ms.sourcegitcommit: 9a4296c56beca63430fcc8f92e453b2ab068cc62
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/03/2019
-ms.locfileid: "71838876"
+ms.lasthandoff: 10/20/2019
+ms.locfileid: "72674952"
 ---
 # <a name="deployment-technologies-in-azure-functions"></a>Azure Functions 中的部署技術
 
@@ -46,7 +46,7 @@ Azure Functions 支援跨平臺本機開發和 Windows 和 Linux 上的裝載。
 <sup>1</sup>需要[手動觸發同步](#trigger-syncing)處理的部署技術。  
 <sup>2</sup>只有針對 Linux 上的函式使用 Premium 和專用方案的 HTTP 和計時器觸發程式，才會啟用入口網站編輯功能。
 
-## <a name="key-concepts"></a>重要概念
+## <a name="key-concepts"></a>主要概念
 
 若要瞭解部署在 Azure Functions 中的使用方式，某些重要概念十分重要。
 
@@ -55,7 +55,7 @@ Azure Functions 支援跨平臺本機開發和 Windows 和 Linux 上的裝載。
 當您變更任何觸發程式時，函數基礎結構必須知道這些變更。 同步處理會針對許多部署技術自動進行。 不過，在某些情況下，您必須手動同步處理您的觸發程式。 當您藉由參考外部套件 URL、本機 Git、雲端同步或 FTP 來部署更新時，您必須手動同步處理您的觸發程式。 您可以透過下列三種方式之一來同步觸發程式：
 
 * 在 Azure 入口網站中重新開機函數應用程式
-* 使用[主要金鑰](functions-bindings-http-webhook.md#authorization-keys)，將 HTTP POST 要求傳送至 `https://{functionappname}.azurewebsites.net/admin/host/synctriggers?code=<API_KEY>`。
+* 使用[主要金鑰](functions-bindings-http-webhook.md#authorization-keys)將 HTTP POST 要求傳送至 `https://{functionappname}.azurewebsites.net/admin/host/synctriggers?code=<API_KEY>`。
 * 將 HTTP POST 要求傳送至 `https://management.azure.com/subscriptions/<SUBSCRIPTION_ID>/resourceGroups/<RESOURCE_GROUP_NAME>/providers/Microsoft.Web/sites/<FUNCTION_APP_NAME>/syncfunctiontriggers?api-version=2016-08-01`。 將預留位置取代為您的訂用帳戶識別碼、資源組名和函式應用程式的名稱。
 
 ### <a name="remote-build"></a>遠端組建
@@ -63,27 +63,26 @@ Azure Functions 支援跨平臺本機開發和 Windows 和 Linux 上的裝載。
 Azure Functions 可以自動在 zip 部署後所收到的程式碼上執行組建。 根據您的應用程式是在 Windows 或 Linux 上執行，這些組建的行為會稍有不同。 當先前已將應用程式設定為在 [[從封裝執行](run-functions-from-deployment-package.md)] 中執行時，不會執行遠端組建。 若要瞭解如何使用遠端組建，請流覽至 [ [zip 部署](#zip-deploy)]。
 
 > [!NOTE]
-> 如果您遇到遠端組建的問題，可能是因為您的應用程式是在功能推出之前建立（2019年8月1日）。 嘗試建立新的函數應用程式。
+> 如果您遇到遠端組建的問題，可能是因為您的應用程式是在功能推出之前建立（2019年8月1日）。 請嘗試建立新的函式應用程式，或執行 `az functionapp update -g <RESOURCE_GROUP_NAME> -n <APP_NAME>` 來更新您的函式應用程式。 此命令可能會嘗試兩次成功。
 
 #### <a name="remote-build-on-windows"></a>Windows 上的遠端組建
 
 在 Windows 上執行的所有函數應用程式都有小型的管理應用程式，也就是 SCM （或[Kudu](https://github.com/projectkudu/kudu)）網站。 此網站會處理許多部署和 Azure Functions 的組建邏輯。
 
-將應用程式部署到 Windows 時，會執行特定語言的命令，例如 @no__t-C#0 （）或 `npm install` （JavaScript）。
+將應用程式部署到 Windows 時，會執行特定語言的命令，例如C#`dotnet restore` （）或 `npm install` （JavaScript）。
 
-#### <a name="remote-build-on-linux-preview"></a>Linux 上的遠端組建（預覽）
+#### <a name="remote-build-on-linux"></a>Linux 上的遠端組建
 
-若要在 Linux 上啟用遠端組建，您必須設定下列[應用程式](functions-how-to-use-azure-function-app-settings.md#settings)設定：
+若要在 Linux 上啟用遠端組建，必須設定下列[應用程式設定](functions-how-to-use-azure-function-app-settings.md#settings)：
 
 * `ENABLE_ORYX_BUILD=true`
 * `SCM_DO_BUILD_DURING_DEPLOYMENT=true`
 
-當應用程式在 Linux 上以遠端方式建立時，它們會[從部署套件執行](run-functions-from-deployment-package.md)。
+根據預設，在部署至 Linux 時， [Azure Functions Core Tools](functions-run-local.md)和[Azure Functions Visual Studio Code 延伸](functions-create-first-function-vs-code.md#publish-the-project-to-azure)模組都會執行遠端組建。 因此，這兩個工具會自動在 Azure 中為您建立這些設定。 
 
-> [!NOTE]
-> Linux 專用（App Service）方案上的遠端組建目前僅支援 node.js 和 Python。
+當應用程式在 Linux 上以遠端方式建立時，它們會[從部署套件執行](run-functions-from-deployment-package.md)。 
 
-##### <a name="consumption-preview-plan"></a>耗用量（預覽）方案
+##### <a name="consumption-plan"></a>使用量方案
 
 在取用方案中執行的 Linux 函式應用程式沒有 SCM/Kudu 網站，這會限制部署選項。 不過，在取用方案中執行的 Linux 上的函式應用程式會支援遠端組建。
 
@@ -103,21 +102,13 @@ Azure Functions 提供下列部署方法。
 >
 >如果您使用 Azure Blob 儲存體，請使用具有[共用存取簽章（SAS）](../vs-azure-tools-storage-manage-with-storage-explorer.md#generate-a-sas-in-storage-explorer)的私人容器，為函式提供對封裝的存取權。 每當應用程式重新開機時，它就會提取內容的複本。 您的參考在應用程式的存留期內必須是有效的。
 
->__使用時機：__ 如果使用者特別不想要進行遠端組建，則 [外部套件 URL] 是在取用方案的 Linux 上執行 Azure Functions 唯一支援的部署方法。 當您更新函式應用程式所參考的封裝檔案時，您必須[手動同步處理觸發](#trigger-syncing)程式，以告知 Azure 您的應用程式已變更。
+>__使用時機：__ 如果使用者不想要進行[遠端組建](#remote-build)，則 [外部套件 URL] 是在取用方案的 Linux 上執行 Azure Functions 唯一支援的部署方法。 當您更新函式應用程式所參考的封裝檔案時，您必須[手動同步處理觸發](#trigger-syncing)程式，以告知 Azure 您的應用程式已變更。
 
 ### <a name="zip-deploy"></a>Zip 部署
 
 使用「zip 部署」將包含函數應用程式的 .zip 檔案推送至 Azure。 （選擇性）您可以將應用程式設定為[從封裝](run-functions-from-deployment-package.md)開始執行，或指定發生[遠端組建](#remote-build)。
 
->__使用方式：__ 使用您最愛的用戶端工具來部署：[VS Code](functions-create-first-function-vs-code.md#publish-the-project-to-azure)、 [Visual Studio](functions-develop-vs.md#publish-to-azure)或[Azure CLI](functions-create-first-azure-function-azure-cli.md#deploy-the-function-app-project-to-azure)。 若要將 .zip 檔案手動部署至函式應用程式，請遵循[從 .zip 檔案或 URL 部署](https://github.com/projectkudu/kudu/wiki/Deploying-from-a-zip-file-or-url)中的指示。
-
-若要使用[遠端組建](#remote-build)執行 zip 部署，請使用下列[Core Tools](functions-run-local.md)命令：
-
-```bash
-func azure functionapp publish <app name> --build remote
-```
-
-或者，您可以藉由新增 ' ' azureFunctions. scmDoBuildDuringDeployment "旗標，指示 VS Code 在部署時執行遠端組建。 若要瞭解如何將旗標新增至 VS Code，請閱讀[Azure Functions 延伸模組 Wiki](https://github.com/microsoft/vscode-azurefunctions/wiki)中的指示。
+>__使用方式：__ 使用您最愛的用戶端工具進行部署： [Visual Studio Code](functions-create-first-function-vs-code.md#publish-the-project-to-azure)、 [Visual Studio](functions-develop-vs.md#publish-to-azure)、 [Azure Functions Core Tools](functions-run-local.md)或[Azure CLI](functions-create-first-azure-function-azure-cli.md#deploy-the-function-app-project-to-azure)。 根據預設，這些工具會使用 zip 部署，並[從封裝執行](run-functions-from-deployment-package.md)。 當部署至 Linux 時，核心工具和 Visual Studio Code 延伸模組都會啟用[遠端組建](#remote-build)。 若要將 .zip 檔案手動部署至函式應用程式，請遵循[從 .zip 檔案或 URL 部署](https://github.com/projectkudu/kudu/wiki/Deploying-from-a-zip-file-or-url)中的指示。
 
 >當您使用「zip 部署」進行部署時，您可以將應用程式設定為[從封裝執行](run-functions-from-deployment-package.md)。 若要從封裝執行，請將 `WEBSITE_RUN_FROM_PACKAGE` 應用程式設定值設定為 `1`。 我們建議您進行 zip 部署。 它會為您的應用程式產生更快的載入時間，而且它是 VS Code、Visual Studio 和 Azure CLI 的預設值。 
 
@@ -142,7 +133,7 @@ Web Deploy 封裝，並將您的 Windows 應用程式部署至任何 IIS 伺服�
 
 >__使用方式：__ 使用[適用于 Azure Functions 的 Visual Studio 工具](functions-create-your-first-function-visual-studio.md)。 清除 [**從套件檔案執行（建議選項）** ] 核取方塊。
 >
->您也可以下載[Web Deploy 3.6](https://www.iis.net/downloads/microsoft/web-deploy) ，並直接呼叫 `MSDeploy.exe`。
+>您也可以下載[Web Deploy 3.6](https://www.iis.net/downloads/microsoft/web-deploy)並直接呼叫 `MSDeploy.exe`。
 
 >__使用時機：__ 支援 Web Deploy 且沒有任何問題，但慣用的機制是「 [zip 部署已啟用從封裝執行](#zip-deploy)」。 若要深入瞭解，請參閱[Visual Studio 開發指南](functions-develop-vs.md#publish-to-azure)。
 
@@ -182,7 +173,7 @@ Web Deploy 封裝，並將您的 Windows 應用程式部署至任何 IIS 伺服�
 
 在以入口網站為基礎的編輯器中，您可以直接編輯函式應用程式中的檔案（基本上是在每次儲存變更時部署）。
 
->__使用方式：__ 若要能夠在 Azure 入口網站中編輯您的函式，您必須[在入口網站中建立您的函數](functions-create-first-azure-function.md)。 若要保留單一事實來源，使用任何其他部署方法會使您的函式成為唯讀，並防止繼續進行入口網站編輯。 若要返回您可以在 Azure 入口網站中編輯檔案的狀態，您可以手動將編輯模式重新設回 `Read/Write`，並移除任何與部署相關的應用程式設定（例如 `WEBSITE_RUN_FROM_PACKAGE`）。 
+>__使用方式：__ 若要能夠在 Azure 入口網站中編輯您的函式，您必須[在入口網站中建立您的函數](functions-create-first-azure-function.md)。 若要保留單一事實來源，使用任何其他部署方法會使您的函式成為唯讀，並防止繼續進行入口網站編輯。 若要返回您可以在 Azure 入口網站中編輯檔案的狀態，您可以手動將編輯模式切換回 `Read/Write`，並移除任何與部署相關的應用程式設定（例如 `WEBSITE_RUN_FROM_PACKAGE`）。 
 
 >__使用時機：__ 入口網站是開始使用 Azure Functions 的好方法。 如需更密集的開發工作，建議您使用下列其中一個用戶端工具：
 >
@@ -195,10 +186,10 @@ Web Deploy 封裝，並將您的 Windows 應用程式部署至任何 IIS 伺服�
 | | Windows 耗用量 | Windows Premium （預覽） | Windows 專用 | Linux 使用量 | Linux Premium （預覽）| Linux 專用 |
 |-|:-----------------: |:-------------------------:|:-----------------:|:---------------------------:|:---------------:|:---------------:|
 | C# | | | | | |
-| C# 指令碼 |✔|✔|✔| |✔<sup>\*</sup> |✔<sup>\*</sup>|
+| C# 指令碼 |✔|✔|✔| |✔<sup> \*</sup> |✔<sup> \*</sup>|
 | F# | | | | | | |
 | Java | | | | | | |
-| JavaScript (Node.js) |✔|✔|✔| |✔<sup>\*</sup>|✔<sup>\*</sup>|
+| JavaScript (Node.js) |✔|✔|✔| |✔<sup> \*</sup>|✔<sup> \*</sup>|
 | Python (預覽) | | | | | | |
 | PowerShell （預覽） |✔|✔|✔| | | |
 | TypeScript （node.js） | | | | | | |

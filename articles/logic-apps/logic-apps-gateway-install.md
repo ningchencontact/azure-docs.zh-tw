@@ -8,13 +8,13 @@ author: ecfan
 ms.author: estfan
 ms.reviewer: arthii, LADocs
 ms.topic: article
-ms.date: 09/01/2019
-ms.openlocfilehash: 7384f058c82699095e1209e677dc5c6f61b57178
-ms.sourcegitcommit: 0486aba120c284157dfebbdaf6e23e038c8a5a15
+ms.date: 10/18/2019
+ms.openlocfilehash: 7533b391917175fd9dea395f58906a9f78a61488
+ms.sourcegitcommit: 9a4296c56beca63430fcc8f92e453b2ab068cc62
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71309862"
+ms.lasthandoff: 10/20/2019
+ms.locfileid: "72675695"
 ---
 # <a name="install-on-premises-data-gateway-for-azure-logic-apps"></a>安裝 Azure Logic Apps 的內部部署資料閘道
 
@@ -31,17 +31,21 @@ ms.locfileid: "71309862"
 
 ## <a name="prerequisites"></a>必要條件
 
-* Azure 訂用帳戶。 如果您沒有 Azure 訂用帳戶，請先[註冊免費的 Azure 帳戶](https://azure.microsoft.com/free/)。
+* Azure 帳戶和訂用帳戶。 如果您沒有訂用帳戶的 Azure 帳戶，請[註冊免費的 azure 帳戶](https://azure.microsoft.com/free/)。
 
-  * 您必須使用相同的 Azure 帳戶來安裝和管理閘道。 在安裝期間，您會使用此 Azure 帳戶，將電腦上的閘道與 Azure 訂用帳戶建立關聯。 之後，當您在 Azure 入口網站中為閘道安裝建立 Azure 資源時，您會使用相同的 Azure 帳戶。 
+  * 您必須使用相同的 Azure 帳戶來安裝和管理本機電腦上的閘道。
 
-  * 您必須使用工作帳戶或學校帳戶（也稱為*組織*帳戶）登入，這看起來像`username@contoso.com`這樣。 您不能使用 Azure B2B （來賓）帳戶或個人 Microsoft 帳戶，例如@hotmail.com或@outlook.com。
+    在閘道安裝期間，您會使用您的 Azure 帳戶登入，這會將您的閘道安裝連結至您的 Azure 帳戶，而只會將該帳戶 稍後在 Azure 入口網站中，您必須使用相同的 Azure 帳戶來建立 Azure 閘道資源，以註冊並宣告閘道安裝。 在 Azure Logic Apps 中，內部部署觸發程式和動作會使用閘道資源來連接到內部部署資料來源。
+
+    > [!NOTE]
+    > 您只能將一個閘道安裝和一個 Azure 閘道資源連結到彼此。 您無法將相同的閘道安裝連結至多個 Azure 帳戶或 Azure 閘道資源。 不過，Azure 帳戶可以連結至多個閘道安裝和 Azure 閘道資源。 在內部部署觸發程式或動作中，您可以從各種不同的 Azure 訂用帳戶中進行選取，然後選取相關聯的閘道資源。
+
+  * 您必須使用工作帳戶或學校帳戶（也稱為*組織*帳戶）登入，其看起來會像 `username@contoso.com`。 您不能使用 Azure B2B （來賓）帳戶或個人 Microsoft 帳戶，例如 @hotmail.com 或 @outlook.com。
 
     > [!TIP]
-    > 如果您註冊 Office 365 供應專案，但未提供公司電子郵件地址，則您的位址可能會`username@domain.onmicrosoft.com`類似。 您的帳戶會儲存在 Azure Active Directory （Azure AD）中的租使用者內。 在大部分情況下，您 Azure AD 帳戶的使用者主體名稱（UPN）與您的電子郵件地址相同。
+    > 如果您註冊 Office 365 供應專案，但未提供公司電子郵件地址，您的位址可能會像 `username@domain.onmicrosoft.com`。 您的帳戶會儲存在 Azure Active Directory （Azure AD）中的租使用者內。 在大部分情況下，您 Azure AD 帳戶的使用者主體名稱（UPN）與您的電子郵件地址相同。
     >
-    > 若要使用與 Microsoft 帳戶相關聯的[Visual Studio 標準訂](https://visualstudio.microsoft.com/vs/pricing/)用帳戶，請先[在 Azure AD 中建立租](../active-directory/develop/quickstart-create-new-tenant.md)使用者，或使用預設目錄。 請將使用者和密碼新增至目錄，然後將您訂用帳戶的存取權授與該使用者。 
-    > 接著，您就可以在安裝閘道時，使用此使用者名稱和密碼來進行登入。
+    > 若要使用連結至 Microsoft 帳戶的[Visual Studio 標準訂](https://visualstudio.microsoft.com/vs/pricing/)用帳戶，請先[在 Azure AD 中建立租](../active-directory/develop/quickstart-create-new-tenant.md)使用者，或使用預設目錄。 將具有密碼的使用者新增至目錄，然後授與該使用者對您 Azure 訂用帳戶的存取權。 接著，您就可以在安裝閘道時，使用此使用者名稱和密碼來進行登入。
 
 * 您的本機電腦需求如下：
 
@@ -75,7 +79,7 @@ ms.locfileid: "71309862"
 
   * 閘道有兩種模式： [標準模式] 和 [個人模式]，僅適用于 Power BI。 同一部電腦上不能有一個以上的閘道在相同的模式下執行。
 
-  * Azure Logic Apps 透過閘道支援寫入作業，包括插入和更新。 不過，這些作業對[其裝載大小有限制](https://docs.microsoft.com/data-integration/gateway/service-gateway-onprem#considerations)。
+  * Azure Logic Apps 支援透過閘道進行的讀取和寫入作業。 不過，這些作業對[其裝載大小有限制](https://docs.microsoft.com/data-integration/gateway/service-gateway-onprem#considerations)。
 
 <a name="install-gateway"></a>
 
@@ -95,13 +99,13 @@ ms.locfileid: "71309862"
 
    ![審查需求並接受使用條款](./media/logic-apps-gateway-install/accept-terms.png)
 
-1. 成功安裝閘道之後，請提供您組織帳戶的電子郵件地址，然後選取 [登**入**]，例如：
+1. 成功安裝閘道之後，請提供您 Azure 帳戶的電子郵件地址，然後選取 [登**入**]，例如：
 
    ![使用公司或學校帳戶登入](./media/logic-apps-gateway-install/sign-in-gateway-install.png)
 
-   您現在已登入您的帳戶。
+   您的閘道安裝只能連結到一個 Azure 帳戶。
 
-1. 選取 **[** 在這部 > **電腦上註冊新的閘道**]。 此步驟會向[閘道雲端服務](#gateway-cloud-service)註冊您的閘道安裝。
+1. 選取 **在這部電腦上註冊新的閘道** ** >  下一步**。 此步驟會向[閘道雲端服務](#gateway-cloud-service)註冊您的閘道安裝。
 
    ![註冊閘道](./media/logic-apps-gateway-install/register-gateway.png)
 
@@ -155,7 +159,7 @@ ms.locfileid: "71309862"
 
 若要避免內部部署資料存取發生單一失敗點，您可以在不同的電腦上安裝多個閘道（僅限標準模式），並將它們設定為叢集或群組。 如此一來，如果主要閘道無法使用，則會將資料要求路由傳送至第二個閘道，依此類推。 因為您只能在一部電腦上安裝一個標準閘道，所以您必須在另一部電腦上安裝叢集中的每個額外閘道。 所有與內部部署資料閘道搭配運作的連接器都支援高可用性。
 
-* 在與主要閘道相同的 Azure 訂用帳戶內，您必須已經有至少一個閘道安裝，以及該安裝的修復金鑰。
+* 您必須至少有一個閘道安裝與主要閘道相同的 Azure 帳戶，以及該安裝的修復金鑰。
 
 * 主要閘道必須執行 2017 年 11 月或更新版本的閘道更新。
 
@@ -175,7 +179,7 @@ ms.locfileid: "71309862"
 
 1. 在安裝程式開啟之後，以用來安裝閘道的相同 Azure 帳戶登入。
 
-1. 選取 [**遷移、還原或接管現有的閘道** >  **]** ，例如：
+1. 選取 [**遷移、還原或接管現有的閘道** > **下一步]** ，例如：
 
    ![選取 [遷移、還原或取代現有閘道]](./media/logic-apps-gateway-install/migrate-recover-take-over-gateway.png)
 
@@ -195,7 +199,7 @@ ms.locfileid: "71309862"
 
 ## <a name="restart-gateway"></a>重新啟動閘道
 
-根據預設，在本機電腦上安裝閘道時，會以名為「內部部署資料閘道服務」的 Windows 服務帳戶的身分執行。 不過，閘道安裝會使用`NT SERVICE\PBIEgwService`其「登入身分」帳號憑證的名稱，並具有「以服務方式登入」許可權。
+根據預設，在本機電腦上安裝閘道時，會以名為「內部部署資料閘道服務」的 Windows 服務帳戶的身分執行。 不過，閘道安裝會針對其「登入身分」帳號憑證使用 `NT SERVICE\PBIEgwService` 名稱，並具有「以服務方式登入」許可權。
 
 > [!NOTE]
 > 您的 Windows 服務帳戶與用來連線到內部部署資料來源的帳戶不同，以及您登入雲端服務時所使用的 Azure 帳戶。
@@ -235,19 +239,19 @@ ms.locfileid: "71309862"
 
 預存認證是用來從閘道連接到內部部署資料來源。 無論使用者為何，閘道都會使用預存認證來連接。 特定服務可能會有驗證例外狀況，例如 Power BI 中 Analysis Services 的 DirectQuery 和 LiveConnect。
 
-### <a name="azure-active-directory"></a>Azure Active Directory
+### <a name="azure-active-directory-azure-ad"></a>Azure Active Directory (Azure AD)
 
-Microsoft 雲端服務會使用[Azure Active Directory （Azure AD）](../active-directory/fundamentals/active-directory-whatis.md)來驗證使用者。 Azure AD 租使用者包含使用者名稱和安全性群組。 一般來說，您用來登入的電子郵件地址與您帳戶的使用者主體名稱（UPN）相同。
+Microsoft 雲端服務會使用[Azure AD](../active-directory/fundamentals/active-directory-whatis.md)來驗證使用者。 Azure AD 租使用者包含使用者名稱和安全性群組。 一般來說，您用來登入的電子郵件地址與您帳戶的使用者主體名稱（UPN）相同。
 
 ### <a name="what-is-my-upn"></a>我的 UPN 是什麼？
 
-如果您不是網域系統管理員，您可能不知道您的 UPN。 若要尋找您帳戶的 UPN，請從`whoami /upn`您的工作站執行命令。 雖然結果看起來像是電子郵件地址，但結果會是您本機網域帳戶的 UPN。
+如果您不是網域系統管理員，您可能不知道您的 UPN。 若要尋找您帳戶的 UPN，請從您的工作站執行 `whoami /upn` 命令。 雖然結果看起來像是電子郵件地址，但結果會是您本機網域帳戶的 UPN。
 
-### <a name="synchronize-an-on-premises-active-directory-with-azure-active-directory"></a>同步處理內部部署 Active Directory 與 Azure Active Directory
+### <a name="synchronize-an-on-premises-active-directory-with-azure-ad"></a>同步處理內部部署 Active Directory 與 Azure AD
 
-內部部署 Active Directory 帳戶和 Azure AD 帳戶的 UPN 必須相同。 因此，請確定每個內部部署 Active Directory 帳戶都符合您的 Azure AD 帳戶。 雲端服務只知道 Azure AD 內的帳戶。 因此，您不需要將帳戶新增至內部部署 Active Directory。 如果 Azure AD 中的帳戶不存在，您就無法使用該帳戶。 
+內部部署 Active Directory 帳戶和 Azure AD 帳戶的 UPN 必須相同。 因此，請確定每個內部部署 Active Directory 帳戶都符合您的 Azure AD 帳戶。 雲端服務只知道 Azure AD 內的帳戶。 因此，您不需要將帳戶新增至內部部署 Active Directory。 如果 Azure AD 中的帳戶不存在，您就無法使用該帳戶。
 
-以下是您可以讓內部部署 Active Directory 帳戶與 Azure AD 相符的方式。 
+以下是您可以讓內部部署 Active Directory 帳戶與 Azure AD 相符的方式。
 
 * 手動將帳戶新增至 Azure AD。
 

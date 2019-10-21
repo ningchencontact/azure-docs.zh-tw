@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/11/2019
 ms.author: juliako
-ms.openlocfilehash: d25596884acdb356779eafa4348240239855ce37
-ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
+ms.openlocfilehash: c402381534087f1e8cdab711bd1b2a34c78417f4
+ms.sourcegitcommit: 9a4296c56beca63430fcc8f92e453b2ab068cc62
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70308455"
+ms.lasthandoff: 10/20/2019
+ms.locfileid: "72675732"
 ---
 # <a name="configure-postman-for-media-services-rest-api-calls"></a>設定 Postman 以進行媒體服務 REST API 呼叫
 
@@ -32,7 +32,7 @@ ms.locfileid: "70308455"
 - 取得所需資訊來[存取 API](access-api-cli-how-to.md)
 - 安裝 [Postman](https://www.getpostman.com/) \(英文\) REST 用戶端，來執行在某些 AMS REST 教學課程中所示範的 REST API。 
 
-    我們使用的是 **Postman**，但任何 REST 工具都適用。 其他替代方式為：搭配 REST 外掛程式的 **Visual Studio Code**，或 **Telerik Fiddler**。 
+    我們使用的是 **Postman**，但任何 REST 工具都適用。 其他替代方案為：搭配 REST 外掛程式的 **Visual Studio Code**，或 **Telerik Fiddler**。 
 
 > [!IMPORTANT]
 > 檢查[命名慣例](media-services-apis-overview.md#naming-conventions)。
@@ -47,11 +47,9 @@ ms.locfileid: "70308455"
 
 ## <a name="configure-postman"></a>設定 Postman
 
-此區段會設定 Postman。
-
 ### <a name="configure-the-environment"></a>建立環境 
 
-1. 開啟 **Postman**。
+1. 開啟**Postman**應用程式。
 2. 選取畫面右側的 [管理環境] 選項。
 
     ![管理 env](./media/develop-with-postman/postman-import-env.png)
@@ -80,7 +78,7 @@ ms.locfileid: "70308455"
 
 在開始操作 AMS v3 資源之前，您需要先取得和設定服務主體驗證的 Azure AD 權杖。
 
-1. 在 Postman 的左側視窗中，選取 [步驟 1:取得 AAD 驗證權杖]。
+1. 在 Postman 應用程式的左側視窗中，選取 [步驟1：取得 AAD 驗證權杖]。
 2. 然後，選取 [取得服務主體驗證的 Azure AD 權杖]。
 3. 按 [傳送]。
 
@@ -94,7 +92,7 @@ ms.locfileid: "70308455"
 
     ![取得 AAD 權杖](./media/develop-with-postman/postman-get-aad-auth-token.png)
 
-## <a name="see-also"></a>另請參閱
+## <a name="see-also"></a>請參閱
 
 - [將檔案上傳至媒體服務帳戶 - REST](upload-files-rest-how-to.md)
 - [使用媒體服務建立篩選 - REST](filters-dynamic-manifest-rest-howto.md)
@@ -103,4 +101,4 @@ ms.locfileid: "70308455"
 ## <a name="next-steps"></a>後續步驟
 
 - [使用 REST 串流檔案](stream-files-tutorial-with-rest.md)。  
-- [教學課程：編碼以 URL 為基礎的遠端檔案及串流處理影片 - REST](stream-files-tutorial-with-rest.md)
+- [教學課程：根據 URL 編碼遠端檔案和串流影片-REST](stream-files-tutorial-with-rest.md)

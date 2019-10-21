@@ -9,14 +9,14 @@ manager: cshankar
 ms.reviewer: v-mamcge, jasonh, kfile
 ms.topic: conceptual
 ms.workload: big-data
-ms.date: 10/03/2019
+ms.date: 10/18/2019
 ms.custom: seodec18
-ms.openlocfilehash: cad57e3e7e52ec291819110bab9d8d79f51e5a2f
-ms.sourcegitcommit: 7868d1c40f6feb1abcafbffcddca952438a3472d
+ms.openlocfilehash: e862cd604263c5125259344baf2e990ad56a3291
+ms.sourcegitcommit: 9a4296c56beca63430fcc8f92e453b2ab068cc62
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71958164"
+ms.lasthandoff: 10/20/2019
+ms.locfileid: "72675842"
 ---
 # <a name="share-a-custom-view-using-a-parameterized-url"></a>使用參數化 URL 共用自訂檢視
 
@@ -34,7 +34,7 @@ ms.locfileid: "71958164"
 
 範例環境識別碼參數為 `?environmentId=10000000-0000-0000-0000-100000000108`。
 
-## <a name="time"></a>Time
+## <a name="time"></a>時間
 
 您可以使用參數化 URL 來指定絕對或相對時間值。
 
@@ -66,25 +66,25 @@ ms.locfileid: "71958164"
 
 ### <a name="optional-parameters"></a>選擇性參數
 
-@No__t-0 參數指定時間序列深入解析視圖的詞彙：
+@No__t_0 參數指定時間序列深入解析視圖的詞彙：
 
 | 參數 | URL 專案 | 描述 |
 | --- | --- | --- |
 | **name** | `\<string>` | term 的名稱。 |
 | **splitBy** | `\<string>` | split by 的資料行名稱。 |
 | **measureName** | `\<string>` | measure 的資料行名稱。 |
-| **predicate** | `\<string>` | 用於伺服器端篩選的 where 子句。 |
-| **useSum** | `true` | 選擇性參數，指定針對量值使用 sum。 </br>  請注意，如果 `Events` 是選取的量值，則預設會選取 [計數]。  </br>  如果未選取 [`Events`]，預設會選取 [平均]。 |
+| **推斷** | `\<string>` | 用於伺服器端篩選的 where 子句。 |
+| **useSum** | `true` | 選擇性參數，指定針對量值使用 sum。 </br>  請注意，如果 `Events` 是選取的量值，則預設會選取 [計數]。  </br>  如果未選取 `Events`，預設會選取 平均。 |
 
-* @No__t 0 的索引鍵/值組會啟用圖表中的堆疊。
-* @No__t 0 的索引鍵/值組可讓您在選擇性參數內的不同詞彙之間進行相同的 Y 軸縮放比例。  
-* [@No__t-0] 可讓您調整間隔滑杆，以提供更精細或更平滑的圖表匯總視圖。  
-* @No__t-0 參數可讓您設定圖表的時區，以作為 UTC 的位移。
+* @No__t_0 的索引鍵/值組會啟用圖表中的堆疊。
+* @No__t_0 的索引鍵/值組會在選擇性參數內的詞彙之間啟用相同的 Y 軸縮放比例。  
+* 此 `timeBucketUnit=<Unit>&timeBucketSize=<integer>` 可讓您調整間隔滑杆，以提供更精細或更平滑的圖表匯總視圖。  
+* @No__t_0 參數可讓您設定圖表的時區，以作為 UTC 的位移。
 
 | 配對（s） | 描述 |
 | --- | --- |
-| `multiChartStack=false` | `true` 預設為啟用，因此傳遞 `false` 至堆疊。 |
-| `multiChartStack=false&multiChartSameScale=true` | 必須啟用堆疊，才能在不同時段使用相同的 Y 軸刻度。  根據預設，它 @no__t 為0，因此傳遞 ' true ' 會啟用這項功能。 |
+| `multiChartStack=false` | `true` 預設為啟用，因此請將 `false` 傳遞至堆疊。 |
+| `multiChartStack=false&multiChartSameScale=true` | 必須啟用堆疊，才能在不同時段使用相同的 Y 軸刻度。  預設為 `false`，因此傳遞「true」可啟用這項功能。 |
 | `timeBucketUnit=<Unit>&timeBucketSize=<integer>` | 單位 = 天、小時、分鐘、秒、毫秒。  單位一律大寫。 </br> 對 timeBucketSize 傳遞所需的整數，以定義單位數。  請注意，您最多可以平滑處理 7 天。  |
 | `timezoneOffset=-<integer>` | 整數一律以毫秒為單位。 </br> 請注意，這項功能與我們在 [時間序列深入解析 explorer] 中啟用的方式稍有不同，我們可以在這裡選擇 [本機（瀏覽器時間）] 或 [UTC]。 |
 
@@ -114,11 +114,11 @@ https://insights.timeseries.azure.com/samples?environmentId=10000000-0000-0000-0
 
 上述 URL 描述並建立時間序列深入解析總管 view：
 
-[@no__t 1Time Series Insights explorer 詞彙](media/parameterized-url/url1.png)](media/parameterized-url/url1.png#lightbox)
+[![Time Series Insights explorer 詞彙](media/parameterized-url/url1.png)](media/parameterized-url/url1.png#lightbox)
 
 完整視圖（包括圖表）：
 
-[@no__t 1Chart 視圖](media/parameterized-url/url2.png)](media/parameterized-url/url2.png#lightbox)
+[![Chart 視圖](media/parameterized-url/url2.png)](media/parameterized-url/url2.png#lightbox)
 
 ## <a name="next-steps"></a>後續步驟
 

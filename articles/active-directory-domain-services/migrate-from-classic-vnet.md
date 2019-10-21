@@ -9,12 +9,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 10/15/2019
 ms.author: iainfou
-ms.openlocfilehash: c0744335dd13a0e8c35826c9b7da6fa71094e01e
-ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
+ms.openlocfilehash: 8cba2cbf8fcbad1acae8c36892308c3249fc4181
+ms.sourcegitcommit: 9a4296c56beca63430fcc8f92e453b2ab068cc62
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72600029"
+ms.lasthandoff: 10/20/2019
+ms.locfileid: "72674908"
 ---
 # <a name="preview---migrate-azure-ad-domain-services-from-the-classic-virtual-network-model-to-resource-manager"></a>預覽-將 Azure AD Domain Services 從傳統虛擬網路模型遷移至 Resource Manager
 
@@ -40,7 +40,7 @@ Azure Active Directory Domain Services （AD DS）針對目前使用傳統虛擬
 
 當您使用此遷移程式移動 Azure AD DS 受控網域時，您不需要將機器重新加入受控網域，或刪除 Azure AD DS 實例並從頭開始建立一個。 在遷移程式結束時，Vm 會繼續加入 Azure AD DS 受控網域。
 
-在遷移之後，Azure AD DS 提供了許多功能，僅適用于在 Resource Manager 虛擬網路中使用的網域，例如：
+在遷移之後，Azure AD DS 提供了許多功能，僅適用于使用 Resource Manager 虛擬網路的網域，例如：
 
 * 更細緻的密碼原則支援。
 * AD 帳戶鎖定保護。
@@ -55,7 +55,8 @@ Azure AD 使用 Resource Manager 虛擬網路的 DS 受控網域，可協助您�
 
 遷移 Azure AD DS 受控網域的一些常見案例包括下列範例。
 
-[!NOTE] 請不要轉換傳統虛擬網路，直到您確認已成功遷移為止。 轉換虛擬網路後，如果在遷移和驗證階段發生任何問題，就會移除復原或還原 Azure AD DS 受控網域的選項。
+> [!NOTE]
+> 請不要轉換傳統虛擬網路，直到您確認已成功遷移為止。 轉換虛擬網路後，如果在遷移和驗證階段發生任何問題，就會移除復原或還原 Azure AD DS 受控網域的選項。
 
 ### <a name="migrate-azure-ad-ds-to-an-existing-resource-manager-virtual-network-recommended"></a>將 Azure AD DS 遷移至現有的 Resource Manager 虛擬網路（建議）
 
@@ -133,7 +134,7 @@ Azure AD DS 通常會使用位址範圍中前兩個可用的 IP 位址，但這�
 
 ### <a name="roll-back-and-restore"></a>復原和還原
 
-如果遷移不成功，則會有復原或還原 Azure AD DS 受控網域的程式。 Rollback 是一個自助式選項，可在嘗試遷移之前立即將受控網域的狀態傳回給。 Azure 支援工程師也可以將受控網域從備份還原為最後手段。 如需詳細資訊，請參閱[如何從失敗的遷移復原或還原](#roll-back-and-restore)。
+如果遷移不成功，則會有復原或還原 Azure AD DS 受控網域的程式。 Rollback 是一個自助式選項，可在嘗試遷移之前立即將受控網域的狀態傳回給。 Azure 支援工程師也可以將受控網域從備份還原為最後手段。 如需詳細資訊，請參閱[如何從失敗的遷移復原或還原](#roll-back-and-restore-from-migration)。
 
 ### <a name="restrictions-on-available-virtual-networks"></a>可用虛擬網路的限制
 
@@ -153,9 +154,9 @@ Azure AD DS 通常會使用位址範圍中前兩個可用的 IP 位址，但這�
 | 步驟    | 執行  | 預估時間  | 停機  | 要復原/還原嗎？ |
 |---------|--------------------|-----------------|-----------|-------------------|
 | [步驟 1-更新並尋找新的虛擬網路](#update-and-verify-virtual-network-settings) | Azure Portal | 15 分鐘 | 不需要停機 | N/A |
-| [步驟 2-準備要進行 Azure AD DS 受控網域以進行遷移](#prepare-the-managed-domain-for-migration) | PowerShell | 平均 15-30 分鐘 | 完成此命令之後，Azure AD DS 的停機時間就會啟動。 | 復原和還原可用 |
-| [步驟 3-將 Azure AD DS 受控網域移至現有的虛擬網路](#migrate-the-managed-domain) | PowerShell | 平均 1-3 小時 | 當此命令完成後，就會有一個網域控制站可供使用，停機時間結束。 | 僅還原 |
-| [步驟 4-測試並等候複本網域控制站](#test-and-verify-connectivity-after-the-migration)| PowerShell 和 Azure 入口網站 | 1小時以上，視測試數目而定 | 這兩個網域控制站都可以使用，而且應該正常運作。 | 僅還原 |
+| [步驟 2-準備要進行 Azure AD DS 受控網域以進行遷移](#prepare-the-managed-domain-for-migration) | PowerShell | 平均 15-30 分鐘 | 完成此命令之後，Azure AD DS 的停機時間就會啟動。 | 復原和還原可用。 |
+| [步驟 3-將 Azure AD DS 受控網域移至現有的虛擬網路](#migrate-the-managed-domain) | PowerShell | 平均 1-3 小時 | 當此命令完成後，就會有一個網域控制站可供使用，停機時間結束。 | 失敗時，可以使用復原（自助式）和還原。 |
+| [步驟 4-測試並等候複本網域控制站](#test-and-verify-connectivity-after-the-migration)| PowerShell 和 Azure 入口網站 | 1小時以上，視測試數目而定 | 這兩個網域控制站都可以使用，而且應該正常運作。 | N/A。 成功遷移第一個 VM 之後，就不會有復原或還原的選項。 |
 | [步驟 5-選擇性設定步驟](#optional-post-migration-configuration-steps) | Azure 入口網站和 Vm | N/A | 不需要停機 | N/A |
 
 > [!IMPORTANT]
@@ -171,7 +172,7 @@ Azure AD DS 通常會使用位址範圍中前兩個可用的 IP 位址，但這�
 
 1. 建立或選擇現有的 Resource Manager 虛擬網路。
 
-    請確定網路設定不會封鎖 Azure AD DS 所需的必要端口。 傳統虛擬網路和 Resource Manager 虛擬網路都必須開啟埠。 這些設定包括路由表和網路安全性群組。
+    請確定網路設定不會封鎖 Azure AD DS 所需的必要端口。 傳統虛擬網路和 Resource Manager 虛擬網路都必須開啟埠。 這些設定包括路由表（但不建議使用路由表）和網路安全性群組。
 
     若要查看所需的埠，請參閱[網路安全性群組和所需的埠][network-ports]。 若要將網路通訊問題降至最低，建議您在成功完成遷移之後，等候並將網路安全性群組或路由表套用至 Resource Manager 的虛擬網路。
 
@@ -181,7 +182,7 @@ Azure AD DS 通常會使用位址範圍中前兩個可用的 IP 位址，但這�
 1. 或者，如果您打算將其他資源移到 Resource Manager 部署模型和虛擬網路，請確認可以遷移這些資源。 如需詳細資訊，請參閱[平臺支援將 IaaS 資源從傳統遷移至 Resource Manager][migrate-iaas]。
 
     > [!NOTE]
-    > 請勿將傳統虛擬網路轉換為 Resource Manager 虛擬網路。 如果您這樣做，則沒有復原或還原 Azure AD DS 受控網域的選項。
+    > 請勿將傳統虛擬網路轉換為 Resource Manager 虛擬網路。 如果您這樣做，就沒有復原或還原 Azure AD DS 受控網域的選項。
 
 ## <a name="prepare-the-managed-domain-for-migration"></a>準備受控網域以進行遷移
 
@@ -189,7 +190,7 @@ Azure PowerShell 可用來準備 Azure AD DS 受控網域以進行遷移。 這�
 
 若要準備要進行 Azure AD DS 受控網域以進行遷移，請完成下列步驟：
 
-1. 從[PowerShell 資源庫][powershell-script]安裝 `Migrate-Aaads` 模組。 此 PowerShell 遷移腳本是由 Azure AD 工程小組以數位方式簽署。
+1. 從[PowerShell 資源庫][powershell-script]安裝 `Migrate-Aaads` 腳本。 此 PowerShell 遷移腳本是由 Azure AD 工程小組以數位方式簽署。
 
     ```powershell
     Install-Script -Name Migrate-Aadds
@@ -246,7 +247,7 @@ Migrate-Aadds `
 
 當遷移成功完成時，您可以在 Azure 入口網站中或透過 Azure PowerShell，來查看第一個網域控制站的 IP 位址。 此外，也會顯示第二個可用網域控制站上的預估時間。
 
-在此階段中，您可以選擇性地從傳統部署模型和虛擬網路中移動其他現有資源。 或者，您可以在 Azure AD DS 遷移完成之後，將資源保留在傳統部署模型上，並將虛擬網路對等互連。
+在這個階段，您可以選擇性地從傳統部署模型和虛擬網路中移動其他現有的資源。 或者，您可以在 Azure AD DS 遷移完成之後，將資源保留在傳統部署模型上，並將虛擬網路對等互連。
 
 ## <a name="test-and-verify-connectivity-after-the-migration"></a>在遷移後測試並驗證連線能力
 
@@ -266,7 +267,7 @@ Migrate-Aadds `
 1. 確認受控網域的名稱解析，例如 `nslookup contoso.com`
     * 指定您自己的 Azure AD DS 受控網域的 DNS 名稱，以確認 DNS 設定是否正確並加以解析。
 
-在遷移 Cmdlet 完成後，第二個網域控制站應可供使用1-2 小時。 若要檢查第二個網域控制站是否可用，請查看 Azure 入口網站中 Azure AD DS 受控**網域的 [內容] 頁面。** 如果顯示兩個 IP 位址，則第二個網域控制站已就緒。
+第二個網域控制站在遷移 Cmdlet 完成後應可供使用1-2 小時。 若要檢查第二個網域控制站是否可用，請查看 Azure 入口網站中 Azure AD DS 受控**網域的 [內容] 頁面。** 如果顯示兩個 IP 位址，則第二個網域控制站已就緒。
 
 ## <a name="optional-post-migration-configuration-steps"></a>選擇性的遷移後設定步驟
 
@@ -294,16 +295,16 @@ Azure AD DS 會公開 audit 記錄檔，以協助疑難排解及查看網域控�
 
 #### <a name="creating-a-network-security-group"></a>建立網路安全性群組
 
-Azure AD DS 會建立一個網路安全性群組，此群組會開啟受控網域所需的埠，並封鎖所有其他連入流量。 此網路安全性群組可作為額外的保護層，以鎖定受控網域的存取權。 應自動建立此網路安全性群組。 如果沒有，或您需要開啟其他埠，請參閱下列步驟：
+Azure AD DS 需要一個網路安全性群組來保護受控網域所需的埠，並封鎖所有其他的連入流量。 此網路安全性群組可作為額外的保護層，以鎖定受控網域的存取權，且不會自動建立。 若要建立網路安全性群組並開啟所需的埠，請參閱下列步驟：
 
-1. 在 Azure 入口網站中，選取您的 Azure AD DS 資源。 在 [總覽] 頁面上，如果沒有與 Azure AD Domain Services 相關聯的 [網路安全性群組]，就會顯示一個按鈕來建立
+1. 在 Azure 入口網站中，選取您的 Azure AD DS 資源。 在 [總覽] 頁面上，如果沒有與 Azure AD Domain Services 相關聯的 [網路安全性群組]，則會顯示按鈕來建立。
 1. 如果您使用安全 LDAP，請將規則新增至網路安全性群組，以允許*TCP*埠*636*的連入流量。 如需詳細資訊，請參閱[設定安全 LDAP][secure-ldap]。
 
-## <a name="roll-back-and-restore"></a>復原和還原
+## <a name="roll-back-and-restore-from-migration"></a>復原並從遷移還原
 
 ### <a name="roll-back"></a>復原
 
-如果在步驟2中準備進行遷移的 PowerShell Cmdlet 失敗，Azure AD DS 受控網域可以回復為原始設定。 此復原需要原始的傳統虛擬網路。 請注意，回復之後，IP 位址可能仍會變更。
+當您執行 PowerShell Cmdlet 以準備在步驟2中進行遷移或在步驟3中自行遷移時，如果發生錯誤，Azure AD DS 受控網域可以回復為原始設定。 此復原需要原始的傳統虛擬網路。 請注意，回復之後，IP 位址可能仍會變更。
 
 使用 *-Abort*參數執行 `Migrate-Aadds` Cmdlet。 針對您自己在上一節中準備的 Azure AD DS 受控網域提供 *-ManagedDomainFqdn* ，例如*contoso.com*：
 

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/18/2019
 ms.author: b-juche
-ms.openlocfilehash: d73ac199df03f4d789db0634be1e926afc77e623
-ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
+ms.openlocfilehash: d323bd0b9684cfe4930d8c779a6728fcfd3836fb
+ms.sourcegitcommit: 9a4296c56beca63430fcc8f92e453b2ab068cc62
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72597570"
+ms.lasthandoff: 10/20/2019
+ms.locfileid: "72674918"
 ---
 # <a name="configure-export-policy-for-an-nfs-volume"></a>設定 NFS 磁碟區的匯出原則
 
@@ -27,7 +27,7 @@ ms.locfileid: "72597570"
 
 ## <a name="steps"></a>步驟 
 
-1.  從 [管理磁碟區] 刀鋒視窗按一下 [建立匯出原則] 刀鋒視窗。 
+1.  按一下 [Azure NetApp Files] 流覽窗格中的 [**匯出原則**]。 
 
 2.  指定下列欄位的資訊以建立匯出原則規則：   
     *  **索引**   
