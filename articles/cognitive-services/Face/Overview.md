@@ -69,7 +69,7 @@ Azure 認知服務的臉部 API 提供相關的演算法，用來偵測、辨識
 
 ## <a name="use-containers"></a>使用容器
 
-[使用臉部容器](face-how-to-install-containers.md)，藉由在更接近資料的位置安裝標準化的 Docker 容器，來偵測、辨識和識別臉部。
+藉由在更接近資料的位置安裝標準化的 Docker 容器，從而[使用臉部容器](face-how-to-install-containers.md)來偵測、辨識和識別臉部。
 
 ## <a name="sample-apps"></a>範例應用程式
 
