@@ -1,17 +1,17 @@
 ---
-title: 範例 - ISO 27001 共用服務藍圖 - 控制項對應
-description: ISO 27001 共用服務藍圖範例對於 Azure 原則和 RBAC 的控制項對應。
+title: ISO 27001 共用服務藍圖範例 - 控制項對應
+description: ISO 27001 共用服務藍圖範例的控制項對應。 每個控制項都會對應至一或多個可協助評量的 Azure 原則。
 author: DCtheGeek
 ms.author: dacoulte
 ms.date: 03/14/2019
 ms.topic: sample
 ms.service: blueprints
-ms.openlocfilehash: 9ec44b4207cb3489205a646429f7fdd5ff2f3f90
-ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
+ms.openlocfilehash: 39dc91fc521698edc725c43818ac361b969aee9a
+ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/06/2019
-ms.locfileid: "71981580"
+ms.lasthandoff: 10/13/2019
+ms.locfileid: "72297591"
 ---
 # <a name="control-mapping-of-the-iso-27001-shared-services-blueprint-sample"></a>ISO 27001 共用服務藍圖範例的控制項對應
 

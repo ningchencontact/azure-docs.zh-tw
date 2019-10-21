@@ -8,12 +8,12 @@ manager: jeconnoc
 ms.topic: tutorial
 ms.service: container-service
 ms.date: 05/14/2019
-ms.openlocfilehash: 4c186787af08a565dc100dfbd79d166688d89d8f
-ms.sourcegitcommit: fe50db9c686d14eec75819f52a8e8d30d8ea725b
+ms.openlocfilehash: 01319de8fd72875ca35bb7a869a6eaedee62f2a7
+ms.sourcegitcommit: e0a1a9e4a5c92d57deb168580e8aa1306bd94723
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/14/2019
-ms.locfileid: "69013444"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72285528"
 ---
 # <a name="tutorial-create-an-azure-red-hat-openshift-cluster"></a>教學課程：建立 Azure Red Hat OpenShift 叢集
 
@@ -67,7 +67,7 @@ az login
 CLUSTER_NAME=<cluster name in lowercase>
 ```
 
-選擇要建立叢集的位置。 如需在 Azure 上支援 OpenShift 的 Azure 區域清單，請參閱[支援的區域](supported-resources.md#azure-regions)。 例如：`LOCATION=eastus`。
+選擇要建立叢集的位置。 如需在 Azure 上支援 OpenShift 的 Azure 區域清單，請參閱[支援的區域](supported-resources.md#azure-regions)。 例如： `LOCATION=eastus` 。
 
 ```bash
 LOCATION=<location>
@@ -127,6 +127,9 @@ VNET_ID=$(az network vnet show -n {VNET name} -g {VNET resource group} --query i
 
 您現在可以開始建立叢集。 下列命令會在指定的 Azure AD 租用戶中建立叢集，並指定要作為安全性主體的 Azure AD 應用程式物件和密碼，以及對叢集具有管理員存取權的成員所屬的安全性群組。
 
+> [!IMPORTANT]
+> 在建立叢集之前，請確定您已正確地為 Azure AD 應用程式新增適當的權限，如同[此處所述](howto-aad-app-configuration.md#add-api-permissions)
+
 如果您的叢集**未**與虛擬網路對等互連，請使用下列命令：
 
 ```bash
@@ -154,7 +157,7 @@ az openshift show -n $CLUSTER_NAME -g $CLUSTER_NAME
 
 在輸出中尋找 `publicHostName`，例如：`"publicHostname": "openshift.xxxxxxxxxxxxxxxxxxxx.eastus.azmosa.io"`
 
-叢集的登入 URL 將是 `https://` 加上尾隨的 `publicHostName` 值。  例如：`https://openshift.xxxxxxxxxxxxxxxxxxxx.eastus.azmosa.io`。  您將在下一個步驟中以此 URI 作為應用程式註冊重新導向 URI 的一部分。
+叢集的登入 URL 將是 `https://` 加上尾隨的 `publicHostName` 值。  例如： `https://openshift.xxxxxxxxxxxxxxxxxxxx.eastus.azmosa.io` 。  您將在下一個步驟中以此 URI 作為應用程式註冊重新導向 URI 的一部分。
 
 ## <a name="step-3-update-your-app-registration-redirect-uri"></a>步驟 3：更新您的應用程式註冊重新導向 URI
 

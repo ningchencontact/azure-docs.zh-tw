@@ -1,6 +1,6 @@
 ---
 title: Azure CLI 指令碼範例 - 部署受控應用程式 | Microsoft Docs
-description: Azure CLI 指令碼範例 - 部署受控應用程式定義
+description: 提供 Azure CLI 指令碼範例，以將 Azure 受控應用程式定義部署至訂用帳戶。
 services: managed-applications
 documentationcenter: na
 author: tfitzmac
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/25/2017
 ms.author: tomfitz
-ms.openlocfilehash: f09d9dcb60370c2cc51f5652def92e5ad9c9b512
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 18dbd46df3e5e1f7dc0368b2c007e0c15d76decc
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61226356"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72330166"
 ---
 # <a name="deploy-a-managed-application-for-service-catalog-with-azure-cli"></a>使用 Azure CLI 為服務類別目錄部署受控應用程式
 

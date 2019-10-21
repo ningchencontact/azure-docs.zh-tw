@@ -1,5 +1,5 @@
 ---
-title: 使用 Jenkins 和藍/綠部署模式來部署至 Azure Kubernetes Service (AKS)
+title: 使用 Jenkins 和藍/綠部署模式來部署至 Azure Kubernetes Service
 description: 了解如何使用 Jenkins 和藍/綠部署模式來部署至 Azure Kubernetes Service (AKS)。
 ms.service: jenkins
 keywords: jenkins, azure, devops, kubernetes, k8s, aks, 藍/綠部署, 持續傳遞, cd
@@ -7,13 +7,13 @@ author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
-ms.date: 10/11/2018
-ms.openlocfilehash: 93f2ac284931ba664e0965e537e515c824e6f7a6
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.date: 10/09/2019
+ms.openlocfilehash: de9088333f69a22246fe5873d6e09ddb7ba3044a
+ms.sourcegitcommit: 961468fa0cfe650dc1bec87e032e648486f67651
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58092288"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72249400"
 ---
 # <a name="deploy-to-azure-kubernetes-service-aks-by-using-jenkins-and-the-bluegreen-deployment-pattern"></a>使用 Jenkins 和藍/綠部署模式來部署至 Azure Kubernetes Service (AKS)
 
@@ -45,7 +45,7 @@ Azure Kubernetes Service (AKS) 可管理裝載 Kubernetes 的環境，以便快�
 
     ![Microsoft GitHub 存放庫上範例應用程式的螢幕擷取畫面](./media/jenkins-aks-blue-green-deployment/github-sample-msft.png)
 
-1. 若要建立此存放庫的分支，請選取頁面右上角的 [派生]，並遵循指示來將存放庫派生至您的 GitHub 帳戶中。
+1. 若要建立此存放庫的分支，請選取頁面右上角的 [派生]  ，並遵循指示來將存放庫派生至您的 GitHub 帳戶中。
 
     ![可分支處理的 GitHub 選項螢幕擷取畫面](./media/jenkins-aks-blue-green-deployment/github-sample-msft-fork.png)
 
@@ -53,11 +53,11 @@ Azure Kubernetes Service (AKS) 可管理裝載 Kubernetes 的環境，以便快�
 
     ![GitHub 帳戶名稱和附註的螢幕擷取畫面](./media/jenkins-aks-blue-green-deployment/github-sample-msft-forked.png)
 
-1. 選取 [複製或下載] 。
+1. 選取 [複製或下載]  。
 
     ![可複製或下載存放庫的 GitHub 選項螢幕擷取畫面](./media/jenkins-aks-blue-green-deployment/github-sample-clone.png)
 
-1. 在 [使用 HTTPS 複製] 視窗中，選取**複製**圖示。
+1. 在 [使用 HTTPS 複製]  視窗中，選取**複製**圖示。
 
     ![可將複製 URL 複製到剪貼簿的 GitHub 選項螢幕擷取畫面](./media/jenkins-aks-blue-green-deployment/github-sample-copy.png)
 
@@ -147,7 +147,7 @@ Azure Kubernetes Service (AKS) 可管理裝載 Kubernetes 的環境，以便快�
     kubectl apply -f  test-endpoint-green.yml
     ```
 
-1. 更新公用和測試端點的 DNS 名稱。 當您建立 Kubernetes 叢集時，您也會建立[額外的資源群組](https://github.com/Azure/AKS/issues/3)，其命名模式為 **MC_&lt;your-resource-group-name>_&lt;your-kubernetes-cluster-name>_&lt;your-location>**。
+1. 更新公用和測試端點的 DNS 名稱。 當您建立 Kubernetes 叢集時，您也會建立[額外的資源群組](https://github.com/Azure/AKS/issues/3)，其命名模式為 **MC_&lt;your-resource-group-name> _&lt;your-kubernetes-cluster-name>_ &lt;your-location>** 。
 
     找出資源群組中的公用 IP。
 
@@ -215,14 +215,14 @@ Azure Kubernetes Service (AKS) 可管理裝載 Kubernetes 的環境，以便快�
    
 1. 在 Jenkins 儀表板中執行下列步驟，即可在 Jenkins 中安裝外掛程式：
 
-    1. 選取 [管理 Jenkins] > [管理外掛程式] > [可用項目]。
+    1. 選取 [管理 Jenkins] > [管理外掛程式] > [可用項目]  。
     1. 搜尋和安裝 Azure Container Service 外掛程式。
 
 1. 新增認證以在 Azure 中管理資源。 如果您還沒有此外掛程式，請安裝 **Azure 認證**外掛程式。
 
 1. 將您的 Azure 服務主體認證新增為 **Microsoft Azure 服務主體**類型。
 
-1. 新增您的 Azure Docker Registry 使用者名稱和密碼 (已在「建立 Container Registry 的執行個體」一節中取得) 作為 [使用者名稱與密碼] 類型。
+1. 新增您的 Azure Docker Registry 使用者名稱和密碼 (已在「建立 Container Registry 的執行個體」一節中取得) 作為 [使用者名稱與密碼]  類型。
 
 ## <a name="edit-the-jenkinsfile"></a>編輯 Jenkinsfile
 
@@ -251,7 +251,7 @@ Azure Kubernetes Service (AKS) 可管理裝載 Kubernetes 的環境，以便快�
 ## <a name="create-the-job"></a>建立工作
 1. 在**管線**類型中新增作業。
 
-1. 選取 [管線] > [定義] > [來自 SCM 的管線指令碼]。
+1. 選取 [管線]   > [定義]   > [來自 SCM 的管線指令碼]  。
 
 1. 輸入您的 &lt;your-forked-repo> 作為 SCM 存放庫 URL。
 

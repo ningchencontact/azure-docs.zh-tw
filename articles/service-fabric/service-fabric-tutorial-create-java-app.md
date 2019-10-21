@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 09/01/2018
 ms.author: suhuruli
 ms.custom: mvc, seo-java-july2019, seo-java-august2019, seo-java-september2019
-ms.openlocfilehash: b3210b97fe6fb0cd16499d5c33538c8e2babe612
-ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
+ms.openlocfilehash: 5e9b94f0c67b4b4630d554f4dde22502c90e777c
+ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71173719"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72376362"
 ---
 # <a name="tutorial-create-an-application-with-a-java-api-front-end-service-and-a-stateful-back-end-service-on-azure-service-fabric"></a>教學課程：在 Azure Service Fabric 上使用 Java API 前端服務和具狀態後端服務建立應用程式
 
@@ -228,7 +228,7 @@ protected List<ServiceInstanceListener> createServiceInstanceListeners() {
 
 ### <a name="add-the-httpcommunicationlistenerjava-file"></a>新增 HTTPCommunicationListener.java 檔案
 
-HTTP 通訊接聽程式可作為控制器，以設定 HTTP 伺服器及公開用來定義投票動作的 API。 以滑鼠右鍵按一下 VotingWeb/src/statelessservice  資料夾中的 [statelessservice]  套件，然後選取 [新增****檔案]  。  將檔案命名為 HttpCommunicationListener.java  ，然後選取 [完成]  。
+HTTP 通訊接聽程式可作為控制器，以設定 HTTP 伺服器及公開用來定義投票動作的 API。 以滑鼠右鍵按一下 VotingWeb/src/statelessservice  資料夾中的 [statelessservice]  套件，然後選取 [新增]   > [檔案]  。  將檔案命名為 HttpCommunicationListener.java  ，然後選取 [完成]  。
 
 將檔案內容取代為下列項目，然後儲存變更。  稍後，在「更新 HttpCommunicationListener.java 檔案」中，這個檔案會經過修改，以從後端服務轉譯、讀取和寫入投票資料。  現在，接聽程式只會傳回 Voting 應用程式的靜態 HTML。
 

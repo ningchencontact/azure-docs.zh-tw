@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: tutorial
 ms.date: 06/04/2019
 ms.author: helohr
-ms.openlocfilehash: f07403d8d0b2c6d0dd7a6b851a87b47b0c32501a
-ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
+ms.openlocfilehash: 175c5173091bee85a5c9fc4a50e9df5d3f73da13
+ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/30/2019
-ms.locfileid: "71679495"
+ms.lasthandoff: 10/13/2019
+ms.locfileid: "72300910"
 ---
 # <a name="tutorial-deploy-a-management-tool"></a>教學課程：部署管理工具
 
@@ -26,6 +26,12 @@ ms.locfileid: "71679495"
 因為應用程式需要獲得同意才能與 Windows 虛擬桌面互動，此工具不支援企業對企業 (B2B) 案例。 每個 Azure Active Directory (AAD) 租用戶的訂閱帳戶都需要它自己的獨立管理工具部署。
 
 這個管理工具很簡單。 Microsoft 將提供重要安全性與品質更新。 [原始程式碼位於 GitHub](https://github.com/Azure/RDS-Templates/tree/master/wvd-templates/wvd-management-ux/deploy)\(英文\)。 我們鼓勵客戶與合作夥伴根據其業務需求來自訂此工具。
+
+下列瀏覽器皆與管理工具相容：
+- Google Chrome 68 或更高版本
+- Microsoft Edge 40.15063 或更高版本
+- Mozilla Firefox 52.0 或更高版本
+- Safari 10 或更高版本 (僅限 macOS)
 
 ## <a name="what-you-need-to-run-the-azure-resource-manager-template"></a>執行 Azure Resource Manager 範本需要什麼
 

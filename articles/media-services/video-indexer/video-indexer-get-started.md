@@ -8,14 +8,14 @@ manager: femila
 ms.service: media-services
 ms.subservice: video-indexer
 ms.topic: tutorial
-ms.date: 05/15/2019
+ms.date: 10/10/2019
 ms.author: juliako
-ms.openlocfilehash: fca8dc31a0f909a1602819a2830d9bebbbda0c88
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 9d89247740852b7bfc185fbcf864947efe30ef0f
+ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65799324"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72372338"
 ---
 # <a name="quickstart-how-to-sign-up-and-upload-your-first-video"></a>快速入門：如何註冊及上傳您的第一支影片
 
@@ -29,8 +29,11 @@ ms.locfileid: "65799324"
 
 ## <a name="upload-a-video-using-the-video-indexer-website"></a>使用 Video Indexer 網站上傳影片
 
+> [!NOTE]
+> 影片名稱不得超過 80 個字元。
+
 1. 登入 [Video Indexer](https://www.videoindexer.ai/) 網站。
-2. 若要上傳影片，請按 [上傳] 按鈕或連結。
+2. 若要上傳影片，請按 [上傳]  按鈕或連結。
 
     ![上傳](./media/video-indexer-get-started/video-indexer-upload.png)
 

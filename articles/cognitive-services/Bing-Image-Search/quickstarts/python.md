@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 08/26/2019
 ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: 9f43b056275ba83630e711ff1a512cb73e84216a
-ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
+ms.openlocfilehash: 8dc7bc36b3d4b172521b0fbbf9aa09cf4d1a9b29
+ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/26/2019
-ms.locfileid: "70034631"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72390127"
 ---
 # <a name="quickstart-search-for-images-using-the-bing-image-search-rest-api-and-python"></a>快速入門：使用 Bing 影像搜尋 REST API 和 Python 來搜尋影像
 
@@ -67,12 +67,13 @@ ms.locfileid: "70034631"
     params  = {"q": search_term, "license": "public", "imageType": "photo"}
     ```
 
-2. 使用 `requests` 程式庫呼叫 Bing 影像搜尋 API。 將您的標頭和參數新增至要求，並傳回 JSON 物件形式的回應。 
+2. 使用 `requests` 程式庫呼叫 Bing 影像搜尋 API。 將您的標頭和參數新增至要求，並傳回 JSON 物件形式的回應。 從回應的 `thumbnailUrl` 欄位取得數個縮圖影像的 URL。
 
     ```python
     response = requests.get(search_url, headers=headers, params=params)
     response.raise_for_status()
     search_results = response.json()
+    thumbnail_urls = [img["thumbnailUrl"] for img in search_results["value"][:16]]
     ```
 
 ## <a name="view-the-response"></a>檢視回應
@@ -80,6 +81,8 @@ ms.locfileid: "70034631"
 1. 使用 matplotlib 程式庫建立包含四個資料行和四個資料列的新圖表。 
 
 2. 逐一查看該圖表的資料列和資料行，並使用 PIL 程式庫的 `Image.open()` 方法將影像縮圖新增至每個空間。 
+
+3. 使用 `plt.show()` 繪製圖表並顯示影像。
 
     ```python
     f, axes = plt.subplots(4, 4)
@@ -90,9 +93,9 @@ ms.locfileid: "70034631"
             image = Image.open(BytesIO(image_data.content))        
             axes[i][j].imshow(image)
             axes[i][j].axis("off")
+    plt.show()
     ```
 
-3. 使用 `plt.show()` 繪製圖表並顯示影像。
 
 ## <a name="example-json-response"></a>範例 JSON 回應
 

@@ -1,17 +1,17 @@
 ---
-title: 範例 - 稽核應用程式是否未安裝於 Linux VM 內
+title: 範例 - 稽核 Linux VM 上遺失的應用程式
 description: 此範例原則來賓設定方案和定義會稽核指定的應用程式是否未安裝於 Linux 虛擬機器內。
 author: DCtheGeek
 ms.service: azure-policy
 ms.topic: sample
 ms.date: 05/02/2019
 ms.author: dacoulte
-ms.openlocfilehash: ef2ab4bebf2247b08cdc80ed74bbe17a67c5baae
-ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
+ms.openlocfilehash: 5f4d4f4c1102c4409d891bb20b54788dc8ed40ee
+ms.sourcegitcommit: 1c2659ab26619658799442a6e7604f3c66307a89
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/06/2019
-ms.locfileid: "71977043"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72255737"
 ---
 # <a name="sample---audit-if-specified-applications-arent-installed-inside-linux-vms"></a>範例 - 稽核指定的應用程式是否未安裝於 Linux VM 內
 

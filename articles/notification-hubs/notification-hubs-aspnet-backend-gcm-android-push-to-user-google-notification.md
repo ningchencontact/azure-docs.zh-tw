@@ -1,5 +1,5 @@
 ---
-title: 使用 Azure 通知中樞將通知推送至特定 Android 應用程式使用者 | Microsoft Docs
+title: 使用 Azure 通知中樞將通知傳送至特定 Android 應用程式 | Microsoft Docs
 description: 了解如何使用 Azure 通知中樞將推播通知傳送至特定的使用者。
 documentationcenter: android
 services: notification-hubs
@@ -17,12 +17,12 @@ ms.date: 01/04/2019
 ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 01/04/2019
-ms.openlocfilehash: 1b867d571e97209c4385c1f23b49fe5a03ab94d5
-ms.sourcegitcommit: 3fa4384af35c64f6674f40e0d4128e1274083487
+ms.openlocfilehash: c5c9ec26c9387cd9ae129002697210c2b342ab9b
+ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71212070"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72385893"
 ---
 # <a name="tutorial-push-notification-to-specific-android-application-users-by-using-azure-notification-hubs-and-google-cloud-messaging-deprecated"></a>教學課程：使用 Azure 通知中樞和 Google 雲端通訊 (已淘汰) 將通知推送至特定 Android 應用程式使用者
 

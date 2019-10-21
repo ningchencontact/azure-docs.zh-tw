@@ -1,34 +1,34 @@
 ---
-title: 教學課程：Azure Active Directory 單一登入 (SSO) 與 ADP Globalview 整合 | Microsoft Docs
-description: 了解如何設定 Azure Active Directory 與 ADP GlobalView 之間的單一登入。
+title: 教學課程：Azure Active Directory 單一登入 (SSO) 與 ExponentHR 整合 | Microsoft Docs
+description: 了解如何設定 Azure Active Directory 與 ExponentHR 之間的單一登入。
 services: active-directory
 documentationCenter: na
 author: jeevansd
 manager: mtillman
 ms.reviewer: barbkess
-ms.assetid: ffb6464f-714d-41a9-869a-2b7e5ae9f125
+ms.assetid: ccfeea70-1cbd-49fb-9154-1dd3f9a0417c
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 09/10/2019
+ms.date: 10/04/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1184129783b448cb2d6dc22e488ffe38401a1218
+ms.openlocfilehash: 438b76cd5fa5987375a6e9804e9c4e1037c8ce21
 ms.sourcegitcommit: b4665f444dcafccd74415fb6cc3d3b65746a1a31
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 10/11/2019
-ms.locfileid: "72264121"
+ms.locfileid: "72271898"
 ---
-# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-adp-globalview"></a>教學課程：Azure Active Directory 單一登入 (SSO) 與 ADP Globalview 整合
+# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-exponenthr"></a>教學課程：Azure Active Directory 單一登入 (SSO) 與 ExponentHR 整合
 
-在本教學課程中，您會了解如何將 ADP GlobalView 與 Azure Active Directory (Azure AD) 整合。 在整合 ADP Globalview 與 Azure AD 時，您可以︰
+在本教學課程中，您將了解如何整合 ExponentHR 與 Azure Active Directory (Azure AD)。 在整合 ExponentHR 與 Azure AD 時，您可以︰
 
-* 在 Azure AD 中控制可存取 ADP GlobalView 的人員。
-* 讓使用者使用其 Azure AD 帳戶自動登入 ADP Globalview。
+* 在 Azure AD 中控制可存取 ExponentHR 的人員。
+* 讓使用者使用其 Azure AD 帳戶自動登入 ExponentHR。
 * 在 Azure 入口網站集中管理您的帳戶。
 
 若要深入了解 SaaS 應用程式與 Azure AD 整合，請參閱[什麼是搭配 Azure Active Directory 的應用程式存取和單一登入](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)。
@@ -38,43 +38,48 @@ ms.locfileid: "72264121"
 若要開始，您需要下列項目：
 
 * Azure AD 訂用帳戶。 如果沒有訂用帳戶，您可以取得[免費帳戶](https://azure.microsoft.com/free/)。
-* 啟用 ADP GlobalView 單一登入 (SSO) 的訂用帳戶。
+* 已啟用 ExponentHR 單一登入 (SSO) 的訂用帳戶
 
 ## <a name="scenario-description"></a>案例描述
 
 在本教學課程中，您會在測試環境中設定和測試 Azure AD SSO。
 
-* ADP Globalview 支援由 **IDP** 起始的 SSO
+* ExponentHR 支援 **SP** 起始的 SSO
 
-## <a name="adding-adp-globalview-from-the-gallery"></a>從資源庫新增 ADP GlobalView
+* ExponentHR 支援 **WS-Fed** 通訊協定
 
-若要設定將 ADP GlobalView 整合到 Azure AD 中，您需要從資源庫將 ADP GlobalView 新增到受控 SaaS 應用程式清單。
+> [!NOTE]
+> 此應用程式的識別碼是固定的字串值，因此一個租用戶中只能設定一個執行個體。
+
+## <a name="adding-exponenthr-from-the-gallery"></a>從資源庫新增 ExponentHR
+
+若要設定將 ExponentHR 整合到 Azure AD 中，您需要從資源庫將 ExponentHR 新增到受控 SaaS 應用程式清單。
 
 1. 使用公司或學校帳戶或個人的 Microsoft 帳戶登入 [Azure 入口網站](https://portal.azure.com)。
 1. 在左方瀏覽窗格上，選取 [Azure Active Directory]  服務。
 1. 巡覽至 [企業應用程式]  ，然後選取 [所有應用程式]  。
 1. 若要新增應用程式，請選取 [新增應用程式]  。
-1. 在 [從資源庫新增]  區段的搜尋方塊中輸入 **ADP Globalview**。
-1. 從結果面板選取 [ADP Globalview]  ，然後新增應用程式。 當應用程式新增至您的租用戶時，請等候幾秒鐘。
+1. 在 [從資源庫新增]  區段的搜尋方塊中輸入 **ExponentHR**。
+1. 從結果面板選取 [ExponentHR]  ，然後新增應用程式。 當應用程式新增至您的租用戶時，請等候幾秒鐘。
 
-## <a name="configure-and-test-azure-ad-single-sign-on-for-adp-globalview"></a>設定及測試 ADP Globalview 的 Azure AD 單一登入
+## <a name="configure-and-test-azure-ad-single-sign-on-for-exponenthr"></a>設定及測試 ExponentHR 的 Azure AD 單一登入
 
-以名為 **B.Simon** 的測試使用者，設定及測試與 ADP Globalview 搭配運作的 Azure AD SSO。 若要讓 SSO 能夠運作，您必須建立 Azure AD 使用者與 ADP Globalview 中相關使用者之間的連結關聯性。
+以名為 **B. Simon** 的測試使用者，設定及測試與 ExponentHR 搭配運作的 Azure AD SSO。 若要讓 SSO 能夠運作，您必須建立 Azure AD 使用者與 ExponentHR 中相關使用者之間的連結關聯性。
 
-若要設定及測試與 ADP Globalview 搭配運作的 Azure AD SSO，請完成下列構成要素：
+若要設定及測試與 ExponentHR 搭配運作的 Azure AD SSO，請完成下列建置組塊：
 
 1. **[設定 Azure AD SSO](#configure-azure-ad-sso)** - 讓您的使用者能夠使用此功能。
     1. **[建立 Azure AD 測試使用者](#create-an-azure-ad-test-user)** - 使用 B.Simon 測試 Azure AD 單一登入。
     1. **[指派 Azure AD 測試使用者](#assign-the-azure-ad-test-user)** - 讓 B.Simon 能夠使用 Azure AD 單一登入。
-1. **[設定 ADP Globalview SSO](#configure-adp-globalview-sso)** - 在應用程式端設定單一登入設定。
-    1. **[建立 ADP GlobalView 測試使用者](#create-adp-globalview-test-user)** - 使 ADP Globalview 中對應的 B.Simon 連結到該使用者在 Azure AD 中的代表項目。
+1. **[設定 ExponentHR SSO](#configure-exponenthr-sso)** - 在應用程式端設定單一登入設定。
+    1. **[建立 ExponentHR 測試使用者](#create-exponenthr-test-user)** - 在 ExponentHR 中建立與 Azure AD 使用者代表 B.Simon 連結的對應使用者。
 1. **[測試 SSO](#test-sso)** - 驗證組態是否能運作。
 
 ## <a name="configure-azure-ad-sso"></a>設定 Azure AD SSO
 
 依照下列步驟在 Azure 入口網站中啟用 Azure AD SSO。
 
-1. 在 [Azure 入口網站](https://portal.azure.com/)的 [ADP Globalview]  應用程式整合頁面上，尋找 [管理]  區段並選取 [單一登入]  。
+1. 在 [Azure 入口網站](https://portal.azure.com/)的 [ExponentHR]  應用程式整合頁面上，尋找 [管理]  區段並選取 [單一登入]  。
 1. 在 [選取單一登入方法]  頁面上，選取 [SAML]  。
 1. 在 [以 SAML 設定單一登入]  頁面上，按一下 [基本 SAML 設定]  的編輯/畫筆圖示，以編輯設定。
 
@@ -82,25 +87,11 @@ ms.locfileid: "72264121"
 
 1. 在 [基本 SAML 組態]  區段上，輸入下列欄位的值：
 
-    
-    在 [識別碼]  文字方塊中，使用下列模式來輸入 URL：
+    在 [登入 URL]  文字方塊中，以下列模式輸入 URL︰`https://www.exponenthr.com/service/saml/login.aspx`
 
-    | |
-    |--|
-    | `https://<subdomain>.globalview.adp.com/federate`|
-    | `https://<subdomain>.globalview.adp.com/federate2`|
-    | |
+1. 在 [以 SAML 設定單一登入]  頁面的 [SAML 簽署憑證]  區段中，按一下 [複製] 按鈕以複製 [應用程式同盟中繼資料 URL]  ，並將資料儲存在您的電腦上。
 
-    > [!NOTE]
-    > 這不是真實的值。 請使用實際的「識別碼」來更新此值。 請連絡 [ADP Globalview 用戶端支援小組](https://www.adp.com/contact-us/overview.aspx)以取得此值。 您也可以參考 Azure 入口網站中**基本 SAML 組態**區段所示的模式。
-
-1. 在 [以 SAML 設定單一登入]  頁面的 [SAML 簽署憑證]  區段中，尋找 [憑證 (Base64)]  並選取 [下載]  ，以下載憑證並將其儲存在電腦上。
-
-    ![憑證下載連結](common/certificatebase64.png)
-
-1. 在 [設定 ADP Globalview]  區段上，依據您的需求複製適當的 URL。
-
-    ![複製組態 URL](common/copy-configuration-urls.png)
+    ![憑證下載連結](common/copy-metadataurl.png)
 
 ### <a name="create-an-azure-ad-test-user"></a>建立 Azure AD 測試使用者
 
@@ -116,10 +107,10 @@ ms.locfileid: "72264121"
 
 ### <a name="assign-the-azure-ad-test-user"></a>指派 Azure AD 測試使用者
 
-在本節中，您會將 ADP Globalview 的存取權授與 B.Simon，讓其能夠使用 Azure 單一登入。
+在本節中，您會將 ExponentHR 的存取權授與 B.Simon，讓其能夠使用 Azure 單一登入。
 
 1. 在 Azure 入口網站中，選取 [企業應用程式]  ，然後選取 [所有應用程式]  。
-1. 在應用程式清單中，選取 [ADP GlobalView]  。
+1. 在應用程式清單中，選取 [ExponentHR]  。
 1. 在應用程式的概觀頁面中尋找 [管理]  區段，然後選取 [使用者和群組]  。
 
    ![[使用者和群組] 連結](common/users-groups-blade.png)
@@ -132,19 +123,19 @@ ms.locfileid: "72264121"
 1. 如果您在 SAML 判斷提示中需要任何角色值，請在 [選取角色]  對話方塊的清單中為使用者選取適當的角色，然後按一下畫面底部的 [選取]  按鈕。
 1. 在 [新增指派]  對話方塊中，按一下 [指派]  按鈕。
 
-## <a name="configure-adp-globalview-sso"></a>設定 ADP Globalview SSO
+## <a name="configure-exponenthr-sso"></a>設定 ExponentHR SSO
 
-若要設定 **ADP Globalview** 端的單一登入，您必須將從 Azure 入口網站下載的 [憑證 (Base64)]  和複製的適當 URL 傳送給 [ADP Globalview 支援小組](https://www.adp.com/contact-us/overview.aspx)。 他們會進行此設定，讓兩端的 SAML SSO 連線都設定正確。
+若要在 **ExponentHR** 端設定單一登入，您必須將**應用程式同盟中繼資料 Url** 傳送至 [ExponentHR 支援小組](mailto:support@exponenthr.com)。 他們會進行此設定，讓兩端的 SAML SSO 連線都設定正確。
 
-### <a name="create-adp-globalview-test-user"></a>建立 ADP GlobalView 測試使用者
+### <a name="create-exponenthr-test-user"></a>建立 ExponentHR 測試使用者
 
-在本節中，您要在 ADP Globalview 中建立名為 B.Simon 的使用者。 與 [ADP GlobalView 支援小組](https://www.adp.com/contact-us/overview.aspx)合作，在 ADP GlobalView 平台中新增使用者。 您必須先建立和啟動使用者，然後才能使用單一登入。
+在本節中，您要在 ExponentHR 中建立名為 B.Simon 的使用者。 請與 [ExponentHR 支援小組](mailto:support@exponenthr.com)合作，在 ExponentHR 平台中新增使用者。 您必須先建立和啟動使用者，然後才能使用單一登入。
 
 ## <a name="test-sso"></a>測試 SSO 
 
 在本節中，您會使用存取面板來測試您的 Azure AD 單一登入設定。
 
-當您在存取面板中按一下 ADP Globalview 圖格時，應該會自動登入您已設定 SSO 的 ADP Globalview。 如需「存取面板」的詳細資訊，請參閱[存取面板簡介](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)。
+當您在存取面板中按一下 [ExponentHR] 圖格時，應該會自動登入您設定 SSO 的 ExponentHR。 如需「存取面板」的詳細資訊，請參閱[存取面板簡介](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)。
 
 ## <a name="additional-resources"></a>其他資源
 
@@ -154,5 +145,5 @@ ms.locfileid: "72264121"
 
 - [什麼是 Azure Active Directory 中的條件式存取？](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
-- [嘗試搭配 Azure AD 使用 ADP Globalview](https://aad.portal.azure.com/)
+- [嘗試搭配 Azure AD 使用 ExponentHR](https://aad.portal.azure.com/)
 

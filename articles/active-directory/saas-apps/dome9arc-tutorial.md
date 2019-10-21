@@ -1,11 +1,11 @@
 ---
-title: 教學課程：Azure Active Directory 與 Check Point CloudGuard Dome9 Arc 整合 | Microsoft Docs
+title: 教學課程：Azure Active Directory 單一登入 (SSO) 與 Check Point CloudGuard Dome9 Arc 整合 | Microsoft Docs
 description: 了解如何設定 Azure Active Directory 與 Check Point CloudGuard Dome9 Arc 之間的單一登入。
 services: active-directory
 documentationCenter: na
 author: jeevansd
 manager: mtillman
-ms.reviewer: celested
+ms.reviewer: barbkess
 ms.assetid: 4c12875f-de71-40cb-b9ac-216a805334e5
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
@@ -13,17 +13,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 06/14/2019
+ms.date: 09/24/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 240d962d56e4a2dc0758f3170c51b343d22ef98d
-ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
+ms.openlocfilehash: fb47d60f609e63e5a17fd8abd3efe420ea7fd187
+ms.sourcegitcommit: b4665f444dcafccd74415fb6cc3d3b65746a1a31
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/10/2019
-ms.locfileid: "68944580"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72264097"
 ---
-# <a name="tutorial-integrate-check-point-cloudguard-dome9-arc-with-azure-active-directory"></a>教學課程：整合 Check Point CloudGuard Dome9 Arc 與 Azure Active Directory
+# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-check-point-cloudguard-dome9-arc"></a>教學課程：Azure Active Directory 單一登入 (SSO) 與 Check Point CloudGuard Dome9 Arc 整合
 
 在本教學課程中，您將了解如何整合 Check Point CloudGuard Dome9 Arc 與 Azure Active Directory (Azure AD)。 當您整合 Check Point CloudGuard Dome9 Arc 與 Azure AD 時，您可以：
 
@@ -42,7 +42,12 @@ ms.locfileid: "68944580"
 
 ## <a name="scenario-description"></a>案例描述
 
-在本教學課程中，您會在測試環境中設定和測試 Azure AD SSO。 Check Point CloudGuard Dome9 Arc 支援 **SP 和 IDP** 起始的 SSO。
+在本教學課程中，您會在測試環境中設定和測試 Azure AD SSO。
+
+* Check Point CloudGuard Dome9 Arc 支援 **SP 和 IDP** 起始的 SSO
+
+> [!NOTE]
+> 此應用程式的識別碼是固定的字串值，因此一個租用戶中只能設定一個執行個體。
 
 ## <a name="adding-check-point-cloudguard-dome9-arc-from-the-gallery"></a>從資源庫新增 Check Point CloudGuard Dome9 Arc
 
@@ -55,20 +60,20 @@ ms.locfileid: "68944580"
 1. 在 [從資源庫新增]  區段的搜尋方塊中，輸入 **Check Point CloudGuard Dome9 Arc**。
 1. 從結果面板選取 [Check Point CloudGuard Dome9 Arc]  ，然後新增應用程式。 當應用程式新增至您的租用戶時，請等候幾秒鐘。
 
-## <a name="configure-and-test-azure-ad-single-sign-on"></a>設定和測試 Azure AD 單一登入
+## <a name="configure-and-test-azure-ad-single-sign-on-for-check-point-cloudguard-dome9-arc"></a>針對 Check Point CloudGuard Dome9 Arc 設定和測試 Azure AD 單一登入
 
 以名為 **B.Simon** 的測試使用者，設定及測試與 Check Point CloudGuard Dome9 Arc 搭配運作的 Azure AD SSO。 若要讓 SSO 能夠運作，您必須建立 Azure AD 使用者與 Check Point CloudGuard Dome9 Arc 中相關使用者之間的連結關聯性。
 
 若要設定及測試與 Check Point CloudGuard Dome9 Arc 搭配運作的 Azure AD SSO，請完成下列建置組塊：
 
-1. **[設定 Azure AD SSO](#configure-azure-ad-sso)** ，讓您的使用者能夠使用此功能。
-2. **[設定 Check Point CloudGuard Dome9 Arc](#configure-check-point-cloudguard-dome9-arc)** ，在應用程式端設定 SSO 設定。
-3. **[建立 Azure AD 測試使用者](#create-an-azure-ad-test-user)** ，使用 B.Simon 測試 Azure AD 單一登入。
-4. **[指派 Azure AD 測試使用者](#assign-the-azure-ad-test-user)** ，讓 B.Simon 能夠使用 Azure AD 單一登入。
-5. **[建立 Check Point CloudGuard Dome9 Arc 測試使用者](#create-check-point-cloudguard-dome9-arc-test-user)** ，使 Check Point CloudGuard Dome9 Arc 中對應的 B.Simon 連結到該使用者在 Azure AD 中的代表項目。
-6. **[測試 SSO](#test-sso)** ，以驗證組態是否能運作。
+1. **[設定 Azure AD SSO](#configure-azure-ad-sso)** - 讓您的使用者能夠使用此功能。
+    1. **[建立 Azure AD 測試使用者](#create-an-azure-ad-test-user)** - 使用 B.Simon 測試 Azure AD 單一登入。
+    1. **[指派 Azure AD 測試使用者](#assign-the-azure-ad-test-user)** - 讓 B.Simon 能夠使用 Azure AD 單一登入。
+1. **[設定 Check Point CloudGuard Dome9 Arc SSO](#configure-check-point-cloudguard-dome9-arc-sso)** ，在應用程式端設定單一登入設定。
+    1. **[建立 Check Point CloudGuard Dome9 Arc 測試使用者](#create-check-point-cloudguard-dome9-arc-test-user)** 使 Check Point CloudGuard Dome9 Arc 中對應的 B.Simon 連結到該使用者在 Azure AD 中的代表項目。
+1. **[測試 SSO](#test-sso)** - 驗證組態是否能運作。
 
-### <a name="configure-azure-ad-sso"></a>設定 Azure AD SSO
+## <a name="configure-azure-ad-sso"></a>設定 Azure AD SSO
 
 依照下列步驟在 Azure 入口網站中啟用 Azure AD SSO。
 
@@ -78,83 +83,31 @@ ms.locfileid: "68944580"
 
    ![編輯基本 SAML 組態](common/edit-urls.png)
 
-4. 在 [基本 SAML 設定]  區段上，如果您想要以 **IDP** 起始模式設定應用程式，請執行下列步驟：
+1. 在 [基本 SAML 設定]  區段上，如果您想要以 **IDP** 起始模式設定應用程式，請輸入下列欄位的值：
 
-    a. 在 [識別碼]  文字方塊中，使用下列模式來輸入 URL：`https://secure.dome9.com/`
+    a. 在 [識別碼]  文字方塊中，鍵入 URL：`https://secure.dome9.com/`
 
-    b. 在 [回覆 URL]  文字方塊中，使用下列模式來輸入 URL：`https://secure.dome9.com/sso/saml/yourcompanyname`
+    b. 在 [回覆 URL]  文字方塊中，使用下列模式來輸入 URL：`https://secure.dome9.com/sso/saml/<yourcompanyname>`
 
     > [!NOTE]
     > 您將在 dome9 管理入口網站中選取您的公司名稱值，本教學課程稍後會說明這一點。
 
-5. 如果您想要以 **SP** 起始模式設定應用程式，請按一下 [設定其他 URL]  ，然後執行下列步驟：
+1. 如果您想要以 **SP** 起始模式設定應用程式，請按一下 [設定其他 URL]  ，然後執行下列步驟：
 
     在 [登入 URL]  文字方塊中，以下列模式輸入 URL︰`https://secure.dome9.com/sso/saml/<yourcompanyname>`
 
     > [!NOTE]
     > 這些都不是真正的值。 請使用實際的回覆 URL 與登入 URL 更新這些值。 請連絡 [Check Point CloudGuard Dome9 Arc 用戶端支援小組](mailto:Dome9@checkpoint.com)以取得這些值。 您也可以參考 Azure 入口網站中**基本 SAML 組態**區段所示的模式。
 
-6. Check Point CloudGuard Dome9 Arc 應用程式預期應有特定格式的 SAML 判斷提示，因此您必須將自訂屬性對應新增至 SAML 權杖屬性設定。 以下螢幕擷取畫面顯示預設屬性清單。 按一下 [編輯]  圖示以開啟 [使用者屬性] 對話方塊。
-
-    ![image](common/edit-attribute.png)
-
-7. 除了以上屬性之外，Check Point CloudGuard Dome9 Arc 應用程式還預期 SAML 回應中會再多傳回幾個屬性。 在 [使用者屬性]  對話方塊的 [使用者宣告]  區段中，執行下列步驟以設定 SAML 權杖屬性，如下表所示： 
-
-    | Name |  來源屬性|
-    | ---------------| --------------- |
-    | memberof | user.assignedroles |
-
-    a. 按一下 [新增宣告]  以開啟 [管理使用者宣告]  對話方塊。
-
-    ![映像](common/new-save-attribute.png)
-
-    ![映像](common/new-attribute-details.png)
-
-    b. 在 [名稱]  文字方塊中，輸入該資料列所顯示的屬性名稱。
-
-    c. 讓 [命名空間]  保持空白。
-
-    d. 選取 [來源] 作為 [屬性]  。
-
-    e. 在 [來源屬性]  清單中，輸入該資料列所顯示的屬性值。
-
-    f. 按一下 [確定]  。
-
-    g. 按一下 [檔案]  。
+1. Check Point CloudGuard Dome9 Arc 需要在 Azure AD 中設定角色。 角色宣告已預先設定，因此您不需要進行設定，但您仍然需要使用[本文](https://docs.microsoft.com/azure/active-directory/develop/active-directory-enterprise-app-role-management)在 Azure AD 中建立角色。
 
 1. 在 [以 SAML 設定單一登入]  頁面的 [SAML 簽署憑證]  區段中，尋找 [憑證 (Base64)]  並選取 [下載]  ，以下載憑證並將其儲存在電腦上。
 
-   ![憑證下載連結](common/certificatebase64.png)
+    ![憑證下載連結](common/certificatebase64.png)
 
 1. 在 [設定 Check Point CloudGuard Dome9 Arc]  區段上，依據您的需求複製適當的 URL。
 
-   ![複製組態 URL](common/copy-configuration-urls.png)
-
-### <a name="configure-check-point-cloudguard-dome9-arc"></a>設定 Check Point CloudGuard Dome9 Arc
-
-1. 在不同的網頁瀏覽器視窗中，以系統管理員身分登入您的 Check Point CloudGuard Dome9 Arc 公司網站。
-
-2. 按一下右上角的 [設定檔設定]  ，然後按一下 [帳戶設定]  。 
-
-    ![Check Point CloudGuard Dome9 Arc 組態](./media/dome9arc-tutorial/configure1.png)
-
-3. 瀏覽至 [SSO]  ，然後按一下 [啟用]  。
-
-    ![Check Point CloudGuard Dome9 Arc 組態](./media/dome9arc-tutorial/configure2.png)
-
-4. 在 [SSO 設定] 區段中，執行下列步驟：
-
-    ![Check Point CloudGuard Dome9 Arc 組態](./media/dome9arc-tutorial/configure3.png)
-
-    a. 在 [帳戶識別碼]  文字方塊中輸入公司名稱。 這個值要在 Azure 入口網站 [基本 SAML 組態]  區段所提及的 [回覆 URL] 中使用。
-
-    b. 在 [簽發者]  文字方塊中，貼上您從 Azure 入口網站複製的 [Azure AD 識別碼]  值。
-
-    c. 在 [Idp 端點 URL]  文字方塊中，貼上您從 Azure 入口網站複製的 [登入 URL]  值。
-
-    d. 在記事本中開啟您下載的 Base64 編碼的憑證，將其內容複製到剪貼簿，然後貼到 [X.509 憑證]  文字方塊。
-
-    e. 按一下 [檔案]  。
+    ![複製組態 URL](common/copy-configuration-urls.png)
 
 ### <a name="create-an-azure-ad-test-user"></a>建立 Azure AD 測試使用者
 
@@ -185,6 +138,40 @@ ms.locfileid: "68944580"
 1. 在 [使用者和群組]  對話方塊的 [使用者] 清單中選取 [B.Simon]  ，然後按一下畫面底部的 [選取]  按鈕。
 1. 如果您在 SAML 判斷提示中需要任何角色值，請在 [選取角色]  對話方塊的清單中為使用者選取適當的角色，然後按一下畫面底部的 [選取]  按鈕。
 1. 在 [新增指派]  對話方塊中，按一下 [指派]  按鈕。
+
+## <a name="configure-check-point-cloudguard-dome9-arc-sso"></a>設定 Check Point CloudGuard Dome9 Arc SSO
+
+1. 若要自動執行 Check Point CloudGuard Dome9 Arc 內的設定，您必須按一下 [安裝擴充功能]  以安裝「我的應用程式安全登入瀏覽器擴充功能」  。
+
+    ![我的應用程式擴充功能](common/install-myappssecure-extension.png)
+
+2. 將擴充功能新增至瀏覽器之後，按一下 [設定 Check Point CloudGuard Dome9 Arc]  ，系統會將您引導至 Check Point CloudGuard Dome9 Arc 應用程式。 請從該處提供用以登入 Check Point CloudGuard Dome9 Arc 的管理員認證。瀏覽器擴充功能會自動為您設定應用程式，並自動執行步驟 3 到 6。
+
+    ![設定組態](common/setup-sso.png)
+
+3. 如果您想要手動設定 Check Point CloudGuard Dome9 Arc，請開啟新的網頁瀏覽器視窗，並以系統管理員身分登入 Check Point CloudGuard Dome9 Arc 公司網站，然後執行下列步驟：
+
+2. 按一下右上角的 [設定檔設定]  ，然後按一下 [帳戶設定]  。 
+
+    ![Check Point CloudGuard Dome9 Arc 組態](./media/dome9arc-tutorial/configure1.png)
+
+3. 瀏覽至 [SSO]  ，然後按一下 [啟用]  。
+
+    ![Check Point CloudGuard Dome9 Arc 組態](./media/dome9arc-tutorial/configure2.png)
+
+4. 在 [SSO 設定] 區段中，執行下列步驟：
+
+    ![Check Point CloudGuard Dome9 Arc 組態](./media/dome9arc-tutorial/configure3.png)
+
+    a. 在 [帳戶識別碼]  文字方塊中輸入公司名稱。 這個值要在 Azure 入口網站 [基本 SAML 組態]  區段所提及的 [回覆 URL] 中使用。
+
+    b. 在 [簽發者]  文字方塊中，貼上您從 Azure 入口網站複製的 [Azure AD 識別碼]  值。
+
+    c. 在 [Idp 端點 URL]  文字方塊中，貼上您從 Azure 入口網站複製的 [登入 URL]  值。
+
+    d. 在記事本中開啟您下載的 Base64 編碼的憑證，將其內容複製到剪貼簿，然後貼到 [X.509 憑證]  文字方塊。
+
+    e. 按一下 [檔案]  。
 
 ### <a name="create-check-point-cloudguard-dome9-arc-test-user"></a>建立 Check Point CloudGuard Dome9 Arc 測試使用者
 
@@ -219,7 +206,9 @@ ms.locfileid: "68944580"
 
     e. 按一下 [建立]  。
 
-### <a name="test-sso"></a>測試 SSO
+## <a name="test-sso"></a>測試 SSO 
+
+在本節中，您會使用存取面板來測試您的 Azure AD 單一登入設定。
 
 當您在存取面板中按一下 [Check Point CloudGuard Dome9 Arc] 圖格時，應該會自動登入您已設定 SSO 的 Check Point CloudGuard Dome9 Arc。 如需「存取面板」的詳細資訊，請參閱[存取面板簡介](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)。
 
@@ -230,3 +219,6 @@ ms.locfileid: "68944580"
 - [什麼是搭配 Azure Active Directory 的應用程式存取和單一登入？](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [什麼是 Azure Active Directory 中的條件式存取？](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+
+- [嘗試搭配 Azure AD 使用 Check Point CloudGuard Dome9 Arc](https://aad.portal.azure.com/)
+

@@ -1,21 +1,21 @@
 ---
-title: 教學課程 - 建立及管理 Azure 成本管理的匯出資料 |Microsoft Docs
+title: 教學課程 - 建立及管理 Azure 成本管理的匯出資料
 description: 本文示範如何建立及管理匯出的 Azure 成本管理資料，以將其用於外部系統中。
 services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 05/14/2019
+ms.date: 10/12/2019
 ms.topic: tutorial
 ms.service: cost-management
 manager: dougeby
 ms.custom: seodec18
-ms.openlocfilehash: 521a5f2543b9a4a84d50f8f0e53a6ae5108f760b
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 070844cbf8f6a550b92d764ddb8a31afec12f437
+ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65792879"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72374601"
 ---
 # <a name="tutorial-create-and-manage-exported-data"></a>教學課程：建立和管理匯出的資料
 
@@ -25,7 +25,7 @@ ms.locfileid: "65792879"
 
 本教學課程中的範例會引導您匯出成本管理資料，並驗證該資料已成功匯出。
 
-在本教學課程中，您了解如何：
+在本教學課程中，您會了解如何：
 
 > [!div class="checklist"]
 > * 建立每日匯出
@@ -43,15 +43,15 @@ ms.locfileid: "65792879"
 - 您的 Azure 儲存體帳戶必須針對 Blob 或檔案儲存體進行設定。
 
 ## <a name="sign-in-to-azure"></a>登入 Azure
-在 [https://portal.azure.com](https://portal.azure.com/) 登入 Azure 入口網站。
+登入 Azure 入口網站：[https://portal.azure.com](https://portal.azure.com/)。
 
 ## <a name="create-a-daily-export"></a>建立每日匯出
 
 若要建立或檢視資料匯出，或是排程匯出，請在 Azure 入口網站開啟所需的範圍，然後在功能表中選取 [成本分析]  。 例如，瀏覽至 [訂用帳戶]  、從清單中選取訂用帳戶，然後在功能表中選取 [成本分析]  。 在 [成本分析] 頁面頂端，按一下 [匯出]  ，然後選擇匯出選項。 例如，按一下 [排程匯出]  。  
 
 > [!NOTE]
-> 除了訂用帳戶，您也可以在資源群組、帳戶、部門和註冊上建立匯出。 如需有關範圍的詳細資訊，請參閱[了解並使用範圍](understand-work-scopes.md)。
->
+> - 除了訂用帳戶，您也可以在資源群組、帳戶、部門和註冊上建立匯出。 如需有關範圍的詳細資訊，請參閱[了解並使用範圍](understand-work-scopes.md)。
+>- 當您在計費帳戶範圍或客戶的租用戶上以合作夥伴身分登入時，您可以將資料匯出至與合作夥伴儲存體帳戶連結的 Azure 儲存體帳戶。 不過，您必須在 CSP 租用戶中擁有有效的訂用帳戶。
 >
 
 

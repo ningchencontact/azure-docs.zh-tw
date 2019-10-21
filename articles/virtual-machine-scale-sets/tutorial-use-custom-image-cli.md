@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 03/27/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: aafec48f86ee032b112e9bb1100f82fbb3b363ed
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 6368a36eaa2e6832f22a13f20bc35d66c4425b4b
+ms.sourcegitcommit: 9dec0358e5da3ceb0d0e9e234615456c850550f6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66170496"
+ms.lasthandoff: 10/14/2019
+ms.locfileid: "72311572"
 ---
 # <a name="tutorial-create-and-use-a-custom-image-for-virtual-machine-scale-sets-with-the-azure-cli"></a>教學課程：使用 Azure CLI 建立及使用虛擬機器擴展集的自訂映像
 當您建立擴展集時，您會指定部署 VM 執行個體時所要使用的映像。 若要減少部署 VM 執行個體後的工作數量，您可以使用自訂的 VM 映像。 此自訂 VM 映像包括任何必要的應用程式安裝或組態。 在擴展集中建立的任何 VM 執行個體都會使用自訂 VM 映像，並已可以處理您的應用程式流量。 在本教學課程中，您將了解如何：
@@ -98,6 +98,8 @@ az vm generalize --resource-group myResourceGroup --name myVM
 解除配置及一般化 VM 可能需要幾分鐘的時間。
 
 使用 [az image create](/cli//azure/image) 建立 VM 的映像。 下列範例會從您的 VM 建立名為 myImage  的映像：
+
+> [附註] 如果資源群組和虛擬機器位置不同，您可以將 `--location` 參數新增至下列命令，以指定來源 VM 用來建立映像的位置。 
 
 ```azurecli-interactive
 az image create \

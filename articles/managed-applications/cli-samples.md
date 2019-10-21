@@ -1,6 +1,6 @@
 ---
 title: Azure CLI 範例 - Azure 受控應用程式 | Microsoft Docs
-description: Azure CLI 範例 - Azure 受控應用程式
+description: 提供 Azure CLI 指令碼範例以在處理 Azure 受控應用程式時使用。
 services: managed-applications
 documentationcenter: na
 author: tfitzmac
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/25/2017
 ms.author: tomfitz
-ms.openlocfilehash: d8b7c645bd9ee87faf51eab58651ddc5c7cde46a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 77a25e3d92306e4e5d0f597a02a69dfb62d54398
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60588865"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72332727"
 ---
 # <a name="azure-cli-samples"></a>Azure CLI 範例
 

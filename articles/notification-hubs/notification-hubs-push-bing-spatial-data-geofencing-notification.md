@@ -1,9 +1,9 @@
 ---
-title: 使用 Azure 通知中樞和 Bing 空間資料為推播通知加上地理柵欄 | Microsoft Docs
+title: 使用 Azure 通知中樞和 Bing 空間資料傳送推播通知 | Microsoft Docs
 description: 在本教學課程中，您將學習如何使用 Azure 通知中樞和 Bing 空間資料來傳遞以位置為基礎的推播通知。
 services: notification-hubs
 documentationcenter: windows
-keywords: 推播通知,推播通知
+keywords: 推播通知, 推播通知
 author: sethmanheim
 manager: femila
 editor: jwargo
@@ -18,14 +18,14 @@ ms.date: 01/04/2019
 ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 01/04/2019
-ms.openlocfilehash: 84e52feb6e30e0b9b693019b671906fad8c908db
-ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
+ms.openlocfilehash: 510e2648db3076a0e3ee2535c6058f7ed212f558
+ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71213238"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72387487"
 ---
-# <a name="tutorial-push-location-based-notifications-with-azure-notification-hubs-and-bing-spatial-data"></a>教學課程：使用 Azure 通知中樞和 Bing 空間資料來推播以位置為基礎的通知
+# <a name="tutorial-send-location-based-push-notifications-with-azure-notification-hubs-and-bing-spatial-data"></a>教學課程：使用 Azure 通知中樞和 Bing 空間資料來傳送以位置為基礎的推播通知
 
 在本教學課程中，您將學習如何使用 Azure 通知中樞和 Bing 空間資料來傳遞以位置為基礎的推播通知。
 

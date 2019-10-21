@@ -6,12 +6,12 @@ ms.topic: tutorial
 author: markjbrown
 ms.author: mjbrown
 ms.date: 06/20/2019
-ms.openlocfilehash: 03163d75681bee7434e2b7576a678b1094d47b94
-ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
+ms.openlocfilehash: cda3b0db1a4f1b098d8ea57887a047fcdef04243
+ms.sourcegitcommit: e0a1a9e4a5c92d57deb168580e8aa1306bd94723
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/05/2019
-ms.locfileid: "71973702"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72286498"
 ---
 # <a name="azure-cosmos-emulator---release-notes-and-download-information"></a>Azure Cosmos 模擬器 - 版本資訊和下載資訊
 
@@ -25,6 +25,10 @@ ms.locfileid: "71973702"
 |**開始使用**|[使用 Azure Cosmos 模擬器在本機開發](local-emulator.md)|
 
 ## <a name="release-notes"></a>版本資訊
+
+### <a name="270"></a>2.7.0
+
+- 此版本修正了以下迴歸：使用者在使用 .NET Core 或 x86 .NET 型用戶端時，無法從模擬器對 SQL API 帳戶執行查詢。
 
 ### <a name="246"></a>2.4.6
 

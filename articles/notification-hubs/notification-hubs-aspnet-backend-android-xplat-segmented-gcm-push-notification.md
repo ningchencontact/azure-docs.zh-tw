@@ -1,5 +1,5 @@
 ---
-title: 使用 Azure 通知中樞和 Google 雲端通訊將通知推送至特定 Android 裝置 | Microsoft Docs
+title: 使用 Azure 通知中樞和 Google 雲端通訊將通知傳送至特定 Android 裝置 | Microsoft Docs
 description: 了解如何使用 Azure 通知中樞和 Google 雲端通訊將通知推送至特定 Android 裝置。
 services: notification-hubs
 documentationcenter: android
@@ -17,12 +17,12 @@ ms.date: 01/04/2019
 ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 01/04/2019
-ms.openlocfilehash: 4a369b72d5c19a63c65f8d693d131b2c10ff2023
-ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
+ms.openlocfilehash: aa2aa7b77bf174f4a2ca89408ee037b398a32e4d
+ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71212815"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72387436"
 ---
 # <a name="tutorial-push-notifications-to-specific-android-devices-using-azure-notification-hubs-and-google-cloud-messaging-deprecated"></a>教學課程：使用 Azure 通知中樞和 Google 雲端通訊 (已淘汰) 將通知推送至特定 Android 裝置
 

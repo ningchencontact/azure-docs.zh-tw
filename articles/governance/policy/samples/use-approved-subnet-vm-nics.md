@@ -1,17 +1,17 @@
 ---
-title: 範例 - 針對 VM 網路介面使用已核准的子網路
+title: 範例 - 針對 VM NIC 使用已核准的子網路
 description: 此原則定義範例會要求網路介面使用已核准的子網路。
 author: DCtheGeek
 ms.service: azure-policy
 ms.topic: sample
 ms.date: 01/23/2019
 ms.author: dacoulte
-ms.openlocfilehash: f3f7b6cf54665157bc13ea7e86b384647da44be4
-ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
+ms.openlocfilehash: eec463c4f547f99d598747364bbfe952e762e292
+ms.sourcegitcommit: 1c2659ab26619658799442a6e7604f3c66307a89
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/06/2019
-ms.locfileid: "71981296"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72254677"
 ---
 # <a name="sample---use-approved-subnet-for-vm-network-interfaces"></a>範例 - 針對 VM 網路介面使用已核准的子網路
 

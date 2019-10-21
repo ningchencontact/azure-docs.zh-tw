@@ -1,17 +1,17 @@
 ---
-title: 範例 - 對資源群組強制執行標籤及其值
+title: 範例 - 對資源群組強制執行標籤及值
 description: 此原則定義範例會要求對資源群組使用標籤和值。
 author: DCtheGeek
 ms.service: azure-policy
 ms.topic: sample
 ms.date: 01/31/2019
 ms.author: dacoulte
-ms.openlocfilehash: 00c94aa6077c8a8599b31e9ab37f925fdfebefb0
-ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
+ms.openlocfilehash: 5f4af5ee88ad491e7864e82afc337801e47f2204
+ms.sourcegitcommit: 1c2659ab26619658799442a6e7604f3c66307a89
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/06/2019
-ms.locfileid: "71977177"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72255785"
 ---
 # <a name="sample---enforce-tag-and-its-value-on-resource-groups"></a>範例 - 對資源群組強制執行標籤及其值
 

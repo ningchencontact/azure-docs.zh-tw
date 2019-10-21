@@ -1,6 +1,6 @@
 ---
 title: Azure PowerShell 指令碼範例 - 部署受控應用程式 | Microsoft Docs
-description: Azure PowerShell 指令碼範例 - 部署受控應用程式定義
+description: 提供 Azure PowerShell 指令碼範例，以將受控應用程式定義部署至訂用帳戶。
 services: managed-applications
 documentationcenter: na
 author: tfitzmac
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/27/2017
 ms.author: tomfitz
-ms.openlocfilehash: 03b453e441b92d21f29e7e1f401bebae0b8589da
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: d450c2292f5d2982b7c8b266cc6780a72d426321
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66171458"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72332565"
 ---
 # <a name="deploy-a-managed-application-for-a-service-catalog-with-powershell"></a>使用 PowerShell 為服務類別目錄部署受控應用程式
 

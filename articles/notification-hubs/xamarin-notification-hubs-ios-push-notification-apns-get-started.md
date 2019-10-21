@@ -1,5 +1,5 @@
 ---
-title: 使用 Azure 通知中樞將通知推送至 Xamarin.iOS 應用程式 | Microsoft Docs
+title: 使用 Azure 通知中樞將推播通知傳送至 Xamarin iOS | Microsoft Docs
 description: 在本教學課程中，您將了解如何使用 Azure 通知中樞將推播通知傳送至 Xamarin.iOS 應用程式。
 services: notification-hubs
 keywords: ios 推播通知,推播訊息,推播通知
@@ -18,14 +18,14 @@ ms.date: 05/23/2019
 ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 05/23/2019
-ms.openlocfilehash: 7427421719b44839e766234194640817ea686e3c
-ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
+ms.openlocfilehash: 38a4924cd6bee2f6e2860320d51cfb61aa6fe1bb
+ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71213590"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72387698"
 ---
-# <a name="tutorial-push-notifications-to-xamarinios-apps-using-azure-notification-hubs"></a>教學課程：使用 Azure 通知中樞將通知推送至 Xamarin.iOS 應用程式
+# <a name="tutorial-send-push-notifications-to-xamarinios-apps-using-azure-notification-hubs"></a>教學課程：使用 Azure 通知中樞將推播通知傳送至 Xamarin.iOS 應用程式
 
 [!INCLUDE [notification-hubs-selector-get-started](../../includes/notification-hubs-selector-get-started.md)]
 

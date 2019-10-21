@@ -17,12 +17,12 @@ ms.date: 04/18/2019
 ms.author: chadam
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5ecbd0cfed262b928e6a821406e80f5a4456c6c9
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
+ms.openlocfilehash: 93dd7b13ca9e1a3f078994e76610c45447cfa41c
+ms.sourcegitcommit: b4665f444dcafccd74415fb6cc3d3b65746a1a31
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68988062"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72264084"
 ---
 # <a name="tutorial-stream-azure-active-directory-logs-to-an-azure-event-hub"></a>教學課程：將 Azure Active Directory 記錄串流到 Azure 事件中樞
 
@@ -41,7 +41,7 @@ ms.locfileid: "68988062"
 
 1. 登入 [Azure 入口網站](https://portal.azure.com)。 
 
-2. 選取 [Azure Active Directory]   >  [活動]   >  [稽核記錄]  。 
+2. 選取 [Azure Active Directory]   >  [監視]   >  [稽核記錄]  。 
 
 3. 選取 [匯出設定]  。  
     

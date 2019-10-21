@@ -5,15 +5,15 @@ services: azure-resource-manager
 documentationcenter: ''
 author: mumian
 ms.service: azure-resource-manager
-ms.date: 05/31/2019
+ms.date: 10/09/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 17e27fcbd0e31c8602869be3d884888fe4fe7db0
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: b381c4be5d0c56e14ccd01657542ef3bff2f8894
+ms.sourcegitcommit: e0a1a9e4a5c92d57deb168580e8aa1306bd94723
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70095821"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72285681"
 ---
 # <a name="tutorial-use-health-check-in-azure-deployment-manager-public-preview"></a>教學課程：在 Azure 部署管理員 (公開預覽版) 中使用健康情況檢查
 
@@ -38,8 +38,8 @@ ms.locfileid: "70095821"
 
 其他資源：
 
-- [Azure 部署管理員 REST API 參考](https://docs.microsoft.com/rest/api/deploymentmanager/)。
-- [Azure 部署管理員範例](https://github.com/Azure-Samples/adm-quickstart)。
+* [Azure 部署管理員 REST API 參考](https://docs.microsoft.com/rest/api/deploymentmanager/)。
+* [Azure 部署管理員範例](https://github.com/Azure-Samples/adm-quickstart)。
 
 如果您沒有 Azure 訂用帳戶，請在開始之前先[建立免費帳戶](https://azure.microsoft.com/free/)。
 
@@ -48,7 +48,16 @@ ms.locfileid: "70095821"
 若要完成本文，您需要：
 
 * 完成[使用 Azure 部署管理員搭配 Resource Manager 範本](./deployment-manager-tutorial.md)。
-* 下載本教學課程所使用的[範本和成品](https://armtutorials.blob.core.windows.net/admtutorial/ADMTutorial.zip)。
+
+## <a name="install-the-artifacts"></a>安裝成品
+
+下載[範本和成品](https://github.com/Azure/azure-docs-json-samples/raw/master/tutorial-adm/ADMTutorial.zip)，並將其解壓縮到本機 (如果您尚未這麼做)。 然後執行在[準備成品](./deployment-manager-tutorial.md#prepare-the-artifacts)中找到的 PowerShell 指令碼。 此指令碼會建立資源群組、建立儲存體容器、建立 Blob 容器、上傳下載的檔案，然後建立 SAS 權杖。
+
+使用 SAS 權杖複製 URL 複本。 此 URL 必須填入下列兩個參數檔案的欄位中：拓樸參數檔案和首度發行參數檔案。
+
+開啟 CreateADMServiceTopology.Parameters.json，並更新 **projectName** 和 **artifactSourceSASLocation** 的值。
+
+開啟 CreateADMRollout.Parameters.json，並更新 **projectName** 和 **artifactSourceSASLocation** 的值。
 
 ## <a name="create-a-health-check-service-simulator"></a>建立健康情況檢查服務模擬器
 
@@ -56,22 +65,13 @@ ms.locfileid: "70095821"
 
 下列兩個檔案用於部署 Azure 函式。 您不需要下載這些檔案，即可進行本教學課程。
 
-* Resource Manager 範本位於 [https://armtutorials.blob.core.windows.net/admtutorial/deploy_hc_azure_function.json](https://armtutorials.blob.core.windows.net/admtutorial/deploy_hc_azure_function.json)。 您會部署此範本來建立 Azure 函式。
-* Azure 函式原始程式碼的 zip 檔 [https://armtutorials.blob.core.windows.net/admtutorial/ADMHCFunction0417.zip ](https://armtutorials.blob.core.windows.net/admtutorial/ADMHCFunction0417.zip)。 Resource Manager 範本會呼叫此 zip 檔。
+* Resource Manager 範本位於 [https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/tutorial-adm/deploy_hc_azure_function.json](https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/tutorial-adm/deploy_hc_azure_function.json)。 您會部署此範本來建立 Azure 函式。
+* Azure 函式原始程式碼的 zip 檔 [https://github.com/Azure/azure-docs-json-samples/raw/master/tutorial-adm/ADMHCFunction0417.zip ](https://github.com/Azure/azure-docs-json-samples/raw/master/tutorial-adm/ADMHCFunction0417.zip)。 Resource Manager 範本會呼叫此 zip 檔。
 
 若要部署 Azure 函式，請選取 [試試看]  以開啟 Azure Cloud Shell，然後將下列指令碼貼到 Shell 視窗。  若要貼上程式碼，請以滑鼠右鍵按一下 Shell 視窗，然後選取 [貼上]  。
 
-> [!IMPORTANT]
-> PowerShell 指令碼中的 **projectName** 用來為本教學課程中部署的 Azure 服務產生名稱。 不同的 Azure 服務有不同的名稱需求。 若要確保成功部署，請選擇小於 12 個字元且僅有小寫字母和數字的名稱。
-> 儲存專案名稱的複本。 您會在整個教學課程中使用相同的 projectName。
-
-```azurepowershell-interactive
-$projectName = Read-Host -Prompt "Enter a project name that is used to generate Azure resource names"
-$location = Read-Host -Prompt "Enter the location (i.e. centralus)"
-$resourceGroupName = "${projectName}rg"
-
-New-AzResourceGroup -Name $resourceGroupName -Location $location
-New-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName -TemplateUri "https://armtutorials.blob.core.windows.net/admtutorial/deploy_hc_azure_function.json" -projectName $projectName
+```azurepowershell
+New-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName -TemplateUri "https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/tutorial-adm/deploy_hc_azure_function.json" -projectName $projectName
 ```
 
 若要驗證及測試 Azure 函式：
@@ -107,9 +107,9 @@ New-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName -TemplateUri
 
 ## <a name="revise-the-rollout-template"></a>建立首度發行範本
 
-這一節的目的是要說明如何在首度發行範本中包含健康情況檢查步驟。 您不必建立自己的 CreateADMRollout.json 檔案，即可完成本教學課程。 後續各節使用的儲存體帳戶會共用已修訂的首度發行範本。
+這一節的目的是要說明如何在首度發行範本中包含健康情況檢查步驟。
 
-1. 開啟 **CreateADMRollout.json**。 此 JSON 檔案是下載的一部分。  請參閱[必要條件](#prerequisites)。
+1. 開啟您在[使用 Azure 部署管理員搭配 Resource Manager 範本](./deployment-manager-tutorial.md)中建立的 **CreateADMRollout.json**。 此 JSON 檔案是下載的一部分。  請參閱[必要條件](#prerequisites)。
 1. 新增額外兩個參數：
 
     ```json
@@ -233,26 +233,14 @@ New-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName -TemplateUri
 
 ## <a name="deploy-the-topology"></a>部署拓撲
 
-為了簡化本教學課程，拓撲範本和成品會在下列位置共用，因此您不需要準備您自己的複本。 如果您想使用自己的複本，請依照指示操作：[教學課程：使用 Azure 部署管理員搭配 Resource Manager 範本](./deployment-manager-tutorial.md)。
+執行下列 PowerShell 指令碼來部署拓撲。 您所使用的 **CreateADMServiceTopology.json** 和 **CreateADMServiceTopology.Parameters.json**，都必須與[使用 Azure 部署管理員搭配 Resource Manager 範本](./deployment-manager-tutorial.md)中使用的一樣。
 
-* 拓撲範本：https:\//armtutorials.blob.core.windows.net/admtutorial/ADMTemplates/CreateADMServiceTopology.json
-* 成品存放區：https:\//armtutorials.blob.core.windows.net/admtutorial/ArtifactStore
-
-若要部署拓撲，請選取 [試試看]  以開啟 Cloud Shell，然後貼上 PowerShell 指令碼。
-
-```azurepowershell-interactive
-$projectName = Read-Host -Prompt "Enter the same project name used earlier in this tutorial"
-$location = Read-Host -Prompt "Enter the location (i.e. centralus)"
-$resourceGroupName = "${projectName}rg"
-$artifactLocation = "https://armtutorials.blob.core.windows.net/admtutorial/ArtifactStore?st=2019-05-06T03%3A57%3A31Z&se=2020-05-07T03%3A57%3A00Z&sp=rl&sv=2018-03-28&sr=c&sig=gOh%2Bkhi693rmdxiZFQ9xbKZMU1kbLJDqXw7EP4TaGlI%3D" | ConvertTo-SecureString -AsPlainText -Force
-
+```azurepowershell
 # Create the service topology
 New-AzResourceGroupDeployment `
     -ResourceGroupName $resourceGroupName `
-    -TemplateUri "https://armtutorials.blob.core.windows.net/admtutorial/ADMTemplatesHC/CreateADMServiceTopology.json" `
-    -namePrefix $projectName `
-    -azureResourceLocation $location `
-    -artifactSourceSASLocation $artifactLocation
+    -TemplateFile "$filePath\ADMTemplates\CreateADMServiceTopology.json" `
+    -TemplateParameterFile "$filePath\ADMTemplates\CreateADMServiceTopology.Parameters.json"
 ```
 
 使用 Azure 入口網站確認服務拓撲和基礎資源均已成功建立：
@@ -263,32 +251,18 @@ New-AzResourceGroupDeployment `
 
 ## <a name="deploy-the-rollout-with-the-unhealthy-status"></a>在不良狀態下部署首度發行
 
-為了簡化本教學課程，已修訂的首度發行範本會在下列位置共用，因此您不需要準備您自己的複本。 如果您想使用自己的複本，請依照指示操作：[教學課程：使用 Azure 部署管理員搭配 Resource Manager 範本](./deployment-manager-tutorial.md)。
-
-* 拓撲範本：https:\//armtutorials.blob.core.windows.net/admtutorial/ADMTemplatesHC/CreateADMRollout.json
-* 成品存放區：https:\//armtutorials.blob.core.windows.net/admtutorial/ArtifactStore
-
-使用您在[建立健康情況檢查服務模擬器](#create-a-health-check-service-simulator)中建立的不良狀態 URL。 如需 **managedIdentityID**，請參閱[輸入使用者指派的受控識別](./deployment-manager-tutorial.md#create-the-user-assigned-managed-identity)。
+使用您在[建立健康情況檢查服務模擬器](#create-a-health-check-service-simulator)中建立的不良狀態 URL。 您需要修訂 **CreateADMServiceTopology.json**，但 **CreateADMServiceTopology.Parameters.json**必須與[使用 Azure 部署管理員搭配 Resource Manager 範本](./deployment-manager-tutorial.md)中使用的一樣。
 
 ```azurepowershell-interactive
-$projectName = Read-Host -Prompt "Enter the same project name used earlier in this tutorial"
-$location = Read-Host -Prompt "Enter the location (i.e. centralus)"
-$managedIdentityID = Read-Host -Prompt "Enter a user-assigned managed identity"
 $healthCheckUrl = Read-Host -Prompt "Enter the health check Azure function URL"
 $healthCheckAuthAPIKey = $healthCheckUrl.Substring($healthCheckUrl.IndexOf("?code=")+6, $healthCheckUrl.Length-$healthCheckUrl.IndexOf("?code=")-6)
 $healthCheckUrl = $healthCheckUrl.Substring(0, $healthCheckUrl.IndexOf("?"))
 
-$resourceGroupName = "${projectName}rg"
-$artifactLocation = "https://armtutorials.blob.core.windows.net/admtutorial/ArtifactStore?st=2019-05-06T03%3A57%3A31Z&se=2020-05-07T03%3A57%3A00Z&sp=rl&sv=2018-03-28&sr=c&sig=gOh%2Bkhi693rmdxiZFQ9xbKZMU1kbLJDqXw7EP4TaGlI%3D" | ConvertTo-SecureString -AsPlainText -Force
-
 # Create the rollout
 New-AzResourceGroupDeployment `
     -ResourceGroupName $resourceGroupName `
-    -TemplateUri "https://armtutorials.blob.core.windows.net/admtutorial/ADMTemplatesHC/CreateADMRollout.json" `
-    -namePrefix $projectName `
-    -azureResourceLocation $location `
-    -artifactSourceSASLocation $artifactLocation `
-    -managedIdentityID $managedIdentityID `
+    -TemplateFile "$filePath\ADMTemplates\CreateADMRollout.json" `
+    -TemplateParameterFile "$filePath\ADMTemplates\CreateADMRollout.Parameters.json" `
     -healthCheckUrl $healthCheckUrl `
     -healthCheckAuthAPIKey $healthCheckAuthAPIKey
 ```
@@ -388,9 +362,9 @@ Tags                    :
 1. 在 Azure 入口網站中，選取左側功能表中的 [資源群組]  。
 2. 使用 [依名稱篩選]  欄位，縮減在本教學課程中建立的資源群組數目。 應該會有 3-4 個：
 
-    * **&lt;namePrefix>rg**：包含部署管理員資源。
-    * **&lt;namePrefix>ServiceWUSrg**：包含 ServiceWUS 所定義的資源。
-    * **&lt;namePrefix>ServiceEUSrg**：包含 ServiceEUS 所定義的資源。
+    * **&lt;projectName>rg**：包含部署管理員資源。
+    * **&lt;projectName>ServiceWUSrg**：包含 ServiceWUS 所定義的資源。
+    * **&lt;projectName>ServiceEUSrg**：包含 ServiceEUS 所定義的資源。
     * 使用者定義受控識別的資源群組。
 3. 選取資源群組名稱。
 4. 從頂端功能表中選取 [刪除資源群組]  。

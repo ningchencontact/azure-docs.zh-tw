@@ -1,17 +1,17 @@
 ---
-title: 範例 - 加拿大聯邦 PBMM 藍圖 - 控制項對應
-description: 加拿大聯邦 PBMM 藍圖範例對於 Azure 原則的控制項對應。
+title: 加拿大聯邦 PBMM 藍圖範例 - 控制項對應
+description: 加拿大聯邦 PBMM 藍圖範例的控制項對應。 每個控制項都會對應至一或多個可協助評量的 Azure 原則。
 author: DCtheGeek
 ms.author: dacoulte
 ms.date: 09/04/2019
 ms.topic: sample
 ms.service: blueprints
-ms.openlocfilehash: 8fae03acf33d80502869e2f8d19aa619d72f038c
-ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
+ms.openlocfilehash: b16ad4fd08776312d318067b4bc84f79b9797e70
+ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/06/2019
-ms.locfileid: "71981665"
+ms.lasthandoff: 10/13/2019
+ms.locfileid: "72299154"
 ---
 # <a name="control-mapping-of-the-canada-federal-pbmm-blueprint-sample"></a>加拿大聯邦 PBMM 藍圖範例的控制項對應
 
@@ -143,13 +143,13 @@ Azure 監視器所收集的記錄資料會儲存在 Log Analytics 工作區中�
 
 ## <a name="cm-7-5-least-functionality--authorized-software--whitelisting"></a>CM-7 (5) 最少的功能 | 已授權的軟體 / 加入白名單
 
-「Azure 資訊安全中心」的自適性應用程式控制是智慧型的自動化端對端應用程式白名單解決方案，可封鎖或防止在虛擬機器上執行特定軟體。 應用程式控制可協助您建立虛擬機器的已核准應用程式清單。 此藍圖指派一個 [Azure 原則](../../../policy/overview.md)定義，協助您監視已建議但尚未設定白名單解決方案的虛擬機器。
+「Azure 資訊安全中心」的自適性應用程式控制是智慧型的自動化端對端應用程式白名單解決方案，可封鎖或防止在虛擬機器上執行特定軟體。 應用程式控制可協助您建立虛擬機器的已核准應用程式清單。 此藍圖指派一個 [Azure 原則](../../../policy/overview.md)定義，協助您監視已建議但尚未設定允許清單解決方案的虛擬機器。
 
 - 應在虛擬機器上啟用自適性應用程式控制
 
 ## <a name="cm-11-user-installed-software"></a>CM-11 使用者安裝的軟體
 
-「Azure 資訊安全中心」的自適性應用程式控制是智慧型的自動化端對端應用程式白名單解決方案，可封鎖或防止在虛擬機器上執行特定軟體。 應用程式控制可協助您強制執行軟體限制原則，並監視其合規性。 此藍圖指派一個 [Azure 原則](../../../policy/overview.md)定義，協助您監視已建議但尚未設定白名單解決方案的虛擬機器。
+「Azure 資訊安全中心」的自適性應用程式控制是智慧型的自動化端對端應用程式白名單解決方案，可封鎖或防止在虛擬機器上執行特定軟體。 應用程式控制可協助您強制執行軟體限制原則，並監視其合規性。 此藍圖指派一個 [Azure 原則](../../../policy/overview.md)定義，協助您監視已建議但尚未設定允許清單解決方案的虛擬機器。
 
 - 應在虛擬機器上啟用自適性應用程式控制
 

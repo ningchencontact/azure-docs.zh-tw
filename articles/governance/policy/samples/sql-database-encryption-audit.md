@@ -1,17 +1,17 @@
 ---
-title: 範例 - 稽核 SQL Database 的透明資料加密
+title: 範例 - 稽核 SQL 上的透明資料加密
 description: 此原則定義範例會稽核 SQL 資料庫是否未啟用透明資料加密。
 author: DCtheGeek
 ms.service: azure-policy
 ms.topic: sample
 ms.date: 01/23/2019
 ms.author: dacoulte
-ms.openlocfilehash: de7819f43b2d0ce4d6d047b324db94d3e5f85eec
-ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
+ms.openlocfilehash: 4027ad28b6589872dd2f52961710c4db95a257e7
+ms.sourcegitcommit: 1c2659ab26619658799442a6e7604f3c66307a89
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/06/2019
-ms.locfileid: "71981312"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72254788"
 ---
 # <a name="sample---audit-sql-database-encryption"></a>範例 - 稽核 SQL 資料庫加密
 

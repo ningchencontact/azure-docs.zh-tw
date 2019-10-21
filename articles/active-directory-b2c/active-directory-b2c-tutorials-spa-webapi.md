@@ -10,12 +10,12 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.service: active-directory
 ms.subservice: B2C
-ms.openlocfilehash: 60fe9569b0e6e92ae161271439ecbf1b04788ed4
-ms.sourcegitcommit: 8bae7afb0011a98e82cbd76c50bc9f08be9ebe06
+ms.openlocfilehash: 9ac95896e67338437325e8290a96b8e42b2fa3a7
+ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/01/2019
-ms.locfileid: "71694599"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72374238"
 ---
 # <a name="tutorial-grant-access-to-an-aspnet-core-web-api-from-a-single-page-application-using-azure-active-directory-b2c"></a>教學課程：使用 Azure Active Directory B2C 授與從單頁應用程式存取 ASP.NET Core Web API 的權限
 
@@ -70,7 +70,7 @@ git clone https://github.com/Azure-Samples/active-directory-b2c-dotnetcore-webap
 
 ### <a name="configure-the-web-api"></a>設定 Web API
 
-1. 在 Visual Studio 或 Visual Studio Code 中開啟 *B2C-WebApi/ **appsettings.json*** 檔案。
+1. 在 Visual Studio 或 Visual Studio Code 中開啟 <em>B2C-WebApi/**appsettings.json**</em> 檔案。
 1. 修改 `AzureAdB2C` 區塊以反映您的租用戶名稱、Web API 應用程式的應用程式識別碼、您的註冊/登入原則名稱，以及您先前定義的範圍。 該區塊應該會如下列範例所示 (具有適當的 `Tenant` 和 `ClientId` 值)：
 
     ```json

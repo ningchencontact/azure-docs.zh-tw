@@ -13,15 +13,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 09/05/2019
+ms.date: 03/10/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 75f933cf54b354475146c1291b486173e0b57dbb
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.openlocfilehash: 9dddd9f6904aa5ef7840850792aeabf04666dddc
+ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72026729"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72373424"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-concur-travel-and-expense"></a>教學課程：Azure Active Directory 單一登入 (SSO) 與 Concur Travel and Expense 整合
 
@@ -38,16 +38,18 @@ ms.locfileid: "72026729"
 若要開始，您需要下列項目：
 
 * Azure AD 訂用帳戶。 如果沒有訂用帳戶，您可以取得[免費帳戶](https://azure.microsoft.com/free/)。
-* 已啟用 Concur Travel and Expense 單一登入 (SSO) 的訂用帳戶。
+* Concur Travel and Expense 訂用帳戶。
+* Concur 使用者帳戶下的「公司系統管理員」角色。 您可以前往 [Concur SSO 自助服務工具](https://www.concursolutions.com/nui/authadmin/ssoadmin)來測試您是否擁有正確的存取權。 如果您沒有存取權，請連絡 Concur 的支援或實作專案經理。 
 
 ## <a name="scenario-description"></a>案例描述
 
-在本教學課程中，您會在測試環境中設定和測試 Azure AD SSO。
+在本教學課程中，您會設定和測試 Azure AD SSO。
 
-* Concur Travel and Expense 支援由 **IDP** 起始的 SSO
+* Concur Travel and Expense 支援 **IDP** 和 **SP** 起始的 SSO
+* Concur Travel and Expense 可同時支援在生產和實作環境中測試 SSO 
 
 > [!NOTE]
-> 此應用程式的識別碼是固定的字串值，因此一個租用戶中只能設定一個執行個體。
+> 在下列三個區域中，此應用程式的識別碼是都是固定字串值：美國、EMEA (歐洲、中東與非洲) 和中國。 因此，在一個租用戶中，只能為每個區域設定一個執行個體。 
 
 ## <a name="adding-concur-travel-and-expense-from-the-gallery"></a>從資源庫新增 Concur Travel and Expense
 
@@ -85,13 +87,16 @@ ms.locfileid: "72026729"
 
 1. 在 [基本 SAML 組態]  區段上，已預先以 **IDP** 起始的模式設定好應用程式，並已經為 Azure 預先填入必要的 URL。 使用者必須按一下 [儲存]  按鈕，才能儲存設定。
 
-1. 在 [以 SAML 設定單一登入]  頁面上的 [SAML 簽署憑證]  區段中，尋找 [同盟中繼資料 XML]  ，然後選取 [下載]  ，以下載憑證並將其儲存在電腦上。
+    > [!NOTE]
+    > [識別碼 (實體識別碼)] 和 [回復 URL] (判斷提示取用者服務 URL) 均為區域特有。 請根據 Concur 實體的資料中心來選取。 如果您不知道 Concur 實體的資料中心，請連絡 Concur 支援服務。 
+
+5. 在 [以 SAML 設定單一登入]  頁面上，按一下 [使用者屬性]  的編輯/畫筆圖示，以編輯設定。 [唯一的使用者識別碼] 必須符合 Concur 的使用者 login_id。 通常來說，您應該將 **user.userprincipalname** 變更為 **user.mail**。
+
+    ![編輯使用者屬性](common/edit-attribute.png)
+
+6. 在 [以 SAML 設定單一登入]  頁面上的 [SAML 簽署憑證]  區段中，尋找 [同盟中繼資料 XML]  ，然後選取 [下載]  以下載中繼資料，並將其儲存在電腦上。
 
     ![憑證下載連結](common/metadataxml.png)
-
-1. 在 [設定 Concur Travel and Expense]  區段上，根據您的需求複製適當的 URL。
-
-    ![複製組態 URL](common/copy-configuration-urls.png)
 
 ### <a name="create-an-azure-ad-test-user"></a>建立 Azure AD 測試使用者
 
@@ -125,11 +130,31 @@ ms.locfileid: "72026729"
 
 ## <a name="configure-concur-travel-and-expense-sso"></a>設定 Concur Travel and Expense SSO
 
-若要在 **Concur Travel and Expense** 端設定單一登入，您必須將從 Azure 入口網站下載的 [同盟中繼資料 XML]  和複製的適當 URL 傳送給 [Concur Travel and Expense 支援小組](https://www.concur.com/support) \(英文\)。 他們會進行此設定，讓兩端的 SAML SSO 連線都設定正確。
+1. 若要在 **Concur Travel and Expense** 端設定單一登入，您必須將已下載的**同盟中繼資料 XML** 上傳至 [Concur SSO 自助服務工具](https://www.concursolutions.com/nui/authadmin/ssoadmin)，並使用具有「公司系統管理員」角色的帳戶來登入。 
+
+1. 按一下 [新增]  。
+1. 輸入 IdP 的自訂名稱，例如 "Azure AD (US)"。 
+1. 按一下 [上傳 XML 檔案]  ，然後附上您先前下載的**同盟中繼資料 XML**。
+1. 按一下 [新增中繼資料]  以儲存變更。
+
+    ![Concur SSO 自助服務工具的螢幕擷取畫面](./media/concur-travel-and-expense-tutorial/add-metadata-concur-self-service-tool.png)
 
 ### <a name="create-concur-travel-and-expense-test-user"></a>建立 Concur Travel and Expense 測試使用者
 
-在本節中，您要在 Concur Travel and Expense 中建立名為 B.Simon 的使用者。 請與  [Concur Travel and Expense 支援小組](https://www.concur.com/support) \(英文\) 合作，在 Concur Travel and Expense 平臺中新增使用者。 您必須先建立和啟動使用者，然後才能使用單一登入。
+在本節中，您要在 Concur Travel and Expense 中建立名為 B.Simon 的使用者。 請與 Concur 支援小組合作，在 Concur Travel and Expense 平台中新增使用者。 您必須先建立和啟動使用者，然後才能使用單一登入。 
+
+> [!NOTE]
+> B.Simon 的 Concur 登入識別碼必須符合 B.Simon 在 Azure AD 的唯一識別碼。 例如，如果 B.Simon 的 Azure AD 唯一識別碼為 `B.Simon@contoso.com`。 B.Simon 的 Concur 登入識別碼也必須為 `B.Simon@contoso.com`。 
+
+## <a name="configure-concur-mobile-sso"></a>設定 Concur Mobile SSO
+若要啟用 Concur Mobile SSO，您必須對 Concur 支援小組提供**使用者存取 URL**。 請遵循下列步驟從 Azure AD 取得**使用者存取 URL**：
+1. 移至 [企業應用程式] 
+1. 按一下 [Concur Travel and Expense] 
+1. 按一下 [屬性] 
+1. 複製**使用者存取 URL** 並將此 URL 提供給 Concur 支援人員
+
+> [!NOTE]
+> 您無法使用自助服務選項來設定 SSO，因此請與 Concur 支援小組合作以啟用 Mobile SSO。 
 
 ## <a name="test-sso"></a>測試 SSO 
 

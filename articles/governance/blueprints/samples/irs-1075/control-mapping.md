@@ -1,17 +1,17 @@
 ---
-title: 範例 - IRS 1075 藍圖 - 控制項對應
-description: IRS 1075 藍圖範例對於 Azure 原則的控制項對應。
+title: IRS 1075 藍圖範例 - 控制項對應
+description: IRS 1075 藍圖範例的控制項對應。 每個控制項都會對應至一或多個可協助評量的 Azure 原則。
 author: DCtheGeek
 ms.author: dacoulte
 ms.date: 08/07/2019
 ms.topic: sample
 ms.service: blueprints
-ms.openlocfilehash: 97705c9ef40b6ab1f468b9fad62d3b7afaef02a9
-ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
+ms.openlocfilehash: f204cf86b0415520160b11e97c0994a2f7891964
+ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/06/2019
-ms.locfileid: "71978350"
+ms.lasthandoff: 10/13/2019
+ms.locfileid: "72297726"
 ---
 # <a name="control-mapping-of-the-irs-1075-blueprint-sample"></a>IRS 1075 藍圖範例的控制項對應
 
@@ -140,19 +140,19 @@ Azure 監視器所收集的記錄資料會儲存在 Log Analytics 工作區中�
 
 ## <a name="9357-cm-7-2-least-functionality--prevent-program-execution"></a>9.3.5.7 CM-7 (2) 最少的功能 | 防止程式執行
 
-「Azure 資訊安全中心」的自適性應用程式控制是智慧型的自動化端對端應用程式白名單解決方案，可封鎖或防止在虛擬機器上執行特定軟體。 應用程式控制能以強制模式執行，禁止執行未經核准的應用程式。 此藍圖指派一個 Azure 原則定義，協助您監視已建議但尚未設定白名單解決方案的虛擬機器。
+「Azure 資訊安全中心」的自適性應用程式控制是智慧型的自動化端對端應用程式允許清單解決方案，可封鎖或防止在虛擬機器上執行特定軟體。 應用程式控制能以強制模式執行，禁止執行未經核准的應用程式。 此藍圖指派一個 Azure 原則定義，協助您監視已建議但尚未設定允許清單解決方案的虛擬機器。
 
 - 應在虛擬機器上啟用自適性應用程式控制
 
 ## <a name="9357-cm-7-5-least-functionality--authorized-software--whitelisting"></a>9.3.5.7 CM-7 (5) 最少的功能 | 已授權的軟體 / 加入白名單
 
-「Azure 資訊安全中心」的自適性應用程式控制是智慧型的自動化端對端應用程式白名單解決方案，可封鎖或防止在虛擬機器上執行特定軟體。 應用程式控制可協助您建立虛擬機器的已核准應用程式清單。 此藍圖指派一個 [Azure 原則](../../../policy/overview.md)定義，協助您監視已建議但尚未設定白名單解決方案的虛擬機器。
+「Azure 資訊安全中心」的自適性應用程式控制是智慧型的自動化端對端應用程式允許清單解決方案，可封鎖或防止在虛擬機器上執行特定軟體。 應用程式控制可協助您建立虛擬機器的已核准應用程式清單。 此藍圖指派一個 [Azure 原則](../../../policy/overview.md)定義，協助您監視已建議但尚未設定允許清單解決方案的虛擬機器。
 
 - 應在虛擬機器上啟用自適性應用程式控制
 
 ## <a name="93511-cm-11-user-installed-software"></a>9.3.5.11 CM-11 使用者安裝的軟體
 
-「Azure 資訊安全中心」的自適性應用程式控制是智慧型的自動化端對端應用程式白名單解決方案，可封鎖或防止在虛擬機器上執行特定軟體。 應用程式控制可協助您強制執行軟體限制原則，並監視其合規性。 此藍圖指派一個 [Azure 原則](../../../policy/overview.md)定義，協助您監視已建議但尚未設定白名單解決方案的虛擬機器。
+「Azure 資訊安全中心」的自適性應用程式控制是智慧型的自動化端對端應用程式允許清單解決方案，可封鎖或防止在虛擬機器上執行特定軟體。 應用程式控制可協助您強制執行軟體限制原則，並監視其合規性。 此藍圖指派一個 [Azure 原則](../../../policy/overview.md)定義，協助您監視已建議但尚未設定允許清單解決方案的虛擬機器。
 
 - 應在虛擬機器上啟用自適性應用程式控制
 

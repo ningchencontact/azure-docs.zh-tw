@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 11/07/2018
+ms.date: 10/16/2019
 ms.author: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b6d5452f23e830ca7a9ffe5ca5ed3d4aa12fb717
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: a11c5489c97e1050e525c0b83c160c1360119b60
+ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66236055"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72433164"
 ---
 # <a name="tutorial-use-a-windows-vm-system-assigned-managed-identity-to-access-azure-sql"></a>教學課程：使用 Windows VM 系統指派的受控識別來存取 Azure SQL
 
@@ -103,7 +103,7 @@ SQL DB 需要唯一的 AAD 顯示名稱。 因此，AAD 帳戶 (例如使用者�
 
 Azure SQL 原生支援 Azure AD 驗證，因此可直接接受使用適用於 Azure 資源的受控識別所取得的存取權杖。 您使用 **access token** 方法來建立 SQL 連線。 這是 Azure AD 與 Azure SQL 整合的一部分，與在連接字串上提供認證不同。
 
-以下是使用存取權杖來開啟與 SQL 之連線的 .NET 程式碼範例。 此程式碼必須在 VM 上執行，才能夠存取 VM 系統指派的受控識別端點。 必須要有 **.NET Framework 4.6** 或更新版本，才能使用存取權杖方法。 將 AZURE-SQL-SERVERNAME 和 DATABASE 的值取代為實際值。 請注意，Azure SQL 的資源識別碼是 `https://database.windows.net/`。
+以下是使用存取權杖來開啟與 SQL 之連線的 .NET 程式碼範例。 此程式碼必須在 VM 上執行，才能夠存取 VM 系統指派的受控識別端點。 必須要有 **.NET Framework 4.6** (或更新版本) 或 **.NET Core 2.2** (或更新版本)，才能使用存取權杖方法。 將 AZURE-SQL-SERVERNAME 和 DATABASE 的值取代為實際值。 請注意，Azure SQL 的資源識別碼是 `https://database.windows.net/`。
 
 ```csharp
 using System.Net;

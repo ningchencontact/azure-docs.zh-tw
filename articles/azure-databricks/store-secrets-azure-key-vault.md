@@ -1,5 +1,5 @@
 ---
-title: 使用 Azure Key Vault 從 Azure Databricks 存取 Azure Blob 儲存體的教學課程
+title: 使用金鑰保存庫存取 Blob 儲存體 - Azure Databricks
 description: 本教學課程說明如何使用儲存在金鑰保存庫中的秘密，從 Azure Databricks 存取 Azure Blob 儲存體。
 author: mamccrea
 ms.author: mamccrea
@@ -7,18 +7,18 @@ ms.reviewer: jasonh
 ms.service: azure-databricks
 ms.topic: tutorial
 ms.date: 07/19/2019
-ms.openlocfilehash: 45c5be8b203daf21697f3cb6dad4ecadb6449339
-ms.sourcegitcommit: 62bd5acd62418518d5991b73a16dca61d7430634
+ms.openlocfilehash: 1e44a1f1be6dcadac937d641e00c99994af0c651
+ms.sourcegitcommit: f272ba8ecdbc126d22a596863d49e55bc7b22d37
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68976519"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72274085"
 ---
 # <a name="tutorial-access-azure-blob-storage-from-azure-databricks-using-azure-key-vault"></a>教學課程：使用 Azure Key Vault 從 Azure Databricks 存取 Azure Blob 儲存體
 
 本教學課程說明如何使用儲存在金鑰保存庫中的秘密，從 Azure Databricks 存取 Azure Blob 儲存體。
 
-在本教學課程中，您了解如何：
+在本教學課程中，您會了解如何：
 
 > [!div class="checklist"]
 > * 建立儲存體帳戶 Blob 容器
@@ -76,10 +76,10 @@ ms.locfileid: "68976519"
 
    |屬性|說明|
    |--------|-----------|
-   |Name|金鑰保存庫的唯一名稱。|
-   |Subscription|選擇訂用帳戶。|
-   |Resource group|選擇資源群組或建立新的群組。|
-   |Location|選擇位置。|
+   |名稱|金鑰保存庫的唯一名稱。|
+   |訂用帳戶|選擇訂用帳戶。|
+   |資源群組|選擇資源群組或建立新的群組。|
+   |位置|選擇位置。|
 
    ![Azure Key Vault 屬性](./media/store-secrets-azure-key-vault/create-key-vault-properties.png)
 
@@ -94,7 +94,7 @@ ms.locfileid: "68976519"
    |屬性|值|
    |--------|-----------|
    |上傳選項|手動|
-   |Name|儲存體帳戶金鑰的易記名稱。|
+   |名稱|儲存體帳戶金鑰的易記名稱。|
    |值|您儲存體帳戶中的 key1。|
 
    ![新金鑰保存庫祕密的屬性](./media/store-secrets-azure-key-vault/create-storage-secret.png)
@@ -114,9 +114,9 @@ ms.locfileid: "68976519"
    |屬性  |說明  |
    |---------|---------|
    |工作區名稱     | 提供您 Databricks 工作區的名稱        |
-   |Subscription     | 從下拉式清單中選取您的 Azure 訂用帳戶。        |
-   |Resource group     | 選取包含金鑰保存庫的相同資源群組。 |
-   |Location     | 選取與您的 Azure Key Vault 相同的位置。 如需所有可用的區域，請參閱[依區域提供的 Azure 服務](https://azure.microsoft.com/regions/services/)。        |
+   |訂用帳戶     | 從下拉式清單中選取您的 Azure 訂用帳戶。        |
+   |資源群組     | 選取包含金鑰保存庫的相同資源群組。 |
+   |位置     | 選取與您的 Azure Key Vault 相同的位置。 如需所有可用的區域，請參閱[依區域提供的 Azure 服務](https://azure.microsoft.com/regions/services/)。        |
    |定價層     |  選擇 [標準]  或 [進階]  。 如需這些定價層的詳細資訊，請參閱 [Databricks 定價頁面](https://azure.microsoft.com/pricing/details/databricks/)。       |
 
    ![Databricks 工作區屬性](./media/store-secrets-azure-key-vault/create-databricks-service.png)

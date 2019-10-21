@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 09/16/2019
 ms.author: jhakulin
 ms.custom: ''
-ms.openlocfilehash: 02031e8e2800329134eaf34f5f99c93a20b99aac
-ms.sourcegitcommit: 4f3f502447ca8ea9b932b8b7402ce557f21ebe5a
+ms.openlocfilehash: c9467bac8b5998252c021faca4eb4177c42a1736
+ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71803878"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72387395"
 ---
 # <a name="quickstart-recognize-speech-using-cross-platform-xamarin-app-by-using-the-speech-sdk"></a>快速入門：使用語音 SDK 在跨平台的 Xamarin 應用程式中辨識語音
 
@@ -64,7 +64,9 @@ ms.locfileid: "71803878"
 
 1. 在 `OnRecognitionButtonClicked` 處理常式中，尋找字串 `YourServiceRegion`，並將它取代為與您的訂用帳戶相關聯的[區域](regions.md)。 (例如，針對免費試用訂用帳戶使用 `westus`。)
 
-1. 接下來，您必須建立 [Xamarin 服務](https://docs.microsoft.com/xamarin/android/app-fundamentals/services/creating-a-service/)，用來查詢不同平台專案 (UWP、Android 和 iOS) 的麥克風權限。 若要這麼做，請在 `helloworld` 專案下新增資料夾 `Services`，並在其下建立新的 C# 原始程式檔 (以滑鼠右鍵按一下 `Services` 資料夾，然後選取 [新增]   > [新增項目]   > [程式碼檔案]  )，並將它重新命名為 `IMicrophoneService.cs`，然後將下列程式碼片段中的所有程式碼放入該檔案中：[!code-csharp[Quickstart Code](~/samples-cognitive-services-speech-sdk/quickstart/csharp-xamarin/helloworld/helloworld/Services/IMicrophoneService.cs)]
+1. 接下來，您必須建立 [Xamarin 服務](https://docs.microsoft.com/xamarin/android/app-fundamentals/services/creating-a-service/)，用來查詢不同平台專案 (UWP、Android 和 iOS) 的麥克風權限。 若要這麼做，請在 `helloworld` 專案下新增資料夾 `Services`，並在其下建立新的 C# 原始程式檔 (以滑鼠右鍵按一下 `Services` 資料夾，然後選取 [新增]   > [新增項目]   > [程式碼檔案]  )，並將它重新命名為 `IMicrophoneService.cs`，然後將下列程式碼片段中的所有程式碼放入該檔案中：
+
+[!code-csharp[Quickstart Code](~/samples-cognitive-services-speech-sdk/quickstart/csharp-xamarin/helloworld/helloworld/Services/IMicrophoneService.cs)]
 
 ## <a name="add-sample-code-for-the-helloworldandroid-project"></a>新增 `helloworld.Android` 專案的範例程式碼
 

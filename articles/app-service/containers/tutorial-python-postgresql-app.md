@@ -1,5 +1,5 @@
 ---
-title: Linux 上搭配 PostgreSQL 的 Python (Django) Web 應用程式 - Azure App Service | Microsoft Docs
+title: 教學課程：Linux 上搭配 PostgreSQL 的 Python (Django) Web 應用程式 - Azure App Service
 description: 了解如何在 Azure 中連線至 PostgreSQL 資料庫，以執行資料驅動的 Python (Django) Web 應用程式。
 services: app-service\web
 documentationcenter: python
@@ -11,19 +11,22 @@ ms.devlang: python
 ms.topic: tutorial
 ms.date: 03/27/2019
 ms.author: cephalin
-ms.custom: seodec18
-ms.openlocfilehash: 1fc322cf7e425e35751369ab8daf1ef1809d5f07
-ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
+ms.custom:
+- mvc
+- seodec18
+- seo-python-october2019
+ms.openlocfilehash: 34dbce2a6da2395bbc627a30d464a9817dfe76fe
+ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71203256"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72439476"
 ---
-# <a name="build-a-python-django-web-app-with-postgresql-in-azure-app-service"></a>在 Azure App Service 中建置 Python (Django) Web 應用程式 和 PostgreSQL
+# <a name="tutorial-build-a-python-django-web-app-with-postgresql-in-azure-app-service"></a>教學課程：在 Azure App Service 中建置 Python (Django) Web 應用程式 和 PostgreSQL
 
 [Linux 上的 App Service](app-service-linux-intro.md) 提供可高度擴充、自我修復的 Web 主機服務。 本教學課程說明如何以 PostgreSQL 作為資料庫後端，建立資料驅動 Python (Django) Web 應用程式。 完成之後，您就會有在 Linux 上 Azure App Service 中執行的 Django Web 應用程式。
 
-![Linux 上 App Service 中的 Python Django Web 應用程式](./media/tutorial-python-postgresql-app/django-admin-azure.png)
+![Linux 上 Azure App Service 中的 Python Django Web 應用程式](./media/tutorial-python-postgresql-app/run-python-django-app-in-azure.png)
 
 在本教學課程中，您會了解如何：
 
@@ -144,7 +147,7 @@ Quit the server with CONTROL-C.
 
 移至 `http://localhost:8000/admin`，然後使用您在上一個步驟中建立的管理使用者來登入。 選取 [問題]  旁的 [新增]  ，然後建立具有一些選項的投票問題。
 
-![在本機執行的 Python Django 應用程式](./media/tutorial-python-postgresql-app/django-admin-local.png)
+![在本機 App Service 中執行 Python Django 應用程式](./media/tutorial-python-postgresql-app/run-python-django-app-locally.png)
 
 再次移至 `http://localhost:8000`，然後查看所顯示的投票問題。
 
@@ -273,7 +276,7 @@ python manage.py runserver
 
 移至 `http://localhost:8000/admin`，然後使用您建立的管理使用者登入，並建立如同前面的投票問題。
 
-![在本機執行的 Python Django 應用程式](./media/tutorial-python-postgresql-app/django-admin-local.png)
+![在本機 App Service 中執行 Python Django 應用程式](./media/tutorial-python-postgresql-app/run-python-django-app-locally.png)
 
 再次移至 `http://localhost:8000`，然後查看所顯示的投票問題。 應用程式現在會將資料寫入 Azure 中的資料庫。
 
@@ -388,7 +391,7 @@ App Service 會藉由尋找每個子目錄中的 wsgi.py  (預設會由 `manage.
 
 移至 `<app-name>.azurewebsites.net`，然後使用您建立的同一個管理使用者來登入。 如有需要，也可嘗試再建立一些投票問題。
 
-![在本機執行的 Python Django 應用程式](./media/tutorial-python-postgresql-app/django-admin-azure.png)
+![在 Azure App Service 中執行 Python Django 應用程式](./media/tutorial-python-postgresql-app/run-python-django-app-in-azure.png)
 
 **恭喜！** 您正在適用於 Linux 的 Azure App Service 中執行 Python (Django) Web 應用程式。
 
@@ -402,11 +405,11 @@ App Service 會藉由尋找每個子目錄中的 wsgi.py  (預設會由 `manage.
 
 從左側功能表，選取 [應用程式服務]  ，然後選取 Azure 應用程式的名稱。
 
-![入口網站瀏覽至 Azure 應用程式](./media/tutorial-python-postgresql-app/app-resource.png)
+![瀏覽至您在 Azure 入口網站中的 Python Django 應用程式](./media/tutorial-python-postgresql-app/navigate-to-django-app-in-app-services-in-the-azure-portal.png)
 
 根據預設，入口網站會顯示應用程式的 [概觀]  頁面。 此頁面可讓您檢視應用程式的執行方式。 您也可以在這裡執行基本管理工作，像是瀏覽、停止、啟動、重新啟動及刪除。 分頁左側的索引標籤會顯示您可開啟的各種設定分頁。
 
-![Azure 入口網站中的 App Service 頁面](./media/tutorial-python-postgresql-app/app-mgmt.png)
+![在 Azure 入口網站的 [概觀] 頁面中管理您的 Python Django 應用程式](./media/tutorial-python-postgresql-app/manage-django-app-in-app-services-in-the-azure-portal.png)
 
 [!INCLUDE [cli-samples-clean-up](../../../includes/cli-samples-clean-up.md)]
 

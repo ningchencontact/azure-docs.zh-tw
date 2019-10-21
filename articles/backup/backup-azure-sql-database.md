@@ -7,12 +7,12 @@ ms.service: backup
 ms.topic: tutorial
 ms.date: 06/18/2019
 ms.author: dacurwin
-ms.openlocfilehash: 1482ac4b885507e37ba5972065810682c19bebed
-ms.sourcegitcommit: 7868d1c40f6feb1abcafbffcddca952438a3472d
+ms.openlocfilehash: 202d608e5d994cabd3d7e2e9a0887c8aab75af31
+ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71958469"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72437830"
 ---
 # <a name="about-sql-server-backup-in-azure-vms"></a>關於 Azure VM 中的 SQL Server 備份
 
@@ -24,7 +24,7 @@ SQL Server 資料庫是需要低復原點目標 (RPO) 和長期保留的重要�
 
 * 在您指定想要保護的 SQL Server VM 並查詢此 VM 中的資料庫之後，Azure 備份服務會在此 VM 上安裝名為 `AzureBackupWindowsWorkload` 的工作負載備份擴充功能。
 * 此延伸模組是由一個協調器和一個 SQL 外掛程式所組成。 協調器負責觸發各種作業 (例如設定備份、備份和還原) 的工作流程，而外掛程式則負責實際的資料流程。
-* 為了能夠在此 VM 上探索資料庫，「Azure 備份」會建立 `NT SERVICE\AzureWLBackupPluginSvc` 帳戶。 此帳戶會用於備份和還原，且必須具備 SQL 系統管理員 (sysadmin) 權限。 「Azure 備份」會利用 `NT AUTHORITY\SYSTEM` 帳戶來進行資料庫探索/查詢，因此這個帳戶必須是 SQL 上的公開登入帳戶。 如果您尚未從 Azure Marketplace 建立 SQL Server VM，您可能會收到 **UserErrorSQLNoSysadminMembership** 錯誤。 若發生此狀況，請[依照下列指示操作](#set-vm-permissions)。
+* 為了能夠在此 VM 上探索資料庫，「Azure 備份」會建立 `NT SERVICE\AzureWLBackupPluginSvc` 帳戶。 此帳戶會用於備份和還原，且必須具備 SQL 系統管理員 (sysadmin) 權限。 `NT SERVICE\AzureWLBackupPluginSvc` 帳戶是[虛擬服務帳戶](https://docs.microsoft.com/windows/security/identity-protection/access-control/service-accounts#virtual-accounts)，因此不需要管理密碼。 「Azure 備份」會利用 `NT AUTHORITY\SYSTEM` 帳戶來進行資料庫探索/查詢，因此這個帳戶必須是 SQL 上的公開登入帳戶。 如果您尚未從 Azure Marketplace 建立 SQL Server VM，您可能會收到 **UserErrorSQLNoSysadminMembership** 錯誤。 若發生此狀況，請[依照下列指示操作](#set-vm-permissions)。
 * 在您於選取的資料庫上觸發設定保護之後，備份服務便會為協調器設定備份排程及其他原則詳細資料，延伸模組會將這些都快取在 VM 本機。
 * 在排定的時間，協調器會與外掛程式進行通訊，然後使用 VDI 開始從 SQL Server 串流處理備份資料。  
 * 外掛程式會將資料直接傳送給復原服務保存庫，因此不需要暫存位置。 「Azure 備份」服務會將資料加密並儲存在儲存體帳戶中。
@@ -62,32 +62,33 @@ Azure 備份最近宣布支援 [EOS SQL Server](https://docs.microsoft.com/azure
 
 ## <a name="feature-consideration-and-limitations"></a>功能考量和限制
 
-- 您可以透過 Azure 入口網站或 **PowerShell** 來設定 SQL Server 備份。 我們不支援 CLI。
-- 有兩種[部署](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-deployment-model)支援此解決方案 - Azure Resource Manager VM 和傳統 VM。
-- 執行 SQL Server 的 VM 需要有網際網路連線能力，才能存取 Azure 公用 IP 位址。
-- 不支援 SQL Server **容錯移轉叢集執行個體 (FCI)** 和 SQL Server Always On 容錯移轉叢集執行個體。
-- 不支援鏡像資料庫和資料庫快照集的備份和還原作業。
-- 使用多個備份解決方案來備份獨立 SQL Server 執行個體或 SQL Always On 可用性群組可能會導致備份失敗；請避免這麼做。
-- 使用相同或不同的解決方案來備份可用性群組的兩個節點，也可能導致備份失敗。
-- 「Azure 備份」針對**唯讀**資料庫僅支援「完整」和「只複製完整」備份
-- 無法保護含有大量檔案的資料庫。 支援的檔案數目上限為 **1000** 個。  
-- 您最多可在保存庫中備份 **2000** 個 SQL Server 資料庫。 如果您有更多資料庫，則可以建立多個保存庫。
-- 您最多可以一次設定 **50** 個資料庫的備份；此限制有助於將備份負載最佳化。
-- 我們可支援的資料庫大小上限為 **2 TB**；如果大小超出此上限，則可能發生效能問題。
-- 若要瞭解每一伺服器可保護多少個資料庫，我們需要考慮頻寬、VM 大小、備份頻率、資料庫大小等因素。請[下載](https://download.microsoft.com/download/A/B/5/AB5D86F0-DCB7-4DC3-9872-6155C96DE500/SQL%20Server%20in%20Azure%20VM%20Backup%20Scale%20Calculator.xlsx)資源規劃工具；此工具會根據 VM 資源和備份原則，提供您在每個伺服器上可擁有的約略資料庫數目。
-- 如果是可用性群組，則會根據幾個因素，從不同節點進行備份。 可用性群組的備份行為摘述於下方。
+* 您可以透過 Azure 入口網站或 **PowerShell** 來設定 SQL Server 備份。 我們不支援 CLI。
+* 有兩種[部署](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-deployment-model)支援此解決方案 - Azure Resource Manager VM 和傳統 VM。
+* 執行 SQL Server 的 VM 需要有網際網路連線能力，才能存取 Azure 公用 IP 位址。
+* 不支援 SQL Server **容錯移轉叢集執行個體 (FCI)** 和 SQL Server Always On 容錯移轉叢集執行個體。
+* 不支援鏡像資料庫和資料庫快照集的備份和還原作業。
+* 使用多個備份解決方案來備份獨立 SQL Server 執行個體或 SQL Always On 可用性群組可能會導致備份失敗；請避免這麼做。
+* 使用相同或不同的解決方案來備份可用性群組的兩個節點，也可能導致備份失敗。
+* 「Azure 備份」針對**唯讀**資料庫僅支援「完整」和「只複製完整」備份
+* 無法保護含有大量檔案的資料庫。 支援的檔案數目上限為 **1000** 個。  
+* 您最多可在保存庫中備份 **2000** 個 SQL Server 資料庫。 如果您有更多資料庫，則可以建立多個保存庫。
+* 您最多可以一次設定 **50** 個資料庫的備份；此限制有助於將備份負載最佳化。
+* 我們可支援的資料庫大小上限為 **2 TB**；如果大小超出此上限，則可能發生效能問題。
+* 若要瞭解每一伺服器可保護多少個資料庫，我們需要考慮頻寬、VM 大小、備份頻率、資料庫大小等因素。請[下載](https://download.microsoft.com/download/A/B/5/AB5D86F0-DCB7-4DC3-9872-6155C96DE500/SQL%20Server%20in%20Azure%20VM%20Backup%20Scale%20Calculator.xlsx)資源規劃工具；此工具會根據 VM 資源和備份原則，提供您在每個伺服器上可擁有的約略資料庫數目。
+* 如果是可用性群組，則會根據幾個因素，從不同節點進行備份。 可用性群組的備份行為摘述於下方。
 
 ### <a name="back-up-behavior-in-case-of-always-on-availability-groups"></a>Alaways On 可用性群組的備份行為
 
 建議僅在 AG 的一個節點上設定備份。 備份應該一律設定於與主要節點相同的區域中。 換句話說，您設定備份的區域中一定要出現主要節點。 如果 AG 的所有節點都位於備份設定所在的相同區域中，則沒有任何疑慮。
 
-**若為跨區域 AG**
-- 不論備份喜好設定為何，都不會從不在備份設定所在相同區域中的節點進行備份。 這是因為不支援跨區域備份。 如果您只有兩個節點，而第二個節點位於其他區域，在此情況下，將從主要節點繼續進行備份 (除非您的備份喜好設定為「僅限次要」)。
-- 如果備份設定所在區域以外的區域發生容錯移轉，則備份會在已容錯移轉區域中的節點發生失敗。
+#### <a name="for-cross-region-ag"></a>若為跨區域 AG
+
+* 不論備份喜好設定為何，都不會從不在備份設定所在相同區域中的節點進行備份。 這是因為不支援跨區域備份。 如果您只有兩個節點，而第二個節點位於其他區域，在此情況下，將從主要節點繼續進行備份 (除非您的備份喜好設定為「僅限次要」)。
+* 如果備份設定所在區域以外的區域發生容錯移轉，則備份會在已容錯移轉區域中的節點發生失敗。
 
 視備份喜好設定和備份類型 (完整/差異/記錄/只複製完整) 而定，會從特定節點 (主要/次要) 進行備份。
 
-- **備份喜好設定：主要**
+* **備份喜好設定：主要**
 
 **備份類型** | **Node**
     --- | ---
@@ -96,7 +97,7 @@ Azure 備份最近宣布支援 [EOS SQL Server](https://docs.microsoft.com/azure
     記錄檔 |  主要
     只複製完整 |  主要
 
-- **備份喜好設定：僅次要**
+* **備份喜好設定：僅次要**
 
 **備份類型** | **Node**
 --- | ---
@@ -105,7 +106,7 @@ Azure 備份最近宣布支援 [EOS SQL Server](https://docs.microsoft.com/azure
 記錄檔 |  次要
 只複製完整 |  次要
 
-- **備份喜好設定：次要**
+* **備份喜好設定：次要**
 
 **備份類型** | **Node**
 --- | ---
@@ -114,7 +115,7 @@ Azure 備份最近宣布支援 [EOS SQL Server](https://docs.microsoft.com/azure
 記錄檔 |  次要
 只複製完整 |  次要
 
-- **沒有備份喜好設定**
+* **沒有備份喜好設定**
 
 **備份類型** | **Node**
 --- | ---
@@ -227,7 +228,6 @@ catch
     Write-Host $_.Exception|format-list -force
 }
 ```
-
 
 ## <a name="next-steps"></a>後續步驟
 

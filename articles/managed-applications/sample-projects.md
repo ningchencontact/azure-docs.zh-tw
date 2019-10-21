@@ -1,6 +1,6 @@
 ---
 title: Azure 受控應用程式範例專案 | Microsoft Docs
-description: 摘要說明適用於 Azure 受控應用程式之範例專案
+description: 提供可用於 Azure 受控應用程式的專案範例摘要。
 services: managed-applications
 documentationcenter: na
 author: tfitzmac
@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/04/2019
 ms.author: tomfitz
-ms.openlocfilehash: 4b046b25e81e7b90e71ce57aea17fab3e80e52f9
-ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
+ms.openlocfilehash: 8c041777f335f3ba2d6520db2bf8d5a6d1796ef1
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70309162"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72332598"
 ---
 # <a name="sample-projects-for-azure-managed-applications"></a>適用於 Azure 受控應用程式之範例專案
 

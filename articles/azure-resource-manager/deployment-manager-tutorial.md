@@ -5,15 +5,15 @@ services: azure-resource-manager
 documentationcenter: ''
 author: mumian
 ms.service: azure-resource-manager
-ms.date: 05/23/2019
+ms.date: 10/10/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 97d9aa1ed9440011fdaab3aa8eb9d3942b5a8acf
-ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
+ms.openlocfilehash: 3f10093b1d3087e87279258d04d86fc3d47ba313
+ms.sourcegitcommit: e0a1a9e4a5c92d57deb168580e8aa1306bd94723
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72170371"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72285900"
 ---
 # <a name="tutorial-use-azure-deployment-manager-with-resource-manager-templates-public-preview"></a>教學課程：使用 Azure 部署管理員搭配 Resource Manager 範本 (公開預覽)
 
@@ -61,8 +61,6 @@ ms.locfileid: "72170371"
     ```powershell
     Install-Module -Name Az.DeploymentManager
     ```
-
-* [Microsoft Azure 儲存體總管](https://azure.microsoft.com/features/storage-explorer/)。 您不一定要使用 Azure 儲存體總管，但若使用操作會更輕鬆。
 
 ## <a name="understand-the-scenario"></a>了解案例
 
@@ -135,16 +133,55 @@ ms.locfileid: "72170371"
 
 範本成品由服務拓撲範本使用，二進位成品則由首度發行範本使用。 拓撲範本和首度發行範本都會定義成品來源 Azure 資源，此資源會用來將 Resource Manager 指向部署中使用的範本和二進位成品。 為了簡化本教學課程，我們使用一個儲存體帳戶來儲存範本成品和二進位成品。 這兩個成品來源指向相同的儲存體帳戶。
 
-1. 建立 Azure 儲存體帳戶。 如需指示，請參閱[快速入門：使用 Azure 入口網站上傳、下載及列出 Blob](../storage/blobs/storage-quickstart-blobs-portal.md)。
-2. 在儲存體帳戶中建立 Blob 容器。
-3. 將兩個資料夾 (binaries 和 templates) 和兩個資料夾的內容複製到 Blob 容器。 [Microsoft Azure 儲存體總管](https://go.microsoft.com/fwlink/?LinkId=708343&clcid=0x409)支援拖放功能。
-4. 使用下列指示取得容器的 SAS 位置：
+執行下列 PowerShell 指令碼來建立資源群組、建立儲存體容器、建立 Blob 容器、上傳下載的檔案，然後建立 SAS 權杖。
 
-    1. 在 Azure 儲存體總管中，瀏覽至 Blob 容器。
-    2. 在左窗格中以滑鼠右鍵按一下 Blob 容器，然後選取 [取得共用存取簽章]  。
-    3. 設定 [開始時間]  和 [到期時間]  。
-    4. 選取 [建立]  。
-    5. 複製 URL。 此 URL 必須填入下列兩個參數檔案的欄位中：[拓樸參數檔案](#topology-parameters-file)和[首度發行參數檔案](#rollout-parameters-file)。
+> [!IMPORTANT]
+> PowerShell 指令碼中的 **projectName** 用來為本教學課程中部署的 Azure 服務產生名稱。 不同的 Azure 服務有不同的名稱需求。 若要確保成功部署，請選擇小於 12 個字元且僅有小寫字母和數字的名稱。
+> 儲存專案名稱的複本。 您會在整個教學課程中使用相同的 projectName。
+
+```azurepowershell
+$projectName = Read-Host -Prompt "Enter a project name that is used to generate Azure resource names"
+$location = Read-Host -Prompt "Enter the location (i.e. centralus)"
+$filePath = Read-Host -Prompt "Enter the folder that contains the downloaded files"
+
+
+$resourceGroupName = "${projectName}rg"
+$storageAccountName = "${projectName}store"
+$containerName = "admfiles"
+$filePathArtifacts = "${filePath}\ArtifactStore"
+
+New-AzResourceGroup -Name $resourceGroupName -Location $location
+
+$storageAccount = New-AzStorageAccount -ResourceGroupName $resourceGroupName `
+  -Name $storageAccountName `
+  -Location $location `
+  -SkuName Standard_RAGRS `
+  -Kind StorageV2
+
+$storageContext = $storageAccount.Context
+
+$storageContainer = New-AzStorageContainer -Name $containerName -Context $storageContext -Permission Off
+
+
+$filesToUpload = Get-ChildItem $filePathArtifacts -Recurse -File
+
+foreach ($x in $filesToUpload) {
+    $targetPath = ($x.fullname.Substring($filePathArtifacts.Length + 1)).Replace("\", "/")
+
+    Write-Verbose "Uploading $("\" + $x.fullname.Substring($filePathArtifacts.Length + 1)) to $($storageContainer.CloudBlobContainer.Uri.AbsoluteUri + "/" + $targetPath)"
+    Set-AzStorageBlobContent -File $x.fullname -Container $storageContainer.Name -Blob $targetPath -Context $storageContext | Out-Null
+}
+
+$token = New-AzStorageContainerSASToken -name $containerName -Context $storageContext -Permission rl -ExpiryTime (Get-date).AddMonths(1)  -Protocol HttpsOrHttp
+
+$url = $storageAccount.PrimaryEndpoints.Blob + $containerName + $token
+
+Write-Host $url
+```
+
+使用 SAS 權杖複製 URL 複本。 此 URL 必須填入下列兩個參數檔案的欄位中：拓樸參數檔案和首度發行參數檔案。
+
+從 Azure 入口網站開啟容器，並確認 **binaries** 和 **templates** 資料夾和檔案已上傳。
 
 ## <a name="create-the-user-assigned-managed-identity"></a>建立使用者指派的受控識別
 
@@ -176,9 +213,7 @@ ms.locfileid: "72170371"
 
 範本包含下列參數：
 
-![Azure 部署管理員教學課程拓撲範本參數](./media/deployment-manager-tutorial/azure-deployment-manager-tutorial-topology-template-parameters.png)
-
-* **namePrefix**：此前置詞用來建立部署管理員資源的名稱。 例如，若使用 "jdoe" 前置詞，服務拓撲名稱將是 **jdoe**ServiceTopology。  資源名稱會定義在此範本的變數區段中。
+* **projectName**：此名稱用來建立部署管理員資源的名稱。 例如，若使用 "jdoe"，服務拓撲名稱將是 **jdoe**ServiceTopology。  資源名稱會定義在此範本的變數區段中。
 * **azureResourcelocation**：為了簡化本教學課程，所有資源都會共用此位置，除非另有指定。 目前，Azure 部署管理員資源只能在**美國中部**或**美國東部 2** 建立。
 * **artifactSourceSASLocation**：部署的服務單位範本和參數檔案儲存所在 Blob 容器的 SAS URI。  請參閱[準備成品](#prepare-the-artifacts)。
 * **templateArtifactRoot**：範本和參數儲存所在 Blob 容器的位移路徑。 預設值為 **templates/1.0.0.0**。 除非您要變更[準備成品](#prepare-the-artifacts)中說明的資料夾結構，否則請勿變更此值。 本教學課程會使用相對路徑。  完整路徑由 **artifactSourceSASLocation**、**templateArtifactRoot** 和 **templateArtifactSourceRelativePath** (或 **parametersArtifactSourceRelativePath**) 串連建構而成。
@@ -215,14 +250,13 @@ ms.locfileid: "72170371"
 1. 在 Visual Studio Code 或任何文字編輯器中開啟 **\ADMTemplates\CreateADMServiceTopology.Parameters**。
 2. 填入參數值：
 
-    * **namePrefix**：輸入含有 4-5 個字元的字串。 此前置詞用來建立唯一的 Azure 資源名稱。
+    * **projectName**：輸入含有 4-5 個字元的字串。 此名稱用來建立唯一的 Azure 資源名稱。
     * **azureResourceLocation**：如果您不確定 Azure 位置，在本教學課程中請使用 **centralus**。
     * **artifactSourceSASLocation**：輸入部署的服務單位範本和參數檔案儲存所在的根目錄 (Blob 容器) 的 SAS URI。  請參閱[準備成品](#prepare-the-artifacts)。
     * **templateArtifactRoot**：除非您變更了成品的資料夾結構，否則在本教學課程中請使用 **templates/1.0.0.0**。
-    * **targetScriptionID**：輸入您的 Azure 訂用帳戶 ID。
 
 > [!IMPORTANT]
-> 拓撲範本和首度發行範本會共用一些通用的參數。 這些參數必須具有相同的值。 這些參數是：**namePrefix**、**azureResourceLocation** 和 **artifactSourceSASLocation** (在本教學課程中，兩個成品來源會共用相同的儲存體帳戶)。
+> 拓撲範本和首度發行範本會共用一些通用的參數。 這些參數必須具有相同的值。 這些參數是：**projectName**、**azureResourceLocation** 和 **artifactSourceSASLocation** (在本教學課程中，兩個成品來源會共用相同的儲存體帳戶)。
 
 ## <a name="create-the-rollout-template"></a>建立首度發行範本
 
@@ -234,7 +268,7 @@ ms.locfileid: "72170371"
 
 ![Azure 部署管理員教學課程首度發行範本參數](./media/deployment-manager-tutorial/azure-deployment-manager-tutorial-rollout-template-parameters.png)
 
-* **namePrefix**：此前置詞用來建立部署管理員資源的名稱。 例如，若使用 "jdoe" 前置詞，首度發行檔案名稱將是 **jdoe**Rollout。  名稱會定義在範本的變數區段中。
+* **projectName**：此名稱用來建立部署管理員資源的名稱。 例如，若使用 "jdoe"，首度發行檔案名稱將是 **jdoe**Rollout。  名稱會定義在範本的變數區段中。
 * **azureResourcelocation**：為了簡化本教學課程，所有部署管理員資源都會共用此位置，除非另有指定。 目前，Azure 部署管理員資源只能在**美國中部**或**美國東部 2** 建立。
 * **artifactSourceSASLocation**：部署的服務單位範本和參數檔案儲存所在的根目錄 (Blob 容器) 的 SAS URI。  請參閱[準備成品](#prepare-the-artifacts)。
 * **binaryArtifactRoot**：預設值為 **binaries/1.0.0.0**。 除非您要變更[準備成品](#prepare-the-artifacts)中說明的資料夾結構，否則請勿變更此值。 本教學課程會使用相對路徑。  完整路徑由 CreateWebApplicationParameters.json 中指定的 **artifactSourceSASLocation**、**binaryArtifactRoot** 和 **deployPackageUri** 串連建構而成。  請參閱[準備成品](#prepare-the-artifacts)。
@@ -276,7 +310,7 @@ ms.locfileid: "72170371"
 1. 在 Visual Studio Code 或任何文字編輯器中開啟 **\ADMTemplates\CreateADMRollout.Parameters**。
 2. 填入參數值：
 
-    * **namePrefix**：輸入含有 4-5 個字元的字串。 此前置詞用來建立唯一的 Azure 資源名稱。
+    * **projectName**：輸入含有 4-5 個字元的字串。 此名稱用來建立唯一的 Azure 資源名稱。
     * **azureResourceLocation**：目前，Azure 部署管理員資源只能在**美國中部**或**美國東部 2** 建立。
     * **artifactSourceSASLocation**：輸入部署的服務單位範本和參數檔案儲存所在的根目錄 (Blob 容器) 的 SAS URI。  請參閱[準備成品](#prepare-the-artifacts)。
     * **binaryArtifactRoot**：除非您變更了成品的資料夾結構，否則在本教學課程中請使用 **binaries/1.0.0.0**。
@@ -287,7 +321,7 @@ ms.locfileid: "72170371"
         ```
 
 > [!IMPORTANT]
-> 拓撲範本和首度發行範本會共用一些通用的參數。 這些參數必須具有相同的值。 這些參數是：**namePrefix**、**azureResourceLocation** 和 **artifactSourceSASLocation** (在本教學課程中，兩個成品來源會共用相同的儲存體帳戶)。
+> 拓撲範本和首度發行範本會共用一些通用的參數。 這些參數必須具有相同的值。 這些參數是：**projectName**、**azureResourceLocation** 和 **artifactSourceSASLocation** (在本教學課程中，兩個成品來源會共用相同的儲存體帳戶)。
 
 ## <a name="deploy-the-templates"></a>部署範本
 
@@ -296,19 +330,14 @@ Azure PowerShell 可用來部署範本。
 1. 執行部署服務拓撲的指令碼。
 
     ```azurepowershell
-    $resourceGroupName = "<Enter a Resource Group Name>"
-    $location = "Central US"
-    $filePath = "<Enter the File Path to the Downloaded Tutorial Files>"
-
-    # Create a resource group
-    New-AzResourceGroup -Name $resourceGroupName -Location "$location"
-
     # Create the service topology
     New-AzResourceGroupDeployment `
         -ResourceGroupName $resourceGroupName `
         -TemplateFile "$filePath\ADMTemplates\CreateADMServiceTopology.json" `
         -TemplateParameterFile "$filePath\ADMTemplates\CreateADMServiceTopology.Parameters.json"
     ```
+
+    如果您執行此指令碼的 PowerShell 工作階段與用來執行[準備成品](#prepare-the-artifacts)指令碼的工作階段不同，則您必須先重新填入變數，包括 **$resourceGroupName** 和 **$filePath**。
 
     > [!NOTE]
     > `New-AzResourceGroupDeployment` 是非同步呼叫。 成功訊息只表示部署已成功開始。 若要確認部署，請參閱此程序的步驟 2 和步驟 4。
@@ -333,7 +362,7 @@ Azure PowerShell 可用來部署範本。
 
     ```azurepowershell
     # Get the rollout status
-    $rolloutname = "<Enter the Rollout Name>" # "adm0925Rollout" is the rollout name used in this tutorial
+    $rolloutname = "${projectName}Rollout" # "adm0925Rollout" is the rollout name used in this tutorial
     Get-AzDeploymentManagerRollout `
         -ResourceGroupName $resourceGroupName `
         -Name $rolloutName `
@@ -424,9 +453,9 @@ Azure PowerShell 可用來部署範本。
 1. 在 Azure 入口網站中，選取左側功能表中的 [資源群組]  。
 2. 使用 [依名稱篩選]  欄位，縮減在本教學課程中建立的資源群組數目。 應該會有 3-4 個：
 
-    * **&lt;namePrefix>rg**：包含部署管理員資源。
-    * **&lt;namePrefix>ServiceWUSrg**：包含 ServiceWUS 所定義的資源。
-    * **&lt;namePrefix>ServiceEUSrg**：包含 ServiceEUS 所定義的資源。
+    * **&lt;projectName>rg**：包含部署管理員資源。
+    * **&lt;projectName>ServiceWUSrg**：包含 ServiceWUS 所定義的資源。
+    * **&lt;projectName>ServiceEUSrg**：包含 ServiceEUS 所定義的資源。
     * 使用者定義受控識別的資源群組。
 3. 選取資源群組名稱。
 4. 從頂端功能表中選取 [刪除資源群組]  。

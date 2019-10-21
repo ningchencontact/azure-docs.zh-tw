@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 09/19/2019
 ms.author: yulili
-ms.openlocfilehash: 832525ae1441fca85f8df661b4a187c0be8d91dc
-ms.sourcegitcommit: 4f3f502447ca8ea9b932b8b7402ce557f21ebe5a
+ms.openlocfilehash: c66e321618b46d52f791f95dab570e3721e806a9
+ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71803858"
+ms.lasthandoff: 10/13/2019
+ms.locfileid: "72299219"
 ---
 # <a name="quickstart-synthesize-speech-with-the-speech-sdk-for-java"></a>快速入門：使用適用於 Java 的語音 SDK 來合成語音
 
@@ -79,7 +79,7 @@ ms.locfileid: "71803858"
 ## <a name="build-and-run-the-app"></a>建置並執行應用程式
 
 按 F11 鍵，或選取 [執行]   > [偵錯]  。
-在出現提示時輸入文字，您就會聽到預設的喇叭播放的合成音訊。
+在出現提示時輸入文字，您就會聽到預設喇叭播放的合成音訊。
 
 ## <a name="next-steps"></a>後續步驟
 

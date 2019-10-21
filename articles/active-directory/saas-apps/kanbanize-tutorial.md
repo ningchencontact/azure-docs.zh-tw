@@ -1,5 +1,5 @@
 ---
-title: 教學課程：Azure Active Directory 與 Kanbanize 整合 | Microsoft Docs
+title: 教學課程：Azure Active Directory 單一登入 (SSO) 與 Kanbanize 整合 | Microsoft Docs
 description: 了解如何設定 Azure Active Directory 與 Kanbanize 之間的單一登入。
 services: active-directory
 documentationCenter: na
@@ -13,17 +13,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 08/07/2019
+ms.date: 10/09/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 69103ea0e6088b4a823df34ebd982c67e2502cb3
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: 7c5a3a096c5a44f681d23587837ae31fd1af33b2
+ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68879530"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72373217"
 ---
-# <a name="tutorial-integrate-kanbanize-with-azure-active-directory"></a>教學課程：整合 Kanbanize 與 Azure Active Directory
+# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-kanbanize"></a>教學課程：Azure Active Directory 單一登入 (SSO) 與 Kanbanize 整合
 
 在本教學課程中，您將了解如何整合 Kanbanize 與 Azure Active Directory (Azure AD)。 在整合 Kanbanize 與 Azure AD 時，您可以︰
 
@@ -58,20 +58,20 @@ ms.locfileid: "68879530"
 1. 在 [從資源庫新增]  區段的搜尋方塊中輸入 **Kanbanize**。
 1. 從結果面板選取 [Kanbanize]  ，然後新增應用程式。 當應用程式新增至您的租用戶時，請等候幾秒鐘。
 
-## <a name="configure-and-test-azure-ad-single-sign-on"></a>設定和測試 Azure AD 單一登入
+## <a name="configure-and-test-azure-ad-single-sign-on-for-kanbanize"></a>設定及測試 Kanbanize 的 Azure AD 單一登入
 
 以名為 **B.Simon** 的測試使用者，設定及測試與 Kanbanize 搭配運作的 Azure AD SSO。 若要讓 SSO 能夠運作，您必須建立 Azure AD 使用者與 Kanbanize 中相關使用者之間的連結關聯性。
 
 若要設定及測試與 Kanbanize 搭配運作的 Azure AD SSO，請完成下列建構元素：
 
 1. **[設定 Azure AD SSO](#configure-azure-ad-sso)** - 讓您的使用者能夠使用此功能。
-2. **[設定 Kanbanize SSO](#configure-kanbanize-sso)** - 在應用程式端設定單一登入設定。
-3. **[建立 Azure AD 測試使用者](#create-an-azure-ad-test-user)** - 使用 B.Simon 測試 Azure AD 單一登入。
-4. **[指派 Azure AD 測試使用者](#assign-the-azure-ad-test-user)** - 讓 B.Simon 能夠使用 Azure AD 單一登入。
-5. **[建立 Kanbanize 測試使用者](#create-kanbanize-test-user)** - 讓 Kanbanize 中對應的 B.Simon 連結到使用者在 Azure AD 中的代表項目。
-6. **[測試 SSO](#test-sso)** - 驗證組態是否能運作。
+    1. **[建立 Azure AD 測試使用者](#create-an-azure-ad-test-user)** - 使用 B.Simon 測試 Azure AD 單一登入。
+    1. **[指派 Azure AD 測試使用者](#assign-the-azure-ad-test-user)** - 讓 B.Simon 能夠使用 Azure AD 單一登入。
+1. **[設定 Kanbanize SSO](#configure-kanbanize-sso)** - 在應用程式端設定單一登入設定。
+    1. **[建立 Kanbanize 測試使用者](#create-kanbanize-test-user)** - 讓 Kanbanize 中對應的 B.Simon 連結到使用者在 Azure AD 中的代表項目。
+1. **[測試 SSO](#test-sso)** - 驗證組態是否能運作。
 
-### <a name="configure-azure-ad-sso"></a>設定 Azure AD SSO
+## <a name="configure-azure-ad-sso"></a>設定 Azure AD SSO
 
 依照下列步驟在 Azure 入口網站中啟用 Azure AD SSO。
 
@@ -83,7 +83,7 @@ ms.locfileid: "68879530"
 
 1. 在 [基本 SAML 設定]  區段上，如果您想要以 **IDP** 起始模式設定應用程式，請輸入下列欄位的值：
 
-    a. 在 [識別碼]  文字方塊中，使用下列模式來輸入 URL：`https://<subdomain>.kanbanize.com/`
+     a. 在 [識別碼]  文字方塊中，使用下列模式來輸入 URL：`https://<subdomain>.kanbanize.com/`
 
     b. 在 [回覆 URL]  文字方塊中，使用下列模式來輸入 URL：`https://<subdomain>.kanbanize.com/saml/acs`
 
@@ -109,47 +109,6 @@ ms.locfileid: "68879530"
 1. 在 [設定 Kanbanize]  區段上，根據您的需求複製適當的 URL。
 
     ![複製組態 URL](common/copy-configuration-urls.png)
-
-### <a name="configure-kanbanize-sso"></a>設定 Kanbanize SSO
-
-1. 在不同的 Web 瀏覽器視窗中，以安全性系統管理員身分登入 Kanbanize。
-
-2. 移至頁面的右上方，按一下 [設定]  標誌。
-
-    ![Kanbanize 設定](./media/kanbanize-tutorial/tutorial-kanbanize-set.png)
-
-3. 從功能表左側的 [系統管理面板] 頁面上，按一下 [整合]  ，然後再啟用 [單一登入]  。
-
-    ![Kanbanize 整合](./media/kanbanize-tutorial/tutorial-kanbanize-admin.png)
-
-4. 在 [整合] 區段下，按一下 [設定]  來開啟 [單一登入整合]  頁面。
-
-    ![Kanbanize 組態](./media/kanbanize-tutorial/tutorial-kanbanize-config.png)
-
-5. 在 [單一登入整合]  頁面的 [設定]  底下，執行下列步驟：
-
-    ![Kanbanize 整合](./media/kanbanize-tutorial/tutorial-kanbanize-save.png)
-
-    a. 在 [Idp 實體識別碼]  文字方塊中，貼上您從 Azure 入口網站複製的 [Azure AD 識別碼]  值。
-
-    b. 在 [Idp 登入端點]  文字方塊中，貼上您從 Azure 入口網站複製的 [登入 URL]  值。
-
-    c. 在 [Idp 登出端點]  文字方塊中，貼上您從 Azure 入口網站複製的 [登出 URL]  值。
-
-    d. 在 [電子郵件的屬性名稱]  文字方塊中，輸入此值 `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`
-
-    e. 在 [名字的屬性名稱]  文字方塊中，輸入此值 `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname`
-
-    f. 在 [姓氏的屬性名稱]  文字方塊中，輸入此值 `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname`
-
-    > [!Note]
-    > 您可以從 Azure 入口網站的 [使用者屬性] 區段中，結合命名空間與個別屬性的名稱值來取得這些值。
-
-    g. 在「記事本」中開啟從 Azure 入口網站下載的 Base 64 編碼憑證，複製其內容 (不含開始和結束標記)，然後貼到 [Idp X.509 憑證]  方塊中。
-
-    h. 勾選 [使用 SSO 和 Kanbanize 啟用登入]  。
-
-    i. 按一下 [儲存設定]  。
 
 ### <a name="create-an-azure-ad-test-user"></a>建立 Azure AD 測試使用者
 
@@ -181,11 +140,60 @@ ms.locfileid: "68879530"
 1. 如果您在 SAML 判斷提示中需要任何角色值，請在 [選取角色]  對話方塊的清單中為使用者選取適當的角色，然後按一下畫面底部的 [選取]  按鈕。
 1. 在 [新增指派]  對話方塊中，按一下 [指派]  按鈕。
 
+## <a name="configure-kanbanize-sso"></a>設定 Kanbanize SSO
+
+1. 若要自動執行 Kanbanize 內的設定，您必須按一下 [安裝擴充功能]  來安裝「我的應用程式安全登入瀏覽器擴充功能」  。
+
+    ![我的應用程式擴充功能](common/install-myappssecure-extension.png)
+
+2. 將擴充功能新增至瀏覽器之後，按一下 [設定 Kanbanize]  便會將您導向到 Kanbanize 應用程式。 請從該處提供用以登入 Kanbanize 的管理員認證。 瀏覽器延伸模組將會自動為您設定應用程式，並自動執行步驟 3 到 7。
+
+    ![設定組態](common/setup-sso.png)
+
+3. 如果您想要手動設定 Kanbanize，請開啟新的網頁瀏覽器視窗，並以系統管理員身分登入 Kanbanize 公司網站，然後執行下列步驟：
+
+4. 移至頁面的右上方，按一下 [設定]  標誌。
+
+    ![Kanbanize 設定](./media/kanbanize-tutorial/tutorial-kanbanize-set.png)
+
+5. 從功能表左側的 [系統管理面板] 頁面上，按一下 [整合]  ，然後再啟用 [單一登入]  。
+
+    ![Kanbanize 整合](./media/kanbanize-tutorial/tutorial-kanbanize-admin.png)
+
+6. 在 [整合] 區段下，按一下 [設定]  來開啟 [單一登入整合]  頁面。
+
+    ![Kanbanize 組態](./media/kanbanize-tutorial/tutorial-kanbanize-config.png)
+
+7. 在 [單一登入整合]  頁面的 [設定]  底下，執行下列步驟：
+
+    ![Kanbanize 整合](./media/kanbanize-tutorial/tutorial-kanbanize-save.png)
+
+    a. 在 [Idp 實體識別碼]  文字方塊中，貼上您從 Azure 入口網站複製的 [Azure AD 識別碼]  值。
+
+    b. 在 [Idp 登入端點]  文字方塊中，貼上您從 Azure 入口網站複製的 [登入 URL]  值。
+
+    c. 在 [Idp 登出端點]  文字方塊中，貼上您從 Azure 入口網站複製的 [登出 URL]  值。
+
+    d. 在 [電子郵件的屬性名稱]  文字方塊中，輸入此值 `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`
+
+    e. 在 [名字的屬性名稱]  文字方塊中，輸入此值 `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname`
+
+    f. 在 [姓氏的屬性名稱]  文字方塊中，輸入此值 `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname`
+
+    > [!Note]
+    > 您可以從 Azure 入口網站的 [使用者屬性] 區段中，結合命名空間與個別屬性的名稱值來取得這些值。
+
+    g. 在「記事本」中開啟從 Azure 入口網站下載的 Base 64 編碼憑證，複製其內容 (不含開始和結束標記)，然後貼到 [Idp X.509 憑證]  方塊中。
+
+    h. 勾選 [使用 SSO 和 Kanbanize 啟用登入]  。
+
+    i. 按一下 [儲存設定]  。
+
 ### <a name="create-kanbanize-test-user"></a>建立 Kanbanize 測試使用者
 
-本節會在 Kanbanize 中建立名為 Britta Simon 的使用者。 Kanbanize 支援依預設啟用的 Just-In-Time 使用者佈建。 在這一節沒有您需要進行的動作項目。 如果 Kanbanize 中還沒有任何使用者存在，在驗證之後就會建立新的使用者。 如果您需要手動建立使用者，請連絡 [Kanbanize 用戶端支援小組](mailto:support@ms.kanbanize.com)。
+本節會在 Kanbanize 中建立名為 B.Simon 的使用者。 Kanbanize 支援依預設啟用的 Just-In-Time 使用者佈建。 在這一節沒有您需要進行的動作項目。 如果 Kanbanize 中還沒有任何使用者存在，在驗證之後就會建立新的使用者。 如果您需要手動建立使用者，請連絡 [Kanbanize 用戶端支援小組](mailto:support@ms.kanbanize.com)。
 
-### <a name="test-sso"></a>測試 SSO
+## <a name="test-sso"></a>測試 SSO 
 
 在本節中，您會使用存取面板來測試您的 Azure AD 單一登入設定。
 
@@ -198,4 +206,6 @@ ms.locfileid: "68879530"
 - [什麼是搭配 Azure Active Directory 的應用程式存取和單一登入？](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [什麼是 Azure Active Directory 中的條件式存取？](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+
+- [嘗試搭配 Azure AD 使用 Kanbanize](https://aad.portal.azure.com/)
 

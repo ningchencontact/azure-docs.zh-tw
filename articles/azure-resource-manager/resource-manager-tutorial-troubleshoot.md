@@ -1,6 +1,6 @@
 ---
 title: 對 Resource Manager 部署進行疑難排解 | Microsoft Docs
-description: 了解如何對 Resource Manager 的部署進行監視和疑難排解。
+description: 了解如何對 Azure Resource Manager 範本部署進行監視和疑難排解。 顯示活動記錄和部署歷程記錄。
 services: azure-resource-manager
 documentationcenter: ''
 author: mumian
@@ -13,12 +13,12 @@ ms.devlang: na
 ms.date: 01/15/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: c889c3123160680d96889227d6964ff197dc41cc
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 4ad32ed83d731a26b6bb72fca230d00d5465c45a
+ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60388597"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72390201"
 ---
 # <a name="tutorial-troubleshoot-resource-manager-template-deployments"></a>教學課程：對 Resource Manager 範本的部署進行疑難排解
 
@@ -53,13 +53,13 @@ ms.locfileid: "60388597"
 
 從 [Azure 快速入門範本](https://azure.microsoft.com/resources/templates/)開啟名為[建立標準儲存體帳戶](https://azure.microsoft.com/resources/templates/101-storage-account-create/)的範本，並設定兩個範本問題。
 
-1. 在 Visual Studio Code 中，選取 [檔案]>[開啟檔案]。
-2. 在 [檔案名稱] 中，貼上下列 URL：
+1. 在 Visual Studio Code 中，選取 [檔案]  >[開啟檔案]  。
+2. 在 [檔案名稱]  中，貼上下列 URL：
 
     ```url
     https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-storage-account-create/azuredeploy.json
     ```
-3. 選取 [開啟] 以開啟檔案。
+3. 選取 [開啟]  以開啟檔案。
 4. 將 **apiVersion** 行變更為以下這一行：
 
     ```json
@@ -68,7 +68,7 @@ ms.locfileid: "60388597"
     - **apiVersion1** 是無效的元素名稱。 這是驗證錯誤。
     - API 版本應為 "2018-07-01"。  這是部署錯誤。
 
-5. 選取 [檔案]>[另存新檔]，在您的本機電腦上將檔案另存為 **azuredeploy.json**。
+5. 選取 [檔案]  >[另存新檔]  ，在您的本機電腦上將檔案另存為 **azuredeploy.json**。
 
 ## <a name="troubleshoot-the-validation-error"></a>對驗證錯誤進行疑難排解
 
@@ -102,10 +102,10 @@ New-AzResourceGroupDeployment : 4:48:50 PM - Resource Microsoft.Storage/storageA
 您可以使用下列程序從 Azure 入口網站找出部署錯誤：
 
 1. 登入 [Azure 入口網站](https://portal.azure.com)。
-2. 依序選取 [資源群組] 和資源群組名稱，以開啟資源群組。 您應該會在 [部署] 下方看到 [1 失敗]。
+2. 依序選取 [資源群組]  和資源群組名稱，以開啟資源群組。 您應該會在 [部署]  下方看到 [1 失敗]  。
 
     ![Resource Manager 教學課程疑難排解](./media/resource-manager-tutorial-troubleshoot/resource-manager-template-deployment-error.png)
-3. 選取 [錯誤詳細資料]。
+3. 選取 [錯誤詳細資料]  。
 
     ![Resource Manager 教學課程疑難排解](./media/resource-manager-tutorial-troubleshoot/resource-manager-template-deployment-error-details.png)
 
@@ -116,7 +116,7 @@ New-AzResourceGroupDeployment : 4:48:50 PM - Resource Microsoft.Storage/storageA
 您也可以在活動記錄中找到錯誤：
 
 1. 登入 [Azure 入口網站](https://portal.azure.com)。
-2. 選取 [監視] > [活動記錄]。
+2. 選取 [監視]   > [活動記錄]  。
 3. 使用篩選條件尋找記錄。
 
     ![Resource Manager 教學課程疑難排解](./media/resource-manager-tutorial-troubleshoot/resource-manager-template-deployment-activity-log.png)
@@ -129,10 +129,10 @@ New-AzResourceGroupDeployment : 4:48:50 PM - Resource Microsoft.Storage/storageA
 
 不再需要 Azure 資源時，可藉由刪除資源群組來清除您所部署的資源。
 
-1. 在 Azure 入口網站中，選取左側功能表中的 [資源群組]。
-2. 在 [依名稱篩選] 欄位中輸入資源群組名稱。
+1. 在 Azure 入口網站中，選取左側功能表中的 [資源群組]  。
+2. 在 [依名稱篩選]  欄位中輸入資源群組名稱。
 3. 選取資源群組名稱。  您在資源群組中應該會看到共計六個資源。
-4. 從頂端功能表中選取 [刪除資源群組]。
+4. 從頂端功能表中選取 [刪除資源群組]  。
 
 ## <a name="next-steps"></a>後續步驟
 

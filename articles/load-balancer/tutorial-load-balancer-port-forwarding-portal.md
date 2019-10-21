@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 02/26/2019
 ms.author: allensu
 ms.custom: seodec18
-ms.openlocfilehash: ee4ed818364d04f03caedc8b876ea29c41cb59b7
-ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
+ms.openlocfilehash: aa4837ec1fd8ef19eb6d0c77f946ef358becd542
+ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68273439"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72428236"
 ---
 # <a name="tutorial-configure-port-forwarding-in-azure-load-balancer-using-the-portal"></a>教學課程：使用入口網站在 Azure Load Balancer 中設定連接埠轉送
 
@@ -36,7 +36,7 @@ ms.locfileid: "68273439"
 > * 建立負載平衡器輸入 NAT 連接埠轉送規則。
 > * 在 VM 上安裝及設定 IIS 以檢視作用中的負載平衡與連接埠轉送。
 
-如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 。 
+如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)。 
 
 若要取得本教學課程中的所有步驟，請登入 Azure 入口網站，網址為：[https://portal.azure.com](https://portal.azure.com)。
 
@@ -49,9 +49,9 @@ ms.locfileid: "68273439"
 
     | 設定                 | 值                                              |
     | ---                     | ---                                                |
-    | Subscription               | 選取您的訂用帳戶。    |    
-    | Resource group         | 選取 [新建]  ，並在文字方塊中輸入 *MyResourceGroupLB*。|
-    | Name                   | *myLoadBalancer*                                   |
+    | 訂用帳戶               | 選取您的訂用帳戶。    |    
+    | 資源群組         | 選取 [新建]  ，並在文字方塊中輸入 *MyResourceGroupLB*。|
+    | 名稱                   | *myLoadBalancer*                                   |
     | 區域         | 選取 [西歐]  。                                        |
     | 類型          | 選取 [公用]  。                                        |
     | SKU           | 選取 [標準]  。                          |
@@ -235,6 +235,7 @@ ms.locfileid: "68273439"
    - **名稱**：輸入 MyNATRuleVM1  。
    - **連接埠**：輸入 4221  。
    - **目標虛擬機器**：從下拉式清單選取 [MyVM1]  。
+   - **網路 IP 設定**：從下拉式選單中選取 [ipconfig1]  。
    - **連接埠對應**：選取 [自訂]  。
    - **目標連接埠**：輸入 3389  。
    

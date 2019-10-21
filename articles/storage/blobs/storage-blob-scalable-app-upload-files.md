@@ -1,18 +1,18 @@
 ---
 title: 將大量隨機資料平行上傳至 Azure 儲存體 | Microsoft Docs
-description: 了解如何使用 Azure SDK 將大量隨機資料平行上傳至 Azure 儲存體帳戶
+description: 了解如何使用 Azure 儲存體用戶端程式庫將大量隨機資料平行上傳至 Azure 儲存體帳戶
 author: roygara
 ms.service: storage
 ms.topic: tutorial
-ms.date: 02/20/2018
+ms.date: 10/08/2019
 ms.author: rogarana
 ms.subservice: blobs
-ms.openlocfilehash: e5c1a78bf2f482e99d8ff13590a8bb81f9601991
-ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
+ms.openlocfilehash: 5b20686399db9537e5db8622a433b5e506939d19
+ms.sourcegitcommit: bd4198a3f2a028f0ce0a63e5f479242f6a98cc04
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68698961"
+ms.lasthandoff: 10/14/2019
+ms.locfileid: "72302991"
 ---
 # <a name="upload-large-amounts-of-random-data-in-parallel-to-azure-storage"></a>將大量隨機資料平行上傳至 Azure 儲存體
 
@@ -28,7 +28,7 @@ ms.locfileid: "68698961"
 
 Azure Blob 儲存體會提供可擴充的服務來儲存您的資料。 若要確保您的應用程式能發揮最好的效能，建議您了解 Blob 儲存體的運作方式。 關於 Azure Blob 限制的知識十分重要，若要深入了解這些限制，請造訪：[Blob 儲存體的延展性目標](../common/storage-scalability-targets.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#azure-blob-storage-scale-targets)。
 
-使用 Blob 設計高度執行的應用程式時，[分割區命名](../common/storage-performance-checklist.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#subheading47)是另一個可能很重要的要素。 對於大於或等於 4 MiB 的區塊大小，則會使用[高輸送量的區塊 Blob](https://azure.microsoft.com/blog/high-throughput-with-azure-blob-storage/)，且分割區命名並不會影響效能。 對於小於 4 MiB 的區塊大小，Azure 儲存體使用範圍型的資料分割配置來進行縮放和負載平衡。 此設定表示具有相似命名慣例或前置詞的檔案會進入相同分割區。 此邏輯也包含將對其上傳檔案的容器名稱。 在本教學課程中，您會使用以 GUID 命名的檔案和隨機產生的內容。 然後這些項目會上傳至五個具有隨機名稱的不同容器。
+使用 Blob 設計高效能的應用程式時，[分割區命名](../blobs/storage-performance-checklist.md#partitioning)是另一個可能很重要的要素。 對於大於或等於 4 MiB 的區塊大小，則會使用[高輸送量的區塊 Blob](https://azure.microsoft.com/blog/high-throughput-with-azure-blob-storage/)，且分割區命名並不會影響效能。 對於小於 4 MiB 的區塊大小，Azure 儲存體使用範圍型的資料分割配置來進行縮放和負載平衡。 此設定表示具有相似命名慣例或前置詞的檔案會進入相同分割區。 此邏輯也包含將對其上傳檔案的容器名稱。 在本教學課程中，您會使用以 GUID 命名的檔案和隨機產生的內容。 然後這些項目會上傳至五個具有隨機名稱的不同容器。
 
 ## <a name="prerequisites"></a>必要條件
 

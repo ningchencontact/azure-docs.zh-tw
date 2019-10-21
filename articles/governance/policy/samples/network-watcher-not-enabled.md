@@ -1,17 +1,17 @@
 ---
-title: 範例 - 稽核是否未針對區域啟用網路監看員
+title: 範例 - 稽核未使用網路監看員的區域
 description: 此原則定義範例會稽核是否未針對指定的區域啟用網路監看員
 author: DCtheGeek
 ms.service: azure-policy
 ms.topic: sample
 ms.date: 01/23/2019
 ms.author: dacoulte
-ms.openlocfilehash: 94d4bbd70c21713fa366907b3fe8cec8543350eb
-ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
+ms.openlocfilehash: 3c93fb72be82c1a89ea4420f4b8d34bb98785376
+ms.sourcegitcommit: 1c2659ab26619658799442a6e7604f3c66307a89
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/06/2019
-ms.locfileid: "71981377"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72254782"
 ---
 # <a name="sample---audit-if-network-watcher-is-not-enabled-for-region"></a>範例 - 稽核是否未針對區域啟用網路監看員
 

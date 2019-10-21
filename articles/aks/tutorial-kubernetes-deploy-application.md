@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 12/19/2018
 ms.author: mlearned
 ms.custom: mvc
-ms.openlocfilehash: 85471323a7f8918d80b7c0944fe5c255e9fa836a
-ms.sourcegitcommit: 3fa4384af35c64f6674f40e0d4128e1274083487
+ms.openlocfilehash: cc01b12e493f3e0d3cd63786c27819d4704f97f4
+ms.sourcegitcommit: b4665f444dcafccd74415fb6cc3d3b65746a1a31
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "69018909"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72263885"
 ---
 # <a name="tutorial-run-applications-in-azure-kubernetes-service-aks"></a>教學課程：執行 Azure Kubernetes Service (AKS) 中的應用程式
 
@@ -115,7 +115,7 @@ azure-vote-front   LoadBalancer   10.0.34.242   52.179.23.131   80:30676/TCP   6
 
 ![Azure 上 Kubernetes 叢集的影像](media/container-service-kubernetes-tutorials/azure-vote.png)
 
-如果應用程式並未載入，可能是因為您的映像登錄發生授權問題。 若要檢視容器的狀態，請使用 `kubectl get pods` 命令。 如果無法提取容器映像，請參閱[允許使用 Kubernetes 祕密存取容器登錄](https://docs.microsoft.com/azure/container-registry/container-registry-auth-aks#access-with-kubernetes-secret)。
+如果應用程式並未載入，可能是因為您的映像登錄發生授權問題。 若要檢視容器的狀態，請使用 `kubectl get pods` 命令。 如果無法提取容器映像，請參閱[從 Azure Kubernetes Service 對 Azure Container Registry 進行驗證](cluster-container-registry-integration.md)。
 
 ## <a name="next-steps"></a>後續步驟
 

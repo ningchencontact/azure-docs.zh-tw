@@ -9,12 +9,12 @@ ms.date: 04/23/2019
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: c872b10d7819fb95d614664ed32831f410349760
-ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
+ms.openlocfilehash: 32bd0438afa63212222acb84c0194bbc1f4816ce
+ms.sourcegitcommit: e0a1a9e4a5c92d57deb168580e8aa1306bd94723
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71122897"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72286674"
 ---
 # <a name="tutorial-develop-a-c-iot-edge-module-for-windows-devices"></a>教學課程：開發適用於 Windows 裝置的 C# IoT Edge 模組
 
@@ -36,7 +36,7 @@ ms.locfileid: "71122897"
 
 本教學課程示範如何使用 **Visual Studio 2019** 以 **C#** 開發模組，以及如何將其部署到 **Windows 裝置**。 如果您要開發適用於 Linux 裝置的模組，請改為移至[開發適用於 Linux 裝置的 C# IoT Edge 模組](tutorial-csharp-module.md)。 
 
-使用下表來了解開發 C 模組並將其部署到 Windows 裝置的選項： 
+使用下表來了解開發 C# 模組並將其部署到 Windows 裝置的選項： 
 
 | C# | Visual Studio Code | Visual Studio 2017/2019 | 
 | -- | ------------------ | ------------------ |

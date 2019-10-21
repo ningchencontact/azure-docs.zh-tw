@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: quickstart
 ms.date: 07/03/2019
 ms.author: pafarley
-ms.openlocfilehash: e7a63d09c3116c7504e9d409b32a44be140d8fe4
-ms.sourcegitcommit: 8ef0a2ddaece5e7b2ac678a73b605b2073b76e88
+ms.openlocfilehash: 5739827f1f6cf65cfe5c4aa8303c9f37eb569854
+ms.sourcegitcommit: b4665f444dcafccd74415fb6cc3d3b65746a1a31
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71074131"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72264398"
 ---
 # <a name="quickstart-train-a-form-recognizer-model-and-extract-form-data-by-using-the-rest-api-with-python"></a>快速入門：搭配使用 REST API 與 Python 將表單辨識器模型定型並擷取表單資料
 
@@ -26,7 +26,7 @@ ms.locfileid: "71074131"
 若要完成此快速入門，您必須：
 - 有權存取表單辨識器的有限存取預覽版。 若要存取此預覽服務，請先填寫並提交[表單辨識器存取要求](https://aka.ms/FormRecognizerRequestAccess)表單。
 - 已安裝 [Python](https://www.python.org/downloads/) (如果您想要在本機執行此範例)。
-- 至少有五個相同類型的表單。 您將使用此資料來定型模型。 您可以使用本快速入門的[範例資料集](https://go.microsoft.com/fwlink/?linkid=2090451)。 將資料上傳至 Azure 儲存體帳戶中 Blob 儲存體容器的根目錄。
+- 至少有五個相同類型的表單。 您將使用此資料來定型模型。 您可以使用本快速入門的[範例資料集](https://go.microsoft.com/fwlink/?linkid=2090451)。 將訓練檔案上傳至 Azure 儲存體帳戶中 Blob 儲存體容器的根目錄。
 
 ## <a name="create-a-form-recognizer-resource"></a>建立表單辨識器資源
 
@@ -115,7 +115,7 @@ ms.locfileid: "71074131"
 接下來，您會分析文件，並從中擷取金鑰/值組和資料表。 執行下列 Python 指令碼以呼叫**模型 - 分析** API。 執行命令之前，請進行下列變更：
 
 1. 將 `<Endpoint>` 取代為您使用表單辨識器訂用帳戶金鑰取得的端點。 您可以在表單辨識器的資源 [概觀]  索引標籤上找到此項目。
-1. 將 `<path to your form>` 取代為表單的檔案路徑 (例如，C:\temp\file.pdf)。
+1. 將 `<path to your form>` 取代為表單的檔案路徑 (例如，C:\temp\file.pdf)。 在本快速入門中，您可以使用[範例資料集](https://go.microsoft.com/fwlink/?linkid=2090451)中 **Test** 資料夾底下的檔案。
 1. 將 `<modelID>` 取代為您在上一節中取得的模型識別碼。
 1. 將 `<file type>` 取代為檔案類型。 支援的類型：`application/pdf`、`image/jpeg`、`image/png`。
 1. 將 `<subscription key>` 取代為訂用帳戶金鑰。

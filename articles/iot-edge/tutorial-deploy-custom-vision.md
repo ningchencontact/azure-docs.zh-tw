@@ -5,16 +5,16 @@ services: iot-edge
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 06/25/2019
+ms.date: 10/15/2019
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc, seodec18
-ms.openlocfilehash: 55203c4b555b54514425b484b367f8b735e98e40
-ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
+ms.openlocfilehash: b84ab9691064e7040e586ad82835f27fa5555920
+ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/15/2019
-ms.locfileid: "71003906"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72434640"
 ---
 # <a name="tutorial-perform-image-classification-at-the-edge-with-custom-vision-service"></a>教學課程：使用自訂視覺服務在邊緣執行影像分類
 
@@ -76,7 +76,7 @@ Azure IoT Edge 可藉由將工作負載從雲端移至邊緣，來提升 IoT 解
    | ----- | ----- |
    | 名稱 | 提供專案名稱，例如 **EdgeTreeClassifier**。 |
    | 說明 | 選擇性的專案描述。 |
-   | 資源群組 | 選取包含自訂視覺服務資源的其中一個 Azure 資源群組，或如果您尚未新增，請**建立新項目**。 |
+   | 資源 | 選取包含自訂視覺服務資源的其中一個 Azure 資源群組，或如果您尚未新增，請**建立新項目**。 |
    | 專案類型 | **分類** |
    | 分類類型 | **多類別 (每個影像一個標記)** |
    | 網域 | **一般 (精簡)** |
@@ -142,8 +142,6 @@ Azure IoT Edge 可藉由將工作負載從雲端移至邊緣，來提升 IoT 解
 
 解決方案可讓您以邏輯方式來開發及組織單一 IoT Edge 部署的多個模組。 解決方案會包含一或多個模組的程式碼，以及用來宣告要如何在 IoT Edge 裝置上設定這些模組的部署資訊清單。 
 
-1. 在 Visual Studio Code 中，選取 [檢視]   > [終端機]  以開啟 VS Code 整合式終端機。
-
 1. 選取 [檢視]   > [命令選擇區]  ，以開啟 VS Code 命令選擇區。 
 
 1. 在命令選擇區中，輸入並執行命令 Azure IoT Edge:  新增 IoT Edge 解決方案。 在命令選擇區中提供下列資訊，以建立解決方案： 
@@ -154,7 +152,7 @@ Azure IoT Edge 可藉由將工作負載從雲端移至邊緣，來提升 IoT 解
    | 提供解決方案名稱 | 輸入解決方案的描述性名稱 (例如 **CustomVisionSolution**)，或接受預設值。 |
    | 選取模組範本 | 選擇 [Python 模組]  。 |
    | 提供模組名稱 | 將模組命名為 **classifier**。<br><br>此模組名稱必須是小寫。 IoT Edge 在參考模組時會區分大小寫，而且此解決方案所使用的程式庫會將所有要求的格式設為小寫。 |
-   | 提供模組的 Docker 映像存放庫 | 映像存放庫包含容器登錄名稱和容器映像名稱。 系統會預先填入上一個步驟的容器映像。 將 **localhost:5000** 取代為 Azure Container Registry 的登入伺服器值。 您可以在 Azure 入口網站中，從容器登錄的 [概觀] 頁面擷取登入伺服器。 最終字串的樣貌如下：\<registry name\>.azurecr.io/classifier。 |
+   | 提供模組的 Docker 映像存放庫 | 映像存放庫包含容器登錄名稱和容器映像名稱。 系統會預先填入上一個步驟的容器映像。 將 **localhost:5000** 取代為 Azure Container Registry 的登入伺服器值。 您可以在 Azure 入口網站中，從容器登錄的 [概觀] 頁面擷取登入伺服器。<br><br>最終字串的樣貌如下： **\<registry name\>.azurecr.io/classifier**。 |
  
    ![提供 Docker 映像存放庫](./media/tutorial-deploy-custom-vision/repository.png)
 
@@ -219,7 +217,7 @@ Visual Studio Code 中的 Python 模組範本包含一些程式碼範例，可�
    | 選取部署範本檔案 | 選取 CustomVisionSolution 資料夾中的 deployment.template.json 檔案。 |
    | 選取模組範本 | 選取 [Python 模組]  |
    | 提供模組名稱 | 將模組命名為 **cameraCapture** |
-   | 提供模組的 Docker 映像存放庫 | 將 **localhost:5000** 取代為 Azure Container Registry 的登入伺服器值。 最終字串的樣貌如下： **\<registryname\>.azurecr.io/cameracapture**。 |
+   | 提供模組的 Docker 映像存放庫 | 將 **localhost:5000** 取代為 Azure Container Registry 的登入伺服器值。<br><br>最終字串的樣貌如下： **\<registryname\>.azurecr.io/cameracapture**。 |
 
    VS Code 視窗會在解決方案工作區中載入新模組，並更新 deployment.template.json 檔案。 現在您應該會看到兩個模組資料夾：classifier 和 cameraCapture。 
 
