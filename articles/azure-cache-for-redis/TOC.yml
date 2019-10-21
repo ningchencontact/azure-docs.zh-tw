@@ -39,6 +39,8 @@
           href: cache-best-practices.md
         - name: 針對快取的 Azure Architecture 最佳做法
           href: 'https://docs.microsoft.com/azure/architecture/best-practices/caching?toc=%2Fazure%2Fredis-cache%2Ftoc.json'
+    - name: 容錯移轉和修補說明
+      href: cache-failover.md
 - name: 使用說明指南
   items:
     - name: 規劃

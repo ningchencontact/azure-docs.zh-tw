@@ -12,18 +12,18 @@ metadata:
   author: curtand
   ms.author: curtand
   ms.date: 08/28/2019
-  ms.openlocfilehash: b1782c41bce2de6a9da0858519dfeb87f6597df8
-  ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
+  ms.openlocfilehash: 80b562ff3f5fba7c57253e3761802dd3379b017b
+  ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
   ms.translationtype: HT
   ms.contentlocale: zh-TW
-  ms.lasthandoff: 08/28/2019
-  ms.locfileid: "70127408"
+  ms.lasthandoff: 10/17/2019
+  ms.locfileid: "72554326"
 landingContent:
 - title: 關於 Privileged Identity Management
   linkLists:
   - linkListType: overview
     links:
-    - text: 什麼是 Azure AD PIM？
+    - text: 什麼是 Azure AD Privileged Identity Management？
       url: pim-configure.md
   - linkListType: concept
     links:
@@ -37,9 +37,9 @@ landingContent:
   linkLists:
   - linkListType: how-to-guide
     links:
-    - text: 部署 PIM
+    - text: 部署 Privileged Identity Management
       url: pim-deployment-plan.md
-    - text: 開始使用 PIM
+    - text: 開始使用 Privileged Identity Management
       url: pim-getting-started.md
 - title: 啟動我的角色 (符合資格且使用中的角色使用者)
   linkLists:

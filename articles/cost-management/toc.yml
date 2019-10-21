@@ -32,6 +32,8 @@
       items:
         - name: 將存取權指派給資料
           href: assign-access-acm-data.md
+        - name: 對一般工作使用成本分析
+          href: cost-analysis-common-uses.md
         - name: 使用成本警示
           href: cost-mgt-alerts-monitor-usage-spending.md
         - name: 安裝及設定 AWS 整合

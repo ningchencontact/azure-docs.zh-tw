@@ -269,6 +269,8 @@
         - name: 適用於 CI/CD 的 Azure Pipelines
           displayName: 'continuous, integration, delivery'
           href: /azure/devops/pipelines/targets/azure-machine-learning?context=azure/machine-learning/service/context/ml-context
+        - name: 在 Python 中排程 ML 管線
+          href: how-to-schedule-pipelines.md
     - name: 管理資源配額
       displayName: limits
       href: how-to-manage-quotas.md

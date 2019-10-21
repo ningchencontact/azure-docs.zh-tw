@@ -65,6 +65,8 @@
           href: notifications.md
         - name: 刪除受控網域
           href: delete-aadds.md
+        - name: 從傳統部署進行遷移 (預覽)
+          href: migrate-from-classic-vnet.md
     - name: 保護 Azure AD DS
       items:
         - name: 保護受控網域

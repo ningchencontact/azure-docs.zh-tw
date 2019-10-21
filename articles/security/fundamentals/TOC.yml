@@ -44,39 +44,8 @@
           href: data-encryption-best-practices.md
         - name: 資料靜態加密
           href: encryption-atrest.md
-        - name: 為 IaaS 虛擬機器進行磁碟加密
-          items:
-            - name: 有關 Azure 磁碟加密
-              displayName: 'BitLocker, bek'
-              href: 'https://docs.microsoft.com/azure/security/azure-security-disk-encryption-overview'
-            - name: Azure 磁碟加密
-              items:
-                - name: 磁碟加密必要條件
-                  href: 'https://docs.microsoft.com/azure/security/azure-security-disk-encryption-prerequisites'
-                - name: 適用於 Windows VM 的磁碟加密
-                  href: 'https://docs.microsoft.com/azure/security/azure-security-disk-encryption-windows'
-                - name: 適用於 Linux VM 的磁碟加密
-                  href: 'https://docs.microsoft.com/azure/security/azure-security-disk-encryption-linux'
-                - name: 使用虛擬機器擴展集擴充功能排序的磁片加密
-                  href: 'https://docs.microsoft.com/azure/security/azure-security-disk-encryption-extension-sequencing'
-                - name: 磁碟加密附錄
-                  href: 'https://docs.microsoft.com/azure/security/azure-security-disk-encryption-appendix'
-                - name: 磁碟加密常見問題
-                  href: 'https://docs.microsoft.com/azure/security/azure-security-disk-encryption-faq'
-                - name: 疑難排解
-                  href: 'https://docs.microsoft.com/azure/security/azure-security-disk-encryption-tsg'
-                - name: Azure 磁碟加密與 Azure AD 應用程式 (舊版)
-                  displayName: active directory
-                  items:
-                    - name: 磁碟加密與 Azure AD 應用程式的必要條件
-                      displayName: active directory
-                      href: 'https://docs.microsoft.com/azure/security/azure-security-disk-encryption-prerequisites-aad'
-                    - name: 適用於 Windows VM 的磁碟加密與 Azure AD 應用程式
-                      displayName: active directory
-                      href: 'https://docs.microsoft.com/azure/security/azure-security-disk-encryption-windows-aad'
-                    - name: 適用於 Linux VM 的磁碟加密與 Azure AD 應用程式
-                      displayName: active directory
-                      href: 'https://docs.microsoft.com/azure/security/azure-security-disk-encryption-linux-aad'
+        - name: 適用於 VM 和 VM 擴展集的 Azure 磁碟加密
+          href: azure-disk-encryption-vms-vmss.md
     - name: 儲存體安全性指南
       href: 'https://docs.microsoft.com/azure/storage/common/storage-security-guide?toc=/azure/security/toc.json&bc=/azure/security/breadcrumb/toc.json'
     - name: 客戶加密箱
@@ -154,13 +123,6 @@
           href: paas-applications-using-sql.md
     - name: IoT
       href: iot-overview.md
-      items:
-        - name: IoT 安全性最佳做法
-          href: 'https://docs.microsoft.com/azure/iot-accelerators/iot-security-best-practices?toc=/azure/security/toc.json&bc=/azure/security/breadcrumb/toc.json'
-        - name: IoT 安全性
-          href: 'https://docs.microsoft.com/azure/iot-accelerators/iot-security-architecture?toc=/azure/security/toc.json&bc=/azure/security/breadcrumb/toc.json#security-in-iot'
-        - name: 保護您的 IoT 部署
-          href: 'https://docs.microsoft.com/azure/iot-accelerators/iot-accelerators-security-deployment?toc=/azure/security/toc.json&bc=/azure/security/breadcrumb/toc.json'
     - name: Azure Service Fabric 安全性
       href: service-fabric-overview.md
       items:
@@ -273,8 +235,8 @@
           href: ../blueprints/ukofficial-iaaswa-overview.md
         - name: PaaS Web 應用程式
           href: ../blueprints/ukofficial-paaswa-overview.md
-- name: 白皮書
-  href: white-papers.md
+- name: 安全性白皮書
+  href: 'https://azure.microsoft.com/resources/whitepapers/search/?term=security&type=WhitePaperResource'
 - name: Azure 安全性服務
   href: services-technologies.md
 - name: 技術概觀
