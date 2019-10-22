@@ -53,8 +53,6 @@
       href: supported-languages.md
     - name: 支援的地圖樣式
       href: supported-map-styles.md
-    - name: Web SDK 支援的瀏覽器
-      href: supported-browsers.md
     - name: 縮放層級和圖格格線
       href: zoom-levels-and-tile-grid.md
     - name: 行動服務資料結構
@@ -147,6 +145,8 @@
               href: map-get-information-from-coordinate.md
             - name: 顯示從甲地到乙地的指示
               href: map-route.md
+        - name: Web SDK 支援的瀏覽器
+          href: supported-browsers.md
     - name: 使用 Android SDK 進行開發
       items:
         - name: 開始使用 Android 地圖控制項

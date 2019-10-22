@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 09/18/2019
 ms.author: cephalin
 ms.openlocfilehash: e00db06346b19ef85eb77626eb2ed169d2224b6c
-ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/18/2019
+ms.lasthandoff: 10/21/2019
 ms.locfileid: "71129699"
 ---
 當您複製其他部署位置的組態時，可以編輯複製的組態。 某些設定元素會遵循交換的內容（非位置特定），而其他設定元素會保留在交換之後的相同位置（位置特定）。 以下清單顯示當您交換位置時會變更的設定。

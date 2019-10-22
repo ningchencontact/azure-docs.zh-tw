@@ -121,15 +121,8 @@
           href: paas-applications-using-storage.md
         - name: 適用於 PaaS 的資料庫最佳做法
           href: paas-applications-using-sql.md
-    - name: IoT
-      href: iot-overview.md
     - name: Azure Service Fabric 安全性
-      href: service-fabric-overview.md
-      items:
-        - name: 最佳作法
-          href: service-fabric-best-practices.md
-        - name: 安全性檢查清單
-          href: service-fabric-checklist.md
+      href: service-fabric-best-practices.md
 - name: 監視、稽核與作業
   href: management-monitoring-overview.md
   items:
