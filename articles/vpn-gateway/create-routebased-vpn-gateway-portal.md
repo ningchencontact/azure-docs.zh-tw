@@ -1,5 +1,5 @@
 ---
-title: 建立以路由為基礎的 VPN 閘道：Azure 入口網站 | Microsoft Docs
+title: 建立路由型 VPN 閘道：Azure 入口網站 | Microsoft Docs
 description: 使用 Azure 入口網站來建立路由型 VPN 閘道
 services: vpn-gateway
 author: cherylmc
@@ -8,17 +8,17 @@ ms.topic: article
 ms.date: 09/24/2019
 ms.author: cherylmc
 ms.openlocfilehash: 3ab662a4f06b2d73ab0dab52f562398fee23686c
-ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/25/2019
+ms.lasthandoff: 10/21/2019
 ms.locfileid: "71266536"
 ---
 # <a name="create-a-route-based-vpn-gateway-using-the-azure-portal"></a>使用 Azure 入口網站建立路由型 VPN 閘道
 
 本文將協助您使用 Azure 入口網站，快速建立路由型 Azure VPN 閘道。  建立與內部部署網路的 VPN 連線時，會使用 VPN 閘道。 您也可以使用 VPN 閘道來連線至 VNet。 
 
-本文中的步驟將會建立 VNet、子網路、閘道子網路，以及路由型 VPN 閘道 (虛擬網路閘道)。 完成閘道建立之後，您接著就可建立連線。 這些步驟需要 Azure 訂用帳戶。 如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 。
+本文中的步驟將會建立 VNet、子網路、閘道子網路，以及路由型 VPN 閘道 (虛擬網路閘道)。 完成閘道建立之後，您接著就可建立連線。 這些步驟需要 Azure 訂用帳戶。 如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)。
 
 ## <a name="vnet"></a>建立虛擬網路
 
@@ -41,11 +41,11 @@ ms.locfileid: "71266536"
 
 1. 建立閘道之後，瀏覽至入口網站中的 VNet1。 VPN 閘道會在 [概觀] 頁面上顯示為連線的裝置。
 
-   ![連線的裝置](./media/create-routebased-vpn-gateway-portal/view-connected-devices.png "連線的裝置")
+   ![連線的裝置](./media/create-routebased-vpn-gateway-portal/view-connected-devices.png "連接的裝置")
 
 2. 在裝置清單中，按一下 [VNet1GW] 以檢視詳細資訊。
 
-   ![檢視 VPN 閘道](./media/create-routebased-vpn-gateway-portal/view-gateway.png "檢視 VPN 閘道")
+   ![觀看 VPN 閘道](./media/create-routebased-vpn-gateway-portal/view-gateway.png "觀看 VPN 閘道")
 
 ## <a name="next-steps"></a>後續步驟
 

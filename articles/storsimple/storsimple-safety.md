@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 11/16/2016
 ms.author: alkohli
 ms.openlocfilehash: 4622a8575d7b6a38226ee3a980c05f143c128356
-ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/13/2019
+ms.lasthandoff: 10/21/2019
 ms.locfileid: "68963541"
 ---
 # <a name="safely-install-and-operate-your-storsimple-device"></a>安全地安裝和操作您的 StorSimple 裝置
@@ -61,7 +61,7 @@ ms.locfileid: "68963541"
 
 * 由多個 AC 來源提供電源時，請中斷所有供應電源以達完全隔離。
 * 在您移動單元，或者認為單元受到任何損毀時，請一律拔除電源。
-* 提供電源供應線安全的接地線。 請確認機箱接地符合國家/地區和當地需求，然後再供應電源。
+* 提供電源供應線安全的接地線。 請確認機箱接地符合國家和當地需求，然後再供應電源。
 * 從機箱移除 PCM 之前請務必中斷電源連接。
 * 假設電源供應線上的插頭是主要的中斷裝置，請確保插座位於設備附近且可輕鬆觸及。
 
@@ -93,7 +93,7 @@ ms.locfileid: "68963541"
 * 載入時機架，從下到上填滿機架並從上到下清空。
 * 不要一次從機架滑動超過一個機箱，以避免機架倒塌的危險。
 
-![警告圖示](./media/storsimple-safety/IC740879.png) ![電擊圖示](./media/storsimple-safety/IC740882.png) **警告！**
+![Warning Icon](./media/storsimple-safety/IC740879.png) ![Electrical Shock Icon](./media/storsimple-safety/IC740882.png) **警告！**
 
 減少傷害、電擊或死亡的可能性：
 
@@ -112,7 +112,7 @@ ms.locfileid: "68963541"
 ## <a name="power-cooling-module-pcm-precautions"></a>電源冷卻模組 (PCM) 預防措施
 裝置設計為利用兩個 PCM 運作。 每個 PCM 都具有電源供應器和雙軸風扇。 在嚴苛條件期間，系統會允許其中一個電源供應器失敗，同時繼續正常作業。 兩個 PCM (因此和電源供應器) 必須一律安裝。 單一 PCM 不會提供備援電源。 因此，即使一個 PCM 失敗也可能會導致停機或可能會遺失資料。
 
-![警告圖示](./media/storsimple-safety/IC740879.png) ![電擊圖示](./media/storsimple-safety/IC740882.png) **警告！**
+![Warning Icon](./media/storsimple-safety/IC740879.png) ![Electrical Shock Icon](./media/storsimple-safety/IC740882.png) **警告！**
 
 減少傷害、電擊或死亡的可能性：
 

@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 01/09/2017
 ms.author: apimpm
 ms.openlocfilehash: 93681062b325756f720f6fe8280ee6b874fea284
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/28/2019
+ms.lasthandoff: 10/21/2019
 ms.locfileid: "70072272"
 ---
 # <a name="issue-templates-in-azure-api-management"></a>Azure API 管理中的問題範本
@@ -89,19 +89,19 @@ ms.locfileid: "70072272"
 </div>
 ```
   
-### <a name="controls"></a>控制項  
+### <a name="controls"></a>控制  
  `Issue list` 範本可能會使用下列[頁面控制項](api-management-page-controls.md)。  
   
 -   [paging-control](api-management-page-controls.md#paging-control)  
   
 ### <a name="data-model"></a>資料模型  
   
-|屬性|類型|描述|  
+|屬性|Type|描述|  
 |--------------|----------|-----------------|  
 |`Issues`|[問題](api-management-template-data-model-reference.md#Issue)實體的集合。|目前使用者可看見的問題。|  
 |`Paging`|[分頁](api-management-template-data-model-reference.md#Paging)實體。|應用程式集合的分頁資訊。|  
-|`IsAuthenticated`|boolean|目前使用者是否已登入開發人員入口網站。|  
-|`CanReportIssues`|boolean|目前使用者是否具備提出問題的權限。|  
+|`IsAuthenticated`|布林值|目前使用者是否已登入開發人員入口網站。|  
+|`CanReportIssues`|布林值|目前使用者是否具備提出問題的權限。|  
 |`Search`|string|此屬性已過時而不應使用。|  
   
 ### <a name="sample-template-data"></a>範例範本資料  

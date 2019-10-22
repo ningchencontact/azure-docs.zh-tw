@@ -9,46 +9,44 @@ ms.topic: conceptual
 author: xiaoharper
 ms.author: zhanxia
 ms.reviewer: peterlu
-ms.date: 07/02/2019
-ms.openlocfilehash: 257f6034df7d1974f3964c4d07ca96d17c7fe509
-ms.sourcegitcommit: 2ed6e731ffc614f1691f1578ed26a67de46ed9c2
+ms.date: 09/23/2019
+ms.openlocfilehash: 6e65075b309ed12505ce6fffadac12af3f16344b
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71131645"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72692591"
 ---
 # <a name="sample-6---classification-predict-flight-delays-using-r"></a>範例 6-分類：使用 R 預測航班延誤
 
-此實驗會使用歷程記錄和天氣資料來預測排程的乘客航班是否會延遲超過15分鐘。
+此管線會使用歷程記錄和天氣資料來預測排程的乘客航班是否會延遲超過15分鐘。 這個問題可以做為分類問題來進行，預測兩個類別：延遲或準時。
 
-這個問題可以做為分類問題來進行，預測兩個類別-延遲或準時。 若要建立分類器，此模型會使用來自歷史航班資料的大量範例。
+以下是此範例的最後一個管線圖形：
 
-以下是此範例的最後一個實驗圖形：
-
-[![實驗的圖形](media/how-to-ui-sample-classification-predict-flight-delay/experiment-graph.png)](media/how-to-ui-sample-classification-predict-credit-risk-cost-sensitive/graph.png#lightbox)
+[管線的 ![Graph](media/how-to-ui-sample-classification-predict-flight-delay/pipeline-graph.png)](media/how-to-ui-sample-classification-predict-credit-risk-cost-sensitive/graph.png#lightbox)
 
 ## <a name="prerequisites"></a>必要條件
 
 [!INCLUDE [aml-ui-prereq](../../../includes/aml-ui-prereq.md)]
 
-4. 選取範例6實驗的 [**開啟**] 按鈕：
+4. 選取範例6管線的 [**開啟**] 按鈕：
 
-    ![開啟實驗](media/how-to-ui-sample-classification-predict-flight-delay/open-sample6.png)
+    ![開啟管線](media/how-to-ui-sample-classification-predict-flight-delay/open-sample6.png)
 
 ## <a name="get-the-data"></a>取得資料
 
-此實驗會使用**航班延遲資料**資料集。 這是美國 TranStats 資料集合的一部分運輸部門。 此資料集包含從4月到2013年10月的航班延誤資訊。 在將資料上傳至視覺化介面之前，已預先處理它，如下所示：
+這個範例會使用**航班延遲資料**資料集。 這是美國運輸部門的 TranStats 資料收集的一部分。 此資料集包含從4月到2013年10月的航班延誤資訊。 此資料集已預先處理，如下所示：
 
 * 已篩選為包含美國大陸境內70最忙碌的機場。
-* 針對已取消的航班，請重新標示為延遲超過15分鐘。
+* 將已取消的航班重新標示為延遲超過15分鐘。
 * 已篩選掉轉向航班。
 * 選取了14個數據行。
 
-若要補充航班資料，請使用**氣象資料集**。 天氣資料包含 NOAA 的每小時以 land 為基礎的氣象觀察，並代表機場氣象站的觀察，涵蓋2013年4月10日的相同時間週期。 在上傳至 Azure ML 視覺介面之前，它已預先處理，如下所示：
+若要補充航班資料，請使用**氣象資料集**。 天氣資料包含 NOAA 的每小時、以土地為基礎的氣象觀察，並代表機場氣象站的觀察，涵蓋與航班資料集相同的時間週期。 它已預先處理，如下所示：
 
 * 氣象站識別碼會對應至相對應的機場識別碼。
 * 未與70最忙碌的機場關聯的天氣電臺已移除。
-* 日期資料行已分割為不同的資料行：年、月和日。
+* 日期資料行已分割為不同的資料行： Year、Month 和 Day。
 * 選取的26個數據行。
 
 ## <a name="pre-process-the-data"></a>預先處理資料
@@ -63,13 +61,13 @@ ms.locfileid: "71131645"
 
 ![編輯-中繼資料](media/how-to-ui-sample-classification-predict-flight-delay/edit-metadata.png)
 
-然後使用 [**選取**資料集中的資料行] 模組，從可能為目標 leakers 的資料集資料行中排除：**DepDelay**、 **DepDel15**、 **ArrDelay**、**已取消**、**年**。 
+然後使用 [**選取**資料集中的資料行] 模組，從可能為目標 leakers 的資料集資料行中排除： **DepDelay**、 **DepDel15**、 **ArrDelay**、**已取消**、**年**。 
 
 若要將航班記錄與每小時氣象記錄聯結，請使用已排程的出發時間做為其中一個聯結索引鍵。 若要執行聯結，CSRDepTime 資料行必須向下舍入到最接近的小時，這是在**執行 R 腳本**模組中完成。 
 
 ### <a name="weather-data"></a>天氣資料
 
-使用 [**專案資料行**] 模組會排除具有大量遺漏值的資料行。 這些資料行包含所有字串值的資料行：**ValueForWindCharacter**、 **WetBulbFarenheit**、 **WetBulbCelsius**、 **PressureTendency**、 **PressureChange**、 **SeaLevelPressure**和**StationPressure**。
+使用 [**專案資料行**] 模組會排除具有大量遺漏值的資料行。 這些資料行包含所有字串值資料行： **ValueForWindCharacter**、 **WetBulbFarenheit**、 **WetBulbCelsius**、 **PressureTendency**、 **PressureChange**、 **SeaLevelPressure**和**StationPressure**.
 
 **清除遺漏的資料**模組接著會套用到其餘的資料行，以移除遺漏資料的資料列。
 
@@ -107,10 +105,9 @@ ms.locfileid: "71131645"
 使用**兩個類別的羅吉斯回歸**模組建立模型，並在訓練資料集上定型。 
 
 **訓練模型**模組的結果是定型的分類模型，可用來對新的樣本進行評分以進行預測。 使用測試集從定型的模型產生分數。 然後使用 [**評估模型**] 模組來分析和比較模型的品質。
+管線：執行管線之後，您可以按一下輸出埠並選取 [**視覺化**]，以查看 [**評分模型**] 模組的輸出。 輸出會包含評分標籤和標籤的機率。
 
-執行實驗之後，您可以按一下輸出埠並選取 [**視覺化**]，以查看 [**評分模型**] 模組的輸出。 輸出會包含評分標籤和標籤的機率。
-
-最後，若要測試結果的品質，請將 [**評估模型**] 模組新增至實驗畫布，然後將左側的輸入埠連接到 [評分模型] 模組的輸出。 執行實驗並查看 [**評估模型**] 模組的輸出，方法是按一下輸出埠，然後選取 [**視覺化**]。
+最後，若要測試結果的品質，請將 [**評估模型**] 模組新增至管線畫布，然後將左側的輸入埠連接到 [評分模型] 模組的輸出。 執行管線並查看 [**評估模型**] 模組的輸出，方法是按一下輸出埠，然後選取 [**視覺化**]。
 
 ## <a name="evaluate"></a>評估
 羅吉斯回歸模型在測試集上具有0.631 的 AUC。
@@ -126,3 +123,4 @@ ms.locfileid: "71131645"
 - [範例 3-分類：預測信用風險](how-to-ui-sample-classification-predict-credit-risk-basic.md)
 - [範例 4-分類：預測信用風險（區分成本）](how-to-ui-sample-classification-predict-credit-risk-cost-sensitive.md)
 - [範例 5-分類：預測流失](how-to-ui-sample-classification-predict-churn.md)
+- [範例 7-文字分類：書籍評論](how-to-ui-sample-text-classification.md)

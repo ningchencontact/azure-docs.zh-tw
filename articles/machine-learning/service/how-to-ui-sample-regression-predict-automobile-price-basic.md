@@ -9,19 +9,19 @@ ms.topic: conceptual
 author: xiaoharper
 ms.author: zhanxia
 ms.reviewer: sgilley
-ms.date: 05/10/2019
-ms.openlocfilehash: a91f1446d8aab3db36499a9b5707d48d387b6081
-ms.sourcegitcommit: 2ed6e731ffc614f1691f1578ed26a67de46ed9c2
+ms.date: 09/23/2019
+ms.openlocfilehash: 861b04203575a6046608cf3fad3117ad2726acab
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71131554"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72693473"
 ---
 # <a name="sample-1---regression-predict-price"></a>範例 1-回歸：預測價格
 
 瞭解如何使用視覺化介面來建立機器學習回歸模型，而不需要撰寫任何一行程式碼。
 
-此實驗會將**決策樹系回歸輸入變數**定型，以根據品牌、型號、動力和大小等技術功能來預測汽車的價格。 因為您正試著回答「多少？」這個問題 這稱為回歸問題。 不過，在此範例中，您可以套用相同的基本步驟來處理任何類型的機器學習問題，不論其為回歸、分類、叢集等。
+此管線會訓練**決策樹系回歸輸入變數**，以根據品牌、型號、動力和大小等技術功能來預測汽車的價格。 因為您正試著回答「多少？」這個問題 這稱為回歸問題。 不過，在此範例中，您可以套用相同的基本步驟來處理任何類型的機器學習問題，不論其為回歸、分類、叢集等。
 
 定型機器學習模型的基本步驟如下：
 
@@ -30,21 +30,21 @@ ms.locfileid: "71131554"
 1. 訓練模型
 1. 評估模型
 
-以下是我們將使用之實驗的最後一個完成圖形。 我們將提供所有模組的基本原理，讓您可以自行做出類似的決策。
+以下是管線的最後一個完成圖形。 本文提供所有模組的基本原理，讓您可以自行做出類似的決策。
 
-![實驗的圖形](media/how-to-ui-sample-regression-predict-automobile-price-basic/overall-graph.png)
+![管線的圖形](media/how-to-ui-sample-regression-predict-automobile-price-basic/overall-graph.png)
 
 ## <a name="prerequisites"></a>必要條件
 
 [!INCLUDE [aml-ui-prereq](../../../includes/aml-ui-prereq.md)]
 
-4. 選取範例1實驗的 [**開啟**] 按鈕：
+4. 選取範例1管線的 [**開啟**] 按鈕：
 
-    ![開啟實驗](media/how-to-ui-sample-regression-predict-automobile-price-basic/open-sample1.png)
+    ![開啟管線](media/how-to-ui-sample-regression-predict-automobile-price-basic/open-sample1.png)
 
 ## <a name="get-the-data"></a>取得資料
 
-此範例使用來自 UCI Machine Learning 儲存機制的**汽車價格資料（原始）** 資料集。 Dataset 包含26個數據行，其中包含汽車的相關資訊，包括品牌、型號、價格、車輛特徵（例如圓柱數目）、MPG，以及保險風險分數。 此實驗的目標是要預測汽車的價格。
+此範例使用來自 UCI Machine Learning 儲存機制的**汽車價格資料（原始）** 資料集。 Dataset 包含26個數據行，其中包含汽車的相關資訊，包括品牌、型號、價格、車輛特徵（例如圓柱數目）、MPG，以及保險風險分數。 此範例的目標是要預測汽車的價格。
 
 ## <a name="pre-process-the-data"></a>預先處理資料
 
@@ -58,7 +58,7 @@ ms.locfileid: "71131554"
 
 機器學習服務的問題不盡相同。 常見的機器學習工作包括分類、叢集、回歸和推薦系統，其中每個都可能需要不同的演算法。 您選擇的演算法通常取決於使用案例的需求。 在您挑選演算法之後，您需要調整其參數，以定型更精確的模型。 接著，您必須根據精確度、清晰度和效率等計量來評估所有模型。
 
-因為此實驗的目標是要預測汽車價格，而且標籤資料行（價格）包含實數，所以回歸模型是不錯的選擇。 考慮到功能的數目相對較小（小於100），而且這些功能不是稀疏的，因此決策界限可能是非線性的。 因此，我們在此實驗中使用**決策樹系回歸**。
+因為此範例的目標是要預測汽車價格，而且標籤資料行（價格）包含實數，所以回歸模型是不錯的選擇。 考慮到功能的數目相對較小（小於100），而且這些功能不是稀疏的，因此決策界限可能是非線性的。 因此，我們使用此管線的**決策樹系回歸**。
 
 使用**分割資料**模組隨機分割輸入資料，讓訓練資料集包含 70% 的原始資料，而測試資料集則包含 30% 的原始資料。
 
@@ -89,3 +89,4 @@ ms.locfileid: "71131554"
 - [範例 4-分類：預測信用風險（區分成本）](how-to-ui-sample-classification-predict-credit-risk-cost-sensitive.md)
 - [範例 5-分類：預測流失](how-to-ui-sample-classification-predict-churn.md)
 - [範例 6-分類：預測航班延誤](how-to-ui-sample-classification-predict-flight-delay.md)
+- [範例 7-文字分類：書籍評論](how-to-ui-sample-text-classification.md)

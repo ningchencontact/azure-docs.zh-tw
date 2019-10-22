@@ -9,25 +9,25 @@ ms.topic: article
 ms.date: 06/20/2018
 ms.author: meladie
 ms.openlocfilehash: 35c696e47c0a01c2cdb4d91db5a654208f2196e2
-ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/25/2019
+ms.lasthandoff: 10/21/2019
 ms.locfileid: "71257273"
 ---
-# <a name="azure-security-and-compliance-blueprint-analytics-for-ffiec-financial-services"></a>Azure 安全性與合規性藍圖：FFIEC 金融服務的分析
+# <a name="azure-security-and-compliance-blueprint-analytics-for-ffiec-financial-services"></a>Azure 安全性與合規性藍圖：適用於 FFIEC 財務服務的分析
 
-## <a name="overview"></a>總覽
+## <a name="overview"></a>概觀
 
 此「Azure 安全性與合規性藍圖」提供了指導方針，在 Azure 中部署資料分析架構，該架構適用於受聯邦金融機構考試委員會 (FFIEC) 規範的財務資料收集、儲存及擷取。
 
-此參考架構、實作指南及威脅模型為客戶提供符合 FFIEC 需求的基礎。 此解決方案提供一個基準，協助客戶以符合 FFIEC 規範的方式將工作負載部署到 Azure，不過，此解決方案不應在生產環境中以現狀使用，因為需要額外的設定。
+此參考架構、實作指南及威脅模型為客戶提供符合 FFIEC 要求的基礎。 此解決方案提供一個基準，協助客戶以符合 FFIEC 規範的方式將工作負載部署到 Azure，不過，此解決方案不應在生產環境中以現狀使用，因為需要額外的設定。
 
-若要符合 FFIEC 規範，需要合格稽核員認證生產客戶解決方案。 稽核是由來自 FFIEC 成員機構的檢查員監督，這些機構包括聯邦準備理事會 (FRB)、美國聯邦存款保險公司 (FDIC)、國家信用管理局 (NCUA)、美國財政部金融管理局 (OCC) 及消費者金融保護局 (CFPB)。 這些檢查員會認證完成稽核的評審，與受稽核機構之間保持獨立的關係。 客戶須負責為任何使用架構建置的解決方進行適當的安全性與合規性評量，因為需求可能會隨每個客戶的實作細節而有所不同。
+若要符合 FFIEC 規範，需要由合格稽核員認證生產客戶解決方案。 稽核是由來自 FFIEC 成員機構的檢查員監督，這些機構包括聯邦準備理事會 (FRB)、美國聯邦存款保險公司 (FDIC)、國家信用管理局 (NCUA)、美國財政部金融管理局 (OCC) 及消費者金融保護局 (CFPB)。 這些檢查員會認證完成稽核的評審，與受稽核機構之間保持獨立的關係。 客戶須負責為任何使用架構建置的解決方進行適當的安全性與合規性評量，因為需求可能會隨每個客戶的實作細節而有所不同。
 
 ## <a name="architecture-diagram-and-components"></a>架構圖表與元件
 
-此「Azure 安全性與合規性藍圖」提供分析平台，客戶可以在其中建置自己的分析工具。 參考架構概要說明了一般使用案例，其中客戶會透過 SQL/資料管理員執行大量資料匯入，或透過操作使用者更新操作資料，來輸入資料。 這兩個工作流程皆需要結合 Azure Functions，才可將資料匯入 Azure SQL Database。 客戶必須透過 Azure 入口網站來設定 Azure Functions，以處理專屬於每個客戶分析需求的匯入工作。
+此「Azure 安全性與合規性藍圖」提供分析平台，客戶可以在其中建置自己的分析工具。 此參考架構概要說明了一般使用案例，其中客戶會透過 SQL/資料管理員執行大量資料匯入，或透過操作使用者更新操作資料，來輸入資料。 這兩個工作流程皆需要結合 Azure Functions，才可將資料匯入 Azure SQL Database。 客戶必須透過 Azure 入口網站來設定 Azure Functions，以處理專屬於每個客戶分析需求的匯入工作。
 
 Azure 為客戶提供各種報告和分析服務。 此解決方案結合 Azure Machine Learning 服務與 Azure SQL Database，可透過更聰明的模型，來快速瀏覽資料及傳遞更快的結果。 Azure Machine Learning 透過探索資料集之間的新關係，來加快查詢速度。 一旦透過數個統計函數來訓練模型之後，最多可以讓其他 7 個 (若包括客戶伺服器則是總計 8 個) 查詢集區與相同的表格式模型同步，以分散查詢工作負載並縮短回應時間。
 
@@ -35,23 +35,23 @@ Azure 為客戶提供各種報告和分析服務。 此解決方案結合 Azure 
 
 一旦將資料上傳至 Azure SQL Database，並由 Azure Machine Learning 加以訓練後，操作使用者和 SQL/資料管理員就會使用 Power BI 來處理這些資料。 Power BI 會以直覺方式顯示資料，並同時提取多個資料集中的資訊，來繪製更深入的見解。 因為其適應性高且能輕鬆地與 Azure SQL Database 整合，可確保客戶能根據他們的業務需求進行設定，進而處理大量案例。
 
-解決方案會使用 Azure 儲存體帳戶，客戶可加以設定，以便使用儲存體服務加密來維護待用資料的機密性。 Azure 會在客戶所選的資料中心內儲存三份資料複本以供復原之用。 異地備援儲存體可確保資料會複寫到數百英哩遠的次要資料中心，並在該資料中心儲存為三份複本，防止客戶主要資料中心內的不良事件導致資料遺失。
+解決方案使用 Azure 儲存體帳戶，客戶可以設定要使用儲存體服務加密來維護待用資料的機密性。 Azure 會在客戶所選的資料中心內儲存三份資料以供復原之用。 異地備援儲存體可確保資料會複寫到數百英哩遠的次要資料中心，並在該資料中心儲存為三份複本，防止客戶主要資料中心內的不良事件導致資料遺失。
 
-為加強安全性，此解決方案中的所有資源都會透過 Azure Resource Manager 以資源群組方式管理。 Azure Active Directory 角色型存取控制可用來控制已部署資源的存取，包括資源在 Azure Key Vault 中的金鑰。 透過 Azure 資訊安全中心和 Azure 監視器來監視系統健康情況。 客戶可設定這兩項監視服務來擷取記錄，並在易於瀏覽的單一儀表板上顯示系統健康情況。
+為加強安全性，此解決方案中的所有資源都會透過 Azure Resource Manager 以資源群組方式管理。 Azure Active Directory 角色型存取控制可用來控制已部署資源的存取，包括資源在 Azure Key Vault 中的金鑰。 透過 Azure 資訊安全中心和 Azure 監視器監視系統健康情況。 客戶可設定這兩項監視服務來擷取記錄，並在易於瀏覽的單一儀表板上顯示系統健康情況。
 
 Azure SQL Database 通常會透過 SQL Server Management Studio (SSMS) 來管理，而執行 SSMS 的本機電腦會設定為透過安全的 VPN 或 ExpressRoute 連線來存取 Azure SQL Database。 **Microsoft 會建議設定 VPN 或 ExpressRoute 連線，以便管理和將資料匯入參考架構資源群組**。
 
-![適用於 FFIEC 的分析參考架構圖表](images/ffiec-analytics-architecture.png "適用於 FFIEC 的分析參考架構圖表")
+![FFIEC 參考架構圖表的分析](images/ffiec-analytics-architecture.png "FFIEC 參考架構圖表的分析")
 
 此解決方案會使用下列 Azure 服務。 部署架構的詳細資料位於[部署架構](#deployment-architecture)一節中。
 
 - Application Insights
 - Azure Active Directory
-- Azure 資料目錄
+- Azure Data Catalog
 - Azure 磁碟加密
 - Azure 事件格線
 - Azure Functions
-- Azure Key Vault
+- Azure 金鑰保存庫
 - Azure Machine Learning
 - Azure 監視器（記錄）
 - Azure 資訊安全中心
@@ -71,7 +71,7 @@ Azure SQL Database 通常會透過 SQL Server Management Studio (SSMS) 來管理
 
 **Azure Functions**：[Azure Functions](https://docs.microsoft.com/azure/azure-functions/functions-overview) 是無伺服器計算服務，可讓使用者依需求執行程式碼，無需明確佈建或管理基礎結構。 使用 Azure Functions 執行指令碼或一段程式碼來回應各種事件。
 
-**Azure Machine Learning 服務**：[Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/service/) 是一項資料科學技術，可讓電腦使用現有資料來預測未來的行為、結果和趨勢。
+**Azure Machine Learning 服務**： [Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/service/)是一項資料科學技術，可讓電腦使用現有的資料來預測未來的行為、結果和趨勢。
 
 **Azure 資料目錄**：[資料目錄](../../data-catalog/overview.md)能讓管理資料的使用者輕鬆地探索和了解資料來源。 您可以註冊、標記常用資料來源，並在其中搜尋財務資料。 資料會保留在現有的位置，但其中繼資料的複本會連同資料來源位置的參考，一起新增至資料目錄。 此中繼資料也會編製索引，透過搜尋輕鬆找到每個資料來源，並讓探索資料來源的使用者了解每個資料來源。
 
@@ -79,17 +79,17 @@ Azure SQL Database 通常會透過 SQL Server Management Studio (SSMS) 來管理
 
 此架構會定義位址空間為 10.200.0.0/16 的私人虛擬網路。
 
-**網路安全性群組**：[網路安全性群組](../../virtual-network/virtual-network-vnet-plan-design-arm.md)包含能允許或拒絕虛擬網路內之流量的存取控制清單。 網路安全性群組可用來保護子網路或個別虛擬機器層級的流量。 有下列網路安全性群組：
+**網路安全性群組**：[網路安全性群組](../../virtual-network/virtual-network-vnet-plan-design-arm.md)包含能允許或拒絕虛擬網路內流量的存取控制清單。 網路安全性群組可用來保護子網路或個別虛擬機器層級的流量。 存在下列網路安全性群組：
 
   - 適用於 Active Directory 的網路安全性群組
   - 適用於工作負載的網路安全性群組
 
-每個網路安全性群組都會開放特定連接埠及通訊協定，讓解決方案可安全且正確地運作。 此外，下列組態會針對每個網路安全性群組啟用：
+每個網路安全性群組都會開放特定連接埠及通訊協定，讓解決方案可安全且正確地運作。 此外，以下組態會針對每個網路安全性群組啟用：
 
 - 啟用[診斷記錄和事件](https://docs.microsoft.com/azure/virtual-network/virtual-network-nsg-manage-log)並儲存在儲存體帳戶
 - Azure 監視器記錄會連線至[網路安全性群組&#39;的診斷記錄](https://github.com/krnese/AzureDeploy/blob/master/AzureMgmt/AzureMonitor/nsgWithDiagnostics.json)
 
-**子網路**：確認每個子網路都與對應的網路安全性群組建立關聯。
+**子網路**：確認每個子網路都與對應的網路安全性群組相關聯。
 
 ### <a name="data-in-transit"></a>資料傳輸中
 
@@ -127,7 +127,7 @@ Azure 預設會加密與 Azure 資料中心的所有通訊。 透過 Azure 入�
 
 ### <a name="security"></a>安全性
 
-**祕密管理**：此解決方案會使用 [Azure Key Vault](https://azure.microsoft.com/services/key-vault/) 來管理金鑰和秘密。 Azure 金鑰保存庫可協助保護雲端應用程式和服務所使用的密碼編譯金鑰和密碼。 下列 Azure Key Vault 功能可協助客戶保護資料及存取這類資料：
+**祕密管理**：解決方案會使用 [Azure Key Vault](https://azure.microsoft.com/services/key-vault/) 來管理金鑰和祕密。 Azure Key Vault 可協助保護雲端應用程式和服務所使用的密碼編譯金鑰和密碼。 下列 Azure Key Vault 功能可協助客戶保護資料及存取這類資料：
 
 - 進階存取原則是視需要設定的。
 - Key Vault 存取原則是使用金鑰和祕密的最低必要權限所定義的。
@@ -137,11 +137,11 @@ Azure 預設會加密與 Azure 資料中心的所有通訊。 透過 Azure 入�
 - 金鑰保存庫的診斷記錄的保留期至少 365 天。
 - 允許的金鑰密碼編譯作業僅限於需要的密碼編譯項目。
 
-**Azure 資訊安全中心**：客戶可以使用 [Azure 資訊安全中心](https://docs.microsoft.com/azure/security-center/security-center-intro)，在工作負載之間集中套用及管理安全性原則、限制暴露於威脅的程度，以及偵測和回應攻擊。 此外，Azure 資訊安全中心會存取 Azure 服務的現有組態，以提供設定和服務建議，協助改善安全性狀態並保護資料。
+**Azure 資訊安全中心**：使用 [Azure 資訊安全中心](https://docs.microsoft.com/azure/security-center/security-center-intro)，客戶可以在工作負載之間集中套用及管理安全性原則、限制暴露於威脅的程度，以及偵測和回應攻擊。 此外，Azure 資訊安全中心會存取 Azure 服務的現有組態，以提供設定和服務建議，協助改善安全性狀態並保護資料。
 
 Azure 資訊安全中心會使用不同的偵測功能，向客戶警示以其環境為目標的潛在攻擊。 這些警示包含觸發警示的項目、鎖定為目標的資源，以及攻擊來源等重要資訊。 Azure 資訊安全中心有一組[預先定義的安全性警示](https://docs.microsoft.com/azure/security-center/security-center-alerts-type)，一旦發生威脅或可疑活動時便會觸發這些警示。 Azure 資訊安全中心內的[自訂警示規則](https://docs.microsoft.com/azure/security-center/security-center-custom-alert)可讓客戶根據從其環境所收集到的資料，定義新的安全性警示。
 
-Azure 資訊安全中心提供依優先順序排列的安全性警示和事件，讓客戶更容易探索及解決潛在的安全性問題。 針對每個偵測到的威脅會產生[威脅情報報告](https://docs.microsoft.com/azure/security-center/security-center-threat-report)，以協助事件回應小組調查威脅並進行補救。
+Azure 資訊安全中心提供依優先順序排列的安全性警示和事件，讓客戶更容易探索及解決潛在的安全性問題。 針對每個偵測到的威脅會包含[威脅情報報告](https://docs.microsoft.com/azure/security-center/security-center-threat-report)，以協助事件回應小組調查和修復威脅。
 
 ### <a name="logging-and-auditing"></a>記錄與稽核
 
@@ -152,22 +152,22 @@ Azure 服務會廣泛記錄系統、使用者活動及系統健康情況：
 **Azure 監視器記錄**：這些記錄會合並在[Azure 監視器記錄](https://azure.microsoft.com/services/log-analytics/)中，以供處理、儲存及儀表板報告之用。 所收集的資料會針對 Log Analytics 工作區內的每種資料類型組織成個別資料表，以便一起分析所有的資料 (不論其原始來源為何)。 此外，Azure 資訊安全中心與 Azure 監視器記錄整合，可讓客戶使用 Kusto 查詢來存取其安全性事件資料，並將其與來自其他服務的資料合併。
 
 下列 Azure[監視解決方案](../../monitoring/monitoring-solutions.md)包含在此架構中：
--   [Active Directory 評定](../../azure-monitor/insights/ad-assessment.md)：Active Directory 健康情況檢查解決方案會定期評估伺服器環境的風險和健康情況，並專門針對部署的伺服器基礎結構，提供優先的建議清單。
+-   [Active Directory 評定](../../azure-monitor/insights/ad-assessment.md)：「Active Directory 健康情況檢查」解決方案會定期評估伺服器環境的風險和健康情況，並針對部署的伺服器基礎結構，提供依優先順序排列的建議清單。
 - [SQL 評定](../../azure-monitor/insights/sql-assessment.md)：SQL 健康情況檢查解決方案會定期評估伺服器環境的風險和健康情況，並專門針對部署的伺服器架構，提供優先的建議清單給客戶。
 - [代理程式健全狀況](../../monitoring/monitoring-solution-agenthealth.md)：代理程式健全狀況解決方案會報告部署的代理程式數目和其地理分佈，以及沒有回應的代理程式數目和正在提交作業資料的代理程式數目。
--   [活動記錄分析](../../azure-monitor/platform/collect-activity-logs.md)：活動記錄分析解決方案可協助您分析客戶所有 Azure 訂用帳戶的 Azure 活動記錄。
+-   [活動記錄分析](../../azure-monitor/platform/collect-activity-logs.md)：「活動記錄分析」解決方案可協助您分析客戶所有 Azure 訂用帳戶的 Azure 活動記錄。
 
 **Azure 自動化**：[Azure 自動化](https://docs.microsoft.com/azure/automation/automation-hybrid-runbook-worker)會儲存、執行和管理 Runbook。 在此解決方案中，Runbook 會協助從 Azure SQL Database 中收集記錄。 自動化[變更追蹤](../../automation/change-tracking.md)解決方案可讓客戶輕鬆地識別環境中的變更。
 
-**Azure 監視器**：[Azure 監視器](https://docs.microsoft.com/azure/monitoring-and-diagnostics/)由讓組織稽核、建立警示及封存資料，包括追蹤使用者 Azure 資源中的 API 呼叫，協助使用者追蹤效能、維護安全性和識別趨勢。
+**Azure 監視器**：[Azure 監視器](https://docs.microsoft.com/azure/monitoring-and-diagnostics/)藉由讓組織稽核、建立警示及封存資料，包括追蹤使用者 Azure 資源中的 API 呼叫，協助使用者追蹤效能、維護安全性和識別趨勢。
 
-**Application Insights**：[Application Insights](https://docs.microsoft.com/azure/application-insights/) 是多個平台上的 Web 開發人員所適用的可延伸應用程式效能管理 (APM) 服務。 它會偵測效能異常，其中包括強大的分析工具可協助您診斷問題，並了解使用者實際上如何運用應用程式。 它是設計來協助使用者持續改善效能和可用性。
+**Application Insights**：[Application Insights](https://docs.microsoft.com/azure/application-insights/) 是多個平台上 Web 開發人員適用的可延伸「應用程式效能管理」(APM) 服務。 它會偵測效能異常，其中包括強大的分析工具可協助您診斷問題，並了解使用者實際上如何運用應用程式。 它是設計來協助使用者持續改善效能和可用性。
 
 ## <a name="threat-model"></a>威脅模型
 
 此參考架構的資料流程圖可供[下載](https://aka.ms/ffiec-analytics-tm)，或可以在以下位置找到。 此模型可協助客戶在進行修改時，了解系統基礎結構中的潛在風險要點。
 
-![適用於 FFIEC 的分析威脅模型](images/ffiec-analytics-threat-model.png "適用於 FFIEC 的分析威脅模型")
+![FFIEC 威脅模型的分析](images/ffiec-analytics-threat-model.png "FFIEC 威脅模型的分析")
 
 ## <a name="compliance-documentation"></a>合規性文件
 
@@ -182,7 +182,7 @@ Azure 服務會廣泛記錄系統、使用者活動及系統健康情況：
 
 您需要設定安全的 VPN 通道或 [ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-introduction)，以安全地連線到部署為此資料分析參考架構一部分的資源。 透過適當地設定 VPN 或 ExpressRoute，客戶可以在傳輸過程中新增資料保護層。
 
-藉由實作與 Azure 的安全 VPN 通道，即可建立內部部署網路與 Azure 虛擬網路之間的虛擬私人連線。 此連線透過網際網路進行，可讓客戶在客戶的網路與 Azure 之間的加密連結內安全地&quot;輸送&quot;資訊。 站對站 VPN 是安全成熟的技術，各種規模的企業已部署數十年。 此選項使用 [IPsec 通道模式](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2003/cc786385(v=ws.10))作為加密機制。
+藉由實作與 Azure 的安全 VPN 通道，即可建立內部部署網路與 Azure 虛擬網路之間的虛擬私人連線。 此連線透過網際網路進行，可讓客戶在自己的網路與 Azure 之間的加密連結內，安全地「輸送」&quot;&quot;資訊。 站對站 VPN 是安全成熟的技術，各種規模的企業已部署數十年。 此選項使用 [IPsec 通道模式](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2003/cc786385(v=ws.10))作為加密機制。
 
 由於 VPN 通道內的流量會透過站對站 VPN 周遊網際網路，因此 Microsoft 提供另一個更安全的連線選項。 Azure ExpressRoute 是 Azure 與內部部署位置或 Exchange 主機服務提供者之間專用的 WAN 連結。 ExpressRoute 連線不會經過網際網路，相較於一般網際網路連線，這些連線提供了更可靠、更快速、更低延遲、更安全的連線。 此外，因為這是客戶電信提供者的直接連線，所以資料不會透過網際網路傳輸，因此不會公開給網際網路。
 
@@ -197,7 +197,7 @@ Azure 服務會廣泛記錄系統、使用者活動及系統健康情況：
 
 ## <a name="disclaimer"></a>免責聲明
 
- - 此文件僅供參考之用。 Microsoft 對本文件中的資訊不做任何明示、暗示或成文之擔保。 這份文件係依「現狀」提供。 本文件中說明的資訊與畫面 (包括 URL 及其他網際網路網站參考資料) 如有變更，恕不另行通知。 閱讀這份文件的客戶須自行承擔使用風險。
+ - 此文件僅供參考之用。 Microsoft 對本文件中的資訊不做任何明示、暗示或成文之擔保。 這份文件係依「現狀」提供。 本文件中說明的資訊與畫面 (包括 URL 及其他網際網路網站參考資料) 如有變更，恕不另行通知。 讀取這份文件的客戶用戶須自行承擔使用風險。
  - 本文件未提供給客戶任何 Microsoft 產品或解決方案中任何智慧財產的任何法定權利。
  - 客戶可以複製並使用這份文件，供內部參考之用。
  - 本文件的某些建議可能會導致資料、網路或 Azure 計算資源使用量增加，並可能增加客戶的 Azure 授權或訂用帳戶成本。

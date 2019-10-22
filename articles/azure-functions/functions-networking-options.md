@@ -8,12 +8,12 @@ ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 4/11/2019
 ms.author: alkarche
-ms.openlocfilehash: 967988d802a1b3d33ff50f578650e44794015583
-ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
+ms.openlocfilehash: 9fe7147325b2e14a7ae6bb4b31aa941fb4059b11
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72550853"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72690833"
 ---
 # <a name="azure-functions-networking-options"></a>Azure Functions 網路功能選項
 
@@ -36,7 +36,7 @@ ms.locfileid: "72550853"
 |[私人網站存取 & 的輸入 IP 限制](#inbound-ip-restrictions)|✅Yes|✅Yes|✅Yes|✅Yes|
 |[虛擬網路整合](#virtual-network-integration)|❌No|✅Yes （地區）|✅Yes （地區和閘道）|✅Yes|
 |[虛擬網路觸發程式（非 HTTP）](#virtual-network-triggers-non-http)|❌No| ❌No|✅Yes|✅Yes|
-|[VNet](#hybrid-connections)|❌No|❌No|✅Yes|✅Yes|
+|[VNet](#hybrid-connections)|❌No|✅Yes|✅Yes|✅Yes|
 |[輸出 IP 限制](#outbound-ip-restrictions)|❌No| ❌No|❌No|✅Yes|
 
 
@@ -127,11 +127,11 @@ VNet 整合不支援的事項包括：
 
 ## <a name="hybrid-connections"></a>混合式連接
 
-「[混合](../service-bus-relay/relay-hybrid-connections-protocol.md)式連線」是 Azure 轉送的一項功能，可讓您用來存取其他網路中的應用程式資源。 它可讓您從應用程式存取應用程式端點。 您無法使用它來存取您的應用程式。 混合式連接可供在[App Service 計畫](functions-scale.md#app-service-plan)和[App Service 環境](../app-service/environment/intro.md)中執行的函式使用。
+「[混合](../service-bus-relay/relay-hybrid-connections-protocol.md)式連線」是 Azure 轉送的一項功能，可讓您用來存取其他網路中的應用程式資源。 它可讓您從應用程式存取應用程式端點。 您無法使用它來存取您的應用程式。 混合式連接可供在所有取用方案中執行的函式使用。
 
 在 Azure Functions 中使用時，每個混合式連線都會與單一 TCP 主機和埠組合相互關聯。 這表示，只要您要存取 TCP 接聽埠，混合式連線的端點就可以在任何作業系統和任何應用程式上。 「混合式連線」功能不知道或在意應用程式通訊協定為何，或您要存取的內容。 它只是提供網路存取。
 
-若要深入瞭解，請參閱混合式連線的[App Service 檔](../app-service/app-service-hybrid-connections.md)，其支援 App Service 計畫中的功能。
+若要深入瞭解，請參閱混合式連線的[App Service 檔](../app-service/app-service-hybrid-connections.md)，其可透過相同的設定步驟來支援函式。
 
 ## <a name="outbound-ip-restrictions"></a>輸出 IP 限制
 

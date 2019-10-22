@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 07/13/2018
 ms.author: jomolesk
 ms.openlocfilehash: 1f6eeea85a348bb8e88a387fa0fc6bed55e41a5e
-ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/25/2019
+ms.lasthandoff: 10/21/2019
 ms.locfileid: "71262776"
 ---
 # <a name="azure-security-and-compliance-blueprint-paas-web-application-hosting-for-uk-official-workloads"></a>Azure 安全性與合規性藍圖：適用於 UK OFFICIAL 工作負載的 PaaS Web 應用程式裝載
@@ -21,7 +21,7 @@ ms.locfileid: "71262776"
 
 Azure 藍圖是由指引文件和自動化範本所組成，可部署雲端式架構，以將解決方案提供給有認證或合規性需求的案例。 Azure 藍圖是指引和自動化範本集合，可讓 Microsoft Azure 客戶透過佈建可擴充來符合任何進一步需求的基礎架構，加速達成其商務目標。
 
-## <a name="overview"></a>總覽
+## <a name="overview"></a>概觀
 
 這篇 Azure 安全性與合規性藍圖提供指引和自動化指令碼，以提供 Microsoft Azure [平台即服務 (PaaS)](https://azure.microsoft.com/overview/what-is-paas/) 託管 Web 應用程式架構，該架構適合處理許多已歸類為 [UK OFFICIAL](https://assets.publishing.service.gov.uk/government/uploads/system/uploads/attachment_data/file/715778/May-2018_Government-Security-Classifications-2.pdf) 的工作負載。 此安全性分類涵蓋了公共部門所建立或處理的大部分資訊。 這包括例行商務作業和服務，這些作業和服務若在媒體中遺失、遭竊或發佈，則可能會有不利的影響。 OFFICIAL 分類與私人企業的典型威脅設定檔大致相同，均可提供寶貴的資訊和服務。 UK OFFICIAL 預期需要保護英國政府的資料或服務，以免遭受能力和資源有限的攻擊者威脅或入侵，例如 (但不限於) 激進駭客、單一議題壓力團體、調查記者、有能力的個別駭客，以及大多數的犯罪個體和集團。
 
@@ -45,16 +45,16 @@ Azure 藍圖是由指引文件和自動化範本所組成，可部署雲端式�
 
 此藍圖能在支援 UK OFFICIAL 工作負載的 Azure 雲端環境中，提供 Web 應用程式裝載解決方案。 此架構提供可利用 Azure 平台即服務功能的安全環境。 在此環境中，已部署兩個 App Service Web 應用程式 (一個用於公用使用者，一個用於後台系統使用者)，且有 API 應用程式層可為 Web 前端提供商務服務。 Azure SQL Database 已部署為應用程式的受控關聯式資料存放區。 從外部平台連線這些元件的能力以及這些元件之間的連線能力都會透過 TLS 1.2 加密，以確保資料傳輸中隱私權，且具有經由 Azure Active Directory 驗證的存取權。
 
-![適用於 UK OFFICIAL 工作負載的 PaaS Web 應用程式裝載參考架構圖表](images/ukofficial-paaswa-architecture.png?raw=true "適用於 UK OFFICIAL 工作負載的 PaaS Web 應用程式裝載參考架構圖表")
+![適用于英國官方工作負載的 PaaS Web 應用程式裝載參考架構圖表](images/ukofficial-paaswa-architecture.png?raw=true "適用于英國官方工作負載的 PaaS Web 應用程式裝載參考架構圖表")
 
 在部署架構中，也會部署安全的儲存體佈建、監視和記錄、統一安全性管理和進階威脅防護及管理功能，確保客戶擁有針對此解決方案保護及監視其環境所需的工具。
 
 此解決方案會使用下列 Azure 服務。 部署架構的詳細資料位於[部署架構](#deployment-architecture)一節中。
 
 - Azure Active Directory
-- App Service
-- Web 應用程式
-- API 應用程式
+- App Service 方案
+- web 應用程式
+- API App
 - Azure DNS
 - Key Vault
 - Azure 監視器（記錄）
@@ -77,8 +77,8 @@ Azure 藍圖是由指引文件和自動化範本所組成，可部署雲端式�
 下列技術可在 Azure 環境中提供身分識別管理功能：
 
 - [Azure Active Directory (Azure AD)](https://azure.microsoft.com/services/active-directory/) 是 Microsoft 的多租用戶雲端式目錄和身分識別管理服務。 解決方案的所有使用者都是在 Azure Active Directory 中建立，包括存取 SQL Database 的使用者。
-- 使用 Azure AD 可執行操作者面向 Web 應用程式的驗證和 Azure 資源管理的存取。 如需詳細資訊，請參閱[整合應用程式與 Azure Active Directory](../../active-directory/develop/quickstart-v1-integrate-apps-with-azure-ad.md)。
-- 資料庫資料行加密會使用 Azure AD 向 Azure SQL Database 驗證應用程式。 如需詳細資訊，請參閱 [Always Encrypted：保護 SQL Database 中的機密資料](https://docs.microsoft.com/azure/sql-database/sql-database-always-encrypted-azure-key-vault)。
+- 使用 Azure AD 可執行操作者面向 Web 應用程式的驗證和 Azure 資源管理的存取。 如需詳細資訊，請參閱 [整合應用程式與 Azure Active Directory](../../active-directory/develop/quickstart-v1-integrate-apps-with-azure-ad.md)。
+- 資料庫資料行加密會使用 Azure AD 向 Azure SQL Database 驗證應用程式。 如需詳細資訊，請參閱 [Always Encrypted：保護 SQL Database 中的敏感性資料](https://docs.microsoft.com/azure/sql-database/sql-database-always-encrypted-azure-key-vault)。
 - 公民面向 Web 應用程式會設定為公開存取。 若要允許透過 Active Directory 或社交網路身分識別提供者來建立及驗證帳戶，[Azure Active Directory B2C](https://azure.microsoft.com/services/active-directory-b2c/) 可以視需要進行整合。
 - [Azure Active Directory Identity Protection](../../active-directory/identity-protection/overview.md) 會偵測潛在弱點和有風險的帳戶，並提供相關建議，以增強貴組織身分識別的安全性狀態，並為偵測到的組織身分識別相關可疑活動設定自動回應，以及調查可疑事件並採取適當動作來解決這些可疑事件。
 - [Azure 角色型存取控制 (RBAC)](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal) 可以對 Azure 進行精確且專注的存取權管理。 可存取訂用帳戶的身分會限制為訂用帳戶系統管理員，而可存取 Azure Key Vault 的身分則是限制為需要金鑰管理權限的使用者。
@@ -91,7 +91,7 @@ Azure 藍圖是由指引文件和自動化範本所組成，可部署雲端式�
 
 #### <a name="security-and-malware-protection"></a>安全性和惡意程式碼防護
 
-[Azure 資訊安全中心](https://azure.microsoft.com/services/security-center/)可提供所有 Azure 資源安全性狀態的集中檢閱。 只需看一眼，您就可以確認安全性控制項是否已就緒並正確設定，且可以快速找出任何需要注意的資源。
+[Azure 資訊安全中心](https://azure.microsoft.com/services/security-center/)可提供所有 Azure 資源安全性狀態的集中檢閱。 只需看一眼，您就可以確認安全性控制項是否已就緒並正確設定，以及快速找出任何需要注意的資源。
 
 [Azure Advisor](https://docs.microsoft.com/azure/advisor/advisor-overview) 是個人化的雲端顧問，可協助您依最佳做法來最佳化您的 Azure 部署。 它可分析您的資源組態和使用量遙測，然後建議可協助您改善 Azure 資源的成本效益、效能、高可用性和安全性的解決方案。
 
@@ -110,7 +110,7 @@ App Service 符合 [ISO、SOC 和 PCI 規範](https://www.microsoft.com/TrustCen
 此範本會部署下列 App Service 實體：
 
 - [標準](https://docs.microsoft.com/azure/app-service/overview-hosting-plans) App Service 方案層次
-- 多個 App Service [部署位置](https://docs.microsoft.com/azure/app-service/deploy-staging-slots)：Dev、Preview、QA、UAT 以及 Production (預設位置)。
+- 多個 App Service[部署](https://docs.microsoft.com/azure/app-service/deploy-staging-slots)位置：開發、預覽、QA、UAT，當然是生產環境（預設位置）。
 - 以 [Azure 資源的受控識別](https://docs.microsoft.com/azure/app-service/overview-managed-identity)連線到 [Azure Key Vault](https://azure.microsoft.com/services/key-vault/) (這也可供存取 [Azure SQL Database](https://azure.microsoft.com/services/sql-database/) 
 - 與 [Azure Application Insights](../../azure-monitor/app/azure-web-apps.md) 整合以監視效能
 - [診斷記錄](../../azure-monitor/platform/resource-logs-overview.md) 
@@ -119,7 +119,7 @@ App Service 符合 [ISO、SOC 和 PCI 規範](https://www.microsoft.com/TrustCen
 
 #### <a name="azure-sql-database"></a>Azure SQL Database
 
-SQL Database 是 Microsoft Azure 中的一般用途關聯式資料庫受控服務，可支援關聯式資料、JSON、空間和 XML 等結構。 SQL Database 提供受控的單一 SQL 資料庫、[彈性集區](https://docs.microsoft.com/azure/sql-database/sql-database-elastic-pool)中的受控 SQL 資料庫，以及 SQL [受控執行個體](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance) (處於公開預覽狀態)。 除了實現[可動態調整的效能](../../sql-database/sql-database-purchase-models.md)外，更能提供各種選項，例如用於極限分析和報告的[資料行存放區索引](https://docs.microsoft.com/sql/relational-databases/indexes/columnstore-indexes-overview)，以及用來處理極限交易的[記憶體內部 OLTP](https://docs.microsoft.com/azure/sql-database/sql-database-in-memory) Microsoft 可順暢地處理 SQL 程式碼基底的所有修補和更新，並抽走基礎結構的所有管理功能。
+SQL Database 是 Microsoft Azure 中的一般用途關聯式資料庫受控服務，可支援關聯式資料、JSON、空間和 XML 等結構。 SQL Database 提供受控的單一 SQL 資料庫、[彈性集區](https://docs.microsoft.com/azure/sql-database/sql-database-elastic-pool)中的受控 SQL 資料庫，以及 SQL [受控執行個體](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance) (處於公開預覽狀態)。 它可提供[動態可調式效能](../../sql-database/sql-database-purchase-models.md)，而且提供[資料行存放區索引](https://docs.microsoft.com/sql/relational-databases/indexes/columnstore-indexes-overview)等選項來進行極限分析和報告，以及[記憶體內部 OLTP](https://docs.microsoft.com/azure/sql-database/sql-database-in-memory) 來進行極限交易處理。 Microsoft 可順暢地處理 SQL 程式碼基底的所有修補和更新，並抽走基礎結構的所有管理功能。
 
 此藍圖中的 Azure SQL Database
 
@@ -156,7 +156,7 @@ Microsoft [Azure 儲存體](https://azure.microsoft.com/services/storage/)是 Mi
 
 ### <a name="secrets-management"></a>祕密管理
 
-#### <a name="azure-key-vault"></a>Azure Key Vault
+#### <a name="azure-key-vault"></a>Azure 金鑰保存庫
 
 [Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-overview) 用來保護應用程式金鑰和祕密，以確保第三方不能存取它們。 Key Vault 的用意並非作為使用者密碼的存放區。 它可讓您建立多個安全的容器，稱之為保存庫。 這些保存庫由硬體安全性模組 (HSM) 支援。 保存庫藉由集中儲存應用程式祕密，協助減少意外遺失安全性資訊的機會。 Key Vault 也會控制和記錄其中所儲存項目的存取權。 Azure Key Vault 可以處理要求及更新傳輸層安全性 (TLS) 憑證，並提供穩健憑證生命週期管理解決方案所需的功能。
 
@@ -174,7 +174,7 @@ Microsoft [Azure 儲存體](https://azure.microsoft.com/services/storage/)是 Mi
 
 #### <a name="azure-monitor-logs-in-this-blueprint"></a>Azure 監視器此藍圖中的記錄
 
-- SQL 評定
+- SQL 評估
 - Key Vault 診斷
 - Application Insights 連線
 - Azure 活動記錄檔
@@ -193,7 +193,7 @@ Microsoft [Azure 儲存體](https://azure.microsoft.com/services/storage/)是 Mi
 
 [Azure 活動記錄](https://docs.microsoft.com/azure/azure-monitor/platform/activity-logs-overview)可稽核訂用帳戶的控制程度事件。 您可以使用活動記錄檔來判斷訂用帳戶中的資源上任何寫入作業 (PUT、POST、DELETE) 的「內容、對象和時間」。 您也可以了解作業的狀態和其他相關屬性。
 
-#### <a name="azure-monitor"></a>Azure 監視器
+#### <a name="azure-monitor"></a>Azure Monitor
 
 [Azure 監視器](../../azure-monitor/overview.md)會透過允許集合計量、活動記錄及診斷記錄，來啟用 Azure 服務的核心監視功能。 Azure 監視器可針對 Microsoft Azure 中的大多數服務提供基本等級的基礎結構計量與記錄。
 
@@ -201,7 +201,7 @@ Microsoft [Azure 儲存體](https://azure.microsoft.com/services/storage/)是 Mi
 
 此參考架構的資料流程圖可供[下載](https://aka.ms/ukofficial-paaswa-tm)，或可以在以下位置找到。 此模型可協助客戶在進行修改時，了解系統基礎結構中的潛在風險要點。
 
-![適用於 UK OFFICIAL 工作負載的 PaaS Web 應用程式裝載威脅模型](images/ukofficial-paaswa-threat-model.png?raw=true "適用於 UK OFFICIAL 工作負載的 PaaS Web 應用程式裝載威脅模型")
+![適用于英國官方工作負載威脅模型的 PaaS Web 應用程式裝載](images/ukofficial-paaswa-threat-model.png?raw=true "適用于英國官方工作負載威脅模型的 PaaS Web 應用程式裝載")
 
 ## <a name="ncsc-cloud-security-principles-compliance-documentation"></a>NCSC 雲端安全性準則合規性文件
 
@@ -231,7 +231,7 @@ Crown Commercial Service (一所致力於改善政府相關商業和採購活動
 1.  將[這個](https://aka.ms/ukofficial-paaswa-repo) GitHub 存放庫複製或下載到您的本機工作站。
 2.  檢閱[方法 1：Azure CLI 2 (Express 版)](https://aka.ms/ukofficial-paaswa-repo/#method-1-azure-cli-2-express-version) 和執行所提供的命令。
 3.  檢閱[方法 1a：Azure CLI 2 (透過指令碼引數設定部署)](https://aka.ms/ukofficial-paaswa-repo/#method-1a-azure-cli-2-configuring-the-deployment-via-script-arguments) 和執行所提供的命令
-4.  檢閱[方法 2：Azure 入口網站部署程序](https://aka.ms/ukofficial-paaswa-repo/#method-2-azure-portal-deployment-process)和執行所列的命令
+4.  審查[方法2： Azure 入口網站部署](https://aka.ms/ukofficial-paaswa-repo/#method-2-azure-portal-deployment-process)程式並執行列出的命令
 
 ## <a name="guidance-and-recommendations"></a>指引與建議
 
@@ -245,7 +245,7 @@ Crown Commercial Service (一所致力於改善政府相關商業和採購活動
 
 ## <a name="disclaimer"></a>免責聲明
 
-- 此文件僅供參考之用。 Microsoft 對本文件中的資訊不做任何明示、暗示或成文之擔保。 這份文件係依「現狀」提供。 本文件中說明的資訊與畫面 (包括 URL 及其他網際網路網站參考資料) 如有變更，恕不另行通知。 閱讀這份文件的客戶須自行承擔使用風險。
+- 此文件僅供參考之用。 Microsoft 對本文件中的資訊不做任何明示、暗示或成文之擔保。 這份文件係依「現狀」提供。 本文件中說明的資訊與畫面 (包括 URL 及其他網際網路網站參考資料) 如有變更，恕不另行通知。 讀取這份文件的客戶用戶須自行承擔使用風險。
 - 本文件未提供給客戶任何 Microsoft 產品或解決方案中任何智慧財產的任何法定權利。
 - 客戶可以複製並使用這份文件，供內部參考之用。
 - 本文件的某些建議可能會導致資料、網路或 Azure 計算資源使用量增加，並可能增加客戶的 Azure 授權或訂用帳戶成本。

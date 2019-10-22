@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 01/09/2017
 ms.author: apimpm
 ms.openlocfilehash: 0f24b9c6ce2aeb318040b61c29d7e14c01886c46
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/28/2019
+ms.lasthandoff: 10/21/2019
 ms.locfileid: "70073316"
 ---
 # <a name="user-profile-templates-in-azure-api-management"></a>Azure API 管理中的使用者設定檔範本
@@ -41,7 +41,7 @@ ms.locfileid: "70073316"
 ##  <a name="Profile"></a> 設定檔  
  **設定檔**範本可讓您自訂開發人員入口網站中 [使用者設定檔] 頁面的使用者設定檔區段。  
   
- ![使用者設定檔頁面](./media/api-management-user-profile-templates/APIM-User-Profile-Page.png "APIM 使用者設定檔頁面")  
+ ![[使用者設定檔] 頁面](./media/api-management-user-profile-templates/APIM-User-Profile-Page.png "APIM 使用者設定檔頁面")  
   
 ### <a name="default-template"></a>預設範本  
   
@@ -95,7 +95,7 @@ ms.locfileid: "70073316"
 </div>  
 ```  
   
-### <a name="controls"></a>控制項  
+### <a name="controls"></a>控制  
  此範本可能不使用任何[頁面控制項](api-management-page-controls.md)。  
   
 ### <a name="data-model"></a>資料模型  
@@ -103,7 +103,7 @@ ms.locfileid: "70073316"
 > [!NOTE]
 >  [設定檔](#Profile)、[應用程式](#Applications)、[訂用帳戶](#Subscriptions)範本共用相同的資料模型，並接收相同的範本資料。  
   
-|屬性|類型|描述|  
+|屬性|Type|描述|  
 |--------------|----------|-----------------|  
 |`firstName`|string|目前使用者的名字。|  
 |`lastName`|string|目前使用者的姓氏。|  
@@ -114,8 +114,8 @@ ms.locfileid: "70073316"
 |`applications`|[應用程式](api-management-template-data-model-reference.md#Application)實體的集合。|目前使用者的應用程式。|  
 |`changePasswordUrl`|string|相對 URL，可前往變更目前使用者的密碼。|  
 |`changeNameOrEmailUrl`|string|相對 URL，可前往變更目前使用者的名稱和電子郵件。|  
-|`canChangePassword`|boolean|目前使用者是否可以變更其密碼。|  
-|`isSystemUser`|boolean|目前使用者是否是其中一個內建[群組](api-management-key-concepts.md#groups)的成員。|  
+|`canChangePassword`|布林值|目前使用者是否可以變更其密碼。|  
+|`isSystemUser`|布林值|目前使用者是否是其中一個內建[群組](api-management-key-concepts.md#groups)的成員。|  
   
 ### <a name="sample-template-data"></a>範例範本資料  
   
@@ -186,7 +186,7 @@ ms.locfileid: "70073316"
 ##  <a name="Subscriptions"></a> 訂用帳戶  
  **訂用帳戶**範本可讓您自訂開發人員入口網站中 [使用者設定檔] 頁面的訂用帳戶區段。  
   
- ![使用者訂用帳戶頁面](./media/api-management-user-profile-templates/APIM-User-Subscription-Page.png "APIM 使用者訂用帳戶頁面")  
+ ![[使用者訂用帳戶] 頁面](./media/api-management-user-profile-templates/APIM-User-Subscription-Page.png "APIM 使用者訂用帳戶頁面")  
   
 ### <a name="default-template"></a>預設範本  
   
@@ -314,7 +314,7 @@ ms.locfileid: "70073316"
 </div>  
 ```  
   
-### <a name="controls"></a>控制項  
+### <a name="controls"></a>控制  
  此範本可能會使用下列[頁面控制項](api-management-page-controls.md)。  
   
 -   [subscription-cancel](api-management-page-controls.md#subscription-cancel)  
@@ -324,7 +324,7 @@ ms.locfileid: "70073316"
 > [!NOTE]
 >  [設定檔](#Profile)、[應用程式](#Applications)、[訂用帳戶](#Subscriptions)範本共用相同的資料模型，並接收相同的範本資料。  
   
-|屬性|類型|描述|  
+|屬性|Type|描述|  
 |--------------|----------|-----------------|  
 |`firstName`|string|目前使用者的名字。|  
 |`lastName`|string|目前使用者的姓氏。|  
@@ -335,8 +335,8 @@ ms.locfileid: "70073316"
 |`applications`|[應用程式](api-management-template-data-model-reference.md#Application)實體的集合。|目前使用者的應用程式。|  
 |`changePasswordUrl`|string|相對 URL，可前往變更目前使用者的密碼。|  
 |`changeNameOrEmailUrl`|string|相對 URL，可前往變更目前使用者的名稱和電子郵件。|  
-|`canChangePassword`|boolean|目前使用者是否可以變更其密碼。|  
-|`isSystemUser`|boolean|目前使用者是否是其中一個內建[群組](api-management-key-concepts.md#groups)的成員。|  
+|`canChangePassword`|布林值|目前使用者是否可以變更其密碼。|  
+|`isSystemUser`|布林值|目前使用者是否是其中一個內建[群組](api-management-key-concepts.md#groups)的成員。|  
   
 ### <a name="sample-template-data"></a>範例範本資料  
   
@@ -407,7 +407,7 @@ ms.locfileid: "70073316"
 ##  <a name="Applications"></a> 應用程式  
  **應用程式**範本可讓您自訂開發人員入口網站中 [使用者設定檔] 頁面的訂用帳戶區段。  
   
- ![使用者帳戶的應用程式頁面](./media/api-management-user-profile-templates/APIM-User-Account-Applications-Page.png "APIM 使用者帳戶的應用程式頁面")  
+ ![[使用者帳戶應用程式] 頁面](./media/api-management-user-profile-templates/APIM-User-Account-Applications-Page.png "APIM 使用者帳戶應用程式頁面")  
   
 ### <a name="default-template"></a>預設範本  
   
@@ -477,7 +477,7 @@ ms.locfileid: "70073316"
 </div>  
 ```  
   
-### <a name="controls"></a>控制項  
+### <a name="controls"></a>控制  
  此範本可能會使用下列[頁面控制項](api-management-page-controls.md)。  
   
 -   [app-actions](api-management-page-controls.md#app-actions)  
@@ -487,7 +487,7 @@ ms.locfileid: "70073316"
 > [!NOTE]
 >  [設定檔](#Profile)、[應用程式](#Applications)、[訂用帳戶](#Subscriptions)範本共用相同的資料模型，並接收相同的範本資料。  
   
-|屬性|類型|描述|  
+|屬性|Type|描述|  
 |--------------|----------|-----------------|  
 |`firstName`|string|目前使用者的名字。|  
 |`lastName`|string|目前使用者的姓氏。|  
@@ -498,8 +498,8 @@ ms.locfileid: "70073316"
 |`applications`|[應用程式](api-management-template-data-model-reference.md#Application)實體的集合。|目前使用者的應用程式。|  
 |`changePasswordUrl`|string|相對 URL，可前往變更目前使用者的密碼。|  
 |`changeNameOrEmailUrl`|string|相對 URL，可前往變更目前使用者的名稱和電子郵件。|  
-|`canChangePassword`|boolean|目前使用者是否可以變更其密碼。|  
-|`isSystemUser`|boolean|目前使用者是否是其中一個內建[群組](api-management-key-concepts.md#groups)的成員。|  
+|`canChangePassword`|布林值|目前使用者是否可以變更其密碼。|  
+|`isSystemUser`|布林值|目前使用者是否是其中一個內建[群組](api-management-key-concepts.md#groups)的成員。|  
   
 ### <a name="sample-template-data"></a>範例範本資料  
   
@@ -604,7 +604,7 @@ ms.locfileid: "70073316"
 </a>  
 ```  
   
-### <a name="controls"></a>控制項  
+### <a name="controls"></a>控制  
  此範本可能不使用任何[頁面控制項](api-management-page-controls.md)。  
   
 ### <a name="data-model"></a>資料模型  

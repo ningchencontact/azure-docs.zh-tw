@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 01/09/2018
 ms.author: apimpm
 ms.openlocfilehash: 1189689566da84df6d6b8845bf7c81bd8aa5f1ab
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/28/2019
+ms.lasthandoff: 10/21/2019
 ms.locfileid: "70072233"
 ---
 # <a name="page-templates-in-azure-api-management"></a>Azure API 管理中的頁面範本
@@ -97,7 +97,7 @@ ms.locfileid: "70072233"
 </div>  
 ```  
   
-### <a name="controls"></a>控制項  
+### <a name="controls"></a>控制  
  此範本可能會使用下列[頁面控制項](api-management-page-controls.md)。  
   
 -   [basic-signin](api-management-page-controls.md#basic-signin)  
@@ -156,7 +156,7 @@ ms.locfileid: "70072233"
 </div>  
 ```  
   
-### <a name="controls"></a>控制項  
+### <a name="controls"></a>控制  
  此範本可能會使用下列[頁面控制項](api-management-page-controls.md)。  
   
 -   [sign-up](api-management-page-controls.md#sign-up)  
@@ -220,12 +220,12 @@ ms.locfileid: "70072233"
 </p>  
 ```  
   
-### <a name="controls"></a>控制項  
+### <a name="controls"></a>控制  
  此範本可能不使用任何[頁面控制項](api-management-page-controls.md)。  
   
 ### <a name="data-model"></a>資料模型  
   
-|屬性|類型|描述|  
+|屬性|Type|描述|  
 |--------------|----------|-----------------|  
 |referenceCode|string|因發生內部錯誤而顯示此頁面時所產生的代碼。|  
 |errorCode|string|因發生內部錯誤而顯示此頁面時所產生的代碼。|  

@@ -8,13 +8,13 @@ ms.subservice: core
 ms.topic: conceptual
 ms.author: laobri
 author: lobrien
-ms.date: 09/14/2019
-ms.openlocfilehash: 0465dcba5130f3b2dc5c615c884bfa0d3b138eb7
-ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
+ms.date: 10/10/2019
+ms.openlocfilehash: f5136084530c48815fd6a9f9e25b7358df00af07
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72514942"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72692545"
 ---
 # <a name="what-are-azure-machine-learning-pipelines"></a>什麼是 Azure Machine Learning 管線？
 
@@ -112,6 +112,14 @@ Azure ML 管線會以已排序的步驟順序來執行完整的邏輯工作流�
 Azure ML 管線會與 Azure Machine Learning 工作區相關聯，而管線步驟會與該工作區中可用的計算目標相關聯。 如需詳細資訊，請參閱[建立和管理 Azure 入口網站中的 Azure Machine Learning 工作區](https://docs.microsoft.com/azure/machine-learning/service/how-to-manage-workspace)或[Azure Machine Learning 中的計算目標？](https://docs.microsoft.com/azure/machine-learning/service/concept-compute-target)。
 
 在 Azure Machine Learning 中，計算目標是發生 ML 階段的環境。 軟體環境可能是遠端 VM、Azure Machine Learning 計算、Azure Databricks、Azure Batch 等等。 硬體環境可能也會有很大的差異，視 GPU 支援、記憶體、存放裝置等等而定。 您可以指定每個步驟的計算目標，讓您更精細地控制成本。 您可以針對專案的特定動作、資料量和效能需求，使用更多或更不強大的資源。 
+
+## <a name="how-do-i-build-pipelines-using-the-azure-machine-learning-visual-interface"></a>如何? 使用 Azure Machine Learning 視覺化介面來建立管線嗎？
+
+偏好視覺化設計介面的開發人員可以使用 Azure Machine Learning 的視覺化介面來建立管線。 您可以從工作區首頁上的**視覺化介面**選取範圍存取此工具。  視覺化介面可讓您將步驟拖放到設計介面上。 若要快速開發，您可以在 ML 工作範圍內使用現有的模組;現有的模組涵蓋從資料轉換到演算法選擇，到定型到部署的所有內容。 或者，您可以結合 Python 腳本中定義的自己步驟來建立完整的自訂管線。
+
+當您以視覺方式設計管線時，步驟的輸入和輸出會以可見的方式顯示。 您可以拖放資料連線，讓您快速瞭解和修改管線的資料流程。
+ 
+![Azure Machine Learning 視覺介面範例](./media/concept-ml-pipelines/visual-design-surface.gif)
 
 ### <a name="understanding-the-execution-graph"></a>瞭解執行圖形
 

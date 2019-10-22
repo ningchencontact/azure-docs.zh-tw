@@ -7,12 +7,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 10/08/2019
 ms.author: robinsh
-ms.openlocfilehash: 030ea87018e1a2d438e3e4d728af76e429efda08
-ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
+ms.openlocfilehash: ac5817675d3cfc97a8732ee2e10ec7b9246b12a5
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72169010"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72693326"
 ---
 # <a name="azure-iot-device-sdks-platform-support"></a>Azure IoT 裝置 Sdk 平臺支援
 
@@ -30,7 +30,7 @@ Microsoft 致力於持續擴充 Azure IoT 中樞功能強大的裝置。 Microso
 
 ## <a name="microsoft-sdks-and-device-platform-support"></a>Microsoft Sdk 和裝置平臺支援
 
-Microsoft 會針對下列語言發佈 GitHub 上的開放原始碼 Sdk：C、.NET （C#）、Node.js、JAVA 和 Python。 這一節會列出 Sdk 及其相依性。 任何符合這些相依性的裝置平臺都支援 Sdk。
+Microsoft 會針對下列語言發行 GitHub 上的開放原始碼 Sdk： C、.NETC#（）、Node.js、JAVA 和 Python。 這一節會列出 Sdk 及其相依性。 任何符合這些相依性的裝置平臺都支援 Sdk。
 
 針對每個列出的 Sdk，Microsoft：
 
@@ -56,20 +56,24 @@ Microsoft 會針對下列語言發佈 GitHub 上的開放原始碼 Sdk：C、.NE
 
 [Azure IoT 中樞 Python 裝置 SDK](https://github.com/Azure/azure-iot-sdk-python)會使用進行測試，並支援下列設定。
 
-| OS                  | 編譯器                       |
-|---------------------|--------------------------------|
-| Linux               | Python 2.7、3.4、3.5、3.6、3。7 |
-| MacOS High Sierra   | Python 2.7、3.4、3.5、3.6、3。7 |
-| Windows 10 系列   | Python 2.7、3.4、3.5、3.6、3。7 |
+| OS                  | 編譯器                          |
+|---------------------|-----------------------------------|
+| Linux               | Python 2.7 *、3.4*、3.5 *、3.6、3。7 |
+| MacOS High Sierra   | Python 2.7 *、3.4*、3.5 *、3.6、3。7 |
+| Windows 10 系列   | Python 2.7 *、3.4*、3.5 *、3.6、3。7 |
+
+\* 只有 Python version 3.5.3 或更新版本支援非同步 Api，建議使用3.7 或更新版本。
 
 ### <a name="net-sdk"></a>.NET SDK
 
 [Azure IoT 中樞 .net （C#）裝置 SDK](https://github.com/Azure/azure-iot-sdk-csharp)會使用進行測試，並支援下列設定。
 
-| OS                                   | 標準                                                   |
+| OS                                   | Standard                                                   |
 |--------------------------------------|------------------------------------------------------------|
 | Linux                                | .NET Core 2.1                                              |
 | Windows 10 Desktop 和伺服器 Sku   | .NET Core 2.1、.NET Framework 4.5.1 或 .NET Framework 4。7 |
+
+.NET SDK 也可以搭配使用 Windows IoT Core 與[Azure 裝置代理程式](https://github.com/ms-iot/azure-client-tools/blob/master/docs/device-agent/device-agent.md)，或可[使用 RPC 與 UWP 應用程式通訊的自訂 NTService](https://docs.microsoft.com/samples/microsoft/windows-iotcore-samples/ntservice-rpc/)。
 
 ### <a name="nodejs-sdk"></a>Node.js SDK
 
@@ -94,7 +98,7 @@ Azure IoT 中樞的 node.js[裝置 SDK](https://github.com/Azure/azure-iot-sdk-n
 
 Microsoft 與各種合作夥伴合作，為數個微處理器架構提供開發工具組。 這些合作夥伴已將 Azure IoT C SDK 移植到其平臺。 合作夥伴會建立並維護 SDK 的平臺抽象層（PAL）。 Microsoft 會與這些合作夥伴合作，以提供延伸支援。
 
-| 合作夥伴             | 裝置                            | 連結                     | 支援 |
+| Partner             | 裝置                            | 連結                     | 支援 |
 |---------------------|------------------------------------|--------------------------|---------|
 | Espressif           | ESP32 <br/> ESP8266                              | [Esp-azure](https://github.com/espressif/esp-azure)                | [GitHub](https://github.com/espressif/esp-azure)  
 | Qualcomm            | Qualcomm MDM9206 LTE IoT Modem     | [Qualcomm LTE for IoT SDK](https://developer.qualcomm.com/software/lte-iot-sdk) | [論壇](https://developer.qualcomm.com/forums/software/lte-iot-sdk)   |

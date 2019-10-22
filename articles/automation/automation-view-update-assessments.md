@@ -1,6 +1,6 @@
 ---
 title: 查看 Azure 更新管理更新評量
-description: 本文說明如何查看更新部署的更新評量
+description: 本文說明如何查看更新部署的更新評量。
 services: automation
 ms.service: automation
 ms.subservice: update-management
@@ -9,26 +9,26 @@ ms.author: robreed
 ms.date: 05/17/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: e88622ede6437086b86a33081d6ec9b9ea50ef65
-ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
+ms.openlocfilehash: d4e20b2924504b714dff9f5ba650f9b25c1c26c3
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72377716"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72690854"
 ---
 # <a name="view-azure-update-management-update-assessments"></a>查看 Azure 更新管理更新評量
 
-在您的自動化帳戶中，選取 [更新管理] 來檢視機器的狀態。
+在您的 Azure 自動化帳戶中，選取 [**更新管理**] 以查看電腦的狀態。
 
-此檢視會提供您的機器、缺少的更新、更新部署以及已排定之更新部署的相關資訊。 在 [合規性欄] 中，您可以看到機器上次的評估時間。 在 [更新代理程式整備程度] 欄中，您可以查看更新代理的健康情況。 如果發生問題，請選取連結來移至疑難排解文件，協助您了解應該執行哪些步驟來更正問題。
+此檢視會提供您的機器、缺少的更新、更新部署以及已排定之更新部署的相關資訊。 在 [**相容性**] 欄中，您可以看到上次評估電腦的時間。 在 [**更新代理程式準備就緒**] 欄位中，您可以看到更新代理程式的健全狀況。 如果發生問題，請選取 [移至疑難排解檔] 連結，以協助您更正問題。
 
-若要執行記錄搜尋來傳回與機器、更新或部署相關的資訊，請選取清單中的項目。 [記錄搜尋] 窗格隨即開啟，並顯示所選項目的查詢：
+若要執行會傳回機器、更新或部署相關資訊的記錄檔搜尋，請選取清單中的對應專案。 [記錄搜尋] 窗格隨即開啟，並顯示所選項目的查詢：
 
 ![更新管理的預設檢視](media/automation-update-management/update-management-view.png)
 
 ## <a name="view-missing-updates"></a>檢視缺少的更新
 
-選取 [缺少的更新] 以檢視機器缺少的更新清單。 會列出每個更新，而且您可以選取更新。 畫面上會顯示需要更新的機器數目、作業系統以及一個能提供詳細資訊的連結。 [記錄搜尋] 窗格會顯示與更新有關的詳細資訊。
+選取 [缺少的更新] 以檢視機器缺少的更新清單。 會列出每個更新，而且您可以選取更新。 系統會顯示需要更新的機器數目、作業系統詳細資料和連結以取得詳細資訊。 [**記錄搜尋**] 窗格也會顯示更多有關更新的詳細資料。
 
 ![缺少更新](./media/automation-view-update-assessments/automation-view-update-assessments-missing-updates.png)
 
@@ -54,16 +54,16 @@ ms.locfileid: "72377716"
 |分類  |描述  |
 |---------|---------|
 |重大更新和安全性更新     | 特定問題或特定產品的安全性相關問題的更新，         |
-|其他更新     | 在性質上不重要或非安全性更新的所有其他更新。        |
+|其他更新     | 本質上不重要或不是安全性更新的所有其他更新。        |
 
-針對 Linux，「更新管理」可以區分雲端中的重大更新和安全性更新，同時由於雲端中的資料擴充而顯示評估資料。 針對修補，「更新管理」仰賴機器上可用的分類資料。 與其他發行版本不同，CentOS 預設沒有此資訊。 如果您以某種方式將 CentOS 機器設定成傳回以下命令的安全性資料，則「更新管理」將能夠根據分類來進行修補。
+針對 Linux，更新管理可以在顯示評量資料時，區別雲端中的重大更新和安全性更新。 （這很可能是因為雲端中的資料擴充）。針對修補，更新管理會依賴機器上可用的分類資料。 與其他散發套件不同的是，CentOS 不會在產品的 RTM 版本中提供這項資訊。 如果您已將 CentOS 機器設定為傳回下列命令的安全性資料，更新管理可以根據分類進行修補：
 
 ```bash
 sudo yum -q --security check-update
 ```
 
-目前沒有支援的方法可以在 CentOS 上啟用原生分類資料可用性。 目前，只為那些已自行啟用此功能的客戶，提供盡力而為的支援。
+目前沒有支援的方法可在 CentOS 上啟用原生分類資料可用性。 目前，只會為已自行啟用此功能的客戶提供最佳支援。
 
 ## <a name="next-steps"></a>後續步驟
 
-在您查看任何更新評估之後，您可以遵循[管理 Azure vm 的更新和修補程式](automation-tutorial-update-management.md)底下的步驟來排程更新部署。
+在您查看任何更新評估之後，您可以遵循[管理 Azure vm 的更新和修補程式](automation-tutorial-update-management.md)中的步驟來排程更新部署。

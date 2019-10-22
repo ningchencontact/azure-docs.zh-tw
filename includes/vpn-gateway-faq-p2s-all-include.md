@@ -9,10 +9,10 @@ ms.date: 05/23/2019
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: 3cffd2de0763ea6984b64b965ce1214951d3d569
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 10/21/2019
 ms.locfileid: "67056470"
 ---
 ### <a name="how-many-vpn-client-endpoints-can-i-have-in-my-point-to-site-configuration"></a>在我的點對站台組態中可以有多少個 VPN 用戶端端點？
@@ -40,11 +40,11 @@ ms.locfileid: "67056470"
 
 Azure 支援三種類型的點對站 VPN 選項：
 
-* 安全通訊端通道通訊協定 (SSTP)。 SSTP 是 Microsoft 專屬 SSL 型解決方案，可以穿透防火牆，因為大部分防火牆都會開啟 443 SSL 所使用的輸出 TCP 連接埠。
+* 安全通訊端通道通訊協定 (SSTP)。 SSTP 是以 Microsoft 專屬 SSL 為基礎的解決方案，可滲透防火牆，因為大部分的防火牆都會開啟 443 SSL 使用的輸出 TCP 埠。
 
-* OpenVPN。 OpenVPN 是以 SSL 為基礎的解決方案，可以穿透防火牆，因為大部分防火牆都會開啟 443 SSL 所使用的輸出 TCP 連接埠。
+* OpenVPN. OpenVPN 是以 SSL 為基礎的解決方案，可滲透防火牆，因為大部分的防火牆都會開啟 443 SSL 使用的輸出 TCP 埠。
 
-* IKEv2 VPN。 IKEv2 VPN 是標準型的 IPsec VPN 解決方案，不會使用輸出的 UDP 連接埠 500 和 4500 以及 IP 通訊協定。 50. 防火牆不一定會開啟這些連接埠，因此 IKEv2 VPN 有可能無法周遊 Proxy 和防火牆。
+* IKEv2 VPN。 IKEv2 VPN 是以標準為基礎的 IPsec VPN 解決方案，其使用輸出 UDP 埠500和4500，以及 IP 通訊協定否。 第 50 號的 IP 通訊協定。 防火牆不一定會開啟這些連接埠，因此 IKEv2 VPN 有可能無法周遊 Proxy 和防火牆。
 
 ### <a name="if-i-restart-a-client-computer-configured-for-point-to-site-will-the-vpn-automatically-reconnect"></a>如果我重新啟動針對點對站台設定的用戶端電腦，VPN 將自動重新連線嗎？
 
@@ -56,11 +56,11 @@ Azure 支援三種類型的點對站 VPN 選項：
 
 ### <a name="can-i-have-site-to-site-and-point-to-site-configurations-coexist-for-the-same-virtual-network"></a>對於相同的虛擬網路，網站間和點對站台組態是否可以同時存在？
 
-是的。 如果是 Resource Manager 部署模型，您的閘道必須是路由式 VPN 類型。 如果是傳統部署模型，則需要動態閘道。 靜態路由 VPN 閘道或原則式 VPN 閘道不支援點對站。
+可以。 如果是 Resource Manager 部署模型，您的閘道必須是路由式 VPN 類型。 如果是傳統部署模型，則需要動態閘道。 靜態路由 VPN 閘道或原則式 VPN 閘道不支援點對站。
 
 ### <a name="can-i-configure-a-point-to-site-client-to-connect-to-multiple-virtual-networks-at-the-same-time"></a>是否可以將點對站台用戶端設定為同時連接到多個虛擬網路？
 
-資料分割 點對站用戶端只能連線到虛擬網路閘道所在的 VNet 中的資源。
+不會。 點對站用戶端只能連線到虛擬網路閘道所在的 VNet 中的資源。
 
 ### <a name="how-much-throughput-can-i-expect-through-site-to-site-or-point-to-site-connections"></a>透過網站間或點對站台連線可以獲得多少輸送量？
 
@@ -68,17 +68,17 @@ Azure 支援三種類型的點對站 VPN 選項：
 
 ### <a name="can-i-use-any-software-vpn-client-for-point-to-site-that-supports-sstp-andor-ikev2"></a>是否可以對支援 SSTP 和 (或) IKEv2 的點對站使用任何軟體 VPN 用戶端？
 
-資料分割 在 Windows 上，您只能對 SSTP 使用原生 VPN 用戶端，而在 Mac 上，則只能對 IKEv2 使用原生 VPN 用戶端。 不過，您可以在所有平台上使用 OpenVPN 用戶端，透過 OpenVPN 通訊協定連線。 請參閱支援的用戶端作業系統清單。
+不會。 在 Windows 上，您只能對 SSTP 使用原生 VPN 用戶端，而在 Mac 上，則只能對 IKEv2 使用原生 VPN 用戶端。 不過，您可以在所有平臺上使用 OpenVPN 用戶端，透過 OpenVPN 通訊協定進行連線。 請參閱支援的用戶端作業系統清單。
 
 ### <a name="does-azure-support-ikev2-vpn-with-windows"></a>Azure 支援採用 Windows 的 IKEv2 VPN 嗎？
 
-Windows 10 和 Server 2016 都支援 IKEv2。 不過，若要使用 IKEv2，您必須在本機安裝更新並設定登錄機碼值。 在 Windows 10 之前的作業系統版本不支援，且只能使用 SSTP 或**OpenVPN® 通訊協定**。
+Windows 10 和 Server 2016 都支援 IKEv2。 不過，若要使用 IKEv2，您必須在本機安裝更新並設定登錄機碼值。 Windows 10 之前的作業系統版本不受支援，且只能使用 SSTP 或**OpenVPN®通訊協定**。
 
 若要針對 IKEv2 準備 Windows 10 或 Server 2016：
 
 1. 安裝更新。
 
-   | 作業系統版本 | Date | 號碼/連結 |
+   | 作業系統版本 | 日期 | 號碼/連結 |
    |---|---|---|
    | Windows Server 2016<br>Windows 10 版本 1607 | 2018 年 1 月 17 日 | [KB4057142](https://support.microsoft.com/help/4057142/windows-10-update-kb4057142) |
    | Windows 10 版本 1703 | 2018 年 1 月 17 日 | [KB4057144](https://support.microsoft.com/help/4057144/windows-10-update-kb4057144) |

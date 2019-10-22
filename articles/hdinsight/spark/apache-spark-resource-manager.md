@@ -9,17 +9,17 @@ ms.topic: conceptual
 ms.date: 01/23/2018
 ms.author: hrasheed
 ms.openlocfilehash: ac0109ff8c5dd7f6013acefbe5ee08a13494cb77
-ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/15/2019
+ms.lasthandoff: 10/21/2019
 ms.locfileid: "71001688"
 ---
 # <a name="manage-resources-for-apache-spark-cluster-on-azure-hdinsight"></a>在 Azure HDInsight 上管理 Apache Spark 叢集的資源 
 
 學習存取如 [Apache Ambari](https://ambari.apache.org/) UI、[Apache Hadoop YARN](https://hadoop.apache.org/docs/current/hadoop-yarn/hadoop-yarn-site/YARN.html) UI，以及與 [Apache Spark](https://spark.apache.org/) 叢集建立關聯的 Spark 記錄伺服器等介面的方式，以及如何調整叢集設定以取得最佳效能。
 
-**必要條件：**
+**先決條件：**
 
 * HDInsight 上的 Apache Spark 叢集。 如需指示，請參閱[在 Azure HDInsight 中建立 Apache Spark 叢集](apache-spark-jupyter-spark-sql.md)。
 
@@ -74,7 +74,7 @@ Apache Ambari 可用來監視叢集和進行設定變更。 如需詳細資訊�
     ![使用 Ambari 自訂設定參數](./media/apache-spark-resource-manager/set-parameters-using-ambari.png "使用 Ambari 自訂設定參數")
 2. 預設值適用於在叢集上同時執行 4 個 Spark 應用程式。 您可以從使用者介面變更這些值，如以下螢幕擷取畫面所示：
 
-    ![使用 Ambari 設定參數](./media/apache-spark-resource-manager/set-executor-parameters.png "使用 Ambari 設定參數")
+    ![使用 Ambari 設定參數](./media/apache-spark-resource-manager/set-executor-parameters.png "使用 Ambari UI 設定參數")
 
 3. 按一下 [儲存] 以儲存組態變更。 在頁面頂端，系統會提示您重新啟動所有受影響的服務。 按一下 [重新啟動]。
 
@@ -107,7 +107,7 @@ Spark Thrift 伺服器會使用 Spark 動態執行程式配置，因此不會使
 
 * 展開**進階 spark-thrift-sparkconf** 類別以更新參數 `spark.dynamicAllocation.minExecutors`、`spark.dynamicAllocation.maxExecutors` 和 `spark.executor.memory`。
 
-    ![設定 Spark thrift 伺服器](./media/apache-spark-resource-manager/spark-thrift-server-1.png "設定 Spark thrift 伺服器")
+    ![設定 Spark thrift 伺服器](./media/apache-spark-resource-manager/spark-thrift-server-1.png "設定 Spark Thrift 伺服器")
 * 展開**自訂 spark-thrift-sparkconf** 類別以更新參數 `spark.executor.cores`。
 
     ![設定 Spark thrift 伺服器參數](./media/apache-spark-resource-manager/spark-thrift-server-2.png "設定 Spark thrift 伺服器參數")
@@ -137,7 +137,7 @@ Spark Thrift 伺服器會使用 Spark 動態執行程式配置，因此不會使
 ## <a name="restart-the-jupyter-service"></a>重新啟動 Jupyter 服務
 啟動 Ambari Web UI，如本文開頭所示。 從左側導覽窗格，依序按一下 [Jupyter]、[服務動作] 和 [全部重新啟動]。 這會在所有前端節點上啟動 Jupyter 服務。
 
-![重新啟動 Jupyter](./media/apache-spark-resource-manager/apache-ambari-restart-jupyter.png "重新啟動 Jupyter")
+![重新開機 Jupyter](./media/apache-spark-resource-manager/apache-ambari-restart-jupyter.png "重新啟動 Jupyter")
 
 ## <a name="monitor-resources"></a>監視資源
 啟動 Yarn UI，如本文開頭所示。 在螢幕頂端的叢集計量資料表中，檢查[使用的記憶體] 的值和 [記憶體總計] 資料行。 如果這兩個值相當接近，可能會沒有足夠的資源來啟動下一個應用程式。 這同樣適用於 [使用的 VCores] 和 [VCores 總計] 資料行。 此外，在主要檢視中，如果應用程式一直維持在 [已接受] 狀態並未轉換成 [執行中] 或 [失敗] 狀態時，這也可能是表示其未取得足夠的資源來啟動。
@@ -153,13 +153,13 @@ Spark Thrift 伺服器會使用 Spark 動態執行程式配置，因此不會使
 
     ![終止 App2](./media/apache-spark-resource-manager/apache-ambari-kill-app2.png "終止 App2")
 
-## <a name="see-also"></a>另請參閱
+## <a name="see-also"></a>請參閱
 * [追蹤和偵錯在 HDInsight 中的 Apache Spark 叢集上執行的作業](apache-spark-job-debugging.md)
 
 ### <a name="for-data-analysts"></a>針對資料分析師
 
-* [Apache Spark 和 Machine Learning：使用 HDInsight 中的 Spark，利用 HVAC 資料來分析建築物溫度](apache-spark-ipython-notebook-machine-learning.md)
-* [Apache Spark 和 Machine Learning：使用 HDInsight 中的 Spark 來預測食品檢查結果](apache-spark-machine-learning-mllib-ipython.md)
+* [Apache Spark 和機器學習服務：使用 HDInsight 中的 Spark，使用 HVAC 資料來分析建築物溫度](apache-spark-ipython-notebook-machine-learning.md)
+* [Apache Spark 和機器學習服務：在 HDInsight 中使用 Spark 預測食品檢查結果](apache-spark-machine-learning-mllib-ipython.md)
 * [在 HDInsight 中使用 Apache Spark 進行網站記錄分析](apache-spark-custom-library-website-log-analysis.md)
 * [在 HDInsight 中使用 Apache Spark 的 Application Insight 遙測資料分析](apache-spark-analyze-application-insight-logs.md)
 * [在 Azure HDInsight Spark 上使用 Caffe 進行分散式深入學習](apache-spark-deep-learning-caffe.md)

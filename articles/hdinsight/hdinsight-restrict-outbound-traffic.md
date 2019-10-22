@@ -8,12 +8,12 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.topic: conceptual
 ms.date: 05/30/2019
-ms.openlocfilehash: 070365c79e14b80c50c70aa3277a6eddd9286a37
-ms.sourcegitcommit: 71db032bd5680c9287a7867b923bf6471ba8f6be
+ms.openlocfilehash: 39a7e78085f297838a028489de23c1991b6d672f
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/16/2019
-ms.locfileid: "71018751"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72693440"
 ---
 # <a name="configure-outbound-network-traffic-for-azure-hdinsight-clusters-using-firewall-preview"></a>使用防火牆設定 Azure HDInsight 叢集的輸出網路流量（預覽）
 
@@ -23,7 +23,7 @@ ms.locfileid: "71018751"
 
 Azure HDInsight 叢集通常會部署在您自己的虛擬網路中。 叢集相依于該虛擬網路外部的服務，需要網路存取權才能正常運作。
 
-有數個需要輸入流量的相依性。 輸入的管理流量不能透過防火牆裝置傳送。 此流量的來源位址是已知的, 並在[此](hdinsight-management-ip-addresses.md)發佈。 您也可以使用此資訊來建立網路安全性群組（NSG）規則，以保護對叢集的輸入流量。
+有數個需要輸入流量的相依性。 輸入的管理流量不能透過防火牆裝置傳送。 此流量的來源位址是已知的，[並在此發佈。](hdinsight-management-ip-addresses.md) 您也可以使用此資訊來建立網路安全性群組（NSG）規則，以保護對叢集的輸入流量。
 
 HDInsight 輸出流量相依性幾乎是以 Fqdn 定義，其後面沒有靜態 IP 位址。 缺少靜態位址表示無法使用網路安全性群組（Nsg）來鎖定叢集的輸出流量。 位址的變更通常就足以讓人無法根據目前的名稱解析來設定規則，並使用它來設定 NSG 規則。
 
@@ -40,15 +40,15 @@ HDInsight 輸出流量相依性幾乎是以 Fqdn 定義，其後面沒有靜態 
 ### <a name="create-a-new-firewall-for-your-cluster"></a>為叢集建立新的防火牆
 
 1. 在您叢集所在的虛擬網路中，建立名為**AzureFirewallSubnet**的子網。 
-1. 使用教學課程中[的步驟，建立新的防火牆**測試 test-fw01** ：使用 Azure 入口網站部署和設定 Azure 防火牆](../firewall/tutorial-firewall-deploy-portal.md#deploy-the-firewall)。
+1. 使用[教學課程：使用 Azure 入口網站部署和設定 Azure 防火牆](../firewall/tutorial-firewall-deploy-portal.md#deploy-the-firewall)中的步驟來建立新的防火牆**測試 test-fw01** 。
 
 ### <a name="configure-the-firewall-with-application-rules"></a>使用應用程式規則設定防火牆
 
 建立應用程式規則集合，讓叢集能夠傳送和接收重要的通訊。
 
-從 Azure 入口網站中選取 新增防火牆**測試 test-fw01** 。 按一下 [**設定** > ] [**應用程式規則集合** > ] [**新增應用程式規則集合**] 底下的**規則**
+從 Azure 入口網站中選取 新增防火牆**測試 test-fw01** 。 按一下 **設定** 底下的 **規則**  > **應用程式規則集合** > **新增應用程式規則集合**。
 
-![標題:新增應用程式規則集合](./media/hdinsight-restrict-outbound-traffic/hdinsight-restrict-outbound-traffic-add-app-rule-collection.png)
+![標題：新增應用程式規則集合](./media/hdinsight-restrict-outbound-traffic/hdinsight-restrict-outbound-traffic-add-app-rule-collection.png)
 
 在 [**新增應用程式規則集合**] 畫面上，完成下列步驟：
 
@@ -60,30 +60,30 @@ HDInsight 輸出流量相依性幾乎是以 Fqdn 定義，其後面沒有靜態 
 
 1. 將下列規則新增至 [**目標 fqdn] 區段**：
 
-   | **名稱** | **來源位址** | **Protocol:Port** | **目標 FQDN** | **注意事項** |
+   | **名稱** | **來源位址** | **通訊協定：埠** | **目標 FQDN** | **注意事項** |
    | --- | --- | --- | --- | --- |
-   | Rule_2 | * | https:443 | login.windows.net | 允許 Windows 登入活動 |
-   | Rule_3 | * | https:443 | login.microsoftonline.com | 允許 Windows 登入活動 |
-   | Rule_4 | * | https:443,http:80 | <storage_account_name.blob.core.windows.net> | 如果您的叢集是由 WASB 支援，則請新增 WASB 的規則。 若只要使用 HTTPs 連線，請確定已在儲存體帳戶上啟用「[需要安全傳輸](https://docs.microsoft.com/azure/storage/common/storage-require-secure-transfer)」。 |
+   | Rule_2 | * | HTTPs：443 | login.windows.net | 允許 Windows 登入活動 |
+   | Rule_3 | * | HTTPs：443 | login.microsoftonline.com | 允許 Windows 登入活動 |
+   | Rule_4 | * | HTTPs：443，HTTP：80 | < 的 storage_account_name >。 | 如果您的叢集是由 WASB 支援，則請新增 WASB 的規則。 若只要使用 HTTPs 連線，請確定已在儲存體帳戶上啟用「[需要安全傳輸](https://docs.microsoft.com/azure/storage/common/storage-require-secure-transfer)」。 |
 
 1. 按一下 [新增]。
 
-   ![標題:輸入應用程式規則集合詳細資料](./media/hdinsight-restrict-outbound-traffic/hdinsight-restrict-outbound-traffic-add-app-rule-collection-details.png)
+   ![標題：輸入應用程式規則集合詳細資料](./media/hdinsight-restrict-outbound-traffic/hdinsight-restrict-outbound-traffic-add-app-rule-collection-details.png)
 
 ### <a name="configure-the-firewall-with-network-rules"></a>使用網路規則設定防火牆
 
 建立網路規則，以正確設定您的 HDInsight 叢集。
 
 1. 從 Azure 入口網站中選取 新增防火牆**測試 test-fw01** 。
-1. 按一下 [**設定** > ] [**網路** > ] [**新增網路規則集合**] 底下的 [**規則**]。
+1. 按一下 **設定** 底下的 **規則**  >  **網路規則集合**  > **新增網路規則集合**。
 1. 在 [**新增網路規則集合**] 畫面上，輸入 [**名稱**]、[**優先順序**]，然後按一下 [**動作**] 下拉式功能表中的 [**允許**]。
 1. 在 [ **IP 位址**] 區段中建立下列規則：
 
    | **名稱** | **通訊協定** | **來源位址** | **目的地位址** | **目的地埠** | **注意事項** |
    | --- | --- | --- | --- | --- | --- |
    | Rule_1 | UDP | * | * | `123` | 時間服務 |
-   | Rule_2 | Any | * | DC_IP_Address_1, DC_IP_Address_2 | `*` | 如果您使用企業安全性套件（ESP），請在 [IP 位址] 區段中新增網路規則，以允許 ESP 叢集與 AAD DS 通訊。 您可以在入口網站的 [AAD-DS] 區段中找到網域控制站的 IP 位址 | 
-   | Rule_3 | TCP | * | Data Lake Storage 帳戶的 IP 位址 | `*` | 如果您使用 Azure Data Lake Storage，則可以在 [IP 位址] 區段中新增網路規則，以解決 ADLS Gen1 和 Gen2 的 SNI 問題。 此選項會將流量路由傳送至防火牆，這可能會導致大量資料載入的成本較高，但流量會記錄下來，並可在防火牆記錄中進行審核。 判斷 Data Lake Storage 帳戶的 IP 位址。 您可以使用 powershell 命令（例如） `[System.Net.DNS]::GetHostAddresses("STORAGEACCOUNTNAME.blob.core.windows.net")`將 FQDN 解析為 IP 位址。|
+   | Rule_2 | 任意 | * | DC_IP_Address_1, DC_IP_Address_2 | `*` | 如果您使用企業安全性套件（ESP），請在 [IP 位址] 區段中新增網路規則，以允許 ESP 叢集與 AAD DS 通訊。 您可以在入口網站的 [AAD-DS] 區段中找到網域控制站的 IP 位址 | 
+   | Rule_3 | TCP | * | Data Lake Storage 帳戶的 IP 位址 | `*` | 如果您使用 Azure Data Lake Storage，則可以在 [IP 位址] 區段中新增網路規則，以解決 ADLS Gen1 和 Gen2 的 SNI 問題。 此選項會將流量路由傳送至防火牆，這可能會導致大量資料載入的成本較高，但流量會記錄下來，並可在防火牆記錄中進行審核。 判斷 Data Lake Storage 帳戶的 IP 位址。 您可以使用 powershell 命令（例如 `[System.Net.DNS]::GetHostAddresses("STORAGEACCOUNTNAME.blob.core.windows.net")`）將 FQDN 解析為 IP 位址。|
    | Rule_4 | TCP | * | * | `12000` | 選擇性如果您使用的是 Log Analytics，請在 [IP 位址] 區段中建立網路規則，以啟用與 Log Analytics 工作區的通訊。 |
 
 1. 在 [**服務標記**] 區段中建立下列規則：
@@ -94,7 +94,7 @@ HDInsight 輸出流量相依性幾乎是以 Fqdn 定義，其後面沒有靜態 
 
 1. 按一下 [**新增**] 以完成網路規則集合的建立。
 
-   ![標題:輸入應用程式規則集合](./media/hdinsight-restrict-outbound-traffic/hdinsight-restrict-outbound-traffic-add-network-rule-collection.png)
+   ![標題：輸入應用程式規則集合](./media/hdinsight-restrict-outbound-traffic/hdinsight-restrict-outbound-traffic-add-network-rule-collection.png)
 
 ### <a name="create-and-configure-a-route-table"></a>建立和設定路由表
 
@@ -115,12 +115,12 @@ HDInsight 輸出流量相依性幾乎是以 Fqdn 定義，其後面沒有靜態 
 
 | 路由名稱 | 位址首碼 | 下一個躍點類型 | 下一個躍點位址 |
 |---|---|---|---|
-| 168.61.49.99 | 168.61.49.99/32 | 網際網路 | NA |
-| 23.99.5.239 | 23.99.5.239/32 | 網際網路 | NA |
-| 168.61.48.131 | 168.61.48.131/32 | 網際網路 | NA |
-| 138.91.141.162 | 138.91.141.162/32 | 網際網路 | NA |
-| 13.67.223.215 | 13.67.223.215/32 | 網際網路 | NA |
-| 40.86.83.253 | 40.86.83.253/32 | 網際網路 | NA |
+| 168.61.49.99 | 168.61.49.99/32 | Internet | NA |
+| 23.99.5.239 | 23.99.5.239/32 | Internet | NA |
+| 168.61.48.131 | 168.61.48.131/32 | Internet | NA |
+| 138.91.141.162 | 138.91.141.162/32 | Internet | NA |
+| 13.67.223.215 | 13.67.223.215/32 | Internet | NA |
+| 40.86.83.253 | 40.86.83.253/32 | Internet | NA |
 | 0.0.0.0 | 0.0.0.0/0 | 虛擬設備 | 10.1.1.4 |
 
 完成路由表設定：
@@ -139,9 +139,9 @@ HDInsight 輸出流量相依性幾乎是以 Fqdn 定義，其後面沒有靜態 
 
 如果您的應用程式有其他相依性，則必須將它們新增至您的 Azure 防火牆。 建立應用程式規則來允許 HTTP/HTTPS 流量，以及建立網路規則來允許其他一切流量。
 
-## <a name="logging"></a>記錄
+## <a name="logging-and-scale"></a>記錄和調整
 
-Azure 防火牆可以將記錄傳送到幾個不同的儲存系統。 如需為您的防火牆設定記錄的指示，請遵循[教學課程：監視 Azure 防火牆記錄和計量](../firewall/tutorial-diagnostics.md)。
+Azure 防火牆可以將記錄傳送到幾個不同的儲存系統。 如需為您的防火牆設定記錄的指示，請遵循[教學課程：監視 Azure 防火牆記錄和計量](../firewall/tutorial-diagnostics.md)中的步驟。
 
 當您完成記錄設定後，如果您要將資料記錄到 Log Analytics，您可以使用如下的查詢來查看已封鎖的流量：
 
@@ -151,8 +151,12 @@ AzureDiagnostics | where msg_s contains "Deny" | where TimeGenerated >= ago(1h)
 
 當您不知道所有應用程式相依性時，第一次讓應用程式運作時，將 Azure 防火牆與 Azure 監視器記錄整合會很有用。 您可以從[分析 Azure 監視器中的記錄資料](../azure-monitor/log-query/log-query-overview.md)深入了解 Azure 監視器記錄
 
+若要深入瞭解 Azure 防火牆和要求增加的規模限制，請參閱[這](https://docs.microsoft.com/en-us/azure/azure-subscription-service-limits#azure-firewall-limits)份檔。
+
 ## <a name="access-to-the-cluster"></a>存取叢集
-成功設定防火牆之後，您可以使用內部端點（`https://<clustername>-int.azurehdinsight.net`）從 VNET 記憶體取 Ambari。 若要使用公用端點（`https://<clustername>.azurehdinsight.net`）或 ssh 端點（`<clustername>-ssh.azurehdinsight.net`），請確定路由表和 NSG 規則設定中有正確的路由，以避免[這裡](https://docs.microsoft.com/azure/firewall/integrate-lb)所述的非對稱路由問題。
+成功設定防火牆之後，您可以使用內部端點（`https://<clustername>-int.azurehdinsight.net`）從 VNET 內部存取 Ambari。 
+
+若要使用公用端點（`https://<clustername>.azurehdinsight.net`）或 ssh 端點（`<clustername>-ssh.azurehdinsight.net`），請確定路由表中有正確的路由和 NSG 規則，以避免[這裡](https://docs.microsoft.com/azure/firewall/integrate-lb)所述的非對稱路由問題。 具體而言，在此情況下，您必須允許輸入 NSG 規則中的用戶端 IP 位址，並將下一個躍點設定為 `internet`，將其新增至使用者定義的路由表。 如果未正確設定，您會看到逾時錯誤。
 
 ## <a name="configure-another-network-virtual-appliance"></a>設定另一個網路虛擬裝置
 
@@ -182,8 +186,8 @@ AzureDiagnostics | where msg_s contains "Deny" | where TimeGenerated >= ago(1h)
 | \*:123 | NTP 時鐘檢查。 在連接埠 123 上的多個端點檢查流量 |
 | [這裡](hdinsight-management-ip-addresses.md)發佈的 ip | 這些是 HDInsight 服務 |
 | ESP 叢集的 AAD-DS 私人 Ip |
-| \*：16800（適用于 KMS Windows 啟用） |
-| \*適用于 Log Analytics 的12000 |
+| \*：16800，適用于 KMS Windows 啟用 |
+| Log Analytics 的 \*12000 |
 
 #### <a name="fqdn-httphttps-dependencies"></a>FQDN HTTP/HTTPS 相依性
 

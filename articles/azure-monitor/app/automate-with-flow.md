@@ -1,22 +1,18 @@
 ---
-title: 使用 Microsoft Flow 自動化 Azure Application Insights 程序
+title: 使用 Microsoft Flow 自動化 Azure Application Insights 流程
 description: 了解如何利用 Application Insights Connector，使用 Microsoft Flow 來快速自動執行可重複的程序。
-services: application-insights
-documentationcenter: ''
-author: mrbullwinkle
-manager: carmonm
-ms.service: application-insights
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
+ms.service: azure-monitor
+ms.subservice: application-insights
 ms.topic: conceptual
-ms.date: 08/29/2019
+author: mrbullwinkle
 ms.author: mbullwin
-ms.openlocfilehash: 541d5b70ee56d62831f0947e64b9522e17a07dd9
-ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
+ms.date: 08/29/2019
+ms.openlocfilehash: ff0896498c0270b8eb43b762228916985f924def
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70195023"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72678313"
 ---
 # <a name="automate-azure-application-insights-processes-with-the-connector-for-microsoft-flow"></a>使用適用於 Microsoft Flow 的連接器自動執行 Azure Application Insights 程序
 
@@ -30,7 +26,7 @@ ms.locfileid: "70195023"
 
 ## <a name="create-a-flow-for-application-insights"></a>建立 Application Insights 的流程
 
-在本教學課程中, 您將瞭解如何建立流量分析 autocluster 演算法的流程, 以將 web 應用程式資料中的屬性分組。 此流程會以電子郵件自動傳送結果，這只是如何將 Microsoft Flow 和 Application Insights Analytics 一起使用的其中一個範例。
+在本教學課程中，您將瞭解如何建立流量分析 autocluster 演算法的流程，以將 web 應用程式資料中的屬性分組。 此流程會以電子郵件自動傳送結果，這只是如何將 Microsoft Flow 和 Application Insights Analytics 一起使用的其中一個範例。
 
 ### <a name="step-1-create-a-flow"></a>步驟 1：建立流程
 
@@ -39,9 +35,9 @@ ms.locfileid: "70195023"
 
     ![從排程的空白建立新流程](./media/automate-with-flow/1-create.png)
 
-### <a name="step-2-create-a-trigger-for-your-flow"></a>步驟 2:建立流程的觸發程序
+### <a name="step-2-create-a-trigger-for-your-flow"></a>步驟 2：建立流程的觸發程序
 
-1. 在 [**建立排程的流程**] 快顯視窗中, 填寫您的流程名稱, 以及您希望流程執行的頻率。
+1. 在 [**建立排程的流程**] 快顯視窗中，填寫您的流程名稱，以及您希望流程執行的頻率。
 
     ![以輸入頻率和間隔設定排程週期](./media/automate-with-flow/2-schedule.png)
 
@@ -52,7 +48,7 @@ ms.locfileid: "70195023"
 1. 搜尋**Application Insights**。
 2. 按一下 [ **Azure 應用程式 Insights-視覺化分析查詢**]。
 
-    ![選擇動作:Azure 應用程式 Insights 視覺化分析查詢](./media/automate-with-flow/3-visualize.png)
+    ![選擇動作： Azure 應用程式 Insights 視覺化分析查詢](./media/automate-with-flow/3-visualize.png)
 
 3. 選取 [新增步驟]。
 
@@ -68,7 +64,7 @@ ms.locfileid: "70195023"
 
    ![Microsoft Flow 連線視窗](./media/automate-with-flow/4-connection.png)
 
-如果 [連接] 方塊不會立即顯示, 而是直接進入查詢, 請按一下方塊右上方的省略號。 然後選取 [我的連線] 或使用現有的連接。
+如果 [連接] 方塊不會立即顯示，而是直接進入查詢，請按一下方塊右上方的省略號。 然後選取 [我的連線] 或使用現有的連接。
 
 按一下 [建立]。
 
@@ -77,7 +73,7 @@ ms.locfileid: "70195023"
 
 建立自己的查詢時，先確認它們可在 Analytics 中正常運作，再將其新增到您的流程中。
 
-- 新增下列分析查詢, 然後選取 [HTML 表格] 圖表類型。 然後選取 [**新增步驟**]。
+- 新增下列分析查詢，然後選取 [HTML 表格] 圖表類型。 然後選取 [**新增步驟**]。
 
     ```
     requests
@@ -99,21 +95,21 @@ ms.locfileid: "70195023"
 
     ![Office 365 Outlook 選取視窗](./media/automate-with-flow/6-outlook.png)
 
-1. 在 [**傳送電子郵件**] 視窗中:
+1. 在 [**傳送電子郵件**] 視窗中：
 
    a. 輸入收件者的電子郵件地址。
 
-   b. 輸入電子郵件的主旨。
+   b.這是另一個 C# 主控台應用程式。 輸入電子郵件的主旨。
 
    c. 按一下 [內文] 方塊中的任意處，然後在右方開啟的動態內容功能表上，選取 [內文]。
 
    e. 選取 [**顯示高級選項**]
 
-1. 在 [動態內容] 功能表上:
+1. 在 [動態內容] 功能表上：
 
     a. 選取 [附件名稱]。
 
-    b. 選取 [附件內容]。
+    b.這是另一個 C# 主控台應用程式。 選取 [附件內容]。
     
     c. 在 [為 HTML] 方塊中選取 [是]。
 
@@ -123,14 +119,14 @@ ms.locfileid: "70195023"
 
 按一下 [儲存]。
 
-您可以等候觸發程式執行此動作, 或按一下![頂端的 燒杯測試圖示](./media/automate-with-flow/testicon.png)測試。
+您可以等候觸發程式執行此動作，或按一下頂端的 [![beaker 測試 圖示 ](./media/automate-with-flow/testicon.png)**測試**]。
 
-選取 [**測試**] 之後:
+選取 [**測試**] 之後：
 
 1. 選取 **[我將執行觸發程式動作**]。
 2. 選取 [**執行流程**]。
 
-當流程執行時, 您在電子郵件清單中指定的收件者會收到如下所示的電子郵件訊息。
+當流程執行時，您在電子郵件清單中指定的收件者會收到如下所示的電子郵件訊息。
 
 ![範例電子郵件](./media/automate-with-flow/flow9.png)
 

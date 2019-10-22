@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 08/15/2019
 ms.author: heidist
 ms.openlocfilehash: 32ec97ce923c1cffd92fa6522f30abf7ea87fff7
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/15/2019
+ms.lasthandoff: 10/21/2019
 ms.locfileid: "72331197"
 ---
 # <a name="choose-a-pricing-tier-for-azure-search"></a>選擇 Azure 搜尋服務的定價層
@@ -41,7 +41,7 @@ ms.locfileid: "72331197"
 
 [**免費**] 會在叢集上建立受限的搜尋服務，與其他訂閱者共用。 您可以完成小型專案，包括快速入門和教學課程，但無法調整服務或執行重要的工作負載。 [**基本**] 和 [**標準**] 是最常用的可計費層，預設值是 [**標準**]。
 
-(media/search-sku-tier/tiers.png "Azure 搜尋服務 Azure 搜尋服務定價層")的![定價層]
+![Azure 搜尋服務的定價層](media/search-sku-tier/tiers.png "Azure 搜尋服務的定價層")
 
 某些層級已針對特定類型的工作進行優化。 例如，**標準3高密度（S3 HD）** 是 S3 的*主控模式*，其中基礎硬體已針對大量較小的索引進行優化，適用于多租使用者案例。 S3 HD 與 S3 具有相同的每單位費用，但是硬體已針對大量較小索引的快速檔案讀取優化。
 

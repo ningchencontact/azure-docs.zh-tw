@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 09/20/2019
 ms.author: dacurwin
 ms.openlocfilehash: ae8421ca9e3705d697e9638e80fc61f853ff9d28
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/08/2019
+ms.lasthandoff: 10/21/2019
 ms.locfileid: "72028273"
 ---
 # <a name="delete-an-azure-backup-recovery-services-vault"></a>刪除 Azure 備份復原服務保存庫
@@ -39,7 +39,7 @@ ms.locfileid: "72028273"
   
 若要刪除保存庫，請選擇符合您設定的案例，並遵循建議的步驟：
 
-狀況 | 移除相依性以刪除保存庫的步驟 |
+案例 | 移除相依性以刪除保存庫的步驟 |
 -- | --
 我有使用 Azure 備份代理程式保護的內部部署檔案和資料夾，並備份至 Azure | 執行[從 MARS 管理主控台刪除備份專案](#delete-backup-items-from-the-mars-management-console)中的步驟
 我有使用 MABS （Microsoft Azure 備份 Server）或 DPM （System Center Data Protection Manager）保護的內部部署機器至 Azure | 執行[從 MABS 管理主控台刪除備份專案](#delete-backup-items-from-the-mabs-management-console)中的步驟
@@ -68,7 +68,7 @@ ms.locfileid: "72028273"
 
          ![[刪除備份資料] 窗格。](./media/backup-azure-delete-vault/stop-backup-blade-delete-backup-data.png)
 
-5. 檢查**通知**圖示：@no__t 0The 通知圖示。 ](./media/backup-azure-delete-vault/messages.png) 在程式完成後，服務會顯示下列訊息：*正在停止備份並刪除的備份資料*」備份專案 *」* 。 *已成功完成*作業。
+5. 檢查**通知**圖示： ![The 通知圖示。](./media/backup-azure-delete-vault/messages.png) 在此程式完成之後，服務會顯示下列訊息： [*正在停止備份並刪除備份資料] 的*[備份專案 *]* 。 *已成功完成*作業。
 6. 選取 [**備份專案**] 功能表**上的 [** 重新整理]，確認已刪除備份專案。
 
       ![[刪除備份專案] 頁面。](./media/backup-azure-delete-vault/empty-items-list.png)
@@ -102,7 +102,7 @@ ms.locfileid: "72028273"
 4. 選取 [同意] 核取方塊，然後選取 [**刪除**]。
 
 
-5. 檢查**通知**圖示![刪除備份資料](./media/backup-azure-delete-vault/messages.png)。 在作業完成之後，服務會顯示訊息：*正在停止備份並刪除「備份專案」的備份資料。* *已成功完成*作業。
+5. 檢查**通知**圖示 ![delete 備份資料 ](./media/backup-azure-delete-vault/messages.png)。 作業完成後，服務會顯示訊息： [*正在停止備份並刪除備份資料] 的 [備份專案]。* *已成功完成*作業。
 6. 選取 [**備份專案**] 功能表**上的 [** 重新整理]，確認已刪除備份專案。
 
 完成此程式之後，您可以從管理主控台刪除備份專案：
@@ -122,13 +122,13 @@ ms.locfileid: "72028273"
 
     ![停止排程的備份。](./media/backup-azure-delete-vault/stop-schedule-backup.png)
 4. 系統會提示您輸入您必須手動產生的安全性 PIN 碼（個人識別碼）。 若要這麼做，請先登入 Azure 入口網站。
-5. 前往 [復原**服務保存庫**]  >  個**設定** >  個**屬性**。
+5. 移至 復原**服務保存庫**  >  **設定**  > **屬性**。
 6. 在 [**安全性 PIN**] 底下，選取 [**產生**]。 複製此 PIN。 PIN 僅適用于五分鐘。
 7. 在管理主控台中，貼上 PIN，然後選取 **[確定]** 。
 
     ![產生安全性 PIN 碼。](./media/backup-azure-delete-vault/security-pin.png)
 
-8. 在 [**修改備份進度**] 頁面中，會出現下列訊息：@no__t 0Deleted 的備份資料將會保留14天。在這段時間之後，將會永久刪除備份資料。 *  
+8. 在 [**修改備份進度**] 頁面中，會出現下列訊息：*已刪除的備份資料將會保留14天。在這段時間之後，備份資料將會永久刪除。*  
 
     ![刪除備份基礎結構。](./media/backup-azure-delete-vault/deleted-backup-data.png)
 
@@ -212,7 +212,7 @@ ms.locfileid: "72028273"
        [-Confirm] 
        [<CommonParameters>] 
     ```
-    [深入瞭解](https://docs.microsoft.com/powershell/module/az.recoveryservices/disable-azrecoveryservicesbackupprotection?view=azps-2.6.0&viewFallbackFrom=azps-2.5.0) about 會停用受備份保護專案的保護。 
+    [深入瞭解](https://docs.microsoft.com/powershell/module/az.recoveryservices/disable-azrecoveryservicesbackupprotection?view=azps-2.6.0&viewFallbackFrom=azps-2.5.0) about 停用受備份保護專案的保護。 
 
 - 針對使用備份至 Azure Azure 備份代理程式（MARS）保護的內部部署檔案和資料夾，請使用下列 PowerShell 命令來刪除每個 MARS PowerShell 模組中的已備份資料：
 
@@ -222,7 +222,7 @@ ms.locfileid: "72028273"
 
     出現下列提示的文章：
      
-    @no__t 0Microsoft Azure 備份您確定要移除此備份原則嗎？已刪除的備份資料將會保留14天。在這段時間之後，備份資料將會永久刪除。<br/> [Y] 是 [A] 全部都是 [N] 否 [L] 全部否 [S] 暫停 [？]說明（預設為 "Y"）： *
+    *Microsoft Azure 備份您確定要移除此備份原則嗎？已刪除的備份資料將會保留14天。在這段時間之後，備份資料將會永久刪除。 <br/> [Y] 是 [A] 全部都是 [N] 否 [L] 否全部 [S] 暫停 [？]說明（預設為 "Y"）：*
 
 
 - 對於使用 MABS （Microsoft Azure 備份 Server）或 DPM 至 Azure （System Center Data Protection Manager）保護的內部部署機器，請使用下列命令來刪除 Azure 中的備份資料。
@@ -233,7 +233,7 @@ ms.locfileid: "72028273"
 
     出現下列提示的文章： 
          
-   @no__t 0Microsoft Azure 備份您確定要移除此備份原則嗎？已刪除的備份資料將會保留14天。在這段時間之後，備份資料將會永久刪除。<br/> [Y] 是 [A] 全部都是 [N] 否 [L] 全部否 [S] 暫停 [？]說明（預設為 "Y"）： *
+   *Microsoft Azure 備份您確定要移除此備份原則嗎？已刪除的備份資料將會保留14天。在這段時間之後，備份資料將會永久刪除。 <br/> [Y] 是 [A] 全部都是 [N] 否 [L] 否全部 [S] 暫停 [？]說明（預設為 "Y"）：*
 
 刪除備份的資料之後，請取消註冊任何內部部署容器和管理伺服器。 
 
@@ -344,7 +344,7 @@ ms.locfileid: "72028273"
    ```azurepowershell
    ARMClient.exe delete /subscriptions/<subscriptionID>/resourceGroups/<resourcegroupname>/providers/Microsoft.RecoveryServices/vaults/<recovery services vault name>?api-version=2015-03-15
    ```
-2. 如果保存庫不是空的，您將會收到下列錯誤訊息：*因為此保存庫中有現有的資源，所以無法刪除保存庫。* 若要移除保存庫中受保護的專案或容器，請執行下列命令：
+2. 如果保存庫不是空的，您會收到下列錯誤訊息：*因為此保存庫中有現有的資源，所以無法刪除保存庫。* 若要移除保存庫中受保護的專案或容器，請執行下列命令：
 
    ```azurepowershell
    ARMClient.exe delete /subscriptions/<subscriptionID>/resourceGroups/<resourcegroupname>/providers/Microsoft.RecoveryServices/vaults/<recovery services vault name>/registeredIdentities/<container name>?api-version=2016-06-01

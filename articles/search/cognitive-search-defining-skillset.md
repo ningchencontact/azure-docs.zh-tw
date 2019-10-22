@@ -9,15 +9,15 @@ ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: luisca
 ms.openlocfilehash: f78b8c3b9619b7eea92b6a4f04ed4f6543916efe
-ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/25/2019
+ms.lasthandoff: 10/21/2019
 ms.locfileid: "71265521"
 ---
 # <a name="how-to-create-a-skillset-in-an-enrichment-pipeline"></a>如何在擴充管線中建立技能集
 
-認知搜尋會擷取並擴充資料，使其在 Azure 搜尋服務中可供搜尋。 我們將擷取和擴充步驟稱為*認知技能*，而這些技能會合併為在索引編製期間所參考的*技能集*。 技能集可以使用[內建技能](cognitive-search-predefined-skills.md)或自訂技能（請參閱[範例：建立認知搜尋](cognitive-search-create-custom-skill-example.md)的自訂技能以取得詳細資訊）。
+認知搜尋會擷取並擴充資料，使其在 Azure 搜尋服務中可供搜尋。 我們將擷取和擴充步驟稱為*認知技能*，而這些技能會合併為在索引編製期間所參考的*技能集*。 技能集可以使用[內建技能](cognitive-search-predefined-skills.md)或自訂技能（如需詳細資訊，請參閱[範例：建立認知搜尋的自訂技能](cognitive-search-create-custom-skill-example.md)）。
 
 在本文中，您將了解如何為您要使用的技能建立擴充管線。 技能集會連結至 Azure 搜尋服務[索引子](search-indexer-overview.md)。 在本文的說明中，建構技能集本身屬於管線設計的一部分。 
 
@@ -27,7 +27,7 @@ ms.locfileid: "71265521"
 須留意的重點：
 
 + 每個索引子只能有一個技能集。
-+ 一個技能集至少必須有一個技能。
++ 技能集至少必須有一個技能。
 + 您可以建立多個相同類型的技能 (例如，影像分析技能的變體)。
 
 ## <a name="begin-with-the-end-in-mind"></a>開始前請先預想結果
@@ -42,7 +42,7 @@ ms.locfileid: "71265521"
 
 下圖說明在假設性的擴充管線：
 
-![假設性擴充管線](media/cognitive-search-defining-skillset/sample-skillset.png "假設性擴充管線")
+![假設的擴充管線](media/cognitive-search-defining-skillset/sample-skillset.png "假設的擴充管線")
 
 
 在您了解要在管線中放置哪些項目後，即可呈現出提供這些步驟的技能集。 在功能上，當您將索引子定義上傳至 Azure 搜尋服務時，即會呈現技能集。 若要深入了解如何上傳您的索引子，請參閱[索引子文件](https://docs.microsoft.com/rest/api/searchservice/create-indexer)。
@@ -163,7 +163,7 @@ Content-Type: application/json
     }
 ```
 
-* 每個內建技能都`odata.type`有`input`、和`output`屬性。 技能特有的屬性可提供適用於該技能的其他資訊。 就實體辨識而言，`categories` 是預先定型的模型可從一組固定的實體類型中辨識出來的實體。
+* 每個內建技能都有 `odata.type`、`input` 和 `output` 屬性。 技能特有的屬性可提供適用於該技能的其他資訊。 就實體辨識而言，`categories` 是預先定型的模型可從一組固定的實體類型中辨識出來的實體。
 
 * 每項技能都應有 ```"context"```。 內容表示作業執行的層級。 在上述技能中，內容是整份檔，這表示每份檔會呼叫一次實體辨識技能。 輸出也會在該層級上產生。 更具體來說，```"organizations"``` 會產生作為 ```"/document"``` 的成員。 在下游技能中，您可以將這項新建立的資訊稱為 ```"/document/organizations"```。  如果 ```"context"``` 欄位未明確設定，預設內容將是文件。
 
@@ -171,7 +171,7 @@ Content-Type: application/json
 
 * 技能會有一個名為 ```"organizations"``` 的輸出。 只有在處理期間才會有輸出。 若要將此輸出鏈結至下游技能的輸入，請將輸出作為 ```"/document/organizations"``` 來參考。
 
-* 對於特定文件，```"/document/organizations"``` 的值是從文字中擷取的組織陣列。 例如:
+* 對於特定文件，```"/document/organizations"``` 的值是從文字中擷取的組織陣列。 例如：
 
   ```json
   ["Microsoft", "LinkedIn"]
@@ -235,9 +235,9 @@ Content-Type: application/json
 
 ## <a name="add-structure"></a>新增結構
 
-技能集會從非結構化資料產生結構化資訊。 參考下列範例：
+技能集會從非結構化資料產生結構化資訊。 請思考下列範例：
 
-*「Microsoft 在第四季記錄了 11 億美元來自 LinkedIn 的營收，這是 Microsoft 在去年併購的社交網路公司。這項併購讓 Microsoft 得以結合 LinkedIn 功能和其本身的 CRM 和 Office 功能。股東對於目前的進展感到很滿意。」*
+*「在第四季，Microsoft 從 LinkedIn 的收益中記錄 $1100000000，這是去年購買的社交網路公司。取得可讓 Microsoft 將 LinkedIn 功能與 CRM 和 Office 功能結合在一起。目前為止，股東的進度非常令人興奮。」*
 
 可能的結果將是類似於下圖的產出結構：
 

@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 05/20/2019
 ms.author: luisca
 ms.openlocfilehash: 113286f829b628d4740fbba34e7279741a934aef
-ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/25/2019
+ms.lasthandoff: 10/21/2019
 ms.locfileid: "71265938"
 ---
 # <a name="attach-a-cognitive-services-resource-with-a-skillset-in-azure-search"></a>在 Azure 搜尋服務中連結認知服務資源與技能 
@@ -28,7 +28,7 @@ AI 演算法會在 Azure 搜尋服務中驅動用於檔擴充的[認知索引管
 
 ## <a name="same-region-requirement"></a>相同區域需求
 
-我們需要 Azure 搜尋服務和 Azure 認知服務存在於相同的區域內。 否則，您將會在執行時間收到此訊息：`"Provided key is not a valid CognitiveServices type key for the region of your search service."` 
+我們需要 Azure 搜尋服務和 Azure 認知服務存在於相同的區域內。 否則，您將會在執行時間收到此訊息： `"Provided key is not a valid CognitiveServices type key for the region of your search service."` 
 
 沒有任何方法可以跨區域移動服務。 如果您收到此錯誤，您應該在與 Azure 搜尋服務相同的區域中建立新的認知服務資源。
 
@@ -51,7 +51,7 @@ AI 演算法會在 Azure 搜尋服務中驅動用於檔擴充的[認知索引管
 
    ![展開的附加認知服務區段](./media/cognitive-search-attach-cognitive-services/attach1.png "展開的附加認知服務區段")
 
-1. 繼續進行下一個步驟，**新增擴充**。 如需入口網站中可用技能的描述，請[參閱步驟2：在認知搜尋](cognitive-search-quickstart-blob.md#create-the-enrichment-pipeline)快速入門中新增認知技能。
+1. 繼續進行下一個步驟，**新增擴充**。 如需入口網站中可用技能的描述，請參閱認知搜尋快速入門中的[步驟2：新增認知技能](cognitive-search-quickstart-blob.md#create-the-enrichment-pipeline)。
 
 ## <a name="use-billable-resources"></a>使用計費資源
 
@@ -81,7 +81,7 @@ AI 演算法會在 Azure 搜尋服務中驅動用於檔擴充的[認知索引管
 
    ![選取認知服務資源](./media/cognitive-search-attach-cognitive-services/attach2.png "選取認知服務資源")
 
-1. 展開 [**新增擴充**] 區段，以選取您想要在資料上執行的特定認知技能。 完成嚮導的其餘部分。 如需入口網站中可用技能的描述，請[參閱步驟2：在認知搜尋](cognitive-search-quickstart-blob.md#create-the-enrichment-pipeline)快速入門中新增認知技能。
+1. 展開 [**新增擴充**] 區段，以選取您想要在資料上執行的特定認知技能。 完成嚮導的其餘部分。 如需入口網站中可用技能的描述，請參閱認知搜尋快速入門中的[步驟2：新增認知技能](cognitive-search-quickstart-blob.md#create-the-enrichment-pipeline)。
 
 ## <a name="attach-an-existing-skillset-to-a-cognitive-services-resource"></a>將現有的技能附加至認知服務資源
 
@@ -89,11 +89,11 @@ AI 演算法會在 Azure 搜尋服務中驅動用於檔擴充的[認知索引管
 
 1. 在 [**服務總覽**] 頁面上，選取 [**技能集**]：
 
-   ![技能索引標籤](./media/cognitive-search-attach-cognitive-services/attach-existing1.png "技能索引標籤")
+   ![技能集索引標籤](./media/cognitive-search-attach-cognitive-services/attach-existing1.png "技能集索引標籤")
 
 1. 選取技能集的名稱，然後選取現有的資源或建立一個新的資源。 按一下 [確定] 確認變更。
 
-   ![技能資源清單](./media/cognitive-search-attach-cognitive-services/attach-existing2.png "技能資源清單")
+   ![技能集資源清單](./media/cognitive-search-attach-cognitive-services/attach-existing2.png "技能集資源清單")
 
    請記住，[**免費（有限的擴充）** ] 選項會每天限制您20份檔，而且您可以使用 [**建立新的認知服務資源**] 來布建新的可計費資源。 如果您建立新資源，請選取 [重新整理] 以重新整理「認知服務」資源的清單，然後選取資源。
 
@@ -101,7 +101,7 @@ AI 演算法會在 Azure 搜尋服務中驅動用於檔擴充的[認知索引管
 
 透過程式設計方式定義技能時，請將 `cognitiveServices` 區段新增至該技能。 在該區段中，包含您要與技能集建立關聯之認知服務資源的索引鍵。 請記住，資源必須位於與您 Azure 搜尋服務資源相同的區域中。 以及包含 `@odata.type`，並將它設定為 `#Microsoft.Azure.Search.CognitiveServicesByKey`。
 
-下列範例示範了此模式。 請注意定義結尾的區段。`cognitiveServices`
+下列範例示範了此模式。 請注意定義結尾的 `cognitiveServices` 區段。
 
 ```http
 PUT https://[servicename].search.windows.net/skillsets/[skillset name]?api-version=2019-05-06
@@ -160,6 +160,6 @@ Content-Type: application/json
 
 ## <a name="next-steps"></a>後續步驟
 + [Azure 搜尋服務定價頁面](https://azure.microsoft.com/pricing/details/search/)
-+ [如何定義技能集](cognitive-search-defining-skillset.md) (英文)
++ [如何定義技能集](cognitive-search-defining-skillset.md)
 + [建立技能集 (REST)](https://docs.microsoft.com/rest/api/searchservice/create-skillset)
 + [如何對應擴充的欄位](cognitive-search-output-field-mapping.md)

@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 05/16/2019
 ms.author: heidist
 ms.openlocfilehash: fe8061f8e99742f9dc5c1181235c4203aaad82ca
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/15/2019
+ms.lasthandoff: 10/21/2019
 ms.locfileid: "72331220"
 ---
 # <a name="monitor-resource-consumption-and-query-activity-in-azure-search"></a>監視 Azure 搜尋服務中的資源耗用量和查詢活動
@@ -30,8 +30,8 @@ ms.locfileid: "72331220"
 
 [使用量] 索引標籤會顯示相對於目前[限制](search-limits-quotas-capacity.md)的資源可用性。 以下是一個免費服務的圖例，其上限為每個類型 3 個物件且儲存體為 50 MB。 「基本」或「標準」服務的上限較高，且如果您增加分割區計數，儲存體上限也會按比例增加。
 
-![相對於有效限制的使用量狀態](./media/search-monitor-usage/usage-tab.png
- "相對於有效限制的使用量狀態")
+![相對於有效限制的使用狀態](./media/search-monitor-usage/usage-tab.png
+ "相對於有效限制的使用狀態")
 
 ## <a name="queries-per-second-qps-and-other-metrics"></a>每秒查詢數目 (QPS) 及其他計量
 
@@ -40,7 +40,7 @@ ms.locfileid: "72331220"
 
 這些數字是近似值，目的是要讓您概略了解您系統為要求提供服務的情況。 實際 QPS 可能比入口網站中回報的數字更高或更低。
 
-![每秒查詢數目活動](./media/search-monitor-usage/monitoring-tab.png "每秒查詢數目活動")
+![每秒查詢數活動](./media/search-monitor-usage/monitoring-tab.png "每秒查詢數活動")
 
 ## <a name="activity-logs"></a>活動記錄
 
@@ -84,7 +84,7 @@ Azure 監視器記錄和 Blob 儲存體皆以免費服務的形式提供，因�
 
    若要封存至 Blob 儲存體，只有儲存體帳戶必須存在。 匯出記錄資料時，會視需要建立容器和 blob。
 
-   ![設定 Blob 儲存體封存](./media/search-monitor-usage/configure-blob-storage-archive.png "設定 Blob 儲存體封存")
+   ![設定 blob 儲存體封存](./media/search-monitor-usage/configure-blob-storage-archive.png "設定 blob 儲存體封存")
 
 4. 儲存設定檔。
 

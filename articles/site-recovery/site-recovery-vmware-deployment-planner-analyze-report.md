@@ -5,14 +5,14 @@ author: mayurigupta13
 manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 7/29/2019
+ms.date: 10/21/2019
 ms.author: mayg
-ms.openlocfilehash: f4b63cfc67e20158e434e1a401d47144c3e0f90c
-ms.sourcegitcommit: 08d3a5827065d04a2dc62371e605d4d89cf6564f
+ms.openlocfilehash: 4240e17320cc62dc1a0e74db2f40a452a63f2982
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68618751"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72690716"
 ---
 # <a name="analyze-the-azure-site-recovery-deployment-planner-report-for-vmware-disaster-recovery-to-azure"></a>分析 Azure Site Recovery 部署規劃工具針對 VMWare 至 Azure 的災害復原所做的報告
 
@@ -22,19 +22,19 @@ ms.locfileid: "68618751"
 
 ![VMware 環境的內部部署摘要](media/site-recovery-vmware-deployment-planner-analyze-report/on-premises-summary-v2a.png)
 
-**開始日期**和**結束日期**：考慮用於產生報告之分析資料的開始和結束日期。 根據預設，開始日期是分析開始的日期，而結束日期是分析停止的日期。 如果使用這些參數產生報告，這可以是 'StartDate' 和 'EndDate' 值。
+[開始日期] 和 [結束日期]：考慮用於產生報告之分析資料的開始和結束日期。 根據預設，開始日期是分析開始的日期，而結束日期是分析停止的日期。 如果使用這些參數產生報告，這可以是 'StartDate' 和 'EndDate' 值。
 
 **分析總天數**：為其產生報告之開始和結束日期之間的分析總天數。
 
-**相容的虛擬機器數目**：相容的 VM 總數，系統會計算其所需的網路頻寬、所需的儲存體帳戶、Microsoft Azure 核心及組態伺服器和額外處理序伺服器的數目。
+**相同的虛擬機器數目**：相容的 VM 總數，系統會計算其所需的網路頻寬、所需的儲存體帳戶、Microsoft Azure 核心及組態伺服器和額外處理序伺服器的數目。
 
-**所有相容虛擬機器的磁碟總數**：此數字可作為其中一個輸入值，以決定部署中所要使用的組態伺服器與額外處理序伺服器數目。
+**所有相容虛擬機器的磁碟總數**：此數字可做為其中一個輸入值，以決定部署中所要使用的組態伺服器與額外處理序伺服器數目。
 
 **每部相容虛擬機器的平均磁碟數**：在所有相容 VM 中計算的平均磁碟數。
 
 **平均磁碟大小 (GB)** ：在所有相容 VM 中計算的平均磁碟大小。
 
-**所需的 RPO (分鐘)** ：預設復原點目標，或在產生報告時針對 "DesiredRPO" 參數所傳遞的值，用來估計所需的頻寬。
+**所需的 RPO (分鐘)** ：預設復原點目標，或在產生報告時針對 'DesiredRPO' 參數所傳遞的值，用來估計所需的頻寬。
 
 **所需的頻寬 (Mbps)** ：在產生報告時針對 ‘Bandwidth’ 參數所傳遞的值，用來估計可用的 RPO。
 
@@ -65,13 +65,13 @@ ms.locfileid: "68618751"
 
 **不相容的虛擬機器**：可使用 Site recovery 保護之不相容的剖析 VM 數目。 「不相容的 VM」一節會提到不相容的原因。 如果 VMListFile 包含任何未剖析 VM 的名稱，則這些 VM 會從不相容的 VM 計數中排除。 這些 VM 會在「不相容的 VM」區段結尾列為「找不到資料」。
 
-**所需的 RPO**：以分鐘為單位的所需復原點目標。 此報告會針對三個 RPO 值而產生：15 (預設值)、30 和 60 分鐘。 報告中的頻寬建議會隨著您在工作表右上方的 [所需的 RPO] 下拉式清單中選取的項目變更。 如果您已使用 -DesiredRPO 參數以自訂值產生報告，這個自訂值將會顯示為 [所需的 RPO] 下拉式清單中的預設值。
+**所需 RPO**：以分鐘為單位的所需復原點目標。 此報告會針對三個 RPO 值而產生：15 (預設值)、30 和 60 分鐘。 報告中的頻寬建議會隨著您在工作表右上方的 [所需的 RPO] 下拉式清單中選取的項目變更。 如果您已使用 -DesiredRPO 參數以自訂值產生報告，這個自訂值將會顯示為 [所需的 RPO] 下拉式清單中的預設值。
 
 ### <a name="required-network-bandwidth-mbps"></a>所需的網路頻寬 (Mbps)
 
 ![Deployment Planner 中所需的網路頻寬](media/site-recovery-vmware-deployment-planner-analyze-report/required-network-bandwidth-v2a.png)
 
-**符合當時的 100% RPO**︰所要配置的建議頻寬 (以 Mbps 為單位)，以符合當時所需的 100% RPO。 此頻寬量必須專用於您所有相容 VM 的穩定狀態差異複寫，以避免任何 RPO 違規。
+**符合當時的 100% RPO︰** 所要配置的建議頻寬 (以 Mbps 為單位)，以符合當時所需的 100% RPO。 此頻寬量必須專用於您所有相容 VM 的穩定狀態差異複寫，以避免任何 RPO 違規。
 
 **符合當時的 90% RPO**︰如果因為寬頻價格或任何其他原因，您無法設定符合當時所需 100% RPO 所需的頻寬，您可以選擇設定較低的頻寬，以符合當時所需的 90% RPO。 若要了解設定此低頻寬的含意，報告提供了可預期之 RPO 違規次數和持續時間的假設分析。
 
@@ -92,7 +92,7 @@ ms.locfileid: "68618751"
 對於所有企業 Site Recovery 部署，建議使用 [ExpressRoute](https://aka.ms/expressroute)。
 
 ### <a name="required-storage-accounts"></a>所需的儲存體帳戶
-下列圖表顯示保護所有相容 VM 所需的儲存體帳戶 (標準和進階) 總數。 若要了解每個 VM 所要使用的儲存體帳戶，請參閱「VM 儲存體放置」一節。 如果您使用部署規劃工具的 2.5, 此建議只會顯示覆寫所需的標準快取儲存體帳戶數目, 因為資料會直接寫入受控磁碟。
+下列圖表顯示保護所有相容 VM 所需的儲存體帳戶 (標準和進階) 總數。 若要了解每個 VM 所要使用的儲存體帳戶，請參閱「VM 儲存體放置」一節。 如果您使用部署規劃工具的2.5，此建議只會顯示覆寫所需的標準快取儲存體帳戶數目，因為資料會直接寫入受控磁碟。
 
 ![Deployment Planner 中所需的儲存體帳戶](media/site-recovery-vmware-deployment-planner-analyze-report/required-storage-accounts-v2a.png)
 
@@ -130,7 +130,7 @@ ms.locfileid: "68618751"
 
 您可以檢視每月或每年的成本。 深入了解[支援的目標區域](./site-recovery-vmware-deployment-planner-cost-estimation.md#supported-target-regions)和[支援的貨幣](./site-recovery-vmware-deployment-planner-cost-estimation.md#supported-currencies)。
 
-**依元件的成本**：DR 總成本分成四個元件：計算、儲存體、網路和 Azure Site Recovery 授權成本。 此成本是根據在複寫期間和在 DR 演練時產生的耗用量來計算，其中涵蓋計算、儲存體 (進階和標準)、在內部部署網站與 Azure 之間設定的 ExpressRoute/VPN，以及 Azure Site Recovery 授權。
+**依元件的成本** DR 總成本分成四個元件：計算、儲存體、網路和 Azure Site Recovery 授權成本。 此成本是根據在複寫期間和在 DR 演練時產生的耗用量來計算，其中涵蓋計算、儲存體 (進階和標準)、在內部部署網站與 Azure 之間設定的 ExpressRoute/VPN，以及 Azure Site Recovery 授權。
 
 **依狀態的成本** 災害復原 (DR) 的總成本是根據兩個不同的狀態來分類 - 複寫和 DR 演練。
 
@@ -157,28 +157,28 @@ ms.locfileid: "68618751"
 ## <a name="vm-storage-placement"></a>VM 儲存體放置
 
 >[!Note]
->部署規劃工具的2.5 版會針對將直接複寫到受控磁片的機器, 建議儲存位置。
+>部署規劃工具的2.5 版會針對將直接複寫到受控磁片的機器，建議儲存位置。
 
 ![VM 儲存體放置](media/site-recovery-vmware-deployment-planner-analyze-report/vm-storage-placement-v2a.png)
 
-複寫**儲存體類型**:標準或高階受控磁片, 用來複寫 [**要放置的 vm** ] 資料行中提到的所有對應 vm。
+複寫**儲存體類型**：標準或高階受控磁片，用來複寫 [**要放置的 vm** ] 資料行中提到的所有對應 vm。
 
-**記錄儲存體帳戶類型**:所有複寫記錄都會儲存在標準儲存體帳戶中。
+**記錄儲存體帳戶類型**：所有複寫記錄都會儲存在標準儲存體帳戶中。
 
-**儲存體帳戶的建議前置**詞:建議的三個字元前置詞, 可用來命名快取儲存體帳戶。 您可以使用自己的前置詞，但工具的建議會遵循[儲存體帳戶的磁碟分割命名慣例](https://aka.ms/storage-performance-checklist)。
+**儲存體帳戶的建議前置**詞：建議的三個字元前置詞，可用於命名快取儲存體帳戶。 您可以使用自己的前置詞，但工具的建議會遵循[儲存體帳戶的磁碟分割命名慣例](https://aka.ms/storage-performance-checklist)。
 
 **建議的記錄帳戶名稱**：在您包含建議前置詞後的儲存體帳戶名稱。 以您的自訂輸入取代括弧內的名稱 (< 和 >)。
 
-**放置摘要**：依儲存體類型保護的 Vm 所需的磁片摘要。 其中包含 Vm 總數、所有磁片上的布建大小總計, 以及磁片總數。
+**放置摘要**：依儲存體類型的受保護 vm 所需的磁片摘要。 其中包含 Vm 總數、所有磁片上的布建大小總計，以及磁片總數。
 
-**要放置的虛擬機器**：應置於指定的儲存體帳戶以提供最佳效能和使用情形的所有 VM 清單。
+**要放置的虛擬機器**：應置於指定之儲存體帳戶的所有 VM 清單，以提供最佳效能和使用情況。
 
 ## <a name="compatible-vms"></a>相容的 VM
 ![相容 VM 的 Excel 試算表](media/site-recovery-vmware-deployment-planner-analyze-report/compatible-vms-v2a.png)
 
 **VM 名稱**：產生報告時，使用於 VMListFile 的 VM 名稱或 IP 位址。 此資料行也會列出連結至 VM 的磁碟 (VMDK)。 為了區分具有重複名稱或 IP 位址的 vCenter VM，名稱中包含 ESXi 主機名稱。 所列的 ESXi 主機是此工具在分析期間探索到 VM 時其所在位置的主機。
 
-**VM 相容性**：值為 **[是]** 和 **[是]** \*。 [是]\* 表示 VM 適用於[進階 SSD](../virtual-machines/windows/disks-types.md) 的情況。 在此情況下，剖析的高變換 / IOPS 磁碟符合 P20 或 P30 類別，但磁碟大小會導致它向下對應至 P10 或 P20。 儲存體帳戶會根據磁碟大小，決定磁碟所要對應至的進階儲存體大小類型。 例如:
+**VM 相容性**：值為 **[是]** 和 **[是**]\*。 [是]\* 表示 VM 適用於[進階 SSD](../virtual-machines/windows/disks-types.md) 的情況。 在此情況下，剖析的高變換 / IOPS 磁碟符合 P20 或 P30 類別，但磁碟大小會導致它向下對應至 P10 或 P20。 儲存體帳戶會根據磁碟大小，決定磁碟所要對應至的進階儲存體大小類型。 例如：
 * <128 GB 為 P10。
 * 128 GB 至 256 GB 為 P15。
 * 256 GB 至 512 GB 為 P20。
@@ -190,11 +190,11 @@ ms.locfileid: "68618751"
 
 **儲存體類型**：標準或進階。
 
-**針對複寫而建立的 Asrseeddisk (受控磁片)** :當您啟用複寫時所建立的磁片名稱。 它會將資料及其快照集儲存在 Azure 中。
+**為複寫建立的 Asrseeddisk （受控磁片）** ：當您啟用複寫時所建立的磁片名稱。 它會將資料及其快照集儲存在 Azure 中。
 
 **尖峰 R/W IOPS (含成長因子)** ：磁碟上的尖峰工作負載讀/寫 IOPS (預設值為第 95 個百分位數)，包括未來的成長因子 (預設值為 30%)。 請注意，VM 的讀/寫 IOPS 總計不一定是 VM 個別磁碟的讀/寫 IOPS 總和，因為 VM 的尖峰讀/寫 IOPS 是其個別磁碟在分析期間內每一分鐘之讀/寫 IOPS 總和的尖峰。
 
-**資料變換 (Mbps) (含成長因子)** ：磁碟上的尖峰變換率 (預設值為第 95 個百分位數)，包括未來的成長因子 (預設值為 30%)。 請注意，VM 的資料變換總計不一定是 VM 個別磁碟的資料變換總和，因為 VM 的尖峰資料變換是其個別磁碟在分析期間每一分鐘之變換總和的尖峰。
+**尖峰資料變換 (Mbps) (含成長因子)** ：磁碟上的尖峰變換率 (預設值為第 95 個百分位數)，包括未來的成長因子 (預設值為 30%)。 請注意，VM 的資料變換總計不一定是 VM 個別磁碟的資料變換總和，因為 VM 的尖峰資料變換是其個別磁碟在分析期間每一分鐘之變換總和的尖峰。
 
 **Azure VM 大小**：此內部部署 VM 理想的對應 Azure 雲端服務虛擬機器大小。 對應是以內部部署 VM 的記憶體、磁碟/核心/NIC 數目和讀/寫 IOPS 為基礎。 建議一律是符合所有內部部署 VM 特性的最低 Azure VM 大小。
 
@@ -246,7 +246,7 @@ ms.locfileid: "68618751"
 
 **尖峰 R/W IOPS (含成長因子)** ：磁碟上的尖峰工作負載 IOPS (預設值為第 95 個百分位數)，包括未來的成長因子 (預設值為 30%)。 請注意，VM 的讀/寫 IOPS 總計不一定是 VM 個別磁碟的讀/寫 IOPS 總和，因為 VM 的尖峰讀/寫 IOPS 是其個別磁碟在分析期間內每一分鐘之讀/寫 IOPS 總和的尖峰。
 
-**資料變換 (Mbps) (含成長因子)** ：磁碟上的尖峰變換率 (預設值為第 95 個百分位數)，包括未來的成長因子 (預設值為 30%)。 請注意，VM 的資料變換總計不一定是 VM 個別磁碟的資料變換總和，因為 VM 的尖峰資料變換是其個別磁碟在分析期間每一分鐘之變換總和的尖峰。
+**尖峰資料變換 (Mbps) (含成長因子)** ：磁碟上的尖峰變換率 (預設值為第 95 個百分位數)，包括未來的成長因子 (預設值為 30%)。 請注意，VM 的資料變換總計不一定是 VM 個別磁碟的資料變換總和，因為 VM 的尖峰資料變換是其個別磁碟在分析期間每一分鐘之變換總和的尖峰。
 
 **磁碟數目**：VM 上的 VMDK 總數。
 
@@ -276,7 +276,6 @@ ms.locfileid: "68618751"
 
 **來源資料變換** | **上限**
 ---|---
-每個 VM 的平均資料變換| 25 MB/秒
 VM 上所有磁碟的尖峰資料變換 | 54 MB/秒
 處理序伺服器支援的每日資料變換上限 | 2 TB
 

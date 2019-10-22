@@ -9,16 +9,16 @@ ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: vikurpad
 ms.openlocfilehash: c5fb547b18bc4014f91341070f49c4af84c01005
-ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/25/2019
+ms.lasthandoff: 10/21/2019
 ms.locfileid: "71265174"
 ---
 # <a name="working-with-projections-in-a-knowledge-store-in-azure-search"></a>在 Azure 搜尋服務的知識存放區中使用投影
 
 > [!Note]
-> 知識存放區處於預覽狀態，不適合用於生產環境。 [REST API 版本 2019-05-06-Preview](search-api-preview.md) 提供此功能。 目前沒有 .NET SDK 支援。
+> 知識存放區處於預覽狀態，不適合用於生產環境。 [REST API 版本 2019-05-06-Preview](search-api-preview.md) 提供此功能。 目前 .NET SDK 入口網站並不支援此功能。
 >
 
 Azure 搜尋服務可透過 AI 認知技能和自訂技能來擴充內容，做為編制索引的一部分。 擴充將結構新增至您的檔，並讓搜尋更有效率。 在許多情況下，擴充的檔適用于搜尋以外的案例，例如知識發掘。
@@ -29,7 +29,7 @@ Azure 搜尋服務可透過 AI 認知技能和自訂技能來擴充內容，做�
 
 知識存放區支援兩種類型的預測：
 
-+ **資料表**：對於最佳呈現為數據列和資料行的資料，資料表預測可讓您在資料表儲存體中定義架構化圖形或投影。 
++ **資料表**：對於最能以資料列和資料行表示的資料，資料表預測可讓您在資料表儲存體中定義架構化圖形或投射。 
 
 + **物件**：當您需要資料和擴充的 JSON 標記法時，物件投影會儲存為 blob。
 
@@ -64,18 +64,18 @@ Azure 搜尋服務可透過 AI 認知技能和自訂技能來擴充內容，做�
 
 ### <a name="defining-a-table-projection"></a>定義資料表投射
 
-在技能集的`knowledgeStore`元素內定義資料表投影時，請先將擴充樹狀目錄上的節點對應到資料表來源。 此節點通常是您加入至技能清單中，以產生您需要投影到資料表的特定圖形之**塑造技能的**輸出。 您選擇要加入至專案的節點可以切割成多個資料表。 資料表定義是您想要投影的資料表清單。 
+在技能集的 `knowledgeStore` 元素內定義資料表投影時，請先將擴充樹狀結構上的節點對應到資料表來源。 此節點通常是您加入至技能清單中，以產生您需要投影到資料表的特定圖形之**塑造技能的**輸出。 您選擇要加入至專案的節點可以切割成多個資料表。 資料表定義是您想要投影的資料表清單。 
 
 #### <a name="projection-slicing"></a>投射切割
 定義資料表投射群組時，擴充樹狀結構中的單一節點可以分割成多個相關的資料表。 加入具有現有資料表投射子系之來源路徑的資料表，會導致子節點從父節點切割，並投射到新的相關資料表。 這可讓您在整形程式技能中定義單一節點，這種技術可以是所有資料表投影的來源。
 
 每個資料表都需要三個屬性：
 
-+ TableNameAzure 儲存體中的資料表名稱。
++ tableName： Azure 儲存體中的資料表名稱。
 
-+ generatedKeyName:唯一識別此資料列之索引鍵的資料行名稱。
++ generatedKeyName：唯一識別此資料列之索引鍵的資料行名稱。
 
-+ source：從您的擴充來源的擴充樹狀結構中的節點。 這通常是整形者的輸出，但可能是任何技能的輸出。
++ 來源：從您的擴充來源的擴充樹狀結構中的節點。 這通常是整形者的輸出，但可能是任何技能的輸出。
 
 以下是資料表投影的範例。
 
@@ -111,9 +111,9 @@ Azure 搜尋服務可透過 AI 認知技能和自訂技能來擴充內容，做�
 ```
 如本範例所示，主要片語和實體會模型化為不同的資料表，而且將包含每個資料列之父系（MainTable）的參考。 
 
-下圖是 [如何開始使用知識存放區](knowledge-store-howto.md) 中 Caselaw 練習的參考。 在案例中有多項意見，而且每個意見都藉由識別包含在其中的實體而擴充時，您可以建立預測的模型，如下所示。
+下圖是[如何開始使用知識存放區](knowledge-store-howto.md)中 Caselaw 練習的參考。 在案例中有多項意見，而且每個意見都藉由識別包含在其中的實體而擴充時，您可以建立預測的模型，如下所示。
 
-![資料表中的實體和關聯 性](media/knowledge-store-projection-overview/TableRelationships.png "資料表投影中的模型關聯 性")
+![資料表中的實體和關聯性](media/knowledge-store-projection-overview/TableRelationships.png "資料表投影中的模型關聯性")
 
 ## <a name="object-projections"></a>物件投影
 
@@ -154,9 +154,9 @@ Azure 搜尋服務可透過 AI 認知技能和自訂技能來擴充內容，做�
 
 產生物件投射需要一些特定物件屬性：
 
-+ StorageContainer將儲存物件的容器
-+ source：擴充樹狀結構之節點的路徑，而這是投射的根
-+ 擊鍵路徑，表示要儲存之物件的唯一索引鍵。 它會用來建立容器中的 blob 名稱。
++ storageContainer：將儲存物件的容器
++ 來源：擴充樹狀結構節點的路徑，這是投射的根
++ 索引鍵：代表要儲存之物件唯一索引鍵的路徑。 它會用來建立容器中的 blob 名稱。
 
 ## <a name="projection-lifecycle"></a>預測生命週期
 

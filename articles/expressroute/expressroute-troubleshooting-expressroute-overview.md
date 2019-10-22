@@ -1,5 +1,5 @@
 ---
-title: 確認連線 - ExpressRoute 疑難排解指南：Azure | Microsoft Docs
+title: 確認連線能力-ExpressRoute 疑難排解指南： Azure |Microsoft Docs
 description: 此頁面提供 ExpressRoute 路線的端對端連線確認和疑難排解的指示。
 services: expressroute
 author: rambk
@@ -9,10 +9,10 @@ ms.date: 09/26/2017
 ms.author: rambala
 ms.custom: seodec18
 ms.openlocfilehash: 026900e3dcbf7c20750bb8e17e44ba64897c9a30
-ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/19/2019
+ms.lasthandoff: 10/21/2019
 ms.locfileid: "71123451"
 ---
 # <a name="verifying-expressroute-connectivity"></a>確認 ExpressRoute 連線
@@ -31,7 +31,7 @@ ms.locfileid: "71123451"
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="overview"></a>總覽
+## <a name="overview"></a>概觀
 下圖顯示使用 ExpressRoute 從客戶網路連至 Microsoft 網路的邏輯連線。
 [![1]][1]
 
@@ -40,7 +40,7 @@ ms.locfileid: "71123451"
 網路點 3 和 4 可能互換 (第 2 層裝置)，取決於 ExpressRoute 連線模型 (雲端 Exchange 共置、點對點乙太網路連線、或任何對任何 (IPVPN))。 圖中的重要網路點分別是︰
 
 1.  客戶計算裝置 (例如，伺服器或電腦)
-2.  CE：客戶邊緣路由器 
+2.  CE︰客戶邊緣路由器 
 3.  PE (面對 CE)︰面對客戶邊緣路由器的提供者邊緣路由器/交換器。 在本文件中稱為 PE-CE。
 4.  PE (面對 MSEE)︰面對 MSEE 的提供者邊緣路由器/交換器。 在本文件中稱為 PE-MSEE。
 5.  MSEE：Microsoft Enterprise Edge (MSEE) ExpressRoute 路由器
@@ -157,7 +157,7 @@ ms.locfileid: "71123451"
     Sku                              : Standard
     Status                           : Enabled
 
-若要確認 ExpressRoute 路線是否在運作，請特別注意下列欄位︰ServiceProviderProvisioningState :Provisioned Status                           :Enabled
+若要確認 ExpressRoute 路線是否在運作，請特別注意下列欄位︰ServiceProviderProvisioningState : Provisioned Status                           : Enabled
 
 > [!NOTE]
 > 如果*狀態*為 [未啟用]，請[Microsoft 支援服務][Support][連絡人]。 如果 ServiceProviderProvisioningState 不是 provisioned，請連絡您的服務提供者。
@@ -165,7 +165,7 @@ ms.locfileid: "71123451"
 >
 
 ## <a name="validate-peering-configuration"></a>確認對等互連組態
-服務提供者已完成 ExpressRoute 路之線佈建後，可以透過 MSEE-PR (4) 和 MSEE (5) 之間的 ExpressRoute 路線建立路由組態。 每個 ExpressRoute 線路可以啟用一個、兩個或三個路由內容：Azure 私用對等互連（Azure 中私人虛擬網路的流量）、Azure 公用對等互連（Azure 中的公用 IP 位址流量）和 Microsoft 對等互連（到 Office 365 的流量）。 如需有關如何建立及修改路由設定的詳細資訊，請參閱[建立和修改 ExpressRoute 線路的路由一][CreatePeering]文。
+服務提供者已完成 ExpressRoute 路之線佈建後，可以透過 MSEE-PR (4) 和 MSEE (5) 之間的 ExpressRoute 路線建立路由組態。 每個 ExpressRoute 線路都可以啟用一個、兩個或三個路由內容： Azure 私人對等互連（Azure 中私人虛擬網路的流量）、Azure 公用對等互連（Azure 中的公用 IP 位址流量）和 Microsoft 對等互連（到 Office 365 的流量）。 如需有關如何建立及修改路由設定的詳細資訊，請參閱[建立和修改 ExpressRoute 線路的路由一][CreatePeering]文。
 
 ### <a name="verification-via-the-azure-portal"></a>透過 Azure 入口網站進行確認
 

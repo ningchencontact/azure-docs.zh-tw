@@ -1,5 +1,5 @@
 ---
-title: 範例：多層級 Facet - Azure 搜尋服務
+title: 範例：多層級 facet-Azure 搜尋服務
 description: 了解如何建置多層級分類的 Facet 結構，以建立可包含在應用程式頁面上的巢狀導覽結構。
 author: HeidiSteen
 manager: nitinme
@@ -9,13 +9,13 @@ ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: heidist
 ms.openlocfilehash: 9a56bba55f9b3a59126168bc2bbbd50927c3fc78
-ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/04/2019
+ms.lasthandoff: 10/21/2019
 ms.locfileid: "70274089"
 ---
-# <a name="example-multi-level-facets-in-azure-search"></a>範例：Azure 搜尋服務中的多層級 Facet
+# <a name="example-multi-level-facets-in-azure-search"></a>範例： Azure 搜尋服務中的多層級 facet
 
 Azure 搜尋服務結構描述並未明確支援多層級的分類類別，但您可藉由在編製索引之前操控內容，然後對結果進行某種特殊處理，來模擬這些類別。 
 
@@ -51,7 +51,7 @@ LEFT JOIN
 
 計數值必須夠高而足以傳回所有可能的分類值。 AdventureWorks 資料包含 41 個不同的分類值，因此 `count:50` 就已足夠。
 
-  ![Facet 篩選](./media/search-example-adventureworks/facet-filter.png "Facet 篩選")
+  ![多面向篩選](./media/search-example-adventureworks/facet-filter.png "多面向篩選")
 
 ## <a name="build-the-structure-in-client-code"></a>在用戶端程式碼中建置結構
 
@@ -84,10 +84,10 @@ categories.count = sum;
 
 **類別**物件現在可用來以精確的計數呈現可摺疊的分類樹狀結構：
 
-  ![多層級 Facet 篩選](./media/search-example-adventureworks/multi-level-facet.png "多層級 Facet 篩選")
+  ![多面向篩選](./media/search-example-adventureworks/multi-level-facet.png "多面向篩選")
 
  
-樹狀結構中的每個連結均應套用相關篩選。 例如:
+樹狀結構中的每個連結均應套用相關篩選。 例如：
 
 + **taxonomy/any**`(x:x eq 'Accessories')` 會傳回「配件」分支中的所有文件
 + **taxonomy/any**`(x:x eq 'Accessories|Bike Racks')` 只會傳回「配件」分支下具有 Bike Racks 子類別的文件。
@@ -97,6 +97,6 @@ categories.count = sum;
 > [!TIP]
 > 傳回的 Facet 數目會影響到查詢速度。 若要支援非常大型的分類集，請考慮新增可 Facet 的 **Edm.String** 欄位來存放每份文件的最上層分類值。 然後，運用前述的相同技巧，但僅在使用者展開最上層節點時執行集合 Facet 查詢 (依根分類欄位篩選)。 或者，如果不需要 100% 回收，請將 Facet 計數縮減至合理的數目，並確定 Facet 項目依計數排序。
 
-## <a name="see-also"></a>另請參閱
+## <a name="see-also"></a>請參閱
 
-[範例：針對 Azure 搜尋服務將 AdventureWorks 詳細目錄資料庫模型化](search-example-adventureworks-modeling.md)
+[範例： Azure 搜尋服務的 AdventureWorks 清查資料庫模型](search-example-adventureworks-modeling.md)

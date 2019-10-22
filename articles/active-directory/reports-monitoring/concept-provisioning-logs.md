@@ -18,10 +18,10 @@ ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 3d48aa3ead28ab0b0a22478a0c4183995483058a
-ms.sourcegitcommit: 909ca340773b7b6db87d3fb60d1978136d2a96b0
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/13/2019
+ms.lasthandoff: 10/21/2019
 ms.locfileid: "70983492"
 ---
 # <a name="provisioning-reports-in-the-azure-active-directory-portal-preview"></a>在 Azure Active Directory 入口網站中布建報告（預覽）
@@ -33,7 +33,7 @@ Azure Active Directory (Azure AD) 中的報告架構包含下列元件：
     - **稽核記錄** - [稽核記錄](concept-audit-logs.md)可提供使用者和群組管理、受控應用程式和目錄活動的相關系統活動資訊。
     - 布建**記錄**-提供有關 Azure AD 布建服務所布建之使用者、群組和角色的系統活動。 
 
-- **安全性** 
+- **Security** 
     - **有風險的登入** - [有風險的登入](concept-risky-sign-ins.md)表示非使用者帳戶合法擁有者的某人嘗試登入。
     - **標幟為有風險的使用者** - [有風險的使用者](concept-user-at-risk.md)表示可能被盜用的使用者帳戶。
 
@@ -48,7 +48,7 @@ Azure Active Directory (Azure AD) 中的報告架構包含下列元件：
 
 ### <a name="what-azure-ad-license-do-you-need-to-access-provisioning-activities"></a>您需要哪些 Azure AD 授權才能存取布建活動？
 
-您的租使用者必須有相關聯的 Azure AD Premium 授權，才能查看所有布建活動報告。 請參閱[開始使用 Azure Active Directory Premium](../fundamentals/active-directory-get-started-premium.md) 來升級 Azure Active Directory 版本。 
+您的租使用者必須有相關聯的 Azure AD Premium 授權，才能查看所有布建活動報告。 請參閱[開始使用 Azure Active Directory Premium](../fundamentals/active-directory-get-started-premium.md)以升級您的 Azure Active Directory 版本。 
 
 ## <a name="provisioning-logs"></a>佈建記錄
 
@@ -60,7 +60,7 @@ Azure Active Directory (Azure AD) 中的報告架構包含下列元件：
 
 您可以在[Azure 入口網站](https://portal.azure.com)的 [ **Azure Active Directory** ] 分頁的 [**監視**] 區段中，選取 [布建**記錄**] 來存取布建記錄。 可能需要最多兩個小時的時間，才能在入口網站中顯示某些布建記錄。
 
-布建![記錄]布建(./media/concept-provisioning-logs/access-provisioning-logs.png "記錄")
+![布建記錄](./media/concept-provisioning-logs/access-provisioning-logs.png "佈建記錄")
 
 
 布建記錄檔具有預設清單視圖，顯示：
@@ -77,11 +77,11 @@ Azure Active Directory (Azure AD) 中的報告架構包含下列元件：
 
 您可以按一下工具列中的 [資料行] 來自訂清單檢視。
 
-資料![行選擇器]資料(./media/concept-provisioning-logs/column-chooser.png "行選擇器")
+![資料行選擇器](./media/concept-provisioning-logs/column-chooser.png "資料行選擇器")
 
 這可讓您顯示其他欄位，或移除已顯示的欄位。
 
-![可用]的資料行(./media/concept-provisioning-logs/available-columns.png "可用")的資料行
+![可用的資料行](./media/concept-provisioning-logs/available-columns.png "可用的資料行")
 
 選取清單檢視中的項目，即可取得更詳細的資訊。
 
@@ -93,14 +93,14 @@ Azure Active Directory (Azure AD) 中的報告架構包含下列元件：
 若要將報告的資料縮小至適合您的層級，您可以使用下列預設欄位篩選布建資料。 請注意，篩選中的值會根據您的租使用者動態填入。 例如，如果您的租使用者中沒有任何建立事件，就不會有 [建立] 的篩選選項。
 
 - 身分識別
-- Action
+- 行動
 - 來源系統
 - 目標系統
 - 狀態
-- Date
+- 日期
 
 
-![篩選](./media/concept-provisioning-logs/filter.png "篩選")
+![Filter](./media/concept-provisioning-logs/filter.png "篩選")
 
 [身分**識別**] 篩選準則可讓您指定您關心的名稱或身分識別。 此身分識別可以是使用者、群組、角色或其他物件。 您可以依物件的名稱或識別碼進行搜尋。 識別碼會因案例而異。 例如，從 Azure AD 將物件布建到 SalesForce 時，來源識別碼是 Azure AD 中使用者的物件識別碼，而 TargetID 是 Salesforce 中使用者的識別碼。 從 Workday 布建到 Active Directory 時，來源識別碼是 Workday 背景工作員工識別碼。 請注意，使用者的名稱不一定會出現在 [標識] 資料行中。 一律會有一個識別碼。 
 
@@ -110,16 +110,16 @@ Azure Active Directory (Azure AD) 中的報告架構包含下列元件：
 
 [狀態] 篩選條件可讓您選取︰
 
-- 全部
+- 所有
 - 成功
 - 失敗
-- 已略過
+- Skipped
 
 **動作**篩選準則可讓您篩選：
 
-- 建立 
-- Update
-- DELETE
+- Create 
+- 更新
+- 刪除
 - 停用
 - 其他
 
@@ -161,7 +161,7 @@ Azure Active Directory (Azure AD) 中的報告架構包含下列元件：
 - 總結
 
 
-![篩選](./media/concept-provisioning-logs/provisioning-tabs.png "")索引標籤
+![Filter](./media/concept-provisioning-logs/provisioning-tabs.png "卡")
 
 
 
@@ -176,7 +176,7 @@ Azure Active Directory (Azure AD) 中的報告架構包含下列元件：
 
 
 
-![篩選](./media/concept-provisioning-logs/steps.png "篩選")
+![Filter](./media/concept-provisioning-logs/steps.png "篩選")
 
 
 ### <a name="troubleshoot-and-recommendations"></a>疑難排解和建議

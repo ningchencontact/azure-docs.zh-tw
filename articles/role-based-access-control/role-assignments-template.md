@@ -13,12 +13,12 @@ ms.workload: identity
 ms.date: 09/20/2019
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: b4eebf7dac4d388411f570b1546c96e3b82b2a98
-ms.sourcegitcommit: 4f7dce56b6e3e3c901ce91115e0c8b7aab26fb72
+ms.openlocfilehash: 5f57ea658df0569c4e69e476513863abe6940471
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71950068"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72692912"
 ---
 # <a name="manage-access-to-azure-resources-using-rbac-and-azure-resource-manager-templates"></a>使用 RBAC 和 Azure Resource Manager 範本管理對 Azure 資源的存取
 
@@ -33,7 +33,7 @@ ms.locfileid: "71950068"
 若要使用範本，您必須執行下列動作：
 
 - 建立新的 JSON 檔案並複製範本
-- 以要指派角色的使用者、群組或應用程式的唯一識別碼取代 `<your-principal-id>`。 此識別碼的格式：`11111111-1111-1111-1111-111111111111`
+- 將 `<your-principal-id>` 取代為要指派角色的使用者、群組或應用程式的唯一識別碼。 此識別碼的格式：`11111111-1111-1111-1111-111111111111`
 
 ```json
 {
@@ -160,7 +160,7 @@ az deployment create --location centralus --template-file rbac-test.json --param
 ```
 
 > [!NOTE]
-> 除非為範本的每個部署提供相同的 `roleNameGuid` 值做為參數，否則這個範本不具等冪。 如果未提供 `roleNameGuid`，則根據預設會在每個部署上產生新的 GUID，而後續部署將會失敗，併發生 `Conflict: RoleAssignmentExists` 錯誤。
+> 除非為範本的每個部署提供相同的 `roleNameGuid` 值，否則此範本不具等冪性。 如果未提供任何 `roleNameGuid`，則根據預設會在每個部署上產生新的 GUID，而後續部署將會失敗，並出現 `Conflict: RoleAssignmentExists` 錯誤。
 
 ## <a name="create-a-role-assignment-at-a-resource-scope"></a>在資源範圍中建立角色指派
 
@@ -232,7 +232,7 @@ az deployment create --location centralus --template-file rbac-test.json --param
         {
             "type": "Microsoft.Storage/storageAccounts/providers/roleAssignments",
             "apiVersion": "2018-09-01-preview",
-            "name": "[concat(variables('storageName'), '/Microsoft.Authorization/', guid(uniqueString(parameters('storageName'))))]",
+            "name": "[concat(variables('storageName'), '/Microsoft.Authorization/', guid(uniqueString(variables('storageName'))))]",
             "dependsOn": [
                 "[variables('storageName')]"
             ],
@@ -261,7 +261,7 @@ az group deployment create --resource-group ExampleGroup --template-file rbac-te
 
 ## <a name="create-a-role-assignment-for-a-new-service-principal"></a>為新的服務主體建立角色指派
 
-如果您建立新的服務主體，並立即嘗試將角色指派給該服務主體，在某些情況下，該角色指派可能會失敗。 例如，如果您建立新的受控識別，然後嘗試在相同的 Azure Resource Manager 範本中將角色指派給該服務主體，則角色指派可能會失敗。 此失敗的原因可能是複寫延遲。 服務主體會建立在一個區域中;不過，角色指派可能會發生在另一個尚未複寫服務主體的區域中。 若要解決這種情況，您應該在建立角色指派時，將 `principalType` 屬性設定為 `ServicePrincipal`。
+如果您建立新的服務主體，並立即嘗試將角色指派給該服務主體，在某些情況下，該角色指派可能會失敗。 例如，如果您建立新的受控識別，然後嘗試在相同的 Azure Resource Manager 範本中將角色指派給該服務主體，則角色指派可能會失敗。 此失敗的原因可能是複寫延遲。 服務主體會建立在一個區域中;不過，角色指派可能會發生在另一個尚未複寫服務主體的區域中。 若要解決此案例，您應該在建立角色指派時，將 `principalType` 屬性設定為 [`ServicePrincipal`]。
 
 下列範本會示範：
 

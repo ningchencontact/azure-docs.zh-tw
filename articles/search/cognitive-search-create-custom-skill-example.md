@@ -8,12 +8,12 @@ ms.service: search
 ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: luisca
-ms.openlocfilehash: d76a250cc3554b086501899376cb411346a4251c
-ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
+ms.openlocfilehash: ab2f9e8859fba0c906e181727aab923254e9b620
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71266340"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72692207"
 ---
 # <a name="example-create-a-custom-skill-using-the-bing-entity-search-api"></a>範例：使用 Bing 實體搜尋 API 建立自訂技能
 
@@ -311,11 +311,11 @@ namespace SampleSkills
 }
 ```
 
-請務必根據您註冊 Bing實體搜尋 API 時`key`所取得的金鑰，在常數中輸入您自己的金鑰值。
+請務必根據您註冊 Bing 實體搜尋 API 時所取得的金鑰，在 `key` 常數中輸入您自己的*金鑰*值。
 
-這個範例會在單一檔案中包含所有必要的程式碼，以方便您使用。 您可以在[power 技能存放庫](https://github.com/Azure-Samples/azure-search-power-skills/tree/master/Text/BingEntitySearch)中找到該相同技能的更結構化版本。
+這個範例會在單一檔案中包含所有必要的程式碼，以方便您使用。 您可以找到該相同技能稍微多一點的結構化版本，以及[power 技能存放庫](https://aka.ms/entity-search-power-skill)中自訂技能的其他範例。
 
-當然，您可以將檔案從`Function1.cs`重新命名為。 `BingEntitySearch.cs`
+當然，您可以將檔案從 `Function1.cs` 重新命名為 `BingEntitySearch.cs`。
 
 ## <a name="test-the-function-from-visual-studio"></a>從 Visual Studio 測試函式
 
@@ -325,7 +325,7 @@ namespace SampleSkills
 POST https://localhost:7071/api/EntitySearch
 ```
 
-### <a name="request-body"></a>要求本文
+### <a name="request-body"></a>Request body
 ```json
 {
     "values": [
@@ -383,7 +383,7 @@ POST https://localhost:7071/api/EntitySearch
 
 1. 部署完成之後，請注意網站 URL。 這是 Azure 中的函數應用程式的位址。 
 
-1. 在  [Azure 入口網站](https://portal.azure.com)中，流覽至 [資源群組]，然後尋找`EntitySearch`您發佈的函式。 在 [管理] 區段下，應該會看到主機金鑰。 選取 [預設] 主機金鑰的 [複製] 圖示。  
+1. 在  [Azure 入口網站](https://portal.azure.com)中，流覽至 [資源群組]，然後尋找您發佈的 `EntitySearch` 函數。 在 [管理] 區段下，應該會看到主機金鑰。 選取 [預設] 主機金鑰的 [複製] 圖示。  
 
 ## <a name="test-the-function-in-azure"></a>在 Azure 測試函式
 
@@ -418,7 +418,7 @@ POST https://[your-entity-search-app-name].azurewebsites.net/api/EntitySearch?co
 在本機環境中執行此函式時，此範例應該會產生與您先前看到的相同結果。
 
 ## <a name="connect-to-your-pipeline"></a>連線到您的管線
-有了新的自訂技能之後，就可以將它加入您的技能集。 下列範例示範如何呼叫技能，以將描述新增至檔中的組織（這可能會擴充為也可在位置和人員上工作）。 將`[your-entity-search-app-name]`取代為您的應用程式名稱。
+有了新的自訂技能之後，就可以將它加入您的技能集。 下列範例示範如何呼叫技能，以將描述新增至檔中的組織（這可能會擴充為也可在位置和人員上工作）。 將 `[your-entity-search-app-name]` 取代為您的應用程式名稱。
 
 ```json
 {
@@ -476,8 +476,9 @@ POST https://[your-entity-search-app-name].azurewebsites.net/api/EntitySearch?co
 ```
 
 ## <a name="next-steps"></a>後續步驟
-恭喜您！ 您已建立您的第一個自訂擴充程式。 現在您可以遵循相同的模式，新增自己的自訂功能。 
+恭喜！ 您已建立您的第一個自訂擴充程式。 現在您可以遵循相同的模式，新增自己的自訂功能。 
 
++ [電力技能：自訂技能的存放庫](https://aka.ms/powerskills)
 + [將自訂技能新增至認知搜尋管線](cognitive-search-custom-skill-interface.md)
 + [如何定義技能集](cognitive-search-defining-skillset.md)
 + [建立技能集 (REST)](https://docs.microsoft.com/rest/api/searchservice/create-skillset)
