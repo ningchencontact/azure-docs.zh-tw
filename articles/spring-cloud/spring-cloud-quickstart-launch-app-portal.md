@@ -9,12 +9,12 @@ ms.service: spring-cloud
 ms.topic: quickstart
 ms.date: 10/04/2019
 ms.author: v-vasuke
-ms.openlocfilehash: 74a47bc5fc6dbcadef5e1a0da88eb93056334703
-ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
+ms.openlocfilehash: 59770bccec57220560eeb5a5204e574ce172fc80
+ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72244867"
+ms.lasthandoff: 10/13/2019
+ms.locfileid: "72296512"
 ---
 # <a name="quickstart-launch-an-azure-spring-cloud-application-using-the-azure-portal"></a>快速入門：使用 Azure 入口網站來啟動 Azure Spring Cloud 應用程式
 
@@ -57,9 +57,11 @@ az extension add -y --source https://azureclitemp.blob.core.windows.net/spring-c
 
 ## <a name="provision-a-service-instance-on-the-azure-portal"></a>在 Azure 入口網站上佈建服務執行個體
 
-1. 在網頁瀏覽器中，開啟 [Azure 入口網站](https://portal.azure.com/?microsoft_azure_marketplace_ItemHideKey=AppPlatformExtension)並登入您的帳戶。
+1. 在網頁瀏覽器中，開啟 [Azure 入口網站中 Azure Spring Cloud 的這個連結](https://ms.portal.azure.com/?microsoft_azure_marketplace_ItemHideKey=AppPlatformExtension#blade/Microsoft_Azure_Marketplace/MarketplaceOffersBlade/selectedMenuItemId/home/searchQuery/Azure%20Spring%20Cloud)。
 
-1. 搜尋 **Azure Spring Cloud** 並選取它，以移至 [概觀] 頁面。 選取 [建立]  按鈕以開始使用。
+    ![ASC 入口網站的螢幕擷取畫面](media/spring-cloud-quickstart-launch-app-portal/goto-portal.png)
+
+1. 選取 [Azure Spring Cloud]  以移至 [概觀] 頁面。 然後選取 [建立]  按鈕以開始使用。
 
 1. 填寫表單，並考慮下列指導方針：
     - 服務名稱：指定您服務執行個體的名稱。  名稱長度必須為 4 到 32 個字元，且只能包含小寫字母、數字及連字號。  服務名稱的第一個字元必須是字母，且最後一個字元必須是字母或數字。
@@ -74,6 +76,8 @@ az extension add -y --source https://azureclitemp.blob.core.windows.net/spring-c
 1. 移至服務 [概觀]  頁面並選取 [設定伺服器]  。
 
 1. 在 [預設存放庫]  區段中，將 [URI]  設定為 "https://github.com/Azure-Samples/piggymetrics"，將 [標籤]  設定為 "config"，然後選取 [套用]  以儲存變更。
+
+    ![ASC 入口網站的螢幕擷取畫面](media/spring-cloud-quickstart-launch-app-portal/portal-config.png)
 
 ## <a name="build-and-deploy-microservice-applications"></a>建置並部署微服務應用程式
 
@@ -130,10 +134,15 @@ az extension add -y --source https://azureclitemp.blob.core.windows.net/spring-c
 
 ## <a name="assign-a-public-endpoint-to-gateway"></a>將公用端點指派到閘道
 
-1. 開啟 [應用程式儀表板]  頁面。
-2. 選取 `gateway` 應用程式以顯示 [應用程式詳細資料]  頁面。
-3. 選取 [指派網域]  來將公用端點指派到閘道。 這可能會需要幾分鐘的時間。 
-4. 將已指派的公用 IP 輸入至您的瀏覽器，以檢視正在執行的應用程式。
+1. 開啟左側功能表中的 [應用程式]  索引標籤。
+2. 選取 `gateway` 應用程式，以顯示 [概觀]  頁面。
+3. 選取 [指派網域]  來將公用端點指派到閘道。 這可能會需要幾分鐘的時間。
+
+    ![ASC 入口網站的螢幕擷取畫面](media/spring-cloud-quickstart-launch-app-portal/portal-endpoint.png)
+
+1. 將已指派的公用端點 (標示為 **URL**) 輸入至您的瀏覽器，以檢視正在執行的應用程式。
+
+    ![ASC 入口網站的螢幕擷取畫面](media/spring-cloud-quickstart-launch-app-portal/sample-app.png)
 
 
 ## <a name="next-steps"></a>後續步驟

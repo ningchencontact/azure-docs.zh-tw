@@ -1,23 +1,18 @@
 ---
 title: Azure Application Insights 資料模型 | Microsoft Docs
 description: 描述從 JSON 中的連續匯出匯出的屬性，並做為篩選器。
-services: application-insights
-documentationcenter: ''
-author: mrbullwinkle
-manager: carmonm
-ms.assetid: cabad41c-0518-4669-887f-3087aef865ea
-ms.service: application-insights
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
+ms.service: azure-monitor
+ms.subservice: application-insights
 ms.topic: conceptual
-ms.date: 01/08/2019
+author: mrbullwinkle
 ms.author: mbullwin
-ms.openlocfilehash: 4f8fd0b317c17f142664d22291c23442dd49f970
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.date: 01/08/2019
+ms.openlocfilehash: 8f84e3179a6f949e4a322a2218736fc9ebe60442
+ms.sourcegitcommit: 1bd2207c69a0c45076848a094292735faa012d22
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67053301"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72677919"
 ---
 # <a name="application-insights-export-data-model"></a>Application Insights 匯出資料模型
 此表列出從 [Application Insights](../../azure-monitor/app/app-insights-overview.md) SDK 傳送至入口網站的遙測屬性。
@@ -114,12 +109,12 @@ ms.locfileid: "67053301"
 ## <a name="context"></a>Context
 所有類型的遙測都會伴隨內容區段。 並非所有的欄位都會連同每個資料點傳輸。
 
-| `Path` | type | 注意 |
+| 路徑 | Type | 注意 |
 | --- | --- | --- |
 | context.custom.dimensions [0] |物件 [ ] |由自訂屬性參數設定的索引鍵-值字串組。 索引鍵的最大長度 100，值的最大長度 1024。 超過 100 個唯一值時，屬性可供搜尋，但無法用來分割。 每個 ikey 的最大值 200 索引鍵。 |
 | context.custom.metrics [0] |物件 [ ] |由自訂測量參數和 TrackMetrics 設定的索引鍵-值組。 索引鍵的最大長度 100，值可能為數值。 |
 | context.data.eventTime |string |UTC |
-| context.data.isSynthetic |boolean |要求似乎來自 bot 或 web 測試。 |
+| context.data.isSynthetic |布林值 |要求似乎來自 bot 或 web 測試。 |
 | context.data.samplingRate |number |由傳送至入口網站之 SDK 所產生的遙測百分比。 範圍 0.0-100.0。 |
 | context.device |object |用戶端裝置 |
 | context.device.browser |string |IE, Chrome, ... |
@@ -146,22 +141,22 @@ ms.locfileid: "67053301"
 | context.operation.name |string |url 或要求名稱 |
 | context.operation.parentId |string |允許巢狀的相關項目。 |
 | context.session.id |string |來自相同來源的作業群組識別碼。 在 30 分鐘期間沒有發出工作階段結束訊號的作業。 |
-| context.session.isFirst |boolean | |
+| context.session.isFirst |布林值 | |
 | context.user.accountAcquisitionDate |string | |
 | context.user.accountId |string | |
 | context.user.anonAcquisitionDate |string | |
 | context.user.anonId |string | |
 | context.user.authAcquisitionDate |string |[已驗證的使用者](../../azure-monitor/app/api-custom-events-metrics.md#authenticated-users) |
 | context.user.authId |string | |
-| context.user.isAuthenticated |boolean | |
+| context.user.isAuthenticated |布林值 | |
 | context.user.storeRegion |string | |
 | internal.data.documentVersion |string | |
 | internal.data.id |string | 項目內嵌至 Application Insights 時所指派的的唯一識別碼 |
 
-## <a name="events"></a>Events
+## <a name="events"></a>事件
 [TrackEvent()](../../azure-monitor/app/api-custom-events-metrics.md#trackevent)產生的自訂事件。
 
-| `Path` | type | 注意 |
+| 路徑 | Type | 注意 |
 | --- | --- | --- |
 | 事件 [0] 計數 |integer |100/([取樣](../../azure-monitor/app/sampling.md) 率)。 例如 4 =&gt; 25%。 |
 | 事件 [0] 名稱 |string |事件名稱。  最大長度 250。 |
@@ -172,7 +167,7 @@ ms.locfileid: "67053301"
 ## <a name="exceptions"></a>例外狀況
 回報在伺服器和瀏覽器中的 [例外狀況](../../azure-monitor/app/asp-net-exceptions.md) 。
 
-| `Path` | type | 注意 |
+| 路徑 | Type | 注意 |
 | --- | --- | --- |
 | basicException [0] 組件 |string | |
 | basicException [0] 計數 |integer |100/([取樣](../../azure-monitor/app/sampling.md) 率)。 例如 4 =&gt; 25%。 |
@@ -181,7 +176,7 @@ ms.locfileid: "67053301"
 | basicException [0] failedUserCodeMethod |string | |
 | basicException [0] failedUserCodeAssembly |string | |
 | basicException [0] handledAt |string | |
-| basicException [0] hasFullStack |boolean | |
+| basicException [0] hasFullStack |布林值 | |
 | basicException [0] id |string | |
 | basicException [0] 方法 |string | |
 | basicException [0] 訊息 |string |例外狀況訊息。 最大長度 10k。 |
@@ -201,7 +196,7 @@ ms.locfileid: "67053301"
 ## <a name="trace-messages"></a>追蹤訊息
 由 [TrackTrace](../../azure-monitor/app/api-custom-events-metrics.md#tracktrace) 及[記錄配接器](../../azure-monitor/app/asp-net-trace-logs.md)傳送。
 
-| `Path` | type | 注意 |
+| 路徑 | Type | 注意 |
 | --- | --- | --- |
 | 訊息 [0] loggerName |string | |
 | 訊息 [0] 參數 |string | |
@@ -211,9 +206,9 @@ ms.locfileid: "67053301"
 ## <a name="remote-dependency"></a>遠端相依性
 由 TrackDependency 傳送。 用於回報伺服器中 [相依性呼叫](../../azure-monitor/app/asp-net-dependencies.md) 以及瀏覽器中 AJAX 呼叫的效能和使用情形。
 
-| `Path` | type | 注意 |
+| 路徑 | Type | 注意 |
 | --- | --- | --- |
-| remoteDependency [0] async |boolean | |
+| remoteDependency [0] async |布林值 | |
 | remoteDependency [0] baseName |string | |
 | remoteDependency [0] commandName |string |例如 "home/index" |
 | remoteDependency [0] 計數 |integer |100/([取樣](../../azure-monitor/app/sampling.md) 率)。 例如 4 =&gt; 25%。 |
@@ -222,7 +217,7 @@ ms.locfileid: "67053301"
 | remoteDependency [0] id |string | |
 | remoteDependency [0] 名稱 |string |Url。 最大長度 250。 |
 | remoteDependency [0] resultCode |string |從 HTTP 相依性 |
-| remoteDependency [0] 成功 |boolean | |
+| remoteDependency [0] 成功 |布林值 | |
 | remoteDependency [0] 類型 |string |Http、Sql、... |
 | remoteDependency [0] url |string |最大長度 2000 |
 | remoteDependency [0] urlData.base |string |最大長度 2000 |
@@ -232,14 +227,14 @@ ms.locfileid: "67053301"
 ## <a name="requests"></a>Requests
 由 [TrackRequest](../../azure-monitor/app/api-custom-events-metrics.md#trackrequest)傳送。 標準模組使用它回報在伺服器上測量的伺服器回應時間。
 
-| Path | type | 注意 |
+| 路徑 | Type | 注意 |
 | --- | --- | --- |
-| 要求 [0] 計數 |integer |100/([取樣](../../azure-monitor/app/sampling.md) 率)。 例如: 4 =&gt; 25%。 |
+| 要求 [0] 計數 |integer |100/([取樣](../../azure-monitor/app/sampling.md) 率)。 例如：4 =&gt; 25%。 |
 | 要求 [0] durationMetric.value |number |從要求抵達到回應的時間。 1e7 == 1s |
 | 要求 [0] id |string |作業 id |
 | 要求 [0] 名稱 |string |GET/POST + url 基底。  最大長度 250 |
 | 要求 [0] responseCode |integer |傳送至用戶端的 HTTP 回應 |
-| 要求 [0] 成功 |boolean |預設值 == (responseCode &lt; 400) |
+| 要求 [0] 成功 |布林值 |預設值 == (responseCode &lt; 400) |
 | 要求 [0] url |string |不包括主機 |
 | 要求 [0] urlData.base |string | |
 | 要求 [0] urlData.hashTag |string | |
@@ -250,7 +245,7 @@ ms.locfileid: "67053301"
 
 內容值會顯示用戶端作業系統和瀏覽器版本。
 
-| `Path` | type | 注意 |
+| 路徑 | Type | 注意 |
 | --- | --- | --- |
 | clientPerformance [0] clientProcess.value |integer |從接收 HTML 完成到顯示頁面的時間。 |
 | clientPerformance [0] 名稱 |string | |
@@ -267,7 +262,7 @@ ms.locfileid: "67053301"
 ## <a name="page-views"></a>頁面檢視
 由 trackPageView() 或 [stopTrackPage](../../azure-monitor/app/api-custom-events-metrics.md#page-views) 傳送
 
-| `Path` | type | 注意 |
+| 路徑 | Type | 注意 |
 | --- | --- | --- |
 | 檢視 [0] 計數 |integer |100/([取樣](../../azure-monitor/app/sampling.md) 率)。 例如 4 =&gt; 25%。 |
 | 檢視 [0] durationMetric.value |integer |在 trackPageView() 中或由 startTrackPage() - stopTrackPage() 選擇性設定的值。 和 clientPerformance 的值不同。 |
@@ -280,7 +275,7 @@ ms.locfileid: "67053301"
 ## <a name="availability"></a>可用性
 回報 [可用性 Web 測試](../../azure-monitor/app/monitor-web-app-availability.md)。
 
-| `Path` | type | 注意 |
+| 路徑 | Type | 注意 |
 | --- | --- | --- |
 | 可用性 [0] availabilityMetric.name |string |Availability |
 | 可用性 [0] availabilityMetric.value |number |1.0 或 0.0 |
@@ -296,12 +291,12 @@ ms.locfileid: "67053301"
 | 可用性 [0] testRunId |string | |
 | 可用性 [0] testTimestamp |string | |
 
-## <a name="metrics"></a>度量
+## <a name="metrics"></a>計量
 由 TrackMetric() 產生。
 
 度量值位於 context.custom.metrics[0]
 
-例如:
+例如：
 
     {
      "metric": [ ],
@@ -327,7 +322,7 @@ ms.locfileid: "67053301"
     }
 
 ## <a name="about-metric-values"></a>關於度量值
-在度量報告和其他位置中的度量值，會利用標準物件結構回報。 例如:
+在度量報告和其他位置中的度量值，會利用標準物件結構回報。 例如：
 
       "durationMetric": {
         "name": "contoso.org",
@@ -351,7 +346,7 @@ ms.locfileid: "67053301"
 ### <a name="durations"></a>持續時間
 除非另有說明，否則持續時間皆以十分之一微秒表示，所以 10000000.0 表示 1 秒。
 
-## <a name="see-also"></a>另請參閱
+## <a name="see-also"></a>請參閱
 * [Application Insights](../../azure-monitor/app/app-insights-overview.md)
 * [連續匯出](export-telemetry.md)
 * [程式碼範例](export-telemetry.md#code-samples)

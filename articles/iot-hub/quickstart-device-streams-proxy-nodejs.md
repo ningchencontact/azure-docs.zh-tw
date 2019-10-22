@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 03/14/2019
 ms.author: robinsh
-ms.openlocfilehash: 83339273d9161c3947df191d10e788980db39b28
-ms.sourcegitcommit: 80dff35a6ded18fa15bba633bf5b768aa2284fa8
+ms.openlocfilehash: 4a6fd7dd40905a8a81a104c9d6ef22040ff88f15
+ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/26/2019
-ms.locfileid: "67445992"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72516296"
 ---
 # <a name="quickstart-enable-ssh-and-rdp-over-an-iot-hub-device-stream-by-using-a-nodejs-proxy-application-preview"></a>快速入門：使用 Node.js Proxy 應用程式透過 IoT 中樞裝置串流進行 SSH 和 RDP 輸送 (預覽)
 
@@ -76,10 +76,10 @@ Microsoft Azure IoT 中樞目前支援裝置串流作為[預覽功能](https://a
 
    > [!NOTE]
    > * 以您為 IoT 中樞選擇的名稱取代 YourIoTHubName  預留位置。
-   > * 使用所示的 MyCDevice  。 這是為已註冊裝置指定的名稱。 如果您為裝置選擇不同的名稱，請在本文中使用該名稱，並先在應用程式範例中更新該裝置名稱，再執行應用程式。
+   > * 如需您所註冊的裝置名稱，建議使用如下所示的 *MyDevice*。 如果您為裝置選擇不同的名稱，請在本文中使用該名稱，並先在應用程式範例中更新該裝置名稱，再執行應用程式。
 
     ```azurecli-interactive
-    az iot hub device-identity create --hub-name YourIoTHubName --device-id MyDevice
+    az iot hub device-identity create --hub-name {YourIoTHubName} --device-id MyDevice
     ```
 
 1. 若要讓後端應用程式能夠連線到您的 IoT 中樞並擷取訊息，您也需要*服務連接字串*。 下列命令會為您的 IoT 中樞擷取字串：
@@ -88,10 +88,10 @@ Microsoft Azure IoT 中樞目前支援裝置串流作為[預覽功能](https://a
    > 以您為 IoT 中樞選擇的名稱取代 YourIoTHubName  預留位置。
 
     ```azurecli-interactive
-    az iot hub show-connection-string --policy-name service --name YourIoTHubName
+    az iot hub show-connection-string --policy-name service --name {YourIoTHubName} --output table
     ```
 
-    記下傳回的值，以便稍後在本快速入門中使用。 看起來會像下列範例：
+   請記下所傳回的服務連接字串，以供稍後在本快速入門中使用。 看起來會像下列範例：
 
    `"HostName={YourIoTHubName}.azure-devices.net;SharedAccessKeyName=service;SharedAccessKey={YourSharedAccessKey}"`
 
@@ -110,25 +110,25 @@ Microsoft Azure IoT 中樞目前支援裝置串流作為[預覽功能](https://a
 
 ### <a name="run-the-service-local-proxy-application"></a>執行服務本機 Proxy 應用程式
 
-如果裝置本機 Proxy 應用程式正在執行中，請依照下列步驟來執行以 Node.js 撰寫的服務本機 Proxy 應用程式：
+如果裝置本機 Proxy 應用程式正在執行中，請在本機終端視窗中依照下列步驟來執行以 Node.js 撰寫的服務本機 Proxy 應用程式：
 
 1. 針對環境變數，提供您的服務認證、SSH 精靈執行所在的目標裝置識別碼，以及在裝置上執行的 Proxy 所使用的連接埠號碼。
 
    ```
    # In Linux
-   export IOTHUB_CONNECTION_STRING="<provide_your_service_connection_string>"
+   export IOTHUB_CONNECTION_STRING="{ServiceConnectionString}"
    export STREAMING_TARGET_DEVICE="MyDevice"
    export PROXY_PORT=2222
 
    # In Windows
-   SET IOTHUB_CONNECTION_STRING=<provide_your_service_connection_string>
+   SET IOTHUB_CONNECTION_STRING={ServiceConnectionString}
    SET STREAMING_TARGET_DEVICE=MyDevice
    SET PROXY_PORT=2222
    ```
 
-   變更前述的值，使其符合您的裝置識別碼和連線字串。
+   變更 ServiceConnectionString 預留位置以符合您的服務連接字串，如果您提供不同的名稱，則變更 **MyDevice**  以符合您的裝置識別碼。
 
-1. 在解壓縮的專案資料夾中，移至 *Quickstarts/device-streams-service* 目錄，然後執行服務本機 Proxy 應用程式。
+1. 在解壓縮的專案資料夾中，瀏覽至 `Quickstarts/device-streams-service` 目錄。 使用下列程式碼來執行服務本機 Proxy 應用程式：
 
    ```
    cd azure-iot-samples-node-streams-preview/iot-hub/Quickstarts/device-streams-service
@@ -168,7 +168,7 @@ SSH 用戶端應用程式的主控台輸出 (SSH 用戶端藉由連線至服務�
 
 ## <a name="next-steps"></a>後續步驟
 
-在本快速入門中，您已設定 IoT 中樞、註冊裝置並部署服務 Proxy 應用程式，以在 IoT 裝置上啟用 RDP 和 SSH。 RDP 和 SSH 流量將會經由 IoT 中樞透過裝置串流輸送。 這程序就不需要直接連線至裝置。
+在本快速入門中，您會設定 IoT 中樞、註冊裝置並部署服務 Proxy 應用程式，以在 IoT 裝置上啟用 RDP 和 SSH。 RDP 和 SSH 流量將會透過 IoT 中樞透過裝置串流輸送。 這程序就不需要直接連線至裝置。
 
 若要深入了解裝置串流，請參閱：
 

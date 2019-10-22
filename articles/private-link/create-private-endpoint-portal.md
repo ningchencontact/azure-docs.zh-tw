@@ -7,16 +7,16 @@ ms.service: private-link
 ms.topic: quickstart
 ms.date: 09/16/2019
 ms.author: kumud
-ms.openlocfilehash: 95dbe2b9ccfdc0a900ba53668869e3872b6e51d5
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.openlocfilehash: d8d7c0232110d3d5b040debc3a24941988d4ee29
+ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72030316"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72372234"
 ---
 # <a name="create-a-private-endpoint-using-azure-portal"></a>使用 Azure 入口網站建立私人端點
 
-私人端點是 Azure 中私人連結的基本要素。 其可讓 Azure 資源 (例如虛擬機器 (VM)) 與私人連結資源進行私密通訊。 在本快速入門中，您將了解如何使用 Azure PowerShell 在 Azure 虛擬網路上建立 VM，以及建立具有 Azure 私人端點的 SQL Database 伺服器。 然後，您就可以從 VM 安全地存取 SQL Database 伺服器。
+私人端點是 Azure 中私人連結的基本要素。 其可讓 Azure 資源 (例如虛擬機器 (VM)) 與私人連結資源進行私密通訊。 在本快速入門中，您將了解如何使用 Azure 入口網站在 Azure 虛擬網路上建立 VM，以及建立具有 Azure 私人端點的 SQL Database 伺服器。 然後，您就可以從 VM 安全地存取 SQL Database 伺服器。
 
 如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)。
 
@@ -115,8 +115,8 @@ ms.locfileid: "72030316"
     | **執行個體詳細資料** |  |
     | 資料庫名稱  | 輸入 mydatabase  。 如果此名稱已被使用，請建立唯一名稱。 |
     |||
-5. 在 [伺服器] **** 中選取 [建立新的]  。 
-6. 在 [新增伺服器] **** 中，輸入或選取這項資訊：
+5. 在 [伺服器]  中，選取 [新建]  。 
+6. 在 [新增伺服器]  中，輸入或選取這項資訊：
 
     | 設定 | 值 |
     | ------- | ----- |
@@ -125,9 +125,9 @@ ms.locfileid: "72030316"
     | 密碼 | 輸入您選擇的密碼。 密碼長度至少必須有 8 個字元，而且符合定義的需求。 |
     | 位置 | 選取您想要放置 SQL Server 的 Azure 區域。 |
     
-7. 選取 [確定] **** 。 
-8. 選取 [檢閱 + 建立] **** 。 您會移至 [檢閱 + 建立] ****   頁面，其中 Azure 會驗證您的設定。 
-9. 當您看到 [驗證成功] 訊息時，請選取 [建立] **** 。 
+7. 選取 [確定]  。 
+8. 選取 [檢閱 + 建立]  。 您會移至 [檢閱 + 建立]  頁面，其中 Azure 會驗證您的設定。 
+9. 當您看到 [驗證成功] 訊息時，請選取 [建立]  。 
 10. 當您看到 [驗證成功] 訊息時，請選取 [建立]。 
 
 ## <a name="create-a-private-endpoint"></a>建立私人端點
@@ -147,18 +147,18 @@ ms.locfileid: "72030316"
     | 名稱 | 輸入  myPrivateEndpoint  。 如果此名稱已被使用，請建立唯一名稱。 |
     |區域|選取 [WestCentralUS]  。|
     |||
-5. 選取 [下一步： **** 資源]。
-6. 在 [建立私人端點 - 資源] **** 中，輸入或選取這項資訊：
+5. 完成時，選取 [下一步:  資源]。
+6. 在 [建立私人端點 - 資源]  中，輸入或選取這項資訊：
 
     | 設定 | 值 |
     | ------- | ----- |
     |連線方式  | 選取 [連線到我目錄中的 Azure 資源]。|
     | 訂用帳戶| 選取您的訂用帳戶。 |
-    | 資源類型 | 選取 [Microsoft .sql/伺服器] **** 。 |
+    | 資源類型 | 選取 [Microsoft.Sql/servers]  。 |
     | 資源 |選取 [myServer] |
     |目標子資源 |選取 [sqlServer] |
     |||
-7. 選取 [下一步： **** 組態]。
+7. 完成時，選取 [下一步:  組態]。
 8. 在 [建立私人端點 (預覽) - 組態]  中，輸入或選取這項資訊：
 
     | 設定 | 值 |
@@ -167,12 +167,12 @@ ms.locfileid: "72030316"
     | 虛擬網路| 選取 [MyVirtualNetwork]  。 |
     | 子網路 | 選取 [mySubnet] ** 。 |
     |**私人 DNS 整合**||
-    |與私人 DNS 區域整合 |選取 [是] **** 。 |
+    |與私人 DNS 區域整合 |選取 [是]  。 |
     |私人 DNS 區域 |選取 [(New)privatelink.database.windows.net]  |
     |||
 
-1. 選取 [檢閱 + 建立] **** 。 您會移至 [檢閱 + 建立] ****   頁面，其中 Azure 會驗證您的設定。 
-2. 當您看到 [驗證成功] ****   訊息時，請選取 [建立] **** 。 
+1. 選取 [檢閱 + 建立]  。 您會移至 [檢閱 + 建立]  頁面，其中 Azure 會驗證您的設定。 
+2. 當您看到 [驗證成功]  訊息時，請選取 [建立]  。 
  
 ## <a name="connect-to-a-vm-using-remote-desktop-rdp"></a>使用遠端桌面 (RDP) 連線到 VM
 
@@ -217,26 +217,26 @@ ms.locfileid: "72030316"
     ```
 3. 安裝 [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms?view=sql-server-2017)。
 
-4. 在 [連線至伺服器] **** 中，輸入或選取這項資訊：
+4. 在 [連線至伺服器]  中，輸入或選取這項資訊：
 
     | 設定 | 值 |
     | ------- | ----- |
     | 伺服器類型| 選取 [資料庫引擎]  。|
     | 伺服器名稱| 選取 *myserver.database.windows.net* |
-    | 使用者名稱 | 輸入 SQL Server 建立期間所提供的密碼。 |
+    | 使用者名稱 | 輸入在 SQL Server 建立期間所提供的 username@servername 作為使用者名稱。 |
     |密碼 |輸入 SQL Server 建立期間所提供的密碼。 |
     |記住密碼|選取 [是]  。|
     |||
-1. 選取 [連線] **** 。
+1. 選取 [ **連接**]。
 2. 瀏覽左側功能表中的資料庫。
 3. (選擇性) 從 mydatabase 建立或查詢資訊。
 4. 關閉對  *myVm* 的遠端桌面連線。 
 
 ## <a name="clean-up-resources"></a>清除資源 
 在私人端點、SQL Server 和 VM 使用完畢後，請刪除資源群組及其包含的所有資源： 
-1. 在入口網站頂端的 [搜尋**] **  方塊中輸入  *myResourceGroup* ，然後從搜尋結果中選取 [myResourceGroup*] * 。 
-2. 選取 [刪除資源群組] **** 。 
-3. 針對 [輸入資源群組名稱**] **  輸入 myResourceGroup，然後選取 [刪除] **** 。
+1. 在入口網站頂端的 [搜尋]  方塊中輸入  *myResourceGroup* ，然後從搜尋結果中選取 [myResourceGroup] **  。 
+2. 選取 [刪除資源群組]  。 
+3. 針對 [輸入資源群組名稱]  輸入 myResourceGroup，然後選取 [刪除]  。
 
 ## <a name="next-steps"></a>後續步驟
 

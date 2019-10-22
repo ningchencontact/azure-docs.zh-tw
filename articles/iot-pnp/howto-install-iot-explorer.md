@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-pnp
 services: iot-pnp
 ms.custom: mvc
-ms.openlocfilehash: f59e449589c7f3027dc8a9daf9d8d12f04831dd7
-ms.sourcegitcommit: 4d177e6d273bba8af03a00e8bb9fe51a447196d0
+ms.openlocfilehash: 3b5e9a70f9eecbf187a6748073de009653061dc0
+ms.sourcegitcommit: d37991ce965b3ee3c4c7f685871f8bae5b56adfa
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71960580"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72679860"
 ---
 # <a name="install-and-use-azure-iot-explorer"></a>安裝和使用 Azure IoT explorer
 
@@ -73,27 +73,33 @@ IoT 隨插即用裝置的模型定義會儲存在公用儲存機制、公司存�
 
 - 選取 [**新增**] 以向您的中樞註冊新的裝置。 然後輸入 [裝置識別碼]。 使用預設設定來自動產生驗證金鑰，並啟用與中樞的連線。
 - 選取裝置，然後選取 [**刪除**] 以刪除裝置身分識別。 完成此動作之前，請先檢查裝置詳細資料，以確定您正在刪除正確的裝置身分識別。
-- 查詢 `capabilityID` 並 `interfaceID`。 新增您的 `capabilityID` 或 `interfaceID` 做為參數來查詢您的裝置。
+- @No__t_0 和 `interfaceID` 的查詢。 新增您的 `capabilityID` 或 `interfaceID` 做為參數，以查詢您的裝置。
 
 ## <a name="interact-with-a-device"></a>與裝置互動
 
-在 [**裝置**清單] 頁面上，選取 [**裝置識別碼**] 欄中的值，以查看已註冊裝置的詳細資料頁面。 針對裝置，有兩個區段：**裝置**和**數位**對應項。
+在 [**裝置**清單] 頁面上，選取 [**裝置識別碼**] 欄中的值，以查看已註冊裝置的詳細資料頁面。 每個裝置都有兩個區段： [**裝置**] 和 [**數位**對應項]。
 
 ### <a name="device"></a>裝置
 
-本節包含裝置身分**識別**、**裝置**對應項和**遙測**索引標籤。
+本節包含裝置身分**識別**、**裝置**對應項、**遙測**、**直接方法**和**雲端到裝置的訊息**索引標籤。
 
 - 您可以在 [**裝置身分識別**] 索引標籤上，查看並更新[裝置身分識別](../iot-hub/iot-hub-devguide-identity-registry.md)資訊。
 - 您可以在 [**裝置**對應項] 索引標籤上存取[裝置](../iot-hub/iot-hub-devguide-device-twins.md)對應項資訊。
 - 如果裝置已連線並主動傳送資料，您可以在 [**遙測**] 索引標籤上查看[遙測](../iot-hub/iot-hub-devguide-messages-read-builtin.md)。
+- 您可以在 [**直接方法**] 索引標籤上呼叫裝置上的[直接方法](../iot-hub/iot-hub-devguide-direct-methods.md)。
+- 您可以在 [**雲端到裝置訊息**] 索引標籤上傳送[雲端到裝置訊息](../iot-hub/iot-hub-devguide-messages-c2d.md)。
 
 ### <a name="digital-twin"></a>數位對應項
 
-您可以使用此工具來查看裝置的數位對應項實例。 針對 IoT 隨插即用裝置，與裝置功能模型相關聯的所有介面都會顯示在本文中。 選取介面，以展開其對應的[IoT 隨插即用基本](https://github.com/Azure/IoTPlugandPlay/tree/master/DTDL)專案。
+您可以使用此工具來查看裝置的數位對應項實例。 針對 IoT 隨插即用裝置，與裝置功能模型相關聯的所有介面都會顯示在此工具的這一節中。 選取介面，以展開其對應的[IoT 隨插即用基本](https://github.com/Azure/IoTPlugandPlay/tree/master/DTDL)專案。
+
+### <a name="interface"></a>介面
+
+在 [**介面**] 頁面上，您可以查看介面的 JSON 定義。
 
 #### <a name="properties"></a>屬性
 
-您可以在 [**屬性**] 頁面上，查看介面中定義的唯讀屬性。 您可以在 [可**寫入屬性**] 頁面上，更新介面中定義的可寫入屬性。
+您可以在 [**不可寫入的屬性**] 頁面上，查看介面中定義的唯讀屬性。 您可以在 [可**寫入屬性**] 頁面上更新介面中定義的可寫入屬性：
 
 1. 移至 [**可寫入屬性**] 頁面。
 1. 按一下您要更新的屬性。

@@ -1,21 +1,21 @@
 ---
-title: 使用 Azure 入口網站建立 Azure 區塊鏈服務的區塊鏈成員
+title: 使用 Azure 入口網站建立 Azure 區塊鏈服務成員
 description: 使用 Azure 區塊鏈服務來建立區塊鏈成員。
 services: azure-blockchain
 keywords: ''
 author: PatAltimore
 ms.author: patricka
-ms.date: 08/29/2019
+ms.date: 10/14/2019
 ms.topic: quickstart
 ms.service: azure-blockchain
 ms.reviewer: janders
 manager: femila
-ms.openlocfilehash: 9f58379acd88fd93a00edc11b73b41dc3d6226a5
-ms.sourcegitcommit: 6794fb51b58d2a7eb6475c9456d55eb1267f8d40
+ms.openlocfilehash: c87f9a044d6655b2062f2c2657d3b465699e0dd2
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70241031"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72329249"
 ---
 # <a name="quickstart-create-an-azure-blockchain-service-blockchain-member-using-the-azure-portal"></a>快速入門：使用 Azure 入口網站建立 Azure 區塊鏈服務的區塊鏈成員
 
@@ -37,8 +37,8 @@ Azure 區塊鏈服務是可以在智慧型合約內執行商務邏輯的區塊�
     設定 | 說明
     --------|------------
     區塊鏈成員 | 選擇可識別 Azure 區塊鏈服務區塊鏈成員的唯一名稱。 區塊鏈成員的名稱只能包含小寫字母和數字。 第一個字元必須是字母。 此值長度必須介於 2 至 20 個字元之間。
-    Subscription | 選取您要用於服務的 Azure 訂用帳戶。 如果您有多個訂用帳戶，請選擇資源計費的訂用帳戶。
-    Resource group | 新的資源群組名稱，或您訂用帳戶中現有的資源群組名稱。
+    訂用帳戶 | 選取您要用於服務的 Azure 訂用帳戶。 如果您有多個訂用帳戶，請選擇資源計費的訂用帳戶。
+    資源群組 | 新的資源群組名稱，或您訂用帳戶中現有的資源群組名稱。
     區域 | 所有聯盟成員的位置必須相同。
     成員帳戶密碼 | 成員帳戶密碼可用來對為您的成員建立的 Ethereum 帳戶進行私密金鑰加密。 您可以使用帳戶成員和成員帳戶密碼進行聯盟管理。
     聯盟名稱 | 針對新的聯盟，請輸入唯一名稱。 如果是透過邀請來加入聯盟，該值會是您加入的聯盟。

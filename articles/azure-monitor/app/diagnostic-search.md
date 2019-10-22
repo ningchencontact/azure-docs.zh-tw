@@ -1,23 +1,18 @@
 ---
 title: 在 Azure Application Insights 中使用搜尋服務 | Microsoft Docs
 description: 搜尋和篩選 Web 應用程式傳送的原始遙測。
-services: application-insights
-documentationcenter: ''
-author: mrbullwinkle
-manager: carmonm
-ms.assetid: 2a437555-8043-45ec-937a-225c9bf0066b
-ms.service: application-insights
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
+ms.service: azure-monitor
+ms.subservice: application-insights
 ms.topic: conceptual
-ms.date: 07/30/2019
+author: mrbullwinkle
 ms.author: mbullwin
-ms.openlocfilehash: d08fd2ac6db63eee01c0653d2dbb1623fb1b51ed
-ms.sourcegitcommit: ad9120a73d5072aac478f33b4dad47bf63aa1aaa
+ms.date: 07/30/2019
+ms.openlocfilehash: 77cd0a8d0c1a93e7dc1db931e987a172d31978ef
+ms.sourcegitcommit: 1bd2207c69a0c45076848a094292735faa012d22
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68705412"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72677973"
 ---
 # <a name="using-search-in-application-insights"></a>在 Application Insights 中使用搜尋
 
@@ -29,13 +24,13 @@ ms.locfileid: "68705412"
 
 ### <a name="in-the-azure-portal"></a>在 Azure 入口網站
 
-您可以從應用程式的 [Application Insights 總覽] 索引標籤 (位於頂端列) 或左側的 [調查] 底下開啟診斷搜尋。
+您可以從應用程式的 [Application Insights 總覽] 索引標籤（位於頂端列）或左側的 [調查] 底下開啟診斷搜尋。
 
 ![搜尋索引標籤](./media/diagnostic-search/view-custom-events.png)
 
-請移至 [事件種類] 下拉式功能表, 以查看遙測專案的清單-伺服器要求、頁面流覽、您已撰寫程式碼的自訂事件等等。 在 [結果] 清單的頂端, 是顯示一段時間內事件計數的摘要圖表。
+請移至 [事件種類] 下拉式功能表，以查看遙測專案的清單-伺服器要求、頁面流覽、您已撰寫程式碼的自訂事件等等。 在 [結果] 清單的頂端，是顯示一段時間內事件計數的摘要圖表。
 
-按一下下拉式功能表或 [重新整理], 以取得新的事件。
+按一下下拉式功能表或 [重新整理]，以取得新的事件。
 
 ### <a name="in-visual-studio"></a>在 Visual Studio 中
 
@@ -61,7 +56,7 @@ ms.locfileid: "68705412"
 
 ## <a name="filter-event-types"></a>篩選事件類型
 
-開啟 [事件種類] 下拉式功能表, 然後選擇您想要查看的事件種類。 (如果您稍後想要還原篩選, 請按一下 [重設])。
+開啟 [事件種類] 下拉式功能表，然後選擇您想要查看的事件種類。 （如果您稍後想要還原篩選，請按一下 [重設]）。
 
 事件類型包括：
 
@@ -83,17 +78,17 @@ ms.locfileid: "68705412"
 
 ## <a name="find-events-with-the-same-property"></a>尋找具有相同屬性的事件
 
-若要尋找具有相同屬性值的所有專案, 請在搜尋列中輸入, 或在流覽 [篩選] 索引標籤中的屬性時按一下核取方塊。
+若要尋找具有相同屬性值的所有專案，請在搜尋列中輸入，或在流覽 [篩選] 索引標籤中的屬性時按一下核取方塊。
 
 ![按一下 [篩選] 索引標籤中屬性的核取方塊](./media/diagnostic-search/filter-property.png)
 
 ## <a name="search-the-data"></a>搜尋資料
 
 > [!NOTE]
-> 若要撰寫更複雜的查詢, 請從 [搜尋] 分頁頂端開啟 [[**記錄 (分析)** ](../../azure-monitor/log-query/get-started-portal.md) ]。
+> 若要撰寫更複雜的查詢，請從 [搜尋] 分頁頂端開啟 [[**記錄（分析）** ](../../azure-monitor/log-query/get-started-portal.md) ]。
 >
 
-您可以搜尋任何屬性值中的字詞。 如果您已撰寫具有屬性值的[自訂事件](../../azure-monitor/app/api-custom-events-metrics.md), 這就很有用。
+您可以搜尋任何屬性值中的字詞。 如果您已撰寫具有屬性值的[自訂事件](../../azure-monitor/app/api-custom-events-metrics.md)，這就很有用。
 
 您可能想要設定時間範圍，因為對一小段時間範圍進行的搜尋較快速。
 
@@ -108,7 +103,7 @@ ms.locfileid: "68705412"
 
 以下是您可以使用搜尋運算式：
 
-| 範例查詢 | 效果 |
+| 範例查詢 | 影響 |
 | --- | --- |
 | `apple` |在日期範圍中尋找欄位含有 "apple" 這個字的所有事件 |
 | `apple AND banana` <br/>`apple banana` |尋找同時含有這兩個字的事件。 請使用大寫 "AND"，而不是 "and"。 <br/>簡短格式。 |
@@ -117,7 +112,7 @@ ms.locfileid: "68705412"
 
 ## <a name="sampling"></a>取樣
 
-如果您的應用程式會產生大量的遙測 (而且您使用 ASP.NET SDK 版本 2.0.0-Beta3 或更新版本), 調適型取樣模組會自動只傳送代表性的事件數, 以減少傳送至入口網站的磁片區。 不過，同一個要求相關的事件是以整組方式來選取或取消選取，方便您切換瀏覽相關事件。
+如果您的應用程式會產生大量的遙測（而且您使用 ASP.NET SDK 版本 2.0.0-Beta3 或更新版本），調適型取樣模組會自動只傳送代表性的事件數，以減少傳送至入口網站的磁片區。 不過，同一個要求相關的事件是以整組方式來選取或取消選取，方便您切換瀏覽相關事件。
 
 [了解取樣](../../azure-monitor/app/sampling.md)。
 
@@ -125,13 +120,13 @@ ms.locfileid: "68705412"
 
 您可以利用來自任何遙測項目的詳細資料，在 GitHub 或 Azure DevOps 中建立 Bug。
 
-按一下任何遙測專案, 然後選取 [**建立工作專案**], 移至端對端交易詳細資料檢視。
+按一下任何遙測專案，然後選取 [**建立工作專案**]，移至端對端交易詳細資料檢視。
 
 ![按一下 [新增工作項目]、編輯欄位，然後按一下 [確定]。](./media/diagnostic-search/work-item.png)
 
 當您第一次執行此動作時，系統會要求您設定與 Azure DevOps 組織和專案的連結。
 
-(您也可以在 [工作專案] 索引標籤上設定連結)。
+（您也可以在 [工作專案] 索引標籤上設定連結）。
 
 ## <a name="send-more-telemetry-to-application-insights"></a>傳送更多遙測到 Application Insights
 
@@ -152,7 +147,7 @@ ms.locfileid: "68705412"
 
 我們不會自動記錄 POST 資料，但您可以使用 [TrackTrace 或記錄呼叫](../../azure-monitor/app/asp-net-trace-logs.md)。 將 POST 資料放在訊息參數中。 您無法像篩選屬性一樣來篩選訊息，但大小限制比較長。
 
-## <a name="add"></a>接續步驟
+## <a name="add"></a>後續步驟
 
 * [在分析中撰寫複雜的查詢](../../azure-monitor/log-query/get-started-portal.md)
 * [將記錄和自訂遙測傳送至 Application Insights](../../azure-monitor/app/asp-net-trace-logs.md)

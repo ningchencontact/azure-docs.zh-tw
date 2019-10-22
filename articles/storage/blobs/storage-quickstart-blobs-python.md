@@ -1,5 +1,5 @@
 ---
-title: Azure 快速入門 - 使用 Python 在物件儲存體中建立 Blob | Microsoft Docs
+title: 快速入門：使用 Python 在 Azure Blob 儲存體中建立 Blob
 description: 在本快速入門中，您會在物件 (Blob) 儲存體中建立儲存體帳戶和容器。 然後，使用 Python 的儲存體用戶端程式庫將 blob 上傳至 Azure 儲存體、下載 blob，以及列出容器中的 blob。
 author: mhopkins-msft
 ms.author: mhopkins
@@ -7,16 +7,17 @@ ms.date: 09/11/2019
 ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
-ms.openlocfilehash: a6c0ae8c63739d37ad8417d1dff2d0f7181e6ae9
-ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
+ms.custom: seo-python-october2019
+ms.openlocfilehash: 8a3f8b5f8944552c92ac5a1c1d5fb2eabffad2c9
+ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/06/2019
-ms.locfileid: "71981215"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72430144"
 ---
-# <a name="quickstart-upload-download-and-list-blobs-with-python"></a>快速入門：使用 Python 上傳、下載及列出 Blob
+# <a name="quickstart-upload-download-and-list-blobs-in-azure-blob-storage-with-python"></a>快速入門：使用 Python 上傳、下載及列出 Azure Blob 儲存體中的 Blob
 
-在本快速入門中，您會使用 Python 在 Azure Blob 儲存體的容器中上傳、下載及列出區塊 Blob。 Blob 只是可保存大量文字或二進位資料的物件，包括影像、文件、串流媒體和封存資料。 Azure 儲存體中的 Blob 與檔案共用、無結構描述的資料表和訊息佇列不同。  如需詳細資訊，請參閱 [Azure 儲存體簡介](/azure/storage/common/storage-introduction)。
+在本文中，您會使用 Python 在 Azure Blob 儲存體的容器中上傳、下載及列出區塊 Blob。 Blob 只是可保存大量文字或二進位資料的物件，包括影像、文件、串流媒體和封存資料。 Azure 儲存體中的 Blob 與檔案共用、無結構描述的資料表和訊息佇列不同。  如需詳細資訊，請參閱 [Azure 儲存體簡介](/azure/storage/common/storage-introduction)。
 
 [!INCLUDE [storage-multi-protocol-access-preview](../../../includes/storage-multi-protocol-access-preview.md)]
 

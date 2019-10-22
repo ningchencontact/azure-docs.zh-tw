@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 08/20/2019
 ms.author: robinsh
-ms.openlocfilehash: a5c4ffde886735e096c4c4a96a648c997d1e7dec
-ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
+ms.openlocfilehash: 7187bc7a42971a86b31d663f0a3754a061a2421a
+ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/27/2019
-ms.locfileid: "70050189"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72515049"
 ---
 # <a name="quickstart-communicate-to-a-device-application-in-c-via-iot-hub-device-streams-preview"></a>快速入門：透過 IoT 中樞裝置串流與使用 C 的裝置應用程式進行通訊 (預覽)
 
@@ -122,10 +122,10 @@ Azure IoT 中樞目前支援裝置串流作為[預覽功能](https://azure.micro
 
    > [!NOTE]
    > * 以您為 IoT 中樞選擇的名稱取代 YourIoTHubName  預留位置。
-   > * 使用所示的 MyCDevice  。 這是為已註冊裝置指定的名稱。 如果您為裝置選擇不同的名稱，請在本文中使用該名稱，並先在應用程式範例中更新該裝置名稱，再執行應用程式。
+   > * 如需您所註冊的裝置名稱，建議使用如下所示的 *MyDevice*。 如果您為裝置選擇不同的名稱，請在本文中使用該名稱，並先在應用程式範例中更新該裝置名稱，再執行應用程式。
 
     ```azurecli-interactive
-    az iot hub device-identity create --hub-name YourIoTHubName --device-id MyDevice
+    az iot hub device-identity create --hub-name {YourIoTHubName} --device-id MyDevice
     ```
 
 1. 若要針對您剛註冊的裝置取得「裝置連接字串」  ，請在 Azure Cloud Shell 中執行下列命令：
@@ -134,10 +134,10 @@ Azure IoT 中樞目前支援裝置串流作為[預覽功能](https://azure.micro
    > 以您為 IoT 中樞選擇的名稱取代 YourIoTHubName  預留位置。
 
     ```azurecli-interactive
-    az iot hub device-identity show-connection-string --hub-name YourIoTHubName --device-id MyDevice --output table
+    az iot hub device-identity show-connection-string --hub-name {YourIoTHubName} --device-id MyDevice --output table
     ```
 
-    請記下儲存連接字串，以供稍後在本快速入門中使用。 看起來會像下列範例：
+    請記下所傳回的裝置連接字串，以供稍後在本快速入門中使用。 看起來會像下列範例：
 
    `HostName={YourIoTHubName}.azure-devices.net;DeviceId=MyDevice;SharedAccessKey={YourSharedAccessKey}`
 
@@ -149,14 +149,14 @@ Azure IoT 中樞目前支援裝置串流作為[預覽功能](https://azure.micro
 
 若要執行裝置端應用程式，請遵循下列步驟：
 
-1. 編輯 iothub_client/samples/iothub_client_c2d_streaming_sample  資料夾中的 iothub_client_c2d_streaming_sample.c  來源檔案，然後提供您的裝置連接字串，以提供您的裝置認證。
+1. 編輯資料夾 `iothub_client/samples/iothub_client_c2d_streaming_sample` 中的 **iothub_client_c2d_streaming_sample.c** 來源檔案，並提供您的裝置連接字串，以提供您的裝置認證。
 
    ```C
    /* Paste in your iothub connection string  */
-   static const char* connectionString = "[device connection string]";
+   static const char* connectionString = "{DeviceConnectionString}";
    ```
 
-1. 依照下列方式編譯程式碼：
+1. 使用下列命令來編譯程式碼：
 
    ```bash
    # In Linux
@@ -186,7 +186,7 @@ Azure IoT 中樞目前支援裝置串流作為[預覽功能](https://azure.micro
 
 ### <a name="run-the-service-side-application"></a>執行服務端應用程式
 
-如先前所述，IoT 中樞 C SDK 僅支援裝置端上的裝置串流。 若要建置及執行服務端應用程式，請遵循下列其中一個快速入門中的指示：
+如先前所述，IoT 中樞 C SDK 僅支援裝置端上的裝置串流。 若要建置及執行隨附的服務端應用程式，請遵循下列其中一個快速入門中的指示：
 
 * [透過 IoT 中樞裝置串流與使用 C# 的裝置應用程式進行通訊](./quickstart-device-streams-echo-csharp.md)
 
@@ -198,7 +198,7 @@ Azure IoT 中樞目前支援裝置串流作為[預覽功能](https://azure.micro
 
 ## <a name="next-steps"></a>後續步驟
 
-在本快速入門中，您已設定 IoT 中樞、註冊裝置、在裝置和服務端上的其他應用程式建立 C 應用程式之間的裝置串流，以及使用串流在應用程式之間來回傳送資料。
+在本快速入門中，您會設定 IoT 中樞、註冊裝置、在裝置和服務端上的其他應用程式建立 C 應用程式之間的裝置串流，以及使用串流在應用程式之間來回傳送資料。
 
 若要深入了解裝置串流，請參閱：
 

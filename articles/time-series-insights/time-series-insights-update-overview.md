@@ -11,12 +11,12 @@ ms.workload: big-data
 ms.topic: overview
 ms.date: 09/23/2019
 ms.custom: seodec18
-ms.openlocfilehash: e4a57c6d4a9034d9145058e9137759c2cea19aa6
-ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
+ms.openlocfilehash: da81d5603eb26ae3b209bbbc01a8d6fc31e1ba3a
+ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/06/2019
-ms.locfileid: "71978664"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72381999"
 ---
 # <a name="what-is-azure-time-series-insights-preview"></a>什麼是 Azure 時間序列深入解析預覽版？
 
@@ -45,7 +45,7 @@ IoT 資料通常僅在來自第一方來源 (如 CRM 或 ERP) 的其他資料輸
 
 典型的 IoT 資料流如下圖所示。
 
-  ![IoT 資料流程][1]
+  [![IoT 資料流程](media/v2-update-overview/overview-one.png)](media/v2-update-overview/overview-one.png#lightbox)
 
 ## <a name="azure-time-series-insights-for-industrial-iot"></a>用於產業 IoT 的 Azure 時間序列深入解析
 
@@ -70,7 +70,7 @@ IoT 資料通常僅在來自第一方來源 (如 CRM 或 ERP) 的其他資料輸
 
 此高層級的資料流圖表會顯示更新。
 
-  ![主要功能][2]
+  [![主要功能](media/v2-update-overview/overview-two.png)](media/v2-update-overview/overview-two.png#lightbox)
 
 在引入這些主要的產業 IoT 功能之後，時間序列深入解析提供下列主要優點。
 
@@ -94,7 +94,3 @@ IoT 資料通常僅在來自第一方來源 (如 CRM 或 ERP) 的其他資料輸
 
 > [!div class="nextstepaction"]
 > [Azure 時間序列深入解析預覽版使用案例](./time-series-insights-update-use-cases.md)
-
-<!-- Images -->
-[1]: media/v2-update-overview/overview-one.png
-[2]: media/v2-update-overview/overview-two.png

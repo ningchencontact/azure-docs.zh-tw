@@ -1,23 +1,18 @@
 ---
 title: 沒有要進行疑難排解的資料 - Application Insights for .NET
 description: 在 Azure Application Insights 中看不到資料？ 試試這裡。
-services: application-insights
-documentationcenter: .net
-author: mrbullwinkle
-manager: carmonm
-ms.assetid: e231569f-1b38-48f8-a744-6329f41d91d3
-ms.service: application-insights
-ms.workload: mobile
-ms.tgt_pltfrm: ibiza
+ms.service: azure-monitor
+ms.subservice: application-insights
 ms.topic: conceptual
-ms.date: 07/23/2018
+author: mrbullwinkle
 ms.author: mbullwin
-ms.openlocfilehash: b4bfd984f1e169cb1044002118f9534c4efc9bd8
-ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
+ms.date: 07/23/2018
+ms.openlocfilehash: 0bb32486ea3fcfd37337b18b02f4f432effa8f75
+ms.sourcegitcommit: 1bd2207c69a0c45076848a094292735faa012d22
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71169580"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72678334"
 ---
 # <a name="troubleshooting-no-data---application-insights-for-net"></a>沒有要進行疑難排解的資料 - Application Insights for .NET
 ## <a name="some-of-my-telemetry-is-missing"></a>我遺失了部分遙測
@@ -34,15 +29,15 @@ ms.locfileid: "71169580"
 
 *當應用程式即將停止時，我在主控台應用程式或 Web 應用程式上遇到資料遺失的情況。*
 
-* SDK 通道會將遙測資料保留在緩衝區中，並以批次方式傳送。 如果應用程式正在關閉，您可能需要明確地呼叫[Flush （）](api-custom-events-metrics.md#flushing-data)。 的`Flush()`行為取決於實際使用的[通道](telemetry-channels.md#built-in-telemetry-channels)。
+* SDK 通道會將遙測資料保留在緩衝區中，並以批次方式傳送。 如果應用程式正在關閉，您可能需要明確地呼叫[Flush （）](api-custom-events-metrics.md#flushing-data)。 @No__t_0 的行為取決於實際使用的[通道](telemetry-channels.md#built-in-telemetry-channels)。
 
 ## <a name="no-data-from-my-server"></a>沒有來自我的伺服器的資料
-我已在 Web 伺服器上安裝我的應用程式，而我現在沒看到任何來自於它的遙測。它在我的開發電腦上運作正常。
+*我已在 web 伺服器上安裝我的應用程式，但現在看不到它的任何遙測。它在我的開發電腦上運作正常。*
 
 * 可能是防火牆問題。 [設定 Application Insights 的防火牆例外狀況以傳送資料](../../azure-monitor/app/ip-addresses.md)。
 * IIS 伺服器可能會遺漏某些先決條件：.NET 擴充性 4.5 和 ASP.NET 4.5。
 
-*我已在 Web 伺服器上[安裝狀態監視器](../../azure-monitor/app/monitor-performance-live-website-now.md)來監視現有的應用程式。我沒有看到任何結果。*
+*我已在 web 伺服器上[安裝狀態監視器](../../azure-monitor/app/monitor-performance-live-website-now.md)來監視現有的應用程式。我看不到任何結果。*
 
 * 請參閱 [疑難排解狀態監視器](../../azure-monitor/app/monitor-performance-live-website-now.md#troubleshoot)。
 
@@ -67,7 +62,7 @@ ms.locfileid: "71169580"
 
 * 請檢查您為正確的 Azure 帳戶提供登入認證。
 * 在瀏覽器中，檢查您是否可以存取 [Azure 入口網站](https://portal.azure.com)。 開啟 [設定] 並查看是否有任何限制。
-* [將 Application Insights 新增至您現有的專案](../../azure-monitor/app/asp-net.md)：在 [方案總管] 中以滑鼠右鍵按一下您的專案，並選擇 [新增 Application Insights]。
+* [將 Application Insights 加入至您現有的專案](../../azure-monitor/app/asp-net.md)：在 [方案總管] 中以滑鼠右鍵按一下您的專案，並選擇 [加入 Application Insights]。
 
 ## <a name="emptykey"></a>我收到「檢測金鑰不能是空白」的錯誤
 可能是您在安裝 Application Insights 或記錄配接器時發生問題。
@@ -102,7 +97,7 @@ ms.locfileid: "71169580"
 您上一次在預設瀏覽器中使用的 Microsoft 登入，沒有 [將 Application Insights 新增至這個應用程式時所建立的資源](../../azure-monitor/app/asp-net.md)的存取權。 有兩個可能的原因：
 
 * 您有一個以上的 Microsoft 帳戶 - 可能是工作和個人 Microsoft 帳戶？ 您上一次在預設瀏覽器上使用的登入，是與具有 [將 Application Insights 新增至專案](../../azure-monitor/app/asp-net.md)的存取權的帳戶不同的帳戶。
-  * 修正：按一下瀏覽器視窗右上方的您的名稱並且登出。然後以具有存取權的帳戶登入。 然後在左側的導覽列中，按一下 [Application Insights]，並選取您的應用程式。
+  * 修正：在瀏覽器視窗的右上方按一下您的名稱，然後登出。然後以具有存取權的帳戶登入。 然後在左側的導覽列中，按一下 [Application Insights]，並選取您的應用程式。
 * 其他人將 Application Insights 新增至專案，且他們忘記為您提供所建立的 [資源群組的存取權](../../azure-monitor/app/resources-roles-access-control.md) 。
   * 修正：如果他們使用組織帳戶，他們可以將您加入小組；或者，他們可以授與您資源群組的個別存取權。
 
@@ -122,7 +117,7 @@ ApplicationInsights.config 中的檢測金鑰會控制遙測傳送的位置。 �
 * 直接開啟資源。 登入 [Azure 入口網站](https://portal.azure.com)，在左側的導覽列中，按一下 [Application Insights]，然後選取您的應用程式。
 
 ## <a name="where-do-i-find-my-telemetry"></a>哪裡可以找到我的遙測？
-*我已登入 [Microsoft Azure 入口網站](https://portal.azure.com)，且正在查看 Azure 主儀表板。那麼我可以在哪裡找到我的 Application Insights 資料？*
+*我已登入[Microsoft Azure 入口網站](https://portal.azure.com)，而我正在查看 Azure 主儀表板。那麼我可以在哪裡找到我的 Application Insights 資料？*
 
 * 在左側的導覽列中，按一下 [Application Insights]，然後選取您的應用程式名稱。 如果您在其中沒有任何專案，則需要 [在您的 Web 專案中新增或設定 Application Insights](../../azure-monitor/app/asp-net.md)。  
   您可以從中看到一些摘要圖表。 您可以逐一點選以查看更詳細的資料。
@@ -163,11 +158,11 @@ ApplicationInsights.config 中的檢測金鑰會控制遙測傳送的位置。 �
 * 請確認您實際上已複製所有 Microsoft. ApplicationInsights DLL 到伺服器，並且連帶 Microsoft.Diagnostics.Instrumentation.Extensions.Intercept.dll ApplicationInsights Dll 一併複製。
 * 在防火牆中，您可能必須[開啟某些 TCP 連接埠](../../azure-monitor/app/ip-addresses.md)。
 * 如果您必須使用 Proxy 在貴公司網路之外傳送內容，請設定 Web.config 中的 [defaultProxy](https://msdn.microsoft.com/library/aa903360.aspx)
-* Windows Server 2008：請確定您已安裝下列更新：[KB2468871](https://support.microsoft.com/kb/2468871)、[KB2533523](https://support.microsoft.com/kb/2533523)、[KB2600217](https://support.microsoft.com/kb/2600217)。
+* Windows Server 2008：確定您已安裝以下更新：[KB2468871](https://support.microsoft.com/kb/2468871)、[KB2533523](https://support.microsoft.com/kb/2533523)、[KB2600217](https://support.microsoft.com/kb/2600217)。
 
 ## <a name="i-used-to-see-data-but-it-has-stopped"></a>我曾經看到資料，但是已停止
 * 檢查 [狀態部落格](https://blogs.msdn.com/b/applicationinsights-status/)。
-* 您有達到資料點的每月配額嗎？ 開啟 [設定/配額和定價] 即可查看。若有達到配額，您可以升級您的方案，或付費取得額外容量。 請參閱 [定價配置](https://azure.microsoft.com/pricing/details/application-insights/)。
+* 您有達到資料點的每月配額嗎？ 開啟 [設定/配額和定價] 以找出。若是如此，您可以升級您的方案，或支付額外的容量。 請參閱 [定價配置](https://azure.microsoft.com/pricing/details/application-insights/)。
 
 ## <a name="i-dont-see-all-the-data-im-expecting"></a>我並沒有看到預期的所有資料
 如果您的應用程式傳送大量資料，且您是使用 Application Insights SDK for ASP.NET 版本 2.0.0-beta3 或更新版本，則 [調適性取樣](../../azure-monitor/app/sampling.md) 功能可能會運作，並只傳送一部分的遙測資料。

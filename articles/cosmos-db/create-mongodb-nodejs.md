@@ -8,13 +8,13 @@ ms.subservice: cosmosdb-mongo
 ms.devlang: nodejs
 ms.topic: quickstart
 ms.date: 05/21/2019
-ms.custom: seo-javascript-september2019
-ms.openlocfilehash: 7fd74e31b0527b256f6bb9f17029a02aaf41568b
-ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
+ms.custom: seo-javascript-september2019, seo-javascript-october2019
+ms.openlocfilehash: b9cadbf35680953058bd38d7db26a6e6c684836b
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70931813"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72327300"
 ---
 # <a name="quickstart-migrate-an-existing-mongodb-nodejs-web-app-to-azure-cosmos-db"></a>快速入門：將現有的 MongoDB Node.js Web 應用程式遷移至 Azure Cosmos DB 
 
@@ -27,9 +27,9 @@ ms.locfileid: "70931813"
 > * [Golang](create-mongodb-golang.md)
 >  
 
-Azure Cosmos DB 是 Microsoft 的全域分散式多模型資料庫服務。 您可以快速建立及查詢文件、索引鍵/值及圖形資料庫，所有這些都受惠於位於 Cosmos DB 核心的全域散發和水平調整功能。 
+本快速入門示範如何使用以 Node.js 撰寫的現有 MongoDB 應用程式，並將它連線到可支援 MongoDB 用戶端的 Azure Cosmos 資料庫。 換句話說，對於資料儲存在 Cosmos 資料庫中的應用程式而言是透明的。
 
-本快速入門示範如何使用以 Node.js 撰寫的現有 MongoDB 應用程式，並將它連線到可支援 MongoDB 用戶端的 Cosmos 資料庫。 換句話說，對於資料儲存在 Cosmos 資料庫中的應用程式而言是透明的。
+Azure Cosmos DB 是 Microsoft 的全域分散式多模型資料庫服務。 您可以快速建立及查詢文件、索引鍵/值及圖形資料庫，所有這些都受惠於位於 Cosmos DB 核心的全域散發和水平調整功能。
 
 完成之後，MEAN 應用程式 (MongoDB、Express、Angular 及 Node.js) 便會在 [Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) 上執行。 
 

@@ -1,5 +1,5 @@
 ---
-title: 使用週期觸發程式排程週期性工作-Azure Logic Apps
+title: 排程週期性工作和工作流程-Azure Logic Apps
 description: 在 Azure Logic Apps 中使用週期性觸發程式來排程和執行重複的自動化工作和工作流程
 services: logic-apps
 ms.service: logic-apps
@@ -9,12 +9,12 @@ ms.author: estfan
 ms.reviewer: deli, klam, LADocs
 ms.topic: conceptual
 ms.date: 05/25/2019
-ms.openlocfilehash: 0bd7262daf23f205552e46bc3ca2802cf35f85db
-ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
+ms.openlocfilehash: 8715bbcb6926fbfc2f77bd05d0ce036a6255eb85
+ms.sourcegitcommit: d37991ce965b3ee3c4c7f685871f8bae5b56adfa
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70914444"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72679083"
 ---
 # <a name="create-schedule-and-run-recurring-tasks-and-workflows-with-the-recurrence-trigger-in-azure-logic-apps"></a>在 Azure Logic Apps 中使用週期觸發程式來建立、排程和執行循環性工作和工作流程
 
@@ -47,7 +47,7 @@ ms.locfileid: "70914444"
 
 1. 登入 [Azure 入口網站](https://portal.azure.com)。 建立空白邏輯應用程式。
 
-1. 邏輯應用程式設計工具出現之後，在搜尋方塊中，輸入「週期」作為篩選準則。 從觸發程式清單中，選取此觸發程式作為邏輯應用程式工作流程中的第一個步驟：**週期性**
+1. 邏輯應用程式設計工具出現之後，在搜尋方塊中，輸入「週期」作為篩選準則。 從觸發程式清單中，選取此觸發程式作為邏輯應用程式工作流程中的第一個步驟： **[週期**]
 
    ![選取 [週期] 觸發程式](./media/connectors-native-recurrence/add-recurrence-trigger.png)
 
@@ -57,8 +57,8 @@ ms.locfileid: "70914444"
 
    | 屬性 | 必要項 | JSON 名稱 | Type | 描述 |
    |----------|----------|-----------|------|-------------|
-   | **間隔** | 是 | 間隔 | Integer | 描述工作流程根據 frequency 多久執行一次的正整數。 以下是最小和最大間隔： <p>- Month：1-16 個月 </br>- Day：1-500 天 </br>- Hour：1-12,000 小時 </br>- Minute：1-72,000 分鐘 </br>- Second：1-9,999,999 秒<p>例如，如果 interval 是 6，而 frequency 是「月」，則週期為每隔 6 個月。 |
-   | **頻率** | 是 | 頻率 | String | 用於週期的時間單位：**秒**、**分鐘**、**小時**、**天**、**週**或**月** |
+   | **間隔** | 是 | interval | 整數 | 一個正整數，此正整數描述工作流程的執行頻率 (根據 frequency)。 以下是最小和最大間隔： <p>- 月：1-16 個月 </br>- 天：1-500 天 </br>- 小時：1-12,000 個小時 </br>- 分鐘：1-72,000 分鐘 </br>- 秒：1-9,999,999 秒<p>例如，如果 interval 是 6，而 frequency 是「月」，則週期為每隔 6 個月。 |
+   | **頻率** | 是 | frequency | String | 重複的時間單位：**秒**、**分鐘**、**小時**、**天**、**週**或**月** |
    ||||||
 
    如需更多排程選項，請開啟 [**加入新的參數**] 清單。 

@@ -1,5 +1,5 @@
 ---
-title: 適用於 B2B 企業整合的 EDIFACT 訊息 - Azure Logic Apps | Microsoft Docs
+title: B2B 整合的 EDIFACT 訊息-Azure Logic Apps
 description: 在具有 Enterprise Integration Pack 的 Azure Logic Apps 中交換適用於 B2B 企業整合的 EDIFACT 訊息 (採用 EDI 格式)
 services: logic-apps
 ms.service: logic-apps
@@ -8,14 +8,13 @@ author: divyaswarnkar
 ms.author: divswa
 ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
-ms.assetid: 2257d2c8-1929-4390-b22c-f96ca8b291bc
 ms.date: 07/26/2016
-ms.openlocfilehash: bbcdad7c5496cd08994a613b07e1bc7c611e4572
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 42197f8bf08ae1f36c531c220ebbf78484a5946e
+ms.sourcegitcommit: d37991ce965b3ee3c4c7f685871f8bae5b56adfa
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60684402"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72680355"
 ---
 # <a name="exchange-edifact-messages-for-b2b-enterprise-integration-in-azure-logic-apps-with-enterprise-integration-pack"></a>在具有 Enterprise Integration Pack 的 Azure Logic Apps 中交換適用於 B2B 企業整合的 EDIFACT 訊息
 
@@ -38,34 +37,34 @@ ms.locfileid: "60684402"
 
 ## <a name="create-an-edifact-agreement"></a>建立 EDIFACT 合約 
 
-1. 登入 [Azure 入口網站](https://portal.azure.com "Azure 入口網站")。 
+1. 登入 [Azure 入口網站](https://portal.azure.com "Azure Portal")。 
 
-2. 在主要 Azure 功能表上，選取 [所有服務]  。 在搜尋方塊中輸入「整合」，然後選取 [整合帳戶]  。
+2. 在主要 Azure 功能表上，選取 [所有服務]。 在搜尋方塊中輸入「整合」，然後選取 [整合帳戶]。
 
    ![尋找您的整合帳戶](./media/logic-apps-enterprise-integration-edifact/edifact-0.png)
 
    > [!TIP]
-   > 如果 [所有服務]  未出現，您可能必須先展開功能表。 在摺疊功能表的頂端，選取 [顯示文字標籤]  。
+   > 如果 [所有服務] 未出現，您可能必須先展開功能表。 在摺疊功能表的頂端，選取 [顯示文字標籤]。
 
-3. 在 [整合帳戶]  底下，選取要在其中建立合約的整合帳戶。
+3. 在 [整合帳戶] 底下，選取要在其中建立合約的整合帳戶。
 
    ![選取您要在其中建立合約的整合帳戶](./media/logic-apps-enterprise-integration-edifact/edifact-1-4.png)
 
-4. 選擇 [合約]  。 如果您沒有 [合約] 圖格，請先新增圖格。   
+4. 選擇 [合約]。 如果您沒有 [合約] 圖格，請先新增圖格。   
 
    ![選擇 [合約] 圖格](./media/logic-apps-enterprise-integration-edifact/edifact-1-5.png)
 
-5. 在 [合約] 頁面上，選擇 [新增]  。
+5. 在 [合約] 頁面上，選擇 [新增]。
 
    ![選擇 [新增]](./media/logic-apps-enterprise-integration-edifact/edifact-agreement-2.png)
 
-6. 在 [新增]  之下，輸入合約的 [名稱]  。 針對 [合約類型]  ，選取 **EDIFACT**。 選取合約的 [主機夥伴]  、[主機身分識別]  、[來賓夥伴]  和 [來賓身分識別]  。
+6. 在 [新增] 之下，輸入合約的 [名稱]。 針對 [合約類型]，選取 **EDIFACT**。 選取合約的 [主機夥伴]、[主機身分識別]、[來賓夥伴] 和 [來賓身分識別]。
 
    ![提供合約詳細資料](./media/logic-apps-enterprise-integration-edifact/edifact-1.png)
 
-   | 屬性 | Description |
+   | 屬性 | 描述 |
    | --- | --- |
-   | 名稱 |合約的名稱 |
+   | Name |合約的名稱 |
    | 合約類型 | 應該是 EDIFACT |
    | 主控夥伴 |合約需要主控夥伴和來賓夥伴。 主機夥伴代表設定合約的組織。 |
    | 主控身分識別 |主控夥伴的識別碼 |
@@ -79,14 +78,14 @@ ms.locfileid: "60684402"
 
 您現在已經設定合約屬性，您可以設定此合約如何識別及處理您透過此合約從夥伴接收的內送訊息。
 
-1. 在 [新增]  之下，選取 [接收設定]  。
+1. 在 [新增] 之下，選取 [接收設定]。
 根據您與其交換訊息之夥伴所簽署的合約，設定這些屬性。 如需屬性說明，請參閱本節中的資料表。
 
-   **接收設定**會分成下列各區段：識別項、 通知、 結構描述、 控制編號、 驗證和內部設定。
+   [接收設定] 分成下列各區段：識別碼、通知、結構描述、控制編號、驗證和內部設定。
 
    ![設定 [接收設定]](./media/logic-apps-enterprise-integration-edifact/edifact-2.png)  
 
-2. 完成後，請務必選擇 [確定]  以儲存設定。
+2. 完成後，請務必選擇 [確定] 以儲存設定。
 
 您的合約現在已準備好處理符合您所選設定的內送訊息。
 
@@ -136,7 +135,7 @@ ms.locfileid: "60684402"
 | 擴充驗證 |如果資料類型不是 EDI，則在資料元素要求時才進行驗證，且允許重複、列舉和資料元素長度驗證 (最小/最大)。 |
 | 允許前置/尾端零 |保留任何額外的前置或尾端零及空格字元。 請勿移除這些字元。 |
 | 修剪前置/尾端零 |移除前置或尾端零及空格字元。 |
-| 尾端分隔符號原則 |產生尾端分隔符號。 <p>選取 [不允許]  ，禁止在已接收的交換中使用尾端分隔符號。 如果交換具有尾端分隔符號，則會被宣告為無效。 <p>選取 [選擇性]  以接受包含或不含尾端分隔符號的交換。 <p>如果收到的交換必須具備尾端分隔符號，請選取 [強制性]  。 |
+| 尾端分隔符號原則 |產生尾端分隔符號。 <p>選取 [不允許]，禁止在已接收的交換中使用尾端分隔符號。 如果交換具有尾端分隔符號，則會被宣告為無效。 <p>選取 [選擇性] 以接受包含或不含尾端分隔符號的交換。 <p>如果收到的交換必須具備尾端分隔符號，請選取 [強制性]。 |
 
 ### <a name="internal-settings"></a>內部設定
 
@@ -152,14 +151,14 @@ ms.locfileid: "60684402"
 
 您可以設定此合約如何識別及處理您透過此合約傳送給夥伴的外寄訊息。
 
-1.  在 [新增]  之下，選取 [傳送設定]  。
+1.  在 [新增] 之下，選取 [傳送設定]。
 根據您與其交換訊息之夥伴所簽署的合約，設定這些屬性。 如需屬性說明，請參閱本節中的資料表。
 
-    **傳送設定**會分成下列各區段：識別項、 通知、 結構描述、 信封、 字元集和分隔符號、 控制編號以及驗證。
+    [傳送設定] 分成下列各區段：識別碼、通知、結構描述、信封、字元集和分隔符號、控制編號以及驗證。
 
     ![設定 [傳送設定]](./media/logic-apps-enterprise-integration-edifact/edifact-3.png)    
 
-2. 完成後，請務必選擇 [確定]  以儲存設定。
+2. 完成後，請務必選擇 [確定] 以儲存設定。
 
 您的合約現在已準備好處理符合您所選設定的外寄訊息。
 
@@ -230,21 +229,21 @@ ms.locfileid: "60684402"
 | 擴充驗證 |如果資料類型不是 EDI，則在資料元素要求時才進行驗證，且允許重複、列舉和資料元素長度驗證 (最小/最大)。 |
 | 允許前置/尾端零 |保留任何額外的前置或尾端零及空格字元。 請勿移除這些字元。 |
 | 修剪前置/尾端零 |移除前置或尾端零字元。 |
-| 尾端分隔符號原則 |產生尾端分隔符號。 <p>選取 [不允許]  ，禁止在已傳送的交換中使用尾端分隔符號。 如果交換具有尾端分隔符號，則會被宣告為無效。 <p>選取 [選擇性]  以傳送包含或不含尾端分隔符號的交換。 <p>如果傳送的交換必須具備尾端分隔符號，請選取 [強制性]  。 |
+| 尾端分隔符號原則 |產生尾端分隔符號。 <p>選取 [不允許]，禁止在已傳送的交換中使用尾端分隔符號。 如果交換具有尾端分隔符號，則會被宣告為無效。 <p>選取 [選擇性] 以傳送包含或不含尾端分隔符號的交換。 <p>如果傳送的交換必須具備尾端分隔符號，請選取 [強制性]。 |
 
 ## <a name="find-your-created-agreement"></a>尋找您建立的合約
 
-1.  完成所有合約屬性的設定之後，請在 [新增]  頁面中選擇 [確定]  ，以完成合約建立並回到整合帳戶。
+1.  完成所有合約屬性的設定之後，請在 [新增] 頁面中選擇 [確定]，以完成合約建立並回到整合帳戶。
 
-    您新增的合約現在顯示於您的 [合約]  清單中。
+    您新增的合約現在顯示於您的 [合約] 清單中。
 
-2.  您也可以在整合帳戶概觀中檢視您的合約。 在整合帳戶功能表上，選擇 [概觀]  ，然後選取 [合約]  圖格。 
+2.  您也可以在整合帳戶概觀中檢視您的合約。 在整合帳戶功能表上，選擇 [概觀]，然後選取 [合約] 圖格。 
 
     ![選擇 [合約] 圖格](./media/logic-apps-enterprise-integration-edifact/edifact-4.png)   
 
 ## <a name="view-swagger-file"></a>檢視 Swagger 檔案
 若要檢視 EDIFACT 連接器的 Swagger 詳細資料，請參閱 [EDIFACT](/connectors/edifact/)。
 
-## <a name="learn-more"></a>深入了解
-* [深入了解企業整合套件](logic-apps-enterprise-integration-overview.md "了解企業整合套件")  
+## <a name="learn-more"></a>了解更多
+* [深入了解企業整合套件](logic-apps-enterprise-integration-overview.md "瞭解企業整合套件")  
 

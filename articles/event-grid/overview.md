@@ -9,12 +9,12 @@ ms.topic: overview
 ms.date: 05/25/2019
 ms.author: babanisa
 ms.custom: seodec18
-ms.openlocfilehash: b262a06bc3d80bd1f8105c6629bbc07e6ccd34eb
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: c00c1ecf001162964b01a3e858534fa502b7484c
+ms.sourcegitcommit: e0a1a9e4a5c92d57deb168580e8aa1306bd94723
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67077147"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72285856"
 ---
 # <a name="what-is-azure-event-grid"></a>什麼是 Azure 事件方格？
 
@@ -22,7 +22,7 @@ Azure Event Grid 可讓您以事件型架構輕鬆地建立應用程式。 首�
 
 您可以使用篩選器將特定事件路由傳送到不同的端點、多點傳送至多個端點，並確定您的事件會可靠地進行傳遞。
 
-Azure 事件方格的部署方式是以原生方式分散到每個區域中中的多個容錯網域，以及分散到可用性區域 (在支援可用性區域的區域中)，藉此來最大化可用性。 目前，Azure 事件格線在所有公用區域中均適用。 它尚不適用於 Azure 德國、Azure China 21Vianet 或 Azure Government 雲端中。
+Azure 事件方格的部署方式是以原生方式分散到每個區域中中的多個容錯網域，以及分散到可用性區域 (在支援可用性區域的區域中)，藉此來最大化可用性。 如需事件方格支援的區域清單，請參閱[依區域提供的產品](https://azure.microsoft.com/global-infrastructure/services/?products=event-grid&regions=all)。
 
 本文提供 Azure Event Grid 的概觀。 若要開始使用 Event Grid，請參閱[使用 Azure Event Grid 建立和路由傳送自訂事件](custom-event-quickstart.md)。 
 

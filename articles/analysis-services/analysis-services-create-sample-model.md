@@ -2,18 +2,17 @@
 title: 教學課程 - 將範例模型新增至 Azure Analysis Services 伺服器 | Microsoft Docs
 description: 在本教學課程中，了解如何在 Azure Analysis Services 中新增範例模型。
 author: minewiskan
-manager: kfile
 ms.service: azure-analysis-services
 ms.topic: tutorial
-ms.date: 03/13/2019
+ms.date: 10/16/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 32c46f0a488d775275b3a367aa2913f034569041
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: c6679e8075afd2f25e4baf73c79c35907ded4e2b
+ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57903924"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72512882"
 ---
 # <a name="tutorial-add-a-sample-model-from-the-portal"></a>教學課程：從入口網站新增範例模型
 
@@ -40,15 +39,15 @@ ms.locfileid: "57903924"
 
 ## <a name="add-a-sample-model"></a>新增範例模型
 
-1. 在伺服器的 [概觀] 中，按一下 [新增模型]。
+1. 在伺服器的 [概觀]  中，按一下 [新增模型]  。
 
     ![建立範例模型](./media/analysis-services-create-sample-model/aas-create-sample-new-model.png)
 
-2. 在 [新增模型] > [選擇資料來源] 中，確認已選取 [範例資料]，然後按一下 [新增]。
+2. 在 [新增模型]   > [選擇資料來源]  中，確認已選取 [範例資料]  ，然後按一下 [新增]  。
 
     ![選取範例資料](./media/analysis-services-create-sample-model/aas-create-sample-data.png)
 
-3. 在 [概觀] 中，確認已新增 `adventureworks` 範例模型。
+3. 在 [概觀]  中，確認已新增 `adventureworks` 範例模型。
 
     ![選取範例資料](./media/analysis-services-create-sample-model/aas-create-sample-verify.png)
 
@@ -59,13 +58,13 @@ ms.locfileid: "57903924"
 
 下列步驟說明如何使用 SSMS 從伺服器中刪除模型。
 
-1. 在 SSMS > [物件總管] 中，按一下 [連線]  > [分析服務] 。
+1. 在 SSMS > [物件總管]  中，按一下 [連線]   > [分析服務]  。
 
-2. 在 [連線到伺服器] 中貼上伺服器名稱，然後在 [驗證] 中選擇 [具 MFA 支援的 Active Directory - 通用]，並輸入您的使用者名稱，然後按一下 [連線]。
+2. 在 [連線到伺服器]  中貼上伺服器名稱，然後在 [驗證]  中選擇 [具 MFA 支援的 Active Directory - 通用]  ，並輸入您的使用者名稱，然後按一下 [連線]  。
 
     ![登入](./media/analysis-services-create-sample-model/aas-create-sample-cleanup-signin.png)
 
-3. 在 [物件總管] 中，以滑鼠右鍵按一下 `adventureworks`，然後按一下 [刪除]。
+3. 在 [物件總管]  中，以滑鼠右鍵按一下 `adventureworks`，然後按一下 [刪除]  。
 
     ![刪除範例資料庫](./media/analysis-services-create-sample-model/aas-create-sample-cleanup-delete.png)
 

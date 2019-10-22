@@ -12,20 +12,20 @@ ms.topic: conceptual
 ms.date: 10/01/2019
 ms.author: banders
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 43986ce57b8d320beeae748d3b848cf9ef38744d
-ms.sourcegitcommit: a19f4b35a0123256e76f2789cd5083921ac73daf
+ms.openlocfilehash: 2803f8d659726ac95bcefa6191a816ed2b2dcb2d
+ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71718716"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72375395"
 ---
 # <a name="understand-your-azure-external-services-charges"></a>了解您的 Azure 外部服務費用
-外部服務是由 Azure Marketplace 中的協力廠商軟體廠商發佈。 比方說，SendGrid 是您可以在 Azure 中購買的外部服務，但不是由 Microsoft 所發佈。 有些 Microsoft 產品也會透過 Azure Marketplace 銷售。
+外部服務是由 Azure Marketplace 中的第三方軟體廠商發佈。 比方說，SendGrid 是您可以在 Azure 中購買的外部服務，但不是由 Microsoft 所發佈。 有些 Microsoft 產品也會透過 Azure Marketplace 銷售。
 
 ## <a name="how-external-services-are-billed"></a>如何對外部服務計費
 
-- 如果您有 [Microsoft 客戶合約](#check-access)，您的第三方服務會與其餘的 Azure 服務一起計費。
-- 如果您沒有 Microsoft 客戶合約，則外部服務會與 Azure 服務分開計費。
+- 如果您有 Microsoft 客戶合約 (MCA) 或 Microsoft 合作夥伴合約，您的第三方服務就會與其餘的 Azure 服務一起計費。 [檢查您的計費帳戶類型 ](#check-billing-account-type)，以查看您是否有 MCA 或 MPA 的存取權。
+- 如果您沒有 MCA 或 MPA，則外部服務會與 Azure 服務分開計費。
 - 每項外部服務都有各自的計費模式。 有些服務採用隨用隨付的方式計費，有些則有每月固定費用。
 - 外部服務不適用於每個月的免費信用額度。 如果您使用含有[免費額度](https://azure.microsoft.com/pricing/spending-limits/)的 Azure 訂用帳戶，這些額度無法套用至外部服務。 當您佈建新的外部服務或資源時，系統會顯示警告︰
 
@@ -48,11 +48,11 @@ You can view a list of the external services that are on each subscription withi
 
     ![View external services billing history](./media/billing-understand-your-azure-marketplace-charges/billing-overview-blade.png) -->
 
-## <a name="view-and-download-invoices"></a>檢視及下載發票
+## <a name="view-and-download-invoices-for-external-services"></a>檢視及下載外部服務的發票
 
-如果您有 [Microsoft 客戶合約](#check-access)，您的第三方費用會與您的 Azure 費用位於同張發票上。 了解如何從 Azure 入口網站[檢視及下載您的 Azure 發票](billing-download-azure-invoice.md)，以查看第三方費用。
+如果您有 Microsoft 客戶合約 (MCA) 或 Microsoft 合作夥伴合約，您的第三方服務就會與其餘的 Azure 服務一起計費。 [檢查您的計費帳戶類型 ](#check-billing-account-type)，以查看您是否有 MCA 或 MPA 的存取權。 如果您有存取權，請參閱[在 Azure 入口網站中檢視及下載發票](billing-download-azure-invoice.md)，以查看第三方費用。
 
-如果您沒有 Microsoft 客戶合約，則第三方費用會有不同的發票。 您可以遵循下列步驟，從 Azure 入口網站檢視及下載您的 Azure Marketplace 發票：
+如果您沒有 MCA 或 MPA，則第三方費用會有不同的發票。 您可以遵循下列步驟，從 Azure 入口網站檢視及下載您的 Azure Marketplace 發票：
 
 1. 登入 [Azure 入口網站](https://portal.azure.com)。
 1. 針對 [成本管理 + 帳單]  進行搜尋。
@@ -108,8 +108,8 @@ EA 客戶可以在 EA 入口網站看到外部服務消費並下載報告。 請
     ![刪除資源](./media/billing-understand-your-azure-marketplace-charges/delete-resource.PNG)
 1. 按一下 [刪除]  。
 
-## <a name="check-access"></a>檢查存取權
-[!INCLUDE [billing-check-mca](../../includes/billing-check-mca.md)]
+## <a name="check-billing-account-type"></a>檢查計費帳戶類型
+[!INCLUDE [billing-check-account-type](../../includes/billing-check-mca.md)]
 
 ## <a name="need-help-contact-us"></a>需要協助嗎？ 與我們連絡。
 

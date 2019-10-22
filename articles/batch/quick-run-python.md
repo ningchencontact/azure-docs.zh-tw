@@ -1,5 +1,5 @@
 ---
-title: Azure 快速入門 - 執行 Batch 作業 - Python
+title: 快速入門：執行 Azure Batch 作業 - Python API
 description: 使用 Batch Python 用戶端程式庫快速執行 Batch 作業和工作。
 services: batch
 author: laurenhughes
@@ -9,19 +9,23 @@ ms.devlang: python
 ms.topic: quickstart
 ms.date: 11/27/2018
 ms.author: lahugh
-ms.custom: mvc
-ms.openlocfilehash: 77ccfc1a67fabca7fde47edac9094c6a68191f0f
-ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
+ms.custom:
+- seo-python-october2019
+- mvc
+ms.openlocfilehash: 6c9690a74e8dff9978fa4e07883738d062238121
+ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71090772"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72437391"
 ---
 # <a name="quickstart-run-your-first-batch-job-with-the-python-api"></a>快速入門：使用 Python API 執行您的第一個 Batch 作業
 
-本快速入門會從在 Azure Batch Python API 上建置的應用程式執行 Azure Batch 作業。 此應用程式會將數個輸入資料檔案上傳至 Azure 儲存體，然後建立 Batch 計算節點 (虛擬機器) 的「集區」  。 然後，它會建立可執行「工作」  的「作業」  範例，以使用基本命令處理集區上的每個輸入檔案。 完成本快速入門之後，您將了解 Batch 服務的重要概念，並可準備使用更多真實的工作負載來大規模試用 Batch。
+本快速入門會從在 Azure Batch Python API 上建置的應用程式執行 Azure Batch 作業。  完成本快速入門之後，您將了解 Batch 服務的重要概念，並可準備使用更多真實的工作負載來大規模試用 Batch。
+
+此應用程式會將數個輸入資料檔案上傳至 Azure 儲存體，然後建立 Batch 計算節點 (虛擬機器) 的「集區」  。 然後，它會建立可執行「工作」  的「作業」  範例，以使用基本命令處理集區上的每個輸入檔案。
  
-![快速入門應用程式工作流程](./media/quick-run-python/sampleapp.png)
+![Azure Batch 工作流程的概觀](./media/quick-run-python/overview-of-the-azure-batch-workflow.png)
 
 [!INCLUDE [quickstarts-free-trial-note.md](../../includes/quickstarts-free-trial-note.md)]
 

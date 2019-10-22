@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 03/14/2019
 ms.author: robinsh
-ms.openlocfilehash: 23a005ebb16f4786c7dde9ec5b2a7ae7c5685cb8
-ms.sourcegitcommit: b49431b29a53efaa5b82f9be0f8a714f668c38ab
+ms.openlocfilehash: 4474a36c2b87a618a9f755d2f42e330e837568f4
+ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68377244"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72516485"
 ---
 # <a name="quickstart-enable-ssh-and-rdp-over-an-iot-hub-device-stream-by-using-a-c-proxy-application-preview"></a>快速入門：使用 C Proxy 應用程式透過 IoT 中樞裝置串流進行 SSH 和 RDP 輸送 (預覽)
 
@@ -28,7 +28,7 @@ Azure IoT 中樞目前支援裝置串流作為[預覽功能](https://azure.micro
 
 ## <a name="how-it-works"></a>運作方式
 
-下圖說明裝置和服務本機 Proxy 程式如何在 SSH 用戶端與 SSH 精靈程序之間啟用端對端連線。 在公開預覽期間，C SDK 僅支援裝置端上的裝置串流。 因此，本快速入門僅提供執行服務本機 Proxy 應用程式的指示。 您應該執行下列其中一個服務端快速入門：
+下圖說明裝置和服務本機 Proxy 程式如何在 SSH 用戶端與 SSH 精靈程序之間啟用端對端連線。 在公開預覽期間，C SDK 僅支援裝置端上的裝置串流。 因此，本快速入門僅提供執行服務本機 Proxy 應用程式的指示。 若要建置及執行隨附的服務端應用程式，請遵循下列其中一個快速入門中的指示：
 
 * [使用 C# Proxy 透過 IoT 中樞裝置串流進行 SSH/RDP 輸送](./quickstart-device-streams-proxy-csharp.md)
 * [使用 NodeJS Proxy 透過 IoT 中樞裝置串流進行 SSH/RDP 輸送](./quickstart-device-streams-proxy-nodejs.md)。
@@ -124,10 +124,10 @@ Azure IoT 中樞目前支援裝置串流作為[預覽功能](https://azure.micro
 
    > [!NOTE]
    > * 以您為 IoT 中樞選擇的名稱取代 YourIoTHubName  預留位置。
-   > * 使用所示的 MyCDevice  。 這是為已註冊裝置指定的名稱。 如果您為裝置選擇不同的名稱，請在本文中使用該名稱，並先在應用程式範例中更新該裝置名稱，再執行應用程式。
+   > * 如需您所註冊的裝置名稱，建議使用如下所示的 *MyDevice*。 如果您為裝置選擇不同的名稱，請在本文中使用該名稱，並先在應用程式範例中更新該裝置名稱，再執行應用程式。
 
     ```azurecli-interactive
-    az iot hub device-identity create --hub-name YourIoTHubName --device-id MyDevice
+    az iot hub device-identity create --hub-name {YourIoTHubName} --device-id MyDevice
     ```
 
 1. 若要針對您剛註冊的裝置取得「裝置連接字串」  ，請在 Azure Cloud Shell 中執行下列命令：
@@ -136,10 +136,10 @@ Azure IoT 中樞目前支援裝置串流作為[預覽功能](https://azure.micro
    > 以您為 IoT 中樞選擇的名稱取代 YourIoTHubName  預留位置。
 
     ```azurecli-interactive
-    az iot hub device-identity show-connection-string --hub-name YourIoTHubName --device-id MyDevice --output table
+    az iot hub device-identity show-connection-string --hub-name {YourIoTHubName} --device-id MyDevice --output table
     ```
 
-    請記下儲存連接字串，以供稍後在本快速入門中使用。 看起來會像下列範例：
+    請記下所傳回的裝置連接字串，以供稍後在本快速入門中使用。 看起來會像下列範例：
 
    `HostName={YourIoTHubName}.azure-devices.net;DeviceId=MyDevice;SharedAccessKey={YourSharedAccessKey}`
 
@@ -149,12 +149,12 @@ Azure IoT 中樞目前支援裝置串流作為[預覽功能](https://azure.micro
 
 ### <a name="run-the-device-local-proxy-application"></a>執行裝置本機 Proxy 應用程式
 
-1. 編輯 iothub_client/samples/iothub_client_c2d_streaming_proxy_sample  資料夾中的 iothub_client_c2d_streaming_proxy_sample  來源檔案，然後提供您的裝置連接字串、目標裝置 IP/主機名稱和 SSH 連線埠 22：
+1. 編輯資料夾 `iothub_client/samples/iothub_client_c2d_streaming_proxy_sample` 中的來源檔案 **iothub_client_c2d_streaming_proxy_sample.c**，並提供您的裝置連接字串、目標裝置的 IP/主機名稱，以及 SSH 連接埠 22：
 
    ```C
-   /* Paste in your iothub connection string  */
-   static const char* connectionString = "[Connection string of IoT Hub]";
-   static const char* localHost = "[IP/Host of your target machine]"; // Address of the local server to connect to.
+   /* Paste in your device connection string  */
+   static const char* connectionString = "{DeviceConnectionString}";
+   static const char* localHost = "{IP/Host of your target machine}"; // Address of the local server to connect to.
    static const size_t localPort = 22; // Port of the local server to connect to.
    ```
 
@@ -198,7 +198,7 @@ Azure IoT 中樞目前支援裝置串流作為[預覽功能](https://azure.micro
 當裝置和服務本機 Proxy 皆在執行中之後，請使用 SSH 用戶端程式，並經由連接埠 2222 連線至服務本機 Proxy (而不是直接使用 SSH 精靈)。
 
 ```cmd/sh
-ssh <username>@localhost -p 2222
+ssh {username}@localhost -p 2222
 ```
 
 此時，SSH 登入視窗會提示您輸入認證。
@@ -217,7 +217,7 @@ ssh <username>@localhost -p 2222
 
 ## <a name="next-steps"></a>後續步驟
 
-在本快速入門中，您已設定 IoT 中樞、註冊裝置、部署裝置和服務本機 Proxy 程式以透過 IoT 中樞建立裝置串流，並使用 Proxy 輸送 SSH 流量。
+在本快速入門中，您會設定 IoT 中樞、註冊裝置、部署裝置和服務本機 Proxy 程式以透過 IoT 中樞建立裝置串流，並使用 Proxy 輸送 SSH 流量。
 
 若要深入了解裝置串流，請參閱：
 

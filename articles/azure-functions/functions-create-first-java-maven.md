@@ -1,30 +1,28 @@
 ---
-title: 使用 Java 和 Maven 發佈函式 - Azure Functions
-description: 使用 Java 和 Maven 建立簡單的 HTTP 觸發函式並發佈到 Azure。
-services: functions
-documentationcenter: na
+title: 使用 Java 和 Maven 將函式發佈至 Azure
+description: 使用 Java 和 Maven 建立 HTTP 觸發函式並將其發佈至 Azure。
 author: rloutlaw
-manager: justhe
-keywords: azure functions, 函式, 事件處理, 計算, 無伺服器架構
+manager: gwallace
 ms.service: azure-functions
 ms.topic: quickstart
-ms.devlang: java
 ms.date: 08/10/2018
-ms.author: routlaw
-ms.reviewer: glenga
+ms.author: glenga
 ms.custom: mvc, devcenter, seo-java-july2019, seo-java-august2019, seo-java-september2019
-ms.openlocfilehash: 5447fdcfa86c35b7c5cf079ae8446c30785e893f
-ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
+ms.openlocfilehash: 5c51e445aaa27f3f83627ccf0da8fb80e01f156c
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71299403"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72329506"
 ---
-# <a name="quickstart-use-java-to-create-and-publish-a-function-to-azure-functions"></a>快速入門：使用 JAVA 來建立函式，並將其發行至 Azure Functions
+# <a name="quickstart-use-java-and-maven-to-create-and-publish-a-function-to-azure"></a>快速入門：使用 Java 和 Maven 建立函式並將其發佈至 Azure
 
-本文會指示您如何使用 Maven 命令列工具來建置 Java 函式並發佈至 Azure 函式。 當您完成時，您的函式程式碼會在 Azure 中的[取用方案](functions-scale.md#consumption-plan)上執行，並且可使用 HTTP 要求來觸發。
+本文說明如何使用 Maven 命令列工具來建置 Java 函式並將其發佈至 Azure Functions。 完成時，您的函式程式碼會在 Azure 的[無伺服器主控方案](functions-scale.md#consumption-plan)中執行，並由 HTTP 要求所觸發。
 
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+<!--
+> [!NOTE] 
+> You can also create a Kotlin-based Azure Functions project by using the azure-functions-kotlin-archetype instead. Visit the [GitHub repository](https://github.com/microsoft/azure-maven-archetypes/tree/develop/azure-functions-kotlin-archetype) for more information.
+-->
 
 ## <a name="prerequisites"></a>必要條件
 
@@ -32,8 +30,12 @@ ms.locfileid: "71299403"
 
 - [Java Developer Kit](https://aka.ms/azure-jdks) 第 8 版
 - [Apache Maven](https://maven.apache.org) 3.0 版或更新版本
-- [Azure CLI](https://docs.microsoft.com/cli/azure)
+- [Azure CLI]
 - [Azure Functions Core Tools](./functions-run-local.md#v2) 2.6.666 版或更新版本
+- Azure 訂用帳戶。
+
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+
 
 > [!IMPORTANT]
 > JAVA_HOME 環境變數必須設定為 JDK 的安裝位置，才能完成本快速入門。
@@ -67,170 +69,124 @@ mvn archetype:generate ^
     "-DarchetypeArtifactId=azure-functions-archetype"
 ```
 
-Maven 會要求您提供完成產生專案所需的值。 如需 _groupId_、_artifactId_ 和 _version_ 值，請參閱 [Maven 命名慣例](https://maven.apache.org/guides/mini/guide-naming-conventions.html) \(英文\) 參考。 _appName_ 值必須在整個 Azure 中是唯一的，Maven 才能根據先前輸入的 _artifactId_ 作為預設值產生應用程式名稱。 _packageName_ 值決定產生的函式程式碼的 Java 封裝。
+Maven 會要求您提供在部署時完成產生專案所需的值。 當系統提示時，提供下列值：
 
-以下的 `com.fabrikam.functions` 和 `fabrikam-functions` 識別碼作為範例使用，讓本快速入門中的步驟更容易閱讀。 建議您在此步驟中提供自己的值給 Maven。
+| 值 | 說明 |
+| ----- | ----------- |
+| **groupId** | 此值可在所有專案中唯一識別您的專案，並遵循適用於 Java 的[套件命名規則](https://docs.oracle.com/javase/specs/jls/se6/html/packages.html#7.7)。 本快速入門中的範例會使用 `com.fabrikam.functions`。 |
+| **artifactId** | 此值是 jar 的名稱 (不含版本號碼)。 本快速入門中的範例會使用 `fabrikam-functions`。 |
+| **version** | 選擇 `1.0-SNAPSHOT` 的預設值。 |
+| **套件** | 此值是所產生函式程式碼的 Java 套件。 使用預設值。 本快速入門中的範例會使用 `com.fabrikam.functions`。 |
+| **appName** | 可在 Azure 中識別您的新函式應用程式的全域唯一名稱。 使用預設值，也就是附加隨機數字的 _artifactId_。 請記下此值，您稍後需要用到它。 |
+| **appRegion** | 選擇與您接近的[區域](https://azure.microsoft.com/regions/)，或選擇與函式將會存取之其他服務接近的區域。 預設值為 `westus`。 執行此 [Azure CLI] 命令以取得所有區域的清單：<br/>`az account list-locations --query '[].{Name:name}' -o tsv` |
+| **resourceGroup** | 要在其中建立函式應用程式的新[資源群組](../azure-resource-manager/resource-group-overview.md)名稱。 使用本快速入門中範例所使用的 `myResourceGroup`。 資源群組必須是您的 Azure 訂用帳戶中唯一的。|
 
-```Output
-Define value for property 'groupId' (should match expression '[A-Za-z0-9_\-\.]+'): com.fabrikam.functions
-Define value for property 'artifactId' (should match expression '[A-Za-z0-9_\-\.]+'): fabrikam-functions
-Define value for property 'version' 1.0-SNAPSHOT : 
-Define value for property 'package': com.fabrikam.functions
-Define value for property 'appName' fabrikam-functions-20170927220323382:
-Define value for property 'appRegion' westus: :
-Define value for property 'resourceGroup' java-functions-group: :
-Confirm properties configuration: Y
-```
+輸入 `Y` 或按 Enter 進行確認。
 
-Maven 會以 _artifactId_ 名稱在新資料夾中建立專案檔案，在此例中為 `fabrikam-functions`。 專案中所產生且準備要執行的程式碼是一個 [HTTP 觸發](/azure/azure-functions/functions-bindings-http-webhook)函式，能回應要求的本文。 以下列程式碼取代 *src/main/java/com/fabrikam/functions/Function.java*： 
+Maven 會以 _artifactId_ 名稱在新資料夾中建立專案檔案，在此例中為 `fabrikam-functions`。 
 
-```java
-package com.fabrikam.functions;
-
-import java.util.*;
-import com.microsoft.azure.functions.annotation.*;
-import com.microsoft.azure.functions.*;
-
-public class Function {
-    /**
-     * This function listens at endpoint "/api/HttpTrigger-Java". Two ways to invoke it using "curl" command in bash:
-     * 1. curl -d "HTTP Body" {your host}/api/HttpTrigger-Java
-     * 2. curl {your host}/api/HttpTrigger-Java?name=HTTP%20Query
-     */
-    @FunctionName("HttpTrigger-Java")
-    public HttpResponseMessage run(
-            @HttpTrigger(name = "req", methods = { HttpMethod.GET, HttpMethod.POST }, authLevel = AuthorizationLevel.FUNCTION) HttpRequestMessage<Optional<String>> request,
-            final ExecutionContext context) {
-        context.getLogger().info("Java HTTP trigger processed a request.");
-
-        // Parse query parameter
-        String query = request.getQueryParameters().get("name");
-        String name = request.getBody().orElse(query);
-
-        if (name == null) {
-            return request.createResponseBuilder(HttpStatus.BAD_REQUEST).body("Please pass a name on the query string or in the request body").build();
-        } else {
-            return request.createResponseBuilder(HttpStatus.OK).body("Hello, " + name).build();
-        }
-    }
-}
-
-```
-
-## <a name="enable-extension-bundles"></a>啟用延伸模組搭售方案
-
-[!INCLUDE [functions-extension-bundles](../../includes/functions-extension-bundles.md)]
+在文字編輯器中，從 *src/main/java* 路徑開啟新的 Function.java 檔案，並檢閱所產生的程式碼。 此程式碼是一個 [HTTP 觸發](functions-bindings-http-webhook.md)函式，可回應要求的本文。 
 
 ## <a name="run-the-function-locally"></a>在本機執行函式
 
-將目錄變更為新建立的專案資料夾 (包含您 host.json 和 pom.xml 檔案的資料夾)，並且使用 Maven 建置和執行函式：
+執行下列命令，可將目錄變更為新建立的專案資料夾，然後建立並執行函式專案：
 
-```CMD
+```console
 cd fabrikam-function
 mvn clean package 
 mvn azure-functions:run
 ```
 
-> [!NOTE]
-> 如果您遇到下列例外狀況：使用 Java 9 時的 `javax.xml.bind.JAXBException`，請參閱 [GitHub](https://github.com/jOOQ/jOOQ/issues/6477) 上的因應措施。
-
-當函式在您的系統本機執行並準備好回應 HTTP 要求時，您會看到以下輸出：
+當您在本機執行專案時，您會在 Azure Functions Core Tools 中看到如下所示的輸出：
 
 ```Output
-Listening on http://localhost:7071
-Hit CTRL-C to exit...
+...
+
+Now listening on: http://0.0.0.0:7071
+Application started. Press Ctrl+C to shut down.
 
 Http Functions:
 
-   hello: http://localhost:7071/api/HttpTrigger-Java
+    HttpTrigger-Java: [GET,POST] http://localhost:7071/api/HttpTrigger-Java
+...
 ```
 
-在新的終端機視窗中使用 curl 從命令列觸發函式：
+在新的終端視窗中使用 cURL 從命令列觸發函式：
 
 ```CMD
-curl -w "\n" http://localhost:7071/api/HttpTrigger-Java -d LocalFunction
-```
-
-```Output
-Hello LocalFunction!
-```
-
-在終端機中使用 `Ctrl-C` 可停止函式程式碼。
-
-## <a name="deploy-the-function-to-azure"></a>將函式部署到 Azure
-
-部署到 Azure Functions 的程序從 Azure CLI 使用帳戶認證。 繼續執行前，請[使用 Azure CLI 登入](/cli/azure/authenticate-azure-cli?view=azure-cli-latest)。
-
-```azurecli
-az login
-```
-
-使用 `azure-functions:deploy` Maven 目標將您的程式碼部署到新的函式應用程式。 這會執行 [Zip 部署，並啟用從套件執行](functions-deployment-technologies.md#zip-deploy)模式。
-
-> [!NOTE]
-> 當您使用 Visual Studio Code 來部署函式應用程式時，請記得選擇非免費的訂用帳戶，否則您會收到錯誤。 您可以在 IDE 左側查看您的訂用帳戶。
-
-```azurecli
-mvn azure-functions:deploy
-```
-
-部署完成時，您會看到可用來存取 Azure 函式應用程式的 URL：
-
-```output
-[INFO] Successfully deployed Function App with package.
-[INFO] Deleting deployment package from Azure Storage...
-[INFO] Successfully deleted deployment package fabrikam-function-20170920120101928.20170920143621915.zip
-[INFO] Successfully deployed Function App at https://fabrikam-function-20170920120101928.azurewebsites.net
-[INFO] ------------------------------------------------------------------------
-```
-
-使用 `cURL` 測試在 Azure 上執行的函式應用程式。 您必須變更下面範例中的 URL，以符合上一個步驟中自有函式應用程式的已部署 URL。
-
-> [!NOTE]
-> 請確定您將 [存取權限]  設為 `Anonymous`。 當您選擇預設層級 `Function` 時，您必須在要求中提供[函式金鑰](../azure-functions/functions-bindings-http-webhook.md#authorization-keys)以存取您的函式端點。
-
-```azurecli
-curl -w "\n" https://fabrikam-function-20170920120101928.azurewebsites.net/api/HttpTrigger-Java -d AzureFunctions
+curl -w "\n" http://localhost:7071/api/HttpTrigger-Java --data AzureFunctions
 ```
 
 ```Output
 Hello AzureFunctions!
 ```
+在本機執行時不需要[函式金鑰](functions-bindings-http-webhook.md#authorization-keys)。 在終端機中使用 `Ctrl+C` 可停止函式程式碼。
 
-## <a name="make-changes-and-redeploy"></a>進行變更並重新部署
+## <a name="deploy-the-function-to-azure"></a>將函式部署到 Azure
 
-在產生的專案中編輯 `src/main.../Function.java` 來源檔案，以改變您的 Function 應用程式所傳回的文字。 將這一行：
+當您第一次部署函式應用程式時，會在 Azure 中建立函式應用程式和相關資源。 請先使用 [az login](/cli/azure/authenticate-azure-cli) Azure CLI 命令登入您的 Azure 訂用帳戶，才可部署。 
 
-```java
-return request.createResponseBuilder(HttpStatus.OK).body("Hello, " + name).build();
+```azurecli
+az login
 ```
 
-變更為下列內容：
+> [!TIP]
+> 如果您的帳戶可以存取多個訂用帳戶，請使用 [az account set](/cli/azure/account#az-account-set) 來設定此工作階段的預設訂用帳戶。 
 
-```java
-return request.createResponseBuilder(HttpStatus.OK).body("Hi, " + name).build();
+使用下列 Maven 命令，將您的專案部署至新的函式應用程式。 
+
+```azurecli
+mvn azure-functions:deploy
 ```
 
-儲存變更。 執行 mvn 全新套件，然後一如往常從終端機執行 `azure-functions:deploy` 來重新部署。 函數應用程式將會更新，而此要求：
+此 `azure-functions:deploy` Maven 目標會在 Azure 中建立下列資源：
 
-```bash
-curl -w '\n' -d AzureFunctionsTest https://fabrikam-functions-20170920120101928.azurewebsites.net/api/HttpTrigger-Java
++ 資源群組。 以您提供的 _resourceGroup_ 命名。
++ 儲存體帳戶。 Functions 所需。 此名稱會根據儲存體帳戶名稱需求隨機產生。
++ App Service 方案。 在指定的 _appRegion_ 中以無伺服器方式主控您的函式應用程式。 此名稱是隨機產生的。
++ 函式應用程式。 函式應用程式是您函式的部署和執行單位。 此名稱是您的 _appName_ ，其附加隨機產生的數字。 
+
+部署也會封裝專案檔案，並使用 [zip deployment](functions-deployment-technologies.md#zip-deploy) 將其部署至新的函式應用程式，並已啟用從套件執行模式。
+
+部署完成時，您會看到可用來存取函式應用程式端點的 URL。 因為我們發佈的 HTTP 觸發程式會使用 `authLevel = AuthorizationLevel.FUNCTION`，所以您必須取得函式金鑰，才能透過 HTTP 呼叫函式端點。 [Azure 入口網站]是取得函式金鑰的最簡單方式。
+
+## <a name="get-the-http-trigger-url"></a>取得 HTTP 觸發程序 URL
+
+<!--- We can updates this to remove portal dependency after the Maven archetype returns the full URLs with keys on publish (https://github.com/microsoft/azure-maven-plugins/issues/571). -->
+
+您可以從 Azure 入口網站取得觸發函式所需的 URL 和函式金鑰。 
+
+1. 瀏覽至 [Azure 入口網站]、登入，在頁面頂端的 [搜尋]  中輸入您函式應用程式的 _appName_，然後按 Enter。
+ 
+1. 在函式應用程式中，展開 [函式 (唯讀)]  ，選擇您的函式，然後選取右上方的 [</> 取得函數 URL]  。 
+
+    ![從 Azure 入口網站複製函式 URL](./media/functions-create-java-maven/get-function-url-portal.png)
+
+1. 選擇 [預設值 (函式金鑰)]  ，然後選取 [複製]  。 
+
+您現在可以使用所複製的 URL 來存取您的函式。
+
+## <a name="verify-the-function-in-azure"></a>在 Azure 中驗證函式
+
+若要使用 `cURL` 驗證在 Azure 上執行的函式應用程式，請將下列範例中的 URL 取代為您從入口網站複製的 URL。
+
+```azurecli
+curl -w "\n" https://fabrikam-functions-20190929094703749.azurewebsites.net/api/HttpTrigger-Java?code=zYRohsTwBlZ68YF.... --data AzureFunctions
 ```
 
-將有經更新的輸出：
+這會在要求本文中使用 `AzureFunctions`，將 POST 要求傳送至函式端點。 您會看見下列回應。
 
 ```Output
-Hi, AzureFunctionsTest
+Hello AzureFunctions!
 ```
 
 ## <a name="next-steps"></a>後續步驟
 
-您已經建立一個包含簡單 HTTP 觸發程序的 Java 函式應用程式，並部署到 Azure Functions。
+您已使用 HTTP 觸發的函式建立 Java 函式專案，並在本機電腦上執行，然後部署到 Azure。 現在，請藉由下列作業擴充您的函式...
 
-- 檢閱 [Java 函式開發人員指南](functions-reference-java.md)以了解開發 Java 函式的詳細資訊。
-- 使用 `azure-functions:add`Maven 目標，將具有不同觸發程序的其他函式新增至您的專案。
-- 使用 [Visual Studio Code](https://code.visualstudio.com/docs/java/java-azurefunctions) (英文)、[IntelliJ](functions-create-maven-intellij.md) 和 [Eclipse](functions-create-maven-eclipse.md)，在本機撰寫函式並進行偵錯。 
-- 使用 Visual Studio Code 對部署在 Azure 中的函式進行偵錯。 請參閱 Visual Studio Code [無伺服器 Java 應用程式](https://code.visualstudio.com/docs/java/java-serverless#_remote-debug-functions-running-in-the-cloud) (英文) 文件中的指示。
+> [!div class="nextstepaction"]
+> [新增 Azure 儲存體佇列輸出繫結](functions-add-output-binding-storage-queue-java.md)
 
-> [!NOTE] 
-> 您也可以改為使用 azure-functions-kotlin-archetype 來建立以 Kotlin 為基礎的 Azure Functions 專案。 如需詳細資訊，請瀏覽 [GitHub 存放庫](https://github.com/microsoft/azure-maven-archetypes/tree/develop/azure-functions-kotlin-archetype)。
+
+[Azure CLI]: /cli/azure
+[Azure 入口網站]: https://portal.azure.com

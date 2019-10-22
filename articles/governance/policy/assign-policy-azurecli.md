@@ -1,17 +1,17 @@
 ---
-title: 使用 Azure CLI 為不相容的資源建立原則
+title: 建立原則以使用 Azure CLI 來稽核資源
 description: 使用 Azure CLI 建立 Azure 原則指派，以識別不相容資源。
 author: DCtheGeek
 ms.author: dacoulte
 ms.date: 01/23/2019
 ms.topic: quickstart
 ms.service: azure-policy
-ms.openlocfilehash: 06b35bc9a0222247df5b4ab5c513df504cd45cac
-ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
+ms.openlocfilehash: a7e65e304039c266f92f8068b796323197058cc1
+ms.sourcegitcommit: 1c2659ab26619658799442a6e7604f3c66307a89
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/06/2019
-ms.locfileid: "71980865"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72255952"
 ---
 # <a name="quickstart-create-a-policy-assignment-to-identify-non-compliant-resources-with-azure-cli"></a>快速入門：建立原則指派，以便使用 Azure CLI 識別不相容資源
 

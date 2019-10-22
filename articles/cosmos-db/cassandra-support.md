@@ -8,12 +8,12 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-cassandra
 ms.topic: overview
 ms.date: 09/24/2018
-ms.openlocfilehash: a6fc9f1a5c32fc9ffa1e1e6ebe525b72030fe803
-ms.sourcegitcommit: 1289f956f897786090166982a8b66f708c9deea1
+ms.openlocfilehash: 66a972e66c35cdd5b8dedceefbe3dbd008380da9
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "67155665"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72327148"
 ---
 # <a name="apache-cassandra-features-supported-by-azure-cosmos-db-cassandra-api"></a>Azure Cosmos DB Cassandra API 支援的 Apache Cassandra 功能 
 
@@ -94,9 +94,9 @@ Azure Cosmos DB Cassandra API 支援下列 CQL 函式：
   
 
 
-## <a name="cassandra-query-language-limits"></a>Cassandra 查詢語言限制
+## <a name="cassandra-api-limits"></a>Cassandra API 限制
 
-Azure Cosmos DB Cassandra API 在資料表中存放的資料大小沒限制。 可以儲存數百 TB 或 PB 的資料，同時確保遵守資料分割金鑰。 同樣地，每個實體或資料列對等項在資料行數目上沒有任何限制，不過，實體的總大小不應該超過 2 MB。
+Azure Cosmos DB Cassandra API 在資料表中存放的資料大小沒限制。 可以儲存數百 TB 或 PB 的資料，同時確保遵守資料分割金鑰。 同樣地，每個實體或資料列對等項在資料行數目上沒有任何限制，不過，實體的總大小不應該超過 2 MB。如同在其他所有 API 中，每個資料分割索引鍵的資料不能超過 10 GB。
 
 ## <a name="tools"></a>工具 
 
@@ -130,7 +130,7 @@ cqlsh <YOUR_ACCOUNT_NAME>.cassandra.cosmosdb.azure.com 10350 -u <YOUR_ACCOUNT_NA
 
 Azure Cosmos DB 支援在 Cassandra API 帳戶上使用下列資料庫命令。
 
-* CREATE KEYSPACE 
+* CREATE KEYSPACE (已忽略此命令的複寫設定)
 * CREATE TABLE 
 * ALTER TABLE 
 * USE 
@@ -140,7 +140,7 @@ Azure Cosmos DB 支援在 Cassandra API 帳戶上使用下列資料庫命令。
 * BATCH - 只支援未記錄的命令 
 * 刪除
 
-透過 CQLV4 相容 SDK 執行的所有 crud 作業將會傳回有關錯誤、已耗用的要求單位、活動識別碼等額外資訊。 刪除及更新命令必須以考慮中的資源管控機制來處理，以避免過度使用佈建的資源。 
+透過 CQLV4 相容 SDK 執行的所有 crud 作業將會傳回有關錯誤、已取用的要求單位等額外資訊。 刪除及更新命令必須以考慮中的資源管控機制來處理，以避免適度使用佈建的輸送量。 
 * 請注意，所指定的 gc_grace_seconds 值必須是零。
 
 ```csharp
@@ -157,18 +157,32 @@ foreach (string key in insertResult.Info.IncomingPayload)
 
 ## <a name="consistency-mapping"></a>一致性對應 
 
-Azure Cosmos DB Cassandra API 提供讀取作業的一致性選擇。  一致性對應有詳細說明 [這裡[(https://docs.microsoft.com/azure/cosmos-db/consistency-levels-across-apis#cassandra-mapping) 。
+Azure Cosmos DB Cassandra API 提供讀取作業的一致性選擇。  一致性對應[在此](https://docs.microsoft.com/azure/cosmos-db/consistency-levels-across-apis#cassandra-mapping)有詳細說明。
 
 ## <a name="permission-and-role-management"></a>權限與角色管理
 
-Azure Cosmos DB 支援角色型存取控制 (RBAC) 來佈建、輪替金鑰、檢視計量及讀寫和唯讀密碼/金鑰，其可透過 [Azure 入口網站](https://portal.azure.com)取得。 Azure Cosmos DB 尚不支援 CRUD 活動的使用者與角色。 
+Azure Cosmos DB 支援角色型存取控制 (RBAC) 來佈建、輪替金鑰、檢視計量及讀寫和唯讀密碼/金鑰，其可透過 [Azure 入口網站](https://portal.azure.com)取得。 Azure Cosmos DB 不支援 CRUD 活動的角色。
 
-## <a name="planned-support"></a>計劃的支援 
-* 目前忽略了建立 keyspace 命令中的區域名稱 - 資料的散佈會實作在基礎 Cosmos DB 平台中，並且會透過帳戶的入口網站或 powershell 加以公開。 
+## <a name="keyspace-and-table-options"></a>Keyspace 和資料表選項
+
+目前已忽略 "Create Keyspace" 命令中區域名稱、類別、replication_factor 和資料中心的選項。 系統會使用基礎 Azure Cosmos DB 的[全域散發](https://docs.microsoft.com/en-us/azure/cosmos-db/global-dist-under-the-hood)複寫方法來新增區域。 如果您需要資料跨區域存在，您可以使用 PowerShell、CLI 或入口網站在帳戶層級加以啟用。若要深入了解，請參閱[如何新增區域](how-to-manage-database-account.md#addremove-regions-from-your-database-account)一文。 無法停用 Durable_writes，因為 Azure Cosmos DB 可確保每次寫入都是持久的。 在每個區域中，Azure Cosmos DB 會將資料複寫到由 4 個複本組成的複本集，而此複本集[設定](global-dist-under-the-hood.md)無法加以修改。
+ 
+建立資料表時會忽略所有的選項，但應設定為零的 gc_grace_seconds 除外。
+Keyspace 和資料表有一個名為 "cosmosdb_provisioned_throughput" 的額外選項，其最小值為 400 RU/秒。 Keyspace 輸送量可讓您跨多個資料表共用輸送量，而當所有資料表均未使用佈建的輸送量時就很有用。 Alter Table 命令可讓您變更跨區域佈建的輸送量。 
+
+```
+CREATE  KEYSPACE  sampleks WITH REPLICATION = {  'class' : 'SimpleStrategy'}   AND cosmosdb_provisioned_throughput=2000;  
+
+CREATE TABLE sampleks.t1(user_id int PRIMARY KEY, lastname text) WITH cosmosdb_provisioned_throughput=2000; 
+
+ALTER TABLE gks1.t1 WITH cosmosdb_provisioned_throughput=10000 ;
+
+```
 
 
+## <a name="usage-of-cassandra-retry-connection-policy"></a>使用 Cassandra 重試連線原則
 
-
+Azure Cosmos DB 是資源控管系統。 這表示您可以根據作業所取用的要求單位，在規定的秒數內執行特定數量的作業。 如果應用程式在規定的秒數內超過該限制，則要求會受到速率限制，並且會擲回例外狀況。 Azure Cosmos DB 中的 Cassandra API 會將這些例外狀況轉譯成 Cassandra 原生通訊協定上的多載錯誤。 為了確保您的應用程式可以在發生速率限制時攔截並重試要求，因而提供 [spark](https://mvnrepository.com/artifact/com.microsoft.azure.cosmosdb/azure-cosmos-cassandra-spark-helper) 和 [Java](https://github.com/Azure/azure-cosmos-cassandra-extensions) 擴充功能。 如果您使用其他 SDK 來存取 Azure Cosmos DB 中的 Cassandra API，請建立連線原則以在這些例外狀況重試。
 
 ## <a name="next-steps"></a>後續步驟
 

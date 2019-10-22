@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 9/11/2019
+ms.date: 10/12/2019
 ms.author: b-juche
-ms.openlocfilehash: d7bc07ddce605838cf7aa966c6c94b85dad6b58c
-ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
+ms.openlocfilehash: d3035572e629bc11207cc473b51e3edb4f6a5a13
+ms.sourcegitcommit: bd4198a3f2a028f0ce0a63e5f479242f6a98cc04
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71212210"
+ms.lasthandoff: 10/14/2019
+ms.locfileid: "72302815"
 ---
 # <a name="quickstart-set-up-azure-netapp-files-and-create-an-nfs-volume"></a>快速入門：設定 Azure NetApp Files 並建立 NFS 磁碟區 
 
@@ -242,7 +242,7 @@ ms.locfileid: "71212210"
        * 輸入 **myvnet1** 作為 Vnet 名稱。
        * 針對您的設定來指定位址空間，例如 10.7.0.0/16
        * 輸入 **myANFsubnet** 作為子網路名稱。
-       * 指定子網路位址範圍，例如 10.7.0.0/24。 請注意，您無法與其他資源共用專用子網路。
+       * 指定子網路位址範圍，例如 10.7.0.0/24。 您無法與其他資源共用專用子網路。
        * 針對子網路委派，請選取 [Microsoft.NetApp/磁碟區]  。
        * 按一下 [確定]  以建立 Vnet。
    5. 在子網路中，選取新建立的 Vnet (**myvnet1**) 作為委派子網路。
@@ -251,11 +251,16 @@ ms.locfileid: "71212210"
 
       ![建立虛擬網路視窗](../media/azure-netapp-files/azure-netapp-files-create-virtual-network-window.png)  
 
-4. 按一下 [通訊協定]  ，然後選取 **NFS** 作為磁碟區的通訊協定類型。   
+4. 按一下 [通訊協定]  ，然後完成下列動作： 
+    * 選取 [NFS]  作為磁碟區的通訊協定類型。  
+    * 輸入 **myfilepath1**，作為用來建立磁碟區匯出路徑的檔案路徑。  
+    * 選取磁碟區的 NFS 版本 (**NFSv3** 或 **NFSv4.1**)。  
+      請參閱有關 NFS 版本的[考量](azure-netapp-files-create-volumes.md#considerations)和[最佳做法](azure-netapp-files-create-volumes.md#best-practice)。 
+      
+> [!IMPORTANT] 
+> 需要列入允許清單，才能存取 NFSv4.1 功能。  若要要求列入允許清單，請將要求提交至 <anffeedback@microsoft.com>。 
 
-    輸入 **myfilepath1**，作為用來建立磁碟區匯出路徑的檔案路徑。 
-
-    ![為快速入門指定 NFS 通訊協定](../media/azure-netapp-files/azure-netapp-files-quickstart-protocol-nfs.png)
+  ![為快速入門指定 NFS 通訊協定](../media/azure-netapp-files/azure-netapp-files-quickstart-protocol-nfs.png)
 
 5. 按一下 [檢閱 + 建立]  。
 

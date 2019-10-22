@@ -1,5 +1,5 @@
 ---
-title: 無伺服器案例 - 使用 Azure 服務建立客戶深入解析儀表板 | Microsoft Docs
+title: 建立 customer insights 儀表板-Azure Logic Apps
 description: 使用 Azure Logic Apps 與 Azure Functions 來建置客戶儀表板，以管理客戶的意見反應、社交媒體資料和其他項目
 services: logic-apps
 ms.service: logic-apps
@@ -7,17 +7,16 @@ ms.suite: integration
 author: jeffhollan
 ms.author: jehollan
 ms.reviewer: estfan, LADocs
-ms.assetid: d565873c-6b1b-4057-9250-cf81a96180ae
 ms.topic: article
 ms.date: 03/15/2018
-ms.openlocfilehash: b8ba341252679a07e50f9b276f7f485b08a6acba
-ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
+ms.openlocfilehash: c9c5cf9c56f2e22faa973c983c6fd81733119daa
+ms.sourcegitcommit: d37991ce965b3ee3c4c7f685871f8bae5b56adfa
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70164871"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72680115"
 ---
-# <a name="create-streaming-customer-insights-dashboard-with-azure-logic-apps-and-azure-functions"></a>使用 Azure Logic Apps 與 Azure Functions 來建立串流的客戶深入解析儀表板
+# <a name="create-a-streaming-customer-insights-dashboard-with-azure-logic-apps-and-azure-functions"></a>使用 Azure Logic Apps 與 Azure Functions 來建立串流的客戶深入解析儀表板
 
 Azure 提供的[無伺服器](https://azure.microsoft.com/solutions/serverless/)工具，可協助您在雲端中快速建置及裝載應用程式，而不必考慮基礎結構。 在此教學課程中，您可以建立會對客戶的意見反應而觸發的儀表板、使用機器學習服務分析意見反應，並將深入解析發佈至來源，例如 Power BI 或 Azure Data Lake。
 
@@ -34,7 +33,7 @@ Azure Logic Apps 在雲端中提供無伺服器工作流程引擎，讓您可以
 
    如果您還不熟悉邏輯應用程式，請檢閱 [Azure 入口網站快速入門](../logic-apps/quickstart-create-first-logic-app-workflow.md)或 [Visual Studio 快速入門](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md)。
 
-2. 在邏輯應用程式設計工具中，尋找並新增具有以下動作的 Twitter 觸發程序：**當有新推文張貼時**
+2. 在邏輯應用程式設計工具中，尋找並新增具有以下動作的 Twitter 觸發程序：**有新推文張貼時**
 
 3. 設定觸發程序以根據關鍵字或主題標籤來接聽推文。
 
@@ -60,10 +59,10 @@ Azure Logic Apps 在雲端中提供無伺服器工作流程引擎，讓您可以
 
 取得推文資料與推文的深入解析之後，您現在可以使用其他數個相關的連接器以及其動作：
 
-* **Power BI - 將資料列新增至串流資料集**：檢視 Power BI 儀表板上的傳入推文。
-* **Azure Data Lake - 附加檔案**：將客戶資料新增至要納入分析作業的 Azure Data Lake 資料集。
-* **SQL - 新增資料列**:將資料儲存在資料庫中，以供日後擷取。
-* **Slack - 傳送訊息**：通知 Slack 通道有關可能需要有所行動的負面意見反應。
+* **Power BI - 將資料列新增至串流資料集**︰在 Power BI 儀表板上檢視傳入的推文。
+* **Azure Data Lake - 附加檔案**︰將客戶資料新增至要納入分析作業的 Azure Data Lake 資料集。
+* **SQL - 新增資料列**︰將資料儲存在資料庫中，以供日後擷取。
+* **Slack - 傳送訊息**︰通知 Slack 通道有關可能需要有所行動的負面意見反應。
 
 您也可以建立 Azure 函式，以便對資料執行自訂處理。 
 

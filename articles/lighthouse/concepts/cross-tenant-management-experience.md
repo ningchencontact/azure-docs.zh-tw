@@ -1,18 +1,18 @@
 ---
-title: 搭配 Azure Lighthouse 的跨租用戶管理體驗
+title: 跨租用戶管理體驗
 description: Azure 委派的資源管理能提供跨租用戶管理體驗。
 author: JnHs
 ms.service: lighthouse
 ms.author: jenhayes
-ms.date: 09/25/2019
+ms.date: 10/11/2019
 ms.topic: overview
 manager: carmonm
-ms.openlocfilehash: 17a32d50e2e0330218ff51b849cb4f3aeadb3d13
-ms.sourcegitcommit: 0486aba120c284157dfebbdaf6e23e038c8a5a15
+ms.openlocfilehash: 0c6fed9cd83f18df0fe0a77d57a76c60cd570c21
+ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71309658"
+ms.lasthandoff: 10/13/2019
+ms.locfileid: "72300996"
 ---
 # <a name="cross-tenant-management-experiences"></a>跨租用戶管理體驗
 
@@ -58,6 +58,7 @@ Azure 委派的資源管理能為管理多個客戶的資源提供更具彈性�
 - 在 Azure 入口網站中或透過 REST API 呼叫以程式設計方式來檢視委派之訂用帳戶的警示，同時能夠檢視所有訂用帳戶上的警示
 - 檢視委派之訂用帳戶的活動記錄詳細資料
 - 記錄分析：來自多個租用戶中的遠端客戶工作區的查詢資料
+- 在客戶租用戶中建立警示，以透過 Webhook 在服務提供者租用戶中觸發自動化 (例如 Azure 自動化 Runbook 或 Azure Functions)
 
 [Azure 原則](https://docs.microsoft.com/azure/governance/policy/) \(部分機器翻譯\)：
 
@@ -65,7 +66,7 @@ Azure 委派的資源管理能為管理多個客戶的資源提供更具彈性�
 - 在委派的訂用帳戶內建立及編輯原則定義
 - 在委派的訂用帳戶內指派客戶所定義的原則定義
 - 客戶會看到由服務提供者所撰寫的原則，以及他們自己撰寫的所有原則
-- 如果客戶已針對該原則指派設定受控識別與 *roleDefinitionIds*，則可以針對客戶租用戶內的 deployIfNotExists 指派進行補救
+- 可以[補救 deployIfNotExists 或修改客戶租用戶內的指派](../how-to/deploy-policy-remediation.md)
 
 [Azure Resource Graph](https://docs.microsoft.com/azure/governance/resource-graph/) \(部分機器翻譯\)：
 

@@ -7,12 +7,12 @@ ms.service: billing
 ms.topic: conceptual
 ms.date: 08/29/2019
 ms.author: banders
-ms.openlocfilehash: bb90a9dec161746356b8c13df448718c53626684
-ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
+ms.openlocfilehash: b2c3fd9b59b371330e37dceb52b2e89b3db6c48e
+ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70806354"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72390151"
 ---
 # <a name="what-are-azure-reservations"></a>什麼是 Azure 保留項目？
 
@@ -40,11 +40,11 @@ Azure Reservations 可協助您透過承諾一年或三年的虛擬機器、SQL 
 
 ## <a name="whos-eligible-to-purchase-a-reservation"></a>誰有資格購買保留？
 
-若要購買方案，您必須具備 Enterprise (MS-AZR-0017P 或 MS-AZR-0148P) 或隨用隨付訂用帳戶 (MS-AZR-0003P 或 MS-AZR-0023P) 的訂用帳戶擁有者角色。 雲端解決方案提供者可使用 Azure 入口網站或 [合作夥伴中心](/partner-center/azure-reservations) 來購買 Azure 保留。
+若要購買方案，您必須具備 Enterprise (MS-AZR-0017P 或 MS-AZR-0148P) 或隨用隨付訂用帳戶 (MS-AZR-0003P 或 MS-AZR-0023P) 或 Microsoft 客戶合約訂用帳戶的訂用帳戶擁有者角色。 雲端解決方案提供者可使用 Azure 入口網站或 [合作夥伴中心](/partner-center/azure-reservations) 來購買 Azure 保留。
 
 Enterprise 合約 (EA) 客戶可藉由在 EA 入口網站中停用 [新增保留執行個體]  選項，以限制對 EA 管理員的購買。 EA 管理員必須是至少一個 EA 訂用帳戶的訂用帳戶擁有者，才能購買保留。 當企業想要讓中央小組購買不同成本中心的保留時，此選項非常有用。 購買之後，中央小組可以將成本中心擁有者新增至保留。 然後，擁有者可以將保留範圍設定為其訂用帳戶。 中央小組不需要擁有購買保留之處的訂用帳戶擁有者存取權。
 
-保留折扣僅適用於與透過 Enterprise、雲端解決方案提供者 (CSP) 購買的訂用帳戶相關聯的資源，以及採用隨用隨付費率的個別方案。
+保留折扣僅適用於與透過 Enterprise、雲端解決方案提供者 (CSP)、Microsoft 客戶合約購買的訂用帳戶相關聯的資源，以及採用隨用隨付費率的個別方案。
 
 ## <a name="scope-reservations"></a>設定保留範圍
 
@@ -56,7 +56,7 @@ Enterprise 合約 (EA) 客戶可藉由在 EA 入口網站中停用 [新增保留
 
 - **單一資源群組範圍** — 只會將保留折扣套用至所選資源群組中的相符資源。
 - **單一訂用帳戶範圍** — 會將保留折扣套用至所選訂用帳戶中的相符資源。
-- **共用範圍** — 會將保留折扣套用至計費內容中合格訂用帳戶的相符資源。 針對 Enterprise 合約客戶，計費內容為註冊。 針對使用隨用隨付費率的個別訂用帳戶，計費範圍是帳戶管理員所建立的所有合格訂用帳戶。
+- **共用範圍** — 會將保留折扣套用至計費內容中合格訂用帳戶的相符資源。 針對 Enterprise 合約客戶，計費內容為註冊。 針對 Microsoft 客戶合約客戶，計費範圍是帳單設定檔。 針對使用隨用隨付費率的個別訂用帳戶，計費範圍是帳戶管理員所建立的所有合格訂用帳戶。
 
 在您的使用量上套用保留折扣時，Azure 會依照下列順序處理保留：
 
@@ -84,7 +84,7 @@ Enterprise 合約 (EA) 客戶可藉由在 EA 入口網站中停用 [新增保留
 
 您可使用多種方式來監視保留使用量 – 透過 Azure 入口網站、透過 API，或透過使用量資料。 若要查看您有權存取的所有保留，請移至 Azure 入口網站中的 [保留]  。 [保留] 方格會顯示保留的最後記錄使用率百分比。 按一下保留可查看保留的長期使用率。
 
-如果您是 Enterprise 合約客戶，您也可使用 [API](billing-reservation-apis.md#see-reservation-usage) 以及從[使用量資料](billing-understand-reserved-instance-usage-ea.md#common-cost-and-usage-tasks)來取得保留使用率。
+如果您是 Enterprise 合約客戶或 Microsoft 客戶合約客戶，您也可使用 [API](billing-reservation-apis.md#see-reservation-usage) 以及從[使用量資料](billing-understand-reserved-instance-usage-ea.md#common-cost-and-usage-tasks)來取得保留使用率。
 
 如果您注意到資源群組範圍的保留使用率很低，則可將保留範圍更新為單一訂用帳戶，或在計費內容中共用。 您也可以分割保留，並將產生的保留套用至不同的資源群組。
 
@@ -99,6 +99,7 @@ Enterprise 合約 (EA) 客戶可藉由在 EA 入口網站中停用 [新增保留
 保留折扣適用於下列合格訂用帳戶和供應項目類型。
 
 - Enterprise 合約 (供應項目號碼：MS-AZR-0017P 或 MS-AZR-0148 P)
+- Microsoft 客戶合約訂用帳戶。
 - 以隨用隨付費率計費的個別方案 (供應項目號碼：MS-AZR-0003P 或 MS-AZR-0023P)
 - CSP 訂用帳戶
 
@@ -106,7 +107,7 @@ Enterprise 合約 (EA) 客戶可藉由在 EA 入口網站中停用 [新增保留
 
 ## <a name="how-is-a-reservation-billed"></a>保留的計費方式為何？
 
-保留會計費至與訂用帳戶繫結的付款方式。 如果您有 Enterprise 訂用帳戶，保留成本是從您的預付餘額扣除。 當您的預付餘額未涵蓋保留的成本時，您會支付超額部分。 如果您有來自個別方案的訂用帳戶採用隨用隨付費率，您的帳戶所擁有的信用卡會立即被收取預付費用。 每月付款會出現在您的發票上，且您的信用卡會每月扣款。 當您透過發票計費時，您會在下一張發票上看到費用。
+保留會計費至與訂用帳戶繫結的付款方式。 保留成本是從您的預付餘額扣除 (如果有的話)。 當您的預付餘額未涵蓋保留的成本時，您會支付超額部分。 如果您有來自個別方案的訂用帳戶採用隨用隨付費率，您的帳戶所擁有的信用卡會立即被收取預付費用。 每月付款會出現在您的發票上，且您的信用卡會每月扣款。 當您透過發票計費時，您會在下一張發票上看到費用。
 
 ## <a name="how-reservation-discount-is-applied"></a>保留折扣的套用方式
 
@@ -120,7 +121,7 @@ Enterprise 合約 (EA) 客戶可藉由在 EA 入口網站中停用 [新增保留
 
 如果虛擬機器是在註冊/帳戶內的不同訂用帳戶中執行，則選取共用的範圍。 共用的範圍可讓保留折扣套用到整個訂用帳戶。 您可以在購買保留之後變更範圍。 如需詳細資訊，請參閱[管理 Azure 保留](billing-manage-reserved-vm-instance.md)。
 
-保留折扣僅適用於與 Enterprise、CSP 或採用隨用隨付費率的訂用帳戶相關聯的資源。 在具有其他優惠類型的訂用帳戶中執行的資源，將無法收到保留折扣。
+保留折扣僅適用於與 Enterprise、Microsoft 客戶合約、CSP 或採用隨用隨付費率的訂用帳戶相關聯的資源。 在具有其他優惠類型的訂用帳戶中執行的資源，將無法收到保留折扣。
 
 ## <a name="when-the-reservation-term-expires"></a>當保留期限到期時
 

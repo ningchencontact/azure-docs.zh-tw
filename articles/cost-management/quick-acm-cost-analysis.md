@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 06/11/2019
+ms.date: 10/14/2019
 ms.topic: quickstart
 ms.service: cost-management
 manager: micflan
 ms.custom: seodec18
-ms.openlocfilehash: 2ca0c0741ea543b30695303d473389979f2e1045
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: f2e1d19f69b426cee870d2ede489b7c458404704
+ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68855057"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72374778"
 ---
 # <a name="quickstart-explore-and-analyze-costs-with-cost-analysis"></a>快速入門：使用成本分析探索及分析成本
 
@@ -34,16 +34,7 @@ ms.locfileid: "68855057"
 
 成本分析支援不同的 Azure 帳戶類型。 若要檢視所支援帳戶類型的完整清單，請參閱[了解成本管理資料](understand-cost-mgt-data.md)。 若要檢視成本資料，您至少需要 Azure 帳戶的讀取存取。
 
-針對 [Enterprise 合約 (EA)](https://azure.microsoft.com/pricing/enterprise-agreement/) 客戶，您必須至少具備一或多個下列範圍的讀取存取，才能檢視成本資料。
-
-- 計費帳戶
-- department
-- 註冊帳戶
-- 管理群組
-- Subscription
-- Resource group
-
-如需 Azure 成本管理資料的存取權指派詳細資訊，請參閱[指派資料的存取權](assign-access-acm-data.md) \(部分機器翻譯\)。
+如需 Azure 成本管理資料的存取權指派相關資訊，請參閱[指派資料的存取權](assign-access-acm-data.md)。
 
 ## <a name="sign-in-to-azure"></a>登入 Azure
 
@@ -116,7 +107,7 @@ ms.locfileid: "68855057"
 
 ![已分組的每日累積檢視，顯示上個月的 Azure 服務成本範例](./media/quick-acm-cost-analysis/grouped-daily-accum-view.png)
 
-根據預設，成本分析會顯示所有產生的使用量和購買成本，且這些資料也會顯示在您的發票上，而這也稱為**實際成本**。 檢視實際成本適合用來進行發票對帳。 不過，如果您留意費用異常之處和其他成本變化，購買成本激增可能會讓您感到擔憂。 若要讓因為購買保留容量而造成成本激增的情形消失，請切換為 [分攤成本]  。 
+根據預設，成本分析會顯示所有產生的使用量和購買成本，且這些資料也會顯示在您的發票上，而這也稱為**實際成本**。 檢視實際成本適合用來進行發票對帳。 不過，如果您留意費用異常之處和其他成本變化，購買成本激增可能會讓您感到擔憂。 若要讓因為購買保留容量而造成成本激增的情形消失，請切換為 [分攤成本]  。
 
 ![在實際成本和分攤成本之間切換，以查看將購買的保留容量分散到整個期間並配置給使用該保留容量的資源會有什麼情況](./media/quick-acm-cost-analysis/metric-picker.png)
 
@@ -153,11 +144,11 @@ ms.locfileid: "68855057"
 | **部門** / **發票區段** | 依 EA 部門或 MCA 發票區段細分成本。 此選項僅適用於 EA/MCA 計費帳戶與 MCA 帳單設定檔。 |
 | **註冊帳戶** | 依照 EA 帳戶擁有者細分成本。 此選項僅適用於 EA 計費帳戶與部門。 |
 | **頻率** | 細分以使用量為基礎、一次性和週期性的成本。 |
-| **計量** | 依 Azure 使用量計量細分成本。 此選項僅適用於 Azure 使用量。 所有購買項目與 Marketplace 使用量都會顯示為「未指定」  或「未指派」  。 |
+| **計量** | 依 Azure 使用量計量細分成本。 此選項僅適用於 Azure 使用量。 所有購買項目和 Marketplace 使用量都會顯示為「未指定」  或「未指派」  。 |
 | **發行者類型** | 細分 AWS、Azure 和 Marketplace 成本。 |
 | **保留容量** | 依保留容量細分成本。 未包含保留容量的任何使用量都會顯示為「未指定」  。 |
 | **Resource** | 依資源細分成本。 所有購買項目都會顯示為「未指定」  ，因為其套用在 EA/PAYG 計費帳戶或 MCA 帳單設定檔層級。  |
-| **資源群組** | 依資源群組細分成本。 此選項僅適用於非傳統使用量。 傳統資源使用量會顯示為「其他」  ，購買項目則會顯示為「未指定」  。 |
+| **資源群組** | 依資源群組細分成本。 此選項僅適用於非傳統使用量。 傳統的資源使用量會顯示為「其他」  ，購買項目則會顯示為「未指定」  。 |
 | **資源類型** | 依資源類型細分成本。 此選項僅適用於非傳統使用量。 傳統資源使用量會顯示為「其他」  ，購買項目則會顯示為「未指定」  。 |
 | **服務名稱**或**計量類別** | 依 Azure 服務細分成本。 此選項僅適用於 Azure 使用量。 所有購買項目與 Marketplace 使用量都會顯示為「未指定」  或「未指派」  。 |
 | **服務層**或**計量子類別** | 依 Azure 使用量計量子類別細分成本。 此選項僅適用於 Azure 使用量。 所有購買項目與 Marketplace 使用量都會顯示為「未指定」  或「未指派」  。 |
@@ -169,11 +160,11 @@ ms.locfileid: "68855057"
 
 ## <a name="saving-and-sharing-customized-views"></a>儲存和共用自訂檢視
 
-若要儲存自訂檢視並與其他人共用，請將成本分析釘選到 Azure 入口網站儀表板，或是複製成本分析的連結。 
+若要儲存自訂檢視並與其他人共用，請將成本分析釘選到 Azure 入口網站儀表板，或是複製成本分析的連結。
 
 若要釘選成本分析，選取右上角的釘選圖示。 釘選成本分析只會儲存主要的圖表或資料表檢視。 請共用儀表板來讓其他人可以存取圖格。 請注意，這只會共用儀表板設定，而不會授與其他人存取基礎資料的權限。 如果您沒有成本存取權，但可以存取共用儀表板，您將會看到「存取遭拒」訊息。
 
-若要共用成本分析的連結，請選取刀鋒視窗頂端的 [共用]  。 此時會顯示自訂 URL，它可以開啟此特定範圍的此特定檢視。 如果您沒有成本存取權並取得此 URL，您會看到「存取遭拒」訊息。 
+若要共用成本分析的連結，請選取刀鋒視窗頂端的 [共用]  。 此時會顯示自訂 URL，它可以開啟此特定範圍的此特定檢視。 如果您沒有成本存取權並取得此 URL，您會看到「存取遭拒」訊息。
 
 若要深入了解如何為每個支援範圍授與其成本的存取權，請檢閱[了解和使用範圍](understand-work-scopes.md)。
 
@@ -183,14 +174,14 @@ ms.locfileid: "68855057"
 
 如果您需要完整的未彙總資料集，請從計費帳戶下載。 然後，從入口網站左側瀏覽窗格的服務清單中，移至 [成本管理 + 計費]  。 選取您的計費帳戶 (如果適用)。 移至 [使用方式 + 費用]  ，然後選取所需計費週期的 [下載]  圖示。
 
-採取類似的方法來自動化成本資料接收作業。 使用[查詢 API](/rest/api/cost-management/query) 以便獲得更豐富的動態篩選、群組和彙總等分析功能，或使用 [UsageDetails API](/rest/api/consumption/usageDetails) 來獲得完整的未彙總資料集。 這些 API 的公開推出 (GA) 版本是 2019-01-01。 若要能夠在這些 API 內存取預覽版的保留容量和 Marketplace 購買項目，請使用 **2019-04-01-preview**。 
+採取類似的方法來自動化成本資料接收作業。 使用[查詢 API](/rest/api/cost-management/query) 以便獲得更豐富的動態篩選、群組和彙總等分析功能，或使用 [UsageDetails API](/rest/api/consumption/usageDetails) 來獲得完整的未彙總資料集。 這些 API 的公開推出 (GA) 版本是 2019-01-01。 若要能夠在這些 API 內存取預覽版的保留容量和 Marketplace 購買項目，請使用 **2019-04-01-preview**。
 
 例如，下列是依費用類型 (使用量、購買項目或退款)、發行者類型 (Azure 或 Marketplace)、資源群組 (若為購買項目則空白) 與保留容量 (如果不適用則會空白) 細分攤銷成本的彙總檢視。
 
 ```
 POST https://management.azure.com/{scope}/providers/Microsoft.CostManagement/query?api-version=2019-04-01-preview
 Content-Type: application/json
- 
+
 {
   "type": "AmortizedCost",
   "timeframe": "Custom",
@@ -221,7 +212,7 @@ GET https://management.azure.com/{scope}/providers/Microsoft.Consumption/usageDe
 ```
 
 如果您需要實際成本功能顯示所產生的購買項目，請將 [類型/計量]   變更為 [ActualCost]  。 如需這些 API 的詳細資訊，請參閱[查詢](/rest/api/cost-management/query)和 [UsageDetails](/rest/api/consumption/usageDetails) API 文件。 請注意，所發佈的文件適用於公開推出版本。 不過，這兩份文件的內容對於 *2019-04-01-preview* API 版本來說都一樣，只有新類型/計量屬性和已變更的屬性名稱會有不同。 (如需詳細資訊，請參閱下方更多關於屬性名稱的說明。)
- 
+
 成本管理 API 適用於所有資源範圍：資源群組、訂用帳戶與管理群組；EA 計費帳戶 (註冊)；部門；以及透過 EA 入口網站存取的註冊帳戶等等。 請在[了解並使用範圍](understand-work-scopes.md)中深入了解範圍，包括如何判斷範圍識別碼或管理存取權。
 
 ## <a name="next-steps"></a>後續步驟

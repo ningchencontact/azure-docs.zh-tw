@@ -9,12 +9,12 @@ ms.service: spring-cloud
 ms.topic: quickstart
 ms.date: 10/07/2019
 ms.author: v-vasuke
-ms.openlocfilehash: 09970468a277dcaf3f28b4f5065572568089a12e
-ms.sourcegitcommit: d773b5743cb54b8cbcfa5c5e4d21d5b45a58b081
+ms.openlocfilehash: d4edc634ad41042642b1d73f28ec61cb6dc15ac4
+ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72038487"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72433312"
 ---
 # <a name="frequently-asked-questions"></a>常見問題集
 
@@ -30,7 +30,7 @@ Azure Spring Cloud 可藉由整合 Azure 監視器、Application Insights 和 Lo
 
 ### <a name="what-service-plans-does-azure-spring-cloud-offer"></a>Azure Spring Cloud 提供哪些服務方案？
 
-Azure Spring Cloud 在預覽期間是免費的。
+Azure Spring Cloud 會在預覽期間提供一個服務方案。
 
 資源 | Amount
 ------- | -------

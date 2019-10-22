@@ -7,12 +7,12 @@ ms.date: 08/12/2019
 ms.topic: quickstart
 ms.service: app-service
 ms.devlang: javascript
-ms.openlocfilehash: b28e8e4dccf75d36b318e838e35de23d176c5c23
-ms.sourcegitcommit: 83df2aed7cafb493b36d93b1699d24f36c1daa45
+ms.openlocfilehash: 32e141cae98e3fe34c8207f1565a82d2d76bdd25
+ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/22/2019
-ms.locfileid: "71176711"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72439199"
 ---
 # <a name="create-a-nodejs-app-in-azure"></a>在 Azure 中建立 Node.js 應用程式
 
@@ -28,7 +28,7 @@ Azure App Service 提供可高度擴充、自我修復的 Web 裝載服務。 �
 
 ### <a name="sign-in"></a>登入
 
-安裝擴充功能之後，請登入您的 Azure 帳戶。 在活動列中，按一下 Azure 標誌以顯示 [AZURE APP SERVICE]  總管畫面。 按一下 [登入 Azure...]  並遵循指示進行。
+安裝擴充功能之後，請登入您的 Azure 帳戶。 在活動列中，選取 Azure 標誌以顯示 [AZURE APP SERVICE]  總管。 選取 [登入 Azure...]  並遵循指示進行。
 
 ![登入 Azure](./media/quickstart-nodejs/sign-in.png)
 
@@ -41,7 +41,7 @@ export HTTPS_PROXY=https://username:password@proxy:8080
 export HTTP_PROXY=http://username:password@proxy:8080
 ```
 
-如果設定環境變數無法更正問題，請按一下下方的 [我遇到問題]  按鈕來聯繫我們。
+如果設定環境變數無法更正問題，請選取下方的 [我遇到問題]  按鈕來聯繫我們。
 
 ### <a name="prerequisite-check"></a>先決條件檢查
 
@@ -57,24 +57,14 @@ export HTTP_PROXY=http://username:password@proxy:8080
 接下來，建立可部署至雲端的 Node.js 應用程式。 本快速入門會使用應用程式產生器，以 Scaffold 方式快速地從終端機產生應用程式。
 
 > [!TIP]
-> 如果您已完成 [ode.js 教學課程](https://code.visualstudio.com/docs/nodejs/nodejs-tutorial)，您可以直接跳到[部署網站](#deploy-the-website)。
+> 如果您已完成 [ode.js 教學課程](https://code.visualstudio.com/docs/nodejs/nodejs-tutorial)，您可以直接跳到[部署至 Azure](#deploy-to-azure)。
 
-### <a name="install-the-express-generator"></a>安裝 Express 產生器
+### <a name="scaffold-a-new-application-with-the-express-generator"></a>使用 Express 產生器以 Scaffold 方式產生新的應用程式
 
-[Express](https://www.expressjs.com) 是用來建立和執行 Node.js 應用程式的熱門架構。 您可以透過 [Express 產生器](https://expressjs.com/en/starter/generator.html)工具，以 Scaffold 方式產生 (建立) 新的 Express 應用程式。 Express 產生器會以 npm 模組的形式提供，並使用 npm 命令列工具 `npm` 進行安裝。
-
-```bash
-npm install -g express-generator
-```
-
-`-g` 參數會在您的機器上安裝全域可用的 Express 產生器，讓您可以從任何地方加以執行。
-
-### <a name="scaffold-a-new-application"></a>以 Scaffold 方式產生新的應用程式
-
-接下來，藉由執行下列動作，以 Scaffold 方式產生稱為 `myExpressApp` 的新 Express 應用程式：
+[Express](https://www.expressjs.com) 是用來建立和執行 Node.js 應用程式的熱門架構。 您可以透過 [Express 產生器](https://expressjs.com/en/starter/generator.html)工具，以 Scaffold 方式產生 (建立) 新的 Express 應用程式。 Express 產生器會以 npm 模組的形式提供，並可使用 npm 命令列工具 `npx` 直接執行 (不需安裝)。
 
 ```bash
-express myExpressApp --view pug --git
+npx express-generator myExpressApp --view pug --git
 ```
 
 `--view pug --git` 參數會指示產生器使用 [pug](https://pugjs.org/api/getting-started.html) 範本引擎 (先前稱為 `jade`)，並建立 `.gitignore` 檔案。
@@ -101,9 +91,9 @@ npm start
 > [!div class="nextstepaction"]
 > [我遇到問題](https://www.research.net/r/PWZWZ52?tutorial=node-deployment-azure-app-service&step=create-app)
 
-## <a name="deploy-the-website"></a>部署網站
+## <a name="deploy-to-azure"></a>部署至 Azure
 
-在本節中，您會使用 VS Code 和 Azure App Service 擴充功能來部署 Node.js 網站。 本快速入門會使用最基本的部署模型，也就是您的應用程式會壓縮並部署至 Linux 上的 Azure Web 應用程式。
+在本節中，您會使用 VS Code 和 Azure App Service 擴充功能來部署 Node.js 應用程式。 本快速入門會使用最基本的部署模型，也就是您的應用程式會壓縮並部署至 Linux 上的 Azure Web 應用程式。
 
 ### <a name="deploy-using-azure-app-service"></a>使用 Azure App Service 部署
 
@@ -113,7 +103,7 @@ npm start
 code .
 ```
 
-在 [AZURE APP SERVICE]  總管畫面中按一下藍色的向上箭頭圖示，即可將您的應用程式部署至 AZURE。
+在 [AZURE APP SERVICE]  總管中，選取藍色的向上箭頭圖示，即可將您的應用程式部署至 Azure。
 
 ![部署到 Web 應用程式](./media/quickstart-nodejs/deploy.png)
 
@@ -122,43 +112,43 @@ code .
 
 1. 選擇您目前已開啟的 `myExpressApp` 目錄。
 
-2. 選擇 [建立新的 Web 應用程式]  。
+1. 選擇 [建立新的 Web 應用程式]  ，其預設會部署至 Linux 上的 App Service。
 
-3. 輸入 Web 應用程式的全域唯一名稱，然後按 ENTER。 應用程式名稱的有效字元為 'a-z'、'0-9' 和 '-'。
+1. 輸入 Web 應用程式的全域唯一名稱，然後按 ENTER。 應用程式名稱的有效字元為 'a-z'、'0-9' 和 '-'。
 
-4. 選擇您的 **Node.js 版本** (建議使用 LTS)。
+1. 選擇您的 **Node.js 版本** (建議使用 LTS)。
 
     通知通道會顯示要為應用程式建立的 Azure 資源。
 
-出現要您更新設定的提示時，請按一下 [是]  ，如此才能在目標伺服器上執行 `npm install`。 接著會開始部署您的應用程式。
+1. 出現要您更新設定的提示時，請選取 [是]  ，如此才能在目標伺服器上執行 `npm install`。 接著會開始部署您的應用程式。
 
-![已設定的部署](./media/quickstart-nodejs/server-build.png)
+    ![已設定的部署](./media/quickstart-nodejs/server-build.png)
 
-當部署開始時，系統會提示您更新工作區，好讓之後的部署能自動鎖定相同的 App Service Web 應用程式。 請選擇 [是]  以確保您的變更會部署到正確的應用程式。
+1. 當部署開始時，系統會提示您更新工作區，好讓之後的部署能自動鎖定相同的 App Service Web 應用程式。 請選擇 [是]  以確保您的變更會部署到正確的應用程式。
 
-![已設定的部署](./media/quickstart-nodejs/save-configuration.png)
+    ![已設定的部署](./media/quickstart-nodejs/save-configuration.png)
 
 > [!TIP]
 > 請確定您的應用程式正在 PORT 環境變數所提供的連接埠：`process.env.PORT` 上進行接聽。
 
-### <a name="browse-the-website"></a>瀏覽網站
+### <a name="browse-the-app-in-azure"></a>在 Azure 中瀏覽應用程式
 
-完成部署後，請按一下提示中的 [流覽網站]  ，以檢視您剛部署的網站。
+完成部署後，請選取提示中的 [流覽網站]  ，以檢視您剛部署的 Web 應用程式。
 
 ### <a name="troubleshooting"></a>疑難排解
 
-如果您看到 **「您無權檢視此目錄或頁面。」** 的誤，則應用程式可能無法正確啟動。 請前往下一節，藉由檢視記錄輸出來尋找並修正錯誤。 如果您無法修正該錯誤，請按一下下方的 [我遇到問題]  按鈕來聯繫我們。 為您服務是我們的榮幸！
+如果您看到 **「您無權檢視此目錄或頁面。」** 的誤，則應用程式可能無法正確啟動。 請前往下一節，藉由檢視記錄輸出來尋找並修正錯誤。 如果您無法修正該錯誤，請選取下方的 [我遇到問題]  按鈕來聯繫我們。 為您服務是我們的榮幸！
 
 > [!div class="nextstepaction"]
 > [我遇到問題](https://www.research.net/r/PWZWZ52?tutorial=node-deployment-azure-app-service&step=deploy-app)
 
-### <a name="updating-the-website"></a>更新網站
+### <a name="update-the-app"></a>更新應用程式
 
 若要部署此應用程式的變更，您可以使用相同程序並選擇現有的應用程式，而不是建立新的應用程式。
 
 ## <a name="viewing-logs"></a>檢視記錄
 
-在本節中，您將了解如何從執行中的網站檢視 (或使用 "tail" 取得) 記錄。 對網站中 `console.log`進行的任何呼叫都會顯示在 Visual Studio Code 的 [輸出] 視窗中。
+在本節中，您將了解如何從執行中的 App Service 應用程式檢視 (或使用 "tail" 取得) 記錄。 對應用程式中 `console.log` 進行的任何呼叫都會顯示在 Visual Studio Code 的 [輸出] 視窗中。
 
 請在 [AZURE APP SERVICE]  總管畫面中找到應用程式，並以滑鼠右鍵按一下應用程式，然後選擇 [檢視串流記錄]  。
 

@@ -8,12 +8,13 @@ ms.devlang: python
 ms.topic: quickstart
 ms.date: 04/10/2018
 ms.author: sngun
-ms.openlocfilehash: 358f55594037f4a468d31265f4e65a6ec4d7ef28
-ms.sourcegitcommit: 80dff35a6ded18fa15bba633bf5b768aa2284fa8
+ms.custom: seo-python-october2019
+ms.openlocfilehash: d4cfba26192eb097d06f82e18acb41c1f9640e66
+ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/26/2019
-ms.locfileid: "70020143"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72437348"
 ---
 # <a name="quickstart-build-a-table-api-app-with-python-and-azure-cosmos-db"></a>快速入門：使用 Python 與 Azure Cosmos DB 建置資料表 API 應用程式
 
@@ -84,7 +85,7 @@ Azure Cosmos DB 是 Microsoft 的全域分散式多模型資料庫服務。 您�
 
 1. 在 [Azure 入口網站](https://portal.azure.com/)中，選取 [連接字串]  。 
 
-    ![在 [連接字串] 窗格中檢視及複製「連接字串」。](./media/create-table-python/connection-string.png)
+    ![在 [連接字串] 設定中檢視及複製連接字串](./media/create-table-python/view-and-copy-connection-string-in-connection-string-settings.png)
 
 2. 使用右側的按鈕複製 ACCOUNT NAME。
 
@@ -94,7 +95,7 @@ Azure Cosmos DB 是 Microsoft 的全域分散式多模型資料庫服務。 您�
 
 5. 將 PRIMARY KEY 從入口網站貼到第 20 行上的 STORAGE_ACCOUNT_KEY 值中。
 
-3. 儲存 config.py 檔案。
+6. 儲存 config.py 檔案。
 
 ## <a name="run-the-app"></a>執行應用程式
 

@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.workload: na
 ms.date: 10/01/2019
 ms.author: banders
-ms.openlocfilehash: ba2a274397aa1941ef2be03ce97b0f0c9ce96a31
-ms.sourcegitcommit: d4c9821b31f5a12ab4cc60036fde00e7d8dc4421
+ms.openlocfilehash: 77dd8a5e54697a37a2039238ecdedb3e2a2fa326
+ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/01/2019
-ms.locfileid: "71709573"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72375469"
 ---
 # <a name="create-sections-on-your-invoice-to-organize-your-costs"></a>在您的發票上建立區段以彙整成本
 
@@ -55,5 +55,5 @@ ms.locfileid: "71709573"
 ## <a name="next-steps"></a>後續步驟
 
 - [為 Microsoft 客戶合約建立額外的 Azure 訂用帳戶](billing-mca-create-subscription.md)
-- [授與他人建立 Azure 訂用帳戶的權限](billing-mca-create-subscription.md#give-others-permission)
+- [在 Azure 入口網站中管理計費角色](billing-understand-mca-roles.md#manage-billing-roles-in-the-azure-portal)
 - [向其他計費帳戶中的使用者接管 Azure 訂用帳戶的帳單擁有權](billing-mca-request-billing-ownership.md)

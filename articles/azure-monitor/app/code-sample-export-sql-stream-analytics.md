@@ -1,26 +1,21 @@
 ---
 title: 從 Azure Application Insights 匯出至 SQL | Microsoft Docs
 description: 使用 Stream Analytics 持續將 Application Insights 資料匯出至 SQL。
-services: application-insights
-documentationcenter: ''
-author: mrbullwinkle
-manager: carmonm
-ms.assetid: 48903032-2c99-4987-9948-d6e4559b4a63
-ms.service: application-insights
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
+ms.service: azure-monitor
+ms.subservice: application-insights
 ms.topic: conceptual
-ms.date: 09/11/2017
+author: mrbullwinkle
 ms.author: mbullwin
-ms.openlocfilehash: eecd2a50607fa42562a9ae6a7fb950a253655a45
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 09/11/2017
+ms.openlocfilehash: 41efcbc7b70395302858638a9f44f3cbba27bf9a
+ms.sourcegitcommit: 1bd2207c69a0c45076848a094292735faa012d22
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65872713"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72678276"
 ---
 # <a name="walkthrough-export-to-sql-from-application-insights-using-stream-analytics"></a>逐步解說：使用串流分析從 Application Insights 匯出至 SQL
-本文將說明如何使用[連續匯出][export]和 [Azure 串流分析](https://azure.microsoft.com/services/stream-analytics/)，將您的遙測資料從 [Azure Application Insights][start] 移入Azure SQL 資料庫。 
+本文說明如何使用[連續匯出][export]和[azure 串流分析](https://azure.microsoft.com/services/stream-analytics/)，將您的遙測資料從[Azure 應用程式深入][start]解析移至 azure SQL 資料庫。 
 
 連續匯出會以 JSON 格式將遙測資料移入 Azure 儲存體。 我們將使用 Azure 串流分析來剖析 JSON 物件，並在資料庫資料表中建立資料列。
 
@@ -31,7 +26,7 @@ ms.locfileid: "65872713"
 在此範例中，我們使用頁面檢視資料，但相同的模式可以很輕易地延伸到其他資料類型，例如自訂事件和例外狀況。 
 
 ## <a name="add-application-insights-to-your-application"></a>將 Application Insights 加入應用程式中
-開始進行之前：
+若要開始進行：
 
 1. [為您的網頁設定 Application Insights](../../azure-monitor/app/javascript.md)。 
    
@@ -73,7 +68,7 @@ ms.locfileid: "65872713"
 1. 可讓一些資料累積。 請休息一下，讓其他人使用您的應用程式一段時間。 遙測資料會送過來，而您會在[計量瀏覽器](../../azure-monitor/app/metrics-explorer.md)中看到統計圖表，並在[診斷搜尋](../../azure-monitor/app/diagnostic-search.md)中看到個別事件。 
    
     此外，資料會匯出至您的儲存體。 
-2. 在入口網站 (選擇 [瀏覽]  、選取您的儲存體帳戶，然後選取 [容器]  ) 或 Visual Studio 中，檢查匯出的資料。 在 Visual Studio 中，依序選擇 [檢視] 和 [Cloud Explorer]  ，然後依序開啟 [Azure] 和 [儲存體]。 (如果您沒有此功能表選項，您需要安裝 Azure SDK：開啟 [新增專案] 對話方塊，然後開啟 [Visual C#] / [Cloud] / [取得 Microsoft Azure SDK for .NET]。)
+2. 在入口網站 (選擇 [瀏覽]、選取您的儲存體帳戶，然後選取 [容器]) 或 Visual Studio 中，檢查匯出的資料。 在 Visual Studio 中，依序選擇 [檢視] 和 [Cloud Explorer]，然後依序開啟 [Azure] 和 [儲存體]。 (如果您沒有此功能表選項，您需要安裝 Azure SDK：開啟 [新增專案] 對話方塊，然後開啟 [Visual C#] / [Cloud] / [取得 Microsoft Azure SDK for .NET]。)
    
     ![在 Visual Studio 中，依序開啟 [Server Browser]、[Azure]、[儲存體]](./media/code-sample-export-sql-stream-analytics/087-explorer.png)
    
@@ -82,7 +77,7 @@ ms.locfileid: "65872713"
 事件會以 JSON 格式寫入至 Blob 檔案。 每個檔案可能會包含一或多個事件。 因此我們想要讀取事件資料，並篩選出需要的欄位。 我們可以利用資料執行各種作業，但我們現在打算使用串流分析，將資料移至 SQL Database。 這麼做可讓您輕鬆執行許多有趣的查詢工作。
 
 ## <a name="create-an-azure-sql-database"></a>建立 Azure SQL Database
-同樣地，請從您在 [Azure 入口網站][portal]中的訂用帳戶開始，建立您將寫入資料的資料庫 (和一部新伺服器，除非您已經有新伺服器)。
+再次從[Azure 入口網站][portal]中的訂用帳戶開始，建立您將寫入資料的資料庫（和新的伺服器，除非您已經有一個）。
 
 ![[新增]、[資料]、[SQL]](./media/code-sample-export-sql-stream-analytics/090-sql.png)
 
@@ -146,7 +141,7 @@ CREATE CLUSTERED INDEX [pvTblIdx] ON [dbo].[PageViewsTable]
 
 ![](./media/code-sample-export-sql-stream-analytics/SA002.png)
 
-建立新的工作之後，選取 [前往資源]  。
+建立新的工作之後，選取 [前往資源]。
 
 ![串流分析設定](./media/code-sample-export-sql-stream-analytics/SA003.png)
 

@@ -10,18 +10,18 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 06/21/2019
 ms.author: wesmc
-ms.openlocfilehash: d125328d903b419aa81c54ffecf1f549d4cb4fe2
-ms.sourcegitcommit: 08138eab740c12bf68c787062b101a4333292075
+ms.openlocfilehash: d607608167e1287c7df35157ccb9870f40f22943
+ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/22/2019
-ms.locfileid: "67330794"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72516722"
 ---
 # <a name="quickstart-control-a-device-connected-to-an-iot-hub-android"></a>快速入門：控制連線到 IoT 中樞的裝置 (Android)
 
 [!INCLUDE [iot-hub-quickstarts-2-selector](../../includes/iot-hub-quickstarts-2-selector.md)]
 
-IoT 中樞是一項 Azure 服務，可讓您從 IoT 裝置將大量遙測擷取到雲端，並從雲端管理您的裝置。 在此快速入門中，您可以使用「直接方法」  來控制連線到 IoT 中樞的模擬裝置。 您可以使用直接方法，針對連線到 IoT 中樞的裝置，從遠端變更裝置的行為。
+IoT 中樞是一項 Azure 服務，可讓您從雲端管理您的 IoT 裝置，並將大量的裝置遙測內嵌到雲端進行儲存或處理。 在此快速入門中，您可以使用「直接方法」  來控制連線到 IoT 中樞的模擬裝置。 您可以使用直接方法，針對連線到 IoT 中樞的裝置，從遠端變更裝置的行為。
 
 快速入門會使用兩個預先撰寫的 Java 應用程式：
 
@@ -63,11 +63,11 @@ IoT 中樞是一項 Azure 服務，可讓您從 IoT 裝置將大量遙測擷取�
 
    **YourIoTHubName**：以您為 IoT 中樞選擇的名稱取代此預留位置。
 
-   **MyAndroidDevice**：這個值是為已註冊裝置指定的名稱。 請如範例所示使用 MyAndroidDevice。 如果您為裝置選擇不同的名稱，則也必須在本文中使用該名稱，並先在應用程式範例中更新該裝置名稱，再執行應用程式。
+   **MyAndroidDevice**：這是您要註冊之裝置的名稱。 建議您使用 **MyAndroidDevice**，如下所示。 如果您為裝置選擇不同的名稱，則也必須在本文中使用該名稱，並先在範例應用程式中更新該裝置名稱，再執行應用程式。
 
     ```azurecli-interactive
     az iot hub device-identity create \
-      --hub-name YourIoTHubName --device-id MyAndroidDevice
+      --hub-name {YourIoTHubName} --device-id MyAndroidDevice
     ```
 
 2. 在 Azure Cloud Shell 中執行下列命令，以針對您剛註冊的裝置取得_裝置連接字串_：
@@ -76,7 +76,7 @@ IoT 中樞是一項 Azure 服務，可讓您從 IoT 裝置將大量遙測擷取�
 
     ```azurecli-interactive
     az iot hub device-identity show-connection-string \
-      --hub-name YourIoTHubName \
+      --hub-name {YourIoTHubName} \
       --device-id MyAndroidDevice \
       --output table
     ```
@@ -94,14 +94,14 @@ IoT 中樞是一項 Azure 服務，可讓您從 IoT 裝置將大量遙測擷取�
 **YourIoTHubName**：以您為 IoT 中樞選擇的名稱取代此預留位置。
 
 ```azurecli-interactive
-az iot hub show-connection-string --name YourIoTHubName --policy-name service --output table
+az iot hub show-connection-string --policy-name service --name {YourIoTHubName} --output table
 ```
 
 記下服務連接字串，它看起來如下：
 
 `HostName={YourIoTHubName}.azure-devices.net;SharedAccessKeyName=service;SharedAccessKey={YourSharedAccessKey}`
 
-您稍後會在快速入門中使用此值。 服務連接字符串與裝置連接字串不同。
+您稍後會在快速入門中使用此值。 服務連接字符串與您在上一個步驟中記下的裝置連接字串不同。
 
 ## <a name="listen-for-direct-method-calls"></a>接聽直接方法呼叫
 
@@ -111,7 +111,7 @@ az iot hub show-connection-string --name YourIoTHubName --policy-name service --
 
         \azure-iot-samples-java\iot-hub\Samples\device\AndroidSample
 
-2. 在 Android Studio 中開啟專案範例的 gradle.properties  ，並以您先前記下的裝置連接字串取代 **Device_Connection_String** 預留位置。
+2. 在 Android Studio 中開啟專案範例的 *gradle.properties*，並以您稍早所記錄的裝置連接字串取代 **Device_Connection_String** 預留位置。
 
     ```
     DeviceConnectionString=HostName={YourIoTHubName}.azure-devices.net;DeviceId=MyAndroidDevice;SharedAccessKey={YourSharedAccessKey}
@@ -135,14 +135,14 @@ az iot hub show-connection-string --name YourIoTHubName --policy-name service --
 
 ## <a name="read-the-telemetry-from-your-hub"></a>從您的中樞讀取遙測
 
-在此節中，您將使用 Azure Cloud Shell 搭配 [IoT 擴充功能](https://docs.microsoft.com/cli/azure/ext/azure-cli-iot-ext/iot?view=azure-cli-latest)來監視由 Android 裝置傳送的裝置訊息。
+在此節中，您將使用 Azure Cloud Shell 搭配 [IoT 擴充功能](https://docs.microsoft.com/cli/azure/ext/azure-cli-iot-ext/iot?view=azure-cli-latest)來監視由 Android 裝置傳送的訊息。
 
 1. 使用 Azure Cloud Shell，執行下列命令以連線到您的 IoT 中樞並讀取訊息：
 
    **YourIoTHubName**：以您為 IoT 中樞選擇的名稱取代此預留位置。
 
     ```azurecli-interactive
-    az iot hub monitor-events --hub-name YourIoTHubName --output table
+    az iot hub monitor-events --hub-name {YourIoTHubName} --output table
     ```
 
     下列螢幕擷取畫面顯示 IoT 中樞從 Android 裝置接收所傳送遙測時的輸出：
@@ -157,13 +157,13 @@ az iot hub show-connection-string --name YourIoTHubName --policy-name service --
 
 在不同的實體 Android 裝置或 Android 模擬器上執行此應用程式。
 
-IoT 中樞後端服務應用程式通常會在雲端中執行，如此可較簡單地降低與機密連接字串相關的風險 (連接字串可控制 IoT 中樞上的所有裝置)。 在此範例中，我們會以 Android 應用程式的形式執行後端服務應用程式 (僅供示範用)。 本快速入門的其他語言版本會提供更符合後端服務應用程式的其他範例。
+IoT 中樞後端服務應用程式通常會在雲端中執行，如此可較簡單地降低與機密連接字串相關的風險 (連接字串可控制 IoT 中樞上的所有裝置)。 在此範例中，我們會以 Android 應用程式的形式執行後端服務應用程式 (僅供示範用)。 本快速入門的其他語言版本會提供更符合典型後端服務應用程式的範例。
 
 1. 在 Android Studio 中開啟 GitHub 的 Android 專案服務範例。 專案會位在 [azure-iot-sample-java](https://github.com/Azure-Samples/azure-iot-samples-java) 存放庫副本 (已複製或下載) 的下列目錄中。
 
         \azure-iot-samples-java\iot-hub\Samples\service\AndroidSample
 
-2. 在 Android Studio 中開啟專案範例的 gradle.properties  ，然後以您稍早記下的服務連接字串和您註冊的 Android 裝置識別碼來更新 **ConnectionString** 和 **DeviceId** 屬性值。
+2. 在 Android Studio 中，開啟範例專案的 gradle.properties  。 以您稍早記下的服務連接字串和您註冊的 Android 裝置識別碼來更新 **ConnectionString** 和 **DeviceId** 屬性值。
 
     ```
     ConnectionString=HostName={YourIoTHubName}.azure-devices.net;SharedAccessKeyName=service;SharedAccessKey={YourSharedAccessKey}

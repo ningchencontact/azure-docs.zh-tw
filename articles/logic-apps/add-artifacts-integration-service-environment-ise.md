@@ -1,6 +1,6 @@
 ---
-title: 將成品新增至 Azure Logic Apps 中的整合服務環境（Ise）
-description: 將邏輯應用程式、自訂連接器和整合帳戶新增至您的整合服務環境（ISE），以存取 Azure 虛擬網路（Vnet），同時維持私用並與公用或「全域」 Azure 隔離
+title: 將成品新增至整合服務環境-Azure Logic Apps
+description: 將邏輯應用程式、整合帳戶和自訂連接器新增至您的整合服務環境（ISE），以存取 Azure 虛擬網路（Vnet）
 services: logic-apps
 ms.service: logic-apps
 ms.suite: integration
@@ -9,12 +9,12 @@ ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: conceptual
 ms.date: 08/01/2019
-ms.openlocfilehash: 6327f0c14b46ceaadbf7adaa58a70c32b39b7c2a
-ms.sourcegitcommit: 4d177e6d273bba8af03a00e8bb9fe51a447196d0
+ms.openlocfilehash: 266c942adb62b187d39d2eac4a47455482bfadaa
+ms.sourcegitcommit: d37991ce965b3ee3c4c7f685871f8bae5b56adfa
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71960481"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72680518"
 ---
 # <a name="add-artifacts-to-your-integration-service-environment-ise-in-azure-logic-apps"></a>在 Azure Logic Apps 中將成品新增至您的整合服務環境（ISE）
 
@@ -22,7 +22,7 @@ ms.locfileid: "71960481"
 
 ## <a name="prerequisites"></a>必要條件
 
-* Azure 訂用帳戶。 如果您沒有 Azure 訂用帳戶，請先[註冊免費的 Azure 帳戶](https://azure.microsoft.com/free/)。
+* Azure 訂用帳戶。 如果您沒有 Azure 訂用帳戶，請先[註冊一個免費的 Azure 帳戶](https://azure.microsoft.com/free/)。
 
 * 您建立用來執行邏輯應用程式的 ISE。 如果您沒有 ISE，請[先建立 ise](../logic-apps/connect-virtual-network-vnet-isolated-environment.md)。
 
@@ -32,7 +32,7 @@ ms.locfileid: "71960481"
 
 若要建立在整合服務環境（ISE）中執行的邏輯應用程式，請遵循下列步驟：
 
-1. 尋找並開啟您的 ISE （如果尚未開啟）。 從 ISE 功能表的 [**設定**] 底下，選取 [**邏輯應用程式**] [ > ] [**新增**]。
+1. 尋找並開啟您的 ISE （如果尚未開啟）。 從 ISE 功能表的 **設定** 底下，選取 **邏輯應用程式**  > **新增**。
 
    ![將新的邏輯應用程式新增至 ISE](./media/add-artifacts-integration-service-environment-ise/add-logic-app-to-ise.png)
 

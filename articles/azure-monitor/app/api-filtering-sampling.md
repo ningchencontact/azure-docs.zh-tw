@@ -1,23 +1,18 @@
 ---
 title: 在 Application Insights SDK 中篩選及前置處理 | Microsoft Docs
 description: 撰寫 SDK 的遙測處理器和遙測初始設定式來篩選屬性或將屬性新增至資料，再將遙測傳送至 Application Insights 入口網站。
-services: application-insights
-documentationcenter: ''
-author: mrbullwinkle
-manager: carmonm
-ms.assetid: 38a9e454-43d5-4dba-a0f0-bd7cd75fb97b
-ms.service: application-insights
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
+ms.service: azure-monitor
+ms.subservice: application-insights
 ms.topic: conceptual
-ms.date: 11/23/2016
+author: mrbullwinkle
 ms.author: mbullwin
-ms.openlocfilehash: cae035927217a7e2677cf6ebfcce1b53782e4c01
-ms.sourcegitcommit: 961468fa0cfe650dc1bec87e032e648486f67651
+ms.date: 11/23/2016
+ms.openlocfilehash: 1e02e227180bb0082dd87ab8f5d2fe64e19b60f2
+ms.sourcegitcommit: 1bd2207c69a0c45076848a094292735faa012d22
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72248736"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72677817"
 ---
 # <a name="filtering-and-preprocessing-telemetry-in-the-application-insights-sdk"></a>在 Application Insights SDK 中篩選及前置處理遙測
 
@@ -105,7 +100,7 @@ ms.locfileid: "72248736"
 > 仔細地將 .config 檔案中的類型名稱和任何屬性名稱與程式碼中的類別和屬性名稱做比對。 如果 .config 檔案參考不存在的類型或屬性，SDK 可能無法傳送任何遙測，而且不會產生任何訊息。
 >
 
-或者， 您也可以在程式碼中初始化篩選。 在適當的初始化類別中-例如，@no__t 中的 AppStart-0-將您的處理器插入鏈中：
+或者， 您也可以在程式碼中初始化篩選。 在適當的初始化類別中（例如 `Global.asax.cs` 中的 AppStart），將您的處理器插入鏈中：
 
 ```csharp
 var builder = TelemetryConfiguration.Active.DefaultTelemetrySink.TelemetryProcessorChainBuilder;
@@ -124,7 +119,7 @@ builder.Build();
 > [!NOTE]
 > 使用 `ApplicationInsights.config` 來新增處理器，或使用 `TelemetryConfiguration.Active` 對 ASP.NET Core 應用程式無效，或如果您使用 ApplicationInsights. WorkerService SDK。
 
-針對使用[ASP.NET Core](asp-net-core.md#adding-telemetry-processors)或[WorkerService](worker-service.md#adding-telemetry-processors)所撰寫的應用程式，在 `IServiceCollection` 上使用 @no__t 3 擴充方法來加入新的 `TelemetryProcessor`，如下所示。 這個方法是在您的 @no__t 1 類別的 `ConfigureServices` 方法中呼叫。
+針對使用[ASP.NET Core](asp-net-core.md#adding-telemetry-processors)或[WorkerService](worker-service.md#adding-telemetry-processors)所撰寫的應用程式，在 `IServiceCollection` 上使用 `AddApplicationInsightsTelemetryProcessor` 擴充方法來新增 `TelemetryProcessor`，如下所示。 這個方法是在 `Startup.cs` 類別的 `ConfigureServices` 方法中呼叫。
 
 ```csharp
     public void ConfigureServices(IServiceCollection services)
@@ -209,7 +204,7 @@ public void Process(ITelemetry item)
 
 例如，Web 套件的 Application Insights 會收集關於 HTTP 要求的遙測。 根據預設，它會將所有含 >= 400 回應碼的要求標記為失敗。 但如果您想將 400 視為成功，您可以提供設定 Success 屬性的遙測初始設定式。
 
-如果您提供遙測初始設定式，則會在呼叫任何的 Track*() 方法時呼叫它。 這包括標準遙測模組所呼叫的 @no__t 0 方法。 依照慣例，這些模組不會設定任何已由初始設定式設定的屬性。 在呼叫遙測處理器之前，會呼叫遙測初始化運算式。 因此，對處理器而言，初始化運算式所完成的任何擴充都是可見的。
+如果您提供遙測初始設定式，則會在呼叫任何的 Track*() 方法時呼叫它。 這包括標準遙測模組所呼叫 `Track()` 方法。 依照慣例，這些模組不會設定任何已由初始設定式設定的屬性。 在呼叫遙測處理器之前，會呼叫遙測初始化運算式。 因此，對處理器而言，初始化運算式所完成的任何擴充都是可見的。
 
 **定義您的初始設定式**
 

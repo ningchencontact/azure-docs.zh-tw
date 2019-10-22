@@ -1,23 +1,18 @@
 ---
 title: 從 Azure Application Insights 匯出至 Power BI | Microsoft Docs
 description: Analytics 查詢可以在 Power BI 中顯示。
-services: application-insights
-documentationcenter: ''
-author: mrbullwinkle
-manager: carmonm
-ms.assetid: 7f13ea66-09dc-450f-b8f9-f40fdad239f2
-ms.service: application-insights
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
+ms.service: azure-monitor
+ms.subservice: application-insights
 ms.topic: conceptual
-ms.date: 08/10/2018
+author: mrbullwinkle
 ms.author: mbullwin
-ms.openlocfilehash: a57393918992019844e2ff4ccc13d671f0b90ed5
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 08/10/2018
+ms.openlocfilehash: 04848f763fe8246f8e10f563169c04ea37b0ed37
+ms.sourcegitcommit: 1bd2207c69a0c45076848a094292735faa012d22
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60900096"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72677304"
 ---
 # <a name="feed-power-bi-from-application-insights"></a>從 Application Insights 提供 Power BI
 [Power BI](https://www.powerbi.com/) 是一套商務工具，可協助您分析資料及分享見解。 每個裝置上都提供豐富的儀表板。 您可以結合許多來源的資料，包含來自 [Azure Application Insights](../../azure-monitor/app/app-insights-overview.md) 的「分析」查詢。
@@ -42,10 +37,10 @@ ms.locfileid: "60900096"
 ### <a name="export-an-analytics-query"></a>匯出 Analytics 查詢
 1. [開啟 Analytics 並撰寫查詢](../../azure-monitor/log-query/get-started-portal.md)。
 2. 測試並精簡查詢，直到您滿意結果。 請先確定查詢在 Analytics 中正確執行，再將它匯出。
-3. 在 [匯出]  功能表上，選擇 [Power BI (M)]  。 儲存文字檔案。
+3. 在 [匯出] 功能表上，選擇 [Power BI (M)]。 儲存文字檔案。
    
     ![Analytics 的螢幕擷取畫面，並已醒目顯示 [匯出] 功能表](./media/export-power-bi/analytics-export-power-bi.png)
-4. 在 Power BI Desktop 中，選取 [取得資料]   > [空白查詢]  。 然後在查詢編輯器的 [檢視]  底下，選取 [進階編輯器]  。
+4. 在 Power BI Desktop 中，選取 [取得資料] > [空白查詢]。 然後在查詢編輯器的 [檢視] 底下，選取 [進階編輯器]。
 
     將匯出的 M 語言指令碼貼到進階編輯器。
 
@@ -55,7 +50,7 @@ ms.locfileid: "60900096"
    
     ![Power BI [查詢設定] 對話方塊的螢幕擷取畫面](./media/export-power-bi/power-bi-import-sign-in.png)
 
-    如果您需要驗證認證，請使用查詢編輯器中的 [資料來源設定]  功能表命令。 請務必要指定用於 Azure 的認證，此認證有可能與您用於 Power BI 的認證不同。
+    如果您需要驗證認證，請使用查詢編輯器中的 [資料來源設定] 功能表命令。 請務必要指定用於 Azure 的認證，此認證有可能與您用於 Power BI 的認證不同。
 6. 選擇查詢的視覺效果，然後選取 x 軸、y 軸與分割維度的欄位。
    
     ![Power BI Desktop 視覺效果選項的螢幕擷取畫面](./media/export-power-bi/power-bi-analytics-visualize.png)
@@ -66,11 +61,11 @@ ms.locfileid: "60900096"
 
 ### <a name="export-a-funnel"></a>匯出漏斗圖
 1. [建立您的漏斗圖](../../azure-monitor/app/usage-funnels.md)。
-2. 選取 [Power BI]  。
+2. 選取 [Power BI]。
 
    ![Power BI 按鈕的螢幕擷取畫面](./media/export-power-bi/button.png)
 
-3. 在 Power BI Desktop 中，選取 [取得資料]   > [空白查詢]  。 然後在查詢編輯器的 [檢視]  底下，選取 [進階編輯器]  。
+3. 在 Power BI Desktop 中，選取 [取得資料] > [空白查詢]。 然後在查詢編輯器的 [檢視] 底下，選取 [進階編輯器]。
 
    ![Power BI Desktop 的螢幕擷取畫面，並已醒目顯示 [空白查詢] 按鈕](./media/export-power-bi/blankquery.png)
 
@@ -105,8 +100,8 @@ ms.locfileid: "60900096"
 
 1. 建立 [API 金鑰](https://dev.applicationinsights.io/documentation/Authorization/API-key-and-App-ID)。
 2. 更新您從 Analytics 匯出的 Power BI M 指令碼，方法是將 Azure Resource Manager URL 取代為 Application Insights API。
-   * 取代**https:\//management.azure.com/subscriptions/...**
-   * 具有**https:\//api.applicationinsights.io/beta/apps/...**
+   * 取代**HTTPs： \//management.azure.com/subscriptions/...**
+   * 使用， **HTTPs： \//api.applicationinsights.io/Beta/apps/...**
 3. 最後，將認證更新為基本，並且使用您的 API 金鑰。
 
 **現有的指令碼**
@@ -126,11 +121,11 @@ ms.locfileid: "60900096"
 
 ### <a name="get-the-adapter"></a>取得配接器
 1. 登入 [Power BI](https://app.powerbi.com/)。
-2. 開啟 [取得資料]  ![左下角 [取得資料] 圖示的螢幕擷取畫面](./media/export-power-bi/001.png)、[服務]  。
+2. 開啟 [取得資料] ![左下角 [取得資料] 圖示的螢幕擷取畫面](./media/export-power-bi/001.png)、[服務]。
 
     ![「取自 Application Insights 資料來源」的螢幕擷取畫面](./media/export-power-bi/002.png)
 
-3. 選取 Application Insights 下方的 [立即取得]  。
+3. 選取 Application Insights 下方的 [立即取得]。
 
    ![「取自 Application Insights 資料來源」的螢幕擷取畫面](./media/export-power-bi/003.png)
 4. 提供 Application Insights 資源的詳細資料，然後**登入**。

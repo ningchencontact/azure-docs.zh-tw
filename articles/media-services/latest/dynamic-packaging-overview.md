@@ -11,14 +11,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
-ms.date: 09/10/2019
+ms.date: 10/03/2019
 ms.author: juliako
-ms.openlocfilehash: 152a767ad1aa2494579f15dd8051c6bc1f718a92
-ms.sourcegitcommit: d70c74e11fa95f70077620b4613bb35d9bf78484
+ms.openlocfilehash: af6542757e75d7d6226c2470adf3c2b51d60875a
+ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70910281"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72383525"
 ---
 # <a name="dynamic-packaging"></a>動態封裝
 
@@ -236,11 +236,30 @@ QualityLevels(128041)/Manifest(aac_eng_2_128041_2_1,format=m3u8-aapl)
 
 ### <a name="signaling-audio-description-tracks"></a>傳送音訊描述曲目訊號
 
-客戶可以在資訊清單中將曲目標註為音訊描述。 若要這麼做，他們會將 “accessibility” 和 “role” 參數新增至 .ism 檔案。 如果曲目的 “accessibility” 參數值為 “description”，且 “role” 參數值為 “alternate”，則媒體服務會辨識音訊描述。 如果媒體服務在 .ism 檔案中偵測到音訊描述，則會將音訊描述資訊當作 `StreamIndex` 元素中的 `Accessibility="description"`和 `Role="alternate"` 屬性傳遞至用戶端資訊清單。
+您可以在影片中加入旁白曲目，協助視障用戶藉由聽取旁白來追蹤錄影。 您必須在資訊清單中將曲目標註為音訊描述。 若要這麼做，將 “accessibility” 和 “role” 參數新增至 .ism 檔案。 您需負責正確設定這些參數，才能將以音訊描述形式傳送曲目訊號。 例如，將 `<param name="accessibility" value="description" />` 和 `<param name="role" value="alternate"` 新增至特定曲目的 .ism 檔案。 
 
-如果 “accessibility” = “description” 和 “role” = “alternate” 的組合設定於 .ism 檔案中，則 DASH 資訊清單和 Smooth 資訊清單會包含 “accessibility” 和 “role” 參數中所設定的值。 客戶必須負責設定這兩個值，並將曲目標示為音訊描述。 依據 DASH 規格，“accessibility” = “description” 和 “role” = “alternate” 共同表示曲目是音訊描述。
+如需詳細資訊，請參閱[如何傳送描述性曲目訊號](signal-descriptive-audio-howto.md)範例。
 
-對於 HLS v7 和更新版本 (`format=m3u8-cmaf`)，只有在 “accessibility” = “description” 和 “role” = “alternate” 組合設定於 .ism 檔案時，其播放清單才會帶有 `CHARACTERISTICS="public.accessibility.describes-video"`。 
+#### <a name="smooth-streaming-manifest"></a>Smooth Streaming 資訊清單
+
+如果您要播放 Smooth Streaming 資料流，則資訊清單會包含該曲目的 `Accessibility` 和 `Role` 屬性值。例如，`StreamIndex` 元素中會新增 `Role="alternate" Accessibility="description"`，以表示它是音訊描述。
+
+#### <a name="dash-manifest"></a>DASH 資訊清單
+
+對於 DASH 資訊清單，系統會新增下列兩個元素以傳送音訊描述訊號：
+
+```xml
+<Accessibility schemeIdUri="urn:mpeg:dash:role:2011" value="description"/>
+<Role schemeIdUri="urn:mpeg:dash:role:2011" value="alternate"/>
+```
+
+#### <a name="hls-playlist"></a>HLS 播放清單
+
+對於 HLS v7 和 `(format=m3u8-cmaf)` 以上的版本，其播放清單會在音訊描述曲目收到訊號時包含 `AUTOSELECT=YES,CHARACTERISTICS="public.accessibility.describes-video"`。
+
+#### <a name="example"></a>範例
+
+如需詳細資訊，請參閱[如何傳送音訊描述曲目訊號](signal-descriptive-audio-howto.md)。
 
 ## <a name="dynamic-manifest"></a>動態資訊清單
 

@@ -1,21 +1,20 @@
 ---
-title: 建立、編輯或擴充邏輯應用程式定義的 JSON - Azure Logic Apps | Microsoft Docs
-description: 在 Azure Logic Apps 中撰寫及擴充邏輯應用程式定義的 JSON
+title: 建立、編輯或擴充邏輯應用程式定義-Azure Logic Apps
+description: 如何在 Azure Logic Apps 中撰寫、編輯和擴充邏輯應用程式 JSON 定義
 services: logic-apps
 ms.service: logic-apps
 ms.suite: integration
 author: ecfan
 ms.author: estfan
-ms.reviewer: klam, jehollan, LADocs
-ms.assetid: d565873c-6b1b-4057-9250-cf81a96180ae
+ms.reviewer: klam, LADocs
 ms.topic: article
 ms.date: 01/01/2018
-ms.openlocfilehash: a96cc56c85db6726bf2cdaff72904e76ecbaf087
-ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
+ms.openlocfilehash: 03203a5fdb6d61ed95e96581a7e4a979c911cd02
+ms.sourcegitcommit: d37991ce965b3ee3c4c7f685871f8bae5b56adfa
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70164638"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72680029"
 ---
 # <a name="create-edit-or-extend-json-for-logic-app-definitions-in-azure-logic-apps"></a>在 Azure Logic Apps 中建立、編輯或擴充邏輯應用程式定義的 JSON
 
@@ -39,7 +38,7 @@ ms.locfileid: "70164638"
 
 ## <a name="edit-json---visual-studio"></a>編輯 JSON - Visual Studio
 
-在 Visual Studio 中編寫邏輯應用程式定義之前，請先確定您已經[安裝必要的工具](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md#prerequisites)。 若要使用 Visual Studio 建立邏輯應用程式，請檢閱[快速入門：使用 Azure Logic Apps 自動執行工作和程序 - Visual Studio](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md)。
+在 Visual Studio 中編寫邏輯應用程式定義之前，請先確定您已經[安裝必要的工具](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md#prerequisites)。 若要使用 Visual Studio 建立邏輯應用程式，請檢閱[快速入門：使用 Azure Logic Apps 自動化工作和程序 - Visual Studio](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md)。
 
 在 Visual Studio 中，您可以開啟直接從 Azure 入口網站建立或部署的邏輯應用程式，或開啟 Visual Studio 中以 Azure Resource Manager 專案形式建立或部署的邏輯應用程式。
 
@@ -62,21 +61,21 @@ ms.locfileid: "70164638"
 
 ## <a name="parameters"></a>參數
 
-部署生命週期通常會有不同的環境來進行開發、測試、預備和生產。 如果您想要在沒有硬式編碼的情況下重複使用邏輯應用程式, 或是根據您的部署需求而有所不同的值, 您可以為工作流程定義建立[Azure Resource Manager 範本](../azure-resource-manager/resource-group-overview.md), 讓您也可以將邏輯應用程式自動化部署. 
+部署生命週期通常會有不同的環境來進行開發、測試、預備和生產。 如果您想要在沒有硬式編碼的情況下重複使用邏輯應用程式，或是根據您的部署需求而有所不同的值，您可以為工作流程定義建立[Azure Resource Manager 範本](../azure-resource-manager/resource-group-overview.md)，讓您也可以將邏輯應用程式自動化部署. 
 
-請遵循下列一般步驟來參數化或定義和使用這些值的參數。 接著, 您可以在個別的參數檔案中提供值, 將這些值傳遞至您的範本。 如此一來, 您就可以更輕鬆地變更這些值, 而不需要更新和重新部署邏輯應用程式。 如需完整詳細資料[, 請參閱總覽:使用 Azure Resource Manager 範本](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md)自動部署邏輯應用程式。
+請遵循下列一般步驟*來參數*化或定義和使用這些值的參數。 接著，您可以在個別的參數檔案中提供值，將這些值傳遞至您的範本。 如此一來，您就可以更輕鬆地變更這些值，而不需要更新和重新部署邏輯應用程式。 如需完整詳細資料，請參閱[總覽：使用 Azure Resource Manager 範本自動部署邏輯應用程式](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md)。
 
-1. 在您的範本中, 定義範本參數和工作流程定義參數, 分別接受部署和執行時間所使用的值。
+1. 在您的範本中，定義範本參數和工作流程定義參數，分別接受部署和執行時間所使用的值。
 
-   範本參數是在工作流程定義外的 parameters 區段中定義, 而工作流程定義參數則是在工作流程定義內的 parameters 區段中定義。
+   範本參數是在工作流程定義外的 parameters 區段中定義，而工作流程定義參數則是在工作流程定義內的 parameters 區段中定義。
 
 1. 將硬式編碼的值取代為參考這些參數的運算式。 範本運算式會使用與工作流程定義運算式不同的語法。
 
-   避免使用在部署時評估的範本運算式, 在執行時間評估的工作流程定義運算式內, 讓您的程式碼複雜化。 僅使用您工作流程定義以外的範本運算式。 僅使用工作流程定義內的工作流程定義運算式。
+   避免使用在部署時評估的範本運算式，在執行時間評估的工作流程定義運算式內，讓您的程式碼複雜化。 僅使用您工作流程定義以外的範本運算式。 僅使用工作流程定義內的工作流程定義運算式。
 
-   當您指定工作流程定義參數的值時, 您可以使用工作流程定義外的 parameters 區段, 但仍在邏輯應用程式的資源定義中, 來參考範本參數。 如此一來, 您就可以將範本參數值傳遞至您的工作流程定義參數。
+   當您指定工作流程定義參數的值時，您可以使用工作流程定義外的 parameters 區段，但仍在邏輯應用程式的資源定義中，來參考範本參數。 如此一來，您就可以將範本參數值傳遞至您的工作流程定義參數。
 
-1. 將參數的值儲存在個別的[參數](../azure-resource-manager/resource-group-template-deploy.md#parameter-files)檔案中, 並將該檔案包含在您的部署中。
+1. 將參數的值儲存在個別的[參數](../azure-resource-manager/resource-group-template-deploy.md#parameter-files)檔案中，並將該檔案包含在您的部署中。
 
 ## <a name="process-strings-with-functions"></a>使用函式處理字串
 

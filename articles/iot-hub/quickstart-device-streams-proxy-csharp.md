@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 03/14/2019
 ms.author: robinsh
-ms.openlocfilehash: ab6c381e779ddc19211f183b9bc80e586f58e804
-ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.openlocfilehash: 90fb3fe732889f3ba3965210cd8a681a0487f78e
+ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71261418"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72514973"
 ---
 # <a name="quickstart-enable-ssh-and-rdp-over-an-iot-hub-device-stream-by-using-a-c-proxy-application-preview"></a>快速入門：使用 C# Proxy 應用程式透過 IoT 中樞裝置串流進行 SSH 和 RDP 輸送 (預覽)
 
@@ -54,7 +54,7 @@ Microsoft Azure IoT 中樞目前支援裝置串流作為[預覽功能](https://a
   * 美國中部
   * 美國中部 EUAP
 
-* 您在此快速入門中執行的兩個範例應用程式是使用 C# 所撰寫的。 您的開發電腦上需要有 .NET Core SDK 2.1.0 或更新版本。
+* 您在此快速入門中執行的兩個範例應用程式是以 C# 撰寫的。 您的開發電腦上需要有 .NET Core SDK 2.1.0 或更新版本。
 
   您可以[從 .NET 下載適用於多種平台的 .NET Core SDK](https://www.microsoft.com/net/download/all) \(英文\)。
 
@@ -86,10 +86,10 @@ Microsoft Azure IoT 中樞目前支援裝置串流作為[預覽功能](https://a
 
    > [!NOTE]
    > * 以您為 IoT 中樞選擇的名稱取代 YourIoTHubName  預留位置。
-   > * 使用所示的 MyCDevice  。 這是為已註冊裝置指定的名稱。 如果您為裝置選擇不同的名稱，請在本文中使用該名稱，並先在應用程式範例中更新該裝置名稱，再執行應用程式。
+   > * 如需您所註冊的裝置名稱，建議使用如下所示的 *MyDevice*。 如果您為裝置選擇不同的名稱，請在本文中使用該名稱，並先在應用程式範例中更新該裝置名稱，再執行應用程式。
 
     ```azurecli-interactive
-    az iot hub device-identity create --hub-name YourIoTHubName --device-id MyDevice
+    az iot hub device-identity create --hub-name {YourIoTHubName} --device-id MyDevice
     ```
 
 1. 若要針對您剛註冊的裝置取得「裝置連接字串」  ，請在 Azure Cloud Shell 中執行下列命令：
@@ -98,10 +98,10 @@ Microsoft Azure IoT 中樞目前支援裝置串流作為[預覽功能](https://a
    > 以您為 IoT 中樞選擇的名稱取代 YourIoTHubName  預留位置。
 
     ```azurecli-interactive
-    az iot hub device-identity show-connection-string --hub-name YourIoTHubName --device-id MyDevice --output table
+    az iot hub device-identity show-connection-string --hub-name {YourIoTHubName} --device-id MyDevice --output table
     ```
 
-    請記下儲存連接字串，以供稍後在本快速入門中使用。 看起來會像下列範例：
+    請記下所傳回的裝置連接字串，以供稍後在本快速入門中使用。 看起來會像下列範例：
 
    `HostName={YourIoTHubName}.azure-devices.net;DeviceId=MyDevice;SharedAccessKey={YourSharedAccessKey}`
 
@@ -111,10 +111,10 @@ Microsoft Azure IoT 中樞目前支援裝置串流作為[預覽功能](https://a
    > 以您為 IoT 中樞選擇的名稱取代 YourIoTHubName  預留位置。
 
     ```azurecli-interactive
-    az iot hub show-connection-string --policy-name service --name YourIoTHubName
+    az iot hub show-connection-string --policy-name service --name {YourIoTHubName} --output table
     ```
 
-    記下傳回的值，以便稍後在本快速入門中使用。 看起來會像下列範例：
+    請記下所傳回的服務連接字串，以供稍後在本快速入門中使用。 看起來會像下列範例：
 
    `"HostName={YourIoTHubName}.azure-devices.net;SharedAccessKeyName=service;SharedAccessKey={YourSharedAccessKey}"`
 
@@ -124,15 +124,15 @@ Microsoft Azure IoT 中樞目前支援裝置串流作為[預覽功能](https://a
 
 ### <a name="run-the-device-local-proxy-application"></a>執行裝置本機 Proxy 應用程式
 
-在解壓縮的專案資料夾中，移至 *device-streams-proxy/device* 目錄。 將下列資訊保存在隨手可及的位置：
+在本機終端視窗中，瀏覽至未解壓縮專案資料夾中的 `device-streams-proxy/device` 目錄。 將下列資訊保存在隨手可及的位置：
 
 | 引數名稱 | 引數值 |
 |----------------|-----------------|
-| `deviceConnectionString` | 您先前所建立裝置的連接字串。 |
+| `DeviceConnectionString` | 您先前所建立裝置的裝置連接字串。 |
 | `targetServiceHostName` | SSH 伺服器接聽的 IP 位址。 如果此位址是裝置本機 Proxy 應用程式執行所在的相同 IP，則會是 `localhost`。 |
 | `targetServicePort` | 您的應用程式通訊協定所使用的連接埠 (SSH 的預設值為連接埠 22)。  |
 
-編譯並執行程式碼，如下所示：
+使用下列命令來編譯和執行程式碼：
 
 ```
 cd ./iot-hub/Quickstarts/device-streams-proxy/device/
@@ -142,23 +142,23 @@ dotnet build
 
 # Run the application
 # In Linux or macOS
-dotnet run $deviceConnectionString localhost 22
+dotnet run ${DeviceConnectionString} localhost 22
 
 # In Windows
-dotnet run %deviceConnectionString% localhost 22
+dotnet run {DeviceConnectionString} localhost 22
 ```
 
 ### <a name="run-the-service-local-proxy-application"></a>執行服務本機 Proxy 應用程式
 
-在解壓縮的專案資料夾中，瀏覽至 `device-streams-proxy/service`。 您必須備妥下列資訊：
+在另一個本機終端視窗中，瀏覽至未解壓縮專案資料夾中的 `device-streams-proxy/service`。 將下列資訊保存在隨手可及的位置：
 
 | 參數名稱 | 參數值 |
 |----------------|-----------------|
-| `iotHubConnectionString` | IoT 中樞的服務連接字串。 |
-| `deviceId` | 您先前建立之裝置的識別碼。 |
+| `ServiceConnectionString` | IoT 中樞的服務連接字串。 |
+| `MyDevice` | 您先前建立之裝置的識別碼。 |
 | `localPortNumber` | 您的 SSH 用戶端將連線到的本機連接埠。 在此範例中我們使用連接埠 2222，但您可以使用其他任意數字。 |
 
-編譯並執行程式碼，如下所示：
+使用下列命令來編譯和執行程式碼：
 
 ```
 cd ./iot-hub/Quickstarts/device-streams-proxy/service/
@@ -168,10 +168,10 @@ dotnet build
 
 # Run the application
 # In Linux or macOS
-dotnet run $serviceConnectionString MyDevice 2222
+dotnet run ${ServiceConnectionString} MyDevice 2222
 
 # In Windows
-dotnet run %serviceConnectionString% MyDevice 2222
+dotnet run {ServiceConnectionString} MyDevice 2222
 ```
 
 ### <a name="run-the-ssh-client"></a>執行 SSH 用戶端
@@ -179,7 +179,7 @@ dotnet run %serviceConnectionString% MyDevice 2222
 現在，使用您的 SSH 用戶端應用程式，並經由連接埠 2222 連線至服務本機 Proxy 應用程式 (而不是直接使用 SSH 精靈)。
 
 ```
-ssh <username>@localhost -p 2222
+ssh {username}@localhost -p 2222
 ```
 
 此時，SSH 登入視窗會提示您輸入認證。
@@ -202,38 +202,38 @@ RDP 的設定與 SSH 的設定大致相同 (如前所述)。 您會改用 RDP �
 
 ### <a name="run-the-device-local-proxy-application-rdp"></a>執行裝置本機 Proxy 應用程式 (RDP)
 
-在解壓縮的專案資料夾中，移至 *device-streams-proxy/device* 目錄。 將下列資訊保存在隨手可及的位置：
+在本機終端視窗中，瀏覽至未解壓縮專案資料夾中的 `device-streams-proxy/device` 目錄。 將下列資訊保存在隨手可及的位置：
 
 | 引數名稱 | 引數值 |
 |----------------|-----------------|
-| `DeviceConnectionString` | 您先前所建立裝置的連接字串。 |
+| `DeviceConnectionString` | 您先前所建立裝置的裝置連接字串。 |
 | `targetServiceHostName` | RDP 伺服器執行所在的主機名稱或 IP 位址。 如果此位址是裝置本機 Proxy 應用程式執行所在的相同 IP，則會是 `localhost`。 |
 | `targetServicePort` | 您的應用程式通訊協定所使用的連接埠 (RDP 的預設值為連接埠 3389)。  |
 
-編譯並執行程式碼，如下所示：
+使用下列命令來編譯和執行程式碼：
 
 ```
 cd ./iot-hub/Quickstarts/device-streams-proxy/device
 
 # Run the application
 # In Linux or macOS
-dotnet run $DeviceConnectionString localhost 3389
+dotnet run ${DeviceConnectionString} localhost 3389
 
 # In Windows
-dotnet run %DeviceConnectionString% localhost 3389
+dotnet run {DeviceConnectionString} localhost 3389
 ```
 
 ### <a name="run-the-service-local-proxy-application-rdp"></a>執行服務本機 Proxy 應用程式 (RDP)
 
-在解壓縮的專案資料夾中，瀏覽至 `device-streams-proxy/service`。 您必須備妥下列資訊：
+在另一個本機終端視窗中，瀏覽至未解壓縮專案資料夾中的 `device-streams-proxy/service`。 將下列資訊保存在隨手可及的位置：
 
 | 參數名稱 | 參數值 |
 |----------------|-----------------|
-| `iotHubConnectionString` | IoT 中樞的服務連接字串。 |
-| `deviceId` | 您先前建立之裝置的識別碼。 |
+| `ServiceConnectionString` | IoT 中樞的服務連接字串。 |
+| `MyDevice` | 您先前建立之裝置的識別碼。 |
 | `localPortNumber` | 您的 SSH 用戶端將連線到的本機連接埠。 在此範例中我們使用連接埠 2222，但您可以將其修改為其他任意數字。 |
 
-編譯並執行程式碼，如下所示：
+使用下列命令來編譯和執行程式碼：
 
 ```
 cd ./iot-hub/Quickstarts/device-streams-proxy/service/
@@ -243,10 +243,10 @@ dotnet build
 
 # Run the application
 # In Linux or macOS
-dotnet run $serviceConnectionString MyDevice 2222
+dotnet run ${ServiceConnectionString} MyDevice 2222
 
 # In Windows
-dotnet run %serviceConnectionString% MyDevice 2222
+dotnet run {ServiceConnectionString} MyDevice 2222
 ```
 
 ### <a name="run-rdp-client"></a>執行 RDP 用戶端
@@ -261,7 +261,7 @@ dotnet run %serviceConnectionString% MyDevice 2222
 
 ## <a name="next-steps"></a>後續步驟
 
-在本快速入門中，您已設定 IoT 中樞、註冊裝置、部署裝置本機和服務本機 Proxy 應用程式以透過 IoT 中樞建立裝置串流，並使用 Proxy 應用程式來輸送 SSH 或 RDP 流量。 相同的範例可用於其他主從通訊協定，其中伺服器執行於 SSH 精靈之類的裝置上。
+在本快速入門中，您會設定 IoT 中樞、註冊裝置、部署裝置本機和服務本機 Proxy 應用程式以透過 IoT 中樞建立裝置串流，並使用 Proxy 應用程式來輸送 SSH 或 RDP 流量。 相同的範例可用於其他主從通訊協定，其中伺服器執行於 SSH 精靈之類的裝置上。
 
 若要深入了解裝置串流，請參閱：
 

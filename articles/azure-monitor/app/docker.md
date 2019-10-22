@@ -1,25 +1,20 @@
 ---
 title: 在 Azure Application Insights 中監視 Docker 應用程式 | Microsoft Docs
 description: Docker 效能計數器、事件和例外狀況可以與來自容器化應用程式的遙測一起顯示在 Application Insights 上。
-services: application-insights
-documentationcenter: ''
-author: mrbullwinkle
-manager: carmonm
-ms.assetid: 27a3083d-d67f-4a07-8f3c-4edb65a0a685
-ms.service: application-insights
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
+ms.service: azure-monitor
+ms.subservice: application-insights
 ms.topic: conceptual
-ms.date: 03/14/2019
+author: mrbullwinkle
 ms.author: mbullwin
-ms.openlocfilehash: 115e2d6b041ecc3f38a2a6438d90777da9660221
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 03/14/2019
+ms.openlocfilehash: 66a2481d25c863bbdbf4d72c4683a309918776db
+ms.sourcegitcommit: 1bd2207c69a0c45076848a094292735faa012d22
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62098026"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72677926"
 ---
-# <a name="monitor-docker-applications-in-application-insights-deprecated"></a>在 Application Insights （已過時） 監視 Docker 應用程式
+# <a name="monitor-docker-applications-in-application-insights-deprecated"></a>監視 Application Insights 中的 Docker 應用程式（已淘汰）
 
 > [!NOTE]
 > 此解決方案已被取代。 若要深入了解我們目前對於容器監視所做的投資，建議查看[適用於容器的 Azure 監視器](https://docs.microsoft.com/azure/azure-monitor/insights/container-insights-overview)。
@@ -44,7 +39,7 @@ ms.locfileid: "62098026"
    
     第三種情況是您已開發大部分應用程式，但想要使用不同的資源來顯示其遙測。 在這種情況下，您可能也需要為 Docker 資料建立不同的資源。
 
-2. 按一下 [程式集]  下拉式清單，然後複製檢測金鑰。 您將會使用這個項目以告知 SDK 傳送遙測的位置。
+2. 按一下 [程式集] 下拉式清單，然後複製檢測金鑰。 您將會使用這個項目以告知 SDK 傳送遙測的位置。
 
 保持該瀏覽器視窗就緒，因為您稍後即會返回以查看您的遙測。
 
@@ -90,7 +85,7 @@ ms.locfileid: "62098026"
 ### <a name="docker-context-added-to-app-telemetry"></a>已加入應用程式遙測中的 Docker 內容
 從使用 AI SDK 檢測之應用程式送出的要求遙測，會以 Docker 內容資訊進行擴充。
 
-## <a name="q--a"></a>問答集
+## <a name="q--a"></a>問與答
 *Application Insights 可以給我哪些無法從 Docker 取得的功能？*
 
 * 依據容器和映像的效能計數器的詳細分解圖。
@@ -101,7 +96,7 @@ ms.locfileid: "62098026"
 
 * 在應用程式中安裝 Application Insights SDK。 針對下列項目深入了解：[Java Web 應用程式](../../azure-monitor/app/java-get-started.md)、[Windows Web 應用程式](../../azure-monitor/app/asp-net.md)。
 
-## <a name="video"></a>視訊
+## <a name="video"></a>影片
 
 > [!VIDEO https://channel9.msdn.com/events/Connect/2016/100/player]
 

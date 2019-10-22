@@ -1,21 +1,21 @@
 ---
-title: 使用適用於 Ethereum 的 Azure 區塊鏈開發套件來連線至 Azure 區塊鏈服務
+title: 使用適用於 Ethereum 的 Azure 區塊鏈開發套件 - Azure 區塊鏈服務
 description: 在 Visual Studio Code 中使用適用於 Ethereum 的 Azure 區塊鏈開發套件擴充功能連線到 Azure 區塊鏈服務聯盟網路
 services: azure-blockchain
 keywords: ''
 author: PatAltimore
 ms.author: patricka
-ms.date: 09/10/2019
+ms.date: 10/14/2019
 ms.topic: quickstart
 ms.service: azure-blockchain
 ms.reviewer: chrisseg
 manager: femila
-ms.openlocfilehash: 82b71a9d837ed3cb1d9461c0de2559178685b4b4
-ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
+ms.openlocfilehash: 6364e887c699219d80974d592a8ff7c77cca2621
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70935356"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72329307"
 ---
 # <a name="quickstart-use-visual-studio-code-to-connect-to-an-azure-blockchain-service-consortium-network"></a>快速入門：使用 Visual Studio Code 連線至 Azure 區塊鏈服務聯盟網路
 

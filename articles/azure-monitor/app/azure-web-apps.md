@@ -1,27 +1,25 @@
 ---
 title: 監視 Azure 應用程式服務效能 | Microsoft Docs
 description: Azure 應用程式服務的應用程式效能監視。 圖表載入和回應時間、相依性資訊，以及設定效能警示。
-services: application-insights
-documentationcenter: .net
-author: mrbullwinkle
-manager: carmonm
-ms.service: application-insights
+ms.service: azure-monitor
+ms.subservice: application-insights
 ms.topic: conceptual
-ms.date: 10/04/2019
+author: mrbullwinkle
 ms.author: mbullwin
-ms.openlocfilehash: ec741c0051ccd8020b7d7ab689e15add3ad716bd
-ms.sourcegitcommit: e0a1a9e4a5c92d57deb168580e8aa1306bd94723
+ms.date: 10/04/2019
+ms.openlocfilehash: 1937cce03412db55dafc2025c6a59b037deee3d1
+ms.sourcegitcommit: 1bd2207c69a0c45076848a094292735faa012d22
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72286167"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72677663"
 ---
 # <a name="monitor-azure-app-service-performance"></a>監視 Azure App Service 效能
 
 在您的 ASP.NET 和[Azure App 服務](https://docs.microsoft.com/azure/app-service/)上執行的 ASP.NET Core web 應用程式上啟用監視，現在比以往更容易。 雖然先前您需要手動安裝網站延伸模組，但根據預設，最新的擴充功能/代理程式已內建到 app service 映射中。 這篇文章將逐步引導您啟用 Application Insights 監視，以及提供將大規模部署程式自動化的初步指導方針。
 
 > [!NOTE]
-> 透過**開發工具**手動新增 Application Insights 的網站延伸模組  > **延伸**模組已被取代。 這種擴充功能安裝方法相依于每個新版本的手動更新。 擴充功能的最新穩定版本現在已[預先安裝](https://github.com/projectkudu/kudu/wiki/Azure-Site-Extensions)為 App Service 映射的一部分。 這些檔案位於 `d:\Program Files (x86)\SiteExtensions\ApplicationInsightsAgent`，會隨著每個穩定版本自動更新。 如果您遵循以代理程式為基礎的指示來啟用下列監視，它會自動為您移除已淘汰的延伸模組。
+> 透過**開發工具**手動新增 Application Insights 的網站延伸模組  > **延伸**模組已被取代。 這種擴充功能安裝方法相依于每個新版本的手動更新。 擴充功能的最新穩定版本現在已[預先安裝](https://github.com/projectkudu/kudu/wiki/Azure-Site-Extensions)為 App Service 映射的一部分。 這些檔案位於 `d:\Program Files (x86)\SiteExtensions\ApplicationInsightsAgent`，而且會隨著每個穩定版本自動更新。 如果您遵循以代理程式為基礎的指示來啟用下列監視，它會自動為您移除已淘汰的延伸模組。
 
 ## <a name="enable-application-insights"></a>啟用 Application Insights
 
@@ -71,13 +69,13 @@ ms.locfileid: "72286167"
 
 3. 若要進行取樣（您先前可以透過 applicationinsights 來控制）的設定，您現在可以透過具有對應前置詞的應用程式設定，與這些相同的設定進行互動。 
 
-    * 例如，若要變更初始取樣百分比，您可以建立應用程式設定： `MicrosoftAppInsights_AdaptiveSamplingTelemetryProcessor_InitialSamplingPercentage`，並將值設為 `100`。
+    * 例如，若要變更初始取樣百分比，您可以建立的應用程式設定： `MicrosoftAppInsights_AdaptiveSamplingTelemetryProcessor_InitialSamplingPercentage`，以及 `100` 的值。
 
     * 如需支援的調適型取樣遙測處理器設定清單，您可以查閱程式[代碼](https://github.com/Microsoft/ApplicationInsights-dotnet/blob/master/src/ServerTelemetryChannel/AdaptiveSamplingTelemetryProcessor.cs)和[相關聯的檔](https://docs.microsoft.com/azure/azure-monitor/app/sampling)。
 
 ## <a name="enable-agent-based-monitoring-for-net-core-applications"></a>針對 .NET Core 應用程式啟用以代理程式為基礎的監視
 
-支援下列 .NET Core 版本：ASP.NET Core 2.0、ASP.NET Core 2.1、ASP.NET Core 2。2
+支援下列 .NET Core 版本： ASP.NET Core 2.0、ASP.NET Core 2.1、ASP.NET Core 2。2
 
 以 .NET Core、獨立式部署和 ASP.NET Core 3.0 為目標的完整架構，目前**不支援**以代理程式/延伸模組為基礎的監視。 （透過程式碼的[手動檢測](https://docs.microsoft.com/azure/azure-monitor/app/asp-net-core)功能將在先前的所有案例中使用）。
 
@@ -119,7 +117,7 @@ ms.locfileid: "72286167"
 
 如果基於某些原因，您會想要停用用戶端監視：
 
-* 選取 [**設定**]  >  個**應用程式設定**
+* 選取 [**設定**]  >  [**應用程式設定**]
    * 在 [應用程式設定] 下，新增**應用程式設定名稱**和**值**：
 
      名稱： `APPINSIGHTS_JAVASCRIPT_ENABLED`
@@ -138,7 +136,7 @@ ms.locfileid: "72286167"
 
 ### <a name="application-settings-definitions"></a>應用程式設定定義
 
-|應用程式設定名稱 |  定義 | 值 |
+|應用程式設定名稱 |  定義 | Value |
 |-----------------|:------------|-------------:|
 |ApplicationInsightsAgent_EXTENSION_VERSION | 主要延伸模組，控制執行時間監視。 | `~2` |
 |XDT_MicrosoftApplicationInsights_Mode |  只有在預設模式下，才會啟用基本功能，以確保最佳效能。 | `default` 或 `recommended`。 |
@@ -304,7 +302,7 @@ $app = Set-AzWebApp -AppSettings $newAppSettings -ResourceGroupName $app.Resourc
 
 若要檢查您正在執行的延伸模組版本，請 `http://yoursitename.scm.azurewebsites.net/ApplicationInsights`
 
-![Url 路徑 @no__t 的螢幕擷取畫面-0](./media/azure-web-apps/extension-version.png)
+![Url 路徑 http://yoursitename.scm.azurewebsites.net/ApplicationInsights 的螢幕擷取畫面](./media/azure-web-apps/extension-version.png)
 
 ### <a name="upgrade-from-versions-100---265"></a>從1.0.0 版升級-2.6。5
 
@@ -334,29 +332,29 @@ $app = Set-AzWebApp -AppSettings $newAppSettings -ResourceGroupName $app.Resourc
 2. 請確定應用程式符合要監視的需求。
     * 流覽至 `https://yoursitename.scm.azurewebsites.net/ApplicationInsights`
 
-    ![@No__t-0 [結果] 頁面的螢幕擷取畫面](./media/azure-web-apps/app-insights-sdk-status.png)
+    ![@No__t_0 [結果] 頁面的螢幕擷取畫面](./media/azure-web-apps/app-insights-sdk-status.png)
 
-    * 確認 `Application Insights Extension Status` 已 `Pre-Installed Site Extension, version 2.8.12.1527, is running.`
+    * 確認 `Application Insights Extension Status` 是 `Pre-Installed Site Extension, version 2.8.12.1527, is running.`
         * 如果未執行，請遵循[啟用 Application Insights 監視指示](https://docs.microsoft.com/azure/azure-monitor/app/azure-web-apps#enable-application-insights)
 
     * 確認狀態來源存在，而且看起來像這樣： `Status source D:\home\LogFiles\ApplicationInsights\status\status_RD0003FF0317B6_4248_1.json`
         * 如果沒有類似的值，則表示應用程式目前不在執行中或不受支援。 若要確保應用程式正在執行，請嘗試手動流覽應用程式 url/應用程式端點，這將允許執行時間資訊變成可用。
 
-    * 確認 `IKeyExists` 已 `true`
+    * 確認 `IKeyExists` 為 `true`
         * 如果為 false，請將 ' APPINSIGHTS_INSTRUMENTATIONKEY 與您的 ikey guid 新增至您的應用程式設定。
 
-    * 確認沒有任何專案可 `AppAlreadyInstrumented`、`AppContainsDiagnosticSourceAssembly` 和 `AppContainsAspNetTelemetryCorrelationAssembly`。
-        * 如果其中有任何專案存在，請從您的應用程式移除下列套件： `Microsoft.ApplicationInsights`，`System.Diagnostics.DiagnosticSource`，然後 `Microsoft.AspNet.TelemetryCorrelation`。
+    * 確認沒有 `AppAlreadyInstrumented`、`AppContainsDiagnosticSourceAssembly` 和 `AppContainsAspNetTelemetryCorrelationAssembly` 的專案。
+        * 如果其中有任何專案存在，請從您的應用程式移除下列套件： `Microsoft.ApplicationInsights`、`System.Diagnostics.DiagnosticSource` 和 `Microsoft.AspNet.TelemetryCorrelation`。
 
 下表提供這些值的意義、其根本原因和建議的修正的詳細說明：
 
 |問題值|說明|修正
 |---- |----|---|
-| `AppAlreadyInstrumented:true` | 此值表示延伸模組偵測到應用程式中已有 SDK 的某些層面，而且將會回復。 這可能是因為 `System.Diagnostics.DiagnosticSource`、`Microsoft.AspNet.TelemetryCorrelation` 或 `Microsoft.ApplicationInsights` 的參考  | 移除參考。 根據預設，某些參考會從某些 Visual Studio 範本新增，而舊版的 Visual Studio 可能會將參考新增至 `Microsoft.ApplicationInsights`。
+| `AppAlreadyInstrumented:true` | 此值表示延伸模組偵測到應用程式中已有 SDK 的某些層面，而且將會回復。 這可能是因為參考 `System.Diagnostics.DiagnosticSource`、`Microsoft.AspNet.TelemetryCorrelation` 或 `Microsoft.ApplicationInsights`  | 移除參考。 根據預設，某些參考會從某些 Visual Studio 範本新增，而舊版的 Visual Studio 可能會將參考新增至 `Microsoft.ApplicationInsights`。
 |`AppAlreadyInstrumented:true` | 如果應用程式是以 .NET Core 2.1 或2.2 為目標，並參考[AspNetCore](https://www.nuget.org/packages/Microsoft.AspNetCore.All) ，則會帶入 Application Insights，而且延伸模組將會回復。 | [建議您使用](https://github.com/aspnet/Announcements/issues/287).net Core 2.1、2.2 的客戶，改為使用 AspNetCore 應用程式元封裝。|
-|`AppAlreadyInstrumented:true` | 這個值也可能是因為先前部署的應用程式資料夾中有上述的 dll。 | 清除應用程式資料夾，以確保這些 dll 已移除。 檢查本機應用程式的 bin 目錄，以及 App Service 上的 wwwroot 目錄。 （若要檢查 App Service web 應用程式的 wwwroot 目錄：Advanced Tools （Kudu） > Debug console > CMD > home\site\wwwroot）。
-|`AppContainsAspNetTelemetryCorrelationAssembly: true` | 此值表示延伸模組在應用程式中偵測到 `Microsoft.AspNet.TelemetryCorrelation` 的參考，而且將會回復。 | 請移除參考。
-|`AppContainsDiagnosticSourceAssembly**:true`|此值表示延伸模組在應用程式中偵測到 `System.Diagnostics.DiagnosticSource` 的參考，而且將會回復。| 請移除參考。
+|`AppAlreadyInstrumented:true` | 這個值也可能是因為先前部署的應用程式資料夾中有上述的 dll。 | 清除應用程式資料夾，以確保這些 dll 已移除。 檢查本機應用程式的 bin 目錄，以及 App Service 上的 wwwroot 目錄。 （若要檢查 App Service web 應用程式的 wwwroot 目錄： Advanced Tools （Kudu） > Debug 主控台 > CMD > home\site\wwwroot）。
+|`AppContainsAspNetTelemetryCorrelationAssembly: true` | 此值表示延伸模組偵測到應用程式中 `Microsoft.AspNet.TelemetryCorrelation` 的參考，而且將會回復。 | 請移除參考。
+|`AppContainsDiagnosticSourceAssembly**:true`|此值表示延伸模組偵測到應用程式中 `System.Diagnostics.DiagnosticSource` 的參考，而且將會回復。| 請移除參考。
 |`IKeyExists:false`|此值表示 AppSetting 中不存在檢測金鑰，`APPINSIGHTS_INSTRUMENTATIONKEY`。 可能的原因：這些值可能已被意外移除、忘記設定自動化腳本中的值等等。 | 請確定 App Service 的應用程式設定中有該設定。
 
 ### <a name="appinsights_javascript_enabled-and-urlcompression-is-not-supported"></a>不支援 APPINSIGHTS_JAVASCRIPT_ENABLED 和 urlCompression

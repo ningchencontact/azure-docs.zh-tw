@@ -12,14 +12,14 @@ ms.devlang: csharp
 ms.topic: quickstart
 ms.tgt_pltfrm: ASP.NET Core
 ms.workload: tbd
-ms.date: 02/24/2019
+ms.date: 10/11/2019
 ms.author: yegu
-ms.openlocfilehash: a2764c8e634fd8d827cba9fa7ec9cb61cc6c40af
-ms.sourcegitcommit: f9e81b39693206b824e40d7657d0466246aadd6e
+ms.openlocfilehash: 4e08192788329e7a835ddb0b6b3f1aa01b2c73e1
+ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72035293"
+ms.lasthandoff: 10/13/2019
+ms.locfileid: "72299947"
 ---
 # <a name="quickstart-create-an-aspnet-core-app-with-azure-app-configuration"></a>快速入門：使用 Azure 應用程式設定建立 ASP.NET Core 應用程式
 
@@ -53,7 +53,9 @@ ms.locfileid: "72035293"
 
 2. 在新的資料夾中，執行下列命令以建立新的 ASP.NET Core MVC Web 應用程式專案：
 
+    ```CLI
         dotnet new mvc --no-https
+    ```
 
 ## <a name="add-secret-manager"></a>新增祕密管理員
 
@@ -83,19 +85,23 @@ ms.locfileid: "72035293"
 
 1. 透過執行下列命令，將參考新增至 `Microsoft.Azure.AppConfiguration.AspNetCore` NuGet 套件：
 
+    ```CLI
         dotnet add package Microsoft.Azure.AppConfiguration.AspNetCore --version 2.0.0-preview-010060003-1250
-
+    ```
 2. 執行下列命令以還原您專案的套件：
 
+    ```CLI
         dotnet restore
-
+    ```
 3. 將名為 ConnectionStrings:AppConfig  的祕密新增至祕密管理員。
 
     此祕密會包含用來存取應用程式設定存放區的連接字串。 請以應用程式設定存放區的連接字串取代下列命令中的值。
 
     此命令必須在和 *.csproj* 檔案相同的目錄中執行。
 
+    ```CLI
         dotnet user-secrets set ConnectionStrings:AppConfig <your_connection_string>
+    ```
 
     > [!IMPORTANT]
     > 請以引號括住連接字串，否則某些殼層會截斷連接字串。 請確定 `dotnet user-secrets` 命令的輸出會顯示整個連接字串。 如果不是，請重新執行命令，並以引號括住連接字串。
@@ -111,6 +117,11 @@ ms.locfileid: "72035293"
     ```
 
 5. 藉由呼叫 `config.AddAzureAppConfiguration()` 方法將 `CreateWebHostBuilder` 方法更新為使用應用程式設定。
+    
+    > [!IMPORTANT]
+    > `CreateHostBuilder` 會取代 .NET Core 3.0 中的 `CreateWebHostBuilder`。  根據您的環境選取正確的語法。
+
+    ### <a name="update-createwebhostbuilder-for-net-core-2x"></a>更新 .NET Core 2.x 的 `CreateWebHostBuilder`
 
     ```csharp
     public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
@@ -123,9 +134,23 @@ ms.locfileid: "72035293"
             .UseStartup<Startup>();
     ```
 
+    ### <a name="update-createhostbuilder-for-net-core-3x"></a>更新 .NET Core 3.x 的 `CreateHostBuilder`
+
+    ```csharp
+    public static IHostBuilder CreateHostBuilder(string[] args) =>
+        Host.CreateDefaultBuilder(args)
+        .ConfigureWebHostDefaults(webBuilder =>
+        webBuilder.ConfigureAppConfiguration((hostingContext, config) =>
+        {
+            var settings = config.Build();
+            config.AddAzureAppConfiguration(settings["ConnectionStrings:AppConfig"]);
+        })
+        .UseStartup<Startup>());
+    ```
+
 6. 開啟 Views > Home 目錄中的 Index.cshtml  ，並將其內容更換為下列程式碼：
 
-    ```html
+    ```HTML
     @using Microsoft.Extensions.Configuration
     @inject IConfiguration Configuration
 
@@ -144,7 +169,7 @@ ms.locfileid: "72035293"
 
 7. 開啟 Views > Shared 目錄中的 _Layout.cshtml  ，並將其內容更換為下列程式碼：
 
-    ```html
+    ```HTML
     <!DOCTYPE html>
     <html>
     <head>
@@ -173,11 +198,15 @@ ms.locfileid: "72035293"
 
 1. 若要使用 .NET Core CLI 來建置應用程式，請在命令殼層中執行下列命令：
 
-        dotnet build
+    ```CLI
+       dotnet build
+    ```
 
 2. 建置成功完成後，請執行下列命令以在本機執行 Web 應用程式：
 
+    ```CLI
         dotnet run
+    ```
 
 3. 開啟瀏覽器視窗，並前往 `http://localhost:5000` (這是本機所裝載 Web 應用程式的預設 URL)。
 

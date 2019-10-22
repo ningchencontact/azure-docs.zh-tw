@@ -1,5 +1,5 @@
 ---
-title: 快速入門：使用 Azure 入口網站在 Azure Databricks 上執行 Spark 作業
+title: 使用 Azure 入口網站在 Azure Databricks 上執行 Spark 作業
 description: 此快速入門會說明如何使用 Azure 入口網站來建立 Azure Databricks 工作區、Apache Spark 叢集和執行 Spark 作業。
 services: azure-databricks
 ms.service: azure-databricks
@@ -10,12 +10,12 @@ ms.workload: big-data
 ms.topic: quickstart
 ms.date: 05/08/2019
 ms.custom: mvc
-ms.openlocfilehash: 3570325880b4c8d8eb311f00477262126a2b18ad
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: 21a3e8541441e6139c1c84138870b3ffaf3cacc1
+ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68932574"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72515797"
 ---
 # <a name="quickstart-run-a-spark-job-on-azure-databricks-using-the-azure-portal"></a>快速入門：使用 Azure 入口網站在 Azure Databricks 上執行 Spark 作業
 
@@ -54,8 +54,9 @@ ms.locfileid: "68932574"
     |**資源群組**     | 指定您是要建立新的資源群組，還是使用現有資源群組。 資源群組是存放 Azure 方案相關資源的容器。 如需詳細資訊，請參閱 [Azure 資源群組概觀](../azure-resource-manager/resource-group-overview.md)。 |
     |**位置**     | 選取 [美國西部 2]  。 如需其他可用的區域，請參閱[依區域提供的 Azure 服務](https://azure.microsoft.com/regions/services/)。        |
     |定價層      |  選擇 [標準]  、[進階]  或 [試用]  。 如需這些定價層的詳細資訊，請參閱 [Databricks 定價頁面](https://azure.microsoft.com/pricing/details/databricks/)。       |
+    |**虛擬網路**     |  選擇在您自己的虛擬網路 (VNet) 中部署 Azure Databricks 工作區。 如需詳細資訊，請參閱[在 Azure 虛擬網路中部署 Azure Databricks (VNet 插入)](/azure/databricks/administration-guide/cloud-configurations/azure/vnet-inject)。        |
 
-    選取 [釘選到儀表板]  ，然後按一下 [建立]  。
+    選取 [建立]  。
 
 4. 工作區建立需要幾分鐘的時間。 在工作區建立期間，您可以在 [通知]  中檢視部署狀態。
 
@@ -79,7 +80,7 @@ ms.locfileid: "68932574"
     接受下列值以外的所有其他預設值：
 
    * 輸入叢集的名稱。
-   * 針對本文，使用 **5.2** 執行階段建立叢集。
+   * 針對本文，使用 **5.3** 執行階段建立叢集。
    * 請確定您已選取 [在活動\_\_分鐘後終止]  核取方塊。 請提供用來終止叢集的叢集未使用持續時間 (以分鐘為單位)。
     
      選取 [建立叢集]  。 叢集在執行後，您就可以將 Notebook 連結至叢集，並執行 Spark 作業。
@@ -92,11 +93,11 @@ ms.locfileid: "68932574"
 
 1. 在左窗格中選取 [Azure Databricks]  。 從 [一般工作]  選取 [新增筆記本]  。
 
-    ![在 Databricks 中建立 Notebook](./media/quickstart-create-databricks-workspace-portal/databricks-create-notebook.png "在 Databricks 中建立 Notebook")
+    ![在 Databricks 中建立筆記本](./media/quickstart-create-databricks-workspace-portal/databricks-create-notebook.png "在 Databricks 中建立筆記本")
 
 2. 在 [建立筆記本]  對話方塊中輸入名稱，選取 [Python]  作為語言，然後選取您先前建立的 Spark 叢集。
 
-    ![在 Databricks 中建立 Notebook](./media/quickstart-create-databricks-workspace-portal/databricks-notebook-details.png "在 Databricks 中建立 Notebook")
+    ![在 Databricks 中建立筆記本](./media/quickstart-create-databricks-workspace-portal/databricks-notebook-details.png "在 Databricks 中建立筆記本")
 
     選取 [建立]  。
 
@@ -136,7 +137,7 @@ ms.locfileid: "68932574"
 
 5. 您會看到如下列螢幕擷取畫面所示的表格式輸出 (僅顯示某些資料行)：
 
-    ![範例資料](./media/quickstart-create-databricks-workspace-portal/databricks-sample-csv-data.png "JSON 資料範例")
+    ![範例資料](./media/quickstart-create-databricks-workspace-portal/databricks-sample-csv-data.png "範例 JSON 資料")
 
 6. 現在，您會建立此資料的視覺表示法來顯示有多少安全事件會使用 Citizens Connect App 和 City Worker App，而不是其他來源來報告。 從表格式輸出底部，選取 [長條圖]  圖示，然後按一下 [繪圖選項]  。
 

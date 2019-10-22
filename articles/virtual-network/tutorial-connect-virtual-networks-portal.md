@@ -17,12 +17,12 @@ ms.workload: infrastructure
 ms.date: 08/16/2018
 ms.author: kumud
 ms.custom: ''
-ms.openlocfilehash: a83980c3d4d03f53a19918ed213c965e50baa406
-ms.sourcegitcommit: a19f4b35a0123256e76f2789cd5083921ac73daf
+ms.openlocfilehash: bf7b9b288a32d9f6cc2c9e0d7dba4b074c4bf878
+ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71720050"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72515724"
 ---
 # <a name="tutorial-connect-virtual-networks-with-virtual-network-peering-using-the-azure-portal"></a>教學課程：使用 Azure 入口網站以虛擬網路對等互連連線虛擬網路
 
@@ -46,21 +46,18 @@ ms.locfileid: "71720050"
 
 1. 選取 Azure 入口網站左上角的 [+ 建立資源]  。
 2. 選取 [網絡]  ，然後選取 [虛擬網路]  。
-3. 輸入或選取下列資訊、接受其餘設定的預設值，然後選取 [建立]  ：
+3. 在 [基本資料]  頁面上，輸入或選取下列資訊，然後接受其餘設定的預設值：
 
     |設定|值|
     |---|---|
-    |名稱|myVirtualNetwork1|
-    |位址空間|10.0.0.0/16|
     |訂用帳戶| 選取您的訂用帳戶。|
     |資源群組| 選取 [新建]  ，然後輸入 *myResourceGroup*。|
-    |位置| 選取 [美國東部]  。|
-    |子網路名稱|Subnet1|
-    |子網路位址範圍|10.0.0.0/24|
-
-      ![建立虛擬網路](./media/tutorial-connect-virtual-networks-portal/create-virtual-network.png)
-
-4. 以下列變更再次完成步驟 1-3：
+    |區域| 選取 [美國東部]  。|
+    |名稱|myVirtualNetwork1|
+    ![設定基本虛擬網路設定] (
+4. 在 [IP 位址]  頁面上，針對 [位址空間]  欄位輸入 10.0.0.0/16。 按一下下方的 [新增子網路]  按鈕，然後針對 [子網路名稱]  輸入 Subnet1 並針對 [子網路位址範圍]  輸入 10.0.0.0/24。
+   
+5. 以下列變更再次完成步驟 1-3：
 
     |設定|值|
     |---|---|
@@ -105,22 +102,26 @@ ms.locfileid: "71720050"
 
     |設定|值|
     |---|---|
+    |資源群組| 選取 [使用現有的]  ，然後選取 [myResourceGroup]  。|
     |名稱|myVm1|
+    |位置| 選取 [美國東部]  。|
     |使用者名稱| 輸入您選擇的使用者名稱。|
     |密碼| 輸入您選擇的密碼。 密碼長度至少必須有 12 個字元，而且符合[定義的複雜度需求](../virtual-machines/windows/faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm)。|
-    |資源群組| 選取 [使用現有的]  ，然後選取 [myResourceGroup]  。|
-    |位置| 選取 [美國東部]  。|
-4. 在 [選擇大小]  底下選取虛擬機器大小。
-5. 針對 [設定]  選取下列值，然後選取 [確定]  ：
+   
+4. 針對 [大小]  選項選取 VM 大小。
+5. 在 [網路]  底下選取下列值：
 
     |設定|值|
     |---|---|
-    |虛擬網路| myVirtualNetwork1 - 若未選取，請選取 [虛擬網路]  ，然後在 [選擇虛擬網路]  底下選取 [myVirtualNetwork1]  。|
-    |子網路| Subnet1 - 若未選取，請選取 [子網路]  ，然後在 [選擇子網路]  底下選取 [Subnet1]  。|
+    |虛擬網路| myVirtualNetwork1 - 若尚未選取，請選取 [虛擬網路]  ，然後選取 [myVirtualNetwork1]  。|
+    |子網路| Subnet1 - 若尚未選取，請選取 [子網路]  ，然後選取 [Subnet1]  。|
     
+
     ![虛擬機器設定](./media/tutorial-connect-virtual-networks-portal/virtual-machine-settings.png)
- 
-6. 在 [摘要]  的 [建立]  底下，選取 [建立]  來開始部署虛擬機器。
+   
+6. 選取 [網路功能]  。 針對 [公用輸入連接埠]  選項選擇 [允許選取的連接埠]  。 針對底下的 [選取輸入連接埠]  選項選擇 [RDP]  。 
+
+7. 選取左下角的 [檢閱 + 建立]  按鈕，以開始進行 VM 部署。
 
 ### <a name="create-the-second-vm"></a>建立第二個 VM
 

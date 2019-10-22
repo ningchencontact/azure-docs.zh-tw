@@ -1,5 +1,5 @@
 ---
-title: 使用 AI 來瞭解 Blob 資料
+title: 使用 AI 來瞭解 Blob 儲存體資料
 titleSuffix: Azure Search
 description: 在 Azure 搜尋服務中使用 AI 擴充管線，將語義、自然語言處理和影像分析新增至 Azure blob。
 manager: nitinme
@@ -8,14 +8,14 @@ ms.author: heidist
 ms.service: search
 ms.topic: conceptual
 ms.date: 10/09/2019
-ms.openlocfilehash: f7e264be9a02514972f9c9702adec8fa55a157bd
-ms.sourcegitcommit: f29fec8ec945921cc3a89a6e7086127cc1bc1759
+ms.openlocfilehash: 1a8840aca71daacc08cf85b178668e42ff9f796c
+ms.sourcegitcommit: 1bd2207c69a0c45076848a094292735faa012d22
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72529388"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72678425"
 ---
-# <a name="use-ai-to-understand-blob-data"></a>使用 AI 來瞭解 Blob 資料
+# <a name="use-ai-to-understand-blob-storage-data"></a>使用 AI 來瞭解 Blob 儲存體資料
 
 Azure Blob 儲存體中的資料通常是各種非結構化內容，例如影像、長文字、Pdf 和 Office 檔。 藉由使用 Azure 搜尋服務中的 AI 功能，您可以透過各種不同的方式來瞭解及解壓縮 blob 中的重要資訊。 將 AI 套用至 blob 內容的範例包括：
 
@@ -112,7 +112,8 @@ AI 擴充的輸出可以是 Azure 搜尋服務上的搜尋索引，或 Azure 儲
 
 您還可以利用 AI 擴充來充分運用您在 Azure 儲存體中的資料，包括以不同的方式結合認知服務，以及在沒有任何現有認知服務的情況下，撰寫自訂技能。 您可以遵循下列連結深入瞭解。
 
-> [!div class="nextstepaction"]
-> [AI 擴充總覽](cognitive-search-concept-intro.md) 
-> [在注釋樹狀結構中](cognitive-search-output-field-mapping.md)[建立技能集](cognitive-search-defining-skillset.md)
->  對應節點
++ [使用 Azure 入口網站（Azure Blob 儲存體）上傳、下載及列出 blob](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-portal)
++ [設定 blob 索引子（Azure 搜尋服務）](search-howto-indexing-azure-blob-storage.md) 
++ [AI 擴充總覽（Azure 搜尋服務）](cognitive-search-concept-intro.md) 
++ [建立技能集（Azure 搜尋服務）](cognitive-search-defining-skillset.md)
++ [對應注釋樹狀結構中的節點（Azure 搜尋服務）](cognitive-search-output-field-mapping.md)

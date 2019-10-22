@@ -8,18 +8,16 @@ ms.topic: quickstart
 ms.service: azure-functions
 ms.custom: mvc
 manager: gwallace
-ms.openlocfilehash: 6ef6f4ae86f0f732164603bd8b38dc1bbef95dd9
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: 383401c1486bcbebc39b64d5794f8bdc660d2778
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68600145"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72329619"
 ---
 # <a name="connect-functions-to-azure-storage-using-visual-studio"></a>使用 Visual Studio 將函式連線至 Azure 儲存體
 
-Azure Functions 可讓您直接將函式連線至 Azure 服務和其他資源，而不需要自行撰寫整合程式碼。 這些預先定義的連線稱為「繫結」  。 繫結可讓函式使用 Azure 服務和其他資源作為函式的輸入和輸出。
-
-函式執行是由單一「觸發程序」  所啟動。 觸發程序是一種特殊的輸入繫結。 函式雖然只有一個觸發程序，但可以有多個輸入和輸出繫結。 若要深入了解，請參閱 [Azure Functions 觸發程序和繫結概念](functions-triggers-bindings.md)。
+[!INCLUDE [functions-add-storage-binding-intro](../../includes/functions-add-storage-binding-intro.md)]
 
 此文章說明如何使用 Visual Studio 將您在[先前的快速入門文章]中建立的函式連線至 Azure 儲存體。 您新增至此函式的輸出繫結，會將資料從 HTTP 要求寫入至位於 Azure 佇列儲存體佇列中的訊息。 
 
@@ -31,7 +29,7 @@ Azure Functions 可讓您直接將函式連線至 Azure 服務和其他資源，
 
  - 完成 [Visual Studio 快速入門的第1部分][./functions-create-first-function-vs-code.md]。 
 
-- 從 Visual Studio 登入您的 Azure 訂用帳戶
+- 從 Visual Studio 登入您的 Azure 訂用帳戶。
 
 ## <a name="download-the-function-app-settings"></a>下載函式應用程式設定
 

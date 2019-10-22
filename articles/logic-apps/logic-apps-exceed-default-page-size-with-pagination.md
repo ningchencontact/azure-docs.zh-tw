@@ -1,6 +1,6 @@
 ---
-title: 取得更多的資料、 項目或使用分頁-Azure Logic Apps 的記錄
-description: 設定分頁超過 Azure Logic Apps 中的連接器動作的預設頁面大小限制
+title: 取得更多的專案或具有分頁 Azure Logic Apps 的記錄
+description: 在 Azure Logic Apps 中設定分頁，使其超過連接器動作的預設頁面大小限制
 services: logic-apps
 ms.service: logic-apps
 ms.suite: integration
@@ -9,26 +9,26 @@ ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: article
 ms.date: 04/11/2019
-ms.openlocfilehash: 2d1bcf2cf83fab106f79120c3caacc424f839836
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e86600312490c77ed492cb28a359add0fed90596
+ms.sourcegitcommit: d37991ce965b3ee3c4c7f685871f8bae5b56adfa
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64476537"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72679884"
 ---
-# <a name="get-more-data-items-or-records-by-using-pagination-in-azure-logic-apps"></a>Azure Logic Apps 中使用分頁來取得更多的資料、 項目或記錄
+# <a name="get-more-data-items-or-records-by-using-pagination-in-azure-logic-apps"></a>在 Azure Logic Apps 中使用分頁來取得更多資料、專案或記錄
 
-當使用中的連接器動作來擷取資料、 項目或資料錄[Azure Logic Apps](../logic-apps/logic-apps-overview.md)，您可能會收到結果集太大的動作不會傳回所有結果，在相同的時間。 執行某些動作的結果數目可能會超過連接器的預設頁面大小。 在此情況下，動作只會傳回結果的第一頁。 例如，SQL Server 連接器的預設頁面大小**取得資料列**動作為 2048，但可能會改變根據其他設定。
+當您使用[Azure Logic Apps](../logic-apps/logic-apps-overview.md)中的連接器動作來抓取資料、專案或記錄時，您可能會得到結果集很大，以致動作不會同時傳回所有結果。 在某些動作中，結果數目可能會超過連接器的預設頁面大小。 在此情況下，動作只會傳回結果的第一頁。 例如，SQL Server 連接器的 [**取得資料列**] 動作的預設頁面大小為2048，但可能會根據其他設定而有所不同。
 
-有些動作可讓您開啟*分頁*設定，如此您邏輯應用程式可以擷取更多的結果，最大分頁限制，但動作完成時，這些結果傳回為單一訊息。 當您使用的分頁時，您必須指定*閾值*值，也就是您想要傳回的動作結果的目標數目。 動作會擷取結果，直到到達指定的臨界值。 當您的項目總數小於指定的臨界值時，則動作會擷取所有結果。
+某些動作可讓您開啟*分頁*設定，讓邏輯應用程式可以抓取更多的結果，直到分頁限制，但動作完成時，會以單一訊息的形式傳回這些結果。 當您使用分頁時，您必須指定*臨界*值，這是您想要讓動作傳回的目標結果數目。 動作會抓取結果，直到達到您指定的閾值。 當您的專案總數小於指定的臨界值時，此動作會抓取所有結果。
 
-開啟連接器的頁面大小為基礎的結果分頁設定擷取頁面。 這個行為表示，某些情況下，您可能會收到結果超過您指定的臨界值。 例如，當使用 SQL Server**取得資料列**支援分頁設定的動作：
+開啟分頁設定會根據連接器的頁面大小來抓取結果頁面。 這種行為表示，有時候您可能會得到比指定的閾值更多的結果。 例如，當使用支援分頁設定的 SQL Server**取得資料列** 動作時：
 
-* 動作的預設頁面大小為 2048年每頁記錄數。
-* 假設您有 10,000 筆記錄，並指定最小值的 5000 筆記錄。
-* 分頁取得頁面的記錄，因此至少可以取得指定的最小值，此動作會傳回 6144 記錄 （3 個頁面 x 2048 記錄），不 5000 筆的記錄。
+* 動作的預設頁面大小為每頁2048筆記錄。
+* 假設您有10000筆記錄，並指定5000筆記錄做為最小值。
+* 分頁會取得記錄的頁面，因此若要取得至少指定的最小值，動作會傳回6144筆記錄（3頁 x 2048 筆記錄），而不是5000筆記錄。
 
-以下是一些您可以在其中超過特定動作的預設頁面大小的連接器清單：
+以下是只有一些連接器的清單，您可以在其中超過特定動作的預設頁面大小：
 
 * [Azure Blob 儲存體](https://docs.microsoft.com/connectors/azureblob/)
 * [Dynamics 365](https://docs.microsoft.com/connectors/dynamicscrmonline/)
@@ -41,31 +41,31 @@ ms.locfileid: "64476537"
 * [SharePoint](https://docs.microsoft.com/connectors/sharepointonline/)
 * [SQL Server](https://docs.microsoft.com/connectors/sql/)
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 * Azure 訂用帳戶。 如果您還沒有 Azure 訂用帳戶，請先[註冊免費的 Azure 帳戶](https://azure.microsoft.com/free/)。
 
-* 邏輯應用程式，您要開啟重新編頁的動作。 如果您沒有在邏輯應用程式，請參閱[快速入門：建立第一個邏輯應用程式](../logic-apps/quickstart-create-first-logic-app-workflow.md)。
+* 邏輯應用程式，以及您要開啟分頁的動作。 如果您沒有邏輯應用程式，請參閱[快速入門：建立您的第一個邏輯應用程式](../logic-apps/quickstart-create-first-logic-app-workflow.md)。
 
 ## <a name="turn-on-pagination"></a>開啟分頁
 
-若要判斷邏輯應用程式設計工具中支援分頁的動作，檢查動作的設定**分頁**設定。 此範例示範如何開啟 SQL Server 中的分頁**取得資料列**動作。
+若要判斷某個動作是否支援邏輯應用程式設計工具中的分頁，請檢查該動作的設定是否為 [**分頁**] 設定。 這個範例示範如何在 SQL Server 的 [**取得資料列**] 動作中開啟分頁。
 
-1. 在動作的右上角，選擇省略符號 ( **...** ) 按鈕，然後選取**設定**。
+1. 在動作的右上角，選擇省略號（ **...** ）按鈕，然後選取 [**設定**]。
 
-   ![開啟動作的設定](./media/logic-apps-exceed-default-page-size-with-pagination/sql-action-settings.png)
+   ![開啟動作的 [設定]](./media/logic-apps-exceed-default-page-size-with-pagination/sql-action-settings.png)
 
-   如果動作支援分頁，動作就會顯示**分頁**設定。
+   如果動作支援分頁，此動作會顯示**分頁**設定。
 
-1. 變更**分頁**從設定**Off**來**上**。 在 **閾值**屬性，指定您想要傳回的動作結果的目標數目的整數值。
+1. 將**分頁**設定從 [**關閉**] 變更為 [**開啟**]。 在 [**閾值**] 屬性中，為您想要讓動作傳回的目標結果指定一個整數值。
 
-   ![指定要傳回結果的最小數目](./media/logic-apps-exceed-default-page-size-with-pagination/sql-action-settings-pagination.png)
+   ![指定要傳回的結果數目下限](./media/logic-apps-exceed-default-page-size-with-pagination/sql-action-settings-pagination.png)
 
-1. 準備就緒時，請選擇 [完成]  。
+1. 準備就緒時，請選擇 [完成]。
 
 ## <a name="workflow-definition---pagination"></a>工作流程定義-分頁
 
-當您開啟分頁支援此功能的動作時，邏輯應用程式的工作流程定義會包含`"paginationPolicy"`屬性連同`"minimumItemCount"`屬性，該動作中的`"runtimeConfiguration"`內容，例如：
+當您開啟支援這項功能之動作的分頁時，邏輯應用程式的工作流程定義會在該動作的 `"runtimeConfiguration"` 屬性中包含 [`"paginationPolicy"`] 屬性以及 [`"minimumItemCount"`] 屬性，例如：
 
 ```json
 "actions": {

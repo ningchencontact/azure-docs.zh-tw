@@ -10,14 +10,14 @@ ms.subservice: personalizer
 ms.topic: quickstart
 ms.date: 09/26/2019
 ms.author: diberry
-ms.openlocfilehash: 174f0f3d8984e102e098b4c981d3784f50c7d7c6
-ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
+ms.openlocfilehash: 4308ed6d00bd3900986f08a93a686f0d7d00bcfb
+ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71345228"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72515590"
 ---
-# <a name="quickstart-personalize-client-library-for-net"></a>快速入門：適用於 .NET 的個人化工具用戶端程式庫
+# <a name="quickstart-personalizer-client-library-for-net"></a>快速入門：適用於 .NET 的個人化工具用戶端程式庫
 
 使用個人化工具服務顯示此 C# 快速入門中的個人化內容。
 
@@ -38,10 +38,10 @@ ms.locfileid: "71345228"
 使用本快速入門有幾個步驟：
 
 * 在 Azure 入口網站中，建立個人化工具資源
-* 在 Azure 入口網站中，於個人化工具資源的 [設定]  頁面上，變更模型更新頻率。
+* 在 Azure 入口網站中，於個人化工具資源的 [設定]  頁面上，變更模型更新頻率
 * 在程式碼編輯器中，建立程式碼檔案並編輯程式碼檔案
-* 在命令列或終端中，從命令列安裝 SDK
-* 在命令列或終端中，執行程式碼檔案
+* 在命令列或終端機中，從命令列安裝 SDK
+* 在命令列或終端機中，執行程式碼檔案
 
 ## <a name="create-a-personalizer-azure-resource"></a>建立個人化工具 Azure 資源
 

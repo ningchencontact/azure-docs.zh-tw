@@ -1,23 +1,19 @@
 ---
 title: Azure Application Insights 遙測資料模型 - 要求遙測 | Microsoft Docs
 description: 要求遙測的 Application Insights 資料模型
-services: application-insights
-documentationcenter: .net
-author: mrbullwinkle
-manager: carmonm
-ms.service: application-insights
-ms.workload: TBD
-ms.tgt_pltfrm: ibiza
+ms.service: azure-monitor
+ms.subservice: application-insights
 ms.topic: conceptual
+author: mrbullwinkle
+ms.author: mbullwin
 ms.date: 01/07/2019
 ms.reviewer: sergkanz
-ms.author: mbullwin
-ms.openlocfilehash: fef016d87cc60bc916fdcb08f92171e115221fe5
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ff7b52cbd88e4927db275dee4d7fbc4691ad076b
+ms.sourcegitcommit: 1bd2207c69a0c45076848a094292735faa012d22
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60900508"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72677334"
 ---
 # <a name="request-telemetry-application-insights-data-model"></a>要求遙測：Application Insights 資料模型
 
@@ -25,33 +21,33 @@ ms.locfileid: "60900508"
 
 要求遙測會使用自訂 `properties` 和 `measurements`支援標準的擴充性模型。
 
-## <a name="name"></a>名稱
+## <a name="name"></a>Name
 
 要求的名稱代表處理要求所採用的程式碼路徑。 較低的基數值可使群組要求更妥善。 針對 HTTP 要求，它代表 HTTP 方法和 URL 路徑範本，例如無實際 `id` 值的 `GET /values/{id}`。
 
-Application Insights web SDK 會將要求名稱依「現狀」傳送 (考量字母大小寫)。 UI 上的群組會區分大小寫，因此 `GET /Home/Index` 會與 `GET /home/INDEX` 分開計算，即使它們通常會產生相同的控制器和動作執行。 原因是 URL 通常會[區分大小寫](https://www.w3.org/TR/WD-html40-970708/htmlweb.html)。 您可能要查看 URL 出現的所有 `404` 是否都以大寫輸入。 您可以閱讀更多要求名稱集合中的 ASP.NET Web sdk[部落格文章](https://apmtips.com/blog/2015/02/23/request-name-and-url/)。
+Application Insights web SDK 會將要求名稱依「現狀」傳送 (考量字母大小寫)。 UI 上的群組會區分大小寫，因此 `GET /Home/Index` 會與 `GET /home/INDEX` 分開計算，即使它們通常會產生相同的控制器和動作執行。 原因是 URL 通常會[區分大小寫](https://www.w3.org/TR/WD-html40-970708/htmlweb.html)。 您可能要查看 URL 出現的所有 `404` 是否都以大寫輸入。 您可以在[blog 文章](https://apmtips.com/blog/2015/02/23/request-name-and-url/)中，閱讀更多有關 ASP.NET Web SDK 的要求名稱集合。
 
-最大長度：1024 個字元
+最大長度︰1024 個字元
 
-## <a name="id"></a>id
+## <a name="id"></a>ID
 
 要求呼叫執行個體的識別碼。 用於要求和其他遙測項目之間的相互關聯。 識別碼必須是全域唯一的。 如需詳細資訊，請參閱[相互關聯](../../azure-monitor/app/correlation.md)頁面。
 
-最大長度：128 個字元
+最大長度︰128 個字元
 
-## <a name="url"></a>url
+## <a name="url"></a>Url
 
 包含所有查詢字串參數的要求 URL。
 
-最大長度：2048 個字元
+最大長度︰2048 個字元
 
-## <a name="source"></a>Source
+## <a name="source"></a>來源
 
 要求的來源。 範例包括呼叫端的檢測金鑰或呼叫端的 IP 位址。 如需詳細資訊，請參閱[相互關聯](../../azure-monitor/app/correlation.md)頁面。
 
-最大長度：1024 個字元
+最大長度︰1024 個字元
 
-## <a name="duration"></a>Duration
+## <a name="duration"></a>課程時間
 
 要求持續時間格式為︰`DD.HH:MM:SS.MMMMMM`。 必須是正數且小於 `1000` 天。 這是必要欄位，因為要求遙測代表開頭與結尾的作業。
 
@@ -59,7 +55,7 @@ Application Insights web SDK 會將要求名稱依「現狀」傳送 (考量字�
 
 要求執行的結果。 HTTP 要求的 HTTP 狀態碼。 可能是 `HRESULT` 值或其他要求類型的例外狀況類型。
 
-最大長度：1024 個字元
+最大長度︰1024 個字元
 
 ## <a name="success"></a>成功
 

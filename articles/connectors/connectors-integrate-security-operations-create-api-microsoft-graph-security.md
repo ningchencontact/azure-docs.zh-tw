@@ -1,6 +1,6 @@
 ---
-title: 使用 Microsoft Graph 安全性整合安全性作業 - Azure Logic Apps
-description: 使用 Microsoft Graph 安全性和 Azure Logic Apps 管理安全性作業，改善您的應用程式威脅防護、偵測和回應功能
+title: 整合和管理安全性作業-Azure Logic Apps & Microsoft Graph 安全性
+description: 使用 Microsoft Graph 安全性 &，改善您的應用程式威脅防護、偵測和回應 Azure Logic Apps
 services: logic-apps
 ms.service: logic-apps
 ms.suite: integration
@@ -10,12 +10,12 @@ ms.reviewer: klam, estfan, LADocs
 ms.topic: article
 ms.date: 01/30/2019
 tags: connectors
-ms.openlocfilehash: 24963a35bc3e54b2d140bf4ed1d169b213bd9b2a
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 845f57d84f49bdd964cc6f61790faff093f59466
+ms.sourcegitcommit: d37991ce965b3ee3c4c7f685871f8bae5b56adfa
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60448041"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72679084"
 ---
 # <a name="improve-threat-protection-by-integrating-security-operations-with-microsoft-graph-security--azure-logic-apps"></a>使用 Microsoft Graph 安全性和 Azure Logic Apps 整合安全性作業，改善威脅防護功能
 
@@ -32,11 +32,11 @@ ms.locfileid: "60448041"
 
 ## <a name="prerequisites"></a>必要條件
 
-* Azure 訂用帳戶。 如果您沒有 Azure 訂用帳戶，請先[註冊免費的 Azure 帳戶](https://azure.microsoft.com/free/)。 
+* Azure 訂用帳戶。 如果您沒有 Azure 訂用帳戶，請先[註冊一個免費的 Azure 帳戶](https://azure.microsoft.com/free/)。 
 
 * 若要使用 Microsoft Graph 安全性連接器，您必須擁有*明確提供*的 Azure Active Directory (AD) 租用戶系統管理員同意，這是 [Microsoft Graph 安全性驗證需求](https://aka.ms/graphsecurityauth)的一部分。 這項同意需要 Microsoft Graph 安全性連接器的應用程式識別碼和名稱，您也可以在 [Azure 入口網站](https://portal.azure.com)中找到：
 
-   | 屬性 | 值 |
+   | 屬性 | Value |
    |----------|-------|
    | **應用程式名稱** | `MicrosoftGraphSecurityConnector` |
    | **應用程式識別碼** | `c4829704-0edc-4c3d-a347-7c4a67586f3c` |
@@ -50,7 +50,7 @@ ms.locfileid: "60448041"
    
 * [如何建立邏輯應用程式](../logic-apps/quickstart-create-first-logic-app-workflow.md)的基本知識
 
-* 邏輯應用程式即為您想要存取 Microsoft Graph 安全性實體 (例如警示) 的位置。 目前，此連接器沒有任何觸發程序。 因此，若要使用 Microsoft Graph 安全性動作，請使用觸發程序啟動您的邏輯應用程式，例如「週期」  觸發程序。
+* 邏輯應用程式即為您想要存取 Microsoft Graph 安全性實體 (例如警示) 的位置。 目前，此連接器沒有任何觸發程序。 因此，若要使用 Microsoft Graph 安全性動作，請使用觸發程序啟動您的邏輯應用程式，例如「週期」觸發程序。
 
 ## <a name="connect-to-microsoft-graph-security"></a>連線至 Microsoft Graph 安全性 
 
@@ -62,12 +62,12 @@ ms.locfileid: "60448041"
 
    -或-
 
-   若是現有的邏輯應用程式，請在想要新增 Microsoft Graph 安全性動作的最後一個步驟底下，選擇 [新增步驟]  。
+   若是現有的邏輯應用程式，請在想要新增 Microsoft Graph 安全性動作的最後一個步驟底下，選擇 [新增步驟]。
 
    -或-
 
    若要在步驟之間新增動作，將指標移至步驟之間的箭號。 
-   選擇所顯示的加號 (+)，然後選取 [新增動作]  。
+   選擇所顯示的加號 (+)，然後選取 [新增動作]。
 
 1. 在搜尋方塊中，輸入「Microsoft Graph 安全性」作為篩選條件。 從 [動作] 清單中，選取您想要的動作。
 
@@ -81,27 +81,27 @@ ms.locfileid: "60448041"
 
 ### <a name="manage-alerts"></a>管理警示
 
-若要篩選、排序或取得最近結果，只要  提供 [Microsoft Graph 支援的 ODATA 查詢參數](https://docs.microsoft.com/graph/query-parameters)。 「請勿指定」  完整的基底 URL 或 HTTP 動作，例如 `https://graph.microsoft.com/v1.0/security/alerts`，或是 `GET` 或 `PATCH` 作業。 以下具體範例顯示當您要列出高嚴重性警示時，適用於**取得警示**動作的參數：
+若要篩選、排序或取得最近結果，只要提供 [Microsoft Graph 支援的 ODATA 查詢參數](https://docs.microsoft.com/graph/query-parameters)。 「請勿指定」完整的基底 URL 或 HTTP 動作，例如 `https://graph.microsoft.com/v1.0/security/alerts`，或是 `GET` 或 `PATCH` 作業。 以下具體範例顯示當您要列出高嚴重性警示時，適用於**取得警示**動作的參數：
 
 `Filter alerts value as Severity eq 'high'`
 
 如需您可搭配此連接器使用之查詢的詳細資訊，請參閱 [Microsoft Graph 安全性警示參考文件](https://docs.microsoft.com/graph/api/alert-list) \(英文\)。 若要建置含有此連接器的增強體驗，請深入了解連接器支援的[結構描述屬性警示](https://docs.microsoft.com/graph/api/resources/alert)。
 
-| 動作 | 描述 |
+| 行動 | 描述 |
 |--------|-------------|
 | **取得警示** | 取得依據一或多個[警示屬性](https://docs.microsoft.com/graph/api/resources/alert)篩選的警示，例如： <p>`Provider eq 'Azure Security Center' or 'Palo Alto Networks'` | 
 | **依識別碼取得警示** | 依據警示識別碼取得特定警示。 | 
-| **更新警示** | 依據警示識別碼更新特定警示。 <p>為確保您在要求中傳遞必要和可編輯的屬性，請參閱[警示的可編輯屬性](https://docs.microsoft.com/graph/api/alert-update) \(英文\)。 例如，若要指派警示給安全性分析師以讓他們可以進行調查，您可以更新警示的「指派給」  屬性。 |
+| **更新警示** | 依據警示識別碼更新特定警示。 <p>為確保您在要求中傳遞必要和可編輯的屬性，請參閱[警示的可編輯屬性](https://docs.microsoft.com/graph/api/alert-update) \(英文\)。 例如，若要指派警示給安全性分析師以讓他們可以進行調查，您可以更新警示的「指派給」屬性。 |
 |||
 
 ### <a name="manage-alert-subscriptions"></a>管理警示訂閱
 
 Microsoft Graph 支援[*訂閱*](https://docs.microsoft.com/graph/api/resources/subscription)或 [*Webhook*](https://docs.microsoft.com/graph/api/resources/webhooks)。 若要取得、更新或刪除訂閱，請將 [Microsoft Graph 支援的 ODATA 查詢參數](https://docs.microsoft.com/graph/query-parameters)提供給 Microsoft Graph 實體，並在 ODATA 查詢後包含 `security/alerts`。 
-「請勿包含」  基底 URL，例如：`https://graph.microsoft.com/v1.0`。 相反地，請使用此範例的格式：
+「請勿包含」基底 URL，例如：`https://graph.microsoft.com/v1.0`。 相反地，請使用此範例的格式：
 
 `security/alerts?$filter=status eq 'New'`
 
-| 動作 | 描述 |
+| 行動 | 描述 |
 |--------|-------------|
 | **建立訂用帳戶** | [建立訂閱](https://docs.microsoft.com/graph/api/subscription-post-subscriptions)可通知您相關的任何變更。 您可以針對您想要的特定警示類型篩選此訂閱。 例如，您可以建立通知您有關高嚴重性警示的訂閱。 |
 | **取得有效的訂閱** | [取得未到期的訂閱](https://docs.microsoft.com/graph/api/subscription-list)。 | 
@@ -116,7 +116,7 @@ Microsoft Graph 支援[*訂閱*](https://docs.microsoft.com/graph/api/resources/
 ## <a name="get-support"></a>取得支援
 
 如有問題，請瀏覽 [Azure Logic Apps 論壇](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps)。
-若要提交或票選功能構想，請造訪 [Logic Apps 使用者意見反應網站](https://aka.ms/logicapps-wish)。
+若要送出或票選功能構想，請前往 [Logic Apps 使用者意見反應網站](https://aka.ms/logicapps-wish)。
 
 ## <a name="next-steps"></a>後續步驟
 

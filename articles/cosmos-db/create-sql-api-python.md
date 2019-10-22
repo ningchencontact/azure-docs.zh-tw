@@ -1,5 +1,5 @@
 ---
-title: Azure Cosmos DB：使用 Python 和 SQL API 建置應用程式
+title: 快速入門：使用 Azure Cosmos DB SQL API 帳戶建置 Python 應用程式
 description: 提供 Python 程式碼範例，您可用來連線及查詢 Azure Cosmos DB SQL API
 author: SnehaGunda
 ms.service: cosmos-db
@@ -8,14 +8,18 @@ ms.devlang: python
 ms.topic: quickstart
 ms.date: 05/21/2019
 ms.author: sngun
-ms.openlocfilehash: f085ca6de2c04caa90c34bc1293da1210d2883eb
-ms.sourcegitcommit: 80dff35a6ded18fa15bba633bf5b768aa2284fa8
+ms.custom:
+- seodec18
+- seo-javascript-september2019
+- seo-python-october2019
+ms.openlocfilehash: 3e328d242bccd9f2ab037131d3fcce585bc6b8da
+ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/26/2019
-ms.locfileid: "70020169"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72432822"
 ---
-# <a name="azure-cosmos-db-build-a-python-application-using-azure-cosmos-db-sql-api-account"></a>Azure Cosmos DB：使用 Azure Cosmos DB SQL API 帳戶建置 Python 應用程式
+# <a name="quickstart-build-a-python-application-using-an-azure-cosmos-db-sql-api-account"></a>快速入門：使用 Azure Cosmos DB SQL API 帳戶建置 Python 應用程式
 
 > [!div class="op_single_selector"]
 > * [.NET](create-sql-api-dotnet.md)
@@ -25,9 +29,11 @@ ms.locfileid: "70020169"
 > * [Xamarin](create-sql-api-xamarin-dotnet.md)
 >  
 
+此快速入門示範如何使用 Azure 入口網站建立 Azure Cosmos DB [SQL API](sql-api-introduction.md) 帳戶、文件資料庫和容器。 接著，您要建置和執行以適用於 [SQL API](sql-api-sdk-python.md) 的 Python SDK 為基礎的主控台應用程式。
+
 Azure Cosmos DB 是 Microsoft 的全域分散式多模型資料庫服務。 您可以快速建立及查詢文件、索引鍵/值、整個資料行及圖形資料庫。 所有這些作業都受惠於 Azure Cosmos DB 的散發和調整。
 
-此快速入門示範如何使用 Azure 入口網站建立 Azure Cosmos DB [SQL API](sql-api-introduction.md) 帳戶、文件資料庫和容器。 接著，您要建置和執行以適用於 [SQL API](sql-api-sdk-python.md) 的 Python SDK 為基礎的主控台應用程式。 本快速入門使用 3.0 版的 [Python SDK](https://pypi.org/project/azure-cosmos)。
+本快速入門使用 3.0 版的 [Python SDK](https://pypi.org/project/azure-cosmos)。
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)] [!INCLUDE [cosmos-db-emulator-docdb-api](../../includes/cosmos-db-emulator-docdb-api.md)]
 
@@ -86,7 +92,7 @@ Azure Cosmos DB 是 Microsoft 的全域分散式多模型資料庫服務。 您�
 
 1. 在 [Azure 入口網站](https://portal.azure.com/)的 Azure Cosmos 帳戶中，選取左側導覽列中的 [金鑰]  。 在下一個步驟中，您將使用畫面右側的複製按鈕，將 **URI** 和**主要金鑰**複製到 `CosmosGetStarted.py` 檔案。
 
-    ![在 Azure 入口網站的 [金鑰] 刀鋒視窗中檢視並複製存取金鑰](./media/create-sql-api-dotnet/keys.png)
+    ![在 Azure 入口網站的 [金鑰] 設定中取得存取金鑰和 URI](./media/create-sql-api-dotnet/access-key-and-uri-in-keys-settings-in-the-azure-portal.png)
 
 2. 在 Visual Studio Code 中開啟 \git-samples\azure-cosmos-db-python-getting-started 中的 `CosmosGetStarted.py` 檔案。
 

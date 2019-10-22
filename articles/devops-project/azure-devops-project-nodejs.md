@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.topic: quickstart
 ms.date: 07/09/2018
 ms.author: mlearned
-ms.custom: mvc, seo-javascript-september2019
+ms.custom: mvc, seo-javascript-september2019, seo-javascript-october2019
 monikerRange: vsts
-ms.openlocfilehash: 9fc276626d2a863f7f2e53cd7312ab8b3be513dd
-ms.sourcegitcommit: 80da36d4df7991628fd5a3df4b3aa92d55cc5ade
+ms.openlocfilehash: 11edeb35119e2c598fd83fd89c65ba4dc4679650
+ms.sourcegitcommit: 1c2659ab26619658799442a6e7604f3c66307a89
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71815773"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72256124"
 ---
 #  <a name="quickstart-create-a-cicd-pipeline-in-azure-pipelines-for-nodejs-with-azure-devops-projects"></a>快速入門：使用 Azure DevOps Projects 在 Azure Pipelines 中建立適用於 Node.js 的 CI/CD 管線
 
@@ -37,7 +37,7 @@ DevOps Projects 會在 Azure Pipelines 中建立 CI/CD 管線。 您可以建立
 
 1. 在左側窗格中選取 [建立資源]  ，然後搜尋 [DevOps Projects]  。 
 
-    ![啟動連續傳遞設定](_img/azure-devops-project-nodejs/fullbrowser.png)
+    ![建立連續傳遞設定資源](_img/azure-devops-project-nodejs/create-azure-resource.png)
 
 ## <a name="select-a-sample-application-and-azure-service"></a>選取應用程式範例和 Azure 服務
 
@@ -60,7 +60,7 @@ DevOps Projects 會在 Azure Pipelines 中建立 CI/CD 管線。 您可以建立
      
 3. 選取 [瀏覽]  以檢視執行中應用程式。
 
-    ![儀表板檢視](_img/azure-devops-project-nodejs/dashboardnopreview.png) 
+    ![CI/CD 管線的儀表板視圖](_img/azure-devops-project-nodejs/devops-projects-dashboard.png) 
     
 DevOps Projects 會自動設定 CI 建置和發行觸發程序。  您現在已準備好利用 CI/CD 程序與小組共同進行 Node.js 應用程式的作業，這個程序會自動將您的最新工作部署到網站上。
 

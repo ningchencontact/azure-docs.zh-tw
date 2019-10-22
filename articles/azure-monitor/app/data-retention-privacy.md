@@ -1,39 +1,34 @@
 ---
 title: Azure Application Insights 中的資料保留和儲存 | Microsoft Docs
 description: 保留和隱私權原則聲明
-services: application-insights
-documentationcenter: ''
-author: mrbullwinkle
-manager: carmonm
-ms.assetid: a6268811-c8df-42b5-8b1b-1d5a7e94cbca
-ms.service: application-insights
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
+ms.service: azure-monitor
+ms.subservice: application-insights
 ms.topic: conceptual
-ms.date: 08/22/2019
+author: mrbullwinkle
 ms.author: mbullwin
-ms.openlocfilehash: df441a55ef4a9a40fe4defcabca5f667eeddbf29
-ms.sourcegitcommit: 5f67772dac6a402bbaa8eb261f653a34b8672c3a
+ms.date: 08/22/2019
+ms.openlocfilehash: 62758ef82b074e093e837b2095dd9f27ab31657b
+ms.sourcegitcommit: 1bd2207c69a0c45076848a094292735faa012d22
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/01/2019
-ms.locfileid: "70207302"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72678106"
 ---
 # <a name="data-collection-retention-and-storage-in-application-insights"></a>Application Insights 中的資料收集、保留和儲存
 
-當您在應用程式中安裝[Azure 應用程式 Insights][start] SDK 時, 它會將有關您應用程式的遙測傳送至雲端。 當然，負責任的開發人員會想要確切得知所傳送的資料為何、資料的後續情況，以及如何控制資料。 特別是，是否可能傳送敏感資料？資料儲存於何處？其安全性為何？ 
+當您在應用程式中安裝[Azure 應用程式 Insights][start] SDK 時，它會將有關您應用程式的遙測傳送至雲端。 當然，負責任的開發人員會想要確切得知所傳送的資料為何、資料的後續情況，以及如何控制資料。 特別是，是否可能傳送敏感資料？資料儲存於何處？其安全性為何？ 
 
 首先提供簡短的答案：
 
 * 「現成可用」的標準遙測模組不太可能將敏感資料傳送至服務。 遙測會考量負載、效能和使用度量、例外狀況報告和其他診斷資料。 診斷報告中顯示的主要使用者資料的 URL；但是，您的應用程式在任何情況下都應該不會將敏感資料以純文字形式放在 URL 中。
-* 您可以撰寫會傳送其他自訂遙測的程式碼，以利診斷與監視使用情形。 (此擴充性是 Application Insights 的絕佳功能之一)。在撰寫使程式碼時有可能會不慎包含個人資料和其他敏感資料。 如果您的應用程式會使用這類資料，您應對您撰寫的程式碼採用完整的檢閱程序。
+* 您可以撰寫會傳送其他自訂遙測的程式碼，以利診斷與監視使用情形。 （此擴充性是 Application Insights 的絕佳功能）。您可以不小心撰寫此程式碼，使其包含個人和其他敏感性資料。 如果您的應用程式會使用這類資料，您應對您撰寫的程式碼採用完整的檢閱程序。
 * 在開發及測試您的應用程式時，可以輕易地檢查由 SDK 傳送的內容。 資料會出現在 IDE 和瀏覽器的偵錯輸出視窗中。 
-* 資料會保存在美國或歐洲的 [Microsoft Azure](https://azure.com) 伺服器中。 (但是您的 App 可以在任何地方執行)。Azure 有[嚴密的安全性程序，並符合各種法規遵循標準](https://azure.microsoft.com/support/trust-center/)。 只有您和您指定的小組可以存取您的資料。 Microsoft 工作人員只有在您知情的特定有限情況下，才具有其限定存取權。 它會在傳輸中和待用時加密。
+* 資料會保存在美國或歐洲的 [Microsoft Azure](https://azure.com) 伺服器中。 （但是您的應用程式可以在任何地方執行）。Azure 具備[強大的安全性程式，並符合各種合規性標準](https://azure.microsoft.com/support/trust-center/)。 只有您和您指定的小組可以存取您的資料。 Microsoft 工作人員只有在您知情的特定有限情況下，才具有其限定存取權。 它會在傳輸中和待用時加密。
 
 本文的其餘部分將詳細說明上述問題的答案。 本文設計為自助式，以便您可以將其顯示給不屬於您直屬小組的同事。
 
 ## <a name="what-is-application-insights"></a>什麼是 Application Insights？
-[Azure 應用程式 Insights][start]是 Microsoft 所提供的一項服務, 可協助您改善即時應用程式的效能和可用性。 它會在您的應用程式執行時全程加以監視，包括測試期間，以及您加以發佈或部署之後。 Application Insights 會建立圖表和資料表為您顯示多種資訊，例如，您在一天中的哪些時間有最多使用者、應用程式的回應性如何，以及它所依存的任何外部服務是否順暢地為其提供服務。 如果有當機、失敗或效能問題，您可以搜尋詳細的遙測資料，以診斷原因。 此外，如果應用程式的可用性和效能有任何變更，服務將會傳送電子郵件給您。
+[Azure 應用程式 Insights][start]是 Microsoft 所提供的一項服務，可協助您改善即時應用程式的效能和可用性。 它會在您的應用程式執行時全程加以監視，包括測試期間，以及您加以發佈或部署之後。 Application Insights 會建立圖表和資料表為您顯示多種資訊，例如，您在一天中的哪些時間有最多使用者、應用程式的回應性如何，以及它所依存的任何外部服務是否順暢地為其提供服務。 如果有當機、失敗或效能問題，您可以搜尋詳細的遙測資料，以診斷原因。 此外，如果應用程式的可用性和效能有任何變更，服務將會傳送電子郵件給您。
 
 若要取得這項功能，您必須在應用程式中安裝 Application Insights SDK，這會成為其程式碼的一部分。 當您的應用程式執行時，SDK 會監視其作業，並將遙測傳送至 Application Insights 服務。 這是由 [Microsoft Azure](https://azure.com)裝載的雲端服務。 (但 Application Insights 適用於任何應用程式，而不只是 Azure 中裝載的應用程式)。
 
@@ -83,9 +78,9 @@ Application Insights SDK 可用於多種應用程式類型：裝載於您自己�
 這可以藉由撰寫 [遙測處理器外掛程式](../../azure-monitor/app/api-filtering-sampling.md)來達成。
 
 ## <a name="how-long-is-the-data-kept"></a>資料保留多久？
-原始資料點 (也就是您可以在 Analytics 中查詢並在搜尋中檢查的專案) 會保留最多730天。 您可以選取30、60、90、120、180、270、365、550或730天的[保留期間](https://docs.microsoft.com/azure/azure-monitor/app/pricing#change-the-data-retention-period)。 如果您需要保留超過730天的資料, 您可以使用[連續匯出](../../azure-monitor/app/export-telemetry.md), 在資料內嵌期間將它複製到儲存體帳戶。 
+原始資料點（也就是您可以在 Analytics 中查詢並在搜尋中檢查的專案）會保留最多730天。 您可以選取30、60、90、120、180、270、365、550或730天的[保留期間](https://docs.microsoft.com/azure/azure-monitor/app/pricing#change-the-data-retention-period)。 如果您需要保留超過730天的資料，您可以使用[連續匯出](../../azure-monitor/app/export-telemetry.md)，在資料內嵌期間將它複製到儲存體帳戶。 
 
-保留時間超過90天的資料會產生額外費用。 若要深入瞭解 Application Insights 定價, 請到[Azure 監視器定價頁面](https://azure.microsoft.com/pricing/details/monitor/)。
+保留時間超過90天的資料會產生額外費用。 若要深入瞭解 Application Insights 定價，請到[Azure 監視器定價頁面](https://azure.microsoft.com/pricing/details/monitor/)。
 
 彙總的資料 (也就是您在計量瀏覽器中看到的計數、平均和其他統計資料) 在 1 分鐘的資料粒度中保存 90 天。
 
@@ -103,7 +98,7 @@ Microsoft 只會使用這項資料，以將服務提供給您。
 * 建立新的 Application Insights 時，您可以選取位置。 請[在這裡](https://azure.microsoft.com/global-infrastructure/services/?products=all)深入瞭解每個區域的 Application Insights 可用性。
 
 #### <a name="does-that-mean-my-app-has-to-be-hosted-in-the-usa-europe-or-southeast-asia"></a>這是否表示我的應用程式必須裝載在美國、歐洲或東南亞？
-* 資料分割 您的應用程式可以在任何地方執行，在您自己的內部部署主機上或雲端中皆可。
+* 不會。 您的應用程式可以在任何地方執行，在您自己的內部部署主機上或雲端中皆可。
 
 ## <a name="how-secure-is-my-data"></a>我的資料有多安全？
 Application Insights 是一項 Azure 服務。 如需安全性原則的相關說明，請參閱[ Azure 安全性、隱私權及法規遵循白皮書](https://go.microsoft.com/fwlink/?linkid=392408)。
@@ -120,7 +115,7 @@ Microsoft 人員對您的資料存取會受到限制。 我們只有在獲得您
 如果您與其他專案共用程式碼，請務必移除您的檢測金鑰。
 
 ## <a name="is-the-data-encrypted"></a>資料是否會加密？
-所有資料都會在待用時加密, 而且會在資料中心之間移動。
+所有資料都會在待用時加密，而且會在資料中心之間移動。
 
 #### <a name="is-the-data-encrypted-in-transit-from-my-application-to-application-insights-servers"></a>將資料從我的應用程式傳輸到 Application Insights 伺服器時是否進行加密？
 是，我們使用 https，將資料從幾乎所有 SDK (包括網頁伺服器、裝置和 HTTPS 網頁) 傳送至入口網站。 唯一的例外是從純 HTTP 網頁傳送的資料。
@@ -131,7 +126,7 @@ Microsoft 人員對您的資料存取會受到限制。 我們只有在獲得您
 
 使用本機儲存體的遙測通道會在 TEMP 或 APPDATA 目錄中建立暫存檔案，而這些目錄僅限執行應用程式的特定帳戶使用。 當端點暫時無法使用或已達到節流限制時，就可能發生此狀況。 此問題解決後，遙測通道就會繼續傳送所有新的和保存的資料。
 
-此保存的資料不會在本機加密。 如果這是問題, 請檢查資料並限制私用資料的收集。 (如需詳細資訊，請參閱[如何匯出及刪除私人資料](https://docs.microsoft.com/azure/application-insights/app-insights-customer-data#how-to-export-and-delete-private-data))。
+此保存的資料不會在本機加密。 如果這是問題，請檢查資料並限制私用資料的收集。 (如需詳細資訊，請參閱[如何匯出及刪除私人資料](https://docs.microsoft.com/azure/application-insights/app-insights-customer-data#how-to-export-and-delete-private-data))。
 
 如果客戶基於特定安全需求而必須設定此目錄，可以就個別架構進行設定。 請確定執行應用程式的程序具有此目錄的寫入權限，但也請確定此目錄會受到保護，以避免非預期的使用者讀取遙測資料。
 
@@ -139,7 +134,7 @@ Microsoft 人員對您的資料存取會受到限制。 我們只有在獲得您
 
 `C:\Users\username\AppData\Local\Temp` 用來保存資料。 此位置不可設定從 config 目錄設定，且存取此資料夾的權限僅限定於具有必要認證的特定使用者。 (請參閱此處的[實作](https://github.com/Microsoft/ApplicationInsights-Java/blob/40809cb6857231e572309a5901e1227305c27c1a/core/src/main/java/com/microsoft/applicationinsights/internal/util/LocalFileSystemUtils.java#L48-L72))。
 
-###  <a name="net"></a>.Net
+###  <a name="net"></a>.NET
 
 根據預設，`ServerTelemetryChannel` 會使用現行使用者的本機應用程式資料的資料夾 `%localAppData%\Microsoft\ApplicationInsights` 或暫存資料夾 `%TMP%`。 (請參閱此處的[實作](https://github.com/Microsoft/ApplicationInsights-dotnet/blob/91e9c91fcea979b1eec4e31ba8e0fc683bf86802/src/ServerTelemetryChannel/Implementation/ApplicationFolderProvider.cs#L54-L84))。
 
@@ -164,7 +159,7 @@ Microsoft 人員對您的資料存取會受到限制。 我們只有在獲得您
 
 ### <a name="netcore"></a>NetCore
 
-根據預設，`ServerTelemetryChannel` 會使用現行使用者的本機應用程式資料的資料夾 `%localAppData%\Microsoft\ApplicationInsights` 或暫存資料夾 `%TMP%`。 (請參閱此處的[實作](https://github.com/Microsoft/ApplicationInsights-dotnet/blob/91e9c91fcea979b1eec4e31ba8e0fc683bf86802/src/ServerTelemetryChannel/Implementation/ApplicationFolderProvider.cs#L54-L84))。在 Linux 環境中將會停用本機儲存體，除非另行指定儲存體資料夾。
+根據預設，`ServerTelemetryChannel` 會使用現行使用者的本機應用程式資料的資料夾 `%localAppData%\Microsoft\ApplicationInsights` 或暫存資料夾 `%TMP%`。 （請參閱這裡的[實](https://github.com/Microsoft/ApplicationInsights-dotnet/blob/91e9c91fcea979b1eec4e31ba8e0fc683bf86802/src/ServerTelemetryChannel/Implementation/ApplicationFolderProvider.cs#L54-L84)作為）。在 Linux 環境中，除非指定了儲存體資料夾，否則本機儲存體將會停用。
 
 下列程式碼片段說明如何在 `Startup.cs` 類別的 `ConfigureServices()` 方法中設定 `ServerTelemetryChannel.StorageFolder`：
 
@@ -192,9 +187,9 @@ services.AddSingleton(typeof(ITelemetryChannel), new ServerTelemetryChannel () {
 
 ### <a name="platformlanguage-specific-guidance"></a>平台/語言的特定指引
 
-|平台/語言 | 支援 | 更多資訊 |
+|平台/語言 | 支援 | 詳細資訊 |
 | --- | --- | --- |
-| Azure 應用程式服務  | 支援，可能需要設定。 | 已在 2018 年 4 月宣告支援。 請參閱公告以了解[設定的詳細資訊](https://blogs.msdn.microsoft.com/appserviceteam/2018/04/17/app-service-and-functions-hosted-apps-can-now-update-tls-versions/)。  |
+| Azure App Service  | 支援，可能需要設定。 | 已在 2018 年 4 月宣告支援。 請參閱公告以了解[設定的詳細資訊](https://blogs.msdn.microsoft.com/appserviceteam/2018/04/17/app-service-and-functions-hosted-apps-can-now-update-tls-versions/)。  |
 | Azure 函式應用程式 | 支援，可能需要設定。 | 已在 2018 年 4 月宣告支援。 請參閱公告以了解[設定的詳細資訊](https://blogs.msdn.microsoft.com/appserviceteam/2018/04/17/app-service-and-functions-hosted-apps-can-now-update-tls-versions/)。 |
 |.NET | 支援，設定會因版本不同而有所差異。 | 如需 .NET 4.7 和更早版本的詳細設定資訊，請參閱[這些指示](https://docs.microsoft.com/dotnet/framework/network-programming/tls#support-for-tls-12)。  |
 |狀態監視器 | 支援，需要設定 | 狀態監視須依賴 [OS 組態](https://docs.microsoft.com/windows-server/security/tls/tls-registry-settings) + [.NET 組態](https://docs.microsoft.com/dotnet/framework/network-programming/tls#support-for-tls-12)來支援 TLS 1.2。
@@ -233,23 +228,23 @@ openssl s_client -connect bing.com:443 -tls1_2
 不過，您可以在應用程式中實作這類功能。 所有 SDK 都包括關閉遙測收集的 API 設定。 
 
 ## <a name="data-sent-by-application-insights"></a>Application Insights 所傳送的資料
-不同的平台會有不同的 SDK，而且有數個可安裝的元件。 (請參閱[Application Insights-總覽][start])。每個元件都會傳送不同的資料。
+不同的平台會有不同的 SDK，而且有數個可安裝的元件。 （請參閱[Application Insights-總覽][start]）。每個元件都會傳送不同的資料。
 
 #### <a name="classes-of-data-sent-in-different-scenarios"></a>不同情況下所傳送資料的類別
 
 | 您的動作 | 收集的資料類別 (請參閱下一個資料表) |
 | --- | --- |
-| [將 Application Insights SDK 新增至 .NET Web 專案][greenbrown] |ServerContext<br/>推斷<br/>效能計數器<br/>要求<br/>**例外狀況**<br/>工作階段<br/>使用者 |
-| [在 IIS 上安裝狀態監視器][redfield] |相依性<br/>ServerContext<br/>推斷<br/>效能計數器 |
-| [將 Application Insights SDK 新增至 JAVA web 應用程式][java] |ServerContext<br/>推斷<br/>要求<br/>工作階段<br/>使用者 |
+| [將 Application Insights SDK 新增至 .NET Web 專案][greenbrown] |ServerContext<br/>推斷<br/>效能計數器<br/>Requests<br/>**例外狀況**<br/>Session<br/>使用者人數 |
+| [在 IIS 上安裝狀態監視器][redfield] |相依項目<br/>ServerContext<br/>推斷<br/>效能計數器 |
+| [將 Application Insights SDK 新增至 JAVA web 應用程式][java] |ServerContext<br/>推斷<br/>要求<br/>Session<br/>使用者人數 |
 | [將 JavaScript SDK 新增至網頁][client] |ClientContext <br/>推斷<br/>頁面<br/>ClientPerf<br/>Ajax |
 | [定義預設屬性][apiproperties] |**屬性** |
 | [呼叫 TrackMetric][api] |數值<br/>**屬性** |
 | [通話軌 *][api] |事件名稱<br/>**屬性** |
 | [呼叫 TrackException][api] |**例外狀況**<br/>堆疊傾印<br/>**屬性** |
-| SDK 無法收集資料。 例如: <br/> - 無法存取效能計數器<br/> - 遙測初始設定式中發生例外狀況 |SDK 診斷 |
+| SDK 無法收集資料。 例如： <br/> - 無法存取效能計數器<br/> - 遙測初始設定式中發生例外狀況 |SDK 診斷 |
 
-如需[其他平臺的 sdk][platforms], 請參閱其檔。
+如需[其他平臺的 sdk][platforms]，請參閱其檔。
 
 #### <a name="the-classes-of-collected-data"></a>所收集資料的類別
 
@@ -258,16 +253,16 @@ openssl s_client -connect bing.com:443 -tls1_2
 | **屬性** |**任何資料 - 取決於您的程式碼** |
 | DeviceContext |識別碼、IP、地區設定、裝置型號、網路、網路類型、OEM 名稱、螢幕解析度、角色執行個體、角色名稱、裝置類型 |
 | ClientContext |作業系統、地區設定、語言、網路、視窗解析度 |
-| 工作階段 |工作階段識別碼 |
+| Session |工作階段識別碼 |
 | ServerContext |電腦名稱、地區設定、作業系統、裝置、使用者工作階段、使用者內容、作業 |
 | 推斷 |從 IP 位址的地區位置、時間戳記、作業系統、瀏覽器 |
 | 計量 |計量名稱和值 |
-| Events |事件名稱和值 |
+| 事件 |事件名稱和值 |
 | PageViews |URL 和頁面名稱或螢幕名稱 |
 | 用戶端效能 |URL/頁面名稱、瀏覽器載入時間 |
 | Ajax |從網頁向伺服器發出的 HTTP 呼叫 |
-| 要求 |URL、持續時間、回應碼 |
-| 相依性 |類型 (SQL、HTTP、...)、連接字串或 URI、同步/非同步、持續時間、成功、SQL 陳述式 (含狀態監視器) |
+| Requests |URL、持續時間、回應碼 |
+| 相依項目 |類型 (SQL、HTTP、...)、連接字串或 URI、同步/非同步、持續時間、成功、SQL 陳述式 (含狀態監視器) |
 | **例外狀況** |類型、 **訊息**、呼叫堆疊、來源檔案和行號、執行緒識別碼 |
 | 損毀 |處理序識別碼、父處理序識別碼、損毀執行緒識別碼；應用程式修補程式、識別碼、組建；例外狀況類型、位址、原因；模糊符號和暫存器、二進位開始和結束位址、二進位檔名稱和路徑、CPU 類型 |
 | 追蹤 |**訊息** 和嚴重性層級 |
@@ -278,9 +273,9 @@ openssl s_client -connect bing.com:443 -tls1_2
 您可以[編輯 ApplicationInsights 來關閉某些資料][config]
 
 > [!NOTE]
-> 用戶端 IP 會用來推斷地理位置，但預設不會再儲存 IP 資料，而且所有的零會寫入相關聯的欄位。 若要深入了解個人資料的處理，建議您閱讀這篇[文章](../../azure-monitor/platform/personal-data-mgmt.md#application-data)。 如果您需要儲存 IP 位址資料, 我們的[ip 位址集合文章](https://docs.microsoft.com/azure/azure-monitor/app/ip-collection)會引導您完成選項。
+> 用戶端 IP 會用來推斷地理位置，但預設不會再儲存 IP 資料，而且所有的零會寫入相關聯的欄位。 若要深入了解個人資料的處理，建議您閱讀這篇[文章](../../azure-monitor/platform/personal-data-mgmt.md#application-data)。 如果您需要儲存 IP 位址資料，我們的[ip 位址集合文章](https://docs.microsoft.com/azure/azure-monitor/app/ip-collection)會引導您完成選項。
 
-## <a name="credits"></a>參與名單
+## <a name="credits"></a>學分
 此產品包含由 MaxMind 建立的 GeoLite2 資料，可從 [https://www.maxmind.com](https://www.maxmind.com) 取得。
 
 

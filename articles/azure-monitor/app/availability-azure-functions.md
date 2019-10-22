@@ -1,22 +1,18 @@
 ---
 title: 使用 Azure Functions 建立及執行自訂可用性測試
 description: 本檔將說明如何使用 TrackAvailability （）建立 Azure 函式，此函式會根據 TimerTrigger 函式中指定的設定定期執行。 這項測試的結果將會傳送至您的 Application Insights 資源，您可以在其中查詢可用性結果資料併發出警示。 自訂測試可讓您撰寫比使用入口網站 UI、監視 Azure VNET 內的應用程式、變更端點位址，或建立可用性測試（如果您的區域中未提供）時更複雜的可用性測試。
-services: application-insights
-documentationcenter: ''
-author: morgangrobin
-manager: carmonm
-ms.service: application-insights
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
+ms.service: azure-monitor
+ms.subservice: application-insights
 ms.topic: conceptual
-ms.date: 10/11/2019
+author: morgangrobin
 ms.author: mogrobin
-ms.openlocfilehash: 38a83169a7d1ffa03416f5947ada703bcba5017a
-ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
+ms.date: 10/11/2019
+ms.openlocfilehash: a2b29f2c24a3244cdc800d882e7c2ed8f943eabe
+ms.sourcegitcommit: 1bd2207c69a0c45076848a094292735faa012d22
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/13/2019
-ms.locfileid: "72301369"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72677591"
 ---
 # <a name="create-and-run-custom-availability-tests-using-azure-functions"></a>使用 Azure Functions 建立及執行自訂可用性測試
 
@@ -210,7 +206,7 @@ private static async Task AvailabilityTestRun(string name, string location, stri
 
 若要查看端對端交易詳細資料，請在 [深入探索] 下選取 [**成功**] 或 [**失敗**]，然後選取一個範例。 您也可以選取圖表上的資料點，以取得端對端交易詳細資料。
 
-![選取簡易的可用性測試](media/availability-azure-functions/sample.png)
+![選取範例可用性測試](media/availability-azure-functions/sample.png)
 
 ![端對端交易詳細資料](media/availability-azure-functions/end-to-end.png)
 
@@ -220,7 +216,7 @@ private static async Task AvailabilityTestRun(string name, string location, stri
 
 ![可用性結果](media/availability-azure-functions/availabilityresults.png)
 
-![相依性](media/availability-azure-functions/dependencies.png)
+![相依項目](media/availability-azure-functions/dependencies.png)
 
 ## <a name="next-steps"></a>後續步驟
 

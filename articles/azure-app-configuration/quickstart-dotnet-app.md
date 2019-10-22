@@ -3,8 +3,8 @@ title: Azure 應用程式設定搭配 .NET Framework 的快速入門 | Microsoft
 description: 搭配使用 Azure 應用程式設定與 .NET Framework 應用程式的快速入門
 services: azure-app-configuration
 documentationcenter: ''
-author: yegu-ms
-manager: balans
+author: lisaguthrie
+manager: maiye
 editor: ''
 ms.assetid: ''
 ms.service: azure-app-configuration
@@ -12,14 +12,14 @@ ms.devlang: csharp
 ms.topic: quickstart
 ms.tgt_pltfrm: .NET
 ms.workload: tbd
-ms.date: 02/24/2019
-ms.author: yegu
-ms.openlocfilehash: 8aa8c8132220965d55097c4fed8ba1b2e9501301
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.date: 10/09/2019
+ms.author: lcozzens
+ms.openlocfilehash: 17b2e7272d499ce99d40d2ee52de1c7a5a1d0d04
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68326536"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72329804"
 ---
 # <a name="quickstart-create-a-net-framework-app-with-azure-app-configuration"></a>快速入門：使用 Azure 應用程式設定建立 .NET Framework 應用程式
 
@@ -29,7 +29,7 @@ ms.locfileid: "68326536"
 
 - Azure 訂用帳戶 - [建立免費帳戶](https://azure.microsoft.com/free/)
 - [Visual Studio 2019](https://visualstudio.microsoft.com/vs)
-- [.NET Framework 4.7.1](https://dotnet.microsoft.com/download)
+- [.NET Framework 4.7.2](https://dotnet.microsoft.com/download)
 
 ## <a name="create-an-app-configuration-store"></a>建立應用程式設定存放區
 
@@ -47,7 +47,9 @@ ms.locfileid: "68326536"
 
 1. 啟動 Visual Studio，然後選取 [檔案]   > [新增]   > [專案]  。
 
-2. 在 [新增專案]  中，選取 [已安裝]   > [Visual C#]   > [Windows 桌面]  。 選取 [主控台應用程式 (.NET Framework)]  ，然後輸入專案的名稱。 選取 **.NET Framework 4.7.1** 或以上，然後選取 [確定]  。
+1. 在 [建立新專案]  中，依照 [主控台]  專案類型篩選，然後按一下 [主控台應用程式 (.NET Framework)]  。 按 [下一步]  。
+
+1. 在 [設定您的新專案]  中，輸入專案名稱。 在 [架構]  底下，選取 [.NET Framework 4.7.1]  或更高版本。 按一下頁面底部的 [新增]  。
 
 ## <a name="connect-to-an-app-configuration-store"></a>連線至應用程式設定存放區
 
@@ -56,9 +58,10 @@ ms.locfileid: "68326536"
     ```
     Microsoft.Configuration.ConfigurationBuilders.AzureAppConfiguration 1.0.0 preview or later
     Microsoft.Configuration.ConfigurationBuilders.Environment 2.0.0 preview or later
+    System.Configuration.ConfigurationManager version 4.6.0 or later
     ```
 
-2. 更新您專案的 *App.config* 檔案，如下所示：
+1. 更新您專案的 *App.config* 檔案，如下所示：
 
     ```xml
     <configSections>
@@ -80,12 +83,12 @@ ms.locfileid: "68326536"
 
    從環境變數 `ConnectionString` 讀取應用程式設定存放區的連接字串。 在 `appSettings` 區段的 `configBuilders` 屬性中，於 `MyConfigStore` 之前新增 `Environment` 設定建立器。
 
-3. 開啟 *Program.cs*，並藉由呼叫 `ConfigurationManager` 將 `Main` 方法更新為使用應用程式設定。
+1. 開啟 *Program.cs*，並藉由呼叫 `ConfigurationManager` 將 `Main` 方法更新為使用應用程式設定。
 
     ```csharp
     static void Main(string[] args)
     {
-        string message = ConfigurationManager.AppSettings["TestApp:Settings:Message"];
+        string message = System.Configuration.ConfigurationManager.AppSettings["TestApp:Settings:Message"];
 
         Console.WriteLine(message);
     }
@@ -101,7 +104,7 @@ ms.locfileid: "68326536"
 
         $Env:ConnectionString = "connection-string-of-your-app-configuration-store"
 
-2. 重新啟動 Visual Studio，以讓變更生效。 按 Ctrl + F5 以建置並執行主控台應用程式。
+1. 重新啟動 Visual Studio，以讓變更生效。 按 Ctrl + F5 以建置並執行主控台應用程式。
 
 ## <a name="clean-up-resources"></a>清除資源
 

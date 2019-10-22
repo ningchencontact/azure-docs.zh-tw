@@ -1,5 +1,5 @@
 ---
-title: 建立可使用 Azure Cache for Redis 的 Python 應用程式的快速入門 | Microsoft Docs
+title: 快速入門：建立可使用 Azure Cache for Redis 的 Python 應用程式
 description: 在本快速入門中，您將了解如何建立可使用 Azure Cache for Redis 的 Python 應用程式
 services: cache
 documentationcenter: ''
@@ -14,17 +14,19 @@ ms.tgt_pltfrm: cache
 ms.workload: tbd
 ms.date: 05/11/2018
 ms.author: yegu
-ms.custom: mvc
-ms.openlocfilehash: fcb5d74305375c9883f2d601a2ab7d2d9a50b9cb
-ms.sourcegitcommit: 86d49daccdab383331fc4072b2b761876b73510e
+ms.custom:
+- mvc
+- seo-python-october2019
+ms.openlocfilehash: 5367896c931bf7c5f52b0874d49ede2fc78614ab
+ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70743940"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72435508"
 ---
-# <a name="quickstart-use-azure-cache-for-redis-with-python"></a>快速入門：搭配使用 Azure Cache for Redis 與 Python
+# <a name="quickstart-create-a-python-app-that-uses-azure-cache-for-redis"></a>快速入門：建立可使用 Azure Cache for Redis 的 Python 應用程式
 
-在本快速入門中，您會將 Azure Cache for Redis 納入 Python 應用程式中，以便存取可從 Azure 內任何應用程式存取的安全、專用快取。
+在本文中，您會將 Azure Cache for Redis 納入 Python 應用程式中，以便存取可從 Azure 內任何應用程式存取的安全、專用快取。
 
 ## <a name="prerequisites"></a>必要條件
 
@@ -46,7 +48,7 @@ ms.locfileid: "70743940"
     pip3 install redis
 ```
 
-![安裝 redis-py](./media/cache-python-get-started/cache-python-install-redis-py.png)
+![將 redis-py Python 介面安裝至 Azure Cache for Redis](./media/cache-python-get-started/cache-python-install-redis-py.png)
 
 
 ## <a name="read-and-write-to-the-cache"></a>讀取和寫入快取
@@ -98,7 +100,7 @@ for c in result:
 
 使用 Python 執行指令碼。
 
-![Python 測試已完成](./media/cache-python-get-started/cache-python-completed.png)
+![執行 Python 指令碼在 Azure Cache for Redis 中測試快取存取](./media/cache-python-get-started/cache-python-completed.png)
 
 
 ## <a name="clean-up-resources"></a>清除資源
@@ -115,7 +117,7 @@ for c in result:
 
 在 [依名稱篩選]  文字方塊中，輸入您資源群組的名稱。 本文的指示是使用名為 TestResources  的資源群組。 在結果清單中的目標資源群組上方，選取 **...** ，然後按一下 [刪除資源群組]  。
 
-![刪除](./media/cache-web-app-howto/cache-delete-resource-group.png)
+![刪除 Azure Cache for Redis 的快速入門資源群組](./media/cache-web-app-howto/delete-your-resource-group-for-azure-cache-for-redis.png)
 
 系統將會要求您確認是否刪除資源。 輸入您資源群組的名稱以進行確認，然後選取 [刪除]  。
 

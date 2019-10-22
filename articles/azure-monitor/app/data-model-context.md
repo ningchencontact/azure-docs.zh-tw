@@ -1,23 +1,19 @@
 ---
 title: Azure Application Insights 遙測資料模型 - 遙測內容 | Microsoft Docs
 description: Application Insights 遙測內容資料模型
-services: application-insights
-documentationcenter: .net
-author: mrbullwinkle
-manager: carmonm
-ms.service: application-insights
-ms.workload: TBD
-ms.tgt_pltfrm: ibiza
+ms.service: azure-monitor
+ms.subservice: application-insights
 ms.topic: conceptual
+author: mrbullwinkle
+ms.author: mbullwin
 ms.date: 05/15/2017
 ms.reviewer: sergkanz
-ms.author: mbullwin
-ms.openlocfilehash: 7c1f47c9b88bd68b326b3c8923ba5b81d425c3e4
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 0351f4fe65745242da58d3c3fb2f9fbe5c722d06
+ms.sourcegitcommit: 1bd2207c69a0c45076848a094292735faa012d22
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60900705"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72677448"
 ---
 # <a name="telemetry-context-application-insights-data-model"></a>遙測內容：Application Insights 資料模型
 
@@ -93,7 +89,7 @@ ms.locfileid: "60900705"
 
 ## <a name="authenticated-user-id"></a>已驗證的使用者識別碼
 
-已驗證的使用者識別碼。與匿名使用者識別碼相反，此欄位代表具有易記名稱的使用者。 由於其 PII 資訊，根據預設，大部分的 SDK 都不會收集該資訊。
+已驗證的使用者識別碼。相對於匿名使用者識別碼，此欄位代表具有易記名稱的使用者。 由於其 PII 資訊，根據預設，大部分的 SDK 都不會收集該資訊。
 
 最大長度：1024
 

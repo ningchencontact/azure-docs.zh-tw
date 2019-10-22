@@ -1,23 +1,19 @@
 ---
 title: Application Insights 遙測相互關聯 | Microsoft Docs
 description: Application Insights 遙測相互關聯
-services: application-insights
-documentationcenter: .net
-author: lgayhardt
-manager: carmonm
-ms.service: application-insights
-ms.workload: TBD
-ms.tgt_pltfrm: ibiza
+ms.service: azure-monitor
+ms.subservice: application-insights
 ms.topic: conceptual
+author: lgayhardt
+ms.author: lagayhar
 ms.date: 06/07/2019
 ms.reviewer: sergkanz
-ms.author: lagayhar
-ms.openlocfilehash: fe52fe51b347b232e03bad943906413b90c853c0
-ms.sourcegitcommit: e1b6a40a9c9341b33df384aa607ae359e4ab0f53
+ms.openlocfilehash: aa683e90a328e9525fa7d0a78981aa107818188a
+ms.sourcegitcommit: 1bd2207c69a0c45076848a094292735faa012d22
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71338180"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72678179"
 ---
 # <a name="telemetry-correlation-in-application-insights"></a>Application Insights 中的遙測相互關聯
 
@@ -51,11 +47,11 @@ Application Insights 會定義分散遙測相互關聯的[資料模型](../../az
 
 在結果中，請注意，所有遙測項目都共用 `operation_Id` 這個根。 從此頁面發出 Ajax 呼叫時，系統會將新的唯一識別碼 (`qJSXU`) 指派給相依性遙測，並使用 pageView 的識別碼作為 `operation_ParentId`。 接著，伺服器要求會使用 Ajax 識別碼作為 `operation_ParentId`。
 
-| itemType   | name                      | id           | operation_ParentId | operation_Id |
+| itemType   | 名稱                      | ID           | operation_ParentId | operation_Id |
 |------------|---------------------------|--------------|--------------------|--------------|
 | pageView   | Stock 頁面                |              | STYz               | STYz         |
 | 相依性 | GET /Home/Stock           | qJSXU        | STYz               | STYz         |
-| request    | GET Home/Stock            | KqKwlrSt9PA= | qJSXU              | STYz         |
+| 要求    | GET Home/Stock            | KqKwlrSt9PA= | qJSXU              | STYz         |
 | 相依性 | GET /api/stock/value      | bBrf2L7mm2g= | KqKwlrSt9PA=       | STYz         |
 
 向外部服務發出 `GET /api/stock/value` 呼叫時，您想要知道該伺服器的身分識別，以便適當地設定 `dependency.target` 欄位。 當外部服務不支援監視時，`target` 會設定為服務的主機名稱 (例如 `stock-prices-api.com`)。 不過，如果服務會藉由傳回預先定義的 HTTP 標頭來識別其本身，則 `target` 包含的服務識別可讓 Application Insights 透過向該服務查詢遙測來建置分散式追蹤。
@@ -64,22 +60,22 @@ Application Insights 會定義分散遙測相互關聯的[資料模型](../../az
 
 我們正在轉換為[W3C 追蹤內容](https://w3c.github.io/trace-context/)，其定義：
 
-- `traceparent`:裝載全域唯一的作業識別碼和唯一的呼叫識別碼。
-- `tracestate`:裝載追蹤系統特定的內容。
+- `traceparent`：會攜帶全域唯一的作業識別碼和呼叫的唯一識別碼。
+- `tracestate`：會攜帶追蹤系統特定的內容。
 
 最新版本的 Application Insights Sdk 支援追蹤內容通訊協定，但您可能需要加入宣告（它會與 ApplicationInsights Sdk 支援的舊相互關聯通訊協定保持回溯相容性）。
 
 相互[關聯 HTTP 通訊協定（也就是要求識別碼）](https://github.com/dotnet/corefx/blob/master/src/System.Diagnostics.DiagnosticSource/src/HttpCorrelationProtocol.md)是在取代路徑上。 此通訊協定會定義兩個標頭：
 
-- `Request-Id`:裝載呼叫的全域唯一識別碼。
-- `Correlation-Context`:裝載分散式追蹤屬性的名稱值組集合。
+- `Request-Id`：會攜帶呼叫的全域唯一識別碼。
+- `Correlation-Context`：會攜帶分散式追蹤屬性的名稱/值組集合。
 
 Application Insights 也會定義相互關聯 HTTP 通訊協定的[延伸](https://github.com/lmolkova/correlation/blob/master/http_protocol_proposal_v2.md)。 它會使用 `Request-Context` 名稱值組，來傳播立即呼叫端或被呼叫端所使用的屬性集合。 Application Insights SDK 會使用此標頭來設定 `dependency.target` 和 `request.source` 欄位。
 
 ### <a name="enable-w3c-distributed-tracing-support-for-classic-aspnet-apps"></a>啟用傳統 ASP.NET 應用程式的 W3C 分散式追蹤支援
  
   > [!NOTE]
-  > 從 `Microsoft.ApplicationInsights.Web` 開始不需要進行任何設定，`Microsoft.ApplicationInsights.DependencyCollector` 
+  > 從 `Microsoft.ApplicationInsights.Web` 和 `Microsoft.ApplicationInsights.DependencyCollector` 開始不需要進行任何設定 
 
 W3C 追蹤內容支援是以回溯相容方式來完成，而相互關聯預期會使用舊版 SDK 所檢測的應用程式（沒有 W3C 支援）。 
 
@@ -96,7 +92,7 @@ W3C 追蹤內容支援是以回溯相容方式來完成，而相互關聯預期�
 
 - 在 `RequestTrackingTelemetryModule` 底下，新增值設定為 `true` 的 `EnableW3CHeadersExtraction` 元素。
 - 在 `DependencyTrackingTelemetryModule` 底下，新增值設定為 `true` 的 `EnableW3CHeadersInjection` 元素。
-- 在 `TelemetryInitializers` 下新增 `W3COperationCorrelationTelemetryInitializer`，類似于 
+- 在 `TelemetryInitializers` 之下新增 `W3COperationCorrelationTelemetryInitializer`，類似于 
 
 ```xml
 <TelemetryInitializers>
@@ -172,7 +168,7 @@ public void ConfigureServices(IServiceCollection services)
 
 ### <a name="enable-w3c-distributed-tracing-support-for-web-apps"></a>啟用 Web 應用程式的 W3C 分散式追蹤支援
 
-這項功能位於 `Microsoft.ApplicationInsights.JavaScript`。 此功能預設為停用。 若要啟用它，請使用 `distributedTracingMode` config。AI_AND_W3C 是針對與任何舊版 Application Insights 檢測服務的回溯相容性所提供：
+這項功能在 `Microsoft.ApplicationInsights.JavaScript` 中。 此功能預設為停用。 若要啟用它，請使用 `distributedTracingMode` config。AI_AND_W3C 是針對與任何舊版 Application Insights 檢測服務的回溯相容性所提供：
 
 - **NPM 設定（如果使用程式碼片段設定則忽略）**
 
@@ -209,7 +205,7 @@ public void ConfigureServices(IServiceCollection services)
 
 | Application Insights                  | OpenTracing                                       |
 |------------------------------------   |-------------------------------------------------  |
-| `Request`、 `PageView`                 | `span.kind = server` 的 `Span`                  |
+| `Request`，`PageView`                 | `span.kind = server` 的 `Span`                  |
 | `Dependency`                          | `span.kind = client` 的 `Span`                  |
 | `Request` 和 `Dependency` 的 `Id`    | `SpanId`                                          |
 | `Operation_Id`                        | `TraceId`                                         |

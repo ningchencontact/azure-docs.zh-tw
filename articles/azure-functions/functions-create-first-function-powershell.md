@@ -11,12 +11,12 @@ ms.date: 04/25/2019
 ms.topic: quickstart
 ms.service: azure-functions
 ms.devlang: powershell
-ms.openlocfilehash: cb175191cb080cffb6feb52b724c29568fd549a5
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: c9de4cec417625bb8451457652dacb61550c31b0
+ms.sourcegitcommit: 961468fa0cfe650dc1bec87e032e648486f67651
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67706524"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72248324"
 ---
 # <a name="create-your-first-powershell-function-in-azure-preview"></a>在 Azure 中建立您的第一個 PowerShell 函式 (預覽)
 
@@ -96,7 +96,7 @@ Azure Functions Core Tools 與 Visual Studio Code 整合，可讓您在本機執
 
     您也可以在瀏覽器中執行 GET 要求。
 
-    當您呼叫 HttpTrigger 端點，但未在本文中傳遞 `name` 參數作為查詢參數，則函式會傳回 500 錯誤。 當您檢閱 run.ps1 中的程式碼時，您會看到這個錯誤按設計發生。
+    當您呼叫 HttpTrigger 端點，但未在本文中傳遞 `name` 參數作為查詢參數，則函式會傳回 [HttpStatusCode]::BadRequest 錯誤。 當您檢閱 run.ps1 中的程式碼時，您會看到這個錯誤按設計發生。
 
 1. 若要停止偵錯，請按 Shift + F5。
 

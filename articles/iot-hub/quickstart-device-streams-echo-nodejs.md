@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 03/14/2019
 ms.author: robinsh
-ms.openlocfilehash: e85f2ea849aca9deeb92da7d7b2381d6c2b1b725
-ms.sourcegitcommit: b7b0d9f25418b78e1ae562c525e7d7412fcc7ba0
+ms.openlocfilehash: c7257ec35f9a53f84edebd5e15b7144c49daf682
+ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/08/2019
-ms.locfileid: "70802452"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72514947"
 ---
 # <a name="quickstart-communicate-to-a-device-application-in-nodejs-via-iot-hub-device-streams-preview"></a>快速入門：透過 IoT 中樞裝置串流與使用 Node.js 的裝置應用程式進行通訊 (預覽)
 
@@ -58,7 +58,7 @@ Microsoft Azure IoT 中樞目前支援裝置串流作為[預覽功能](https://a
 node --version
 ```
 
-執行下列命令，將適用於 Azure CLI 的 Microsoft Azure IoT 擴充功能新增至您的 Cloud Shell 執行個體。 IoT 擴充功能可將 IoT 中樞、IoT Edge 和 IoT 裝置佈建服務的特定命令新增至 Azure CLI。
+執行下列命令，將適用於 Azure CLI 的 Microsoft Azure IoT 擴充功能新增至您的 Cloud Shell 執行個體。 IoT 擴充功能可將 IoT 中樞、IoT Edge 和 IoT 裝置佈建服務的命令新增至 Azure CLI。
 
 ```azurecli-interactive
 az extension add --name azure-cli-iot-ext
@@ -82,10 +82,10 @@ az extension add --name azure-cli-iot-ext
 
    **YourIoTHubName**：以您為 IoT 中樞選擇的名稱取代此預留位置。
 
-   **MyDevice**：這是為已註冊裝置指定的名稱。 使用所示的 MyCDevice。 如果您為裝置選擇不同的名稱，則也必須在本文中使用該名稱，並先在範例應用程式中更新該裝置名稱，再執行應用程式。
+   **MyDevice**：這是您要註冊之裝置的名稱。 建議您使用 **MyDevice**，如下所示。 如果您為裝置選擇不同的名稱，則也必須在本文中使用該名稱，並先在範例應用程式中更新該裝置名稱，再執行應用程式。
 
     ```azurecli-interactive
-    az iot hub device-identity create --hub-name YourIoTHubName --device-id MyDevice
+    az iot hub device-identity create --hub-name {YourIoTHubName} --device-id MyDevice
     ```
 
 2. 您也需要*服務連接字串*，讓後端應用程式能夠連線到您的 IoT 中樞並擷取訊息。 下列命令可擷取 IoT 中樞的服務連接字串：
@@ -93,10 +93,10 @@ az extension add --name azure-cli-iot-ext
     **YourIoTHubName**：以您為 IoT 中樞選擇的名稱取代此預留位置。
 
     ```azurecli-interactive
-    az iot hub show-connection-string --policy-name service --name YourIoTHubName
+    az iot hub show-connection-string --policy-name service --name {YourIoTHubName} --output table
     ```
 
-    記下顯示如下的傳回值：
+    請記下所傳回的服務連接字串，以供稍後在本快速入門中使用。 看起來會像下列範例：
 
    `"HostName={YourIoTHubName}.azure-devices.net;SharedAccessKeyName=service;SharedAccessKey={YourSharedAccessKey}"`
 
@@ -106,7 +106,7 @@ az extension add --name azure-cli-iot-ext
 
 ### <a name="run-the-device-side-application"></a>執行裝置端應用程式
 
-如先前所說明，IoT 中樞 Node.js SDK 僅支援服務端上的裝置串流。 對於裝置端應用程式，請使用可在這些快速入門中其中一個取得的隨附裝置程式：
+如先前所說明，IoT 中樞 Node.js SDK 僅支援服務端上的裝置串流。 對於裝置端應用程式，請使用可在這些快速入門中取得的其中一個隨附裝置程式：
 
    * [透過 IoT 中樞裝置串流與使用 C 的裝置應用程式進行通訊](./quickstart-device-streams-echo-c.md)
 
@@ -116,21 +116,21 @@ az extension add --name azure-cli-iot-ext
 
 ### <a name="run-the-service-side-application"></a>執行服務端應用程式
 
-假設裝置端應用程式正在執行中，請依照下列步驟執行使用 Node.js 的服務端應用程式：
+假設裝置端應用程式正在執行中，請在本機終端視窗中依照下列步驟執行使用 Node.js 的服務端應用程式：
 
 * 提供您的服務認證和裝置識別碼，作為環境變數。
  
    ```cmd/sh
    # In Linux
-   export IOTHUB_CONNECTION_STRING="<provide_your_service_connection_string>"
+   export IOTHUB_CONNECTION_STRING="{ServiceConnectionString}"
    export STREAMING_TARGET_DEVICE="MyDevice"
 
    # In Windows
-   SET IOTHUB_CONNECTION_STRING=<provide_your_service_connection_string>
+   SET IOTHUB_CONNECTION_STRING={ServiceConnectionString}
    SET STREAMING_TARGET_DEVICE=MyDevice
    ```
   
-   將變更 `MyDevice` 為您為裝置選擇的裝置識別碼。
+   變更 ServiceConnectionString 預留位置以符合您的服務連接字串，如果您提供不同的名稱，則變更 **MyDevice**  以符合您的裝置識別碼。
 
 * 在解壓縮的專案資料夾中瀏覽至 `Quickstarts/device-streams-service`，並使用節點執行範例。
 
@@ -156,9 +156,9 @@ az extension add --name azure-cli-iot-ext
 
 ## <a name="next-steps"></a>後續步驟
 
-在本快速入門中，您已設定 IoT 中樞、註冊裝置、在裝置和服務端建立應用程式之間的裝置串流，以及使用串流在應用程式之間來回傳送資料。
+在本快速入門中，您會設定 IoT 中樞、註冊裝置、在裝置和服務端建立應用程式之間的裝置串流，以及使用串流在應用程式之間來回傳送資料。
 
-使用下列連結深入了解裝置串流：
+使用以下連結深入了解裝置串流：
 
 > [!div class="nextstepaction"]
 > [裝置串流概觀](./iot-hub-device-streams-overview.md) 

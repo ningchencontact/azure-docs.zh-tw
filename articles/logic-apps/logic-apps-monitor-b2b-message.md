@@ -1,6 +1,6 @@
 ---
-title: 使用 Azure 監視器記錄監視 B2B 訊息-Azure Logic Apps |Microsoft Docs
-description: 監視適用于整合帳戶和 Azure Logic Apps 的 AS2、X12 和 EDIFACT 訊息，並使用 Azure 監視器記錄設定診斷記錄
+title: 使用 Azure 監視器 Azure Logic Apps 監視 B2B 訊息
+description: 使用 Azure 監視器，在 Azure Logic Apps 中設定 AS2、X12 和 EDIFACT 訊息的診斷記錄
 services: logic-apps
 ms.service: logic-apps
 ms.suite: integration
@@ -9,14 +9,14 @@ ms.author: divswa
 ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
 ms.date: 10/23/2018
-ms.openlocfilehash: a4a7f951d34455f2e333f2c11e30d24efdfd22c1
-ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.openlocfilehash: e5c8e5f3d42f4e85406fcc7dd5a2f6602045c8ed
+ms.sourcegitcommit: d37991ce965b3ee3c4c7f685871f8bae5b56adfa
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71261211"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72680194"
 ---
-# <a name="monitor-b2b-messages-with-azure-monitor-logs-in-azure-logic-apps"></a>在 Azure Logic Apps 中使用 Azure 監視器記錄監視 B2B 訊息
+# <a name="set-up-diagnostics-logging-for-b2b-messages-in-azure-logic-apps-by-using-azure-monitor"></a>使用 Azure 監視器在 Azure Logic Apps 中設定 B2B 訊息的診斷記錄
 
 當您在整合帳戶中的交易夥伴之間設定了 B2B 通訊之後，那些合作夥伴就可以彼此交換訊息。 若要檢查此通訊是否以您預期的方式運作，您可以監視 AS2、X12 和 EDIFACT 訊息，並使用[Azure 監視器記錄](../log-analytics/log-analytics-overview.md)來設定整合帳戶的診斷記錄。 此服務會監視您的雲端和內部部署環境，協助您維護其可用性和效能，並收集執行階段詳細資料和事件，以進行更豐富的偵錯。 您也可以將此資料與其他服務搭配使用，例如 Azure 儲存體和 Azure 事件中樞。
 
@@ -46,7 +46,7 @@ ms.locfileid: "71261211"
 1. 立即尋找並選取您的整合帳戶。 在篩選清單中，選取要套用到整合帳戶的值。
 當您完成時，請選擇 [新增診斷設定]。
 
-   | 屬性 | 值 | 描述 | 
+   | 屬性 | Value | 描述 | 
    |----------|-------|-------------|
    | **訂用帳戶** | <*Azure-subscription-name*> | 與整合帳戶相關聯的 Azure 訂用帳戶 | 
    | **資源群組** | <*Azure-resource-group-name*> | 適用於整合帳戶的 Azure 資源群組 | 
@@ -54,7 +54,7 @@ ms.locfileid: "71261211"
    | **Resource** | <*integration-account-name*> | 您想要開啟記錄的 Azure 資源名稱 | 
    ||||  
 
-   例如:
+   例如：
 
    ![針對整合帳戶設定診斷](media/logic-apps-monitor-b2b-message/turn-on-diagnostics-integration-account.png)
 
@@ -71,7 +71,7 @@ ms.locfileid: "71261211"
 
    1. 在 [記錄] 下，選取 [IntegrationAccountTrackingEvents] 分類，然後選擇 [儲存]。
 
-   例如: 
+   例如： 
 
    ![設定 Azure 監視器記錄，讓您可以將診斷資料傳送至記錄檔](media/logic-apps-monitor-b2b-message/send-diagnostics-data-log-analytics-workspace.png)
 
@@ -88,7 +88,7 @@ ms.locfileid: "71261211"
 1. 立即尋找並選取您的整合帳戶。 在篩選清單中，選取要套用到整合帳戶的值。
 當您完成時，請選擇 [新增診斷設定]。
 
-   | 屬性 | 值 | 描述 | 
+   | 屬性 | Value | 描述 | 
    |----------|-------|-------------|
    | **訂用帳戶** | <*Azure-subscription-name*> | 與整合帳戶相關聯的 Azure 訂用帳戶 | 
    | **資源群組** | <*Azure-resource-group-name*> | 適用於整合帳戶的 Azure 資源群組 | 
@@ -96,7 +96,7 @@ ms.locfileid: "71261211"
    | **Resource** | <*integration-account-name*> | 您想要開啟記錄的 Azure 資源名稱 | 
    ||||  
 
-   例如:
+   例如：
 
    ![針對整合帳戶設定診斷](media/logic-apps-monitor-b2b-message/turn-on-diagnostics-integration-account.png)
 
@@ -113,7 +113,7 @@ ms.locfileid: "71261211"
 
    1. 在 [記錄] 下，選取 [IntegrationAccountTrackingEvents] 分類，然後選擇 [儲存]。
 
-   例如: 
+   例如： 
 
    ![設定 Azure 監視器記錄，讓您可以將診斷資料傳送至記錄檔](media/logic-apps-monitor-b2b-message/send-diagnostics-data-log-analytics-workspace.png)
 
@@ -121,12 +121,12 @@ ms.locfileid: "71261211"
 
 ## <a name="use-diagnostic-data-with-other-services"></a>將診斷資料與其他服務搭配使用
 
-除了 Azure 監視器記錄之外, 您還可以擴充將邏輯應用程式的診斷資料與其他 Azure 服務搭配使用的方式, 例如: 
+除了 Azure 監視器記錄之外，您還可以擴充將邏輯應用程式的診斷資料與其他 Azure 服務搭配使用的方式，例如： 
 
 * [在 Azure 儲存體中封存 Azure 診斷記錄](../azure-monitor/platform/archive-diagnostic-logs.md)
 * [將 Azure 診斷記錄串流至 Azure 事件中樞](../azure-monitor/platform/resource-logs-stream-event-hubs.md) 
 
-您可以接著使用其他服務的遙測和分析來取得即時監視，例如 [Azure Stream Analytics](../stream-analytics/stream-analytics-introduction.md) 和 [Power BI](../azure-monitor/platform/powerbi.md)。 例如:
+您可以接著使用其他服務的遙測和分析來取得即時監視，例如 [Azure Stream Analytics](../stream-analytics/stream-analytics-introduction.md) 和 [Power BI](../azure-monitor/platform/powerbi.md)。 例如：
 
 * [將資料從事件中樞串流至串流分析](../stream-analytics/stream-analytics-define-inputs.md)
 * [使用串流分析分析串流資料並在 Power BI 中建立即時分析儀表板](../stream-analytics/stream-analytics-power-bi-dashboard.md)

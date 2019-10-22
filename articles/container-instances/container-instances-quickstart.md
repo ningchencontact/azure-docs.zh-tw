@@ -1,5 +1,5 @@
 ---
-title: 快速入門 - 將 Docker 容器部署至 Azure 容器執行個體 - CLI
+title: 快速入門：將 Docker 容器部署至 Azure 容器執行個體 - Azure CLI
 description: 在本快速入門中，您可以使用 Azure CLI 快速地部署在隔離式 Azure 容器執行個體中執行的容器化的 Web 應用程式
 services: container-instances
 author: dlepow
@@ -8,13 +8,16 @@ ms.service: container-instances
 ms.topic: quickstart
 ms.date: 03/21/2019
 ms.author: danlep
-ms.custom: seodec18, mvc
-ms.openlocfilehash: b344e5fefdef6cd25dcafc0577b9fbbd7f0e398d
-ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
+ms.custom:
+- seo-python-october2019
+- seodec18
+- mvc
+ms.openlocfilehash: 65c067792499017a7e00fdbb6199e591981683f8
+ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/27/2019
-ms.locfileid: "70050617"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72429218"
 ---
 # <a name="quickstart-deploy-a-container-instance-in-azure-using-the-azure-cli"></a>快速入門：使用 Azure CLI 部署容器執行個體
 
@@ -24,7 +27,7 @@ ms.locfileid: "70050617"
 
 ![在瀏覽器中檢視部署至 Azure Container Instances 的應用程式][aci-app-browser]
 
-如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶][azure-account] 。
+如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶][azure-account]。
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
@@ -69,7 +72,7 @@ aci-demo.eastus.azurecontainer.io  Succeeded
 
 如果容器的 `ProvisioningState` 為 [成功]  ，請在瀏覽器中移至其 FQDN。 如果您看到如下的網頁，恭喜您！ 您已將 Docker 容器中執行的應用程式成功部署至 Azure。
 
-![顯示在 Azure 容器執行個體中執行之應用程式的瀏覽器螢幕擷取畫面][aci-app-browser]
+![在瀏覽器中檢視部署至 Azure Container Instances 的應用程式][aci-app-browser]
 
 如果一開始應用程式並未顯示，您可能需要等候幾秒鐘讓 DNS 傳播完成，然後再次嘗試重新整理瀏覽器。
 
@@ -155,7 +158,7 @@ az group delete --name myResourceGroup
 若要試用在 Azure 上的協調流程系統中執行容器的選項，請參閱 [Azure Kubernetes Service (AKS)][container-service] 快速入門。
 
 <!-- IMAGES -->
-[aci-app-browser]: ./media/container-instances-quickstart/aci-app-browser.png
+[aci-app-browser]: ./media/container-instances-quickstart/view-an-application-running-in-an-azure-container-instance.png
 
 <!-- LINKS - External -->
 [app-github-repo]: https://github.com/Azure-Samples/aci-helloworld.git

@@ -1,24 +1,22 @@
 ---
-title: 建立和管理 B2B 解決方案的整合帳戶-Azure Logic Apps
-description: 使用 Azure Logic Apps 來建立、連結、移動和刪除企業整合和 B2B 解決方案的整合帳戶
+title: 建立或管理 B2B 整合帳戶-Azure Logic Apps
+description: 建立、連結及管理整合帳戶以進行企業與 Azure Logic Apps 的整合
 services: logic-apps
 ms.service: logic-apps
 ms.workload: logic-apps
 ms.suite: integration
 author: ecfan
 ms.author: estfan
-manager: carmonm
-ms.assetid: d3ad9e99-a9ee-477b-81bf-0881e11e632f
 ms.topic: conceptual
 ms.date: 07/26/2019
-ms.openlocfilehash: be0f534e6770cde561f18bfcb310524a7c506416
-ms.sourcegitcommit: b7b0d9f25418b78e1ae562c525e7d7412fcc7ba0
+ms.openlocfilehash: 960733b7423ad1e22bd05a75d9b994cd85b1d30c
+ms.sourcegitcommit: d37991ce965b3ee3c4c7f685871f8bae5b56adfa
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/08/2019
-ms.locfileid: "70801281"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72680360"
 ---
-# <a name="create-and-manage-integration-accounts-for-b2b-solutions-by-using-azure-logic-apps"></a>使用 Azure Logic Apps 來建立和管理 B2B 解決方案的整合帳戶
+# <a name="create-and-manage-integration-accounts-for-b2b-enterprise-integrations-in-azure-logic-apps"></a>在 Azure Logic Apps 中建立和管理 B2B 企業整合的整合帳戶
 
 若要使用 [Azure Logic Apps](../logic-apps/logic-apps-overview.md) 來建置[企業整合和 B2B 解決方案](../logic-apps/logic-apps-enterprise-integration-overview.md)，您必須先建立整合帳戶，這是個別的 Azure 資源，可提供安全、可調整和可管理的容器，以供放置您使用邏輯應用程式工作流程所定義及搭配使用的整合成品。
 
@@ -38,7 +36,7 @@ ms.locfileid: "70801281"
 
 ## <a name="prerequisites"></a>必要條件
 
-* Azure 訂用帳戶。 如果您沒有 Azure 訂用帳戶，請先[註冊免費的 Azure 帳戶](https://azure.microsoft.com/free/)。
+* Azure 訂用帳戶。 如果您沒有 Azure 訂用帳戶，請先[註冊一個免費的 Azure 帳戶](https://azure.microsoft.com/free/)。
 
 ## <a name="create-integration-account"></a>建立整合帳戶
 
@@ -60,10 +58,10 @@ ms.locfileid: "70801281"
 
    | 屬性 | 必要項 | Value | 描述 |
    |----------|----------|-------|-------------|
-   | **名稱** | 是 | <*integration-account-name*> | 您的整合帳戶名稱，其中只能包含字母、數位、連字號（`-`）、底線（`_`）、括弧（`(`， `)`）和句點（`.`）。 這個範例會使用「Fabrikam-整合」。 |
+   | **名稱** | 是 | <*integration-account-name*> | 您的整合帳戶名稱，其中只能包含字母、數位、連字號（`-`）、底線（`_`）、括弧（`(`、`)`）和句點（`.`）。 這個範例會使用「Fabrikam-整合」。 |
    | **訂用帳戶** | 是 | <*Azure-subscription-name*> | Azure 訂用帳戶的名稱 |
    | **資源群組** | 是 | <*Azure-resource-group-name*> | 用來組織相關資源之[Azure 資源群組](../azure-resource-manager/resource-group-overview.md)的名稱。 針對此範例，請建立名為 "FabrikamIntegration-RG" 的新資源群組。 |
-   | 定價層 | 是 | <*定價層級*> | 整合帳戶的定價層，您可于稍後變更。 針對此範例，請選取 [**免費**]。 如需詳細資訊，請參閱下列主題： <p>- [Logic Apps 計價模式](../logic-apps/logic-apps-pricing.md#integration-accounts) <p>- [Logic Apps 限制和設定](../logic-apps/logic-apps-limits-and-config.md#integration-account-limits) <p>- [Logic Apps 定價](https://azure.microsoft.com/pricing/details/logic-apps/) |
+   | 定價層 | 是 | <*定價層級*> | 整合帳戶的定價層，您可于稍後變更。 針對此範例，請選取 [**免費**]。 如需詳細資訊，請參閱下列主題： <p>- [Logic Apps 計價模式](../logic-apps/logic-apps-pricing.md#integration-accounts) <p>- [Logic Apps 限制和](../logic-apps/logic-apps-limits-and-config.md#integration-account-limits)設定 <p>- [Logic Apps 定價](https://azure.microsoft.com/pricing/details/logic-apps/) |
    | **位置** | 是 | <*Azure-region*> | 要儲存整合帳戶中繼資料的區域。 請選取與邏輯應用程式相同的位置，或在與整合帳戶相同的位置中建立邏輯應用程式。 在此範例中，請使用「美國西部」。 <p>**注意**：若要在[整合服務環境（ISE）](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md)內建立整合帳戶，請選取該 ISE 作為位置。 如需詳細資訊，請參閱[在 ISE 中建立整合帳戶](../logic-apps/add-artifacts-integration-service-environment-ise.md#create-integration-account-environment)。 |
    | **Log Analytics** | 否 | Off、On | 針對此範例，請保留 [**關閉**] 設定。 |
    |||||
@@ -115,7 +113,7 @@ ms.locfileid: "70801281"
 
 若要進行這項變更，您可以遵循本節中的步驟或[Azure CLI](#upgrade-tier-azure-cli)，使用 Azure 入口網站。
 
-#### <a name="azure-portal"></a>Azure 入口網站
+#### <a name="azure-portal"></a>Azure Portal
 
 1. 使用您的 Azure 帳戶認證登入 [Azure 入口網站](https://portal.azure.com)。
 
@@ -141,13 +139,13 @@ ms.locfileid: "70801281"
 
    ![開啟 Azure Cloud Shell](./media/logic-apps-enterprise-integration-create-integration-account/open-azure-cloud-shell-window.png)
 
-1. 在命令提示字元中，輸入[ **az resource**命令](https://docs.microsoft.com/cli/azure/resource?view=azure-cli-latest#az-resource-update)，並將`skuName`設定為您想要的較高層級。
+1. 在命令提示字元中，輸入[ **az resource**命令](https://docs.microsoft.com/cli/azure/resource?view=azure-cli-latest#az-resource-update)，並將 `skuName` 設為您想要的較高層級。
 
    ```Azure CLI
    az resource update --resource-group {ResourceGroupName} --resource-type Microsoft.Logic/integrationAccounts --name {IntegrationAccountName} --subscription {AzureSubscriptionID} --set sku.name={SkuName}
    ```
   
-   例如，如果您有基本層，您可以將設定`skuName`為： `Standard`
+   例如，如果您有基本層，您可以將 `skuName` 設定為 `Standard`：
 
    ```Azure CLI
    az resource update --resource-group FabrikamIntegration-RG --resource-type Microsoft.Logic/integrationAccounts --name Fabrikam-Integration --subscription XXXXXXXXXXXXXXXXX --set sku.name=Standard
@@ -165,13 +163,13 @@ ms.locfileid: "70801281"
 
    ![開啟 Azure Cloud Shell](./media/logic-apps-enterprise-integration-create-integration-account/open-azure-cloud-shell-window.png)
 
-1. 在命令提示字元中，輸入[ **az resource**命令](https://docs.microsoft.com/cli/azure/resource?view=azure-cli-latest#az-resource-update)，並`skuName`將設定為您想要的較低層。
+1. 在命令提示字元中，輸入[ **az resource**命令](https://docs.microsoft.com/cli/azure/resource?view=azure-cli-latest#az-resource-update)，並將 `skuName` 設為您想要的較低層。
 
    ```Azure CLI
    az resource update --resource-group <resourceGroupName> --resource-type Microsoft.Logic/integrationAccounts --name <integrationAccountName> --subscription <AzureSubscriptionID> --set sku.name=<skuName>
    ```
   
-   例如，如果您有標準層，您可以將設定`skuName`為： `Basic`
+   例如，如果您有標準層，您可以將 `skuName` 設定為 `Basic`：
 
    ```Azure CLI
    az resource update --resource-group FabrikamIntegration-RG --resource-type Microsoft.Logic/integrationAccounts --name Fabrikam-Integration --subscription XXXXXXXXXXXXXXXXX --set sku.name=Basic
@@ -181,7 +179,7 @@ ms.locfileid: "70801281"
 
 如果您想要將邏輯應用程式連結至另一個整合帳戶，或不再將整合帳戶與邏輯應用程式搭配使用，請使用 Azure 資源總管刪除連結。
 
-1. 開啟瀏覽器視窗，然後移至[Azure 資源總管（ https://resources.azure.com) ](https://resources.azure.com)）。 使用相同的 Azure 帳號憑證登入。
+1. 開啟瀏覽器視窗，然後移至[Azure 資源總管（ https://resources.azure.com)](https://resources.azure.com)。 使用相同的 Azure 帳號憑證登入。
 
    ![Azure 資源總管](./media/logic-apps-enterprise-integration-create-integration-account/resource-explorer.png)
 
@@ -197,7 +195,7 @@ ms.locfileid: "70801281"
 
    ![在 [資料] 索引標籤上，選取 [編輯]](./media/logic-apps-enterprise-integration-create-integration-account/resource-explorer-select-edit.png)
 
-1. 在編輯器中，尋找`integrationAccount`物件，並刪除該屬性，其格式如下：
+1. 在編輯器中，尋找 `integrationAccount` 物件，並刪除該屬性，其格式如下：
 
    ```json
    {
@@ -209,7 +207,7 @@ ms.locfileid: "70801281"
    },
    ```
 
-   例如:
+   例如：
 
    ![尋找 "integrationAccount" 物件](./media/logic-apps-enterprise-integration-create-integration-account/resource-explorer-delete-integration-account.png)
 

@@ -1,5 +1,5 @@
 ---
-title: 讓客戶在 Azure 委派的資源管理中上線 - Azure Lighthouse
+title: 讓客戶在 Azure 委派的資源管理中上線
 description: 了解如何讓客戶在 Azure 委派的資源管理中上線，讓其資源可透過您自己的租用戶來管理。
 author: JnHs
 ms.author: jenhayes
@@ -7,12 +7,12 @@ ms.service: lighthouse
 ms.date: 09/30/2019
 ms.topic: overview
 manager: carmonm
-ms.openlocfilehash: f1d01a4b6b4e42261542cc64516a2e1c2bef56c0
-ms.sourcegitcommit: 7868d1c40f6feb1abcafbffcddca952438a3472d
+ms.openlocfilehash: e16747d74df7db0fb2ca2d4e0f07247258a980d7
+ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71958717"
+ms.lasthandoff: 10/13/2019
+ms.locfileid: "72299747"
 ---
 # <a name="onboard-a-customer-to-azure-delegated-resource-management"></a>讓客戶在 Azure 委派的資源管理中上線
 
@@ -188,7 +188,7 @@ az role definition list --name "<roleName>" | grep name
     }
 }
 ```
-上述範例的最後一個授權會新增具有「使用者存取系統管理員」角色 (18d7d88d-d35e-4fb5-a5c3-7773c20a72d9) 的 **principalId**。 當您指派此角色時，必須包含 **delegatedRoleDefinitionIds** 屬性與一或多個內建角色。 在此授權中建立的使用者將能夠將這些內建角色指派至受控識別。 請注意，不會有其他一般與「使用者存取系統管理員」角色相關聯的權限套用至此使用者。
+上述範例的最後一個授權會新增具有「使用者存取系統管理員」角色 (18d7d88d-d35e-4fb5-a5c3-7773c20a72d9) 的 **principalId**。 當您指派此角色時，必須包含 **delegatedRoleDefinitionIds** 屬性與一或多個內建角色。 在此授權中建立的使用者將能夠將這些內建角色指派至[受控識別](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview)。 請注意，不會有其他一般與「使用者存取系統管理員」角色相關聯的權限套用至此使用者。
 
 ## <a name="deploy-the-azure-resource-manager-templates"></a>部署 Azure Resource Manager 範本
 

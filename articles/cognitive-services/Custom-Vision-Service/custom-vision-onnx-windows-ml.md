@@ -10,12 +10,12 @@ ms.subservice: custom-vision
 ms.topic: tutorial
 ms.date: 07/03/2019
 ms.author: larryfr
-ms.openlocfilehash: 65956ab9fa182794b4cb9ac1fc1800198f2dcdaa
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 025779edd1400c65d10788def17529e84349d582
+ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68561120"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72515757"
 ---
 # <a name="tutorial-use-an-onnx-model-from-custom-vision-with-windows-ml-preview"></a>教學課程：搭配使用自訂視覺中的 ONNX 模型與 Windows ML (預覽)
 
@@ -31,9 +31,9 @@ ms.locfileid: "68561120"
 
 ## <a name="prerequisites"></a>必要條件
 
-* Windows 10 組建 17738 或更新版本
+* Windows 10 1809 版或更高版本
 
-* 適用於組建 17738 或更新版本的 Windows SDK
+* 適用於組建 17763 或更新版本的 Windows SDK
 
 * 啟用__通用 Windows 平台開發__工作負載的 Visual Studio 2017 15.7 版或更新版本。
 
@@ -45,7 +45,7 @@ ms.locfileid: "68561120"
 
 ## <a name="get-the-example-code"></a>取得範例程式碼
 
-範例應用程式可在 [https://github.com/Azure-Samples/cognitive-services-onnx12-customvision-sample/](https://github.com/Azure-Samples/cognitive-services-onnx12-customvision-sample/) 取得。
+範例應用程式可在 [https://github.com/Azure-Samples/cognitive-services-onnx-customvision-sample](https://github.com/Azure-Samples/cognitive-services-onnx-customvision-sample) 取得。
 
 ## <a name="run-the-example"></a>執行範例
 
@@ -59,7 +59,7 @@ ms.locfileid: "68561120"
 
 1. 使用自訂視覺服務[建立及訓練](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/getting-started-build-a-classifier)分類器。 若要匯出模型，請選取 __精簡__網域，例如 [一般 (精簡)]  。 若要匯出現有的分類器，請選取右上方的齒輪圖示，將網域轉換為精簡。 在 [設定]  中，選擇精簡模型，儲存及訓練您的專案。  
 
-1. 移至 [效能] 索引標籤，以[匯出您的模型](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/export-your-model)。選取使用精簡網域訓練的反覆項目，[匯出] 按鈕就會出現。 選取 [匯出]  、[ONNX]  、[ONNX1.2]  ，然後選取 [匯出]  。 檔案準備就緒後，請選取 [下載]  按鈕。
+1. 移至 [效能] 索引標籤，以[匯出您的模型](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/export-your-model)。選取使用精簡網域訓練的反覆項目，[匯出] 按鈕就會出現。 選取 [匯出]  、[ONNX]  ，然後選取 [匯出]  。 檔案準備就緒後，請選取 [下載]  按鈕。
 
 1. 將 ONNX 檔案放入您專案的 __Assets__ 資料夾。 
 

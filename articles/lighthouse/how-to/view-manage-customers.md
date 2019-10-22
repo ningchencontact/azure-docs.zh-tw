@@ -1,5 +1,5 @@
 ---
-title: 在 Azure 入口網站中檢視及管理客戶與委派的資源
+title: 檢視及管理客戶與委派的資源
 description: 身為使用 Azure 委派的資源管理的服務提供者，您可以移至 Azure 入口網站中的 [我的客戶] 來檢視所有委派的客戶資源與訂用帳戶。
 author: JnHs
 ms.author: jenhayes
@@ -7,12 +7,12 @@ ms.service: lighthouse
 ms.date: 07/11/2019
 ms.topic: overview
 manager: carmonm
-ms.openlocfilehash: acc90afa258fa7140cd7dfa8711dd64b554df45d
-ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
+ms.openlocfilehash: 53aabc4dc6c0d3fcef28aab16ea598cbbf6dbd55
+ms.sourcegitcommit: bd4198a3f2a028f0ce0a63e5f479242f6a98cc04
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67810842"
+ms.lasthandoff: 10/14/2019
+ms.locfileid: "72302738"
 ---
 # <a name="view-and-manage-customers-and-delegated-resources"></a>檢視及管理客戶與委派的資源
 
@@ -37,7 +37,7 @@ ms.locfileid: "67810842"
 
 - 若要查看與某個客戶相關聯的所有訂用帳戶、供應項目與委派，請選取該客戶的名稱。
 - 若要查看某個供應項目與其委派的更多詳細資料，請選取該供應項目的名稱。
-- 若要檢視針對委派的訂用帳戶或資源群組之角色指派的更多詳細資料，請在 [委派]  欄中選取該項目。
+- 若要檢視所委派訂用帳戶或資源群組的角色指派詳細資料，請在 [委派]  欄中選取該項目。
 
 ## <a name="view-delegations"></a>檢視委派
 

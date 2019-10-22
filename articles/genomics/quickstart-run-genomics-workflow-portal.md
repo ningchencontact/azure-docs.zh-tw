@@ -1,5 +1,5 @@
 ---
-title: 快速入門：透過 Microsoft Genomics 執行工作流程
+title: 快速入門：執行工作流程
 description: 本快速入門示範如何將輸入資料載入 Azure Blob 儲存體中，並透過 Microsoft Genomics 服務執行工作流程。
 services: genomics
 author: grhuynh
@@ -8,12 +8,12 @@ ms.author: grhuynh
 ms.service: genomics
 ms.topic: quickstart
 ms.date: 01/11/2019
-ms.openlocfilehash: b2d68f878aed5ce400214b6bdf6e1c0d713043bb
-ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
+ms.openlocfilehash: e7c90cc0ce85f2a90cc2ddc2cd086fd2626f4d96
+ms.sourcegitcommit: 961468fa0cfe650dc1bec87e032e648486f67651
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67670755"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72248530"
 ---
 # <a name="quickstart-run-a-workflow-through-the-microsoft-genomics-service"></a>快速入門：透過 Microsoft Genomics 服務執行工作流程
 
@@ -112,7 +112,7 @@ Microsoft Genomics 服務預期會輸入儲存為 Azure 儲存體帳戶中的區
 
 ![儲存體建立刀鋒視窗](./media/quickstart-run-genomics-workflow-portal/genomics-storage-create-blade.png "存放建立刀鋒視窗")
 
-使用下列資訊設定儲存體帳戶，如上圖所示。 使用儲存體帳戶的大部分標準選項，僅將帳戶指定為 blob 儲存體，而非一般用途。 Blob 儲存體的下載及上傳速度可能快 2-5 倍。  建議使用預設的部署模型：Resource Manager。  
+使用下列資訊設定儲存體帳戶，如上圖所示。 使用儲存體帳戶的大部分標準選項，僅將帳戶指定為 blob 儲存體，而非一般用途。 Blob 儲存體的下載及上傳速度可能快 2-5 倍。  建議使用預設的部署模型：Azure Resource Manager。  
 
 
  |**設定**          |  **建議的值**  | **欄位描述** |
@@ -139,7 +139,7 @@ Microsoft Genomics 服務預期會使用配對的結束讀取作為輸入檔案�
 [https://msgensampledata.blob.core.windows.net/small/chr21_2.fq.gz](https://msgensampledata.blob.core.windows.net/small/chr21_2.fq.gz)
 
 
-在儲存體帳戶內，您必須建立一個輸入資料的 blob 容器，和輸出資料的第二個 blob 容器。  將輸入資料上傳到您的輸入 blob 容器。 您可使用各種工具來執行，包括 [Microsoft Azure 儲存體總管](https://azure.microsoft.com/features/storage-explorer/)、[blobporter](https://github.com/Azure/blobporter) 或 [AzCopy](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)。 
+在儲存體帳戶內，您必須建立一個輸入資料的 blob 容器，和輸出資料的第二個 blob 容器。  將輸入資料上傳到您的輸入 blob 容器。 您可使用各種工具來執行，包括 [Microsoft Azure 儲存體總管](https://azure.microsoft.com/features/storage-explorer/)、[BlobPorter](https://github.com/Azure/blobporter) 或 [AzCopy](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)。 
 
 
 

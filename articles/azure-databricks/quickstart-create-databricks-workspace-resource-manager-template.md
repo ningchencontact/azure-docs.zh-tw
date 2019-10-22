@@ -1,5 +1,5 @@
 ---
-title: '快速入門：使用 Resource Manager 範本在 Azure Databricks 上執行 Spark 作業 '
+title: 使用 Azure Resource Manager 建立 Azure Databricks 工作區
 description: 此快速入門會說明如何使用 Azure Resource Manager 範本來建立 Azure Databricks 工作區，然後建立 Apache Spark 叢集並執行 Spark 作業。
 services: azure-databricks
 ms.service: azure-databricks
@@ -10,12 +10,12 @@ ms.workload: big-data
 ms.topic: quickstart
 ms.custom: mvc
 ms.date: 07/12/2019
-ms.openlocfilehash: 8d4cfb2be687f258255379d93fd60028dcd2eb2c
-ms.sourcegitcommit: 3fa4384af35c64f6674f40e0d4128e1274083487
+ms.openlocfilehash: 5f22c9e7b7f040a0e6b957cbc184720918ce9222
+ms.sourcegitcommit: f272ba8ecdbc126d22a596863d49e55bc7b22d37
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "68932600"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72274152"
 ---
 # <a name="quickstart-run-a-spark-job-on-azure-databricks-using-the-azure-resource-manager-template"></a>快速入門：使用 Azure Resource Manager 範本在 Azure Databricks 上執行 Spark 作業
 

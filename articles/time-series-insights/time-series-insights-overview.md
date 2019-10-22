@@ -9,20 +9,20 @@ manager: cshankar
 ms.reviewer: v-mamcge, jasonh, kfile
 ms.workload: big-data
 ms.topic: overview
-ms.date: 09/24/2019
+ms.date: 10/10/2019
 ms.custom: seodec18
-ms.openlocfilehash: 0c832e272029dc110e156ef89deb908fec02f1b2
-ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
+ms.openlocfilehash: 62a4b08eae1b21536b6dfb47c3d9d3470e59ef0b
+ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/06/2019
-ms.locfileid: "71981203"
+ms.lasthandoff: 10/13/2019
+ms.locfileid: "72298921"
 ---
 # <a name="what-is-azure-time-series-insights"></a>什麼是 Azure 時間序列深入解析？
 
 建置 Azure 時間序列深入解析是為了儲存、視覺化及查詢大量時間序列資料，例如 IoT 裝置所產生的時間序列資料。 如果您想要儲存、管理、查詢或以視覺化方式呈現雲端的時間序列資料，時間序列深入解析可能很適合您。 
 
-![時間序列深入解析流程圖](media/overview/time-series-insights-flowchart.png)
+[![時間序列深入解析流程圖](media/overview/time-series-insights-flowchart.png)](media/overview/time-series-insights-flowchart.png#lightbox)
 
 時間序列深入解析有四個主要工作：
 

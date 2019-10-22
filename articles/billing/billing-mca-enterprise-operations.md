@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/01/2019
 ms.author: banders
-ms.openlocfilehash: b6d1de1ee24ce9ca67d3bd8fa514ec9ea7a5c771
-ms.sourcegitcommit: d4c9821b31f5a12ab4cc60036fde00e7d8dc4421
+ms.openlocfilehash: ca0f83628edeef9e55ebc81798d0229791b80a7a
+ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/01/2019
-ms.locfileid: "71709548"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72375483"
 ---
 # <a name="complete-enterprise-agreement-tasks-in-your-billing-account-for-a-microsoft-customer-agreement"></a>在您 Microsoft 客戶合約的計費帳戶中完成 Enterprise 合約工作
 
@@ -27,7 +27,7 @@ ms.locfileid: "71709548"
 
 下圖說明如何在您新的計費帳戶中組織帳單。
 
-![ea-mca-post-transition-hierarchy 的影像](./media/billing-mca-setup-account/mca-post-transition-hierarchy.png)
+![ea-mca-post-transition-hierarchy 的影像](./media/mca-setup-account/mca-post-transition-hierarchy.png)
 
 | Enterprise 合約   | Microsoft 客戶合約    |
 |------------------------|--------------------------------------------------------|
@@ -72,9 +72,9 @@ ms.locfileid: "71709548"
 
 系統會為您計費帳戶中的每個帳單設定檔產生每月發票。 針對每張發票，您可以下載 Azure 使用量和費用 CSV 檔案、價位表和稅務文件 (如果適用)。 您也可以下載 Azure 使用量和 CSV 檔案以了解當月費用。
 
-若要了解如何下載 Azure 使用量和費用 CSV 檔案，請參閱[下載 Microsoft 客戶合約的使用量](billing-download-azure-daily-usage.md#download-usage-for-your-microsoft-customer-agreement)。
+若要了解如何下載 Azure 使用量和費用 CSV 檔案，請參閱[下載 Microsoft 客戶合約的使用量](billing-download-azure-daily-usage.md)。
 
-若要了解如何下載價位表，請參閱[下載 Microsoft 客戶合約的價格](billing-ea-pricing.md#microsoft-customer-agreement-pricing)。
+若要了解如何下載價位表，請參閱[下載 Microsoft 客戶合約的價格](billing-ea-pricing.md)。
 
 若要了解如何下載稅務文件，請參閱[檢視 Microsoft 客戶合約的稅務文件](billing-mca-download-tax-document.md#view-and-download-tax-documents)。
 
@@ -90,7 +90,7 @@ ms.locfileid: "71709548"
 
 ### <a name="create-a-new-account"></a>建立新帳戶
 
-您可以在發票區段上為使用者指派 Azure 訂用帳戶建立者角色，為他們授與建立 Azure 訂用帳戶的權限，如同在 Enterprise 合約註冊中建立的帳戶。 如需詳細資訊，請參閱[授與他人建立 Azure 訂用帳戶的權限](billing-mca-create-subscription.md#give-others-permission)。
+您可以在發票區段上為使用者指派 Azure 訂用帳戶建立者角色，為他們授與建立 Azure 訂用帳戶的權限，如同在 Enterprise 合約註冊中建立的帳戶。 如需指派腳色的詳細資訊，請參閱[在 Azure 入口網站中管理計費角色](billing-understand-mca-roles.md#manage-billing-roles-in-the-azure-portal)
 
 ## <a name="changes-for-department-administrators"></a>部門系統管理員的變更
 
@@ -116,7 +116,7 @@ ms.locfileid: "71709548"
 
 ### <a name="create-a-new-account-in-your-department"></a>在您的部門中建立新的帳戶
 
-在針對您的部門而建立的發票區段上，為使用者指派 Azure 訂用帳戶建立者角色。 如需詳細資訊，請參閱[授與他人建立 Azure 訂用帳戶的權限](billing-mca-create-subscription.md#give-others-permission)。
+在針對您的部門而建立的發票區段上，為使用者指派 Azure 訂用帳戶建立者角色。 如需指派腳色的詳細資訊，請參閱[在 Azure 入口網站中管理計費角色](billing-understand-mca-roles.md#manage-billing-roles-in-the-azure-portal)
 
 ### <a name="view-charges-for-accounts-in-your-departments"></a>檢視部門中的帳戶費用
 

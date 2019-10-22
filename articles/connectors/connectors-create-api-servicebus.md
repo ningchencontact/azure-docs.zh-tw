@@ -1,6 +1,6 @@
 ---
-title: 使用 Azure 服務匯流排 Azure Logic Apps 傳送及接收訊息
-description: 使用 Azure 服務匯流排和 Azure Logic Apps 設定企業雲端通訊
+title: 使用 Azure 服務匯流排 Azure Logic Apps 交換訊息
+description: 在 Azure Logic Apps 中使用 Azure 服務匯流排來傳送和接收訊息
 services: logic-apps
 ms.service: logic-apps
 ms.suite: integration
@@ -9,16 +9,15 @@ ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: conceptual
 ms.date: 09/19/2019
-ms.assetid: d6d14f5f-2126-4e33-808e-41de08e6721f
 tags: connectors
-ms.openlocfilehash: f2034686e4a8de5e1ccc246f49337a6600bf441f
-ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
+ms.openlocfilehash: 0cf5486e77e69f83973f7e62669e5ab45d1c94a2
+ms.sourcegitcommit: d37991ce965b3ee3c4c7f685871f8bae5b56adfa
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71120999"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72679193"
 ---
-# <a name="exchange-messages-in-the-cloud-by-using-azure-logic-apps-with-azure-service-bus"></a>藉由使用 Azure Logic Apps 與 Azure 服務匯流排，在雲端中交換訊息
+# <a name="exchange-messages-in-the-cloud-by-using-azure-logic-apps-and-azure-service-bus"></a>使用 Azure Logic Apps 和 Azure 服務匯流排在雲端中交換訊息
 
 透過[Azure Logic Apps](../logic-apps/logic-apps-overview.md)和[Azure 服務匯流排](../service-bus-messaging/service-bus-messaging-overview.md)連接器，您可以建立自動化的工作和工作流程，以傳送資料給組織的應用程式，例如銷售和採購訂單、日誌和庫存移動。 連接器不只會監視、傳送及管理訊息，也會執行佇列、工作階段、主題、訂用帳戶等等的動作，例如：
 
@@ -35,7 +34,7 @@ ms.locfileid: "71120999"
 
 ## <a name="prerequisites"></a>必要條件
 
-* Azure 訂用帳戶。 如果您沒有 Azure 訂用帳戶，請先[註冊免費的 Azure 帳戶](https://azure.microsoft.com/free/)。
+* Azure 訂用帳戶。 如果您沒有 Azure 訂用帳戶，請先[註冊一個免費的 Azure 帳戶](https://azure.microsoft.com/free/)。
 
 * 服務匯流排命名空間和傳訊實體，例如佇列。 這些專案和您的邏輯應用程式都必須使用相同的 Azure 訂用帳戶。 如果您沒有這些項目，請了解如何[建立您的服務匯流排命名空間和佇列](../service-bus-messaging/service-bus-create-namespace-portal.md)。
 

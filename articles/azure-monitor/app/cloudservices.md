@@ -1,24 +1,18 @@
 ---
 title: Azure 雲端服務的 Application Insight | Microsoft Docs
 description: 使用 Application Insights 有效地監視您的 Web 和背景工作角色
-services: application-insights
-documentationcenter: ''
-keywords: WAD2AI, Azure 診斷
-author: mrbullwinkle
-manager: carmonm
-ms.assetid: 5c7a5b34-329e-42b7-9330-9dcbb9ff1f88
-ms.service: application-insights
-ms.tgt_pltfrm: ibiza
+ms.service: azure-monitor
+ms.subservice: application-insights
 ms.topic: conceptual
-ms.workload: tbd
-ms.date: 09/05/2018
+author: mrbullwinkle
 ms.author: mbullwin
-ms.openlocfilehash: 9325d2dd6c897f4c8dacb3dcf3a382f9f0e856a8
-ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
+ms.date: 09/05/2018
+ms.openlocfilehash: d77bbe355b3f6a2666f46246d1d12cfb2e43e559
+ms.sourcegitcommit: 1bd2207c69a0c45076848a094292735faa012d22
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70932999"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72677569"
 ---
 # <a name="application-insights-for-azure-cloud-services"></a>Azure 雲端服務的 Application Insights
 [Application Insights][start]可以藉由結合來自 Application Insights sdk 的資料與雲端服務的[Azure 診斷](https://docs.microsoft.com/azure/monitoring-and-diagnostics/azure-diagnostics)資料，來監視[Azure 雲端服務應用程式](https://azure.microsoft.com/services/cloud-services/)的可用性、效能、失敗和使用方式。 當您取得有關應用程式在現實世界的效能和效率的意見反應時，您可以在每個開發生命週期中針對設計方向做出明智的抉擇。
@@ -32,7 +26,7 @@ ms.locfileid: "70932999"
 * Microsoft Azure 工具 2.9 或更新版本。
 * 開發人員分析工具 7.10 或更新版本。
 
-## <a name="get-started-quickly"></a>即刻開始使用
+## <a name="get-started-quickly"></a>快速入門
 使用 Application Insights 來監視您雲端服務的最快、最簡單方式就是在將服務發佈到 Azure 時選擇該選項。
 
 ![診斷設定頁面範例](./media/cloudservices/azure-cloud-application-insights.png)
@@ -80,7 +74,7 @@ ms.locfileid: "70932999"
 
 如果您已決定為每個角色建立個別的資源，或許也為每個組建組態建立一組個別的資源，則最簡單的方式就是全部都在 Application Insights 入口網站中建立。 如果您要建立很多資源，您可以[將程序自動化](../../azure-monitor/app/powershell.md)。
 
-1. 在 [Azure 入口網站][portal]中，選取 [**新增** > **開發人員服務** >  **Application Insights**]。  
+1. 在 [ [Azure 入口網站][portal]中，選取 [**新增** > **開發人員服務**]  > **Application Insights**]。  
 
     ![Application Insights 窗格](./media/cloudservices/01-new.png)
 
@@ -115,7 +109,7 @@ ms.locfileid: "70932999"
 
     a. 以滑鼠右鍵按一下專案，然後選取 [管理 NuGet 套件]。
 
-    b. 新增[適用於 Windows 伺服器的 Application Insights](https://www.nuget.org/packages/Microsoft.ApplicationInsights.WindowsServer/)。
+    b.這是另一個 C# 主控台應用程式。 新增[適用於 Windows 伺服器的 Application Insights](https://www.nuget.org/packages/Microsoft.ApplicationInsights.WindowsServer/)。
 
     ![搜尋「Application Insights」](./media/cloudservices/04-ai-nuget.png)
 
@@ -128,7 +122,7 @@ ms.locfileid: "70932999"
      TelemetryConfiguration.Active.InstrumentationKey = RoleEnvironment.GetConfigurationSettingValue("APPINSIGHTS_INSTRUMENTATIONKEY");
     ```
    
-    b. 對您應用程式中的每個角色重複「步驟 a」。 請參閱範例：
+    b.這是另一個 C# 主控台應用程式。 對您應用程式中的每個角色重複「步驟 a」。 請參閱範例：
    
     * [Web 角色](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/Samples/AzureEmailService/MvcWebRole/Global.asax.cs#L27)
     * [背景工作角色](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/Samples/AzureEmailService/WorkerRoleA/WorkerRoleA.cs#L232)
@@ -142,7 +136,7 @@ ms.locfileid: "70932999"
 
 只有當您想要在 .NET Framework 上捕獲完整的 SQL 查詢時，才需要執行此步驟。 
 
-1. 在`\*.csdef` [檔案] 中，為每個角色新增[啟動](https://docs.microsoft.com/azure/cloud-services/cloud-services-startup-tasks)工作，如下所示 
+1. 在 `\*.csdef` 檔案中，為每個角色新增[啟動](https://docs.microsoft.com/azure/cloud-services/cloud-services-startup-tasks)工作，如下所示 
 
     ```xml
     <Startup>
@@ -157,7 +151,7 @@ ms.locfileid: "70932999"
     </Startup>
     ```
     
-2. 下載[InstallAgent](https://github.com/microsoft/ApplicationInsights-Home/blob/master/Samples/AzureEmailService/WorkerRoleA/AppInsightsAgent/InstallAgent.bat)和[InstallAgent](https://github.com/microsoft/ApplicationInsights-Home/blob/master/Samples/AzureEmailService/WorkerRoleA/AppInsightsAgent/InstallAgent.ps1)，將它們放入每個角色專案`AppInsightsAgent`的資料夾中。 請務必透過 Visual Studio 檔案屬性或組建腳本，將它們複製到輸出目錄。
+2. 下載[InstallAgent](https://github.com/microsoft/ApplicationInsights-Home/blob/master/Samples/AzureEmailService/WorkerRoleA/AppInsightsAgent/InstallAgent.bat)和[InstallAgent](https://github.com/microsoft/ApplicationInsights-Home/blob/master/Samples/AzureEmailService/WorkerRoleA/AppInsightsAgent/InstallAgent.ps1)，將它們放入每個角色專案的 [`AppInsightsAgent`] 資料夾中。 請務必透過 Visual Studio 檔案屬性或組建腳本，將它們複製到輸出目錄。
 
 3. 在所有背景工作角色上，新增環境變數： 
 
@@ -230,7 +224,7 @@ ms.locfileid: "70932999"
 ## <a name="performance-counters"></a>效能計數器
 根據預設會收集下列計數器：
 
-* \Process(??APP_WIN32_PROC??)\%Processor Time
+* \Process （？APP_WIN32_PROC??)\% 處理器時間
 * \Memory\Available Bytes
 * \.NET CLR Exceptions(??APP_CLR_PROC??)\# of Exceps Thrown / sec
 * \Process(??APP_WIN32_PROC??)\Private Bytes
@@ -261,7 +255,7 @@ ms.locfileid: "70932999"
 ## <a name="client-telemetry"></a>用戶端遙測
 若要取得以瀏覽器為基礎的遙測資料，例如網頁檢視計數、頁面載入時間或腳本例外狀況，並在頁面腳本中撰寫自訂遙測，請參閱[將 JAVASCRIPT SDK 新增至您的網頁][client]。
 
-## <a name="availability-tests"></a>可用性測試
+## <a name="availability-tests"></a>可用性集合
 若要確保您的應用程式保持上線並回應，請[設定 web 測試][availability]。
 
 ## <a name="display-everything-together"></a>將所有內容一起顯示
@@ -277,7 +271,7 @@ ms.locfileid: "70932999"
 ## <a name="exception-method-not-found-on-running-in-azure-cloud-services"></a>在 Azure 雲端服務中執行時發生的「找不到方法」例外狀況
 您是否已針對 .NET 4.6 組建？ Azure 雲端服務角色不自動支援 .NET 4.6。 [在每個角色上安裝 .NET 4.6](../../cloud-services/cloud-services-dotnet-install-dotnet.md)，再執行應用程式。
 
-## <a name="video"></a>視訊
+## <a name="video"></a>影片
 
 > [!VIDEO https://channel9.msdn.com/events/Connect/2016/100/player]
 

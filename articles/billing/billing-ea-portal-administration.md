@@ -4,16 +4,16 @@ description: 本文將說明系統管理員在 Azure EA 入口網站中完成的
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 10/07/2019
+ms.date: 10/14/2019
 ms.topic: conceptual
 ms.service: billing
 manager: boalcsva
-ms.openlocfilehash: 21e9d4af783ed5d9eb3ace1c8b5189163b89f8b0
-ms.sourcegitcommit: f9e81b39693206b824e40d7657d0466246aadd6e
+ms.openlocfilehash: f344436b1e1f1a97b981c1ead469d965b06a12ce
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72035215"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72329345"
 ---
 # <a name="azure-ea-portal-administration"></a>Azure EA 入口網站系統管理員
 
@@ -62,7 +62,7 @@ Azure EA 帳戶是 Azure EA 入口網站中用來管理訂用帳戶的組織單�
 
 有效的轉移日期可以是目標註冊的開始日期或之後的日期。 作為轉移目的地的註冊就是「目標註冊」  。 帳戶轉移之後，在有效轉移日期之前，帳戶中的所有使用量資訊都會保留在轉移的來源註冊中。 作為轉移來源的註冊就是「來源註冊」  。  來源註冊使用量會依承諾用量或超額部分收費。 在有效轉移日期之後發生的使用量會轉移至新的註冊，並據以收費。
 
-帳戶轉移最遠可以追溯到目標註冊的開始日期。 或者，追溯到來源註冊的有效開始日期。
+註冊轉移最遠可以追溯到目標註冊的開始日期。 或者，追溯到來源註冊的有效開始日期。
 
 ### <a name="monetary-commitment"></a>承諾用量
 
@@ -212,12 +212,11 @@ Azure EA 入口網站可以將訂用帳戶從一個帳戶擁有者轉移至另�
 ![顯示 [新增連絡人] 方塊的範例 ](./media/billing-ea-portal-administration/create-ea-manage-partner-notification.png)
 
 ## <a name="azure-sponsorship-offer"></a>Azure 贊助供應項目
+
 Azure 贊助供應項目是有贊助限制的 Microsoft Azure 帳戶。 只有 Microsoft 所選的限定客戶，才能收到電子郵件邀請。 若您獲選參加 Microsoft Azure 贊助供應項目，您將會收到屬於您帳戶識別碼的電子郵件邀請。
+
 如需詳細資訊，請參閱
 
-- 贊助供應項目概觀 - https://azure.microsoft.com/en-us/offers/ms-azr-0143p/
-- 贊助餘額入口網站 - https://www.microsoftazuresponsorships.com/balance  
-- 贊助外部常見問題集 - https://azuresponsorships-staging.azurewebsites.net/faq
 - 贊助啟用的支援要求 - http://aka.ms/azrsponsorship
 
 ## <a name="next-steps"></a>後續步驟

@@ -2,18 +2,17 @@
 title: 什麼是 Azure Analysis Services | Microsoft Docs
 description: 了解 Azure 中的 Analysis Services 全貌。
 author: minewiskan
-manager: kfile
 ms.service: azure-analysis-services
 ms.topic: overview
-ms.date: 08/27/2019
+ms.date: 10/16/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 1f3552fe574291bf696e3b4418924c7e005d713e
-ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.openlocfilehash: 4369f1ce7d6ef90e8489dbec5daa181406c0fecf
+ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71259542"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72512603"
 ---
 # <a name="what-is-azure-analysis-services"></a>什麼是 Azure Analysis Services？
 
@@ -149,7 +148,7 @@ Azure Analysis Services 中的表格式模型可支援各種資料來源，從�
 
 ## <a name="compatibility-level"></a>相容性層級
 
-相容性層級是指 Analysis Services 引擎中特定版本的表現方式。 Azure Analysis Services 支援 1200 或更高相容性層級的表格式模型。 若要深入了解，請參閱 [Analysis Services 表格式模型的相容性層級](analysis-services-compat-level.md)。
+相容性層級是指 Analysis Services 引擎中特定版本的表現方式。 Azure Analysis Services 支援 1200 或更高相容性層級的表格式模型。 若要深入了解，請參閱[表格式模組的相容性層級](https://docs.microsoft.com/analysis-services/tabular-models/compatibility-level-for-tabular-models-in-analysis-services)。
 
 
 ## <a name="your-data-is-secure"></a>您的資料很安全

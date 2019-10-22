@@ -4,12 +4,12 @@ ms.service: billing
 ms.topic: include
 ms.date: 07/01/2019
 ms.author: amberb
-ms.openlocfilehash: a271f03788bc7b831e6d8daff3d53503db5a2710
-ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
+ms.openlocfilehash: 4b2533131407081b97bb491895d96cf566442090
+ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "67491106"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72375454"
 ---
 檢查合約類型以決定您的計費帳戶類型
  
@@ -23,7 +23,7 @@ ms.locfileid: "67491106"
  
     ![在 [屬性] 頁面中顯示 Microsoft 客戶合約的螢幕擷取畫面](./media/billing-check-account-type/billing-mca-property.png)
     
-    [屬性] 頁面上的 [計費帳戶類型]  會決定您的帳戶類型。 它可以是 Microsoft 線上服務方案、Enterprise 合約或 Microsoft 客戶合約。 若要深入了解計費帳戶的類型，請參閱[在 Azure 入口網站中檢視計費帳戶](../articles/billing/billing-view-all-accounts.md)。  
+    [屬性] 頁面上的 [計費帳戶類型]  會決定您的帳戶類型。 它可以是 Microsoft 線上服務方案、Enterprise 合約、Microsoft 客戶合約或 Microsoft 合作夥伴合約。 若要深入了解計費帳戶的類型，請參閱[在 Azure 入口網站中檢視計費帳戶](../articles/billing/billing-view-all-accounts.md)。  
  
 4. 如果您有多個計費範圍的存取權，請從左側選取 [計費帳戶]  或 [所有計費範圍]  。 檢查 [計費帳戶類型]  資料行中的類型。
  

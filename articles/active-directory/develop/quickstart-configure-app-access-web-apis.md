@@ -16,12 +16,12 @@ ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: lenalepa, aragra, sureshja
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 937fca5698378a8c877b4a981557f87d06170e9a
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: 5100af99046a03345230ed0468071766aae1c77b
+ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68879350"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72389617"
 ---
 # <a name="quickstart-configure-a-client-application-to-access-web-apis"></a>快速入門：設定用戶端應用程式以存取 Web API
 
@@ -80,8 +80,9 @@ ms.locfileid: "68879350"
 
 1. 若要選擇建議的公用用戶端 (行動、傳統型) 重新導向 URI，請遵循下列步驟：
     1. 找出建議的 [公用用戶端 (行動、傳統型) 的重新導向 URI]  區段。
-    1. 使用核取方塊選取應用程式適用的重新導向 URI。
+    1. 使用核取方塊選取應用程式適用的重新導向 URI。 您也可以輸入自訂重新導向 URI。 如果您不確定要使用的內容，請查看程式庫文件。
 
+重新導向 URI 適用一些限制。 深入了解[重新導向 URI 限制](https://docs.microsoft.com/azure/active-directory/develop/reply-url)。
 > [!NOTE]
 > 試用新的**驗證**設定體驗，您可以在其中根據您要設為目標的平台或裝置來設定應用程式的設定。
 >

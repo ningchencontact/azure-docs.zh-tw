@@ -1,22 +1,24 @@
 ---
-title: 從 Python 連線到適用於 MySQL 的 Azure 資料庫
+title: 快速入門：從 Python 連線到適用於 MySQL 的 Azure 資料庫
 description: 本快速入門提供數個 Python 程式碼範例，您可用於從 Azure Database for MySQL 連線和查詢資料。
 author: ajlam
 ms.author: andrela
 ms.service: mysql
-ms.custom: mvc
+ms.custom: seo-python-october2019
 ms.devlang: python
 ms.topic: quickstart
 ms.date: 08/08/2019
-ms.openlocfilehash: 0940d307d78236fea1a232c1e7c60a296ba46c62
-ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
+ms.openlocfilehash: 9f9d432bc2f7d70396bca5d140f1a66a75fd7231
+ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70195169"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72434300"
 ---
-# <a name="azure-database-for-mysql-use-python-to-connect-and-query-data"></a>適用於 MySQL 的 Azure 資料庫：使用 Python 連線並查詢資料
-本快速入門示範如何使用 [Python](https://python.org) 連線至 Azure Database for MySQL。 它會使用 SQL 陳述式查詢、插入、更新和刪除 Mac OS、Ubuntu Linux 和 Windows 平台的資料庫中的資料。 本主題假設您已熟悉使用 Python 進行開發，但不熟悉適用於 MySQL 的 Azure 資料庫。
+# <a name="quickstart-use-python-to-connect-and-query-data-with-azure-database-for-mysql"></a>快速入門：使用 Python 連線適用於 MySQL 的 Azure 資料庫並查詢資料
+本文示範如何使用 [Python](https://python.org) 連線至 Azure Database for MySQL。 它會使用 SQL 陳述式查詢、插入、更新和刪除 Mac OS、Ubuntu Linux 和 Windows 平台的資料庫中的資料。 
+
+本主題假設您已熟悉使用 Python 進行開發，但不熟悉適用於 MySQL 的 Azure 資料庫。
 
 ## <a name="prerequisites"></a>必要條件
 本快速入門使用在以下任一指南中建立的資源作為起點︰
@@ -66,7 +68,7 @@ ms.locfileid: "70195169"
 2. 從 Azure 入口網站的左側功能表中，選取 [所有資源]  ，然後搜尋您所建立的伺服器 (例如 **mydemoserver**)。
 3. 選取伺服器名稱。
 4. 從伺服器的 [概觀]  面板，記下 [伺服器名稱]  和 [伺服器管理員登入名稱]  。 如果您忘記密碼，您也可以從此面板重設密碼。
- ![Azure Database for MySQL 伺服器名稱](./media/connect-python/1_server-overview-name-login.png)
+ ![Azure Database for MySQL 伺服器名稱](./media/connect-python/azure-database-for-mysql-server-overview-name-login.png)
 
 ## <a name="run-python-code"></a>執行 Python 程式碼
 - 將程式碼貼入文字檔，然後使用 .py 副檔名來將檔案儲存到專案資料夾 (例如 C:\pythonmysql\createtable.py 或 /home/username/pythonmysql/createtable.py)。

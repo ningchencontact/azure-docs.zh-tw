@@ -4,16 +4,16 @@ description: 提供 Azure Data Lake Storage Gen2 概觀
 author: normesta
 ms.service: storage
 ms.topic: overview
-ms.date: 12/06/2018
+ms.date: 10/11/2019
 ms.author: normesta
 ms.reviewer: jamesbak
 ms.subservice: data-lake-storage-gen2
-ms.openlocfilehash: de2dc5068dc454925744688a43f49a855aac42f3
-ms.sourcegitcommit: 007ee4ac1c64810632754d9db2277663a138f9c4
+ms.openlocfilehash: d843e288297db656cca6e2a07f2e1f3322ebfa89
+ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69991839"
+ms.lasthandoff: 10/13/2019
+ms.locfileid: "72299645"
 ---
 # <a name="introduction-to-azure-data-lake-storage-gen2"></a>Azure Data Lake Storage Gen2 簡介
 
@@ -64,7 +64,7 @@ Data Lake Storage Gen2 是巨量資料分析的額外功能，建置在 Azure Bl
 | 概念                                | 最上層組織 | 較低層級組織                                            | 資料容器 |
 |----------------------------------------|------------------------|---------------------------------------------------------------------|----------------|
 | Blobs – 一般用途物件儲存體 | 容器              | 虛擬目錄 (僅限 SDK – 不提供不可部分完成操作) | Blob           |
-| ADLS Gen2 – 分析儲存體          | 容器            | 目錄                                                           | 檔案           |
+| Azure Data Lake Storage Gen2 – 分析儲存體          | 容器            | 目錄                                                           | 檔案           |
 
 ## <a name="supported-open-source-platforms"></a>支援的開放原始碼平台
 
@@ -81,10 +81,15 @@ Data Lake Storage Gen2 是巨量資料分析的額外功能，建置在 Azure Bl
 | [Azure Databricks](https://azure.microsoft.com/services/databricks/) | 5.1+ | [Databricks Runtime 版本](https://docs.databricks.com/release-notes/runtime/databricks-runtime-ver.html) |
 |[Hortonworks](https://hortonworks.com/)| 3.1.x++ | [設定雲端資料存取](https://docs.hortonworks.com/HDPDocuments/Cloudbreak/Cloudbreak-2.9.0/cloud-data-access/content/cb_configuring-access-to-adls2.html) \(英文\) |
 
+## <a name="supported-azure-services"></a>支援的 Azure 服務
+
+Data Lake Storage gen2 支援數個 Azure 服務，可用於內嵌資料、執行分析，以及建立視覺表示法。 如需支援的 Azure 服務清單，請參閱[整合 Azure Data Lake Storage 與 Azure 服務](data-lake-store-integrate-with-azure-services.md)。
+
 ## <a name="next-steps"></a>後續步驟
 
 下列文章說明 Data Lake Storage Gen2 的一些主要概念，並詳述如何儲存、存取與管理資料，以及取得資料見解：
 
--   [階層式命名空間](data-lake-storage-namespace.md)
--   [建立儲存體帳戶](data-lake-storage-quickstart-create-account.md)
--   [在 Azure Databricks 中使用 Data Lake Storage Gen2 帳戶](data-lake-storage-quickstart-create-databricks-account.md)
+- [階層式命名空間](data-lake-storage-namespace.md)
+- [建立儲存體帳戶](data-lake-storage-quickstart-create-account.md)
+- [Azure Data Lake Storage 上的多重通訊協定存取](data-lake-storage-multi-protocol-access.md)
+- [整合 Azure Data Lake Storage 與 Azure 服務](data-lake-store-integrate-with-azure-services.md)

@@ -17,12 +17,12 @@ ms.author: twhitney
 ms.reviewer: jmprieur, saeeda
 ms.custom: aaddev, identityplatformtop40
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bdb1ae92b17bef281e3b82a8c1a21344fa37f0da
-ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
+ms.openlocfilehash: dce3fea1427632f37d826b79016e3aa3e22dad5f
+ms.sourcegitcommit: b4665f444dcafccd74415fb6cc3d3b65746a1a31
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71345545"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72264166"
 ---
 # <a name="quickstart-sign-in-users-and-call-the-microsoft-graph-api-from-an-ios-or-macos-app"></a>快速入門：從 iOS 或 macOS 應用程式登入使用者並呼叫 Microsoft Graph API
 
@@ -266,7 +266,7 @@ self.applicationContext!.acquireTokenSilent(with: silentParams) { (result, error
 > |其中： ||
 > |---------|---------|
 > | `scopes` | 包含所要求的範圍 (即適用於 Microsoft Graph 的 `[ "user.read" ]` 或適用於自訂 Web API 的 `[ "<Application ID URL>/scope" ]` (`api://<Application ID>/access_as_user`) |
-> | `account` | 要求權杖的帳戶。 本快速入門為單一帳戶應用程式，如果您想要建置多帳戶的應用程式，您將必須定義邏輯來識別要針對權杖要求使用哪一個帳戶 `applicationContext.account(forHomeAccountId: self.homeAccountId)` |
+> | `account` | 要求權杖的帳戶。 本快速入門關於單一帳戶應用程式。 如果您想要建置多帳戶的應用程式，則必須使用 `applicationContext.account(forHomeAccountId: self.homeAccountId)`定義邏輯來識別要針對權杖要求使用哪一個帳戶 |
 
 ## <a name="next-steps"></a>後續步驟
 
