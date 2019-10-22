@@ -297,7 +297,15 @@
         - name: 資料輸入和輸出
           items:
             - name: 匯入資料
-              href: ../algorithm-module-reference/import-data.md
+              items:
+                - name: 匯入資料
+                  href: ../algorithm-module-reference/import-data.md
+                - name: 透過 HTTP 從 Web URL 匯入
+                  href: ../algorithm-module-reference/import-from-web-url-via-http.md
+                - name: 從 Azure Blob 儲存體模組匯入
+                  href: ../algorithm-module-reference/import-from-azure-blob-storage.md
+                - name: 從 Azure SQL Database 匯入
+                  href: ../algorithm-module-reference/import-from-azure-sql-database.md
             - name: 匯出資料
               href: ../algorithm-module-reference/export-data.md
             - name: 手動輸入資料
@@ -330,6 +338,10 @@
               href: ../algorithm-module-reference/normalize-data.md
             - name: 資料分割和取樣
               href: ../algorithm-module-reference/partition-and-sample.md
+            - name: 剪輯值
+              href: ../algorithm-module-reference/clip-values.md
+            - name: 套用 SQL 轉換
+              href: ../algorithm-module-reference/apply-sql-transformation.md
         - name: 機器學習服務
           items:
             - name: 計分模型
@@ -382,6 +394,12 @@
               href: ../algorithm-module-reference/create-python-model.md
             - name: 執行 R 指令碼
               href: ../algorithm-module-reference/execute-r-script.md
+        - name: 統計函數
+          items:
+            - name: 套用數學運算
+              href: ../algorithm-module-reference/apply-math-operation.md
+            - name: 資料總結
+              href: ../algorithm-module-reference/summarize-data.md
         - name: 錯誤訊息和代碼
           href: ../algorithm-module-reference/machine-learning-module-error-codes.md
 - name: 資源

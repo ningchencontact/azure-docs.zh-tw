@@ -7,17 +7,16 @@ ms.custom: include file
 ms.topic: include
 author: sgilley
 ms.author: sgilley
-ms.date: 05/06/2019
-ms.openlocfilehash: 623e993dfbe6bbb3297fa6470865ab1a04f55b37
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.date: 10/16/2019
+ms.openlocfilehash: 0071b0df2c2e173eced1722372f88b1de2708afa
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67174396"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72692426"
 ---
 >[!IMPORTANT]
 >您可以使用您所建立的資源來作為其他 Azure Machine Learning 服務教學課程和操作說明文章的先決條件。
-
 
 ### <a name="delete-everything"></a>刪除所有內容
 
@@ -49,6 +48,6 @@ ms.locfileid: "67174396"
 
 ### <a name="delete-individual-assets"></a>刪除個別資產
 
-在實驗建立所在的視覺化介面中，藉由選取個別資產再選取 [刪除]  按鈕，即可刪除個別資產。
+在實驗建立所在的視覺化介面中，藉由選取個別資產再選取 [刪除]  按鈕，即可刪除個別資產。 您可以選取每個資料集並選取 **Unregister** ，從工作區中將資料集取消註冊。
 
-![刪除實驗](./media/aml-ui-cleanup/delete-experiment.png)
+![刪除資產](./media/aml-ui-cleanup/delete-asset.png)

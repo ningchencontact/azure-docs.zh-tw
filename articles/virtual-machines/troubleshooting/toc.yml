@@ -127,12 +127,18 @@
   href: storage-resource-deletion-errors.md
 - name: 刪除傳統儲存體資源時發生錯誤
   href: storage-classic-cannot-delete-storage-account-container-vhd.md
-- name: 包含連結 VHD 的 VM 非預期重新開機
-  href: unexpected-reboots-attached-vhds.md
-- name: Windows 啟用問題
-  href: troubleshoot-activation-problems.md
-- name: 啟用強制通道的問題
-  href: custom-routes-enable-kms-activation.md
+- name: VM 重新開機問題疑難排解
+  items:
+    - name: 包含連結 VHD 的 VM 非預期重新開機
+      href: unexpected-reboots-attached-vhds.md
+    - name: 了解系統重新開機
+      href: understand-vm-reboot.md
+- name: Windows 啟用
+  items:
+    - name: Windows 啟用問題
+      href: troubleshoot-activation-problems.md
+    - name: 啟用強制通道的問題
+      href: custom-routes-enable-kms-activation.md
 - name: 應用程式存取問題
   href: troubleshoot-app-connection.md
 - name: 新的 VM 部署
@@ -188,8 +194,6 @@
   href: troubleshooting-throttling-errors.md
 - name: 使用巢狀虛擬化
   href: troubleshoot-vm-by-use-nested-virtualization.md
-- name: 了解系統重新開機
-  href: understand-vm-reboot.md
 - name: 遠端疑難排解工具
   href: remote-tools-troubleshoot-azure-vm-issues.md
 - name: 虛擬機器修復
