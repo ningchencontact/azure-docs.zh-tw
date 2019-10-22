@@ -1,6 +1,6 @@
 ---
 title: 系統管理員管理使用者和裝置-Azure MFA-Azure Active Directory
-description: 系統管理員如何變更使用者設定, 例如強制使用者重新執行證明程式。
+description: 系統管理員如何變更使用者設定，例如強制使用者重新執行證明程式。
 services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 190d697dca56fa51d92987f32db0146aa79881aa
-ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/29/2019
+ms.lasthandoff: 10/21/2019
 ms.locfileid: "70162406"
 ---
 # <a name="manage-user-settings-with-azure-multi-factor-authentication-in-the-cloud"></a>管理雲端中 Azure Multi-Factor Authentication 的使用者設定
@@ -28,16 +28,16 @@ ms.locfileid: "70162406"
 
 ## <a name="manage-authentication-methods"></a>管理驗證方法
 
-身為系統管理員指派「驗證系統管理員」角色, 您可以要求使用者重設其密碼、重新註冊 MFA, 或從使用者物件撤銷現有的 MFA 會話。
+身為系統管理員指派「驗證系統管理員」角色，您可以要求使用者重設其密碼、重新註冊 MFA，或從使用者物件撤銷現有的 MFA 會話。
 
 ![從 Azure 入口網站管理驗證方法](./media/howto-mfa-userdevicesettings/manage-authentication-methods.png)
 
 1. 登入 [Azure 入口網站](https://portal.azure.com)。
 1. 選取左邊的 [Azure Active Directory] > [使用者] > [所有使用者]。
-1. 選擇您想要對其執行動作的使用者, 然後選取 [**驗證方法**]。
-   - [**重設密碼**] 將會重設使用者的密碼, 並指派必須在下次登入時變更的暫時密碼。
-   - [**需要重新註冊 MFA** ] 會讓使用者在下次登入時, 會要求他們設定新的 MFA 驗證方法。
-   - **撤銷 Mfa 會話**會清除使用者已記住的 mfa 會話, 並要求他們在下次裝置上的原則要求時執行 mfa。
+1. 選擇您想要對其執行動作的使用者，然後選取 [**驗證方法**]。
+   - [**重設密碼**] 將會重設使用者的密碼，並指派必須在下次登入時變更的暫時密碼。
+   - [**需要重新註冊 MFA** ] 會讓使用者在下次登入時，會要求他們設定新的 MFA 驗證方法。
+   - **撤銷 Mfa 會話**會清除使用者已記住的 mfa 會話，並要求他們在下次裝置上的原則要求時執行 mfa。
 
 ## <a name="require-users-to-provide-contact-methods-again"></a>要求使用者再次提供連絡方法
 
@@ -51,11 +51,11 @@ ms.locfileid: "70162406"
 4. 勾選您想要管理之使用者旁邊的方塊。 快速步驟選項的清單會出現在右側。
 5. 選取 [管理使用者設定]。
 6. 勾選 [要求選取的使用者再次提供連絡方法] 方塊。
-   ![要求使用者重新提供連絡人方法](./media/howto-mfa-userdevicesettings/reproofup.png)
+   ![Require 使用者再次提供連絡人方法 ](./media/howto-mfa-userdevicesettings/reproofup.png)
 7. 按一下 [儲存]。
 8. 按一下 [關閉]。
 
-組織可以使用下列做為清除`StrongAuthenticationMethods`屬性的指南, 來完成這些步驟的 PowerShell:
+組織可以使用下列做為指南來完成這些步驟，以清除 `StrongAuthenticationMethods` 屬性：
 
 ```PowerShell
 $Upn = "theuser@domain.com"
@@ -75,7 +75,7 @@ Set-MsolUser -UserPrincipalName $Upn -StrongAuthenticationMethods $noMfaConfig
 4. 勾選您想要管理之使用者旁邊的方塊。 快速步驟選項的清單會出現在右側。
 5. 選取 [管理使用者設定]。
 6. 勾選 [刪除選定使用者產生的所有現有應用程式密碼] 方塊。
-   ![刪除所有現有的應用程式密碼](./media/howto-mfa-userdevicesettings/deleteapppasswords.png)
+   ![Delete 所有現有的應用程式密碼 ](./media/howto-mfa-userdevicesettings/deleteapppasswords.png)
 7. 按一下 [儲存]。
 8. 按一下 [關閉]。
 
@@ -85,7 +85,7 @@ Azure Multi-Factor Authentication 的可設定功能之一，是讓使用者可�
 
 使用者可以在其一般的裝置上設定天數內選擇退出雙步驟驗證。 如果帳戶遭到洩露或信任的裝置遺失，您必須能夠移除受信任的狀態，且再次要求進行雙步驟驗證。
 
-若有選取時,**在所有記住的裝置上還原多重要素驗證**時, 使用者必須在下一次登入時執行雙步驟驗證, 即使他們將其裝置標記為受信任。
+若有選取時，**在所有記住的裝置上還原多重要素驗證**時，使用者必須在下一次登入時執行雙步驟驗證，即使他們將其裝置標記為受信任。
 
 ### <a name="how-to-restore-mfa-on-all-suspended-devices-for-a-user"></a>如何還原使用者所有暫停之裝置上的 MFA
 
@@ -94,8 +94,8 @@ Azure Multi-Factor Authentication 的可設定功能之一，是讓使用者可�
 3. 選取右邊工具列上的 [Multi-Factor Authentication]。 多重要素驗證頁面隨即開啟。
 4. 勾選您想要管理之使用者旁邊的方塊。 快速步驟選項的清單會出現在右側。
 5. 選取 [管理使用者設定]。
-6. 核取 [**在所有記住的裝置**
-    ![上還原多重要素驗證] 核取方塊, 在所有記住的裝置上還原多重要素驗證](./media/howto-mfa-userdevicesettings/rememberdevices.png)
+6. 核取 [**在所有記住的裝置上還原多重要素驗證**] 的核取方塊 
+    ![Restore 所有記住的裝置上的多重要素驗證 ](./media/howto-mfa-userdevicesettings/rememberdevices.png)
 7. 按一下 [儲存]。
 8. 按一下 [關閉]。
 

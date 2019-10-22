@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 05/02/2019
 ms.custom: seodec2018
 ms.openlocfilehash: 0a26cfc578f12044cb5834f202a0fed5d0a30274
-ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/20/2019
+ms.lasthandoff: 10/21/2019
 ms.locfileid: "69647360"
 ---
 # <a name="create-a-basic-index-in-azure-search"></a>在 Azure 搜尋服務中建立基本索引
@@ -32,7 +32,7 @@ ms.locfileid: "69647360"
 
 2. 如果您無法使用 [匯入資料]，仍然可以[在入口網站中建立初始索引](search-create-index-portal.md)，以及使用 [新增索引] 頁面上的控制項來新增欄位、資料類型和指派屬性。 入口網站會顯示不同的資料類型適用哪些屬性。 如果您還不熟悉索引設計，這很有幫助。
 
-   ![依資料類型顯示屬性的新增索引頁面](media/search-create-index-portal/field-attributes.png "依資料類型顯示屬性的新增索引頁面")
+   ![依資料類型顯示內容的新增索引頁面](media/search-create-index-portal/field-attributes.png "依資料類型顯示內容的新增索引頁面")
   
    當您按一下 [建立] 時，所有支援您索引的實體結構都會建立於您的搜尋服務中。
 
@@ -46,7 +46,7 @@ ms.locfileid: "69647360"
 
 6. 繼續使用程式碼來逐一查看您的設計。  
 
-因為實體結構是在服務中建立, 所以每當您對現有欄位定義進行材質變更時, 都必須卸載和重新建立[索引](search-howto-reindex.md)。 這表示在開發期間，您應該規劃經常重建。 您可以考慮處理部份的資料，讓重建更快速。 
+因為實體結構是在服務中建立，所以每當您對現有欄位定義進行材質變更時，都必須卸載和重新建立[索引](search-howto-reindex.md)。 這表示在開發期間，您應該規劃經常重建。 您可以考慮處理部份的資料，讓重建更快速。 
 
 建議將程式碼 (而非入口網站方法) 用於反覆式設計。 如果您依賴入口網站進行索引定義，則必須在每次重建時填妥索引定義。 另外，當開發專案仍在早期階段時，[Postman 和 REST API](search-get-started-postman.md) 之類的工具對於概念證明測試很有幫助。 您可以對要求主體中的索引定義進行累加變更，然後將要求傳送至您的服務，以使用更新後的結構描述來重建索引。
 
@@ -54,7 +54,7 @@ ms.locfileid: "69647360"
 
 就結構描述而言，Azure 搜尋服務索引會包含下列元素。 
 
-「[欄位集合](#fields-collection)」通常是索引中最大的一部分，其中每個欄位都會具有名稱、類型和屬性，以及可決定其使用方式的可允許行為。 其他元素包括[建議工具](#suggesters)、[評分設定檔](#scoring-profiles)、具有元件部分的[分析器](#analyzers), 以支援自訂、 [CORS](#cors)和[加密金鑰](#encryption-key)選項。
+「[欄位集合](#fields-collection)」通常是索引中最大的一部分，其中每個欄位都會具有名稱、類型和屬性，以及可決定其使用方式的可允許行為。 其他元素包括[建議工具](#suggesters)、[評分設定檔](#scoring-profiles)、具有元件部分的[分析器](#analyzers)，以支援自訂、 [CORS](#cors)和[加密金鑰](#encryption-key)選項。
 
 ```json
 {
@@ -163,9 +163,9 @@ ms.locfileid: "69647360"
 
 您的索引中只有一個欄位必須是指定為唯一識別每份檔的索引**鍵**欄位。
 
-其他屬性會決定欄位在應用程式中的使用方式。 例如, 可搜尋的屬性會指派給應該包含在全文檢索搜尋中的每個欄位。 
+其他屬性會決定欄位在應用程式中的使用方式。 例如，可搜尋**的屬性會**指派給應該包含在全文檢索搜尋中的每個欄位。 
 
-您用來建立索引的 Api 有不同的預設行為。 對於[REST api](https://docs.microsoft.com/rest/api/searchservice/Create-Index), 大部分的屬性預設為啟用 (例如, 字串欄位的可搜尋和可供搜尋), 而且您通常只需要設定它們 (如果您想要將它們關閉)。 針對 .NET SDK, 相反的為 true。 在您未明確設定的任何屬性上, 除非您特別啟用, 否則預設會停用對應的搜尋行為。
+您用來建立索引的 Api 有不同的預設行為。 對於[REST api](https://docs.microsoft.com/rest/api/searchservice/Create-Index)，大部分的屬性預設為啟用（例如，字串欄位**的可搜尋和可供**搜尋 **），而且**您通常只需要設定它們（如果您想要將它們關閉）。 針對 .NET SDK，相反的為 true。 在您未明確設定的任何屬性上，除非您特別啟用，否則預設會停用對應的搜尋行為。
 
 | 屬性 | 描述 |
 | --- | --- |
@@ -181,11 +181,11 @@ ms.locfileid: "69647360"
 
 您選取的屬性會影響儲存體。 下列螢幕擷取畫面說明各種屬性組合所產生的索引儲存模式。
 
-索引是以內建的[房地產範例](search-get-started-portal.md)資料來源為基礎, 您可以在入口網站中編制索引和查詢。 雖然未顯示索引結構描述，但您可以根據索引名稱推斷屬性。 例如，*realestate 可搜尋*索引僅只選取 **searchable** 屬性，*realestate 可擷取*索引僅只選取 **retrievable** 屬性。
+索引是以內建的[房地產範例](search-get-started-portal.md)資料來源為基礎，您可以在入口網站中編制索引和查詢。 雖然未顯示索引結構描述，但您可以根據索引名稱推斷屬性。 例如，*realestate 可搜尋*索引僅只選取 **searchable** 屬性，*realestate 可擷取*索引僅只選取 **retrievable** 屬性。
 
-![以屬性選取項目為基礎的索引大小](./media/search-what-is-an-index/realestate-index-size.png "以屬性選取項目為基礎的索引大小")
+![以屬性選取專案為基礎的索引大小](./media/search-what-is-an-index/realestate-index-size.png "以屬性選取專案為基礎的索引大小")
 
-雖然這些是人工的索引變體，但我們可以參考這些變體，以便廣泛比較屬性如何影響儲存體。 設定 **retrievable** 是否會增加索引大小？ 資料分割 將欄位新增至**建議工具**是否會增加索引大小？ 是的。
+雖然這些是人工的索引變體，但我們可以參考這些變體，以便廣泛比較屬性如何影響儲存體。 設定 **retrievable** 是否會增加索引大小？ 不會。 將欄位新增至**建議工具**是否會增加索引大小？ 可以。
 
 支援篩選和排序的索引會按比例大於只支援全文檢索搜尋的索引。 原因在於篩選和排序會查詢完全相符項目，所以儲存的文件保持不變。 相較之下，支援全文檢索和模糊搜尋的可搜尋欄位會使用倒置索引，其中會填入比完整文件取用較少空間的權杖化字詞。
 
@@ -197,7 +197,7 @@ ms.locfileid: "69647360"
 
 新增至建議工具的欄位用來建置自動完成搜尋字詞。 所有的搜尋字詞都建立於編製索引期間，且分開儲存。 如需有關建立建議工具結構的詳細資訊，請參閱[新增建議工具](index-add-suggesters.md)。
 
-## <a name="scoring-profiles"></a>評分設定檔
+## <a name="scoring-profiles"></a>計分檔案
 
 [評分設定檔](index-add-scoring-profiles.md)是結構描述的區段，能定義自訂評分行為，讓您能夠影響搜尋結果中哪些項目的出現機率會比較高。 評分設定檔是由欄位權數和函式所組成。 若要使用它們，您可以在查詢字串上以名稱指定設定檔。
 
@@ -213,15 +213,15 @@ ms.locfileid: "69647360"
 
 您可以為 CORS 設定下列選項：
 
-+ **allowedOrigins** (必要)：這是將授與您索引存取權限的原始來源清單。 這表示將允許來自那些原始來源的所有 JavaScript 程式碼查詢您的索引 (假設它能提供正確的 API 金鑰)。 每個原始來源的形式通常是 `protocol://<fully-qualified-domain-name>:<port>` (儘管經常會忽略 `<port>`)。 請參閱[跨原始來源資源共用](https://en.wikipedia.org/wiki/Cross-origin_resource_sharing)以取得詳細資料。
++ **allowedOrigins** （必要）：這是將授與您索引存取權的原始來源清單。 這表示將允許來自那些原始來源的所有 JavaScript 程式碼查詢您的索引 (假設它能提供正確的 API 金鑰)。 每個原始來源的形式通常是 `protocol://<fully-qualified-domain-name>:<port>` (儘管經常會忽略 `<port>`)。 請參閱[跨原始來源資源共用](https://en.wikipedia.org/wiki/Cross-origin_resource_sharing)以取得詳細資料。
 
   如果您想要允許所有原始來源進行存取，請在 **allowedOrigins** 陣列中包含 `*` 作為單一項目。 「此做法並不建議用於生產環境搜尋服務」，但對於開發和偵錯通常很有幫助。
 
-+ **maxAgeInSeconds** (選擇性)：瀏覽器會使用此值來判斷快取 CORS 預檢回應的持續期間 (以秒為單位)。 這必須是非負數的整數。 這個值越大，效能就越好，但是讓 CORS 原則變更生效的時間也就越長。 若未設定，即會使用預設持續期間 5 分鐘。
++ **maxAgeInSeconds** （選用）：瀏覽器會使用此值來判斷快取 CORS 預檢回應的持續時間（以秒為單位）。 這必須是非負數的整數。 這個值越大，效能就越好，但是讓 CORS 原則變更生效的時間也就越長。 若未設定，即會使用預設持續期間 5 分鐘。
 
 ## <a name="encryption-key"></a>加密金鑰
 
-雖然所有 Azure 搜尋服務索引預設都會使用 Microsoft 管理的金鑰進行加密, 但在 Key Vault 中, 可以將索引設定為使用**客戶管理的金鑰**進行加密。 若要深入瞭解, 請參閱[管理 Azure 搜尋服務中的加密金鑰](search-security-manage-encryption-keys.md)。
+雖然所有 Azure 搜尋服務索引預設都會使用 Microsoft 管理的金鑰進行加密，但在 Key Vault 中，可以將索引設定為使用**客戶管理的金鑰**進行加密。 若要深入瞭解，請參閱[管理 Azure 搜尋服務中的加密金鑰](search-security-manage-encryption-keys.md)。
 
 ## <a name="next-steps"></a>後續步驟
 

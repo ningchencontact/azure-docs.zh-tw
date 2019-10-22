@@ -8,10 +8,10 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.date: 08/30/2019
 ms.openlocfilehash: fe412e9e682fb55f1664c546e6b6c5a347527adb
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/16/2019
+ms.lasthandoff: 10/21/2019
 ms.locfileid: "72387353"
 ---
 # <a name="mapping-data-flow-json-handling"></a>對應資料流程 JSON 處理
@@ -157,7 +157,7 @@ File3.json
 { "json": "record 3" }
 ```
 
-## <a name="higher-order-functions"></a>高階函數
+## <a name="higher-order-functions"></a>高階函式
 
 較高順序的函式是接受一或多個函式做為引數的函數。 以下是對應可啟用陣列作業的資料流程所支援的高階函數清單。
 

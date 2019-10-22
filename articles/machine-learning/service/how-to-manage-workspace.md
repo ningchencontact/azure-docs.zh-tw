@@ -12,10 +12,10 @@ author: shivp950
 ms.date: 05/10/2019
 ms.custom: seodec18
 ms.openlocfilehash: 511c737e160c0f0753e570314c9b29346972cb04
-ms.sourcegitcommit: 263a69b70949099457620037c988dc590d7c7854
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/25/2019
+ms.lasthandoff: 10/21/2019
 ms.locfileid: "71269255"
 ---
 # <a name="create-and-manage-azure-machine-learning-workspaces-in-the-azure-portal"></a>建立和管理 Azure 入口網站中的 Azure Machine Learning 工作區
@@ -24,7 +24,7 @@ ms.locfileid: "71269255"
 
 ## <a name="create-a-workspace"></a>建立工作區
 
-若要建立工作區，您將需要 Azure 訂用帳戶。 如果您沒有 Azure 訂用帳戶，請在開始前先建立一個免費帳戶。 立即試用[免費或付費版本的 Azure Machine Learning](https://aka.ms/AMLFree)。
+若要建立工作區，您將需要 Azure 訂用帳戶。 如果您沒有 Azure 訂用帳戶，請在開始前建立一個免費帳戶。 立即試用[免費或付費版本的 Azure Machine Learning](https://aka.ms/AMLFree)。
 
 [!INCLUDE [aml-create-portal](../../../includes/aml-create-in-portal.md)]
 
@@ -52,7 +52,7 @@ ms.locfileid: "71269255"
 1. 查看找到的工作區清單。 您可以根據訂用帳戶、資源群組和位置來篩選。  
 
 1. 選取工作區以顯示其屬性。
-   ![工作區屬性](media/how-to-manage-workspace/allservices_view_workspace_full.PNG)
+   ![Workspace 屬性 ](media/how-to-manage-workspace/allservices_view_workspace_full.PNG)
 
 ## <a name="delete-a-workspace"></a>刪除工作區
 
@@ -69,4 +69,4 @@ ms.locfileid: "71269255"
 遵循完整的教學課程，瞭解如何使用工作區來建立、定型和部署具有 Azure Machine Learning 的模型。
 
 > [!div class="nextstepaction"]
-> [教學課程：將模型定型](tutorial-train-models-with-aml.md)
+> [教學課程：訓練模型](tutorial-train-models-with-aml.md)

@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 10/02/2019
 ms.author: heidist
 ms.openlocfilehash: 4abef5a3030643d4c7b91d2911f350190972f1eb
-ms.sourcegitcommit: f2d9d5133ec616857fb5adfb223df01ff0c96d0a
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/03/2019
+ms.lasthandoff: 10/21/2019
 ms.locfileid: "71937273"
 ---
 # <a name="create-an-azure-search-index-in-the-portal"></a>在入口網站中建立 Azure 搜尋服務索引
@@ -27,7 +27,7 @@ Azure 搜尋服務在入口網站中包含適用於原型的內建索引設計�
 
 2. 在頁面頂端的命令列中，按一下 [新增索引] 連結。
 
-   ![命令列中的 [新增索引] 連結](media/search-create-index-portal/add-index.png "命令列中的 [新增索引] 連結")
+   ![在命令列中新增索引連結](media/search-create-index-portal/add-index.png "在命令列中新增索引連結")
 
 3. 為 Azure 搜尋服務索引命名。 在編製索引和查詢作業中會參考索引名稱。 索引名稱會成為連至索引之連線上所使用端點 URL 的一部分，並用來在 Azure 搜尋服務 REST API 中傳送 HTTP 要求。
 
@@ -49,7 +49,7 @@ Azure 搜尋服務在入口網站中包含適用於原型的內建索引設計�
 
     Azure 搜尋服務 API 文件包含具有簡單 hotels 索引功能的程式碼範例。 在以下的螢幕擷取畫面中，您可以看到索引定義，包括在索引定義期間指定的法文語言分析器，而您可以在入口網站中重新建立以當作練習。
 
-    ![旅館示範索引](media/search-create-index-portal/field-definitions.png "旅館示範索引")
+    ![飯店示範索引](media/search-create-index-portal/field-definitions.png "飯店示範索引")
 
 1. 完成後，按一下 [建立]，以儲存並建立索引。
 
@@ -80,7 +80,7 @@ Azure 搜尋服務在入口網站中包含適用於原型的內建索引設計�
 
 或者，您可能也需要[深入探討索引](search-what-is-an-index.md)。 除了欄位集合之外，索引也會指定分析器、建議工具、評分設定檔和 CORS 設定。 入口網站提供索引標籤頁面來定義最常見的元素：欄位、分析器及建議工具。 若要建立或修改其他元素，您可以使用 REST API 或 .NET SDK。
 
-## <a name="see-also"></a>另請參閱
+## <a name="see-also"></a>請參閱
 
  [全文檢索搜尋如何運作](search-lucene-query-architecture.md)  
  [搜尋服務 REST API](https://docs.microsoft.com/rest/api/searchservice/) [.NET SDK](https://docs.microsoft.com/dotnet/api/overview/azure/search?view=azure-dotnet)

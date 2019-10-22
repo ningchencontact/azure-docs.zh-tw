@@ -9,15 +9,15 @@ ms.service: search
 ms.topic: conceptual
 ms.date: 09/20/2019
 ms.openlocfilehash: 4646cb30ef7602da990e24f923c8eceada4debd0
-ms.sourcegitcommit: 83df2aed7cafb493b36d93b1699d24f36c1daa45
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/22/2019
+ms.lasthandoff: 10/21/2019
 ms.locfileid: "71178030"
 ---
 # <a name="query-types-and-composition-in-azure-search"></a>Azure 搜尋服務中的查詢類型和組合
 
-在 Azure 搜尋服務中，查詢是往返作業的完整規格。 要求的參數會提供比對準則，以尋找索引中的檔、要包含或排除的欄位、傳遞至引擎的執行指令，以及塑造回應的指示詞。 未指定`search=*`（），查詢會針對所有可搜尋的欄位執行，做為全文檢索搜尋作業，以任意順序傳回計分的結果集。
+在 Azure 搜尋服務中，查詢是往返作業的完整規格。 要求的參數會提供比對準則，以尋找索引中的檔、要包含或排除的欄位、傳遞至引擎的執行指令，以及塑造回應的指示詞。 未指定（`search=*`）時，查詢會針對所有可搜尋的欄位執行，做為全文檢索搜尋作業，以任意順序傳回計分的結果集。
 
 下列範例是[REST API](https://docs.microsoft.com/rest/api/searchservice/search-documents)中所建立的代表性查詢。 此範例以[飯店示範索引](search-get-started-portal.md)為目標，並包含一般參數。
 
@@ -33,13 +33,13 @@ ms.locfileid: "71178030"
 }
 ```
 
-+ **`queryType`** 設定剖析器，這是預設的[簡單查詢](search-query-simple-examples.md)剖析器（最適用于全文檢索搜尋），或是用於高階運算式、鄰近搜尋、模糊和萬用字元搜尋等先進查詢結構的[完整 Lucene 查詢](search-query-lucene-examples.md)剖析器，用來命名幾.
++ **`queryType`** 設定剖析器，也就是[預設的簡單查詢](search-query-simple-examples.md)剖析器（適用于全文檢索搜尋的最佳），或用於高階運算式、鄰近搜尋、模糊和等先進查詢結構的[完整 Lucene 查詢](search-query-lucene-examples.md)剖析器。萬用字元搜尋，命名為幾個。
 
 + **`search`** 會提供比對準則，這通常是文字，但往往會伴隨布林運算子。 單一的獨立字詞是「字詞」查詢。 用引號括住、有多個部分的查詢則是「關鍵片語」查詢。 搜尋可能是未定義的 (如 **`search=*`** 中)，但更可能會包含字詞、片語和運算子，如下列範例所示。
 
-+ **`searchFields`** 將查詢執行限制為特定欄位。 在索引*架構中屬性*化為可搜尋的任何欄位，都是此參數的候選項。
++ **`searchFields`** 會限制特定欄位的查詢執行。 在索引*架構中屬性*化為可搜尋的任何欄位，都是此參數的候選項。
 
-回應也會由查詢中所包含的參數來形成。 在範例中，結果集包含 **`select`** 陳述式中所列的欄位。 只有標示*為可抓取的欄位*可以在 $select 語句中使用。 此外，此查詢 **`top`** 只會傳回10個叫用，而 **`count`** 會告訴您整體相符的檔數目，而這可能會超過傳回的內容。 在此查詢中，資料列會依評等的遞減順序排序。
+回應也會由查詢中所包含的參數來形成。 在範例中，結果集包含 **`select`** 陳述式中所列的欄位。 只有標示*為可抓取的欄位*可以在 $select 語句中使用。 此外，在此查詢中只會傳回 **`top`** 10 個叫用，而 **`count`** 會告訴您整體相符的檔數目，而這可能大於傳回的內容。 在此查詢中，資料列會依評等的遞減順序排序。
 
 在 Azure 搜尋服務中，查詢一律會針對單一索引來執行，並使用要求中提供 API 金鑰進行驗證。 在 REST 中，則會於要求標頭中同時提供這兩者。
 
@@ -53,7 +53,7 @@ ms.locfileid: "71178030"
 
 Azure 搜尋服務緊密結合了索引設計和查詢設計。 事先要知道的重要事實是，「索引結構描述」與每個欄位上的屬性會決定您可以建置的查詢類型。 
 
-欄位上的索引屬性會設定允許的作業 - 欄位在索引中是否「可搜尋」、在結果中是否「可擷取」、是否「可排序」、是否「可篩選」，不一而足。 在範例查詢字串中， `"$orderby": "Rating"`只有在索引架構中將 [評等] 欄位標示為 [可*排序*] 時，才會運作。 
+欄位上的索引屬性會設定允許的作業 - 欄位在索引中是否「可搜尋」、在結果中是否「可擷取」、是否「可排序」、是否「可篩選」，不一而足。 在範例查詢字串中，`"$orderby": "Rating"` 只適用于索引架構中的 [評等] 欄位標記為 [可*排序*]。 
 
 ![飯店範例的索引定義](./media/search-query-overview/hotel-sample-index-definition.png "飯店範例的索引定義")
 
@@ -93,13 +93,13 @@ Azure 搜尋服務位於 Apache Lucene 之上，並可讓您從兩種查詢剖�
 
 [完整的 Lucene 查詢語法](query-Lucene-syntax.md#bkmk_syntax)會在您將 `queryType=full` 新增至要求時啟用，可公開廣為採用、且開發作為 [Apache Lucene](https://lucene.apache.org/core/6_6_1/queryparser/org/apache/lucene/queryparser/classic/package-summary.html) 一部分的表達式查詢語言。 完整語法可延伸簡單語法。 您為簡單語法所撰寫的查詢，均可在完整的 Lucene 剖析器下執行。 
 
-下列範例可說明這點：相同的查詢，但有不同的 queryType 設定，會產生不同的結果。 在第一個查詢中， `^3`會`historic`將 after 視為搜尋詞彙的一部分。 此查詢的排名最高的結果是 "Marquis Plaza & suite"，其描述中有*海洋*
+下列範例可說明這點：相同的查詢，但有不同的 queryType 設定，會產生不同的結果。 在第一個查詢中，`historic` 之後的 `^3` 會被視為搜尋詞彙的一部分。 此查詢的排名最高的結果是 "Marquis Plaza & suite"，其描述中有*海洋*
 
 ```
 queryType=simple&search=ocean historic^3&searchFields=Description, Tags&$select=HotelId, HotelName, Tags, Description&$count=true
 ```
 
-使用完整 Lucene 剖析器的相同查詢會`^3`解讀為現場詞彙增強功能。 切換剖析器會變更排名，其中包含的結果*會移至*最上層。
+使用完整 Lucene 剖析器的相同查詢，會將 `^3` 解讀為欄位內詞彙增強功能。 切換剖析器會變更排名，其中包含的結果*會移至*最上層。
 
 ```
 queryType=full&search=ocean historic^3&searchFields=Description, Tags&$select=HotelId, HotelName, Tags, Description&$count=true
@@ -111,7 +111,7 @@ queryType=full&search=ocean historic^3&searchFields=Description, Tags&$select=Ho
 
 Azure 搜尋服務支援廣泛的查詢類型。 
 
-| 查詢類型 | 使用量 | 範例和詳細資訊 |
+| 查詢類型 | 用量 | 範例和詳細資訊 |
 |------------|--------|-------------------------------|
 | 自由格式文字檢索 | 搜尋參數和任一剖析器| 全文檢索搜尋會掃描索引中所有「可搜尋」欄位內的一或多個字詞，而且運作方式就如同您對 Google 或 Bing 等搜尋引擎的期待。 簡介中的範例便是全文檢索搜尋。<br/><br/>全文檢索搜尋會使用標準 Lucene 分析器 (預設值) 將所有字詞轉換為小寫，並移除停用字詞 (例如 "the")，以進行文字分析。 若要覆寫預設值，您可以使用[非英文分析器](index-add-language-analyzers.md#language-analyzer-list)或[特製化語言無關分析器](index-add-custom-analyzers.md#AnalyzerTable) (以修改文字分析)。 其中一個範例是[關鍵字](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/core/KeywordAnalyzer.html)，其會將欄位的整個內容視為單一語彙基元。 這適合用於郵遞區號、識別碼和產品名稱等資料。 | 
 | 經過篩選的搜尋 | [OData 篩選條件運算式](query-odata-filter-orderby-syntax.md)和任一剖析器 | 篩選查詢會對索引中的所有「可篩選」欄位評估布林運算式。 不同於搜尋，篩選查詢會比對欄位的確切內容，包括字串欄位的大小寫。 另一個差異是篩選查詢會以 OData 語法來表示。 <br/>[篩選條件運算式範例](search-query-simple-examples.md#example-3-filter-queries) |
@@ -157,7 +157,7 @@ Azure 搜尋服務可讓您輕鬆地對搜尋結果分頁。 透過使用 **`top
 ### <a name="hit-highlighting"></a>搜尋結果醒目提示
 在 Azure 搜尋服務中，只要使用 **`highlight`** 、 **`highlightPreTag`** 和 **`highlightPostTag`** 參數就可強調提示搜尋結果中符合搜尋查詢的確切部分。 您可以指定哪些可搜尋欄位應該強調其相符的文字，以及指定要在 Azure 搜尋服務傳回的相符文字開頭和結尾附加的確切字串標記。
 
-## <a name="see-also"></a>另請參閱
+## <a name="see-also"></a>請參閱
 
 + [全文檢索搜尋如何在 Azure 搜尋服務中運作 (查詢剖析架構)](search-lucene-query-architecture.md)
 + [搜尋總管](search-explorer.md)
