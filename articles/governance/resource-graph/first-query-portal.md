@@ -3,15 +3,15 @@ title: 使用 Azure Resource Graph Explorer 執行您的第一個查詢
 description: 本文會逐步引導您完成相關步驟，以便使用 Azure Resource Graph Explorer 從 Azure 入口網站執行您的第一個查詢。
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 10/18/2019
+ms.date: 10/21/2019
 ms.topic: quickstart
 ms.service: resource-graph
-ms.openlocfilehash: 755556b9ba049da7542494ee580215d29c1eb5f4
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.openlocfilehash: abee722e725b55933d7ff1acdcd1e9a2e701502b
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72387611"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72752154"
 ---
 # <a name="quickstart-run-your-first-resource-graph-query-using-azure-resource-graph-explorer"></a>快速入門：使用 Azure Resource Graph Explorer 執行您的第一個 Resource Graph 查詢
 
@@ -45,7 +45,10 @@ Azure Resource Graph 的功能可直接透過 Azure Resource Graph Explorer 在 
 
 ### <a name="schema-browser"></a>結構描述瀏覽器
 
-結構描述瀏覽器位於 Resource Graph Explorer 的左窗格。 這份資源清單中所顯示的 Azure「資源類型」  ，全都既獲得 Azure Resource Graph 支援，又存在於您有權存取的租用戶中。 展開資源類型或子屬性便會顯示可用來建立 Resource Graph 查詢的子屬性。 選取資源類型會將 `where type =="<resource type>"` 放入查詢方塊。 選取其中一個子屬性會將 `where <propertyName> == "INSERT_VALUE_HERE"` 新增至查詢方塊。 結構描述瀏覽器非常適合用來探索要在查詢中使用的屬性。 請務必將 _INSERT\_VALUE\_HERE_ 取代為您自己的值，並使用條件、運算子和函式調整查詢以達到您想要的結果。
+結構描述瀏覽器位於 Resource Graph Explorer 的左窗格。 這份資源清單中所顯示的 Azure「資源類型」  ，全都既獲得 Azure Resource Graph 支援，又存在於您有權存取的租用戶中。 展開資源類型或子屬性便會顯示可用來建立 Resource Graph 查詢的子屬性。
+
+選取資源類型會將 `where type =="<resource type>"` 放入查詢方塊。 選取其中一個子屬性會將 `where <propertyName> == "INSERT_VALUE_HERE"` 新增至查詢方塊。
+結構描述瀏覽器非常適合用來探索要在查詢中使用的屬性。 請務必將 _INSERT\_VALUE\_HERE_ 取代為您自己的值，並使用條件、運算子和函式調整查詢以達到您想要的結果。
 
 ## <a name="create-a-chart-from-the-resource-graph-query"></a>從 Resource Graph 查詢建立圖表
 

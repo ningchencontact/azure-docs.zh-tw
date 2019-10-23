@@ -68,6 +68,8 @@
               href: end-user-experiences.md
     - name: 自動佈建使用者
       items:
+        - name: 規劃自動使用者佈建部署
+          href: plan-auto-user-provisioning.md
         - name: 啟用 SCIM 應用程式的自動化佈建
           href: use-scim-to-provision-users-and-groups.md
     - name: 適用於內部部屬應用程式的 Application Proxy

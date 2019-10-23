@@ -4,8 +4,8 @@ description: 了解如何透過 Docker Compose、WordPress 和 MySQL 在 Azure �
 keywords: azure 應用程式服務, web 應用程式, linux, docker, compose, 多容器, 多重容器, 適用於容器的 web 應用程式, 多個容器, 容器, wordpress, 適用於 mysql 的 azure db, 具有容器的生產資料庫
 services: app-service
 documentationcenter: ''
-author: msangapu
-manager: jeconnoc
+author: msangapu-msft
+manager: gwallace
 editor: ''
 ms.service: app-service
 ms.workload: na
@@ -13,18 +13,18 @@ ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 04/29/2019
 ms.author: msangapu
-ms.openlocfilehash: b83edae698ed62deea189c979478c2170a034fc8
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: f4a366809bd5c6267ef76632e8990309f100c393
+ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70070871"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72554935"
 ---
 # <a name="tutorial-create-a-multi-container-preview-app-in-web-app-for-containers"></a>教學課程：在適用於容器的 Web 應用程式中建立多容器 (預覽) 應用程式
 
 [適用於容器的 Web 應用程式](app-service-linux-intro.md)提供彈性的 Docker 映像使用方式。 在本教學課程中，您將了解如何使用 WordPress 和 MySQL 建立多容器應用程式。 您會在 Cloud Shell 中完成本教學課程，但您也可以在本機使用 [Azure CLI](/cli/azure/install-azure-cli) 命令列工具 (2.0.32 或更新版本) 來執行這些命令。
 
-在本教學課程中，您了解如何：
+在本教學課程中，您會了解如何：
 
 > [!div class="checklist"]
 > * 將 Docker Compose 組態轉換為使用適用於容器的 Web 應用程式
@@ -42,11 +42,9 @@ ms.locfileid: "70070871"
 
 ## <a name="download-the-sample"></a>下載範例
 
-在本教學課程中，您會使用 [Docker](https://docs.docker.com/compose/wordpress/#define-the-project) 中的 Compose 檔案，但您會加以修改，使其包含適用於 MySQL 的 Azure 資料庫、永續性儲存體和 Redis。 組態檔位於 [Azure 範例](https://github.com/Azure-Samples/multicontainerwordpress)中。
+在本教學課程中，您會使用 [Docker](https://docs.docker.com/compose/wordpress/#define-the-project) 中的 Compose 檔案，但您會加以修改，使其包含適用於 MySQL 的 Azure 資料庫、永續性儲存體和 Redis。 組態檔位於 [Azure 範例](https://github.com/Azure-Samples/multicontainerwordpress)中。 如需支援的設定選項，請參閱 [Docker Compose 選項](configure-custom-container.md#docker-compose-options)。
 
 [!code-yml[Main](../../../azure-app-service-multi-container/docker-compose-wordpress.yml)]
-
-如需支援的設定選項，請參閱 [Docker Compose 選項](configure-custom-container.md#docker-compose-options)。
 
 在 Cloud Shell 中，建立教學課程目錄並變更為此目錄。
 

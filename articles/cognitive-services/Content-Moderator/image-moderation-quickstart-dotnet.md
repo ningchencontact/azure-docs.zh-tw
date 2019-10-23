@@ -3,30 +3,30 @@ title: 快速入門：使用 C# 分析令人反感的影像 - Content Moderator
 titleSuffix: Azure Cognitive Services
 description: 如何使用 Content Moderator SDK for .NET 分析各種令人反感的影像內容
 services: cognitive-services
-author: sanjeev3
+author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: quickstart
 ms.date: 08/08/2019
-ms.author: sajagtap
-ms.openlocfilehash: 2a4726357e35fa123355d9ba450f7c6d8624fe78
-ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
+ms.author: pafarley
+ms.openlocfilehash: 3fdc3fa0b7c624558aef84f86afd85c5aedb7054
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/10/2019
-ms.locfileid: "68946224"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72757308"
 ---
 # <a name="quickstart-analyze-images-for-objectionable-content-in-c"></a>快速入門：使用 C# 分析令人反感的影像
 
 本文提供可協助您開始使用 [Content Moderator SDK for .NET](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.ContentModerator/) 的資訊和程式碼範例。 您將了解如何掃描成人或猥褻內容、可擷取的文字和人臉，以仲裁可能令人反感的內容。
 
-如果您沒有 Azure 訂用帳戶，請在開始前先建立 [免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 。 
+如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)。 
 
 ## <a name="prerequisites"></a>必要條件
 
 - Content Moderator 訂用帳戶金鑰。 請依照[建立認知服務帳戶](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account)中的指示訂閱 Content Moderator 並取得金鑰。
-- [Visual Studio 2015 或 2017](https://www.visualstudio.com/downloads/) 的任何版本
+- 任何版本的 [Visual Studio 2015 或 2017](https://www.visualstudio.com/downloads/)
 
 
 > [!NOTE]

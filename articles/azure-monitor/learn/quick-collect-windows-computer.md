@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.topic: quickstart
 ms.date: 08/22/2019
 ms.author: magoedte
-ms.custom: mvc
-ms.openlocfilehash: 50059711df195c13ee44061ee4844f0192e0e10d
-ms.sourcegitcommit: 007ee4ac1c64810632754d9db2277663a138f9c4
+ms.custom: mvc, seo-javascript-october2019
+ms.openlocfilehash: 1b8888c2c8aaedce181d19c015206323ccf2b0ba
+ms.sourcegitcommit: 1bd2207c69a0c45076848a094292735faa012d22
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69992104"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72677240"
 ---
 # <a name="collect-data-from-a-windows-computer-in-a-hybrid-environment-with-azure-monitor"></a>使用 Azure 監視器從混合式環境中的 Windows 電腦收集資料
 
@@ -27,17 +27,17 @@ ms.locfileid: "69992104"
 
 若要了解支援的組態，請參閱[支援的 Windows 作業系統](../../azure-monitor/platform/log-analytics-agent.md#supported-windows-operating-systems)和[網路防火牆組態](../../azure-monitor/platform/log-analytics-agent.md#network-firewall-requirements)。
  
-如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 。
+如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)。
 
 ## <a name="sign-in-to-azure-portal"></a>登入 Azure 入口網站
 
-在 [https://portal.azure.com](https://portal.azure.com) 登入 Azure 入口網站。 
+登入 Azure 入口網站：[https://portal.azure.com](https://portal.azure.com)。 
 
 ## <a name="create-a-workspace"></a>建立工作區
 
 1. 在 Azure 入口網站中，選取 [所有服務]  。 在資源清單中輸入 **Log Analytics**。 當您開始輸入時，清單會根據您輸入的文字進行篩選。 選取 [Log Analytics 工作區]  。
 
-    ![Azure 入口網站](media/quick-collect-azurevm/azure-portal-01.png)<br>  
+    ![Azure 入口網站](media/quick-collect-azurevm/azure-portal-log-analytics-workspaces.png)<br>  
 
 2. 選取 [建立]  ，然後選取下列項目的選項：
 
@@ -47,7 +47,7 @@ ms.locfileid: "69992104"
    * 選取要部署 VM 的 [位置]  。  如需詳細資訊，請查看 [Log Analytics 的可用區域](https://azure.microsoft.com/regions/services/)。
    * 如果您要在 2018 年 4 月 2 之後建立的新訂用帳戶中建立工作區，系統會自動使用「每 GB」  定價方案和選項來選取將無法使用的定價層。  如果您要為在 4 月 2 日之前建立的現有訂用帳戶，或已繫結至現有 EA 註冊的訂用帳戶建立工作區，請選取您偏好的定價層。  如需特定層的詳細資訊，請參閱 [Log Analytics 價格詳細資料](https://azure.microsoft.com/pricing/details/log-analytics/)。
   
-        ![[建立 Log Analytics] 資源刀鋒視窗](media/quick-collect-azurevm/create-loganalytics-workspace-02.png) 
+        ![[建立 Log Analytics] 資源刀鋒視窗](media/quick-collect-azurevm/create-log-analytics-workspace-azure-portal.png) 
 
 3. 在 [Log Analytics 工作區]  窗格中提供必要資訊之後，選取 [確定]  。  
 
@@ -64,7 +64,7 @@ ms.locfileid: "69992104"
 
 3. 選取 [進階設定]  ：
 
-    ![Log Analytics 進階設定](media/quick-collect-azurevm/log-analytics-advanced-settings-01.png)
+    ![Log Analytics 進階設定](media/quick-collect-azurevm/log-analytics-advanced-settings-azure-portal.png)
   
 4. 選取 [連接的來源]  ，然後選取 [Windows 伺服器]  。
 
@@ -109,7 +109,7 @@ Azure 監視器可以收集您從 Windows 事件記錄檔和效能計數器指�
 
 2. 選取 [進階設定]  ：
 
-    ![Log Analytics 進階設定](media/quick-collect-azurevm/log-analytics-advanced-settings-01.png)
+    ![Log Analytics 進階設定](media/quick-collect-azurevm/log-analytics-advanced-settings-azure-portal.png)
  
 3. 選取 [資料]  ，然後選取 [Windows 事件記錄]  。  
 

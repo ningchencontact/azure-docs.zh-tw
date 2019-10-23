@@ -64,9 +64,9 @@
           href: virtual-machines-windows-ps-sql-create.md
     - name: 註冊資源提供者
       href: virtual-machines-windows-sql-register-with-resource-provider.md
-    - name: 變更 SQL VM 的授權模型
+    - name: 變更授權模型
       href: virtual-machines-windows-sql-ahb.md
-    - name: 變更 SQL Server 版本
+    - name: 變更版本
       href: virtual-machines-windows-sql-change-edition.md
     - name: 移轉
       items:
@@ -103,7 +103,7 @@
             - name: 使用儲存空間直接存取
               href: virtual-machines-windows-portal-sql-create-failover-cluster.md
             - name: 使用進階檔案共用
-              href: virtual-machines-windows-portal-sql-create-failover-cluster-premium-file-storage.md
+              href: virtual-machines-windows-portal-sql-create-failover-cluster-premium-file-share.md
 - name: 參考
   items:
     - name: Azure PowerShell

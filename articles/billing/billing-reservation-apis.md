@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/01/2019
 ms.author: banders
-ms.openlocfilehash: 50de654fb9222951a7380a322160496421006e7a
-ms.sourcegitcommit: a19f4b35a0123256e76f2789cd5083921ac73daf
+ms.openlocfilehash: 57e38888249de448f5286baa1b5ebb0e2c01bda9
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71719672"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72757407"
 ---
 # <a name="apis-for-azure-reservation-automation"></a>適用於 Azure 保留自動化的 API
 
@@ -26,7 +26,7 @@ ms.locfileid: "71719672"
 
 如需根據您組織的使用量來購買保留方案，請使用「保留建議 API」來取得建議。 如需詳細資訊，請參閱[取得保留建議](/rest/api/billing/enterprise/billing-enterprise-api-reserved-instance-recommendation)。
 
-您也可以使用「耗用量 API 使用量詳細資料」來分析您的資源使用量。 如需詳細資訊，請參閱[使用量詳細資料 - 依帳單帳戶列出的計費週期清單](/rest/api/consumption/usagedetails/list#billingaccountusagedetailslistforbillingperiod)。 您持續使用的 Azure 資源，通常是保留的最佳候選項目。
+您也可以使用「耗用量 API 使用量詳細資料」來分析您的資源使用量。 如需詳細資訊，請參閱[使用量詳細資料 - 依帳單帳戶列出的計費週期清單](/rest/api/consumption/usagedetails/list#billingaccountusagedetailslistforbillingperiod-legacy)。 您持續使用的 Azure 資源，通常是保留的最佳候選項目。
 
 ## <a name="buy-a-reservation"></a>購買保留項目
 

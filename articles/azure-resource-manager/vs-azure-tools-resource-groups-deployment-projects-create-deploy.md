@@ -4,14 +4,14 @@ description: 使用 Visual Studio 建立 Azure 資源群組專案，並將資源
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: quickstart
-ms.date: 06/20/2019
+ms.date: 10/16/2019
 ms.author: tomfitz
-ms.openlocfilehash: c7f71dbadf24244756cf65f68ceea24547190737
-ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
+ms.openlocfilehash: ae7ff9370bd289dfdec578e6daeb471bbd53a072
+ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72170247"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72597785"
 ---
 # <a name="creating-and-deploying-azure-resource-groups-through-visual-studio"></a>透過 Visual Studio 建立與部署 Azure 資源群組
 
@@ -23,7 +23,8 @@ ms.locfileid: "72170247"
 
 在這一節中，您會利用 **Web 應用程式**範本建立 Azure 資源群組專案。
 
-1. 在 Visual Studio 中，選擇 [檔案]  、[新增]  和 [專案]  。 選取 [Azure 資源群組]  專案範本，然後選取 [下一步]  。
+1. 在 Visual Studio 中，選擇 [檔案]  >[新增]  >[專案]  。
+1. 選取 [Azure 資源群組]  專案範本，然後選取 [下一步]  。
 
     ![建立專案](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/create-project.png)
 

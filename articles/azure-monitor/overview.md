@@ -1,21 +1,18 @@
 ---
 title: Azure 監視器概觀 | Microsoft Docs
 description: 構成 Azure 服務和應用程式之完整監視策略的各種 Microsoft 服務和功能的概觀。
-author: bwren
-manager: carmonm
-editor: ''
-services: monitoring-and-diagnostics
-documentationcenter: monitoring-and-diagnostics
 ms.service: azure-monitor
+ms.subservice: ''
 ms.topic: overview
-ms.date: 10/07/2019
+author: bwren
 ms.author: bwren
-ms.openlocfilehash: 578cb57c9c971874e16ddb75d399e165cc75dfa6
-ms.sourcegitcommit: f9e81b39693206b824e40d7657d0466246aadd6e
+ms.date: 10/07/2019
+ms.openlocfilehash: d02ea18422e20aa2fede4f25cdffa985607e7b5c
+ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72035650"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72597334"
 ---
 # <a name="azure-monitor-overview"></a>Azure 監視器概觀
 
@@ -117,7 +114,7 @@ Azure 監視器中的警示規則會使用[動作群組](platform/action-groups.
 
 ![儀表板](media/overview/dashboard.png)
 
-### <a name="views"></a>Views
+### <a name="views"></a>檢視
 [[檢視]](../log-analytics/log-analytics-view-designer.md) 會以視覺化方式在 Azure 監視器中呈現記錄資料。  每個檢視都包含單一圖格，該圖格可向下切入至視覺效果的組合，例如長條圖和折線圖 (摘要重要資料的清單除外)。  監視解決方案包含可摘要特定應用程式資料的檢視，而且您可以建立自己的檢視，以呈現來自任何記錄查詢的資料。 如何 Azure 監視器中的其他元素，可以將檢視新增至 Azure 儀表板。
 
 ![檢視](media/overview/view.png)

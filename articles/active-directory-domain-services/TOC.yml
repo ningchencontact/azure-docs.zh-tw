@@ -9,8 +9,10 @@
 - name: 教學課程
   expanded: true
   items:
-    - name: 建立受控網域
+    - name: 建立基本受控網域
       href: tutorial-create-instance.md
+    - name: 設定適用於應用程式的虛擬網路
+      href: tutorial-configure-networking.md
     - name: 加入網域 Windows Server VM
       href: join-windows-vm.md
     - name: 安裝管理工具
@@ -19,6 +21,8 @@
       href: tutorial-configure-ldaps.md
     - name: 設定密碼雜湊同步
       href: tutorial-configure-password-hash-sync.md
+    - name: 建立進階受控網域
+      href: tutorial-create-instance-advanced.md
 - name: 範例
   items:
     - name: 使用 Azure PowerShell 建立受控網域

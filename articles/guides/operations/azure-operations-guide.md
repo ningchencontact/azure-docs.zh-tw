@@ -8,12 +8,12 @@ ms.service: azure
 ms.topic: overview
 ms.workload: infrastructure
 ms.date: 08/24/2018
-ms.openlocfilehash: b225052daa61932f3b8b868789cfb3c204eca88f
-ms.sourcegitcommit: 0c906f8624ff1434eb3d3a8c5e9e358fcbc1d13b
+ms.openlocfilehash: 9b23e3b69b4970e765ea1cd5af690cf074bad774
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69543421"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72693455"
 ---
 # <a name="get-started-for-azure-it-operators"></a>Azure IT 操作員快速入門
 
@@ -230,7 +230,7 @@ Resource Manager 還包含部署功能，可讓您自訂相關資源的部署和
 
 Resource Manager 會提供數個優點：
 
-- 您可以以群組形式部署、管理及監視方案的所有資源，而不是個別處理這些資源。
+- 您可以以群組形式部署、管理及監視解决方案的所有資源，而不是個別處理這些資源。
 
 - 您可以在整個方案週期重複部署方案，並確信您的資源會部署在一致的狀態中。
 
@@ -461,7 +461,6 @@ Azure 儲存體帳戶可以透過許多不同的儲存體總管存取，例如 V
 ### <a name="hybrid-virtual-networks"></a>混合式虛擬網路
 
 您可以使用 ExpressRoute 或站對站 VPN 連線，將內部部署網路連線到 Azure 虛擬網路。 在這個設定中，Azure 虛擬網路本質上是您的內部部署網路中具備雲端功能的延伸模組。
-![使用 VPN 的混合式虛擬網路](https://docs.microsoft.com/azure/architecture/reference-architectures/_images/blueprints/hybrid-network-vpn.png)
 
 由於 Azure 虛擬網路會連線到您的內部部署網路，所以跨單位虛擬網路必須使用您組織所用位址空間的唯一部分。 與為不同的公司位置指派特定 IP 子網路相同，Azure 會隨著您擴充網路而成為另一個位置。
 有數個選項可供部署虛擬網路。

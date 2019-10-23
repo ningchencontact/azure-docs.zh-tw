@@ -17,10 +17,10 @@ ms.date: 10/10/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 50056e6b201313805e7b9253e7a962e096b9df65
-ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/15/2019
+ms.lasthandoff: 10/21/2019
 ms.locfileid: "72372978"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-veracode"></a>教學課程：Azure Active Directory 單一登入 (SSO) 與 Veracode 整合
@@ -109,13 +109,13 @@ ms.locfileid: "72372978"
 
 1. 在頂端功能表中，按一下 [設定]  ，然後按一下 [管理員]  。
    
-    ![管理](./media/veracode-tutorial/ic802911.png "管理")
+    ![系統管理](./media/veracode-tutorial/ic802911.png "系統管理")
 
 1. 按一下 [SAML]  索引標籤。
 
 1. 在 [組織 SAML 設定]  區段中，執行下列步驟：
 
-    ![管理](./media/veracode-tutorial/ic802912.png "管理")
+    ![系統管理](./media/veracode-tutorial/ic802912.png "系統管理")
 
     a.  在 [簽發者]  文字方塊中，貼上您從 Azure 入口網站複製的 [Azure AD 識別碼]  值。
 
@@ -125,7 +125,7 @@ ms.locfileid: "72372978"
 
 1. 在 [自動註冊設定]  區段上，執行下列步驟，然後按一下 [儲存]  ：
 
-    ![管理](./media/veracode-tutorial/ic802913.png "管理")
+    ![系統管理](./media/veracode-tutorial/ic802913.png "系統管理")
 
     a. 在 [啟用新的使用者]  選取 [不需要啟用]  。
 

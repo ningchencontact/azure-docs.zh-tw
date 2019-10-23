@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/01/2019
 ms.author: banders
-ms.openlocfilehash: 3ff1a119ed87c8bffff227679bec41bc653c0c42
-ms.sourcegitcommit: a19f4b35a0123256e76f2789cd5083921ac73daf
+ms.openlocfilehash: 47668169841cc2b180995808349487cefed02391
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71718781"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72754293"
 ---
 # <a name="review-enterprise-enrollment-billing-using-rest-apis"></a>使用 REST API 檢閱 Enterprise 註冊計費
 
@@ -78,7 +78,7 @@ Authorization: Bearer
 }
 ```  
 
-此範例已經過縮減；如需每個回應欄位和錯誤處理的完整說明，請參閱[取得帳單帳戶的使用量詳細資料](/rest/api/consumption/usagedetails/list#billingaccountusagedetailslist)。
+此範例已經過縮減；如需每個回應欄位和錯誤處理的完整說明，請參閱[取得帳單帳戶的使用量詳細資料](/rest/api/consumption/usagedetails/list#billingaccountusagedetailslist-legacy)。
 
 ## <a name="department-billing"></a>部門帳單 
 
@@ -134,7 +134,7 @@ Authorization: Bearer
 }
 ```  
 
-此範例已經過縮減；如需每個回應欄位和錯誤處理的完整說明，請參閱[取得部門的使用量詳細資料](/rest/api/consumption/usagedetails/list#departmentusagedetailslist)。
+此範例已經過縮減；如需每個回應欄位和錯誤處理的完整說明，請參閱[取得部門的使用量詳細資料](/rest/api/consumption/usagedetails/list#departmentusagedetailslist-legacy)。
 
 ## <a name="enrollment-account-billing"></a>註冊帳戶帳單
 
@@ -187,7 +187,7 @@ Authorization: Bearer
 }
 ``` 
 
-此範例已經過縮減；如需每個回應欄位和錯誤處理的完整說明，請參閱[取得註冊帳戶的使用量詳細資料](/rest/api/consumption/usagedetails/list#enrollmentaccountusagedetailslist)。
+此範例已經過縮減；如需每個回應欄位和錯誤處理的完整說明，請參閱[取得註冊帳戶的使用量詳細資料](/rest/api/consumption/usagedetails/list#enrollmentaccountusagedetailslist-legacy)。
 
 ## <a name="next-steps"></a>後續步驟 
 - 檢閱[企業報告概觀](https://docs.microsoft.com/azure/billing/billing-enterprise-api)

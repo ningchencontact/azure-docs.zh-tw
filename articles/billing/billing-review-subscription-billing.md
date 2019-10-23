@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/01/2019
 ms.author: banders
-ms.openlocfilehash: 33fc6e59a0a85275b055524d8ccf5d78935725a8
-ms.sourcegitcommit: a19f4b35a0123256e76f2789cd5083921ac73daf
+ms.openlocfilehash: 05ce5fd560168c1f60b7c559539f4a368ba83ca8
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71718749"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72754289"
 ---
 # <a name="review-subscription-billing-using-rest-apis"></a>使用 REST API 檢閱訂用帳戶計費
 
@@ -92,7 +92,7 @@ Authorization: Bearer
 |**meterDetails** | 使用的相關詳細資訊。 |
 |**nextLink**| 設定時，指定「下一頁」詳細資料的 URL。 如果該頁面是最後一頁，則為空白。 |
 
-此範例已經過縮減；如需每個回應欄位的完整描述，請參閱 [List usage details](https://docs.microsoft.com/rest/api/consumption/usagedetails/list#usagedetailslistforbillingperiod) (列出使用情況詳細資料)。
+此範例已經過縮減；如需每個回應欄位的完整描述，請參閱 [List usage details](https://docs.microsoft.com/rest/api/consumption/usagedetails/list#usagedetailslistforbillingperiod-legacy) (列出使用情況詳細資料)。
 
 其他狀態碼表示錯誤狀況。 在這些情況下，回應物件會說明要求為何失敗。
 

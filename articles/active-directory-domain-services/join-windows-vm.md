@@ -9,18 +9,18 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 07/11/2019
 ms.author: iainfou
-ms.openlocfilehash: 3fd2a50946f0857d527c34b62687b2dbdd71298e
-ms.sourcegitcommit: ee61ec9b09c8c87e7dfc72ef47175d934e6019cc
+ms.openlocfilehash: 00e717202116cf9a48c2c2d889374d451b8e4d45
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70172033"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72754364"
 ---
 # <a name="tutorial-join-a-windows-server-virtual-machine-to-a-managed-domain"></a>教學課程：將 Windows Server 虛擬機器加入受控網域
 
 Azure Active Directory Domain Services (Azure AD DS) 提供受控網域服務，例如：網域加入、群組原則、LDAP、Kerberos/NTLM 驗證，與 Windows Server Active Directory 完全相容。 使用 Azure AD DS 受控網域，您就可以在 Azure 中提供虛擬機器 (VM) 的網域加入功能和管理。 此教學課程說明如何建立 Windows Server VM，然後將它加入 Azure AD DS 受控網域。
 
-在本教學課程中，您了解如何：
+在本教學課程中，您會了解如何：
 
 > [!div class="checklist"]
 > * 建立 Windows Server VM
@@ -63,7 +63,7 @@ Azure Active Directory Domain Services (Azure AD DS) 提供受控網域服務，
 
     | 參數            | 建議的值   |
     |----------------------|-------------------|
-    | Resource group       | 選取或建立資源群組，例如 *myResourceGroup* |
+    | 資源群組       | 選取或建立資源群組，例如 *myResourceGroup* |
     | 虛擬機器名稱 | 輸入 VM 的名稱，例如 *myVM* |
     | 區域               | 選擇要在其中建立 VM 的區域，例如「美國東部」  |
     | 使用者名稱             | 輸入要在 VM 上建立之本機系統管理員帳戶的使用者名稱，例如 *azureuser* |
@@ -77,7 +77,7 @@ Azure Active Directory Domain Services (Azure AD DS) 提供受控網域服務，
 
     在 [公用輸入連接埠]  下，選取 [允許選取的連接埠]  選項。 從 [選取輸入連接埠]  的下拉式功能表中，選擇 [RDP]  。
 
-5. 完成時，請選取 [下一步:**磁碟]** 。
+5. 完成時，請選取 [下一步:  磁碟]。
 6. 從 [OS 磁碟類型]  的下拉式功能表中，選擇 [標準 SSD]  ，然後選取 [下一步:**網路]** 。
 7. 您的 VM 必須連線到可與您 Azure AD DS 受控網域部署所在之子網路通訊的 Azure 虛擬網路子網路。 我們建議將 Azure AD DS 受控網域部署到其自身的專用子網路。 請勿將您的 VM 部署在與 Azure AD DS 受控網域相同的子網路中。
 

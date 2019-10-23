@@ -28,19 +28,17 @@
     - name: Azure Cache for Redis 範例
       href: cache-redis-samples.md
     - name: Azure PowerShell
-      href: cache-howto-manage-redis-cache-powershell.md
+      href: cache-how-to-manage-redis-cache-powershell.md
     - name: Azure CLI
       href: cli-samples.md
 - name: 概念
   items:
-    - name: 最佳做法
-      items:
-        - name: Azure Cache for Redis 的最佳做法
-          href: cache-best-practices.md
-        - name: 針對快取的 Azure Architecture 最佳做法
-          href: 'https://docs.microsoft.com/azure/architecture/best-practices/caching?toc=%2Fazure%2Fredis-cache%2Ftoc.json'
-    - name: 容錯移轉和修補說明
+    - name: 最佳作法
+      href: cache-best-practices.md
+    - name: 容錯移轉和修補
       href: cache-failover.md
+    - name: 適用於快取的 Architecture 最佳做法
+      href: 'https://docs.microsoft.com/azure/architecture/best-practices/caching?toc=%2Fazure%2Fredis-cache%2Ftoc.json'
 - name: 使用說明指南
   items:
     - name: 規劃
@@ -58,19 +56,25 @@
     - name: 自動化
       items:
         - name: 使用 Azure Powershell 進行部署和管理
-          href: cache-howto-manage-redis-cache-powershell.md
+          href: cache-how-to-manage-redis-cache-powershell.md
         - name: 使用 Azure CLI 進行部署和管理
           href: cli-samples.md
         - name: 佈建 Azure Cache for Redis
           href: cache-redis-cache-arm-provision.md
         - name: 使用 Azure Cache for Redis 佈建 Web 應用程式
           href: cache-web-app-arm-with-redis-cache-provision.md
-    - name: 與 ASP.NET 整合
+    - name: 與應用程式整合
       items:
-        - name: 工作階段狀態提供者
-          href: cache-aspnet-session-state-provider.md
-        - name: 輸出快取提供者
-          href: cache-aspnet-output-cache-provider.md
+        - name: ASP.NET
+          items:
+            - name: 使用工作階段狀態提供者
+              href: cache-aspnet-session-state-provider.md
+            - name: 使用輸出快取提供者
+              href: cache-aspnet-output-cache-provider.md
+        - name: Java Spring
+          items:
+            - name: 使用 Spring Boot 初始設定式
+              href: cache-java-spring-boot-initializer-with-redis-cache.md
     - name: 管理
       items:
         - name: 在 Azure 入口網站中設定
@@ -85,24 +89,28 @@
           href: 'cache-administration.md#schedule-updates'
         - name: 設定 redis-cli.exe 存取
           href: cache-how-to-redis-cli-tool.md
-    - name: 監視及疑難排解
+    - name: 監視
       items:
         - name: 在 Azure 入口網站中監視
           href: cache-how-to-monitor.md
-        - name: 疑難排解快取問題
-          href: cache-how-to-troubleshoot.md
         - name: 為例外狀況設定警示
           href: 'cache-how-to-monitor.md#operations-and-alerts'
+    - name: 診斷和疑難排解
+      items:
+        - name: Redis 伺服器疑難排解
+          href: cache-how-to-troubleshoot-server.md
+        - name: Redis 用戶端疑難排解
+          href: cache-how-to-troubleshoot-client.md
+        - name: 逾時疑難排解
+          href: cache-how-to-troubleshoot-timeouts.md
+        - name: 資料遺失疑難排解
+          href: cache-how-to-troubleshoot-data-loss.md
     - name: 調整
       items:
         - name: 更新至不同的大小與階層
           href: cache-how-to-scale.md
         - name: 使用 Redis 叢集進行相應縮小/放大
           href: cache-how-to-premium-clustering.md
-    - name: 與 Spring Boot 整合
-      items:
-        - name: 使用 Spring Boot Initializer 應用程式搭配 Azure Cache for Redis
-          href: cache-java-spring-boot-initializer-with-redis-cache.md
 - name: 參考
   items:
     - name: 程式碼範例

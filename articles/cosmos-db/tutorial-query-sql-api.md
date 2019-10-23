@@ -1,19 +1,19 @@
 ---
 title: 如何在 Azure Cosmos DB 中使用 SQL 進行查詢？
 description: 了解如何在 Azure Cosmos DB 中使用 SQL 進行查詢
-author: rimman
-ms.author: rimman
+author: markjbrown
+ms.author: mjbrown
 ms.service: cosmos-db
 ms.custom: tutorial-develop, mvc
 ms.topic: tutorial
 ms.date: 05/21/2019
 ms.reviewer: sngun
-ms.openlocfilehash: 7e57abcc3df17dadd2e607895a8de011761ed68c
-ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
+ms.openlocfilehash: ffebdb0a46fdae981ca73a4569344365459dd7b8
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70932787"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72756810"
 ---
 # <a name="tutorial-query-azure-cosmos-db-by-using-the-sql-api"></a>教學課程：使用 SQL API 查詢 Azure Cosmos DB
 
@@ -65,7 +65,7 @@ Azure Cosmos DB [SQL API](documentdb-introduction.md) 支援使用 SQL 來查詢
 
 ## <a name="prerequisites"></a>必要條件
 
-本教學課程會假設您具備 Azure Cosmos DB 帳戶和集合。 不符合上述其中任何一項條件嗎？ 完成 [5 分鐘快速入門](create-mongodb-nodejs.md)。
+本教學課程會假設您具備 Azure Cosmos DB 帳戶和集合。 不符合上述其中任何一項條件嗎？ 完成 [5 分鐘快速入門](create-cosmosdb-resources-portal.md)。
 
 ## <a name="example-query-1"></a>範例查詢 1
 
