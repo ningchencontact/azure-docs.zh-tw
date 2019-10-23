@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 09/09/2019
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 1533ceebcda15c45a71c04580c35432de4125ccd
-ms.sourcegitcommit: 909ca340773b7b6db87d3fb60d1978136d2a96b0
+ms.openlocfilehash: 4a1952f5ece4c021834fb98f8a09f1a2738e6469
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/13/2019
-ms.locfileid: "70984990"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72789396"
 ---
 # <a name="migrate-amazon-web-services-aws-vms-to-azure"></a>將 Amazon Web Services (AWS) VM 移轉至 Azure
 
@@ -33,7 +33,7 @@ ms.locfileid: "70984990"
 
 
 > [!NOTE]
-    > 您現在可以使用 Azure Migrate 服務，將 AWS 執行個體移轉至 Azure。 [深入了解](../migrate/tutorial-migrate-physical-virtual-machines.md)。
+> 您現在可以使用 Azure Migrate 服務，將 AWS 執行個體移轉至 Azure。 [深入了解](../migrate/tutorial-migrate-physical-virtual-machines.md)。
 
 ## <a name="prerequisites"></a>必要條件
 - 確定您想要移轉的 VM 正執行支援的 OS 版本。 支援的版本包括： 

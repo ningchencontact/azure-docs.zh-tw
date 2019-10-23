@@ -1,20 +1,20 @@
 ---
-title: Azure 訊息比較 - 事件方格、事件中樞、服務匯流排
+title: 比較 Azure 傳訊服務
 description: 描述三個 Azure 訊息服務 - Azure 事件方格、事件中樞和服務匯流排。 建議針對不同案例挑選服務。
 services: event-grid
 author: spelluru
 manager: timlt
 ms.service: event-grid
 ms.topic: overview
-ms.date: 01/30/2019
+ms.date: 10/22/2019
 ms.author: spelluru
 ms.custom: seodec18
-ms.openlocfilehash: d2daa23a22fae6ba420a146599c0c0ba659a94f2
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: b68bd69c6d00ac177466f8fdaabd89649c910287
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57540800"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72790298"
 ---
 # <a name="choose-between-azure-messaging-services---event-grid-event-hubs-and-service-bus"></a>選擇 Azure 訊息服務 - 事件方格、事件中樞和服務匯流排
 
@@ -30,7 +30,7 @@ Azure 提供三種服務，協助在整個解決方案中傳遞事件訊息。 �
 
 傳遞事件的服務和傳遞訊息的服務之間有一個重要的區別。
 
-### <a name="event"></a>Event
+### <a name="event"></a>事件
 
 事件是狀況或狀態變更的輕量級通知。 事件發行者不會預期事件的處理方式。 事件取用者會決定要如何處理通知。 事件可以是離散單位或系列的一部分。
 
