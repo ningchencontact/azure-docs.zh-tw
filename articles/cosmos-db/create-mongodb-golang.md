@@ -1,18 +1,18 @@
 ---
 title: 使用 Azure Cosmos DB 適用於 MongoDB 的 API 和 Golang SDK 建置主控台應用程式
 description: 呈現 Golang 程式碼範例，您可使用 Azure Cosmos DB 適用於 MongoDB 的 API 進行連線及查詢。
-author: rimman
+author: markjbrown
+ms.author: mjbrown
 ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
 ms.topic: quickstart
 ms.date: 12/26/2018
-ms.author: rimman
-ms.openlocfilehash: 5b60ac28cd8f65d464e659f328872524be59b3ed
-ms.sourcegitcommit: 7723b13601429fe8ce101395b7e47831043b970b
+ms.openlocfilehash: e16b9b7e591fcc089d74794c98ddfc951cbdced9
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56586869"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72755122"
 ---
 # <a name="quickstart-build-a-console-app-using-azure-cosmos-dbs-api-for-mongodb-and-golang-sdk"></a>快速入門：使用 Azure Cosmos DB 適用於 MongoDB 的 API 和 Golang SDK 建置主控台應用程式
 
@@ -69,11 +69,11 @@ Azure Cosmos DB 是 Microsoft 的全域分散式多模型資料庫服務。 您�
 
 現在，返回 Azure 入口網站以取得連接字串資訊，並將它複製到應用程式中。
 
-1. 按一下左側導覽功能表中的 [快速入門]，然後按一下 [其他] 以檢視 Go 應用程式所需的連接字串資訊。
+1. 按一下左側導覽功能表中的 [快速入門]  ，然後按一下 [其他]  以檢視 Go 應用程式所需的連接字串資訊。
 
 2. 在 Goglang 中，開啟 GOROOT\CosmosDBSample 目錄中的 main.go 檔案，並從 Azure 入口網站使用連接字串資訊來更新下列程式碼行，如下列螢幕擷取畫面所示。 
 
-    在 Azure 入口網站的連接字串窗格中，資料庫名稱是 [主機] 值的前置詞。 針對下圖中顯示的帳戶，資料庫名稱是 golang-coach。
+    在 Azure 入口網站的連接字串窗格中，資料庫名稱是 [主機]  值的前置詞。 針對下圖中顯示的帳戶，資料庫名稱是 golang-coach。
 
     ```go
     Database: "The prefix of the Host value in the Azure portal",
@@ -95,7 +95,7 @@ Azure Cosmos DB 是 Microsoft 的全域分散式多模型資料庫服務。 您�
 
 Azure Cosmos DB 適用於 MongoDB 的 API 支援已啟用 SSL 的連線。 若要連線，您需要在 [mgo.DialInfo](https://godoc.org/gopkg.in/mgo.v2#DialInfo) 中定義 **DialServer** 函式，並利用 [tls.*Dial*](https://golang.org/pkg/crypto/tls#Dial) 函式執行連線。
 
-下列 Golang 程式碼片段會透過 Azure Cosmos DB 適用於 MongoDB 的 API 連線到 Go 應用程式。 DialInfo 類別保存可供建立工作階段的選項。
+下列 Golang 程式碼片段會透過 Azure Cosmos DB 適用於 MongoDB 的 API 連線到 Go 應用程式。 DialInfo  類別保存可供建立工作階段的選項。
 
 ```go
 // DialInfo holds options for establishing a session.
@@ -214,9 +214,9 @@ if err != nil {
     
 ## <a name="run-the-app"></a>執行應用程式
 
-1. 在 Golang 中，確定您的 GOPATH (可在 [檔案]、[設定]、[Go]、[GOPATH] 之下取得) 包含 gopkg 的安裝位置，預設為 USERPROFILE\go。 
+1. 在 Golang 中，確定您的 GOPATH (可在 [檔案]  、[設定]  、[Go]  、[GOPATH]  之下取得) 包含 gopkg 的安裝位置，預設為 USERPROFILE\go。 
 2. 將可刪除文件的程式碼行 (行 103-107) 註解化，以便在執行應用程式後查看文件。
-3. 在 Golang 中，按一下 [執行]，然後按一下 [執行 [建置 main.go 並執行]]。
+3. 在 Golang 中，按一下 [執行]  ，然後按一下 [執行 [建置 main.go 並執行]]  。
 
     應用程式會完成並顯示在[建立文件](#create-document)中建立之文件的說明。
     
@@ -232,11 +232,11 @@ if err != nil {
 
 回到 Azure 入口網站，以在 [資料總管] 中查看您的文件。
 
-1. 按一下左側瀏覽功能表中的 [資料總管 (預覽)]，展開 [golang-coach]、[套件]，然後按一下 [文件]。 在 [文件] 索引標籤上，按一下 \_id 以在右窗格中顯示文件。 
+1. 按一下左側瀏覽功能表中的 [資料總管 (預覽)]  ，展開 [golang-coach]  、[套件]  ，然後按一下 [文件]  。 在 [文件]  索引標籤上，按一下 \_id 以在右窗格中顯示文件。 
 
     ![顯示新建文件的資料總管](./media/create-mongodb-golang/golang-cosmos-db-data-explorer.png)
     
-2. 您可以接著使用內嵌的文件並按一下 [更新] 來儲存它。 您也可以刪除文件，或建立新的文件或查詢。
+2. 您可以接著使用內嵌的文件並按一下 [更新]  來儲存它。 您也可以刪除文件，或建立新的文件或查詢。
 
 ## <a name="review-slas-in-the-azure-portal"></a>在 Azure 入口網站中檢閱 SLA
 
