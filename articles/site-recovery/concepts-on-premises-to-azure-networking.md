@@ -5,14 +5,14 @@ author: mayurigupta13
 manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 10/03/2019
+ms.date: 10/13/2019
 ms.author: mayg
-ms.openlocfilehash: 182c93ea0b887242d142eda5aeb44b2749c7ac66
-ms.sourcegitcommit: f2d9d5133ec616857fb5adfb223df01ff0c96d0a
+ms.openlocfilehash: f535a681ac3508aafc2823bcc9b9ae7f22cc2d8e
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/03/2019
-ms.locfileid: "71937565"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72333038"
 ---
 # <a name="connect-to-azure-vms-after-failover-from-on-premises"></a>從內部部署容錯移轉之後連線至 Azure Vm 
 
@@ -33,26 +33,26 @@ ms.locfileid: "71937565"
 
 若要確保能夠連線到 Azure Vm，請在容錯移轉之前準備您的內部部署機器。
 
-### <a name="prepare-windows-machines"></a>準備 Windows 機器
+### <a name="prepare-windows-machines"></a>準備 Windows 電腦
 
-在內部部署 Windows 機器上，執行下列動作：
+在內部部署 Windows 電腦上，執行下列操作：
 
 1. 設定 Windows 設定。 這些包括移除任何靜態持續性路由或 WinHTTP proxy，以及將磁片 SAN 原則設定為**OnlineAll**。 [請遵循](../virtual-machines/windows/prepare-for-upload-vhd-image.md#set-windows-configurations-for-azure)這些指示。
 
 2. 請確定[這些服務](../virtual-machines/windows/prepare-for-upload-vhd-image.md#check-the-windows-services)正在執行。
 
-3. 啟用遠端桌面（RDP）以允許遠端連線到內部部署機器。 [瞭解如何](../virtual-machines/windows/prepare-for-upload-vhd-image.md#update-remote-desktop-registry-settings)使用 POWERSHELL 啟用 RDP。
+3. 啟用遠端桌面 (RDP) 以允許從遠端連線至內部部署電腦。 [了解如何](../virtual-machines/windows/prepare-for-upload-vhd-image.md#update-remote-desktop-registry-settings)使用 PowerShell 啟用 RDP。
 
 4. 若要在容錯移轉後透過網際網路存取 Azure VM，請在內部部署機器上的 Windows 防火牆中，允許公用設定檔中的 TCP 和 UDP，並將 RDP 設定為所有設定檔的允許應用程式。
 
-5. 如果您想要在容錯移轉後透過站對站 VPN 存取 Azure VM，請在內部部署機器上的 Windows 防火牆中，針對網域和私人設定檔允許 RDP。 [瞭解](../virtual-machines/windows/prepare-for-upload-vhd-image.md#configure-windows-firewall-rules)如何允許 RDP 流量。
+5. 如果您想要在容錯移轉後透過站對站 VPN 存取 Azure VM，請在內部部署機器上的 Windows 防火牆中，針對網域和私人設定檔允許 RDP。 [了解](../virtual-machines/windows/prepare-for-upload-vhd-image.md#configure-windows-firewall-rules)如何允許 RDP 流量。
 6. 當您觸發容錯移轉時，請確定內部部署 VM 上沒有擱置中的 Windows 更新。 如果有，更新可能會在容錯移轉後於 Azure VM 上開始安裝，而且您將無法登入 VM，直到更新完成為止。
 
-### <a name="prepare-linux-machines"></a>準備 Linux 機器
+### <a name="prepare-linux-machines"></a>準備 Linux 電腦
 
-在內部部署 Linux 電腦上，執行下列動作：
+在內部部署 Linux 電腦上，執行下列操作：
 
-1. 確認安全殼層服務已設定為在系統開機時自動啟動。
+1. 檢查安全殼層服務已設定為在系統開機時自動啟動。
 2. 確認防火牆規則允許 SSH 連線。
 
 
@@ -60,13 +60,13 @@ ms.locfileid: "71937565"
 
 容錯移轉之後，請在所建立的 Azure Vm 上執行下列動作。
 
-1. 若要透過網際網路連接到 VM，請將公用 IP 位址指派給 VM。 您不能針對用於內部部署機器的 Azure VM 使用相同的公用 IP 位址。 [深入了解](../virtual-network/virtual-network-public-ip-address.md)
-2. 檢查 VM 上的網路安全性群組（NSG）規則是否允許連至 RDP 或 SSH 埠的連入連線。
-3. 請核取 [[開機診斷](../virtual-machines/troubleshooting/boot-diagnostics.md#enable-boot-diagnostics-on-existing-virtual-machine)] 以查看 VM。
+1. 若要透過網際網路連線至 VM，請將公用 IP 位址指派給 VM。 您無法針對用於內部部署電腦的 Azure VM 使用相同的公用 IP 位址。 [深入了解](../virtual-network/virtual-network-public-ip-address.md)
+2. 檢查 VM 上的網路安全性群組 (NSG) 規則是否允許連至 RDP 或 SSH 連接埠的連入連線。
+3. 檢查 [[開機診斷]](../virtual-machines/troubleshooting/boot-diagnostics.md#enable-boot-diagnostics-on-existing-virtual-machine) 以檢視 VM。
 
 
 > [!NOTE]
-> Azure 防禦服務提供私人的 RDP 和 SSH 存取權給 Azure Vm。 [深入瞭解](../bastion/bastion-overview.md)此服務。
+> Azure Bastion 服務會對 Azure VM 提供私密的 RDP 和 SSH 存取權。 [深入了解](../bastion/bastion-overview.md)此服務。
 
 ## <a name="set-a-public-ip-address"></a>設定公用 IP 位址
 
@@ -77,8 +77,8 @@ ms.locfileid: "71937565"
 
 若要在容錯移轉之後設定 Azure VM 的內部 IP 位址，您有幾個選項：
 
-- **保留相同的 IP 位址**：您可以在 Azure VM 上使用與配置給內部部署機器相同的 IP 位址。
-- **使用不同的 IP 位址**：您可以針對 Azure VM 使用不同的 IP 位址。
+- **保留相同的 ip 位址**：您可以在 Azure VM 上使用與配置給內部部署機器相同的 ip 位址。
+- **使用不同的 ip 位址**：您可以針對 Azure VM 使用不同的 ip 位址。
 
 
 ## <a name="retain-ip-addresses"></a>保留 IP 位址
@@ -91,7 +91,7 @@ Site Recovery 可讓您在容錯移轉至 Azure 時保留相同的 IP 位址。 
 
 保留 IP 位址需要下列步驟：
 
-- 在內部部署機器屬性中，設定目標 Azure VM 的網路和 IP 位址，以鏡像內部部署設定。
+- 在複寫專案的 [計算 & 網路屬性] 中，設定目標 Azure VM 的網路和 IP 位址，以鏡像內部部署設定。
 - 子網必須作為損毀修復程式的一部分進行管理。 您需要 Azure VNet 以符合內部部署網路，而且必須修改容錯移轉之後的網路路由，以反映子網已移至 Azure 和新的 IP 位址位置。  
 
 ### <a name="failover-example"></a>容錯移轉範例
@@ -120,7 +120,7 @@ Site Recovery 可讓您在容錯移轉至 Azure 時保留相同的 IP 位址。 
     > 視應用程式需求而定，VNet 對 VNet 連線可能會在容錯移轉之前設定，做為 Site Recovery 復原[方案](site-recovery-create-recovery-plans.md)中的手動步驟/腳本步驟/Azure 自動化 runbook，或在容錯移轉完成之後。
 
 4. 在容錯移轉之前，在 Site Recovery 的電腦屬性上，他們會將目標 IP 位址設定為內部部署機器的位址，如下一個程式所述。
-5. 容錯移轉之後，會使用相同的 IP 位址建立 Azure Vm。 Woodgrove 使用，從**Azure 網路**連線到復原**網路**VNet 
+5. 容錯移轉之後，會使用相同的 IP 位址建立 Azure Vm。 Woodgrove 會使用 VNet 對等互連（已啟用傳輸連線）從**Azure 網路**連線到復原**網路**VNet。
 6. 在內部部署中，Woodgrove 需要進行網路變更，包括修改路由以反映 192.168.1.0/24 已移至 Azure。  
 
 **容錯移轉之前的基礎結構**
