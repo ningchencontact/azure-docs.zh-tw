@@ -3,10 +3,6 @@
 - name: 架構與設計
   href: overview.md
   expanded: false
-  items: null
-- name: 架構與設計
-  href: overview.md
-  expanded: false
   items:
     - name: 雲端中共同承擔的責任
       href: shared-responsibility.md
@@ -232,16 +228,12 @@
   href: 'https://azure.microsoft.com/resources/whitepapers/search/?term=security&type=WhitePaperResource'
 - name: Azure 安全性服務
   href: services-technologies.md
-- name: 技術概觀
-  href: overviews.md
 - name: 最佳作法
   href: best-practices-and-patterns.md
 - name: 資源
   items:
     - name: 內建安全性控制
       href: security-controls.md
-    - name: Azure 安全性 MVP 計畫
-      href: mvp.md
     - name: 網路安全性諮詢
       href: cyber-services.md
     - name: 記錄安全性事件支援票證
