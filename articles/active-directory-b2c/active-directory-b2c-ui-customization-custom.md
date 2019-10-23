@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 09/11/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 88a8258a91237c7b3eadccc32a30c3fe8149eca5
-ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
+ms.openlocfilehash: 1ef4ddc422041de623b96f3a0c85f067427cacd7
+ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71064642"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72374235"
 ---
 # <a name="customize-the-user-interface-of-your-application-using-a-custom-policy-in-azure-active-directory-b2c"></a>在 Azure Active Directory B2C 中使用自訂原則來自訂應用程式的使用者介面
 
@@ -31,7 +31,7 @@ ms.locfileid: "71064642"
 
 您可以使用頁面 UI 自訂功能，自訂任何自訂原則的外觀與風格。 您也可以維護應用程式與 Azure AD B2C 之間的品牌和視覺一致性。
 
-其運作方式如下：Azure AD B2C 會在客戶的瀏覽器中執行程式碼，並使用名為[跨原始資源共用 (CORS)](https://www.w3.org/TR/cors/) 的新式方法。 首先，在自訂原則中使用自訂 HTML 內容指定 URL。 Azure AD B2C 會合併 UI 元素與從您 URL 載入的 HTML 內容，然後對客戶顯示此頁面。
+運作方式如下：Azure AD B2C 會在客戶的瀏覽器中執行程式碼並使用稱為[跨原始資源共用 (CORS)](https://www.w3.org/TR/cors/) 的新式方法。 首先，在自訂原則中使用自訂 HTML 內容指定 URL。 Azure AD B2C 會合併 UI 元素與從您 URL 載入的 HTML 內容，然後對客戶顯示此頁面。
 
 ## <a name="create-your-html5-content"></a>建立您的 HTML5 內容
 
@@ -93,7 +93,7 @@ ms.locfileid: "71064642"
 1. 選取 [上傳]。
 1. 選取您上傳的**customize-ui.html** blob。
 1. 在 [ **URL** ] 文字方塊的右邊，選取 [**複製到剪貼**簿] 圖示，將 URL 複製到剪貼簿。
-1. 在網頁瀏覽器中，流覽至您複製的 URL，以確認您上傳的 blob 可供存取。 如果無法存取，例如，如果您遇到`ResourceNotFound`錯誤，請確定容器的存取類型設定為 [ **blob**]。
+1. 在網頁瀏覽器中，流覽至您複製的 URL，以確認您上傳的 blob 可供存取。 如果無法存取，例如，如果您遇到 `ResourceNotFound` 的錯誤，請確定容器的存取類型設定為**blob**。
 
 ## <a name="configure-cors"></a>設定 CORS
 
@@ -119,9 +119,9 @@ ms.locfileid: "71064642"
 
 若要設定 UI 自訂，您要從基底檔案將 **ContentDefinition** 及其子元素複製到擴充檔案。
 
-1. 開啟原則的基底檔案。 例如，*`SocialAndLocalAccounts/` ** ***`TrustFrameworkBase.xml`。 這是自訂原則入門套件中所包含的其中一個原則檔案，您應該已在必要條件中取得這些檔案，以[開始使用自訂原則](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-get-started-custom)。
+1. 開啟原則的基底檔案。 例如， <em>`SocialAndLocalAccounts/` **`TrustFrameworkBase.xml`** </em> 。 這是自訂原則入門套件中所包含的其中一個原則檔案，您應該已在必要條件中取得這些檔案，以[開始使用自訂原則](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-get-started-custom)。
 1. 搜尋 **ContentDefinitions** 元素的完整內容並且複製。
-1. 開啟擴充檔案。 例如 TrustFrameworkExtensions.xml。 搜尋 **BuildingBlocks** 元素。 如果此元素不存在，請加以新增。
+1. 開啟擴充檔案。 例如 TrustFrameworkExtensions.xml。 搜尋 **BuildingBlocks** 元素。 如果此元素不存在，請新增。
 1. 貼上您複製的 **ContentDefinitions** 元素完整內容，作為 **BuildingBlocks** 元素的子項目。
 1. 在您複製的 XML 中，搜尋包含 `Id="api.signuporsignin"` 的 **ContentDefinition** 元素。
 1. 將 **LoadUri** 的值變更為您上傳至儲存體的 HTML 檔案 URL。 例如： `https://your-storage-account.blob.core.windows.net/your-container/customize-ui.html` 。
@@ -147,8 +147,8 @@ ms.locfileid: "71064642"
 
 ## <a name="upload-your-updated-custom-policy"></a>上傳更新的自訂原則
 
-1. 請選取頂端功能表中的 [**目錄 + 訂**用帳戶] 篩選，然後選擇包含您租使用者的目錄，以確定您使用的是包含 Azure AD B2C 租使用者的目錄。
-1. 選擇 Azure 入口網站左上角的 [所有服務]，然後搜尋並選取 [Azure AD B2C]。
+1. 選取頂端功能表中的 [目錄 + 訂用帳戶] 篩選，然後選擇包含您租用戶的目錄，以確定您使用的是包含 Azure AD B2C 租用戶的目錄。
+1. 選擇 Azure 入口網站左上角的**所有服務**，然後搜尋並選取 **Azure AD B2C**。
 1. 選取 [識別體驗架構]。
 1. 按一下 [所有原則]。
 1. 按一下 [上傳原則]。
@@ -160,7 +160,7 @@ ms.locfileid: "71064642"
 1. 選取您上傳的自訂原則，按一下 [立即執行] 按鈕。
 1. 您應該可以使用電子郵件地址註冊。
 
-## <a name="reference"></a>參考資料
+## <a name="reference"></a>參考
 
 ### <a name="sample-templates"></a>範例範本
 您可以在此找到 UI 自訂的範例範本：
@@ -175,18 +175,18 @@ Sample_templates/wingtip 資料夾包含下列 HTML 檔案：
 |----------------|-------------|
 | phonefactor.html | 使用此檔案作為多重要素驗證頁面的範本。 |
 | resetpassword.html | 使用此檔案作為忘記密碼頁面的範本。 |
-| selfasserted.html | 使用此檔案作為社交帳戶註冊頁面、本機帳戶註冊頁面或本機帳戶登入頁面的範本。 |
-| unified.html | 使用此檔案作為統一註冊或登入頁面的範本。 |
+| *selfasserted.html* | 使用此檔案作為社交帳戶註冊頁面、本機帳戶註冊頁面或本機帳戶登入頁面的範本。 |
+| *unified.html* | 使用此檔案作為統一註冊或登入頁面的範本。 |
 | *updateprofile.html* | 使用此檔案作為統一註冊或登入頁面的範本。 |
 
 以下是如何使用範例的步驟：
 
-1. 複製本機電腦上的存放庫。 選擇 [sample_templates] 底下的範本資料夾。 您可以使用`wingtip`或`contoso`。
-1. 將`css`、 `fonts`和`images`資料夾底下的所有檔案上傳至 Blob 儲存體，如上一節所述。
-1. 接下來，在\* `wingtip`或`contoso`的根目錄中開啟每個 .html 檔案（不論您在第一個步驟中選取的方式），並將 http://localhost"" 的所有實例取代為您在步驟2中上傳的 css、影像和字型檔案的 url。
-1. \*儲存 .html 檔案，並將其上傳至 Blob 儲存體。
+1. 複製本機電腦上的存放庫。 選擇 [sample_templates] 底下的範本資料夾。 您可以使用 `wingtip` 或 `contoso`。
+1. 將 `css`、`fonts` 和 @no__t 2 資料夾下的所有檔案上傳至 Blob 儲存體，如上一節所述。
+1. 接下來，在 `wingtip` 或 `contoso` 的根目錄中開啟每個 @no__t 4.9.0-檔案（以您在第一個步驟中選取的方式），並將 "http://localhost" 的所有實例取代為您在步驟2中上傳的 css、影像和字型檔案的 Url。
+1. 儲存 @no__t 4.9.0-.html 檔案，並將其上傳至 Blob 儲存體。
 1. 現在修改延伸模組檔案，如先前在[修改擴充](#modify-the-extensions-file)檔案中所述。
-1. 如果您看到缺少的字型、影像或 CSS，請檢查延伸模組原則和\*.html 檔案中的參考。
+1. 如果您看到遺漏字型、影像或 CSS，請檢查延伸模組原則和 @no__t 4.9.0-檔案中的參考。
 
 ### <a name="content-definition-ids"></a>內容定義識別碼
 
@@ -199,10 +199,10 @@ Sample_templates/wingtip 資料夾包含下列 HTML 檔案：
 | api.idpselections.signup | **用於註冊的識別提供者選取**。 此頁面包含使用者可以在註冊期間選擇的識別提供者清單。 這些選項是企業識別提供者、社交識別提供者 (如 Facebook 和 Google+) 或本機帳戶。 |
 | api.localaccountpasswordreset | **忘記密碼頁面**。 此頁面包含一份表單，使用者必須填妥此表單才能開始重設密碼。  |
 | *api.localaccountsignin* | **本機帳戶登入頁面**。 此頁面包含登入表單，可供使用以電子郵件地址或使用者名稱為基礎的本機帳戶進行登入。 此表單可以包含文字輸入方塊和密碼輸入方塊。 |
-| api.localaccountsignup | **本機帳戶註冊頁面**。 此頁面包含登入表單，可供註冊以電子郵件地址或使用者名稱為基礎的本機帳戶。 此表單可以包含各種輸入控制項，例如文字輸入方塊、密碼輸入方塊、選項按鈕、單選下拉式清單方塊和多選核取方塊。 |
+| *api.localaccountsignup* | **本機帳戶註冊頁面**。 此頁面包含登入表單，可供註冊以電子郵件地址或使用者名稱為基礎的本機帳戶。 此表單可以包含各種輸入控制項，例如文字輸入方塊、密碼輸入方塊、選項按鈕、單選下拉式清單方塊和多選核取方塊。 |
 | *api.phonefactor* | **Multi-Factor Authentication 頁面**。 在此頁面上，使用者可以在註冊或登入期間驗證其電話號碼 (藉由使用文字或語音)。 |
-| api.selfasserted | **社交帳戶註冊頁面**。 此頁面包含使用者在使用社交識別提供者 (例如 Facebook 或 Google+) 的現有帳戶註冊時必須填妥的註冊表單。 此頁面類似於上述的社交帳戶註冊頁面，但密碼輸入欄位除外。 |
-| api.selfasserted.profileupdate | **設定檔更新頁面**。 此頁面包含一份表單，以供使用者用來更新其設定檔。 此頁面類似於社交帳戶註冊頁面，但密碼輸入欄位除外。 |
+| *api.selfasserted* | **社交帳戶註冊頁面**。 此頁面包含使用者在使用社交識別提供者 (例如 Facebook 或 Google+) 的現有帳戶註冊時必須填妥的註冊表單。 此頁面類似於上述的社交帳戶註冊頁面，但密碼輸入欄位除外。 |
+| *api.selfasserted.profileupdate* | **設定檔更新頁面**。 此頁面包含一份表單，以供使用者用來更新其設定檔。 此頁面類似於社交帳戶註冊頁面，但密碼輸入欄位除外。 |
 | *api.signuporsignin* | **統一的註冊或登入頁面**。 此頁面可處理使用者的註冊和登入，這些使用者可使用企業識別提供者、社交識別提供者 (例如 Facebook 或 Google+) 或本機帳戶。  |
 
 ## <a name="next-steps"></a>後續步驟
