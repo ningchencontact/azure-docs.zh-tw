@@ -3,28 +3,28 @@ title: 使用 C# 分析視訊內容中的不當題材 - 內容仲裁
 titleSuffix: Azure Cognitive Services
 description: 如何使用 Content Moderator SDK for .NET 分析視訊內容中的各種不當題材
 services: cognitive-services
-author: sanjeev3
+author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: conceptual
 ms.date: 01/10/2019
-ms.author: sajagtap
-ms.openlocfilehash: 1742db702a899d47110177532f5e85e74a59d91c
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.author: pafarley
+ms.openlocfilehash: 71858755fe31823d4d7ef8623b915db851530116
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68564305"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72755229"
 ---
 # <a name="analyze-video-content-for-objectionable-material-in-c"></a>使用 C# 分析視訊內容中的不當題材
 
 本文提供的資訊和程式碼範例，可協助您開始使用 [Content Moderator SDK for .NET](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.ContentModerator/) \(英文\)，以掃描視訊內容中的成人或露骨內容。
 
-如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 。 
+如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)。 
 
 ## <a name="prerequisites"></a>必要條件
-- [Visual Studio 2015 或 2017](https://www.visualstudio.com/downloads/) 的任何版本
+- 任何版本的 [Visual Studio 2015 或 2017](https://www.visualstudio.com/downloads/)
 
 ## <a name="set-up-azure-resources"></a>設定 Azure 資源
 
@@ -36,11 +36,11 @@ Content Moderator 的影片仲裁功能是以 Azure 媒體服務 (AMS) 中免費
 
 ### <a name="create-an-azure-active-directory-application"></a>建立 Azure Active Directory 應用程式
 
-在 Azure 入口網站中瀏覽至您新的 AMS 訂用帳戶，然後從側邊功能表選取 **API 存取**。 選取 [使用服務主體連線到 Azure 媒體服務]  。 記下 [REST API 端點]  欄位中的值，稍後會需要它。
+在 Azure 入口網站中瀏覽至您新的 AMS 訂用帳戶，然後從側邊功能表選取 **API 存取**。 選取 [使用服務主體連線到 Azure 媒體服務]。 記下 [REST API 端點] 欄位中的值，稍後會需要它。
 
-在 [Azure AD 應用程式]  區段中，選取 [新建]  ，並為您新的 Azure AD 應用程式註冊命名 (例如 "VideoModADApp")。 按一下 [儲存]  ，在設定應用程式的同時，請稍候幾分鐘。 然後，您應該會在頁面的 [Azure AD 應用程式]  區段底下看到您新增的應用程式註冊。
+在 [Azure AD 應用程式] 區段中，選取 [新建]，並為您新的 Azure AD 應用程式註冊命名 (例如 "VideoModADApp")。 按一下 [儲存]，在設定應用程式的同時，請稍候幾分鐘。 然後，您應該會在頁面的 [Azure AD 應用程式] 區段底下看到您新增的應用程式註冊。
 
-選取您的應用程式註冊，然後按一下其下方 [管理應用程式]  按鈕。 記下 [應用程式識別碼]  欄位中的值，稍後會需要它。 選取 [設定]   > [金鑰]  ，並為新的金鑰輸入描述 (例如 "VideoModKey")。 按一下 [儲存]  ，然後留意到新的金鑰值。 複製這個字串，並將它儲存在安全的位置。
+選取您的應用程式註冊，然後按一下其下方 [管理應用程式] 按鈕。 記下 [應用程式識別碼] 欄位中的值，稍後會需要它。 選取 [設定] > [金鑰]，並為新的金鑰輸入描述 (例如 "VideoModKey")。 按一下 [儲存]，然後留意到新的金鑰值。 複製這個字串，並將它儲存在安全的位置。
 
 如需上述程序更完整的逐步解說，請參閱[利用 Azure 入口網站開始使用 Azure AD 驗證](https://docs.microsoft.com/azure/media-services/media-services-portal-get-started-with-aad)。
 
@@ -56,7 +56,7 @@ Azure 媒體服務總管是方便使用的 AMS 前端。 您可以使用它來�
 
 1. 在 Visual Studio 中建立新的**主控台應用程式 (.NET Framework)** 專案，並將它命名為 **VideoModeration**。 
 1. 如果您的解決方案中有其他專案，請選取此專案作為單一啟始專案。
-1. 取得必要的 NuGet 套件。 以滑鼠右鍵按一下 [方案總管] 中的專案，並選取 [管理 NuGet 套件]  ，然後尋找並安裝下列套件：
+1. 取得必要的 NuGet 套件。 以滑鼠右鍵按一下 [方案總管] 中的專案，並選取 [管理 NuGet 套件]，然後尋找並安裝下列套件：
     - windowsazure.mediaservices
     - windowsazure.mediaservices.extensions
 
@@ -66,7 +66,7 @@ Azure 媒體服務總管是方便使用的 AMS 前端。 您可以使用它來�
 
 ### <a name="update-the-programs-using-statements"></a>更新程式的 using 陳述式
 
-在 _Program.cs_ 檔案的頂端新增下列 `using` 陳述式。
+在 _Program.cs_ 檔案的最上方新增下列 `using` 陳述式。
 
 ```csharp
 using System;
@@ -120,7 +120,7 @@ private static readonly string CONTENT_MODERATOR_PRESET_FILE = "preset.json";
 
 如果您想要使用本機的視訊檔案 (最簡單的情況)，請將它新增至專案，並將其路徑輸入為 `INPUT_FILE` 值 (相對路徑是相對於執行目錄)。
 
-您也需要在目前的目錄中建立 _preset.json_ 檔案，並使用它來指定版本號碼。 例如:
+您也需要在目前的目錄中建立 _preset.json_ 檔案，並使用它來指定版本號碼。 例如：
 
 ```JSON
 {
@@ -434,4 +434,4 @@ static void StateChanged(object sender, JobStateChangedEventArgs e)
 
 查看有關如何建置[完整影片和文字記錄仲裁解決方案](video-transcript-moderation-review-tutorial-dotnet.md)的詳細教學課程。
 
-[下載 Visual Studio 解決方案](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/ContentModerator)，以取得這個及其他適用於 .NET 的內容仲裁快速入門。
+針對這個及其他適用於 .NET 的 Content Moderator 快速入門，[下載 Visual Studio 解決方案](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/ContentModerator)。

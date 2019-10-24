@@ -3,19 +3,19 @@ title: 使用 .NET 來建立影片文字記錄審核項目 - Content Moderator
 titleSuffix: Azure Cognitive Services
 description: 使用 Content Moderator SDK for .NET 來建立影片文字記錄審核項目
 services: cognitive-services
-author: sanjeev3
+author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: conceptual
 ms.date: 03/19/2019
-ms.author: sajagtap
-ms.openlocfilehash: c7d68685a772bb777fff1dd56a25990b9d0406ef
-ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
+ms.author: pafarley
+ms.openlocfilehash: 7fe254aa6e78133102a295c5e60a10d29f6382a4
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72242809"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72757178"
 ---
 # <a name="create-video-transcript-reviews-using-net"></a>使用 .NET 來建立影片文字記錄審核項目
 
@@ -153,7 +153,7 @@ public static ContentModeratorClient NewClient()
 **CreateVideoReviews** 具有下列必要參數：
 1. 一個包含 MIME 類型的字串，這應該是 "application/json"。 
 1. 您的 Content Moderator 小組名稱。
-1. **IList @ no__t-1CreateVideoReviewsBodyItem >** 物件。 每個 **CreateVideoReviewsBodyItem** 物件皆代表一個影片審核項目。 這個快速入門會一次建立一個審核項目。
+1. **IList \<CreateVideoReviewsBodyItem >** 物件。 每個 **CreateVideoReviewsBodyItem** 物件皆代表一個影片審核項目。 這個快速入門會一次建立一個審核項目。
 
 **CreateVideoReviewsBodyItem** 具有數個屬性。 您必須至少設定下列屬性：
 - **Content**。 要審核的影片 URL。
@@ -161,7 +161,7 @@ public static ContentModeratorClient NewClient()
 - **Status**。 請將值設定為 "Unpublished"。 如果您未設定此屬性，則會預設為 "Pending"，意謂著已發佈影片審核項目而正等待人工審核。 發佈影片審核項目之後，您就無法再將影片畫面、文字記錄或文字記錄仲裁結果新增至該審核項目。
 
 > [!NOTE]
-> **Createvideoreviews 專案識別碼**會傳回 IList @ no__t-1string >。 這些字串中每個都包含影片審核項目的識別碼。 這些識別碼是 GUID 且與 **ContentId** 屬性的值不同。
+> **Createvideoreviews 專案識別碼**會傳回 IList \<string >。 這些字串中每個都包含影片審核項目的識別碼。 這些識別碼是 GUID 且與 **ContentId** 屬性的值不同。
 
 將下列方法定義新增至 VideoReviews 命名空間、Program 類別。
 
@@ -199,7 +199,7 @@ private static string CreateReview(ContentModeratorClient client, string id, str
 ```
 
 > [!NOTE]
-> 您的 Content Moderator 服務金鑰會有每秒要求數目 (RPS) 的速率限制。 如果您超出此限制，SDK 就會擲回錯誤碼為 429 的例外狀況。
+> Content Moderator 服務金鑰會有每秒要求數目 (RPS) 的速率限制。 如果您超出此限制，SDK 就會擲回錯誤碼為 429 的例外狀況。
 >
 > 免費層金鑰有一個 RPS 速率限制。
 
@@ -243,15 +243,15 @@ static void AddTranscript(ContentModeratorClient client, string review_id, strin
 1. 一個包含 MIME 類型的字串，這應該是 "application/json"。 
 1. 您的 Content Moderator 小組名稱。
 1. **CreateVideoReviews** 所傳回的影片審核項目識別碼。
-1. IList @ no__t-0TranscriptModerationBodyItem >。 **TranscriptModerationBodyItem** 具有下列屬性：
-1. **Terms**。 IList @ no__t-0TranscriptModerationBodyItemTermsItem >。 **TranscriptModerationBodyItemTermsItem** 具有下列屬性：
+1. IList \<TranscriptModerationBodyItem >。 **TranscriptModerationBodyItem** 具有下列屬性：
+1. **Terms**。 IList \<TranscriptModerationBodyItemTermsItem >。 **TranscriptModerationBodyItemTermsItem** 具有下列屬性：
 1. **Index**。 字詞的從零開始索引。
 1. **Term**。 一個包含字詞的字串。
 1. **Timestamp**。 一個包含在文字記錄中找到字詞之時間 (以秒為單位) 的字串。
 
 文字記錄的格式必須是 WebVTT。 如需詳細資訊，請參閱 [WebVTT：網路影片文字播放軌格式](https://www.w3.org/TR/webvtt1/) \(英文\)。
 
-將下列方法定義新增至 VideoTranscriptReviews 命名空間、Program 類別。 此方法會將文字記錄提交給 **ContentModeratorClient.TextModeration.ScreenText** 方法。 它也會將結果轉譯成 IList @ no__t-0TranscriptModerationBodyItem >，並提交至**AddVideoTranscriptModerationResult**。
+將下列方法定義新增至 VideoTranscriptReviews 命名空間、Program 類別。 此方法會將文字記錄提交給 **ContentModeratorClient.TextModeration.ScreenText** 方法。 它也會將結果轉譯為 IList \<TranscriptModerationBodyItem >，並提交至**AddVideoTranscriptModerationResult**。
 
 ```csharp
 /// <summary>
