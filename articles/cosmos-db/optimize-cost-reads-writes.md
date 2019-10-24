@@ -1,17 +1,17 @@
 ---
 title: 最佳化 Azure Cosmos DB 中的讀取和寫入成本
 description: 這篇文章說明如何在執行讀取和寫入資料的作業時，降低 Azure Cosmos DB 的成本。
-author: rimman
+author: markjbrown
+ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/21/2019
-ms.author: rimman
-ms.openlocfilehash: 13ce5ee8b0e2a5d9cc84ea1a408ebba152b46050
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 934853b80c6e6377923df4c2b5cce7b7d7d57d7c
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65967413"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72754938"
 ---
 # <a name="optimize-reads-and-writes-cost-in-azure-cosmos-db"></a>最佳化 Azure Cosmos DB 中的讀寫成本
 
@@ -51,7 +51,7 @@ Azure Cosmos DB 透過使用佈建的輸送量模型，在輸送量和延遲方�
 接下來，您可以利用下列文章繼續深入了解 Azure Cosmos DB 中有關成本最佳化的詳細資訊：
 
 * 深入了解[最佳化開發與測試](optimize-dev-test.md)
-* 深入了解 [Azure Cosmos DB 帳單](understand-your-bill.md)
+* 深入了解 [Azure Cosmos DB 上的計費](understand-your-bill.md)
 * 深入了解[最佳化輸送量成本](optimize-cost-throughput.md)
 * 深入了解[最佳化儲存體成本](optimize-cost-storage.md)
 * 深入了解[最佳化查詢成本](optimize-cost-queries.md)

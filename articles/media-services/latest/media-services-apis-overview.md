@@ -9,15 +9,15 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 07/05/2019
+ms.date: 10/21/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: c6c8bcfec9a8bdf6948190c5f132c2e1763b9973
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.openlocfilehash: 574b1591669cc32ce30677cad5158e13b944486f
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72025629"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72750211"
 ---
 # <a name="developing-with-media-services-v3-apis"></a>使用媒體服務 v3 Api 進行開發
 
@@ -75,7 +75,7 @@ Azure 媒體服務 v3 資源名稱 (例如資產、作業、轉換) 會受到 Az
 
 媒體服務資源名稱不可包含：'<'、'>'、'%'、'&'、':'、'&#92;'、'?'、'/'、'*'、'+'、'.'、單引號字元或任何控制字元。 允許所有其他字元。 資源名稱的長度上限是 260 個字元。 
 
-如需有關 Azure Resource Manager 命名的詳細資訊，請參閱：[命名需求](https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/resource-api-reference.md#arguments-for-crud-on-resource)和[命名慣例](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions)。
+如需 Azure Resource Manager 命名規則的詳細資訊，請參閱：[命名需求](https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/resource-api-reference.md#arguments-for-crud-on-resource)和[命名慣例](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions)。
 
 ### <a name="names-of-filesblobs-within-an-asset"></a>資產內的檔案/blob 名稱
 
@@ -83,7 +83,7 @@ Azure 媒體服務 v3 資源名稱 (例如資產、作業、轉換) 會受到 Az
 
 ## <a name="long-running-operations"></a>長時間執行的作業
 
-Azure 媒體服務[swagger](https://github.com/Azure/azure-rest-api-specs/blob/master/specification/mediaservices/resource-manager/Microsoft.Media/stable/2018-07-01/streamingservice.json)檔案中以 `x-ms-long-running-operation` 標記的作業是長時間執行的作業。 
+Azure 媒體服務[swagger](https://github.com/Azure/azure-rest-api-specs/blob/master/specification/mediaservices/resource-manager/Microsoft.Media/stable/2018-07-01/streamingservice.json)檔案中以 `x-ms-long-running-operation` 標示的作業是長時間執行的作業。 
 
 如需如何追蹤非同步 Azure 作業的詳細資訊，請參閱[非同步作業](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-async-operations#monitor-status-of-operation)。
 
@@ -108,6 +108,8 @@ Azure 媒體服務[swagger](https://github.com/Azure/azure-rest-api-specs/blob/m
 
 成功提交長時間時，您會收到「202已接受」，而且必須使用傳回的作業識別碼來輪詢作業完成。
 
+[追蹤非同步 azure 作業](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-async-operations)一文深入說明如何透過回應中傳回的值，追蹤非同步 azure 作業的狀態。
+
 給定的即時事件或其任何相關聯的即時輸出僅支援一個長時間執行的作業。 啟動之後，長時間執行的作業必須先完成，才能在相同的 LiveEvent 或任何相關聯的即時輸出上啟動後續的長時間執行作業。 針對具有多個即時輸出的實況活動，您必須在對另一個即時輸出觸發長時間執行的作業之前，等待在一個即時輸出上完成長時間執行的作業。 
 
 ## <a name="sdks"></a>SDK
@@ -115,7 +117,7 @@ Azure 媒體服務[swagger](https://github.com/Azure/azure-rest-api-specs/blob/m
 > [!NOTE]
 > Azure 媒體服務 v3 SDK 不一定是安全執行緒。 在開發多執行緒應用程式時，您應新增本身的執行緒同步處理邏輯以保護用戶端，或為每個執行緒使用新的 AzureMediaServicesClient 物件。 您也應留意程式碼提供給用戶端 (例如 .NET 中的 HttpClient 執行個體) 的選擇性物件所引起的多執行緒處理問題。
 
-|SDK|參考資料|
+|SDK|參考|
 |---|---|
 |[.NET SDK](https://aka.ms/ams-v3-dotnet-sdk)|[.NET 參考](https://aka.ms/ams-v3-dotnet-ref)|
 |[Java SDK](https://aka.ms/ams-v3-java-sdk)|[Java 參考](https://aka.ms/ams-v3-java-ref)|
@@ -124,7 +126,7 @@ Azure 媒體服務[swagger](https://github.com/Azure/azure-rest-api-specs/blob/m
 |[Go SDK](https://aka.ms/ams-v3-go-sdk) |[Go 參考](https://aka.ms/ams-v3-go-ref)|
 |[Ruby SDK](https://aka.ms/ams-v3-ruby-sdk)||
 
-### <a name="see-also"></a>另請參閱
+### <a name="see-also"></a>請參閱
 
 - [包含媒體服務事件的 EventGrid .NET SDK](https://www.nuget.org/packages/Microsoft.Azure.EventGrid/)
 - [媒體服務事件的定義](https://github.com/Azure/azure-rest-api-specs/blob/master/specification/eventgrid/data-plane/Microsoft.Media/stable/2018-01-01/MediaServices.json)
@@ -143,7 +145,7 @@ AMSE 是一個開放原始碼專案，由社群提供支援 (可將問題回報�
 
 請參閱 [Azure 媒體服務社群](media-services-community.md)文章，以了解詢問問題、提供意見反應及取得媒體服務相關更新的不同方式。
 
-## <a name="see-also"></a>另請參閱
+## <a name="see-also"></a>請參閱
 
 [Azure CLI](https://docs.microsoft.com/cli/azure/ams?view=azure-cli-latest)
 

@@ -6,12 +6,12 @@ ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 10/04/2018
-ms.openlocfilehash: 2031820843342fb7e6b115865297e08cbee28a0a
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.openlocfilehash: 631a103491b70ca016b94af01995aeeb3f29c77a
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72387340"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72754673"
 ---
 # <a name="mapping-data-flow-move-nodes"></a>對應資料流程移動節點
 
@@ -25,7 +25,7 @@ Azure Data Factory 資料流程設計介面是「建構」介面，其中您要�
 
 ## <a name="streams-of-data-inside-of-data-flow"></a>資料流程內的資料流程
 
-在 Azure Data Factory 資料流程中，資料流代表資料的流程。 在轉換設定窗格中，您將會看到 [輸入資料流] 欄位。 這會告訴您提供轉換的是哪一個資料流。 您可以按一下傳入資料流名稱，然後選擇另一個資料流，變更圖表上轉換節點的實體位置。 目前的轉換以及該資料流上的所有後續轉換，將會接著移至新位置。
+在 Azure Data Factory 資料流程中，資料流代表資料的流程。 在 [轉換設定] 窗格中，您會看到 [傳入資料流程] 欄位。 這會告訴您提供轉換的是哪一個資料流。 您可以按一下傳入資料流名稱，然後選擇另一個資料流，變更圖表上轉換節點的實體位置。 目前的轉換以及該資料流上的所有後續轉換，將會接著移至新位置。
 
 如果您在之後要移動具有一或多個轉換的轉換，則資料流程中的新位置會透過新的分支聯結。
 

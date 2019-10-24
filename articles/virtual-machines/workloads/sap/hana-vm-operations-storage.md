@@ -12,22 +12,21 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 10/11/2019
+ms.date: 10/21/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 0ab25b7a6d723ed5f2e74ad60ff54f9bf6d0fe4c
-ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
+ms.openlocfilehash: bcd27378039d539e36c72cf6e8fec7e8a1425e54
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/13/2019
-ms.locfileid: "72300546"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72750346"
 ---
 # <a name="sap-hana-azure-virtual-machine-storage-configurations"></a>SAP HANA Azure 虛擬機器儲存體設定
 
-Azure 提供不同類型的儲存體，適用于執行 SAP Hana 的 Azure Vm。 可視為 SAP Hana 部署的 Azure 儲存體類型清單，例如： 
+Azure 提供不同類型的儲存體，適用于執行 SAP Hana 的 Azure Vm。 **SAP Hana 認證的 Azure 儲存體類型**可視為 SAP Hana 部署清單，如下所示： 
 
-- 標準 SSD 磁片磁碟機（SSD）
-- 進階固態硬碟 (SSD)
+- Azure 進階 SSD  
 - [Ultra 磁片](https://docs.microsoft.com/azure/virtual-machines/linux/disks-enable-ultra-ssd)
 - [Azure NetApp Files](https://azure.microsoft.com/services/netapp/) 
 
@@ -37,13 +36,13 @@ Azure 針對 Azure 標準儲存體和 Azure 進階儲存體上的 VHD，提供�
 
 如需儲存體類型清單及其在 IOPS 和儲存體輸送量中的 SLA ，請檢閱[受控磁碟的 Azure 文件](https://azure.microsoft.com/pricing/details/managed-disks/)。
 
-對於 HANA 的使用量，這三種儲存體類型已通過 SAP 認證：
+不同儲存類型的最小 SAP Hana 認證條件如下： 
 
-- 必須使用 Azure[寫入加速器](https://docs.microsoft.com/azure/virtual-machines/linux/how-to-enable-write-accelerator)快取 azure 進階儲存體/hana/log
-- Azure Ultra 磁片
-- 適用于/hana/log 和/hana/data 的 Azure NetApp Files 之上的 NFS 4.1 磁片區
+- Azure 進階 SSD-/hana/log 必須使用 Azure[寫入加速器](https://docs.microsoft.com/azure/virtual-machines/linux/how-to-enable-write-accelerator)進行快取。 /Hana/data 磁片區可以放在沒有 Azure 寫入加速器或 Ultra 磁片上的進階 SSD
+- 至少適用于/hana/log 磁片區的 Azure Ultra 磁片。 /Hana/data 磁片區可以放在沒有 Azure 寫入加速器的進階 SSD 上，或為了取得更快速的磁片重新開機時間
+- 適用于/hana/log**和**/Hana/data 的 Azure NetApp Files 之上的**NFS 4.1**磁片區
 
-有些儲存類型可以合併。 例如 您可以將/hana/data 放在進階儲存體上，並將/hana/log 放在 Ultra 磁片儲存體上，以取得所需的低延遲。 不過，不建議您混合 NFS 磁片區以進行/hana/data，並使用其中一種其他認證的儲存類型來進行/hana/log
+有些儲存類型可以合併。 例如，您可以將/hana/data 放在進階儲存體上，並將/hana/log 放在 Ultra 磁片儲存體上，以取得所需的低延遲。 不過，不建議您混合 NFS 磁片區以進行/hana/data，並使用其中一種其他認證的儲存類型來進行/hana/log
 
 在內部部署環境中，您很少需要在意 i/o 子系統及其功能。 原因是設備廠商必須確認最低儲存體需求符合 SAP HANA。 當您自行建立 Azure 基礎結構時，您應該注意其中一些需求。 要求的部分最低輸送量特性會導致需要：
 
@@ -53,7 +52,7 @@ Azure 針對 Azure 標準儲存體和 Azure 進階儲存體上的 VHD，提供�
 
 指定低儲存體延遲對於 DBMS 系統相當重要，即使是像 SAP HANA 等 DBMS 將資料保存在記憶體內部也一樣。 儲存體中的關鍵路徑通常是在 DBMS 系統之交易記錄寫入的周圍。 但像是寫入儲存點或是在損毀復原之後載入記憶體內部資料之類的作業也很重要。 因此，您**必須**利用適用于 **/Hana/data**和 **/Hana/log**磁片區的 Azure Premium 磁片。 為了達到如 SAP 想要的 **/hana/log** 和 **/hana/data** 最小輸送量，您必須使用 MDADM 或 LVM 在多個 Azure 進階儲存體磁碟上建置 RAID 0。 然後使用 RAID 磁碟區作為 **/hana/data** 和 **/hana/log** 磁碟區。 
 
-**Recommendation：做為 RAID 0 的等量大小，建議使用：**
+**建議：做為 RAID 0 的等量大小，建議使用：**
 
 - 針對 **/hana/log** 使用 64 KB或 128 KB
 - 針對 **/hana/log** 使用 32 KB
@@ -83,10 +82,10 @@ Azure 寫入加速器是僅適用于 Azure M 系列 Vm 的功能。 如同名稱
 - 對於 SAP HANA 重做記錄檔的主要負載是寫入。 根據工作負載的性質，您的 I/O 可以小到 4 KB，而在其他情況下，I/O 大小也可以是 1 MB 或更大。 對 SAP HANA 重做記錄的寫入延遲效能極為重要。
 - 所有寫入都必須以可靠的方式保存在磁碟上
 
-**Recommendation：由於 SAP Hana 觀察到的 i/o 模式，因此使用 Azure 進階儲存體的不同磁片區快取應該設定如下：**
+**建議：由於 SAP Hana 所觀察到的 i/o 模式，因此使用 Azure 進階儲存體的不同磁片區快取應該設定如下：**
 
 - **/hana/data**：無快取
-- **/hana/log** -無快取-M 和 Mv2 系列的例外狀況，其中寫入加速器已啟用為快取功能
+- **/hana/log** -無快取-M 和 Mv2 系列的例外狀況，其中寫入加速器應該在不讀取快取的情況下啟用。 
 - **/hana/shared**：讀取快取
 
 ### <a name="production-recommended-storage-solution"></a>生產建議的儲存體解決方案
@@ -99,9 +98,9 @@ Azure 寫入加速器是僅適用于 Azure M 系列 Vm 的功能。 如同名稱
 
 
 
-**Recommendation：生產案例的建議設定如下所示：**
+**建議：生產環境案例的建議設定如下所示：**
 
-| VM SKU | RAM | 最大 VM I/O<br /> Throughput | /hana/data | /hana/log | HANA/shared | /root volume | /usr/sap | hana/backup |
+| VM SKU | RAM | 最大 VM I/O<br /> 輸送量 | /hana/data | /hana/log | HANA/shared | /root volume | /usr/sap | hana/backup |
 | --- | --- | --- | --- | --- | --- | --- | --- | -- |
 | M32ts | 192 GiB | 500 MB/秒 | 3 x P20 | 2 x P20 | 1 x P20 | 1 x P6 | 1 x P6 |1 x P20 |
 | M32ls | 256 GiB | 500 MB/秒 | 3 x P20 | 2 x P20 | 1 x P20 | 1 x P6 | 1 x P6 |1 x P20 |
@@ -117,9 +116,9 @@ Azure 寫入加速器是僅適用于 Azure M 系列 Vm 的功能。 如同名稱
 
 M416xx_v2 VM 類型尚未由 Microsoft 提供給公眾使用。 檢查不同建議磁片區的儲存體輸送量是否符合您想要執行的工作負載。 如果工作負載需要更多 **/hana/data** 和 **/hana/log** 磁碟區，您需要增加 Azure 進階儲存體 VHD 的數目。 使用超過列出的 Vhd 來調整磁片區大小，會增加 Azure 虛擬機器類型限制內的 IOPS 和 i/o 輸送量。
 
-Azure 寫入加速器只能與 [Azure 受控磁碟](https://azure.microsoft.com/services/managed-disks/)搭配運作。 所以至少必須將組成 **/hana/log** 磁碟區的 Azure 進階儲存體磁碟部署為受控磁碟。
+Azure Write Accelerator 只能與 [Azure 受控磁碟](https://azure.microsoft.com/services/managed-disks/)搭配運作。 所以至少必須將組成 **/hana/log** 磁碟區的 Azure 進階儲存體磁碟部署為受控磁碟。
 
-Azure 寫入加速器可以支援之每個虛擬機器的 Azure 進階儲存體 VHD 有其上限。 目前的上限是：
+Azure Write Accelerator 可以支援之每個虛擬機器的 Azure 進階儲存體 VHD 有其限制。 目前的上限是：
 
 - 適用于 M128xx 和 M416xx VM 的16個 Vhd
 - 8個適用于 M64xx 和 M208xx VM 的 Vhd
@@ -129,7 +128,7 @@ Azure 寫入加速器可以支援之每個虛擬機器的 Azure 進階儲存體 
 
 Azure Write Accelerator 的詳細資料和限制可以在相同文件中找到。
 
-**Recommendation：您必須針對形成/hana/log 磁片區 @ no__t-0 的磁片使用寫入加速器
+**建議：您必須針對構成/hana/log 磁片區的磁片使用寫入加速器**
 
 
 ### <a name="cost-conscious-azure-storage-configuration"></a>節省成本的 Azure 儲存體組態
@@ -142,7 +141,7 @@ Azure Write Accelerator 的詳細資料和限制可以在相同文件中找到�
 > 針對符合成本效益的解決方案，先前的建議變更是從[Azure 標準 HDD 磁片](https://docs.microsoft.com/azure/virtual-machines/windows/disks-types#standard-hdd)移到更好的效能，並更可靠地執行[azure 標準 SSD 磁片](https://docs.microsoft.com/azure/virtual-machines/windows/disks-types#standard-ssd)
 
 
-| VM SKU | RAM | 最大 VM I/O<br /> Throughput | /hana/data 和 /hana/log<br /> 與 LVM 或 MDADM 等量 | HANA/shared | /root volume | /usr/sap | hana/backup |
+| VM SKU | RAM | 最大 VM I/O<br /> 輸送量 | /hana/data 和 /hana/log<br /> 與 LVM 或 MDADM 等量 | HANA/shared | /root volume | /usr/sap | hana/backup |
 | --- | --- | --- | --- | --- | --- | --- | -- |
 | DS14v2 | 112 GiB | 768 MB/秒 | 3 x P20 | 1 x E20 | 1 x E6 | 1 x E6 | 1 x E15 |
 | E16v3 | 128 GB | 384 MB/秒 | 3 x P20 | 1 x E20 | 1 x E6 | 1 x E6 | 1 x E15 |
@@ -174,7 +173,7 @@ M416xx_v2 VM 類型尚未由 Microsoft 提供給公眾使用。 根據 [SAP TDI 
 >  
 
 ## <a name="azure-ultra-disk-storage-configuration-for-sap-hana"></a>適用于 SAP Hana 的 Azure Ultra 磁片儲存體設定
-Microsoft 正在推出新的 Azure 儲存體類型（稱為[Azure Ultra 磁片](https://docs.microsoft.com/azure/virtual-machines/windows/disks-types#ultra-disk)）。 目前為止所提供的 Azure 儲存體與 Ultra 磁片之間的最大差異，在於磁片功能不會再系結到磁片大小。 身為客戶，您可以為 Ultra 磁片定義這些功能：
+Microsoft 正在推出新的 Azure 儲存體類型（稱為[Azure Ultra 磁片](https://docs.microsoft.com/azure/virtual-machines/windows/disks-types#ultra-disk)）。 目前為止所提供的 Azure 儲存體與 Ultra 磁片之間的顯著差異，在於磁片功能不會再系結到磁片大小。 身為客戶，您可以為 Ultra 磁片定義這些功能：
 
 - 磁片的大小，範圍從 4 GiB 到 65536 GiB
 - IOPS 的範圍從 100 IOPS 到 160K IOPS （最大值也取決於 VM 類型）
@@ -190,20 +189,20 @@ Ultra 磁片可讓您定義單一磁片，以滿足您的大小、IOPS 和磁片
 ### <a name="production-recommended-storage-solution-with-pure-ultra-disk-configuration"></a>使用純 Ultra 磁片設定的生產環境建議儲存體解決方案
 在此設定中，您會分別保留/hana/data 和/hana/log 磁片區。 建議的值衍生自此 Kpi，而 SAP 必須根據[SAP TDI 儲存體白皮書](https://www.sap.com/documents/2015/03/74cdb554-5a7c-0010-82c7-eda71af511fa.html)中建議的 SAP Hana 和儲存體設定來認證 VM 類型。
 
-| VM SKU | RAM | 最大 VM I/O<br /> Throughput | /hana/data 磁片區 | /hana/data i/o 輸送量 | /hana/data IOPS | /hana/log 磁片區 | /hana/log i/o 輸送量 | /hana/log IOPS |
+| VM SKU | RAM | 最大 VM I/O<br /> 輸送量 | /hana/data 磁片區 | /hana/data i/o 輸送量 | /hana/data IOPS | /hana/log 磁片區 | /hana/log i/o 輸送量 | /hana/log IOPS |
 | --- | --- | --- | --- | --- | --- | --- | --- | -- |
-| E64s_v3 | 432 GiB | 1200 MB/秒 | 600 GB | 700 MBps | 7500 | 512 GB | 500 MBps  | 2000 |
-| M32ts | 192 GiB | 500 MB/秒 | 250 GB | 400 MBps | 7500 | 256 GB | 250 MBps  | 2000 |
-| M32ls | 256 GiB | 500 MB/秒 | 300 GB | 400 MBps | 7500 | 256 GB | 250 MBps  | 2000 |
-| M64ls | 512 GB | 1000 MB/秒 | 600 GB | 600 MBps | 7500 | 512 GB | 400 MBps  | 2500 |
-| M64s | 1000 GiB | 1000 MB/秒 |  1200 GB | 600 MBps | 7500 | 512 GB | 400 MBps  | 2500 |
-| M64ms | 1750 GiB | 1000 MB/秒 | 2100 GB | 600 MBps | 7500 | 512 GB | 400 MBps  | 2500 |
-| M128s | 2000 GiB | 2000 MB/秒 |2400 GB | 1200 MBps |9000 | 512 GB | 800 MBps  | 3000 | 
-| M128ms | 3800 GiB | 2000 MB/秒 | 4800 GB | 1200 MBps |9000 | 512 GB | 800 MBps  | 3000 | 
-| M208s_v2 | 2850 GiB | 1000 MB/秒 | 3500 GB | 1000 MBps | 9000 | 512 GB | 400 MBps  | 2500 | 
-| M208ms_v2 | 5700 GiB | 1000 MB/秒 | 7200 GB | 1000 MBps | 9000 | 512 GB | 400 MBps  | 2500 | 
-| M416s_v2 | 5700 GiB | 2000 MB/秒 | 7200 GB | 1500MBps | 9000 | 512 GB | 800 MBps  | 3000 | 
-| M416ms_v2 | 11400 GiB | 2000 MB/秒 | 14400 GB | 1500 MBps | 9000 | 512 GB | 800 MBps  | 3000 |   
+| E64s_v3 | 432 GiB | 1200 MB/秒 | 600 GB | 700 MBps | 7,500 | 512 GB | 500 MBps  | 2,000 |
+| M32ts | 192 GiB | 500 MB/秒 | 250 GB | 400 MBps | 7,500 | 256 GB | 250 MBps  | 2,000 |
+| M32ls | 256 GiB | 500 MB/秒 | 300 GB | 400 MBps | 7,500 | 256 GB | 250 MBps  | 2,000 |
+| M64ls | 512 GB | 1000 MB/秒 | 600 GB | 600 MBps | 7,500 | 512 GB | 400 MBps  | 2,500 |
+| M64s | 1000 GiB | 1000 MB/秒 |  1200 GB | 600 MBps | 7,500 | 512 GB | 400 MBps  | 2,500 |
+| M64ms | 1750 GiB | 1000 MB/秒 | 2100 GB | 600 MBps | 7,500 | 512 GB | 400 MBps  | 2,500 |
+| M128s | 2000 GiB | 2000 MB/秒 |2400 GB | 1200 MBps |9,000 | 512 GB | 800 MBps  | 3,000 | 
+| M128ms | 3800 GiB | 2000 MB/秒 | 4800 GB | 1200 MBps |9,000 | 512 GB | 800 MBps  | 3,000 | 
+| M208s_v2 | 2850 GiB | 1000 MB/秒 | 3500 GB | 1000 MBps | 9,000 | 512 GB | 400 MBps  | 2,500 | 
+| M208ms_v2 | 5700 GiB | 1000 MB/秒 | 7200 GB | 1000 MBps | 9,000 | 512 GB | 400 MBps  | 2,500 | 
+| M416s_v2 | 5700 GiB | 2000 MB/秒 | 7200 GB | 1500 MBps | 9,000 | 512 GB | 800 MBps  | 3,000 | 
+| M416ms_v2 | 11400 GiB | 2000 MB/秒 | 14400 GB | 1500 MBps | 9,000 | 512 GB | 800 MBps  | 3,000 |   
 
 M416xx_v2 VM 類型尚未由 Microsoft 提供給公眾使用。 列出的值是一個起點，而且需要針對真正的需求進行評估。 Azure Ultra 磁片的優點是可以調整 IOPS 和輸送量的值，而不需要關閉 VM 或停止套用至系統的工作負載。   
 
@@ -213,13 +212,13 @@ M416xx_v2 VM 類型尚未由 Microsoft 提供給公眾使用。 列出的值是�
 ### <a name="production-recommended-storage-solution-with-pure-ultra-disk-configuration"></a>使用純 Ultra 磁片設定的生產環境建議儲存體解決方案
 在此設定中，您會在相同磁片上的/hana/data 和/hana/log 磁片區。 建議的值衍生自此 Kpi，而 SAP 必須根據[SAP TDI 儲存體白皮書](https://www.sap.com/documents/2015/03/74cdb554-5a7c-0010-82c7-eda71af511fa.html)中建議的 SAP Hana 和儲存體設定來認證 VM 類型。
 
-| VM SKU | RAM | 最大 VM I/O<br /> Throughput | /Hana/data 和/log 的磁片區 | /hana/data 和記錄 i/o 輸送量 | /hana/data 和記錄 IOPS |
+| VM SKU | RAM | 最大 VM I/O<br /> 輸送量 | /Hana/data 和/log 的磁片區 | /hana/data 和記錄 i/o 輸送量 | /hana/data 和記錄 IOPS |
 | --- | --- | --- | --- | --- | --- |
-| E64s_v3 | 432 GiB | 1200 MB/秒 | 1200 GB | 1200 MBps | 9,500 | 
-| M32ts | 192 GiB | 500 MB/秒 | 512 GB | 400 MBps | 9,500 | 
-| M32ls | 256 GiB | 500 MB/秒 | 600 GB | 400 MBps | 9,500 | 
+| E64s_v3 | 432 GiB | 1200 MB/秒 | 1200 GB | 1200 MBps | 9500 | 
+| M32ts | 192 GiB | 500 MB/秒 | 512 GB | 400 MBps | 9500 | 
+| M32ls | 256 GiB | 500 MB/秒 | 600 GB | 400 MBps | 9500 | 
 | M64ls | 512 GB | 1000 MB/秒 | 1100 GB | 900 MBps | 10,000 | 
-| M64s | 1000 GiB | 1000 MB/秒 |  1,700 GB | 900 MBps | 10,000 | 
+| M64s | 1000 GiB | 1000 MB/秒 |  1700 GB | 900 MBps | 10,000 | 
 | M64ms | 1750 GiB | 1000 MB/秒 | 2600 GB | 900 MBps | 10,000 | 
 | M128s | 2000 GiB | 2000 MB/秒 |2900 GB | 1800 MBps |12,000 | 
 | M128ms | 3800 GiB | 2000 MB/秒 | 5300 GB | 1800 MBps |12,000 |  
@@ -236,19 +235,67 @@ Azure NetApp Files 提供可用於/hana/shared、/hana/data 和/hana/log 磁片�
 > [!IMPORTANT]
 > 不支援在 Azure NetApp Files 上執行的 NFS v3 通訊協定用於/hana/shared、/hana/data 和/hana/log
 
-為了滿足儲存體延遲的需求，使用這些 NFS 磁片區進行 SAP Hana 的 Vm 必須接近及基礎結構。 為了達到此目的，您必須在及基礎結構的附近，將虛擬機器與 Microsoft 的協助放在一起。 為了讓 Microsoft 能夠執行這類鄰近位置，Microsoft 即將發佈一個表單，要求您提供一些資料和空的 Azure 可用性設定組。 Microsoft 接著會在必要時，將可用性設定組放在接近及的基礎結構。 
+### <a name="important-considerations"></a>重要考量︰
+考慮 SAP Netweaver 和 SAP Hana 的 Azure NetApp Files 時，請注意下列重要考慮：
 
-及基礎結構提供不同的效能類別。 這些類別記載于[Azure NetApp Files 的服務等級](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-service-levels)中。 
+- 最小容量集區為 4 TiB。  
+- 最小磁片區大小為 100 GiB
+- Azure NetApp Files 和所有虛擬機器（將裝載 Azure NetApp Files 磁片區）必須位於相同的 Azure 虛擬網路或相同區域的[對等互連虛擬網路](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview)中。  
+- 選取的虛擬網路必須有委派給 Azure NetApp Files 的子網。
+- Azure NetApp volume 的輸送量是磁片區配額和服務等級的功能，如[Azure Netapp Files 的服務等級](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-service-levels)中所述。 調整 HANA Azure NetApp 磁片區的大小時，請確定產生的輸送量符合 HANA 系統需求。  
+- Azure NetApp Files 提供[匯出原則](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-configure-export-policy)：您可以控制允許的用戶端、存取類型（讀取 & 寫入、唯讀等等）。 
+- Azure NetApp Files 功能尚無法感知區域。 Azure NetApp Files 功能目前不會部署在 Azure 區域中的所有可用性區域。 請留意某些 Azure 區域中可能的延遲含意。  
+- 請務必將虛擬機器部署在接近 Azure NetApp storage 的鄰近性，以獲得低延遲。 SAP Hana 工作負載的低延遲很重要。 請與您的 Microsoft 代表合作，以確保虛擬機器和 Azure NetApp Files 磁片區已部署在接近的附近。  
+- <b>Sid</b>Adm 的使用者識別碼和虛擬機器上 `sapsys` 的群組識別碼必須符合 Azure NetApp Files 中的設定。 
+
+> [!IMPORTANT]
+> SAP Hana 工作負載的低延遲很重要。 請與您的 Microsoft 代表合作，以確保虛擬機器和 Azure NetApp Files 磁片區已部署在接近的附近。  
+
+> [!IMPORTANT]
+> 如果<b>sid</b>Adm 的使用者識別碼與虛擬機器與 Azure NetApp 設定之間 `sapsys` 的群組識別碼不相符，則在虛擬機器上裝載的 Azure NetApp 磁片區上的檔案許可權將會顯示為 `nobody`。 [在將新系統](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbRxjSlHBUxkJBjmARn57skvdUQlJaV0ZBOE1PUkhOVk40WjZZQVJXRzI2RC4u)上線至 Azure NetApp Files 時，請務必指定<b>sid</b>ADM 的正確使用者識別碼，以及 `sapsys` 的群組識別碼。
+
+### <a name="sizing-for-hana-database-on-azure-netapp-files"></a>針對 Azure NetApp Files 上的 HANA 資料庫進行大小調整
+
+Azure NetApp volume 的輸送量是磁片區大小和服務層級的功能，如[Azure Netapp Files 的服務等級](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-service-levels)中所述。 
+
+當您在 Azure 中設計 SAP 的基礎結構時，您應該注意 SAP 所需的一些最低儲存體需求，這會轉譯為最小的輸送量特性：
+
+- 在 250 MB/秒的/hana/log 上啟用讀取/寫入（具有 1 MB i/o 大小）  
+- 為/hana/data 啟用至少 400 MB/秒的讀取活動，適用于 16 MB 和 64 MB 的 i/o 大小  
+- 針對具有 16 MB 和 64 MB i/o 大小的/hana/data，啟用至少 250 MB/秒的寫入活動  
+
+每1個磁片區配額 TiB 的[Azure NetApp Files 輸送量限制](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-service-levels)為：
+- 進階儲存體層-64 MiB/秒  
+- Ultra 儲存層-128 MiB/秒  
+
+為了符合資料和記錄的 SAP 最低輸送量需求，以及根據 `/hana/shared` 的指導方針，建議的大小如下所示：
+
+| 磁碟區 | 大小<br /> 進階儲存體層 | 大小<br /> Ultra 儲存層 |
+| --- | --- | --- |
+| /hana/log | 4 TiB | 2 TiB |
+| /hana/data | 6.3 TiB | 3.2 TiB |
+| HANA/shared | 每4個背景工作節點最大值（512 GB、1xRAM） | 每4個背景工作節點最大值（512 GB、1xRAM） |
+
+本文中顯示的版面配置 SAP Hana 設定，使用 Azure NetApp Files Ultra 儲存層會如下所示：
+
+| 磁碟區 | 大小<br /> Ultra 儲存層 |
+| --- | --- |
+| /hana/log/mnt00001 | 2 TiB |
+| /hana/log/mnt00002 | 2 TiB |
+| /hana/data/mnt00001 | 3.2 TiB |
+| /hana/data/mnt00002 | 3.2 TiB |
+| HANA/shared | 2 TiB |
 
 > [!NOTE]
-> 建議使用/hana/data 和/hana/log. 的及 Ultra 儲存體類別 針對/hana/shared，standard 或 premium 類別就已足夠
+> 此處所述的 Azure NetApp Files 大小建議以符合 SAP 向其基礎結構提供者表示的最低需求。 在實際的客戶部署和工作負載案例中，這可能不夠。 根據您特定工作負載的需求，使用這些建議作為起點並進行調整。  
 
-即將發佈以及為基礎的 NFS 磁片區建議輸送量建議。
+> [!TIP]
+> 您可以動態重新調整 Azure NetApp Files 磁片區的大小，而不需要 `unmount` 磁片區、停止虛擬機器或停止 SAP Hana。 這可讓您彈性地同時滿足應用程式的預期和未預期的輸送量需求。
 
-說明如何建立 n + m HANA 相應放大設定的檔即將發行。
+說明如何使用及中裝載的 Azure Vm 上的待命節點來部署具有待命節點的 SAP Hana 向外延展設定的檔，並使用[Azure 虛擬機器上的 Azure NetApp Files 在 SUSE Linux Enterprise Server 上 SAP Hana 向外](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-scale-out-standby-netapp-files-suse)延展。
 
 
 ## <a name="next-steps"></a>後續步驟
-如需詳細資訊，請參閱：
+如需詳細資訊，請參閱
 
 - [適用于 Azure 虛擬機器的 SAP Hana 高可用性指南](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-availability-overview)。

@@ -14,12 +14,12 @@ ms.workload: iaas-sql-server
 ms.date: 06/24/2019
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: a0e5076f6ecb102b239a94b986830235eb720125
-ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
+ms.openlocfilehash: 2f0fac5e1951f593ea769f73feb21a60afe9c02b
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72512371"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72756213"
 ---
 # <a name="register-a-sql-server-virtual-machine-in-azure-with-the-sql-vm-resource-provider"></a>在 Azure 中使用 SQL VM 資源提供者註冊 SQL Server 虛擬機器
 
@@ -203,7 +203,7 @@ SQL Server IaaS 延伸模組有三個免費的管理模式：
      $sqlvm.Properties.sqlManagement
   ```
 
-已安裝*羽量級*IaaS 延伸模組 SQL Server vm 可以使用 Azure 入口網站將模式升級為_full_ 。 在作業系統升級為 Windows 2008 R2 （含）以上版本之後，_無代理程式_模式中的 SQL Server vm 可以升級至_完整_版本。 不可能降級-若要這麼做，您必須使用 Azure 入口網站刪除 SQL VM 資源提供者資源，然後再次向 SQL VM 資源提供者註冊。 
+已安裝*羽量級*IaaS 延伸模組 SQL Server vm 可以使用 Azure 入口網站將模式升級為_full_ 。 在作業系統升級為 Windows 2008 R2 （含）以上版本之後，_無代理程式_模式中的 SQL Server vm 可以升級至_完整_版本。 不可能降級-若要這麼做，您必須刪除 SQL vm 資源，從 SQL VM 資源提供者[取消註冊](#unregister-vm-from-resource-provider)SQL Server VM，然後再次向 sql vm 資源提供者註冊。 
 
 若要將代理程式模式升級為完整： 
 
@@ -281,6 +281,49 @@ Register-AzResourceProvider -ProviderNamespace Microsoft.SqlVirtualMachine
 ```
 ---
 
+## <a name="unregister-vm-from-resource-provider"></a>從資源提供者取消註冊 VM 
+
+若要使用 SQL VM 資源提供者取消註冊您的 SQL Server VM，請使用 Azure 入口網站或 Azure CLI 刪除 SQL 虛擬機器*資源*。 刪除 SQL 虛擬機器*資源*並不會刪除 SQL SERVER 的 VM。 不過，請謹慎使用並遵循步驟，因為在嘗試移除*資源*時，可能會不小心刪除虛擬機器。 
+
+若要將管理模式從完整降級，必須使用 SQL VM 資源提供者取消註冊 SQL VM。 
+
+### <a name="azure-portal"></a>Azure Portal
+
+若要使用 Azure 入口網站向資源提供者取消註冊您的 SQL Server VM，請遵循下列步驟：
+
+1. 登入 [Azure 入口網站](https://portal.azure.com)。
+1. 流覽至 SQL Server 的 VM 資源。 
+  
+   ![SQL 虛擬機器資源](media/virtual-machines-windows-sql-manage-portal/sql-vm-manage.png)
+
+1. 選取 [刪除]。 
+
+   ![刪除 SQL VM 資源提供者](media/virtual-machines-windows-sql-register-with-rp/delete-sql-vm-resource-provider.png)
+
+1. 輸入 SQL 虛擬機器的名稱，並**清除虛擬機器旁的核取方塊**。
+
+   ![刪除 SQL VM 資源提供者](media/virtual-machines-windows-sql-register-with-rp/confirm-delete-of-resource-uncheck-box.png)
+
+   >[!WARNING]
+   > 如果無法清除虛擬機器名稱旁的核取方塊，將會完全*刪除*虛擬機器。 清除核取方塊以從資源提供者取消註冊 SQL Server VM，但*不要刪除實際的虛擬機器*。 
+
+1. 選取 [**刪除**] 以確認刪除 SQL 虛擬機器*資源*，而不是 SQL Server 的虛擬機器。 
+
+
+### <a name="azure-cli"></a>Azure CLI 
+
+若要使用 Azure CLI 從資源提供者取消註冊您的 SQL Server 虛擬機器，請使用[az SQL vm delete](/cli/azure/sql/vm?view=azure-cli-latest#az-sql-vm-delete)命令。 這會移除 SQL Server 虛擬機器*資源*，但不會刪除虛擬機器。 
+
+
+```azurecli-interactive
+   az sql vm delete 
+     --name <SQL VM resource name> |
+     --resource-group <Resource group name> |
+     --yes 
+```
+
+
+
 ## <a name="remarks"></a>備註
 
 - SQL VM 資源提供者僅支援透過 Azure Resource Manager 部署 SQL Server Vm。 不支援透過傳統模型部署的 SQL Server Vm。 
@@ -353,7 +396,7 @@ Register-AzResourceProvider -ProviderNamespace Microsoft.SqlVirtualMachine
 
 不會。 不支援降級 SQL Server IaaS 擴充功能管理模式。 管理模式無法從完整模式降級為輕量或無代理程式模式，而且無法從輕量模式降級為無代理程式模式。 
 
-若要從完整的管理性變更管理性模式，請卸載 Microsoft.sqlvirtualmachine 資源，然後使用 SQL VM 資源提供者重新註冊 SQL Server VM。
+若要從完整的管理性變更管理性模式，請卸載 SQL Server*資源*，然後使用 SQL VM 資源提供者重新註冊 SQL Server VM，以從 SQL Server 資源提供者[取消](#unregister-vm-from-resource-provider)登錄 SQL Server 虛擬機器同樣地，在不同的管理模式中。
 
 **我可以從 Azure 入口網站向 SQL VM 資源提供者註冊嗎？**
 

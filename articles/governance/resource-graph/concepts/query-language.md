@@ -3,15 +3,15 @@ title: 了解查詢語言
 description: 描述 Resource Graph 資料表和可用的 Kusto 資料類型、運算子和函數，Azure Resource Graph。
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 10/18/2019
+ms.date: 10/21/2019
 ms.topic: conceptual
 ms.service: resource-graph
-ms.openlocfilehash: 6189920cb03a6cf388f0b5d232c6ce97ae4f3f82
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.openlocfilehash: 80b33212afa7fed3f87b241d5cf69b43be66574d
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72389772"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72755924"
 ---
 # <a name="understanding-the-azure-resource-graph-query-language"></a>了解 Azure Resource Graph 查詢語言
 
@@ -25,12 +25,12 @@ Azure Resource Graph 查詢語言支援多個運算子與函式。 每個工作�
 
 ## <a name="resource-graph-tables"></a>Resource Graph 資料表
 
-Resource Graph 會針對它所儲存的資料，提供有關 Resource Manager 資源類型及其屬性的多個資料表。 這些資料表可以與 `join` 或 @no__t 1 運算子搭配使用，以取得相關資源類型的屬性。 以下是 Resource Graph 中可用的資料表清單：
+Resource Graph 會針對它所儲存的資料，提供有關 Resource Manager 資源類型及其屬性的多個資料表。 這些資料表可以與 `join` 或 `union` 運算子搭配使用，以取得相關資源類型的屬性。 以下是 Resource Graph 中可用的資料表清單：
 
 |Resource Graph 資料表 |描述 |
 |---|---|
 |資源 |未在查詢中定義的預設資料表。 大部分的 Resource Manager 資源類型和屬性都在這裡。 |
-|ResourceContainers |包含訂用帳戶（`Microsoft.Resources/subscriptions`）和資源群組（`Microsoft.Resources/subscriptions/resourcegroups`）資源類型和資料。 |
+|ResourceContainers |包含訂用帳戶（預覽版--`Microsoft.Resources/subscriptions`）和資源群組（`Microsoft.Resources/subscriptions/resourcegroups`）資源類型和資料。 |
 |AlertsManagementResources |包含與 `Microsoft.AlertsManagement`_相關_的資源。 |
 |SecurityResources |包含與 `Microsoft.Security`_相關_的資源。 |
 
@@ -47,18 +47,18 @@ Resources
 | limit 1
 ```
 
-下列查詢會顯示更複雜的 `join` 用法。 查詢會將聯結的資料表限制為訂用帳戶資源，而 `project` 則只包含原始欄位_subscriptionId_ ，而_名稱_欄位則會重新命名為 _[web.config]_ 。 欄位重新命名可避免 `join` 將其新增為_name1_ ，因為欄位已經存在_資源_中。 原始資料表會使用 `where` 進行篩選，而下列 `project` 則包含兩個數據表的資料行。 查詢結果是顯示類型的單一金鑰保存庫、金鑰保存庫的名稱，以及它所在的訂用帳戶名稱。
+下列查詢會顯示更複雜的 `join` 用法。 此查詢會將聯結的資料表限制為訂用帳戶資源，並利用 `project` 使其僅包含原始欄位 _subscriptionId_ 和已重新命名為 _SubName_ 的 _name_ 欄位。 欄位重新命名可避免 `join` 將其新增為_name1_ ，因為欄位已經存在_資源_中。 原始資料表會使用 `where` 進行篩選，而下列 `project` 包含兩個資料表的資料行。 查詢結果是單一金鑰保存庫顯示類型、金鑰保存庫的名稱，以及其所在的訂用帳戶名稱。
 
 ```kusto
 Resources
-| join (ResourceContainers | where type=='microsoft.resources/subscriptions' | project SubName=name, subscriptionId) on subscriptionId
 | where type == 'microsoft.keyvault/vaults'
+| join (ResourceContainers | where type=='microsoft.resources/subscriptions' | project SubName=name, subscriptionId) on subscriptionId
 | project type, name, SubName
 | limit 1
 ```
 
 > [!NOTE]
-> 當使用 `project` 來限制 @no__t 0 的結果時，`join` 用來建立兩個數據表關聯的屬性（在上述範例中為_subscriptionId_ ）必須包含在 `project` 中。
+> 當使用 `project` 來限制 `join` 結果時，`join` 用來建立兩個數據表關聯的屬性（在上述範例中為_subscriptionId_ ）必須包含在 `project` 中。
 
 ## <a name="supported-kql-language-elements"></a>支援的 KQL 語言元素
 
@@ -74,23 +74,23 @@ Resource Graph 支援所有的 KQL[資料類型](/azure/kusto/query/scalar-data-
 |[distinct](/azure/kusto/query/distinctoperator) |[顯示特定別名的相異值](../samples/starter.md#distinct-alias-values) | |
 |[extend](/azure/kusto/query/extendoperator) |[依作業系統類型計算的虛擬機器計數](../samples/starter.md#count-os) | |
 |[join](/azure/kusto/query/joinoperator) |[金鑰保存庫與訂用帳戶名稱](../samples/advanced.md#join) |支援的聯結類別： [innerunique](/azure/kusto/query/joinoperator#default-join-flavor)、 [inner](/azure/kusto/query/joinoperator#inner-join)、 [leftouter](/azure/kusto/query/joinoperator#left-outer-join)。 單一查詢中的限制為 3 `join`。 不允許自訂聯結策略（例如廣播聯結）。 可以在單一資料表內，或在_Resources_和_ResourceContainers_資料表之間使用。 |
-|[limit](/azure/kusto/query/limitoperator) |[列出所有公用 IP 位址](../samples/starter.md#list-publicip) |@No__t 的同義字-0 |
+|[limit](/azure/kusto/query/limitoperator) |[列出所有公用 IP 位址](../samples/starter.md#list-publicip) |@No__t_0 的同義字 |
 |[mv-展開](/azure/kusto/query/mvexpandoperator) |[列出具有特定寫入位置的 Cosmos DB](../samples/advanced.md#mvexpand-cosmosdb) |_RowLimit_最大值400 |
-|[即可](/azure/kusto/query/orderoperator) |[列出依名稱排序的資源](../samples/starter.md#list-resources) |@No__t 的同義字-0 |
+|[即可](/azure/kusto/query/orderoperator) |[列出依名稱排序的資源](../samples/starter.md#list-resources) |@No__t_0 的同義字 |
 |[project](/azure/kusto/query/projectoperator) |[列出依名稱排序的資源](../samples/starter.md#list-resources) | |
-|[project-away](/azure/kusto/query/projectawayoperator) |[從結果中移除資料行](../samples/advanced.md#remove-column) | |
-|[sort](/azure/kusto/query/sortoperator) |[列出依名稱排序的資源](../samples/starter.md#list-resources) |@No__t 的同義字-0 |
+|[project-away](/azure/kusto/query/projectawayoperator) |[移除結果中的資料行](../samples/advanced.md#remove-column) | |
+|[sort](/azure/kusto/query/sortoperator) |[列出依名稱排序的資源](../samples/starter.md#list-resources) |@No__t_0 的同義字 |
 |[summarize](/azure/kusto/query/summarizeoperator) |[計算的 Azure 資源計數](../samples/starter.md#count-resources) |僅限簡化的第一頁 |
-|[take](/azure/kusto/query/takeoperator) |[列出所有公用 IP 位址](../samples/starter.md#list-publicip) |@No__t 的同義字-0 |
+|[take](/azure/kusto/query/takeoperator) |[列出所有公用 IP 位址](../samples/starter.md#list-publicip) |@No__t_0 的同義字 |
 |[top](/azure/kusto/query/topoperator) |[依名稱顯示前五個虛擬機器及其作業系統類型](../samples/starter.md#show-sorted) | |
-|[union](/azure/kusto/query/unionoperator) |[將兩個查詢的結果合併成單一結果](../samples/advanced.md#unionresults) |允許單一資料表： _T_ `| union` \[ @ no__t-3 `inner` @ no__t-5 @ no__t-6 @ no__t-7 \[ @ no__t-9_ColumnName_1_資料表_。 單一查詢中的限制為 3 `union` 個腿。 不允許 @no__t 的模糊解析度-0 的支線資料表。 可以在單一資料表內，或在_Resources_和_ResourceContainers_資料表之間使用。 |
+|[union](/azure/kusto/query/unionoperator) |[將兩個查詢的結果合併成單一結果](../samples/advanced.md#unionresults) |允許單一資料表： _T_ `| union` \[ `kind=` `inner` \| `outer` \] \[ `withsource=`_ColumnName_ 1_資料表_。 單一查詢中的限制為 3 `union` 個腿。 不允許 `union` 支線資料表的模糊解析度。 可以在單一資料表內，或在_Resources_和_ResourceContainers_資料表之間使用。 |
 |[where](/azure/kusto/query/whereoperator) |[顯示包含儲存體的資源](../samples/starter.md#show-storage) | |
 
 ## <a name="escape-characters"></a>Escape 字元
 
 某些屬性名稱（例如包含 `.` 或 `$`）必須在查詢中包裝或換行，否則屬性名稱會不正確地轉譯，而且不會提供預期的結果。
 
-- `.`-將屬性名稱換行，如下所示： `['propertyname.withaperiod']`
+- `.` 包裝屬性名稱，如下所示： `['propertyname.withaperiod']`
   
   包裝屬性 odata 的範例查詢 _。類型_：
 
@@ -100,9 +100,9 @@ Resource Graph 支援所有的 KQL[資料類型](/azure/kusto/query/scalar-data-
 
 - `$`-將屬性名稱中的字元轉義。 使用的逸出字元取決於從執行的 shell Resource Graph。
 
-  - **bash** -  @ no__t-2
+  - **bash**  -  `\`
 
-    在 bash 中 _@no__t 1type_屬性的範例查詢：
+    在 bash 中 _\$type_將屬性轉義的範例查詢：
 
     ```kusto
     where type=~'Microsoft.Insights/alertRules' | project name, properties.condition.\$type
@@ -112,7 +112,7 @@ Resource Graph 支援所有的 KQL[資料類型](/azure/kusto/query/scalar-data-
 
   - **PowerShell** - ``` ` ```
 
-    在 PowerShell 中將屬性 _@no__t_轉義的範例查詢：
+    在 PowerShell 中將屬性 _\$type_轉義的範例查詢：
 
     ```kusto
     where type=~'Microsoft.Insights/alertRules' | project name, properties.condition.`$type

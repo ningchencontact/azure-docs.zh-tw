@@ -1,5 +1,5 @@
 ---
-title: Azure 雲端方案提供者的 Azure Active Directory Domain Services | Microsoft Docs
+title: 雲端解決方案提供者的 Azure AD Domain Services |Microsoft Docs
 description: Azure 雲端方案提供者的 Azure Active Directory Domain Services。
 services: active-directory-ds
 documentationcenter: ''
@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 12/08/2017
 ms.author: iainfou
-ms.openlocfilehash: dc4ad7d8cf9f3267713fd066fa79a4d9d8ab733f
-ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
+ms.openlocfilehash: 1134c078ee36a146cb1e1cbf8ca46f6cd9f8d775
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69612976"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72754431"
 ---
 # <a name="azure-active-directory-ad-domain-services-for-azure-cloud-solution-providers-csp"></a>Azure 雲端方案提供者 (CSP) 的 Azure Active Directory (AD) Domain Services
 本文章說明如何使用 Azure CSP 訂用帳戶中的 Azure Active Directory Domain Services。
@@ -43,7 +43,7 @@ Azure AD Domain Services 在 Azure 中提供 Windows Server AD 相容服務，�
 
 Azure AD Domain Services 現在支援 Azure CSP 訂用帳戶。 您現在可以在繫結至客戶的 Azure AD 目錄的 Azure CSP 訂用帳戶中部署應用程式。 如此一來，您的員工 (支援人員) 可以使用組織的公司認證來管理、管控和服務部署應用程式所在的虛擬機器。 此外，您可以為客戶的 Azure AD 目錄佈建 Azure AD Domain Services 受控網域。 您的應用程式會連接到您客戶的受控網域。 因此，應用程式內依賴於 Kerberos/NTLM、LDAP 或 [System.DirectoryServices API](/dotnet/api/system.directoryservices) 的功能可對客戶的目錄運作順暢。 一般客戶可因為使用您的應用程式作為服務而大幅獲益，而不需擔心維護應用程式部署所在的基礎結構。
 
-您在該訂用帳戶中所使用的所有 Azure 資源的計費 (包括 Azure AD Domain Services) 會退回給您。 至於銷售、計費、技術支援等，您可以保有與客戶的關係的完整控制權。有了 Azure CSP 平台的彈性，一小組的支援專員即可以服務已部署您的應用程式執行個體的許多這類客戶。
+您在該訂用帳戶中所使用的所有 Azure 資源的計費 (包括 Azure AD Domain Services) 會退回給您。 在銷售、帳單、技術支援等方面，您可以完全掌控與客戶之間的關係。有了 Azure CSP 平臺的彈性，一小組的支援代理程式可以服務許多已部署您的應用程式實例的客戶。
 
 
 ## <a name="csp-deployment-models-for-azure-ad-domain-services"></a>Azure AD 網域服務的 CSP 部署模型
@@ -56,7 +56,7 @@ Azure AD Domain Services 現在支援 Azure CSP 訂用帳戶。 您現在可以�
 
 ![直接部署模型](./media/csp/csp_direct_deployment_model.png)
 
-在此部署模型中，CSP 提供者的管理專員可以管理客戶的身分識別。 這些管理專員可以在客戶的 Azure AD 目錄等之內佈建新使用者、群組、新增應用程式。此部署模型可能適合不具專用的身分識別管理員或偏好由 CSP 合作夥伴來代表他們管理身分識別的較小型組織。
+在此部署模型中，CSP 提供者的管理專員可以管理客戶的身分識別。 這些系統管理員代理程式能夠布建新的使用者、群組、在客戶的 Azure AD 目錄中新增應用程式等等。此部署模型可能適用于沒有專用身分識別管理員的小型組織，或不想讓 CSP 合作夥伴代表他們管理識別身分。
 
 
 ### <a name="peered-deployment-model"></a>對等部署模型
@@ -72,18 +72,18 @@ Azure AD Domain Services 現在支援 Azure CSP 訂用帳戶。 您現在可以�
 ## <a name="administering-azure-ad-domain-services-managed-domains-in-csp-subscriptions"></a>管理 CSP 訂用帳戶中的 Azure AD Domain Services 受控網域
 在 Azure CSP 訂用帳戶中管理受控網域時，適用下列重要事項：
 
-* **CSP 管理專員可以使用其認證來佈建受控網域：** Azure AD Domain Services 支援 Azure CSP 訂用帳戶。 因此，屬於 CSP 合作夥伴管理專員群組的使用者可以提供新的 Azure AD Domain Services 受控網域。
+* **CSP 管理專員可以使用其認證來佈建受控網域**：Azure AD Domain Services 支援 Azure CSP 訂用帳戶。 因此，屬於 CSP 合作夥伴管理專員群組的使用者可以提供新的 Azure AD Domain Services 受控網域。
 
-* **CSP 可以使用 PowerShell 編寫為客戶 建立新受控網域的指令碼：** 如需詳細資訊，請參閱[如何使用 PowerShell 啟用 Azure AD Domain Services](powershell-create-instance.md)。
+* **CSP 可以使用 PowerShell 編寫為客戶 建立新受控網域的指令碼**：如需詳細資訊，請參閱[如何使用 PowerShell 啟用 Azure AD Domain Services](powershell-create-instance.md)。
 
-* **CSP 管理專員無法使用其認證在受控網域執行進行中的管理工作：** CSP 管理使用者無法使用其認證在受控網域內執行例行管理工作。 這些使用者對客戶的 Azure AD 目錄而言屬於外部，而其認證在客戶的 Azure AD 目錄內無法使用。 因此，Azure AD Domain Services 沒有這些使用者 Kerberos 和 NTLM 密碼雜湊的存取權。 如此一來，這類使用者在 Azure AD Domain Services 的受控網域上無法通過驗證。
+* **CSP 管理專員無法使用其認證在受控網域執行進行中的管理工作**：CSP 管理使用者無法使用其認證在受控網域內執行例行管理工作。 這些使用者對客戶的 Azure AD 目錄而言屬於外部，而其認證在客戶的 Azure AD 目錄內無法使用。 因此，Azure AD Domain Services 沒有這些使用者 Kerberos 和 NTLM 密碼雜湊的存取權。 如此一來，這類使用者在 Azure AD Domain Services 的受控網域上無法通過驗證。
 
   > [!WARNING]
   > **您必須在客戶的目錄內建立使用者帳戶，才能在受控網域上執行進行中的管理工作。**
   > 您無法使用 CSP 管理使用者的認證來登入受控網域。 請使用屬於客戶 Azure AD 目錄的使用者帳戶認證來執行此動作。 對於將虛擬機器加入受控網域、管理 DNS、管理群組原則之類工作，您需要這些認證。
   >
 
-* **針對進行中管理建立的使用者帳戶必須新增至 'AAD DC Administrators' 群組：** 'AAD DC Administrators' 群組具有在受控網域上執行特定委派的系統管理工作的權限。 這些工作包括設定 DNS、建立組織單位、管理群組原則等。若要讓 CSP 合作夥伴在受控網域上執行這類工作，需要客戶的 Azure AD 目錄中建立使用者帳戶。 您必須將此帳戶的認證與 CSP 合作夥伴的管理專員分享。 此外，必須將此使用者帳戶新增至 'AAD DC Administrators' 群組，以讓受控網域上的組態工作可使用此使用者帳戶來執行。
+* **針對進行中管理建立的使用者帳戶必須新增至 'AAD DC Administrators' 群組**：'AAD DC Administrators' 群組具有在受控網域上執行特定委派的系統管理工作的權限。 這些工作包括設定 DNS、建立組織單位、管理群組原則等。若要讓 CSP 合作夥伴在受控網域上執行這類工作，必須在客戶的 Azure AD 目錄內建立使用者帳戶。 您必須將此帳戶的認證與 CSP 合作夥伴的管理專員分享。 此外，必須將此使用者帳戶新增至 'AAD DC Administrators' 群組，以讓受控網域上的組態工作可使用此使用者帳戶來執行。
 
 
 ## <a name="next-steps"></a>後續步驟

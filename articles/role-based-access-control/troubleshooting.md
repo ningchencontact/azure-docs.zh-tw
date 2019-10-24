@@ -15,12 +15,12 @@ ms.date: 08/22/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: seohack1
-ms.openlocfilehash: eb7c2cb4a20c89f3a54f23e354d56e5dc3711ef0
-ms.sourcegitcommit: fbea2708aab06c19524583f7fbdf35e73274f657
-ms.translationtype: MT
+ms.openlocfilehash: 158222c256e3efc7ca87d7a3781ca68e1c4307b1
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/13/2019
-ms.locfileid: "70967112"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72750179"
 ---
 # <a name="troubleshoot-rbac-for-azure-resources"></a>針對適用於 Azure 資源的 RBAC 進行疑難排解
 
@@ -28,15 +28,15 @@ ms.locfileid: "70967112"
 
 ## <a name="problems-with-rbac-role-assignments"></a>RBAC 角色指派的問題
 
-- 如果您無法在 [**存取控制（IAM）** ] 的 Azure 入口網站中新增角色指派，因為 [**新增** > **新增角色指派**] 選項已停用，或因為您收到許可權錯誤「具有物件識別碼的用戶端沒有執行動作的授權」，請確認您目前登入的使用者已`Microsoft.Authorization/roleAssignments/write`獲指派角色的許可權，例如您嘗試指派角色之範圍的[擁有者](built-in-roles.md#owner)或[使用者存取系統管理員](built-in-roles.md#user-access-administrator)。
-- 如果您收到錯誤訊息「無法建立更多角色指派（程式碼：RoleAssignmentLimitExceeded)」，請嘗試改為將角色指派給群組，以減少角色指派的數目。 Azure 支援每個訂用帳戶最多 **2000** 個角色指派。
+- 如果您無法在 [**存取控制（IAM）** ] 的 Azure 入口網站中新增角色指派，因為 [**新增** > **新增角色指派**] 選項已停用，或因為您收到許可權錯誤「具有物件識別碼的用戶端沒有[執行動作的授權]，檢查您目前登入的使用者是否已獲指派角色，此角色具有 [`Microsoft.Authorization/roleAssignments/write`] 許可權，例如您嘗試指派角色之範圍的 [[擁有](built-in-roles.md#owner)者] 或 [[使用者存取系統管理員](built-in-roles.md#user-access-administrator)]。
+- 如果您在嘗試指派角色時收到錯誤訊息「無法建立更多角色指派（程式碼： RoleAssignmentLimitExceeded）」，請嘗試改為將角色指派給群組，以減少角色指派的數目。 Azure 支援每個訂用帳戶最多 **2000** 個角色指派。
 
 ## <a name="problems-with-custom-roles"></a>自訂角色的問題
 
 - 如果您需要如何建立自訂角色的步驟，請參閱使用[Azure PowerShell](tutorial-custom-role-powershell.md)或[Azure CLI](tutorial-custom-role-cli.md)的自訂角色教學課程。
-- 如果您無法更新現有的自訂角色，請檢查您目前登入的使用者是否已獲指派具有`Microsoft.Authorization/roleDefinition/write`許可權的角色，例如[擁有者](built-in-roles.md#owner)或[使用者存取系統管理員](built-in-roles.md#user-access-administrator)。
-- 如果您無法刪除自訂角色並收到錯誤訊息「有參考角色的現有角色指派 (代碼：RoleDefinitionHasAssignments)」，則有仍在使用自訂角色的角色指派。 請移除這些角色指派，並試著再次刪除自訂角色。
-- 如果您收到「已超過角色定義限制」錯誤訊息。 不能建立更多角色定義（程式碼：RoleDefinitionLimitExceeded）」：當您嘗試建立新的自訂角色時，請刪除所有未使用的自訂角色。 Azure 在租使用者中最多支援**5000**個自訂角色。 (若為特製化的雲端，例如 Azure Government、Azure 德國和 Azure 中國 21Vianet，則限制為 2000 個自訂角色)。
+- 如果您無法更新現有的自訂角色，請確認您目前登入的使用者已獲指派具有 [`Microsoft.Authorization/roleDefinition/write`] 許可權的角色，例如 [[擁有](built-in-roles.md#owner)者] 或 [[使用者存取系統管理員](built-in-roles.md#user-access-administrator)]。
+- 如果您無法刪除自訂角色，並收到錯誤訊息「有現有的角色指派參考角色（代碼： RoleDefinitionHasAssignments）」，則仍有使用自訂角色的角色指派。 請移除這些角色指派，並試著再次刪除自訂角色。
+- 如果您收到「已超過角色定義限制」錯誤訊息。 當您嘗試建立新的自訂角色時，無法建立更多角色定義（代碼： RoleDefinitionLimitExceeded）」，請刪除未使用的任何自訂角色。 Azure 在租使用者中最多支援**5000**個自訂角色。 (若為特製化的雲端，例如 Azure Government、Azure 德國和 Azure 中國 21Vianet，則限制為 2000 個自訂角色)。
 - 如果您收到類似于「用戶端有權在範圍 '/subscriptions/{subscriptionid} ' 上執行動作 ' roleDefinitions/write '」的錯誤，但在您嘗試更新自訂角色時找不到連結的訂用帳戶」，請檢查租使用者中是否已刪除一或多個可[指派的範圍](role-definitions.md#assignablescopes)。 如果範圍已刪除，則可以建立支援票證，因為此時已沒有可用的自助解決方案。
 
 ## <a name="recover-rbac-when-subscriptions-are-moved-across-tenants"></a>當訂用帳戶在租用戶之間移動時復原 RBAC
@@ -51,12 +51,12 @@ ms.locfileid: "70967112"
 
 ## <a name="access-denied-or-permission-errors"></a>拒絕存取或許可權錯誤
 
-- 如果在嘗試建立資源時收到權限錯誤「具有物件識別碼的用戶端沒有在範圍中執行動作的權限 (錯誤碼：AuthorizationFailed)」，請檢查您目前用於登入的使用者是否獲派對所選範圍內的資源具有寫入權限的角色。 例如，若要管理資源群組中的虛擬機器，您應該具有資源群組 (或父範圍) 的[虛擬機器參與者](built-in-roles.md#virtual-machine-contributor)角色。 如需每個內建角色的權限清單，請參閱 [Azure 資源的內建角色](built-in-roles.md)。
-- 如果您在嘗試建立或更新支援票證時收到許可權錯誤「您沒有建立支援要求的許可權」，請檢查您目前登入的使用者是否已獲指派具有`Microsoft.Support/supportTickets/write`許可權的角色，例如[支援要求參與者](built-in-roles.md#support-request-contributor)。
+- 如果您在嘗試建立資源時收到許可權錯誤「具有物件識別碼的用戶端沒有執行動作的授權（代碼： AuthorizationFailed）」，請檢查您目前登入的使用者是否已獲指派具有寫入權限的角色所選範圍內資源的許可權。 例如，若要管理資源群組中的虛擬機器，您應該具有資源群組 (或父範圍) 的[虛擬機器參與者](built-in-roles.md#virtual-machine-contributor)角色。 如需每個內建角色的權限清單，請參閱 [Azure 資源的內建角色](built-in-roles.md)。
+- 如果您在嘗試建立或更新支援票證時收到許可權錯誤「您沒有建立支援要求的許可權」，請檢查您目前登入的使用者是否已獲指派具有 [`Microsoft.Support/supportTickets/write`] 許可權的角色，例如[支援要求參與者](built-in-roles.md#support-request-contributor)。
 
-## <a name="role-assignments-without-a-security-principal"></a>沒有安全性主體的角色指派
+## <a name="role-assignments-with-unknown-security-principal"></a>具有不明安全性主體的角色指派
 
-當您使用 Azure PowerShell 列出角色指派時，您可能會看到具有空白`DisplayName`且已`ObjectType`設為 [未知] 的指派。 例如， [new-azroleassignment](/powershell/module/az.resources/get-azroleassignment)會傳回與下列類似的角色指派：
+當您使用 Azure PowerShell 列出角色指派時，您可能會看到具有空白 `DisplayName` 和 `ObjectType` 設定為 [未知] 的指派。 例如， [new-azroleassignment](/powershell/module/az.resources/get-azroleassignment)會傳回與下列類似的角色指派：
 
 ```azurepowershell
 RoleAssignmentId   : /subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Authorization/roleAssignments/22222222-2222-2222-2222-222222222222
@@ -70,7 +70,7 @@ ObjectType         : Unknown
 CanDelegate        : False
 ```
 
-同樣地，當您使用 Azure CLI 列出角色指派時，您可能會看到具有空白`principalName`的指派。 例如， [az role 指派 list](/cli/azure/role/assignment#az-role-assignment-list)會傳回與下列類似的角色指派：
+同樣地，當您使用 Azure CLI 列出角色指派時，您可能會看到具有空白 `principalName` 的指派。 例如， [az role 指派 list](/cli/azure/role/assignment#az-role-assignment-list)會傳回與下列類似的角色指派：
 
 ```azurecli
 {
@@ -103,7 +103,7 @@ At line:1 char:1
 + FullyQualifiedErrorId : Microsoft.Azure.Commands.Resources.RemoveAzureRoleAssignmentCommand
 ```
 
-如果您收到此錯誤訊息，請確定您也指定了`-Scope`或`-ResourceGroupName`參數。
+如果您收到此錯誤訊息，請確定您也指定了 `-Scope` 或 `-ResourceGroupName` 參數。
 
 ```Example
 PS C:\> Remove-AzRoleAssignment -ObjectId 33333333-3333-3333-3333-333333333333 -RoleDefinitionName "Storage Blob Data Contributor" - Scope /subscriptions/11111111-1111-1111-1111-111111111111
@@ -163,11 +163,11 @@ Web 應用程式因為幾個互有關聯的資源而顯得複雜。 以下是具
 * 端點  
 * IP 位址  
 * 磁碟  
-* 延伸模組  
+* 擴充功能  
 
 這些項目都需要同時具備「虛擬機器」與所屬之「資源群組」(連同網域名稱) 的**寫入**權：  
 
-* 可用性集合  
+* 可用性設定組  
 * 負載平衡集合  
 * 警示規則  
 

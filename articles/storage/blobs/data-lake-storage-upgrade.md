@@ -8,12 +8,12 @@ ms.date: 02/07/2019
 ms.service: storage
 ms.subservice: data-lake-storage-gen2
 ms.reviewer: rugopala
-ms.openlocfilehash: aaff1d5e657b8acb28293f3450849b1446727680
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.openlocfilehash: 27d752b8ff7eafbb92930b19e17890ace8a90b85
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72030786"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72750440"
 ---
 # <a name="upgrade-your-big-data-analytics-solutions-from-azure-data-lake-storage-gen1-to-azure-data-lake-storage-gen2"></a>將您的巨量資料分析解決方案從 Azure Data Lake Storage Gen1 升級為 Azure Data Lake Storage Gen2
 
@@ -21,11 +21,11 @@ ms.locfileid: "72030786"
 
 我們將協助您完成下列工作：
 
-:heavy_check_mark:評估您的升級整備程度
+： heavy_check_mark：評估您的升級準備就緒
 
-:heavy_check_mark:規劃升級
+： heavy_check_mark：規劃升級
 
-:heavy_check_mark:執行升級
+： heavy_check_mark：執行升級
 
 ## <a name="assess-your-upgrade-readiness"></a>評估您的升級整備程度
 
@@ -51,15 +51,15 @@ ms.locfileid: "72030786"
 
 下列各節提供資訊來協助您做出更好的決策：
 
-:heavy_check_mark:平台功能
+： heavy_check_mark：平臺功能
 
-:heavy_check_mark:程式設計介面
+： heavy_check_mark：程式設計介面
 
-:heavy_check_mark:Azure 生態系統
+： heavy_check_mark： Azure 生態系統
 
-:heavy_check_mark:合作夥伴生態系統
+： heavy_check_mark：合作夥伴生態系統
 
-:heavy_check_mark:操作資訊
+： heavy_check_mark：操作資訊
 
 在每一節中，您將能夠判斷您升級的「必備條件」。 在您確定各項功能可用之後，或確定有合理的因應措施之後，請繼續本指南的進行[規劃升級](#planning-for-an-upgrade)一節。
 
@@ -123,12 +123,12 @@ ms.locfileid: "72030786"
 |                      | [SQL 資料倉儲](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-load-from-azure-data-lake-store)                                            | *不支援*                                                                                                                                                              | *現已推出* [連結](https://docs.microsoft.com/sql/t-sql/statements/create-external-data-source-transact-sql?view=sql-server-2017) |
 | 資料整合     | [Data Factory](https://docs.microsoft.com/azure/data-factory/load-azure-data-lake-store)                                                                                | [版本 2](https://docs.microsoft.com/azure/data-factory/connector-azure-data-lake-storage) – *現已推出* 版本 1 – *不支援*                               | [版本 2](https://docs.microsoft.com/azure/data-factory/connector-azure-data-lake-storage) – *現已推出* <br><br> 版本 1 – *不支援*  |
 |                      | [AdlCopy](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-copy-data-azure-storage-blob)                                                                 | *不支援*                                                                                                                                                              | *不支援*                                                                                                                                 |
-|                      | [SQL Server Integration Services](https://docs.microsoft.com/sql/integration-services/connection-manager/azure-data-lake-store-connection-manager?view=sql-server-2017) | *尚未提供*                                                                                                                                                          | *尚未提供*                                                                                                                             |
+|                      | [SQL Server Integration Services](https://docs.microsoft.com/sql/integration-services/connection-manager/azure-data-lake-store-connection-manager?view=sql-server-2017) | *現已推出*                                                                                                                                                          | *現已推出*                                                                                                                             |
 |                      | [資料目錄](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-with-data-catalog)                                                                       | *尚未提供*                                                                                                                                                          | *尚未提供*                                                                                                                             |
-|                      | [Logic Apps](https://docs.microsoft.com/connectors/azuredatalake/)                                                                                                      | *尚未提供*                                                                                                                                                          | *尚未提供*                                                                                                                             |
-| IoT                  | [事件中樞 – 擷取](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-archive-eventhub-capture)                                                       | *尚未提供*                                                                                                                                                          | *尚未提供*                                                                                                                             |
-|                      | [串流分析](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-stream-analytics)                                                                   | *尚未提供*                                                                                                                                                          | *尚未提供*                                                                                                                             |
-| 耗用量          | [Power BI Desktop](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-power-bi)                                                                           | *尚未提供*                                                                                                                                                          | *尚未提供*                                                                                                                             |
+|                      | [Logic Apps](https://docs.microsoft.com/connectors/azuredatalake/)                                                                                                      | *現已推出*                                                                                                                                                          | *現已推出*                                                                                                                             |
+| IoT                  | [事件中樞 – 擷取](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-archive-eventhub-capture)                                                       | *現已推出*                                                                                                                                                          | *現已推出*                                                                                                                             |
+|                      | [串流分析](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-stream-analytics)                                                                   | *現已推出*                                                                                                                                                          | *現已推出*                                                                                                                             |
+| 消費          | [Power BI Desktop](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-power-bi)                                                                           | *現已推出*                                                                                                                                                          | *現已推出*                                                                                                                             |
 |                      | [Excel](https://techcommunity.microsoft.com/t5/Excel-Blog/Announcing-the-Azure-Data-Lake-Store-Connector-in-Excel/ba-p/91677)                                                 | *尚未提供*                                                                                                                                                          | *尚未提供*                                                                                                                             |
 |                      | [分析服務](https://blogs.msdn.microsoft.com/analysisservices/2017/09/05/using-azure-analysis-services-on-top-of-azure-data-lake-storage/)                            | *尚未提供*                                                                                                                                                          | *尚未提供*                                                                                                                             |
 | 生產力         | [Azure 入口網站](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-get-started-portal)                                                                      | *不支援*                                                                                                                                                              | 帳戶管理 *– 現已推出* <br><br>資料作業 *–*  *尚無法使用*                                                                   |
@@ -140,7 +140,7 @@ ms.locfileid: "72030786"
 
 下表顯示已修改成使用 Data Lake Storage Gen1 的第三方服務和產品清單。 其中也顯示哪些項目目前與 Data Lake Storage Gen2 相容。
 
-| 領域            | 合作夥伴  | 產品/服務  | Data Lake Storage Gen1 的可用性                                                                                                                                               | Data Lake Storage Gen2 的可用性 – 採用共用金鑰驗證                                                   | Data Lake Storage Gen2 的可用性 – 採用 OAuth                                                             |
+| 區域            | Partner  | 產品/服務  | Data Lake Storage Gen1 的可用性                                                                                                                                               | Data Lake Storage Gen2 的可用性 – 採用共用金鑰驗證                                                   | Data Lake Storage Gen2 的可用性 – 採用 OAuth                                                             |
 |---------------------|--------------|----------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------|
 | 分析架構 | Cloudera     | CDH                  | [連結](https://www.cloudera.com/documentation/enterprise/5-11-x/topics/admin_adls_config.html)                                                                                            | *尚未提供*                                                                                                  | [連結](https://www.cloudera.com/documentation/enterprise/latest/topics/admin_adls2_config.html)                                                                                                  |
 |                     | Cloudera     | Altus                | [連結](https://www.cloudera.com/more/news-and-blogs/press-releases/2017-09-27-cloudera-introduces-altus-data-engineering-microsoft-azure-hybrid-multi-cloud-data-analytic-workflows.html) | *不支援*                                                                                                                  | *尚未提供*                                                                                                  |
@@ -172,7 +172,7 @@ Data Lake Storage Gen1 會將特定資訊和資料推送給其他可協助您運
 
 升級的最重要部分就是決定策略。 這項決策會決定您可用的選擇。
 
-下表列出已用來遷移資料庫、Hadoop 叢集等的一些知名策略。我們會採用類似策略，並使其適用於我們的內容。
+下表列出一些已用來遷移資料庫、Hadoop 叢集等的知名策略。我們將在我們的指引中採用類似的策略，並將其調整為我們的內容。
 
 | 策略                   | 優點                                                                                  | 缺點                                                           | 使用時機                                                                                                                                                                                             |
 |--------------------------------|-------------------------------------------------------------------------------------------|--------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -225,7 +225,7 @@ Data Lake Storage Gen1 會將特定資訊和資料推送給其他可協助您運
 | **一次性複製和累加式複製** | Azure Data Factory                                                                                                    | 受控雲端服務                                                                                                                | 目前可以複製資料和 Acl。 若要在 ADF 中支援累加式複製，必須以時間序列的方式組織資料。 累加式複製之間的最短間隔為 [15 分鐘](https://docs.microsoft.com/azure/data-factory/how-to-create-tumbling-window-trigger)。 |
 | **平行採用**              | [WANdisco](https://docs.wandisco.com/bigdata/wdfusion/adls/)                                                           | 支援一致複寫：如果使用已連線到 Azure Data Lake Storage 的純 Hadoop 環境，則支援雙向複寫 | 如果未使用純 Hadoop 環境，則複寫可能延遲。                                                                                                                                                                                                                                                  |
 
-請注意，有第三方可處理 Data Lake Storage Gen1 至 Data Lake Storage Gen2 升級，而不需使用上述資料/中繼資料複製工具 (例如：[Cloudera](https://blog.cloudera.com/blog/2017/08/use-amazon-s3-with-cloudera-bdr/))。 他們提供執行資料移轉及工作負載移轉的「一站式」體驗。 您可能必須針對其生態系統以外的任何工具，執行頻外升級。
+請注意，有協力廠商可以處理 Data Lake Storage Gen1 以 Data Lake Storage Gen2 升級，而不需涉及上述資料/中繼資料複製工具（例如： [Cloudera](https://blog.cloudera.com/blog/2017/08/use-amazon-s3-with-cloudera-bdr/)）。 他們提供執行資料移轉及工作負載移轉的「一站式」體驗。 您可能必須針對其生態系統以外的任何工具，執行頻外升級。
 
 #### <a name="considerations"></a>考量
 
@@ -245,11 +245,11 @@ Data Lake Storage Gen1 會將特定資訊和資料推送給其他可協助您運
 
 #### <a name="uri-changes"></a>URI 變更
 
-此處的主要工作是將 URI （其前置詞為 `adl://`）轉譯為 URI，其具有 @no__t 1 的前置詞。
+此處的主要工作是將具有 `abfss://` 前置詞 `adl://` 的 URI 轉譯為 URI。
 
 Data Lake Storage Gen1 的 URI 配置會在[這裡](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-use-data-lake-store)詳述，但大致上說，其為 *adl://mydatalakestore.azuredatalakestore.net/\<file_path\>。*
 
-[這裡](../../hdinsight/hdinsight-hadoop-use-data-lake-storage-gen2.md)會詳細說明用來存取 Data Lake Storage Gen2 檔案的 URI 配置，但大致上說，它是 `abfss://<FILE_SYSTEM_NAME>@<ACCOUNT_NAME>.dfs.core.windows.net/<PATH>`。
+[這裡](../../hdinsight/hdinsight-hadoop-use-data-lake-storage-gen2.md)會詳細說明用來存取 Data Lake Storage Gen2 檔案的 URI 配置，但大致而言，這是 `abfss://<FILE_SYSTEM_NAME>@<ACCOUNT_NAME>.dfs.core.windows.net/<PATH>`。
 
 您必須瀏覽現有的應用程式，並確保已將 URI 適度變更為指向 Data Lake Storage Gen2 URI。 此外，您必須新增適當的認證。 最後，您淘汰原始應用程式並取代為新應用程式的方式必須密切符合您的整體升級策略。
 
@@ -309,7 +309,7 @@ Data Lake Storage Gen1 的 URI 配置會在[這裡](https://docs.microsoft.com/a
 
 首先，確定可以與 Data Lake Storage Gen2 整合。
 
-然後，必須變更以上提出的元素 (例如：URI 和認證)。 您可以修改使用 Data Lake Storage Gen1 的現有執行個體，或者可以建立會使用 Data Lake Storage Gen2 的新執行個體。
+然後，就必須變更上面所呼叫的元素（例如： URI 和認證）。 您可以修改使用 Data Lake Storage Gen1 的現有執行個體，或者可以建立會使用 Data Lake Storage Gen2 的新執行個體。
 
 ### <a name="partner-ecosystem-upgrade"></a>夥伴生態系統升級
 
@@ -327,7 +327,7 @@ Data Lake Storage Gen1 的 URI 配置會在[這裡](https://docs.microsoft.com/a
 
 ### <a name="post-upgrade"></a>升級後
 
-轉換作業完成之後，最終步驟會涉及徹底的驗證。 這包括但不限於確認資料已可靠地複製、驗證 Acl 是否已正確設定、驗證端對端管線是否正常運作等。完成驗證之後，您現在可以關閉舊管線、刪除來源 Data Lake Storage Gen1 帳戶，並全速使用您的 Data Lake Storage Gen2 型解決方案。
+轉換作業完成之後，最終步驟會涉及徹底的驗證。 這包括但不限於確認資料已可靠地複製、驗證 Acl 是否已正確設定、驗證端對端管線是否正常運作等。完成驗證之後，您現在可以關閉舊的管線、刪除來源 Data Lake Storage Gen1 帳戶，並在 Data Lake Storage Gen2 架構的解決方案上獲得完整的速度。
 
 ## <a name="conclusion"></a>結論
 

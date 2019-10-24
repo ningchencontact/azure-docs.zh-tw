@@ -1,5 +1,5 @@
 ---
-title: 將 Ubuntu VM 加入 Azure AD Domain Services |Microsoft Docs '
+title: 將 Ubuntu VM 加入 Azure AD Domain Services |Microsoft Docs
 description: 瞭解如何設定 Ubuntu Linux 虛擬機器並將其加入 Azure AD Domain Services 受控網域。
 services: active-directory-ds
 author: iainfoulds
@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 09/15/2019
 ms.author: iainfou
-ms.openlocfilehash: e92327323f632f6b922e3eb948df75bb3666e2a9
-ms.sourcegitcommit: 8ef0a2ddaece5e7b2ac678a73b605b2073b76e88
+ms.openlocfilehash: 9fb41b08cb29a68b39fb416b4b7b7bcce9e821dd
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71075369"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72754355"
 ---
 # <a name="join-an-ubuntu-linux-virtual-machine-to-an-azure-ad-domain-services-managed-domain"></a>將 Ubuntu Linux 虛擬機器加入 Azure AD Domain Services 受控網域
 
@@ -72,13 +72,13 @@ sudo vi /etc/hosts
 127.0.0.1 ubuntu.contoso.com ubuntu
 ```
 
-完成時，請使用編輯器的 `:wq`命令來儲存並結束 hosts 檔案。
+完成時，請使用編輯器的 [`:wq`] 命令儲存並結束*hosts*檔案。
 
 ## <a name="install-required-packages"></a>安裝必要的套件
 
-VM 需要一些額外的套件，才能將 VM 加入 Azure AD DS 受控網域。 若要安裝及設定這些封裝，請使用來更新和安裝網域聯結工具`apt-get`
+VM 需要一些額外的套件，才能將 VM 加入 Azure AD DS 受控網域。 若要安裝及設定這些封裝，請使用 `apt-get` 更新並安裝網域聯結工具。
 
-在 Kerberos 安裝期間， *krb5 使用者*套件會以全部大寫的方式來提示領域名稱。 例如，如果您 Azure AD DS 受控網域的名稱是*contoso.com*，請輸入*CONTOSO.COM*作為領域。 安裝會在`[realm]` */etc/krb5.conf*配置`[domain_realm]`檔中寫入和區段。 請確定您將領域全部指定為大寫：
+在 Kerberos 安裝期間， *krb5 使用者*套件會以全部大寫的方式來提示領域名稱。 例如，如果您 Azure AD DS 受控網域的名稱是*contoso.com*，請輸入*CONTOSO.COM*作為領域。 安裝會在 */etc/krb5.conf*設定檔中寫入 `[realm]` 和 `[domain_realm]` 區段。 請確定您將領域全部指定為大寫：
 
 ```console
 sudo apt-get update
@@ -101,7 +101,7 @@ sudo apt-get install krb5-user samba sssd sssd-tools libnss-sss libpam-sss ntp n
     server contoso.com
     ```
 
-    完成時，請使用編輯器的 `:wq`命令來儲存並結束 ntp 檔案。
+    完成時，請使用編輯器的 `:wq` 命令來儲存並結束*ntp*檔案。
 
 1. 為確保 VM 與 Azure AD DS 受控網域同步處理，需要執行下列步驟：
 
@@ -109,7 +109,7 @@ sudo apt-get install krb5-user samba sssd sssd-tools libnss-sss libpam-sss ntp n
     * 更新受控網域中的日期和時間
     * 啟動 NTP 服務
 
-    執行下列命令來完成這些步驟。 搭配`ntpdate`命令使用您自己的 DNS 名稱：
+    執行下列命令來完成這些步驟。 搭配 `ntpdate` 命令使用您自己的 DNS 名稱：
 
     ```console
     sudo systemctl stop ntp
@@ -121,27 +121,27 @@ sudo apt-get install krb5-user samba sssd sssd-tools libnss-sss libpam-sss ntp n
 
 現在已將必要的套件安裝在 VM 上，並已設定 NTP，請將 VM 加入 Azure AD DS 受控網域。
 
-1. `realm discover`使用命令來探索 Azure AD DS 受控網域。 下列範例會探索領域*CONTOSO.COM*。 以全部大寫指定您自己的 Azure AD DS 受控功能變數名稱：
+1. 使用 `realm discover` 命令探索 Azure AD DS 受控網域。 下列範例會探索領域*CONTOSO.COM*。 以全部大寫指定您自己的 Azure AD DS 受控功能變數名稱：
 
     ```console
     sudo realm discover CONTOSO.COM
     ```
 
-   `realm discover`如果命令找不到您的 Azure AD DS 受控網域，請參閱下列疑難排解步驟：
+   如果 `realm discover` 命令找不到您 Azure AD DS 受控網域，請參閱下列疑難排解步驟：
 
-    * 請確定可從 VM 連線到該網域。 請`ping contoso.com`嘗試查看是否傳回正面回復。
+    * 請確定可從 VM 連線到該網域。 嘗試 `ping contoso.com` 以查看是否傳回正面回復。
     * 檢查 VM 是否已部署至相同或對等互連的虛擬網路，其中可使用 Azure AD DS 受控網域。
     * 確認虛擬網路的 DNS 伺服器設定已更新，以指向 Azure AD DS 受控網域的網域控制站。
 
-1. 現在使用`kinit`命令初始化 Kerberos。 指定屬於*AAD DC 系統管理員*群組的使用者。 如有需要，請[將使用者帳戶新增至 Azure AD 中的群組](../active-directory/fundamentals/active-directory-groups-members-azure-portal.md)。
+1. 現在使用 `kinit` 命令來初始化 Kerberos。 指定屬於*AAD DC 系統管理員*群組的使用者。 如有需要，請[將使用者帳戶新增至 Azure AD 中的群組](../active-directory/fundamentals/active-directory-groups-members-azure-portal.md)。
 
-    同樣地，必須以全部大寫輸入 Azure AD DS 受管理的功能變數名稱。 在下列範例中，會使用名`contosoadmin@contoso.com`為的帳戶來初始化 Kerberos。 輸入屬於*AAD DC 系統管理員*群組成員的您自己的使用者帳戶：
+    同樣地，必須以全部大寫輸入 Azure AD DS 受管理的功能變數名稱。 在下列範例中，會使用名為 `contosoadmin@contoso.com` 的帳戶來初始化 Kerberos。 輸入屬於*AAD DC 系統管理員*群組成員的您自己的使用者帳戶：
 
     ```console
     kinit contosoadmin@CONTOSO.COM
     ```
 
-1. 最後，使用`realm join`命令將電腦加入 Azure AD DS 受控網域。 使用與您在上一個`kinit` `contosoadmin@CONTOSO.COM`命令中指定的*AAD DC 系統管理員*群組成員相同的使用者帳戶，例如：
+1. 最後，使用 `realm join` 命令將電腦加入 Azure AD DS 受控網域。 使用與您在上一個 `kinit` 命令中指定的*AAD DC 系統管理員*群組成員相同的使用者帳戶，例如 `contosoadmin@CONTOSO.COM`：
 
     ```console
     sudo realm join --verbose CONTOSO.COM -U 'contosoadmin@CONTOSO.COM' --install=/
@@ -171,7 +171,7 @@ Successfully enrolled machine in realm
     # use_fully_qualified_names = True
     ```
 
-    完成時，請使用編輯器的 `:wq`命令來儲存並結束 sssd 檔案。
+    完成時，請使用編輯器的 `:wq` 命令來儲存並結束*sssd*檔案。
 
 1. 若要套用變更，請重新開機 SSSD 服務：
 
@@ -199,7 +199,7 @@ Successfully enrolled machine in realm
     PasswordAuthentication yes
     ```
 
-    完成時，請使用編輯器的 `:wq`命令來儲存並結束 sshd_conf 檔案。
+    完成時，請使用編輯器的 `:wq` 命令來儲存並結束*sshd_conf*檔案。
 
 1. 若要套用變更並讓使用者使用密碼登入，請重新開機 SSH 服務：
 
@@ -217,17 +217,17 @@ Successfully enrolled machine in realm
     sudo vi /etc/pam.d/common-session
     ```
 
-1. 在此檔案中的行`session optional pam_sss.so`下方，新增下列程式程式碼：
+1. 將下面這一行加入此檔案中的 `session optional pam_sss.so` 行底下：
 
     ```console
     session required pam_mkhomedir.so skel=/etc/skel/ umask=0077
     ```
 
-    完成時，請使用編輯器的`:wq`命令來儲存和結束*一般會話*檔案。
+    完成時，請使用編輯器的 `:wq` 命令來儲存並結束*一般會話*檔案。
 
 ### <a name="grant-the-aad-dc-administrators-group-sudo-privileges"></a>授與 'AAD DC Administrators' 群組 sudo 權限
 
-若要授與*AAD DC Administrators*群組的成員 Ubuntu VM 上的系統管理許可權，您可以在 */etc/sudoers*中新增一個專案。 新增之後， *AAD DC 系統管理員*群組的成員就可以在`sudo` Ubuntu VM 上使用命令。
+若要授與*AAD DC Administrators*群組的成員 Ubuntu VM 上的系統管理許可權，您可以在 */etc/sudoers*中新增一個專案。 新增之後， *AAD DC 系統管理員*群組的成員就可以使用 Ubuntu VM 上的 `sudo` 命令。
 
 1. 開啟*sudoers*檔案進行編輯：
 
@@ -242,13 +242,13 @@ Successfully enrolled machine in realm
     %AAD\ DC\ Administrators ALL=(ALL) NOPASSWD:ALL
     ```
 
-    完成時，請使用`Ctrl-X`命令儲存並結束編輯器。
+    完成時，請使用 `Ctrl-X` 命令儲存並結束編輯器。
 
 ## <a name="sign-in-to-the-vm-using-a-domain-account"></a>使用網域帳戶登入 VM
 
 若要確認 VM 已成功加入 Azure AD DS 受控網域，請使用網域使用者帳戶啟動新的 SSH 連線。 確認已建立主目錄，並已套用網域的群組成員資格。
 
-1. 從您的主控台建立新的 SSH 連線。 使用屬於受控網域`ssh -l`的網域帳戶（ `contosoadmin@contoso.com`例如），然後輸入您 VM 的位址，例如*ubuntu.contoso.com*。 如果您使用 Azure Cloud Shell，請使用 VM 的公用 IP 位址，而不是內部 DNS 名稱。
+1. 從您的主控台建立新的 SSH 連線。 使用屬於受控 `ssh -l` 網域的網域帳戶（例如 `contosoadmin@contoso.com`），然後輸入您 VM 的位址，例如*ubuntu.contoso.com*。 如果您使用 Azure Cloud Shell，請使用 VM 的公用 IP 位址，而不是內部 DNS 名稱。
 
     ```console
     ssh -l contosoadmin@CONTOSO.com ubuntu.contoso.com
@@ -270,7 +270,7 @@ Successfully enrolled machine in realm
 
     您應該會看到來自 Azure AD DS 受控網域的群組成員資格。
 
-1. 如果您已以*AAD DC 系統管理員*群組的成員身分登入 VM，請檢查您是否可以正確地使用`sudo`命令：
+1. 如果您已以*AAD DC 系統管理員*群組的成員身分登入 VM，請檢查您是否可以正確地使用 `sudo` 命令：
 
     ```console
     sudo apt-get update

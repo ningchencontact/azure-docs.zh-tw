@@ -4,23 +4,23 @@ description: 如何更新或移除 Privileged Identity Management (PIM) 的 Azur
 services: active-directory
 documentationcenter: ''
 author: curtand
-manager: mtillman
+manager: daveba
 ms.assetid: ''
-ms.service: role-based-access-control
+ms.service: active-directory
 ms.devlang: na
-ms.topic: overview
+ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 08/06/2019
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 63c2c96f53861eafcd95df8f5163d14bcb5fbd5f
-ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
-ms.translationtype: HT
+ms.openlocfilehash: ccbc9fbd763b9393a64d6cfc29f6b5a9d021da88
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/10/2019
-ms.locfileid: "68947524"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72756344"
 ---
 # <a name="update-or-remove-an-assigned-azure-ad-custom-role-in-privileged-identity-management"></a>在 Privileged Identity Management 中更新或移除已指派的 Azure AD 自訂角色
 
@@ -37,17 +37,17 @@ ms.locfileid: "68947524"
 請依照下列步驟來更新或移除現有的角色指派。
 
 1. 使用指派給「特殊權限角色管理員」角色的使用者帳戶，在 Azure 入口網站中登入 [Privileged Identity Management](https://portal.azure.com/?Microsoft_AAD_IAM_enableCustomRoleManagement=true&Microsoft_AAD_IAM_enableCustomRoleAssignment=true&feature.rbacv2roles=true&feature.rbacv2=true&Microsoft_AAD_RegisteredApps=demo#blade/Microsoft_Azure_PIMCommon/CommonMenuBlade/quickStart)。
-1. 選取 [Azure AD 自訂角色 (預覽)]  。
+1. 選取 [Azure AD 自訂角色 (預覽)]。
 
     ![選取 Azure AD 自訂角色預覽以查看合格的角色指派](./media/azure-ad-custom-roles-assign/view-custom.png)
 
-1. 選取 [角色]  ，以查看 Azure AD 應用程式自訂角色的 [指派]  清單。
+1. 選取 [角色]，以查看 Azure AD 應用程式自訂角色的 [指派] 清單。
 
     ![選取 [角色] 查看合格角色指派的清單](./media/azure-ad-custom-roles-update-remove/assignments-list.png)
 
 1. 選取要更新或移除的角色。
-1. 在 [合格角色]  或 [有效角色]  索引標籤上尋找角色指派。
-1. 選取 [更新]  或 [移除]  以更新或移除角色指派。
+1. 在 [合格角色] 或 [有效角色] 索引標籤上尋找角色指派。
+1. 選取 [更新] 或 [移除] 以更新或移除角色指派。
 
     ![在合格角色指派中選取 [移除] 或 [更新]](./media/azure-ad-custom-roles-update-remove/remove-update.png)
 

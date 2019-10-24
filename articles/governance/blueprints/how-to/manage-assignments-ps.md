@@ -6,12 +6,12 @@ ms.author: dacoulte
 ms.date: 09/30/2019
 ms.topic: conceptual
 ms.service: blueprints
-ms.openlocfilehash: 297c6a51c1f902cf7b5843b2dd47b658ebc705fd
-ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
+ms.openlocfilehash: ef9674165533ef3e4887bba68507344406ca128c
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/06/2019
-ms.locfileid: "71980995"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72755930"
 ---
 # <a name="how-to-manage-assignments-with-powershell"></a>如何使用 PowerShell 管理指派
 
@@ -42,7 +42,7 @@ Azure 藍圖模組需要下列軟體：
    > [!NOTE]
    > 如果已安裝**Az** ，則可能需要使用 `-AllowClobber` 來強制安裝。
 
-1. 驗證模組是否已匯入，而且是正確的版本（0.2.5）：
+1. 驗證模組是否已匯入，而且是正確的版本（0.2.6）：
 
    ```azurepowershell-interactive
    # Get a list of commands for the imported Az.Blueprint module
@@ -52,9 +52,9 @@ Azure 藍圖模組需要下列軟體：
 ## <a name="get-blueprint-definitions"></a>取得藍圖定義
 
 使用指派的第一個步驟通常是取得藍圖定義的參考。
-@No__t-0 Cmdlet 會取得一或多個藍圖定義。 Cmdlet 可以從具有 `-ManagementGroupId {mgId}` 的管理群組或具有 `-SubscriptionId {subId}` 的訂用帳戶取得藍圖定義。 **Name**參數會取得藍圖定義，但必須與**ManagementGroupId**或**SubscriptionId**搭配使用。 **版本**可以與**名稱**搭配使用，以更明確地瞭解傳回的藍圖定義。 參數 `-LatestPublished` 會抓取最近發行的版本，而不是**版本**。
+@No__t_0 Cmdlet 會取得一或多個藍圖定義。 Cmdlet 可以從具有 `-ManagementGroupId {mgId}` 的管理群組或具有 `-SubscriptionId {subId}` 的訂用帳戶，取得藍圖定義。 **Name**參數會取得藍圖定義，但必須與**ManagementGroupId**或**SubscriptionId**搭配使用。 **版本**可以與**名稱**搭配使用，以更明確地瞭解傳回的藍圖定義。 參數 `-LatestPublished` 會抓取最近發行的版本，而不是**版本**。
 
-下列範例會使用 `Get-AzBlueprint`，從以 `{subId}` 表示的特定訂用帳戶中，取得名為 ' 101-藍圖-定義-訂用帳戶 ' 的藍圖定義的所有版本：
+下列範例會使用 `Get-AzBlueprint`，從以 `{subId}` 表示的特定訂用帳戶，取得名為 ' 101-藍圖-定義-訂用帳戶 ' 的藍圖定義的所有版本：
 
 ```azurepowershell-interactive
 # Login first with Connect-AzAccount if not using Cloud Shell
@@ -98,7 +98,7 @@ allowedlocations_listOfAllowedLocations                Microsoft.Azure.Commands.
 
 ## <a name="get-blueprint-assignments"></a>取得藍圖指派
 
-如果藍圖指派已存在，您可以使用 `Get-AzBlueprintAssignment` Cmdlet 取得它的參考。 此 Cmdlet 會採用**SubscriptionId**和**Name**做為選擇性參數。 如果未指定**SubscriptionId** ，則會使用目前的訂用帳戶內容。
+如果藍圖指派已存在，您可以使用 `Get-AzBlueprintAssignment` Cmdlet 取得其參考。 此 Cmdlet 會採用**SubscriptionId**和**Name**做為選擇性參數。 如果未指定**SubscriptionId** ，則會使用目前的訂用帳戶內容。
 
 下列範例會使用 `Get-AzBlueprintAssignment`，從以 `{subId}` 表示的特定訂用帳戶中，取得名為「指派-鎖定-資源群組」的單一藍圖指派：
 
@@ -143,7 +143,7 @@ ResourceGroups    : ResourceGroup
   - 如果未提供，則預設為目前的訂用帳戶內容
 - **Lock** （選擇性）
   - 定義要用於已部署資源的[藍圖資源鎖定](../concepts/resource-locking.md)
-  - 支援的選項：_None_、 _AllResourcesReadOnly_、 _AllResourcesDoNotDelete_
+  - 支援的選項： _None_、 _AllResourcesReadOnly_、 _AllResourcesDoNotDelete_
   - 如果未提供，則預設為_None_
 - **SystemAssignedIdentity** （選擇性）
   - 選取即可建立指派給系統指派的受控識別，並部署資源
@@ -169,9 +169,9 @@ ResourceGroups    : ResourceGroup
   - 藍圖指派的 JSON 檔案表示路徑
   - 此參數是 PowerShell 參數集的一部分，其中只包含**名稱**、**藍圖**和**SubscriptionId**，以及一般參數。
 
-### <a name="example-1-provide-parameters"></a>範例 1：提供參數
+### <a name="example-1-provide-parameters"></a>範例1：提供參數
 
-下列範例會建立以 `Get-AzBlueprint` 提取之 ' my 藍圖 ' 藍圖定義版本 ' 1.1 ' 的新指派，並將受控識別和指派物件位置設定為 ' westus2 '、使用_AllResourcesReadOnly_鎖定資源。和會針對以 `{subId}` 表示的特定訂用帳戶，設定**參數**和**ResourceGroupParameter**的雜湊表：
+下列範例會建立以 `Get-AzBlueprint` 提取之 ' my 藍圖 ' 藍圖定義版本 ' 1.1 ' 的新指派，並將受控識別和指派物件位置設定為 ' westus2 '、使用_AllResourcesReadOnly_鎖定資源、和會針對以 `{subId}` 表示的特定訂用帳戶，設定**參數**和**ResourceGroupParameter**的雜湊表：
 
 ```azurepowershell-interactive
 # Login first with Connect-AzAccount if not using Cloud Shell
@@ -206,7 +206,7 @@ Parameters        : {storageAccount_storageAccountType}
 ResourceGroups    : ResourceGroup
 ```
 
-### <a name="example-2-use-a-json-assignment-definition-file"></a>範例 2：使用 JSON 指派定義檔
+### <a name="example-2-use-a-json-assignment-definition-file"></a>範例2：使用 JSON 指派定義檔
 
 下列範例會建立與[範例 1](#example-1-provide-parameters)幾乎相同的指派。
 範例不會將參數傳遞給 Cmdlet，而是會顯示 JSON 指派定義檔和**AssignmentFile**參數的用法。 此外， **excludedPrincipals**屬性會設定為**鎖定**的一部分。 沒有適用于**excludedPrincipals**的 PowerShell 參數，而且只能透過 JSON 指派定義檔來設定屬性。
@@ -252,7 +252,7 @@ $bpAssignment = New-AzBlueprintAssignment -Name 'my-blueprint-assignment' -Subsc
 
 ## <a name="update-blueprint-assignments"></a>更新藍圖指派
 
-有時候，必須更新已建立的藍圖指派。 @No__t-0 Cmdlet 會處理此動作。 此 Cmdlet 會採用 `New-AzBlueprintAssignment` Cmdlet 所執行的大部分相同參數，以允許更新指派上設定的任何專案。 例外狀況包括_名稱_、_藍圖_和_SubscriptionId_。 只會更新提供的值。
+有時候，必須更新已建立的藍圖指派。 @No__t_0 Cmdlet 會處理此動作。 此 Cmdlet 會採用 `New-AzBlueprintAssignment` Cmdlet 所執行的大部分相同參數，以允許更新指派上設定的任何專案。 例外狀況包括_名稱_、_藍圖_和_SubscriptionId_。 只會更新提供的值。
 
 若要瞭解更新藍圖指派時所發生的情況，請參閱[更新指派的規則](./update-existing-assignments.md#rules-for-updating-assignments)。
 
@@ -271,7 +271,7 @@ $bpAssignment = New-AzBlueprintAssignment -Name 'my-blueprint-assignment' -Subsc
   - 用來找出要更新的指派，而不是變更指派
 - **Lock** （選擇性）
   - 定義要用於已部署資源的[藍圖資源鎖定](../concepts/resource-locking.md)
-  - 支援的選項：_None_、 _AllResourcesReadOnly_、 _AllResourcesDoNotDelete_
+  - 支援的選項： _None_、 _AllResourcesReadOnly_、 _AllResourcesDoNotDelete_
 - **SystemAssignedIdentity** （選擇性）
   - 選取即可建立指派給系統指派的受控識別，並部署資源
   - 已設定 "identity" 參數的預設值
@@ -293,7 +293,7 @@ $bpAssignment = New-AzBlueprintAssignment -Name 'my-blueprint-assignment' -Subsc
   - 每個資源群組成品預留位置都有索引鍵/值組，可動態設定該資源群組成品上的**名稱**和**位置**
   - 如果未提供資源群組參數，而且沒有**defaultValue**，則資源群組參數不是選擇性的
 
-下列範例會變更鎖定模式，以更新使用 `Get-AzBlueprint` 提取的 ' my-藍圖 ' 藍圖定義版本 ' 1.1 ' 的指派：
+下列範例會變更鎖定模式，以更新使用 `Get-AzBlueprint` 提取之 ' my 藍圖 ' 藍圖定義版本 ' 1.1 ' 的指派：
 
 ```azurepowershell-interactive
 # Login first with Connect-AzAccount if not using Cloud Shell
@@ -322,7 +322,7 @@ ResourceGroups    : ResourceGroup
 
 ## <a name="remove-blueprint-assignments"></a>移除藍圖指派
 
-當您要移除藍圖指派時，`Remove-AzBlueprintAssignment` Cmdlet 會處理此動作。 Cmdlet 會使用**Name**或**InputObject**來指定要移除哪一個藍圖指派。 **SubscriptionId**是_必要_的，而且必須在所有情況下提供。
+當您想要移除藍圖指派時，`Remove-AzBlueprintAssignment` Cmdlet 會處理此動作。 Cmdlet 會使用**Name**或**InputObject**來指定要移除哪一個藍圖指派。 **SubscriptionId**是_必要_的，而且必須在所有情況下提供。
 
 下列範例會使用 `Get-AzBlueprintAssignment` 來提取現有的藍圖指派，然後從以 `{subId}` 表示的特定訂用帳戶中移除它：
 
@@ -338,7 +338,7 @@ Remove-AzBlueprintAssignment -InputObject $blueprintAssignment -SubscriptionId '
 
 ## <a name="end-to-end-code-example"></a>端對端程式碼範例
 
-將所有步驟結合在一起，下列範例會取得藍圖定義，然後建立、更新和移除以 `{subId}` 表示的特定訂用帳戶中的藍圖指派：
+將所有步驟結合在一起，下列範例會取得藍圖定義，然後在以 `{subId}` 表示的特定訂用帳戶中建立、更新和移除藍圖指派：
 
 ```azurepowershell-interactive
 # Login first with Connect-AzAccount if not using Cloud Shell

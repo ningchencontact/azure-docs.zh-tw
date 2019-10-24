@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/11/2017
 ms.author: yegu
-ms.openlocfilehash: 495fc031150d04f253279606baebb5d64d52bce7
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 21c93cac8b4126a46e4c3dc396db9857f6b62de9
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66132932"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72755439"
 ---
 # <a name="how-to-scale-azure-cache-for-redis"></a>如何調整 Azure Redis 快取的規模
 「Azure Redis 快取」具有各種不同的快取供應項目，可讓您彈性選擇快取大小和功能。 建立快取之後，如果您應用程式的需求改變，您可以調整快取的大小和定價層。 本文說明如何使用 Azure 入口網站和 Azure PowerShell 與 Azure CLI 之類的工具來調整快取。
@@ -39,11 +39,11 @@ ms.locfileid: "66132932"
 ## <a name="scale-a-cache"></a>調整快取
 若要調整快取，在 [Azure 入口網站](https://portal.azure.com)中[瀏覽至快取](cache-configure.md#configure-azure-cache-for-redis-settings)，然後按一下 **[資源]** 功能表中的 **[調整]** 。
 
-![調整](./media/cache-how-to-scale/redis-cache-scale-menu.png)
+![擴展性](./media/cache-how-to-scale/redis-cache-scale-menu.png)
 
-從 [選取定價層]  刀鋒視窗中選取想要的定價層，然後按一下 [選取]  。
+從 [選取定價層] 刀鋒視窗中選取想要的定價層，然後按一下 [選取]。
 
-![定價層][redis-cache-pricing-tier-blade]
+![價格層][redis-cache-pricing-tier-blade]
 
 
 您可以調整具有下列限制的不同定價層：
@@ -55,11 +55,11 @@ ms.locfileid: "66132932"
 * 您無法直接從**基本**快取調整至**進階**快取。 首先，在單一調整作業中從**基本**調整至**標準**，然後在後續的調整作業中從**標準**調整至**進階**。
 * 您無法從較大的大小向下調整至 **C0 (250 MB)** 的大小。
  
-當快取正在調整成新的定價層時，[Azure Redis 快取]  刀鋒視窗中會顯示[正在調整規模]  狀態。
+當快取正在調整成新的定價層時，[Azure Redis 快取] 刀鋒視窗中會顯示[正在調整規模] 狀態。
 
-![縮放][redis-cache-scaling]
+![調整][redis-cache-scaling]
 
-調整完成時，狀態會從 [正在調整]  變更為 [執行中]  。
+調整完成時，狀態會從 [正在調整] 變更為 [執行中]。
 
 ## <a name="how-to-automate-a-scaling-operation"></a>如何自動化調整作業
 除了在 Azure 入口網站中調整快取執行個體之外，您還可以使用 PowerShell Cmdlet、Azure CLI 以及使用 Microsoft Azure 管理庫 (MAML) 進行調整。 
@@ -76,7 +76,7 @@ ms.locfileid: "66132932"
 
     Set-AzRedisCache -ResourceGroupName myGroup -Name myCache -Size 2.5GB
 
-如需有關如何使用 PowerShell 來調整規模的詳細資訊，請參閱[使用 Powershell 來調整 Azure Redis 快取的規模](cache-howto-manage-redis-cache-powershell.md#scale)。
+如需有關如何使用 PowerShell 來調整規模的詳細資訊，請參閱[使用 Powershell 來調整 Azure Redis 快取的規模](cache-how-to-manage-redis-cache-powershell.md#scale)。
 
 ### <a name="scale-using-azure-cli"></a>使用 Azure CLI 進行調整
 若要使用 Azure CLI 來調整「Azure Redis 快取」執行個體的規模，請呼叫 `azure rediscache set` 命令，並視所需的調整作業而定，傳入所需的設定變更，包括新的大小、SKU 或叢集大小。
@@ -177,7 +177,7 @@ ms.locfileid: "66132932"
 根據快取中的資料量，調整大約需要 20 分鐘。
 
 ### <a name="how-can-i-tell-when-scaling-is-complete"></a>如何分辨調整何時完成？
-在 Azure 入口網站中，您可以看到調整作業進行中。 調整完成時，快取的狀態會變更為 [執行中]  。
+在 Azure 入口網站中，您可以看到調整作業進行中。 調整完成時，快取的狀態會變更為 [執行中]。
 
 <!-- IMAGES -->
 

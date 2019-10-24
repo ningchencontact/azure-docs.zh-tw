@@ -4,11 +4,11 @@ description: 瞭解如何在 Azure AD Privileged Identity Management （PIM）�
 services: active-directory
 documentationcenter: ''
 author: curtand
-manager: mtillman
+manager: daveba
 editor: ''
 ms.service: active-directory
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: pim
@@ -16,14 +16,14 @@ ms.date: 04/09/2019
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 60a8d373a7e6edeaefd933e4f8ec8ee11e3c14ee
-ms.sourcegitcommit: 95b180c92673507ccaa06f5d4afe9568b38a92fb
+ms.openlocfilehash: 3245f7343a48d3e54795c14dcb23b836c8d9d988
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/08/2019
-ms.locfileid: "70804034"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72756435"
 ---
-# <a name="approve-or-deny-requests-for-azure-ad-roles-in-pim"></a>在 PIM 中核准或拒絕 Azure AD 角色的要求
+# <a name="approve-or-deny-requests-for-azure-ad-roles-in-privileged-identity-management"></a>核准或拒絕 Privileged Identity Management 中 Azure AD 角色的要求
 
 使用 Azure Active Directory （Azure AD） Privileged Identity Management （PIM），您可以將角色設定為需要核准才能啟用，並選擇一或多個使用者或群組作為委派的核准者。 委派核准者會有 24 小時的時間來核准要求。 如果未在 24 小時內核准要求，符合資格的使用者就必須重新提交新要求。 24 小時核准時間範圍是不可設定的。
 
@@ -31,7 +31,7 @@ ms.locfileid: "70804034"
 
 ## <a name="view-pending-requests"></a>檢視擱置的要求
 
-身為委派的核准者，當 Azure AD 的角色要求等待您的核准時，您會收到電子郵件通知。 您可以在 PIM 中檢視這些擱置的要求。
+身為委派的核准者，當 Azure AD 的角色要求等待您的核准時，您會收到電子郵件通知。 您可以在 Privileged Identity Management 中查看這些擱置中的要求。
 
 1. 登入 [Azure 入口網站](https://portal.azure.com/)。
 
@@ -77,5 +77,5 @@ ms.locfileid: "70804034"
 
 ## <a name="next-steps"></a>後續步驟
 
-- [PIM 中的電子郵件通知](pim-email-notifications.md)
-- [在 PIM 中核准或拒絕 Azure 資源角色的要求](pim-resource-roles-approval-workflow.md)
+- [Privileged Identity Management 中的電子郵件通知](pim-email-notifications.md)
+- [在 Privileged Identity Management 中核准或拒絕 Azure 資源角色的要求](pim-resource-roles-approval-workflow.md)

@@ -14,30 +14,30 @@ ms.tgt_pltfrm: cache
 ms.workload: tbd
 ms.date: 07/05/2017
 ms.author: yegu
-ms.openlocfilehash: bb7b9a41523ab1b1addbf37cb7b463f12a72a814
-ms.sourcegitcommit: b4665f444dcafccd74415fb6cc3d3b65746a1a31
+ms.openlocfilehash: afb48c18f9690e77a5478956e1147acf850290ab
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72263675"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72756621"
 ---
 # <a name="how-to-administer-azure-cache-for-redis"></a>如何管理 Azure Cache for Redis
 本主題說明如何執行管理工作，例如為 Azure Cache for Redis 執行個體進行[重新啟動](#reboot)和[排程更新](#schedule-updates)。
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="reboot"></a>重新開機
+## <a name="reboot"></a>重新啟動
 [重新啟動] 刀鋒視窗可讓您重新啟動快取的一或多個節點。 這個重新啟動的能力可讓您測試應用程式在快取節點失敗時的恢復功能。
 
-![重新開機](./media/cache-administration/redis-cache-administration-reboot.png)
+![重新啟動](./media/cache-administration/redis-cache-administration-reboot.png)
 
 選取要重新啟動的節點，然後按一下 [重新啟動]。
 
-![重新開機](./media/cache-administration/redis-cache-reboot.png)
+![重新啟動](./media/cache-administration/redis-cache-reboot.png)
 
 如果您的進階快取已啟用叢集，您可以選取要重新啟動的快取分區。
 
-![重新開機](./media/cache-administration/redis-cache-reboot-cluster.png)
+![重新啟動](./media/cache-administration/redis-cache-reboot-cluster.png)
 
 若要重新啟動快取的一或多個節點，選取所需的節點，然後按一下 [重新啟動]。 如果您的進階快取已啟用叢集，選取要重新啟動的分區，然後按一下 [重新啟動]。 稍候幾分鐘之後，選取的節點會重新啟動，並在幾分鐘之後重新上線。
 
@@ -71,16 +71,16 @@ ms.locfileid: "72263675"
 如果您只重新啟動這其中一個節點，通常不會遺失資料，但仍有可能發生。 例如，如果重新啟動主要節點且快取寫入正在進行中，則來自快取寫入的資料即會遺失。 如果您重新啟動一個節點，而另一個節點剛好同時因為失敗而當機，也有可能造成資料遺失。 如需深入了解資料遺失的可能原因，請參閱[我在 Redis 中的資料怎麼了？](https://gist.github.com/JonCole/b6354d92a2d51c141490f10142884ea4#file-whathappenedtomydatainredis-md)
 
 ### <a name="can-i-reboot-my-cache-using-powershell-cli-or-other-management-tools"></a>我可以使用 PowerShell、CLI 或其他管理工具重新啟動我的快取嗎？
-是，如需 PowerShell 指示，請參閱[重新啟動 Azure Cache for Redis](cache-howto-manage-redis-cache-powershell.md#to-reboot-an-azure-cache-for-redis)。
+是，如需 PowerShell 指示，請參閱[重新啟動 Azure Cache for Redis](cache-how-to-manage-redis-cache-powershell.md#to-reboot-an-azure-cache-for-redis)。
 
-## <a name="schedule-updates"></a>更新排程
+## <a name="schedule-updates"></a>排程更新
 [**排程更新**] 分頁可讓您指定快取實例的維護視窗。 若指定了維護期間，即會在此期間進行任何 Redis 伺服器更新。 
 
 > [!NOTE] 
 > 維護期間僅適用於 Redis 伺服器更新，不適用於任何 Azure 更新，或是在裝載快取的 VM 上更新作業系統。
 >
 
-![更新排程](./media/cache-administration/redis-schedule-updates.png)
+![排程更新](./media/cache-administration/redis-schedule-updates.png)
 
 若要指定維護期間，請檢查所需的天數，並指定每一天的維護期間開始小時，然後按一下 [確定]。 請注意，維護期間時間是 UTC。 
 

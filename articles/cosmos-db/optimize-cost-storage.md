@@ -1,21 +1,21 @@
 ---
 title: 在 Azure Cosmos DB 中最佳化儲存體成本
 description: 本文說明如何針對儲存在 Azure Cosmos DB 中的資料管理儲存體成本
-author: rimman
+author: markjbrown
+ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/21/2019
-ms.author: rimman
-ms.openlocfilehash: 2955df266bcf164ce4a155acc5209679eff0ce8a
-ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
+ms.openlocfilehash: 1508adda761fcba7ba70df3bb212d3eb4e32f242
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69615017"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72754952"
 ---
 # <a name="optimize-storage-cost-in-azure-cosmos-db"></a>在 Azure Cosmos DB 中最佳化儲存體成本
 
-Azure Cosmos DB 能提供無限制的儲存體和輸送量。 不同於輸送量 (需要在 Azure Cosmos 容器或資料庫上進行佈建/設定)，儲存體是根據耗用量來計費。 您只需為自己所耗用的邏輯儲存體支付費用，且不需要事先保留任何儲存體。 儲存體會根據您在 Azure Cosmos 容器中新增或移除的資料, 自動相應增加和減少。
+Azure Cosmos DB 能提供無限制的儲存體和輸送量。 不同於輸送量 (需要在 Azure Cosmos 容器或資料庫上進行佈建/設定)，儲存體是根據耗用量來計費。 您只需為自己所耗用的邏輯儲存體支付費用，且不需要事先保留任何儲存體。 儲存體會根據您在 Azure Cosmos 容器中新增或移除的資料，自動相應增加和減少。
 
 ## <a name="storage-cost"></a>儲存成本
 
@@ -31,7 +31,7 @@ Azure Cosmos DB 能提供無限制的儲存體和輸送量。 不同於輸送量
 
 ## <a name="optimize-cost-with-time-to-live-and-change-feed"></a>搭配存留時間和變更摘要以最佳化成本
 
-在您不需要資料之後，您可以正常地將它從您的 Azure Cosmos 帳戶中刪除，方法是使用[存留時間](time-to-live.md)、[變更摘要](change-feed.md)，或是將舊資料遷移到另一個資料存放區 (例如 Azure Blob 儲存體或 Azure 資料倉儲)。 Azure Cosmos DB 可讓您利用存留時間 (簡稱 TTL)，在一段時間後自動從容器中刪除項目。 根據預設，您可以在容器層級設定存留時間，並覆寫每個項目的值。 在容器或項目層級設定 TTL 之後，Azure Cosmos DB 會從上次修改該項目的時間開始算起，在經過所設定的時間週期後自動移除那些項目。 透過使用變更摘要，您可以將資料遷移到 Azure Cosmos DB 中的另一個容器，或是外部資料存放區。 遷移不需要花費任何停機時間，且當您完成遷移時，便可以刪除或設定存留時間來刪除來源 Azure Cosmos 容器。
+在您不需要資料之後，您可以正常地將它從您的 Azure Cosmos 帳戶中刪除，方法是使用[存留時間](time-to-live.md)、[變更摘要](change-feed.md)，或是將舊資料遷移到另一個資料存放區 (例如 Azure Blob 儲存體或 Azure 資料倉儲)。 Azure Cosmos DB 可讓您利用存留時間 (簡稱 TTL)，在一段時間後自動從容器中刪除項目。 根據預設，您可以在容器層級設定存留時間，且覆寫每個項目的值。 在容器或項目層級設定 TTL 之後，Azure Cosmos DB 會從上次修改該項目的時間開始算起，在經過所設定的時間週期後自動移除那些項目。 透過使用變更摘要，您可以將資料遷移到 Azure Cosmos DB 中的另一個容器，或是外部資料存放區。 遷移不需要花費任何停機時間，且當您完成遷移時，便可以刪除或設定存留時間來刪除來源 Azure Cosmos 容器。
 
 ## <a name="optimize-cost-with-rich-media-data-types"></a>搭配豐富媒體資料類型以最佳化成本 
 
@@ -39,7 +39,7 @@ Azure Cosmos DB 能提供無限制的儲存體和輸送量。 不同於輸送量
 
 ## <a name="check-storage-consumed"></a>檢查已耗用的儲存體
 
-若要檢查 Azure Cosmos 容器的儲存體耗用量，您可以在容器上執行 HEAD 或 GET 要求，然後檢查 `x-ms-request-quota` 和 `x-ms-request-usage` 標頭。 或者, 在使用 .NET SDK 時, 您可以使用[DocumentSizeQuota](https://docs.microsoft.com/previous-versions/azure/dn850325(v%3Dazure.100))和[DocumentSizeUsage](https://msdn.microsoft.com/library/azure/dn850324.aspx)屬性來取得使用的儲存體。
+若要檢查 Azure Cosmos 容器的儲存體耗用量，您可以在容器上執行 HEAD 或 GET 要求，然後檢查 `x-ms-request-quota` 和 `x-ms-request-usage` 標頭。 或者，在使用 .NET SDK 時，您可以使用[DocumentSizeQuota](https://docs.microsoft.com/previous-versions/azure/dn850325(v%3Dazure.100))和[DocumentSizeUsage](https://msdn.microsoft.com/library/azure/dn850324.aspx)屬性來取得使用的儲存體。
 
 ## <a name="using-sdk"></a>使用 SDK
 
@@ -55,7 +55,7 @@ Console.WriteLine("Item size quota: {0}, usage: {1}", collectionInfo.DocumentQuo
 接下來，您可以利用下列文章繼續深入了解 Azure Cosmos DB 中有關成本最佳化的詳細資訊：
 
 * 深入了解[最佳化開發與測試](optimize-dev-test.md)
-* 深入了解 [Azure Cosmos DB 帳單](understand-your-bill.md)
+* 深入了解 [Azure Cosmos DB 上的計費](understand-your-bill.md)
 * 深入了解[最佳化輸送量成本](optimize-cost-throughput.md)
 * 深入了解[最佳化讀取和寫入的成本](optimize-cost-reads-writes.md)
 * 深入了解[最佳化查詢成本](optimize-cost-queries.md)

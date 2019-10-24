@@ -1,23 +1,23 @@
 ---
 title: 使用 Azure Cosmos DB 中的變更摘要支援
 description: 使用 Azure Cosmos DB 的變更摘要支援來追蹤文件中的變更，並執行以事件為基礎的處理 (例如觸發程序)，以及讓快取和分析系統保持最新狀態。
-author: rimman
-ms.author: rimman
+author: markjbrown
+ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 07/23/2019
 ms.reviewer: sngun
 ms.custom: seodec18
-ms.openlocfilehash: f50f1b3e2ee7f98d14d29f1e2205a97d76eaacc8
-ms.sourcegitcommit: 3fa4384af35c64f6674f40e0d4128e1274083487
+ms.openlocfilehash: 8e6bd3dadd636127f212db0ea0c0755a6b52a087
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71219901"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72757015"
 ---
 # <a name="change-feed-in-azure-cosmos-db---overview"></a>Azure Cosmos DB 中的變更摘要 - 概觀
 
-Azure Cosmos DB 中的變更摘要支援是藉由接聽 Azure Cosmos 容器進行任何變更來運作。 然後變更摘要會輸出已排序的文件清單，這些文件已依其修改的順序變更過。 變更會保存，可進行非同步累加處理，而輸出可配送給一或多個取用者進行平行處理。 
+Azure Cosmos DB 中的變更摘要支援是藉由接聽 Azure Cosmos 容器進行任何變更來運作。 然後變更摘要會輸出已排序的文件清單，這些文件已依其修改的順序變更過。 變更會保存，可進行非同步及累加處理，而輸出可配送給一或多個取用者進行平行處理。 
 
 Azure Cosmos DB 非常適合用於 IoT、遊戲、零售，以及操作記錄應用程式。 這類應用程式常用的設計模式，是利用資料的變更觸發其他動作。 其他動作的範例包括：
 
@@ -108,7 +108,7 @@ _etag 格式是作為內部之用，因為該格式可以隨時變更，請別�
 
 * 變更摘要包含對容器內項目進行的插入與更新作業。 您可以擷取刪除項目，方法是在您的項目 (例如文件) 內設定「虛刪除」旗標來取代刪除動作。 或者，您可以使用 [TTL 功能](time-to-live.md)為項目設定有限的逾期期限。 例如 24 小時，並使用該屬性的值擷取刪除項目。 使用此解決方案，您必須在比 TTL 逾期期限更短的時間間隔內處理變更。 
 
-* 對項目所做的每項變更皆會在變更摘要中出現一次，且用戶端必須管理檢查點邏輯。 如果您想要避免管理檢查點的複雜性, 變更摘要處理器會提供自動檢查點和「至少一次」的語義。 請參閱搭配[變更摘要處理器使用變更](change-feed-processor.md)摘要。
+* 對項目所做的每項變更皆會在變更摘要中出現一次，且用戶端必須管理檢查點邏輯。 如果您想要避免管理檢查點的複雜性，變更摘要處理器會提供自動檢查點和「至少一次」的語義。 請參閱搭配[變更摘要處理器使用變更](change-feed-processor.md)摘要。
 
 * 變更記錄檔中只會包含指定項目的最新變更。 中繼變更可能無法使用。
 

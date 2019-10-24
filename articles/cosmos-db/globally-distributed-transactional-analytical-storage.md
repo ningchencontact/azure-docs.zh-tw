@@ -1,18 +1,18 @@
 ---
 title: 適用于 Azure Cosmos 容器的全域分散式交易式和分析儲存體
 description: 瞭解適用于 Azure Cosmos 容器的交易式和分析儲存體及其設定選項。
-author: rimman
-ms.author: rimman
+author: markjbrown
+ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/30/2019
 ms.reviewer: sngun
-ms.openlocfilehash: 27ca2102ee95273fbedd1a870e57d2ae3318e879
-ms.sourcegitcommit: 6fe40d080bd1561286093b488609590ba355c261
+ms.openlocfilehash: abf222b7a6d6e8fd053fa83c066d2b7850f575ab
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/01/2019
-ms.locfileid: "71703387"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72756896"
 ---
 # <a name="globally-distributed-transactional-and-analytical-storage-for-azure-cosmos-containers"></a>適用于 Azure Cosmos 容器的全域分散式交易式和分析儲存體
 
@@ -35,7 +35,7 @@ Azure Cosmos 容器在內部由兩個儲存引擎支援-交易式儲存引擎和
 |儲存位置 |   由本機/內部叢集 Ssd 所支援的複寫儲存體。 |  以便宜的遠端/叢集 Ssd 支援複寫的儲存體。       |
 |耐久性  |    99.99999 （7-9 秒）     |  99.99999 （7-9 秒）       |
 |存取資料的 Api  |   SQL、MongoDB、Cassandra、Gremlin、Tables 和 Etcd。       | Apache Spark         |
-|保留期（存留時間或 TTL）   |  原則導向，使用 [`DefaultTimeToLive`] 屬性在 Azure Cosmos 容器上設定。       |   原則導向，使用 [`ColumnStoreTimeToLive`] 屬性在 Azure Cosmos 容器上設定。      |
+|保留期（存留時間或 TTL）   |  原則導向，使用 `DefaultTimeToLive` 屬性在 Azure Cosmos 容器上設定。       |   原則導向，使用 `ColumnStoreTimeToLive` 屬性在 Azure Cosmos 容器上設定。      |
 |每 GB 的價格    |   $0.25/GB      |  $ 0.02/GB       |
 |儲存體交易的價格    | 布建的輸送量 $0.008 會依每個 100 RU/秒以每小時計費計費。        |  以耗用量為基礎的輸送量會在 $0.05 收取10000寫入交易的費用，而 $0.004 用於10000讀取交易。       |
 
@@ -69,7 +69,7 @@ Azure Cosmos 容器在內部由兩個儲存引擎支援-交易式儲存引擎和
 
 ### <a name="on-demand-snapshots-and-time-travel-analytics"></a>隨選快照和時間-旅程分析
 
-您隨時可以在容器上呼叫 `CreateSnapshot (name, timestamp)` 命令，以針對 Azure Cosmos 容器的分析儲存體中儲存的資料拍攝快照集。 快照集在您的容器上進行的更新歷程記錄中名為「書簽」。
+您可以在 Azure Cosmos 容器的分析儲存體中，隨時呼叫容器上的 `CreateSnapshot (name, timestamp)` 命令，以製作資料的快照集。 快照集在您的容器上進行的更新歷程記錄中名為「書簽」。
 
 ![隨選快照和時間-旅程分析](./media/globally-distributed-transactional-analytical-storage/ondemand-analytical-data-snapshots.png)
 
@@ -81,7 +81,7 @@ Azure Cosmos 容器在內部由兩個儲存引擎支援-交易式儲存引擎和
 
 視您的案例而定，您可以獨立啟用或停用兩個儲存引擎。 以下是每個案例的設定：
 
-|狀況 |交易式儲存體設定  |分析儲存體設定 |
+|案例 |交易式儲存體設定  |分析儲存體設定 |
 |---------|---------|---------|
 |以獨佔方式執行分析工作負載（無限期保留） |  Defaulttimetolive 還長 = 0       |  ColumnStoreTimeToLive =-1       |
 |獨佔執行交易式工作負載（無限期保留）  |   Defaulttimetolive 還長 =-1      |  ColumnStoreTimeToLive = 0       |
@@ -96,7 +96,7 @@ Azure Cosmos 容器在內部由兩個儲存引擎支援-交易式儲存引擎和
 
 1. **僅針對交易式工作負載設定容器（具有無限保留）**
 
-   您可以為交易式工作負載獨佔設定您的 Azure Cosmos 容器。 您可以藉由將容器上的 `ColumnStoreTimeToLive` 設定為0來停用分析儲存體，而且可以將 `DefaultTimeToLive` 設定為-1，以啟用具有無限保留期的分析儲存體。
+   您可以為交易式工作負載獨佔設定您的 Azure Cosmos 容器。 您可以藉由將容器上的 `ColumnStoreTimeToLive` 設定為0來停用分析儲存體，並將 `DefaultTimeToLive` 設定為-1 來啟用具有無限保留期的分析儲存體。
 
    ![具有無限保留期的交易式工作負載](./media/globally-distributed-transactional-analytical-storage/transactional-workload-configuration.png)
 
@@ -110,7 +110,7 @@ Azure Cosmos 容器在內部由兩個儲存引擎支援-交易式儲存引擎和
 
    您可以為交易式和分析工作負載設定您的 Azure Cosmos 容器，並在兩者之間以不同的保留間隔進行完整的效能隔離。 Azure Cosmos DB 會強制您的分析儲存體一律保留比交易式儲存體長的持續時間。
 
-   您可以藉由將 `DefaultTimeToLive` 設定為 < 值 1 > 並啟用分析儲存體，藉由將 `ColumnStoreTimeToLive` 設定為 < 值 2 >，啟用具有無限保留期的交易式儲存區。 Azure Cosmos DB 會強制 < 值 2 > 一律大於 < 值 1 >。
+   您可以藉由將 `DefaultTimeToLive` 設定為 < 值 1 >，並藉由將 `ColumnStoreTimeToLive` 設定為 < 值 2 > 來啟用分析儲存體，藉此啟用具有無限保留期的交易式儲存體。 Azure Cosmos DB 會強制 < 值 2 > 一律大於 < 值 1 >。
 
    ![具有儲存體階層式交易和分析工作負載](./media/globally-distributed-transactional-analytical-storage/analytical-transactional-configuration-specified-retention.png)
 

@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 06/12/2019
 ms.custom: seodec18
-ms.openlocfilehash: bce04a14a13d5b3615963f298f35af0d2fc480bb
-ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
+ms.openlocfilehash: 95ded3c184836ac58a0f97d1bf30dd2e3c123ccb
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72244424"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72755975"
 ---
 # <a name="set-up-and-use-compute-targets-for-model-training"></a>設定及使用計算目標進行模型定型 
 
@@ -68,7 +68,7 @@ ML 管線是由多個**步驟**所構成，這些步驟是管線中的相異計�
 > [!TIP]
 > 在定型模型時，ML 管線可以使用執行設定或估算器。
 
-雖然 ML 管線可以訓練模型，但它們也可以在定型之後，在定型和部署模型之前準備資料。 管線的主要使用案例之一是批次評分。 如需詳細資訊，請參閱 [Pipelines：優化機器學習工作流程 @ no__t-0。
+雖然 ML 管線可以訓練模型，但它們也可以在定型之後，在定型和部署模型之前準備資料。 管線的主要使用案例之一是批次評分。 如需詳細資訊，請參閱[管線：優化機器學習服務工作流程](concept-ml-pipelines.md)。
 
 ## <a name="set-up-in-python"></a>在 Python 中設定
 
@@ -82,9 +82,9 @@ ML 管線是由多個**步驟**所構成，這些步驟是管線中的相異計�
 
 ### <a id="local"></a>本機電腦
 
-1. **建立並連結**：無須建立或連結計算目標，即可將本機電腦作為定型環境。  
+1. **建立並附加**：您不需要建立或連結計算目標，即可使用本機電腦作為訓練環境。  
 
-1. **設定**：當您使用本機電腦作為計算目標時，會在您的[開發環境](how-to-configure-environment.md)中執行定型程式碼。  如果該環境已經有您需要的 Python 封裝，請使用使用者管理的環境。
+1. **設定**：當您使用本機電腦作為計算目標時，會在您的[開發環境](how-to-configure-environment.md)中執行訓練程式碼。  如果該環境已經有您需要的 Python 封裝，請使用使用者管理的環境。
 
  [!code-python[](~/aml-sdk-samples/ignore/doc-qa/how-to-set-up-training-targets/local.py?name=run_local)]
 
@@ -106,12 +106,12 @@ Azure Machine Learning Compute 有預設限制，例如可配置的核心數目�
 您可以建立 Azure Machine Learning Compute 做為執行階段的計算目標。 系統會自動為您的執行建立計算。 執行完成之後，就會自動刪除計算。 
 
 > [!NOTE]
-> 若要指定要使用的節點數目上限，您通常會將 `node_count` 設定為節點數目。 目前有（04/04/2019）個 bug，導致無法運作。 因應措施是使用執行設定的 `amlcompute._cluster_max_node_count` 屬性。 例如： `run_config.amlcompute._cluster_max_node_count = 5` 。
+> 若要指定要使用的節點數目上限，您通常會將 `node_count` 設定為節點的數目。 目前有（04/04/2019）個 bug，導致無法運作。 因應措施是使用執行設定的 `amlcompute._cluster_max_node_count` 屬性。 例如： `run_config.amlcompute._cluster_max_node_count = 5` 。
 
 > [!IMPORTANT]
 > Azure Machine Learning Compute 的執行式建立目前為「預覽」狀態。 如果您使用自動化超參數調整或自動化機器學習，請勿使用回合式建立。 若要使用超參數微調或自動化機器學習，請改為建立[持續性計算](#persistent)目標。
 
-1.  **建立、連結及設定**：執行式建立會使用回合組態執行建立、連結和設定計算目標的所有必要步驟。  
+1.  **建立、附加及設定**：以執行為基礎的建立會執行所有必要的步驟，以使用回合設定來建立、附加及設定計算目標。  
 
   [!code-python[](~/aml-sdk-samples/ignore/doc-qa/how-to-set-up-training-targets/amlcompute.py?name=run_temp_compute)]
 
@@ -122,10 +122,10 @@ Azure Machine Learning Compute 有預設限制，例如可配置的核心數目�
 
 持續性 Azure Machine Learning Compute 可以跨作業重複使用。 計算可以與工作區中的其他使用者共用，並且在作業之間保留。
 
-1. **建立並連結**：若要使用 Python 建立持續性 Azure Machine Learning Compute 資源，請指定 **vm_size** 和 **max_nodes** 屬性。 Azure Machine Learning 接著會對於其他屬性使用智慧型預設值。 未使用時，計算會自動向下調整為零節點。   視需要建立專用的虛擬機器以執行您的作業。
+1. **建立並附加**：若要在 Python 中建立持續性 Azure Machine Learning 計算資源，請指定**vm_size**和**max_nodes**屬性。 Azure Machine Learning 接著會對於其他屬性使用智慧型預設值。 未使用時，計算會自動向下調整為零節點。   視需要建立專用的虛擬機器以執行您的作業。
     
-    * **vm_size**：Azure Machine Learning Compute 建立的節點虛擬機器系列。
-    * **max_nodes**：在 Azure Machine Learning Compute 上執行作業時，自動向上調整的最大節點數。
+    * **vm_size**： Azure Machine Learning 計算所建立之節點的 vm 系列。
+    * **max_nodes**：您在 Azure Machine Learning Compute 上執行作業時要自動調整的最大節點數目。
     
    [!code-python[](~/aml-sdk-samples/ignore/doc-qa/how-to-set-up-training-targets/amlcompute2.py?name=cpu_cluster)]
 
@@ -134,7 +134,7 @@ Azure Machine Learning Compute 有預設限制，例如可配置的核心數目�
     
    或者，您可以[在 Azure 入口網站中](#portal-create)建立並連結持續性 Azure Machine Learning Compute 資源。
 
-1. **設定**：為持續性計算目標建立回合組態。
+1. **設定**：建立持續性計算目標的回合設定。
 
    [!code-python[](~/aml-sdk-samples/ignore/doc-qa/how-to-set-up-training-targets/amlcompute2.py?name=run_amlcompute)]
 
@@ -149,12 +149,12 @@ Azure Machine Learning 也支援提供您自己的計算資源，並將其附加
 
 使用 Azure 資料科學虛擬機器 (DSVM) 作為對於此案例選擇的 Azure 虛擬機器。 此虛擬機器是 Azure 中預先設定的資料科學和 AI 開發環境。 VM 會針對整個生命週期的機器學習開發，提供精心選擇的工具和架構。 如需有關如何使用 DSVM 搭配 Azure Machine Learning 的詳細資訊，請參閱[設定開發環境](https://docs.microsoft.com/azure/machine-learning/service/how-to-configure-environment#dsvm)。
 
-1. **建立**：先建立 DSVM，才能使用它定型模型。 若要建立此資源，請參閱[佈建適用於 Linux (Ubuntu) 的資料科學虛擬機器](https://docs.microsoft.com/azure/machine-learning/data-science-virtual-machine/dsvm-ubuntu-intro)。
+1. **建立**：先建立 DSVM，然後再使用它來定型您的模型。 若要建立此資源，請參閱[佈建適用於 Linux (Ubuntu) 的資料科學虛擬機器](https://docs.microsoft.com/azure/machine-learning/data-science-virtual-machine/dsvm-ubuntu-intro)。
 
     > [!WARNING]
     > Azure Machine Learning 只支援執行 Ubuntu 的虛擬機器。 當您建立 VM 或選擇現有的 VM 時，您必須選取使用 Ubuntu 的 VM。
 
-1. **連結**：若要附加現有的虛擬機器作為計算目標，您必須提供虛擬機器的完整網域名稱 (FQDN)、使用者名稱與密碼。 在範例中，請以 VM 的公用 FQDN 或公用 IP 位址取代 \<fqdn>。 將 \<username> 和 \<password> 取代為 VM 的 SSH 使用者名稱和密碼。
+1. **附加**：若要附加現有的虛擬機器作為計算目標，您必須提供虛擬機器的完整功能變數名稱（FQDN）、使用者名稱和密碼。 在範例中，請以 VM 的公用 FQDN 或公用 IP 位址取代 \<fqdn>。 將 \<username> 和 \<password> 取代為 VM 的 SSH 使用者名稱和密碼。
 
    ```python
    from azureml.core.compute import RemoteCompute, ComputeTarget
@@ -181,7 +181,7 @@ Azure Machine Learning 也支援提供您自己的計算資源，並將其附加
 
    或者，您可以[使用 Azure 入口網站](#portal-reuse)，將 DSVM 連結到工作區。
 
-1. **設定**：為 DSVM 計算目標建立回合組態。 Docker 和 Conda 用來建立和設定 DSVM 上的定型環境。
+1. **設定**：建立 DSVM 計算目標的回合設定。 Docker 和 Conda 用來建立和設定 DSVM 上的定型環境。
 
    [!code-python[](~/aml-sdk-samples/ignore/doc-qa/how-to-set-up-training-targets/dsvm.py?name=run_dsvm)]
 
@@ -192,13 +192,13 @@ Azure Machine Learning 也支援提供您自己的計算資源，並將其附加
 
 Azure HDInsight 是巨量資料分析的常用平台。 此平台會提供 Apache Spark，可用來將您的模型定型。
 
-1. **建立**：先建立 HDInsight 叢集，才能使用它定型模型。 若要在 HDInsight 叢集上建立 Spark，請參閱[在 HDInsight 中建立 Spark 叢集](https://docs.microsoft.com/azure/hdinsight/spark/apache-spark-jupyter-spark-sql)。 
+1. **建立**：建立 HDInsight 叢集，然後使用它來定型您的模型。 若要在 HDInsight 叢集上建立 Spark，請參閱[在 HDInsight 中建立 Spark 叢集](https://docs.microsoft.com/azure/hdinsight/spark/apache-spark-jupyter-spark-sql)。 
 
     建立叢集時，必須指定 SSH 使用者名稱與密碼。 請記下這些值，因為使用 HDInsight 作為計算目標時會需要它們。
     
     建立叢集之後，使用下列主機名稱連結至叢集：\<clustername>-ssh.azurehdinsight.net，其中 \<clustername> 是您提供的叢集名稱。 
 
-1. **連結**：若要連結 HDInsight 叢集作為計算目標，必須提供 HDInsight 叢集的主機名稱、使用者名稱與密碼。 下列範例會使用 SDK 將叢集附加到您的工作區。 在此範例中，將 \<clustername> 取代為叢集的名稱。 將 \<username> 和 \<password> 取代為叢集的 SSH 使用者名稱和密碼。
+1. **附加**：若要附加 hdinsight 叢集作為計算目標，您必須提供 hdinsight 叢集的主機名稱、使用者名稱和密碼。 下列範例會使用 SDK 將叢集附加到您的工作區。 在此範例中，將 \<clustername> 取代為叢集的名稱。 將 \<username> 和 \<password> 取代為叢集的 SSH 使用者名稱和密碼。
 
    ```python
    from azureml.core.compute import ComputeTarget, HDInsightCompute
@@ -222,7 +222,7 @@ Azure HDInsight 是巨量資料分析的常用平台。 此平台會提供 Apach
 
    或者，您可以[使用 Azure 入口網站](#portal-reuse)，將 HDInsight 叢集連結到工作區。
 
-1. **設定**：為 HDI 計算目標建立回合組態。 
+1. **設定**：建立 HDI 計算目標的回合設定。 
 
    [!code-python[](~/aml-sdk-samples/ignore/doc-qa/how-to-set-up-training-targets/hdi.py?name=run_hdi)]
 
@@ -236,8 +236,8 @@ Azure Batch 可用來在雲端有效率地執行大規模的平行和高效能�
 
 若要將 Azure Batch 附加為計算目標，您必須使用 Azure Machine Learning SDK，並提供下列資訊：
 
--   **Azure Batch 計算名稱**：要用於工作區中計算的易記名稱
--   **Azure Batch 帳戶名稱**：Azure Batch 帳戶的名稱
+-   **Azure Batch 計算名稱**：要在工作區中用於計算的易記名稱
+-   **Azure Batch 帳戶名稱**： Azure Batch 帳戶的名稱
 -   **資源群組**：包含 Azure Batch 帳戶的資源群組。
 
 下列程式碼示範如何將 Azure Batch 連結為計算目標：
@@ -379,7 +379,7 @@ myvm = ComputeTarget(workspace=ws, name='my-vm-name')
 > [!IMPORTANT]
 > 當您提交定型回合時，會建立包含定型腳本之目錄的快照集，並傳送到計算目標。 它也會在您的工作區中儲存為實驗的一部分。 如果您變更檔案並再次提交執行，則只會上傳變更的檔案。
 >
-> 若要防止檔案包含在快照中, 請在目錄中建立 [.gitignore](https://git-scm.com/docs/gitignore) `.amlignore`或檔案, 並在其中新增檔案。 檔案會使用與 [.gitignore](https://git-scm.com/docs/gitignore) 檔案相同的語法和模式。`.amlignore` 如果兩個檔案都存在，則會優先使用 @no__t 0 檔案。
+> 若要防止檔案包含在快照中，請在目錄中建立[.gitignore](https://git-scm.com/docs/gitignore)或 `.amlignore` 檔案，並在其中新增檔案。 @No__t_0 檔案使用與[.gitignore](https://git-scm.com/docs/gitignore)檔案相同的語法和模式。 如果兩個檔案都存在，則會優先使用 `.amlignore` 檔案。
 > 
 > 如需詳細資訊，請參閱[快照集](concept-azure-machine-learning-architecture.md#snapshots)。
 
@@ -393,9 +393,9 @@ myvm = ComputeTarget(workspace=ws, name='my-vm-name')
 
 使用 `ScriptRunConfig` 物件來提交實驗。  此物件包含：
 
-* **source_directory**：包含定型指令碼的來源目錄
-* **指令碼**：識別定型指令碼
-* **run_config**：回合組態，可依序定義定型的發生位置。
+* **source_directory**：包含定型腳本的來原始目錄
+* **script**：識別定型腳本
+* **run_config**：回合設定，其接著會定義定型的發生位置。
 
 例如，若要使用[本機目標](#local)組態：
 
@@ -499,7 +499,7 @@ az ml run submit-hyperdrive -e <experiment> -c <runconfig> --hyperdrive-configur
 
 ## <a name="git-tracking-and-integration"></a>Git 追蹤與整合
 
-當您啟動定型回合，其中來原始目錄是本機 Git 存放庫時，儲存機制的相關資訊會儲存在執行歷程記錄中。 例如，存放庫的目前認可識別碼會記錄為歷程記錄的一部分。
+當您啟動定型回合，其中來原始目錄是本機 Git 存放庫時，儲存機制的相關資訊會儲存在執行歷程記錄中。 如需詳細資訊，請參閱[Azure Machine Learning 的 Git 整合](concept-train-model-git-integration.md)。
 
 ## <a name="notebook-examples"></a>筆記本範例
 
@@ -511,7 +511,7 @@ az ml run submit-hyperdrive -e <experiment> -c <runconfig> --hyperdrive-configur
 
 ## <a name="next-steps"></a>後續步驟
 
-* [教學課程：定型模型](tutorial-train-models-with-aml.md)會使用受控計算目標來定型模型。
+* [教學課程：將模型定型](tutorial-train-models-with-aml.md)使用受控計算目標來定型模型。
 * 瞭解如何[有效率地微調超參數](how-to-tune-hyperparameters.md)，以建立更好的模型。
 * 擁有定型的模型之後，請了解[部署模型的方式和位置](how-to-deploy-and-where.md)。
 * 檢視 [RunConfiguration 類別](https://docs.microsoft.com/python/api/azureml-core/azureml.core.runconfig.runconfiguration?view=azure-ml-py) SDK 參考。

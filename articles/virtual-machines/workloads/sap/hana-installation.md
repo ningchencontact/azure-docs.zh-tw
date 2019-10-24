@@ -13,12 +13,12 @@ ms.workload: infrastructure
 ms.date: 07/12/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: aacedeb2c047d1abfc5affdcf94404abbb2c7b62
-ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
+ms.openlocfilehash: 516f61775060b3e4073ed9d623545d4f227563ed
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72168604"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72750348"
 ---
 # <a name="how-to-install-and-configure-sap-hana-large-instances-on-azure"></a>如何在 Azure 上安裝和設定 SAP HANA (大型執行個體)
 
@@ -101,7 +101,7 @@ HANA 大型執行個體單位可以連接到這個 SMT 執行個體。 (如需�
 
 以下是適用於在 SLES 12 上實作 SAP HANA 的 SAP 支援附註︰
 
-- [SAP 支援附註 #1944799 – SLES 作業系統安裝的 SAP HANA 指南](https://go.sap.com/documents/2016/05/e8705aae-717c-0010-82c7-eda71af511fa.html)
+- [SAP 支援附註 #1944799 – SLES 作業系統安裝的 SAP HANA 指南](http://service.sap.com/sap/support/notes/1944799)
 - [SAP 支援附註 #2205917 – 針對 SLES 12 for SAP 應用程式的 SAP HANA DB 建議作業系統設定](https://launchpad.support.sap.com/#/notes/2205917/E)
 - [SAP 支援附註 #1984787 – SUSE Linux Enterprise Server 12：安裝注意事項](https://launchpad.support.sap.com/#/notes/1984787)
 - [SAP 支援附註 #171356 – 在 Linux 上的 SAP 軟體︰一般資訊](https://launchpad.support.sap.com/#/notes/1984787)
@@ -119,9 +119,9 @@ HANA 大型執行個體單位可以連接到這個 SMT 執行個體。 (如需�
 - [SAP 支援附註 #2247020 - SAP HANA DB：適用於 RHEL 6.7 的建議作業系統設定](https://launchpad.support.sap.com/#/notes/2247020)
 - [SAP 支援附註 #1391070 – Linux UUID 解決方案](https://launchpad.support.sap.com/#/notes/1391070)
 - [SAP 支援附註 #2228351 - Linux：RHEL 6 或 SLES 11 上的 SAP HANA Database SPS 11 修訂版 110 (或更新版本)](https://launchpad.support.sap.com/#/notes/2228351)
-- [SAP 支援附註 #2397039 - 常見問題集：RHEL 上的 SAP](https://launchpad.support.sap.com/#/notes/2397039)
-- [SAP 支援附註 #1496410 - Red Hat Enterprise Linux 6.x：安裝與升級](https://launchpad.support.sap.com/#/notes/1496410)
-- [SAP 支援附註 #2002167 - Red Hat Enterprise Linux 7.x：安裝與升級](https://launchpad.support.sap.com/#/notes/2002167)
+- [SAP 支援附註 #2397039 - 常見問題集：SAP on RHEL](https://launchpad.support.sap.com/#/notes/2397039)
+- [SAP 支援附註 #1496410 - Red Hat Enterprise Linux 6.x：安裝和升級](https://launchpad.support.sap.com/#/notes/1496410)
+- [SAP 支援附註 #2002167 - Red Hat Enterprise Linux 7.x：安裝和升級](https://launchpad.support.sap.com/#/notes/2002167)
 
 ### <a name="time-synchronization"></a>時間同步處理
 
@@ -144,7 +144,7 @@ HANA 大型執行個體單位可以連接到這個 SMT 執行個體。 (如需�
 
 ## <a name="storage"></a>儲存體
 
-Azure 上的 SAP Hana （大型實例）的儲存體配置是透過 SAP 建議方針的 SAP Hana 在 Azure `service management` 設定。 這些指引列載於 [SAP HANA 儲存體需求](https://go.sap.com/documents/2015/03/74cdb554-5a7c-0010-82c7-eda71af511fa.html)白皮書中。 
+Azure 上的 SAP Hana （大型實例）的儲存體配置是透過 SAP 建議方針的 Azure `service management` 上的 SAP Hana 來設定。 這些指引列載於 [SAP HANA 儲存體需求](https://go.sap.com/documents/2015/03/74cdb554-5a7c-0010-82c7-eda71af511fa.html)白皮書中。 
 
 有不同 HANA 大型執行個體 SKU 的不同磁碟區的約略大小記載於 [Azure 上 SAP HANA (大型執行個體) 的概觀和架構](hana-overview-architecture.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)。
 
@@ -152,8 +152,8 @@ Azure 上的 SAP Hana （大型實例）的儲存體配置是透過 SAP 建議�
 
 | 儲存體使用量 | 掛接名稱 | 磁碟區名稱 | 
 | --- | --- | ---|
-| HANA 資料 | /hana/data/SID/mnt0000 @ no__t-0m > | 儲存體 IP：/hana_data_SID_mnt00001_tenant_vol |
-| HANA 記錄檔 | /hana/log/SID/mnt0000 @ no__t-0m > | 儲存體 IP：/hana_log_SID_mnt00001_tenant_vol |
+| HANA 資料 | /hana/data/SID/mnt0000 \<m > | 儲存體 IP：/hana_data_SID_mnt00001_tenant_vol |
+| HANA 記錄檔 | /hana/log/SID/mnt0000 \<m > | 儲存體 IP：/hana_log_SID_mnt00001_tenant_vol |
 | HANA 記錄備份 | /hana/log/backups | 儲存體 IP：/hana_log_backups_SID_mnt00001_tenant_vol |
 | HANA 共用 | /hana/shared/SID | 儲存體 IP：/hana_shared_SID_mnt00001_tenant_vol/shared |
 | usr/sap | /usr/sap/SID | 儲存體 IP：/hana_shared_SID_mnt00001_tenant_vol/usr_sap |
@@ -172,7 +172,7 @@ HANA/log/backup 磁碟區不支援作為資料庫備份的磁碟區。 它會調
 
 除了所提供的儲存體之外，您還可以購買額外的儲存體容量 (增量單位為 1 TB)。 此額外儲存體可以做為新的磁碟區新增至 HANA 大型執行個體。
 
-使用 Azure `service management` 上的 SAP Hana 進行上架期間，客戶會為 sidadm 使用者和 sapsys 群組指定使用者識別碼（UID）和群組識別碼（GID）（例如：1000,500)。 安裝 SAP HANA 系統時，您必須使用這些相同的值。 因為您想要在一個單元上部署多個 HANA 執行個體，所以您會取得多個磁碟區集合 (每個執行個體一組)。 如此一來，在部署期間您需要定義：
+使用 Azure `service management` 上的 SAP Hana 進行上架期間，客戶會為 sidadm 使用者和 sapsys 群組指定使用者識別碼（UID）和群組識別碼（GID）（例如：1000500）。 安裝 SAP HANA 系統時，您必須使用這些相同的值。 因為您想要在一個單元上部署多個 HANA 執行個體，所以您會取得多個磁碟區集合 (每個執行個體一組)。 如此一來，在部署期間您需要定義：
 
 - 不同的 (sidadm 衍生來源的) HANA 執行個體 SID。
 - 不同 HANA 執行個體的記憶體大小。 每個執行個體的記憶體大小都會定義每個個別磁碟區集合中的磁碟區大小。
@@ -208,13 +208,13 @@ S72m HANA 大型執行個體單元的 df -h 命令輸出應該像這樣：
 > [!IMPORTANT]
 > 為了防止 HANA 嘗試將資料檔案成長到超過 HANA 大型實例儲存體的 16 TB 檔案大小限制，您必須在 SAP Hana 的 global .ini 設定檔案中設定下列參數
 > 
-> - datavolume_striping=true
+> - datavolume_striping = true
 > - datavolume_striping_size_gb = 15000
 > - 另請參閱 SAP note [#2400005](https://launchpad.support.sap.com/#/notes/2400005)
 > - 請留意 SAP note [#2631285](https://launchpad.support.sap.com/#/notes/2631285)
 
 
-在 SAP HANA 2.0，hdbparam 架構已被取代。 因此，必須使用 SQL 命令來設定參數。 如需詳細資訊，請參閱 [SAP 附註 #2399079：在 HANA 2 中刪除 hdbparam](https://launchpad.support.sap.com/#/notes/2399079)。
+在 SAP HANA 2.0，hdbparam 架構已被取代。 因此，必須使用 SQL 命令來設定參數。 如需詳細資訊，請參閱 [SAP 附註 #2399079：在 HANA 2 中已刪除 hdbparam (英文)](https://launchpad.support.sap.com/#/notes/2399079)。
 
 若要深入了解適用於您的架構的儲存配置，請參閱 [HLI 支援案例](hana-supported-scenario.md)。
 
