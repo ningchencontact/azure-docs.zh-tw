@@ -1,17 +1,17 @@
 ---
 title: 在 Azure Cosmos DB 中最佳化開發與測試
 description: 本文說明 Azure Cosmos DB 如何免費提供多個對服務進行開發與測試的選項。
-author: rimman
+author: markjbrown
+ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/21/2019
-ms.author: rimman
-ms.openlocfilehash: f9cb18b66def144b84de708351743832d1831fbf
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 992d165d323aab79bb7b5475aa396d4432691530
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65967273"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72754889"
 ---
 # <a name="optimize-development-and-testing-cost-in-azure-cosmos-db"></a>在 Azure Cosmos DB 中最佳化開發與測試成本
 
@@ -34,7 +34,7 @@ Azure Cosmos DB 已包含在 [Azure 免費帳戶](https://azure.microsoft.com/fr
 您可以透過下列文章來開始使用模擬器或免費的 Azure Cosmos DB 帳戶：
 
 * 深入了解[最佳化開發與測試](optimize-dev-test.md)
-* 深入了解 [Azure Cosmos DB 帳單](understand-your-bill.md)
+* 深入了解 [Azure Cosmos DB 上的計費](understand-your-bill.md)
 * 深入了解[最佳化輸送量成本](optimize-cost-throughput.md)
 * 深入了解[最佳化儲存體成本](optimize-cost-storage.md)
 * 深入了解[最佳化讀取和寫入的成本](optimize-cost-reads-writes.md)

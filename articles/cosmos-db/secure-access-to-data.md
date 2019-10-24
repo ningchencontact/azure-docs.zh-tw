@@ -1,17 +1,17 @@
 ---
 title: 了解如何安全存取 Azure Cosmos DB 中的資料
 description: 深入了解 Azure Cosmos DB 中的存取控制概念，其中包括主要金鑰、唯讀金鑰、使用者和權限。
-author: rimman
+author: markjbrown
+ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/21/2019
-ms.author: rimman
-ms.openlocfilehash: f2e01e42a53f6f099191c03f45d6521668ea73a1
-ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
+ms.openlocfilehash: 7e732f1d35097730d4468b43a2d9804fe7a18514
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69616679"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72753181"
 ---
 # <a name="secure-access-to-data-in-azure-cosmos-db"></a>安全存取 Azure Cosmos DB 中的資料
 
@@ -124,7 +124,7 @@ docUser = await client.CreateUserAsync(UriFactory.CreateDatabaseUri("db"), docUs
 
 <a id="permissions"></a>
 
-## <a name="permissions"></a>Permissions
+## <a name="permissions"></a>使用權限
 Cosmos DB 權限資源會與 Cosmos DB 使用者相關聯。  每位使用者都包含零個或多個 Cosmos DB 權限。  當使用者嘗試存取特定的應用程式資源時，權限資源會提供使用者所需的安全性權杖存取權。
 權限資源可能提供兩種可用的存取等級：
 
@@ -193,5 +193,5 @@ Azure Cosmos DB 可讓您搜尋、選取、修改和刪除資料庫或集合中�
 [!INCLUDE [GDPR-related guidance](../../includes/gdpr-dsr-and-stp-note.md)]
 
 ## <a name="next-steps"></a>後續步驟
-* 若要深入瞭解 Cosmos 資料庫安全性, 請[參閱 Cosmos DB:資料庫安全性](database-security.md)。
+* 若要深入瞭解 Cosmos 資料庫安全性，請參閱[Cosmos DB：資料庫安全性](database-security.md)。
 * 若要了解如何建構 Cosmos DB 授權權杖，請參閱 [Cosmos DB 資源的存取控制 (英文)](https://docs.microsoft.com/rest/api/cosmos-db/access-control-on-cosmosdb-resources)。

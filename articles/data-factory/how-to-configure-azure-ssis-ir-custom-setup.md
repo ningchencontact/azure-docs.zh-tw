@@ -12,12 +12,12 @@ author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
 manager: craigg
-ms.openlocfilehash: 4962070d69af98d0c7b10dc6f931612766529dce
-ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
+ms.openlocfilehash: f7b09dcbd474debc08b79599e9e2dfaaca52285a
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69515715"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72754695"
 ---
 # <a name="customize-setup-for-the-azure-ssis-integration-runtime"></a>自訂 Azure-SSIS 整合執行階段的安裝
 
@@ -40,7 +40,7 @@ Azure-SSIS 整合執行階段的自訂安裝介面所提供的介面，可讓您
 
 -   Azure-SSIS IR 上目前不支援系統管理共用。
 
--   Azure SSIS IR 不支援 IBM iSeries Access ODBC 驅動程式。 在自訂安裝期間, 您可能會看到安裝錯誤。 請洽詢 IBM 支援以取得協助。
+-   Azure SSIS IR 不支援 IBM iSeries Access ODBC 驅動程式。 在自訂安裝期間，您可能會看到安裝錯誤。 請洽詢 IBM 支援以取得協助。
 
 ## <a name="prerequisites"></a>必要條件
 
@@ -56,13 +56,15 @@ Azure-SSIS 整合執行階段的自訂安裝介面所提供的介面，可讓您
 
 -   [Azure 儲存體帳戶](https://azure.microsoft.com/services/storage/)。 進行自訂安裝時，您可以將自訂安裝指令碼及其相關聯的檔案上傳並儲存在 Blob 容器中。 自訂安裝程序也會將其執行記錄上傳至相同的 Blob 容器。
 
-## <a name="instructions"></a>指示
+## <a name="instructions"></a>範例的指示
 
 1. 下載並安裝 [Azure PowerShell](/powershell/azure/install-az-ps)。
 
 1. 準備您的自訂安裝指令碼和及相關聯的檔案 (例如 .bat、.cmd、.exe、.dll、.msi 或 .ps1 檔案)。
 
    1.  您必須具有名為 `main.cmd` 的指令碼檔案，這是您自訂安裝的進入點。
+
+   1.  您必須確定腳本可以無訊息的方式執行，建議您先在本機電腦上測試腳本。
 
    1.  如果您想要將其他工具 (例如 `msiexec.exe`) 所產生的其他記錄上傳到您的容器中，請將預先定義的環境變數 `CUSTOM_SETUP_SCRIPT_LOG_DIR` 指定為指令碼中的記錄資料夾 (例如 `msiexec /i xxx.msi /quiet /lv %CUSTOM_SETUP_SCRIPT_LOG_DIR%\install.log`)。
 
@@ -84,7 +86,7 @@ Azure-SSIS 整合執行階段的自訂安裝介面所提供的介面，可讓您
 
       ![建立 Blob 容器](media/how-to-configure-azure-ssis-ir-custom-setup/custom-setup-image4.png)
 
-   1. 選取新容器，並上傳您的自訂安裝指令碼及其相關聯的檔案。 請務必將 `main.cmd` 上傳至容器的最上層，而非任何資料夾中。 此外，也請確定您的容器只包含必要的自訂安裝檔，如此一來，稍後將它們下載到您的 Azure-SSIS IR 時，才不會花費很長的時間。 自訂安裝程式的最長期間目前設定為45分鐘的時間, 這包括從您的容器下載所有檔案, 並將它們安裝在 Azure SSIS IR 的時間。 如果需要較長的時間, 請提出支援票證。
+   1. 選取新容器，並上傳您的自訂安裝指令碼及其相關聯的檔案。 請務必將 `main.cmd` 上傳至容器的最上層，而非任何資料夾中。 此外，也請確定您的容器只包含必要的自訂安裝檔，如此一來，稍後將它們下載到您的 Azure-SSIS IR 時，才不會花費很長的時間。 自訂安裝程式的最長期間目前設定為45分鐘的時間，這包括從您的容器下載所有檔案，並將它們安裝在 Azure SSIS IR 的時間。 如果需要較長的時間，請提出支援票證。
 
       ![將檔案上傳至 Blob 容器](media/how-to-configure-azure-ssis-ir-custom-setup/custom-setup-image5.png)
 
@@ -107,7 +109,7 @@ Azure-SSIS 整合執行階段的自訂安裝介面所提供的介面，可讓您
 
       ![輸入共用存取簽章](media/tutorial-create-azure-ssis-runtime-portal/advanced-settings.png)
 
-      當您使用 PowerShell 佈建或重新設定 Azure-SSIS IR 時，在啟動 Azure-SSIS IR 之前，請先執行 `Set-AzDataFactoryV2IntegrationRuntime` Cmdlet，並以容器的 SAS URI 作為新 `SetupScriptContainerSasUri` 參數的值。 例如:
+      當您使用 PowerShell 佈建或重新設定 Azure-SSIS IR 時，在啟動 Azure-SSIS IR 之前，請先執行 `Set-AzDataFactoryV2IntegrationRuntime` Cmdlet，並以容器的 SAS URI 作為新 `SetupScriptContainerSasUri` 參數的值。 例如：
 
       ```powershell
       Set-AzDataFactoryV2IntegrationRuntime -DataFactoryName $MyDataFactoryName `
@@ -128,7 +130,7 @@ Azure-SSIS 整合執行階段的自訂安裝介面所提供的介面，可讓您
 
       ![使用共用存取簽章連線至 Azure 儲存體](media/how-to-configure-azure-ssis-ir-custom-setup/custom-setup-image9.png)
 
-   b.  選取 [使用 SAS URI]，並為公用預覽容器輸入下列 SAS URI。 選取 [下一步]，然後選取 [連線]。
+   b.這是另一個 C# 主控台應用程式。  選取 [使用 SAS URI]，並為公用預覽容器輸入下列 SAS URI。 選取 [下一步]，然後選取 [連線]。
 
       `https://ssisazurefileshare.blob.core.windows.net/publicpreview?sp=rl&st=2018-04-08T14%3A10%3A00Z&se=2020-04-10T14%3A10%3A00Z&sv=2017-04-17&sig=mFxBSnaYoIlMmWfxu9iMlgKIvydn85moOnOch6%2F%2BheE%3D&sr=c`
 

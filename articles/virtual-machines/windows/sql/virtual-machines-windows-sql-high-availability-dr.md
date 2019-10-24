@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/27/2017
 ms.author: mikeray
-ms.openlocfilehash: ef67609f4448dc7ce4d1676d7212890e1fe6561f
-ms.sourcegitcommit: f29fec8ec945921cc3a89a6e7086127cc1bc1759
+ms.openlocfilehash: 5f5fc4ecc0949f2f224c1d6a05742900a751ef45
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72529503"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72756244"
 ---
 # <a name="high-availability-and-disaster-recovery-for-sql-server-in-azure-virtual-machines"></a>Azure 虛擬機器中 SQL Server 的高可用性和災害復原
 
@@ -50,7 +50,7 @@ ms.locfileid: "72529503"
 | 技術 | 範例架構 |
 | --- | --- |
 | **可用性群組** |在相同區域的 Azure VM 中執行的可用性複本提供高可用性。  由於 Windows 容錯移轉叢集需要使用 Active Directory 網域，因此您需要設定網域控制站 VM。<br/><br/> 如需更高的冗余和可用性，Azure Vm 可以部署在不同的[可用性區域](../../../availability-zones/az-overview.md)中，如[可用性群組總覽](virtual-machines-windows-portal-sql-availability-group-overview.md)中所述。 如果可用性群組中的 SQL Server Vm 部署在可用性區域中，則請使用適用于接聽程式的[標準負載平衡器](../../../load-balancer/load-balancer-standard-overview.md)，如下列文章所述： [AZURE SQL VM CLI](virtual-machines-windows-sql-availability-group-cli.md) & [azure 快速入門範本](virtual-machines-windows-sql-availability-group-quickstart-template.md)。<br/> ![可用性群組](./media/virtual-machines-windows-sql-high-availability-dr/azure-only-ha-always-on.png)<br/>如需詳細資訊，請參閱[在 Azure (GUI) 中設定可用性群組](virtual-machines-windows-portal-sql-alwayson-availability-groups.md)。 |
-| **容錯移轉叢集執行個體** |需要共用存放裝置的容錯移轉叢集實例（FCI）可以用4種不同的方式建立。<br/><br/>1. 在 Azure Vm 中執行的雙節點容錯移轉叢集與使用[Windows Server 2016 的連結儲存體儲存空間直接存取 \(S2D \)](virtual-machines-windows-portal-sql-create-failover-cluster.md)來提供軟體虛擬 SAN。<br/><br/> 2. 使用[Premium 檔案共用](virtual-machines-windows-portal-sql-create-failover-cluster-premium-file-storage.md)在 Azure vm 中執行的雙節點容錯移轉叢集。 Premium 檔案共用是以 SSD 為基礎且一致的低延遲檔案共用，完全支援與容錯移轉叢集實例搭配使用。<br/><br/>3. 在 Azure Vm 中執行的雙節點容錯移轉叢集，並提供協力廠商叢集解決方案支援的儲存體。 如需使用 SIOS DataKeeper 的特定範例，請參閱[使用容錯移轉叢集和協力廠商軟體 SIOS DataKeeper 之檔案共用的高可用性](https://azure.microsoft.com/blog/high-availability-for-a-file-share-using-wsfc-ilb-and-3rd-party-software-sios-datakeeper/) \(英文\)。<br/><br/>4. 在 Azure Vm 中執行的雙節點容錯移轉叢集，搭配透過 ExpressRoute 的遠端 iSCSI 目標共用區塊儲存體。 例如，NetApp 私用儲存體 (NPS) 會透過 ExpressRoute 使用 Equinix 將 iSCSI 目標公開至 Azure VM。<br/><br/>對於協力廠商共用儲存體和資料複寫解決方案，針對有關存取容錯移轉資料的任何問題您應該連絡廠商。<br/><br/>請注意，在 [Azure 檔案儲存體](https://azure.microsoft.com/services/storage/files/)最上層使用 FCI 尚未支援，因為這個解決方案不使用進階儲存體。 我們正在努力，很快就會推出這項支援。 |
+| **容錯移轉叢集執行個體** |需要共用存放裝置的容錯移轉叢集實例（FCI）可以用4種不同的方式建立。<br/><br/>1. 在 Azure Vm 中執行的雙節點容錯移轉叢集與使用[Windows Server 2016 的連結儲存體儲存空間直接存取 \(S2D \)](virtual-machines-windows-portal-sql-create-failover-cluster.md)來提供軟體虛擬 SAN。<br/><br/> 2. 使用[Premium 檔案共用](virtual-machines-windows-portal-sql-create-failover-cluster-premium-file-share.md)在 Azure vm 中執行的雙節點容錯移轉叢集。 Premium 檔案共用是以 SSD 為基礎且一致的低延遲檔案共用，完全支援與容錯移轉叢集實例搭配使用。<br/><br/>3. 在 Azure Vm 中執行的雙節點容錯移轉叢集，並提供協力廠商叢集解決方案支援的儲存體。 如需使用 SIOS DataKeeper 的特定範例，請參閱[使用容錯移轉叢集和協力廠商軟體 SIOS DataKeeper 之檔案共用的高可用性](https://azure.microsoft.com/blog/high-availability-for-a-file-share-using-wsfc-ilb-and-3rd-party-software-sios-datakeeper/) \(英文\)。<br/><br/>4. 在 Azure Vm 中執行的雙節點容錯移轉叢集，搭配透過 ExpressRoute 的遠端 iSCSI 目標共用區塊儲存體。 例如，NetApp 私用儲存體 (NPS) 會透過 ExpressRoute 使用 Equinix 將 iSCSI 目標公開至 Azure VM。<br/><br/>對於協力廠商共用儲存體和資料複寫解決方案，針對有關存取容錯移轉資料的任何問題您應該連絡廠商。<br/><br/>|
 
 ## <a name="azure-only-disaster-recovery-solutions"></a>僅限 Azure：災害復原解決方案
 您可以使用可用性群組或資料庫鏡像，為 Azure 中的 SQL Server 資料庫提供災害復原解決方案，或者使用儲存體 Blob 進行備份和還原。
@@ -81,7 +81,7 @@ ms.locfileid: "72529503"
 Azure 中的可用性設定組可讓您將高可用性節點分別放入容錯網域 (FD) 和更新網域 (UD)。 基礎 Azure 平台會為可用性集合中的每部虛擬機器指派一個更新網域和一個容錯網域。 資料中心內的這項組態可以確保在規劃或未規劃的維護事件發生期間，至少有一部虛擬機器可以使用，且符合 99.95% 的 Azure SLA。 若要設定高可用性安裝程式，請將所有參與的 SQL 虛擬機器放在相同的可用性設定組中，以避免在維護事件期間發生應用程式或資料遺失。 只有相同雲端服務內的節點可以參與相同的可用性設定組。 如需詳細資訊，請參閱 [管理虛擬機器的可用性](../manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)。
 
 ### <a name="high-availability-nodes-in-an-availability-zone"></a>可用性區域中的高可用性節點
-「可用性區域」是 Azure 地區內獨特的實體位置。 每個區域皆由一或多個配備獨立電力、冷卻系統及網路的資料中心所組成。 區域內可用性區域的實體分隔，藉由確保至少有一部虛擬機器可供使用且符合 99.99% 的 Azure SLA，來保護應用程式和資料不受資料中心失敗的影響。 若要設定高可用性，請將參與的 SQL 虛擬機器散佈到區域內的可用可用性區域。 在可用性區域之間將額外產生 VM 對 VM 的資料傳輸費用。 如需詳細資訊，請參閱[可用性區域](/azure/availability-zones/az-overview)。 
+「可用性區域」是 Azure 地區內獨特的實體位置。 每個區域皆由一或多個配備獨立電力、冷卻系統及網路的資料中心所組成。 區域內可用性區域的實體分隔，藉由確保至少有一部虛擬機器可供使用且符合99.99% 的 Azure SLA，來保護應用程式和資料不受資料中心失敗的影響。 若要設定高可用性，請將參與的 SQL 虛擬機器散佈到區域內的可用可用性區域。 在可用性區域之間將額外產生 VM 對 VM 的資料傳輸費用。 如需詳細資訊，請參閱[可用性區域](/azure/availability-zones/az-overview)。 
 
 
 ### <a name="failover-cluster-behavior-in-azure-networking"></a>Azure 網路中的容錯移轉叢集行為

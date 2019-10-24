@@ -7,14 +7,14 @@ ms.reviewer: daperlov
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 10/7/2019
-ms.openlocfilehash: 94bde7b2e2a6f3902d83de90b06638035fd34397
-ms.sourcegitcommit: d37991ce965b3ee3c4c7f685871f8bae5b56adfa
+ms.openlocfilehash: 7f6c131737ca63d120e111b3ef4504a36dbd7fc1
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72679129"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72754702"
 ---
-# <a name="what-are-mapping-data-flows"></a>什麼是對應的資料流程？
+# <a name="what-are-mapping-data-flows"></a>什麼是對應資料流程？
 
 對應資料流程會以視覺化方式設計 Azure Data Factory 中的資料轉換。 資料流程可讓資料工程師開發圖形化資料轉換邏輯，而不需要撰寫程式碼。 產生的資料流程會當做使用相應放大 Spark 叢集 Azure Data Factory 管線內的活動來執行。 資料流程活動可以透過現有的 Data Factory 排程、控制、流程和監視功能來運作。
 
@@ -39,6 +39,38 @@ ms.locfileid: "72679129"
 圖形會顯示轉換資料流程。 它會顯示來源資料流入一或多個接收時的歷程。 若要新增來源，請選取 [新增**來源**]。 若要加入新的轉換，請選取現有轉換右下方的加號。
 
 ![繪圖](media/data-flow/canvas2.png "畫布")
+
+### <a name="azure-integration-runtime-data-flow-properties"></a>Azure 整合執行時間資料流程屬性
+
+![[調試] 按鈕](media/data-flow/debugbutton.png "[調試] 按鈕")
+
+當您開始使用 ADF 中的資料流程時，您會想要針對瀏覽器 UI 頂端的資料流程開啟 "Debug" 參數。 這將會啟動 Azure Databricks 叢集，以用於互動式的偵錯工具、資料預覽和管線的偵錯工具執行。 您可以選擇自訂的[Azure Integration Runtime](concepts-integration-runtime.md)來設定使用的叢集大小。 在您上次進行資料預覽或上次執行的「偵測管線」之後，debug 會話將維持運作狀態最多60分鐘。
+
+當您使用「資料流程」活動來讓管線時，ADF 將會使用與「執行于」屬性中的[活動](control-flow-execute-data-flow-activity.md)相關聯的 Azure Integration Runtime。
+
+預設 Azure Integration Runtime 是一個小型的4核心單一背景工作節點叢集，目的是要讓您預覽資料，並以最少的成本快速執行 debug 管線。 如果您要對大型資料集執行作業，請設定較大的 Azure IR 設定。
+
+您可以藉由在 Azure IR 的資料流程屬性中設定 TTL，指示 ADF 維護叢集資源（Vm）的集區。 這會導致後續活動的作業執行速度更快。
+
+#### <a name="azure-integration-runtime-and-data-flow-strategies"></a>Azure 整合執行時間和資料流程策略
+
+##### <a name="execute-data-flows-in-parallel"></a>平行執行資料流程
+
+如果您以平行方式執行管線中的資料流程，ADF 會根據您附加至每個活動的 Azure Integration Runtime 中的設定，針對每個活動執行來啟動個別 Azure Databricks 叢集。 若要在 ADF 管線中設計平行執行，請在 UI 中新增不含優先順序條件約束的資料流程活動。
+
+在這三個選項中，此選項可能會在最短的時間內執行。 不過，每個平行資料流程都會在不同的叢集上同時執行，因此事件的順序不具決定性。
+
+##### <a name="overload-single-data-flow"></a>多載單一資料流程
+
+如果您將所有邏輯放在單一資料流程中，ADF 將會在單一 Spark 叢集實例上的相同作業執行內容中執行。
+
+這個選項可能較難追蹤和疑難排解，因為您的商務規則和商務邏輯將會各異四不像在一起。 此選項也不會提供很多的重複使用性。
+
+##### <a name="execute-data-flows-serially"></a>連續執行資料流程
+
+如果您在管線中執行序列中的資料流程活動，而且您已在 Azure IR 設定上設定 TTL，則 ADF 會重複使用計算資源（Vm），以加快後續的執行時間。 您仍然會在每次執行時收到新的 Spark 內容。
+
+在這三個選項中，這可能會花費最長的時間來執行端對端。 但它確實提供了每個資料流程步驟中邏輯作業的清楚分隔。
 
 ### <a name="configuration-panel"></a>設定面板
 

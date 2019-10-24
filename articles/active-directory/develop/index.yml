@@ -8,12 +8,12 @@ metadata:
   ms.service: active-directory
   ms.subservice: develop
   ms.workload: identity
-  ms.openlocfilehash: a558bbd114bdaa2046bd0bfb8ffd846d0804b9a3
-  ms.sourcegitcommit: 1572b615c8f863be4986c23ea2ff7642b02bc605
+  ms.openlocfilehash: 63c9b205048b6cd4f59d1f5972f8f789a875b768
+  ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
   ms.translationtype: HT
   ms.contentlocale: zh-TW
-  ms.lasthandoff: 07/10/2019
-  ms.locfileid: "67785595"
+  ms.lasthandoff: 10/23/2019
+  ms.locfileid: "72803250"
 landingContent:
 - title: 關於 Microsoft 身分識別平台
   linkLists:
@@ -25,6 +25,14 @@ landingContent:
       url: v2-overview.md
     - text: 開發人員適用的 Azure Active Directory (v1.0)
       url: v1-overview.md
+  - linkListType: concept
+    links:
+    - text: 驗證基本概念
+      url: authentication-scenarios.md
+    - text: 驗證流程和應用程式案例
+      url: authentication-flows-app-scenarios.md
+    - text: 最佳做法和建議
+      url: identity-platform-integration-checklist.md
   - linkListType: learn
     links:
     - text: One Dev Minute - Microsoft 身分識別平台
@@ -43,10 +51,6 @@ landingContent:
     links:
     - text: JavaScript
       url: tutorial-v2-javascript-spa.md
-  - linkListType: deploy
-    links:
-    - text: 測試應用程式整合
-      url: identity-platform-integration-checklist.md
   - linkListType: download
     links:
     - text: 範例 - JavaScript、Angular
@@ -69,10 +73,6 @@ landingContent:
     links:
     - text: ASP.NET Core
       url: https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2
-  - linkListType: deploy
-    links:
-    - text: 測試應用程式整合
-      url: identity-platform-integration-checklist.md
   - linkListType: download
     links:
     - text: 範例 - ASP.NET Core、ASP.NET
@@ -87,10 +87,6 @@ landingContent:
     links:
     - text: ASP.NET Core
       url: https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2#scope-of-this-tutorial
-  - linkListType: deploy
-    links:
-    - text: 測試應用程式整合
-      url: identity-platform-integration-checklist.md
   - linkListType: download
     links:
     - text: 範例 - ASP.NET Core、ASP.NET、Node.js、Ruby
@@ -105,10 +101,6 @@ landingContent:
     links:
     - text: ASP.NET Core Web API
       url: https://github.com/Azure-Samples/active-directory-dotnet-native-aspnetcore-v2
-  - linkListType: deploy
-    links:
-    - text: 測試應用程式整合
-      url: identity-platform-integration-checklist.md
   - linkListType: download
     links:
     - text: 範例 - ASP.NET
@@ -123,10 +115,6 @@ landingContent:
     links:
     - text: 呼叫 Microsoft Graph 的 ASP.NET Core Web API
       url: https://github.com/Azure-Samples/active-directory-dotnet-native-aspnetcore-v2/tree/master/2.%20Web%20API%20now%20calls%20Microsoft%20Graph
-  - linkListType: deploy
-    links:
-    - text: 測試應用程式整合
-      url: identity-platform-integration-checklist.md
 - title: 建置呼叫 Web API 的桌面應用程式
   linkLists:
   - linkListType: get-started
@@ -145,10 +133,6 @@ landingContent:
       url: tutorial-v2-windows-desktop.md
     - text: 呼叫 Microsoft Graph API (UWP)
       url: tutorial-v2-windows-uwp.md
-  - linkListType: deploy
-    links:
-    - text: 測試應用程式整合
-      url: identity-platform-integration-checklist.md
   - linkListType: download
     links:
     - text: 範例 -.NET、.NET Core
@@ -165,10 +149,6 @@ landingContent:
       url: quickstart-v2-netcore-daemon.md
     - text: 取得權杖，並呼叫 Microsoft Graph API (.NET Core Web 應用程式)
       url: https://github.com/Azure-Samples/ms-identity-aspnet-daemon-webapp
-  - linkListType: deploy
-    links:
-    - text: 測試應用程式整合
-      url: identity-platform-integration-checklist.md
   - linkListType: download
     links:
     - text: 範例 - ASP.NET 主控台、ASP.NET Web
@@ -193,10 +173,6 @@ landingContent:
       url: tutorial-v2-android.md
     - text: 登入使用者，並呼叫 Microsoft Graph API (iOS)
       url: tutorial-v2-ios.md
-  - linkListType: deploy
-    links:
-    - text: 測試應用程式整合
-      url: identity-platform-integration-checklist.md
   - linkListType: download
     links:
     - text: 範例 - Android、iOS、Xamarin

@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.reviewer: mbullwin
 ms.date: 10/03/2019
 ms.author: dalek
-ms.openlocfilehash: 4674dede5912dc1dc64bd0e092e28461f30bebcd
-ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
-ms.translationtype: MT
+ms.openlocfilehash: f9d92f03b1f55ad9d1f1e272886095ae48033266
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72554232"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72750389"
 ---
 # <a name="manage-usage-and-costs-for-application-insights"></a>管理 Application Insights 的使用量和成本
 
@@ -45,7 +45,7 @@ Application Insights 的設計，是為了取得監視 web 應用程式的可用
 
 透過 ASP.NET SDK 的調適型[取樣](https://docs.microsoft.com/azure/azure-monitor/app/sampling#adaptive-sampling-in-your-aspnetaspnet-core-web-applications)，資料磁片區會自動調整，以保持在預設 Application Insights 監視的指定最大傳輸速率。 如果應用程式產生較少的遙測資料（例如，在進行調試時或由於低使用量的緣故），取樣處理器就不會卸載專案，只要磁片區低於每秒設定的事件數層級即可。 針對高容量的應用程式，預設臨界值為每秒5個事件，調適型取樣會將每日事件數限制為432000。 使用一般的平均事件大小 1 KB，這會對應13.4 到每個節點每31天的遙測資料，每個月裝載您的應用程式（因為取樣是在每個節點的本機執行）。 
 
-針對不支援調適型取樣的 Sdk，您可以使用內嵌[取樣](https://docs.microsoft.com/azure/azure-monitor/app/sampling#ingestion-sampling)，其中會根據要保留的資料百分比來 Application Insights 接收資料，或針對[ASP.NET、ASP.NET Core 和 JAVA 進行固定速率取樣](https://docs.microsoft.com/azure/azure-monitor/app/sampling#fixed-rate-sampling-for-aspnet-aspnet-core-and-java-websites)用來減少從 web 伺服器和網頁瀏覽器傳送流量的網站
+針對不支援調適型取樣的 Sdk，您可以使用內嵌[取樣](https://docs.microsoft.com/azure/azure-monitor/app/sampling#ingestion-sampling)，其中會根據要保留的資料百分比來 Application Insights 接收資料，或針對[ASP.NET、ASP.NET Core 和 JAVA 進行固定速率取樣](https://docs.microsoft.com/azure/azure-monitor/app/sampling#fixed-rate-sampling-for-aspnet-aspnet-core-java-websites-and-python-applications)用來減少從 web 伺服器和網頁瀏覽器傳送流量的網站
 
 ### <a name="learn-from-what-similar-customers-collect"></a>瞭解類似客戶所收集的內容
 
@@ -164,7 +164,7 @@ systemEvents
 
 ## <a name="change-the-data-retention-period"></a>變更資料保留期
 
-Application Insights 資源的預設保留期為90天。 可以為每個 Application Insights 資源選取不同的保留週期。 一組完整的可用保留週期為30、60、90、120、180、270、365、550或730天。 
+Application Insights 資源的預設保留期為90天。 您可為每項 Application Insights 資源選取不同的保留期間。 一組完整的可用保留週期為30、60、90、120、180、270、365、550或730天。 
 
 若要變更保留期，請在 Application Insights 資源中，移至 [**使用量和估計成本**] 頁面，然後選取 [**資料保留**] 選項：
 

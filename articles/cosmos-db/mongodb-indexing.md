@@ -8,18 +8,34 @@ ms.topic: conceptual
 ms.date: 12/26/2018
 author: sivethe
 ms.author: sivethe
-ms.openlocfilehash: de037316efa50dd25ea04c370fa0e5878fb52ba1
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: e51e96c0c553bcf37284878cab11f3ec592ddd05
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60448498"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72753382"
 ---
 # <a name="indexing-using-azure-cosmos-dbs-api-for-mongodb"></a>使用 Azure Cosmos DB 的 MongoDB 版 API 進行索引編製
 
 Azure Cosmos DB 的 MongoDB 版 API 會運用 Cosmos DB 的自動索引管理功能。 因此，使用者可以存取 Cosmos DB 的預設索引原則。 所以，如果使用者未定義任何索引，或未置放任何索引，則所有欄位在插入至集合時，預設都會自動編製索引。 在大部分情況下，我們建議使用帳戶上設定的預設索引原則。
 
-## <a name="dropping-the-default-indexes"></a>置放預設索引
+## <a name="indexing-for-version-36"></a>3\.6 版的索引
+
+服務線路通訊協定版本3.6 的帳戶，提供的預設索引編制原則與舊版所提供的原則不同。 根據預設，只有 [_id] 欄位會編制索引。 若要為其他欄位編制索引，使用者必須套用 MongoDB 索引管理命令。 若要將排序套用至查詢，目前必須在排序作業中使用的欄位上建立索引。
+
+### <a name="dropping-the-default-indexes-36"></a>卸載預設索引（3.6）
+
+針對服務線路通訊協定3.6 版的帳戶，唯一的預設索引是 _id，無法卸載。
+
+### <a name="creating-a-compound-index-36"></a>建立複合索引（3.6）
+
+使用3.6 連線通訊協定的帳戶支援真正的複合索引。 下列命令會在欄位 ' a ' 和 ' b ' 上建立複合索引： `db.coll.createIndex({a:1,b:1})`
+
+複合索引可以用來一次在多個欄位上有效率地進行排序，例如： `db.coll.find().sort({a:1,b:1})`
+
+## <a name="indexing-for-version-32"></a>3\.2 版的索引
+
+### <a name="dropping-the-default-indexes-32"></a>卸載預設索引（3.2）
 
 下列命令可用來置放 ```coll``` 集合的預設索引：
 
@@ -28,20 +44,25 @@ Azure Cosmos DB 的 MongoDB 版 API 會運用 Cosmos DB 的自動索引管理功
 { "_t" : "DropIndexesResponse", "ok" : 1, "nIndexesWas" : 3 }
 ```
 
-## <a name="creating-compound-indexes"></a>建立複合索引
+### <a name="creating-a-compound-index-32"></a>建立複合索引（3.2）
 
 複合索引可存放文件中多個欄位的參考。 就邏輯而言，它們等同於為每個欄位建立多個個別索引。 若要利用 Cosmos DB 索引技術所提供的最佳化功能，建議您建立多個個別索引，而不是單一 (非唯一) 複合索引。
 
+## <a name="common-indexing-operations"></a>一般索引作業
+
+下列作業適用于服務線路通訊協定3.6 版的帳戶，以及服務較早的網路通訊協定版本的帳戶。 
+
 ## <a name="creating-unique-indexes"></a>建立唯一索引
 
-[唯一索引](unique-keys.md)適合用於強制不會有任何兩份或多份文件包含相同的索引欄位值。 
->[!important] 
-> 目前，只有在集合是空的 (不包含任何文件) 時，才能建立唯一索引。 
+[唯一索引](unique-keys.md)適合用於強制不會有任何兩份或多份文件包含相同的索引欄位值。
+
+>[!Important]
+> 目前，只有在集合是空的 (不包含任何文件) 時，才能建立唯一索引。
 
 下列命令可在 "student_id" 欄位上建立唯一索引：
 
-```JavaScript
-globaldb:PRIMARY> db.coll.createIndex( { "student_id" : 1 }, {unique:true} ) 
+```shell
+globaldb:PRIMARY> db.coll.createIndex( { "student_id" : 1 }, {unique:true} )
 {
         "_t" : "CreateIndexesResponse",
         "ok" : 1,
@@ -55,7 +76,7 @@ globaldb:PRIMARY> db.coll.createIndex( { "student_id" : 1 }, {unique:true} )
 
 下列命令會建立分區化集合 ```coll``` (分區索引鍵是 ```university```)，其 student_id 和 university 欄位上有一個唯一索引：
 
-```JavaScript
+```shell
 globaldb:PRIMARY> db.runCommand({shardCollection: db.coll._fullName, key: { university: "hashed"}});
 {
         "_t" : "ShardCollectionResponse",
@@ -79,22 +100,23 @@ globaldb:PRIMARY> db.coll.createIndex( { "student_id" : 1, "university" : 1 }, {
 ## <a name="ttl-indexes"></a>TTL 索引
 
 若要啟用特定集合中的文件到期，則需建立[TTL 索引 (存留時間索引)](../cosmos-db/time-to-live.md)。 TTL 索引是_ts 欄位上具有 "expireAfterSeconds" 值的索引。
- 
+
 範例：
+
 ```JavaScript
 globaldb:PRIMARY> db.coll.createIndex({"_ts":1}, {expireAfterSeconds: 10})
 ```
 
-上述命令會導致 ```db.coll``` 集合中最近 10 秒內未經修改的文件遭到刪除。 
- 
+上述命令會導致 ```db.coll``` 集合中最近 10 秒內未經修改的文件遭到刪除。
+
 > [!NOTE]
 > **_ts** 是 Cosmos DB 特有欄位，且無法從 MongoDB 用戶端存取。 這是保留 (系統) 屬性，其中包含上次修改文件的時間戳記。
->
 
 ## <a name="migrating-collections-with-indexes"></a>移轉具有索引的集合
 
-目前，只有在集合不包含任何文件時，才可能建立唯一索引。 熱門 MongoDB 移轉工具會嘗試在匯入資料後建立唯一索引。 若要避免這個問題，建議使用者手動建立對應的集合和唯一索引，而不是允許使用移轉工具 (對於 ```mongorestore```，在命令列中使用 --noIndexRestore 旗標可完成此行為)。
+目前，只有在集合不包含任何文件時，才可能建立唯一索引。 熱門 MongoDB 移轉工具會嘗試在匯入資料後建立唯一索引。 若要避免這個問題，建議使用者手動建立對應的集合和唯一的索引，而不要允許遷移工具（適用于 ```mongorestore``` 這項行為是透過在命令列中使用 `--noIndexRestore` 旗標來達成）。
 
 ## <a name="next-steps"></a>後續步驟
+
 * [Azure Cosmos DB 中的編製索引](../cosmos-db/index-policy.md)
 * [利用存留時間讓 Azure Cosmos DB 中的資料自動過期](../cosmos-db/time-to-live.md)

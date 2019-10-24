@@ -719,6 +719,8 @@
           href: sql-database-managed-instance-aad-security-tutorial.md
         - name: 將受控執行個體新增到容錯移轉群組
           href: sql-database-managed-instance-failover-group-tutorial.md
+        - name: 遷移內部部署使用者和群組
+          href: tutorial-managed-instance-azure-active-directory-migration.md
     - name: 概念
       items:
         - name: 管理 API 參考

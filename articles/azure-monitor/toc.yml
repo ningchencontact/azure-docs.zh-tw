@@ -639,6 +639,8 @@
                   href: insights/vminsights-workbooks.md
                 - name: 使用日誌查詢分析資料
                   href: insights/vminsights-log-search.md
+                - name: 升級相依性代理程式
+                  href: insights/vminsights-dependency-agent-maintenance.md
                 - name: 停用監視
                   href: insights/vminsights-optout.md
             - name: 容量和效能解決方案

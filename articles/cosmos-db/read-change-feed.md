@@ -1,17 +1,17 @@
 ---
 title: 存取 Azure Cosmos DB 中的變更摘要
 description: 本文說明可用來在 Azure Cosmos DB 中讀取和存取變更摘要的不同選項。
-author: rimman
+author: markjbrown
+ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 07/23/2019
-ms.author: rimman
-ms.openlocfilehash: 3d52ba1abc22aae6121ea6a36f943851dfcca7a0
-ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
+ms.openlocfilehash: 3d30c9f946f97f06c1a3ba1cd2e77e1ab151a572
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68467673"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72754877"
 ---
 # <a name="reading-azure-cosmos-db-change-feed"></a>讀取 Azure Cosmos DB 變更摘要
 
@@ -23,7 +23,7 @@ ms.locfileid: "68467673"
 
 ## <a name="using-azure-functions"></a>使用 Azure Functions
 
-Azure Functions 是最簡單且建議的選項。 當您建立 Cosmos DB 的 Azure Functions 觸發程式時, 您可以選取要連線的容器, 並在每次容器變更時觸發 Azure 函式。 您可以使用 Azure Functions 入口網站、Azure Cosmos DB 入口網站，或透過 SDK 以程式設計方式建立觸發程序。 Visual Studio 和 VS Code 提供撰寫 Azure Functions 的支援，您甚至可以使用 Azure Functions CLI 進行跨平台開發。 您可以在電腦上撰寫和偵錯程式碼，然後只需按一下即可部署該功能。 若要深入了解，請參閱[使用 Azure Functions 的無伺服器資料庫計算](serverless-computing-database.md)和[搭配使用變更摘要與 Azure Functions](change-feed-functions.md) 文章。
+Azure Functions 是最簡單且建議的選項。 當您建立 Cosmos DB 的 Azure Functions 觸發程式時，您可以選取要連線的容器，並在每次容器變更時觸發 Azure 函式。 您可以使用 Azure Functions 入口網站、Azure Cosmos DB 入口網站，或透過 SDK 以程式設計方式建立觸發程序。 Visual Studio 和 VS Code 提供撰寫 Azure Functions 的支援，您甚至可以使用 Azure Functions CLI 進行跨平台開發。 您可以在電腦上撰寫和偵錯程式碼，然後只需按一下即可部署該功能。 若要深入了解，請參閱[使用 Azure Functions 的無伺服器資料庫計算](serverless-computing-database.md)和[搭配使用變更摘要與 Azure Functions](change-feed-functions.md) 文章。
 
 ## <a name="using-the-change-feed-processor-library"></a>使用變更摘要處理器程式庫
 
@@ -31,7 +31,7 @@ Azure Functions 是最簡單且建議的選項。 當您建立 Cosmos DB 的 Azu
 
 ## <a name="using-the-azure-cosmos-db-sql-api-sdk"></a>使用 Azure Cosmos DB SQL API SDK
 
-使用 SDK 時，您會取得變更摘要的低階控制。 您可以管理檢查點、存取特定邏輯分割區索引鍵等。如果您有多個讀取器，可以使用 `ChangeFeedOptions` 將讀取負載分配至不同的執行緒或不同的用戶端。 
+使用 SDK 時，您會取得變更摘要的低階控制。 您可以管理檢查點、存取特定的邏輯分割區索引鍵等。如果您有多個讀取器，可以使用 `ChangeFeedOptions` 將讀取負載分配至不同的執行緒或不同的用戶端。 
 
 ## <a name="next-steps"></a>後續步驟
 

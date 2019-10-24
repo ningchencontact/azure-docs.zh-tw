@@ -1,7 +1,7 @@
 ---
 title: Azure Machine Learning 的 Git 整合
 titleSuffix: Azure Machine Learning
-description: 瞭解 Azure Machine Learning 如何與本機 Git 存放庫整合。
+description: 瞭解 Azure Machine Learning 如何與本機 Git 存放庫整合。 從 Git 存放庫的本機目錄提交定型回合時，會追蹤儲存機制、分支和目前認可的相關資訊，做為執行的一部分。
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: jordane
 author: jpe316
 ms.date: 10/11/2019
-ms.openlocfilehash: 1ef9f3f847cb74aca0cae66dc8354838d28a645f
-ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
+ms.openlocfilehash: c8b2407b18f0d7115ce51fc28b956e7fd764c71e
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72553671"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72756021"
 ---
 # <a name="git-integration-for-azure-machine-learning"></a>Azure Machine Learning 的 Git 整合
 
@@ -92,5 +92,4 @@ az ml run list -e train-on-amlcompute --last 1 -w myworkspace -g myresourcegroup
 
 ## <a name="next-steps"></a>後續步驟
 
-* 如需如何在 Visual Studio Code 中使用 Azure Machine Learning 進行定型的逐步解說，請參閱[教學課程：使用 Azure Machine Learning 來定型模型](tutorial-train-models-with-aml.md)。
-* 如需如何在本機編輯、執行及偵錯工具代碼的逐步解說，請參閱[Python hello world 教學](https://code.visualstudio.com/docs/Python/Python-tutorial)課程。
+* [設定及使用計算目標進行模型定型](how-to-set-up-training-targets.md)

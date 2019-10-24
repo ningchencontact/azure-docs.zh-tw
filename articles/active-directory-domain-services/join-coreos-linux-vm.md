@@ -1,5 +1,5 @@
 ---
-title: 將 CoreOS VM 加入 Azure AD Domain Services |Microsoft Docs '
+title: 將 CoreOS VM 加入 Azure AD Domain Services |Microsoft Docs
 description: 瞭解如何設定 CoreOS 虛擬機器並將其加入 Azure AD Domain Services 受控網域。
 services: active-directory-ds
 author: iainfoulds
@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 09/14/2019
 ms.author: iainfou
-ms.openlocfilehash: c0c298a9aa0b9d46ec2c7510cdb5c3ba1c8c84af
-ms.sourcegitcommit: 8ef0a2ddaece5e7b2ac678a73b605b2073b76e88
+ms.openlocfilehash: 4cdc2fff05270a296d9c4c9151f73cadeb2a1cfc
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71075542"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72754383"
 ---
 # <a name="join-a-coreos-virtual-machine-to-an-azure-ad-domain-services-managed-domain"></a>將 CoreOS 虛擬機器加入 Azure AD Domain Services 受控網域
 
@@ -72,7 +72,7 @@ sudo vi /etc/hosts
 127.0.0.1 coreos coreos.contoso.com
 ```
 
-完成時，請使用編輯器的 `:wq`命令來儲存並結束 hosts 檔案。
+完成時，請使用編輯器的 [`:wq`] 命令儲存並結束*hosts*檔案。
 
 ## <a name="configure-the-sssd-service"></a>設定 SSSD 服務
 
@@ -122,27 +122,27 @@ krb5_realm = CONTOSO.COM
 
 更新 SSSD 設定檔之後，現在請將虛擬機器加入受控網域。
 
-1. 首先，使用`adcli info`命令來確認您可以看到 Azure AD DS 受控網域的相關資訊。 下列範例會取得網域*CONTOSO.COM*的資訊。 以全部大寫指定您自己的 Azure AD DS 受控功能變數名稱：
+1. 首先，使用 `adcli info` 命令來確認您可以看到 Azure AD DS 受控網域的相關資訊。 下列範例會取得網域*CONTOSO.COM*的資訊。 以全部大寫指定您自己的 Azure AD DS 受控功能變數名稱：
 
     ```console
     sudo adcli info CONTOSO.COM
     ```
 
-   `adcli info`如果命令找不到您的 Azure AD DS 受控網域，請參閱下列疑難排解步驟：
+   如果 `adcli info` 命令找不到您 Azure AD DS 受控網域，請參閱下列疑難排解步驟：
 
-    * 請確定可從 VM 連線到該網域。 請`ping contoso.com`嘗試查看是否傳回正面回復。
+    * 請確定可從 VM 連線到該網域。 嘗試 `ping contoso.com` 以查看是否傳回正面回復。
     * 檢查 VM 是否已部署至相同或對等互連的虛擬網路，其中可使用 Azure AD DS 受控網域。
     * 確認虛擬網路的 DNS 伺服器設定已更新，以指向 Azure AD DS 受控網域的網域控制站。
 
-1. 現在使用`adcli join`命令將 VM 加入 Azure AD DS 受控網域。 指定屬於*AAD DC 系統管理員*群組的使用者。 如有需要，請[將使用者帳戶新增至 Azure AD 中的群組](../active-directory/fundamentals/active-directory-groups-members-azure-portal.md)。
+1. 現在使用 `adcli join` 命令，將 VM 加入 Azure AD DS 受控網域。 指定屬於*AAD DC 系統管理員*群組的使用者。 如有需要，請[將使用者帳戶新增至 Azure AD 中的群組](../active-directory/fundamentals/active-directory-groups-members-azure-portal.md)。
 
-    同樣地，必須以全部大寫輸入 Azure AD DS 受管理的功能變數名稱。 在下列範例中，會使用名`contosoadmin@contoso.com`為的帳戶來初始化 Kerberos。 輸入您自己的使用者帳戶，這是*AAD DC 系統管理員*群組的成員。
+    同樣地，必須以全部大寫輸入 Azure AD DS 受管理的功能變數名稱。 在下列範例中，會使用名為 `contosoadmin@contoso.com` 的帳戶來初始化 Kerberos。 輸入您自己的使用者帳戶，這是*AAD DC 系統管理員*群組的成員。
 
     ```console
     sudo adcli join -D CONTOSO.COM -U contosoadmin@CONTOSO.COM -K /etc/krb5.keytab -H coreos.contoso.com -N coreos
     ```
 
-    當`adcli join` VM 已成功加入 Azure AD DS 受控網域時，此命令不會傳回任何資訊。
+    當 VM 已成功加入 Azure AD DS 受控網域時，`adcli join` 命令不會傳回任何資訊。
 
 1. 若要套用加入網域設定，請啟動 SSSD 服務：
   
@@ -154,7 +154,7 @@ krb5_realm = CONTOSO.COM
 
 若要確認 VM 已成功加入 Azure AD DS 受控網域，請使用網域使用者帳戶啟動新的 SSH 連線。 確認已建立主目錄，並已套用網域的群組成員資格。
 
-1. 從您的主控台建立新的 SSH 連線。 使用屬於受控網域`ssh -l`的網域帳戶（ `contosoadmin@contoso.com`例如），然後輸入您 VM 的位址，例如*coreos.contoso.com*。 如果您使用 Azure Cloud Shell，請使用 VM 的公用 IP 位址，而不是內部 DNS 名稱。
+1. 從您的主控台建立新的 SSH 連線。 使用屬於受控 `ssh -l` 網域的網域帳戶（例如 `contosoadmin@contoso.com`），然後輸入您 VM 的位址，例如*coreos.contoso.com*。 如果您使用 Azure Cloud Shell，請使用 VM 的公用 IP 位址，而不是內部 DNS 名稱。
 
     ```console
     ssh -l contosoadmin@CONTOSO.com coreos.contoso.com
