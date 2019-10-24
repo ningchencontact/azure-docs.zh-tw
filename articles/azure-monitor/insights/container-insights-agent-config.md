@@ -1,24 +1,18 @@
 ---
 title: 設定容器代理程式資料集合的 Azure 監視器 |Microsoft Docs
 description: 本文說明如何設定容器代理程式的 Azure 監視器，以控制 stdout/stderr 和環境變數記錄檔收集。
-services: azure-monitor
-documentationcenter: ''
-author: mgoedtel
-manager: carmonm
-editor: tysonn
-ms.assetid: ''
 ms.service: azure-monitor
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 10/08/2019
+ms.subservice: ''
+ms.topic: conceptual
+author: mgoedtel
 ms.author: magoedte
-ms.openlocfilehash: dfa823955cccba4ac7ec6859894a4562f0810d76
-ms.sourcegitcommit: 961468fa0cfe650dc1bec87e032e648486f67651
+ms.date: 10/08/2019
+ms.openlocfilehash: 2b72252c5c85679c1c65fa2dcf9c5acc6c54003c
+ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72248763"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72554213"
 ---
 # <a name="configure-agent-data-collection-for-azure-monitor-for-containers"></a>為容器的 Azure 監視器設定代理程式資料收集
 
@@ -41,15 +35,15 @@ Azure 監視器容器會從容器化的代理程式，收集從部署至裝載�
 
 以下是可設定以控制資料收集的設定。
 
-|Key |資料類型 |值 |描述 |
+|索引鍵 |Data type |Value |描述 |
 |----|----------|------|------------|
 |`schema-version` |字串（區分大小寫） |v1 |這是在剖析此 ConfigMap 時，代理程式所使用的架構版本。 目前支援的架構版本為 v1。 不支援修改此值，而且在評估 ConfigMap 時將會遭到拒絕。|
-|`config-version` |字串 | | 支援在您的原始檔控制系統/存放庫中追蹤此設定檔版本的功能。 允許的字元數上限為10，而所有其他字元則會被截斷。 |
-|`[log_collection_settings.stdout] enabled =` |Boolean | True 或 False | 這會控制是否啟用 stdout 容器記錄檔收集。 設定為時 `true`，而且不會針對 stdout 記錄收集（以下的 `log_collection_settings.stdout.exclude_namespaces` 設定）排除任何命名空間，將會從叢集中所有 pod/節點的所有容器收集 stdout 記錄檔。 如果在 ConfigMaps 中未指定，則預設值為 `enabled = true`。 |
-|`[log_collection_settings.stdout] exclude_namespaces =`|字串 | 以逗號分隔的陣列 |將不會收集 stdout 記錄的 Kubernetes 命名空間陣列。 只有當 `log_collection_settings.stdout.enabled` 設定為 `true` 時，此設定才會生效。 如果在 ConfigMap 中未指定，則預設值為 `exclude_namespaces = ["kube-system"]`。|
-|`[log_collection_settings.stderr] enabled =` |Boolean | True 或 False |這會控制是否啟用 stderr 容器記錄檔收集。 當設定為 `true`，而且不會針對 stdout 記錄收集（`log_collection_settings.stderr.exclude_namespaces` 設定）排除任何命名空間時，會從叢集中所有 pod/節點的所有容器中收集 stderr 記錄。 如果在 ConfigMaps 中未指定，則預設值為 `enabled = true`。 |
-|`[log_collection_settings.stderr] exclude_namespaces =` |字串 |以逗號分隔的陣列 |將不會收集 stderr 記錄的 Kubernetes 命名空間陣列。 只有當 `log_collection_settings.stdout.enabled` 設定為 `true` 時，此設定才會生效。 如果在 ConfigMap 中未指定，則預設值為 `exclude_namespaces = ["kube-system"]`。 |
-| `[log_collection_settings.env_var] enabled =` |Boolean | True 或 False | 此設定可控制叢集中所有 pod/節點間的環境變數集合，並在 ConfigMaps 中未指定時預設為 `enabled = true`。 如果環境變數的集合是全域啟用的，您可以將環境變數 `AZMON_COLLECT_ENV` 設定為**False** ，或使用 Dockerfile 設定或在[Pod](https://kubernetes.io/docs/tasks/inject-data-application/define-environment-variable-container/) **的設定檔中，將其停用於特定容器env：** 區段。 如果環境變數的集合已全域停用，則您無法啟用特定容器的集合（也就是可在容器層級套用的唯一覆寫，就是停用已全域啟用的集合）。 |
+|`config-version` |String | | 支援在您的原始檔控制系統/存放庫中追蹤此設定檔版本的功能。 允許的字元數上限為10，而所有其他字元則會被截斷。 |
+|`[log_collection_settings.stdout] enabled =` |Boolean | True 或 False | 這會控制是否啟用 stdout 容器記錄檔收集。 當設定為 `true` 且不排除 stdout 記錄檔收集的命名空間時（以下 `log_collection_settings.stdout.exclude_namespaces` 設定），將會從叢集中所有 pod/節點的所有容器收集 stdout 記錄檔。 如果在 ConfigMaps 中未指定，則預設值為 `enabled = true`。 |
+|`[log_collection_settings.stdout] exclude_namespaces =`|String | 以逗號分隔的陣列 |將不會收集 stdout 記錄的 Kubernetes 命名空間陣列。 只有當 `log_collection_settings.stdout.enabled` 設定為 [`true`] 時，此設定才會生效。 如果在 ConfigMap 中未指定，則預設值為 `exclude_namespaces = ["kube-system"]`。|
+|`[log_collection_settings.stderr] enabled =` |Boolean | True 或 False |這會控制是否啟用 stderr 容器記錄檔收集。 當設定為 `true` 且不排除 stdout 記錄收集（`log_collection_settings.stderr.exclude_namespaces` 設定）的命名空間時，會從叢集中所有 pod/節點的所有容器收集 stderr 記錄。 如果在 ConfigMaps 中未指定，則預設值為 `enabled = true`。 |
+|`[log_collection_settings.stderr] exclude_namespaces =` |String |以逗號分隔的陣列 |將不會收集 stderr 記錄的 Kubernetes 命名空間陣列。 只有當 `log_collection_settings.stdout.enabled` 設定為 [`true`] 時，此設定才會生效。 如果在 ConfigMap 中未指定，則預設值為 `exclude_namespaces = ["kube-system"]`。 |
+| `[log_collection_settings.env_var] enabled =` |Boolean | True 或 False | 此設定可控制叢集中所有 pod/節點的環境變數集合，並在 ConfigMaps 中未指定時預設為 `enabled = true`。 如果環境變數的集合是全域啟用的，您可以將環境 `AZMON_COLLECT_ENV` 變數設定為**False** ，藉此停用特定容器的 Dockerfile 設定，或在下[Pod 的設定檔中env](https://kubernetes.io/docs/tasks/inject-data-application/define-environment-variable-container/) 區段。 如果環境變數的集合已全域停用，則您無法啟用特定容器的集合（也就是可在容器層級套用的唯一覆寫，就是停用已全域啟用的集合）。 |
 
 ### <a name="prometheus-scraping-settings"></a>Prometheus 抓取設定
 
@@ -62,7 +56,7 @@ Azure 監視器容器會從容器化的代理程式，收集從部署至裝載�
 * 整個叢集的 HTTP URL，並從服務的已列出端點探索目標、k8s 服務（例如 kube）、kube 狀態度量，以及應用程式特定的 pod 附注。 在此內容中收集的計量會定義于 ConfigMap 區段 *[Prometheus data_collection_settings]* 中。
 * 整個節點-HTTP URL，並從服務的列出端點探索目標。 在此內容中收集的計量會定義于 ConfigMap 區段 *[Prometheus_data_collection_settings]* 中。
 
-| 端點 | `Scope` | 範例 |
+| 端點 | Scope | 範例 |
 |----------|-------|---------|
 | Pod 注釋 | 全叢集 | 備註 <br>`prometheus.io/scrape: "true"` <br>`prometheus.io/path: "/mymetrics"` <br>`prometheus.io/port: "8000"` <br>`prometheus.io/scheme: "http"` |
 | Kubernetes 服務 | 全叢集 | `http://my-service-dns.my-namespace:9100/metrics` <br>`https://metrics-server.kube-system.svc.cluster.local/metrics` |
@@ -70,19 +64,19 @@ Azure 監視器容器會從容器化的代理程式，收集從部署至裝載�
 
 指定 URL 時，容器的 Azure 監視器只會抓取端點。 當指定 Kubernetes 服務時，會使用叢集 DNS 伺服器解析服務名稱以取得 IP 位址，然後剪輯解析的服務。
 
-|`Scope` | Key | 資料類型 | 值 | 描述 |
+|Scope | 索引鍵 | Data type | Value | 描述 |
 |------|-----|-----------|-------|-------------|
 | 全叢集 | | | | 指定下列三種方法中的任何一種，以抓取度量的端點。 |
-| | `urls` | 字串 | 以逗號分隔的陣列 | HTTP 端點（IP 位址或指定的有效 URL 路徑）。 例如： `urls=[$NODE_IP/metrics]` 。 （$NODE _IP 是容器參數的特定 Azure 監視器，可以用來取代節點 IP 位址。 必須全部大寫）。 |
-| | `kubernetes_services` | 字串 | 以逗號分隔的陣列 | Kubernetes 服務的陣列，可從 kube 狀態計量抓取計量。 例如，`kubernetes_services = ["https://metrics-server.kube-system.svc.cluster.local/metrics", http://my-service-dns.my-namespace:9100/metrics]`。|
-| | `monitor_kubernetes_pods` | Boolean | True 或 False | 當設定為 [全叢集] 設定中的 [`true`] 時，容器代理程式的 Azure 監視器會針對下列 Prometheus 注釋，在整個叢集中抓取 Kubernetes pod：<br> `prometheus.io/scrape:`<br> `prometheus.io/scheme:`<br> `prometheus.io/path:`<br> `prometheus.io/port:` |
+| | `urls` | String | 以逗號分隔的陣列 | HTTP 端點（IP 位址或指定的有效 URL 路徑）。 例如： `urls=[$NODE_IP/metrics]` 。 （$NODE _IP 是容器參數的特定 Azure 監視器，可以用來取代節點 IP 位址。 必須全部大寫）。 |
+| | `kubernetes_services` | String | 以逗號分隔的陣列 | Kubernetes 服務的陣列，可從 kube 狀態計量抓取計量。 例如，`kubernetes_services = ["https://metrics-server.kube-system.svc.cluster.local/metrics", http://my-service-dns.my-namespace:9100/metrics]`。|
+| | `monitor_kubernetes_pods` | Boolean | True 或 False | 當設定為 [全叢集] 設定中的 `true` 時，容器代理程式的 Azure 監視器會針對下列 Prometheus 注釋，在整個叢集中抓取 Kubernetes pod：<br> `prometheus.io/scrape:`<br> `prometheus.io/scheme:`<br> `prometheus.io/path:`<br> `prometheus.io/port:` |
 | | `prometheus.io/scrape` | Boolean | True 或 False | 啟用 pod 的抓取。 `monitor_kubernetes_pods` 必須設為 `true`。 |
-| | `prometheus.io/scheme` | 字串 | http 或 https | 預設為透過 HTTP 的 scrapping。 如有必要，請將設定為 `https`。 | 
-| | `prometheus.io/path` | 字串 | 以逗號分隔的陣列 | 從中提取計量的來源 HTTP 資源路徑。 如果計量路徑不 `/metrics`，請使用此注釋加以定義。 |
-| | `prometheus.io/port` | 字串 | 9102 | 指定要抓取的埠。 如果未設定埠，則會預設為9102。 |
-| 全節點 | `urls` | 字串 | 以逗號分隔的陣列 | HTTP 端點（IP 位址或指定的有效 URL 路徑）。 例如： `urls=[$NODE_IP/metrics]` 。 （$NODE _IP 是容器參數的特定 Azure 監視器，可以用來取代節點 IP 位址。 必須全部大寫）。 |
-| 全節點或全叢集 | `interval` | 字串 | 60s | 收集間隔的預設值為一分鐘（60秒）。 您可以將 *[prometheus_data_collection_settings]* 和/或 *[prometheus_data_collection_settings]* 的集合修改為時間單位，例如 s、m、h。 |
-| 全節點或全叢集 | `fieldpass`<br> `fielddrop`| 字串 | 以逗號分隔的陣列 | 您可以藉由設定 [允許（`fieldpass`）] 和 [不允許] （`fielddrop`）清單，指定要收集的特定計量。 您必須先設定允許清單。 |
+| | `prometheus.io/scheme` | String | http 或 https | 預設為透過 HTTP 的 scrapping。 如有必要，請將設定為 `https`。 | 
+| | `prometheus.io/path` | String | 以逗號分隔的陣列 | 從中提取計量的來源 HTTP 資源路徑。 如果未 `/metrics` 度量路徑，請使用此注釋加以定義。 |
+| | `prometheus.io/port` | String | 9102 | 指定要抓取的埠。 如果未設定埠，則會預設為9102。 |
+| 全節點 | `urls` | String | 以逗號分隔的陣列 | HTTP 端點（IP 位址或指定的有效 URL 路徑）。 例如： `urls=[$NODE_IP/metrics]` 。 （$NODE _IP 是容器參數的特定 Azure 監視器，可以用來取代節點 IP 位址。 必須全部大寫）。 |
+| 全節點或全叢集 | `interval` | String | 60s | 收集間隔的預設值為一分鐘（60秒）。 您可以將 *[prometheus_data_collection_settings]* 和/或 *[prometheus_data_collection_settings]* 的集合修改為時間單位，例如 s、m、h。 |
+| 全節點或全叢集 | `fieldpass`<br> `fielddrop`| String | 以逗號分隔的陣列 | 您可以藉由設定 [允許（`fieldpass`）] 和 [不允許] （`fielddrop`）清單，指定要收集的特定計量。 您必須先設定允許清單。 |
 
 ConfigMaps 是全域清單，而且只能有一個 ConfigMap 套用至代理程式。 您不能有另一個 ConfigMaps overruling 集合。
 
@@ -96,7 +90,7 @@ ConfigMaps 是全域清單，而且只能有一個 ConfigMap 套用至代理程�
 
     - 若要排除 stdout 記錄檔收集的特定命名空間，您可以使用下列範例來設定索引鍵/值： `[log_collection_settings.stdout] enabled = true exclude_namespaces = ["my-namespace-1", "my-namespace-2"]`。
     
-    - 若要停用特定容器的環境變數集合，請將索引鍵/值設定 `[log_collection_settings.env_var] enabled = true`，以全域啟用變數集合，然後依照[這裡](container-insights-manage-agent.md#how-to-disable-environment-variable-collection-on-a-container)的步驟完成特定容器的設定。
+    - 若要停用特定容器的環境變數集合，請將索引鍵/值 `[log_collection_settings.env_var] enabled = true` 設定為全域啟用變數集合，然後依照[這裡](container-insights-manage-agent.md#how-to-disable-environment-variable-collection-on-a-container)的步驟來完成特定容器的設定。
     
     - 若要停用 stderr 記錄收集整個叢集，請使用下列範例來設定索引鍵/值： `[log_collection_settings.stderr] enabled = false`。
     
@@ -162,28 +156,28 @@ ConfigMaps 是全域清單，而且只能有一個 ConfigMap 套用至代理程�
 
 7. 執行下列 kubectl 命令來建立 ConfigMap： `kubectl apply -f <configmap_yaml_file.yaml>`。
     
-    範例： `kubectl apply -f container-azm-ms-agentconfig.yaml`. 
+    範例：`kubectl apply -f container-azm-ms-agentconfig.yaml`. 
     
     設定變更可能需要幾分鐘的時間才會生效，且叢集中的所有 omsagent pod 都會重新開機。 重新開機是所有 omsagent pod 的輪流重新開機，不會同時全部重新開機。 當重新開機完成時，會顯示與下列類似的訊息，並包含結果： `configmap "container-azm-ms-agentconfig" created`。
 
-若要確認已成功套用設定，請使用下列命令來檢查代理程式 pod 的記錄： `kubectl logs omsagent-fdf58 -n=kube-system`。 如果 omsagent pod 有設定錯誤，輸出將會顯示類似下列的錯誤：
+若要確認已成功套用設定，請使用下列命令來檢查代理程式 pod 中的記錄： `kubectl logs omsagent-fdf58 -n=kube-system`。 如果 omsagent pod 有設定錯誤，輸出將會顯示類似下列的錯誤：
 
 ``` 
 ***************Start Config Processing******************** 
 config::unsupported/missing config schema version - 'v21' , using defaults
 ```
 
-與套用 Prometheus 設定變更相關的錯誤也可供審查。  從代理程式 pod 的記錄，使用相同的 `kubectl logs` 命令，或從即時記錄。 即時記錄會顯示類似下列的錯誤：
+與套用 Prometheus 設定變更相關的錯誤也可供審查。  從使用相同 `kubectl logs` 命令的代理程式 pod 記錄，或從即時記錄檔。 即時記錄會顯示類似下列的錯誤：
 
 ```
 2019-07-08T18:55:00Z E! [inputs.prometheus]: Error in plugin: error making HTTP request to http://invalidurl:1010/metrics: Get http://invalidurl:1010/metrics: dial tcp: lookup invalidurl on 10.0.0.10:53: no such host
 ```
 
-錯誤會使 omsagent 無法剖析檔案，因而導致它重新開機並使用預設設定。 更正 ConfigMap 中的錯誤之後，請儲存 yaml 檔案，並執行下列命令來套用更新的 ConfigMaps： `kubectl apply -f <configmap_yaml_file.yaml`。
+錯誤會使 omsagent 無法剖析檔案，因而導致它重新開機並使用預設設定。 更正 ConfigMap 中的錯誤之後，請執行下列命令來儲存 yaml 檔案並套用更新的 ConfigMaps： `kubectl apply -f <configmap_yaml_file.yaml`。
 
 ## <a name="applying-updated-configmap"></a>套用更新的 ConfigMap
 
-如果您已將 ConfigMap 部署至叢集，而且想要以較新的設定更新它，您可以編輯先前使用的 ConfigMap 檔案，然後使用與之前相同的命令來套用，`kubectl apply -f <configmap_yaml_file.yaml`。
+如果您已將 ConfigMap 部署至叢集，而且想要使用較新的設定來更新它，您可以編輯先前使用的 ConfigMap 檔案，然後使用與之前相同的命令來套用，`kubectl apply -f <configmap_yaml_file.yaml`。
 
 設定變更可能需要幾分鐘的時間才會生效，且叢集中的所有 omsagent pod 都會重新開機。 重新開機是所有 omsagent pod 的輪流重新開機，不會同時全部重新開機。 當重新開機完成時，會顯示與下列類似的訊息，並包含結果： `configmap "container-azm-ms-agentconfig" updated`。
 

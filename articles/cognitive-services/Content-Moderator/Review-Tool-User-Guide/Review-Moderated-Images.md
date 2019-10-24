@@ -3,42 +3,42 @@ title: 透過審核工具使用內容審查-內容仲裁
 titleSuffix: Azure Cognitive Services
 description: 了解審查工具如何讓人力審核者在入口網站審查影像。
 services: cognitive-services
-author: sanjeev3
+author: PatrickFarley
 manager: mikemcca
 ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: conceptual
 ms.date: 03/15/2019
-ms.author: sajagtap
-ms.openlocfilehash: 065d3cd80f93753eb91571d4ada4fe7151258ec0
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.author: pafarley
+ms.openlocfilehash: 53d06f84172da0c4717cabe79f4f5152e73e9555
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68882666"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72754274"
 ---
 # <a name="create-human-reviews"></a>建立人力審查
 
-在本指南中, 您將瞭解如何在審核工具網站上設定[評論](../review-api.md#reviews)。 審查儲存和顯示內容, 供人力仲裁者評估。 仲裁者可以改變套用的標記, 並視需要套用自己的自訂標記。 當使用者完成審查時, 會將結果傳送至指定的回呼端點, 並將內容從網站中移除。
+在本指南中，您將瞭解如何在審核工具網站上設定[評論](../review-api.md#reviews)。 審查儲存和顯示內容，供人力仲裁者評估。 仲裁者可以改變套用的標記，並視需要套用自己的自訂標記。 當使用者完成審查時，會將結果傳送至指定的回呼端點，並將內容從網站中移除。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 - 在內容仲裁[審查工具](https://contentmoderator.cognitive.microsoft.com/)網站上登入或建立帳戶。
 
 ## <a name="image-reviews"></a>影像檢閱
 
-1. 移至[審核工具](https://contentmoderator.cognitive.microsoft.com/), 選取 [**嘗試**] 索引標籤, 並上傳一些影像進行審核。
-1. 一旦上傳的影像完成處理, 請移至 [**審核**] 索引標籤, 然後選取 [**映射**]。
+1. 移至[審核工具](https://contentmoderator.cognitive.microsoft.com/)，選取 [**嘗試**] 索引標籤，並上傳一些影像進行審核。
+1. 一旦上傳的影像完成處理，請移至 [**審核**] 索引標籤，然後選取 [**映射**]。
 
     ![顯示審核工具的 Chrome 瀏覽器，其中 [審核影像] 選項已反白顯示](images/review-images-1.png)
 
     影像會與自動審核程式所指派的任何標籤一起顯示。 其他審核者看不到您透過審核工具提交的影像。
 
-1. 或者, 移動**評論以顯示**滑杆 (1) 來調整螢幕上顯示的影像數目。 按一下已加上卷標或未**標記**的按鈕 (2), 以據以排序影像。 按一下標記面板 (3) 以開啟或關閉它。
+1. 或者，移動**評論以顯示**滑杆（1）來調整螢幕上顯示的影像數目。 按一下已加上標籤**或未** **標記**的按鈕（2），以據以排序影像。 按一下標記面板（3）以開啟或關閉它。
 
     ![顯示含已標記影像供審核之審核工具的 Chrome 瀏覽器](images/review-images-2.png)
 
-1. 若要查看影像的詳細資訊, 請按一下縮圖中的省略號, 然後選取 [**查看詳細資料**]。 您可以使用 [**移至**] 選項將影像指派給子小組 (如需深入瞭解子小組, 請參閱[團隊](./configure.md#manage-team-and-subteams)一節)。
+1. 若要查看影像的詳細資訊，請按一下縮圖中的省略號，然後選取 [**查看詳細資料**]。 您可以使用 [**移至**] 選項將影像指派給子小組（如需深入瞭解子小組，請參閱[團隊](./configure.md#manage-team-and-subteams)一節）。
 
     ![[檢視詳細資料] 選項已反白顯示的影像](images/review-images-3.png)
 
@@ -50,10 +50,10 @@ ms.locfileid: "68882666"
 
 ## <a name="text-reviews"></a>文字檢閱
 
-文字審核功能類似于影像評論。 您不需要上傳內容, 只要以文字撰寫或貼上 (最多1024個字元)。 然後, 內容仲裁會分析文字並套用標記 (除了其他審核資訊, 例如不雅內容和個人資料)。 在文字審查中, 您可以在提交審查之前切換套用的標記和/或套用自訂標記。
+文字審核功能類似于影像評論。 您不需要上傳內容，只要以文字撰寫或貼上（最多1024個字元）。 然後，內容仲裁會分析文字並套用標記（除了其他審核資訊，例如不雅內容和個人資料）。 在文字審查中，您可以在提交審查之前切換套用的標記和/或套用自訂標記。
 
 ![審查工具的螢幕擷取畫面，其中顯示在 Chrome 瀏覽器視窗中加上旗標的文字](../images/reviewresults_text.png)
 
 ## <a name="next-steps"></a>後續步驟
 
-在本指南中, 您已瞭解如何從內容仲裁[審查工具](https://contentmoderator.cognitive.microsoft.com)設定及使用審核。 接下來, 請參閱[REST API 指南](../try-review-api-review.md)或[.net SDK 指南](../moderation-reviews-quickstart-dotnet.md), 以瞭解如何以程式設計方式建立評論。
+在本指南中，您已瞭解如何從內容仲裁[審查工具](https://contentmoderator.cognitive.microsoft.com)設定及使用審核。 接下來，請參閱[REST API 指南](../try-review-api-review.md)或[.net SDK 指南](../moderation-reviews-quickstart-dotnet.md)，以瞭解如何以程式設計方式建立評論。

@@ -3,19 +3,19 @@ title: 使用自訂字詞清單來審核文字 - Content Moderator
 titleSuffix: Azure Cognitive Services
 description: 使用「清單管理 API」可建立自訂字詞清單，以搭配文字審核 API 使用。
 services: cognitive-services
-author: sanjeev3
+author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: conceptual
 ms.date: 01/10/2019
-ms.author: sajagtap
-ms.openlocfilehash: 0a4e9b7925c2309a9682156934e9d94fa83c0d4b
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.author: pafarley
+ms.openlocfilehash: 828e8ae68286d7c208462d77a31a764427c79637
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68564396"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72755273"
 ---
 # <a name="moderate-with-custom-term-lists-in-the-api-console"></a>使用 API 主控台中的自訂字詞清單進行審核
 
@@ -48,7 +48,7 @@ Azure Content Moderator 中的預設全域字詞清單已可滿足大部分內�
 
    [Term Lists - Refresh Search Index] \(字詞清單 - 重新整理搜尋索引\) 頁面隨即開啟。
 
-2. 針對 [Open API testing console] \(開啟 API 測試主控台\) 中，選取最能描述您位置的區域。 
+2. 在 [開啟 API 測試主控台] 中，選取最能描述您所在位置的區域。 
 
    ![[Term Lists - Refresh Search Index] \(字詞清單 - 重新整理搜尋索引\) 頁面區域選取項目](images/test-drive-region.png)
 
@@ -63,19 +63,19 @@ Azure Content Moderator 中的預設全域字詞清單已可滿足大部分內�
 
    [Term Lists - Create] \(字詞清單 - 建立\) 頁面隨即開啟。
 
-2. 針對 [Open API testing console] \(開啟 API 測試主控台\) 中，選取最能描述您位置的區域。 
+2. 在 [開啟 API 測試主控台] 中，選取最能描述您所在位置的區域。 
 
    ![[Term Lists - Create] \(字詞清單 - 建立\) 頁面區域選取項目](images/test-drive-region.png)
 
    [Term Lists - Create] \(字詞清單 - 建立\) API 主控台隨即開啟。
  
-3. 在 [Ocp-Apim-Subscription-Key] 中，輸入您的訂用帳戶金鑰。
+3. 在 [Ocp-Apim-Subscription-Key] 方塊中，輸入訂用帳戶金鑰。
 
 4. 在 [Request body] \(要求本文\) 方塊中，輸入 [Name] \(名稱\) (例如 MyList) 和 [Description] \(描述\) 的值。
 
    ![[Term Lists - Create] \(字詞清單 - 建立\) 主控台的要求本文名稱和描述](images/try-terms-list-create-1.png)
 
-5. 使用機碼值組預留位置來為清單指派更多描述性中繼資料。
+5. 使用索引鍵/值組預留位置來為清單指派更多描述性中繼資料。
 
        {
           "Name": "MyExclusionList",
@@ -97,7 +97,7 @@ Azure Content Moderator 中的預設全域字詞清單已可滿足大部分內�
 
    [字詞 - 新增字詞] 頁面隨即開啟。 
 
-8. 針對 [Open API testing console] \(開啟 API 測試主控台\) 中，選取最能描述您位置的區域。 
+8. 在 [開啟 API 測試主控台] 中，選取最能描述您所在位置的區域。 
 
    ![[字詞 - 新增字詞] 頁面區域選取項目](images/test-drive-region.png)
 
@@ -133,7 +133,7 @@ Azure Content Moderator 中的預設全域字詞清單已可滿足大部分內�
 
    [字詞 - 刪除] 隨即開啟。
 
-2. 針對 [Open API testing console] \(開啟 API 測試主控台\) 中，選取最能描述您位置的區域。 
+2. 在 [開啟 API 測試主控台] 中，選取最能描述您所在位置的區域。 
 
    ![[字詞 - 刪除] 頁面區域選取項目](images/test-drive-region.png)
 
@@ -157,7 +157,7 @@ Azure Content Moderator 中的預設全域字詞清單已可滿足大部分內�
 
    [字詞清單 - 更新詳細資料] 頁面隨即開啟。
 
-2. 針對 [Open API testing console] \(開啟 API 測試主控台\) 中，選取最能描述您位置的區域。 
+2. 在 [開啟 API 測試主控台] 中，選取最能描述您所在位置的區域。 
 
    ![[字詞清單 - 更新詳細資料] 頁面區域選取項目](images/test-drive-region.png)
 

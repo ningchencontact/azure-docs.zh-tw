@@ -3,19 +3,19 @@ title: 在 C# 中根據自訂字詞清單檢查文字 - Content Moderator
 titleSuffix: Azure Cognitive Services
 description: 如何使用 Content Moderator SDK for C# 以自訂字詞清單仲裁文字。
 services: cognitive-services
-author: sanjeev3
+author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: conceptual
 ms.date: 07/03/2019
-ms.author: sajagtap
-ms.openlocfilehash: d1c2f8b06d333be23f25a2d150c23269bf84cd2e
-ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
+ms.author: pafarley
+ms.openlocfilehash: 272063c3fcc77c76536dbd007b1ab0132a565e61
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72242833"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72757259"
 ---
 # <a name="check-text-against-a-custom-term-list-in-c"></a>在 C# 中根據自訂字詞清單檢查文字
 
@@ -32,7 +32,7 @@ Azure Content Moderator 中的預設全域字詞清單已可滿足大部分內�
 - 編輯清單資訊。
 - 重新整理索引，以便將清單變更包含在新的掃描中。
 
-如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 。 
+如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)。 
 
 ## <a name="sign-up-for-content-moderator-services"></a>註冊 Content Moderator 服務
 
@@ -274,7 +274,7 @@ static void RefreshSearchIndex (ContentModeratorClient client, string list_id)
 - MIME 類型，其可以是 "text/html"、"text/xml"、"text/markdown" 或 "text/plain"。
 - 要審查的文字。
 - 布林值。 將此欄位設為 **true**，可在審查文字前自動校正文字。
-- 布林值。 將此欄位設為 **true**，可偵測文字中的個人識別資訊 (PII)。
+- 布林值。 將此欄位設定為**true** ，以偵測文字中的個人資料。
 - 字詞清單識別碼。
 
 如需詳細資訊，請參閱 [API 參考](https://westus2.dev.cognitive.microsoft.com/docs/services/57cf753a3f9b070c105bd2c1/operations/57cf753a3f9b070868a1f66f) \(英文\)。
