@@ -1,5 +1,5 @@
 ---
-title: 使用範本將 Windows Server VM 加入 Azure AD DS |Microsoft Docs
+title: 使用範本將 Windows VM 加入 Azure AD DS |Microsoft Docs
 description: 瞭解如何使用 Azure Resource Manager 範本將新的或現有的 Windows Server VM 加入 Azure Active Directory Domain Services 受控網域。
 services: active-directory-ds
 author: iainfoulds
@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 09/17/2019
 ms.author: iainfou
-ms.openlocfilehash: d4e6beb376172e5ec5285d26b47fd23b396d5e38
-ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
+ms.openlocfilehash: 9f35c9c3c6c974c79dc849425fc91b532aed4d22
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71104118"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72755694"
 ---
 # <a name="join-a-windows-server-virtual-machine-to-an-azure-active-directory-domain-services-managed-domain-using-a-resource-manager-template"></a>使用 Resource Manager 範本將 Windows Server 虛擬機器加入 Azure Active Directory Domain Services 受控網域
 
@@ -84,10 +84,10 @@ Resource Manager 範本可讓您在程式碼中定義 Azure 基礎結構。 Vm �
 1. 流覽至[快速入門範本](https://azure.microsoft.com/resources/templates/201-vm-domain-join/)。 選取要**部署至 Azure**的選項。
 1. 在 [**自訂部署**] 頁面上，輸入下列資訊，以建立 WINDOWS Server VM 並將其加入 Azure AD DS 受控網域：
 
-    | 設定                   | 值 |
+    | 設定                   | Value |
     |---------------------------|-------|
-    | 訂閱              | 挑選已啟用 Azure AD Domain Services 的相同 Azure 訂用帳戶。 |
-    | 資源群組            | 選擇您 VM 的資源群組。 |
+    | Subscription              | 挑選已啟用 Azure AD Domain Services 的相同 Azure 訂用帳戶。 |
+    | Resource group            | 選擇您 VM 的資源群組。 |
     | Location                  | 選取 VM 的位置。 |
     | 現有的 VNET 名稱        | 要連接 VM 的現有虛擬網路名稱，例如*myVnet*。 |
     | 現有的子網名稱      | 現有虛擬網路子網的名稱，例如*工作負載*。 |
@@ -117,10 +117,10 @@ Resource Manager 範本可讓您在程式碼中定義 Azure 基礎結構。 Vm �
 1. 流覽至[快速入門範本](https://azure.microsoft.com/resources/templates/201-vm-domain-join-existing/)。 選取要**部署至 Azure**的選項。
 1. 在 [**自訂部署**] 頁面上，輸入下列資訊以將 VM 加入 Azure AD DS 受控網域：
 
-    | 設定                   | 值 |
+    | 設定                   | Value |
     |---------------------------|-------|
-    | 訂閱              | 挑選已啟用 Azure AD Domain Services 的相同 Azure 訂用帳戶。 |
-    | 資源群組            | 選擇包含現有 VM 的資源群組。 |
+    | Subscription              | 挑選已啟用 Azure AD Domain Services 的相同 Azure 訂用帳戶。 |
+    | Resource group            | 選擇包含現有 VM 的資源群組。 |
     | Location                  | 選取現有 VM 的位置。 |
     | VM 清單                   | 輸入要加入 Azure AD DS 受控網域的現有 VM 逗號分隔清單，例如*myVM1、myVM2*。 |
     | 加入網域的使用者名稱     | Azure AD DS 受控網域中的使用者帳戶，應該用來將 VM 加入受控網域。 此帳戶必須是*AZURE AD DC 系統管理員*群組的成員。 |

@@ -8,12 +8,12 @@ author: lgayhardt
 ms.author: lagayhar
 ms.date: 06/07/2019
 ms.reviewer: sergkanz
-ms.openlocfilehash: aa683e90a328e9525fa7d0a78981aa107818188a
-ms.sourcegitcommit: 1bd2207c69a0c45076848a094292735faa012d22
+ms.openlocfilehash: df93405940c02affa224fba2d2e6f07ce5278b15
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72678179"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72755364"
 ---
 # <a name="telemetry-correlation-in-application-insights"></a>Application Insights 中的遙測相互關聯
 
@@ -214,6 +214,82 @@ public void ConfigureServices(IServiceCollection services)
 如需詳細資訊，請參閱 [Application Insights 遙測資料模型](../../azure-monitor/app/data-model.md)。 
 
 如需 OpenTracing 概念的定義，請參閱 OpenTracing [規格](https://github.com/opentracing/specification/blob/master/specification.md)和 [semantic_conventions](https://github.com/opentracing/specification/blob/master/semantic_conventions.md)。
+
+## <a name="telemetry-correlation-in-opencensus-python"></a>OpenCensus Python 中的遙測相互關聯
+
+OpenCensus Python 遵循上面所述的 `OpenTracing` 資料模型規格。 它也支援[W3C 追蹤內容](https://w3c.github.io/trace-context/)，而不需要任何設定。
+
+### <a name="incoming-request-correlation"></a>連入要求相互關聯
+
+OpenCensus Python 會將 W3C 追蹤內容標頭與來自要求本身所產生之範圍的傳入要求相互關聯。 OpenCensus 將會自動使用熱門 web 應用程式架構（例如 `flask`、`django` 和 `pyramid`）的整合來執行此動作。 W3C 追蹤內容標頭只需要填入[正確的格式](https://www.w3.org/TR/trace-context/#trace-context-http-headers-format)，並與要求一起傳送。 以下是示範這種 `flask` 應用程式的範例。
+
+```python
+from flask import Flask
+from opencensus.ext.azure.trace_exporter import AzureExporter
+from opencensus.ext.flask.flask_middleware import FlaskMiddleware
+from opencensus.trace.samplers import ProbabilitySampler
+
+app = Flask(__name__)
+middleware = FlaskMiddleware(
+    app,
+    exporter=AzureExporter(),
+    sampler=ProbabilitySampler(rate=1.0),
+)
+
+@app.route('/')
+def hello():
+    return 'Hello World!'
+
+if __name__ == '__main__':
+    app.run(host='localhost', port=8080, threaded=True)
+```
+
+這會在本機電腦上執行範例 `flask` 應用程式，並接聽埠 `8080`。 為了讓追蹤內容相互關聯，我們會將要求傳送至端點。 在此範例中，我們可以使用 `curl` 命令。
+```
+curl --header "traceparent: 00-4bf92f3577b34da6a3ce929d0e0e4736-00f067aa0ba902b7-01" localhost:8080
+```
+查看[追蹤內容標頭格式](https://www.w3.org/TR/trace-context/#trace-context-http-headers-format)，我們衍生了下列資訊： `version`： `00` 
+ `trace-id`： `4bf92f3577b34da6a3ce929d0e0e4736` 
+ `parent-id/span-id`： `00f067aa0ba902b7` 
+ 0： 1
+
+如果我們查看已傳送給 Azure 監視器的要求專案，我們可以看到以追蹤標頭資訊填入的欄位。
+
+![記錄（分析）中的要求遙測的螢幕擷取畫面，其中追蹤標頭欄位以紅色方塊反白顯示](./media/opencensus-python/0011-correlation.png)
+
+[@No__t_0] 欄位的格式為 `<trace-id>.<span-id>`，其中 `trace-id` 取自要求傳入的追蹤標頭，而 `span-id` 是針對此範圍產生的8位元組陣列。 
+
+[@No__t_0] 欄位的格式為 `<trace-id>.<parent-id>`，其中 `trace-id` 和 `parent-id` 取自要求中所傳遞的追蹤標頭。
+
+### <a name="logs-correlation"></a>記錄相互關聯
+
+OpenCensus Python 藉由使用追蹤識別碼、span 識別碼和取樣旗標來充實記錄檔記錄，以允許記錄的相互關聯。 這是藉由安裝 OpenCensus[記錄整合](https://pypi.org/project/opencensus-ext-logging/)來完成。 下列屬性會新增至 Python `LogRecord`s： `traceId`、`spanId` 和 `traceSampled`。 請注意，這只會對在整合後建立的記錄器生效。
+以下是示範這種情況的範例應用程式。
+
+```python
+import logging
+
+from opencensus.trace import config_integration
+from opencensus.trace.samplers import AlwaysOnSampler
+from opencensus.trace.tracer import Tracer
+
+config_integration.trace_integrations(['logging'])
+logging.basicConfig(format='%(asctime)s traceId=%(traceId)s spanId=%(spanId)s %(message)s')
+tracer = Tracer(sampler=AlwaysOnSampler())
+
+logger = logging.getLogger(__name__)
+logger.warning('Before the span')
+with tracer.span(name='hello'):
+    logger.warning('In the span')
+logger.warning('After the span')
+```
+執行此程式碼時，我們會在主控台中取得下列內容：
+```
+2019-10-17 11:25:59,382 traceId=c54cb1d4bbbec5864bf0917c64aeacdc spanId=0000000000000000 Before the span
+2019-10-17 11:25:59,384 traceId=c54cb1d4bbbec5864bf0917c64aeacdc spanId=70da28f5a4831014 In the span
+2019-10-17 11:25:59,385 traceId=c54cb1d4bbbec5864bf0917c64aeacdc spanId=0000000000000000 After the span
+```
+觀察 span 內記錄訊息的 spanId，這是屬於名為 `hello` 之範圍的相同 spanId。
 
 ## <a name="telemetry-correlation-in-net"></a>.NET 中的遙測相互關聯
 

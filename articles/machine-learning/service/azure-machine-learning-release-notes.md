@@ -10,12 +10,12 @@ ms.author: jmartens
 author: j-martens
 ms.date: 08/19/2019
 ms.custom: seodec18
-ms.openlocfilehash: 5ea900efffe1aa0eec768c5376128bad72e85ca4
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
-ms.translationtype: HT
+ms.openlocfilehash: afad2648ec73b02d4e06ad55f850a518d2488f68
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72693536"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72756045"
 ---
 # <a name="azure-machine-learning-release-notes"></a>Azure Machine Learning 版本資訊
 
@@ -253,7 +253,7 @@ ms.locfileid: "72693536"
     mydata = all_datasets['my-data'] 
     ```
     
-    + 引進 `parition_format` 做為 `Dataset.Tabular.from_delimited_files` 和 `Dataset.Tabular.from_parquet.files` 的引數。 每個資料路徑的分割區資訊將會根據指定的格式，解壓縮到資料行中。 ' {column_name} ' 會建立字串資料行，而 ' {column_name： yyyy/MM/dd/HH/mm/ss} ' 會建立 datetime 資料行，其中 ' yyyy '、' MM '、' dd '、' HH '、' mm ' 和 ' ss ' 是用來針對日期時間類型來解壓縮 year、month、day、hour、minute 和 second Partition_format 應該從第一個分割區索引鍵的位置開始，直到檔路徑結束為止。 例如，假設路徑為 '.。/USA/2019/01/01/data.csv '，其中分割區是依據國家和時間，partition_format = '/{Country}/{PartitionDate： yyyy/MM/dd}/data .csv ' 會建立字串資料行 ' Country '，其值為 ' USA '，而 datetime 資料行 ' PartitionDate ' 的值為 ' 2019-01-01 '。
+    + 引進 `parition_format` 做為 `Dataset.Tabular.from_delimited_files` 和 `Dataset.Tabular.from_parquet.files`的引數。 每個資料路徑的分割區資訊將會根據指定的格式，解壓縮到資料行中。 ' {column_name} ' 會建立字串資料行，而 ' {column_name： yyyy/MM/dd/HH/mm/ss} ' 會建立 datetime 資料行，其中 ' yyyy '、' MM '、' dd '、' HH '、' mm ' 和 ' ss ' 是用來針對日期時間類型來解壓縮 year、month、day、hour、minute 和 second Partition_format 應該從第一個分割區索引鍵的位置開始，直到檔路徑結束為止。 例如，假設路徑為 '.。/USA/2019/01/01/data.csv '，其中分割區是依據國家和時間，partition_format = '/{Country}/{PartitionDate： yyyy/MM/dd}/data .csv ' 會建立字串資料行 ' Country '，其值為 ' USA '，而 datetime 資料行 ' PartitionDate ' 的值為 ' 2019-01-01 '。
     + `to_csv_files` 和 `to_parquet_files` 方法已新增至 `TabularDataset`。 這些方法會將資料轉換成指定格式的檔案，以啟用 `TabularDataset` 和 `FileDataset` 之間的轉換。
     + 儲存 Model. package （）所產生的 Dockerfile 時，會自動登入基底映射登錄。
     + 不再需要 ' gpu_support ';AzureML 現在會自動偵測並使用 nvidia docker 擴充功能（如果有的話）。 它將在未來的版本中移除。
@@ -630,10 +630,10 @@ ms.locfileid: "72693536"
   + 已新增 top 值（`SummaryFunction.TOPVALUES`）和下值（`SummaryFunction.BOTTOMVALUES`）的摘要函數。
 
 + **Bug 修正和改善**
-  + 大幅提升 `read_pandas_dataframe` 的效能。
+  + 大幅提升 `read_pandas_dataframe`的效能。
   + 已修正導致指向二進位檔案的資料流程發生 `get_profile()` 失敗的 bug。
   + 公開 `set_diagnostics_collection()`，以允許以程式設計方式啟用/停用遙測集合。
-  + 已變更 `get_profile()` 的行為。 現在會忽略 Min、Mean、Std 和 Sum 的 NaN 值，這與 Pandas 的行為一致。
+  + 已變更 `get_profile()`的行為。 現在會忽略 Min、Mean、Std 和 Sum 的 NaN 值，這與 Pandas 的行為一致。
 
 
 ## <a name="2019-06-10"></a>2019-06-10
@@ -677,7 +677,7 @@ ms.locfileid: "72693536"
   + 針對具有2位數年份格式的已轉譯日期時間值，有效年份的範圍已更新為符合 Windows 可能發行的版本。 範圍已從1930-2029 變更為1950-2049。
   + 在檔案中讀取並設定 `handleQuotedLineBreaks=True` 時，`\r` 將會被視為新行。
   + 已修正在某些情況下導致 `read_pandas_dataframe` 失敗的 bug。
-  + 改善 `get_profile` 的效能。
+  + 改善 `get_profile`的效能。
   + 改善的錯誤訊息。
 
 ## <a name="2019-05-28"></a>2019-05-28
@@ -688,7 +688,7 @@ ms.locfileid: "72693536"
   + 您現在可以使用下列運算式語言函式，將日期時間值解壓縮並剖析成新的資料行。
     + `RegEx.extract_record()` 將 datetime 元素解壓縮至新的資料行。
     + `create_datetime()` 會從個別的 datetime 元素建立 datetime 物件。
-  + 呼叫 `get_profile()` 時，您現在可以看到分量資料行標示為（est.），以清楚指出這些值是近似值。
+  + 呼叫 `get_profile()`時，您現在可以看到分量資料行標示為（est.），以清楚指出這些值是近似值。
   + 從 Azure Blob 儲存體讀取時，您現在可以使用 * * 萬用字元。
     + 例如，`dprep.read_csv(path='https://yourblob.blob.core.windows.net/yourcontainer/**/data/*.csv')`
 
@@ -895,7 +895,7 @@ Azure Machine Learning SDK for Python v 1.0.30 已發行。
 
 + **Bug 修正和改善**
   + 您現在可以在數值資料行設定檔的長條圖中，指定要使用的 bin 數目。
-  + @No__t_0 轉換現在需要資料框架具有字串或位元組類型的資料行名稱。
+  + `read_pandas_dataframe` 轉換現在需要資料框架具有字串或位元組類型的資料行名稱。
   + 已修正 `fill_nulls` 轉換中的 bug，如果遺漏資料行，則不會正確填入值。
 
 ## <a name="2019-03-11"></a>2019-03-11
@@ -904,7 +904,7 @@ Azure Machine Learning SDK for Python v 1.0.30 已發行。
 
  + **變更**
    + Azureml-tensorboard 套件會取代 azureml-contrib-tensorboard。
-   + 在此版本中，您可以在受控計算叢集（amlcompute）上設定使用者帳戶，同時建立它。 這可以藉由在布建設定中傳遞這些屬性來完成。 您可以在[SDK 參考檔](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.amlcompute.amlcompute#provisioning-configuration-vm-size-----vm-priority--dedicated---min-nodes-0--max-nodes-none--idle-seconds-before-scaledown-none--admin-username-none--admin-user-password-none--admin-user-ssh-key-none--vnet-resourcegroup-name-none--vnet-name-none--subnet-name-none--tags-none--description-none--remotelogin-port-public-access--notspecified--)中找到更多詳細資料。
+   + 在此版本中，您可以在受控計算叢集（amlcompute）上設定使用者帳戶，同時建立它。 這可以藉由在布建設定中傳遞這些屬性來完成。 您可以在[SDK 參考檔](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.amlcompute.amlcompute#provisioning-configuration-vm-size-----vm-priority--dedicated---min-nodes-0--max-nodes-none--idle-seconds-before-scaledown-none--admin-username-none--admin-user-password-none--admin-user-ssh-key-none--vnet-resourcegroup-name-none--vnet-name-none--subnet-name-none--tags-none--description-none--remote-login-port-public-access--notspecified--)中找到更多詳細資料。
 
 ### <a name="azure-machine-learning-data-prep-sdk-v1017"></a>Azure Machine Learning 資料準備 SDK v 1.0.17
 

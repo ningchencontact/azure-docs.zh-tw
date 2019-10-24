@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: 4fd213a6550d045fe4bea280449ed228ba9eda35
-ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
+ms.openlocfilehash: c764460fb65287dab0031b27291d2f332cec3b3d
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72550283"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72756538"
 ---
 # <a name="use-the-azure-maps-map-control"></a>使用 Azure 地圖服務地圖控制項
 
@@ -44,6 +44,12 @@ ms.locfileid: "72550283"
     <link rel="stylesheet" href="node_modules/azure-maps-control/dist/atlas.min.css" type="text/css"> 
     <script src="node_modules/azure-maps-control/dist/atlas.min.js"></script>
     ```
+
+    >[!Note]
+    > 藉由新增，您可以將 Typescript 定義匯入至您的應用程式：
+    > ```Javascript
+    > import * as atlas from 'azure-maps-control';
+    > ```
 
 3. 若要轉譯地圖來使它填滿頁面的完整主體，請將下列 `<style>` 元素新增到 `<head>` 元素。
 
@@ -102,6 +108,8 @@ ms.locfileid: "72550283"
     </script>
     ```
 
+    您可以在[這裡](https://github.com/Azure-Samples/Azure-Maps-AzureAD-Samples)找到示範如何整合 AZURE ACTIVE DIRECTORY （AAD）與 Azure 地圖服務的範例清單。 
+    
     如需詳細資訊，請參閱[使用 Azure 地圖服務的驗證](azure-maps-authentication.md)檔。
 
 6. 除此之外，將下列中繼標籤元素新增到頁面的標頭可能會對您很有幫助：
@@ -222,3 +230,8 @@ map = new atlas.Map('myMap', {
 
 > [!div class="nextstepaction"]
 > [程式碼範例](https://docs.microsoft.com/samples/browse/?products=azure-maps)
+
+如需顯示如何整合 Azure Active Directory （AAD）與 Azure 地圖服務的範例清單，請參閱：
+
+> [!div class="nextstepaction"]
+> [AAD 驗證範例](https://github.com/Azure-Samples/Azure-Maps-AzureAD-Samples)

@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 10/18/2019
 ms.author: jennile
 ms.custom: seodec18
-ms.openlocfilehash: 5631b34fee64c6ad0917b95ec68fcd586717a1b0
-ms.sourcegitcommit: 9a4296c56beca63430fcc8f92e453b2ab068cc62
+ms.openlocfilehash: 2919c7a2fa3a8912de0272af5131583988184704
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/20/2019
-ms.locfileid: "72675184"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72755522"
 ---
 # <a name="azure-app-service-diagnostics-overview"></a>Azure App Service 診斷概觀
 
@@ -92,7 +92,7 @@ App Service 診斷不僅適用於 Windows 上您的應用程式，也適用於 [
 
 ### <a name="proactive-cpu-monitoring"></a>主動式 CPU 監視
 
-主動式 CPU 監視可讓您在應用程式的應用程式或子進程耗用大量 CPU 資源時，以簡單又主動的方式採取行動。 您可以設定自己的 CPU 閾值規則，暫時減輕高 CPU 問題，直到發現未預期問題的真正原因為止。 如需詳細資訊，請參閱在[CPU 問題發生前予以緩和](https://azure.github.io/AppService/2019/10/07/Mitigate-your-CPU-problems-before-they-even-happen.html)。主動式 CPU 監視可讓您在應用程式的應用程式或子進程耗用大量 CPU 資源時，以簡單又主動的方式採取行動。 您可以設定自己的 CPU 閾值規則，暫時減輕高 CPU 問題，直到發現未預期問題的真正原因為止。
+主動式 CPU 監視可讓您在應用程式的應用程式或子進程耗用大量 CPU 資源時，以簡單又主動的方式採取行動。 您可以設定自己的 CPU 閾值規則，暫時減輕高 CPU 問題，直到發現未預期問題的真正原因為止。 如需詳細資訊，請參閱在[CPU 問題發生前予以緩和](https://azure.github.io/AppService/2019/10/07/Mitigate-your-CPU-problems-before-they-even-happen.html)。
 
 ![主動式 CPU 監視](./media/app-service-diagnostics/proactive-cpu-monitoring-9.png)
 

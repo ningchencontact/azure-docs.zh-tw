@@ -7,12 +7,12 @@ ms.author: v-chjen
 ms.service: marketplace
 ms.topic: conceptual
 ms.date: 05/30/2019
-ms.openlocfilehash: ec2a174c365e31520fe99ca0b505bbb62faad8c6
-ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
+ms.openlocfilehash: 84e8f1d7b723bb86b31abb1ff60bce5351d7d996
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70883398"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72750146"
 ---
 # <a name="check-the-publishing-status-of-your-commercial-marketplace-offer"></a>檢查您的商業 Marketplace 供應專案的發佈狀態
 
@@ -20,13 +20,13 @@ ms.locfileid: "70883398"
 
 每個供應項目應該都會顯示下列狀態指標的其中一個。
 
-| **狀態**    | **描述**  |
+| **狀態**    | **說明**  |
 | :---------- | :-------------------|
 | **Draft**(英文\) | 已建立供應專案，但尚未發佈。 |
 | **正在發行** | 供應專案/方案會透過發佈程式的步驟來運作。 |
 | **需要注意** | Microsoft 或任何發佈步驟在認證期間發現重大問題。 |
 | **預覽** | 供應專案已由 Microsoft 認證，現在會等待發行者進行最終驗證。 選取 [上線]，讓供應專案上線。 |
-| **Live** | 供應專案會在 marketplace 中上線，並可供客戶查看和取得。 |
+| **上線** | 供應專案會在 marketplace 中上線，並可供客戶查看和取得。 |
 | **暫止停止銷售** | 發行者已選取 [停止銷售] 供應專案或方案，但該動作尚未完成。 |
 | **Marketplace 中未提供** | 已移除 marketplace 中先前發佈的供應專案/方案。 |
 
@@ -106,7 +106,7 @@ ms.locfileid: "70883398"
 
 在此步驟中，您將會透過電子郵件傳送要求，讓您在最終發行步驟之前，先審查並核准您的供應專案預覽。
 
-如果您已選擇透過 Microsoft 銷售您的供應專案，您將能夠測試供應專案的取得與部署，以確保它符合您在此預覽核准階段的需求。 您的供應專案將尚未在公用 marketplace 中提供。 在您測試並核准此預覽之後，您將需要在[**供應專案總覽**](https://partner.microsoft.com/dashboard/commercial-marketplace/overview)儀表板上選取 [**上線**]。
+如果您已選擇透過 Microsoft 銷售您的供應專案，您將能夠測試供應專案的取得與部署，以確保它符合您在此預覽核准階段的需求。 您的供應專案將不會在公用 marketplace 中提供。 在您測試並核准此預覽之後，您將需要在[**供應專案總覽**](https://partner.microsoft.com/dashboard/commercial-marketplace/overview)儀表板上選取 [**上線**]。
 
 如果您想要在此預覽階段變更供應專案，您可以編輯並重新提交，以發佈新的預覽。 如需更多變更的詳細資料，請參閱[更新現有的 marketplace](#update-existing-marketplace-offers)供應專案一文。
 
@@ -116,7 +116,7 @@ ms.locfileid: "70883398"
 
 登入合作夥伴中心，並存取供應專案。 系統會將您重新導向至供應專案的 **[總覽**] 頁面。 在此頁面的頂端，您會看到 [上線] 的**選項。** 選取 [**上線]，** 確認之後，供應專案就會開始發佈至 [公開]。 當供應專案上線時，您會收到電子郵件通知。
 
-## <a name="publish"></a>發行
+## <a name="publish"></a>發佈
 
 現在您已選擇要與您的供應專案**上線**，使其可在 marketplace 中使用，有一系列最終的驗證檢查會逐步執行，以確保即時供應專案的設定就如同供應專案的預覽版本。
 

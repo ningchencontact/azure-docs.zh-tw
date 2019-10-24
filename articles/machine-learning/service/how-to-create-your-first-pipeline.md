@@ -1,7 +1,7 @@
 ---
 title: 建立、 執行及追蹤 ML 管線
 titleSuffix: Azure Machine Learning
-description: 使用適用於 Python 的 Azure Machine Learning SDK 來建立及執行機器學習管線。 使用 ML 管線來建立和管理結合機器學習（ML）階段的工作流程。 這些階段包括資料準備、模型定型、模型部署, 以及推斷/計分。
+description: 使用適用於 Python 的 Azure Machine Learning SDK 來建立及執行機器學習管線。 使用 ML 管線來建立和管理結合機器學習（ML）階段的工作流程。 這些階段包括資料準備、模型定型、模型部署，以及推斷/計分。
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -11,12 +11,12 @@ ms.author: sanpil
 author: sanpil
 ms.date: 08/09/2019
 ms.custom: seodec18
-ms.openlocfilehash: af20c9e3a50c0c60135b1e447e7e1cba1fc36526
-ms.sourcegitcommit: 80da36d4df7991628fd5a3df4b3aa92d55cc5ade
+ms.openlocfilehash: fe4a2082647ef1325d03ce4eec428ed1579704c5
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71815716"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72755993"
 ---
 # <a name="create-and-run-machine-learning-pipelines-with-azure-machine-learning-sdk"></a>使用 Azure Machine Learning SDK 建立及執行機器學習管線
 
@@ -30,7 +30,7 @@ ML 管線的每個階段（例如資料準備和模型訓練）都可以包含�
 
 ML 管線會使用遠端計算目標來進行計算，以及與該管線相關聯的中繼和最終資料的儲存體。 他們可以在支援的[Azure 儲存體](https://docs.microsoft.com/azure/storage/)位置之間讀取和寫入資料。
 
-如果您沒有 Azure 訂用帳戶，請在開始前先建立一個免費帳戶。 試用[免費或付費版本的 Azure Machine Learning](https://aka.ms/AMLFree)。
+如果您沒有 Azure 訂用帳戶，請在開始前建立一個免費帳戶。 試用[免費或付費版本的 Azure Machine Learning](https://aka.ms/AMLFree)。
 
 ## <a name="prerequisites"></a>必要條件
 
@@ -164,8 +164,8 @@ Azure Databricks 是 Azure 雲端中的 Apache Spark 型環境。 它可與 Azur
 若要連結 Azure Databricks 作為計算目標，請提供下列資訊：
 
 * __Databricks 計算名稱__：您想要指派給這個計算資源的名稱。
-* __Databricks 工作區名稱__：Azure Databricks 工作區的名稱。
-* __Databricks 存取權杖__：用來向 Azure Databricks 進行驗證的存取權杖。 若要產生存取權杖，請參閱[驗證](https://docs.azuredatabricks.net/api/latest/authentication.html)文件。
+* __Databricks 工作區名稱__： Azure Databricks 工作區的名稱。
+* __Databricks 存取權杖__：用來驗證 Azure Databricks 的存取權杖。 若要產生存取權杖，請參閱[驗證](https://docs.azuredatabricks.net/api/latest/authentication.html)文件。
 
 下列程式碼示範如何搭配 Azure Machine Learning SDK 來連結 Azure Databricks 作為計算目標：
 
@@ -206,7 +206,7 @@ except ComputeTargetException:
     databricks_compute.wait_for_completion(True)
 ```
 
-如需更詳細的範例, 請參閱 GitHub 上的[範例筆記本](https://aka.ms/pl-databricks)。
+如需更詳細的範例，請參閱 GitHub 上的[範例筆記本](https://aka.ms/pl-databricks)。
 
 ### <a id="adla"></a>Azure Data Lake Analytics
 
@@ -218,7 +218,7 @@ Azure Data Lake Analytics 是 Azure 雲端中的巨量資料分析平台。 它�
 
 * __計算名稱__：您想要指派給這個計算資源的名稱。
 * __資源群組__：包含 Data Lake Analytics 帳戶的資源群組。
-* __帳戶名稱__：Data Lake Analytics 帳戶名稱。
+* __帳戶名稱__： Data Lake Analytics 帳戶名稱。
 
 下列程式碼示範如何連結 Data Lake Analytics 來作為計算目標：
 
@@ -256,14 +256,14 @@ except ComputeTargetException:
     adla_compute.wait_for_completion(True)
 ```
 
-如需更詳細的範例, 請參閱 GitHub 上的[範例筆記本](https://aka.ms/pl-adla)。
+如需更詳細的範例，請參閱 GitHub 上的[範例筆記本](https://aka.ms/pl-adla)。
 
 > [!TIP]
 > Azure Machine Learning 管線只能使用 Data Lake Analytics 帳戶的預設資料存放區中所儲存的資料來運作。 如果您運作所需的資料位於非預設的存放區，則可以先使用 [`DataTransferStep`](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.data_transfer_step.datatransferstep?view=azure-ml-py) 複製資料再進行訓練。
 
 ## <a id="steps"></a>建構您的管線步驟
 
-建立計算目標並將其連結至您的工作區之後，您便已做好定義管線步驟的準備。 透過 Azure Machine Learning SDK，有許多內建的步驟可供使用。 這些步驟中最基本的就是[PythonScriptStep](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.python_script_step.pythonscriptstep?view=azure-ml-py), 它會在指定的計算目標中執行 Python 腳本:
+建立計算目標並將其連結至您的工作區之後，您便已做好定義管線步驟的準備。 透過 Azure Machine Learning SDK，有許多內建的步驟可供使用。 這些步驟中最基本的就是[PythonScriptStep](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.python_script_step.pythonscriptstep?view=azure-ml-py)，它會在指定的計算目標中執行 Python 腳本：
 
 ```python
 from azureml.pipeline.steps import PythonScriptStep
@@ -278,7 +278,7 @@ trainStep = PythonScriptStep(
 )
 ```
 
-在共同作業環境中`allow_reuse`使用管線時，重複使用先前的結果（）是重要的，因為排除不必要的重新執行時間可提供靈活性。 當步驟的 script_name、輸入和參數保持不變時，重複使用是預設行為。 重複使用步驟的輸出時, 不會將作業提交至計算, 而是從上一次執行的結果立即提供給下一個步驟的執行。 如果`allow_reuse`設定為 false，則會在管線執行期間，針對此步驟一律會產生新的執行。 
+在共同作業環境中使用管線時，重複使用先前的結果（`allow_reuse`）是重要的，因為排除不必要的重新執行時間可提供靈活性。 當步驟的 script_name、輸入和參數保持不變時，重複使用是預設行為。 重複使用步驟的輸出時，不會將作業提交至計算，而是從上一次執行的結果立即提供給下一個步驟的執行。 如果 `allow_reuse` 設定為 false，則會在管線執行期間，針對此步驟一律會產生新的執行。 
 
 定義步驟之後，您必須使用這些步驟中的部分或全部步驟來建置管線。
 
@@ -318,14 +318,14 @@ steps = [dbStep]
 pipeline1 = Pipeline(workspace=ws, steps=steps)
 ```
 
-如需詳細資訊, 請參閱[azure-管線-步驟套件](https://docs.microsoft.com/python/api/azureml-pipeline-steps/?view=azure-ml-py)和[管線類別](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.pipeline%28class%29?view=azure-ml-py)參考。
+如需詳細資訊，請參閱[azure-管線-步驟套件](https://docs.microsoft.com/python/api/azureml-pipeline-steps/?view=azure-ml-py)和[管線類別](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.pipeline%28class%29?view=azure-ml-py)參考。
 
 ## <a name="submit-the-pipeline"></a>提交管線
 
 當您提交管線時，Azure Machine Learning 會檢查每個步驟的相依性，並上傳您指定之來原始目錄的快照集。 如果未指定來源目錄，則會上傳目前的本機目錄。 快照集也會儲存為您工作區中實驗的一部分。
 
 > [!IMPORTANT]
-> 若要防止檔案包含在快照中, 請在目錄中建立 [.gitignore](https://git-scm.com/docs/gitignore) `.amlignore`或檔案, 並在其中新增檔案。 檔案會使用與 [.gitignore](https://git-scm.com/docs/gitignore) 檔案相同的語法和模式。`.amlignore` 如果這兩個檔案都`.amlignore`存在, 則會優先使用該檔案。
+> 若要防止檔案包含在快照中，請在目錄中建立[.gitignore](https://git-scm.com/docs/gitignore)或 `.amlignore` 檔案，並在其中新增檔案。 @No__t_0 檔案使用與[.gitignore](https://git-scm.com/docs/gitignore)檔案相同的語法和模式。 如果兩個檔案都存在，則會優先使用 `.amlignore` 檔案。
 >
 > 如需詳細資訊，請參閱[快照集](concept-azure-machine-learning-architecture.md#snapshots)。
 
@@ -342,19 +342,19 @@ pipeline_run1.wait_for_completion()
 * 從與工作區相關的 Blob 儲存體，將專案快照集下載到計算目標。
 * 建置與管線中的每個步驟相對應的 Docker 映像。
 * 從容器登錄將每個步驟的 Docker 映射下載到計算目標。
-* 如果在步驟中指定`DataReference`了物件，就會掛接資料存放區。 如果不支援掛接，則會改為將資料複製到計算目標。
+* 如果在步驟中指定了 `DataReference` 物件，就會掛接資料存放區。 如果不支援掛接，則會改為將資料複製到計算目標。
 * 在步驟定義中指定的計算目標內執行步驟。 
 * 建立步驟所指定的成品，例如記錄、stdout 和 stderr、計量及輸出。 這些成品會接著上傳到使用者的預設資料存放區，並保存在該處。
 
 ![以管線的形式執行實驗的圖表](./media/how-to-create-your-first-pipeline/run_an_experiment_as_a_pipeline.png)
 
-如需詳細資訊, 請參閱[實驗類別](https://docs.microsoft.com/python/api/azureml-core/azureml.core.experiment.experiment?view=azure-ml-py)參考。
+如需詳細資訊，請參閱[實驗類別](https://docs.microsoft.com/python/api/azureml-core/azureml.core.experiment.experiment?view=azure-ml-py)參考。
 
 
 
 ## <a name="github-tracking-and-integration"></a>GitHub 追蹤與整合
 
-當您啟動定型回合, 其中來原始目錄是本機 Git 存放庫時, 儲存機制的相關資訊會儲存在執行歷程記錄中。 例如, 存放庫的目前認可識別碼會記錄為歷程記錄的一部分。
+當您啟動定型回合，其中來原始目錄是本機 Git 存放庫時，儲存機制的相關資訊會儲存在執行歷程記錄中。 如需詳細資訊，請參閱[Azure Machine Learning 的 Git 整合](concept-train-model-git-integration.md)。
 
 ## <a name="publish-a-pipeline"></a>發佈管線
 
@@ -429,17 +429,17 @@ p = PublishedPipeline.get(ws, id="068f4885-7088-424b-8ce2-eeb9ba5381a6")
 p.disable()
 ```
 
-您可以使用`p.enable()`再次啟用它。 如需詳細資訊，請參閱[PublishedPipeline 類別](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.publishedpipeline?view=azure-ml-py)參考。
+您可以使用 `p.enable()`再次啟用它。 如需詳細資訊，請參閱[PublishedPipeline 類別](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.publishedpipeline?view=azure-ml-py)參考。
 
 
 ## <a name="caching--reuse"></a>快取 & 重複使用  
 
-為了優化和自訂管線的行為，您可以在快取和重複使用方面執行一些動作。 例如, 您可以選擇:
-+ 在[步驟定義](https://docs.microsoft.com/python/api/azureml-pipeline-steps/?view=azure-ml-py)期間設定`allow_reuse=False` , 以關閉**步驟執行輸出的預設重複使用**。 在共同作業環境中使用管線時, 重複使用是關鍵, 因為排除不必要的執行可提供靈活性。 不過，您可以選擇不重複使用。
-+ 將**雜湊延伸到腳本之外**，以同時包含 source_directory 到其他檔案和目錄的絕對路徑或相對路徑（使用 `hash_paths=['<file or directory']`） 
-+ **針對執行中的所有步驟強制輸出**重新產生`pipeline_run = exp.submit(pipeline, regenerate_outputs=False)`
+為了優化和自訂管線的行為，您可以在快取和重複使用方面執行一些動作。 例如，您可以選擇：
++ 藉由設定[步驟定義](https://docs.microsoft.com/python/api/azureml-pipeline-steps/?view=azure-ml-py)期間的 `allow_reuse=False`，關閉**步驟執行輸出的預設重複使用**。 在共同作業環境中使用管線時，重複使用是關鍵，因為排除不必要的執行可提供靈活性。 不過，您可以選擇不重複使用。
++ 將**雜湊延伸到腳本外**，以同時包含 source_directory 到其他檔案和目錄的絕對路徑或相對路徑，並使用 `hash_paths=['<file or directory']` 
++ **在執行時使用 `pipeline_run = exp.submit(pipeline, regenerate_outputs=False)` 中的所有步驟強制執行輸出**重新產生
 
-根據預設, `allow_reuse`會啟用步驟, 而且只會雜湊主要腳本檔案。 因此, 如果指定步驟的腳本維持不變 (`script_name`、輸入和參數), 則會重複使用上一個步驟執行的輸出, 不會將作業提交至計算, 而從上一次執行的結果會立即可供下一個步驟使用.  
+根據預設，會啟用步驟的 `allow_reuse`，而且只會雜湊主要的腳本檔案。 因此，如果指定步驟的腳本維持不變（`script_name`、輸入和參數），則會重複使用上一個步驟執行的輸出，而不會將作業提交至計算，而先前執行的結果會立即可供下一個步驟使用。  
 
 ```python
 step = PythonScriptStep(name="Hello World",

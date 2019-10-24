@@ -1,5 +1,5 @@
 ---
-title: 將 RHEL VM 加入至 Azure AD Domain Services |Microsoft Docs '
+title: 將 RHEL VM 加入至 Azure AD Domain Services |Microsoft Docs
 description: 瞭解如何設定 Red Hat Enterprise Linux 虛擬機器，並將其加入 Azure AD Domain Services 受控網域。
 services: active-directory-ds
 author: iainfoulds
@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 09/15/2019
 ms.author: iainfou
-ms.openlocfilehash: b90650fa2cd343c81b7bbb2fcea24c3a95f537b6
-ms.sourcegitcommit: 6fe40d080bd1561286093b488609590ba355c261
+ms.openlocfilehash: 9472abd7a16c887a796e36b8190e8530c84dafa9
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/01/2019
-ms.locfileid: "71702043"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72755716"
 ---
 # <a name="join-a-red-hat-enterprise-linux-virtual-machine-to-an-azure-ad-domain-services-managed-domain"></a>將 Red Hat Enterprise Linux 的虛擬機器加入 Azure AD Domain Services 受控網域
 
@@ -72,11 +72,11 @@ sudo vi /etc/hosts
 127.0.0.1 rhel rhel.contoso.com
 ```
 
-完成時，請使用編輯器的 `:wq`命令來儲存並結束 hosts 檔案。
+完成時，請使用編輯器的 [`:wq`] 命令儲存並結束*hosts*檔案。
 
 ## <a name="install-required-packages"></a>安裝必要的套件
 
-VM 需要一些額外的套件，才能將 VM 加入 Azure AD DS 受控網域。 若要安裝及設定這些封裝，請使用`yum`來更新和安裝網域聯結工具：
+VM 需要一些額外的套件，才能將 VM 加入 Azure AD DS 受控網域。 若要安裝及設定這些封裝，請使用 `yum` 更新並安裝網域聯結工具：
 
  **RHEL 7** 
 
@@ -96,27 +96,27 @@ sudo yum install adcli sssd authconfig krb5-workstation
  
   **RHEL 7**
      
-1. `realm discover`使用命令來探索 Azure AD DS 受控網域。 下列範例會探索領域*CONTOSO.COM*。 以全部大寫指定您自己的 Azure AD DS 受控功能變數名稱：
+1. 使用 `realm discover` 命令探索 Azure AD DS 受控網域。 下列範例會探索領域*CONTOSO.COM*。 以全部大寫指定您自己的 Azure AD DS 受控功能變數名稱：
 
     ```console
     sudo realm discover CONTOSO.COM
     ```
 
-   `realm discover`如果命令找不到您的 Azure AD DS 受控網域，請參閱下列疑難排解步驟：
+   如果 `realm discover` 命令找不到您 Azure AD DS 受控網域，請參閱下列疑難排解步驟：
    
-    * 請確定可從 VM 連線到該網域。 請`ping contoso.com`嘗試查看是否傳回正面回復。
+    * 請確定可從 VM 連線到該網域。 嘗試 `ping contoso.com` 以查看是否傳回正面回復。
     * 檢查 VM 是否已部署至相同或對等互連的虛擬網路，其中可使用 Azure AD DS 受控網域。
     * 確認虛擬網路的 DNS 伺服器設定已更新，以指向 Azure AD DS 受控網域的網域控制站。
 
-1. 現在使用`kinit`命令初始化 Kerberos。 指定屬於*AAD DC 系統管理員*群組的使用者。 如有需要，請[將使用者帳戶新增至 Azure AD 中的群組](../active-directory/fundamentals/active-directory-groups-members-azure-portal.md)。
+1. 現在使用 `kinit` 命令來初始化 Kerberos。 指定屬於*AAD DC 系統管理員*群組的使用者。 如有需要，請[將使用者帳戶新增至 Azure AD 中的群組](../active-directory/fundamentals/active-directory-groups-members-azure-portal.md)。
 
-    同樣地，必須以全部大寫輸入 Azure AD DS 受管理的功能變數名稱。 在下列範例中，會使用名`contosoadmin@contoso.com`為的帳戶來初始化 Kerberos。 輸入屬於*AAD DC 系統管理員*群組成員的您自己的使用者帳戶：
+    同樣地，必須以全部大寫輸入 Azure AD DS 受管理的功能變數名稱。 在下列範例中，會使用名為 `contosoadmin@contoso.com` 的帳戶來初始化 Kerberos。 輸入屬於*AAD DC 系統管理員*群組成員的您自己的使用者帳戶：
     
     ```console
     kinit contosoadmin@CONTOSO.COM
     ``` 
 
-1. 最後，使用`realm join`命令將電腦加入 Azure AD DS 受控網域。 使用與您在上一個`kinit` `contosoadmin@CONTOSO.COM`命令中指定的*AAD DC 系統管理員*群組成員相同的使用者帳戶，例如：
+1. 最後，使用 `realm join` 命令將電腦加入 Azure AD DS 受控網域。 使用與您在上一個 `kinit` 命令中指定的*AAD DC 系統管理員*群組成員相同的使用者帳戶，例如 `contosoadmin@CONTOSO.COM`：
 
     ```console
     sudo realm join --verbose CONTOSO.COM -U 'contosoadmin@CONTOSO.COM'
@@ -130,25 +130,25 @@ Successfully enrolled machine in realm
 
   **RHEL 6** 
 
-1. `adcli info`使用命令來探索 Azure AD DS 受控網域。 下列範例會探索領域*CONTOSO.COM*。 以全部大寫指定您自己的 Azure AD DS 受控功能變數名稱：
+1. 使用 `adcli info` 命令探索 Azure AD DS 受控網域。 下列範例會探索領域*CONTOSO.COM*。 以全部大寫指定您自己的 Azure AD DS 受控功能變數名稱：
 
     ```console
     sudo adcli info contoso.com
     ```
     
-   `adcli info`如果命令找不到您的 Azure AD DS 受控網域，請參閱下列疑難排解步驟：
+   如果 `adcli info` 命令找不到您 Azure AD DS 受控網域，請參閱下列疑難排解步驟：
    
-    * 請確定可從 VM 連線到該網域。 請`ping contoso.com`嘗試查看是否傳回正面回復。
+    * 請確定可從 VM 連線到該網域。 嘗試 `ping contoso.com` 以查看是否傳回正面回復。
     * 檢查 VM 是否已部署至相同或對等互連的虛擬網路，其中可使用 Azure AD DS 受控網域。
     * 確認虛擬網路的 DNS 伺服器設定已更新，以指向 Azure AD DS 受控網域的網域控制站。
 
-1. 首先，使用 `adcli join` 命令加入網域，此命令也會建立驗證電腦的 keytab。 使用屬於*AAD DC 系統管理員*群組成員的使用者帳戶。 
+1. 首先，使用 `adcli join` 命令加入網域，此命令也會建立 keytab 來驗證機器。 使用屬於*AAD DC 系統管理員*群組成員的使用者帳戶。 
 
     ```console
     sudo adcli join contoso.com -U contosoadmin
     ```
 
-1. 現在設定 `/ect/krb5.conf`，並建立 @no__t 1 檔案以使用 `contoso.com` Active Directory 網域。 
+1. 現在設定 `/ect/krb5.conf` 並建立 `/etc/sssd/sssd.conf` 檔案，以使用 `contoso.com` Active Directory 網域。 
    請確定 `CONTOSO.COM` 已由您自己的功能變數名稱取代：
 
     使用編輯器開啟 `/ect/krb5.conf` 檔案：
@@ -157,7 +157,7 @@ Successfully enrolled machine in realm
     sudo vi /etc/krb5.conf
     ```
 
-    更新 `krb5.conf` 檔案以符合下列範例：
+    更新 `krb5.conf` 檔案，以符合下列範例：
 
     ```console
     [logging]
@@ -190,7 +190,7 @@ Successfully enrolled machine in realm
     sudo vi /etc/sssd/sssd.conf
     ```
 
-    更新 `sssd.conf` 檔案以符合下列範例：
+    更新 `sssd.conf` 檔案，以符合下列範例：
 
     ```console
     [sssd]
@@ -203,7 +203,7 @@ Successfully enrolled machine in realm
      id_provider = ad
     ```
 
-1. 請確定 `/etc/sssd/sssd.conf` 許可權為600，且由根使用者所擁有：
+1. 請確定 `/etc/sssd/sssd.conf` 的許可權是600，而且是由根使用者所擁有：
 
     ```console
     sudo chmod 600 /etc/sssd/sssd.conf
@@ -265,7 +265,7 @@ sudo getent passwd contosoadmin
 
 ## <a name="grant-the-aad-dc-administrators-group-sudo-privileges"></a>授與 'AAD DC Administrators' 群組 sudo 權限
 
-若要授與*AAD DC Administrators*群組的成員 RHEL VM 上的系統管理許可權，您可以在 */etc/sudoers*中新增一個專案。 新增之後， *AAD DC 系統管理員*群組的成員就可以在`sudo` RHEL VM 上使用命令。
+若要授與*AAD DC Administrators*群組的成員 RHEL VM 上的系統管理許可權，您可以在 */etc/sudoers*中新增一個專案。 新增之後， *AAD DC 系統管理員*群組的成員就可以使用 RHEL VM 上的 `sudo` 命令。
 
 1. 開啟*sudoers*檔案進行編輯：
 
@@ -280,13 +280,13 @@ sudo getent passwd contosoadmin
     %AAD\ DC\ Administrators@contoso.com ALL=(ALL) NOPASSWD:ALL
     ```
 
-    完成時，請使用編輯器的`:wq`命令儲存並結束編輯器。
+    完成時，請使用編輯器的 [`:wq`] 命令儲存並結束編輯器。
 
 ## <a name="sign-in-to-the-vm-using-a-domain-account"></a>使用網域帳戶登入 VM
 
 若要確認 VM 已成功加入 Azure AD DS 受控網域，請使用網域使用者帳戶啟動新的 SSH 連線。 確認已建立主目錄，並已套用網域的群組成員資格。
 
-1. 從您的主控台建立新的 SSH 連線。 使用屬於受控網域`ssh -l`的網域帳戶（ `contosoadmin@contoso.com`例如），然後輸入您 VM 的位址，例如*rhel.contoso.com*。 如果您使用 Azure Cloud Shell，請使用 VM 的公用 IP 位址，而不是內部 DNS 名稱。
+1. 從您的主控台建立新的 SSH 連線。 使用屬於受控 `ssh -l` 網域的網域帳戶（例如 `contosoadmin@contoso.com`），然後輸入您 VM 的位址，例如*rhel.contoso.com*。 如果您使用 Azure Cloud Shell，請使用 VM 的公用 IP 位址，而不是內部 DNS 名稱。
 
     ```console
     ssh -l contosoadmin@CONTOSO.com rhel.contoso.com
@@ -308,7 +308,7 @@ sudo getent passwd contosoadmin
 
     您應該會看到來自 Azure AD DS 受控網域的群組成員資格。
 
-1. 如果您已以*AAD DC 系統管理員*群組的成員身分登入 VM，請檢查您是否可以正確地使用`sudo`命令：
+1. 如果您已以*AAD DC 系統管理員*群組的成員身分登入 VM，請檢查您是否可以正確地使用 `sudo` 命令：
 
     ```console
     sudo yum update

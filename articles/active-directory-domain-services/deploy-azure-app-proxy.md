@@ -1,5 +1,5 @@
 ---
-title: Azure Active Directory Domain Services：部署 Azure AD 應用程式 Proxy |Microsoft Docs
+title: 部署 Azure AD Domain Services 的 Azure AD 應用程式 Proxy |Microsoft Docs
 description: 在 Active Directory Domain Services 受控網域上使用 Azure AD 應用程式
 services: active-directory-ds
 documentationcenter: ''
@@ -15,17 +15,17 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/14/2019
 ms.author: iainfou
-ms.openlocfilehash: 21693926bae681cf15d31dca06344dfa5d865e3b
-ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
+ms.openlocfilehash: 80c3b2120a617e5c4c0f8de252b9436753fea011
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69613003"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72754409"
 ---
 # <a name="deploy-azure-ad-application-proxy-on-an-azure-ad-domain-services-managed-domain"></a>在 Azure Active Directory Domain Services 受控網域上部署 Azure AD 應用程式
 Azure Active Directory (AD) 應用程式 Proxy 可藉由發佈要透過網際網路存取的內部部署應用程式，協助您支援遠端背景工作角色。 使用 Azure AD 網域服務，您現在可以提升執行內部部署的舊版應用程式並隨即轉移至 Azure 基礎結構服務。 然後，您可以使用 Azure AD 應用程式 Proxy 發佈這些應用程式，為您組織中的使用者提供安全遠端存取。
 
-如果您是 Azure AD 應用程式 Proxy 的新手，可透過下列文章深入了解這個功能：[如何為內部部署應用程式提供安全的遠端存取](../active-directory/manage-apps/application-proxy.md)。
+如果您是 Azure AD 應用程式 Proxy 的新手，可至下列文章：[如何為內部部署應用程式提供安全的遠端存取](../active-directory/manage-apps/application-proxy.md)深入了解這個功能。
 
 [!INCLUDE [active-directory-ds-prerequisites.md](../../includes/active-directory-ds-prerequisites.md)]
 
@@ -83,7 +83,7 @@ Azure Active Directory (AD) 應用程式 Proxy 可藉由發佈要透過網際網
     ![疑難排解程式成功](./media/app-proxy/app-proxy-connector-troubleshooter.png)
 5. 您應該會在Azure AD 目錄中看到新安裝的連接器列在應用程式 Proxy 頁面上。
 
-    ![在 Azure 入口網站中, 已安裝的連接器會顯示為 [可用]](./media/app-proxy/app-proxy-connector-page.png)
+    ![在 Azure 入口網站中，已安裝的連接器會顯示為 [可用]](./media/app-proxy/app-proxy-connector-page.png)
 
 > [!NOTE]
 > 您可以選擇在多部伺服器上安裝連接器，以確保驗證透過 Azure AD 應用程式 Proxy 發佈之應用程式的高可用性。 執行上述的相同步驟，以在其他加入您受控網域的伺服器上安裝連接器。
