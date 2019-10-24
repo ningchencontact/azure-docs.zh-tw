@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 05/15/2019
 ms.author: asrastog
-ms.openlocfilehash: d2c84f5b6389ac83206472440d26aa8d81ba76be
-ms.sourcegitcommit: b03516d245c90bca8ffac59eb1db522a098fb5e4
+ms.openlocfilehash: 5d21d3800655cc0be78a2b63d13a3616b1d0f2f8
+ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71147369"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72372723"
 ---
 # <a name="use-iot-hub-message-routing-to-send-device-to-cloud-messages-to-different-endpoints"></a>使用 IoT 中樞訊息路由將裝置到雲端訊息傳送至不同的端點
 
@@ -107,13 +107,19 @@ IoT 中樞也支援將訊息路由至[Azure Data Lake Storage](https://docs.micr
 
 ## <a name="non-telemetry-events"></a>非遙測事件
 
-除了裝置遙測之外，訊息路由也可讓您傳送裝置對應項變更事件、裝置生命週期事件，以及數位對應項變更事件（處於公開預覽狀態）。 例如，如果隨同設定為**裝置對應項變更事件**的資料來源建立路由，IoT 中樞會將訊息傳送至包含裝置對應項變更的端點。 同樣地，如果使用設定為**裝置生命週期事件**的資料來源建立路由，IoT 中樞會傳送一則訊息，指出裝置是否已刪除或已建立。 最後，做為[IoT 隨插即用公開預覽](../iot-pnp/overview-iot-plug-and-play.md)的一部分，開發人員可以建立將資料來源設定為數字對應項**變更事件**的路由，並在每次設定或變更數位對應項[屬性](../iot-pnp/iot-plug-and-play-glossary.md)（[數位對應項](../iot-pnp/iot-plug-and-play-glossary.md)）時傳送訊息 IoT 中樞已取代，或基礎裝置對應項發生變更事件時。
+除了裝置遙測之外，訊息路由也可讓您傳送裝置對應項變更事件、裝置生命週期事件，以及數位對應項變更事件（處於公開預覽狀態）。 例如，如果隨同設定為**裝置對應項變更事件**的資料來源建立路由，IoT 中樞會將訊息傳送至包含裝置對應項變更的端點。 同樣地，如果使用設定為**裝置生命週期事件**的資料來源建立路由，IoT 中樞會傳送一則訊息，指出裝置是否已刪除或已建立。 最後，做為[IoT 隨插即用公開預覽](../iot-pnp/overview-iot-plug-and-play.md)的一部分，開發人員可以建立將資料來源設定為數字對應項**變更事件**的路由，並在每次設定或變更數位對應項[屬性](../iot-pnp/iot-plug-and-play-glossary.md)（數位對應項）時傳送訊息 IoT[中樞](../iot-pnp/iot-plug-and-play-glossary.md)已取代，或基礎裝置對應項發生變更事件時。
 
 [IoT 中樞也會與 Azure 事件方格整合](iot-hub-event-grid.md)，以發佈裝置事件，以根據這些事件來支援即時整合和自動化工作流程。 請參閱[訊息路由與事件格線之間的關鍵差異](iot-hub-event-grid-routing-comparison.md)了解何者最適合您的情況。
 
 ## <a name="testing-routes"></a>測試路由
 
 您建立新的路由或編輯現有的路由時，應該使用範例訊息測試路由查詢。 您可以測試個別的路由，也可以一次測試所有路由，而且沒有任何訊息在測試期間傳送至端點。 Azure 入口網站、Azure Resource Manager、Azure PowerShell 和 Azure CLI 都可以用來進行測試。 結果有助於識別範例訊息是否符合查詢、訊息是否不符合查詢，或因為範例訊息或查詢語法不正確而無法執行測試。 若要深入了解，請參閱[測試路由](/rest/api/iothub/iothubresource/testroute)和[測試所有路由](/rest/api/iothub/iothubresource/testallroutes)。
+
+## <a name="ordering-guarantees-with-at-least-once-delivery"></a>具有至少一次傳遞的順序保證
+
+IoT 中樞訊息路由保證已排序，而且至少一次將訊息傳遞至端點。 這表示可能會有重複的訊息，而且可以重新傳輸一系列的訊息，以遵循原始訊息排序。 例如，如果原始訊息順序是 [1，2，3，4]，您可能會收到如 [1，2，1，2，3，1，2，3，4] 的訊息順序。 順序保證是，如果您收到訊息 [1]，則一律會接著 [2，3，4]。
+
+若要處理訊息重複專案，我們建議您在訊息的應用程式屬性中，為來源（通常是裝置或模組）戳唯一的識別碼。 耗用訊息的服務可以使用此識別碼來處理重複的訊息。
 
 ## <a name="latency"></a>延遲
 

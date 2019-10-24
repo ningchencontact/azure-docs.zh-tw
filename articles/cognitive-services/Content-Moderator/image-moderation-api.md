@@ -3,19 +3,19 @@ title: 影像仲裁 - Content Moderator
 titleSuffix: Azure Cognitive Services
 description: 使用內容仲裁的電腦輔助影像仲裁以及人工審核工具來審核成人和猥褻內容的影像。
 services: cognitive-services
-author: sanjeev3
+author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: conceptual
 ms.date: 01/10/2019
-ms.author: sajagtap
-ms.openlocfilehash: 8b3449edb539ab56fcf206a367f9b81e43290733
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.author: pafarley
+ms.openlocfilehash: 3bc5bc99984367b44b38a65266d2915c47ca6fd0
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68564899"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72757345"
 ---
 # <a name="learn-image-moderation-concepts"></a>了解影像仲裁概念
 
@@ -45,7 +45,7 @@ ms.locfileid: "68564899"
 
 **光學字元辨識 (OCR)** 作業會預測影像中是否存在文字內容，並擷取文字內容以進行文字仲裁及其他用途。 您可以指定語言。 如果您未指定語言，偵測會預設為英文。
 
-回應包含下列資訊：
+回應中包含下列資訊：
 - 原始文字。
 - 偵測到的文字項目及其信賴分數。
 
@@ -66,7 +66,7 @@ ms.locfileid: "68564899"
 
 ## <a name="detecting-faces"></a>偵測臉部
 
-偵測臉部有助於偵測個人資料, 例如影像中的臉部。 您可以偵測每個影像中的潛在臉部和潛在臉部數量。
+偵測臉部有助於偵測個人資料，例如影像中的臉部。 您可以偵測每個影像中的潛在臉部和潛在臉部數量。
 
 回應包含下列資訊：
 
@@ -139,11 +139,11 @@ ms.locfileid: "68564899"
     ....
     }
 
-## <a name="human-review-tool"></a>人工檢閱工具
+## <a name="human-review-tool"></a>人工審核工具
 
 如需詳細資訊，請使用內容仲裁的[檢閱工具](Review-Tool-User-Guide/human-in-the-loop.md)及其 API，以便為人工仲裁在檢閱中呈現仲裁結果和內容。 其會檢閱電腦指派的標籤，並確認其最終決策。
 
-![給人工仲裁的影像檢閱](images/moderation-reviews-quickstart-dotnet.PNG)
+![給人工審核者的影像檢閱](images/moderation-reviews-quickstart-dotnet.PNG)
 
 ## <a name="next-steps"></a>後續步驟
 

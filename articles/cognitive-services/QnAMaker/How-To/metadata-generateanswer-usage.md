@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
-ms.date: 10/09/2019
+ms.date: 10/12/2019
 ms.author: diberry
-ms.openlocfilehash: a63b6773a7546f8add0b2f2ab6280801e90bccca
-ms.sourcegitcommit: 961468fa0cfe650dc1bec87e032e648486f67651
+ms.openlocfilehash: 8f00ffeff4eb353fa70aa7df60b14c97d4b8e724
+ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72248642"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72554870"
 ---
 # <a name="get-an-answer-with-the-generateanswer-api-and-metadata"></a>取得 GenerateAnswer API 和中繼資料的解答
 
@@ -48,7 +48,7 @@ QnA Maker 可讓您以索引鍵和值組的形式，將中繼資料新增至您�
 若要取得端點詳細資料：
 1. 登入 [https://www.qnamaker.ai](https://www.qnamaker.ai)。
 1. 在 [**我的知識庫**] 中，選取您知識庫的 [查看程式**代碼**]。
-    @no__t-My 知識庫 @ no__t-1 的0Screenshot
+    我的知識庫 ![Screenshot ](../media/qnamaker-how-to-metadata-usage/my-knowledge-bases.png)
 1. 取得 GenerateAnswer 端點詳細資料。
 
     ![端點詳細資料的螢幕擷取畫面](../media/qnamaker-how-to-metadata-usage/view-code.png)
@@ -83,6 +83,7 @@ https://{QnA-Maker-endpoint}/knowledgebases/{knowledge-base-ID}/generateAnswer
     "top": 6,
     "isTest": true,
     "scoreThreshold": 30,
+    "rankerType": "" // values: QuestionOnly
     "strictFilters": [
     {
         "name": "category",
@@ -92,7 +93,9 @@ https://{QnA-Maker-endpoint}/knowledgebases/{knowledge-base-ID}/generateAnswer
 }
 ```
 
-先前的 JSON 只要求 30% 或高於閾值分數的答案。 
+深入瞭解[rankerType](../concepts/best-practices.md#choosing-ranker-type)。
+
+先前的 JSON 只要求30% 或高於閾值分數的答案。 
 
 <a name="generateanswer-response"></a>
 
@@ -122,7 +125,7 @@ https://{QnA-Maker-endpoint}/knowledgebases/{knowledge-base-ID}/generateAnswer
 }
 ```
 
-先前的 JSON 回應分數為 38.5% 的答案。 
+先前的 JSON 回應分數為38.5% 的答案。 
 
 ## <a name="use-qna-maker-with-a-bot-in-c"></a>在中使用 bot 的 QnA MakerC#
 
@@ -141,7 +144,7 @@ qnaOptions.ScoreThreshold = 0.3F;
 var response = await _services.QnAServices[QnAMakerKey].GetAnswersAsync(turnContext, qnaOptions);
 ```
 
-先前的 JSON 只要求 30% 或高於閾值分數的答案。 
+先前的 JSON 只要求30% 或高於閾值分數的答案。 
 
 支援 bot 具有此[程式](https://github.com/microsoft/BotBuilder-Samples/blob/master/experimental/qnamaker-support/csharp_dotnetcore/Service/SupportBotService.cs#L418)代碼的範例。
 
@@ -161,7 +164,7 @@ var qnaMakerOptions = {
 var qnaResults = await this.qnaMaker.getAnswers(stepContext.context, qnaMakerOptions);
 ```
 
-先前的 JSON 只要求 30% 或高於閾值分數的答案。 
+先前的 JSON 只要求30% 或高於閾值分數的答案。 
 
 支援 bot 具有此[程式](https://github.com/microsoft/BotBuilder-Samples/blob/master/experimental/qnamaker-activelearning/javascript_nodejs/Helpers/dialogHelper.js#L36)代碼的範例。
 

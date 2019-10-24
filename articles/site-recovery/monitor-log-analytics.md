@@ -1,67 +1,72 @@
 ---
-title: 使用 Azure 監視器記錄 (Log Analytics) 監視 Azure Site Recovery
-description: 瞭解如何使用 Azure 監視器記錄來監視 Azure Site Recovery (Log Analytics)
+title: 使用 Azure 監視器記錄（Log Analytics）監視 Azure Site Recovery |Microsoft Docs
+description: 瞭解如何使用 Azure 監視器記錄來監視 Azure Site Recovery （Log Analytics）
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 07/30/2019
+ms.date: 10/13/2019
 ms.author: raynew
-ms.openlocfilehash: 4eb88658437d3b29cc55d24bb83f73b660daea43
-ms.sourcegitcommit: a52f17307cc36640426dac20b92136a163c799d0
+ms.openlocfilehash: 889fa3bee17aa3b0300431b058332c5ec10d9faf
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68718479"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72331925"
 ---
 # <a name="monitor-site-recovery-with-azure-monitor-logs"></a>透過 Azure 監視器記錄監視 Site Recovery
 
 本文說明如何使用[Azure 監視器記錄](../azure-monitor/platform/data-platform-logs.md)和[Log Analytics](../azure-monitor/log-query/log-query-overview.md)來監視 Azure [Site Recovery](site-recovery-overview.md)所複寫的機器。
 
-Azure 監視器記錄檔所提供的記錄檔資料平臺, 會收集活動和診斷記錄, 以及其他監視資料。 在 Azure 監視器記錄中, 您可以使用 Log Analytics 來撰寫和測試記錄查詢, 並以互動方式分析記錄資料。 您可以將記錄結果視覺化並加以查詢, 並設定警示以根據受監視的資料採取動作。
+Azure 監視器記錄檔所提供的記錄檔資料平臺，會收集活動和診斷記錄，以及其他監視資料。 在 Azure 監視器記錄中，您可以使用 Log Analytics 來撰寫和測試記錄查詢，並以互動方式分析記錄資料。 您可以將記錄結果視覺化並加以查詢，並設定警示以根據受監視的資料採取動作。
 
-針對 Site Recovery, 您可以 Azure 監視器記錄檔, 以協助您執行下列動作:
+針對 Site Recovery，您可以 Azure 監視器記錄檔，以協助您執行下列動作：
 
-- **監視 Site Recovery 健康情況和狀態**。 例如, 您可以監視複寫健全狀況、測試容錯移轉狀態、Site Recovery 事件、受保護機器的復原點目標 (Rpo), 以及磁片/資料變更率。
-- **設定 Site Recovery 的警示**。 例如, 您可以設定電腦健全狀況、測試容錯移轉狀態或 Site Recovery 作業狀態的警示。
+- **監視 Site Recovery 健康情況和狀態**。 例如，您可以監視複寫健全狀況、測試容錯移轉狀態、Site Recovery 事件、受保護機器的復原點目標（Rpo），以及磁片/資料變更率。
+- **設定 Site Recovery 的警示**。 例如，您可以設定電腦健全狀況、測試容錯移轉狀態或 Site Recovery 作業狀態的警示。
 
-Azure 至 Azure 複寫和 VMware VM/實體伺服器至 Azure 的複寫支援搭配使用 Azure 監視器記錄與 Site Recovery。
+**Azure 至 azure**複寫和**VMware VM/實體伺服器至 azure**的複寫支援搭配使用 Azure 監視器記錄與 Site Recovery。
+
+> [!NOTE]
+> 流失的資料記錄和上傳速率記錄僅適用于複寫到次要 Azure 區域的 Azure Vm。
+
 ## <a name="before-you-start"></a>開始之前
 
 以下是所需項目：
 
 - 復原服務保存庫中至少有一部機器受到保護。
 - 用來儲存 Site Recovery 記錄的 Log Analytics 工作區。 [瞭解如何](../azure-monitor/learn/quick-create-workspace.md)設定工作區。
-- 如何在 Log Analytics 中撰寫、執行和分析記錄查詢的基本知識。 [深入了解](../azure-monitor/log-query/get-started-portal.md)。
+- 如何在 Log Analytics 中撰寫、執行和分析記錄查詢的基本知識。 [深入了解提出技術問題。
 
-我們建議您在開始之前, 先檢查[常見的監控問題](monitoring-common-questions.md)。
+我們建議您在開始之前，先檢查[常見的監控問題](monitoring-common-questions.md)。
 
 ## <a name="configure-site-recovery-to-send-logs"></a>設定 Site Recovery 來傳送記錄檔
 
-1. 在保存庫中, 按一下 [**診斷設定** > ] [**新增診斷設定**]。
+1. 在保存庫中，按一下 [**診斷設定**]  >  [**新增診斷設定**]。
 
     ![選取診斷記錄](./media/monitoring-log-analytics/add-diagnostic.png)
 
-2. 在 [**診斷設定**] 中, 指定 [記錄檔動作] 的名稱, 然後選取 [**傳送至 log Analytics**]。
+2. 在 [**診斷設定**] 中指定名稱，然後選取 [**傳送至 Log Analytics**] 方塊。
 3. 選取 [Azure 監視器記錄] 訂用帳戶和 Log Analytics 工作區。
-4. 從 [記錄檔] 清單中, 選取前置詞為**AzureSiteRecovery**的所有記錄檔。 然後按一下 [確定]。
+4. 在切換中選取 [ **Azure 診斷**]。
+5. 從 [記錄檔] 清單中，選取前置詞為**AzureSiteRecovery**的所有記錄檔。 然後按一下 [確定]。
 
     ![選取工作區](./media/monitoring-log-analytics/select-workspace.png)
 
-Site Recovery 記錄會開始饋送至所選工作區中的資料表 (**AzureDiagnostics**)。
+Site Recovery 記錄會開始饋送至所選工作區中的資料表（**AzureDiagnostics**）。
 
 
 ## <a name="query-the-logs---examples"></a>查詢記錄-範例
 
-您可以使用以[Kusto 查詢語言](../azure-monitor/log-query/get-started-queries.md)撰寫的記錄查詢, 從記錄檔中取出資料。 本節提供一些您可能用於 Site Recovery 監視的常見查詢範例。
+您可以使用以[Kusto 查詢語言](../azure-monitor/log-query/get-started-queries.md)撰寫的記錄查詢，從記錄檔中取出資料。 本節提供一些您可能用於 Site Recovery 監視的常見查詢範例。
 
 > [!NOTE]
-> 某些範例使用**replicationProviderName_s**設定為**A2A**。 這會使用 Site Recovery 來抓取複寫到次要 Azure 區域的 Azure Vm。 在這些範例中, 如果您想要使用 Site Recovery 來抓取複寫至 Azure 的內部部署 VMware Vm 或實體伺服器, 您可以將**A2A**取代為**InMageAzureV2**。
+> 某些範例使用**replicationProviderName_s**設定為**A2A**。 這會使用 Site Recovery 來抓取複寫到次要 Azure 區域的 Azure Vm。 在這些範例中，如果您想要使用 Site Recovery 來抓取複寫至 Azure 的內部部署 VMware Vm 或實體伺服器，您可以將**A2A**取代為**InMageAzureV2**。
 
 
 ### <a name="query-replication-health"></a>查詢複寫健全狀況
 
-此查詢會針對所有受保護 Azure Vm 的目前複寫健全狀況繪製圓形圖, 並分成三個狀態:一般、警告或重大。
+此查詢會針對所有受保護 Azure Vm 的目前複寫健全狀況繪製圓形圖，並分成三個狀態： [一般]、[警告] 或 [重大]。
 
 ```
 AzureDiagnostics  
@@ -74,7 +79,7 @@ AzureDiagnostics 
 ```
 ### <a name="query-mobility-service-version"></a>查詢行動服務版本
 
-此查詢會繪製以 Site Recovery 進行複寫之 Azure Vm 的圓形圖, 並依所執行的行動代理程式版本加以細分。
+此查詢會繪製以 Site Recovery 進行複寫之 Azure Vm 的圓形圖，並依所執行的行動代理程式版本加以細分。
 
 ```
 AzureDiagnostics  
@@ -88,7 +93,7 @@ AzureDiagnostics 
 
 ### <a name="query-rpo-time"></a>查詢 RPO 時間
 
-此查詢會繪製以 Site Recovery 複寫的 Azure Vm 橫條圖, 並依復原點目標 (RPO) 細分:小於15分鐘, 介於15-30 分鐘到30分鐘之間。
+此查詢會繪製以 Site Recovery 複寫的 Azure Vm 橫條圖，並依復原點目標（RPO）細分：小於15分鐘，介於15-30 分鐘到30分鐘之間。
 
 ```
 AzureDiagnostics 
@@ -106,7 +111,7 @@ rpoInSeconds_d <= 1800, "15-30Min", ">30Min") 
 
 ### <a name="query-site-recovery-jobs"></a>查詢 Site Recovery 作業
 
-此查詢會抓取所有 Site Recovery 作業 (適用于所有嚴重損壞修復案例), 並在過去72小時內觸發, 以及完成狀態。
+此查詢會抓取所有 Site Recovery 作業（適用于所有嚴重損壞修復案例），並在過去72小時內觸發，以及完成狀態。
 
 ```
 AzureDiagnostics  
@@ -117,7 +122,7 @@ AzureDiagnostics 
 
 ### <a name="query-site-recovery-events"></a>查詢 Site Recovery 事件
 
-此查詢會抓取過去72小時內引發的所有 Site Recovery 事件 (適用于所有嚴重損壞修復案例) 及其嚴重性。 
+此查詢會抓取過去72小時內引發的所有 Site Recovery 事件（適用于所有嚴重損壞修復案例）及其嚴重性。 
 
 ```
 AzureDiagnostics   
@@ -126,7 +131,7 @@ AzureDiagnostics  
 | project AffectedObject=affectedResourceName_s , VaultName = Resource, Description_s = healthErrors_s , Severity = Level  
 ```
 
-### <a name="query-test-failover-state-pie-chart"></a>查詢測試容錯移轉狀態 (圓形圖)
+### <a name="query-test-failover-state-pie-chart"></a>查詢測試容錯移轉狀態（圓形圖）
 
 此查詢會繪製以 Site Recovery 複寫之 Azure Vm 的測試容錯移轉狀態圓形圖。
 
@@ -141,7 +146,7 @@ AzureDiagnostics 
 | render piechart 
 ```
 
-### <a name="query-test-failover-state-table"></a>查詢測試容錯移轉狀態 (資料表)
+### <a name="query-test-failover-state-table"></a>查詢測試容錯移轉狀態（資料表）
 
 此查詢會針對以 Site Recovery 複寫的 Azure Vm 的測試容錯移轉狀態繪製資料表。
 
@@ -156,7 +161,7 @@ AzureDiagnostics  
 
 ### <a name="query-machine-rpo"></a>查詢機器 RPO
 
-此查詢會繪製一個趨勢圖, 以追蹤過去72小時內特定 Azure VM (ContosoVM123) 的 RPO。
+此查詢會繪製一個趨勢圖，以追蹤過去72小時內特定 Azure VM （ContosoVM123）的 RPO。
 
 ```
 AzureDiagnostics   
@@ -169,9 +174,12 @@ AzureDiagnostics  
 ```
 ![查詢機器 RPO](./media/monitoring-log-analytics/example2.png)
 
-### <a name="query-data-change-rate-churn-for-a-vm"></a>查詢 VM 的資料變更率 (變換)
+### <a name="query-data-change-rate-churn-for-a-vm"></a>查詢 VM 的資料變更率（變換）
 
-此查詢會繪製特定 Azure VM (ContosoVM123) 的趨勢圖, 以追蹤資料變更率 (每秒寫入位元組) 和資料上傳速率。 此資訊僅適用于複寫到次要 Azure 區域的 Azure Vm。
+> [!NOTE] 
+> 變換資訊僅適用于複寫到次要 Azure 區域的 Azure Vm。
+
+此查詢會繪製特定 Azure VM （ContosoVM123）的趨勢圖，以追蹤資料變更率（每秒寫入位元組）和資料上傳速率。 
 
 ```
 AzureDiagnostics   
@@ -186,9 +194,9 @@ Category contains "Upload", "UploadRate", "none") 
 ```
 ![查詢資料變更](./media/monitoring-log-analytics/example3.png)
 
-### <a name="query-disaster-recovery-summary-azure-to-azure"></a>查詢嚴重損壞修復摘要 (Azure 至 Azure)
+### <a name="query-disaster-recovery-summary-azure-to-azure"></a>查詢嚴重損壞修復摘要（Azure 至 Azure）
 
-此查詢會針對複寫到次要 Azure 區域的 Azure Vm 繪製摘要資料表。  它會顯示 VM 名稱、複寫和保護狀態、RPO、測試容錯移轉狀態、行動代理程式版本、任何作用中的複寫錯誤, 以及來源位置。
+此查詢會針對複寫到次要 Azure 區域的 Azure Vm 繪製摘要資料表。  它會顯示 VM 名稱、複寫和保護狀態、RPO、測試容錯移轉狀態、行動代理程式版本、任何作用中的複寫錯誤，以及來源位置。
 
 ```
 AzureDiagnostics 
@@ -198,9 +206,9 @@ AzureDiagnostics 
 | project VirtualMachine = name_s , Vault = Resource , ReplicationHealth = replicationHealth_s, Status = protectionState_s, RPO_in_seconds = rpoInSeconds_d, TestFailoverStatus = failoverHealth_s, AgentVersion = agentVersion_s, ReplicationError = replicationHealthErrors_s, SourceLocation = primaryFabricName_s 
 ```
 
-### <a name="query-disaster-recovery-summary-vmwarephysical-servers"></a>查詢嚴重損壞修復摘要 (VMware/實體伺服器)
+### <a name="query-disaster-recovery-summary-vmwarephysical-servers"></a>查詢嚴重損壞修復摘要（VMware/實體伺服器）
 
-此查詢會針對複寫到 Azure 的 VMware Vm 和實體伺服器繪製摘要資料表。  它會顯示電腦名稱稱、複寫和保護狀態、RPO、測試容錯移轉狀態、行動代理程式版本、任何作用中的複寫錯誤, 以及相關的進程伺服器。
+此查詢會針對複寫到 Azure 的 VMware Vm 和實體伺服器繪製摘要資料表。  它會顯示電腦名稱稱、複寫和保護狀態、RPO、測試容錯移轉狀態、行動代理程式版本、任何作用中的複寫錯誤，以及相關的進程伺服器。
 
 ```
 AzureDiagnostics  
@@ -215,11 +223,11 @@ AzureDiagnostics 
 您可以根據 Azure 監視器資料來設定 Site Recovery 警示。 [深入瞭解](../azure-monitor/platform/alerts-log.md#managing-log-alerts-from-the-azure-portal)如何設定記錄警示。 
 
 > [!NOTE]
-> 某些範例使用**replicationProviderName_s**設定為**A2A**。 這會針對複寫到次要 Azure 區域的 Azure Vm 設定警示。 在這些範例中, 如果您想要設定複寫至 Azure 的內部部署 VMware Vm 或實體伺服器的警示, 您可以將**A2A**取代為**InMageAzureV2** 。
+> 某些範例使用**replicationProviderName_s**設定為**A2A**。 這會針對複寫到次要 Azure 區域的 Azure Vm 設定警示。 在這些範例中，如果您想要設定複寫至 Azure 的內部部署 VMware Vm 或實體伺服器的警示，您可以將**A2A**取代為**InMageAzureV2** 。
 
 ### <a name="multiple-machines-in-a-critical-state"></a>處於重大狀態的多部電腦
 
-如果有超過20個複寫的 Azure Vm 進入重大狀態, 請設定警示。
+如果有超過20個複寫的 Azure Vm 進入重大狀態，請設定警示。
 
 ```
 AzureDiagnostics   
@@ -229,11 +237,11 @@ AzureDiagnostics  
 | summarize hint.strategy=partitioned arg_max(TimeGenerated, *) by name_s   
 | summarize count() 
 ```
-針對警示, 將 [**臨界值**] 設定為20。
+針對警示，將 [**臨界值**] 設定為20。
 
 ### <a name="single-machine-in-a-critical-state"></a>處於重大狀態的單一電腦
 
-如果特定複寫的 Azure VM 進入重大狀態, 請設定警示。
+如果特定複寫的 Azure VM 進入重大狀態，請設定警示。
 
 ```
 AzureDiagnostics   
@@ -244,11 +252,11 @@ AzureDiagnostics  
 | summarize hint.strategy=partitioned arg_max(TimeGenerated, *) by name_s   
 | summarize count()  
 ```
-針對警示, 將 [**臨界值**] 設定為1。
+針對警示，將 [**臨界值**] 設定為1。
 
 ### <a name="multiple-machines-exceed-rpo"></a>多部機器超過 RPO
 
-如果超過20個 Azure Vm 的 RPO 超過30分鐘, 請設定警示。
+如果超過20個 Azure Vm 的 RPO 超過30分鐘，請設定警示。
 ```
 AzureDiagnostics   
 | where replicationProviderName_s == "A2A"   
@@ -258,7 +266,7 @@ AzureDiagnostics  
 | project name_s , rpoInSeconds_d   
 | summarize count()  
 ```
-針對警示, 將 [**臨界值**] 設定為20。
+針對警示，將 [**臨界值**] 設定為20。
 
 ### <a name="single-machine-exceeds-rpo"></a>單一機器超過 RPO
 
@@ -274,11 +282,11 @@ AzureDiagnostics  
 | project name_s , rpoInSeconds_d   
 | summarize count()  
 ```
-針對警示, 將 [**臨界值**] 設定為1。
+針對警示，將 [**臨界值**] 設定為1。
 
 ### <a name="test-failover-for-multiple-machines-exceeds-90-days"></a>多部機器的測試容錯移轉超過90天
 
-如果上一次成功的測試容錯移轉超過90天, 則針對20部以上的 Vm 設定警示。 
+如果上一次成功的測試容錯移轉超過90天，則針對20部以上的 Vm 設定警示。 
 
 ```
 AzureDiagnostics  
@@ -289,11 +297,11 @@ AzureDiagnostics 
 | summarize hint.strategy=partitioned arg_max(TimeGenerated, *) by name_s   
 | summarize count()  
 ```
-針對警示, 將 [**臨界值**] 設定為20。
+針對警示，將 [**臨界值**] 設定為20。
 
 ### <a name="test-failover-for-single-machine-exceeds-90-days"></a>單一機器的測試容錯移轉超過90天
 
-如果特定 VM 上一次成功的測試容錯移轉超過90天前, 請設定警示。
+如果特定 VM 上一次成功的測試容錯移轉超過90天前，請設定警示。
 ```
 AzureDiagnostics  
 | where replicationProviderName_s == "A2A"   
@@ -304,11 +312,11 @@ AzureDiagnostics 
 | summarize hint.strategy=partitioned arg_max(TimeGenerated, *) by name_s   
 | summarize count()  
 ```
-針對警示, 將 [**臨界值**] 設定為1。
+針對警示，將 [**臨界值**] 設定為1。
 
 ### <a name="site-recovery-job-fails"></a>Site Recovery 作業失敗
 
-在過去一天內的任何 Site Recovery 案例中, 如果 Site Recovery 作業 (在此情況下為重新保護作業) 失敗, 請設定警示。 
+在過去一天內的任何 Site Recovery 案例中，如果 Site Recovery 作業（在此情況下為重新保護作業）失敗，請設定警示。 
 ```
 AzureDiagnostics   
 | where Category == "AzureSiteRecoveryJobs"   
@@ -317,7 +325,7 @@ AzureDiagnostics  
 | summarize count()  
 ```
 
-針對警示, 請將 [**臨界值**] 設為 1, 並將 [**週期**] 設定為1440分鐘, 以檢查過去一天的失敗。
+針對警示，請將 [**臨界值**] 設為1，並將 [**週期**] 設定為1440分鐘，以檢查過去一天的失敗。
 
 ## <a name="next-steps"></a>後續步驟
 
