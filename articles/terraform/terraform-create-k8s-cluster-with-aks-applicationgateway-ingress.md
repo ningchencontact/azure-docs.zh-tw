@@ -729,7 +729,7 @@ Azure Active Directory Pod 身分識別會對 [Azure Resource Manager](/azure/az
     - `appgw.subscriptionId`：應用程式閘道的 Azure 訂用帳戶識別碼。 範例： `a123b234-a3b4-557d-b2df-a0bc12de1234`
     - `appgw.resourceGroup`：建立應用程式閘道所在 Azure 資源群組的名稱。 
     - `appgw.name`：應用程式閘道的名稱。 範例： `applicationgateway1`.
-    - `appgw.shared`：此布林值旗標應該預設為 `false`。 如果您需要 [共用應用程式閘道][](https://github.com/Azure/application-gateway-kubernetes-ingress/blob/072626cb4e37f7b7a1b0c4578c38d1eadc3e8701/docs/setup/install-existing.md#multi-cluster--shared-app-gateway)，請設定為 `true`。
+    - `appgw.shared`：此布林值旗標應該預設為 `false`。 如果您需要 [共用應用程式閘道](https://github.com/Azure/application-gateway-kubernetes-ingress/blob/072626cb4e37f7b7a1b0c4578c38d1eadc3e8701/docs/setup/install-existing.md#multi-cluster--shared-app-gateway)，請將設定為 `true`。
     - `kubernetes.watchNamespace`：指定 AGIC 應該監看的命名空間。 命名空間可以是單一字串值，或逗號分隔的命名空間清單。
     - `armAuth.type`：`aadPodIdentity` 或 `servicePrincipal` 的值。
     - `armAuth.identityResourceID`：受控識別的資源識別碼。

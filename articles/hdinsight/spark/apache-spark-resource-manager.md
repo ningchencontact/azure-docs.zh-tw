@@ -19,9 +19,9 @@ ms.locfileid: "71001688"
 
 學習存取如 [Apache Ambari](https://ambari.apache.org/) UI、[Apache Hadoop YARN](https://hadoop.apache.org/docs/current/hadoop-yarn/hadoop-yarn-site/YARN.html) UI，以及與 [Apache Spark](https://spark.apache.org/) 叢集建立關聯的 Spark 記錄伺服器等介面的方式，以及如何調整叢集設定以取得最佳效能。
 
-**先決條件：**
+**必要條件：**
 
-* HDInsight 上的 Apache Spark 叢集。 如需指示，請參閱[在 Azure HDInsight 中建立 Apache Spark 叢集](apache-spark-jupyter-spark-sql.md)。
+* HDInsight 上的 Apache Spark 叢集。 如需指示，請參閱 [在 Azure HDInsight 中建立 Apache Spark 叢集](apache-spark-jupyter-spark-sql.md)。
 
 ## <a name="open-the-ambari-web-ui"></a>開啟 Ambari Web UI
 
@@ -153,7 +153,7 @@ Spark Thrift 伺服器會使用 Spark 動態執行程式配置，因此不會使
 
     ![終止 App2](./media/apache-spark-resource-manager/apache-ambari-kill-app2.png "終止 App2")
 
-## <a name="see-also"></a>請參閱
+## <a name="see-also"></a>另請參閱
 * [追蹤和偵錯在 HDInsight 中的 Apache Spark 叢集上執行的作業](apache-spark-job-debugging.md)
 
 ### <a name="for-data-analysts"></a>針對資料分析師
@@ -166,7 +166,7 @@ Spark Thrift 伺服器會使用 Spark 動態執行程式配置，因此不會使
 
 ### <a name="for-apache-spark-developers"></a>針對 Apache Spark 開發人員
 
-* [使用 Scala 建立獨立應用程式](apache-spark-create-standalone-application.md)
+* [使用 Scala 來建立獨立的應用程式](apache-spark-create-standalone-application.md)
 * [利用 Apache Livy 在 Apache Spark 叢集上遠端執行作業](apache-spark-livy-rest-interface.md)
 * [使用 IntelliJ IDEA 的 HDInsight Tools 外掛程式來建立和提交 Spark Scala 應用程式](apache-spark-intellij-tool-plugin.md)
 * [使用適用於 IntelliJ IDEA 的 HDInsight 工具外掛程式遠端偵錯 Apache Spark 應用程式](apache-spark-intellij-tool-plugin-debug-jobs-remotely.md)

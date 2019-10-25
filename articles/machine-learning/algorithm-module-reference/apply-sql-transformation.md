@@ -33,7 +33,7 @@ ms.locfileid: "72694632"
 
 ## <a name="how-to-configure-apply-sql-transformation"></a>如何設定 Apply SQL 轉換  
 
-模組最多可能需要三個資料集做為輸入。 當您參考連接到每個輸入埠的資料集時，必須使用 `t1`、`t2` 和 `t3` 的名稱。 資料表編號表示輸入埠的索引。  
+模組最多可能需要三個資料集做為輸入。 當您參考連接到每個輸入埠的資料集時，必須使用 `t1`、`t2`和 `t3`的名稱。 資料表編號表示輸入埠的索引。  
   
 其餘的參數是 SQL 查詢，它會使用 SQLite 語法。 在 [ **SQL 腳本**] 文字方塊中輸入多行時，請使用分號來結束每個語句。 否則，分行符號會轉換成空格。  
 
@@ -55,9 +55,9 @@ ms.locfileid: "72694632"
   
 - `LEFT OUTER JOIN` 會實作為，但不會 `RIGHT OUTER JOIN` 或 `FULL OUTER JOIN`。  
 
-- 您可以使用 `RENAME TABLE` 和 `ADD COLUMN` 語句搭配 `ALTER TABLE` 命令，但不支援其他子句，包括 `DROP COLUMN`、`ALTER COLUMN` 和 `ADD CONSTRAINT`。  
+- 您可以使用 `RENAME TABLE` 和 `ADD COLUMN` 語句搭配 `ALTER TABLE` 命令，但不支援其他子句，包括 `DROP COLUMN`、`ALTER COLUMN`和 `ADD CONSTRAINT`。  
   
-- 您可以在 SQLite 中建立一個視圖，但是之後的觀點是唯讀的。 您無法在視圖上執行 `DELETE`、`INSERT` 或 `UPDATE` 語句。 不過，您可以建立觸發程式，以嘗試在視圖上 `DELETE`、`INSERT` 或 `UPDATE`，並在觸發程式主體中執行其他作業。  
+- 您可以在 SQLite 中建立一個視圖，但是之後的觀點是唯讀的。 您無法在視圖上執行 `DELETE`、`INSERT`或 `UPDATE` 語句。 不過，您可以建立觸發程式，以嘗試在視圖上 `DELETE`、`INSERT`或 `UPDATE`，並在觸發程式主體中執行其他作業。  
   
 
 除了官方 SQLite 網站上所提供的不支援函式清單之外，下列 wiki 還提供其他不支援的功能清單： [SQLite-不支援的 SQL](http://www2.sqlite.org/cvstrac/wiki?p=UnsupportedSql)  

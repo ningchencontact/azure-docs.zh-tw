@@ -57,7 +57,7 @@ ms.locfileid: "72693724"
 
         - **帳戶金鑰**：貼上與帳戶相關聯的儲存體存取金鑰。
 
-        -  **容器、目錄或 blob 的路徑**：輸入將儲存匯出資料的 blob 名稱。 例如，若要將管線的結果儲存到名為**mymldata**之帳戶的容器**預測**中名為**results01**的新 blob，則會 `http://mymldata.blob.core.windows.net/predictions/results01.csv` blob 的完整 URL。
+        -  **容器、目錄或 blob 的路徑**：輸入將儲存匯出資料的 blob 名稱。 例如，若要將管線的結果儲存到名為**mymldata**之帳戶的容器**預測**中名為**results01**的新 blob，則會 `http://mymldata.blob.core.windows.net/predictions/results01.csv`blob 的完整 URL。
 
             因此，在**容器、目錄或 blob**的欄位路徑中，您會指定容器和 blob 名稱，如下所示： `predictions/results01.csv`
 

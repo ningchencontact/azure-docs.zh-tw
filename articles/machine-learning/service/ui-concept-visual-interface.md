@@ -77,7 +77,7 @@ Azure Machine Learning 的視覺化介面（預覽）可讓您準備資料、定
 
 使用您工作區中的計算資源來執行管線，並將部署的模型裝載為即時端點或管線端點（適用于批次推斷）。 支援的計算目標包括：
 
-| 計算目標 | 訓練 | Deployment |
+| 計算目標 | 訓練 | 部署 |
 | ---- |:----:|:----:|
 | Azure Machine Learning Compute | ✓ | |
 | Azure Kubernetes Service | | ✓ |
@@ -90,7 +90,7 @@ Azure Machine Learning 的視覺化介面（預覽）可讓您準備資料、定
 
 此外，PublishedPipeline 還可以用來重新提交具有不同 PipelineParameter 值和輸入的管線。
 
-## <a name="deployment"></a>Deployment
+## <a name="deployment"></a>部署
 
 當您的預測模型準備就緒之後，請直接從視覺化介面將它部署為管線端點或即時端點。
 

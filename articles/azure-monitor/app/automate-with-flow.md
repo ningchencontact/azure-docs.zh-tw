@@ -119,7 +119,7 @@ ms.locfileid: "72678313"
 
 按一下 [儲存]。
 
-您可以等候觸發程式執行此動作，或按一下頂端的 [![beaker 測試 圖示 ](./media/automate-with-flow/testicon.png)**測試**]。
+您可以等候觸發程式執行此動作，或按一下頂端的 [![燒杯測試 圖示](./media/automate-with-flow/testicon.png)**測試**]。
 
 選取 [**測試**] 之後：
 

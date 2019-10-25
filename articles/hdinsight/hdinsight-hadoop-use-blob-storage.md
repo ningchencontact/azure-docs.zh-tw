@@ -8,15 +8,15 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 10/01/2019
 ms.openlocfilehash: d934568f09e62ad8c1b472583cbfee79d2c837f6
-ms.sourcegitcommit: f2d9d5133ec616857fb5adfb223df01ff0c96d0a
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/03/2019
+ms.lasthandoff: 10/21/2019
 ms.locfileid: "71936864"
 ---
 # <a name="use-azure-storage-with-azure-hdinsight-clusters"></a>搭配 Azure HDInsight 叢集使用 Azure 儲存體
 
-若要分析 HDInsight 叢集中的資料，您可以將資料儲存在[Azure 儲存體](../storage/common/storage-introduction.md)、 [Azure Data Lake Storage gen 1](../data-lake-store/data-lake-store-overview.md) / [Azure Data Lake Storage gen 2](../storage/blobs/data-lake-storage-introduction.md)或組合中。 這些儲存體選項可讓您安全地刪除用於計算的 HDInsight 叢集，而不會遺失使用者資料。
+若要分析 HDInsight 叢集中的資料，您可以將資料儲存在[Azure 儲存體](../storage/common/storage-introduction.md)、 [Azure Data Lake Storage gen 1](../data-lake-store/data-lake-store-overview.md)/[Azure Data Lake Storage gen 2](../storage/blobs/data-lake-storage-introduction.md)或組合中。 這些儲存體選項可讓您安全地刪除用於計算的 HDInsight 叢集，而不會遺失使用者資料。
 
 Apache Hadoop 支援預設檔案系統的概念。 預設檔案系統意指預設配置和授權。 也可用來解析相對路徑。 進行 HDInsight 叢集建立程序時，您可以指定 Azure Blob 儲存體中的 Blob 容器作為預設檔案系統，或在使用 HDInsight 3.6 時，選取 Azure 儲存體或 Azure Data Lake Storage Gen 1/ Azure Data Lake Storage Gen 2 作為預設檔案系統 (有一些例外狀況)。 如需了解使用 Data Lake Storage Gen 1 作為預設及連結儲存體的支援能力，請參閱 [HDInsight 叢集的可用性](./hdinsight-hadoop-use-data-lake-store.md#availability-for-hdinsight-clusters)。
 
@@ -29,9 +29,9 @@ Azure 儲存體是強大的一般用途儲存體解決方案，其完美整合�
 
 | 儲存體帳戶種類 | 支援的服務 | 支援的效能層級 | 支援的存取層 |
 |----------------------|--------------------|-----------------------------|------------------------|
-| StorageV2 (一般用途 v2)  | Blob     | 標準                    | 經常性存取、非經常性存取、封存\*   |
+| StorageV2 (一般用途 v2)  | Blob     | 標準                    | 經常性、非經常性、封存\*   |
 | 儲存體（一般用途 v1）   | Blob     | 標準                    | N/A                    |
-| BlobStorage                    | Blob     | 標準                    | 經常性存取、非經常性存取、封存\*   |
+| BlobStorage                    | Blob     | 標準                    | 經常性、非經常性、封存\*   |
 
 不建議您使用預設的 Blob 容器來儲存商務資料。 最好在每次使用後刪除預設的 Blob 容器，以減少儲存成本。 預設容器包含應用程式與系統記錄。 請務必先擷取記錄再刪除容器。
 
@@ -52,7 +52,7 @@ HDInsight 可以存取本機連接至計算節點的分散式檔案系統。 可
 
     hdfs://<namenodehost>/<path>
 
-此外，HDInsight 也能讓您存取儲存在 Azure 儲存體中的資料。 其語法為：
+此外，HDInsight 也能讓您存取儲存在 Azure 儲存體中的資料。 語法為：
 
     wasbs://<containername>@<accountname>.blob.core.windows.net/<path>
 
@@ -65,11 +65,11 @@ HDInsight 可以存取本機連接至計算節點的分散式檔案系統。 可
 > [!NOTE]  
 > 公用容器可讓您取得該容器中所有可用的 Blob 清單，並取得容器中繼資料。 公用 Blob 只在您知道確切的 URL 時才可讓您存取 Blob。 如需詳細資訊，請參閱[管理對容器和 Blob 的存取](../storage/blobs/storage-manage-access-to-resources.md)。
 
-* **儲存體帳戶中未連接至叢集的私人容器：** 除非在提交 WebHCat 工作時定義儲存體帳戶，否則不能存取容器中的 Blob。 稍後在本文中會加以說明。
+* **儲存體帳戶中未連線至叢集的私人容器：** 除非您在提交 WebHCat 作業時定義儲存體帳戶，否則無法存取容器中的 blob。 稍後在本文中會加以說明。
 
-在建立程式及其金鑰中定義的儲存體帳戶會儲存在`%HADOOP_HOME%/conf/core-site.xml`叢集節點上。 HDInsight 的預設行為是使用 core-site.xml 檔案中定義的儲存體帳戶。 您可以使用 [Apache Ambari](./hdinsight-hadoop-manage-ambari.md) 來修改此設定。
+在建立程式及其金鑰中定義的儲存體帳戶會儲存在叢集節點的 `%HADOOP_HOME%/conf/core-site.xml` 中。 HDInsight 的預設行為是使用 core-site.xml 檔案中定義的儲存體帳戶。 您可以使用 [Apache Ambari](./hdinsight-hadoop-manage-ambari.md) 來修改此設定。
 
-多個 WebHCat 工作 (包括 Apache Hive、MapReduce、Apache Hadoop 資料流和 Apache Pig) 可隨身夾帶儲存體帳戶的說明和中繼資料。 (目前適用於含儲存體帳戶的 Pig，但不適用於中繼資料)。如需詳細資訊，請參閱 [在其他儲存體帳戶和 Metastores 上使用 HDInsight 叢集](https://social.technet.microsoft.com/wiki/contents/articles/23256.using-an-hdinsight-cluster-with-alternate-storage-accounts-and-metastores.aspx)。
+多個 WebHCat 工作 (包括 Apache Hive、MapReduce、Apache Hadoop 資料流和 Apache Pig) 可隨身夾帶儲存體帳戶的說明和中繼資料。 （這目前適用于具有儲存體帳戶的 Pig，但不適用於中繼資料）。如需詳細資訊，請參閱搭配[使用 HDInsight 叢集與替代儲存體帳戶和中繼存放區](https://social.technet.microsoft.com/wiki/contents/articles/23256.using-an-hdinsight-cluster-with-alternate-storage-accounts-and-metastores.aspx)。
 
 Blob 可使用於結構化和非結構化資料。 Blob 容器會將資料儲存為索引鍵/值組，而且沒有目錄階層。 但是，機碼名稱中可使用 ( / ) 斜線字元，使檔案變成好像儲存在目錄結構中一樣。 例如，Blob 的機碼可能是 *input/log1.txt*。 實際上， *input* 目錄並不存在，只是因為機碼名稱中有斜線字元，才形成檔案路徑的樣子。
 
@@ -104,10 +104,10 @@ wasbs://<BlobStorageContainerName>@<StorageAccountName>.blob.core.windows.net/<p
 
 URI 配置提供未加密存取 (使用 wasb: 首碼) 和 SSL 加密存取 (使用 wasbs)。 建議盡可能使用 wasbs ，即使存取 Azure 中相同區域內的資料也一樣。
 
-會`<BlobStorageContainerName>`識別 Azure 儲存體中的 blob 容器名稱。
-會`<StorageAccountName>`識別 Azure 儲存體帳戶名稱。 需要使用完整網域名稱 (FQDN)。
+`<BlobStorageContainerName>` 可識別 Azure 儲存體中的 blob 容器名稱。
+`<StorageAccountName>` 識別 Azure 儲存體的帳戶名稱。 需要使用完整網域名稱 (FQDN)。
 
-如果沒有指定`<StorageAccountName>`或，則會使用預設檔案系統。 `<BlobStorageContainerName>` 對於預設檔案系統上的檔案，您可以使用相對路徑或絕對路徑。 例如，可使用下列語法來參考 HDInsight 叢集隨附的 *hadoop-mapreduce-examples.jar* 檔案：
+如果 `<BlobStorageContainerName>` 或 `<StorageAccountName>` 都未指定，則會使用預設檔案系統。 對於預設檔案系統上的檔案，您可以使用相對路徑或絕對路徑。 例如，可使用下列語法來參考 HDInsight 叢集隨附的 *hadoop-mapreduce-examples.jar* 檔案：
 
 ```config
 wasbs://mycontainer@myaccount.blob.core.windows.net/example/jars/hadoop-mapreduce-examples.jar
@@ -141,7 +141,7 @@ example/jars/hadoop-mapreduce-examples.jar
 
 Microsoft 提供下列工具來使用 Azure 儲存體：
 
-| Tool | Linux | OS X | Windows |
+| 工具 | Linux | OS X | Windows |
 | --- |:---:|:---:|:---:|
 | [Azure 入口網站](../storage/blobs/storage-quickstart-blobs-portal.md) |✔ |✔ |✔ |
 | [Azure CLI](../storage/blobs/storage-quickstart-blobs-cli.md) |✔ |✔ |✔ |

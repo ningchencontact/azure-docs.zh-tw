@@ -96,13 +96,13 @@ ms.locfileid: "70072272"
   
 ### <a name="data-model"></a>資料模型  
   
-|屬性|Type|描述|  
+|屬性|類型|說明|  
 |--------------|----------|-----------------|  
 |`Issues`|[問題](api-management-template-data-model-reference.md#Issue)實體的集合。|目前使用者可看見的問題。|  
 |`Paging`|[分頁](api-management-template-data-model-reference.md#Paging)實體。|應用程式集合的分頁資訊。|  
 |`IsAuthenticated`|布林值|目前使用者是否已登入開發人員入口網站。|  
 |`CanReportIssues`|布林值|目前使用者是否具備提出問題的權限。|  
-|`Search`|string|此屬性已過時而不應使用。|  
+|`Search`|字串|此屬性已被取代而不應該使用。|  
   
 ### <a name="sample-template-data"></a>範例範本資料  
   

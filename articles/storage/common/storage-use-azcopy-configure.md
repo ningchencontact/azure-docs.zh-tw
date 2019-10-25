@@ -4,16 +4,16 @@ description: 設定、優化和疑難排解 AzCopy。
 author: normesta
 ms.service: storage
 ms.topic: conceptual
-ms.date: 07/25/2019
+ms.date: 10/16/2019
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: dineshm
-ms.openlocfilehash: 42d2dae148b83687ff06d4ed321a881bcb9e7ae0
-ms.sourcegitcommit: f272ba8ecdbc126d22a596863d49e55bc7b22d37
+ms.openlocfilehash: 2b3fcba755c9ddb28e37400c5cba790ed0df41b9
+ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72273934"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72595133"
 ---
 # <a name="configure-optimize-and-troubleshoot-azcopy"></a>設定、優化和疑難排解 AzCopy
 
@@ -99,7 +99,7 @@ AzCopy 會為每個作業建立記錄檔和計畫檔案。 您可以使用記錄
 
 記錄將包含失敗的狀態（`UPLOADFAILED`、`COPYFAILED` 和 `DOWNLOADFAILED`）、完整路徑和失敗原因。
 
-根據預設，記錄檔和方案檔位於 Windows 上的 `%USERPROFILE$\.azcopy` 目錄或 Mac 和 Linux 上的 @no__t 1 目錄，但您可以視需要變更該位置。
+根據預設，記錄檔和方案檔位於 Windows 上的 `%USERPROFILE$\.azcopy` 目錄或 Mac 和 Linux 上的 `$HOME$\.azcopy` 目錄，但您可以視需要變更該位置。
 
 > [!IMPORTANT]
 > 提交要求以 Microsoft 支援服務（或針對任何協力廠商的問題進行疑難排解）時，請共用您要執行之命令的編校版本。 這可確保 SAS 不會意外與任何人共用。 您可以在記錄檔開頭找到編校的版本。
@@ -151,7 +151,7 @@ azcopy jobs resume <job-id> --destination-sas="<sas-token>"
 
 ## <a name="change-the-location-of-the-plan-and-log-files"></a>變更計畫和記錄檔的位置
 
-根據預設，方案和記錄檔位於 Windows 上的 `%USERPROFILE$\.azcopy` 目錄，或 Mac 和 Linux 上的 @no__t 1 目錄中。 您可以變更此位置。
+根據預設，方案和記錄檔位於 Windows 上的 `%USERPROFILE$\.azcopy` 目錄，或 Mac 和 Linux 上的 `$HOME$\.azcopy` 目錄。 您可以變更此位置。
 
 ### <a name="change-the-location-of-plan-files"></a>變更計畫檔案的位置
 

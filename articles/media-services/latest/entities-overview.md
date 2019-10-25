@@ -44,7 +44,7 @@ ms.locfileid: "72693317"
 - `ge`：測試欄位是否*大於或等於*常數。 value
 - `le`：測試欄位是否*小於或等於*常數值。
 
-## <a name="filter"></a>篩選
+## <a name="filter"></a>Filter
 
 使用 `$filter` 提供 OData 篩選參數，只尋找您感興趣的物件。
 
@@ -69,7 +69,7 @@ var firstPage = await MediaServicesArmClient.Assets.ListAsync(CustomerResourceGr
 GET https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mediaresources/providers/Microsoft.Media/mediaServices/amstestaccount/assets?api-version=2018-07-01$orderby=properties/created%20gt%202018-05-11T17:39:08.387Z
 ```
 
-若要以遞增或遞減順序排序結果，請將 `asc` 或 `desc` 附加至功能變數名稱，並以空格分隔。 例如： `$orderby properties/created desc` 。
+若要以遞增或遞減順序排序結果，請將 `asc` 或 `desc` 附加至功能變數名稱，並以空格分隔。 例如： `$orderby properties/created desc`。
 
 ## <a name="skip-token"></a>略過權杖
 
@@ -155,7 +155,7 @@ client.Jobs.List(config.ResourceGroup, config.AccountName, VideoAnalyzerTransfor
 
 下表顯示如何將篩選和排序選項套用至不同的實體：
 
-|實體名稱|屬性名稱|篩選|訂購|
+|實體名稱|屬性名稱|Filter|順序|
 |---|---|---|---|
 |[資產](https://docs.microsoft.com/rest/api/media/assets/)|名稱|`eq`、`gt`、`lt`、`ge`、`le`|`asc`和`desc`|
 ||properties.alternateId |`eq`||
@@ -165,13 +165,13 @@ client.Jobs.List(config.ResourceGroup, config.AccountName, VideoAnalyzerTransfor
 ||properties.created    |`eq`、`ne`、`ge`、`le`、`gt`、`lt`|`asc`和`desc`|
 ||properties.description    |`eq`、`ne`、`ge`、`le`、`gt`、`lt`||
 ||properties.lastModified|`eq`、`ne`、`ge`、`le`、`gt`、`lt`|`asc`和`desc`|
-||properties.policyId|`eq`，`ne`||
+||properties.policyId|`eq`、`ne`||
 |[作業](https://docs.microsoft.com/rest/api/media/jobs)| 名稱  | `eq`            | `asc`和`desc`|
-||properties.state        | `eq`，`ne`        |                         |
+||properties.state        | `eq`、`ne`        |                         |
 ||properties.created      | `gt`、`ge`、`lt`、`le`| `asc`和`desc`|
 ||properties.lastModified | `gt`、`ge`、`lt`、`le` | `asc`和`desc`| 
 |[串流定位器](https://docs.microsoft.com/rest/api/media/streaminglocators)|名稱|`eq`、`ne`、`ge`、`le`、`gt`、`lt`|`asc`和`desc`|
-||properties.created    |`eq`、`ne`、`ge`、`le`、`gt`、`lt`|`asc`和`desc`|
+||properties.created    |`eq`，`ne`，`ge`，`le`，`gt`，`lt`|`asc`和`desc`|
 ||properties.endTime    |`eq`、`ne`、`ge`、`le`、`gt`、`lt`|`asc`和`desc`|
 |[串流原則](https://docs.microsoft.com/rest/api/media/streamingpolicies)|名稱|`eq`、`ne`、`ge`、`le`、`gt`、`lt`|`asc`和`desc`|
 ||properties.created    |`eq`、`ne`、`ge`、`le`、`gt`、`lt`|`asc`和`desc`|

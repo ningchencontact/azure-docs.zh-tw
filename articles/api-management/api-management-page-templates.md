@@ -225,13 +225,13 @@ ms.locfileid: "70072233"
   
 ### <a name="data-model"></a>資料模型  
   
-|屬性|Type|描述|  
+|屬性|類型|說明|  
 |--------------|----------|-----------------|  
-|referenceCode|string|因發生內部錯誤而顯示此頁面時所產生的代碼。|  
-|errorCode|string|因發生內部錯誤而顯示此頁面時所產生的代碼。|  
-|emailBody|string|因發生內部錯誤而顯示此頁面時所產生的電子郵件本文。|  
-|requestedUrl|string|找不到頁面時所要求的 URL。|  
-|referrerUrl|string|所要求 URL 的查閱者 URL。|  
+|referenceCode|字串|因發生內部錯誤而顯示此頁面時所產生的代碼。|  
+|errorCode|字串|因發生內部錯誤而顯示此頁面時所產生的代碼。|  
+|emailBody|字串|因發生內部錯誤而顯示此頁面時所產生的電子郵件本文。|  
+|requestedUrl|字串|找不到頁面時所要求的 URL。|  
+|referrerUrl|字串|所要求 URL 的查閱者 URL。|  
   
 ### <a name="sample-template-data"></a>範例範本資料  
   

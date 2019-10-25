@@ -21,17 +21,17 @@ ms.locfileid: "71259513"
 
 本 Azure 安全性與合規性藍圖針對適用于醫療保健資料的收集、儲存和抓取的基礎結構即服務（IaaS） web 應用程式，提供參考架構和指導方針。 此解決方案會示範客戶可如何遵守《[雲端安全性最佳做法指南](https://digital.nhs.uk/data-and-information/looking-after-information/data-security-and-information-governance/nhs-and-social-care-data-off-shoring-and-the-use-of-public-cloud-services/health-and-social-care-cloud-security-good-practice-guide)》中提供的指導方針，此指南是由英國 (UK) 衛生和社會照護部門 (DHSC) 的夥伴 [NHS Digital](https://digital.nhs.uk/) 所發佈。 《雲端安全性最佳做法指南》的基礎是英國國家網路安全中心 (NCSC) 所發佈的 14 個[雲端安全性準則](https://www.ncsc.gov.uk/guidance/implementing-cloud-security-principles)。
 
-此參考架構、實作指南和威脅模型主要是用來作為基礎，讓客戶進行調整以符合其特定需求，不應未經其他設定就用於生產環境中。 客戶須負責為任何使用架構建置的解決方進行適當的安全性與合規性評量，因為需求可能會隨每個客戶的實作細節而有所不同。
+此參考架構、實作指南和威脅模型主要作為讓客戶據以調整以符合其特定需求的基礎，不應未經其他設定就用於生產環境中。 客戶須負責為任何使用架構建置的解決方進行適當的安全性與合規性評量，因為需求可能會隨每個客戶的實作細節而有所不同。
 
 ## <a name="architecture-diagram-and-components"></a>架構圖表與元件
 
-此解決方案會部署具有 SQL Server 後端之 IaaS Web 應用程式的參考架構。 架構包含 Web 層、資料層、Active Directory 基礎結構、應用程式閘道及 Load Balancer。 部署到 Web 層和資料層的虛擬機器是設定在可用性設定組中，而 SQL Server 是設定在適用於高可用性的 Always On 可用性群組中。 虛擬機器已加入網域，而且使用 Active Directory 群組原則來強化作業系統層級的安全性與合規性設定。
+此解決方案會部署具有 SQL Server 後端之 IaaS Web 應用程式的參考架構。 架構包含 Web 層、資料層、Active Directory 基礎結構、應用程式閘道及 Load Balancer。 部署到 Web 層和資料層的虛擬機器會在可用性設定組中設定，而 SQL Server 會在適用於高可用性的 Always On 可用性群組中設定。 虛擬機器已加入網域，而且使用 Active Directory 群組原則來強化作業系統層級的安全性與合規性設定。
 
-解決方案使用 Azure 儲存體帳戶，客戶可以設定要使用儲存體服務加密來維護待用資料的機密性。 Azure 會在客戶所選的資料中心內儲存三份資料以供復原之用。 異地備援儲存體可確保資料會複寫到數百英哩遠的次要資料中心，並在該資料中心儲存為三份複本，防止客戶主要資料中心內的不良事件導致資料遺失。
+解決方案會使用 Azure 儲存體帳戶，客戶可加以設定，以便使用儲存體服務加密來維護待用資料的機密性。 Azure 會在客戶所選的資料中心內儲存三份資料以供復原之用。 異地備援儲存體可確保資料會複寫到數百英哩遠的次要資料中心，並在該資料中心儲存為三份複本，防止客戶主要資料中心內的不良事件導致資料遺失。
 
 為加強安全性，此解決方案中的所有資源都會透過 Azure Resource Manager 以資源群組方式管理。 Azure Active Directory 角色型存取控制可用來控制已部署資源的存取，包括資源在 Azure Key Vault 中的金鑰。 透過 Azure 資訊安全中心和 Azure 監視器監視系統健康情況。 客戶可設定這兩項監視服務來擷取記錄，並在易於瀏覽的單一儀表板上顯示系統健康情況。 Azure 應用程式閘道已設定為防止模式中的防火牆，不允許非 TLSv1.2 的流量。
 
-管理防禦主機提供可讓系統管理員存取部署資源的安全連線。 **Microsoft 會建議設定 VPN 或 ExpressRoute 連線，以便管理和將資料匯入參考架構子網路。**
+管理防禦主機提供可讓系統管理員存取部署資源的安全連線。 **Microsoft 建議您設定 VPN 或 ExpressRoute 連線，以便管理和將資料匯入參考架構子網路。**
 
 ![適用于英國 NHS 的 IaaS Web 應用程式參考架構圖表](images/uknhs-iaaswa-architecture.png?raw=true "適用于英國 NHS 的 IaaS Web 應用程式參考架構圖表")
 
@@ -55,12 +55,12 @@ ms.locfileid: "71259513"
     - (1) Web 應用程式防火牆
         - 防火牆模式：防止
         - 規則集：OWASP 3.0
-        - 接聽程式：連接埠 443
+        - 接聽程式連接埠：443
 - Azure Active Directory
 - Azure 雲端見證
 - Azure 金鑰保存庫
 - Azure Load Balancer
-- Azure Monitor
+- Azure 監視器
 - Azure Resource Manager
 - Azure 資訊安全中心
 - Azure 自動化
@@ -78,7 +78,7 @@ ms.locfileid: "71259513"
 -   [Azure 診斷擴充功能](../../virtual-machines/windows/extensions-diagnostics-template.md)
 -   使用 Azure Key Vault 的 [Azure 磁碟加密](../azure-security-disk-encryption-overview.md)
 -   [自動關閉原則](https://azure.microsoft.com/blog/announcing-auto-shutdown-for-vms-using-azure-resource-manager/) \(英文\)，可減少不使用虛擬機器資源時的耗用量。
--   [Windows Defender Credential Guard](https://docs.microsoft.com/windows/access-protection/credential-guard/credential-guard) 已啟用，因此認證和其他祕密都會在受保護的環境中執行，且該環境會與正在執行的作業系統隔離
+-   [Windows Defender Credential Guard](https://docs.microsoft.com/windows/access-protection/credential-guard/credential-guard) 已啟用，因此認證和其他秘密都會在受保護的環境中執行，且該環境會與正在執行的作業系統隔離
 
 ### <a name="virtual-network"></a>虛擬網路
 
@@ -104,7 +104,7 @@ Azure 預設會加密與 Azure 資料中心的所有通訊。 此外，透過 Az
 
 **Azure 儲存體**：為符合加密的待用資料需求，所有 [Azure 儲存體](https://azure.microsoft.com/services/storage/)都會使用[儲存體服務加密](../../storage/common/storage-service-encryption.md)。 這有助於保護與防衛資料，以支援組織的安全性承諾及 NHS Digital 所定義的合規性需求。
 
-**Azure 磁碟加密**：[Azure 磁碟加密](../azure-security-disk-encryption-overview.md)利用 Windows 的 BitLocker 功能來提供資料磁碟的磁碟區加密。 此解決方案與 Azure Key Vault 整合，以協助控制和管理磁碟加密金鑰。
+**Azure 磁碟加密**：[Azure 磁碟加密](../azure-security-disk-encryption-overview.md)會利用 Windows 的 BitLocker 功能來提供資料磁碟的磁碟區加密。 此解決方案與 Azure Key Vault 整合，以協助控制和管理磁碟加密金鑰。
 
 **Azure SQL Database**：Azure SQL Database 執行個體會使用下列資料庫安全性量值：
 
@@ -114,7 +114,7 @@ Azure 預設會加密與 Azure 資料中心的所有通訊。 此外，透過 Az
 - [防火牆規則](https://docs.microsoft.com/azure/sql-database/sql-database-firewall-configure)可在授與適當權限之前，防止所有對資料庫伺服器的存取。 此防火牆會根據每一個要求的來源 IP 位址來授與資料庫存取權。
 - [SQL 威脅偵測](../../sql-database/sql-database-threat-detection.md)可針對可疑的資料庫活動、潛在弱點、SQL 插入式攻擊，以及異常的資料庫存取模式，提供安全性警示，藉以在發生潛在威脅時啟用偵測及回應。
 - [加密資料行](https://docs.microsoft.com/azure/sql-database/sql-database-always-encrypted-azure-key-vault)可確保敏感性資料在資料庫系統內一律不會以純文字顯示。 啟用資料加密之後，只有具備金鑰存取權的用戶端應用程式或應用程式伺服器才可以存取純文字資料。
-- [SQL Database 動態資料遮罩](https://docs.microsoft.com/azure/sql-database/sql-database-dynamic-data-masking-get-started)可藉由遮避資料，使不具權限的使用者或應用程式無法看見敏感性資料。 動態資料遮罩可以自動探索潛在的敏感性資料，並建議套用適當的遮罩。 這有助於找出並減少資料的存取，使其不會透過未經授權的存取而離開資料庫。 客戶須負責調整動態資料遮罩設定，以符合其資料庫結構描述。
+- [SQL Database 動態資料遮罩](https://docs.microsoft.com/azure/sql-database/sql-database-dynamic-data-masking-get-started)可藉由遮避資料，使不具權限的使用者或應用程式無法看見敏感性資料。 動態資料遮罩可以自動探索潛在的敏感性資料，並建議套用適當的遮罩。 這有助於找出並減少資料的存取，使其不會透過未經授權的存取而離開資料庫。 客戶須負責調整動態資料遮罩設定，以配合其資料庫結構描述。
 
 ### <a name="identity-management"></a>身分識別管理
 
@@ -129,22 +129,22 @@ Azure 預設會加密與 Azure 資料中心的所有通訊。 此外，透過 Az
 
 ### <a name="security"></a>安全性
 
-**祕密管理**：解決方案會使用 [Azure Key Vault](https://azure.microsoft.com/services/key-vault/) 來管理金鑰和祕密。 Azure Key Vault 可協助保護雲端應用程式和服務所使用的密碼編譯金鑰和密碼。 下列 Azure Key Vault 功能可協助客戶保護資料及存取這類資料：
+**祕密管理**：解決方案會使用 [Azure Key Vault](https://azure.microsoft.com/services/key-vault/) 來管理金鑰和祕密。 Azure 金鑰保存庫可協助保護雲端應用程式和服務所使用的密碼編譯金鑰和密碼。 下列 Azure Key Vault 功能可協助客戶保護資料及存取這類資料：
 
 - 進階存取原則是視需要設定的。
 - Key Vault 存取原則是使用金鑰和祕密的最低必要權限所定義的。
 - Key Vault 中的所有金鑰和祕密都有到期日。
-- Key Vault 中的所有金鑰都會受到特製化硬體安全模組的保護。 金鑰類型是硬體安全性模組保護的 2048 位元 RSA 金鑰。
+- Key Vault 中的所有金鑰都會受到特製化硬體安全模組的保護。 金鑰類型為硬體安全性模組保護的 2048 位元 RSA 金鑰。
 - 針對所有使用者與身分識別，皆使用角色型存取控制來授與最低要求權限。
 - 金鑰保存庫的診斷記錄的保留期至少 365 天。
 - 允許的金鑰密碼編譯作業僅限於需要的密碼編譯項目。
 - 此解決方案與 Azure Key Vault 整合，以管理 IaaS 虛擬機器磁碟加密金鑰和祕密。
 
-**修補程式管理**：根據預設，部署為此參考架構一部分的 Windows 虛擬機器會設定為從 Windows Update 服務接收自動更新。 此解決方案也包括 [Azure 自動化](https://docs.microsoft.com/azure/automation/automation-intro)服務，您可以透過此服務建立更新的部署，以在有所需要時修補虛擬機器。
+**修補程式管理**：根據預設，部署為此參考架構一部份的 Windows 虛擬機器會設定為從 Windows Update 服務接收自動更新。 此解決方案也包括 [Azure 自動化](https://docs.microsoft.com/azure/automation/automation-intro)服務，您可以透過此服務建立更新的部署，以在有所需要時修補虛擬機器。
 
 **惡意程式碼防護**：適用於虛擬機器的 [Microsoft 反惡意程式碼軟體](https://docs.microsoft.com/azure/security/fundamentals/antimalware)提供即時防護功能，能幫助識別及移除病毒、間諜軟體及其他惡意軟體，具有可設定的警示，可在已知惡意或垃圾軟體嘗試在受保護的虛擬機器上安裝或執行時發出警示。
 
-**Azure 資訊安全中心**：使用 [Azure 資訊安全中心](https://docs.microsoft.com/azure/security-center/security-center-intro)，客戶可以在工作負載之間集中套用及管理安全性原則、限制暴露於威脅的程度，以及偵測和回應攻擊。 此外，Azure 資訊安全中心會存取 Azure 服務的現有組態，以提供設定和服務建議，協助改善安全性狀態並保護資料。
+**Azure 資訊安全中心**：客戶可以使用 [Azure 資訊安全中心](https://docs.microsoft.com/azure/security-center/security-center-intro)，在工作負載之間集中套用及管理安全性原則、限制暴露於威脅的程度，以及偵測和回應攻擊。 此外，Azure 資訊安全中心會存取 Azure 服務的現有組態，以提供設定和服務建議，協助改善安全性狀態並保護資料。
 
 Azure 資訊安全中心會使用不同的偵測功能，向客戶警示以其環境為目標的潛在攻擊。 這些警示包含觸發警示的項目、鎖定為目標的資源，以及攻擊來源等重要資訊。 Azure 資訊安全中心有一組[預先定義的安全性警示](https://docs.microsoft.com/azure/security-center/security-center-alerts-type)，一旦發生威脅或可疑活動時便會觸發這些警示。 Azure 資訊安全中心內的[自訂警示規則](https://docs.microsoft.com/azure/security-center/security-center-custom-alert)可讓客戶根據從其環境所收集到的資料，定義新的安全性警示。
 
@@ -167,7 +167,7 @@ Azure 資訊安全中心提供依優先順序排列的安全性警示和事件�
 
 **高可用性**：解決方案會將所有虛擬機器部署在[可用性設定組](https://docs.microsoft.com/azure/virtual-machines/windows/tutorial-availability-sets)中。 可用性設定組可確保虛擬機器會分散到多個各自獨立的硬體叢集中，以提高可用性。 在進行計劃性或非計劃性的維護事件期間，至少有一部虛擬機器可使用，進而符合 99.95% 的 Azure SLA。
 
-**復原服務保存庫**：[復原服務保存庫](https://docs.microsoft.com/azure/backup/backup-azure-recovery-services-vault-overview)可裝載備份資料，並保護此架構中所有 Azure 虛擬機器的組態。 客戶可以使用復原服務保存庫，從 IaaS 虛擬機器還原檔案和資料夾，而非還原整個虛擬機器，這樣可加速還原時間。
+**復原服務保存庫**：[復原服務保存庫](https://docs.microsoft.com/azure/backup/backup-azure-recovery-services-vault-overview)可裝載備份資料，並保護此架構中所有 Azure 虛擬機器的設定。 客戶可以使用復原服務保存庫，從 IaaS 虛擬機器還原檔案和資料夾，而非還原整個虛擬機器，這樣可加速還原時間。
 
 **雲端見證**：[雲端見證](https://docs.microsoft.com/windows-server/failover-clustering/whats-new-in-failover-clustering#BKMK_CloudWitness)是 Windows Server 2016 中容錯移轉叢集仲裁見證的一種類型，其運用 Azure 作為仲裁點。 如同其他任何仲裁見證，雲端見證會進行投票，而且可以參與仲裁計算，但它使用公開提供的標準 Azure Blob 儲存體。 這可消除裝載在公用雲端中虛擬機器的額外維修負荷。
 

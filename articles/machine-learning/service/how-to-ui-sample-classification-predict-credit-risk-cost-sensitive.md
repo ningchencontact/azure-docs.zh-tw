@@ -27,7 +27,7 @@ ms.locfileid: "72693523"
 
 以下是此管線的完成圖形：
 
-[管線的 ![Graph](media/how-to-ui-sample-classification-predict-credit-risk-cost-sensitive/graph.png)](media/how-to-ui-sample-classification-predict-credit-risk-cost-sensitive/graph.png#lightbox)
+[管線![圖形](media/how-to-ui-sample-classification-predict-credit-risk-cost-sensitive/graph.png)](media/how-to-ui-sample-classification-predict-credit-risk-cost-sensitive/graph.png#lightbox)
 
 ## <a name="prerequisites"></a>必要條件
 
@@ -54,7 +54,7 @@ ms.locfileid: "72693523"
 
 以下是管線的圖形：
 
-[管線的 ![Graph](media/how-to-ui-sample-classification-predict-credit-risk-cost-sensitive/graph.png)](media/how-to-ui-sample-classification-predict-credit-risk-cost-sensitive/graph.png#lightbox)
+[管線![圖形](media/how-to-ui-sample-classification-predict-credit-risk-cost-sensitive/graph.png)](media/how-to-ui-sample-classification-predict-credit-risk-cost-sensitive/graph.png#lightbox)
 
 ## <a name="data-processing"></a>資料處理
 
@@ -89,7 +89,7 @@ def azureml_main(dataframe1 = None, dataframe2 = None):
 
 ### <a name="feature-engineering"></a>特徵設計
 
-**雙類別支援向量機器**演算法需要正規化資料。 因此，請使用正規化**資料**模組，將所有數值特徵的範圍標準化，並 `tanh` 轉換。 @No__t_0 轉換會將所有數值特徵轉換成0和1範圍內的值，同時保留值的整體分佈。
+**雙類別支援向量機器**演算法需要正規化資料。 因此，請使用正規化**資料**模組，將所有數值特徵的範圍標準化，並 `tanh` 轉換。 `tanh` 轉換會將所有數值特徵轉換成0和1範圍內的值，同時保留值的整體分佈。
 
 二元**支援向量機器**模組會處理字串功能，將它們轉換成類別特徵，然後再轉換為值為0或1的二進位特徵。 因此，您不需要將這些功能標準化。
 

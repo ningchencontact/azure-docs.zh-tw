@@ -9,10 +9,10 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 09/28/2019
 ms.openlocfilehash: 687fde2e203ed471e2f0164f1f4a670de4afc74e
-ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/30/2019
+ms.lasthandoff: 10/21/2019
 ms.locfileid: "71677092"
 ---
 # <a name="create-linux-based-clusters-in-hdinsight-by-using-the-azure-portal"></a>使用 Azure 入口網站在 HDInsight 中建立 Linux 型叢集
@@ -48,7 +48,7 @@ Azure 入口網站會公開大部分的叢集屬性。 藉由使用 Azure Resour
 
 1. 選取 [1 基本]。 然後輸入下列資訊。
 
-    ![HDInsight 建立叢集基本概念](./media/hdinsight-hadoop-create-linux-clusters-portal/hdinsight-create-cluster-basics.png "在 Azure 入口網站中建立新的")叢集
+    ![HDInsight 建立叢集基本概念](./media/hdinsight-hadoop-create-linux-clusters-portal/hdinsight-create-cluster-basics.png "在 Azure 入口網站中建立新的叢集")
 
     * 輸入 [叢集名稱]。 此名稱必須是全域唯一的。
 
@@ -73,18 +73,18 @@ Azure 入口網站會公開大部分的叢集屬性。 藉由使用 Azure Resour
 
 1. 從 [2 安全性 + 網路] 中，您可以使用提供的下拉式功能表，將叢集連線至虛擬網路。 如果您想要將叢集放入虛擬網路，請選取 Azure 虛擬網路和子網路。 如需搭配虛擬網路使用 HDInsight 的相關資訊，請參閱[規劃 Azure HDInsight 叢集的虛擬網路部署](hdinsight-plan-virtual-network-deployment.md)。 此文章包含虛擬網路的特定設定需求。
 
-    如果您想要使用「企業安全性套件」，請依照下列指示進行操作：[使用 Azure Active Directory Domain Services 設定具有企業安全性套件的 HDInsight 叢集](https://docs.microsoft.com/azure/hdinsight/domain-joined/apache-domain-joined-configure-using-azure-adds)。
+    如果您想要使用**企業安全性套件**，請遵循下列指示：[使用 Azure Active Directory Domain Services 設定具有企業安全性套件的 HDInsight](https://docs.microsoft.com/azure/hdinsight/domain-joined/apache-domain-joined-configure-using-azure-adds)叢集。
 
     選取 [下一步] 以移至下一頁。
 
 1. 從 [3 儲存體] 中，指定您是要使用「Azure 儲存體」還是 Azure Data Lake Storage 作為預設儲存體。 如需詳細資訊，請參閱下列表格。
 
-     ![HDInsight 建立叢集儲存體](./media/hdinsight-hadoop-create-linux-clusters-portal/hdinsight-create-cluster-storage.png "在 Azure 入口網站中建立新的")叢集
+     ![HDInsight 建立叢集儲存體](./media/hdinsight-hadoop-create-linux-clusters-portal/hdinsight-create-cluster-storage.png "在 Azure 入口網站中建立新的叢集")
 
-     | 儲存體                                      | 描述 |
+     | 儲存體                                      | 說明 |
      |----------------------------------------------|-------------|
      | **Azure 儲存體 Blob 作為預設儲存體**   | <ul><li>對於 [主要儲存體類型]，請選取 [Azure 儲存體]。 針對 [選取方法]，如果想要指定屬於您 Azure 訂用帳戶的儲存體帳戶，請選擇 [我的訂用帳戶]。 然後選取該儲存體帳戶。 否則，請選取 [存取金鑰]。 然後提供您想要從您 Azure 訂用帳戶外選擇之儲存體帳戶的資訊。</li><li>針對 [預設容器]，選擇入口網站建議的預設容器名稱，或者自行指定名稱。</li><li>如果 Azure Blob 儲存體是您的預設儲存體，您也可以選取 [其他儲存體帳戶]，以指定要與該叢集建立關聯的其他儲存體帳戶。 針對 [Azure 儲存體金鑰]，選取 [新增儲存體金鑰]。 然後您可以從您的 Azure 訂用帳戶或其他訂用帳戶提供儲存體帳戶。 請提供儲存體帳戶存取金鑰。</li><li>如果 Blob 儲存體是您的預設儲存體，您也可以選取 [Data Lake Storage 存取]，以指定 Azure Data Lake Storage 作為額外的儲存體。 如需詳細資訊，請參閱[快速入門：在 HDInsight 中設定叢集](../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md)。</li></ul> |
-     | **Azure Data Lake Store 作為預設儲存體** | 針對 [主要儲存體類型]，選取 [Azure Data Lake Storage Gen1] 或 [Azure Data Lake Storage Gen2]。 然後參閱[快速入門：在 HDInsight 中設定叢集](../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md)一文，以取得相關指示。 |
+     | **Azure Data Lake Store 作為預設儲存體** | 針對 [主要儲存體類型]，選取 [Azure Data Lake Storage Gen1] 或 [Azure Data Lake Storage Gen2]。 然後參閱[快速入門：在 HDInsight 中設定叢集一](../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md)文，以取得相關指示。 |
      | **外部中繼存放區**                      | 您可以選擇指定 SQL 資料庫，以儲存與叢集相關的 Apache Hive 和 Apache Oozie 中繼資料。 針對 [為 Hive 選取 SQL 資料庫]，選取一個 SQL 資料庫。 然後提供該資料庫的使用者名稱和密碼。 對 Oozie 中繼資料重複這些步驟。<br><br>以下是將 Azure SQL 資料庫用於中繼存放區時的一些考量： <ul><li>用於中繼存放區的 Azure SQL 資料庫必須允許連線至其他 Azure 服務 (包括 Azure HDInsight)。 在 Azure SQL 資料庫儀表板的右側，選取伺服器名稱。 這是執行 SQL 資料庫執行個體的伺服器。 在您位於伺服器檢視中之後，請選取 [設定]。 然後針對 [Azure 服務]，選取 [是]。 然後選取 [儲存]。</li><li>當您建立中繼存放區時，請勿使用包含破折號或連字號的資料庫名稱。 這些字元可能會導致叢集建立程序失敗。</li></ul> |
 
      > [!WARNING]  
@@ -120,7 +120,7 @@ Azure 入口網站會公開大部分的叢集屬性。 藉由使用 Azure Resour
 
 1. 在建立程序完成之後，從 [已成功部署] 通知中選取 [前往資源]。 叢集視窗會提供以下資訊。
 
-    ![HDI Azure 入口網站叢集總覽]叢集(./media/hdinsight-hadoop-create-linux-clusters-portal/hdinsight-create-cluster-completed.png "屬性")
+    ![HDI Azure 入口網站叢集總覽](./media/hdinsight-hadoop-create-linux-clusters-portal/hdinsight-create-cluster-completed.png "叢集屬性")
 
     視窗中的圖示說明如下：
 
@@ -167,5 +167,5 @@ Azure 入口網站會公開大部分的叢集屬性。 藉由使用 Azure Resour
 
 * [使用 Scala 來建立獨立應用程式](spark/apache-spark-create-standalone-application.md)
 * [使用 Apache Livy 在 Apache Spark 叢集上從遠端執行作業](spark/apache-spark-livy-rest-interface.md)
-* [Apache Spark 搭配 BI：在 HDInsight 中搭配使用 Spark 和 BI 工具執行互動式資料分析](spark/apache-spark-use-bi-tools.md)
-* [Apache Spark 搭配機器學習服務：使用 HDInsight 中的 Spark 來預測食品檢查結果](spark/apache-spark-machine-learning-mllib-ipython.md)
+* [Apache Spark 和 BI：在 HDInsight 中搭配 BI 工具使用 Spark 執行互動式資料分析](spark/apache-spark-use-bi-tools.md)
+* [Apache Spark 和機器學習服務：在 HDInsight 中使用 Spark 預測食品檢查結果](spark/apache-spark-machine-learning-mllib-ipython.md)

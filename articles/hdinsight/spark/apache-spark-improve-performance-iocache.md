@@ -8,10 +8,10 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 10/15/2018
 ms.openlocfilehash: ecb393ea1f64897f17ce73170da1673886ef8916
-ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/25/2019
+ms.lasthandoff: 10/21/2019
 ms.locfileid: "71266192"
 ---
 # <a name="improve-performance-of-apache-spark-workloads-using-azure-hdinsight-io-cache"></a>使用 Azure HDInsight IO 快取來改善 Apache Spark 工作負載的效能
@@ -29,7 +29,7 @@ IO 快取是適用於 Azure HDInsight 的資料快取服務，可改進 Apache S
 
 使用 IO 快取時，您不需要對您的 Spark 作業進行任何變更，就可以看到效能改進。 當停用 IO 快取時，此 Spark 程式碼可從遠端 Azure Blob 儲存體讀取資料：`spark.read.load('wasbs:///myfolder/data.parquet').count()`。 當啟用 IO 快取時，相同的程式碼會讓應用程式透過 IO 快取進行快取讀取。 在後續的讀取作業中，會從本機 SSD 讀取資料。 HDInsight 叢集上的背景工作角色節點是本機連結的專屬 SSD 磁碟機。 HDInsight IO 快取使用這些本機 SSD 來進行快取，這樣可提供最低層級的延遲並讓頻寬最佳化。
 
-## <a name="getting-started"></a>使用者入門
+## <a name="getting-started"></a>開始使用
 
 Azure HDInsight IO 快取在預覽版中預設是停用的。 您可以在 Azure HDInsight 3.6+ Spark 叢集中使用 IO 快取，這些叢集執行 Apache Spark 2.3。  若要啟用 IO 快取，請執行下列動作：
 
@@ -56,7 +56,7 @@ Azure HDInsight IO 快取在預覽版中預設是停用的。 您可以在 Azure
 
 1. 選取 [設定] 與 [進階] 索引標籤。
 
-    ![編輯 HDFS 進階設定](./media/apache-spark-improve-performance-iocache/ambariui-hdfs-service-configs-advanced.png "編輯 HDFS 進階設定")
+    ![編輯 HDFS Advanced Configuration](./media/apache-spark-improve-performance-iocache/ambariui-hdfs-service-configs-advanced.png "編輯 HDFS Advanced Configuration")
 
 1. 向下捲動並展開 [自訂核心網站] 區域。
 
@@ -70,7 +70,7 @@ Azure HDInsight IO 快取在預覽版中預設是停用的。 您可以在 Azure
 
 1. 選取 [重新啟動] > [重新啟動所有受影響項目]。
 
-    ![Apache Ambari 重新開機所有受影響]的(./media/apache-spark-improve-performance-iocache/ambariui-restart-all-affected.png "重新開機所有受影響")的
+    ![Apache Ambari 重新開機所有受影響的](./media/apache-spark-improve-performance-iocache/ambariui-restart-all-affected.png "重新開機所有受影響的")
 
 1. 選取 [確認重新啟動所有項目]。
 
@@ -78,4 +78,4 @@ Azure HDInsight IO 快取在預覽版中預設是停用的。 您可以在 Azure
 
 ## <a name="next-steps"></a>後續步驟
 
-- 在此部落格文章中深入了解 IO 快取，包括效能評定：[Apache Spark jobs gain up to 9x speed up with HDInsight IO Cache](https://azure.microsoft.com/blog/apache-spark-speedup-with-hdinsight-io-cache/) (Apache Spark 作業透過 HDInsight IO 快取獲得快 9 倍的速度)
+- 在此部落格文章中深入了解 IO 快取，包括效能基準測試：[Apache Spark 作業透過 HDInsight IO 快取獲得快 9 倍的速度](https://azure.microsoft.com/blog/apache-spark-speedup-with-hdinsight-io-cache/) \(英文\)

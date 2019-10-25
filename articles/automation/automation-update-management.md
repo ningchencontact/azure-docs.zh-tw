@@ -73,7 +73,7 @@ ms.locfileid: "72690902"
 
 下表列出更新評估支援的作業系統。 修補需要混合式 Runbook 背景工作角色。 如需混合式 Runbook 背景工作角色需求的詳細資訊，請參閱安裝[Windows 混合式 runbook 背景工作角色](automation-windows-hrw-install.md#installing-the-windows-hybrid-runbook-worker)和[Linux 混合式 Runbook 背景工作角色](automation-linux-hrw-install.md#installing-a-linux-hybrid-runbook-worker)的安裝指南。
 
-|作業系統  |注意  |
+|作業系統  |注意事項  |
 |---------|---------|
 |Windows Server 2019 （Datacenter/Datacenter Core/Standard）<br><br>Windows Server 2016 （Datacenter/Datacenter Core/Standard）<br><br>Windows Server 2012 R2 （Datacenter/Standard）<br><br>Windows Server 2012<br><br>Windows Server 2008 R2 （RTM 和 SP1 標準）||
 |CentOS 6 (x86/x64) 和 7 (x64)      | Linux 代理程式必須能夠存取更新存放庫。 以分類為基礎的修補需要 `yum` 傳回其 RTM 版本中 CentOS 沒有的安全性資料。 如需 CentOS 上以分類為基礎之修補的詳細資訊，請參閱[Linux 上的更新分類](#linux-2)。          |
@@ -89,7 +89,7 @@ ms.locfileid: "72690902"
 
 下表列出不支援的作業系統：
 
-|作業系統  |注意  |
+|作業系統  |注意事項  |
 |---------|---------|
 |Windows 用戶端     | 不支援用戶端作業系統 (例如 Windows 7 和 Windows 10)。        |
 |Windows Server 2016 Nano Server     | 不支援。       |
@@ -124,7 +124,7 @@ Windows 代理程式必須設定為與 WSUS 伺服器通訊，或必須具有 Mi
 
 若要建立及管理更新部署，您必須具有特定權限。 若要瞭解這些許可權，請參閱以[角色為基礎的存取–更新管理](automation-role-based-access-control.md#update-management)。
 
-## <a name="solution-components"></a>方案元件
+## <a name="solution-components"></a>解決方案元件
 
 解決方案包含下列資源。 資源會新增到您的自動化帳戶。 它們是直接連線的代理程式或是位於連線到 Operations Manager 的管理群組。
 
@@ -158,7 +158,7 @@ Windows 代理程式必須設定為與 WSUS 伺服器通訊，或必須具有 Mi
 
 下表描述本解決方案支援的連線來源：
 
-| 連線的來源 | 支援的 | 描述 |
+| 連線的來源 | 支援 | 說明 |
 | --- | --- | --- |
 | Windows 代理程式 |是 |解決方案會從 Windows 代理程式收集系統更新的相關資訊，然後起始必要更新的安裝。 |
 | Linux 代理程式 |是 |解決方案會從 Linux 代理程式收集系統更新的相關資訊，然後在支援的發行版本上起始必要更新的安裝。 |
@@ -178,7 +178,7 @@ Windows 代理程式必須設定為與 WSUS 伺服器通訊，或必須具有 Mi
 
 以下為「更新管理」特別需求的位址。 與這些位址的通訊皆經由連接埠 443 進行。
 
-|Azure 公用  |Azure 政府機構  |
+|Azure 公用  |Azure Government  |
 |---------|---------|
 |*.ods.opinsights.azure.com     |*.ods.opinsights.azure.us         |
 |*.oms.opinsights.azure.com     | *.oms.opinsights.azure.us        |
@@ -195,7 +195,7 @@ Windows 代理程式必須設定為與 WSUS 伺服器通訊，或必須具有 Mi
 
 依照[連接沒有網際網路存取的電腦](../azure-monitor/platform/gateway.md)中的指示，設定無法存取網際網路的電腦。
 
-## <a name="view-update-assessments"></a>檢視更新評估
+## <a name="view-update-assessments"></a>查看更新評量
 
 在您的自動化帳戶中，選取 [更新管理] 來檢視機器的狀態。
 
@@ -217,7 +217,7 @@ Windows 代理程式必須設定為與 WSUS 伺服器通訊，或必須具有 Mi
 
 ### <a name="windows"></a>Windows
 
-|分類  |描述  |
+|分類  |說明  |
 |---------|---------|
 |重大更新     | 特定問題的更新，負責處理與安全性無關的重大錯誤。        |
 |安全性更新     | 特定產品的安全性相關更新。        |
@@ -230,7 +230,7 @@ Windows 代理程式必須設定為與 WSUS 伺服器通訊，或必須具有 Mi
 
 ### <a name="linux-2"></a>Linux
 
-|分類  |描述  |
+|分類  |說明  |
 |---------|---------|
 |重大更新和安全性更新     | 特定問題或特定產品的安全性相關問題的更新，         |
 |其他更新     | 本質上不重要或不是安全性更新的所有其他更新。        |
@@ -278,7 +278,7 @@ sudo yum -q --security check-update
 ### <a name="multi-tenant"></a>跨租使用者更新部署
 
 如果您有另一個 Azure 租使用者中的電腦向您需要修補的更新管理報告，則必須使用下列因應措施來進行排程。 您可以使用[new-azurermautomationschedule](/powershell/module/azurerm.automation/new-azurermautomationschedule) Cmdlet 搭配 `-ForUpdate` 參數來建立排程，並使用[new-azurermautomationsoftwareupdateconfiguration](/powershell/module/azurerm.automation/new-azurermautomationsoftwareupdateconfiguration
-) Cmdlet，並將另一個租使用者中的機器傳遞至 `-NonAzureComputer` 參數。 下列範例示範如何執行：
+) Cmdlet，並將另一個租使用者中的電腦傳遞給 `-NonAzureComputer` 參數. 下列範例示範如何執行：
 
 ```azurepowershell-interactive
 $nonAzurecomputers = @("server-01", "server-02")

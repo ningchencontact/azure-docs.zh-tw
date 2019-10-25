@@ -24,7 +24,7 @@ ms.locfileid: "68985936"
 ## <a name="safety-icon-conventions"></a>安全性圖示慣例
 以下是您在檢閱安全性預防措施時會發現的圖示，這些措施可在您設定與執行資料箱時看到。
 
-| 圖示 | 描述 |
+| 圖示 | 說明 |
 |:--- |:--- |
 | ![危險圖示](./media/data-box-safety/warning_icon.png) **危險！** |指出危險的情況，如果無法避免，將會導致死亡或嚴重傷害。 此訊號文字僅限用於最極端的情況。 |
 | ![警告圖示](./media/data-box-safety/warning_icon.png) **警告！** |指出危險的情況，如果無法避免，可能會導致死亡或嚴重傷害。 |
@@ -63,7 +63,7 @@ ms.locfileid: "68985936"
 
 ## <a name="electrical-precautions"></a>電源處理預防措施
 
-![Warning Icon](./media/data-box-safety/warning_icon.png) ![Electrical Shock Icon](./media/data-box-safety/electrical_shock_hazard_icon.png) **警告！**
+![警告圖示](./media/data-box-safety/warning_icon.png) ![電擊圖示](./media/data-box-safety/electrical_shock_hazard_icon.png) **警告！**
 
 * 提供電源供應線安全的接地線。 AC 電源線附有三線接地插頭 (具有接地插腳的插頭)。 此插頭僅適用於接地的 AC 插座。 請勿破壞接地插腳的功能。
 * 假設電源供應線上的插頭是主要的中斷裝置，請確保插座位於裝置附近且可輕鬆觸及。
@@ -142,7 +142,7 @@ Microsoft Corporation, One Microsoft Way, Redmond, WA 98052, USA。
 
 ![電池處置圖示](./media/data-box-safety/battery_disposal_icon.png)
 
-產品本身或其電池或包裝上若有此符號，表示該產品及其所包含的任何電池均不得連同住居垃圾一起處置。 您需自行負責將其交由適當的收集點進行電池、電氣和電子設備的回收。 這種個別的收集和回收將有助於保護天然資源，以及防止因不當的處置而導致電池、電氣和電子設備可能包含的危險物質外洩，進而對人體健康和環境造成潛在的負面後果。 如需應將電池、電氣和電子廢棄物送交何處處理的詳細資訊，請洽詢您當地的縣 (市)/自治區辦公室、住居垃圾處置服務人員，或是您購買本產品的商店。 如需 WEEE 的詳細資訊，請聯絡*erecycle \@microsoft。*
+產品本身或其電池或包裝上若有此符號，表示該產品及其所包含的任何電池均不得連同住居垃圾一起處置。 您需自行負責將其交由適當的收集點進行電池、電氣和電子設備的回收。 這種個別的收集和回收將有助於保護天然資源，以及防止因不當的處置而導致電池、電氣和電子設備可能包含的危險物質外洩，進而對人體健康和環境造成潛在的負面後果。 如需應將電池、電氣和電子廢棄物送交何處處理的詳細資訊，請洽詢您當地的縣 (市)/自治區辦公室、住居垃圾處置服務人員，或是您購買本產品的商店。 如需 WEEE 的詳細資訊，請聯絡*erecycle\@microsoft.com* 。
 
 本產品包含一或多個幣式電池。
 

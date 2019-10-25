@@ -138,7 +138,7 @@ Azure VM 會在移轉至 Azure 期間建立。 移轉之後，您必須能夠連
 
 1. 若要透過網際網路連線至 VM，請將公用 IP 位址指派給 VM。 您無法針對用於內部部署電腦的 Azure VM 使用相同的公用 IP 位址。 [深入了解](../virtual-network/virtual-network-public-ip-address.md)。
 2. 檢查 VM 上的網路安全性群組 (NSG) 規則是否允許連至 RDP 或 SSH 連接埠的連入連線。
-3. 檢查 [開機診斷][](../virtual-machines/troubleshooting/boot-diagnostics.md#enable-boot-diagnostics-on-existing-virtual-machine) 以檢視 VM。
+3. 檢查 [的開機診斷](../virtual-machines/troubleshooting/boot-diagnostics.md#enable-boot-diagnostics-on-existing-virtual-machine) 以查看 VM。
 
 > [!NOTE]
 > Azure Bastion 服務會對 Azure VM 提供私密的 RDP 和 SSH 存取權。 [深入了解](../bastion/bastion-overview.md)此服務。
