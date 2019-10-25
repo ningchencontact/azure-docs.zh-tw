@@ -1,5 +1,5 @@
 ---
-title: 離線評估-個人化工具
+title: 如何執行離線評估-個人化工具
 titleSuffix: Azure Cognitive Services
 description: 了解如何透過離線評估來分析您的學習迴圈
 services: cognitive-services
@@ -10,12 +10,12 @@ ms.subservice: personalizer
 ms.topic: conceptual
 ms.date: 09/10/2019
 ms.author: diberry
-ms.openlocfilehash: a157b36ad2b4f5a7f2e50a9609d8acd621efd5a8
-ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
+ms.openlocfilehash: bd57880b11f56b13b4225652071593d29dcc6280
+ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70884454"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72515220"
 ---
 # <a name="analyze-your-learning-loop-with-an-offline-evaluation"></a>使用離線評估來分析您的學習迴圈
 
@@ -35,7 +35,7 @@ ms.locfileid: "70884454"
 
 1. 在  [Azure 入口網站](https://azure.microsoft.com/free/)中，找出您的個人化資源。
 1. 在 Azure 入口網站中，移至 [**評估**] 區段，然後選取 [**建立評估**]。
-    ![在 Azure 入口網站中，移至 [評估] 區段，然後選取 [建立評估]。](./media/offline-evaluation/create-new-offline-evaluation.png)
+    ![在 Azure 入口網站，請移至 [評估] 區段，然後選取 [建立評估] * *。](./media/offline-evaluation/create-new-offline-evaluation.png)
 1. 選取下列設定：
 
     * 評估名稱
@@ -54,11 +54,11 @@ ms.locfileid: "70884454"
 
 學習原則的比較包括：
 
-* **線上原則**：個人化工具中目前使用的學習原則
-* **基準**：應用程式的預設值 (由排名呼叫中傳送的第一個動作所決定)
-* **隨機原則**：虛構排名行為，其一律會從所提供的動作傳回隨機選擇的動作。
-* **自訂原則**：開始評估時上傳的額外學習原則。
-* **最佳化原則**：若開始評估時採用探索最佳化原則的選項，則也會比較最佳化原則，而且您能夠下載該原則或使其成為線上學習原則，並取代目前的學習原則。
+* **線上原則**：個人化工具中使用的目前學習原則
+* **基準**：應用程式的預設值（由順位呼叫中所傳送的第一個動作所決定），
+* **隨機原則**：一種虛構的排名行為，一律會從所提供的動作中傳回隨機播放的動作。
+* **自訂原則**：開始評估時所上傳的其他學習原則。
+* **優化原則**：如果評估是以探索優化原則的選項來啟動，則也會進行比較，而且您將能夠下載它或將其設為線上學習原則，以取代目前的原則。
 
 ![離線評估設定的結果圖表](./media/offline-evaluation/evaluation-results.png)
 

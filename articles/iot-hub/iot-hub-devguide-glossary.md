@@ -214,7 +214,7 @@ IoT 中樞的[作業監視](iot-hub-operations-monitoring.md)可讓您即時監�
 ## <a name="reported-properties"></a>報告屬性
 在[裝置對應項](iot-hub-devguide-device-twins.md)的內容中，報告屬性是裝置對應項的子區段，可搭配[所需屬性](#desired-properties)使用以便同步處理裝置組態或狀況。 報告屬性只能由[裝置應用程式](#device-app)設定，並可供[應用程式後端](#back-end-app)讀取和查詢。
 
-## <a name="resource-group"></a>資源群組
+## <a name="resource-group"></a>Resource group
 [Azure Resource Manager](#azure-resource-manager) 會使用資源群組將相關的資源群組在一起。 您可以使用資源群組，同時對群組中的所有資源執行作業。
 
 ## <a name="retry-policy"></a>重試原則
@@ -238,16 +238,16 @@ SASL PLAIN 是 AMQP 通訊協定用來傳輸安全性權杖的通訊協定。
 ## <a name="simulated-device"></a>模擬裝置
 為了方便起見，許多 IoT 中樞教學課程都使用模擬裝置，讓您在本機電腦上執行範例。 相反地，[實體裝置](#physical-device)是實際的裝置，例如連接到 IoT 中樞的 Raspberry Pi。
 
-## <a name="solution"></a>解決方法
+## <a name="solution"></a>方案
 _方案_可意指包含一或多個專案的 Visual Studio 方案。 _方案_也可意指包含裝置、[裝置應用程式](#device-app)、IoT 中樞、其他 Azure 服務和[後端應用程式](#back-end-app)等元素的 IoT 方案。
 
-## <a name="subscription"></a>訂用帳戶
+## <a name="subscription"></a>Subscription
 Azure 訂用帳戶是發生帳單的地方。 您建立的每個 Azure 資源，或您使用的 Azure 服務會與單一訂用帳戶相關聯。 許多配額也適用於訂用帳戶層級。
 
 ## <a name="system-properties"></a>系統屬性
 在[裝置對應項](iot-hub-devguide-device-twins.md)的內容中，系統屬性是唯讀屬性，內含關於裝置使用方式的資訊，例如上次活動時間和連線狀態。
 
-## <a name="tags"></a>標記
+## <a name="tags"></a>Tags
 在[裝置對應項](iot-hub-devguide-device-twins.md)的內容中，標籤是解決方案後端以 JSON 文件形式儲存和擷取的裝置中繼資料。 裝置上的應用程式看不到標籤。
 
 ## <a name="telemetry"></a>遙測
